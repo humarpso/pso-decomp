@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/object/TObjButterflyLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct ButterflyLobbyBase_80350958 { char pad[0x18]; };
 struct ButterflyLobbyVObj_80350958 : ButterflyLobbyBase_80350958 {
@@ -32,8 +36,6 @@ struct Butterfly_80350BC4 {
 };
 
 extern "C" {
-s32 is_connected__6TLobbyFv();
-s32 is_lobby_obj_active__6TLobbyFv();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 s32 rand();
@@ -58,7 +60,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 lobby_butterfly_bml_resource;
 
@@ -93,7 +94,7 @@ void TObjButterflyLobby::init_params() {
 
 void TObjButterflyLobby::render() {
     if ((((ButterflyLobbyVObj_80350958*)this)->m8(400.0f, 20.0f) != 0) && ((s32) *(s32 *)((s8 *)this + 0x90) != 0)) {
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)this + 0xC8));
+        TObjFish::set_global_param(*(s32 *)((s8 *)this + 0xC8));
         render__18TObjButterflyLobbyFPv((u8 *)(this));
     }
 }
@@ -101,7 +102,7 @@ void TObjButterflyLobby::update_fade() {
     Obj_80350AE4 *arg0 = (Obj_80350AE4 *)this;
     switch (arg0->state) {
     case 0:
-        if (is_connected__6TLobbyFv() != 0) {
+        if (TLobby::is_connected() != 0) {
             arg0->state = 2;
         }
         break;
@@ -121,7 +122,7 @@ void TObjButterflyLobby::update_fade() {
         break;
     case 3:
     default:
-        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+        if (TLobby::is_lobby_obj_active() != 0) {
             arg0->state = 1;
         }
         break;
@@ -292,7 +293,6 @@ void TObjButterflyLobby::run_task() {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 construct_world_actor_base();
 s32 is_lobby_event_active();
 extern s32 __vt__18TObjButterflyLobby[];
@@ -307,14 +307,13 @@ void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern s32 __vt__18TObjButterflyLobby[];
 
 void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -329,7 +328,7 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4360;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
-    copy_xyz__10TObjPlayerFPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
+    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
         *(s32 *)((s8 *)arg0 + 0x90) = 0;

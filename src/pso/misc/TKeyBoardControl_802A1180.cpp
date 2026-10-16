@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_802A1180_main_task {
     s32 value;
@@ -13,7 +14,6 @@ s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 update_input_frame__16TKeyBoardControlFv();
 s32 controller_stuff__Fv();
 s32 render_tick__Fv();
 s32 update_sound_request_slots();
@@ -44,9 +44,7 @@ s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(s32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 create_opening_movie_sequence();
-s32 free_keyboard_soft_resources__6TLobbyFv();
 s32 render_tick__Fv();
-s32 update_keyboard_menu__6TLobbyFv();
 
 extern s8 movie_finished_flag;
 extern u8 opening_movie_purpose;
@@ -55,7 +53,7 @@ typedef char RecoveredGlobal_802A1180_main_task_size[sizeof(RecoveredGlobal_802A
 void update_movie_phase(void) {
     s32 *var_r3;
     controller_stuff__Fv();
-    update_input_frame__16TKeyBoardControlFv();
+    TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&main_task.value);
     var_r3 = (s32 *)(&main_task.value);
     some_empty_func__9TMainTaskFv((void *) (&main_task.value));
@@ -94,9 +92,9 @@ void TKeyBoardControl::update_menu_scene() {
         TKeyBoardControl__sub_8000F90C(9);
         break;
     case 1:
-        update_keyboard_menu__6TLobbyFv();
+        TLobby::update_keyboard_menu();
         init_fresh_character_card();
-        free_keyboard_soft_resources__6TLobbyFv();
+        TLobby::free_keyboard_soft_resources();
         TKeyBoardControl__sub_8000F91C(5);
         break;
     }

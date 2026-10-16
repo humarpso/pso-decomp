@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include "pso/misc/TOTrapAncient02.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjFish.h"
 struct Stack_800836E8 {
     f32 sp8;
     f32 spC;
@@ -53,8 +54,6 @@ s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 s32 load_list_texture(s32, s32, s32, s32);
 s32 is_split_screen();
-s32 set_global_param__8TObjFishFl(s32 *);
-s32 set_tex_coord_gen__10TObjPlayerFllll(s32, s32, s32, s32);
 
 extern s32 shared_capture_texture_list[];
 extern s32 model_render_flags;
@@ -63,8 +62,8 @@ void TObjPlayer::setup_tev_stage() {
     if (is_split_screen() == 0) {
         GXSetTevOrder(1, 1, 1, 4);
         GXSetTevOp(1, 2);
-        set_tex_coord_gen__10TObjPlayerFllll(1, 0, 0, 0x1E);
-        set_global_param__8TObjFishFl(shared_capture_texture_list);
+        TObjPlayer::set_tex_coord_gen(1, 0, 0, 0x1E);
+        TObjFish::set_global_param((s32)shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
         model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count(1);
@@ -83,8 +82,8 @@ void setup_particle_tev(s32 arg0) {
         } else {
             GXSetTevOp(1, 1);
         }
-        set_tex_coord_gen__10TObjPlayerFllll(1, 0, 0, 0x1E);
-        set_global_param__8TObjFishFl(shared_capture_texture_list);
+        TObjPlayer::set_tex_coord_gen(1, 0, 0, 0x1E);
+        TObjFish::set_global_param((s32)shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
         model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count(1);

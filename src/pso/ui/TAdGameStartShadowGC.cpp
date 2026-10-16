@@ -1,6 +1,7 @@
 #include "pso/TAdGameStartShadowGC.h"
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Rec_80320CB8 { f32 x, y, x2, y2; f32 u0, v0, u1, v1; };
 
@@ -14,7 +15,6 @@ struct Shadow_80320CB8 {
 
 extern "C" {
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 get_instance__10TObjPlayerFv(void);
 extern s32 __vt__20TAdGameStartShadowGC[];
 extern s32 TAdGameStartShadowGC__name;
 extern s32 TAdGameStartShadowGC__texture_list;
@@ -68,7 +68,7 @@ Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *par
     arg0->fbc = -1;
     arg0->fc0 = 0;
     arg0->fc4 = -1;
-    TAdGameStartShadowGC__texture_list = get_instance__10TObjPlayerFv();
+    TAdGameStartShadowGC__texture_list = TObjPlayer::get_instance();
     for (i = 0; i < 5; i++) {
         arg0->r[i].x = lbl_805DF47C * (f32)i;
         arg0->r[i].x2 = lbl_805DF47C + arg0->r[i].x;

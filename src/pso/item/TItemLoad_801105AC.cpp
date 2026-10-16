@@ -33,7 +33,6 @@ extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void TItemLoad__sub_8010F5A0();
-void alloc_work_buffer__9TItemLoadFv();
 u32 mem_alloc(u32);
 void * __nw__7TObjectFUl(s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
@@ -59,10 +58,6 @@ int test_flags_any(void*, int);
 s32 __ct__9TItemLoadFv(void *, s32);
 void * __nw__7TObjectFUl(s32);
 s32 mem_free(s32);
-s32 free_all_models__9TItemLoadFv();
-s32 free_boss4_rock__9TItemLoadFv();
-int get_ring_lobby__9TItemLoadFv(void* p);
-int update_item__9TItemLoadFv(void* p);
 
 extern s32 TItemLoad__bml_resource;
 extern void *TItemLoad__model_load_task_root;
@@ -84,8 +79,8 @@ void TItemLoad::free_all() {
     TItemLoad__model_load_task_root = NULL;
     TItemLoad__completed_model_load_task_root = NULL;
     TItemLoad__model_slot_in_use = 0;
-    free_all_models__9TItemLoadFv();
-    free_boss4_rock__9TItemLoadFv();
+    TItemLoad::free_all_models();
+    TItemLoad::free_boss4_rock();
 }
 
 extern s32 tl_05;
@@ -94,7 +89,7 @@ void TItemLoad::init_resources() {
     void *p;
     u32 buf;
     s32 i;
-    alloc_work_buffer__9TItemLoadFv();
+    TItemLoad::alloc_work_buffer();
     TItemLoad__sub_8010F5A0();
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != NULL) {

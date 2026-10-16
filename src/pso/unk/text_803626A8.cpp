@@ -21,6 +21,10 @@ extern BmlResourceDescriptor TObjEneEpsilonGuard__resource_descriptor;
 
 #include <stddef.h>
 #include "pso/enemy/TObjEneEpsilonGuard.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/item/TItemProUnit.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_803626A8 {
     s32 sp8;
     s32 spC;
@@ -152,17 +156,14 @@ public:
 };
 
 extern "C" {
-s32 set_evp__12TItemProUnitFf(int, f32);
 extern const f32 lbl_805E0258;
 void s_rank_knuckle_unequip(u8 *arg0);
-s32 set_evp__12TItemProUnitFf(int, f32);
 extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
 void * init_s_rank_knuckle(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_s_rank_knuckle(u8 *arg0);
-s32 render_anim_model__10TObjPlayerFf(void *, f32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -181,7 +182,6 @@ u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void TObjPlayer__sub_8032E648();
-void create_network_object__10TObjPlayerFlPUll();
 extern const f32 lbl_805E0260;
 void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *arg1);
 s32 spawn_particle_effect(void *, s32);
@@ -198,7 +198,6 @@ u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *init_from_model__11TBreakUpMdlFPvi(void *, void *);
 s32 TObjPlayer__sub_800F0928(void *);
-s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern Quad_803627DC lbl_80479FAC;
 extern f32 lbl_80543A18[3];
 extern s32 epsilon_guard_part_color_table[9];
@@ -228,9 +227,7 @@ void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 void *TObjEneEpsilon__ct(void *arg0);
 void construct_srank_weapon(void *);
 void __construct_array(void *, void *, void *, int, int);
-void check_state_flag_4__9TObjEneDDFv(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
-void init_object__9TObjEneDDFv(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 
@@ -252,7 +249,7 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    render_anim_model__10TObjPlayerFf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    ((TObjPlayer *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
@@ -317,7 +314,7 @@ void TObjEneEpsilonGuard::load_assets() {
     {
         Quad_803627DC q = lbl_80479FAC;
         q.a = ((Res_803627DC *)lbl_805D6FA0)->f430;
-        spawn_npc_enemy__6TLobbyFslllff(0x4E, ((Res_803627DC *)lbl_805D6FA0)->f42c->f8, ((Res_803627DC *)lbl_805D6FA0)->f42c->fC, &q, lbl_805E024C, lbl_805E0250);
+        TLobby::spawn_npc_enemy((s16)0x4E, (s32)(((Res_803627DC *)lbl_805D6FA0)->f42c->f8), (s32)(((Res_803627DC *)lbl_805D6FA0)->f42c->fC), (s32)(&q), (f32)lbl_805E024C, (f32)lbl_805E0250);
     }
 }
 
@@ -334,22 +331,22 @@ u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
 }
 
 void *TObjEneEpsilon__ct(void *arg0) {
-    init_object__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneEpsilon;
     __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 28, 4);
     *(void **)((s8 *)arg0 + 0x0) = TObjEneEpsilon__class_name;
-    check_state_flag_4__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->check_state_flag_4();
     return arg0;
 }
 
 extern s32 lbl_804F26E0[];
 
 void s_rank_knuckle_unequip(u8 *arg0) {
-    set_evp__12TItemProUnitFf((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (f32) (lbl_805E0258));
+    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp((f32) (lbl_805E0258));
 }
 
 void s_rank_knuckle_equip(u8 *arg0) {
-    set_evp__12TItemProUnitFf((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (f32) (lbl_805E025C));
+    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp((f32) (lbl_805E025C));
 }
 
 typedef struct S_80362C80 S_80362C80;
@@ -401,7 +398,7 @@ void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *
     arg1->flags |= 0x282;
     get_weapon_color__11TItemWeaponFPv(sp8, arg0);
     copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
-    arg1->fn74 = (void *)create_network_object__10TObjPlayerFlPUll;
+    arg1->fn74 = (void *)TObjPlayer::create_network_object;
     arg1->fn70 = (void *)TObjPlayer__sub_8032E648;
 }
 

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/item/TItemProArmorParticle.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_803646F0_lbl_8047A020 {
     s32 value;
@@ -12,7 +15,6 @@ struct RecoveredGlobal_803646F0___vt__21TItemProArmorParticle {
 };
 
 extern "C" {
-u8 get_slot_count__14TItemProShieldFv(void *);
 u8 * TItemProArmor__ct(void *, void *);
 extern RecoveredGlobal_803646F0_lbl_8047A020 TItemProArmorParticle__particle_id_table;
 extern s32 __vt__21TItemProArmorParticle[];
@@ -35,8 +37,6 @@ void __dt__13TItemProArmorFv(void *, int);
 u32 __nw__7TObjectFUl(s32);
 s32 __nw__15TItemHeapObjectFUl(s32);
 void free_obj_heap__10TObjPlayerFPv(void *);
-s32 get_field_d8__10TObjPlayerFv(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_id__13TItemProArmorFv(void *);
 
 void TItemProArmorParticle::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -53,11 +53,11 @@ void TItemProArmorParticle__vt14(void *arg0) {
     s32 temp_r31;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 2) {
-        temp_r3 = get_global_state__14TOKeyMachine01Fv();
+        temp_r3 = TOKeyMachine01::get_global_state();
         if (temp_r3 != (s32) *(s32 *)((s8 *)arg0 + 0x198)) {
             *(s32 *)((s8 *)arg0 + 0x198) = temp_r3;
             if (is_item_area_enabled() != 0) {
-                TItemProArmorParticle::create((s32)(tl_05), (s32)(get_field_d8__10TObjPlayerFv(arg0)), (s32)(get_id__13TItemProArmorFv(arg0)), (s32)(*(s32 *)((s8 *)arg0 + 0x19C)));
+                TItemProArmorParticle::create((s32)(tl_05), (s32)(((TObjPlayer *)arg0)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(arg0)), (s32)(*(s32 *)((s8 *)arg0 + 0x19C)));
             }
         }
     }
@@ -92,7 +92,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle *)&__vt__21TItemProArmorParticle).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemProArmorParticle__class_name;
     *(s32 *)((s8 *)arg0 + 0x198) = -1;
-    temp_r0 = get_slot_count__14TItemProShieldFv(arg0) - 0x29;
+    temp_r0 = ((TItemProShield *)arg0)->get_slot_count() - 0x29;
     if (temp_r0 < 0xCU) {
         *(s32 *)((s8 *)arg0 + 0x19C) = (s32) *(s32 *)((s8 *)(&TItemProArmorParticle__particle_id_table.value) + ((temp_r0 * 4) & 0x3FC));
         if (temp_r0 < 5U) {

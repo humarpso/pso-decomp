@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubSymbolChat.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -52,8 +53,6 @@ int fn_80077788(void);
 int fn_80077790(void);
 int get_localized_text_entry(void*, void*);
 int bswap_32__FPUl(void*);
-int byteswap_entry__20TWindowSubSymbolChatFv(void*);
-int is_initialized__20TWindowSubSymbolChatFv(void* p);
 
 int fn_80077788(void) { return 0; }
 int fn_80077790(void) { return 0; }

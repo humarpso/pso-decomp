@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_800B9D94 {
     s32 sp8;
@@ -39,11 +40,8 @@ int restore_scene_lighting(void*);
 int select_actor_lighting(void*);
 int bind_enemy_combat_stats(void*);
 s32 get_main_phase();
-int is_any_teammate_in_state__10TObjPlayerFv(void*);
-int query_teammate_state__9TObjEneDDFv(void* p);
 int render_with_position_override__10TObjPlayerFPUcl(void*);
 int set_param__12TObjEneLappyFl(void*);
-int update_lobby_state__9TObjEneDDFv(void* p);
 
     extern int model_render_flags;
 

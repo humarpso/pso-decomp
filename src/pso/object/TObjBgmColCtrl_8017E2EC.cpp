@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjBgmColCtrl.h"
+#include "pso/TObject.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct B_8017E410 { u8 pad[0x18]; };
 
@@ -21,13 +24,9 @@ void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1);
 
 extern "C" {
 
-s32 get_global_state__14TOKeyMachine01Fv();
-s32 play_lobby_theme_music__14TObjBgmColCtrlFv();
 s32 is_active__14TObjBgmColCtrlFv();
 u32 get_player_by_client_id(s32);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 get_quest_bgm_issued_flag();
-s32 run_tasks__7TObjectFv(void *);
 
 extern s32 local_client_id;
 extern s32 TLobby__event_theme_id;
@@ -40,23 +39,23 @@ void TObjBgmColCtrl::run_task() {
 
     temp_r4 = *(s32 *)((s8 *)this + 0x1C);
     *(s32 *)((s8 *)this + 0x1C) = (s32) (temp_r4 - 1);
-    if ((temp_r4 <= 0) && ((get_global_state__14TOKeyMachine01Fv() == 0xF) || (get_player_by_client_id(local_client_id) != 0U)) && (get_quest_bgm_issued_flag() == 0)) {
-        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if ((temp_r4 <= 0) && ((TOKeyMachine01::get_global_state() == 0xF) || (get_player_by_client_id(local_client_id) != 0U)) && (get_quest_bgm_issued_flag() == 0)) {
+        if (TRaderMapCore::is_not_split_screen() == 1) {
             if (is_active__14TObjBgmColCtrlFv() == 0) {
-                play_lobby_theme_music__14TObjBgmColCtrlFv();
+                TObjBgmColCtrl::play_lobby_theme_music();
             }
         } else {
             lbl_805D5B04 = 0;
             void *thisObj = (void *)(u32)TObjBgmColCtrl__instance;
             if (thisObj != NULL) {
-                run_tasks__7TObjectFv(thisObj);
+                ((TObject *)thisObj)->run_tasks();
             }
             if ((s32) lbl_805D5B04 == 0) {
                 if (is_active__14TObjBgmColCtrlFv() == 0) {
-                    play_lobby_theme_music__14TObjBgmColCtrlFv();
+                    TObjBgmColCtrl::play_lobby_theme_music();
                 }
-                if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && ((s32) TLobby__event_theme_id != (s32) TObjBgmColCtrl__current_theme_id)) {
-                    play_lobby_theme_music__14TObjBgmColCtrlFv();
+                if ((TOKeyMachine01::get_global_state() == 0xF) && ((s32) TLobby__event_theme_id != (s32) TObjBgmColCtrl__current_theme_id)) {
+                    TObjBgmColCtrl::play_lobby_theme_music();
                 }
             }
         }

@@ -17,14 +17,12 @@ void TObjPlayer__sub_801BCB28(void);
 void TObjPlayer__sub_801BCC50(void);
 int is_script_controlled__10TObjPlayerFv(void*);
 s32 apply_state_transform__10TObjPlayerFUi(s32);
-int can_cast_technique__10TObjPlayerFv(void* p);
 int check_technique_castable__10TObjPlayerFi(void*);
 s32 enter_battle_state__10TObjPlayerFv(void *);
 s32 is_current_room__10TObjRoomIdFPv(s32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 obj_isState2_324();
 int queue_destruction__7TObjectFv(void*);
-s32 set_flag_400000__10TObjPlayerFv(s32);
 s32 set_flag_400000__10TObjPlayerFi(void *);
 void update_child__10TObjPlayerFPv(void *, void *);
 
@@ -165,7 +163,7 @@ void TObjPlayer__sub_801BCAB0(void) {  }
 void TObjPlayer::update_state() {
     s32 arg0 = (s32)this;
     if (obj_isState2_324() != 0) {
-        set_flag_400000__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->set_flag_400000();
     } else {
         sync_current_area__10TObjPlayerFPv((void*)(arg0));
         sync_current_floor__10TObjPlayerFPv((void*)(arg0));

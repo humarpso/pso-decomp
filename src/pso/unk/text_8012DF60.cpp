@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -6,7 +7,6 @@ extern s32 tl_05;
 u8 *create_shot_weapon(u8 *arg0);
 s32 TItemWeapon__ct(void *, s32, void *);
 s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
-s32 set_atp__10TObjPlayerFs(void *, s32);
 void spawn_weapon_impact_effect();
 void create_gun_shot();
 extern u8 lbl_804A5C18[];
@@ -74,7 +74,7 @@ void *construct_shot_weapon(void *arg0, s32 parent, void *arg2) {
         break;
     }
     if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 5U) {
-        set_atp__10TObjPlayerFs(arg0, -1);
+        ((TObjPlayer *)arg0)->set_atp(-1);
     }
     return arg0;
 }

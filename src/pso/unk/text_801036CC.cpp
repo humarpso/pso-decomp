@@ -65,22 +65,17 @@ s32 TLobby__sub_80103B04(u16 arg0);
 Player_801036CC *get_player_data__10TObjPlayerFi(s32 i);
 s32 test_elt_flag__10TObjPlayerFPvii(void *p, s32 a, s32 mask);
 void queue_destruction__7TObjectFv(void *);
-s32 get_lobby_flag__6TLobbyFv(void);
-void reset_floor_items__6TLobbyFv(void);
 extern void *tl_05;
 void TLobby__sub_801036CC(void);
-void update_and_send__6TLobbyFv(void *);
 void TLobby__sub_801041BC(void *, void *);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 extern Ent_801037A0 **floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 void evict_lowest_key_floor_item(s32 n);
-void reset_floor_items__6TLobbyFv(void);
 void bswap_sync_item_state_header(void *);
 void set_boss_buf_entry__6TLobbyFii(s32, u16);
 void TLobby__sub_80104258(void *, void *);
-void bswap_item__6TLobbyFv(void *);
 void TItemData__sub_8010CCB0(void *);
 s32 test_flags_any(void *, s32);
 void TLobby__sub_801041D8(void);
@@ -89,7 +84,6 @@ extern Ent_801037A0 **floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 lbl_805D5440;
 void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src);
-void init_floor_item_entry__6TLobbyFv(Ent_801037A0 *);
 void debug_print__6TLobbyFle(const char *, ...);
 void *memcpy(void *, const void *, u32);
 extern char lbl_8043E048[];
@@ -114,7 +108,6 @@ extern s32 floor_item_counts_by_floor;
 void bswap_sync_item_state_header(void *);
 s32 get_sync_counter__6TLobbyFi(u16);
 void TLobby__sub_80104258(void *, void *);
-void bswap_item__6TLobbyFv(void *);
 void normalize__9TItemDataFv(void *);
 extern u16 *floor_item_next_sort_keys;
 extern Ent_801037A0 **floor_item_row_table;
@@ -129,13 +122,13 @@ s32 bswap_player_packet__6TLobbyFv();
 void TLobby__sub_801036CC(void) {
     s32 i;
     Player_801036CC *p;
-    for (i = 0; i != get_lobby_flag__6TLobbyFv(); i++) {
+    for (i = 0; i != TLobby::get_lobby_flag(); i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && test_elt_flag__10TObjPlayerFPvii(p, 0, 0x20000) != 0 && p->owner == tl_05) {
             queue_destruction__7TObjectFv(p);
         }
     }
-    reset_floor_items__6TLobbyFv();
+    TLobby::reset_floor_items();
 }
 
 void handle_6x63_destroy_floor_item(void *arg0) {
@@ -168,7 +161,7 @@ void evict_lowest_key_floor_item(s32 n) {
         TLobby__sub_801041BC(&m, &floor_item_row_table[n][best]);
         m.v = v;
         m.who = n;
-        update_and_send__6TLobbyFv(&m);
+        ((TLobby *)(&m))->update_and_send();
     }
 }
 
@@ -187,7 +180,7 @@ void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src) {
     s32 count;
     Ent_801037A0 *p;
     s32 n;
-    reset_floor_items__6TLobbyFv();
+    TLobby::reset_floor_items();
     bswap_sync_item_state_header(src);
     for (i = 0; i < 0x10; i++) {
         floor_item_next_sort_keys[i] = src->slots[i];
@@ -204,7 +197,7 @@ void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src) {
         p = floor_item_row_table[j];
         for (n = 0; n != count; n++, p++) {
             TLobby__sub_80104258(p, &src->items[k++]);
-            bswap_item__6TLobbyFv(p);
+            ((TLobby *)p)->bswap_item();
             TItemData__sub_8010CCB0((u8 *)p + 0x10);
         }
     }
@@ -243,7 +236,7 @@ s32 TLobby::write_sync_item_state() {
         for (n = 0; n != count; n++, p++, k++) {
             TLobby__sub_80104258(d, p);
             normalize__9TItemDataFv((u8 *)d + 0x10);
-            bswap_item__6TLobbyFv(d);
+            ((TLobby *)d)->bswap_item();
             d++;
         }
     }
@@ -322,7 +315,7 @@ s32 TLobby::remove_item_condition(s32 n, s32 val) {
         if (val == list[lo].val) {
             memcpy(&list[lo], &list[lo + 1], (count - (lo + 1)) * 0x24);
             (*(s32 **)&floor_item_counts_by_floor)[n]--;
-            init_floor_item_entry__6TLobbyFv(&list[(*(s32 **)&floor_item_counts_by_floor)[n]]);
+            ((TLobby *)(&list[(*(s32 **)&floor_item_counts_by_floor)[n]]))->init_floor_item_entry();
             return 1;
         }
         return 0;

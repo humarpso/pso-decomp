@@ -3,6 +3,8 @@
 TAdPlyChrSelPlateGC::~TAdPlyChrSelPlateGC() {}
 
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/ui/TAdChrMoveEffectGC.h"
 extern "C" {
 struct Q_802C5040 { s8 b[4]; };
 struct Arg_802C5040 { u8 pad0[0xC]; s32 f0C; };
@@ -23,8 +25,6 @@ extern u8 __vt__19TAdPlyChrSelPlateGC[];
 extern s32 TAdPlyChrSelPlateGC__name;
 extern const f32 lbl_805DE54C;
 void __ct__7TObjectFP7TObject(void *);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
-void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
 
 S_802C5040 *__ct__19TAdPlyChrSelPlateGCFv(S_802C5040 *arg0, s32 arg1, Arg_802C5040 *arg2) {
     s32 i;
@@ -42,8 +42,8 @@ S_802C5040 *__ct__19TAdPlyChrSelPlateGCFv(S_802C5040 *arg0, s32 arg1, Arg_802C50
         arg0->c[i].b[2] = 0;
         arg0->c[i].b[3] = 0;
     }
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((u8 *)arg0 + 0x21C, arg2);
-    copy4__18TAdChrMoveEffectGCFPv((u8 *)arg0 + 0x3A8, (u8 *)arg2 + 8);
+    ((TWindowSubSymbolChatPartsSet *)((u8 *)arg0 + 0x21C))->copy_vec2(arg2);
+    ((TAdChrMoveEffectGC *)((u8 *)arg0 + 0x3A8))->copy4((u8 *)arg2 + 8);
     return arg0;
 }
 }

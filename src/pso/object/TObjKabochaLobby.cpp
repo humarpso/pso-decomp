@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjKabochaLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80479170[];
@@ -40,7 +45,6 @@ struct Kabocha_80353520 {
 };
 
 extern "C" {
-s32 get_filtered_event_theme__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -53,17 +57,11 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjKabochaLobby__model_resource;
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base();
 extern s32 __vt__16TObjKabochaLobby[];
 extern s32 lbl_805D4384;
@@ -75,8 +73,8 @@ void TObjKabochaLobby::render() {
     f32 temp_f1;
 
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) TObjKabochaLobby__lobby_type != 0U) && (((VObj18_8035346c *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0)) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -86,7 +84,7 @@ void TObjKabochaLobby::render() {
         }
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -96,7 +94,7 @@ void TObjKabochaLobby::run_task() {
     Kabocha_80353520 *o = (Kabocha_80353520 *)this;
     switch (o->state) {
     case 0:
-        if (get_filtered_event_theme__6TLobbyFv() == 5) {
+        if (TLobby::get_filtered_event_theme() == 5) {
             o->state = 2;
         }
         break;
@@ -120,7 +118,7 @@ void TObjKabochaLobby::run_task() {
         break;
     case 3:
     default:
-        if (get_filtered_event_theme__6TLobbyFv() != 5) {
+        if (TLobby::get_filtered_event_theme() != 5) {
             o->state = 1;
         }
         break;
@@ -144,18 +142,18 @@ void TObjKabochaLobby::unload_static_data() {
 void TObjKabochaLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_pumpkin_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjKabochaLobby__model_resource) = var_r0;
-    TObjKabochaLobby__lobby_type = get_lobby_type__6TLobbyFv();
+    TObjKabochaLobby__lobby_type = TLobby::get_lobby_type();
 }
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjKabochaLobby;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -167,7 +165,7 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjKabochaLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4384;
     ((TObjKabochaLobby803537_803536DC *)arg0)->ct(arg2);
-    if (get_filtered_event_theme__6TLobbyFv() == 5) {
+    if (TLobby::get_filtered_event_theme() == 5) {
         *(s32 *)((s8 *)arg0 + 0xC8) = 3;
     } else {
         *(s32 *)((s8 *)arg0 + 0xC8) = 0;

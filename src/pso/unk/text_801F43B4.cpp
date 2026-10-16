@@ -1,13 +1,13 @@
 #include "types.h"
 #include "pso/TLevelSelect.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
 
 s32 get_main_phase();
 s32 is_quest_active();
 u32 get_character_save_record(s32);
-s32 notify_quest_thread__22THunterGuildSeqOfflineFv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 memcpy(s32, s32 *, s32);
 extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;
@@ -15,9 +15,9 @@ extern s32 game_difficulty_selection;
 void copy_card_window_data(void) {
     u32 temp_r3;
 
-    if ((get_main_phase() != 0xF) && (is_not_split_screen__13TRaderMapCoreFv() != 1)) {
+    if ((get_main_phase() != 0xF) && (TRaderMapCore::is_not_split_screen() != 1)) {
         if (is_quest_active() != 0) {
-            notify_quest_thread__22THunterGuildSeqOfflineFv();
+            THunterGuildSeqOffline::notify_quest_thread();
         }
         temp_r3 = get_character_save_record(0);
         if (temp_r3 != 0U) {

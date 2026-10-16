@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TOMine.h"
+#include "pso/misc/TOMineTrap.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp {
     s32 value;
@@ -27,19 +32,12 @@ u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void);
 f32 horizontal_distance_squared(void *, void *);
-void *get_mine_data_ptr__10TOMineTrapFv(void *);
 void get_player_state__6TOMineFv(void *, u16);
 s32 fn_80171314(void *);
-s16 get_stat_by_key_state__10TObjPlayerFv(void *);
 u8 *get_player_by_client_id(u16);
 extern const f32 lbl_805DB850;
 void run_task__10TOMineDispFv(u8 *arg0);
 s32 get_camera_mode__11TCameraCtrlFv();
-u16 get_nth_view_player_id__11TCameraCtrlFl();
-s32 free_sub_objects__6TOMineFv(int);
-s32 free_parts__6TOMineFv(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -67,7 +65,7 @@ u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
 void draw__10TOMineDispFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r4;
-    u16 id = ((u16 (*)(s32))get_nth_view_player_id__11TCameraCtrlFl)(get_camera_mode__11TCameraCtrlFv());
+    u16 id = TCameraCtrl::get_nth_view_player_id(get_camera_mode__11TCameraCtrlFv());
     if (id != *(u16 *)((s8 *)arg0 + 0xA8)) {
         return;
     }
@@ -81,16 +79,16 @@ void draw__10TOMineDispFPv(u8 *arg0) {
     temp_r31 = *(s32 *)((s8 *)arg0 + 0x10);
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-    free_parts__6TOMineFv(temp_r31);
-    begin_effect_render__13TParticleCtrlFv();
+    ((TOMine *)temp_r31)->free_parts();
+    TParticleCtrl::begin_effect_render();
     temp_r4 = model_render_flags;
     lbl_805D5660 = temp_r4;
     model_render_flags = temp_r4 | 0x20;
     set_chunk_material_color(arg0 + 0x94, temp_r4);
-    free_sub_objects__6TOMineFv(temp_r31);
+    ((TOMine *)temp_r31)->free_sub_objects();
     ((s32 (*)(void *))set_chunk_material_color)(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     pop_matrix();
 }
 
@@ -102,7 +100,7 @@ void run_task__10TOMineDispFv(u8 *arg0) {
         p = get_player_by_client_id(*(u16 *)(arg0 + 0xA8));
         if (p != NULL && is_locally_controlled__10TObjPlayerFPv() != 0 && fn_80171314(p) != 0) {
             if (horizontal_distance_squared(arg0 + 0x38, p + 0x38) <= lbl_805DB850 ||
-                get_stat_by_key_state__10TObjPlayerFv(p) == get_stat_by_key_state__10TObjPlayerFv(arg0)) {
+                ((TObjPlayer *)p)->get_stat_by_key_state() == ((TObjPlayer *)arg0)->get_stat_by_key_state()) {
                 *(s32 *)(arg0 + 0xA4) = 2;
             }
         }
@@ -111,7 +109,7 @@ void run_task__10TOMineDispFv(u8 *arg0) {
         break;
     case 2:
         get_player_state__6TOMineFv(mine, *(u16 *)(arg0 + 0xA8));
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, get_mine_data_ptr__10TOMineTrapFv(mine));
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, ((TOMineTrap *)mine)->get_mine_data_ptr());
         break;
     }
 }

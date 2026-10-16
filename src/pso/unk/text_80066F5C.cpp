@@ -1,9 +1,10 @@
 #include "types.h"
 #include "pso/TObjBoss5FloorStone.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TScene.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
-s32 apply_single_screen_state__6TSceneFv();
 s32 render_projected_shadow_receiver(void *, void *);
 s32 rotate_matrix_by_node_angles(void *, int);
 int push_matrix(void);
@@ -18,7 +19,6 @@ extern "C" {
 int draw_if_all_ready__10TObjPlayerFv(void*);
 int push_matrix(void);
 int pop_matrix(void);
-int set_global_param__8TObjFishFl(void*);
 
 void TObjPlayer::draw_shadowed_node_tree() {
     u8 *arg0 = (u8 *)this;
@@ -30,7 +30,7 @@ void TObjPlayer::draw_shadowed_node_tree() {
         if (!(*(s32 *)((s8 *)arg0 + 0) & 8) && ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U)) {
             render_projected_shadow_receiver((void *) (arg0 + 8), (void *) (arg0 + 0x14));
             ::draw_ginja_model((int) (*(u32 *)((s8 *)arg0 + 4)));
-            apply_single_screen_state__6TSceneFv();
+            TScene::apply_single_screen_state();
         }
         ((TObjPlayer *)(*(u8 **)((s8 *)arg0 + 0x2C)))->draw_shadowed_node_tree();
         pop_matrix();
@@ -38,6 +38,6 @@ void TObjPlayer::draw_shadowed_node_tree() {
     }
 }
 
-void TObjBoss5FloorStone::render_impl(void* a1) { draw_if_all_ready__10TObjPlayerFv(this); set_global_param__8TObjFishFl(this); push_matrix(); ((TObjPlayer *)a1)->draw_shadowed_node_tree(); pop_matrix(); }
+void TObjBoss5FloorStone::render_impl(void* a1) { draw_if_all_ready__10TObjPlayerFv(this); TObjFish::set_global_param((s32)this); push_matrix(); ((TObjPlayer *)a1)->draw_shadowed_node_tree(); pop_matrix(); }
 
 }

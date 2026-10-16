@@ -1,4 +1,5 @@
 #include "pso/TChCrCharSelect.h"
+#include "pso/TChCrEffTag.h"
 
 TChCrCharSelect::~TChCrCharSelect() {}
 
@@ -8,7 +9,6 @@ s32 __ct__7TObjectFP7TObject(void *);
 void init_widgets__15TChCrCharSelectFv(void);
 s32 fn_802993F0();
 s32 fn_8029945C(void *);
-s32 set_eff_tag__11TChCrEffTagFi(s32);
 extern u8 lbl_80464E88[];
 extern void *__vt__15TChCrCharSelect[];
 extern s32 lbl_805D3CB0;
@@ -20,7 +20,7 @@ void *__ct__15TChCrCharSelectFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__15TChCrCharSelect;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3CB0;
-    set_eff_tag__11TChCrEffTagFi(0);
+    TChCrEffTag::set_eff_tag(0);
     fn_802993F0();
     if (TChCrCharSelect__selected_char_index == -1 || TChCrCharSelect__selected_slot_index == -1) {
         TChCrCharSelect__selected_char_index = 0;

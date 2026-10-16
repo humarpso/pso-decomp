@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_802A7328_802A7290 { char pad[0x8]; };
 struct VObj_802A7328_802A7290 : Base_802A7328_802A7290 {
@@ -96,9 +97,7 @@ void TLobby__sub_802A7640(void);
 s32 mem_alloc(s32);
 extern s32 player_action_motion_buffer;
 void TLobby__sub_802A7640(void);
-int set_photon_chair_flag__6TLobbyFi(int);
 void TLobby__sub_802A769C(void);
-int set_photon_chair_flag__6TLobbyFi(int);
 s32 TLobby__sub_802A7AF8(s32, s32 *);
 s32 free__10TObjPlayerFPv(void *);
 extern s32 lbl_804DDBF0[];
@@ -112,8 +111,6 @@ int TLobby__sub_802A7790(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
 void player_motion_provider1_set_attack_interpolation(u8 *arg0);
-s32 sub_802a7290_fwd__10TObjPlayerFv(void *);
-s32 is_handle_valid__10TObjPlayerFv(void *);
 s32 load_action_motion_pairs(void *, s32, s32, s32);
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 }
@@ -192,8 +189,8 @@ s32 TLobby::handle_message(s32 arg1, s32 arg2, s32 arg3) {
 }
 
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
-    s32 a = is_handle_valid__10TObjPlayerFv(arg0);
-    s32 b = sub_802a7290_fwd__10TObjPlayerFv(arg0);
+    s32 a = ((TObjPlayer *)arg0)->is_handle_valid();
+    s32 b = ((TObjPlayer *)arg0)->sub_802a7290_fwd();
     s32 r = load_action_motion_pairs(arg0, arg1, a, b);
     if (r != 0) {
         ((VObj_802A75C8 *)arg0)->m12();
@@ -210,8 +207,8 @@ void TLobby__sub_802A7640(void) {
 void TLobby::alloc_boss4rock_buffer() {
     player_action_motion_buffer = mem_alloc(0x100000);
 }
-void TLobby__sub_802A769C(void) { TLobby__sub_802A7640(); set_photon_chair_flag__6TLobbyFi(0); }
-void TLobby::enable_and_refresh() { set_photon_chair_flag__6TLobbyFi(1); TLobby::alloc_boss4rock_buffer(); }
+void TLobby__sub_802A769C(void) { TLobby__sub_802A7640(); TLobby::set_photon_chair_flag(0); }
+void TLobby::enable_and_refresh() { TLobby::set_photon_chair_flag(1); TLobby::alloc_boss4rock_buffer(); }
 void *__dt__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 8) = lbl_804DDBF0;

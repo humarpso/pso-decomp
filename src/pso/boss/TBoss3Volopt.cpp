@@ -2,6 +2,20 @@
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/TBoss3VoloptCtrl.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
+#include "pso/boss/TBoss3VoloptMonitor.h"
+#include "pso/boss/TBoss3VoloptP01.h"
+#include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TFogCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/object/TObjVoloptCage.h"
+#include "pso/object/TObjVoloptPillar.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Vec_8003D7BC { f32 x, y, z; };
 
@@ -44,8 +58,6 @@ extern const f32 lbl_805D86A4;
 extern const f32 lbl_805D86A8;
 
 s32 set_flag_3__7TObjectFv(void *);
-s32 init_fade_color__12TBoss3VoloptFPvPv(void *, void *, void *);
-s32 init_fade__12TBoss3VoloptFPvPv(void *, void *, void *);
 s32 TCameraCtrl__sub_8006A044(int, f32);
 s32 spawn_particle_effect(void *, int);
 s32 is_local_client_floor_leader();
@@ -270,7 +282,6 @@ struct Cam_8003DA78 { s8 a; s8 b; s16 c; f32 d; f32 e; };
 s32 get_main_phase();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_status_effect_row(void *);
-s32 add_status_effect_timer__10TObjPlayerFll(void *, int, int);
 u8 * get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
@@ -312,24 +323,15 @@ s32 clear_volopt_cage_flag();
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
-void set_grabbed_state__10TObjPlayerFl(s32);
-void set_boss_target_pos__10TObjPlayerFlll(void *, s32, s32, s32);
 s32 TBoss3VoloptCore__sub_80040788();
 void cache_volopt_resource_ptrs(void);
 s32 init_object__16TBoss3VoloptCtrlFv();
-s32 dispatch_state__16TBoss3VoloptCtrlFl(s32);
 s32 set_player_flag_08000000__12TBoss3VoloptFv();
 s32 set_flag_08000000__12TBoss3VoloptFv();
 void start_attack__20TBoss3VoloptHiraisinFPv(void *);
 s32 destroy__20TBoss3VoloptHiraisinFv();
-void init_models__20TBoss3VoloptHiraisinFv(void);
-s32 release__19TBoss3VoloptMonitorFv();
-void load_resources__19TBoss3VoloptMonitorFv(void);
-void set_target_id__10TObjPlayerFl(void *, s32);
 s32 TObjPlayer__sub_80042EC0(void *);
 void TBoss3VoloptP01__sub_80042F84(void *);
-s32 destroy__15TBoss3VoloptP01Fv();
-void init_breakup_effect__15TBoss3VoloptP01Fv(void);
 s32 set_player_view_flag__11TCameraCtrlFl();
 s32 set_flag_08000000__11TCameraCtrlFl();
 void apply_hit_reaction__12TBoss3VoloptFPvf(void *, f32);
@@ -340,25 +342,17 @@ void check_and_trigger__12TBoss3VoloptFPv(void *);
 void set_action__12TBoss3VoloptFPvs(void *, u16);
 s32 TBoss3Volopt__sub_800479D0();
 void TBoss3Volopt__sub_80047A60(void);
-s32 destroy__14TObjVoloptCageFv();
-void init_break_model__14TObjVoloptCageFv(void);
-void cache_target_values__16TObjVoloptPillarFv(void);
 s32 set_active_camera_pose(void *, void *);
 s32 restore_player_cameras();
 s32 activate_camera_mode(int);
 s32 reset_cameras_to_actor(void *, s32);
 s32 set_scripted_camera_pose(int, int, void *);
-s32 cache_target_and_forward__11TCameraCtrlFl(void *, int);
 u8 * get_scripted_camera_playback();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
-s32 check_v2_mode__9TObjEneDDFv();
 s32 is_local_client_floor_leader();
 s32 TObjEnemyCustom__sub_800C7860();
 void __dt__15TObjEnemyCustomFv(void *, s32);
 s32 TObjEnemyCustom__ct(void *, int);
-s32 apply_all__8TFogCtrlFll(int, int);
-s32 update_all__8TFogCtrlFl(int);
-void scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 int reset_photon_effect__10TObjPlayerFv(void*);
 void * find_entity_by_id(u16);
 s32 refresh_collision_body_centers(void *);
@@ -368,19 +362,13 @@ int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
 int TLobby__send_and_handle_60(void*);
 s32 get_story_flag(s32);
-s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 void send_entity_set_flags__6TLobbyFPv(void *);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 int play_area_music(void*);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32);
 int update_if_active__12TBoss3VoloptFl(void*);
-int alloc_event__12TBoss3VoloptFsl(void*, void*);
-s32 init_all_slots__11TWindowCtrlFv();
-s32 init_all_slots2__11TWindowCtrlFv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 rand(void);
-void move_data__6TLobbyFPCvUl(void *, void *, int);
 
 extern u16 TBoss3Volopt__cage_entity_id;
 extern RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt __vt__12TBoss3Volopt;
@@ -465,31 +453,31 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self) {
 
 void handle_6x84_vol_opt_boss_actions(void *arg0) {
     ((TBoss3Volopt *)arg0)->bswap_actions();
-    move_data__6TLobbyFPCvUl(boss3_volopt_player_target_ids, (void *)((char *)arg0 + 4), 6);
+    ((TLobby *)boss3_volopt_player_target_ids)->move_data((void *)((char *)arg0 + 4), 6);
     volopt_active_player_id = *(s16 *)((s8 *)arg0 + 0xC);
     TCameraCtrl::set_player_targets(*(s16 *)((s8 *)arg0 + 0xA));
 }
 
 void TBoss3Volopt::update_phase() {
-    dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x2A);
+    TBoss4DarkFalz::dispatch_by_main_phase(0x2A);
     if (get_main_phase() == 0xF) {
-        dispatch_state__16TBoss3VoloptCtrlFl(0);
+        TBoss3VoloptCtrl::dispatch_state(0);
         return;
     }
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        dispatch_state__16TBoss3VoloptCtrlFl(5);
+    if (TRaderMapCore::is_not_split_screen() == 1) {
+        TBoss3VoloptCtrl::dispatch_state(5);
         return;
     }
     if (get_story_flag(0x2F) != 0) {
-        dispatch_state__16TBoss3VoloptCtrlFl(2);
+        TBoss3VoloptCtrl::dispatch_state(2);
         return;
     }
-    dispatch_state__16TBoss3VoloptCtrlFl(1);
+    TBoss3VoloptCtrl::dispatch_state(1);
 }
 
 int TBoss3Volopt__sub_8003CB48(void) { return update_if_active__12TBoss3VoloptFl((void*)(0)); }
 
-void TBoss3Volopt::alloc_idle_event() { alloc_event__12TBoss3VoloptFsl((void*)160, (void*)0); }
+void TBoss3Volopt::alloc_idle_event() { TBoss3Volopt::alloc_event((s16)((void*)160), (s32)((void*)0)); }
 
 bool is_volopt_death_active(void) {
     return (*(s32 *)&volopt_death_active) != 0;
@@ -523,7 +511,7 @@ void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s3
 
 void handle_6x16_vol_opt_boss_actions(void *arg0) {
     ((TBoss3Volopt *)arg0)->swap_6x16_fields();
-    move_data__6TLobbyFPCvUl(boss3_volopt_player_target_ids, (void *)((char *)arg0 + 4), 6);
+    ((TLobby *)boss3_volopt_player_target_ids)->move_data((void *)((char *)arg0 + 4), 6);
     TCameraCtrl::set_player_targets(*(s16 *)((s8 *)arg0 + 0xA));
     volopt_active_player_id = -1;
 }
@@ -537,11 +525,11 @@ void handle_6x15_vol_opt_boss_actions(u8 *arg0) {
     case 0:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D271C);
         if (p != NULL) {
-            set_boss_target_pos__10TObjPlayerFlll(p, *(s16 *)((s8 *)arg0 + 8), *(s16 *)((s8 *)arg0 + 0xA), 0x258);
+            ((TObjPlayer *)p)->set_boss_target_pos(*(s16 *)((s8 *)arg0 + 8), *(s16 *)((s8 *)arg0 + 0xA), 0x258);
         }
         break;
     case 1:
-        set_grabbed_state__10TObjPlayerFl(0);
+        TObjPlayer::set_grabbed_state(0);
         break;
     case 2:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A);
@@ -610,7 +598,7 @@ void TBoss3Volopt__sub_8003CE38(s32 arg0) {
                 d.y = lbl_805D8660;
                 d.z = pos.z - base;
                 if (newton_sqrtf(d.x * d.x + d.z * d.z) < lbl_805D8664) {
-                    scale_velocity__19TObjGyaranzoMissileFf(&d, lbl_805D8664);
+                    ((TObjGyaranzoMissile *)(&d))->scale_velocity(lbl_805D8664);
                     pos.x = d.x;
                     pos.z = d.z + base;
                 }
@@ -634,14 +622,14 @@ void TCameraCtrl::set_player_targets(s32 n) {
   p = find_entity_by_id(((volatile unsigned short *)&volopt_target_entity_ids)[((s8 *)&boss3_volopt_player_target_ids)[0]]);
   if (p != 0)
   {
-    set_target_id__10TObjPlayerFl(p, 1);
+    ((TObjPlayer *)p)->set_target_id(1);
   }
   for (i = 1; i < n; i++)
   {
     p = find_entity_by_id(((volatile unsigned short *)&volopt_target_entity_ids)[((s8 *)&boss3_volopt_player_target_ids)[i]]);
     if (p != 0)
     {
-      set_target_id__10TObjPlayerFl(p, 0);
+      ((TObjPlayer *)p)->set_target_id(0);
     }
   }
 }
@@ -812,7 +800,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         activate_camera_mode((int) (9));
         set_active_camera_pose((void *) (&boss3_volopt_intro_camera_poses.value), (void *) ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
         freeze_all_players__10TObjPlayerFv();
-        init_all_slots__11TWindowCtrlFv();
+        TWindowCtrl::init_all_slots();
         if (((u32)find_entity_by_id((u16)((void *) (lbl_805D2718)))) != 0U) {
             set_flag_08000000__11TCameraCtrlFl();
         }
@@ -840,7 +828,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         stack.spC = lbl_805D8660;
         stack.sp10 = lbl_805D8678;
         activate_camera_mode((int) (5));
-        cache_target_and_forward__11TCameraCtrlFl((void *) (&stack.sp8), (int) (0x160A));
+        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x160A));
         temp_r3 = (u8 *)(arg0 + 0x38);
         set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
         *(s32 *)((s8 *)arg0 + 0x37C) = 4;
@@ -856,7 +844,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         if (((u32)find_entity_by_id((u16)((void *) (lbl_805D2718)))) != 0U) {
             set_player_view_flag__11TCameraCtrlFl();
         }
-        init_all_slots2__11TWindowCtrlFv();
+        TWindowCtrl::init_all_slots2();
         TObjPlayer__sub_801BA42C();
         break;
     }
@@ -917,7 +905,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
     case 4:
         o = __nw__7TObjectFUl(0x28);
         if (o != 0U) {
-            init_fade__12TBoss3VoloptFPvPv((void *)o, arg0, 0);
+            ((TBoss3Volopt *)o)->init_fade(arg0, 0);
         }
         TBoss3Volopt__sub_8003CB48();
         *(s32 *)((s8 *)arg0 + 0x37C) = 5;
@@ -930,7 +918,7 @@ void TBoss3Volopt__sub_8003D7BC(u8 *arg0) {
     case -1:
         o = __nw__7TObjectFUl(0x28);
         if (o != 0U) {
-            init_fade_color__12TBoss3VoloptFPvPv((void *)o, arg0, 0);
+            ((TBoss3Volopt *)o)->init_fade_color(arg0, 0);
         }
         break;
     }
@@ -945,33 +933,33 @@ void TBoss3Volopt::update_intro_cutscene() {
     case 0:
         reset_vol_opt_state((void*)(arg0));
         freeze_all_players__10TObjPlayerFv();
-        init_all_slots__11TWindowCtrlFv();
+        TWindowCtrl::init_all_slots();
         if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A) != NULL) {
             set_flag_08000000__12TBoss3VoloptFv();
         }
         *(s32 *)((s8 *)arg0 + 0x384) = 0xD2;
-        apply_all__8TFogCtrlFll(0xA, 0);
+        TFogCtrl::apply_all(0xA, 0);
         c1.b = 0;
         c1.a = 1;
         c1.c = 0;
         c1.d = lbl_805D8660;
         c1.e = lbl_805D8660;
         activate_camera_mode(5);
-        cache_target_and_forward__11TCameraCtrlFl(&c1, 0x271C);
+        ((TCameraCtrl *)(&c1))->cache_target_and_forward(0x271C);
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
         ((s32 (*)(int, void *, int, int, int))play_persistent_sound)(0x4003B202, arg0, 0, 0, 0);
         if (--*(s32 *)((s8 *)arg0 + 0x384) <= 0) {
             *(s32 *)((s8 *)arg0 + 0x384) = 0x3C;
             *(s32 *)((s8 *)arg0 + 0x37C) = 2;
-            update_all__8TFogCtrlFl(0);
+            TFogCtrl::update_all(0);
             c2.b = 0;
             c2.a = 1;
             c2.c = 0;
             c2.d = lbl_805D8660;
             c2.e = lbl_805D8678;
             activate_camera_mode(5);
-            cache_target_and_forward__11TCameraCtrlFl(&c2, 0x271C);
+            ((TCameraCtrl *)(&c2))->cache_target_and_forward(0x271C);
         }
         break;
     case 2:
@@ -992,7 +980,7 @@ void TBoss3Volopt::update_intro_cutscene() {
         if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A) != NULL) {
             set_player_flag_08000000__12TBoss3VoloptFv();
         }
-        init_all_slots2__11TWindowCtrlFv();
+        TWindowCtrl::init_all_slots2();
         restore_player_cameras();
         TObjPlayer__sub_801BA42C();
         break;
@@ -1299,7 +1287,7 @@ void TBoss3Volopt::run_task() {
         return;
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
-        if (add_status_effect_timer__10TObjPlayerFll((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
+        if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
             reset_status_effect_row((void *) (arg0 + 0x284));
             obj_clearFlags30((void *) (arg0), (int) (0x4000));
         }
@@ -1325,16 +1313,16 @@ void *TBoss3Volopt::create(void *arg0) {
 }
 
 void TBoss3Volopt::free_parts() {
-    destroy__14TObjVoloptCageFv();
+    TObjVoloptCage::destroy();
     if ((u32) boss3_volopt_resources != 0U) {
         TLobby__sub_8001FE7C((void*)boss3_volopt_resources, 1);
         boss3_volopt_resources = 0U;
     }
-    destroy__15TBoss3VoloptP01Fv();
+    TBoss3VoloptP01::destroy();
     TBoss3VoloptCore__sub_80040788();
     TBoss3Volopt__sub_800479D0();
     destroy__20TBoss3VoloptHiraisinFv();
-    release__19TBoss3VoloptMonitorFv();
+    TBoss3VoloptMonitor::release();
 }
 
 #define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
@@ -1412,7 +1400,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
                 c1.id = F(u16, 0x1C);
                 c1.a = F(s16, 0x3FC) < lim ? F(s16, 0x3FC) : lim;
                 c1.b = lbl_805D86A8 * calc_boss4_scale__10TObjPlayerFi(arg0);
-                move_data__6TLobbyFPCvUl(c1.data, boss3_volopt_player_target_ids, 6);
+                ((TLobby *)(c1.data))->move_data(boss3_volopt_player_target_ids, 6);
                 ((TBoss3Volopt *)(&c1))->send_update_60();
                 if (F(s16, 0x3FC) < 5) {
                     F(s16, 0x3FC)++;
@@ -1475,7 +1463,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
                 TBoss3Volopt__sub_8003F33C(&c2);
                 c2.id = F(u16, 0x1C);
                 c2.a = F(s16, 0x3FC) < lim2 ? F(s16, 0x3FC) : lim2;
-                move_data__6TLobbyFPCvUl(c2.data, boss3_volopt_player_target_ids, 6);
+                ((TLobby *)(c2.data))->move_data(boss3_volopt_player_target_ids, 6);
                 ((TBoss3Volopt *)(&c2))->send_6x16();
                 if (F(s16, 0x3FC) < 5) {
                     F(s16, 0x3FC)++;
@@ -1492,7 +1480,7 @@ void TBoss3Volopt__sub_8003E584(void *arg0_) {
 void TBoss3Volopt::load_resources() {
     s32 v2;
     void *p;
-    v2 = check_v2_mode__9TObjEneDDFv();
+    v2 = TObjEneDD::check_v2_mode();
     if (v2 != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
@@ -1507,16 +1495,16 @@ void TBoss3Volopt::load_resources() {
         boss3_volopt_resources = (u32)p;
     }
     lbl_805D4C40 = v2;
-    init_breakup_effect__15TBoss3VoloptP01Fv();
+    TBoss3VoloptP01::init_breakup_effect();
     cache_volopt_resource_ptrs();
     TBoss3Volopt__sub_80047A60();
-    init_models__20TBoss3VoloptHiraisinFv();
-    load_resources__19TBoss3VoloptMonitorFv();
+    TBoss3VoloptHiraisin::init_models();
+    TBoss3VoloptMonitor::load_resources();
     volopt_shutter_model_b = *(s32 *)(*(u8 **)(*(u8 **)(boss3_volopt_resources + 0x42C) + 0xD8) + 4);
     volopt_shutter_model_a = *(s32 *)(*(u8 **)(*(u8 **)(*(u8 **)(boss3_volopt_resources + 0x42C) + 0xD8) + 0x2C) + 4);
     volopt_shutter_global_param = *(s32 *)(*(u8 **)(boss3_volopt_resources + 0x42C) + 0xDC);
-    cache_target_values__16TObjVoloptPillarFv();
-    init_break_model__14TObjVoloptCageFv();
+    TObjVoloptPillar::cache_target_values();
+    TObjVoloptCage::init_break_model();
     lbl_805D2718 = 0xFFFF;
     volopt_resources_loaded = 0;
     volopt_camera_seq_handle_a = dispatch_shared_handler_a__6TLobbyFl(0x27);
@@ -1562,7 +1550,7 @@ u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x374) = 0;
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x3BC) = 0;
-    ((s32 (*)(int))dispatch_by_main_phase__14TBoss4DarkFalzFUs)((int) (0x29U));
+    TBoss4DarkFalz::dispatch_by_main_phase((int) (0x29U));
     (*(s32 *)&lbl_805D4C20) = 0;
     (*(s32 *)&volopt_active_player_id) = -1;
     ((VObj_18_c99286 *)(arg0))->m80();

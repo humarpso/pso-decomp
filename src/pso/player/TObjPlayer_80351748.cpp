@@ -17,10 +17,8 @@ s32 fn_803519FC(s32 *arg0, s32 arg1);
 s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
 s32 fn_803519FC(s32 *arg0, s32 arg1);
 int fn_80351A14(u8 *arg0, s32 arg1);
-s32 reset_state_block__10TObjPlayerFv(void *);
 extern RecoveredGlobal_803518E0_lbl_8050E208 controller_input_state;
 void init_pad_binding(u8 *arg0, s16 arg1, s16 arg2);
-s32 reset_state_block__10TObjPlayerFv(void *);
 P_80351974 *TObjPlayer__sub_80351974(P_80351974 *arg0);
 }
 
@@ -73,7 +71,7 @@ void init_pad_binding(u8 *arg0, s16 arg1, s16 arg2) {
     *(s32 *)((s8 *)arg0 + 4) = -1;
     *(s32 *)((s8 *)arg0 + 8) = -1;
     *(u8 **)((s8 *)arg0 + 0xC) = (unsigned char *) ((void *) ((u8 *)&controller_input_state.value + (*(s16 *)((s8 *)arg0 + 2) * 0x50) + 0x20));
-    reset_state_block__10TObjPlayerFv((void *) (arg0 + 0x10));
+    ((TObjPlayer *)(arg0 + 0x10))->reset_state_block();
 }
 
 s32 TObjPlayer::dt(s32 arg0, s16 arg1) {
@@ -89,7 +87,7 @@ P_80351974 *TObjPlayer__sub_80351974(P_80351974 *arg0) {
     arg0->c = -1;
     arg0->d = -1;
     arg0->e = 0;
-    reset_state_block__10TObjPlayerFv(arg0->sub);
+    ((TObjPlayer *)(arg0->sub))->reset_state_block();
     return arg0;
 }
 

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss6GravBall.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TLobby.h"
 
 struct P_80323348 { u8 pad[0x30]; u32 flags; };
 
@@ -21,7 +23,6 @@ struct PL_80323544 { u8 pad[0x30]; u32 flags; u8 pad34[4]; Vec_80323544 pos; };
 
 extern "C" {
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
-s32 get_game_mode__6TLobbyFv();
 s32 is_state_1f__14TBoss6PlotFalzFUi();
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
@@ -36,16 +37,12 @@ s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
-s32 get_game_mode__6TLobbyFv();
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
-int destroy_part__14TBoss6GravBallFl(void*, void*);
-s32 create_emitter__14TBoss6GravBallFl(void *, int);
 u16 obj_getField1c(void *);
-s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
@@ -57,16 +54,12 @@ extern const f32 lbl_805DF55C;
 extern const f32 lbl_805DF560;
 void TBoss6GravBall__sub_803233AC(u8 *self);
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
-s32 get_game_mode__6TLobbyFv();
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
-int destroy_part__14TBoss6GravBallFl(void*, void*);
-s32 create_emitter__14TBoss6GravBallFl(void *, int);
 u16 obj_getField1c(void *);
-s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
@@ -82,12 +75,8 @@ void TBoss6GravBall__sub_80323544(u8 *self);
 
 extern "C" {
 
-int destroy_part__14TBoss6GravBallFl(void*, void*);
-void init_parts__14TBoss6GravBallFv(void* p);
-void render__14TBoss6GravBallFv(void);
-
 void TBoss6GravBall::clear_player_grav_flags() {
-    s32 n = get_game_mode__6TLobbyFv();
+    s32 n = TLobby::get_game_mode();
     s32 i;
     for (i = 0; i < n; i++) {
         P_80323348 *p = get_player_data__10TObjPlayerFi(i);
@@ -107,12 +96,12 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
     s32 id;
     s32 flag;
     f32 d;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         pl = (PL_803233AC *)get_player_data__10TObjPlayerFi(i);
         id = obj_getField1c(pl) + 5;
-        if (is_active__14TBoss6PlotFalzFv(pl) == 0) {
-            destroy_part__14TBoss6GravBallFl(self, (void *)id);
+        if (((TBoss6PlotFalz *)pl)->is_active() == 0) {
+            ((TBoss6GravBall *)self)->destroy_part((s32)((void *)id));
             continue;
         }
         flag = 0;
@@ -121,7 +110,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         v.y = TBoss6GravBall__data_805DF550;
         d = vector_length(&v);
         if (d > lbl_805DF554) {
-            destroy_part__14TBoss6GravBallFl(self, (void *)id);
+            ((TBoss6GravBall *)self)->destroy_part((s32)((void *)id));
             continue;
         }
         if (d <= TBoss6GravBall__data_805DF558) {
@@ -140,7 +129,7 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
-            create_emitter__14TBoss6GravBallFl(self, id);
+            ((TBoss6GravBall *)self)->create_emitter(id);
         }
     }
 }
@@ -157,12 +146,12 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
     s32 id;
     s32 flag;
     f32 d;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         pl = (PL_80323544 *)get_player_data__10TObjPlayerFi(i);
         id = obj_getField1c(pl) + 5;
-        if (is_active__14TBoss6PlotFalzFv(pl) == 0) {
-            destroy_part__14TBoss6GravBallFl(self, (void *)id);
+        if (((TBoss6PlotFalz *)pl)->is_active() == 0) {
+            ((TBoss6GravBall *)self)->destroy_part((s32)((void *)id));
             continue;
         }
         flag = 1;
@@ -178,7 +167,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         if (d > TBoss6GravBall__data_805DF558) {
             f32 s;
             if (*(u32 *)(self + 0xC0) & 1) {
-                destroy_part__14TBoss6GravBallFl(self, (void *)id);
+                ((TBoss6GravBall *)self)->destroy_part((s32)((void *)id));
                 continue;
             }
             s = lbl_805DF564 * (*(f32 *)(self + 0xBC) * (lbl_805DF568 - d / lbl_805DF56C));
@@ -195,7 +184,7 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
             pl->flags |= 0x20000;
-            create_emitter__14TBoss6GravBallFl(self, id);
+            ((TBoss6GravBall *)self)->create_emitter(id);
         }
     }
 }

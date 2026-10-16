@@ -176,10 +176,7 @@ struct Vec_800ABDD8
 
 extern "C" {
 void obj_setFlags30(void *, u32);
-void set_invuln_flags__10TObjPlayerFv(u8 *arg0);
 void obj_clearFlags30(void *, u32);
-void clear_flag_04000000__10TObjPlayerFv(u8 *arg0);
-s32 get_action_priority__10TObjPlayerFv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 draw_chunk_object(s32);
@@ -190,12 +187,9 @@ s32 set_global_param__8TObjFishFl(s32);
 extern s32 lbl_805D5094;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9B68;
-void draw_model_no_fog__10TObjPlayerFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
-void *destroy_with_particle_cleanup__10TObjPlayerFs(void *arg0, s16 arg1);
 void TObjPlayer__sub_800AB970(void);
 void set_param__12TObjEneLappyFl(void *, s32);
 void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0);
@@ -204,7 +198,6 @@ s32 end_effect_render__13TParticleCtrlFv();
 extern s32 shark_render_node_index;
 void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 s32 get_player_by_client_id(int);
@@ -276,7 +269,6 @@ s32 spawn_particle_effect(void *, int);
 f32 xz_distance_squared(void *, void *);
 extern Pair_800AB0EC lbl_8043ACEC[];
 extern const f32 lbl_805D9B58;
-s32 try_hit_target__10TObjPlayerFi(void *arg0, int arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f32 newton_sqrtf();
@@ -295,11 +287,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
-s32 clear_counter__10TObjPlayerFv(void *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
-f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
-s32 collect_and_count__12TBoss3VoloptFUll(void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -321,7 +309,6 @@ s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
 s32 check_v2_mode__9TObjEneDDFv();
-s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 s32 update_obstruction_fade(void *);
 s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_scene_lighting();
@@ -358,47 +345,27 @@ extern const f32 lbl_805D9BC4;
 extern "C" {
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v);
-void cancel_action__10TObjPlayerFv(void *arg0);
-void *dt__10TObjPlayerFs(void *arg0, s16 arg1);
-void init_level_stats__10TObjPlayerFl(void *arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-s32 set_cancel_flag__10TObjPlayerFv(u32);
 
 extern void *lbl_805D5090;
 extern s32 lbl_805D5098;
-
-void init_level_stats__10TObjPlayerFl(void *arg0, s32 arg1);
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v);
 
 extern s32 lbl_80491460[];
 
-void clear_flag_04000000__10TObjPlayerFv(u8 *arg0);
-
-void set_invuln_flags__10TObjPlayerFv(u8 *arg0);
-
 s32 TObjPlayer__sub_800AB068(u8 *arg0);
-
-s32 try_hit_target__10TObjPlayerFi(void *arg0, int arg1);
 
 void TObjPlayer__sub_800AB1C8(u8 *arg0);
 
-void *dt__10TObjPlayerFs(void *arg0, s16 arg1);
-
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-
-void cancel_action__10TObjPlayerFv(void *arg0);
-s32 get_action_priority__10TObjPlayerFv(void *arg0);
-void draw_model_no_fog__10TObjPlayerFv(u8 *arg0);
 
 #pragma push
 #pragma fp_contract on
 void TObjPlayer__sub_800AB4F4(u8 *arg0);
 #pragma pop
-
-void *destroy_with_particle_cleanup__10TObjPlayerFs(void *arg0, s16 arg1);
 
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
 
@@ -579,7 +546,7 @@ void TObjEneShark::render() {
   {
     u8 *f = (u8 *) (&((Owner_800ABDD8 *) arg0)->fades[mode]);
     update_obstruction_fade(f);
-    fade = updateFromCamera__15RenderFadeStateFPCf(f, arg0 + 0x2FC);
+    fade = ((RenderFadeState *)f)->updateFromCamera((const f32*)(arg0 + 0x2FC));
   }
   select_actor_lighting(arg0);
   model_render_flags |= 1;
@@ -722,6 +689,13 @@ extern "C" {
 #include "types.h"
 #include "pso/enemy/TObjEneMoja.h"
 #include "pso/misc/TLobby.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneBeast.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 struct E_800AC9DC { u8 pad[8]; s32 x8; s32 xc; };
 
@@ -822,7 +796,6 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
@@ -865,9 +838,7 @@ extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
-extern "C" void is_lying_down__12TObjEneBeastFv();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" __declspec(section ".rodata") u8 lbl_8043AD10[] = "bm1f_s_wala_body.nj";
 extern "C" __declspec(section ".rodata") u8 lbl_8043AD24[] = "bm1tl_s_wala_body.nj";
@@ -896,8 +867,6 @@ extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void run_task__12TObjEneBeastFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
 extern "C" void tick_freeze_and_reset_appearance();
 extern "C" void tick_freeze_state__10TObjPlayerFv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
@@ -966,13 +935,13 @@ void *lbl_8049168C[103] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&is_lying_down__12TObjEneBeastFv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjEneBeast::is_lying_down,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold__12TObjEneBeastFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&tick_freeze_and_reset_appearance,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&tick_freeze_state__10TObjPlayerFv, (void *)&beast_enter_approach,
     (void *)&beast_start_attack, (void *)&clear_flag_0x100__10TObjPlayerFv, (void *)&enter_state7__10TObjPlayerFv, (void *)&enter_state_8__10TObjPlayerFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
@@ -1206,18 +1175,11 @@ struct Shark_800AC6B0 : VObj_800AC6B0 {
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void add_flags_2e4__10TObjPlayerFUl(void *, u32);
-void set_field_b8__14TObjEnePanarmsFs(void *, s16);
-void set_field_d8__10TObjPlayerFl(void *, void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
-void init_position_vectors__10TObjPlayerFv(void *);
 
 void init_enemy_base__10TObjPlayerFv(void *);
-void init_common__18TObjEneMe3SinowZoaFv(void *);
-void activate_and_dispatch__10TObjPlayerFv(void *);
 void *create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_photon_effect(void *);
-void update_prev_position__10TObjPlayerFv(void *);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
@@ -1235,26 +1197,26 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
 
     ((void (*)(void *, void *))init_enemy_base__10TObjPlayerFv)(self, arg1);
     *(void **)((u8 *)self + 0x18) = lbl_8049168C;
-    init_common__18TObjEneMe3SinowZoaFv((u8 *)arg0 + 0x3A8);
+    ((TObjEneMe3SinowZoa *)((u8 *)arg0 + 0x3A8))->init_common();
     __construct_array(self->f3CC, (void *)init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)self = lbl_805D2A00;
     self->m79(arg2);
-    init_position_vectors__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->init_position_vectors();
     self->f334 = self->f368;
     apply_clamped_mode_param__10TObjPlayerFPv((u8 *)self);
     TObjPlayer__sub_800AC9DC((O_800AC9DC *)self, self->f368);
     self->fD8 = TObjEneShark__action_table;
-    set_field_d8__10TObjPlayerFl(self, self->fD8);
+    ((TObjPlayer *)self)->set_field_d8((s32)(self->fD8));
     self->fDC = *(s32 *)(shark_bml_resource + 0x430);
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
-    set_field_b8__14TObjEnePanarmsFs(self, self->fB8);
+    ((TObjEnePanarms *)self)->set_field_b8(self->fB8);
     init_collision_body_parts(self, lbl_80491608 + self->f334 * 0x2C, 1);
     bind_enemy_combat_stats(self, ((s32 *)TObjEneShark__resource_node)[self->f334], ((s32 *)TObjEneShark__resource_buf)[self->f334],
                             ((s32 *)shark_resource_data)[self->f334]);
     self->f350 = lbl_804915B4 + self->f334 * 0x1C;
     self->f33E = self->f32C;
-    update_prev_position__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(self);
     initialize_enemy_photon_effect(self);
     self->f2AC = (s32)(lbl_805D9BD0 * (lbl_805D9BD4 * calc_boss4_scale__10TObjPlayerFi(self)));
@@ -1265,7 +1227,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f376 = 0;
     self->f378 = 0;
     self->f37C = 0;
-    add_flags_2e4__10TObjPlayerFUl(self, 2);
+    ((TObjPlayer *)self)->add_flags_2e4(2);
     self->f30 |= 0x40000;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
         switch (self->f334) {
@@ -1302,7 +1264,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f39C = (*(f32 **)(shark_resource_buffer + self->f334 * 4))[2];
     self->f3A4 = (*(f32 **)(shark_resource_buffer + self->f334 * 4))[3];
     for (i = 0; i < 4; i++) {
-        activate_and_dispatch__10TObjPlayerFv(self->f3CC[i]);
+        ((TObjPlayer *)(self->f3CC[i]))->activate_and_dispatch();
     }
     self->m80();
     return self;

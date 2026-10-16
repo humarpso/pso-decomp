@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/TObjCMHairMenu.h"
 
 struct Rec_8025D3CC { u8 a; s8 len; };
 
@@ -30,7 +31,6 @@ void set_glyph_quad_extents(u8, void *);
 s32 map_char_to_font_code(u16);
 u8 get_font_char_advance(s32);
 void apply_context_transform_to_rect(void *, void *);
-s32 draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, int, int, f32);
 extern u32 lbl_804CFA84[];
 extern const f32 lbl_805DD048;
 extern const f32 lbl_805DD058;
@@ -102,7 +102,6 @@ void set_glyph_quad_extents(u8, void *);
 s32 map_char_to_font_code(u16);
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 s32 end_render_forward__20TWindowSubStatusDispFPv();
-s32 reset_gauge__20TWindowSubStatusDispFPv(int);
 s32 strnlen__19TWindowKeyBoardSoftFPScUl(void *, u32);
 void apply_context_transform_to_rect(void *, void *);
 void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
@@ -121,7 +120,6 @@ s32 TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, int, int, int);
 void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1);
 s32 strncpy(s32 *, u8 *, s32);
 void draw_textured_quad_at_depth(void *, f32);
-s32 dispatch_request_0x28__19TWindowKeyBoardSoftFll(void *, s32 *);
 s32 dispatch_request_0x27__19TWindowKeyBoardSoftFll(void *, s32 *);
 s32 dispatch_request_0x26__19TWindowKeyBoardSoftFll(void *, s32 *);
 int strcmp(const char *, const char *);
@@ -196,7 +194,7 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, s32 *arg1) {
         TWindowKeyBoardSoft__sub_803E6868(out, tmp);
         return;
     }
-    dispatch_request_0x28__19TWindowKeyBoardSoftFll(out, (s32 *)tmp);
+    TWindowKeyBoardSoft::dispatch_request_0x28((s32)out, (s32)((s32 *)tmp));
     if (strcmp(text, out) != 0) {
         self->sel++;
         self->count++;
@@ -540,7 +538,7 @@ void TWindowSubStatusDisp::draw_text_glyphs(void *arg1, void *arg2) {
                 pos[5] = q.y2;
                 pos[6] = q.x;
                 pos[7] = q.y2;
-                draw_tri_fan_2d__14TObjCMHairMenuFllf(&d, 4, 6, depth);
+                ((TObjCMHairMenu *)(&d))->draw_tri_fan_2d(4, 6, depth);
                 ((f32 *)arg2)[0] += (f32)(s32)adv;
             }
         }
@@ -618,7 +616,7 @@ void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1) {
                 TWindowSubStatusDisp__sub_8025E148((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x84)), (int) (*(s32 *)((s8 *)arg0 + 0x94)));
             }
         }
-        reset_gauge__20TWindowSubStatusDispFPv((int) (0));
+        TWindowSubStatusDisp::reset_gauge((int) (0));
         stack.sp10 = *(f32 *)((s8 *)arg1 + 0x10);
         stack.sp14 = *(f32 *)((s8 *)arg1 + 0x14);
         TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x6C)), (int) (*(s32 *)((s8 *)arg0 + 0x70)), (int) (1));

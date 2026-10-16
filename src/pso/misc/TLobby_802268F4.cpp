@@ -53,7 +53,6 @@ struct Buffers_80226FA0 { u8 unknown[0x80]; s32 segments[2]; s32 ticks[2]; s32 p
 
 extern "C" {
 int TLobby__sub_80226308(void);
-int init_layout_positions__6TLobbyFv(void);
     extern int lbl_805D62B0;
     extern int lbl_805D62B4;
     extern int lbl_805D62B8;
@@ -61,7 +60,6 @@ int TLobby__sub_80226B64(void);
 int set_and_notify__6TLobbyFi(void*);
 int set_and_notify__6TLobbyFi(void*);
 s32 stop_audio_stream(s32);
-int init_layout_positions__6TLobbyFv(void);
 extern s32 lbl_804CB850[];
 extern s32 lbl_805D6330;
 extern s32 lbl_805D6300;
@@ -191,7 +189,7 @@ void update_sound_request_slots(void) {
     }
 }
 
-int TLobby__sub_80226B64(void) { TLobby::update_lobby_subsystems(); init_layout_positions__6TLobbyFv(); TLobby__sub_80226308(); lbl_805D62B4 = 0; lbl_805D62B8 = 0; lbl_805D62B0 = 1; return 0; }
+int TLobby__sub_80226B64(void) { TLobby::update_lobby_subsystems(); TLobby::init_layout_positions(); TLobby__sub_80226308(); lbl_805D62B4 = 0; lbl_805D62B8 = 0; lbl_805D62B0 = 1; return 0; }
 
 typedef char RecoveredGlobal_80226C3C_lbl_80514D00_size[sizeof(RecoveredGlobal_80226C3C_lbl_80514D00) == 0x258 ? 1 : -1];
 u8 *TLobby::get_current_slot_entry() {
@@ -233,7 +231,7 @@ void TLobby::release_bgm_resource() {
     if ((s32) lbl_805D6330 != 0) {
         stop_audio_stream(*(s32 *)((s8 *)lbl_804CB850 + 4));
         lbl_805D6330 = 0;
-        init_layout_positions__6TLobbyFv();
+        TLobby::init_layout_positions();
     }
 }
 

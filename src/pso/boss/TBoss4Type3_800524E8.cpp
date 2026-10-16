@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss4Type3.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct Player_8005254C { u8 pad[0x30]; u32 flags; };
 
@@ -7,7 +8,6 @@ extern "C" {
 extern const f32 lbl_805D8AE0;
 f32 TBoss4Type3__sub_800524E8(f32 farg0);
 Player_8005254C *get_player_by_client_id(s32 id);
-s32 get_field_3e0__12TBoss3VoloptFv(void *p);
 s32 TBoss4Type3__sub_8005254C(u16 id);
 }
 
@@ -35,7 +35,7 @@ s32 TBoss4Type3__sub_8005254C(u16 id) {
     Player_8005254C *p;
     if (id != 0xFFFF) {
         p = get_player_by_client_id(id);
-        if (p != 0 && !(p->flags & 0x2000800) && get_field_3e0__12TBoss3VoloptFv(p) == 0xE) {
+        if (p != 0 && !(p->flags & 0x2000800) && ((TBoss3Volopt *)p)->get_field_3e0() == 0xE) {
             return 1;
         }
     }

@@ -1,18 +1,18 @@
 #include "types.h"
+#include "pso/THunterGuildWarning.h"
+#include "pso/misc/TRaderMapCore.h"
 extern "C" {
 s32 get_main_phase();
 s32 get_nth_view_player_id__11TCameraCtrlFl(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
 u32 get_player_by_client_id(s32);
-void create_instance__19THunterGuildWarningFl(s32);
 s32 is_active__19THunterGuildWarningFv();
 s32 TPlayerBattleCtrl4P__sub_80211B10(s32);
 s32 THunterGuildSeqOffline__sub_80211FEC(s32);
 s32 THunterGuildSeqOffline__sub_80212000(s32);
 s32 THunterGuildSeqOffline__sub_80212060(s32);
 s32 get_game_play_mode();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u8 controller_input_state[][0x50];
 extern s32 lbl_805D55C0;
 s32 TLobby__sub_80211D58(s32 arg0);
@@ -24,7 +24,7 @@ s32 TLobby__sub_80211D58(s32 arg0) {
     s32 kind;
     s32 player;
     if (get_main_phase() == 14) {
-        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        if (TRaderMapCore::is_not_split_screen() == 1) {
             if (get_game_play_mode() == 0) {
                 return 1;
             }
@@ -43,10 +43,10 @@ s32 TLobby__sub_80211D58(s32 arg0) {
                         switch (kind) {
                         case 1:
                         case 2:
-                            create_instance__19THunterGuildWarningFl(0);
+                            THunterGuildWarning::create_instance(0);
                             break;
                         case 3:
-                            create_instance__19THunterGuildWarningFl(1);
+                            THunterGuildWarning::create_instance(1);
                             break;
                         }
                     }

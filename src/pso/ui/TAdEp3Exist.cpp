@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/ui/TAdEp3Exist.h"
+#include "pso/TLevelSelect.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdScrollWinGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Obj_8036F4DC { u8 pad0[8]; u8 cnt; u8 bits; };
 
@@ -68,9 +72,7 @@ void __ct__7TObjectFP7TObject(void);
 int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
-void add_item_rect__12TLevelSelectFPv(u32, void *);
 u32 __ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
-void set_ad_field__6TLobbyFl(u32, int);
 u32 TAdScrollWinGC__ct(void *, void *, int, s32);
 void fn_80329BAC(u32);
 extern u8 lbl_8047B8A8[];
@@ -79,7 +81,6 @@ extern s32 __vt__11TAdEp3Exist[];
 extern s32 lbl_805D4500;
 extern s32 tl_clipout;
 void *TAdEp3Exist__ct(Ep3_8036F354 *o);
-s32 get_selected_slot__23TAdSinglePlyChrSelectGCFv(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
@@ -105,7 +106,6 @@ void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 int __dl__FPv();
 void __dt__7TObjectFv(void *, int);
-int close_window__14TAdScrollWinGCFv(void*);
 void queue_destruction__7TObjectFv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
@@ -128,7 +128,7 @@ void TAdEp3Exist::render() {
 int TAdEp3Exist::request_game_mode_transition() { return request_transition__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist::request_scene_change() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist__sub_8036F0AC(void* p) { return reset_and_set_mode__21TAdMultiChgGameModeGCFv(p); }
-void TAdEp3Exist::close_window() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { close_window__14TAdScrollWinGCFv(*(void**)((char*)this + 0x1c)); *(int*)((char*)this + 0x1c) = 0; } }
+void TAdEp3Exist::close_window() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { ((TAdScrollWinGC *)(*(void**)((char*)this + 0x1c)))->close_window(); *(int*)((char*)this + 0x1c) = 0; } }
 
 extern s32 __vt__11TAdEp3Exist[];
 
@@ -141,7 +141,7 @@ void TAdEp3Exist::run_task() {
         o->state = 1;
         break;
     case 1:
-        if (get_selected_slot__23TAdSinglePlyChrSelectGCFv(o->sel) == 1) {
+        if (((TAdSinglePlyChrSelectGC *)(o->sel))->get_selected_slot() == 1) {
             switch (TAdSinglePlyChrSelectGC__sub_801334DC(o->sel)) {
             case 0:
                 o->state = 2;
@@ -250,9 +250,9 @@ void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
         r = __ct__14TAdSelectCurGCFv((void *)r, tl_clipout, lbl_8047B8A8, lbl_8047B8B0);
     }
     o->cur20 = r;
-    add_item_rect__12TLevelSelectFPv(o->cur20, lbl_8047B8A8);
+    ((TLevelSelect *)(o->cur20))->add_item_rect(lbl_8047B8A8);
     fn_80329BAC(o->cur20);
-    set_ad_field__6TLobbyFl(o->cur20, 0);
+    ((TLobby *)(o->cur20))->set_ad_field(0);
     return o;
 }
 

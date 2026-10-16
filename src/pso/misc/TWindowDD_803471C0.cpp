@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 s32 TWindowDD__sub_80347238(s16 arg0);
@@ -7,14 +8,13 @@ s32 TWindowDD__sub_80347238(s16 arg0);
 
 extern "C" {
 
-s32 open__11TWindowCtrlFlll(s32, s32, s32);
 s32 update_state__9TWindowDDFv(s32, s32, s32);
 
 extern s32 window_dd_buffer_a;
 
 void TWindowDD::open(s32 arg0, s32 arg1) {
     update_state__9TWindowDDFv(arg0, window_dd_buffer_a, arg1);
-    open__11TWindowCtrlFlll(arg1, window_dd_buffer_a, 0x4F);
+    TWindowCtrl::open(arg1, window_dd_buffer_a, 0x4F);
 }
 
 u8 TWindowDD::is_id_in_special_range(s16 id) {

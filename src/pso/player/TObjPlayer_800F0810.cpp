@@ -12,6 +12,7 @@ struct RecoveredGlobal_800F08AC_lbl_805010D0 {
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
 struct Stack_800F09E8 {
     f32 sp8;
     f32 spC;
@@ -42,9 +43,6 @@ s32 is_split_screen__10TObjPlayerFv(void);
 s32 is_split_screen__10TObjPlayerFv(void);
 s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 draw_shadow_quad__10TObjPlayerFll(void *, int, int);
 s32 set_cached_blend_factor(int, int);
 extern RecoveredGlobal_800F09E8_lbl_804976B0 blob_shadow_rect_desc;
 extern s32 blob_shadow_texture_list;
@@ -122,18 +120,18 @@ block_2:
         set_depth_buffer_settings_1__Fv();
         set_cached_blend_factor((int) (0), (int) (8));
         set_cached_blend_factor((int) (1), (int) (6));
-        begin_effect_render__13TParticleCtrlFv();
-        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x20));
+        TParticleCtrl::begin_effect_render();
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x20));
         stack.sp8 = lbl_805DA7FC;
         stack.spC = lbl_805DA7FC;
-        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x24));
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x24));
         stack.sp8 = lbl_805DA7F8;
         stack.spC = lbl_805DA7F8;
-        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x28));
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x28));
         stack.sp8 = lbl_805DA7FC;
         stack.spC = lbl_805DA7F8;
-        draw_shadow_quad__10TObjPlayerFll((void *) (&stack.sp8), (int) (0), (int) (0x2C));
-        end_effect_render__13TParticleCtrlFv();
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x2C));
+        TParticleCtrl::end_effect_render();
         restore_saved_depth_alpha_state();
     }
 }

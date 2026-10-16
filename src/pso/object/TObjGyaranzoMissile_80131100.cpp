@@ -49,7 +49,6 @@ f32 vec_squared_length();
 f32 newton_sqrtf();
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
-void launch_weapon_casing__10TObjPlayerFlUllUlUl(s32, u32, s32, u32, u32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
@@ -58,7 +57,6 @@ extern const float lbl_805DB054;
 extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
 void yasminkov_7000v_update_recoil(u8 *arg0);
-void draw_status_icon__10TObjPlayerFl(void *self, void *buf);
 void spawn_particle_effect(void *buf, s32 n);
 void yasminkov_7000v_marker(Obj_80131334 *self);
 extern u8 lbl_80506250[];
@@ -134,7 +132,7 @@ void yasminkov_7000v_update_recoil(u8 *arg0) {
         buffer_8[0] = 0x4000;
         buffer_8[1] = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60);
         buffer_8[2] = 0;
-        launch_weapon_casing__10TObjPlayerFlUllUlUl(tl_05, (u32) arg0, 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
+        TObjPlayer::launch_weapon_casing(tl_05, (u32) arg0, 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
         break;
     }
 }
@@ -143,7 +141,7 @@ void yasminkov_7000v_update_recoil(u8 *arg0) {
 void yasminkov_7000v_marker(Obj_80131334 *self) {
     u8 buf[0x18];
     self->state = 2;
-    draw_status_icon__10TObjPlayerFl(self, buf);
+    ((TObjPlayer *)self)->draw_status_icon((s32)buf);
     spawn_particle_effect(buf, 9);
 }
 

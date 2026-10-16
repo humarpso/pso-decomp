@@ -2,6 +2,8 @@
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
+#include "pso/item/TItemData.h"
+#include "pso/player/TObjPlayer.h"
 
 struct In_8010440C { u8 pad0; u8 idx; };
 
@@ -19,7 +21,6 @@ struct ByteBlock_44 { u8 bytes[0x44]; };
 struct Tbl_801044B8 { s32 v[17]; };
 
 extern "C" {
-s32 clear_id__10TObjPlayerFv(s32 *);
 s32 mem_free(s32);
 extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
@@ -30,7 +31,6 @@ extern s32 floor_item_next_sort_keys;
 extern s32 lbl_805D5430;
 s32 __construct_new_array(s32, s32 *, s32, s32, s32);
 s32 mem_alloc(s32);
-s32 clear_id__10TObjPlayerFv(s32 *);
 extern s32 drop_stacked_item_passthrough__6TLobbyFv[];
 extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
@@ -44,19 +44,16 @@ int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
 void TLobby__sub_801041BC(void *arg0);
-s32 set_flags__10TObjPlayerFUl(s32 *, s32);
 extern s32 lbl_805D5430;
 void TLobby__sub_801041D8(void);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int bswap__9TItemDataFv(void*);
-s32 init_forward__10TObjPlayerFv(s32 *);
 extern s32 lbl_805D5430;
 void TLobby__sub_80104350(void);
     extern int* item_sync_counter_table;
 extern int* item_sync_counter_table;
 s32 get_item_icon_index();
-s32 format_item_name__9TItemDataFPc(u32, s32);
     extern int lobby_drop_flag;
 extern int lobby_drop_flag;
 void TLobby__sub_80104464(void);
@@ -68,7 +65,6 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 s32 send_6x25_equip_item(s32, s32, s32);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFv(s32);
-s32 request_inventory_item__10TObjPlayerFP9TItemData(s32, void *);
 s32 obj_isState3_324(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
@@ -76,13 +72,10 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFv(s32);
-u32 activate_d04_slot__10TObjPlayerFv(s32);
 u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_field_d8__10TObjPlayerFv();
-u32 get_item_field_2__9TItemDataFv(s32);
 u32 get_item_field_6__10TObjPlayerFPv(s32);
 s32 obj_isState3_324(s32);
-u32 test_flag3__9TItemDataFv(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 extern void *item_tool_factory_table[];
@@ -91,12 +84,10 @@ void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *weapon_factory_table[];
 void create_common_weapon();
 void *get_weapon_factory_for_item(In_80104438 *arg0);
-void init_floor_item_entry__6TLobbyFv(Ent_80103F68 *);
 extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_next_sort_keys;
-s32 get_instance__6TLobbyFv();
 s32 is_quest_active();
 s32 TItemDropSub__sub_80107B74();
 extern Tbl_801044B8 item_drop_area_remap_table;
@@ -117,7 +108,7 @@ void TLobby::reset_floor_items() {
     s32 k;
     for (i = 0; i != 0xD80; i++) {
         if (*(Ent_80103F68 **)&TLobby__floor_item_entry_pool != NULL) {
-            init_floor_item_entry__6TLobbyFv(&(*(Ent_80103F68 **)&TLobby__floor_item_entry_pool)[i]);
+            ((TLobby *)(&(*(Ent_80103F68 **)&TLobby__floor_item_entry_pool)[i]))->init_floor_item_entry();
         }
     }
     for (j = 0; j < 0x12; j++) {
@@ -148,7 +139,7 @@ void TLobby::free_boss_rocks() {
         mem_free(TLobby__floor_item_entry_pool - 0x10);
     }
     TLobby__floor_item_entry_pool = 0U;
-    clear_id__10TObjPlayerFv(&lbl_805D5430);
+    ((TObjPlayer *)(&lbl_805D5430))->clear_id();
 }
 void TLobby::alloc_objects() {
     (*(s32 *)&TLobby__floor_item_entry_pool) = __construct_new_array(mem_alloc(0x1E610), drop_stacked_item_passthrough__6TLobbyFv, 0, 0x24, 0xD80);
@@ -157,7 +148,7 @@ void TLobby::alloc_objects() {
     floor_item_free_id_stack = mem_alloc(0x40);
     (*(s32 *)&floor_item_free_id_count) = 0;
     floor_item_next_sort_keys = mem_alloc(0x24);
-    clear_id__10TObjPlayerFv(&lbl_805D5430);
+    ((TObjPlayer *)(&lbl_805D5430))->clear_id();
     TLobby::reset_floor_items();
 }
 int TLobby::get_lobby_flag() {  return lbl_805D5868; }
@@ -169,7 +160,7 @@ void TLobby__sub_801041BC(void *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 void TLobby__sub_801041D8(void) {
-    set_flags__10TObjPlayerFUl(&lbl_805D5430, 1);
+    ((TObjPlayer *)(&lbl_805D5430))->set_flags(1);
 }
 void TLobby::bswap_item() { bswap_16__FPUs((char*)this + 0x2); bswap_32__FPUl((char*)this + 0x4); bswap_32__FPUl((char*)this + 0x8); bswap_16__FPUs((char*)this + 0xc); bswap_16__FPUs((char*)this + 0xe); bswap__9TItemDataFv((char*)this + 0x10); }
 
@@ -189,7 +180,7 @@ void bswap_sync_item_state_header(G_SyncItemState_6x6D_Decompressed *header) {
 }
 
 void TLobby__sub_80104350(void) {
-    init_forward__10TObjPlayerFv(&lbl_805D5430);
+    ((TObjPlayer *)(&lbl_805D5430))->init_forward();
 }
 void TLobby::set_boss_buf_entry(int a0, int a1) { item_sync_counter_table[(unsigned short)(a1)] = a0; }
 int TLobby::get_sync_counter(int a0) {  return item_sync_counter_table[(unsigned short)(a0)]; }
@@ -201,7 +192,7 @@ s32 TLobby::get_item_data(u32 arg0) {
 }
 void TLobby::forward_message(s32 arg0, u32 arg1) {
     if (arg1 != 0U) {
-        format_item_name__9TItemDataFPc(arg1, arg0);
+        ((TItemData *)arg1)->format_item_name((char *)arg0);
     }
 }
 void TLobby::mark_selected() { lobby_drop_flag = 1; }
@@ -243,7 +234,7 @@ void normalize_drop_area(s32 *p) {
             return;
         }
     }
-    if (get_instance__6TLobbyFv() == 0) {
+    if (TLobby::get_instance() == 0) {
         if (p != NULL) {
             v = *p;
             if (v > 10) {
@@ -279,7 +270,7 @@ void TLobby::forward_to_player(int arg0, void *arg1) {
     if (arg1 != NULL) {
         temp_r3 = get_player_by_client_id(arg0);
         if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
-            request_inventory_item__10TObjPlayerFP9TItemData(temp_r3, arg1);
+            ((TObjPlayer *)temp_r3)->request_inventory_item((TItemData*)arg1);
             send_6x25_equip_item(temp_r3, *(s32 *)((s8 *)arg1 + 0xC), 0);
         }
     }
@@ -295,13 +286,13 @@ void TLobby::handle_player_event(s32 arg0, s32 arg1) {
             var_r3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
             break;
         case 1:
-            var_r3 = get_item_field_2__9TItemDataFv(temp_r3);
+            var_r3 = ((TItemData *)temp_r3)->get_item_field_2();
             break;
         case 2:
-            var_r3 = test_flag3__9TItemDataFv(temp_r3);
+            var_r3 = ((TItemData *)temp_r3)->test_flag3();
             break;
         case 3:
-            var_r3 = activate_d04_slot__10TObjPlayerFv(temp_r3);
+            var_r3 = ((TObjPlayer *)temp_r3)->activate_d04_slot();
             break;
         case 4:
         case 5:

@@ -20,6 +20,10 @@ struct Stack_8034B720 {
 };
 
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowMessagePage.h"
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
 s32 TLobby__sub_802924B4(void *, int);
@@ -29,7 +33,6 @@ s32 TLobby__sub_802924B4(void *, int);
 void TChallenge4PResult__sub_8034B918(u8 *arg0);
 void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
 s32 is_active__11TBoss4Type2Fv();
-s32 get_global_state__14TOKeyMachine01Fv();
 void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
 
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
@@ -44,30 +47,23 @@ void TChallenge4PResult__sub_8034B918(u8 *arg0);
 
 s32 get_instance__11TCameraCtrlFv();
 s32 set_position_xy(int, f32, f32);
-void set_message__18TWindowMessagePageFPvl(void *, void *, s32);
-u8 *create__18TWindowMessagePageFllll(s32, s32, s32, s32);
 s32 get_window_layout_position(int, int, void *);
 extern s32 lbl_80478BCC[];
 extern const f32 lbl_805DFDA4;
 extern s32 TChallenge4PResult__slot_entries[];
 u32 get_player_by_client_id(int);
-s32 check_player_flag1__6TLobbyFv(TObjPlayer *);
 void play_effect_default__10TObjPlayerFii(TObjPlayer *, s32);
 void obj_set_flag_20000(TObjPlayer *);
 void get_player_result__18TChallenge4PResultFPv(TObjPlayer *, s32);
-s32 check_flag_0x40000000__10TObjPlayerFv(TObjPlayer *);
 void fn_8034BE48(TObjPlayer *);
 u32 obj_getField1c(TObjPlayer *);
 void TObjPlayer__sub_8024ABDC(u16);
 void request_active_window_close();
-void set_close_flag__11TWindowCtrlFv();
 void send_code_45_1__10TObjPlayerFi(TObjPlayer *);
 void obj_clear_flag30_20000(TObjPlayer *);
 void get_player_rank__18TChallenge4PResultFPv(TObjPlayer *);
 void fn_8034BE38(TObjPlayer *);
 void TLobby__sub_8024AC20(u16);
-void clear_flag__11TWindowCtrlFv();
-void clear_flag_2__11TWindowCtrlFv();
 s32 update_challenge_result_player_locks();
 }
 
@@ -119,30 +115,30 @@ s32 update_challenge_result_player_locks() {
     if (active) {
         for (s32 i = 0; i < 4; ++i) {
             TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id((int)(i)));
-            if (player && check_player_flag1__6TLobbyFv(player) == 0) {
+            if (player && ((TLobby *)player)->check_player_flag1() == 0) {
                 play_effect_default__10TObjPlayerFii(player, -1);
                 obj_set_flag_20000(player);
                 get_player_result__18TChallenge4PResultFPv(player, 0);
                 get_player_result__18TChallenge4PResultFPv(player, 1);
                 get_player_result__18TChallenge4PResultFPv(player, 2);
                 get_player_result__18TChallenge4PResultFPv(player, 3);
-                if (check_flag_0x40000000__10TObjPlayerFv(player) == 0) fn_8034BE48(player);
+                if (((TObjPlayer *)player)->check_flag_0x40000000() == 0) fn_8034BE48(player);
                 TObjPlayer__sub_8024ABDC(obj_getField1c(player));
                 request_active_window_close();
-                set_close_flag__11TWindowCtrlFv();
+                TWindowCtrl::set_close_flag();
             }
         }
     } else {
         for (s32 i = 0; i < 4; ++i) {
             TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id((int)(i)));
-            if (player && check_player_flag1__6TLobbyFv(player) != 0) {
+            if (player && ((TLobby *)player)->check_player_flag1() != 0) {
                 send_code_45_1__10TObjPlayerFi(player);
                 obj_clear_flag30_20000(player);
                 get_player_rank__18TChallenge4PResultFPv(player);
-                if (check_flag_0x40000000__10TObjPlayerFv(player)) fn_8034BE38(player);
+                if (((TObjPlayer *)player)->check_flag_0x40000000()) fn_8034BE38(player);
                 TLobby__sub_8024AC20(obj_getField1c(player));
-                clear_flag__11TWindowCtrlFv();
-                clear_flag_2__11TWindowCtrlFv();
+                TWindowCtrl::clear_flag();
+                TWindowCtrl::clear_flag_2();
             }
         }
     }
@@ -184,10 +180,10 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     if (message_window == NULL) {
         stack.sp8 = *(s32 *)((s8 *)lbl_80478BCC + 0);
         stack.spC = *(s32 *)((s8 *)lbl_80478BCC + 4);
-        message_window = (TWindowMessagePage *)create__18TWindowMessagePageFllll(get_window_layout_position((int) (0x40), (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), (void *) (lbl_80478BCC)), (s32)(&stack.sp8), 1, slot_index);
+        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position((int) (0x40), (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), (void *) (lbl_80478BCC)), (s32)(&stack.sp8), 1, slot_index);
     }
     if (message_window != NULL) {
-        set_message__18TWindowMessagePageFPvl((void *)message_window, (void *)text_handle, 0x81);
+        ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);
         if (get_instance__11TCameraCtrlFv() > 2) {
             set_position_xy((int) (message_window), (f32) (lbl_805DFDA4), (f32) (lbl_805DFDA4));
         }
@@ -333,7 +329,7 @@ void TChallenge4PResult::update_input() {
 
 void TChallenge4PResult::run_task() {
     s32 temp_r0;
-    if ((get_global_state__14TOKeyMachine01Fv() != 0xE) || (is_active__11TBoss4Type2Fv() != 1)) {
+    if ((TOKeyMachine01::get_global_state() != 0xE) || (is_active__11TBoss4Type2Fv() != 1)) {
         temp_r0 = state_1c;
         switch (temp_r0) {
         case 0:

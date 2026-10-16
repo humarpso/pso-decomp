@@ -1,23 +1,22 @@
 #include "types.h"
 #include "pso/TEndingAB.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 set_depth_buffer_settings_2__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 begin_screen_draw(s32);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(s32, s32);
 extern s32 TEndingAB__fade_sequence_state;
 extern const f32 lbl_805D9580;
 extern s32 game_difficulty_selection;
 extern s32 ending_ab_wall_texture_list;
-s32 set_global_param__8TObjFishFl(s32);
 }
 
 extern "C" {
-
-s32 update_flag890_state__10TObjPlayerFl(s32);
 
 extern s32 TEndingAB__fade_sequence_state;
 
@@ -37,7 +36,7 @@ void TEndingAB::advance_fade_sequence() {
         temp_r4 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingAB__fade_sequence_state = 2;
-            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }
@@ -56,7 +55,7 @@ void TEndingAB::advance_fade_sequence() {
         temp_r4_2 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingAB__fade_sequence_state = 4;
-            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }
@@ -92,26 +91,26 @@ void TEndingAB::draw_overlay() {
     case 2:
         begin_screen_draw(1);
         set_draw_texture_and_color((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2, -1);
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
         set_depth_buffer_settings_2__Fv();
         begin_screen_draw(1);
         set_draw_texture_and_color(0, -1);
         draw_textured_quad_at_depth(arg0 + 0x2C, lbl_805D9580);
         draw_textured_quad_at_depth(arg0 + 0x4C, lbl_805D9580);
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
         restore_saved_depth_alpha_state();
         break;
     case 4:
     case 5:
         begin_screen_draw(1);
         set_draw_texture_and_color((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3, -1);
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
         set_depth_buffer_settings_2__Fv();
         begin_screen_draw(1);
         set_draw_texture_and_color(1, -1);
         draw_textured_quad_at_depth(arg0 + 0x6C, lbl_805D9580);
         draw_textured_quad_at_depth(arg0 + 0x8C, lbl_805D9580);
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
         restore_saved_depth_alpha_state();
         break;
     }
@@ -122,13 +121,13 @@ void TEndingAB::set_fish_global_param() {
     switch (game_difficulty_selection) {
     case 0:
     case 1:
-        set_global_param__8TObjFishFl(ending_ab_wall_texture_list);
+        TObjFish::set_global_param(ending_ab_wall_texture_list);
         break;
     case 2:
-        set_global_param__8TObjFishFl(ending_ab_wall_texture_list);
+        TObjFish::set_global_param(ending_ab_wall_texture_list);
         break;
     case 3:
-        set_global_param__8TObjFishFl(ending_ab_wall_texture_list);
+        TObjFish::set_global_param(ending_ab_wall_texture_list);
         break;
     }
 }

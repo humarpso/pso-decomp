@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/misc/TLobby.h"
 
 struct Base_803357EC_8033573C { char pad[0x18]; };
 struct VObj_803357EC_8033573C : Base_803357EC_8033573C {
@@ -32,8 +34,6 @@ struct RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC {
 };
 
 extern "C" {
-s32 draw_with_camera__6TLobbyFlllf(void *, void *, int, f32);
-s32 get_record__6TLobbyFi(void *);
 extern const f32 lbl_805DF8B0;
 s32 queue_destruction__7TObjectFv(void *);
 s32 __nw__7TObjectFUl(int);
@@ -49,12 +49,9 @@ extern "C" {
 
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
-s32 probe_and_check_card__15TAdPlayerLoadGCFv(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TAdAgreementBaseGCFv(void *, int);
-s32 check_memcard_status__15TAdPlayerLoadGCFl(s32);
 s32 wait_for_load__19TAdTrialAgreementGCFv(s32);
 
 extern s32 pso_system_card_filename[];
@@ -62,14 +59,14 @@ extern s32 pso_system_card_filename[];
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
     s32 temp_r3;
 
-    if (probe_card_slot__15TAdPlayerLoadGCFv(0) == 0) {
+    if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
         return 0;
     }
-    if (probe_and_check_card__15TAdPlayerLoadGCFv(0) == 0) {
+    if (((TAdPlayerLoadGC *)0)->probe_and_check_card() == 0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
-    if (check_memcard_status__15TAdPlayerLoadGCFl(0) != 0) {
+    if (TAdPlayerLoadGC::check_memcard_status(0) != 0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
@@ -121,7 +118,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
 }
 
 void TAdTrialAgreementGC::draw_record_with_camera(s32 arg0, s32 arg1, s32 arg2) {
-    draw_with_camera__6TLobbyFlllf((void *) (get_record__6TLobbyFi((void *) (arg1))), (void *) (arg2), (int) (0x20), (f32) (lbl_805DF8B0));
+    TLobby::draw_with_camera((s32)((void *) (TLobby::get_record((int)((void *) (arg1))))), (s32)((void *) (arg2)), (s32)((int) (0x20)), (f32)((f32) (lbl_805DF8B0)));
 }
 
 }

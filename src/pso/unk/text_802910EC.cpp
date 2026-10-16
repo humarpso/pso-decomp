@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObjCMIcon.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_80291138_lbl_804D9668 {
     s32 value;
@@ -21,7 +23,6 @@ s32 TLobby__sub_803DA16C(void *);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern u32 cmicon_instance;
 void fn_80291138(void);
-void apply_view_params_if_flagged__11TCameraCtrlFv(void *);
 extern RecoveredGlobal_802911E8_lbl_804DAA78 creation_view_parameters;
 extern f32 lbl_805D3CA0;
 extern const f32 lbl_805DD968;
@@ -32,7 +33,6 @@ extern u8 lbl_804D9578[];
 extern s32 creation_sprite_table_index;
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
 void load_texture_pvm_file__6TLobbyFPvi(int, void *);
-void init_icon_table__10TObjCMIconFv();
 s32 create__10TObjCMIconFPv(int);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern s32 lbl_804DA944[];
@@ -83,7 +83,7 @@ void fn_80291178(void) {
     if (current_language != 0) {
         creation_sprite_table_index = 1;
     }
-    init_icon_table__10TObjCMIconFv();
+    TObjCMIcon::init_icon_table();
     (*(s32 *)&cmicon_instance) = create__10TObjCMIconFPv(tl_06);
     load_texture_pvm_file__6TLobbyFPvi(lbl_804DA944[creation_sprite_table_index], ((s32 *)&creation_sprite_table));
 }
@@ -93,7 +93,7 @@ void set_creation_projection_center(f32 farg0) {
     CopyStack_802911E8 copy_storage_802911E8;
     *(ByteBlock_48 *)(copy_storage_802911E8.bytes) = *(const ByteBlock_48 *)((s32) ((u8 *)(&creation_view_parameters.value) + -4) + 4);
     (*(f32 *)(copy_storage_802911E8.bytes + 0x8)) = lbl_805DD968 * ((lbl_805DD970 * farg0) + lbl_805DD96C);
-    apply_view_params_if_flagged__11TCameraCtrlFv((copy_storage_802911E8.bytes));
+    ((TCameraCtrl *)(copy_storage_802911E8.bytes))->apply_view_params_if_flagged();
     lbl_805D3CA0 = farg0;
 }
 #pragma pop

@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/object/TObjWarpLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/object/TObjCityMainWarp.h"
+#include "pso/object/TObjFish.h"
 
 struct WarpLobbyBase_801A07F8 { char pad[0x18]; };
 struct WarpLobbyVObj_801A07F8 : WarpLobbyBase_801A07F8 {
@@ -18,7 +23,6 @@ struct VO_801A0894 : VB_801A0894 {
 };
 
 extern "C" {
-s32 set_flag70_bit10__16TObjCityMainWarpFv(s32);
 s32 request_active_window_close();
 s32 align_menu_entry_positions(s32);
 s32 calc_window_size__17TWindowSubComCardFPv(s32);
@@ -28,12 +32,10 @@ extern s32 warp_lobby_directory_label_table[];
 extern const f32 lbl_805DC058;
 extern const f32 lbl_805DC05C;
 s32 queue_destruction__7TObjectFv(u32);
-s32 is_visible__17TWindowSubComCardFv(u32);
 s32 send_room_change__6TLobbyFi(s32);
 s32 is_idle__6TLobbyFv();
 u32 find_warp_player_in_range(void *, u16, f32);
 s32 TWindow__close(void *);
-s32 clear_flag__11TWindowCtrlFv();
 s32 get_selected_menu_value(u32);
 extern s32 local_client_id;
 extern const f32 lbl_805DC068;
@@ -52,9 +54,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern u8 *TObjWarpLobby__instance;
 extern s32 lbl_805D5CCC;
@@ -72,20 +71,20 @@ void TObjWarpLobby::open_lobby_menu() {
     }
     calc_window_size__17TWindowSubComCardFPv(*(s32 *)((s8 *)this + 0xB0));
     align_menu_entry_positions(*(s32 *)((s8 *)this + 0xB0));
-    set_flag70_bit10__16TObjCityMainWarpFv(*(s32 *)((s8 *)this + 0xB0));
+    ((TObjCityMainWarp *)(*(s32 *)((s8 *)this + 0xB0)))->set_flag70_bit10();
     request_active_window_close();
 }
 
 void TObjWarpLobby::render() {
     u8 *arg0 = (u8 *)this;
     if (((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) && (((WarpLobbyVObj_801A07F8*)arg0)->m8(lbl_805DC060, lbl_805DC064) != 0)) {
-        set_global_param__8TObjFishFl(lbl_805D5CCC);
+        TObjFish::set_global_param(lbl_805D5CCC);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)TObjWarpLobby__instance + 0x42C)) + 8), *(s32 *)((s8 *)(*(void **)((s8 *)TObjWarpLobby__instance + 0x430)) + 4), *(f32 *)((s8 *)arg0 + 0xC8));
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -103,19 +102,19 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
         if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) && (is_idle__6TLobbyFv() != 0)) {
             ((TObjWarpLobby *)arg0)->open_lobby_menu();
         }
-        if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) && (is_visible__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0xB0)) != 0)) {
+        if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) && (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0xB0)))->is_visible() != 0)) {
             temp_r31 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0xB0));
             if (*(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
                 queue_destruction__7TObjectFv(*(u32 *)((s8 *)arg0 + 0xB0));
                 *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
-                clear_flag__11TWindowCtrlFv();
+                TWindowCtrl::clear_flag();
             }
             send_room_change__6TLobbyFi(temp_r31);
         }
     } else if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
         TWindow__close(*(void **)((s8 *)arg0 + 0xB0));
         *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
-        clear_flag__11TWindowCtrlFv();
+        TWindowCtrl::clear_flag();
     }
 }
 

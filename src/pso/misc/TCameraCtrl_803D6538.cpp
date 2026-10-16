@@ -197,13 +197,11 @@ u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 extern u8 *current_motion_context;
 void set_motion_row_stride(s32 n);
-void concat_quaternion_rotation__10TObjPlayerFv(void *);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void compose_motion_node_matrix(void *arg0);
 s32 blend_motion_poses(void *, void *, void *, void *, void *);
-void concat_quaternion_rotation__10TObjPlayerFv(void *);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
@@ -728,7 +726,7 @@ void TObjPlayer::apply_motion_node_transform() {
         rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
-        concat_quaternion_rotation__10TObjPlayerFv(&quat);
+        ((TObjPlayer *)(&quat))->concat_quaternion_rotation();
         break;
     }
     scale_current_matrix(&scale);
@@ -921,7 +919,7 @@ void compose_motion_node_matrix(void *arg0) {
         rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
-        concat_quaternion_rotation__10TObjPlayerFv(&quat);
+        ((TObjPlayer *)(&quat))->concat_quaternion_rotation();
         break;
     }
     scale_current_matrix(&scale);

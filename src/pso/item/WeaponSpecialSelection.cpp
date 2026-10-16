@@ -1,10 +1,10 @@
 #include "pso/items/TItemWeapon.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-int test_flags_1b8__10TObjPlayerFUl(void*, u32);
 
 s32 weapon_has_extra_attack(TItemWeapon* weapon) {
-    if ((test_flags_1b8__10TObjPlayerFUl(weapon, 0x400020U) != 0U) ||
+    if ((((TObjPlayer *)weapon)->test_flags_1b8(0x400020U) != 0U) ||
         (weapon->special_selector != 0)) {
         return 1;
     }

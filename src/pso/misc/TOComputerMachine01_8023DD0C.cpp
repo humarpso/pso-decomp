@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Ent_8023DD0C { u8 type; u8 pad[3]; u32 f4; };
 
@@ -36,7 +37,6 @@ void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv(void);
 void DVDConvertEntrynumToPath(void *);
 void set_draw_texture_and_color(s32, s32);
 }
@@ -263,7 +263,7 @@ void TObjPlayer::draw_compass_sprite(s32 idx, s32 color, s32 flags, f32 z) {
     }
     set_draw_texture_and_color(idx, color);
     DVDConvertEntrynumToPath(&info);
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 #pragma pop
 

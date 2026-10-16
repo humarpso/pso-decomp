@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TORockJungleS01.h"
+#include "pso/object/TObjMapCsn.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -29,15 +32,10 @@ struct Copy_8029C214 { u32 w[15]; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 activate_and_dispatch__10TObjPlayerFv(void *);
-s32 init_and_activate__10TObjPlayerFv(void *);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCave__ct(void *);
-s32 create__10TObjMapCsnFl(void *);
 s32 get_jungle_rock_texture_resource(s32 a);
-u8 *get_model__15TORockJungleS01Fl(s32 arg0);
 extern "C" void TAdRayGC__sub_8029C054();
 extern "C" void update_near_fade__12TBoss8DragonFv();
 extern "C" void TLobby__sub_801A1FD8();
@@ -100,21 +98,21 @@ void *lbl_804DC448[16] = {
 u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     TORockCave__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804DC448;
-    init_and_activate__10TObjPlayerFv(arg0 + 0xB4);
+    ((TObjPlayer *)(arg0 + 0xB4))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3D44;
     ((VObj_8029C214 *)(arg0))->m5(arg1);
-    *(u8 **)((s8 *)arg0 + 0x34) = get_model__15TORockJungleS01Fl(4);
+    *(u8 **)((s8 *)arg0 + 0x34) = TORockJungleS01::get_model(4);
     *(s32 *)((s8 *)arg0 + 0x24) = get_jungle_rock_texture_resource(4);
     *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
     ((s32 (*)(void *, void *, int, f32))init_collision_body_parts)(arg0, &rock_jungle_collision_body_parts.v, 1, lbl_805DDD1C);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     {
         Copy_8029C214 c = *(Copy_8029C214 *)arg1;
         VecCopy__FP3VecPC3Vec((u8 *)&c + 0x24, rock_jungle_vec3_table);
-        *(s32 *)((s8 *)arg0 + 0xD4) = create__10TObjMapCsnFl(&c);
+        *(s32 *)((s8 *)arg0 + 0xD4) = TObjMapCsn::create((s32)(&c));
     }
-    activate_and_dispatch__10TObjPlayerFv(arg0 + 0xB4);
+    ((TObjPlayer *)(arg0 + 0xB4))->activate_and_dispatch();
     return arg0;
 }
 

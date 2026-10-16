@@ -88,7 +88,6 @@ struct Obj_803CDB0C {
 extern "C" {
 char *strncpy(char *, const char *, u32);
 void *memset(void *, s32, u32);
-void notify_error__6TLobbyFPCc(const char *);
 s32 TLobby__sub_803CCB98(void *, int, int);
 void close_adxf_handle__6TLobbyFPv(void *);
 void *adxf_open__6TLobbyFUii(const char *, s32);
@@ -117,11 +116,11 @@ extern "C" {
 #pragma inline_depth(4)
 inline s32 check_803CD840(char *msg, s32 id, Ent_803CD840 *e) {
     if (id < 0 || id >= 0x100) {
-        notify_error__6TLobbyFPCc(msg + 0x3E8);
+        TLobby::notify_error(msg + 0x3E8);
         return -3;
     }
     if (e == NULL) {
-        notify_error__6TLobbyFPCc(msg + 0x420);
+        TLobby::notify_error(msg + 0x420);
         return -3;
     }
     return 0;
@@ -135,12 +134,12 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
         return r;
     }
     if (lobby_adxf_current_file_id >= 0) {
-        notify_error__6TLobbyFPCc(msg + 0x56C);
+        TLobby::notify_error(msg + 0x56C);
         return -1;
     }
     lobby_adxf_open_file_handle = adxf_open__6TLobbyFUii(name, arg2);
     if (lobby_adxf_open_file_handle == NULL) {
-        notify_error__6TLobbyFPCc(msg + 0x5A4);
+        TLobby::notify_error(msg + 0x5A4);
         return -1;
     }
     lobby_adxf_current_file_id = id;

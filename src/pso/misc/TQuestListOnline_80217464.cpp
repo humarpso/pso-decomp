@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuestListOnline.h"
+#include "pso/misc/TLobby.h"
 
 struct S217 { char pad[0x38]; void *f38; };
 
@@ -27,8 +28,6 @@ extern s32 online_quest_list_state;
 extern "C" {
 
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPCc(s32 *);
-s32 get_party_min_tier__6TLobbyFl(s32);
 s32 get_story_flag(s32);
 s32 TWindow__close(void *);
 s32 is_flag_set__6TLobbyFv();
@@ -90,9 +89,9 @@ u8 TQuestListOnline::get_unlocked_tier() {
     if (is_flag_set__6TLobbyFv() != 0) {
         switch ((s32) online_quest_list_state) {
         case 0:
-            return (u8) get_party_min_tier__6TLobbyFl(0);
+            return (u8) TLobby::get_party_min_tier(0);
         case 1:
-            return (u8) get_party_min_tier__6TLobbyFl(1);
+            return (u8) TLobby::get_party_min_tier(1);
         default:
             return 0U;
         }
@@ -154,7 +153,7 @@ void TQuestListOnline::decompress_quest_buffer(s32 arg0) {
 s32 TQuestListOnline::init() {
     TQuestListOnline__decompression_cursor = 0;
     if (TLobby__sub_8001EEF4() != 0) {
-        TQuestListOnline__decompression_cursor = tmp_buf_use_req__6TLobbyFPCc(lbl_8044BEB0);
+        TQuestListOnline__decompression_cursor = TLobby::tmp_buf_use_req((const char *)lbl_8044BEB0);
         return 1;
     }
     return 0;

@@ -26,7 +26,6 @@ s32 is_area_transfer_pending();
 s32 advance_enemy_id_counter(int);
 s32 get_floor_map_selection(int, void *);
 s32 load_area_enemy_set(int, int, int, int);
-s32 sum_floor_enemy_counts__6TLobbyFv();
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__data_805D614C;
@@ -126,7 +125,7 @@ block_6:
     if (var_r31 >= 0x12) {
         advance_enemy_id_counter((int) ((u16) map_set_enemy_id_counter));
         TLobby__data_805D614C = TLobby__next_enemy_set_actor_id;
-        sum_floor_enemy_counts__6TLobbyFv();
+        TLobby::sum_floor_enemy_counts();
         return 1;
     }
     goto loop_1;

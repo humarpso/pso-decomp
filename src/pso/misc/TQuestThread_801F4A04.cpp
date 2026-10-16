@@ -1,9 +1,9 @@
 #include "types.h"
 #include "pso/TQuestThread.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 
-s32 is_visible__17TWindowSubComCardFv(void *);
 s32 get_selected_menu_value(void *);
 
 s32 TQuestThread::tick_com_card() {
@@ -17,7 +17,7 @@ s32 TQuestThread::tick_com_card() {
 s32 TQuestThread::update_board_card() {
     void *temp_r3 = *(void **)((s8 *)this + 0x60);
     if (temp_r3 != NULL) {
-        return is_visible__17TWindowSubComCardFv(temp_r3);
+        return ((TWindowSubComCard *)temp_r3)->is_visible();
     }
     return 0;
 }

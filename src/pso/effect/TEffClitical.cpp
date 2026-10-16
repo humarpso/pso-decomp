@@ -9,6 +9,8 @@ struct Stack_80082688 {
 };
 
 #include <stddef.h>
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
 struct Stack_800823E0 {
     f32 sp8;
     f32 spC;
@@ -51,13 +53,11 @@ s32 fn_800829E0(void *);
 s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 begin_effect_render__13TParticleCtrlFv(int);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object(int);
 extern s32 lbl_8048E2E0[];
@@ -99,7 +99,7 @@ void TEffClitical::render() {
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x2C));
     fn_800829E0((void *) (&sp8));
     push_matrix();
-    set_global_param__8TObjFishFl((void *) (lbl_8048E2E0));
+    TObjFish::set_global_param((s32)((void *) (lbl_8048E2E0)));
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x20));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
     scale_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
@@ -107,7 +107,7 @@ void TEffClitical::render() {
     pop_matrix();
     copy_slot_to_anim_frame((void *) (&sp8));
     model_render_flags = lbl_805D5660;
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     restore_saved_depth_alpha_state();
 }
 

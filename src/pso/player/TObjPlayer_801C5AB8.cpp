@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TQuestListVM.h"
 
 extern "C" {
 
@@ -18,14 +20,12 @@ s32 TObjPlayer::decrement_clamp(s32 *arg0, s32 arg1) {
 
 extern "C" {
 
-void *get_quest_id__12TQuestListVMFv(void *);
-
 extern const f32 lbl_805DC334;
 
 void TObjPlayer::copy_offset_position(void *arg1) {
     f32 temp_f2;
 
-    temp_f2 = *(f32 *)((s8 *)(get_quest_id__12TQuestListVMFv(arg1)) + 0x10);
+    temp_f2 = *(f32 *)((s8 *)(((TQuestListVM *)arg1)->get_quest_id()) + 0x10);
     *(f32 *)((s8 *)this + 0) = (f32) *(f32 *)((s8 *)arg1 + 0x38);
     *(f32 *)((s8 *)this + 4) = (f32) ((lbl_805DC334 * temp_f2) + *(f32 *)((s8 *)arg1 + 0x3C));
     *(f32 *)((s8 *)this + 8) = (f32) *(f32 *)((s8 *)arg1 + 0x40);
@@ -50,14 +50,13 @@ void TObjPlayer::calc_pos_delta(void *arg1, void *arg2) {
 
 extern "C" {
 
-s16 get_field_2b8__14TItemProShieldFv(s32);
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4);
 
 s16 obj_getS16_2BA(s32);
 
 void TObjPlayer::init_shield_params(s32 arg1) {
     ((void (*)()) set_params__10TObjPlayerFPvPvPviPv)();
-    *(s16 *)((s8 *)this + 0x16) = get_field_2b8__14TItemProShieldFv(arg1);
+    *(s16 *)((s8 *)this + 0x16) = ((TItemProShield *)arg1)->get_field_2b8();
     *(s16 *)((s8 *)this + 0x18) = obj_getS16_2BA(arg1);
 }
 

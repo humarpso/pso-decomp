@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Ent_800774E4 { s8 id; u8 a, b, c; };
 
@@ -12,13 +14,9 @@ struct Ent_80077544 { u8 b[0x58]; };
 struct Win_80077544 { u8 pad[0x15A0]; struct Ent_80077544 e[12]; };
 
 extern "C" {
-s32 set_entry_name__20TWindowSubSymbolChatFPv(s32, s32);
 int get_symbol_chat_preset(s32);
-s32 bswap_entry__20TWindowSubSymbolChatFv(void *);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 s32 set_stream_and_load_file__6TLobbyFi(char *);
-s32 move_data__6TLobbyFPCvUl(void *, s32, s32);
 extern char symbol_chat_default_data_filename[];
 }
 
@@ -57,15 +55,15 @@ void TWindowSubSymbolChat::load_symbol_chat_data() {
     struct Ent_80077544 *e;
     e = w->e;
     data = set_stream_and_load_file__6TLobbyFi(symbol_chat_default_data_filename);
-    move_data__6TLobbyFPCvUl(e, data, 0x420);
-    safe_free__23TAdSinglePlyChrSelectGCFUl(data);
+    ((TLobby *)e)->move_data((const void *)data, (u32)0x420);
+    TAdSinglePlyChrSelectGC::safe_free(data);
     for (i = 0; i < 6; i++) {
-        bswap_entry__20TWindowSubSymbolChatFv(&e[i]);
+        ((TWindowSubSymbolChat *)(&e[i]))->bswap_entry();
         t = get_symbol_chat_preset(i);
-        set_entry_name__20TWindowSubSymbolChatFPv(t, get_message_10__20TWindowSubStatusDispFl(i + 0xC6));
+        ((TWindowSubSymbolChat *)t)->set_entry_name((void *)(get_message_10__20TWindowSubStatusDispFl(i + 0xC6)));
     }
     for (; i < 12; i++) {
-        bswap_entry__20TWindowSubSymbolChatFv(&e[i]);
+        ((TWindowSubSymbolChat *)(&e[i]))->bswap_entry();
         ((TWindowSubSymbolChat *)((Obj_800774E4 *)get_symbol_chat_preset(i)))->clear_entries();
     }
 }

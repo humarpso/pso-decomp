@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
 
 typedef struct Bank_801D7BF4 { s32 pad; s32 a[4]; s32 b[4]; } Bank_801D7BF4;
 
 extern "C" {
-u8 get_type__11TMainCursorFv(void *);
 s32 is_pb_palette_bank_empty(Bank_801D7BF4 *arg0, s32 arg1);
 }
 
@@ -18,7 +18,7 @@ s32 is_pb_palette_bank_empty(Bank_801D7BF4 *arg0, s32 arg1) {
         p = arg0->b;
     }
     for (i = 0; i < 4; i++, p++) {
-        if (get_type__11TMainCursorFv(p) != 0) {
+        if (((TMainCursor *)p)->get_type() != 0) {
             return 0;
         }
     }

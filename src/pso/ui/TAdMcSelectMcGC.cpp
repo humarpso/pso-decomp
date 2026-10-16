@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/TAdMcSelectMcGC.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Rect_8032A7C8 { f32 x, y, x2, y2; u8 pad[0x10]; };
 
@@ -29,12 +33,7 @@ s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
 s32 restore_saved_depth_alpha_state();
-s32 get_player__20TWindowSubStatusDispFv();
-s32 get_state_flag__9TMainTaskFv();
-s32 init_xyz_limits__10TObjPlayerFv();
-s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_2__Fv();
-s32 set_global_param__8TObjFishFl(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectMcGC__texture_list_ptr;
@@ -43,15 +42,15 @@ extern const f32 lbl_805DF748;
 void TAdMcSelectMcGC::draw_status_window() {
     u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFl((void *) (TAdMcSelectMcGC__texture_list_ptr));
+    TObjFish::set_global_param((s32)((void *) (TAdMcSelectMcGC__texture_list_ptr)));
     set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x20), (f32) (lbl_805DF748));
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 void TAdMcSelectMcGC::render() {
     if ((s32) *(s32 *)((s8 *)this + 0x1C) == 1) {
-        if (get_state_flag__9TMainTaskFv() == 1) {
+        if (TMainTask::get_state_flag() == 1) {
             return;
         }
         goto block_5;
@@ -59,9 +58,9 @@ void TAdMcSelectMcGC::render() {
     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
-        init_xyz_limits__10TObjPlayerFv();
+        TObjPlayer::init_xyz_limits();
         draw_status_window();
-        reset_transform_state__10TObjPlayerFv();
+        TObjPlayer::reset_transform_state();
         if ((s32) *(s32 *)((s8 *)this + 0x1C) == 0) {
             restore_saved_depth_alpha_state();
         }

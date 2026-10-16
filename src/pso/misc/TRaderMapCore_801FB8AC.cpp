@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
     s32 value;
@@ -39,7 +40,6 @@ extern "C" {
 extern u32 TRaderMapCore__frame_model_resource;
 extern u32 TRaderMapCore__data_805D5F4C;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_8044A7B8;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 obj_f_enemy_resource_descriptor;
@@ -48,7 +48,6 @@ extern RecoveredGlobal_8019A9B8_lbl_804B8F60 obj_f_enemy_resource_descriptor;
 extern "C" {
 
 void TLobby__sub_8001FE7C(void*, int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 s32 TLobby__sub_803DA16C(void*);
 
 extern u32 TRaderMapCore__frame_model_resource;
@@ -57,7 +56,7 @@ extern u32 TRaderMapCore__data_805D5F4C;
 void TRaderMapCore::free_statics() {
     if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
         TLobby__sub_803DA16C((void*)TRaderMapCore__data_805D5F4C);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TRaderMapCore__data_805D5F4C);
+        TAdSinglePlyChrSelectGC::safe_free(TRaderMapCore__data_805D5F4C);
         TRaderMapCore__data_805D5F4C = 0U;
     }
     if ((u32) TRaderMapCore__frame_model_resource != 0U) {
@@ -72,7 +71,7 @@ typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8
 void TRaderMapCore::load_frame_texture() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &obj_f_enemy_resource_descriptor.value, 0, 0, 0));

@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TOCakeshopCave01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8015A108_lbl_804AFDF8 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8015A108_lbl_804AFDF8_size[sizeof(RecoveredGlobal_8015A108_lbl_804AFDF8) == 0x10 ? 1 : -1];
@@ -53,7 +58,6 @@ struct Obj_80159F78 { u8 pad0[0xCC]; f32 val[8]; };
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8015A108_lbl_804AFDF8 bm_fs_obj_cakeya_resource_descriptor;
 extern u32 TOCakeshopCave01__model_resource;
 s32 rand(void);
@@ -61,7 +65,6 @@ extern const f32 lbl_805DB358;
 extern const f32 lbl_805DB35C;
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB364;
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, s32);
@@ -74,14 +77,11 @@ extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB36C;
 extern const f32 lbl_805DB370;
 void *TOCakeshopCave01__ct(void *arg0_, void *arg1);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB368;
@@ -95,7 +95,6 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_key_base__5TOKeyFs(void *, s32);
 
 void TOCakeshopCave01::update_blink_state(void *arg1) {
     TOCakeshopCave01_80159E24 *o = (TOCakeshopCave01_80159E24 *)this;
@@ -134,12 +133,12 @@ void TOCakeshopCave01::render() {
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         m = *(Model_80159F78 **)((s8 *)arg0 + 0x34);
         post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
         m = m->child;
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         for (i = 0; i < 8; i++) {
             if (((Obj_80159F78 *)arg0)->val[i] < TOCakeshopCave01__data_805DB360) {
                 push_matrix();
@@ -150,7 +149,7 @@ void TOCakeshopCave01::render() {
             }
             m = m->next;
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -177,7 +176,7 @@ extern s32 __vt__16TOCakeshopCave01[];
 void TOCakeshopCave01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_cakeya_resource_descriptor.value, 0, 0, 0));
@@ -190,7 +189,7 @@ void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOCakeshopCave01;
         free_collision_body_parts(arg0);
         unregister_object_by_id(arg0);
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -211,7 +210,7 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     init_collision_body_parts(arg0, lbl_804AFE08, 1);
     refresh_collision_body_centers(arg0);
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     for (i = 0; i < 8; i++) {
         ((TOCakeshopCave01_8015A1C0 *)arg0)->val[i] = TOCakeshopCave01__data_805DB360;
         ((TOCakeshopCave01_8015A1C0 *)arg0)->state[i] = 0;

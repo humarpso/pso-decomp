@@ -36,7 +36,6 @@ s32 read_disc_file(s32, s32);
 s32 alloc__22TQuestVmDownLoadServerFv();
 s32 bswap_16__FPUs(s32);
 void build_6x75_update_quest_flag_dc(void* p);
-s32 read_be16_field2__10TObjPlayerFv();
 void rebuild_all__6TLobbyFi(int a0);
 s32 safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 s32 update_lobby_scene__6TSceneFv();
@@ -446,6 +445,7 @@ void update_and_reset__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; populate_
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct A_801F4340 { s16 a; s16 b; };
 

@@ -121,6 +121,8 @@ void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1) {
 
 #include "types.h"
 #include "pso/misc/TTecZonde.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Seg_8023C79C { f32 a[3]; f32 b[3]; f32 len; };
 struct VBase_8023C79C { char pad[0x18]; };
@@ -147,7 +149,6 @@ typedef char RecoveredGlobal_8023CD48___vt__9TTecZonde_size[sizeof(RecoveredGlob
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 construct_target_cursor_records__10TObjPlayerFv(s32);
 void copy_technique_target_list(void *, void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern s32 __vt__9TTecZonde[];
@@ -159,14 +160,13 @@ extern "C" {
 
 void *__dt__9TTecZondeFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_technique_effect_resources__10TObjPlayerFs(void *, int);
 
 extern s32 __vt__9TTecZonde[];
 
 void *__dt__9TTecZondeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecZonde;
-        destroy_technique_effect_resources__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_technique_effect_resources(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -184,8 +184,6 @@ u8 *find_entity_by_id(u16);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
-s32 is_parents_unqueued__9TTecLukerFUl(u32);
-s32 is_valid_and_active__10TObjPlayerFUl(void *);
 u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 s32 rand();
@@ -225,7 +223,7 @@ void TTecZonde::run_task() {
         return;
     }
     t = (Tgt_8023C79C *)find_entity_by_id(self->f134);
-    if (is_parents_unqueued__9TTecLukerFUl((u32)t) != 0) {
+    if (TTecLuker::is_parents_unqueued((u32)t) != 0) {
         for (i = 0; i < 14; i++) {
             s = &segs[i];
             s->a[1] = lbl_805DC968 + t->y;
@@ -338,7 +336,7 @@ void TTecZonde::run_task() {
             }
         }
     }
-    if (t != NULL && is_parents_unqueued__9TTecLukerFUl((u32)t) != 0 && is_valid_and_active__10TObjPlayerFUl(t) != 0) {
+    if (t != NULL && TTecLuker::is_parents_unqueued((u32)t) != 0 && TObjPlayer::is_valid_and_active((u32)t) != 0) {
         ((VObj_8023C79C *)self)->m6(t);
     }
     queue_destruction__7TObjectFv(self);
@@ -349,7 +347,7 @@ u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *temp_r3;
     construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, 0, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023CD48___vt__9TTecZonde *)&__vt__9TTecZonde).value;
-    construct_target_cursor_records__10TObjPlayerFv((s32) (arg0 + 0x130));
+    ((TObjPlayer *)(arg0 + 0x130))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3838;
     init_parameters__9TTecZondeFPv(arg0);
     copy_technique_target_list(arg0 + 0x130, arg3);

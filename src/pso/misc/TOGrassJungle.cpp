@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOGrassJungle.h"
+#include "pso/misc/TMotorcycle.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80465938[];
@@ -20,9 +22,7 @@ typedef char RecoveredGlobal_8029CD0C_lbl_804DC534_size[sizeof(RecoveredGlobal_8
 extern "C" {
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
-s32 add_entry__11TMotorcycleFsllff(int, int, int, f32, f32);
 extern RecoveredGlobal_8029CD0C_lbl_8046598C lbl_8046598C;
 extern u32 TOGrassJungle__bml_resource;
 extern u32 TOGrassJungle__grass_gvm_texture;
@@ -37,7 +37,6 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void *TOGrassJungle__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern void *tl_05;
 
@@ -55,7 +54,7 @@ extern u32 TOGrassJungle__grass_gvm_texture;
 void TOGrassJungle::release_static_instance() {
     if ((u32) TOGrassJungle__grass_gvm_texture != 0U) {
         TLobby__sub_803DA16C((void*)TOGrassJungle__grass_gvm_texture);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TOGrassJungle__grass_gvm_texture);
+        TAdSinglePlyChrSelectGC::safe_free(TOGrassJungle__grass_gvm_texture);
         TOGrassJungle__grass_gvm_texture = 0U;
     }
     if ((u32) TOGrassJungle__bml_resource != 0U) {
@@ -66,14 +65,14 @@ void TOGrassJungle::release_static_instance() {
 void TOGrassJungle::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &ograss_jungle_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TOGrassJungle__bml_resource) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&TOGrassJungle__grass_gvm_texture) = load_gvm_texture_file((s32) &lbl_8046598C.value);
-    add_entry__11TMotorcycleFsllff((int) (0x3F), (int) (get_bml_model((*(u8 * *)&TOGrassJungle__bml_resource), 0)), (int) ((*(u8 * *)&TOGrassJungle__grass_gvm_texture)), (f32) (lbl_805DDD28), (f32) (lbl_805DDD2C));
+    TMotorcycle::add_entry((int) (0x3F), (int) (get_bml_model((*(u8 * *)&TOGrassJungle__bml_resource), 0)), (int) ((*(u8 * *)&TOGrassJungle__grass_gvm_texture)), (f32) (lbl_805DDD28), (f32) (lbl_805DDD2C));
 }
 
 }

@@ -1,12 +1,14 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TAdSelectGameModeGC.h"
+#include "pso/TPlyOnCreated.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
 s32 sync_state__10TObjPlayerFi(s32 arg0);
 u32 update_battle_controller__10TObjPlayerFv();
 s32 export_state_to_record__10TObjPlayerFPvPv(u32, s32);
-s32 create__13TPlyOnCreatedFPvPv(u16, s32 *);
 
 int fn_802C4748(void* p);
 extern s32 local_client_id;
@@ -15,7 +17,7 @@ s32 sync_state__10TObjPlayerFi(s32 arg0) {
     u32 temp_r3;
     temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 == 0U) {
-        create__13TPlyOnCreatedFPvPv((u16) local_client_id, (s32 *)fn_802C4748);
+        TPlyOnCreated::create((void *)((u16) local_client_id), (void *)fn_802C4748);
         return 0;
     }
     export_state_to_record__10TObjPlayerFPvPv(temp_r3, arg0);
@@ -84,8 +86,6 @@ u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
 void TObjPlayer__sub_802C4648(Obj_802C4648 *self, u32 v);
 void TObjPlayer__sub_802C4668(O_802C4668 *self, u32 c);
 E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
-s8 get_tp_materials_clamped__10TObjPlayerFv(void *);
-s8 get_hp_material_points__10TObjPlayerFv(void *);
 s32 copy_player_visual_record(void *, void *);
 s32 TObjPlayer__sub_8013A748(void *, void *);
 s32 clamp_stats__10TObjPlayerFiPv(void *, void *, void *);
@@ -96,15 +96,9 @@ u8 get_inventory_state__10TObjPlayerFPv(void *);
 u8 get_field_374_state__10TObjPlayerFPv(void *);
 u8 get_field_374__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C0124(void *, s16);
-s32 get_ptr_4__10TObjPlayerFv(void *);
 s32 set_flag_and_update__10TObjPlayerFPvi(int, void *);
-s32 get_class_stat_entry__10TObjPlayerFPUc(void *);
 void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
-s32 copy_battle_mode__10TObjPlayerFPUc(void *, void *);
-s32 copy_byte_339_to_record__10TObjPlayerFPUc(void *, void *);
-s32 copy_mag_level_to_record__10TObjPlayerFPUc(void *, void *);
-s32 apply_pending_action__10TObjPlayerFl(void *, void *);
 u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
 E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 extern s32 current_language;
@@ -118,18 +112,13 @@ int init_character_action_config(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-s32 free_sub_ctrls__19TAdSelectGameModeGCFv();
-int clear_inventory_slot__23TAdSinglePlyChrSelectGCFv(void*);
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFPv(void*);
 int set_palette_entry__20TWindowActionPaletteFlllll(void*);
-int enable_camera__19TAdSelectGameModeGCFv(void*);
 int fn_802C4748(void* p);
 s32 getDateStamp__FP9DateStamp(s32 *);
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 s32 get_main_phase();
-s32 get_mode_data__19TAdSelectGameModeGCFv();
-int set_state_flags__10TObjPlayerFUl(void*, void*);
 
 void TObjPlayer::init_battle_selection() { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))update_battle__10TObjPlayerFi)(); }
 
@@ -138,11 +127,11 @@ void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     s32 i;
     ((TObjPlayer *)arg1)->set_flag_80000();
     copy_player_visual_record((void *) (arg0 + 0x370), (void *) (arg1 + 0x85C));
-    *(s8 *)((s8 *)arg0 + 0) = query_state_if_present__10TObjPlayerFPv((void *) (arg1), (void *) (get_ptr_4__10TObjPlayerFv((void *) (arg0))));
+    *(s8 *)((s8 *)arg0 + 0) = query_state_if_present__10TObjPlayerFPv((void *) (arg1), (void *) (((TObjPlayer *)arg0)->get_ptr_4()));
     set_flag_and_update__10TObjPlayerFPvi((int) (*(s32 *)((s8 *)arg1 + 0xD00)), (void *) (arg1));
-    clamp_stats__10TObjPlayerFiPv((void *) (arg1), (void *) (arg0 + 0x34C), (void *) (get_class_stat_entry__10TObjPlayerFPUc((void *) (arg1))));
-    *(s8 *)((s8 *)arg0 + 1) = get_hp_material_points__10TObjPlayerFv((void *) (arg1));
-    *(s8 *)((s8 *)arg0 + 2) = get_tp_materials_clamped__10TObjPlayerFv((void *) (arg1));
+    clamp_stats__10TObjPlayerFiPv((void *) (arg1), (void *) (arg0 + 0x34C), (void *) (TObjPlayer::get_class_stat_entry((u8 *)arg1)));
+    *(s8 *)((s8 *)arg0 + 1) = ((TObjPlayer *)arg1)->get_hp_material_points();
+    *(s8 *)((s8 *)arg0 + 2) = ((TObjPlayer *)arg1)->get_tp_materials_clamped();
     ((TObjPlayer *)arg0)->set_flag_e7(get_field_374__10TObjPlayerFPv((void *) (arg1)));
     ((TObjPlayer *)arg0)->set_flag_103(get_field_374_state__10TObjPlayerFPv((void *) (arg1)));
     ((TObjPlayer *)arg0)->set_action_flags(get_inventory_state__10TObjPlayerFPv((void *) (arg1)));
@@ -158,15 +147,15 @@ void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     if (TObjPlayer__sub_802A1018() != 0) {
         ((TObjPlayer *)arg0)->set_flag_40();
     }
-    apply_pending_action__10TObjPlayerFl((void *) (arg1), (void *) (arg0));
-    copy_mag_level_to_record__10TObjPlayerFPUc((void *) (arg1), (void *) (arg0));
-    copy_byte_339_to_record__10TObjPlayerFPUc((void *) (arg1), (void *) (arg0));
-    copy_battle_mode__10TObjPlayerFPUc((void *) (arg1), (void *) (arg0));
+    ((TObjPlayer *)arg1)->apply_pending_action((s32)((void *) (arg0)));
+    ((TObjPlayer *)arg1)->copy_mag_level_to_record((u8 *)arg0);
+    ((TObjPlayer *)arg1)->copy_byte_339_to_record((u8 *)arg0);
+    ((TObjPlayer *)arg1)->copy_battle_mode((u8 *)arg0);
     ((TObjPlayer *)arg1)->set_flag_524288();
 }
 
 void TObjPlayer::set_action_state(u8 v) { *(u8*)((char*)this + 0x173) = v; }
-void TObjPlayer::clear_item_slots() { { int i; for (i = 0; i < 30; i++) { clear_inventory_slot__23TAdSinglePlyChrSelectGCFv((char*)this + 0x4 + i * 28); } } }
+void TObjPlayer::clear_item_slots() { { int i; for (i = 0; i < 30; i++) { ((TAdSinglePlyChrSelectGC *)((char*)this + 0x4 + i * 28))->clear_inventory_slot(); } } }
 
 void TObjPlayer__sub_802C456C(Obj_802C456C *self, s32 i, u8 v) {
     self->recs[i].f6 = v;
@@ -224,6 +213,6 @@ int init_character_action_config(void* p) { return init_action_config__10TObjPla
 int TObjPlayer__sub_802C46E0(void* p) { return set_palette_entry__20TWindowActionPaletteFlllll(p); }
 
 void TObjPlayer::set_flag_524288() { TObjPlayer__sub_8011E204(this, (void*)524288); }
-void TObjPlayer::set_flag_80000() { set_state_flags__10TObjPlayerFUl(this, (void*)524288); }
+void TObjPlayer::set_flag_80000() { set_state_flags((u32)((void*)524288)); }
 
 }

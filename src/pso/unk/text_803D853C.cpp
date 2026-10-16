@@ -7,6 +7,7 @@
 
 #include "stdarg.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/enemy/TObjEneMe1Gee.h"
 extern "C" {
 f32 PSMTXMultVecArray(s32, s32);
 extern s32 current_matrix;
@@ -31,7 +32,6 @@ void PSMTXScale(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
 void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 int vsprintf(char *s, const char *fmt, va_list ap);
-void queue_debug_text__13TObjEneMe1GeeFlPc(s32 arg0, char *arg1);
 void debug_printf_at(s32 arg0, const char *fmt, ...);
 }
 
@@ -42,7 +42,7 @@ void debug_printf_at(s32 arg0, const char *fmt, ...) {
     char buf[128];
     va_start(ap, fmt);
     vsprintf(buf, fmt, ap);
-    queue_debug_text__13TObjEneMe1GeeFlPc(arg0, buf);
+    TObjEneMe1Gee::queue_debug_text(arg0, buf);
 }
 
 #pragma push

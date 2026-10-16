@@ -1,6 +1,7 @@
 #include "pso/TBoss3VoloptCtrl.h"
 
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct RecoveredGlobal_80040D70_lbl_8043636C { s32 value; u8 remaining[0x9]; };
 
@@ -17,7 +18,6 @@ s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 s32 get_story_flag(s32);
 s32 unhide_room_set_objects(s32, s32, s32);
-s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003EA2C(int);
 s32 TObjPlayer__sub_801BA42C();
@@ -126,7 +126,7 @@ void TBoss3VoloptCtrl::run_task() {
                 freeze_all_players__10TObjPlayerFv();
                 play_area_music((void *) (&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
-                    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+                    if (TRaderMapCore::is_not_split_screen() == 1) {
                         unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
                     } else if (get_story_flag(0x2F) != 0) {
                         TBoss3VoloptCtrl::dispatch_state(4);

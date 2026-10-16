@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOWreckAncient.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_804433E8[];
@@ -38,7 +41,6 @@ struct RecoveredGlobal_8017DE94___vt__14TOWreckAncient {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8017DDA8_lbl_804B53D0 bm_o_wreck_ancient_resource_descriptor;
 extern u32 wreck_ancient_bml_resource;
 extern u32 wreck_ancient_brakable_bml_resource;
@@ -66,8 +68,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
-s32 set_global_param__8TObjFishFl(s32);
 
 void TOWreckAncient::draw_model() {
     u8 *arg0 = (u8 *)this;
@@ -76,7 +76,7 @@ void TOWreckAncient::draw_model() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
@@ -103,13 +103,13 @@ void TOWreckAncient::load_resources() {
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_wreck_ancient_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&wreck_ancient_bml_resource) = var_r0;
-    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
         var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TOWreckAncient__resource_descriptor, 0, 0, 0));
@@ -122,7 +122,7 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOWreckAncient;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

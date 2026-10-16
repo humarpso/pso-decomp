@@ -1,5 +1,14 @@
 #include "types.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
+#include "pso/TAdChrSelMovePlateGC.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/TAdPlyChrSelPlateGC.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/ui/TAdChrSelSlotGC.h"
+#include "pso/ui/TAdMcSelectGC.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 struct RecoveredGlobal_8030DE58_lbl_80475808 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8030DE58_lbl_80475808_size[sizeof(RecoveredGlobal_8030DE58_lbl_80475808) == 0x10 ? 1 : -1];
@@ -34,11 +43,9 @@ struct V2_8030C814 { f32 x, y; };
 
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
-s32 free_windows__17TWindowSubComCardFv(s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
-s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 extern const f32 lbl_805DF214;
 s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1);
 s32 get_localized_text_entry(s32, s32);
@@ -68,9 +75,7 @@ extern const f32 lbl_805DF218;
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
 bool TAdChrSelASlotGC__sub_8030C3C0(s32 arg0, u32 arg1);
-s32 get_state_flag__9TMainTaskFv();
 s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(void *, int);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 get_localized_text_entry(s32, s32);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
 extern G_8030C45C lbl_80542E60;
@@ -83,7 +88,6 @@ int sprintf(char *, const char *, ...);
 void *memset(void *, int, unsigned long);
 extern char lbl_80542D60[];
 extern const f32 lbl_805DF20C;
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 get_localized_text_entry(s32, s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
@@ -92,7 +96,6 @@ extern u8 TAdChrSelASlotGC__data_804758A8[];
 extern u8 TAdChrSelASlotGC__data_804758B0[];
 extern u8 TAdChrSelASlotGC__data_804758B8[];
 extern const f32 TAdChrSelASlotGC__data_805DF208;
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 get_localized_text_entry(s32, s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
@@ -112,11 +115,8 @@ void TAdChrSelASlotGC__sub_8030CCE0(void);
 void TAdChrSelASlotGC__sub_8030D5DC(void *arg0);
 void *__dt__16TAdChrSelASlotGCFv(void *arg0, s16 arg1);
 u32 TAdChrSelASlotGC__sub_8030CB08(void *, s32, s32);
-s32 clear_entries__20TAdChrSelMovePlateGCFv(s32);
 s32 TAdChrSelSlotGC__sub_802C7498(s32, s32);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
-s32 init_slot__13TAdMcSelectGCFlPv(s32, s32, s32 *);
-s32 reset_selection_slots__19TAdPlyChrSelPlateGCFv(s32);
 s32 get_localized_text_entry(s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
 s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
@@ -129,16 +129,12 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s16);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
-s32 free_windows__17TWindowSubComCardFv(s32);
-s32 get_instance__15TAdPlayerLoadGCFv();
-s32 get_load_result__15TAdPlayerLoadGCFPv(s32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 reset_all_slots__15TAdChrSelSlotGCFv(s32);
 
 extern f32 lbl_805DF210;
 
 void TAdChrSelASlotGC::render(void *self) {
-    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    if (TMainTask::get_state_flag() == 1) { return;
     }
 }
 
@@ -168,7 +164,7 @@ G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 arg2, void *a
     lbl_80542E60.a = arg1;
     lbl_80542E60.b = e != NULL ? e->x : get_localized_text_entry((s32)(0x16), (s32)(0x1C));
     lbl_80542E60.c = e != NULL ? e->y + 1 : 0;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(lbl_80542E60.v, arg3);
+    ((TWindowSubSymbolChatPartsSet *)(lbl_80542E60.v))->copy_vec2(arg3);
     return &lbl_80542E60;
 }
 
@@ -179,10 +175,10 @@ s32 TAdChrSelASlotGC::open_confirm_message(s32 arg1, s32 arg2) {
     w = create__19TWindowMessageYesNoFPvPvPvPv((s32)arg0, arg2, 0, 0);
     switch (arg1) {
     case 0:
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, *(s32 *)(arg0 + 0x20) == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(*(s32 *)(arg0 + 0x20) == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
         break;
     case 1:
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, TAdChrSelASlotGC__data_804758B8);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(TAdChrSelASlotGC__data_804758B8);
         break;
     }
     forward_slot_selection__16TAdChrSelASlotGCFPvPv(w, get_localized_text_entry(0x16, arg1 + 0x25), (s32)&pos, TAdChrSelASlotGC__data_805DF208);
@@ -197,10 +193,10 @@ s32 TAdChrSelASlotGC::create_message_window(s32 arg1, s32 arg2) {
     w = create__19TWindowMessageYesNoFPvPvPvPv((s32)arg0, arg2, 0, 0);
     switch (arg1) {
     case 0:
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, *(s32 *)(arg0 + 0x20) == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(*(s32 *)(arg0 + 0x20) == 2 ? TAdChrSelASlotGC__data_804758B0 : TAdChrSelASlotGC__data_804758A8);
         break;
     case 1:
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, TAdChrSelASlotGC__data_804758B8);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(TAdChrSelASlotGC__data_804758B8);
         break;
     }
     forward_slot_selection__16TAdChrSelASlotGCFPvPv(w, get_localized_text_entry(0x16, arg1 + 0x23), (s32)&pos, TAdChrSelASlotGC__data_805DF208);
@@ -236,24 +232,24 @@ s32 TAdChrSelASlotGC::open_yes_no_window(s32 arg0, s32 arg1, s32 arg2) {
     temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg2, 0, 0);
     forward_slot_selection__16TAdChrSelASlotGCFPvPv(temp_r31, get_localized_text_entry(0x16, 0x1B), arg1, lbl_805DF210);
     free_member__17TWindowSubComCardFv(temp_r31, 1);
-    free_windows__17TWindowSubComCardFv(temp_r31);
+    ((TWindowSubComCard *)temp_r31)->free_windows();
     return temp_r31;
 }
 
 s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((s32)((void *) (arg0)), (s32)((int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv())), (s32)((int) (0)), (s32)((int) (0)));
+    temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((s32)((void *) (arg0)), (s32)((int) (TAdMultiPlyChrSelectGC::get_clamped_cursor())), (s32)((int) (0)), (s32)((int) (0)));
     forward_slot_selection__16TAdChrSelASlotGCFPvPv((s32)((int) (temp_r31)), (s32)((int) (get_localized_text_entry((int) (0x16), (int) (0x1A)))), (s32)((void *) (arg1)), (f32) (lbl_805DF214));
     free_member__17TWindowSubComCardFv((s32)((int) (temp_r31)), (s32)((int) (1)));
-    free_windows__17TWindowSubComCardFv((s32)((int) (temp_r31)));
+    ((TWindowSubComCard *)temp_r31)->free_windows();
     return temp_r31;
 }
 
 void TAdChrSelASlotGC__sub_8030CBD0(void) {  }
 void TAdChrSelASlotGC__sub_8030CBD4(void) {  }
 void TAdChrSelASlotGC::update_load_state() {
-    if (get_instance__15TAdPlayerLoadGCFv() == 0) {
-        if ((u32) (get_load_result__15TAdPlayerLoadGCFPv(0) + 0x10000) == 0xFF81U) {
+    if (TAdPlayerLoadGC::get_instance() == 0) {
+        if ((u32) (TAdPlayerLoadGC::get_load_result(0) + 0x10000) == 0xFF81U) {
             *(s32 *)((s8 *)this + 0x24) = 0x13;
             return;
         }
@@ -266,7 +262,7 @@ void TAdChrSelASlotGC::set_state() {
     *(s32 *)((s8 *)this + 0x24) = 0x12;
 }
 void TAdChrSelASlotGC::check_load_state() {
-    if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+    if (TAdPlayerLoadGC::get_instance() == 0) {
         *(s32 *)((s8 *)this + 0x24) = 1;
     }
 }
@@ -498,16 +494,16 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)arg0 + 0x34));
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)arg0 + 0x34)))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)arg0 + 0x3C));
-        clear_entries__20TAdChrSelMovePlateGCFv(*(s32 *)((s8 *)arg0 + 0x44));
+        ((TAdChrSelMovePlateGC *)(*(s32 *)((s8 *)arg0 + 0x44)))->clear_entries();
         break;
     case 1:
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)arg0 + 0x34));
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)arg0 + 0x38));
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)arg0 + 0x34)))->reset_selection_slots();
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)arg0 + 0x38)))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)arg0 + 0x3C));
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)arg0 + 0x40));
-        clear_entries__20TAdChrSelMovePlateGCFv(*(s32 *)((s8 *)arg0 + 0x44));
+        ((TAdChrSelMovePlateGC *)(*(s32 *)((s8 *)arg0 + 0x44)))->clear_entries();
         if ((u32) *(u32 *)((s8 *)arg0 + 0x4C) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4C));
             *(u32 *)((s8 *)arg0 + 0x4C) = 0U;
@@ -518,7 +514,7 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
         }
         break;
     case 2:
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)arg0 + 0x38));
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)arg0 + 0x38)))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)arg0 + 0x40));
         break;
     }
@@ -546,7 +542,7 @@ void TAdChrSelASlotGC::close_windows() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    reset_all_slots__15TAdChrSelSlotGCFv(*(s32 *)((s8 *)this + 0x2C));
+    ((TAdChrSelSlotGC *)(*(s32 *)((s8 *)this + 0x2C)))->reset_all_slots();
     if ((u32) *(u32 *)((s8 *)this + 0x48) != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x48));
         *(u32 *)((s8 *)this + 0x48) = 0U;
@@ -606,17 +602,17 @@ void TAdChrSelASlotGC::close_windows() {
     temp_r0 = *(s32 *)((s8 *)this + 0x20);
     switch (temp_r0) {
     case 0:
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)this + 0x34));
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)this + 0x34)))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)this + 0x3C));
         break;
     case 1:
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)this + 0x34));
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)this + 0x38));
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)this + 0x34)))->reset_selection_slots();
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)this + 0x38)))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)this + 0x3C));
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)this + 0x40));
         break;
     case 2:
-        reset_selection_slots__19TAdPlyChrSelPlateGCFv(*(s32 *)((s8 *)this + 0x38));
+        ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)this + 0x38)))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)this + 0x40));
         break;
     }
@@ -624,15 +620,15 @@ void TAdChrSelASlotGC::close_windows() {
     switch (temp_r0_2) {
     case 0:
         *(u32 *)((s8 *)this + 0x4C) = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xC, lbl_805DF218);
-        init_slot__13TAdMcSelectGCFlPv(*(s32 *)((s8 *)this + 0x2C), 0, lbl_80475840);
+        ((TAdMcSelectGC *)(*(s32 *)((s8 *)this + 0x2C)))->init_slot(0, lbl_80475840);
         *(u32 *)((s8 *)this + 0x48) = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xB, lbl_805DF218);
         break;
     case 1:
-        init_slot__13TAdMcSelectGCFlPv(*(s32 *)((s8 *)this + 0x2C), 0, lbl_80475840);
+        ((TAdMcSelectGC *)(*(s32 *)((s8 *)this + 0x2C)))->init_slot(0, lbl_80475840);
         *(u32 *)((s8 *)this + 0x48) = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xB, lbl_805DF218);
         break;
     case 2:
-        init_slot__13TAdMcSelectGCFlPv(*(s32 *)((s8 *)this + 0x2C), 0, lbl_804758A0);
+        ((TAdMcSelectGC *)(*(s32 *)((s8 *)this + 0x2C)))->init_slot(0, lbl_804758A0);
         *(u32 *)((s8 *)this + 0x48) = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xD, lbl_805DF218);
         *(u32 *)((s8 *)this + 0x4C) = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0x14, lbl_805DF218);
         break;

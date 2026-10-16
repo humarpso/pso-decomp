@@ -1575,7 +1575,6 @@ s32 notify_error__6TLobbyFPCc(void *);
 extern char adxt_trap_entry_data_shortage_error[];
 void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0);
 s32 VIWaitForRetrace();
-s32 run_callbacks_group2__6TLobbyFv();
 
 extern Cb_803CBA58 adx_worker_thread_pending_callback;
 extern s32 lbl_805D7540;
@@ -1651,7 +1650,6 @@ SjMemoryBuffer* sj_memory_buffer_create(void *, int);
 extern char adxt_start_mem_idx_stream_create_error[];
 void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void TLobby__sub_803CE544(void *, int);
-void cvFsSetDefDev__6TLobbyFv(const char *);
 void TLobby__sub_803CFAA8(const char *, void *, int);
 void set_dvd_synchronous_read_mode(int, int, int, int);
 void TLobby__sub_803CB7F8(s32 arg0, s32 arg1);
@@ -1672,7 +1670,6 @@ extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFl(void *, int);
 void TLobby__sub_803C0758(void *);
 void start_stream_playback__6TLobbyFPvi(Stream_803CA0C8 *self, s32 arg1);
-s32 set_message_and_notify__6TLobbyFPc(char *);
 extern char adxm_idle_border_internal_error[];
 extern Cfg_803CBA58 lbl_804F9D80;
 
@@ -1739,7 +1736,6 @@ void set_field_40_and_notify__6TLobbyFPvs(u8 *arg0, s16 arg1);
 void set_field_6d__6TLobbyFPvc(u8 *arg0, s8 arg1);
 void set_rate_mode__6TLobbyFi(s32 arg0);
 u32 decode_adx_mono_blocks(int, int, int, void *, int, int);
-s32 run_callbacks_group2__6TLobbyFv();
 s32 set_callback_params__6TLobbyFll();
 u32 dispatch_receive_update__6TLobbyFv(int, int, int, void *, int, void *, int, int);
 s32 memset(void *, int, int);
@@ -2492,8 +2488,6 @@ s32 reset_flag__6TLobbyFv(int);
 void TLobby__sub_803C0758(void *);
 s32 set_network_result__6TLobbyFl(int, int);
 s32 TLobby__sub_803C07E8(int);
-s32 parse_packet_header_len__6TLobbyFlPs(u8 *, s32, s16 *);
-s32 find_terminator_index__6TLobbyFPslPs(u8 *, s32, s16 *);
 
 void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
   s32 lobby = o->lobby;
@@ -2513,7 +2507,7 @@ void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
     tlen = 0;
     ring->vt->m4(ring, 1, 0x7FFFFFFF, &a);
     ring->vt->m4(ring, 1, 0x7FFFFFFF, &b);
-    if (parse_packet_header_len__6TLobbyFlPs(a.p, a.len, &hlen) != 0)
+    if (((TLobby *)(a.p))->parse_packet_header_len(a.len, &hlen) != 0)
     {
       o->active = 0;
       ring->vt->m5(ring, 1, &b);
@@ -2521,14 +2515,14 @@ void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
       return;
     }
     n = hlen;
-    r1 = find_terminator_index__6TLobbyFPslPs(a.p + n, a.len - n, &hlen);
+    r1 = TLobby::find_terminator_index((s16 *)(a.p + n), (s32)(a.len - n), (s16 *)(&hlen));
     if (r1 == 0)
     {
       r2 = -1;
     }
     else
     {
-      r2 = find_terminator_index__6TLobbyFPslPs(b.p, b.len, &tlen);
+      r2 = TLobby::find_terminator_index((s16 *)b.p, (s32)b.len, (s16 *)(&tlen));
     }
     n += hlen;
     m = tlen & 0xFFFFFFFFFFFFFFFFu;
@@ -2755,7 +2749,7 @@ void TLobby__sub_803CB74C(s32 *arg0) {
     TLobby__sub_803CFAA8(lbl_805E0D70, (void *)TLobby__sub_803D43B8, 0);
     TLobby__sub_803CE544((void *)TLobby__sub_803CB7F8, 0);
     TLobby__sub_803CFAA8(lbl_805E0D74, (void *)initialize_dvd_file_driver, 0);
-    cvFsSetDefDev__6TLobbyFv(lbl_805E0D74);
+    ((TLobby *)lbl_805E0D74)->cvFsSetDefDev();
     if (arg0 != NULL) {
         set_dvd_synchronous_read_mode(0, 0, 0, *arg0);
     } else {
@@ -2782,7 +2776,7 @@ void TLobby__sub_803CBA18(void) {
 }
 
 void TLobby__sub_803CBA38(void) {
-    run_callbacks_group2__6TLobbyFv();
+    TLobby::run_callbacks_group2();
 }
 
 void TLobby::worker_thread_loop() {
@@ -2806,7 +2800,7 @@ void TLobby__sub_803CBB14(void) {
         VIWaitForRetrace();
         lbl_805D75A0++;
         lbl_805D7540++;
-        run_callbacks_group2__6TLobbyFv();
+        TLobby::run_callbacks_group2();
         if (lbl_805D75BC == 0) {
             OSResumeThread(&adxm_worker_thread);
             if (adx_worker_thread_pending_callback.fn != NULL) {
@@ -2837,7 +2831,7 @@ void TLobby::adxm_goto_mwidle_border() {
         }
     }
     if (i == 200000000) {
-        set_message_and_notify__6TLobbyFPc(adxm_idle_border_internal_error);
+        TLobby::set_message_and_notify(adxm_idle_border_internal_error);
     }
     OSSetThreadPriority(&adxm_worker_thread, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio);
 }

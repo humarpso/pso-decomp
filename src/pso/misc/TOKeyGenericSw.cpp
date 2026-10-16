@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOKeyGenericSw.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TContainerAncient01.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct BmlResourceBlock_804B2CC0 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B2CC0_size[(sizeof(BmlResourceBlock_804B2CC0) == 0x18) ? 1 : -1];
@@ -81,25 +86,19 @@ extern "C" {
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object(s32);
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 *TOKeyGenericSw__texture_lists;
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 void TLobby__sub_8001FE7C(void *, s32);
 void mem_free(void *);
-void free_if_valid__10TObjPlayerFl(s32);
 extern s32 *TOKeyGenericSw__texture_lists;
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *mem_alloc(u32);
 s32 load_gvm_texture_file(void *);
-s32 is_global_state_in_table__19TContainerAncient01Fv(void);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_80441D04[];
 extern char lbl_80441D24[];
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
@@ -130,10 +129,10 @@ void TOKeyGenericSw::render() {
     self->x34 = TOKeyGenericSw__shared_resource_ptrs[0]->area->x8;
     post_translate_matrix(self->x38);
     rotate_matrix_y(0, self->x60);
-    set_global_param__8TObjFishFl(self->x24);
+    TObjFish::set_global_param(self->x24);
     draw_ginja_object(self->x34);
     pop_matrix();
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     switch (self->xd4) {
     case 0:
@@ -146,10 +145,10 @@ void TOKeyGenericSw::render() {
     self->x34 = TOKeyGenericSw__shared_resource_ptrs[1]->area->x8;
     post_translate_matrix(self->x38);
     rotate_matrix_y(0, self->x60);
-    set_global_param__8TObjFishFl(self->x24);
+    TObjFish::set_global_param(self->x24);
     draw_ginja_model_with_motion(self->x34, self->xbc, self->xb0);
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 void TOKeyGenericSw__vt15(void *arg0) {
@@ -184,7 +183,7 @@ extern s32 __vt__14TOKeyGenericSw[];
 
 void TOKeyGenericSw::free_shared_resources() {
     if (TOKeyGenericSw__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFl(TOKeyGenericSw__texture_lists[2]);
+        TObjPlayer::free_if_valid(TOKeyGenericSw__texture_lists[2]);
         if (TOKeyGenericSw__texture_lists != NULL) {
             mem_free(TOKeyGenericSw__texture_lists);
             TOKeyGenericSw__texture_lists = NULL;
@@ -202,9 +201,9 @@ void TOKeyGenericSw::free_shared_resources() {
 
 void TOKeyGenericSw::load_resources() {
     u8 *base = (u8 *)&fs_obj_hanyousu_body1_resource_bundle;
-    s32 st = get_global_state__14TOKeyMachine01Fv();
+    s32 st = TOKeyMachine01::get_global_state();
     void *p;
-    if (is_global_state_in_table__19TContainerAncient01Fv() == 1 || st == 0x1C || st == 0x1D) {
+    if (TContainerAncient01::is_global_state_in_table() == 1 || st == 0x1C || st == 0x1D) {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, base + 0x40, 0, 0, 0);

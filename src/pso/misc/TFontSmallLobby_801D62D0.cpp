@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TFontSmallLobby.h"
+#include "pso/item/TItemMag.h"
+#include "pso/misc/TMainCursor.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Lobby_801D6498 {
     u8 pad[0x14];
@@ -36,13 +39,9 @@ extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E4;
 s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0);
-void init_feed_timer__8TItemMagFv(void *);
 void TFontSmallLobby__sub_80152F28(void *);
-void clear_photon_blast_state__10TObjPlayerFv(void *);
-void set_section_index__15TFontSmallLobbyFs(void *, s16);
 void TFontSmallLobby__sub_801D67C8(void* p);
 void reset_photon_blast_gauge(struct Lobby_801D6498 *s);
-void clear_id__10TObjPlayerFv(void *);
 void TFontSmallLobby__sub_80152F28(void *);
 extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E8;
@@ -125,12 +124,12 @@ void TFontSmallLobby::update_if_ready() { if (TFontSmallLobby__sub_801D67AC((u8 
 void reset_photon_blast_gauge(struct Lobby_801D6498 *s) {
     s32 i;
     ((void (*)(void))TFontSmallLobby__sub_801D67C8)();
-    set_section_index__15TFontSmallLobbyFs(s, 0);
+    ((TFontSmallLobby *)s)->set_section_index(0);
     for (i = 0; i < 10; i++) {
         TFontSmallLobby__sub_80152F28(&s->arr[i]);
     }
-    init_feed_timer__8TItemMagFv(s);
-    clear_photon_blast_state__10TObjPlayerFv(s);
+    ((TItemMag *)s)->init_feed_timer();
+    ((TObjPlayer *)s)->clear_photon_blast_state();
     ((TFontSmallLobby *)(s->fields))->reset_fields();
 }
 void TFontSmallLobby::reset_state() {
@@ -150,7 +149,7 @@ void TFontSmallLobby::reset_state() {
         i++;
     } while (i < 10);
     arg0->g = lbl_805DC3E0;
-    clear_id__10TObjPlayerFv(arg0->sub);
+    ((TObjPlayer *)(arg0->sub))->clear_id();
     for (k = 0, fp = arg0->flags; k < 6; k++, fp++) {
         *fp = 0;
     }
@@ -177,7 +176,6 @@ f32 fn_801D6AB4(void *, s32, s32);
 s32 accumulate_damage_stats(u8 *arg0, s32 arg1, s32 arg2);
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
 void clear_player_sub_object_slots(Obj_801D6A18 *p);
-s32 init_forward__10TObjPlayerFv(void *);
 s32 __construct_array(void *, void *, int, int, int);
 extern s32 fn_80152EF8[];
 s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0);
@@ -202,13 +200,10 @@ int bswap_16__FPUs(void*);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int read_be16_field2__10TObjPlayerFv(void*);
 int set_flags__10TObjPlayerFUl(void*, int);
-void set_target__11TMainCursorFl(void* p, s32 a1);
-void set_target_index__11TMainCursorFs(void* p, s16 v);
-void update_cursor_pos__11TMainCursorFv(void* p);
 
 s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0) {
     __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), (int) (0), (int) (4), (int) (0xA));
-    init_forward__10TObjPlayerFv((void *) (arg0 + 0x40));
+    ((TObjPlayer *)(arg0 + 0x40))->init_forward();
     ((TFontSmallLobby *)(arg0 + 0x4C))->init_reset_fields();
     ((TFontSmallLobby *)arg0)->reset_state();
     return arg0;

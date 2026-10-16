@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowHelpItem.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Base_80243464 { char pad[0x18]; };
 struct VObj_80243464 : Base_80243464 {
@@ -30,8 +32,6 @@ extern "C" {
 u32 get_player_by_client_id(s32);
 s8 clamp_char_at__10TObjPlayerFl(u32, s32);
 s32 get_help_value__15TWindowHelpItemFv(void);
-void clear_visible_flag__20TWindowSubStatusDispFv(void *);
-void set_flag0_bit2__15TWindowHelpItemFv(void *);
 void draw_right_aligned_number(void *);
 extern const f32 lbl_805DCA28;
 extern const f32 lbl_805DCA2C;
@@ -51,14 +51,13 @@ s32 get_help_value__15TWindowHelpItemFv(void);
 void *find_item_by_id();
 s32 get_palette_consumable_count();
 s32 set_sprite_uv_from_pixels(s32, f32, f32);
-s32 test_card_flag_2__12TBoss8DragonFv(s32);
 
 extern f32 lbl_805DCA1C;
 extern f32 lbl_805DCA20;
 extern f32 lbl_805DCA24;
 
 void TWindowHelpItem::set_help_text(s32 arg0, s32 arg1) {
-    if (test_card_flag_2__12TBoss8DragonFv(arg1) != 0) {
+    if (((TBoss8Dragon *)arg1)->test_card_flag_2() != 0) {
         set_sprite_uv_from_pixels(arg0, lbl_805DCA1C, lbl_805DCA20);
         return;
     }
@@ -83,7 +82,7 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
     s32 v;
     u32 p;
     if (arg2 != 4) {
-        set_flag0_bit2__15TWindowHelpItemFv(arg0);
+        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
         return;
     }
     if (arg3 >= 0xD) {
@@ -97,10 +96,10 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
         v = ((s32 (*)(u16, s32))get_help_value__15TWindowHelpItemFv)(arg3, arg4);
     }
     if (v <= 0) {
-        set_flag0_bit2__15TWindowHelpItemFv(arg0);
+        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
         return;
     }
-    clear_visible_flag__20TWindowSubStatusDispFv(arg0);
+    ((TWindowSubStatusDisp *)arg0)->clear_visible_flag();
     *(s32 *)((s8 *)arg0 + 0x1C) = *(s32 *)((s8 *)arg1 + 0x2C);
     *(s32 *)((s8 *)arg0 + 0x20) = v;
     draw_right_aligned_number(arg0);

@@ -26,7 +26,6 @@ typedef struct Dust_802F127C {
 
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int, f32);
-s32 calc_random_scaled__10TObjPlayerFv();
 void matrix_mult_vec(s32, Vec_802F127C *, Out_802F127C *);
 void set_matrix_identity(s32);
 void translate_matrix(s32, f32, f32, f32);
@@ -146,6 +145,7 @@ extern s32 lbl_805D6958;
 
 }
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -195,7 +195,7 @@ void fn_802F1454(void) {
     {
         s32 *p = &TObjBoss7DustCtrl__rotation_pairs[0].a;
         for (i = 0; i < 20; i++) {
-            *p++ = calc_random_scaled__10TObjPlayerFv();
+            *p++ = TObjPlayer::calc_random_scaled();
         }
     }
     {
@@ -209,7 +209,7 @@ void fn_802F1454(void) {
         }
     }
     for (j = 0; j < 10; j++) {
-        TObjBoss7DustCtrl__vertical_phase_angles[j] = calc_random_scaled__10TObjPlayerFv();
+        TObjBoss7DustCtrl__vertical_phase_angles[j] = TObjPlayer::calc_random_scaled();
     }
     lbl_805D6958 = 0;
 }

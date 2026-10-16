@@ -2,6 +2,8 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 struct Stack_80290E28 {
     s32 sp8;
     s32 spC;
@@ -14,12 +16,10 @@ struct Quad_80290F10 { f32 x; f32 y; f32 z; f32 w; f32 h; f32 d; void *tbl; };
 struct Stack_80290F10 { Quad_80290F10 q; u8 *table; };
 
 extern "C" {
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 draw_ui_sprite_scaled(f32, f32, void *, void *, void *);
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
 void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 draw_with_camera__6TLobbyFlllf(void *, int, int, f32);
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
 s32 set_chunk_material_color(void *);
 extern s32 creation_sprite_table[];
@@ -41,7 +41,7 @@ void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 fa
     typedef char sp14_offset[(offsetof(Stack_80290E28, sp14) == 0xC) ? 1 : -1];
     Stack_80290E28 stack;
     u8 *temp_r6;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (&stack.sp10), (void *) (arg1));
+    ((TWindowSubSymbolChatPartsSet *)(&stack.sp10))->copy_vec2((void *) (arg1));
     stack.sp8 = arg0;
     TCharaMaking__resolve_creation_sprite_table((void *) (&stack.spC), (void *) (&stack.sp8));
     temp_r6 = (u8 *)(stack.spC + (stack.sp8 * 0x14));
@@ -62,7 +62,7 @@ void draw_ui_sprite_tinted(s32 arg0, f32 *arg1, f32 *arg2, f32 *arg3, f32 farg0)
         TCharaMaking__resolve_creation_sprite_table(&st.table, &arg0);
         copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
         set_chunk_material_color(arg3);
-        draw_with_camera__6TLobbyFlllf(&st.q, arg0, 0x22, farg0);
+        TLobby::draw_with_camera((s32)(&st.q), (s32)arg0, (s32)0x22, (f32)farg0);
         copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
     }
 }

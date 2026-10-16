@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/enemy/TObjEnePanarmsAtkColli.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/misc/TLobby.h"
 struct Entry_800E31C4 { s32 id; u8 data[0xC]; };
 
 struct Vec_800E31C4 { f32 x; f32 y; f32 z; };
@@ -482,10 +485,7 @@ extern const f32 lbl_805DA5BC;
 extern const f32 lbl_805DA5C0;
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1);
-u8 *dispatch_shared_handler_a__6TLobbyFl(int);
-void set_param__12TObjEneLappyFl(void *, int);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-void initialize__9TObjEnemyFPv(void *, void *);
 int play_sound_effect(void *, void *, void *, void *);
 extern s32 TObjEnePanarmsAtkColli__type_index_table[];
 extern s32 __vt__22TObjEnePanarmsAtkColli[];
@@ -556,7 +556,7 @@ extern const f32 lbl_805DA5A8 = 10.0f;
 extern const f32 lbl_805DA5AC = 2.8f;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     f32 scale;
-    initialize__9TObjEnemyFPv(self, arg1);
+    ((TObjEnemy *)self)->initialize(arg1);
     self->vt = __vt__22TObjEnePanarmsAtkColli;
     self->f0 = lbl_805D2AC0;
     VecCopy__FP3VecPC3Vec(&self->pos, arg2);
@@ -564,8 +564,8 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
     self->type = (s32)arg4;
     self->f384 = 0;
     self->f388 = 0;
-    set_param__12TObjEneLappyFl(self, 0x15);
-    self->f38C = ((f32 *)dispatch_shared_handler_a__6TLobbyFl(0x31))[TObjEnePanarmsAtkColli__type_index_table[self->type]];
+    ((TObjEneLappy *)self)->set_param(0x15);
+    self->f38C = ((f32 *)TLobby::dispatch_shared_handler_a(0x31))[TObjEnePanarmsAtkColli__type_index_table[self->type]];
     if (self->f38C < 0.0f) {
         self->f38C = 0.0f;
     }

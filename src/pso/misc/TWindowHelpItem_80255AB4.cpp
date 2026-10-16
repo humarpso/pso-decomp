@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowHelpItem.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubMag.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/ui/TWindowInputNumber.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -37,11 +43,9 @@ extern u32 lbl_805D3910;
 extern TWindowHelpItem::CallbackWords __ptmf_null;
 extern const f32 lbl_805DCE10;
 void construct_base__9TWindowDDFPvPvsPv(void *self, void *vt, s16 idx, void *pos);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *dst, void *src);
 void save_position__17TWindowSubComCardFPv(void *self);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void *init__21TWindowSubComCardListFiii(void *p, s32 a, s32 b, s32 c);
-s32 dispatch_item_help__15TWindowHelpItemFv(void *);
 void call_if_split_screen(void *self, s32 idx);
 
 }
@@ -51,8 +55,6 @@ extern "C" {
 void TWindowHelpItem__sub_80255B20(u8 *arg0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 invoke_callback_pmf__15TWindowHelpItemFv(void *);
-s32 dispatch_item_help__15TWindowHelpItemFv(void *);
 s32 handle_list_page_flip_input(s32);
 s32 setup_window_draw_context(void *, void *);
 s32 draw_window_frame(void *, int);
@@ -65,15 +67,6 @@ void destroy_window_base__9TWindowDDFs(void *, int);
 s32 fn_80244994(void *);
 s32 toggle_help_window_on_button(void *, s16);
 s32 decay_page_arrow_offset(s32);
-s16 get_field_2F8__20TWindowSubStatusDispFv(void* p);
-s16 get_item_type__20TWindowSubStatusDispFv(void* p);
-s16 get_stat__20TWindowSubStatusDispFv(void* p);
-s16 get_value__20TWindowSubStatusDispFv(void* p);
-s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 is_confirmed__18TWindowInputNumberFv();
-s32 set_entry_state__20TWindowSubStatusDispFSc(s32 a0 = 0, s32 a1 = 0);
-void set_flag60_bit4__13TWindowSubMagFv(void* p);
-s32 update_fade__17TWindowSubComCardFv(void *);
 
 void TWindowHelpItem::update_cursor_selection() {
     *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
@@ -113,15 +106,15 @@ void TWindowHelpItem::update_display() {
     if ((*(u8 *)((s8 *)arg0 + 0x60) & 1) && (fn_80244994(arg0) != 0) && !(*(s32 *)((s8 *)arg0 + 0x2C) & 4)) {
         if (!(*(u8 *)((s8 *)arg0 + 0x60) & 4)) {
             if (handle_list_page_flip_input(*(s32 *)((s8 *)arg0 + 0x64)) != 0) {
-                dispatch_item_help__15TWindowHelpItemFv(arg0);
+                ((TWindowHelpItem *)arg0)->dispatch_item_help();
             }
         } else {
             decay_page_arrow_offset(*(s32 *)((s8 *)arg0 + 0x64));
         }
-        invoke_callback_pmf__15TWindowHelpItemFv(arg0);
+        ((TWindowHelpItem *)arg0)->invoke_callback_pmf();
     }
-    initialize_subwindow__9TWindowDDFv(arg0);
-    update_fade__17TWindowSubComCardFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list(arg0, arg0 + 0x24);
     if (!(*(u8 *)((s8 *)arg0 + 0x60) & 8)) {
         toggle_help_window_on_button(arg0, *(s16 *)((s8 *)arg0 + 0x20));
@@ -149,7 +142,7 @@ TWindowHelpItem::TWindowHelpItem(void *pos, u16 idx) {
     construct_base__9TWindowDDFPvPvsPv(self, __vt__15TWindowHelpItem, idx, pos);
     self->m_vtable18 = ((s32 *)&TWindowHelpItem__object_vtable);
     self->m_00 = lbl_805D3910;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((u8 *)self + 0x30, pos);
+    ((TWindowSubSymbolChatPartsSet *)((u8 *)self + 0x30))->copy_vec2(pos);
     save_position__17TWindowSubComCardFPv(self);
     self->m_60 = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0xc);
@@ -166,7 +159,7 @@ TWindowHelpItem::TWindowHelpItem(void *pos, u16 idx) {
     self->m_callback = __ptmf_null;
     self->m_a8 = lbl_805DCE10;
     self->m_ac = lbl_805DCE10;
-    dispatch_item_help__15TWindowHelpItemFv(self);
+    ((TWindowHelpItem *)self)->dispatch_item_help();
     call_if_split_screen(self, self->m_20);
 }
 extern "C" {

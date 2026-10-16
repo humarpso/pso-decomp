@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct G_80338534 { u8 p0[0x2C]; u8 a[0x40]; u8 b[0x60]; u8 c[0x40]; };
 
@@ -13,27 +21,16 @@ struct A_80338608 { u8 pad[0x14]; u32 col; };
 struct B_80338608 { u8 pad[0xC]; u32 col; };
 
 extern "C" {
-s32 get_instance__15TAdPlayerLoadGCFv();
 void TLobby__sub_803384D4(void);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(int);
-s32 alloc__22TQuestVmDownLoadServerFv(int);
 s32 prs_decompress_buffer(int, int);
 s32 set_stream_state__6TLobbyFi(void *, int);
 s32 load_gvm_texture_archive(int, void *);
 extern s32 lbl_80477BC4[];
 extern s32 lobby_request_flags;
 void TCameraCtrl__sub_80068EF0(void);
-void restore_full_screen_view__11TCameraCtrlFv(void);
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
-void begin_effect_render__13TParticleCtrlFv(void);
-void end_effect_render__13TParticleCtrlFv(void);
-void set_global_param__8TObjFishFl(s32);
 void set_texture_num(s32);
-void reset_player_state__15TObjBoss2TunnelFv(void);
 void draw_projected_quads__15TObjBoss2TunnelFPvi(void *, s32);
 void TObjBoss2Tunnel__sub_803E2D10(s32);
-void reset_player_state__6TLobbyFv(void);
 void draw_projected_textured_strip(void *, s32);
 void TLobby__sub_803E2EE4(s32);
 extern s32 lbl_805D63F0;
@@ -50,7 +47,6 @@ extern const f32 lbl_805DF9B4;
 extern const f32 lbl_805DF9B8;
 void set_depth_buffer_settings_2__Fv(void);
 void restore_saved_depth_alpha_state(void);
-void draw_compass_sprite__10TObjPlayerFlllf(void *, s32, u32, s32, f32);
 u32 __cvt_fp2unsigned(f32);
 void set_perspective_projection_from_fov(s32, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DF9AC;
@@ -148,23 +144,23 @@ void TLobby__sub_803382E4(void) {
         alpha = v * lbl_805DF9A8 + lbl_805DF9A0;
         set_perspective_projection_from_fov(0x3555, lbl_805DF9AC, lbl_805DF9A4, lbl_805DF9B0, lbl_805DF9A8, v);
         set_depth_buffer_settings_2__Fv();
-        begin_effect_render__13TParticleCtrlFv();
-        restore_full_screen_view__11TCameraCtrlFv();
-        reset_transform_state__10TObjPlayerFv();
-        set_global_param__8TObjFishFl((s32)(lbl_804EF1DC));
+        TParticleCtrl::begin_effect_render();
+        TCameraCtrl::restore_full_screen_view();
+        TObjPlayer::reset_transform_state();
+        TObjFish::set_global_param((s32)(lbl_804EF1DC));
         set_texture_num(0);
         TLobby__sub_803E2EE4(0);
         draw_projected_textured_strip((void *)(lbl_804EF2E4), 4);
-        reset_player_state__6TLobbyFv();
+        TLobby::reset_player_state();
         set_texture_num(1);
         TLobby__sub_803E2EE4(0);
         draw_projected_textured_strip((void *)(lbl_804EF344), 4);
-        reset_player_state__6TLobbyFv();
-        init_xyz_limits__10TObjPlayerFv();
-        draw_compass_sprite__10TObjPlayerFlllf((void *)(lbl_804EF3E0), 2, (__cvt_fp2unsigned(lbl_805DF9B4 * alpha) << 24) | 0xFFFFFF, 0x21, lbl_805DF9A0);
-        reset_transform_state__10TObjPlayerFv();
+        TLobby::reset_player_state();
+        TObjPlayer::init_xyz_limits();
+        ((TObjPlayer *)lbl_804EF3E0)->draw_compass_sprite(2, (__cvt_fp2unsigned(lbl_805DF9B4 * alpha) << 24) | 0xFFFFFF, 0x21, lbl_805DF9A0);
+        TObjPlayer::reset_transform_state();
         TCameraCtrl__sub_80068EF0();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         restore_saved_depth_alpha_state();
     }
 }
@@ -185,20 +181,20 @@ void TLobby::load_now_loading_texture() {
     s32 temp_r31;
     s32 temp_r3;
     if (!(lobby_request_flags & 2)) {
-        temp_r31 = alloc__22TQuestVmDownLoadServerFv((int) (0x11000));
-        temp_r3 = alloc__22TQuestVmDownLoadServerFv((int) (0x2000));
+        temp_r31 = ((TQuestVmDownLoadServer *)0x11000)->alloc();
+        temp_r3 = ((TQuestVmDownLoadServer *)0x2000)->alloc();
         set_stream_state__6TLobbyFi((void *) (lbl_80477BC4), (int) (temp_r3));
         prs_decompress_buffer((int) (temp_r3), (int) (temp_r31));
         load_gvm_texture_archive((int) (temp_r31), (void *) (lbl_804EF1DC));
-        safe_free__23TAdSinglePlyChrSelectGCFUl((int) (temp_r3));
-        safe_free__23TAdSinglePlyChrSelectGCFUl((int) (temp_r31));
+        TAdSinglePlyChrSelectGC::safe_free((int) (temp_r3));
+        TAdSinglePlyChrSelectGC::safe_free((int) (temp_r31));
         lobby_request_flags |= 2;
     }
 }
 
 void TLobby__sub_803384D4(void) {
     s32 temp_r3;
-    temp_r3 = get_instance__15TAdPlayerLoadGCFv();
+    temp_r3 = TAdPlayerLoadGC::get_instance();
     switch (temp_r3) {
     case 5:
     case 6:
@@ -221,33 +217,33 @@ void TLobby__sub_803384D4(void) {
 #pragma opt_propagation off
 void TLobby__sub_80338534(void) {
     G_80338534 *t = &lbl_804EF1B8;
-    restore_full_screen_view__11TCameraCtrlFv();
-    reset_transform_state__10TObjPlayerFv();
-    begin_effect_render__13TParticleCtrlFv();
+    TCameraCtrl::restore_full_screen_view();
+    TObjPlayer::reset_transform_state();
+    TParticleCtrl::begin_effect_render();
     TObjBoss2Tunnel__sub_803E2D10(1);
     draw_projected_quads__15TObjBoss2TunnelFPvi(t->a, 4);
-    reset_player_state__15TObjBoss2TunnelFv();
+    TObjBoss2Tunnel::reset_player_state();
     if ((u32)info_icon_texture != 0) {
-        set_global_param__8TObjFishFl(info_icon_texture);
+        TObjFish::set_global_param(info_icon_texture);
         if (lobby_request_flags & 4) {
             set_texture_num(1);
         } else {
             set_texture_num(0);
         }
-        init_xyz_limits__10TObjPlayerFv();
+        TObjPlayer::init_xyz_limits();
         TLobby__sub_803E2EE4(1);
         draw_projected_textured_strip(t->b, 4);
-        reset_player_state__6TLobbyFv();
-        reset_transform_state__10TObjPlayerFv();
-        set_global_param__8TObjFishFl(lbl_805D63F0);
+        TLobby::reset_player_state();
+        TObjPlayer::reset_transform_state();
+        TObjFish::set_global_param(lbl_805D63F0);
         set_texture_num(5);
         TLobby__sub_803E2EE4(1);
         draw_projected_textured_strip(t->c, 4);
-        reset_player_state__6TLobbyFv();
+        TLobby::reset_player_state();
     }
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     TCameraCtrl__sub_80068EF0();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 #pragma pop
 

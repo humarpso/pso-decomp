@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/misc/TOHealGeneral.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TOKey.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base_801695a8_80169520 { char pad[0x18]; };
 struct VObj_801695a8_80169520 : Base_801695a8_80169520 {
@@ -69,28 +77,20 @@ struct Heal_80169858 {
 extern "C" {
 void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern RecoveredGlobal_80169710_lbl_804B2748 bm_fe_obj_kaifuku_moto_resource_descriptor;
 extern RecoveredGlobal_80169710_lbl_804B2760 fe_obj_kaifuku_moto_2_resource_descriptor;
 extern u32 TOHealGeneral__model_archive;
-void request_destroy__11TBoss4Type2FUl(u32);
 void unregister_object_by_id(void *);
 void free_collision_body_parts(void *);
-void destroy_key_base__5TOKeyFs(void *, s16);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
 TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s16 flag);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 u32 create_particle_emitter(void *, s32);
-void set_owner_id__13TParticleCtrlFUs(u32, u16);
-void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
-void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 extern u8 lbl_804B2770[];
 extern void *__vt__13TOHealGeneral[];
 extern s32 TOHealGeneral__class_name;
@@ -122,15 +122,11 @@ s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 update_closing__13TOHealGeneralFv(void *);
-s32 update_opening__13TOHealGeneralFv(void *);
-s32 set_global_param__8TObjFishFl(int);
 
 void TOHealGeneral::run_task() {
     s32 temp_r0;
 
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TOHangerMachine01__sub_80169168(this);
         return;
     }
@@ -140,10 +136,10 @@ void TOHealGeneral::run_task() {
         find_heal_target__13TOHealGeneralFPv(this);
         return;
     case 1:
-        update_opening__13TOHealGeneralFv(this);
+        update_opening();
         return;
     case 2:
-        update_closing__13TOHealGeneralFv(this);
+        update_closing();
         return;
     }
 }
@@ -158,7 +154,7 @@ void TOHealGeneral::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
@@ -204,7 +200,7 @@ void TOHealGeneral::load_resources() {
   s32 var_r0;
   s32 var_r0_2;
   int new_var;
-  temp_r3 = get_global_state__14TOKeyMachine01Fv();
+  temp_r3 = TOKeyMachine01::get_global_state();
   if (temp_r3 < 0x22)
   {
     if (temp_r3 < 0x1E)
@@ -222,7 +218,7 @@ void TOHealGeneral::load_resources() {
   if (temp_r3 < 0x24)
   {
     block_5:
-    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFv((void *) 0x440);
+    temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc();
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -232,7 +228,7 @@ void TOHealGeneral::load_resources() {
     return;
   }
   block_8:
-  temp_r3_3 = (new_var = alloc__23TAdSinglePlyChrSelectGCFv((void *) 0x440));
+  temp_r3_3 = (new_var = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc());
   var_r0_2 = temp_r3_3;
   if (var_r0_2 != 0)
   {
@@ -247,12 +243,12 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
         self->vtable = __vt__13TOHealGeneral;
         for (i = 0; i < 2; i++) {
             if (self->handles[i] != 0) {
-                request_destroy__11TBoss4Type2FUl(self->handles[i]);
+                TBoss4Type2::request_destroy(self->handles[i]);
             }
         }
         unregister_object_by_id(self);
         free_collision_body_parts(self);
-        destroy_key_base__5TOKeyFs(self, 0);
+        ((TOKey *)self)->destroy_key_base(0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);
         }
@@ -274,8 +270,8 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->fC4 = lbl_805DB6CC;
     init_collision_body_parts(self, lbl_804B2770, 1, model);
     refresh_collision_body_centers(self);
-    reset_photon_effect__10TObjPlayerFv(self);
-    clear_player_status_flag__10TObjPlayerFlUl(self, 0, 1);
+    ((TObjPlayer *)self)->reset_photon_effect();
+    ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
     self->fCC = 0;
     self->fD0 = lbl_805DB6C0;
     for (i = 0; i < 2; i++) {
@@ -284,12 +280,12 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->pts[0].y += lbl_805DB6D0;
     self->pts[1].y += lbl_805DB6BC;
     self->handles[0] = create_particle_emitter(&self->pts[0], 0x63);
-    if (self->handles[0] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[0]) == 0) {
+    if (self->handles[0] != 0 && ((TObject *)(self->handles[0]))->all_parents_unqueued_for_destruction() == 0) {
         self->handles[0] = 0;
     }
     self->handles[1] = spawn_continuous_particle_effect_with_flags(&self->pts[1], 0x63, 0x10);
-    if (self->handles[1] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(self->handles[1]) != 0) {
-        set_owner_id__13TParticleCtrlFUs(self->handles[1], self->f1c);
+    if (self->handles[1] != 0 && ((TObject *)(self->handles[1]))->all_parents_unqueued_for_destruction() != 0) {
+        ((TParticleCtrl *)(self->handles[1]))->set_owner_id(self->f1c);
     } else {
         self->handles[1] = 0;
     }

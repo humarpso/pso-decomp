@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TObjDFYutai.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Vec_800502FC {
     f32 x, y, z;
@@ -31,7 +32,6 @@ s32 TBoss4Type3__sub_8005254C(int);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void draw_player_model_by_id__10TObjPlayerFlf(u16, f32);
 s32 TBoss4Type3__sub_8005254C(int);
 u8 *get_player_by_client_id(u16);
 void scale_matrix(s32, f32, f32, f32);
@@ -85,7 +85,7 @@ void TObjDFYutai::render() {
     post_translate_matrix(&v);
     rotate_matrix_y(0, *(s32 *)(p + 0x60));
     scale_matrix(0, s, s, s);
-    draw_player_model_by_id__10TObjPlayerFlf(arg0->id, w);
+    TObjPlayer::draw_player_model_by_id(arg0->id, w);
     pop_matrix();
 }
 

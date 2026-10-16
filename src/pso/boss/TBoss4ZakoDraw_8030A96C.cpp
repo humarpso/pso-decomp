@@ -2,6 +2,8 @@
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss4Zako.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TBoss4Uro.h"
+#include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_8030ABF4_TCameraCtrl__data_804FF634 {
     s32 value;
@@ -36,15 +38,12 @@ void TCameraCtrl__sub_8030ABF4(void);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 u8 *get_bml_model(s32, s32);
-s32 get_instance_count__9TBoss4UroFv(void);
-void sync_player_globals__10TObjPlayerFv(void);
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(int);
 void draw_chunk_object(int);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 boss4_zako_draw_buffers;
 extern s32 falz_zako_texture_list;
@@ -162,9 +161,9 @@ void TObjPlayer::draw_area_chunk_objects() {
     Ent_8030AB48 *p = t->ents;
     s32 r31;
     s32 i;
-    r31 = ((s32)get_bml_model((s32)(get_instance_count__9TBoss4UroFv()), (s32)(8)));
+    r31 = ((s32)get_bml_model((s32)(TBoss4Uro::get_instance_count()), (s32)(8)));
     TObjPlayer__sub_80052390(lbl_805DF148);
-    set_global_param__8TObjFishFl(falz_zako_texture_list);
+    TObjFish::set_global_param(falz_zako_texture_list);
     for (i = 0; i < t->count; i++, p++) {
         push_matrix();
         post_translate_matrix(p);
@@ -173,7 +172,7 @@ void TObjPlayer::draw_area_chunk_objects() {
         draw_chunk_object(r31);
         pop_matrix();
     }
-    sync_player_globals__10TObjPlayerFv();
+    TObjPlayer::sync_player_globals();
 }
 
 void TCameraCtrl__sub_8030ABF4(void) {
@@ -192,7 +191,7 @@ void TCameraCtrl__sub_8030ABF4(void) {
             set_viewport_scissor__11TCameraCtrlFiPv((int) (2), (int) (var_r4));
         }
         var_r4 = (u8 *)((void *)8);
-        var_r3 = (s32 *)(*(s32 **)((s8 *)(get_bml_model(get_instance_count__9TBoss4UroFv(), 8)) + 0x2C));
+        var_r3 = (s32 *)(*(s32 **)((s8 *)(get_bml_model(TBoss4Uro::get_instance_count(), 8)) + 0x2C));
         *(s32 *)((s8 *)var_r3 + 0x18) = (s32) (TBoss4ZakoDraw__rotation_phase << 0xC);
         TObjPlayer::draw_area_chunk_objects();
         TObjPlayer__sub_8030A9B0();

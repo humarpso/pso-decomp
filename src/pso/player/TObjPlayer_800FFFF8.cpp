@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TItemLoad.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItemProArmor.h"
 
 struct RecoveredGlobal_80100070_lbl_8049E8F8 {
     s32 value;
@@ -25,13 +28,8 @@ struct RecoveredGlobal_80100070_lbl_8058D4C0 {
 extern "C" {
 void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 get_model_ids__9TItemLoadFUcPlPl(int, u32 *, s32 *);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(s32);
-s32 reset_transform_state__10TObjPlayerFv();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -67,19 +65,13 @@ s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 draw_ginja_object(u32);
-s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s8 TObjPlayer__sub_80102C30();
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 func_80141618__Fv();
-s32 get_id__13TItemProArmorFv(void *);
 s16 get_packed_value__9TItemDataFPv(s32);
 s32 is_usable__9TItemDataFPv(s32);
-s32 notify_fish_if_valid__10TObjPlayerFUl(s32);
-s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 
@@ -106,7 +98,7 @@ typedef char RecoveredGlobal_80100070_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8
 void TObjPlayer__sub_80100070(u8 *arg0) {
     u8 *spC;
     s32 sp8;
-    get_model_ids__9TItemLoadFUcPlPl((int)((int) (6U)), (u32 *)((void *) (&spC)), (s32 *)((void *) (&sp8)));
+    TItemLoad::get_model_ids((u8)((int)((int) (6U))), (s32 *)(&spC), (s32 *)(&sp8));
     if (spC != NULL) {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -114,8 +106,8 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
         model_render_flags |= 0x10;
         set_depth_buffer_settings_id__FUl((s32)((int) (3)));
-        begin_effect_render__13TParticleCtrlFv();
-        notify_fish_if_valid__10TObjPlayerFUl((s32)((int) (sp8)));
+        TParticleCtrl::begin_effect_render();
+        TObjPlayer::notify_fish_if_valid((s32)((int) (sp8)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
@@ -124,8 +116,8 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         set_chunk_material_color((int) ((u8 *)&item_box_secondary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
         draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)spC + 0x2C)) + 4)));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
-        reset_transform_state__10TObjPlayerFv();
+        TParticleCtrl::end_effect_render();
+        TObjPlayer::reset_transform_state();
         func_80141618__Fv();
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
         chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -139,18 +131,18 @@ void TObjPlayer::draw_item_model() {
     u32 spC;
     s32 sp8;
 
-    get_model_ids__9TItemLoadFUcPlPl(*(u8 *)((s8 *)arg0 + 0xEF), &spC, &sp8);
+    TItemLoad::get_model_ids((u8)(*(u8 *)((s8 *)arg0 + 0xEF)), (s32 *)(&spC), (s32 *)(&sp8));
     if (spC != 0U) {
         set_depth_buffer_settings_id__FUl(3);
-        begin_effect_render__13TParticleCtrlFv();
-        notify_fish_if_valid__10TObjPlayerFUl(sp8);
+        TParticleCtrl::begin_effect_render();
+        TObjPlayer::notify_fish_if_valid(sp8);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw_ginja_object(spC);
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
-        reset_transform_state__10TObjPlayerFv();
+        TParticleCtrl::end_effect_render();
+        TObjPlayer::reset_transform_state();
         func_80141618__Fv();
     }
 }

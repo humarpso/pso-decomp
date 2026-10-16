@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/object/TObjParticleLobby.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TOKey.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -25,16 +30,11 @@ s32 init_map_object_base(void *, void *);
 extern s32 __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_filtered_event_theme__6TLobbyFv();
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
-s32 check_demo_mode__10TObjPlayerFv(void);
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void enable__13TParticleCtrlFPv(void *);
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 void TObjParticleLobby__sub_80369698(void);
-void set_param_ptr__11TBoss4Type2Fl(void *, s32);
 void set_flags__11TBoss4Type2FUl(void *, u16);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 }
 
@@ -46,11 +46,10 @@ void TObjParticleLobby__sub_80369A64(void);
 void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 s32 get_event_theme_index__17TObjParticleLobbyFv(void) {
-    s32 r = get_filtered_event_theme__6TLobbyFv();
+    s32 r = TLobby::get_filtered_event_theme();
     switch (r) {
     case 12:
         return 0;
@@ -67,7 +66,7 @@ extern void *tl_05;
 
 void TObjParticleLobby::run_task() {
     Self_803696A0 *o = (Self_803696A0 *)this;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(void *))TObjParticleLobby__sub_80369698)(o);
         return;
     }
@@ -87,7 +86,7 @@ void TObjParticleLobby::run_task() {
             o->state = 3;
         }
         if (o->ctrl != NULL) {
-            set_position_xy__10TObjPlayerFff(o->ctrl, o->t, 1.0f);
+            ((TObjPlayer *)(o->ctrl))->set_position_xy(o->t, 1.0f);
         }
         break;
     case 1:
@@ -98,7 +97,7 @@ void TObjParticleLobby::run_task() {
             break;
         }
         if (o->ctrl != NULL) {
-            set_position_xy__10TObjPlayerFff(o->ctrl, o->t, 1.0f);
+            ((TObjPlayer *)(o->ctrl))->set_position_xy(o->t, 1.0f);
         }
         break;
     case 3:
@@ -161,7 +160,7 @@ void TObjParticleLobby::setup_emitter() {
         v = 0x23F;
     }
     if (*(void **)((s8 *)this + 0xD4) != NULL) {
-        set_param_ptr__11TBoss4Type2Fl(*(void **)((s8 *)this + 0xD4), v);
+        ((TBoss4Type2 *)(*(void **)((s8 *)this + 0xD4)))->set_param_ptr(v);
     }
     f = *(f32 *)((s8 *)this + 0x70);
     if (f < 0.0f) {
@@ -203,7 +202,7 @@ void TObjParticleLobby::setup_emitter() {
         set_flags__11TBoss4Type2FUl(*(void **)((s8 *)this + 0xD4), flags);
     }
     if (*(void **)((s8 *)this + 0xD4) != NULL) {
-        copy_pos__11TNowLoadingFPv(*(void **)((s8 *)this + 0xD4), (u8 *)this + 0x38);
+        ((TNowLoading *)(*(void **)((s8 *)this + 0xD4)))->copy_pos((u8 *)this + 0x38);
     }
 }
 
@@ -224,7 +223,7 @@ void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjParticleLobby;
         if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

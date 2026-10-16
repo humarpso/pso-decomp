@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemDrop.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TOSwitchItem.h"
 
 struct Tbl_8011C914 { u8 pad[0x2c]; u8 *p; };
 
@@ -94,8 +97,6 @@ extern void *item_pmt_tbl;
 u8 get_technique_learn_limit(s8 arg0, u8 arg1);
 extern void *item_pmt_tbl;
 s32 get_item_star_count(s32 id);
-u8 get_field_ed__10TObjPlayerFv(void *p);
-u8 get_slot_count__14TItemProShieldFv(void *p);
 extern void *item_pmt_tbl;
 Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode);
 extern void *item_pmt_tbl;
@@ -111,9 +112,6 @@ extern const f32 lbl_805DAC74;
 extern s32 weapon_special_roll_channel_table[];
 u8 roll_weapon_special_for_stars(u8 arg0);
 f32 get_item_price_coefficient(u8 arg0, u8 arg1);
-u8 get_field_ed__10TObjPlayerFv(void *p);
-u8 get_field_ec__12TOSwitchItemFv(void *p);
-u8 get_slot_count__14TItemProShieldFv(void *p);
 extern void *item_pmt_tbl;
 Rule_8011C0B8 *find_item_combination_recipe(u8 *id, void *item);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -135,8 +133,6 @@ extern const f32 lbl_805DAC70;
 extern "C" {
 
 typedef struct Thing__8011c1e8_8011C000 { u8 a; u8 b; } Thing;
-
-s32 set_drop_index__9TItemDropFPvPv(void *, void *);
 
 extern void *item_pmt_tbl;
 
@@ -187,9 +183,9 @@ Rule_8011C0B8 *find_item_combination_recipe(u8 *id, void *item) {
             if ((id[0] == r->k[0] || r->k[0] == 0xFF) &&
                 (id[1] == r->k[1] || r->k[1] == 0xFF) &&
                 (id[2] == r->k[2] || r->k[2] == 0xFF) &&
-                (r->k[3] == get_field_ec__12TOSwitchItemFv(item) || r->k[3] == 0xFF) &&
-                (r->k[4] == get_field_ed__10TObjPlayerFv(item) || r->k[4] == 0xFF) &&
-                (r->k[5] == get_slot_count__14TItemProShieldFv(item) || r->k[5] == 0xFF)) {
+                (r->k[3] == ((TOSwitchItem *)item)->get_field_ec() || r->k[3] == 0xFF) &&
+                (r->k[4] == ((TObjPlayer *)item)->get_field_ed() || r->k[4] == 0xFF) &&
+                (r->k[5] == ((TItemProShield *)item)->get_slot_count() || r->k[5] == 0xFF)) {
                 return r;
             }
             r++;
@@ -207,7 +203,7 @@ void TObjPlayer::register_item_drop() {
     Thing *p = (Thing *) this;
 
     if (p != 0 && item_mgr != 0 && p->a == 1 && p->b == 1) {
-        set_drop_index__9TItemDropFPvPv(item_mgr, p);
+        TItemDrop::set_drop_index(item_mgr, p);
     }
 }
 
@@ -461,9 +457,9 @@ block_6:
 }
 Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode) {
     if (item != 0) {
-        u8 id = get_field_ed__10TObjPlayerFv(item);
+        u8 id = ((TObjPlayer *)item)->get_field_ed();
         if (id < 0xAA) {
-            u8 slots = get_slot_count__14TItemProShieldFv(item);
+            u8 slots = ((TItemProShield *)item)->get_slot_count();
             Rule_8011CB18 *r = (*(Pmt_8011CB18 **)&item_pmt_tbl)->rules->rules;
             s32 v = item->m33();
             s32 i;

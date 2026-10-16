@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
+#include "pso/TObject.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubMagPhoton.h"
 
 struct RecoveredGlobal_8027CE74_lbl_804D1818 {
     s32 value;
@@ -36,20 +40,13 @@ void __ct__7TObjectFP7TObject(void *, void *);
 s32 create_option_menu_window(void *);
 extern s32 __vt__19TWindowSubQuestBoard[];
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2);
-s32 is_visible__17TWindowSubComCardFv(s32);
-s32 get_status_flag__17TWindowSubComCardFv(s32);
-s32 get_flag_bit2__6TLobbyFv(u32);
-s32 clear_flag_and_release__17TWindowSubComCardFv(s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(s32);
-s32 update_photon_selection__19TWindowSubMagPhotonFv(void *);
 s32 update_quest_board_card_flags(void *);
 u32 TWindowSubStatusDisp__sub_8027C884(void *, s32);
 void TWindowSubQuestBoard__sub_8027CCCC(void *arg0);
 s32 create_instance__17TQuestThreadBoardFi(s32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 s8 get_page_index__20TWindowSubQuestBoardFv(s32);
-s32 is_open__20TWindowSubQuestBoardFv(s32);
 s32 TWindowSubQuestBoard__sub_8027D1DC(s32);
 s32 fn_8027D1E8(s32);
 extern Ent_8027CFC8 quest_board_handlers[];
@@ -77,15 +74,15 @@ void TWindowSubQuestBoard__sub_8027CCCC(void *arg0) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
-        clear_flag_and_release__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28));
+        ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->clear_flag_and_release();
         *(u8 *)((s8 *)arg0 + 0x1C) = 2;
     case 2:
-        if (get_status_flag__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28)) != 0) {
+        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->get_status_flag() != 0) {
             (*(VO_8027CCCC **)((s8 *)arg0 + 0x24))->m7();
             *(u8 *)((s8 *)arg0 + 0x1C) = 5;
             break;
         }
-        if (is_visible__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28)) != 0) {
+        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->is_visible() != 0) {
             *(u8 *)((s8 *)arg0 + 0x1C) = 3;
         }
         break;
@@ -94,9 +91,9 @@ void TWindowSubQuestBoard__sub_8027CCCC(void *arg0) {
         *(u32 *)((s8 *)arg0 + 0x2C) = TWindowSubStatusDisp__sub_8027C884(arg0, t);
         *(u8 *)((s8 *)arg0 + 0x1C) = 4;
     case 4:
-        update_photon_selection__19TWindowSubMagPhotonFv(arg0);
+        ((TWindowSubMagPhoton *)arg0)->update_photon_selection();
         update_quest_board_card_flags(arg0);
-        if (get_flag_bit2__6TLobbyFv(*(u32 *)((s8 *)arg0 + 0x2C)) != 0) {
+        if (((TLobby *)(*(u32 *)((s8 *)arg0 + 0x2C)))->get_flag_bit2() != 0) {
             *(u8 *)((s8 *)arg0 + 0x1C) = 1;
         }
         break;
@@ -162,7 +159,7 @@ void TWindowSubQuestBoard::run_task() {
             *(u8 *)((s8 *)this + 0x1C) = 5;
             break;
         }
-        if (is_open__20TWindowSubQuestBoardFv(*(s32 *)((s8 *)this + 0x28)) != 0) {
+        if (((TWindowSubQuestBoard *)(*(s32 *)((s8 *)this + 0x28)))->is_open() != 0) {
             *(u8 *)((s8 *)this + 0x1C) = 3;
         }
         break;
@@ -171,7 +168,7 @@ void TWindowSubQuestBoard::run_task() {
             quest_board_handlers[get_page_index__20TWindowSubQuestBoardFv(*(s32 *)((s8 *)this + 0x28))].f20);
         *(u8 *)((s8 *)this + 0x1C) = 4;
     case 4:
-        if (all_parents_unqueued_for_destruction__7TObjectFv(*(s32 *)((s8 *)this + 0x2C)) == 0) {
+        if (((TObject *)(*(s32 *)((s8 *)this + 0x2C)))->all_parents_unqueued_for_destruction() == 0) {
             *(s32 *)((s8 *)this + 0x2C) = 0;
             *(u8 *)((s8 *)this + 0x1C) = 1;
         }

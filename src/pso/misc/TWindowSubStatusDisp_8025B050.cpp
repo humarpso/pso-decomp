@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Win_8025B0D0 {
     u16 flags; u8 pad2[6];
@@ -16,13 +19,9 @@ extern "C" {
 void swap_sprite_v_edges(u8 *arg0);
 void swap_sprite_u_edges(u8 *arg0);
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
 void apply_context_transform_to_rect(void *, void *);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
 void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
@@ -34,7 +33,6 @@ s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 
 void *window_uv_sprite_part_vtable[6] = {
     0, 0,
@@ -100,14 +98,14 @@ void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
         len = (0.5f);
     }
     if (arg0->flags & 8) {
-        init_xyz_limits__10TObjPlayerFv();
+        TObjPlayer::init_xyz_limits();
     }
     if (arg0->flags & 0xC) {
         begin_screen_draw(1);
     } else {
         begin_screen_draw(0);
     }
-    set_global_param__8TObjFishFl(*arg0->p30);
+    TObjFish::set_global_param(*arg0->p30);
     set_draw_texture_and_color(arg0->i34, arg0->i2C);
     w = arg0->f10;
     lo = (0.5f) - len;
@@ -126,8 +124,8 @@ void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
     } else if (try_open__19TWindowKeyBoardSoftFii(arg1, &q) != 0) {
         draw_textured_quad_at_depth(&q, scale);
     }
-    get_player__20TWindowSubStatusDispFv();
-    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp::get_player();
+    TObjPlayer::reset_transform_state();
 }
 #pragma pop
 
@@ -147,8 +145,8 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)((void *) (arg0)), (void *)((int) (arg2)));
     *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 8), (void *) (arg1 + 4));
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x10))->copy_vec2((void *) (arg1 + 0xC));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg1 + 0x14);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg1 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
@@ -164,8 +162,8 @@ u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2)
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), (void *)((void *) (arg2)));
     *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 8), (void *) (arg1 + 4));
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *) (arg1 + 4));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x10))->copy_vec2((void *) (arg1 + 0xC));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg1 + 0x14) / 256.0f);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg1 + 0x18) / 256.0f);
     {

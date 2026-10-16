@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TEffIndirectCtrl.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjFish.h"
 
 struct Ctrl_802A8728 {
     u8 pad0[0x1C];
@@ -42,7 +43,6 @@ void TObjPlayer__sub_802A841C(void);
 extern s32 indirect_effect_ctrl_table[];
 void TObjPlayer__sub_802A83F4(void);
 s32 DCFlushRange(s32, s32);
-s32 copy_and_flush_texture__16TEffIndirectCtrlFl(void *, s32);
 void deform_indirect_texture_scroll(s32, s32, s32, s32, s32);
 s32 get_indirect_source_pixels(u8);
 void GXSetIndTexMtx(s32, f32 (*)[3], s32);
@@ -50,7 +50,6 @@ void Dolphin_GXSetIndTexCoordScale(s32, s32, s32);
 void Dolphin_GXSetIndTexOrder(s32, s32, s32);
 void GXSetNumIndStages(s32);
 void GXSetTevIndWarp(s32, s32, s32, s32, s32);
-void set_global_param__8TObjFishFl(s32);
 void load_list_texture(s32, s32, s32, s32);
 extern Tbl5_802A85F0 indirect_tev_alternate_coord_table;
 extern Tbl5_802A85F0 indirect_tev_scale_table;
@@ -62,7 +61,6 @@ void Dolphin_GXSetIndTexCoordScale(s32, s32, s32);
 void Dolphin_GXSetIndTexOrder(s32, s32, s32);
 void GXSetNumIndStages(s32);
 void GXSetTevIndWarp(s32, s32, s32, s32, s32);
-void set_global_param__8TObjFishFl(s32);
 void load_list_texture(s32, s32, s32, s32);
 extern Tbl5_802A8448 indirect_tev_ordinary_scale_table;
 extern const f32 lbl_805DE020;
@@ -78,9 +76,7 @@ s32 DCFlushRange(s32, s32);
 s32 deform_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
 s32 update_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
 s32 get_indirect_source_pixels(u8);
-s32 copy_and_flush_texture__16TEffIndirectCtrlFl(void *, s32);
 s8 find_indirect_effect_ctrl();
-void render__16TEffIndirectCtrlFv(void);
 
 extern s32 indirect_effect_ctrl_table[];
 
@@ -139,7 +135,7 @@ s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second) {
         m1[1][2] = lbl_805DE024;
         GXSetIndTexMtx(1, m1, 1);
     }
-    set_global_param__8TObjFishFl(((Owner_802A8448 *)arg0)->list);
+    TObjFish::set_global_param(((Owner_802A8448 *)arg0)->list);
     load_list_texture(0, sampler, sampler, 5);
 }
 
@@ -160,7 +156,7 @@ s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
         mtx[1][1] = lbl_805DE020;
         mtx[1][2] = lbl_805DE024;
         GXSetIndTexMtx(1, mtx, 1);
-        set_global_param__8TObjFishFl(((Owner_802A85F0 *)arg0)->list);
+        TObjFish::set_global_param(((Owner_802A85F0 *)arg0)->list);
         load_list_texture(0, sampler, sampler, 5);
     }
 }
@@ -168,7 +164,7 @@ s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
 void TEffIndirectCtrl::update_scroll_mode() {
     Ctrl_802A8728 *self = (Ctrl_802A8728 *)this;
     s32 rate;
-    copy_and_flush_texture__16TEffIndirectCtrlFl(self, get_indirect_source_pixels(self->index));
+    ((TEffIndirectCtrl *)self)->copy_and_flush_texture(get_indirect_source_pixels(self->index));
     rate = (s32) self->rate;
     self->phase = self->phase + (s8) self->recipe[3];
     deform_indirect_texture_scroll(self->buf, self->amp, self->period, rate, self->phase);
@@ -176,12 +172,12 @@ void TEffIndirectCtrl::update_scroll_mode() {
 }
 
 void update_eff_indirect(void *arg0) {
-    copy_and_flush_texture__16TEffIndirectCtrlFl(arg0, get_indirect_source_pixels(*(u8 *)((s8 *)arg0 + 0x24)));
+    ((TEffIndirectCtrl *)arg0)->copy_and_flush_texture(get_indirect_source_pixels(*(u8 *)((s8 *)arg0 + 0x24)));
     deform_indirect_texture_wave(*(s32 *)((s8 *)arg0 + 0x1C), (s32) *(f32 *)((s8 *)arg0 + 0x48), (s32) *(f32 *)((s8 *)arg0 + 0x4C), *(s32 *)((s8 *)arg0 + 0x3C), *(s32 *)((s8 *)arg0 + 0x40), *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
     DCFlushRange(*(s32 *)((s8 *)arg0 + 0x1C), 0x1000);
 }
 void eff_indirect_update_and_flush(void *arg0) {
-    copy_and_flush_texture__16TEffIndirectCtrlFl(arg0, get_indirect_source_pixels(*(u8 *)((s8 *)arg0 + 0x24)));
+    ((TEffIndirectCtrl *)arg0)->copy_and_flush_texture(get_indirect_source_pixels(*(u8 *)((s8 *)arg0 + 0x24)));
     update_indirect_texture_wave(*(s32 *)((s8 *)arg0 + 0x1C), (s32) *(f32 *)((s8 *)arg0 + 0x48), (s32) *(f32 *)((s8 *)arg0 + 0x4C), *(s32 *)((s8 *)arg0 + 0x3C), *(s32 *)((s8 *)arg0 + 0x40), *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
     DCFlushRange(*(s32 *)((s8 *)arg0 + 0x1C), 0x1000);
 }

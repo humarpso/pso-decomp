@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8012E414_lbl_804A5D10 {
     s32 value;
@@ -7,8 +8,6 @@ struct RecoveredGlobal_8012E414_lbl_804A5D10 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy_xyz__10TObjPlayerFPv(void *, void *);
-s32 get_field_d8__10TObjPlayerFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_8012E414_lbl_804A5D10 lbl_804A5D10;
@@ -26,9 +25,9 @@ typedef char RecoveredGlobal_8012E414_lbl_804A5D10_size[sizeof(RecoveredGlobal_8
 u8 *construct_weapon_casing__10TObjPlayerFPvPvPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, u8 *arg5) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A5D10.value;
-    *(s32 *)((s8 *)arg0 + 0x1C) = get_field_d8__10TObjPlayerFv(arg2);
+    *(s32 *)((s8 *)arg0 + 0x1C) = ((TObjPlayer *)arg2)->get_field_d8();
     VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg3);
-    copy_xyz__10TObjPlayerFPv(arg0 + 0x38, arg5);
+    ((TObjPlayer *)(arg0 + 0x38))->copy_xyz(arg5);
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg4);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));

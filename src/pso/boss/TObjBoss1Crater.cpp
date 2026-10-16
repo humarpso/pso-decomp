@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_5c1903 { char pad[0x18]; };
 
@@ -107,7 +110,6 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
 f32 TBoss1Dragon__sub_80027634(u32);
 s32 TObjBoss1Crater__sub_8002C7E4(void *);
 void attack_target_list_remove(void *, s32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern const V3_8002C544 lbl_80435560;
 void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self);
 }
@@ -124,9 +126,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFl(void *);
 
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
@@ -134,7 +134,7 @@ extern s32 model_render_flags;
 
 void render__15TObjBoss1CraterFv(u8 *arg0) {
     push_matrix();
-    set_global_param__8TObjFishFl((void *) (dragon_common_texture_list));
+    TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     model_render_flags |= 0x01000000;
@@ -150,7 +150,7 @@ void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self) {
     if (self->fAC == 0) {
         return;
     }
-    if (all_parents_unqueued_for_destruction__7TObjectFv((void *)self->fAC) == 0) {
+    if (((TObject *)((void *)self->fAC))->all_parents_unqueued_for_destruction() == 0) {
         self->fAC = 0;
         return;
     }
@@ -206,7 +206,7 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss1Crater;
         if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB4), 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB0)); *(s32 *)((s8 *)arg0 + 0xB0) = 0; }
-        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

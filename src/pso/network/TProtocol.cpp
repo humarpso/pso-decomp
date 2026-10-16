@@ -280,7 +280,6 @@ void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
-void init_char_data__9TProtocolFv(void *);
 void validate_player_visual_record(void *);
 
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
@@ -289,7 +288,7 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         validate_player_visual_record(char_data + 0x370);
         copy_player_data__9TProtocolFPvPv(self->char_data, char_data);
         Join_801DC1E4 tmp;
-        init_char_data__9TProtocolFv(&tmp);
+        ((TProtocol *)(&tmp))->init_char_data();
         memset(&tmp, 0, sizeof(tmp));
         tmp.command = 0x98;
         tmp.flags = 3;
@@ -351,7 +350,6 @@ void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
 void destroy__9TProtocolFis(void *, int);
-void init_char_data__9TProtocolFv(void *);
 void validate_player_visual_record(void *);
 
 void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *char_data, void *challenge, void *choice_search_config,
@@ -360,7 +358,7 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         validate_player_visual_record(char_data + 0x370);
         copy_player_data__9TProtocolFPvPv(self->char_data, char_data);
         Join_801DC34C tmp;
-        init_char_data__9TProtocolFv(&tmp);
+        ((TProtocol *)(&tmp))->init_char_data();
         memset(&tmp, 0, sizeof(tmp));
         tmp.command = 0x61;
         tmp.flags = 3;

@@ -1,6 +1,10 @@
 #include "pso/TAdMultiChgGameModeGC.h"
 
 #include "types.h"
+#include "pso/TLevelSelect.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_802FFCE4_lbl_8050E208
 {
@@ -36,17 +40,9 @@ struct Obj_802FFE58 {
 
 extern "C" {
 s32 get_localized_text_entry(int, int);
-s32 get_selected_slot__23TAdSinglePlyChrSelectGCFv(int);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 set_default_camera__21TAdMultiChgGameModeGCFv();
-s32 set_mode_18__21TAdMultiChgGameModeGCFv();
-s32 set_mode_state_0e__21TAdMultiChgGameModeGCFv();
-s32 set_mode_state_0d__21TAdMultiChgGameModeGCFv();
-s32 request_scene_change__21TAdMultiChgGameModeGCFv();
-s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(int, int, int);
-s32 reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 extern RecoveredGlobal_802FFCE4_lbl_8050E208 controller_input_state;
 extern s32 lbl_805D69E8;
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
@@ -58,10 +54,8 @@ void __ct__8TAdRayGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
 void __ct__14TAdSelectTxtGCFv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
-void add_item_rect__12TLevelSelectFPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-void set_ad_field__6TLobbyFl(void *, s32);
 extern Txt_802FFE58 multi_chg_game_mode_text_layout;
 extern Cur_802FFE58 lbl_80474E1C[];
 extern Pos_802FFE58 multi_chg_game_mode_position_table;
@@ -102,40 +96,40 @@ void TAdMultiChgGameModeGC::run_task() {
   s32 temp_r3;
   s32 *new_var;
   s32 temp_r4;
-  set_default_camera__21TAdMultiChgGameModeGCFv();
+  TAdMultiChgGameModeGC::set_default_camera();
   arg0->field_20 = TAdSinglePlyChrSelectGC__sub_801334DC((int) arg0->field_2C);
   temp_r4 = arg0->field_20;
   new_var = &arg0->field_2C;
   if (((s32) arg0->field_24) != temp_r4)
   {
-    set_entry_value__22TAdMultiPlyChrSelectGCFlUl((int) arg0->field_28, (int) 0, (int) get_localized_text_entry((int) 0x21, (int) arg0->field_20));
+    ((TAdMultiPlyChrSelectGC *)((int) arg0->field_28))->set_entry_value((int) 0, (int) get_localized_text_entry((int) 0x21, (int) arg0->field_20));
   }
   if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (int) 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (int) 2) != 0))
   {
-    request_scene_change__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::request_scene_change();
   }
   else
-    if (1 == get_selected_slot__23TAdSinglePlyChrSelectGCFv((int) arg0->field_2C))
+    if (1 == ((TAdSinglePlyChrSelectGC *)((int) arg0->field_2C))->get_selected_slot())
   {
     temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((int) (*new_var));
     switch (temp_r3)
     {
       case 0:
-        set_mode_state_0d__21TAdMultiChgGameModeGCFv();
+        TAdMultiChgGameModeGC::set_mode_state_0d();
         break;
       case 1:
-        reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
+        TAdMultiPlyChrSelectGC::reset_slot_selections();
         lbl_805D69E8 = 1;
-        set_mode_18__21TAdMultiChgGameModeGCFv();
+        TAdMultiChgGameModeGC::set_mode_18();
         break;
       case 2:
         if (TAdMultiChgGameModeGC::check_players_ready((void *)((void *) ((u8 *) arg0))) != 0)
       {
-        set_mode_state_0e__21TAdMultiChgGameModeGCFv();
+        TAdMultiChgGameModeGC::set_mode_state_0e();
       }
       else
       {
-        request_scene_change__21TAdMultiChgGameModeGCFv();
+        TAdMultiChgGameModeGC::request_scene_change();
       }
         break;
     }
@@ -187,12 +181,12 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
                 p = __ct__14TAdSelectCurGCFv(p, self, &pos, &cur);
             }
             self->f2C = p;
-            add_item_rect__12TLevelSelectFPv(self->f2C, &pos.v[0]);
-            add_item_rect__12TLevelSelectFPv(self->f2C, &pos.v[2]);
-            add_item_rect__12TLevelSelectFPv(self->f2C, &pos.v[4]);
+            ((TLevelSelect *)(self->f2C))->add_item_rect(&pos.v[0]);
+            ((TLevelSelect *)(self->f2C))->add_item_rect(&pos.v[2]);
+            ((TLevelSelect *)(self->f2C))->add_item_rect(&pos.v[4]);
         }
     }
-    set_ad_field__6TLobbyFl(self->f2C, self->f20);
+    ((TLobby *)(self->f2C))->set_ad_field(self->f20);
     p = __nw__7TObjectFUl(0x44);
     if (p != NULL) {
         p = __ct__13TAdGuideTxtGCFv(p, self);

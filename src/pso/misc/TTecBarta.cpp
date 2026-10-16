@@ -13,6 +13,9 @@ struct RecoveredGlobal_8022B6FC_lbl_804CC55C
 };
 
 #include "pso/misc/TTecBarta.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/player/TObjPlayer.h"
 
 struct HitInfo_8022B8F4 { s32 type; f32 power; };
 
@@ -103,14 +106,12 @@ struct Tec_8022BD74 {
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 copy_params__8TTecAntiFPUc(void *, int);
 extern RecoveredGlobal_8022B6FC_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8022B6FC_lbl_804CC55C lbl_804CC55C;
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern TechniqueEmitterSourceTable TTecBarta__emitter_bands[];
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
 void mem_free(TechniqueParticleEmitter**);
-void destroy_technique_effect_resources__10TObjPlayerFs(TTecBarta*,s16);
 void __dl__7TObjectFPv(TTecBarta*);
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting);
 u16 obj_getField1c(void *);
@@ -131,7 +132,6 @@ extern TechniqueEmitterSourceTable TTecBarta__emitter_bands[];
 s32 get_bml_model(s32, s32);
 void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 TechniqueParticleEmitter *create_timed_particle_emitter(f32 *, s32, s32, s32);
-void copy_pos__11TNowLoadingFPv(TechniqueParticleEmitter *, Vec_8022BA98 *);
 TechniqueHitRecipient *find_entity_by_id(u16);
 void dispatch_all_technique_contacts(TTecBarta *);
 void advance_lifetime_or_destroy(TTecBarta *);
@@ -143,7 +143,6 @@ extern const f32 lbl_805DC7A4;
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
 void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
-void set_position_xy__10TObjPlayerFff(TechniqueParticleEmitter *, f32, f32);
 TechniqueParticleEmitter *spawn_continuous_particle_with_direction(f32 *, s32 *, u32);
 TechniqueParticleEmitter *create_particle_emitter(f32 *, u32);
 TechniqueParticleEmitter **mem_alloc(u32);
@@ -154,7 +153,6 @@ extern const f32 lbl_805DC7A0;
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
 u16 obj_getField1c(void *);
 s32 get_type__10TObjPlayerFPv(void *);
-s32 is_valid_and_active__10TObjPlayerFUl(u32);
 List_8022BD74 *find_area_contact__10TObjPlayerFl(Tec_8022BD74 *, void *);
 List_8022BD74 *collect_body_contacts_for_target__10TObjPlayerFl(Tec_8022BD74 *, void *);
 void apply_technique_to_area_targets(Tec_8022BD74 *self);
@@ -240,7 +238,7 @@ void TTecBarta::create_particle_emitters() {
             if (row->flags & 0x20) {
                 attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805DC7A0);
             } else {
-                set_position_xy__10TObjPlayerFff(self->emitters[i], row->scale, row->scale);
+                ((TObjPlayer *)(self->emitters[i]))->set_position_xy(row->scale, row->scale);
             }
         }
     }
@@ -251,7 +249,7 @@ void TTecBarta::init_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
   new_var = (int) calc_technique_parameters((int) 3, (int) (*((s16 *) (((s8 *) arg0) + 0xC4))), (int) 0xFFFF);
-  copy_params__8TTecAntiFPUc((void *) (arg0 + 0xCC), new_var);
+  ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) (*((s16 *) (((s8 *) arg0) + 0xC4)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xE))) * (*((s16 *) (((s8 *) arg0) + 0xC4)))));
@@ -316,7 +314,7 @@ TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
             }
         }
         mem_free(self->emitters);
-        destroy_technique_effect_resources__10TObjPlayerFs(self,0);
+        ((TObjPlayer *)self)->destroy_technique_effect_resources(0);
         if(deleting>0)__dl__7TObjectFPv(self);
     }
     return self;
@@ -335,10 +333,10 @@ void TTecBarta::run_task() {
             pos.y -= lbl_805DC7A4;
         }
         if (this->emitters[i] != NULL) {
-            copy_pos__11TNowLoadingFPv(this->emitters[i], &pos);
+            ((TNowLoading *)(this->emitters[i]))->copy_pos(&pos);
         }
         if (this->band == 5 && i == 5 && this->emitters[i] != NULL) {
-            copy_pos__11TNowLoadingFPv(this->emitters[i], &pos);
+            ((TNowLoading *)(this->emitters[i]))->copy_pos(&pos);
         }
     }
     if (this->band == 5) {
@@ -413,7 +411,7 @@ void apply_technique_to_area_targets(Tec_8022BD74 *self) {
         list = collect_body_contacts_for_target__10TObjPlayerFl(self, self->owner);
     }
     for (i = 0; i < list->count; i++) {
-        if (is_valid_and_active__10TObjPlayerFUl(list->ids[i]) != 0) {
+        if (TObjPlayer::is_valid_and_active(list->ids[i]) != 0) {
             id = list->ids[i];
             self->fb8 = list->vals[i];
             ((VObj_8022BD74 *)self)->m4(id);

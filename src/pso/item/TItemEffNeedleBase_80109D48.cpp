@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/TItemEffNeedleBase.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_c1c33b { char pad[0x18]; };
 
@@ -30,10 +33,6 @@ extern const f32 lbl_805DAB50;
 extern const f32 lbl_805DAB54;
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(int);
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void notify_fish_if_valid__10TObjPlayerFUl(u32);
 void rotate_matrix_by_node_angles(void *, s32);
 void push_matrix();
 void pop_matrix();
@@ -50,7 +49,6 @@ extern "C" {
 
 u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2);
 s32 __ct__7TObjectFP7TObject();
-s32 get_field_d8__10TObjPlayerFv(void *);
 
 extern s32 __vt__18TItemEffNeedleBase[];
 extern s32 TItemEffNeedleBase__class_name;
@@ -58,7 +56,7 @@ extern const f32 lbl_805DAB4C;
 
 void TItemEffNeedleBase::draw_model() {
     Needle_80109D48 *self = (Needle_80109D48 *)this;
-    if (all_parents_unqueued_for_destruction__7TObjectFv(self) == 0 ||
+    if (((TObject *)self)->all_parents_unqueued_for_destruction() == 0 ||
         query_game_join_id__10TObjPlayerFv(*(int *)self->m_2c) == 0) {
         return;
     }
@@ -67,14 +65,14 @@ void TItemEffNeedleBase::draw_model() {
         model_render_flags = lbl_805D5660 | 0x20;
         copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
         set_chunk_material_color(self->m_1c);
-        notify_fish_if_valid__10TObjPlayerFUl(self->m_40);
-        begin_effect_render__13TParticleCtrlFv();
+        TObjPlayer::notify_fish_if_valid(self->m_40);
+        TParticleCtrl::begin_effect_render();
         push_matrix();
         post_translate_matrix(self->m_30);
         rotate_matrix_by_node_angles(self->m_44, 1);
         draw_ginja_object(self->m_3c);
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
         model_render_flags = lbl_805D5660;
     }
@@ -102,7 +100,7 @@ u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TItemEffNeedleBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffNeedleBase__class_name;
-    *(s32 *)((s8 *)arg0 + 0x2C) = get_field_d8__10TObjPlayerFv(arg2);
+    *(s32 *)((s8 *)arg0 + 0x2C) = ((TObjPlayer *)arg2)->get_field_d8();
     temp_r4 = *(s32 *)((s8 *)arg2 + 0x60);
     *(s32 *)((s8 *)arg0 + 0x48) = temp_r4;
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;

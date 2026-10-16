@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjMapCsn.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80194988___vt__10TObjMapCsn { s32 value; u8 remaining[0x38]; };
 typedef char RecoveredGlobal_80194988___vt__10TObjMapCsn_size[sizeof(RecoveredGlobal_80194988___vt__10TObjMapCsn) == 0x3C ? 1 : -1];
@@ -42,16 +43,12 @@ struct Csn_801946D0 {
 };
 
 extern "C" {
-s32 get_map_count__10TObjMapCsnFv();
 s32 fn_80140DFC(int, void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, int);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_map_count__10TObjMapCsnFv();
 s32 fn_80140EA8(int, void *);
-s32 construct_collider_proxy__10TObjPlayerFv(void *);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 extern s32 TObjMapCsn__class_name;
 u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -70,7 +67,6 @@ extern s32 identity_matrix[];
 extern "C" {
 
 s32 __nw__7TObjectFUl(s32);
-s32 get_map_count__10TObjMapCsnFv();
 
 void TObjMapCsn::render() {  }
 
@@ -172,17 +168,17 @@ s32 TObjMapCsn::create(s32 arg0) {
 
     var_r31 = __nw__7TObjectFUl(0x254);
     if (var_r31 != 0) {
-        var_r31 = ((s32)TObjMapCsn__ct((u8 *)(var_r31), (s32)(get_map_count__10TObjMapCsnFv()), (s32)(arg0)));
+        var_r31 = ((s32)TObjMapCsn__ct((u8 *)(var_r31), (s32)(TObjMapCsn::get_map_count()), (s32)(arg0)));
     }
     return var_r31;
 }
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TObjMapCsn.value;
-        if (((u32)get_map_count__10TObjMapCsnFv()) != 0U) {
-            fn_80140DFC((int) (((u32)get_map_count__10TObjMapCsnFv())), (void *) (arg0));
+        if (((u32)TObjMapCsn::get_map_count()) != 0U) {
+            fn_80140DFC((int) (((u32)TObjMapCsn::get_map_count())), (void *) (arg0));
         }
-        destroy_particle_controller__10TObjPlayerFs((void *) (arg0), (int) (0));
+        ((TObjPlayer *)arg0)->destroy_particle_controller((int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -192,7 +188,7 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
 u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -209,8 +205,8 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_f0 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x70);
     *(f32 *)((s8 *)arg0 + 0xBC) = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
     *(s32 *)((s8 *)arg0 + 0xC0) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if (((u32)get_map_count__10TObjMapCsnFv()) != 0U) {
-        fn_80140EA8((int) (((u32)get_map_count__10TObjMapCsnFv())), (void *) (arg0));
+    if (((u32)TObjMapCsn::get_map_count()) != 0U) {
+        fn_80140EA8((int) (((u32)TObjMapCsn::get_map_count())), (void *) (arg0));
     }
     return arg0;
 }

@@ -3,7 +3,6 @@
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
-void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFl(void *);
 s32 get_or_create__22TAdMultiPlyChrSelectGCFii(s32, s32);
 void *TAdEnterPPPPassGC__ct(void *, s32);
 void *TAdEnterPasswordGC__ct(void *, s32);
@@ -38,13 +37,11 @@ extern s32 game_mode_scene_instance;
 
 extern "C" {
 
-s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
-
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::reset_mode_state() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 0xF;
     lbl_805D63C8 = 1;
 }
@@ -53,7 +50,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_mode_state_0e() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 0xE;
     lbl_805D63C8 = 1;
 }
@@ -62,7 +59,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_mode_state_0d() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 0xD;
     lbl_805D63C8 = 1;
 }
@@ -71,7 +68,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_state_0xc() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 0xC;
     lbl_805D63C8 = 1;
 }
@@ -80,7 +77,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::begin_change_game_mode() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 0xB;
     lbl_805D63C8 = 1;
 }
@@ -89,7 +86,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::begin_transition() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 0xA;
     lbl_805D63C8 = 1;
 }
@@ -98,7 +95,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_state_0x9() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 9;
     lbl_805D63C8 = 1;
 }
@@ -107,7 +104,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::request_scene_change() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 8;
     lbl_805D63C8 = 1;
 }
@@ -116,7 +113,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_change_game_mode() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 7;
     lbl_805D63C8 = 1;
 }
@@ -125,7 +122,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_game_mode() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 6;
     lbl_805D63C8 = 1;
 }
@@ -134,7 +131,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_game_mode_state() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 5;
     lbl_805D63C8 = 1;
 }
@@ -143,7 +140,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_game_mode_changed() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 4;
     lbl_805D63C8 = 1;
 }
@@ -152,7 +149,7 @@ extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::init_change_mode() {
-    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    TAdMultiChgGameModeGC::sync_mode_state();
     multi_chg_game_mode_state = 0;
     lbl_805D63C8 = 1;
 }
@@ -170,7 +167,7 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
     case 27:
         break;
     default:
-        apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFl(lbl_8044DD18);
+        TAdMultiChgGameModeGC::apply_bgm_col_ctrl((s32)lbl_8044DD18);
         break;
     }
     switch (multi_chg_game_mode_state) {

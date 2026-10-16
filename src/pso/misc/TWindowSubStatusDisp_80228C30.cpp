@@ -1,12 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 
 extern "C" {
 
-s32 strnlen__19TWindowKeyBoardSoftFPScUl(void *, s32);
-
 void TWindowSubStatusDisp::measure_string_len() {
-    strnlen__19TWindowKeyBoardSoftFPScUl(this, 0x100);
+    TWindowKeyBoardSoft::strnlen((s8 *)this, (u32)0x100);
 }
 
 }

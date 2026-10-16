@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOVS2Wall01.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 
@@ -27,8 +29,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy__11TOVS2Wall01Fs(void *, int);
-s32 set_global_param__8TObjFishFl(s32);
 
 void *TOVS2Wreck01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
@@ -43,7 +43,7 @@ extern s32 __vt__12TOVS2Wreck01[];
 void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOVS2Wreck01;
-        destroy__11TOVS2Wall01Fs(arg0, 0);
+        ((TOVS2Wall01 *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -67,7 +67,7 @@ void check_collision_effect(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }

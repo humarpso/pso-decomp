@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TOContainerAncientEnemy.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8015B8E8 { char pad[0x18]; };
 struct VObj_8015B8E8 : Base_8015B8E8 {
@@ -227,18 +232,14 @@ struct O_8015BAE0 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; u32 f80; s32 f8
 struct Pk_8015BAE0 { u8 pad[2]; u16 id; s32 a; s32 b; s32 c; };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015BD68_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
@@ -247,7 +248,6 @@ extern s32 lbl_805D2F08;
 extern s32 tl_05;
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
 void submit_cursor_candidate(Obj_8015BCC0 *self, s32 x);
-void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80440830[];
@@ -257,7 +257,6 @@ s32 get_current_floor();
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFv(void *, int);
-void init_packet_67_04__6TLobbyFv(void *);
 extern s32 local_client_id;
 extern const f32 lbl_805DB39C;
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
@@ -277,7 +276,6 @@ void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
@@ -340,7 +338,7 @@ f32 TOContainerAncientEnemy::open_and_send() {
         sp8 = 1;
         access_object_saved_state(arg0, &sp8, 0);
         send_object_state_update(arg0, &sp8);
-        init_packet_67_04__6TLobbyFv(&pk);
+        ((TLobby *)(&pk))->init_packet_67_04();
         pk.id = arg0->id;
         pk.a = get_current_floor();
         r4 = arg0->f84;
@@ -353,9 +351,9 @@ f32 TOContainerAncientEnemy::open_and_send() {
 
 void TOContainerAncientEnemy::draw_debug_event_no() {
     Obj_80188814 *self = (Obj_80188814 *)this;
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130020, lbl_80440830, self->id);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
 }
 
@@ -371,7 +369,7 @@ void TOContainerAncientEnemy::draw_model() {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
@@ -384,9 +382,9 @@ void TOContainerAncientEnemy::draw_model() {
             temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
             pop_matrix();
             pop_matrix();
             pop_matrix();
@@ -411,7 +409,7 @@ void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TOContainerAncientEnemy;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -428,7 +426,7 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TOContainerAncientEnemy__collision_body_params.value), (int) (1));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&TOContainerAncientEnemy__collision_body_params.value) + 4));

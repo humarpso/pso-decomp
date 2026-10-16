@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TCineCtrl.h"
+#include "pso/TObjCMHairMenu.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_80077FA0___vt__9TCineCtrl {
     s32 value;
@@ -33,8 +35,6 @@ void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
 void update_letterbox_show__9TCineCtrlFPv(u8 *arg0);
 void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
 void TCameraCtrl__sub_80068EF0(void);
-void restore_full_screen_view__11TCameraCtrlFv(void);
-void draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, u16, s32, f32);
 void set_cached_blend_factor(s32, s32);
 extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91D4;
@@ -57,7 +57,7 @@ void TCineCtrl::render() {
     u32 col[4];
     f32 pos[8];
     if (!(*(f32 *)((s8 *)arg0 + 0x1C) <= TCineCtrl__data_805D91D0)) {
-        restore_full_screen_view__11TCameraCtrlFv();
+        TCameraCtrl::restore_full_screen_view();
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
         vl.pos = pos;
@@ -77,7 +77,7 @@ void TCineCtrl::render() {
         vl.pos[6] = TCineCtrl__data_805D91D0;
         vl.pos[7] = *(f32 *)((s8 *)arg0 + 0x20);
         vl.col[3] = *(u32 *)((s8 *)arg0 + 0x24);
-        draw_tri_fan_2d__14TObjCMHairMenuFllf(&vl, 4U, 0x16, lbl_805D91D8);
+        ((TObjCMHairMenu *)(&vl))->draw_tri_fan_2d(4U, 0x16, lbl_805D91D8);
         vl.pos[0] = TCineCtrl__data_805D91D0;
         vl.pos[1] = lbl_805D91DC - *(f32 *)((s8 *)arg0 + 0x20);
         vl.col[0] = *(u32 *)((s8 *)arg0 + 0x24);
@@ -90,7 +90,7 @@ void TCineCtrl::render() {
         vl.pos[6] = TCineCtrl__data_805D91D0;
         vl.pos[7] = lbl_805D91DC;
         vl.col[3] = *(u32 *)((s8 *)arg0 + 0x24);
-        draw_tri_fan_2d__14TObjCMHairMenuFllf(&vl, 4U, 0x16, lbl_805D91D8);
+        ((TObjCMHairMenu *)(&vl))->draw_tri_fan_2d(4U, 0x16, lbl_805D91D8);
         TCameraCtrl__sub_80068EF0();
     }
 }

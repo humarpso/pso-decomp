@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss3Volopt.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Stack_800D8F78 {
     s32 sp8;
@@ -17,21 +18,15 @@ s32 spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
 s32 remap_area_sound_id(int, int);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 remap_area_sound_id__12TBoss3VoloptFl(int);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8D88(s32 arg0);
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 remap_area_sound_id__12TBoss3VoloptFl(int);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int, f32);
 s32 remap_area_sound_id(int, int);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DA3C0;
 }
@@ -53,7 +48,7 @@ void TBoss3Volopt::create_breakup_mdl(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s3
 void TBoss3Volopt::play_area_variant_sound() {
     s32 arg0 = (s32)this;
     s32 temp_r3;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {
     case 23:
     case 24:
@@ -90,7 +85,7 @@ void TBoss3Volopt::play_area_se_with_particle() {
     s32 arg0 = (s32)this;
     Vec_800D8C48 v;
     f32 y;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 23:
     case 24:
     case 25:
@@ -127,7 +122,7 @@ void TBoss3Volopt::play_area_se_with_particle() {
 }
 
 void TBoss3Volopt__sub_800D8D88(s32 arg0) {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 23:
     case 24:
     case 25:
@@ -146,7 +141,7 @@ void TBoss3Volopt__sub_800D8D88(s32 arg0) {
         play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFl(0x4003AB20), (void *)arg0, 0, 0);
+        play_sound_effect(TBoss3Volopt::remap_area_sound_id(0x4003AB20), (void *)arg0, 0, 0);
         break;
     }
     spawn_particles_at__12TBoss3VoloptFi(arg0);
@@ -154,7 +149,7 @@ void TBoss3Volopt__sub_800D8D88(s32 arg0) {
 
 void TBoss3Volopt::play_area_sound_effect() {
     s32 arg0 = (s32)this;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 23:
     case 24:
     case 25:
@@ -173,7 +168,7 @@ void TBoss3Volopt::play_area_sound_effect() {
         play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFl(0x4003AB37), (void *)arg0, 0, 0);
+        play_sound_effect(TBoss3Volopt::remap_area_sound_id(0x4003AB37), (void *)arg0, 0, 0);
         break;
     }
     spawn_particles_at__12TBoss3VoloptFi(arg0);

@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLoadCtrl.h"
 #include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -52,7 +53,6 @@ extern s32 lbl_805D62E0;
 extern s32 lbl_805D62E4;
 extern s32 music_fade_frames_remaining;
 extern const f32 lbl_805DC764;
-void set_and_notify__6TLobbyFi(s32);
 s32 get_music_base_gain(void);
 void TLobby__sub_80227AA8(s32);
 void set_field_40_and_notify__6TLobbyFPvs(s32, s32);
@@ -67,8 +67,6 @@ extern f32 music_fade_step;
 extern s32 music_fade_frames_remaining;
 extern s32 lbl_805D6330;
 void update_music_fade(void);
-void close_option_window__6TLobbyFv(void);
-void release_bgm_resource__6TLobbyFv(void);
 void update_all_zones__14TObjBgmColCtrlFl(void);
 void strncpy(void *, void *, s32);
 void TLobby__sub_803C94DC(s32, s32);
@@ -94,8 +92,6 @@ extern f32 music_fade_step;
 extern s32 music_fade_frames_remaining;
 extern const f32 lbl_805DC764;
 void TWindowOptionCtrl__sub_802273B4(s32 arg0);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
-void dec_ref_and_shutdown__6TLobbyFv(void);
 void TLobby__sub_803CA194(s32);
 void xfree__FPv(u32);
 extern s32 lbl_804CB850[];
@@ -136,7 +132,7 @@ void TLobby::stop_audio_streams() {
 void play_area_music(char *name) {
     s32 flag;
     update_all_zones__14TObjBgmColCtrlFl();
-    release_bgm_resource__6TLobbyFv();
+    TLobby::release_bgm_resource();
     flag = 1;
     if (lbl_805D62E4 != 0) {
         if (lbl_805D62E0 == 0) {
@@ -156,7 +152,7 @@ void play_area_music(char *name) {
     lbl_805D371C = music_fade_slot_index + 1;
     start_audio_stream_file(lbl_804CB850[music_fade_slot_index], name);
     TLobby__sub_803C94DC(lbl_804CB850[music_fade_slot_index], 0);
-    close_option_window__6TLobbyFv();
+    TLobby::close_option_window();
     lbl_805D62E0 = 0;
     lbl_805D62E4 = 1;
     strncpy(lbl_80514D00[music_fade_slot_index], name, 0x20);
@@ -168,7 +164,7 @@ void update_music_fade(void) {
         return;
     }
     if (lbl_805D62B8 != 0) {
-        set_and_notify__6TLobbyFi(-999);
+        TLobby::set_and_notify(-999);
     }
     if (music_fade_frames_remaining > 0) {
         music_fade_volumes[music_fade_slot_index] += music_fade_step;
@@ -208,9 +204,9 @@ void TLobby::shutdown_buffers() {
         xfree__FPv(lbl_805D62DC);
         lbl_805D62DC = 0U;
     }
-    dec_ref_and_shutdown__6TLobbyFv();
+    TLobby::dec_ref_and_shutdown();
     if (lbl_805D62EC != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl(lbl_805D62EC);
+        TAdSinglePlyChrSelectGC::safe_free(lbl_805D62EC);
     }
 }
 

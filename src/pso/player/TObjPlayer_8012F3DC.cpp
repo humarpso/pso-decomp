@@ -5,7 +5,6 @@ extern "C" {
 
 s32 TItemWeapon__ct();
 s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
-s32 set_atp__10TObjPlayerFs(void *, s32);
 
 extern s32 lbl_804A62F8[];
 
@@ -21,7 +20,7 @@ void *TObjPlayer::init_from_item(void *arg1, void *arg2) {
         set_status_flags__10TObjPlayerFPvUi(this, 0x800);
     }
     if ((u8) *(u8 *)((s8 *)arg2 + 2) > 5U) {
-        set_atp__10TObjPlayerFs(this, -1);
+        set_atp(-1);
     }
     return this;
 }

@@ -63,7 +63,6 @@ s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
 s32 is_flag_set__6TLobbyFv();
 s32 byteswap_challenge_packet__6TLobbyFPv(void *);
-void set_challenge_record_page__6TLobbyFl(void *, s32);
 extern void *challenge_task;
 void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt);
 s32 is_flag_set__6TLobbyFv();
@@ -89,8 +88,6 @@ s32 bswap_challenge_dead_flag__6TLobbyFPv(void *);
 void *get_player_by_client_id(s32);
 extern s32 challenge_mode_state[];
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt);
-s32 check_challenge_time_range__6TLobbyFl(s32);
-s32 get_valid_slot__6TLobbyFi(s32);
 s32 mix_seed_checked__6TLobbyFi(void *);
 s32 is_flag_set__6TLobbyFv();
 s32 byteswap_challenge_time_packet__6TLobbyFPv(void *);
@@ -168,11 +165,11 @@ void handle_6x95_set_challenge_time(Pkt_80072230 *pkt) {
     byteswap_challenge_time_packet__6TLobbyFPv(pkt);
     t = pkt->val;
     idx = pkt->idx;
-    r = get_valid_slot__6TLobbyFi(t);
+    r = TLobby::get_valid_slot(t);
     if (idx < 0 || idx >= 4) {
         return;
     }
-    if (check_challenge_time_range__6TLobbyFl(r) != 0) {
+    if (TLobby::check_challenge_time_range(r) != 0) {
         t = mix_seed_checked__6TLobbyFi((void *)0x8C9F);
     }
     challenge_mode_state[idx + 0x680 / 4] = t;
@@ -198,7 +195,7 @@ void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt) {
     if (pkt->idx < 0 || pkt->idx >= 0x11) {
         return;
     }
-    set_challenge_record_page__6TLobbyFl(challenge_task, pkt->idx);
+    ((TLobby *)challenge_task)->set_challenge_record_page(pkt->idx);
 }
 
 void TLobby::send_challenge_with_value(s32 arg0, s32 arg1) {

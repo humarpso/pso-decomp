@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjCityMainWarp.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 
 struct Pkt_80186CC8 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
 
@@ -17,8 +20,6 @@ struct Obj_80186DA0 {
 };
 
 extern "C" {
-void init_pkt_cmd_6A__19TWindowSubTradeMainFv(void *p);
-void send_60_update__19TWindowSubTradeMainFv(void *p);
 u8 is_current_floor_switch_set(int);
 }
 
@@ -26,10 +27,7 @@ extern "C" {
 
 s32 get_player_by_client_id(s32);
 s32 end_player_keyboard_hold(s32);
-s32 unsuppress_slot__11TWindowCtrlFv(s32);
 s32 TWindow__close(void *);
-s32 clear_flag__11TWindowCtrlFv();
-s32 close__17TWindowSubComCardFv(void *);
 s32 obj_clear_flag30_20000(s32);
 s32 obj_set_flag_20000(s32);
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
@@ -39,7 +37,7 @@ extern s32 local_client_id;
 
 void TObjCityMainWarp::close_windows() {
     if ((u32) *(u32 *)((s8 *)this + 0x168) != 0U) {
-        close__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x168));
+        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x168)))->close();
         *(u32 *)((s8 *)this + 0x168) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0xB0) != 0U) {
@@ -51,17 +49,17 @@ void TObjCityMainWarp::close_windows() {
         *(u32 *)((s8 *)this + 0x164) = 0U;
     }
     end_player_keyboard_hold(local_client_id);
-    clear_flag__11TWindowCtrlFv();
-    unsuppress_slot__11TWindowCtrlFv(local_client_id);
+    TWindowCtrl::clear_flag();
+    ((TWindowCtrl *)local_client_id)->unsuppress_slot();
 }
 
 void TObjCityMainWarp::send_6x6A_set_boss_warp_flags(u16 value) {
     Obj_80186CC8 *self = (Obj_80186CC8 *)this;
     Pkt_80186CC8 pkt;
-    init_pkt_cmd_6A__19TWindowSubTradeMainFv(&pkt);
+    ((TWindowSubTradeMain *)(&pkt))->init_pkt_cmd_6A();
     pkt.id = self->id;
     pkt.value = value;
-    send_60_update__19TWindowSubTradeMainFv(&pkt);
+    ((TWindowSubTradeMain *)(&pkt))->send_60_update();
 }
 
 void TObjCityMainWarp::notify_player_warp(void *arg0, s32 arg1) {

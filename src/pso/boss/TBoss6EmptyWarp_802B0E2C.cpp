@@ -1,12 +1,12 @@
 #include "types.h"
 #include "pso/boss/TBoss6EmptyWarp.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/boss/TBoss6Thanks.h"
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_area_music(void *);
 s32 is_flag_set__14TBoss6PlotFalzFv();
-s32 init_warp__15TBoss6EmptyWarpFv();
-s32 create__12TBoss6ThanksFv();
 s32 is_ship_door_ready__12TBoss6ThanksFv();
 extern s32 lbl_804709E0[];
 extern s32 lbl_804709E8[];
@@ -32,9 +32,9 @@ void TBoss6EmptyWarp::run_task() {
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 3) {
-        init_warp__15TBoss6EmptyWarpFv();
+        TBoss6EmptyWarp::init_warp();
         if (is_ship_door_ready__12TBoss6ThanksFv() != 0) {
-            create__12TBoss6ThanksFv();
+            TBoss6Thanks::create();
             play_area_music((void *) (lbl_804709E0));
         } else {
             play_area_music((void *) (lbl_804709E8));
@@ -61,7 +61,6 @@ extern "C" {
 
 void *TBoss6EmptyWarp__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void freeze_all_players__14TBoss6PlotFalzFv(void);
 
 extern s32 __vt__15TBoss6EmptyWarp[];
 extern void *lbl_805D3E90;
@@ -70,7 +69,7 @@ void *TBoss6EmptyWarp__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss6EmptyWarp;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D3E90;
-    freeze_all_players__14TBoss6PlotFalzFv();
+    TBoss6PlotFalz::freeze_all_players();
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }

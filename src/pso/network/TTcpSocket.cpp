@@ -8,6 +8,7 @@
 #include "pso/TSocket.h"
 #include "pso/TTcpSocket.h"
 #include "pso/misc/TUdpSocket.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80078378_lbl_8048D3B8 {
     s32 value;
@@ -536,12 +537,10 @@ void render_tick__Fv();
 void bswap_32__FPUl(u32 *);
 void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
-void run_tl_camera_tasks__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 int atoi(const char *);
 void func_803DCDFC__Fv();
 s8 str_length__6TLobbyFl(char *);
-void close_connection_by_index__6TLobbyFs(s16);
 s16 TLobby__sub_8040A698(s16, void *, void *, int, void *, int);
 s16 TLobby__sub_8040A8B0(char *, s32, int);
 }
@@ -611,7 +610,7 @@ int TSocket::resolve_domain(char *domain) {
                     break;
                 }
                 some_empty_func__9TMainTaskFv(&main_task);
-                run_tl_camera_tasks__9TMainTaskFv(&main_task);
+                ((TMainTask *)(&main_task))->run_tl_camera_tasks();
                 render__9TMainTaskFv(&main_task);
                 render_screen_overlay__9TMainTaskFv(&main_task);
                 func_80019A68__Fv();
@@ -644,7 +643,7 @@ int TSocket::resolve_domain(char *domain) {
                 ret = 6;
                 break;
             }
-            close_connection_by_index__6TLobbyFs(handle);
+            TLobby::close_connection_by_index(handle);
         } else {
             set_ip_address(0);
             ret = 4;

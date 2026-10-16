@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowChatSymbol.h"
+#include "pso/misc/TWindowDD.h"
 
 struct RecoveredGlobal_80248700_lbl_804CE7A0 {
     s32 value;
@@ -28,7 +29,6 @@ s32 get_selected_menu_value(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void destroy_window_base__9TWindowDDFs(void *, int);
 s32 set_from_key__20TWindowSubSymbolChatFii(s32, s32);
 
 extern s32 __vt__17TWindowChatSymbol[];
@@ -36,7 +36,7 @@ extern s32 __vt__17TWindowChatSymbol[];
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowChatSymbol;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowEffectParty.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 extern "C" {
 f32 atan2_float(f64, f64);
@@ -17,7 +18,6 @@ extern "C" {
 
 void *TWindowCtrl__sub_8024FB80(s8);
 s32 get_window_layout_position(s32);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, s32);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
 extern s32 local_client_id;
@@ -59,7 +59,7 @@ void TWindowEffectParty::set_slot_position(s32 arg0, s32 arg1, void *arg2) {
     (void)arg0;
 
     if (arg1 <= 0) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg2, get_window_layout_position(0x1C));
+        ((TWindowSubSymbolChatPartsSet *)arg2)->copy_vec2((void*)(get_window_layout_position(0x1C)));
         *(f32 *)((s8 *)arg2 + 0) = (f32) (*(f32 *)((s8 *)arg2 + 0) + lbl_805DCCC4);
         *(f32 *)((s8 *)arg2 + 4) = (f32) (*(f32 *)((s8 *)arg2 + 4) + lbl_805DCCC8);
         return;

@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TContainerAncient01.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -57,7 +63,6 @@ u16 TObjRoomId__sub_801A1DB8(u16 x);
 Obj_801A1888 *get_player_by_client_id(s32);
 f32 horizontal_distance_squared(f32 *a, f32 *b);
 s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range);
-s32 check_demo_mode__10TObjPlayerFv();
 void draw_debug_line__10TObjRoomIdFUllll(void *, int, int, void *);
 void TObjMapWarp__sub_80141CB0(Vec_801A18EC *, Vec_801A18EC *, u32, u32);
 void fn_80141CBC(Vec_801A18EC *, Color_801A18EC *, f32);
@@ -87,18 +92,12 @@ void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
 u8 is_current_room__10TObjRoomIdFPv(void *arg0);
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
-s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 void TLobby__sub_801A1FD8(void);
-u16 alloc_actor_ids__6TLobbyFl(s32);
 u16 TLobby__sub_801A20C8(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 u16 fn_801A210C(s32);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 is_split_screen();
-void set_state__9TTecLukerFl(void* p, s32 v);
-s32 set_state_flags__10TObjPlayerFUl(void *, s32);
 
 extern s32 __vt__10TObjRoomId[];
 
@@ -113,7 +112,7 @@ s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range
 #pragma push
 #pragma fp_contract on
 void render__10TObjRoomIdFv(RoomId_801A18EC *self) {
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         Color_801A18EC c1 = { 0.5f, 1.0f, 1.0f, 0.0f };
         Color_801A18EC c2 = { 0.5f, 0.0f, 1.0f, 1.0f };
         Vec_801A18EC end;
@@ -147,7 +146,7 @@ void TObjRoomId::run_task() {
     ((I3_801A1A60 *)&v)->b = ((I3_801A1A60 *)lbl_8044688C)->b;
     ((I3_801A1A60 *)&v)->c = ((I3_801A1A60 *)lbl_8044688C)->c;
     absent = 1;
-    if (check_demo_mode__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::check_demo_mode() == 0) {
         for (s32 i = 0; i < 4; i++) {
             if (get_player_by_client_id(i) != NULL) {
                 r = lbl_805DC08C * o->radius + lbl_805DC090;
@@ -157,7 +156,7 @@ void TObjRoomId::run_task() {
             }
         }
     }
-    if (check_demo_mode__10TObjPlayerFv() == 0 && absent != 0) {
+    if (TObjPlayer::check_demo_mode() == 0 && absent != 0) {
         return;
     }
     push_matrix_from(identity_matrix);
@@ -200,7 +199,7 @@ extern "C" {
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjRoomId;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -231,7 +230,7 @@ void *create__10TObjRoomIdFPv(void *arg0) {
 }
 
 void set_player_room_control_flag(void *arg0) {
-    set_state_flags__10TObjPlayerFUl(arg0, 0x02000000);
+    ((TObjPlayer *)arg0)->set_state_flags(0x02000000);
 }
 
 extern s32 local_client_id;
@@ -258,8 +257,8 @@ void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
     u32 temp_r3;
 
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) < 0x1000U) {
-        temp_r3 = get_global_state__14TOKeyMachine01Fv();
-        if ((temp_r3 <= 2U) || ((s32) temp_r3 == 0x12) || (is_global_state_in_table__19TContainerAncient01Fv() != 0) || ((s32) temp_r3 == 0xC) || ((s32) temp_r3 == 0x20)) {
+        temp_r3 = TOKeyMachine01::get_global_state();
+        if ((temp_r3 <= 2U) || ((s32) temp_r3 == 0x12) || (TContainerAncient01::is_global_state_in_table() != 0) || ((s32) temp_r3 == 0xC) || ((s32) temp_r3 == 0x20)) {
             *(s16 *)((s8 *)arg0 + 0x2E) = arg1;
         }
         *(s16 *)((s8 *)arg0 + 0x28) = arg1;

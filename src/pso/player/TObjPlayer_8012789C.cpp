@@ -1,17 +1,14 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TTecJelin.h"
+#include "pso/misc/TTecZarua.h"
 
 extern "C" {
 
 void TObjPlayer__sub_8012789C(void* p);
 s32 spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, s32, s32);
-s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
 int roll_technique__11TItemWeaponFv(void*);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
 s32 get_attack_stage__11TItemWeaponFv();
-s32 get_tp__10TObjPlayerFv(void *);
-s32 create__9TTecJelinFllll(s32, s32, s32, s32);
-s32 create_instance__9TTecZaruaFllll(s32, s32, s32, s32);
 
 void TObjPlayer__sub_8012789C(void* p) { roll_technique__11TItemWeaponFv((void*)(p)); roll_technique__11TItemWeaponFv((void*)(p)); }
 
@@ -26,20 +23,20 @@ void TObjPlayer::cast_jellen_zalure() {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
         spawn_cane_effects__10TObjPlayerFiUiii(tl_05, this, 2, 1);
     }
-    if (is_mode_two_and_ready__10TObjPlayerFv(this) != 0) {
-        if (get_tp__10TObjPlayerFv(this) == 0) {
+    if (is_mode_two_and_ready() != 0) {
+        if (get_tp() == 0) {
             temp_r3 = *(s32 *)((s8 *)this + 0xF0);
             temp_r4 = temp_r3 + 0x38;
-            create__9TTecJelinFllll(temp_r3, temp_r4, temp_r4, 4);
+            TTecJelin::create(temp_r3, temp_r4, temp_r4, 4);
         } else {
             temp_r3_2 = *(s32 *)((s8 *)this + 0xF0);
             temp_r4_2 = temp_r3_2 + 0x38;
-            create_instance__9TTecZaruaFllll(temp_r3_2, temp_r4_2, temp_r4_2, 4);
+            TTecZarua::create_instance(temp_r3_2, temp_r4_2, temp_r4_2, 4);
         }
         roll_technique__11TItemWeaponFv((void*)(this));
         return;
     }
-    update_active_game_effect__10TObjPlayerFv(this);
+    update_active_game_effect();
 }
 
 }

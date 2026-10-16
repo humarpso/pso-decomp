@@ -71,6 +71,12 @@ struct TAdChrSelSlotGC_802C7314 {
 
 #include <stddef.h>
 #include "pso/ui/TAdMcSelectGC.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 struct TObject;
 struct StatusWindow;
 struct CallbackTask;
@@ -95,11 +101,8 @@ struct CharacterSelectTransitionState {
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 extern const f32 lbl_805DE5CC;
 extern f32 lbl_805D67F4, lbl_805D67F8;
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
-void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 chr_sel_slot_resource_name_table[];
 extern const s32 lbl_80471D50[];
@@ -109,24 +112,18 @@ void TLobby__sub_802C7920(void);
 extern u8 __vt__15TAdChrSelSlotGC[];
 extern s32 TAdChrSelSlotGC__name;
 S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self, TObject* _w1);
-void set_global_param__8TObjFishFl(void *);
 void begin_screen_draw(int);
-void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern u32 lbl_805D67F0;
 extern const f32 lbl_805DE5C8;
 s32 get_main_phase();
-f32 calc_result_offset__6TLobbyFv();
-f32 calc_phase_offset__6TLobbyFv();
 extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
 void update_character_select_transition(CharacterSelectTransitionState* self);
 s32 __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
-f32 calc_phase_offset__6TLobbyFv();
 void* __nw__7TObjectFUl(u32 size);
 StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
 CallbackTask* update_display__20TWindowSubSymbolChatFl(void (*callback)());
-void update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv();
 extern s32 lbl_804E0B28[];
 extern s32 lbl_805D67E8;
 extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
@@ -145,7 +142,6 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 set_cached_blend_factor(s32, s32);
 s32 restore_saved_depth_alpha_state();
-s32 get_state_flag__9TMainTaskFv();
 s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
@@ -170,13 +166,13 @@ void update_character_select_transition(CharacterSelectTransitionState* self) {
         case 150:
             self->position1X = lbl_805DE5B8;
             self->position1Y = lbl_805DE5BC;
-            self->target1X = lbl_805DE5C0 + calc_result_offset__6TLobbyFv();
+            self->target1X = lbl_805DE5C0 + TLobby::calc_result_offset();
             self->target1Y = lbl_805DE5BC;
             break;
         case 300:
             self->position0X = lbl_805DE5B8;
             self->position0Y = lbl_805DE5BC;
-            self->target0X = lbl_805DE5C0 + calc_phase_offset__6TLobbyFv();
+            self->target0X = lbl_805DE5C0 + TLobby::calc_phase_offset();
             self->target0Y = lbl_805DE5BC;
             self->timer = 0;
             break;
@@ -212,7 +208,7 @@ CharacterSelectTransitionState* construct_character_select_transition(CharacterS
     self->parent = parent;
     self->position0X = lbl_805DE5B8;
     self->position0Y = lbl_805DE5BC;
-    self->target0X = lbl_805DE5C0 + calc_phase_offset__6TLobbyFv();
+    self->target0X = lbl_805DE5C0 + TLobby::calc_phase_offset();
     self->target0Y = lbl_805DE5BC;
     self->position1X = lbl_805DE5B8;
     self->position1Y = lbl_805DE5BC;
@@ -226,7 +222,7 @@ CharacterSelectTransitionState* construct_character_select_transition(CharacterS
         window = TWindowSubStatusDisp__ct(window, self->client);
     }
     self->statusWindow = window;
-    self->callback = update_display__20TWindowSubSymbolChatFl(update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv);
+    self->callback = update_display__20TWindowSubSymbolChatFl(TAdMultiPlyChrSelectGC::update_transition_anim_if_active);
     return self;
 }
 
@@ -236,17 +232,17 @@ void TAdChrSelSlotGC::draw_slot_icons() {
     for (i = 0; i < 5; i++) {
         if (self->visible[i] != 0) {
             begin_screen_draw(1);
-            set_global_param__8TObjFishFl((void *)lbl_805D67F0);
+            TObjFish::set_global_param((s32)((void *)lbl_805D67F0));
             set_draw_texture_and_color(0, self->tex[i]);
             draw_textured_quad_at_depth(&self->quad[i], lbl_805DE5C8);
-            get_player__20TWindowSubStatusDispFv();
+            TWindowSubStatusDisp::get_player();
         }
     }
 }
 
 void TAdChrSelSlotGC::render() {
     if ((s32) *(s32 *)((s8 *)this + 0x124) == 1) {
-        if (get_state_flag__9TMainTaskFv() == 1) {
+        if (TMainTask::get_state_flag() == 1) {
             return;
         }
         goto block_5;
@@ -276,7 +272,7 @@ extern u32 lbl_805D67F0;
 void TAdChrSelSlotGC::init_slot_entry(s32 arg1, void *arg2) {
     S_802C74AC *arg0 = (S_802C74AC *)this;
     arg0->a[arg1] = 1;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->v[arg1 + 2], arg2);
+    ((TWindowSubSymbolChatPartsSet *)(&arg0->v[arg1 + 2]))->copy_vec2(arg2);
     arg0->e[arg1].x = arg0->v[arg1 + 2].x;
     arg0->e[arg1].y = arg0->v[arg1 + 2].y;
     arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1 + 2].x;
@@ -291,7 +287,7 @@ void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i) {
 void TAdMcSelectGC::init_slot(s32 arg1, void *arg2) {
     S_802C7560 *arg0 = (S_802C7560 *)this;
     arg0->a[arg1] = 1;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->v[arg1], arg2);
+    ((TWindowSubSymbolChatPartsSet *)(&arg0->v[arg1]))->copy_vec2(arg2);
     arg0->e[arg1].x = arg0->v[arg1].x;
     arg0->e[arg1].y = arg0->v[arg1].y;
     arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1].x;
@@ -371,7 +367,7 @@ void TLobby__sub_802C78EC(void) {
     }
 }
 void TLobby__sub_802C7920(void) {
-    update_menu_cursor__6TLobbyFv();
+    TLobby::update_menu_cursor();
     ByteBlock_14 a = *(const ByteBlock_14 *)chr_sel_slot_resource_name_table;
     ByteBlock_14 b = *(const ByteBlock_14 *)lbl_80471D50;
     s32 r4 = b.v[current_language];

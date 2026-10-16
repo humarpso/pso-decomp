@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowHelpItem.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #pragma readonly_strings on
 
 struct Msg_8025A9C0 {
@@ -24,7 +26,6 @@ struct Pt_8025AD5C { f32 x; f32 y; };
 extern "C" {
 s32 mem_free(s32);
 s32 mem_alloc(s32);
-s32 strnlen__19TWindowKeyBoardSoftFPScUl(void *, int);
 s32 strncpy(s32, u32, s32);
 void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2);
 u8 get_small_font_glyph_width(u8);
@@ -34,7 +35,6 @@ u8 get_font_char_advance(u16);
 u16 map_char_to_font_code(u16);
 extern s32 current_language;
 void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw);
-f32 get_card_window_scale__20TWindowSubStatusDispFl(int);
 s32 reset_entry__20TWindowSubStatusDispFPv(void *, void *);
 u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2);
 void advance_text_entry_reveal(u8 *arg0);
@@ -179,7 +179,7 @@ void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2) {
         }
     }
     if ((arg1 != 0U) && (arg2 & 0x20)) {
-        temp_r3_2 = strnlen__19TWindowKeyBoardSoftFPScUl((void *) (arg1), (int) (0x400));
+        temp_r3_2 = TWindowKeyBoardSoft::strnlen((s8 *)arg1, (u32)((int) (0x400)));
         *(u32 *)((s8 *)arg0 + 0x20) = ((u32)mem_alloc((s32)((void *) (temp_r3_2 + 1))));
         strncpy((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))), (u32)((void *) (arg1)), (s32)((int) (temp_r3_2)));
         *(s8 *)((s8 *)(temp_r3_2 + *(u32 *)((s8 *)arg0 + 0x20)) + 0) = 0;
@@ -279,7 +279,7 @@ u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) *(s32 *)((s8 *)arg1 + 0x14);
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) K_CFAC;
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
-    *(f32 *)((s8 *)arg0 + 0x28) = get_card_window_scale__20TWindowSubStatusDispFl((int) ((s32) *(s16 *)((s8 *)arg0 + 2)));
+    *(f32 *)((s8 *)arg0 + 0x28) = TWindowSubStatusDisp::get_card_window_scale((int) ((s32) *(s16 *)((s8 *)arg0 + 2)));
     if (*(u16 *)((s8 *)arg0 + 0) & 4) {
         *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) * K_CFC4);
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemAttacker.h"
 
 struct Ent_80108F04 { u8 pad0[0x1C]; u8 sub[0x10]; };
 
@@ -17,7 +18,6 @@ struct Flame_80108F04 {
 
 extern "C" {
 void *__nw__7TObjectFUl(u32 size);
-void spawn_item_timer__13TItemAttackerFlll(void *obj, void *cb, s32 frames);
 int destroy__14TItemEffHeavenFPv(void *p);
 extern void *tl_05;
 void spawn_flame_effect(void *self, void *target);
@@ -57,7 +57,7 @@ void spawn_flame_effect(void *self, void *target) {
         if (p != NULL) {
             p = TItemEffFlame__ct((void *)(p), (void *)(tl_05), (void *)(target));
         }
-        spawn_item_timer__13TItemAttackerFlll(p, (void *)destroy__14TItemEffHeavenFPv, 0x1E);
+        TItemAttacker::spawn_item_timer((s32)p, (s32)((void *)destroy__14TItemEffHeavenFPv), (s32)0x1E);
     }
 }
 

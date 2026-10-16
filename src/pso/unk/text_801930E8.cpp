@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/object/TObjLazerFence4.h"
+#include "pso/TMainTask.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct LazerFence4Base_801930E8 { char pad[0x18]; };
 struct LazerFence4VObj_801930E8 : LazerFence4Base_801930E8 {
@@ -17,18 +21,14 @@ struct Node_80193188 { u32 flags; void *model; u8 pad8[0x24]; Node_80193188 *chi
 struct Fence_80193188 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80193188 *fBC; Node_80193188 *fC0; s32 fC4; void *fC8[12]; };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 free_children__12TObjDoorJungFPvPv(s32, u16);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(void *);
 void draw_ginja_object(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern void *lazer_fence_norm_texture_list;
-void clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 u8 is_current_floor_switch_set(int);
 extern const f32 lbl_805DBE68;
 extern const f32 lbl_805DBE6C;
@@ -48,14 +48,12 @@ void push_matrix(void);
 void pop_matrix(void);
 f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility(void *, f32, f32);
-s32 get_state_flag__9TMainTaskFv();
-void set_global_param__8TObjFishFl(void *);
 s32 set_indexed_flags(void *, s32, s32);
 
 extern s32 camera_ctrl_instance;
 
 s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
-    if (get_state_flag__9TMainTaskFv() == 1) {
+    if (TMainTask::get_state_flag() == 1) {
         return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
@@ -95,7 +93,7 @@ void TObjLazerFence4::init_models() {
 }
 
 void TObjLazerFence4::draw() {
-    set_global_param__8TObjFishFl(lazer_fence_norm_texture_list);
+    TObjFish::set_global_param((s32)lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)this + 56));
     rotate_matrix_y(0, *(void **)((s8 *)this + 0x60));
@@ -119,15 +117,15 @@ void TObjLazerFence4::draw_model() {
     var_r31 += 4;
   }
   while (var_r30 < 0xC);
-  set_global_param__8TObjFishFl((void *)((*(s32 *)&lazer_fence_norm_texture_list)));
+  TObjFish::set_global_param((s32)((void *)((*(s32 *)&lazer_fence_norm_texture_list))));
   push_matrix();
   post_translate_matrix(arg0 + 0x38);
   rotate_matrix_y((int)(0), (void *)(*((s32 *) (((s8 *) arg0) + 0x60))));
   draw_ginja_object((void *)(*((s32 *) (((s8 *) arg0) + 0xC0))));
-  begin_effect_render__13TParticleCtrlFv();
+  TParticleCtrl::begin_effect_render();
   new_var = (s32 *) (((s8 *) arg0) + 0xC4);
   draw_ginja_model_with_motion(*((s32 *) (((s8 *) arg0) + 0xBC)), *new_var, *((f32 *) (((s8 *) arg0) + 0xB0)));
-  end_effect_render__13TParticleCtrlFv();
+  TParticleCtrl::end_effect_render();
   pop_matrix();
 }
 
@@ -147,7 +145,7 @@ void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0) {
         arg0->fB0 = lbl_805DBE6C;
     }
     if (is_current_floor_switch_set(arg0->fBA) == 1) {
-        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
+        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
         arg0->fAC = 1;
     }
 }

@@ -36,6 +36,9 @@ struct RecoveredGlobal_8019D818_lbl_8050E208 {
 };
 
 #include "pso/object/TObjMapWarp.h"
+#include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/object/TObjCityMainWarp.h"
+#include "pso/ui/TAdChrSelASlotGC.h"
 
 struct V3_8019D764 { f32 x, y, z; };
 
@@ -63,11 +66,8 @@ s32 fn_8019DD24(void *, int);
 void *get_player_by_client_id(u32);
 s32 TWindow__close(int);
 s32 get_localized_text_entry(s32, s32);
-s32 add_text_entry__19TWindowSubTradeMainFllll(s32, s32, s32, s32, s32);
 s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
-s32 set_flag_40__16TAdChrSelASlotGCFv(int);
-s32 set_flag70_bit10__16TObjCityMainWarpFv(int);
 s32 align_menu_entry_positions(int);
 s32 calc_window_size__17TWindowSubComCardFPv(int);
 void *TObjWarpBase__ct(void *, void *, void *);
@@ -139,11 +139,11 @@ void TObjMapWarp::open_player_warp_window(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
-        add_text_entry__19TWindowSubTradeMainFllll(*(u32 *)((s8 *)temp_r31 + 0xEC), get_localized_text_entry(9, 0x25), 2, 0, -1);
+        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, 0x25), 2, 0, -1);
         calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
-        set_flag70_bit10__16TObjCityMainWarpFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
-        set_flag_40__16TAdChrSelASlotGCFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        ((TObjCityMainWarp *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
+        ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
     }
 }
 #pragma pop

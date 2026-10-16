@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcLappy.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -91,8 +94,6 @@ struct RecoveredGlobal_8014BFD4___vt__14TObjNpcMaleFat {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__14TObjNpcMaleFat[];
 extern s32 TObjNpcMaleFat__name;
@@ -108,14 +109,13 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcMaleMacho__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
 
 extern s32 __vt__14TObjNpcMaleFat[];
 
 void *__dt__14TObjNpcMaleFatFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjNpcMaleFat;
-        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
+        ((TObjNpcLappy *)arg0)->destroy_npc_lappy_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -131,10 +131,10 @@ u8 *TObjNpcMaleFat__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014BFD4___vt__14TObjNpcMaleFat *)&__vt__14TObjNpcMaleFat).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcMaleFat__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcMaleFat__static_model_resource + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcMaleFat__static_model_resource + 0x42C)) + 0xC);
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 

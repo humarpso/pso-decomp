@@ -1,5 +1,18 @@
 #include "types.h"
 #include "pso/object/TObjGrass.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/object/TObjGrassWeb.h"
+#include "pso/player/TObjPlayer.h"
 #pragma readonly_strings on
 
 struct E_800BFB8C { s32 f0; s32 f4; s32 f8; s32 fc; };
@@ -344,7 +357,6 @@ struct T_800BF924 { u8 pad[0x3C]; u8 f3C[0x80]; E1C_800BF924 e1[1]; E2C_800BF924
 
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
-void refresh_lobby_state__10TObjPlayerFv(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 void TObjGrass__vt61(u8 *arg0);
 s32 apply_actor_gravity(void *, s32, f32);
@@ -353,9 +365,7 @@ void obj_clearFlags30(void *, u32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-s32 update_collisions__10TObjPlayerFv(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
 extern u32 TObjGrass__resource_bundle;
@@ -374,7 +384,6 @@ s32 obj_setFlags30(void *, u32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 advance_animation_playback(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -390,7 +399,6 @@ s32 obj_testFlags30(void *, int);
 s32 obj_getField1c(void *);
 void obj_clearFlags30(void *, u32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(int);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(u16);
 s32 subtract_vector(void *, void *);
@@ -404,12 +412,10 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(void *, void *);
 s32 draw_trail_with_colors(void *, s32, s32, int, int);
 u8 *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
 s32 *mem_alloc(int);
-s32 spawn_npc_enemy__6TLobbyFslllff(int, s32, s32, Quad_800BF66C *, f32, f32);
 extern Quad_800BF66C grass_spawn_descriptor;
 extern s32 lbl_805D5140;
 extern u32 TObjGrass__bml_resource;
@@ -420,30 +426,23 @@ extern u32 TObjGrass__resource_bundle;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(int);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
-s32 check_demo_mode__10TObjPlayerFv();
 void TObjGrass__sub_800BCA2C(void *);
 s32 TObjGrass__sub_800BCE44(u8 *arg0);
 s32 TObjGrass__sub_800BE75C(Grass_800BE75C *o);
 u8 *get_enemy_entity(u16);
-s32 update_prev_position__10TObjPlayerFv(void *);
 s32 submit_cursor_candidate(void *, int);
 u8 *get_player_by_client_id(u16);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_field_0c__10TObjPlayerFv(int);
 void obj_clearFlags30(void *, u32);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-s32 update_collisions__10TObjPlayerFv(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
-s32 get_global_state__14TOKeyMachine01Fv();
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
@@ -461,16 +460,13 @@ void TObjGrass__sub_800BDD70(u8 *arg0);
 f32 enemy_move_toward(void *, s32, void *, s32, f32);
 void enemy_pursue_point(void *, s32, void *, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_field_0c__10TObjPlayerFv(int);
 void obj_clearFlags30(void *, u32);
 f64 atan2_float(f32, f32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
 s32 advance_animation_playback(void *);
-s32 update_collisions__10TObjPlayerFv(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 subtract_vector(void *, void *);
 s32 apply_actor_gravity(void *, s32, f32);
@@ -479,12 +475,9 @@ s32 obj_setFlags30(void *, u32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(s32, s32);
 void TObjCGrass__ct(void *, void *, s32, s32);
-void spawn_ground_effect__10TObjPlayerFl(void *, s32);
-void spawn_dead_spot_default__10TObjPlayerFll(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(void *, void *, int, int);
 void *__nw__7TObjectFUl(int);
 f32 vec3_add_to(void *, void *);
@@ -496,11 +489,9 @@ extern u8 identity_matrix[];
 s32 apply_actor_gravity(void *, s32, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_field_0c__10TObjPlayerFv(int);
 s32 obj_testFlags30(void *, int);
 void obj_clearFlags30(void *, u32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(int);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 s32 spawn_directional_particle(void *, void *, s32);
@@ -508,10 +499,8 @@ s32 TObjGrassWeb__ct(void *, s32, void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 angle_difference_abs(s32, s32);
 s32 advance_animation_playback(void *);
-s32 update_collisions__10TObjPlayerFv(void *);
 u8 *get_player_by_client_id(u16);
 s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 s32 subtract_vector(void *, void *);
@@ -530,7 +519,6 @@ s32 obj_setFlags30(void *, u32);
 f32 fabs_float(f32);
 f64 atan2_float(f32, f32);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
-void play_area_sound_effect__12TBoss3VoloptFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 advance_animation_playback(void *);
@@ -552,7 +540,6 @@ void obj_clearFlags30(void *, u32);
 s32 obj_setFlags30(void *, u32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 advance_animation_playback(void *);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
 f32 vec3_add_to(void *, void *);
@@ -564,11 +551,9 @@ s32 pop_matrix();
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(int);
 u8 *get_player_by_client_id(u16);
 s32 subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
-s32 get_field_0c__10TObjPlayerFv(int);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 s32 spawn_directional_particle(void *, void *, s32);
@@ -579,37 +564,27 @@ f32 horizontal_distance_squared(void *, void *);
 void refresh_collision_body_centers(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 set_indexed_flags(void *, int, int);
 f32 get_collision_body_radius(void *, int);
-f32 calc_distance_to_client__10TObjPlayerFlUsUl(void *, u16, int);
 s32 select_enemy_destination(void *, Vec_800BD4D8, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800BD4D8);
 s32 obj_is_hit_receivable(void *);
 u32 find_actor_body_contact(void *, void *, f32);
 s32 is_split_screen();
-s32 set_shake_preset__11TCameraCtrlFl(int);
 extern u8 identity_matrix[];
 extern s32 enable_v2_features;
 extern s32 game_difficulty_selection;
 extern s32 local_client_id;
 void TObjGrass__sub_800BD4D8(void *arg0_);
 s32 apply_actor_gravity(void *, s32, f32);
-s32 add_flags_2e4__10TObjPlayerFUl(void *, int);
 s32 obj_setFlags30(void *, u32);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
-s32 set_field_d8__10TObjPlayerFl(void *, void *);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
-s32 init_position_vectors__10TObjPlayerFv(void *);
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
-s32 init_common__18TObjEneMe3SinowZoaFv(void *);
 s32 create__12TObjEneSaverFPvPv(int, int);
 s32 set_param__12TObjEneLappyFl(void *, int, int);
-s32 update_prev_position__10TObjPlayerFv(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, s32);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern "C" u8 lbl_8043B6A0[];
 extern "C" u8 lbl_8043B6B4[];
@@ -651,8 +626,6 @@ s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 void mem_free(void*);
 s32 minimap_render_dot(void *, s32, s32, s32);
 void obj_clearFlags30(void *, u32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
-s32 update_collisions__10TObjPlayerFv(void *);
 
 extern "C" {
 void TLobby__sub_801A1FD8();
@@ -703,7 +676,6 @@ extern "C" {
 extern u8 lbl_8043B760[];
 }
 extern "C" {
-void render__12TObjGrassWebFv();
 }
 extern "C" {
 void render_shadows__7TObjectFv();
@@ -735,7 +707,6 @@ extern "C" {
 extern void __dt__12TObjGrassWebFv(); extern "C" void apply_object_set_data(); extern "C" void classify_actor_view_detail();
 }
 extern "C" {
-extern void render__12TObjGrassWebFv(); extern "C" void render_shadows__7TObjectFv(); extern "C" void reset_motion_fields__10TObjPlayerFv();
 }
 extern "C" {
 extern void run_task__12TObjGrassWebFv(); extern "C" void update_object_view_visibility();
@@ -772,7 +743,7 @@ void *lbl_80492A00[11] = {
 };
 void *__vt__12TObjGrassWeb[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TObjGrassWebFv, (void *)&run_task__12TObjGrassWebFv,
-    (void *)&render__12TObjGrassWebFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&TObjGrassWeb::render, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
@@ -817,7 +788,7 @@ void TObjGrass::update_dying(void *arg0_) {
             rotate_vector_by_matrix(0, &v, &v);
             pop_matrices(1);
             vec3_add_to(&v, arg0 + 0x38);
-            switch (get_global_state__14TOKeyMachine01Fv()) {
+            switch (TOKeyMachine01::get_global_state()) {
             case 3:
             case 4:
             case 5: {
@@ -830,8 +801,8 @@ void TObjGrass::update_dying(void *arg0_) {
             }
             }
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AB0A), arg0 + 0x38, 0, 0);
-            spawn_dead_spot_default__10TObjPlayerFll(arg0 + 0x38, 0xA);
-            spawn_ground_effect__10TObjPlayerFl(arg0 + 0x38, 0x1E);
+            TObjPlayer::spawn_dead_spot_default((s32)(arg0 + 0x38), (s32)0xA);
+            ((TObjPlayer *)(arg0 + 0x38))->spawn_ground_effect(0x1E);
         }
         *(f32 *)((s8 *)arg0 + 0x6C) -= 0.01f;
         if (*(f32 *)((s8 *)arg0 + 0x6C) < 0.0f) {
@@ -860,7 +831,6 @@ Vec_800BF66C grass_camera_vec;
 Vec_800BF66C lbl_80500BC4;
 Vec_800BF66C grass_origin_vec;
 
-s32 transform_vec_by_camera__15TObjBoss2TunnelFlll(void *, void *, void *);
 extern u8 lbl_804FF5E8[];
 void TObjGrass::update_camera_vec_by_stage() {
     Vec_800BF66C *v;
@@ -871,7 +841,7 @@ void TObjGrass::update_camera_vec_by_stage() {
         grass_camera_vec.x = (0.0f);
         v->y = (0.0f);
         v->z = (0.0f);
-        transform_vec_by_camera__15TObjBoss2TunnelFlll(lbl_804FF5E8, v, v);
+        TObjBoss2Tunnel::transform_vec_by_camera((s32)lbl_804FF5E8, (s32)v, (s32)v);
         break;
     case 0x32:
         break;
@@ -882,7 +852,7 @@ void TObjGrass::update_camera_vec_by_stage() {
         lbl_80500BC4.x = (0.0f);
         v->y = (0.0f);
         v->z = (0.0f);
-        transform_vec_by_camera__15TObjBoss2TunnelFlll(lbl_804FF5E8, v, v);
+        TObjBoss2Tunnel::transform_vec_by_camera((s32)lbl_804FF5E8, (s32)v, (s32)v);
         break;
     case 0x3F:
         break;
@@ -893,7 +863,7 @@ void TObjGrass::update_camera_vec_by_stage() {
         grass_origin_vec.x = (0.0f);
         v->y = (0.0f);
         v->z = (0.0f);
-        transform_vec_by_camera__15TObjBoss2TunnelFlll(lbl_804FF5E8, v, v);
+        TObjBoss2Tunnel::transform_vec_by_camera((s32)lbl_804FF5E8, (s32)v, (s32)v);
         break;
     }
     TObjGrass__render_node_index++;
@@ -908,7 +878,7 @@ void TObjGrass__vt61(u8 *arg0) {
         temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
         *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xFFFF7FFE);
         spawn_particle_effect((s32) (arg0 + 0x2FC), 0xF2);
-        refresh_lobby_state__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->refresh_lobby_state();
         send_entity_set_flags__6TLobbyFPv(arg0);
     }
 }
@@ -921,11 +891,11 @@ s32 TObjGrass__sub_800BCE44(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0x310)) = (f32) (0.0f);
   *((f32 *) (((s8 *) arg0) + 0x308)) = (f32) (0.0f);
   apply_actor_gravity((void *)((void *) arg0), (s32)((int) 0), (f32) (0.0f));
-  update_collisions__10TObjPlayerFv((void *) arg0);
+  ((TObjPlayer *)arg0)->update_collisions();
   if (objInBand__FP7GameObjf((void *) arg0, (f32) (0.0f)) != 0)
   {
     play_sound_effect((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), (s32)((int) 0x4003A603))), (void *) (arg0 + 0x38), (int) 0, (int) 0);
-    play_effect_if_v2__10TObjPlayerFl((s32)((int) (-0x200)));
+    TObjPlayer::play_effect_if_v2((s32)((int) (-0x200)));
   }
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0xB4)))) != 8U)
   {
@@ -944,7 +914,7 @@ s32 TObjGrass__sub_800BCE44(u8 *arg0) {
     *((s16 *) (((s8 *) arg0) + 0x33E)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x32C)));
   }
   play_persistent_sound((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), (s32)((int) 0x4003A801)))), (void *)((void *) arg0), (void *)((void *) (arg0 + 0x38)), (s32)(((int) 0) & 0xFFFFu), (s32)((int) 0));
-  play_effect_if_v2__10TObjPlayerFl((s32)((int) (-0x200)));
+  TObjPlayer::play_effect_if_v2((s32)((int) (-0x200)));
   minimap_render_dot((void *)((void *) (arg0 + 0x38)), (s32)((int) (-0x5DB4)), (s32)((int) 1), (s32)((int) 0));
 }
 
@@ -966,9 +936,9 @@ s32 TObjGrass::update() {
     if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800000)) {
         apply_actor_gravity(arg0, 0, (0.0f));
     }
-    update_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_collisions();
     play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A801), arg0, arg0 + 0x38, 0, 0);
-    play_effect_if_v2__10TObjPlayerFl(-0x200);
+    TObjPlayer::play_effect_if_v2(-0x200);
     temp_r4 = *(s16 *)((s8 *)arg0 + 0x33C);
     *(s16 *)((s8 *)arg0 + 0x33C) = (s16) (temp_r4 - 1);
     if (temp_r4 < 0) {
@@ -994,7 +964,7 @@ s32 TObjGrass::update_web_attack() {
     s32 ang[3];
     if (arg0->f338 < 0x1000) {
         u8 *p = get_player_by_client_id(arg0->f338);
-        if (p != NULL && get_field_3e4__10TObjPlayerFv((int)p) == get_current_floor()) {
+        if (p != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
             arg0->target = (Tgt_800BD10C *)p;
         } else {
             arg0->target = NULL;
@@ -1016,7 +986,7 @@ s32 TObjGrass::update_web_attack() {
             subtract_vector(&v, &arg0->p2fc);
             d = update_angle__10TObjPlayerFlPv(arg0, (void *)arg0->f350[2], &v);
             apply_actor_gravity(arg0, 0, (0.0f));
-            if (d < get_field_0c__10TObjPlayerFv(((u32 *)TObjGrass__bml_resource)[1])) {
+            if (d < ((TObjPlayer *)(((u32 *)TObjGrass__bml_resource)[1]))->get_field_0c()) {
                 arg0->state = 1;
                 arg0->fb8 = 4;
                 arg0->timer = 0;
@@ -1031,7 +1001,7 @@ s32 TObjGrass::update_web_attack() {
             VecCopy__FP3VecPC3Vec(&v2, &arg0->target->p2fc);
             subtract_vector(&v2, &arg0->p2fc);
             d = angle_difference_abs(arg0->rotY, (s32)((10430.38043493439) * atan2_float(v2.x, v2.z)));
-            if (d < get_field_0c__10TObjPlayerFv(((u32 *)TObjGrass__bml_resource)[1])) {
+            if (d < ((TObjPlayer *)(((u32 *)TObjGrass__bml_resource)[1]))->get_field_0c()) {
                 VecCopy__FP3VecPC3Vec(&v2, &arg0->target->pos);
                 subtract_vector(&v2, &arg0->p380);
                 ang[0] = (s32)((10430.38043493439) * atan2_float(v2.z, newton_sqrtf(v2.x * v2.x + v2.y * v2.y)));
@@ -1069,9 +1039,9 @@ s32 TObjGrass::update_web_attack() {
         }
         break;
     }
-    update_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_collisions();
     play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A801), arg0, &arg0->pos, 0, 0);
-    play_effect_if_v2__10TObjPlayerFl(-0x200);
+    TObjPlayer::play_effect_if_v2(-0x200);
     minimap_render_dot(&arg0->pos, -0x5DB4, 1, 0);
 }
 
@@ -1081,7 +1051,7 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
     Grass_800BD4D8 *o = (Grass_800BD4D8 *)arg0_;
     if (o->f338 < 0x1000) {
         u8 *p = get_player_by_client_id(o->f338);
-        if (p != NULL && get_field_3e4__10TObjPlayerFv((int)p) == get_current_floor()) {
+        if (p != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
             o->target = (Tgt_800BD4D8 *)p;
         } else {
             o->target = NULL;
@@ -1102,9 +1072,9 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
         o->state = 0;
     case 0:
         obj_clearFlags30(o, 0x4000000);
-        clear_player_status_flag__10TObjPlayerFlUl(o, 0, 0x80);
+        ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(o, 0x4003A801), o, &o->pos, 0, 0);
-        play_effect_if_v2__10TObjPlayerFl(-0x200);
+        TObjPlayer::play_effect_if_v2(-0x200);
         o->fc8 = (2.0f) * o->anims[o->fb8].f8;
         advance_animation_playback(o);
         apply_actor_gravity(o, 0, (0.0f));
@@ -1114,9 +1084,9 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
             VecCopy__FP3VecPC3Vec(&v, &o->target->p2fc);
             subtract_vector(&v, &o->p2fc);
             d = update_angle__10TObjPlayerFlPv(o, (void *)(s32)((2.0f) * (f32)o->param->turn), &v);
-            if (d < get_field_0c__10TObjPlayerFv(o->f318)) {
+            if (d < ((TObjPlayer *)(o->f318))->get_field_0c()) {
                 s32 ang = (s32)((10430.38043493439) * atan2_float(v.x, v.z));
-                o->f398 = (3e+01f) + (newton_sqrtf(calc_distance_to_client__10TObjPlayerFlUsUl(o, o->f338, 0)) + get_collision_body_radius(o, 0));
+                o->f398 = (3e+01f) + (newton_sqrtf(TObjPlayer::calc_distance_to_client((s32)o, (u16)(o->f338), (u32)0)) + get_collision_body_radius(o, 0));
                 if (o->f398 < (1e+02f)) {
                     o->f398 = (1e+02f);
                 }
@@ -1135,7 +1105,7 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
                     set_indexed_flags(o, 0, 0x80);
                     copy_position_if_valid__10TObjPlayerFii(o, o->p2fc);
                     play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(o, 0x4003A806), &o->pos, 0, 0);
-                    play_effect_if_v2__10TObjPlayerFl(-0x200);
+                    TObjPlayer::play_effect_if_v2(-0x200);
                 } else {
                     if (o->f338 == 0xFFFF) {
                         o->target = NULL;
@@ -1158,14 +1128,14 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
             o->state = 1;
             o->fb8 = 1;
             obj_clearFlags30(o, 0x4000000);
-            clear_player_status_flag__10TObjPlayerFlUl(o, 0, 0x80);
+            ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         }
         break;
     case 1: {
         s32 k;
         s32 i;
         obj_clearFlags30(o, 0x4000000);
-        clear_player_status_flag__10TObjPlayerFlUl(o, 0, 0x80);
+        ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         o->fc8 = (2.0f) * o->anims[o->fb8].f8;
         advance_animation_playback(o);
         for (i = 0; i < 12; i++) {
@@ -1184,7 +1154,7 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
                     obj_setFlags30(p, 0x400);
                     p->m23(o, (2.0f) * dmg);
                     if (is_split_screen() == 0 && local_client_id == (u16)obj_getField1c(p)) {
-                        set_shake_preset__11TCameraCtrlFl(1);
+                        TCameraCtrl::set_shake_preset(1);
                     }
                     *(VObj_18_800BD4D8 **)((u8 *)o + k) = p;
                 }
@@ -1239,7 +1209,7 @@ void TObjGrass__sub_800BD4D8(void *arg0_) {
     }
     case 2:
         obj_clearFlags30(o, 0x4000000);
-        clear_player_status_flag__10TObjPlayerFlUl(o, 0, 0x80);
+        ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         o->fc8 = (2.0f) * o->anims[o->fb8].f8;
         advance_animation_playback(o);
         apply_actor_gravity(o, 0, (0.0f));
@@ -1278,7 +1248,7 @@ void TObjGrass__sub_800BDD70(u8 *arg0) {
             subtract_vector(&sp8, arg0 + 0x2FC);
             ang = update_angle__10TObjPlayerFlPv(arg0, (void *)*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8), &sp8);
             apply_actor_gravity(arg0, 0, (0.0f));
-            if (ang < get_field_0c__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x318))) {
+            if (ang < ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0x318)))->get_field_0c()) {
                 *(s16 *)((s8 *)arg0 + 0x328) = 1;
                 if ((0.5f) < calc_boss4_scale__10TObjPlayerFi(arg0)) {
                     *(s16 *)((s8 *)arg0 + 0xB8) = 2;
@@ -1295,7 +1265,7 @@ void TObjGrass__sub_800BDD70(u8 *arg0) {
                 (*(VObj_800BDD70 **)((s8 *)arg0 + 0x2A8))->m20(arg0, (1.0f));
                 (*(VObj_800BDD70 **)((s8 *)arg0 + 0x2A8))->m23(arg0);
             }
-            switch (get_global_state__14TOKeyMachine01Fv()) {
+            switch (TOKeyMachine01::get_global_state()) {
             case 3:
             case 4:
             case 5:
@@ -1357,9 +1327,9 @@ void TObjGrass__sub_800BDD70(u8 *arg0) {
         }
         break;
     }
-    update_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_collisions();
     play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A801), arg0, arg0 + 0x38, 0, 0);
-    play_effect_if_v2__10TObjPlayerFl(-0x200);
+    TObjPlayer::play_effect_if_v2(-0x200);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
@@ -1390,12 +1360,10 @@ void TObjGrass__vt58(void *arg0) {
 
 struct Vec_800BE1CC { f32 x, y, z; };
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800BE1CC *);
-f32 get_pos_x__10TObjPlayerFv(int);
-s32 check_player_flag1__6TLobbyFv(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 #define TBL ((u32 *)TObjGrass__bml_resource)
 #define T318 (*(u32 *)((s8 *)(arg0) + 0x318))
-#define IN_RANGE() (dist <= (r + get_pos_x__10TObjPlayerFv(T318)) * (r + get_pos_x__10TObjPlayerFv(T318)) && ang <= get_field_0c__10TObjPlayerFv(T318))
+#define IN_RANGE() (dist <= (r + ((TObjPlayer *)T318)->get_pos_x()) * (r + ((TObjPlayer *)T318)->get_pos_x()) && ang <= ((TObjPlayer *)T318)->get_field_0c())
 #define BIND(n) (*(s16 *)((s8 *)(arg0) + 0x39E)) = (n); bind_enemy_combat_stats(arg0, 0, TBL[(*(s16 *)((s8 *)(arg0) + 0x39E))], 0); return 1;
 
 s32 TObjGrass__vt28(u8 *arg0) {
@@ -1424,7 +1392,7 @@ s32 TObjGrass__vt28(u8 *arg0) {
     kind = obj_getField1c(t);
     if (kind < 0x1000) {
         t = *(u8 **)((s8 *)arg0 + 0x2A8);
-        if (check_player_flag1__6TLobbyFv(t) == 1 || (enable_v2_features == 1 && obj_testFlags30(t, 0x20) != 0)) {
+        if (((TLobby *)t)->check_player_flag1() == 1 || (enable_v2_features == 1 && obj_testFlags30(t, 0x20) != 0)) {
             T318 = TBL[0];
             if (IN_RANGE()) {
                 BIND(0)
@@ -1469,7 +1437,7 @@ void TObjGrass::update_chase_target(void *arg0_) {
         play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A300), arg0, arg0 + 0x38, 0, 0);
     } else {
         play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A801), arg0, arg0 + 0x38, 0, 0);
-        play_effect_if_v2__10TObjPlayerFl(-0x200);
+        TObjPlayer::play_effect_if_v2(-0x200);
     }
     advance_animation_playback(arg0);
     if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
@@ -1483,7 +1451,7 @@ void TObjGrass::update_chase_target(void *arg0_) {
             VecCopy__FP3VecPC3Vec(&v, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
             subtract_vector(&v, arg0 + 0x2FC);
             turn = angle_difference_abs(*(s32 *)((s8 *)arg0 + 0x60), (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
-            if (turn < get_field_0c__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x318))) {
+            if (turn < ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0x318)))->get_field_0c()) {
                 *(s16 *)((s8 *)arg0 + 0x328) = 1;
             }
             break;
@@ -1508,7 +1476,7 @@ void TObjGrass::update_chase_target(void *arg0_) {
             *(u8 **)((s8 *)arg0 + 0x2A8) = NULL;
         }
     }
-    update_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_collisions();
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 #undef arg0
@@ -1537,7 +1505,7 @@ s32 TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
     }
     apply_actor_gravity(o, 0, (0.0f));
     play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(o, 0x4003A801), o, &o->pos, 0, 0);
-    play_effect_if_v2__10TObjPlayerFl(-0x200);
+    TObjPlayer::play_effect_if_v2(-0x200);
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
 }
 
@@ -1566,7 +1534,7 @@ void TObjGrass::update_ai(void *arg0) {
     case 0:
         obj_setFlags30(o, 0x04040000);
         TObjEneMe3SinowZoa__sub_800D758C(&o->sub);
-        play_area_sound_effect__12TBoss3VoloptFv(&o->pos);
+        ((TBoss3Volopt *)(&o->pos))->play_area_sound_effect();
         o->state = 1;
         break;
     case 1:
@@ -1780,7 +1748,7 @@ void TObjGrass__vt26(u8 *arg0) {
         if (tid < 0x1000U) {
             q = get_player_by_client_id(tid);
             if (q != NULL) {
-                if (get_field_3e4__10TObjPlayerFv((int) (q)) == get_current_floor()) {
+                if (((TObjPlayer *)q)->get_field_3e4() == get_current_floor()) {
                     *(u8 **)((s8 *)arg0 + 0x2A8) = q;
                     obj_clearFlags30((void *) (arg0), 0x04040000);
                     return;
@@ -1823,17 +1791,11 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 };
 
 s32 render_with_position_override__10TObjPlayerFPUcl(void *, void *, int, f32);
-s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 render_world_model__10TObjPlayerFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 translate_matrix(int, f32, f32, f32);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(int);
-s32 set_global_state__16TObjEneRe7BeruraFl(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -1857,18 +1819,18 @@ void TObjGrass::render() {
         return;
     }
     select_actor_lighting(self);
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
     push_matrix();
     translate_matrix(0, (0.0f), *(f32 *)((s8 *)arg0 + 0x35C), (0.0f));
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
     scale_matrix(0, (1.3f), *(f32 *)((s8 *)arg0 + 0x6C), (1.3f));
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
     } else {
-        toggle_particle_effect__10TObjPlayerFv();
+        TObjPlayer::toggle_particle_effect();
         TObjGrass__render_node_index = 0;
-        set_global_state__16TObjEneRe7BeruraFl((void *)TObjGrass::update_camera_vec_by_stage);
+        TObjEneRe7Berura::set_global_state((s32)((void *)TObjGrass::update_camera_vec_by_stage));
         if (*(s32 *)((s8 *)arg0 + 0x3AC) == 1) {
             if ((&self->sub)->m8() != 0) {
                 lbl_805D5660 = model_render_flags;
@@ -1876,7 +1838,7 @@ void TObjGrass::render() {
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
                 (&self->sub)->m6(chunk_polygon_flags_and_mask, model_render_flags);
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) == 0) {
-                    draw__16TObjEneRe7BeruraFv(self);
+                    ((TObjEneRe7Berura *)self)->draw();
                 }
                 (&self->sub)->m7();
                 chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -1886,15 +1848,15 @@ void TObjGrass::render() {
         } else {
             model_render_flags |= 0x01000000;
             if (*(s32 *)((s8 *)arg0 + 0x3A8) == 1) {
-                draw__16TObjEneRe7BeruraFv(self);
+                ((TObjEneRe7Berura *)self)->draw();
             } else {
-                render_world_model__10TObjPlayerFv(self);
+                ((TObjPlayer *)self)->render_world_model();
             }
             model_render_flags &= 0xFEFFFFFF;
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
-    set_global_state__16TObjEneRe7BeruraFl(NULL);
+    TObjEneRe7Berura::set_global_state((s32)NULL);
     pop_matrix();
     restore_scene_lighting();
     VecCopy__FP3VecPC3Vec(arg0 + 0x374, &grass_camera_vec);
@@ -1924,7 +1886,7 @@ void TObjGrass::run_task() {
     u16 temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r4;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TObjGrass__sub_800BCA2C((void *)((void *) (arg0)));
         return;
     }
@@ -1932,7 +1894,7 @@ void TObjGrass::run_task() {
     if (temp_r3 < 0x1000U) {
         temp_r3_2 = (u8 *)(get_player_by_client_id(temp_r3));
         if (temp_r3_2 != NULL) {
-            if (get_field_3e4__10TObjPlayerFv((int) (temp_r3_2)) == get_current_floor()) {
+            if (((TObjPlayer *)temp_r3_2)->get_field_3e4() == get_current_floor()) {
                 *(u8 **)((s8 *)arg0 + 0x2A8) = temp_r3_2;
                 goto done;
             }
@@ -1985,7 +1947,7 @@ void TObjGrass::run_task() {
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
         *(u8 **)((s8 *)arg0 + 0x2A8) = NULL;
     }
-    update_prev_position__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
     *(f32 *)((s8 *)arg0 + 0x2B4) += (1.0f);
@@ -2031,7 +1993,7 @@ void TObjGrass::destroy_all() {
 
 void TObjGrass::load_resources() {
     u8 *p;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         TObjGrass__resource_bundle = (u32) load_enemy_bml_resource_named(bm_ene_grass_resource_descriptor, (void *)"bm_ene_grass_a.bml");
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
@@ -2064,7 +2026,7 @@ void TObjGrass::load_resources() {
     {
     Quad_800BF66C q = grass_spawn_descriptor;
     q.a = (s32) ((Data_800BF66C *)TObjGrass__resource_bundle)->f430;
-    spawn_npc_enemy__6TLobbyFslllff(0x35, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->fC, &q, (1e+01f), (0.0f));
+    TLobby::spawn_npc_enemy((s16)0x35, (s32)(((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8), (s32)(((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->fC), (s32)(&q), (f32)((1e+01f)), (f32)((0.0f)));
     }
 }
 
@@ -2094,10 +2056,10 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 t;
     initialize__9TObjEnemyFPv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__9TObjGrass;
-    init_common__18TObjEneMe3SinowZoaFv(arg0 + 0x3B0);
+    ((TObjEneMe3SinowZoa *)(arg0 + 0x3B0))->init_common();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A38;
     ((VObj_18_c99286 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->init_position_vectors();
     apply_actor_gravity(arg0, 0, (0.0f));
     t = *(s32 *)((s8 *)TObjGrass__resource_bundle + 0x430);
     *(s32 *)((s8 *)arg0 + 0xDC) = t;
@@ -2109,7 +2071,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x334) = 0;
     ((TObjGrass *)arg0)->init_from_table_entry((s32)(*(s32 *)((s8 *)arg0 + 0x368)));
     *(u8 **)((s8 *)arg0 + 0xD8) = (u8 *)TObjGrass__grass_type_param_table;
-    set_field_d8__10TObjPlayerFl(arg0, *(u8 **)((s8 *)arg0 + 0xD8));
+    ((TObjPlayer *)arg0)->set_field_d8((s32)(*(u8 **)((s8 *)arg0 + 0xD8)));
     if ((0.0f) < *(f32 *)((s8 *)arg0 + 0x358)) {
         *(s16 *)((s8 *)arg0 + 0x39C) = 2;
     } else {
@@ -2117,21 +2079,21 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     }
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, &((E2C_800BF924 *)lbl_80492A00)[*(s32 *)((s8 *)arg0 + 0x368)], 1);
     *(s16 *)((s8 *)arg0 + 0x39E) = 0;
     bind_enemy_combat_stats(arg0, lbl_805D5140, ((u32 *)TObjGrass__bml_resource)[*(s16 *)((s8 *)arg0 + 0x39E)], grass_combat_stats_handle);
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *)&((E1C_800BF924 *)lbl_804929E4)[*(s32 *)((s8 *)arg0 + 0x368)];
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
-    update_prev_position__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0x398) = (0.0f);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s16 *)((s8 *)arg0 + 0x328) = 0;
     *(s32 *)((s8 *)arg0 + 0x3A0) = 0;
     TObjGrass__sub_800BFB68((O_800BFB68 *)(arg0));
-    add_flags_2e4__10TObjPlayerFUl(arg0, 2);
+    ((TObjPlayer *)arg0)->add_flags_2e4(2);
     obj_setFlags30(arg0, 0x04040000);
     ((VObj_14_fa0828 *)(arg0 + 0x3B0))->m3();
     *(s32 *)((s8 *)arg0 + 0x3AC) = 1;

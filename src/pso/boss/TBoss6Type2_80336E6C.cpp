@@ -11,7 +11,6 @@ extern const f32 lbl_805DF97C;
 s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
-int ensure_particle_emitter__11TBoss6Type2Fl(void*, void*);
 void spawn_mag_mines__11TBoss6Type2Fv();
 }
 
@@ -23,12 +22,6 @@ void TBoss6Type2__sub_80337108(void);
 void TBoss6Type2__sub_80337160(void);
 void TBoss6Type2__sub_803371B4(void* p);
 int play_sound_effect(void*, void*, void*, void*);
-int destroy_part_object__11TBoss6Type2Fl(void*, void*);
-int ensure_particle_emitter__11TBoss6Type2Fl(void*, void*);
-s32 enforce_min_distance__11TBoss6Type2Fv(void *);
-s32 push_out_from_points__11TBoss6Type2Fv(void *);
-s32 push_out_from_target__11TBoss6Type2Fv(void *);
-s32 apply_random_drift__11TBoss6Type2Fv(void *);
 s32 turn_toward_target__11TBoss6Type2FPv();
 s32 fly_toward_target__11TBoss6Type2Fv();
 s32 TBoss6Type2__sub_8032FB84();
@@ -54,7 +47,7 @@ void TBoss6Type2::update_recover_timer() {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336F00(void* p) { *(int*)((char*)p + 0x3cc) = 0; play_sound_effect((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); destroy_part_object__11TBoss6Type2Fl((void*)(p), (void*)((void*)0)); }
+void TBoss6Type2__sub_80336F00(void* p) { *(int*)((char*)p + 0x3cc) = 0; play_sound_effect((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); ((TBoss6Type2 *)p)->destroy_part_object((s32)((void*)((void*)0))); }
 
 #pragma push
 #pragma opt_common_subs off
@@ -72,11 +65,11 @@ void TBoss6Type2::update_ramp_timer() {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; ensure_particle_emitter__11TBoss6Type2Fl(p, (void*)0); }
+void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; ((TBoss6Type2 *)p)->ensure_particle_emitter((s32)((void*)0)); }
 void TBoss6Type2::tick_attack_timer() {
     *(s32 *)((s8 *)this + 0x3CC) = (s32) (*(s32 *)((s8 *)this + 0x3CC) - 1);
     if ((s32) *(s32 *)((s8 *)this + 0x3CC) < 0) {
-        destroy_part_object__11TBoss6Type2Fl((void*)(this), (void*)(3));
+        destroy_part_object((s32)((void*)(3)));
         if ((s32) *(s32 *)((s8 *)this + 0x40C) != 0) {
             set_action__11TBoss6Type2FPvi(this, 1);
             return;
@@ -95,15 +88,15 @@ void TBoss6Type2::start_mag_mines_state() {
     default:
         break;
     }
-    ensure_particle_emitter__11TBoss6Type2Fl((void*)(arg0), (void*)((void *)3));
+    ((TBoss6Type2 *)arg0)->ensure_particle_emitter((s32)((void*)((void *)3)));
 }
 
 void TBoss6Type2::update_effect_subsystems() {
     turn_toward_target__11TBoss6Type2FPv();
-    apply_random_drift__11TBoss6Type2Fv(this);
-    push_out_from_target__11TBoss6Type2Fv(this);
-    push_out_from_points__11TBoss6Type2Fv(this);
-    enforce_min_distance__11TBoss6Type2Fv(this);
+    apply_random_drift();
+    push_out_from_target();
+    push_out_from_points();
+    enforce_min_distance();
     if ((s32) *(s32 *)((s8 *)this + 0x40C) != 0) {
         set_action__11TBoss6Type2FPvi(this, 1);
     }
@@ -111,8 +104,8 @@ void TBoss6Type2::update_effect_subsystems() {
 void TBoss6Type2__sub_80337108(void) {  }
 void TBoss6Type2::update_attack_state() {
     fly_toward_target__11TBoss6Type2Fv();
-    push_out_from_target__11TBoss6Type2Fv(this);
-    enforce_min_distance__11TBoss6Type2Fv(this);
+    push_out_from_target();
+    enforce_min_distance();
     if ((s32) *(s32 *)((s8 *)this + 0x40C) == 0) {
         set_action__11TBoss6Type2FPvi(this, 2);
     }

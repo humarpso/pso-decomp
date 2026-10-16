@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowMakeTeam.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 
 extern "C" {
 int strcmp(const char *a, const char *b);
@@ -15,13 +17,9 @@ s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 
 extern "C" {
 
-s32 request_close__19TWindowSubTradeMainFv(void *);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
-int get_lobby_field_20__15TWindowMakeTeamFv(void* p);
-int set_field_1c__6TLobbyFf(void*);
 s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
-int set_keyboard_flag62_bit2__15TWindowMakeTeamFv(void* p);
 s32 window_request_show(void * a0 = 0);
 
 void TLobby::debug_print(s32 arg0, ...) {}

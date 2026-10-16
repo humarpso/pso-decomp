@@ -1,17 +1,15 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
+#include "pso/misc/TTecGiZonde.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0);
-s32 roll_technique__11TItemWeaponFv(void *);
 u8 *get_captured_target_entry(s32, s32);
 s32 get_captured_target_count();
-s32 get_tp__10TObjPlayerFv(void *);
-s32 create__11TTecGiZondeFPvPvPv(int, void *, void *, void *);
-s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 get_extended_state__10TObjPlayerFv(int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-s32 update_active_game_effect__10TObjPlayerFv(void *);
 
 void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
@@ -20,7 +18,7 @@ void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3_2;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (0), (void *) (arg0 + 0x1F8));
+        ((TObjPlayer *)arg0)->draw_icon((s32)((int) (0)), (s32)((void *) (arg0 + 0x1F8)));
         temp_r3 = get_extended_state__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0xF0)));
         if (temp_r3 != 0) {
             *(s32 *)((s8 *)arg0 + 0x204) = get_captured_target_count();
@@ -36,12 +34,12 @@ void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0) {
                 var_r29 += 1;
             } while (var_r29 != 0xA);
             if ((s32) *(s32 *)((s8 *)arg0 + 0x204) != 0) {
-                create__11TTecGiZondeFPvPvPv((int) (*(s32 *)((s8 *)arg0 + 0xF0)), (void *) (arg0 + 0x1F8), (void *) (arg0 + 0x204), (void *) (get_tp__10TObjPlayerFv((void *) (arg0))));
+                ((TTecGiZonde *)(*(s32 *)((s8 *)arg0 + 0xF0)))->create((void *) (arg0 + 0x1F8), (void *) (arg0 + 0x204), (void *) (((TObjPlayer *)arg0)->get_tp()));
             }
-            roll_technique__11TItemWeaponFv((void *) (arg0));
+            ((TItemWeapon *)arg0)->roll_technique();
         }
     } else {
-        update_active_game_effect__10TObjPlayerFv((void *) (arg0));
+        ((TObjPlayer *)arg0)->update_active_game_effect();
     }
 }
 

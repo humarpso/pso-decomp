@@ -1,18 +1,17 @@
 #include "pso/object/TObjSoloPlayWin.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
 s32 TLobby__sub_8006FBE4();
-s32 get_global_state__14TOKeyMachine01Fv();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 s32 obj_testFlags30(u32, s32);
 void* get_window_layout_position(s32);
 void* set_window_mode_4__6TLobbyFPvll(void*, void*, s32);
-s32 set_field_1c__6TLobbyFf(void*, f32);
 void* TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFii(void*, void*, s32);
 s32 TWindow__close(u32);
-s32 mark_solo_win_closing__6TLobbyFv();
 s32 queue_destruction__7TObjectFv(void*);
 extern s32 local_client_id;
 extern const char TObjSoloPlayWin_class_name[] = "TObjSoloPlayWin";
@@ -25,7 +24,7 @@ s32 TObjSoloPlayWin::has_at_most_one_player() {
     return (TLobby__sub_8006FBE4() <= 1) ? 1 : 0;
 }
 s32 TObjSoloPlayWin::area_allows_win_timer() {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0: case 0xB: case 0xC: case 0xD: case 0xE: case 0x12:
     case 0x1E: case 0x1F: case 0x20: case 0x21:
         return 0;
@@ -43,7 +42,7 @@ s32 TObjSoloPlayWin::can_start_win_timer() {
 void TObjSoloPlayWin::open_result_window() {
     m_result_window = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x3E), solo_play_result_window_extent, 1);
     if (m_result_window != 0) {
-        set_field_1c__6TLobbyFf(m_result_window, solo_play_result_window_depth);
+        ((TLobby *)m_result_window)->set_field_1c(solo_play_result_window_depth);
         send_and_handle__6TLobbyFii(m_result_window, TQuestVmDownLoadServer__sub_8006EF6C(0x5F), 2);
     }
 }
@@ -55,7 +54,7 @@ void TObjSoloPlayWin::update_close_timer() {
             TWindow__close((u32)m_result_window);
             m_result_window = 0;
         }
-        mark_solo_win_closing__6TLobbyFv();
+        TLobby::mark_solo_win_closing();
         queue_destruction__7TObjectFv(this);
     }
 }

@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/misc/TODoorVoShip.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOBarrierEnergy01.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80163B8C_lbl_804B1760 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80163B8C_lbl_804B1760_size[sizeof(RecoveredGlobal_80163B8C_lbl_804B1760) == 0x10 ? 1 : -1];
@@ -25,7 +31,6 @@ struct VObj_801639B4 : VBase_801639B4 { virtual void m0(); virtual void m1(); vi
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80163B8C_lbl_804B1760 bm_o_door_vo_ship_resource_descriptor;
 extern u32 TODoorVoShip__shared_bml_archive;
 s32 get_main_phase(void);
@@ -35,8 +40,6 @@ s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_map_object_base(void *);
 s32 get_story_flag(s32);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
 extern s32 __vt__12TODoorVoShip[];
@@ -48,19 +51,14 @@ extern const f32 lbl_805DB540;
 extern const f32 lbl_805DB544;
 u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_main_phase(void);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
-void update_anim_phase__17TOBarrierEnergy01Fv(void *);
 s32 get_story_flag(s32);
 extern const f32 lbl_805DB530;
 extern const f32 lbl_805DB534;
 extern const f32 lbl_805DB538;
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_model(int);
 s32 TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
@@ -77,7 +75,6 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_key_base__5TOKeyFs(void *, s32);
 
 extern void *tl_05;
 
@@ -86,7 +83,7 @@ extern void *tl_05;
 void TODoorVoShip::run_task() {
     u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0xCC) & 0xE) {
-        update_anim_phase__17TOBarrierEnergy01Fv(arg0);
+        ((TOBarrierEnergy01 *)arg0)->update_anim_phase();
         if (*(s32 *)((s8 *)arg0 + 0xCC) & 0x10) {
             *(f32 *)((s8 *)arg0 + 0xDC) = (f32) (*(f32 *)((s8 *)arg0 + 0xDC) + lbl_805DB530);
             if (lbl_805DB534 <= *(f32 *)((s8 *)arg0 + 0xDC)) {
@@ -111,7 +108,7 @@ void TODoorVoShip::run_task() {
         }
         if ((get_story_flag((s32)((int) (0x2F))) != 0) || (get_main_phase() == 0xF)) {
             *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) & 0xFFFFFFF1);
-            clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (int)(0), (int)(1U));
+            ((TObjPlayer *)arg0)->clear_player_status_flag((int)(0), (int)(1U));
         }
     }
 }
@@ -128,14 +125,14 @@ void TODoorVoShip::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         TObjEneSlimeOne__sub_803E4B54((int) (*(s32 *)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (int) (*(s32 *)((s8 *)arg0 + 0xD0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0xD8)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0xD8)));
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
         model_render_flags = temp_r4 | 0x20;
         set_chunk_material_color((void *) (arg0 + 0xDC));
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         temp_r31 = *(u8 **)((s8 *)arg0 + 0xD4);
         push_matrix();
         post_translate_matrix((void *) (temp_r31 + 8));
@@ -161,7 +158,7 @@ void TODoorVoShip::render() {
             pop_matrix();
         }
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         pop_matrix();
@@ -190,7 +187,7 @@ extern s32 __vt__12TODoorVoShip[];
 void TODoorVoShip::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_door_vo_ship_resource_descriptor.value, 0, 0, 0));
@@ -203,7 +200,7 @@ void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TODoorVoShip;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -225,7 +222,7 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xD8) = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     init_collision_body_parts(arg0, (s32) &lbl_804B1770.value, 1);
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB540;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB544;
     *(s32 *)((s8 *)arg0 + 0xCC) = 0xE;
@@ -249,7 +246,7 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else {
 block_8:
         *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (*(s32 *)((s8 *)arg0 + 0xCC) & 0xFFFFFFF1);
-        clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
+        ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
     }
     return arg0;
 }

@@ -1,6 +1,9 @@
 #include "pso/TEndingPic.h"
 
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_803530C4_80352BB8 { char pad[0x18]; };
 struct VObj_803530C4_80352BB8 : Base_803530C4_80352BB8 {
@@ -83,10 +86,7 @@ s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
 s32 get_field_2b8__14TItemProShieldFv(s32);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 obj_getS16_2BA(s32);
-s32 set_global_param__8TObjFishFl(s32);
-s32 update_flag890_state__10TObjPlayerFl(s32);
 
 extern s32 TEndingPic__animation_state;
 
@@ -106,7 +106,7 @@ void TEndingPic::advance_animation_state() {
         temp_r4 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingPic__animation_state = 2;
-            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
         }
         break;
@@ -124,7 +124,7 @@ void TEndingPic::advance_animation_state() {
         temp_r4_2 = *(s32 *)((s8 *)this + 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingPic__animation_state = 4;
-            update_flag890_state__10TObjPlayerFl(*(s32 *)((s8 *)this + 0x24));
+            TObjPlayer::update_flag890_state(*(s32 *)((s8 *)this + 0x24));
             *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
             return;
         }
@@ -172,7 +172,7 @@ void TEndingPic::draw_current_pic() {
     default:
         break;
     }
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
     extern const float lbl_805DFEF4;
@@ -197,7 +197,7 @@ extern s32 ending_pic_wall_texture_list;
 void TEndingPic::render() {
     s32 arg0 = (s32)this;
     if ((s32) TEndingPic__animation_state != 0) {
-        set_global_param__8TObjFishFl(ending_pic_wall_texture_list);
+        TObjFish::set_global_param(ending_pic_wall_texture_list);
         draw_current_pic();
     }
 }

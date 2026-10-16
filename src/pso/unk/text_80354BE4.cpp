@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80354BE4_lbl_80543984 {
     s32 value;
@@ -70,7 +71,6 @@ void TObjPlayer__sub_80354DF4(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
 u32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354E3C(s32 arg0);
-s32 reset_field4__10TObjPlayerFv(void *);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354E7C(void);
 }
@@ -155,7 +155,7 @@ s32 TObjPlayer__sub_80354E3C(s32 arg0) {
 void TObjPlayer__sub_80354E7C(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        reset_field4__10TObjPlayerFv(&((E_80354E7C *)&lbl_80543984)[i]);
+        ((TObjPlayer *)(&((E_80354E7C *)&lbl_80543984)[i]))->reset_field4();
     }
 }
 

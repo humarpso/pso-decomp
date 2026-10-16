@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubEquipKind.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind {
     s32 value;
@@ -25,7 +26,6 @@ s32 update_item_list_window();
 s32 draw_window_scrollbar(s32, s32, void *);
 s32 draw_tab_label__20TWindowSubStatusDispFPvPv(void *, s32);
 void __dl__7TObjectFPv(void *);
-void destroy_item_list_resources__20TWindowSubStatusDispFs(void *, int);
 s32 draw_selected_list_entry(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
@@ -62,7 +62,7 @@ extern s32 __vt__19TWindowSubEquipKind[];
 void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubEquipKind;
-        destroy_item_list_resources__20TWindowSubStatusDispFs(arg0, 0);
+        ((TWindowSubStatusDisp *)arg0)->destroy_item_list_resources(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

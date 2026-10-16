@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -24,7 +25,6 @@ int clear_id__10TObjPlayerFv(void*);
 int get_valid_child__6TLobbyFv(void*);
 s32 init_forward__10TObjPlayerFv();
 s32 init_gc_tag(void *);
-int validate_handle__6TLobbyFPl(void*);
 
 void TObjPlayer__sub_801BFED4(void* p) { *(s32*)((char*)p + 0x4) = -1; }
 s32 TObjPlayer::setup_state() {
@@ -69,6 +69,6 @@ int TObjPlayer__sub_801C000C(void) { return 0; }
 int TObjPlayer__sub_801C0014(void) { return 0; }
 int TObjPlayer__sub_801C001C(void) { return 0; }
 int TObjPlayer::sub_802a7290_fwd() { return get_valid_child__6TLobbyFv(this); }
-int TObjPlayer::is_handle_valid() { return validate_handle__6TLobbyFPl(this); }
+int TObjPlayer::is_handle_valid() { return TLobby::validate_handle((s32 *)this); }
 
 }

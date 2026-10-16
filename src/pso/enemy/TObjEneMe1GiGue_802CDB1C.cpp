@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/player/TObjPlayer.h"
 
 struct E_802CDAEC { s32 a; s32 b; s32 c; s32 d; };
 
@@ -51,7 +56,6 @@ extern "C" {
 extern s32 TObjEneMe1GiGue__param_table;
 f32 get_gigue_float_parameter(s32 arg0, s32 arg1);
 extern G_802CDAEC *TObjEneMe1GiGue__data_805D6838;
-void load_params_from_table__15TObjEneMe1GiGueFl(O_802CDAEC *self, s32 i);
 extern s32 TObjEneMe1GiGue__param_table;
 s32 get_gigue_int_parameter(void *self, s32 i);
 f64 atan2_float(f32, f32);
@@ -80,13 +84,10 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, s32);
 s32 spawn_particle_effect(void *, s32);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 enable__13TParticleCtrlFPv(void *);
 VEnt_802CDB1C *find_active_entity_by_id(u16);
-s32 scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 f32 xyz_distance_squared(void *, void *);
 u8 *find_entity_by_id(s16);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *, void *);
 s32 vec3_add_to(void *, void *);
@@ -113,7 +114,6 @@ void TObjPlayer__sub_800D7C58(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 #pragma push
@@ -136,7 +136,7 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
             self->timer = 0;
             VecCopy__FP3VecPC3Vec(&self->pos, self->start);
             self->state = 1;
-            if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+            if (TOKeyMachine01::get_global_state() == 0x23) {
                 play_sound_effect(0x4003A313, &self->pos, 0, 0);
                 return;
             }
@@ -159,18 +159,18 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
         if (tgt != NULL) {
             VecCopy__FP3VecPC3Vec(&v, (u8 *)tgt + 0x2FC);
             subtract_vector(&v, &self->pos);
-            scale_velocity__19TObjGyaranzoMissileFf(&v, self->speed);
+            ((TObjGyaranzoMissile *)(&v))->scale_velocity(self->speed);
             self->speed += lbl_805D684C;
             vec3_add_to(&self->vel, &v);
-            scale_velocity__19TObjGyaranzoMissileFf(&self->vel, lbl_805D6844);
+            ((TObjGyaranzoMissile *)(&self->vel))->scale_velocity(lbl_805D6844);
         }
         VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
         vec3_add_to(&self->pos, &self->vel);
         if (self->ptcl0 != NULL) {
-            copy_pos__11TNowLoadingFPv(self->ptcl0, &self->pos);
+            ((TNowLoading *)(self->ptcl0))->copy_pos(&self->pos);
         }
         if (self->ptcl1 != NULL) {
-            copy_pos__11TNowLoadingFPv(self->ptcl1, &self->pos);
+            ((TNowLoading *)(self->ptcl1))->copy_pos(&self->pos);
         }
         if (csnVector(&self->prev, &self->pos, -1) != 0) {
             queue_destruction__7TObjectFv(self);
@@ -206,7 +206,7 @@ void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E14E8;
         if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }
         if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xFC)); *(s32 *)((s8 *)arg0 + 0xFC) = 0; }
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

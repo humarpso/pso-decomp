@@ -1,6 +1,14 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneBm9Mericarol.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_802CE68C {
     s32 sp8;
     s32 spC;
@@ -90,29 +98,22 @@ struct Self_802CE8CC {
 };
 
 extern "C" {
-s32 render_anim_model__10TObjPlayerFf(void *, f32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_802CE68C_lbl_804724A8 player_sub_802ce68c_zero_vec;
 extern RecoveredGlobal_802CE68C_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
 void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2);
-s32 clear_global_flag_400__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, Vec_802CE740 *, int);
-s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_default_scene();
 s32 set_scene_override(int);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_chunk_object(s32);
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
@@ -120,31 +121,18 @@ extern const f32 lbl_805DE704;
 void draw_color_variant__10TObjPlayerFPv(u8 *arg0);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 clear_global_flag_400__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, Vec_802CE740 *, int);
-s32 update_primary_light__9TObjEneDDFv(void *);
-s32 update_secondary_light__9TObjEneDDFv(void *);
-s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 s32 update_obstruction_fade(void *);
-s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_default_scene();
 s32 set_scene_override(int);
-s32 render_world_model__10TObjPlayerFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 get_phase__19TObjEneBm9MericarolFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 set_global_state__16TObjEneRe7BeruraFl(void *, int, void *);
-void update_particle_effect__19TObjEneBm9MericarolFv(void);
 extern Vec_802CE740 lbl_80472490;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D686C;
@@ -166,13 +154,13 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char spC_offset[(offsetof(Stack_802CE68C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802CE68C, sp10) == 0x8) ? 1 : -1];
     Stack_802CE68C stack;
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    set_global_flag__10TObjPlayerFv();
-    render_anim_model__10TObjPlayerFf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
+    ((TObjPlayer *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    TObjPlayer::clear_global_state();
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
     stack.sp8 = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 0);
@@ -180,7 +168,7 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp10 = *(s32 *)((s8 *)(&player_sub_802ce68c_zero_vec.value) + 8);
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
     pop_matrix();
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
 }
 void draw_color_variant__10TObjPlayerFPv(u8 *arg0) {
     s32 s0;
@@ -207,16 +195,16 @@ void draw_color_variant__10TObjPlayerFPv(u8 *arg0) {
             (**(s32 ***)((s8 *)arg0 + 0x24))[8] = (**(s32 ***)((s8 *)arg0 + 0x24))[26];
             break;
         }
-        set_global_param__8TObjFishFl(*(void **)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param((s32)(*(void **)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        clear_global_flag_400__9TObjEneDDFv();
-        toggle_particle_effect__10TObjPlayerFv();
+        TObjEneDD::clear_global_flag_400();
+        TObjPlayer::toggle_particle_effect();
         set_scene_override(0);
         draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
         restore_default_scene();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         if (*(s32 *)((s8 *)arg0 + 0x368) == 1 || *(s32 *)((s8 *)arg0 + 0x368) == 2) {
             (**(s32 ***)((s8 *)arg0 + 0x24))[2] = s0;
@@ -236,7 +224,7 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     s32 s1;
     s32 s2;
     Node_802CE8CC *n;
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         ((Obj_802CE8CC *)arg0)->m104();
         return;
     }
@@ -246,12 +234,12 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     }
     fade = &self->fades[cam];
     update_obstruction_fade(fade);
-    vis = updateFromCamera__15RenderFadeStateFPCf(fade, self->cam);
+    vis = ((RenderFadeState *)fade)->updateFromCamera((const f32*)(self->cam));
     if (self->f326 == 0xC) {
         return;
     }
     if (is_main_phase_15__9TObjEneDDFv() != 0) {
-        if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+        if (TOKeyMachine01::get_global_state() == 0x23) {
             mode = ((Obj_802CE8CC *)arg0)->m9(600.0f, 600.0f, lbl_805DE704);
         } else {
             mode = ((Obj_802CE8CC *)arg0)->m9(lbl_805D9E88, lbl_805D9E84, lbl_805DE704);
@@ -268,8 +256,8 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
         Vec_802CE740 v = lbl_80472490;
         update_player_state__9TObjEneDDFv(arg0, &v, 0);
     }
-    update_secondary_light__9TObjEneDDFv(arg0);
-    switch (get_phase__19TObjEneBm9MericarolFv(arg0)) {
+    ((TObjEneDD *)arg0)->update_secondary_light();
+    switch (((TObjEneBm9Mericarol *)arg0)->get_phase()) {
     case 1:
         s0 = (*self->f24)[2];
         s1 = (*self->f24)[5];
@@ -288,29 +276,29 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
         break;
     }
     lbl_805D5660 = model_render_flags;
-    set_global_param__8TObjFishFl(self->f24);
+    TObjFish::set_global_param((s32)(self->f24));
     push_matrix();
     post_translate_matrix(self->pos);
     rotate_matrix_y(0, self->f60);
     set_scene_override(0);
-    clear_global_flag_400__9TObjEneDDFv();
+    TObjEneDD::clear_global_flag_400();
     translate_matrix(0, lbl_805DE70C, self->f43C, lbl_805DE70C);
     lbl_805D686C = 0;
-    toggle_particle_effect__10TObjPlayerFv();
+    TObjPlayer::toggle_particle_effect();
     if (!(self->f438 & 0x10)) {
         n = self->f34->n2C->n30->n30->n30->n4->n4;
         {
             s16 t = n->fA;
             saved = t;
             n->fA = (u8)t;
-            set_global_state__16TObjEneRe7BeruraFl((void *)update_particle_effect__19TObjEneBm9MericarolFv, t, n);
+            set_global_state__16TObjEneRe7BeruraFl((void *)TObjEneBm9Mericarol::update_particle_effect, t, n);
         }
     }
     if (self->f438 & 8) {
         if (self->f46C.m8() != 0) {
             self->f46C.m6();
             if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
-                draw__16TObjEneRe7BeruraFv(arg0);
+                ((TObjEneRe7Berura *)arg0)->draw();
             }
             self->f46C.m7();
         }
@@ -318,27 +306,27 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
         fade->m6();
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0) {
             if (mode == 1) {
-                draw__16TObjEneRe7BeruraFv(arg0);
+                ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                render_world_model__10TObjPlayerFv(arg0);
+                ((TObjPlayer *)arg0)->render_world_model();
             }
         }
         fade->m7();
     } else if (mode == 1) {
-        draw__16TObjEneRe7BeruraFv(arg0);
+        ((TObjEneRe7Berura *)arg0)->draw();
     } else {
-        render_world_model__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->render_world_model();
     }
     if (!(self->f438 & 0x10)) {
         ((void (*)(void *))set_global_state__16TObjEneRe7BeruraFl)(NULL);
         self->f34->n2C->n30->n30->n4->n4->fA = saved;
     }
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     restore_default_scene();
     pop_matrix();
     model_render_flags = lbl_805D5660;
-    update_primary_light__9TObjEneDDFv(arg0);
-    if (get_phase__19TObjEneBm9MericarolFv(arg0) != 0) {
+    ((TObjEneDD *)arg0)->update_primary_light();
+    if (((TObjEneBm9Mericarol *)arg0)->get_phase() != 0) {
         (*self->f24)[2] = s0;
         (*self->f24)[5] = s1;
         (*self->f24)[8] = s2;

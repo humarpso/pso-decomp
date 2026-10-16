@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TTecGrants.h"
+#include "pso/misc/TTecAnti.h"
 
 struct RecoveredGlobal_80232830_lbl_804CC510
 {
@@ -16,7 +17,6 @@ struct RecoveredGlobal_80232830_lbl_804CC55C
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 copy_params__8TTecAntiFPUc(void *, int);
 extern RecoveredGlobal_80232830_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80232830_lbl_804CC55C lbl_804CC55C;
 }
@@ -34,7 +34,7 @@ void TTecGrants::init_parameters() {
   s8 *new_var;
   new_var = (s8 *) arg0;
   new_var3 = (int) calc_technique_parameters((int) 9, (int) (*((s16 *) (((s8 *) arg0) + 0x78))), (int) 0xFFFF);
-  copy_params__8TTecAntiFPUc((void *) (arg0 + 0x88), new_var3);
+  ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)new_var3);
   if ((((s16) (*((s16 *) (new_var + 0x78)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     new_var2 = &tech_high_level_linear_power_table.value;

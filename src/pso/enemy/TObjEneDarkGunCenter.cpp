@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_800A0B20 { u8 pad[0x18]; };
 
@@ -41,11 +42,9 @@ extern "C" {
 u16 find_nearest_visible_player(void *, s32, f32);
 f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
-s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjPlayer__sub_800A0654(void *);
 s32 TObjPlayer__sub_800A06B4(void *);
 void fn_800A0798(void *);
-void hide_linked_enemies__20TObjEneDarkGunCenterFv(void *);
 void fn_800A0884(void *);
 void TObjEneDarkGunner__ct(void *);
 void TObjEneDarkGunCenter__sub_800A0B18(void);
@@ -101,7 +100,6 @@ void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
 void apply_attack_stat_status__10TObjPlayerFv();
 void apply_confusion_status__10TObjPlayerFv();
-void apply_defense_stat_status__10TObjPlayerFlPv();
 void apply_knockback_from_attacker();
 void apply_movement_ailment__10TObjPlayerFv();
 void apply_object_set_data();
@@ -128,7 +126,6 @@ void get_actor_body_center();
 void get_actor_level_index();
 void get_enemy_name__14TObjEnePanarmsFv();
 void get_pos__10TObjPlayerFii();
-void has_flag_0x800__10TObjPlayerFPv();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
@@ -139,9 +136,6 @@ void reset_actor_action_state();
 void reset_pose__10TObjPlayerFPv();
 void roll_physical_accuracy__10TObjPlayerFv();
 void select_melee_contact_body__10TObjPlayerFv();
-void test_flag30_512__10TObjPlayerFPv();
-void test_flag_1000__10TObjPlayerFPv();
-void test_flag_256__10TObjPlayerFPv();
 void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__10TObjPlayerFPvii();
 void update_action_hold_status__10TObjPlayerFv();
@@ -186,10 +180,10 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)TObjPlayer__sub_80011010,
     (void *)TObjPlayer__sub_8000FF3C,
     (void *)is_target_in_attack_range__10TObjPlayerFv,
-    (void *)test_flag_256__10TObjPlayerFPv,
-    (void *)test_flag30_512__10TObjPlayerFPv,
-    (void *)has_flag_0x800__10TObjPlayerFPv,
-    (void *)test_flag_1000__10TObjPlayerFPv,
+    (void *)TObjPlayer::test_flag_256,
+    (void *)TObjPlayer::test_flag30_512,
+    (void *)TObjPlayer::has_flag_0x800,
+    (void *)TObjPlayer::test_flag_1000,
     (void *)update_poison_status__10TObjPlayerFv,
     (void *)update_action_hold_status__10TObjPlayerFv,
     (void *)update_action_timer__10TObjPlayerFPv,
@@ -207,7 +201,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)apply_shock_status__10TObjPlayerFv,
     (void *)clear_harmful_statuses__10TObjPlayerFv,
     (void *)apply_attack_stat_status__10TObjPlayerFv,
-    (void *)apply_defense_stat_status__10TObjPlayerFlPv,
+    (void *)TObjPlayer::apply_defense_stat_status,
     (void *)cure_poison_ailment,
     (void *)cure_paralysis__10TObjPlayerFv,
     (void *)clear_all_status_effects,
@@ -247,7 +241,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
     s32 t;
     s32 id;
     u8 *e;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(void *))TObjEneDarkGunCenter__sub_800A0B18)(self);
         return;
     }
@@ -276,7 +270,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
     case 1:
         self->timer--;
         if (self->timer <= 0) {
-            hide_linked_enemies__20TObjEneDarkGunCenterFv(self);
+            ((TObjEneDarkGunCenter *)self)->hide_linked_enemies();
             self->timer = 0xd2;
             self->state = 2;
         }
@@ -289,7 +283,7 @@ void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
         break;
     case 3:
         if (find_nearest_visible_player(self, 0, lbl_805D9970) != 0xFFFF) {
-            hide_linked_enemies__20TObjEneDarkGunCenterFv(self);
+            ((TObjEneDarkGunCenter *)self)->hide_linked_enemies();
             fn_800A0884(self);
         } else {
             self->state = 0;

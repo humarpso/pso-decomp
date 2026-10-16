@@ -9,7 +9,6 @@ s32 append_text_space();
 s32 append_padded_number(void *, int);
 s32 text_builder_append(void *);
 s32 text_builder_reset();
-s32 set_entry_display_value__20TWindowSubStatusDispFl(void *, int);
 extern s32 TWindowSubStatusDisp__count_ratio_value;
 extern s32 lbl_805DCAB8;
 }
@@ -50,7 +49,7 @@ void TWindowSubStatusDisp::set_count_ratio_text(s32 arg1, s32 arg2) {
     append_padded_number((void *) (arg1), (int) (2U));
     text_builder_append((void *) (&lbl_805DCAB8));
     append_padded_number((void *) (arg2), (int) (2U));
-    set_entry_display_value__20TWindowSubStatusDispFl((void *) (arg0), (int) (get_shared_text_buffer()));
+    ((TWindowSubStatusDisp *)arg0)->set_entry_display_value((int) (get_shared_text_buffer()));
     TWindowSubStatusDisp__count_ratio_value = arg1;
 }
 

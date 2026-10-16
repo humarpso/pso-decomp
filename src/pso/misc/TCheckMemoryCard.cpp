@@ -5,6 +5,9 @@ struct VObj_8033C4E0_8033C420 : Base_8033C4E0_8033C420 { virtual void m0(int); }
 
 #include <stddef.h>
 #include "pso/misc/TCheckMemoryCard.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TWindowSubComCard.h"
 struct Stack_8033C424 {
     s32 sp8;
     s32 spC;
@@ -19,8 +22,6 @@ struct RecoveredGlobal_8033C424_lbl_804EF940 {
 };
 
 extern "C" {
-s32 poll_memcard_status__15TAdPlayerLoadGCFv(void *);
-s32 set_state__17TWindowSubComCardFl(void *, s32);
 extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
 }
 
@@ -30,8 +31,6 @@ void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void 
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int close_windows__17TWindowSubComCardFv(void*);
-s32 set_state__17TWindowSubComCardFl(void *, s32);
 int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
@@ -40,9 +39,6 @@ void __ct__7TObjectFP7TObject(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 init__22TQuestVmDownLoadServerFPvPvPvPv(void *, s32, s32, s32, s32);
-void reset__17TWindowSubComCardFv(void *);
-int update_card_display__17TWindowSubComCardFPvPvPvPv(void*, int, int, int, int);
 
 void TCheckMemoryCard::render() {  }
 
@@ -59,9 +55,9 @@ void TCheckMemoryCard::run_task() {
     Stack_8033C424 stack;
     u8 *temp_r6;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = poll_memcard_status__15TAdPlayerLoadGCFv((void *) (arg0));
+    *(s32 *)((s8 *)arg0 + 0x28) = ((TAdPlayerLoadGC *)arg0)->poll_memcard_status();
     if (*(s32 *)((s8 *)arg0 + 0x28) & 1) {
-        set_state__17TWindowSubComCardFl((void *)((void *) (arg0)), (s32)((int) (0)));
+        ((TWindowSubComCard *)arg0)->set_state((s32)((int) (0)));
     }
     temp_r6 = (u8 *)&lbl_804EF940.value + (*(s32 *)((s8 *)arg0 + 0x20) * 0x18);
     member_action.words[0] = *(s32 *)((s8 *)temp_r6 + 0xC);
@@ -110,7 +106,7 @@ void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void 
     *(void **)((s8 *)arg0 + 0x48) = arg2;
     *(void **)((s8 *)arg0 + 0x1C) = arg4;
     *(void **)((s8 *)arg0 + 0x4C) = arg3;
-    reset__17TWindowSubComCardFv(arg0);
+    ((TWindowSubComCard *)arg0)->reset();
     return arg0;
 }
 

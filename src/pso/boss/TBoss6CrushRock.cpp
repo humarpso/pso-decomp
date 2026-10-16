@@ -4,6 +4,7 @@ TBoss6CrushRock::~TBoss6CrushRock() {}
 
 #include "types.h"
 #include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/TBoss6CrushPtcl.h"
 
 struct RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock {
     s32 value;
@@ -27,8 +28,6 @@ extern const f32 lbl_805E00D0;
 extern const f32 lbl_805E00D4;
 u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__nw__7TObjectFUl(int);
-void *create__15TBoss6CrushPtclFv(void *arg0);
-s32 is_falz_alive__15TBoss6CrushRockFv(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_02;
@@ -74,10 +73,10 @@ void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
     s32 i;
     s32 j;
 
-    if (is_falz_alive__15TBoss6CrushRockFv() == 0) {
+    if (TBoss6CrushRock::is_falz_alive() == 0) {
         return;
     }
-    create__15TBoss6CrushPtclFv(self);
+    ((TBoss6CrushPtcl *)self)->create();
     radius = lbl_805E00D8;
     base = 5;
     n = 2;

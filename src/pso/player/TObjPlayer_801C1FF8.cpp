@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TTecLuker.h"
 
 struct E_801C2154 { u8 pad[7]; char v; u8 pad2[0x14]; };
 
@@ -29,8 +30,6 @@ void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_801AA528(void);
 void init_arrays__10TObjPlayerFi(void);
 void *fn_801C2360(void *arg0);
-int init_forward__10TObjPlayerFv(void*);
-void set_state__9TTecLukerFl(void *, s32);
 extern const f32 TObjPlayer__data_805DC278;
 S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0);
 }
@@ -57,15 +56,13 @@ s32 TObjPlayer__sub_801C22B4(void* p);
 int test_flags_any(void*, int);
 void TObjPlayer__sub_8012AF00(void *);
 int __ct__12TPlyCharDataFv(void*);
-int clear_header_struct__10TObjPlayerFv(void*);
 int fn_8035B00C(void*);
-int init_forward__10TObjPlayerFv(void*);
 void reset_movement_state__10TObjPlayerFPv(void *);
 
 extern const f32 TObjPlayer__data_805DC294;
 
 void *TObjPlayer::init() {
-    init_forward__10TObjPlayerFv((void*)((void *)((char *)this + 12)));
+    ((TObjPlayer *)((char *)this + 12))->init_forward();
     TObjPlayer__sub_8012AF00((void *)((char *)this + 48));
     *(f32 *)((s8 *)this + 0x8) = TObjPlayer__data_805DC294;
     reset_movement_state__10TObjPlayerFPv(this);
@@ -82,7 +79,7 @@ void*TObjPlayer::init_c2098_return_self() { TObjPlayer__sub_801C2098((void*)(thi
 void TObjPlayer__sub_801C2098(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
 S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0) {
-    init_forward__10TObjPlayerFv(arg0->f18);
+    ((TObjPlayer *)(arg0->f18))->init_forward();
     arg0->f0 = 0xFFFF;
     arg0->f4 = 0;
     arg0->f8 = TObjPlayer__data_805DC278;
@@ -90,7 +87,7 @@ S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0) {
     arg0->f10 = TObjPlayer__data_805DC278;
     arg0->f14 = 0;
     arg0->f2 = 0;
-    set_state__9TTecLukerFl(arg0->f18, 0xFFFF);
+    ((TTecLuker *)(arg0->f18))->set_state(0xFFFF);
     return arg0;
 }
 
@@ -150,7 +147,7 @@ int TObjPlayer::check_flag_at_428() { return test_flags_any((char*)this + 0x428,
 void*TObjPlayer::get_sub_obj() { return (char*)this + 0x4; }
 void*TObjPlayer::get_char_data() { return (char*)this + 0xc; }
 s32 TObjPlayer__sub_801C22B4(void* p) { return *(s32*)((char*)p + 0x0); }
-void*TObjPlayer::init_char_data() { clear_header_struct__10TObjPlayerFv((char*)this + 0x4); __ct__12TPlyCharDataFv((char*)this + 0xc); init_forward__10TObjPlayerFv((void*)((char*)this + 0x428)); *(int*)(this) = 0; return this; }
+void*TObjPlayer::init_char_data() { ((TObjPlayer *)((char*)this + 0x4))->clear_header_struct(); __ct__12TPlyCharDataFv((char*)this + 0xc); ((TObjPlayer *)((char*)this + 0x428))->init_forward(); *(int*)(this) = 0; return this; }
 
 void *fn_801C2308(void *arg0, s16 arg1) {
     if (arg0 != 0) {

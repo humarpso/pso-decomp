@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80256BDC_lbl_804CF918 {
     s32 value;
@@ -82,9 +85,7 @@ struct Pos_80257784 { f32 x, y; };
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
 #define draw_status_gauge_bar ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar)
-s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(s32, f32, f32, f32);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 set_draw_texture_and_color(s32, s32);
 s32 set_constant_material_color(s32);
 extern s32 lbl_805D63F0;
@@ -177,7 +178,6 @@ struct Bar_8025799C {
 };
 
 s32 __dl__FPv(void *);
-void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void mem_free(void *);
 void ** mem_alloc(u32);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -194,22 +194,16 @@ void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
 void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
-void destroy_all_items__20TWindowSubStatusDispFv(List_80257CB8 *arg0);
 void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
 void TWindowSubStatusDisp__sub_80258050(void);
 void TWindowSubStatusDisp__sub_80258054(void);
-void * deleting_destructor__20TWindowSubStatusDispFs(void *arg0, s16 arg1);
 void * init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(void *, void *, s32);
-void * reset_entry__20TWindowSubStatusDispFii(void *, void *, s32);
 void * TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
-void * init_layout_entry_scaled__20TWindowSubStatusDispFPUcl(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A594(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A95C(void *, void *, s32);
 void * construct_text_entry(void *, void *, s32);
 void * init_part_direct__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
-void * init_fields__17TWindowSubComCardFii(void *, void *, s32);
-void * init_state__20TWindowSubStatusDispFii(void *, void *, s32);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];
@@ -293,7 +287,7 @@ void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_802577
         sz = self->f8;
         scale = lbl_805DCEE8 / (lbl_805DCEEC * sz + parent->f38);
         begin_screen_draw(1, sz, lbl_805DCEEC, lbl_805DCEE8);
-        set_global_param__8TObjFishFl(lbl_805D63F0);
+        TObjFish::set_global_param(lbl_805D63F0);
         set_draw_texture_and_color(0xB, -1);
         if (self->flags & 8) {
             TWindowSubStatusDisp__sub_80256C40(self, parent, &pos, scale);
@@ -304,7 +298,7 @@ void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_802577
             set_constant_material_color(self->f18);
             draw_status_gauge_bar(self, parent, &pos, scale, lo);
         }
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
     }
 }
 #pragma pop

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TProtocol.h"
 
 extern "C" {
 
@@ -10,7 +11,6 @@ void reset_lobby_state__6TLobbyFv(void);
 s32 set_clock_offset_from_server_time();
 int fn_800779A0(void*);
 int TAdSinglePlyChrSelectGC__sub_80077AE8(void*);
-s32 send_server_time_accepted__9TProtocolFv(s32);
 int init_once__6TLobbyFl(void*);
 
     extern int TLobby__event_theme_id;
@@ -24,7 +24,7 @@ extern s32 TLobby__protocol_instance;
 
 void reset_lobby_state__6TLobbyFv(void) {
     set_clock_offset_from_server_time();
-    send_server_time_accepted__9TProtocolFv(TLobby__protocol_instance);
+    ((TProtocol *)TLobby__protocol_instance)->send_server_time_accepted();
 }
 
 }

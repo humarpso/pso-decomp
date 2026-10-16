@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/TMessageWindowController.h"
 
 struct VObj_802235A0_8022356C {
     virtual void m0(int);
@@ -15,7 +18,6 @@ s32 obj_getField1c(u32);
 u32 create_message_window__24TMessageWindowControllerFlll(void *, s32, s32, s32);
 u32 create_window__24TMessageWindowControllerFll(void *, s32, s32);
 u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * __ct__24TMessageWindowControllerFv(void *);
 u8 * __ct__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
@@ -43,22 +45,18 @@ u32 get_player_by_client_id(s32);
 s32 suppress_slot__11TWindowCtrlFv(u16);
 s32 unsuppress_slot__11TWindowCtrlFv(u16);
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
-s32 close__24TMessageWindowControllerFv(void *);
 int display_message__24TMessageWindowControllerFPCcl(void*);
 int format_guild_message__24TMessageWindowControllerFll(void*);
-s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 s32 init_effect_5f0__10TObjPlayerFPv(void *);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 is_split_screen();
 s32 obj_getField1c(u32);
-s32 is_ready__24TMessageWindowControllerFv(void *);
 int send_message__24TMessageWindowControllerFll(void*);
 int format_shop_message__24TMessageWindowControllerFll(void*);
 
 s32 update_download_server__13TShopSequenceFPv(void *arg0) {
     void *temp_r3 = *(void **)((s8 *)arg0 + 0x28);
     if (temp_r3 != NULL) {
-        return is_ready__24TMessageWindowControllerFv(temp_r3);
+        return ((TMessageWindowController *)temp_r3)->is_ready();
     }
     return 1;
 }
@@ -67,7 +65,7 @@ void close_message_window__13TShopSequenceFPv(void *arg0) {
     VObj_802235A0_8022356C *temp_r3;
 
     if (*(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28) != NULL) {
-        close__24TMessageWindowControllerFv(*(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28));
+        ((TMessageWindowController *)(*(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28)))->close();
         temp_r3 = *(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28);
         if (temp_r3 != NULL) {
             temp_r3->m0(1);
@@ -95,7 +93,7 @@ void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28)
 void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) display_message__24TMessageWindowControllerFPCcl(m); }
 void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_shop_message__24TMessageWindowControllerFll(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {
-    if ((get_game_mode__23TAdSinglePlyChrSelectGCFv() != 0) && (is_split_screen() == 0)) {
+    if ((TAdSinglePlyChrSelectGC::get_game_mode() != 0) && (is_split_screen() == 0)) {
         load_character_from_card__23TAdSinglePlyChrSelectGCFi(0);
     }
 }
@@ -104,7 +102,7 @@ void close_window__13TShopSequenceFPv(void *arg0) {
 
     if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
         unsuppress_slot__11TWindowCtrlFv(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
-        if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
+        if (TRaderMapCore::is_not_split_screen() != 1) {
             var_r31 = 0;
             do {
                 if (get_player_by_client_id(var_r31) != 0U) {
@@ -121,7 +119,7 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
 
     if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
         init_effect_5f0__10TObjPlayerFPv(*(void **)((s8 *)arg0 + 0x24));
-        if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
+        if (TRaderMapCore::is_not_split_screen() != 1) {
             var_r31 = 0;
             do {
                 if (get_player_by_client_id(var_r31) != 0U) {
@@ -153,7 +151,7 @@ u8 *TShopSequence__ct(u8 *arg0) {
     __ct__15TShopWindowBaseFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TShopSequence.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopSequence__class_name;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x210);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x210))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (__ct__24TMessageWindowControllerFv((void *) temp_r3));

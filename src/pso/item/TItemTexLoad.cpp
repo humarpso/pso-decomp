@@ -1,14 +1,12 @@
 #include "pso/item/TItemTexLoad.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
-void tmp_buf_release__6TLobbyFv(void*);
-s32 tmp_buf_use_req__6TLobbyFPCc(void*);
 void prs_decompress_alloc(void*, s32, s32);
 void load_gvm_texture_archive(s32, void*);
 s32 close_adxf_handle__6TLobbyFPv(s32);
 s32 free_texture_if_valid(void*);
 s32 TLobby__sub_803CC53C(int);
-s32 read_checked_align__6TLobbyFlll(int, int, int);
 u32 adxf_open_afs__6TLobbyFii(int, int);
 s32* lookup_item_pmt_record(void*);
 s32 TLobby__sub_8001EEF4();
@@ -27,11 +25,11 @@ char* item_texture_filename_buffer;
 
 void TItemTexLoad::load_texture_archive() {
     char t[12] = "ItemTexLoad";
-    s32 r = tmp_buf_use_req__6TLobbyFPCc(&t);
+    s32 r = TLobby::tmp_buf_use_req((const char *)(&t));
     if (r != 0) {
         prs_decompress_alloc(m_archive_buffer, r, 0x40000);
         load_gvm_texture_archive(r, &m_texture_list);
-        tmp_buf_release__6TLobbyFv(&t);
+        ((TLobby *)(&t))->tmp_buf_release();
         m_state = 2;
     } else {
         unload_texture();
@@ -62,7 +60,7 @@ s32 TItemTexLoad::load_texture(s32 index) {
                 unload_texture();
                 return 0;
             }
-            read_checked_align__6TLobbyFlll(m_archive_handle, r, (int)m_archive_buffer);
+            TLobby::read_checked_align(m_archive_handle, r, (int)m_archive_buffer);
         }
         return 1;
     }

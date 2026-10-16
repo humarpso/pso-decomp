@@ -57,7 +57,6 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 TObjPlayer__sub_80128A70();
-void draw_status_icons__10TObjPlayerFPvPv(void *, void *, void *);
 }
 
 extern "C" {
@@ -73,7 +72,7 @@ void TObjPlayer::apply_m49_state_b() {
 }
 void TObjPlayer::draw_status_icons_default() {
     u8 *arg0 = (u8 *)this;
-    draw_status_icons__10TObjPlayerFPvPv(arg0, arg0 + 0x1FC, arg0 + 0x208);
+    ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1FC, arg0 + 0x208);
 }
 
 }

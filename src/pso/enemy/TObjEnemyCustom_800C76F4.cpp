@@ -1,12 +1,13 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void set_state__15TObjEneMe1GiGueFl(void *, s32);
 void TObjEnemyCustom__sub_800C7860(u8 *arg0);
-void set_state__15TObjEneMe1GiGueFl(void *, s32);
 void TObjEnemyCustom__sub_800C789C(u8 *arg0);
-void set_state__15TObjEneMe1GiGueFl(void *, s32);
 void TObjEnemyCustom__sub_800C79C8(u8 *arg0);
 s32 apply_actor_gravity(void *, s32, f32, f32);
 s32 move_with_wall_slide(void *);
@@ -41,9 +42,6 @@ s32 move_with_wall_slide(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 check_demo_mode__10TObjPlayerFv();
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 update_collisions__10TObjPlayerFv(void *);
 
 extern s32 model_render_flags;
@@ -53,15 +51,15 @@ extern const f32 lbl_805DA088;
 void TObjEnemyCustom::draw() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_800c76f4 *)arg0)->m8(lbl_805DA084, lbl_805DA088) != 0) {
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         model_render_flags &= 0xFFFFFBFF;
-        if (check_demo_mode__10TObjPlayerFv() == 1) {
+        if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
         } else {
-            draw__16TObjEneRe7BeruraFv(arg0);
+            ((TObjEneRe7Berura *)arg0)->draw();
         }
         if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800)) {
             model_render_flags |= 0x400;
@@ -100,12 +98,12 @@ void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
 }
 
 void TObjEnemyCustom__sub_800C7860(u8 *arg0) {
-    set_state__15TObjEneMe1GiGueFl(arg0, 7);
+    ((TObjEneMe1GiGue *)arg0)->set_state(7);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
 
 void TObjEnemyCustom__sub_800C789C(u8 *arg0) {
-    set_state__15TObjEneMe1GiGueFl(arg0, 5);
+    ((TObjEneMe1GiGue *)arg0)->set_state(5);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
 
@@ -142,7 +140,7 @@ void TObjEnemyCustom::update_knockback_state() {
     }
 }
 void TObjEnemyCustom__sub_800C79C8(u8 *arg0) {
-    set_state__15TObjEneMe1GiGueFl(arg0, 4);
+    ((TObjEneMe1GiGue *)arg0)->set_state(4);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
 

@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TTecRaFoie.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdChrMoveEffectGC.h"
 
 struct RecoveredGlobal_80256BDC_lbl_804CF918 {
     s32 value;
@@ -81,9 +85,7 @@ struct Pos_80257784 { f32 x, y; };
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
 #define draw_status_gauge_bar ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar)
-s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(s32, f32, f32, f32);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 set_draw_texture_and_color(s32, s32);
 s32 set_constant_material_color(s32);
 extern s32 lbl_805D63F0;
@@ -179,7 +181,6 @@ s32 __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void mem_free(void *);
 void ** mem_alloc(u32);
-void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(u32, s32, s32, s32);
 #define destroy__20TWindowSubStatusDispFPvs ((s32 (*)(s32, s32 *))destroy__20TWindowSubStatusDispFPvs)
 #define TWindowSubStatusDisp__sub_80256BDC ((int (*)(void*, int))TWindowSubStatusDisp__sub_80256BDC)
@@ -189,8 +190,6 @@ s32 play_sound_effect(u32, s32, s32, s32);
 void* init_from__20TWindowSubStatusDispFPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
-void copy4__18TAdChrMoveEffectGCFPv(void* p, void* q);
-void update_disp_value__20TWindowSubStatusDispFv(void *arg0);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
@@ -199,7 +198,6 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
 void TWindowSubStatusDisp__sub_80258050(void);
 void TWindowSubStatusDisp__sub_80258054(void);
 void * init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(void *, void *, s32);
-void * reset_entry__20TWindowSubStatusDispFii(void *, void *, s32);
 void * TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
 void * init_layout_entry_scaled__20TWindowSubStatusDispFPUcl(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A594(void *, void *, s32);
@@ -207,8 +205,6 @@ void * TWindowHelpItem__sub_8025A95C(void *, void *, s32);
 void * construct_text_entry(void *, void *, s32);
 void * init_part_direct__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
-void * init_fields__17TWindowSubComCardFii(void *, void *, s32);
-void * init_state__20TWindowSubStatusDispFii(void *, void *, s32);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];
@@ -351,7 +347,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 8:
                 o = alloc__23TAdSinglePlyChrSelectGCFv(0x38);
                 if (o != NULL) {
-                    o = reset_entry__20TWindowSubStatusDispFii(o, rec, arg2);
+                    o = ((TWindowSubStatusDisp *)o)->reset_entry((int)rec, (int)arg2);
                 }
                 *out = o;
                 rec += 1;
@@ -359,7 +355,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 9:
                 o = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
                 if (o != NULL) {
-                    o = init_fields__17TWindowSubComCardFii(o, rec, arg2);
+                    o = ((TWindowSubComCard *)o)->init_fields((int)rec, (int)arg2);
                 }
                 *out = o;
                 rec += 1;
@@ -383,7 +379,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 12:
                 o = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
                 if (o != NULL) {
-                    o = init_state__20TWindowSubStatusDispFii(o, rec, arg2);
+                    o = ((TWindowSubStatusDisp *)o)->init_state((int)rec, (int)arg2);
                 }
                 *out = o;
                 rec += 1;

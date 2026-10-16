@@ -65,6 +65,8 @@ void TWindowDD__sub_80341AF8(u8 *arg0) {
 
 #include "types.h"
 #include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 #define TWindowDD__sub_80341AC0 ((s32 (*)(void *))TWindowDD__sub_80341AC0)
 #define can_scroll__9TWindowDDFPvi ((s32 (*)(void *, s32))can_scroll__9TWindowDDFPvi)
@@ -96,8 +98,6 @@ struct Entry_80341FFC {
 extern "C" {
 s16 TWindowDD__sub_8034214C(u8 *arg0);
 s32 TWindowDD__sub_8034217C(u8 *arg0);
-void update_fade__17TWindowSubComCardFv(void *);
-void initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
 s32 apply_both_choices__9TWindowDDFll(void *, int);
 s32 TWindowDD__sub_80342268();
@@ -117,11 +117,9 @@ s32 TWindowDD__sub_80348B70(s32);
 
 extern "C" {
 
-void destroy_all_items__20TWindowSubStatusDispFv(void *);
 void mem_free(void *);
 s32 get_array_entry__20TWindowSubStatusDispFi(void * a0 = 0, s32 a1 = 0);
 s32 get_field_20__17TWindowSubComCardFv(void);
-int spawn_window__9TWindowDDFv(void);
 
 void TWindowDD::set_mode_2() { *(s32*)((char*)this + 0x64) = 2; }
 void TWindowDD::reset_cursor() { *(s32*)((char*)this + 0x64) = 0; }
@@ -217,8 +215,8 @@ void TWindowDD::handle_scroll_input() {
             }
         }
     }
-    initialize_subwindow__9TWindowDDFv(arg0);
-    update_fade__17TWindowSubComCardFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 #pragma pop
@@ -230,7 +228,7 @@ void TWindowDD::free_child() {
         mem_free(*(void **)((s8 *)this + 0x80));
         *(u32 *)((s8 *)this + 0x80) = 0;
     }
-    destroy_all_items__20TWindowSubStatusDispFv((void *)((char *)this + 36));
+    ((TWindowSubStatusDisp *)((char *)this + 36))->destroy_all_items();
     *(u32 *)((s8 *)this + 0x74) = 0;
     *(u32 *)((s8 *)this + 0x7C) = 0;
 }
@@ -324,7 +322,7 @@ void TWindowDD::get_cursor_pos(u8 *arg1) {
 #pragma pop
 
 s32 TWindowDD::get_field_68() { return *(s32*)((char*)this + 0x68); }
-void TWindowDD::add_scroll_offset(int a1) { *(int*)((char*)this + 0x68) = (*(int*)((char*)this + 0x68) + a1); *(int*)((char*)this + 0x8c) = 1; spawn_window__9TWindowDDFv(); }
+void TWindowDD::add_scroll_offset(int a1) { *(int*)((char*)this + 0x68) = (*(int*)((char*)this + 0x68) + a1); *(int*)((char*)this + 0x8c) = 1; TWindowDD::spawn_window(); }
 
 }
 

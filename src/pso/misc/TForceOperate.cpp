@@ -238,6 +238,7 @@ void update_player_appear_fade(u8 *arg0) {
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_801C5B68_lbl_8058D4C0 {
     s32 value;
@@ -269,12 +270,10 @@ s32 clear_target_lock_flag__10TObjPlayerFPv(s32);
 s32 fn_801C6F2C(void *);
 s32 is_room_free_of_active_enemies(s32, s32);
 s32 get_stat_by_key_state__10TObjPlayerFv(s32);
-int set_flags__10TObjPlayerFUl(void*, void*);
 int set_chunk_material_override_pair(void*, void*);
 s32 set_lock_flag__10TObjPlayerFPv(s32);
 int set_lock_timer__10TObjPlayerFPvi(void*, void*);
 int set_some_id__FUl(void*);
-int set_target_id__6TLobbyFl(void*);
 
 void TObjPlayer::enter_battle_state() {
     s32 temp_r3;
@@ -301,9 +300,9 @@ void save_render_material_state(u8 *arg0) {
 
 void TObjPlayer::set_vec4_const() { *(float*)((char*)this + 0x1c) = lbl_805DC320[0]; *(float*)((char*)this + 0x20) = lbl_805DC320[0]; *(float*)((char*)this + 0x24) = lbl_805DC320[0]; *(float*)((char*)this + 0x28) = lbl_805DC320[0]; }
 
-void TObjPlayer::reset_ring() { clear_flags__11TAdRicoRingFUl(this, (void*)1); set_lock_timer__10TObjPlayerFPvi((void*)(this), (void*)((void*)-1)); set_target_id__6TLobbyFl((void*)0); }
+void TObjPlayer::reset_ring() { clear_flags__11TAdRicoRingFUl(this, (void*)1); set_lock_timer__10TObjPlayerFPvi((void*)(this), (void*)((void*)-1)); TLobby::set_target_id((s32)((void*)0)); }
 
-void TObjPlayer::clear_target_lock() { set_flags__10TObjPlayerFUl(this, (void*)1); set_target_id__6TLobbyFl((void*)1); }
+void TObjPlayer::clear_target_lock() { set_flags((u32)((void*)1)); TLobby::set_target_id((s32)((void*)1)); }
 
 s32 tick_battle_music_timer(Obj_801C5C38 *p) {
     if (p->n < 0) {

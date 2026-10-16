@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TTecFoie.h"
+#include "pso/misc/TNowLoading.h"
 
 struct RecoveredGlobal_802302A0___vt__8TTecFoie { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_802302A0___vt__8TTecFoie_size[sizeof(RecoveredGlobal_802302A0___vt__8TTecFoie) == 0x28 ? 1 : -1];
@@ -14,14 +15,10 @@ struct Foie_802301EC { u8 pad[0x1C]; u32 owner; u8 pos[0xA6]; s16 band; u16 owne
 extern "C" {
 u16 obj_getField1c(void *);
 void play_foie_cast_sound(void *);
-void create_particle_emitters__8TTecFoieFv(void *);
-void init_projectile_params__8TTecFoieFv(void *);
 u8 * construct_aimed_technique_projectile(void *, s32, void *, void *, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 u16 obj_getField1c(void *);
 void play_foie_cast_sound(void *);
-void create_particle_emitters__8TTecFoieFv(void *);
-void init_projectile_params__8TTecFoieFv(void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 extern s32 TTecFoie__name;
@@ -29,7 +26,6 @@ u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
 extern Band_802301EC TTecFoie__emitter_profile_table[];
 u32 find_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 void move_technique_projectile(u8 *arg0);
 void advance_lifetime_or_destroy(void *arg0);
 void dispatch_technique_contact(void *, s32);
@@ -47,7 +43,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
     }
     for (i = 0; i < TTecFoie__emitter_profile_table[self->band].count; i++) {
         if (self->emitters[i] != 0) {
-            copy_pos__11TNowLoadingFPv(self->emitters[i], self->pos);
+            ((TNowLoading *)(self->emitters[i]))->copy_pos(self->pos);
         }
     }
     move_technique_projectile((u8 *)self);
@@ -64,8 +60,8 @@ u8 *TTecFoie::construct_aimed(s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     if (temp_r3 != NULL) {
         *(u16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(temp_r3);
     }
-    init_projectile_params__8TTecFoieFv(arg0);
-    create_particle_emitters__8TTecFoieFv(arg0);
+    ((TTecFoie *)arg0)->init_projectile_params();
+    ((TTecFoie *)arg0)->create_particle_emitters();
     play_foie_cast_sound(arg0);
     return arg0;
 }
@@ -78,8 +74,8 @@ u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     if (temp_r3 != NULL) {
         *(u16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(temp_r3);
     }
-    init_projectile_params__8TTecFoieFv(arg0);
-    create_particle_emitters__8TTecFoieFv(arg0);
+    ((TTecFoie *)arg0)->init_projectile_params();
+    ((TTecFoie *)arg0)->create_particle_emitters();
     play_foie_cast_sound(arg0);
     return arg0;
 }

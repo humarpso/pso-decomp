@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowGetComCard.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 {
     s32 value;
@@ -18,7 +20,6 @@ struct RecoveredGlobal_8007B60C_TWindowGetComCard__data_80500158
 };
 
 extern "C" {
-s32 is_active__17TWindowSubComCardFv(void *);
 void TWindowCtrl__sub_8024A08C(void);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void TWindowGetComCard__sub_8007B54C(void);
@@ -37,13 +38,12 @@ extern "C" {
 
 void TWindowGetComCard__sub_8007B65C(void* p);
 void TWindowGetComCard__sub_8007B67C(void* p);
-s32 move_words__6TLobbyFPUll(s32, s32, u32);
 s32 TWindowSubComCard__sub_8007B26C(s32);
 
 typedef char RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158_size[sizeof(RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158) == 0x240 ? 1 : -1];
 void TWindowGetComCard__sub_8007B54C(void) {
     TWindowGetComCard::remove_entry(0, (s32) &TWindowGetComCard__received_guild_card_tags.value, 4);
-    if (is_active__17TWindowSubComCardFv(&TWindowGetComCard__received_guild_card_tags.value) == 0) {
+    if (((TWindowSubComCard *)(&TWindowGetComCard__received_guild_card_tags.value))->is_active() == 0) {
         TWindowCtrl__sub_8024A08C();
     }
 }
@@ -58,7 +58,7 @@ void TWindowGetComCard::remove_entry(s32 arg0, s32 arg1, s32 arg2) {
 
     if (arg0 < (s32) (arg2 - 1)) {
         temp_r3 = arg1 + (arg0 * 0x90);
-        move_words__6TLobbyFPUll(temp_r3, temp_r3 + 0x90, (u32) (((arg2 - arg0) - 1) * 0x90) >> 2U);
+        ((TLobby *)temp_r3)->move_words((u32 *)(temp_r3 + 0x90), (s32)((u32) (((arg2 - arg0) - 1) * 0x90) >> 2U));
     }
     arg1 += (arg2 - 1) * 0x90;
     TWindowSubComCard__sub_8007B26C(arg1);

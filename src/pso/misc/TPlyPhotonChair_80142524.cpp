@@ -54,9 +54,7 @@ extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
-f32 get_float_c__15TPlyPhotonChairFv(void *);
 s32 TPlyPhotonChair__sub_80143930(void *);
-int get_id__15TPlyPhotonChairFv(void *);
 void draw_model_motion(s32, s32, f32);
 extern const f64 lbl_8043F298;
 extern const f64 lbl_8043F2A0;
@@ -129,7 +127,7 @@ void restore_actor_draw_lighting(void) {  }
 void setup_actor_draw_lighting(void) {  }
 
 void TPlyPhotonChair::draw_model() {
-    draw_model_motion(((s32)get_id__15TPlyPhotonChairFv((void *)(this))), TPlyPhotonChair__sub_80143930(this), get_float_c__15TPlyPhotonChairFv(this));
+    draw_model_motion(((s32)get_id()), TPlyPhotonChair__sub_80143930(this), get_float_c());
 }
 
 void TPlyPhotonChair::update_scale_state() {
@@ -182,7 +180,7 @@ void TPlyPhotonChair::update_bob_motion() {
         return;
     }
 }
-void TLobby__sub_80142920(void * _w0) { get_id__15TPlyPhotonChairFv((void *)(_w0)); draw_chunk_object(); }
+void TLobby__sub_80142920(void * _w0) { ((TPlyPhotonChair *)_w0)->get_id(); draw_chunk_object(); }
 int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
 
 }

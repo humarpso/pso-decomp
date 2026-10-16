@@ -16,7 +16,6 @@ int unregister_object_by_id(void*);
 s32 __dl__7TObjectFPv(void *);
 s32 copy_header__6TLobbyFPv(s32);
 s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
-s32 mask_sub_flags__9TObjEnemyFl(void *, s32);
 
 extern s32 __vt__9TObjEnemy[];
 
@@ -29,7 +28,7 @@ void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
             temp_r0 = *(u16 *)((s8 *)arg0 + 0x1C);
             if ((temp_r0 >= 0x1000U) && (temp_r0 < 0x4000U)) {
-                mask_sub_flags__9TObjEnemyFl(arg0, -3);
+                ((TObjEnemy *)arg0)->mask_sub_flags(-3);
                 *(u32 *)((s8 *)arg0 + 0x80) = 0U;
             }
         }

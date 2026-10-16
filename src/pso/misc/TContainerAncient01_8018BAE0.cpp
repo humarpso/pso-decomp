@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TContainerAncient01.h"
+#include "pso/enemy/TObjEneMe3Stelth.h"
 
 struct Param_8018BB64 { s32 a; s32 b; s32 c; s32 d; };
 
@@ -10,8 +11,6 @@ s32 TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 is_global_state_in_table__19TContainerAncient01Fv();
-void spawn_attack__16TObjEneMe3StelthFslllff(s16, s32, s32, Param_8018BB64 *, f32, f32);
 extern Param_8018BB64 container_ancient_anim_binding[];
 extern u8 TContainerAncient01__resource_descriptor[];
 extern u8 TContainerAncient01__resource_descriptor_2[];
@@ -48,7 +47,7 @@ void TContainerAncient01::release_static_resource() {
 void TContainerAncient01::load_resources() {
     void *p;
     TContainerAncient01__bml_resource = 0;
-    if (is_global_state_in_table__19TContainerAncient01Fv() != 0) {
+    if (TContainerAncient01::is_global_state_in_table() != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, TContainerAncient01__resource_descriptor_2, 0, 0, 0);
@@ -67,9 +66,7 @@ void TContainerAncient01::load_resources() {
     }
     Param_8018BB64 prm = container_ancient_anim_binding[0];
     prm.a = ((Res_8018BB64 *)TContainerAncient01__bml_resource)->x430;
-    spawn_attack__16TObjEneMe3StelthFslllff(0x3B, get_bml_model(TContainerAncient01__bml_resource, 0),
-                                            TObjFish__sub_8001EDB0(TContainerAncient01__bml_resource, 0), &prm,
-                                            TContainerAncient01__data_805DBD20, TContainerAncient01__data_805DBD14);
+    TObjEneMe3Stelth::spawn_attack((s16)0x3B, (s32)(get_bml_model(TContainerAncient01__bml_resource, 0)), (s32)(TObjFish__sub_8001EDB0(TContainerAncient01__bml_resource, 0)), (s32)(&prm), (f32)TContainerAncient01__data_805DBD20, (f32)TContainerAncient01__data_805DBD14);
 }
 
 }

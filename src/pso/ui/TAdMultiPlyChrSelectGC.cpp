@@ -18,13 +18,11 @@ extern u8 *TAdMultiPlyChrSelectGC__instance;
 u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_widgets__22TAdMultiPlyChrSelectGCFPv(void *);
-s32 get_select_flag__22TAdMultiPlyChrSelectGCFv(void);
 extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
 extern s32 lbl_805D3F68;
 u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(s32);
-int get_global_state__22TAdMultiPlyChrSelectGCFv(void);
 s32 __dt__7TObjectFv(void *, int);
 extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
 extern u8 *TAdMultiPlyChrSelectGC__instance;
@@ -33,18 +31,14 @@ extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self);
 extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v);
-s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
 extern s32 lbl_805D68C8;
 }
 
 extern "C" {
 
-s32 split_slot_index__22TAdMultiPlyChrSelectGCFlPlPl(void *, s32 *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802C658C();
 void * TAdMultiPlyChrSelectGC__sub_802C6920();
-s32 init__22TAdMultiPlyChrSelectGCFv();
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
-s32 set_field_4ec__22TAdMultiPlyChrSelectGCFl(s32, s32);
 
 void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
     void *temp_r3;
@@ -56,9 +50,9 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
     switch (arg1) {
     case 10:
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
-        split_slot_index__22TAdMultiPlyChrSelectGCFlPlPl(temp_r3, &sp14, &sp10);
-        init__22TAdMultiPlyChrSelectGCFv();
-        set_field_4ec__22TAdMultiPlyChrSelectGCFl(*(s32 *)((s8 *)this + 0x5C), sp14);
+        TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, (s32 *)(&sp14), (s32 *)(&sp10));
+        TAdMultiPlyChrSelectGC::init();
+        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_field_4ec(sp14);
         TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(*(s32 *)((s8 *)this + 0x5C)), (s32)(sp10));
         *(s32 *)((s8 *)this + 0x9C) = 1;
         return;
@@ -67,9 +61,9 @@ void TAdMultiPlyChrSelectGC::handle_event(s32 arg1) {
         TAdMultiPlyChrSelectGC__sub_802C658C();
         if (is_slot_active__23TAdSinglePlyChrSelectGCFUi() == 0) {
             temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
-            split_slot_index__22TAdMultiPlyChrSelectGCFlPlPl(temp_r3, &spC, &sp8);
-            init__22TAdMultiPlyChrSelectGCFv();
-            set_field_4ec__22TAdMultiPlyChrSelectGCFl(*(s32 *)((s8 *)this + 0x5C), spC);
+            TAdMultiPlyChrSelectGC::split_slot_index((s32)temp_r3, (s32 *)(&spC), (s32 *)(&sp8));
+            TAdMultiPlyChrSelectGC::init();
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_field_4ec(spC);
             TAdMultiPlyChrSelectGC__sub_802E0024((O_802E0024 *)(*(s32 *)((s8 *)this + 0x5C)), (s32)(sp8));
         }
         *(s32 *)((s8 *)this + 0x9C) = 1;
@@ -93,7 +87,7 @@ void TAdMultiPlyChrSelectGC::initialize_selection_state(s32 arg1) {
     *(s32 *)((s8 *)this + 0x44) = 2;
     *(s32 *)((s8 *)this + 0x38) = 0;
     *(s32 *)((s8 *)this + 0x58) = 0;
-    v = get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
+    v = TAdMultiPlyChrSelectGC::get_clamped_cursor();
     *(s32 *)((s8 *)this + 0x4C) = v;
     *(s32 *)((s8 *)this + 0x2C) = 2;
     v = 0;
@@ -139,7 +133,7 @@ u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
     u8 *temp_r3_9;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802DFD9C___vt__22TAdMultiPlyChrSelectGC *)&__vt__22TAdMultiPlyChrSelectGC).value;
-        temp_r3 = (u8 *)(get_global_state__22TAdMultiPlyChrSelectGCFv());
+        temp_r3 = (u8 *)(TAdMultiPlyChrSelectGC::get_global_state());
         if (temp_r3 != NULL) {
             queue_destruction__7TObjectFv(temp_r3);
         }
@@ -210,7 +204,7 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F68;
     ((TAdMultiPlyChrSelectGC *)arg0)->initialize_selection_state((s32)(arg2));
     create_widgets__22TAdMultiPlyChrSelectGCFPv(arg0);
-    ((TAdMultiPlyChrSelectGC *)arg0)->handle_event(get_select_flag__22TAdMultiPlyChrSelectGCFv());
+    ((TAdMultiPlyChrSelectGC *)arg0)->handle_event(TAdMultiPlyChrSelectGC::get_select_flag());
     return arg0;
 }
 

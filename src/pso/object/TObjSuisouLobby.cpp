@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/object/TObjSuisouLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80369DF0_lbl_804F33E0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80369DF0_lbl_804F33E0_size[sizeof(RecoveredGlobal_80369DF0_lbl_804F33E0) == 0x10 ? 1 : -1];
@@ -30,13 +36,8 @@ struct Self_80369ED4 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjSuisouLobby__instance;
 extern s32 TObjSuisouLobby__lobby_type;
-s32 check_demo_mode__10TObjPlayerFv();
-s32 is_connected__6TLobbyFv();
-s32 is_lobby_obj_active__6TLobbyFv();
 void TObjSuisouLobby__sub_80369B5C(void);
 void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self);
 u32 create_particle_emitter(void *, int);
@@ -70,13 +71,8 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 clear_active_flag__13TParticleCtrlFv(void *);
-void destroy_key_base__5TOKeyFs(void *, int);
 s32 enable__13TParticleCtrlFPv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFl(int);
 
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
@@ -107,8 +103,8 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
     f32 temp_f1;
 
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl((int) (*(u32 *)((s8 *)arg0 + 0x24)));
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param((int) (*(u32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -118,17 +114,17 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
         }
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
 void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self) {
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(void *))TObjSuisouLobby__sub_80369B5C)(self);
     }
     switch (self->state) {
     case 0:
-        if (is_connected__6TLobbyFv() != 0) {
+        if (TLobby::is_connected() != 0) {
             self->state = 2;
         }
         break;
@@ -148,7 +144,7 @@ void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self) {
         break;
     case 3:
     default:
-        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+        if (TLobby::is_lobby_obj_active() != 0) {
             self->state = 1;
         }
         break;
@@ -159,10 +155,10 @@ void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self) {
 void TObjSuisouLobby::update_particle() {
     if ((s32) *(s32 *)((s8 *)this + 0xC8) == 3) {
         if ((u32) *(u32 *)((s8 *)this + 0xD4) != 0U) {
-            clear_active_flag__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD4));
+            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xD4)))->clear_active_flag();
         }
         if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-            clear_active_flag__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD8));
+            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xD8)))->clear_active_flag();
         }
     } else {
         if ((u32) *(u32 *)((s8 *)this + 0xD4) != 0U) {
@@ -197,13 +193,13 @@ void TObjSuisouLobby::destroy_instance() {
 void TObjSuisouLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_suisou_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjSuisouLobby__instance) = var_r0;
-    TObjSuisouLobby__lobby_type = get_lobby_type__6TLobbyFv();
+    TObjSuisouLobby__lobby_type = TLobby::get_lobby_type();
 }
 
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
@@ -211,7 +207,7 @@ void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__15TObjSuisouLobby;
         if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

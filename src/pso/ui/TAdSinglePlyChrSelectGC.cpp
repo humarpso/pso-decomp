@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 struct P_802D4F2C { f32 x, y; };
 
@@ -54,26 +57,22 @@ u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent);
 extern "C" {
 
 void *__dt__23TAdSinglePlyChrSelectGCFv(void *arg0, s16 arg1);
-s32 reset_input_state__22TAdEnterSerialAccessGCFv(s32);
 s32 *get_localized_text_entry(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 close__17TWindowSubComCardFv(void *);
-s32 get_player_index__22TAdMultiPlyChrSelectGCFv(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
-s32 set_field_100__22TAdMultiPlyChrSelectGCFl(s32, s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 
 extern char controller_input_state[];
 extern s32 lbl_805DE784;
 
 void TAdSinglePlyChrSelectGC::cleanup() {
-    reset_input_state__22TAdEnterSerialAccessGCFv(*(s32 *)((s8 *)this + 0x2C));
-    set_field_100__22TAdMultiPlyChrSelectGCFl(*(s32 *)((s8 *)this + 0x30), 1);
+    ((TAdEnterSerialAccessGC *)(*(s32 *)((s8 *)this + 0x2C)))->reset_input_state();
+    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x30)))->set_field_100(1);
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x34), 0, &lbl_805DE784);
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x34), 1, &lbl_805DE784);
     *(s32 *)((s8 *)this + 0x58) = -1;
@@ -82,19 +81,19 @@ void TAdSinglePlyChrSelectGC::cleanup() {
         *(u32 *)((s8 *)this + 0x38) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x44) != 0U) {
-        close__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x44));
+        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x44)))->close();
         *(u32 *)((s8 *)this + 0x44) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x48) != 0U) {
-        close__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x48));
+        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x48)))->close();
         *(u32 *)((s8 *)this + 0x48) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x4C) != 0U) {
-        close__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x4C));
+        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x4C)))->close();
         *(u32 *)((s8 *)this + 0x4C) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x50) != 0U) {
-        close__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x50));
+        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x50)))->close();
         *(u32 *)((s8 *)this + 0x50) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
@@ -114,7 +113,7 @@ void TAdSinglePlyChrSelectGC::cleanup() {
         *(s32 *)((s8 *)this + 0x20) = 0xB;
         return;
     }
-    if (get_player_index__22TAdMultiPlyChrSelectGCFv(*(s32 *)((s8 *)this + 0x28)) == 0xE) {
+    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x28)))->get_player_index() == 0xE) {
         set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x34), 0, get_localized_text_entry(0x1E, 0));
         set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x34), 1, &lbl_805DE784);
         *(s32 *)((s8 *)this + 0x20) = 1;

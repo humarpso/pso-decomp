@@ -1,16 +1,17 @@
 #include "types.h"
 #include "pso/TBoss7Tentacle.h"
 #include "pso/boss/TBoss7TentacleNeedle.h"
+#include "pso/boss/TBoss7Joint.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Ten_802F08A8;
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 s32 emit_hit_effect__18TBoss7PhotonBulletFPvPv(u32, void *);
-u32 get_state__11TBoss7JointFv(void);
 s32 TBoss7Tentacle__sub_802F0608(void *, f32);
 void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
@@ -18,7 +19,6 @@ void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
 f32 sin_table_lookup(s32);
 s32 set_matrix_identity(int);
 s32 subtract_vector(void *, void *);
-s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 s32 transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -120,7 +120,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, s32);
 int queue_destruction__7TObjectFv(void*);
 int disallow_rendering__7TObjectFv(void*);
-s32 calc_random_scaled__10TObjPlayerFv(void);
 s32 attach_particle_model(int, int, int, int, int, f32);
 s32 spawn_particle_effect(void *, int);
 f32 horizontal_distance_squared(void *, void *);
@@ -159,7 +158,6 @@ void TObjPlayer__sub_802F0D2C(void);
 s32 rand(void);
 s32 rotate_matrix_zyx(int, int, int, int);
 s32 rotate_matrix_y(int, int);
-s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
 void pop_matrix(void);
@@ -167,8 +165,6 @@ s32 scale_current_matrix(void *);
 void post_translate_matrix(void *);
 s32 draw_chunk_object(void *);
 void draw_model_motion(void *, void *, f32);
-void set_global_flag__10TObjPlayerFv(void);
-void clear_global_state__10TObjPlayerFv(void);
 
 extern int TBoss7Tentacle__target_angle_table[];
 extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
@@ -304,13 +300,13 @@ void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0) {
 
 void TBoss7TentacleNeedle::render() {
     draw_effect__10TObjPlayerFv(this);
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     push_matrix();
     post_translate_matrix((void *)((char *)this + 28));
     rotate_matrix_by_node_angles((void *)((char *)this + 40), 1);
     draw_model_motion((*(void * *)&lbl_805D6948), *(void **)((s8 *)this + 0x78), *(f32 *)((s8 *)this + 0x74));
     pop_matrix();
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
 }
 
 void TBoss7TentacleNeedle::run_task() {
@@ -377,25 +373,25 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x30);
     switch (temp_r0) {
     case 0:
-        ((s32 (*)(void))set_global_flag__10TObjPlayerFv)();
-        concat_matrix__10TObjPlayerFUlUl((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
+        TObjPlayer::set_global_flag();
+        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x13C)));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         ((s32 (*)(void *, int, f32))draw_model_motion)((void *) (*(s32 **)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (f32) (*(f32 *)((s8 *)arg0 + 0x134)));
-        ((s32 (*)(void))clear_global_state__10TObjPlayerFv)();
+        TObjPlayer::clear_global_state();
         break;
     case 1:
     case 4:
     case 5:
-        ((s32 (*)(void))set_global_flag__10TObjPlayerFv)();
-        concat_matrix__10TObjPlayerFUlUl((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
+        TObjPlayer::set_global_flag();
+        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
         rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x140)), (int) (*(s32 *)((s8 *)arg0 + 0x13C)), (int) (0));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         ((s32 (*)(void *, int, f32))draw_model_motion)((void *) (*(s32 **)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (f32) (*(f32 *)((s8 *)arg0 + 0x134)));
-        ((s32 (*)(void))clear_global_state__10TObjPlayerFv)();
+        TObjPlayer::clear_global_state();
         break;
     case 2:
-        concat_matrix__10TObjPlayerFUlUl((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
+        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
         rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x140)), (int) (*(s32 *)((s8 *)arg0 + 0x13C)), (int) (0));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         draw_chunk_object((void *) (*(s32 **)((s8 *)arg0 + 0x1C)));
@@ -494,12 +490,12 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
         v.z = TBoss7Tentacle__data_805DEC04;
         push_matrix();
         set_matrix_identity(0);
-        concat_matrix__10TObjPlayerFUlUl(0, *(s32 *)((s8 *)arg0 + 0x130));
+        TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)arg0 + 0x130));
         transform_point_by_current_matrix(&v, arg0 + 0x40);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x14C);
         subtract_vector(&v, arg0 + 0x40);
-        len = clamp_velocity__15TObjBoss2TunnelFv(&v);
+        len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         *(s32 *)((s8 *)arg0 + 0x13C) = (s32)(lbl_804740D8[0] * atan2_float(v.x, v.z)) + 0x8000;
         VecCopy__FP3VecPC3Vec(&p, arg0 + 0x14C);
         switch (*(s32 *)((s8 *)arg0 + 0x38)) {
@@ -522,7 +518,7 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
                 *(s32 *)((s8 *)arg0 + 0x164) = 0;
                 *(s32 *)((s8 *)arg0 + 0x38) = 2;
                 {
-                    u32 st = get_state__11TBoss7JointFv();
+                    u32 st = TBoss7Joint::get_state();
                     if (st != 0U) {
                         emit_hit_effect__18TBoss7PhotonBulletFPvPv(st, &p);
                     }
@@ -677,7 +673,7 @@ u8 *__ct__14TBoss7TentacleFv(u8 *arg0, void *arg1, s32 arg2, s32 arg3) {
     (*(s32 *)((s8 *)(arg0) + (0x13C))) = 0;
     (*(s32 *)((s8 *)(arg0) + (0x140))) = 0;
     (*(s32 *)((s8 *)(arg0) + (0x144))) = 0x5EF;
-    (*(s32 *)((s8 *)(arg0) + (0x148))) = calc_random_scaled__10TObjPlayerFv();
+    (*(s32 *)((s8 *)(arg0) + (0x148))) = TObjPlayer::calc_random_scaled();
     (*(f32 *)((s8 *)(arg0) + (0x158))) = TBoss7Tentacle__data_805DEC04;
     (*(f32 *)((s8 *)(arg0) + (0x15C))) = TBoss7Tentacle__data_805DEC04;
     (*(s32 *)((s8 *)(arg0) + (0x164))) = 0;

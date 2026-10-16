@@ -2,6 +2,8 @@
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -12,15 +14,13 @@ void fn_80100D9C(void* p, u8 v);
 s32 get_flag_40__8TItemMagFv();
 s32 get_main_phase();
 void copy_to_item_data__5TItemFPv(void *, void *);
-void get_item_data__6TLobbyFUl(void *);
 void TItemData__sub_8010C738(void *);
-s32 get_camera_no__11TCameraCtrlFv();
 
 u8 fn_80100CC8(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((get_main_phase() != 0xE) || (get_camera_no__11TCameraCtrlFv() == 0)) {
+    if ((get_main_phase() != 0xE) || (TCameraCtrl::get_camera_no() == 0)) {
         var_r31 = 1;
     }
     return (u8)var_r31;
@@ -44,7 +44,7 @@ void TWindowSubStatusDisp::lookup_item_data() {
     s32 sp8[4];
 
     copy_to_item_data__5TItemFPv(this, &sp8);
-    get_item_data__6TLobbyFUl(&sp8);
+    TLobby::get_item_data((u32)(&sp8));
 }
 
 }

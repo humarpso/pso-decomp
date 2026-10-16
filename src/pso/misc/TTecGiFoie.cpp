@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TTecGiFoie.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -153,7 +156,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
 s32 queue_destruction__7TObjectFv(int);
-void set_position_xy__10TObjPlayerFff(u32, f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 f32 horizontal_distance_squared(void *, void *);
@@ -167,7 +169,6 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 copy_params__8TTecAntiFPUc(void *, int);
 void apply_technique_to_area_targets(void *);
 u8 * destroy_technique_base__9TTecLukerFPvs(void *, s16);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
@@ -178,7 +179,6 @@ void TTecGiFoie__vt4(Obj_8023154C *self, VObj_8023154C *target);
 u8 * __dt__10TTecGiFoieFv(u8 *arg0, s16 arg1);
 void run_task__10TTecGiFoieFv(u8 *self);
 void * TTecGiFoie__ct(void *self_, void *source, void *origin, void *level);
-s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void matrix_mult_vec(void *, void *, void *);
 void rotate_matrix_y(void *, s32);
 void push_matrix_from(void *);
@@ -203,7 +203,7 @@ extern s32 tl_07;
 void TTecGiFoie::calc_params() {
     u8 *arg0 = (u8 *)this;
   int new_var;
- new_var = (int) calc_technique_parameters((int) 1, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { copy_params__8TTecAntiFPUc((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 4))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 6))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+ new_var = (int) calc_technique_parameters((int) 1, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { ((TTecAnti *)(arg0 + ((0, 0x88))))->copy_params((u8 *)new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 4))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 6))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv())
   {
@@ -267,11 +267,11 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
             if (self->band == 2) {
                 if (arg4 >= 0xF && arg4 < 0x19) {
                     if (i <= 1 && self->emitters[i] != 0) {
-                        set_position_xy__10TObjPlayerFff(self->emitters[i], lbl_805DC820, lbl_805DC820);
+                        ((TObjPlayer *)(self->emitters[i]))->set_position_xy(lbl_805DC820, lbl_805DC820);
                     }
                 } else if (arg4 >= 0x19 && arg4 < 0x1E) {
                     if (i <= 1 && self->emitters[i] != 0) {
-                        set_position_xy__10TObjPlayerFff(self->emitters[i], lbl_805DC820, lbl_805DC824);
+                        ((TObjPlayer *)(self->emitters[i]))->set_position_xy(lbl_805DC820, lbl_805DC824);
                     }
                 }
             }
@@ -332,7 +332,7 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
     do
     {
       temp_r30 = var_r31 + 0xEC;
-      if (is_parents_unqueued__9TTecLukerFUl(*((s32 *) (((s8 *) arg0) + temp_r30))) != 0)
+      if (TTecLuker::is_parents_unqueued(*((s32 *) (((s8 *) arg0) + temp_r30))) != 0)
       {
         queue_destruction__7TObjectFv((int) (*((s32 *) (((s8 *) arg0) + temp_r30))));
       }
@@ -365,7 +365,7 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
-    if (is_parents_unqueued__9TTecLukerFUl(*(u32 *)((s8 *)self + 0xEC)) != 0) {
+    if (TTecLuker::is_parents_unqueued(*(u32 *)((s8 *)self + 0xEC)) != 0) {
         distance = newton_sqrtf(horizontal_distance_squared(*(u8 **)((s8 *)self + 0xEC) + 0x2C, self + 0x20));
         if (*(u8 **)((s8 *)self + 0xE8) != NULL) {
             *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)self + 0xE8)) + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + distance;

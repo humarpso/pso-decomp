@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void *TObjPlayer__sub_80130778(void *arg0, s16 arg1);
 void TObjPlayer__sub_801307D0(void *arg0);
 void yasminkov_9000m_draw(void* p);
-int draw_icon__10TObjPlayerFll(void*, void*, void*);
 int draw_weapon_model(void*);
 int draw_weapon_at_joint(void*, void*);
 void __dl__7TObjectFPv(void *);
@@ -30,6 +30,6 @@ void TObjPlayer__sub_801307D0(void *arg0) {
     }
 }
 
-void yasminkov_9000m_draw(void* p) { draw_weapon_model(p); draw_icon__10TObjPlayerFll(p, (void*)3, (char*)p + 0x208); draw_icon__10TObjPlayerFll(p, (void*)1, (char*)p + 0x220); draw_weapon_at_joint(p, (void*)35); draw_icon__10TObjPlayerFll(p, (void*)3, (char*)p + 0x214); draw_icon__10TObjPlayerFll(p, (void*)1, (char*)p + 0x22c); }
+void yasminkov_9000m_draw(void* p) { draw_weapon_model(p); ((TObjPlayer *)p)->draw_icon((s32)((void*)3), (s32)((char*)p + 0x208)); ((TObjPlayer *)p)->draw_icon((s32)((void*)1), (s32)((char*)p + 0x220)); draw_weapon_at_joint(p, (void*)35); ((TObjPlayer *)p)->draw_icon((s32)((void*)3), (s32)((char*)p + 0x214)); ((TObjPlayer *)p)->draw_icon((s32)((void*)1), (s32)((char*)p + 0x22c)); }
 
 }

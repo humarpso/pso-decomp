@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/misc/TChCrLoadReq.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/TChCrLoadAfs.h"
+#include "pso/misc/TCharaMaking.h"
 
 struct Cm_8028CB6C { u8 pad[0x3E]; s16 f3e; };
 
@@ -80,18 +82,12 @@ struct Sel_8028CD18 {
 
 extern "C" {
 s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
-void *create__12TChCrLoadAfsFPvPv(void *, int, void *);
-s32 get_display_index__12TCharaMakingFv(void *);
-void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPl(void *, void *);
 void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0);
 u32 create__22TChCrLoadAfsTextureReqFPvPv(void *, Req_8028CC28 *);
-s32 get_display_index__12TCharaMakingFv(void *);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 u32 TLobby__sub_801E38A0(void *, s32 *, s32 *, s32, s32);
 s32 is_node_tree_valid(u32, s32);
 void *get_result__23TAdSinglePlyChrSelectGCFv(void *);
 void blend_creation_proportion_shapes(void *);
-void reset_creation_parts__23TAdSinglePlyChrSelectGCFv(void *);
 u32 create_ch_cr_load_gm_nj_req(void *, Req_8028CD18 *);
 void TLobby__sub_8028D738(s32);
 void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self);
@@ -158,14 +154,14 @@ s32 TAdSinglePlyChrSelectGC::load_preview_models() {
         len = 0;
         p = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i]), &len, &tag, 0, 0);
         if (p == 0 || tag != 0x4E4A544C) return;
-        safe_free__23TAdSinglePlyChrSelectGCFUl(p);
+        TAdSinglePlyChrSelectGC::safe_free(p);
         bufs[i] = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i]), &len, &tag, 0, 0);
         if (bufs[i] == 0 || tag != 0x4E4A434D) {
-            for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUl(bufs[i]);
+            for (i = 0; i < 6; i++) TAdSinglePlyChrSelectGC::safe_free(bufs[i]);
             return;
         }
         if (is_node_tree_valid(bufs[i], tag) == 0) {
-            for (i = 0; i < 6; i++) safe_free__23TAdSinglePlyChrSelectGCFUl(bufs[i]);
+            for (i = 0; i < 6; i++) TAdSinglePlyChrSelectGC::safe_free(bufs[i]);
             return;
         }
     }
@@ -177,9 +173,9 @@ s32 TAdSinglePlyChrSelectGC::load_preview_models() {
         s.y[i] = bufs[i];
         s.z[i] = bufs[i + 3];
     }
-    reset_creation_parts__23TAdSinglePlyChrSelectGCFv(&s);
+    ((TAdSinglePlyChrSelectGC *)(&s))->reset_creation_parts();
     blend_creation_proportion_shapes(self->f38 + 0x48);
-    for (j = 0; j < 6; j++) safe_free__23TAdSinglePlyChrSelectGCFUl(bufs[j]);
+    for (j = 0; j < 6; j++) TAdSinglePlyChrSelectGC::safe_free(bufs[j]);
 }
 
 void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0) {
@@ -189,17 +185,17 @@ void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0) {
     s32 i;
     s32 id;
     void *t;
-    get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPl((u8 *)arg0->cm + 0x48, (u8 *)arg0 + 0x68);
-    disp = get_display_index__12TCharaMakingFv(arg0->cm);
+    ((TAdSinglePlyChrSelectGC *)((u8 *)arg0->cm + 0x48))->get_sorted_region_samples((s32 *)((u8 *)arg0 + 0x68));
+    disp = ((TCharaMaking *)(arg0->cm))->get_display_index();
     for (i = 0, off = 0; i < 3; i++, off += 4) {
         p = (Sl_8028CB6C *)((u8 *)arg0 + off);
         id = p->a;
-        t = create__12TChCrLoadAfsFPvPv(arg0, 0xDB, TAdSinglePlyChrSelectGC::calc_preview_offset(arg0, disp, arg0->cm->f3e, id));
+        t = ((TChCrLoadAfs *)arg0)->create((void *)0xDB, (void *)(TAdSinglePlyChrSelectGC::calc_preview_offset(arg0, disp, arg0->cm->f3e, id)));
         p->b = t;
         if (t == NULL) {
             break;
         }
-        p->c = create__12TChCrLoadAfsFPvPv(arg0, 0xDB, (void*)((TChCrLoadReq*)arg0)->calc_preview_last_index(disp, id));
+        p->c = ((TChCrLoadAfs *)arg0)->create((void *)0xDB, (void *)((void*)((TChCrLoadReq*)arg0)->calc_preview_last_index(disp, id)));
     }
 }
 
@@ -209,7 +205,7 @@ void TAdSinglePlyChrSelectGC::request_texture_loads() {
     Req_8028CC28 r2;
     Req_8028CC28 r3;
     s32 idx;
-    idx = get_display_index__12TCharaMakingFv(arg0->chara);
+    idx = ((TCharaMaking *)(arg0->chara))->get_display_index();
     r1.id = arg0->id4C;
     r1.type = 4;
     r1.flags = arg0->flags;

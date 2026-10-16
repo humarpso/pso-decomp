@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/TSaveChCr.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/misc/TLobby.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -15,7 +17,6 @@ extern "C" {
 s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_80339F98_lbl_80477CBC TSaveChCr__message_text_ids;
 s32 complete_reveal__14TWindowMessageFPv(u32);
-s32 send_and_handle__6TLobbyFii(u32, u32, s32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
 extern s32 lbl_80477CAC[];
 extern s32 lbl_80477CB4[];
@@ -25,23 +26,19 @@ extern "C" {
 
 s32 TSaveChCr__sub_80339F30(void);
 s32 poll_memcard_status(void *arg0);
-s32 probe_and_check_card__15TAdPlayerLoadGCFv(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void *);
 s32 TObjCMProportion__sub_8029916C(s32);
-s32 check_memcard_status__15TAdPlayerLoadGCFl(s32);
-int close_window__9TSaveChCrFv(void*);
 s32 poll_memcard_status__23TAdSinglePlyChrSelectGCFv();
 
 s32 poll_memcard_status(void *arg0) {
     s32 var_r31;
 
-    if (probe_card_slot__15TAdPlayerLoadGCFv(0) == 0) {
+    if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
         return 1;
     }
-    if (probe_and_check_card__15TAdPlayerLoadGCFv(0) == 0) {
+    if (((TAdPlayerLoadGC *)0)->probe_and_check_card() == 0) {
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
         return 4;
     }
@@ -51,7 +48,7 @@ s32 poll_memcard_status(void *arg0) {
         return 2;
     }
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    if (check_memcard_status__15TAdPlayerLoadGCFl(0) != 0) {
+    if (TAdPlayerLoadGC::check_memcard_status(0) != 0) {
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
         return 4;
     }
@@ -73,7 +70,7 @@ s32 TSaveChCr__sub_80339F30(void) {
     return TObjCMProportion__sub_8029916C(4) ? 1 : 0;
 }
 
-void TSaveChCr::close_and_advance(void* a1) { close_window__9TSaveChCrFv(this); set_message_by_index((s32)(a1)); }
+void TSaveChCr::close_and_advance(void* a1) { close_window(); set_message_by_index((s32)(a1)); }
 typedef char RecoveredGlobal_80339F98_lbl_80477CBC_size[sizeof(RecoveredGlobal_80339F98_lbl_80477CBC) == 0x24 ? 1 : -1];
 void TSaveChCr::set_message_by_index(s32 arg1) {
     s32 arg0 = (s32)this;
@@ -88,7 +85,7 @@ void TSaveChCr::open_message_window(u32 arg1) {
         *(u32 *)((s8 *)this + 0x3C) = update_window_mode_from_progress__6TLobbyFPv(lbl_80477CAC, lbl_80477CB4);
         if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
             if (arg1 != 0U) {
-                send_and_handle__6TLobbyFii(*(u32 *)((s8 *)this + 0x3C), arg1, 3);
+                ((TLobby *)(*(u32 *)((s8 *)this + 0x3C)))->send_and_handle(arg1, 3);
             }
             complete_reveal__14TWindowMessageFPv(*(u32 *)((s8 *)this + 0x3C));
         }

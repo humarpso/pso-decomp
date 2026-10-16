@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_803DEB74_lbl_8058D8E0 {
     s32 value;
@@ -72,7 +73,6 @@ extern u32 matrix_stack_limit;
 extern u32 matrix_stack_base;
 extern u32 current_matrix;
 void PSMTXIdentity(void *);
-void move_data__6TLobbyFPCvUl(u32, void *, s32);
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 s32 Dolphin_PADRead(void *, void *);
 extern s32 keyboard_pad_status_buffer[];
@@ -228,7 +228,7 @@ void TObjPlayer::init_matrix_stack(s32 arg0, s32 arg1) {
     current_matrix = 0xE0000000;
     matrix_stack_limit = (arg1 - 1) * 0x30 + 0xE0000000;
     PSMTXIdentity(identity_matrix == 0 ? (u8 *)0xE0000000 : identity_matrix);
-    move_data__6TLobbyFPCvUl(matrix_stack_base, identity_matrix, 0x30);
+    ((TLobby *)matrix_stack_base)->move_data(identity_matrix, 0x30);
 }
 
 void init_light_globals(void) {

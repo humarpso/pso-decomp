@@ -2,6 +2,7 @@
 #include "pso/item/TItem.h"
 #include "pso/item/TItemObject.h"
 #include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_800FFF68 {
     u8 pad0[0x2C];
@@ -14,14 +15,9 @@ union Pk_800FFF68 { s32 w; u16 h[2]; };
 
 extern "C" {
 s32 get_field_d8__10TObjPlayerFv(void *);
-s32 notify_owner__5TItemFl(void *, s32);
-s32 apply_switch_attack__5TItemFl(void *, s32);
 s32 consume_item_by_id();
 s32 replace_item_with_new_code(u8 *, void *);
 u32 find_item_by_id(s32);
-s32 copy_to_item_data__5TItemFPv(void *, void *);
-s32 add_item_flags__10TObjPlayerFUl(u32, s32);
-s32 has_flag_128__10TObjPlayerFv(void *);
 void *find_eligible_combination_recipe(u32, void *);
 void *find_unique_combination_target(u32, void *);
 s32 init__9TItemDataFv(u8 *);
@@ -40,7 +36,6 @@ void TObjTailsTailsMove__sub_800FFE0C(void);
 void TObjTailsTailsMove__sub_800FFE10(void);
 int TObjTailsTailsMove__sub_800FFE14(void);
 int clear_item_flags__10TObjPlayerFUl(void*, int);
-s32 test_item_flags__10TObjPlayerFUl(s32, s32);
 
 int TItemObject::set_flag_1024() { return clear_item_flags__10TObjPlayerFUl(this, 1024); }
 void TItem::use_combination_recipe() {
@@ -52,7 +47,7 @@ void TItem::use_combination_recipe() {
     void *temp_r30;
     void *temp_r3;
     if ((u32) *(u32 *)((s8 *)this + 0xF0) != 0U) {
-        copy_to_item_data__5TItemFPv(this, sp1C);
+        copy_to_item_data(sp1C);
         temp_r30 = find_unique_combination_target(*(u32 *)((s8 *)this + 0xF0), sp1C);
         temp_r3 = find_eligible_combination_recipe(*(u32 *)((s8 *)this + 0xF0), sp1C);
         if ((temp_r3 != NULL) && (temp_r30 != NULL)) {
@@ -60,16 +55,16 @@ void TItem::use_combination_recipe() {
             sp8[0] = *(u8 *)((s8 *)temp_r3 + 6);
             sp8[1] = *(u8 *)((s8 *)temp_r3 + 7);
             sp8[2] = *(u8 *)((s8 *)temp_r3 + 8);
-            temp_r31 = has_flag_128__10TObjPlayerFv(temp_r30);
+            temp_r31 = ((TObjPlayer *)temp_r30)->has_flag_128();
             temp_r30_2 = get_field_d8__10TObjPlayerFv(temp_r30);
             replace_item_with_new_code(sp8, temp_r30);
             temp_r3_2 = find_item_by_id(temp_r30_2);
             if ((temp_r31 != 0) && (temp_r3_2 != 0U)) {
-                add_item_flags__10TObjPlayerFUl(temp_r3_2, 0x80);
+                ((TObjPlayer *)temp_r3_2)->add_item_flags(0x80);
             }
         }
-        apply_switch_attack__5TItemFl(this, 0x8D);
-        notify_owner__5TItemFl(this, 0x40001421);
+        apply_switch_attack(0x8D);
+        notify_owner(0x40001421);
         get_field_d8__10TObjPlayerFv(this);
         consume_item_by_id();
     }

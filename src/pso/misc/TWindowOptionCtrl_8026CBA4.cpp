@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowOptionCtrl.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct V2_8026CBB8 { f32 x, y; };
 
@@ -29,7 +30,6 @@ extern V2_8026CBB8 lbl_80477890[];
 extern unsigned char window_layout_rect_table[];
 V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
-void get_scale__20TWindowSubStatusDispFv(void *);
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DD2C8;
 void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w);
@@ -50,7 +50,7 @@ void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w) {
     f32 lim;
     f32 t;
     if (TWindowCtrlMain__sub_8024CE58() != 0) {
-        get_scale__20TWindowSubStatusDispFv(w);
+        ((TWindowSubStatusDisp *)w)->get_scale();
         window_depth_order_cursor -= lbl_805DD2C8;
         lim = w->f54;
         for (n = w->f10->f14; n != NULL; n = n->fC) {
@@ -85,11 +85,11 @@ void resort_window_order__15TWindowCtrlMainFPv(Node_8026CCA4 *w) {
             g->head->prev = w->prev;
         }
     }
-    scale = ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFv)(w);
+    scale = ((TWindowSubStatusDisp *)w)->get_scale();
     window_depth_order_cursor += lbl_805DD2C8;
     for (n = g->head; n != NULL; n = n->next) {
         last = n;
-        if (!(scale < ((f32 (*)(void *))get_scale__20TWindowSubStatusDispFv)(n))) {
+        if (!(scale < ((TWindowSubStatusDisp *)n)->get_scale())) {
             break;
         }
         n->f54 += lbl_805DD2C8;

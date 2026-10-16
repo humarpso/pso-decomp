@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/npc/TObjNpcConnoisseur.h"
+#include "pso/TFontSmallTask.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcLappy.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -92,8 +96,6 @@ struct RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__18TObjNpcConnoisseur[];
 extern s32 TObjNpcConnoisseur__name;
@@ -101,7 +103,6 @@ extern u32 TObjNpcConnoisseur__instance;
 u8 *TObjNpcConnoisseur__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 get_task_id__14TFontSmallTaskFv(void *);
 extern s32 tekker_descriptor_selector_table[];
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D5748;
@@ -117,7 +118,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcExpertBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
 
 extern u32 TObjNpcConnoisseur__instance;
 
@@ -132,7 +132,7 @@ extern s32 __vt__18TObjNpcConnoisseur[];
 
 void TObjNpcConnoisseur::load_section_motion() {
     void *o;
-    lbl_805D5748 = get_task_id__14TFontSmallTaskFv(TLobby__data_805011D8);
+    lbl_805D5748 = ((TFontSmallTask *)TLobby__data_805011D8)->get_task_id();
     o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (o != 0) {
         o = load_resource_from_descriptor(o, 1, tekker_descriptor_selector_table[lbl_805D5748], 0, 0, 0);
@@ -143,7 +143,7 @@ void TObjNpcConnoisseur::load_section_motion() {
 void *__dt__18TObjNpcConnoisseurFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjNpcConnoisseur;
-        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
+        ((TObjNpcLappy *)arg0)->destroy_npc_lappy_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -159,10 +159,10 @@ u8 *TObjNpcConnoisseur__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur *)&__vt__18TObjNpcConnoisseur).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcConnoisseur__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcConnoisseur__instance) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcConnoisseur__instance) + 0x42C)) + 0xC);
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 

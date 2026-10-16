@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/ui/TAdMultiConfirmGC.h"
+#include "pso/TAdMultiChgGameModeGC.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 typedef struct Obj_802FF87C {
     u8 pad0[0x1C];
@@ -26,9 +28,6 @@ struct TAdMultiConfirmGC_802FFA3C {
 struct OkArg_802FFA3C { u32 count; u32 mask; };
 
 extern "C" {
-void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
-void set_change_game_mode__21TAdMultiChgGameModeGCFv(void);
-void set_field_100__22TAdMultiPlyChrSelectGCFl(void *, s32);
 void TAdMultiConfirmGC__sub_802E03D0(void *);
 void TAdMultiConfirmGC__sub_802E0448(void *);
 s32 fn_802E0454(void *);
@@ -41,7 +40,6 @@ void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__10TAdTitleGCFv(void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
-void set_entry_value__22TAdMultiPlyChrSelectGCFlUl(void *, s32, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 s32 is_multiplayer_character_slot_selected(u32);
 void *get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, u32, u32, s32);
@@ -76,7 +74,7 @@ void TAdMultiConfirmGC::run_task() {
     case 1:
         for (i = 0; i < 4; i++) {
             if (arg0->players[i] != NULL) {
-                set_field_100__22TAdMultiPlyChrSelectGCFl(arg0->players[i], 2);
+                ((TAdMultiPlyChrSelectGC *)(arg0->players[i]))->set_field_100(2);
             }
         }
         arg0->state = 2;
@@ -101,9 +99,9 @@ void TAdMultiConfirmGC::run_task() {
         break;
     case 3:
         if (multi_confirm_cancel_requested(arg0->x48) != 0) {
-            set_change_game_mode__21TAdMultiChgGameModeGCFv();
+            TAdMultiChgGameModeGC::set_change_game_mode();
         } else if (are_all_entries_finished(arg0->x48) != 0) {
-            set_state_0xc__21TAdMultiChgGameModeGCFv();
+            TAdMultiChgGameModeGC::set_state_0xc();
         }
         break;
     }
@@ -177,8 +175,8 @@ TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *se
         p = __ct__13TAdGuideTxtGCFv(p, self);
     }
     self->guide = p;
-    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(self->guide, 0, get_localized_text_entry(0x25, 0));
-    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(self->guide, 1, &lbl_805DEF30);
+    ((TAdMultiPlyChrSelectGC *)(self->guide))->set_entry_value((s32)0, (u32)(get_localized_text_entry(0x25, 0)));
+    ((TAdMultiPlyChrSelectGC *)(self->guide))->set_entry_value((s32)1, (u32)(&lbl_805DEF30));
     fn_802FF7EC(self);
     return self;
 }

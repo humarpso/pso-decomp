@@ -16,17 +16,13 @@ u8 *__dt__12TAdDialingGCFv(u8 *arg0, s16 arg1);
 
 extern "C" {
 
-int update__12TAdDialingGCFv(void*);
 int TAdDialingGC__sub_80328B20(void*);
-int draw_if_flag_set__12TAdDialingGCFv(void*);
-int render_if_flag_set__12TAdDialingGCFv(void*);
 
-void TAdDialingGC::render() { TAdDialingGC__sub_80328B20(this); render_if_flag_set__12TAdDialingGCFv(this); draw_if_flag_set__12TAdDialingGCFv(this); update__12TAdDialingGCFv(this); }
+void TAdDialingGC::render() { TAdDialingGC__sub_80328B20(this); render_if_flag_set(); draw_if_flag_set(); update(); }
 
 s32 update_dial_state__12TAdDialingGCFv();
 s32 update_state__12TAdDialingGCFv();
 s32 update_dial_state__12TAdDialingGCFl();
-s32 update_selection__12TAdDialingGCFv(void *);
 
 void TAdDialingGC::run_task() {
     s32 temp_r0;
@@ -43,7 +39,7 @@ void TAdDialingGC::run_task() {
         update_dial_state__12TAdDialingGCFv();
         break;
     }
-    update_selection__12TAdDialingGCFv(this);
+    update_selection();
     *(s32 *)((s8 *)this + 0x24) = (s32) (*(s32 *)((s8 *)this + 0x24) + 1);
 }
 typedef char RecoveredGlobal_80328D50___vt__12TAdDialingGC_size[sizeof(RecoveredGlobal_80328D50___vt__12TAdDialingGC) == 0x18 ? 1 : -1];

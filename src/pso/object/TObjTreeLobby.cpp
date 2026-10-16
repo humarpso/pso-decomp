@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjTreeLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_8047A068[];
@@ -64,12 +69,8 @@ struct Obj_803648B8 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjTreeLobby__instance;
 extern s32 tree_lobby_type;
-s32 is_connected__6TLobbyFv();
-s32 is_lobby_obj_active__6TLobbyFv();
 }
 
 extern "C" {
@@ -83,16 +84,12 @@ s32 push_matrix();
 s32 pop_matrix();
 void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(int);
 void queue_destruction__7TObjectFv(void *);
 Ctrl_80364B6C *get_player_by_client_id(u16);
 void *TObjTreeLobby__sub_80364BE8(void *arg0, s16 arg1);
 void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base();
 s32 is_lobby_event_active();
 extern s32 __vt__13TObjTreeLobby[];
@@ -104,8 +101,8 @@ void TObjTreeLobby::render() {
     f32 temp_f1;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -115,7 +112,7 @@ void TObjTreeLobby::render() {
         }
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -125,7 +122,7 @@ void TObjTreeLobby::run_task() {
     Obj_803648B8 *self = (Obj_803648B8 *)this;
     switch (self->state) {
     case 0:
-        if (is_connected__6TLobbyFv() != 0) {
+        if (TLobby::is_connected() != 0) {
             self->state = 2;
         }
         break;
@@ -145,7 +142,7 @@ void TObjTreeLobby::run_task() {
         break;
     case 3:
     default:
-        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+        if (TLobby::is_lobby_obj_active() != 0) {
             self->state = 1;
         }
         break;
@@ -171,19 +168,19 @@ void TObjTreeLobby::destroy_static_instance() {
 void TObjTreeLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjTreeLobby_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjTreeLobby__instance) = var_r0;
-    tree_lobby_type = get_lobby_type__6TLobbyFv();
+    tree_lobby_type = TLobby::get_lobby_type();
 }
 
 void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjTreeLobby;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

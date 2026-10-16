@@ -3,6 +3,8 @@
 #include <dolphin/mtx.h>
 #include <stddef.h>
 #include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct D_800D40FC { u8 pad[0x18]; s32 arr[1]; };
 
@@ -78,9 +80,7 @@ s32 spawn_particle_effect(void *, int);
 s32 get_gyaranzo_missile_int_parameter(s32 i);
 s32 remap_area_sound_id(int, int);
 u8 *find_entity_by_id(u16);
-s32 init_all_slots__10TObjPlayerFv();
 s32 check_enemy_body_collisions(void *);
-s32 check_object_collisions__10TObjPlayerFv(void *);
 s32 play_sound_effect(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
@@ -94,7 +94,6 @@ s32 pop_matrix();
 void push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
 u32 csnVector(void *, void *, int);
-void update_collisions__10TObjPlayerFv(void *);
 extern u8 identity_matrix[];
 extern const f32 lbl_805DA2A4;
 extern const f32 lbl_805DA2A8;
@@ -114,7 +113,6 @@ s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(s32);
 
 void TObjGyaranzoMissile__sub_800D40D8(void) {  }
 void TObjGyaranzoMissile__sub_800D40DC(void) {  }
@@ -163,8 +161,8 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
     u8 *t;
     self = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xD8));
     (*(Info_800D4200 **)((s8 *)arg0 + 0xA4))->xc = lbl_805DA2A8;
-    init_all_slots__10TObjPlayerFv();
-    check_object_collisions__10TObjPlayerFv(arg0);
+    TObjPlayer::init_all_slots();
+    ((TObjPlayer *)arg0)->check_object_collisions();
     check_enemy_body_collisions(arg0);
     if ((*(Info_800D4200 **)((s8 *)arg0 + 0xA4))->flags & 0x180000) {
         for (i = 0; i < 0x10; i++) {
@@ -189,7 +187,7 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
 
 void TObjGyaranzoMissile::draw() {
     u8 *arg0 = (u8 *)this;
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xC8));
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xC8));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xBC));
@@ -238,7 +236,7 @@ void TObjGyaranzoMissile::update_flight() {
         if (self->fEC > 0) {
             self->fEC--;
         } else {
-            update_collisions__10TObjPlayerFv(self);
+            ((TObjPlayer *)self)->update_collisions();
             if (self->info->flags & 0x380000) {
                 TObjGyaranzoMissile__sub_800D4200((u8 *)self);
                 break;

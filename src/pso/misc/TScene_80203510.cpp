@@ -107,13 +107,10 @@ extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern RecoveredCallback_2be3cacebb2e TScene__render_callback;
 extern s32 model_render_flags;
 extern s32 lbl_805D5660;
-void draw_if_all_ready__10TObjPlayerFv(void);
-void set_global_param__8TObjFishFl(void *);
 void prepare_ginja_model(void);
 void end_ginja_model_draw(void);
 void push_matrix(void);
 void pop_matrix(void);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 void post_translate_matrix(f32 *);
 void rotate_matrix_by_node_angles(s32 *, s32);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
@@ -125,7 +122,6 @@ SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 f32 fabs_float(f32);
-void offset_position__6TSceneFll(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
@@ -147,14 +143,9 @@ struct Node_8020533C { u8 pad0[8]; Vec_8020533C pos; Ang_8020533C ang; };
 struct Model_8020533C { u8 pad0[4]; void *tex; s32 f8; u8 padC[2]; u8 fE; u8 fF; };
 struct Lobby_8020533C { Vec_8020533C v; Ang_8020533C a; void *param; Node_8020533C *node; s16 scene; u8 id; };
 
-s32 get_state_flag__9TMainTaskFv(void);
-void apply_single_screen_state__6TSceneFv();
 void render_projected_shadow_receiver(void *, void *);
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
 void update_particle_if_active__12TObjEneReconFv(void);
 void notify_scene__12TObjEneReconFi(s32);
-void set_indirect_tev__6TSceneFll(u32, s32);
 void draw_field_1c__6TSceneFlll(void *, s32, s32, s32);
 void release_indexed_entry__6TLobbyFi(Lobby_8020533C *);
 void vec3_add_to(void *, void *);
@@ -236,6 +227,12 @@ u32 get_player_by_client_id(void *);
 }
 
 #include "pso/misc/TSceneMaterial.h"
+#include "pso/TMainTask.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__texture_animation_buffer;
@@ -244,7 +241,6 @@ SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 
 f32 fabs_float(f32);
-void offset_position__6TSceneFll(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
@@ -391,7 +387,7 @@ void TScene::tick_material_fmt2() {
                 uv->v += uv->dv;
                 if (fabs_float(uv->u) >= lbl_805DC5D4 || fabs_float(uv->v) >= lbl_805DC5D4) {
                     if (uv->buffer != NULL) {
-                        offset_position__6TSceneFll((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
+                        ((TScene *)(uv->buffer))->offset_position((s32)((s32)uv->u), (s32)((s32)uv->v));
                     }
                     uv->u -= (f32)(s32)uv->u;
                     uv->v -= (f32)(s32)uv->v;
@@ -425,7 +421,7 @@ void TScene::tick_material_fmt2() {
                 uv->v += uv->dv;
                 if (uv->u >= 1.0f || uv->v >= 1.0f) {
                     if (uv->buffer != NULL) {
-                        offset_position__6TSceneFll((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
+                        ((TScene *)(uv->buffer))->offset_position((s32)((s32)uv->u), (s32)((s32)uv->v));
                     }
                     uv->u -= (f32)(s32)uv->u;
                     uv->v -= (f32)(s32)uv->v;
@@ -552,7 +548,7 @@ void TScene::render() {
     s32 i;
 
     if (TScene__floor_scene_ready_flag != 0 && TScene__data_805D5FCC != NULL) {
-        if (get_state_flag__9TMainTaskFv() == 0) {
+        if (TMainTask::get_state_flag() == 0) {
             for (i = 0; i < TScene__data_805D5FCC->count; i++) {
                 TScene__data_805D5FCC->sections[i].flags &= ~0x10000;
             }
@@ -569,12 +565,12 @@ void TScene::render_map_sections() {
     SceneMaterialSection *sec;
     s32 i;
     if (TScene__data_805D5FCC != NULL) {
-        draw_if_all_ready__10TObjPlayerFv();
+        TObjPlayer::draw_if_all_ready();
         if (TScene__render_callback != NULL) {
             TScene__render_callback();
         }
         if (*(void **)((u8 *)TScene__data_805D5FCC + 0x14) != NULL) {
-            set_global_param__8TObjFishFl(*(void **)((u8 *)TScene__data_805D5FCC + 0x14));
+            TObjFish::set_global_param((s32)(*(void **)((u8 *)TScene__data_805D5FCC + 0x14)));
         }
         sec = TScene__data_805D5FCC->sections;
         prepare_ginja_model();
@@ -583,7 +579,7 @@ void TScene::render_map_sections() {
             if (sec->flags & 0x10000) {
                 if (sec->flags & 0x80000) {
                     push_matrix();
-                    switch (get_global_state__14TOKeyMachine01Fv()) {
+                    switch (TOKeyMachine01::get_global_state()) {
                     case 0:
                     case 0xF:
                     case 0x12:
@@ -640,7 +636,7 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
             continue;
         }
         if (e->flags & 1) {
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
         }
         if (e->flags & 2) {
             model_render_flags |= 1;
@@ -681,13 +677,13 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
                 } else {
                     notify_scene__12TObjEneReconFi(-1);
                 }
-                set_global_param__8TObjFishFl((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
+                TObjFish::set_global_param((s32)((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14)));
                 set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                 draw_ginja_object(node);
                 update_particle_if_active__12TObjEneReconFv();
             } else if (e->flags & 0x400) {
                 Model_8020533C *m = (Model_8020533C *)e->node;
-                if (m != NULL && get_state_flag__9TMainTaskFv() == 1) {
+                if (m != NULL && TMainTask::get_state_flag() == 1) {
                     Lobby_8020533C l;
                     l.v.x = node->pos.x;
                     l.v.y = node->pos.y;
@@ -707,10 +703,10 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
                 if (m != NULL) {
                     if (m->tex != NULL) {
                         draw_field_1c__6TSceneFlll(tex = m->tex, m->f8, m->fE, 0);
-                        set_global_param__8TObjFishFl((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
+                        TObjFish::set_global_param((s32)((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14)));
                         set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                         draw_ginja_object(node);
-                        set_indirect_tev__6TSceneFll((u32)tex, 0);
+                        TScene::set_indirect_tev((u32)tex, 0);
                     }
                 }
             }
@@ -719,13 +715,13 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
             draw_ginja_object(node);
         }
         if (e->flags & 0x10) {
-            apply_single_screen_state__6TSceneFv();
+            TScene::apply_single_screen_state();
         }
         if (e->flags & 2) {
             model_render_flags &= ~1;
         }
         if (e->flags & 1) {
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
         if (TScene__active_scene_callback != NULL) {
             TScene__active_scene_callback(e->flags);
@@ -735,7 +731,6 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
 }
 
 extern "C" {
-s32 is_not_split_screen__13TRaderMapCoreFv();
 void draw_ginja_model_with_motion(void *, void *, f32);
 void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
   void *texture;
@@ -766,7 +761,7 @@ void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
     }
     if (e->flags & 1)
     {
-      begin_effect_render__13TParticleCtrlFv();
+      TParticleCtrl::begin_effect_render();
     }
     if (e->flags & 2)
     {
@@ -809,16 +804,16 @@ void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
         if (tex != 0)
         {
           draw_field_1c__6TSceneFlll(texture = tex, m->f8, m->fE, 0);
-          set_global_param__8TObjFishFl((void *) (*((s32 *) (((s8 *) TScene__data_805D5FCC) + 0x14))));
+          TObjFish::set_global_param((s32)((void *) (*((s32 *) (((s8 *) TScene__data_805D5FCC) + 0x14)))));
           set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
           draw_ginja_model_with_motion(node, e->motion, e->frame);
-          set_indirect_tev__6TSceneFll((u32) texture, 0);
+          TScene::set_indirect_tev((u32) texture, 0);
         }
 
       }
     }
     else
-      if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+      if (TRaderMapCore::is_not_split_screen() == 1)
     {
       set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
       draw_ginja_object(node);
@@ -830,7 +825,7 @@ void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
     }
     if (e->flags & 0x10)
     {
-      apply_single_screen_state__6TSceneFv();
+      TScene::apply_single_screen_state();
     }
     if (e->flags & 2)
     {
@@ -838,7 +833,7 @@ void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
     }
     if (e->flags & 1)
     {
-      end_effect_render__13TParticleCtrlFv();
+      TParticleCtrl::end_effect_render();
     }
     if (TScene__active_scene_callback != 0)
     {

@@ -5,15 +5,20 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 
 s32 TCameraCtrl__sub_80068EF0();
-s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 TLobby__sub_80228154(s32, s32, s32, f32);
 
 void TLobby::draw_with_camera(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
-    restore_full_screen_view__11TCameraCtrlFv();
+    TCameraCtrl::restore_full_screen_view();
     TLobby__sub_80228154(arg0, arg1, arg2, farg0);
     TCameraCtrl__sub_80068EF0();
 }
@@ -22,7 +27,6 @@ typedef struct Vtx_801E2FEC { f32 x, y, z; f32 u, v; u32 color; } Vtx_801E2FEC;
 typedef struct Rect_801E2FEC { s16 x, y, w, h; u8 pad8[8]; s16 tex; } Rect_801E2FEC;
 typedef struct Self_801E2FEC { f32 x, y, z; u8 padC[0xC]; s32 param; Rect_801E2FEC *rect; } Self_801E2FEC;
 
-void set_global_param__8TObjFishFl(s32);
 void set_texture_num(s32);
 void draw_particle_strip(void *, int, int);
 
@@ -32,7 +36,7 @@ void TObjPlayer::draw_shadow_quad(s32 arg1, s32 flags) {
     f32 ey, ex, cx, cy, z;
     f32 u0, v0, u1, v1;
 
-    set_global_param__8TObjFishFl(self->param);
+    TObjFish::set_global_param(self->param);
     set_texture_num(self->rect->tex);
     u0 = 0.01f;
     u1 = 0.99f;
@@ -191,7 +195,6 @@ void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
-void load_screen_space_matrix__10TObjPlayerFv(void);
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
@@ -210,13 +213,10 @@ void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
-void load_screen_space_matrix__10TObjPlayerFv(void);
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void setup_blended_textured_draw(void);
-void setup_render__10TObjPlayerFv(void);
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void TObjCMHairMenu__sub_801E3F54(void *, void *);
 void fn_801E3F44(f32, f32);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
@@ -227,7 +227,6 @@ void GXBegin(s32, s32, u16);
 void load_camera_view_matrix(void);
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
-void setup_render__10TObjPlayerFv(void);
 void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
@@ -245,7 +244,7 @@ int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
 
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
     u32 c;
-    load_screen_space_matrix__10TObjPlayerFv();
+    TObjPlayer::load_screen_space_matrix();
     if (flags & 4) {
         TObjPlayer__sub_803E21DC();
     } else {
@@ -344,20 +343,20 @@ void TObjCMHairMenu::draw_tri_fan_2d(s32 count, s32 flags, f32 scale) {
         tmp.f8 = self->f8;
         tmp.count = 2;
         draw_color_lines((Lines_801E3330 *)self, count, flags | 0x10, scale);
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&v[0], &self->verts[0]);
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&v[1], &self->verts[self->count - 1]);
+        ((TWindowSubSymbolChatPartsSet *)(&v[0]))->copy_vec2(&self->verts[0]);
+        ((TWindowSubSymbolChatPartsSet *)(&v[1]))->copy_vec2(&self->verts[self->count - 1]);
         TObjCMHairMenu__sub_801E3F54(&c[0], &self->colors[0]);
         TObjCMHairMenu__sub_801E3F54(&c[1], &self->colors[self->count - 1]);
         draw_color_lines((Lines_801E3330 *)&tmp, 2, flags, scale);
         return;
     }
-    load_screen_space_matrix__10TObjPlayerFv();
+    TObjPlayer::load_screen_space_matrix();
     tex = flags & 8;
     if (tex) {
         if (flags & 4) {
             setup_blended_textured_draw();
         } else {
-            setup_render__10TObjPlayerFv();
+            TObjPlayer::setup_render();
         }
     } else if (flags & 4) {
         TObjPlayer__sub_803E21DC();
@@ -387,7 +386,7 @@ void TObjPlayer::draw_tri_fan_3d(s32 n, u32 flags) {
         if (flags & 4) {
             setup_blended_textured_draw();
         } else {
-            setup_render__10TObjPlayerFv();
+            TObjPlayer::setup_render();
         }
         load_context_texture_obj();
     } else if (flags & 4) {
@@ -414,10 +413,7 @@ void TObjPlayer::draw_tri_fan_3d(s32 n, u32 flags) {
 }
 
 void DCFlushRange(void *, u32);
-void *alloc__22TQuestVmDownLoadServerFv(u32);
 void TLobby__sub_801E3CF0(u32 *);
-s32 bswap32_value__6TLobbyFUl(s32);
-void move_data__6TLobbyFPCvUl(void *, void *, int);
 
 s32 *TLobby__sub_801E38A0(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3, s32 *arg4) {
     u8 *p;
@@ -432,13 +428,13 @@ s32 *TLobby__sub_801E38A0(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3, s32 *arg4) 
 
     pos = 0;
     p = (u8 *)(arg0 + *arg1);
-    move_data__6TLobbyFPCvUl(&tag, p, 4);
+    ((TLobby *)(&tag))->move_data(p, 4);
     TLobby__sub_801E3CF0((u32 *)&tag);
-    move_data__6TLobbyFPCvUl(&size, p + 4, 4);
+    ((TLobby *)(&size))->move_data(p + 4, 4);
     TLobby__sub_801E3CF0(&size);
     p += 8;
     *arg1 += 8;
-    tag = bswap32_value__6TLobbyFUl(tag);
+    tag = TLobby::bswap32_value(tag);
     switch (tag) {
     case 0x4E4A494E:
         *arg2 = 0x4E4A494E;
@@ -477,14 +473,14 @@ s32 *TLobby__sub_801E38A0(s32 arg0, s32 *arg1, s32 *arg2, s32 *arg3, s32 *arg4) 
     default:
         goto bad;
     }
-    arg3 = (arg3 == 0) ? (s32 *)alloc__22TQuestVmDownLoadServerFv(size) : arg3;
+    arg3 = (arg3 == 0) ? (s32 *)((TQuestVmDownLoadServer *)size)->alloc() : arg3;
     if (arg3 == 0) {
         return 0;
     }
     if (arg4 != 0) {
         *arg4 = size;
     }
-    move_data__6TLobbyFPCvUl(arg3, p, size);
+    ((TLobby *)arg3)->move_data(p, size);
     DCFlushRange(arg3, size);
     p += size;
     *arg1 += size;
@@ -493,17 +489,17 @@ bad:
     *arg2 = 0x2A2A2A2A;
     return 0;
 next:
-    move_data__6TLobbyFPCvUl(&tag, p, 4);
+    ((TLobby *)(&tag))->move_data(p, 4);
     TLobby__sub_801E3CF0((u32 *)&tag);
     *arg1 += 4;
-    tag = bswap32_value__6TLobbyFUl(tag);
+    tag = TLobby::bswap32_value(tag);
     if (tag == 0x504F4630) {
-        move_data__6TLobbyFPCvUl(&size, p + 4, 4);
+        ((TLobby *)(&size))->move_data(p + 4, 4);
         TLobby__sub_801E3CF0(&size);
         p += 8;
         *arg1 += 4;
         while (size != 0) {
-            move_data__6TLobbyFPCvUl(&b0, p, 1);
+            ((TLobby *)(&b0))->move_data(p, 1);
             p++;
             *arg1 += 1;
             size--;
@@ -514,18 +510,18 @@ next:
                 off = b0 & 0x3F;
                 break;
             case 0x80:
-                move_data__6TLobbyFPCvUl(&b1, p, 1);
+                ((TLobby *)(&b1))->move_data(p, 1);
                 p++;
                 size--;
                 *arg1 += 1;
                 off = ((b0 << 8) & 0x3F00) | b1;
                 break;
             case 0xC0:
-                move_data__6TLobbyFPCvUl(&b1, p, 1);
+                ((TLobby *)(&b1))->move_data(p, 1);
                 size--;
-                move_data__6TLobbyFPCvUl(&b2, p + 1, 1);
+                ((TLobby *)(&b2))->move_data(p + 1, 1);
                 size--;
-                move_data__6TLobbyFPCvUl(&b3, p + 2, 1);
+                ((TLobby *)(&b3))->move_data(p + 2, 1);
                 p += 3;
                 size--;
                 *arg1 += 3;
@@ -561,20 +557,15 @@ struct RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 { s32 value; u8 
 typedef char RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 
 extern "C" {
-s32 run_disk_error_check__6TLobbyFv();
-s32 run_frame__6TLobbyFv();
 s32 TLobby__sub_803382E4();
 s32 read_afs_toc__6TLobbyFl(void *);
 s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
-s32 run_disk_error_check__6TLobbyFv();
 s32 reset_state_byte__6TLobbyFv();
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_global_sound_frame();
-s32 flush_input__16TKeyBoardControlFv();
 s32 read_afs_toc__6TLobbyFl(void *);
 s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
-s32 read_pads__16TKeyBoardControlFv();
 extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
 void bswap_16__FPUs(u16 *p);
@@ -587,17 +578,13 @@ void render_tick__Fv(void);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetZMode(s32, s32, s32);
 extern s32 (*chunk_model_node_callback)(void *);
-s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 TKeyBoardControl__sub_8000F7FC();
 s32 compose_motion_node_matrix(void *);
 
 s32 push_matrix();
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 fn_803DCEC8();
 s32 fn_803DCF0C();
-s32 run_tasks__16TKeyBoardControlFv();
 s32 set_cull_none__8TObjFishFv();
 
 void TObjPlayer::render_tree(void *arg0) {
@@ -621,16 +608,16 @@ void TObjPlayer::render_tree(void *arg0) {
 extern s32 lbl_805D3584;
 
 void render_tick__Fv(void) {
-    run_tasks__16TKeyBoardControlFv();
-    begin_effect_render__13TParticleCtrlFv();
+    TKeyBoardControl::run_tasks();
+    TParticleCtrl::begin_effect_render();
     GXSetZMode(1, 7, 0);
-    restore_full_screen_view__11TCameraCtrlFv();
+    TCameraCtrl::restore_full_screen_view();
     set_cull_none__8TObjFishFv();
     render_debug_text(lbl_805D3584);
     GXSetZMode(1, 3, 1);
     GXSetViewport((0.0f), (0.0f), (6.4e+02f), (4.8e+02f), (0.0f), (1.0f));
     set_cull_none__8TObjFishFv();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     fn_803DCEC8();
     fn_803DCF0C();
     TKeyBoardControl__sub_8000F7FC();
@@ -642,10 +629,10 @@ s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3 >= 0) {
 loop_2:
         if (read_afs_toc__6TLobbyFl((void *) (arg0)) != 3) {
-            run_disk_error_check__6TLobbyFv();
-            flush_input__16TKeyBoardControlFv();
+            TLobby::run_disk_error_check();
+            TKeyBoardControl::flush_input();
             update_global_sound_frame();
-            read_pads__16TKeyBoardControlFv();
+            TKeyBoardControl::read_pads();
             disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__global_key_state.value));
             reset_state_byte__6TLobbyFv();
             goto loop_2;
@@ -660,9 +647,9 @@ s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3 >= 0) {
 loop_1:
         if (read_afs_toc__6TLobbyFl((void *) (arg0)) != 3) {
-            run_disk_error_check__6TLobbyFv();
+            TLobby::run_disk_error_check();
             TLobby__sub_803382E4();
-            run_frame__6TLobbyFv();
+            TLobby::run_frame();
             goto loop_1;
         }
     }

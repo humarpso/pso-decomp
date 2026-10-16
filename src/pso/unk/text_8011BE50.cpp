@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/TObject.h"
 
 extern "C" {
 s32 spawn_slot_emitter__18TItemShootParticleFPvii(void *, s32, s32);
 s32 spawn_shoot_particle__10TObjPlayerFUlllf(u32, s32, s32, f32);
 s32 create_shoot_model__10TObjPlayerFUiiif(u32, s32, s32, f32);
-void set_parent__7TObjectFP7TObject(void *, void *);
 s32 create_shoot_model_with_particles(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
 }
 
@@ -21,7 +21,7 @@ s32 create_shoot_model_with_particles(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
         *(s32 *)((s8 *)temp_r31 + 0x60) = 0x4000;
         spawn_slot_emitter__18TItemShootParticleFPvii((void *) temp_r3, 0x1BB, 0);
         spawn_slot_emitter__18TItemShootParticleFPvii((void *) temp_r30, 0x1BC, 1);
-        set_parent__7TObjectFP7TObject((void *) temp_r30, (void *) temp_r31);
+        ((TObject *)temp_r30)->set_parent((TObject *)temp_r31);
     }
     return temp_r31;
 }

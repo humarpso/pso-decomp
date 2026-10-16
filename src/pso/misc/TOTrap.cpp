@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOTrap.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_A_80178BC0 { char pad[0x18]; };
 struct V_A_80178BC0 : Base_A_80178BC0 {
@@ -203,11 +205,8 @@ struct Obj_80178CF8 {
 struct Obj_80178E10 { u8 pad0[0x2A8]; u8 *target; u8 pad1[0x7A]; s16 state; u8 pad2[0xC]; f32 range; u8 pad3[4]; u16 idx; };
 
 extern "C" {
-s32 check_demo_mode__10TObjPlayerFv();
-s32 is_any_teammate_in_state__10TObjPlayerFv();
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
-s32 check_player_flag1__6TLobbyFv(s32);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 s32 send_code_45_1__10TObjPlayerFi(s32);
@@ -258,7 +257,6 @@ s32 refresh_collision_body_centers(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 get_player_by_client_id(u32);
 s32 calc_attach_pos__10TObjPlayerFv();
-s32 check_player_flag1__6TLobbyFv(s32);
 s32 obj_getField1c(u32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_code_45_1__10TObjPlayerFi(s32);
@@ -304,7 +302,7 @@ void TOTrap__vt80(void *arg0) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {
                 temp_r31 = get_player_by_client_id(v);
-                if ((is_locally_controlled__10TObjPlayerFPv(temp_r31) != 0) && (check_player_flag1__6TLobbyFv(temp_r31) != 0)) {
+                if ((is_locally_controlled__10TObjPlayerFPv(temp_r31) != 0) && (((TLobby *)temp_r31)->check_player_flag1() != 0)) {
                     send_code_45_1__10TObjPlayerFi(temp_r31);
                 }
             }
@@ -393,7 +391,7 @@ f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
       if (temp_r3 < 0x1000U)
       {
         temp_r3_2 = get_player_by_client_id((u32)((int) ((s32) temp_r3)));
-        if (((temp_r3_2 != 0) && (is_locally_controlled__10TObjPlayerFPv((int)((int) temp_r3_2)) != 0)) && (check_player_flag1__6TLobbyFv((s32)((int) ((long long) temp_r3_2))) != 0))
+        if (((temp_r3_2 != 0) && (is_locally_controlled__10TObjPlayerFPv((int)((int) temp_r3_2)) != 0)) && (((TLobby *)((long long) temp_r3_2))->check_player_flag1() != 0))
         {
           send_code_45_1__10TObjPlayerFi((s32)((int) temp_r3_2));
         }
@@ -406,11 +404,11 @@ f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
 void TOTrap::update_trap_state() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((VObj_18 *)(arg0))->m86();
         return;
     }
-    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::is_any_teammate_in_state() == 0) {
         ((VObj_18 *)(arg0))->m82();
         temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
         switch (temp_r0) {

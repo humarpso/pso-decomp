@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TItemAttacker.h"
+#include "pso/player/TObjPlayer.h"
 struct Vec_80121CB8 { f32 x, y, z; };
 
 struct Base_80121CB8 { u8 pad0[0x18]; };
@@ -64,10 +66,7 @@ struct Self_80121CB8 : Pl_80121CB8 {
 };
 
 extern "C" {
-void spawn_item_timer__13TItemAttackerFlll(void *, void *, s32);
-s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
 void launch_rare_weapon_special__10TObjPlayerFv(void *, s32, s32, f32);
-void draw_icon__10TObjPlayerFll(void *, s32, void *);
 void belra_cannon_create_extra_shot();
 void belra_cannon_create_shot();
 void belra_cannon_return_timer();
@@ -79,16 +78,16 @@ extern "C" {
 
 void belra_cannon_marker(Self_80121CB8 *self) {
     Vec_80121CB8 v;
-    if (is_mode_two_and_ready__10TObjPlayerFv(self) != 0) {
+    if (((TObjPlayer *)self)->is_mode_two_and_ready() != 0) {
         self->fn1f0 = (void *)belra_cannon_create_extra_shot;
         self->f1f8 = 0;
-        spawn_item_timer__13TItemAttackerFlll(self, (void *)belra_cannon_return_timer, 0x1E);
+        TItemAttacker::spawn_item_timer((s32)self, (s32)((void *)belra_cannon_return_timer), (s32)0x1E);
         launch_rare_weapon_special__10TObjPlayerFv(self, 0, 1, lbl_805DACD0);
     } else {
         self->fn1f0 = (void *)belra_cannon_create_shot;
         self->f1f8 = 0;
-        spawn_item_timer__13TItemAttackerFlll(self, (void *)belra_cannon_return_timer, 0x1E);
-        draw_icon__10TObjPlayerFll(self, 1, &v);
+        TItemAttacker::spawn_item_timer((s32)self, (s32)((void *)belra_cannon_return_timer), (s32)0x1E);
+        ((TObjPlayer *)self)->draw_icon((s32)1, (s32)(&v));
         self->m49(&v, 0, 0, 1);
     }
 }

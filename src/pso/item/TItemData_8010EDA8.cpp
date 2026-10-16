@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/TItemData.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern u8 *text_language_group_table;
@@ -15,7 +16,6 @@ void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
 s32 get_class_index__10TObjPlayerFPv();
-s32 can_use_more_materials__10TObjPlayerFl(s32, s32);
 
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1) {
     *(s16 *)((s8 *)arg0 + 8) = (s16) (*(s16 *)((s8 *)arg0 + 8) + arg1);
@@ -71,7 +71,7 @@ s16 TItemData::get_percent() {
 
 void TItemData::update_player_field() {
     s32 arg0 = (s32)this;
-    can_use_more_materials__10TObjPlayerFl(arg0 + 0x374, get_class_index__10TObjPlayerFPv());
+    ((TObjPlayer *)(arg0 + 0x374))->can_use_more_materials(get_class_index__10TObjPlayerFPv());
 }
 s32 get_item_description_text(s32 arg0) {
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 4)) + (arg0 * 4));

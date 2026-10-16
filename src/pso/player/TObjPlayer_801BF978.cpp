@@ -19,7 +19,6 @@ void TObjPlayer__sub_801BF9E0(void* p, s16 v);
 s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1);
 s32 __dl__FPv(s32);
 s32 clear_id__10TObjPlayerFv();
-s32 free_if_valid__10TObjPlayerFls(s32, s32);
 void init__6gc_tagFv(void *);
 
 void TObjPlayer::init_tag() {
@@ -53,7 +52,7 @@ u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1) {
 
 s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free_if_valid__10TObjPlayerFls(arg0, 0);
+        TObjPlayer::free_if_valid(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

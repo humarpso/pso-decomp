@@ -3,15 +3,14 @@
 TItemList::~TItemList() {}
 
 #include "types.h"
+#include "pso/TObject.h"
 
 extern "C" {
 void TItemList__sub_801D5A0C(s32 *arg0);
-u8 get_item_count__9TItemListFv(void* p);
 void TItemList__sub_801D5A64(void* p);
 u8 *TItemList__sub_801D5868(s32, s8);
 void clear_placement_search_slot(u8 *arg0, s32 arg1);
 void* get_ptr_0x44__9TItemListFPv(void* p);
-u8 get_item_count__9TItemListFv(void* p);
 void copy_position__9TItemListFPv(void *, s32);
 void *TItemList__sub_801D598C(int, int);
 void TItemList__sub_801D5A70(u8 *arg0);
@@ -38,11 +37,8 @@ int TObjPlayer__sub_801C2098(void);
 int VecCopy__FP3VecPC3Vec(void*);
 void __construct_array(void *, void *, int, int, int);
 s32 __dl__FPv(void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 s32 check_value_equals__13TQuestColCtrlFPll(s32, s32);
 int copy_item_data__6TLobbyFPvPv(void*);
-int copy_item_data__9TItemListFv(void* p);
-u8 get_item_count__9TItemListFv(void* p);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
 void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)((void*)(a1))); }
@@ -57,7 +53,7 @@ void TItemList__sub_801D5A0C(s32 *arg0) {
 }
 
 void clear_placement_search_slot(u8 *arg0, s32 arg1) {
-    TItemList__sub_801D5A64((void*)(TItemList__sub_801D5868(arg1, get_item_count__9TItemListFv((void*)(arg0)))));
+    TItemList__sub_801D5A64((void*)(TItemList__sub_801D5868(arg1, ((TItemList *)arg0)->get_item_count())));
 }
 
 void TItemList__sub_801D5A64(void* p) { *(s32*)((char*)p + 0x0) = 0; }
@@ -65,14 +61,14 @@ void TItemList__sub_801D5A64(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 extern s32 TItemList__name;
 
 void TItemList__sub_801D5A70(u8 *arg0) {
-    copy_position__9TItemListFPv(TItemList__sub_801D598C(*(s32 *)(arg0 + 0x54), ((s8)get_item_count__9TItemListFv((void*)(arg0)))), ((s32)get_ptr_0x44__9TItemListFPv((void*)(arg0))));
+    copy_position__9TItemListFPv(TItemList__sub_801D598C(*(s32 *)(arg0 + 0x54), ((s8)((TItemList *)arg0)->get_item_count())), ((s32)get_ptr_0x44__9TItemListFPv((void*)(arg0))));
 }
 
 u8 TItemList::is_item_valid(s32 arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((check_value_equals__13TQuestColCtrlFPll(arg0, TItemList__name) != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(arg0) != 0)) {
+    if ((check_value_equals__13TQuestColCtrlFPll(arg0, TItemList__name) != 0) && (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

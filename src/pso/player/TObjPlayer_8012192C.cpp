@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TTecFoie.h"
 
 extern "C" {
 
@@ -9,13 +10,9 @@ s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 roll_technique__11TItemWeaponFv(void *);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 draw_icon__10TObjPlayerFll(void *, s32, s32 *);
 int get_player_list__10TObjPlayerFv(void*);
-s32 get_tp__10TObjPlayerFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
-s32 create__8TTecFoieFPvPvPvPv(void *, s32 *, s32, s32);
 
 extern s32 lbl_804A0AA8[];
 
@@ -35,13 +32,13 @@ void TObjPlayer::cast_foie_effect() {
     void *temp_r31;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        if (draw_icon__10TObjPlayerFll(this, 0, &sp8) != 0) {
+        if (draw_icon((s32)0, (s32)(&sp8)) != 0) {
             temp_r31 = *(void **)((s8 *)this + 0xF0);
-            create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), get_tp__10TObjPlayerFv(this));
+            TTecFoie::create((void *)temp_r31, (void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r31 + 0x60)), (void *)(get_tp()));
             roll_technique__11TItemWeaponFv(this);
         }
     } else {
-        update_active_game_effect__10TObjPlayerFv(this);
+        update_active_game_effect();
     }
 }
 

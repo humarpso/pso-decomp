@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjEnvSound.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
 
@@ -32,7 +34,6 @@ struct Obj_80190AA0 {
 };
 
 extern "C" {
-s32 is_sound_enabled__12TObjEnvSoundFPvl(void *, int);
 s32 fn_801908F8(f32);
 s32 play_persistent_sound(int, void *, void *, int, int);
 void byteswap_event_packet__6TLobbyFi(Pkt_80190BA0 *pkt);
@@ -44,7 +45,6 @@ void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(Row_80190AA0 *, Row_80190AA0 *);
 void construct_world_actor_base(void *, void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern Row_80190AA0 *environment_sound_tables_by_area[];
 extern s32 __vt__12TObjEnvSound[];
 extern s32 TObjEnvSound__class_name;
@@ -57,7 +57,6 @@ extern "C" {
 
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void TObjEnvSound::render() {  }
 
@@ -68,7 +67,7 @@ void TObjEnvSound::run_task() {
     f32 temp_f0;
     s32 temp_r0;
     temp_f0 = *(f32 *)((s8 *)arg0 + 0x90);
-    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (is_sound_enabled__12TObjEnvSoundFPvl((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x98))) != 0)) {
+    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x98))) != 0)) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x9C);
         switch (temp_r0) {
         case 0:
@@ -86,7 +85,7 @@ void TObjEnvSound::run_task() {
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEnvSound;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -100,7 +99,7 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
     self->vtbl = __vt__12TObjEnvSound;
     self->unk0 = TObjEnvSound__class_name;
     ((VObj_80190AA0 *)self)->m5(arg2);
-    table = environment_sound_tables_by_area[get_global_state__14TOKeyMachine01Fv()];
+    table = environment_sound_tables_by_area[TOKeyMachine01::get_global_state()];
     if (table != NULL) {
         copy_pair__18TObjEnvSoundGlobalFPvPv(&self->sound, &table[self->index]);
     } else {

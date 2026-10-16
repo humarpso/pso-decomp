@@ -3,10 +3,8 @@
 
 extern "C" {
 
-s32 init_all__11TWindowCtrlFPvPv(void *, s32);
-
 void TWindowCtrl::init_all_default() {
-    init_all__11TWindowCtrlFPvPv(this, 0);
+    TWindowCtrl::init_all(this, 0);
 }
 
 }

@@ -1,4 +1,8 @@
 #include "pso/ui/TMessageWindowController.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowMessagePage.h"
 #pragma readonly_strings on
 extern "C" {
 void *memset(void *, int, unsigned long);
@@ -8,21 +12,16 @@ char *strcpy(char *, const char *);
 int strcmp(const char *, const char *);
 const char *get_status_window__20TWindowSubStatusDispFi(u16);
 extern s32 local_client_id;
-s32 get_field230__22TQuestVmDownLoadServerFv();
 const char *get_selected_entry__16TQuestListOnlineFv();
 const char *get_selected_quest_text__19TQuestListChallengeFv();
 s32 get_game_play_mode();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 const char *get_quest_name__12TQuestThreadFv();
 const char *get_guild_text(s32);
 const char *get_shop_text(s32);
 const char *get_appraisal_text(s32);
-s32 set_message__18TWindowMessagePageFPvl(TWindowMessagePage *, const char *, s32);
-s32 is_ready__18TWindowMessagePageFv(TWindowMessagePage *);
 TWindowMessagePage *create__18TWindowMessagePageFllll(s32, s32, s32, s32);
 TWindowMessagePage *set_text__18TWindowMessagePageFlll(s32, s32, s32);
 void TWindow__close(TWindowMessagePage *);
-s32 is_camera_ctrl_active__6TLobbyFv();
 void set_position_xy(TWindowMessagePage *, f32, f32);
 __declspec(section ".rodata") extern const char message_tag_error[];
 }
@@ -47,7 +46,7 @@ void TMessageWindowController::append_title_string() {
 }
 void TMessageWindowController::append_block_space() {
     char buf[0x20];
-    s32 value = get_field230__22TQuestVmDownLoadServerFv();
+    s32 value = TQuestVmDownLoadServer::get_field230();
     memset(buf, 0, 0x20);
     sprintf(buf, "%d", value);
     append_text(buf);
@@ -55,7 +54,7 @@ void TMessageWindowController::append_block_space() {
 void TMessageWindowController::append_quest_title() {
     const char *text = NULL;
     s32 mode;
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         mode = get_game_play_mode();
         switch (mode) {
         case 1:
@@ -151,12 +150,12 @@ char *TMessageWindowController::parse_message_text(const char *source, char *des
 }
 s32 TMessageWindowController::is_ready() {
     TWindowMessagePage *current = window;
-    if (current != NULL) return is_ready__18TWindowMessagePageFv(current);
+    if (current != NULL) return ((TWindowMessagePage *)current)->is_ready();
     return 1;
 }
 void TMessageWindowController::send_message(s32 index, s32 flags) {
     if (window != NULL) {
-        set_message__18TWindowMessagePageFPvl(window, get_appraisal_text(index), flags | 0x80);
+        ((TWindowMessagePage *)window)->set_message((void *)(get_appraisal_text(index)), (s32)(flags | 0x80));
     }
 }
 void TMessageWindowController::format_guild_message(s32 index, s32 flags) {
@@ -165,14 +164,14 @@ void TMessageWindowController::format_guild_message(s32 index, s32 flags) {
         text = get_guild_text(index);
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
-        set_message__18TWindowMessagePageFPvl(window, buffer, flags | 0x80);
+        ((TWindowMessagePage *)window)->set_message((void *)buffer, (s32)(flags | 0x80));
     }
 }
 void TMessageWindowController::display_message(const char *text, s32 flags) {
     if (window != NULL) {
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
-        set_message__18TWindowMessagePageFPvl(window, buffer, flags | 0x80);
+        ((TWindowMessagePage *)window)->set_message((void *)buffer, (s32)(flags | 0x80));
     }
 }
 void TMessageWindowController::format_shop_message(s32 index, s32 flags) {
@@ -181,7 +180,7 @@ void TMessageWindowController::format_shop_message(s32 index, s32 flags) {
         text = get_shop_text(index);
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
-        set_message__18TWindowMessagePageFPvl(window, buffer, flags | 0x80);
+        ((TWindowMessagePage *)window)->set_message((void *)buffer, (s32)(flags | 0x80));
     }
 }
 void TMessageWindowController::close() {
@@ -192,7 +191,7 @@ void TMessageWindowController::close() {
 }
 TWindowMessagePage *TMessageWindowController::create_message_window(s32 x, s32 y, s32 flags) {
     f32 scale;
-    if (is_camera_ctrl_active__6TLobbyFv() > 2) scale = 0.75f;
+    if (TLobby::is_camera_ctrl_active() > 2) scale = 0.75f;
     else scale = 1.0f;
     if (window == NULL) {
         window = create__18TWindowMessagePageFllll(x, y, 1, flags);
@@ -203,7 +202,7 @@ TWindowMessagePage *TMessageWindowController::create_message_window(s32 x, s32 y
 }
 TWindowMessagePage *TMessageWindowController::create_window(s32 x, s32 y) {
     f32 scale;
-    if (is_camera_ctrl_active__6TLobbyFv() > 2) scale = 0.75f;
+    if (TLobby::is_camera_ctrl_active() > 2) scale = 0.75f;
     else scale = 1.0f;
     if (window == NULL) {
         window = set_text__18TWindowMessagePageFlll(x, y, 1);

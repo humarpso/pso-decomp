@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyAncient01.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void init_6x04_packet(u8 *arg0);
@@ -14,8 +16,6 @@ void TOKey__sub_8016AC8C(void);
 void TOKey__sub_8016AC90(void);
 int bswap_16__FPUs(void*);
 void bswap_6x05_switch_flag__5TOKeyFv(void* p);
-int read_be16_field2__10TObjPlayerFv(void*);
-void set_type__14TOKeyAncient01Fv(void* p);
 
 void TLobby::finalize_and_send_60() { bswap_6x05_switch_flag__5TOKeyFv(this); TLobby__send_and_handle_60(this); }
 void*TLobby::init_6x05_switch_changed() { init_6x04_packet((u8 *)((void*)(this))); *(unsigned char*)(this) = 5; *(unsigned char*)((char*)this + 0x1) = 3; return this; }

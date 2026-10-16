@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItemWpnCardEffect.h"
+#include "pso/misc/TNowLoading.h"
 
 struct RecoveredGlobal_8032DC94_lbl_8050BEC0
 {
@@ -24,7 +27,6 @@ extern const f32 lbl_805DF7E0;
 void TObjPlayer__sub_8032DD7C(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 *query_game_join_id__10TObjPlayerFv(s32 *);
-s32 get_entity_id__10TObjPlayerFv(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 notify_fish_if_valid__10TObjPlayerFUl();
 s32 rotate_matrix_y(int, int);
@@ -52,8 +54,6 @@ s32 get_attack_stage__11TItemWeaponFv(void *);
 void TItemWeapon__ct(void *);
 s16 get_validated_attack_stage(s32);
 void __dl__7TObjectFPv(void *);
-void destroy__18TItemWpnCardEffectFs(void *, int);
-s32 draw_icon__10TObjPlayerFll(void *, s32, s32 *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
@@ -65,7 +65,7 @@ extern s32 tl_05;
 void TObjPlayer::launch_guardianna_colliders() {
     s32 sp8;
 
-    draw_icon__10TObjPlayerFll(this, 4, &sp8);
+    draw_icon((s32)4, (s32)(&sp8));
     if (get_validated_attack_stage(*(s32 *)((s8 *)this + 0xF0) + 0x7CC) == 2) {
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)((s8 *)this + 0xF4), 0);
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)((s8 *)this + 0xF4), 0x1555);
@@ -118,7 +118,7 @@ void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1) {
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDD20;
-        destroy__18TItemWpnCardEffectFs(arg0, 0);
+        ((TItemWpnCardEffect *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -162,7 +162,7 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
         model_render_flags |= 0x20;
         set_chunk_material_color((int) var_r3);
         var_r3 = (s32 *) var_r31;
-        get_entity_id__10TObjPlayerFv((int) var_r3);
+        ((TObjPlayer *)var_r3)->get_entity_id();
         notify_fish_if_valid__10TObjPlayerFUl();
         push_matrix();
         var_r3 = (s32 *) (var_r29 + 0x64);
@@ -298,18 +298,14 @@ struct VObj_8032E11C : VBase_8032E11C {
 
 extern "C" {
 u32 create_particle_emitter(void *, int);
-s32 set_tint_color__13TParticleCtrlFl(u32, int);
-s32 set_position_xy__10TObjPlayerFff(u32, f32, f32);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_particle_effect(void *, int);
-s32 set_tint_color__13TParticleCtrlFl(u32, int);
 extern const f32 lbl_805DF7E8;
 void start_card_effect_flash(u8 *arg0);
 u8 *find_entity_by_id(u16);
 void anchor_card_effect(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 u32 find_item_by_id(s32);
 s8 TObjPlayer__sub_80102C30();
 void anchor_card_effect(u8 *arg0);
@@ -354,7 +350,7 @@ void TObjPlayer::start_card_effect_trail() {
     u8 *arg0 = (u8 *)this;
     *(u32 *)((s8 *)arg0 + 0x24) = create_particle_emitter((void *) (arg0 + 0x64), (int) (0x1B6));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-        set_tint_color__13TParticleCtrlFl(*(u32 *)((s8 *)arg0 + 0x24), (int) (-0x78));
+        ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x24)))->set_tint_color((int) (-0x78));
     }
 }
 #pragma pop
@@ -367,10 +363,10 @@ void start_card_effect_flash(u8 *arg0) {
     *(u32 *)((s8 *)arg0 + 0x1C) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x64), (void *) (arg0 + 0x54), (int) (0x1B9), (int) (0x104));
     p = *(u32 *)((s8 *)arg0 + 0x1C);
     if (p != 0U) {
-        set_position_xy__10TObjPlayerFff(p, (f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));
+        ((TObjPlayer *)p)->set_position_xy((f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));
         q = *(u32 *)((s8 *)arg0 + 0x50);
         if (q != 0U) {
-            set_tint_color__13TParticleCtrlFl((u32)(*(u32 *)((s8 *)arg0 + 0x1C)), (int)(q));
+            ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_tint_color((int)(q));
         }
     }
     spawn_particle_effect((void *) (arg0 + 0x64), (int) (0x30));
@@ -390,7 +386,7 @@ void run_card_effect(u8 *arg0) {
     anchor_card_effect(arg0);
     for (i = 0; i != 3; i++) {
         if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
-            copy_pos__11TNowLoadingFPv(((O_8032DFF8 *)arg0)->o[i], arg0 + 0x64);
+            ((TNowLoading *)(((O_8032DFF8 *)arg0)->o[i]))->copy_pos(arg0 + 0x64);
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x30) == 0) {

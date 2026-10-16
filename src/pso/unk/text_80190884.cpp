@@ -1,18 +1,18 @@
 #include "types.h"
 #include "pso/object/TObjEnvSound.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
 f32 xyz_distance_squared(void *, void *, void *);
 extern s32 camera_ctrl_instance;
 s32 fn_801908F8(s32 arg0, f32 farg0);
-s32 get_global_state__14TOKeyMachine01Fv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 }
 
 extern "C" {
 
 s32 TObjEnvSound::is_sound_enabled(void *self, s32 cue) {
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1 && get_global_state__14TOKeyMachine01Fv() == 2) {
+    if (TRaderMapCore::is_not_split_screen() == 1 && TOKeyMachine01::get_global_state() == 2) {
         switch (cue) {
         case 0x43704:
         case 0x4BC05:

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNowLoading.h"
 
 struct TBJ_8003688C { char pad[0x18]; };
 
@@ -252,7 +253,6 @@ typedef struct Laser_80037074 {
 
 extern "C" {
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
-void copy_pos__11TNowLoadingFPv(void *, Vec_80037074 *);
 void enable__13TParticleCtrlFPv(void *);
 void fn_802EED20(Laser_80037074 *self);
 }
@@ -277,7 +277,7 @@ void fn_802EED20(Laser_80037074 *self) {
             enable__13TParticleCtrlFPv(self->ptcl);
             break;
         case 1:
-            copy_pos__11TNowLoadingFPv(self->ptcl, &self->pts[self->cur]);
+            ((TNowLoading *)(self->ptcl))->copy_pos(&self->pts[self->cur]);
             self->cur++;
             if (self->cur >= 20) {
                 self->cur = 0;

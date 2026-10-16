@@ -11,6 +11,9 @@ struct VObj_18 : VBase_18 {
 
 #include <stddef.h>
 #include "pso/misc/TTecPlayerInfluence.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/misc/TTecRaFoie.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_80237194 {
     s32 sp8;
     s32 spC;
@@ -160,7 +163,6 @@ void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
 void *construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void *__nw__7TObjectFUl(u32);
-int get_level_tier__10TObjPlayerFl(s32);
 extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
@@ -168,7 +170,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, void *, int, f32);
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect(void *, int);
 void *create_particle_emitter(void *, int);
 void **mem_alloc(int);
@@ -180,7 +181,6 @@ extern const f32 lbl_805DC8C0;
 extern const f32 lbl_805DC8C4;
 void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
-void copy_params__8TTecAntiFPUc(void *, s32);
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
@@ -196,7 +196,6 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
-s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
 void TTecPlayerInfluence::render() {
@@ -263,7 +262,7 @@ Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner,
   {
     self->level = level;
   }
-  self->tier = get_level_tier__10TObjPlayerFl(self->level);
+  self->tier = TObjPlayer::get_level_tier(self->level);
   self->f64 = (3.0f);
   self->f70 = (9e+01f);
   self->f3c = (1.0f);

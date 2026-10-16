@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/ui/TAdSnAkPassConfirmGC.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowOptionCtrl.h"
+#include "pso/ui/TAdYesNoBaseGC.h"
 
 struct Base_8032BE50_8032BE48 { char pad[0x18]; };
 struct VObj_8032BE50_8032BE48 : Base_8032BE50_8032BE48 {
@@ -32,12 +35,9 @@ struct VObj_8032BF64_8032BE48 : Base_8032BF64_8032BE48 {
 struct Obj_8032C004 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x48 - 0x1C]; s32 f48; };
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 void TAdYesNoBaseGC__vt7(void *self);
 void *__nw__7TObjectFUl(u32);
-s32 create_serial_info_window__17TWindowOptionCtrlFl(void *, int);
 void __ct__10TAdTitleGCFv(void *, void *, int);
-void init_parts__14TAdYesNoBaseGCFPvPv(void *, void *, void *);
 void TAdYesNoBaseGC__ct(void *);
 extern u8 lbl_804772C0[];
 extern u8 lbl_804772C8[];
@@ -104,13 +104,13 @@ Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0) {
     if (p != 0) {
         __ct__10TAdTitleGCFv(p, arg0, 0x11);
     }
-    arg0->f48 = create_serial_info_window__17TWindowOptionCtrlFl(lbl_804772C0, 0);
-    init_parts__14TAdYesNoBaseGCFPvPv(arg0, lbl_804772C8, lbl_804772D0);
+    arg0->f48 = ((TWindowOptionCtrl *)lbl_804772C0)->create_serial_info_window(0);
+    ((TAdYesNoBaseGC *)arg0)->init_parts(lbl_804772C8, lbl_804772D0);
     return arg0;
 }
 
 void TAdYesNoBaseGC__vt7(void *self) {
-    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    if (TMainTask::get_state_flag() == 1) { return;
     }
 }
 

@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOSensorGeneral01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80442A38[];
@@ -56,23 +61,18 @@ struct VObj_801763E4 : Base_801763E4 {
 
 extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
 extern u32 sensor_general_shared_bml_archive;
 extern s32 *TOSensorGeneral01__texture_lists;
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 extern s32 *TOSensorGeneral01__texture_lists;
-s32 init_switch_id__5TOKeyFv(void *);
 s32 TOSensor__ct(void *, void *);
 extern s32 __vt__17TOSensorGeneral01[];
 extern s32 lbl_805D3154;
@@ -91,7 +91,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__8TOSensorFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
-s32 free_if_valid__10TObjPlayerFl(s32);
 
 void TOSensorGeneral01__vt15(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x147);
@@ -144,27 +143,27 @@ void TOSensorGeneral01::render() {
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         n = *(Node_801760A8 **)((s8 *)arg0 + 0x34);
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFl(TOSensorGeneral01__texture_lists[0]);
+        TObjFish::set_global_param(TOSensorGeneral01__texture_lists[0]);
         draw_ginja_model(n->model);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         n = n->child;
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFl(TOSensorGeneral01__texture_lists[*(s32 *)((s8 *)arg0 + 0xEC) < 1]);
+        TObjFish::set_global_param(TOSensorGeneral01__texture_lists[*(s32 *)((s8 *)arg0 + 0xEC) < 1]);
         draw_ginja_model(n->model);
         n = n->next;
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFl(TOSensorGeneral01__texture_lists[*(s32 *)((s8 *)arg0 + 0xEC) < 2]);
+        TObjFish::set_global_param(TOSensorGeneral01__texture_lists[*(s32 *)((s8 *)arg0 + 0xEC) < 2]);
         draw_ginja_model(n->model);
         n = n->next;
         translate_matrix(0, n->x, n->y, n->z);
-        set_global_param__8TObjFishFl(TOSensorGeneral01__texture_lists[*(s32 *)((s8 *)arg0 + 0xEC) < 3]);
+        TObjFish::set_global_param(TOSensorGeneral01__texture_lists[*(s32 *)((s8 *)arg0 + 0xEC) < 3]);
         draw_ginja_model(n->model);
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         n = n->next;
         push_matrix();
         translate_matrix(0, n->x, n->y, n->z);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xE8));
-        set_global_param__8TObjFishFl(TOSensorGeneral01__texture_lists[1]);
+        TObjFish::set_global_param(TOSensorGeneral01__texture_lists[1]);
         draw_ginja_model(n->model);
         pop_matrix();
         pop_matrix();
@@ -184,7 +183,7 @@ extern s32 *TOSensorGeneral01__texture_lists;
 
 void TOSensorGeneral01::free_rocks() {
     if ((s32 *) TOSensorGeneral01__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFl(*TOSensorGeneral01__texture_lists);
+        TObjPlayer::free_if_valid(*TOSensorGeneral01__texture_lists);
         if ((s32 *) TOSensorGeneral01__texture_lists != NULL) {
             mem_free((void*)TOSensorGeneral01__texture_lists);
             TOSensorGeneral01__texture_lists = NULL;
@@ -204,7 +203,7 @@ void TOSensorGeneral01::load_assets() {
     s32 *temp_r3_2;
     u8 *temp_r3;
     u8 *var_r0;
-    temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv(0x440));
+    temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &TOSensorGeneral01__resource_descriptor, 0, 0, 0));
@@ -231,7 +230,7 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOSensorGeneral01;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3154;
     ((VObj_801763E4 *)arg0)->m5(arg2);
-    init_switch_id__5TOKeyFv(arg0);
+    ((TOKey *)arg0)->init_switch_id();
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TOSensorGeneral01__texture_lists;
     *(void **)((s8 *)arg0 + 0x34) = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
     *(f32 *)((s8 *)arg0 + 0xC0) = 400.0f;

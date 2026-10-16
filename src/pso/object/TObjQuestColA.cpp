@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestCol.h"
 
 extern "C" {
 
@@ -14,7 +15,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
-s32 update_trigger_state__12TObjQuestColFf(void *, f32);
 
 void TObjQuestColA__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
@@ -35,7 +35,7 @@ s32 TObjQuestColA__vt13(void *arg0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
-        temp_r3_2 = update_trigger_state__12TObjQuestColFf(arg0, *(f32 *)((s8 *)arg0 + 0xAC));
+        temp_r3_2 = ((TObjQuestCol *)arg0)->update_trigger_state(*(f32 *)((s8 *)arg0 + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }

@@ -3,9 +3,7 @@
 
 extern "C" {
 
-void clear_slots__9TItemLoadFv(void *);
 void __ct__7TObjectFP7TObject(void *);
-s32 update_state__9TItemLoadFv(void *);
 
 extern s32 lbl_8049F3F4[];
 
@@ -16,7 +14,7 @@ void *TItemLoad::init(void *arg1, void *arg2, void *arg3, void *arg4) {
     *(u32 *)((s8 *)this + 0x20) = 0;
     *(void **)((s8 *)this + 0x24) = arg3;
     *(void **)((s8 *)this + 0x28) = arg4;
-    clear_slots__9TItemLoadFv((void *)((char *)this + 44));
+    ((TItemLoad *)((char *)this + 44))->clear_slots();
     *(u32 *)((s8 *)this + 0x20) = 1;
     return this;
 }
@@ -28,11 +26,11 @@ void TItemLoad::update_all() {
     void *temp_r3;
     temp_r3 = item_texture_archive_loader;
     if (temp_r3 != 0) {
-        update_state__9TItemLoadFv(temp_r3);
+        ((TItemLoad *)temp_r3)->update_state();
     }
     temp_r3 = item_model_chunk_loader;
     if (temp_r3 != 0) {
-        update_state__9TItemLoadFv(temp_r3);
+        ((TItemLoad *)temp_r3)->update_state();
     }
 }
 

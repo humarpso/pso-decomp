@@ -17,6 +17,8 @@ struct RecoveredGlobal_80233350___vt__10TTecGrants {
 
 #include <stddef.h>
 #include "pso/misc/TTecGrants.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_802384E0 {
     s32 sp8;
     f32 spC;
@@ -87,17 +89,13 @@ struct VObj_802386F8 : VBase_802386F8 {
 extern "C" {
 u8 * find_entity_by_id(u16);
 u8 * construct_grants_effect__12TBoss3VoloptFPvPviPv(void *, s32, s32, s32);
-s32 is_parents_unqueued__9TTecLukerFUl(u32);
-s32 is_valid_and_active__10TObjPlayerFUl(u32);
 s32 queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_07;
 void run_task__10TTecGrantsFv(u8 *arg0);
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 copy_technique_target_list(void *, void *);
 s32 init_technique_effect_base(void *, void *, void *, void *);
-s32 init_parameters__10TTecGrantsFv(void *);
 extern s32 __vt__10TTecGrants[];
 extern s32 lbl_805D37D0;
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -150,7 +148,7 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
         return;
     }
     temp_r3 = (unsigned long) (find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xF0)));
-    if ((is_parents_unqueued__9TTecLukerFUl(temp_r3) != 0) && (is_valid_and_active__10TObjPlayerFUl(temp_r3) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x148) == 0)) {
+    if ((TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x148) == 0)) {
         temp_r3_2 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x3C))));
         if (temp_r3_2 != NULL) {
             construct_grants_effect__12TBoss3VoloptFPvPviPv(temp_r3_2, (s32) temp_r3, (s32) *(s16 *)((s8 *)arg0 + 0x78), tl_07);
@@ -158,7 +156,7 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
     }
     *(s32 *)((s8 *)arg0 + 0x148) = (s32) (*(s32 *)((s8 *)arg0 + 0x148) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x148) > 0x1E) {
-        if ((temp_r3 != 0) && (is_parents_unqueued__9TTecLukerFUl(temp_r3) != 0) && (is_valid_and_active__10TObjPlayerFUl(temp_r3) != 0)) {
+        if ((temp_r3 != 0) && (TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0)) {
             ((VObj_18_4560ce *)(arg0))->m4(temp_r3);
         }
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -180,9 +178,9 @@ u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
     init_technique_effect_base((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233350___vt__10TTecGrants *)&__vt__10TTecGrants).value;
-    construct_target_cursor_records__10TObjPlayerFv((void *) (arg0 + 0xEC));
+    ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D37D0;
-    init_parameters__10TTecGrantsFv((void *) (arg0));
+    ((TTecGrants *)arg0)->init_parameters();
     copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
     *(s32 *)((s8 *)arg0 + 0x148) = 0;
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);

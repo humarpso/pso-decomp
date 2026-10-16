@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
 extern int active_character_save_record;
@@ -25,7 +26,6 @@ s32 queue_destruction__7TObjectFv(void*);
 extern u32 ad_single_ply_chr_select_instance;
 extern u32 ad_single_ply_chr_select_instance;
 void TAdSinglePlyChrSelectGC__sub_801C5158(void);
-s32 get_global_state__14TOKeyMachine01Fv();
 u32 __nw__7TObjectFUl(s32);
 u32 fn_801C5380(void *, s32);
 extern u32 ad_single_ply_chr_select_instance;
@@ -65,7 +65,7 @@ void TAdSinglePlyChrSelectGC__sub_801C5158(void) { (*(int *)&ad_single_ply_chr_s
 s32 TAdSinglePlyChrSelectGC::create_if_key_pressed() {
     s32 temp_r3;
     u32 var_r0;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
         return 0;
     }

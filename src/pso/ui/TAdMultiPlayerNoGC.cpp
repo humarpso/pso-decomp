@@ -1,6 +1,8 @@
 #include "pso/TAdMultiPlayerNoGC.h"
 
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct Self_8033A668 {
     s32 f0;
@@ -33,19 +35,17 @@ s32 draw_textured_quad_at_depth(s32, f32);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32);
 int set_cached_blend_factor(void*, void*);
-s32 get_player__20TWindowSubStatusDispFv();
 int get_state_flag__9TMainTaskFv(void*);
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 lbl_805D6D78;
 
 void TAdMultiPlayerNoGC::render_status() {
     s32 arg0 = (s32)this;
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D6D78);
+    TObjFish::set_global_param(lbl_805D6D78);
     set_draw_texture_and_color(0, -1);
     draw_textured_quad_at_depth(arg0 + 0x20, (0.25f));
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 void TAdMultiPlayerNoGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status(); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowSubLog.h"
+#include "pso/misc/TWindowChat.h"
+#include "pso/ui/TAdScrollWinGC.h"
 
 struct VBase_18_204a81 { char pad[0x18]; };
 
@@ -30,10 +32,7 @@ s32 is_on_current_screen__11TCameraCtrlFv(int, int);
 s32 play_sound_effect(int, int, int, int);
 s32 TWindowCtrl__sub_8024701C(int);
 s32 TWindowChat__sub_80247DFC(int);
-s32 is_visible__11TWindowChatFv(int);
 s32 TWindowChat__sub_80247E50(int);
-s32 is_mode_bit4__11TWindowChatFv(int);
-s32 advance_scroll__14TAdScrollWinGCFf(void *, f32);
 s32 fn_8026A61C(void *, f32);
 s32 TWindowSubLog__sub_8026A664(void *, f32);
 extern RecoveredGlobal_8027AF58_lbl_8050E208 controller_input_state;
@@ -78,10 +77,10 @@ void TWindowSubLog::run_task() {
     u8 *temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
-    if ((is_mode_bit4__11TWindowChatFv((int) (*(s32 *)((s8 *)arg0 + 0x28))) != 0) && (chat_accept_submission((void *) (arg0 + 0x2C)) != 0)) {
+    if ((((TWindowChat *)(*(s32 *)((s8 *)arg0 + 0x28)))->is_mode_bit4() != 0) && (chat_accept_submission((void *) (arg0 + 0x2C)) != 0)) {
         TWindowChat__sub_80247E50((int) (*(s32 *)((s8 *)arg0 + 0x28)));
     }
-    if (is_visible__11TWindowChatFv((int) (*(s32 *)((s8 *)arg0 + 0x28))) != 0) {
+    if (((TWindowChat *)(*(s32 *)((s8 *)arg0 + 0x28)))->is_visible() != 0) {
         TWindowChat__sub_80247DFC((int) (*(s32 *)((s8 *)arg0 + 0x28)));
     }
     if (TWindowCtrl__sub_8024701C((int) (*(s32 *)((s8 *)arg0 + 0x28))) != 0) {
@@ -94,7 +93,7 @@ void TWindowSubLog::run_task() {
         fn_8026A61C((void *) (*(u8 **)((s8 *)arg0 + 0x24)), (f32) (lbl_805DD640));
     }
     if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x20)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20)) != 0)) {
-        advance_scroll__14TAdScrollWinGCFf((void *) (*(u8 **)((s8 *)arg0 + 0x24)), (f32) (lbl_805DD644));
+        ((TAdScrollWinGC *)(*(u8 **)((s8 *)arg0 + 0x24)))->advance_scroll((f32) (lbl_805DD644));
     }
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x24));
     if ((*(f32 *)((s8 *)temp_r3 + 0x3C) == *(f32 *)((s8 *)temp_r3 + 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0))) {

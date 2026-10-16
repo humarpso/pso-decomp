@@ -27,7 +27,6 @@ struct DateStamp_801E2B24 {
 };
 
 extern "C" {
-void render_model_tree__10TObjPlayerFPv(void *arg0);
 void bind_motion_blend_channels(void *);
 void prepare_ginja_model(void *);
 void end_ginja_model_draw();
@@ -93,7 +92,7 @@ void TObjPlayer::draw_ginja_model_tree(void *arg1) {
     void *g = model_draw_context;
     *(void (**)())((s8 *)g + 0xC) = draw_ginja_model_lists;
     prepare_ginja_model(g);
-    render_model_tree__10TObjPlayerFPv(this);
+    TObjPlayer::render_model_tree(this);
     end_ginja_model_draw();
 }
 

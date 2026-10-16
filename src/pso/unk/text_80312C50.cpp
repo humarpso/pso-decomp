@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TWindowCtrl.h"
 
 struct B_80312D4C { char pad[0x18]; };
 
@@ -12,39 +13,28 @@ extern "C" {
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_80313218(void* p);
 u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
-void set_field_2__10TObjPlayerFs(void *, s16);
-void set_type__10TObjPlayerFs(void *, s16);
 u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
-int check_flag_at_4__10TObjPlayerFv(void* p);
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2);
 void *get_player_by_client_id(s32);
-void trigger_photon_blast__10TObjPlayerFv(void *);
-void check_photon_blast_flag__10TObjPlayerFv(void *);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_803131AC(void* a0);
 void release_photon_blast_requests(void *registry);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_803131AC(void* a0);
-int process_indexed_element__10TObjPlayerFl(void* a0, void* a1);
 void TObjPlayer__sub_80312E98(void *o, u16 id);
-u16 get_entity_type__10TObjPlayerFv(void *);
 void *TObjPlayer__sub_803131B4(void *, int);
 void set_field_0__10TObjPlayerFs(void* p, int v);
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
-int get_max_children__10TObjPlayerFPv(void* a0);
 void TObjPlayer__sub_80313010(void *o, s32 id);
 s32 get_section_id__10TObjPlayerFv(void *);
 void *get_player_by_client_id(s32);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
-void create_party_effect__11TWindowCtrlFPvPv(s32, s32);
 void TObjPlayer__sub_80313010(void *o, s32 id);
-int query_field40__10TObjPlayerFv(void* p);
 int TObjPlayer__sub_803131AC(void* a0);
 extern const f32 lbl_805DF248;
 s32 get_section_id__10TObjPlayerFv(void *);
 void *get_player_by_client_id(s32);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
-int query_field40__10TObjPlayerFv(void* p);
 int TObjPlayer__sub_803131AC(void* a0);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_803131AC(void* a0);
@@ -59,12 +49,6 @@ int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int TObjPlayer__sub_803131AC(void* a0 = 0);
 int TObjPlayer__sub_80313218(void* p);
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
-int check_flag_at_4__10TObjPlayerFv(void* p);
-int get_max_children__10TObjPlayerFPv(void* a0 = 0);
-int process_indexed_element__10TObjPlayerFl(void* a0 = 0, void* a1 = 0);
-int query_field40__10TObjPlayerFv(void* p);
-int set_flags__10TObjPlayerFUl(void*, int);
-void update_children__10TObjPlayerFv(void* p);
 
 void release_photon_blast_requests(void *registry) {
     s32 count;
@@ -76,8 +60,8 @@ void release_photon_blast_requests(void *registry) {
         if (player != 0xFFFF) {
             owner = (u8 *)get_player_by_client_id(player);
             if (owner != NULL) {
-                check_photon_blast_flag__10TObjPlayerFv(owner + 0x4AC);
-                trigger_photon_blast__10TObjPlayerFv(owner + 0x4AC);
+                ((TObjPlayer *)(owner + 0x4AC))->check_photon_blast_flag();
+                ((TObjPlayer *)(owner + 0x4AC))->trigger_photon_blast();
             }
         }
     }
@@ -108,8 +92,8 @@ void TObjPlayer::create_party_effects(s32 id) {
         e = get_element__10TObjPlayerFPvi(this, i);
         sec = get_section_id__10TObjPlayerFv(e);
         ent = (Ply_80312D4C *)get_player_by_client_id((u16)sec);
-        if (ent != NULL && (u16)id != (u16)sec && query_field40__10TObjPlayerFv((void*)((u8 *)ent + 0x4AC)) != 0) {
-            create_party_effect__11TWindowCtrlFPvPv(id, sec);
+        if (ent != NULL && (u16)id != (u16)sec && ((TObjPlayer *)((u8 *)ent + 0x4AC))->query_field40() != 0) {
+            TWindowCtrl::create_party_effect((void*)id, (void*)sec);
             TObjPlayer__sub_80313010(e, id);
             ent->m75(lbl_805DF248);
         }
@@ -126,7 +110,7 @@ u16 TObjPlayer::find_first_valid_target_id() {
     for (i = 0; i < n; i++) {
         e = get_element__10TObjPlayerFPvi(this, i);
         ent = (u8 *)get_player_by_client_id(((SectionFn_80312E0C)get_section_id__10TObjPlayerFv)(e));
-        if (ent != NULL && query_field40__10TObjPlayerFv((void*)(ent + 0x4AC)) != 0) {
+        if (ent != NULL && ((TObjPlayer *)(ent + 0x4AC))->query_field40() != 0) {
             return ((SectionFn_80312E0C)get_section_id__10TObjPlayerFv)(e);
         }
     }
@@ -138,20 +122,20 @@ void TObjPlayer__sub_80312E98(void *o, u16 id) {
     s32 i;
     for (i = 0; i < n; i++) {
         if (id == ((u16)get_section_id__10TObjPlayerFv(get_element__10TObjPlayerFPvi(o, i)))) {
-            process_indexed_element__10TObjPlayerFl((void*)(o), (void*)((void *)i));
+            ((TObjPlayer *)o)->process_indexed_element((s32)((void*)((void *)i)));
         }
     }
 }
 
-void TObjPlayer::process_all_elements() { { int n = TObjPlayer__sub_803131AC(this); int i; for (i = 0; i < n; i++) { process_indexed_element__10TObjPlayerFl(this, (void*)i); } } }
+void TObjPlayer::process_all_elements() { { int n = TObjPlayer__sub_803131AC(this); int i; for (i = 0; i < n; i++) { process_indexed_element((s32)((void*)i)); } } }
 
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2) {
     s32 temp_r3;
     temp_r3 = ((s32)TObjPlayer__sub_80312FB0((u8 *)(arg0)));
     if (temp_r3 != 0) {
-        check_flag_at_4__10TObjPlayerFv((void*)((void *) temp_r3));
-        set_type__10TObjPlayerFs((void *) temp_r3, arg1);
-        set_field_2__10TObjPlayerFs((void *) temp_r3, arg2);
+        ((TObjPlayer *)temp_r3)->check_flag_at_4();
+        ((TObjPlayer *)temp_r3)->set_type(arg1);
+        ((TObjPlayer *)temp_r3)->set_field_2(arg2);
     }
 }
 
@@ -174,14 +158,14 @@ void TObjPlayer__sub_80313010(void *o, s32 id) {
     s32 n;
     s32 i;
     void *e;
-    n = get_max_children__10TObjPlayerFPv((void*)(o));
+    n = TObjPlayer::get_max_children((void*)(o));
     for (i = 0; i < n; i++) {
         e = TObjPlayer__sub_803131B4(o, i);
-        if ((u16)id == get_entity_type__10TObjPlayerFv(e)) {
+        if ((u16)id == ((TObjPlayer *)e)->get_entity_type()) {
             TObjPlayer__sub_80313250(e, 10);
             return;
         }
-        if (get_entity_type__10TObjPlayerFv(e) == 0xFFFF) {
+        if (((TObjPlayer *)e)->get_entity_type() == 0xFFFF) {
             set_field_0__10TObjPlayerFs((void*)(e), (int)(id));
             TObjPlayer__sub_80313250(e, 10);
             return;

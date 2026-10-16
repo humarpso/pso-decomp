@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
+#include "pso/TAdRicoRing.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC {
     s32 value;
@@ -18,7 +22,6 @@ extern s32 __vt__19TAdPlyPltAnimCtrlGC[];
 extern s32 lbl_805D4390;
 u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1);
 s32 TAdPlyPltAnimCtrlGC__sub_80355148(O_80355148 *self);
-s32 get_state_flag__9TMainTaskFv();
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(void *, void *);
 extern u32 ply_plt_anim_time_threshold_table[];
 }
@@ -35,25 +38,15 @@ s32 __dl__7TObjectFPv(void *);
 int __dl__FPv();
 s32 __dt__7TObjectFv(void *, s32);
 u32 __nw__7TObjectFUl(s32);
-int clear_flags__11TAdRicoRingFUl(void*, int);
-int clear_id__10TObjPlayerFv(void*);
-int clear_lock_flag__10TObjPlayerFv(void* p);
-int copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void*, void*);
 s32 get_quest_thread_id__10TObjPlayerFPv(void* p);
 void* init_and_reset_forward__10TObjPlayerFPv(void* p);
-int init_forward__10TObjPlayerFv(void*);
-void reset_field4__10TObjPlayerFv(void* p);
-int set_flag0_bits01__10TObjPlayerFv(void* p);
-int set_flag1__10TObjPlayerFv(void* p);
-int set_flags__10TObjPlayerFUl(void*, int);
-void set_player_index__10TObjPlayerFl(void* p, s32 v);
 
 u8 fn_8035510C(s32 *arg0, s32 arg1) {
     return (u8) (arg1 == (arg1 & *arg0));
 }
 
 void TAdPlyPltAnimCtrlGC::render(void *self) {
-    if (get_state_flag__9TMainTaskFv() == 1) {
+    if (TMainTask::get_state_flag() == 1) {
         return;
     }
 }
@@ -79,7 +72,7 @@ void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
     } while (var_r31 < 5);
 }
 
-void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(this))); copy_vec2__28TWindowSubSymbolChatPartsSetFPv((char*)this + 0x24, a1); *(int*)((char*)this + 0x1c) = 1; }
+void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(this))); ((TWindowSubSymbolChatPartsSet *)((char*)this + 0x24))->copy_vec2(a1); *(int*)((char*)this + 0x1c) = 1; }
 
 extern s32 __vt__19TAdPlyPltAnimCtrlGC[];
 extern u32 plyplt_anim_ctrl_instance;

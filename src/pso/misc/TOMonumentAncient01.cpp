@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOMonumentAncient01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 
@@ -13,9 +15,6 @@ s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 void TOMonumentAncient01__vt14(void) {  }
 
@@ -24,18 +23,18 @@ extern s32 TOMonumentAncient01__resource_bundle;
 void TOMonumentAncient01::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj1_8017262C*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) == 1) {
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         get_bml_model(TOMonumentAncient01__resource_bundle, 2);
         draw_ginja_object();
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         get_bml_model(TOMonumentAncient01__resource_bundle, 1);
         draw_ginja_object();
         get_bml_model(TOMonumentAncient01__resource_bundle, 0);
         draw_ginja_object();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }

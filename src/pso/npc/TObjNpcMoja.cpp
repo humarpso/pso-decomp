@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/npc/TObjNpcNFM00.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_8014C780 { char pad[0x18]; };
 struct VObj_8014C780 : VBase_8014C780 {
@@ -105,7 +108,6 @@ extern "C" {
 void * TObjNpcNFM00__create(void *arg0);
 void * create__11TObjNpcMojaFPv(void *arg0);
 void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1);
-void free_nodes_with_id__6TLobbyFUl(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMoja__ct(void *, void *, void *);
@@ -113,17 +115,12 @@ void *TObjNpcNFM00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjNpcBaseFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
-void init_position_vectors__10TObjPlayerFv(void *);
-void update_prev_position__10TObjPlayerFv(void *);
-void init_npc_animation__10TObjPlayerFPvPvPv(void *, void *, s32, s32);
 void TObjNpcBase__ct(void *, void *);
-void reset_photon_effect__10TObjPlayerFv(void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 npc_default_battle_stats[];
 extern u8 npc_movement_parameters[];
@@ -159,7 +156,6 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
@@ -189,7 +185,6 @@ extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void handle_message_event__17TObjNpcFemaleBaseFUs();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
 extern "C" void play_voice__11TObjNpcBaseFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
@@ -201,9 +196,6 @@ extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void run_task__11TObjNpcBaseFPv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
-extern "C" void test_flag_256__10TObjPlayerFPv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
 extern "C" void try_start_action__10TObjPlayerFPvii();
 extern "C" void update_action_hold_status__10TObjPlayerFv();
@@ -236,13 +228,13 @@ void *__vt__11TObjNpcMoja[95] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&update_battle_target__10TObjPlayerFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjNpcFemaleBase__sub_80147CD4, (void *)&test_flag_256__10TObjPlayerFPv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&update_battle_target__10TObjPlayerFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjNpcFemaleBase__sub_80147CD4, (void *)&TObjPlayer::test_flag_256,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&deactivateIdleMode__11TObjNpcBaseFv, (void *)&activate_idle_mode__11TObjNpcBaseFv,
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjPlayer__sub_8001488C, (void *)&TObjPlayer__sub_80014888, (void *)&TObjPlayer__sub_80014884,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
@@ -291,16 +283,16 @@ void *TObjNpcMoja__ct(void *selfv, void *parent, void *arg2v) {
     *(u8 **)(self + 0x18) = (u8 *)__vt__11TObjNpcMoja;
     *(s32 *)(self + 0) = TObjNpcMoja__name;
     ((VObj_8014C780 *)self)->m79(arg2);
-    init_position_vectors__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->init_position_vectors();
     ((VObj_8014C780 *)self)->m85(0, 1);
     *(s32 *)(self + 0x34) = get_bml_model(lbl_805D50D8, 0);
     *(s32 *)(self + 0x24) = TObjFish__sub_8001EDB0(lbl_805D50D8, 0);
-    init_npc_animation__10TObjPlayerFPvPvPv(self, lbl_804AABB8, *(s32 *)(lbl_805D50D8 + 0x430), *(s16 *)(self + 0xB8));
+    ((TObjPlayer *)self)->init_npc_animation((void*)lbl_804AABB8, (void*)(*(s32 *)(lbl_805D50D8 + 0x430)), (void*)(*(s16 *)(self + 0xB8)));
     *(u8 **)(self + 0x350) = npc_movement_parameters;
     set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
     init_collision_body_parts(self, lbl_804AABD8, 1);
-    reset_photon_effect__10TObjPlayerFv(self);
-    update_prev_position__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->reset_photon_effect();
+    ((TObjPlayer *)self)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(self);
     return self;
 }
@@ -330,11 +322,11 @@ extern u32 TObjNpcNFM00__texture_gvm_handle;
 void TObjNpcNFM00::free_resources() {
     if ((u32) TObjNpcNFM00__texture_gvm_handle != 0U) {
         TLobby__sub_803DA16C((void*)TObjNpcNFM00__texture_gvm_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TObjNpcNFM00__texture_gvm_handle);
+        TAdSinglePlyChrSelectGC::safe_free(TObjNpcNFM00__texture_gvm_handle);
         TObjNpcNFM00__texture_gvm_handle = 0U;
     }
     if ((u32) TObjNpcNFM00__shared_named_model_object != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)TObjNpcNFM00__shared_named_model_object);
+        TLobby::free_nodes_with_id((u32)((void*)TObjNpcNFM00__shared_named_model_object));
         TObjNpcNFM00__shared_named_model_object = 0U;
     }
 }

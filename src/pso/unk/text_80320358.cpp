@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TScene.h"
 
 struct S_80320358 {
     void *a;
@@ -6,7 +7,6 @@ struct S_80320358 {
 };
 
 extern "C" {
-s32 update_lobby_scene__6TSceneFv(void *);
 s32 read_disc_file(void *, void *);
 u8 *fn_803204B0(void *);
 s32 OSLink(void *, void *);
@@ -52,7 +52,7 @@ u8 *load_rel_module(u8 *arg0, s32 arg1) {
     u32 size2;
     *(void **)((s8 *)arg0 + 0) = NULL;
     *(void **)((s8 *)arg0 + 4) = NULL;
-    size = update_lobby_scene__6TSceneFv((void *) (arg1));
+    size = ((TScene *)arg1)->update_lobby_scene();
     if (size > 0) {
         *(void **)((s8 *)arg0 + 4) = xmalloc__FUl(size);
         if ((void *) *(void **)((s8 *)arg0 + 4) == NULL) {

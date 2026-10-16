@@ -12,6 +12,8 @@ struct RecoveredGlobal_80236290_lbl_80516150 {
 
 #include "pso/technique/TechniqueContact.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Vec_80236154 { f32 x, y, z; };
 
@@ -105,9 +107,6 @@ u32 find_actor_body_contact(void *, int, f32);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-s32 get_game_mode__6TLobbyFv();
-s32 get_lobby_flag__6TLobbyFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC898;
 extern const f32 lbl_805DC89C;
 s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
@@ -116,9 +115,6 @@ u32 find_actor_body_contact(void *, int, f32);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-s32 get_game_mode__6TLobbyFv();
-s32 get_lobby_flag__6TLobbyFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC898;
 u16 obj_getField1c(void *);
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3);
@@ -128,8 +124,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
-s32 get_lobby_flag__6TLobbyFv();
-s32 get_field_3e4__10TObjPlayerFv(void *);
 u8 *find_entity_by_id(u16);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
@@ -140,11 +134,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
-s32 get_game_mode__6TLobbyFv();
-s32 get_lobby_flag__6TLobbyFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 f32 vector_length(void *);
-void copy_xyz__10TObjPlayerFPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 u8 *query_technique_enemy_contacts(void *self, s32 arg);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
@@ -157,10 +147,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
-s32 get_lobby_flag__6TLobbyFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 f32 vector_length(void *);
-void copy_xyz__10TObjPlayerFPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 u8 *query_technique_player_contacts(void *self, s32 arg);
 }
@@ -188,7 +175,7 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     s32 i;
     PlayerData_80236154 *pd;
     Contact_80236154 *c;
-    if (get_global_state__14TOKeyMachine01Fv() == 0xE) {
+    if (TOKeyMachine01::get_global_state() == 0xE) {
         range = lbl_805DC898;
     } else {
         range = lbl_805DC89C;
@@ -199,7 +186,7 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
         return (s32)&technique_contact_query_results;
     }
     VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
-    for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
+    for (i = TLobby::get_game_mode(); i < TLobby::get_lobby_flag(); i++) {
         pd = get_player_data__10TObjPlayerFi(i);
         if (pd != 0 && (pd->flags & 0x20000000)) {
             c = (Contact_80236154 *)find_actor_body_contact((void *)target, (int)pd, range);
@@ -249,7 +236,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
     PD_80236378 *pd;
     s32 i;
     Contact_80236378 *c;
-    if (get_global_state__14TOKeyMachine01Fv() == 0xE) {
+    if (TOKeyMachine01::get_global_state() == 0xE) {
         range = lbl_805DC898;
     } else {
         range = lbl_805DC898;
@@ -260,7 +247,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
         return (s32)&technique_contact_query_results;
     }
     VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
-    for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
+    for (i = TLobby::get_game_mode(); i < TLobby::get_lobby_flag(); i++) {
         pd = (PD_80236378 *)get_player_data__10TObjPlayerFi(i);
         if (pd != 0 && (pd->flags & 0x20000000) && obj_getField1c(pd) != obj_getField1c(arg3)) {
             c = (Contact_80236378 *)find_actor_body_contact((void *)target, (int)pd, range);
@@ -293,13 +280,13 @@ s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
     }
     VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
     if (obj_getField1c(arg3) < 4) {
-        n = get_lobby_flag__6TLobbyFv();
+        n = TLobby::get_lobby_flag();
         for (i = 0; i < n; i++) {
             pd = (PD_802364D8 *)get_player_data__10TObjPlayerFi(i);
             if (pd != 0 && obj_getField1c(pd) != obj_getField1c(arg3)) {
                 ok = 1;
                 if (obj_getField1c(pd) < 4) {
-                    if (get_field_3e4__10TObjPlayerFv(arg3) == get_field_3e4__10TObjPlayerFv(pd)) {
+                    if (((TObjPlayer *)arg3)->get_field_3e4() == ((TObjPlayer *)pd)->get_field_3e4()) {
                         ok = 1;
                     } else {
                         ok = 0;
@@ -366,7 +353,7 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
     s32 i;
     Contact_802367D8 *c;
     Self_802367D8 *s = (Self_802367D8 *)self;
-    if (get_global_state__14TOKeyMachine01Fv() == 0xE) {
+    if (TOKeyMachine01::get_global_state() == 0xE) {
         range = lbl_805DC898;
     } else {
         range = lbl_805DC89C;
@@ -389,8 +376,8 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
     pos.y = lbl_805DC890 * (pos.y + pp[1]);
     pos.z = lbl_805DC890 * (pos.z + pp[2]);
     VecCopy__FP3VecPC3Vec((u8 *)s->proxy + 0x38, &pos);
-    copy_xyz__10TObjPlayerFPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
-    for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
+    ((TObjPlayer *)((u8 *)s->proxy + 0x5C))->copy_xyz((u8 *)self + 0x54);
+    for (i = TLobby::get_game_mode(); i < TLobby::get_lobby_flag(); i++) {
         pd = (PD_802367D8 *)get_player_data__10TObjPlayerFi(i);
         if (pd == 0) continue;
         if (pd->flags & 0x20000000) {
@@ -425,7 +412,7 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
     Contact_80236A20 *c;
     s32 j;
     Self_80236A20 *s = (Self_80236A20 *)self;
-    if (get_global_state__14TOKeyMachine01Fv() == 0xE) {
+    if (TOKeyMachine01::get_global_state() == 0xE) {
         range = lbl_805DC898;
     } else {
         range = lbl_805DC89C;
@@ -448,9 +435,9 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
     pos.y = lbl_805DC890 * (pos.y + pp[1]);
     pos.z = lbl_805DC890 * (pos.z + pp[2]);
     VecCopy__FP3VecPC3Vec((u8 *)s->proxy + 0x38, &pos);
-    copy_xyz__10TObjPlayerFPv((u8 *)s->proxy + 0x5C, (u8 *)self + 0x54);
+    ((TObjPlayer *)((u8 *)s->proxy + 0x5C))->copy_xyz((u8 *)self + 0x54);
     if (obj_getField1c((void *)arg) < 4) {
-        n = get_lobby_flag__6TLobbyFv();
+        n = TLobby::get_lobby_flag();
         for (i = 0; i < n; i++) {
             pd = (PD_80236A20 *)get_player_data__10TObjPlayerFi(i);
             if (pd == 0) continue;

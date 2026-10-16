@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8011A350_main_task {
     s32 value;
@@ -33,7 +35,6 @@ s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 update_input_frame__16TKeyBoardControlFv();
 s32 controller_stuff__Fv();
 s32 render_tick__Fv();
 s32 update_sound_request_slots();
@@ -50,7 +51,6 @@ extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_
 extern RecoveredGlobal_8011A350_main_task main_task;
 void run_cleanup_callbacks__16TItemReverseTechFv(void);
 Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(int);
 s32 prs_decompress_alloc(int, int, int);
 int set_stream_and_load_file__6TLobbyFi(char *);
 int mem_free(void*);
@@ -148,14 +148,14 @@ void load_textures__16TItemReverseTechFv(void) {
         }
         mem_free((void *)buf);
     }
-    safe_free__23TAdSinglePlyChrSelectGCFUl(file);
+    TAdSinglePlyChrSelectGC::safe_free(file);
 }
 #pragma pop
 
 void run_frame__16TItemReverseTechFv(void) {
     s32 *var_r3;
     controller_stuff__Fv();
-    update_input_frame__16TKeyBoardControlFv();
+    TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&main_task.value);
     var_r3 = (s32 *)(&main_task.value);
     some_empty_func__9TMainTaskFv((void *) (&main_task.value));

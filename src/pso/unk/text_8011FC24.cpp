@@ -125,7 +125,6 @@ extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);
 void bind_loaded_resources__14TItemEquipBaseFv(void*);
-s32 get_attack_stage__11TItemWeaponFv(void*);
 void clear_equip_flags__10TObjPlayerFPvUi(void*,u32);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
 s32 test_flag30_bit0x100000__10TObjPlayerFv(void*);
@@ -221,7 +220,7 @@ void TItemWeapon::update_active_weapon() {
     if(test_flags_1b8__10TObjPlayerFUl(self,0x100)==0) {
         if(test_flags_1b8__10TObjPlayerFUl(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
         bind_loaded_resources__14TItemEquipBaseFv(self);
-        stage=get_attack_stage__11TItemWeaponFv(self);
+        stage=((TItemWeapon *)self)->get_attack_stage();
         if(stage!=self->stage) {
             clear_equip_flags__10TObjPlayerFPvUi(self,0x1000000);
             self->stage=stage;

@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include "pso/TChCrTagPlGraphic.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 struct Stack_802A3138 {
     f32 sp8;
     f32 spC;
@@ -20,7 +21,6 @@ struct RecoveredFields_802A3138_arg0 {
 };
 
 extern "C" {
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 draw_ui_sprite_shaded(f32, f32, f32, void *, void *, void *);
 extern const f32 lbl_805DDF18;
 extern const f32 lbl_805DDF1C;
@@ -46,7 +46,7 @@ void TChCrTagPlGraphic::draw_class_illustration() {
     f32 temp_f31;
     s32 temp_r31;
     if (!(((RecoveredFields_802A3138_arg0 *)arg0)->field_3C <= lbl_805DDF18)) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (&stack.sp10), (void *) (arg0 + 0x48));
+        ((TWindowSubSymbolChatPartsSet *)(&stack.sp10))->copy_vec2((void *) (arg0 + 0x48));
         temp_f0 = ((RecoveredFields_802A3138_arg0 *)arg0)->field_44;
         stack.spC = temp_f0;
         stack.sp8 = temp_f0;

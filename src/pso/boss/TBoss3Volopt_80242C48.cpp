@@ -1,8 +1,8 @@
 #include "types.h"
 #include "pso/boss/TBoss3Volopt.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-s32 reset_state__23TAdSinglePlyChrSelectGCFv(void *);
 void fn_80242C54(void *arg0);
 }
 
@@ -22,7 +22,7 @@ void fn_80242C54(void *arg0) {
                 *(u8 *)((s8 *)arg0 + 0) = (u8) (temp_r3 & 0xFFFFFFBF);
                 goto block_5;
             }
-            reset_state__23TAdSinglePlyChrSelectGCFv(arg0);
+            ((TAdSinglePlyChrSelectGC *)arg0)->reset_state();
             return;
         }
 block_5:
@@ -34,7 +34,7 @@ block_5:
             }
             *(s16 *)((s8 *)arg0 + 0x12) = (s16) (*(s16 *)((s8 *)arg0 + 0x12) - 1);
             if (*(s16 *)((s8 *)arg0 + 0x12) <= 0) {
-                reset_state__23TAdSinglePlyChrSelectGCFv(arg0);
+                ((TAdSinglePlyChrSelectGC *)arg0)->reset_state();
             }
         }
     }

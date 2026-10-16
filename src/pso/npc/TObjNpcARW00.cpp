@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/npc/TObjNpcARW00.h"
 #include "pso/npc/TObjNpcEnemy.h"
+#include "pso/misc/TLobby.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcFemaleBase.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -114,9 +119,6 @@ struct Npc_801480FC {
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
 void TObjNpcARW00__vt88(s32 arg0);
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__12TObjNpcARW00[];
 extern s32 TObjNpcARW00__name;
 extern u32 TObjNpcARW00__static_model;
@@ -128,7 +130,6 @@ extern u32 TObjNpcARW00__static_model;
 extern u32 TObjNpcARW00__gvm_texture_handle;
 extern char lbl_8043F4A8[];
 extern char lbl_8043F4BC[];
-void set_global_count__12TObjNpcEnemyFl(s32);
 void debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F4DC[];
 extern char lbl_8043F4F8[];
@@ -142,11 +143,8 @@ extern "C" {
 void TObjNpcFemaleBase__sub_801480F4(void);
 void TObjNpcFemaleBase__sub_801480F8(void);
 void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1);
-void free_nodes_with_id__6TLobbyFUl(void*);
 void TLobby__sub_803DA16C(void*);
 void __dl__7TObjectFPv(void *);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u32 TObjNpcARW00__static_model;
 extern u32 TObjNpcARW00__gvm_texture_handle;
@@ -154,11 +152,11 @@ extern u32 TObjNpcARW00__gvm_texture_handle;
 void TObjNpcARW00::free_resources() {
     if ((u32) TObjNpcARW00__gvm_texture_handle != 0U) {
         TLobby__sub_803DA16C((void*)TObjNpcARW00__gvm_texture_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TObjNpcARW00__gvm_texture_handle);
+        TAdSinglePlyChrSelectGC::safe_free(TObjNpcARW00__gvm_texture_handle);
         TObjNpcARW00__gvm_texture_handle = 0U;
     }
     if ((u32) TObjNpcARW00__static_model != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)TObjNpcARW00__static_model);
+        TLobby::free_nodes_with_id((u32)((void*)TObjNpcARW00__static_model));
         TObjNpcARW00__static_model = 0U;
     }
 }
@@ -173,7 +171,7 @@ void TObjNpcARW00::load_resources() {
 void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcARW00;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
+        ((TObjNpcFemaleBase *)arg0)->destroy_npc_female_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -183,14 +181,14 @@ void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80148038___vt__12TObjNpcARW00_size[sizeof(RecoveredGlobal_80148038___vt__12TObjNpcARW00) == 0x178 ? 1 : -1];
 u8 *TObjNpcARW00__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
+    ((TObjNpcFemaleBase *)arg0)->construct_female_base();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80148038___vt__12TObjNpcARW00 *)&__vt__12TObjNpcARW00).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcARW00__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(*(s32 * *)&TObjNpcARW00__static_model);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)&TObjNpcARW00__gvm_texture_handle);
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 
@@ -218,12 +216,12 @@ void TObjNpcEnemy::draw_debug_info() {
     }
     o->f3A8 = o->f364;
     o->f3AC = o->f360;
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x1A001D, lbl_8043F4DC, o->f358);
     debug_printf_at(0x1A001E, lbl_8043F4F8, o->f35C);
     debug_printf_at(0x1A001F, lbl_8043F514, o->f3AC);
     debug_printf_at(0x1A0020, lbl_8043F52C, o->f3A8);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
 }

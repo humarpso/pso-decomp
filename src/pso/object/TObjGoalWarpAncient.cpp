@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjGoalWarpAncient.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
     s32 value;
@@ -39,7 +40,6 @@ extern "C" {
 extern int ancient_warp_shared_resource;
 extern s32 goal_warp_ancient_gvm_texture;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80443308;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_o_warp_ancient_resource_descriptor;
@@ -61,7 +61,7 @@ typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8
 void TObjGoalWarpAncient::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 0x1, &bm_o_warp_ancient_resource_descriptor.value, 0, 0, 0));

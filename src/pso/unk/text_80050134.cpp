@@ -1,10 +1,13 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TBoss4Uro.h"
+#include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
 void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1);
 void restore_player_cameras();
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 
 typedef struct Data_80050194 Data_80050194;
@@ -34,13 +37,10 @@ typedef struct Data_80050194
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-int get_instance_count__9TBoss4UroFv(void);
 void activate_camera_mode(s32);
 void set_scripted_camera_pose(void *, void *, void *);
-void cache_target_and_forward__11TCameraCtrlFl(void *, s32);
 void construct_world_actor_base(void *, void *);
 void play_sound_effect(s32, void *, s32, s32);
-void queue_event_1D__12TBoss3VoloptFss(s16, s16);
 extern s32 TObjDFDemoF__name;
 extern const f32 lbl_805D8A28;
 void TLobby__sub_801A1FD8();
@@ -66,7 +66,7 @@ void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__11TObjDFDemoF;
         restore_player_cameras();
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -86,7 +86,7 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *arg1) {
   new_var = arg0;
   new_var->vt = (void *) __vt__11TObjDFDemoF;
   new_var->f0 = TObjDFDemoF__name;
-  h = get_instance_count__9TBoss4UroFv();
+  h = TBoss4Uro::get_instance_count();
   for (i = 0; i < 3; i++)
   {
     s32 t = TObjDFDemoF__bml_model_id_table[i];
@@ -109,9 +109,9 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *arg1) {
   new_var->fb8 = lbl_805D8A28;
   activate_camera_mode(5);
   set_scripted_camera_pose(lbl_80485840, lbl_80485840, lbl_8048584C);
-  cache_target_and_forward__11TCameraCtrlFl(lbl_80485858, 0x392D);
+  ((TCameraCtrl *)lbl_80485858)->cache_target_and_forward(0x392D);
   play_sound_effect(0x3A802, 0, 0, 0);
-  queue_event_1D__12TBoss3VoloptFss(0x20, 0xF);
+  TBoss3Volopt::queue_event_1D(0x20, 0xF);
   arg0->f90 = 0;
   return new_var;
 }

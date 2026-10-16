@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct S_803DDD78 { s8 a, b; };
 
@@ -63,7 +64,6 @@ s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
 s32 TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
-s32 is_gvm_load_ok__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
 s32 TObjPlayer__sub_803DAC1C(s32);
 s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx);
@@ -81,7 +81,6 @@ s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx);
 s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD78(S_803DDD78 *d, S_803DDD78 *s);
 void copy_4word_struct__6TLobbyFPvPv(S_803DDD94 *d, S_803DDD94 *s);
-void move_data__6TLobbyFPCvUl(void*, const void*, s32);
 s32 strlen(const char*);
 void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
 s32 TLobby__sub_803DDD2C(s32 arg0);
@@ -93,12 +92,10 @@ extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
 s32 TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
-s32 is_gvm_load_ok__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
 s32 TObjPlayer__sub_803DAC1C(s32);
 s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
 void DCFlushRange(void *, u32);
-void move_data__6TLobbyFPCvUl(void*, const void*, s32);
 void *xmalloc__FUl(u32 bytes);
 void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out);
 s32 DVDOpen(const char *, FileInfo_803DD784 *);
@@ -242,7 +239,7 @@ s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx) {
         TObjPlayer__sub_803DAC1C(handle);
         return -1;
     }
-    while (is_gvm_load_ok__10TObjPlayerFv() != 1) {
+    while (TObjPlayer::is_gvm_load_ok() != 1) {
     }
     return 1;
 }
@@ -419,7 +416,7 @@ void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, co
         if (names) {
             s32 length = strlen((char*)record);
             if (length > 0) {
-                move_data__6TLobbyFPCvUl(texture->name, record, length);
+                ((TLobby *)(texture->name))->move_data(record, length);
             }
             record += 0x1C;
         }
@@ -540,7 +537,7 @@ s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list) {
                     return -1;
                 }
                 do {
-                } while (is_gvm_load_ok__10TObjPlayerFv() != 1);
+                } while (TObjPlayer::is_gvm_load_ok() != 1);
                 break;
             }
         }
@@ -579,9 +576,9 @@ void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out) {
     u32 v;
     pos = 0;
     src = base + *off;
-    move_data__6TLobbyFPCvUl(&magic, src, 4);
+    ((TLobby *)(&magic))->move_data(src, 4);
     TLobby::bswap_u32(&magic);
-    move_data__6TLobbyFPCvUl(&size, src + 4, 4);
+    ((TLobby *)(&size))->move_data(src + 4, 4);
     TLobby::bswap_u32(&size);
     src += 8;
     *off += 8;
@@ -628,7 +625,7 @@ void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out) {
     if (buf == NULL) {
         return NULL;
     }
-    move_data__6TLobbyFPCvUl(buf, src, size);
+    ((TLobby *)buf)->move_data(src, size);
     DCFlushRange(buf, size);
     src += size;
     *off += size;
@@ -637,17 +634,17 @@ unknown:
     *out = 0x2A2A2A2A;
     return NULL;
 relocate:
-    move_data__6TLobbyFPCvUl(&magic, src, 4);
+    ((TLobby *)(&magic))->move_data(src, 4);
     TLobby::bswap_u32(&magic);
     *off += 4;
     magic = TLobby::bswap32_value(magic);
     if (magic == 0x504F4630) {
-        move_data__6TLobbyFPCvUl(&size, src + 4, 4);
+        ((TLobby *)(&size))->move_data(src + 4, 4);
         TLobby::bswap_u32(&size);
         src += 8;
         *off += 4;
         while (size != 0) {
-            move_data__6TLobbyFPCvUl(&b0, src, 1);
+            ((TLobby *)(&b0))->move_data(src, 1);
             src++;
             (*off)++;
             size--;
@@ -656,18 +653,18 @@ relocate:
                 v = b0 & 0x3F;
                 break;
             case 0x80:
-                move_data__6TLobbyFPCvUl(&b1, src, 1);
+                ((TLobby *)(&b1))->move_data(src, 1);
                 src++;
                 size--;
                 (*off)++;
                 v = ((b0 & 0x3F) << 8) | b1;
                 break;
             case 0xC0:
-                move_data__6TLobbyFPCvUl(&b1, src, 1);
+                ((TLobby *)(&b1))->move_data(src, 1);
                 size--;
-                move_data__6TLobbyFPCvUl(&b2, src + 1, 1);
+                ((TLobby *)(&b2))->move_data(src + 1, 1);
                 size--;
-                move_data__6TLobbyFPCvUl(&b3, src + 2, 1);
+                ((TLobby *)(&b3))->move_data(src + 2, 1);
                 src += 3;
                 size--;
                 *off += 3;

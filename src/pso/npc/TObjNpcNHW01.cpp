@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/npc/TObjNpcNHW01.h"
+#include "pso/misc/TLobby.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcFemaleBase.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -92,9 +97,6 @@ struct RecoveredGlobal_8014D2F8___vt__12TObjNpcNHW01 {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__12TObjNpcNHW01[];
 extern s32 TObjNpcNHW01__name;
 extern u32 TObjNpcNHW01__model_object;
@@ -112,14 +114,11 @@ extern "C" {
 
 void * TObjNpcNurseBase__create(void *arg0);
 void *__dt__12TObjNpcNHW01Fv(void *arg0, s16 arg1);
-void free_nodes_with_id__6TLobbyFUl(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcNurseBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u32 TObjNpcNHW01__model_object;
 extern u32 TObjNpcNHW01__texture_handle;
@@ -127,11 +126,11 @@ extern u32 TObjNpcNHW01__texture_handle;
 void TObjNpcNHW01::free_resources() {
     if ((u32) TObjNpcNHW01__texture_handle != 0U) {
         TLobby__sub_803DA16C((void*)TObjNpcNHW01__texture_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TObjNpcNHW01__texture_handle);
+        TAdSinglePlyChrSelectGC::safe_free(TObjNpcNHW01__texture_handle);
         TObjNpcNHW01__texture_handle = 0U;
     }
     if ((u32) TObjNpcNHW01__model_object != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)TObjNpcNHW01__model_object);
+        TLobby::free_nodes_with_id((u32)((void*)TObjNpcNHW01__model_object));
         TObjNpcNHW01__model_object = 0U;
     }
 }
@@ -146,7 +145,7 @@ void TObjNpcNHW01::load_resources() {
 void *__dt__12TObjNpcNHW01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcNHW01;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
+        ((TObjNpcFemaleBase *)arg0)->destroy_npc_female_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -158,14 +157,14 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014D2F8___vt__12TObjNpcNHW01_size[sizeof(RecoveredGlobal_8014D2F8___vt__12TObjNpcNHW01) == 0x178 ? 1 : -1];
 u8 *TObjNpcNHW01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
+    ((TObjNpcFemaleBase *)arg0)->construct_female_base();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014D2F8___vt__12TObjNpcNHW01 *)&__vt__12TObjNpcNHW01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNHW01__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(*(s32 * *)&TObjNpcNHW01__model_object);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)&TObjNpcNHW01__texture_handle);
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 

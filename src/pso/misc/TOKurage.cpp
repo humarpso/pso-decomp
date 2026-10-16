@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TOKurage.h"
+#include "pso/misc/TOBarrierEnergy01.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8016E800_lbl_804B2E6C { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016E800_lbl_804B2E6C_size[sizeof(RecoveredGlobal_8016E800_lbl_804B2E6C) == 0x10 ? 1 : -1];
@@ -60,15 +65,12 @@ void rotate_matrix_zyx(s32, s32, s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 s32 set_chunk_material_color(void *);
 void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
 s32 fn_8016D8F8(void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
@@ -87,7 +89,6 @@ struct RecoveredGlobal_8016E8A8___vt__8TOKurage { s32 value; u8 remaining[0x38];
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8016E800_lbl_804B2E6C bm_fs_obj_kurage_resource_descriptor;
 extern u32 TOKurage__static_model_resource;
 u8 *get_bml_motion(s32, s32);
@@ -114,7 +115,6 @@ f32 xyz_distance(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 
 void TOKurage::check_player_distance() {
     u8 *arg0 = (u8 *)this;
@@ -164,12 +164,12 @@ void TOKurage::run_task() {
     TOKurage_8016DB24 *o = (TOKurage_8016DB24 *)this;
     f32 y;
     VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         debug_print_ranges();
         return;
     }
     if (o->anim != 0) {
-        update_anim_phase__17TOBarrierEnergy01Fv(o);
+        ((TOBarrierEnergy01 *)o)->update_anim_phase();
     }
     y = 3.2f * sin_table_lookup(o->phase) + o->baseY;
     if (o->rising == 0) {
@@ -357,7 +357,7 @@ void TOKurage::render() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
-        set_global_param__8TObjFishFl(*(s32 *)(arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)(arg0 + 0x24));
         switch (*(u8 *)(arg0 + 0x100)) {
         case 4:
             lbl_805D5660 = model_render_flags;
@@ -409,7 +409,7 @@ extern s32 __vt__8TOKurage[];
 void TOKurage::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_kurage_resource_descriptor.value, 0, 0, 0));
@@ -420,7 +420,7 @@ void TOKurage::load_static_resource() {
 void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOKurage;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TODoorMachine01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TODoorAncient01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern char lbl_80440ED0[];
@@ -105,7 +110,6 @@ extern const f32 lbl_805DB4F8;
 extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB500;
 void TODoorMachine01__vt13(u8 *arg0);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -124,14 +128,11 @@ int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
 int post_translate_matrix(void *);
-int set_global_param__8TObjFishFl(int);
 int draw_ginja_model(int);
 int draw_ginja_model_with_motion(void *, int, f32);
 void translate_matrix(s32, f32, f32, f32);
 extern s32 *TODoorMachine01__global_param_id_array;
 extern const f32 lbl_805DB504;
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 void translate_matrix(s32, f32, f32, f32);
 int push_matrix();
 int pop_matrix();
@@ -144,7 +145,6 @@ u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
-s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440F38[];
 extern u8 lbl_80440F50[];
 extern u8 bm_fs_obj_ki_doa_resource_descriptor[];
@@ -165,10 +165,7 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-s32 destroy_ancient_door_base__15TODoorAncient01Fs(void *, s32);
 s32 mem_free(void*);
-s32 free_if_valid__10TObjPlayerFl(s32);
 
 void TODoorMachine01__vt18(void) {  }
 
@@ -177,7 +174,7 @@ extern const f32 lbl_805DB4F0;
 void TODoorMachine01__vt15(u8 *arg0) {
     if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB4F0) != 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
-        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 8);
+        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
     }
 }
@@ -278,7 +275,7 @@ void TODoorMachine01::draw_part_models(u8 *arg1, s32 arg2) {
         model_render_flags = temp_r4 | 0x10;
         set_chunk_material_color((void *) (arg0 + 0xDC), (int) (temp_r4));
     }
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
     draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
@@ -288,7 +285,7 @@ void TODoorMachine01::draw_part_models(u8 *arg1, s32 arg2) {
     draw_ginja_model((int) (*(s32 *)((s8 *)p + 4)));
     pop_matrix();
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     if (arg2 != 1) {
         ((void (*)(void *))set_chunk_material_color)(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
@@ -308,7 +305,7 @@ void TODoorMachine01::render() {
             bit = self->fD0;
             n = self->model->root;
             fl = (bit >> 16) & 1;
-            set_global_param__8TObjFishFl(TODoorMachine01__global_param_id_array[fl]);
+            TObjFish::set_global_param(TODoorMachine01__global_param_id_array[fl]);
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
@@ -316,7 +313,7 @@ void TODoorMachine01::render() {
             pop_matrix();
             n = self->model->root->next;
             fl = (self->fD0 >> 17) & 1;
-            set_global_param__8TObjFishFl(TODoorMachine01__global_param_id_array[fl]);
+            TObjFish::set_global_param(TODoorMachine01__global_param_id_array[fl]);
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
@@ -324,19 +321,19 @@ void TODoorMachine01::render() {
             draw_part_models((u8 *)(n), (s32)(fl));
             n = n->next;
             fl = (self->fD0 >> 18) & 1;
-            set_global_param__8TObjFishFl(TODoorMachine01__global_param_id_array[fl]);
+            TObjFish::set_global_param(TODoorMachine01__global_param_id_array[fl]);
             draw_part_models((u8 *)(n), (s32)(fl));
             pop_matrix();
             n = self->model->root->next->next;
             fl = (self->fD0 >> 19) & 1;
-            set_global_param__8TObjFishFl(TODoorMachine01__global_param_id_array[fl]);
+            TObjFish::set_global_param(TODoorMachine01__global_param_id_array[fl]);
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             draw_ginja_model(n->f4);
             draw_part_models((u8 *)(n->child), (s32)(fl));
             pop_matrix();
         } else {
-            set_global_param__8TObjFishFl(TODoorMachine01__global_param_id_array[1]);
+            TObjFish::set_global_param(TODoorMachine01__global_param_id_array[1]);
             draw_ginja_model_with_motion(self->model, self->fBC, self->fB0);
         }
         pop_matrix();
@@ -356,7 +353,7 @@ extern s32 *TODoorMachine01__global_param_id_array;
 
 void TODoorMachine01::free_resources() {
     if ((s32 *) TODoorMachine01__global_param_id_array != NULL) {
-        free_if_valid__10TObjPlayerFl(*TODoorMachine01__global_param_id_array);
+        TObjPlayer::free_if_valid(*TODoorMachine01__global_param_id_array);
         if ((s32 *) TODoorMachine01__global_param_id_array != NULL) {
             mem_free((void*)TODoorMachine01__global_param_id_array);
             TODoorMachine01__global_param_id_array = NULL;
@@ -373,7 +370,7 @@ extern s32 __vt__15TODoorMachine01[];
 void TODoorMachine01::load_resources() {
     void *p;
     TODoorMachine01__global_param_id_array = (s32 *)mem_alloc(8);
-    if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
+    if (enable_v2_features == 1 && TLobby::is_online_ready() != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = (void *)load_resource_from_descriptor(p, 1, &todoormachine01_resource_descriptor, 0, 0, 0);
@@ -396,7 +393,7 @@ void *__dt__15TODoorMachine01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorMachine01;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
+        ((TODoorAncient01 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -418,7 +415,7 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB508;
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorMachine01__collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     ((VObj_18_4a4f5b *)(arg0))->m17();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x88);
     if (temp_r0 < 0) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -93,7 +94,6 @@ struct RecoveredGlobal_800480B0_lbl_80484610 {
 extern "C" {
 s32 TBoss3VoloptP02__ct(void *);
 s32 TObjEnemyCustom__ct(void *);
-s32 init_and_activate__10TObjPlayerFv(void *);
 extern RecoveredGlobal_800480B0_lbl_80484610 volopt_boss_dispatch_table;
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -104,7 +104,7 @@ typedef char RecoveredGlobal_800480B0_lbl_80484610_size[sizeof(RecoveredGlobal_8
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEnemyCustom__ct((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &volopt_boss_dispatch_table.value;
-    init_and_activate__10TObjPlayerFv((void *) (arg0 + 0x490));
+    ((TObjPlayer *)(arg0 + 0x490))->init_and_activate();
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss3VoloptP02__ct((void *) (arg0));
     return arg0;

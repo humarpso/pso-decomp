@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_802841FC_lbl_804D2CE0 {
     s32 value;
@@ -11,7 +12,6 @@ struct RecoveredGlobal_802841FC___vt__28TWindowSubSymbolChatFaceType {
 };
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(int);
@@ -34,7 +34,7 @@ u8 *TWindowSubSymbolChatFaceType__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s8 *)((s8 *)arg0 + 0x61) = 0;
     *(s8 *)((s8 *)arg0 + 0x62) = 0;
     *(s32 *)((s8 *)arg0 + 0x64) = arg2;
-    var_r31 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x24);
+    var_r31 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     if (var_r31 != 0) {
         var_r31 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r31, get_message_10__20TWindowSubStatusDispFl((int) (0x33)), (s32) *(s16 *)((s8 *)arg0 + 0x20));
     }

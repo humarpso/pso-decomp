@@ -21,11 +21,8 @@ struct E_801BDC98 { u8 b[0x42C]; };
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv();
 u8 *get_player_by_client_id(s32);
-s32 init_select_txt__10TObjPlayerFv(int);
-s32 copy_lobby_header__10TObjPlayerFl(int, int);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
-s32 check_flag_at_428__10TObjPlayerFv(void *);
 void create__10TObjPlayerFUll(u16, void *);
 }
 
@@ -44,7 +41,7 @@ void TObjPlayer::create_active_players() {
     i = 0;
     p = ((E_801BDC98 *)&TObjPlayer__char_data_array);
     do {
-        if (check_flag_at_428__10TObjPlayerFv(p) != 0) {
+        if (((TObjPlayer *)p)->check_flag_at_428() != 0) {
             create__10TObjPlayerFUll(i, p);
         }
         i++;
@@ -60,13 +57,13 @@ void TObjPlayer::refresh_player_lobby_headers() {
   var_r29 = &TObjPlayer__char_data_array.value;
   do
   {
-    init_select_txt__10TObjPlayerFv((int) var_r29);
+    ((TObjPlayer *)var_r29)->init_select_txt();
     temp_r3 = (u8 *) get_player_by_client_id(var_r31);
     if (temp_r3 != 0)
     {
       if (is_locally_controlled__10TObjPlayerFPv() != 0)
       {
-        copy_lobby_header__10TObjPlayerFl((int) var_r29, (int) temp_r3);
+        ((TObjPlayer *)var_r29)->copy_lobby_header((int) temp_r3);
       }
       if (temp_r3 != 0)
       {

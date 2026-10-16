@@ -61,7 +61,6 @@ struct Set_801A5F1C {
 struct Obj_801A5F1C { u8 pad0[0x94]; s32 base[4]; };
 
 extern "C" {
-s32 check_and_read__16TKeyBoardControlFl(void *);
 s32 is_split_screen();
 s32 TKeyBoardControl__sub_80132650(void *);
 s32 update_button_hold_counters(int);
@@ -71,13 +70,11 @@ s32 TKeyBoardControl__sub_80132310(s32);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-s32 check_reset_button__16TKeyBoardControlFv();
 void reset_system();
 s32 DVDCheckDisk();
 extern s32 lbl_805D49B4;
 extern u8 lbl_805D5D09;
 s32 func_801A5E54__Fv(void);
-s32 check_reset_button__16TKeyBoardControlFv();
 s32 PADRecalibrate(u32);
 extern Masks_801A5C4C pad_recalibration_bit_masks;
 extern const f64 lbl_804469E8[];
@@ -237,7 +234,7 @@ void update_pad_recalibration(void) {
             pad_recalibration_counters[i] = 0;
         }
     }
-    if (check_reset_button__16TKeyBoardControlFv() != 0) {
+    if (TKeyBoardControl::check_reset_button() != 0) {
         lbl_805D5D09 = 1;
         for (j = 0; j < 4; j++) {
             PADRecalibrate(masks.m[j]);
@@ -246,14 +243,14 @@ void update_pad_recalibration(void) {
 }
 
 s32 func_801A5E54__Fv(void) {
-    if ((DVDCheckDisk() == 0) && (check_reset_button__16TKeyBoardControlFv() != 0)) {
+    if ((DVDCheckDisk() == 0) && (TKeyBoardControl::check_reset_button() != 0)) {
         reset_system();
     }
     return (lbl_805D49B4 != 0) ? 0 : lbl_805D5D09;
 }
 
 void TKeyBoardControl::read_key_checked(u8 arg0) {
-    check_and_read__16TKeyBoardControlFl((void *) (arg0));
+    TKeyBoardControl::check_and_read((s32)((void *) (arg0)));
 }
 typedef char RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_801A5EC4_lbl_8050E208_size[sizeof(RecoveredGlobal_801A5EC4_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -501,7 +498,6 @@ extern s8 pad_recalibration_hold_frames[4];
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 s32 read_input__16TKeyBoardControlFl(u8);
 void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
-void reset__16TKeyBoardControlFv();
 extern const f32 lbl_805DC0C0;
 s32 is_split_screen(void);
 s32 TKeyBoardControl__sub_803DEB74(int);
@@ -591,7 +587,7 @@ void reset_controller_input_state(void) {
         p++;
     }
     copy_state__16TKeyBoardControlFPvPv((Rec_801A67A4 *)&controller_input_state[0x58], (Rec_801A67A4 *)((u8 *)controller_input_state + 0x20));
-    reset__16TKeyBoardControlFv();
+    TKeyBoardControl::reset();
 }
 
 typedef struct Rec_801A67A4 Rec_801A67A4;

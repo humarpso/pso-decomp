@@ -1,9 +1,9 @@
 #include "pso/TAdBackGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 s32 draw_title_background_layer(void *, int, int, f32);
 s32 set_depth_buffer_settings_2__Fv();
 s32 restore_saved_depth_alpha_state();
@@ -25,7 +25,7 @@ void TAdBackGC::render() {
             set_depth_buffer_settings_2__Fv();
             goto block_4;
         }
-    } else if (get_state_flag__9TMainTaskFv() != 1) {
+    } else if (TMainTask::get_state_flag() != 1) {
 block_4:
         fn_8029A6EC((void *) (arg0));
         set_cached_blend_factor((int) (0), (int) (8));

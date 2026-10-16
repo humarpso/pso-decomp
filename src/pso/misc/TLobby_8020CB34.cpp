@@ -5,7 +5,6 @@ extern "C" {
 
 u8 *create_set_object_from_row(void *);
 u8 *get_object_count__6TLobbyFPv(s32);
-s32 get_obj_table_entry__6TLobbyFi(s32);
 
 struct VObj8020 {
     char pad[0x18];
@@ -29,7 +28,7 @@ s32 TLobby::spawn_objects_at_pos(s16 arg0, s16 arg1) {
 
     var_r30 = 0;
     var_r29 = get_object_count__6TLobbyFPv(TLobby__data_805D60FC);
-    temp_r31 = get_obj_table_entry__6TLobbyFi(TLobby__data_805D60FC);
+    temp_r31 = TLobby::get_obj_table_entry(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28++, var_r29 += 0x44) {
         temp_r3 = *(s16 *)((s8 *)var_r29 + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) *(s16 *)((s8 *)var_r29 + 0xC) == arg0) && ((s16) *(s16 *)((s8 *)var_r29 + 0xA) == arg1)) {

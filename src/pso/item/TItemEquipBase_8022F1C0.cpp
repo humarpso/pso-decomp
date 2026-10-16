@@ -4,7 +4,6 @@
 extern "C" {
 
 void TItemEquipBase__sub_8022F1F4(void *arg0, void *arg1);
-int init_slot__14TItemEquipBaseFv(void*);
 
 void TItemEquipBase::set_slot(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
@@ -19,6 +18,6 @@ void TItemEquipBase__sub_8022F1F4(void *arg0, void *arg1) {
     *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
 }
 
-void TItemEquipBase::init_slots() { { int i; for (i = 0; i < 6; i++) { init_slot__14TItemEquipBaseFv((char*)this + i * 8); } } }
+void TItemEquipBase::init_slots() { { int i; for (i = 0; i < 6; i++) { ((TItemEquipBase *)((char*)this + i * 8))->init_slot(); } } }
 
 }

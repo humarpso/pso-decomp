@@ -1,6 +1,7 @@
 #include "pso/TItemAttacker.h"
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8010355C_lbl_8043E038 { char value[0xA]; };
 typedef char RecoveredGlobal_8010355C_lbl_8043E038_size[sizeof(RecoveredGlobal_8010355C_lbl_8043E038) == 0xA ? 1 : -1];
@@ -10,7 +11,6 @@ struct Rec_80103368 { u8 pad[0x1C]; f32 v[3]; u8 pad2[0x2C - 0x28]; };
 struct M_80103368 { u8 pad[0xA4]; Rec_80103368 *recs; };
 
 extern "C" {
-s32 tmp_buf_release__6TLobbyFv(s32);
 void mem_free(u32);
 extern s32 lbl_8043E038[];
 extern s32 item_buffer_temp_mode;
@@ -31,7 +31,6 @@ int get_item_chunk_buffer(int a0);
 s32 create_item_buff(s32 arg0);
 s32 TItemTimer__ct(void *, s32, s32, s32);
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPCc(s32 *);
 s32 deliver_delayed_weapon_hit();
 u32 __nw__7TObjectFUl(s32);
 s32 mem_alloc(s32);
@@ -94,7 +93,7 @@ extern s32 item_buff_buffer;
 void TItemBuff__ct(void) {
     if ((u32) (*(u32 *)&item_buff_buffer) != 0) {
         if ((s32) item_buffer_temp_mode != 0) {
-            tmp_buf_release__6TLobbyFv((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value);
+            ((TLobby *)((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value))->tmp_buf_release();
         } else {
             mem_free((*(u32 *)&item_buff_buffer));
         }
@@ -110,7 +109,7 @@ s32 create_item_buff(s32 arg0) {
         temp_r3 = TLobby__sub_8001EEF4();
         item_buffer_temp_mode = temp_r3;
         if ((temp_r3 != 0) && (arg0 < 0x40000)) {
-            item_buff_buffer = tmp_buf_use_req__6TLobbyFPCc(lbl_8043E038);
+            item_buff_buffer = TLobby::tmp_buf_use_req((const char *)lbl_8043E038);
         } else {
             item_buff_buffer = mem_alloc(arg0);
         }

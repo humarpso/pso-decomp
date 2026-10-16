@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/boss/TBoss2Mine.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Mine_80038760; struct O_80038908;
 extern "C" {
@@ -125,9 +131,7 @@ extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 subtract_vector(void *, void *);
-f32 update_scale__15TObjBoss2TunnelFv(void *);
 void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1);
 }
 
@@ -171,7 +175,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
         ((TBoss2Mine *)arg0)->move_mine();
         VecCopy__FP3VecPC3Vec(&v, (s32)(arg0 + 0x390));
         subtract_vector(&v, arg0 + 0x2FC);
-        s = clamp_velocity__15TObjBoss2TunnelFv(&v);
+        s = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         s *= (0.75f);
         if (s < (0.2f)) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, (s32)&*(Vec_800375C0 *)((s8 *)arg0 + 0x390));
@@ -253,7 +257,7 @@ void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1) {
             ((TBoss2Mine *)arg0)->move_mine();
             VecCopy__FP3VecPC3Vec(&v, (s32)(arg0 + 0x390));
             subtract_vector(&v, arg0 + 0x2FC);
-            if (update_scale__15TObjBoss2TunnelFv(&v) <= (4.5f)) {
+            if (((TObjBoss2Tunnel *)(&v))->update_scale() <= (4.5f)) {
                 *(s32 *)((s8 *)arg0 + 0x3C8) = 3;
             }
             *(f32 *)((s8 *)arg0 + 0x3E0) += (0.05f);
@@ -264,7 +268,7 @@ void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x404) = v.x * t + *(f32 *)((s8 *)arg0 + 0x404);
             *(f32 *)((s8 *)arg0 + 0x408) = v.y * t + *(f32 *)((s8 *)arg0 + 0x408);
             *(f32 *)((s8 *)arg0 + 0x40C) = v.z * t + *(f32 *)((s8 *)arg0 + 0x40C);
-            update_scale__15TObjBoss2TunnelFv((void *)((s32)arg0 + 0x404));
+            ((TObjBoss2Tunnel *)((s32)arg0 + 0x404))->update_scale();
             *(f32 *)((s8 *)arg0 + 0x2FC) = ((Mine_800377E8 *)arg0)->vel.x * *(f32 *)((s8 *)arg0 + 0x3DC) + *(f32 *)((s8 *)arg0 + 0x2FC);
             *(f32 *)((s8 *)arg0 + 0x300) = *(f32 *)((s8 *)arg0 + 0x408) * *(f32 *)((s8 *)arg0 + 0x3DC) + *(f32 *)((s8 *)arg0 + 0x300);
             *(f32 *)((s8 *)arg0 + 0x304) = *(f32 *)((s8 *)arg0 + 0x40C) * *(f32 *)((s8 *)arg0 + 0x3DC) + *(f32 *)((s8 *)arg0 + 0x304);
@@ -380,7 +384,6 @@ extern "C" {
 void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(s32, f32, f32, f32);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 subtract_vector(void *, void *);
 void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
 }
@@ -458,7 +461,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) & 0xFFFFFFF8);
         VecCopy__FP3VecPC3Vec(arg0 + 0x39C, arg0 + 0x390);
         subtract_vector(arg0 + 0x39C, arg0 + 0x2FC);
-        *(f32 *)((s8 *)arg0 + 0x3DC) = clamp_velocity__15TObjBoss2TunnelFv(arg0 + 0x39C);
+        *(f32 *)((s8 *)arg0 + 0x3DC) = ((TObjBoss2Tunnel *)(arg0 + 0x39C))->clamp_velocity();
         temp_r3 = (s32) ((10430.38043493439) * atan2_float(*(f32 *)((s8 *)arg0 + 0x39C), *(f32 *)((s8 *)arg0 + 0x3A4)));
         *(s32 *)((s8 *)arg0 + 0x60) = temp_r3;
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x4000;
@@ -709,11 +712,6 @@ s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void TObjEneDD__sub_800BA5A4(s32, s32);
 extern RecoveredGlobal_800384C8_lbl_80435AB0 boss2_mine_collision_desc;
 void TBoss2Mine__vt105(u8 *arg0, s32 arg1);
-void render_with_position_override__10TObjPlayerFPUcl(void *, void *, s32);
-s32 check_demo_mode__10TObjPlayerFv(void);
-void clear_global_flag_400__9TObjEneDDFv(void);
-void toggle_particle_effect__10TObjPlayerFv(void);
-void end_effect_render__13TParticleCtrlFv(void);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
@@ -721,7 +719,6 @@ void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(void *);
 void set_chunk_material_color(void *);
 void draw_chunk_object(void *);
 extern Vec_80038200 lbl_80435AD0;
@@ -772,7 +769,7 @@ void TBoss2Mine__vt107(void) {  }
 
 void TBoss2Mine::render() {
     Mine_80038200 *self = (Mine_80038200 *)this;
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         self->m108();
         return;
     }
@@ -784,12 +781,12 @@ void TBoss2Mine::render() {
     }
     if (self->flags & 2) {
         Vec_80038200 v = lbl_80435AD0;
-        render_with_position_override__10TObjPlayerFPUcl(self, &v, 0);
+        ((TObjPlayer *)self)->render_with_position_override((u8 *)(&v), (s32)0);
     }
-    set_global_param__8TObjFishFl(self->f24);
+    TObjFish::set_global_param((s32)(self->f24));
     lbl_805D5660 = model_render_flags;
-    clear_global_flag_400__9TObjEneDDFv();
-    toggle_particle_effect__10TObjPlayerFv();
+    TObjEneDD::clear_global_flag_400();
+    TObjPlayer::toggle_particle_effect();
     set_node_offsets__10TBoss2MineFPv(self);
     push_matrix();
     post_translate_matrix(&self->pos);
@@ -820,7 +817,7 @@ void TBoss2Mine::render() {
         pop_matrix();
     }
     model_render_flags = lbl_805D5660;
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 void TBoss2Mine__vt106(void *arg0, s32 arg1) {
@@ -1340,8 +1337,6 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 int TBoss2Mine__vt60(void* p);
 int clear_attack_receipts(void*);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 TObjEneDD__sub_800BBA0C(void *);
 s32 refresh_collision_body_centers(void *);
 }
@@ -1358,7 +1353,7 @@ void TBoss2Mine__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 4) { transit
 void TBoss2Mine__vt26(void) {  }
 void TBoss2Mine::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         ((VObj_18 *)(arg0))->m107();
         return;
     }
@@ -1371,7 +1366,7 @@ void TBoss2Mine::run_task() {
     if (!(*(s32 *)((s8 *)arg0 + 0x38C) & 1)) {
         save_position();
         ((VObj_18 *)(arg0))->m86();
-        set_player_state_default__12TBoss8DragonFv((void *) (arg0));
+        ((TBoss8Dragon *)arg0)->set_player_state_default();
         ((VObj_18 *)(arg0))->m98();
     }
     refresh_collision_body_centers((void *) (arg0));
@@ -1495,7 +1490,6 @@ s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
-s32 check_state_flag_2__9TObjEneDDFv(void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 s32 init_position_vectors__9TObjEneDDFPv(void *);
 extern u8 *lbl_805D4BA4;
@@ -1553,7 +1547,7 @@ void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1) {
     reset_hp__9TObjEneDDFv(arg0, register_boss__6TLobbyFl(((s32 *)boss2_mine_params)[arg1]),
                             dispatch_shared_handler_b__6TLobbyFl(((s32 *)lbl_80482C90)[arg1]),
                             register_object__6TLobbyFl(((s32 *)lbl_80482C98)[arg1]));
-    check_state_flag_2__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->check_state_flag_2();
     *(Rec_80038BA0 **)((s8 *)arg0 + 0x350) = &((Rec_80038BA0 *)lbl_80482CA0)[arg1];
     *(f32 *)((s8 *)arg0 + 0x37C) = (3.0f);
     ((VObj_18_72b3e0 *)(arg0))->m93();

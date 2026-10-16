@@ -28,7 +28,6 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TCameraCtrl__sub_8006CC30(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void set_target_pos__11TCameraCtrlFPv(void *, void *);
 V_8006CC7C get_target_position__11TCameraCtrlFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
@@ -93,7 +92,7 @@ void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
     }
     ((void (*)(void *))get_target_position__11TCameraCtrlFv)(&v);
     VecCopy__FP3VecPC3Vec(&target, &v);
-    set_target_pos__11TCameraCtrlFPv(self, &target);
+    ((TCameraCtrl *)self)->set_target_pos(&target);
     if (is_on_current_screen__11TCameraCtrlFv(pad, 0x200) != 0) {
         if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10) != 0) {
             self->dist -= (2.0f);

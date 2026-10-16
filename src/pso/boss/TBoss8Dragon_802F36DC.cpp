@@ -3,7 +3,6 @@
 
 extern "C" {
 
-s32 get_part_count_plus__12TBoss8DragonFl(u32, s32);
 u32 get_enemy_entity();
 s32 is_split_screen();
 
@@ -22,7 +21,7 @@ bool TBoss8Dragon::has_enough_enemies() {
     count = 0;
     i = 0;
     do {
-        get_part_count_plus__12TBoss8DragonFl(boss8_dragon_leader_part, i);
+        ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(i);
         if (get_enemy_entity() != 0U) {
             count += 1;
         }

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjWarpBase.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base_8019DAC0 { s32 f0; u8 pad4[0x14]; };
 
@@ -48,9 +50,7 @@ s32 TLobby__sub_803DA16C(void*);
 u32 get_player_by_client_id(u16);
 s32 TWindow__close(u32);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 s32 fn_8019DD24(s32, s32);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 void TObjWarpBase__vt12(void *arg0) {
     u32 temp_r3;
@@ -88,7 +88,7 @@ void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
         struct VObj_8019DA54_8019D964 *o = (struct VObj_8019DA54_8019D964 *)arg0;
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBase;
         o->m12();
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -119,7 +119,7 @@ Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
 void TObjWarpBase::free_globals() {
     if ((u32) forest_warp_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)forest_warp_texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(forest_warp_texture_list);
+        TAdSinglePlyChrSelectGC::safe_free(forest_warp_texture_list);
         forest_warp_texture_list = 0U;
     }
     TLobby__sub_8001FE7C(forest_warp_bml_resource, 1);

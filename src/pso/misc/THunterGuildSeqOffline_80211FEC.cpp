@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Seq_80212304 {
     u8 pad0[0x1C];
@@ -13,26 +17,20 @@ s32 get_player_by_client_id(int);
 s32 advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
-s32 get_field_3e0__12TBoss3VoloptFv(int);
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
 s32 THunterGuildSeqOffline__sub_80212074(void);
-s32 get_player_count__10TObjPlayerFv();
-s32 get_field_3e0__12TBoss3VoloptFv(int);
 s32 is_flag_set__6TLobbyFv();
 f32 xz_distance_squared(void *, void *);
 s32 count_members__6TLobbyFv();
 s32 get_player_by_client_id(int);
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
-void set_close_flag__19TWindowSubTradeMainFv(void *);
-void set_visible__19TWindowSubTradeMainFv(void *);
 s32 get_player_by_client_id(int);
 void TWindow__close(void *);
-void dispatch_without_flags__20TWindowSubStatusDispFlll(void *, char *, s32);
 void *refresh_with_default_list__20TWindowSubStatusDispFll(void *, void *);
 void *get_window_layout_position(s32);
 char *strcpy(char *, const char *);
@@ -77,7 +75,7 @@ s32 THunterGuildSeqOffline__sub_80212074(void) {
     if (temp_r3 == 0) {
         return 0;
     }
-    temp_r3_3 = get_field_3e0__12TBoss3VoloptFv((int) (temp_r3));
+    temp_r3_3 = ((TBoss3Volopt *)temp_r3)->get_field_3e0();
     if ((temp_r3_3 != 0x12) && ((temp_r3_3 >= 0x12) || (temp_r3_3 != 0))) {
         return 0;
     }
@@ -95,7 +93,7 @@ s32 THunterGuildSeqOffline::check_party_gathered() {
     s32 me;
     f32 lim;
     s32 p;
-    if (get_player_count__10TObjPlayerFv() != 0 && count_members__6TLobbyFv() == 1) {
+    if (TObjPlayer::get_player_count() != 0 && count_members__6TLobbyFv() == 1) {
         return 2;
     }
     if (is_flag_set__6TLobbyFv() != 0 && count_members__6TLobbyFv() == 1) {
@@ -104,7 +102,7 @@ s32 THunterGuildSeqOffline::check_party_gathered() {
     for (i = 0; i < 4; i++) {
         u32 q = get_player_by_client_id(i);
         if (q != 0) {
-            switch (get_field_3e0__12TBoss3VoloptFv(q)) {
+            switch (((TBoss3Volopt *)q)->get_field_3e0()) {
             case 0:
             case 0x12:
                 break;
@@ -163,16 +161,16 @@ void THunterGuildSeqOffline::open_member_name_window() {
     }
     self->win = refresh_with_default_list__20TWindowSubStatusDispFll(get_window_layout_position(0xBD), member_name_window_pos);
     if (self->win != 0) {
-        set_visible__19TWindowSubTradeMainFv(self->win);
-        set_close_flag__19TWindowSubTradeMainFv(self->win);
+        ((TWindowSubTradeMain *)(self->win))->set_visible();
+        ((TWindowSubTradeMain *)(self->win))->set_close_flag();
         for (i = 0; i < 4; i++) {
             u32 p = get_player_by_client_id(i);
             if (p != 0) {
                 strcpy(self->names[i], (char *)(p + 0x85C));
-                dispatch_without_flags__20TWindowSubStatusDispFlll(self->win, self->names[i], i);
+                TWindowSubStatusDisp::dispatch_without_flags((s32)(self->win), (s32)(self->names[i]), (s32)i);
             } else {
                 self->names[i][0] = 0;
-                dispatch_without_flags__20TWindowSubStatusDispFlll(self->win, self->names[i], i);
+                TWindowSubStatusDisp::dispatch_without_flags((s32)(self->win), (s32)(self->names[i]), (s32)i);
             }
         }
     }

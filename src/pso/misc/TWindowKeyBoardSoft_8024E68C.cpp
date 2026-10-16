@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredFields_8024E754_arg0
 {
@@ -31,7 +33,6 @@ struct Win_8024EA50 {
 };
 
 extern "C" {
-u32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 extern u32 soft_keyboard_instance;
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DCC84;
@@ -44,9 +45,6 @@ extern const float lbl_805DCC78;
 void apply_context_transform_to_rect(Ctx_8024E6D8 *c, f32 *q);
 s32 is_split_screen();
 f32 TCameraCtrl__sub_80068A04(s32);
-f32 get_split_offset__11TCameraCtrlFl(s32);
-f32 get_fov__11TCameraCtrlFv();
-f32 get_view_scale__11TCameraCtrlFv();
 Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32);
 s32 get_camera_id__11TCameraCtrlFv();
 Vec2_8024EC34 *get_zero_vec2();
@@ -57,9 +55,6 @@ extern const float lbl_805DCC78;
 extern const float lbl_805DCC94;
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(Win_8024E8E8 *w, Box_8024E8E8 *b);
 s32 is_split_screen();
-f32 get_fov__11TCameraCtrlFv();
-f32 get_view_scale__11TCameraCtrlFv();
-s32 get_camera_no__11TCameraCtrlFv();
 extern u32 soft_keyboard_instance;
 extern const float lbl_805DCC94;
 extern const f32 lbl_805DCC98;
@@ -231,11 +226,11 @@ u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, 
     win->f34 = -1;
     win->depth = depth;
     if (!(flags & 0x1000) && is_split_screen() != 0) {
-        cam = get_camera_no__11TCameraCtrlFv();
+        cam = TCameraCtrl::get_camera_no();
         if (cam != 100) {
             ((TWindowKeyBoardSoft *)(&win->c))->adjust_pos_for_split_screen(cam);
-            win->sx = win->sx / get_view_scale__11TCameraCtrlFv();
-            win->sy = win->sy / get_fov__11TCameraCtrlFv();
+            win->sx = win->sx / TCameraCtrl::get_view_scale();
+            win->sy = win->sy / TCameraCtrl::get_fov();
         }
     }
     win->x = win->c.x - lbl_805DCCA0 * win->w;
@@ -260,9 +255,9 @@ void TWindowKeyBoardSoft::adjust_pos_for_split_screen(s32 arg1) {
     }
     p = get_viewport_offset__19TWindowKeyBoardSoftFi(arg1);
     arg0->x = arg0->x + (p->x + TCameraCtrl__sub_80068A04(arg1));
-    arg0->y = arg0->y + (p->y + get_split_offset__11TCameraCtrlFl(arg1));
-    arg0->x = arg0->x / get_view_scale__11TCameraCtrlFv();
-    arg0->y = arg0->y / get_fov__11TCameraCtrlFv();
+    arg0->y = arg0->y + (p->y + TCameraCtrl::get_split_offset(arg1));
+    arg0->x = arg0->x / TCameraCtrl::get_view_scale();
+    arg0->y = arg0->y / TCameraCtrl::get_fov();
 }
 
 Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32 i) {
@@ -304,7 +299,7 @@ u32 TWindowKeyBoardSoft::get_or_create_instance() {
     if ((u32) soft_keyboard_instance != 0U) {
         return soft_keyboard_instance;
     }
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0x4C));
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)0x4C)->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0U) {
         var_r0 = ((TWindowKeyBoardSoft *)temp_r3)->init_layout();

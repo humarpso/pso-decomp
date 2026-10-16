@@ -24,11 +24,9 @@ void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
 void GXSetVtxAttrFmt(int, int, int, int, u8);
 void GXBegin(int, int, u16);
-void clear_move_state_bits__10TObjPlayerFv(void);
 extern u32 chunk_render_flags;
 
 s32 resolve_render_keys__10TObjPlayerFPPUlPPUl();
-s32 advance_render_counters__10TObjPlayerFv();
 
 extern s32 lbl_805D7778;
 
@@ -38,7 +36,7 @@ void TObjPlayer::set_global_7778(s32 arg0) {
 
 void TObjPlayer::update_render_state() {
     resolve_render_keys__10TObjPlayerFPPUlPPUl();
-    advance_render_counters__10TObjPlayerFv();
+    TObjPlayer::advance_render_counters();
 }
 
 #pragma push
@@ -55,15 +53,15 @@ void draw_chunk_color_tex_strips(s16 *p, Vtx_803E549C *verts, u32 flags, s32 big
     if (chunk_render_flags != 0) {
         if (chunk_render_flags & 1) {
             if (chunk_render_flags & 0x200) {
-                clear_move_state_bits__10TObjPlayerFv();
+                TObjPlayer::clear_move_state_bits();
                 draw = 0;
             }
         } else if ((chunk_render_flags & 2) && (chunk_render_flags & 0x400)) {
-            clear_move_state_bits__10TObjPlayerFv();
+            TObjPlayer::clear_move_state_bits();
             draw = 0;
         }
     }
-    clear_move_state_bits__10TObjPlayerFv();
+    TObjPlayer::clear_move_state_bits();
     GXClearVtxDesc();
     GXSetVtxAttrFmt(0, 9, 1, 4, 0);
     GXSetVtxAttrFmt(0, 0xB, 1, 5, 0);

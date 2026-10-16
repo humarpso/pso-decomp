@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TItemAttacker.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_382324
 {
@@ -60,7 +62,6 @@ struct VObj_18_382324 : VBase_18_382324 {
 
 extern "C" {
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(int);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(int, int, int);
@@ -70,11 +71,8 @@ s32 init_shoot_model__10TObjPlayerFv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 send_6x61_activate_mag_effect(void *, int);
-s32 spawn_item_timer__13TItemAttackerFlll(void *, void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 for_each_target_in_range__10TObjPlayerFPvf(void *, f32);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 draw_status_icon__10TObjPlayerFl(void *, void *);
 void TObjPlayer__sub_801307D0(void);
 extern const f32 lbl_805DB000;
 void TObjPlayer__sub_80130490(u8 *arg0);
@@ -107,7 +105,7 @@ void TObjPlayer__sub_801303D8(u8 *arg0) {
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0))
   {
     ;
-    if ((get_current_floor() == get_field_3e4__10TObjPlayerFv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))))) && (TObjPlayer__sub_80102C30((void *) arg0) == 2))
+    if ((get_current_floor() == ((TObjPlayer *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->get_field_3e4()) && (TObjPlayer__sub_80102C30((void *) arg0) == 2))
     {
       if (!arg0)
       {
@@ -119,17 +117,17 @@ void TObjPlayer__sub_801303D8(u8 *arg0) {
 }
 void TObjPlayer__sub_80130490(u8 *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        draw_status_icon__10TObjPlayerFl((void *) (arg0), (void *) (arg0 + 0x208));
+        ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (arg0 + 0x208)));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) > 0x1999) {
             send_6x61_activate_mag_effect((void *) (arg0), (int) (0));
-            spawn_item_timer__13TItemAttackerFlll((void *) (arg0), (void *) (TObjPlayer__sub_801307D0), (int) (0x1E));
+            TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (TObjPlayer__sub_801307D0)), (s32)((int) (0x1E)));
             *(s32 *)((s8 *)arg0 + 0x204) = 0;
             return;
         }
         for_each_target_in_range__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DB000));
         return;
     }
-    update_active_game_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->update_active_game_effect();
 }
 
 }

@@ -2108,6 +2108,16 @@ void TObjEneBm3Fly__vt87(void* p) { TObjEneDD__vt86(p); clamp_flight_height__13T
 #include "types.h"
 #include "pso/enemy/TObjEneBm3Fly.h"
 #include <stddef.h>
+#include "pso/TObject.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneBm3FlyNest.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_800B3EB8 { char pad[0x18]; };
 struct VObj_800B3EB8 : VBase_800B3EB8 {
@@ -2203,7 +2213,6 @@ struct VObj_800B3EB8 : VBase_800B3EB8 {
 extern "C" {
 extern const f32 lbl_805D9CF8;
 extern const f32 lbl_805D9D6C;
-void init_vertex_table__17TObjEneBm3FlyNestFv(void);
 }
 
 extern "C" {
@@ -3550,9 +3559,7 @@ s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 void TLobby__sub_8001FE7C(void*, int);
-s32 get_camera_mode__11TCameraCtrlFv();
 s32 rotate_xz_pair_by_angle(void *, void *, int);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 spawn_particle_effect(void *, int);
 u8 * create_particle_emitter(void *, s32);
 s32 enable__13TParticleCtrlFPv(int);
@@ -3568,8 +3575,6 @@ u8 * TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg
 void render_with_state_debug__10TObjPlayerFPv(u8 *arg0);
 void render__17TObjEneBm3FlyNestFPv(u8 *arg0);
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
-void capture_attachment__17TObjEneBm3FlyNestFPv(void * _w0);
-int init__17TObjEneBm3FlyNestFPv(void* p);
 int copy_target_state__17TObjEneBm3FlyNestFPv(void* p);
 void* TObjEneBm3FlyNest__sub_800B2A54(void* p);
 void handle_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
@@ -3583,11 +3588,8 @@ void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void state_initial_emit__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 void init_params__17TObjEneBm3FlyNestFPv(void *arg0);
-void spawn_child__17TObjEneBm3FlyNestFv(Nest_800B39CC *s);
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
-void update_replenish__17TObjEneBm3FlyNestFv(u8 *arg0);
 void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p);
-void copy_pos__17TObjEneBm3FlyNestFv(void* p);
 void TObjEneBm3FlyNest__sub_800B3BE8(void);
 void update_state__17TObjEneBm3FlyNestFPv(void *arg0);
 void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0);
@@ -3597,50 +3599,33 @@ void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0);
 Obj_800B3E40 * TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag);
 void * TObjEneBm3FlyNest__ct(void *, void *, void *);
 int TObjEneBm3FlyNest__sub_800B4158(void);
-void free_fly__17TObjEneBm3FlyNestFv(void);
-void * create__17TObjEneBm3FlyNestFPv(void *arg0);
-void load_resources__17TObjEneBm3FlyNestFv(void);
-void render_parts__17TObjEneBm3FlyNestFv(u8 *arg0);
 void * destroy_monest_carrier(void *arg0, s16 arg1);
 u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
 void __dt__9TObjEneDDFv(void *, int);
-u8 * init_object__9TObjEneDDFv(void *);
-void get_camera_ctrl__9TObjEneDDFv(s32, s32);
-f32 rand_range__9TObjEneDDFff(void *, f32, f32);
 int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 u32 move_with_wall_slide_commit__9TObjEneDDFfff();
 s32 was_hit_by_ranged__9TObjEneDDFv();
 s32 TBoss8Dragon__sub_800BB7D4(void *, s32);
-s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
 s32 get_target_info__9TObjEneDDFPv(void *);
 s32 pack_debug_text_position(s32, s32);
 u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
 void TObjEneDD__vt0(void *, int);
-s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 s32 update_obstruction_fade(void *);
 void TObjPlayer__sub_800D7C58(void *);
-s32 set_field_e4__10TObjPlayerFll(void *, int, f32);
 s32 spawn_dead_spot_scale15(void *, int);
-s32 refresh_lobby_state__10TObjPlayerFv(void *);
 void free_collision_body_parts(void *);
 s32 send_entity_set_flags__6TLobbyFPv();
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(int);
 void __dt__7TObjectFv(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 void __destroy_arr(void *, void *, u32, u32);
 void debug_printf_at(s32, const char *, ...);
 void draw_model_motion(s32, Ent_800B23A0 *, f32);
-void set_global_flag__10TObjPlayerFv(void);
-void clear_global_state__10TObjPlayerFv(void);
-s32 set_global_state__16TObjEneRe7BeruraFl(void *);
 
 void TLobby__sub_801A1FD8();
 void TObjEneDD__vt100();
@@ -3683,7 +3668,6 @@ void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
 void apply_attack_stat_status__10TObjPlayerFv();
 void apply_confusion_status__10TObjPlayerFv();
-void apply_defense_stat_status__10TObjPlayerFlPv();
 void apply_knockback_from_attacker();
 void apply_movement_ailment__10TObjPlayerFv();
 void apply_object_set_data();
@@ -3709,7 +3693,6 @@ void get_actor_body_center();
 void get_actor_level_index();
 void get_enemy_name__14TObjEnePanarmsFv();
 void get_pos__10TObjPlayerFii();
-void has_flag_0x800__10TObjPlayerFPv();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
@@ -3720,9 +3703,6 @@ void reset_actor_action_state();
 void reset_pose__10TObjPlayerFPv();
 void roll_physical_accuracy__10TObjPlayerFv();
 void select_melee_contact_body__10TObjPlayerFv();
-void test_flag30_512__10TObjPlayerFPv();
-void test_flag_1000__10TObjPlayerFPv();
-void test_flag_256__10TObjPlayerFPv();
 void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__10TObjPlayerFPvii();
 void update_action_hold_status__10TObjPlayerFv();
@@ -3856,13 +3836,13 @@ void *__vt__13TObjEneBm3Fly[107] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TObjEneBm3Fly__vt26, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&TObjEneBm3Fly__vt26, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjEneBm3Fly__vt59, (void *)&TObjEneBm3Fly__vt60, (void *)&TObjEneBm3Fly__vt61,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
@@ -4055,7 +4035,7 @@ void TObjEneBm3Fly::run_task() {
     return;
   }
   temp_r3 = ((u32 (*)(int))find_entity_by_id)((int) (owner_id));
-  if ((temp_r3 == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv((int) temp_r3) == 0))
+  if ((temp_r3 == 0U) || (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0))
   {
     queue_destruction__7TObjectFv((void *) arg0);
     return;
@@ -4113,7 +4093,7 @@ void TObjEneBm3Fly::run_task() {
     }
   }
   ((TObjEneBm3Fly *)arg0)->store_position();
-  set_player_state_default__12TBoss8DragonFv((void *) arg0);
+  ((TBoss8Dragon *)arg0)->set_player_state_default();
   (((VObj_18_6eb1ad *)(arg0))->m98());
 }
 
@@ -4227,7 +4207,7 @@ s32 TObjEneBm3Fly::init_child_params() {
 #pragma pop
 
 u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6) {
-    init_object__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly *)__vt__13TObjEneBm3Fly).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneBm3Fly__name;
     *(u16 *)((s8 *)arg0 + 0x418) = obj_getField1c(arg2);
@@ -4271,7 +4251,7 @@ void TObjEneBm3Fly::load_resources() {
     s32 var_r0;
     u8 *temp_r5;
     bm3_fly_nest_resources = ((u8 * (*)(void))TObjEneBm3FlyNest__sub_800B4158)();
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0x10));
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = init_from_model__11TBreakUpMdlFPvi((int) (temp_r3), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 8)));
@@ -4287,7 +4267,7 @@ void TObjEneBm3Fly::load_resources() {
     stack.sp14 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)bm3_fly_nest_resources + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C));
-    spawn_npc_enemy__6TLobbyFslllff((int) (7), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (*(f32 *)((s8 *)(&bm3_fly_collider_params.value) + 0xC)), (f32) ((15.0f)));
+    TLobby::spawn_npc_enemy((s16)((int) (7)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)((f32) (*(f32 *)((s8 *)(&bm3_fly_collider_params.value) + 0xC))), (f32)((f32) ((15.0f))));
 }
 
 }

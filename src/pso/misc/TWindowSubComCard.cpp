@@ -2,6 +2,7 @@
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/misc/TQuestListVM.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Base_8021845C_802183B4 { char pad[0x18]; };
 struct VObj_8021845C_802183B4 : Base_8021845C_802183B4 {
@@ -54,8 +55,6 @@ s32 TQuestListVM__vt8(void *arg0);
 s32 TShopWindowBase__sub_80223A48(void *);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
 s32 poll_serial_access__22TQuestVmDownLoadServerFv();
-s32 set_entry_state__20TWindowSubStatusDispFSc(s32 a0 = 0, s32 a1 = 0);
-int set_field_20__12TQuestListVMFl(void*, void*);
 
 }
 s32 TQuestListOnline::get_selection_stage() { return selection_stage; }
@@ -65,10 +64,10 @@ void TWindowSubComCard::clear_flag_and_release() {
     *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) & 0xFFFFFFFD);
     temp = (u32) *(u32 *)((s8 *)this + 0x88);
     if (temp != 0U) {
-        set_entry_state__20TWindowSubStatusDispFSc(temp, 1);
+        ((TWindowSubStatusDisp *)temp)->set_entry_state(1);
     }
 }
-void TQuestListVM::set_selected_entry(void* a1) { set_field_20__12TQuestListVMFl(this, (void*)20); *(void**)((char*)this + 0x23b4) = a1; }
+void TQuestListVM::set_selected_entry(void* a1) { set_field_20((s32)((void*)20)); *(void**)((char*)this + 0x23b4) = a1; }
 void TQuestListVM::poll_download() {
     if (get_serial_access__22TQuestVmDownLoadServerFv() == 0U) {
         poll_serial_access__22TQuestVmDownLoadServerFv();

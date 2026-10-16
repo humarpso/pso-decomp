@@ -10,7 +10,6 @@ struct VObj_801457A4 : Base_801457A4 {
 extern "C" {
 s32 TLobby__sub_803DA16C(s32 *);
 s32 mem_free(s32);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 extern s32 menu_font_texture_list[];
 extern s32 menu_font_glyph_data;
 extern s32 lbl_805D56B4;
@@ -36,7 +35,7 @@ void TAdSinglePlyChrSelectGC::free_resources() {
     TLobby__sub_803DA16C(menu_font_texture_list);
     mem_free(menu_font_glyph_table);
     mem_free(lbl_805D56B4);
-    safe_free__23TAdSinglePlyChrSelectGCFUl(menu_font_glyph_data);
+    TAdSinglePlyChrSelectGC::safe_free(menu_font_glyph_data);
 }
 #pragma pop
 

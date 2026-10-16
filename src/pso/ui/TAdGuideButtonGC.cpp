@@ -1,14 +1,14 @@
 #include "pso/ui/TAdGuideButtonGC.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/object/TObjFish.h"
 extern "C" {
 s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(const char *, f32, f32, f32);
-s32 get_state_flag__9TMainTaskFv();
 u32 TAdMultiPlyChrSelectGC__sub_802C6FA8();
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
-void set_global_param__8TObjFishFl(u32);
 void begin_screen_draw(s32);
 void set_draw_texture_and_color(s32, s32);
 void draw_textured_quad_at_depth(void *, f32);
-void get_player__20TWindowSubStatusDispFv();
 extern const GuideButtonPoint guide_button_atlas_origins[4] = {
     {212.0f,78.0f},{190.0f,78.0f},{234.0f,78.0f},{190.0f,100.0f},
 };
@@ -27,15 +27,15 @@ void TAdGuideButtonGC::draw_label(int style, const char *text) {
 #pragma pop
 void TAdGuideButtonGC::draw_quad(int style) {
     if (guide_button_texture_handle != 0) {
-        set_global_param__8TObjFishFl(guide_button_texture_handle);
+        TObjFish::set_global_param(guide_button_texture_handle);
         begin_screen_draw(1);
         set_draw_texture_and_color(0,-1);
         draw_textured_quad_at_depth(quads,0.5f);
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
     }
 }
 void TAdGuideButtonGC::render() {
-    if (get_state_flag__9TMainTaskFv() != 1) {
+    if (TMainTask::get_state_flag() != 1) {
         draw_quad(0);
         draw_label(0,label);
     }
@@ -43,8 +43,8 @@ void TAdGuideButtonGC::render() {
 void TAdGuideButtonGC::setup_button(GuideButtonSpec *spec) {
     s32 i;
     this->kind = spec->kind;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&this->from, &spec->from);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&this->to, &spec->to);
+    ((TWindowSubSymbolChatPartsSet *)(&this->from))->copy_vec2(&spec->from);
+    ((TWindowSubSymbolChatPartsSet *)(&this->to))->copy_vec2(&spec->to);
     this->alpha_step = spec->alpha_step;
     this->duration = spec->duration;
     this->label = spec->label;

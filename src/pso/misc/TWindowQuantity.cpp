@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowQuantity.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Quantity_8026D000 {
     s32 f0;
@@ -25,7 +27,6 @@ void save_position__17TWindowSubComCardFPv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_window_layout_position(s32);
-f32 get_base_y__20TWindowSubStatusDispFf(f32);
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 extern u8 lbl_804D0870[];
 extern s32 __vt__15TWindowQuantity[];
@@ -46,7 +47,6 @@ int update_window_entry_list(void*, void*);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFs(void *, int);
 int initialize_subwindow__9TWindowDDFv(void*);
 
 void TWindowQuantity::set_position(s32 arg1) {
@@ -67,7 +67,7 @@ extern s32 __vt__15TWindowQuantity[];
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowQuantity;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -91,7 +91,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     e1 = get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
     set_text_entry_string(e0, id, 0);
     *(f32 *)(e1 + 8) = lbl_805DD2D0 + (lbl_805DD2D4 + (lbl_805DD2D8 + n));
-    self->f38 = get_base_y__20TWindowSubStatusDispFf(self->f60);
+    self->f38 = TWindowSubStatusDisp::get_base_y(self->f60);
     save_position__17TWindowSubComCardFPv(arg0);
     if (get_camera_id__11TCameraCtrlFv() > 2) {
         self->f64 = lbl_805DD2DC;

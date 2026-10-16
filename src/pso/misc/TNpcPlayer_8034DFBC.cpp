@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TNpcPlayer.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8034E440 { char pad[0x18]; };
 
@@ -115,7 +117,6 @@ void quest_remove_npc_player(u16 arg0);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 s32 get_player_by_client_id(s32);
 s32 send_6x21_inter_level_warp(s32, s32);
-u16 get_action_flags__10TNpcPlayerFv(s32);
 s32 obj_getField1c(s32);
 s32 obj_isState3_324();
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
@@ -125,10 +126,8 @@ void send_6x24_teleport_player(u16, s32, s32);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034EDB8(void);
-s32 reset_lobby_model__10TObjPlayerFv(void *);
 s32 get_player_by_client_id(s32);
 s32 get_player_by_client_id(s32);
-s32 set_type__10TObjPlayerFl(s32, s32);
 s32 get_player_by_client_id(s32);
 s32 end_camera_pan__10TObjPlayerFPv();
 s32 get_player_by_client_id(s32);
@@ -142,9 +141,7 @@ extern E_8034E02C npc_partner_dialogue_state[];
 void clear_partner_dialogue_flags(void);
 s32 obj_isState3_324();
 s32 obj_getField1c(s32);
-s16 get_stat_by_key_state__10TObjPlayerFv(s32);
 s32 get_player_by_client_id(s32);
-void open__11TWindowCtrlFlll(s32, void *, s32);
 extern E_8034E02C npc_partner_dialogue_state[];
 extern int lbl_805D6EA0;
 void show_partner_chatter_for_key(s16 key);
@@ -158,8 +155,6 @@ extern int lbl_805D6EA0;
 void init_partner_dialogue(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
-void send_6x3E__10TNpcPlayerFv(void *);
-void init_6x3E_packet__10TNpcPlayerFv(void *);
 s32 get_player_by_client_id(s32);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
@@ -170,16 +165,12 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState3_324();
 s32 obj_testFlags30(void *, int);
 f32 atan2_float(f32, f32);
-void send_6x3E__10TNpcPlayerFv(void *);
-void init_6x3E_packet__10TNpcPlayerFv(void *);
 s32 get_player_by_client_id(s32);
 extern const f64 lbl_80478CB0[];
 void quest_player_look_at_partner(u16 src);
 s32 obj_isState3_324();
 s32 obj_getField1c(s32);
-s16 get_stat_by_key_state__10TObjPlayerFv(s32);
 s32 get_player_by_client_id(s32);
-void open__11TWindowCtrlFlll(s32, void *, s32);
 extern E_8034E02C npc_partner_dialogue_state[];
 extern int lbl_805D6EA0;
 void notify_partner_room_cleared(s32 arg0);
@@ -199,12 +190,9 @@ s32 get_player_by_client_id(s32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
 f32 atan2_float(f32, f32);
-void send_6x3E__10TNpcPlayerFv(void *);
-void init_6x3E_packet__10TNpcPlayerFv(void *);
 extern const f64 lbl_80478CB0[];
 void quest_player_face_actor(u16 src, u16 dst);
 f32 atan2_float(f32, f32);
-u16 get_action_flags__10TNpcPlayerFv(s32);
 s32 get_player_by_client_id(s32);
 void send_6x55_intra_map_warp(u16, f32 *, s32);
 extern const f64 lbl_80478CB0[];
@@ -213,9 +201,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState3_324();
 s32 obj_testFlags30(void *, int);
 s32 obj_getField1c(s32);
-void send_6x3E__10TNpcPlayerFv(void *);
-void init_6x3E_packet__10TNpcPlayerFv(void *);
-u16 get_action_flags__10TNpcPlayerFv(s32);
 s32 get_player_by_client_id(s32);
 s32 notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
@@ -250,7 +235,7 @@ void TNpcPlayer::send_warp_toward_player(u16 arg0, f32 *arg1) {
     s32 npc = get_player_by_client_id(arg0);
     P_8034E054 *me = (P_8034E054 *)get_player_by_client_id(local_client_id);
     if (me == NULL || arg0 == 0) return;
-    if (get_action_flags__10TNpcPlayerFv(npc) != 0xFFFF) {
+    if (((TNpcPlayer *)npc)->get_action_flags() != 0xFFFF) {
         send_6x55_intra_map_warp(arg0, arg1,
             (s32)(lbl_80478CB0[0] * atan2_float(arg1[0] - me->x, arg1[2] - me->z)));
     }
@@ -289,13 +274,13 @@ void quest_player_face_actor(u16 src, u16 dst) {
     if (c == NULL) {
         return;
     }
-    init_6x3E_packet__10TNpcPlayerFv(&pkt);
+    ((TNpcPlayer *)(&pkt))->init_6x3E_packet();
     obj_testFlags30(a, 0x100000);
     heading = (s32) (lbl_80478CB0[0] * atan2_float(c->x - a->x, c->z - a->z));
     pkt.id = src;
     VecCopy__FP3VecPC3Vec(&pkt.x, &a->x);
     pkt.arg = heading;
-    send_6x3E__10TNpcPlayerFv(&pkt);
+    ((TNpcPlayer *)(&pkt))->send_6x3E();
 }
 
 void quest_player_look_at_partner(u16 src) {
@@ -331,7 +316,7 @@ void quest_player_look_at_partner(u16 src) {
     if (c == NULL) {
         return;
     }
-    init_6x3E_packet__10TNpcPlayerFv(&pkt);
+    ((TNpcPlayer *)(&pkt))->init_6x3E_packet();
     flag = 0;
     if (obj_testFlags30(a, 0x100000) != 0) {
         flag = 1;
@@ -342,9 +327,9 @@ void quest_player_look_at_partner(u16 src) {
     pkt.arg = heading;
     pkt.flag = flag;
     if (flag == 1) {
-        send_6x3E__10TNpcPlayerFv(&pkt);
+        ((TNpcPlayer *)(&pkt))->send_6x3E();
     } else {
-        send_6x3E__10TNpcPlayerFv(&pkt);
+        ((TNpcPlayer *)(&pkt))->send_6x3E();
     }
 }
 
@@ -352,7 +337,7 @@ void TNpcPlayer::send_stop_at_position(u16 id, void *pos, s16 arg) {
     struct Pkt_8034E3A0 pkt;
     s16 flag;
     u8 *p;
-    init_6x3E_packet__10TNpcPlayerFv(&pkt);
+    ((TNpcPlayer *)(&pkt))->init_6x3E_packet();
     p = (u8 *) get_player_by_client_id(id);
     flag = 0;
     if (p != NULL) {
@@ -363,7 +348,7 @@ void TNpcPlayer::send_stop_at_position(u16 id, void *pos, s16 arg) {
         VecCopy__FP3VecPC3Vec(&pkt.x, pos);
         pkt.arg = arg;
         pkt.flag = flag;
-        send_6x3E__10TNpcPlayerFv(&pkt);
+        ((TNpcPlayer *)(&pkt))->send_6x3E();
     }
 }
 
@@ -399,8 +384,8 @@ void notify_partner_room_cleared(s32 arg0) {
     i = 0;
     do {
         p = get_player_by_client_id(i);
-        if (p != 0 && obj_isState3_324() != 0 && arg0 == get_stat_by_key_state__10TObjPlayerFv(p) && !(lbl_805D6EA0 & 2) && *win != 0) {
-            open__11TWindowCtrlFlll((s32)(obj_getField1c(p)), (void *)((s32)win), (s32)(0x1B));
+        if (p != 0 && obj_isState3_324() != 0 && arg0 == ((TObjPlayer *)p)->get_stat_by_key_state() && !(lbl_805D6EA0 & 2) && *win != 0) {
+            TWindowCtrl::open((s32)((s32)(obj_getField1c(p))), (s32)((void *)((s32)win)), (s32)((s32)(0x1B)));
         }
         i += 1;
     } while (i < 4);
@@ -411,9 +396,9 @@ void show_partner_chatter_for_key(s16 key) {
     s32 player;
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
-        if (player && obj_isState3_324() && key == get_stat_by_key_state__10TObjPlayerFv(player)
+        if (player && obj_isState3_324() && key == ((TObjPlayer *)player)->get_stat_by_key_state()
             && !(lbl_805D6EA0 & 2) && (*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e) {
-            open__11TWindowCtrlFlll(obj_getField1c(player), &(*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e, 0x1B);
+            TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)(&(*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e), (s32)0x1B);
         }
     }
 }
@@ -425,17 +410,17 @@ void TNpcPlayer::send_6x3e_to_all_players(void *pos, s16 arg) {
     s16 flag;
     for (i = 0; i < 4; i++) {
         p = get_player_by_client_id(i);
-        if (p != 0 && obj_isState3_324() != 0 && get_action_flags__10TNpcPlayerFv(p) != 0xFFFF) {
+        if (p != 0 && obj_isState3_324() != 0 && ((TNpcPlayer *)p)->get_action_flags() != 0xFFFF) {
             flag = 0;
             if (obj_testFlags30((void *)p, 0x100000) != 0) {
                 flag = 1;
             }
-            init_6x3E_packet__10TNpcPlayerFv(&pkt);
+            ((TNpcPlayer *)(&pkt))->init_6x3E_packet();
             pkt.id = obj_getField1c(p);
             VecCopy__FP3VecPC3Vec(&pkt.x, pos);
             pkt.arg = arg;
             pkt.flag = flag;
-            send_6x3E__10TNpcPlayerFv(&pkt);
+            ((TNpcPlayer *)(&pkt))->send_6x3E();
         }
     }
 }
@@ -446,7 +431,7 @@ void TNpcPlayer::apply_to_players(s32 arg0, void *arg1, s32 arg2) {
     var_r31 = 0;
     do {
         temp_r3 = get_player_by_client_id(var_r31);
-        if ((temp_r3 != 0) && (obj_isState3_324() != 0) && ((u16) get_action_flags__10TNpcPlayerFv(temp_r3) != 0xFFFF)) {
+        if ((temp_r3 != 0) && (obj_isState3_324() != 0) && ((u16) ((TNpcPlayer *)temp_r3)->get_action_flags() != 0xFFFF)) {
             set_arrival_override_coords(obj_getField1c(temp_r3), arg2, *(f32 *)((s8 *)arg1 + 0), *(f32 *)((s8 *)arg1 + 4), *(f32 *)((s8 *)arg1 + 8));
             send_6x21_inter_level_warp(temp_r3, arg0);
         }
@@ -459,7 +444,7 @@ void TNpcPlayer::send_inter_level_warp_all(s32 arg0) {
 
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
-        if (player != 0 && obj_isState3_324() != 0 && get_action_flags__10TNpcPlayerFv(player) != 0xFFFF) {
+        if (player != 0 && obj_isState3_324() != 0 && ((TNpcPlayer *)player)->get_action_flags() != 0xFFFF) {
             send_6x21_inter_level_warp(player, arg0);
         }
     }
@@ -663,14 +648,14 @@ void TNpcPlayer::reset_player_lobby_model(u16 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32)get_player_by_client_id((s32)((u32)((void *) (arg0)))));
     if (temp_r3 != 0U) {
-        reset_lobby_model__10TObjPlayerFv((void *) (temp_r3 + 0x644));
+        ((TObjPlayer *)(temp_r3 + 0x644))->reset_lobby_model();
     }
 }
 void TNpcPlayer::update_player_field(u16 arg0, s32 arg1) {
     u32 temp_r3;
     temp_r3 = ((u32)get_player_by_client_id((s32)(arg0)));
     if (temp_r3 != 0U) {
-        set_type__10TObjPlayerFl(temp_r3 + 0x644, arg1);
+        ((TObjPlayer *)(temp_r3 + 0x644))->set_type(arg1);
     }
 }
 void TNpcPlayer::end_camera_pan_for_client(u16 arg0) {

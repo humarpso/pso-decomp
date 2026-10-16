@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 struct VPad800BC050_800bc050_800BBE90 { char pad[0x18]; };
 struct VObj800BC050_800bc050_800BBE90 : VPad800BC050_800bc050_800BBE90 {
@@ -145,7 +146,6 @@ extern const f32 lbl_805D9EB4;
 extern const f32 lbl_805D9EB4;
 void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
-void clamp_velocity__15TObjBoss2TunnelFv(void *p);
 void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
 s32 obj_isState2_324(void *);
 void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
@@ -153,7 +153,6 @@ s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
 s32 attack_target_history_add(void *, void *);
-s32 init_all_slots__10TObjPlayerFv();
 s32 mark_enemy_body_contacts(void *);
 s32 update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
@@ -161,7 +160,6 @@ s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
 s32 attack_target_history_add(void *, void *);
-s32 init_all_slots__10TObjPlayerFv();
 s32 mark_enemy_body_contacts(void *);
 s32 update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
@@ -227,7 +225,7 @@ void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s) {
     Vec_800BBFD0 v;
     VecCopy__FP3VecPC3Vec(&v, &b->pos);
     subtract_vector(&v, &a->pos);
-    clamp_velocity__15TObjBoss2TunnelFv(&v);
+    ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
     b->f308 = v.x * s + b->f308;
     b->f310 = v.z * s + b->f310;
 }
@@ -248,7 +246,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
     if (arg0->self_tgt == NULL) {
         return 0;
     }
-    init_all_slots__10TObjPlayerFv();
+    TObjPlayer::init_all_slots();
     if (arg1->flags & 1) {
         update_body_contact_flag__10TObjPlayerFPvf(arg0, farg0);
         mask |= 0x80000;
@@ -304,7 +302,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
     if (arg0->self_tgt == NULL) {
         return 0;
     }
-    init_all_slots__10TObjPlayerFv();
+    TObjPlayer::init_all_slots();
     if (arg1->flags & 1) {
         update_body_contact_flag__10TObjPlayerFPvf(arg0, farg0);
         mask |= 0x80000;

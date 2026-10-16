@@ -38,7 +38,6 @@ extern const f32 lbl_805DBAC8;
 void run_task__19TObjGoalWarpAncientFv(u8 *arg0);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
 s32 get_instance__19TObjGoalWarpAncientFv();
 s32 register_warp__19TObjGoalWarpAncientFPv(int);
@@ -154,6 +153,7 @@ void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1) {
 
 #include "types.h"
 #include "pso/object/TObjMapWarpAncient.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VObjBase_8017CED8_more_8017cca4_1 { char pad[0x18]; };
 struct VObj_8017CED8_more_8017cca4_1 : VObjBase_8017CED8_more_8017cca4_1 {
@@ -216,7 +216,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     if (is_split_screen() == 1) {
-        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0x88));
+        temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = init__13TAdVIConfigGCFf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBABC));

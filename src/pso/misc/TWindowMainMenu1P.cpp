@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowMainMenu1P.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 struct RecoveredGlobal_80288838___vt__17TWindowMainMenu1P { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_80288838___vt__17TWindowMainMenu1P_size[sizeof(RecoveredGlobal_80288838___vt__17TWindowMainMenu1P) == 0x28 ? 1 : -1];
@@ -11,9 +13,6 @@ u8 * __dt__15TWindowMainMenuFv(void *, s16);
 extern s32 __vt__17TWindowMainMenu1P[];
 u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1);
 void TCameraCtrl__sub_800694A8(void);
-void apply_view_params_if_flagged__11TCameraCtrlFv(void *);
-void set_field18__15TWindowCtrlMainFfl(f32, s32);
-void set_depth__15TWindowCtrlMainFfl(f32, s32);
 extern const f32 lbl_805DD8A0;
 extern const f32 lbl_805DD8A4;
 extern const f32 lbl_805DD8A8;
@@ -92,8 +91,8 @@ void TWindowMainMenu1P::update_backdrop_transition() {
   }
   *((f32 *) (((s8 *) arg0) + 0x6C)) = (f32) ((lbl_805DD8AC * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60)))))) + lbl_805DD8A8);
   *((f32 *) (((s8 *) arg0) + 0x70)) = (f32) (-((lbl_805DD8B4 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))))) - lbl_805DD8B0));
-  set_depth__15TWindowCtrlMainFfl(lbl_805DD8B8 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60))))), *((s32 *) (((s8 *) arg0) + 0x54)));
-  set_field18__15TWindowCtrlMainFfl(-((lbl_805DD8C0 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))))) - lbl_805DD8BC), *((s32 *) (((s8 *) arg0) + 0x54)));
+  TWindowCtrlMain::set_depth(lbl_805DD8B8 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60))))), *((s32 *) (((s8 *) arg0) + 0x54)));
+  TWindowCtrlMain::set_field18(-((lbl_805DD8C0 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))))) - lbl_805DD8BC), *((s32 *) (((s8 *) arg0) + 0x54)));
   *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) ((lbl_805DD8C4 - (*((f32 *) (((s8 *) arg0) + 0x6C)))) / lbl_805DD8A8);
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x70))) / lbl_805DD8B0);
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0xA8));
@@ -104,7 +103,7 @@ void TWindowMainMenu1P::update_backdrop_transition() {
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (lbl_805DD8C8 * (*((f32 *) (((s8 *) arg0) + 0xA4))));
   if ((*((s32 *) (((s8 *) arg0) + 0x4C))) & 2)
   {
-    apply_view_params_if_flagged__11TCameraCtrlFv(((u8 *) arg0) + 0x64);
+    ((TCameraCtrl *)(((u8 *) arg0) + 0x64))->apply_view_params_if_flagged();
   }
 }
 

@@ -11,7 +11,6 @@ void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_ui_sprite_scaled(s32, V2_802A1C04 *, V2_802A1C04 *, f32, f32);
 void draw_ui_sprite(s32, V2_802A1C04 *, f32, f32);
-s32 get_selected_char__15TChCrCharSelectFv(void);
 extern V2_802A1C04 lbl_8046638C[];
 extern V2_802A1C04 lbl_80466394[];
 extern V2_802A1C04 lbl_8046639C[];
@@ -43,7 +42,7 @@ void TObjCMAssignMenu::draw_char_info_sprites() {
         alpha = (self->t - lbl_805DDE14) / lbl_805DDE14;
     }
     V2_802A1C04 a = lbl_8046638C[0];
-    c = get_selected_char__15TChCrCharSelectFv();
+    c = TChCrCharSelect::get_selected_char();
     if (c >= 0) {
         draw_ui_sprite(c + 0x87, &a, lbl_805DDE18, alpha);
     }

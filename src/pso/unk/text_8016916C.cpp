@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOHealGeneral.h"
+#include "pso/misc/TOHangerMachine01.h"
 
 extern "C" {
 extern const f32 lbl_805DB6B8;
@@ -11,7 +12,6 @@ f32 horizontal_distance_squared(s32, void *);
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DB6C4;
 s16 obj_getS16_32C(void *);
-s32 is_valid_slot__17TOHangerMachine01FiUs(int, u16);
 void send_6x2F_change_player_hp(u16, u16, s16);
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DB6B8;
@@ -35,7 +35,7 @@ void TOHealGeneral::update_closing() {
     if (*(f32 *)((s8 *)arg0 + 0xD0) <= lbl_805DB6C0) {
         *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DB6C0;
         *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-        if (is_valid_slot__17TOHangerMachine01FiUs((s32) arg0, *(u16 *)((s8 *)arg0 + 0xF4)) != 0) {
+        if (TOHangerMachine01::is_valid_slot((s32) arg0, *(u16 *)((s8 *)arg0 + 0xF4)) != 0) {
             temp_r3 = (u8 *)(get_player_by_client_id((u32) *(u16 *)((s8 *)arg0 + 0xF4)));
             if (temp_r3 != NULL) {
                 temp_r3_2 = obj_getS16_32C(temp_r3);

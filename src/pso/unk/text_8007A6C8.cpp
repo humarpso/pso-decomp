@@ -1,7 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMapCsn.h"
 extern "C" {
-void init__10TObjMapCsnFv(void *);
-void init_and_return__10TObjMapCsnFl(void *);
 void __construct_array(void *, void *, s32, s32, s32);
 extern u8 TObjPlayer__sub_8007A7B8[];
 void fn_8007A6C8(void);
@@ -15,8 +14,8 @@ __declspec(section ".data") u8 lbl_80500140[8];
 u8 csn_query_map_object[0x10];
 void fn_8007A6C8(void) {
     __construct_array(lbl_804FF9C0, TObjPlayer__sub_8007A7B8, 0, 0x1C, 0x20);
-    init_and_return__10TObjMapCsnFl(lbl_80500140);
-    init__10TObjMapCsnFv(csn_query_map_object);
+    TObjMapCsn::init_and_return((s32)lbl_80500140);
+    ((TObjMapCsn *)csn_query_map_object)->init();
 }
 
 }

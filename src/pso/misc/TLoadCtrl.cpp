@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TLoadCtrl.h"
+#include "pso/TObject.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TLobby.h"
 
 struct Base_8001C8B8_8001C61C { char pad[0x18]; };
 struct VObj_8001C8B8_8001C61C : Base_8001C8B8_8001C61C {
@@ -38,7 +42,6 @@ extern u32 TLoadCtrl__instance;
 bool TLoadCtrl__sub_8001C60C(void);
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
 s32 TNowLoading__sub_8001D4D4();
-s32 init_default_view__11TCameraCtrlFv();
 s32 reset_view_state__11TCameraCtrlFv();
 s32 TCameraCtrl__ct(u8 *, s32);
 s32 TLoadCtrl__sub_80226DA0(int);
@@ -54,11 +57,9 @@ extern s32 tl_camera;
 s32 TNowLoading__ct(s32, void *, void *);
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
-s32 update_input_frame__16TKeyBoardControlFv();
 s32 controller_stuff__Fv();
 s32 update_sound_request_slots();
 s32 __nw__7TObjectFUl(int);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 s32 TAdLoadQuestGC__ct(s32, void *);
 s32 __ct__14TAdFloorLoadGCFv(s32, void *, int);
 extern u8 lbl_804349CC[];
@@ -72,14 +73,10 @@ extern s32 TLoadCtrl__fade_task;
 extern "C" {
 
 s32 TAdLoadQuestGC__sub_8030984C();
-s32 reset_default_view__11TCameraCtrlFv();
-s32 init_default_view__11TCameraCtrlFv();
 s32 reset_view_state__11TCameraCtrlFv();
 s32 TNowLoading__sub_8001D4D0();
-s32 create__11TCameraCtrlFv();
 s32 fn_8034AD28();
 s32 queue_destruction__7TObjectFv(u32);
-s32 release_bgm_resource__6TLobbyFv();
 s32 reset__11TCameraCtrlFv();
 
 bool TLoadCtrl__sub_8001C60C(void) {
@@ -98,7 +95,7 @@ void TLoadCtrl::run_task() {
     Obj_8001C620 *self = (Obj_8001C620 *)this;
     s32 o;
     if (TLoadCtrl__instance != 0U) {
-        if ((u32)TLoadCtrl__fade_task != 0U && all_parents_unqueued_for_destruction__7TObjectFv(TLoadCtrl__fade_task) == 0) {
+        if ((u32)TLoadCtrl__fade_task != 0U && ((TObject *)TLoadCtrl__fade_task)->all_parents_unqueued_for_destruction() == 0) {
             TLoadCtrl__fade_task = 0;
         }
         if (++self->f20 == 2) {
@@ -133,7 +130,7 @@ void TLoadCtrl::run_task() {
         }
         if (self->f1c != 0) {
             controller_stuff__Fv();
-            update_input_frame__16TKeyBoardControlFv();
+            TKeyBoardControl::update_input_frame();
         }
         update_sound_request_slots();
         Vec_8001C620 a = lbl_804349D8;
@@ -191,20 +188,20 @@ void TLoadCtrl::cleanup_scene() {
     }
     switch (TLoadCtrl__loading_mode) {
     case 0:
-        release_bgm_resource__6TLobbyFv();
+        TLobby::release_bgm_resource();
         TNowLoading__sub_8001D4D0();
         break;
     case 1:
-        release_bgm_resource__6TLobbyFv();
+        TLobby::release_bgm_resource();
         TAdLoadQuestGC__sub_8030984C();
         break;
     case 3:
     case 4:
-        release_bgm_resource__6TLobbyFv();
+        TLobby::release_bgm_resource();
         fn_8034AD28();
         break;
     }
-    reset_default_view__11TCameraCtrlFv();
+    TCameraCtrl::reset_default_view();
     reset__11TCameraCtrlFv();
     if (camera_ctrl_instance != NULL) {
         if (camera_ctrl_instance != NULL) {
@@ -213,8 +210,8 @@ void TLoadCtrl::cleanup_scene() {
         camera_ctrl_instance = NULL;
     }
     reset_view_state__11TCameraCtrlFv();
-    init_default_view__11TCameraCtrlFv();
-    create__11TCameraCtrlFv();
+    TCameraCtrl::init_default_view();
+    TCameraCtrl::create();
 }
 
 void TLoadCtrl::start_loading(u32 arg0) {
@@ -224,7 +221,7 @@ void TLoadCtrl::start_loading(u32 arg0) {
     u32 var_r31;
     var_r31 = arg0;
     reset_view_state__11TCameraCtrlFv();
-    init_default_view__11TCameraCtrlFv();
+    TCameraCtrl::init_default_view();
     if (var_r31 == 2U) {
         temp_r3 = select_area_entrance((void *) (lbl_80515BA0));
         if (temp_r3 == 0) {

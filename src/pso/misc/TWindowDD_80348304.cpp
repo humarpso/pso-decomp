@@ -1,6 +1,8 @@
 #include "pso/misc/TWindowDD.h"
 
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct W_80348520 {
     u8 pad0[0x24];
@@ -19,9 +21,7 @@ void TWindowDD__sub_803484C4(u8 *arg0);
 int TWindowDD__sub_8034B008(s32, s32);
 void TWindowDD__sub_80348448(s32 arg0, s16 arg1);
 s32 TWindow__close(void *);
-s32 get_player_count__10TObjPlayerFv();
 s32 is_flag_set__6TLobbyFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 }
 
 extern "C" {
@@ -66,14 +66,14 @@ void TWindowDD::dispatch_state() {
 s32 TWindowDD::get_word_select_context() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     if (temp_r3 == 0 || temp_r3 == 18) {
         return 1;
     }
     if (temp_r3 == 15) {
         return 0;
     }
-    if (get_player_count__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::get_player_count() != 0) {
         return 4;
     }
     if (is_flag_set__6TLobbyFv() != 0) {

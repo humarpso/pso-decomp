@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TLobby.h"
 
 struct Part_800BB780 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
@@ -12,7 +13,6 @@ void enemy_find_nearest_player_in_range(f32 farg0);
 s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 obj_getField1c(void *);
-s32 get_game_mode__6TLobbyFv();
 u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -45,7 +45,7 @@ s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0) {
     s32 i;
     best = farg0;
     result = 0xFFFF;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (is_alive__9TObjEneDDFv(p) != 0) {

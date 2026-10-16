@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjRaderHideCol.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -29,8 +31,6 @@ extern s32 lbl_805D3414;
 u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 f32 xyz_distance_squared(void *, void *);
 Pl_801973B0 *get_player_by_client_id(s32);
-void hide_radar__13TRaderMapCoreFv();
-void show_radar__13TRaderMapCoreFv();
 extern s32 local_client_id;
 }
 
@@ -38,7 +38,6 @@ extern "C" {
 
 void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void TObjRaderHideCol::render() {  }
 
@@ -50,11 +49,11 @@ void TObjRaderHideCol::run_task() {
     if (p != 0) {
         if (xyz_distance_squared(arg0->pos, p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {
-                hide_radar__13TRaderMapCoreFv();
+                TRaderMapCore::hide_radar();
                 arg0->f94 = 1;
             }
         } else if (arg0->f94 & 1) {
-            show_radar__13TRaderMapCoreFv();
+            TRaderMapCore::show_radar();
             arg0->f94 = 0;
         }
     }
@@ -63,7 +62,7 @@ void TObjRaderHideCol::run_task() {
 void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjRaderHideCol;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

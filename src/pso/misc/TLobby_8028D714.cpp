@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8028D738_lbl_80518850 {
     s32 value;
@@ -24,11 +26,7 @@ void TLobby__sub_8028D7D0(s32 i);
 
 extern "C" {
 
-int alloc_load_buffer__6TLobbyFl(void*, int);
-u32 alloc__22TQuestVmDownLoadServerFv(s32);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
-
-int TLobby::start_load_default() { return alloc_load_buffer__6TLobbyFl(this, 0); }
+int TLobby::start_load_default() { return alloc_load_buffer(0); }
 
 extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
@@ -64,7 +62,7 @@ void TLobby__sub_8028D7D0(s32 i) {
 
 void TLobby::free_single_player_chr_select() {
     if (((u32) chr_select_load_buffer_base != 0U) && ((u32) chr_select_load_buffer != 0U)) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl((void*)((void*)chr_select_load_buffer));
+        TAdSinglePlyChrSelectGC::safe_free((u32)((void*)((void*)chr_select_load_buffer)));
         chr_select_load_buffer = 0U;
     }
 }
@@ -74,7 +72,7 @@ extern u32 chr_select_load_buffer;
 
 void TLobby::alloc_download_server() {
     if (((u32) chr_select_load_buffer_base != 0U) && ((u32) chr_select_load_buffer == 0U)) {
-        chr_select_load_buffer = alloc__22TQuestVmDownLoadServerFv(0x50000);
+        chr_select_load_buffer = ((TQuestVmDownLoadServer *)0x50000)->alloc();
         if ((u32) chr_select_load_buffer == 0U) {
             return;
         }
@@ -85,7 +83,7 @@ extern u32 chr_select_load_buffer_base;
 
 void TLobby::free_chr_select_singleton() {
     if ((u32) chr_select_load_buffer_base != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl((void*)((void*)chr_select_load_buffer_base));
+        TAdSinglePlyChrSelectGC::safe_free((u32)((void*)((void*)chr_select_load_buffer_base)));
         chr_select_load_buffer_base = 0U;
     }
 }

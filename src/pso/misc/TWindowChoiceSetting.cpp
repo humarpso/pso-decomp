@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Stack_80268A6C {
     f32 sp8;
@@ -16,21 +21,12 @@ extern const f32 lbl_805DD1E0;
 
 extern "C" {
 
-s32 set_text__20TWindowSubStatusDispFUlll(s32, s32, s32, s32);
-s32 set_text__20TWindowSubStatusDispFUll(s32, s32, s32);
-u32 alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
-s32 set_entry_state__20TWindowSubStatusDispFSc(s32 a0 = 0, s32 a1 = 0);
 s32 TWindowSubComCard__sub_8026906C(void);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 s32 is_open__17TWindowSubComCardFv();
-void update_selected_entry__17TWindowSubComCardFv(void *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFi(void * a0 = 0, s16 a1 = 0);
-s32 get_entry_id__17TWindowSubComCardFv();
-void clear_flag__19TWindowSubTradeMainFv(void* p);
-void clear_flag70_bit80__19TWindowSubTradeMainFv(void* p);
-int is_flag80_set__20TWindowSubStatusDispFv(void* p);
 
 void TWindowChoiceSetting::request_close() {
     if (!(*(u16 *)((s8 *)this + 0x70) & 8) && (is_open__17TWindowSubComCardFv() == 0)) {
@@ -44,7 +40,7 @@ void TWindowChoiceSetting::draw() {
         play_sound_effect(0x52D01, 0, 0, 0);
         *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) | 2);
         if ((u32) *(u32 *)((s8 *)this + 0x78) != 0U) {
-            set_entry_state__20TWindowSubStatusDispFSc(*(s32 *)((s8 *)this + 0x78), 2);
+            ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)this + 0x78)))->set_entry_state(2);
         }
     }
 }
@@ -98,7 +94,7 @@ void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
     u32 var_r0;
 
     if ((u32) *(u32 *)((s8 *)arg0 + 0x78) == 0U) {
-        var_r0 = alloc__23TAdSinglePlyChrSelectGCFv(0x24);
+        var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
             var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r0, arg1, *(s16 *)((s8 *)arg0 + 0x20));
         }
@@ -156,7 +152,6 @@ void TWindowChoiceSetting::draw_setting(s32 arg1) {
     }
 }
 
-void set_field_1c__6TLobbyFf(void *, f32);
 extern s32 lbl_805D3970;
 extern const f32 lbl_805DD1F4;
 
@@ -174,7 +169,7 @@ void TWindowMenuInfomation__ct(u8 *arg0, u32 arg1) {
         e = ((u8 *(*)(void *, u32))get_array_entry__20TWindowSubStatusDispFi)(arg0, i);
         *(f32 *)(e + 0xC) = (f32)(i * 0x14);
     }
-    set_field_1c__6TLobbyFf(arg0, lbl_805DD1F4);
+    ((TLobby *)arg0)->set_field_1c(lbl_805DD1F4);
 }
 
 }
@@ -227,11 +222,7 @@ s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 s32 step_window_tween(void *);
-s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 is_selected__20TWindowChoiceSettingFv(void *);
 s32 update_window_entry_list(void *, void *);
-s32 increment_counter__20TWindowSubStatusDispFv(int);
-s32 update_subwindow__20TWindowSubStatusDispFv(int);
 extern RecoveredGlobal_80268D08_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD1F8;
 }
@@ -244,7 +235,6 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_allocation__20TWindowSubStatusDispFls(void *, int);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 void destroy_window__15TWindowAdditionFs(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
@@ -274,7 +264,7 @@ void TWindowSubStatusDisp::handle_choice_input() {
     u8 *temp_r30;
     u8 *temp_r30_2;
     u8 *temp_r30_3;
-    if ((is_selected__20TWindowChoiceSettingFv((void *) (arg0)) == 0) && (((s32 (*)(void *))is_open__17TWindowSubComCardFv)((void *) (arg0)) == 0)) {
+    if ((((TWindowChoiceSetting *)arg0)->is_selected() == 0) && (((s32 (*)(void *))is_open__17TWindowSubComCardFv)((void *) (arg0)) == 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r30 = (u8 *)&controller_input_state.value + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -303,14 +293,14 @@ void TWindowSubStatusDisp::handle_choice_input() {
     if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD1F8) {
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x78);
         if (temp_r3 != 0U) {
-            update_subwindow__20TWindowSubStatusDispFv((int) (temp_r3));
+            ((TWindowSubStatusDisp *)temp_r3)->update_subwindow();
         }
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x7C);
         if (temp_r3_2 != 0U) {
-            increment_counter__20TWindowSubStatusDispFv((int) (temp_r3_2));
+            ((TWindowSubStatusDisp *)temp_r3_2)->increment_counter();
         }
     }
-    initialize_subwindow__9TWindowDDFv((void *) (arg0));
+    ((TWindowDD *)arg0)->initialize_subwindow();
     step_window_tween((void *) (arg0));
     ((TWindowChoiceSetting *)arg0)->update_scroll_offset();
     ((TWindowChoiceSetting *)arg0)->clamp_scroll();
@@ -320,7 +310,7 @@ void TWindowSubStatusDisp::handle_choice_input() {
 void *TWindowSubStatusDisp::destroy_children(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = choice_setting_popup_vtable;
-        destroy_allocation__20TWindowSubStatusDispFls(*(void **)((s8 *)this + 0x7C), 1);
+        TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)this + 0x7C)), (s16)1);
         destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)this + 0x78), 1);
         destroy_window__15TWindowAdditionFs(this, 0);
         if (arg1 > 0) {

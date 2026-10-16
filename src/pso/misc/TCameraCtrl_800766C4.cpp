@@ -1,12 +1,12 @@
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
 
 s32 is_quest_active();
 u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_split_screen();
 
     extern short TCameraCtrl__viewport_y;
@@ -30,7 +30,7 @@ s32 TCameraCtrl::should_update() {
         goto block_6;
     }
 block_6:
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     if (temp_r3 < 0xF) {
         if (temp_r3 == 0) {
             goto block_10;

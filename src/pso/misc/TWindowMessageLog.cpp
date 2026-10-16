@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Stack_8026A434 {
     f32 sp8;
@@ -15,8 +17,6 @@ s32 clamp_list_scroll_offset(int, void *, void *, f32);
 extern const f32 lbl_805DD240;
 extern const f32 lbl_805DD244;
 void clamp_scroll_offset__17TWindowMessageLogFPv(u8 *arg0);
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, int);
-void copy_position__11TWindowMenuFPv(void *, void *);
 void clamp_scroll_offset__17TWindowMessageLogFPv(u8 *arg0);
 extern const f32 lbl_805DD248;
 extern const f32 lbl_805DD24C;
@@ -68,11 +68,11 @@ void update_scroll_position__17TWindowMessageLogFPv(u8 *arg0) {
     if (var_r30 < 0) {
         var_r30 = *(s32 *)((s8 *)arg0 + 0x8C) - 1;
     }
-    temp_r31 = get_array_entry__20TWindowSubStatusDispFi(arg0, temp_r4);
-    temp_r3 = get_array_entry__20TWindowSubStatusDispFi(arg0, var_r30);
+    temp_r31 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(temp_r4);
+    temp_r3 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(var_r30);
     stack.sp8 = (*(f32 *)((s8 *)arg0 + 0x48) - lbl_805DD248) - lbl_805DD24C;
     stack.spC = (*(f32 *)((s8 *)temp_r3 + 0xC) + *(f32 *)((s8 *)temp_r3 + 0x14)) - *(f32 *)((s8 *)temp_r31 + 0xC);
-    copy_position__11TWindowMenuFPv(*(u8 **)((s8 *)arg0 + 0x90), &stack.sp8);
+    ((TWindowMenu *)(*(u8 **)((s8 *)arg0 + 0x90)))->copy_position(&stack.sp8);
     clamp_scroll_offset__17TWindowMessageLogFPv((u8 *)((void *) (arg0)));
 }
 

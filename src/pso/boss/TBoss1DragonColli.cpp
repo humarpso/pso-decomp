@@ -62,7 +62,6 @@ E_8002B4CC *mem_alloc(s32);
 s32 register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
 s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
-s16 alloc_actor_ids__6TLobbyFl(int);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
 extern s32 __vt__19TBoss1DragonColli_C[];
 extern s32 TBoss1DragonColli_C__name;
@@ -87,6 +86,9 @@ TBoss1DragonColli::~TBoss1DragonColli() {
 #include "types.h"
 
 #include "types.h"
+#include "pso/TBoss1DragonDemo.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -114,8 +116,6 @@ int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
-void render__16TBoss1DragonDemoFv(void);
 
 u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8002B250, sp8) == 0x0) ? 1 : -1];
@@ -188,7 +188,7 @@ void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonColli_C;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -207,7 +207,7 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
     self->vt = ((u8 *)&__vt__19TBoss1DragonColli_C);
     self->f0 = TBoss1DragonColli_C__name;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
-    self->f1c = alloc_actor_ids__6TLobbyFl(0);
+    self->f1c = TLobby::alloc_actor_ids(0);
     self->count = arg2;
     self->elems = mem_alloc(self->count * 0x2C);
     step = lbl_805D8120 * scale;

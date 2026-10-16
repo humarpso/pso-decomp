@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjCamera.h"
+#include "pso/misc/TOKey.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8017FC78_lbl_804B5888 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017FC78_lbl_804B5888_size[sizeof(RecoveredGlobal_8017FC78_lbl_804B5888) == 0x10 ? 1 : -1];
@@ -75,7 +77,6 @@ struct Copy_8017FA9C { u32 w[5]; };
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8017FC78_lbl_804B5888 fe_obj_cam_resource_descriptor;
 extern u32 TObjCamera__bml_resource;
 extern s32 TObjCamera__camera_slot_scan_index;
@@ -90,7 +91,6 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFl();
 void set_model_node_callback(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
-void update_camera_slots__10TObjCameraFv(void);
 extern Vec_8017F80C camera_slot_positions[];
 extern u32 TObjCamera__bml_resource;
 extern s32 TObjCamera__camera_slot_scan_index;
@@ -98,7 +98,6 @@ extern const f32 lbl_805DBB60;
 extern const f32 lbl_805DBB64;
 void allow_rendering__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
-void queue_target_destruction__10TObjCameraFv(void *);
 void fn_8017F4AC(void *);
 void fn_8017F52C();
 Obj_8017F910 *get_player_by_client_id(s32);
@@ -146,7 +145,6 @@ void *__dt__10TObjCameraFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 
 extern s32 __vt__10TObjCamera[];
 
@@ -160,7 +158,7 @@ void TObjCamera::render() {
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->x60);
         TObjCamera__camera_slot_scan_index = 0;
-        set_model_node_callback((void *)update_camera_slots__10TObjCameraFv);
+        set_model_node_callback((void *)TObjCamera::update_camera_slots);
         draw_ginja_model_with_motion(get_bml_model(TObjCamera__bml_resource, 0),
                                get_bml_motion(TObjCamera__bml_resource, 0), self->xb0);
         set_model_node_callback(NULL);
@@ -204,7 +202,7 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
             for (j = 0; j < 8; j++) {
                 if (self->lights[j] != NULL) {
                     disallow_rendering__7TObjectFv(self->lights[j]);
-                    queue_target_destruction__10TObjCameraFv(self->lights[j]);
+                    ((TObjCamera *)(self->lights[j]))->queue_target_destruction();
                 }
             }
             self->visible = 0;
@@ -215,7 +213,7 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
 void *__dt__10TObjCameraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCamera;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -274,7 +272,7 @@ void TObjCamera::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
     TObjCamera__camera_slot_scan_index = 0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &fe_obj_cam_resource_descriptor.value, 0, 0, 0));

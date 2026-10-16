@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss7TunnelCol.h"
 
 struct RecoveredGlobal_802F1FB0_lbl_804E4978 {
     s32 value;
@@ -13,7 +14,6 @@ struct RecoveredGlobal_802F1FB0_lbl_804E4B24 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *, int, int);
 s32 __ct__7TObjectFP7TObject();
-s32 update_collision__18TObjBoss7TunnelColFv(void *);
 s32 TObjBoss2Tunnel__sub_802F2278();
 s32 copy_position__16TBoss8DragonDemoFv(int, void *);
 extern RecoveredGlobal_802F1FB0_lbl_804E4978 boss2_tunnel_effect_name_table;
@@ -47,7 +47,7 @@ u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
         copy_position__16TBoss8DragonDemoFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (arg0 + 0x1C));
         TObjBoss2Tunnel__sub_802F2278();
     }
-    update_collision__18TObjBoss7TunnelColFv((void *) (arg0));
+    ((TObjBoss7TunnelCol *)arg0)->update_collision();
     return arg0;
 }
 

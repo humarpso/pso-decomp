@@ -1,16 +1,16 @@
 #include "types.h"
 #include "pso/TObjNewFloorWin.h"
 #include "pso/misc/TQuestListVM.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/TAdChrSelASlotGC.h"
 
 struct TObjNewFloorWin_80073DCC { u8 pad[0x1C]; s32 state; void *window; s32 timer24; s32 timer28; };
 
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 fn_800740DC();
-s32 set_flag_40__16TAdChrSelASlotGCFv(u32);
 s32 TObjNewFloorWin__sub_8007410C();
-s32 close_active_window__11TWindowCtrlFv();
-s32 ensure_initialized__11TWindowCtrlFv();
 s32 calc_window_size__17TWindowSubComCardFPv(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, void *, s32, s32);
 u32 create_window_menu(s32);
@@ -24,8 +24,6 @@ s32 TWindowCtrlMain__sub_8024CE58();
 }
 
 extern "C" {
-
-int get_status_flag__17TWindowSubComCardFv(void* p);
 
 void TQuestListVM::set_field_20(s32 v) { *(s32*)((char*)this + 0x20) = v; }
 
@@ -76,10 +74,10 @@ void TObjNewFloorWin::open_window() {
         sprintf(arg0 + 0x2C, lbl_80438660, TQuestVmDownLoadServer__sub_8006EF6C(0x67), TObjNewFloorWin__sub_8007410C());
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0x20), arg0 + 0x2C, 0, 0);
         calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0x20));
-        set_flag_40__16TAdChrSelASlotGCFv(*(u32 *)((s8 *)arg0 + 0x20));
+        ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_flag_40();
         fn_800740DC();
-        close_active_window__11TWindowCtrlFv();
-        ensure_initialized__11TWindowCtrlFv();
+        TWindowCtrl::close_active_window();
+        TWindowCtrl::ensure_initialized();
     }
 }
 

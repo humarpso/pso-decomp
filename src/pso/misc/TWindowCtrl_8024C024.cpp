@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 typedef struct Win_8024C024 {
     u8 pad0[0x50];
     s32 fade;
@@ -16,7 +17,6 @@ typedef struct Ctrl_8024C024 {
 
 extern "C" {
 s32 is_split_screen();
-void clear_flag4_bit4__22TQuestVmDownLoadServerFv(void *);
 void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024C024 *);
 extern s16 lbl_8044EBD4[];
 extern s16 lbl_8044EBE0[];
@@ -29,14 +29,14 @@ void TWindowCtrl::update_open_sequence() {
     if (is_split_screen() != 0) {
         if (o->timer == lbl_8044EBD4[o->step]) {
             if (o->split[o->step] != NULL) {
-                clear_flag4_bit4__22TQuestVmDownLoadServerFv(o->split[o->step]);
+                ((TQuestVmDownLoadServer *)(o->split[o->step]))->clear_flag4_bit4();
             }
             o->step++;
         }
     } else {
         if (o->timer == lbl_8044EBE0[o->step]) {
             if (o->slots[o->step] != NULL) {
-                clear_flag4_bit4__22TQuestVmDownLoadServerFv(o->slots[o->step]);
+                ((TQuestVmDownLoadServer *)(o->slots[o->step]))->clear_flag4_bit4();
                 update_party_status_rows__11TWindowCtrlFPv(o);
                 o->slots[o->step]->fade = 0;
             }

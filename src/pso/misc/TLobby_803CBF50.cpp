@@ -12,7 +12,6 @@ s32 set_stream_channel_pan__6TLobbyFll();
 s32 set_sound_stream_volume();
 s32 set_stream_frequency__6TLobbyFPvi();
 s32 TLobby__sub_803D4704();
-s32 update_active_streams__6TLobbyFv();
 s32 get_packet_size__6TLobbyFv();
 s32 get_available_size__6TLobbyFv();
 s32 GCRNA_SetPlaySw();
@@ -35,7 +34,7 @@ void TLobby__sub_803CBFB0(void) {
 }
 
 void TLobby::run_sequence() {
-    update_active_streams__6TLobbyFv();
+    TLobby::update_active_streams();
 }
 
 void TLobby__sub_803CBFF0(void) {

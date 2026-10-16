@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/boss/TBoss8Dragon.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TNowLoading.h"
 
 extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
@@ -9,13 +11,10 @@ extern void *gryphon_shockwave_particle_ids_ptr;
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 get_flag_bit6__12TBoss8DragonFv(s32);
 s32 TBoss8Dragon__sub_80064114(s32, void *);
-s32 get_instance_count__12TBoss8DragonFv();
 s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 copy_pos__11TNowLoadingFPv(u32, void *);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, s32, s32, void *, f32);
 s32 spawn_gryphon_tornado(s32, s32, void *, u16);
@@ -37,7 +36,6 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-f32 update_scale__15TObjBoss2TunnelFv(void *);
 
 void TBoss5GryphonShockWave::render() {  }
 
@@ -49,7 +47,7 @@ void TBoss5GryphonShockWave::run_task() {
     s32 temp_r30;
     s32 temp_r3;
     s32 temp_r3_2;
-    if (get_flag_bit6__12TBoss8DragonFv(*(s32 *)((s8 *)arg0 + 0x38)) != 0) {
+    if (((TBoss8Dragon *)(*(s32 *)((s8 *)arg0 + 0x38)))->get_flag_bit6() != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -63,7 +61,7 @@ void TBoss5GryphonShockWave::run_task() {
             *(u32 *)((s8 *)arg0 + 0x3C) = spawn_continuous_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 0), 0x40);
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
-            copy_pos__11TNowLoadingFPv(*(u32 *)((s8 *)arg0 + 0x3C), arg0 + 0x2C);
+            ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x3C)))->copy_pos(arg0 + 0x2C);
         }
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x20);
         *(s32 *)((s8 *)arg0 + 0x20) = (s32) (temp_r3 + 1);
@@ -79,7 +77,7 @@ void TBoss5GryphonShockWave::run_task() {
         }
         spawn_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 8), 0x40);
         play_sound_effect(0x40033C13, arg0 + 0x2C, 0, 0);
-        TBoss8Dragon__sub_80064114(get_instance_count__12TBoss8DragonFv(), arg0 + 0x2C);
+        TBoss8Dragon__sub_80064114(TBoss8Dragon::get_instance_count(), arg0 + 0x2C);
         spawn_gryphon_tornado(*(s32 *)((s8 *)arg0 + 0x10), *(s32 *)((s8 *)arg0 + 0x38), arg0 + 0x2C, *(u16 *)((s8 *)arg0 + 0x28));
         *(s32 *)((s8 *)arg0 + 0x1C) = 3;
         queue_destruction__7TObjectFv(arg0);
@@ -123,7 +121,7 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x2C);
     subtract_vector(sp8, arg4);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (lbl_805D8EF0 * update_scale__15TObjBoss2TunnelFv(sp8));
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (lbl_805D8EF0 * ((TObjBoss2Tunnel *)sp8)->update_scale());
     if ((s32) *(s32 *)((s8 *)arg0 + 0x24) < 0x1E) {
         *(s32 *)((s8 *)arg0 + 0x24) = 0x1E;
     }

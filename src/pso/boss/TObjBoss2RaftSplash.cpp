@@ -8,7 +8,6 @@ struct Stack_8003AED4 {
 };
 
 extern "C" {
-void spawn_splash__19TObjBoss2RaftSplashFlll(s32, s32, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D85B0;
 }
@@ -27,7 +26,7 @@ void TObjBoss2RaftSplash::run_task() {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (temp_f0 - temp_f1);
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
         stack.spC += **(f32 **)((s8 *)arg0 + 0x24) - lbl_805D85B0;
-        spawn_splash__19TObjBoss2RaftSplashFlll((s32) &stack.sp8, 0x170, (s32) (arg0 + 0x34));
+        TObjBoss2RaftSplash::spawn_splash((s32) &stack.sp8, 0x170, (s32) (arg0 + 0x34));
     }
 }
 TObjBoss2RaftSplash::~TObjBoss2RaftSplash() {}

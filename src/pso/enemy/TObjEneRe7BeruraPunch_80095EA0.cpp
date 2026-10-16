@@ -12,6 +12,10 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
 
 #include <stddef.h>
 #include "pso/enemy/TObjEneRe7BeruraPunch.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_80096030 {
     f32 sp8;
     f32 spC;
@@ -31,23 +35,18 @@ struct VObj_80096150 : VBase_80096150 {
 };
 
 extern "C" {
-s32 snap_to_ground__21TObjEneRe7BeruraPunchFv(void *);
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 u8 * csnVector(s32, s32, s32);
 u8 *find_entity_by_id(u16);
 s32 TObjEneRe7Berura__sub_80094D98();
-s32 snap_to_ground__21TObjEneRe7BeruraPunchFv(void *);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
 void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094C68(u8 *);
-s32 reload_stats_from_tables__16TObjEneRe7BeruraFv(u8 *);
-s32 check_v2_mode__9TObjEneDDFv(void);
 u8 *find_entity_by_id(u16);
 s32 refresh_collision_body_centers(void *, void *, f32, f32);
-s32 update_enemy_collision_flags__10TObjPlayerFv(void *);
 extern Pair_80096150 lbl_80439F28[];
 extern const f32 lbl_805D97AC;
 extern const f32 lbl_805D97B0;
@@ -72,20 +71,13 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
-s32 draw_oriented_shadow__9TObjEneDDFllUl(void *, void *, s32, s32);
-s32 snap_to_ground__21TObjEneRe7BeruraPunchFv(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 u8 *find_entity_by_id(u16);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
-s32 clear_global_flag_400__9TObjEneDDFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 init_part__16TObjEneRe7BeruraFl(s32);
-s32 reset__21TObjEneRe7BeruraPunchFv(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 toggle_particle_effect__10TObjPlayerFv();
 
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -98,7 +90,7 @@ void TObjEneRe7BeruraPunch::render() {
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) != 0) {
         lbl_805D5660 = model_render_flags;
-        clear_global_flag_400__9TObjEneDDFv();
+        TObjEneDD::clear_global_flag_400();
         if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m6();
             if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
@@ -106,20 +98,20 @@ void TObjEneRe7BeruraPunch::render() {
                 return;
             }
         }
-        draw_oriented_shadow__9TObjEneDDFllUl(arg0 + 0x38, arg0 + 0xE8, 0, 0);
-        toggle_particle_effect__10TObjPlayerFv();
+        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xE8), (s32)0, (u32)0);
+        TObjPlayer::toggle_particle_effect();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         translate_matrix(0, lbl_805D9794, *(f32 *)((s8 *)arg0 + 0xCC), lbl_805D9794);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0xF4);
         scale_matrix(0, temp_f1, temp_f1, lbl_805D9798);
-        init_part__16TObjEneRe7BeruraFl(*(s32 *)((s8 *)arg0 + 0xB8));
+        TObjEneRe7Berura::init_part(*(s32 *)((s8 *)arg0 + 0xB8));
         pop_matrix();
         if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m7();
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         model_render_flags = lbl_805D5660;
     }
 }
@@ -136,7 +128,7 @@ void TObjEneRe7BeruraPunch::update_velocity_and_snap() {
     }
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xBC))) + *(f32 *)((s8 *)arg0 + 0xDC));
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xC4))) + *(f32 *)((s8 *)arg0 + 0xE4));
-    snap_to_ground__21TObjEneRe7BeruraPunchFv((void *) (arg0));
+    ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
 }
 #pragma pop
 
@@ -169,7 +161,7 @@ void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0xDC) = stack.sp8;
         *(f32 *)((s8 *)arg0 + 0xE4) = stack.sp10;
     }
-    snap_to_ground__21TObjEneRe7BeruraPunchFv((void *) (arg0));
+    ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
     if ((var_r31 != 0) || (TObjEneRe7BeruraPunch__sub_80096150((void *)(arg0)) != 0) || (*(f32 *)((s8 *)arg0 + 0x114) > *(f32 *)((s8 *)arg0 + 0xC8))) {
         *(s32 *)((s8 *)arg0 + 0xB4) = 2;
         if (find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0)) != NULL) {
@@ -188,16 +180,16 @@ s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0) {
     temp_r4_2 = *(void **)((s8 *)arg0 + 0xA4);
     *(f32 *)((s8 *)temp_r4_2 + 0x34) = lbl_805D97AC * (lbl_805D97B0 * *(f32 *)((s8 *)arg0 + 0xF4));
     refresh_collision_body_centers(arg0, temp_r4_2, lbl_805D97B0, lbl_805D97AC);
-    update_enemy_collision_flags__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_enemy_collision_flags();
     temp_r4_2 = *(void **)((s8 *)arg0 + 0xA4);
     if ((*(s32 *)((s8 *)temp_r4_2 + 0x18) | *(s32 *)((s8 *)temp_r4_2 + 0x44)) & 0x200000) {
         return 1;
     }
     if (temp_r31 != 0) {
-        reload_stats_from_tables__16TObjEneRe7BeruraFv(temp_r31);
+        ((TObjEneRe7Berura *)temp_r31)->reload_stats_from_tables();
     }
     Pair_80096150 p = lbl_80439F28[0];
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         p.b &= ~2;
     }
     ((VObj_80096150 *)arg0)->m15(&p, *(s32 *)((s8 *)arg0 + 0xD8));
@@ -213,7 +205,7 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
 
     *(s32 *)((s8 *)arg0 + 0xB8) = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0xDC, arg2);
-    snap_to_ground__21TObjEneRe7BeruraPunchFv(arg0);
+    ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
     temp_r3 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0));
     if (temp_r3 != NULL) {
         *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
@@ -224,7 +216,7 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805D9794;
     *(f32 *)((s8 *)arg0 + 0xC4) = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805D97B4;
-    reset__21TObjEneRe7BeruraPunchFv(arg0);
+    ((TObjEneRe7BeruraPunch *)arg0)->reset();
     *(s32 *)((s8 *)arg0 + 0xB4) = 1;
 }
 

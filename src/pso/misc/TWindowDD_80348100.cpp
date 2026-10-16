@@ -10,7 +10,6 @@ extern "C" {
 
 int play_sound_effect(void*, void*, void*, void*);
 int refresh_sub__9TWindowDDFPvPv(void);
-int test_input_flag_4__9TWindowDDFv(void* p);
 int update__9TWindowDDFPvPv(void);
 int update__9TWindowDDFl(void);
 

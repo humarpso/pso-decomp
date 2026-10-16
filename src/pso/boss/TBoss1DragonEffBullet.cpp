@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/boss/TBoss1Dragon.h"
 #include "pso/boss/TBoss1DragonEffBullet.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TNowLoading.h"
 
 struct RecoveredGlobal_8002BCE0_lbl_80435410 {
     s32 value;
@@ -39,7 +41,6 @@ extern RecoveredGlobal_8002BCE0_lbl_80435410 lbl_80435410;
 extern RecoveredGlobal_8002BCE0_lbl_8043541C lbl_8043541C;
 extern s32 *dragon_fireball_particle_ids;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 subtract_vector(void *, void *);
@@ -49,10 +50,8 @@ extern const f32 lbl_805D8144;
 u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 s32 apply_fireball_impact_damage__12TBoss1DragonFPvi(int, void *);
-s32 get_instance__12TBoss1DragonFv();
 s32 spawn_particle_effect_with_flags(void *, int, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 *dragon_fireball_particle_ids;
 extern const f32 lbl_805D8140;
@@ -101,11 +100,11 @@ void TBoss1DragonEffBullet::run_task() {
         }
         temp_r3 = (u8 *)(arg0->field_44);
         if (temp_r3 != NULL) {
-            copy_pos__11TNowLoadingFPv((s32) temp_r3, &arg0->field_1C);
+            ((TNowLoading *)temp_r3)->copy_pos(&arg0->field_1C);
         }
         temp_r3_2 = (u8 *)(arg0->field_48);
         if (temp_r3_2 != NULL) {
-            copy_pos__11TNowLoadingFPv((s32) temp_r3_2, &arg0->field_1C);
+            ((TNowLoading *)temp_r3_2)->copy_pos(&arg0->field_1C);
         }
         return;
     case 1:
@@ -123,7 +122,7 @@ void TBoss1DragonEffBullet::run_task() {
                 arg0->field_44 = NULL;
             }
             play_sound_effect(0x4003AD0C, &arg0->field_1C, 0, 0);
-            apply_fireball_impact_damage__12TBoss1DragonFPvi(get_instance__12TBoss1DragonFv(), &arg0->field_1C);
+            apply_fireball_impact_damage__12TBoss1DragonFPvi(TBoss1Dragon::get_instance(), &arg0->field_1C);
         }
         if ((s32) arg0->field_34 <= 2) {
             spawn_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)(*(u8 * *)&dragon_fireball_particle_ids) + 8), 0x40);
@@ -164,7 +163,7 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x40) = update_scale__15TObjBoss2TunnelFv((void *) (arg0 + 0x28));
+    *(f32 *)((s8 *)arg0 + 0x40) = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8144;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;

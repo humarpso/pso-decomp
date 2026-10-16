@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/player/TObjPlayer.h"
 
 struct ObjPad18_800c7ae4 { u8 pad[0x18]; };
 struct Obj2A8_800c7ae4 : ObjPad18_800c7ae4 {
@@ -34,7 +35,6 @@ struct Vec_800C7C30 { s32 x, y, z; };
 extern "C" {
 s32 apply_actor_gravity(void *, s32, f32);
 f32 update_enemy_wander_move(void *, void *, int, int, f32);
-s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 advance_animation_playback(void *);
 s32 update_collisions__10TObjPlayerFv(void *);
 extern const f32 lbl_805DA070;
@@ -151,7 +151,7 @@ void TObjEnemyCustom::update_wander_state() {
             if ((*(f32 *)((s8 *)temp_r3 + 0) < temp_f1) || (temp_f1 < *(f32 *)((s8 *)temp_r3 + 4))) {
                 *(void **)((s8 *)arg0 + 0x2A8) = NULL;
             }
-            update_angle__10TObjPlayerFlPv((void *) (arg0), (void *) (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x350)) + 8)), (void *) (arg0 + 0x308));
+            ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x350)) + 8))), (void *)(arg0 + 0x308));
         }
         apply_actor_gravity((void *)((void *) (arg0)), (s32)((int) (0)), (f32) (lbl_805DA070));
         update_collisions__10TObjPlayerFv((void *) (arg0));

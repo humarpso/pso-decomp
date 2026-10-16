@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/enemy/TObjEneSlimeOne.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct O_800EC39C { u8 pad[0x384]; s32 state; };
 
@@ -63,20 +67,15 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 set_cull_none__8TObjFishFv();
 s32 set_cull_mode_front__8TObjFishFv();
 s32 set_cull_back__8TObjFishFv();
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 func_803e11e8__FUl(u32);
 s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
 s32 TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern s32 slime_one_part_texture_index_table[];
 extern s32 model_render_flags;
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-int set_field_b8__14TObjEnePanarmsFs(void *, int);
 s32 init__14TObjEnePanarmsFPv(void *, int);
 extern const f32 lbl_805DA764;
 extern void *lbl_80496C68[10];
@@ -139,26 +138,26 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         return;
     }
     if (state < 7) {
-        set_global_param__8TObjFishFl(TObjFish__sub_8001EDB0(TObjEneSlimeOne::get_instance(), slime_one_part_texture_index_table[((TObjEneSlimeOne *)(*(void **)((s8 *)arg0 + 0)))->get_attack_target()]));
+        TObjFish::set_global_param(TObjFish__sub_8001EDB0(TObjEneSlimeOne::get_instance(), slime_one_part_texture_index_table[((TObjEneSlimeOne *)(*(void **)((s8 *)arg0 + 0)))->get_attack_target()]));
         if (arg1 != 0) {
             model_render_flags |= 0x400000;
             func_803e11e8__FUl(1);
-            draw__16TObjEneRe7BeruraFv(*(void **)((s8 *)arg0 + 0));
+            ((TObjEneRe7Berura *)(*(void **)((s8 *)arg0 + 0)))->draw();
             func_803e11f0__Fv();
             model_render_flags &= ~0x400000;
             return;
         }
         set_cull_back__8TObjFishFv();
         func_803e11e8__FUl(2);
-        draw__16TObjEneRe7BeruraFv(*(void **)((s8 *)arg0 + 0));
+        ((TObjEneRe7Berura *)(*(void **)((s8 *)arg0 + 0)))->draw();
         set_cull_mode_front__8TObjFishFv();
-        draw__16TObjEneRe7BeruraFv(*(void **)((s8 *)arg0 + 0));
+        ((TObjEneRe7Berura *)(*(void **)((s8 *)arg0 + 0)))->draw();
         set_cull_none__8TObjFishFv();
         func_803e11f0__Fv();
         return;
     }
     if (state < 9) {
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xC));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xC));
         if (arg1 != 0) {
             model_render_flags |= 0x400000;
             func_803e11e8__FUl(1);
@@ -176,13 +175,13 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         func_803e11f0__Fv();
         return;
     }
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xC));
-    set_global_flag__10TObjPlayerFv();
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xC));
+    TObjPlayer::set_global_flag();
     if (arg1 != 0) {
         model_render_flags |= 0x400000;
         func_803e11e8__FUl(1);
         draw_model_motion(*(s32 *)((s8 *)arg0 + 8), *(s32 *)((s8 *)arg0 + 0x10), *(f32 *)((s8 *)arg0 + 0x30));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x1C));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x1C));
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)((s8 *)arg0 + 0x20), *(f32 *)((s8 *)arg0 + 0x30));
         func_803e11f0__Fv();
         model_render_flags &= ~0x400000;
@@ -192,7 +191,7 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         draw_model_motion(*(s32 *)((s8 *)arg0 + 8), *(s32 *)((s8 *)arg0 + 0x10), *(f32 *)((s8 *)arg0 + 0x30));
         set_cull_mode_front__8TObjFishFv();
         draw_model_motion(*(s32 *)((s8 *)arg0 + 8), *(s32 *)((s8 *)arg0 + 0x10), *(f32 *)((s8 *)arg0 + 0x30));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x1C));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x1C));
         set_cull_back__8TObjFishFv();
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)((s8 *)arg0 + 0x20), *(f32 *)((s8 *)arg0 + 0x30));
         set_cull_mode_front__8TObjFishFv();
@@ -200,7 +199,7 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         set_cull_none__8TObjFishFv();
         func_803e11f0__Fv();
     }
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
 }
 
 void TObjEneSlimeOne::advance_animation_state() {
@@ -285,7 +284,7 @@ void TObjEneSlimeOne::set_motion_state(s32 arg1) {
     }
     else
     {
-      ((void (*)(void *, s16)) set_field_b8__14TObjEnePanarmsFs)(arg0->obj, arg0->state);
+      ((TObjEnePanarms *)(arg0->obj))->set_field_b8(arg0->state);
     }
     return;
   }

@@ -2,14 +2,13 @@
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TObjLiveCameraCtrl.h"
 
 extern "C" {
 s32 is_split_screen();
 s32 TObjPlayer__sub_80084500();
 s32 free_children__12TObjDoorJungFPvPv(void *, u16);
-s32 notify_fish_if_valid__10TObjPlayerFUl(int);
 s32 update_camera__15TObjLiveMonitorFPv(int);
-s32 get_table_entry__18TObjLiveCameraCtrlFl(s32);
 s32 TObjLiveMonitor__sub_8030C050(s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -71,27 +70,27 @@ int TObjPlayer::render_live_monitor_screen() {
     s32 var_r4;
     switch (*(s32 *)((s8 *)this + 0x24)) {
     case 0:
-        e = get_table_entry__18TObjLiveCameraCtrlFl(*(s32 *)((s8 *)this + 0x24));
+        e = TObjLiveCameraCtrl::get_table_entry(*(s32 *)((s8 *)this + 0x24));
         if (e != 0 && TObjLiveMonitor__sub_8030C050(e) != 0) {
             update_camera__15TObjLiveMonitorFPv(e);
         } else if (is_split_screen() == 0) {
             TObjPlayer__sub_80084500();
         } else {
-            notify_fish_if_valid__10TObjPlayerFUl(*(s32 *)((s8 *)this + 0x20));
+            TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
         }
         var_r4 = 0;
         break;
     case 1:
-        notify_fish_if_valid__10TObjPlayerFUl(*(s32 *)((s8 *)this + 0x20));
+        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
         var_r4 = 2 - ((*(u32 *)((s8 *)this + 0x28) / 3U) % 3);
         break;
     case 2:
-        notify_fish_if_valid__10TObjPlayerFUl(*(s32 *)((s8 *)this + 0x20));
+        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
         var_r4 = 2 - ((*(u32 *)((s8 *)this + 0x28) / 90U) % 3);
         var_r4 += 3;
         break;
     case 3:
-        notify_fish_if_valid__10TObjPlayerFUl(*(s32 *)((s8 *)this + 0x20));
+        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x20));
         var_r4 = 4 - ((*(u32 *)((s8 *)this + 0x28) / 3U) % 5);
         var_r4 += 6;
         break;

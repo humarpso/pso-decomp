@@ -51,6 +51,7 @@ void TObjBoss1Rock__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
 #include "types.h"
 #include "pso/boss/TObjBoss1Rock.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjFish.h"
 
 typedef struct Unit { u8 pad[0x2C]; } Unit;
 
@@ -123,11 +124,9 @@ s32 TObjLight__sub_801337F8(s32);
 s32 rotate_matrix_z(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, int);
-s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_chunk_blend(int);
@@ -139,11 +138,9 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
-s32 init_base__10TObjPlayerFv(void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 extern s32 lbl_80482090[];
@@ -164,7 +161,6 @@ void TObjBoss1Rock__sub_8002E3D0(void);
 void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
-void deleting_dtor__10TObjPlayerFs(void *, int);
 
 extern s32 __vt__13TObjBoss1Rock[];
 
@@ -212,7 +208,7 @@ void TObjPlayer::draw_part_models() {
     {
         Color_8002E3D4 c = player_part_model_white_color;
         n = mesh->nodes;
-        set_global_param__8TObjFishFl(model->f2C);
+        TObjFish::set_global_param(model->f2C);
         push_matrix();
         for (i = 0; i < 0x1C; i++, n = n->next, p++) {
             push_matrix();
@@ -220,7 +216,7 @@ void TObjPlayer::draw_part_models() {
             rotate_matrix_z(0, p->f20);
             rotate_matrix_x(0, p->f18);
             translate_matrix(0, -self->f4F4.x, -self->f4F4.y, -self->f4F4.z);
-            concat_matrix__10TObjPlayerFUlUl(0, self->f4F0);
+            TObjPlayer::concat_matrix(0, self->f4F0);
             switch (p->f28) {
             case 0:
             case 1:
@@ -273,7 +269,7 @@ void TObjPlayer__sub_8002E53C(u8 *arg0) {
 void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80482090;
-        deleting_dtor__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->deleting_dtor(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -284,13 +280,13 @@ Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, 
     Part_8002E62C *p;
     s32 i;
     Vec_8002E62C *v;
-    init_base__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->init_base();
     p = self->parts;
     self->vt = lbl_80482090;
     self->f4F0 = arg2;
     push_matrix();
     set_matrix_identity(0);
-    concat_matrix__10TObjPlayerFUlUl(0, self->f4F0);
+    TObjPlayer::concat_matrix(0, self->f4F0);
     v = &self->f4F4;
     v->x = lbl_805D822C;
     v->y = lbl_805D822C;

@@ -1,6 +1,7 @@
 #include "pso/TChCrEffWall.h"
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct Ent_8029ACF8 { u8 b[8]; };
 
@@ -12,7 +13,6 @@ void * __ct__12TChCrEffWallFv(void *, void * = 0);
 void *__nw__7TObjectFUl(int);
 void * fn_8029AE88(void *arg0);
 void TCameraCtrl__sub_80068EF0(void);
-void restore_full_screen_view__11TCameraCtrlFv(void);
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(Args_8029ACF8 *, s32, s32, f32);
@@ -55,7 +55,7 @@ void TChCrEffWall::render() {
     for (i = 0; i < 2; i++) {
         draw_default_sprite__12TChCrEffWallFv(i + 10, &creation_effwall_sprite_size_table[i], lbl_805DDCB0);
     }
-    restore_full_screen_view__11TCameraCtrlFv();
+    TCameraCtrl::restore_full_screen_view();
     args.b = lbl_804DBF58;
     args.c = 0;
     args.d = 4;

@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/misc/TOTrapAncient01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TMotorcycle.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base_801793A8_8017939C { char pad[0x18]; };
 struct VObj_801793A8_8017939C : Base_801793A8_8017939C {
@@ -293,13 +301,10 @@ s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFv();
 s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 local_client_id;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 add_entry__11TMotorcycleFsllff(int, int, int, f32, f32);
 extern RecoveredGlobal_80179E34_lbl_804B4834 bm_o_trap_ancient01_resource_descriptor;
 extern u32 TOTrapAncient01__bml_resource;
 extern const f32 TOTrapAncient01__data_805DBA4C;
@@ -314,12 +319,8 @@ void __dl__7TObjectFPv(void *);
 extern s32 __vt__15TOTrapAncient01[];
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
 s32 get_main_phase();
-void calc_attach_pos__10TObjPlayerFv(void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-s32 init_position_vectors__10TObjPlayerFv(void *);
-void activate_and_dispatch__10TObjPlayerFv(void *);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
@@ -335,15 +336,11 @@ extern const f32 lbl_805DBA54;
 extern const f32 lbl_805DBA6C;
 extern const f32 lbl_805DBA74;
 void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2);
-void calc_attach_pos__10TObjPlayerFv(void *);
 void set_indexed_flags(void *, int, int);
-void init_all_slots__10TObjPlayerFv(void);
-void check_object_collisions__10TObjPlayerFv(void *);
 VObj_801797D4 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 void submit_cursor_candidate(void *, s32);
-u32 get_global_state__14TOKeyMachine01Fv(void);
 void play_persistent_sound(s32, void *, void *, s32, s32);
 extern s32 lbl_805D3530;
 extern const f32 lbl_805DBA48;
@@ -353,18 +350,13 @@ void TOTrapAncient01__vt80(Trap_801797D4 *self);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 void update_obstruction_fade(void *);
-s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
-s32 check_demo_mode__10TObjPlayerFv(void);
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
 int post_translate_matrix(void *);
-int set_global_param__8TObjFishFl(int);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
-int begin_effect_render__13TParticleCtrlFv();
-int end_effect_render__13TParticleCtrlFv();
 extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -415,7 +407,7 @@ void TOTrapAncient01::release_trapped_player() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     s32 temp_r3_2;
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         if (*(void **)((s8 *)arg0 + 0x2A8) != NULL) {
             temp_r3 = get_player_by_client_id((void *) (obj_getField1c(*(void **)((s8 *)arg0 + 0x2A8))));
             if (temp_r3 != 0) {
@@ -448,13 +440,13 @@ extern void *tl_05;
 void TOTrapAncient01__vt80(Trap_801797D4 *self) {
     s32 i;
     VObj_801797D4 *p;
-    calc_attach_pos__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->calc_attach_pos();
     self->f354 -= lbl_805DBA48;
     if (self->f354 < TOTrapAncient01__data_805DBA4C) {
         self->fA4->fC = lbl_805DBA54;
         set_indexed_flags(self, 0, 0x100);
-        init_all_slots__10TObjPlayerFv();
-        check_object_collisions__10TObjPlayerFv(self);
+        TObjPlayer::init_all_slots();
+        ((TObjPlayer *)self)->check_object_collisions();
         for (i = 0; i < 16; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == 0) {
@@ -477,7 +469,7 @@ void TOTrapAncient01__vt80(Trap_801797D4 *self) {
         self->m20(self->f2A8, lbl_805DBA48);
     }
     submit_cursor_candidate(self, -1);
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 8:
     case 9:
     case 10:
@@ -542,7 +534,7 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
     update_obstruction_fade(fade);
     self->f340 = self->m8(lbl_805DBA58, lbl_805DBA5C);
     if (self->f340 == 1) {
-        if (updateFromCamera__15RenderFadeStateFPCf(fade, self->pos38) == 1) {
+        if (((RenderFadeState *)fade)->updateFromCamera((const f32*)(self->pos38)) == 1) {
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
@@ -551,13 +543,13 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
         push_matrix();
         post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
-        if (check_demo_mode__10TObjPlayerFv() != 1 && self->f6C <= TOTrapAncient01__data_805DBA4C) {
+        if (TObjPlayer::check_demo_mode() != 1 && self->f6C <= TOTrapAncient01__data_805DBA4C) {
             v.x = lbl_805DBA60 * (lbl_805DBA64 * (f32)rand()) - lbl_805DBA68;
             v.y = TOTrapAncient01__data_805DBA4C;
             v.z = lbl_805DBA60 * (lbl_805DBA64 * (f32)rand()) - lbl_805DBA68;
             post_translate_matrix(&v);
         }
-        set_global_param__8TObjFishFl(self->f24);
+        TObjFish::set_global_param(self->f24);
         n = self->model;
         push_matrix();
         translate_matrix(0, TOTrapAncient01__data_805DBA4C, self->f6C, TOTrapAncient01__data_805DBA4C);
@@ -566,13 +558,13 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
         n = n->child;
         push_matrix();
         post_translate_matrix(n->mtx);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         draw_ginja_model(n->f4);
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         pop_matrix();
         pop_matrix();
-        if (updateFromCamera__15RenderFadeStateFPCf(fade, self->pos38) == 1) {
+        if (((RenderFadeState *)fade)->updateFromCamera((const f32*)(self->pos38)) == 1) {
             fade->m7();
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -608,7 +600,7 @@ void TOTrapAncient01::load_resources() {
   int new_var;
   s32 temp_r3;
   s32 var_r0;
-  temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *) 0x440);
+  temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc();
   var_r0 = temp_r3;
   temp_r31 = var_r0;
   new_var = 0;
@@ -618,7 +610,7 @@ void TOTrapAncient01::load_resources() {
   }
   (*(u8 * *)&TOTrapAncient01__bml_resource) = (unsigned char *) ((void *) var_r0);
   temp_r31 = TObjFish__sub_8001EDB0((void *) var_r0, 3);
-  add_entry__11TMotorcycleFsllff((int) 0x39, (int) get_bml_model((*(u8 * *)&TOTrapAncient01__bml_resource), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
+  TMotorcycle::add_entry((int) 0x39, (int) get_bml_model((*(u8 * *)&TOTrapAncient01__bml_resource), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
 }
 
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
@@ -645,8 +637,8 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     __construct_array(self + 0x358, (void *)init_and_activate__10TObjPlayerFv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)((s8 *)self + 0) = TOTrapAncient01__class_name;
     ((VObj_18_a8c792 *)arg0)->m5((s32)arg2);
-    init_position_vectors__10TObjPlayerFv(arg0);
-    calc_attach_pos__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->init_position_vectors();
+    ((TObjPlayer *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)self + 0x34) = get_bml_model((void *)TOTrapAncient01__bml_resource, 3);
     *(s32 *)((s8 *)self + 0x24) = TObjFish__sub_8001EDB0((void *)TOTrapAncient01__bml_resource, 3);
     *(s16 *)((s8 *)self + 0x326) = 0;
@@ -682,9 +674,9 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     refresh_collision_body_centers(arg0);
     *(u32 *)((s8 *)self + 0x30) |= 0x60040000;
     get_or_assign_actor_id(arg0, 0);
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     for (i = 0; i < 4; i++) {
-        activate_and_dispatch__10TObjPlayerFv(((Self_80179F40 *)arg0)->arr[i]);
+        ((TObjPlayer *)(((Self_80179F40 *)arg0)->arr[i]))->activate_and_dispatch();
     }
     return arg0;
 }

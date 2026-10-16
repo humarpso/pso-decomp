@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Obj_803DB20C { u8 pad[0x1c]; void *p; };
 
 struct Tex_803DB15C { u32 fmt; u32 pad4; u32 pad8; u32 w; u32 h; u32 sz; u32 flags; };
@@ -37,7 +38,6 @@ void *OSAllocFromHeap(void *, u32);
 s32 alloc_buffer_from_heap(Buf_803DB1B4 *arg0);
 void TObjPlayer__sub_803DA7E0(void);
 void fn_803DAF30(u32 *p);
-void move_data__6TLobbyFPCvUl(void *, void *, int);
 s32 fn_803DAFA8(struct Hdr_803DAFA8 *arg0, struct Out_803DAFA8 *arg1);
 void fn_803DB15C(Tex_803DB15C *arg0);
 s32 init_ginja_texture_header(Tex_803DB15C *arg0, u32 arg1, u32 arg2, u32 arg3);
@@ -54,7 +54,7 @@ s32 fn_803DAFA8(struct Hdr_803DAFA8 *arg0, struct Out_803DAFA8 *arg1) {
     case 0x4C505647:
         sp8 = arg0->size;
         fn_803DAF30((u32 *)&sp8);
-        move_data__6TLobbyFPCvUl(arg1->buf, arg0->data, sp8 - 8);
+        ((TLobby *)(arg1->buf))->move_data(arg0->data, sp8 - 8);
         arg1->f6 = arg0->fa;
         arg1->f8 = arg0->fc;
         arg1->fa = arg0->fe;

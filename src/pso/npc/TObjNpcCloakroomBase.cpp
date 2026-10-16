@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/npc/TObjNpcCloakroomBase.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcFemaleBase.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80149738_lbl_804A8098 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80149738_lbl_804A8098_size[sizeof(RecoveredGlobal_80149738_lbl_804A8098) == 0x10 ? 1 : -1];
@@ -96,12 +101,8 @@ struct RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80149738_lbl_804A8098 bm_n_trunk_i_body_resource_descriptor;
 extern u32 TObjNpcCloakroomBase__static_instance;
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__20TObjNpcCloakroomBase[];
 extern s32 TObjNpcCloakroomBase__name;
 extern u32 TObjNpcCloakroomBase__static_instance;
@@ -120,11 +121,9 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcConnoisseur__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
-s32 get_global_state__14TOKeyMachine01Fv();
 
 void TObjNpcCloakroomBase__vt88(s32 arg0) {
-    if (get_global_state__14TOKeyMachine01Fv() != 5) {
+    if (TOKeyMachine01::get_global_state() != 5) {
         play_sound_effect(0x40003804, arg0 + 0x38, 0, 0);
         return;
     }
@@ -161,7 +160,7 @@ extern s32 __vt__20TObjNpcCloakroomBase[];
 void TObjNpcCloakroomBase::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_trunk_i_body_resource_descriptor.value, 0, 0, 0));
@@ -172,7 +171,7 @@ void TObjNpcCloakroomBase::load_shared_resource() {
 void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjNpcCloakroomBase;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
+        ((TObjNpcFemaleBase *)arg0)->destroy_npc_female_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -184,14 +183,14 @@ extern f32 lbl_805DB1E8;
 
 typedef char RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase_size[sizeof(RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcCloakroomBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
+    ((TObjNpcFemaleBase *)arg0)->construct_female_base();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase *)&__vt__20TObjNpcCloakroomBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcCloakroomBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcCloakroomBase__static_instance) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcCloakroomBase__static_instance) + 0x42C)) + 0xC);
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 

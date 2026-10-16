@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/boss/TBoss6Tube.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjFish.h"
 
 typedef struct TBoss6Tube_802B1020 {
     u8 pad[0x28];
@@ -21,12 +24,9 @@ void get_bml_model(s32, s32);
 s32 query_teammate_state__9TObjEneDDFv(void);
 void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
-f32 get_value__14TBoss6PlotFalzFv(void);
-s32 get_phase__8TObjFishFv(s32);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
-void set_global_param__8TObjFishFl(s32);
 void draw_ginja_object(void);
 extern s32 lbl_80470A54[];
 extern s32 boss6_tube_bml_resource;
@@ -37,7 +37,6 @@ extern "C" {
 
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 play_persistent_sound(s32, s32, s32, s32, s32);
-s32 set_shake_preset__11TCameraCtrlFl(s32);
 
 void TBoss6Tube::render() {
     TBoss6Tube_802B1020 *o = (TBoss6Tube_802B1020 *)this;
@@ -51,9 +50,9 @@ void TBoss6Tube::render() {
         return;
     }
     mode = 0;
-    switch (get_phase__8TObjFishFv(o->f2c)) {
+    switch (((TObjFish *)(o->f2c))->get_phase()) {
     case 2: {
-        f32 v = get_value__14TBoss6PlotFalzFv();
+        f32 v = TBoss6PlotFalz::get_value();
         if (v < (-1e+01f)) {
             mode = 1;
         } else if (v > (1e+02f)) {
@@ -83,7 +82,7 @@ void TBoss6Tube::render() {
         break;
     }
     start = lo - TBoss6Tube::scale_by_const(TBoss6Tube::calc_tube_progress(o->f28));
-    set_global_param__8TObjFishFl(boss6_tube_texture_list);
+    TObjFish::set_global_param(boss6_tube_texture_list);
     set_depth_buffer_settings_id__FUl(3);
     for (i = 0; i < 3; i++) {
         for (y = start; y < hi; y += (8e+02f)) {
@@ -162,7 +161,7 @@ void TBoss6Tube::update_timer() {
         *(s32 *)((s8 *)this + 0x20) = 0;
         *(s32 *)((s8 *)this + 0x1C) = 1;
         play_sound_effect(0x4003351F, 0, 0, 0);
-        set_shake_preset__11TCameraCtrlFl(2);
+        TCameraCtrl::set_shake_preset(2);
     }
 }
 

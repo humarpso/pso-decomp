@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TChCrTag.h"
+#include "pso/TChCrCharSelect.h"
 
 struct VBase_18_c1c33b { char pad[0x18]; };
 
@@ -13,7 +14,6 @@ struct VObj_18_c1c33b : VBase_18_c1c33b {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 get_selected_index__15TChCrCharSelectFv();
 extern const f32 lbl_805DDE00;
 extern const f32 lbl_805DDE04;
 void update_fade__8TChCrTagFPv(u8 *arg0);
@@ -72,7 +72,7 @@ void update_fade__8TChCrTagFPv(u8 *arg0) {
                 *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DDE00;
             }
         }
-        if (get_selected_index__15TChCrCharSelectFv() == 2) {
+        if (TChCrCharSelect::get_selected_index() == 2) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 1;
             break;
         }

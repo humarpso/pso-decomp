@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80050050_lbl_80485864
 {
@@ -14,11 +16,8 @@ void update_fade_and_expire(u8 *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_80050050_lbl_80485864 three_part_model_translate_offset;
 void draw_three_part_models(u8 *arg0);
 }
@@ -33,14 +32,14 @@ void draw_three_part_models(u8 *arg0) {
   u8 *temp_r30;
   int var_r29;
   push_matrix();
-  set_global_flag__10TObjPlayerFv();
+  TObjPlayer::set_global_flag();
   post_translate_matrix((void *) (&three_part_model_translate_offset.value));
   var_r29 = 0;
   var_r31 = 0;
   do
   {
     temp_r30 = (u8 *) (arg0 + var_r31);
-    set_global_param__8TObjFishFl((int) (*((int *) (((s8 *) temp_r30) + 0xA0))));
+    TObjFish::set_global_param((int) (*((int *) (((s8 *) temp_r30) + 0xA0))));
     temp_r4 = *((unsigned int *) (((s8 *) temp_r30) + 0xAC));
     if (temp_r4 == 0U)
     {
@@ -54,7 +53,7 @@ void draw_three_part_models(u8 *arg0) {
     var_r31 += 4;
   }
   while (var_r29 < 3);
-  clear_global_state__10TObjPlayerFv();
+  TObjPlayer::clear_global_state();
   pop_matrix();
 }
 

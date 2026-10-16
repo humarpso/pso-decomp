@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss6Rock.h"
+#include "pso/boss/TBoss6Type2.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/item/TItemAttackCol.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot_size[sizeof(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot) == 0x20 ? 1 : -1];
@@ -47,16 +53,12 @@ s32 is_local_client_floor_leader();
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0);
 void grid_to_world_pos__11TBoss6Type2FccPv(u8, u8, Vec_803570E4 *);
-void set_path_points_by_index__11TBoss6Type2FlPvl(s32, Vec_803570E4 *, s32);
 void clear_rock_state__10TBoss6RockFl(s32 i, s32 a, s32 b);
-void set_rock_target__10TBoss6RockFlll(s32 i, s32 a, s32 b);
 int read_be16_field2_forward(void* p);
 extern int olga_flow_subordinate_actions_enabled;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
 s32 queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 decrement_packed_timer__15TObjBoss2TunnelFPUll(void *, int);
-s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
 s32 has_game_join_id();
 s32 check_hits__14TItemAttackColFPv(void *);
 extern const f32 lbl_805E0030;
@@ -77,14 +79,8 @@ s32 draw_untextured_trail_strip(s32, s32);
 s32 TObjPlayer__sub_803DF768(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-void destroy_attack_collision__14TItemAttackColFs(void *, int);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 restore_saved_depth_alpha_state();
-s32 init_xyz_limits__10TObjPlayerFv();
-int read_be16_field2__10TObjPlayerFv(void*);
 s32 reset_player_transform();
-s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_1__Fv();
 
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
@@ -133,7 +129,7 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
             grid_to_world_pos__11TBoss6Type2FccPv(p[0], p[1], &v[i]);
             n++;
         }
-        set_path_points_by_index__11TBoss6Type2FlPvl(boss, v, n);
+        TBoss6Type2::set_path_points_by_index(boss, v, n);
     }
     for (j = 0; j < 0x40; j++) {
         if (pkt->d[j] >= 0 && j >= 7 && j <= 0x26) {
@@ -151,7 +147,7 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
             }
             switch (type) {
             case 0:
-                set_rock_target__10TBoss6RockFlll(idx, a, f);
+                TBoss6Rock::set_rock_target(idx, a, f);
                 break;
             case 1:
                 clear_rock_state__10TBoss6RockFl(idx, a, f);
@@ -168,7 +164,7 @@ void TItemEffOrgaFlowShot__sub_80357210(void) { olga_flow_subordinate_actions_en
 
 void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward((void*)(this)); TLobby__send_and_handle_60(this); }
 
-int read_be16_field2_forward(void* p) { return read_be16_field2__10TObjPlayerFv(p); }
+int read_be16_field2_forward(void* p) { return ((TObjPlayer *)p)->read_be16_field2(); }
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 173; *(u8*)((char*)p + 0x1) = 17; }
 
 extern s32 lbl_805D5660;
@@ -221,17 +217,17 @@ void TItemEffOrgaFlowShot::update_position_from_velocity() {
 
 void TItemEffOrgaFlowShot::render() {
     s32 arg0 = (s32)this;
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     lbl_805D5660 = model_render_flags;
     set_depth_buffer_settings_1__Fv();
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     TObjPlayer__sub_803DF768(1);
     draw_untextured_trail_strip(arg0 + 0xC4, 0xA);
     reset_player_transform();
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     restore_saved_depth_alpha_state();
     model_render_flags = lbl_805D5660;
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 extern s32 __vt__20TItemEffOrgaFlowShot[];
@@ -245,12 +241,12 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         disallow_rendering__7TObjectFv((void *) (arg0));
     }
-    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x190), (f32) (lbl_805E0030), (f32) (*(f32 *)((s8 *)arg0 + 0x18C)));
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x190), (f32)((f32) (lbl_805E0030)), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x18C))));
     if (*(f32 *)((s8 *)arg0 + 0x190) == *(f32 *)((s8 *)arg0 + 0x18C)) {
-        approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x194), (f32) (lbl_805E0034), (f32) (*(f32 *)((s8 *)arg0 + 0x198)));
+        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x194), (f32)((f32) (lbl_805E0034)), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x198))));
     }
     for (var_r30 = 0; var_r30 != 10; var_r30++) {
-        decrement_packed_timer__15TObjBoss2TunnelFPUll(&((O_8035740C *)arg0)->v[var_r30].w, 2);
+        TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[var_r30].w), (s32)2);
     }
     if (*(f32 *)((s8 *)arg0 + 0x194) == *(f32 *)((s8 *)arg0 + 0x198)) {
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x19C);
@@ -266,7 +262,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
 void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TItemEffOrgaFlowShot;
-        destroy_attack_collision__14TItemAttackColFs(arg0, 0);
+        ((TItemAttackCol *)arg0)->destroy_attack_collision(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -11,7 +11,6 @@ struct V3_801412D0 { f32 x, y, z; };
 
 extern "C" {
 u32 calc_gx_tile_index(u32 x, u32 y, s16 w);
-s32 is_in_range__10TObjPlayerFf(f32);
 f64 TPlyPhotonChair__sub_80142624(f32);
 s32 calc_triangle_normal__10TObjPlayerFPvPv(V3_801412D0 *v, V3_801412D0 *out);
 }
@@ -113,6 +112,7 @@ THeap::THeap(size_t size, int alignment) {
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -120,7 +120,6 @@ void __dl__5THeapFPv(void);
 void __nw__5THeapFUl(void);
 int GXSetTevSwapMode(int, int, int);
 int GXSetTevSwapModeTable(int, int, int, int, int);
-void setup_tev_swap__10TObjPlayerFv(void);
 s32 xfree__FPv();
 s32 xmalloc__FUl();
 
@@ -150,7 +149,7 @@ s32 calc_triangle_normal__10TObjPlayerFPvPv(V3_801412D0 *v, V3_801412D0 *out) {
     n.y = a.z * b.x - a.x * b.z;
     n.z = a.x * b.y - a.y * b.x;
     sq = n.x * n.x + n.y * n.y + n.z * n.z;
-    if (is_in_range__10TObjPlayerFf(sq) != 0) {
+    if (TObjPlayer::is_in_range(sq) != 0) {
         return 0;
     }
     len = TPlyPhotonChair__sub_80142624(sq);

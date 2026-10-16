@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TNowLoading.h"
 
 struct VB_802E74E4 { u8 pad[0xC]; };
 
@@ -92,8 +95,6 @@ extern s32 lbl_804E3BD8[];
 u8 *TObjPlayer__sub_802E74E4(u8 *arg0, s16 arg1);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
-s32 copy_vec3__11TBoss4Type2FPv(int, void *);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
 extern const f64 lbl_80473FA8[];
 s32 TObjLight__sub_801337F8(s32);
@@ -102,7 +103,6 @@ s32 draw_effect__10TObjPlayerFv();
 s32 rotate_matrix_z(int, s32);
 s32 translate_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, s32);
-s32 concat_matrix__10TObjPlayerFUlUl(int, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -121,7 +121,6 @@ u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 concat_matrix__10TObjPlayerFUlUl(int, s32);
 s32 push_matrix();
 s32 pop_matrix();
 extern s32 lbl_804E3BA8[];
@@ -154,8 +153,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
-s32 calc_random_scaled__10TObjPlayerFv(void);
-s32 collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void TObjPlayer__sub_802E7640(void *);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 f32 vec3_add_to(void *, void *);
@@ -207,7 +204,7 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
         rotate_matrix_z(0, part->f20);
         rotate_matrix_x(0, part->f18);
         translate_matrix(0, -*(f32 *)((s8 *)arg0 + 0x30), -*(f32 *)((s8 *)arg0 + 0x34), -*(f32 *)((s8 *)arg0 + 0x38));
-        concat_matrix__10TObjPlayerFUlUl(0, *(s32 *)((s8 *)arg0 + 0x2C));
+        TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)arg0 + 0x2C));
         switch (part->type) {
         case 0:
         case 1:
@@ -254,7 +251,7 @@ u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
     part = *(Part_802E6F10 **)((s8 *)arg0 + 0x28);
     push_matrix();
     set_matrix_identity(0);
-    concat_matrix__10TObjPlayerFUlUl(0, *(s32 *)((s8 *)arg0 + 0x2C));
+    TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)arg0 + 0x2C));
     (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).z = (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).y = (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).x = lbl_805DE9CC;
     matrix_mult_vec(0, arg0 + 0x30, arg0 + 0x30);
     for (i = 0; i < *(s32 *)((s8 *)arg0 + 0x24); i++) {
@@ -341,7 +338,7 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
         n = -1;
     }
     if (n > 0) {
-        ((TObjPlayer *)arg0)->alloc_breakup_model(collect_and_count__12TBoss3VoloptFUll(((s32)queue_boss_effect__10TObjPlayerFPv(3)), n));
+        ((TObjPlayer *)arg0)->alloc_breakup_model(TBoss3Volopt::collect_and_count(((s32)queue_boss_effect__10TObjPlayerFPv(3)), n));
         TObjPlayer__sub_802E7640(arg0);
         p = arg0->pieces;
         for (i = 0; i < arg0->count; i++, p++) {
@@ -351,9 +348,9 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72D
             VecCopy__FP3VecPC3Vec(q, &arg0->tbl->items[i].b);
             q->y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
             q->z -= lerp__9TDeadSpotFff(lbl_805DE9C8, lbl_805DE9DC);
-            p->x18 = calc_random_scaled__10TObjPlayerFv();
+            p->x18 = TObjPlayer::calc_random_scaled();
             p->x1C = lbl_805DE9E0 * rand_signed_unit();
-            p->x20 = calc_random_scaled__10TObjPlayerFv();
+            p->x20 = TObjPlayer::calc_random_scaled();
             p->x28 = 0;
             p->x24 = lbl_805DE9C8;
         }
@@ -480,8 +477,8 @@ void TObjFish::update_attached_orientation() {
         ang.x = -(s32)(lbl_80473FA8[0] * atan2_float(d.y, newton_sqrtf(d.x * d.x + d.z * d.z))) - 0x4000;
         ang.y = (s32)(lbl_80473FA8[0] * atan2_float(d.x, d.z));
         ang.z = 0;
-        copy_pos__11TNowLoadingFPv(o->f7B0, &o->pos);
-        copy_vec3__11TBoss4Type2FPv(o->f7B0, &ang);
+        ((TNowLoading *)(o->f7B0))->copy_pos(&o->pos);
+        ((TBoss4Type2 *)(o->f7B0))->copy_vec3(&ang);
     }
 }
 

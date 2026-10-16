@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TEF_LensFlare.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 s32 is_split_screen(void);
@@ -8,7 +9,6 @@ u8 * TEF_LensFlare__ct(void *, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TEF_LensFlare__create(s32 arg0);
-f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 s32 mem_free(u32);
 s16 *mem_alloc(s32);
 u32 __cvt_fp2unsigned(f32);
@@ -33,7 +33,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     if (arg2 == 0) {
         *(u32 *)((s8 *)arg0 + 0x14) = arg1;
     } else {
-        *(u32 *)((s8 *)arg0 + 0x14) = __cvt_fp2unsigned((f32) arg2 * round_away_from_zero__20TWindowSubStatusDispFf((f32) (arg1 / 6U)));
+        *(u32 *)((s8 *)arg0 + 0x14) = __cvt_fp2unsigned((f32) arg2 * TWindowSubStatusDisp::round_away_from_zero((f32) (arg1 / 6U)));
     }
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x14);
     if (temp_r3_2 != 0) {

@@ -30,8 +30,6 @@ extern RecoveredGlobal_803284F8_lbl_8050E208 controller_input_state;
 s32 TAdDialingGC__sub_803284F8(s32 _w0);
 struct Obj_80328730 { u8 pad[0x1C]; s32 state; s32 f20; u8 pad2[0x9C - 0x24]; s32 f9C; };
 extern Obj_80328730 *TAdDialingGC__instance;
-void update_dialing_display__12TAdDialingGCFi(s32);
-void update_status_display__12TAdDialingGCFv(void *);
 void init_dialog__12TAdDialingGCFv(void *);
 void draw_dialing_status__12TAdDialingGCFv(void *);
 }
@@ -205,16 +203,16 @@ void TAdDialingGC::update_state_display() {
     if (arg0->mode == 2) {
         switch (arg0->state) {
         case 0:
-            update_status_display__12TAdDialingGCFv(arg0);
+            ((TAdDialingGC *)arg0)->update_status_display();
             break;
         case 4:
-            update_dialing_display__12TAdDialingGCFi(0x14);
+            TAdDialingGC::update_dialing_display(0x14);
             break;
         case 6:
-            update_dialing_display__12TAdDialingGCFi(3);
+            TAdDialingGC::update_dialing_display(3);
             break;
         case 8:
-            update_status_display__12TAdDialingGCFv(arg0);
+            ((TAdDialingGC *)arg0)->update_status_display();
             break;
         case 1: case 2: case 3: case 5: case 7:
             break;
@@ -223,21 +221,21 @@ void TAdDialingGC::update_state_display() {
     if (arg0->mode == 1) {
         switch (arg0->state) {
         case 0:
-            update_dialing_display__12TAdDialingGCFi(0x17);
+            TAdDialingGC::update_dialing_display(0x17);
             break;
         case 2:
             init_dialog__12TAdDialingGCFv(arg0);
             draw_dialing_status__12TAdDialingGCFv(arg0);
             break;
         case 3:
-            update_dialing_display__12TAdDialingGCFi(2);
+            TAdDialingGC::update_dialing_display(2);
             break;
         case 4:
-            update_dialing_display__12TAdDialingGCFi(0x14);
+            TAdDialingGC::update_dialing_display(0x14);
             break;
         case 6:
         case 8:
-            update_dialing_display__12TAdDialingGCFi(0x17);
+            TAdDialingGC::update_dialing_display(0x17);
             break;
         case 1: case 5: case 7:
             break;

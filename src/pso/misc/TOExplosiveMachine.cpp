@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TOExplosiveMachine.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base1_80166568 { char pad[0x18]; };
 struct VObj1_80166568 : Base1_80166568 {
@@ -55,10 +59,8 @@ struct VObj_80166814 : VBase_80166814 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80166614_lbl_804B1AA0 explosive_machine_resource_desc;
 extern u32 explosive_machine_model_archive;
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 extern char __vt__18TOExplosiveMachine[];
 O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1);
@@ -87,8 +89,6 @@ s32 draw_ginja_object(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 check_demo_mode__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 void TOExplosiveMachine::explode() {
     u8 *arg0 = (u8 *)this;
@@ -97,7 +97,7 @@ void TOExplosiveMachine::explode() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
@@ -117,7 +117,7 @@ extern const f32 lbl_805DB608;
 void TOExplosiveMachine::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &explosive_machine_resource_desc.value, 0, 0, 0));
@@ -133,7 +133,7 @@ O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1) {
             arg0->a[i] = 0;
             arg0->b[i] = 0;
         }
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -198,7 +198,7 @@ void TOExplosiveMachine::update() {
     f32 temp_f1;
     s32 temp_r0;
 
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((V_A_801668cc_80166568 *)this)->m14();
         return;
     }

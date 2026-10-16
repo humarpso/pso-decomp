@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubSymbolChat.h"
 
 struct TPlyGuildCardTag { u32 a; u32 b; TPlyGuildCardTag(u16, u32); };
 
@@ -10,7 +13,6 @@ void *obj_getField1c(void *);
 void *get_player_by_client_id(s32);
 void send_chat__9TProtocolFR16TPlyGuildCardTagPc(void *, TPlyGuildCardTag *, u8 *);
 void capture_chat_sensor__6TLobbyFi(u8 *);
-void open__11TWindowCtrlFlll(void *, u8 *, int);
 extern s32 local_client_id;
 extern void *TLobby__protocol_instance;
 void submit_chat_text(u8 *arg0);
@@ -30,7 +32,7 @@ void submit_chat_text(u8 *arg0) {
             Tag_80076BC8 tmp = *(Tag_80076BC8 *)&TPlyGuildCardTag(0, 0);
             send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__protocol_instance, (TPlyGuildCardTag *)&tmp, arg0);
         } else {
-            open__11TWindowCtrlFlll(obj_getField1c(player), arg0, 0xCB);
+            TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)arg0, (s32)0xCB);
         }
     }
 }
@@ -39,7 +41,6 @@ void submit_chat_text(u8 *arg0) {
 
 extern "C" {
 void chat_dispatch_accepted_result(s32 *arg0);
-s32 set_field22__11TWindowCtrlFv();
 s32 is_submit_cooldown_clear__11TWindowCtrlFv();
 s32 chat_accept_submission(s32 arg0);
 int get_chat_shortcut(s32 arg0);
@@ -47,8 +48,6 @@ int get_chat_shortcut(s32 arg0);
 
 extern "C" {
 
-s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPl(void *);
-s32 send_chat_packet__9TWindowDDFPv(void *);
 void send_chat_shortcut(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 
@@ -61,10 +60,10 @@ void chat_dispatch_accepted_result(s32 *arg0) {
         ((s32 (*)(void *)) submit_chat_text)((s8 *)arg0 + 4);
         return;
     case 2:
-        send_chat_packet__9TWindowDDFPv((s8 *)arg0 + 4);
+        TWindowDD::send_chat_packet((s8 *)arg0 + 4);
         return;
     case 3:
-        send_selected_symbol_chat__20TWindowSubSymbolChatFPl((s8 *)arg0 + 4);
+        TWindowSubSymbolChat::send_selected_symbol_chat((s32 *)((s8 *)arg0 + 4));
     case 0:
         return;
     }
@@ -73,7 +72,7 @@ s32 chat_accept_submission(s32 arg0) {
     if (is_submit_cooldown_clear__11TWindowCtrlFv() == 0) {
         return 0;
     }
-    set_field22__11TWindowCtrlFv();
+    TWindowCtrl::set_field22();
     chat_dispatch_accepted_result((s32 *)((void *) (arg0)));
     return 1;
 }
@@ -82,8 +81,6 @@ s32 chat_accept_submission(s32 arg0) {
 
 extern "C" {
 
-s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPl(void *);
-s32 send_chat_packet__9TWindowDDFPv(void *);
 void send_chat_shortcut(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 
@@ -110,9 +107,7 @@ int get_chat_shortcut(s32 arg0);
 
 extern "C" {
 
-s32 send_chat_packet__9TWindowDDFPv(void *);
 void send_chat_shortcut(void);
-s32 send_selected_symbol_chat__20TWindowSubSymbolChatFPl(void *);
 
 void clear_chat_shortcut(s32 i) {
     void **p = ((void **)get_chat_shortcut((s32)(i)));

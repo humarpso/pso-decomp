@@ -2,6 +2,11 @@
 #include "pso/boss/TBoss6Thanks.h"
 
 #include <stddef.h>
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TLobby.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef char Thanks_current_motion[offsetof(TBoss6Thanks,current_motion)==0x20?1:-1];
 typedef char Thanks_frame0[offsetof(TBoss6Thanks,frame0)==0x28?1:-1];
@@ -24,16 +29,11 @@ extern "C" {
 
 extern "C" {
 
-s32 reset_fish_globals__8TObjFishFv();
-void set_fade_material_color__14TBoss6PlotFalzFf(f32);
 s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 void draw_model_motion(void *, void *, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern const f32 lbl_805E019C;
 extern const f32 lbl_805E01A0;
@@ -60,7 +60,6 @@ s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-int get_fish_count__8TObjFishFv(void);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 extern s32 TBoss6Thanks__class_name;
 extern const f32 lbl_805E019C;
@@ -72,15 +71,10 @@ int TBoss6Thanks__sub_8035CB40(void);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1);
 void TBoss6Thanks__sub_8035CCAC(s32 arg0);
-void request_destroy__11TBoss4Type2FUl(void *);
-void request_destroy__11TBoss4Type2FUl(void *);
 void *create_particle_emitter(void *, int);
-void set_flags__11TBoss4Type2FUl(void *, int);
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern Ent_8035CB88 boss6_thanks_particle_emitter_table[];
 u8 *get_player_data__10TObjPlayerFi(s32);
-s32 get_game_mode__6TLobbyFv();
-s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 xyz_distance(void *, void *);
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern const f32 lbl_805E0198;
@@ -118,12 +112,12 @@ void TBoss6Thanks::update_particle_emitters() {
             if (o->p[i] == NULL) {
                 o->p[i] = create_particle_emitter(TBoss6Thanks__data_80479BA8, e->id);
                 if (o->p[i] != NULL) {
-                    set_flags__11TBoss4Type2FUl(o->p[i], 0x40);
+                    ((TBoss4Type2 *)(o->p[i]))->set_flags(0x40);
                 }
             }
         } else {
             if (o->p[i] != NULL) {
-                request_destroy__11TBoss4Type2FUl(o->p[i]);
+                TBoss4Type2::request_destroy((u32)(o->p[i]));
                 o->p[i] = NULL;
             }
         }
@@ -135,7 +129,7 @@ void TBoss6Thanks::destroy_effects() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (arg0->e[i].p != NULL) {
-            request_destroy__11TBoss4Type2FUl(arg0->e[i].p);
+            TBoss4Type2::request_destroy((u32)(arg0->e[i].p));
             arg0->e[i].p = NULL;
         }
     }
@@ -154,11 +148,11 @@ int TBoss6Thanks::is_player_near(void *arg0) {
     s32 n;
     u8 *p;
     f32 r;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     r = lbl_805E0198;
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (p != NULL && is_active__14TBoss6PlotFalzFv(p) != 0 &&
+        if (p != NULL && ((TBoss6PlotFalz *)p)->is_active() != 0 &&
             xyz_distance(p + 0x38, TBoss6Thanks__data_80479BA8) <= r) {
             return 1;
         }
@@ -173,22 +167,22 @@ void TBoss6Thanks::render() {
     if (lbl_805E019C == o->opacity) {
         return;
     }
-    set_fade_material_color__14TBoss6PlotFalzFf(o->opacity);
-    set_global_flag__10TObjPlayerFv();
+    TBoss6PlotFalz::set_fade_material_color(o->opacity);
+    TObjPlayer::set_global_flag();
     push_matrix();
     post_translate_matrix(TBoss6Thanks__data_80479BA8);
-    set_global_param__8TObjFishFl(o->texture0);
+    TObjFish::set_global_param(o->texture0);
     scale_matrix(0, lbl_805E01A0, lbl_805E01A0, lbl_805E01A0);
     draw_model_motion(o->model0, o->motions[o->current_motion], o->frame0);
     pop_matrix();
     push_matrix();
     post_translate_matrix(TBoss6Thanks__data_80479BA8);
-    set_global_param__8TObjFishFl(o->texture1);
+    TObjFish::set_global_param(o->texture1);
     scale_matrix(0, lbl_805E01A0, lbl_805E01A0, lbl_805E01A0);
     draw_model_motion(o->model1, o->motion1, o->frame1);
     pop_matrix();
-    clear_global_state__10TObjPlayerFv();
-    reset_fish_globals__8TObjFishFv();
+    TObjPlayer::clear_global_state();
+    TObjFish::reset_fish_globals();
 }
 
 extern "C" {
@@ -276,7 +270,7 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss6Thanks.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6Thanks__class_name;
-    temp_r3 = (u8 *)(get_fish_count__8TObjFishFv());
+    temp_r3 = (u8 *)(TObjFish::get_fish_count());
     *(s32 *)((s8 *)arg0 + 0x38) = get_bml_model(temp_r3, 7);
     *(s32 *)((s8 *)arg0 + 0x40) = TObjFish__sub_8001EDB0(temp_r3, 7);
     *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(temp_r3, 9);

@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TNpcPlayer.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/object/TObjDoor.h"
 
 struct Base_801A2E00 { u8 pad0[0x18]; };
 
@@ -13,24 +18,12 @@ s32 is_split_screen();
 extern s32 local_client_id;
 extern s32 lbl_805D53A8;
 s32 reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
-s32 reset_floor_items__6TLobbyFv();
-s32 reset_item_id_counters__6TLobbyFv();
-int clear_counter__6TLobbyFv(void);
-s32 clear_quest_state__6TLobbyFv();
-s32 reset_quest_counter__6TLobbyFv();
-s32 set_cleanup_flag__6TLobbyFv();
-s32 reset_door_state__6TLobbyFv();
 s32 clear_enabled_main_warps();
-s32 reset_instance__8TObjDoorFv();
-s32 free_map_data__13TRaderMapCoreFv();
 s32 clear_switch_table();
-s32 apply_all_players__9TTecLukerFv();
-void enable_all_battle_ctrl__10TNpcPlayerFv();
 s32 queue_destruction__7TObjectFv(u32);
 extern u32 quest_mission_manager;
 Ctrl_801A2E00 *get_player_by_client_id(s32);
 s32 get_game_play_mode();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 void TLobby__sub_801A2E00(void);
 }
 
@@ -42,17 +35,15 @@ void TLobby__sub_801A2DFC(void);
 int TKeyBoardControl__sub_8000F92C(void);
 int TKeyBoardControl__sub_8000F95C(void);
 int clear_keyboard_key_state(void);
-int reset__16TKeyBoardControlFv(void);
-int clear_counter__6TLobbyFv(void);
 
-void TLobby::reset_keyboard_input() { reset__16TKeyBoardControlFv(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); clear_counter__6TLobbyFv(); }
-void TLobby::shutdown_keyboard_control() { reset__16TKeyBoardControlFv(); TLobby::reset_quest_state(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); clear_counter__6TLobbyFv(); }
+void TLobby::reset_keyboard_input() { TKeyBoardControl::reset(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); TLobby::clear_counter(); }
+void TLobby::shutdown_keyboard_control() { TKeyBoardControl::reset(); TLobby::reset_quest_state(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); TLobby::clear_counter(); }
 void TLobby__sub_801A2DF4(void) {  }
 void TLobby__sub_801A2DF8(void) {  }
 void TLobby__sub_801A2DFC(void) {  }
 
 void TLobby__sub_801A2E00(void) {
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         switch (get_game_play_mode()) {
         case 1:
         case 2: {
@@ -93,23 +84,23 @@ void TLobby::apply_char_to_players() {
     }
 }
 void TLobby::reset_quest_state() {
-    free_map_data__13TRaderMapCoreFv();
+    TRaderMapCore::free_map_data();
     clear_switch_table();
-    apply_all_players__9TTecLukerFv();
-    reset_item_id_counters__6TLobbyFv();
-    reset_floor_items__6TLobbyFv();
-    enable_all_battle_ctrl__10TNpcPlayerFv();
+    TTecLuker::apply_all_players();
+    TLobby::reset_item_id_counters();
+    TLobby::reset_floor_items();
+    TNpcPlayer::enable_all_battle_ctrl();
     if ((u32) quest_mission_manager != 0U) {
         queue_destruction__7TObjectFv(quest_mission_manager);
     }
     clear_enabled_main_warps();
     reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
-    clear_counter__6TLobbyFv();
-    reset_door_state__6TLobbyFv();
-    reset_instance__8TObjDoorFv();
-    set_cleanup_flag__6TLobbyFv();
-    reset_quest_counter__6TLobbyFv();
-    clear_quest_state__6TLobbyFv();
+    TLobby::clear_counter();
+    TLobby::reset_door_state();
+    TObjDoor::reset_instance();
+    TLobby::set_cleanup_flag();
+    TLobby::reset_quest_counter();
+    TLobby::clear_quest_state();
 }
 
 }

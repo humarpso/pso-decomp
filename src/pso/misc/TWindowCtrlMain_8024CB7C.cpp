@@ -1,6 +1,8 @@
 #include "pso/misc/WindowControlState.h"
 #include "types.h"
 #include "pso/misc/TWindowCtrlMain.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct Ent_8024CCDC { u8 p0[8]; f32 f8; f32 fC; u8 p10[0xC]; };
 struct RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 {
@@ -39,9 +41,7 @@ struct Quad_8024CE68 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
 void draw_color_lines(void *, int, int, f32);
-void set_global_param__8TObjFishFl(void *);
 void begin_screen_draw(int);
-void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern void *lbl_805D63F0;
@@ -227,7 +227,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     draw_strip_swap_color__15TWindowCtrlMainFPviif(&poly, 4, 22, -10.0f);
 
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param((s32)lbl_805D63F0);
     a = (s32)(255.0f * alpha) << 24;
     set_draw_texture_and_color(11, a | 0xFFFFFF);
 
@@ -262,7 +262,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     q.u1 = 0.06640625f;
     q.v1 = 0.99609375f;
     draw_textured_quad_at_depth(&q, 0.1f);
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 
     line.verts = lverts;
     line.colors = lcolors;

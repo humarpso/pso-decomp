@@ -1,15 +1,16 @@
 #include "pso/misc/TEnding.h"
+#include "pso/TAdMultiChgGameModeGC.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdRicoRingCtrl.h"
 
 extern "C" {
 void TEnding__sub_8008C9F8();
-void set_default_camera__21TAdMultiChgGameModeGCFv();
 void TObjPlayer__sub_8001A8F0(void *, TEnding *);
 void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
 s32 get_end_text_font_loaded_flag();
 u32 __cvt_fp2unsigned(f32);
 void destroy_keyboard_objects();
-void init__22THunterGuildSeqOfflineFPvPv(void *, TObject *, void *);
-void stop_audio_streams__6TLobbyFv();
 void cleanup_game_objects__9TMainTaskFv();
 void set_current_floor_area(s32);
 s32 TKeyBoardControl__sub_8000F828();
@@ -17,7 +18,6 @@ void __ct__10TEndingPicFv(void *, TObject *);
 void __ct__9TEndingABFv(void *, TObject *);
 void __ct__8TEndingCFv(void *, TObject *);
 TAdRicoRingCtrl *TAdRicoRingCtrl__ct(void *, TObject *);
-void start_fade_all__15TAdRicoRingCtrlFf(TAdRicoRingCtrl *, f32);
 void __ct__10TAdEndTextFv(void *, TObject *);
 extern u32 ending_frame_counter;
 extern s32 ending_scene_active;
@@ -31,7 +31,7 @@ extern const f32 lbl_805D9578;
 void TEnding::run_task() {
     switch (phase) {
     case 0: {
-        set_default_camera__21TAdMultiChgGameModeGCFv();
+        TAdMultiChgGameModeGC::set_default_camera();
         u32 ticks = ending_frame_counter + 1;
         ending_frame_counter = ticks;
         s32 rate = timing_rate;
@@ -55,7 +55,7 @@ void TEnding::run_task() {
             if (ticks > timing_rate * 10) {
                 void *child = TObject::operator new(0x28);
                 if (child != NULL)
-                    init__22THunterGuildSeqOfflineFPvPv(child, tl_fade, (void *)destroy_keyboard_objects);
+                    ((THunterGuildSeqOffline *)child)->init(tl_fade, (void *)destroy_keyboard_objects);
                 phase = 2;
             }
         }
@@ -65,7 +65,7 @@ void TEnding::run_task() {
 
 TEnding::~TEnding() {
     ending_scene_active = 0;
-    stop_audio_streams__6TLobbyFv();
+    TLobby::stop_audio_streams();
 }
 
 TEnding::TEnding() : TObject(tl_window) {
@@ -90,7 +90,7 @@ TEnding::TEnding() : TObject(tl_window) {
     if (ring != NULL) ring = TAdRicoRingCtrl__ct(ring, this);
     ring_controller = ring;
     if (ring_controller != NULL)
-        start_fade_all__15TAdRicoRingCtrlFf(ring_controller, lbl_805D9578 * (f32)timing_rate);
+        ((TAdRicoRingCtrl *)ring_controller)->start_fade_all(lbl_805D9578 * (f32)timing_rate);
     void *text = TObject::operator new(0x197C);
     if (text != NULL) __ct__10TAdEndTextFv(text, this);
 }

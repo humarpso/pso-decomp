@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TTecFoie.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8022FE84_lbl_804CC510
 {
@@ -88,7 +91,6 @@ struct Foie_8022FC94
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 copy_params__8TTecAntiFPUc(void *, int);
 s32 clamp_nonnegative_int(int);
 extern RecoveredGlobal_8022FE84_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
@@ -98,13 +100,10 @@ void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target);
 void queue_destruction__7TObjectFv(void *self);
 void mem_free(void **);
 void __dl__7TObjectFPv(void *);
-void destroy_technique_effect_resources__10TObjPlayerFs(void *, s16);
 extern TTecFoieData_80230144 TTecFoie__emitter_profile_table[];
 extern void *__vt__8TTecFoie[];
 TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
 s32 attach_particle_model(int, int, int, int, int, f32);
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
-s32 get_particle_model__13TParticleCtrlFl(int);
 void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, u16 e);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
@@ -167,9 +166,9 @@ void TTecFoie::create_particle_emitters() {
     {
       if ((*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].flags & 0x20)
       {
-        attach_particle_model((int) self->emitters[i], get_particle_model__13TParticleCtrlFl(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
+        attach_particle_model((int) self->emitters[i], TParticleCtrl::get_particle_model(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
       }
-      set_position_xy__10TObjPlayerFff(self->emitters[i], (*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].scale, (*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].scale);
+      ((TObjPlayer *)(self->emitters[i]))->set_position_xy((*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].scale, (*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].scale);
     }
   }
 }
@@ -178,7 +177,7 @@ void TTecFoie::init_projectile_params() {
     u8 *arg0 = (u8 *)this;
   s32 new_var;
   new_var = calc_technique_parameters((int) 0, (int) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4, (int) 0xFFFF);
-  copy_params__8TTecAntiFPUc((void *) (arg0 + 0xCC), (int) new_var);
+  ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 2))) * ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4));
@@ -231,7 +230,7 @@ TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting) {
             queue_destruction__7TObjectFv(self->emitters[i]);
         }
         mem_free(self->emitters);
-        destroy_technique_effect_resources__10TObjPlayerFs(self, 0);
+        ((TObjPlayer *)self)->destroy_technique_effect_resources(0);
         if (deleting > 0) __dl__7TObjectFPv(self);
     }
     return self;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 
 struct B_8032D214 { u8 pad[0x18]; };
 
@@ -22,7 +23,6 @@ struct VObj_18_df5984 : VBase_18_df5984 {
 };
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 void TAdWarningBaseGC__vt5(void *self);
 void send_and_handle__6TLobbyFii(s32, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
@@ -59,7 +59,7 @@ void clear_aram_request_busy(void) { aram_request_busy_flag = 0; }
 extern s32 __vt__16TAdWarningBaseGC[];
 
 void TAdWarningBaseGC__vt5(void *self) {
-    if (get_state_flag__9TMainTaskFv() == 1) { return;
+    if (TMainTask::get_state_flag() == 1) { return;
     }
 }
 

@@ -780,7 +780,6 @@ extern "C" {
 s32 is_trade_range_bit_set(s32);
 #define TLobby__trade_partner_client_id (*(s8 *)&TLobby__trade_partner_client_id)
 extern u8 TLobby__trade_proposal_state;
-void update_both_halves__6TLobbyFv(void *);
 #define TLobby__trade_window_state ((Half_802D38B4 *)TLobby__trade_window_state)
 
 extern u8 TLobby__trade_proposal_state;
@@ -839,7 +838,7 @@ void TLobby::reset_trade_state() {
     TLobby__trade_main_window = 0;
     trade_message_controller = 0;
     for (i = 0; i < 2; i++) {
-        update_both_halves__6TLobbyFv(&TLobby__trade_window_state[i]);
+        ((TLobby *)(&TLobby__trade_window_state[i]))->update_both_halves();
     }
     TLobby::close_trade_request();
 }

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss8Dragon.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802F3CA0_lbl_80474508 {
     s32 value;
@@ -48,10 +50,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, Anim_802F3D6C *, f32);
-void set_global_flag__10TObjPlayerFv(void);
-void clear_global_state__10TObjPlayerFv(void);
 extern s32 current_scene_light;
 extern s32 model_render_flags;
 extern const f32 TBoss8Dragon__data_805DED50;
@@ -106,7 +105,7 @@ void TBoss8Dragon::draw_motion_model() {
     s32 idx;
     Anim_802F3D6C *anim;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DED54, TBoss8Dragon__data_805DED58) != 0) {
-        set_global_param__8TObjFishFl(*(s32 *)(arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)(arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
@@ -128,9 +127,9 @@ void TBoss8Dragon::draw_motion_model() {
         } else if (f > (f32)(anim->nframes - 1)) {
             f = anim->nframes;
         }
-        set_global_flag__10TObjPlayerFv();
+        TObjPlayer::set_global_flag();
         draw_model_motion(*(s32 *)(arg0 + 0x34), anim, f);
-        clear_global_state__10TObjPlayerFv();
+        TObjPlayer::clear_global_state();
         TObjLight__sub_801337F8(current_scene_light);
         pop_matrix();
     }

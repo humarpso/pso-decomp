@@ -1,9 +1,8 @@
 #include "types.h"
 #include "pso/TProtocol.h"
+#include "pso/protocol.h"
 
 extern "C" {
-
-s32 bswap__13packet_headerFv(s32 *);
 
 void TProtocol::handle_cmd_97(packet &pkt) {
     s32 *arg1 = (s32 *)&pkt;
@@ -12,7 +11,7 @@ void TProtocol::handle_cmd_97(packet &pkt) {
     s32 (*temp_r12)(u8);
 
     sp8 = *arg1;
-    bswap__13packet_headerFv(&sp8);
+    ((packet_header *)(&sp8))->bswap();
     temp_r3 = *(u8 *)((s8 *)(&sp8) + 1);
     temp_r12 = *(s32 (**)(u8))((s8 *)this + 0xBC44);
     if (temp_r12 != NULL) {

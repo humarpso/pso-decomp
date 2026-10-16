@@ -1,10 +1,12 @@
 #include "pso/ui/TAdDrawLineCtrl.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 run_tasks__7TObjectFv(int);
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
@@ -20,9 +22,6 @@ void set_draw_line_param_all_nodes(void *, f32);
 void fn_80019B08(void *, int);
 s32 restore_saved_depth_alpha_state();
 s32 get_main_phase();
-s32 get_state_flag__9TMainTaskFv();
-s32 render_nodes__7TObjectFv(void *);
-s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
@@ -32,11 +31,11 @@ void TAdDrawLineCtrl::render() {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
         }
-    } else if ((get_main_phase() != 2) || (get_state_flag__9TMainTaskFv() != 1)) {
+    } else if ((get_main_phase() != 2) || (TMainTask::get_state_flag() != 1)) {
 block_5:
-        reset_transform_state__10TObjPlayerFv();
+        TObjPlayer::reset_transform_state();
         if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
-            render_nodes__7TObjectFv(*(void **)((s8 *)this + 0x20));
+            ((TObject *)(*(void **)((s8 *)this + 0x20)))->render_nodes();
         }
         if ((s32) *(s32 *)((s8 *)this + 0x28) == 0) {
             restore_saved_depth_alpha_state();
@@ -52,7 +51,7 @@ void TAdDrawLineCtrl::run_task() {
     u32 temp_r0;
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     if (temp_r0 != 0U) {
-        run_tasks__7TObjectFv((int) (temp_r0));
+        ((TObject *)temp_r0)->run_tasks();
         return;
     }
     queue_destruction__7TObjectFv(arg0);

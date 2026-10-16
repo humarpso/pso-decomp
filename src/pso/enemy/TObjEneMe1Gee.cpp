@@ -5624,6 +5624,8 @@ void *create__13TObjEneMe1GeeFPv(void *arg0) {
 
 #include "types.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Vec_800CC950 { f32 x, y, z; };
 
@@ -5641,13 +5643,10 @@ s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
 D_800CC950 *load_enemy_bml_resource(void *);
 s32 TObjPlayer__sub_800F0928(s32);
 u8 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
-s32 cache_result_805D6660__13TObjEneMe1GeeFv();
-s32 spawn_npc_enemy__6TLobbyFslllff(s16, s32, s32, void *, f32, f32);
 extern s32 lbl_8043BCD8[];
 extern s32 lbl_8043BCE4[];
 extern s32 lbl_8043BCF0[];
@@ -5678,7 +5677,7 @@ void TObjEneMe1Gee::load_resources() {
     } else {
         TObjEneMe1Gee__resource_bundle = load_enemy_bml_resource(bm_ene_me1_gee_resource_descriptor);
     }
-    cache_result_805D6660__13TObjEneMe1GeeFv();
+    TObjEneMe1Gee::cache_result_805D6660();
     lbl_805D51B4 = collect_and_count__12TBoss3VoloptFUll(TObjEneMe1Gee__resource_bundle->f42c->f8, 7);
     for (i = 0; i < 3; i++) {
         gee_boss_stat_handle_table[i] = register_boss__6TLobbyFl(lbl_8043BCD8[i]);
@@ -5687,12 +5686,12 @@ void TObjEneMe1Gee::load_resources() {
         lbl_80500E5C[i] = dispatch_shared_handler_a__6TLobbyFl(lbl_8043BCFC[i]);
     }
     TObjEneMe1Gee__render_node_index = 0;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    p = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     if (p != 0) {
         p = init_from_model__11TBreakUpMdlFPvi(p, TObjEneMe1Gee__resource_bundle->f42c->f8);
     }
     TObjEneMe1Gee__data_805D51C0 = p;
-    p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    p = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     if (p != 0) {
         p = init_from_model__11TBreakUpMdlFPvi(p, TObjEneMe1Gee__resource_bundle->f42c->f8);
     }
@@ -5703,7 +5702,7 @@ void TObjEneMe1Gee::load_resources() {
     {
         Q_800CC950 sp8 = lbl_8043BE6C;
         sp8.a = TObjEneMe1Gee__resource_bundle->f430;
-        spawn_npc_enemy__6TLobbyFslllff(0x10, TObjEneMe1Gee__resource_bundle->f42c->f8, TObjEneMe1Gee__resource_bundle->f42c->fc, &sp8, lbl_805DA150, TObjEneMe1Gee__data_805DA0C0);
+        TLobby::spawn_npc_enemy((s16)0x10, (s32)(TObjEneMe1Gee__resource_bundle->f42c->f8), (s32)(TObjEneMe1Gee__resource_bundle->f42c->fc), (s32)(&sp8), (f32)lbl_805DA150, (f32)TObjEneMe1Gee__data_805DA0C0);
     }
 }
 

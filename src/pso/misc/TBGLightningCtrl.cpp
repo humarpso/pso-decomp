@@ -7,6 +7,10 @@ public:
 };
 #include <stddef.h>
 #include "pso/misc/TBGLightningCtrl.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
@@ -69,13 +73,7 @@ struct Stack_802A9A2C {
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s8, f32, f32);
 s32 queue_destruction__7TObjectFv();
 s32 get_state_flag__9TMainTaskFv();
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
-s32 reset_transform_state__10TObjPlayerFv();
-s32 init_xyz_limits__10TObjPlayerFv();
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 construct_world_actor_base(void *, void *);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 int load_gvm_texture_file(void*);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
@@ -97,11 +95,8 @@ s32 rand();
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 TLobby__sub_803DA16C(void*);
-int set_global_param__8TObjFishFl(void*);
 void set_texture_num(s32);
-void reset_particles__13TParticleCtrlFv(void);
 void TParticleCtrl__sub_803E2A1C(void *, int);
-void setup_particle_draw__13TParticleCtrlFl(s32 arg0);
 
 extern void *__vt__12TBGLightning[];
 extern void *__vt__16TBGLightningCtrl[];
@@ -115,7 +110,7 @@ extern void *camera_ctrl_instance;
 extern int bg_lightning_texture_handle;
 extern void *tl_05;
 
-void TBGLightningCtrl__sub_802A9A08(void) { set_global_param__8TObjFishFl((void*)(bg_lightning_texture_handle)); }
+void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param((s32)((void*)(bg_lightning_texture_handle))); }
 
 #pragma push
 #pragma fp_contract on
@@ -157,7 +152,7 @@ extern int fold_flush_1;
 void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -185,7 +180,7 @@ void *TBGLightningCtrl__create(void *arg0) {
 void TBGLightningCtrl::destroy_instance() {
     if ((u32) (*(u32 *)&bg_lightning_texture_handle) != 0U) {
         TLobby__sub_803DA16C((void*)(*(u32 *)&bg_lightning_texture_handle));
-        safe_free__23TAdSinglePlyChrSelectGCFUl((*(u32 *)&bg_lightning_texture_handle));
+        TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&bg_lightning_texture_handle));
         (*(u32 *)&bg_lightning_texture_handle) = 0U;
     }
 }
@@ -244,9 +239,9 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     p.z = self->pos.z - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(idx + lbl_8046FC8C[self->f1c]);
-    setup_particle_draw__13TParticleCtrlFl(1);
+    TParticleCtrl::setup_particle_draw(1);
     submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
-    reset_particles__13TParticleCtrlFv();
+    TParticleCtrl::reset_particles();
 }
 extern int fold_flush_2;
 #pragma pop
@@ -278,9 +273,9 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     p.z = self->pos.z + dir->z * (-3.0f * self->f2c) - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(0);
-    setup_particle_draw__13TParticleCtrlFl(1);
+    TParticleCtrl::setup_particle_draw(1);
     submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
-    reset_particles__13TParticleCtrlFv();
+    TParticleCtrl::reset_particles();
 }
 extern int fold_flush_3;
 #pragma pop
@@ -293,12 +288,12 @@ void render__12TBGLightningFv(s32 arg0) {
         stack.sp8 = sin_table_lookup(temp_r31);
         stack.spC = (-1.0f);
         stack.sp10 = cos_table_lookup(temp_r31);
-        begin_effect_render__13TParticleCtrlFv();
-        init_xyz_limits__10TObjPlayerFv();
+        TParticleCtrl::begin_effect_render();
+        TObjPlayer::init_xyz_limits();
         ((s32 (*)(s32, f32 *))fn_802A9F48)(arg0, &stack.sp8);
         ((s32 (*)(s32, f32 *))fn_802A9DF4)(arg0, &stack.sp8);
-        reset_transform_state__10TObjPlayerFv();
-        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer::reset_transform_state();
+        TParticleCtrl::end_effect_render();
     }
 }
 

@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TOMine.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOMineTrap.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base18_80170f64_80170EEC { char pad[0x18]; };
 struct VObj_80170f64_80170EEC : Base18_80170f64_80170EEC {
@@ -56,14 +61,10 @@ struct Obj_80171278 { s32 f00; u8 pad0[0x14]; u32 vptr; u8 pad1[0x14]; u32 flags
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_801711D0_lbl_804B2F2C mine_resource_desc;
 extern u32 lbl_805D5A50;
 u16 find_nearest_visible_player(void *, int, f32);
-s32 update_trigger__10TOMineTrapFv(void *);
 s32 get_player_by_client_id(int);
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
@@ -86,19 +87,15 @@ extern "C" {
 
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 follow_target__10TOMineTrapFv(void *);
 s32 TOMineTrap__sub_80170BEC(void *);
 s32 TOMineTrap__sub_80170CD4(void *);
-s32 update_float_height__10TOMineTrapFv(void *);
 s32 detonate__10TOMineTrapFPv(void *);
 int draw_ginja_object(void*);
 s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-s32 check_demo_mode__10TObjPlayerFv();
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
-int set_global_param__8TObjFishFl(void*);
 
 int TOMine::get_player_state() { return submit_target_to_player_cursor(this); }
 
@@ -113,7 +110,7 @@ int TOMine::find_target_player() {
   if (temp_r3 != new_var)
   {
     ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = get_player_by_client_id((int) temp_r3);
-    update_trigger__10TOMineTrapFv((void *) arg0);
+    ((TOMineTrap *)arg0)->update_trigger();
   }
   return ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
 }
@@ -124,9 +121,9 @@ void TOMine::run_task() {
     s32 temp_r0_2;
     s32 temp_r3;
 
-    if (check_demo_mode__10TObjPlayerFv() != 1) {
+    if (TObjPlayer::check_demo_mode() != 1) {
         ((VObj_80170f64_80170EEC *) arg0)->m77();
-        update_float_height__10TOMineTrapFv((void *) (arg0));
+        ((TOMineTrap *)arg0)->update_float_height();
         temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
         switch (temp_r0) {
         case 2:
@@ -150,7 +147,7 @@ void TOMine::run_task() {
                 TOMineTrap__sub_80170BEC((void *) (arg0));
                 break;
             case 2:
-                follow_target__10TOMineTrapFv((void *) (arg0));
+                ((TOMineTrap *)arg0)->follow_target();
                 break;
             }
             submit_cursor_candidate((void *) (arg0), (int) (-1));
@@ -162,9 +159,9 @@ void TOMine::run_task() {
     }
 }
 
-void TOMine::free_sub_objects() { set_global_param__8TObjFishFl(*(void**)((char*)this + 0x378)); draw_ginja_object(*(void**)((char*)this + 0x374)); }
+void TOMine::free_sub_objects() { TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x378))); draw_ginja_object(*(void**)((char*)this + 0x374)); }
 
-void TOMine::free_parts() { set_global_param__8TObjFishFl(*(void**)((char*)this + 0x24)); draw_ginja_object(*(void**)((char*)this + 0x34)); }
+void TOMine::free_parts() { TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x24))); draw_ginja_object(*(void**)((char*)this + 0x34)); }
 
 extern u32 lbl_805D5A50;
 
@@ -176,7 +173,7 @@ void TOMine::render() {
         post_translate_matrix((u8 *) arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x370));
         free_parts();
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         t = model_render_flags;
         lbl_805D5660 = t;
         model_render_flags = t | 0x20;
@@ -184,7 +181,7 @@ void TOMine::render() {
         free_sub_objects();
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -201,7 +198,7 @@ extern s32 __vt__6TOMine[];
 void TOMine::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &mine_resource_desc.value, 0, 0, 0));

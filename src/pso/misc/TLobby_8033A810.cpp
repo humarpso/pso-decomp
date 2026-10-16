@@ -4,7 +4,6 @@
 struct Tbl_8033A844 { s32 v[5]; };
 
 extern "C" {
-s32 update_menu_cursor__6TLobbyFv();
 s32 TLobby__sub_8023E4B4(void *, void *);
 extern const s32 lobby_menu_cursor_resource_name_table[];
 extern const s32 menu_cursor_resource_name_table_b[];
@@ -25,7 +24,7 @@ void TLobby::free_global_object() {
     }
 }
 void TLobby::update_menu_cursor_selection() {
-    update_menu_cursor__6TLobbyFv();
+    TLobby::update_menu_cursor();
     Tbl_8033A844 a = *(const Tbl_8033A844 *)lobby_menu_cursor_resource_name_table;
     Tbl_8033A844 b = *(const Tbl_8033A844 *)menu_cursor_resource_name_table_b;
     s32 r4 = b.v[current_language];

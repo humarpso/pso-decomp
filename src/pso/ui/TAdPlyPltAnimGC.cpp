@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct V2_80355D5C { f32 x, y; };
 struct Obj_80355D5C { u8 pad0[0x3C]; f32 a, b, c, d; u8 pad4C[0x10]; f32 e, f; };
@@ -39,12 +43,7 @@ struct RecoveredGlobal_803560F0_lbl_804F142C {
 };
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv(void);
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
-s32 set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
 extern s32 player_prate_texture_list_ptr;
@@ -76,14 +75,14 @@ void TLobby__sub_803DA16C(void*);
 #pragma push
 #pragma fp_contract on
 void render__15TAdPlyPltAnimGCFv(u8 *arg0) {
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x74) != 0) && (get_state_flag__9TMainTaskFv() != 1)) {
-        init_xyz_limits__10TObjPlayerFv();
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x74) != 0) && (TMainTask::get_state_flag() != 1)) {
+        TObjPlayer::init_xyz_limits();
         begin_screen_draw(1);
-        set_global_param__8TObjFishFl(player_prate_texture_list_ptr);
+        TObjFish::set_global_param(player_prate_texture_list_ptr);
         set_draw_texture_and_color(0, (*(u8 *)((s8 *)arg0 + 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
         draw_textured_quad_at_depth((u8 *)(arg0) + 0x1C, (lbl_805DFFCC * (f32) *(s32 *)((s8 *)arg0 + 0x70)) + lbl_805DFFC8);
-        get_player__20TWindowSubStatusDispFv();
-        reset_transform_state__10TObjPlayerFv();
+        TWindowSubStatusDisp::get_player();
+        TObjPlayer::reset_transform_state();
     }
 }
 #pragma pop

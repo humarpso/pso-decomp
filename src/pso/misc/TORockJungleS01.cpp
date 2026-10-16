@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TORockJungleS01.h"
+#include "pso/misc/TMotorcycle.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjMapCsn.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -63,11 +68,9 @@ extern "C" {
 u8 * get_bml_model(void *, int);
 extern u32 TORockJungleS01__bml_resource;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveBrakable__ct(void *);
-s32 create__10TObjMapCsnFl(void *);
 extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 rock_jungle_collision_body_parts;
 extern RecoveredGlobal_8029C9C8_lbl_804DC424 rock_jungle_vec3_table;
 extern s32 __vt__15TORockJungleS01[];
@@ -79,9 +82,7 @@ s32 get_jungle_rock_texture_resource(s32 a);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 load_gvm_texture_file(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_jungle_rock_texture_resource(s32 a);
-s32 add_entry__11TMotorcycleFsllff(s32, void *, s32, f32, f32);
 extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
 extern u8 lbl_8046591C[];
@@ -119,7 +120,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 void TORockJungleS01__vt16(s32 arg0) {
     play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);
@@ -196,7 +196,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14));
     init_collision_body_parts((void *) (arg0), (void *) (&rock_jungle_collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
@@ -205,7 +205,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     temp_r4 = arg1 - 4;
     *(ByteBlock_3C *)(copy_storage_8029C9C8.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
     VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C9C8.bytes + 0x24)), (void *) (&rock_jungle_vec3_table.value));
-    *(s32 *)((s8 *)arg0 + 0xBC) = create__10TObjMapCsnFl((void *) ((copy_storage_8029C9C8.bytes)));
+    *(s32 *)((s8 *)arg0 + 0xBC) = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C9C8.bytes))));
     return arg0;
 }
 
@@ -224,7 +224,7 @@ u8 *TORockJungleS01::get_model(s32 arg0) {
 void TORockJungleS01::free_globals() {
     if ((u32) TORockJungleS01__texture_resource != 0U) {
         TLobby__sub_803DA16C((void*)TORockJungleS01__texture_resource);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TORockJungleS01__texture_resource);
+        TAdSinglePlyChrSelectGC::safe_free(TORockJungleS01__texture_resource);
         TORockJungleS01__texture_resource = 0U;
     }
     if ((u32) TORockJungleS01__bml_resource != 0U) {
@@ -239,7 +239,7 @@ void TORockJungleS01::load_resources() {
         o = load_resource_from_descriptor(o, 1, TORockJungleS01_resource_descriptor, 0, 0, 0);
     }
     TORockJungleS01__bml_resource = (u32)o;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 27:
         TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_804658EC);
         break;
@@ -251,7 +251,7 @@ void TORockJungleS01::load_resources() {
         TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_8046591C);
         break;
     }
-    add_entry__11TMotorcycleFsllff(0x3E, TORockJungleS01::get_model(0), get_jungle_rock_texture_resource(0), lbl_805DDD20, lbl_805DDD24);
+    TMotorcycle::add_entry((s16)0x3E, (s32)(TORockJungleS01::get_model(0)), (s32)(get_jungle_rock_texture_resource(0)), (f32)lbl_805DDD20, (f32)lbl_805DDD24);
 }
 
 }

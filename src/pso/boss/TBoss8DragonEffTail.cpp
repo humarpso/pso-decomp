@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/boss/TBoss8DragonEffTail.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneDellBiter.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -88,7 +92,6 @@ extern const f32 lbl_805DEF18;
 void TBoss8DragonEffTail__vt20(u8 *arg0, u8 *arg1);
 void fn_8002B630(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void init_instance__16TObjEneDellBiterFPvPvPvPv(void *, void *, s32, void *, s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
 extern u8 boss8_dragon_eff_tail_init_data[];
 extern s32 __vt__19TBoss8DragonEffTail[];
@@ -97,8 +100,6 @@ extern const f32 lbl_805DEF14;
 EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void update_collider_contact_by_height(void *, f32);
-void reset_tail_hp__12TBoss8DragonFv(void *);
-void reload_boss_stats__12TBoss8DragonFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 vec3_add_to(s32, s32, s32);
@@ -126,9 +127,7 @@ void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFs(void *, int);
 int fill_value_array(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 void fn_802FE48C(void) {  }
 void TBoss8DragonEffTail::render() {  }
@@ -168,10 +167,10 @@ void run_task__19TBoss8DragonEffTailFv(u8 *arg0p) {
     }
     {
         P8_802FE494 sp = lbl_80474BBC[0];
-        reset_tail_hp__12TBoss8DragonFv(self->xB0);
+        ((TBoss8Dragon *)(self->xB0))->reset_tail_hp();
         self->m15(&sp, self->xB8);
     }
-    reload_boss_stats__12TBoss8DragonFv(self->xB0);
+    ((TBoss8Dragon *)(self->xB0))->reload_boss_stats();
 }
 
 void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1) {
@@ -193,7 +192,7 @@ void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss8DragonEffTail;
         delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
         *(s32 *)((s8 *)arg0 + 0xB8) = 0;
-        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -208,7 +207,7 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     void *data;
     s32 i;
     void *p;
-    init_instance__16TObjEneDellBiterFPvPvPvPv(arg0, 0, arg1, boss8_dragon_eff_tail_init_data, 0x11);
+    ((TObjEneDellBiter *)arg0)->init_instance((void *)0, (void *)arg1, (void *)boss8_dragon_eff_tail_init_data, (void *)0x11);
     arg0->vtbl = ((s32 *)&__vt__19TBoss8DragonEffTail);
     data = boss8_dragon_eff_tail_init_data;
     arg0->unk0 = TBoss8DragonEffTail__name;
@@ -232,7 +231,7 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
 void TBoss8DragonEffTail::free_statics() {
     if ((u32) dragon_tail_gvm_texture_handle != 0U) {
         TLobby__sub_803DA16C((void*)dragon_tail_gvm_texture_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(dragon_tail_gvm_texture_handle);
+        TAdSinglePlyChrSelectGC::safe_free(dragon_tail_gvm_texture_handle);
         dragon_tail_gvm_texture_handle = 0U;
     }
     TLobby__sub_8001FE7C(boss8_eff_tail_bml_resource, 1);

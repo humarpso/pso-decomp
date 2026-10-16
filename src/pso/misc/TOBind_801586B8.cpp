@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TOBind.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_801587D8_lbl_804AFC44 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_801587D8_lbl_804AFC44_size[sizeof(RecoveredGlobal_801587D8_lbl_804AFC44) == 0x10 ? 1 : -1];
@@ -27,13 +31,11 @@ struct RecoveredGlobal_80158890___vt__6TOBind {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_801587D8_lbl_804AFC44 bm_o_bind_resource_descriptor;
 extern u32 TOBind__static_model_resource;
 u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFv(void *, int);
@@ -76,10 +78,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 void TOBind::render() {
     u8 *arg0 = (u8 *)this;
@@ -87,13 +85,13 @@ void TOBind::render() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         if ((s32) *(s32 *)((s8 *)arg0 + 0xB0) != 1) {
-            set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xC8));
-            begin_effect_render__13TParticleCtrlFv();
+            TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xC8));
+            TParticleCtrl::begin_effect_render();
             draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xC4), *(s32 *)((s8 *)arg0 + 0xCC), *(f32 *)((s8 *)arg0 + 0xB8));
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
         pop_matrix();
     }
@@ -121,7 +119,7 @@ extern s32 __vt__6TOBind[];
 void TOBind::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_bind_resource_descriptor.value, 0, 0, 0));
@@ -134,7 +132,7 @@ void *__dt__6TOBindFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__6TOBind;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -159,7 +157,7 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB304;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFC54.value), (int) (2));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     *(s32 *)((s8 *)arg0 + 0xB4) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
     if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) < 0) {

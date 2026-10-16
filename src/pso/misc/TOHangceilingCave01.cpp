@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/misc/TOHangceilingCave01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOFenceAncient01.h"
+#include "pso/misc/TOFenceAncient04.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -258,32 +264,24 @@ struct Obj_801682E4 { u8 pad0[0xC0]; f32 f0C0; f32 f0C4; f32 f0C8; u8 pad1[0x2C]
 s32 memset(void *, int, int);
 s32 obj_setFlags30(void *, s32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(void *);
 void * get_bml_motion(s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 mem_free(void*);
 Buf_8016775C * mem_alloc(s32);
-int clear_player_status_flag__10TObjPlayerFlUl(void*, void*, void*);
 int set_indexed_flags(void*, void*, void*);
 s32 unregister_object_by_id(s32 *);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 u32 check_actor_body_contact(void *, void *, f32);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 access_object_saved_state(void *, int);
-s32 destroy__16TOFenceAncient01Fs(void *, s32);
-s32 init_fields__16TOFenceAncient01Fv();
 s32 fn_80166E64(void *);
 s32 fn_80166EA8(void *, int);
 void TOFenceAncient04__vt14(void);
 void TOFenceAncient04__vt13(void* p);
 void TOFenceAncient04__vt12(void* p);
-void * create__16TOFenceAncient04FPv(void *arg0);
-void destroy__16TOFenceAncient04Fv(void);
-void load_resources__16TOFenceAncient04Fv(void);
 void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
 u8 * TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TOHangceilingCave01KeyQuick__vt78(u8 *arg0);
@@ -308,9 +306,7 @@ void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
 void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32);
 void * get_player_by_client_id(s32);
-s32 free_if_valid__10TObjPlayerFl(s32);
 s32 load_gvm_texture_file(void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 u8 is_current_floor_switch_set(int);
 s32 clear_current_floor_switch(int);
@@ -648,7 +644,7 @@ void fn_801682E4(Obj_801682E4 *o, s32 arg1) {
 }
 
 void fn_80168398(u8 *arg0) {
-    s32 state = get_global_state__14TOKeyMachine01Fv();
+    s32 state = TOKeyMachine01::get_global_state();
     s32 id = 0;
     switch (*(s16 *)(arg0 + 0x326)) {
     case 2:
@@ -703,7 +699,7 @@ void fn_80168488(VO_80168488 *arg0) {
     do {
         temp_r3 = (VO_80168488 *)get_player_by_client_id(var_r30);
         if ((temp_r3 != NULL) && (((s32 (*)(void *, void *))fn_80168244)(arg0, temp_r3) == 0)) {
-            if ((get_field_3e4__10TObjPlayerFv(temp_r3) == get_current_floor()) && (check_actor_body_contact(arg0, temp_r3, lbl_805DB688) != 0U)) {
+            if ((((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor()) && (check_actor_body_contact(arg0, temp_r3, lbl_805DB688) != 0U)) {
                 Pair_80168488 t;
                 t.a = 0;
                 t.b = arg0->m79(*(f32 *)((s8 *)arg0 + 0x338));
@@ -722,14 +718,10 @@ extern int fold_flush_0;
 
 extern "C" {
 s32 TOHangceilingCave01__create(u8 *arg0);
-s32 check_demo_mode__10TObjPlayerFv();
 bool TOHangceilingCave01__sub_801688C0(u8 *arg0);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(int, int);
 s32 draw_ginja_object(void *);
@@ -863,7 +855,6 @@ void TOHangceilingCave01__sub_80168640(void);
 void TLobby__sub_8001FE7C(void*, int);
 bool TOHangceilingCave01__sub_801688C0(u8 *);
 s32 spawn_particle_effect(void *, s32);
-s32 check_demo_mode__10TObjPlayerFv();
 f32 xz_distance_squared(void *, void *);
 s32 transform_point_by_current_matrix(void *, void *);
 extern s32 camera_ctrl_instance;
@@ -872,7 +863,6 @@ extern const f32 lbl_805DB698;
 extern const f32 lbl_805DB69C;
 extern const f32 lbl_805DB6A0;
 s32 mem_free(void*);
-s32 free_if_valid__10TObjPlayerFl(s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DB654;
@@ -917,23 +907,23 @@ void TOHangceilingCave01::draw_model() {
     s32 temp_r29;
     s32 temp_r30;
     s32 temp_r31;
-    if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (check_demo_mode__10TObjPlayerFv() == 1)) {
+    if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (TObjPlayer::check_demo_mode() == 1)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
+        TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
         if (*(void **)((s8 *)arg0 + 0x34) != NULL && *(void **)((s8 *)arg0 + 0xF8) != NULL) {
             draw_ginja_model_with_motion(*(void **)((s8 *)arg0 + 0x34), *(void **)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
         }
         if ((void *) TOHangceilingCave01__model_root != NULL) {
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             if ((u32) *(u32 *)((s8 *)arg0 + 0x358) == 0U) {
                 temp_f2 = *(f32 *)((s8 *)arg0 + 0x354);
                 temp_f1 = *(f32 *)((s8 *)arg0 + 0x350);
                 temp_r29 = temp_f2 <= temp_f1;
                 temp_r30 = temp_f2 <= (lbl_805DB674 * temp_f1);
                 temp_r31 = temp_f2 <= (lbl_805DB67C * temp_f1);
-                set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
+                TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
                 if (temp_r29 == 1) {
                     draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)TOHangceilingCave01__model_root + 0x2C)) + 4)));
                 }
@@ -943,7 +933,7 @@ void TOHangceilingCave01::draw_model() {
                 if (temp_r31 == 1) {
                     draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)TOHangceilingCave01__model_root + 0x2C)) + 0x2C)) + 0x2C)) + 4)));
                 }
-                set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
+                TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
                 if (temp_r29 == 0) {
                     draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)TOHangceilingCave01__model_root + 0x2C)) + 4)));
                 }
@@ -955,13 +945,13 @@ void TOHangceilingCave01::draw_model() {
                 }
             } else {
                 if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0x35C))) == 1) {
-                    set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
+                    TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
                 } else {
-                    set_global_param__8TObjFishFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
+                    TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
                 }
                 draw_ginja_object((void *) (TOHangceilingCave01__model_root));
             }
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
         pop_matrix();
     }
@@ -969,7 +959,7 @@ void TOHangceilingCave01::draw_model() {
 
 void TOHangceilingCave01::check_player_trigger() {
     u8 *arg0 = (u8 *)this;
-    if (check_demo_mode__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::check_demo_mode() == 0) {
         ((VObj_80168834_80168588*)arg0)->m78();
         fn_80168398(arg0);
         if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
@@ -1039,8 +1029,8 @@ s32 TOHangceilingCave01__create(u8 *arg0) {
 
 void TOHangceilingCave01::destroy_instance() {
     if ((void *) turiten_singo_texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
-        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
+        TObjPlayer::free_if_valid(*(s32 *)((s8 *)turiten_singo_texture_lists + 4));
+        TObjPlayer::free_if_valid(*(s32 *)((s8 *)turiten_singo_texture_lists + 0));
         if ((void *) turiten_singo_texture_lists != NULL) {
             mem_free((void*)turiten_singo_texture_lists);
             turiten_singo_texture_lists = NULL;
@@ -1071,7 +1061,7 @@ void load_turiten_singo_resources(void) {
 
     (*(void **)&TOHangceilingCave01__model_archive) = 0;
     (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = 0;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 19:
     case 20:
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);

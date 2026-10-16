@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowMeseta.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Sub_80269244 { u8 pad0[8]; f32 x8; };
 
@@ -21,10 +23,8 @@ struct Meseta_80269244 {
 
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv();
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void save_position__17TWindowSubComCardFPv(void *);
 void construct_base__9TWindowDDFPvPvsPv(void *, s32 *, s16, s32);
-void set_all_values__20TWindowSubStatusDispFl(void *, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFv();
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
@@ -43,11 +43,7 @@ extern "C" {
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1);
 s32 update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 s32 get_meseta_value__13TWindowMesetaFv();
-s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 set_animated_target__20TWindowSubStatusDispFlf(s32, s32, f32);
 
 extern const f32 lbl_805DD200;
 
@@ -58,9 +54,9 @@ void TWindowMeseta::run_task() {
     temp_r3 = get_meseta_value__13TWindowMesetaFv();
     if (temp_r3 != (s32) *(s32 *)((s8 *)arg0 + 0x68)) {
         *(s32 *)((s8 *)arg0 + 0x68) = temp_r3;
-        set_animated_target__20TWindowSubStatusDispFlf(get_array_entry__20TWindowSubStatusDispFi(arg0, 1), *(s32 *)((s8 *)arg0 + 0x68), lbl_805DD200);
+        ((TWindowSubStatusDisp *)(((TWindowSubStatusDisp *)arg0)->get_array_entry(1)))->set_animated_target(*(s32 *)((s8 *)arg0 + 0x68), lbl_805DD200);
     }
-    initialize_subwindow__9TWindowDDFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
     update_window_entry_list(arg0, arg0 + 0x24);
 }
 
@@ -69,7 +65,7 @@ extern s32 __vt__13TWindowMeseta[];
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowMeseta;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -85,10 +81,10 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     self->name = TWindowMeseta__class_name;
     self->x64 = arg2;
     self->meseta = ((s32 (*)(void *))get_meseta_value__13TWindowMesetaFv)(arg0);
-    a = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
-    b = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
+    a = (Sub_80269244 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
+    b = (Sub_80269244 *)((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
     set_text_entry_string(a, arg3, 0);
-    set_all_values__20TWindowSubStatusDispFl(b, self->meseta);
+    ((TWindowSubStatusDisp *)b)->set_all_values(self->meseta);
     self->x38 = lbl_805DD204 + b->x8;
     save_position__17TWindowSubComCardFPv(arg0);
     self->x60 = TWindowSubStatusDisp__sub_802877A4(self->x48 - lbl_805DD208);

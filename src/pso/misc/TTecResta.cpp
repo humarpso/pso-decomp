@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TTecResta.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80239C48___vt__9TTecResta {
     s32 value;
@@ -110,10 +114,7 @@ struct Obj_80239CF4 { u8 pad[0x1C]; void *source; u8 pad20[0x88 - 0x20]; f32 pow
 
 extern "C" {
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
-s32 play_launch_sound__9TTecRestaFv(void *);
-s32 copy_params__8TTecAntiFPUc(void *, int);
 extern s32 __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
@@ -132,7 +133,6 @@ void set_owner_id__13TParticleCtrlFUs(void *, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 s32 queue_destruction__7TObjectFv();
 u32 find_entity_by_id(int);
-s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecRestaFv(Resta_802399F8 *self);
 s32 obj_getField1c(int);
@@ -143,14 +143,11 @@ s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
-void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 extern s32 tl_07;
 void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1);
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 copy_technique_target_list(void *, void *);
-s32 play_launch_sound__9TTecRestaFv(void *);
 extern s32 __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
@@ -194,7 +191,7 @@ void TTecResta::init_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
   new_var = (int) calc_technique_parameters((int) 0xF, (int) (*((s16 *) (((s8 *) arg0) + 0xA4))), (int) 0xFFFF);
-  copy_params__8TTecAntiFPUc((void *) (arg0 + 0x74), new_var);
+  ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)new_var);
   *((f32 *) (((s8 *) arg0) + 0x74)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x74))) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0x98))) * (*((s16 *) (((s8 *) arg0) + 0xA4))))));
   if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0)
   {
@@ -283,7 +280,7 @@ void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
     h.type = 6;
     h.power = arg0->power;
     if (is_split_screen() == 0) {
-        show_party_effect__11TWindowCtrlFPvPvPv(obj_getField1c(arg0->source), obj_getField1c((int)arg1), 6);
+        TWindowCtrl::show_party_effect((void*)(obj_getField1c(arg0->source)), (void*)(obj_getField1c((int)arg1)), (void*)6);
     }
     HitInfo_8023985C c = h;
     arg1->m21((void *)arg0->source, &c, 0, 0xF, -1);
@@ -321,7 +318,7 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
     u32 target;
     s32 i;
     self->source = find_entity_by_id(self->source_id);
-    if (is_parents_unqueued__9TTecLukerFUl(self->source) == 0) {
+    if (TTecLuker::is_parents_unqueued(self->source) == 0) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
     }
@@ -333,7 +330,7 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = find_entity_by_id(self->targets[i].id);
-                    if (is_parents_unqueued__9TTecLukerFUl(target) != 0) {
+                    if (TTecLuker::is_parents_unqueued(target) != 0) {
                         ((VObj_802399F8 *)self)->m5(target);
                     }
                 }
@@ -366,7 +363,7 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     u8 *p;
     TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecResta;
-    construct_target_cursor_records__10TObjPlayerFv((u8 *)arg0 + 0xE0);
+    ((TObjPlayer *)((u8 *)arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3810;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list((u8 *)arg0 + 0xE0, arg3);
@@ -381,7 +378,7 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     }
     if (*(s32 *)((s8 *)arg0 + 0xAC) != 0) {
         ((TTecResta *)arg0)->init_cast();
-        play_launch_sound__9TTecRestaFv(arg0);
+        ((TTecResta *)arg0)->play_launch_sound();
     }
     return arg0;
 }
@@ -392,7 +389,7 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80239C48___vt__9TTecResta *)&__vt__9TTecResta).value;
-    construct_target_cursor_records__10TObjPlayerFv((void *) (arg0 + 0xE0));
+    ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3810;
     *(s32 *)((s8 *)arg0 + 0x13C) = 0;
     ((TTecResta *)arg0)->init_parameters();
@@ -406,7 +403,7 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) != 0) {
         ((TTecResta *)arg0)->init_cast();
-        play_launch_sound__9TTecRestaFv((void *) (arg0));
+        ((TTecResta *)arg0)->play_launch_sound();
     }
     return arg0;
 }

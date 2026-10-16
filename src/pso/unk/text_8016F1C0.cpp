@@ -107,6 +107,7 @@ s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1) {
 
 #include "types.h"
 #include "pso/misc/TOMineTrap.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Pkt_8016F558 { u8 code, words; u16 object, sub, idx; };
 
@@ -147,24 +148,17 @@ struct Pkt_8016F418 { u8 pad[4]; u16 id; u16 kind; };
 
 extern "C" {
 void TOMineTrap__sub_8017141C(void *);
-void send_and_handle_60__10TOMineTrapFv(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
-void set_state__10TOMineTrapFv(void *);
-void set_triggered__10TOMineTrapFv(void *);
 extern s32 TOMineTrap__data_805D3080;
 extern const f32 lbl_805DB85C;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
-void set_position_xy__10TObjPlayerFff(u32, f32, f32);
 u32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DB864;
 void TOMineTrap__vt80(Obj_8016F64C *arg0);
 VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
-void set_state__10TOMineTrapFv(void *);
-void set_triggered__10TOMineTrapFv(void *);
 s16 TOMineTrap__sub_80171340(void *);
 u16 TOMineTrap__sub_80171358(void *);
-void bswap_6x80_trigger_trap__10TOMineTrapFv(void *);
 extern s32 TOMineTrap__data_805D3080;
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
@@ -197,7 +191,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
     if (arg0 == NULL) {
         return;
     }
-    bswap_6x80_trigger_trap__10TOMineTrapFv(arg0);
+    ((TOMineTrap *)arg0)->bswap_6x80_trigger_trap();
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p == NULL) {
@@ -223,7 +217,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
             case 0:
             case 1:
             case 2:
-                set_triggered__10TOMineTrapFv(p);
+                ((TOMineTrap *)p)->set_triggered();
                 break;
             }
             break;
@@ -233,7 +227,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
             case 1:
             case 2:
             case 3:
-                set_state__10TOMineTrapFv(p);
+                ((TOMineTrap *)p)->set_state();
                 break;
             }
             break;
@@ -250,7 +244,7 @@ void TOMineTrap::send_state_packet(u16 idx) {
         pkt.object = self->id;
         pkt.sub = self->sub;
         pkt.idx = idx;
-        send_and_handle_60__10TOMineTrapFv(&pkt);
+        ((TOMineTrap *)(&pkt))->send_and_handle_60();
     }
 }
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
@@ -259,14 +253,14 @@ f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
     case 1:
     case 2:
         if ((arg1 != 0U) && (check_value_equals__13TQuestColCtrlFPll(arg1, TOMineTrap__data_805D3080) != 0)) {
-            set_triggered__10TOMineTrapFv(arg0);
+            ((TOMineTrap *)arg0)->set_triggered();
             if (arg0->cnt > 0xF) {
                 arg0->cnt = 0xF;
             }
             break;
         }
     case 3:
-        set_state__10TOMineTrapFv(arg0);
+        ((TOMineTrap *)arg0)->set_state();
         ((TOMineTrap *)arg0)->send_state_packet((u16)(2));
         break;
     }
@@ -278,7 +272,7 @@ void TOMineTrap__vt80(Obj_8016F64C *arg0) {
     default:
         r = spawn_particle_effect(arg0->sub, 0x45);
         if (r != 0U) {
-            set_position_xy__10TObjPlayerFff(r, lbl_805DB864, lbl_805DB864);
+            ((TObjPlayer *)r)->set_position_xy(lbl_805DB864, lbl_805DB864);
         }
         break;
     case 15:

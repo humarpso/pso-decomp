@@ -78,9 +78,6 @@ char *strncpy(char *, const char *, unsigned long);
 extern "C" {
 
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
-s32 update_fade_by_distance__13TObjTombstoneFv(s32);
-s32 draw_name_labels__13TObjTombstoneFPv(s32);
-s32 update_render_flags__13TObjTombstoneFv(s32);
 s32 check_height_ready__13TObjTombstoneFv();
 
 void TObjTombstone::render() {
@@ -88,15 +85,15 @@ void TObjTombstone::render() {
     s32 temp_r3;
 
     if (check_height_ready__13TObjTombstoneFv() != 0) {
-        update_render_flags__13TObjTombstoneFv(arg0);
+        ((TObjTombstone *)arg0)->update_render_flags();
         temp_r3 = resolve_player_slot__20TWindowSubStatusDispFi(-1);
         switch (temp_r3) {
         case 2:
         case 3:
-            update_fade_by_distance__13TObjTombstoneFv(arg0);
+            ((TObjTombstone *)arg0)->update_fade_by_distance();
             break;
         default:
-            draw_name_labels__13TObjTombstoneFPv(arg0);
+            TObjTombstone::draw_name_labels((void *)arg0);
             break;
         }
     }

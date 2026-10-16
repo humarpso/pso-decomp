@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjTombstone.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Vec_80076098 {
     f32 x;
@@ -36,19 +37,12 @@ extern "C" {
 
 void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1);
 f32 get_distance_to_local_player_xz__13TObjTombstoneFPv(void *);
-int format_date_text__13TObjTombstoneFv(void*);
-int format_quoted_name__13TObjTombstoneFv(void*);
-int format_enemy_text__13TObjTombstoneFv(void*);
-int build_name_text__13TObjTombstoneFv(void*);
-int format_label__13TObjTombstoneFv(void*);
-int format_player_name__13TObjTombstoneFv(void*);
 s32 TObjTombstone__sub_80075DFC(void *);
 void __dl__7TObjectFPv(void *);
 s32 check_owner__13TObjTombstoneFv();
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 
-void TObjTombstone::init_parts() { format_player_name__13TObjTombstoneFv(this); format_label__13TObjTombstoneFv(this); build_name_text__13TObjTombstoneFv(this); format_enemy_text__13TObjTombstoneFv(this); format_quoted_name__13TObjTombstoneFv(this); format_date_text__13TObjTombstoneFv(this); }
+void TObjTombstone::init_parts() { format_player_name(); format_label(); build_name_text(); format_enemy_text(); format_quoted_name(); format_date_text(); }
 
 extern s32 tombstone_first_run_flag;
 
@@ -125,7 +119,7 @@ extern s32 __vt__13TObjTombstone[];
 void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjTombstone;
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

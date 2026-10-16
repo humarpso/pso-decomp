@@ -83,7 +83,6 @@ struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
 };
 
 extern "C" {
-int test_flags_1b8__10TObjPlayerFUl(void *, u32);
 s32 draw_weapon_model(void *);
 s16 get_validated_attack_stage(void *);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
@@ -91,8 +90,6 @@ void TObjPlayer__sub_80362EF8(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_803630F0(u8 *arg0);
-s32 check_boss2tunnel_field_f4__10TObjPlayerFv(void *);
-s32 get_player_list__10TObjPlayerFv();
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -151,7 +148,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
     typedef char spC_offset[(offsetof(Stack_80362FB4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80362FB4, sp10) == 0x8) ? 1 : -1];
     Stack_80362FB4 stack;
-    if (get_player_list__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::get_player_list() == 0) {
         stack.sp8 = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 0);
         stack.spC = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 4);
         stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 8);
@@ -160,11 +157,11 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
         if (*(s32 *)((s8 *)arg0 + 0x1FC) & 1) {
             push_matrix();
             rotate_matrix_x((int) (0), (int) (0x2AAA));
-            check_boss2tunnel_field_f4__10TObjPlayerFv((void *) (arg0));
+            ((TObjPlayer *)arg0)->check_boss2tunnel_field_f4();
             pop_matrix();
             push_matrix();
             rotate_matrix_x((int) (0), (int) (-0x2AAA));
-            check_boss2tunnel_field_f4__10TObjPlayerFv((void *) (arg0));
+            ((TObjPlayer *)arg0)->check_boss2tunnel_field_f4();
             pop_matrix();
         }
     }
@@ -172,7 +169,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
 
 void TObjPlayer::draw_weapon_model_if_not_hidden() {
     u8 *arg0 = (u8 *)this;
-    if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x01000000U) == 0U) {
+    if (((TObjPlayer *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
         draw_weapon_model((void *) (arg0));
     }
 }

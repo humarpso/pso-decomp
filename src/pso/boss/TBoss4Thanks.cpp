@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/boss/TBoss4Thanks.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss4Uro.h"
+#include "pso/misc/TLobby.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8035C83C___vt__12TBoss4Thanks { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035C83C___vt__12TBoss4Thanks_size[sizeof(RecoveredGlobal_8035C83C___vt__12TBoss4Thanks) == 0x18 ? 1 : -1];
@@ -37,7 +42,6 @@ extern "C" {
 s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-int get_instance_count__9TBoss4UroFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
 extern s32 TBoss4Thanks__class_name;
@@ -49,30 +53,22 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
 u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1);
 void TBoss4Thanks__sub_8035C480(s32 arg0);
-void request_destroy__11TBoss4Type2FUl(void *);
-void request_destroy__11TBoss4Type2FUl(void *);
 void *create_particle_emitter(void *, int);
-void set_flags__11TBoss4Type2FUl(void *, int);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern Ent_8035C35C boss4_thanks_emitter_table[];
 void *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
-s32 get_game_mode__6TLobbyFv(void);
 s32 TBoss4Type3__sub_8005254C(s32);
 f32 xyz_distance(void *, void *);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern const f32 lbl_805E0180;
 extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0194;
-void sync_player_globals__10TObjPlayerFv(void);
 void TObjPlayer__sub_80052390(void);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
-void set_global_flag__10TObjPlayerFv(void);
-void clear_global_state__10TObjPlayerFv(void);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern const f32 lbl_805E0184;
 }
@@ -108,12 +104,12 @@ void TBoss4Thanks::update_particle_emitters() {
             if (o->p[i] == NULL) {
                 o->p[i] = create_particle_emitter(TBoss4Thanks__data_80479B40, e->id);
                 if (o->p[i] != NULL) {
-                    set_flags__11TBoss4Type2FUl(o->p[i], 0x40);
+                    ((TBoss4Type2 *)(o->p[i]))->set_flags(0x40);
                 }
             }
         } else {
             if (o->p[i] != NULL) {
-                request_destroy__11TBoss4Type2FUl(o->p[i]);
+                TBoss4Type2::request_destroy((u32)(o->p[i]));
                 o->p[i] = NULL;
             }
         }
@@ -125,7 +121,7 @@ void TBoss4Thanks::destroy_effects() {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (arg0->e[i].p != NULL) {
-            request_destroy__11TBoss4Type2FUl(arg0->e[i].p);
+            TBoss4Type2::request_destroy((u32)(arg0->e[i].p));
             arg0->e[i].p = NULL;
         }
     }
@@ -144,7 +140,7 @@ int TBoss4Thanks::is_player_nearby(void *arg0) {
     s32 i;
     f32 lim;
     u8 *p;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     lim = lbl_805E0180;
     for (i = 0; i < n; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
@@ -171,13 +167,13 @@ void TBoss4Thanks::render() {
   {
     TObjPlayer__sub_80052390();
     push_matrix();
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     post_translate_matrix(TBoss4Thanks__data_80479B40);
-    set_global_param__8TObjFishFl(texture_list);
+    TObjFish::set_global_param(texture_list);
     draw_model_motion(model, motions[current_motion], motion_frame);
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     pop_matrix();
-    sync_player_globals__10TObjPlayerFv();
+    TObjPlayer::sync_player_globals();
   }
 }
 
@@ -258,7 +254,7 @@ u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss4Thanks.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss4Thanks__class_name;
-    temp_r3 = (u8 *)(get_instance_count__9TBoss4UroFv());
+    temp_r3 = (u8 *)(TBoss4Uro::get_instance_count());
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(temp_r3, 1);
     *(s32 *)((s8 *)arg0 + 0x38) = TObjFish__sub_8001EDB0(temp_r3, 1);
     *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_motion(temp_r3, 0x46);

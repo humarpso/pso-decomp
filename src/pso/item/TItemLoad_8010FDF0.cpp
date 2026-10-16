@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TItemLoad.h"
+#include "pso/item/TItemDrop.h"
 
 extern "C" {
 
@@ -29,9 +30,7 @@ s32 read_disc_file(u32, s32);
 s32 read_checked_align__6TLobbyFlll(s32, s32, s32, void *);
 s32 __dl__FPv(s32 *);
 int mem_alloc(void*);
-s32 construct__9TItemDropFv(s32 *);
 s32 create_item_buff(s32);
-s32 destroy__9TItemDropFs(s32 *, s32);
 s32 prs_decompress_alloc(s32, u32, s32);
 s32 mem_free(s32);
 
@@ -61,11 +60,11 @@ void *TItemLoad::load_buffer(u32 arg1, s32 arg2) {
         temp_r3 = create_item_buff(arg2);
         if ((temp_r3 != 0) && ((u32) *(u32 *)((s8 *)this + 0) != 0U) && (read_disc_file(arg1, temp_r3) > 0)) {
             temp_r31 = prs_decompress_alloc(temp_r3, *(u32 *)((s8 *)this + 0), arg2);
-            construct__9TItemDropFv((s32 *)&sp8);
+            ((TItemDrop *)((s32 *)&sp8))->construct();
             sp8.field1c = *(u32 *)((s8 *)this + 0);
             sp8.field20 = temp_r31;
             *(s32 *)((s8 *)this + 4) = apply_rel_relocations((s32 *)&sp8);
-            destroy__9TItemDropFs((s32 *)&sp8, -1);
+            ((TItemDrop *)((s32 *)&sp8))->destroy(-1);
         }
         TItemBuff__ct();
     }

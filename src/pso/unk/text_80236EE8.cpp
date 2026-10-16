@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -38,13 +40,11 @@ struct Tec_80236EE8 {
 extern "C" {
 u16 obj_getField1c(u32);
 void queue_destruction__7TObjectFv(void *);
-s32 is_valid_and_active__10TObjPlayerFUl(u32);
 List_802370D8 *find_support_technique_contact_for_target__10TObjPlayerFl(void *, u32);
 List_802370D8 *gather_contacts_for_self__10TObjPlayerFl(void *, u32);
 void deliver_technique_to_party_targets(Obj_802370D8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_particle_effect(void *, int);
-void set_tint_color__13TParticleCtrlFl(u32, s32);
 u8 *get_player_by_client_id(u16);
 u32 classify_distance_band__8TTecCtrlFlll(s16, s16, u16);
 extern s32 support_tec_range_effect_id_table[];
@@ -104,21 +104,21 @@ void spawn_support_tec_range_effect(Tec_80236EE8 *self) {
             case 16:
                 for (i = 0; i < 3; i++) {
                     if (fx.w[i] != 0) {
-                        set_tint_color__13TParticleCtrlFl(fx.w[i], 0xFF4DFF99);
+                        ((TParticleCtrl *)(fx.w[i]))->set_tint_color(0xFF4DFF99);
                     }
                 }
                 break;
             case 13:
                 for (j = 0; j < 3; j++) {
                     if (fx.w[j] != 0) {
-                        set_tint_color__13TParticleCtrlFl(fx.w[j], -0x6667);
+                        ((TParticleCtrl *)(fx.w[j]))->set_tint_color(-0x6667);
                     }
                 }
                 break;
             case 10:
                 for (k = 0; k < 3; k++) {
                     if (fx.w[k] != 0) {
-                        set_tint_color__13TParticleCtrlFl(fx.w[k], 0xFF337FFF);
+                        ((TParticleCtrl *)(fx.w[k]))->set_tint_color(0xFF337FFF);
                     }
                 }
                 break;
@@ -140,7 +140,7 @@ void deliver_technique_to_party_targets(Obj_802370D8 *arg0) {
         list = find_support_technique_contact_for_target__10TObjPlayerFl(arg0, *(u32 *)((s8 *)arg0 + 0x1C));
     }
     for (i = 0; i < list->count; i++) {
-        if (is_valid_and_active__10TObjPlayerFUl(list->items[i]) != 0) {
+        if (TObjPlayer::is_valid_and_active(list->items[i]) != 0) {
             arg0->m5(list->items[i]);
         }
     }

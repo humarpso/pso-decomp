@@ -22,8 +22,6 @@ extern "C" {
 
 s32 TWindowDD__sub_80348D88(void* p);
 int TLobby__send_and_handle_60(void*);
-int handle_word_select__9TWindowDDFv(void*);
-void init_header__9TWindowDDFv(void* p);
 
 void TWindowDD::bswap_word_select() {
     S_80348D0C *arg0 = (S_80348D0C *)this;

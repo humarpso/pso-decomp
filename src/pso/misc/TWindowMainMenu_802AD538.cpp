@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowMainMenu.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Item_802AE4DC { u8 pad[0x12]; u8 sel; };
 
@@ -116,7 +119,6 @@ f32 TWindowSubComCard__sub_80244784(void *);
 s32 is_window_reveal_complete();
 s32 TWindowSubAreaMapDisp__sub_80246948();
 s32 is_player_input_active(int);
-s32 set_bounds__19TWindowKeyBoardSoftFffff(void *, f32, f32, f32, f32);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Rect_802AD538 *);
 Rect_802AE2B0 * open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, s32, f32, s32);
 s32 fn_8026CB68();
@@ -135,9 +137,7 @@ s32 is_not_split_screen__15TWindowMainMenuFv(void);
 s32 append_child_rows__15TWindowMainMenuFPvi(Menu_802ADD38 *arg0, s32 arg1);
 Rect_802AE2B0 * setup_content_frame__15TWindowMainMenuFPv(u8 *arg0);
 void handle_navigation_input__15TWindowMainMenuFPv(u8 *arg0);
-void set_entry_index__9TLanguageFll(int, int);
 void begin_screen_draw(int);
-void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(Rect_802AD538 *, f32);
 void set_draw_texture_and_color(int, u32);
 
@@ -186,11 +186,11 @@ void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
             color = rgb | ((s32)(lbl_805DE148 * a) << 24);
             break;
         case 1:
-            set_entry_index__9TLanguageFll(2, 0x4C);
+            TLanguage::set_entry_index(2, 0x4C);
             color = 0xFFFF6121;
             break;
         case 2:
-            set_entry_index__9TLanguageFll(2, 0x4C);
+            TLanguage::set_entry_index(2, 0x4C);
             color = 0xFF51EAFF;
             break;
         }
@@ -207,8 +207,8 @@ void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
         if (try_open__19TWindowKeyBoardSoftFii(w, &r) != 0) {
             draw_textured_quad_at_depth(&r, scale);
         }
-        get_player__20TWindowSubStatusDispFv();
-        set_entry_index__9TLanguageFll(2, 0x4B);
+        TWindowSubStatusDisp::get_player();
+        TLanguage::set_entry_index(2, 0x4B);
     }
 }
 
@@ -559,7 +559,7 @@ Rect_802AE2B0 *setup_content_frame__15TWindowMainMenuFPv(u8 *arg0) {
     } else {
         v = lbl_805DE164;
     }
-    set_bounds__19TWindowKeyBoardSoftFffff(r, lbl_805DE1A4 + r->x, r->y + v, (r->x + r->w) - lbl_805DE1A4, (r->y + r->h) - lbl_805DE164);
+    ((TWindowKeyBoardSoft *)r)->set_bounds(lbl_805DE1A4 + r->x, r->y + v, (r->x + r->w) - lbl_805DE1A4, (r->y + r->h) - lbl_805DE164);
     r->color = ((s32)(lbl_805DE148 * TWindowSubComCard__sub_80244784(arg0)) << 24) | 0xFF0000 | 0xFFFF;
     return r;
 }

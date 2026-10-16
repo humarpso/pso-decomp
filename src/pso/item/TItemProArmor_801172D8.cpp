@@ -10,7 +10,6 @@ s32 calc_armor_value__13TItemProArmorFv(void *);
 s32 calc_scaled_offset__13TItemProArmorFv(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFv();
-s32 get_stat_value__13TItemProArmorFv(void *);
 
 void TItemProArmor::apply_armor_stat() {
     s32 var_r31;
@@ -26,7 +25,7 @@ void TItemProArmor::apply_armor_stat() {
         var_r31 = calc_scaled_offset__13TItemProArmorFv(this);
         break;
     case 2:
-        var_r31 = get_stat_value__13TItemProArmorFv(this);
+        var_r31 = get_stat_value();
         break;
     }
     add_actor_tp(*(s32 *)((s8 *)this + 0xF0), var_r31);

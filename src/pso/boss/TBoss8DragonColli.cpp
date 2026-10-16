@@ -38,7 +38,6 @@ E_802F31E4 *mem_alloc(s32);
 s32 register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
 s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
-s16 alloc_actor_ids__6TLobbyFl(int);
 extern u8 boss8_collision_segment_desc[];
 extern s32 lbl_804E4BB4[];
 extern s32 lbl_805D4000;
@@ -63,6 +62,8 @@ TBoss8DragonColli::~TBoss8DragonColli() {
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_802F2F68 {
     f32 sp8;
     f32 spC;
@@ -102,7 +103,6 @@ int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 
 u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802F2F68, sp8) == 0x0) ? 1 : -1];
@@ -169,7 +169,7 @@ void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E4BB4;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -187,7 +187,7 @@ s32 init_collision_segments__17TBoss8DragonColliFiPviPvf(int arg0, void *arg1, i
     self->vt = ((u8 *)&lbl_804E4BB4);
     self->f0 = lbl_805D4000;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
-    self->f1c = alloc_actor_ids__6TLobbyFl(0);
+    self->f1c = TLobby::alloc_actor_ids(0);
     self->count = arg2;
     self->elems = mem_alloc(self->count * 0x2C);
     step = lbl_805DED38 * scale;

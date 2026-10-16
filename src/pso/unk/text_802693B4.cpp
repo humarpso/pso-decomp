@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem.h"
 struct Line_80269454 { u32 flags; u32 f4; };
 
 struct Entry_80269454 { u16 flags; };
@@ -10,7 +11,6 @@ struct Win_802693B4 { u8 pad[0x6c]; f32 f6c; u8 pad2[0x84 - 0x70]; f32 f84; u8 p
 extern "C" {
 Entry_80269454 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void *get_field_20__17TWindowSubComCardFv(void *);
-void reset_float_field__15TWindowHelpItemFv(void *);
 void complete_reveal__14TWindowMessageFPv(Win_80269454 *self);
 Entry_80269454 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void *get_field_20__17TWindowSubComCardFv(void *);
@@ -52,7 +52,7 @@ void complete_reveal__14TWindowMessageFPv(Win_80269454 *self) {
                 lines[i].flags &= ~8;
                 e->flags &= ~8;
             }
-            reset_float_field__15TWindowHelpItemFv(e);
+            ((TWindowHelpItem *)e)->reset_float_field();
         }
     }
 }

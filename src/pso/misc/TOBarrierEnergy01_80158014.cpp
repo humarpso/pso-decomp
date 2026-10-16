@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOBarrierEnergy01.h"
+#include "pso/misc/TODoorAncient01.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80158078_lbl_80440200 { char value[0x17]; };
 typedef char RecoveredGlobal_80158078_lbl_80440200_size[sizeof(RecoveredGlobal_80158078_lbl_80440200) == 0x17 ? 1 : -1];
@@ -44,7 +47,6 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 int mem_alloc(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_80158078_lbl_80440200 lbl_80440200;
@@ -54,7 +56,6 @@ extern s32 *TOBarrierEnergy01__texture_lists;
 extern s32 barrier_energy_model;
 u8 *get_bml_motion(s32, s32);
 s32 get_bml_model(void *, s32);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -77,16 +78,14 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_ancient_door_base__15TODoorAncient01Fs(void *, s32);
 s32 mem_free(void*);
-s32 free_if_valid__10TObjPlayerFl(s32);
 
 extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
 
 void TOBarrierEnergy01::free_resources() {
     if ((s32 *) TOBarrierEnergy01__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFl(*TOBarrierEnergy01__texture_lists);
+        TObjPlayer::free_if_valid(*TOBarrierEnergy01__texture_lists);
         if ((s32 *) TOBarrierEnergy01__texture_lists != NULL) {
             mem_free((void*)TOBarrierEnergy01__texture_lists);
             TOBarrierEnergy01__texture_lists = NULL;
@@ -103,7 +102,7 @@ extern s32 __vt__17TOBarrierEnergy01[];
 void TOBarrierEnergy01::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_lazerguard_resource_descriptor.value, 0, 0, 0));
@@ -121,7 +120,7 @@ void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOBarrierEnergy01;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
+        ((TODoorAncient01 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -143,7 +142,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB2DC;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFB34.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     ((VObj_18_4a4f5b *)(arg0))->m17();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB2E0;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB2E4;

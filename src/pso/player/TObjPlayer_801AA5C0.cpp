@@ -19,11 +19,6 @@ int TObjPlayer__sub_801AA6E4(void* a0 = 0, void* a1 = 0);
 void* TObjPlayer__sub_801AA66C(void* p, void* a1);
 void TObjPlayer__sub_801AA64C(O_801AA64C *p);
 void* TObjPlayer__sub_801AA61C(void* p);
-s16 get_hp__10TObjPlayerFv(void* p);
-u16 get_section_id__10TObjPlayerFv(void* p);
-void set_field_2__10TObjPlayerFs(void* p, s16 v);
-void set_type__10TObjPlayerFs(void* p, s16 v);
-u16 get_entity_type__10TObjPlayerFv(void* p);
 
 }
 
@@ -64,6 +59,7 @@ void* TObjPlayer__sub_801AA61C(void* p) { TObjPlayer__sub_801AA64C((O_801AA64C *
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 }

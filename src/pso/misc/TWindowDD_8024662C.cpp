@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_802466E0_lbl_804CE018 {
     s32 value;
@@ -22,7 +23,6 @@ int TWindowSubComCard__sub_8024634C(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int update_open_close__17TWindowSubComCardFv(void*);
-void destroy_all_items__20TWindowSubStatusDispFv(void *);
 void TWindowCtrlMain__sub_8026CC28(void *);
 
 int TWindowDD::update_com_card() { return TWindowSubComCard__sub_8024634C(this); }
@@ -35,7 +35,7 @@ extern s32 lbl_804CE018[];
 void *TWindowDD::destroy_window_base(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804CE018;
-        destroy_all_items__20TWindowSubStatusDispFv((s8 *)this + 0x24);
+        ((TWindowSubStatusDisp *)((s8 *)this + 0x24))->destroy_all_items();
         TWindowCtrlMain__sub_8026CC28(this);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

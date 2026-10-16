@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TTecBarta.h"
+#include "pso/misc/TTecFoie.h"
 
 struct Owner_8012B9B4 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0x60 - 0x44]; s32 f60; };
 
@@ -18,10 +20,7 @@ struct Self_8012B9B4 {
 
 extern "C" {
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 create_ex__9TTecBartaFPvPvPv(int, void *, int, int);
-s32 create__8TTecFoieFPvPvPvPv(int, void *, int, int);
 s32 create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
 void psycho_wand_cast_technique(u8 *arg0, s32 arg1);
 u8 * init_vtable_and_clear_field1f8__10TObjPlayerFv(void *, s32, void *);
@@ -29,7 +28,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void send_6x61_activate_mag_effect(void *, s32);
-s32 draw_icon__10TObjPlayerFll(void *, s32, void *);
 s32 get_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(s32);
 s16 get_uid__10TObjPlayerFPv(s32);
@@ -64,7 +62,7 @@ void psycho_wand_cast_technique(u8 *arg0, s32 arg1) {
   {
     if (reset_key_machine_state__10TObjPlayerFv() != 0)
     {
-      temp_r31 = get_field_3e4__10TObjPlayerFv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))));
+      temp_r31 = ((TObjPlayer *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->get_field_3e4();
       new_var = get_current_floor();
       if (new_var == temp_r31)
       {
@@ -74,10 +72,10 @@ void psycho_wand_cast_technique(u8 *arg0, s32 arg1) {
             create_tec_zonde__10TObjPlayerFPvPvPvPv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))), (void *) (arg0 + 0x1FC), (void *) (arg0 + 0x208), (int) 0xA);
             return;
           case 1:
-            create__8TTecFoieFPvPvPvPv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))), (void *) (arg0 + 0x1FC), (int) (*((s32 *) (((s8 *) arg0) + 0x264))), (int) 0xA);
+            TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(*((s32 *) (((s8 *) arg0) + 0x264))), (void *)((int) 0xA));
             return;
           case 2:
-            create_ex__9TTecBartaFPvPvPv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))), (void *) (arg0 + 0x268), (int) (*((s32 *) (((s8 *) arg0) + 0x264))), (int) 0xA);
+            ((TTecBarta *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->create_ex((void *)(arg0 + 0x268), (void *)(*((s32 *) (((s8 *) arg0) + 0x264))), (void *)((int) 0xA));
             break;
         }
       }
@@ -87,7 +85,7 @@ void psycho_wand_cast_technique(u8 *arg0, s32 arg1) {
 void psycho_wand_roll_extra(Self_8012B9B4 *self) {
     s32 ext;
     s32 item;
-    draw_icon__10TObjPlayerFll(self, 4, self->icon);
+    ((TObjPlayer *)self)->draw_icon((s32)4, (s32)(self->icon));
     ext = get_extended_state__10TObjPlayerFv(self->owner);
     item = get_captured_target_entry(ext, 0);
     if (get_captured_target_count(ext) != 0) {

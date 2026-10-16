@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
+#include "pso/TMainTask.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80335BD4_lbl_8050BEC0 { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_80335BD4_lbl_8050BEC0_size[sizeof(RecoveredGlobal_80335BD4_lbl_8050BEC0) == 0x20 ? 1 : -1];
@@ -31,18 +36,10 @@ struct RecoveredGlobal_80335974_lbl_8050E3B8
 
 extern "C" {
 u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0);
-s32 get_state_flag__9TMainTaskFv();
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TCameraCtrl__sub_80068EF0();
-s32 restore_full_screen_view__11TCameraCtrlFv();
-s32 reset_transform_state__10TObjPlayerFv();
-s32 init_xyz_limits__10TObjPlayerFv();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 draw_with_camera__6TLobbyFlllf(int, int, int, f32);
 s32 draw_record_with_camera__19TAdTrialAgreementGCFlll(void *, void *, int);
 s32 TAdTrialAgreementGC__sub_8033596C(void* p);
-s32 get_record__6TLobbyFi(int);
 s32 bind_title_texture_list();
 s32 set_chunk_material_color(void *);
 extern RecoveredGlobal_80335BD4_lbl_8050BEC0 saved_model_draw_color;
@@ -129,16 +126,16 @@ void TAdTrialAgreementGC::render_screen() {
     s32 temp_r0;
     s32 temp_r31;
     s32 var_r31;
-    if (get_state_flag__9TMainTaskFv() != 0) {
-        begin_effect_render__13TParticleCtrlFv();
-        restore_full_screen_view__11TCameraCtrlFv();
+    if (TMainTask::get_state_flag() != 0) {
+        TParticleCtrl::begin_effect_render();
+        TCameraCtrl::restore_full_screen_view();
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
             model_render_flags |= 0x10;
             set_chunk_material_color((void *) (arg0 + 0x28));
             bind_title_texture_list();
-            draw_with_camera__6TLobbyFlllf((int) (get_record__6TLobbyFi((int) (0xA))), (int) (0xA), (int) (0x22), (f32) (lbl_805DF8B0));
+            TLobby::draw_with_camera((int) (TLobby::get_record((int) (0xA))), (int) (0xA), (int) (0x22), (f32) (lbl_805DF8B0));
         }
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
         if ((temp_r0 == 1) || (temp_r0 == 2)) {
@@ -148,7 +145,7 @@ void TAdTrialAgreementGC::render_screen() {
                 var_r31 += 1;
             } while (var_r31 != 0xF);
             bind_title_texture_list();
-            init_xyz_limits__10TObjPlayerFv();
+            TObjPlayer::init_xyz_limits();
             temp_r31 = TAdTrialAgreementGC__sub_8033596C((void*)((void *) (arg0)));
             if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 1) {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0xF), (int) (0xF));
@@ -160,12 +157,12 @@ void TAdTrialAgreementGC::render_screen() {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x1F), (int) (0x1F));
                 draw_record_with_camera__19TAdTrialAgreementGCFlll((void *) (arg0), (void *) (temp_r31 + 0x23), (int) (0x23));
             }
-            reset_transform_state__10TObjPlayerFv();
+            TObjPlayer::reset_transform_state();
         }
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
         model_render_flags = lbl_805D5660;
         TCameraCtrl__sub_80068EF0();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 

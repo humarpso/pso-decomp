@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/enemy/TObjEneBeast.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Ent_8009241C { u8 pad0[0xC]; f32 radius; u8 pad10[0x2C - 0x10]; };
 struct Res_8009241C {
@@ -31,7 +34,6 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(void *, void *);
 s32 draw_trail_with_colors(void *, s32, s32, int, int);
 u8 *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
@@ -77,7 +79,6 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
@@ -117,9 +118,7 @@ extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
-extern "C" void is_lying_down__12TObjEneBeastFv();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" u8 beast_body_model_filename[];
 extern "C" u8 beast_red_body_model_filename[];
@@ -137,7 +136,6 @@ extern "C" u8 beast_stund_motion_filename[];
 extern "C" u8 beast_wakeup_motion_filename[];
 extern "C" u8 beast_walk_motion_filename[];
 extern "C" u8 beast_bml_filename[];
-extern "C" void on_attack_cooldown_expired__12TObjEneBeastFv();
 extern "C" void play_claw_effect__18TObjEneBalClawClawFv();
 extern "C" void play_claw_sound__18TObjEneBalClawClawFv();
 extern "C" void play_hit_effect__18TObjEneBalClawClawFv();
@@ -154,8 +152,6 @@ extern "C" void run_task__12TObjEneBeastFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void spawn_claw_effect__18TObjEneBalClawClawFv();
 extern "C" void spawn_death_fire__12TObjEneBeastFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
 extern "C" void tick_freeze_and_reset_appearance();
 extern "C" void tick_freeze_state__10TObjPlayerFv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
@@ -225,13 +221,13 @@ void *__vt__12TObjEneBeast[103] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&is_lying_down__12TObjEneBeastFv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjEneBeast::is_lying_down,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold__12TObjEneBeastFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&tick_freeze_and_reset_appearance,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&tick_freeze_state__10TObjPlayerFv, (void *)&beast_enter_approach,
     (void *)&beast_start_attack, (void *)&clear_flag_0x100__10TObjPlayerFv, (void *)&enter_state7__10TObjPlayerFv, (void *)&enter_state_8__10TObjPlayerFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
@@ -243,7 +239,7 @@ void *__vt__12TObjEneBeast[103] = {
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
     (void *)&beast_retire_corpse, (void *)&update_claw_trail__12TObjEneBeastFv, (void *)&spawn_death_fire__12TObjEneBeastFv, (void *)&play_claw_effect__18TObjEneBalClawClawFv,
     (void *)&spawn_claw_effect__18TObjEneBalClawClawFv, (void *)&play_claw_sound__18TObjEneBalClawClawFv, (void *)&play_hit_effect__18TObjEneBalClawClawFv, (void *)&TObjEneBalClawClaw__sub_80091CD0,
-    (void *)&TObjPlayer__sub_80092A7C, (void *)&on_attack_cooldown_expired__12TObjEneBeastFv, (void *)&request_stand_action__12TObjEneBeastFv,
+    (void *)&TObjPlayer__sub_80092A7C, (void *)&TObjEneBeast::on_attack_cooldown_expired, (void *)&request_stand_action__12TObjEneBeastFv,
 };
 #define __vt__12TObjEneBeast ((u8 *)__vt__12TObjEneBeast)
 
@@ -313,7 +309,7 @@ void TObjEneBeast::load_resources() {
     u8 *p;
     s32 i;
 
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         ene_beast_bml_resource = (u32)load_enemy_bml_resource_named(beast_resource_descriptor, lbl_80439D80);
         ((Ent_8009241C *)beast_collision_body_table)[0].radius = lbl_805D96DC;
         ((Ent_8009241C *)beast_collision_body_table)[1].radius = lbl_805D96DC;
@@ -419,21 +415,12 @@ struct VObj_800927DC : VBase_800927DC {
 };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void add_flags_2e4__10TObjPlayerFUl(void *, u32);
 void obj_setFlags30(void *, u32);
-void set_field_b8__14TObjEnePanarmsFs(void *, s16);
-void set_field_d8__10TObjPlayerFl(void *, void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
-void select_subtype__12TObjEneBeastFv(void *);
-void init_position_vectors__10TObjPlayerFv(void *);
-void select_model_record__12TObjEneBeastFl(void *, s32);
 void init_enemy_base__10TObjPlayerFv(void *, void *);
-void activate_and_dispatch__10TObjPlayerFv(void *);
 void *create__12TObjEneSaverFPvPv(void *, void *);
-void update_prev_position__10TObjPlayerFv(void *);
 void bind_enemy_combat_stats(void *, u32, u32, u32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-void reset_photon_effect__10TObjPlayerFv(void *);
 void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 extern u8 init_and_activate__10TObjPlayerFv[];
@@ -463,25 +450,25 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     __construct_array(arg0 + 0x3B0, init_and_activate__10TObjPlayerFv, TObjPlayer__sub_800D7C58, 0x1C, 4);
     F(arg0, s32, 0) = lbl_805D2980;
     ((VObj_800927DC *)arg0)->m79(arg2);
-    init_position_vectors__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->init_position_vectors();
     F(arg0, s32, 0x334) = F(arg0, s32, 0x368);
-    select_subtype__12TObjEneBeastFv(arg0);
-    select_model_record__12TObjEneBeastFl(arg0, F(arg0, s32, 0x368));
+    ((TObjEneBeast *)arg0)->select_subtype();
+    ((TObjEneBeast *)arg0)->select_model_record(F(arg0, s32, 0x368));
     F(arg0, u8 *, 0xD8) = (u8 *)beast_action_table;
-    set_field_d8__10TObjPlayerFl(arg0, F(arg0, u8 *, 0xD8));
+    ((TObjPlayer *)arg0)->set_field_d8((s32)(F(arg0, u8 *, 0xD8)));
     F(arg0, u32, 0xDC) = F(ene_beast_bml_resource, u32, 0x430);
     F(arg0, s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, F(arg0, s16, 0xB8));
-    set_field_b8__14TObjEnePanarmsFs(arg0, F(arg0, s16, 0xB8));
+    ((TObjEnePanarms *)arg0)->set_field_b8(F(arg0, s16, 0xB8));
     init_collision_body_parts(arg0, &((Rec2C_800927DC *)beast_collision_body_table)[F(arg0, s32, 0x334)], 1);
     bind_enemy_combat_stats(arg0, ((u32 *)ene_beast_boss_id_buffer)[F(arg0, s32, 0x334)],
                             ((u32 *)TObjEneBeast__boss4_rock_handler_ids)[F(arg0, s32, 0x334)],
                             ((u32 *)boss4_rock_pool)[F(arg0, s32, 0x334)]);
     F(arg0, void *, 0x350) = &((Rec1C_800927DC *)beast_movement_params)[F(arg0, s32, 0x334)];
     F(arg0, s16, 0x33E) = F(arg0, s16, 0x32C);
-    update_prev_position__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     F(arg0, s32, 0x2AC) = (s32)(lbl_805D970C * (lbl_805D9710 * calc_boss4_scale__10TObjPlayerFi(arg0)));
     F(arg0, s16, 0x33A) = 0xF;
     F(arg0, s16, 0x33C) = F(arg0, s16, 0x33A);
@@ -490,7 +477,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     F(arg0, s16, 0x376) = 0;
     F(arg0, s32, 0x378) = 0;
     F(arg0, s32, 0x37C) = 0;
-    add_flags_2e4__10TObjPlayerFUl(arg0, 1);
+    ((TObjPlayer *)arg0)->add_flags_2e4(1);
     obj_setFlags30(arg0, 0x40000);
     F(arg0, f32, 0x380) = lbl_805D96D8;
     F(arg0, void *, 0x3A8) = create__12TObjEneSaverFPvPv((void *)0xA0303030, (void *)0xFF303030);
@@ -501,7 +488,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     F(arg0, f32, 0x3A4) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][3];
     F(arg0, s32, 0x390) = 1;
     for (i = 0; i < 4; i++) {
-        activate_and_dispatch__10TObjPlayerFv(&((Obj_800927DC *)arg0)->arr[i]);
+        ((TObjPlayer *)(&((Obj_800927DC *)arg0)->arr[i]))->activate_and_dispatch();
     }
     ((VObj_800927DC *)arg0)->m80();
     return arg0;

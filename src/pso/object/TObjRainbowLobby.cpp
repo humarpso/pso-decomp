@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/object/TObjRainbowLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80350808_lbl_804F0DF0 { s32 value; u8 remaining[0xC]; };
 struct TObjBase803508_80350858 { char pad[0x18]; };
@@ -14,8 +19,6 @@ struct TObjRainbowLobby803508_80350858 : TObjBase803508_80350858 {
 struct Obj_803506A4 { u8 pad[0xC8]; s32 state; f32 val; };
 
 extern "C" {
-s32 is_connected__6TLobbyFv();
-s32 is_lobby_obj_active__6TLobbyFv();
 }
 
 extern "C" {
@@ -28,17 +31,12 @@ s32 push_matrix();
 s32 pop_matrix();
 void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80350808_lbl_804F0DF0 bm_obj_lobby_rainbow_resource_descriptor;
 extern u32 TObjRainbowLobby__shared_model_resource;
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFs(void *, int);
 s32 init_map_object_base();
 s32 is_lobby_event_active();
 extern s32 __vt__16TObjRainbowLobby[];
@@ -49,8 +47,8 @@ void TObjRainbowLobby::render() {
     f32 temp_f1;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -60,7 +58,7 @@ void TObjRainbowLobby::render() {
         }
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -70,7 +68,7 @@ void TObjRainbowLobby::run_task() {
     Obj_803506A4 *arg0 = (Obj_803506A4 *)this;
     switch (arg0->state) {
     case 0:
-        if (is_connected__6TLobbyFv() != 0) {
+        if (TLobby::is_connected() != 0) {
             arg0->state = 2;
         }
         break;
@@ -90,7 +88,7 @@ void TObjRainbowLobby::run_task() {
         break;
     case 3:
     default:
-        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+        if (TLobby::is_lobby_obj_active() != 0) {
             arg0->state = 1;
         }
         break;
@@ -114,7 +112,7 @@ void TObjRainbowLobby::free_static_data() {
 void TObjRainbowLobby::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_obj_lobby_rainbow_resource_descriptor.value, 0, 0, 0));
@@ -124,7 +122,7 @@ void TObjRainbowLobby::load_shared_resource() {
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjRainbowLobby;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

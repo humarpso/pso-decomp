@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/TItem.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Msg_801022FC { u16 hdr; u16 id; s32 v; s16 w; };
 
@@ -8,7 +9,6 @@ struct Player_801022FC { u8 pad[0xE6]; s16 fE6; };
 extern "C" {
 void TObjPlayer__sub_80019568(void *, s32);
 s16 get_current_floor();
-s32 get_field_d8__10TObjPlayerFv(void *);
 void send_pick_up_item_request__6TLobbyFi(void *);
 void TLobby__sub_801030EC(void *);
 s32 fn_8010319C(s32);
@@ -30,7 +30,7 @@ void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id) {
             TObjPlayer__sub_80019568(p, id);
             TLobby__sub_801030EC(&m);
             m.id = id;
-            m.v = get_field_d8__10TObjPlayerFv(p);
+            m.v = ((TObjPlayer *)p)->get_field_d8();
             m.w = get_current_floor();
             send_pick_up_item_request__6TLobbyFi(&m);
             p->fE6 = 0;

@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TPhotonYoulla.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Color_801AE744 { f32 a, r, g, b; };
 
@@ -20,21 +25,15 @@ struct Self_801AE744 {
 
 extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 set_material_alpha_compare_reference(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern Color_801AE744 saved_model_draw_color;
 extern Color_801AE744 model_material_color;
 extern s32 lbl_805D5660;
@@ -44,8 +43,6 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 s32 set_field_b8__14TObjEnePanarmsFs(void *, s32);
-void set_field_dc__10TObjPlayerFl(void *, s32);
-void set_field_d8__10TObjPlayerFl(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
 u8 * photon_base_ct(void *);
@@ -66,29 +63,23 @@ void TObjPlayer__sub_801AEB74(void);
 void TObjPlayer__sub_801AEB80(void);
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
-s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 get_game_play_mode();
 int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 update_photon_blast_attachments(void *);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 TObjPlayer__sub_801AF868(s32);
 int TObjPlayer__sub_801BEF60(void*, void*);
-int prepare_heavy_attack_particles_default__10TObjPlayerFv(void*);
 s32 emit_idle_water_effect(s32);
-s32 emit_movement_effect_at__10TObjPlayerFv(s32);
 s32 has_water_ground_flag(s32);
 s32 TObjPlayer__sub_80354C7C(s32);
 s32 TObjPlayer__sub_80354E3C();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
-s32 check_camera_mode__10TObjPlayerFv();
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 void destroy_photon_motion_object(void *, int);
 void free_photon__10TObjPlayerFPv(void *);
 s32 get_main_phase();
-int get_max_level__10TObjPlayerFv(void);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 is_technique_ready__8TTecCtrlFv();
 s32 queue_destruction__7TObjectFv(void *);
 s32 reset_volopt_state__10TObjPlayerFv(s32);
@@ -108,8 +99,8 @@ extern const f32 lbl_805DC274;
 void TPhotonYoulla::render() {
     Self_801AE744 *self = (Self_801AE744 *)this;
     if (self->started != 0) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl(self->f24);
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param(self->f24);
         push_matrix();
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
@@ -118,13 +109,13 @@ void TPhotonYoulla::render() {
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
-        set_global_flag__10TObjPlayerFv();
+        TObjPlayer::set_global_flag();
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
         set_photon_blast_joint_callback__10TObjPlayerFPv(self);
-        draw__16TObjEneRe7BeruraFv(self);
-        clear_global_state__10TObjPlayerFv();
+        ((TObjEneRe7Berura *)self)->draw();
+        TObjPlayer::clear_global_state();
         set_material_alpha_compare_reference(0xBF);
         clear_render_context__10TObjPlayerFv(self);
         chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -132,7 +123,7 @@ void TPhotonYoulla::render() {
         copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -195,8 +186,8 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xB8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xBC);
-    set_field_d8__10TObjPlayerFl(arg0, (s32) lbl_804C3B48);
-    set_field_dc__10TObjPlayerFl(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    ((TObjPlayer *)arg0)->set_field_d8((s32) lbl_804C3B48);
+    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));

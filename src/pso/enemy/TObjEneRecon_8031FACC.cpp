@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct VBase_18_965ca6 { char pad[0x18]; };
 
@@ -116,7 +117,6 @@ extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF460;
 void TObjEneRecon__sub_8031FB6C(u8 *arg0);
 s32 has_child_in_anim_5__12TObjEneReconFv();
-f32 trunc_float__17TWindowSubComCardFf(f32);
 extern const f32 lbl_805DF45C;
 u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0);
 }
@@ -129,7 +129,7 @@ u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0) {
     if (has_child_in_anim_5__12TObjEneReconFv() == 1) {
         return 0;
     }
-    t = (s32)trunc_float__17TWindowSubComCardFf((f32)arg0->f3F8 * lbl_805DF45C);
+    t = (s32)TWindowSubComCard::trunc_float((f32)arg0->f3F8 * lbl_805DF45C);
     r = 0;
     if (arg0->f410 <= t && arg0->f414 < arg0->f3F4) {
         r = 1;

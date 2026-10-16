@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/item/TItemProUnit.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemData.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_80118A48_8011892C { char pad[0x18]; };
 struct VObj_80118A48_8011892C : Base_80118A48_8011892C {
@@ -60,19 +63,15 @@ s32 init_timer_event__12TItemProUnitFv(int, int, void *, int);
 s32 __nw__15TItemHeapObjectFUl(int);
 extern const f32 lbl_805DABFC;
 void TItemProUnit__vt42(u8 *arg0);
-s32 set_flags__10TObjPlayerFUl(void *, int);
 extern const f32 TItemProUnit__data_805DABF8;
 extern const f32 lbl_805DAC00;
-void set_unit_modifier__9TItemDataFs(Out_80118958 *out, s16 v);
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
 f32 TItemProUnit__sub_8011901C(void *);
-void set_evp__12TItemProUnitFf(void *, f32);
 void TItemProUnit__vt14(Self_80118A78 *self);
 u8 get_technique_learn_limit(u8, u8);
 u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
 void TItemProUnit__vt46(Unit_80118AD4 *self);
-void set_evp__12TItemProUnitFf(void *, f32);
 u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
 s32 memset(void *, s32, s32);
@@ -126,13 +125,13 @@ void TItemProUnit__vt12(u8 *arg0) {
 
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out) {
     out->b4 = (s8)self->m31() - 9;
-    set_unit_modifier__9TItemDataFs(out, self->s1bc);
+    ((TItemData *)out)->set_unit_modifier(self->s1bc);
 }
 
 void TItemProUnit__vt47(u8 *arg0) {
     s32 var_r30;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x18C) == 0x13) {
-        set_evp__12TItemProUnitFf((void *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), TItemProUnit__data_805DABF8);
+        ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(TItemProUnit__data_805DABF8);
     }
     var_r30 = 0;
     do {
@@ -154,7 +153,7 @@ extern const f32 TItemProUnit__data_805DABF8;
 void TItemProUnit__vt14(Self_80118A78 *self) {
     if (self->s18c == 0x13) {
         if (TItemProUnit__sub_8011901C(self->data->unit) < self->evp) {
-            set_evp__12TItemProUnitFf(self->data->unit, self->evp);
+            ((TItemProUnit *)(self->data->unit))->set_evp(self->evp);
         }
     }
 }
@@ -260,7 +259,6 @@ void TItem__sub_8010068C();
 void TItem__sub_80100688();
 void update_equip__14TItemEquipBaseFv();
 void TItem__sub_801007A8();
-void update_pickup_flag__5TItemFl();
 void TItem__sub_80100680();
 void TItemEquipBase__sub_8010A77C();
 void TItem__sub_80100674();
@@ -310,7 +308,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TItem__sub_80100688,
     (void *)update_equip__14TItemEquipBaseFv,
     (void *)TItem__sub_801007A8,
-    (void *)update_pickup_flag__5TItemFl,
+    (void *)TItem::update_pickup_flag,
     (void *)TItem__sub_80100680,
     (void *)TItemEquipBase__sub_8010A77C,
     (void *)TItem__sub_80100674,
@@ -341,31 +339,31 @@ void TItemProUnit::apply_unit_effect_flags() {
         *(s16 *)((s8 *)arg0 + 0x190) = (s16) *(s16 *)((s8 *)arg0 + 0x18E);
         return;
     case 20:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (8));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (8));
         return;
     case 21:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (2));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (2));
         return;
     case 19:
         *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) (TItemProUnit__data_805DABF8 + ((f32) *(s16 *)((s8 *)arg0 + 0x18E) / lbl_805DAC00));
         return;
     case 22:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (0x80));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x80));
         return;
     case 23:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (0x200));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x200));
         return;
     case 24:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (0x800));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x800));
         return;
     case 25:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (0x2000));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x2000));
         return;
     case 26:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (0x8000));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x8000));
         return;
     case 27:
-        set_flags__10TObjPlayerFUl((void *) ((u8 *)(arg0) + 0x178), (int) (0x20000));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x20000));
     default:
         return;
     }

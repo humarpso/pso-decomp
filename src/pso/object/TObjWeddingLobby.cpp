@@ -1,6 +1,12 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjWeddingLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80479940[];
@@ -44,31 +50,23 @@ struct Fish_8035BCE8 { u32 a; u32 n; };
 extern "C" {
 s32 get_bml_motion(void *, int);
 s32 get_bml_model(void *, int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object();
 s32 draw_ginja_model_with_motion(int, int, f32);
 extern u32 TObjWeddingLobby__resource_bundle;
 extern u32 wedding_lobby_type;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjWeddingLobby__resource_bundle;
 extern u32 wedding_lobby_type;
 s32 init_map_object_base(void *, void *);
-s32 get_filtered_event_theme__6TLobbyFv();
 extern s32 __vt__16TObjWeddingLobby[];
 extern s32 TObjWeddingLobby__class_name;
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_bml_motion(void *, int);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 get_filtered_event_theme__6TLobbyFv();
 void TObjWeddingLobby__sub_8035BC20(void);
 extern u32 TObjWeddingLobby__resource_bundle;
 }
@@ -80,7 +78,6 @@ void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 
 void TObjWeddingLobby__sub_8035BC20(void) {  }
 
@@ -92,8 +89,8 @@ void TObjWeddingLobby::render() {
     s32 temp_r31;
     s32 temp_r3;
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) wedding_lobby_type != 0U)) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl((void *) (wedding_lobby_type));
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param((s32)((void *) (wedding_lobby_type)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -105,19 +102,19 @@ void TObjWeddingLobby::render() {
         draw_ginja_object();
         draw_ginja_model_with_motion((int) get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), (int) (1)), (int) get_bml_motion((void *) ((*(s32 *)&TObjWeddingLobby__resource_bundle)), (int) (0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
 void TObjWeddingLobby::run_task() {
     Obj_8035BCE8 *self = (Obj_8035BCE8 *)this;
     f32 last;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(Obj_8035BCE8 *))TObjWeddingLobby__sub_8035BC20)(self);
     }
     switch (self->state) {
     case 0:
-        if (get_filtered_event_theme__6TLobbyFv() == 0xA) {
+        if (TLobby::get_filtered_event_theme() == 0xA) {
             self->state = 2;
         }
         break;
@@ -139,7 +136,7 @@ void TObjWeddingLobby::run_task() {
     }
     case 3:
     default:
-        if (get_filtered_event_theme__6TLobbyFv() != 0xA) {
+        if (TLobby::get_filtered_event_theme() != 0xA) {
             self->state = 1;
         }
         break;
@@ -173,19 +170,19 @@ extern s32 __vt__16TObjWeddingLobby[];
 void TObjWeddingLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &wedding_lobby_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjWeddingLobby__resource_bundle) = var_r0;
-    (*(s32 *)&wedding_lobby_type) = get_lobby_type__6TLobbyFv();
+    (*(s32 *)&wedding_lobby_type) = TLobby::get_lobby_type();
 }
 
 void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjWeddingLobby;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -198,7 +195,7 @@ u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWeddingLobby__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    if (get_filtered_event_theme__6TLobbyFv() == 0xA) {
+    if (TLobby::get_filtered_event_theme() == 0xA) {
         *(s32 *)((s8 *)arg0 + 0xC8) = 3;
     } else {
         *(s32 *)((s8 *)arg0 + 0xC8) = 0;

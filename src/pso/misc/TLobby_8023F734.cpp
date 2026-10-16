@@ -1316,6 +1316,8 @@ void TLobby__sub_8024259C(s32 arg0) {
 #pragma pop
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_802426E8_lbl_80517F9C {
     s32 value;
@@ -1333,7 +1335,6 @@ struct RecoveredGlobal_8024287C_lbl_80517F9C {
 };
 
 extern "C" {
-s32 move_words__6TLobbyFPUll(int, void *, void *);
 #define lbl_80517F9C (*(RecoveredGlobal_802426E8_lbl_80517F9C *)lbl_80517F9C)
 extern int com_card_entry_count;
 void remove_com_card_entry__6TLobbyFi(s32 arg0);
@@ -1343,7 +1344,6 @@ void* TLobby__sub_802428C4(void* p);
 void construct_entry_arrays__6TLobbyFv(void);
 void remove_com_card_entry__6TLobbyFi(s32 arg0);
 int get_com_card_data__6TLobbyFv(void);
-s32 get_id__6TLobbyFv(void *);
 s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0);
 }
 
@@ -1357,12 +1357,9 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 void reset_state_805D63DC__6TLobbyFv(void*);
 void reset_state__6TLobbyFPv(void* p);
 s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
-int clear_flag_bit2__6TLobbyFv(void);
 u32 find_card_by_id__17TWindowSubComCardFUi();
 int fn_80077AA4(void*);
 s32 get_com_card_list__6TLobbyFPv();
-s32 get_id__6TLobbyFv(void *);
-s32 get_sub_disp_ptr__20TWindowSubStatusDispFv(void *);
 
 extern s32 lbl_805D63D8;
 
@@ -1376,9 +1373,9 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 4) = temp_r5;
     ((s32 (*)(void*, void*, int))TLobby__sub_802422EC)((void *) (arg0 + 0x4C), (void *) (arg1 + 0x10), (int) (temp_r5));
     __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((void *) (arg0 + 0x58), (void *) (arg1 + 0x60));
-    get_id__6TLobbyFv((void *) (arg0));
+    ((TLobby *)arg0)->get_id();
     if (find_card_by_id__17TWindowSubComCardFUi() == 0U) {
-        strncpy((void *) (arg0 + 8), (void *) (get_sub_disp_ptr__20TWindowSubStatusDispFv((void *) (arg0))), (int) (0x10));
+        strncpy((void *) (arg0 + 8), (void *) (((TWindowSubStatusDisp *)arg0)->get_sub_disp_ptr()), (int) (0x10));
     } else {
         strncpy((void *) (arg0 + 8), (void *) (get_com_card_list__6TLobbyFPv()), (int) (0x10));
     }
@@ -1397,7 +1394,7 @@ void remove_com_card_entry__6TLobbyFi(s32 arg0) {
     u8 *temp_r3;
     if (arg0 < 7) {
         temp_r3 = (u8 *)&lbl_80517F9C.value + (arg0 * 0xBC);
-        move_words__6TLobbyFPUll((int) (temp_r3), (void *) (temp_r3 + 0xBC), (void *) ((u32) ((7 - arg0) * 0xBC) >> 2U));
+        ((TLobby *)temp_r3)->move_words((u32 *)(temp_r3 + 0xBC), (s32)((void *) ((u32) ((7 - arg0) * 0xBC) >> 2U)));
     }
     (*(s32 *)&com_card_entry_count) -= 1;
 }
@@ -1407,7 +1404,7 @@ s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0) {
     s32 n;
     n = ((s32)get_com_card_data__6TLobbyFv());
     for (i = 0; i < n; i++) {
-        if (arg0 == ((u32)get_id__6TLobbyFv(((void* (*)(s32))get_com_card_entry__6TLobbyFi)(i)))) {
+        if (arg0 == ((u32)((TLobby *)(((void* (*)(s32))get_com_card_entry__6TLobbyFi)(i)))->get_id())) {
             remove_com_card_entry__6TLobbyFi(i);
             n -= 1;
         }
@@ -1419,7 +1416,7 @@ s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0) {
     return 7;
 }
 
-void reset_state_805D63DC__6TLobbyFv(void*) { com_card_entry_count = 0; clear_flag_bit2__6TLobbyFv(); }
+void reset_state_805D63DC__6TLobbyFv(void*) { com_card_entry_count = 0; TLobby::clear_flag_bit2(); }
 
 void reset_state__6TLobbyFPv(void* p) { reset_state_805D63DC__6TLobbyFv((void*)((void*)(p))); }
 void TLobby__sub_8024285C(void* p) { reset_state_805D63DC__6TLobbyFv((void*)((void*)(p))); }

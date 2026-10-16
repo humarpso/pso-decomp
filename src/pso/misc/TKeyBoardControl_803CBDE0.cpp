@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -8,13 +9,11 @@ void TLobby__sub_803CBE40(u8 *arg0);
 void TLobby__sub_803CBE64(u8 *arg0);
 void wait_for_vi_retrace(void);
 s32 TLobby__sub_803CBEC8(int);
-s32 run_worker_callbacks_slot4__6TLobbyFv();
 s32 apply_field__6TLobbyFv(int);
 s32 VIWaitForRetrace();
-s32 run_step_60c8__6TLobbyFv();
 
 void TKeyBoardControl::flush_input() {
-    run_worker_callbacks_slot4__6TLobbyFv();
+    TLobby::run_worker_callbacks_slot4();
 }
 
 void wait_for_vi_retrace(void) {
@@ -22,7 +21,7 @@ void wait_for_vi_retrace(void) {
 }
 
 void TLobby__sub_803CBE20(void) {
-    run_step_60c8__6TLobbyFv();
+    TLobby::run_step_60c8();
 }
 
 void TLobby__sub_803CBE40(u8 *arg0) {

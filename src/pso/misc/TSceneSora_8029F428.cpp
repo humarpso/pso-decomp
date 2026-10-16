@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TScene.h"
 struct RecoveredGlobal_80069094_camera_controller_registry { s32 value; u8 remaining[0x64]; };
 
 struct RecoveredGlobal_80069024_TCameraCtrl__data_804FF634 {
@@ -175,9 +176,6 @@ s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(s32);
 void *construct_indirect_effect_task(void *, s32, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_active_scene__6TSceneFi(s32);
-s32 set_id__6TSceneFi(s32);
-s32 set_instance__6TSceneFi(s32);
 
 extern s32 lbl_804DC7C4[];
 extern s32 lbl_805D65F0;
@@ -194,9 +192,9 @@ void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20));
             *(u32 *)((s8 *)arg0 + 0x20) = 0U;
         }
-        set_id__6TSceneFi(0);
-        set_active_scene__6TSceneFi(0);
-        set_instance__6TSceneFi(0);
+        TScene::set_id(0);
+        TScene::set_active_scene(0);
+        TScene::set_instance(0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

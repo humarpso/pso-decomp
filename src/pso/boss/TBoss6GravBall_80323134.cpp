@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/boss/TBoss6GravBall.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/ui/TAdLdQuestPrtGC.h"
 
 struct RecoveredGlobal_80323214_lbl_80476658 {
     s32 value;
@@ -18,16 +21,12 @@ struct T_80323320 { u8 pad[0xD4]; s32 arr[9]; };
 
 extern "C" {
 s32 create_particle_emitter(s32, s32);
-void set_flags__11TBoss4Type2FUl(void *, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
 void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1);
 s32 create_particle_emitter(s32, s32);
-void set_flags__11TBoss4Type2FUl(void *, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
-s32 request_destroy__11TBoss4Type2FUl(int);
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 Ctl_80323134 *get_player_by_client_id(int);
 }
 
@@ -35,7 +34,6 @@ extern "C" {
 
 void fn_80323134(Obj_80323134 *arg0);
 int TAdEndText__sub_803997FC(void*);
-int get_abs__15TAdLdQuestPrtGCFv(void* p);
 
 void fn_80323134(Obj_80323134 *arg0) {
     s32 i;
@@ -48,11 +46,11 @@ void fn_80323134(Obj_80323134 *arg0) {
                 c = get_player_by_client_id((u16)(i - 5));
                 if (c != 0) {
                     VecCopy__FP3VecPC3Vec(&v, &c->pos);
-                    copy_pos__11TNowLoadingFPv(arg0->items[i], &v);
+                    ((TNowLoading *)(arg0->items[i]))->copy_pos(&v);
                 }
                 break;
             default:
-                copy_pos__11TNowLoadingFPv(arg0->items[i], &arg0->pos);
+                ((TNowLoading *)(arg0->items[i]))->copy_pos(&arg0->pos);
                 break;
             }
         }
@@ -72,7 +70,7 @@ void TBoss6GravBall::destroy_part(s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0xD4);
     if (temp_r3 != 0U) {
-        request_destroy__11TBoss4Type2FUl((int) (temp_r3));
+        TBoss4Type2::request_destroy((int) (temp_r3));
         *(u32 *)((s8 *)temp_r31 + 0xD4) = 0U;
     }
 }
@@ -88,7 +86,7 @@ void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1) {
         *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, *(s32 *)((s8 *)(&TBoss6GravBall__emitter_id_table.value) + temp_r5)));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
         if (temp_r3 != NULL) {
-            set_flags__11TBoss4Type2FUl(temp_r3, 0x2040);
+            ((TBoss4Type2 *)temp_r3)->set_flags(0x2040);
         }
     }
 }
@@ -108,7 +106,7 @@ void TBoss6GravBall::create_emitter(s32 arg1) {
         *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, *(s32 *)((s8 *)(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&TBoss6GravBall__emitter_id_table).value) + temp_r5)));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
         if (temp_r3 != NULL) {
-            set_flags__11TBoss4Type2FUl(temp_r3, 0x40);
+            ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
         }
     }
 }

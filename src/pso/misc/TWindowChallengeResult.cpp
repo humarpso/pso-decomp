@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 extern "C" {
 
@@ -42,8 +43,6 @@ void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1);
 void init_subwindow__22TWindowChallengeResultFPv(void* p);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
-int initialize_subwindow__9TWindowDDFv(void*);
 
 extern "C" void fn_80246CE8();
 extern "C" u8 lbl_8044E790[];
@@ -77,12 +76,12 @@ void *lbl_804CE2B8[6] = {
 };
 #define lbl_804CE2B8 ((s32 *)lbl_804CE2B8)
 
-void init_subwindow__22TWindowChallengeResultFPv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_window_entry_list(p, (char*)p + 0x24); }
+void init_subwindow__22TWindowChallengeResultFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); update_window_entry_list(p, (char*)p + 0x24); }
 
 void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE2B8;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -3,6 +3,13 @@
 TWindowEffectLight::~TWindowEffectLight() {}
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Quad_802AD1CC { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
@@ -18,29 +25,17 @@ extern const f32 lbl_805DE0E0;
 extern const f32 TWindowEffectLight__data_805DE0E4;
 extern const f32 lbl_805DE0E8;
 s32 is_split_screen(void);
-u16 get_nth_view_player_id__11TCameraCtrlFl(s32);
 void TCameraCtrl__sub_80068EF0(void);
-void restore_full_screen_view__11TCameraCtrlFv(void);
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
-s32 get_camera_no__11TCameraCtrlFv(void);
-void begin_effect_render__13TParticleCtrlFv(void);
-void end_effect_render__13TParticleCtrlFv(void);
 s32 is_window_display_enabled(void);
 void TWindowEffectLight__sub_802AD040(void *, f32);
-s32 set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv(void);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DE0F4;
 extern const f32 lbl_805DE128;
 extern const f32 lbl_805DE12C;
 extern const f32 lbl_805DE130;
 void render__18TWindowEffectLightFv(u8 *arg0);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
-s32 get_split_screen_view_index__11TCameraCtrlFUs(u16);
 s32 __ct__7TObjectFP7TObject(void *, int);
-s32 adjust_pos_for_split_screen__19TWindowKeyBoardSoftFl(void *, s32);
 extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
@@ -86,8 +81,8 @@ u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3) {
     __ct__7TObjectFP7TObject(self, tl_window);
     *(void **)((s8 *)self + 0x18) = __vt__18TWindowEffectLight;
     *(s32 *)((s8 *)self + 0) = lbl_805D3E60;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(self + 0x1C, arg1);
-    adjust_pos_for_split_screen__19TWindowKeyBoardSoftFl(self + 0x1C, get_split_screen_view_index__11TCameraCtrlFUs(arg3));
+    ((TWindowSubSymbolChatPartsSet *)(self + 0x1C))->copy_vec2(arg1);
+    ((TWindowKeyBoardSoft *)(self + 0x1C))->adjust_pos_for_split_screen(TCameraCtrl::get_split_screen_view_index(arg3));
     *(s16 *)((s8 *)self + 0x24) = arg2;
     *(s16 *)((s8 *)self + 0x26) = -1;
     *(u32 *)((s8 *)self + 0x28) = arg3;
@@ -120,13 +115,13 @@ u32 TWindowEffectLight::calc_alpha() {
 void render__18TWindowEffectLightFv(u8 *arg0) {
   s16 temp_r0;
   temp_r0 = 0x28;
-  if ((is_window_display_enabled() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) arg0) + temp_r0)))) == ((s32) get_nth_view_player_id__11TCameraCtrlFl(get_camera_no__11TCameraCtrlFv())))))
+  if ((is_window_display_enabled() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) arg0) + temp_r0)))) == ((s32) TCameraCtrl::get_nth_view_player_id(TCameraCtrl::get_camera_no())))))
   {
-    begin_effect_render__13TParticleCtrlFv();
-    restore_full_screen_view__11TCameraCtrlFv();
-    init_xyz_limits__10TObjPlayerFv();
+    TParticleCtrl::begin_effect_render();
+    TCameraCtrl::restore_full_screen_view();
+    TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     temp_r0 = *((s16 *) (((s8 *) arg0) + 0x24));
     {
       switch (temp_r0)
@@ -154,10 +149,10 @@ void render__18TWindowEffectLightFv(u8 *arg0) {
           break;
       }
     }
-    get_player__20TWindowSubStatusDispFv();
-    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp::get_player();
+    TObjPlayer::reset_transform_state();
     TCameraCtrl__sub_80068EF0();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
   }
 }
 

@@ -1,12 +1,12 @@
 #include "types.h"
+#include "pso/misc/TShopJudgmentItemWindow.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 extern "C" {
 u32 get_usable_action_flags__5TItemFPvUiUi(void *, s32, s32);
 void *find_item_by_id(u32);
 u8 *get_player_by_client_id(s16);
-u32 run_and_get_result__10TObjPlayerFi(void *, u32 *);
 void calc_list_content_extent(void *);
-void add_list_entry__20TWindowSubStatusDispFl(void *, s32);
-void add_list_entry__23TShopJudgmentItemWindowFll(void *, void *, u32);
 void fn_802789E0(u8 *arg0);
 }
 
@@ -20,15 +20,15 @@ void fn_802789E0(u8 *arg0) {
     u32 i;
     pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != NULL) {
-        n = run_and_get_result__10TObjPlayerFi(*(void **)(pl + 0xD00), ids);
+        n = ((TObjPlayer *)(*(void **)(pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {
             item = find_item_by_id(ids[i]);
             if (item != NULL && get_usable_action_flags__5TItemFPvUiUi(item, 2, 0) != 0 && get_usable_action_flags__5TItemFPvUiUi(item, 1, 0) == 0) {
-                add_list_entry__23TShopJudgmentItemWindowFll(arg0, item, ids[i]);
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, (s32)(ids[i]));
             }
         }
         if (*(s16 *)(arg0 + 0x72) <= 0) {
-            add_list_entry__20TWindowSubStatusDispFl(arg0, -1);
+            ((TWindowSubStatusDisp *)arg0)->add_list_entry(-1);
         }
         calc_list_content_extent(arg0);
     }

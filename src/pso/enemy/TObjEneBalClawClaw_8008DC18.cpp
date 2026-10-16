@@ -2,6 +2,8 @@
 
 #include <stddef.h>
 #include "pso/enemy/TObjEneBalClawClaw.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/misc/TLobby.h"
 struct Stack_8008DC18 {
     s32 sp8;
     s32 spC;
@@ -20,7 +22,6 @@ struct RecoveredGlobal_8008DC18_lbl_8048EEE0 {
 };
 
 extern "C" {
-s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern RecoveredGlobal_8008DC18_lbl_80439B5C lbl_80439B5C;
 extern RecoveredGlobal_8008DC18_lbl_8048EEE0 lbl_8048EEE0;
 extern u8 *lbl_805D4F20;
@@ -30,7 +31,6 @@ extern const f32 lbl_805D9618;
 extern "C" {
 
 void TObjEneBalClawClaw__sub_8008DC90(void);
-s32 update_if_active__15TObjEneMe1GiGueFl(s32, s32);
 f32 xz_distance_squared(s32, s32);
 
 typedef char RecoveredGlobal_8008DC18_lbl_80439B5C_size[sizeof(RecoveredGlobal_8008DC18_lbl_80439B5C) == 0x14 ? 1 : -1];
@@ -48,7 +48,7 @@ void TObjEneBalClawClaw::spawn_child_enemy() {
     stack.sp14 = *(s32 *)((s8 *)(&lbl_80439B5C.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)lbl_805D4F20 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D4F20 + 0x42C));
-    spawn_npc_enemy__6TLobbyFslllff((int) (0x13), (int) (*(s32 *)((s8 *)temp_r5 + 0x18)), (int) (*(s32 *)((s8 *)temp_r5 + 0x1C)), (void *) (&stack.sp8), (f32) (*(f32 *)((s8 *)(&lbl_8048EEE0.value) + 0xC)), (f32) (lbl_805D9618));
+    TLobby::spawn_npc_enemy((s16)((int) (0x13)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x18))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x1C))), (s32)((void *) (&stack.sp8)), (f32)((f32) (*(f32 *)((s8 *)(&lbl_8048EEE0.value) + 0xC))), (f32)((f32) (lbl_805D9618)));
 }
 
 void TObjEneBalClawClaw__sub_8008DC90(void) {  }
@@ -58,10 +58,10 @@ extern f32 lbl_805D961C;
 void TObjEneBalClawClaw::check_claw_distance() {
     s32 arg0 = (s32)this;
     if (xz_distance_squared(arg0 + 0x38, arg0 + 0x50) > lbl_805D961C) {
-        update_if_active__15TObjEneMe1GiGueFl(arg0, 8);
+        ((TObjEneMe1GiGue *)arg0)->update_if_active(8);
         return;
     }
-    update_if_active__15TObjEneMe1GiGueFl(arg0, 0);
+    ((TObjEneMe1GiGue *)arg0)->update_if_active(0);
 }
 
 }

@@ -1,6 +1,10 @@
 #include "pso/system/TGStream.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TLobby.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Entry_800FD944 { u8 pad[0x24]; s32 size; };
 
@@ -20,20 +24,14 @@ void load_area_gsl();
 GslArchiveEntry * find_gsl_entry(void *);
 s32 get_file_size__6TLobbyFv(void *);
 s32 is_split_screen();
-s32 check_v2_mode__9TObjEneDDFv();
 void open_gsl_archive(char *);
-s32 get_global_state__14TOKeyMachine01Fv();
-void safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
-s32 alloc__22TQuestVmDownLoadServerFv(s32);
 void prs_decompress_buffer(s32, s32);
 int get_gstream_file_size();
 TGStreamPrefix * destroy_gstream(TGStreamPrefix *, s16);
 TGStreamPrefix * open__8TGStreamFPvPvi(TGStreamPrefix *, void *, s32);
 void debug_print__6TLobbyFle(const char *, ...);
-s32 move_data__6TLobbyFPCvUl(void *, s32 *, s32);
 s32 reset_read_state__6TLobbyFv();
 s32 set_read_params__6TLobbyFiii(void *, s32, s32);
-s32 run_frame__6TLobbyFv();
 s32 TLobby__sub_803CC4C0(s32);
 s32 read_checked_align__6TLobbyFlll(s32);
 void reset_gstream_buffer();
@@ -50,13 +48,10 @@ void align_gstream_read_offset(void *, s32);
 s32 get_gstream_buffered_bytes();
 s32 refill_gstream_buffer(s32);
 s32 __dl__FPv(void *);
-s32 tmp_buf_release__6TLobbyFv(s32 *);
 void TItemDrop__sub_800FE2D8();
 void reset_gstream_globals();
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPCc(s32 *);
 s32 TLobby__sub_803CC578(s32, s32, s32);
-s32 pump_frames__6TLobbyFv();
 extern char lbl_8043DB04[];
 extern char lbl_8043DB14[];
 extern char lbl_8043DB28[];
@@ -146,9 +141,9 @@ s32 TLobby::get_resource_file_size() {
 }
 
 void load_area_gsl(void) {
-    s32 n = get_global_state__14TOKeyMachine01Fv();
+    s32 n = TOKeyMachine01::get_global_state();
     if (n < 23) {
-        if (check_v2_mode__9TObjEneDDFv() != 0) {
+        if (TObjEneDD::check_v2_mode() != 0) {
             open_gsl_archive(lbl_8049CAE4[n]);
         } else {
             open_gsl_archive(area_gsl_filename_table[n]);
@@ -175,7 +170,7 @@ s32 TGStream::load_file(s32 arg0) {
         return 0;
     }
     temp_r31 = (s32) (temp_r3_2 + 0x7FF) / 2048;
-    temp_r3 = alloc__22TQuestVmDownLoadServerFv(temp_r31 << 0xB);
+    temp_r3 = ((TQuestVmDownLoadServer *)(temp_r31 << 0xB))->alloc();
     if (temp_r3 == 0) {
         ((s32 (*)(s32 *, s32))destroy_gstream)(sp8, -1);
         return 0;
@@ -203,7 +198,7 @@ s32 TGStream::read_whole_file(s32 arg0, u8 *arg1) {
     rem = size % 2048;
     if (rem > 0) {
         ((TGStream *)((s32 *)&s))->read_sectors_sync(1, (s32)gstream_sector_buffer);
-        move_data__6TLobbyFPCvUl(arg1 + n * 2048, (s32 *)gstream_sector_buffer, rem);
+        ((TLobby *)(arg1 + n * 2048))->move_data((const void *)gstream_sector_buffer, (u32)rem);
     }
     ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)&s, -1);
     return size;
@@ -222,13 +217,13 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
     }
     sectors = (size + 0x7FF) / 2048;
     if (st.info != NULL && st.info->size != 0) {
-        buf = alloc__22TQuestVmDownLoadServerFv(((st.info->size + 0x7FF) / 2048) << 11);
+        buf = ((TQuestVmDownLoadServer *)(((st.info->size + 0x7FF) / 2048) << 11))->alloc();
         if (buf == 0) {
             debug_print__6TLobbyFle(lbl_8043DE90);
         }
         ((TGStream *)((s32 *)&st))->read_sectors_sync((s32)(sectors), (s32)(buf));
         prs_decompress_buffer(buf, dst);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
+        TAdSinglePlyChrSelectGC::safe_free(buf);
         size = st.info->size;
         ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), (s32)(-1));
         return size;
@@ -244,7 +239,7 @@ void TGStream::read_sectors_sync(s32 arg1, s32 arg2) {
     set_read_params__6TLobbyFiii(&arg0->adxf_handle, arg1, arg2);
 loop_1:
     if (TLobby__sub_803CC4C0(arg0->adxf_handle) != 3) {
-        run_frame__6TLobbyFv();
+        TLobby::run_frame();
         goto loop_1;
     }
     reset_read_state__6TLobbyFv();
@@ -308,7 +303,7 @@ void open_gsl_archive(char *name) {
                 if (((s32 (*)(u32))TLobby__sub_803CC4C0)(TItemDrop__gsl_adxf_handle) == 3) {
                     break;
                 }
-                run_frame__6TLobbyFv();
+                TLobby::run_frame();
             }
             reset_read_state__6TLobbyFv();
             TItemDrop__gsl_entry_count = 0;
@@ -335,7 +330,7 @@ void TLobby::read_data_sync(s32 arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(s32 *, s32, s32))set_read_params__6TLobbyFiii)(&sp8, arg1, arg2);
 loop_1:
     if (TLobby__sub_803CC4C0(sp8) != 3) {
-        run_frame__6TLobbyFv();
+        TLobby::run_frame();
         goto loop_1;
     }
     reset_read_state__6TLobbyFv();
@@ -360,7 +355,7 @@ s32 TGStream::read_data(s32 dst, s32 size) {
         } else {
             n = get_gstream_buffered_bytes();
         }
-        ((s32 (*)(s32, s32, s32))move_data__6TLobbyFPCvUl)(dst, gstream_tmp_buffer + gstream_buffer_read_offset, n);
+        ((TLobby *)dst)->move_data((const void *)(gstream_tmp_buffer + gstream_buffer_read_offset), (u32)n);
         dst += n;
         size -= n;
         total += n;
@@ -405,7 +400,7 @@ TGStreamPrefix *destroy_gstream(TGStreamPrefix *arg0, s16 arg1) {
             ((s32 (*)(s32))close_adxf_handle__6TLobbyFPv)(arg0->adxf_handle);
         }
         if ((s32) arg0->direct_read_mode == 0) {
-            tmp_buf_release__6TLobbyFv(lbl_8043DAF8);
+            ((TLobby *)lbl_8043DAF8)->tmp_buf_release();
         }
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -440,9 +435,9 @@ TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *arg0, void *arg1, s32 arg2
     arg0->direct_read_mode = arg2;
     if ((s32) arg0->direct_read_mode == 0) {
         while (TLobby__sub_8001EEF4() == 0) {
-            pump_frames__6TLobbyFv();
+            TLobby::pump_frames();
         }
-        gstream_tmp_buffer = tmp_buf_use_req__6TLobbyFPCc(lbl_8043DAF8);
+        gstream_tmp_buffer = TLobby::tmp_buf_use_req((const char *)lbl_8043DAF8);
     }
     return arg0;
 }

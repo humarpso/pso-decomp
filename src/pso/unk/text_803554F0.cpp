@@ -1,6 +1,6 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 extern "C" {
-f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DFFA8;
 void fn_803554F0(u8 *arg0, u8 *arg1);
@@ -24,7 +24,7 @@ void fn_803554F0(u8 *arg0, u8 *arg1) {
     {
       *((f32 *) (((s8 *) arg1) + 0)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x28))));
       *((f32 *) (((s8 *) arg1) + 8)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x30))));
-      update_scale__15TObjBoss2TunnelFv(arg1);
+      ((TObjBoss2Tunnel *)arg1)->update_scale();
     }
   }
 }

@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/npc/TObjNpcFemaleTall.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcFemaleBase.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8014A8F0_lbl_804A9120 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8014A8F0_lbl_804A9120_size[sizeof(RecoveredGlobal_8014A8F0_lbl_804A9120) == 0x10 ? 1 : -1];
@@ -96,12 +100,8 @@ struct RecoveredGlobal_8014A7C0___vt__16TObjNpcFemaleOld {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8014A8F0_lbl_804A9120 bm_n_etw_i_body_resource_descriptor;
 extern u32 TObjNpcFemaleTall__instance;
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
-s32 construct_female_base__17TObjNpcFemaleBaseFv(void *);
 extern s32 __vt__16TObjNpcFemaleOld[];
 extern s32 TObjNpcFemaleOld__name;
 extern u8 *TObjNpcFemaleOld__static_instance;
@@ -117,14 +117,13 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcFemaleTall__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFs(void *, int);
 
 extern s32 __vt__16TObjNpcFemaleOld[];
 
 void *__dt__16TObjNpcFemaleOldFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjNpcFemaleOld;
-        destroy_npc_female_base__17TObjNpcFemaleBaseFs(arg0, 0);
+        ((TObjNpcFemaleBase *)arg0)->destroy_npc_female_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -136,14 +135,14 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_8014A7C0___vt__16TObjNpcFemaleOld_size[sizeof(RecoveredGlobal_8014A7C0___vt__16TObjNpcFemaleOld) == 0x178 ? 1 : -1];
 u8 *TObjNpcFemaleOld__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_female_base__17TObjNpcFemaleBaseFv((void *) (arg0));
+    ((TObjNpcFemaleBase *)arg0)->construct_female_base();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014A7C0___vt__16TObjNpcFemaleOld *)&__vt__16TObjNpcFemaleOld).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcFemaleOld__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleOld__static_instance + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjNpcFemaleOld__static_instance + 0x42C)) + 0xC);
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 
@@ -172,7 +171,7 @@ void TObjNpcFemaleTall::destroy_instance() {
 void TObjNpcFemaleTall::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_etw_i_body_resource_descriptor.value, 0, 0, 0));

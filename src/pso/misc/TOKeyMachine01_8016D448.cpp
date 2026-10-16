@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TOKeyMachine01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -47,9 +52,7 @@ struct VBase_8016D540 { char pad[0x18]; };
 struct VObj_8016D540 : VBase_8016D540 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
 
 extern "C" {
-s32 send_switch_changed__14TOKeyMachine01Fl(void *, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 int mem_alloc(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016D714_lbl_80441E24 lbl_80441E24;
@@ -59,7 +62,6 @@ extern s32 *TOKeyMachine01__texture_lists;
 s32 get_main_phase(void);
 s32 is_split_screen(void);
 u8 * TOKey__ct(void *);
-s32 init_switch_id__5TOKeyFv(void *);
 extern s32 __vt__14TOKeyMachine01[];
 extern s32 TOKeyMachine01__name;
 extern u32 key_machine_model_archive;
@@ -69,13 +71,10 @@ extern const f32 lbl_805DB788;
 extern const f32 lbl_805DB794;
 extern const f32 lbl_805DB798;
 u8 *TOKeyMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -92,7 +91,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
-s32 free_if_valid__10TObjPlayerFl(s32);
 
 extern void *tl_05;
 
@@ -102,14 +100,14 @@ void TOKeyMachine01::run_task() {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
-            send_switch_changed__14TOKeyMachine01Fl((void *) (arg0), (int) (1));
+            ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (1));
             ((VObj_18 *)(arg0))->m16();
             *(s32 *)((s8 *)arg0 + 0xD4) = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
-            send_switch_changed__14TOKeyMachine01Fl((void *) (arg0), (int) (0));
+            ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (0));
             ((VObj_18 *)(arg0))->m17();
             *(s32 *)((s8 *)arg0 + 0xD4) = 0;
         }
@@ -123,7 +121,7 @@ void TOKeyMachine01::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if (((VObj_8016D540 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
-        set_global_param__8TObjFishFl(TOKeyMachine01__texture_lists[*(s32 *)((s8 *)arg0 + 0xD4)]);
+        TObjFish::set_global_param(TOKeyMachine01__texture_lists[*(s32 *)((s8 *)arg0 + 0xD4)]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -136,7 +134,7 @@ void TOKeyMachine01::render() {
             model_render_flags = temp_r4 | 0x10;
             set_chunk_material_color((void *) (arg0 + 0xE8));
         }
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x68));
@@ -148,7 +146,7 @@ void TOKeyMachine01::render() {
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
@@ -170,7 +168,7 @@ extern s32 *TOKeyMachine01__texture_lists;
 
 void TOKeyMachine01::free_statics() {
     if ((s32 *) TOKeyMachine01__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFl(*TOKeyMachine01__texture_lists);
+        TObjPlayer::free_if_valid(*TOKeyMachine01__texture_lists);
         *TOKeyMachine01__texture_lists = 0;
         if ((s32 *) TOKeyMachine01__texture_lists != NULL) {
             mem_free((void*)TOKeyMachine01__texture_lists);
@@ -188,7 +186,7 @@ extern s32 __vt__14TOKeyMachine01[];
 void TOKeyMachine01::load_assets() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_ki_doa_panel_resource_descriptor.value, 0, 0, 0));
@@ -214,7 +212,7 @@ u8 *TOKeyMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 *)&__vt__14TOKeyMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyMachine01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    init_switch_id__5TOKeyFv((void *) (arg0));
+    ((TOKey *)arg0)->init_switch_id();
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TOKeyMachine01__texture_lists;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&key_machine_model_archive) + 0x42C)) + 8);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB794;

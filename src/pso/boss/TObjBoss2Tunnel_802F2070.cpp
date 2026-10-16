@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
 struct RecoveredGlobal_802F2400_lbl_804E4A1C {
     s32 value;
     u8 remaining[0x24];
@@ -34,7 +35,6 @@ extern u32 boss2_tunnel_state_flags;
 s32 TObjBoss2Tunnel__sub_802F22F4(void);
 void TObjBoss2Tunnel__sub_802F23FC(void);
 s32 queue_destruction__7TObjectFv(int);
-s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
 extern RecoveredGlobal_802F2400_lbl_804E4A1C boss2_tunnel_spawn_timer_table_b;
 extern u32 boss2_tunnel_state_flags;
 extern const f32 lbl_805DEC68;
@@ -76,7 +76,6 @@ extern const f32 lbl_805DED04;
 extern const f32 lbl_805DED08;
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void dt__15TObjBoss2TunnelFls(void *, int);
 s32 queue_destruction__7TObjectFv(int);
 extern s32 lbl_804E4B3C[];
 void TObjBoss2Tunnel__sub_802F2C4C(void);
@@ -237,18 +236,18 @@ void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
             return;
         }
         if (temp_f1 < lbl_805DECBC) {
-            approach_value__20TItemEffOrgaFlowShotFPfff((void *) ((u8 *)(arg0) + 0x5C), (f32) (lbl_805DECC0), (f32) (lbl_805DECC4 * lbl_805DEC68));
-            approach_value__20TItemEffOrgaFlowShotFPfff((void *) ((u8 *)(arg0) + 0x54), (f32) (lbl_805DECC8), (f32) (lbl_805DECB8));
+            TItemEffOrgaFlowShot::approach_value((f32 *)((u8 *)(arg0) + 0x5C), (f32)((f32) (lbl_805DECC0)), (f32)((f32) (lbl_805DECC4 * lbl_805DEC68)));
+            TItemEffOrgaFlowShot::approach_value((f32 *)((u8 *)(arg0) + 0x54), (f32)((f32) (lbl_805DECC8)), (f32)((f32) (lbl_805DECB8)));
             return;
         }
         if (temp_f1 < lbl_805DECCC) {
-            approach_value__20TItemEffOrgaFlowShotFPfff((void *) ((u8 *)(arg0) + 0x5C), (f32) (lbl_805DECD0), (f32) (lbl_805DECD4 * lbl_805DEC68));
-            approach_value__20TItemEffOrgaFlowShotFPfff((void *) ((u8 *)(arg0) + 0x54), (f32) (lbl_805DECC8), (f32) (lbl_805DECD8));
+            TItemEffOrgaFlowShot::approach_value((f32 *)((u8 *)(arg0) + 0x5C), (f32)((f32) (lbl_805DECD0)), (f32)((f32) (lbl_805DECD4 * lbl_805DEC68)));
+            TItemEffOrgaFlowShot::approach_value((f32 *)((u8 *)(arg0) + 0x54), (f32)((f32) (lbl_805DECC8)), (f32)((f32) (lbl_805DECD8)));
             return;
         }
         if (temp_f1 < lbl_805DECA8) {
-            approach_value__20TItemEffOrgaFlowShotFPfff((void *) ((u8 *)(arg0) + 0x5C), (f32) (lbl_805DECDC), (f32) (lbl_805DECE0 * lbl_805DEC68));
-            approach_value__20TItemEffOrgaFlowShotFPfff((void *) ((u8 *)(arg0) + 0x54), (f32) (lbl_805DECC8), (f32) (lbl_805DECE4));
+            TItemEffOrgaFlowShot::approach_value((f32 *)((u8 *)(arg0) + 0x5C), (f32)((f32) (lbl_805DECDC)), (f32)((f32) (lbl_805DECE0 * lbl_805DEC68)));
+            TItemEffOrgaFlowShot::approach_value((f32 *)((u8 *)(arg0) + 0x54), (f32)((f32) (lbl_805DECC8)), (f32)((f32) (lbl_805DECE4)));
         }
     }
 }
@@ -370,7 +369,7 @@ void *TObjBoss2Tunnel::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E4B3C;
         if (*(void **)((s8 *)this + 0x88) != NULL) { queue_destruction__7TObjectFv((int)(*(void **)((s8 *)this + 0x88))); }
-        dt__15TObjBoss2TunnelFls((s8 *)this + 0x20, -1);
+        TObjBoss2Tunnel::dt((s32)((s8 *)this + 0x20), (s16)(-1));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

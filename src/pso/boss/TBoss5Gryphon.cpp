@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
@@ -10,22 +12,20 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);
 s32 TBoss8Dragon__sub_80066A4C();
-s32 free_char_select_singleton__6TLobbyFv();
 s32 TBoss8Dragon__sub_80355A1C();
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u32 boss5_gryphon_body_bml_resource;
 extern u32 boss5_gryphon_bml_resource;
 extern u32 boss5_gryphon_texture_list;
 
 void cleanup__13TBoss5GryphonFv(void) {
-    free_char_select_singleton__6TLobbyFv();
+    TLobby::free_char_select_singleton();
     TBoss5GryphonSnarl__sub_80066E84();
     TBoss8Dragon__sub_80355A1C();
     TBoss8Dragon__sub_80066A4C();
     if ((u32) boss5_gryphon_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)boss5_gryphon_texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(boss5_gryphon_texture_list);
+        TAdSinglePlyChrSelectGC::safe_free(boss5_gryphon_texture_list);
         boss5_gryphon_texture_list = 0U;
     }
     if ((u32) boss5_gryphon_bml_resource != 0U) {

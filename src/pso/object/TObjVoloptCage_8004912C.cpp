@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjVoloptCage.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 
@@ -25,7 +26,6 @@ s32 pop_matrix();
 s32 alloc__23TAdSinglePlyChrSelectGCFv(s32, void *);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
-s32 set_global_param__8TObjFishFl(s32);
 
 extern void *boss3_volopt_resources;
 extern s32 lbl_805D4D18;
@@ -57,7 +57,7 @@ extern const f32 lbl_805D8880;
 void TObjVoloptCage::render() {
     u8 *arg0 = (u8 *)this;
     if (((TObjVoloptCageVObj_8004912C *)arg0)->m8(lbl_805D887C, lbl_805D8880) != 0) {
-        set_global_param__8TObjFishFl(TObjVoloptCage__texture_list);
+        TObjFish::set_global_param(TObjVoloptCage__texture_list);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);

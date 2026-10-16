@@ -8,6 +8,7 @@ public:
     virtual void render();
 };
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct H_80294324 { u8 pad0[0x34]; f32 f34; f32 f38; f32 f3c; f32 f40; u8 pad44[4]; f32 f48; f32 f4c; };
 
@@ -108,7 +109,6 @@ struct Hex_80294578 {
 
 void __ct__7TObjectFP7TObject(void *, void *);
 int rand(void);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 extern void *__vt__13TObjCMHexTile[];
 extern const char *lbl_805D3CC8;
 extern const f32 lbl_805DDA0C;
@@ -138,7 +138,7 @@ Hex_80294578 *__ct__13TObjCMHexTileFv(Hex_80294578 *self, void *parent, void *po
     self->f44 = lbl_805DDA2C * (lbl_805DDA1C * (f32)rand()) + lbl_805DDA28;
     self->f2C = lbl_805DDA30 * (lbl_805DDA1C * (f32)rand()) - lbl_805DDA34;
     self->f30 = lbl_805DDA30 * (lbl_805DDA1C * (f32)rand()) - lbl_805DDA34;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(self->pos, pos);
+    ((TWindowSubSymbolChatPartsSet *)(self->pos))->copy_vec2(pos);
     self->f4C = lbl_805DDA10;
     self->f48 = lbl_805DDA0C;
     self->f50 = 0;

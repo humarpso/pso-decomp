@@ -34,6 +34,11 @@ struct RecoveredGlobal_800D7F60_lbl_804949F4 {
 };
 
 #include <stddef.h>
+#include "pso/TMainTask.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_800D7CF4 {
     f32 sp8;
     f32 spC;
@@ -78,8 +83,6 @@ struct Mark_800D8314 {
 };
 
 extern "C" {
-s32 calc_random_scaled__10TObjPlayerFv();
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
@@ -89,9 +92,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804949F4[];
 u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
-s32 calc_random_scaled__10TObjPlayerFv();
-s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, void *);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
@@ -114,7 +114,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 f32 lerp__9TDeadSpotFff(f32, f32);
-s32 calc_random_scaled__10TObjPlayerFv();
 Ground_800D8314 *csnVecterUnder(void *, s32);
 s32 direction_to_rotation_yx(void *, s32 *, s32 *);
 s32 rand();
@@ -153,14 +152,10 @@ s32 set_texture_num(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dt__9TDeadSpotFv(void *, int);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 s32 setup_alpha_test_render_state(s32);
 s32 restore_saved_depth_alpha_state();
 s32 draw_particle_strip(void *, s32, s32);
-s32 get_state_flag__9TMainTaskFv();
 s32 queue_destruction__7TObjectFv(void *);
-s32 reset_transform_state__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 lbl_804949D8[];
 
@@ -173,14 +168,14 @@ void place_particle_on_ground__9TDeadSpotFPv(u8 *arg0) {
     Stack_800D7CF4 stack;
     f32 temp_f1;
     s32 temp_r3;
-    temp_r3 = calc_random_scaled__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::calc_random_scaled();
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x28) * sin_table_lookup((int) (temp_r3));
     stack.spC = lbl_805DA380;
     stack.sp8 = temp_f1;
     stack.sp10 = *(f32 *)((s8 *)arg0 + 0x28) * cos_table_lookup((int) (temp_r3));
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
-    adjust_to_ground__15TObjBoss2TunnelFlPv((void *) (&stack.sp8), (void *) (&stack.sp8));
-    copy_pos__11TNowLoadingFPv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (&stack.sp8));
+    TObjBoss2Tunnel::adjust_to_ground((s32)((void *) (&stack.sp8)), (void *)(&stack.sp8));
+    ((TNowLoading *)(*(s32 *)((s8 *)arg0 + 0x34)))->copy_pos((void *) (&stack.sp8));
 }
 #pragma pop
 
@@ -206,7 +201,7 @@ void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4) {
 
 void update_lifetime__9TDeadSpotFPv(void *arg0) {
     u32 tmp34 = *(u32 *)((s8 *)arg0 + 0x34);
-    if ((tmp34 == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv(tmp34) == 0)) {
+    if ((tmp34 == 0U) || (((TObject *)tmp34)->all_parents_unqueued_for_destruction() == 0)) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -224,13 +219,13 @@ void TDeadSpot__sub_800D7E94(u8 *arg0) {
   Stack_800D7E94 stack;
   f32 temp_f1;
   s32 temp_r3;
-  temp_r3 = calc_random_scaled__10TObjPlayerFv();
+  temp_r3 = TObjPlayer::calc_random_scaled();
   temp_f1 = (*((f32 *) (((s8 *) arg0) + 0x28))) * sin_table_lookup((int) (temp_r3 & 0xFFFFFFFFu));
   stack.spC = lbl_805DA380;
   stack.sp8 = temp_f1;
   stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x28))) * cos_table_lookup((int) temp_r3);
   vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
-  copy_pos__11TNowLoadingFPv((int) (*((s32 *) (((s8 *) arg0) + 0x34))), (void *) (&stack.sp8));
+  ((TNowLoading *)(*((s32 *) (((s8 *) arg0) + 0x34))))->copy_pos((void *) (&stack.sp8));
 }
 
 void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1) {
@@ -328,11 +323,11 @@ Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1
 #pragma pop
 
 void render__9TDeadSpotFv(u8 *arg0) {
-    if ((get_state_flag__9TMainTaskFv() != 1) && (*(f32 *)((s8 *)arg0 + 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, camera_ctrl_instance + 0x178) < lbl_805DA39C)) {
+    if ((TMainTask::get_state_flag() != 1) && (*(f32 *)((s8 *)arg0 + 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, camera_ctrl_instance + 0x178) < lbl_805DA39C)) {
         lbl_805D5660 = model_render_flags;
-        reset_transform_state__10TObjPlayerFv();
+        TObjPlayer::reset_transform_state();
         setup_alpha_test_render_state(0x8F);
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xB8));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xB8));
         set_texture_num(*(s32 *)((s8 *)arg0 + 0xBC));
         draw_particle_strip(arg0 + 0x1C, 4, 1);
         restore_saved_depth_alpha_state();
@@ -422,7 +417,7 @@ Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D831
     set_matrix_identity(0);
     rotate_matrix_y(0, yaw);
     rotate_matrix_z(0, pitch);
-    rotate_matrix_x(0, calc_random_scaled__10TObjPlayerFv());
+    rotate_matrix_x(0, TObjPlayer::calc_random_scaled());
     fn_803D8DE0(0, basis, basis, 2);
     pop_matrix();
     b0x = basis[0].x;

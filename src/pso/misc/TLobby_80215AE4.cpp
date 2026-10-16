@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
     int create_named_object(void*);
@@ -15,7 +16,6 @@ s32 adjust_appraisal_percentages(s32);
 s32 roll_item_grind_bonus__6TLobbyFPv(s32);
 s32 adjust_appraisal_special(s32);
 s32 is_slot_match__6TLobbyFv();
-void free_nodes_with_id__6TLobbyFUl(void*);
 
 extern u32 item_appraisal_rules;
 extern s32 item_appraisal_favored_weapon;
@@ -35,7 +35,7 @@ extern u32 item_appraisal_rules;
 
 void free_window__6TLobbyFv(void) {
     if ((u32) item_appraisal_rules != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)item_appraisal_rules);
+        TLobby::free_nodes_with_id((u32)((void*)item_appraisal_rules));
         item_appraisal_rules = 0U;
     }
 }

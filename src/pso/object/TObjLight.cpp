@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/object/TObjLight.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct VBase_18_8322b3 { char pad[0x18]; };
 
@@ -77,14 +81,10 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Actor_80193FE8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
-s32 get_instance__6TLobbyFv(void);
-s32 get_game_mode__6TLobbyFv(void);
-s32 get_enemy_count__9TObjEneDDFv(void);
 f32 xyz_distance_squared(void *, void *);
 void register_actor_light(s32, void *);
 f32 horizontal_distance_squared(void *, void *);
 Actor_80193FE8 *get_player_by_client_id(s32);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 f32 sin_table_lookup(s32);
 void matrix_mult_vec(void *, void *, void *);
 f32 vector_length(void *);
@@ -103,7 +103,6 @@ extern "C" {
 
 void *__dt__9TObjLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void mask_object_set_row_flags(void *, int);
 
 void TObjLight::render() {  }
@@ -155,16 +154,16 @@ void TObjLight::run_task() {
     }
     if (0.0f != vector_length(&self->dir)) {
         normalize_vector(&self->dir);
-        if ((u8)(get_instance__6TLobbyFv() == 0) == 1) {
+        if ((u8)(TLobby::get_instance() == 0) == 1) {
             self->dir.z = -1.0f * self->dir.z;
-        } else if (get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0xF ||
-                   get_global_state__14TOKeyMachine01Fv() == 0x12) {
+        } else if (TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0xF ||
+                   TOKeyMachine01::get_global_state() == 0x12) {
             self->dir.z = -1.0f * self->dir.z;
         }
     }
     if (0.0f != self->radius) {
         s32 i;
-        for (i = get_game_mode__6TLobbyFv(); i < get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv(); i++) {
+        for (i = TLobby::get_game_mode(); i < TLobby::get_game_mode() + TObjEneDD::get_enemy_count(); i++) {
             Actor_80193FE8 *a = get_player_data__10TObjPlayerFi(i);
             if (a != NULL && self->room == a->room) {
                 f32 d = horizontal_distance_squared(&a->pos, &self->pos);
@@ -204,7 +203,7 @@ void TObjLight::run_task() {
                     self->out_dir.x = t * (self->dir.x - self->base_dir.x) + self->base_dir.x;
                     self->out_dir.y = t * (self->dir.y - self->base_dir.y) + self->base_dir.y;
                     self->out_dir.z = t * (self->dir.z - self->base_dir.z) + self->base_dir.z;
-                    if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
+                    if (TOKeyMachine01::get_global_state() != 0xF) {
                         register_actor_light(obj_getField1c(a), self);
                     }
                 }
@@ -218,7 +217,7 @@ void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjLight;
         mask_object_set_row_flags(arg0, -3);
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

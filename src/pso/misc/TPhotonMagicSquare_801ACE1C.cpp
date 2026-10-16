@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TPhotonMagicSquare.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 struct Color_801ACE1C { f32 a, r, g, b; };
 
 struct Vec_801ACE1C { f32 x, y, z; };
@@ -27,18 +30,13 @@ struct Self_801ACE1C {
 
 extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_color(void *);
 s32 draw_model_motion(int, int, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern Color_801ACE1C chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -48,11 +46,11 @@ extern "C" {
 
 void TPhotonMagicSquare::render() {
     Self_801ACE1C *self = (Self_801ACE1C *)this;
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     post_translate_matrix(&self->vB8);
     rotate_matrix_y(0, self->f60);
-    set_global_param__8TObjFishFl(self->f24);
+    TObjFish::set_global_param(self->f24);
     scale_current_matrix(&self->v68);
     Color_801ACE1C saved = self->color;
     if ((self->fB0 % self->fCC) == 0) {
@@ -66,14 +64,14 @@ void TPhotonMagicSquare::render() {
         self->color.a = 1.0f;
     }
     set_chunk_material_color(&self->color);
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     draw_model_motion(self->f34, self->f90, self->f9C);
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     set_chunk_material_color(&chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
     copy_vec4__13TRaderMapCoreFPvPv(&self->color, &saved);
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 struct Self_801ACF24 {
@@ -183,12 +181,11 @@ extern "C" {
 
 void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&__vt__18TPhotonMagicSquare;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

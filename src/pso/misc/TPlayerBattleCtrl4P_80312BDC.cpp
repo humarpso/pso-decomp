@@ -3,7 +3,6 @@
 
 extern "C" {
 
-s32 construct__19TPlayerBattleCtrl4PFP7TObject(void *, void *);
 u32 __nw__7TObjectFUl(int);
 s32 strncpy(void *, void *, int);
 
@@ -14,7 +13,7 @@ void TPlayerBattleCtrl4P::init_instance_with_text(s32 arg0, s32 arg1) {
     if ((void *) TPlayerBattleCtrl4P__instance == NULL) {
         u32 mem = __nw__7TObjectFUl((int) (0x2A0));
         if (mem != 0U) {
-            construct__19TPlayerBattleCtrl4PFP7TObject((void *) mem, (void *) (tl_00));
+            ((TPlayerBattleCtrl4P *)mem)->construct((TObject*)tl_00);
         }
     }
     if ((void *) TPlayerBattleCtrl4P__instance != NULL) {

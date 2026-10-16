@@ -1,6 +1,17 @@
 #include "types.h"
 #include "pso/misc/TOTrapAncient02.h"
 #include "pso/misc/TOTrapAncient02R.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TOTrap.h"
+#include "pso/misc/TTecFoie.h"
+#include "pso/misc/TTecGiBarta.h"
+#include "pso/misc/TTecGiFoie.h"
+#include "pso/misc/TTecMegid.h"
+#include "pso/object/TObjFish.h"
+#include "pso/object/TObjSeabedSuisoBrakable.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_dbc69f { char pad[0x18]; };
 
@@ -159,9 +170,7 @@ extern "C" {
 u16 find_nearest_visible_player(void *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
-s32 get_field_3e4__10TObjPlayerFv(void *);
 f64 atan2_float(f32, f32);
-f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 spawn_particle_effect(void *, int);
 f32 horizontal_distance_squared(void *, void *);
 void set_indexed_flags(void *, s32, s32);
@@ -170,10 +179,6 @@ void submit_cursor_candidate(void *, s32);
 s32 get_player_by_client_id(u32);
 void play_sound_effect(s32, void *, s32, s32);
 void * __nw__7TObjectFUl(int);
-void create_ex__8TTecFoieFPvPvPvPv(void *, void *, void *, s32);
-void create_ex__11TTecGiBartaFPvPvPv(void *, void *, s32, s32);
-void create__10TTecGiFoieFPvPvPv(void *, void *, s32);
-void create__9TTecMegidFllll(void *, void *, void *, s32);
 void construct_bolt_effect__9TTecZondeFPvPvPvPviiff(void *, s32, void *, void *, s32, s32, f32, f32);
 void rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -426,7 +431,6 @@ struct Trap_8017B6D8 {
 };
 
 u16 find_nearest_visible_player(void *, int, f32);
-void calc_attach_pos__10TObjPlayerFv(void *);
 u16 obj_getField1c(void *);
 void obj_setFlags30(void *, u32);
 s32 is_split_screen();
@@ -437,20 +441,14 @@ void * load_resource_from_descriptor(void *, int, char *, int, int, int);
 void fn_8002AE64(void *);
 s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
-s32 disable_if_single_screen__13TParticleCtrlFv();
 s32 setup_particle_tev(int);
-s32 load_projection_tex_matrix__15TOTrapAncient02Fv(int);
 s32 spawn_particle_effect(void *, int);
-s32 init_position_vectors__10TObjPlayerFv(void *);
 void TObjPlayer__sub_800A7798(void *, f32);
-u8 * count_linked_switches__23TObjSeabedSuisoBrakableFl(void *, int);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(s32);
 f32 horizontal_distance_squared(void *, void *);
-void clear_player_status_flag__10TObjPlayerFlUl(void *, int, u32);
 s32 send_object_state_update(void *, void *);
 s32 unregister_object_by_id(s32 *);
-void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -475,9 +473,6 @@ s32 init_trap_object_id(void *);
 void submit_cursor_candidate(void *, s32);
 void send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
 u8 is_current_floor_switch_set(u16);
 void __dl__7TObjectFPv(void *);
@@ -489,7 +484,6 @@ s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 
 extern u32 TOTrapAncient02__shared_resource;
@@ -541,7 +535,6 @@ void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
 void apply_attack_stat_status__10TObjPlayerFv();
 void apply_confusion_status__10TObjPlayerFv();
-void apply_defense_stat_status__10TObjPlayerFlPv();
 void apply_movement_ailment__10TObjPlayerFv();
 void apply_object_set_data();
 void apply_paralysis__10TObjPlayerFv();
@@ -564,7 +557,6 @@ void fn_80010EC8();
 void get_actor_body_center();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
-void has_flag_0x800__10TObjPlayerFPv();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
 void play_sounds__6TOTrapFv();
@@ -576,10 +568,6 @@ void ret_8017B880();
 void ret_8017B888();
 void ret_8017B890();
 void ret_8017B898();
-void scale_by_table_value__6TOTrapFf();
-void test_flag30_512__10TObjPlayerFPv();
-void test_flag_1000__10TObjPlayerFPv();
-void test_flag_256__10TObjPlayerFPv();
 void trigger__6TOTrapFPsl();
 void trigger_switch_attack__10TObjPlayerFi();
 void update_action_hold_status__10TObjPlayerFv();
@@ -672,10 +660,10 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&TObjPlayer__sub_80011010,
     (s32)&TObjPlayer__sub_8000FF3C,
     (s32)&is_target_in_attack_range__10TObjPlayerFv,
-    (s32)&test_flag_256__10TObjPlayerFPv,
-    (s32)&test_flag30_512__10TObjPlayerFPv,
-    (s32)&has_flag_0x800__10TObjPlayerFPv,
-    (s32)&test_flag_1000__10TObjPlayerFPv,
+    (s32)&TObjPlayer::test_flag_256,
+    (s32)&TObjPlayer::test_flag30_512,
+    (s32)&TObjPlayer::has_flag_0x800,
+    (s32)&TObjPlayer::test_flag_1000,
     (s32)&update_poison_status__10TObjPlayerFv,
     (s32)&update_action_hold_status__10TObjPlayerFv,
     (s32)&update_action_timer__10TObjPlayerFPv,
@@ -693,7 +681,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&apply_shock_status__10TObjPlayerFv,
     (s32)&clear_harmful_statuses__10TObjPlayerFv,
     (s32)&apply_attack_stat_status__10TObjPlayerFv,
-    (s32)&apply_defense_stat_status__10TObjPlayerFlPv,
+    (s32)&TObjPlayer::apply_defense_stat_status,
     (s32)&cure_poison_ailment,
     (s32)&cure_paralysis__10TObjPlayerFv,
     (s32)&clear_all_status_effects,
@@ -728,7 +716,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&TOTrapAncient02__sub_8017ACA0,
     (s32)&play_sounds__6TOTrapFv,
     (s32)&TOTrapAncient02R__vt84,
-    (s32)&scale_by_table_value__6TOTrapFf,
+    (s32)&TOTrap::scale_by_table_value,
     (s32)&TOTrapAncient02R__vt86,
     (s32)&TOTrap__sub_80178BC0
 };
@@ -821,7 +809,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
         if (o->idx != 0xFFFF) {
             Obj_8017A3C0 *p = (Obj_8017A3C0 *)get_player_by_client_id(o->idx);
             o->target = p;
-            if (o->target != NULL && get_field_3e4__10TObjPlayerFv(p) == get_current_floor() &&
+            if (o->target != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor() &&
                 (o->target->f2E == o->f2E || o->target->f28 == o->f28 || o->target->f28 == o->f2E)) {
                 d = horizontal_distance_squared(&o->target->pos, &o->pos);
                 o->f338 = o->range + get_collision_body_radius(o->target, 0);
@@ -832,7 +820,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                     lbl_8050BEE0->y += o->f344 + o->f348;
                     VecCopy__FP3VecPC3Vec(lbl_8050BF00, &o->target->f2FC);
                     subtract_vector(lbl_8050BF00, lbl_8050BEE0);
-                    if (update_scale__15TObjBoss2TunnelFv(lbl_8050BF00) < lbl_805DBA8C) {
+                    if (((TObjBoss2Tunnel *)lbl_8050BF00)->update_scale() < lbl_805DBA8C) {
                         lbl_8050BF00->x = lbl_8050BF00->y = lbl_805DBA80;
                         lbl_8050BF00->z = lbl_805DBA78;
                         push_matrix_from(identity_matrix);
@@ -859,16 +847,16 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                         break;
                     }
                     case 0:
-                        create_ex__8TTecFoieFPvPvPvPv(o, lbl_8050BEE0, &o->target->f2FC, o->level);
+                        TTecFoie::create_ex((void *)o, (void *)lbl_8050BEE0, (void *)(&o->target->f2FC), (void *)(o->level));
                         break;
                     case 2:
-                        create_ex__11TTecGiBartaFPvPvPv(o, lbl_8050BEE0, ang, o->level);
+                        ((TTecGiBarta *)o)->create_ex((void *)lbl_8050BEE0, (void *)ang, (void *)(o->level));
                         break;
                     case 3:
-                        create__9TTecMegidFllll(o, lbl_8050BEE0, &o->target->f2FC, o->level);
+                        TTecMegid::create((s32)o, (s32)lbl_8050BEE0, (s32)(&o->target->f2FC), (s32)(o->level));
                         break;
                     case 4:
-                        create__10TTecGiFoieFPvPvPv(o, lbl_8050BEE0, o->level);
+                        TTecGiFoie::create((void *)o, (void *)lbl_8050BEE0, (void *)(o->level));
                         break;
                     }
                 } else {
@@ -912,8 +900,8 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
 #pragma push
 #pragma fp_contract on
 void TOTrapAncient02R__vt77(Obj_8017A8B0 *self) {
-    clear_player_status_flag__10TObjPlayerFlUl(self, 0, 1);
-    calc_attach_pos__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
+    ((TObjPlayer *)self)->calc_attach_pos();
     if (self->switchId == -1 || is_current_floor_switch_set(self->switchId) == 1) {
         self->idx = find_nearest_visible_player(self, 0, self->range);
         if (self->idx != 0xFFFF) {
@@ -994,8 +982,8 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOTrapAncient02R;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D31B8;
     ((VObj_8017AB30 *)arg0)->m5(arg2);
-    init_position_vectors__10TObjPlayerFv(arg0);
-    calc_attach_pos__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->init_position_vectors();
+    ((TObjPlayer *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 0xC);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
@@ -1040,7 +1028,7 @@ void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
     case 1:
     case 2:
     case 3:
-        switch (get_global_state__14TOKeyMachine01Fv()) {
+        switch (TOKeyMachine01::get_global_state()) {
         case 3:
         case 4:
         case 5:
@@ -1225,39 +1213,39 @@ void TOTrapAncient02::render_particle_chain() {
     temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + *(f32 *)((s8 *)arg0 + 0x344)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     setup_particle_tev((int) (0));
-    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-    load_projection_tex_matrix__15TOTrapAncient02Fv((int) (0x38E));
+    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
-    disable_if_single_screen__13TParticleCtrlFv();
+    TParticleCtrl::disable_if_single_screen();
     push_matrix();
     temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC) + *(f32 *)((s8 *)arg0 + 0x348)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
     setup_particle_tev((int) (0));
-    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-    load_projection_tex_matrix__15TOTrapAncient02Fv((int) (0x38E));
+    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
-    disable_if_single_screen__13TParticleCtrlFv();
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::disable_if_single_screen();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x2C));
     post_translate_matrix((void *) (temp_r31_3 + 8));
     setup_particle_tev((int) (1));
-    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-    load_projection_tex_matrix__15TOTrapAncient02Fv((int) (0x38E));
+    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
-    disable_if_single_screen__13TParticleCtrlFv();
+    TParticleCtrl::disable_if_single_screen();
     pop_matrix();
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
     post_translate_matrix((void *) (temp_r31_4 + 8));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34C)));
     setup_particle_tev((int) (0));
-    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-    load_projection_tex_matrix__15TOTrapAncient02Fv((int) (0x38E));
+    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_4 + 4)));
-    disable_if_single_screen__13TParticleCtrlFv();
+    TParticleCtrl::disable_if_single_screen();
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     pop_matrix();
     pop_matrix();
 }
@@ -1270,7 +1258,7 @@ void TOTrapAncient02::draw_effect_chain() {
     u8 *temp_r31_4;
 
     push_matrix();
-    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
@@ -1280,7 +1268,7 @@ void TOTrapAncient02::draw_effect_chain() {
     temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC) + *(f32 *)((s8 *)arg0 + 0x348)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x2C));
     post_translate_matrix((void *) (temp_r31_3 + 8));
@@ -1292,7 +1280,7 @@ void TOTrapAncient02::draw_effect_chain() {
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34C)));
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_4 + 4)));
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     pop_matrix();
     pop_matrix();
 }
@@ -1330,7 +1318,7 @@ void TOTrapAncient02::destroy_instance() {
 void TOTrapAncient02::load_resources() {
     char *base = (char *)&trap_ancient02_torabasami_resources;
     void *obj;
-    switch (((s32 (*)()) get_global_state__14TOKeyMachine01Fv)()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0x13:
     case 0x14:
         obj = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
@@ -1338,7 +1326,7 @@ void TOTrapAncient02::load_resources() {
             obj = load_resource_from_descriptor(obj, 1, base + 0x20, 0, 0, 0);
         }
         TOTrapAncient02__shared_resource = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFl(get_bml_model(obj, 0), 2) + 4);
+        lbl_805D5AE0 = *(u32 *)(((TObjSeabedSuisoBrakable *)(get_bml_model(obj, 0)))->count_linked_switches(2) + 4);
         lbl_805D5AE4 = 2;
         lbl_805D5ADC = 0;
         break;
@@ -1356,7 +1344,7 @@ void TOTrapAncient02::load_resources() {
             obj = load_resource_from_descriptor(obj, 1, base + 0x38, 0, 0, 0);
         }
         TOTrapAncient02__shared_resource = (u32) obj;
-        lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFl(get_bml_model(obj, 0), 2) + 4);
+        lbl_805D5AE0 = *(u32 *)(((TObjSeabedSuisoBrakable *)(get_bml_model(obj, 0)))->count_linked_switches(2) + 4);
         lbl_805D5AE4 = 1;
         lbl_805D5ADC = 0;
         break;
@@ -1393,8 +1381,8 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
     ((Trap_8017B6D8 *)arg0)->vt = (void *)__vt__15TOTrapAncient02;
     ((Trap_8017B6D8 *)arg0)->id = lbl_805D31B4;
     ((V_8017B6D8 *)((Trap_8017B6D8 *)arg0))->init(arg2);
-    ((void (*)(void *))init_position_vectors__10TObjPlayerFv)(((Trap_8017B6D8 *)arg0));
-    calc_attach_pos__10TObjPlayerFv(((Trap_8017B6D8 *)arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
+    ((TObjPlayer *)arg0)->calc_attach_pos();
     ((Trap_8017B6D8 *)arg0)->f34 = *(void **)(*(u8 **)(TOTrapAncient02__shared_resource + 0x42C) + 8);
     ((Trap_8017B6D8 *)arg0)->f24 = *(s32 *)(*(u8 **)(TOTrapAncient02__shared_resource + 0x42C) + 0xC);
     ((Trap_8017B6D8 *)arg0)->mode = 0;
@@ -1410,7 +1398,7 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
     init_collision_body_parts(((Trap_8017B6D8 *)arg0), (void *)&trap_ancient02_collision_body, 1);
     refresh_collision_body_centers(((Trap_8017B6D8 *)arg0));
     ((Trap_8017B6D8 *)arg0)->flags |= 0x60000000;
-    reset_photon_effect__10TObjPlayerFv(((Trap_8017B6D8 *)arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     ((Trap_8017B6D8 *)arg0)->h348 = lbl_805DBA80;
     ((Trap_8017B6D8 *)arg0)->h344 = lbl_805DBA80;
     ((Trap_8017B6D8 *)arg0)->f34C = 0;

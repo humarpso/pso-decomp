@@ -1,6 +1,8 @@
 #include "pso/TObjTailsTailsMove.h"
 
 #include "types.h"
+#include "pso/item/TItemObject.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 advance_field28__23TAdSinglePlyChrSelectGCFv();
@@ -17,9 +19,6 @@ void TObjTailsTailsMove__sub_800FFE0C(void);
 void TObjTailsTailsMove__sub_800FFE10(void);
 int TObjTailsTailsMove__sub_800FFE14(void);
 void __ct__7TObjectFP7TObject(void *);
-int clear_item_flags__10TObjPlayerFUl(void*, int);
-int set_flag_1024__11TItemObjectFv(void* p);
-s32 test_item_flags__10TObjPlayerFUl(s32, s32);
 
 extern s32 __vt__18TObjTailsTailsMove[];
 extern void *TObjTailsTailsMove__name;

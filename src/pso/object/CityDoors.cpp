@@ -1148,14 +1148,12 @@ s32 check_player_in_range__10TObjPlayerFPv(void *arg0, s32 _w1, f32 _w2);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 void __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 extern s32 city_door_base_vtable[];
 void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1);
 extern void *challenge_task;
 s32 TLobby__sub_80182E60(void);
     extern const float lbl_805DBC00;
 void reset_city_vertical_model_motion(void* a0);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int, int);
 s32 construct_collider_proxy__10TObjPlayerFv();
 extern RecoveredGlobal_80182D8C_lbl_80443F20 city_door_init_params;
@@ -1311,7 +1309,7 @@ void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_door_base_vtable;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1339,7 +1337,7 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     (*(f32 *)(copy_storage_80182D8C.bytes + 0xC)) = *(f32 *)((s8 *)temp_r6 + 0xC);
     (*(f32 *)(copy_storage_80182D8C.bytes + 0x10)) = *(f32 *)((s8 *)temp_r6 + 0x10);
     init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80182D8C.bytes)), (int) (1), (int) (temp_r6));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
 

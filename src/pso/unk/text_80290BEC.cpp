@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80290BEC_main_task {
     s32 value;
@@ -12,9 +14,7 @@ struct RecoveredGlobal_80290C20_main_task {
 
 extern "C" {
 s32 render_tick__Fv();
-s32 stop_audio_streams__6TLobbyFv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
-s32 free_all_resources__6TLobbyFv();
 extern RecoveredGlobal_80290BEC_main_task main_task;
 void fn_80290BEC(void);
 s32 TKeyBoardControl__sub_8000F92C();
@@ -22,7 +22,6 @@ s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 update_input_frame__16TKeyBoardControlFv();
 s32 controller_stuff__Fv();
 s32 render_tick__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -42,11 +41,11 @@ extern "C" {
 typedef char RecoveredGlobal_80290BEC_main_task_size[sizeof(RecoveredGlobal_80290BEC_main_task) == 0x34 ? 1 : -1];
 void fn_80290BEC(void) {
     s32 *var_r3;
-    stop_audio_streams__6TLobbyFv();
+    TLobby::stop_audio_streams();
     var_r3 = (s32 *)(&main_task.value);
     var_r3 = (s32 *)(&main_task.value);
     delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
-    free_all_resources__6TLobbyFv();
+    TLobby::free_all_resources();
     render_tick__Fv();
 }
 typedef char RecoveredGlobal_80290C20_main_task_size[sizeof(RecoveredGlobal_80290C20_main_task) == 0x34 ? 1 : -1];
@@ -54,7 +53,7 @@ void run_main_frame(void) {
     s32 *var_r3;
     func_803DCDFC__Fv();
     controller_stuff__Fv();
-    update_input_frame__16TKeyBoardControlFv();
+    TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
     some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value));

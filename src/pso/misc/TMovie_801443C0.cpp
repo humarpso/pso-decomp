@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -7,7 +8,6 @@ s32 close__6TMovieFis(u32, s32);
 s32 render_until_finished__6TMovieFv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 set_pre_retrace_callback__6TLobbyFv();
 s32 fn_80320358(u32, s32);
 s32 render_tick__Fv();
 
@@ -38,7 +38,7 @@ void *__dt__6TMovieFv(void *arg0, s16 arg1) {
         if (temp_r12 != NULL) {
             temp_r12(arg0);
         }
-        set_pre_retrace_callback__6TLobbyFv();
+        TLobby::set_pre_retrace_callback();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/object/TObjComputer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyAncient01.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -163,7 +171,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-s32 set_global_param__8TObjFishFl(s32);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
@@ -172,7 +179,6 @@ s32 pop_matrix();
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
 void TObjContainerAbeEnemy__vt79(Obj_80188884 *self);
-void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80444EF4[];
@@ -181,9 +187,7 @@ extern const f32 lbl_805DBCF8;
 void TObjContainerAbeEnemy__vt80(Obj_80188814 *self);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, s32);
-void reset_photon_effect__10TObjPlayerFv(void *);
 u32 init_collision_body_parts(void *, void *, s32);
-void set_type__14TOKeyAncient01Fv(void *);
 void *TObjMesBase__ct(void *, void *, void *);
 extern s32 lbl_804B6254[];
 extern s32 __vt__12TObjComputer[];
@@ -195,7 +199,6 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 load_gvm_texture_file(char *);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern char lbl_80444B60[];
 extern char lbl_80444B78[];
 extern s32 fe_obj_tanmatu02_resource_descriptor[];
@@ -204,8 +207,6 @@ extern u32 TObjComputer__model_archive;
 extern u32 TObjComputer__texture_gvm_handle;
 extern s16 computer_uv_scroll_phase;
 void load_computer_resources(void);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 s32 PPCSync();
 s32 rotate_matrix_y(s32, s32);
@@ -213,7 +214,6 @@ s32 rotate_matrix_by_node_angles(void *, u32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object(void *);
 extern u32 actor_frame_tick;
 extern u32 TObjComputer__texture_gvm_handle;
@@ -223,8 +223,6 @@ extern const f32 lbl_805DBCE4;
 s32 get_current_floor();
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-void byteswap_and_send__6TLobbyFv(void *);
-void init_packet_67_04__6TLobbyFv(void *);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
 f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0);
@@ -255,7 +253,6 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__11TObjMesBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 clear_ref_if_destroyed__11TObjMesBaseFv();
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern const f32 lbl_805DBCDC;
 extern const f32 lbl_805DBCE0;
@@ -265,7 +262,7 @@ s32 TObjComputer::draw_model() {
     if (self->model == NULL) {
         return;
     }
-    set_global_param__8TObjFishFl(TObjComputer__texture_gvm_handle);
+    TObjFish::set_global_param(TObjComputer__texture_gvm_handle);
     push_matrix();
     post_translate_matrix(self->pos38);
     rotate_matrix_y(0, self->yaw60);
@@ -282,9 +279,9 @@ s32 TObjComputer::draw_model() {
         rotate_matrix_by_node_angles(self->model->angles14, self->model->flags0 & 0x20);
         draw_ginja_object(self->model);
         if (self->model->sub2c != NULL) {
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             draw_ginja_object(self->model->sub2c);
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
     } else {
         draw_ginja_object(self->model);
@@ -332,7 +329,7 @@ extern u32 TObjComputer__texture_gvm_handle;
 void TObjComputer::free_resources() {
     if ((u32) TObjComputer__texture_gvm_handle != 0U) {
         TLobby__sub_803DA16C((void*)TObjComputer__texture_gvm_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TObjComputer__texture_gvm_handle);
+        TAdSinglePlyChrSelectGC::safe_free(TObjComputer__texture_gvm_handle);
         TObjComputer__texture_gvm_handle = 0U;
     }
     if ((u32) TObjComputer__model_archive != 0U) {
@@ -345,7 +342,7 @@ extern s32 __vt__12TObjComputer[];
 
 void load_computer_resources(void) {
     void *p;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 23: case 24: case 25: case 26: case 27: case 28: case 29:
     case 34: case 35:
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
@@ -400,8 +397,8 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row) {
     }
     init_collision_body_parts(self, lbl_804B6254, 1);
     self->flags30 |= 0x40000000;
-    reset_photon_effect__10TObjPlayerFv(self);
-    set_type__14TOKeyAncient01Fv(self->aux98);
+    ((TObjPlayer *)self)->reset_photon_effect();
+    ((TOKeyAncient01 *)(self->aux98))->set_type();
     self->unkC0 = lbl_805DBCEC;
     self->unkC4 = 0;
     return self;
@@ -474,20 +471,20 @@ f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0) {
         sp8 = 1;
         access_object_saved_state(arg0, &sp8, 0);
         send_object_state_update(arg0, &sp8);
-        init_packet_67_04__6TLobbyFv(&pkt);
+        ((TLobby *)(&pkt))->init_packet_67_04();
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();
         pkt.d = arg0->f84;
         pkt.e = local_client_id;
-        byteswap_and_send__6TLobbyFv(&pkt);
+        ((TLobby *)(&pkt))->byteswap_and_send();
     }
     return lbl_805DBCF4;
 }
 
 void TObjContainerAbeEnemy__vt80(Obj_80188814 *self) {
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130020, lbl_80444EF4, self->id);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }
 
@@ -495,7 +492,7 @@ void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
     if (container_breakup_model_archive != 0) {
         switch (self->state) {
         case 0:
-            set_global_param__8TObjFishFl(lbl_805D5B8C);
+            TObjFish::set_global_param(lbl_805D5B8C);
             push_matrix();
             post_translate_matrix(self->pos);
             rotate_matrix_y(0, self->id);

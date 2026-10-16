@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/misc/KeyboardCharacterMaps.h"
 #include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TWindowKeyBoardHard.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 
 struct RecoveredFields_8025FC60_arg0 {
     u8 unknown_0[0x60];
@@ -96,14 +98,9 @@ s32 TKeyBoardControl__sub_8025F4A0(Ctl_8025F4A0 *, u8);
 int TWindowKeyBoardHard__sub_8025EB68(void* p);
 s32 TWindowKeyBoardHard__sub_80260438(void *);
 s32 insert_character__19TWindowKeyBoardBaseFPvUs(s32, u16);
-int call_1A529C_with_32__19TWindowKeyBoardHardFv(void* p);
 s32 fn_8025FF8C(void *);
 u8 get_key_state__16TKeyBoardControlFPv(s32 *);
 s32 set_input_mode__20TWindowSubStatusDispFUc(s32, s32);
-int test_card_flag_0x80__19TWindowKeyBoardHardFv(void* p);
-int test_card_flag_16__19TWindowKeyBoardHardFv(void* p);
-int test_card_flag_64__19TWindowKeyBoardHardFv(void* p);
-int test_card_flag__19TWindowKeyBoardHardFll(void*, int);
 
 void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x68) = 0;
@@ -387,11 +384,6 @@ s32 TKeyBoardControl::lookup_key_repeat_state(u8 arg1, u8 arg2) {
     }
     return 0;
 }
-s32 init__19TWindowKeyBoardSoftFv(void *);
-s32 set_bits_shift7__19TWindowKeyBoardHardFll(int, int);
-s32 update_card_window_page_flags__19TWindowKeyBoardHardFll(int, int);
-s32 clear_card_window_flag__19TWindowKeyBoardHardFll(int, int);
-s32 set_card_window_flag__19TWindowKeyBoardHardFll(int, int);
 s32 TWindowKeyBoardHard__sub_8026042C(void *);
 extern u8 keyboard_jp_unshifted_map[];
 extern u8 keyboard_us_unshifted_map[];
@@ -441,7 +433,7 @@ s32 TKeyBoardControl__sub_8025F4A0(Ctl_8025F4A0 *arg0, u8 arg1) {
             arg0->f60 = (t & ~0x10) | ~((t & 0x10) | 0xFFFF0000 | 0xFFEF);
         } else {
             arg0->f70->fB4 |= 2;
-            set_card_window_flag__19TWindowKeyBoardHardFll(arg0->f20, 1);
+            TWindowKeyBoardHard::set_card_window_flag(arg0->f20, 1);
         }
         break;
     case 26:
@@ -450,11 +442,11 @@ s32 TKeyBoardControl__sub_8025F4A0(Ctl_8025F4A0 *arg0, u8 arg1) {
             t = w->fB4;
             if (t & 1) {
                 w->fB4 = t & ~1;
-                clear_card_window_flag__19TWindowKeyBoardHardFll(arg0->f20, 0);
-                init__19TWindowKeyBoardSoftFv(arg0->f70);
+                TWindowKeyBoardHard::clear_card_window_flag(arg0->f20, 0);
+                ((TWindowKeyBoardSoft *)(arg0->f70))->init();
             } else {
                 w->fB4 = t | 1;
-                clear_card_window_flag__19TWindowKeyBoardHardFll(arg0->f20, 1);
+                TWindowKeyBoardHard::clear_card_window_flag(arg0->f20, 1);
             }
         }
         break;
@@ -467,22 +459,22 @@ s32 TKeyBoardControl__sub_8025F4A0(Ctl_8025F4A0 *arg0, u8 arg1) {
                 u = w->fB4;
                 if (u & 2) {
                     w->fB4 = u & ~2;
-                    set_card_window_flag__19TWindowKeyBoardHardFll(arg0->f20, 0);
+                    TWindowKeyBoardHard::set_card_window_flag(arg0->f20, 0);
                 } else if (t & 4) {
                     w->fB4 = (u & ~4) | ~((u & 4) | 0xFFFF0000 | 0xFFFB);
                     if (arg0->f70->fB4 & 4) {
-                        update_card_window_page_flags__19TWindowKeyBoardHardFll(arg0->f20, 1);
+                        TWindowKeyBoardHard::update_card_window_page_flags(arg0->f20, 1);
                     } else {
-                        update_card_window_page_flags__19TWindowKeyBoardHardFll(arg0->f20, 0);
+                        TWindowKeyBoardHard::update_card_window_page_flags(arg0->f20, 0);
                     }
                     break;
                 }
                 if (arg0->f60 & 0x80) {
                     arg0->f70->fB4 |= 8;
-                    set_bits_shift7__19TWindowKeyBoardHardFll(arg0->f20, 1);
+                    TWindowKeyBoardHard::set_bits_shift7(arg0->f20, 1);
                 } else {
                     arg0->f70->fB4 &= ~8;
-                    set_bits_shift7__19TWindowKeyBoardHardFll(arg0->f20, 0);
+                    TWindowKeyBoardHard::set_bits_shift7(arg0->f20, 0);
                 }
             }
         }

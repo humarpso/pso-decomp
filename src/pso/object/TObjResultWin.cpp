@@ -1,5 +1,7 @@
 #include "pso/object/TObjResultWin.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 #pragma defer_codegen off
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -9,7 +11,6 @@ struct ControllerInputStateResultWin { s32 value; u8 remaining[0x1AC]; };
 extern "C" {
 char* TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
-s32 split_time_hms__22TQuestVmDownLoadServerFlPlPlPl(s32, s32*, s32*, s32*);
 int sprintf(char*, const char*, ...);
 int strncmp(const char*, const char*, unsigned long);
 char* strncat(char*, const char*, unsigned long);
@@ -20,7 +21,6 @@ s32 TWindowCtrlMain__sub_8024CE58();
 s32 get_window_layout_position(s32);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 send_and_handle__6TLobbyFii(u32, void*, s32);
-s32 set_field_1c__6TLobbyFf(u32, f32);
 s32 set_position_xy(u32, f32, f32);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void*, s32);
 extern ControllerInputStateResultWin controller_input_state;
@@ -73,11 +73,11 @@ void TObjResultWin::build_result_text() {
         m_text[i] = 0;
     }
     c = m_result.summary.stage_index + '1';
-    split_time_hms__22TQuestVmDownLoadServerFlPlPlPl(m_result.current.time, &h, &m, &sec);
+    TQuestVmDownLoadServer::split_time_hms(m_result.current.time, &h, &m, &sec);
     sprintf(tmp, challenge_result_time_format, TQuestVmDownLoadServer__sub_8006EF6C(0x54), TQuestVmDownLoadServer__sub_8006EF6C(0x53), c, h, m, sec);
     strncat(m_text, tmp, 0x30);
     if (m_result.summary.total_time != 0) {
-        split_time_hms__22TQuestVmDownLoadServerFlPlPlPl(m_result.summary.total_time, &h2, &m2, &s2);
+        TQuestVmDownLoadServer::split_time_hms(m_result.summary.total_time, &h2, &m2, &s2);
         sprintf(tmp, challenge_result_total_time_format, TQuestVmDownLoadServer__sub_8006EF6C(0x55), h2, m2, s2);
         strncat(m_text, tmp, 0x30);
     }
@@ -89,10 +89,10 @@ void TObjResultWin::build_result_text() {
         if (d == 0) {
             sprintf(tmp, challenge_result_equal_time_text);
         } else if (d >= 0) {
-            split_time_hms__22TQuestVmDownLoadServerFlPlPlPl(d, &h3, &m3, &s3);
+            TQuestVmDownLoadServer::split_time_hms(d, &h3, &m3, &s3);
             sprintf(tmp, challenge_result_slower_time_format, h3, m3, s3);
         } else {
-            split_time_hms__22TQuestVmDownLoadServerFlPlPlPl(-d, &h3, &m3, &s3);
+            TQuestVmDownLoadServer::split_time_hms(-d, &h3, &m3, &s3);
             sprintf(tmp, challenge_result_faster_time_format, h3, m3, s3, TQuestVmDownLoadServer__sub_8006EF6C(0x56));
         }
         strncat(m_text, tmp, 0x30);
@@ -147,7 +147,7 @@ void TObjResultWin::create_window() {
             set_position_xy(m_window, challenge_result_split_screen_position, challenge_result_split_screen_position);
         }
         send_and_handle__6TLobbyFii(m_window, m_text, 0);
-        set_field_1c__6TLobbyFf(m_window, challenge_result_window_depth);
+        ((TLobby *)m_window)->set_field_1c(challenge_result_window_depth);
     }
 }
 TObjResultWin::~TObjResultWin() {}

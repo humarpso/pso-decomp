@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TAdStorySelectGC.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct RecoveredGlobal_80207798_lbl_80513920 {
     s32 value;
@@ -45,8 +48,6 @@ s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_selection(s32 arg0, u8 *arg1);
 s32 get_main_phase(void);
-s32 set_state__16TAdStorySelectGCFl(void*);
-s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 adventure_map_variation_count_table;
 extern RecoveredGlobal_802078A4_lbl_8044B778 online_floor_map_variation_dimension_table;
@@ -63,8 +64,6 @@ s32 memset(void *, int, int);
 extern struct Ids_80207C60 boss_warp_area_id_table;
 void TLobby__sub_80207BB0(void);
 s32 get_current_floor();
-s32 get_instance__6TLobbyFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_game_play_mode();
 extern Tbl_8020765C boss_warp_destination_table;
 extern Tbl_8020765C boss_warp_destination_table_b;
@@ -79,8 +78,6 @@ extern "C" {
 
 struct Buf12_80207718_80207644 { s32 a, b, c; };
 
-s32 set_state__16TAdStorySelectGCFl(void*);
-
     extern int story_select_current;
     extern int selected_episode;
 void TLobby::backup_story_select() { selected_episode = story_select_current; }
@@ -93,9 +90,9 @@ s32 get_boss_warp_destination(void) {
     Tbl_8020765C a = boss_warp_destination_table;
     Tbl_8020765C b = boss_warp_destination_table_b;
     if (get_game_play_mode() == 1) {
-        return b.w[0][get_global_state__14TOKeyMachine01Fv()];
+        return b.w[0][TOKeyMachine01::get_global_state()];
     }
-    s32 i = get_instance__6TLobbyFv();
+    s32 i = TLobby::get_instance();
     s32 p = get_current_floor();
     return a.w[i][p];
 }
@@ -198,9 +195,9 @@ void randomize_adventure_maps(void) {
   s32 var_r30;
   s32 var_r29;
   var_r31 = (s32 *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&floor_map_registry).value);
-  set_state__16TAdStorySelectGCFl((void*)((*(s32 *)&selected_episode)));
+  TAdStorySelectGC::set_state((s32)((void*)((*(s32 *)&selected_episode))));
   var_r30 = get_main_phase();
-  if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+  if (TRaderMapCore::is_not_split_screen() == 1)
   {
     var_r30 = 0xF;
   }
@@ -260,7 +257,7 @@ void init_floor_map_registry(void) {
 
 void TLobby::reset_story_select_state() {
     if ((s32) story_select_pending_state != -1) {
-        set_state__16TAdStorySelectGCFl((void*)story_select_pending_state);
+        TAdStorySelectGC::set_state((s32)((void*)story_select_pending_state));
         story_select_pending_state = -1;
     }
 }

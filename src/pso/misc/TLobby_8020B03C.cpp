@@ -85,8 +85,6 @@ struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
 extern "C" {
 void close_gsl_archive(void);
 void open_gsl_archive(s32);
-s32 load_all_floor_enemy_sets__6TLobbyFv(void);
-s32 load_all_floor_object_sets__6TLobbyFv(void);
 void free_data_60F0__6TLobbyFv(void);
 s32 init_handle__6TLobbyFi(s32);
 extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
@@ -119,7 +117,7 @@ void TLobby::load_set_gsl_files() {
     TLobby__data_805D6134 = 0;
     if (init_handle__6TLobbyFi(0x8000) != 0) {
         open_gsl_archive((s32) &lbl_8044BBF0.value);
-        if (load_all_floor_object_sets__6TLobbyFv() == 0) {
+        if (TLobby::load_all_floor_object_sets() == 0) {
             close_gsl_archive();
             free_data_60F0__6TLobbyFv();
             TLobby__data_805D6134 |= 1;
@@ -127,7 +125,7 @@ void TLobby::load_set_gsl_files() {
         }
         close_gsl_archive();
         open_gsl_archive((s32) &lbl_8044BC04.value);
-        if (load_all_floor_enemy_sets__6TLobbyFv() == 0) {
+        if (TLobby::load_all_floor_enemy_sets() == 0) {
             close_gsl_archive();
             free_data_60F0__6TLobbyFv();
             TLobby__data_805D6134 |= 1;

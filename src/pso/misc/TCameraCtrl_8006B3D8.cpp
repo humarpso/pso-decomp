@@ -88,7 +88,6 @@ extern u32 camera_ctrl_instance;
 extern s32 TCameraCtrl__fixed_npc_camera_active;
 u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
 void normalize_vector(void *);
@@ -98,7 +97,6 @@ extern const f32 lbl_805D8FFC;
 s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006BADC(void);
-void set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void *, void *);
 void approach_vector_fixed_distance(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
 extern u32 camera_ctrl_instance;
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0);
@@ -111,14 +109,12 @@ void fixed_view_camera_update(void);
 void *TCameraCtrl__vt9(void);
 s32 restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
-void reset_to_local_player__11TCameraCtrlFv();
 s32 activate_body_collision__10TObjPlayerFPv();
 s32 deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void *get_params__11TCameraCtrlFv(u32);
 
 extern s32 local_client_id;
 
@@ -214,7 +210,7 @@ extern s32 lbl_80488AF0[];
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
     approach_vector_fixed_distance(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
     if (TCameraCtrl__sub_8006BADC() == 1) {
-        set_fixed_position_and_target__11TCameraCtrlFPUcPUc((void *)(camera_ctrl_instance + 0x178), &arg0->v34);
+        TCameraCtrl::set_fixed_position_and_target((u8 *)(camera_ctrl_instance + 0x178), (u8 *)(&arg0->v34));
     }
     arg0->f20++;
     if (arg0->f20 == arg0->f22 + arg0->f24 || TCameraCtrl__sub_8006BADC() == 0) {
@@ -225,7 +221,7 @@ void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
 void *TCameraCtrl::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80488AF0;
-        reset_to_local_player__11TCameraCtrlFv();
+        TCameraCtrl::reset_to_local_player();
         __dt__7TObjectFv((void *)(this), (int)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));
@@ -263,7 +259,7 @@ s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     arg0->pos.z = d.z * dist + VIEW_8006B798->pos.z;
     arg0->f1c = xyz_distance(&arg0->pos, &VIEW_8006B798->tgt) / (f32)arg0->f22;
     arg0->f20 = 0;
-    set_fixed_position_and_target__11TCameraCtrlFPUcPUc(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
+    TCameraCtrl::set_fixed_position_and_target((u8 *)(&VIEW_8006B798->pos), (u8 *)(&VIEW_8006B798->tgt));
     return (s32)arg0;
 #undef arg0
 }
@@ -285,7 +281,7 @@ void TCameraCtrl::copy_camera_params() {
     void *temp_r3;
 
     if ((u32) camera_ctrl_instance != 0U) {
-        temp_r3 = get_params__11TCameraCtrlFv(camera_ctrl_instance);
+        temp_r3 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
         *(f32 *)((s8 *)this + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
         *(f32 *)((s8 *)this + 0x4C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x2C);
         *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x30);

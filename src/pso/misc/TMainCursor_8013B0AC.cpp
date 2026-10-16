@@ -15,11 +15,9 @@ struct Pl_8013B0F0 {
 
 extern "C" {
 s32 get_main_phase();
-s32 init_slots__11TMainCursorFv(Cur_8013B0F0 *);
 s32 bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
 s32 TMainCursor__sub_8013E03C(void *);
 s32 set_target_index__11TMainCursorFs(void *, int);
-s32 update_cursor_pos__11TMainCursorFv(void *);
 s32 reset_nearest_target_record(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(Pl_8013B0F0 *);
 s32 submit_cursor_candidate(Pl_8013B0F0 *, int);
@@ -48,9 +46,9 @@ void run_cursor_reset_task(s32 arg0) {
         return;
     }
     reset_nearest_target_record(cur->sub);
-    update_cursor_pos__11TMainCursorFv(cur->pos);
+    ((TMainCursor *)(cur->pos))->update_cursor_pos();
     set_target_index__11TMainCursorFs(cur->target, 0xFFFF);
-    init_slots__11TMainCursorFv(cur);
+    ((TMainCursor *)cur)->init_slots();
     bind_action_channels__11TMainCursorFv(cur);
     if (get_main_phase() == 0xF) {
         for (i = 0; i < 12; i++) {

@@ -82,17 +82,11 @@ int get_item_field_6__10TObjPlayerFPv(void *);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
 u8 *get_quest_id__12TQuestListVMFv(void *);
-s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16);
-s16 calc_equip_bonus__10TObjPlayerFUs(u16);
-s32 copy_to_item_data__5TItemFPv(void *, void *);
 s32 is_item_usable__9TItemDataFlPUc(void *, void *);
 s32 check_equip_requirements(void *, void *, int);
 s32 check_class_equip_permission(void *, int);
-int get_item_field_2__9TItemDataFv(void *);
-s32 query_flag__13TItemMenuCtrlFl(int);
 void *lookup_item_pmt_record(u8 *item);
 s32 update_player_field__9TItemDataFv(void *);
-s32 check_evolution_cond__8TItemMagFUll(void *, int);
 u8 get_technique_learn_limit(u8, u8);
 s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
 s32 get_player_by_client_id(s32);
@@ -215,10 +209,6 @@ void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
 void set_packed_value__9TItemDataFPvUs(void *arg0, u16 arg1);
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
-int check_flag_32__14TItemEquipBaseFv(void* p);
-int clear_flag_c_bit5__14TItemEquipBaseFv(void* p);
-int clear_flags__11TAdRicoRingFUl(void*, int);
-int set_flags__10TObjPlayerFUl(void*, int);
 
 extern "C" {
 u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
@@ -863,6 +853,14 @@ s32 TItemData::get_item_use_result() {
 #undef init__9TItemDataFv
 
 #include "types.h"
+#include "pso/TAdRicoRing.h"
+#include "pso/TItemMenuCtrl.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemEquipBase.h"
+#include "pso/item/TItemMag.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 
 #define calc_clock_bonus__9TItemDataFPv ((s32 (*)(void *, s32))calc_clock_bonus__9TItemDataFPv)
 #define add_armor_stat_contribution__9TItemDataFPviiPv ((s32 (*)(void *, s32, s32, s32, s32, s32))add_armor_stat_contribution__9TItemDataFPviiPv)
@@ -908,26 +906,16 @@ struct Item_8010E59C {
 };
 
 extern "C" {
-int test_flag3__9TItemDataFv(void *);
-int get_item_field_2__9TItemDataFv(void *);
-u8 get_slot_count__14TItemProShieldFv(void *);
 extern f32 TItemData__data_805DAB70;
 extern const f32 lbl_805DAB74;
 extern f32 TItemData__data_805DAB78;
 int get_item_field_6__10TObjPlayerFPv(void *);
-u8 get_field_ed__10TObjPlayerFv(void *);
-int get_item_field_2__9TItemDataFv(void *);
-u8 get_slot_count__14TItemProShieldFv(void *);
 extern f32 TItemData__data_805DAB70;
 extern const f32 lbl_805DAB74;
 extern f32 TItemData__data_805DAB78;
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst);
 extern f32 TItemData__data_805DAB70;
-void *get_item_pmt_record__10TObjPlayerFii(int type, int id);
 void *get_armor_pmt_record(int type, int id);
-void *get_pmt_record_by_index__10TObjPlayerFi(int i);
-void *get_pmt_record__10TObjPlayerFi(int i);
-void *get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 u8 get_mag_total_level(const void *);
 s32 get_item_star_count(s32);
@@ -938,11 +926,7 @@ s32 get_item_description_text(s32);
 int sprintf(char *, const char *, ...);
 extern s32 lbl_805D2B10;
 s32 format_item_description(u8 *item);
-int test_flag3__9TItemDataFv(void *);
-int get_item_field_2__9TItemDataFv(void *);
-u8 get_slot_count__14TItemProShieldFv(void *);
 int get_item_field_6__10TObjPlayerFPv(void *);
-u8 get_field_ed__10TObjPlayerFv(void *);
 s32 get_player_by_client_id(s32);
 s32 obj_getField1c(void *);
 s32 TObjPlayer__sub_80117E50(s32);
@@ -952,7 +936,6 @@ extern const f32 lbl_805DAB7C;
 char *get_technique_name();
 s32 is_rare_item__9TItemDataFPv(u8 *item);
 char *get_text_collection(s32);
-char *get_download_server__20TWindowSubStatusDispFv();
 s8 *get_item_by_slot_flag__10TObjPlayerFUc(u8);
 int sprintf(char *, const char *, ...);
 extern char lbl_8043E358[];
@@ -1208,7 +1191,7 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
         void *it = (void *) get_item_field_6__10TObjPlayerFPv(player);
         if (it != 0)
         {
-          copy_to_item_data__5TItemFPv(it, buf);
+          ((TItem *)it)->copy_to_item_data(buf);
           rec = (u8 *) lookup_item_pmt_record(buf);
           if ((rec != 0) && (rec[0x16] <= buf[3]))
           {
@@ -1248,13 +1231,13 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
             }
               break;
             case 3:
-              if (calc_equip_bonus__10TObjPlayerFUs(id) >= 0xFA)
+              if (TObjPlayer::calc_equip_bonus(id) >= 0xFA)
             {
               hit = 1;
             }
               break;
             case 4:
-              if (calc_stat_bonus_sum__10TObjPlayerFUs(id) >= 0xFA)
+              if (TObjPlayer::calc_stat_bonus_sum(id) >= 0xFA)
             {
               hit = 1;
             }
@@ -1280,14 +1263,14 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
         break;
       }
       case 12:
-        if (check_evolution_cond__8TItemMagFUll(player, item[2]) == 0)
+        if (TItemMag::check_evolution_cond((u32)player, (s32)(item[2])) == 0)
       {
         result |= 1;
       }
         break;
       case 15:
       {
-        void *mag = (void *) get_item_field_2__9TItemDataFv(player);
+        void *mag = (void *) ((TItemData *)player)->get_item_field_2();
         if (mag != 0)
         {
           if (PSO_VCALL_VObj_18_38db83_m37(mag) >= 4)
@@ -1303,7 +1286,7 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
       }
     }
   }
-  if (((is_quest_active() != 0) && (item[0] == 3)) && (query_flag__13TItemMenuCtrlFl(6) == 1))
+  if (((is_quest_active() != 0) && (item[0] == 3)) && (TItemMenuCtrl::query_flag(6) == 1))
   {
     result |= 0x10001;
   }
@@ -1366,31 +1349,31 @@ f32 TItemData::get_shield_set_multiplier(u8 *arg1) {
   {
     case 26:
       temp_r3 = (u8 *) get_item_field_6__10TObjPlayerFPv(arg1);
-      if ((temp_r3 != 0) && (get_field_ed__10TObjPlayerFv(temp_r3) == 0x1A))
+      if ((temp_r3 != 0) && (((TObjPlayer *)temp_r3)->get_field_ed() == 0x1A))
     {
       var_f31 = lbl_805DAB74;
     }
       break;
     case 38:
       temp_r31 = get_item_field_6__10TObjPlayerFPv(arg1);
-      temp_r30 = get_item_field_2__9TItemDataFv(arg1);
-      if (((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (get_field_ed__10TObjPlayerFv((void *) temp_r31) == 1)) && (get_slot_count__14TItemProShieldFv((void *) temp_r31) == 5)) && (get_slot_count__14TItemProShieldFv((void *) temp_r30) == 0x28))
+      temp_r30 = ((TItemData *)arg1)->get_item_field_2();
+      if (((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TObjPlayer *)temp_r31)->get_field_ed() == 1)) && (((TItemProShield *)temp_r31)->get_slot_count() == 5)) && (((TItemProShield *)temp_r30)->get_slot_count() == 0x28))
     {
       var_f31 = TItemData__data_805DAB78;
     }
       break;
     case 36:
       temp_r30_2 = get_item_field_6__10TObjPlayerFPv(arg1);
-      temp_r31_2 = get_item_field_2__9TItemDataFv(arg1);
-      if (((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (get_field_ed__10TObjPlayerFv((void *) temp_r30_2) == 2)) && (get_slot_count__14TItemProShieldFv((void *) temp_r30_2) == 5)) && (get_slot_count__14TItemProShieldFv((void *) temp_r31_2) == 0x26))
+      temp_r31_2 = ((TItemData *)arg1)->get_item_field_2();
+      if (((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TObjPlayer *)temp_r30_2)->get_field_ed() == 2)) && (((TItemProShield *)temp_r30_2)->get_slot_count() == 5)) && (((TItemProShield *)temp_r31_2)->get_slot_count() == 0x26))
     {
       var_f31 = TItemData__data_805DAB78;
     }
       break;
     case 37:
       temp_r30_3 = get_item_field_6__10TObjPlayerFPv(arg1);
-      temp_r31_3 = get_item_field_2__9TItemDataFv(arg1);
-      if (((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (get_field_ed__10TObjPlayerFv((void *) temp_r30_3) == 6)) && (get_slot_count__14TItemProShieldFv((void *) temp_r30_3) == 6)) && (get_slot_count__14TItemProShieldFv((void *) temp_r31_3) == 0x27))
+      temp_r31_3 = ((TItemData *)arg1)->get_item_field_2();
+      if (((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TObjPlayer *)temp_r30_3)->get_field_ed() == 6)) && (((TItemProShield *)temp_r30_3)->get_slot_count() == 6)) && (((TItemProShield *)temp_r31_3)->get_slot_count() == 0x27))
     {
       var_f31 = TItemData__data_805DAB78;
     }
@@ -1423,9 +1406,9 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
         for (i = 0; i != 12 && found != 1; i++) {
             p = get_player_by_client_id(i);
             if ((u32)p != 0) {
-                p = get_item_field_2__9TItemDataFv((void *)p);
+                p = ((TItemData *)p)->get_item_field_2();
                 if ((u32)p != 0) {
-                    c = get_slot_count__14TItemProShieldFv((void *)p);
+                    c = ((TItemProShield *)p)->get_slot_count();
                     if (c == 0x19 || c == 0x1A) {
                         v = lbl_805DAB7C;
                         found = 1;
@@ -1439,9 +1422,9 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
         for (j = 0; j != 12 && hit != 1; j++) {
             p = get_player_by_client_id(j);
             if ((u32)p != 0) {
-                p = get_item_field_2__9TItemDataFv((void *)p);
+                p = ((TItemData *)p)->get_item_field_2();
                 if ((u32)p != 0) {
-                    c = get_slot_count__14TItemProShieldFv((void *)p);
+                    c = ((TItemProShield *)p)->get_slot_count();
                     if (c == 0x1A || c == 0x18) {
                         v = lbl_805DAB7C;
                         hit = 1;
@@ -1455,9 +1438,9 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
         for (k = 0; k != 12 && hit2 != 1; k++) {
             p = get_player_by_client_id(k);
             if ((u32)p != 0) {
-                p = get_item_field_2__9TItemDataFv((void *)p);
+                p = ((TItemData *)p)->get_item_field_2();
                 if ((u32)p != 0) {
-                    c = get_slot_count__14TItemProShieldFv((void *)p);
+                    c = ((TItemProShield *)p)->get_slot_count();
                     if (c == 0x19 || c == 0x18) {
                         v = lbl_805DAB7C;
                         hit2 = 1;
@@ -1468,22 +1451,22 @@ f32 TItemData::get_armor_set_multiplier(u8 *arg1) {
         break;
     case 40:
         a1 = get_item_field_6__10TObjPlayerFPv(arg1);
-        b1 = test_flag3__9TItemDataFv(arg1);
-        if ((u32)a1 != 0 && (u32)b1 != 0 && get_field_ed__10TObjPlayerFv((void *)a1) == 1 && get_slot_count__14TItemProShieldFv((void *)a1) == 5 && get_slot_count__14TItemProShieldFv((void *)b1) == 0x26) {
+        b1 = ((TItemData *)arg1)->test_flag3();
+        if ((u32)a1 != 0 && (u32)b1 != 0 && ((TObjPlayer *)a1)->get_field_ed() == 1 && ((TItemProShield *)a1)->get_slot_count() == 5 && ((TItemProShield *)b1)->get_slot_count() == 0x26) {
             v = TItemData__data_805DAB78;
         }
         break;
     case 38:
         a2 = get_item_field_6__10TObjPlayerFPv(arg1);
-        b2 = test_flag3__9TItemDataFv(arg1);
-        if ((u32)a2 != 0 && (u32)b2 != 0 && get_field_ed__10TObjPlayerFv((void *)a2) == 2 && get_slot_count__14TItemProShieldFv((void *)a2) == 5 && get_slot_count__14TItemProShieldFv((void *)b2) == 0x24) {
+        b2 = ((TItemData *)arg1)->test_flag3();
+        if ((u32)a2 != 0 && (u32)b2 != 0 && ((TObjPlayer *)a2)->get_field_ed() == 2 && ((TItemProShield *)a2)->get_slot_count() == 5 && ((TItemProShield *)b2)->get_slot_count() == 0x24) {
             v = TItemData__data_805DAB78;
         }
         break;
     case 39:
         a3 = get_item_field_6__10TObjPlayerFPv(arg1);
-        b3 = test_flag3__9TItemDataFv(arg1);
-        if ((u32)a3 != 0 && (u32)b3 != 0 && get_field_ed__10TObjPlayerFv((void *)a3) == 6 && get_slot_count__14TItemProShieldFv((void *)a3) == 6 && get_slot_count__14TItemProShieldFv((void *)b3) == 0x25) {
+        b3 = ((TItemData *)arg1)->test_flag3();
+        if ((u32)a3 != 0 && (u32)b3 != 0 && ((TObjPlayer *)a3)->get_field_ed() == 6 && ((TItemProShield *)a3)->get_slot_count() == 6 && ((TItemProShield *)b3)->get_slot_count() == 0x25) {
             v = TItemData__data_805DAB78;
         }
         break;
@@ -1514,9 +1497,9 @@ f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
     case 1:
       if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 5)
     {
-      temp_r31 = test_flag3__9TItemDataFv(arg1);
-      temp_r30 = get_item_field_2__9TItemDataFv(arg1);
-      if ((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (get_slot_count__14TItemProShieldFv((void *) temp_r31) == 0x26)) && (get_slot_count__14TItemProShieldFv((void *) temp_r30) == 0x28))
+      temp_r31 = ((TItemData *)arg1)->test_flag3();
+      temp_r30 = ((TItemData *)arg1)->get_item_field_2();
+      if ((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (((TItemProShield *)temp_r31)->get_slot_count() == 0x26)) && (((TItemProShield *)temp_r30)->get_slot_count() == 0x28))
       {
         var_f31 = TItemData__data_805DAB78;
       }
@@ -1525,9 +1508,9 @@ f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
     case 2:
       if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 5)
     {
-      temp_r30_2 = test_flag3__9TItemDataFv(arg1);
-      temp_r31_2 = get_item_field_2__9TItemDataFv(arg1);
-      if ((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (get_slot_count__14TItemProShieldFv((void *) temp_r30_2) == 0x24)) && (get_slot_count__14TItemProShieldFv((void *) temp_r31_2) == 0x26))
+      temp_r30_2 = ((TItemData *)arg1)->test_flag3();
+      temp_r31_2 = ((TItemData *)arg1)->get_item_field_2();
+      if ((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (((TItemProShield *)temp_r30_2)->get_slot_count() == 0x24)) && (((TItemProShield *)temp_r31_2)->get_slot_count() == 0x26))
       {
         var_f31 = TItemData__data_805DAB78;
       }
@@ -1536,17 +1519,17 @@ f32 TItemData::get_weapon_set_multiplier(u8 *arg1) {
     case 6:
       if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 6)
     {
-      temp_r30_3 = test_flag3__9TItemDataFv(arg1);
-      temp_r31_3 = get_item_field_2__9TItemDataFv(arg1);
-      if ((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (get_slot_count__14TItemProShieldFv((void *) temp_r30_3) == 0x25)) && (get_slot_count__14TItemProShieldFv((void *) temp_r31_3) == 0x27))
+      temp_r30_3 = ((TItemData *)arg1)->test_flag3();
+      temp_r31_3 = ((TItemData *)arg1)->get_item_field_2();
+      if ((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (((TItemProShield *)temp_r30_3)->get_slot_count() == 0x25)) && (((TItemProShield *)temp_r31_3)->get_slot_count() == 0x27))
       {
         var_f31 = TItemData__data_805DAB78;
       }
     }
       break;
     case 26:
-      temp_r3 = (u8 *) test_flag3__9TItemDataFv(arg1);
-      if ((temp_r3 != 0) && (get_slot_count__14TItemProShieldFv(temp_r3) == 0x1A))
+      temp_r3 = (u8 *) ((TItemData *)arg1)->test_flag3();
+      if ((temp_r3 != 0) && (((TItemProShield *)temp_r3)->get_slot_count() == 0x1A))
     {
       var_f31 = lbl_805DAB74;
     }
@@ -1860,7 +1843,7 @@ void TItemData::format_item_name(char *buf) {
         return;
     }
     if (item->type == 4) {
-        sprintf(buf, lbl_8043E358, item->meseta, get_download_server__20TWindowSubStatusDispFv());
+        sprintf(buf, lbl_8043E358, item->meseta, TWindowSubStatusDisp::get_download_server());
         return;
     }
     pmt = (s32 *)lookup_item_pmt_record(arg0);
@@ -1968,7 +1951,7 @@ void *lookup_item_pmt_record(u8 *item) {
     void *r = 0;
     switch (item[0]) {
     case 0:
-        r = get_item_pmt_record__10TObjPlayerFii(item[1], item[2]);
+        r = TObjPlayer::get_item_pmt_record(item[1], item[2]);
         break;
     case 1:
         switch (item[1]) {
@@ -1977,20 +1960,20 @@ void *lookup_item_pmt_record(u8 *item) {
             r = get_armor_pmt_record(item[1], item[2]);
             break;
         case 3:
-            r = get_pmt_record_by_index__10TObjPlayerFi(item[2]);
+            r = TObjPlayer::get_pmt_record_by_index(item[2]);
             break;
         }
         break;
     case 2:
-        r = get_pmt_record__10TObjPlayerFi(item[1]);
+        r = TObjPlayer::get_pmt_record(item[1]);
         break;
     case 3:
         if (item[1] == 2) {
             if (item[2] <= 0x1D) {
-                r = get_pmt_record_by_type_id__10TObjPlayerFii(item[1], item[4]);
+                r = TObjPlayer::get_pmt_record_by_type_id(item[1], item[4]);
             }
         } else {
-            r = get_pmt_record_by_type_id__10TObjPlayerFii(item[1], item[2]);
+            r = TObjPlayer::get_pmt_record_by_type_id(item[1], item[2]);
         }
         break;
     }

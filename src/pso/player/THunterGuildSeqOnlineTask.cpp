@@ -15,13 +15,9 @@ struct Pkt_80214F80 {
 struct Pos_80214F80 { s32 a; s32 b; };
 
 extern "C" {
-s32 get_input__16TKeyBoardControlFv();
 void TKeyBoardControl__sub_8000F95C();
 void TQuestListOnline__sub_8013ACF4(s32);
 void mem_free(void *);
-void clear_counter__6TLobbyFv();
-void reset_download__22TQuestVmDownLoadServerFv();
-void ensure_online_quests_loaded__16TQuestListOnlineFv();
 void clear_flag3_all_tasks__9TMainTaskFv(TMainTask *);
 s32 TWindow__close(int);
 extern unsigned char TQuestListOnline__dat_download_state[];
@@ -35,16 +31,13 @@ extern void *TQuestListOnline__download_barrier_window;
 void TKeyBoardControl__sub_8000F950();
 void TKeyBoardControl__sub_8000F95C();
 s32 is_flag_set__6TLobbyFv();
-void set_enemy_mode_flag__6TLobbyFv();
 void TQuestListOnline__sub_8013ACF4(s32);
 void mem_free(void *);
-void clear_counter__6TLobbyFv();
 void activate_body_collision__10TObjPlayerFPv(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
 void TQuestListOnline__sub_802176DC(void *, s32);
 void decompress_quest_buffer__16TQuestListOnlineFl(void *, s32);
-s32 init__16TQuestListOnlineFv();
 void clear_flag3_all_tasks__9TMainTaskFv(TMainTask *);
 s32 TWindow__close(int);
 s32 unsuppress_slot__11TWindowCtrlFv(void *);
@@ -59,9 +52,7 @@ extern u32 TQuestListOnline__quest_info_window;
 extern void *TQuestListOnline__download_barrier_window;
 extern s32 quest_download_active;
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-void update_graph__8TDLGraphFll(s32, s32);
 void send_quest_barrier__9TProtocolFv(s32);
-void set_field_1c__6TLobbyFf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
 void send_and_handle__6TLobbyFii(void *, void *, s32);
 void *update_window_mode_from_progress__6TLobbyFPv(void *, Pos_80214F80 *);
@@ -107,6 +98,10 @@ THunterGuildSeqOnlineTask::~THunterGuildSeqOnlineTask() {}
 #include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListOnline.h"
+#include "pso/misc/TDLGraph.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 extern "C" {
 
@@ -114,7 +109,6 @@ void *THunterGuildSeqOnlineTask__ct(void *arg0);
 void handle_6x73_exit_quest(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *init__22THunterGuildSeqOfflineFPvPv(void *, void *, void *);
 
 extern s32 __vt__25THunterGuildSeqOnlineTask[];
 extern void *lbl_805D3660;
@@ -133,13 +127,13 @@ void handle_6x73_exit_quest(void) {
     void *o;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init__22THunterGuildSeqOfflineFPvPv(o, tl_00, reset_random_enemies_mode);
+        ((THunterGuildSeqOffline *)o)->init(tl_00, reset_random_enemies_mode);
     }
 }
 void TQuestListOnline::close_windows_and_reset() {
     u8 *q;
-    if (get_input__16TKeyBoardControlFv() == 0) {
-        clear_counter__6TLobbyFv();
+    if (TKeyBoardControl::get_input() == 0) {
+        TLobby::clear_counter();
         evt2_random_enemies_mode = 0;
         TKeyBoardControl__sub_8000F95C();
         q = TQuestListOnline__bin_download_state;
@@ -167,9 +161,9 @@ void TQuestListOnline::close_windows_and_reset() {
         TQuestListOnline__bin_download_complete = 0;
         TQuestListOnline__dat_download_complete = 0;
         TQuestListOnline__sub_8013ACF4(0xB);
-        ensure_online_quests_loaded__16TQuestListOnlineFv();
+        TQuestListOnline::ensure_online_quests_loaded();
         clear_flag3_all_tasks__9TMainTaskFv(&main_task);
-        reset_download__22TQuestVmDownLoadServerFv();
+        TQuestVmDownLoadServer::reset_download();
     }
 }
 void TQuestListOnline::handle_quest_ready() {
@@ -178,12 +172,12 @@ void TQuestListOnline::handle_quest_ready() {
     u8 *q;
     s32 r;
     s32 m;
-    if (init__16TQuestListOnlineFv() != 0) {
+    if (TQuestListOnline::init() != 0) {
         q = TQuestListOnline__bin_download_state;
         decompress_quest_buffer__16TQuestListOnlineFl(*(void **)(q + 0x38), *(s32 *)(q + 0x34));
         q = TQuestListOnline__dat_download_state;
         TQuestListOnline__sub_802176DC(*(void **)(q + 0x38), *(s32 *)(q + 0x34));
-        set_enemy_mode_flag__6TLobbyFv();
+        TLobby::set_enemy_mode_flag();
         r = is_flag_set__6TLobbyFv();
         m = 2;
         if (r != 0) {
@@ -193,7 +187,7 @@ void TQuestListOnline::handle_quest_ready() {
         TKeyBoardControl__sub_8000F950();
         unsuppress_slot__11TWindowCtrlFv((void *)local_client_id);
     } else {
-        clear_counter__6TLobbyFv();
+        TLobby::clear_counter();
         evt2_random_enemies_mode = 0;
         TKeyBoardControl__sub_8000F95C();
         q = TQuestListOnline__bin_download_state;
@@ -250,7 +244,7 @@ void TLobby::handle_quest_download_chunk() {
         if (buf != NULL) {
             memcpy(buf + (p->chunk << 10), p->data, p->size);
             quest_download_graph_current_bytes += p->size;
-            update_graph__8TDLGraphFll(quest_download_graph_current_bytes, quest_download_received_bytes);
+            TDLGraph::update_graph(quest_download_graph_current_bytes, quest_download_received_bytes);
             if (p->size < 0x400) {
                 *flag = 1;
             }
@@ -263,7 +257,7 @@ void TLobby::handle_quest_download_chunk() {
             Pos_80214F80 pos = lbl_8044BCC8[0];
             TQuestListOnline__download_barrier_window = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0xBE), &pos);
             send_and_handle__6TLobbyFii(TQuestListOnline__download_barrier_window, TQuestVmDownLoadServer__sub_8006EF6C(0x61), 1);
-            set_field_1c__6TLobbyFf(TQuestListOnline__download_barrier_window, lbl_805DC660);
+            ((TLobby *)TQuestListOnline__download_barrier_window)->set_field_1c(lbl_805DC660);
             complete_reveal__14TWindowMessageFPv(TQuestListOnline__download_barrier_window);
         }
         send_quest_barrier__9TProtocolFv(TLobby__protocol_instance);

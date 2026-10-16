@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowMeseta.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 
@@ -8,7 +9,6 @@ s32 draw_visible_window_entries(s32, s32, s32);
 void *get_quest_id__12TQuestListVMFv();
 u32 get_player_by_client_id(s32);
 s32 draw_window_tab(s32, s32, s32, f32);
-s32 get_entry_id__17TWindowSubComCardFv(void* p);
 int TWindowSubComCard__sub_8026906C(void* p);
 
 s32 TWindowMeseta::get_meseta_value() {

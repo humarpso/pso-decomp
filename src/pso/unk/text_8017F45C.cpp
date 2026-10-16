@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -23,7 +24,6 @@ struct Obj_8017F550 { u8 pad0[0x38]; u8 pos[0x28]; s32 f60; u8 pad1[0x88]; Rec_8
 extern "C" {
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8017F45C_lbl_804B5830 bm_o_abe_butterfly_resource_descriptor;
 extern s32 butterfly_bml_resource;
 void fn_8017F45C(void);
@@ -46,7 +46,7 @@ extern "C" {
 void fn_8017F45C(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_abe_butterfly_resource_descriptor.value, 0, 0, 0));

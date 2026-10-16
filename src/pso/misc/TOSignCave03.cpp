@@ -1,6 +1,10 @@
 #include "pso/misc/TOSignCave03.h"
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -36,17 +40,13 @@ struct RecoveredGlobal_80176FF8___vt__12TOSignCave03 {
 };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80176F50_lbl_804B43A0 bm_fs_obj_dokanban03_resource_descriptor;
 extern u32 TOSignCave03__shared_resource;
 s32 init_map_object_base(void *, void *);
@@ -64,7 +64,6 @@ void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 
 extern void *tl_05;
 
@@ -84,7 +83,7 @@ void TOSignCave03::render() {
     CaveSignModel *node8;
     CaveSignModel *node9;
     if (((VObj_18_26a62c *)(this))->m8(field_c0, field_c4) != 0) {
-        set_global_param__8TObjFishFl(render_parameter);
+        TObjFish::set_global_param(render_parameter);
         push_matrix();
         post_translate_matrix(transform);
         rotate_matrix_y(0, angle);
@@ -95,7 +94,7 @@ void TOSignCave03::render() {
         node2 = node1->child;
         translate_matrix(0, node2->x, node2->y, node2->z);
         draw_ginja_model(node2->model);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         push_matrix();
         node3 = node2->child;
         translate_matrix(0, node3->x, node3->y, node3->z);
@@ -106,13 +105,13 @@ void TOSignCave03::render() {
         draw_ginja_model(node4->model);
         pop_matrix();
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         push_matrix();
         node5 = model->child->sibling;
         translate_matrix(0, node5->x, node5->y, node5->z);
         draw_ginja_model(node5->model);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         push_matrix();
         node6 = node5->child;
         translate_matrix(0, node6->x, node6->y, node6->z);
@@ -123,25 +122,25 @@ void TOSignCave03::render() {
         draw_ginja_model(node7->model);
         pop_matrix();
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         push_matrix();
         node8 = model->child->sibling->sibling;
         translate_matrix(0, node8->x, node8->y, node8->z);
         draw_ginja_model(node8->model);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         push_matrix();
         node9 = node8->child;
         translate_matrix(0, node9->x, node9->y, node9->z);
         draw_ginja_model(node9->model);
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         push_matrix();
         node10 = model->child->sibling->sibling->sibling;
         translate_matrix(0, node10->x, node10->y, node10->z);
         draw_ginja_model(node10->model);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         push_matrix();
         node11 = node10->child;
         translate_matrix(0, node11->x, node11->y, node11->z);
@@ -152,7 +151,7 @@ void TOSignCave03::render() {
         draw_ginja_model(node12->model);
         pop_matrix();
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         pop_matrix();
     }
@@ -182,7 +181,7 @@ extern s32 __vt__12TOSignCave03[];
 void TOSignCave03::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_dokanban03_resource_descriptor.value, 0, 0, 0));
@@ -193,7 +192,7 @@ void TOSignCave03::load_shared_resource() {
 void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOSignCave03;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

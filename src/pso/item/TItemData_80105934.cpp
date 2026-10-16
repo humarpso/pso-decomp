@@ -1,11 +1,11 @@
 #include "types.h"
 #include "pso/item/TItemData.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 int initialize_mag_item_data(void*);
-int activate_d04_slot__10TObjPlayerFv(void* p);
-void clear_fields__20TWindowSubStatusDispFv(void* p);
 void fn_801058E8(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 

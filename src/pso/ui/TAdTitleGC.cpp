@@ -1,6 +1,8 @@
 #include "pso/TAdTitleGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/object/TObjFish.h"
 
 struct Rec_802A0A60 { u8 pad[0x20]; };
 
@@ -39,7 +41,6 @@ struct Title_802A0C84 {
 
 extern "C" {
 u32 calc_text_width(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(s32);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -60,14 +61,13 @@ s32 get_localized_text_entry(s32, s32);
 s32 set_cached_blend_factor(s32, s32);
 s32 restore_saved_depth_alpha_state();
 s32 fn_802A0A30(void *, void *, s32, s32, s32);
-s32 get_state_flag__9TMainTaskFv();
 s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 s32 TAdTitleGC::draw_title_layer(s32 arg1, s32 arg2) {
     s32 i;
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D6630);
+    TObjFish::set_global_param(lbl_805D6630);
     set_draw_texture_and_color(arg1 > 0xB, arg2);
     for (i = 0; i < 8; i++) {
         draw_textured_quad_at_depth(&((Title_802A0A60 *)this)->recs[i], (-1.0f) / -((113.0f) - (f32)i));
@@ -78,7 +78,7 @@ s32 TAdTitleGC::draw_title_layer(s32 arg1, s32 arg2) {
 void TAdTitleGC::render() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x134) == 1) {
-        if (get_state_flag__9TMainTaskFv() == 1) {
+        if (TMainTask::get_state_flag() == 1) {
             return;
         }
         goto block_5;

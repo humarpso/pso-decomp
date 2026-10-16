@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/THunterGuildWarning.h"
+#include "pso/TObject.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestListVM.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -68,8 +73,6 @@ struct Seq_802129FC : Base_802129FC {
 };
 
 extern "C" {
-s32 is_visible__17TWindowSubComCardFv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 create_quest_thread(s32);
 void TWindow__close(void *);
@@ -80,25 +83,15 @@ List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
 void *__nw__7TObjectFUl(u32);
 List_80212B88 *TQuestListChallenge__ct(void *, s32, Seq_80212B88 *, s32);
 s32 get_game_play_mode();
-void set_state_close__22THunterGuildSeqOfflineFv(void);
-void set_state_4__22THunterGuildSeqOfflineFv(void);
-void create_quest_list_vm__22THunterGuildSeqOfflineFv(void);
-void set_state_close2__22THunterGuildSeqOfflineFv(void);
 extern s32 tl_05;
 void obj_getField1c(s32);
 void queue_destruction__7TObjectFv(void *);
-void init__22THunterGuildSeqOfflineFPvPv(void *, void *, void *);
-void queue_destruction__19THunterGuildWarningFv();
 void THunterGuildSeqOffline__sub_8021E180();
 void fn_802233F8(void *);
 void close_window__13TShopSequenceFPv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 void *__nw__7TObjectFUl(u32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void set_enemy_mode_1__22THunterGuildSeqOfflineFv(void);
-void set_enemy_mode_3__12TQuestListVMFv(void);
-void set_enemy_mode_5__22THunterGuildSeqOfflineFv(void);
 extern void *tl_00;
 void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0);
 }
@@ -120,12 +113,10 @@ struct VObj_80212858_8021282C : Base_80212858_8021282C {
 int TKeyBoardControl__sub_8000F950(void);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-int clear_counter__6TLobbyFv(void);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 
     extern int evt2_random_enemies_mode;
-void THunterGuildSeqOffline::set_enemy_mode_0() { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
+void THunterGuildSeqOffline::set_enemy_mode_0() { TLobby::clear_counter(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
 
 extern struct VObj_80212858_8021282C *THunterGuildSeqOffline__active_instance;
 
@@ -144,7 +135,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2C));
     if (temp_r3 != NULL) {
-        if (is_visible__17TWindowSubComCardFv(temp_r3) != 0) {
+        if (((TWindowSubComCard *)temp_r3)->is_visible() != 0) {
             temp_r3_2 = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x2C));
             if (temp_r3_2 == 0) {
                 TWindow__close(*(u8 **)((s8 *)arg0 + 0x2C));
@@ -168,7 +159,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
             goto block_8;
         }
 block_8:
-        if (get_status_flag__17TWindowSubComCardFv(*(u8 **)((s8 *)arg0 + 0x2C)) != 0) {
+        if (((TWindowSubComCard *)(*(u8 **)((s8 *)arg0 + 0x2C)))->get_status_flag() != 0) {
             TWindow__close(*(u8 **)((s8 *)arg0 + 0x2C));
             *(u8 **)((s8 *)arg0 + 0x2C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
@@ -181,7 +172,7 @@ block_8:
 void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     void *o;
     if (arg0->f34 != NULL) {
-        if (all_parents_unqueued_for_destruction__7TObjectFv(arg0->f34) == 1) {
+        if (((TObject *)(arg0->f34))->all_parents_unqueued_for_destruction() == 1) {
             return;
         }
         arg0->f34 = NULL;
@@ -198,7 +189,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 1:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)THunterGuildSeqOffline::set_enemy_mode_0);
+            ((THunterGuildSeqOffline *)o)->init(tl_00, (void *)THunterGuildSeqOffline::set_enemy_mode_0);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -206,7 +197,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 2:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)set_enemy_mode_1__22THunterGuildSeqOfflineFv);
+            ((THunterGuildSeqOffline *)o)->init(tl_00, (void *)THunterGuildSeqOffline::set_enemy_mode_1);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -214,7 +205,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 3:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)set_enemy_mode_3__12TQuestListVMFv);
+            ((THunterGuildSeqOffline *)o)->init(tl_00, (void *)TQuestListVM::set_enemy_mode_3);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -222,7 +213,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     case 4:
         o = __nw__7TObjectFUl(0x28);
         if (o != NULL) {
-            init__22THunterGuildSeqOfflineFPvPv(o, tl_00, (void *)set_enemy_mode_5__22THunterGuildSeqOfflineFv);
+            ((THunterGuildSeqOffline *)o)->init(tl_00, (void *)THunterGuildSeqOffline::set_enemy_mode_5);
         }
         obj_getField1c(arg0->f24);
         THunterGuildSeqOffline__sub_8021E180();
@@ -230,7 +221,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     }
     close_window__13TShopSequenceFPv(arg0);
     fn_802233F8(arg0);
-    queue_destruction__19THunterGuildWarningFv();
+    THunterGuildWarning::queue_destruction();
     queue_destruction__7TObjectFv(arg0);
 }
 
@@ -244,7 +235,7 @@ void THunterGuildSeqOffline::open_quest_list() {
         if (list != NULL) list = TQuestListChallenge__ct(list, tl_05, self, self->player);
         if (list != NULL) {
             list->accepted = THunterGuildSeqOffline::request_close;
-            list->cancelled = set_state_close2__22THunterGuildSeqOfflineFv;
+            list->cancelled = THunterGuildSeqOffline::set_state_close2;
             set_field_20__12TQuestListVMFl(self, 10);
         }
         break;
@@ -252,8 +243,8 @@ void THunterGuildSeqOffline::open_quest_list() {
         list = (List_80212B88 *)__nw__7TObjectFUl(0x5C);
         if (list != NULL) list = TQuestListChallenge__ct(list, tl_05, self, self->player);
         if (list != NULL) {
-            list->accepted = set_state_4__22THunterGuildSeqOfflineFv;
-            list->cancelled = set_state_close__22THunterGuildSeqOfflineFv;
+            list->accepted = THunterGuildSeqOffline::set_state_4;
+            list->cancelled = THunterGuildSeqOffline::set_state_close;
             set_field_20__12TQuestListVMFl(self, 10);
         }
         break;
@@ -263,8 +254,8 @@ void THunterGuildSeqOffline::open_quest_list() {
         if (list != NULL) list = TQuestListOffline__ct(list, tl_05, self, self->player);
         if (list != NULL) {
             list->accepted = THunterGuildSeqOffline::request_close;
-            list->cancelled = set_state_close2__22THunterGuildSeqOfflineFv;
-            list->download = create_quest_list_vm__22THunterGuildSeqOfflineFv;
+            list->cancelled = THunterGuildSeqOffline::set_state_close2;
+            list->download = THunterGuildSeqOffline::create_quest_list_vm;
             set_field_20__12TQuestListVMFl(self, 10);
         }
         break;
@@ -275,7 +266,7 @@ void THunterGuildSeqOffline::handle_window_input() {
     void *temp_r3 = *(void **)((s8 *)this + 0x34);
 
     if (temp_r3 != NULL) {
-        if (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 1) {
+        if (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 1) {
             *(u32 *)((s8 *)this + 0x34) = 0U;
             goto block_3;
         }

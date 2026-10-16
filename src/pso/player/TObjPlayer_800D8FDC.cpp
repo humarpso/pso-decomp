@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 void TObjPlayer__sub_800D93F0(s32, s32, s32, f32);
@@ -46,7 +48,6 @@ extern "C" {
 void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 int spawn_particle_effect(void*, void*);
 s32 __nw__7TObjectFUl(s32);
-s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, s32 *);
 s32 init__9TDeadSpotFPv(s32, s32, s32, s32, f32);
 
 extern s32 tl_05;
@@ -67,7 +68,7 @@ void TObjPlayer::trigger_dell_biter_events() { spawn_particle_effect(this, (void
 void TObjPlayer::spawn_ground_effect(s32 arg1) {
     s32 sp8;
 
-    adjust_to_ground__15TObjBoss2TunnelFlPv(this, &sp8);
+    TObjBoss2Tunnel::adjust_to_ground((s32)this, (void *)(&sp8));
     create_timed_particle_emitter((void*)(&sp8), (void*)(0xE5), (void*)(0), (void*)(arg1));
 }
 
@@ -83,12 +84,11 @@ extern "C" {
 void TObjPlayer__sub_800D9290(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800D92BC(s32 arg0, s32 arg1);
 void spawn_landing_dead_spot(s32 arg0, s32 arg1);
-s32 adjust_to_ground__15TObjBoss2TunnelFlPv(void *, s32 *);
 
 void TObjPlayer::spawn_effect_at_ground(s32 arg1) {
     s32 sp8;
 
-    adjust_to_ground__15TObjBoss2TunnelFlPv(this, &sp8);
+    TObjBoss2Tunnel::adjust_to_ground((s32)this, (void *)(&sp8));
     create_timed_particle_emitter(&sp8, 0xE4, 0, arg1);
 }
 
@@ -206,7 +206,6 @@ extern const f32 lbl_805DA3D8;
 s32 TObjPlayer__sub_800D9560(f32 *arg0);
 extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void load_corpse_mark_resource(void);
 }
@@ -227,7 +226,7 @@ void TObjPlayer::destroy_static_lobby() {
 extern s32 model_render_flags;
 
 void load_corpse_mark_resource(void) {
-    u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    u8 *p = (u8 *)((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, corpse_mark_resource_descriptor, 0, 0, 0);
     }

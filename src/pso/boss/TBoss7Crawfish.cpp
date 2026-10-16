@@ -3,6 +3,8 @@
 
 #include <stddef.h>
 #include "pso/boss/TBoss7Crawfish.h"
+#include "pso/object/TObjOnlineEnding.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_80308B38 {
     s32 sp8;
@@ -105,9 +107,7 @@ extern const f32 lbl_805DF0D4;
 s32 is_visible__14TBoss7CrawfishFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable(u32);
-s32 apply_status_effect__10TObjPlayerFl(void *);
 s32 reset_global_table();
-s32 get_instance__16TObjOnlineEndingFv();
 Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
 s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *, void *);
 void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o);
@@ -126,13 +126,9 @@ s32 play_persistent_sound(s32, s32, s32, s32, s32);
 int rotate_matrix_yxz(void*, void*, void*, void*);
 int push_matrix(void);
 int pop_matrix(void);
-int clear_global_state__10TObjPlayerFv(void);
 int draw__16TObjEneRe7BeruraFv(void*);
-f32 get_health__14TBoss7CrawfishFv(s32);
-int notify_fish_if_valid__10TObjPlayerFUl(void*);
 s32 objInBand__FP7GameObjf(s32, f32);
 int queue_destruction__7TObjectFv(void*);
-int set_global_flag__10TObjPlayerFv(void);
 
 extern f32 lbl_805DF0C8;
 
@@ -150,8 +146,8 @@ void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o) {
     msg.one = 1;
     VecCopy__FP3VecPC3Vec(&msg.pos, (u8 *)o + 0x38);
     msg.id = *(s32 *)((s8 *)o + 0x60);
-    apply_status_effect__10TObjPlayerFl(&msg);
-    for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
+    TObjPlayer::apply_status_effect((s32)(&msg));
+    for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         if ((u32)o->count < 4) {
             e = get_attack_entry__16TObjOnlineEndingFi(i);
             for (j = 0; j != o->count; j++) {
@@ -245,7 +241,7 @@ s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0) {
     return TBoss7Crawfish__data_805DF0D8 == *(f32 *)((s8 *)arg0 + 0x354);
 }
 
-void TBoss7Crawfish::render() { if (is_visible__14TBoss7CrawfishFPv((u8 *)(this)) != 0) { notify_fish_if_valid__10TObjPlayerFUl(*(void**)((char*)this + 0x24)); set_global_flag__10TObjPlayerFv(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, *(void**)((char*)this + 0x5c), *(void**)((char*)this + 0x60), *(void**)((char*)this + 0x64)); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); clear_global_state__10TObjPlayerFv(); } }
+void TBoss7Crawfish::render() { if (is_visible__14TBoss7CrawfishFPv((u8 *)(this)) != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void**)((char*)this + 0x24))); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, *(void**)((char*)this + 0x5c), *(void**)((char*)this + 0x60), *(void**)((char*)this + 0x64)); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
 
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0EC;
@@ -267,7 +263,7 @@ void TBoss7Crawfish::check_band_and_destroy() {
     if (objInBand__FP7GameObjf(arg0, lbl_805DF0EC) != 0) {
         spawn_ground_effects();
     }
-    if (TBoss7Crawfish__data_805DF0D8 == get_health__14TBoss7CrawfishFv(arg0)) {
+    if (TBoss7Crawfish__data_805DF0D8 == ((TBoss7Crawfish *)arg0)->get_health()) {
         queue_destruction__7TObjectFv((void*)(arg0));
     }
 }

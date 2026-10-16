@@ -1,19 +1,19 @@
 #include "types.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void psycho_wand_idle(u8 *arg0);
 void psycho_wand_active(u8 *arg0);
-s32 add_angle_clamped__10TObjPlayerFPlll(void *, int, int);
-s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
 
 extern const f32 lbl_805DAED0;
 extern const f32 lbl_805DAED4;
 
 void psycho_wand_idle(u8 *arg0) {
-    add_angle_clamped__10TObjPlayerFPlll((void *) (arg0 + 0x278), (int) (0x38E), (int) (0x2AAA));
+    TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), (s32)((int) (0x38E)), (s32)((int) (0x2AAA)));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x278) == 0x2AAA) {
-        approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x274), (f32) (lbl_805DAED0), (f32) (lbl_805DAED4));
+        TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x274), (f32)((f32) (lbl_805DAED0)), (f32)((f32) (lbl_805DAED4)));
     }
 }
 
@@ -21,9 +21,9 @@ extern const f32 lbl_805DAEC8;
 extern const f32 lbl_805DAED8;
 
 void psycho_wand_active(u8 *arg0) {
-    approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x274), (f32) (lbl_805DAED8), (f32) (lbl_805DAEC8));
+    TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x274), (f32)((f32) (lbl_805DAED8)), (f32)((f32) (lbl_805DAEC8)));
     if (lbl_805DAEC8 == *(f32 *)((s8 *)arg0 + 0x274)) {
-        add_angle_clamped__10TObjPlayerFPlll((void *) (arg0 + 0x278), (int) (-0x71C), (int) (0));
+        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), (s32)((int) (-0x71C)), (s32)((int) (0)));
     }
 }
 

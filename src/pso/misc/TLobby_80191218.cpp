@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -10,7 +11,6 @@ void TObjHashiVersus2__sub_801912B0(void);
 void set_player_quest_control_flag(register s32 r3);
 void *TLobby__sub_8019118C(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 set_state_flags__10TObjPlayerFUl(s32, s32);
 
 extern void *tl_05;
 
@@ -29,7 +29,7 @@ void TLobby__sub_80191264(void) { npc_proximity_target_id = -1; }
 void TLobby__sub_80191270(void) { npc_proximity_target_id = -1; }
 
 void set_player_quest_control_flag(register s32 r3) {
-    set_state_flags__10TObjPlayerFUl(r3, 0x8000);
+    ((TObjPlayer *)r3)->set_state_flags(0x8000);
 }
 
     extern int hashi_versus2_flag;

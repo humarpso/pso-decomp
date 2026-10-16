@@ -1,11 +1,11 @@
 #include "types.h"
 #include "pso/misc/TShopArmorListWindow.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Win_80266CF8 { u8 p0[0x72]; s16 f72; s16 f74; u8 p76[2]; s16 f78; };
 
 extern "C" {
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s32 is_flag_4_set__20TWindowSubStatusDispFv(void *);
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void reset__20TWindowSubStatusDispFPv(void *);
 void reset_list__20TShopArmorListWindowFPv(u8 *arg0);
@@ -24,7 +24,7 @@ void TShopArmorListWindow::clamp_selection_to_valid_entry() {
             return;
         }
         e = get_array_entry__20TWindowSubStatusDispFi(w, w->f78);
-        while (is_flag_4_set__20TWindowSubStatusDispFv(e) == 0) {
+        while (((TWindowSubStatusDisp *)e)->is_flag_4_set() == 0) {
             w->f78 = w->f78 - 1;
             e = get_array_entry__20TWindowSubStatusDispFi(w, w->f78);
         }

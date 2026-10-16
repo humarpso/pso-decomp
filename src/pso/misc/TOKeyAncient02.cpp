@@ -1,6 +1,12 @@
 #include "types.h"
 #include "pso/misc/TOKeyAncient02.h"
 #include "pso/misc/TOKeyAncient03.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase18 { char pad[0x18]; };
 
@@ -57,24 +63,18 @@ struct VObj_8016B414 : VBase_8016B414 {
 
 extern "C" {
 s32 is_split_screen();
-s32 is_any_player_in_range__5TOKeyFv(void *);
-s32 is_local_player_in_range__5TOKeyFv(void *);
 s32 TOKeyAncient03__vt13(u8 *arg0);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix_vec3(int, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 extern s32 TOKeyAncient02__model_root;
 extern void *TOKeyAncient02__texture_lists;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 int mem_alloc(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
@@ -84,10 +84,8 @@ extern s32 TOKeyAncient02__model_root;
 extern void *TOKeyAncient02__texture_lists;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 init_switch_id__5TOKeyFv(void *);
 s32 TOKey__ct(void *);
 extern RecoveredGlobal_8016B6A4_lbl_804B2A8C lbl_804B2A8C;
 extern s32 __vt__14TOKeyAncient02[];
@@ -97,8 +95,6 @@ extern const f32 TOKeyAncient02__data_805DB70C;
 extern const f32 lbl_805DB710;
 extern const f32 lbl_805DB714;
 u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2);
-void init_6x05_switch_changed__6TLobbyFv(void *);
-void finalize_and_send_60__6TLobbyFv(void *);
 s32 get_current_floor();
 extern s32 local_client_id;
 extern const f32 lbl_805DB700;
@@ -125,7 +121,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
-s32 free_if_valid__10TObjPlayerFl(s32);
 
 void TOKeyAncient02__vt23(void) {  }
 
@@ -142,7 +137,7 @@ void TOKeyAncient02::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         temp_r31 = *(u8 **)((s8 *)arg0 + 0x34);
         push_matrix();
         post_translate_matrix((void *) (temp_r31 + 8));
@@ -151,9 +146,9 @@ void TOKeyAncient02::render() {
         push_matrix();
         post_translate_matrix((void *) (temp_r31_2 + 8));
         scale_matrix_vec3((int) (0), (void *) (arg0 + 0x68));
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x30);
         push_matrix();
@@ -161,8 +156,8 @@ void TOKeyAncient02::render() {
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)(*(s32 *)&TOKeyAncient02__texture_lists) + (*(s32 *)((s8 *)arg0 + 0xD4) * 4))));
-        begin_effect_render__13TParticleCtrlFv();
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TOKeyAncient02__texture_lists) + (*(s32 *)((s8 *)arg0 + 0xD4) * 4))));
+        TParticleCtrl::begin_effect_render();
         temp_r31_4 = (u8 *)((*(u8 * *)&TOKeyAncient02__model_root));
         push_matrix();
         post_translate_matrix((void *) (temp_r31_4 + 8));
@@ -174,7 +169,7 @@ void TOKeyAncient02::render() {
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_5 + 4)));
         pop_matrix();
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -233,7 +228,7 @@ extern void *TOKeyAncient02__texture_lists;
 
 void TOKeyAncient02::free_static() {
     if ((void *) TOKeyAncient02__texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)TOKeyAncient02__texture_lists + 4));
+        TObjPlayer::free_if_valid(*(s32 *)((s8 *)TOKeyAncient02__texture_lists + 4));
         if ((void *) TOKeyAncient02__texture_lists != NULL) {
             mem_free((void*)TOKeyAncient02__texture_lists);
             TOKeyAncient02__texture_lists = NULL;
@@ -253,7 +248,7 @@ typedef char RecoveredGlobal_8016B5A4_lbl_804B2A7C_size[sizeof(RecoveredGlobal_8
 void TOKeyAncient02::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_o_doorswitch01_resource_descriptor.value, 0, 0, 0));
@@ -283,12 +278,12 @@ u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 *)&__vt__14TOKeyAncient02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient02__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    init_switch_id__5TOKeyFv((void *) (arg0));
+    ((TOKey *)arg0)->init_switch_id();
     *(u8 **)((s8 *)arg0 + 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), (s32)(1)));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), (s32)((int) (1)));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2A8C.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB710;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14));
     *(s32 *)((s8 *)arg0 + 0xE8) = 0;
@@ -314,16 +309,16 @@ s32 TOKeyAncient03__vt13(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
-            var_r3 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
+            var_r3 = ((TOKey *)arg0)->is_any_player_in_range();
         } else {
-            var_r3 = is_local_player_in_range__5TOKeyFv((void *) (arg0));
+            var_r3 = ((TOKey *)arg0)->is_local_player_in_range();
         }
         if (((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
     case 1:
-        var_r31 = is_any_player_in_range__5TOKeyFv((void *) (arg0));
+        var_r31 = ((TOKey *)arg0)->is_any_player_in_range();
         break;
     }
     return var_r31;
@@ -331,13 +326,13 @@ s32 TOKeyAncient03__vt13(u8 *arg0) {
 void TOKeyAncient03::send_switch_changed(s32 flags) {
     Self_8016B84C *self = (Self_8016B84C *)this;
     Pkt_8016B84C pkt;
-    init_6x05_switch_changed__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->init_6x05_switch_changed();
     pkt.object = self->id;
     pkt.zero = local_client_id;
     pkt.switchId = self->switchId;
     pkt.area = get_current_floor();
     pkt.flags = flags;
-    finalize_and_send_60__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 
 }

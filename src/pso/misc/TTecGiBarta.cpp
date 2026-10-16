@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TTecGiBarta.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802308A0_lbl_804CC510
 {
@@ -121,7 +123,6 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 void *get_bml_motion(void *, u32);
 void *get_bml_model(void *, u32);
 void attach_particle_model(void *, void *, void *, void *, s32, f32);
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *create_timed_particle_emitter(void *, s32, s32, s32);
 void *spawn_continuous_particle_with_direction(void *, void *, u32);
 void *spawn_particle_effect(void *, s32);
@@ -141,7 +142,6 @@ extern const f32 lbl_805DC808;
 
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 copy_params__8TTecAntiFPUc(void *, int);
 extern RecoveredGlobal_802308A0_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_802308A0_lbl_804CC55C lbl_804CC55C;
 u16 obj_getField1c(void *);
@@ -149,7 +149,6 @@ void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target);
 s32 queue_destruction__7TObjectFv(void *);
 void mem_free(void **);
 void __dl__7TObjectFPv(void *);
-void destroy_technique_effect_resources__10TObjPlayerFs(void *, s16);
 extern void *__vt__11TTecGiBarta[];
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
@@ -259,7 +258,7 @@ void TTecGiBarta::create_particles() {
         }
         if (emitter != NULL) {
             if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 0x40) {
-                set_position_xy__10TObjPlayerFff(emitter, TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale, TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale);
+                ((TObjPlayer *)emitter)->set_position_xy(TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale, TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale);
             }
             if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 0x20) {
                 attach_particle_model(emitter, get_bml_model(technique_effect_bml, (u16)(TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags >> 16)), lbl_805D63B0, NULL, 0, lbl_805DC804);
@@ -304,7 +303,7 @@ void TTecGiBarta::calc_params() {
     u8 *arg0 = (u8 *)this;
   s32 new_var;
   new_var = calc_technique_parameters((int) 4, (int) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4, (int) 0xFFFF);
-  copy_params__8TTecAntiFPUc((void *) (arg0 + 0xCC), (int) new_var);
+  ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_802308A0_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x10))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x12))) * ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4));
@@ -368,7 +367,7 @@ TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 dele
             }
         }
         mem_free(self->emitters);
-        destroy_technique_effect_resources__10TObjPlayerFs(self, 0);
+        ((TObjPlayer *)self)->destroy_technique_effect_resources(0);
         if (deleting > 0) __dl__7TObjectFPv(self);
     }
     return self;

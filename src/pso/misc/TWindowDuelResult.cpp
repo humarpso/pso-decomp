@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult {
     s32 value;
@@ -32,15 +36,12 @@ struct TWindowDuelResult {
     void sub_8024EF3C();
 };
 extern "C" {
-s8 get_type__20TWindowSubStatusDispFv(int);
-s32 destroy_all_items__20TWindowSubStatusDispFv(void *);
 s32 setup_window_draw_context(void *, void *);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
 void draw_window__17TWindowDuelResultFPv(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
-u8 *alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
 s32 TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFiii(void *, s32, s32, s32);
@@ -60,7 +61,6 @@ s32 get_shared_text_buffer(s32);
 s32 get_localized_text_entry(int, int);
 u8 *get_player_by_client_id(int);
 Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
-u8 get_rule_field_a__6TLobbyFv(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32);
@@ -85,8 +85,6 @@ s32 handle_list_page_flip_input(s32);
 s32 update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
-void destroy_window_base__9TWindowDDFs(void *, int);
-s32 initialize_subwindow__9TWindowDDFv(void *);
 
 extern "C" u8 lbl_805D63F0[];
 extern "C" const char lbl_805DCCA8[] = ":";
@@ -236,7 +234,7 @@ void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self) {
         } else {
             if (none) {
                 set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xA));
-            } else if (get_rule_field_a__6TLobbyFv(lobby_rule_settings) == 1) {
+            } else if (((TLobby *)lobby_rule_settings)->get_rule_field_a() == 1) {
                 if (e->rank == 0) {
                     set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xB));
                 } else {
@@ -261,8 +259,8 @@ s32 TWindowDuelResult__sub_8024F3CC(void *arg0_) {
     typedef void (TWindowDuelResult::*PT)();
     static PT tbl[2] = { &TWindowDuelResult::sub_8024F094, &TWindowDuelResult::sub_8024EF40 };
     TWindowDuelResult *w = (TWindowDuelResult *)arg0;
-    destroy_all_items__20TWindowSubStatusDispFv(arg0 + 0x24);
-    s8 t = get_type__20TWindowSubStatusDispFv(*(s32 *)(arg0 + 0x68));
+    ((TWindowSubStatusDisp *)(arg0 + 0x24))->destroy_all_items();
+    s8 t = ((TWindowSubStatusDisp *)(*(s32 *)(arg0 + 0x68)))->get_type();
     (w->*tbl[t])();
     TWindowDuelResult__sub_8024F330(arg0);
 }
@@ -272,7 +270,7 @@ s32 TWindowDuelResult__sub_8024F330(void *arg0_) {
     typedef void (TWindowDuelResult::*PT)();
     static PT tbl[2] = { &TWindowDuelResult::sub_8024F090, &TWindowDuelResult::sub_8024EF3C };
     TWindowDuelResult *w = (TWindowDuelResult *)arg0;
-    s8 t = get_type__20TWindowSubStatusDispFv(*(s32 *)(arg0 + 0x68));
+    s8 t = ((TWindowSubStatusDisp *)(*(s32 *)(arg0 + 0x68)))->get_type();
     (w->*tbl[t])();
 }
 #pragma defer_codegen off
@@ -293,7 +291,7 @@ void update__17TWindowDuelResultFPv(u8 *arg0) {
         TWindowDuelResult__sub_8024F3CC(arg0);
     }
     TWindowDuelResult__sub_8024F330(arg0);
-    initialize_subwindow__9TWindowDDFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
     update_window_entry_list(arg0, arg0 + 0x24);
 }
 
@@ -308,7 +306,7 @@ void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CF020;
         delete_if_allocated(*(void **)((s8 *)arg0 + 0x68), 1);
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -323,7 +321,7 @@ u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38F0;
-    temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv((void *)0xC));
+    temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)((void *)0xC))->alloc());
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(init__21TWindowSubComCardListFiii(temp_r3, 0, 2, (s32) *(s16 *)((s8 *)arg0 + 0x20)));

@@ -2,6 +2,9 @@
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/misc/TWindowLockOn.h"
 struct Stack_800F5D80 {
     s32 sp8;
     u8 pad_C[0x2];
@@ -18,10 +21,7 @@ extern "C" {
 s32 mem_alloc(s32);
 s32 collect_model_strips_by_texture(void *, s32, s32, s32);
 s32 count_model_strips_by_texture();
-s32 get_target_id__13TWindowLockOnFv(void* p);
 int initialize_enemy_photon_effect(void* p);
-int reset_photon_effect__12TBoss3VoloptFv(void*);
-void set_param__12TObjEneLappyFl(void* p, s32 v);
 
 extern s32 plist_strip_write_ptr;
 extern s32 plist_strip_uv_write_ptr;

@@ -1109,7 +1109,6 @@ extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1);
-void roaming_state__14TObjEneBm5WolfFi(u8 *arg0, s32 arg1);
 void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 #define spawn_recoil_dust__14TObjEneBm5WolfFiPv ((s32 (*)(void *, void *))&spawn_recoil_dust__14TObjEneBm5WolfFiPv)
@@ -2905,7 +2904,7 @@ void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
         howling_state__14TObjEneBm5WolfFPvi((u8 *)(arg0), (s32)(event));
         break;
     case 7:
-        roaming_state__14TObjEneBm5WolfFi(arg0, event);
+        ((TObjEneBm5Wolf *)arg0)->roaming_state(event);
         break;
     case 8:
         ((TObjEneBm5Wolf *)arg0)->chasing_state(event);

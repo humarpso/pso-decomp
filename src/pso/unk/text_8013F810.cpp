@@ -47,11 +47,9 @@ void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
 u8 lzss_input_exhausted(u8 *arg0);
 u8 lzss_read_byte(u8 *arg0);
-void set_range__6TLobbyFiii(void *, int, int, int);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
 s32 TLobby__sub_803DF1CC(void);
-s32 calc_delta__6TLobbyFll(s32, s32);
 s32 fn_803DF204(s32);
 extern char lbl_8043F168[];
 s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr);
@@ -59,11 +57,8 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
 
 extern "C" {
 
-void update_floor__6TLobbyFv(void);
 int clear_session_buffers__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
-int stop_audio_streams__6TLobbyFv(void);
-int refresh_render_state__6TLobbyFv(void);
 
 #pragma push
 #pragma opt_propagation off
@@ -86,7 +81,7 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
     s32 t1;
     out = hdr;
     t0 = TLobby__sub_803DF1CC();
-    set_range__6TLobbyFiii(lz, (int)src, size, (s32)(hdr + 2));
+    ((TLobby *)lz)->set_range((int)src, size, (s32)(hdr + 2));
     ((TLobby *)lz)->init_lookup_tables();
     code_buf[0] = 0;
     mask = code_buf_ptr = 1;
@@ -167,7 +162,7 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
     bswap_32__FPUl((u32 *)(out + 1));
     lz->codesize += 8;
     t1 = TLobby__sub_803DF1CC();
-    sprintf(msg, lbl_8043F168, size, lz->codesize, fn_803DF204(calc_delta__6TLobbyFll(t0, t1)));
+    sprintf(msg, lbl_8043F168, size, lz->codesize, fn_803DF204(TLobby::calc_delta(t0, t1)));
     debug_print__FPCc(msg);
     return lz->codesize;
 }

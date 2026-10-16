@@ -1,6 +1,9 @@
 #include "pso/TObjVoloptShutter.h"
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter {
     s32 value;
@@ -33,9 +36,6 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_chunk_model(s32);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
-s32 toggle_particle_effect__10TObjPlayerFv();
 
 extern s32 volopt_shutter_model_a;
 extern s32 volopt_shutter_model_b;
@@ -97,8 +97,8 @@ void TObjVoloptShutter::update_shutter_state() {
 #pragma pop
 
 void TObjVoloptShutter::render() {
-    toggle_particle_effect__10TObjPlayerFv();
-    set_global_param__8TObjFishFl(volopt_shutter_global_param);
+    TObjPlayer::toggle_particle_effect();
+    TObjFish::set_global_param(volopt_shutter_global_param);
     push_matrix();
     model_render_flags &= 0xFFFFFBFF;
     rotate_matrix_y(0, *(s32 *)((s8 *)this + 0x30));
@@ -109,7 +109,7 @@ void TObjVoloptShutter::render() {
     draw_chunk_model(volopt_shutter_model_a);
     pop_matrix();
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 typedef char RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter_size[sizeof(RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter) == 0x18 ? 1 : -1];
 

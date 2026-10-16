@@ -1,8 +1,10 @@
 #include "types.h"
 #include "pso/misc/TORevlightCave01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 check_demo_mode__10TObjPlayerFv();
 void TORevlightCave01__sub_80173478(void * = 0);
 }
 
@@ -28,15 +30,12 @@ s32 rotate_matrix_x(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 void TORevlightCave01__sub_80173478(void * _w0) {  }
 
 void TORevlightCave01::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TORevlightCave01__sub_80173478((void *)((void *) (arg0)));
     }
     *(s32 *)((s8 *)arg0 + 0xC8) = (s32) (*(s32 *)((s8 *)arg0 + 0xC8) + *(s32 *)((s8 *)arg0 + 0xCC));
@@ -50,13 +49,13 @@ void TORevlightCave01::render() {
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4));
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xC8));
         draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 4));
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x2C)) + 4));
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }

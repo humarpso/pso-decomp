@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TNpcPlayer.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 typedef struct Win_8024BE80 {
     u8 pad0[0x34];
     f32 y;
@@ -14,10 +16,8 @@ typedef struct Ctrl_8024BE80 {
 extern "C" {
 s32 obj_isState3_324(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
-u16 get_action_flags__10TNpcPlayerFv(void *);
 s32 get_field_828__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
-void request_close__19TWindowSubTradeMainFv(void *);
 void window_request_show(void *);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 TWindowCtrl__sub_8024B048(void *);
@@ -46,8 +46,8 @@ void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self) {
                 is_slot_visible__11TWindowCtrlFv(local_client_id) != 0 || TWindowCtrl__sub_8024B048(self) != 0 ||
                 is_script_controlled__10TObjPlayerFv(pl) != 0 ||
                 (obj_isState3_324(pl) != 0 &&
-                 (get_field_828__10TObjPlayerFPv(pl) != 0 || get_action_flags__10TNpcPlayerFv(pl) == 0xFFFF))) {
-                request_close__19TWindowSubTradeMainFv(w);
+                 (get_field_828__10TObjPlayerFPv(pl) != 0 || ((TNpcPlayer *)pl)->get_action_flags() == 0xFFFF))) {
+                ((TWindowSubTradeMain *)w)->request_close();
             } else {
                 window_request_show(w);
                 if (w->y != y) {

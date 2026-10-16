@@ -87,7 +87,6 @@ extern "C" {
 
 u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv();
-s32 get_object_type__6TLobbyFi(s32);
 
 extern s32 TLobby__data_805D6144;
 
@@ -100,7 +99,7 @@ void TLobby::create_objects(s32 arg0) {
     u8 *temp_r3_2;
 
     ptr = resolve_matching_object__6TLobbyFPv();
-    count = get_object_type__6TLobbyFi(arg0);
+    count = TLobby::get_object_type(arg0);
     for (i = 0; i < count; i++, ptr += 0x48) {
         temp_r3 = *(s16 *)((s8 *)ptr + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (*(s16 *)((s8 *)ptr + 0) != -1) && ((temp_r3 & 1) || (*(s16 *)((s8 *)ptr + 0xE) == 0))) {

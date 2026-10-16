@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_800BB45C_lbl_80500B98 {
     s32 value;
@@ -20,15 +21,12 @@ typedef struct Ent_800BB388 {
 
 Ent_800BB388 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-s32 get_game_mode__6TLobbyFv(void);
 u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFv(void *);
-s32 get_enemy_count__9TObjEneDDFv(void);
 f32 horizontal_distance_squared(void *, void *);
 
 u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range);
 u16 obj_getField1c(void *);
-s32 get_game_mode__6TLobbyFv(void);
 s32 is_alive__9TObjEneDDFv(void *);
 s32 TBoss8Dragon__sub_800BB650(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -54,8 +52,8 @@ u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
     f32 d;
 
     best = 0xFFFF;
-    base = get_game_mode__6TLobbyFv();
-    count = get_enemy_count__9TObjEneDDFv();
+    base = TLobby::get_game_mode();
+    count = TObjEneDD::get_enemy_count();
     for (i = 0; i < count; i++) {
         p = get_player_data__10TObjPlayerFi(base + i);
         if (p != self && !(p->flags30 & 0x01000000) && is_alive__9TObjEneDDFv(p) != 0) {
@@ -83,7 +81,7 @@ s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0) {
     f32 d;
     s32 k;
     n = 0;
-    cnt = get_game_mode__6TLobbyFv();
+    cnt = TLobby::get_game_mode();
     if (farg0 > TObjEneDD__data_805D9E8C) {
         for (s32 i = 0; i < cnt; i++) {
             p = ((u8 *)get_player_data__10TObjPlayerFi((s32)(i)));

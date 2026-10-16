@@ -5,26 +5,24 @@ extern "C" {
 
 int TObjPlayer__sub_8012EF40(void* p);
 s32 rotate_matrix_z(s32, s32);
-s32 play_particle_effect_once__10TObjPlayerFv();
 int advance_angle_wrap(void*, int);
 void TItemWeapon__ct(void *);
-s32 get_player_list__10TObjPlayerFv();
 
 void TObjPlayer::update_boss2tunnel_move() {
     s32 temp_r3;
 
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 1:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1F8));
         return;
     case 2:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         rotate_matrix_z(0, -*(s32 *)((s8 *)this + 0x1F8));
         return;
     case 3:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         return;
     }
 }

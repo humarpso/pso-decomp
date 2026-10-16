@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLockOnCursor.h"
+#include "pso/misc/TMainCursor.h"
+#include "pso/misc/TWindowActionPalette.h"
 
 struct Rec_8013EB6C { u8 pad[0x124]; };
 
@@ -19,7 +21,6 @@ s32 TLockOnCursor__sub_8013EBBC(void* p);
 s32 TLockOnCursor__sub_8013EBE8(void* p);
 s32 TLockOnCursor__sub_8013EC14(void* p);
 int TMainCursor__sub_8013B2A4(void*);
-int is_channel_active__11TMainCursorFv(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);
@@ -49,44 +50,11 @@ void TMainCursor__sub_8013EA00(void* p, s32 v);
 int test_flags_any(void*, int);
 int TObjPlayer__sub_8013DEF8(void*);
 s32 __dl__FPv(void* a0 = 0);
-int check_field_24__11TMainCursorFv(void* p);
-int check_flag_1__11TMainCursorFv(void* p);
-int check_flag_4__11TMainCursorFv(void* p);
-s32 cleanup_field_3c__13TLockOnCursorFv(void* p);
-s32 cleanup_field__13TLockOnCursorFv(void* p);
 int clear_flags__11TAdRicoRingFUl(void*, int);
-int forward_13E338_at_60__11TMainCursorFv(void* p);
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
-int get_action_palette__11TMainCursorFv(void* p);
-int get_active__11TMainCursorFv(void* p);
-int get_enabled__11TMainCursorFv(void*);
-u16 get_id__11TMainCursorFv(void* p);
-void* get_list__11TMainCursorFv(void* p);
-u16 get_render_flag__11TMainCursorFv(void* p);
-int get_selected_entry__11TMainCursorFv(void* p);
-u16 get_target_id__11TMainCursorFv(void* p);
-int get_type__11TMainCursorFv(void*);
 s32 init__6gc_tagFv();
-int init_field_60__11TMainCursorFv(void* p);
-int init_render_flags__11TMainCursorFv(void* p);
-int is_cursor_clear__11TMainCursorFv(void* p);
-u8 is_position_moved__11TMainCursorFv(void* p);
-s32 release_target__13TLockOnCursorFv(void* p);
-void set_color__11TMainCursorFl(void* p, s32 v);
-void set_color_mode__11TMainCursorFl(void* p, s32 v);
-void set_field_0c__11TMainCursorFl(void* p, s32 v);
 int set_flags__10TObjPlayerFUl(void*, int);
-void set_flags__11TMainCursorFl(void* p, s32 v);
-int set_mode__20TWindowActionPaletteFUc(void*);
-void set_offset_y__11TMainCursorFs(void* p, s16 a1);
-int set_slot__20TWindowActionPaletteFUc(void*);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
-int set_target_index__11TMainCursorFs(void*, void* a1 = 0);
-int test_flag_2_at_20__11TMainCursorFv(void* p);
-int update__11TMainCursorFv(void* p);
-int update_action_palette__11TMainCursorFv(void* p);
-int update_sub_60__11TMainCursorFv(void* p);
-int update_target_sub__11TMainCursorFv(void* p);
 
 int TLockOnCursor::render_part() { return test_flags_any((char*)this + 0x8, 2); }
 void TLockOnCursor::update_cursor_pos() { is_same_target__11TMainCursorFPvPv((char*)this + 0xc, (char*)this + 0x14); }

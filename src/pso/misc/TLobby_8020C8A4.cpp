@@ -29,7 +29,6 @@ extern "C" {
 
 u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv(s32);
-s32 get_object_type__6TLobbyFi(s32);
 
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6144;
@@ -48,7 +47,7 @@ s32 TLobby::link_matching_objects(s16 arg0, s16 arg1) {
         return 0;
     }
     var_r29 = resolve_matching_object__6TLobbyFPv(TLobby__data_805D60FC);
-    temp_r31 = get_object_type__6TLobbyFi(TLobby__data_805D60FC);
+    temp_r31 = TLobby::get_object_type(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = *(s16 *)((s8 *)var_r29 + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) *(s16 *)((s8 *)var_r29 + 0xC) == arg0) && ((s16) *(s16 *)((s8 *)var_r29 + 0xE) == arg1)) {

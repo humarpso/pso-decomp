@@ -2,6 +2,8 @@
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
 struct Stack_801A7310 {
     s8 sp8;
     s8 sp9;
@@ -22,8 +24,6 @@ struct Ent_801A710C { u32 a; f32 b; s32 c; };
 extern "C" {
 s32 select_active_controller__11TCameraCtrlFc(int);
 s32 set_scripted_camera_pose(int, int, void *);
-s32 cache_target_and_forward__11TCameraCtrlFl(void *, int);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 extern const f32 lbl_805DC0D0;
 extern const f32 lbl_805DC0D4;
@@ -45,7 +45,6 @@ void queue_photon_blast_support(void);
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
 extern u32 lbl_805D5D20;
 void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate);
-const f32 *get_photon_blast_entry__10TObjPlayerFi(s32);
 extern u32 lbl_805D5D18;
 
     extern const float lbl_805DC0C0;

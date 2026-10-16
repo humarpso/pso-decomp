@@ -176,7 +176,6 @@ void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 int mem_free(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 extern s32 particle_area_entry_table;
 extern u32 TParticleCtrl__regular_bml_resource;
 extern u32 TParticleCtrl__texture_list;
@@ -194,15 +193,12 @@ void *alloc_particle_memory(int);
 u8 * construct_ballistic_particle(void *, void *, void *, void *, s32, u16, s16);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void *init_particle_random_spread__13TParticleCtrlFPvPvPv(void *, void *, void *, void *);
-void * create_random_spread__13TParticleCtrlFPvPvPv(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
 void retire_ballistic_particle_if_done(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
-void free_from_heap__13TParticleCtrlFv(void *);
 extern s32 TParticleCtrl__data_8048E778[];
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
@@ -213,7 +209,6 @@ extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
 void retire_orbit_particle(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
-void free_from_heap__13TParticleCtrlFv(void *);
 extern s32 TParticleCtrl__data_8048E790[];
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
@@ -226,17 +221,14 @@ extern const f32 TParticleCtrl__data_805D955C;
 f32 vec_squared_length(void *);
 void check_radial_particle_retire(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
-void free_from_heap__13TParticleCtrlFv(void *);
 extern s32 TParticleCtrl__data_8048E7A8[];
 void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void *);
 int TKeyBoardControl__sub_8000F91C(int);
 int TKeyBoardControl__sub_8000F9CC(int);
 int stop_cue_stream(void);
-int stop_audio_streams__6TLobbyFv(void);
 void destroy_keyboard_objects(void * _w0);
 u8 * init_particle_base(void *, void *, s32);
-int get_object__13TParticleCtrlFv(void *);
 s32 rand(void);
 extern s32 TParticleCtrl__data_8048E7A8[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
@@ -246,7 +238,6 @@ extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
 u8 *init_random_particle__13TParticleCtrlFPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 u8 * init_particle_base(void *, void *, s32);
-int get_object__13TParticleCtrlFv(void *);
 s32 rand(void);
 extern s32 TParticleCtrl__data_8048E7A8[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
@@ -256,11 +247,9 @@ extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
 u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 read_disc_file(s32, s32);
 s32 mem_alloc(s32);
 u32 load_gvm_texture_file(void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
@@ -274,15 +263,12 @@ extern u32 TParticleCtrl__regular_bml_resource;
 extern u32 TParticleCtrl__texture_list;
 void load_particle_entry_resources(void);
 s32 is_split_screen();
-s32 disable_if_single_screen__13TParticleCtrlFv();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive(void *, s32);
 s32 draw_particle_refraction_quad(void *);
 s32 apply_particle_model_fade_color(void *, s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 cos_table_lookup(s32);
@@ -293,7 +279,6 @@ s32 rotate_matrix_x(s32, s32);
 s32 push_matrix(f32);
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(u32);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
@@ -306,7 +291,6 @@ void draw_orbit_particle_sprite(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 f32 atan2_float(f32, f32);
-s32 disable_if_single_screen__13TParticleCtrlFv();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive(void *, s32);
@@ -314,8 +298,6 @@ s32 draw_particle_refraction_quad(void *);
 s32 apply_particle_model_fade_color(void *, s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 void direction_to_rotation_xz(void *, s32 *, s32 *);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 scale_matrix(s32, f32, f32, f32);
@@ -327,7 +309,6 @@ s32 rotate_matrix_x(s32, s32);
 s32 push_matrix(f32);
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(u32);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern const Ang_8008BAF8 radial_particle_zero_angles;
@@ -340,7 +321,6 @@ extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9564;
 void draw_radial_sprite_particle(u8 *arg0);
 u8 * init_particle_base(void *, void *, s32);
-int get_object__13TParticleCtrlFv(void *);
 s32 rand(void);
 extern s32 TParticleCtrl__data_8048E790[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
@@ -353,7 +333,6 @@ extern const f32 lbl_805D954C;
 extern const f32 lbl_805D9550;
 u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, u16 arg5, s16 arg6);
 u8 * init_particle_base(void *, void *, s32);
-int get_object__13TParticleCtrlFv(void *);
 s32 rand(void);
 extern s32 TParticleCtrl__data_8048E790[];
 extern const f32 TParticleCtrl__data_805D9528;
@@ -465,6 +444,11 @@ extern const f32 TParticleCtrl__data_805D94E4;
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
@@ -473,7 +457,6 @@ void set_particle_draw_scale(void* p, f32 a, f32 b);
 void clear_active_flag__13TParticleCtrlFv(void* p);
 void enable__13TParticleCtrlFPv(void* p);
 void free_system__13TParticleCtrlFv(void);
-int copy_xyz__10TObjPlayerFPv(void*);
 int mem_free(void*);
 
 void clear_active_flag__13TParticleCtrlFv(void* p) { *(u16*)((char*)p + 0x2c) &= 0xfffe; }
@@ -529,14 +512,14 @@ void draw_orbit_particle_sprite(u8 *arg0) {
                 rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x9C));
                 lbl_805D5660 = model_render_flags;
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
-                    begin_effect_render__13TParticleCtrlFv();
+                    TParticleCtrl::begin_effect_render();
                     load_projected_texture_matrix(lbl_805D9540);
                 }
                 rotate_matrix_y(0, (s32) *(s16 *)((s8 *)arg0 + 0x96));
                 if ((*(u16 *)((s8 *)arg0 + 0x24) & 0x1000) && ((void *) camera_ctrl_instance != NULL)) {
                     rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194));
                 }
-                end_effect_render__13TParticleCtrlFv();
+                TParticleCtrl::end_effect_render();
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
                     setup_particle_tev(0);
                 } else {
@@ -549,7 +532,7 @@ void draw_orbit_particle_sprite(u8 *arg0) {
                         apply_particle_model_fade_color(arg0, 0);
                     }
                 }
-                set_global_param__8TObjFishFl(*(u32 *)((s8 *)arg0 + 0xB4));
+                TObjFish::set_global_param(*(u32 *)((s8 *)arg0 + 0xB4));
                 set_depth_buffer_settings_id__FUl(3);
                 if ((u32) *(u32 *)((s8 *)arg0 + 0xB8) != 0U) {
                     draw_ginja_model_with_motion(*(u32 *)((s8 *)arg0 + 0xB0), *(u32 *)((s8 *)arg0 + 0xB8), *(f32 *)((s8 *)arg0 + 0xBC));
@@ -557,10 +540,10 @@ void draw_orbit_particle_sprite(u8 *arg0) {
                     draw_ginja_object(*(u32 *)((s8 *)arg0 + 0xB0));
                 }
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {
-                    disable_if_single_screen__13TParticleCtrlFv();
+                    TParticleCtrl::disable_if_single_screen();
                 }
                 model_render_flags = lbl_805D5660;
-                end_effect_render__13TParticleCtrlFv();
+                TParticleCtrl::end_effect_render();
                 pop_matrix();
             }
         } else {
@@ -582,7 +565,7 @@ void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = TParticleCtrl__data_8048E790;
         TParticleCtrl__sub_8008655C(arg0, 0);
         if (arg1 > 0) {
-            free_from_heap__13TParticleCtrlFv(arg0);
+            ((TParticleCtrl *)arg0)->free_from_heap();
         }
     }
     return arg0;
@@ -628,7 +611,7 @@ u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4,
     o->f68 = (lbl_805D9548 * (f32)rand()) - lbl_805D954C;
     o->fD4 = TParticleCtrl__data_805D9530;
     if (o->f24 & 0x2000) {
-        get_object__13TParticleCtrlFv((void *)0x1F);
+        ((TParticleCtrl *)((void *)0x1F))->get_object();
     }
     return arg0;
 }
@@ -670,7 +653,7 @@ void *init_random_particle__13TParticleCtrlFPvPvPvPvPv(void *arg0, void *arg1, v
     o->f68 = (lbl_805D9548 * (f32)rand()) - lbl_805D954C;
     o->fD4 = TParticleCtrl__data_805D9530;
     if (o->f24 & 0x2000) {
-        get_object__13TParticleCtrlFv((void *)0x1F);
+        ((TParticleCtrl *)((void *)0x1F))->get_object();
     }
     return arg0;
 }

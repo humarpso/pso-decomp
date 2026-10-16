@@ -2,6 +2,9 @@
 #include <stddef.h>
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss1Rock.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_8002D41C_lbl_80482060 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8002D41C_lbl_80482060_size[sizeof(RecoveredGlobal_8002D41C_lbl_80482060) == 0x18 ? 1 : -1];
@@ -120,7 +123,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_state__12TBoss8DragonFv(void);
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
-s32 check_v2_mode__9TObjEneDDFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern s32 __vt__22TObjBoss1MokoHill_Solo[];
@@ -176,13 +178,11 @@ extern const f32 lbl_805D81F8;
 extern const f32 lbl_805D8200;
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_v2_mode__9TObjEneDDFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void set_chunk_material_override_pair(s32, s32, s32, s32);
 void draw_chunk_object(void *);
 void queue_destruction__7TObjectFv();
@@ -194,8 +194,6 @@ s32 __dl__FPv(void *);
 void *mem_alloc(u32);
 f32 newton_sqrtf(f32);
 f32 calc_nearest_crater_distance(void *);
-void *construct__13TObjBoss1RockFPvPvPvPv(void *, void *, void *, void *, void *);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
@@ -278,7 +276,7 @@ void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2) {
     arg0->unk3C = (s32)((f32 (*)(f32, f32, f32, f32, f32))lerp__9TDeadSpotFff)(lbl_805D8190, lbl_805D8194, lbl_805D8188, t, r);
     arg0->unk40 = 0;
     arg0->unk44 = 0;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         arg0->unk48 = 1;
     } else {
         arg0->unk48 = 0;
@@ -292,7 +290,7 @@ void render_dragon_trail(Obj_8002CE78 *arg0) {
     Ent_8002CE78 *p;
     s32 i;
     if (arg0->active != 0) {
-        set_global_param__8TObjFishFl(dragon_common_texture_list);
+        TObjFish::set_global_param(dragon_common_texture_list);
         update_dragon_trail_uvs((Obj_8002D4C0 *)((struct Obj_8002D4C0 *)dragon_trail_position_source));
         for (p = (Ent_8002CE78 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; i++, p++) {
             *p->dst = p->base + p->ofs;
@@ -378,13 +376,13 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
             pos.z = s * lbl_805D81B4 + ((Vec_8002CFB8 *)dragon_trail_position_source)->z;
             vel.x = pos.x - ax;
             vel.z = pos.z - az;
-            clamp_velocity__15TObjBoss2TunnelFv(&vel);
+            ((TObjBoss2Tunnel *)(&vel))->clamp_velocity();
             vel.x *= 1.5f;
             vel.z *= 1.5f;
             vel.y = lerp__9TDeadSpotFff(6.0f, 9.0f);
             o = __nw__7TObjectFUl(0x54);
             if (o != NULL) {
-                construct__13TObjBoss1RockFPvPvPvPv(o, self->f10, &pos, &vel, (void *)1);
+                ((TObjBoss1Rock *)o)->construct(self->f10, &pos, &vel, (void *)1);
             }
         }
         for (p = (Ent_8002CFB8 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; p++, i++) {
@@ -455,7 +453,7 @@ u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805D8198;
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805D81A0;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D81A0;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         *(s32 *)((s8 *)arg0 + 0x38) = 1;
     } else {
         *(s32 *)((s8 *)arg0 + 0x38) = 0;
@@ -602,7 +600,7 @@ f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1) {
     f32 var_f31;
     s32 temp_r31;
 
-    temp_f1 = clamp_velocity__15TObjBoss2TunnelFv(arg0);
+    temp_f1 = ((TObjBoss2Tunnel *)arg0)->clamp_velocity();
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
         *(f32 *)((s8 *)arg0 + 0) = var_f31;
@@ -645,7 +643,7 @@ void TObjBoss1Rock::render() {
         ((void (*)(s32, s32))set_chunk_material_override_pair)(0xFF00, 0x800);
         set_chunk_material_color(&self->color);
         push_matrix();
-        set_global_param__8TObjFishFl(dragon_common_texture_list);
+        TObjFish::set_global_param(dragon_common_texture_list);
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);
@@ -655,7 +653,7 @@ void TObjBoss1Rock::render() {
         model_render_flags = lbl_805D5660;
     } else {
         push_matrix();
-        set_global_param__8TObjFishFl(dragon_common_texture_list);
+        TObjFish::set_global_param(dragon_common_texture_list);
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/item/TItemData.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct SRock_80224544_8022448C;
 
@@ -132,14 +134,12 @@ s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o);
 extern G_80225550 shop_weapon_stock_buffers;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 extern G_80225550 shop_weapon_stock_buffers;
-void clear_slot_field_f10__6TLobbyFll(s32 a, s32 b);
 int get_short_mail_ctrl__6TLobbyFv(void);
 void *TLobby__sub_8022598C(int a0);
 s32 get_lobby_id__6TLobbyFPv(void* p);
 void *find_short_mail_by_id__6TLobbyFUi(u32 id);
 extern unsigned char lbl_80513F70[];
 extern int lobby_short_mail_entry_count;
-s32 move_words__6TLobbyFPUll(int, void *, void *);
 void remove_entry_at__6TLobbyFi(s32 idx);
 extern unsigned char lbl_80513F70[];
 extern s32 lbl_805D6270;
@@ -154,13 +154,10 @@ extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 extern int shop_tool_stock_level;
 void load_tool_random_rel(void);
-s32 free_nodes_with_id__6TLobbyFUl(u32);
 s32 mem_free(u32);
 extern G_80225550 shop_weapon_stock_buffers;
 extern u32 lobby_weapon_random_tables_ptr;
-void free_lobby_resources__6TLobbyFv(void);
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
-s32 get_keyboard_mode__17TWindowSubComCardFv(void);
 void send_simple_mail__9TProtocolFR12TChatMessage(void *, void *);
 s32 init_guild_card_tag__6TLobbyFi(void *);
 void* get_com_card_list__6TLobbyFPv(void* p);
@@ -172,10 +169,8 @@ extern Cnt_80224B7C shop_weapon_stock_counts[];
 extern G_80225550 shop_weapon_stock_buffers;
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
 s8 roll_weapon_special_channel15(s32);
-s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFv(void *);
 s32 TLobby__sub_80224840(s32 arg0);
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
@@ -192,8 +187,6 @@ extern s32 shop_difficulty_tier;
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 void load_weapon_random_tables(void);
-u8 get_entry_field16__9TItemDataFv(void *);
-s32 classify_level_bracket_narrow__6TLobbyFl(s32 arg0);
 s32 rand();
 extern s32 section_id_favored_grind_table[];
 extern s32 lbl_805D6238;
@@ -201,21 +194,15 @@ extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 extern const f32 lbl_805DC738;
 void roll_shop_weapon_grind(Item_80225064 *it);
-s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFv(void *);
-s32 classify_level_bracket_wide__6TLobbyFl(s32 arg0);
 s32 rand();
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 extern s32 shop_weapon_bonus_table[];
 void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
-s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFv(void *);
-s32 get_level_bracket__6TLobbyFl(s32 arg0);
 s32 rand();
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
@@ -228,13 +215,9 @@ void generate_shop_common_tool_pool(s32);
 extern u32 lobby_tool_random_rel;
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void init__9TItemDataFv(void *);
-s32 pop_byte__6TLobbyFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
-void reset_counter_64__6TLobbyFv(void *);
 void sort_shop_items(s32, s32, s32);
-s32 get_level_tier__6TLobbyFl(s32 arg0);
-s32 level_to_reward__6TLobbyFl(s32 arg0);
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
 void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
 void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
@@ -257,18 +240,12 @@ void TLobby__sub_80225C44(void* p);
 void TLobby__sub_80225C64(void* p);
 void TLobby__sub_80225C8C(void* p);
 void TLobby__sub_80225CB8(void);
-s32 classify_level_bracket_narrow__6TLobbyFl(s32 arg0);
-s32 classify_level_bracket_wide__6TLobbyFl(s32 arg0);
 void clear_lobby_flag__6TLobbyFv(void);
 void* get_com_card_list__6TLobbyFPv(void* p);
-s32 get_level_bracket__6TLobbyFl(s32 arg0);
-s32 get_level_tier__6TLobbyFl(s32 arg0);
 s32 get_lobby_id__6TLobbyFPv(void* p);
 int get_short_mail_ctrl__6TLobbyFv(void);
 int is_flag_set__6TLobbyFPv(void* p);
-s32 level_to_reward__6TLobbyFl(s32 arg0);
 void try_close__6TLobbyFPv(void* p);
-s32 free_nodes_with_id__6TLobbyFUl(u32);
 int TLobby__sub_80225A08(void*);
 s32 mem_free(u32);
 
@@ -314,7 +291,7 @@ void TLobby::free_all_rocks() {
         var_r31 -= 1;
     } while (var_r28 >= 0);
     if ((u32) lobby_tool_random_rel != 0U) {
-        free_nodes_with_id__6TLobbyFUl(lobby_tool_random_rel);
+        TLobby::free_nodes_with_id(lobby_tool_random_rel);
         lobby_tool_random_rel = var_r30;
     }
 }

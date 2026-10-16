@@ -5,6 +5,8 @@
 
 #include <stddef.h>
 #include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/TTecSlicer.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8012DBF4_lbl_804A5B20 {
     s32 value;
@@ -37,14 +39,11 @@ extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DF654;
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
-u32 get_field_d8__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 s16 get_validated_attack_stage(void *);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
-void draw_icon__10TObjPlayerFll(void *, int, f32 *);
-void create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 void launch_slicer__10TObjPlayerFPv(u8 *weapon);
 }
 
@@ -109,7 +108,7 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon) {
     SlicerLaunchData_8012D9C8 launch;
     init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(*(u8 **)((s8 *)weapon + 0xF0));
-    launch.weapon = get_field_d8__10TObjPlayerFv(weapon);
+    launch.weapon = ((TObjPlayer *)weapon)->get_field_d8();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
     launch.kind = TObjPlayer__sub_801D2F4C(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
@@ -118,9 +117,9 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon) {
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 **)((s8 *)weapon + 0xF0)) + 0x60);
-    draw_icon__10TObjPlayerFll(weapon, 0x2, launch.first);
-    draw_icon__10TObjPlayerFll(weapon, 0x1, launch.second);
-    create__10TTecSlicerFPUs(&launch);
+    ((TObjPlayer *)weapon)->draw_icon((s32)0x2, (s32)launch.first);
+    ((TObjPlayer *)weapon)->draw_icon((s32)0x1, (s32)launch.second);
+    TTecSlicer::create((u16*)(&launch));
 }
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];
 

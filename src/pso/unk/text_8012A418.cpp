@@ -136,9 +136,6 @@ u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0);
-s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 draw_status_icon__10TObjPlayerFl(void *, void *);
 void deliver_srank_marker(u8 *arg0);
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
@@ -266,21 +263,21 @@ void deliver_srank_marker(u8 *arg0) {
         }
         goto block_7;
       }
-      if (is_mode_two_and_ready__10TObjPlayerFv((void *) arg0) != 0)
+      if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0)
       {
         send_srank_stat_extra_to_locks((Pl_8012A470 *)((void *) arg0));
         return;
       }
-      update_active_game_effect__10TObjPlayerFv((void *) arg0);
+      ((TObjPlayer *)arg0)->update_active_game_effect();
       return;
     }
     block_7:
-    update_active_game_effect__10TObjPlayerFv((void *) arg0);
+    ((TObjPlayer *)arg0)->update_active_game_effect();
     return;
   }
   if ((new_var = temp_r3) & 2)
   {
-    draw_status_icon__10TObjPlayerFl((void *) arg0, (void *) (&sp8));
+    ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (&sp8)));
     PSO_VCALL_VObj_18_24931d_m49(arg0, &sp8, 0, 0, 1);
   }
 }

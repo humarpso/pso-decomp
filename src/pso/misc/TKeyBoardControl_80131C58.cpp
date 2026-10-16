@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TWindowMakeTeam.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 
 struct RecoveredGlobal_80131C5C_lbl_8050E208 {
     s32 value;
@@ -68,7 +73,6 @@ u8 get_key_state_2__16TKeyBoardControlFPv(void* p);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
-s32 init_pad_states__16TKeyBoardControlFv();
 s32 fn_803F1864(s32 *);
 void reset_input__16TKeyBoardControlFi(s32 arg0);
 s32 TKeyBoardControl__sub_803F0E90(s32, s32);
@@ -76,7 +80,6 @@ s32 poll_keyboard_port(s32, s32 *);
 void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1);
 int is_key_held__16TKeyBoardControlFPv(void* p);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-s32 request_close__19TWindowSubTradeMainFv(void *);
 s32 window_request_show(void *);
 s32 is_player_input_active(int);
 s32 TKeyBoardControl__sub_8025EC04(int);
@@ -129,15 +132,10 @@ void set_flag60_bit200__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit2__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit8__16TKeyBoardControlFPv(void* p);
 s32 export_keyboard_text(s32, s32);
-s32 measure_text_overflow__19TWindowKeyBoardSoftFv(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 mem_alloc();
-int get_field_6c__19TWindowKeyBoardSoftFv(void*);
-int get_keyboard_field_6c__15TWindowMakeTeamFv(void* p);
-int is_keyboard_active__17TWindowSubComCardFv(void* p);
-int update_keyboard__17TWindowSubComCardFv(void* p);
 
 extern s32 __vt__16TKeyBoardControl[];
 
@@ -160,7 +158,7 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     } else if (((s32)is_key_held__16TKeyBoardControlFPv((void*)((int) (*(s32 *)((s8 *)arg0 + 0x24))))) == 0) {
         *(u16 *)((s8 *)arg0 + 0x1C) = (u16) (*(u16 *)((s8 *)arg0 + 0x1C) | 1);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != 0U) {
-            request_close__19TWindowSubTradeMainFv(*(void **)((s8 *)arg0 + 0x28));
+            ((TWindowSubTradeMain *)(*(void **)((s8 *)arg0 + 0x28)))->request_close();
         }
     }
 }
@@ -435,7 +433,7 @@ void reset_state__16TKeyBoardControlFi(s32 arg0) {
 #pragma pop
 
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
-    init_pad_states__16TKeyBoardControlFv();
+    TKeyBoardControl::init_pad_states();
     reset_state__16TKeyBoardControlFi((s32)(arg0));
     fn_803F1864(((s32 *)append_next_char_global__16TKeyBoardControlFv));
 }

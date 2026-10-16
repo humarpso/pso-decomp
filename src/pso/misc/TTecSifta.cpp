@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TTecSifta.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8023B17C___vt__9TTecSifta {
     s32 value;
@@ -67,7 +71,6 @@ struct Sifta_8023AF94 {
 
 extern "C" {
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
 extern s32 __vt__9TTecSifta[];
@@ -80,15 +83,12 @@ void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
 s32 obj_getField1c(int);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
-void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1);
 s32 queue_destruction__7TObjectFv();
 u32 find_entity_by_id(int);
-s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
 void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
@@ -104,7 +104,6 @@ extern "C" {
 int TTecSifta__sub_8023AC88(void* p);
 void *__dt__9TTecSiftaFv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8023AC84(void);
-s32 copy_params__8TTecAntiFPUc(void *, s32);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
@@ -143,7 +142,7 @@ void TTecSifta::update_effect_params() {
     u8 *arg0 = (u8 *)this;
     s32 res;
     res = calc_technique_parameters(0xD, *(s16 *)((s8 *)arg0 + 0xA4), 0xFFFF);
-    copy_params__8TTecAntiFPUc(arg0 + 0x74, res);
+    ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)res);
     *(f32 *)((s8 *)arg0 + 0x74) = (f32) (*(s16 *)((s8 *)arg0 + 0x98) * *(s16 *)((s8 *)arg0 + 0xA4));
 }
 
@@ -171,7 +170,7 @@ void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1) {
         h.type = 9;
         h.power = arg0->power;
         if (is_split_screen() == 0) {
-            show_party_effect__11TWindowCtrlFPvPvPv(obj_getField1c((int)arg0->source), obj_getField1c((int)arg1), 9);
+            TWindowCtrl::show_party_effect((void*)(obj_getField1c((int)arg0->source)), (void*)(obj_getField1c((int)arg1)), (void*)9);
         }
         HitInfo_8023AE8C c = h;
         arg1->m21(arg0->source, &c, 0, 0xD, -1);
@@ -207,7 +206,7 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = find_entity_by_id(self->targets[i].id);
-                    if (is_parents_unqueued__9TTecLukerFUl(target) != 0) {
+                    if (TTecLuker::is_parents_unqueued(target) != 0) {
                         ((VObj_8023AF94 *)self)->m5(target);
                     }
                 }
@@ -230,7 +229,7 @@ void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4)
     u32 t;
     TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecSifta;
-    construct_target_cursor_records__10TObjPlayerFv(arg0 + 0xE0);
+    ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3820;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list(arg0 + 0xE0, arg3);
@@ -257,7 +256,7 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
-    construct_target_cursor_records__10TObjPlayerFv((void *) (arg0 + 0xE0));
+    ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3820;
     *(s32 *)((s8 *)arg0 + 0x13C) = 0;
     ((TTecSifta *)arg0)->update_effect_params();

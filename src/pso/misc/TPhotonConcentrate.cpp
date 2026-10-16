@@ -35,11 +35,7 @@ extern "C" {
 
 s16 get_actor_attack_params_atp_min(void *);
 s16 get_ata__10TObjPlayerFPv(void *);
-s16 get_field_2c8__10TObjPlayerFv(void *);
-int activate_d04_slot__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_80113D90(void *);
-s16 get_mag_data__10TObjPlayerFv(void *);
-s16 get_hp__10TObjPlayerFv(void *);
 extern const f32 lbl_805DC110;
 extern const f32 lbl_805DC114;
 extern const f32 lbl_805DC118;
@@ -48,7 +44,6 @@ extern const f32 lbl_805DC120;
 extern const f32 lbl_805DC124;
 extern const f32 lbl_805DC128;
 extern const f32 lbl_805DC12C;
-f32 calc_photon_blast_power__10TObjPlayerFlf(u8 *arg0, s32 arg1, f32 farg0);
 
 u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
@@ -59,29 +54,22 @@ s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int begin_effect_render__13TParticleCtrlFv(void);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 int end_effect_render__13TParticleCtrlFv(void);
 void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
 
-s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(void *);
 s32 get_photon_blast_chain(void *, s32);
 void *get_player_by_client_id(u32);
 
 extern s32 photon_blast_donation_flags[];
 void clear_photon_blast_donations(void);
 s32 is_split_screen();
-s32 get_stat_by_key_state__10TObjPlayerFv(void *);
-u16 get_section_id__10TObjPlayerFv(void *);
 extern s32 local_client_id;
 s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
-void set_field_2__10TObjPlayerFs(void *, s16);
-void set_type__10TObjPlayerFs(void *, s16);
 s32 TObjPlayer__sub_801AA528(void *, int);
 s32 init_arrays__10TObjPlayerFi(void *);
 void *TObjPlayer__sub_801AA66C(void *, void *);
@@ -92,13 +80,15 @@ extern Rec_801A8868 photon_blast_sequence_table[];
 void admit_photon_blast_sequence(u8 *players, void *self);
 
 int get_player_data__10TObjPlayerFi(int);
-s32 get_game_mode__6TLobbyFv(void);
-int get_enemy_count__9TObjEneDDFv(void);
 void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
 void render__18TPhotonConcentrateFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -135,7 +125,6 @@ typedef struct PC_801A7E7C
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect(void *, s32);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -211,7 +200,7 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
         vec3_add_to(&posn, &xf);
         if (self->emitter != 0)
         {
-          copy_pos__11TNowLoadingFPv(self->emitter, &posn);
+          ((TNowLoading *)(self->emitter))->copy_pos(&posn);
         }
       }
     }
@@ -224,7 +213,7 @@ void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
         if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

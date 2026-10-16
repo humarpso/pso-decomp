@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TPhotonLaser.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TNowLoading.h"
 
 typedef struct Vec_801AC36C { f32 x, y, z; } Vec_801AC36C;
 
@@ -55,7 +57,6 @@ extern s32 lbl_805D34F0;
 Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 void spawn_particle_effect(void *, s32);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 void *find_entity_by_id(u16);
 void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -79,12 +80,10 @@ void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
-int begin_effect_render__13TParticleCtrlFv(void);
 s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
-int end_effect_render__13TParticleCtrlFv(void);
 s32 queue_destruction__7TObjectFv(void *);
 
-void TPhotonLaser::render() { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
+void TPhotonLaser::render() { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
 
 extern s32 __vt__12TPhotonLaser[];
 
@@ -103,7 +102,7 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     o->f36C += 0x24;
     vec3_add_to(&o->f340, &o->f34C);
     if (o->f364 != 0) {
-        copy_pos__11TNowLoadingFPv(o->f364, &o->f340);
+        ((TNowLoading *)(o->f364))->copy_pos(&o->f340);
     }
     owner = find_entity_by_id(o->f370);
     if (owner == 0) {

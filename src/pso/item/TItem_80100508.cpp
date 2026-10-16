@@ -48,7 +48,6 @@ struct VObj_18_72f473 : VBase_18_72f473 {
 };
 
 extern "C" {
-s32 copy_to_item_data__5TItemFPv(void *, void *);
 s32 feed_item_to_mag(u8 *arg0, u32 arg1);
 }
 
@@ -94,7 +93,7 @@ int TItem__sub_801005E4(void) { return 0; }
 s32 feed_item_to_mag(u8 *arg0, u32 arg1) {
     TItemData item_data;
     if (arg1 != 0U) {
-        copy_to_item_data__5TItemFPv((void *) (arg1), (void *) (&item_data.data1.data_u8[0]));
+        ((TItem *)arg1)->copy_to_item_data((void *) (&item_data.data1.data_u8[0]));
         return ((VObj_18_72f473 *)(arg0))->m39(&item_data);
     }
     return 0;

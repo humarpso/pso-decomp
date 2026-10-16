@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/boss/TBoss6Zanzo.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdChrMoveEffectGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -32,17 +35,14 @@ void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void copy_trail_buffer__11TBoss6ZanzoFPvPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy4__18TAdChrMoveEffectGCFPv(void *, void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__FPv(void *);
 void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__11TBoss6Zanzo[];
 Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1);
-s32 check_demo_mode__10TObjPlayerFv();
 void copy_trail_buffer__11TBoss6ZanzoFPvPvPv(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
-u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u8 *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__11TBoss6Zanzo[];
@@ -70,7 +70,7 @@ void TBoss6Type1::set_effect_points(f32 *a, u32 *b) {
     end = p + o->count;
     for (; p < end; p++, a2 += 3, b2++) {
         VecCopy__FP3VecPC3Vec(&p->v, a2);
-        copy4__18TAdChrMoveEffectGCFPv(p, b2);
+        ((TAdChrMoveEffectGC *)p)->copy4(b2);
     }
 }
 
@@ -99,7 +99,7 @@ void TBoss6Zanzo::render() { set_depth_buffer_settings_1__Fv(this); TBoss6Zanzo_
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0) {
     Src_80320534 *base;
     Src_80320534 *p;
-    if (check_demo_mode__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::check_demo_mode() == 0) {
         base = arg0->arr;
         for (p = base + arg0->n - 1; p > base; p--) {
             copy_trail_buffer__11TBoss6ZanzoFPvPvPv((Obj_80320534 *)arg0, p, p - 1);
@@ -146,7 +146,7 @@ Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3
         p->a = 0;
         p->p = mem_alloc(arg0->n * 0x10);
     }
-    arg0->last = (Src_803209F0 *)alloc__23TAdSinglePlyChrSelectGCFv(8);
+    arg0->last = (Src_803209F0 *)((TAdSinglePlyChrSelectGC *)8)->alloc();
     arg0->last->a = 0;
     arg0->last->p = mem_alloc(arg0->n * 0x10);
     return arg0;

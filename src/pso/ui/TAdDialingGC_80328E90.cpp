@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdDialingGC.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 is_handle_valid__10TObjPlayerFv();
@@ -14,14 +15,12 @@ extern "C" {
 
 s32 TLobby__sub_802A0F70();
 s32 TLobby__sub_802A5154();
-s32 free_dialing_gc__6TLobbyFv();
-s32 free_dialog_global__6TLobbyFv();
 
 extern s32 TAdDialingGC__instance;
 
 void TAdDialingGC::close() {
-    free_dialing_gc__6TLobbyFv();
-    free_dialog_global__6TLobbyFv();
+    TLobby::free_dialing_gc();
+    TLobby::free_dialog_global();
     TAdDialingGC__instance = 0;
 }
 

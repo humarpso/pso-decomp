@@ -75,9 +75,7 @@ Obj_800C6FFC *find_entity_by_id(int);
 BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius);
 void calc_velocity_toward_destination(void *, Vec_800C7168, Vec_800C7168);
 void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
-f32 get_scale_factor__10TObjPlayerFv(void);
 Hit_800C7168 *csnVector(void *, void *, s32);
-void scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 s32 project_actor_to_ground(void *, void *, int);
 s32 rand(void);
 void vec3_add_to(void *, void *);
@@ -235,6 +233,8 @@ BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius) {
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/object/TObjGyaranzoMissile.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -297,7 +297,6 @@ struct VObj_18 : VBase_18 {
     virtual s32 m56();
 };
 extern "C" {
-s32 update_if_active__15TObjEneMe1GiGueFl(void *, int);
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805DA080;
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0);
@@ -329,12 +328,12 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
     Vec_800C7168 out;
     Vec_800C7168 dir;
     Vec_800C7168 tmp;
-    scale_velocity__19TObjGyaranzoMissileFf(&v, farg0 + farg1);
+    ((TObjGyaranzoMissile *)(&v))->scale_velocity(farg0 + farg1);
     vec3_add_to(&a, &v);
     hit = csnVector(&self->base, &a, -1);
     if (hit != NULL) {
         vec3_dot(&self->vel, hit->obj + 0xC);
-        ang = (s32)(lbl_8043BCC8 * get_scale_factor__10TObjPlayerFv());
+        ang = (s32)(lbl_8043BCC8 * TObjPlayer::get_scale_factor());
         up.x = up.z = lbl_805DA070;
         up.y = lbl_805DA074;
         vec3_cross(&self->vel, hit->obj + 0xC, &out);
@@ -373,7 +372,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0) {
     if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805DA080) {
-        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (8));
+        ((TObjEneMe1GiGue *)arg0)->update_if_active((int) (8));
         return;
     }
     ((VObj_18 *)(arg0))->m56();

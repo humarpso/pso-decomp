@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/enemy/TObjEneRecon.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_14_fddec9 { char pad[0x14]; };
 
@@ -129,25 +135,14 @@ struct Vec_8031BE8C { f32 x, y, z; };
 struct Recon_8031BE8C { u8 pad[0x480]; VObj_14_fddec9 fade; };
 
 extern "C" {
-s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 clear_global_flag_400__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
-s32 update_primary_light__9TObjEneDDFv(void *);
-s32 update_secondary_light__9TObjEneDDFv(void *);
-s32 toggle_particle_effect__10TObjPlayerFv();
-s32 render_world_model__10TObjPlayerFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 render_model_if_visible__12TObjEneReconFPv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(int);
-s32 set_global_state__16TObjEneRe7BeruraFl(void *);
-void advance_intro_stage__12TObjEneReconFv(void);
 extern Vec_8031BE8C lbl_804760FC;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -172,7 +167,7 @@ extern "C" {
 void render__12TObjEneReconFv(u8 *arg0) {
     s32 var_r29;
     s32 var_r31;
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         ((VObj_18_1fdb47 *)(arg0))->m104();
         return;
     }
@@ -201,30 +196,30 @@ void render__12TObjEneReconFv(u8 *arg0) {
                         Vec_8031BE8C v = lbl_804760FC;
                         update_player_state__9TObjEneDDFv(arg0, &v, 0);
                     }
-                    update_secondary_light__9TObjEneDDFv((void *) (arg0));
-                    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+                    ((TObjEneDD *)arg0)->update_secondary_light();
+                    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
                     push_matrix();
                     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) (*(f32 *)((s8 *)arg0 + 0x448)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
                     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-                    clear_global_flag_400__9TObjEneDDFv();
+                    TObjEneDD::clear_global_flag_400();
                     recon_intro_stage = 0;
                     recon_model_matrix_ptr = arg0 + 0x40C;
                     *(f32 *)((s8 *)arg0 + 0x40C) = (f32) TObjEneRecon__data_805DF3C4;
                     *(f32 *)((s8 *)arg0 + 0x410) = (f32) TObjEneRecon__data_805DF3C4;
                     *(f32 *)((s8 *)arg0 + 0x414) = (f32) TObjEneRecon__data_805DF3C4;
-                    set_global_state__16TObjEneRe7BeruraFl((void *)advance_intro_stage__12TObjEneReconFv);
-                    toggle_particle_effect__10TObjPlayerFv();
+                    TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRecon::advance_intro_stage));
+                    TObjPlayer::toggle_particle_effect();
                     model_render_flags |= 0x01000000;
                     if (var_r31 == 1) {
-                        draw__16TObjEneRe7BeruraFv((void *) (arg0));
+                        ((TObjEneRe7Berura *)arg0)->draw();
                     } else {
-                        render_world_model__10TObjPlayerFv((void *) (arg0));
+                        ((TObjPlayer *)arg0)->render_world_model();
                     }
                     model_render_flags &= 0xFEFFFFFF;
-                    end_effect_render__13TParticleCtrlFv();
-                    set_global_state__16TObjEneRe7BeruraFl((void *) (NULL));
+                    TParticleCtrl::end_effect_render();
+                    TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
                     pop_matrix();
-                    update_primary_light__9TObjEneDDFv((void *) (arg0));
+                    ((TObjEneDD *)arg0)->update_primary_light();
                 }
                 if (((s16) *(s16 *)((s8 *)arg0 + 0x326) == 5) && (((Recon_8031BE8C *)arg0)->fade.m8() != 0)) {
                     ((Recon_8031BE8C *)arg0)->fade.m7();

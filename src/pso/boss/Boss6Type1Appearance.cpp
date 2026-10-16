@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Ent_8033CB4C
 {
@@ -24,14 +31,8 @@ struct Fish_8033CB4C
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 request_destroy__11TBoss4Type2FUl(void *);
 u32 create_particle_emitter(int, int);
-s32 set_flags__11TBoss4Type2FUl(int, int);
-s32 copy_pos__11TNowLoadingFPv(int, int);
 s32 play_sound_effect(int, int, int, int);
-s32 queue_event_1D__12TBoss3VoloptFss(int, int);
-s32 scroll_strips_uv__14TBoss6PlotFalzFll(void *, int, int);
-s32 get_phase__8TObjFishFv(int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
 void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0);
@@ -40,11 +41,9 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 int activate_camera_mode(int);
 int set_scripted_camera_pose(void *, void *, void *);
-int cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 TObjFish__sub_800E3124(void *, void *);
 int __ct__7TObjectFP7TObject(void *, void *);
 int build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
-s32 get_fish_count__8TObjFishFv();
 extern s32 lbl_80477DEC[];
 extern s32 boss6_type1_appear_node_desc[];
 extern s32 boss6_type1_appear_model_node_descriptors[];
@@ -66,37 +65,30 @@ u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
 void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0);
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
-s32 free_buffer_pairs__14TBoss6PlotFalzFv(void *);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 restore_player_cameras();
 s32 post_translate_matrix(s32 *);
 s32 draw_model_motion(s32, s32, f32);
-s32 set_draw_callback_list__8TObjFishFv(s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 clear_global_state__10TObjPlayerFv();
 s32 clear_render_callback__8TObjFishFv(s32);
-s32 init_state_1__8TObjFishFPv(void *);
-s32 request_destroy__11TBoss4Type2FUl(void *);
-s32 set_global_flag__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 lbl_80477DEC[];
 
 void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0) {
     push_matrix();
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     post_translate_matrix(lbl_80477DEC);
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x20));
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x20));
     draw_model_motion(*(s32 *)((s8 *)arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x24), *(f32 *)((s8 *)arg0 + 0x34));
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x2C));
-    set_draw_callback_list__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x60));
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x2C));
+    ((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x60)))->set_draw_callback_list();
     draw_model_motion(*(s32 *)((s8 *)arg0 + 0x28), *(s32 *)((s8 *)arg0 + 0x30), *(f32 *)((s8 *)arg0 + 0x34));
     clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x60));
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     pop_matrix();
 }
 
@@ -117,7 +109,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     if (temp_f1 > lbl_805DFA4C) {
         *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFA4C;
     }
-    scroll_strips_uv__14TBoss6PlotFalzFll((void *) (arg0 + 0x40), (int) (8), (int) (0));
+    ((TBoss6PlotFalz *)(arg0 + 0x40))->scroll_strips_uv((int) (8), (int) (0));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == 0x78) {
         play_sound_effect((int) (0x4003A105), (int) (0), (int) (0), (int) (0));
     }
@@ -138,7 +130,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     case 0xFA:
     case 0x13F:
     case 0x1B8:
-        queue_event_1D__12TBoss3VoloptFss((int) (0xC0), (int) (0xF));
+        TBoss3Volopt::queue_event_1D((int) (0xC0), (int) (0xF));
         break;
     }
     temp_r0_3 = *(s32 *)((s8 *)arg0 + 0x38);
@@ -147,36 +139,36 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     case 0x1:
         *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            set_flags__11TBoss4Type2FUl((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (0x40));
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
         }
         break;
     case 0x1AC:
     case 0x8E:
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x64));
+            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
         *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x211));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            set_flags__11TBoss4Type2FUl((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (0x40));
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
         }
         break;
     case 0x11D:
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x64));
+            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
         *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            set_flags__11TBoss4Type2FUl((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (0x40));
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
         }
         break;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-        copy_pos__11TNowLoadingFPv((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (temp_r30));
+        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x64)))->copy_pos((void*)temp_r30);
     }
     *(s32 *)((s8 *)arg0 + 0x38) = (s32) (*(s32 *)((s8 *)arg0 + 0x38) + 1);
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) >= 0x1F4) || (get_phase__8TObjFishFv((int) (*(s32 *)((s8 *)arg0 + 0x3C))) != 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -187,13 +179,13 @@ u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32*)&__vt__25TBoss6Demo10_TYPE1_APPEAR;
         restore_player_cameras();
         refresh_players_equipment__14TBoss6PlotFalzFPv();
-        free_buffer_pairs__14TBoss6PlotFalzFv(arg0 + 0x40);
+        ((TBoss6PlotFalz *)(arg0 + 0x40))->free_buffer_pairs();
         if ((u32) *(u32 *)((s8 *)arg0 + 0x60) != 0U) {
-            init_state_1__8TObjFishFPv(*(void **)((s8 *)arg0 + 0x60));
+            TObjFish::init_state_1(*(void **)((s8 *)arg0 + 0x60));
             *(u32 *)((s8 *)arg0 + 0x60) = 0U;
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x64));
+            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
@@ -216,7 +208,7 @@ Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent) 
   self->vt = __vt__25TBoss6Demo10_TYPE1_APPEAR;
   self->x0 = (s32)TBoss6Demo10_TYPE1_APPEAR__name.value;
   self->x3C = (s32) parent;
-  n = get_fish_count__8TObjFishFv();
+  n = TObjFish::get_fish_count();
   for (i = 0; i < 2; i++)
   {
     k = lbl_804DF614[i];
@@ -230,7 +222,7 @@ Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent) 
   build_tables__14TBoss6PlotFalzFPvPvi(self->x40, boss6_type1_appear_model_node_descriptors, 2);
   activate_camera_mode(5);
   set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
-  cache_target_and_forward__11TCameraCtrlFl(lbl_80477E3C, 0x416C);
+  ((TCameraCtrl *)lbl_80477E3C)->cache_target_and_forward(0x416C);
   self->x34 = lbl_805DFA50.value;
   self->x38 = 0;
   return self;

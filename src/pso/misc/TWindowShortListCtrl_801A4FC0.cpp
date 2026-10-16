@@ -19,7 +19,6 @@ s32 TWindowShortListCtrl__sub_801A513C(void* p);
 int TWindowShortListCtrl__sub_801A5144(void* p);
 s32 fn_801A51F0(void);
 void TKeyBoardControl__sub_8000F90C(int);
-void stop_audio_streams__6TLobbyFv();
 void *TWindowOptionCtrl__ct(void *, void *);
 void *__ct__10TAdTitleGCFv(void *, void *, int);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
@@ -36,7 +35,7 @@ extern s32 lbl_804C2298[];
 void *TWindowShortListCtrl::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804C2298;
-        stop_audio_streams__6TLobbyFv();
+        TLobby::stop_audio_streams();
         if (*(void **)((s8 *)this + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x2C)); *(s32 *)((s8 *)this + 0x2C) = 0; }
         if (*(void **)((s8 *)this + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x28)); *(s32 *)((s8 *)this + 0x28) = 0; }
         if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); *(s32 *)((s8 *)this + 0x24) = 0; }

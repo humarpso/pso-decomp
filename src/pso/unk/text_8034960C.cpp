@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjCMHairMenu.h"
 struct Desc_80349844 {
     f32 *pos;
     s32 *col;
@@ -38,12 +39,10 @@ extern const f32 lbl_805DFD0C;
 extern const f32 lbl_805DFD10;
 extern const f32 lbl_805DFD14;
 void fn_80349844(void);
-void draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, s32, s32, f32);
 extern const Vec2_80349728 lbl_80478718[2];
 extern const Vec2_80349728 lbl_80478728[2];
 extern const f32 lbl_805DFD00;
 void draw_quest_load_letterbox_bars(void);
-void draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, s32, s32, f32);
 extern const Vec2_8034960C lbl_80478738[2];
 extern const Vec2_8034960C quest_load_panel_overlay_offsets[2];
 extern const f32 lbl_805DFD00;
@@ -75,7 +74,7 @@ void draw_quest_load_panel_overlays(void) {
         d.pos[6] = d.pos[0] + quest_load_panel_overlay_offsets[i].x;
         d.pos[7] = d.pos[1];
         d.col[3] = 0x77;
-        draw_tri_fan_2d__14TObjCMHairMenuFllf(&d, 4, 7, lbl_805DFD00);
+        ((TObjCMHairMenu *)(&d))->draw_tri_fan_2d(4, 7, lbl_805DFD00);
         i++;
     } while (i < 2);
 }
@@ -103,7 +102,7 @@ void draw_quest_load_letterbox_bars(void) {
         d.pos[6] = d.pos[0] + lbl_80478728[i].x;
         d.pos[7] = d.pos[1];
         d.col[3] = 0xFF;
-        draw_tri_fan_2d__14TObjCMHairMenuFllf(&d, 4, 3, lbl_805DFD00);
+        ((TObjCMHairMenu *)(&d))->draw_tri_fan_2d(4, 3, lbl_805DFD00);
         i++;
     } while (i < 2);
 }

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/TPlyGuildCardTag.h"
 
 extern "C" {
 
 void bswap__21TPlyMeetUserExtensionFv(s32 arg0);
 s32 bswap_32__FPUl(s32);
-s32 bswap__16TPlyGuildCardTagFv(s32);
 
 void bswap__21TPlyMeetUserExtensionFv(s32 arg0) {
     s32 var_r31;
@@ -13,7 +13,7 @@ void bswap__21TPlyMeetUserExtensionFv(s32 arg0) {
     var_r30 = 0;
     var_r31 = 0;
     do {
-        bswap__16TPlyGuildCardTagFv(arg0 + var_r31);
+        ((TPlyGuildCardTag *)(arg0 + var_r31))->bswap();
         var_r30 += 1;
         var_r31 += 8;
     } while (var_r30 < 8);

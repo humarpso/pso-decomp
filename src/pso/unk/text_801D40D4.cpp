@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 typedef struct Rec_801D40D4 {
     u8 pad0[4];
@@ -26,17 +29,12 @@ typedef struct List_801D4744 {
 } List_801D4744;
 
 extern "C" {
-s32 get_field_ed__10TObjPlayerFv(void *);
 u8 get_field_ec__12TOSwitchItemFv(void *, int);
-u8 get_slot_count__14TItemProShieldFv(void *);
 s32 is_item_equipped(void *, int);
 void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1);
-s32 copy_to_item_data__5TItemFPv(void *, void *);
 s8 TObjPlayer__sub_80102C30(void *);
-s32 get_item_flags__10TObjPlayerFv(void *);
 s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 s32 start_inventory_update__10TObjPlayerFi(void *, void *);
-s32 get_owner_if_alive__10TObjPlayerFv(int);
 s32 set_field_1c__10TObjPlayerFl(int, int);
 s32 TObjPlayer__sub_801D47EC(s32 arg0, s32 arg1, s32 arg2);
 u8 *get_ptr_4__10TObjPlayerFv();
@@ -70,7 +68,6 @@ s32 check_player_action_allowed(void);
 int reset(void* p);
 s32 is_quest_active();
 s32 get_game_play_mode();
-s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 s32 get_main_phase();
 s32 is_technique_ready__8TTecCtrlFv();
 int memset(void*, int, int);
@@ -95,7 +92,7 @@ s32 check_player_action_allowed(void) {
     if ((get_main_phase() == 0xE) || (is_technique_ready__8TTecCtrlFv() != 0) || ((is_quest_active() == 1) && (get_game_play_mode() == 1))) {
         return 0;
     }
-    return get_game_mode__23TAdSinglePlyChrSelectGCFv();
+    return TAdSinglePlyChrSelectGC::get_game_mode();
 }
 
 void remove_list_entry_by_id(s32 arg0) {
@@ -144,9 +141,9 @@ s32 fn_801D4270(s32 arg0) {
 int reset(void* p) { return memset(p, 0, 28); }
 
 s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
-    if (copy_to_item_data__5TItemFPv((void *)(arg0), (void *) (arg1 + 8)) != 0) {
+    if (((TItem *)arg0)->copy_to_item_data((void *) (arg1 + 8)) != 0) {
         *(s8 *)((s8 *)arg1 + 0) = TObjPlayer__sub_80102C30((void *) (arg0));
-        *(s32 *)((s8 *)arg1 + 4) = get_item_flags__10TObjPlayerFv((void *) (arg0));
+        *(s32 *)((s8 *)arg1 + 4) = ((TObjPlayer *)arg0)->get_item_flags();
         return 1;
     }
     return 0;
@@ -159,11 +156,11 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     temp_r4 = get_field_ec__12TOSwitchItemFv((void *) (arg1), (int) (arg1)) << 0x19;
     *arg0 |= temp_r4;
     if (get_field_ec__12TOSwitchItemFv((void *) (arg1), (int) (temp_r4)) == 1) {
-        *arg0 |= (get_field_ed__10TObjPlayerFv((void *) (arg1)) << 0x11) & 0x01FE0000;
+        *arg0 |= (((TObjPlayer *)arg1)->get_field_ed() << 0x11) & 0x01FE0000;
     } else {
-        *arg0 |= (get_field_ed__10TObjPlayerFv((void *) (arg1)) << 8) & 0xFF00;
+        *arg0 |= (((TObjPlayer *)arg1)->get_field_ed() << 8) & 0xFF00;
     }
-    temp_r3 = get_slot_count__14TItemProShieldFv((void *) (arg1));
+    temp_r3 = ((TItemProShield *)arg1)->get_slot_count();
     *arg0 |= temp_r3;
     if (is_item_equipped((void *) (arg1), (int) (temp_r3)) == 0) {
         *arg0 |= 0x10000;
@@ -232,11 +229,11 @@ s32 TObjPlayer__sub_801D47EC(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3_2 == 0) {
         return 0;
     }
-    temp_r3_3 = get_owner_if_alive__10TObjPlayerFv((int) (temp_r3));
+    temp_r3_3 = ((TObjPlayer *)temp_r3)->get_owner_if_alive();
     if (temp_r3_3 == 0) {
         return 0;
     }
-    temp_r3_4 = get_owner_if_alive__10TObjPlayerFv((int) (temp_r3_2));
+    temp_r3_4 = ((TObjPlayer *)temp_r3_2)->get_owner_if_alive();
     if (temp_r3_4 == 0) {
         return 0;
     }

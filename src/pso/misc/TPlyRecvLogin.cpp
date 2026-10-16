@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyGuildCardTag.h"
 
 struct ByteBlock_20 { u8 bytes[0x20]; };
 
@@ -15,11 +16,10 @@ extern "C" {
 void bswap__13TPlyRecvLoginFv(s32 arg0);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 bswap__13packet_headerFv();
-s32 bswap__16TPlyGuildCardTagFv(s32);
 
 void bswap__13TPlyRecvLoginFv(s32 arg0) {
     bswap__13packet_headerFv();
-    bswap__16TPlyGuildCardTagFv(arg0 + 4);
+    ((TPlyGuildCardTag *)(arg0 + 4))->bswap();
 }
 
 s32 __ct__13TPlyRecvLoginFRC13TPlyRecvLogin(s32 arg0, s32 arg1) {

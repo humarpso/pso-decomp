@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 
 extern "C" {
 
@@ -11,8 +12,6 @@ void TMainTask__sub_8022988C(void *);
 void render_screen_overlay__9TMainTaskFv(void *arg0);
 void some_empty_func__9TMainTaskFv(void);
 int clear_flag_3__7TObjectFv(void*);
-int delete_children__7TObjectFv(void*);
-s32 empty_func__7TObjectFv(void *);
 int TMainTask__sub_801F34D0(void*);
 s32 TLobby__sub_803384D4();
 s32 render_clipout_and_fade__9TMainTaskFv();
@@ -20,7 +19,7 @@ s32 render_clipout_and_fade__9TMainTaskFv();
 void render_screen_overlay__9TMainTaskFv(void *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x1C) & 0x100) {
         render_clipout_and_fade__9TMainTaskFv();
-        empty_func__7TObjectFv(arg0);
+        ((TObject *)arg0)->empty_func();
         TMainTask__sub_8022988C(arg0);
         TLobby__sub_803384D4();
     }
@@ -91,7 +90,7 @@ void clear_flag3_all_tasks__9TMainTaskFv(void) { clear_flag_3__7TObjectFv((void*
     extern int tl_clipout;
     extern int tl_fade;
     extern int tl_fadeafter;
-void delete_all_task_children__9TMainTaskFv(void) { delete_children__7TObjectFv((void*)(tl_00)); delete_children__7TObjectFv((void*)(tl_camera)); delete_children__7TObjectFv((void*)(tl_01)); delete_children__7TObjectFv((void*)(tl_02)); delete_children__7TObjectFv((void*)(tl_03)); delete_children__7TObjectFv((void*)(tl_item_equip)); delete_children__7TObjectFv((void*)(tl_loc_start)); delete_children__7TObjectFv((void*)(tl_04)); delete_children__7TObjectFv((void*)(tl_05)); delete_children__7TObjectFv((void*)(tl_06)); delete_children__7TObjectFv((void*)(tl_07)); delete_children__7TObjectFv((void*)(tl_loc_end)); delete_children__7TObjectFv((void*)(tl_window)); delete_children__7TObjectFv((void*)(tl_particle)); delete_children__7TObjectFv((void*)(tl_particlemodel)); delete_children__7TObjectFv((void*)(tl_radermap)); delete_children__7TObjectFv((void*)(tl_clipout)); delete_children__7TObjectFv((void*)(tl_fade)); delete_children__7TObjectFv((void*)(tl_fadeafter)); }
+void delete_all_task_children__9TMainTaskFv(void) { ((TObject *)tl_00)->delete_children(); ((TObject *)tl_camera)->delete_children(); ((TObject *)tl_01)->delete_children(); ((TObject *)tl_02)->delete_children(); ((TObject *)tl_03)->delete_children(); ((TObject *)tl_item_equip)->delete_children(); ((TObject *)tl_loc_start)->delete_children(); ((TObject *)tl_04)->delete_children(); ((TObject *)tl_05)->delete_children(); ((TObject *)tl_06)->delete_children(); ((TObject *)tl_07)->delete_children(); ((TObject *)tl_loc_end)->delete_children(); ((TObject *)tl_window)->delete_children(); ((TObject *)tl_particle)->delete_children(); ((TObject *)tl_particlemodel)->delete_children(); ((TObject *)tl_radermap)->delete_children(); ((TObject *)tl_clipout)->delete_children(); ((TObject *)tl_fade)->delete_children(); ((TObject *)tl_fadeafter)->delete_children(); }
 
     extern int tl_02;
     extern int tl_03;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 typedef struct Pair_80165940 { u32 a; u32 b; } Pair_80165940;
 
 typedef struct Key_80165940 {
@@ -23,7 +24,6 @@ typedef struct Key_80165940 {
 
 extern "C" {
 u8 is_current_floor_switch_set(u16);
-u32 get_global_state__14TOKeyMachine01Fv(void);
 void *get_bml_model(void *, s32);
 extern void *TOKeyAncient03__model_archive;
 extern Pair_80165940 *TOKeyAncient03__texture_variants;
@@ -55,7 +55,7 @@ void fn_80165940(Key_80165940 *self) {
     if (self->fC4 > 1) {
         self->fC4 = 0;
     }
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 3:
     case 4:
     case 5:

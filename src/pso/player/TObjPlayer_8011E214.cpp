@@ -1,10 +1,8 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/items/TItemWeapon.h"
 
 extern "C" {
-
-u8 get_special_selector__11TItemWeaponFv(void* p);
-void set_special_selector__11TItemWeaponFUc(void* p, u8 v);
 
 void TObjPlayer::set_flag_10000() {
     set_state_flags(0x10000);

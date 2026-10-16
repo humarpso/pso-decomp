@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TTecGiBarta.h"
 
 extern "C" {
 
@@ -8,11 +9,7 @@ s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 roll_technique__11TItemWeaponFv(void *);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 draw_icon__10TObjPlayerFll(void *, s32, s32 *);
 int get_player_list__10TObjPlayerFv(void*);
-s32 get_tp__10TObjPlayerFv(void *);
-s32 create_ex__11TTecGiBartaFPvPvPv(void *, s32 *, s32, s32);
 
 void TObjPlayer::set_atp(s16 v) { *(s16*)((char*)this + 0x1cc) = v; }
 void TObjPlayer::cast_tech_gibarta() {
@@ -20,13 +17,13 @@ void TObjPlayer::cast_tech_gibarta() {
     void *temp_r31;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        if (draw_icon__10TObjPlayerFll(this, 0, &sp8) != 0) {
+        if (draw_icon((s32)0, (s32)(&sp8)) != 0) {
             temp_r31 = *(void **)((s8 *)this + 0xF0);
-            create_ex__11TTecGiBartaFPvPvPv(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), get_tp__10TObjPlayerFv(this));
+            ((TTecGiBarta *)temp_r31)->create_ex((void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r31 + 0x60)), (void *)(get_tp()));
             roll_technique__11TItemWeaponFv(this);
         }
     } else {
-        update_active_game_effect__10TObjPlayerFv(this);
+        update_active_game_effect();
     }
 }
 void TObjPlayer::notify_container_if_mode1() { if (get_player_list__10TObjPlayerFv(this) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)this + 0x1f8)); } }

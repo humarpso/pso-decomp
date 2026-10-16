@@ -1,6 +1,7 @@
 #include "pso/TAdSEGAlogo.h"
 
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 
 struct Obj_8001BFCC { u8 pad[0x1c]; s32 f1c; };
 
@@ -12,7 +13,6 @@ extern int TAdSEGAlogo__state;
 extern void *tl_00;
 extern const f32 lbl_805D7E74;
 void *__nw__7TObjectFUl(u32 size);
-void init__22THunterGuildSeqOfflineFPvPv(void *a, void *b, void *c);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ void TAdSEGAlogo::run_task() {
             TAdSEGAlogo__state = 2;
             p = __nw__7TObjectFUl(0x28);
             if (p != 0) {
-                init__22THunterGuildSeqOfflineFPvPv(p, tl_00, (void *)TAdSEGAlogo::destroy_and_mark_done);
+                ((THunterGuildSeqOffline *)p)->init(tl_00, (void *)TAdSEGAlogo::destroy_and_mark_done);
             }
         }
         break;

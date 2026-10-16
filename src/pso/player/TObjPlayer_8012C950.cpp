@@ -1,11 +1,11 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TAdRicoRing.h"
 
 extern "C" {
 
 void *TObjPlayer__sub_8012C950(void *arg0, s16 arg1);
 void rocket_punch_return_timer(u32 arg0);
-s32 clear_flags__11TAdRicoRingFUl(s32, s32);
 s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
@@ -25,7 +25,7 @@ void *TObjPlayer__sub_8012C950(void *arg0, s16 arg1) {
 
 void rocket_punch_return_timer(u32 arg0) {
     if (arg0 != 0U) {
-        clear_flags__11TAdRicoRingFUl(arg0 + 0x1F8, 2);
+        ((TAdRicoRing *)(arg0 + 0x1F8))->clear_flags(2);
     }
 }
 

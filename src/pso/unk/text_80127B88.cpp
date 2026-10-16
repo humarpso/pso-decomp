@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TTecGiZonde.h"
 
 struct Self_80127BE0 { u8 pad[0xF0]; s32 fF0; };
 
@@ -11,13 +12,10 @@ extern "C" {
 u8 * init_vtable_804A3548__10TObjPlayerFv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-void construct_target_cursor_records__10TObjPlayerFv(void *);
-s32 draw_icon__10TObjPlayerFll(void *, s32, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 s32 get_extended_state__10TObjPlayerFv(s32);
 Item_80127BE0 *get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
-void create__11TTecGiZondeFPvPvPv(s32, void *, void *, s32);
 void TObjPlayer__sub_80127BE0(Self_80127BE0 *self);
 }
 
@@ -54,17 +52,17 @@ void TObjPlayer__sub_80127BE0(Self_80127BE0 *self) {
         kind = 8;
         break;
     }
-    if (draw_icon__10TObjPlayerFll(self, 1, buf) != 0) {
+    if (((TObjPlayer *)self)->draw_icon((s32)1, (s32)buf) != 0) {
         ext = get_extended_state__10TObjPlayerFv(self->fF0);
         if (ext != 0) {
             for (i = 0; i != get_captured_target_count(ext); i++) {
                 item = get_captured_target_entry(ext, i);
                 if (item != NULL) {
-                    construct_target_cursor_records__10TObjPlayerFv(&tec);
+                    ((TObjPlayer *)(&tec))->construct_target_cursor_records();
                     tec.kind = 1;
                     tec.a = item->a;
                     tec.b = item->b;
-                    create__11TTecGiZondeFPvPvPv(self->fF0, buf, &tec, kind);
+                    ((TTecGiZonde *)(self->fF0))->create((void *)buf, (void *)(&tec), (void *)kind);
                 }
             }
         }

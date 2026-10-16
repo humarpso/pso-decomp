@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TEF_LensFlare.h"
+#include "pso/TParticleCtrl.h"
 
 struct Base_8008194C_80081278 { char pad[0x50]; };
 struct VObj_8008194C_80081278 : Base_8008194C_80081278 {
@@ -42,14 +43,13 @@ void TEF_LensFlare__sub_80081944(void);
 void TEF_LensFlare__sub_80081948(void);
 void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern s32 lbl_8048E130[];
 
 void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E130;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

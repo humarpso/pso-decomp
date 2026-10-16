@@ -15,13 +15,11 @@ s32 TShopGenerator__sub_80222DAC(s32 arg0);
 
 extern "C" {
 
-void free_nodes_with_id__6TLobbyFUl(void*);
-
 extern u32 lbl_805D6258;
 
 void TLobby::free_singleton() {
     if ((u32) lbl_805D6258 != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6258);
+        TLobby::free_nodes_with_id((u32)((void*)lbl_805D6258));
         lbl_805D6258 = 0U;
     }
 }

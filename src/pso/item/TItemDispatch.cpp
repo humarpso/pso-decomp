@@ -119,8 +119,6 @@ struct TItem_80102424 : VObj_18_441505 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_field_d8__10TObjPlayerFv(void *);
-s32 update_owner_visibility__5TItemFv(void *);
-s32 update_timer__5TItemFv(void *);
 u16 get_id__13TItemProArmorFv(void *);
 u32 get_player_by_client_id(void *);
 s32 push_to_player_list__5TItemFPv();
@@ -144,8 +142,6 @@ extern s32 model_render_flags;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
 void spawn_particle_effect(void *, s32);
-void set_mode__5TItemFSc(void *, s32);
-void copy_to_item_data__5TItemFPv(void *, void *);
 void snap_to_ground__5TItemFv(void *, f32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
 void TLobby__sub_8011AED8(s16, s16, void *, f32, f32);
@@ -170,11 +166,11 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
     ItemData_80102424 data;
     f32 r;
     set_parent__7TObjectFP7TObject(self, tl_05);
-    set_mode__5TItemFSc(self, 0);
+    ((TItem *)self)->set_mode(0);
     VecCopy__FP3VecPC3Vec(&self->x, pos);
     self->fE4 = 0xFFFF;
     if (quiet == 0) {
-        copy_to_item_data__5TItemFPv(self, &data);
+        ((TItem *)self)->copy_to_item_data(&data);
         ((void (*)(f32, f32, s16, s16, void *))TLobby__sub_8011AED8)(self->x, self->z, client, self->area, &data);
     }
     if (is_active_battle_player__10TObjPlayerFv() == 1 || client != get_current_floor()) {
@@ -257,12 +253,12 @@ void TItem::run_task() {
     temp_r3 = TObjPlayer__sub_80102C30((u8 *)(arg0));
     switch (temp_r3) {
     case 0:
-        update_timer__5TItemFv((void *) (arg0));
+        ((TItem *)arg0)->update_timer();
         return;
     case 1:
         *(u32 *)((s8 *)arg0 + 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFv((void *) (arg0))));
         if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
-            update_owner_visibility__5TItemFv((void *) (arg0));
+            ((TItem *)arg0)->update_owner_visibility();
             ((VObj_18 *)(arg0))->m12();
             ((VObj_18 *)(arg0))->m13();
         }
@@ -272,7 +268,7 @@ void TItem::run_task() {
         temp_r4 = *(u32 *)((s8 *)arg0 + 0xF0);
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
-            update_owner_visibility__5TItemFv((void *) (arg0));
+            ((TItem *)arg0)->update_owner_visibility();
             ((VObj_18 *)(arg0))->m12();
             ((VObj_18 *)(arg0))->m14();
             get_field_d8__10TObjPlayerFv((void *) (arg0));
@@ -290,8 +286,6 @@ void TItem::run_task() {
 extern "C" {
 
 void *__dt__5TItemFv(void *arg0, s16 arg1);
-void set_mode__5TItemFSc(void *, s32);
-s32 unregister_item__5TItemFv(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 clear_obj_links(void *);
 s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
@@ -301,9 +295,9 @@ extern void *__vt__5TItem[];
 void *__dt__5TItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__5TItem;
-        set_mode__5TItemFSc(arg0, 3);
+        ((TItem *)arg0)->set_mode(3);
         clear_obj_links(arg0);
-        unregister_item__5TItemFv(arg0);
+        ((TItem *)arg0)->unregister_item();
         destroy_particle_controller__10TObjPlayerFs(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -333,8 +327,6 @@ void fn_8002B630(void *, void *);
 void assign_item_id__6TLobbyFv(void *);
 void apply_item_flags__10TObjPlayerFl(void *, void *);
 void TObjPlayer__sub_8010043C(void *, s32);
-void set_mode__5TItemFSc(void *, s32);
-void insert_sorted_by_id__5TItemFv(void *);
 u8 get_field_ec__12TOSwitchItemFv(void *);
 void set_item_count__6TLobbyFs(void *, s32);
 void TItem__sub_801031C0(void *);
@@ -382,12 +374,12 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     if (lbl_805D5438 != 0) {
         ((TItem_801028D8 *)self)->m5(lbl_805D5438);
         set_item_count__6TLobbyFs(self, 0xFFFF);
-        set_mode__5TItemFSc(self, 0);
+        ((TItem *)self)->set_mode(0);
     } else {
-        set_mode__5TItemFSc(self, 3);
+        ((TItem *)self)->set_mode(3);
     }
     assign_item_id__6TLobbyFv(self);
-    insert_sorted_by_id__5TItemFv(self);
+    ((TItem *)self)->insert_sorted_by_id();
     return self;
 }
 
@@ -395,15 +387,13 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemMag.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 u32 mem_alloc(s32 size);
 void *memset(void *dst, int c, u32 n);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32 size);
-u32 init_bosses__6TLobbyFPv(void *p);
-void alloc_and_init_object_b4__10TObjPlayerFv(void);
-void alloc_and_run_object__10TObjPlayerFv(void);
-void init_game_resources__10TObjPlayerFv(void);
 void advance_item_system_generation(void);
 extern s32 item_registry_count;
 extern u32 item_registry_sorted_entries;
@@ -422,26 +412,14 @@ int dispatch_item_by_type__6TLobbyFv(void*);
 void TObjPlayer__sub_80102C58(void* p);
 void TObjPlayer__sub_80102C68(void* p);
 void bswap_32__FPUl(u32* p);
-s32 check_flag__10TObjPlayerFl(s32, s32);
 void mem_free(void*);
-s32 free_global_805D6FB8__10TObjPlayerFv();
-s32 free_item_globals__10TObjPlayerFv();
 void free_rock_objects__6TLobbyFis(void*, int);
-s32 free_static_buffer__10TObjPlayerFv();
-int get_equip_field_d04__10TObjPlayerFv(void* p);
 u8 get_field_ec__12TOSwitchItemFv(void* p);
-int get_flag_40__8TItemMagFv(void* p);
 u16 get_id__13TItemProArmorFv(void* p);
-f32 get_mag_scale_f__10TObjPlayerFv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*);
-s16 get_stat__10TObjPlayerFv(void* p);
-s16 get_stat_bonus__10TObjPlayerFv(void* p);
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
-s32 init_forward__10TObjPlayerFv(s32 *);
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
-void read_be16_field2__10TObjPlayerFv(void* p);
-void set_facing__10TObjPlayerFs(void* p, s16 v);
 
     extern int obj_heap;
 void free_obj_heap__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
@@ -465,9 +443,9 @@ extern u32 item_registry_sorted_entries;
 extern u32 player_rock_objects_handle;
 
 void TObjPlayer::free_globals() {
-    free_item_globals__10TObjPlayerFv();
-    free_static_buffer__10TObjPlayerFv();
-    free_global_805D6FB8__10TObjPlayerFv();
+    TObjPlayer::free_item_globals();
+    TObjPlayer::free_static_buffer();
+    TObjPlayer::free_global_805D6FB8();
     if ((u32) player_rock_objects_handle != 0U) {
         free_rock_objects__6TLobbyFis((void*)player_rock_objects_handle, 1);
         player_rock_objects_handle = 0U;
@@ -488,17 +466,17 @@ void TObjPlayer::alloc_game_systems() {
     memset((void *)item_registry_sorted_entries, 0, 0x1000);
     p = alloc__23TAdSinglePlyChrSelectGCFv(1);
     if (p != NULL) {
-        p = (void *)init_bosses__6TLobbyFPv(p);
+        p = (void *)TLobby::init_bosses(p);
     }
     player_rock_objects_handle = (u32)p;
-    alloc_and_init_object_b4__10TObjPlayerFv();
-    alloc_and_run_object__10TObjPlayerFv();
-    init_game_resources__10TObjPlayerFv();
+    TObjPlayer::alloc_and_init_object_b4();
+    TObjPlayer::alloc_and_run_object();
+    TObjPlayer::init_game_resources();
     advance_item_system_generation();
 }
 
 void TObjPlayer::init_forward_default() {
-    init_forward__10TObjPlayerFv(&lbl_805D53EC);
+    ((TObjPlayer *)(&lbl_805D53EC))->init_forward();
 }
 
 int TObjPlayer__sub_80102BD0(void) { return 0; }

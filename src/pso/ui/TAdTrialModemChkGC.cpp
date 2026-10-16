@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdTrialModemChkGC.h"
+#include "pso/misc/TLobby.h"
 
 struct Base_80335508_803354A4 { char pad[0x18]; };
 struct VObj_80335508_803354A4 : Base_80335508_803354A4 {
@@ -37,14 +38,13 @@ void TAdWarningBaseGC__ct(void *);
 void TAdWarningBaseGC__vt0(void *, int);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 TLobby__sub_80145A94();
-s32 init_account_entries__6TLobbyFv();
 int stop_audio_streams__6TLobbyFv(void*);
 void __dl__7TObjectFPv(void *);
 
 void TAdTrialModemChkGC__sub_803354A4(void) {  }
 void TAdTrialModemChkGC::check_modem_result() {
     if (TLobby__sub_80145A94() != 0) {
-        init_account_entries__6TLobbyFv();
+        TLobby::init_account_entries();
         TAdTrialModemChkGC__sub_8007FA24(0);
         return;
     }

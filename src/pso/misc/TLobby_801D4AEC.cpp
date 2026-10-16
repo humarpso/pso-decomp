@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_801D4AEC { char pad[0x18]; };
 #define CAT2(a,b) a##b
@@ -47,12 +48,9 @@ VA
 extern "C" {
 
 void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3);
-int reduce_owner_matched_items__6TLobbyFv(void*);
-int reduce_child_item_amounts__6TLobbyFv(void*);
 s32 try_spend_actor_meseta(s32, s32);
 s32 is_item_equipped(void *);
 int TObjPlayer__sub_801D52A8(void*);
-void *get_owner_if_alive__10TObjPlayerFv(s32);
 s32 queue_destruction__7TObjectFv(s32);
 s32 start_inventory_update__10TObjPlayerFi(s32, s32);
 s32 unequip_item__10TObjPlayerFiPv(s32, void *);
@@ -61,7 +59,7 @@ void TLobby::reduce_item_amount(s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_r4;
     VObj_801D4AEC *temp_r3;
 
-    temp_r3 = (VObj_801D4AEC *)get_owner_if_alive__10TObjPlayerFv(arg2);
+    temp_r3 = (VObj_801D4AEC *)((TObjPlayer *)arg2)->get_owner_if_alive();
     if ((temp_r3 != NULL) && (arg3 >= 0)) {
         if ((temp_r3->m34() - arg3) > 0) {
             temp_r3->m35(arg3);
@@ -96,11 +94,11 @@ s32 TLobby::use_item(s32 arg1, s32 arg2, s32 arg3) {
     extern int item_reduce_target_player;
     extern unsigned char item_reduce_owner_match_field_ec;
     extern unsigned char reduce_owner_match_id;
-void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_owner_match_id = a3; reduce_owner_matched_items__6TLobbyFv((void*)(*(int*)((char*)a0 + 0x1c4))); }
+void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_owner_match_id = a3; ((TLobby *)(*(int*)((char*)a0 + 0x1c4)))->reduce_owner_matched_items(); }
 
     extern int item_reduce_target_player;
     extern unsigned char item_reduce_owner_match_field_ec;
-void TLobby::set_globals_and_update(int a1, int a2) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_child_item_amounts__6TLobbyFv((void*)(*(int*)((char*)this + 0x1c4))); }
+void TLobby::set_globals_and_update(int a1, int a2) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; ((TLobby *)(*(int*)((char*)this + 0x1c4)))->reduce_child_item_amounts(); }
 
     extern int player_item_collect_cursor;
     extern int inventory_walk_visit_count;

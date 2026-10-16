@@ -136,6 +136,9 @@ extern const f32 lbl_805DB57C;
 
 #include "types.h"
 #include "pso/misc/TODragonfly.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct DfBase_80164cc4_80164760 { char pad[0x18]; };
 struct DfV_80164cc4_80164760 : DfBase_80164cc4_80164760 {
@@ -184,7 +187,6 @@ extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
 f32 atan2_float(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_camera_distance__10TObjPlayerFv(void *);
 s32 rand(void);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -253,9 +255,6 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 check_demo_mode__10TObjPlayerFv();
-void destroy_key_base__5TOKeyFs(void *, int);
-s32 set_global_param__8TObjFishFl(s32);
 s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
 
 #pragma push
@@ -302,7 +301,7 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     vec3_add_to((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (&lbl_8050BEE0.value));
     subtract_vector((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
-    if (check_camera_distance__10TObjPlayerFv((void *) (&lbl_8050BEE0.value)) == 1) {
+    if (((TObjPlayer *)(&lbl_8050BEE0.value))->check_camera_distance() == 1) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         *(s32 *)((s8 *)arg0 + 0xCC) = 0;
         *(s32 *)((s8 *)arg0 + 0x60) = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0), (f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8)));
@@ -391,7 +390,7 @@ void TODragonfly::draw_model() {
         translate_matrix(0, lbl_805DB580, *(f32 *)((s8 *)arg0 + 0xF0), lbl_805DB580);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
         pop_matrix();
     }
@@ -402,7 +401,7 @@ void TODragonfly::update() {
 
     *(s32 *)((s8 *)this + 0xFC) = (s32) (*(s32 *)((s8 *)this + 0xFC) + *(s32 *)((s8 *)this + 0xF8));
     *(f32 *)((s8 *)this + 0xF0) = (f32) (*(f32 *)((s8 *)this + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)this + 0xFC)));
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((DfV_80164cc4_80164760 *)this)->vf12();
         return;
     }
@@ -429,7 +428,7 @@ extern s32 __vt__11TODragonfly[];
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TODragonfly;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -650,6 +650,11 @@ struct VObj_18_8712ff : VBase_18_8712ff {
 
 #include <stddef.h>
 #include "pso/boss/TBoss3VoloptHiraisin.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Stack_80041BB4 {
     s32 sp8;
     s32 spC;
@@ -835,13 +840,8 @@ extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
 void recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
-void add_flags_2e4__10TObjPlayerFUl(void *, u32);
 void obj_setFlags30(void *, u32);
-void set_field_b8__14TObjEnePanarmsFs(void *, s16);
-void set_field_d8__10TObjPlayerFl(void *, void *);
-void reset_photon_effect__12TBoss3VoloptFv(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
-void set_param__12TObjEneLappyFl(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self);
@@ -861,7 +861,6 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
@@ -879,7 +878,7 @@ void TBoss3VoloptHiraisin::init_models() {
     temp_r3 = collect_and_count__12TBoss3VoloptFUll(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
     volopt_hiraisin_model_data = temp_r3;
     *temp_r3 &= 0xFFFFFFFD;
-    var_r31 = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+    var_r31 = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     if (var_r31 != 0) {
         var_r31 = init_from_model__11TBreakUpMdlFPvi(var_r31, get_bml_model(TBoss3VoloptHiraisin__resource_bundle, 0x10));
     }
@@ -922,22 +921,22 @@ void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
     copy_position__20TBoss3VoloptHiraisinFi((s32)self);
     self->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
     self->unkD8 = prm->unk1C;
-    set_field_d8__10TObjPlayerFl(self, self->unkD8);
+    ((TObjPlayer *)self)->set_field_d8((s32)(self->unkD8));
     init_collision_body_parts(self, prm->unk88, 1);
     self->unk368 = 0;
     self->unk350 = prm->unk6C;
     recalc_combat_stats__10TObjPlayerFv(self, lbl_805D4C70, volopt_hiraisin_shared_handler_b, volopt_hiraisin_object_handle, (1.0f), (1.0f));
     self->unkB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->unkB8);
-    set_field_b8__14TObjEnePanarmsFs(self, self->unkB8);
+    ((TObjEnePanarms *)self)->set_field_b8(self->unkB8);
     self->hp32C = self->hp2B8;
     self->hp32E = self->hp2BA;
     self->unk33E = self->hp32C;
-    set_param__12TObjEneLappyFl(self, 0x2E);
-    reset_photon_effect__12TBoss3VoloptFv(self);
+    ((TObjEneLappy *)self)->set_param(0x2E);
+    ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TBoss3VoloptHiraisin *)self)->load_params_from_table((s32)(0x10));
     TObjEnemyCustom__sub_800C7860(self);
-    add_flags_2e4__10TObjPlayerFUl(self, 4);
+    ((TObjPlayer *)self)->add_flags_2e4(4);
     obj_setFlags30(self, 0x8000);
     self->m80();
 }
@@ -1119,7 +1118,6 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
@@ -1146,7 +1144,6 @@ extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
@@ -1157,9 +1154,6 @@ extern "C" void reset_actor_action_state();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
-extern "C" void test_flag_256__10TObjPlayerFPv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
 extern "C" void try_start_action__10TObjPlayerFPvii();
 extern "C" void update_action_hold_status__10TObjPlayerFv();
@@ -1182,13 +1176,13 @@ void *__vt__20TBoss3VoloptHiraisin[83] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TObjEnemyCustom__sub_800C7DF4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&TObjEnemyCustom__sub_800C7DF4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjEnemyCustom__sub_800C7DD0, (void *)&update_if_active__15TObjEnemyCustomFPv,
     (void *)&update_gigue__15TObjEnemyCustomFv, (void *)&TObjEnemyCustom__sub_800C7AE0, (void *)&TObjEnemyCustom__sub_800C79C8, (void *)&TObjEnemyCustom__sub_800C789C,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TBoss3Volopt__sub_800C762C, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,

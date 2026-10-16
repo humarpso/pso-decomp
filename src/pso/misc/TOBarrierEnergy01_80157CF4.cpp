@@ -1,8 +1,9 @@
 #include "types.h"
 #include "pso/misc/TOBarrierEnergy01.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
-u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
 }
 
@@ -15,7 +16,6 @@ void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
 void TOAttackableCol__vt23(void);
 int bswap_16__FPUs(void*);
-int bswap_header__6TLobbyFv(void*);
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TOBarrierEnergy01__vt13();
@@ -70,7 +70,7 @@ void TOBarrierEnergy01__vt18(void) {  }
 void TOBarrierEnergy01::play_ambient_loop_sound() {
     s32 arg0 = (s32)this;
     u32 temp_r3;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {
     case 1:
     case 2:

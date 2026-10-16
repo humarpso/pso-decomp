@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOKey.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8016A004_80169EE4 { char pad[0x18]; };
 struct VObj_8016A004_80169EE4 : Base_8016A004_80169EE4 {
@@ -28,17 +30,13 @@ struct Self_8016A310 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 range; };
 struct Obj_8016A280 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 radius; };
 
 extern "C" {
-void init_6x05_switch_changed__6TLobbyFv(void*);
-void finalize_and_send_60__6TLobbyFv(void*);
 s32 get_current_floor();
 s32 get_player_by_client_id(u32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern s32 local_client_id;
 s32 get_player_data__10TObjPlayerFi(int);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 }
@@ -57,8 +55,6 @@ s32 set_current_floor_switch(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x05_switch_flag__5TOKeyFv();
-s32 calc_angle_to__10TObjPlayerFPv(s32, void *);
-void destroy_key_base__5TOKeyFs(void *, int);
 s32 update_object_view_visibility();
 void init_map_object_base(void *);
 s32 start_camera_pan__10TObjPlayerFPvs(s32, s32, s32);
@@ -68,7 +64,7 @@ extern s32 lbl_804B27D8[];
 void *TOKey::destroy_key_object(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804B27D8;
-        destroy_key_base__5TOKeyFs(this, 0);
+        destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -154,7 +150,7 @@ void TOKey::trigger_camera_pan(s32 arg1) {
     if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1))) {
         temp_r3 = get_player_by_client_id((u16)((u16)arg1));
         if (temp_r3 != 0) {
-            start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, calc_angle_to__10TObjPlayerFPv(temp_r3 + 0x38, arg0 + 0x38));
+            start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, ((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to(arg0 + 0x38));
             *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)arg0 + 0xD8);
             *(s32 *)((s8 *)arg0 + 0xE0) = 1;
         }
@@ -165,13 +161,13 @@ extern s8 controller_input_state[];
 
 void TOKey::send_switch_on() {
     SwitchPacket packet;
-    init_6x05_switch_changed__6TLobbyFv(&packet);
+    ((TLobby *)(&packet))->init_6x05_switch_changed();
     packet.object=*(u16*)((u8*)this+0x1c);
     packet.zero=0;
     packet.switchId=*(s32*)((u8*)this+0xc8);
     packet.area=((s8)get_current_floor());
     packet.flags=1;
-    finalize_and_send_60__6TLobbyFv(&packet);
+    ((TLobby *)(&packet))->finalize_and_send_60();
 }
 
 s32 TOKey::is_any_player_in_range() {
@@ -181,7 +177,7 @@ s32 TOKey::is_any_player_in_range() {
     for (i = 0; i < lbl_805D586C; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            if (get_field_3e4__10TObjPlayerFv(p) == get_current_floor()) {
+            if (((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
                 if (xyz_distance_squared(p + 0x38, arg0->pos) < arg0->radius * arg0->radius) {
                     return 1;
                 }
@@ -195,7 +191,7 @@ s32 TOKey::is_local_player_in_range() {
     Self_8016A310 *self = (Self_8016A310 *)this;
     u8 *p = (u8 *)((void *)get_player_by_client_id(local_client_id));
     if (p != 0) {
-        if (get_field_3e4__10TObjPlayerFv(p) == get_current_floor()) {
+        if (((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
             if (xyz_distance_squared(p + 0x38, self->pos) < self->range * self->range) {
                 return 1;
             }

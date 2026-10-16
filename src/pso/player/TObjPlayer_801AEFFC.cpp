@@ -11,10 +11,8 @@ s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0);
 
 extern "C" {
 
-s32 check_camera_mode__10TObjPlayerFv();
 s32 get_game_play_mode();
 s32 get_main_phase();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 reset_volopt_state__10TObjPlayerFv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(u16);
@@ -26,7 +24,6 @@ s32 TObjPlayer__sub_801AF868(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 s32 emit_idle_water_effect(s32);
-s32 emit_movement_effect_at__10TObjPlayerFv(s32);
 s32 has_water_ground_flag(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
@@ -102,13 +99,14 @@ void TObjPlayer__vt67(u8 *arg0) {
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
 
 void TObjPlayer::update_movement_effects() {
     s32 arg0 = (s32)this;
     if ((is_technique_ready__8TTecCtrlFv() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (update_movement_by_screen__10TObjPlayerFv(arg0) != 0) && (test_action_mask__10TObjPlayerFl(arg0, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (check_flag_800000__10TObjPlayerFPv(arg0) == 0)) {
-        emit_movement_effect_at__10TObjPlayerFv(arg0 + 0x384);
+        ((TObjPlayer *)(arg0 + 0x384))->emit_movement_effect_at();
     }
     if ((test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (test_action_mask__10TObjPlayerFl(arg0, 2) != 0) && (has_water_ground_flag(arg0 + 0x360) != 0)) {
         emit_idle_water_effect(arg0 + 0x384);

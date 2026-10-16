@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -115,21 +119,13 @@ struct RecoveredGlobal_80359DC4_lbl_804F1A78 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 project_sound_origin_from_camera(void *, void *, f32);
 s32 query_teammate_state__9TObjEneDDFv();
-s32 update_lobby_state__9TObjEneDDFv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 TObjEneDD__sub_800BBA0C(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
-s32 run_tasks__7TObjectFv(void *);
 s32 release_grabbed_player__12TBoss8DragonFPv(void *);
-s32 freeze_player_at_self__12TBoss8DragonFv(void *);
-s32 store_position__12TBoss8DragonFv(void *);
-s32 check_death__12TBoss8DragonFv(void *);
-s32 select_next_action__12TBoss8DragonFv(void *);
 extern s32 local_client_id;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805E00B0;
@@ -153,7 +149,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     s32 temp_r0_2;
     s32 temp_r30;
     s32 temp_r30_2;
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         ((VObj_18 *)(arg0))->m103();
         return;
     }
@@ -163,11 +159,11 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
         return;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x74C) != 0) {
-        freeze_player_at_self__12TBoss8DragonFv((void *) (arg0));
+        ((TBoss8Dragon *)arg0)->freeze_player_at_self();
         *(s32 *)((s8 *)arg0 + 0x754) = (s32) (*(s32 *)((s8 *)arg0 + 0x754) + 1);
     } else if ((is_main_phase_15__9TObjEneDDFv() != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x6D4) == 0)) {
         temp_r30 = *(s32 *)((s8 *)arg0 + 0x3E0);
-        if (update_lobby_state__9TObjEneDDFv((void *) (arg0)) != 0) {
+        if (((TObjEneDD *)arg0)->update_lobby_state() != 0) {
             *(s32 *)((s8 *)arg0 + 0x3E0) = 0;
             if ((s32) *(s32 *)((s8 *)arg0 + 0x3E0) != temp_r30) {
                 *(s32 *)((s8 *)arg0 + 0x8A0) = 1;
@@ -191,7 +187,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
                 if ((s32) TBoss8Dragon__data_805D69B8 == 0) {
                     release_grabbed_player__12TBoss8DragonFPv((void *) (arg0));
                 } else {
-                    check_death__12TBoss8DragonFv((void *) (arg0));
+                    ((TBoss8Dragon *)arg0)->check_death();
                 }
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
@@ -207,7 +203,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
                 if (temp_r0_2 == 2) {
                     ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 2);
                 } else {
-                    select_next_action__12TBoss8DragonFv((void *) (arg0));
+                    ((TBoss8Dragon *)arg0)->select_next_action();
                 }
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
@@ -218,11 +214,11 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     }
     TObjEneDD__sub_800BBA0C((void *) (arg0));
     ((VObj_18 *)(arg0))->m86();
-    store_position__12TBoss8DragonFv((void *) (arg0));
-    set_player_state_default__12TBoss8DragonFv((void *) (arg0));
+    ((TBoss8Dragon *)arg0)->store_position();
+    ((TBoss8Dragon *)arg0)->set_player_state_default();
     add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805E00B0));
     if (temp_r30_2 == 0) {
-        run_tasks__7TObjectFv((void *) (arg0 + 0x3C4));
+        ((TObject *)(arg0 + 0x3C4))->run_tasks();
     }
     project_sound_origin_from_camera((void *) (arg0 + 0x38), (void *) (arg0 + 0x634), (f32) (lbl_805E00B4));
 }

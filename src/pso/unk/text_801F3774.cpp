@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TScene.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Stack_801F37CC {
     s32 sp8;
@@ -41,11 +44,8 @@ void TLobby__sub_801F3774(void);
 void build_6x75_update_quest_flag_dc(void* p);
 s32 TLobby__send_and_handle_60(s32);
 s32 read_disc_file(s32, s32);
-s32 alloc__22TQuestVmDownLoadServerFv();
 s32 bswap_16__FPUs(s32);
 s32 rebuild_all__6TLobbyFi(s32);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
-s32 update_lobby_scene__6TSceneFv();
 
 void TLobby__sub_801F3774(void) {  }
 

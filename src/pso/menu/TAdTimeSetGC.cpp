@@ -49,13 +49,13 @@ TAdTimeSetGC::~TAdTimeSetGC() {
 }
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 void *TAdTimeSetGC__ct(void *arg0);
 void TAdTimeSetGC__sub_802E34A4(void);
 void TAdTimeSetGC__sub_802E34A8(void);
-void stop_audio_streams__6TLobbyFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void init__23TAdSinglePlyChrSelectGCFPv(void *);
 
@@ -67,7 +67,7 @@ void *TAdTimeSetGC__ct(void *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TAdTimeSetGC;
     *(void **)((s8 *)arg0 + 0x0) = TAdTimeSetGC_class_name;
     init__23TAdSinglePlyChrSelectGCFPv(arg0);
-    stop_audio_streams__6TLobbyFv();
+    TLobby::stop_audio_streams();
     return arg0;
 }
 

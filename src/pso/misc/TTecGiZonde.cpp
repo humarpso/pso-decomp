@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TTecGiZonde.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_80232598 { char pad[0x18]; };
 
@@ -62,21 +63,17 @@ struct Chain_80231C58 {
 extern "C" {
 u32 find_entity_by_id(u16);
 s32 is_parents_unqueued__9TTecLukerFUl();
-s32 is_valid_and_active__10TObjPlayerFUl(u32);
 void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self);
 s16 obj_getField1c(void *);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 copy_technique_target_list(void *, void *);
-s32 init_parameters__11TTecGiZondeFv(void *);
 s32 construct_facing_technique__10TObjPlayerFPviPvii(void *, void *, void *, s32);
 extern s32 __vt__11TTecGiZonde[];
 extern s32 lbl_805D37C8;
 u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4);
 u32 find_entity_by_id(u16);
 s32 is_parents_unqueued__9TTecLukerFUl();
-s32 is_valid_and_active__10TObjPlayerFUl(u32);
 f32 vector_length(Vec_80231C58 *);
 void normalize_vector(Vec_80231C58 *);
 void *__nw__7TObjectFUl(int);
@@ -96,7 +93,6 @@ void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1);
 u32 find_entity_by_id(u16);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_technique_effect_resources__10TObjPlayerFs(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 
 #define UNQ(e) ((s32 (*)(u32)) is_parents_unqueued__9TTecLukerFUl)(e)
@@ -217,7 +213,7 @@ s32 TTecGiZonde::find_chain_targets() {
         b = (Ent_80231C58 *) find_entity_by_id(self->targets[i + 1].id);
         if (UNQ((u32) a) != 0 && UNQ((u32) b) != 0) {
         if ((a->flags & 0x20000000) && (b->flags & 0x20000000) &&
-            is_valid_and_active__10TObjPlayerFUl((u32) a) != 0 && is_valid_and_active__10TObjPlayerFUl((u32) b) != 0 &&
+            TObjPlayer::is_valid_and_active((u32) a) != 0 && TObjPlayer::is_valid_and_active((u32) b) != 0 &&
             a->m31() != 0 && b->m31() != 0) {
             return 0;
         }
@@ -299,7 +295,7 @@ extern s32 __vt__11TTecGiZonde[];
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TTecGiZonde;
-        destroy_technique_effect_resources__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_technique_effect_resources(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -312,7 +308,7 @@ void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self) {
     u32 actor;
     for (i = 0; i < self->count; i++) {
         actor = find_entity_by_id(self->targets[i].id);
-        if (is_parents_unqueued__9TTecLukerFUl() != 0 && is_valid_and_active__10TObjPlayerFUl(actor) != 0) {
+        if (is_parents_unqueued__9TTecLukerFUl() != 0 && TObjPlayer::is_valid_and_active(actor) != 0) {
             ((VObj_80232598 *)self)->m6(actor);
         }
     }
@@ -337,9 +333,9 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
     s32 h;
     construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, 0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TTecGiZonde;
-    construct_target_cursor_records__10TObjPlayerFv(arg0 + 0x130);
+    ((TObjPlayer *)(arg0 + 0x130))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D37C8;
-    init_parameters__11TTecGiZondeFv(arg0);
+    ((TTecGiZonde *)arg0)->init_parameters();
     copy_technique_target_list(arg0 + 0x130, arg3);
     switch (*(s16 *)((s8 *)arg0 + 0xC6)) {
     case 0:

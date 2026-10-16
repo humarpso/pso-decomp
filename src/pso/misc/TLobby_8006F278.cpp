@@ -335,14 +335,13 @@ s32 TLobby::get_slot_clamped() {
 extern "C" {
 
 s32 decode_slot__6TLobbyFUi(u32 arg0);
-s32 count_set_bits__6TLobbyFUl(u32);
 
 s32 decode_slot__6TLobbyFUi(u32 arg0) {
     s32 temp_r3;
     u32 temp_r31;
 
     temp_r31 = arg0 >> 0x10U;
-    temp_r3 = count_set_bits__6TLobbyFUl(temp_r31);
+    temp_r3 = TLobby::count_set_bits(temp_r31);
     if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
         return -1;
     }
@@ -384,7 +383,7 @@ u16 TLobby__sub_8006FAE4(void) {
     var_r29 = 0;
 loop_1:
     var_r30 = (u16) (s32) (lbl_805D9100 * (lbl_805D9104 * (f32) rand()));
-    temp_r3 = ((s32 (*)(u16))count_set_bits__6TLobbyFUl)(var_r30);
+    temp_r3 = TLobby::count_set_bits(var_r30);
     if ((temp_r3 < 4) || (temp_r3 > 0xC)) {
         var_r29 += 1;
         var_r30 = 0x3938;

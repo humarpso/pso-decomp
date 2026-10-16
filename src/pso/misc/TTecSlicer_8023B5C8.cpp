@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TTecSlicer.h"
+#include "pso/TItemAttacker.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8023B770_lbl_8044DC20
 {
@@ -156,7 +159,6 @@ s32 normalize_vector(s32);
 f32 horizontal_distance_squared(s32, s32);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 get_next_captured_target(s32, s32, s32, s32, s32);
-s32 set_flags__10TObjPlayerFUl(s32, s32);
 extern f32 lbl_805DC958;
 s32 test_flags_any(void *, s32);
 u32 get_player_by_client_id(u16);
@@ -169,18 +171,15 @@ u32 query_game_join_id__10TObjPlayerFv(s32);
 s32 queue_destruction__7TObjectFv(s32);
 void run_task__10TTecSlicerFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void dt__10TTecSlicerFls(void *, int);
 s32 queue_destruction__7TObjectFv(s32);
 extern s32 __vt__10TTecSlicer[];
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 int has_valid_handle__10TObjPlayerFPv(void *);
-s16 get_remain_count__10TTecSlicerFv(void *);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
-s32 spawn_item_timer__13TItemAttackerFlll(int, void *, int);
 u32 get_player_by_client_id(u16);
 u32 __nw__7TObjectFUl(s32);
 void destroy_if_set__10TTecSlicerFv(u32);
@@ -190,10 +189,7 @@ void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused
 f32 horizontal_distance_squared(s32, s32);
 s32 resolve_hittable_target(int, int);
 u32 query_game_join_id__10TObjPlayerFv(s32);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl(u32);
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
@@ -210,8 +206,6 @@ extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void disallow_rendering__7TObjectFv(void *);
-s32 set_flags__10TObjPlayerFUl(s32, s32);
-void init_forward__10TObjPlayerFv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_item_by_id(s32);
 void set_item_count__6TLobbyFs(void *, s32);
@@ -310,7 +304,7 @@ void TTecSlicer::init_launch_angles(s32 *arg0, s32 *arg1, s32 arg2) {
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_60 = var_r31;
   var_r3 = (s32 *) var_r29;
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_5C = -0x4000;
-  var_r31 = (s32) get_remain_count__10TTecSlicerFv(var_r3);
+  var_r31 = (s32) ((TTecSlicer *)var_r3)->get_remain_count();
   var_r3 = (s32 *) var_r30;
   temp_r0 = has_valid_handle__10TObjPlayerFPv(var_r3) * 3;
   var_r3 = (s32 *) (&TTecSlicer__launch_angle_table.value);
@@ -324,7 +318,7 @@ void TTecSlicer::update() {
     if (horizontal_distance_squared(arg0 + 0x38, arg0 + 0xA8) < lbl_805DC958) {
         deliver_target_hit();
         if (get_next_captured_target(arg0 + 0xC8, arg0 + 0xA8, arg0 + 0xC4, arg0 + 0xC6, arg0 + 0xBC) == 0) {
-            set_flags__10TObjPlayerFUl(arg0 + 0xC0, 1);
+            ((TObjPlayer *)(arg0 + 0xC0))->set_flags(1);
         } else {
             VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0xA8);
             subtract_vector(arg0 + 0x90, arg0 + 0x38);
@@ -348,7 +342,7 @@ s32 TTecSlicer::create(u16 *arg0) {
                 var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)temp_r3), (void *)((void *) ((u8 *)(temp_r3) + 0x38)), (int)((int) (*(s32 *)((s8 *)temp_r3 + 0x60))));
             }
             var_r31 = var_r0;
-            spawn_item_timer__13TItemAttackerFlll((int) (var_r0), (void *) (&destroy_if_set__10TTecSlicerFv), (int) (0x5A));
+            TItemAttacker::spawn_item_timer((s32)((int) (var_r0)), (s32)((void *) (&destroy_if_set__10TTecSlicerFv)), (s32)((int) (0x5A)));
         }
     }
     return var_r31;
@@ -369,8 +363,8 @@ void TTecSlicer::render() {
         set_chunk_material_color(arg0 + 0x128);
     }
     if (*(u32 *)((s8 *)arg0 + 0x24) != 0U && *(u32 *)((s8 *)arg0 + 0x110) != 0U) {
-        notify_fish_if_valid__10TObjPlayerFUl(*(u32 *)((s8 *)arg0 + 0x24));
-        begin_effect_render__13TParticleCtrlFv();
+        TObjPlayer::notify_fish_if_valid(*(u32 *)((s8 *)arg0 + 0x24));
+        TParticleCtrl::begin_effect_render();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -379,7 +373,7 @@ void TTecSlicer::render() {
         scale_current_matrix(arg0 + 0x68);
         draw_ginja_object(*(u32 *)((s8 *)arg0 + 0x110));
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
     pop_matrix();
     model_render_flags = lbl_805D5660;
@@ -428,7 +422,7 @@ void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0x124) != NULL) { queue_destruction__7TObjectFv((s32)((void *)(*(void **)((s8 *)arg0 + 0x124)))); }
         dt__10TTecSlicerFls((s8 *)arg0 + 0xE8, -1);
         dt__10TTecSlicerFls((s8 *)arg0 + 0xC8, -1);
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -447,7 +441,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     s32 e;
     construct_world_actor_base(self, tl_05);
     self->vt = __vt__10TTecSlicer;
-    init_forward__10TObjPlayerFv(self->fwd);
+    ((TObjPlayer *)(self->fwd))->init_forward();
     ((TTecSlicer *)(self->fc8))->reset_fields_1e();
     ((TTecSlicer *)(self->fe8))->reset_fields_1e();
     self->f0 = lbl_805D3828;
@@ -481,7 +475,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     ext = get_extended_state__10TObjPlayerFv(self->f10c);
     if (ext != 0) {
         if (get_captured_target_count(ext) == 0) {
-            set_flags__10TObjPlayerFUl((s32)self->fwd, 1);
+            ((TObjPlayer *)((s32)self->fwd))->set_flags(1);
         } else {
             for (i = 0; i != get_captured_target_count(ext); i++) {
                 e = get_captured_target_entry(ext, i);

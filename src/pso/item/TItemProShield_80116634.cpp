@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/item/TItemProShield.h"
+#include "pso/misc/TMainCursor.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8011620C_80115D6C { char pad[0x18]; };
 
@@ -99,7 +101,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TItemProShield__sub_80116744(u8 *arg0);
 void add_actor_hp(s32, s16);
-s16 get_field_2b8__14TItemProShieldFv(s32);
 s32 get_slot_count__14TItemProShieldFv(void *);
 u8 get_tool_pmt_amount_byte(void *);
 extern s32 game_difficulty_selection;
@@ -114,7 +115,6 @@ void apply_to_equip_slot__14TItemProShieldFPv(void *arg0);
 s32 apply_transform_action__8TItemMagFPvUc(s32, s32);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
-s32 activate_d04_slot__10TObjPlayerFv(s32);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_slot_count__14TItemProShieldFv(void *);
 
@@ -135,7 +135,7 @@ void apply_mate_hp_recovery(Obj_80116634 *arg0) {
   }
   else
   {
-    add_actor_hp(arg0->f0, get_field_2b8__14TItemProShieldFv(arg0->f0));
+    add_actor_hp(arg0->f0, ((TItemProShield *)(arg0->f0))->get_field_2b8());
   }
 }
 
@@ -175,7 +175,7 @@ u8 *TItemProShield__sub_80116744(u8 *arg0) {
 void apply_to_equip_slot__14TItemProShieldFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = activate_d04_slot__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0xF0));
+    temp_r3 = ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0xF0)))->activate_d04_slot();
     if (temp_r3 != 0) {
         apply_transform_action__8TItemMagFPvUc(temp_r3, get_slot_count__14TItemProShieldFv(arg0));
     }
@@ -200,7 +200,6 @@ extern "C" {
 s32 obj_getField1c(void *);
 int get_type_id__10TObjPlayerFv();
 s32 TObjPlayer__sub_80116620(s32, s32);
-s32 find_by_pos__11TMainCursorFss(s32, s32, s32);
 s32 is_current_room__10TObjRoomIdFPv(void *);
 s32 send_6x33_revive_player(s32, s32);
 void apply_moon_atomizer(void *arg0);
@@ -271,7 +270,7 @@ void apply_moon_atomizer(void *arg0) {
     if (is_current_room__10TObjRoomIdFPv(*(void **)((s8 *)arg0 + 0xF0)) != 0) {
         temp_r424 = (u32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF0)) + 0x424);
         if (temp_r424 != 0U) {
-            temp_r3 = find_by_pos__11TMainCursorFss(temp_r424, 4, 9);
+            temp_r3 = ((TMainCursor *)temp_r424)->find_by_pos(4, 9);
             if (temp_r3 != 0) {
                 TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
                 if ((u16) get_type_id__10TObjPlayerFv() != 0xffffU) {

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
+#include "pso/boss/TBoss1Dragon.h"
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -20,7 +21,6 @@ s32 vec3_add_to(void *, void *);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 get_instance__12TBoss1DragonFv();
 s32 queue_destruction__7TObjectFv(void *);
 
 void TBoss1DragonEffBreath::render() {  }
@@ -39,7 +39,7 @@ void TBoss1DragonEffBreath::run_task() {
         return;
     }
     if (temp_f1 < lbl_805D8134) {
-        deliver_breath_attack__12TBoss1DragonFPvii((int) get_instance__12TBoss1DragonFv(), (void *) (arg0 + 0x1C), (int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        deliver_breath_attack__12TBoss1DragonFPvii((int) TBoss1Dragon::get_instance(), (void *) (arg0 + 0x1C), (int) (*(s32 *)((s8 *)arg0 + 0x34)));
     }
 }
 

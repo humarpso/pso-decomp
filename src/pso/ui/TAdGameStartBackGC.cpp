@@ -1,6 +1,9 @@
 #include "pso/TAdGameStartBackGC.h"
 
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_803074FC___vt__18TAdGameStartBackGC {
     s32 value;
@@ -11,7 +14,6 @@ extern "C" {
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
 void TObjPlayer__sub_803075EC(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 get_instance__10TObjPlayerFv(void);
 extern RecoveredGlobal_803074FC___vt__18TAdGameStartBackGC __vt__18TAdGameStartBackGC;
 extern s32 TAdGameStartBackGC__class_name;
 extern s32 game_start_background_texture_list;
@@ -34,11 +36,7 @@ extern "C" {
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
-s32 get_player__20TWindowSubStatusDispFv();
 int get_state_flag__9TMainTaskFv(void*);
-int init_xyz_limits__10TObjPlayerFv(void);
-int reset_transform_state__10TObjPlayerFv(void);
-s32 set_global_param__8TObjFishFl(void *);
 
 extern s32 game_start_background_texture_list;
 extern const f32 lbl_805DF078;
@@ -46,13 +44,13 @@ extern const f32 lbl_805DF078;
 void TAdGameStartBackGC::render_background_status() {
     u8 *arg0 = (u8 *)this;
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFl((void *) (game_start_background_texture_list));
+    TObjFish::set_global_param((s32)((void *) (game_start_background_texture_list)));
     set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x78) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x3C), (f32) (lbl_805DF078));
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
-void TAdGameStartBackGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { init_xyz_limits__10TObjPlayerFv(); render_background_status(); reset_transform_state__10TObjPlayerFv(); } }
+void TAdGameStartBackGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { TObjPlayer::init_xyz_limits(); render_background_status(); TObjPlayer::reset_transform_state(); } }
 
 #pragma push
 #pragma fp_contract on
@@ -105,7 +103,7 @@ u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x7C) = -1;
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DF07C;
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DF07C;
-    game_start_background_texture_list = get_instance__10TObjPlayerFv();
+    game_start_background_texture_list = TObjPlayer::get_instance();
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg0 + 0x5C);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg0 + 0x60);
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) (lbl_805DF08C + *(f32 *)((s8 *)arg0 + 0x5C));

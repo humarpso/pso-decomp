@@ -1031,11 +1031,14 @@ void reset_state_byte__6TLobbyFv(void) {
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/TObjCMHairMenu.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TKeyBoardControl.h"
 
 extern "C" {
 
 s32 TLobby__sub_801384E4();
-s32 set_state__15TAdPlayerLoadGCFi(s32);
 s32 get_main_phase();
 s32 render_tick__Fv();
 
@@ -1048,7 +1051,7 @@ loop_1:
         if (get_main_phase() == 0xF) {
             TLobby__sub_801384E4();
         }
-        set_state__15TAdPlayerLoadGCFi(1);
+        TAdPlayerLoadGC::set_state(1);
         lobby_wait_ready_flag = 1;
         render_tick__Fv();
         goto loop_1;
@@ -1070,19 +1073,16 @@ typedef struct {
 
 s32 DVDGetDriveStatus(void);
 void TCameraCtrl__sub_80068EF0(void);
-void restore_full_screen_view__11TCameraCtrlFv(void);
 void flush_pending__6TLobbyFv(void);
 void TLobby__sub_800F8DD8(void);
 
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
 void draw_string__14TObjWarpStringFlff(u8 *arg0, s32 arg1, f32 farg0, f32 farg1);
-s32 check_reset_button__16TKeyBoardControlFv(void);
 s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
 void reset_system(void);
 void system_reset(void);
-void draw_tri_fan_2d__14TObjCMHairMenuFllf(Desc_800F8FB8 *, s32, s32, f32);
 s32 DVDCheckDisk(void);
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
 void set_cached_blend_factor(s32, s32);
@@ -1120,10 +1120,10 @@ s32 TLobby::run_disk_error_check() {
     pd->pos[7] = (4.8e+02f);
     pd->ids[3] = -1;
     set_depth_buffer_settings_1__Fv();
-    draw_tri_fan_2d__14TObjCMHairMenuFllf(&d, 4, 0x12, (-0.9f));
+    ((TObjCMHairMenu *)(&d))->draw_tri_fan_2d(4, 0x12, (-0.9f));
     status = DVDGetDriveStatus();
-    restore_full_screen_view__11TCameraCtrlFv();
-    if (DVDCheckDisk() == 0 && (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0)) {
+    TCameraCtrl::restore_full_screen_view();
+    if (DVDCheckDisk() == 0 && (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0)) {
         reset_system();
     }
     switch (status) {
@@ -1138,7 +1138,7 @@ s32 TLobby::run_disk_error_check() {
         break;
     case 1:
         controller_stuff__Fv();
-        if (pending_file_read_flush_requested != 0 && (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0)) {
+        if (pending_file_read_flush_requested != 0 && (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0)) {
             system_reset();
         }
         break;
@@ -1151,7 +1151,7 @@ s32 TLobby::run_disk_error_check() {
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 1);
         }
-        if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
+        if (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();
         }
         break;
@@ -1166,7 +1166,7 @@ s32 TLobby::run_disk_error_check() {
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 2);
         }
-        if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
+        if (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();
         }
         break;
@@ -1179,7 +1179,7 @@ s32 TLobby::run_disk_error_check() {
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 3);
         }
-        if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
+        if (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();
         } else {
             TLobby__sub_800F8DD8();
@@ -1193,7 +1193,7 @@ s32 TLobby::run_disk_error_check() {
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 4);
         }
-        if (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0) {
+        if (TKeyBoardControl::check_reset_button() != 0 || func_801A5E54__Fv() != 0) {
             system_reset();
         } else {
             TLobby__sub_800F8DD8();

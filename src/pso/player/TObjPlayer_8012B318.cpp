@@ -7,7 +7,6 @@ s32 scale_current_matrix(void *);
 u8 get_slot_count__14TItemProShieldFv();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(int, int);
-s32 get_player_list__10TObjPlayerFv();
 
 void TObjPlayer::update_area_effect_objects() {
     u8 *arg0 = (u8 *)this;
@@ -17,12 +16,12 @@ void TObjPlayer::update_area_effect_objects() {
     temp_r3 = get_slot_count__14TItemProShieldFv();
     switch ((s32) temp_r3) {
     case 6:
-        if (get_player_list__10TObjPlayerFv() == 4) {
+        if (TObjPlayer::get_player_list() == 4) {
             rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x1F8)));
         }
         break;
     case 5:
-        temp_r3_2 = get_player_list__10TObjPlayerFv();
+        temp_r3_2 = TObjPlayer::get_player_list();
         switch (temp_r3_2) {
         case 1:
             post_translate_matrix((void *) (arg0 + 0x208));

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TODoorCave01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
 
 struct VBase_801618fc { char pad[0x18]; };
 struct VObj_801618fc : VBase_801618fc {
@@ -15,12 +17,9 @@ struct VObj_801618fc : VBase_801618fc {
 };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 s32 set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -40,7 +39,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 is_in_view_depth(void *, f32);
-s32 set_global_param__8TObjFishFl(int);
 
 extern u8 *TODoorCave01__texture_lists;
 extern const f32 lbl_805DB4A4;
@@ -49,7 +47,7 @@ s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     s32 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
-    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + (arg2 * 4))));
+    TObjFish::set_global_param((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + (arg2 * 4))));
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 8)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0xC)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0x10)));
     draw_ginja_model((int) (*(s32 *)((s8 *)((u8 *) p1) + 4)));
@@ -60,7 +58,7 @@ s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
         model_render_flags = temp_r4 | 0x10;
         set_chunk_material_color((void *) (((s32) p0) + 0xDC), (int) (temp_r4));
     }
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
@@ -70,7 +68,7 @@ s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
     pop_matrix();
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     if (arg2 != 1) {
         ((void (*)(void *)) set_chunk_material_color)(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
@@ -95,7 +93,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
                 var_r30 = (unsigned char *) (*(void **)((s8 *)var_r30 + 0x30));
             } while (var_r29 < 4);
         } else {
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + 4)));
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + 4)));
             draw_ginja_model_with_motion((void *) (*(void **)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
         }
         pop_matrix();

@@ -5,14 +5,11 @@ extern "C" {
 
 u8 get_slot_count__14TItemProShieldFv();
 s32 refresh_owner_stats__5TItemFPv(s32);
-s32 load_projection_tex__10TObjPlayerFll(void *, s32);
-s32 setup_particle_once__10TObjPlayerFv(void *);
-s32 get_player_list__10TObjPlayerFv();
 
 void TObjPlayer::update_boss2tunnel() {
-    if (((s32) *(s32 *)((s8 *)this + 0x1F8) != 0) && (get_player_list__10TObjPlayerFv() == 1)) {
-        setup_particle_once__10TObjPlayerFv(this);
-        load_projection_tex__10TObjPlayerFll(this, 0);
+    if (((s32) *(s32 *)((s8 *)this + 0x1F8) != 0) && (TObjPlayer::get_player_list() == 1)) {
+        setup_particle_once();
+        TObjPlayer::load_projection_tex((s32)this, (s32)0);
     }
 }
 

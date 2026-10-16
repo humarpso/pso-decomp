@@ -16,6 +16,8 @@ typedef char RecoveredGlobal_80082080_lbl_8048E194_size[sizeof(RecoveredGlobal_8
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct RecoveredFields_8008213C_arg0 {
     u8 unknown_0[0x18];
     s32 * field_18;
@@ -59,7 +61,6 @@ struct RecoveredFields_8008213C_temp_r3 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 freeze_shell_bml_resource;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -89,7 +90,6 @@ f32 TObjPlayer__sub_800822C8(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
-void request_destroy__11TBoss4Type2FUl(void *);
 
 extern u32 freeze_shell_bml_resource;
 
@@ -105,7 +105,7 @@ extern s32 lbl_8048E1A4[];
 void TLobby::load_freeze_ice_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &enemy_freeze_ice_resource_descriptor, 0, 0, 0));
@@ -116,7 +116,7 @@ void TLobby::load_freeze_ice_resource() {
 void *destroy_freeze_shell(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E1A4;
-        if (*(void **)((s8 *)arg0 + 0x350) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x350)); }
+        if (*(void **)((s8 *)arg0 + 0x350) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x350))); }
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

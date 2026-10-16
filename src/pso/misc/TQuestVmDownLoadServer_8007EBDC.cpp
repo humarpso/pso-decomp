@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern u8 lbl_805005A4[];
@@ -17,7 +18,6 @@ void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0);
 void __ct__7TObjectFP7TObject(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int alloc__23TAdSinglePlyChrSelectGCFv(void* p);
 int fn_803DE864(void*);
 s32 xfree__FPv();
 int xmalloc__FUl(void*);

@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
-s32 adxf_get_fsize_byte__6TLobbyFv(int);
 s32 TLobby__sub_803CC53C(int);
 s32 close_adxf_handle__6TLobbyFPv(int);
 s32 adxf_open__6TLobbyFUii(void *, int);
-s32 move_words__6TLobbyFPUll(void *, void *, int);
 u8 *alloc_from_heap__6TLobbyFPv(s32);
 u8 *link_into_list__6TLobbyFv();
 s32 strncpy(void *, void *, int);
@@ -30,13 +29,13 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, 
     strncpy((void *) (var_r31 + 8), (void *) (arg0), (int) (0x20));
     *(s32 *)((s8 *)var_r31 + 0) = 1;
     *(s32 *)((s8 *)var_r31 + 0x28) = arg1;
-    *(s32 *)((s8 *)var_r31 + 0x2C) = adxf_get_fsize_byte__6TLobbyFv((int) (temp_r3));
+    *(s32 *)((s8 *)var_r31 + 0x2C) = ((TLobby *)temp_r3)->adxf_get_fsize_byte();
     *(s32 *)((s8 *)var_r31 + 0x30) = TLobby__sub_803CC53C((int) (temp_r3));
     close_adxf_handle__6TLobbyFPv((int) (temp_r3));
     *(s32 *)((s8 *)var_r31 + 0x34) = 0;
     *(u32 *)((s8 *)var_r31 + 0x40) = arg2;
     if (arg2 != 0U) {
-        move_words__6TLobbyFPUll((void *) (var_r31 + 0x44), (void *) (arg3), (int) (8));
+        ((TLobby *)(var_r31 + 0x44))->move_words((u32 *)arg3, (s32)((int) (8)));
     }
     if (arg4 != NULL) {
         *arg4 = var_r31;

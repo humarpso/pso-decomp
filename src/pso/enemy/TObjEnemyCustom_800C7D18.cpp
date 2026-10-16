@@ -1,13 +1,10 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_800C7DF8 { u8 pad0[0x326]; s16 state; };
 
 extern "C" {
-void update_wander_state__15TObjEnemyCustomFv(void *);
-void update__15TObjEnemyCustomFv(void *);
-void update_state_machine__15TObjEnemyCustomFv(void *);
-void update_knockback_state__15TObjEnemyCustomFv(void *);
 void TObjEnemyCustom__sub_800C77A4(void *);
 }
 
@@ -21,9 +18,7 @@ s32 advance_animation_playback(void *);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_demo_mode__10TObjPlayerFv();
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
-s32 update_prev_position__10TObjPlayerFv(void *);
 
 void __dt__15TObjEnemyCustomFv();
 void draw__15TObjEnemyCustomFv();
@@ -52,10 +47,6 @@ void try_start_action__10TObjPlayerFPvii();
 void roll_physical_accuracy__10TObjPlayerFv();
 void TObjPlayer__sub_8000FF3C();
 void is_target_in_attack_range__10TObjPlayerFv();
-void test_flag_256__10TObjPlayerFPv();
-void test_flag30_512__10TObjPlayerFPv();
-void has_flag_0x800__10TObjPlayerFPv();
-void test_flag_1000__10TObjPlayerFPv();
 void update_poison_status__10TObjPlayerFv();
 void update_action_hold_status__10TObjPlayerFv();
 void update_action_timer__10TObjPlayerFPv();
@@ -73,7 +64,6 @@ void apply_movement_ailment__10TObjPlayerFv();
 void apply_shock_status__10TObjPlayerFv();
 void clear_harmful_statuses__10TObjPlayerFv();
 void apply_attack_stat_status__10TObjPlayerFv();
-void apply_defense_stat_status__10TObjPlayerFlPv();
 void cure_poison_ailment();
 void cure_paralysis__10TObjPlayerFv();
 void clear_all_status_effects();
@@ -134,10 +124,10 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)TObjEnemyCustom__sub_800C7DF4,
     (void *)TObjPlayer__sub_8000FF3C,
     (void *)is_target_in_attack_range__10TObjPlayerFv,
-    (void *)test_flag_256__10TObjPlayerFPv,
-    (void *)test_flag30_512__10TObjPlayerFPv,
-    (void *)has_flag_0x800__10TObjPlayerFPv,
-    (void *)test_flag_1000__10TObjPlayerFPv,
+    (void *)TObjPlayer::test_flag_256,
+    (void *)TObjPlayer::test_flag30_512,
+    (void *)TObjPlayer::has_flag_0x800,
+    (void *)TObjPlayer::test_flag_1000,
     (void *)update_poison_status__10TObjPlayerFv,
     (void *)update_action_hold_status__10TObjPlayerFv,
     (void *)update_action_timer__10TObjPlayerFPv,
@@ -155,7 +145,7 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)apply_shock_status__10TObjPlayerFv,
     (void *)clear_harmful_statuses__10TObjPlayerFv,
     (void *)apply_attack_stat_status__10TObjPlayerFv,
-    (void *)apply_defense_stat_status__10TObjPlayerFlPv,
+    (void *)TObjPlayer::apply_defense_stat_status,
     (void *)cure_poison_ailment,
     (void *)cure_paralysis__10TObjPlayerFv,
     (void *)clear_all_status_effects,
@@ -219,17 +209,17 @@ void TObjEnemyCustom::dispatch_state() {
     Obj_800C7DF8 *arg0 = (Obj_800C7DF8 *)this;
     switch (arg0->state) {
     case 0: update_state(); return;
-    case 1: update_wander_state__15TObjEnemyCustomFv(arg0); return;
-    case 2: update__15TObjEnemyCustomFv(arg0); return;
-    case 3: update_state_machine__15TObjEnemyCustomFv(arg0); return;
-    case 4: update_knockback_state__15TObjEnemyCustomFv(arg0); return;
+    case 1: ((TObjEnemyCustom *)arg0)->update_wander_state(); return;
+    case 2: ((TObjEnemyCustom *)arg0)->update(); return;
+    case 3: ((TObjEnemyCustom *)arg0)->update_state_machine(); return;
+    case 4: ((TObjEnemyCustom *)arg0)->update_knockback_state(); return;
     case 5: TObjEnemyCustom__sub_800C77A4(arg0); return;
     case 6: break;
     }
 }
 
 void handle_state_transition__15TObjEnemyCustomFPv(u8 *arg0) {
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TObjVoloptCage__sub_800C76F0(arg0);
         return;
     }
@@ -248,7 +238,7 @@ void handle_state_transition__15TObjEnemyCustomFPv(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
         *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
-    update_prev_position__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_prev_position();
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq {
     s32 value;
@@ -58,10 +60,7 @@ s32 fn_8001ED90(int);
 u32 get_bml_model(int, int);
 s32 TLobby__sub_8001FE7C(int, int);
 u32 TLobby__sub_8002058C(int, int, void *, void *, int, int, int);
-u32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 fn_8028C8A8(void *);
-s32 alloc_load_buffer__6TLobbyFl(int, int);
-s32 start_load_default__6TLobbyFv(int);
 void update_model_load__6TLobbyFPv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__22TChCrLoadAfsTextureReq[];
@@ -69,11 +68,9 @@ extern void *lbl_805D3B50;
 u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4);
 void init_texture_table__22TChCrLoadAfsTextureReqFPv(R_8028C310 *arg0);
 void __dt__7TObjectFv(void *, s32);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 void __dl__7TObjectFPv(void *);
 void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 s32 TLobby__sub_803CC4C0(s32);
-void adxf_stop__6TLobbyFv(s32);
 void close_adxf_handle__6TLobbyFPv(s32);
 extern s32 __vt__22TChCrLoadAfsTextureReq[];
 Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
@@ -156,7 +153,7 @@ Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
         arg0->vt = ((s32 *)&__vt__22TChCrLoadAfsTextureReq);
         if (arg0->mode == 0 && arg0->tab[0] != 0) {
             if (TLobby__sub_803CC4C0(arg0->handle) == 2) {
-                adxf_stop__6TLobbyFv(arg0->handle);
+                ((TLobby *)(arg0->handle))->adxf_stop();
             }
             close_adxf_handle__6TLobbyFPv(arg0->handle);
             arg0->handle = 0;
@@ -164,7 +161,7 @@ Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
         finish_request__22TChCrLoadAfsTextureReqFPv(arg0);
         for (i = 0; i < arg0->count; i++) {
             if (arg0->tab[i] != 0) {
-                safe_free__23TAdSinglePlyChrSelectGCFUl(arg0->tab[i]);
+                TAdSinglePlyChrSelectGC::safe_free(arg0->tab[i]);
                 arg0->tab[i] = 0;
             }
         }
@@ -260,9 +257,9 @@ void update_model_load__6TLobbyFPv(u8 *arg0) {
         } else {
             return;
         }
-        var_r31 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0x440));
+        var_r31 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r31 != 0U) {
-            var_r31 = TLobby__sub_8002058C((int) (var_r31), (int) (6), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64), (int) (0), (int) (0), (int) (start_load_default__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0x24)))));
+            var_r31 = TLobby__sub_8002058C((int) (var_r31), (int) (6), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64), (int) (0), (int) (0), (int) (((TLobby *)(*(s32 *)((s8 *)arg0 + 0x24)))->start_load_default()));
         }
         *(u32 *)((s8 *)arg0 + 0x68) = var_r31;
         if (var_r31 != 0U) {
@@ -272,7 +269,7 @@ void update_model_load__6TLobbyFPv(u8 *arg0) {
         temp_r3 = get_bml_model((int) (*(u32 *)((s8 *)arg0 + 0x68)), (int) (0));
         **(u32 **)((s8 *)arg0 + 0x1C) = temp_r3;
         if (temp_r3 != 0U) {
-            alloc_load_buffer__6TLobbyFl((int) (*(s32 *)((s8 *)arg0 + 0x24)), (int) (TLobby__sub_8001ED88((int) (*(u32 *)((s8 *)arg0 + 0x68)))));
+            ((TLobby *)(*(s32 *)((s8 *)arg0 + 0x24)))->alloc_load_buffer((int) (TLobby__sub_8001ED88((int) (*(u32 *)((s8 *)arg0 + 0x68)))));
             TLobby__sub_8001FE7C((int) (*(u32 *)((s8 *)arg0 + 0x68)), (int) (1));
             *(u32 *)((s8 *)arg0 + 0x68) = 0U;
             fn_8028C8A8((void *) (arg0));

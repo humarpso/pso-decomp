@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Set_8020C73C {
     s16 f0;
     s16 flags;
@@ -45,7 +46,6 @@ extern "C" {
 s32 get_current_floor();
 s32 set_flags_on_matching_entries__6TLobbyFlssl(s32, s32, s32, s32);
 Set_8020C73C *resolve_matching_object__6TLobbyFPv(s32);
-s32 get_object_type__6TLobbyFi(s32);
 Obj_8020C73C *construct_enemy_from_set_row(Set_8020C73C *);
 extern u8 *TLobby__data_805D6144;
 s32 unhide_enemies_at__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -69,7 +69,7 @@ s32 unhide_enemies_at__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         return set_flags_on_matching_entries__6TLobbyFlssl(arg0, arg1, arg2, 1);
     }
     set = resolve_matching_object__6TLobbyFPv(arg0);
-    n = get_object_type__6TLobbyFi(arg0);
+    n = TLobby::get_object_type(arg0);
     for (i = 0; i < n; i++, set++) {
         if (set->flags & 8) continue;
         if (set->flags & 2) continue;

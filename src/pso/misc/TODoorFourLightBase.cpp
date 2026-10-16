@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TODoorFourLightBase.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TODoorAncient01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjFish.h"
 
 struct VBase_18_721d61 { char pad[0x18]; };
 
@@ -80,21 +84,17 @@ struct VObj_802A07E0 : VBase_802A07E0 {
 };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_model(int);
 void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1);
 void init_door_base(void *, void *);
 extern s32 __vt__19TODoorFourLightBase[];
 extern s32 TODoorFourLightBase__class_name;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
-s32 end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(int);
 void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
@@ -110,7 +110,6 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void render__19TODoorFourLightBaseFv(u8 *arg0);
@@ -122,9 +121,7 @@ s32 TODoorFourLightBase__vt17(void *arg0);
 void TODoorFourLightBase__vt4(void *arg0, s16 *arg1);
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_ancient_door_base__15TODoorAncient01Fs(void *, int);
 s32 get_main_phase();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 
 s32 TODoorFourLightBase__vt17(void *arg0) {
     s32 temp_r0;
@@ -136,7 +133,7 @@ s32 TODoorFourLightBase__vt17(void *arg0) {
     } else if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0xCC) = 1;
     } else if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
-        if ((get_main_phase() == 0xF) || (is_not_split_screen__13TRaderMapCoreFv() == 1)) {
+        if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             *(s32 *)((s8 *)arg0 + 0xCC) = 3;
         } else {
             *(s32 *)((s8 *)arg0 + 0xCC) = 2;
@@ -217,14 +214,14 @@ void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1) {
     do {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         if (temp_r31 & 0x100000) {
-            set_global_param__8TObjFishFl((void *) (((VObj_18_721d61 *)(arg0))->m20()));
+            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(arg0))->m20())));
         } else {
-            set_global_param__8TObjFishFl((void *) (((VObj_18_721d61 *)(arg0))->m19()));
+            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(arg0))->m19())));
         }
         if (*(s32 *)((s8 *)var_r30 + 0) & 0x200000) {
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
         } else {
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
         push_matrix();
         if (!(temp_r31 & 1)) {
@@ -287,7 +284,7 @@ void TODoorFourLightBase::render_lights() {
     rotate_matrix_y(0, self->f60);
     draw_node_tree__19TODoorFourLightBaseFPvPv((u8 *)self, self->fD4);
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 struct Door_802A0670;
@@ -300,7 +297,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
     case 1:
     case 3:
         push_matrix();
-        set_global_param__8TObjFishFl((void *)self->m20());
+        TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
@@ -308,7 +305,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
         break;
     case 2:
         push_matrix();
-        set_global_param__8TObjFishFl((void *)self->m20());
+        TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB4));
@@ -320,7 +317,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
             break;
         }
         push_matrix();
-        set_global_param__8TObjFishFl((void *)self->m20());
+        TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0xD4));
@@ -332,7 +329,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TODoorFourLightBase;
-        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
+        ((TODoorAncient01 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

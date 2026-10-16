@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
+#include "pso/TParticleCtrl.h"
 
 #pragma fp_contract on
 
@@ -41,12 +42,9 @@ s32 update_radar_auto_discovery(void *, int, void *);
 s32 gather_player_markers__13TRaderMapCoreFv(void *);
 s32 update_follow_projection__13TRaderMapCoreFv(void *, void *);
 s32 update_pan_zoom_input__13TRaderMapCoreFv();
-s32 update_target__13TRaderMapCoreFv(void *);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u32 TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__view_mode;
 void run_task__13TRaderMapCoreFv(u8 *arg0);
-u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern s32 TRaderMapCore__instance;
@@ -54,7 +52,6 @@ u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
 s32 queue_destruction__7TObjectFv(void *);
 s32 construct_world_actor_base(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 fn_803D64F8(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern GRec_801FB490 TRaderMapCore__map_view_state[];
@@ -100,21 +97,21 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         }
         switch ((s32) TRaderMapCore__view_mode) {
         case 0:
-            update_target__13TRaderMapCoreFv(arg0);
+            ((TRaderMapCore *)arg0)->update_target();
             break;
         case 1:
-            update_target__13TRaderMapCoreFv(arg0);
+            ((TRaderMapCore *)arg0)->update_target();
             break;
         case 2:
             update_pan_zoom_input__13TRaderMapCoreFv();
             break;
         }
         gather_player_markers__13TRaderMapCoreFv((void *) (arg0));
-        if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
+        if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
             *(s32 *)((s8 *)arg0 + 0x134) = (s32) obj_getField1c(*(void **)((s8 *)arg0 + 0x184));
         }
         update_follow_projection__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
-        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;
             do {
                 temp_r3 = get_player_by_client_id((int) (var_r31));
@@ -134,7 +131,7 @@ u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TRaderMapCore.value;
         TRaderMapCore__instance = 0;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -190,13 +187,13 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     arg0->f188 = TRaderMapCore__data_805DC528;
     arg0->f18c = TRaderMapCore__data_805DC528;
     arg0->f190 = TRaderMapCore__data_805DC528;
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         arg0->f194 = 0x800810;
         TRaderMapCore__view_mode = 2;
     } else {
         arg0->f194 = 0x800810;
     }
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         arg0->f1a0 = TRaderMapCore__data_805DC58C;
     } else {
         arg0->f1a0 = TRaderMapCore__data_805DC58C;

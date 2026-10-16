@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMorfosArm.h"
+#include "pso/enemy/TObjEneMorfos.h"
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
@@ -9,7 +10,6 @@ void *TObjEneMorfosArm__ct(void *, void *, void *);
 extern "C" {
 
 void TObjEneMorfosArm__sub_8033542C(void);
-s32 get_instance__13TObjEneMorfosFv();
 
 void TObjEneMorfosArm__sub_8033542C(void) {  }
 
@@ -25,7 +25,7 @@ void *TObjEneMorfosArm::create(void *arg0, void *arg1) {
 }
 
 void TObjEneMorfosArm::init_global() {
-    TObjEneMorfosArm__parent_morfos_instance = get_instance__13TObjEneMorfosFv();
+    TObjEneMorfosArm__parent_morfos_instance = TObjEneMorfos::get_instance();
 }
 
 }

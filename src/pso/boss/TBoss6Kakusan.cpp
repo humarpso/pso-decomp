@@ -1,6 +1,12 @@
 #include "types.h"
 #include "pso/boss/TBoss6Kakusan.h"
 #include "pso/boss/TBoss6Type1.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdLdQuestPrtGC.h"
 
 struct RecoveredGlobal_80322994___vt__13TBoss6Kakusan { s32 value; u8 remaining[0x14]; };
 
@@ -58,9 +64,7 @@ struct VObj_80322438 : Base_80322438 {
 extern "C" {
 u8 *__nw__7TObjectFUl(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *dispatch_shared_handler_a__6TLobbyFl(s32);
 u32 create_particle_emitter(void *, int);
-s32 set_flags__11TBoss4Type2FUl(int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
 extern s32 __vt__13TBoss6Kakusan[];
@@ -76,9 +80,6 @@ extern const f32 lbl_805DF530;
 extern const f32 lbl_805DF534;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
-s32 check_demo_mode__10TObjPlayerFv();
-void copy_vec3__11TBoss4Type2FPv(void *, void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 query_teammate_state__9TObjEneDDFv();
 void direction_to_rotation_xz(void *, void *, void *);
 u32 get_player_by_client_id(s32);
@@ -96,8 +97,6 @@ extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF538;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
-s32 get_game_mode__6TLobbyFv();
-s32 rand_vary_count__14TBoss6PlotFalzFlf(int, f32);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
@@ -114,8 +113,6 @@ int TBoss6Kakusan__sub_8032263C(void);
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void render__15TAdLdQuestPrtGCFv(void);
-void request_destroy__11TBoss4Type2FUl(void *);
 
 #pragma push
 #pragma opt_propagation off
@@ -137,7 +134,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
   f32 len;
   f32 step;
   f32 t;
-  n = get_game_mode__6TLobbyFv();
+  n = TLobby::get_game_mode();
   for (i = 0; i < n; i++)
   {
     pl = get_player_data__10TObjPlayerFi(i);
@@ -182,7 +179,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
     }
     if (found != 0)
     {
-      h.f = (f32) rand_vary_count__14TBoss6PlotFalzFlf(*((s32 *) (((s8 *) arg0) + 0x1C)), lbl_805DF528);
+      h.f = (f32) TBoss6PlotFalz::rand_vary_count(*((s32 *) (((s8 *) arg0) + 0x1C)), lbl_805DF528);
       s32 z = 0;
       h.a = z;
       h.c = z;
@@ -217,7 +214,7 @@ void TBoss6Kakusan::run_task() {
     Vec_803226C0 a;
     f32 speed;
     u8 *pl;
-    if (check_demo_mode__10TObjPlayerFv() != 0) return;
+    if (TObjPlayer::check_demo_mode() != 0) return;
     if (query_teammate_state__9TObjEneDDFv() != 0) return;
     VecCopy__FP3VecPC3Vec(arg0 + 0x48, arg0 + 0x30);
     if ((s8)boss6_kakusan_homing_start_initialized == 0) {
@@ -257,12 +254,12 @@ void TBoss6Kakusan::run_task() {
     }
     vec3_add_to(arg0 + 0x30, arg0 + 0x3C);
     if (*(void **)((s8 *)arg0 + 0x54) != NULL) {
-        copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0x54), arg0 + 0x30);
+        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x54)))->copy_pos(arg0 + 0x30);
         VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
         subtract_vector(&a, arg0 + 0x48);
         direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
-        copy_vec3__11TBoss4Type2FPv(*(void **)((s8 *)arg0 + 0x54), &b);
+        ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x54)))->copy_vec3(&b);
     }
     if (is_out_of_range() != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
         queue_destruction__7TObjectFv(arg0);
@@ -275,7 +272,7 @@ void TBoss6Kakusan::run_task() {
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TBoss6Kakusan;
-        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x54)); *(s32 *)((s8 *)arg0 + 0x54) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x54))); *(s32 *)((s8 *)arg0 + 0x54) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -303,19 +300,19 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x30), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x48), (void *) (arg0 + 0x30));
-    temp_f2 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x2B)) + 4);
+    temp_f2 = *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2B)) + 4);
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) temp_f2;
     if (TBoss6Kakusan__data_805DF518 == temp_f2) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 0x14;
     }
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x2F)) + 0x10);
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 0x10);
     if (*(f32 *)((s8 *)arg0 + 0x28) < TBoss6Kakusan__data_805DF518) {
         *(f32 *)((s8 *)arg0 + 0x28) = (f32) TBoss6Kakusan__data_805DF518;
     }
     *(u32 *)((s8 *)arg0 + 0x54) = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x54);
     if (temp_r3 != 0U) {
-        set_flags__11TBoss4Type2FUl((int) (temp_r3), (int) (0x40));
+        ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
     }
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     return arg0;

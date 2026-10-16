@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct AsyncFileReadRequest {
     u32 flags;
     u8 pad04[4];
@@ -13,20 +14,10 @@ struct AsyncFileReadRequest {
 };
 
 extern "C" {
-void tmp_buf_release__6TLobbyFv(void *);
-u32 tmp_buf_use_req__6TLobbyFPCc(void *);
-s32 load_bml_exec__6TLobbyFPUcPUc(s32, void *);
-void notify_and_close__6TLobbyFv();
-void destroy_instance__6TLobbyFv();
-void pop_and_close__6TLobbyFv();
 void TGStream__sub_800FDD64();
 s32 TLobby__sub_803CC4C0(u32);
-s32 read_checked_align__6TLobbyFlll(u32, s32, u32);
 u32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(u32, s32);
-void move_data__6TLobbyFPCvUl(void *, u32, u32);
-void copy_u16_array__6TLobbyFPUsl(void *, u32, s32);
-void move_words__6TLobbyFPUll(void *, u32, s32);
 extern u8 fsrv_read_pvm_buffer_tag[];
 extern AsyncFileReadRequest *async_file_read_current_request;
 extern s32 async_file_read_state;
@@ -43,14 +34,14 @@ void process_async_file_reads(void) {
     case 0:
         if (async_file_read_current_request != NULL) {
             if (async_file_read_current_request->flags & 0x200) {
-                pop_and_close__6TLobbyFv();
+                TLobby::pop_and_close();
             } else {
                 async_file_read_current_request->flags |= 0x100;
                 if (async_file_read_current_request->flags & 2) {
-                    async_file_read_texture_buffer = tmp_buf_use_req__6TLobbyFPCc(fsrv_read_pvm_buffer_tag);
+                    async_file_read_texture_buffer = TLobby::tmp_buf_use_req((const char *)fsrv_read_pvm_buffer_tag);
                     if (async_file_read_texture_buffer != 0) {
                         lobby_download_state_ptr = adxf_open__6TLobbyFUii(async_file_read_current_request->name, 0);
-                        read_checked_align__6TLobbyFlll(lobby_download_state_ptr, async_file_read_current_request->count, async_file_read_texture_buffer);
+                        TLobby::read_checked_align(lobby_download_state_ptr, async_file_read_current_request->count, async_file_read_texture_buffer);
                         async_file_read_state = 3;
                     }
                 } else if (async_file_read_current_request->flags & 4) {
@@ -59,10 +50,10 @@ void process_async_file_reads(void) {
                     u32 h = lobby_download_state_ptr = adxf_open__6TLobbyFUii(async_file_read_current_request->name, 0);
                     if (h != 0) {
                         if (async_file_read_current_request->count > 1) {
-                            read_checked_align__6TLobbyFlll(h, async_file_read_current_request->count - 1, (u32)async_file_read_current_request->dst);
+                            TLobby::read_checked_align(h, async_file_read_current_request->count - 1, (u32)async_file_read_current_request->dst);
                             async_file_read_state = 1;
                         } else {
-                            read_checked_align__6TLobbyFlll(h, 1, async_file_read_sector_buffer);
+                            TLobby::read_checked_align(h, 1, async_file_read_sector_buffer);
                             async_file_read_state = 2;
                         }
                     }
@@ -72,18 +63,18 @@ void process_async_file_reads(void) {
         break;
     case 1:
         if (async_file_read_current_request->flags & 0x200) {
-            destroy_instance__6TLobbyFv();
-            pop_and_close__6TLobbyFv();
+            TLobby::destroy_instance();
+            TLobby::pop_and_close();
             async_file_read_state = 0;
         } else if (TLobby__sub_803CC4C0(lobby_download_state_ptr) == 3) {
-            read_checked_align__6TLobbyFlll(lobby_download_state_ptr, 1, async_file_read_sector_buffer);
+            TLobby::read_checked_align(lobby_download_state_ptr, 1, async_file_read_sector_buffer);
             async_file_read_state = 2;
         }
         break;
     case 2:
         if (async_file_read_current_request->flags & 0x200) {
-            destroy_instance__6TLobbyFv();
-            pop_and_close__6TLobbyFv();
+            TLobby::destroy_instance();
+            TLobby::pop_and_close();
             async_file_read_state = 0;
         } else if (TLobby__sub_803CC4C0(lobby_download_state_ptr) == 3) {
             u8 *dst = async_file_read_current_request->dst + ((async_file_read_current_request->count - 1) << 11);
@@ -93,33 +84,33 @@ void process_async_file_reads(void) {
             }
             switch (n & 3) {
             case 0:
-                move_words__6TLobbyFPUll(dst, async_file_read_sector_buffer, n / 4);
+                ((TLobby *)dst)->move_words((u32 *)async_file_read_sector_buffer, (s32)(n / 4));
                 break;
             case 2:
-                copy_u16_array__6TLobbyFPUsl(dst, async_file_read_sector_buffer, n / 2);
+                ((TLobby *)dst)->copy_u16_array((u16 *)async_file_read_sector_buffer, (s32)(n / 2));
                 break;
             default:
-                move_data__6TLobbyFPCvUl(dst, async_file_read_sector_buffer, n);
+                ((TLobby *)dst)->move_data((const void *)async_file_read_sector_buffer, (u32)n);
                 break;
             }
-            destroy_instance__6TLobbyFv();
-            notify_and_close__6TLobbyFv();
+            TLobby::destroy_instance();
+            TLobby::notify_and_close();
         }
         break;
     case 3:
         if (async_file_read_current_request->flags & 0x200) {
-            destroy_instance__6TLobbyFv();
-            pop_and_close__6TLobbyFv();
+            TLobby::destroy_instance();
+            TLobby::pop_and_close();
             async_file_read_state = 0;
         } else if (TLobby__sub_803CC4C0(lobby_download_state_ptr) == 3) {
             load_gvm_texture_archive(async_file_read_texture_buffer, async_file_read_current_request->tex);
-            tmp_buf_release__6TLobbyFv(fsrv_read_pvm_buffer_tag);
-            notify_and_close__6TLobbyFv();
+            ((TLobby *)fsrv_read_pvm_buffer_tag)->tmp_buf_release();
+            TLobby::notify_and_close();
         }
         break;
     case 4:
-        if (load_bml_exec__6TLobbyFPUcPUc(async_file_read_current_request->mode, async_file_read_current_request->name) != 0) {
-            pop_and_close__6TLobbyFv();
+        if (TLobby::load_bml_exec((u8 *)(async_file_read_current_request->mode), (u8 *)(async_file_read_current_request->name)) != 0) {
+            TLobby::pop_and_close();
             async_file_read_state = 0;
         }
         break;

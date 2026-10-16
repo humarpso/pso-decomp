@@ -2,6 +2,8 @@
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/misc/TLobby.h"
 
 struct Vec_80071BC0 { f32 x, y, z; };
 
@@ -46,15 +48,10 @@ s32 *TWindowSubStatusDisp__sub_8006F0D8(void *);
 extern u8 challenge_mode_state[];
 s32 TLobby__sub_80071B30(s32 arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_80071BC0 *, void *);
-void save_position__14TBoss4DarkFalzFv(Plr_80071BC0 *);
-void set_position_from__14TBoss4DarkFalzFPv(Plr_80071BC0 *, Vec_80071BC0 *);
-void copy_header_struct__6TLobbyFPv(void *, void *);
 void copy_player_visual_record(Chr_80071BC0 *, void *);
-void clear_header_struct__10TObjPlayerFv(Hdr_80071BC0 *);
 Plr_80071BC0 *get_player_by_client_id(s32);
 Plr_80071BC0 *create_player_object(s32, s32, TPlyCharData *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(Plr_80071BC0 *, u8, s16);
-void set_all_technique_levels__10TObjPlayerFPv(void *, s32);
 void begin_action_state__10TObjPlayerFPv(TPlyCharData *);
 void send_command__10TNpcPlayerFlScllPSc(u8, s32, s32, s32, TPlyCharData *);
 extern s32 local_client_id;
@@ -93,13 +90,13 @@ void TObjPlayer::rebuild_players_for_stage(s32 arg0) {
     {
         for (i = 0; i < 4; i++) {
             p = get_player_by_client_id(i);
-            clear_header_struct__10TObjPlayerFv(&hdr);
+            ((TObjPlayer *)(&hdr))->clear_header_struct();
             if (p == NULL) {
                 continue;
             }
             VecCopy__FP3VecPC3Vec(&pos, (u8 *)p + 0x38);
             copy_player_visual_record(&chr, (u8 *)p + 0x85c);
-            copy_header_struct__6TLobbyFPv(&hdr, (u8 *)p + 0xdac);
+            ((TLobby *)(&hdr))->copy_header_struct((u8 *)p + 0xdac);
             if (p != NULL) {
                 p->m0(1);
             }
@@ -131,11 +128,11 @@ void TObjPlayer::rebuild_players_for_stage(s32 arg0) {
                     return;
                 }
             }
-            copy_header_struct__6TLobbyFPv((u8 *)p + 0xdac, &hdr);
-            set_position_from__14TBoss4DarkFalzFPv(p, &pos);
-            save_position__14TBoss4DarkFalzFv(p);
+            ((TLobby *)((u8 *)p + 0xdac))->copy_header_struct(&hdr);
+            ((TBoss4DarkFalz *)p)->set_position_from(&pos);
+            ((TBoss4DarkFalz *)p)->save_position();
             p->m6();
-            set_all_technique_levels__10TObjPlayerFPv((u8 *)p + 0x428, 0xff);
+            ((TObjPlayer *)((u8 *)p + 0x428))->set_all_technique_levels((void *)0xff);
             if (t->techniques != NULL) {
                 for (e = t->techniques; e->level != 0xff; e++) {
                     clamp_and_set_unit_value__10TObjPlayerFiUci(p, e->level, e->technique);

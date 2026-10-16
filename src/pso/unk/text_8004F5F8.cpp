@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/object/TObjFish.h"
 struct S_8004F5F8 {
     u8 pad0[0x18];
     void *vt;
@@ -12,9 +15,6 @@ struct S_8004F5F8 {
 extern "C" {
 void fn_8004AA04(void *);
 void restore_player_cameras();
-void request_destroy__11TBoss4Type2FUl(void *);
-void init_state_1__8TObjFishFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485764[];
 S_8004F5F8 *fn_8004F5F8(S_8004F5F8 *o, s16 flag);
@@ -28,17 +28,17 @@ S_8004F5F8 *fn_8004F5F8(S_8004F5F8 *o, s16 flag) {
         o->vt = lbl_80485764;
         fn_8004AA04(o->f90);
         if (o->f100 != 0) {
-            init_state_1__8TObjFishFPv(o->f100);
+            TObjFish::init_state_1(o->f100);
             o->f100 = 0;
         }
         for (i = 0; i < 2; i++) {
             if (o->ptr[i] != 0) {
-                request_destroy__11TBoss4Type2FUl(o->ptr[i]);
+                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
                 o->ptr[i] = 0;
             }
         }
         restore_player_cameras();
-        destroy_particle__13TParticleCtrlFPvs(o, 0);
+        TParticleCtrl::destroy_particle(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

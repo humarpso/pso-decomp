@@ -2,6 +2,9 @@
 
 #include <stddef.h>
 #include "pso/misc/TTecJelin.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_802384E0 {
     s32 sp8;
     f32 spC;
@@ -147,10 +150,8 @@ void TTecJelin__vt4(u8 *self, u8 *target);
 s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 apply_technique_to_area_targets(void *);
-s32 is_parents_unqueued__9TTecLukerFUl(u32);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 extern s32 tec_jelin_class_name_ptr;
 extern s32 __vt__9TTecJelin[];
 void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
@@ -160,7 +161,6 @@ s32 obj_getField1c(void *);
 Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
 s32 obj_getField1c(void *);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void copy_technique_target_list(void *, void *);
@@ -173,7 +173,6 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
 extern "C" {
 
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
-s32 copy_params__8TTecAntiFPUc(void *, s32);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -185,7 +184,7 @@ void TTecJelin::init_tech_params() {
     u8 *arg0 = (u8 *)this;
     s32 res;
     res = calc_technique_parameters(0xB, *(s16 *)((s8 *)arg0 + 0x78), 0xFFFF);
-    copy_params__8TTecAntiFPUc(arg0 + 0x88, res);
+    ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)res);
     *(f32 *)((s8 *)arg0 + 0x88) = (f32) (*(s16 *)((s8 *)arg0 + 0xAC) * *(s16 *)((s8 *)arg0 + 0x78));
 }
 
@@ -225,7 +224,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     if (self->flag != 0) {
         for (i = 0; i < self->count; i++) {
             id = find_entity_by_id(self->entries[i].id);
-            if (is_parents_unqueued__9TTecLukerFUl(id) != 0) {
+            if (TTecLuker::is_parents_unqueued(id) != 0) {
                 ((VObj_18_4560ce *)(self))->m4(id);
             }
         }
@@ -250,7 +249,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     s32 r;
     init_technique_effect_base(self, _w1, _w2, _w4);
     self->vt = __vt__9TTecJelin;
-    construct_target_cursor_records__10TObjPlayerFv(self->sub);
+    ((TObjPlayer *)(self->sub))->construct_target_cursor_records();
     self->f0 = tec_jelin_class_name_ptr;
     self->fec = 1;
     copy_technique_target_list(self->sub, _w3);
@@ -289,7 +288,7 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
     s32 r;
     construct_area_technique_base(self);
     self->vt = ((s32 *)&__vt__9TTecJelin);
-    construct_target_cursor_records__10TObjPlayerFv(self->sub);
+    ((TObjPlayer *)(self->sub))->construct_target_cursor_records();
     self->f0 = tec_jelin_class_name_ptr;
     self->fec = 0;
     ((TTecJelin *)self)->init_tech_params();

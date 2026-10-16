@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdYesNoBaseGC.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -22,7 +23,6 @@ extern "C" {
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0);
-void set_selected_index__17TWindowSubComCardFs(s32, s16);
 void align_menu_entry_positions(s32);
 void update_layout_height__17TWindowSubComCardFPvf(f32);
 s32 init_shop_judgment_window(void *);
@@ -57,7 +57,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
-s32 is_visible__17TWindowSubComCardFv(u32);
 void queue_destruction__7TObjectFv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 
@@ -74,7 +73,7 @@ s32 TAdYesNoBaseGC::create_menu_window() {
     s32 r = init_shop_judgment_window(&t);
     update_layout_height__17TWindowSubComCardFPvf(lbl_805DF788);
     align_menu_entry_positions(r);
-    set_selected_index__17TWindowSubComCardFs(r, (s16)arg0->sel);
+    ((TWindowSubComCard *)r)->set_selected_index((s16)arg0->sel);
     return r;
 }
 
@@ -102,7 +101,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 1;
         break;
     case 1:
-        if (is_visible__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x44)) != 0) {
+        if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x44)))->is_visible() != 0) {
             temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x44));
             switch (temp_r3) {
             case 0:

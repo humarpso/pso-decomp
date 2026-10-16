@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubItem.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Wn_80278460 { u8 pad0[0x20]; s16 f20; u8 pad22[0x54]; s16 f76; };
 
@@ -7,12 +9,9 @@ s32 get_item_info__10TObjPlayerFllPs(u32, void *, void *);
 u32 find_item_by_id();
 u8 *get_player_by_client_id(s16);
 u16 *get_array_entry__20TWindowSubStatusDispFi(void *, s16);
-void get_cursor_pos__14TWindowSubItemFv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
-s32 is_flag80_set__20TWindowSubStatusDispFv(void *);
 void mark_unequippable_items(Wn_80278460 *arg0);
 u16 *get_array_entry__20TWindowSubStatusDispFi(void *, s16);
-void get_cursor_pos__14TWindowSubItemFv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
 void fn_80278518(void *arg0, s32 arg1);
 }
@@ -29,8 +28,8 @@ void mark_unequippable_items(Wn_80278460 *arg0) {
     if (item != NULL) {
         for (i = 0; (s16)i < arg0->f76; i++) {
             e = get_array_entry__20TWindowSubStatusDispFi(arg0, i);
-            if (e != NULL && is_flag_4_set__20TWindowSubStatusDispFv() != 0 && is_flag80_set__20TWindowSubStatusDispFv(e) == 0) {
-                get_cursor_pos__14TWindowSubItemFv(e);
+            if (e != NULL && is_flag_4_set__20TWindowSubStatusDispFv() != 0 && ((TWindowSubStatusDisp *)e)->is_flag80_set() == 0) {
+                ((TWindowSubItem *)e)->get_cursor_pos();
                 if ((t = find_item_by_id()) != 0 && get_item_info__10TObjPlayerFllPs(t, item, sp8) == 0) {
                     *e |= 0x80;
                 }
@@ -43,7 +42,7 @@ void fn_80278518(void *arg0, s32 arg1) {
     u16 *temp_r30;
     for (var_r31 = 0; var_r31 < *(s16 *)((s8 *)arg0 + 0x76); var_r31++) {
         temp_r30 = ((u16 *(*)(void *, s32)) get_array_entry__20TWindowSubStatusDispFi)(arg0, var_r31);
-        if ((is_flag_4_set__20TWindowSubStatusDispFv() != 0) && (arg1 == ((s32 (*)(void *)) get_cursor_pos__14TWindowSubItemFv)(temp_r30))) {
+        if ((is_flag_4_set__20TWindowSubStatusDispFv() != 0) && (arg1 == ((TWindowSubItem *)temp_r30)->get_cursor_pos())) {
             *(s32 *)((s8 *)temp_r30 + 0x2C) = 0xFFAAAAAA;
             *(s32 *)((s8 *)temp_r30 + 0x30) = 0xFF909090;
             *(s32 *)((s8 *)temp_r30 + 0x34) = 0xFF909090;

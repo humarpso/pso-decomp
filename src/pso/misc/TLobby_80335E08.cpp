@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_80335E7C
 {
@@ -66,11 +70,7 @@ void TLobby__sub_80335FE4(void);
 int TAdTrialAgreementGC__sub_8033596C(void*);
 int TLobby__sub_80336030(void* p);
 s32 TCameraCtrl__sub_80068EF0();
-s32 restore_full_screen_view__11TCameraCtrlFv();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern const f32 lbl_805DF8C8;
@@ -81,7 +81,6 @@ extern const f32 lbl_805DF8D8;
 extern const f32 lbl_805DF8DC;
 extern const f32 lbl_805DF8E0;
 extern const f32 lbl_805DF8E4;
-s32 notify_fish_if_valid__10TObjPlayerFUl(s32 *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 void bind_title_texture_list(void);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
@@ -104,8 +103,8 @@ void TLobby__sub_80335E78(void) {  }
 typedef struct Stack_80335E7C Stack_80335E7C;
 void TLobby::draw_title_screen() {
   Stack_80335E7C stack;
-  begin_effect_render__13TParticleCtrlFv();
-  restore_full_screen_view__11TCameraCtrlFv();
+  TParticleCtrl::begin_effect_render();
+  TCameraCtrl::restore_full_screen_view();
   begin_screen_draw((int) 1);
   bind_title_texture_list();
   set_draw_texture_and_color((int) 1, (int) (-1));
@@ -122,9 +121,9 @@ void TLobby::draw_title_screen() {
   stack.sp10 = lbl_805DF8E4;
   stack.sp14 = lbl_805DF8D4;
   draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) lbl_805DF8E0);
-  get_player__20TWindowSubStatusDispFv();
+  TWindowSubStatusDisp::get_player();
   TCameraCtrl__sub_80068EF0();
-  end_effect_render__13TParticleCtrlFv();
+  TParticleCtrl::end_effect_render();
 }
 
 void TLobby__sub_80335F40(void) {  }
@@ -156,7 +155,7 @@ void*TLobby::get_record(int a0) {  return (char*)lobby_record_table + a0 * 32; }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void bind_title_texture_list(void) {
-    notify_fish_if_valid__10TObjPlayerFUl((s32 *)(&title_texture_list.value));
+    TObjPlayer::notify_fish_if_valid((u32)((s32 *)(&title_texture_list.value)));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];

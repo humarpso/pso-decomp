@@ -13,7 +13,6 @@ extern u32 information_board_response_buffer;
 
 extern "C" {
 
-s32 send_text_packet_D9__6TLobbyFPc(u32, s32);
 s32 send_info_board_request__9TProtocolFv(u32);
 s32 get_character_save_record(s32);
 
@@ -37,7 +36,7 @@ extern s32 info_board_state_flags;
 void TLobby::flush_pending_send() {
     if (info_board_state_flags & 1) {
         if ((u32) TLobby__protocol_instance != 0U) {
-            send_text_packet_D9__6TLobbyFPc(TLobby__protocol_instance, TLobby::get_card_window_field());
+            ((TLobby *)TLobby__protocol_instance)->send_text_packet_D9((char *)(TLobby::get_card_window_field()));
         }
         info_board_state_flags &= 0xFFFFFFFE;
     }

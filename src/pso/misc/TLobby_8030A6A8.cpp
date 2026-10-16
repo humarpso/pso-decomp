@@ -1,8 +1,9 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 get_player_count__10TObjPlayerFv();
 s32 is_flag_set__6TLobbyFv();
 s32 is_challenge_mode_active();
 s32 get_game_play_mode(void);
@@ -13,24 +14,21 @@ extern "C" {
 s32 TLobby__sub_8030A770(void);
 s32 get_instance__11TCameraCtrlFv();
 s32 is_quest_active();
-s32 get_instance__6TLobbyFv();
-s32 get_online_ready_flag__6TLobbyFv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 game_difficulty_selection;
 
 s32 TLobby::is_online_ready() {
-    if (((s32) game_difficulty_selection == 3) && (get_instance__6TLobbyFv() == 0)) {
+    if (((s32) game_difficulty_selection == 3) && (TLobby::get_instance() == 0)) {
         return 1;
     }
-    if (get_online_ready_flag__6TLobbyFv() != 0) {
+    if (TLobby::get_online_ready_flag() != 0) {
         return 1;
     }
     return 0;
 }
 
 s32 TLobby::is_camera_ctrl_active() {
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         return get_instance__11TCameraCtrlFv();
     }
     return 1;
@@ -58,7 +56,7 @@ s32 get_game_play_mode(void) {
     if (is_challenge_mode_active() == 1) {
         return 1;
     }
-    n = get_player_count__10TObjPlayerFv();
+    n = TObjPlayer::get_player_count();
     r = 0;
     if (n > 0) {
         r = 2;

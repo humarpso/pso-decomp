@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct Sounds_802C9C18 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; };
 
@@ -8,10 +10,8 @@ s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFv();
 s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 local_client_id;
 void fn_802C9D38(u8 *arg0);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(s32, void *, s32, s32);
 extern Sounds_802C9C18 lbl_804720B8;
 void fn_802C9C18(u8 *arg0, s32 arg1);
@@ -21,7 +21,7 @@ extern "C" {
 
 void fn_802C9C18(u8 *arg0, s32 arg1) {
     Sounds_802C9C18 s = lbl_804720B8;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0x17:
     case 0x18:
     case 0x19:
@@ -47,7 +47,7 @@ void fn_802C9C18(u8 *arg0, s32 arg1) {
 void fn_802C9D38(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         void *o = *(void **)((s8 *)arg0 + 0x2A8);
         if (o != NULL) {
             temp_r3 = get_player_by_client_id((void *) (obj_getField1c(o)));

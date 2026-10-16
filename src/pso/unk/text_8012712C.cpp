@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemProShield.h"
 
 struct Self_8012712C { u8 pad[0x18]; void *vt; u8 pad1c[0x1e4 - 0x1c]; f32 f1e4; u8 pad1e8[0x1f0 - 0x1e8]; void *f1f0; };
 
@@ -9,7 +10,6 @@ extern s32 tl_05;
 u8 *create_agito_weapon(u8 *arg0);
 void TItemWeapon__ct(void *, s32, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
-u8 get_slot_count__14TItemProShieldFv(void *);
 void create_lavis_shot(void);
 extern void *lbl_804A3070[];
 extern const f32 lbl_805DADB8;
@@ -22,7 +22,7 @@ u8 *TObjPlayer::construct_agito(s32 a, void *b) {
     TItemWeapon__ct(self, a, b);
     self->vt = lbl_804A3070;
     set_status_flags__10TObjPlayerFPvUi(self, 2);
-    if (get_slot_count__14TItemProShieldFv(self) == 0) {
+    if (((TItemProShield *)self)->get_slot_count() == 0) {
         set_status_flags__10TObjPlayerFPvUi(self, 0x20);
         self->f1f0 = (void *)create_lavis_shot;
         self->f1e4 = lbl_805DADB8;

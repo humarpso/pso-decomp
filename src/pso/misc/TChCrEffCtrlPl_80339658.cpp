@@ -1,6 +1,8 @@
 #include "pso/TChCrEffCtrlPl.h"
 
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/ui/TWindowSubTradeMessage.h"
 
 struct VBase803398CC_803398cc_80339658 { char pad[0x18]; };
 struct VObj803398CC_803398cc_80339658 : VBase803398CC_803398cc_80339658 {
@@ -24,9 +26,7 @@ extern "C" {
 s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 draw_ui_sprite(int, void *, f32, f32);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
-s32 get_clamped_player_index__14TChCrEffCtrlPlFv();
 extern u8 lbl_80477C70[];
 extern u8 __vt__14TChCrEffCtrlPl[];
 extern s32 TChCrEffCtrlPl__name;
@@ -38,7 +38,6 @@ extern const f32 lbl_80477C78[];
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
-u32 create_message_window__22TWindowSubTradeMessageFPCc();
 
 #pragma push
 #pragma opt_common_subs off
@@ -89,9 +88,9 @@ O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1) {
     __ct__7TObjectFP7TObject(arg0);
     arg0->vt = __vt__14TChCrEffCtrlPl;
     arg0->f0 = TChCrEffCtrlPl__name;
-    arg0->f1c = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0x8B;
-    arg0->f20 = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0xBC;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg0->v, lbl_80477C70);
+    arg0->f1c = TChCrEffCtrlPl::get_clamped_player_index() + 0x8B;
+    arg0->f20 = TChCrEffCtrlPl::get_clamped_player_index() + 0xBC;
+    ((TWindowSubSymbolChatPartsSet *)(arg0->v))->copy_vec2(lbl_80477C70);
     arg0->f2c = 0.0f;
     arg0->f34 = 0;
     return arg0;

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/item/TItemEffPG.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_8034FCF0_lbl_804F0BF0 {
     s32 value;
@@ -25,15 +27,12 @@ s32 get_state_flag__9TMainTaskFv();
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(int);
 s32 set_depth_buffer_settings_id__FUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(void *);
 s32 set_chunk_material_color(void *);
 extern s32 saved_model_draw_color[];
@@ -101,8 +100,8 @@ void TItemEffPG::draw_effect_models() {
             copy_vec4__13TRaderMapCoreFPvPv((void *) (saved_model_draw_color), (void *) (model_material_color));
             model_render_flags |= 0x20;
             set_chunk_material_color((void *) (arg0 + 0x28));
-            begin_effect_render__13TParticleCtrlFv();
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            TParticleCtrl::begin_effect_render();
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x5C));
             push_matrix();
@@ -116,7 +115,7 @@ void TItemEffPG::draw_effect_models() {
             draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x2C)) + 4)));
             pop_matrix();
             pop_matrix();
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
             copy_vec4__13TRaderMapCoreFPvPv((void *) (model_material_color), (void *) (saved_model_draw_color));
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;

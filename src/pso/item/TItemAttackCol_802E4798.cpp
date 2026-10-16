@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/item/TItemAttackCol.h"
+#include "pso/object/TObjOnlineEnding.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Hit_802E4798 { u8 *obj; s32 idx; };
 
@@ -19,16 +21,13 @@ extern "C" {
 s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30(void *, u32);
 u16 obj_getField1c(void *);
-s16 get_stat_by_key_state__10TObjPlayerFv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1);
 s32 queue_destruction__7TObjectFv(void *);
-s32 apply_status_effect__10TObjPlayerFl(void *);
 s32 TObjPlayer__sub_801542F4(void *);
 s32 TObjPlayer__sub_8015431C(void *);
 s32 reset_global_table();
 s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1);
-s32 get_instance__16TObjOnlineEndingFv();
 Hit_802E4798 *get_attack_entry__16TObjOnlineEndingFi(int);
 void check_hits__14TItemAttackColFPv(u8 *arg0);
 }
@@ -51,7 +50,7 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
     }
     ok = 1;
     if (is_technique_ready__8TTecCtrlFv() == 0 && obj_testFlags30(arg1->obj, 0x60000000) == 0x20000000
-        && *(s16 *)((s8 *)arg0 + 0xAA) != get_stat_by_key_state__10TObjPlayerFv(arg1->obj)) {
+        && *(s16 *)((s8 *)arg0 + 0xAA) != ((TObjPlayer *)(arg1->obj))->get_stat_by_key_state()) {
         ok = 0;
     }
     if (obj_testFlags30(arg1->obj, 0x04000000) != 0
@@ -89,9 +88,9 @@ void check_hits__14TItemAttackColFPv(u8 *arg0) {
         TObjPlayer__sub_8015431C(arg0 + 0x1C);
     }
     if (*(s32 *)((s8 *)arg0 + 0xBC) != 0) {
-        apply_status_effect__10TObjPlayerFl(arg0 + 0x1C);
+        TObjPlayer::apply_status_effect((s32)(arg0 + 0x1C));
     }
-    for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
+    for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
         if (try_add_hit_target__14TItemAttackColFPvPv(arg0, e) != 0) {
             ((VObj_18_909b87 *)arg0)->m4((s32)e);

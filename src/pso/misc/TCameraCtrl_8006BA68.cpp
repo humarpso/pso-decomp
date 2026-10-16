@@ -123,6 +123,7 @@ void *__dt_deleting_3__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
 
 #include <stddef.h>
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
 struct Stack_8006C03C {
     s32 sp8;
     s32 spC;
@@ -186,7 +187,6 @@ s32 set_camera_look_at(void *, void *, void *);
 extern RecoveredGlobal_8006C03C_lbl_804383E0 camera_look_at_up_vec;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
 extern void *camera_ctrl_instance;
-s32 get_global_state__14TOKeyMachine01Fv();
 extern void* camera_controller_registry[];
 extern RecoveredGlobal_8006C140_lbl_80488C50 camera_path_bank_table;
 extern RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 TCameraCtrl__camera_banks;
@@ -400,7 +400,7 @@ void configure_scripted_camera_playback(u8* playback_data, s32 unused) {
         camera->playback.frame_step = playback->frame_step;
         const PathBank* paths = (const PathBank*)&camera_path_bank_table.value;
         const MotionBank* motions = (const MotionBank*)&TCameraCtrl__camera_banks.value;
-        camera->mode = &paths[get_global_state__14TOKeyMachine01Fv()].modes[camera->playback.bank];
+        camera->mode = &paths[TOKeyMachine01::get_global_state()].modes[camera->playback.bank];
         camera->motion_data = motions[playback->bank].directory->entries[camera->playback.index];
     }
 }

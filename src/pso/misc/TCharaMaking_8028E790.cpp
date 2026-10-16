@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TCharaMaking.h"
+#include "pso/TChCrCharSelect.h"
+#include "pso/TSaveChCr.h"
 
 struct RecoveredGlobal_8028E9A4___vt__12TCharaMaking { s32 value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_8028E9A4___vt__12TCharaMaking_size[sizeof(RecoveredGlobal_8028E9A4___vt__12TCharaMaking) == 0x1C ? 1 : -1];
@@ -42,8 +44,6 @@ extern "C" {
 void TCharaMaking__sub_8028E790(void);
 s32 update_main_menu__12TCharaMakingFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
-s32 create__15TChCrCharSelectFPv(s32);
-s32 create__9TSaveChCrFPv(s32);
 s32 fn_8028D8F4();
 s32 fn_80291268();
 s32 is_state_3__14TObjCMMainMenuFv(s32);
@@ -75,14 +75,14 @@ s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
         if ((s32) creation_dressing_room_mode_flag == 1) {
             var_r3 = 1;
         }
-        create__9TSaveChCrFPv(var_r3);
+        TSaveChCr::create((void *)var_r3);
         fn_80291268();
         queue_destruction__7TObjectFv(arg0);
         return 1;
     }
     if (is_state_4__14TObjCMMainMenuFv(creation_main_menu_obj) != 0) {
         queue_destruction__7TObjectFv(arg0);
-        create__15TChCrCharSelectFPv(tl_03);
+        TChCrCharSelect::create((void *)tl_03);
         return 1;
     }
     return 0;

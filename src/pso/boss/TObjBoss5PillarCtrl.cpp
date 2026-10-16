@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TObjBoss5PillarCtrl.h"
+#include "pso/boss/TObjBoss5Pillar.h"
 
 struct Pc_8028B198 { u8 pad0[0x18]; void *vt; s32 count; void **a; };
 
@@ -30,7 +31,6 @@ Pc_8028B198 *__dt__19TObjBoss5PillarCtrlFv(Pc_8028B198 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 void **mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void *create__15TObjBoss5PillarFPv(void *);
 extern u8 __vt__19TObjBoss5PillarCtrl[];
 extern s32 lbl_805D3B38;
 extern Game_8028B23C *lbl_805D4DD8;
@@ -84,7 +84,7 @@ Ctrl_8028B23C *TObjBoss5PillarCtrl__ct(Ctrl_8028B23C *arg0, void *arg1) {
     lst = lbl_805D4DD8->owner->list;
     arg0->pillars = mem_alloc(arg0->count * 4);
     for (i = 0, n = lst->head; i < arg0->count; i++) {
-        arg0->pillars[i] = create__15TObjBoss5PillarFPv(n->data);
+        arg0->pillars[i] = TObjBoss5Pillar::create(n->data);
         n = n->next;
     }
     return arg0;

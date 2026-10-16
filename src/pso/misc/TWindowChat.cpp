@@ -6,6 +6,10 @@ struct Win_8024701C { u8 p0[0x1E]; u16 flags; s32 f20; u8 p24[4]; s32 f28; };
 struct Win_802473C8 { u8 pad0[0x1E]; u16 flags; };
 
 #include <stddef.h>
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubShortCut.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 struct RecoveredFields_8024792C_arg0 {
     u8 unknown_0[0x1C];
     u8 field_1C;
@@ -41,15 +45,12 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(void *, int);
 s32 get_chat_shortcut(int);
 s32 update_selected_symbol__20TWindowSubSymbolChatFv();
-s32 open_symbol_chat__11TWindowChatFPl(void *);
 s32 is_active__16TKeyBoardControlFPv(int);
 s32 is_key_active__16TKeyBoardControlFPv(int);
 s32 export_keyboard_text(int, void *);
 s32 reset_input__11TWindowChatFv(int);
 s32 update_selected_symbol__20TWindowSubSymbolChatFv();
-s32 open_symbol_chat__11TWindowChatFPl(void *);
 s32 TWindowChat__sub_80247080(u8 *arg0);
-s32 get_mode_code__9TWindowDDFv(int);
 s32 TWindowChat__sub_80247128(u8 *arg0);
 s32 TWindowChat__sub_8025CB10(s32);
 bool TWindowCtrl__sub_8024701C(Win_8024701C *w);
@@ -91,7 +92,6 @@ s32 begin_player_keyboard_hold(void *);
 s32 end_player_keyboard_hold(s32);
 s32 TWindowChat__sub_8025CB10(s32);
 extern u8 controller_input_state[];
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 construct_symbol_chat_selection(int, void *);
 s32 reset_input__11TWindowChatFv(int);
@@ -132,11 +132,8 @@ void *TWindowChat__ct(void *arg0, void *arg1, void *arg2);
 void TWindowChat__sub_80247D2C(void* p);
 s32 TWindowChat__sub_80247D50(u8 *arg0);
 int get_selected_menu_value(void*);
-int is_visible__17TWindowSubComCardFv(void*);
-int get_status_flag__17TWindowSubComCardFv(void*);
 int TWindowChat__sub_80247DAC(void* p);
 void TWindowChat__sub_80247DFC(u8 *arg0);
-s32 flush_if_flagged__11TWindowChatFv(void *);
 void TWindowChat__sub_80247E50(u8 *arg0);
 s32 TWindowChat__sub_80247EC0(u8 *arg0);
 void fn_80247ED8(void* p);
@@ -145,8 +142,6 @@ int TWindowSubSymbolChatHelp__sub_80247EE8(int a0);
 }
 
 extern "C" {
-
-void free_icon__18TWindowSubShortCutFv(void* p);
 
 bool TWindowCtrl__sub_8024701C(Win_8024701C *w) {
     bool r;
@@ -178,7 +173,7 @@ s32 TWindowChat__sub_80247080(u8 *arg0) {
     temp_r31 = (s32 *)(*(s32 *)((s8 *)arg0 + 0x38) + 4);
     *temp_r31 = ((TWindowChat *)(*(u8 **)((s8 *)arg0 + 0x30)))->forward_card_at_1c();
     if (*(u16 *)((s8 *)arg0 + 0x1E) & 0x80) {
-        open_symbol_chat__11TWindowChatFPl((void *)((int) (temp_r31)));
+        TWindowChat::open_symbol_chat((s32 *)temp_r31);
         update_selected_symbol__20TWindowSubSymbolChatFv();
     }
     return 1;
@@ -191,7 +186,7 @@ s32 TWindowChat__sub_80247128(u8 *arg0) {
     if (temp_r3 == 0U) {
         return 0;
     }
-    temp_r3_2 = get_mode_code__9TWindowDDFv((int) (temp_r3));
+    temp_r3_2 = ((TWindowDD *)temp_r3)->get_mode_code();
     if (temp_r3_2 == 0) {
         return 0;
     }
@@ -226,7 +221,7 @@ s32 TWindowChat::submit_keyboard_input() {
     if (((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x20)))->get_flag() != 0) {
         TAdSinglePlyChrSelectGC__sub_80076D9C((void *) (*(u32 **)((s8 *)arg0 + 0x38)), (int) (get_chat_shortcut((int) (s8)(((TWindowChat *)(*(u32 *)((s8 *)arg0 + 0x20)))->get_input_mode()))));
         if (((u32) **(u32 **)((s8 *)arg0 + 0x38) == 3U) && (((TWindowChat *)arg0)->is_mode_bit6() == 0)) {
-            open_symbol_chat__11TWindowChatFPl((void *) ((u8 *) *(u32 **)((s8 *)arg0 + 0x38) + 4));
+            TWindowChat::open_symbol_chat((s32 *)((u8 *) *(u32 **)((s8 *)arg0 + 0x38) + 4));
             update_selected_symbol__20TWindowSubSymbolChatFv();
         }
     } else {
@@ -464,7 +459,7 @@ void TWindowChat::open_next_input_window() {
     u8 temp_r0;
     if (((RecoveredFields_8024792C_arg0 *)arg0)->field_1E & 2) {
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 1;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30), (int) (get_window_layout_position((int) (0xB7))));
+        ((TWindowSubSymbolChatPartsSet *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30))->copy_vec2((void*)(get_window_layout_position((int) (0xB7))));
         *(s32 *)((s8 *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20) + 0x50) = 3;
         return;
     }
@@ -479,7 +474,7 @@ void TWindowChat::open_next_input_window() {
         }
         ((RecoveredFields_8024792C_arg0 *)arg0)->field_24 = var_r0;
         fn_80247ED8((void*)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_24)));
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30), (int) (get_window_layout_position((int) (0xB8))));
+        ((TWindowSubSymbolChatPartsSet *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30))->copy_vec2((void*)(get_window_layout_position((int) (0xB8))));
         *(s32 *)((s8 *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20) + 0x50) = 3;
         TKeyBoardControl__sub_8025EC04((s32)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_28)));
         return;
@@ -624,9 +619,9 @@ s32 TWindowChat__sub_80247D50(u8 *arg0) {
 
 int TWindowChat::forward_card_at_1c() { return get_selected_menu_value(*(void**)((char*)this + 0x1c)); }
 
-int TWindowChat::get_subcard_field1c() { return is_visible__17TWindowSubComCardFv(*(void**)((char*)this + 0x1c)); }
+int TWindowChat::get_subcard_field1c() { return ((TWindowSubComCard *)(*(void**)((char*)this + 0x1c)))->is_visible(); }
 
-int TWindowChat__sub_80247DAC(void* p) { return get_status_flag__17TWindowSubComCardFv(*(void**)((char*)p + 0x1c)); }
+int TWindowChat__sub_80247DAC(void* p) { return ((TWindowSubComCard *)(*(void**)((char*)p + 0x1c)))->get_status_flag(); }
 
 void TWindowChat::set_active_flag() { *(u16*)((char*)this + 0x1e) |= 0x10; }
 
@@ -647,7 +642,7 @@ void TWindowChat__sub_80247E50(u8 *arg0) {
     if (((TWindowChat *)arg0)->is_mode_bit4() != 0) {
         *(u16 *)((s8 *)arg0 + 0x1E) = (u16) (*(u16 *)((s8 *)arg0 + 0x1E) & 0xFFFFFFEF);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-            flush_if_flagged__11TWindowChatFv(*(void **)((s8 *)arg0 + 0x20));
+            ((TWindowChat *)(*(void **)((s8 *)arg0 + 0x20)))->flush_if_flagged();
         }
         ((TWindowChat*)((u8 *)((void *) (arg0))))->open_next_input_window();
     }

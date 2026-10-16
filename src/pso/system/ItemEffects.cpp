@@ -2,13 +2,16 @@
 
 #include "dolphin/mtx.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItemMag.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TTecGiFoie.h"
 
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 create_particle_emitter(void *, void *);
-s32 get_field_d8__10TObjPlayerFv(void *);
 u32 get_item_system_generation();
-s32 draw_icon__10TObjPlayerFll(s32, s32, s32 *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 item_follow_effect_vtable[];
 u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -17,18 +20,12 @@ u32 __nw__7TObjectFUl(s32 a0 = 0);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 roll_technique__11TItemWeaponFv(void *);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 draw_icon__10TObjPlayerFll(s32, s32, s32 *);
-s32 get_tp__10TObjPlayerFv(void *);
-s16 get_stage_strike_count__10TObjPlayerFv(s32);
-s32 create__10TTecGiFoieFPvPvPv(s32, s32 *, s32);
 void TObjPlayer__sub_80125C70(void* p);
 s32 get_id__13TItemProArmorFv(void *);
 s32 roll_technique__11TItemWeaponFv(void *);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 item_model_is_shown(void *);
 s32 is_item_area_enabled(s32);
 extern s32 tl_05;
@@ -38,16 +35,12 @@ extern "C" {
 
 void update_item_follow_effect(void *arg0);
 void *destroy_item_follow_effect(void *arg0, s16 arg1);
-s32 get_flag_40__8TItemMagFv(s32);
 s32 find_item_by_id(s32);
 u32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
-s32 draw_icon__10TObjPlayerFll(s32, s32, s32 *);
-s32 clear_active_flag__13TParticleCtrlFv(u32);
 s32 enable__13TParticleCtrlFPv(u32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 copy_pos__11TNowLoadingFPv(u32, s32 *);
 s32 obj_testFlags30(s32, s32);
 void queue_destruction__7TObjectFv(void *);
 
@@ -68,10 +61,10 @@ void update_item_follow_effect(void *arg0) {
         var_r30 = find_item_by_id(*(s32 *)((s8 *)arg0 + 0x1C));
         if ((var_r30 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
             var_r31 = 1;
-            if (draw_icon__10TObjPlayerFll(var_r30, *(s32 *)((s8 *)arg0 + 0x20), sp8) != 0) {
-                copy_pos__11TNowLoadingFPv(*(u32 *)((s8 *)arg0 + 0x24), sp8);
-                if ((get_flag_40__8TItemMagFv(var_r30) == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
-                    clear_active_flag__13TParticleCtrlFv(*(u32 *)((s8 *)arg0 + 0x24));
+            if (((TObjPlayer *)var_r30)->draw_icon((s32)(*(s32 *)((s8 *)arg0 + 0x20)), (s32)sp8) != 0) {
+                ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x24)))->copy_pos(sp8);
+                if ((((TItemMag *)var_r30)->get_flag_40() == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
+                    ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x24)))->clear_active_flag();
                 } else {
                     enable__13TParticleCtrlFPv(*(u32 *)((s8 *)arg0 + 0x24));
                 }
@@ -103,9 +96,9 @@ u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = item_follow_effect_vtable;
     disallow_rendering__7TObjectFv((void *) (arg0));
-    *(s32 *)((s8 *)arg0 + 0x1C) = get_field_d8__10TObjPlayerFv((void *) (arg2));
+    *(s32 *)((s8 *)arg0 + 0x1C) = ((TObjPlayer *)arg2)->get_field_d8();
     *(s32 *)((s8 *)arg0 + 0x20) = arg3;
-    draw_icon__10TObjPlayerFll((s32)((void *) (arg2)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x20))), (s32 *)((void *) (&position)));
+    ((TObjPlayer *)arg2)->draw_icon((s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x20)))), (s32)((s32 *)((void *) (&position))));
     *(s32 *)((s8 *)arg0 + 0x24) = create_particle_emitter((void *) (&position), (void *) (arg4));
     *(s32 *)((s8 *)arg0 + 0x28) = ((s32)get_item_system_generation());
     return arg0;
@@ -119,12 +112,12 @@ void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
 void TObjPlayer::cast_gifoie() {
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        if ((get_stage_strike_count__10TObjPlayerFv(*(s32 *)((s8 *)this + 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFll((s32)(this), (s32)(0), (s32 *)(&sp8)) != 0)) {
-            create__10TTecGiFoieFPvPvPv(*(s32 *)((s8 *)this + 0xF0), &sp8, get_tp__10TObjPlayerFv(this));
+        if ((((TObjPlayer *)(*(s32 *)((s8 *)this + 0xF0) + 0x7CC))->get_stage_strike_count() == 0) && (draw_icon((s32)((s32)(0)), (s32)((s32 *)(&sp8))) != 0)) {
+            TTecGiFoie::create((void *)(*(s32 *)((s8 *)this + 0xF0)), (void *)(&sp8), (void *)(get_tp()));
             roll_technique__11TItemWeaponFv(this);
         }
     } else {
-        update_active_game_effect__10TObjPlayerFv(this);
+        update_active_game_effect();
     }
 }
 void TObjPlayer__sub_80125C70(void* p) { *(s32*)((char*)p + 0x1f8) = -1; }
@@ -142,7 +135,7 @@ void TObjPlayer::create_pro_armor() {
 }
 void TObjPlayer::update_twin_blaze_flames() {
     s32 temp_r3;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     if ((temp_r3 != (s32) *(s32 *)((s8 *)this + 0x1F8)) && (item_model_is_shown(this) != 0)) {
         *(s32 *)((s8 *)this + 0x1F8) = temp_r3;
         if (is_item_area_enabled(temp_r3) != 0) {

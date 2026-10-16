@@ -4,7 +4,6 @@
 extern "C" {
 
 void free_collision_body_parts(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern s32 collision_body_vtable[];
@@ -13,7 +12,7 @@ void *TObjPlayer::destroy_enemy_object(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = collision_body_vtable;
         free_collision_body_parts(this);
-        destroy_particle_controller__10TObjPlayerFs(this, 0);
+        destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

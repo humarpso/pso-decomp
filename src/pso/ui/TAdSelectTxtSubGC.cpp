@@ -1,6 +1,7 @@
 #include "pso/TAdSelectTxtSubGC.h"
 
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct Src_802A37A0 {
     s32 f0;
@@ -30,7 +31,6 @@ extern "C" {
 extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF40;
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 int TObjNpcHosa__sub_802A39B0(void);
 extern s32 __vt__17TAdSelectTxtSubGC[];
 extern s32 ad_select_txt_sub_gc_class_name;
@@ -94,7 +94,7 @@ Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_
     arg0->f0 = ad_select_txt_sub_gc_class_name;
     arg0->f7c = src->f0;
     arg0->f1c = src->f4;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&arg0->f64, src->v8);
+    ((TWindowSubSymbolChatPartsSet *)(&arg0->f64))->copy_vec2(src->v8);
     arg0->f80 = src->f10;
     arg0->f84 = -1;
     arg0->f74 = lbl_805DDF3C;

@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
 
 struct Q_803D98E4 { f32 x, y, z, w; };
 
@@ -30,7 +31,6 @@ extern u32 current_matrix;
 f32 PSMTXConcat(int, int, int);
 extern u32 current_matrix;
 s32 TObjPlayer__sub_803DB244();
-void move_data__6TLobbyFPCvUl(void *, void *, int);
 extern u32 current_matrix;
 extern u32 matrix_stack_limit;
 s32 push_matrix_from(void *src);
@@ -48,12 +48,10 @@ void PSMTXRotRad(Matrix34*, char, f32);
 f32 PSMTXConcat(int, int, int);
 extern u32 current_matrix;
 void rotate_matrix_x(Matrix34* matrix, s32 angle);
-void move_data__6TLobbyFPCvUl(void *, void *, int);
 void TObjPlayer__sub_803D9C60(u32 *p);
 extern G_803D9DA8 lbl_8058D470;
 u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, int);
-s32 find_record_index__10TObjPlayerFUlUl(int, int);
 s32 TObjPlayer__sub_803DAD24(int, int);
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
@@ -116,7 +114,7 @@ s32 push_matrix_from(void *src) {
     if (next > matrix_stack_limit) {
         return 0;
     }
-    move_data__6TLobbyFPCvUl((void *)next, (src == 0) ? (void *)current_matrix : src, 0x30);
+    ((TLobby *)next)->move_data((src == 0) ? (void *)current_matrix : src, 0x30);
     current_matrix = next;
     return 1;
 }
@@ -192,7 +190,7 @@ u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2) {
         TObjPlayer__sub_803D9C60(&tag);
         switch (tag) {
         case 0x54525647:
-            move_data__6TLobbyFPCvUl(arg0, p + 2, 8);
+            ((TLobby *)arg0)->move_data(p + 2, 8);
             return p + 4;
         case 0x58494247: {
             u32 len;
@@ -250,7 +248,7 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
         j = arg1 - 1;
         temp_r29 = ((Tbl_803D9E38 *)temp_r6)->arr[j].p;
         *(s32 *)((s8 *)arg2 + 0) = *(s32 *)((s8 *)(*(s32 **)((s8 *)temp_r29 + 0xC)) + 0);
-        temp_r3_2 = find_record_index__10TObjPlayerFUlUl((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
+        temp_r3_2 = TObjPlayer::find_record_index((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
         if (temp_r3_2 < 0) {
             if (find_free_slot__10TObjPlayerFPvPv((void *) (&sp8), (int) (0)) < 0) {
                 return -1;

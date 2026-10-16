@@ -1,12 +1,12 @@
 #include "pso/TChCrEffFade.h"
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
 void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TCameraCtrl__sub_80068EF0();
-s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 draw_fade_strip__12TChCrEffFadeFf(void *, f32);
 s32 __ct__7TObjectFP7TObject(s32, s32);
 s32 fn_80293E58(void *, f32);
@@ -16,7 +16,7 @@ void TChCrEffFade::render() {
     f32 temp_f0;
     s32 temp_r0;
 
-    restore_full_screen_view__11TCameraCtrlFv();
+    TCameraCtrl::restore_full_screen_view();
     temp_r0 = *(s32 *)((s8 *)this + 0x2C);
     switch (temp_r0) {
     case 0:

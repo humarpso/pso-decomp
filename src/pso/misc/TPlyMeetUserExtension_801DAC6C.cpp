@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/protocol.h"
 
 struct Tags_801DAC6C { u32 w[16]; };
 
@@ -43,7 +44,6 @@ struct VObjDAD38 : BaseDAD38 {
 };
 
 extern "C" {
-s32 bswap__13packet_headerFv(void *);
 void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC6C *arg0, const Ext_801DAC6C *arg1);
 void reset__18PSOV3EncryptionTCPFUl(void *, u32);
@@ -91,7 +91,7 @@ void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
     s32 (*temp_r12)(u8);
     sp8 = *(s32 *)((s8 *)arg1 + 0);
-    bswap__13packet_headerFv((void *) (&sp8));
+    ((packet_header *)(&sp8))->bswap();
     *(s32 *)((s8 *)arg0 + 0x190C) = (s32) *(u8 *)((s8 *)(&sp8) + 0x1);
     temp_r12 = *(s32 (**)(u8))((s8 *)arg0 + 0xBC28);
     if (temp_r12 != NULL) {

@@ -210,10 +210,6 @@ void set_section_id__6TLobbyFPvUc(u8 *arg0, u8 arg1) {
 }
 
 extern "C" {
-s32 set_clamped_index__6TLobbyFs(void *, s32);
-s32 set_volume__6TLobbyFUc(void *, s32);
-s32 set_clamped_value_1c__6TLobbyFl(void *, s32);
-s32 set_validated_field_0x11__6TLobbyFUc(void *, s32);
 
 void TLobby::reset_settings_to_default() {
     u8 *arg0 = (u8 *)this;
@@ -236,10 +232,10 @@ void TLobby::reset_settings_to_default() {
     ((s32 (*)(void *, s32)) set_clamped_field_c__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D7904)(arg0));
     ((s32 (*)(void *, s32)) set_field_d__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D78FC)(arg0));
     ((s32 (*)(void *, s32)) set_field_0xE__6TLobbyFPvUc)(arg0, ((s32 (*)(void *)) ret_801D78F4)(arg0));
-    set_volume__6TLobbyFUc(arg0, 0);
-    set_validated_field_0x11__6TLobbyFUc(arg0, 0xFF);
-    set_clamped_index__6TLobbyFs(arg0, 0);
-    set_clamped_value_1c__6TLobbyFl(arg0, 0xA);
+    ((TLobby *)arg0)->set_volume(0);
+    ((TLobby *)arg0)->set_validated_field_0x11(0xFF);
+    ((TLobby *)arg0)->set_clamped_index(0);
+    ((TLobby *)arg0)->set_clamped_value_1c(0xA);
     *(s8 *)((s8 *)arg0 + 0x12) = 0;
     for (var_r4 = 0; var_r4 < 4; var_r4++) {
         *(arg0 + var_r4 + 0x20) = 0x14;

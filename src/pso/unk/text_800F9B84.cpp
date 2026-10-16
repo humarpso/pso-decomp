@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 
 struct RecoveredGlobal_800F9B84_lbl_8050113C {
     s32 value;
@@ -10,7 +11,6 @@ struct RelHdr_800F9BAC { u32 reloc_ofs; u32 count; u8 pad8[8]; u32 root; u8 pad1
 struct Obj_800F9BAC { u8 pad[0x1C]; u32 base; u8 pad20[4]; u32 root; };
 
 extern "C" {
-void delete_children__7TObjectFv(void *);
 s32 apply_rel_relocations(void *);
 u8 *ct_object__9TItemDropFv(u8 *, s32 *);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
@@ -47,7 +47,7 @@ s32 create_named_object(s32 arg0) {
 
 typedef char RecoveredGlobal_800F9B84_lbl_8050113C_size[sizeof(RecoveredGlobal_800F9B84_lbl_8050113C) == 0x3C ? 1 : -1];
 void clear_resource_load_tasks(void) {
-    delete_children__7TObjectFv(&resource_load_task_root.value);
+    ((TObject *)(&resource_load_task_root.value))->delete_children();
 }
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr) {
     u32 i;

@@ -133,7 +133,6 @@ s32 advance_animation_playback();
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFv();
-s32 update_child_spawn__12TObjEneReconFv(void *);
 s32 is_out_of_range__12TObjEneReconFv();
 
 void TObjEneRecon::handle_action_state(s32 arg1) {
@@ -155,7 +154,7 @@ void TObjEneRecon::handle_action_state(s32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        update_child_spawn__12TObjEneReconFv(this);
+        update_child_spawn();
         break;
     }
 }

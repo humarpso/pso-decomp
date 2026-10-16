@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestCol.h"
 
 struct Pl_801960F8 { u8 pad0[0x38]; f32 pos[3]; };
 
@@ -7,7 +8,6 @@ struct Col_801960F8 { u8 pad0[0xAC]; f32 fAC; u8 padB0[0xC]; f32 fBC; f32 fC0[3]
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
-s32 update_trigger_state__12TObjQuestColFf(void *, f32);
 Pl_801960F8 *get_player_by_client_id(s32);
 extern u8 quest_col_apc_warp_target_pos[];
 extern s32 local_client_id;
@@ -30,7 +30,7 @@ extern s32 __vt__18TObjQuestColApcINW[];
 extern void *lbl_805D3400;
 
 s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0) {
-    if (update_trigger_state__12TObjQuestColFf(arg0, arg0->fAC) == 1) {
+    if (((TObjQuestCol *)arg0)->update_trigger_state(arg0->fAC) == 1) {
         Pl_801960F8 *p = get_player_by_client_id(local_client_id);
         if (p == 0) {
             return 0;

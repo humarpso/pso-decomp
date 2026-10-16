@@ -6,6 +6,9 @@ public:
 };
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_801809C4_801809B4 { char pad[0x18]; };
 struct VObj_801809C4_801809B4 : Base_801809C4_801809B4 {
@@ -191,7 +194,6 @@ struct Obj_8017FE58 {
 };
 
 extern "C" {
-s32 set_global_param__8TObjFishFl(int);
 void render__8TObjChipFPv(u8 *arg0);
 void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
@@ -204,14 +206,11 @@ extern void *__vt__8TObjChip[];
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 scroll_strip_uvs(int, s16, int);
 s32 get_city_common_model(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object();
 s32 draw_chunk_object(int, void *);
 extern s32 city_aircar_model_indices[];
@@ -264,7 +263,6 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void dispatch_vt9__8TObjChipFPv(void *arg0);
 void update__8TObjChipFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 #pragma readonly_strings on
@@ -340,7 +338,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
 extern const u32 chip_color_white_c[4] = { 0, 0x3F800000, 0x3F800000, 0x3F800000 };
 
 void render__8TObjChipFPv(u8 *arg0) {
-    set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x68)));
+    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x68)));
     if (*(s32 *)((s8 *)arg0 + 0x6C) & 0x10) {
         ((VObj_18 *)(arg0))->m10();
         return;
@@ -563,7 +561,7 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
     VecCopy__FP3VecPC3Vec(arg0 + 0xC, arg1 + 0xC);
     VecCopy__FP3VecPC3Vec(arg0 + 0x18, arg1 + 0x18);
-    copy_xyz__10TObjPlayerFPv(arg0 + 0x24, arg1 + 0x24);
+    ((TObjPlayer *)(arg0 + 0x24))->copy_xyz(arg1 + 0x24);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x34);
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0x38);

@@ -11,7 +11,6 @@ extern "C" {
 int TBoss4Thanks__sub_8035C96C(void* p);
 void *TBoss4Thanks__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 dispatch_main_phase__12TBoss4ThanksFv();
 s32 fn_8035C2B4();
 s32 any_player_has_listed_item();
 s32 get_main_phase();
@@ -43,7 +42,7 @@ s32 TBoss4Thanks::check_ready() {
     if (((s32) game_difficulty_selection == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_item() == 0)) {
         return 0;
     }
-    dispatch_main_phase__12TBoss4ThanksFv();
+    TBoss4Thanks::dispatch_main_phase();
     return 1;
 }
 

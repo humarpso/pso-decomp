@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemProUnit.h"
 
 extern "C" {
 
 u8 get_slot_count__14TItemProShieldFv();
-s32 set_evp__12TItemProUnitFf(s32, f32);
 
 extern f32 lbl_805DAD80;
 extern f32 lbl_805DAD84;
@@ -32,7 +32,7 @@ void TObjPlayer::apply_shield_scale_to_unit() {
         var_f31 = lbl_805DAD90;
         break;
     }
-    set_evp__12TItemProUnitFf(*(s32 *)((s8 *)this + 0xF0) + 0x7CC, var_f31);
+    ((TItemProUnit *)(*(s32 *)((s8 *)this + 0xF0) + 0x7CC))->set_evp(var_f31);
 }
 
 }

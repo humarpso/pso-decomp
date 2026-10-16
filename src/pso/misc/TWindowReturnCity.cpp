@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TWindowReturnCity.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjAreaWarpQuest.h"
 
 struct Base_8026D208 { char pad[0x18]; };
 struct VObj_8026D208 : Base_8026D208 {
@@ -26,7 +31,6 @@ struct RecoveredGlobal_8026D40C___vt__17TWindowReturnCity
 };
 
 extern "C" {
-s32 get_dest_area__17TObjAreaWarpQuestFv(void *);
 void *get_player_by_client_id(s32);
 s32 get_floor_map_terrain(s32);
 s32 mark_area_change_pending();
@@ -37,8 +41,6 @@ extern RecoveredGlobal_8026D18C_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D55C0;
 extern int TWindowReturnCity__client_scan_index;
 void return_to_city_after_defeat(void);
-s32 get_message_10__20TWindowSubStatusDispFl(int);
-s32 set_close_flag__11TWindowCtrlFv();
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 fn_8024AC64(int);
 s32 get_window_layout_position(int);
@@ -51,25 +53,15 @@ extern s32 TWindowReturnCity__class_name;
 extern const f32 lbl_805DD2E8;
 u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 queue_destruction__7TObjectFv(void *);
-s32 init__22THunterGuildSeqOfflineFPvPv(u32, s32, void (*)());
-s32 clear_flag_2__11TWindowCtrlFv();
 u32 __nw__7TObjectFUl(s32);
 s32 TWindowReturnCity__sub_8024ACA8(s32);
-s32 get_slot_or_neg1__17TWindowSubComCardFv(s32);
-s32 get_card_data__17TWindowSubComCardFv(s32);
-s32 is_child_visible__17TWindowSubComCardFv(s32);
 void return_to_city_after_defeat(void);
 extern s32 lbl_805D55C0;
 extern s32 tl_00;
 extern int TWindowReturnCity__client_scan_index;
 s32 queue_destruction__7TObjectFv(void *);
-s32 init__22THunterGuildSeqOfflineFPvPv(u32, s32, void (*)());
-s32 clear_flag_2__11TWindowCtrlFv();
 u32 __nw__7TObjectFUl(s32);
 s32 TWindowReturnCity__sub_8024ACA8(s32);
-s32 get_slot_or_neg1__17TWindowSubComCardFv(s32);
-s32 get_card_data__17TWindowSubComCardFv(s32);
-s32 is_child_visible__17TWindowSubComCardFv(s32);
 void return_to_city_after_defeat(void);
 extern s32 lbl_805D55C0;
 extern s32 tl_00;
@@ -85,7 +77,6 @@ void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1);
 void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void close__17TWindowSubComCardFv(void *);
 
 typedef char RecoveredGlobal_8026D18C_lbl_80515BA0_size[sizeof(RecoveredGlobal_8026D18C_lbl_80515BA0) == 0x28 ? 1 : -1];
 void return_to_city_after_defeat(void) {
@@ -95,7 +86,7 @@ void return_to_city_after_defeat(void) {
         }
         set_area__6TLobbyFl((void *) (&lbl_80515BA0.value), (int) (0), (int) (get_floor_map_terrain(0)));
         mark_area_change_pending();
-        get_dest_area__17TObjAreaWarpQuestFv(&lbl_80515BA0.value);
+        ((TObjAreaWarpQuest *)(&lbl_80515BA0.value))->get_dest_area();
         send_inter_level_warp_all__10TNpcPlayerFl();
         (*(s32 *)&TWindowReturnCity__client_scan_index) = 4;
     }
@@ -127,33 +118,33 @@ void TWindowReturnCity::run_task() {
             if ((query_battle_state() == 0) || ((s32) TWindowReturnCity__client_scan_index != 4)) {
                 TWindowReturnCity::clear_flag_bit5();
                 TWindowReturnCity__sub_8024ACA8(*(s32 *)((s8 *)this + 0x24));
-                clear_flag_2__11TWindowCtrlFv();
+                TWindowCtrl::clear_flag_2();
                 queue_destruction__7TObjectFv(this);
                 *(s32 *)((s8 *)this + 0x20) = 2;
                 return;
             }
-            if (get_card_data__17TWindowSubComCardFv(*(s32 *)((s8 *)this + 0x1C)) != 0) {
+            if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x1C)))->get_card_data() != 0) {
                 TWindowReturnCity::clear_flag_bit5();
                 TWindowReturnCity__sub_8024ACA8(*(s32 *)((s8 *)this + 0x24));
-                clear_flag_2__11TWindowCtrlFv();
+                TWindowCtrl::clear_flag_2();
                 queue_destruction__7TObjectFv(this);
                 *(s32 *)((s8 *)this + 0x20) = 2;
                 return;
             }
-            if (is_child_visible__17TWindowSubComCardFv(*(s32 *)((s8 *)this + 0x1C)) != 0) {
-                temp_r3 = get_slot_or_neg1__17TWindowSubComCardFv(*(s32 *)((s8 *)this + 0x1C));
+            if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x1C)))->is_child_visible() != 0) {
+                temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x1C)))->get_slot_or_neg1();
                 if (temp_r3 == 0) {
                     TWindowReturnCity__client_scan_index = *(s32 *)((s8 *)this + 0x24);
                     u32 task = __nw__7TObjectFUl(0x28);
                     if (task != 0U) {
-                        init__22THunterGuildSeqOfflineFPvPv(task, tl_00, return_to_city_after_defeat);
+                        ((THunterGuildSeqOffline *)task)->init((void *)tl_00, (void *)return_to_city_after_defeat);
                     }
                     *(s32 *)((s8 *)this + 0x20) = 2;
                 }
                 if (temp_r3 == 1) {
                     TWindowReturnCity::clear_flag_bit5();
                     TWindowReturnCity__sub_8024ACA8(*(s32 *)((s8 *)this + 0x24));
-                    clear_flag_2__11TWindowCtrlFv();
+                    TWindowCtrl::clear_flag_2();
                     queue_destruction__7TObjectFv(this);
                     *(s32 *)((s8 *)this + 0x20) = 2;
                 }
@@ -166,7 +157,7 @@ void TWindowReturnCity::run_task() {
 void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowReturnCity;
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { close__17TWindowSubComCardFv(*(void **)((s8 *)arg0 + 0x1C)); *(s32 *)((s8 *)arg0 + 0x1C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x1C)))->close(); *(s32 *)((s8 *)arg0 + 0x1C) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -189,10 +180,10 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
   {
   }
   temp_r31 = get_window_layout_position((int) 0x23);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x1C))), (int) get_message_10__20TWindowSubStatusDispFl((int) 0x43), (int) temp_r31, (f32) lbl_805DD2E8);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x1C))), (int) TWindowSubStatusDisp::get_message_10((int) 0x43), (int) temp_r31, (f32) lbl_805DD2E8);
   free_member__17TWindowSubComCardFv((int) (*((s32 *) (((s8 *) arg0) + 0x1C))), (int) 1);
   fn_8024AC64((int) (*((s32 *) (((s8 *) arg0) + 0x24))));
-  set_close_flag__11TWindowCtrlFv();
+  TWindowCtrl::set_close_flag();
   TWindowCtrl__sub_8026D4E8();
   *((s32 *) (((s8 *) arg0) + 0x20)) = 0;
   return arg0;

@@ -2,6 +2,11 @@
 #include "pso/misc/TQuestListOnline.h"
 
 #include <stddef.h>
+#include "pso/TProtocol.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubItem.h"
 struct Stack_80217EC4 {
     s32 sp8;
     s32 spC;
@@ -69,7 +74,6 @@ s32 obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
 int set_field_20__12TQuestListVMFl(void*, int);
 s32 set_position_xy(int, f32, f32);
-s32 set_field_1c__6TLobbyFf(int, f32);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 u32 create_message_window__6TLobbyFllUls(int, void *, int, int);
 s32 get_window_layout_position(int);
@@ -86,20 +90,14 @@ s32 calc_list_content_extent(u32);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, int);
 s32 get_window_layout_position(int);
-void add_list_entry__6TLobbyFlll(u32, int, void *, int);
 u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__quest_list_buffer;
 
 s32 queue_destruction__7TObjectFv(void *);
-s32 is_visible__17TWindowSubComCardFv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(void *);
 int set_field_20__12TQuestListVMFl(void*, int);
 s32 send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
-s32 clear_selected_and_update_entry__14TWindowSubItemFv(void *);
-s32 check_party_gathered__22THunterGuildSeqOfflineFv();
 
-s32 clear_flag_and_release__17TWindowSubComCardFv(void *);
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 extern void *TLobby__protocol_instance;
@@ -111,9 +109,6 @@ s32 set_position_xy(int, f32, f32);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 s32 get_window_layout_position(int);
 s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
-s32 get_status_flag__6TLobbyFv(u32);
-s32 get_flag_bit2__6TLobbyFv(u32);
-s32 send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
 s32 send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
 s32 get_unlocked_tier__16TQuestListOnlineFv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
@@ -140,7 +135,6 @@ int set_field_20__12TQuestListVMFl(void*, int);
 extern "C" {
 
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPCc(s32 *);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFl(void*, int);
 
@@ -163,10 +157,10 @@ extern s32 TQuestListOnline__decompression_cursor;
 void TQuestListOnline::handle_quest_confirm() {
     s32 v;
     s32 n;
-    if (*(void **)((s8 *)this + 0x44) != NULL && is_visible__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x44)) != 0) {
+    if (*(void **)((s8 *)this + 0x44) != NULL && ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x44)))->is_visible() != 0) {
         v = get_selected_menu_value(*(void **)((s8 *)this + 0x44));
         if (v == 0) {
-            if (check_party_gathered__22THunterGuildSeqOfflineFv() == 1) {
+            if (THunterGuildSeqOffline::check_party_gathered() == 1) {
                 if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
                     (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x14, 1);
                 }
@@ -191,7 +185,7 @@ void TQuestListOnline::handle_quest_confirm() {
             if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
                 (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x10, 1);
             }
-            clear_flag_and_release__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x44));
+            ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x44)))->clear_flag_and_release();
             return;
         }
         if (v == 1) {
@@ -202,7 +196,7 @@ void TQuestListOnline::handle_quest_confirm() {
                 *(void **)((s8 *)this + 0x40) = NULL;
             }
             if (*(void **)((s8 *)this + 0x38) != NULL) {
-                clear_selected_and_update_entry__14TWindowSubItemFv(*(void **)((s8 *)this + 0x38));
+                ((TWindowSubItem *)(*(void **)((s8 *)this + 0x38)))->clear_selected_and_update_entry();
             }
             n = selection_stage;
             selection_stage = n - 1;
@@ -214,7 +208,7 @@ void TQuestListOnline::handle_quest_confirm() {
             return;
         }
     }
-    if (*(void **)((s8 *)this + 0x44) != NULL && get_status_flag__17TWindowSubComCardFv(*(void **)((s8 *)this + 0x44)) != 0) {
+    if (*(void **)((s8 *)this + 0x44) != NULL && ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x44)))->get_status_flag() != 0) {
         TWindow__close(*(void **)((s8 *)this + 0x44));
         *(void **)((s8 *)this + 0x44) = NULL;
         if (*(void **)((s8 *)this + 0x40) != NULL) {
@@ -222,7 +216,7 @@ void TQuestListOnline::handle_quest_confirm() {
             *(void **)((s8 *)this + 0x40) = NULL;
         }
         if (*(void **)((s8 *)this + 0x38) != NULL) {
-            clear_selected_and_update_entry__14TWindowSubItemFv(*(void **)((s8 *)this + 0x38));
+            ((TWindowSubItem *)(*(void **)((s8 *)this + 0x38)))->clear_selected_and_update_entry();
         }
         n = selection_stage;
         selection_stage = n - 1;
@@ -254,7 +248,7 @@ extern "C" {
 }
 void TQuestListOnline::request_download_buffer() {
     if (TLobby__sub_8001EEF4() != 0) {
-        TQuestListOnline__decompression_cursor = tmp_buf_use_req__6TLobbyFPCc(lbl_8044BEB0);
+        TQuestListOnline__decompression_cursor = TLobby::tmp_buf_use_req((const char *)lbl_8044BEB0);
         set_field_20__12TQuestListVMFl((void*)(this), (int)(6));
     }
 }
@@ -280,7 +274,7 @@ void TQuestListOnline::handle_list_selection() {
         }
         selected_index = sel;
     }
-    if (list_window != 0 && get_status_flag__6TLobbyFv(list_window) != 0) {
+    if (list_window != 0 && ((TLobby *)list_window)->get_status_flag() != 0) {
         if (selection_stage == 0) {
             s32 idx = select_cursor_entry__6TLobbyFv(list_window);
             __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(selected_entry, &QL_80217C1C->ents[idx]);
@@ -308,7 +302,7 @@ void TQuestListOnline::handle_list_selection() {
         } else if (selection_stage == 1) {
             s32 idx = select_cursor_entry__6TLobbyFv(list_window);
             __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(selected_entry, &QL_80217C1C->ents[idx]);
-            send_info__9TProtocolFR16TPlyGuildCardTag(TLobby__protocol_instance, selected_entry);
+            ((TProtocol *)TLobby__protocol_instance)->send_info((TPlyGuildCardTag &)selected_entry);
             set_field_20__12TQuestListVMFl(this, 0xC);
             selection_stage++;
             return;
@@ -324,7 +318,7 @@ void TQuestListOnline::handle_list_selection() {
             }
         }
     }
-    if (list_window != 0 && get_flag_bit2__6TLobbyFv(list_window) != 0) {
+    if (list_window != 0 && ((TLobby *)list_window)->get_flag_bit2() != 0) {
         set_field_20__12TQuestListVMFl(this, 9);
     }
 }
@@ -341,7 +335,7 @@ void TQuestListOnline::show_info_window() {
         stack.spC = *(s32 *)((s8 *)(&lbl_8044BEDC.value) + 4);
         temp_r31 = obj_getField1c((int) (window_owner));
         info_window = create_message_window__6TLobbyFllUls((int) (get_window_layout_position((int) (0x2E))), (void *) (&stack.sp8), (int) (1), (int) ((s32) temp_r31));
-        set_field_1c__6TLobbyFf((int) (info_window), (f32) (lbl_805DC6A4));
+        ((TLobby *)info_window)->set_field_1c((f32) (lbl_805DC6A4));
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
             set_position_xy((int) (info_window), (f32) (lbl_805DC6A8), (f32) (lbl_805DC6A8));
         }
@@ -375,16 +369,16 @@ void TQuestListOnline::build_list_window() {
                 e = TQuestListOnline__quest_list_buffer + off;
                 switch (e[5]) {
                 case 0:
-                    add_list_entry__6TLobbyFlll(list_window, 0x2C, e + 0xC, i);
+                    ((TLobby *)list_window)->add_list_entry((s32)0x2C, (s32)(e + 0xC), (s32)i);
                     break;
                 case 1:
-                    add_list_entry__6TLobbyFlll(list_window, 0x17, e + 0xC, i);
+                    ((TLobby *)list_window)->add_list_entry((s32)0x17, (s32)(e + 0xC), (s32)i);
                     break;
                 case 2:
-                    add_list_entry__6TLobbyFlll(list_window, 0x31, e + 0xC, i);
+                    ((TLobby *)list_window)->add_list_entry((s32)0x31, (s32)(e + 0xC), (s32)i);
                     break;
                 default:
-                    add_list_entry__6TLobbyFlll(list_window, 0x17, e + 0xC, i);
+                    ((TLobby *)list_window)->add_list_entry((s32)0x17, (s32)(e + 0xC), (s32)i);
                     break;
                 }
             }

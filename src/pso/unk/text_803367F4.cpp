@@ -1,12 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 struct Quad_80336874 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
 void bind_title_texture_list(void);
 s32 begin_screen_draw(int);
-void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern const f32 lbl_805DF910;
@@ -37,7 +36,7 @@ void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0) {
     n = arg1 % 300;
     if (n >= 150 && n <= 170) {
         t = (f32)(n - 150) / lbl_805DF910;
-        init_xyz_limits__10TObjPlayerFv();
+        TObjPlayer::init_xyz_limits();
         begin_screen_draw(1);
         bind_title_texture_list();
         c = (s32)(lbl_805DF914 * (lbl_805DF91C * t + lbl_805DF918));
@@ -52,8 +51,8 @@ void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0) {
         q.u1 = lbl_805DF93C;
         q.v1 = lbl_805DF940;
         draw_textured_quad_at_depth(&q, lbl_805DF91C / farg0);
-        get_player__20TWindowSubStatusDispFv();
-        reset_transform_state__10TObjPlayerFv();
+        TWindowSubStatusDisp::get_player();
+        TObjPlayer::reset_transform_state();
     }
 }
 #pragma pop

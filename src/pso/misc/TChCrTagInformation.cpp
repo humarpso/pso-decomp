@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TChCrTagInformation.h"
+#include "pso/TChCrCharSelect.h"
 
 struct Tag_802A1E8C {
     u8 pad[0x24];
@@ -8,9 +9,6 @@ struct Tag_802A1E8C {
 
 extern "C" {
 s32 get_char_select_class_id();
-s32 get_selected_index__15TChCrCharSelectFv();
-s32 get_selected_char__15TChCrCharSelectFv();
-void get_instance__15TChCrCharSelectFv();
 void fn_80309890(void *, s32);
 extern const f32 lbl_805DDE1C;
 }
@@ -34,15 +32,15 @@ void TChCrTagInformation::update_selected_char() {
         fn_80309890(arg0, -1);
         return;
     }
-    switch (get_selected_index__15TChCrCharSelectFv()) {
+    switch (TChCrCharSelect::get_selected_index()) {
     case 0:
-        c = get_selected_char__15TChCrCharSelectFv();
+        c = TChCrCharSelect::get_selected_char();
         if (c >= 0) {
             fn_80309890(arg0, c);
         }
         break;
     default:
-        get_instance__15TChCrCharSelectFv();
+        TChCrCharSelect::get_instance();
         fn_80309890(arg0, get_char_select_class_id() + 3);
         break;
     }

@@ -72,6 +72,11 @@ struct RecoveredGlobal_80134724_TObjLight__data_8050637C {
 
 #include <stddef.h>
 #include "pso/object/TObjLight.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TScene.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Stack_80133A04 {
     f32 sp8;
     f32 spC;
@@ -153,7 +158,6 @@ s32 set_gx_light_color(s32, f32, f32, f32);
 s32 init_distant_light(s32, f32, f32, f32);
 s32 load_gx_light_slot(s32);
 extern s32 TObjLight__gx_light_objects[];
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 GXInitLightDir(s32 *, f32, f32, f32);
 s32 set_light_ambient_color(f32, f32, f32);
 s32 set_gx_light_color(s32, f32, f32, f32);
@@ -180,8 +184,6 @@ extern s32 tl_02;
 extern const float TObjLight__data_805DB088;
 void init_map_lights(u8 *arg0);
 void init_map_lights(u8 *arg0);
-s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 is_online_ready__6TLobbyFv();
 extern RecoveredGlobal_80133D78_lbl_804A6F34 default_scene_light_config;
 extern u32 TObjLight__light_entry_data;
 extern const f32 lbl_805DB0A4;
@@ -191,8 +193,6 @@ void __dl__FPv(void *);
 extern u32 TObjLight__light_entry_data;
 extern s32 light_entry_file_size;
 __declspec(section ".rodata") char lbl_8043ED80[] = "lightentry.bin";
-s32 update_lobby_scene__6TSceneFv(void *);
-u32 alloc__22TQuestVmDownLoadServerFv(s32);
 s32 read_disc_file(void *, u32);
 void load_light_entry_file(void);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
@@ -259,7 +259,6 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int bswap_32__FPUl(void*);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 
     extern int light_type_id_table[];
     extern const float TObjLight__data_805DB088;
@@ -547,8 +546,8 @@ void init_area_lights(void) {
     s32 temp_r4;
     s32 var_r31;
     if ((u32) TObjLight__light_entry_data != 0U) {
-        var_r31 = get_global_state__14TOKeyMachine01Fv();
-        if (is_online_ready__6TLobbyFv() != 0) {
+        var_r31 = TOKeyMachine01::get_global_state();
+        if (TLobby::is_online_ready() != 0) {
             var_r31 = (s32) ((f32) var_r31 + lbl_805DB0A4);
         }
         temp_r4 = (TObjLight__light_entry_data + (var_r31 * 0x44)) - 4;
@@ -562,7 +561,7 @@ void init_area_lights(void) {
 
 void TObjLight::free_shared_data() {
     if ((u32) TObjLight__light_entry_data != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl((void*)TObjLight__light_entry_data);
+        TAdSinglePlyChrSelectGC::safe_free((u32)((void*)TObjLight__light_entry_data));
         TObjLight__light_entry_data = 0U;
     }
 }
@@ -571,9 +570,9 @@ extern s32 lbl_804A6FC0[];
 
 void load_light_entry_file(void) {
     TObjLight__light_entry_data = 0;
-    light_entry_file_size = update_lobby_scene__6TSceneFv(lbl_8043ED80);
+    light_entry_file_size = ((TScene *)lbl_8043ED80)->update_lobby_scene();
     if (light_entry_file_size > 0) {
-        TObjLight__light_entry_data = alloc__22TQuestVmDownLoadServerFv(light_entry_file_size);
+        TObjLight__light_entry_data = ((TQuestVmDownLoadServer *)light_entry_file_size)->alloc();
         if (TObjLight__light_entry_data) {
             read_disc_file(lbl_8043ED80, TObjLight__light_entry_data);
         }
@@ -624,7 +623,7 @@ extern s32 lbl_804A6F78[];
 typedef char RecoveredGlobal_80134098_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80134098_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 typedef char RecoveredGlobal_80134098_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_80134098_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
 void restore_scene_lighting(void) {
-    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+    if (TOKeyMachine01::get_global_state() == 0xF) {
         init_distant_light((s32)(0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
         GXInitLightDir((s32 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_8058D528 *)&TObjLight__gx_light_objects).value), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
         set_gx_light_color((s32)(0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30));
@@ -679,7 +678,7 @@ void select_actor_lighting(s32 obj) {
                 load_gx_light_slot(0);
                 return;
             }
-            if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+            if (TOKeyMachine01::get_global_state() == 0xF) {
                 init_distant_light(0, L2_80134194[i].dir[0], L2_80134194[i].dir[1], L2_80134194[i].dir[2]);
                 GXInitLightDir(TObjLight__gx_light_objects, L2_80134194[i].dir[0], L2_80134194[i].dir[1], L2_80134194[i].dir[2]);
                 set_gx_light_color(0, L2_80134194[i].color[1], L2_80134194[i].color[2], L2_80134194[i].color[3]);

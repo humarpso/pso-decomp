@@ -1,6 +1,5 @@
 #include "pso/THunterGuildWarning.h"
 
-extern "C" void close_windows__19THunterGuildWarningFv(void*);
 extern s32 THunterGuildWarning__instance;
 
 struct HGW_802119F0 { u8 pad[0x1c]; s32 state; s32 timer; };
@@ -21,6 +20,6 @@ void THunterGuildWarning::run_task() {
 }
 
 THunterGuildWarning::~THunterGuildWarning() {
-    close_windows__19THunterGuildWarningFv(this);
+    close_windows();
     THunterGuildWarning__instance = 0;
 }

@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/misc/TOComputerMachine01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOHealGeneral.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -50,22 +56,17 @@ struct Mdl_8015B544 { u8 pad[8]; Res_8015B544 *res; };
 struct Obj_8015B544 { u8 pad[0x42C]; Mdl_8015B544 *model; };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scroll_ginja_mesh_uvs(int, int, int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(void *);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 actor_frame_tick;
 extern s32 TOComputerMachine01__last_render_frame_tick;
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 update_heal_gauge_state__13TOHealGeneralFv(void *);
 s32 init__5TOKeyFv(void *, int);
 extern RecoveredGlobal_8015B644_lbl_804AFFF8 lbl_804AFFF8;
 extern s32 __vt__19TOComputerMachine01[];
@@ -80,7 +81,6 @@ extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMac
 extern s32 TOComputerMachine01__last_render_frame_tick;
 extern u8 *TOComputerMachine01__model_resource;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern s32 bm_fs_obj_kenkyu_com_resource_descriptor[];
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 TOComputerMachine01__last_render_frame_tick;
@@ -94,7 +94,6 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_key_object__5TOKeyFs(void *, s32);
 
 typedef char RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50_size[sizeof(RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50) == 0x10 ? 1 : -1];
 void TOComputerMachine01::render() {
@@ -115,10 +114,10 @@ void TOComputerMachine01::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         temp_r31 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
         draw_ginja_model((void *) (*(s32 *)((s8 *)temp_r31 + 4)));
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         temp_r31_2 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0x2C));
         draw_ginja_model((void *) (*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = (u8 *)(*(u8 **)((s8 *)temp_r31_2 + 0x30));
@@ -126,7 +125,7 @@ void TOComputerMachine01::render() {
         temp_r31_4 = (u8 *)(*(u8 **)((s8 *)temp_r31_3 + 0x30));
         draw_ginja_model((void *) (*(s32 *)((s8 *)temp_r31_4 + 4)));
         draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r31_4 + 0x30)) + 4)));
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -156,7 +155,7 @@ void TOComputerMachine01::reset_state() {
 void TOComputerMachine01::load_model_resource() {
     u8 *o;
     Node_8015B544 *n;
-    o = (u8 *)alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    o = (u8 *)((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, bm_fs_obj_kenkyu_com_resource_descriptor, 0, 0, 0);
     }
@@ -174,7 +173,7 @@ void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOComputerMachine01;
         free_collision_body_parts(arg0);
         unregister_object_by_id(arg0);
-        destroy_key_object__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -195,8 +194,8 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFFF8.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
-    update_heal_gauge_state__13TOHealGeneralFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     return arg0;
 }
 

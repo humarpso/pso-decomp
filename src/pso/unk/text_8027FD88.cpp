@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowHelpItem.h"
+#include "pso/object/TObjLuker.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Win_8027FD9C { u8 pad[0x60]; s16 f60; u8 pad2[6]; s32 f68; };
 
@@ -59,11 +63,6 @@ extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 get_localized_text_entry(s32, s32);
 s32 TLobby__sub_801C2614();
-u16 get_card_flag__23TAdSinglePlyChrSelectGCFi(u16);
-u16 get_card_field__23TAdSinglePlyChrSelectGCFi(u16);
-u16 get_card_status__23TAdSinglePlyChrSelectGCFi(u16);
-u16 get_card_value__23TAdSinglePlyChrSelectGCFi(u16);
-u16 get_card_field_21a8__23TAdSinglePlyChrSelectGCFi(u16);
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 s32 init_window_layout_entries(void *, s32 *, s16);
 s32 set_text_entry_string(void *, s32, s32);
@@ -91,8 +90,6 @@ extern s32 TWindowSubStatusDisp__stat_page_layout[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
 void vt1__20TWindowSubStatusDispFv(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 get_download_server__20TWindowSubStatusDispFv();
-s32 get_stat_table_entry__9TObjLukerFi(s32);
 s32 get_player_by_client_id(s16);
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 s32 get_class_name_text(s32);
@@ -104,24 +101,16 @@ void vt0__20TWindowSubStatusDispFv(u8 *arg0);
 s16 get_actor_attack_params_atp_min(int);
 s16 get_ata__10TObjPlayerFPv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
-s16 get_field_2c8__10TObjPlayerFv(int);
 s16 TObjPlayer__sub_800A776C(int);
-s32 clear_fields__20TWindowSubStatusDispFv(void *);
-s16 get_hp__10TObjPlayerFv(int);
 s32 build_player_class_stat_template(int, void *);
 s32 build_player_equipment_requirement_stats(int, void *);
 s32 get_player_by_client_id(s16);
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s16 get_value__20TWindowSubStatusDispFv(int);
 void vt12__20TWindowSubStatusDispFv(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 get_localized_text_entry(s32, s32);
-u16 get_card_window_field__23TAdSinglePlyChrSelectGCFi(u16);
-u16 get_card_window_status__23TAdSinglePlyChrSelectGCFi(u16);
 u16 TAdSinglePlyChrSelectGC__sub_801FC36C(u16);
-u16 get_card_state__23TAdSinglePlyChrSelectGCFi(u16);
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s32 set_flag0_bit2__15TWindowHelpItemFv(void *);
 s32 init_window_layout_entries(void *, s32 *, s16);
 s32 set_text_entry_string(void *, s32, s32);
 extern s32 TWindowSubStatusDisp__record_summary_layout[];
@@ -132,7 +121,6 @@ s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32, u16, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s32 append_play_time__20TWindowSubStatusDispFUl(s32);
 s32 append_padded_number(s32, s32);
 s32 text_builder_append(char *);
 s32 text_builder_reset();
@@ -151,11 +139,6 @@ void fn_8027FD88(void* p, f32 a, f32 b);
 void fn_8027FD94(void* p, s16 v);
 s32 get_player_by_client_id(s16);
 void *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s16 get_class_id__10TObjPlayerFv(s32);
-s16 get_field_2F8__20TWindowSubStatusDispFv(s32);
-s16 get_item_index__10TObjPlayerFv(s32);
-s16 get_item_type__20TWindowSubStatusDispFv(s32);
-s16 get_stat__20TWindowSubStatusDispFv(s32);
 
 void fn_8027FD88(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x6c) = a; *(f32*)((char*)p + 0x70) = b; }
 void fn_8027FD94(void* p, s16 v) { *(s16*)((char*)p + 0x62) = v; }
@@ -215,7 +198,7 @@ void vt5__20TWindowSubStatusDispFv(u8 *arg0) {
         text_builder_reset();
         append_padded_number(i + 1, 2);
         text_builder_append(lbl_805DD6E4);
-        append_play_time__20TWindowSubStatusDispFUl(r);
+        TWindowSubStatusDisp::append_play_time(r);
         set_text_entry_string(e, get_shared_text_buffer(), 0x20);
       }
     }
@@ -244,17 +227,17 @@ void vt7__20TWindowSubStatusDispFv(u8 *arg0) {
     set_text_entry_string(temp_r30, get_localized_text_entry(0x10, 8), 0);
     temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 0xA);
     set_text_entry_string(temp_r30, get_localized_text_entry(0x10, 9), 0);
-    set_flag0_bit2__15TWindowHelpItemFv(get_array_entry__20TWindowSubStatusDispFi(arg0, 0xD));
-    set_flag0_bit2__15TWindowHelpItemFv(get_array_entry__20TWindowSubStatusDispFi(arg0, 0xE));
+    ((TWindowHelpItem *)(get_array_entry__20TWindowSubStatusDispFi(arg0, 0xD)))->set_flag0_bit2();
+    ((TWindowHelpItem *)(get_array_entry__20TWindowSubStatusDispFi(arg0, 0xE)))->set_flag0_bit2();
     temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 3);
-    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) get_card_state__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC::get_card_state((u16) *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 6);
     *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC__sub_801FC36C((u16) *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 9);
-    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) get_card_window_status__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC::get_card_window_status((u16) *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 0xC);
-    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) get_card_window_field__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
-    set_flag0_bit2__15TWindowHelpItemFv(get_array_entry__20TWindowSubStatusDispFi(arg0, 0xF));
+    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC::get_card_window_field((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    ((TWindowHelpItem *)(get_array_entry__20TWindowSubStatusDispFi(arg0, 0xF)))->set_flag0_bit2();
 }
 
 void TWindowSubStatusDisp::vt14() {  }
@@ -279,14 +262,14 @@ void vt3__20TWindowSubStatusDispFv(u8 *arg0) {
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 0xD));
     set_text_entry_string(temp_r30, get_localized_text_entry(0x10, 0xE), 0);
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 3));
-    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) get_card_field_21a8__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC::get_card_field_21a8((u16) *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 6));
-    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) get_card_value__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC::get_card_value((u16) *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 9));
-    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) get_card_status__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC::get_card_status((u16) *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = ((u8 *)get_array_entry__20TWindowSubStatusDispFi(arg0, 0xC));
-    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) get_card_field__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
-    var_r30 = get_card_flag__23TAdSinglePlyChrSelectGCFi((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) TAdSinglePlyChrSelectGC::get_card_field((u16) *(s16 *)((s8 *)arg0 + 0x20));
+    var_r30 = TAdSinglePlyChrSelectGC::get_card_flag((u16) *(s16 *)((s8 *)arg0 + 0x20));
     if (TLobby__sub_801C2614() != 0) {
         var_r30 -= 1;
     }
@@ -304,15 +287,15 @@ void TWindowSubStatusDisp::vt13() {
     temp_r3 = get_player_by_client_id(*(s16 *)((s8 *)this + 0x20));
     if (temp_r3 != 0) {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFi(this, 2);
-        *(s32 *)((s8 *)temp_r31 + 0x20) = (s32) get_stat__20TWindowSubStatusDispFv(temp_r3);
+        *(s32 *)((s8 *)temp_r31 + 0x20) = (s32) ((TWindowSubStatusDisp *)temp_r3)->get_stat();
         temp_r31_2 = get_array_entry__20TWindowSubStatusDispFi(this, 8);
-        *(s32 *)((s8 *)temp_r31_2 + 0x20) = (s32) get_class_id__10TObjPlayerFv(temp_r3);
+        *(s32 *)((s8 *)temp_r31_2 + 0x20) = (s32) ((TObjPlayer *)temp_r3)->get_class_id();
         temp_r31_3 = get_array_entry__20TWindowSubStatusDispFi(this, 0xE);
-        *(s32 *)((s8 *)temp_r31_3 + 0x20) = (s32) get_item_index__10TObjPlayerFv(temp_r3);
+        *(s32 *)((s8 *)temp_r31_3 + 0x20) = (s32) ((TObjPlayer *)temp_r3)->get_item_index();
         temp_r31_4 = get_array_entry__20TWindowSubStatusDispFi(this, 0x14);
-        *(s32 *)((s8 *)temp_r31_4 + 0x20) = (s32) get_field_2F8__20TWindowSubStatusDispFv(temp_r3);
+        *(s32 *)((s8 *)temp_r31_4 + 0x20) = (s32) ((TWindowSubStatusDisp *)temp_r3)->get_field_2F8();
         temp_r31_5 = get_array_entry__20TWindowSubStatusDispFi(this, 0x1A);
-        *(s32 *)((s8 *)temp_r31_5 + 0x20) = (s32) get_item_type__20TWindowSubStatusDispFv(temp_r3);
+        *(s32 *)((s8 *)temp_r31_5 + 0x20) = (s32) ((TWindowSubStatusDisp *)temp_r3)->get_item_type();
     }
 }
 void vt2__20TWindowSubStatusDispFv(u8 *arg0) {
@@ -340,18 +323,18 @@ void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
     s32 pl;
     Entry_80280B1C *e;
     u8 *q;
-    clear_fields__20TWindowSubStatusDispFv(&cur);
-    clear_fields__20TWindowSubStatusDispFv(&req);
+    ((TWindowSubStatusDisp *)(&cur))->clear_fields();
+    ((TWindowSubStatusDisp *)(&req))->clear_fields();
     pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != 0) {
         e2 = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(2));
-        e2->value = TObjPlayer__sub_800A776C(pl) + (get_field_2c8__10TObjPlayerFv(pl) + get_actor_attack_params_atp_min(pl));
+        e2->value = TObjPlayer__sub_800A776C(pl) + (((TObjPlayer *)pl)->get_field_2c8() + get_actor_attack_params_atp_min(pl));
         e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(8));
-        e->value = get_value__20TWindowSubStatusDispFv(pl);
+        e->value = ((TWindowSubStatusDisp *)pl)->get_value();
         e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(0x14));
         e->value = get_ata__10TObjPlayerFPv(pl);
         e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(0x1A));
-        e->value = get_hp__10TObjPlayerFv(pl);
+        e->value = ((TObjPlayer *)pl)->get_hp();
         q = ((u8 *(*)(s32))get_quest_id__12TQuestListVMFv)(pl);
         if (q != NULL) {
             e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFi((void *)(arg0), (s32)(0xE));
@@ -431,7 +414,7 @@ void vt0__20TWindowSubStatusDispFv(u8 *arg0) {
     e = get_array_entry__20TWindowSubStatusDispFi(arg0, 0xE);
     set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x82), 0x20);
     e = get_array_entry__20TWindowSubStatusDispFi(arg0, 0x11);
-    set_text_entry_string(e, get_download_server__20TWindowSubStatusDispFv(), 0x20);
+    set_text_entry_string(e, TWindowSubStatusDisp::get_download_server(), 0x20);
     pl = (u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if (pl != NULL) {
         st = (s8 *)(pl + 0x85C);
@@ -440,7 +423,7 @@ void vt0__20TWindowSubStatusDispFv(u8 *arg0) {
             set_text_entry_string(get_array_entry__20TWindowSubStatusDispFi(arg0, 0), v, 0x20);
             v = get_class_name_text(st[0x31]);
             set_text_entry_string(get_array_entry__20TWindowSubStatusDispFi(arg0, 3), v, 0);
-            v = get_stat_table_entry__9TObjLukerFi(st[0x30]);
+            v = TObjLuker::get_stat_table_entry(st[0x30]);
             set_text_entry_string(get_array_entry__20TWindowSubStatusDispFi(arg0, 4), v, 0);
         }
         e = get_array_entry__20TWindowSubStatusDispFi(arg0, 5);

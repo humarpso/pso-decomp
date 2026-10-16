@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss8Dragon.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 {
     s32 value;
@@ -41,7 +42,6 @@ void TBoss8Dragon__sub_80066108(void);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void fn_800660B8(u8 *arg0);
 int TLobby__send_and_handle_60(void*);
-int init_packet_9a__10TObjPlayerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFv(void *);

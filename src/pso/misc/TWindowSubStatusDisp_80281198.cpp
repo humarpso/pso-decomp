@@ -254,24 +254,20 @@ void *TWindowSubStatusDisp__window_layout[5] = {
 }
 
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 pad22[0x3E]; s16 f60; s16 f62; u8 pad64[4]; void *f68; f32 f6c; f32 f70; };
 
 extern "C" {
-s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
-s32 destroy_all_items__20TWindowSubStatusDispFv(void *);
 s32 fn_8026C7AC(int, int);
 s32 handle_list_page_flip_input(int);
-s32 dispatch_page_update__20TWindowSubStatusDispFv(void *);
-s32 dispatch_page_init__20TWindowSubStatusDispFv(void *);
 extern s32 lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void *init__21TWindowSubComCardListFiii(void *, int, int, s32);
 s32 get_window_layout_position(int);
-s32 dispatch_page_init__20TWindowSubStatusDispFv(void *);
 
 extern s32 __vt__20TWindowSubStatusDisp[];
 extern s32 TWindowSubStatusDisp__class_name;
@@ -375,11 +371,11 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
       *((s16 *) (((s8 *) arg0) + 0x60)) = *((s16 *) (((s8 *) arg0) + 0x62));
       fn_8026C7AC((int) (*((s32 *) (((s8 *) arg0) + 0x68))), (int) ((s8) (*((u8 *) (((s8 *) (((u8 *) (&lbl_805DD6F4)) + (*((s16 *) (((s8 *) arg0) + 0x60))))) + 0)))));
     }
-    destroy_all_items__20TWindowSubStatusDispFv((void *) (((u8 *) arg0) + 0x24));
-    dispatch_page_init__20TWindowSubStatusDispFv((void *) arg0);
+    ((TWindowSubStatusDisp *)(((u8 *) arg0) + 0x24))->destroy_all_items();
+    ((TWindowSubStatusDisp *)arg0)->dispatch_page_init();
   }
-  dispatch_page_update__20TWindowSubStatusDispFv((void *) arg0);
-  initialize_subwindow__9TWindowDDFv((void *) arg0);
+  ((TWindowSubStatusDisp *)arg0)->dispatch_page_update();
+  ((TWindowDD *)arg0)->initialize_subwindow();
   update_window_entry_list((void *) arg0, (void *) (((u8 *) arg0) + 0x24));
 }
 
@@ -409,7 +405,7 @@ SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
         w = init__21TWindowSubComCardListFiii(w, 0, 3, arg1);
     }
     arg0->f68 = w;
-    dispatch_page_init__20TWindowSubStatusDispFv(arg0);
+    ((TWindowSubStatusDisp *)arg0)->dispatch_page_init();
     return arg0;
 }
 

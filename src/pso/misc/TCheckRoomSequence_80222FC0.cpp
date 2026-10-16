@@ -1,11 +1,10 @@
 #include "types.h"
 #include "pso/misc/TCheckRoomSequence.h"
+#include "pso/misc/TLobby.h"
 
 typedef struct Item_80222FF0 { u8 d[0x14]; } Item_80222FF0;
 
 extern "C" {
-s32 compare_version__6TLobbyFPv(Item_80222FF0 *, Item_80222FF0 *);
-s32 compare_greater__6TLobbyFPv(Item_80222FF0 *, Item_80222FF0 *);
 s32 TLobby__sub_8022318C(Item_80222FF0 *, Item_80222FF0 *);
 s32 swap_item_data__6TLobbyFPvPv(Item_80222FF0 *, Item_80222FF0 *);
 void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode);
@@ -33,12 +32,12 @@ void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode) {
                 }
                 break;
             case 1:
-                if (compare_greater__6TLobbyFPv(&items[i], &items[j]) != 0) {
+                if (((TLobby *)(&items[i]))->compare_greater(&items[j]) != 0) {
                     swap_item_data__6TLobbyFPvPv(&items[i], &items[j]);
                 }
                 break;
             case 2:
-                if (compare_version__6TLobbyFPv(&items[i], &items[j]) != 0) {
+                if (((TLobby *)(&items[i]))->compare_version(&items[j]) != 0) {
                     swap_item_data__6TLobbyFPvPv(&items[i], &items[j]);
                 }
                 break;

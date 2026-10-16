@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/TParticleCtrl.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 {
     s32 value;
@@ -160,7 +163,6 @@ extern s32 tl_particle;
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 s32 is_particle_sprite_additive(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
-void free_from_heap__13TParticleCtrlFv(void *);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1);
 s32 construct_world_actor_base(void *, void *);
@@ -173,7 +175,6 @@ extern const f32 lbl_805D9484;
 u8 *init_particle_obj__13TParticleCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 extern Col_80085798 demo_mode_particle_color;
 extern const f32 lbl_805D9478;
-s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 s32 set_color_blend_mode(int, int, int, int);
 s32 set_chunk_material_color(void *);
@@ -185,12 +186,7 @@ extern const f32 TParticleCtrl__data_805D94C4;
 extern const f32 TParticleCtrl__data_805D94CC;
 void *init_particle_base(void *arg0, void *arg1, s32 arg2);
 s32 is_split_screen(void);
-s32 disable_if_single_screen__13TParticleCtrlFv();
-s32 setup_tev_stage__10TObjPlayerFv();
 s32 load_projected_texture_matrix(f32);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_tev_direct__13TParticleCtrlFl(int);
 s32 play_indirect_effect_recipe(int, int, int);
 s32 GXSetNumTexGens(int);
 s32 GXSetTevOp(int, int);
@@ -200,11 +196,8 @@ s32 rotate_matrix_x(int, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 set_texture_num(int);
-s32 reset_particles__13TParticleCtrlFv();
 s32 TParticleCtrl__sub_803E2A1C(void *, int);
-s32 setup_particle_draw__13TParticleCtrlFl(int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D94D8;
@@ -212,13 +205,10 @@ void draw_particle_refraction_quad(Ctrl_80086248 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_80141EB4();
 s32 setSpriteInverseColorBlend();
-s32 reset_transform_state__10TObjPlayerFv();
-s32 init_xyz_limits__10TObjPlayerFv();
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 matrix_mult_vec(int, void *, void *);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 DVDConvertEntrynumToPath(void *);
 s32 set_draw_texture_and_color(int, int);
 s32 set_constant_material_color(int);
@@ -252,8 +242,6 @@ void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 u32 get_player_by_client_id(void *);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 get_object__13TParticleCtrlFv(s32);
 
 extern s32 lbl_805D2930;
 extern s32 local_client_id;
@@ -262,7 +250,7 @@ extern const f32 lbl_805D9480;
 
 void TParticleCtrl::apply_demo_mode_color() {
     Obj_80085798 *self = (Obj_80085798 *)this;
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         Col_80085798 c = demo_mode_particle_color;
         TObjRoomId__sub_80141CF4(self->target, &c, lbl_805D9478);
     }
@@ -287,7 +275,7 @@ extern s32 lbl_8048E6A8[];
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E6A8;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -374,7 +362,7 @@ void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self) {
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E6DC;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -419,20 +407,20 @@ void TParticleCtrl::draw_sprite_quad(s32 kind) {
         if (flags & 4) {
             fn_80141EB4();
         } else {
-            reset_transform_state__10TObjPlayerFv();
+            TObjPlayer::reset_transform_state();
         }
     } else if (flags & 4) {
         setSpriteInverseColorBlend();
     } else {
-        init_xyz_limits__10TObjPlayerFv();
+        TObjPlayer::init_xyz_limits();
     }
     sy = lbl_8058D4F8.scale;
     x = lbl_8058D4F8.cx;
     cy = lbl_8058D4F8.cy;
     sx = sy * (lbl_805D94C0 / (lbl_805D94C0 * lbl_8058D4F8.aspect));
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_804C5820[kind].param);
+    TObjFish::set_global_param(lbl_804C5820[kind].param);
     set_draw_texture_and_color(lbl_804C5820[kind].tex, lbl_804C5820[kind].color);
     uv = &lbl_804C5820[kind].uvs[p->f94];
     quad.u = uv->u0;
@@ -483,9 +471,9 @@ void TParticleCtrl::draw_sprite_quad(s32 kind) {
         quad.by = sy * c;
         DVDConvertEntrynumToPath(&quad);
     }
-    get_player__20TWindowSubStatusDispFv();
-    end_effect_render__13TParticleCtrlFv();
-    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp::get_player();
+    TParticleCtrl::end_effect_render();
+    TObjPlayer::reset_transform_state();
 }
 #pragma pop
 
@@ -495,7 +483,7 @@ s32 is_particle_sprite_additive(u8 *arg0) {
 
 void TParticleCtrl::mark_active() {
     *(u16 *)((s8 *)this + 0x24) = (u16) (*(u16 *)((s8 *)this + 0x24) | 0x2000);
-    get_object__13TParticleCtrlFv(0x1F);
+    ((TParticleCtrl *)0x1F)->get_object();
 }
 typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
 
@@ -508,7 +496,7 @@ void draw_particle_refraction_quad(Ctrl_80086248 *self) {
     if (is_split_screen() != 0) {
         return;
     }
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     uv = &lbl_804C5820[self->tex].uvs[frame];
     p.x = self->pos.x + self->ofs.x;
     p.y = self->pos.y + self->ofs.y;
@@ -522,20 +510,20 @@ void draw_particle_refraction_quad(Ctrl_80086248 *self) {
     rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
     rotate_matrix_x(0, *(s32 *)(camera_ctrl_instance + 0x190));
     load_projected_texture_matrix(lbl_805D94D8);
-    set_global_param__8TObjFishFl(*(s32 *)((u8 *)lbl_804C5820 + 0x16C));
+    TObjFish::set_global_param(*(s32 *)((u8 *)lbl_804C5820 + 0x16C));
     set_texture_num(self->tex);
-    setup_particle_draw__13TParticleCtrlFl(1);
+    TParticleCtrl::setup_particle_draw(1);
     GXSetNumTevStages(2);
     GXSetNumTexGens(2);
     GXSetTevOp(0, 0);
     play_indirect_effect_recipe(0x1F, 0, 1);
-    setup_tev_stage__10TObjPlayerFv();
+    TObjPlayer::setup_tev_stage();
     TParticleCtrl__sub_803E2A1C(v, 4);
-    reset_particles__13TParticleCtrlFv();
-    disable_if_single_screen__13TParticleCtrlFv();
-    set_tev_direct__13TParticleCtrlFl(1);
+    TParticleCtrl::reset_particles();
+    TParticleCtrl::disable_if_single_screen();
+    TParticleCtrl::set_tev_direct(1);
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode) {
@@ -564,7 +552,7 @@ u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1) {
         *(s32 *)((s8 *)arg0 + 0x20) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_from_heap__13TParticleCtrlFv(arg0);
+            ((TParticleCtrl *)arg0)->free_from_heap();
         }
     }
     return arg0;

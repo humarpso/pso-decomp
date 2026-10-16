@@ -1,10 +1,9 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 extern "C" {
 
-s32 init_download_buffers__6TLobbyFv();
-s32 alloc__22TQuestVmDownLoadServerFv(s32);
 s32 __ct__5THeapFUli(s32, s32, s32);
 s32 __nw__5THeapFUl(s32);
 
@@ -20,8 +19,8 @@ extern s32 game_heap;
 void TLobby::init_download_state() {
     s32 var_r0;
 
-    init_download_buffers__6TLobbyFv();
-    async_file_read_sector_buffer = alloc__22TQuestVmDownLoadServerFv(0x800);
+    TLobby::init_download_buffers();
+    async_file_read_sector_buffer = ((TQuestVmDownLoadServer *)0x800)->alloc();
     lobby_stack_entry_list_tail = 0;
     async_file_read_current_request = 0;
     lobby_download_state_ptr = 0;

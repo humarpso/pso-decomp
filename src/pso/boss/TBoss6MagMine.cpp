@@ -5,6 +5,15 @@ struct Vec_80368C14 { f32 x, y, z; };
 struct Mine_80368C14 { u8 pad[0x38]; Vec_80368C14 pos; };
 
 #include <stddef.h>
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 struct VBase_18_5673ef { char pad[0x18]; };
 
 struct VObj_18_5673ef : VBase_18_5673ef {
@@ -168,43 +177,29 @@ void *__vt__13TBoss6MagMine[11] = {
 };
 void vec3_add_to(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 query_teammate_state__9TObjEneDDFv();
-void update_collisions__10TObjPlayerFv(void *);
 void submit_cursor_candidate(void *, int);
 void add_radar_scaled_marker(void *, int, int, int, f32);
-s32 is_boss_active__14TBoss6PlotFalzFv();
 void TBoss6MagMine__sub_80368994(u8 *arg0);
 void vt2__13TBoss6MagMineFv(u8 *arg0);
 void vt1__13TBoss6MagMineFv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *get_player_data__10TObjPlayerFi(int);
-s32 get_game_mode__6TLobbyFv(void);
 void play_sound_effect(int, Vec_80368C14 *, int, int);
-s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 void explode__13TBoss6MagMineFPv(Mine_80368C14 *o);
-s32 rand_vary_count__14TBoss6PlotFalzFlf(int, f32);
-u32 get_hp__14TBoss6PlotFalzFv();
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
 void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-s32 add_flags_2e4__10TObjPlayerFUl(void *, int);
 u8 *dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 exchange_object_state__6TLobbyFls(void *, void *, int);
-s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 u32 create_particle_emitter(void *, int);
-void set_flags__11TBoss4Type2FUl(void *, u32);
-s32 set_param__12TObjEneLappyFl(void *, int);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
-void initialize__9TObjEnemyFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 get_fish_count__8TObjFishFv();
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 s32 normalize_vector(void *);
@@ -213,8 +208,6 @@ extern s32 lbl_805D44B0;
 s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void *get_player_data__10TObjPlayerFi(int);
-s32 get_game_mode__6TLobbyFv(void);
-s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_);
@@ -223,7 +216,6 @@ void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
 s32 get_next_point__14TBoss6PlotFalzFPvPvPv(u32, void *, void *);
 s32 get_phase__8TObjFishFv();
 s32 get_mag_mine_ptr__11TBoss6Type1Fv(u32);
-u32 get_hp__14TBoss6PlotFalzFv();
 s32 create__13TBoss6MagMineFi(s32 arg0);
 void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1);
 }
@@ -240,7 +232,6 @@ s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 void init__13TBoss6MagMineFPv(void* p);
 void update_linked_state__13TBoss6MagMineFPv(void *arg0);
-s32 apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(s32, s32, s32, f32);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
@@ -257,12 +248,7 @@ s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 s32 __nw__7TObjectFUl(s32);
-s32 clear_global_state__10TObjPlayerFv();
 int queue_destruction__7TObjectFv(void*);
-void request_destroy__11TBoss4Type2FUl(void *);
-s32 set_global_flag__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFl(s32);
-s32 update_camera_target__14TBoss6PlotFalzFv();
 
 void TBoss6MagMine__sub_8036897C(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 4) {
@@ -284,15 +270,15 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     s32 temp_r31_2;
     s32 temp_r30;
 
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)arg0 + 0x374), 2);
     temp_r30 = get_bml_model(*(s32 *)((s8 *)arg0 + 0x374), 2);
     temp_r31_2 = get_bml_motion(*(s32 *)((s8 *)arg0 + 0x374), 0);
-    set_global_param__8TObjFishFl(temp_r31);
+    TObjFish::set_global_param(temp_r31);
     TBoss6PlotFalz__sub_802AC008(*(f32 *)((s8 *)arg0 + 0x3A8), 0.0f);
     draw_model_motion(temp_r30, temp_r31_2, *(f32 *)((s8 *)arg0 + 0x398));
-    update_camera_target__14TBoss6PlotFalzFv();
-    clear_global_state__10TObjPlayerFv();
+    TBoss6PlotFalz::update_camera_target();
+    TObjPlayer::clear_global_state();
 }
 
 void init__13TBoss6MagMineFPv(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); pop_matrix(); }
@@ -308,7 +294,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
     s32 var_r31;
     void *boss;
     var_r31 = 0;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x3A4) < (s32) *(s32 *)((s8 *)arg0 + 0x3A0)) && (get_hp__14TBoss6PlotFalzFv() != 0U) && ((boss = ((void *(*)(void))TBoss6PlotFalz__sub_8036964C)()) != NULL)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x3A4) < (s32) *(s32 *)((s8 *)arg0 + 0x3A0)) && (TBoss6PlotFalz::get_hp() != 0U) && ((boss = ((void *(*)(void))TBoss6PlotFalz__sub_8036964C)()) != NULL)) {
         temp_r3 = get_field_0x42c__13TBoss6MagMineFPv((void*)(boss));
         switch (temp_r3) {
         case 2:
@@ -331,7 +317,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
         ((VObj_18_5673ef *)(arg1))->m45();
         return;
     default:
-        temp_r3_2 = rand_vary_count__14TBoss6PlotFalzFlf((int) (*(s32 *)((s8 *)arg0 + 0x39C)), (f32) (0.1f));
+        temp_r3_2 = TBoss6PlotFalz::rand_vary_count((int) (*(s32 *)((s8 *)arg0 + 0x39C)), (f32) (0.1f));
         stack.sp8 = 1;
         stack.sp10 = 1;
         stack.sp14 = (f32) temp_r3_2;
@@ -342,11 +328,11 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
 }
 
 void explode__13TBoss6MagMineFPv(Mine_80368C14 *o) {
-    s32 n = get_game_mode__6TLobbyFv();
+    s32 n = TLobby::get_game_mode();
     s32 i;
     for (i = 0; i < n; i++) {
         u8 *pl = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFv(pl) != 0 && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
+        if (((TBoss6PlotFalz *)pl)->is_active() != 0 && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
             Vec_80368C14 v = o->pos;
             subtract_vector(&v, pl + 0x38);
             v.y = 0.0f;
@@ -364,10 +350,10 @@ s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_) {
     s32 n;
     s32 i;
     void *p;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFv(p) != 0) {
+        if (((TBoss6PlotFalz *)p)->is_active() != 0) {
             ((void (*)(Vec_80368C14 *, Vec_80368C14 *))VecCopy__FP3VecPC3Vec)(&d, &((P_80368CE4 *)p)->pos);
             subtract_vector(&d, &arg0->home);
             d.y = 0.0f;
@@ -385,7 +371,7 @@ void vt3__13TBoss6MagMineFv(s32 arg0) {
     explode__13TBoss6MagMineFPv((Mine_80368C14 *)(arg0));
     spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
     spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
-    apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(arg0 + 0x38, 0xC0, 0xF, 100.0f);
+    TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)100.0f);
     queue_destruction__7TObjectFv((void*)(arg0));
 }
 
@@ -477,7 +463,7 @@ void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
     if (check_demo_mode__10TObjPlayerFv(self) != 0) {
         return;
     }
-    if (is_boss_active__14TBoss6PlotFalzFv() == 0) {
+    if (TBoss6PlotFalz::is_boss_active() == 0) {
         self->state = 4;
     }
     if (query_teammate_state__9TObjEneDDFv() != 0) {
@@ -497,7 +483,7 @@ void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
     }
     copy_pos__13TBoss6MagMineFi((s32)self);
     if (self->state == 2) {
-        update_collisions__10TObjPlayerFv(self);
+        ((TObjPlayer *)self)->update_collisions();
         submit_cursor_candidate(self, -1);
     }
     if (self->state != 0) {
@@ -521,14 +507,14 @@ void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
         break;
     }
     if (self->f3B0 != 0) {
-        copy_pos__11TNowLoadingFPv(self->f3B0, &self->pos);
+        ((TNowLoading *)(self->f3B0))->copy_pos(&self->pos);
     }
 }
 
 void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F322C;
-        if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x3B0)); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3B0))); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
         free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -546,19 +532,19 @@ extern s32 tl_04;
 s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     Key_80369228 key;
     u8 *d;
-    ((void (*)(void *, s32))initialize__9TObjEnemyFPv)(self, arg1);
+    ((TObjEnemy *)self)->initialize((void*)arg1);
     *(s32 **)((s8 *)self + 0x18) = lbl_804F322C;
     *(s32 *)((s8 *)self + 0) = lbl_805D44B0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x40);
     VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
-    add_flags_2e4__10TObjPlayerFUl(self, 8);
+    ((TObjPlayer *)self)->add_flags_2e4(8);
     ((VObj_18_aa4667 *)(self))->m79(arg2);
-    if (exchange_object_state__6TLobbyFls(self, &key, 1) != 0) {
+    if (((TLobby *)self)->exchange_object_state((s32)(&key), (s16)1) != 0) {
         key.a = 0;
         key.c = 0;
-        exchange_object_state__6TLobbyFls(self, &key, 0);
+        ((TLobby *)self)->exchange_object_state((s32)(&key), (s16)0);
     }
-    *(s32 *)((s8 *)self + 0x374) = get_fish_count__8TObjFishFv();
+    *(s32 *)((s8 *)self + 0x374) = TObjFish::get_fish_count();
     *(s32 *)((s8 *)self + 0x24) = 0;
     *(s32 *)((s8 *)self + 0x34) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
@@ -568,8 +554,8 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)self + 0x2A8) = 0;
     bind_enemy_combat_stats(self, register_boss__6TLobbyFl(0x2D), dispatch_shared_handler_b__6TLobbyFl(0x2D), register_object__6TLobbyFl(0x2D));
     *(s16 *)((s8 *)self + 0x33E) = *(s16 *)((s8 *)self + 0x32C);
-    reset_photon_effect__12TBoss3VoloptFv(self);
-    set_param__12TObjEneLappyFl(self, 0);
+    ((TBoss3Volopt *)self)->reset_photon_effect();
+    ((TObjEneLappy *)self)->set_param(0);
     d = dispatch_shared_handler_a__6TLobbyFl(0x2D);
     *(s32 *)((s8 *)self + 0x39C) = (s32) *(f32 *)((s8 *)d + 4);
     if ((f32) *(s32 *)((s8 *)self + 0x39C) <= 0.0f) {
@@ -595,7 +581,7 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)self + 0x380) *= 4.166667f;
     *(u32 *)((s8 *)self + 0x3B0) = create_particle_emitter(self + 0x38, 0x146);
     if (*(u32 *)((s8 *)self + 0x3B0) != 0U) {
-        set_flags__11TBoss4Type2FUl(*(void **)((s8 *)self + 0x3B0), 0x40);
+        ((TBoss4Type2 *)(*(void **)((s8 *)self + 0x3B0)))->set_flags(0x40);
     }
     return arg0;
 }
@@ -620,7 +606,7 @@ s32 create__13TBoss6MagMineFi(s32 arg0) {
 void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1) {
     Params_80369598 p;
     u32 boss;
-    boss = get_hp__14TBoss6PlotFalzFv();
+    boss = TBoss6PlotFalz::get_hp();
     if (boss == 0 || get_phase__8TObjFishFv() != 6) {
         return;
     }

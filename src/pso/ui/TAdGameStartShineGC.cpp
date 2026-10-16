@@ -1,6 +1,9 @@
 #include "pso/TAdGameStartShineGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/player/TObjPlayer.h"
 
 struct V2_8034AB4C { f32 x, y; };
 
@@ -32,9 +35,7 @@ struct Shine_8034AB4C {
 extern "C" {
 extern const f32 lbl_805DFD64;
 extern const f32 lbl_805DFD68;
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
-s32 get_instance__10TObjPlayerFv();
 extern f32 lbl_804789E8[];
 extern const f32 lbl_804789F0[];
 extern s32 __vt__19TAdGameStartShineGC[];
@@ -50,11 +51,10 @@ Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self);
 extern "C" {
 
 s32 set_cached_blend_factor(s32, s32);
-s32 get_state_flag__9TMainTaskFv();
 s32 render_status_box__20TWindowSubStatusDispFv(void *);
 
 void TAdGameStartShineGC::render() {
-    if ((get_state_flag__9TMainTaskFv() != 1) && ((s32) *(s32 *)((s8 *)this + 0x7C) != 0)) {
+    if ((TMainTask::get_state_flag() != 1) && ((s32) *(s32 *)((s8 *)this + 0x7C) != 0)) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
         render_status_box__20TWindowSubStatusDispFv(this);
@@ -105,7 +105,7 @@ Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self) {
     self->name = lbl_805D4320;
     self->f1C = lbl_805DFD64;
     self->f20 = lbl_805DFD64;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&self->x24, lbl_804789E8);
+    ((TWindowSubSymbolChatPartsSet *)(&self->x24))->copy_vec2(lbl_804789E8);
     self->x2C = self->x24;
     self->y30 = self->y28;
     self->x34 = self->x24 + lbl_804789F0[0];
@@ -119,7 +119,7 @@ Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self) {
     self->alpha = 0xFF;
     self->timer = -1;
     self->visible = 0;
-    lbl_805D6E88 = get_instance__10TObjPlayerFv();
+    lbl_805D6E88 = TObjPlayer::get_instance();
     return self;
 }
 #pragma pop

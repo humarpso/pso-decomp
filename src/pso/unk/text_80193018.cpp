@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
 extern char lbl_80445A30[];
@@ -28,7 +29,6 @@ extern "C" {
 void *load_resource_from_descriptor(void *, int, BmlResourceDescriptor *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 load_gvm_texture_file(void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_80445BB8[];
 extern u8 lbl_80445BCC[];
 extern s32 lazer_fence_norm_texture_list;
@@ -40,7 +40,7 @@ extern "C" {
 
 void load_lazer_fence_norm_resources(void) {
     void *obj;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 23:
     case 24:
     case 25:

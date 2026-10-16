@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/item/TItem.h"
+#include "pso/item/TItemMag.h"
+#include "pso/item/TItemObject.h"
+#include "pso/misc/TOSwitchItem.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -171,32 +175,22 @@ u8 *lookup_inventory_item__10TObjPlayerFv(s32);
 u32 pickup_item__10TObjPlayerFv(int, int);
 s32 get_player_by_client_id(void *);
 void give_item_to_client(s32 arg0, s32 arg1);
-s16 clamp_field_32E__10TObjPlayerFv(void *);
-s16 clamp_value__10TObjPlayerFv(void *);
-void set_hp_clamped__10TObjPlayerFs(void *, s16);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
-void set_facing__10TObjPlayerFs(void *, s16);
 void refresh_owner_stats__5TItemFPv(u8 *arg0);
 int is_locally_controlled__10TObjPlayerFPv(void *);
-s32 get_field_d8__10TObjPlayerFv(void *);
 u8 *find_item_by_id(s32);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
 void send_unequip_held_item__10TObjPlayerFUi(u32);
 s32 get_player_by_client_id(void *);
-u8 get_field_ed__10TObjPlayerFv(u32);
-s32 get_field_d8__10TObjPlayerFv(void *);
 void give_item_to_client(s32 arg0, s32 arg1);
 s32 consume_item_by_id(s32 arg0);
 s32 get_id__13TItemProArmorFv(void *);
-u8 get_field_ec__12TOSwitchItemFv(u32);
 s32 init__9TItemDataFv(void *);
-s32 call_preserve_flag__8TItemMagFl(u8 *, u32);
 s32 TItem__sub_80115D68(u8 *, u32);
 s32 TItemProArmor__sub_801178A8(u8 *, u32);
 s32 set_params__14TItemProShieldFiPv(u8 *, u32);
 s32 TItem__sub_8011892C(u8 *, u32);
-s32 copy_field6_from__10TObjPlayerFPv(u8 *, u32);
 void replace_item_with_new_code(void *arg0, u32 arg1);
 }
 
@@ -217,10 +211,8 @@ void TItem__sub_801007A8(void);
 void TItem__sub_801007AC(void);
 void TItem__sub_801007B0(void);
 int TItem__sub_80100B8C(void* p);
-s32 use_combination_recipe__5TItemFv(s32);
 int TItem__sub_80100A40(void*);
 s32 check_flag_400__20TWindowSubStatusDispFv();
-s32 set_flag_1024__11TItemObjectFv(s32);
 
 void TItem__sub_80100674(void) {  }
 void TItem__sub_80100678(void) {  }
@@ -251,10 +243,10 @@ void refresh_owner_stats__5TItemFPv(u8 *arg0) {
     PSO_VCALL_VObj_18_94668e_m20(arg0, 0);
     temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xF0)));
     PSO_VCALL_VObj_18_94668e_m71(temp_r3_2);
-    set_hp_clamped__10TObjPlayerFs(*((u8 **) (((s8 *) arg0) + 0xF0)), temp_r31);
-    set_facing__10TObjPlayerFs(*((u8 **) (((s8 *) arg0) + 0xF0)), temp_r30);
-    clamp_value__10TObjPlayerFv(*((u8 **) (((s8 *) arg0) + 0xF0)));
-    clamp_field_32E__10TObjPlayerFv(*((u8 **) (((s8 *) arg0) + 0xF0)));
+    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->set_hp_clamped(temp_r31);
+    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->set_facing(temp_r30);
+    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->clamp_value();
+    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->clamp_field_32E();
   }
 }
 
@@ -262,10 +254,10 @@ void TItem__sub_80100758(void) {  }
 void TItem__sub_8010075C(void) {  }
 void TItem::update_pickup_flag(s32 arg0) {
     if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
-        set_flag_1024__11TItemObjectFv(arg0);
+        ((TItemObject *)arg0)->set_flag_1024();
         return;
     }
-    use_combination_recipe__5TItemFv(arg0);
+    ((TItem *)arg0)->use_combination_recipe();
 }
 void TItem__sub_801007A8(void) {  }
 void TItem__sub_801007AC(void) {  }
@@ -302,7 +294,7 @@ s32 consume_item_by_id(s32 arg0) {
     return 0;
   }
   temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(temp_r3);
-  temp_r30 = get_field_d8__10TObjPlayerFv(temp_r3);
+  temp_r30 = ((TObjPlayer *)temp_r3)->get_field_d8();
   dispatch_action__10TObjPlayerFPvii((void *) temp_r3_2, arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {
@@ -334,14 +326,14 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
   sp8.sub2 = tmp2;
   if (arg1 != 0U)
   {
-    temp_r3 = get_field_ec__12TOSwitchItemFv(arg1);
+    temp_r3 = ((TOSwitchItem *)arg1)->get_field_ec();
     switch ((s32) temp_r3)
     {
       case 0:
-        copy_field6_from__10TObjPlayerFPv((u8 *) (&sp8), arg1);
+        ((TObjPlayer *)(&sp8))->copy_field6_from((void*)arg1);
         break;
       case 1:
-        temp_r3_2 = get_field_ed__10TObjPlayerFv(arg1);
+        temp_r3_2 = ((TObjPlayer *)arg1)->get_field_ed();
         switch ((s32) temp_r3_2)
       {
         case 1:
@@ -356,15 +348,15 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
       }
         break;
       case 2:
-        call_preserve_flag__8TItemMagFl((u8 *) (&sp8), arg1);
+        ((TItemMag *)(&sp8))->call_preserve_flag(arg1);
         break;
       case 3:
         TItem__sub_80115D68((u8 *) (&sp8), arg1);
         break;
     }
     temp_r31 = get_id__13TItemProArmorFv((void *)(arg1));
-    sp8.value = get_field_d8__10TObjPlayerFv((void *)(arg1));
-    if (consume_item_by_id(get_field_d8__10TObjPlayerFv((void *)(arg1))) != 0)
+    sp8.value = ((TObjPlayer *)arg1)->get_field_d8();
+    if (consume_item_by_id(((TObjPlayer *)arg1)->get_field_d8()) != 0)
     {
       give_item_to_client(temp_r31, (s32)(&sp8));
     }

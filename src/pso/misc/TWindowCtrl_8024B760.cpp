@@ -1,11 +1,10 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowEffectParty.h"
 
 extern "C" {
 
-int create__18TWindowEffectPartyFPvllUl(void*, void*, void*, void*);
-
     extern int tl_07;
-void TWindowCtrl::create_party_effect(void* a0, void* a1) { create__18TWindowEffectPartyFPvllUl((void*)(tl_07), a0, a1, (void*)0); }
+void TWindowCtrl::create_party_effect(void* a0, void* a1) { TWindowEffectParty::create((void *)tl_07, (s32)a0, (s32)a1, (u32)((void*)0)); }
 
 }

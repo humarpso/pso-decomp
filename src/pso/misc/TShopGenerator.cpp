@@ -17,6 +17,10 @@ struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
 
 #include <stddef.h>
 #include "pso/misc/TShopGenerator.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TMedicalCenterMes.h"
+#include "pso/misc/TRaderMapCore.h"
 struct Stack_8021DC30 {
     s32 sp8;
     s32 spC;
@@ -70,24 +74,20 @@ extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__sl
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
 extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
-void clear_slot_flags__17TMedicalCenterMesFv(void);
 s32 obj_getField1c(s32);
 s32 TShopGenerator__sub_80222DAC(s32);
 extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 s32 obj_getField1c(s32);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
-s32 get_instance__15TAdPlayerLoadGCFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(s32);
 s32 is_flag_400_set__10TObjPlayerFPv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 get_slot_flag__17TMedicalCenterMesFi(s32);
 bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 farg0);
 u8 is_slot_active__14TShopGeneratorFi(s32 arg0);
 s32 TShopGenerator__sub_80222DAC(s32);
-s32 is_not_split_screen__13TRaderMapCoreFv(void);
 extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 extern u8 controller_input_state[];
 extern s32 local_client_id;
@@ -107,7 +107,6 @@ void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1);
 s32 construct_world_actor_base(void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 __vt__14TShopGenerator[];
@@ -172,16 +171,16 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     if (TAdPlayerLoadGC__sub_801E1B50(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 0) {
         return;
     }
-    if (get_instance__15TAdPlayerLoadGCFv() != 0) {
+    if (TAdPlayerLoadGC::get_instance() != 0) {
         return;
     }
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
             p = get_player_by_client_id(i);
             if (p == 0) continue;
             if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPvPvf)(self, (u8 *)p, lbl_805DC6EC) == 0) continue;
             if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(p)) == 1) continue;
-            if (get_slot_flag__17TMedicalCenterMesFi(obj_getField1c(p)) == 1) continue;
+            if (TMedicalCenterMes::get_slot_flag(obj_getField1c(p)) == 1) continue;
             if (is_flag_400_set__10TObjPlayerFPv(p) == 1) continue;
             if (check_flag_100__10TObjPlayerFPv(p) == 1) continue;
             fn = e->f10;
@@ -195,7 +194,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
         q = get_player_by_client_id(local_client_id);
         if (q == 0) return;
         if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(q)) == 1) return;
-        if (get_slot_flag__17TMedicalCenterMesFi(obj_getField1c(q)) == 1) return;
+        if (TMedicalCenterMes::get_slot_flag(obj_getField1c(q)) == 1) return;
         if (is_flag_400_set__10TObjPlayerFPv(q) == 1) return;
         if (check_flag_100__10TObjPlayerFPv(q) == 1) return;
         if (TShopGenerator::is_no_service_active(self, q) == 0) return;
@@ -210,7 +209,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -269,7 +268,7 @@ void TShopGenerator::run_fn_table_reverse() {
     E_8021E1FC *p;
     s32 n;
     s32 i;
-    clear_slot_flags__17TMedicalCenterMesFv();
+    TMedicalCenterMes::clear_slot_flags();
     p = &TShopGenerator__service_dispatch_table.e[7];
     n = 7;
     do {

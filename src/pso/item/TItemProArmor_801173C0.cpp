@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/TItemProArmor.h"
+#include "pso/item/TItemTimerEvent.h"
 
 struct Base_8011620C_80115D6C { char pad[0x18]; };
 
@@ -96,7 +97,6 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern int tl_05;
 u16 obj_getField1c(void *);
-void start_event_by_index__15TItemTimerEventFUs(u16);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049FEB8[];
 u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -107,7 +107,6 @@ extern "C" {
 void *TItemProArmor__sub_801175F8(void *arg0, s16 arg1);
 void create__13TItemProArmorFiUi(s32 arg0, u32 arg1);
 void TItemObject__ct(void *);
-s32 clear_timer_slot__15TItemTimerEventFUs(u16);
 u32 get_player_by_client_id(u16);
 s32 __dl__7TObjectFPv(void *);
 void __dt__11TItemObjectFv(void *, int);
@@ -159,7 +158,7 @@ extern s32 lbl_8049FEB8[];
 void *TItemProArmor::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049FEB8;
-        clear_timer_slot__15TItemTimerEventFUs(*(u16 *)((s8 *)this + 0x1C));
+        TItemTimerEvent::clear_timer_slot(*(u16 *)((s8 *)this + 0x1C));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -173,7 +172,7 @@ u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8011751C_lbl_8049FEB8 *)&lbl_8049FEB8).value;
     *(u16 *)((s8 *)arg0 + 0x1C) = obj_getField1c(arg2);
-    start_event_by_index__15TItemTimerEventFUs(*(u16 *)((s8 *)arg0 + 0x1C));
+    TItemTimerEvent::start_event_by_index(*(u16 *)((s8 *)arg0 + 0x1C));
     *(s16 *)((s8 *)arg0 + 0x1E) = 3;
     return arg0;
 }

@@ -1,9 +1,9 @@
 #include "pso/ui/TAdLoadQuestLineGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
 extern TAdLoadQuestLineGC *ad_load_quest_line_instances[3];
@@ -35,7 +35,7 @@ void TAdLoadQuestLineGC::render_by_state() {
 }
 
 void TAdLoadQuestLineGC::render() {
-    if (get_state_flag__9TMainTaskFv() != 1) {
+    if (TMainTask::get_state_flag() != 1) {
         ++m_frameCount;
         if (m_frameCount >= 2) {
             render_by_state();

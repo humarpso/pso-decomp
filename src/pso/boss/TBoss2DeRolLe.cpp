@@ -399,8 +399,6 @@ void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit(void);
-void *init_base__10TObjPlayerFv(void *arg0);
-s32 calc_random_scaled__10TObjPlayerFv(void);
 f32 vec3_add_to(void *, void *);
 extern s32 lbl_804820A8[];
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
@@ -447,10 +445,7 @@ struct VObj8002EB88_8002eb88_8002E784 {
 int TObjLight__sub_8002F238(void* p);
 void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1);
 void TObjPlayer__sub_8002EB88(void);
-s32 calc_random_scaled__10TObjPlayerFv(void);
 void clear_target_ref__10TObjPlayerFv(void);
-void *deleting_dtor__10TObjPlayerFs(void *arg0, s16 arg1);
-void *init_base__10TObjPlayerFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -5331,7 +5326,6 @@ extern "C" {
 void init_float_block__13TBoss2DeRolLeFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D8458;
-void init_link_points__9TBoss2FinFv(u8 *arg0);
 f32 newton_sqrtf(f32);
 extern const f32 TBoss2DeRolLe__data_805D8288;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
@@ -5360,10 +5354,8 @@ void *__nw__7TObjectFUl(int);
 s32 run_tasks__7TObjectFv(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 void run_task__13TBoss2DeRolLeFPv(u8 *arg0);
-void init_link_points__9TBoss2FinFv(u8 *arg0);
 s32 fn_800FF788(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
-void run_task__9TBoss2FinFv(s32 arg0);
 s32 __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
@@ -5378,7 +5370,6 @@ u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
-f32 get_scale_factor__10TObjPlayerFv(f32);
 s32 TObjLight__sub_801337F8(s32);
 s32 scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
@@ -5397,7 +5388,6 @@ extern s32 current_scene_light;
 extern const f32 lbl_805D8260;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8454;
-void render__9TBoss2FinFv(u8 *arg0);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -5698,6 +5688,8 @@ u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1) {
 namespace constructor_view {
 
 #include "types.h"
+#include "pso/boss/TBoss2Fin.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off

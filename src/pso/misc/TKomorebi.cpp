@@ -2,6 +2,9 @@
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TKomorebi.h"
 #include "pso/object/TObjFish.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80445A00[];
@@ -37,13 +40,11 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 construct_world_actor_base(void *);
 extern s32 __vt__9TKomorebi[];
 extern s32 komorebi_class_name;
 extern u32 TKomorebi__resource_bundle;
 u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TKomorebi__resource_bundle;
 extern s32 komorebi_last_uv_update_frame;
@@ -66,11 +67,7 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 end_effect_render__13TParticleCtrlFv();
 f32 xz_distance_squared(void *, s32);
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 camera_ctrl_instance;
 extern s32 actor_frame_tick;
@@ -84,20 +81,20 @@ void TKomorebi::render() {
     f32 temp_f1;
 
     if ((((VObj_80192174*)arg0)->m8(lbl_805DBE48, lbl_805DBE4C) != 0) && !(xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < lbl_805DBE50)) {
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         if ((s32) actor_frame_tick != (s32) komorebi_last_uv_update_frame) {
             scroll_ginja_mesh_uvs(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4), 0, (s32) *(f32 *)((s8 *)arg0 + 0x68), 0, 1);
             komorebi_last_uv_update_frame = actor_frame_tick;
         }
         push_matrix();
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_yxz(0, *(s32 *)((s8 *)arg0 + 0x5C), *(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x64));
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x70);
         scale_matrix(0, temp_f1, *(f32 *)((s8 *)arg0 + 0x6C), temp_f1);
         draw_ginja_object(*(void **)((s8 *)arg0 + 0x34));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -108,7 +105,7 @@ extern s32 __vt__9TKomorebi[];
 void *__dt__9TKomorebiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TKomorebi;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -124,7 +121,7 @@ u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) komorebi_class_name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
-    copy_xyz__10TObjPlayerFPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
+    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&TKomorebi__resource_bundle)), (int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&TKomorebi__resource_bundle)), (int) (0));
@@ -150,7 +147,7 @@ void TKomorebi::free_static() {
     komorebi_last_uv_update_frame = 0;
 }
 void TKomorebi::load_resources() {
-    u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    u8 *p = (u8 *)((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, &TKomorebi__resource_descriptor, 0, 0, 0);
     }

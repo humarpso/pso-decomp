@@ -9,7 +9,6 @@ u8 get_slot_count__14TItemProShieldFv();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-s32 get_player_list__10TObjPlayerFv();
 
 extern const f32 lbl_805DAF34;
 
@@ -30,7 +29,7 @@ void TObjPlayer::setup_item_render() {
     temp_r3 = get_slot_count__14TItemProShieldFv();
     switch ((s32) temp_r3) {
     case 5:
-        temp_r3_2 = get_player_list__10TObjPlayerFv();
+        temp_r3_2 = TObjPlayer::get_player_list();
         switch (temp_r3_2) {
         case 1:
             rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x1F8));
@@ -41,7 +40,7 @@ void TObjPlayer::setup_item_render() {
         }
         break;
     case 7:
-        temp_r3_3 = get_player_list__10TObjPlayerFv();
+        temp_r3_3 = TObjPlayer::get_player_list();
         switch (temp_r3_3) {
         case 4:
             post_translate_matrix(arg0 + 0x1FC);

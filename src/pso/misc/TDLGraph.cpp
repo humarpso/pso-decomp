@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TDLGraph.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8007F77C___vt__8TDLGraph {
     s32 value;
@@ -14,8 +16,6 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8007F77C___vt__8TDLGraph __vt__8TDLGraph;
 extern s32 TDLGraph__graph_object;
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
-void reset_transform_state__10TObjPlayerFv(void);
-void restore_full_screen_view__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_80068EF0(void);
 void fn_8007F27C(TDLGraph_8007F66C *self, void *a, void *b);
 void draw_countdown_timer(TDLGraph_8007F66C *self, f32 x, f32 y);
@@ -28,7 +28,6 @@ extern const f32 lbl_805D92D0;
 extern const f32 lbl_805D92D4;
 void queue_destruction__7TObjectFv(s32);
 void fn_8007ECF0(s32, s32, s32);
-void create__8TDLGraphFv(void);
 extern s32 TDLGraph__graph_object;
 }
 
@@ -41,8 +40,8 @@ void TDLGraph::reset() {
 
 void TDLGraph::render() {
     TDLGraph_8007F66C *self = (TDLGraph_8007F66C *)this;
-    reset_transform_state__10TObjPlayerFv();
-    restore_full_screen_view__11TCameraCtrlFv();
+    TObjPlayer::reset_transform_state();
+    TCameraCtrl::restore_full_screen_view();
     fn_8007F27C(self, lbl_80438AA4, lbl_80438AAC);
     draw_countdown_timer(self, lbl_805D92CC, lbl_805D92D0);
     draw_percent_text(self, lbl_805D92D4, lbl_805D92D0);
@@ -65,7 +64,7 @@ void TDLGraph::update_graph(s32 arg0, s32 arg1) {
             queue_destruction__7TObjectFv(TDLGraph__graph_object);
             return;
         }
-        create__8TDLGraphFv();
+        TDLGraph::create();
     } else if (G == 0) {
         return;
     }

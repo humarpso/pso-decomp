@@ -41,7 +41,6 @@ extern "C" {
 
 void queue_deferred_photon_blast_support(void);
 void queue_photon_blast_support(void);
-void reset_state_block__10TObjPlayerFv(void* a0);
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
 extern u32 lbl_805D5D20;
 void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate);
@@ -480,19 +479,20 @@ void update_state__10TSceneSoraFPv(void *arg0) {
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void *destroy_photon_motion_object(void *arg0, s16 arg1);
 void *photon_base_ct(void *arg0);
 void update__11TCameraCtrlFv(void);
-int release_photon_blast_camera__11TCameraCtrlFv(void);
 int restore_player_cameras(void);
 void TObjMotion__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
 
-void update__11TCameraCtrlFv(void) { restore_player_cameras(); release_photon_blast_camera__11TCameraCtrlFv(); }
+void update__11TCameraCtrlFv(void) { restore_player_cameras(); TCameraCtrl::release_photon_blast_camera(); }
 
 extern s32 lbl_804C3248[];
 

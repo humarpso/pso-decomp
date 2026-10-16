@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjFogCollisionPoison.h"
+#include "pso/misc/TFogCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80153084_lbl_804AF7B0 {
     s32 value;
@@ -32,9 +35,6 @@ struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
 };
 
 extern "C" {
-s32 select_fog_for_viewport__8TFogCtrlFlll(s32, s32, s32);
-s32 restore_fog_for_player__8TFogCtrlFll(s32, s32);
-s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 void update_fog_region_arbitration(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804AF7B0[];
@@ -61,10 +61,8 @@ s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFv(s32);
 s32 send_6x2F_change_player_hp(s32, s32, s16);
 s32 get_player_by_client_id(u16);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_persistent_sound(s32, s32, s32, s32, s32);
 void TObjFogCollisionPoison__sub_80153520(s32 arg0);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
 }
@@ -107,7 +105,7 @@ u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
 void update_fog_region_arbitration(u8 *arg0) {
     s32 temp_r0;
     s32 var_r4;
-    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::is_any_teammate_in_state() == 0) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x2C);
         switch (temp_r0) {
         case 0:
@@ -122,17 +120,17 @@ void update_fog_region_arbitration(u8 *arg0) {
                     var_r4 = 0x7F;
                 }
                 if ((s32) *(s32 *)((s8 *)arg0 + 0x24) != 0) {
-                    select_fog_for_viewport__8TFogCtrlFlll(*(s32 *)((s8 *)arg0 + 0x28), var_r4, 0);
+                    TFogCtrl::select_fog_for_viewport(*(s32 *)((s8 *)arg0 + 0x28), var_r4, 0);
                 } else {
-                    select_fog_for_viewport__8TFogCtrlFlll(*(s32 *)((s8 *)arg0 + 0x28), var_r4, 1);
+                    TFogCtrl::select_fog_for_viewport(*(s32 *)((s8 *)arg0 + 0x28), var_r4, 1);
                 }
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0;
             } else {
                 *(s32 *)((s8 *)arg0 + 0x2C) = 1;
                 if ((s32) *(s32 *)((s8 *)arg0 + 0x24) != 0) {
-                    restore_fog_for_player__8TFogCtrlFll(*(s32 *)((s8 *)arg0 + 0x28), 0);
+                    TFogCtrl::restore_fog_for_player(*(s32 *)((s8 *)arg0 + 0x28), 0);
                 } else {
-                    restore_fog_for_player__8TFogCtrlFll(*(s32 *)((s8 *)arg0 + 0x28), 1);
+                    TFogCtrl::restore_fog_for_player(*(s32 *)((s8 *)arg0 + 0x28), 1);
                 }
             }
             break;
@@ -259,7 +257,7 @@ void TObjFogCollisionPoison::record_poison_hit(u16 arg1) {
     record_fog_collision_hit((s32)((void *) (arg1)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x84))), (s32)((int) ((u8) (*(s32 *)((s8 *)arg0 + 0x88) == 0))));
 }
 void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0x15:
     case 0x16:
         play_persistent_sound(0x4004BC16, arg0, arg0 + 0x38, 0, 0);
@@ -274,7 +272,7 @@ void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
     }
 }
 void TObjFogCollisionPoison__sub_801535D0(s32 arg0) {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0x15:
     case 0x16:
         play_sound_effect(0x4004C115, arg0 + 0x38, 0, 0);

@@ -5,7 +5,6 @@ extern "C" {
 
 s32 TItemWeapon__ct();
 s32 set_weapon_trail_joints(void *, s32, s32, s32);
-s32 set_atp__10TObjPlayerFs(void *, s32);
 
 extern s32 lbl_804A5458[];
 
@@ -28,7 +27,7 @@ void *TObjPlayer::construct_weapon_variant(s32 arg1, void *arg2) {
         break;
     }
     if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 4U) {
-        set_atp__10TObjPlayerFs(this, -1);
+        set_atp(-1);
     }
     return this;
 }

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOAirconCave02.h"
+#include "pso/misc/TOKey.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_801571D8_lbl_804AF960 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_801571D8_lbl_804AF960_size[sizeof(RecoveredGlobal_801571D8_lbl_804AF960) == 0x10 ? 1 : -1];
@@ -22,7 +24,6 @@ struct RecoveredGlobal_80157280___vt__14TOAirconCave02 {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_801571D8_lbl_804AF960 TOAirconCave02__shared_resource_desc;
 extern u32 TOAirconCave02__bml_resource;
 s32 init_map_object_base(void *, void *);
@@ -39,7 +40,6 @@ extern "C" {
 void *__dt__14TOAirconCave02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFs(void *, int);
 
 extern u32 TOAirconCave02__bml_resource;
 
@@ -55,7 +55,7 @@ extern s32 __vt__14TOAirconCave02[];
 void TOAirconCave02::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOAirconCave02__shared_resource_desc.value, 0, 0, 0));
@@ -66,7 +66,7 @@ void TOAirconCave02::load_shared_resource() {
 void *__dt__14TOAirconCave02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOAirconCave02;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

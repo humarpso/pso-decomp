@@ -12,6 +12,10 @@ struct VObj_18 : VBase_18 {
 
 #include <stddef.h>
 #include "pso/misc/TTecRaBarta.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/misc/TTecPlayerInfluence.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_80237194 {
     s32 sp8;
     s32 spC;
@@ -149,15 +153,12 @@ struct RaBarta_802377FC {
 
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
-void run_task__19TTecPlayerInfluenceFv(void *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
-void tick_lifetime__19TTecPlayerInfluenceFv(u8 *arg0);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
 extern const f32 lbl_805DC8A0;
-void render__19TTecPlayerInfluenceFv(u8 *arg0);
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -165,9 +166,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
-void *construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void *__nw__7TObjectFUl(u32);
-int get_level_tier__10TObjPlayerFl(s32);
 extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
 extern const f32 lbl_805DC8A4;
@@ -181,7 +180,6 @@ void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, int, int, f32);
 #define attach_particle_model ((void (*)(void *, void *, void *, void *, int, f32))attach_particle_model)
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect(void *, int);
 
 void *create_particle_emitter(void *, int);
@@ -190,7 +188,6 @@ extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
-void copy_params__8TTecAntiFPUc(void *, s32);
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
@@ -210,15 +207,10 @@ void __dt__7TEffectFv(void *, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
-void render__19TTecPlayerInfluenceFv(u8 *arg0);
-
-void tick_lifetime__19TTecPlayerInfluenceFv(u8 *arg0);
 
 void TTecPlayerInfluence__sub_80237258(void* p);
 
 extern s32 __vt__19TTecPlayerInfluence[];
-
-void run_task__19TTecPlayerInfluenceFv(void *arg0);
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 
@@ -263,7 +255,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
     binding = &rabarta_band_emitter_table[self->band].emitters[i];
     if ((binding->flags & 0x40) && (self->emitters[i] != 0))
     {
-      set_position_xy__10TObjPlayerFff(self->emitters[i], binding->scale, binding->scale);
+      ((TObjPlayer *)(self->emitters[i]))->set_position_xy(binding->scale, binding->scale);
     }
     if (rabarta_band_emitter_table[self->band].emitters[i].flags & 0x20)
     {
@@ -344,7 +336,7 @@ void TTecRaBarta__vt7(void *arg0) {
 
 void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self) {
     s32 res = calc_technique_parameters(5, self->level, 0xFFFF);
-    copy_params__8TTecAntiFPUc(&self->amount, res);
+    ((TTecAnti *)(&self->amount))->copy_params((u8 *)res);
     if (self->level >= 0xF && is_technique_ready__8TTecCtrlFv() == 0) {
         self->amount = tech_high_level_linear_power_table.base + tech_high_level_linear_power_table.per_level * self->level;
         return;
@@ -479,7 +471,6 @@ s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 apply_technique_to_area_targets(void *, int);
 
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 extern RafoieBursts_80237DAC rafoie_burst_table[];
 extern const f32 lbl_805DC8C8;
@@ -492,8 +483,6 @@ s32 is_split_screen();
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, int, int, f32);
 u32 find_entity_by_id(int);
-s32 is_parents_unqueued__9TTecLukerFUl();
-s32 is_valid_and_active__10TObjPlayerFUl(TObjPlayer_80237FB8 *);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 TTecRaFoie__data_805DC8CC;

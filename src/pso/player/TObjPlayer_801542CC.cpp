@@ -114,6 +114,9 @@ struct Vec_80155294 { f32 x, y, z; };
 
 #include "pso/protocol/subcmd_6x.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
 union ObjectSavedState_801548A8 {
     u32 word;
     struct { s16 flags; s16 source; } halves;
@@ -132,7 +135,6 @@ struct StateObject_801548A8 : ObjectBase_801548A8 {
 extern "C" {
 s32 test_player_overlap_with_players(void *arg0, Obj_801559D0 *self, CollisionVector_80155FBC *pos, void *out);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 vec3_add_to(void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -169,10 +171,8 @@ extern const f32 lbl_805DB28C;
 extern const f32 lbl_805DB290;
 extern const f32 lbl_805DB294;
 s32 resolve_player_box_contact(u8 *arg0, u8 *arg1, u8 *arg2);
-void bswap_60_header__6TLobbyFPv(void *);
 void *find_entity_by_id(u16 id);
 s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2);
-void apply_table_entry__6TLobbyFsPv(s16, ObjectSavedState_801548A8 *);
 extern s32 TLobby__data_805D6140;
 void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet);
 }
@@ -203,18 +203,15 @@ extern s32 lbl_805D586C;
 extern const f32 TObjPlayer__data_805DB298;
 void clear_obj_links(void* p);
 void* initialize_linked_object_reference(void* p, void* a1);
-int clear_ground_candidates__10TObjPlayerFv(void*);
 void TObjPlayer__sub_80156934(void);
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 registered_entity_count;
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 extern s32 lbl_804AF8A0[];
 void TObjPlayer__sub_80156A68(void* p);
 void TObjPlayer__sub_80156A74(void* p);
-s32 copy_short_fields__6TLobbyFPv(void *, void *);
 extern s32 TLobby__data_805D6140;
 s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -253,10 +250,8 @@ void *get_player_by_client_id(u32 id);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
 void *find_entity_by_id(u16 id);
-s32 copy_short_fields__6TLobbyFPv(void *, void *);
 s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2);
 void TLobby__sub_80156BA8(Pkt_80154954 *pkt);
-void update_and_send_60__6TLobbyFv(Pkt_80154954 *pkt);
 void send_object_state_update(Player_80154954 *self, State_80154954 *src);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -314,12 +309,10 @@ void set_indexed_flags(void *arg0, s32 index, s32 flags);
 u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30(void *, u32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void *resolve_hittable_target(u16 actorId, s16 collider);
 int get_or_assign_actor_id(void*, void*);
 s32 TObjPlayer__sub_8015434C(s32, s32, s32);
 u16 register_entity_by_id(void*);
-u32 get_battle_param__10TObjPlayerFi(s32);
 int memset(void*, void*, void*);
 
 extern s32 lbl_805D586C;
@@ -406,7 +399,7 @@ void *resolve_hittable_target(u16 actorId, s16 collider) {
     if (target == NULL) {
         return NULL;
     }
-    if (all_parents_unqueued_for_destruction__7TObjectFv(target) == 0 || obj_testFlags30(target, 0x04040800) != 0) {
+    if (((TObject *)target)->all_parents_unqueued_for_destruction() == 0 || obj_testFlags30(target, 0x04040800) != 0) {
         return NULL;
     }
     if (((s32 (*)(void *, s32, s32))test_elt_flag__10TObjPlayerFPvii)(target, collider, 1) == 0) {
@@ -422,7 +415,7 @@ void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet) {
     ObjectSavedState_801548A8 state;
     ObjectSavedState_801548A8 fallback;
     StateObject_801548A8 *object;
-    bswap_60_header__6TLobbyFPv(packet);
+    TLobby::bswap_60_header(packet);
     object = ((StateObject_801548A8 *)find_entity_by_id(packet->header.entity_id));
     if (object != 0) {
         access_object_saved_state((u8 *)(object), &state, (s16)(1));
@@ -432,7 +425,7 @@ void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet) {
     } else {
         fallback.word = (*(ObjectSavedState_801548A8 * *)&TLobby__data_805D6140)[packet->object_index].word;
         fallback.halves.flags = packet->flags;
-        apply_table_entry__6TLobbyFsPv(packet->object_index, &fallback);
+        TLobby::apply_table_entry(packet->object_index, &fallback);
     }
 }
 
@@ -440,7 +433,7 @@ void send_object_state_update(Player_80154954 *self, State_80154954 *src) {
     State_80154954 st;
     Obj_80154954 *obj;
     if (src != 0) {
-        copy_short_fields__6TLobbyFPv(&st, src);
+        ((TLobby *)(&st))->copy_short_fields(src);
     } else {
         access_object_saved_state((u8 *)self, &st, 1);
     }
@@ -451,7 +444,7 @@ void send_object_state_update(Player_80154954 *self, State_80154954 *src) {
         pkt.id = self->id;
         pkt.state = st.a;
         pkt.kind = obj->kind;
-        update_and_send_60__6TLobbyFv(&pkt);
+        ((TLobby *)(&pkt))->update_and_send_60();
     }
 }
 
@@ -582,7 +575,7 @@ s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0) {
 
     var_r31 = 0;
 loop_1:
-    temp_r3 = get_battle_param__10TObjPlayerFi(var_r31);
+    temp_r3 = TObjPlayer::get_battle_param(var_r31);
     if (temp_r3 == arg0) {
         return var_r31;
     }
@@ -607,7 +600,7 @@ void refresh_collision_body_centers(Obj_80154E3C *arg0) {
     V3_80154E3C sp8;
     s32 n;
     s32 i;
-    if (arg0 != NULL && arg0->ents != NULL && all_parents_unqueued_for_destruction__7TObjectFv(arg0) != 0) {
+    if (arg0 != NULL && arg0->ents != NULL && ((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
         n = arg0->count;
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, arg0->f60);
@@ -1260,7 +1253,7 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
     return 1;
 }
 
-void TObjPlayer::release_member_90() { void* m = *(void**)((char*)this + 0x90); if (m) clear_ground_candidates__10TObjPlayerFv(m); }
+void TObjPlayer::release_member_90() { void* m = *(void**)((char*)this + 0x90); if (m) ((TObjPlayer *)m)->clear_ground_candidates(); }
 void TObjPlayer__sub_80156934(void) { TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
 void TObjPlayer::reset() { (*(int *)&lbl_805D5868) = 0; (*(int *)&lbl_805D586C) = 0; (*(int *)&lbl_805D5870) = 0; (*(int *)&registered_entity_count) = 0; TObjPlayer::clear_item_table(); TObjPlayer::init_all_slots(); }
 void *TObjPlayer::destroy_particle_controller(s16 arg1) {
@@ -1268,7 +1261,7 @@ void *TObjPlayer::destroy_particle_controller(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804AF8A0;
         *(s32 *)((s8 *)this + 0xA8) = 0;
         *(s32 *)((s8 *)this + 0xA4) = 0;
-        destroy_particle__13TParticleCtrlFPvs(this, 0);
+        TParticleCtrl::destroy_particle(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -1306,10 +1299,10 @@ s32 access_object_saved_state(u8 *arg0, void *arg1, s16 arg2) {
         return 0;
     }
     if (arg2 == 0) {
-        copy_short_fields__6TLobbyFPv((void *) (TLobby__data_805D6140 + (temp_r31 * 4)), (void *) (arg1));
+        ((TLobby *)(TLobby__data_805D6140 + (temp_r31 * 4)))->copy_short_fields((void *) (arg1));
     }
     if (arg2 == 1) {
-        copy_short_fields__6TLobbyFPv((void *) (arg1), (void *) (TLobby__data_805D6140 + (temp_r31 * 4)));
+        ((TLobby *)arg1)->copy_short_fields((void *) (TLobby__data_805D6140 + (temp_r31 * 4)));
     }
     return 1;
 }

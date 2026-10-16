@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/item/TObjContainerJung.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase { char pad[0x18]; };
 
@@ -50,19 +54,16 @@ struct Obj_8018D4DC {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 request_box_item_drop(void *, void *, int);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, int, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__bml_model_resource;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8018D47C_lbl_804B7134 TObjContainerJung__resource_descriptor;
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void reset_photon_effect__10TObjPlayerFv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D85C_lbl_804B7168 container_jung_collision_desc;
@@ -70,14 +71,11 @@ extern s32 __vt__17TObjContainerJung[];
 extern s32 TObjContainerJung__name;
 u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
 u8 * get_bml_model(void *, int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object();
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
@@ -107,7 +105,6 @@ s32 unregister_object_by_id(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 
 extern s32 TObjContainerJung__bml_aux_handle;
 
@@ -144,7 +141,7 @@ void TObjContainerJung::release() {
 void TObjContainerJung::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjContainerJung__resource_descriptor.value, 0, 0, 0));
@@ -204,13 +201,13 @@ void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             ((VObj*)arg0)->m77();
             request_box_item_drop((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
-            clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
+            ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), (int) (0), (int) (1));
+        ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
@@ -221,17 +218,17 @@ void TObjContainerJung__vt79(u8 *arg0) {
     if ((void *)(*(u8 **)&TObjContainerJung__bml_model_resource) != NULL) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 0:
-            set_global_param__8TObjFishFl(TObjContainerJung__bml_aux_handle);
+            TObjFish::set_global_param(TObjContainerJung__bml_aux_handle);
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
             scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
             get_bml_model(*(u8 **)&TObjContainerJung__bml_model_resource, 0);
             draw_ginja_object();
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             get_bml_model(*(u8 **)&TObjContainerJung__bml_model_resource, 3);
             draw_ginja_object();
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
             pop_matrix();
             break;
         case 1:
@@ -261,7 +258,7 @@ void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjContainerJung;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -277,7 +274,7 @@ u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &container_jung_collision_desc.value, 1);
-    reset_photon_effect__10TObjPlayerFv((s32) arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&container_jung_collision_desc.value) + 4));

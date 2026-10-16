@@ -8,7 +8,6 @@ extern "C" {
 s32 get_flag_40__8TItemMagFv();
 s32 post_translate_matrix(Sp8Type_80123524 *);
 s32 draw_ginja_object(void *);
-s32 get_mag_scale__10TObjPlayerFv(void *);
 s32 spawn_cane_effect__10TObjPlayerFiUii(s32, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 draw_icon__10TObjPlayerFll(void *, s32, Sp8Type_80123524 *, s32);
@@ -46,7 +45,7 @@ void TObjPlayer::draw_mag() {
         *(s32 *)((s8 *)temp_r29 + 0) = (s32) (*(s32 *)((s8 *)temp_r29 + 0) & 0xFFFFFFF7);
         TObjPlayer__sub_80364198();
         model_render_flags &= 0xFFFFFFEF;
-        get_mag_scale__10TObjPlayerFv(this);
+        get_mag_scale();
         set_model_fade_alpha__10TObjPlayerFf();
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 1);
         *(s32 *)((s8 *)temp_r30 + 0) = (s32) (*(s32 *)((s8 *)temp_r30 + 0) & 0xFFFFFFFD);

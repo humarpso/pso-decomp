@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_801AAB74 { char pad[0x18]; };
 
@@ -23,9 +26,6 @@ struct Stack_801AAB74 { f32 x, y, z; };
 extern "C" {
 u8 *photon_base_ct(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, s32);
-void set_field_dc__10TObjPlayerFl(void *, s32);
-void set_field_d8__10TObjPlayerFl(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 begin_photon_summon_camera(void *, int);
@@ -34,7 +34,6 @@ s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 TObjPlayer__sub_801AA6F8(void *, int);
 s32 construct_photon_magic_square_normal(void *, void *, int, void *, int);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_cue_stream_file(void *);
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446D10[];
@@ -65,11 +64,11 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x98);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x9C);
-    set_field_d8__10TObjPlayerFl(arg0, (s32) photon_estlla_param_table);
-    set_field_dc__10TObjPlayerFl(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    ((TObjPlayer *)arg0)->set_field_d8((s32) photon_estlla_param_table);
+    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     *(s16 *)((s8 *)arg0 + 0x190) = 1;
     *(s32 *)((s8 *)arg0 + 0x194) = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x198) = *(s32 *)((s8 *)arg1 + 0x14);
@@ -77,7 +76,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x134) = 0;
     ((VObj_18_801AAB74 *) arg0)->m12();
     *(s32 *)((s8 *)arg0 + 0x1A0) = 0;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 11: case 12: case 13: case 14:
     case 30: case 31: case 32: case 33:
         p = __nw__7TObjectFUl(0xAC);
@@ -98,7 +97,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     }
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x194) == 0) {
-        set_field_b8__14TObjEnePanarmsFs(arg0, 0);
+        ((TObjEnePanarms *)arg0)->set_field_b8(0);
         begin_photon_summon_camera(arg0, 0);
         *(s32 *)((s8 *)arg0 + 0x194) = 1;
         *(s16 *)((s8 *)arg0 + 0x190) = 0;

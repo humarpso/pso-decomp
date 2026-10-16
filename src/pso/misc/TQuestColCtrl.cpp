@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuestColCtrl.h"
+#include "pso/TObject.h"
 
 struct Obj_8019601C { u8 pad[0x6]; u16 id; };
 
@@ -8,11 +9,9 @@ struct Base_80195F50 { u8 pad[0x18]; };
 struct Obj_80195F50 : Base_80195F50 { virtual ~Obj_80195F50(); };
 
 extern "C" {
-int run_tasks__7TObjectFv(void*);
 s32 TQuestColCtrl__sub_80196EC0();
 extern u32 quest_collision_task_root;
 extern u32 quest_collision_task_root;
-int run_tasks__7TObjectFv(void*);
 void *__nw__7TObjectFUl(int);
 void *TObjQuestColApcINW__ct(void *self, void *parent, void *arg);
 extern u32 quest_collision_task_root;
@@ -37,7 +36,7 @@ extern void *lbl_805D3404;
 void TQuestColCtrl::run_task() {
     TQuestColCtrl__sub_80196EC0();
     if ((u32) quest_collision_task_root != 0U) {
-        run_tasks__7TObjectFv((void*)((void*)quest_collision_task_root));
+        ((TObject *)quest_collision_task_root)->run_tasks();
     }
 }
 

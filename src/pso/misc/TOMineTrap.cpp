@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOMineTrap.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern f32 lbl_805D307C;
@@ -20,10 +21,9 @@ void TOMineTrap__sub_8017141C(void* p);
 void fn_80171314(void* p);
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
-int check_flag__10TObjPlayerFl(void*, void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 
-void fn_80171314(void* p) { check_flag__10TObjPlayerFl(p, (void*)65536); }
+void fn_80171314(void* p) { ((TObjPlayer *)p)->check_flag((s32)((void*)65536)); }
 u16 TOMineTrap::get_trap_type() { return *(u16*)((char*)this + 0x2d8); }
 s16 TOMineTrap__sub_80171340(void* p) { return *(s16*)((char*)p + 0x326); }
 void TOMineTrap__sub_80171348(void* p, s16 v) { *(s16*)((char*)p + 0x2d8) = v; }

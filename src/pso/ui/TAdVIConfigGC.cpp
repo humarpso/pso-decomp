@@ -87,7 +87,6 @@ int VIWaitForRetrace(void);
 int VIConfigure(void*);
 int VIFlush(void);
 s32 memset(void *, int, int);
-void set_field_2c__13TAdVIConfigGCFl(void *, int);
 
 void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
     s32 i;
@@ -227,7 +226,7 @@ void *TAdVIConfigGC__ct(void *arg0) {
     TAdYesNoBaseGC__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdVIConfigGC;
     *(void **)((s8 *)arg0 + 0x0) = TAdVIConfigGC__class_name;
-    set_field_2c__13TAdVIConfigGCFl(arg0, 0);
+    ((TAdVIConfigGC *)arg0)->set_field_2c(0);
     *(u32 *)((s8 *)arg0 + 0x48) = 0;
     return arg0;
 }

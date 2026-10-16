@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/ui/TAdLoadQuestPrtTxtGC.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TNowLoading.h"
 
 struct RecoveredGlobal_8034A5D0_lbl_804EFF80 {
     s32 value;
@@ -35,8 +37,6 @@ s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestPrtTxtGC__ct(int, void *, void *);
 extern RecoveredGlobal_8034A5D0_lbl_804EFF80 quest_load_prt_txt_by_slot;
 s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
-void copy_pos__11TNowLoadingFPv(void *, void *);
-void clear_active_flag__13TParticleCtrlFv(void *);
 void enable__13TParticleCtrlFPv(void *);
 extern const f32 lbl_805DFD20;
 extern const f32 lbl_805DFD24;
@@ -64,15 +64,15 @@ void TAdLoadQuestPrtTxtGC::run_task() {
         for (i = 0; i < self->count; i++) {
             if (self->timer > i * 0x14 && self->timer < i * 0x14 + 0x28) {
                 if (self->particles[i] != NULL) {
-                    clear_active_flag__13TParticleCtrlFv(self->particles[i]);
+                    ((TParticleCtrl *)(self->particles[i]))->clear_active_flag();
                     self->pos[i].x += lbl_805DFD20;
-                    copy_pos__11TNowLoadingFPv(self->particles[i], &self->pos[i]);
+                    ((TNowLoading *)(self->particles[i]))->copy_pos(&self->pos[i]);
                 }
             } else {
                 if (self->particles[i] != NULL) {
                     enable__13TParticleCtrlFPv(self->particles[i]);
                     self->pos[i].x = lbl_805DFD24;
-                    copy_pos__11TNowLoadingFPv(self->particles[i], &self->pos[i]);
+                    ((TNowLoading *)(self->particles[i]))->copy_pos(&self->pos[i]);
                 }
             }
         }

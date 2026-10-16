@@ -3,6 +3,9 @@
 TAdEndText::~TAdEndText() {}
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_8001B3BC_lbl_804F5800 {
     s32 value;
@@ -106,9 +109,7 @@ void *create_named_object(const char *name);
 s32 TAdEndText__sub_8001A998(s32, f32, f32, f32);
 s32 draw_small_font_text(s32, f32, f32, f32);
 u32 __cvt_fp2unsigned(f32);
-s32 set_global_param__8TObjFishFl(int);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern u32 TAdEndText__loaded_font_texture_list;
@@ -156,7 +157,6 @@ extern "C" {
 s32 get_end_text_font_loaded_flag(void);
 s32 TAdEndText__sub_8001B41C(void);
 s32 get_ending_scene_active(void);
-void free_nodes_with_id__6TLobbyFUl(void*);
 void TLobby__sub_803DA16C(void*);
 
 extern s32 ending_scene_active;
@@ -202,18 +202,18 @@ void render__10TAdEndTextFv(u8 *arg0) {
             }
             break;
         case 0x21:
-            set_global_param__8TObjFishFl(TAdEndText__loaded_font_texture_list);
+            TObjFish::set_global_param(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(3, -1);
             draw_textured_quad_at_depth(&self->box1, lbl_805D7E18);
-            get_player__20TWindowSubStatusDispFv();
+            TWindowSubStatusDisp::get_player();
             break;
         case 0x40:
-            set_global_param__8TObjFishFl(TAdEndText__loaded_font_texture_list);
+            TObjFish::set_global_param(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(4, -1);
             draw_textured_quad_at_depth(&self->box2, lbl_805D7E18);
-            get_player__20TWindowSubStatusDispFv();
+            TWindowSubStatusDisp::get_player();
             break;
         default:
             if (col != 0xFFFFFF) {
@@ -331,7 +331,7 @@ void TAdEndText::free_resources() {
         TAdEndText__loaded_font_texture_list = 0U;
     }
     if ((u32) TAdEndText__credit_script_lines != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)TAdEndText__credit_script_lines);
+        TLobby::free_nodes_with_id((u32)((void*)TAdEndText__credit_script_lines));
         TAdEndText__credit_script_lines = 0U;
     }
 }

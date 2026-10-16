@@ -25,7 +25,6 @@ extern const f32 lbl_805DA068;
 extern const f32 lbl_805DA06C;
 s32 get_main_phase();
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(s32);
 s32 get_player_by_client_id(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
@@ -121,7 +120,7 @@ u8 is_local_client_floor_leader(void) {
     if (get_main_phase() == 0xF) {
         p = get_player_by_client_id(TLobby__designated_client_id);
         if (p != 0) {
-            if (get_field_3e4__10TObjPlayerFv(p) == get_current_floor()) {
+            if (((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
                 return local_client_id == TLobby__designated_client_id;
             }
         }
@@ -131,7 +130,7 @@ u8 is_local_client_floor_leader(void) {
             id = (t + n) % 4;
             p = get_player_by_client_id(id);
             if (p != 0) {
-                if (get_field_3e4__10TObjPlayerFv(p) == get_current_floor()) {
+                if (((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
                     break;
                 }
             }

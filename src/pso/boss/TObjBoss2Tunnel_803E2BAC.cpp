@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma scheduling off
 
@@ -9,7 +10,6 @@ struct Vtx_803E2BCC {
 };
 
 extern "C" {
-s32 load_screen_space_matrix__10TObjPlayerFv();
 s32 setup_opaque_color_draw();
 s32 TObjPlayer__sub_803E21DC();
 void TObjBoss2Tunnel__sub_803E2D10(s32 arg0);
@@ -60,7 +60,7 @@ void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_803E2BCC *p, s32 n) {
 #pragma pop
 
 void TObjBoss2Tunnel__sub_803E2D10(s32 arg0) {
-    load_screen_space_matrix__10TObjPlayerFv();
+    TObjPlayer::load_screen_space_matrix();
     if (arg0 != 0) {
         TObjPlayer__sub_803E21DC();
         return;

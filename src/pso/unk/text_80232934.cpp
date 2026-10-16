@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
 struct Vec_80232934 { f32 x; f32 y; f32 z; };
 
 struct Quad_80232934 { u32 a; u32 b; u32 c; u32 d; };
@@ -23,14 +26,11 @@ void copy_slot_to_anim_frame(Ctx_80232934 *);
 void fn_800829E0(Ctx_80232934 *);
 void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
-void begin_effect_render__13TParticleCtrlFv(void);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 void scale_matrix(s32, f32, f32, f32);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(void *);
 void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern Vec_80232934 lbl_8044D5A8;
@@ -51,8 +51,8 @@ extern "C" {
 void grants_flash_render(Obj_80232934 *arg0) {
     Ctx_80232934 ctx;
     s32 id;
-    if (get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12 ||
-        get_global_state__14TOKeyMachine01Fv() == 0xF) {
+    if (TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0x12 ||
+        TOKeyMachine01::get_global_state() == 0xF) {
         return;
     }
     init_texture_copy_rect(&ctx, lbl_804CC868, technique_ringwave_texture_list, 0, arg0->f48 + 1);
@@ -66,12 +66,12 @@ void grants_flash_render(Obj_80232934 *arg0) {
     model_render_flags = id | 0x10;
     set_chunk_material_color(arg0->f38, id);
     set_depth_buffer_settings_id__FUl(3);
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     post_translate_matrix(arg0->f20);
     scale_matrix(0, arg0->pos.x, arg0->pos.y, arg0->pos.z);
     translate_matrix(0, lbl_805DC844, lbl_805DC848, lbl_805DC844);
-    set_global_param__8TObjFishFl(lbl_804CC868);
+    TObjFish::set_global_param((s32)lbl_804CC868);
     get_bml_model(technique_effect_bml, 10);
     draw_ginja_object();
     pop_matrix();

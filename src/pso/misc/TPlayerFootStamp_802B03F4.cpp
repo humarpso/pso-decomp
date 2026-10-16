@@ -82,18 +82,17 @@ void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o) {
 
 #include "types.h"
 #include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/boss/TBoss6EmptyWarp.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void init_hall_boss_scene(void *arg0);
 s32 alloc__8TObjFishFPv(void *);
-s32 get_plot_state__10TObjPlayerFv(void *);
-s32 init_warp__15TBoss6EmptyWarpFv();
-s32 release_object__14TBoss6PlotFalzFv(void *);
 
 void TBoss6PlotFalz::check_and_advance_state() {
     void *temp_r3 = *(void **)((s8 *)this + 0x3DC);
-    if ((temp_r3 != NULL) && ((get_plot_state__10TObjPlayerFv(temp_r3) != 0) || (is_ready__14TBoss6PlotFalzFv(this) != 0))) {
+    if ((temp_r3 != NULL) && ((((TObjPlayer *)temp_r3)->get_plot_state() != 0) || (is_ready__14TBoss6PlotFalzFv(this) != 0))) {
         send_6xA3_action__14TBoss6PlotFalzFSc(this, (void *)5);
     }
 }
@@ -101,8 +100,8 @@ void TBoss6PlotFalz::check_and_advance_state() {
 extern s32 lbl_804709A8[];
 
 void init_hall_boss_scene(void *arg0) {
-    init_warp__15TBoss6EmptyWarpFv();
-    release_object__14TBoss6PlotFalzFv(arg0);
+    TBoss6EmptyWarp::init_warp();
+    ((TBoss6PlotFalz *)arg0)->release_object();
     play_area_music(lbl_804709A8);
     refresh_players_equipment__14TBoss6PlotFalzFPv();
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;

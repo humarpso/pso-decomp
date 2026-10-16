@@ -2,6 +2,14 @@
 #include "pso/enemy/TObjEnePanarms.h"
 #include "dolphin/mtx.h"
 #include <stddef.h>
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TTecJelin.h"
+#include "pso/misc/TTecResta.h"
+#include "pso/misc/TTecZarua.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef char PanarmsActionTimerOffset[offsetof(TObjEnePanarms, action_timer) == 0x3B4 ? 1 : -1];
 
@@ -273,13 +281,8 @@ u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 get_camera_mode__11TCameraCtrlFv();
 int set_field_b8__14TObjEnePanarmsFs(void*, int);
 u32 csnLookAt(void *, void *);
-s32 check_demo_mode__10TObjPlayerFv(void);
 s32 spawn_particle_effect(void *, int, f32);
-s32 updateFromCamera__15RenderFadeStateFPCf(int, void *);
 s32 update_obstruction_fade(int, int);
-s32 toggle_particle_effect__10TObjPlayerFv();
-s32 spawn_ground_effect__10TObjPlayerFl(void *, int);
-s32 spawn_dead_spot_default__10TObjPlayerFll(void *, int);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 void TObjEnePanarms__sub_800DFE08(u8 *arg0);
 void TObjEnePanarms__sub_800E0048(u8 *arg0);
@@ -311,13 +314,10 @@ u8 TObjEnePanarms__sub_800E2E68(void *arg0);
 u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0);
 s32 TObjEnePanarms__sub_800E2FB4(O_800E2FB4 *self);
 int clear_render_callback__8TObjFishFv(void);
-int set_draw_callback_list__8TObjFishFv(void*);
-void init_state_1__8TObjFishFPv(s32);
 s32 draw_blob_shadow(int);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 TObjControl__ct(s32, s32);
 void refresh_lobby_state__10TObjPlayerFv();
-void update_prev_position__10TObjPlayerFv(void *);
 void __dt__9TObjEnemyFv(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
@@ -327,21 +327,15 @@ s32 approach_angle_limited(s32, s32, s32);
 int draw__16TObjEneRe7BeruraFv(void*);
 void advance_animation_playback(void *);
 u8 * find_entity_by_id(u16);
-s32 update_collisions__10TObjPlayerFv(void *);
 void free_collision_body_parts(void *);
 s32 project_actor_to_ground(void *, void *, int);
 void submit_cursor_candidate(void *, s32);
 u8 * get_player_by_client_id(s32);
-s32 end_effect_render__13TParticleCtrlFv();
 void minimap_render_dot(void *, s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(s32);
-s32 create__9TTecJelinFllll(void *, void *, void *, s32);
-s32 create__9TTecRestaFPvPvPv(void *, void *, int);
-s32 create_instance__9TTecZaruaFllll(void *, void *, void *, s32);
-s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 void __destroy_arr(void *, void *, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -356,7 +350,6 @@ s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *, f32);
-int set_global_param__8TObjFishFl(void*);
 int set_global_state__16TObjEneRe7BeruraFl(void*);
 
 extern const f64 TObjEnePanarms__data_8043CDD0;
@@ -440,9 +433,9 @@ void TObjEnePanarms::spawn_npc_pair() {
   stack.sp14 = *((s32 *) (((s8 *) (&panarms_npc_binding_desc_b.value)) + 0xC));
   stack.sp8 = temp_r8;
   temp_r5 = (u8 *) (*((u8 **) (new_var + 0x42C)));
-  spawn_npc_enemy__6TLobbyFslllff((int) 0x24, (int) (*((s32 *) (((s8 *) temp_r5) + 0x18))), (int) (*((s32 *) (((s8 *) temp_r5) + 0x1C))), (void *) (&stack.sp18), (f32) lbl_805DA520, (f32) TObjEnePanarms__data_805DA524);
+  TLobby::spawn_npc_enemy((s16)((int) 0x24), (s32)((int) (*((s32 *) (((s8 *) temp_r5) + 0x18)))), (s32)((int) (*((s32 *) (((s8 *) temp_r5) + 0x1C)))), (s32)((void *) (&stack.sp18)), (f32)((f32) lbl_805DA520), (f32)((f32) TObjEnePanarms__data_805DA524));
   temp_r5_2 = (u8 *) (*((u8 **) (((s8 *) TObjEnePanarms__entry_params_resource) + 0x42C)));
-  spawn_npc_enemy__6TLobbyFslllff((int) 0x25, (int) (*((s32 *) (((s8 *) temp_r5_2) + 0x28))), (int) (*((s32 *) (((s8 *) temp_r5_2) + 0x2C))), (void *) (&stack.sp8), (f32) lbl_805DA520, (f32) TObjEnePanarms__data_805DA524);
+  TLobby::spawn_npc_enemy((s16)((int) 0x25), (s32)((int) (*((s32 *) (((s8 *) temp_r5_2) + 0x28)))), (s32)((int) (*((s32 *) (((s8 *) temp_r5_2) + 0x2C)))), (s32)((void *) (&stack.sp8)), (f32)((f32) lbl_805DA520), (f32)((f32) TObjEnePanarms__data_805DA524));
 }
 extern int fold_flush_0;
 #pragma pop
@@ -498,7 +491,7 @@ void TObjEnePanarms__sub_800DFE08(u8 *arg0) {
         if ((var_r5 < 0) || (var_r5 > 0xE)) {
             var_r5 = 0;
         }
-        create__9TTecRestaFPvPvPv((void *) (arg0), (void *) (arg0 + 0x38), (int) (var_r5));
+        TTecResta::create((void *)arg0, (void *)(arg0 + 0x38), (void *)var_r5);
         ((s32 (*)(void *, void *, int, int))play_sound_effect)((void *) (((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (arg0), (int) (0x4003BC31))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
     if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
@@ -824,8 +817,8 @@ void TObjEnePanarms__sub_800E0950(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3B4);
     if (temp_r0 <= 0x78) {
         if (temp_r0 == 0x78) {
-            spawn_ground_effect__10TObjPlayerFl((void *) (arg0 + 0x3A4), (int) (0x78));
-            spawn_dead_spot_default__10TObjPlayerFll((void *) (arg0 + 0x3A4), (int) (6));
+            ((TObjPlayer *)(arg0 + 0x3A4))->spawn_ground_effect((int) (0x78));
+            TObjPlayer::spawn_dead_spot_default((s32)((void *) (arg0 + 0x3A4)), (s32)((int) (6)));
         }
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA55C);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3B4) < 0) {
@@ -1203,7 +1196,7 @@ void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1) {
             if (lv < 0 || lv > 0xE) {
                 lv = 0;
             }
-            create__9TTecJelinFllll(arg0, arg0 + 0x2FC, t + 0x2FC, lv);
+            TTecJelin::create((s32)arg0, (s32)(arg0 + 0x2FC), (s32)(t + 0x2FC), (s32)lv);
             return;
         }
         if (sc <= *(f32 *)((s8 *)arg0 + 0x468) + *(f32 *)((s8 *)arg0 + 0x46C)) {
@@ -1211,7 +1204,7 @@ void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1) {
             if (lv < 0 || lv > 0xE) {
                 lv = 0;
             }
-            create_instance__9TTecZaruaFllll(arg0, arg0 + 0x2FC, t + 0x2FC, lv);
+            TTecZarua::create_instance((s32)arg0, (s32)(arg0 + 0x2FC), (s32)(t + 0x2FC), (s32)lv);
             return;
         }
         {
@@ -1254,7 +1247,7 @@ s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1) {
         if (project_actor_to_ground(arg0, &p, 0) != 0 && csnLookAt(arg0 + 0x38, &p) == 0) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
             VecCopy__FP3VecPC3Vec(arg0 + 0x38, &p);
-            update_collisions__10TObjPlayerFv(arg0);
+            ((TObjPlayer *)arg0)->update_collisions();
             return 1;
         }
         ang = i << 12;
@@ -1466,7 +1459,7 @@ void TObjEnePanarms::update_linked_effect() {
     }
 }
 
-void TObjEnePanarms::draw() { ((int (*)(void*))push_matrix)(this); ((int (*)(void*))post_translate_matrix)((char*)this + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void**)((char*)this + 0x60)); set_global_param__8TObjFishFl(*(void**)((char*)this + 0x24)); set_draw_callback_list__8TObjFishFv(*(void**)((char*)this + 0x3dc)); draw__16TObjEneRe7BeruraFv(this); ((int (*)(void*))clear_render_callback__8TObjFishFv)(*(void**)((char*)this + 0x3dc)); ((int (*)(void))pop_matrix)(); }
+void TObjEnePanarms::draw() { ((int (*)(void*))push_matrix)(this); ((int (*)(void*))post_translate_matrix)((char*)this + 0x38); ((int (*)(void*, void*))rotate_matrix_y)((void*)0, *(void**)((char*)this + 0x60)); TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x24))); ((TObjFish *)(*(void**)((char*)this + 0x3dc)))->set_draw_callback_list(); draw__16TObjEneRe7BeruraFv(this); ((int (*)(void*))clear_render_callback__8TObjFishFv)(*(void**)((char*)this + 0x3dc)); ((int (*)(void))pop_matrix)(); }
 
 void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0) {
     s32 temp_r4;
@@ -1483,13 +1476,13 @@ void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0) {
     if (is_split_screen() != 0) {
         var_r31 = get_camera_mode__11TCameraCtrlFv();
     }
-    toggle_particle_effect__10TObjPlayerFv();
+    TObjPlayer::toggle_particle_effect();
     temp_r4 = model_render_flags;
     lbl_805D5660 = temp_r4;
     model_render_flags = temp_r4 | 0x01000000 | 1;
     temp_r31 = &((Obj_800E20D0 *) arg0)->fades[var_r31];
     update_obstruction_fade((int) (temp_r31), (int) (temp_r4));
-    if (updateFromCamera__15RenderFadeStateFPCf((int) (temp_r31), (void *) (arg0 + 0x2FC)) != 0) {
+    if (((RenderFadeState *)temp_r31)->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
         temp_r31->m6();
         var_r30 = 1;
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
@@ -1503,7 +1496,7 @@ void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0) {
         ((TObjEnePanarms *)arg0)->draw();
     }
     model_render_flags = lbl_805D5660;
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     ((TObjEnePanarms *)arg0)->update_linked_effect();
 }
 
@@ -1512,7 +1505,7 @@ void run_state_machine__14TObjEnePanarmsFPv(Panarms_800E2200 *self) {
     Vec_800E2200 a;
     f32 s;
 
-    if (self->state != 0 && check_demo_mode__10TObjPlayerFv() != 0) {
+    if (self->state != 0 && TObjPlayer::check_demo_mode() != 0) {
         ((void (*)(void *, s32))TObjEnePanarms__sub_800E1C98)(self, 0);
     }
     self->diff.x = self->target->x - self->x;
@@ -1531,7 +1524,7 @@ void run_state_machine__14TObjEnePanarmsFPv(Panarms_800E2200 *self) {
     } else {
         self->flags |= 0x02000000;
     }
-    update_prev_position__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->update_prev_position();
     if (self->state == 0) {
         return;
     }
@@ -1578,7 +1571,7 @@ Obj_800E24A4 *fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1) {
         arg0->vt = lbl_80495934;
         free_collision_body_parts(arg0);
         arg0->f37C = 0;
-        init_state_1__8TObjFishFPv(arg0->f3DC);
+        TObjFish::init_state_1((void *)(arg0->f3DC));
         __destroy_arr(arg0->f3EC, TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

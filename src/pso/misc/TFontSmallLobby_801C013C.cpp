@@ -113,10 +113,8 @@ extern const f32 lbl_805DC3BC;
 extern const f32 lbl_805DC3C0;
 extern const f32 lbl_805DC3C4;
 int TFontSmallLobby__sub_801C013C(void* p);
-void init_forward__10TObjPlayerFv(void *);
 extern s32 fn_80152EF8[];
 void __construct_array(void *, void *, int, int, int);
-void reset_tech_state__10TObjPlayerFv(void *);
 void *TFontSmallLobby__sub_801C0164(void *arg0);
 int TFontSmallLobby__sub_801C01BC(void* p);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -274,17 +272,15 @@ extern "C" {
 
 int TObjPlayer__sub_801C00FC(void);
 int TObjPlayer__sub_801C0104(void);
-void set_technique_id__10TObjPlayerFs(void* p, s16 v);
-int get_item_count_max__10TObjPlayerFv(void);
 
 }
 extern "C" {
 int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFUl((void*)((char*)p + 0x10), (int)(2)); }
 
 void *TFontSmallLobby__sub_801C0164(void *arg0) {
-    init_forward__10TObjPlayerFv((void *)((char *)arg0 + 16));
+    ((TObjPlayer *)((char *)arg0 + 16))->init_forward();
     __construct_array((void *)((char *)arg0 + 32), fn_80152EF8, 0, 4, 10);
-    reset_tech_state__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_tech_state();
     return arg0;
 }
 

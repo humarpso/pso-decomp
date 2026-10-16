@@ -1,13 +1,12 @@
 #include "pso/TItemTimer.h"
 
 extern "C" {
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void*);
 void queue_destruction__7TObjectFv(void*);
 }
 
 void TItemTimer::run_task() {
     m_1C--;
-    if (all_parents_unqueued_for_destruction__7TObjectFv(m_20) == 0) {
+    if (((TObject *)m_20)->all_parents_unqueued_for_destruction() == 0) {
         queue_destruction__7TObjectFv(this);
     } else if (m_1C == 0) {
         ((TItemTimer *)(&m_20))->invoke_callback();
@@ -18,6 +17,8 @@ void TItemTimer::run_task() {
 TItemTimer::~TItemTimer() {}
 
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct VBase18_8011d87c_8011D414 { char pad[0x18]; };
 struct VObj18_8011d87c_8011D414 : VBase18_8011d87c_8011D414 {
@@ -149,7 +150,6 @@ s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s32 is_item_area_enabled();
 s32 __ct__7TObjectFP7TObject();
 s32 disallow_rendering__7TObjectFv(void *);
-s32 get_field_3e0__12TBoss3VoloptFv(void *);
 s32 is_flag_20000_set__10TObjPlayerFv(s32);
 s32 obj_getField1c(s32);
 s32 obj_isState2_324(void *);
@@ -195,7 +195,7 @@ extern const f32 lbl_805DAC78;
 extern const f32 lbl_805DAC7C;
 void paralysis_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
-    get_field_3e0__12TBoss3VoloptFv(arg0->obj);
+    ((TBoss3Volopt *)(arg0->obj))->get_field_3e0();
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x10;
         a.v2 = lbl_805DAC7C;
@@ -207,7 +207,7 @@ void paralysis_curse_deliver(Timer_8011D5B4 *arg0) {
 
 void confusion_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
-    get_field_3e0__12TBoss3VoloptFv(arg0->obj);
+    ((TBoss3Volopt *)(arg0->obj))->get_field_3e0();
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x12;
         a.v2 = lbl_805DAC7C;
@@ -219,7 +219,7 @@ void confusion_curse_deliver(Timer_8011D5B4 *arg0) {
 
 void slow_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
-    get_field_3e0__12TBoss3VoloptFv(arg0->obj);
+    ((TBoss3Volopt *)(arg0->obj))->get_field_3e0();
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
         a.k1 = 0x11;
         a.v2 = lbl_805DAC7C;
@@ -233,7 +233,7 @@ void TItemTimer__sub_8011D7DC(void *arg0) {
     s32 temp_r3;
 
     if ((test_flag_2000000__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x28)) == 0) && (is_flag_20000_set__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x28)) == 0)) {
-        get_field_3e0__12TBoss3VoloptFv((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))));
+        ((TBoss3Volopt *)(*(s32 *)((s8 *)arg0 + 0x28)))->get_field_3e0();
         if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(*(s32 *)((s8 *)arg0 + 0x28)), (s32)(0x800)) == 0)) {
             temp_r3 = spawn_particle_effect_with_flags(*(s32 *)((s8 *)arg0 + 0x28) + 0x2FC, *(s32 *)((s8 *)arg0 + 0x2C), 0x10);
             if (temp_r3 != 0) {
@@ -250,7 +250,7 @@ void freeze_curse_deliver(void *arg0) {
 
     if (obj_isState2_324(*(void **)((s8 *)arg0 + 0x28)) == 0) {
         if (((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vf84() == 0) {
-            get_field_3e0__12TBoss3VoloptFv((void *)((void *)(*(void **)((s8 *)arg0 + 0x28))));
+            ((TBoss3Volopt *)(*(void **)((s8 *)arg0 + 0x28)))->get_field_3e0();
             if ((is_item_area_enabled() == 1) && ((lbl_805DAC78 * (f32) rand()) < *(f32 *)((s8 *)arg0 + 0x2C))) {
                 ((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vfC0(0);
                 ((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vf128(0);
@@ -283,7 +283,7 @@ void TItemTimer::set_owner_flag_800() {
 }
 
 void TItemTimer::update_owner_state() {
-    get_field_3e0__12TBoss3VoloptFv((void *)(*(s32 *)((s8 *)this + 0x28)));
+    ((TBoss3Volopt *)(*(s32 *)((s8 *)this + 0x28)))->get_field_3e0();
     if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)this + 0x28)) == 0) && (obj_testFlags30((void *)(*(s32 *)((s8 *)this + 0x28)), (s32)(0x800)) == 0)) {
         subtract_actor_tp(*(s32 *)((s8 *)this + 0x28), 1);
     }

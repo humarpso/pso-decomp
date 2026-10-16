@@ -1,13 +1,14 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/items/TItemWeapon.h"
 
 struct Self_8012A884 { u8 pad[0x18]; void *vt; u8 pad1C[0x1F8 - 0x1C]; u32 kind; };
 
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 get_slot_count__14TItemProShieldFv(void *);
-void set_special_selector__11TItemWeaponFUc(void *, u8);
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
@@ -44,7 +45,6 @@ extern "C" void apply_equip__11TItemWeaponFv();
 extern "C" void apply_object_set_data();
 extern "C" void bind_attribute_entries__11TItemWeaponFv();
 extern "C" void classify_actor_view_detail();
-extern "C" void copy_item_to_data__11TItemWeaponFl();
 extern "C" void start_srank_regen_timer__10TObjPlayerFv();
 extern "C" void dispatch_attack_marker__11TItemWeaponFv();
 extern "C" void dispatch_state__5TItemFv();
@@ -75,7 +75,6 @@ extern "C" void unequip__14TItemEquipBaseFv();
 extern "C" void update_active_weapon__11TItemWeaponFv();
 extern "C" void update_equip__14TItemEquipBaseFv();
 extern "C" void update_model_flags__11TItemWeaponFv();
-extern "C" void update_pickup_flag__5TItemFl();
 extern "C" void update_weapon_trails__11TItemWeaponFv();
 void *s_rank_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012A82C, (void *)&run_task__5TItemFv,
@@ -85,8 +84,8 @@ void *s_rank_weapon_vtable[63] = {
     (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFv,
-    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&update_pickup_flag__5TItemFl,
-    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&copy_item_to_data__11TItemWeaponFl,
+    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
+    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&apply_equip__11TItemWeaponFv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFv, (void *)&reset_item_equip,
@@ -103,7 +102,7 @@ u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
     TItemWeapon__ct(self);
     self->vt = s_rank_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(self, 2);
-    self->kind = get_slot_count__14TItemProShieldFv(self);
+    self->kind = ((TItemProShield *)self)->get_slot_count();
     p = (Inc_8012A884 *)arg0;
     switch (self->kind) {
     case 0:
@@ -113,46 +112,46 @@ u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
     case 1:
     case 2:
         set_status_flags__10TObjPlayerFPvUi(p, 0x400000);
-        set_special_selector__11TItemWeaponFUc(self, 0x1A);
+        ((TItemWeapon *)self)->set_special_selector(0x1A);
         break;
     case 5:
-        set_special_selector__11TItemWeaponFUc(p, 0x1A);
+        ((TItemWeapon *)p)->set_special_selector(0x1A);
         break;
     case 6:
-        set_special_selector__11TItemWeaponFUc(p, 0x1E);
+        ((TItemWeapon *)p)->set_special_selector(0x1E);
         break;
     case 7:
-        set_special_selector__11TItemWeaponFUc(p, 0x12);
+        ((TItemWeapon *)p)->set_special_selector(0x12);
         break;
     case 8:
-        set_special_selector__11TItemWeaponFUc(p, 0x16);
+        ((TItemWeapon *)p)->set_special_selector(0x16);
         break;
     case 9:
-        set_special_selector__11TItemWeaponFUc(p, 0x26);
+        ((TItemWeapon *)p)->set_special_selector(0x26);
         break;
     case 10:
-        set_special_selector__11TItemWeaponFUc(p, 0x22);
+        ((TItemWeapon *)p)->set_special_selector(0x22);
         break;
     case 11:
-        set_special_selector__11TItemWeaponFUc(p, 0xD);
+        ((TItemWeapon *)p)->set_special_selector(0xD);
         break;
     case 12:
-        set_special_selector__11TItemWeaponFUc(p, 0xE);
+        ((TItemWeapon *)p)->set_special_selector(0xE);
         break;
     case 13:
-        set_special_selector__11TItemWeaponFUc(p, 0x28);
+        ((TItemWeapon *)p)->set_special_selector(0x28);
         break;
     case 14:
-        set_special_selector__11TItemWeaponFUc(p, 4);
+        ((TItemWeapon *)p)->set_special_selector(4);
         break;
     case 15:
-        set_special_selector__11TItemWeaponFUc(p, 8);
+        ((TItemWeapon *)p)->set_special_selector(8);
         break;
     case 16:
-        set_special_selector__11TItemWeaponFUc(p, 0xB);
+        ((TItemWeapon *)p)->set_special_selector(0xB);
         break;
     default:
-        set_special_selector__11TItemWeaponFUc(p, 0);
+        ((TItemWeapon *)p)->set_special_selector(0);
         break;
     }
     return (u8 *)self;

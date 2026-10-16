@@ -15,7 +15,6 @@ extern "C" {
 char *get_localized_text_entry(s32, s32);
 u32 calc_text_width(void *);
 u32 TWindowSubStatusDisp__sub_80144E9C(void *);
-void render_status_disp__23TAdSinglePlyChrSelectGCFff(void *, f32, f32);
 void getDateStamp__FP9DateStamp(void *);
 int sprintf(char *, const char *, ...);
 extern char ply_status_date_format[];
@@ -75,7 +74,7 @@ void TAdSinglePlyChrSelectGC::draw_date_time() {
     if (self->visible != 0) {
         Pt_802E11D4 pos = self->pos;
         s = get_localized_text_entry(0x1C, 0xC);
-        render_status_disp__23TAdSinglePlyChrSelectGCFff(s, -(lbl_805DE8E8 * (f32)calc_text_width(s) - pos.x), pos.y);
+        ((TAdSinglePlyChrSelectGC *)s)->render_status_disp(-(lbl_805DE8E8 * (f32)calc_text_width(s) - pos.x), pos.y);
         pos.y += lbl_805DE8EC;
         getDateStamp__FP9DateStamp(&date);
         wd = date.wday + 13;
@@ -91,10 +90,10 @@ void TAdSinglePlyChrSelectGC::draw_date_time() {
             w = lbl_805DE8F0 * (f32)TWindowSubStatusDisp__sub_80144E9C(s);
             break;
         }
-        render_status_disp__23TAdSinglePlyChrSelectGCFff(s, pos.x + w, pos.y);
+        ((TAdSinglePlyChrSelectGC *)s)->render_status_disp(pos.x + w, pos.y);
         pos.y += lbl_805DE8F4;
         sprintf(buf, lbl_8047296C, date.hour, date.min, date.sec);
-        render_status_disp__23TAdSinglePlyChrSelectGCFff(buf, -(lbl_805DE8E8 * (f32)calc_text_width(buf) - pos.x), pos.y);
+        ((TAdSinglePlyChrSelectGC *)buf)->render_status_disp(-(lbl_805DE8E8 * (f32)calc_text_width(buf) - pos.x), pos.y);
     }
 }
 #pragma pop

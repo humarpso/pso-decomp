@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/TSetManager.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TScene.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Dst_8020DEE4 { u16 id; s16 v; u8 pad[4]; };
 
@@ -28,13 +31,11 @@ extern "C" {
 void TLobby__sub_8020D94C(void);
 extern s16 TLobby__data_805D6134;
 s32 get_current_floor(void);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(void *p);
 extern Area_8020DEE4 TLobby__floor_enemy_group_table[];
 extern SrcA_8020DEE4 *TLobby__data_805D610C;
 extern SrcB_8020DEE4 *TLobby__data_805D6114;
 void depart_floor_population(int unused);
 s32 get_current_floor(void);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 void arrive_floor_population(void);
 extern s32 lbl_805D60F8;
@@ -47,12 +48,10 @@ extern s16 TLobby__data_805D6134;
 void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
-s32 update_lobby_scene__6TSceneFv(char *);
 void read_disc_file(char *, void *);
 void replace_file_extension__6TLobbyFPvPvPv(char *, s32, char *);
 void *mem_alloc(u32);
 void swap_object_row_endian(void *);
-s32 is_online_ready__6TLobbyFv();
 extern char lbl_8044BC24[];
 extern char lbl_8044BC2C[];
 extern Map_8020D9A0 *TLobby__data_805D6068;
@@ -107,12 +106,12 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
     if (r == NULL || TLobby__data_805D6068[map].grp[grp].count - 1 < room) {
         return 0;
     }
-    if (is_online_ready__6TLobbyFv() != 0) {
+    if (TLobby::is_online_ready() != 0) {
         replace_file_extension__6TLobbyFPvPvPv(path, r->name, lbl_8044BC24);
     } else {
         replace_file_extension__6TLobbyFPvPvPv(path, r->name, lbl_8044BC2C);
     }
-    size = update_lobby_scene__6TSceneFv(path);
+    size = ((TScene *)path)->update_lobby_scene();
     if (size < 0) {
         return 0;
     }
@@ -153,7 +152,7 @@ void TLobby::setup_floor_decorations() {
     TLobby__data_805D6120 = 0;
     TLobby__data_805D6128 = 0;
     TLobby__data_805D6134 &= ~16;
-    lbl_805D60F8 = get_global_state__14TOKeyMachine01Fv();
+    lbl_805D60F8 = TOKeyMachine01::get_global_state();
     r = get_current_floor();
     TLobby__data_805D60FC = r;
     if (lookup_scene_object__6TLobbyFPv(r, &v) != 0) {
@@ -207,11 +206,11 @@ void depart_floor_population(int unused) {
         }
     }
     if (TLobby__data_805D6114 != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TLobby__data_805D6114);
+        TAdSinglePlyChrSelectGC::safe_free((u32)TLobby__data_805D6114);
         TLobby__data_805D6114 = 0;
     }
     if (TLobby__data_805D610C != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TLobby__data_805D610C);
+        TAdSinglePlyChrSelectGC::safe_free((u32)TLobby__data_805D610C);
         TLobby__data_805D610C = 0;
     }
 }

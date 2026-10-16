@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TTecAnti.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_8022ACB4 { u8 pad[0xA6]; s16 state; };
 extern "C" {
@@ -133,7 +135,6 @@ struct Anti_8022AEF8 {
 
 extern "C" {
 s32 obj_getField1c(int);
-s32 construct_target_cursor_records__10TObjPlayerFv(void *);
 void play_anti_cast_sound(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
@@ -154,7 +155,6 @@ Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, con
 int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUl();
-s32 is_valid_and_active__10TObjPlayerFUl(int);
 void deliver_technique_to_party_targets(void *);
 void run_task__8TTecAntiFv(Anti_8022B150 *self);
 s32 obj_getField1c(int);
@@ -165,7 +165,6 @@ s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int construct_delayed_point_sound(void *, void *, int, int, void *);
-int show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, int);
 extern void *tl_07;
 void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl);
 }
@@ -233,7 +232,7 @@ void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
     }
     pl->m21(self->caster, hit, 0, 0x10, self->level);
     if (is_split_screen() == 0) {
-        show_party_effect__11TWindowCtrlFPvPvPv(obj_getField1c((int)self->caster), obj_getField1c((int)pl), 7);
+        TWindowCtrl::show_party_effect((void*)(obj_getField1c((int)self->caster)), (void*)(obj_getField1c((int)pl)), (void*)7);
     }
     if ((u16)obj_getField1c((int)self->caster) == (u16)obj_getField1c((int)pl)) {
         if (self->xAC != 0) {
@@ -297,7 +296,7 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = find_entity_by_id(self->targets[i].id);
-                    if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(target) != 0)) {
+                    if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (TObjPlayer::is_valid_and_active(target) != 0)) {
                         ((VObj_8022B150 *)self)->m5(target);
                     }
                 }
@@ -316,7 +315,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022B288___vt__8TTecAnti *)&__vt__8TTecAnti).value;
-    construct_target_cursor_records__10TObjPlayerFv((void *) (arg0 + 0xE0));
+    ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3790;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));

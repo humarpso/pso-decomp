@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjGyaranzoMissile.h"
 
 struct Vec_800DCD04 { f32 x, y, z; };
 extern "C" { extern const Vec_800DCD04 lbl_8043C920 = {0.0f, 0.0f, 0.0f}; }
@@ -47,9 +49,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 void enable__13TParticleCtrlFPv(void *);
 s32 subtract_vector(void *, void *);
-void scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 s32 vec3_add_to(void *, void *);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
 u32 csnVector(void *, void *, int);
 f32 xyz_distance_squared(void *, void *);
 void set_flag_20000__10TObjPlayerFPv(void *);
@@ -94,15 +94,15 @@ void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
         if (obj != NULL) {
             VecCopy__FP3VecPC3Vec(&dir, (int)obj->pos);
             subtract_vector(&dir, &arg0->pos);
-            scale_velocity__19TObjGyaranzoMissileFf(&dir, arg0->speed);
+            ((TObjGyaranzoMissile *)(&dir))->scale_velocity(arg0->speed);
             arg0->speed += lbl_805D5268;
             vec3_add_to(&arg0->vel, &dir);
-            scale_velocity__19TObjGyaranzoMissileFf(&arg0->vel, lbl_805D5260);
+            ((TObjGyaranzoMissile *)(&arg0->vel))->scale_velocity(lbl_805D5260);
         }
         VecCopy__FP3VecPC3Vec(&arg0->prev, (int)&arg0->pos);
         vec3_add_to(&arg0->pos, &arg0->vel);
         if (arg0->effect != NULL) {
-            copy_pos__11TNowLoadingFPv(arg0->effect, &arg0->pos);
+            ((TNowLoading *)(arg0->effect))->copy_pos(&arg0->pos);
         }
         if (csnVector(&arg0->prev, &arg0->pos, -1) != 0) {
             queue_destruction__7TObjectFv(arg0);
@@ -176,7 +176,6 @@ Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s1
 extern "C" {
 
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_80494E48[];
@@ -185,7 +184,7 @@ void *TObjPlayer::destroy_particle_obj(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80494E48;
         if (*(void **)((s8 *)this + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xF8)); *(s32 *)((s8 *)this + 0xF8) = 0; }
-        destroy_particle_controller__10TObjPlayerFs(this, 0);
+        destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

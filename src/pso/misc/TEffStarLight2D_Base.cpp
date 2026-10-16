@@ -173,6 +173,8 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -186,8 +188,6 @@ struct T_800850CC { u8 pad[0x14]; N_800850CC *head; };
 struct S_80084EBC;
 struct V2_80084EBC;
 void TEffStarLight2D__sub_80084EBC(S_80084EBC *s, V2_80084EBC *p0, V2_80084EBC *p1, V2_80084EBC *p2, V2_80084EBC *p3, s32 i);
-void reset_transform_state__10TObjPlayerFv();
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 
 #pragma opt_propagation off
 void render__15TEffStarLight2DFv(T_800850CC *arg0) {
@@ -198,14 +198,14 @@ void render__15TEffStarLight2DFv(T_800850CC *arg0) {
     for (p = arg0->head; p != NULL; p = p->next) {
         if (p != NULL && p->next != NULL) {
             nx = p->next;
-            if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0 &&
-                all_parents_unqueued_for_destruction__7TObjectFv(nx) != 0) {
+            if (((TObject *)p)->all_parents_unqueued_for_destruction() != 0 &&
+                ((TObject *)nx)->all_parents_unqueued_for_destruction() != 0) {
                 TEffStarLight2D__sub_80084EBC((S_80084EBC *)arg0, (V2_80084EBC *)((u8 *)p + 0x20), (V2_80084EBC *)((u8 *)p + 0x28), (V2_80084EBC *)((u8 *)nx + 0x28), (V2_80084EBC *)((u8 *)nx + 0x20), n);
                 n++;
             }
         }
     }
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
 }
 #pragma opt_propagation reset
 

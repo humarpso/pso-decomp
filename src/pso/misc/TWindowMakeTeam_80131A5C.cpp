@@ -1,9 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowMakeTeam.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 
 extern "C" {
 
-s32 request_close__19TWindowSubTradeMainFv(void *);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
 int set_field_1c__6TLobbyFf(void*);
 s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);

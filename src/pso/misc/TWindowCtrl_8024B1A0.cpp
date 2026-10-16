@@ -88,6 +88,7 @@ u16 get_window_id__11TWindowCtrlFv(void) {
 
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
+#include "pso/TObject.h"
 
 struct Ctrl_8024B328 { u8 pad[0x84]; void *win[4]; };
 
@@ -98,15 +99,9 @@ struct Ctrl_8024B440 { u8 pad[0x84]; void *win[4]; };
 extern "C" {
 s32 acquire_balloon_slot__11TWindowCtrlFPviiPv(s32, u16, s32, s32);
 void open__15TWindowFukidasiFPvPvi(void *, void *, s32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-u16 get_flags__11TWindowCtrlFv(void *);
 void TWindow__close(void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-u16 get_flags__11TWindowCtrlFv(void *);
 void complete_speech_balloon(void *);
 void complete_actor_speech_balloons(u16 arg0);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-u16 get_flags__11TWindowCtrlFv(void *);
 s32 is_speech_balloon_ready(void *);
 s32 is_actor_speech_balloon_done(u16 arg0);
 }
@@ -119,7 +114,7 @@ void TWindowCtrl::close_windows_by_flags(u16 arg0) {
     if ((*(u32 *)&TWindowCtrl__active_window) != 0) {
         for (i = 0; i < 4; i++) {
             w = ((Ctrl_8024B328 *)(*(u32 *)&TWindowCtrl__active_window))->win[i];
-            if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFv(w)) {
+            if (w != NULL && ((TObject *)w)->all_parents_unqueued_for_destruction() != 0 && arg0 == ((TWindowCtrl *)w)->get_flags()) {
                 TWindow__close(w);
             }
         }
@@ -132,7 +127,7 @@ void complete_actor_speech_balloons(u16 arg0) {
     if ((*(u32 *)&TWindowCtrl__active_window) != 0) {
         for (i = 0; i < 4; i++) {
             w = ((Ctrl_8024B3B4 *)(*(u32 *)&TWindowCtrl__active_window))->win[i];
-            if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFv(w)) {
+            if (w != NULL && ((TObject *)w)->all_parents_unqueued_for_destruction() != 0 && arg0 == ((TWindowCtrl *)w)->get_flags()) {
                 complete_speech_balloon(w);
             }
         }
@@ -147,7 +142,7 @@ s32 is_actor_speech_balloon_done(u16 arg0) {
     }
     for (i = 0; i < 4; i++) {
         w = ((Ctrl_8024B440 *)(*(u32 *)&TWindowCtrl__active_window))->win[i];
-        if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFv(w) && is_speech_balloon_ready(w) == 0) {
+        if (w != NULL && ((TObject *)w)->all_parents_unqueued_for_destruction() != 0 && arg0 == ((TWindowCtrl *)w)->get_flags() && is_speech_balloon_ready(w) == 0) {
             return 0;
         }
     }

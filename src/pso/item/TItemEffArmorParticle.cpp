@@ -62,6 +62,7 @@ TItemEffArmorParticle::~TItemEffArmorParticle() {
 }
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 struct Base_A_80364364 { char pad[0x18]; };
 struct V_A_80364364 : Base_A_80364364 {
@@ -79,7 +80,6 @@ extern "C" {
 
 void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-s32 set_owner_id__13TParticleCtrlFUs(u32, u16);
 void *get_player_by_client_id(u16);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 disallow_rendering__7TObjectFv(void *);
@@ -104,7 +104,7 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
         *(u32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) temp_r3)->m7(), arg4, 0x10);
         p = *(u32 *)((s8 *)arg0 + 0x20);
         if (p != 0U) {
-            set_owner_id__13TParticleCtrlFUs(p, *(u16 *)((s8 *)arg0 + 0x24));
+            ((TParticleCtrl *)p)->set_owner_id(*(u16 *)((s8 *)arg0 + 0x24));
         }
     } else {
         *(u32 *)((s8 *)arg0 + 0x20) = 0U;

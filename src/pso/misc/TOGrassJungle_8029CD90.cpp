@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOGrassJungle.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -49,9 +52,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 TOGrassJungle__bml_resource;
 extern s32 TOGrassJungle__grass_gvm_texture;
@@ -61,7 +61,7 @@ extern const f32 lbl_805DDD34;
 void TOGrassJungle::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_8029CD90 *)arg0)->m8(lbl_805DDD30, lbl_805DDD34) == 1) {
-        set_global_param__8TObjFishFl(TOGrassJungle__grass_gvm_texture);
+        TObjFish::set_global_param(TOGrassJungle__grass_gvm_texture);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -76,7 +76,7 @@ extern s32 __vt__13TOGrassJungle[];
 void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TOGrassJungle;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -105,7 +105,7 @@ void TOKeyJungleMain__vt20(s32 arg0) {
     s32 temp_r3;
 
     var_r31 = 0x4AD12;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {
     case 34:
         var_r31 = 0x4004AD12;

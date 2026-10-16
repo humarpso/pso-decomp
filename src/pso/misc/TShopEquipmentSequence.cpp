@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TShopEquipmentSequence.h"
+#include "pso/misc/TCheckRoomSequence.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct Base_8021D584_8021D524 { char pad[0x18]; };
 struct VObj_8021D584_8021D524 : Base_8021D584_8021D524 {
@@ -144,10 +146,7 @@ void exit__22TShopEquipmentSequenceFPv(void *arg0);
 extern void *tl_05;
 void open_buy_window__22TShopEquipmentSequenceFPv(S_8021D750 *self);
 u16 obj_getField1c(void *);
-s32 is_visible__17TWindowSubComCardFv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
-s32 set_ready_flag__18TCheckRoomSequenceFv(void *);
 s32 get_shop_text(s32 arg0);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 set_position_xy(void *, f32, f32);
@@ -255,10 +254,10 @@ void TShopEquipmentSequence::update_buy_sell_choice() {
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(6), 6, 1);
         calc_window_size__17TWindowSubComCardFPv(self->win);
         align_menu_entry_positions(self->win);
-        set_ready_flag__18TCheckRoomSequenceFv(self->win);
+        ((TCheckRoomSequence *)(self->win))->set_ready_flag();
         set_position_xy(self->win, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
     }
-    if (self->win != NULL && is_visible__17TWindowSubComCardFv(self->win) != 0) {
+    if (self->win != NULL && ((TWindowSubComCard *)(self->win))->is_visible() != 0) {
         r = get_selected_menu_value(self->win);
         if (r == 0) {
             set_field_20__12TQuestListVMFl(self, 3);
@@ -273,7 +272,7 @@ void TShopEquipmentSequence::update_buy_sell_choice() {
             return;
         }
     }
-    if (self->win != NULL && get_status_flag__17TWindowSubComCardFv(self->win) != 0) {
+    if (self->win != NULL && ((TWindowSubComCard *)(self->win))->get_status_flag() != 0) {
         ((VObj_8021D7B8 *)self)->m4(0x2C, 1);
         set_field_20__12TQuestListVMFl(self, 9);
         TWindow__close(self->win);

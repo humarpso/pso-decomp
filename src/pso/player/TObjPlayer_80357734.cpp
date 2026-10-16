@@ -86,6 +86,8 @@ typedef char RecoveredGlobal_803589F8_lbl_804F15C8_size[sizeof(RecoveredGlobal_8
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
+#include "pso/items/TItemWeapon.h"
+#include "pso/misc/TNowLoading.h"
 struct Stack_80358048 {
     s32 sp8;
     s32 spC;
@@ -203,7 +205,6 @@ struct Info_80357784 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 extern const f32 lbl_805E006C;
 void update_inward_orbit_effect(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -211,8 +212,6 @@ extern s32 tl_05;
 u16 obj_getField1c(void *);
 s32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 get_field_ec__12TOSwitchItemFv();
-u32 test_flags_1b8__10TObjPlayerFUl(int, int);
-u8 get_special_selector__11TItemWeaponFv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
@@ -229,8 +228,6 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 void update_inward_orbit_point(u8 *arg0);
-s32 play_particle_effect_once__10TObjPlayerFv();
-u32 get_player_list__10TObjPlayerFv();
 s32 rotate_matrix_z(int, int);
 void TObjPlayer__sub_80357954(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -267,7 +264,6 @@ extern const f32 lbl_805E0064;
 extern const f32 lbl_805E0068;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-s32 restore_action_type__11TItemWeaponFv(void *);
 s32 remap_extra_attack_type(void *);
 s32 fill_status_info__10TObjPlayerFPvPv(void *, void *);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
@@ -358,7 +354,7 @@ void TObjPlayer__sub_80357784(u8 *arg0) {
         info.f28 = temp_r5;
         info.f10 = 0xA;
         create__20TItemEffOrgaFlowShotFPvPv((int) (tl_05), (void *) (&info), (int) (temp_r5));
-        restore_action_type__11TItemWeaponFv((void *) (arg0));
+        ((TItemWeapon *)arg0)->restore_action_type();
         return;
     }
     draw_icon__10TObjPlayerFll((void *) (arg0), (int) (6), (void *) (&sp8));
@@ -375,12 +371,12 @@ void TObjPlayer__sub_80357784(u8 *arg0) {
 
 void TObjPlayer__sub_80357954(u8 *arg0) {
     u32 temp_r3;
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 2:
     case 5:
     case 8:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         return;
     case 1:
         rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x1F8)));
@@ -544,7 +540,7 @@ void update_inward_orbit_effect(u8 *arg0) {
     update_inward_orbit_point((u8 *)((void *)(arg0)));
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x4C));
     if (temp_r3 != NULL) {
-        copy_pos__11TNowLoadingFPv(temp_r3, arg0 + 0x34);
+        ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x34);
     }
     temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x48);
     if (temp_r3_2 > 0) {
@@ -880,11 +876,11 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
     u8 temp_r3_2;
     if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *) (arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__12TOSwitchItemFv() == 0)) {
-        if (test_flags_1b8__10TObjPlayerFUl((int) (temp_r3), (int) (0x400020)) != 0U) {
+        if (((TObjPlayer *)temp_r3)->test_flags_1b8((int) (0x400020)) != 0U) {
             TObjPlayer::update_battle_control_on_unlock((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (s32)((void *) (arg3)));
             return;
         }
-        temp_r3_2 = get_special_selector__11TItemWeaponFv((int) (temp_r3));
+        temp_r3_2 = ((TItemWeapon *)temp_r3)->get_special_selector();
         if (temp_r3_2 < 0x29U) {
             temp_r12 = *(s32 (**)(s32, u32, s32, s32))((s8 *)((u8 *)(&weapon_special_effect_callbacks.value) + ((temp_r3_2 * 4) & 0x3FC)) + 0);
             if (temp_r12 != NULL) {

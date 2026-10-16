@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Stack_800F0B4C
 {
@@ -16,8 +18,6 @@ void load_ha_u032_kage(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 attach_particle_model(int, int, int, int, int, f32);
 u8 *csnVectorUnder(s32 *, s32, s32);
-s32 get_particle_model__13TParticleCtrlFl(int);
-s32 get_instance__13TParticleCtrlFv();
 s32 spawn_particle_effect(s32, s32);
 s32 TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3Stelth__data_805DA808;
@@ -33,14 +33,13 @@ void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0);
 extern "C" {
 
 s32 TLobby__sub_803DA16C(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u32 blob_shadow_texture_list;
 
 void TObjEneMe3Stelth::destroy_resources() {
     if ((u32) blob_shadow_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)blob_shadow_texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(blob_shadow_texture_list);
+        TAdSinglePlyChrSelectGC::safe_free(blob_shadow_texture_list);
         blob_shadow_texture_list = 0U;
     }
 }
@@ -60,7 +59,7 @@ s32 TObjEneMe3Stelth::try_spawn_ground_effect(s32 arg1) {
     if (temp_r3_2 != 0)
     {
       ;
-      attach_particle_model((int) temp_r3_2, (int) get_particle_model__13TParticleCtrlFl((int) 2), (int) get_instance__13TParticleCtrlFv(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
+      attach_particle_model((int) temp_r3_2, (int) TParticleCtrl::get_particle_model((int) 2), (int) TParticleCtrl::get_instance(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
     }
     spawn_particle_effect((s32)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), (s32)((int) 0xA4));
     TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));

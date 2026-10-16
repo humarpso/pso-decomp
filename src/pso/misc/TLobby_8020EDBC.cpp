@@ -3,7 +3,6 @@
 
 extern "C" {
 
-s32 free_nodes_with_id__6TLobbyFUl(u32);
 s32 mem_free(u32);
 
 extern u32 lbl_80513D78[];
@@ -24,7 +23,7 @@ void TLobby::free_rocks() {
         var_r31 -= 1;
     } while (var_r28 >= 0);
     if ((u32) lbl_805D6158 != 0U) {
-        free_nodes_with_id__6TLobbyFUl(lbl_805D6158);
+        TLobby::free_nodes_with_id(lbl_805D6158);
         lbl_805D6158 = var_r30;
     }
 }

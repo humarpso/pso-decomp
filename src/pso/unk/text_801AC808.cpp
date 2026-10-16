@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 #define NEW_801AC808(n) (((u8 *(*)(int))__nw__7TObjectFUl)(n))
 #define F_801AC808(o, t, off) (*(t *)((u8 *)(o) + (off)))
@@ -26,9 +29,6 @@ struct Game_801AC808 { u8 pad[0x42C]; Res_801AC808 *res; s32 f430; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
-void set_field_dc__10TObjPlayerFl(void *, s32);
-void set_field_d8__10TObjPlayerFl(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 begin_photon_summon_camera(void *, int);
@@ -38,7 +38,6 @@ void photon_base_ct(void *);
 void TObjPlayer__sub_801AC444(void *, u8);
 void construct_photon_magic_square_normal(void *, void *, s32, void *, s32);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
-s32 get_global_state__14TOKeyMachine01Fv();
 void play_cue_stream_file(void *);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern u8 lbl_80446DF8[];
@@ -65,11 +64,11 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     }
     F_801AC808(self, s32, 0x34) = photon_blast_shared_resource->res->f18;
     F_801AC808(self, s32, 0x24) = photon_blast_shared_resource->res->f1C;
-    set_field_d8__10TObjPlayerFl(self, lbl_804C3778);
-    set_field_dc__10TObjPlayerFl(self, photon_blast_shared_resource->f430);
+    ((TObjPlayer *)self)->set_field_d8((s32)lbl_804C3778);
+    ((TObjPlayer *)self)->set_field_dc(photon_blast_shared_resource->f430);
     F_801AC808(self, s16, 0xB8) = 1;
     set_animation__10TObjPlayerFPvs(self, F_801AC808(self, s16, 0xB8));
-    set_field_b8__14TObjEnePanarmsFs(self, F_801AC808(self, s16, 0xB8));
+    ((TObjEnePanarms *)self)->set_field_b8(F_801AC808(self, s16, 0xB8));
     F_801AC808(self, s16, 0x190) = 1;
     F_801AC808(self, s32, 0x194) = pkt->first;
     F_801AC808(self, s32, 0x198) = pkt->more;
@@ -77,7 +76,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     F_801AC808(self, s32, 0x134) = 2;
     self->m12();
     F_801AC808(self, s32, 0x1AC) = 0;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0xB:
     case 0xC:
     case 0xD:
@@ -100,7 +99,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     }
     F_801AC808(self, f32, 0x150) = pkt->f20;
     if (F_801AC808(self, s32, 0x194) == 0) {
-        set_field_b8__14TObjEnePanarmsFs(self, 0);
+        ((TObjEnePanarms *)self)->set_field_b8(0);
         begin_photon_summon_camera(self, 2);
         F_801AC808(self, s32, 0x194) = 1;
         F_801AC808(self, s16, 0x190) = 0;

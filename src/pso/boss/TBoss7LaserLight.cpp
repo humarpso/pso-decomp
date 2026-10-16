@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss7LaserLight.h"
+#include "pso/object/TObjLight.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct V3_802EEF10 { f32 x, y, z; };
 
@@ -23,8 +25,6 @@ extern const f32 TBoss7LaserLight__data_805DEBC4;
 u8 *construct_with_params__16TBoss7LaserLightFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void noop_laser__23TAdSinglePlyChrSelectGCFv(s32);
 void TAdSinglePlyChrSelectGC__sub_80133508(s32);
-void forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPv(s32, void *);
-void set_vec3__23TAdSinglePlyChrSelectGCFPv(s32, s32);
 }
 
 extern "C" {
@@ -32,7 +32,6 @@ extern "C" {
 void TBoss7LaserLight__sub_802EF120(void* p);
 void TBoss7LaserLight__sub_802EF12C(void* p);
 void *__dt__16TBoss7LaserLightFv(void *arg0, s16 arg1);
-void unregister_and_free__9TObjLightFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -88,11 +87,11 @@ void TBoss7LaserLight::run_task() {
         }
         arg0->x38 = v;
         arg0->x3C = 40.0f + v;
-        forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPv(arg0->x40, &arg0->x38);
-        set_vec3__23TAdSinglePlyChrSelectGCFPv(arg0->x40, arg0->x1C);
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->forward_to_field_0x14(&arg0->x38);
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)(arg0->x1C));
         break;
     case 2:
-        set_vec3__23TAdSinglePlyChrSelectGCFPv(arg0->x40, arg0->x1C);
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)(arg0->x1C));
         break;
     case 3:
         v = arg0->x38;
@@ -104,8 +103,8 @@ void TBoss7LaserLight::run_task() {
         }
         arg0->x38 = v;
         arg0->x3C = 40.0f + v;
-        forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPv(arg0->x40, &arg0->x38);
-        set_vec3__23TAdSinglePlyChrSelectGCFPv(arg0->x40, arg0->x1C);
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->forward_to_field_0x14(&arg0->x38);
+        ((TAdSinglePlyChrSelectGC *)(arg0->x40))->set_vec3((void*)(arg0->x1C));
         break;
     }
 }
@@ -118,7 +117,7 @@ extern s32 __vt__16TBoss7LaserLight[];
 void *__dt__16TBoss7LaserLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TBoss7LaserLight;
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { unregister_and_free__9TObjLightFv(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)arg0 + 0x40)))->unregister_and_free(); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

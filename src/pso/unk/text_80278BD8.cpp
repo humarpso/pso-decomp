@@ -1,33 +1,26 @@
 #include "types.h"
+#include "pso/misc/TShopJudgmentItemWindow.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Wn_80278DA4 { u8 pad0[0x20]; s16 f20; u8 pad22[0x50]; s16 f72; };
 
 extern "C" {
 u8 *find_item_by_id(int);
 u8 *get_player_by_client_id(s16);
-u32 run_and_get_result__10TObjPlayerFi(int, void *);
 void calc_list_content_extent(void *);
-void add_list_entry__20TWindowSubStatusDispFl(void *, int);
-void add_list_entry__23TShopJudgmentItemWindowFll(void *, void *, int);
 void populate_judgment_item_list(Wn_80278DA4 *arg0);
 u32 get_usable_action_flags__5TItemFPvUiUi(void *, u32, u32);
 u8 *find_item_by_id(int);
 u8 get_field_ec__12TOSwitchItemFv();
 u8 *get_player_by_client_id(s16);
-u32 run_and_get_result__10TObjPlayerFi(int, void *);
 void calc_list_content_extent(void *);
-void add_list_entry__20TWindowSubStatusDispFl(void *, int);
-void add_list_entry__23TShopJudgmentItemWindowFll(void *, void *, int);
 void build_mag_item_candidates(void *arg0, u16 arg1);
-u8 get_field_ed__10TObjPlayerFv(void *);
 u32 get_usable_action_flags__5TItemFPvUiUi(void *, u32, u32);
 u8 *find_item_by_id(int);
 u8 get_field_ec__12TOSwitchItemFv();
 u8 *get_player_by_client_id(s16);
-u32 run_and_get_result__10TObjPlayerFi(int, void *);
 void calc_list_content_extent(void *);
-void add_list_entry__20TWindowSubStatusDispFl(void *, int);
-void add_list_entry__23TShopJudgmentItemWindowFll(void *, void *, int);
 void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub);
 }
 
@@ -41,16 +34,16 @@ void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub) {
     u8 *pl;
     pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != NULL) {
-        n = run_and_get_result__10TObjPlayerFi(*(s32 *)(pl + 0xD00), ids);
+        n = ((TObjPlayer *)(*(s32 *)(pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {
             item = find_item_by_id(ids[i]);
-            if (item != NULL && kind == ((u8 (*)(void *))get_field_ec__12TOSwitchItemFv)(item) && sub == get_field_ed__10TObjPlayerFv(item) &&
+            if (item != NULL && kind == ((u8 (*)(void *))get_field_ec__12TOSwitchItemFv)(item) && sub == ((TObjPlayer *)item)->get_field_ed() &&
                 get_usable_action_flags__5TItemFPvUiUi(item, 8, 0) != 0) {
-                add_list_entry__23TShopJudgmentItemWindowFll(arg0, item, ids[i]);
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, (s32)(ids[i]));
             }
         }
         if (*(s16 *)(arg0 + 0x72) <= 0) {
-            add_list_entry__20TWindowSubStatusDispFl(arg0, -1);
+            ((TWindowSubStatusDisp *)arg0)->add_list_entry(-1);
         }
         calc_list_content_extent(arg0);
     }
@@ -64,15 +57,15 @@ void build_mag_item_candidates(void *arg0, u16 arg1) {
     u8 *pl;
     pl = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if (pl != NULL) {
-        n = run_and_get_result__10TObjPlayerFi(*(s32 *)((s8 *)pl + 0xD00), ids);
+        n = ((TObjPlayer *)(*(s32 *)((s8 *)pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {
             item = find_item_by_id(ids[i]);
             if ((item != 0) && (arg1 == get_field_ec__12TOSwitchItemFv()) && (get_usable_action_flags__5TItemFPvUiUi(item, 8, 0) != 0U)) {
-                add_list_entry__23TShopJudgmentItemWindowFll(arg0, item, ids[i]);
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, (s32)(ids[i]));
             }
         }
         if (*(s16 *)((s8 *)arg0 + 0x72) <= 0) {
-            add_list_entry__20TWindowSubStatusDispFl(arg0, -1);
+            ((TWindowSubStatusDisp *)arg0)->add_list_entry(-1);
         }
         calc_list_content_extent(arg0);
     }
@@ -86,15 +79,15 @@ void populate_judgment_item_list(Wn_80278DA4 *arg0) {
     u8 *p;
     p = get_player_by_client_id(arg0->f20);
     if (p != NULL) {
-        count = run_and_get_result__10TObjPlayerFi(*(s32 *)(p + 0xD00), list);
+        count = ((TObjPlayer *)(*(s32 *)(p + 0xD00)))->run_and_get_result((int)list);
         for (i = 0; i < count; i++) {
             id = find_item_by_id(list[i]);
             if (id != NULL) {
-                add_list_entry__23TShopJudgmentItemWindowFll(arg0, id, list[i]);
+                ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)id, (s32)(list[i]));
             }
         }
         if (arg0->f72 <= 0) {
-            add_list_entry__20TWindowSubStatusDispFl(arg0, -1);
+            ((TWindowSubStatusDisp *)arg0)->add_list_entry(-1);
         }
         calc_list_content_extent(arg0);
     }

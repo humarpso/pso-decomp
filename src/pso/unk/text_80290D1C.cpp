@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Desc_80290D1C { void *verts; u32 *colors; int start; int count; };
 
 extern "C" {
 s32 draw_line_list(void *, int, int);
-void draw_tri_fan_3d__10TObjPlayerFlUl(void *, int, int);
 s32 __cvt_fp2unsigned(f32);
 extern s32 creation_ruler_line_vertices[];
 extern u32 lbl_804DA97C[4];
@@ -32,7 +32,7 @@ void draw_creation_ruler_lines(f32 farg0) {
     draw_line_list(&d, 0x10, 5);
     c = __cvt_fp2unsigned(lbl_805DD95C * farg0) | 0x40400000 | 0x4000;
     lbl_804DA97C[0] = lbl_804DA97C[1] = c;
-    draw_tri_fan_3d__10TObjPlayerFlUl(lbl_804DA98C, 4, 7);
+    ((TObjPlayer *)lbl_804DA98C)->draw_tri_fan_3d(4, 7);
 }
 
 }

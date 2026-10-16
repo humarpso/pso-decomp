@@ -9,6 +9,8 @@ typedef struct Anim_80242B30 {
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 struct Stack_80242938 {
     f32 sp8;
     f32 spC;
@@ -26,7 +28,6 @@ extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 f32 update_scale__15TObjBoss2TunnelFv(void *, f32);
 u8 *get_player_by_client_id(s32);
-s32 is_active__12TBoss3VoloptFv(int);
 u8 *get_pad_rumble_effect_slots();
 extern const f32 lbl_805DCA00;
 }
@@ -35,7 +36,6 @@ extern "C" {
 
 void TAdSinglePlyChrSelectGC__sub_80242B24(void* p);
 void TLobby__sub_80242918(void);
-void* get_sub_disp_ptr__20TWindowSubStatusDispFv(void* p);
 
 s32 TLobby::get_id() { return *(s32*)((char*)this + 0x0); }
 
@@ -69,7 +69,7 @@ void TAdSinglePlyChrSelectGC::accumulate_rumble_strength(s16 *arg0, s32 arg1) {
         var_r30 = (u8 *)(get_pad_rumble_effect_slots());
         var_r29 = 0;
         do {
-            if ((is_active__12TBoss3VoloptFv((int) (var_r30)) != 0) && ((temp_r3_2 = *(u8 *)((s8 *)var_r30 + 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) *(s16 *)((s8 *)var_r30 + 2)))) {
+            if ((((TBoss3Volopt *)var_r30)->is_active() != 0) && ((temp_r3_2 = *(u8 *)((s8 *)var_r30 + 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) *(s16 *)((s8 *)var_r30 + 2)))) {
                 if (temp_r3_2 & 2) {
                     stack.sp8 = *(f32 *)((s8 *)var_r30 + 4) - *(f32 *)((s8 *)temp_r3 + 0x38);
                     stack.spC = *(f32 *)((s8 *)var_r30 + 8) - *(f32 *)((s8 *)temp_r3 + 0x3C);

@@ -20,7 +20,6 @@ int request_queued_main_phase(void);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
-int set_state__9TSaveChCrFl(void*, void*);
 int close_and_advance__9TSaveChCrFPv(void*, int);
 s32 poll_memcard_status();
 int queue_destruction__7TObjectFv(void*);
@@ -28,7 +27,7 @@ s32 save_character__9TSaveChCrFv(void *);
 
 void TSaveChCr::destroy_if_keyboard_idle() { if (*(int*)((char*)this + 0x38) == 0) { queue_destruction__7TObjectFv(this); request_queued_main_phase(); } }
 int TSaveChCr__sub_80339B94(void* p) { return close_window__9TSaveChCrFv(p); }
-void TSaveChCr::save_if_dirty() { if (TSaveChCr__sub_80339F30(this) != 0) { set_state__9TSaveChCrFl(this, (void*)4); } }
+void TSaveChCr::save_if_dirty() { if (TSaveChCr__sub_80339F30(this) != 0) { set_state((s32)((void*)4)); } }
 int TSaveChCr::close_and_advance_to_3() { return close_and_advance__9TSaveChCrFPv(this, 3); }
 void TSaveChCr::update_save_status() {
     s32 var_r3;
@@ -37,7 +36,7 @@ void TSaveChCr::update_save_status() {
         *(s32 *)((s8 *)this + 0x28) = 0;
         *(s32 *)((s8 *)this + 0x2C) = poll_memcard_status();
         if ((s32) *(s32 *)((s8 *)this + 0x2C) != 0) {
-            set_state__9TSaveChCrFl((void*)(this), (void*)(1));
+            set_state((s32)((void*)(1)));
             return;
         }
         if ((s32) *(s32 *)((s8 *)this + 0x20) == 0) {
@@ -46,7 +45,7 @@ void TSaveChCr::update_save_status() {
             var_r3 = TSaveChCr__sub_8033A138(this);
         }
         if (var_r3 == 7) {
-            set_state__9TSaveChCrFl((void*)(this), (void*)(4));
+            set_state((s32)((void*)(4)));
             return;
         }
         queue_destruction__7TObjectFv((void*)(this));
@@ -67,11 +66,11 @@ void TSaveChCr::update_save_state() {
             }
         } else {
             if (temp_r4 & 4) {
-                set_state__9TSaveChCrFl((void*)(this), (void*)(1));
+                set_state((s32)((void*)(1)));
                 return;
             }
             if (temp_r4 == 0) {
-                set_state__9TSaveChCrFl((void*)(this), (void*)(2));
+                set_state((s32)((void*)(2)));
             }
         }
     }

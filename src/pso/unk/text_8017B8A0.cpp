@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOVS2Wall01.h"
 
 struct Obj_8017B8A0 {
     u8 pad[0x18];
@@ -52,17 +54,13 @@ void TOTrapAncient02R__vt21(Obj_8017B8A0 *self);
 extern const f32 lbl_805DBA78;
 void TOTrapAncient02R__vt22(V_8017B8D4 *self);
 s32 access_object_saved_state(void *, void *, int);
-void update_and_send__11TOVS2Wall01Fv(void *);
-void init__11TOVS2Wall01Fv(void *);
 void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
-void apply_table_entry__6TLobbyFsPv(s16, void *);
 VObj_8017B9B0 *find_entity_by_id();
 s32 access_object_saved_state(void *, void *, int);
 void init__11TOVS2Wall01Fi(void *);
 void TOVS2Wall01__sub_8017CA48(void *, s32);
 s32 TOVS2Wall01__sub_8017CA50(void *);
-void byteswap_hit_packet__11TOVS2Wall01Fv(void *);
 extern s32 TOVS2Wall01__class_name;
 extern Ent_8017B9B0 *TLobby__data_805D6140;
 void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0);
@@ -125,7 +123,7 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
     if (arg0 == NULL) {
         return;
     }
-    byteswap_hit_packet__11TOVS2Wall01Fv(arg0);
+    ((TOVS2Wall01 *)arg0)->byteswap_hit_packet();
     id = arg0->b;
     if (id == 0xFFFF) {
         return;
@@ -165,7 +163,7 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
         *(s32 *)&sp8 = *(s32 *)&TLobby__data_805D6140[arg0->d];
         if (sp8.a != 1) {
             sp8.a = arg0->c;
-            apply_table_entry__6TLobbyFsPv(arg0->d, &sp8);
+            TLobby::apply_table_entry(arg0->d, &sp8);
         }
     }
 }
@@ -182,13 +180,13 @@ void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1) {
         sp8 = v;
         access_object_saved_state(arg0, &sp8, 0);
         sub = arg0->sub;
-        init__11TOVS2Wall01Fv(&pkt);
+        ((TOVS2Wall01 *)(&pkt))->init();
         pkt.b = arg0->f1C;
         pkt.c = sp8;
         pkt.d = sub->f4;
         pkt.e = arg1;
         pkt.f = arg0->f33C;
-        update_and_send__11TOVS2Wall01Fv(&pkt);
+        ((TOVS2Wall01 *)(&pkt))->update_and_send();
     }
 }
 

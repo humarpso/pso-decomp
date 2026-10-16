@@ -1,6 +1,13 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOCapsuleLabo.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOHealGeneral.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/object/TObjSeabedSuisoBrakable.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80470790[];
@@ -50,8 +57,6 @@ struct RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo {
 extern "C" {
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 count_linked_switches__23TObjSeabedSuisoBrakableFl(u32, s32);
 extern u32 TOCapsuleLabo__model_resource;
 extern s32 *capsule_labo_switch_flags_ptr;
 s32 is_split_screen();
@@ -59,11 +64,8 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(void *, s32);
 s32 set_indexed_flags(void *, int, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 update_heal_gauge_state__13TOHealGeneralFv(void *);
-s32 init__5TOKeyFv(void *);
 s32 get_game_play_mode();
 extern RecoveredGlobal_802AF4F4_lbl_804DE450 TOCapsuleLabo__collision_parts;
 extern s32 __vt__13TOCapsuleLabo[];
@@ -89,10 +91,6 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 begin_effect_render__13TParticleCtrlFv();
-void destroy_key_object__5TOKeyFs(void *, int);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(int);
 
 extern u32 TOCapsuleLabo__model_resource;
 
@@ -109,7 +107,7 @@ void TOCapsuleLabo::load_resources() {
     s32 temp_r3;
     s32 var_r0;
     u32 temp_r3_2;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOCapsuleLabo__resource_descriptor, 0, 0, 0));
@@ -117,7 +115,7 @@ void TOCapsuleLabo::load_resources() {
     (*(u8 * *)&TOCapsuleLabo__model_resource) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = get_bml_model((void *) var_r0, 0);
     if (temp_r3_2 != 0) {
-        (*(s32 *)&capsule_labo_switch_flags_ptr) = count_linked_switches__23TObjSeabedSuisoBrakableFl(temp_r3_2, 3);
+        (*(s32 *)&capsule_labo_switch_flags_ptr) = ((TObjSeabedSuisoBrakable *)temp_r3_2)->count_linked_switches(3);
     }
 }
 
@@ -129,7 +127,7 @@ void TOCapsuleLabo::render() {
 
     *(s32 *)((s8 *)arg0 + 0xE0) = ((VObj802AF370_802af370_802AF2C8 *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4));
     if ((s32) *(s32 *)((s8 *)arg0 + 0xE0) == 1) {
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) == 1) {
             if ((s32 *) capsule_labo_switch_flags_ptr != NULL) {
                 *capsule_labo_switch_flags_ptr &= 0xFFFFFFF7;
@@ -149,10 +147,10 @@ void TOCapsuleLabo::render() {
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xE4)));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(s32 *)((s8 *)temp_r31_2 + 0x2C);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         post_translate_matrix((void *) (temp_r31_3 + 8));
         draw_ginja_object((int) (temp_r31_3));
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
         pop_matrix();
     }
@@ -169,7 +167,7 @@ void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TOCapsuleLabo;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_key_object__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -179,7 +177,7 @@ void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802AF4F4_lbl_804DE450_size[sizeof(RecoveredGlobal_802AF4F4_lbl_804DE450) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo_size[sizeof(RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo) == 0x44 ? 1 : -1];
 u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init__5TOKeyFv((void *) (arg0));
+    ((TOKey *)arg0)->init();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo *)&__vt__13TOCapsuleLabo).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E7C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -188,8 +186,8 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&TOCapsuleLabo__collision_parts.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
-    update_heal_gauge_state__13TOHealGeneralFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DE1E8;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DE1EC;
     *(s32 *)((s8 *)arg0 + 0xE4) = 0;

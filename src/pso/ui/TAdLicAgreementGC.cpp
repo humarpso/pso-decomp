@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdLicAgreementGC.h"
+#include "pso/ui/TAdScrollWinGC.h"
 
 struct Base_80329BB8 { char pad[0x18]; };
 struct VObj_80329BB8 : Base_80329BB8 {
@@ -42,7 +43,6 @@ void *TAdScrollWinGC__ct(void *, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__18TAdAgreementBaseGCFv(void *, int);
 void *__nw__7TObjectFUl(int);
-int close_window__14TAdScrollWinGCFv(void*);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int set_game_mode__21TAdMultiChgGameModeGCFv(void*);
 int set_mode_1c__21TAdMultiChgGameModeGCFv(void*);
@@ -55,7 +55,7 @@ void TAdLicAgreementGC::render() {
 int TAdLicAgreementGC__vt7(void* p) { return set_game_mode__21TAdMultiChgGameModeGCFv(p); }
 int TAdLicAgreementGC__vt6(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 int TAdLicAgreementGC__vt5(void* p) { return set_mode_1c__21TAdMultiChgGameModeGCFv(p); }
-void TAdLicAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { close_window__14TAdScrollWinGCFv(*(void**)((char*)p + 0x38)); *(int*)((char*)p + 0x38) = 0; } }
+void TAdLicAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { ((TAdScrollWinGC *)(*(void**)((char*)p + 0x38)))->close_window(); *(int*)((char*)p + 0x38) = 0; } }
 
 void TAdLicAgreementGC::run_task() {
     struct VObj_80329C84_80329BB8 *o = (struct VObj_80329C84_80329BB8 *)this;

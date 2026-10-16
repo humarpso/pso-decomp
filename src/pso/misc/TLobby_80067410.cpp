@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/boss/TObjBoss5PillarDemo.h"
 
 extern "C" {
 int load_boss5_common_assets(void);
 int fn_802898EC(void);
-int update_active_pillar__19TObjBoss5PillarDemoFv(void);
 int TObjBoss5PillarDemo__sub_8028ACE4(void);
 int forward_pillar_2B710__19TObjBoss5PillarCtrlFv(void);
 extern u32 boss5_ctrl_instance;
@@ -32,6 +32,6 @@ void TLobby::cleanup_pillar_demo() {
     TObjBoss5PillarDemo__sub_8028AB38();
     TLobby__sub_80066EC0();
 }
-void TLobby::cleanup_boss5_pillars() { load_boss5_common_assets(); update_active_pillar__19TObjBoss5PillarDemoFv(); fn_802898EC(); forward_pillar_2B710__19TObjBoss5PillarCtrlFv(); TObjBoss5PillarDemo__sub_8028ACE4(); (*(int *)&boss5_ctrl_instance) = 0; }
+void TLobby::cleanup_boss5_pillars() { load_boss5_common_assets(); TObjBoss5PillarDemo::update_active_pillar(); fn_802898EC(); forward_pillar_2B710__19TObjBoss5PillarCtrlFv(); TObjBoss5PillarDemo__sub_8028ACE4(); (*(int *)&boss5_ctrl_instance) = 0; }
 
 }

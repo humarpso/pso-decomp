@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss7Crawfish.h"
+#include "pso/misc/TNowLoading.h"
 
 struct Craw_80308D1C {
     u8 pad0[0x60];
@@ -13,7 +14,6 @@ struct Craw_80308D1C {
 extern "C" {
 u16 find_nearest_visible_player(void *, void *, f32);
 f64 atan2_float(f32, f32);
-s32 change_state__14TBoss7CrawfishFl(void *, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void normalize_vector(void *);
@@ -28,9 +28,6 @@ extern "C" {
 s32 register_attack_hits__14TBoss7CrawfishFPv(void *, void *, f32, f32);
 s32 TBoss7Crawfish__sub_803087D4(void *, int);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
-s32 change_state__14TBoss7CrawfishFl(void *, int);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
-s32 free_child__14TBoss7CrawfishFv(void *);
 
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF0F4;
@@ -45,12 +42,12 @@ void TBoss7Crawfish::update_motion_and_release() {
     {
         void *temp_ptr = (void *) *(u32 *)((s8 *)arg0 + 0x3CC);
         if (temp_ptr != NULL) {
-            copy_pos__11TNowLoadingFPv(temp_ptr, (void *) (arg0 + 0x38));
+            ((TNowLoading *)temp_ptr)->copy_pos((void *) (arg0 + 0x38));
         }
     }
     if (TBoss7Crawfish__sub_80308ED8((void *) (arg0), (void *) (arg0 + 0x308)) == 0) {
-        free_child__14TBoss7CrawfishFv((void *) (arg0));
-        change_state__14TBoss7CrawfishFl((void *) (arg0), (int) (3));
+        ((TBoss7Crawfish *)arg0)->free_child();
+        ((TBoss7Crawfish *)arg0)->change_state((int) (3));
         return;
     }
     TBoss7Crawfish__sub_803087D4((void *) (arg0), (int) (0x3A80C));
@@ -70,7 +67,7 @@ void TBoss7Crawfish::aim_at_nearest_player() {
         o->vz = s * cos_table_lookup(o->angle);
     }
     o->angle = lbl_804755B0[0] * atan2_float(o->vx, o->vz);
-    change_state__14TBoss7CrawfishFl((void *)(o), (int)(2));
+    ((TBoss7Crawfish *)o)->change_state((int)(2));
 }
 
 }

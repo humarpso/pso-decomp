@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -65,7 +68,6 @@ typedef struct Pos_8014556C
 
 extern "C" {
 extern u8 lbl_805D56C0;
-s32 set_global_param__8TObjFishFl(s32 *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 menu_font_texture_list;
 extern const f32 lbl_805DB190;
 extern const f32 lbl_805DB194;
@@ -74,7 +76,6 @@ void set_glyph_quad_extents(u8 arg0, u8 *arg1);
 extern RecoveredGlobal_80144FCC_lbl_804A74F0 menu_font_char_advance_table;
 u32 get_font_char_advance(u16 arg0);
 u16 map_char_to_font_code(u16 c);
-s32 get_field24__11TWindowCtrlFv();
 extern s32 text_control_color_palette[];
 char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 u32 get_font_char_advance(u16 arg0);
@@ -94,7 +95,6 @@ extern const f32 lbl_805DB19C;
 u32 get_font_char_advance(u16 arg0);
 extern const f32 lbl_805DB19C;
 u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
-void reset_transform_state__10TObjPlayerFv(void);
 char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 void set_glyph_quad_extents(u8 arg0, u8 *arg1);
 u16 map_char_to_font_code(u16 c);
@@ -130,7 +130,7 @@ char *parse_text_control_codes(char *p, s32 *a, s32 *b) {
         case 'C':
             if (b != NULL) {
                 if (p[1] == 'G') {
-                    *b = get_field24__11TWindowCtrlFv();
+                    *b = TWindowCtrl::get_field24();
                 } else if (p[1] >= '0' && p[1] <= '9') {
                     *b = text_control_color_palette[p[1] - '0'];
                 }
@@ -470,7 +470,7 @@ u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 ar
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TWindowSubStatusDisp::set_gauge_param(s32 _w0) {
-    set_global_param__8TObjFishFl((s32 *)(&menu_font_texture_list.value));
+    TObjFish::set_global_param((s32)((s32 *)(&menu_font_texture_list.value)));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
@@ -500,7 +500,7 @@ void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32
   }
   pos.x = x;
   pos.y = y;
-  reset_transform_state__10TObjPlayerFv();
+  TObjPlayer::reset_transform_state();
   TWindowSubStatusDisp::reset_gauge((void*)(0));
   flags &= 1;
   while ((*s) != 0)

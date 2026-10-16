@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/item/TObjContainerJungEx.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TObjContainerItem.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -110,11 +113,9 @@ struct Obj_8018CFD4 { u8 pad[0x38]; Vec_8018CFD4 pos; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 spawn_item__17TObjContainerItemFl(void *, void *);
 s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerJungEx__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void reset_photon_effect__10TObjPlayerFv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D314_lbl_804B7168 container_jung_collision_desc;
@@ -151,9 +152,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 destroy_container_object__10TObjPlayerFs(void *, s32);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 set_global_param__8TObjFishFl();
 
 extern void *tl_05;
@@ -215,7 +213,7 @@ void TObjContainerJungEx__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj_18 *)(arg0))->m77();
-            spawn_item__17TObjContainerItemFl((void *) (arg0), (void *) (arg0));
+            ((TObjContainerItem *)arg0)->spawn_item((s32)((void *) (arg0)));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
@@ -241,10 +239,10 @@ void TObjContainerJungEx__vt79(u8 *arg0) {
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         get_model__19TObjContainerJungExFl(0);
         draw_ginja_object();
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         get_model__19TObjContainerJungExFl(3);
         draw_ginja_object();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     case 1:
         return;
@@ -272,7 +270,7 @@ void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjContainerJungEx;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -288,7 +286,7 @@ u8 *TObjContainerJungEx__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &container_jung_collision_desc.value, 1);
-    reset_photon_effect__10TObjPlayerFv((s32) arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&container_jung_collision_desc.value) + 4));

@@ -12,6 +12,7 @@ public:
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -45,7 +46,6 @@ struct TAdSelectCurGC_802AF0E0 {
 };
 
 extern "C" {
-void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 lbl_80470764[];
 extern const s32 lbl_80470778[];
@@ -61,7 +61,6 @@ void fn_802AEAA4(void *, s32);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void TAdSelectCurGC__sub_802AF274(void* p, f32 v);
 extern void *__vt__14TAdSelectCurGC[];
@@ -156,8 +155,8 @@ TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, vo
     __ct__7TObjectFP7TObject(o);
     o->vt18 = __vt__14TAdSelectCurGC;
     o->f0 = lbl_805D3E70;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((u8 *)o + 0x1C, a);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((u8 *)o + 0x9C, b);
+    ((TWindowSubSymbolChatPartsSet *)((u8 *)o + 0x1C))->copy_vec2(a);
+    ((TWindowSubSymbolChatPartsSet *)((u8 *)o + 0x9C))->copy_vec2(b);
     o->fA4 = 0;
     o->fA8 = 0;
     o->fAC = 0;
@@ -181,7 +180,7 @@ void TLobby__sub_802AF198(void) {
 }
 
 void TLobby::apply_menu_cursor_selection() {
-    update_menu_cursor__6TLobbyFv();
+    TLobby::update_menu_cursor();
     ByteBlock_14 a = *(const ByteBlock_14 *)lbl_80470764;
     ByteBlock_14 b = *(const ByteBlock_14 *)lbl_80470778;
     s32 r4 = b.v[current_language];

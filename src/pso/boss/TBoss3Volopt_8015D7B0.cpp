@@ -1,17 +1,16 @@
 #include "types.h"
 #include "pso/boss/TBoss3Volopt.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 s32 is_any_player_within_radius_xz(f32);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D4;
 void TBoss3Volopt__sub_8015D7B0(u8 *arg0);
 void set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(f32);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D8;
@@ -24,8 +23,8 @@ void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
         return;
     }
     *(s32 *)(arg0 + 0xAC) = 3;
-    clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 8);
-    switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
+    ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+    switch ((u32)TOKeyMachine01::get_global_state()) {
     case 0:
         break;
     case 3:
@@ -62,7 +61,7 @@ void TBoss3Volopt::play_proximity_sound() {
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D8) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);
-        switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
+        switch ((u32)TOKeyMachine01::get_global_state()) {
         case 3:
         case 4:
         case 5:

@@ -14,22 +14,16 @@ struct BattleIntroWindowSize { f32 x, y; };
 extern "C" {
 void *get_window_layout_position(s32);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
-void set_score__19TPlayerBattleCtrl4PFl(void *, int);
 extern const BattleIntroWindowSize lbl_80475B60;
 s32 lbl_805D6AB0;
-void open_intro_window__19TPlayerBattleCtrl4PFv(BattleIntroWindowState *self);
 }
 
 extern "C" {
 
-void initialize_battle__19TPlayerBattleCtrl4PFv(void* p);
-void show_intro_text__19TPlayerBattleCtrl4PFv(void *arg0);
 int set_split_screen_battle_phase(void*, void*);
 int init_battle__19TPlayerBattleCtrl4PFPv(void*);
 void send_and_handle__6TLobbyFii(void *, void *, int);
-void set_score__19TPlayerBattleCtrl4PFl(void *, int);
 void *destroy__19TPlayerBattleCtrl4PFs(void *arg0, s16 arg1);
-s32 close_player_windows__19TPlayerBattleCtrl4PFv(void *);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -54,37 +48,6 @@ extern u8 lbl_805DF238[];
 extern u8 lbl_805DF23C[];
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void update_intro_phase__19TPlayerBattleCtrl4PFv(TPlayerBattleCtrl4P *self);
-void update_battle_phase__19TPlayerBattleCtrl4PFv(TPlayerBattleCtrl4P *self);
-void update_results_phase__19TPlayerBattleCtrl4PFv(TPlayerBattleCtrl4P *self);
-void update_return_phase__19TPlayerBattleCtrl4PFv(TPlayerBattleCtrl4P *self);
-void update_reload_phase__19TPlayerBattleCtrl4PFv(TPlayerBattleCtrl4P *self);
-void wait_for_intro_text__19TPlayerBattleCtrl4PFv();
-void show_team_matchup__19TPlayerBattleCtrl4PFv();
-void wait_for_team_matchup__19TPlayerBattleCtrl4PFv();
-void begin_ready_wait__19TPlayerBattleCtrl4PFv();
-void update_ready_wait__19TPlayerBattleCtrl4PFv();
-void wait_for_start_countdown__19TPlayerBattleCtrl4PFv();
-void close_intro_and_start_battle__19TPlayerBattleCtrl4PFv();
-void start_battle__19TPlayerBattleCtrl4PFv();
-void update_battle_time_and_rankings__19TPlayerBattleCtrl4PFv();
-void begin_battle_results__19TPlayerBattleCtrl4PFv();
-void wait_after_battle_end__19TPlayerBattleCtrl4PFv();
-void wait_before_recording_results__19TPlayerBattleCtrl4PFv();
-void open_result_windows__19TPlayerBattleCtrl4PFv();
-void wait_for_result_window_close__19TPlayerBattleCtrl4PFv();
-void update_rematch_menu__19TPlayerBattleCtrl4PFv();
-void close_rematch_menu__19TPlayerBattleCtrl4PFv();
-void wait_for_rematch_menu_button__19TPlayerBattleCtrl4PFv();
-void record_battle_results_after_delay__19TPlayerBattleCtrl4PFv();
-void close_battle_results__19TPlayerBattleCtrl4PFv();
-void return_to_hunters_guild__19TPlayerBattleCtrl4PFv();
-void sub_80311804__19TPlayerBattleCtrl4PFv();
-void sub_80311800__19TPlayerBattleCtrl4PFv();
-void begin_battle_reload__19TPlayerBattleCtrl4PFv();
-void begin_battle_reload_fade__19TPlayerBattleCtrl4PFv();
-void finish_battle_reload__19TPlayerBattleCtrl4PFv();
-void sub_80311890__19TPlayerBattleCtrl4PFv();
 
 void *TPlayerBattleCtrl4P__message_table_language0[7] = {
     (void *)&lbl_80475930, (void *)&lbl_8047595C, (void *)&lbl_80475964, (void *)&lbl_8047596C,
@@ -101,7 +64,7 @@ void TPlayerBattleCtrl4P::show_intro_text() {
         send_and_handle__6TLobbyFii(*(void **)((s8 *)((void *)this) + 0x20), (void *)((char *)((void *)this) + 56), 128);
     }
     *(u32 *)((s8 *)((void *)this) + 0x240) = 240;
-    set_score__19TPlayerBattleCtrl4PFl(((void *)this), 2);
+    set_score(2);
 }
 extern "C" {
 
@@ -113,7 +76,7 @@ void TPlayerBattleCtrl4P::open_intro_window() {
             get_window_layout_position(0x52), &size, 1);
     }
     lbl_805D6AB0 = 0;
-    set_score__19TPlayerBattleCtrl4PFl((void *)(((BattleIntroWindowState *)this)), (int)(1));
+    set_score((int)(1));
 }
 extern "C" {
 
@@ -187,7 +150,7 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::destroy(s16 should_free) {
             TWindow__close(*(void **)((s8 *)((void *)this) + 0x24));
             *(u32 *)((s8 *)((void *)this) + 0x24) = 0U;
         }
-        close_player_windows__19TPlayerBattleCtrl4PFv(((void *)this));
+        close_player_windows();
         TPlayerBattleCtrl4P__instance = 0;
         __dt__7TObjectFv(((void *)this), 0);
         if (should_free > 0) {

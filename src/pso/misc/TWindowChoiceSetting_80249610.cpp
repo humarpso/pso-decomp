@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TWindowFukidasi.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 typedef struct Balloon_8024966C {
     u8 pad0[0xC];
@@ -16,7 +17,6 @@ typedef struct Ctrl_8024966C {
 
 extern "C" {
 Balloon_8024966C *find_balloon_overlap_for__15TWindowFukidasiFl(Balloon_8024966C *, Balloon_8024966C *);
-s32 get_visible_flag__15TWindowFukidasiFv(Balloon_8024966C *);
 void TWindowFukidasi__sub_80249788(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 void resolve_chat_balloon_overlaps(void);
@@ -27,8 +27,6 @@ extern "C" {
 void TWindowFukidasi__sub_80249788(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 s32 find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(s32, s32, s32, s32);
-s16 get_field_74__17TWindowSubComCardFv(void* p);
-int is_open__17TWindowSubComCardFv(void* p);
 
 int TWindowChoiceSetting::is_selected() { return (*(u16*)((char*)this + 0x70) >> 5) & 0x1; }
 void TWindowFukidasi::draw_resolved_window(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -54,9 +52,9 @@ void resolve_chat_balloon_overlaps(void) {
             while (p->next != NULL) {
                 q = find_balloon_overlap_for__15TWindowFukidasiFl(p, p->next);
                 while (q != NULL) {
-                    if (get_visible_flag__15TWindowFukidasiFv(p) != 0) {
+                    if (((TWindowFukidasi *)p)->get_visible_flag() != 0) {
                         TWindowFukidasi__sub_80249788(q);
-                    } else if (get_visible_flag__15TWindowFukidasiFv(q) != 0) {
+                    } else if (((TWindowFukidasi *)q)->get_visible_flag() != 0) {
                         TWindowFukidasi__sub_80249788(p);
                     } else if (p->rise > q->rise) {
                         TWindowFukidasi__sub_80249788(p);

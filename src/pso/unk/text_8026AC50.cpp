@@ -1,6 +1,6 @@
 #include "types.h"
+#include "pso/THeap.h"
 extern "C" {
-void heap_free__5THeapFPv(void *, u32);
 void __dt__5THeapFv(void *, s32);
 extern u32 chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
@@ -16,13 +16,13 @@ void fn_8026AC50(void) {
     for (i = 29; i >= 0; i--) {
         v = chat_log_lines[i];
         if (v != 0) {
-            heap_free__5THeapFPv(TAdScrollWinGC__chat_log_heap, v);
+            ((THeap *)TAdScrollWinGC__chat_log_heap)->heap_free((void *)v);
             chat_log_lines[i] = 0;
         }
     }
     v = chat_last_line_buffer;
     if (v != 0) {
-        heap_free__5THeapFPv(TAdScrollWinGC__chat_log_heap, v);
+        ((THeap *)TAdScrollWinGC__chat_log_heap)->heap_free((void *)v);
         chat_last_line_buffer = 0;
     }
     __dt__5THeapFv(TAdScrollWinGC__chat_log_heap, 1);

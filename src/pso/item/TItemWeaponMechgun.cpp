@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/items/TItemWeaponMechgun.h"
+#include "pso/player/TObjPlayer.h"
 struct WeaponDispatchPrefix { char pad[0x18]; };
 struct WeaponDispatch : WeaponDispatchPrefix {
     virtual void m0();
@@ -55,7 +56,6 @@ struct WeaponDispatch : WeaponDispatchPrefix {
 };
 
 extern "C" {
-void draw_status_icons__10TObjPlayerFPvPv(void *, void *, void *);
 void mechgun_sample_muzzle_points(u8 *arg0);
 extern const f32 lbl_805DADD0;
 extern const f32 lbl_805DADD4;
@@ -65,7 +65,6 @@ extern s32 tl_05;
 u8 *create_mechgun_weapon(u8 *arg0);
 s32 TItemWeapon__ct(void *, s32, void *);
 s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
-s32 set_atp__10TObjPlayerFs(void *, s32);
 void spawn_weapon_impact_effect();
 extern s32 lbl_804A3260[];
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2);
@@ -101,7 +100,7 @@ void mechgun_update_rotation_decay(void *arg0) {
 }
 
 void mechgun_sample_muzzle_points(u8 *arg0) {
-    draw_status_icons__10TObjPlayerFPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
+    ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1F8, arg0 + 0x204);
 }
 
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
@@ -126,7 +125,7 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
         break;
     }
     if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 5U) {
-        set_atp__10TObjPlayerFs(arg0, -1);
+        ((TObjPlayer *)arg0)->set_atp(-1);
     }
     return arg0;
 }

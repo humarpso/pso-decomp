@@ -89,8 +89,6 @@ typedef union WGPipe_803E352C {
 
 typedef f32 Mtx_803E4354[3][4];
 extern "C" {
-s32 load_screen_space_matrix__10TObjPlayerFv();
-s32 setup_render__10TObjPlayerFv();
 s32 setup_blended_textured_draw();
 s32 load_context_texture_obj();
 void TLobby__sub_803E2EE4(s32 arg0);
@@ -111,7 +109,6 @@ void setup_chunk_tev_stages(void);
 s32 GXSetZMode(int, int, int);
 s32 GXSetZCompLoc(int);
 s32 pop_matrix();
-s32 set_effect_active__10TObjPlayerFv();
 s32 apply_scene_fog();
 extern s32 ginja_draw_flags;
 extern s32 (*player_chunk_draw_end_callback)();
@@ -165,14 +162,12 @@ void draw_strip_pos_normal__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E46FC *verts, 
 void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
 void GXBegin(int, int, u16);
-void clear_move_state_bits__10TObjPlayerFv(void);
 extern s32 chunk_render_flags;
 void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u32 info);
 s32 GXSetBlendMode(int, int, int, int);
 s32 GXSetZMode(int, int, int);
 s32 GXSetZCompLoc(int);
 s32 set_chunk_alpha_compare_ref(int ref);
-void clear_move_state_bits__10TObjPlayerFv(void);
 extern FloatColor model_material_color;
 extern s32 material_alpha_compare_reference;
 extern u8 *current_render_context;
@@ -190,7 +185,6 @@ void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
 void GXSetVtxAttrFmt(int, int, int, int, u8);
 void GXBegin(int, int, u16);
-void clear_move_state_bits__10TObjPlayerFv(void);
 extern s32 chunk_render_flags;
 void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 large);
 struct ChunkModel_803E44D4 { u32 *vertices; u16 *polygons; };
@@ -214,7 +208,6 @@ s32 GXLoadPosMtxImm(void *, int);
 s32 GXLoadNrmMtxImm(void *, int);
 s32 GXLoadTexMtxImm(void *, int, int);
 void push_matrix(void);
-s32 reset_particle_counter__10TObjPlayerFv();
 s32 apply_scene_fog();
 extern Mtx_803E4354 identity_matrix;
 extern s32 ginja_draw_flags;
@@ -261,11 +254,11 @@ void draw_projected_textured_strip(Vtx_803E2D70 *v, s32 n) {
 #pragma pop
 
 void TLobby__sub_803E2EE4(s32 arg0) {
-    load_screen_space_matrix__10TObjPlayerFv();
+    TObjPlayer::load_screen_space_matrix();
     if (arg0 != 0) {
         setup_blended_textured_draw();
     } else {
-        setup_render__10TObjPlayerFv();
+        TObjPlayer::setup_render();
     }
     load_context_texture_obj();
 }
@@ -399,17 +392,17 @@ void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 la
     if ((u32)chunk_render_flags != 0) {
         if ((u32)chunk_render_flags & 1) {
             if ((u32)chunk_render_flags & 0x200) {
-                clear_move_state_bits__10TObjPlayerFv();
+                TObjPlayer::clear_move_state_bits();
                 draw = 0;
             }
         } else if ((u32)chunk_render_flags & 2) {
             if ((u32)chunk_render_flags & 0x400) {
-                clear_move_state_bits__10TObjPlayerFv();
+                TObjPlayer::clear_move_state_bits();
                 draw = 0;
             }
         }
     }
-    clear_move_state_bits__10TObjPlayerFv();
+    TObjPlayer::clear_move_state_bits();
     GXSetVtxAttrFmt(0, 0xD, 1, 3, large ? 0xC : 8);
     GXClearVtxDesc();
     Dolphin_GXSetVtxDesc(9, 1);
@@ -600,7 +593,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     temp_r30 = (u32) (chunk_blend_header_bits & 0x3800) >> 0xBU;
     temp_r29 = (u32) (chunk_blend_header_bits & 0x700) >> 8U;
     if ((u32) chunk_render_flags != 0) {
-        clear_move_state_bits__10TObjPlayerFv();
+        TObjPlayer::clear_move_state_bits();
     }
     if (arg1 == 0) {
         GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
@@ -689,7 +682,7 @@ void TObjPlayer::setup_model_draw_state(void *) {
     Mtx_803E4354 trans;
     Mtx_803E4354 m;
     if ((u32) (ginja_draw_flags & 2) != 0) {
-        reset_particle_counter__10TObjPlayerFv();
+        TObjPlayer::reset_particle_counter();
         apply_scene_fog();
     }
     GXSetVtxAttrFmt(0, 9, 1, 4, 0);
@@ -714,7 +707,7 @@ void TObjPlayer::setup_model_draw_state(void *) {
 #pragma peephole off
 void TObjPlayer::end_chunk_draw() {
     if ((u32) (ginja_draw_flags & 2) != 0) {
-        set_effect_active__10TObjPlayerFv();
+        TObjPlayer::set_effect_active();
         apply_scene_fog();
     }
     pop_matrix();
@@ -846,17 +839,17 @@ void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u
     if ((u32)chunk_render_flags != 0) {
         if ((u32)chunk_render_flags & 1) {
             if ((u32)chunk_render_flags & 0x200) {
-                clear_move_state_bits__10TObjPlayerFv();
+                TObjPlayer::clear_move_state_bits();
                 draw = 0;
             }
         } else if ((u32)chunk_render_flags & 2) {
             if ((u32)chunk_render_flags & 0x400) {
-                clear_move_state_bits__10TObjPlayerFv();
+                TObjPlayer::clear_move_state_bits();
                 draw = 0;
             }
         }
     }
-    clear_move_state_bits__10TObjPlayerFv();
+    TObjPlayer::clear_move_state_bits();
     GXClearVtxDesc();
     Dolphin_GXSetVtxDesc(9, 1);
     Dolphin_GXSetVtxDesc(0xA, 1);

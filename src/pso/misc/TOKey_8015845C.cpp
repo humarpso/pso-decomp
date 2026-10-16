@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
 
 struct VBase_18_ca64a0 { char pad[0x18]; };
 
@@ -22,7 +23,6 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
 extern const f32 lbl_805DB2E8;
@@ -55,7 +55,7 @@ void TOKey::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         temp_r4 = *(u32 *)((s8 *)arg0 + 0xBC);
         if (temp_r4 != 0U) {
             if (temp_r3 == 1) {

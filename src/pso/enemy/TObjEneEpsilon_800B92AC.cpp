@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/enemy/TObjEneEpsilon.h"
+#include "pso/misc/TLobby.h"
 
 struct O_800B98C0;
 extern "C" {
@@ -483,7 +484,6 @@ s32 enemy_bind_or_clear_target(void *self, u16 x);
 void enemy_clear_target(O_800B98C0 *self, u16 _w1);
 s32 find_active_entity_by_id(u16);
 void enemy_set_target_id(Obj_800B9958 *self, u16 id);
-s32 get_game_mode__6TLobbyFv(void);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 }
@@ -519,7 +519,7 @@ void TBoss2DeRolLe::set_target_player(void *player) {
     s32 i;
     self->target_id = 0xFFFF;
     self->target = 0;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         if (player == get_player_data__10TObjPlayerFi(i)) {
             self->target_id = obj_getField1c(player);

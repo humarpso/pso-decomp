@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TWindowSnapShot.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowDuelResult.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base_802A7DDC { char pad[0x3C]; };
 struct VObj_802A7DDC : Base_802A7DDC {
@@ -27,9 +32,6 @@ struct RecoveredGlobal_802A80A0___vt__15TWindowSnapShot {
 };
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-u8 * init_and_reset__15TWindowSnapShotFv(void *);
-s32 start_capture__15TWindowSnapShotFl(void *, s32);
 extern int player_motion_data_filename_ptr;
 extern void *shared_snapshot_capture;
 s32 load_player_motion_data(void);
@@ -44,15 +46,11 @@ extern const f32 lbl_805DE01C;
 void render__15TWindowSnapShotFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 update_fade__17TWindowSubComCardFv(void *);
-s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
 extern RecoveredGlobal_802A7FB0_lbl_8050E208 controller_input_state;
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 s32 get_localized_text_entry(s32, s32);
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
-int set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern RecoveredGlobal_802A80A0_lbl_804DDEB4 window_snapshot_layout;
 extern s32 __vt__15TWindowSnapShot[];
 extern s32 TWindowSnapShot__name;
@@ -65,14 +63,12 @@ int TWindowSnapShot__sub_802A7EAC(void);
 void *__dt__15TWindowSnapShotFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
-s32 update_both__15TWindowSnapShotFv(void *);
 
 extern void *shared_snapshot_capture;
 
 void TWindowSnapShot::free_shared_instance() {
     struct VObj_802A7DDC *o;
-    update_both__15TWindowSnapShotFv(shared_snapshot_capture);
+    ((TWindowSnapShot *)shared_snapshot_capture)->update_both();
     o = (struct VObj_802A7DDC *)shared_snapshot_capture;
     if (o != NULL) {
         o->m0(1);
@@ -86,16 +82,16 @@ s32 load_player_motion_data(void) {
     if ((void *) (*(u8 * *)&shared_snapshot_capture) != NULL) {
         return 0;
     }
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x40);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x40))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (init_and_reset__15TWindowSnapShotFv((void *) temp_r3));
+        var_r0 = (long) (((TWindowSnapShot *)temp_r3)->init_and_reset());
     }
     (*(u8 * *)&shared_snapshot_capture) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 == 0U) {
         return 0;
     }
-    start_capture__15TWindowSnapShotFl((void *) var_r0, (*(s32 *)&player_motion_data_filename_ptr));
+    ((TWindowSnapShot *)var_r0)->start_capture((*(s32 *)&player_motion_data_filename_ptr));
     return 1;
 }
 
@@ -139,15 +135,15 @@ void TWindowSnapShot::run_task() {
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_open_sound();
     }
-    initialize_subwindow__9TWindowDDFv((void *) (arg0));
-    update_fade__17TWindowSubComCardFv((void *) (arg0));
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__15TWindowSnapShotFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowSnapShot;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -165,8 +161,8 @@ u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1) {
     if (verify_snapshot_checksum__15TObjBoss2TunnelFv() == 0) {
         *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 2);
     }
-    temp_r31 = get_array_entry__20TWindowSubStatusDispFi(arg0, 1);
-    set_default_status__17TWindowDuelResultFPvi((void *) temp_r31, get_localized_text_entry((s32)(0xF), (s32)(0x13)));
+    temp_r31 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(1);
+    TWindowDuelResult::set_default_status((void *) temp_r31, get_localized_text_entry((s32)(0xF), (s32)(0x13)));
     return arg0;
 }
 

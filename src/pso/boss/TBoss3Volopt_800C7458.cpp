@@ -77,6 +77,7 @@ struct RecoveredGlobal_800C7698_lbl_8058D490 {
 
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_800C762C {
     s32 sp8;
     s32 spC;
@@ -89,7 +90,6 @@ struct RecoveredGlobal_800C762C_lbl_8043BCA0 {
 };
 
 extern "C" {
-s32 render_anim_model__10TObjPlayerFf(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
@@ -147,7 +147,7 @@ void render_anim_model_at_pos__12TBoss3VoloptFPv(u8 *arg0) {
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    render_anim_model__10TObjPlayerFf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    ((TObjPlayer *)arg0)->render_anim_model((f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     pop_matrix();
 }
 

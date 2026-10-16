@@ -3,9 +3,7 @@
 #include "types.h"
 
 extern "C" {
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *create_particle_emitter(void *, s32);
-void set_flags__11TBoss4Type2FUl(void *, u32);
 s32 get_player_by_client_id(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 is_active__14TBoss6PlotFalzFv();
@@ -19,14 +17,15 @@ void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *a
 }
 
 extern "C" {
-void request_destroy__11TBoss4Type2FUl(void*);
 }
 
 #include "types.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 s32 get_player_by_client_id(int);
 s32 is_active__14TBoss6PlotFalzFv();
 }
@@ -43,7 +42,7 @@ void TBoss6EffHyoui::run_task() {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
         temp_r3 = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x20)));
         if ((temp_r3 != 0) && (is_active__14TBoss6PlotFalzFv() != 0)) {
-            copy_pos__11TNowLoadingFPv((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (void *) (temp_r3 + 0x38));
+            ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x1C)))->copy_pos((void *) (temp_r3 + 0x38));
         }
     }
     *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
@@ -53,7 +52,7 @@ void TBoss6EffHyoui::run_task() {
 }
 
 TBoss6EffHyoui::~TBoss6EffHyoui() {
-    if (m_1c != nullptr) request_destroy__11TBoss4Type2FUl(m_1c);
+    if (m_1c != nullptr) TBoss4Type2::request_destroy((u32)m_1c);
 }
 void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     u8 *self = (u8 *)arg0;
@@ -71,8 +70,8 @@ void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *a
             lbl_805D6FF8 = lbl_805E0380;
         }
         if ((*(void **)((s8 *)self + 0x1C) = create_particle_emitter(p + 0x38, lbl_8047AC70[(s32)arg3])) != NULL) {
-            set_flags__11TBoss4Type2FUl(*(void **)((s8 *)self + 0x1C), 0x40);
-            set_position_xy__10TObjPlayerFff(*(void **)((s8 *)self + 0x1C), lbl_805D6FF8, lbl_805D6FF8);
+            ((TBoss4Type2 *)(*(void **)((s8 *)self + 0x1C)))->set_flags(0x40);
+            ((TObjPlayer *)(*(void **)((s8 *)self + 0x1C)))->set_position_xy(lbl_805D6FF8, lbl_805D6FF8);
         }
     }
     *(s32 *)((s8 *)self + 0x28) = 0;

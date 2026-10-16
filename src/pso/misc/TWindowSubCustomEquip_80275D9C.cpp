@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowSubCustomEquip.h"
+#include "pso/misc/TWindowSubCustomSelect.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_80275DB4 { u8 pad[0x60]; char f60; u8 pad2[0x6c - 0x61]; void *f6c; };
 
@@ -10,7 +14,6 @@ struct Win_80275F90 { u8 pad[0x66]; s16 f66; };
 struct Rect_80275DE8 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
-void set_entry_state__20TWindowSubStatusDispFSc(void *p, char c);
 void *get_player_by_client_id(s32);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(void *, u8, u8);
 u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
@@ -20,17 +23,12 @@ extern u8 lbl_8044F738[];
 extern u8 lbl_8044F740[];
 void update_palette_slot__21TWindowSubCustomEquipFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-void set_relative_pos__21TWindowSubCustomEquipFPv(void *, void *);
 extern u8 lbl_8044F738[];
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
 extern const f32 lbl_805DD564;
-void reset_transform_state__10TObjPlayerFv();
-void init_xyz_limits__10TObjPlayerFv();
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(int);
-void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern Vec2_80275DE8 custom_equip_cursor_frame_uv_table[];
@@ -45,14 +43,13 @@ extern "C" {
 
 int TWindowSubCustomEquip__sub_80275DA8(void* p);
 int fn_80275D90(void* p);
-int is_active__22TWindowSubCustomSelectFv(void* p);
 
 int TWindowSubCustomEquip::is_selected() { return *(u8*)((char*)this + 0x60) & 0x1; }
 int TWindowSubCustomEquip__sub_80275DA8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 void TWindowSubCustomEquip::clear_flag_and_set_entry_state() {
     Obj_80275DB4 *o = (Obj_80275DB4 *)this;
     o->f60 &= ~1;
-    set_entry_state__20TWindowSubStatusDispFSc(o->f6c, 1);
+    ((TWindowSubStatusDisp *)(o->f6c))->set_entry_state(1);
 }
 
 #pragma push
@@ -66,9 +63,9 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
     }
     t = &custom_equip_cursor_frame_uv_table[arg2 & 0xF];
     scale = lbl_805DD550 / (lbl_805DD554 * farg0 + *(f32 *)((s8 *)arg0 + 0x38));
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(0xC, -1);
     r.x0 = arg1->x + *(f32 *)((s8 *)arg0 + 0x10);
     r.y0 = arg1->y + *(f32 *)((s8 *)arg0 + 0x14);
@@ -81,8 +78,8 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
     if (try_open__19TWindowKeyBoardSoftFii(arg0, &r) != 0) {
         draw_textured_quad_at_depth(&r, scale);
     }
-    get_player__20TWindowSubStatusDispFv();
-    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp::get_player();
+    TObjPlayer::reset_transform_state();
 }
 #pragma pop
 
@@ -94,7 +91,7 @@ void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1) {
         idx = arg0[0x61] + (1 - arg0[0x62]) * 3;
     }
     u8 *e = get_array_entry__20TWindowSubStatusDispFi(arg0, lbl_8044F738[idx]);
-    set_relative_pos__21TWindowSubCustomEquipFPv(arg1, e);
+    ((TWindowSubCustomEquip *)arg1)->set_relative_pos(e);
 }
 
 void TWindowSubCustomEquip::draw_cursor(u8 *arg1) {

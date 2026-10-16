@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TTecCtrl.h"
+#include "pso/item/TItemEquipBase.h"
 
 struct Slot_8022C5CC { s16 id; s16 pad; f32 amount; };
 
@@ -9,7 +10,6 @@ struct RecoveredGlobal_8022C680_lbl_80515FBC {
 };
 
 extern "C" {
-s32 set_slot__14TItemEquipBaseFll(void *, void *, void *);
 extern RecoveredGlobal_8022C680_lbl_80515FBC lbl_80515FBC;
 void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2);
 }
@@ -71,7 +71,7 @@ f32 calc_technique_boost(s32 technique, u16 actor) {
 typedef char RecoveredGlobal_8022C680_lbl_80515FBC_size[sizeof(RecoveredGlobal_8022C680_lbl_80515FBC) == 0xC0 ? 1 : -1];
 void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2) {
     if (arg1 < 4U) {
-        set_slot__14TItemEquipBaseFll((void *) ((u8 *)&lbl_80515FBC.value + (arg1 * 0x30)), (void *) (arg2), (void *) (arg0));
+        ((TItemEquipBase *)((u8 *)&lbl_80515FBC.value + (arg1 * 0x30)))->set_slot((s32)((void *) (arg2)), (s32)((void *) (arg0)));
     }
 }
 

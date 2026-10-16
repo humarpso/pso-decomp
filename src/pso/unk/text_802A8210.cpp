@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802A8210_lbl_804DDF04 {
     s32 value;
@@ -11,7 +12,6 @@ extern RecoveredGlobal_802A8210_lbl_804DDF04 lbl_804DDF04;
 u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *__nw__7TObjectFUl(u32);
 s8 find_indirect_effect_ctrl(u8 arg0);
-s32 check_demo_mode__10TObjPlayerFv();
 void TEffIndirectCtrl__sub_802A9548(u8 *);
 u8 TEffIndirectCtrl__sub_802A9554(u8 *);
 u8 *TEffIndirectCtrl__ct(u8 *, s32, s32);
@@ -48,7 +48,7 @@ s8 find_indirect_effect_ctrl(u8 arg0) {
         if (indirect_effect_ctrl_table[i] != 0) {
             u8 id = TEffIndirectCtrl__sub_802A9554(indirect_effect_ctrl_table[i]);
             if (id == arg0) {
-                if (check_demo_mode__10TObjPlayerFv() == 0) {
+                if (TObjPlayer::check_demo_mode() == 0) {
                     TEffIndirectCtrl__sub_802A9548(indirect_effect_ctrl_table[i]);
                 }
                 return i;

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss6Rock.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80354948___vt__10TBoss6Rock {
     s32 value;
@@ -23,16 +24,12 @@ struct RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *);
 s32 create__10TBoss6RockFv();
-s32 randomize_motion__10TBoss6RockFv(void *);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
 extern RecoveredGlobal_80354948_TBoss6Rock__data_805437F8 TBoss6Rock__rock_point_table;
 extern s32 lbl_805D438C;
 u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2);
-u8 * destroy_particle_controller__10TObjPlayerFs(void *, s16);
 void __dl__7TObjectFPv(s32);
-void release_object__10TBoss6RockFv(void *);
 void spawn_crush_rocks__10TBoss6RockFPvi(void *, s32);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
 extern RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
@@ -41,11 +38,10 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1);
 
 extern "C" {
 
-int draw_model__10TBoss6RockFv(void*);
 void *__nw__7TObjectFUl(int);
 int is_active__10TBoss6RockFv(void*);
 
-void TBoss6Rock::render() { if (is_active__10TBoss6RockFv(this) != 0) { draw_model__10TBoss6RockFv(this); } }
+void TBoss6Rock::render() { if (is_active__10TBoss6RockFv(this) != 0) { draw_model(); } }
 
 extern void *tl_02;
 
@@ -60,9 +56,9 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0xC4) != 0) {
             spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, *(s32 *)((s8 *)arg0 + 0xB4));
         }
-        release_object__10TBoss6RockFv(arg0);
+        ((TBoss6Rock *)arg0)->release_object();
         *(s32 *)((s8 *)(&TBoss6Rock__instance_table.value) + (*(s32 *)((s8 *)arg0 + 0xAC) * 4)) = 0;
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }
@@ -71,7 +67,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
 }
 
 u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TBoss6Rock.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D438C;
     *(s32 *)((s8 *)arg0 + 0xAC) = arg2;
@@ -81,7 +77,7 @@ u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xC0) = 0;
     *(s32 *)((s8 *)arg0 + 0xBC) = 0;
     *(s32 *)((s8 *)arg0 + 0xB0) = 0;
-    randomize_motion__10TBoss6RockFv((void *) (arg0));
+    ((TBoss6Rock *)arg0)->randomize_motion();
     *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     *(s32 *)((s8 *)arg0 + 0xC4) = 0;
     *(s32 *)((s8 *)arg0 + 0xE4) = create__10TBoss6RockFv();

@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-f32 get_speed__10TObjPlayerFv(void *);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
 extern const f32 lbl_805DAE00;
@@ -26,7 +26,7 @@ void TObjPlayer__sub_80129170(u8 *self) {
     f32 flo;
     f32 fhi;
     if (*(void **)((s8 *)self + 0xF0) != NULL) {
-        speed = get_speed__10TObjPlayerFv(*(void **)((s8 *)self + 0xF0));
+        speed = ((TObjPlayer *)(*(void **)((s8 *)self + 0xF0)))->get_speed();
         flag = is_flag_b0_4__10TObjPlayerFPv(*(void **)((s8 *)self + 0xF0));
         ok = 1;
         if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x20) != 0) {

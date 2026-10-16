@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
 
 struct VBase_801BDE60 { u8 pad[0x18]; };
 
@@ -15,9 +16,7 @@ s32 TItem__sub_80101CEC(void *);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_03;
 u8 *create_player_object(s16 arg0, s32 arg1, u8 *arg2);
-s32 copy_header_struct__6TLobbyFPv(void *, void *);
 u8 * construct_player_instance__10TObjPlayerFPvisiPv(void *, s32, s16, s32, void *);
-s32 get_sub_obj__10TObjPlayerFv(void *);
 s32 get_char_data__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C22B4(void *);
 u8 *__nw__7TObjectFUl(s32);
@@ -33,7 +32,7 @@ u8 *TObjPlayer::create_player_instance(s32 arg0, s32 arg1) {
         p = ((u8 *(*)(void *, s32, u16, s32, s32))construct_player_instance__10TObjPlayerFPvisiPv)(
             p, tl_03, arg0, TObjPlayer__sub_801C22B4((void *)arg1), get_char_data__10TObjPlayerFv((void *)arg1));
     }
-    copy_header_struct__6TLobbyFPv(p + 0xDAC, (void *)get_sub_obj__10TObjPlayerFv((void *)arg1));
+    ((TLobby *)(p + 0xDAC))->copy_header_struct((void *)((TObjPlayer *)arg1)->get_sub_obj());
     ((Obj_801BDE60 *)p)->v6();
     return p;
 }

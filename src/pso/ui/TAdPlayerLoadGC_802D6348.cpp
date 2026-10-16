@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TAdPlayerLoadGC.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct A_802D6390 { u8 pad0[0x188]; s32 f188; } A_802D6390;
 
@@ -27,16 +28,13 @@ void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1);
 extern "C" {
 
 s32 spawn_particle_effect(s32 *, s32);
-s32 spawn_light_task__10TObjPlayerFv(s32);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
-s32 draw_status_icon__10TObjPlayerFl(s32, s32 *);
-s32 get_player_list__10TObjPlayerFv();
 
 extern f32 lbl_805DE7A8;
 
 void TAdPlayerLoadGC::play_load_sound() {
-    if (get_player_list__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::get_player_list() == 1) {
         translate_matrix(0, lbl_805DE7A8, *(f32 *)((s8 *)this + 0x1F8), lbl_805DE7A8);
     }
 }
@@ -55,9 +53,9 @@ void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1) {
 void TAdPlayerLoadGC::send_player_load(s32 arg0) {
     s32 sp8;
 
-    draw_status_icon__10TObjPlayerFl(arg0, &sp8);
+    ((TObjPlayer *)arg0)->draw_status_icon((s32)(&sp8));
     spawn_particle_effect(&sp8, 9);
-    spawn_light_task__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->spawn_light_task();
     fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);
 }
 

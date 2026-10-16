@@ -1687,6 +1687,7 @@ void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 a
 #pragma push
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -1712,9 +1713,7 @@ struct RecoveredGlobal_80184B44_lbl_804B5E48 {
 };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *);
 
 extern const RecoveredGlobal_80184B44_lbl_804440B0 city_season_collision_template;
 #define lbl_804B5E48 (*(RecoveredGlobal_80184B44_lbl_804B5E48 *)&lbl_804B5E48)
@@ -1730,7 +1729,7 @@ u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     struct CopyStack_80184B44 { u8 bytes[0x2C]; };
     CopyStack_80184B44 copy_storage_80184B44;
     u8 *temp_r4;
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B5E48.value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = arg3;
@@ -1739,7 +1738,7 @@ u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
         *(ByteBlock_2C *)(copy_storage_80184B44.bytes) = *(const ByteBlock_2C *)((s32) temp_r4 + 4);
         (*(f32 *)(copy_storage_80184B44.bytes + 0xC)) = farg0;
         init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80184B44.bytes)), (int) (1));
-        reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+        ((TObjPlayer *)arg0)->reset_photon_effect();
     } else {
         *(s32 *)((s8 *)arg0 + 0xA4) = 0;
     }

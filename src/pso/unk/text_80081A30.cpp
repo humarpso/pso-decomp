@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Tex_80081A30 {
     u32 a;
@@ -30,7 +31,6 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *construct_texture_wave(void *, void *);
-void init_image_buffer__23TAdSinglePlyChrSelectGCFPUcl(void *, void *, s32);
 s32 TScene__sub_80081B24(void);
 extern u8 lbl_8048E168[];
 extern void *TEF_PvrWave__class_name;
@@ -55,7 +55,7 @@ Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *p
         p = construct_texture_wave(p, &self->tex);
     }
     self->wave = p;
-    init_image_buffer__23TAdSinglePlyChrSelectGCFPUcl(self->wave, image, size);
+    ((TAdSinglePlyChrSelectGC *)(self->wave))->init_image_buffer((u8 *)image, (s32)size);
     list = ((Scene_80081A30 *)TScene__sub_80081B24())->texList;
     self->saved.c = list->entries[index].c;
     self->saved.b = list->entries[index].b;

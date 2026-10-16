@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base_8002E784 { char pad[0xC]; };
 struct VObj_8002E784 : Base_8002E784 {
@@ -94,12 +99,10 @@ extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
 void TObjPlayer__sub_8002EF80(void);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern u8 *lbl_805D4BA4;
@@ -147,10 +150,7 @@ extern const f32 lbl_805D8240;
 Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002EA64 *arg2);
 void fn_8002F5AC(void *);
 s32 TBoss2Joint__sub_8003688C(s32);
-s32 check_v2_mode__9TObjEneDDFv(void);
-s32 clear_global_flag_400__9TObjEneDDFv();
 s32 TObjLight__sub_801337F8(s32);
-s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
@@ -158,9 +158,7 @@ void push_matrix(void);
 void pop_matrix(void);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, void *, f32);
-s32 set_global_state__16TObjEneRe7BeruraFl(void *);
 void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002EFE8 lbl_804359E4;
 extern u8 controller_input_state[];
@@ -202,7 +200,7 @@ extern s32 lbl_804820A8[];
 void TObjPlayer__sub_8002E7C8(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x10);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x10))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (init_from_model__11TBreakUpMdlFPvi((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x58)));
@@ -284,7 +282,7 @@ extern s32 lbl_804820C0[];
 void TObjPlayer::create_breakup_model() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x10);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x10))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (init_from_model__11TBreakUpMdlFPvi((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x68)));

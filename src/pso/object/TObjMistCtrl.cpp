@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/TPlayerFootStamp.h"
 #include "pso/object/TObjMistCtrl.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_023f9f { char pad[0x18]; };
 
@@ -49,14 +52,11 @@ void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 s32 set_texture_num(int);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 restore_saved_depth_alpha_state();
 int fn_802AF64C(void*);
 s32 draw_particle_strip(void *, int, int);
 void queue_destruction__7TObjectFv(void *);
-s32 reset_transform_state__10TObjPlayerFv();
 s32 set_depth_buffer_settings_1__Fv();
-s32 set_global_param__8TObjFishFl(void *);
 
 int TObjMistCtrl::run_task() { return fn_802AF64C(this); }
 
@@ -66,7 +66,7 @@ void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjMistCtrl;
         if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x90)); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -96,8 +96,8 @@ void TPlayerFootStamp::render() {
     u8 *arg0 = (u8 *)this;
     if (horizontal_distance_squared((void *) (arg0 + 0x7C), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DE1F8) {
         lbl_805D5660 = model_render_flags;
-        reset_transform_state__10TObjPlayerFv();
-        set_global_param__8TObjFishFl((void *) (player_footstamp_texture_gvm_handle));
+        TObjPlayer::reset_transform_state();
+        TObjFish::set_global_param((s32)((void *) (player_footstamp_texture_gvm_handle)));
         set_texture_num((int) (*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1__Fv();
         draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));

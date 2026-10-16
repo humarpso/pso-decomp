@@ -34,10 +34,10 @@ void TItemShootGun::hook() {
 }
 
 #include "types.h"
+#include "pso/TItemShoot.h"
 
 extern "C" {
 
-s32 set_texture_id__10TItemShootFl(u32, s32);
 s32 spawn_particle_effect(s32, s32);
 u32 __ct__13TItemShootGunFPvPC3VecPC3Vecf(void *, s32, s32, s32, f32);
 u32 __nw__7TObjectFUl(s32);
@@ -51,7 +51,7 @@ u32 TItemShootGun::create(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
         var_r31 = (u32) __ct__13TItemShootGunFPvPC3VecPC3Vecf((void *) var_r31, arg0, arg1, arg2, farg0);
     }
     if (var_r31 != 0U) {
-        set_texture_id__10TItemShootFl(var_r31, 4);
+        ((TItemShoot *)var_r31)->set_texture_id(4);
     }
     return var_r31;
 }

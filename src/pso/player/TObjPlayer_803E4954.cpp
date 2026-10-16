@@ -12,7 +12,6 @@ struct Node_803E49FC {
 
 extern "C" {
 s32 setup_model_draw_state__10TObjPlayerFPv();
-s32 end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
 struct A_803E4BDC { u8 pad[0xC]; s32 fc; };
 struct B_803E4BDC { u8 pad[0x28]; s32 f28; };
@@ -23,18 +22,15 @@ extern A_803E4BDC *model_draw_context;
 extern B_803E4BDC *current_motion_context;
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 setup_model_draw_state__10TObjPlayerFPv();
-s32 end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 bind_motion_blend_channels(void *);
 s32 select_motion_context(int);
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 s32 setup_model_draw_state__10TObjPlayerFPv();
-s32 end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
 void draw_motion_bound__10TObjPlayerFiiPvfi(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
-s32 apply_motion_node_transform__10TObjPlayerFv(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern A_803E4BDC *model_draw_context;
@@ -81,7 +77,7 @@ s32 draw_object_tree_recursive(void *arg) {
     u32 t;
     do {
         push_matrix();
-        apply_motion_node_transform__10TObjPlayerFv((int) arg0);
+        ((TObjPlayer *)arg0)->apply_motion_node_transform();
         if (chunk_model_node_callback != NULL) {
             chunk_model_node_callback(arg0);
         }
@@ -100,19 +96,19 @@ s32 draw_object_tree_recursive(void *arg) {
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0) {
     setup_model_draw_state__10TObjPlayerFPv();
     ((s32 (*)(void *, void *, f32, void (*)()))draw_blend_motion_tree__10TObjPlayerFiii)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
-    end_chunk_draw__10TObjPlayerFv();
+    TObjPlayer::end_chunk_draw();
 }
 
 void draw_model_motion(void *arg0, void *arg1, f32 farg0) {
     setup_model_draw_state__10TObjPlayerFPv();
     ((s32 (*)(void *, void *, f32, void (*)()))draw_motion_tree__10TObjPlayerFPvPvi)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
-    end_chunk_draw__10TObjPlayerFv();
+    TObjPlayer::end_chunk_draw();
 }
 
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0) {
     setup_model_draw_state__10TObjPlayerFPv();
     draw_motion_bound__10TObjPlayerFiiPvfi(arg0, arg1, arg2, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
-    end_chunk_draw__10TObjPlayerFv();
+    TObjPlayer::end_chunk_draw();
 }
 
 void TObjPlayer::set_global_flag() {

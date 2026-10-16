@@ -1,12 +1,12 @@
 #include "types.h"
 #include "pso/object/TObjWarpLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Sub_801A0B38 { u8 pad[0xc]; s32 value; };
 
 struct Obj_801A0B38 { u8 pad[0x42c]; Sub_801A0B38 *sub; };
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u8 warp_lobby_resource_descriptor[];
 extern s32 TObjWarpLobby__instance;
@@ -25,7 +25,7 @@ void TObjWarpLobby::release_static() {
     TObjWarpLobby__instance = 0;
 }
 void TObjWarpLobby__sub_801A0B38(void) {
-    u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    u8 *p = (u8 *)((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, warp_lobby_resource_descriptor, 0, 0, 0);
     }

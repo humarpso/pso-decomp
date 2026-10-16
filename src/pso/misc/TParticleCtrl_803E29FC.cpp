@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma scheduling off
 
@@ -11,7 +12,6 @@ struct Particle_803E2A1C {
 
 extern "C" {
 s32 load_camera_view_matrix();
-s32 setup_render__10TObjPlayerFv();
 s32 setup_blended_textured_draw();
 s32 load_context_texture_obj();
 s32 GXBegin(int, int, u16);
@@ -68,7 +68,7 @@ void TParticleCtrl::setup_particle_draw(s32 arg0) {
     if (arg0 != 0) {
         setup_blended_textured_draw();
     } else {
-        setup_render__10TObjPlayerFv();
+        TObjPlayer::setup_render();
     }
     load_context_texture_obj();
 }

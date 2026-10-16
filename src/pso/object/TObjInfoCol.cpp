@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjInfoCol.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80191E28_lbl_8050E208 {
     s32 value;
@@ -23,7 +24,6 @@ struct RecoveredGlobal_80191EC0___vt__11TObjInfoCol {
 };
 
 extern "C" {
-s32 is_inactive__10TObjPlayerFv(int);
 s32 open_lobby_warp_menu__6TLobbyFv();
 s32 is_idle__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -44,7 +44,6 @@ u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 f32 xyz_distance_squared(const Vec *, const Vec *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
@@ -77,7 +76,7 @@ void TObjInfoCol::run_task() {
         TWindowShortListCtrl__check_controller_button((u8 *) &controller_input_state.value + 0x20, 4) != 0 &&
         ((player = get_player_by_client_id(local_client_id), player == 0) ||
          check_flag_100__10TObjPlayerFPv() == 0) &&
-        (player == 0 || is_inactive__10TObjPlayerFv((int) player) != 0) &&
+        (player == 0 || ((TObjPlayer *)player)->is_inactive() != 0) &&
         is_idle__6TLobbyFv() != 0) {
         open_lobby_warp_menu__6TLobbyFv();
     }
@@ -98,7 +97,7 @@ u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjInfoCol;
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

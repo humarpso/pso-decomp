@@ -9,7 +9,6 @@ void count_faust_reload_timer(u8 *arg0);
 void clear_faust_reload_timer(void* p);
 s32 draw_ginja_object(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
-s32 get_player_list__10TObjPlayerFv();
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1);
 
@@ -20,7 +19,7 @@ void TObjPlayer::draw_faust_loaded_projectile() {
     void *temp_r31;
     void *temp_r3;
 
-    if (get_player_list__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::get_player_list() == 1) {
         temp_r3 = *(void **)((s8 *)this + 0x188);
         if ((temp_r3 != NULL) && ((s32) *(s32 *)((s8 *)this + 0x234) == 0)) {
             temp_r31 = *(void **)((s8 *)temp_r3 + 0x2C);

@@ -20,10 +20,10 @@ extern TSaveChCrStateActions lbl_804EF658[];
 }
 
 extern "C" {
-void reset_proportions__15TChCrCharSelectFv();
 }
 
 #include "types.h"
+#include "pso/TChCrCharSelect.h"
 
 struct RecoveredGlobal_8033A34C___vt__9TSaveChCr {
     s32 value;
@@ -104,7 +104,7 @@ void TSaveChCr::set_state(s32 arg1) {
 #pragma opt_common_subs off
 void TSaveChCr::run_task() {
   TSaveChCrStateActions *entry;
-  reset_proportions__15TChCrCharSelectFv();
+  TChCrCharSelect::reset_proportions();
   card_status = poll_memcard_status(this);
   if (card_status & 1)
   {

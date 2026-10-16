@@ -24,8 +24,6 @@ s32 free_heap__13TParticleCtrlFv();
 s32 clear_resource_load_tasks();
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 render_tick__Fv();
-s32 stop_audio_streams__6TLobbyFv();
-s32 refresh_render_state__6TLobbyFv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
 extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
@@ -71,8 +69,8 @@ typedef char RecoveredGlobal_8023F1B8_lbl_804CCDA8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCE60) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_main_task_size[sizeof(RecoveredGlobal_8023F1B8_main_task) == 0x34 ? 1 : -1];
 void TLobby::release_scene_resources() {
-    refresh_render_state__6TLobbyFv();
-    stop_audio_streams__6TLobbyFv();
+    TLobby::refresh_render_state();
+    TLobby::stop_audio_streams();
     if ((u32) game_mode_scene_instance != 0U) {
         queue_destruction__7TObjectFv((void *) (game_mode_scene_instance));
         game_mode_scene_instance = 0U;

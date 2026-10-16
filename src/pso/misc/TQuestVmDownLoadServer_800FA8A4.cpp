@@ -19,7 +19,6 @@ s32 request_fog__8TFogCtrlFPvii(u32, s32, s32);
 extern s32 TFogCtrl__fog_instance_table[];
 s32 select_fog__8TFogCtrlFPvii(u32, s32, s32);
 extern s32 TFogCtrl__fog_instance_table[];
-s32 restore_fog__8TFogCtrlFl(s32, s32);
 extern s32 TFogCtrl__fog_instance_table[];
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049C700[];
@@ -129,7 +128,7 @@ s32 TFogCtrl::update_all(s32 arg0) {
     do {
         temp_r3 = *(TFogCtrl__fog_instance_table + var_r31);
         if ((u32) temp_r3 != 0U) {
-            restore_fog__8TFogCtrlFl(temp_r3, arg0);
+            ((TFogCtrl *)temp_r3)->restore_fog(arg0);
         }
         var_r29 += 1;
         var_r31 += 1;

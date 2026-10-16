@@ -3,11 +3,9 @@
 
 extern "C" {
 
-s32 check_flag__10TObjPlayerFl(s32, s32);
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
 int get_slot_value__10TObjPlayerFPvi(void*);
 int TLobby__send_and_handle_60(void* a0 = 0);
-void read_be16_field2__10TObjPlayerFv(void* p);
 void bswap_32__FPUl(u32* p);
 void TObjPlayer__sub_80102D84(u8 *arg0);
 
@@ -17,7 +15,7 @@ s16 TObjPlayer::get_stat() { return *(s16*)((char*)this + 0x2bc); }
 int TObjPlayer::get_equip_field_d04() { return get_slot_value__10TObjPlayerFPvi((char*)this + 0xd04); }
 void TObjPlayer::is_flag_20000_set() {
     s32 uninit;
-    check_flag__10TObjPlayerFl(uninit, 0x20000);
+    ((TObjPlayer *)uninit)->check_flag(0x20000);
 }
 f32 TObjPlayer::get_mag_scale_f() { return *(f32*)((char*)this + 0x1c); }
 
@@ -25,7 +23,7 @@ void TObjPlayer::bswap_pkt_u32x2() { bswap_32__FPUl((u32*)this); bswap_32__FPUl(
 void TObjPlayer::bswap_and_send_6x61() { swap_6x61_fields(); TLobby__send_and_handle_60(this); }
 
 void TObjPlayer::swap_6x61_fields() {
-    read_be16_field2__10TObjPlayerFv(this);
+    read_be16_field2();
     bswap_32__FPUl((u32*)((char*)this + 4));
     bswap_32__FPUl((u32*)((char*)this + 8));
 }

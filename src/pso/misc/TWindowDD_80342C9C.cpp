@@ -10,11 +10,7 @@ s32 apply_entry_layout__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_803435A0(void *);
 s32 update_selection_state__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80347C50();
-s32 play_se__9TWindowDDFv();
-s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFv(void *);
-s32 init_item_slots__9TWindowDDFv(void *);
 extern s32 TWindowDD__window_mode;
 void TWindowDD__sub_80342D14(u8 *arg0);
 }
@@ -25,22 +21,19 @@ s32 apply_entry_layout__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_803435A0(void *);
 s32 update_selection_state__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80347C50();
-s32 play_se__9TWindowDDFv();
-s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFv(void *);
 
 void TWindowDD::update_transition() {
     TWindowDD__sub_80347C50();
     update_selection_state__9TWindowDDFPv(this);
-    if (test_input_flag_4__9TWindowDDFv(this) != 0) {
-        play_sound__9TWindowDDFv();
+    if (test_input_flag_4() != 0) {
+        TWindowDD::play_sound();
         *(s32 *)((s8 *)this + 0xB4) = 6;
         TWindowDD__sub_803435A0(this);
         return;
     }
     if (TWindowDD__sub_803482B0(this) != 0) {
-        play_se__9TWindowDDFv();
+        TWindowDD::play_se();
         apply_entry_layout__9TWindowDDFPv(this);
     }
 }
@@ -54,11 +47,11 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
     case 0:
         TWindowDD__sub_80347C50();
         update_selection_state__9TWindowDDFPv((void *) (arg0));
-        if (test_input_flag_4__9TWindowDDFv((void *) (arg0)) != 0) {
-            play_sound__9TWindowDDFv();
+        if (((TWindowDD *)arg0)->test_input_flag_4() != 0) {
+            TWindowDD::play_sound();
             var_r31 = !update_close_flag__9TWindowDDFPv((void *) (arg0));
         } else if (TWindowDD__sub_803482B0((void *) (arg0)) != 0) {
-            play_se__9TWindowDDFv();
+            TWindowDD::play_se();
             *(s32 *)((s8 *)arg0 + 0xA4) = 0;
             apply_entry_layout__9TWindowDDFPv((void *) (arg0));
         }
@@ -75,7 +68,7 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
             switch (TWindowDD__window_mode) {
             case 0:
                 TWindowDD__sub_80342B5C((void *) (arg0));
-                init_item_slots__9TWindowDDFv((void *) (arg0 + 0xC4));
+                ((TWindowDD *)(arg0 + 0xC4))->init_item_slots();
                 *(s16 *)((s8 *)arg0 + 0xC6) = 3;
                 break;
             case 1:
@@ -83,7 +76,7 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
             case 3:
             case 4:
             default:
-                init_item_slots__9TWindowDDFv((void *) (arg0 + 0xC4));
+                ((TWindowDD *)(arg0 + 0xC4))->init_item_slots();
                 *(s16 *)((s8 *)arg0 + 0xC6) = 4;
                 TWindowDD__sub_803428C4((void *) (arg0));
                 break;

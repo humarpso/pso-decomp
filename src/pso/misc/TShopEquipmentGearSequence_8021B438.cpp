@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TCheckRoomSequence.h"
+#include "pso/misc/TQuestListVM.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct Base_8021D584_8021D524 { char pad[0x18]; };
 
@@ -108,7 +111,6 @@ struct VObj_8021B518 : Base_8021B518 {
 struct Seq_8021B518 { u8 pad[0x24]; s32 f24; u8 pad28[4]; void *win; };
 
 extern "C" {
-s32 set_field_20__12TQuestListVMFl(void *, s32);
 u32 create_message_window__13TShopSequenceFPvii(void *, s32, s32);
 unsigned short get_child_field1c__15TShopWindowBaseFv(void *);
 s32 create_meseta_window(s32);
@@ -135,7 +137,6 @@ extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
 extern s32 lbl_805D6220;
 u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 handle_confirm__26TShopEquipmentGearSequenceFPv(void *);
 s32 try_close__26TShopEquipmentGearSequenceFPv(void *);
 s32 open_greeting__26TShopEquipmentGearSequenceFPv(u8 *arg0);
@@ -145,7 +146,6 @@ extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopE
 void clear_window_slot_table__26TShopEquipmentGearSequenceFv(void);
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
 void clear_window_slots__26TShopEquipmentGearSequenceFv(void);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
@@ -153,7 +153,6 @@ void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *);
 void open_gear_shop__26TShopEquipmentGearSequenceFPv(void *);
 extern void *tl_05;
 void open_sell_window__26TShopEquipmentGearSequenceFPv(S_8021B438 *self);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
 s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopArmorListWindow__ct(void *, s32, void *, s32);
@@ -161,10 +160,6 @@ void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *);
 extern void *tl_05;
 void open_armor_list_window__26TShopEquipmentGearSequenceFPv(S_8021B4B0 *self);
 s32 obj_getField1c(s32);
-s32 is_visible__17TWindowSubComCardFv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(void *);
-s32 set_field_20__12TQuestListVMFl(void *, s32);
-s32 set_ready_flag__18TCheckRoomSequenceFv(void *);
 s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 set_position_xy(void *, f32, f32);
@@ -193,7 +188,7 @@ void open_sell_window__26TShopEquipmentGearSequenceFPv(S_8021B438 *self) {
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFPv;
     o->cb1 = (void *)open_gear_shop__26TShopEquipmentGearSequenceFPv;
     reset_controller_input_state();
-    set_field_20__12TQuestListVMFl(self, 5);
+    ((TQuestListVM *)self)->set_field_20(5);
 }
 
 void open_armor_list_window__26TShopEquipmentGearSequenceFPv(S_8021B4B0 *self) {
@@ -203,7 +198,7 @@ void open_armor_list_window__26TShopEquipmentGearSequenceFPv(S_8021B4B0 *self) {
     }
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFPv;
     reset_controller_input_state();
-    set_field_20__12TQuestListVMFl(self, 5);
+    ((TQuestListVM *)self)->set_field_20(5);
 }
 
 #define arg0 ((Seq_8021B518 *) self)
@@ -217,27 +212,27 @@ void update_buy_sell_choice__26TShopEquipmentGearSequenceFPv(void *self) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(6), 6, 1);
         calc_window_size__17TWindowSubComCardFPv(arg0->win);
         align_menu_entry_positions(arg0->win);
-        set_ready_flag__18TCheckRoomSequenceFv(arg0->win);
+        ((TCheckRoomSequence *)(arg0->win))->set_ready_flag();
         set_position_xy(arg0->win, get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
     }
-    if (arg0->win != NULL && is_visible__17TWindowSubComCardFv(arg0->win) != 0) {
+    if (arg0->win != NULL && ((TWindowSubComCard *)(arg0->win))->is_visible() != 0) {
         r = get_selected_menu_value(arg0->win);
         if (r == 0) {
-            set_field_20__12TQuestListVMFl(arg0, 3);
+            ((TQuestListVM *)arg0)->set_field_20(3);
             TWindow__close(arg0->win);
             arg0->win = NULL;
             return;
         }
         if (r == 1) {
-            set_field_20__12TQuestListVMFl(arg0, 4);
+            ((TQuestListVM *)arg0)->set_field_20(4);
             TWindow__close(arg0->win);
             arg0->win = NULL;
             return;
         }
     }
-    if (arg0->win != NULL && get_status_flag__17TWindowSubComCardFv(arg0->win) != 0) {
+    if (arg0->win != NULL && ((TWindowSubComCard *)(arg0->win))->get_status_flag() != 0) {
         ((VObj_8021B518 *) arg0)->m4(0x2C, 1);
-        set_field_20__12TQuestListVMFl(arg0, 6);
+        ((TQuestListVM *)arg0)->set_field_20(6);
         TWindow__close(arg0->win);
         arg0->win = NULL;
     }
@@ -251,7 +246,7 @@ s32 open_greeting__26TShopEquipmentGearSequenceFPv(u8 *arg0) {
   create_message_window__13TShopSequenceFPvii(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x2b, 1);
   *((s32 *) (((s8 *) arg0) + 0x30)) = create_meseta_window((s32) get_child_field1c__15TShopWindowBaseFv(arg0));
-  set_field_20__12TQuestListVMFl(arg0, 2);
+  ((TQuestListVM *)arg0)->set_field_20(2);
   *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0x4);
 }
 typedef char RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
@@ -263,7 +258,7 @@ void TShopEquipmentGearSequence__vt9(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         restore_player_state__13TShopSequenceFPv((void *) (arg0));
-        set_field_20__12TQuestListVMFl((void *)((void *) (arg0)), (s32)((int) (1)));
+        ((TQuestListVM *)arg0)->set_field_20((s32)((int) (1)));
         return;
     case 1:
         open_greeting__26TShopEquipmentGearSequenceFPv((u8 *)((void *) (arg0)));

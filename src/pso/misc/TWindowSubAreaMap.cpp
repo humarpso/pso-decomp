@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowSubAreaMap.h"
 #include "pso/misc/TWindowSubAreaMapDisp.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct VBase_18_204a81 { char pad[0x18]; };
 
@@ -32,9 +33,6 @@ s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_80271480_lbl_8050E208 controller_input_state;
 s32 is_flag_set__11TLoadingCurFv(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(int, int);
-s32 add_zoom_distance__13TRaderMapCoreFf(f32);
-s32 pan_vertical__13TRaderMapCoreFf(f32);
-s32 pan_horizontal__13TRaderMapCoreFf(f32);
 extern RecoveredGlobal_80271480_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD478;
 extern const f32 lbl_805DD47C;
@@ -119,9 +117,9 @@ void TWindowSubAreaMapDisp::update_manual_scroll() {
         if (is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x10000)) != 0) {
             *(f32 *)((s8 *)arg0 + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x68) + lbl_805DD478);
         }
-        pan_horizontal__13TRaderMapCoreFf((f32) (*(f32 *)((s8 *)arg0 + 0x60)));
-        pan_vertical__13TRaderMapCoreFf((f32) (*(f32 *)((s8 *)arg0 + 0x64)));
-        add_zoom_distance__13TRaderMapCoreFf((f32) (*(f32 *)((s8 *)arg0 + 0x68)));
+        TRaderMapCore::pan_horizontal((f32) (*(f32 *)((s8 *)arg0 + 0x60)));
+        TRaderMapCore::pan_vertical((f32) (*(f32 *)((s8 *)arg0 + 0x64)));
+        TRaderMapCore::add_zoom_distance((f32) (*(f32 *)((s8 *)arg0 + 0x68)));
         *(f32 *)((s8 *)arg0 + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x60) * lbl_805DD47C);
         *(f32 *)((s8 *)arg0 + 0x64) = (f32) (*(f32 *)((s8 *)arg0 + 0x64) * lbl_805DD47C);
         *(f32 *)((s8 *)arg0 + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x68) * lbl_805DD47C);

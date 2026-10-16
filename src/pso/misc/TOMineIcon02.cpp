@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOMineIcon02.h"
+#include "pso/misc/TOMineTrap.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_801717C0 { char pad[0x18]; };
 
@@ -40,14 +42,10 @@ struct Icon_801717C0 {
 
 extern "C" {
 s32 spawn_particle_effect(void *, int);
-void calc_attach_pos__10TObjPlayerFv(void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-void init_position_vectors__10TObjPlayerFv(void *);
-void reset_photon_effect__10TObjPlayerFv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
-void update_state__10TOMineTrapFv(void *);
 void TOMine__ct(void *, void *, void *);
 extern u8 mine_collision_body_parts[];
 extern s32 __vt__12TOMineIcon02[];
@@ -105,8 +103,8 @@ void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2) {
     self->vt = ((void * *)&__vt__12TOMineIcon02);
     self->f0 = TOMineIcon02__name;
     ((VIcon_801717C0 *)self)->m5(arg2);
-    init_position_vectors__10TObjPlayerFv(self);
-    calc_attach_pos__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->init_position_vectors();
+    ((TObjPlayer *)self)->calc_attach_pos();
     self->f34 = get_bml_model(lbl_805D5A50, 5);
     self->f24 = TObjFish__sub_8001EDB0(lbl_805D5A50, 5);
     self->f374 = get_bml_model(lbl_805D5A50, 0);
@@ -130,12 +128,12 @@ void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2) {
     self->f354 = self->f88;
     self->f34C = lbl_805DB8B4 * self->f68 + lbl_805DB8B0;
     self->f350 = lbl_805DB8B4 * self->f6C + lbl_805DB8B8;
-    update_state__10TOMineTrapFv(self);
+    ((TOMineTrap *)self)->update_state();
     self->f35C = 0xFFFF;
     self->f30 |= 0x60000000;
     init_collision_body_parts(self, mine_collision_body_parts, 1);
     refresh_collision_body_centers(self);
-    reset_photon_effect__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->reset_photon_effect();
     return self;
 #undef self
 }

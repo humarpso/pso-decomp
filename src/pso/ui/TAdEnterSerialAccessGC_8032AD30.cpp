@@ -1,17 +1,18 @@
 #include "types.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowMakeTeam.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Lim_8032B1A4 { u32 n[4]; };
 
 struct B4_8032AD30 { u8 b[4]; };
 
 extern "C" {
-void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 void fn_8032AC9C();
 extern char lbl_80477188[];
 extern char lbl_80477190[];
 s32 get_localized_text_entry(int, void *);
-void send_and_handle__6TLobbyFii(s32, s32, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477178[];
 extern u8 lbl_80477180[];
@@ -35,7 +36,6 @@ extern Lim_8032B1A4 serial_access_input_limits;
 s32 TKeyBoardControl__ct(void *, s32, s32, s32, s32, s32);
 void *__nw__7TObjectFUl(s32);
 void update_chat_window(void *);
-void set_sub_position__15TWindowMakeTeamFPUc(u8 *arg0, u8 *arg1);
 int get_keyboard_field_6c__15TWindowMakeTeamFv(void* p);
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
 u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
@@ -53,7 +53,6 @@ s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
 u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2);
 s32 TAdPsoPassSaveGC__sub_8032B584();
-s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 s32 memset(s32, s32, s32);
 s32 strncpy(s32, s32, s32);
 
@@ -70,7 +69,7 @@ u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     if (kb == NULL) {
         return 0;
     }
-    set_sub_position__15TWindowMakeTeamFPUc(kb, serial_keyboard_position_table[arg1]);
+    ((TWindowMakeTeam *)kb)->set_sub_position(serial_keyboard_position_table[arg1]);
     if (((s32 (*)(s32, s32))has_serial_input__22TAdEnterSerialAccessGCFv)(arg0, arg1) != 0) {
         ((int (*)(void *, u8 *))get_keyboard_field_6c__15TWindowMakeTeamFv)(kb, get_serial_text__22TAdEnterSerialAccessGCFii(arg0, arg1));
     }
@@ -81,12 +80,12 @@ u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
 }
 
 void TAdEnterSerialAccessGC::create_default_callback() {
-    create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_80477188, lbl_80477190, (void *)fn_8032AC9C);
+    TAdEnterSerialAccessGC::create_callback(lbl_80477188, lbl_80477190, (void *)fn_8032AC9C);
 }
 
 s32 TAdEnterSerialAccessGC::show_message_window(void *arg0, void *arg1) {
     s32 r = update_window_mode_from_progress__6TLobbyFPv(lbl_80477178, lbl_80477180);
-    send_and_handle__6TLobbyFii(r, get_localized_text_entry(0x17, arg1), 1);
+    ((TLobby *)r)->send_and_handle(get_localized_text_entry(0x17, arg1), 1);
     return r;
 }
 
@@ -97,14 +96,14 @@ u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     if (arg1 == 2 && TAdPsoPassSaveGC__sub_8032B584() == 0) {
         return lbl_805DF77C;
     }
-    if (*(s8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C) != 0) {
+    if (*(s8 *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1152C) != 0) {
         switch (arg1) {
         case 0:
-            return (u8 *) TAdEnterSerialAccessGC::serial_to_hex_string(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C);
+            return (u8 *) TAdEnterSerialAccessGC::serial_to_hex_string(TAdSinglePlyChrSelectGC::get_instance() + 0x1152C);
         case 1:
-            return (u8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C);
+            return (u8 *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1153C);
         case 2:
-            return (u8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1154C);
+            return (u8 *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1154C);
         }
     } else if (serial_access_entered_value_table[arg1] == get_field_118__22TAdEnterSerialAccessGCFv()) {
         switch (arg1) {
@@ -126,7 +125,7 @@ s32 has_serial_input__22TAdEnterSerialAccessGCFv(void) {
 void TAdEnterSerialAccessGC::clear_serial_buffer() {
     u32 temp_r3;
 
-    temp_r3 = get_instance__23TAdSinglePlyChrSelectGCFv();
+    temp_r3 = TAdSinglePlyChrSelectGC::get_instance();
     if (temp_r3 != 0U) {
         memset(temp_r3 + 0x1154C, 0, 0x10);
     }
@@ -135,7 +134,7 @@ void TAdEnterSerialAccessGC::clear_serial_buffer() {
 void clear_state(void) {
     s32 temp_r3;
 
-    temp_r3 = get_instance__23TAdSinglePlyChrSelectGCFv();
+    temp_r3 = TAdSinglePlyChrSelectGC::get_instance();
     if (temp_r3 != 0) {
         memset(temp_r3 + 0x1152C, 0, 0x10);
         memset(temp_r3 + 0x1153C, 0, 0x10);
@@ -146,7 +145,7 @@ void clear_state(void) {
 void TAdEnterSerialAccessGC::store_serial_access_key(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
-    temp_r3 = get_instance__23TAdSinglePlyChrSelectGCFv();
+    temp_r3 = TAdSinglePlyChrSelectGC::get_instance();
     if (temp_r3 != 0) {
         strncpy(temp_r3 + 0x1152C, arg0, 0xF);
         strncpy(temp_r3 + 0x1153C, arg1, 0xF);

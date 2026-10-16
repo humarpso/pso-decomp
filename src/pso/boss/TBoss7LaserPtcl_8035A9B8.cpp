@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss7LaserPtcl.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 extern "C" {
 extern const f32 lbl_805E00F8;
@@ -13,7 +14,6 @@ s32 destroy_particles__15TBoss7LaserPtclFv();
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 f64 atan2_float(f32, f32);
-s32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 
 extern const f64 lbl_804796D8;
 extern const f32 lbl_805E00F4;
@@ -22,7 +22,7 @@ void TBoss7LaserPtcl::init_laser() {
     u8 *arg0 = (u8 *)this;
     destroy_particles__15TBoss7LaserPtclFv();
     subtract_vector((void *) (arg0 + 0x2C), (void *) (arg0 + 0x20));
-    clamp_velocity__15TObjBoss2TunnelFv((void *) (arg0 + 0x2C));
+    ((TObjBoss2Tunnel *)(arg0 + 0x2C))->clamp_velocity();
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805E00F4;
     *(s32 *)((s8 *)arg0 + 0x54) = (s32) (lbl_804796D8 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x2C)), (f32) (*(f32 *)((s8 *)arg0 + 0x34))));
     spawn_particle_effect_with_flags((void *) (arg0 + 0x20), (int) (0x20A), (int) (0x40));

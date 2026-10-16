@@ -1,15 +1,16 @@
 #include "pso/TAdRayGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct E_8029BCB4 { u8 b[0x14]; };
 
 struct T_8029BCB4 { u8 b[0x20]; };
 
 extern "C" {
-s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 TAdRayGC_ray_quad_table[];
@@ -22,7 +23,6 @@ extern "C" {
 void *__ct__8TAdRayGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 s32 set_cached_blend_factor(s32, s32);
-s32 get_state_flag__9TMainTaskFv();
 s32 queue_destruction__7TObjectFv();
 
 void TAdRayGC::draw_ray_quads(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
@@ -33,20 +33,20 @@ void TAdRayGC::draw_ray_quads(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
         p = (E_8029BCB4 *)arg1;
         for (i = 0; i < 2; i++) {
             begin_screen_draw(1);
-            set_global_param__8TObjFishFl((void *) TAdRayGC__ray_texture_list);
+            TObjFish::set_global_param((s32)((void *) TAdRayGC__ray_texture_list));
             set_draw_texture_and_color(p, arg2);
             draw_textured_quad_at_depth(&TAdRayGC_ray_quad_table[i], lbl_805DDD10);
-            get_player__20TWindowSubStatusDispFv();
+            TWindowSubStatusDisp::get_player();
         }
         break;
     case 1:
         p = (E_8029BCB4 *)(arg1 + 0x14);
         for (i = 2; i < 4; i++) {
             begin_screen_draw(1);
-            set_global_param__8TObjFishFl((void *) TAdRayGC__ray_texture_list);
+            TObjFish::set_global_param((s32)((void *) TAdRayGC__ray_texture_list));
             set_draw_texture_and_color(p, arg2);
             draw_textured_quad_at_depth(&TAdRayGC_ray_quad_table[i], lbl_805DDD10);
-            get_player__20TWindowSubStatusDispFv();
+            TWindowSubStatusDisp::get_player();
         }
         break;
     }
@@ -55,7 +55,7 @@ void TAdRayGC::draw_ray_quads(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
 void TAdRayGC::render() {
     s32 temp_r0;
 
-    if (get_state_flag__9TMainTaskFv() != 1) {
+    if (TMainTask::get_state_flag() != 1) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
         temp_r0 = *(s32 *)((s8 *)this + 0x1C);

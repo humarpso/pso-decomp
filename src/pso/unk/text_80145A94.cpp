@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct Ids_80145A94 { s32 v[2]; };
 
@@ -7,8 +8,6 @@ struct Buf_80145A94 { s32 hdr; s8 name[0xA0]; s8 x[0x270 - 0xA4]; };
 extern "C" {
 s32 TLobby__sub_8014618C();
 s32 render_tick__Fv();
-s32 get_global_63e0__6TLobbyFv();
-s32 load_player_data__6TLobbyFv();
 void *xmalloc__FUl(u32);
 s32 xfree__FPv(void *);
 s32 TAdPlayerLoadGC__sub_803F2F1C();
@@ -67,7 +66,7 @@ s32 TLobby__sub_80145A94(void) {
     }
     TLobby__sub_803F3BF8(0, lbl_805D56C8, status);
     lbl_805D56CE = 1;
-    get_global_63e0__6TLobbyFv();
+    TLobby::get_global_63e0();
     TAdPlayerLoadGC__sub_803F31D8();
     start = 0;
     end = 2;
@@ -171,7 +170,7 @@ s32 TLobby__sub_80145A94(void) {
         }
     }
     TAdPlayerLoadGC__sub_803F31BC();
-    load_player_data__6TLobbyFv();
+    TLobby::load_player_data();
     if (found != 0) {
         if (TLobby__sub_8014618C() != 0) {
             return 1;

@@ -1,9 +1,8 @@
 #include "types.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TQuestListVM.h"
 
 extern "C" {
-
-s32 set_field_20__12TQuestListVMFl(void *, s32);
 
 struct Base_802126C4 { char pad[0x18]; };
 struct VObj_802126C4 : Base_802126C4 {
@@ -21,7 +20,7 @@ extern VObj_802126C4 *THunterGuildSeqOffline__active_instance;
 void THunterGuildSeqOffline::notify_close() {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(0x19, 1);
-        set_field_20__12TQuestListVMFl(THunterGuildSeqOffline__active_instance, 4);
+        ((TQuestListVM *)THunterGuildSeqOffline__active_instance)->set_field_20(4);
     }
 }
 
@@ -29,8 +28,6 @@ struct G_80212710 { u8 pad[0x24]; s32 f24; };
 u8 *TQuestListVM__ct(u8 *, s32, s32, s32);
 u8 *__nw__7TObjectFUl(u32);
 struct Q_80212710 { u8 pad[0x23B8]; void *cb0; void *cb1; void *cb2; };
-void set_state_3__22THunterGuildSeqOfflineFv(void);
-void init_quest_list__22THunterGuildSeqOfflineFv(void);
 extern s32 tl_05;
 void THunterGuildSeqOffline::create_quest_list_vm() {
     Q_80212710 *p = (Q_80212710 *)__nw__7TObjectFUl(0x23C4);
@@ -39,8 +36,8 @@ void THunterGuildSeqOffline::create_quest_list_vm() {
     }
     if (p != 0) {
         p->cb0 = (void *)THunterGuildSeqOffline::notify_close;
-        p->cb1 = (void *)init_quest_list__22THunterGuildSeqOfflineFv;
-        p->cb2 = (void *)set_state_3__22THunterGuildSeqOfflineFv;
+        p->cb1 = (void *)THunterGuildSeqOffline::init_quest_list;
+        p->cb2 = (void *)THunterGuildSeqOffline::set_state_3;
     }
 }
 

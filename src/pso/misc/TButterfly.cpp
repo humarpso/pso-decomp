@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TButterfly.h"
+#include "pso/TParticleCtrl.h"
 
 struct Base_8017E978 { char pad[0x18]; };
 struct VObj_8017E978 : Base_8017E978 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
@@ -42,8 +43,6 @@ void *__dt__10TButterflyFv(void *arg0, s16 arg1);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 draw_model__10TButterflyFv(void *);
 s32 rand();
 s32 set_global_param__8TObjFishFl();
 
@@ -69,7 +68,7 @@ void TButterfly::render() {
     if (((VObj_8017E978*)this)->m8((4e+02f), (2e+01f)) != 0) {
         TObjFish__sub_8001EDB0(butterfly_bml_resource, 0);
         set_global_param__8TObjFishFl();
-        draw_model__10TButterflyFv(this);
+        draw_model();
     }
 }
 
@@ -216,7 +215,7 @@ void TButterfly::run_task() {
 void *__dt__10TButterflyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TButterfly;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

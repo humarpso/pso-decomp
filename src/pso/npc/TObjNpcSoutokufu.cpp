@@ -2,6 +2,10 @@
 #include "pso/TObjBoss5FloorStone.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/npc/TObjNpcSoutokufu.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcLappy.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_802895D8_lbl_804D3320 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802895D8_lbl_804D3320_size[sizeof(RecoveredGlobal_802895D8_lbl_804D3320) == 0x10 ? 1 : -1];
@@ -106,21 +110,15 @@ struct Gl_80289710 { u8 pad[0x42C]; Ow_80289710 *owner; };
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_802895D8_lbl_804D3320 bm_npc_soutokufu_resource_descriptor;
 extern u32 TObjNpcSoutokufu__shared_model_resource;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__16TObjNpcSoutokufu[];
 extern s32 TObjNpcSoutokufu__name;
 extern u32 TObjNpcSoutokufu__shared_model_resource;
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2);
-void spawn_switch_attack__12TBoss8DragonFv(void *);
-void spawn_attack_effect__12TBoss8DragonFv(void *);
-s32 is_within_xz_distance__12TBoss8DragonFPUcf(void *, void *, f32);
 f32 calc_sq_offset__12TBoss8DragonFf(void *, void *, f32);
 extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD8E8;
@@ -131,9 +129,6 @@ extern "C" {
 void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
-s32 is_any_teammate_in_state__10TObjPlayerFv();
-s32 render_impl__19TObjBoss5FloorStoneFPv(s32, s32);
 
 extern u32 TObjNpcSoutokufu__shared_model_resource;
 
@@ -149,7 +144,7 @@ extern s32 __vt__16TObjNpcSoutokufu[];
 void TObjNpcSoutokufu::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_npc_soutokufu_resource_descriptor.value, 0, 0, 0));
@@ -160,7 +155,7 @@ void TObjNpcSoutokufu::load_shared_resource() {
 void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjNpcSoutokufu;
-        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
+        ((TObjNpcLappy *)arg0)->destroy_npc_lappy_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -177,10 +172,10 @@ u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu *)&__vt__16TObjNpcSoutokufu).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcSoutokufu__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 
@@ -194,20 +189,20 @@ void TBoss8Dragon::trigger_switches_in_range(void *arg0, void *arg1, void *arg2)
     list = ow->list;
     off = calc_sq_offset__12TBoss8DragonFf(arg2, ow, lbl_805DD8E8);
     for (n = list->head; n != NULL; n = n->next) {
-        if (!(n->flags & 8) && is_within_xz_distance__12TBoss8DragonFPUcf(arg1, n, off) != 0) {
+        if (!(n->flags & 8) && ((TBoss8Dragon *)arg1)->is_within_xz_distance((u8 *)n, (f32)off) != 0) {
             sp[0] = n->f8;
             sp[1] = n->fc;
             sp[2] = n->f10;
-            spawn_attack_effect__12TBoss8DragonFv(sp);
-            spawn_switch_attack__12TBoss8DragonFv(sp);
+            ((TBoss8Dragon *)sp)->spawn_attack_effect();
+            ((TBoss8Dragon *)sp)->spawn_switch_attack();
             n->flags |= 8;
         }
     }
 }
 
 void TObjBoss5FloorStone::render() {
-    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
-        render_impl__19TObjBoss5FloorStoneFPv(boss5_common_texture_list, *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x58));
+    if (TObjPlayer::is_any_teammate_in_state() == 0) {
+        ((TObjBoss5FloorStone *)boss5_common_texture_list)->render_impl((void*)(*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x58)));
     }
 }
 

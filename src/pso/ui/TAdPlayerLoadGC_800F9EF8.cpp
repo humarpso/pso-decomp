@@ -1,8 +1,8 @@
 #include "types.h"
 #include "pso/TAdPlayerLoadGC.h"
+#include "pso/item/TItemDrop.h"
 
 extern "C" {
-void *construct__9TItemDropFv(void *p);
 void *destroy__9TItemDropFs(void *p, s16 flag);
 void __register_global_object(void *obj, void *dtor, void *link);
 extern u8 resource_load_task_root[];
@@ -25,7 +25,7 @@ s32 TLoadCtrl__sub_800F9F00(void) {
     return TLoadCtrl__fade_task;
 }
 void TLobby__sub_800F9F08(void) {
-    __register_global_object(construct__9TItemDropFv(resource_load_task_root), (void *)destroy__9TItemDropFs, resource_load_task_root_dtor_registration);
+    __register_global_object(((TItemDrop *)resource_load_task_root)->construct(), (void *)destroy__9TItemDropFs, resource_load_task_root_dtor_registration);
     disc_read_filename = lbl_805D2B10;
 }
 

@@ -49,7 +49,6 @@ s32 fn_800FCCC8(s32, s32);
 s32 get_card_status_bits__20TWindowShortListCtrlFv();
 
 void *TFontSmallHelp__sub_800FCC20(void *arg0, s16 arg1);
-s32 set_color__14TFontSmallHelpFUl(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -58,7 +57,6 @@ s32 fn_800FCCF4(s32);
 s32 get_status_index_or_default__20TWindowSubStatusDispFPUs(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 run_task__14TFontSmallHelpFv(void *);
-s32 set_help_text__14TFontSmallHelpFPCc(void *, u32);
 
     extern int TWindowCtrlMain__instance;
 int TWindowCtrlMain::get_instance() {  return TWindowCtrlMain__instance; }
@@ -146,13 +144,13 @@ void TFontSmallHelp::update_help_text() {
     if ((s32) *(s32 *)((s8 *)this + 0x60) != temp_r3_2) {
         *(s32 *)((s8 *)this + 0x60) = temp_r3_2;
         temp_r3_3 = (u32)build_status_text__20TWindowSubStatusDispFi(*(s32 *)((s8 *)this + 0x5C));
-        set_help_text__14TFontSmallHelpFPCc(this, temp_r3_3);
+        set_help_text((const char *)temp_r3_3);
         if (temp_r3_3 != 0U) {
             if ((s32) *(s32 *)((s8 *)this + 0x60) == 3) {
                 temp_r4 = *(s32 *)((s8 *)this + 0x5C);
-                set_color__14TFontSmallHelpFUl(this, get_status_index_or_default__20TWindowSubStatusDispFPUs((s8 *)lobby_player_status_records + (temp_r4 * 0x11C) + 4, temp_r4));
+                set_color(get_status_index_or_default__20TWindowSubStatusDispFPUs((s8 *)lobby_player_status_records + (temp_r4 * 0x11C) + 4, temp_r4));
             } else {
-                set_color__14TFontSmallHelpFUl(this, fn_800FCCF4(temp_r3));
+                set_color(fn_800FCCF4(temp_r3));
             }
         }
     }

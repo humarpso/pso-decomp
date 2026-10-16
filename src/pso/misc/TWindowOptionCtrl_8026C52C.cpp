@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl.h"
 
 extern "C" {
 
 void *TWindowOptionCtrl__ct(void *arg0);
-void init_selection_indices__17TWindowOptionCtrlFv(void *);
 void *__ct__15TAdPlayerLoadGCFv(void *, void *, int);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
@@ -30,7 +30,7 @@ void *TWindowOptionCtrl__ct(void *arg0) {
         o = __ct__15TAdPlayerLoadGCFv(o, arg0, 2);
     }
     *(void **)((s8 *)arg0 + 0x4C) = o;
-    init_selection_indices__17TWindowOptionCtrlFv(arg0);
+    ((TWindowOptionCtrl *)arg0)->init_selection_indices();
     *(u32 *)((s8 *)arg0 + 0x24) = 4;
     *(u8 *)((s8 *)arg0 + 0x1D) = 0;
     *(u8 *)((s8 *)arg0 + 0x1C) = 0;

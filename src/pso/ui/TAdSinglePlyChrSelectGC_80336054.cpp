@@ -1,11 +1,11 @@
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 
 extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_8033605C(void);
 u32 __nw__7TObjectFUl(s32);
-s32 init__22THunterGuildSeqOfflineFPvPv(s32, s32, s32 *);
 
     extern int lobby_game_mode_state;
 int TAdSinglePlyChrSelectGC::get_data() {  return lobby_game_mode_state; }
@@ -20,7 +20,7 @@ s32 TAdSinglePlyChrSelectGC::start_offline_seq() {
     if (!(*(s32 *)((s8 *)this + 0x3C) & 2)) {
         temp_r3 = (s32 *) __nw__7TObjectFUl(0x28);
         if (temp_r3 != NULL) {
-            init__22THunterGuildSeqOfflineFPvPv((s32) temp_r3, tl_fade, queue_destruction_and_cleanup__6TLobbyFv);
+            ((THunterGuildSeqOffline *)temp_r3)->init((void *)tl_fade, (void *)queue_destruction_and_cleanup__6TLobbyFv);
         }
         *(s32 *)((s8 *)this + 0x3C) = (s32) (*(s32 *)((s8 *)this + 0x3C) | 2);
     }

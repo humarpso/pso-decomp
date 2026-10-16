@@ -1,13 +1,12 @@
 #include "types.h"
 #include "pso/misc/TForceOperate.h"
 #include "pso/misc/TMainCursor.h"
+#include "pso/misc/TWindowActionPalette.h"
 
 struct Obj_8013E020 { u16 a; u16 b; s32 c; };
 
 extern "C" {
 void TMainCursor__sub_8013DFC4(u8 *arg0);
-u8 get_enabled__11TMainCursorFv(void* p);
-u8 get_type__11TMainCursorFv(void* p);
 int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2);
 void fn_8013E020(Obj_8013E020 *self);
 }
@@ -19,16 +18,11 @@ void TLockOnCursor__sub_8013E0D0(void* p, s32 v);
 void __dl__7TObjectFPv(void *);
 int __dl__FPv();
 void __dt__7TObjectFv(void *, int);
-int check_visible__11TMainCursorFv(void* p);
-int find_action_slot_for_target__11TMainCursorFllll(void*);
-u8 get_enabled__11TMainCursorFv(void* p);
-void set_mode__20TWindowActionPaletteFUc(void* p, u8 v);
-void set_slot__20TWindowActionPaletteFUc(void* p, u8 v);
 
 int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2) {
     s32 var_r31;
     var_r31 = 0;
-    if ((arg1 == get_type__11TMainCursorFv((void*)(arg0))) && (arg2 == get_enabled__11TMainCursorFv((void*)(arg0)))) {
+    if ((arg1 == ((TMainCursor *)arg0)->get_type()) && (arg2 == ((TMainCursor *)arg0)->get_enabled())) {
         var_r31 = 1;
     }
     return (u8)var_r31;

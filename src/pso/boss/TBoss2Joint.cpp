@@ -1,6 +1,10 @@
 #include "types.h"
 #include "pso/boss/TBoss2Joint.h"
 #include "pso/boss/TBoss2LaserLight.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 struct TBJ_8003688C { char pad[0x18]; };
 struct VTbj_8003688C : TBJ_8003688C {
@@ -313,14 +317,11 @@ typedef struct Param_80036EA8 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 TBoss2Joint__sub_80036940(void *);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 TObjEneDD__sub_800BBA0C(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
 s32 TObjEneDD__vt91(void *);
 s32 TObjEneDD__vt90(void *);
-s32 transform_part_positions__9TObjEneDDFv(void *);
 extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
@@ -339,7 +340,6 @@ s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern const f32 lbl_805D8498;
 void push_trail_position__13TBoss2DeRolLeFPvPv(Obj_80037178 *self, V3_80037178 *src);
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
-void copy_pos__11TNowLoadingFPv(void *, Vec_80037074 *);
 void enable__13TParticleCtrlFPv(void *);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
@@ -347,7 +347,6 @@ s32 register_boss__6TLobbyFl(s32);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TBoss2Joint_get_shell_max_hp(void);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
-void check_state_flag_2__9TObjEneDDFv(void *);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void init_position_vectors__9TObjEneDDFPv(void *);
 extern RecoveredGlobal_80036A90_lbl_80435A68 TBoss2Joint__joint_offset_vec4_table;
@@ -482,7 +481,7 @@ void TBoss2Joint__vt86(u8 *arg0) {
             ((VObj_18_67c185 *)(arg0))->m96();
         }
     }
-    transform_part_positions__9TObjEneDDFv((void *) (arg0));
+    ((TObjEneDD *)arg0)->transform_part_positions();
 }
 
 void TBoss2Joint::update_position_history() {
@@ -522,7 +521,7 @@ extern s32 __vt__11TBoss2Joint[];
 
 void TBoss2Joint::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (check_demo_mode__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::check_demo_mode() == 0) {
         VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
         ((VObj_18 *)(arg0))->m81();
         if (((VObj_18 *)(arg0))->m84() == 0) {
@@ -533,7 +532,7 @@ void TBoss2Joint::run_task() {
         TBoss2Joint__sub_80036940((void *) (arg0));
         update_position_history();
         ((VObj_18 *)(arg0))->m86();
-        set_player_state_default__12TBoss8DragonFv((void *) (arg0));
+        ((TBoss8Dragon *)arg0)->set_player_state_default();
         add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805D848C));
     }
 }
@@ -567,7 +566,7 @@ s32 TBoss2Joint::init_params() {
     reset_hp__9TObjEneDDFv(self, register_boss__6TLobbyFl(prm->unk0), dispatch_shared_handler_b__6TLobbyFl(prm->unk8), register_object__6TLobbyFl(prm->unk10));
     self->hp32C = 0x4E20;
     self->hp2B8 = 0x4E20;
-    check_state_flag_2__9TObjEneDDFv(self);
+    ((TObjEneDD *)self)->check_state_flag_2();
     self->unk350 = prm->unk18;
     self->unk33E = self->hp2B8;
     self->unk37C = lbl_805D8490;
@@ -623,7 +622,7 @@ void TBoss2LaserLight::update_particle_trail() {
             enable__13TParticleCtrlFPv(self->ptcl);
             break;
         case 1:
-            copy_pos__11TNowLoadingFPv(self->ptcl, &self->pts[self->cur]);
+            ((TNowLoading *)(self->ptcl))->copy_pos(&self->pts[self->cur]);
             self->cur++;
             if (self->cur >= 20) {
                 self->cur = 0;

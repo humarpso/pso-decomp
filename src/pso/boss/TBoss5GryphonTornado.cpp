@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss5GryphonTornado.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/TNowLoading.h"
 
 struct RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado {
     s32 value;
@@ -38,13 +40,10 @@ u8 *TBoss5GryphonTornado__ct(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 get_flag_bit6__12TBoss8DragonFv(s32);
 void TBoss8Dragon__sub_800640A4(s32, Vec_80355570 *);
-s32 get_instance_count__12TBoss8DragonFv();
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Res_80355570 *csnVecterUnder(Vec_80355570 *, s32);
 void *spawn_continuous_particle_effect_with_flags(Vec_80355570 *, s32, s32);
-void copy_pos__11TNowLoadingFPv(void *, Vec_80355570 *);
 void enable__13TParticleCtrlFPv(void *);
 void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
@@ -78,7 +77,7 @@ void TBoss5GryphonTornado::run_task() {
     Vec_80355570 v;
     Res_80355570 *r;
     f32 h;
-    if (get_flag_bit6__12TBoss8DragonFv(o->f4C) != 0) {
+    if (((TBoss8Dragon *)(o->f4C))->get_flag_bit6() != 0) {
         queue_destruction__7TObjectFv(o);
         return;
     }
@@ -111,19 +110,19 @@ void TBoss5GryphonTornado::run_task() {
             o->p58 = spawn_continuous_particle_effect_with_flags(&o->pos, gryphon_tornado_particle_id_table[2], 0x40);
         }
         if (o->p50 != NULL) {
-            copy_pos__11TNowLoadingFPv(o->p50, &o->pos);
+            ((TNowLoading *)(o->p50))->copy_pos(&o->pos);
         }
         if (o->p54 != NULL) {
-            copy_pos__11TNowLoadingFPv(o->p54, &o->pos);
+            ((TNowLoading *)(o->p54))->copy_pos(&o->pos);
         }
         if (o->p58 != NULL) {
-            copy_pos__11TNowLoadingFPv(o->p58, &o->pos);
+            ((TNowLoading *)(o->p58))->copy_pos(&o->pos);
         }
         if (o->timer > 0x168) {
             o->state = 2;
             o->timer = 0;
         }
-        TBoss8Dragon__sub_800640A4(get_instance_count__12TBoss8DragonFv(), &o->pos);
+        TBoss8Dragon__sub_800640A4(TBoss8Dragon::get_instance_count(), &o->pos);
         fn_803554F0(o, &v);
         o->f34 = lbl_805DFFB0 * v.x + o->f34;
         o->f3C = lbl_805DFFB0 * v.z + o->f3C;

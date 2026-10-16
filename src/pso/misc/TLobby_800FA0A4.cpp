@@ -3,8 +3,6 @@
 
 extern "C" {
 
-s32 pop_and_close__6TLobbyFv();
-
 extern u8 *async_file_read_current_request;
 extern s32 async_file_read_state;
 
@@ -20,7 +18,7 @@ void TLobby::notify_and_close() {
     if (temp_r12 != NULL) {
         temp_r12(async_file_read_current_request + 0x44);
     }
-    pop_and_close__6TLobbyFv();
+    TLobby::pop_and_close();
     async_file_read_state = 0;
 }
 

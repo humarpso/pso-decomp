@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdFloorLoadCamGC.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct Vec_8034BE5C { f32 x, y, z; };
 
@@ -22,7 +23,6 @@ extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy_vec_to_default__11TCameraCtrlFPUc(void *);
 void set_active_camera_pose(void *, void *);
 void activate_camera_mode(int);
 f32 sin_table_lookup(s32);
@@ -115,7 +115,7 @@ void TAdFloorLoadCamGC::run_task() {
     } else {
         normalize_vector(&up);
     }
-    copy_vec_to_default__11TCameraCtrlFPUc(&up);
+    TCameraCtrl::copy_vec_to_default((u8 *)(&up));
     set_active_camera_pose(&s->pos, &s->target);
 }
 #pragma pop

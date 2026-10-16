@@ -3,11 +3,11 @@
 extern s32 TWindowCtrlMain__sub_controller;
 
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 extern "C" {
-s32 update_fade_alphas__15TWindowCtrlMainFv();
 s32 resolve_chat_balloon_overlaps();
-s32 run_tasks__7TObjectFv(s32);
 extern s32 TWindowCtrlMain__window_task_root;
 }
 
@@ -21,8 +21,8 @@ extern void *TWindowCtrlSub__name;
 
 void TWindowCtrlSub::run_task() {
     resolve_chat_balloon_overlaps();
-    update_fade_alphas__15TWindowCtrlMainFv();
-    run_tasks__7TObjectFv(TWindowCtrlMain__window_task_root);
+    TWindowCtrlMain::update_fade_alphas();
+    ((TObject *)TWindowCtrlMain__window_task_root)->run_tasks();
 }
 
 TWindowCtrlSub::~TWindowCtrlSub() {

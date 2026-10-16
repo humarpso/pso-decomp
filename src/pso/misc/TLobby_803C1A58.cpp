@@ -144,7 +144,6 @@ extern "C" {
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s8 TLobby__sub_803C3B38(u8 *arg0);
 s32 memset(void *, int, int);
-void clear_buffer_340__6TLobbyFv(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 adx_channel_record_pool;
 void TLobby__sub_803C406C(void);
 int memcmp(const void *a, const void *b, unsigned long n);
@@ -160,7 +159,6 @@ void TLobby__sub_803C19D8(void *);
 void TLobby__sub_803C3570(void *);
 void TLobby__sub_803C40D0(void *);
 void TLobby__sub_803C34F4(Obj_803C34F4 *arg0);
-s32 is_riff_wave__6TLobbyFv(void *);
 s32 DVDReadPrio(void *, void *, void *);
 s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2);
 s32 memset(void *, int, int);
@@ -169,17 +167,13 @@ s32 TLobby__sub_803C44C0(Hdr_803C44C0 *hdr, s32 arg1, s16 *arg2, s8 *arg3, s8 *a
 s32 memset(void *, int, int);
 u8 *TLobby__sub_803C2388(u8 *, s32 *, s32 *, s32 *, s32 *);
 s32 __DVDPrepareResetAsync(void *, void *, void *, void *, void *, void *, void *, void *, void *);
-s32 parse_header_loop_points__6TLobbyFlPUsPUs(void *, void *, void *, void *);
 s32 TLobby__sub_803C48C8(void *, void *, void *);
 s32 ARStartDMA(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
-s32 report_adx_error__6TLobbyFPCcl(void *, void *);
 s32 TLobby__sub_803CB570(int, void *, void *);
-s32 calc_adx_coeffs_at_offset__6TLobbyFPvl(int, int, int);
 s32 memset(void *, int, int);
 extern s32 lbl_8047C520[];
 extern s32 lbl_8047C540[];
 s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2);
-s32 clear_record_data__6TLobbyFv(int);
 u32 adx_allocate_decoder_channel();
 s32 memset(void *, int, int);
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
@@ -188,8 +182,6 @@ Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
 u32 GXSetCopyFilter(void *, void *, void *, void *, void *, void *, void *);
 s32 memset(void *, int, int);
 s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_client_count__6TLobbyFv(int);
-s32 get_client_count__6TLobbyFv(int);
 void process_byteswapped_pcm_transfer(Snd_803C1DC4 *arg0);
 }
 
@@ -204,12 +196,8 @@ s32 TLobby__sub_803C3B44(u8 *arg0);
 void TLobby__sub_803C3B5C(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg3);
 void TLobby__sub_803C2A00(Strm_803C1A8C *o);
-s32 get_client_count__6TLobbyFv(int);
 extern s16 lbl_804F9B80[];
-s32 clear_record_data__6TLobbyFv(int);
 s32 memset(void *, int, int);
-s32 reset_client_state__6TLobbyFv(int);
-s32 reset_field_0C__6TLobbyFv(int);
 
 void TLobby::dispatch_network_state() {
     u8 *arg0 = (u8 *)this;
@@ -223,7 +211,7 @@ void TLobby::dispatch_network_state() {
 void TLobby::decode_pcm8_stream() {
     Strm_803C1A8C *o = (Strm_803C1A8C *)this;
     u8 *src = o->src;
-    if (o->state == 1 && get_client_count__6TLobbyFv(o->id) == 0) {
+    if (o->state == 1 && ((TLobby *)(o->id))->get_client_count() == 0) {
         s16 *l;
         s16 *r;
         s32 i;
@@ -270,7 +258,7 @@ void TLobby::copy_byteswapped_pcm_samples() {
   u16 *r;
   s32 i;
   s32 n;
-  if ((arg0->state == 1) && (get_client_count__6TLobbyFv(arg0->lobby) == 0))
+  if ((arg0->state == 1) && (((TLobby *)(arg0->lobby))->get_client_count() == 0))
   {
     arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
     new_var = arg0->size;
@@ -403,7 +391,7 @@ void TLobby::decode_stream_chunk() {
     Strm_803C1A8C *o = (Strm_803C1A8C *)this;
     u8 *src = o->src;
 
-    if (o->state == 1 && get_client_count__6TLobbyFv(o->id) == 0) {
+    if (o->state == 1 && ((TLobby *)(o->id))->get_client_count() == 0) {
         s16 *dst;
         s16 *dst2;
         s32 i;
@@ -440,7 +428,7 @@ void TLobby::decode_stream_chunk() {
 
 void TLobby__sub_803C2A00(Strm_803C1A8C *o) {
     u8 *src = o->src;
-    if (o->state == 1 && get_client_count__6TLobbyFv(o->id) == 0) {
+    if (o->state == 1 && ((TLobby *)(o->id))->get_client_count() == 0) {
         s16 *l;
         s16 *r;
         s32 i;
@@ -482,7 +470,7 @@ void process_byteswapped_pcm_transfer(Snd_803C1DC4 *arg0) {
   u16 *r;
   s32 i;
   s32 n;
-  if ((arg0->state == 1) && (get_client_count__6TLobbyFv(arg0->lobby) == 0))
+  if ((arg0->state == 1) && (((TLobby *)(arg0->lobby))->get_client_count() == 0))
   {
     arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
     new_var = arg0->size;
@@ -628,14 +616,14 @@ s32 TLobby::get_field_0xa4() {
 
 void TLobby__sub_803C3984(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 4) == 3) {
-        reset_field_0C__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 8)));
+        ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->reset_field_0C();
         *(s32 *)((s8 *)arg0 + 0x9C) = 0;
         *(s32 *)((s8 *)arg0 + 4) = 0;
     }
 }
 
 void TLobby__sub_803C39CC(u8 *arg0) {
-    reset_client_state__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 8)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->reset_client_state();
     *(s32 *)((s8 *)arg0 + 4) = 0;
 }
 
@@ -762,7 +750,7 @@ s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2) {
     if (((TLobby *)arg1)->is_spsd_header() != 0) {
         return TLobby__sub_803C43A8((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
     }
-    if (is_riff_wave__6TLobbyFv((void *) (arg1)) != 0) {
+    if (((TLobby *)arg1)->is_riff_wave() != 0) {
         return DVDReadPrio((void *) (arg0), (void *) (arg1), (void *) (arg2));
     }
     if (((TLobby *)arg1)->is_aiff_header() != 0) {
@@ -787,7 +775,7 @@ s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2) {
     }
     if ((s8) *(u8 *)((s8 *)arg0 + 0xC) > 4) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xAC) == 0U) {
-            report_adx_error__6TLobbyFPCcl((void *) (lbl_8047C520), (void *) (lbl_8047C540));
+            TLobby::report_adx_error((const char *)lbl_8047C520, (s32)((void *) (lbl_8047C540)));
             return 0;
         }
         *(s8 *)((s8 *)arg0 + 0xD) = 8;
@@ -799,10 +787,10 @@ s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2) {
     if (TLobby__sub_803C48C8(arg1, arg2, (void *) (arg0 + 0x1C)) < 0) {
         return 0;
     }
-    if (parse_header_loop_points__6TLobbyFlPUsPUs((void *) (arg1), (void *) (arg2), (void *) (&sp18), (void *) (&sp14)) < 0) {
+    if (((TLobby *)arg1)->parse_header_loop_points((s32)((void *) (arg2)), (u16 *)(&sp18), (u16 *)(&sp14)) < 0) {
         return 0;
     }
-    calc_adx_coeffs_at_offset__6TLobbyFPvl((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x14)), (int) (*(s16 *)((s8 *)arg0 + 0x1C)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->calc_adx_coeffs_at_offset((void *)(*(s32 *)((s8 *)arg0 + 0x14)), (s32)((int) (*(s16 *)((s8 *)arg0 + 0x1C))));
     TLobby__sub_803CB570((int) (*(s32 *)((s8 *)arg0 + 8)), (void *) (&sp18), (void *) (&sp14));
     __DVDPrepareResetAsync((void *) (arg1), (void *) (arg2), (void *) (arg0 + 0x20), (void *) (arg0 + 0x24), (void *) (arg0 + 0x26), (void *) (arg0 + 0x28), (void *) (arg0 + 0x2C), (void *) (arg0 + 0x30), (void *) (arg0 + 0x34));
     *(s16 *)((s8 *)arg0 + 0xA8) = 0;
@@ -826,7 +814,7 @@ block_11:
 void TLobby::clear_record() {
     u8 *arg0 = (u8 *)this;
     if (arg0 != NULL) {
-        clear_record_data__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 8)));
+        ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->clear_record_data();
         memset((void *) (arg0), (int) (0), (int) (0xB8));
         *(s16 *)((s8 *)arg0 + 0) = 0;
     }
@@ -837,7 +825,7 @@ void TLobby::clear_record() {
 #pragma dont_inline off
 inline void free_803C3E88(Rec_803C3E88 *r) {
     if (r != NULL) {
-        clear_record_data__6TLobbyFv(r->f8);
+        ((TLobby *)(r->f8))->clear_record_data();
         memset(r, 0, 0xB8);
         r->used = 0;
     }
@@ -887,7 +875,7 @@ s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg
 typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0B08_lbl_80570AC0) == 0x9C0 ? 1 : -1];
 typedef char RecoveredGlobal_803C0AD8_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0AD8_lbl_80570AC0) == 0x9C0 ? 1 : -1];
 void TLobby__sub_803C406C(void) {
-    clear_buffer_340__6TLobbyFv();
+    TLobby::clear_buffer_340();
     memset((void *) (&adx_channel_record_pool.value), (int) (0), (int) (0xb80));
 }
 s32 TLobby::is_spsd_header() {

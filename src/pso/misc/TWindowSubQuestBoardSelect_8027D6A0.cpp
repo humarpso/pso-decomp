@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubQuestBoard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_8027D888_lbl_8050E208 {
     s32 value;
@@ -19,14 +23,7 @@ s32 forward_render__20TWindowSubStatusDispFv(int, int);
 void render__26TWindowSubQuestBoardSelectFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 update_fade__17TWindowSubComCardFv(void *);
-s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
-s32 is_open__20TWindowSubQuestBoardFv(void *);
-s32 select_next__26TWindowSubQuestBoardSelectFv(void *);
-s32 handle_cancel__26TWindowSubQuestBoardSelectFv(void *);
-s32 handle_decide__26TWindowSubQuestBoardSelectFv(void *);
-s32 update_subwindow__20TWindowSubStatusDispFv(int);
 extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD6B4;
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
@@ -84,23 +81,23 @@ typedef char RecoveredGlobal_8027D888_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowSubQuestBoardSelect::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
-    if (is_open__20TWindowSubQuestBoardFv((void *) (arg0)) == 0) {
-        select_next__26TWindowSubQuestBoardSelectFv((void *) (arg0));
+    if (((TWindowSubQuestBoard *)arg0)->is_open() == 0) {
+        ((TWindowSubQuestBoardSelect *)arg0)->select_next();
         handle_page_input();
         temp_r31 = (u8 *)&controller_input_state.value + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
-            handle_decide__26TWindowSubQuestBoardSelectFv((void *) (arg0));
+            ((TWindowSubQuestBoardSelect *)arg0)->handle_decide();
         }
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-            handle_cancel__26TWindowSubQuestBoardSelectFv((void *) (arg0));
+            ((TWindowSubQuestBoardSelect *)arg0)->handle_cancel();
         }
     }
-    initialize_subwindow__9TWindowDDFv((void *) (arg0));
+    ((TWindowDD *)arg0)->initialize_subwindow();
     if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD6B4) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x186A0;
-        update_subwindow__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x64)));
+        ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)arg0 + 0x64)))->update_subwindow();
     }
-    update_fade__17TWindowSubComCardFv((void *) (arg0));
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 

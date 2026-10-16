@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowBreakIn.h"
+#include "pso/misc/TWindowDD.h"
 
 struct RecoveredGlobal_80246C58_lbl_804CE1B8 {
     s32 value;
@@ -27,7 +28,6 @@ int update_entry_visibility__20TWindowSubStatusDispFi(void*);
 s32 draw_visible_window_entries(s32, s32, s32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
 s32 draw_default_entry__9TWindowDDFl();
 int initialize_subwindow__9TWindowDDFv(void*);
 
@@ -44,7 +44,7 @@ extern s32 __vt__14TWindowBreakIn[];
 void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowBreakIn;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

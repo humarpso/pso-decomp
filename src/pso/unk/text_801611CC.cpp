@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOBarrierEnergy01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_4a4f5b { char pad[0x18]; };
 
@@ -62,7 +66,6 @@ extern const f32 lbl_805DB498;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A0;
 void TODoorCave01__vt13(u8 *arg0);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -74,9 +77,7 @@ extern s32 *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB480;
 extern const f32 lbl_805DB484;
 u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
-void copy_short_fields__6TLobbyFPv(void *, void *);
 s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
-void init__17TOBarrierEnergy01Fv(void *);
 void update_and_send_60__6TLobbyFPv(void *);
 void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src);
 void play_door_sound(u8 *arg0);
@@ -90,9 +91,7 @@ s32 TODoorCave01__vt17(void *arg0);
 void TODoorCave01__vt18(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(f32);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 s32 get_main_phase();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 
 typedef char RecoveredGlobal_801611CC_lbl_804B1248_size[sizeof(RecoveredGlobal_801611CC_lbl_804B1248) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_801611CC___vt__15TODoorAncient09_size[sizeof(RecoveredGlobal_801611CC___vt__15TODoorAncient09) == 0x54 ? 1 : -1];
@@ -109,7 +108,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB480);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient09__collision_body_template.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x84) = 0;
@@ -131,14 +130,14 @@ void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src) {
     State_80161320 st;
     Obj_80161320 *obj;
     if (src != 0) {
-        copy_short_fields__6TLobbyFPv(&st, src);
+        ((TLobby *)(&st))->copy_short_fields(src);
     } else {
         access_object_saved_state((u8 *)self, (s32)&st, 1);
     }
     obj = self->obj;
     if (obj != 0) {
         Pkt_80161320 pkt;
-        init__17TOBarrierEnergy01Fv(&pkt);
+        ((TOBarrierEnergy01 *)(&pkt))->init();
         pkt.id = self->id;
         pkt.state = st.a;
         pkt.kind = obj->kind;
@@ -162,7 +161,7 @@ s32 TODoorCave01__vt17(void *arg0) {
     } else if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0xCC) = 1;
     } else if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
-        if ((get_main_phase() == 0xF) || (is_not_split_screen__13TRaderMapCoreFv() == 1)) {
+        if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             *(s32 *)((s8 *)arg0 + 0xCC) = 3;
         } else {
             *(s32 *)((s8 *)arg0 + 0xCC) = 2;
@@ -178,7 +177,7 @@ extern const f32 lbl_805DB490;
 void TODoorCave01__vt15(u8 *arg0) {
     if (((u8) ((u32) __cntlzw(*(s32 *)((s8 *)arg0 + 0xD0) & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
-        clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 8);
+        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
 }

@@ -13,6 +13,10 @@ struct MultiConfirmTextureList { void *entries; u32 count; };
 __declspec(section ".data") MultiConfirmTextureList multi_confirm_texture_descriptor = { multi_confirm_texture_entries, 1 };
 }
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 struct Ok_80306C10 { u8 pad[0x97C]; s32 count; };
 
 struct Ok_80306F84 { u8 pad[0x97C]; s32 count; };
@@ -71,9 +75,6 @@ typedef struct { P3_80307034 v[11]; } Pos_80307034;
 typedef struct { u32 c[12]; } Col_80307034;
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv(void);
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
 extern const f32 lbl_805DF04C;
 extern const f32 lbl_805DF050;
 extern const f32 lbl_805DF054;
@@ -85,9 +86,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 multi_ok_player_port_index_table;
 extern Pad_80306DF4 controller_physical_port_bank[];
-s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, s32);
 extern s32 multi_confirm_texture_list;
@@ -129,7 +128,7 @@ void TAdMultiOkGC::draw_entry(int arg1) {
     e = (E_80306B04 *)this;
     if (e[arg1].flags & 2) {
         begin_screen_draw(1);
-        set_global_param__8TObjFishFl(multi_confirm_texture_list);
+        TObjFish::set_global_param(multi_confirm_texture_list);
         e += arg1;
         base = lbl_805DF040 * (f32)arg1;
         for (i = 0; i < 5; i++) {
@@ -139,7 +138,7 @@ void TAdMultiOkGC::draw_entry(int arg1) {
                 draw_textured_quad_at_depth(&e->q[i], t + base);
             }
         }
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
     }
 }
 #pragma pop
@@ -147,12 +146,12 @@ void TAdMultiOkGC::draw_entry(int arg1) {
 void TAdMultiOkGC::render() {
     Ok_80306C10 *o = (Ok_80306C10 *)this;
     s32 i;
-    if (get_state_flag__9TMainTaskFv() != 1) {
-        init_xyz_limits__10TObjPlayerFv();
+    if (TMainTask::get_state_flag() != 1) {
+        TObjPlayer::init_xyz_limits();
         for (i = 0; i < o->count; i++) {
             draw_entry((int)(i));
         }
-        reset_transform_state__10TObjPlayerFv();
+        TObjPlayer::reset_transform_state();
     }
 }
 #pragma push

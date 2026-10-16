@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/npc/TObjNpcNgcBase.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8
 {
   u32 value;
@@ -165,8 +167,6 @@ s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
 s32 TLobby__sub_8001FE7C(void *, s32);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern Rec_803592B8 npc_delta_w_body_model_names[];
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 }
@@ -557,7 +557,7 @@ void TObjNpcNgcBase::load_resources() {
         ((u32 *)&TObjNpcNgcBase__data_805439A8)[i] = 0;
     }
     p = NULL;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0:
     case 0x12:
         p = &tbl[0x2A];
@@ -572,7 +572,7 @@ void TObjNpcNgcBase::load_resources() {
     }
     if (p != NULL) {
         while (p->idx != -1) {
-            obj = (void *)alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+            obj = (void *)((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
             if (obj != NULL) {
                 obj = load_resource_from_descriptor(obj, 1, p->data, 0, 0, 0);
             }

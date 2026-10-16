@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 
 struct Rec_80181310 { s32 timer; s32 count; void *objs[2]; };
 
@@ -11,7 +12,6 @@ f32 fn_801811FC(void *);
 f32 fn_80181204(void *);
 void *construct_city_air_car(void *, void *, s32, s32, f32);
 void *__nw__7TObjectFUl(u32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 rand(void);
 extern f32 air_car_lane_spacing_table[];
 extern f32 air_car_lane_speed_scale_table[];
@@ -43,7 +43,7 @@ void run_task__19TObjCityAirCar_CtrlFv(Ctrl_80181310 *self) {
         count = r->count;
         timer = r->timer;
         for (j = 0; j < count; j++) {
-            if (r->objs[j] == NULL || all_parents_unqueued_for_destruction__7TObjectFv(r->objs[j]) == 0) {
+            if (r->objs[j] == NULL || ((TObject *)(r->objs[j]))->all_parents_unqueued_for_destruction() == 0) {
                 count--;
                 for (k = j; k < count; k++) {
                     r->objs[k] = r->objs[k + 1];

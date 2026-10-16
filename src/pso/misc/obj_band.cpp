@@ -98,11 +98,9 @@ struct P_80142B3C { D_80142B3C *d0; s32 pad; };
 
 struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r; } *tab2; };
 
-int set_field_dc__10TObjPlayerFl(void*, void*);
 int set_field_d8__10TObjPlayerFl(void*);
 f32 get_speed__10TObjPlayerFv();
 void TObjEnePanarms__sub_800E2DE4(void *, int);
-s32 reset_transform_state__10TObjPlayerFv();
 s32 restore_actor_draw_lighting(s32);
 s32 setup_actor_draw_lighting();
 s32 get_anim_entry_value__10TObjPlayerFPvs(Obj_80142BB4 *self, s16 i);
@@ -114,7 +112,6 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void advance_animation_playback(Anim_80143504 *a);
 void set_motion_interpolation_flag(void *);
 s32 TBoss1Dragon__sub_80143960(void *, int);
-void * get_anim_entry__10TObjPlayerFi(void *, s16);
 s32 draw_ginja_model_tree__10TObjPlayerFPv(s32, void *, f32);
 s32 draw_ginja_model__10TObjPlayerFl(s32, s32, f32);
 s32 render_model_tree__12TBoss8DragonFPv(u32, s32, f32);
@@ -122,9 +119,6 @@ int get_current_matrix(void*);
 s32 set_model_node_callback(s32);
 s32 draw_model_blend_motion(s32, void *, f32);
 s32 draw_model_motion(s32, s32, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
-s32 set_global_state__16TObjEneRe7BeruraFl(s32 *);
 
 extern s32 anim_model_matrix_array;
 extern s32 player_joint_matrix_write_ptr;
@@ -276,12 +270,12 @@ s32 TObjPlayer::draw_model_with_callback(s32 arg1, s32 arg2, f32 farg0) {
     if ((arg1 == 0) || ((u32) *(u32 *)((s8 *)this + 0x34) == 0U)) {
         return 0;
     }
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     player_joint_matrix_write_ptr = arg2;
-    set_global_state__16TObjEneRe7BeruraFl((s32 *)save_joint_matrix_callback);
+    TObjEneRe7Berura::set_global_state((s32)((s32 *)save_joint_matrix_callback));
     render_model_tree__12TBoss8DragonFPv(*(u32 *)((s8 *)this + 0x34), arg1, farg0);
-    set_global_state__16TObjEneRe7BeruraFl(NULL);
-    clear_global_state__10TObjPlayerFv();
+    TObjEneRe7Berura::set_global_state((s32)NULL);
+    TObjPlayer::clear_global_state();
     return 1;
 }
 
@@ -289,12 +283,12 @@ s32 TObjPlayer::render_anim_model(f32 farg0) {
     if (((u32) *(u32 *)((s8 *)this + 0xF8) == 0U) || ((u32) *(u32 *)((s8 *)this + 0x34) == 0U)) {
         return 0;
     }
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     player_joint_matrix_write_ptr = anim_model_matrix_array;
-    set_global_state__16TObjEneRe7BeruraFl((s32 *)save_joint_matrix_callback);
+    TObjEneRe7Berura::set_global_state((s32)((s32 *)save_joint_matrix_callback));
     ((s32 (*)(u32, u32, f32))render_model_tree__12TBoss8DragonFPv)(*(u32 *)((s8 *)this + 0x34), *(u32 *)((s8 *)this + 0xF8), farg0);
-    set_global_state__16TObjEneRe7BeruraFl(NULL);
-    clear_global_state__10TObjPlayerFv();
+    TObjEneRe7Berura::set_global_state((s32)NULL);
+    TObjPlayer::clear_global_state();
     return 1;
 }
 
@@ -322,15 +316,15 @@ void save_joint_matrix_callback(void) { get_current_matrix((void*)((*(int *)&pla
 void draw_motion_model_saving_joints(u8 *arg0) {
     s32 temp_r3;
     (*(int *)&player_joint_matrix_write_ptr) = *(s32 *)((s8 *)arg0 + 0xE0);
-    ((s32 (*)(void *))set_global_state__16TObjEneRe7BeruraFl)((void *) save_joint_matrix_callback);
+    TObjEneRe7Berura::set_global_state((s32)((void *) save_joint_matrix_callback));
     temp_r3 = *(s32 *)((s8 *)arg0 + 0xB0);
     if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
         ((s32 (*)(int, void *, f32))draw_model_blend_motion)(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
     } else {
         ((s32 (*)(int, int, f32))draw_model_motion)(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
     }
-    ((s32 (*)(void *))set_global_state__16TObjEneRe7BeruraFl)(NULL);
-    reset_transform_state__10TObjPlayerFv();
+    TObjEneRe7Berura::set_global_state((s32)NULL);
+    TObjPlayer::reset_transform_state();
 }
 
 void TObjPlayer::draw_model_with_callback() {
@@ -341,51 +335,51 @@ void TObjPlayer::draw_model_with_callback() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0xE0);
     if (temp_r0 != 0U) {
         (*(u32 *)&player_joint_matrix_write_ptr) = temp_r0;
-        set_global_state__16TObjEneRe7BeruraFl((s32 *)(save_joint_matrix_callback));
+        TObjEneRe7Berura::set_global_state((s32)((s32 *)(save_joint_matrix_callback)));
         temp_r3 = *(s32 *)((s8 *)arg0 + 0xB0);
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
             draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
         } else {
             draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
         }
-        set_global_state__16TObjEneRe7BeruraFl((s32 *)(NULL));
-        reset_transform_state__10TObjPlayerFv();
+        TObjEneRe7Berura::set_global_state((s32)((s32 *)(NULL)));
+        TObjPlayer::reset_transform_state();
     }
 }
 
 void TObjPlayer::render_world_model() {
     u8 *arg0 = (u8 *)this;
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
         draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
     } else {
-        set_global_state__16TObjEneRe7BeruraFl((s32 *)(chunk_model_node_callback));
+        TObjEneRe7Berura::set_global_state((s32)((s32 *)(chunk_model_node_callback)));
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
-        set_global_state__16TObjEneRe7BeruraFl((s32 *)(0));
+        TObjEneRe7Berura::set_global_state((s32)((s32 *)(0)));
     }
-    reset_transform_state__10TObjPlayerFv();
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
+    TObjPlayer::clear_global_state();
 }
 
 void TObjEneRe7Berura::draw() {
     u8 *arg0 = (u8 *)this;
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
         draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
     } else {
-        ((s32 (*)(s32))set_global_state__16TObjEneRe7BeruraFl)(chunk_model_node_callback);
+        TObjEneRe7Berura::set_global_state((s32)chunk_model_node_callback);
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
-        ((s32 (*)(s32))set_global_state__16TObjEneRe7BeruraFl)(0);
+        TObjEneRe7Berura::set_global_state((s32)0);
     }
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     restore_actor_draw_lighting(*(s32 *)((s8 *)arg0 + 0));
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
 }
 
 void TObjNpcEnemy::draw_model() {
     u8 *arg0 = (u8 *)this;
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
         draw_ginja_model_tree__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
@@ -394,9 +388,9 @@ void TObjNpcEnemy::draw_model() {
         draw_ginja_model__10TObjPlayerFl(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
         set_model_node_callback(0);
     }
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     restore_actor_draw_lighting(*(s32 *)((s8 *)arg0 + 0));
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
 }
 
 #define self ((ActorAnimationState *)arg0)
@@ -462,7 +456,7 @@ void apply_animation_transition(void *arg0, s16 idx) {
 
 #undef self
 
-void TObjPlayer::init_npc_animation(void* a1, void* a2, void* a3) { set_field_d8__10TObjPlayerFl(this); set_field_dc__10TObjPlayerFl(this, a2); ((int (*)(void*, void*))set_animation__10TObjPlayerFPvs)(this, a3); }
+void TObjPlayer::init_npc_animation(void* a1, void* a2, void* a3) { set_field_d8__10TObjPlayerFl(this); set_field_dc((s32)a2); ((int (*)(void*, void*))set_animation__10TObjPlayerFPvs)(this, a3); }
 
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     void *temp_r3;
@@ -471,7 +465,7 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
     *(s16 *)((s8 *)arg0 + 0xBA) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
     ((TObjPlayer *)arg0)->update_animation_frame(*(s16 *)((s8 *)arg0 + 0xB8));
-    temp_r3 = get_anim_entry__10TObjPlayerFi(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    temp_r3 = ((TObjPlayer *)arg0)->get_anim_entry(*(s16 *)((s8 *)arg0 + 0xB8));
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) *(f32 *)((s8 *)temp_r3 + 8);
     *(s16 *)((s8 *)arg0 + 0xF4) = (s16) *(s16 *)((s8 *)temp_r3 + 0);
     conv = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);

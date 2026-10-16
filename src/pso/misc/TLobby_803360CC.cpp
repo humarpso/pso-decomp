@@ -1,5 +1,14 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TAdMultiChgGameModeGC.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/TItemReverseTechCtrl.h"
+#include "pso/enemy/TObjEneDolmOlm.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/object/TObjLuker.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8033670C_lbl_804EE58C {
     s32 value;
@@ -34,18 +43,14 @@ typedef void (C_803362A4::*PMF_803362A4)();
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
     extern int lobby_game_mode_state;
-int set_mode_change_state__21TAdMultiChgGameModeGCFv(void);
 extern int lobby_game_mode_state;
-int set_game_mode_state__21TAdMultiChgGameModeGCFv(void);
 extern int lobby_game_mode_state;
-int set_mode_0x15__21TAdMultiChgGameModeGCFv(void);
 extern int lobby_game_mode_state;
 void TLobby__sub_8033633C(void);
 s32 queue_destruction__7TObjectFv(void*);
 void TLobby__sub_8033645C(void* p);
 void TLobby__sub_8033645C(void* p);
 s32 TCameraCtrl__sub_800694A8();
-s32 stop_audio_streams__6TLobbyFv();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 queue_destruction__7TObjectFv(void*);
@@ -62,19 +67,10 @@ s32 disallow_rendering__7TObjectFv(void *);
 void hide_title_layers_and_release(O_8033612C *arg0);
 s32 TKeyBoardControl__sub_8000F828(void);
 void TKeyBoardControl__sub_8000F90C(int);
-void set_flag_4__9TObjLukerFv(void *);
 void TCameraCtrl__sub_800695A0(void *);
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvll(void *, int, int);
-void init_fade__6TLobbyFPvPv(void *, s32, void *);
-void create__20TItemReverseTechCtrlFPv(void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
-void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFl(void *);
-void reset_slot_selections__22TAdMultiPlyChrSelectGCFv(void);
-void reset_count__14TObjEneDolmOlmFv(void);
-void *init_camera_state__6TLobbyFi(void *, void *);
-void *ct_with_parent__6TLobbyFPv(void *, s32);
-void *construct__6TLobbyFPv(void *, void *);
 extern V3_80336520 lbl_80477818;
 extern u8 lbl_80477824[];
 extern s32 tl_clipout;
@@ -92,21 +88,13 @@ extern const f32 lbl_805DF908;
 void TKeyBoardControl__sub_8000F90C(int);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 queue_destruction__7TObjectFv(void*);
-void set_flag_4__9TObjLukerFv(void *);
 s32 has_any_key_pressed__16TKeyBoardControlFPv(void *);
-s32 any_pad_input_active__16TKeyBoardControlFv();
-s32 probe_card_slot__15TAdPlayerLoadGCFv(int);
 s32 TWindowOptionCtrl__sub_802273B4(int);
-s32 set_default_camera__21TAdMultiChgGameModeGCFv();
-s32 request_scene_change__21TAdMultiChgGameModeGCFv();
 s32 set_opening_movie_purpose(int);
-s32 start_offline_seq__23TAdSinglePlyChrSelectGCFv(void *);
 void TLobby__sub_803362A4(void *);
 extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void update_title_idle_transition(Obj_80336340 *arg0);
 s32 run_load_callback_table(void *, int);
-s32 update_menu_cursor__6TLobbyFv();
-s32 reset_counter__6TLobbyFv();
 s32 set_current_floor_area(int);
 s32 TLobby__sub_8023E4B4(void *, void *);
 extern const Tbl_80336750 title_texture_filename_table;
@@ -125,7 +113,6 @@ extern "C" {
 
 void TLobby__sub_803361FC(void);
 void destroy_download_server__6TLobbyFv(void* _w0);
-s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void *);
 
 extern u32 title_scene_instance;
 
@@ -168,20 +155,20 @@ void hide_title_layers_and_release(O_8033612C *arg0) {
 void TLobby::set_flag_and_clear_download() {
     *(s32 *)((s8 *)this + 0x3C) = (s32) (*(s32 *)((s8 *)this + 0x3C) | 1);
     if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
-        clear_flag4_bit4__22TQuestVmDownLoadServerFv(*(void **)((s8 *)this + 0x24));
+        ((TQuestVmDownLoadServer *)(*(void **)((s8 *)this + 0x24)))->clear_flag4_bit4();
     }
 }
 
 void TLobby__sub_803361FC(void) {  }
 void TLobby::open_keyboard() { lobby_game_mode_state = 3; TKeyBoardControl__sub_8000F9CC((void*)19); }
-void TLobby::request_change_game_mode() { lobby_game_mode_state = 2; set_mode_change_state__21TAdMultiChgGameModeGCFv(); }
-void TLobby::enter_game_mode_change() { lobby_game_mode_state = 1; set_game_mode_state__21TAdMultiChgGameModeGCFv(); }
-void TLobby::enter_chg_game_mode() { lobby_game_mode_state = 0; set_mode_0x15__21TAdMultiChgGameModeGCFv(); }
+void TLobby::request_change_game_mode() { lobby_game_mode_state = 2; TAdMultiChgGameModeGC::set_mode_change_state(); }
+void TLobby::enter_game_mode_change() { lobby_game_mode_state = 1; TAdMultiChgGameModeGC::set_game_mode_state(); }
+void TLobby::enter_chg_game_mode() { lobby_game_mode_state = 0; TAdMultiChgGameModeGC::set_mode_0x15(); }
 void TLobby__sub_803362A4(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
     if (TAdTrialAgreementGC__sub_80335958(*(s32 *)(arg0 + 0x24)) != 0) {
         TKeyBoardControl__sub_8000F90C(2);
-        if (start_offline_seq__23TAdSinglePlyChrSelectGCFv(arg0) != 0) {
+        if (((TAdSinglePlyChrSelectGC *)arg0)->start_offline_seq() != 0) {
             ((void (*)(void *))TLobby__sub_803361FC)(arg0);
             PMF_803362A4 m = TLobby__state_handler_pmf_table[TLobby__sub_80336030(arg0)];
             (((C_803362A4 *)arg0)->*m)();
@@ -193,28 +180,28 @@ void TLobby__sub_8033633C(void) {  }
 typedef char RecoveredGlobal_80336340_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80336340_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void update_title_idle_transition(Obj_80336340 *arg0) {
     s32 var_r28;
-    set_default_camera__21TAdMultiChgGameModeGCFv();
-    if (probe_card_slot__15TAdPlayerLoadGCFv((int) (0)) == 0) {
+    TAdMultiChgGameModeGC::set_default_camera();
+    if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
         for (var_r28 = 0; var_r28 != 3; var_r28++) {
             if (arg0->objs[var_r28] != NULL) {
                 queue_destruction__7TObjectFv(arg0->objs[var_r28]);
                 arg0->objs[var_r28] = NULL;
             }
         }
-        request_scene_change__21TAdMultiChgGameModeGCFv();
+        TAdMultiChgGameModeGC::request_scene_change();
         return;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x34) < (s32) *(s32 *)((s8 *)arg0 + 0x38)) {
-        if ((has_any_key_pressed__16TKeyBoardControlFPv((void *) (&TKeyBoardControl__global_key_state.value)) != 0) || (any_pad_input_active__16TKeyBoardControlFv() != 0)) {
+        if ((has_any_key_pressed__16TKeyBoardControlFPv((void *) (&TKeyBoardControl__global_key_state.value)) != 0) || (TKeyBoardControl::any_pad_input_active() != 0)) {
             *(s32 *)((s8 *)arg0 + 0x34) = 0;
         }
         TLobby__sub_803362A4((void *) (arg0));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == (s32) *(s32 *)((s8 *)arg0 + 0x34)) {
-        set_flag_4__9TObjLukerFv(*(void **)((s8 *)arg0 + 0x24));
+        ((TObjLuker *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
         TWindowOptionCtrl__sub_802273B4((int) (0x1E));
     }
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) < (s32) *(s32 *)((s8 *)arg0 + 0x34)) && (start_offline_seq__23TAdSinglePlyChrSelectGCFv((void *) (arg0)) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) < (s32) *(s32 *)((s8 *)arg0 + 0x34)) && (((TAdSinglePlyChrSelectGC *)arg0)->start_offline_seq() != 0)) {
         TKeyBoardControl__sub_8000F90C((int) (2));
         set_opening_movie_purpose((int) (0));
         TKeyBoardControl__sub_8000F9CC((void *) (3));
@@ -232,7 +219,7 @@ void *TLobby::destroy(s16 arg1) {
         }
         TLobby__sub_8033645C((void*)(this));
         TCameraCtrl__sub_800694A8();
-        stop_audio_streams__6TLobbyFv();
+        TLobby::stop_audio_streams();
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -252,8 +239,8 @@ u8 *TLobby::construct_title_scene() {
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     TKeyBoardControl__sub_8000F90C(1);
-    reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
-    reset_count__14TObjEneDolmOlmFv();
+    TAdMultiPlyChrSelectGC::reset_slot_selections();
+    TObjEneDolmOlm::reset_count();
     TAdMultiPlyChrSelectGC__sub_803367E8();
     lobby_game_mode_state = 0;
     if (TKeyBoardControl__sub_8000F828() == 0) {
@@ -263,24 +250,24 @@ u8 *TLobby::construct_title_scene() {
     }
     p = __nw__7TObjectFUl(0x24);
     if (p != 0) {
-        p = construct__6TLobbyFPv(p, arg0);
+        p = ((TLobby *)p)->construct(arg0);
     }
     *(void **)((s8 *)arg0 + 0x1C) = p;
     p = __nw__7TObjectFUl(0x3C);
     if (p != 0) {
-        p = init_camera_state__6TLobbyFi(p, arg0);
+        p = ((TLobby *)p)->init_camera_state((int)arg0);
     }
     *(void **)((s8 *)arg0 + 0x24) = p;
     p = __nw__7TObjectFUl(0x20);
     if (p != 0) {
-        p = ct_with_parent__6TLobbyFPv(p, tl_clipout);
+        p = ((TLobby *)p)->ct_with_parent((void *)tl_clipout);
     }
     *(void **)((s8 *)arg0 + 0x20) = p;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     if (*(void **)((s8 *)arg0 + 0x24) != 0) {
-        set_flag_4__9TObjLukerFv(*(void **)((s8 *)arg0 + 0x24));
+        ((TObjLuker *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
     }
-    apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFl(lbl_80477824);
+    TAdMultiChgGameModeGC::apply_bgm_col_ctrl((s32)lbl_80477824);
     {
         Cam_80336520 cam;
         cam.f8 = lbl_805DF8E8;
@@ -302,9 +289,9 @@ u8 *TLobby::construct_title_scene() {
     }
     p = __nw__7TObjectFUl(0x28);
     if (p != 0) {
-        init_fade__6TLobbyFPvPv(p, tl_fade, (void *)destroy_download_server__6TLobbyFv);
+        ((TLobby *)p)->init_fade((void *)tl_fade, (void *)destroy_download_server__6TLobbyFv);
     }
-    create__20TItemReverseTechCtrlFPv(arg0);
+    TItemReverseTechCtrl::create(arg0);
     return arg0;
 }
 
@@ -320,12 +307,12 @@ void TLobby::destroy_global_object() {
 
 void initialize_lobby_title_scene(void) {
     title_scene_instance = 0;
-    update_menu_cursor__6TLobbyFv();
+    TLobby::update_menu_cursor();
     Tbl_80336750 t = title_texture_filename_table;
     lobby_title_texture_list = title_texture_list;
     TLobby__sub_8023E4B4((void *)t.s[current_language], title_texture_list);
     run_load_callback_table(&lobby_load_callback_table, 0x20);
-    reset_counter__6TLobbyFv();
+    TLobby::reset_counter();
     set_current_floor_area(0);
 }
 

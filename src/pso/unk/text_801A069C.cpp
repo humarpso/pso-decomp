@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/npc/TObjNpcEnemy.h"
 
 extern "C" {
 s32 debug_print_area_num__12TObjAreaWarpFv();
-s32 set_global_count__12TObjNpcEnemyFl(s32);
 s32 debug_printf_at(s32, s32 *, ...);
 extern s32 lbl_80446854[];
 void TObjWarpLobby__vt18(void *arg0);
@@ -35,9 +35,9 @@ void TObjWarpLobby__vt18(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0xCC) = 1;
         break;
     }
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130021, lbl_80446854);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
 }

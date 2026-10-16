@@ -19,9 +19,6 @@ struct Craw_80308F8C {
 
 extern "C" {
 s32 create_particle_emitter(void *, s32);
-s32 spawn_effect__14TBoss7CrawfishFl(void *, s32);
-void free_child__14TBoss7CrawfishFv(void *);
-void set_anim_timer__14TBoss7CrawfishFs(void *, s16);
 }
 
 extern "C" {
@@ -29,7 +26,6 @@ extern "C" {
 s32 TBoss7Crawfish__sub_80308AA8(void *);
 s16 get_floor__10TObjPlayerFv(void *);
 s32 register_attack_hits__14TBoss7CrawfishFPv(void *);
-s32 spawn_effect__14TBoss7CrawfishFl(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DF0F8;
@@ -50,9 +46,9 @@ void TBoss7Crawfish::update_attack_state() {
             *(s32 *)((s8 *)temp_r4 + 0x18) &= ~0x02000000;
         }
         if (TBoss7Crawfish__sub_80308AA8(this) != 0) {
-            spawn_effect__14TBoss7CrawfishFl(this, 0x3A80A);
+            spawn_effect(0x3A80A);
         } else {
-            spawn_effect__14TBoss7CrawfishFl(this, 0x3A80B);
+            spawn_effect(0x3A80B);
         }
     }
     if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x02000000) {
@@ -71,21 +67,21 @@ void TBoss7Crawfish::change_state(s32 state) {
     case 1:
         break;
     case 2:
-        set_anim_timer__14TBoss7CrawfishFs(o, 0);
+        ((TBoss7Crawfish *)o)->set_anim_timer(0);
         for (i = 0; i < 4; i++) {
             o->pairs[i].a = 0;
             o->pairs[i].b = 0;
         }
         o->f3A4 = 0;
-        free_child__14TBoss7CrawfishFv(o);
+        ((TBoss7Crawfish *)o)->free_child();
         o->f3CC = create_particle_emitter(o->f38, 0x20B);
         break;
     case 3:
-        set_anim_timer__14TBoss7CrawfishFs(o, 4);
+        ((TBoss7Crawfish *)o)->set_anim_timer(4);
         break;
     case 4:
-        spawn_effect__14TBoss7CrawfishFl((void *)(o), (s32)(0x3990E));
-        set_anim_timer__14TBoss7CrawfishFs(o, 1);
+        ((TBoss7Crawfish *)o)->spawn_effect((s32)(0x3990E));
+        ((TBoss7Crawfish *)o)->set_anim_timer(1);
         break;
     case 5:
         break;

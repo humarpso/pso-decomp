@@ -71,6 +71,7 @@ void update_creation_camera_auto(Cam_80291784*);
 
 #include "types.h"
 #include "pso/camera/CreationCamera.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_80291D4C_lbl_80540958 {
     s32 value;
@@ -182,13 +183,13 @@ void run_task__14CreationCameraFv();
 void render__7TObjectFv(); void render_shadows__7TObjectFv();
 void TCameraCtrl__sub_80067654(); void TCameraCtrl__sub_80067658();
 void TCameraCtrl__sub_80067660(); void TCameraCtrl__sub_8006765C();
-void TCameraCtrl__sub_80067664(); void post_update_view__11TCameraCtrlFv();
+void TCameraCtrl__sub_80067664(); void TCameraCtrl::post_update_view();
 CreationCameraVTable lbl_804DAB08 = {{0,0}, {
     (void(*)())TCameraCtrl__sub_80291C64, run_task__14CreationCameraFv,
     render__7TObjectFv, render_shadows__7TObjectFv,
     TCameraCtrl__sub_80067654, TCameraCtrl__sub_80067658,
     TCameraCtrl__sub_80067660, TCameraCtrl__sub_8006765C,
-    TCameraCtrl__sub_80067664, post_update_view__11TCameraCtrlFv,
+    TCameraCtrl__sub_80067664, TCameraCtrl::post_update_view,
 }};
 }
 extern "C" {

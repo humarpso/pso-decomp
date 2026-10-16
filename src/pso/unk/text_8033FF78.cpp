@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TLobby.h"
 struct O_80340040 { u8 pad[0x60]; void *o[10]; };
 
 struct Vec_8033FF78 { f32 x, y, z; };
@@ -29,8 +31,6 @@ void queue_destruction__7TObjectFv(void *);
 void fn_80340040(O_80340040 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 P_8033FF78 *get_player_data__10TObjPlayerFi(int);
-s32 get_game_mode__6TLobbyFv();
-s32 is_active__14TBoss6PlotFalzFv(void *);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
@@ -52,12 +52,12 @@ void check_any_player_near(O_8033FF78 *arg0) {
     f32 y;
     P_8033FF78 *p;
     arg0->f24 = 0;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     y = lbl_805DFAF8;
     lim = lbl_805DFB10;
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
-        if (is_active__14TBoss6PlotFalzFv(p) != 0) {
+        if (((TBoss6PlotFalz *)p)->is_active() != 0) {
             VecCopy__FP3VecPC3Vec(&v, &arg0->pos);
             subtract_vector(&v, &p->pos);
             v.y = y;

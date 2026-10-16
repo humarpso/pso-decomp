@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TAdPlayerLoadGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 {
     s32 value;
@@ -85,7 +86,6 @@ extern char lbl_804496A8[];
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
 void __dl__FPv(void *);
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void getDateStamp__FP9DateStamp(DateStamp_801E17F4 *);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32, s32);
 int sprintf(char *, const char *, ...);
@@ -335,7 +335,7 @@ s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1) 
     s32 size;
     Hdr_801E17F4 *h;
     memset(buf, 0, 0x80);
-    h = (Hdr_801E17F4 *)alloc__23TAdSinglePlyChrSelectGCFv(0x2048);
+    h = (Hdr_801E17F4 *)((TAdSinglePlyChrSelectGC *)0x2048)->alloc();
     memset(h->title, 0, 0x20);
     memset(h->sub, 0, 0x20);
     strncpy(h->title, lbl_804496B8, 0x20);

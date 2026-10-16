@@ -2,6 +2,11 @@
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/animation/ActorAnimationState.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_14_2f517b { char pad[0x14]; };
 
@@ -168,13 +173,9 @@ struct VObj_18_0ab400 : VBase_18_0ab400 {
 };
 
 extern "C" {
-s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(s32 *, s32 *);
 u8 *load_enemy_bml_resource(s32 *);
-s32 create_render_texture__10TObjPlayerFv();
 s32 TObjPlayer__sub_800F0928();
-s32 get_global_state__14TOKeyMachine01Fv();
-s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern RecoveredGlobal_800C44C4_lbl_8043BB90 lbl_8043BB90;
 extern RecoveredGlobal_800C44C4_lbl_8043BBE0 lbl_8043BBE0;
 extern RecoveredGlobal_800C44C4_lbl_8043BBF4 lbl_8043BBF4;
@@ -184,30 +185,21 @@ extern s32 lbl_805D5180;
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FBC;
 void TObjPlayer__sub_800C44C4(void);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 transition_enemy_state(void * a0, s32 a1);
 s32 TObjEneRe2Flower__sub_800C3DC4(void *);
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
 s32 TObjEneDD__sub_800C2628(void *, void *);
-s32 handle_event__16TObjEneRe2FlowerFl(void *, void *);
 s32 fn_800C2A88(void *, void *);
 s32 fn_800C2AC4(void *, void *);
-s32 state_damaged__9TObjEneDDFl(void *, void *);
 s32 TObjEneRe2Flower__sub_800C2E64(void *, void *);
 s32 fn_800C3088(void *, void *);
 s32 fn_800C32DC(void *, void *);
-s32 state_chase_target__9TObjEneDDFl(void *, void *);
 s32 handle_flower_state_change(void *, void *);
-s32 handle_state__9TObjEneDDFl(void *, void *);
-s32 dispatch_action__9TObjEneDDFl(void *, void *);
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 f32 fabs_float(f32);
-s32 get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(s32, s32);
 s32 attack_target_history_add(s32, s32);
-s32 init_all_slots__10TObjPlayerFv();
 s32 mark_enemy_body_contacts(void *);
 s32 update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 extern const f32 lbl_805DA000;
@@ -282,7 +274,6 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
@@ -308,7 +299,6 @@ extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" char lbl_8043BAAC[];
@@ -328,9 +318,6 @@ extern "C" void reset_actor_action_state();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
-extern "C" void test_flag_256__10TObjPlayerFPv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
 extern "C" void try_start_action__10TObjPlayerFPvii();
 extern "C" void update_action_hold_status__10TObjPlayerFv();
@@ -392,13 +379,13 @@ void *__vt__16TObjEneRe2Flower[107] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TObjEneRe2Flower__sub_800C3EA4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&TObjEneRe2Flower__sub_800C3EA4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjEneRe2Flower__sub_800C3E14, (void *)&update_state__16TObjEneRe2FlowerFPv, (void *)&set_mode0xA_unless_0xAor0xB__16TObjEneRe2FlowerFPv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
@@ -441,16 +428,16 @@ void TObjEneRe2Flower__sub_800C3EA4(void) {  }
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        dispatch_action__9TObjEneDDFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneDD *)arg0)->dispatch_action((s32)((void *) (arg2)));
         return;
     case 1:
-        handle_state__9TObjEneDDFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneDD *)arg0)->handle_state((s32)((void *) (arg2)));
         return;
     case 2:
         handle_flower_state_change((void *) (arg0), (void *) (arg2));
         return;
     case 3:
-        state_chase_target__9TObjEneDDFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneDD *)arg0)->state_chase_target((s32)((void *) (arg2)));
         return;
     case 4:
         fn_800C32DC((void *) (arg0), (void *) (arg2));
@@ -459,7 +446,7 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
         fn_800C3088((void *) (arg0), (void *) (arg2));
         return;
     case 9:
-        state_damaged__9TObjEneDDFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneDD *)arg0)->state_damaged((s32)((void *) (arg2)));
         return;
     case 10:
         fn_800C2AC4((void *) (arg0), (void *) (arg2));
@@ -468,7 +455,7 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe2Flower__sub_800C2E64((void *) (arg0), (void *) (arg2));
         return;
     case 7:
-        handle_event__16TObjEneRe2FlowerFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRe2Flower *)arg0)->handle_event((s32)((void *) (arg2)));
         return;
     case 8:
         TObjEneDD__sub_800C2628((void *) (arg0), (void *) (arg2));
@@ -482,7 +469,7 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
 
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
     s16 temp_r3;
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         ((VObj_18_6eb1ad *)(arg0))->m103();
         return;
     }
@@ -496,7 +483,7 @@ void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
         }
     }
     TObjEneRe2Flower__sub_800C3DC4((void *) (arg0));
-    set_player_state_default__12TBoss8DragonFv((void *) (arg0));
+    ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((VObj_18_6eb1ad *)(arg0))->m98();
 }
 
@@ -539,9 +526,9 @@ void TObjPlayer__sub_800C44C4(void) {
 
     u8 *temp_r5;
 
-    if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+    if (TOKeyMachine01::get_global_state() == 0x23) {
         lbl_805D5174 = (u32) load_enemy_bml_resource_named((s32 *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBE0.value);
-    } else if (check_v2_mode__9TObjEneDDFv() != 0) {
+    } else if (TObjEneDD::check_v2_mode() != 0) {
         lbl_805D5174 = (u32) load_enemy_bml_resource_named((s32 *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBF4.value);
     } else {
         lbl_805D5174 = (u32) load_enemy_bml_resource((s32 *)&TObjEneRe2Flower__resource_descriptor);
@@ -549,7 +536,7 @@ void TObjPlayer__sub_800C44C4(void) {
     lbl_805D5178 = 0;
     lbl_805D517C = 0;
     lbl_805D5180 = 0;
-    create_render_texture__10TObjPlayerFv();
+    TObjPlayer::create_render_texture();
     TObjPlayer__sub_800F0928();
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 4);
@@ -557,7 +544,7 @@ void TObjPlayer__sub_800C44C4(void) {
     stack.sp14 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)lbl_805D5174 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D5174 + 0x42C));
-    spawn_npc_enemy__6TLobbyFslllff((int) (0x37), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9FBC), (f32) (lbl_805D9FAC));
+    TLobby::spawn_npc_enemy((s16)((int) (0x37)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)((f32) (lbl_805D9FBC)), (f32)((f32) (lbl_805D9FAC)));
 }
 s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
     s32 result;
@@ -570,7 +557,7 @@ s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 ar
     if (*(u32 *)((s8 *)arg0 + 0xAC) == 0) {
         return 0;
     }
-    init_all_slots__10TObjPlayerFv();
+    TObjPlayer::init_all_slots();
     if (*(s32 *)((s8 *)arg1 + 4) & 1) {
         update_body_contact_flag__10TObjPlayerFPvf(arg0, farg0);
         flags |= 0x80000;
@@ -581,7 +568,7 @@ s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 ar
     }
     if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & flags) {
         for (i = 0; i < 0x10; i++) {
-            p = get_battle_param__10TObjPlayerFi(i);
+            p = TObjPlayer::get_battle_param(i);
             if (p == 0) {
                 break;
             }

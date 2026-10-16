@@ -67,7 +67,6 @@ extern const f32 lbl_805E0014;
 void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
 void *spawn_particle_effect_with_flags(void *, int, int);
 void spawn_particle_effect(void *, int);
-s32 get_rotation_timer__11TBoss6Type2Fv(int);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
@@ -83,7 +82,6 @@ extern const f32 lbl_805E0008;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
-s32 reset_rock_state__10TBoss6RockFl(s32);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
@@ -101,7 +99,6 @@ f64 atan2_float(f32, f32);
 s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFv();
 s32 rand_vary_count__14TBoss6PlotFalzFlf(s32, f32);
-s32 get_rotation_timer__11TBoss6Type2Fv(int);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 vector_length(void *);
@@ -284,6 +281,8 @@ u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 }
 
 #include "pso/TBoss6SwordWave.h"
+#include "pso/boss/TBoss6Rock.h"
+#include "pso/boss/TBoss6Type2.h"
 
 extern "C" {
 
@@ -312,7 +311,7 @@ s32 TBoss6SwordWave::spawn_wave_ring_particles() {
             v.z += o->radius * cos_table_lookup(ang);
             if (!(xyz_distance(&v, lbl_80479388) > lbl_805E0008)) {
                 spawn_particle_effect_with_flags(&v, 0x212, 0x40);
-                if (get_rotation_timer__11TBoss6Type2Fv(o->owner) == 0) {
+                if (((TBoss6Type2 *)(o->owner))->get_rotation_timer() == 0) {
                     spawn_particle_effect(&v, 0x213);
                 } else {
                     spawn_particle_effect_with_flags(&v, 0x229, 0x2000);
@@ -352,7 +351,7 @@ s32 TBoss6SwordWave::check_player_hits() {
                 continue;
             }
             v = *(s32 *)((s8 *)arg0 + 0x5C);
-            if (get_rotation_timer__11TBoss6Type2Fv(*(s32 *)((s8 *)arg0 + 0x1C)) != 0) {
+            if (((TBoss6Type2 *)(*(s32 *)((s8 *)arg0 + 0x1C)))->get_rotation_timer() != 0) {
                 v = (s32)((f32)v * *(f32 *)((s8 *)arg0 + 0x60));
             }
             Pair_8035663C pr;
@@ -396,7 +395,7 @@ s32 TBoss6SwordWave::break_rocks_in_wave() {
             continue;
         }
         ((void (*)(void *, u8))clear_bit__15TBoss6SwordWaveFPvUc)(arg0 + 0x30, t);
-        reset_rock_state__10TBoss6RockFl(i);
+        TBoss6Rock::reset_rock_state(i);
         if (dist <= lbl_805E0004) {
             continue;
         }

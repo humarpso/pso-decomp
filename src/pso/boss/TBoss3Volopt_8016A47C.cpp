@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TOKey.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Base_8016A604 { char pad[0x18]; };
 struct VObj_8016A604 : Base_8016A604 {
@@ -29,10 +30,8 @@ struct VObj_8016A604 : Base_8016A604 {
 };
 
 extern "C" {
-u32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
-u32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
 void TBoss3Volopt__sub_8016A47C(s32 arg0);
@@ -42,7 +41,7 @@ extern "C" {
 
 void TBoss3Volopt__sub_8016A47C(s32 arg0) {
     u32 temp_r3;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {
     case 1:
     case 2:
@@ -110,7 +109,7 @@ void TOKey::play_activate_sound() {
     s32 temp_r0_4;
     s32 temp_r0_5;
     u32 temp_r3;
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {
     case 1:
     case 2:

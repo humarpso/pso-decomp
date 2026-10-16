@@ -2,6 +2,9 @@
 #include "pso/misc/TWindowTimer.h"
 #include "pso/object/TObjSinBoard.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_801982D4_lbl_804B8DAC { s32 value; u8 remaining[0x20]; };
 typedef char RecoveredGlobal_801982D4_lbl_804B8DAC_size[sizeof(RecoveredGlobal_801982D4_lbl_804B8DAC) == 0x24 ? 1 : -1];
@@ -40,7 +43,6 @@ s32 rotate_matrix_z(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(void *);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lobby_gvm_texture_handles;
 extern s32 gogo_ball_bml_resource;
@@ -49,10 +51,6 @@ extern s32 __vt__12TObjSinBoard[];
 extern s32 TObjSinBoard__class_name;
 u8 *TObjSinBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
-void reset_transform_state__10TObjPlayerFv();
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
-void draw_tri_fan_3d__10TObjPlayerFlUl(Desc_8019806C *, int, int);
 void scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
@@ -60,7 +58,6 @@ void translate_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(int);
 void set_texture_num(int);
 extern Pos_8019806C TObjSinBoard__quad_position_table;
 extern Uv_8019806C sin_board_uv_table;
@@ -69,7 +66,6 @@ extern u32 TObjSinBoard__texture_buffer;
 s32 queue_destruction__7TObjectFv(void *);
 extern u8 gogo_ball_sync_state[];
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_shake_preset__11TCameraCtrlFl(int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 TWindowTimer__sub_80198CF8(void *, void *, s16, s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
@@ -88,7 +84,6 @@ void *TObjSinBoard__create(void *arg0);
 void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void TObjSinBoard::render() {
     u8 *arg0 = (u8 *)this;
@@ -111,19 +106,19 @@ void TObjSinBoard::render() {
         d.uv = &uv;
         d.col = col;
         d.count = 4;
-        reset_transform_state__10TObjPlayerFv();
-        set_global_param__8TObjFishFl((int) signboard_texture_list);
+        TObjPlayer::reset_transform_state();
+        TObjFish::set_global_param((int) signboard_texture_list);
         set_texture_num(0);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         push_matrix();
         translate_matrix(0, *(f32 *)(arg0 + 0x38), *(f32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x40));
         rotate_matrix_z(0, *(s32 *)(arg0 + 0x64));
         rotate_matrix_x(0, *(s32 *)(arg0 + 0x5C));
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         scale_matrix(0, *(f32 *)(arg0 + 0x68), *(f32 *)(arg0 + 0x6C), *(f32 *)(arg0 + 0x70));
-        draw_tri_fan_3d__10TObjPlayerFlUl(&d, 4, 0xE);
+        ((TObjPlayer *)(&d))->draw_tri_fan_3d(4, 0xE);
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -134,7 +129,7 @@ extern s32 __vt__12TObjSinBoard[];
 void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjSinBoard;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -177,9 +172,9 @@ void TObjPlayer::draw_hinged_model() {
     temp_r3 = (u8 *)(get_bml_model(gogo_ball_bml_resource, 1));
     if (temp_r3 != NULL) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0) {
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x1C)));
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x1C)));
         } else {
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x20)));
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x20)));
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
@@ -252,7 +247,7 @@ void update_effects__14TOSwitchAttackFPv(void *self) {
         (*(s32 *)((s8 *)arg0 + 0x30))++;
         if (*(s32 *)((s8 *)arg0 + 0x28) != 0) {
             if (*(s32 *)((s8 *)arg0 + 0x30) == 1) {
-                set_shake_preset__11TCameraCtrlFl(2);
+                TCameraCtrl::set_shake_preset(2);
                 VecCopy__FP3VecPC3Vec(&v2a, arg0 + 0x1C);
                 v2a.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&v2a, 0x45, 0x40);
@@ -261,7 +256,7 @@ void update_effects__14TOSwitchAttackFPv(void *self) {
             }
         } else {
             if (*(s32 *)((s8 *)arg0 + 0x30) == 1) {
-                set_shake_preset__11TCameraCtrlFl(2);
+                TCameraCtrl::set_shake_preset(2);
                 VecCopy__FP3VecPC3Vec(&v2b, arg0 + 0x1C);
                 v2b.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&v2b, 0x45, 0x40);

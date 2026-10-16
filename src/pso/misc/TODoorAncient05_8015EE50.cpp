@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TODoorAncient05.h"
+#include "pso/misc/TODoorAncient01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_4a4f5b { char pad[0x18]; };
 
@@ -35,7 +37,6 @@ struct RecoveredGlobal_8015F048___vt__15TODoorAncient05 {
 };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -66,9 +67,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_ancient_door_base__15TODoorAncient01Fs(void *, s32);
 s32 mem_free(void*);
-s32 free_if_valid__10TObjPlayerFl(s32);
 
 extern void *door_ancient05_bml_resource;
 extern void *TODoorAncient05__switch_texture_lists;
@@ -80,7 +79,7 @@ void TODoorAncient05::reset() {
         door_ancient05_static_model_nodes = NULL;
     }
     if (TODoorAncient05__switch_texture_lists != NULL) {
-        free_if_valid__10TObjPlayerFl(*(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4));
+        TObjPlayer::free_if_valid(*(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4));
         if (TODoorAncient05__switch_texture_lists != NULL) {
             mem_free(TODoorAncient05__switch_texture_lists);
             TODoorAncient05__switch_texture_lists = NULL;
@@ -126,7 +125,7 @@ void *__dt__15TODoorAncient05Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorAncient05;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy_ancient_door_base__15TODoorAncient01Fs(arg0, 0);
+        ((TODoorAncient01 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -147,7 +146,7 @@ u8 *TODoorAncient05__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB418);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient05__collision_body.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     ((VObj_18_4a4f5b *)(arg0))->m17();
     return arg0;
 }

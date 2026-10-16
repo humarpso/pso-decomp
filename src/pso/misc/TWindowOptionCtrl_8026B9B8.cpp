@@ -1,13 +1,12 @@
 #include "types.h"
 #include "pso/misc/TWindowOptionCtrl.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 set_flag70_bit400__17TWindowOptionCtrlFv(s32);
 s32 set_flag70_bit100__17TWindowOptionCtrlFv();
 s32 align_menu_entry_positions(s32);
-s32 set_scroll_target__17TWindowSubComCardFff(s32, f32, f32);
 s32 draw_text_gray__17TWindowSubComCardFllll(s32, s32 *, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 get_option_entry__17TWindowOptionCtrlFi(s32);
@@ -38,8 +37,8 @@ s32 TWindowOptionCtrl::create_list_window() {
         }
         var_r31 += 1;
     } while (var_r31 < 0x31);
-    set_flag70_bit400__17TWindowOptionCtrlFv(temp_r30);
-    set_scroll_target__17TWindowSubComCardFff(temp_r30, lbl_805DD268, lbl_805DD26C);
+    ((TWindowOptionCtrl *)temp_r30)->set_flag70_bit400();
+    ((TWindowSubComCard *)temp_r30)->set_scroll_target(lbl_805DD268, lbl_805DD26C);
     align_menu_entry_positions(temp_r30);
     return temp_r30;
 }

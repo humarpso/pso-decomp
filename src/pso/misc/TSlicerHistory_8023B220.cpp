@@ -1,15 +1,14 @@
 #include "types.h"
 #include "pso/TSlicerHistory.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DC950;
 extern const f32 lbl_805DC94C;
 u32 query_game_join_id__10TObjPlayerFv(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl(u32);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
@@ -44,8 +43,8 @@ void TSlicerHistory::render() {
             col.r -= lbl_805DC948;
         }
         if (((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U)) {
-            notify_fish_if_valid__10TObjPlayerFUl(*(u32 *)((s8 *)arg0 + 0x38));
-            begin_effect_render__13TParticleCtrlFv();
+            TObjPlayer::notify_fish_if_valid(*(u32 *)((s8 *)arg0 + 0x38));
+            TParticleCtrl::begin_effect_render();
             push_matrix();
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x28));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x20)));
@@ -55,7 +54,7 @@ void TSlicerHistory::render() {
             set_chunk_material_color((void *) (&col));
             draw_ginja_object((int) (*(u32 *)((s8 *)arg0 + 0x34)));
             set_chunk_material_color((void *) (&chunk_material_color_half_alpha_f32));
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
         pop_matrix();
         model_render_flags = lbl_805D5660;

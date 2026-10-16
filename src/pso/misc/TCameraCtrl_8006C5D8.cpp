@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TScene.h"
 
 struct E_8006C668 { s32 a; void *p; };
 
@@ -19,8 +22,6 @@ extern G_8006C668 TCameraCtrl__camera_banks;
 void xfree__FPv(void *);
 void free_entries__11TCameraCtrlFv(void);
 s32 load_relocatable_file(s32, void *);
-s32 update_lobby_scene__6TSceneFv(s32);
-s32 get_global_state__14TOKeyMachine01Fv();
 void *xmalloc__FUl(s32);
 extern Bank_8006C6CC camera_path_bank_table[];
 extern G_8006C668 TCameraCtrl__camera_banks;
@@ -38,8 +39,6 @@ int TCameraCtrl__sub_80068714(void);
 void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void *get_params__11TCameraCtrlFv(u32);
-void *init_subobject__11TCameraCtrlFv(void *);
 
     extern unsigned char lbl_80488B68[];
     extern int TCameraCtrl__saved_projection_angle;
@@ -67,7 +66,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
     for (i = 0; i < 8; i++) {
         TCameraCtrl__camera_banks.e[i].p = 0;
     }
-    b = &camera_path_bank_table[get_global_state__14TOKeyMachine01Fv()];
+    b = &camera_path_bank_table[TOKeyMachine01::get_global_state()];
     if (b->entries == 0) {
         return;
     }
@@ -76,7 +75,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
         return;
     }
     for (j = 0; j < n; j++) {
-        sz = update_lobby_scene__6TSceneFv(b->entries[j].id);
+        sz = ((TScene *)(b->entries[j].id))->update_lobby_scene();
         if (sz <= -1) {
             return;
         }
@@ -90,7 +89,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
 void *TCameraCtrl__vt10(void) {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
-        o = init_subobject__11TCameraCtrlFv(o);
+        o = ((TCameraCtrl *)o)->init_subobject();
     }
     return o;
 }
@@ -103,7 +102,7 @@ void update__11TCameraCtrlFPv(void *arg0) {
     void *temp_r3;
 
     if ((u32) camera_ctrl_instance != 0U) {
-        temp_r31 = get_params__11TCameraCtrlFv(camera_ctrl_instance);
+        temp_r31 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
         temp_r3 = get_player_by_client_id(0);
         if (temp_r3 != NULL) {
             *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);

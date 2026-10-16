@@ -7,6 +7,9 @@
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowMenu.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Stack_80266EB8 {
     f32 sp8;
@@ -99,7 +102,6 @@ extern s32 lbl_804D0618[];
 s32 get_array_entry__20TWindowSubStatusDispFi(void *, s16);
 s32 clamp_list_scroll_offset(int, void *, void *);
 s32 get_cursor_pos__14TWindowSubItemFv();
-s32 copy_position__11TWindowMenuFPv(void *, void *);
 s32 setup_entry_msg_d1__20TWindowSubStatusDispFPvi(s32, s32);
 s32 setup_entry_msg_d0__20TWindowSubStatusDispFPvi(s32, s32);
 s32 init_no_item_entry__20TWindowSubStatusDispFPvi(s32, s32);
@@ -124,13 +126,11 @@ s32 init_item_row__20TWindowSubStatusDispFPvPvi(s32, s32, s32);
 s32 set_ground_item__20TWindowSubStatusDispFPvPvi(s32, s32, s32);
 s32 set_item_info__20TWindowSubStatusDispFPvPviPv(s32, s32, s32, s32);
 s32 init_display__20TWindowSubStatusDispFPvii(s32, s32, s32);
-u32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 u32 reset_selection__20TWindowSubStatusDispFv(int, void *);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 get_status_flag__6TLobbyFv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
-s32 set_entry_state__20TWindowSubStatusDispFSc(void *, s32);
 s32 draw_selection_bar(s32, u16 *, s32);
 u8 *fn_802683F4(void *, s32, s32, s16);
 u8 *__nw__7TObjectFUl(s32);
@@ -140,18 +140,13 @@ s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 s32 step_window_tween(void *);
 s32 fn_80244994(void *);
-s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 get_flag__20TWindowSubStatusDispFv(void *);
 s32 is_player_input_active(int);
 s32 update_window_entry_list(void *, void *);
-s32 increment_counter__20TWindowSubStatusDispFv(int);
-s32 update_subwindow__20TWindowSubStatusDispFv(int);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_allocation__20TWindowSubStatusDispFls(void *, int);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 void destroy_window__15TWindowAdditionFs(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
@@ -218,7 +213,7 @@ void calc_list_content_extent(struct List_80266E34 *s) {
             v.x -= lbl_805DD184;
         }
         v.y = (f32) (s->count * 20 - 2);
-        copy_position__11TWindowMenuFPv(s->scrollbar, &v);
+        ((TWindowMenu *)(s->scrollbar))->copy_position(&v);
     }
 }
 
@@ -499,7 +494,7 @@ void TWindowSubStatusDisp::handle_open() {
     }
     *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) | 2);
     if (*(void **)((s8 *)this + 0x80) != NULL) {
-        set_entry_state__20TWindowSubStatusDispFSc(*(void **)((s8 *)this + 0x80), 2);
+        ((TWindowSubStatusDisp *)(*(void **)((s8 *)this + 0x80)))->set_entry_state(2);
     }
 }
 
@@ -580,7 +575,7 @@ void create_menu_scroll_bar(u8 *arg0) {
         temp_f1 = temp_f2 - lbl_805DD180;
         stack.spC = lbl_805DD188;
         stack.sp8 = temp_f1;
-        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
+        temp_r3 = ((TAdSinglePlyChrSelectGC *)0xC)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0U) {
             var_r0 = reset_selection__20TWindowSubStatusDispFv((int) (temp_r3), (void *) (&stack.sp8));
@@ -594,7 +589,7 @@ void TWindowSubStatusDisp::ensure_status_display(s32 arg1) {
     u32 var_r0;
 
     if ((u32) *(u32 *)((s8 *)this + 0x80) == 0U) {
-        var_r0 = alloc__23TAdSinglePlyChrSelectGCFv(0x24);
+        var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
             var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r0, arg1, *(s16 *)((s8 *)this + 0x20));
         }
@@ -756,7 +751,7 @@ void update_item_list_window(u8 *arg0) {
     u8 *temp_r29_2;
     u8 *temp_r29_3;
     temp_r31 = is_player_input_active((int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
-    if ((get_flag__20TWindowSubStatusDispFv((void *) (arg0)) == 0) && (get_status_flag__6TLobbyFv((void *) (arg0)) == 0) && (fn_80244994((void *) (arg0)) != 0)) {
+    if ((((TWindowSubStatusDisp *)arg0)->get_flag() == 0) && (get_status_flag__6TLobbyFv((void *) (arg0)) == 0) && (fn_80244994((void *) (arg0)) != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -785,14 +780,14 @@ void update_item_list_window(u8 *arg0) {
     if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD1D0) {
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x80);
         if (temp_r3 != 0U) {
-            update_subwindow__20TWindowSubStatusDispFv((int) (temp_r3));
+            ((TWindowSubStatusDisp *)temp_r3)->update_subwindow();
         }
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x84);
         if (temp_r3_2 != 0U) {
-            increment_counter__20TWindowSubStatusDispFv((int) (temp_r3_2));
+            ((TWindowSubStatusDisp *)temp_r3_2)->increment_counter();
         }
     }
-    initialize_subwindow__9TWindowDDFv((void *) (arg0));
+    ((TWindowDD *)arg0)->initialize_subwindow();
     ((TWindowSubStatusDisp *)arg0)->update_scroll_offset();
     step_window_tween((void *) (arg0));
     ((s32 (*)(void *))center_list_selection)((void *) (arg0));
@@ -803,7 +798,7 @@ void update_item_list_window(u8 *arg0) {
 void *TWindowSubStatusDisp::destroy_item_list_resources(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804D0618;
-        destroy_allocation__20TWindowSubStatusDispFls(*(void **)((s8 *)this + 0x84), 1);
+        TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)this + 0x84)), (s16)1);
         destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)this + 0x80), 1);
         destroy_window__15TWindowAdditionFs(this, 0);
         if (arg1 > 0) {

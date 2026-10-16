@@ -1,16 +1,16 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/ui/TAdEp3Exist.h"
 
 extern "C" {
 
 s32 destroy_ep3_exist__6TLobbyFis(s32 arg0, s16 arg1);
 s32 TAdEp3Exist__sub_8036F574();
 s32 __dl__FPv(s32);
-s32 free_if_valid__11TAdEp3ExistFls(s32, s32);
 
 s32 destroy_ep3_exist__6TLobbyFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free_if_valid__11TAdEp3ExistFls(arg0, 0);
+        TAdEp3Exist::free_if_valid(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

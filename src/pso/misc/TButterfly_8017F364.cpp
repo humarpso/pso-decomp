@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TButterfly.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -9,8 +10,6 @@ void TLobby__sub_8001FE7C(void*, int);
 void construct_world_actor_base(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
-void copy_xyz__10TObjPlayerFPv(void *, void *);
-void init_motion__10TButterflyFv(void *);
 
 extern s32 __vt__10TButterfly[];
 extern void *TButterfly__name;
@@ -20,9 +19,9 @@ void *TButterfly__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TButterfly;
     *(void **)((s8 *)arg0 + 0x0) = TButterfly__name;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 56), (void *)((char *)arg2 + 12));
-    copy_xyz__10TObjPlayerFPv((void *)((char *)arg0 + 92), (void *)((char *)arg2 + 24));
+    ((TObjPlayer *)((char *)arg0 + 92))->copy_xyz((void *)((char *)arg2 + 24));
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 104), (void *)((char *)arg2 + 36));
-    init_motion__10TButterflyFv(arg0);
+    ((TButterfly *)arg0)->init_motion();
     return arg0;
 }
 

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOSwitchItem.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_80177DC0 {
     f32 sp8;
@@ -70,7 +71,6 @@ struct Obj_80177E24 { u8 pad[0x38]; Pos_80177E24 pos; };
 
 extern "C" {
 s32 newton_sqrtf(f32);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA10;
 extern const f32 lbl_805DBA14;
@@ -78,12 +78,10 @@ s32 TOKey__ct(void *);
 extern s32 __vt__12TOSwitchItem[];
 extern s32 lbl_805D3180;
 u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2);
-u8 get_field_ed__10TObjPlayerFv(int);
 s32 copy_item_data_and_process__5TItemFv(int);
 u8 *get_sorted_item_registry_entry(s32);
 s32 get_item_registry_count();
 s8 TObjPlayer__sub_80102C30(u8 *);
-u8 get_field_ec__12TOSwitchItemFv(int);
 f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
 s32 is_state_ec1_ed3__10TObjPlayerFv(int);
 void run_task__12TOSwitchItemFv(u8 *arg0);
@@ -116,7 +114,7 @@ void TOSwitchItem::update_anim() {
 void TOSwitchItem::render() {
     u8 *arg0 = (u8 *)this;
     Stack_80177DC0 stack;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         stack.sp8 = lbl_805DBA10;
         stack.spC = lbl_805DBA10;
         stack.sp10 = lbl_805DBA10;
@@ -150,17 +148,17 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 var_r30 += 1;
                 break;
             case 1:
-                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 0) {
+                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 0) {
                     var_r30 += 1;
                 }
                 break;
             case 2:
-                if ((get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 1) && (get_field_ed__10TObjPlayerFv((int) (temp_r27)) == 1)) {
+                if ((((TOSwitchItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 1)) {
                     var_r30 += 1;
                 }
                 break;
             case 3:
-                if ((get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 1) && (get_field_ed__10TObjPlayerFv((int) (temp_r27)) == 2)) {
+                if ((((TOSwitchItem *)temp_r27)->get_field_ec() == 1) && (((TObjPlayer *)temp_r27)->get_field_ed() == 2)) {
                     var_r30 += 1;
                 }
                 break;
@@ -170,17 +168,17 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 }
                 break;
             case 5:
-                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 2) {
+                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 2) {
                     var_r30 += 1;
                 }
                 break;
             case 6:
-                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 3) {
+                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 3) {
                     var_r30 += ((VObj_18_1753c2 *)(temp_r27))->m34();
                 }
                 break;
             case 7:
-                if (get_field_ec__12TOSwitchItemFv((int) (temp_r27)) == 4) {
+                if (((TOSwitchItem *)temp_r27)->get_field_ec() == 4) {
                     var_r30 += copy_item_data_and_process__5TItemFv((int) (temp_r27));
                 }
                 break;

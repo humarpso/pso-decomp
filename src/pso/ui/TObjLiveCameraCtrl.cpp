@@ -1,6 +1,7 @@
 #include "pso/TObjLiveCameraCtrl.h"
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 
 struct Cam_8030BED4 {
     s32 f0;
@@ -23,7 +24,6 @@ void queue_destruction__7TObjectFv(void *);
 void update_toggle_state__12TBoss8DragonFv(void *);
 void update_live_camera__12TBoss8DragonFv(void *);
 void choose_next_camera_shot__12TBoss8DragonFv(void *);
-void copy_position_vectors__11TCameraCtrlFPvPv(void *, void *, void *);
 s32 get_current_floor();
 void subtractive_rng_seed(void *, s32);
 s32 __ct__14SubtractiveRngFv(void *);
@@ -62,7 +62,7 @@ void TObjLiveCameraCtrl::run_task() {
     update_live_camera__12TBoss8DragonFv(this);
     choose_next_camera_shot__12TBoss8DragonFv(this);
     if (camera_object != NULL) {
-        copy_position_vectors__11TCameraCtrlFPvPv(camera_object, vector_34, vector_40);
+        ((TCameraCtrl *)camera_object)->copy_position_vectors(vector_34, vector_40);
     }
 }
 

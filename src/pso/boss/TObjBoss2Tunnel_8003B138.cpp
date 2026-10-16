@@ -818,7 +818,6 @@ void TObjBoss2Tunnel__sub_8003C5F8(void);
 void TObjBoss2Tunnel__sub_8003C610(void);
 u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 *arg4);
 void reset_floats__15TObjBoss2TunnelFv(void *a0);
-s32 reset_floats__15TObjBoss2TunnelFl(s32 arg0);
 extern u8 boss2_tunnel_raft_splash_offsets[];
 extern u8 lbl_80483578[];
 extern s32 __vt__15TObjBoss2Tunnel[];
@@ -833,14 +832,13 @@ void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1);
 void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void dt__15TObjBoss2TunnelFls(void *, int);
 
 extern s32 __vt__15TObjBoss2Tunnel[];
 
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss2Tunnel;
-        dt__15TObjBoss2TunnelFls((s8 *)arg0 + 0x68, -1);
+        TObjBoss2Tunnel::dt((s32)((s8 *)arg0 + 0x68), (s16)(-1));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -855,7 +853,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     s32 j;
     __ct__7TObjectFP7TObject(arg0);
     self->vt = ((s32 *)&__vt__15TObjBoss2Tunnel);
-    reset_floats__15TObjBoss2TunnelFl((s32)self->sub68);
+    TObjBoss2Tunnel::reset_floats((s32)self->sub68);
     self->name = lbl_805D2708;
     self->i24 = 0;
     TObjBoss2Tunnel__global_flags = 0;

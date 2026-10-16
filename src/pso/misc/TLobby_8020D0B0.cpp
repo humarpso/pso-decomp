@@ -14,7 +14,6 @@ extern "C" {
 
 u8 *create_set_object_from_row(void *);
 u8 *get_object_count__6TLobbyFPv();
-s32 get_obj_table_entry__6TLobbyFi(s32);
 
 extern s32 TLobby__data_805D6140;
 
@@ -27,7 +26,7 @@ void TLobby::attach_objects_by_id(s32 arg0) {
     u8 *temp_r3_2;
 
     ptr = get_object_count__6TLobbyFPv();
-    count = get_obj_table_entry__6TLobbyFi(arg0);
+    count = TLobby::get_obj_table_entry(arg0);
     for (i = 0; i < count; i++, ptr += 0x44) {
         temp_r3 = *(s16 *)((s8 *)ptr + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (*(s16 *)((s8 *)ptr + 0) != -1) && ((temp_r3 & 0x10) || (temp_r3 & 1) || (*(s16 *)((s8 *)ptr + 0xA) == 0))) {

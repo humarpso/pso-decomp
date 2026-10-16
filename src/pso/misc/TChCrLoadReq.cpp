@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TChCrLoadReq.h"
+#include "pso/misc/TCharaMaking.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8028D360___vt__12TChCrLoadReq { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8028D360___vt__12TChCrLoadReq_size[sizeof(RecoveredGlobal_8028D360___vt__12TChCrLoadReq) == 0x18 ? 1 : -1];
@@ -18,7 +20,6 @@ extern s32 __vt__12TChCrLoadReq[];
 extern void *lbl_805D3B60;
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1);
 void TLobby__sub_8028D738(s32, s32);
-s32 get_display_index__12TCharaMakingFv(void *);
 extern u8 class_appearance_table[];
 }
 
@@ -27,14 +28,12 @@ extern "C" {
 void *TChCrLoadReq__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
 void * create_ch_cr_load_req(void *arg0, void *arg1);
-s32 request_texture_loads__23TAdSinglePlyChrSelectGCFv(void *);
 s32 request_model_loads__23TAdSinglePlyChrSelectGCFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFv(void *);
 
 }
 
@@ -47,9 +46,9 @@ void TChCrLoadReq::update_load_progress() {
         }
     } else {
 block_3:
-        if (try_claim_load_slot__23TAdSinglePlyChrSelectGCFv(arg0) != 0) {
+        if (((TAdSinglePlyChrSelectGC *)arg0)->try_claim_load_slot() != 0) {
             request_model_loads__23TAdSinglePlyChrSelectGCFPv(arg0);
-            request_texture_loads__23TAdSinglePlyChrSelectGCFv(arg0);
+            ((TAdSinglePlyChrSelectGC *)arg0)->request_texture_loads();
             *(s32 *)((s8 *)arg0 + 0x60) = 1;
         }
     }
@@ -88,7 +87,7 @@ void TChCrLoadReq::reset_request() {
     s32 i;
     s32 t;
     arg0->f58 = (s32)((u8 *)arg0->f48 + 8);
-    t = get_display_index__12TCharaMakingFv(arg0->f38) * 0x2C;
+    t = ((TCharaMaking *)(arg0->f38))->get_display_index() * 0x2C;
     arg0->f5c = class_appearance_table + t;
     TLobby__sub_8028D738(arg0->f40, t);
     arg0->f44[0] = 0;

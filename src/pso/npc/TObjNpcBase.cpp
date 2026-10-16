@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/npc/TObjNpcBase.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Npc_801491B4 {
     s32 f0;
@@ -33,7 +35,6 @@ struct Npc_801491B4 {
 extern "C" {
 void initialize__9TObjEnemyFPv(void *, void *, void *);
 void TObjNpcBase__sub_80149368(void* p);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern s32 __vt__11TObjNpcBase[];
 extern s32 TObjNpcBase__name;
 extern const f32 lbl_805DB1B8;
@@ -55,7 +56,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFv();
 
 extern s32 __vt__11TObjNpcBase[];
 
@@ -78,7 +78,7 @@ void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2) {
     self->f0 = TObjNpcBase__name;
     self->f388 = 0;
     self->f390 = 1;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 15:
         self->f394 = 1;
         break;

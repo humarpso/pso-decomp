@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
 
@@ -15,12 +16,7 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
 int unregister_object_by_id(void*);
-s32 get_max_level__10TObjPlayerFv();
-int clear_flag_4000_callback__10TObjPlayerFv(void* p);
-void set_battle_flag__10TObjPlayerFl(void* p, s32 v);
-s32 get_anim_id__10TObjPlayerFv(void* p);
 int is_action_active__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE784(void* p, u8 v);
 u8 get_battle_mode__10TObjPlayerFPv(void* p);
@@ -60,15 +56,8 @@ int TObjPlayer__sub_801BEDA0(void*);
 int TObjPlayer__sub_801BEDA8(void*);
 int TObjPlayer__sub_801BEDB0(void*);
 int TObjPlayer__sub_801BEDB8(void*);
-int is_mounted__15TPlyPhotonChairFv(void* p);
-int check_flag_0x40000000__10TObjPlayerFv(void* p);
-int check_flag_4__10TObjPlayerFv(void* p);
-int check_flag__10TObjPlayerFl(void*, int);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
-void clear_flag_0x2__10TObjPlayerFv(void* p);
-int clear_flag_4000__10TObjPlayerFv(void* p);
 int end_camera_pan__10TObjPlayerFPv(void*);
-int set_flag_4000__10TObjPlayerFv(void* p);
 int start_freeze__10TObjPlayerFPv(void*);
 
 s32 TObjPlayer__sub_801BEB0C(void* p) { return *(s32*)((char*)p + 0x334); }

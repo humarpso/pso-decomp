@@ -1,6 +1,10 @@
 #include "pso/TDuelEffectNumber.h"
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800800EC_lbl_80438D7C {
     s32 value;
@@ -24,17 +28,12 @@ extern const char TDuelEffectNumber__class_name_string[] = "TDuelEffectNumber";
 extern const RecoveredGlobal_800800EC_lbl_80438D7C duel_number_uv_table = {0, {0x43, 0x2A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}};
 void calc_duel_number_uv(s32 arg0, u8 *arg1, s32 arg2);
 void fn_8007FF28(Obj_8007FF28 *self, s32 arg1);
-s32 get_camera_no__11TCameraCtrlFv(void);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
 void queue_destruction__7TObjectFv(void *);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32);
 void fn_8007FFF4(Obj_8007FF28 *self, s32 arg1);
-s32 get_player__20TWindowSubStatusDispFv();
-s32 init_xyz_limits__10TObjPlayerFv();
-s32 reset_transform_state__10TObjPlayerFv();
-s32 set_global_param__8TObjFishFl(s32);
 extern s32 lbl_805D63F0;
 
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2) {
@@ -56,7 +55,7 @@ void fn_8007FF28(Obj_8007FF28 *self, s32 arg1) {
     f32 c;
 
     if (self->timer >= 5 && self->timer < 20) {
-        scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
+        scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(TCameraCtrl::get_camera_no());
         c = (0.5f);
         b = c * ((f32)(self->timer - 5) / (15.0f)) + (1.0f);
         fn_8007FE78((Obj_8007FF28 *)(self), (s32)(arg1), (void *)(self->x1C), scale, b, self->timer < 10 ? c : c - c * ((f32)(self->timer - 10) / (1e+01f)));
@@ -72,7 +71,7 @@ void fn_8007FFF4(Obj_8007FF28 *self, s32 arg1) {
     f32 b;
     f32 c;
 
-    scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
+    scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(TCameraCtrl::get_camera_no());
     if (self->timer < 5) {
         b = (2.0f) - ((f32) self->timer / (5.0f));
         c = (0.5f);
@@ -108,14 +107,14 @@ void TDuelEffectNumber::render() {
     char sp8[0x20];
 
     ((s32 (*)(void *, void *, s32))calc_duel_number_uv)(this, &sp8, *(s32 *)((s8 *)this + 0x24));
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(6, -1);
     ((s32 (*)(void *, s32 *))fn_8007FFF4)(this, (s32 *)&sp8);
     ((s32 (*)(void *, s32 *))fn_8007FF28)(this, (s32 *)&sp8);
-    get_player__20TWindowSubStatusDispFv();
-    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp::get_player();
+    TObjPlayer::reset_transform_state();
 }
 void TDuelEffectNumber::run_task() {
     u8 *arg0 = (u8 *)this;

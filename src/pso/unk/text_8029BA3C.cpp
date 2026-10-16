@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
-s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32, f32, f32);
 s32 set_draw_texture_and_color(void *, void *);
 extern s32 TAdBackTxtGC__backtext_texture_list;
@@ -19,7 +19,7 @@ extern "C" {
 void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
   f32 buffer_8[8];
   begin_screen_draw((int) 1);
-  set_global_param__8TObjFishFl((void *) TAdBackTxtGC__backtext_texture_list);
+  TObjFish::set_global_param((s32)((void *) TAdBackTxtGC__backtext_texture_list));
   set_draw_texture_and_color((void *) arg1, (void *) arg2);
   buffer_8[0] = lbl_805DDCF8;
   buffer_8[1] = lbl_805DDCF8;
@@ -29,7 +29,7 @@ void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
   buffer_8[5] = lbl_805DDCF8;
   buffer_8[7] = (buffer_8[6] = lbl_805DDD04);
   draw_textured_quad_at_depth((void *) (&buffer_8[0]), (f32) (*((f32 *) (((s8 *) arg0) + 0x20))), (f32) lbl_805DDCFC, (f32) lbl_805DDCF8);
-  get_player__20TWindowSubStatusDispFv();
+  TWindowSubStatusDisp::get_player();
 }
 
 }

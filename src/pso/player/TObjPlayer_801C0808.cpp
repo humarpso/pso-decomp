@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/TAdRicoRing.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowActionPalette.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -56,9 +60,6 @@ void set_code_14_1__10TObjPlayerFPv(void* p);
 void update_and_send__10TObjPlayerFPv(void* p);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TLobby__send_and_handle_60(void*);
-int bswap_pkt_u32x2__10TObjPlayerFv(void*);
-int bswap_status_effect_data__10TObjPlayerFv(void*);
-int byteswap_packet_body__10TObjPlayerFv(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -79,12 +80,12 @@ void init_cmd_6x24__10TObjPlayerFPv(void *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 5;
 }
 
-void send_lobby_update__10TObjPlayerFPv(void* p) { byteswap_packet_body__10TObjPlayerFv(p); TLobby__send_and_handle_60(p); }
-void bswap_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_status_effect_data__10TObjPlayerFv((char*)p + 0x4); }
+void send_lobby_update__10TObjPlayerFPv(void* p) { ((TObjPlayer *)p)->byteswap_packet_body(); TLobby__send_and_handle_60(p); }
+void bswap_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); ((TObjPlayer *)((char*)p + 0x4))->bswap_status_effect_data(); }
 void set_code_13_3__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 13; *(u8*)((char*)p + 0x1) = 3; }
 void update_and_send__10TObjPlayerFPv(void* p) { bswap_status_effect__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void set_code_14_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 14; *(u8*)((char*)p + 0x1) = 1; }
-void apply_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_status_effect_data__10TObjPlayerFv((char*)p + 0x4); }
+void apply_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); ((TObjPlayer *)((char*)p + 0x4))->bswap_status_effect_data(); }
 #pragma push
 #pragma opt_common_subs off
 #pragma pop
@@ -112,10 +113,7 @@ void apply_status_effect__10TObjPlayerFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
-int bswap_pkt_u32x2__10TObjPlayerFv(void*);
-int bswap_status_effect_data__10TObjPlayerFv(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
-int byteswap_packet_body__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
 void set_code_13_3__10TObjPlayerFPv(void* p);
 void set_code_14_1__10TObjPlayerFPv(void* p);
@@ -135,7 +133,7 @@ void set_code_49_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 49; *(u8
 void bswap_font_lobby__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void set_code_45_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 45; *(u8*)((char*)p + 0x1) = 1; }
 void send_lobby_update_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
-void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x10); bswap_pkt_u32x2__10TObjPlayerFv((char*)p + 0x8); }
+void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x10); ((TObjPlayer *)((char*)p + 0x8))->bswap_pkt_u32x2(); }
 void build_6x2C_impose_hold_packet__10TObjPlayerFPv(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 4) = 0;
     *(s16 *)((s8 *)arg0 + 6) = 0;
@@ -628,12 +626,7 @@ s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
 s32 send_60_sized__6TLobbyFPv(s32);
 int test_flags_any(void*, int);
 int __dl__FPv();
-int clear_flags__11TAdRicoRingFUl(void*, int);
 f32 fn_801C19A4(void* p);
-s32 reset_settings_to_default__6TLobbyFv();
-int set_flags__10TObjPlayerFUl(void*, int);
-s32 set_mode__20TWindowActionPaletteFUc(s32, u8);
-s32 set_slot__20TWindowActionPaletteFUc(s32, u8);
 
 void send_player_floor_packet__10TObjPlayerFPvPv(void* p, void* a1) { bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(p); send_subcommand_to_client__6TLobbyFPvUi((s32)(p), (s32)(a1)); }
 

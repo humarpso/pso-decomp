@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
+#include "pso/misc/TPacket.h"
 
 extern "C" {
 u16 to_be_uint16_t__FUs(u16);
@@ -142,7 +143,6 @@ void append_command_to_batch_buffer(S_801A5544 *arg0, u8 *arg1);
 extern "C" {
 
 void TLobby__sub_801A54E8(u8 *arg0);
-void clear_send_buffer__7TPacketFv(void* p);
 
 void TLobby__sub_801A54E8(u8 *arg0) {
     s32 temp_r4;

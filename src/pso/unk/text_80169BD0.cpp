@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base { char pad[0x18]; };
 
@@ -39,7 +42,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_model(s32);
 s32 draw_chunk_object(void *);
 s32 draw_model_motion(void *, void *, f32);
@@ -48,14 +50,11 @@ s32 submit_cursor_candidate(void *, int);
 s32 check_player_flag1__6TLobbyFv();
 s32 end_conversation_camera();
 s32 begin_conversation_camera();
-s32 check_demo_mode__10TObjPlayerFv();
 s32 is_any_player_within_radius_xz(void *, f32);
 s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 u32 __ct__12TQuestThreadFv(int, void *, int);
 u32 __nw__7TObjectFUl(int);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-s32 set_parent__7TObjectFP7TObject(int, int);
 extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
@@ -80,7 +79,7 @@ void run_script_object_task(u8 *arg0) {
     u32 temp_r3_5;
     u32 var_r0;
     u32 var_r0_2;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((VObj_18_ac8580 *)(arg0))->m14();
         return;
     }
@@ -99,7 +98,7 @@ void run_script_object_task(u8 *arg0) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 3;
             begin_conversation_camera();
             temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xD4);
-            if ((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8) && ((u32) quest_mission_manager != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (quest_mission_manager)) != 0)) {
+            if ((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8) && ((u32) quest_mission_manager != 0U) && (((TObject *)quest_mission_manager)->all_parents_unqueued_for_destruction() != 0)) {
                 temp_r3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0 = temp_r3;
                 if (var_r0 != 0U) {
@@ -108,9 +107,9 @@ void run_script_object_task(u8 *arg0) {
                 *(u32 *)((s8 *)arg0 + 0xDC) = var_r0;
                 temp_r3_2 = *(u32 *)((s8 *)arg0 + 0xDC);
                 if (temp_r3_2 != 0U) {
-                    set_parent__7TObjectFP7TObject((int) (temp_r3_2), (int) (tl_00));
+                    ((TObject *)temp_r3_2)->set_parent((TObject *)tl_00);
                 }
-            } else if (((u32) quest_area_manager != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (quest_area_manager)) != 0)) {
+            } else if (((u32) quest_area_manager != 0U) && (((TObject *)quest_area_manager)->all_parents_unqueued_for_destruction() != 0)) {
                 temp_r3_3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0_2 = temp_r3_3;
                 if (var_r0_2 != 0U) {
@@ -119,7 +118,7 @@ void run_script_object_task(u8 *arg0) {
                 *(u32 *)((s8 *)arg0 + 0xDC) = var_r0_2;
                 temp_r3_4 = *(u32 *)((s8 *)arg0 + 0xDC);
                 if (temp_r3_4 != 0U) {
-                    set_parent__7TObjectFP7TObject((int) (temp_r3_4), (int) (tl_00));
+                    ((TObject *)temp_r3_4)->set_parent((TObject *)tl_00);
                 }
             }
         } else {
@@ -129,7 +128,7 @@ void run_script_object_task(u8 *arg0) {
         break;
     case 3:
         temp_r3_5 = *(u32 *)((s8 *)arg0 + 0xDC);
-        if (((temp_r3_5 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) (temp_r3_5)) == 0)) || ((u32) *(u32 *)((s8 *)arg0 + 0xDC) == 0U)) {
+        if (((temp_r3_5 != 0U) && (((TObject *)temp_r3_5)->all_parents_unqueued_for_destruction() == 0)) || ((u32) *(u32 *)((s8 *)arg0 + 0xDC) == 0U)) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 0;
             *(u32 *)((s8 *)arg0 + 0xDC) = 0U;
             end_conversation_camera();
@@ -159,7 +158,7 @@ void fn_80169E30(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) == 1) {
             void *p = *(void **)((s8 *)arg0 + 0xBC);
             if (p != NULL) {

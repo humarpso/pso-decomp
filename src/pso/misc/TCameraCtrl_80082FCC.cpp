@@ -2,6 +2,7 @@
 
 #include <stddef.h>
 #include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjFish.h"
 struct Stack_800830B0 {
     s32 sp8;
     s32 spC;
@@ -29,7 +30,6 @@ struct G_80082FCC { s32 value; s32 v4; f32 f8; f32 fC; };
 extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
-s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 calc_axes_from_angles__11TCameraCtrlFiii(void *, int, int);
 s32 calc_rotated_axes__11TCameraCtrlFPv(void *);
 s32 setup_default_view__11TCameraCtrlFPvPv(void *, int);
@@ -78,7 +78,6 @@ void VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 is_split_screen();
-s32 set_global_param__8TObjFishFl(s32);
 
 void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     f32 dx = TCameraCtrl__data_804FF634.f8;
@@ -99,7 +98,7 @@ extern u32 camera_render_target_singleton;
 
 void TCameraCtrl::update_single_screen() {
     if ((is_split_screen() == 0) && ((u32) camera_render_target_singleton != 0U)) {
-        set_global_param__8TObjFishFl(camera_render_target_singleton + 0x1C);
+        TObjFish::set_global_param(camera_render_target_singleton + 0x1C);
         load_list_texture(0, 0, 0, 0);
     }
 }
@@ -125,7 +124,7 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
     typedef char sp28_offset[(offsetof(Stack_800830B0, sp28) == 0x20) ? 1 : -1];
     Stack_800830B0 stack;
     if (is_split_screen() == 0) {
-        restore_full_screen_view__11TCameraCtrlFv();
+        TCameraCtrl::restore_full_screen_view();
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
         stack.sp20 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 0);

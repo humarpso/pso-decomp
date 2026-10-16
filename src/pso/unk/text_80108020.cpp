@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TItemLoad.h"
 struct Vec_80108164 { f32 x, y, z; };
 
 struct Base_80108164 { u8 pad[0x18]; };
@@ -108,7 +109,6 @@ extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 create_particle_emitter(void *, s32);
-void get_item_params__9TItemLoadFPlPlPl(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, s32);
 void construct_actor_light_task(void *, void *, void *, s32, u8 *, f32, s32);
@@ -133,7 +133,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     self->vt = __vt__13TItemEffArmor;
     self->f0 = TItemEffArmor__class_name;
     self->f24 = lbl_805DAAF8;
-    get_item_params__9TItemLoadFPlPlPl(self->f70, self->f78, self->f74);
+    TItemLoad::get_item_params((s32 *)(self->f70), (s32 *)(self->f78), (s32 *)(self->f74));
     self->f28 = a;
     self->f58 = b;
     self->f6C = obj;

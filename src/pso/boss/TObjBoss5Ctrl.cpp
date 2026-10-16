@@ -1,4 +1,5 @@
 #include "pso/TObjBoss5Ctrl.h"
+#include "pso/boss/TObjBoss5PillarDemo.h"
 #pragma fp_contract on
 
 extern "C" void queue_destruction__7TObjectFv(void*);
@@ -13,7 +14,6 @@ s32 get_current_floor(f32, f32, f32);
 s32 is_room_enemy_set_cleared(s32, s32);
 u32 create__19TObjBoss5FloorStoneFv();
 u32 create__19TObjBoss5FloorGrassFv();
-u32 create__19TObjBoss5PillarDemoFv();
 u32 create__19TObjBoss5PillarCtrlFv(void *);
 s32 is_split_screen();
 extern void *__vt__13TObjBoss5Ctrl[];
@@ -69,7 +69,7 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
             }
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x28) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x28) = create__19TObjBoss5PillarDemoFv();
+            *(u32 *)((s8 *)arg0 + 0x28) = TObjBoss5PillarDemo::create();
         }
     }
     return arg0;

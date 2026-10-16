@@ -241,6 +241,8 @@ void TObjPlayer__sub_8004E3F4(void* p) { draw_fading_model__10TObjPlayerFPv((Obj
 #pragma push
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type2.h"
 struct S_8004E634 {
     u8 pad0[0x18];
     void *vt;
@@ -253,8 +255,6 @@ struct S_8004E634 {
 extern "C" {
 void fn_8004AA04(void *);
 void restore_player_cameras();
-void request_destroy__11TBoss4Type2FUl(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485640[];
 S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag);
@@ -269,12 +269,12 @@ S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
         fn_8004AA04(o->f11c);
         for (i = 0; i < 4; i++) {
             if (o->ptr[i] != 0) {
-                request_destroy__11TBoss4Type2FUl(o->ptr[i]);
+                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
                 o->ptr[i] = 0;
             }
         }
         restore_player_cameras();
-        destroy_particle__13TParticleCtrlFPvs(o, 0);
+        TParticleCtrl::destroy_particle(o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

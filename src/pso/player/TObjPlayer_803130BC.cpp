@@ -8,7 +8,6 @@ struct Ids_80313138 { u16 a; s16 b; };
 extern "C" {
 s16 TObjPlayer__sub_80313114(u8 *arg0);
 s32 *TObjPlayer__sub_803131B4(T_803131B4 *self, s32 i);
-void clear_id__10TObjPlayerFv(void *);
 }
 
 extern "C" {
@@ -35,7 +34,7 @@ void TObjPlayer::reset_id_entry() {
     Ids_80313138 *o = (Ids_80313138 *)this;
     o->a = 0xFFFF;
     o->b = -1;
-    clear_id__10TObjPlayerFv((u8 *)o + 4);
+    ((TObjPlayer *)((u8 *)o + 4))->clear_id();
     update_children();
 }
 

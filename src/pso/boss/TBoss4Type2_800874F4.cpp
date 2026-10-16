@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TNowLoading.h"
 
 struct O_80087638 { u8 pad[0x2e]; u16 x2e; };
 
@@ -16,8 +17,6 @@ void *create_particle_emitter(void *pos, s32 id);
 }
 
 extern "C" {
-
-void copy_pos__11TNowLoadingFPv(void* p, void* q);
 
 extern s32 particle_global_entry_table;
 extern s32 particle_area_entry_table;

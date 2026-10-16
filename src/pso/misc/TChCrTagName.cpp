@@ -20,6 +20,8 @@ struct Tag_802A265C {
 };
 
 #include "pso/TMath.h"
+#include "pso/TChCrCharSelect.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 struct VBase_802A2500 { char pad[0x18]; };
 
 struct TChCrTagName_802A2500 : VBase_802A2500 {
@@ -82,25 +84,17 @@ const char *TChCrTagName__class_name = lbl_804663F8;
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2);
 f32 cos_table_lookup(s32);
 void update_slide_in__12TChCrTagNameFPv(u8 *arg0);
-s32 get_selected_index__15TChCrCharSelectFv();
-s32 get_selected_char__15TChCrCharSelectFv();
-s32 get_instance__15TChCrCharSelectFv();
 s32 TChCrTagName__vt4(u8 *arg0);
-s32 get_selected_index__15TChCrCharSelectFv();
-s32 get_selected_char__15TChCrCharSelectFv();
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 extern vec2f lbl_80466408[];
 void draw_tag_sprite__12TChCrTagNameFPv(TChCrTagName_802A2500 *self);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 extern vec2f lbl_80466410[];
 extern vec2f lbl_80466418[];
 extern vec2f lbl_80466420[];
 extern vec2f lbl_80466428[];
 int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 f32 sin_table_lookup(s32);
 extern vec2f lbl_80466430[];
@@ -155,7 +149,7 @@ int draw_tag_sprites__12TChCrTagNameFPv(void *p) {
     }
     bright = (0.75f) * (s * s) + (0.25f);
     t2 = t * t;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
+    ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(&self->pos);
     pos.x += (5.0f);
     pos.y += (9.0f);
     alpha = t2;
@@ -169,7 +163,7 @@ int draw_tag_sprites__12TChCrTagNameFPv(void *p) {
         }
     }
     draw_ui_sprite_shaded(id, &pos, &scale, depth, alpha, bright);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
+    ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(&self->pos);
     pos.x = (169.0f);
     pos.y += (3.0f);
     draw_ui_sprite_shaded(self->f20 + 0x57, &pos, &scale, depth, t2, bright);
@@ -195,7 +189,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     {
         vec2f scale = lbl_80466410[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(&self->pos);
         draw_ui_sprite_shaded(0x41, &pos, &scale, depth, t, bright);
         pos.y += (22.0f);
         draw_ui_sprite_shaded(0x42, &pos, &scale, depth, t, bright);
@@ -203,7 +197,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     {
         vec2f scale = lbl_80466418[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(&self->pos);
         pos.x += (226.0f);
         draw_ui_sprite_shaded(self->f20 == 0 ? 0x44 : 0x48, &pos, &scale, depth, t, bright);
         pos.y += (22.0f);
@@ -212,7 +206,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     {
         vec2f scale = lbl_80466420[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(&self->pos);
         pos.x += (226.0f);
         pos.y += (8.0f);
         draw_ui_sprite_shaded(0x40, &pos, &scale, depth, t, bright);
@@ -220,7 +214,7 @@ int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     if (self->f24 < (1.0f)) {
         vec2f scale = lbl_80466428[0];
         vec2f pos;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
+        ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(&self->pos);
         pos.x -= (3.0f);
         draw_ui_sprite_shaded(0x3F, &pos, &scale, depth, t, bright);
     }
@@ -244,7 +238,7 @@ void draw_tag_sprite__12TChCrTagNameFPv(TChCrTagName_802A2500 *self) {
     } else {
         depth = (0.3125f) * s + (-2.75f);
     }
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&pos, &self->pos);
+    ((TWindowSubSymbolChatPartsSet *)(&pos))->copy_vec2(&self->pos);
     pos.y += (3.0f);
     draw_ui_sprite_shaded(id, &pos, &scale, depth, t * t, (0.75f) * (s * s) + (0.25f));
 }
@@ -264,12 +258,12 @@ void render__12TChCrTagNameFv(void* p) { draw_tag_sprite__12TChCrTagNameFPv((TCh
 #pragma fp_contract on
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0) {
     s32 r;
-    switch (get_selected_index__15TChCrCharSelectFv()) {
+    switch (TChCrCharSelect::get_selected_index()) {
     case 0:
         r = 0;
         break;
     default:
-        if (arg0->f20 / 4 == get_selected_char__15TChCrCharSelectFv()) {
+        if (arg0->f20 / 4 == TChCrCharSelect::get_selected_char()) {
             r = 0;
         } else {
             r = 1;
@@ -318,15 +312,15 @@ extern void *tl_03;
 typedef char RecoveredGlobal_802A28C0___vt__12TChCrTagName_size[sizeof(RecoveredGlobal_802A28C0___vt__12TChCrTagName) == 0x20 ? 1 : -1];
 
 s32 TChCrTagName__vt4(u8 *arg0) {
-    switch (get_selected_index__15TChCrCharSelectFv()) {
+    switch (TChCrCharSelect::get_selected_index()) {
     case 0:
-        if (*(s32 *)(arg0 + 0x20) / 4 == get_selected_char__15TChCrCharSelectFv()) {
+        if (*(s32 *)(arg0 + 0x20) / 4 == TChCrCharSelect::get_selected_char()) {
             return 1;
         }
         break;
     case 1:
     case 2:
-        if (*(s32 *)(arg0 + 0x20) == get_instance__15TChCrCharSelectFv()) {
+        if (*(s32 *)(arg0 + 0x20) == TChCrCharSelect::get_instance()) {
             return 1;
         }
         break;

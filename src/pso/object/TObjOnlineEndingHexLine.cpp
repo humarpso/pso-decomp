@@ -1,6 +1,7 @@
 #include "pso/TObjOnlineEndingHexLine.h"
 #include "pso/TObjOnlineEndingHexMove.h"
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct Param_802E5CB0 { f32 a; f32 b; s32 c; f32 d; };
 typedef char Param_802E5CB0_size[sizeof(Param_802E5CB0) == 0x10 ? 1 : -1];
@@ -97,7 +98,6 @@ s32 angle_difference_abs(int, int);
 s32 angle_diff_s16(s32, s32);
 u32 get_player_by_client_id(int);
 s32 bswap_6x92__14TAdGameStartGCFPv(void *);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 draw_color_lines(Desc_802E55B8 *, s32, s32, f32);
@@ -367,7 +367,7 @@ s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *arg0, P2
     p.y = p.y * sc;
     p.x = p.x + ctr.x;
     p.y = p.y + ctr.y;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0), &p);
+    ((TWindowSubSymbolChatPartsSet *)arg0)->copy_vec2(&p);
     return 1;
 }
 #pragma pop

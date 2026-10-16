@@ -2,6 +2,10 @@
 
 #include "types.h"
 #include "pso/TSetManager.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8020D2B4_lbl_8058D490 { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_8020D2B4_lbl_8058D490_size[sizeof(RecoveredGlobal_8020D2B4_lbl_8058D490) == 0x30 ? 1 : -1];
@@ -67,8 +71,6 @@ s32 rotate_matrix_x(int, int);
 extern RecoveredGlobal_8020D2B4_lbl_8058D490 identity_matrix;
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 s32 get_current_floor();
-s32 assign_display_objects__6TLobbyFPUcl(int, int);
-s32 assign_objects_to_slots__6TLobbyFPUcl(int, int);
 extern RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 TLobby__floor_enemy_group_table;
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D610C;
@@ -85,13 +87,10 @@ s32 find_set_factory_index(void *, void *);
 s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2);
 s32 get_instance__11TCameraCtrlFv();
 f32 xyz_distance_squared(void *, void *);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 extern Obj_8020D4E8 *camera_ctrl_instance;
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
-s32 get_player_count__10TObjPlayerFv();
 s32 is_quest_active();
 s32 TLobby__sub_801C2614();
-s32 get_global_state__14TOKeyMachine01Fv();
 u8 *call_area_set_factory(void *, void *);
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
 extern s32 TLobby__data_805D611C;
@@ -171,7 +170,7 @@ s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2) {
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0) {
     s32 n;
     s32 i;
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         if (camera_ctrl_instance != NULL) {
             n = get_instance__11TCameraCtrlFv();
             for (i = 0; i < n; i++) {
@@ -191,11 +190,11 @@ void spawn_decorations_in_range(void *arg0) {
     Rec_8020D5AC *p;
     s32 i;
     u8 *obj;
-    tbl = floor_object_factory_tables[get_global_state__14TOKeyMachine01Fv()];
+    tbl = floor_object_factory_tables[TOKeyMachine01::get_global_state()];
     if (tbl == NULL) {
         return;
     }
-    if (get_player_count__10TObjPlayerFv() != 0 && is_quest_active() != 0 && TLobby__sub_801C2614() == 0) {
+    if (TObjPlayer::get_player_count() != 0 && is_quest_active() != 0 && TLobby__sub_801C2614() == 0) {
         return;
     }
     p = (Rec_8020D5AC *)TLobby__data_805D611C;
@@ -239,10 +238,10 @@ void TSetManager::apply_floor_set_rows() {
         *(s32 *)((s8 *)temp_r30 + 0xC) = (s32) (*(s32 *)((s8 *)temp_r30 + 0xC) | 4);
     }
     if (*(s32 *)((s8 *)temp_r30 + 8) & 2) {
-        assign_objects_to_slots__6TLobbyFPUcl((int) (TLobby__data_805D610C), (int) (*(s32 *)((s8 *)temp_r30 + 0)));
+        TLobby::assign_objects_to_slots((u8 *)TLobby__data_805D610C, (s32)((int) (*(s32 *)((s8 *)temp_r30 + 0))));
     }
     if (*(s32 *)((s8 *)temp_r30 + 0xC) & 4) {
-        assign_display_objects__6TLobbyFPUcl((int) (TLobby__data_805D6114), (int) (*(s32 *)((s8 *)temp_r30 + 4)));
+        TLobby::assign_display_objects((u8 *)TLobby__data_805D6114, (s32)((int) (*(s32 *)((s8 *)temp_r30 + 4))));
     }
     if ((s32) TLobby__data_805D6120 > 0) {
         apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D611C)), (s32)((int) (TLobby__data_805D6120)));

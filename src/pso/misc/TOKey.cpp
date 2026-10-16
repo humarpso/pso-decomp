@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOKey.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyAncient01.h"
+#include "pso/npc/TObjNpcEnemy.h"
 
 struct Base_8016A8D0 { char pad[0x18]; };
 struct VObj_8016A8D0 : Base_8016A8D0 {
@@ -95,7 +98,6 @@ struct VObj_8016AA20 : VBase_8016AA20 {
 };
 
 extern "C" {
-void set_global_count__12TObjNpcEnemyFl(s32);
 void debug_printf_at(s32, const char *, ...);
 extern char lbl_80441958[];
 }
@@ -116,12 +118,9 @@ void TOKeyAncient01__vt23(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
-void destroy_key_base__5TOKeyFs(void *, int);
 int init_6x04_packet(void* a0 = 0);
-void* init_6x05_switch_changed__6TLobbyFv(void* p);
 void init_map_object_base(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
-void set_type__14TOKeyAncient01Fv(void *);
 
 void TOKey::trigger_activate_sound() {
     struct VObj_8016A8D0 *o = (struct VObj_8016A8D0 *)this;
@@ -177,9 +176,9 @@ void TOKey::debug_draw_key_id() {
         arg0->fC8 = arg0->f84;
         arg0->fD0 = 0;
     }
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130020, lbl_80441958, arg0->fC8);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     arg0->m23();
 }
 
@@ -215,7 +214,7 @@ extern s32 __vt__5TOKey[];
 void *__dt__5TOKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__5TOKey;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -238,7 +237,7 @@ void *TOKey__ct(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0xE0) = 0;
     *(u32 *)((s8 *)arg0 + 0xD8) = 28;
     *(u32 *)((s8 *)arg0 + 0xDC) = 28;
-    set_type__14TOKeyAncient01Fv((void *)((void *)((char *)arg0 + 152)));
+    ((TOKeyAncient01 *)((char *)arg0 + 152))->set_type();
     *(u32 *)((s8 *)arg0 + 0xE4) = 0;
     return arg0;
 }

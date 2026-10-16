@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Elem_80077A28 { u8 data[0xD4]; };
 
 struct Obj_80077A28 { s32 f0; Elem_80077A28 e[0x20]; };
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u8 *lbl_805D4E5C;
 void fn_800779A0(u8 *arg0);
 u32 *fn_800779FC(u32 *dst, u32 *src);
@@ -20,7 +20,7 @@ void fn_800779A0(u8 *arg0) {
     s32 temp_r3;
     s32 var_r0;
     if ((void *) lbl_805D4E5C == NULL) {
-        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x1A84);
+        temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x1A84))->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = ((s32)construct_entry_array((Obj_80077A28 *)(temp_r3)));

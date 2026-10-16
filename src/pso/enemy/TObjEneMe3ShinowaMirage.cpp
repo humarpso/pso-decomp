@@ -229,6 +229,9 @@ struct Self_800E3DFC : VB18_800E3DFC {
 
 #include <stddef.h>
 #include "pso/enemy/TObjEneMe3ShinowaMirage.h"
+#include "pso/enemy/TObjEneMe3ShinowaReal.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 struct VBase_14_85ec0b { char pad[0x14]; };
 
 struct VObj_14_85ec0b : VBase_14_85ec0b {
@@ -473,13 +476,10 @@ int transition_enemy_state(void*, int);
 void TObjEneMe3ShinowaMirage__vt61(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-int get_flag_b4__21TObjEneMe3ShinowaRealFv(void *);
 s32 create_particle_emitter(s32, s32);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 int transition_enemy_state(void*, int);
-void try_spawn_mirages__21TObjEneMe3ShinowaRealFv(void *);
 s32 advance_animation_playback(void *, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -490,9 +490,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-int get_flag_b4__21TObjEneMe3ShinowaRealFv(void *);
 s32 create_particle_emitter(s32, s32);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 s32 enemy_copy_target_destination(void *);
 s32 enemy_clear_target(void *);
@@ -500,8 +498,6 @@ s32 transform_relative_position__9TObjEneDDFPv(void *, void *);
 s32 is_player_entity_id(u16);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 int transition_enemy_state(void*, int);
-u8 *get_or_create_mirage__21TObjEneMe3ShinowaRealFl(void *, s32);
-void try_spawn_mirages__21TObjEneMe3ShinowaRealFv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 advance_animation_playback(void *, int);
 s32 play_sound_effect(s32, void *, int, int);
@@ -530,7 +526,6 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *, void *, u8 *, void *, void *);
 s16 obj_getField1c(void *);
 s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
 s32 fn_800E762C(void *);
-s32 init_enemy__23TObjEneMe3ShinowaMirageFv(void *);
 s32 TObjEneMe3Shinowa__ct(void *, void *);
 extern s32 lbl_805D2AD0;
 extern const f32 lbl_805DA5C0;
@@ -541,7 +536,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__17TObjEneMe3ShinowaFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 set_chunk_material_override_pair(s32, s32);
 
 void TObjEneMe3ShinowaMirage::render() {
@@ -596,7 +590,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
         VecCopy__FP3VecPC3Vec((void *) (*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C), (void *) (arg0 + 0x38));
-        copy_xyz__10TObjPlayerFPv((void *) (arg0 + 0x5C), (void *) (temp_r3 + 0x5C));
+        ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (temp_r3 + 0x5C));
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF;
         *(s32 *)((s8 *)arg0 + 0x30) = temp_r4;
         *(s32 *)((s8 *)arg0 + 0x30) = 0x20000000;
@@ -670,7 +664,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *
     fn_800E762C((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0x1C) = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
-    init_enemy__23TObjEneMe3ShinowaMirageFv((void *) (arg0));
+    ((TObjEneMe3ShinowaMirage *)arg0)->init_enemy();
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 0x1000);
     ((TObjEneMe3ShinowaMirage *)arg0)->set_flag_0x100();
@@ -726,7 +720,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x404) == 3) {
-            try_spawn_mirages__21TObjEneMe3ShinowaRealFv(arg0);
+            ((TObjEneMe3ShinowaReal *)arg0)->try_spawn_mirages();
             transition_enemy_state((void*)(arg0), (int)(4));
         }
         return;
@@ -735,7 +729,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
         switch (temp_r0) {
         case 0:
             advance_animation_playback((void *)(arg0), (int)(arg1));
-            if (get_flag_b4__21TObjEneMe3ShinowaRealFv(arg0) != 0) {
+            if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
                 temp_r3 = *(s32 *)((s8 *)arg0 + 0x3C4);
                 if (temp_r3 & 0x80000) {
                     ((VObj_14_85ec0b *)((u8 *)(arg0) + (1000)))->m3();
@@ -758,7 +752,7 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
                     stack.sp8 += TObjEneMe3ShinowaReal__data_805DA5CC * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
                     stack.spC += lbl_805DA5D0;
                     stack.sp10 += TObjEneMe3ShinowaReal__data_805DA5CC * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
-                    copy_pos__11TNowLoadingFPv(*(u8 **)((s8 *)arg0 + 0x424), &stack.sp8);
+                    ((TNowLoading *)(*(u8 **)((s8 *)arg0 + 0x424)))->copy_pos(&stack.sp8);
                 }
             }
             break;
@@ -807,7 +801,7 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
         I(0x424) = 0;
         break;
     case 3:
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFv(arg0) != 0) {
+        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0) {
             I(0x3B8) = I(0x3BC);
             ok = 0;
             if (V->m97() != 0 || is_player_entity_id(*(u16 *)((s8 *)arg0 + 0x38C)) != 0) {
@@ -824,13 +818,13 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
                 n = 0;
                 for (; ok < 5; ok++) {
                     if (I(0x3D4) != ok) {
-                        ((TObjEneMe3ShinowaMirage *)(get_or_create_mirage__21TObjEneMe3ShinowaRealFl(arg0, n++)))->activate_mirage(ok);
+                        ((TObjEneMe3ShinowaMirage *)(((TObjEneMe3ShinowaReal *)arg0)->get_or_create_mirage(n++)))->activate_mirage(ok);
                     }
                 }
                 transition_enemy_state(arg0, 8);
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD15), arg0 + 0x38, 0, 0);
             } else {
-                try_spawn_mirages__21TObjEneMe3ShinowaRealFv(arg0);
+                ((TObjEneMe3ShinowaReal *)arg0)->try_spawn_mirages();
                 transition_enemy_state(arg0, 4);
             }
         }
@@ -848,7 +842,7 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
                 v.x = TObjEneMe3ShinowaReal__data_805DA5CC * sin_table_lookup(I(0x60)) + v.x;
                 v.y += lbl_805DA5D0;
                 v.z = TObjEneMe3ShinowaReal__data_805DA5CC * cos_table_lookup(I(0x60)) + v.z;
-                copy_pos__11TNowLoadingFPv(P(0x424), &v);
+                ((TNowLoading *)(P(0x424)))->copy_pos(&v);
             }
         }
         V->m100();

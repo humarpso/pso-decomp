@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/TMCFormatSequence.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct RecoveredGlobal_801F6548_lbl_80512790 {
     s32 value;
@@ -40,17 +43,11 @@ extern Pair_801F68FC lbl_8044A684[];
 
 extern "C" {
 
-s32 probe_and_check_card__15TAdPlayerLoadGCFv(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
 s32 get_localized_text_entry(s32, s32);
 s32 get_selected_menu_value(u32);
 int TWindow__close(void*);
-s32 check_memcard_status__15TAdPlayerLoadGCFl(s32);
-s32 get_status_flag__17TWindowSubComCardFv(u32);
-s32 is_visible__17TWindowSubComCardFv(u32);
-s32 send_and_handle__6TLobbyFii(s32, s32, s32);
 
 typedef char RecoveredGlobal_801F6548_lbl_80512790_size[sizeof(RecoveredGlobal_801F6548_lbl_80512790) == 0x20 ? 1 : -1];
 s32 *TQuestThread__sub_801F6548(void) {
@@ -62,7 +59,7 @@ void TMCFormatSequence::close_window() { if (*(unsigned int*)((char*)this + 0x34
 void TMCFormatSequence::show_message(s32 arg1, s32 arg2) {
     u32 v = *(u32 *)((s8 *)this + 0x34);
     if (v != 0U) {
-        send_and_handle__6TLobbyFii(v, arg1, arg2 | 0x81);
+        ((TLobby *)v)->send_and_handle(arg1, arg2 | 0x81);
     }
 }
 
@@ -93,7 +90,7 @@ void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
 }
 
 void TMCFormatSequence::check_memcard_load_result() {
-    if (probe_card_slot__15TAdPlayerLoadGCFv(*(s32 *)((s8 *)this + 0x28)) == 0) {
+    if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_card_slot() == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
         *(s32 *)((s8 *)this + 0x24) = 3;
         return;
@@ -107,22 +104,22 @@ void TMCFormatSequence::check_memcard_load_result() {
 void TMCFormatSequence::process_format_result() {
     s32 temp_r3;
 
-    if (probe_card_slot__15TAdPlayerLoadGCFv(*(s32 *)((s8 *)this + 0x28)) == 0) {
+    if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_card_slot() == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
         *(s32 *)((s8 *)this + 0x24) = 3;
         return;
     }
-    if (probe_and_check_card__15TAdPlayerLoadGCFv(*(s32 *)((s8 *)this + 0x28)) == 0) {
+    if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_and_check_card() == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
         *(s32 *)((s8 *)this + 0x24) = 3;
         return;
     }
-    if ((u32) (check_memcard_status__15TAdPlayerLoadGCFl(*(s32 *)((s8 *)this + 0x28)) + 0x10000) != 0xFF03U) {
+    if ((u32) (TAdPlayerLoadGC::check_memcard_status(*(s32 *)((s8 *)this + 0x28)) + 0x10000) != 0xFF03U) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
         *(s32 *)((s8 *)this + 0x24) = 3;
         return;
     }
-    if (((u32) *(u32 *)((s8 *)this + 0x38) != 0U) && (is_visible__17TWindowSubComCardFv(*(u32 *)((s8 *)this + 0x38)) != 0)) {
+    if (((u32) *(u32 *)((s8 *)this + 0x38) != 0U) && (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x38)))->is_visible() != 0)) {
         temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x38));
         if (temp_r3 == 0) {
             if (TAdPlayerLoadGC__sub_801E24F8(*(s32 *)((s8 *)this + 0x28), 0, 0, 0, 0) == 0) {
@@ -139,7 +136,7 @@ void TMCFormatSequence::process_format_result() {
         TWindow__close((void*)(*(u32 *)((s8 *)this + 0x38)));
         *(u32 *)((s8 *)this + 0x38) = 0U;
     }
-    if (((u32) *(u32 *)((s8 *)this + 0x38) != 0U) && (get_status_flag__17TWindowSubComCardFv(*(u32 *)((s8 *)this + 0x38)) != 0)) {
+    if (((u32) *(u32 *)((s8 *)this + 0x38) != 0U) && (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x38)))->get_status_flag() != 0)) {
         *(s32 *)((s8 *)this + 0x24) = 4;
         TWindow__close((void*)(*(u32 *)((s8 *)this + 0x38)));
         *(u32 *)((s8 *)this + 0x38) = 0U;

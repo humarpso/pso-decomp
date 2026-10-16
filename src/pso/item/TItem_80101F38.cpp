@@ -2,6 +2,8 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef char DropRecordSize[(sizeof(FloorItem) == 0x24) ? 1 : -1];
 typedef char DropItemOffset[(offsetof(FloorItem, item) == 0x10) ? 1 : -1];
@@ -21,18 +23,15 @@ struct Pos_80101FEC { f32 x; f32 y; f32 z; };
 extern "C" {
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 bswap_6x5D__6TLobbyFPv(void *);
-s32 drop_stacked_item_passthrough__6TLobbyFv(void *);
 s32 spawn_dropped_item_from_msg(void *, int);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
-s32 get_player_floor__6TLobbyFl(int);
 void handle_6x5D_drop_stacked_item(u8 *arg0);
 s16 get_current_floor();
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 void send_6x5D__6TLobbyFPv(void *);
 void init_fields__6TLobbyFPv(void *);
 void normalize__9TItemDataFv(void *);
-s16 get_stat_by_key_state__10TObjPlayerFv(int);
 s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;
 void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos);
@@ -43,8 +42,8 @@ extern "C" {
 void handle_6x5D_drop_stacked_item(u8 *arg0) {
     FloorItem drop;
     bswap_6x5D__6TLobbyFPv((void *) (arg0));
-    if (get_player_floor__6TLobbyFl((int) ((s32) *(s16 *)((s8 *)arg0 + 4))) != 0xF) {
-        drop_stacked_item_passthrough__6TLobbyFv((void *) (&drop.floor));
+    if (TLobby::get_player_floor((int) ((s32) *(s16 *)((s8 *)arg0 + 4))) != 0xF) {
+        ((TLobby *)(&drop.floor))->drop_stacked_item_passthrough();
         drop.floor = (s8) *(s16 *)((s8 *)arg0 + 4);
         drop.pos.x = *(f32 *)((s8 *)arg0 + 8);
         drop.pos.z = *(f32 *)((s8 *)arg0 + 0xC);
@@ -70,7 +69,7 @@ void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {
     }
     m.id = id;
     m.a = get_current_floor();
-    m.b = get_stat_by_key_state__10TObjPlayerFv(h);
+    m.b = ((TObjPlayer *)h)->get_stat_by_key_state();
     m.x = pos->x;
     m.z = pos->z;
     copy_item_data__6TLobbyFPvPv(m.item, item);

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOAttackableCol.h"
+#include "pso/TObject.h"
+#include "pso/misc/TOBarrierEnergy01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -57,30 +60,24 @@ int TOAttackableCol__vt19(void);
 f32 TOAttackableCol__vt20(void* p, s32 _w1);
 f32 TOAttackableCol__vt21(void* p, s32 _w1);
 f32 TOAttackableCol__vt22(void* p, s32 _w1);
-void init__17TOBarrierEnergy01Fv(void *);
 void *fn_80157CA8(void *arg0);
-s32 check_demo_mode__10TObjPlayerFv();
 void TOAttackableCol__sub_80157310(void * = 0);
 extern s32 __vt__11TOVS2Wall01[];
 s32 access_object_saved_state(void *, void *, int);
 void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
 void *__nw__7TObjectFUl(int);
-s32 set_parent__7TObjectFP7TObject(int, int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 s32 spawn_particle_effect(void *, int);
 u32 __ct__12TQuestThreadFv(int, void *, int);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
 extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, int);
-s32 calc_attach_pos__10TObjPlayerFv(void *);
 s32 obj_setFlags30(void *, int);
 s32 set_indexed_flags(void *, s32, s32);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80157AD8_lbl_804AF9A8 TOAttackableCol__collision_parts;
 extern s32 __vt__15TOAttackableCol[];
@@ -239,7 +236,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x344)))) > 0)
       {
         temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
-        if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) quest_mission_manager) != 0U)) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) quest_mission_manager) != 0))
+        if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) quest_mission_manager) != 0U)) && (((TObject *)quest_mission_manager)->all_parents_unqueued_for_destruction() != 0))
         {
           temp_r3 = ((u32)__nw__7TObjectFUl((int) 0x194));
           var_r0 = temp_r3;
@@ -249,11 +246,11 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           }
           if (var_r0 != 0U)
           {
-            set_parent__7TObjectFP7TObject((int) var_r0, (int) tl_00);
+            ((TObject *)var_r0)->set_parent((TObject *)tl_00);
           }
         }
         else
-          if ((((u32) quest_area_manager) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) quest_area_manager) != 0))
+          if ((((u32) quest_area_manager) != 0U) && (((TObject *)quest_area_manager)->all_parents_unqueued_for_destruction() != 0))
         {
           temp_r3_2 = ((u32)__nw__7TObjectFUl((int) 0x194));
           var_r0_2 = temp_r3_2;
@@ -263,7 +260,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           }
           if (var_r0_2 != 0U)
           {
-            set_parent__7TObjectFP7TObject((int) var_r0_2, (int) tl_00);
+            ((TObject *)var_r0_2)->set_parent((TObject *)tl_00);
           }
         }
       }
@@ -295,7 +292,7 @@ void TOAttackableCol::check_door_trigger() {
 void TOAttackableCol::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TOAttackableCol__sub_80157310((void *)((void *) (arg0)));
         return;
     }
@@ -345,11 +342,11 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E98;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    calc_attach_pos__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->calc_attach_pos();
     obj_setFlags30((void *) (arg0), (int) (0x60000000));
     init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), (int) (1));
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x718)));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;
     *(f32 *)((s8 *)arg0 + 0x338) = (f32) lbl_805DB2D0;
@@ -379,7 +376,7 @@ void TOAttackableCol::bswap_state() { bswap_header__6TLobbyFv(this); bswap_16__F
 void TOAttackableCol::broadcast_state() { bswap_state(); TLobby__send_and_handle_60(this); }
 
 void *fn_80157CA8(void *arg0) {
-    init__17TOBarrierEnergy01Fv(arg0);
+    ((TOBarrierEnergy01 *)arg0)->init();
     *(u16 *)((s8 *)arg0 + 0xC) = 0;
     *(u16 *)((s8 *)arg0 + 0xE) = 0;
     *(u8 *)((s8 *)arg0 + 0x0) = 145;

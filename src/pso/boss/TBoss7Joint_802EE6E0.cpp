@@ -1,8 +1,8 @@
 #include "types.h"
 #include "pso/boss/TBoss7Joint.h"
+#include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
-void transform_part_positions__9TObjEneDDFv(void *);
 extern const f32 lbl_805DE9F0;
 extern const f32 lbl_805DEBA8;
 extern const f32 lbl_805DEBAC;
@@ -96,7 +96,7 @@ void TBoss7Joint__vt86(u8 *arg0) {
         temp_r4_5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
         *(s32 *)((s8 *)temp_r4_5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4_5 + 0x18) & 0xFFFFFFFB);
     }
-    transform_part_positions__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->transform_part_positions();
 }
 
 }

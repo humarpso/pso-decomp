@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 f32 sin_table_lookup(s32);
@@ -7,7 +8,6 @@ f32 cos_table_lookup(s32);
 void rotate_vec_xz(void *arg0, void *arg1, s32 arg2);
 s32 get_view_matrix__11TCameraCtrlFv();
 s32 matrix_mult_vec(s32, s32, s32);
-s32 concat_matrix__11TCameraCtrlFUlUl(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 f32 sin_table_lookup(s32);
@@ -182,7 +182,7 @@ bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1) {
 #pragma fp_contract on
 void TObjBoss2Tunnel::transform_vec_by_camera(s32 arg0, s32 arg1, s32 arg2) {
     push_matrix();
-    concat_matrix__11TCameraCtrlFUlUl(0, get_view_matrix__11TCameraCtrlFv());
+    TCameraCtrl::concat_matrix(0, get_view_matrix__11TCameraCtrlFv());
     matrix_mult_vec(0, arg1, arg2);
     pop_matrix();
 }

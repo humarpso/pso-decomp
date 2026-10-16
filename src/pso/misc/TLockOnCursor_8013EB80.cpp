@@ -20,8 +20,6 @@ s32 TLockOnCursor__sub_8013EBBC(void* p);
 s32 TLockOnCursor__sub_8013EBE8(void* p);
 s32 TLockOnCursor__sub_8013EC14(void* p);
 int test_flags_any(void*, int);
-s32 get_target__13TLockOnCursorFv(void* p);
-int test_flag_1_at_8__13TLockOnCursorFv(void* p);
 
 void TLockOnCursor__sub_8013EB80(void* p) { *(s32*)((char*)p + 0x4) = 0; }
 void TLockOnCursor__sub_8013EB8C(void* p) { *(s32*)((char*)p + 0x4) = 1; }

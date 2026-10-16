@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TDLGraph.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Stack_8007CBC4 {
     s32 sp8;
@@ -55,7 +59,6 @@ s32 memcpy(int, void *, int);
 extern s32 lbl_805D49B4;
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 s32 draw_textured_screen_quad__10TObjPlayerFUlPfPfl(int, void *, void *, int, f32);
 extern const f32 lbl_805D9224;
 extern const f32 lbl_805D9228;
@@ -87,10 +90,7 @@ extern s32 TObjBoss2Tunnel__snapshot_buffer;
 s32 get_main_phase(void);
 void setup_default_view__11TCameraCtrlFPvPv(u32, s32);
 void draw_snapshot_capture_overlay(void);
-void set_graph_param__8TDLGraphFl(void *, s32);
-void update_graph__8TDLGraphFll(s32, s32);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
-void wait_ready_loop__6TLobbyFv(void);
 s32 get_localized_text_entry(s32, s32);
 void process_deferred_player_setup__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
@@ -101,10 +101,7 @@ void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
-void set_field_1c__6TLobbyFf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
-void send_and_handle__6TLobbyFii(void *, s32, s32);
-void *create_message_window__6TLobbyFllUls(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
@@ -121,7 +118,6 @@ extern const f32 lbl_805D9218;
 extern const f32 lbl_805D921C;
 s32 get_main_phase(void);
 void setup_default_view__11TCameraCtrlFPvPv(u32, s32);
-void wait_ready_loop__6TLobbyFv(void);
 s32 get_localized_text_entry(s32, s32);
 void process_deferred_player_setup__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
@@ -129,10 +125,7 @@ s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
-void set_field_1c__6TLobbyFf(void *, f32);
 void complete_reveal__14TWindowMessageFPv(void *);
-void send_and_handle__6TLobbyFii(void *, s32, s32);
-void *create_message_window__6TLobbyFllUls(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A68[];
 extern f32 lbl_80438A70[];
@@ -152,7 +145,6 @@ extern const f32 lbl_805D9220;
 extern "C" {
 
 s32 memcard_check_snapshot(s32, s32);
-s32 load_player_slot__23TAdSinglePlyChrSelectGCFii(s32, s32 *, s32);
 extern s32 TObjBoss2Tunnel__data_80438A08[];
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
@@ -173,15 +165,15 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
         lbl_805D4EA4 = lbl_80438A80[0] - lbl_805D9218;
         lbl_805D4EA8 = 1;
     }
-    win = (VObj_8007C5C0 *)create_message_window__6TLobbyFllUls(lbl_80438A78, lbl_80438A80, 1, 4);
+    win = (VObj_8007C5C0 *)TLobby::create_message_window((s32)lbl_80438A78, (s32)lbl_80438A80, (u32)1, (s16)4);
     if (win != NULL) {
-        send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 0xB), 3);
-        set_field_1c__6TLobbyFf(win, lbl_805D921C);
+        ((TLobby *)win)->send_and_handle(get_localized_text_entry(0x24, 0xB), 3);
+        ((TLobby *)win)->set_field_1c(lbl_805D921C);
     }
     complete_reveal__14TWindowMessageFPv(win);
     graph = create__8TDLGraphFv();
     if (graph != NULL) {
-        set_graph_param__8TDLGraphFl(graph, 2);
+        ((TDLGraph *)graph)->set_graph_param(2);
     }
     frames = 0;
     if (get_main_phase() == 0xF) {
@@ -197,13 +189,13 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
         }
         render__9TMainTaskFv(main_task);
         draw_snapshot_capture_overlay();
-        wait_ready_loop__6TLobbyFv();
+        TLobby::wait_ready_loop();
         if (func_801A5E54__Fv() != 0) {
             break;
         }
         begin_effect_render__13TParticleCtrlFv();
         if (graph != NULL) {
-            update_graph__8TDLGraphFll(frames, 0x78);
+            TDLGraph::update_graph(frames, 0x78);
             graph->m1();
             graph->m2();
         }
@@ -249,21 +241,21 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
         lbl_805D4E9C = lbl_80438A70[0] - lbl_805D9218;
         boss2_tunnel_message_shown_flag = 1;
     }
-    win = (VObj_8007C8AC *)create_message_window__6TLobbyFllUls(lbl_80438A68, lbl_80438A70, 1, 4);
+    win = (VObj_8007C8AC *)TLobby::create_message_window((s32)lbl_80438A68, (s32)lbl_80438A70, (u32)1, (s16)4);
     if (win != NULL) {
         switch (arg0) {
         case -2:
         case -9:
-            send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 3), 3);
+            ((TLobby *)win)->send_and_handle(get_localized_text_entry(0x24, 3), 3);
             break;
         case -4:
-            send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 0xD), 3);
+            ((TLobby *)win)->send_and_handle(get_localized_text_entry(0x24, 0xD), 3);
             break;
         default:
-            send_and_handle__6TLobbyFii(win, get_localized_text_entry(0x24, 0xC), 3);
+            ((TLobby *)win)->send_and_handle(get_localized_text_entry(0x24, 0xC), 3);
             break;
         }
-        set_field_1c__6TLobbyFf(win, lbl_805D921C);
+        ((TLobby *)win)->set_field_1c(lbl_805D921C);
         complete_reveal__14TWindowMessageFPv(win);
     }
     if (get_main_phase() == 0xF) {
@@ -281,7 +273,7 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
         if ((f32)frames >= lbl_805D9220) {
             break;
         }
-        wait_ready_loop__6TLobbyFv();
+        TLobby::wait_ready_loop();
         if (func_801A5E54__Fv() != 0) {
             break;
         }
@@ -301,7 +293,7 @@ void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0) {
         stack.sp10 = lbl_805D9224;
         stack.sp14 = lbl_805D9228;
     } else {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (&stack.sp10), (void *) (arg0));
+        ((TWindowSubSymbolChatPartsSet *)(&stack.sp10))->copy_vec2((void *) (arg0));
     }
     stack.sp8 = lbl_805D922C;
     stack.spC = lbl_805D9230;
@@ -345,7 +337,7 @@ s32 save_screen_snapshot(void) {
     if (memcard_check_snapshot(1, 0) == 0) {
         return 0;
     }
-    if (load_player_slot__23TAdSinglePlyChrSelectGCFii(1, TObjBoss2Tunnel__data_80438A08, TObjBoss2Tunnel__snapshot_buffer) != 0) {
+    if (((TAdSinglePlyChrSelectGC *)1)->load_player_slot((int)TObjBoss2Tunnel__data_80438A08, (int)TObjBoss2Tunnel__snapshot_buffer) != 0) {
         return 0;
     }
     TObjBoss2Tunnel__snapshot_state = 2;

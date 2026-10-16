@@ -15,7 +15,6 @@ s32 TObjPlayer__sub_800D96D0(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 int set_chunk_blend(int);
 s32 __dl__FPv(void *);
-int set_flags_and_apply_damage_color__10TObjPlayerFv(void);
 
 void TObjPlayer::activate_and_dispatch() {
     struct VObj_800D7BFC *o = (struct VObj_800D7BFC *)this;
@@ -23,7 +22,7 @@ void TObjPlayer::activate_and_dispatch() {
     o->m2();
 }
 
-void TObjPlayer::init_effect_9472() { set_flags_and_apply_damage_color__10TObjPlayerFv(); set_chunk_blend(9472); }
+void TObjPlayer::init_effect_9472() { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(9472); }
 
 extern s32 lbl_804949A8[];
 

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMorfos.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -61,9 +63,7 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 find_entity_by_id(u16);
-s32 is_valid_and_active__10TObjPlayerFUl(void *);
 void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
 void vec3_add_to(void *, void *);
 extern s32 lbl_805D586C;
@@ -76,7 +76,6 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0);
 extern "C" {
 
 void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 
@@ -114,7 +113,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     Vec_80337644 v = arg0->pos;
     vec3_add_to(&arg0->pos, &arg0->vel);
     if (arg0->fE0 != 0) {
-        copy_pos__11TNowLoadingFPv(arg0->fE0, &arg0->pos);
+        ((TNowLoading *)(arg0->fE0))->copy_pos(&arg0->pos);
     }
     arg0->fDC += morfos_projectile_speed;
     if (arg0->fF0 != 0) {
@@ -137,7 +136,7 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
     if (k != 0) {
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);
-            if (is_valid_and_active__10TObjPlayerFUl(p) != 0 && fabs_float(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
+            if (TObjPlayer::is_valid_and_active((u32)p) != 0 && fabs_float(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
                 hit_target_in_range__13TObjEneMorfosFPvPvPv((O_80337500 *)arg0, (V_80337500 *)p, (V_80337500 *)k);
             }
         }
@@ -148,7 +147,7 @@ void *__dt__13TObjEneMorfosFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EF130;
         if (*(void **)((s8 *)arg0 + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0)); }
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

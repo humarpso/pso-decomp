@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TProtocol.h"
 
 struct RecoveredGlobal_802D298C_TLobby__data_80540BD0 {
     s32 value;
@@ -31,7 +32,6 @@ s32 get_player_by_client_id(s32);
 s32 check_player_action_allowed();
 s32 remove_list_entry_by_id(s32);
 s32 fn_801D4270(s32);
-s32 send_trade_ready__9TProtocolFv(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
 s32 *get_trade_window_state(void);
 extern s32 local_client_id;
@@ -141,7 +141,7 @@ void TLobby::apply_trade_items() {
                 }
                 if ((flag == 0) || (load_character_from_card__23TAdSinglePlyChrSelectGCFv() == 0)) {
                     TLobby__trade_proposal_state = 8;
-                    send_trade_ready__9TProtocolFv(TLobby__protocol_instance);
+                    ((TProtocol *)TLobby__protocol_instance)->send_trade_ready();
                 }
             }
         }

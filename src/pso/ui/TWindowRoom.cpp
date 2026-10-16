@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/ui/TWindowRoom.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowDD.h"
 
 struct RecoveredGlobal_8026D674_lbl_804D08DC {
     s32 value;
@@ -47,7 +48,6 @@ int update_window_entry_list(void*, void*);
 s32 set_text_entry_string(s32, s32, s32);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
 s32 draw_default_entry__9TWindowDDFl();
 int get_array_entry__20TWindowSubStatusDispFi(void*, int);
 int initialize_subwindow__9TWindowDDFv(void*);
@@ -83,7 +83,7 @@ extern s32 __vt__11TWindowRoom[];
 void *__dt__11TWindowRoomFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TWindowRoom;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

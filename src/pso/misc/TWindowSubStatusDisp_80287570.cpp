@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct Stack_802878B8
 {
@@ -44,13 +45,10 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 u32 calc_text_width(void *);
-f32 get_card_window_scale__20TWindowSubStatusDispFl(void *);
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
-void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(int);
-void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(Rect_80287580 *, f32);
 void set_draw_texture_and_color(int, s32);
 extern const UV_80287580 window_tab_uv_table[];
@@ -79,7 +77,7 @@ void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     w = width;
     w += (8e+01f);
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(1, obj->f34);
     r1.x0 = pos[0];
     r1.y0 = pos[1];
@@ -111,7 +109,7 @@ void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     r3.v1 = (27.0f + window_tab_uv_table[idx].v) / 256.0f;
     apply_context_transform_to_rect(obj, &r3);
     draw_textured_quad_at_depth(&r3, scale);
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 f32 TWindowSubStatusDisp::get_base_y(f32 farg0) {
@@ -210,7 +208,7 @@ u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 a
     *(s8 *)((s8 *)arg0 + 0x19) = 0;
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (0.0f);
     ((TWindowSubStatusDisp *)arg0)->set_entry_state(arg3);
-    *(f32 *)((s8 *)arg0 + 0x20) = get_card_window_scale__20TWindowSubStatusDispFl((void *) (arg4));
+    *(f32 *)((s8 *)arg0 + 0x20) = TWindowSubStatusDisp::get_card_window_scale((s32)((void *) (arg4)));
     if (*(f32 *)((s8 *)arg0 + 0x20) <= (0.0f)) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (1e+05f);
     }

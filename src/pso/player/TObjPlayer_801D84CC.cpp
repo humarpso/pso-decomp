@@ -183,6 +183,8 @@ void free_shared_lobby_data__10TObjPlayerFv(void) { free_nodes_with_id__6TLobbyF
 #include "types.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -318,7 +320,6 @@ extern int ply_level_table;
 s32 get_ply_level_table_row(s8 arg0, s32 arg1);
 s8 get_class_index__10TObjPlayerFPv(s32);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
-s16 get_stage_strike_count__10TObjPlayerFv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 lookup_attack_marker(s32, s16, s16, s32);
 extern s32 attack_marker_table[];
@@ -341,7 +342,6 @@ extern RecoveredGlobal_801D8B8C_lbl_8044926C player_hurt_protection_ticks_table_
 extern RecoveredGlobal_801D8B8C_lbl_8044927C player_hurt_protection_ticks_table_phase15;
 extern RecoveredGlobal_801D8B8C_lbl_8044928C hurt_protection_ticks_table;
 extern s32 game_difficulty_selection;
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801D8C6C_lbl_8044923C lobby_entry_table;
 s8 TObjPlayer__sub_801AFDBC(s8);
 extern RecoveredGlobal_801D8D8C_lbl_804C49B0 lbl_804C49B0;
@@ -350,12 +350,9 @@ extern RecoveredGlobal_801D8E60_lbl_804C4980 lbl_804C4980;
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D9328_lbl_80447430 class_defense_template_table;
 u8 *get_class_defense_template(u8 *arg0);
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80449254;
 s32 TObjPlayer__sub_801D8C3C(void);
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80449234;
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_804491CC;
 s8 TObjPlayer__sub_801AFDBC(s8);
 player_stats *get_class_stat_caps(s8 arg0);
@@ -377,24 +374,18 @@ s16 get_handle_value__10TObjPlayerFPv(void *);
 int has_valid_handle__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D8FB4_lbl_804C495C photon_blast_motion_timing_tables;
 u16 obj_getField1c(void *);
-s32 get_instance__6TLobbyFv(void);
 extern u8 *lbl_804C49E0[];
 s32 get_max_level__10TObjPlayerFv(s32);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 s32 TObjPlayer__sub_801D91B8(s32 arg0);
 u16 obj_getField1c(void *);
-s32 get_instance__6TLobbyFv(void);
 extern Vec_801D8CCC *lbl_804C49E8[];
 Vec_801D8CCC *get_guild_return_position__10TObjPlayerFPv(void *player);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-void init_npc_animation__10TObjPlayerFPvPvPv(void *, s32, s32, s32);
 void select_class_action_provider__10TObjPlayerFPv(void *);
 void TObjPlayer__ct(void *, void *);
 void set_floor_index__10TObjPlayerFPvi(void *, s32);
-void *get_sub_object__10TObjPlayerFv(void *);
-s32 get_lock_timer__10TObjPlayerFv(void *);
-void set_action_flag_40__10TObjPlayerFv(void *);
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(void *, void *);
 s32 translate_matrix_vec3(int, void *);
 s32 rotate_matrix_y(int, int);
@@ -406,7 +397,6 @@ extern int player_ending_motion_object;
 extern const float lbl_805DC3F8;
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src);
 s32 classify_action_state__10TObjPlayerFv(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 (*lbl_804C4974[])[5];
 s16 get_handle_value__10TObjPlayerFPv(void *);
 int has_valid_handle__10TObjPlayerFPv(void *);
@@ -426,7 +416,6 @@ void create_player_ending_motion(void);
 void* init_inventory__10TObjPlayerFPv(void* p);
 void load_ply_level_tbl(void);
 int free_nodes_with_id__6TLobbyFUl(void*);
-int alloc_shared_buffers__10TObjPlayerFv(void);
 int TObjPlayer__sub_801BFF80(void*);
 int get_contact_surface_type(void*);
 void __dl__7TObjectFPv(void *);
@@ -437,7 +426,7 @@ s32 init__17TPlyInventoryItemFv(s32);
 
     extern unsigned char lbl_80447190[];
     extern int player_ending_motion_object;
-void create_player_ending_motion(void) { alloc_shared_buffers__10TObjPlayerFv(); player_ending_motion_object = create_named_object(lbl_80447190); }
+void create_player_ending_motion(void) { TObjPlayer::alloc_shared_buffers(); player_ending_motion_object = create_named_object(lbl_80447190); }
 
 extern s32 ending_sequence_player_vtable[];
 
@@ -446,13 +435,13 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
     self->vt = ((s32 *)&ending_sequence_player_vtable);
     set_floor_index__10TObjPlayerFPvi(self, 1);
     set_floor_index__10TObjPlayerFPvi(self, 1);
-    VecCopy__FP3VecPC3Vec(self->pos, get_sub_object__10TObjPlayerFv(src->sub));
-    self->ang = get_lock_timer__10TObjPlayerFv(src->sub);
+    VecCopy__FP3VecPC3Vec(self->pos, ((TObjPlayer *)(src->sub))->get_sub_object());
+    self->ang = ((TObjPlayer *)(src->sub))->get_lock_timer();
     select_class_action_provider__10TObjPlayerFPv(self);
     self->model = TObjPlayer__shared_model_buffer + obj_getField1c(self) * 0xC00;
-    init_npc_animation__10TObjPlayerFPvPvPv(self, ((TObjPlayer *)self)->get_table_entry_by_clamped_index(), *(s32 *)player_ending_motion_object, 1);
+    ((TObjPlayer *)self)->init_npc_animation((void*)(((TObjPlayer *)self)->get_table_entry_by_clamped_index()), (void*)(*(s32 *)player_ending_motion_object), (void*)1);
     self->frame = src->frame;
-    set_action_flag_40__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->set_action_flag_40();
     push_matrix();
     translate_matrix_vec3(0, self->pos);
     rotate_matrix_y(0, self->ang);
@@ -567,31 +556,31 @@ typedef char RecoveredGlobal_801D8C6C_lbl_8044923C_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_801A51C0_lbl_80446980_size[sizeof(RecoveredGlobal_801A51C0_lbl_80446980) == 0x18 ? 1 : -1];
 s32 TObjPlayer__sub_801D8C3C(void) {
-    return *(s32 *)((s8 *)(&lbl_80449254.value) + (get_instance__6TLobbyFv() * 4));
+    return *(s32 *)((s8 *)(&lbl_80449254.value) + (TLobby::get_instance() * 4));
 }
 
 u8 *TObjPlayer::get_lobby_entry_ptr() {
-    return (u8 *)&lobby_entry_table.value + (get_instance__6TLobbyFv() * 0xC);
+    return (u8 *)&lobby_entry_table.value + (TLobby::get_instance() * 0xC);
 }
 
 typedef char RecoveredGlobal_801D8D8C_lbl_804C49B0_size[sizeof(RecoveredGlobal_801D8D8C_lbl_804C49B0) == 0x30 ? 1 : -1];
 
 s32 TObjPlayer::get_guild_return_yaw() {
-    return *(s32 *)((s8 *)(&lbl_80449234.value) + (get_instance__6TLobbyFv() * 4));
+    return *(s32 *)((s8 *)(&lbl_80449234.value) + (TLobby::get_instance() * 4));
 }
 
 Vec_801D8CCC *get_guild_return_position__10TObjPlayerFPv(void *player) {
-    return lbl_804C49E8[get_instance__6TLobbyFv()] + obj_getField1c(player);
+    return lbl_804C49E8[TLobby::get_instance()] + obj_getField1c(player);
 }
 
 s32 TObjPlayer::get_hospital_yaw() {
-    return *(s32 *)((s8 *)(&lbl_804491CC.value) + (get_instance__6TLobbyFv() * 4));
+    return *(s32 *)((s8 *)(&lbl_804491CC.value) + (TLobby::get_instance() * 4));
 }
 
 u8 *TObjPlayer::get_hospital_position() {
     s32 temp_r31;
     temp_r31 = obj_getField1c(this) * 0xC;
-    return lbl_804C49E0[get_instance__6TLobbyFv()] + temp_r31;
+    return lbl_804C49E0[TLobby::get_instance()] + temp_r31;
 }
 
 s32 get_class_starting_inventory(s8 arg0) {
@@ -633,7 +622,7 @@ typedef char RecoveredGlobal_801D8FB4_lbl_804C495C_size[((sizeof(RecoveredGlobal
 s32 TObjPlayer::get_footstep_floor_index() {
     s32 floor;
     s32 (*table)[5];
-    floor = get_global_state__14TOKeyMachine01Fv();
+    floor = TOKeyMachine01::get_global_state();
     table = lbl_804C4974[classify_action_state__10TObjPlayerFv(this)];
     if (floor == 0xE && TBoss4DarkFalz::get_instance_count() == 0) {
         floor = 1;
@@ -676,7 +665,7 @@ void select_normal_attack_marker__10TObjPlayerFPv(u8 *arg0) {
   s16 new_var;
   s32 temp_r29;
   temp_r29 = get_move_mode__10TObjPlayerFPv(arg0);
-  new_var = get_stage_strike_count__10TObjPlayerFv(arg0 + 0x7CC);
+  new_var = ((TObjPlayer *)(arg0 + 0x7CC))->get_stage_strike_count();
   temp_r30 = new_var;
   temp_r31 = ((TObjPlayer *)arg0)->get_falz_phase();
   lookup_attack_marker((s32) get_handle_value__10TObjPlayerFPv((void *)(arg0)), temp_r31, temp_r30, temp_r29);

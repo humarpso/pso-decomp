@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/TPlayerFootStamp.h"
 
 struct VBase_PTR18_8030A400 { char pad[0x18]; };
 
@@ -56,8 +58,6 @@ void emit_water_step_particles(s32 arg0, s32 arg1);
 void emit_player_sprite_particle(s32 arg0, s32 arg1, s32 arg2);
 void emit_idle_water_splash(s32 arg0, s32 arg1);
 s32 emit_player_particle(void* p, void* a1, void* a2);
-s32 get_instance__13TParticleCtrlFv();
-s32 get_particle_model__13TParticleCtrlFl(s32);
 void attach_particle_model(s32, s32, s32, s32, s32, f32);
 extern f32 lbl_805DF134;
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
@@ -77,16 +77,15 @@ u32 find_entity_by_id(s32);
 int TPlyFollowParticleCtrl__sub_8030A694(void*);
 s32 __dl__FPv(s32 a0 = 0);
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 a0 = 0, s32 a1 = 0);
-s32 create__16TPlayerFootStampFPvPv(s32, s32);
 s32 obj_getField1c(void *);
 s32 set_type__22TPlyFollowParticleCtrlFs(void *, void *);
 
 void TObjPlayer::enable_foot_stamp(s32 arg1, s32 arg2) {
-    create__16TPlayerFootStampFPvPv(arg2, 1);
+    TPlayerFootStamp::create((void *)arg2, (void *)1);
 }
 
 void TObjPlayer::clear_foot_stamp(s32 arg0, s32 arg1) {
-    create__16TPlayerFootStampFPvPv(arg1, 0);
+    TPlayerFootStamp::create((void *)arg1, (void *)0);
 }
 
 void TObjPlayer::update_child(void *arg1) {
@@ -183,7 +182,7 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
   s32 emitter = emit_player_particle((void*)(owner), (void*)(position), (void*)(entry));
   if (emitter)
   {
-    attach_particle_model(emitter, get_particle_model__13TParticleCtrlFl(model), get_instance__13TParticleCtrlFv(), 0, 1, lbl_805DF134);
+    attach_particle_model(emitter, TParticleCtrl::get_particle_model(model), TParticleCtrl::get_instance(), 0, 1, lbl_805DF134);
   }
   return emitter;
 }

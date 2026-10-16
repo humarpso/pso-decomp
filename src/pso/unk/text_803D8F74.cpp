@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Matrix34 { f32 elements[3][4]; };
 struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
@@ -9,7 +10,6 @@ extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 PSMTXCopy(int, int);
 extern u32 current_matrix;
-void copy_matrix__10TObjPlayerFUlUl(u32 arg0, u32 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);

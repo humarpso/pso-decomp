@@ -2,6 +2,8 @@
 
 #include <stddef.h>
 #include "pso/ui/TAdRicoRingCtrl.h"
+#include "pso/TAdRicoRing.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_8001B8AC {
     s32 sp8;
     s32 spC;
@@ -28,7 +30,6 @@ struct Obj_8001B534 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
 
 extern "C" {
 s32 fn_8001B424(void *, void *);
-s32 set_scale4__15TAdRicoRingCtrlFf(int, f32);
 u32 create__15TAdRicoRingCtrlFPv(int);
 s32 TAdRicoRingCtrl__sub_8001BED0(int, f32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -56,8 +57,6 @@ extern const f32 lbl_805D7E54;
 
 extern "C" {
 
-s32 clear_flags__11TAdRicoRingFUl(void *, int);
-s32 set_flags__10TObjPlayerFUl(void *, int);
 s32 test_flags_any(void *, int);
 
 extern const f32 lbl_805D7E4C;
@@ -140,13 +139,13 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3), (f32) (lbl_805D7E4C));
-        set_scale4__15TAdRicoRingCtrlFf((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (f32) (lbl_805D7E4C));
+        ((TAdRicoRingCtrl *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_scale4((f32) (lbl_805D7E4C));
     }
     *(u32 *)((s8 *)arg0 + 0x20) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x20);
     if (temp_r3_2 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3_2), (f32) (lbl_805D7E4C));
-        set_scale4__15TAdRicoRingCtrlFf((int) (*(u32 *)((s8 *)arg0 + 0x20)), (f32) (lbl_805D7E4C));
+        ((TAdRicoRingCtrl *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_scale4((f32) (lbl_805D7E4C));
     }
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D7E4C;
@@ -162,9 +161,9 @@ void TAdRicoRingCtrl::start_fade(f32 farg0) {
     f32 temp_f0;
 
     if (test_flags_any(arg0 + 0x2C, 1) != 0) {
-        clear_flags__11TAdRicoRingFUl(arg0 + 0x2C, 1);
+        ((TAdRicoRing *)(arg0 + 0x2C))->clear_flags(1);
     }
-    set_flags__10TObjPlayerFUl(arg0 + 0x2C, 2);
+    ((TObjPlayer *)(arg0 + 0x2C))->set_flags(2);
     if (lbl_805D7E4C != farg0) {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
         temp_f0 = (*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;
@@ -182,9 +181,9 @@ void TAdRicoRingCtrl::start_anim(f32 farg0) {
     f32 temp_f0;
 
     if (test_flags_any(arg0 + 0x2C, 2) != 0) {
-        clear_flags__11TAdRicoRingFUl(arg0 + 0x2C, 2);
+        ((TAdRicoRing *)(arg0 + 0x2C))->clear_flags(2);
     }
-    set_flags__10TObjPlayerFUl(arg0 + 0x2C, 1);
+    ((TObjPlayer *)(arg0 + 0x2C))->set_flags(1);
     if (lbl_805D7E4C != farg0) {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
         temp_f0 = (lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;

@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TOVS2Wall01.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -40,16 +44,12 @@ struct VObj_8017C0A4 : VBase_8017C0A4 {
 };
 
 extern "C" {
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TOVS2Wall01__sub_8017B9AC(void *);
-s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 s32 update_obstruction_fade(void *);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object(int);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -57,15 +57,12 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void calc_attach_pos__10TObjPlayerFv(void *);
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 void obj_setFlags30(void *, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void activate_and_dispatch__10TObjPlayerFv(void *, s32, f32);
-void init_and_activate__10TObjPlayerFv(void *);
 void set_indexed_flags(void *, s32, s32);
-void reset_photon_effect__10TObjPlayerFv(void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 ovs2wall01_collision_parts[];
 extern s32 __vt__11TOVS2Wall01[];
@@ -96,7 +93,7 @@ int TOVS2Wall01::interact_player_neg1() { return submit_cursor_candidate(this, -
 void TOVS2Wall01::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TOVS2Wall01__sub_8017B9AC((void *) (arg0));
         return;
     }
@@ -119,10 +116,10 @@ void TOVS2Wall01::render() {
     update_obstruction_fade((void *) (arg0 + 0x340));
     *(s32 *)((s8 *)arg0 + 0x35C) = ((VObj_18_26a62c *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0x334), *(f32 *)((s8 *)arg0 + 0x338));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x35C) == 1) {
-        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;
         } else {
-            var_r31 = updateFromCamera__15RenderFadeStateFPCf((void *) (arg0 + 0x340), (void *) (arg0 + 0x38));
+            var_r31 = ((RenderFadeState *)(arg0 + 0x340))->updateFromCamera((const f32*)(arg0 + 0x38));
         }
         if (var_r31 != 0) {
             lbl_805D5660 = model_render_flags;
@@ -133,7 +130,7 @@ void TOVS2Wall01::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         if (var_r31 != 0) {
@@ -174,16 +171,16 @@ void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     s32 t;
     construct_actor_base__10TObjPlayerFPvPv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
-    init_and_activate__10TObjPlayerFv((u8 *)arg0 + 0x340);
+    ((TObjPlayer *)((u8 *)arg0 + 0x340))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = TOVS2Wall01__class_name;
     ((VObj_8017C0A4 *)arg0)->m5(arg1);
-    calc_attach_pos__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->calc_attach_pos();
     obj_setFlags30(arg0, 0x60000000);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TOVS2Wall01__bml_resource, 6);
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(TOVS2Wall01__bml_resource, 6);
     init_collision_body_parts(arg0, ovs2wall01_collision_parts + 0x108, 1);
     set_indexed_flags(arg0, 0, 0x08000000);
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = lbl_805DBAAC;
     *(f32 *)((s8 *)arg0 + 0x338) = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);

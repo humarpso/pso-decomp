@@ -19,7 +19,6 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int spawn_support_tec_range_effect(void*);
-int init_params__10TTecDebandFv(void* p);
 
 extern s32 lbl_804CC74C[];
 

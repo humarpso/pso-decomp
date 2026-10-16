@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Stack_8029E7BC
 {
@@ -10,7 +11,6 @@ struct Stack_8029E7BC
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(s32 *, s32);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DDD88;
 s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 }
@@ -24,7 +24,7 @@ s32 fn_8029E7BC(s32 arg0, u8 *arg1) {
   s32 var_r31;
   u8 *temp_r3;
   u8 *temp_r4;
-  new_var = get_global_state__14TOKeyMachine01Fv();
+  new_var = TOKeyMachine01::get_global_state();
   var_r31 = 0x56EF;
   if (new_var == 0x20)
   {

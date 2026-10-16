@@ -114,7 +114,6 @@ void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str);
 extern "C" {
 typedef void (*Fn_801DA240)(char *);
 typedef void (*Fn_801DA5E4)(void *);
-void bswap_cmd_d8_header__6TLobbyFv(void *);
 
 void handle_cmd_D5__9TProtocolFR6packet(u8 *arg0, Text_801DA240 *arg1) {
     Text_801DA240 tmp = *arg1;
@@ -202,7 +201,7 @@ void TLobby::send_text_packet_D9(char *str) {
 
 void handle_cmd_D8__9TProtocolFR6packet(u8 *arg0, Pkt_801DA5E4 *arg1) {
     Pkt_801DA5E4 tmp = *arg1;
-    bswap_cmd_d8_header__6TLobbyFv(&tmp);
+    ((TLobby *)(&tmp))->bswap_cmd_d8_header();
     Fn_801DA5E4 f = *(Fn_801DA5E4 *)(arg0 + 0xBC54);
     if (f != NULL) {
         f(&tmp);

@@ -57,13 +57,12 @@ extern "C" {
 
 void invoke_menu_callback__10TObjPlayerFPv(void *arg0);
 void *find_item_by_id(void *);
-void call_callback_1ec__10TObjPlayerFll(void *, void *, void *);
 
 void invoke_menu_callback__10TObjPlayerFPv(void *arg0) {
     void *x;
     x = find_item_by_id(*(void **)((s8 *)arg0 + 0x34));
     if (x != NULL) {
-        call_callback_1ec__10TObjPlayerFll(x, (void *)((char *)arg0 + 28), (void *)((char *)arg0 + 40));
+        ((TObjPlayer *)x)->call_callback_1ec((s32)((void *)((char *)arg0 + 28)), (s32)((void *)((char *)arg0 + 40)));
     }
     *(u32 *)((s8 *)arg0 + 0x38) = 1;
 }

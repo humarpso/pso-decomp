@@ -39,8 +39,6 @@ u8 * init_state__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state__10TObjPlayerFi(s32 arg0);
-s32 get_player_list__10TObjPlayerFv(void);
-s32 play_particle_effect_once__10TObjPlayerFv();
 s32 scale_current_matrix(void *, int);
 extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
 extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
@@ -65,6 +63,7 @@ u8 *create_state__10TObjPlayerFi(s32 arg0) {
 #include "types.h"
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef char RecoveredGlobal_80123CA8_lbl_8043E878_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E878) == 0x60 ? 1 : -1];
 typedef char RecoveredGlobal_80123CA8_lbl_8043E8D8_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E8D8) == 0x60 ? 1 : -1];
@@ -72,20 +71,20 @@ void sorcerers_cane_node_callback(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r4;
     s32 temp_r4_2;
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 1:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x1F8);
         scale_current_matrix((void *) ((u8 *)&lbl_8043E878.value + (temp_r4 * 0xC)), (int) (temp_r4));
         return;
     case 4:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x1F8);
         scale_current_matrix((void *) ((u8 *)&lbl_8043E8D8.value + (temp_r4_2 * 0xC)), (int) (temp_r4_2));
         return;
     case 7:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         return;
     }
 }

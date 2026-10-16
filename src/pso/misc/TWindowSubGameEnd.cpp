@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowSubGameEnd.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubShortMail.h"
 
 struct VBase_18_204a81 { char pad[0x18]; };
 
@@ -16,13 +19,9 @@ struct VObj_18_204a81 : VBase_18_204a81 {
 };
 
 extern "C" {
-s32 init__22THunterGuildSeqOfflineFPvPv(void *, s32, void *);
 s32 send_logout__6TLobbyFv();
 u32 __nw__7TObjectFUl(int);
 s32 fn_8024AB54(int);
-s32 get_slot_or_neg1__17TWindowSubComCardFv(int);
-s32 get_card_data__17TWindowSubComCardFv(int);
-s32 is_child_visible__17TWindowSubComCardFv(int);
 extern s32 tl_00;
 extern int window_sub_game_end_active_flag;
 s32 get_main_phase();
@@ -30,7 +29,6 @@ s32 is_split_screen();
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 __ct__7TObjectFP7TObject();
 s32 get_window_layout_position(s32);
-s32 notify_warp_flag70__19TWindowSubShortMailFv(s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
@@ -51,7 +49,6 @@ s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void close__17TWindowSubComCardFv(void *);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 is_split_screen();
 
@@ -76,17 +73,17 @@ void TWindowSubGameEnd::run_task() {
     switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
     case 1:
-        if (get_card_data__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28)) != 0) {
+        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->get_card_data() != 0) {
             (*(VObj_18_204a81 **)((s8 *)arg0 + 0x24))->m7();
             return;
         }
-        if (is_child_visible__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28)) != 0) {
-            slot = get_slot_or_neg1__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28));
+        if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->is_child_visible() != 0) {
+            slot = ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x28)))->get_slot_or_neg1();
             if (slot == 0) {
                 if (window_sub_game_end_active_flag != 1) {
                     obj = (void *)__nw__7TObjectFUl(0x28);
                     if (obj != NULL) {
-                        init__22THunterGuildSeqOfflineFPvPv(obj, tl_00, (void *)TKeyBoardControl::init_char_select);
+                        ((THunterGuildSeqOffline *)obj)->init((void *)tl_00, (void *)((void *)TKeyBoardControl::init_char_select));
                     }
                     fn_8024AB54(*(s32 *)((s8 *)arg0 + 0x20));
                     send_logout__6TLobbyFv();
@@ -107,7 +104,7 @@ void TWindowSubGameEnd::run_task() {
 void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubGameEnd;
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { close__17TWindowSubComCardFv(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x28)))->close(); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -139,7 +136,7 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x28) = create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(s32 *)((s8 *)arg0 + 0x20), 0, 0);
     forward_slot_selection__16TAdChrSelASlotGCFPvPv(*(s32 *)((s8 *)arg0 + 0x28), var_r31, get_window_layout_position(0x17), var_f31);
     free_member__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28), 1);
-    notify_warp_flag70__19TWindowSubShortMailFv(*(s32 *)((s8 *)arg0 + 0x28));
+    ((TWindowSubShortMail *)(*(s32 *)((s8 *)arg0 + 0x28)))->notify_warp_flag70();
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct LazerFence4Base_801930E8 { char pad[0x18]; };
 struct LazerFence4VObj_801930E8 : LazerFence4Base_801930E8 {
@@ -53,8 +55,6 @@ extern void *lazer_fence_norm_texture_list;
 extern const f32 lbl_805DBE70;
 extern const f32 lbl_805DBE74;
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -62,7 +62,6 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, int, int);
 s32 construct_collider_proxy__10TObjPlayerFv();
 s32 create__10TObjMapCsnFl(void *, f32, f32);
@@ -101,8 +100,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
-s32 end_effect_render__13TParticleCtrlFv();
 void queue_destruction__7TObjectFv(void *);
 s32 set_global_param__8TObjFishFl();
 
@@ -278,9 +275,9 @@ void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1) {
     do {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         if (temp_r31 & 0x100000) {
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
         } else {
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
         push_matrix();
         if (!(temp_r31 & 1)) {
@@ -314,7 +311,7 @@ void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     draw_node_tree__18TObjLaboDesignBaseFiPv((s32)((void *) (arg0)), (u8 *)((int) (get_bml_model((int) (*(s32 *)((s8 *)arg0 + 0xAC)), (int) (0)))));
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 typedef void (TObjLaboDesignBase::*Action_80365040)();
@@ -346,7 +343,7 @@ void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xBC)); *(s32 *)((s8 *)arg0 + 0xBC) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -367,7 +364,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0xB0) = arg3;
     *(s32 *)((s8 *)arg0 + 0xAC) = ((s32)get_labo_design_object((int) (*(s32 *)((s8 *)arg0 + 0xB0))));
     init_collision_body_parts((void *) (arg0), (int) (((s32)get_labo_design_entry((int) (*(s32 *)((s8 *)arg0 + 0xB0))))), (int) (1));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805E02A0;
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805E02A4;
     *(s32 *)((s8 *)arg0 + 0xBC) = 0;

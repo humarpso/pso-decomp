@@ -1,6 +1,8 @@
 #include "pso/TAdSoniclogo.h"
 
 #include "types.h"
+#include "pso/TLogo.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 
 struct Obj_8001C21C { u8 pad[0x1c]; s32 f1c; };
 
@@ -11,8 +13,6 @@ extern const f32 lbl_805D7E78;
 extern int TAdSoniclogo__state;
 extern void *tl_00;
 void *__nw__7TObjectFUl(u32 size);
-void request_exit__5TLogoFv(void);
-void init__22THunterGuildSeqOfflineFPvPv(void *a, void *b, void *c);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ void TAdSoniclogo::run_task() {
             TAdSoniclogo__state = 2;
             p = __nw__7TObjectFUl(0x28);
             if (p != 0) {
-                init__22THunterGuildSeqOfflineFPvPv(p, tl_00, (void *)request_exit__5TLogoFv);
+                ((THunterGuildSeqOffline *)p)->init(tl_00, (void *)TLogo::request_exit);
             }
         }
         break;

@@ -1,6 +1,8 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_801AB018 {
     s32 sp8;
     f32 spC;
@@ -15,7 +17,6 @@ struct Stack_801AB018 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
@@ -23,7 +24,6 @@ s32 begin_photon_summon_camera(void *, int);
 s32 update_photon_blast_attachments(void *);
 s32 spawn_photon_blast_attachment_effects(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
-s32 update_all_slots__10TObjPlayerFv(void *);
 s32 construct_photon_magic_square_normal(int, void *, int, void *, int);
 s32 play_persistent_sound(int, void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
@@ -74,7 +74,7 @@ void run_task__13TPhotonFarllaFPv(u8 *arg0) {
     if (((s32) *(s32 *)((s8 *)arg0 + 0x1A4) == 0x64) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (1));
         *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
-        set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (0));
+        ((TObjEnePanarms *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (0));
     }
     *(s16 *)((s8 *)arg0 + 0x194) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
@@ -84,7 +84,7 @@ void run_task__13TPhotonFarllaFPv(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if (lbl_805DC160 == (f32) *(s32 *)((s8 *)arg0 + 0x1A4)) {
-        update_all_slots__10TObjPlayerFv((void *) (arg0));
+        ((TObjPlayer *)arg0)->update_all_slots();
     }
     if (lbl_805DC164 == (f32) *(s32 *)((s8 *)arg0 + 0x1A4)) {
         temp_r3_3 = find_entity_by_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x17C)));

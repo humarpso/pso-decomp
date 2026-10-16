@@ -1,20 +1,19 @@
 #include "types.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjCityMainWarp.h"
 
 struct I_8034CDE0 { u8 pad[0x10]; s8 f10; u8 pad11[0xBC - 0x11]; };
 
 struct L_8034CDE0 { u8 f0; u8 n; u8 pad2[2]; I_8034CDE0 items[1]; };
 
 extern "C" {
-void *get_message_10__20TWindowSubStatusDispFl(int);
-s32 set_flag70_bit10__16TObjCityMainWarpFv(void *);
-s32 set_scroll_target__17TWindowSubComCardFff(void *, f32, f32);
 s32 draw_text_gray__17TWindowSubComCardFllll(void *, void *, int, int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, int, int);
 void *draw_card_icon__17TWindowSubComCardFll(s32, int, void *);
 s32 get_window_layout_position(s32);
 s16 get_field_72__17TWindowSubComCardFPv(void *);
-L_8034CDE0 *get_info_board_ptr__6TLobbyFv();
 extern const f32 lbl_805DFDD8;
 extern const f32 lbl_805DFDDC;
 void *TWindowSubComCard__sub_8034CDE0(void);
@@ -22,7 +21,6 @@ void *TWindowSubComCard__sub_8034CDE0(void);
 
 extern "C" {
 
-s32 set_window_mode_4__6TLobbyFPvll(s32, s32 *, s32);
 s32 get_window_layout_position(s32);
 
 extern s32 lbl_80478C2C[];
@@ -30,7 +28,7 @@ extern s32 lbl_80478C2C[];
 void TWindowSubComCard::open_card_info_window() {
     s32 temp_r3;
     temp_r3 = get_window_layout_position(0xA5);
-    set_window_mode_4__6TLobbyFPvll(temp_r3, lbl_80478C2C, 1);
+    TLobby::set_window_mode_4((void *)temp_r3, (s32)lbl_80478C2C, (s32)1);
     *(s32 *)((s8 *)this + 0x24) = -1;
 }
 void *TWindowSubComCard__sub_8034CDE0(void) {
@@ -38,11 +36,11 @@ void *TWindowSubComCard__sub_8034CDE0(void) {
     void *w;
     s32 i;
     s32 n;
-    it = (I_8034CDE0 *)get_info_board_ptr__6TLobbyFv();
+    it = (I_8034CDE0 *)TLobby::get_info_board_ptr();
     if (it == NULL) {
         return 0;
     }
-    w = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0xA6), 0xC, get_message_10__20TWindowSubStatusDispFl(0x1D));
+    w = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0xA6), 0xC, TWindowSubStatusDisp::get_message_10(0x1D));
     n = ((L_8034CDE0 *)it)->n;
     it = ((L_8034CDE0 *)it)->items;
     for (i = 0; i < n; i++, it++) {
@@ -53,10 +51,10 @@ void *TWindowSubComCard__sub_8034CDE0(void) {
         }
     }
     if (get_field_72__17TWindowSubComCardFPv(w) <= 0) {
-        draw_text_gray__17TWindowSubComCardFllll(w, get_message_10__20TWindowSubStatusDispFl(0xD2), 6, -1);
+        draw_text_gray__17TWindowSubComCardFllll(w, TWindowSubStatusDisp::get_message_10(0xD2), 6, -1);
     }
-    set_flag70_bit10__16TObjCityMainWarpFv(w);
-    set_scroll_target__17TWindowSubComCardFff(w, lbl_805DFDD8, lbl_805DFDDC);
+    ((TObjCityMainWarp *)w)->set_flag70_bit10();
+    ((TWindowSubComCard *)w)->set_scroll_target(lbl_805DFDD8, lbl_805DFDDC);
     return w;
 }
 

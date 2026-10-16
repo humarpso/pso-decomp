@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 s32 obj_isState2_324(void *);
 u8 *get_player_data__10TObjPlayerFi(int);
-s32 get_game_mode__6TLobbyFv();
 s32 is_valid_target__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805D9FF4;
@@ -12,7 +12,6 @@ extern const f32 lbl_805D9FF4;
 
 extern "C" {
 
-int get_flag_11__16TObjEneRe2FlowerFv(void* p);
 void TObjEneRe2Flower__sub_800C3BA8(void);
 
 void TObjEneRe2Flower__sub_800C3BA8(void) {  }
@@ -23,7 +22,7 @@ u8 *TObjEneRe2Flower::find_target_in_range() {
     u8 *p;
     s32 i;
     result = NULL;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (is_valid_target__9TObjEneDDFv(p) != 0 && obj_isState2_324(p) == 0) {

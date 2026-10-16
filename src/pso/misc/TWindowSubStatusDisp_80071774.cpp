@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80071820_lbl_804FF820 {
     s32 value;
@@ -15,10 +16,8 @@ struct G_800718D0 { u8 pad[0xC]; s32 fc; u8 rest[0x100]; };
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
-s32 get_valid_slot__6TLobbyFi(int);
 u32 get_character_save_record(u32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
-s32 decode_obfuscated_string__6TLobbyFPvi(void *, void *, int);
 extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern s32 lbl_805D2858;
 s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0);
@@ -28,7 +27,6 @@ s32 get_slot_clamped__6TLobbyFv(s32);
 s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
-s32 get_valid_slot__6TLobbyFi(int);
 u32 get_character_save_record(u32);
 s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
@@ -79,7 +77,7 @@ s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
     if (arg0 == 0U) {
         return &lbl_805D2858;
     }
-    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_804FF820.value), (void *) (arg0 + 0xD8), (int) (0xC));
+    ((TLobby *)(&lbl_804FF820.value))->decode_obfuscated_string((void *) (arg0 + 0xD8), (int) (0xC));
     return &lbl_804FF820.value;
 }
 
@@ -137,7 +135,7 @@ s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
     sum = 0;
     n = get_layout_id__20TWindowSubStatusDispFv((void *)arg1);
     for (i = 0; i < n; i++, p++) {
-        r = get_valid_slot__6TLobbyFi(*p);
+        r = TLobby::get_valid_slot(*p);
         if (r == 0) {
             return 0;
         }
@@ -154,7 +152,7 @@ s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2) {
     if ((arg0 < 0) || (arg0 >= temp_r3) || (temp_r31 == 0U)) {
         return 0;
     }
-    return get_valid_slot__6TLobbyFi((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r31 + 0x21C4), (void *) (arg2))) + (arg0 * 4))));
+    return TLobby::get_valid_slot((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r31 + 0x21C4), (void *) (arg2))) + (arg0 * 4))));
 }
 
 }

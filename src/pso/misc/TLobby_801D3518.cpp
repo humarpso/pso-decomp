@@ -1,11 +1,10 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TItemList.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s32 set_field4__10TObjPlayerFl(s32, s32);
-s32 create_node__9TItemListFPvPvPvSc(s32, s32, s32, s32);
-s32 copy_item_data__9TItemListFv(s32, s32);
 s32 TItemList__sub_801D5844(s32);
 s32 TItemList__sub_801D5854(s32, s32);
 int __dl__FPv();

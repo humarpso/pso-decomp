@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOSparkMachine01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80177330_lbl_804B43F0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80177330_lbl_804B43F0_size[sizeof(RecoveredGlobal_80177330_lbl_804B43F0) == 0x10 ? 1 : -1];
@@ -68,7 +71,6 @@ struct Obj_801771F4 : VBase_801771F4 {
 extern "C" {
 extern const f32 TOSparkMachine01__data_805DB9EC;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80177330_lbl_804B43F0 bm_fe_obj_tank_hikari_resource_descriptor;
 extern u32 TOSparkMachine01__static_resource;
 void construct_world_actor_base(void *, s32);
@@ -85,12 +87,10 @@ s32 rand(void);
 extern const f32 lbl_805DB9E8;
 extern const f32 TOSparkMachine01__data_805DB9EC;
 void begin_effect_render__13TParticleCtrlFv(void *);
-void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(int);
 void draw_ginja_model(int);
 }
 
@@ -100,7 +100,6 @@ void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void TOSparkMachine01::update_spark_toggle(s32 i) {
     Obj_80177088 *self = (Obj_80177088 *)this;
@@ -148,7 +147,7 @@ void TOSparkMachine01::render() {
         push_matrix();
         post_translate_matrix(self->m38);
         rotate_matrix_y(0, self->unk60);
-        set_global_param__8TObjFishFl(self->unk24);
+        TObjFish::set_global_param(self->unk24);
         r = self->res;
         n = r->head;
         begin_effect_render__13TParticleCtrlFv(r);
@@ -163,7 +162,7 @@ void TOSparkMachine01::render() {
             }
             n = n->next;
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -190,7 +189,7 @@ extern s32 __vt__16TOSparkMachine01[];
 void TOSparkMachine01::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fe_obj_tank_hikari_resource_descriptor.value, 0, 0, 0));
@@ -201,7 +200,7 @@ void TOSparkMachine01::load_static_resource() {
 void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOSparkMachine01;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

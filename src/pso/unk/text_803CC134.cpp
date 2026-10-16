@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void release_used_slots__6TLobbyFv(void);
 s32 memset(void *, int, int);
 extern s32 lbl_805D75D0;
 extern s32 lobby_adxf_current_file_id;
@@ -20,7 +19,7 @@ u8 adxf_file_handle_pool[0x1380];
 
 void TLobby::dec_ref_and_reset_tables() {
     if (--lbl_805D75D0 == 0) {
-        release_used_slots__6TLobbyFv();
+        TLobby::release_used_slots();
         lobby_adxf_current_file_id = -1;
         lobby_adxf_open_file_handle = 0;
         lobby_afs_toc_entry_index = 0;

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
     int load_gvm_texture_file(void*);
@@ -11,14 +12,13 @@ void load_f512_inazuma(void);
 extern "C" {
 
 s32 TLobby__sub_803DA16C(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u32 inazuma_texture_list;
 
 void TLobby::free_char_select_singleton() {
     if ((u32) inazuma_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)inazuma_texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(inazuma_texture_list);
+        TAdSinglePlyChrSelectGC::safe_free(inazuma_texture_list);
         inazuma_texture_list = 0U;
     }
 }

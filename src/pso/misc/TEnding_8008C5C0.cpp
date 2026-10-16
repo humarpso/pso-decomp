@@ -1,6 +1,7 @@
 #include "pso/misc/TEnding.h"
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 struct Vec_8008C5E8 { s32 x, y, z; };
 
 extern "C" {
@@ -16,7 +17,6 @@ void init_map_lights(void *);
 void reset_controller_input_state(void);
 void set_copy_clear_color_argb(int, int, int);
 int render_tick__Fv(void);
-void create_quad_sprites__13TParticleCtrlFv(void);
 void play_area_music(void *);
 void *__nw__7TObjectFUl(int);
 void set_screen_size(f32 farg0, f32 farg1);
@@ -57,7 +57,7 @@ int TEnding::start_ending_scene() {
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
     play_area_music(lbl_80439588);
-    create_quad_sprites__13TParticleCtrlFv();
+    TParticleCtrl::create_quad_sprites();
     p = __nw__7TObjectFUl(0x710);
     if (p != 0) {
         __ct__7TEndingFv(p);

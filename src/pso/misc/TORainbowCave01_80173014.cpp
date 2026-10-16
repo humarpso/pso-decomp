@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TORainbowCave01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80173330_lbl_804B3A18 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80173330_lbl_804B3A18_size[sizeof(RecoveredGlobal_80173330_lbl_804B3A18) == 0x10 ? 1 : -1];
@@ -45,7 +50,6 @@ struct Cave_801731F8 { u8 pad[0xC8]; f32 speed; f32 alpha; f32 range; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80173330_lbl_804B3A18 abeniji_fe_obj001_niji_resource_descriptor;
 extern u32 TORainbowCave01__static_model_resource;
 u8 * init_map_object_base(void *);
@@ -53,21 +57,16 @@ extern s32 __vt__15TORainbowCave01[];
 extern s32 TORainbowCave01__name;
 extern u32 TORainbowCave01__static_model_resource;
 u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 check_demo_mode__10TObjPlayerFv(void);
-void begin_effect_render__13TParticleCtrlFv(void);
-void end_effect_render__13TParticleCtrlFv(void);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void draw_ginja_object(s32);
 void set_chunk_material_color(void *);
 extern Color_8017310C chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void update__15TORainbowCave01Fv(void *);
 }
 
 extern "C" {
@@ -78,7 +77,6 @@ f32 horizontal_distance_squared(s32, s32);
 s32 find_entity_by_id(u16);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 
 extern s32 local_client_id;
 
@@ -111,13 +109,13 @@ void TORainbowCave01::render() {
     Color_8017310C c;
     s32 old;
     if (self->m8(self->fC0, self->fC4) != 0 && -1.0f < self->fCC) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl(self->f24);
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param(self->f24);
         old = model_render_flags;
         lbl_805D5660 = old;
         model_render_flags = old | 0x20;
         c.d = c.c = c.b = 0.0f;
-        if (check_demo_mode__10TObjPlayerFv() == 1) {
+        if (TObjPlayer::check_demo_mode() == 1) {
             c.a = 0.0f;
         } else {
             c.a = self->fCC;
@@ -131,7 +129,7 @@ void TORainbowCave01::render() {
         pop_matrix();
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -152,7 +150,7 @@ void TORainbowCave01::run_task() {
         }
         break;
     }
-    update__15TORainbowCave01Fv(self);
+    ((TORainbowCave01 *)self)->update();
 }
 
 void *TORainbowCave01::create(void *arg0) {
@@ -177,7 +175,7 @@ extern s32 __vt__15TORainbowCave01[];
 void TORainbowCave01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &abeniji_fe_obj001_niji_resource_descriptor.value, 0, 0, 0));
@@ -188,7 +186,7 @@ void TORainbowCave01::load_resource_instance() {
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TORainbowCave01;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

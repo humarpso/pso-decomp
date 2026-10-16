@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -7,11 +8,9 @@
 
 extern "C" {
 
-s32 clear_serial_buffer__22TAdEnterSerialAccessGCFv();
 s32 clear_state();
 int get_instance__15TAdPlayerLoadGCFv(void*);
 s32 get_option_field_C__17TWindowOptionCtrlFv();
-s32 store_serial_access_key__22TAdEnterSerialAccessGCFlll(s32, s32, s32);
 
 void *__nw__7TObjectFUl(int);
 void *TAdScrollWinGC__ct(void *, s32, s32, void *);
@@ -37,10 +36,10 @@ void TLobby::dispatch_by_index(s32 arg0) {
         clear_state();
         return;
     case 1:
-        store_serial_access_key__22TAdEnterSerialAccessGCFlll(TLobby__protocol_instance + 0x3F8A, TLobby__protocol_instance + 0x3F9B, TLobby__protocol_instance + 0x3F3A);
+        TAdEnterSerialAccessGC::store_serial_access_key(TLobby__protocol_instance + 0x3F8A, TLobby__protocol_instance + 0x3F9B, TLobby__protocol_instance + 0x3F3A);
         return;
     case 2:
-        clear_serial_buffer__22TAdEnterSerialAccessGCFv();
+        TAdEnterSerialAccessGC::clear_serial_buffer();
         return;
     }
 }

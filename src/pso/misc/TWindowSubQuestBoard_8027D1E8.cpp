@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubQuestBoard.h"
 
 struct Obj_8027D1E8 { u8 pad[0x60]; s8 f60; };
 
@@ -11,8 +12,6 @@ extern "C" {
 void TWindowCtrl__sub_8027D1F8(void);
 void TWindowCtrl__sub_8027D214(void);
 int TWindowSubQuestBoard__sub_8027D1DC(void* p);
-u8 get_page_index__20TWindowSubQuestBoardFv(void* p);
-int is_open__20TWindowSubQuestBoardFv(void* p);
 
 extern void *TWindowCtrl__active_window;
 

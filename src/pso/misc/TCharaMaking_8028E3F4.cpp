@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TCharaMaking.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 struct Ent_8028E6B4 { s32 id; u8 pad[4]; void *name; u8 pad2[4]; };
 
@@ -14,7 +15,6 @@ struct OutputSlot {u8 *name; unsigned int field4,field8;};
 struct TextureOutput {int loaded; u8 names[8][32]; struct OutputSlot slots[8]; struct OutputSlot *entries; int count;};
 
 extern "C" {
-s32 is_ready__22TQuestVmDownLoadServerFv(void);
 s32 TLobby__sub_801E3E9C(s32, void *, void *, s32);
 extern s32 lbl_8045122C[];
 extern u8 lbl_80451280[];
@@ -106,25 +106,25 @@ void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, App
 
 void TCharaMaking__sub_8028E6B4(void) {
     s32 i;
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         return;
     }
     for (i = 0; i < 0x13; i++) {
-        if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+        if (TQuestVmDownLoadServer::is_ready() != 0) {
             return;
         }
         if (TLobby__sub_801E3E9C(player_class_texture_archive_table[i].id, player_class_texture_archive_table[i].name, player_class_texture_buffer_table[i], lbl_8045122C[i]) != 0) {
-            if (is_ready__22TQuestVmDownLoadServerFv() == 0) {
+            if (TQuestVmDownLoadServer::is_ready() == 0) {
                 return;
             }
             return;
         }
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         return;
     }
     if (TLobby__sub_801E3E9C(0xDB, lbl_80451280, lbl_8051BC64, 0x17A) != 0) {
-        if (is_ready__22TQuestVmDownLoadServerFv() == 0) {
+        if (TQuestVmDownLoadServer::is_ready() == 0) {
             return;
         }
     }

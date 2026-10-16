@@ -8,14 +8,11 @@ s32 TShopGenerator__sub_80222DAC(s32);
 s32 obj_getField1c(s32);
 void *get_player_by_client_id(s32);
 void THunterGuildSeqOffline__sub_8021E180(s32);
-void suppress_slot__11TWindowCtrlFv(u16);
-void unsuppress_slot__11TWindowCtrlFv(u16);
 s32 get_window_layout_position(int, f32);
 void init_effect_5f0__10TObjPlayerFPv(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void clear_slot_active__14TShopGeneratorFl(s32);
 s32 queue_destruction__7TObjectFv(void *);
 void TMedicalCenterMes__sub_80216260(void);
 
@@ -30,6 +27,10 @@ extern "C" TMedicalCenterMesInput controller_input_state[];
 
 #include "types.h"
 #include "pso/misc/TMedicalCenterSequence.h"
+#include "pso/TShopWindowBase.h"
+#include "pso/misc/TShopGenerator.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 struct Base_802163AC { char pad[0x18]; };
 struct VObj_802163AC : Base_802163AC {
@@ -157,7 +158,6 @@ struct VObj_8021658C : Base_8021658C {
 extern "C" {
 int set_field_20__12TQuestListVMFl(void*, void*);
 u32 create_message_window__13TShopSequenceFPvii(void *, s32, s32);
-s32 get_child_field1c__15TShopWindowBaseFv(void *);
 s32 create_meseta_window(unsigned short);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
@@ -206,9 +206,7 @@ int TShopWindowBase__sub_80223A48(void *);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(u32);
 s32 close_window__13TShopSequenceFPv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(u32);
 s32 is_alive_and_ready__10TObjPlayerFi(s32);
-s32 is_visible__17TWindowSubComCardFv(u32);
 s32 obj_getPtr2B0_20(s32);
 s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFPv(void*);
@@ -325,7 +323,7 @@ s32 TMedicalCenterSequence::open_greeting_window() {
   stack.spC = lbl_805DC68C;
   create_message_window__13TShopSequenceFPvii(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x1F, 1);
-  *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window((s32) get_child_field1c__15TShopWindowBaseFv(arg0));
+  *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window((s32) ((TShopWindowBase *)arg0)->get_child_field1c());
   set_field_20__12TQuestListVMFl((void*)(arg0), (void*)(2));
   *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0);
 }
@@ -344,7 +342,7 @@ void TMedicalCenterSequence::handle_confirm() {
 void TMedicalCenterSequence::handle_window_result() {
     s32 temp_r3;
 
-    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (is_visible__17TWindowSubComCardFv((u32) *(u32 *)((s8 *)this + 0x30)) != 0)) {
+    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (((TWindowSubComCard *)((u32) *(u32 *)((s8 *)this + 0x30)))->is_visible() != 0)) {
         temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x30));
         if (temp_r3 == 0) {
             TWindow__close(*(u32 *)((s8 *)this + 0x30));
@@ -361,7 +359,7 @@ void TMedicalCenterSequence::handle_window_result() {
         goto block_6;
     }
 block_6:
-    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (get_status_flag__17TWindowSubComCardFv((u32) *(u32 *)((s8 *)this + 0x30)) != 0)) {
+    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (((TWindowSubComCard *)((u32) *(u32 *)((s8 *)this + 0x30)))->get_status_flag() != 0)) {
         TWindow__close(*(u32 *)((s8 *)this + 0x30));
         *(u32 *)((s8 *)this + 0x30) = 0U;
         set_field_20__12TQuestListVMFl((void*)(this), (void*)(5));
@@ -461,7 +459,7 @@ void TMedicalCenterMes::run_task() {
             player = (TObjPlayer *)get_player_by_client_id(local_client_id);
         }
         THunterGuildSeqOffline__sub_8021E180(obj_getField1c((s32)player));
-        suppress_slot__11TWindowCtrlFv((u16)obj_getField1c((s32)player));
+        ((TWindowCtrl *)((u16)obj_getField1c((s32)player)))->suppress_slot();
         TMedicalCenterMesMessagePos pos = lbl_8044BD94[0];
         u16 id = (u16)obj_getField1c((s32)player);
         create_message_window(((s32 (*)(int))get_window_layout_position)(0x2C), (s32)&pos, id);
@@ -485,9 +483,9 @@ void TMedicalCenterMes::run_task() {
         }
         close();
         if (player != NULL) {
-            unsuppress_slot__11TWindowCtrlFv((u16)obj_getField1c((s32)player));
+            ((TWindowCtrl *)((u16)obj_getField1c((s32)player)))->unsuppress_slot();
         }
-        clear_slot_active__14TShopGeneratorFl(obj_getField1c((s32)player));
+        TShopGenerator::clear_slot_active(obj_getField1c((s32)player));
         queue_destruction__7TObjectFv(this);
         break;
     }

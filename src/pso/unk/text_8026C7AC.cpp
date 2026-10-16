@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 typedef struct Vec2_8026C800 { f32 x, y; } Vec2_8026C800;
 
@@ -18,9 +20,7 @@ void draw_window_text(void *, s32, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 void fn_8026C664(void *, f32, f32, f32, f32);
 void fn_8026C708(void *, f32, f32, f32, f32);
-void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv(void);
 void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD29C;
@@ -74,11 +74,11 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
     pos.y = (r->y + r->h) - lbl_805DD2A0;
     scale = lbl_805DD2A4 / (lbl_805DD2A8 + r->f38);
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(0, -1);
     fn_8026C708(r, lbl_805DD2AC + pos.x, lbl_805DD2B0 + pos.y, scale, self->phase);
     fn_8026C664(r, pos.x - lbl_805DD2B4, lbl_805DD2B0 + pos.y, scale, self->phase);
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
     set_text_draw_params(r, 0, 1, scale, lbl_805DD2B8);
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(self->page + 1);

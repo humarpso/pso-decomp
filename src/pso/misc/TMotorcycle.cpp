@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TMotorcycle.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80445DB8[];
@@ -35,7 +38,6 @@ struct Moto_801951C8 { s32 x0; u8 pad4[0x30 - 4]; u32 flags; u8 pad34[0x68 - 0x3
 
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
-s32 set_global_param__8TObjFishFl(s32);
 s32 get_bml_model(void *, int);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(int);
@@ -50,16 +52,13 @@ extern const f32 lbl_805DBED0;
 extern const f32 lbl_805DBED4;
 s32 get_bml_model(void *, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
-s32 add_entry__11TMotorcycleFsllff(int, void *, void *, f32, f32);
 extern RecoveredGlobal_801950B8_lbl_80445E18 lbl_80445E18;
 extern u32 TMotorcycle__bml_resource;
 extern u32 TMotorcycle__texture_list;
 extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
 f32 fabs_float(f32);
-void reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TObjMesBase__ct(void *, void *, void *);
 extern s32 lbl_80445DF4[];
@@ -80,14 +79,13 @@ s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__11TObjMesBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 void TMotorcycle::render() {
     u8 *arg0 = (u8 *)this;
     if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
         set_depth_buffer_settings_id__FUl((int) (3));
         if ((u32) TMotorcycle__texture_list != 0U) {
-            set_global_param__8TObjFishFl((s32) TMotorcycle__texture_list);
+            TObjFish::set_global_param((s32) TMotorcycle__texture_list);
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_yxz((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
@@ -117,7 +115,7 @@ extern u32 TMotorcycle__texture_list;
 void TMotorcycle::free_statics() {
     if ((u32) TMotorcycle__texture_list != 0U) {
         TLobby__sub_803DA16C((void*)TMotorcycle__texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TMotorcycle__texture_list);
+        TAdSinglePlyChrSelectGC::safe_free(TMotorcycle__texture_list);
         TMotorcycle__texture_list = 0U;
     }
     if ((u32) TMotorcycle__bml_resource != 0U) {
@@ -131,15 +129,15 @@ extern s32 __vt__11TMotorcycle[];
 void TMotorcycle::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &motorcycle_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TMotorcycle__bml_resource) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&TMotorcycle__texture_list) = load_gvm_texture_file((s32) &lbl_80445E18.value);
-    add_entry__11TMotorcycleFsllff((int) (0x3C), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(0)))), (void *) ((*(u8 * *)&TMotorcycle__texture_list)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
-    add_entry__11TMotorcycleFsllff((int) (0x3D), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(1)))), (void *) ((*(u8 * *)&TMotorcycle__texture_list)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
+    TMotorcycle::add_entry((s16)((int) (0x3C)), (s32)((void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(0))))), (s32)((void *) ((*(u8 * *)&TMotorcycle__texture_list))), (f32)((f32) (lbl_805DBED8)), (f32)((f32) (lbl_805DBEDC)));
+    TMotorcycle::add_entry((s16)((int) (0x3D)), (s32)((void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(1))))), (s32)((void *) ((*(u8 * *)&TMotorcycle__texture_list))), (f32)((f32) (lbl_805DBED8)), (f32)((f32) (lbl_805DBEDC)));
 }
 
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
@@ -164,7 +162,7 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     self->xBC = lbl_80445DF4[self->xBC];
     init_collision_body_parts(arg0, TMotorcycle__collision_parts, 1);
     self->flags |= 0x40000000;
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
 

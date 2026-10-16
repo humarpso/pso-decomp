@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChat.h"
 
 struct Pkt_80076E98 { u8 pad[4]; s32 f4; u32 f8; };
 
@@ -7,8 +8,6 @@ extern u8 *text_language_group_table;
 s32 get_technique_name(s32 arg0);
 s32 obj_getField1c(s32);
 void *copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
-void *get_data_ptr__20TWindowSubSymbolChatFv(void *);
-void bswap_symbol_chat_packet__20TWindowSubSymbolChatFv(Pkt_80076E98 *);
 s32 get_player_by_client_id(s32);
 void open_balloon__11TWindowCtrlFUsPUcll(s32, void *, s32, s32);
 void dispatch_by_index__6TLobbyFUsi(u16, void *);
@@ -26,7 +25,7 @@ s32 get_technique_name(s32 arg0) {
 void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
     u32 *p;
     s32 ply;
-    bswap_symbol_chat_packet__20TWindowSubSymbolChatFv(arg0);
+    ((TWindowSubSymbolChat *)arg0)->bswap_symbol_chat_packet();
     p = &arg0->f8;
     ply = get_player_by_client_id(arg0->f4);
     if (ply != 0) {
@@ -36,7 +35,7 @@ void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
             for (; pending_symbol_chat_count >= 1; pending_symbol_chat_count--) {
             }
             pending_symbol_chat_count++;
-            copy_symbol_chat_entry__6TLobbyFPvPv(get_data_ptr__20TWindowSubSymbolChatFv(symbol_chat_receive_buffer), p);
+            copy_symbol_chat_entry__6TLobbyFPvPv(((TWindowSubSymbolChat *)symbol_chat_receive_buffer)->get_data_ptr(), p);
         }
     }
 }

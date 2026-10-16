@@ -37,12 +37,8 @@ extern s32 lbl_80513D68[];
 extern Tbl_8020E934 **lbl_805D6158;
 extern s32 lbl_805D615C;
 extern s32 shop_difficulty_tier;
-void reset_counter_64__6TLobbyFv(Ctr_8020E934 *);
-s32 get_shield_shop_tier_for_level__6TLobbyFl(s32);
-s32 get_lobby_group__6TLobbyFl(s32);
 void push_shop_pool_entry(Ctr_8020E934 *, u8);
 void shuffle_shop_pool_n_times(Ctr_8020E934 *, s32);
-s32 pop_byte__6TLobbyFv(Ctr_8020E934 *);
 void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 void copy_item_data__6TLobbyFPvPv(Item_8020E934 *, Item_8020E934 *);
@@ -94,11 +90,11 @@ void generate_shop_shield_pool(s32 arg0) {
     s32 j;
     s32 k;
     s32 grp;
-    reset_counter_64__6TLobbyFv(&ctr);
+    ((TLobby *)(&ctr))->reset_counter_64();
     dst = ((Item_8020E934 **)&lbl_80513D78)[arg0];
-    n = get_shield_shop_tier_for_level__6TLobbyFl(lbl_805D615C);
+    n = TLobby::get_shield_shop_tier_for_level(lbl_805D615C);
     tbl = *lbl_805D6158;
-    grp = get_lobby_group__6TLobbyFl(lbl_805D615C);
+    grp = TLobby::get_lobby_group(lbl_805D615C);
     cnt = tbl->count;
     p = tbl->pairs + grp * cnt * 2;
     i = 0;
@@ -112,7 +108,7 @@ void generate_shop_shield_pool(s32 arg0) {
     j = 0;
     counts = lbl_80513D68;
     while (j < n) {
-        b = pop_byte__6TLobbyFv(&ctr);
+        b = ((TLobby *)(&ctr))->pop_byte();
         if (b == -1) {
             continue;
         }

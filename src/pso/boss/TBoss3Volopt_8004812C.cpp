@@ -36,8 +36,6 @@ extern G_8004813C *lbl_805D4CE4;
 extern G_8004816C *lbl_805D4D1C;
 s32 TBoss3Volopt__sub_8004816C(s32 i);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
 void draw_line_list(void *, s32, s32);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
@@ -56,7 +54,6 @@ extern "C" {
 
 void TBoss3Volopt__sub_800481B4(void* p);
 void TBoss3Volopt__sub_8004824C(void* p);
-int swap_6x85_fields__12TBoss3VoloptFv(void*);
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 int bswap_16__FPUs(void*);
@@ -75,7 +72,7 @@ s32 TBoss3Volopt__sub_8004816C(s32 i) {
     return lbl_805D4D1C->arr[i];
 }
 
-void TBoss3Volopt::update_and_send_60() { swap_6x85_fields__12TBoss3VoloptFv(this); TLobby__send_and_handle_60(this); }
+void TBoss3Volopt::update_and_send_60() { swap_6x85_fields(); TLobby__send_and_handle_60(this); }
 void TBoss3Volopt__sub_800481B4(void* p) { *(u8*)((char*)p + 0x0) = 133; *(u8*)((char*)p + 0x1) = 5; }
 void TBoss3Volopt::swap_6x18_fields() { read_be16_field2__10TObjPlayerFv(this); { int i; for (i = 0; i < 4; i++) { bswap_16__FPUs((char*)this + 0x4 + i * 2); } } }
 void TBoss3Volopt::broadcast_state() { swap_6x18_fields(); TLobby__send_and_handle_60(this); }
@@ -103,9 +100,9 @@ void TObjPlayer::draw_direction_line() {
         vec3_add_to(dst, &v);
     }
     pop_matrix();
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     draw_line_list(boss3_volopt_direction_line_desc, 1, 5);
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
 }
 
 }

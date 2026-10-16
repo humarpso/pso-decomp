@@ -1,6 +1,8 @@
 #include "pso/TAdSelectTxtGC.h"
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct Sel_802A16CC {
     u8 pad0[0xC0];
@@ -42,9 +44,7 @@ int queue_destruction__7TObjectFv(void *);
 void reset_slots__14TAdSelectTxtGCFPvPvPv(Sel_802A16CC *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(s32);
 void *__ct__17TAdSelectTxtSubGCFv(void *, void *, void *);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void init_slot_entries__14TAdSelectTxtGCFPvPvPv(Sel_802A1838 *arg0, Src_802A1838 *arg1, void *arg2);
-void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern Tbl_802A194C select_gamen_resource_name_table;
 extern Tbl_802A194C select_gamen_resource_name_table_b;
@@ -106,7 +106,7 @@ void init_slot_entries__14TAdSelectTxtGCFPvPvPv(Sel_802A1838 *arg0, Src_802A1838
         e = (Ent_802A1838 *)((u8 *)arg0 + i * 0x14);
         e->f0 = arg2;
         e->f4 = i;
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(e->v, arg1->v);
+        ((TWindowSubSymbolChatPartsSet *)(e->v))->copy_vec2(arg1->v);
         e->f10 = arg1->f0;
         arg0->tasks[i] = NULL;
     }
@@ -129,7 +129,7 @@ void TLobby__sub_802A1918(void) {
     }
 }
 void TLobby__sub_802A194C(void) {
-    update_menu_cursor__6TLobbyFv();
+    TLobby::update_menu_cursor();
     Tbl_802A194C a = select_gamen_resource_name_table;
     Tbl_802A194C b = select_gamen_resource_name_table_b;
     s32 i = current_language;

@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 s32 request_file_read__6TLobbyFiiPvPv(s32 arg0, s32 arg1, s32 *arg2, void **arg3);
 u8 *alloc_from_heap__6TLobbyFPv(s32);
-s32 adxf_get_fsize_byte__6TLobbyFv(s32);
 s32 TLobby__sub_803CC53C(s32);
 s32 close_adxf_handle__6TLobbyFPv(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
@@ -31,7 +31,7 @@ s32 request_file_read__6TLobbyFiiPvPv(s32 arg0, s32 arg1, s32 *arg2, void **arg3
     strncpy((u8 *)var_r31 + 8, arg0, 0x20);
     *(s32 *)((s8 *)var_r31 + 0) = 1;
     *(s32 *)((s8 *)var_r31 + 0x28) = arg1;
-    *(s32 *)((s8 *)var_r31 + 0x2C) = adxf_get_fsize_byte__6TLobbyFv(temp_r3);
+    *(s32 *)((s8 *)var_r31 + 0x2C) = ((TLobby *)temp_r3)->adxf_get_fsize_byte();
     *(s32 *)((s8 *)var_r31 + 0x30) = TLobby__sub_803CC53C(temp_r3);
     close_adxf_handle__6TLobbyFPv(temp_r3);
     *(s32 **)((s8 *)var_r31 + 0x34) = arg2;

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TNowLoading.h"
 
 struct Obj_8010A1D0 {
     u8 pad0[0x18];
@@ -108,13 +110,10 @@ s32 queue_destruction__7TObjectFv(void *);
 
 u32 create_particle_emitter(s32 *, s32);
 s32 get_current_floor();
-s32 get_field_3e4__10TObjPlayerFv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 get_field_ed__10TObjPlayerFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 clear_active_flag__13TParticleCtrlFv(u32);
 s32 enable__13TParticleCtrlFPv(u32);
-s32 copy_pos__11TNowLoadingFPv(u32, s32 *);
 
 s32 TObjPlayer::get_entity_id() { return *(s32*)((char*)this + 0x24); }
 s32 TObjPlayer__sub_8010A058(void* p) { return *(s32*)((char*)p + 0xf4); }
@@ -195,7 +194,7 @@ void TObjPlayer::update_indicator_particle() {
         temp_r3_2 = get_current_floor();
         if (temp_r3_2 != (s32) *(s32 *)((s8 *)this + 0x20)) {
             *(s32 *)((s8 *)this + 0x20) = temp_r3_2;
-            if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == get_field_3e4__10TObjPlayerFv(temp_r3))) {
+            if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == ((TObjPlayer *)temp_r3)->get_field_3e4())) {
                 *(u32 *)((s8 *)this + 0x1C) = create_particle_emitter(sp8, 0x101);
             } else {
                 *(u32 *)((s8 *)this + 0x1C) = 0U;
@@ -208,11 +207,11 @@ void TObjPlayer::update_indicator_particle() {
                 var_r30 = 1;
             }
             if (var_r30 != 0) {
-                clear_active_flag__13TParticleCtrlFv(*(u32 *)((s8 *)this + 0x1C));
+                ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x1C)))->clear_active_flag();
             } else {
                 enable__13TParticleCtrlFPv(*(u32 *)((s8 *)this + 0x1C));
             }
-            copy_pos__11TNowLoadingFPv(*(u32 *)((s8 *)this + 0x1C), sp8);
+            ((TNowLoading *)(*(u32 *)((s8 *)this + 0x1C)))->copy_pos(sp8);
         }
     } else {
         queue_destruction__7TObjectFv(this);

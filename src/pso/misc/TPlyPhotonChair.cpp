@@ -1,6 +1,12 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TPlyPhotonChair.h"
+#include "pso/TMainTask.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TMainCursor.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_804796E0[];
@@ -124,9 +130,6 @@ struct Chair_8035B058 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 update_scale_state__15TPlyPhotonChairFv(void *);
-s32 update_bob_motion__15TPlyPhotonChairFv(void *);
-f32 get_float_c__15TPlyPhotonChairFv(void *);
 u32 get_player_by_client_id(int);
 s32 is_mounted__15TPlyPhotonChairFv();
 u16 TPlyPhotonChair__sub_8035B530(void* p);
@@ -134,7 +137,6 @@ void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
 extern const f32 lbl_805E0128;
 extern const float lbl_805E012C;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 TPlyPhotonChair__shared_model_resource;
 void TPlyPhotonChair__sub_8035B66C(void* p);
 extern RecoveredGlobal_8035B630_lbl_804A7488 lbl_804A7488;
@@ -154,12 +156,6 @@ extern s32 lbl_805D4418;
 extern u32 TPlyPhotonChair__shared_model_resource;
 extern const f32 lbl_805E0130;
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_state_flag__9TMainTaskFv();
-int copy_xyz__10TObjPlayerFPv(void *, void *);
-s32 is_inactive__10TObjPlayerFv(void *);
-int play_sound_with_arg__15TPlyPhotonChairFPvPv(void *, void *);
-int update_parts__15TPlyPhotonChairFPv(void *);
-int update_parts2__15TPlyPhotonChairFPv(void *);
 u32 get_player_by_client_id(int);
 u16 TPlyPhotonChair__sub_8035B530(void* p);
 int rotate_matrix_y(int, int);
@@ -167,7 +163,6 @@ int push_matrix();
 int pop_matrix();
 int scale_current_matrix(void *);
 int post_translate_matrix(void *);
-int set_global_param__8TObjFishFl(int);
 extern const f32 lbl_805E0124;
 }
 
@@ -181,9 +176,6 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
-void destroy__11TMainCursorFs(void *, int);
-void destroy__15TPlyPhotonChairFs(void *, int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern u32 TPlyPhotonChair__shared_model_resource;
 
@@ -206,23 +198,23 @@ void TPlyPhotonChair::render() {
         self->pos.x = out.x;
         self->pos.y = out.y - lbl_805E0124;
         self->pos.z = out.z;
-        copy_xyz__10TObjPlayerFPv(self->rot, (u8 *)pl + 0x5C);
-        if (is_inactive__10TObjPlayerFv(pl) != 0) {
-            update_parts2__15TPlyPhotonChairFPv(self->parts);
-            set_global_param__8TObjFishFl(self->x24);
+        ((TObjPlayer *)(self->rot))->copy_xyz((u8 *)pl + 0x5C);
+        if (((TObjPlayer *)pl)->is_inactive() != 0) {
+            TPlyPhotonChair::update_parts2(self->parts);
+            TObjFish::set_global_param(self->x24);
             push_matrix();
             post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->x60);
             scale_current_matrix(self->x68);
-            if (get_state_flag__9TMainTaskFv() != 0) {
-                play_sound_with_arg__15TPlyPhotonChairFPvPv(self->parts, &q);
+            if (TMainTask::get_state_flag() != 0) {
+                TPlyPhotonChair::play_sound_with_arg(self->parts, &q);
                 self->a.s1();
             } else {
-                play_sound_with_arg__15TPlyPhotonChairFPvPv(self->parts, &q2);
+                TPlyPhotonChair::play_sound_with_arg(self->parts, &q2);
                 self->b.s1();
             }
             pop_matrix();
-            update_parts__15TPlyPhotonChairFPv(self->parts);
+            TPlyPhotonChair::update_parts(self->parts);
         }
     }
 }
@@ -244,13 +236,13 @@ void TPlyPhotonChair::run_task() {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x94);
     switch ((s32) temp_r0) {
     case 0:
-        update_bob_motion__15TPlyPhotonChairFv((void *) (arg0 + 0x98));
-        update_bob_motion__15TPlyPhotonChairFv((void *) (arg0 + 0xB4));
+        ((TPlyPhotonChair *)(arg0 + 0x98))->update_bob_motion();
+        ((TPlyPhotonChair *)(arg0 + 0xB4))->update_bob_motion();
         return;
     case 1:
-        update_scale_state__15TPlyPhotonChairFv((void *) (arg0 + 0x98));
-        update_scale_state__15TPlyPhotonChairFv((void *) (arg0 + 0xB4));
-        if (get_float_c__15TPlyPhotonChairFv((void *) (arg0 + 0x98)) <= (*(const f32 *)&lbl_805E012C)) {
+        ((TPlyPhotonChair *)(arg0 + 0x98))->update_scale_state();
+        ((TPlyPhotonChair *)(arg0 + 0xB4))->update_scale_state();
+        if (((TPlyPhotonChair *)(arg0 + 0x98))->get_float_c() <= (*(const f32 *)&lbl_805E012C)) {
             queue_destruction__7TObjectFv((void *) (arg0));
         }
         return;
@@ -269,7 +261,7 @@ extern s32 __vt__15TPlyPhotonChair[];
 s32 TPlyPhotonChair::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &photon_chair_resource_descriptor, 0, 0, 0));
@@ -284,10 +276,10 @@ s32 TPlyPhotonChair::load_resources() {
 void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TPlyPhotonChair;
-        destroy__11TMainCursorFs((s8 *)arg0 + 0xD0, -1);
-        destroy__15TPlyPhotonChairFs((s8 *)arg0 + 0xB4, -1);
-        destroy__15TPlyPhotonChairFs((s8 *)arg0 + 0x98, -1);
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        ((TMainCursor *)((s8 *)arg0 + 0xD0))->destroy(-1);
+        ((TPlyPhotonChair *)((s8 *)arg0 + 0xB4))->destroy(-1);
+        ((TPlyPhotonChair *)((s8 *)arg0 + 0x98))->destroy(-1);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

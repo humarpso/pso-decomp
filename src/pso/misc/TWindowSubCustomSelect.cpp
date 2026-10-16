@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowSubCustomSelect.h"
+#include "pso/misc/TWindowAddition.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Stack_80277638 {
     f32 sp8;
@@ -46,12 +49,8 @@ extern const f32 lbl_805DD5CC;
 extern const f32 lbl_805DD5D0;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 is_player_input_active(int);
 s32 update_window_entry_list(void *, void *);
-s32 increment_counter__20TWindowSubStatusDispFv(int);
-s32 is_active__22TWindowSubCustomSelectFv(void *);
-s32 update_subwindow__20TWindowSubStatusDispFv(int);
 extern RecoveredGlobal_80277928_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD5E4;
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -102,13 +101,10 @@ extern "C" {
 void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
-void destroy_allocation__20TWindowSubStatusDispFls(void *, int);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
-void destroy_window__15TWindowAdditionFs(void *, int);
-s32 set_entry_state__20TWindowSubStatusDispFSc(s32, s32);
 
 void TWindowSubCustomSelect::handle_cancel() {
-    if (is_active__22TWindowSubCustomSelectFv((void *)(this)) == 0) {
+    if (is_active() == 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
         *(u8 *)((s8 *)this + 0x73) = (u8) (*(u8 *)((s8 *)this + 0x73) | 2);
     }
@@ -117,7 +113,7 @@ void TWindowSubCustomSelect::handle_cancel() {
 void TWindowSubCustomSelect::handle_decide() {
     play_sound_effect(0x52D01, 0, 0, 0);
     *(u8 *)((s8 *)this + 0x73) = (u8) (*(u8 *)((s8 *)this + 0x73) | 1);
-    set_entry_state__20TWindowSubStatusDispFSc(*(s32 *)((s8 *)this + 0x7C), 2);
+    ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)this + 0x7C)))->set_entry_state(2);
 }
 
 extern s32 __vt__22TWindowSubCustomSelect[];
@@ -266,7 +262,7 @@ void TWindowSubCustomSelect::run_task() {
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
-    if (is_active__22TWindowSubCustomSelectFv((void *)((void *) (arg0))) == 0) {
+    if (((TWindowSubCustomSelect *)arg0)->is_active() == 0) {
         handle_grid_navigation();
         temp_r30_2 = (u8 *)&controller_input_state.value + (temp_r30 * 0x50) + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
@@ -278,10 +274,10 @@ void TWindowSubCustomSelect::run_task() {
     }
     update_list_scroll();
     if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD5E4) {
-        update_subwindow__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x7C)));
-        increment_counter__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x80)));
+        ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)arg0 + 0x7C)))->update_subwindow();
+        ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)arg0 + 0x80)))->increment_counter();
     }
-    initialize_subwindow__9TWindowDDFv((void *) (arg0));
+    ((TWindowDD *)arg0)->initialize_subwindow();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x74) = (s32) (*(s32 *)((s8 *)arg0 + 0x74) + 1);
 }
@@ -289,9 +285,9 @@ void TWindowSubCustomSelect::run_task() {
 void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubCustomSelect;
-        destroy_allocation__20TWindowSubStatusDispFls(*(void **)((s8 *)arg0 + 0x80), 1);
+        TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)arg0 + 0x80)), (s16)1);
         destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)arg0 + 0x7C), 1);
-        destroy_window__15TWindowAdditionFs(arg0, 0);
+        ((TWindowAddition *)arg0)->destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

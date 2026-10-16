@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/npc/TObjNpcBase.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_80148274 { char pad[0x18]; };
 
@@ -101,8 +102,6 @@ struct Obj_80148274 { u8 pad0[0x350]; void *anim; };
 extern "C" {
 void set_motion_params__10TObjPlayerFPvPv(void *, void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
-void update_prev_position__10TObjPlayerFv(void *);
-void reset_photon_effect__10TObjPlayerFv(void *);
 u32 init_collision_body_parts(void *, void *, s32);
 }
 
@@ -127,8 +126,8 @@ void TObjNpcBase::setup_common() {
     set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
     self->anim = npc_movement_parameters;
     init_collision_body_parts(self, npc_base_collision_body_desc, 1);
-    reset_photon_effect__10TObjPlayerFv(self);
-    update_prev_position__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->reset_photon_effect();
+    ((TObjPlayer *)self)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi(self);
     ((VObj_80148274 *)self)->m85(0, 1);
 }

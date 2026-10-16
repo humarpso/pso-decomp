@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
 
-int get_flag_bit6__12TBoss8DragonFv(void* p);
 int TBoss8Dragon__sub_8005D700(void);
 
 int TBoss8Dragon__sub_8005D700(void) { return 0; }

@@ -141,6 +141,9 @@ struct Obj_80343C64
 };
 
 #include <stddef.h>
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubItem.h"
+#include "pso/player/TObjPlayer.h"
 struct NumberWindow;
 struct WordSelectPage;
 struct WordSelectWindowState {
@@ -315,7 +318,6 @@ void __ct__7TObjectFP7TObject(void *);
 void build_item_list__9TWindowDDFPv(u8 *arg0);
 void *get_player_by_client_id(s32);
 s32 get_current_floor(void);
-s16 get_stat_by_key_state__10TObjPlayerFv(void *);
 s32 is_boss_area(void);
 s32 check_all_ready__9TWindowDDFl(s32);
 s32 is_room_free_of_active_enemies(s32, s32);
@@ -362,8 +364,6 @@ extern const f32 lbl_805DFBF8;
 extern const f32 lbl_805DFCB8;
 Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2);
 void* __nw__7TObjectFUl(u32 size);
-void set_field_1c__6TLobbyFf(NumberWindow* window, f32 order);
-void set_flag60_bit10__14TWindowSubItemFv(NumberWindow* window);
 s32 TWindowDD__sub_80341AE0(int);
 extern s32 local_client_id;
 extern const f32 TWindowDD__data_805DFB6C;
@@ -376,7 +376,6 @@ extern "C" {
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1);
 void free_buffers__9TWindowDDFv(void);
 s32 update_close_flag__9TWindowDDFPv(void *arg0);
-void free_nodes_with_id__6TLobbyFUl(void*);
 s32 get_current_child_index__9TWindowDDFv();
 void close_all_windows__9TWindowDDFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -412,8 +411,8 @@ void open_numeric_parameter_input__9TWindowDDFPviii(WordSelectWindowState* self,
     }
     self->numberWindow = window;
     if (self->numberWindow) {
-        set_field_1c__6TLobbyFf(self->numberWindow, lbl_805DFC28);
-        set_flag60_bit10__14TWindowSubItemFv(self->numberWindow);
+        ((TLobby *)(self->numberWindow))->set_field_1c(lbl_805DFC28);
+        ((TWindowSubItem *)(self->numberWindow))->set_flag60_bit10();
         TWindowDD__sub_80341AE0((int)(self->pages[self->activePage]));
     }
 }
@@ -836,7 +835,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
     {
       floor = get_current_floor();
       s32 r;
-      v = get_stat_by_key_state__10TObjPlayerFv(p);
+      v = ((TObjPlayer *)p)->get_stat_by_key_state();
       if (is_boss_area() != 0)
       {
         r = check_all_ready__9TWindowDDFl(floor);
@@ -991,23 +990,23 @@ void free_buffers__9TWindowDDFv(void) {
         TWindowDD__work_buffer = 0U;
     }
     if ((u32) TWindowDD__ws_data_buffer != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)TWindowDD__ws_data_buffer);
+        TLobby::free_nodes_with_id((u32)((void*)TWindowDD__ws_data_buffer));
         TWindowDD__ws_data_buffer = 0U;
     }
     if ((u32) lbl_805D6E5C != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E5C);
+        TLobby::free_nodes_with_id((u32)((void*)lbl_805D6E5C));
         lbl_805D6E5C = 0U;
     }
     if ((u32) lbl_805D6E58 != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E58);
+        TLobby::free_nodes_with_id((u32)((void*)lbl_805D6E58));
         lbl_805D6E58 = 0U;
     }
     if ((u32) lbl_805D6E54 != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E54);
+        TLobby::free_nodes_with_id((u32)((void*)lbl_805D6E54));
         lbl_805D6E54 = 0U;
     }
     if ((u32) lbl_805D6E50 != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)lbl_805D6E50);
+        TLobby::free_nodes_with_id((u32)((void*)lbl_805D6E50));
         lbl_805D6E50 = 0U;
     }
 }

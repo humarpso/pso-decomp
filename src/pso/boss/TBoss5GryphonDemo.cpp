@@ -1,6 +1,9 @@
 #include "pso/TBoss5GryphonDemo.h"
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct E_80066304 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
@@ -46,8 +49,6 @@ void fn_8002B630(void *, void *);
 u8 *mem_alloc(s32);
 void register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
-void construct_collider_proxy__10TObjPlayerFv(void *);
-s16 alloc_actor_ids__6TLobbyFl(s32);
 extern s32 gryphon_demo_collision_body_desc[];
 extern s32 lbl_804886AC[];
 extern s32 lbl_805D2808;
@@ -56,7 +57,6 @@ extern const f32 lbl_805D8EDC;
 Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 arg2, void *arg3, f32 len);
 s32 TBoss8Dragon__sub_8005D700(void);
 void activate_camera_mode(int);
-void cache_target_and_forward__11TCameraCtrlFl(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__17TBoss5GryphonDemo[];
 extern s32 lbl_805D2810;
@@ -121,10 +121,10 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 
     f32 z;
     Seg_800663DC *s;
     s32 i;
-    construct_collider_proxy__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->construct_collider_proxy();
     arg0->vt = lbl_804886AC;
     arg0->f0 = lbl_805D2808;
-    arg0->f1c = alloc_actor_ids__6TLobbyFl(0);
+    arg0->f1c = TLobby::alloc_actor_ids(0);
     VecCopy__FP3VecPC3Vec(arg0->posbuf, arg3);
     arg0->count = arg2;
     arg0->segs = (Seg_800663DC *)mem_alloc(arg0->count * 0x2C);
@@ -178,7 +178,7 @@ Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 
         c.fc = self->f20;
         c.f10 = self->f1c;
         activate_camera_mode(5);
-        cache_target_and_forward__11TCameraCtrlFl(&c, 0x238E);
+        ((TCameraCtrl *)(&c))->cache_target_and_forward(0x238E);
         break;
     }
     return self;

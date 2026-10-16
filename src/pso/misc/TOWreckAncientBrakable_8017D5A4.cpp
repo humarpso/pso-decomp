@@ -1,14 +1,13 @@
 #include "types.h"
 #include "pso/misc/TOWreckAncientBrakable.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 play_sound_effect(s32, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 s32 spawn_particle_effect(void *, s32);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TOWreckAncientBrakable__sub_8017D444(void *);
-s32 spawn_debris__22TOWreckAncientBrakableFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
@@ -17,7 +16,7 @@ void TOWreckAncientBrakable::update_break_state() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TOWreckAncientBrakable__sub_8017D444(arg0);
         return;
     }
@@ -32,7 +31,7 @@ void TOWreckAncientBrakable::update_break_state() {
             play_sound_effect(0x43C11, arg0 + 0x38, 0, 0);
             spawn_particle_effect(arg0 + 0x38, 0x45);
             spawn_particle_effect(arg0 + 0x38, 0x46);
-            spawn_debris__22TOWreckAncientBrakableFv(arg0);
+            ((TOWreckAncientBrakable *)arg0)->spawn_debris();
         }
         return;
     case 1:

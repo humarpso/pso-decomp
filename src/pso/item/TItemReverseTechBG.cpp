@@ -1,6 +1,8 @@
 #include "pso/TItemReverseTechBG.h"
 
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 
 struct TItemReverseTechBG_80119658 {
     u8 pad0[0x1C];
@@ -26,17 +28,15 @@ void draw_textured_quad_at_depth(void *, f32);
 void begin_screen_draw(int);
 void set_draw_texture_and_color(void *, void *);
 s32 __ct__7TObjectFP7TObject();
-void get_player__20TWindowSubStatusDispFv(void);
-void notify_fish_if_valid__10TObjPlayerFUl(void *);
 void reset_transform_state__10TObjPlayerFv(void *);
 
 void TItemReverseTechBG::render() {
     reset_transform_state__10TObjPlayerFv(this);
-    notify_fish_if_valid__10TObjPlayerFUl(*(void **)((s8 *)this + 0x2C));
+    TObjPlayer::notify_fish_if_valid((u32)(*(void **)((s8 *)this + 0x2C)));
     begin_screen_draw(1);
     set_draw_texture_and_color(*(void **)((s8 *)this + 0x30), *(void **)((s8 *)this + 0x34));
     draw_textured_quad_at_depth((void *)((char *)this + 56), *(f32 *)((s8 *)this + 0x58));
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 extern void *__vt__18TItemReverseTechBG[];

@@ -2,6 +2,7 @@
 #include "pso/misc/CharacterAppearance.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/misc/TCharaMaking.h"
+#include "pso/misc/TChCrLoadReq.h"
 
 struct TextureList
 {
@@ -56,7 +57,6 @@ struct CharData_8028DF98 {
 
 extern "C" {
 extern struct ClassAppearance class_appearance_table[19];
-s32 get_display_index__12TCharaMakingFv(struct Appearance *);
 void build_appearance_texture_names__12TCharaMakingFv(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
@@ -97,7 +97,6 @@ extern "C" {
 
 s32 TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
-s32 create__12TChCrLoadReqFPv(void *);
 
 extern u32 creation_main_menu_obj;
 
@@ -216,7 +215,7 @@ void TCharaMaking::update_body_parts() {
     validate_player_visual_record((void *)(arg0 + 0x85C));
     *(f32 *)((s8 *)arg0 + 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
     ((s32 (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
-    create__12TChCrLoadReqFPv(arg0);
+    TChCrLoadReq::create(arg0);
 }
 
 }
@@ -342,7 +341,7 @@ void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2
   struct TextureList *temp_r6;
   ClassAppearance *new_var;
   struct TextureList *temp_r6_2;
-  temp_r4 = get_display_index__12TCharaMakingFv(arg3) * 0x2C;
+  temp_r4 = ((TCharaMaking *)arg3)->get_display_index() * 0x2C;
   new_var = (ClassAppearance *) (((u8 *) class_appearance_table) + temp_r4);
   *arg0 = 0;
   temp_r28 = new_var;

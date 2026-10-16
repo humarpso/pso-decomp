@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Stack_8035B6B0 {
     s32 sp8;
     s32 spC;
@@ -10,7 +11,6 @@ struct Stack_8035B6B0 {
 
 extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, int, void *, f32, f32);
 extern s32 chao_npc_spawn_descriptor[];
 extern s32 bm_ene_npc_chao_resource_descriptor[];
@@ -30,7 +30,7 @@ void load_and_spawn_chao_npc(void) {
     Stack_8035B6B0 stack;
     u8 *temp_r5;
     u8 *var_r9;
-    var_r9 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFv(0x440));
+    var_r9 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
     if (var_r9 != NULL) {
         var_r9 = (u8 *)(load_resource_from_descriptor(var_r9, 1, bm_ene_npc_chao_resource_descriptor, 0, 0, 0));
     }

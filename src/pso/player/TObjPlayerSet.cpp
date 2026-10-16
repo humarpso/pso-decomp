@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/player/TObjPlayerSet.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/TQuestThreadBoard.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -19,9 +22,7 @@ struct RecoveredGlobal_80195720___vt__13TObjPlayerSet {
 
 extern "C" {
 u8 * __ct__12TQuestThreadFv(void *, s32, s32);
-s32 destroy_board__17TQuestThreadBoardFv();
 void *__nw__7TObjectFUl(int);
-s32 set_parent__7TObjectFP7TObject(int, int);
 extern s32 tl_00;
 u8 *TObjQuestCol2__vt14(u8 *arg0);
 void disallow_rendering__7TObjectFv(void *);
@@ -39,7 +40,6 @@ void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1);
 void *TObjQuestCol2__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void TObjPlayerSet::render() {  }
 void TObjPlayerSet::run_task() {  }
@@ -59,7 +59,7 @@ extern s32 __vt__13TObjPlayerSet[];
 void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjPlayerSet;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -99,7 +99,7 @@ u8 *TObjQuestCol2__vt14(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     u8 *var_r31;
-    destroy_board__17TQuestThreadBoardFv();
+    TQuestThreadBoard::destroy_board();
     var_r31 = (u8 *)(NULL);
     if ((u32) *(u32 *)((s8 *)arg0 + 0xBC) != 0U) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x194))));
@@ -109,7 +109,7 @@ u8 *TObjQuestCol2__vt14(u8 *arg0) {
         }
         var_r31 = (u8 *)(var_r0);
         if (var_r0 != NULL) {
-            set_parent__7TObjectFP7TObject((int) (var_r0), (int) (tl_00));
+            ((TObject *)var_r0)->set_parent((TObject *)tl_00);
         }
     }
     return var_r31;

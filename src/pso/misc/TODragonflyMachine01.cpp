@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TODragonflyMachine01.h"
+#include "pso/enemy/TObjEneMe3Stelth.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct DfBase_801651B0 { char pad[0x18]; };
 struct DfV_801651B0 : DfBase_801651B0 {
@@ -48,7 +51,6 @@ extern const f32 lbl_805DB5CC;
 u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1);
 O_80165434 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_80165434 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void spawn_attack__16TObjEneMe3StelthFslllff(s16, int, int, void *, f32, f32);
 extern s32 dragonfly_machine_attack_effect_params[];
 extern char TODragonflyMachine01__attack_effect_descriptor[];
 extern u32 TODragonflyMachine01__model_resource;
@@ -74,8 +76,6 @@ s32 rotate_matrix_y(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 update_anim_phase__17TOBarrierEnergy01Fv(void *);
 
 extern s32 lbl_805D599C;
@@ -93,7 +93,7 @@ void TODragonflyMachine01::run_task() {
 
     *(s32 *)((s8 *)this + 0xFC) = (s32) (*(s32 *)((s8 *)this + 0xFC) + *(s32 *)((s8 *)this + 0xF8));
     *(f32 *)((s8 *)this + 0xF0) = (f32) (*(f32 *)((s8 *)this + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)this + 0xFC)));
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((DfV_801651B0 *)this)->vf12();
         return;
     }
@@ -152,7 +152,7 @@ void TODragonflyMachine01::create_attack_effect() {
     sp8.v[2] = dragonfly_machine_attack_effect_params[2];
     sp8.v[3] = dragonfly_machine_attack_effect_params[3];
     sp8.v[0] = o->f430;
-    spawn_attack__16TObjEneMe3StelthFslllff(0x38, o->sub->a, o->sub->b, &sp8, lbl_805DB5B0, lbl_805DB5B4);
+    TObjEneMe3Stelth::spawn_attack((s16)0x38, (s32)(o->sub->a), (s32)(o->sub->b), (s32)(&sp8), (f32)lbl_805DB5B0, (f32)lbl_805DB5B4);
 }
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {
@@ -209,14 +209,14 @@ void play_cave01_key_sound(void *arg0) {
         play_sound_effect(0x53F06, 0, 0, 0);
         return;
     case 3:
-        temp_r3 = get_global_state__14TOKeyMachine01Fv();
+        temp_r3 = TOKeyMachine01::get_global_state();
         if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
             play_sound_effect(0x52812, 0, 0, 0);
             return;
         }
         break;
     case 4:
-        temp_r3_2 = get_global_state__14TOKeyMachine01Fv();
+        temp_r3_2 = TOKeyMachine01::get_global_state();
         if ((temp_r3_2 != 0x10) && (temp_r3_2 != 0x11)) {
             play_sound_effect(0x52813, 0, 0, 0);
             return;

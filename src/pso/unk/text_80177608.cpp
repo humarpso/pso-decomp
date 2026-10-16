@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -9,7 +10,6 @@ struct Parm_80177608 { s32 a; s32 b; s32 c; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void disallow_rendering__7TObjectFv(void *);
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect_with_rotation(void *, Parm_80177608 *, s32, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Tbl_80177608 switch_attack_sub_id_table;
@@ -43,9 +43,9 @@ u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 
         *(void **)(arg0 + 0x20) = spawn_particle_effect_with_rotation(arg0 + 0x24, &p, a.v[arg4], 0x40);
         if (*(void **)(arg0 + 0x20) != 0) {
             if ((s32) arg4 == 10) {
-                set_position_xy__10TObjPlayerFff(*(void **)(arg0 + 0x20), lbl_805DBA04 * farg0, lbl_805DBA04 * farg0);
+                ((TObjPlayer *)(*(void **)(arg0 + 0x20)))->set_position_xy(lbl_805DBA04 * farg0, lbl_805DBA04 * farg0);
             } else {
-                set_position_xy__10TObjPlayerFff(*(void **)(arg0 + 0x20), farg0, farg0);
+                ((TObjPlayer *)(*(void **)(arg0 + 0x20)))->set_position_xy(farg0, farg0);
             }
         }
     }

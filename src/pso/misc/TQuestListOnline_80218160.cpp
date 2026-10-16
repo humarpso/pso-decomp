@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TQuestListOnline.h"
+#include "pso/TProtocol.h"
 
 struct Obj_802181B0 { u8 pad[0x20]; u32 state; };
 
@@ -11,7 +12,6 @@ void TQuestListOnline__vt9(Obj_802181B0 *arg0);
 extern "C" {
 
 int set_field_20__12TQuestListVMFl(void*, void*);
-int send_quest_menu_request__9TProtocolFv(void*);
 
     extern int TLobby__protocol_instance;
     extern int online_quest_bin_data;
@@ -19,7 +19,7 @@ int send_quest_menu_request__9TProtocolFv(void*);
     extern int quest_bin_decompressed_size;
     extern int online_quest_list_decompressed_size;
 }
-void TQuestListOnline::request_menu() { send_quest_menu_request__9TProtocolFv((void*)(TLobby__protocol_instance)); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; online_quest_list_decompressed_size = 0; set_field_20__12TQuestListVMFl(this, (void*)12); }
+void TQuestListOnline::request_menu() { ((TProtocol *)TLobby__protocol_instance)->send_quest_menu_request(); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; online_quest_list_decompressed_size = 0; set_field_20__12TQuestListVMFl(this, (void*)12); }
 extern "C" {
 
 void TQuestListOnline__vt9(Obj_802181B0 *arg0) {

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjTombstone.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -56,7 +59,6 @@ struct Obj_800753DC {
 
 extern "C" {
 u16 get_nth_view_player_id__11TCameraCtrlFl();
-s32 get_camera_no__11TCameraCtrlFv();
 u32 get_player_by_client_id(int);
 f32 xyz_distance(void *, void *);
 extern const f32 TObjTombstone__data_805D9174;
@@ -76,8 +78,6 @@ extern const f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D917C;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
-f32 get_fov__11TCameraCtrlFv();
-f32 get_view_scale__11TCameraCtrlFv();
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
 f32 vec3_dot(void *, void *);
@@ -96,7 +96,6 @@ extern View_800751BC *camera_ctrl_instance;
 extern const f32 TObjTombstone__data_805D9174;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 calc_text_width(const char *);
-u32 calc_text_width__20TWindowSubStatusDispFPc(const char *);
 void draw_menu_font_string(const char *, u32, s32, f32, f32, f32);
 f32 sin_table_lookup(s32);
 u32 strlen(const char *);
@@ -115,7 +114,6 @@ void handle_6x96(void);
 s32 is_challenge_mode_active();
 s32 get_current_floor();
 s32 is_flag_set__6TLobbyFv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void TObjTombstone::copy_matrix(void* q) { *(f32*)((char*)this + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)this + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)this + 0x1c) = *(f32*)((char*)q + 0x1c); *(f32*)((char*)this + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)this + 0x24) = *(f32*)((char*)q + 0x24); }
 
@@ -131,7 +129,7 @@ void handle_6x96(void) {  }
 s32 TObjTombstone::check_owner() {
     s32 var_r3;
 
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         var_r3 = is_challenge_mode_active();
     } else {
         var_r3 = is_flag_set__6TLobbyFv();
@@ -198,9 +196,9 @@ s32 TObjTombstone::project_to_screen(void *arg0, f32 *arg1, void *arg2) {
     pop_matrix();
     if (is_split_screen() != 0) {
         arg1[0] -= (f32)get_screen_height__11TCameraCtrlFv();
-        arg1[0] /= get_view_scale__11TCameraCtrlFv();
+        arg1[0] /= TCameraCtrl::get_view_scale();
         arg1[1] -= (f32)get_screen_width__11TCameraCtrlFv();
-        arg1[1] /= get_fov__11TCameraCtrlFv();
+        arg1[1] /= TCameraCtrl::get_fov();
     }
     return 1;
 }
@@ -209,7 +207,7 @@ void TObjTombstone::update_fade_by_distance() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     u32 temp_r3;
-    get_camera_no__11TCameraCtrlFv();
+    TCameraCtrl::get_camera_no();
     temp_r3 = get_player_by_client_id((int) (get_nth_view_player_id__11TCameraCtrlFl()));
     if (temp_r3 != 0U) {
         temp_f1 = xyz_distance((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
@@ -262,7 +260,7 @@ s32 TObjTombstone::draw_name_labels(void *arg0_) {
         P_800753DC p = screen;
         name = self->names[i];
         if (strlen(name) != 0) {
-            p.x -= lbl_805D918C * calc_text_width__20TWindowSubStatusDispFPc(name);
+            p.x -= lbl_805D918C * TWindowSubStatusDisp::calc_text_width(name);
             if (a > TObjTombstone__data_805D9174) {
                 s32 j;
                 for (j = 0; j < 8; j++) {

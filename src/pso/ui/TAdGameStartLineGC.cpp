@@ -1,6 +1,7 @@
 #include "pso/TAdGameStartLineGC.h"
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Quad_80320EF0 {
     f32 x0, y0, x1, y1;
@@ -56,10 +57,8 @@ extern "C" {
 
 int fn_80320DE8(void*);
 int get_state_flag__9TMainTaskFv(void*);
-int init_xyz_limits__10TObjPlayerFv(void);
-int reset_transform_state__10TObjPlayerFv(void);
 
-void TAdGameStartLineGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { init_xyz_limits__10TObjPlayerFv(); fn_80320DE8(this); reset_transform_state__10TObjPlayerFv(); } }
+void TAdGameStartLineGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { TObjPlayer::init_xyz_limits(); fn_80320DE8(this); TObjPlayer::reset_transform_state(); } }
 
 #pragma push
 #pragma fp_contract on

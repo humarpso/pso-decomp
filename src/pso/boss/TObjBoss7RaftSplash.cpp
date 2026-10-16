@@ -11,7 +11,6 @@ struct Stack_802F15D4 {
 struct RecoveredGlobal_802F16CC___vt__19TObjBoss7RaftSplash { s32 value; u8 remaining[0x14]; };
 
 extern "C" {
-void create_splash_particle__8TObjFishFlll(s32, s32, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 TCameraCtrl__sub_8006A5DC();
 extern const f32 lbl_805DEC68;
@@ -46,7 +45,7 @@ void TObjBoss7RaftSplash::run_task() {
             *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (temp_f0 - temp_f1);
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
             stack.spC += **(f32 **)((s8 *)arg0 + 0x24) - lbl_805DEC68;
-            create_splash_particle__8TObjFishFlll((s32) &stack.sp8, 0x200, (s32) (arg0 + 0x34));
+            TObjFish::create_splash_particle((s32) &stack.sp8, 0x200, (s32) (arg0 + 0x34));
         }
     }
 }

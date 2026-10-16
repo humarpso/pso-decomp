@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/boss/TBoss6Rock.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 {
     s32 value;
@@ -102,7 +105,6 @@ extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
 s32 spawn_particle_effect(void *, int);
 s32 play_sound_effect(s32, u32, int, s32);
-s32 apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
 void TBoss6Rock__sub_803542E8(void *, s32);
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
@@ -155,14 +157,12 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object(int);
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
 extern int TBoss6Rock__data_805D6EF0;
 extern int TBoss6Rock__data_805D6EF4;
 extern const f32 TBoss6Rock__data_805DFF48;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 u32 create__10TObjMapCsnFl(void *, void *, f32);
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
 extern u8 lbl_80479280[];
@@ -174,7 +174,6 @@ extern "C" {
 int TBoss6Rock__sub_80353A04(void);
 int TBoss6Rock__sub_80353A0C(void);
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
-s32 set_fade_material_color__14TBoss6PlotFalzFf(f32);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(int, int);
 s32 draw_ginja_object(int);
@@ -186,18 +185,15 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 int is_active__10TBoss6RockFv(void*);
 int queue_destruction__7TObjectFv(void*);
-s32 reset_fish_globals__8TObjFishFv();
-s32 set_global_param__8TObjFishFl(int);
 
 void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) {
         VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (const void *)((void *) (arg2)));
-        copy_xyz__10TObjPlayerFPv((void *) (arg0 + 0x30), (void *) (arg3));
+        ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *) (arg3));
         *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
         *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
         *(s32 *)((s8 *)arg0 + 0x40) = arg5;
@@ -215,10 +211,10 @@ void TBoss6Rock::render_if_active() {
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34)));
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x30)));
         rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x38)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x3C)));
-        set_fade_material_color__14TBoss6PlotFalzFf((f32) (TBoss6Rock__data_805DFF4C));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x3C)));
+        TBoss6PlotFalz::set_fade_material_color((f32) (TBoss6Rock__data_805DFF4C));
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x40)));
-        reset_fish_globals__8TObjFishFv();
+        TObjFish::reset_fish_globals();
         pop_matrix();
     }
 }
@@ -444,7 +440,7 @@ void TBoss6Rock__sub_80353F5C(Obj_80353F5C *o) {
   if (o->h == 0)
   {
     VecCopy__FP3VecPC3Vec(&blk.v1, ((u8 *) o) + 0xD4);
-    copy_xyz__10TObjPlayerFPv(&blk.v2, lbl_80479280);
+    ((TObjPlayer *)(&blk.v2))->copy_xyz(lbl_80479280);
     new_var2 = (u8 *) ((Elem_80353F5C *)&TBoss6Rock__data_80479258);
     new_var2 = (o->idx * 0x14) + new_var2;
     new_var = (Elem_80353F5C *) new_var2;
@@ -526,7 +522,7 @@ void TBoss6Rock::update_fall() {
         play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
-        apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
+        TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
         *(s32 *)((s8 *)arg0 + 0xC4) = 2;
     }
 }
@@ -566,7 +562,7 @@ void TBoss6Rock::draw_model() {
     rotate_matrix_y(0, arg0->f60);
     rotate_matrix_x(0, arg0->f5C);
     rotate_matrix_z(0, arg0->f64);
-    set_global_param__8TObjFishFl((*(s32 *)&TBoss6Rock__data_805D6EF4));
+    TObjFish::set_global_param((*(s32 *)&TBoss6Rock__data_805D6EF4));
     draw_ginja_object(get_bml_model((*(s32 *)&TBoss6Rock__data_805D6EF0), ((E_803546B0 *)&TBoss6Rock__data_80479258)[arg0->fB4].id));
     pop_matrix();
 }

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowMessage.h"
+#include "pso/misc/TWindowAddition.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
@@ -19,14 +22,11 @@ extern "C" {
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 s32 update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_window__15TWindowAdditionFs(void *, int);
 s32 advance_reveal_cursor__14TWindowMessageFPv(void *);
 s32 update_line_timers__14TWindowMessageFPv(void *);
 s32 retire_scrolled_lines__14TWindowMessageFPv(void *);
 s32 update_scroll__14TWindowMessageFPv(void *);
 void mem_free(void *);
-s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 update_fade__17TWindowSubComCardFv(void *);
 
 void render__14TWindowMessageFv(s32 arg0) {
     s32 temp_r3;
@@ -44,8 +44,8 @@ void TWindowMessage::draw() {
     retire_scrolled_lines__14TWindowMessageFPv(arg0);
     update_line_timers__14TWindowMessageFPv(arg0);
     advance_reveal_cursor__14TWindowMessageFPv(arg0);
-    initialize_subwindow__9TWindowDDFv(arg0);
-    update_fade__17TWindowSubComCardFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list(arg0, arg0 + 0x24);
 }
 
@@ -55,7 +55,7 @@ void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowMessage;
         if (*(void **)((s8 *)arg0 + 0x7C) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0x7C)); }
-        destroy_window__15TWindowAdditionFs(arg0, 0);
+        ((TWindowAddition *)arg0)->destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,12 +1,12 @@
 #include "types.h"
 #include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/misc/TLobby.h"
 
 struct E_802D2240 { u32 id; s32 cnt; };
 
 struct T_802D2240 { s32 a; s32 b; };
 
 extern "C" {
-void* get_trade_obj_ptr__6TLobbyFv(void* p);
 void TLobby__sub_802D22F0(void* p, void* q);
 void remove_trade_entry__6TLobbyFPvUi(E_802D2240 *arg0, u32 arg1);
 }
@@ -15,7 +15,6 @@ extern "C" {
 
 void TLobby__sub_802D22F0(void* p, void* q);
 void * TLobby__sub_802D2334(void);
-void* get_trade_obj_ptr__6TLobbyFv(void* p);
 
 s32 TWindowSubTradeMain::get_state() {
     void *temp_r3;
@@ -30,7 +29,7 @@ void remove_trade_entry__6TLobbyFPvUi(E_802D2240 *arg0, u32 arg1) {
     E_802D2240 *p;
     s32 i;
     if ((u32)(arg1 + 0x10000) == 0xFF01) {
-        T_802D2240 *t = (T_802D2240 *)((void *)get_trade_obj_ptr__6TLobbyFv((void*)(arg0)));
+        T_802D2240 *t = (T_802D2240 *)((void *)((TLobby *)arg0)->get_trade_obj_ptr());
         t->b = 0;
         return;
     }

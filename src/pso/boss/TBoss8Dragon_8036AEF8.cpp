@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8036AF40_lbl_804F3610 {
     s32 value;
@@ -16,13 +21,7 @@ struct Obj_8036B1AC {
 extern "C" {
 extern s32 lbl_804F3610[];
 void TBoss8Dragon__sub_8036AF40(s32 **arg0);
-s32 restore_full_screen_view__11TCameraCtrlFv();
-s32 reset_transform_state__10TObjPlayerFv();
-s32 init_xyz_limits__10TObjPlayerFv();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D63F0;
 extern s32 lbl_805D7000;
@@ -93,11 +92,11 @@ void TBoss8Dragon__sub_8036B088(void) {
     f32 p[2];
     s32 ang;
     ang = (-lbl_805D7000 << 16) / 30;
-    init_xyz_limits__10TObjPlayerFv();
-    begin_effect_render__13TParticleCtrlFv();
-    restore_full_screen_view__11TCameraCtrlFv();
+    TObjPlayer::init_xyz_limits();
+    TParticleCtrl::begin_effect_render();
+    TCameraCtrl::restore_full_screen_view();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(5, -1);
     o[0] = (545.0f);
     o[1] = (3.9e+02f);
@@ -112,8 +111,8 @@ void TBoss8Dragon__sub_8036B088(void) {
     p[0] = 1.0f;
     p[1] = (0.5f);
     TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), (s32)(-0x2000), (s32)(ang));
-    get_player__20TWindowSubStatusDispFv();
-    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp::get_player();
+    TObjPlayer::reset_transform_state();
 }
 
 void fn_8036B18C(void) {

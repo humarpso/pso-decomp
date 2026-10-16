@@ -237,20 +237,17 @@ void reset_and_invoke__6TLobbyFv(void) { reset_keyboard_state__6TLobbyFv(); invo
 #include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct L_8007BC5C { u8 pad0; u8 count; u8 pad2[2]; s32 ids[30]; };
 
 extern "C" {
-s32 get_state__23TAdSinglePlyChrSelectGCFv(void);
-s32 get_card_id__17TWindowSubComCardFv(void *);
-s32 is_active__17TWindowSubComCardFv(void *);
 }
 
 extern "C" {
 
 void TLobby__sub_8007BBEC(void);
 void TLobby__sub_8007BBF8(void);
-s32 send_c6_packet__6TLobbyFPv(s32, s32 *);
 
     extern short quest_collision_next_id;
 void TLobby__sub_8007BBEC(void) { quest_collision_next_id = 0; }
@@ -273,7 +270,7 @@ s32 TWindowSubComCard::get_card_slot(s32 arg0) {
         var_r3 = 0;
         return 0;
     }
-    temp_r3 = get_state__23TAdSinglePlyChrSelectGCFv();
+    temp_r3 = TAdSinglePlyChrSelectGC::get_state();
     var_r3 = temp_r3 + 0x10000;
     var_r3 = temp_r3 + 0xD2C4;
     var_r3 += var_r31 * 0x90;
@@ -291,10 +288,10 @@ void TLobby::collect_active_card_ids() {
     n = 0;
     i = 0;
     do {
-        if (is_active__17TWindowSubComCardFv(card) == 0) {
+        if (((TWindowSubComCard *)card)->is_active() == 0) {
             break;
         }
-        *p++ = get_card_id__17TWindowSubComCardFv(card);
+        *p++ = ((TWindowSubComCard *)card)->get_card_id();
         i++;
         n++;
         card += 0x90;
@@ -309,7 +306,7 @@ void TLobby::send_status_packet() {
     char sp8[0x84];
 
     ((TLobby *)sp8)->collect_active_card_ids();
-    send_c6_packet__6TLobbyFPv(TLobby__protocol_instance, (s32 *) sp8);
+    ((TLobby *)TLobby__protocol_instance)->send_c6_packet((s32 *) sp8);
 }
 
 }

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
 extern const f32 lbl_805DBC00;
 
 struct VBase_18_26a62c
@@ -52,7 +54,6 @@ s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object();
 extern s32 city_common_texture_list;
 extern const f32 lbl_805DBC00;
@@ -67,7 +68,6 @@ void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void *create_city_vertical_model(void *arg0);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 extern s32 city_vertical_model_vtable[];
 void *destroy_city_vertical_model(void *arg0, s16 arg1);
 s32 construct_world_actor_base(void *, void *);
@@ -95,7 +95,7 @@ void render_city_vertical_model(u8 *arg0) {
       ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C = ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C;
       return;
     }
-    set_global_param__8TObjFishFl((void *) city_common_texture_list);
+    TObjFish::set_global_param((s32)((void *) city_common_texture_list));
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     translate_matrix((int) 0, (f32) lbl_805DBC00, (f32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C, (f32) lbl_805DBC00);
@@ -159,7 +159,7 @@ void *create_city_vertical_model(void *arg0) {
 void *destroy_city_vertical_model(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_vertical_model_vtable;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TMainCursor.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Target_8013B70C {
     u8 pad0[0x32E];
@@ -13,12 +16,6 @@ s32 is_split_screen();
 s32 get_split_screen_view_index__11TCameraCtrlFUs();
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 render__11TMainCursorFPv(void *);
-s32 update_position__11TMainCursorFv(void *);
-s32 get_render_flag__11TMainCursorFv(void *);
-s32 test_flag_2_at_20__11TMainCursorFv(void *);
-s32 init_render_flags__11TMainCursorFv(void *);
-s32 get_camera_no__11TCameraCtrlFv();
-s32 set_global_param__8TObjFishFl(void *);
 extern u8 shared_effect_texture_list[];
 extern u8 main_task[];
 s32 obj_testFlags30(s32, s32);
@@ -27,18 +24,13 @@ s32 clear_flags__11TAdRicoRingFUl(void *, u32);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 check_visible__11TMainCursorFv(void *, void *, s32, s32);
 s32 set_target_index__11TMainCursorFs(void *, s32);
-u32 check_field_24__11TMainCursorFv(s32);
 s32 TMainCursor__sub_8013E310(void *);
 u8 TMainCursor__sub_8013E338(void *);
 u8 TMainCursor__sub_8013E358(void *);
 s32 is_same_target__11TMainCursorFPvPv(void *, void *);
-void *get_list__11TMainCursorFv(void *);
-s32 update_target_sub__11TMainCursorFv(void *);
 s8 TMainCursor__sub_8013F244(void);
 s8 fn_8013F24C(void *, s32);
-s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-s32 can_perform_physical_action__10TObjPlayerFv(void *);
 u8 get_cast_technique_level(void *, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
@@ -53,14 +45,8 @@ s32 play_sound_effect(s32, void *, s32, s32);
 s32 TMainCursor__sub_8013F180(void *);
 s32 find_entity_by_id();
 s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
-u32 check_field_24__11TMainCursorFv(s32);
-s32 check_flag_1__11TMainCursorFv(void *);
-s32 get_id__11TMainCursorFv(s32);
-f32 get_pos__11TMainCursorFv(void *);
-s32 init_render_flags__11TMainCursorFv(void *);
 s32 obj_testFlags30(s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 update__11TMainCursorFv(void *);
 
 extern "C" void __dt__11TMainCursorFPvs();
 extern "C" u8 lbl_8043F090[];
@@ -99,9 +85,9 @@ s32 check_can_pickup__11TMainCursorFi(s32 arg0) {
     s32 temp_r3;
     u32 temp_r3b;
 
-    get_id__11TMainCursorFv(arg0 + 0x60);
+    ((TMainCursor *)(arg0 + 0x60))->get_id();
     temp_r3 = find_entity_by_id();
-    if ((temp_r3 != 0) && ((u32) (obj_testFlags30(temp_r3, 0x80000000) + 0x80000000) == 0U) && ((temp_r3b = check_field_24__11TMainCursorFv(arg0)) != 0U) && (can_pickup_item_by_id__10TObjPlayerFii(temp_r3b, temp_r3) == 0)) {
+    if ((temp_r3 != 0) && ((u32) (obj_testFlags30(temp_r3, 0x80000000) + 0x80000000) == 0U) && ((temp_r3b = ((TMainCursor *)arg0)->check_field_24()) != 0U) && (can_pickup_item_by_id__10TObjPlayerFii(temp_r3b, temp_r3) == 0)) {
         return 1;
     }
     return 0;
@@ -116,64 +102,64 @@ extern const f32 lbl_805DB0D0;
 void validate_target__11TMainCursorFPv(u8 *self) {
     Target_8013B70C *t;
     clear_flags__11TAdRicoRingFUl(self + 0x20, 0xB);
-    t = (Target_8013B70C *)((u8 *(*)(u8 *))check_field_24__11TMainCursorFv)(self);
+    t = (Target_8013B70C *)((TMainCursor *)self)->check_field_24();
     if (t == NULL) {
-        update_target_sub__11TMainCursorFv(self);
+        ((TMainCursor *)self)->update_target_sub();
         return;
     }
     if (t->f424 == NULL) {
-        update_target_sub__11TMainCursorFv(self);
+        ((TMainCursor *)self)->update_target_sub();
         return;
     }
-    if (is_same_target__11TMainCursorFPvPv(self + 0x60, get_list__11TMainCursorFv(t->f424 + 0x4EC)) == 0) {
-        update_target_sub__11TMainCursorFv(self);
+    if (is_same_target__11TMainCursorFPvPv(self + 0x60, ((TMainCursor *)(t->f424 + 0x4EC))->get_list()) == 0) {
+        ((TMainCursor *)self)->update_target_sub();
         return;
     }
     if (TMainCursor__sub_8013E358(self + 0x60) != 1) {
         if (check_visible__11TMainCursorFv((u8 *)t + 0x500, t, TMainCursor__sub_8013E358(self + 0x60),
                                             TMainCursor__sub_8013E338(self + 0x60)) == -1) {
             set_target_index__11TMainCursorFs(t->f424 + 0x4F8, 0xFFFF);
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
     }
-    if (is_any_teammate_in_state__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::is_any_teammate_in_state() != 0) {
         TMainCursor__sub_8013E310(self);
         return;
     }
     switch (TMainCursor__sub_8013E358(self + 0x60)) {
     case 0:
-        update_target_sub__11TMainCursorFv(self);
+        ((TMainCursor *)self)->update_target_sub();
         return;
     case 1:
         return;
     case 2:
-        if (can_perform_physical_action__10TObjPlayerFv(t) == 0) {
-            update_target_sub__11TMainCursorFv(self);
+        if (((TObjPlayer *)t)->can_perform_physical_action() == 0) {
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         return;
     case 3:
         if (is_invalid_slot__10TObjPlayerFUc(get_cast_technique_level((u8 *)t + 0x428, TMainCursor__sub_8013E338(self + 0x60))) != 0) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30((s32)t, 0x20006) != 0) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         if (test_action_mask__10TObjPlayerFl(t, 0x548000) != 0) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         if (t->f32E - *(s16 *)(calc_technique_parameters(TMainCursor__sub_8013E338(self + 0x60),
                                                       get_cast_technique_level((u8 *)t + 0x428, TMainCursor__sub_8013E338(self + 0x60)),
                                                       obj_getField1c(t)) + 0x10) < 0) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         return;
@@ -181,15 +167,15 @@ void validate_target__11TMainCursorFPv(u8 *self) {
         return;
     case 5:
         if (fn_8013F24C((u8 *)t + 0x4AC, TMainCursor__sub_8013E338(self + 0x60)) != TMainCursor__sub_8013F244()) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         if (test_action_mask__10TObjPlayerFl(t, 0x548000) != 0) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
             return;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-            update_target_sub__11TMainCursorFv(self);
+            ((TMainCursor *)self)->update_target_sub();
         }
         return;
     case 6:
@@ -203,19 +189,19 @@ void TMainCursor::render() {
     u8 *arg0 = (u8 *)this;
     s32 cam;
     s32 no;
-    if (init_render_flags__11TMainCursorFv(arg0) != 0) {
+    if (((TMainCursor *)arg0)->init_render_flags() != 0) {
         return;
     }
-    switch (test_flag_2_at_20__11TMainCursorFv(arg0)) {
+    switch (((TMainCursor *)arg0)->test_flag_2_at_20()) {
     case 0:
         break;
     default:
         return;
     }
     if (is_split_screen() != 0) {
-        get_render_flag__11TMainCursorFv(arg0);
+        ((TMainCursor *)arg0)->get_render_flag();
         cam = get_split_screen_view_index__11TCameraCtrlFUs();
-        no = get_camera_no__11TCameraCtrlFv();
+        no = TCameraCtrl::get_camera_no();
         if (no != cam) {
             return;
         }
@@ -225,14 +211,14 @@ void TMainCursor::render() {
     switch (*(s32 *)(arg0 + 0x1C)) {
     case 0:
     case 1:
-        update_position__11TMainCursorFv(arg0);
+        ((TMainCursor *)arg0)->update_position();
         break;
     case 2:
         break;
     default:
         return;
     }
-    set_global_param__8TObjFishFl(shared_effect_texture_list);
+    TObjFish::set_global_param((s32)shared_effect_texture_list);
     render__11TMainCursorFPv(arg0);
 }
 
@@ -242,7 +228,7 @@ void TMainCursor::run_task() {
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 2) {
         validate_target__11TMainCursorFPv((u8 *)(arg0));
-        if (check_flag_1__11TMainCursorFv(arg0) != 0) {
+        if (((TMainCursor *)arg0)->check_flag_1() != 0) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 2;
         }
     }
@@ -253,8 +239,8 @@ void TMainCursor::run_task() {
         if (!(*(f32 *)((s8 *)arg0 + 0x30) > *(f32 *)((s8 *)arg0 + 0x34))) {
             *(f32 *)((s8 *)arg0 + 0x30) = (f32) *(f32 *)((s8 *)arg0 + 0x28);
             *(s32 *)((s8 *)arg0 + 0x1C) = 1;
-            if (init_render_flags__11TMainCursorFv(arg0) == 0) {
-                if (update__11TMainCursorFv(arg0) != 0) {
+            if (((TMainCursor *)arg0)->init_render_flags() == 0) {
+                if (((TMainCursor *)arg0)->update() != 0) {
                     play_sound_effect(0x3816, arg0 + 0x40, 0, 1);
                     return;
                 }
@@ -264,7 +250,7 @@ void TMainCursor::run_task() {
     case 1:
         return;
     case 2:
-        if ((get_pos__11TMainCursorFv(arg0 + 0x4C) - lbl_805DB0D0) > TMainCursor__data_805DB0C0) {
+        if ((((TMainCursor *)(arg0 + 0x4C))->get_pos() - lbl_805DB0D0) > TMainCursor__data_805DB0C0) {
             TMainCursor__sub_8013F180(arg0 + 0x4C);
             return;
         }

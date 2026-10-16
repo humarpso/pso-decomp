@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOSymbolchatColli.h"
+#include "pso/misc/TWindowSubSymbolChat.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Stack_80178830 {
     f32 sp8;
@@ -56,12 +59,10 @@ struct Ent_8017873C
 
 extern "C" {
 s32 newton_sqrtf(f32);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA2C;
 extern const f32 lbl_805DBA30;
 void construct_actor_base__10TObjPlayerFPvPv(void *);
-void reset_photon_effect__10TObjPlayerFv(void *);
 void init_collision_body_parts(void *, void *, int);
 extern u8 lbl_804B4550[];
 extern s32 __vt__17TOSymbolchatColli[];
@@ -72,8 +73,6 @@ f32 horizontal_distance_squared(void *, void *);
 Player_80178890 *find_entity_by_id(u16);
 void fn_8017866C(void *, s32, u16);
 void run_task__17TOSymbolchatColliFv(Obj_80178890 *self);
-void bswap_entry__20TWindowSubSymbolChatFv(void *);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 void prs_decompress_buffer(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 mem_alloc(s32);
@@ -161,7 +160,7 @@ void TOSymbolchatColli::init_collision_params() {
 void TOSymbolchatColli::render() {
     u8 *arg0 = (u8 *)this;
     Stack_80178830 stack;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         stack.sp8 = lbl_805DBA2C;
         stack.spC = lbl_805DBA30;
         stack.sp10 = lbl_805DBA2C;
@@ -213,9 +212,9 @@ void TOSymbolchatColli::load_symbol_chat_data() {
     if (h != 0) {
         prs_decompress_buffer(h, symbol_chat_colli_entries);
     }
-    safe_free__23TAdSinglePlyChrSelectGCFUl(h);
+    TAdSinglePlyChrSelectGC::safe_free(h);
     for (i = 0; i < 0x18; i++) {
-        bswap_entry__20TWindowSubSymbolChatFv((u8 *)symbol_chat_colli_entries + i * 0x58);
+        ((TWindowSubSymbolChat *)((u8 *)symbol_chat_colli_entries + i * 0x58))->bswap_entry();
     }
     for (i = 0; i < 3; i++) {
         symbolchat_colli_param_table[i] = 0;
@@ -241,7 +240,7 @@ Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2) {
     *(s32 *)arg0 = lbl_805D3194;
     arg0->v5(arg2);
     init_collision_body_parts(arg0, lbl_804B4550, 1);
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOSymbolchatColli *)arg0)->init_collision_params();
     for (i = 0; i < 4; i++) {
         arg0->arr[i] = 0;

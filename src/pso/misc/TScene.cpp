@@ -14,9 +14,8 @@ extern "C" {
 
 int advance_scene_object_animations(void*);
 int set_field4__6TSceneFv(void*);
-int dispatch_material_animation__6TSceneFv(void*);
 
-void TScene::run_task() { set_field4__6TSceneFv(this); advance_scene_object_animations(this); dispatch_material_animation__6TSceneFv(this); }
+void TScene::run_task() { set_field4__6TSceneFv(this); advance_scene_object_animations(this); dispatch_material_animation(); }
 Ent_80205AA8 *find_material_entry_by_id__6TSceneFPvUs(void *self, u16 id) {
     Tbl_80205AA8 *t = TScene__material_info_buffer;
     if (t != 0) {

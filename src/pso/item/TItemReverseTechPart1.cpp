@@ -76,13 +76,13 @@ void TItemReverseTechPart1::run_task() {
 TItemReverseTechPart1::~TItemReverseTechPart1() {}
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
 void *TItemReverseTechPart1__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *init_fade__6TLobbyFPvPv(void *, void *, void *);
 
 extern s32 __vt__21TItemReverseTechPart1[];
 extern void *lbl_805D2C4C;
@@ -104,7 +104,7 @@ void *TItemReverseTechPart1__ct(void *arg0) {
     TItemReverseTechPart1__instance = arg0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPv(o, tl_00, destroy_and_flag__21TItemReverseTechPart2Fv);
+        ((TLobby *)o)->init_fade(tl_00, destroy_and_flag__21TItemReverseTechPart2Fv);
     }
     return arg0;
 }

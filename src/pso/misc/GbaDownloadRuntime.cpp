@@ -144,6 +144,7 @@ u8 get_selected_slot__6TLobbyFv(void) {
 #include "pso/network/GbaJoybootState.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdWarningBaseGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct DateStamp_8032C9A8 { s32 days; s32 mins; s32 ticks; };
 
@@ -153,7 +154,6 @@ extern "C" {
 s32 SIProbe(s32);
 s32 TLobby__sub_801F34F8(void);
 extern const f32 TLobby__data_805DF7A4;
-s32 get_global_state__23TAdSinglePlyChrSelectGCFv();
 void DateToSeconds__FP9DateStampPi(DateStamp_8032C9A8 *, u32 *);
 void getDateStamp__FP9DateStamp(DateStamp_8032C9A8 *);
 void *memmove(void *, const void *, u32);
@@ -199,7 +199,7 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
     s32 st;
     memset(&rec, 0, 0xC);
     obj = TLobby__gba_joyboot_send_buffer;
-    st = get_global_state__23TAdSinglePlyChrSelectGCFv();
+    st = TAdSinglePlyChrSelectGC::get_global_state();
     if (st != 0) {
         if (arg1 != 0) {
             getDateStamp__FP9DateStamp(&ds);

@@ -3,6 +3,9 @@
 #include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOCtrlDubchik.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowKeyBoardHard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Vec_800FD4D4 {
     f32 x, y, z;
@@ -31,7 +34,6 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
 struct Vec_800FCD40 { f32 x, y, z; };
 static const Vec_800FCD40 font_small_forward_vec = {0.0f, 0.0f, -1.0f};
 extern "C" {
-f32 get_view_scale__11TCameraCtrlFv(void);
 void allow_rendering__7TObjectFv(TObject*);
 void disallow_rendering__7TObjectFv(TObject*);
 void queue_destruction__7TObjectFv(TObject*);
@@ -53,10 +55,9 @@ s32 TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32 *);
 s32 text_builder_reset();
 s32 __nw__7TObjectFUl(s32);
-s32 set_card_window_flags__19TWindowKeyBoardHardFPvll(s32, s32, s32);
 
 void fn_800FCCC8(s32 arg0, s32 arg1) {
-    set_card_window_flags__19TWindowKeyBoardHardFPvll(arg0, arg1 << 0xD, 0xFFFF1FFF);
+    TWindowKeyBoardHard::set_card_window_flags((void *)arg0, (s32)(arg1 << 0xD), (s32)0xFFFF1FFF);
 }
 s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
 
@@ -64,7 +65,7 @@ extern s32 lbl_805DAA34;
 
 f32 calc_small_font_scale(void) {
     f32 temp_f1;
-    temp_f1 = get_view_scale__11TCameraCtrlFv();
+    temp_f1 = TCameraCtrl::get_view_scale();
     if (temp_f1 >= 1.0) {
         return lbl_805DAA00;
     }
@@ -77,8 +78,6 @@ extern "C" {
 
 struct Quad_800FCD40 { f32 x, y, right, bottom, u, v, u2, v2; };
 
-s32 get_camera_no__11TCameraCtrlFv(void);
-s32 get_nth_view_player_id__11TCameraCtrlFl(s32);
 void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 void rotate_matrix_x(int, s32);
@@ -92,7 +91,6 @@ void project_world_to_screen(int, f32 *, f32 *);
 s32 is_split_screen(void);
 s32 get_screen_height__11TCameraCtrlFv(void);
 s32 get_screen_width__11TCameraCtrlFv(void);
-f32 get_fov__11TCameraCtrlFv(void);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 void begin_screen_draw(int);
 void render_forward__20TWindowSubStatusDispFPv(void);
@@ -100,7 +98,6 @@ void set_draw_texture_and_color(int, u32);
 void build_small_font_glyph_quad(u8, Quad_800FCD40 *);
 void draw_textured_quad_at_depth(Quad_800FCD40 *, f32);
 u8 get_small_font_glyph_width(u8);
-void get_player__20TWindowSubStatusDispFv(void);
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DAA04;
@@ -136,7 +133,7 @@ void TFontSmallTask::render() {
         return;
     }
     if (view != 0xFFFF) {
-        s32 cam = (u16)get_nth_view_player_id__11TCameraCtrlFl(get_camera_no__11TCameraCtrlFv());
+        s32 cam = (u16)TCameraCtrl::get_nth_view_player_id(TCameraCtrl::get_camera_no());
         if (cam != view) {
             return;
         }
@@ -166,14 +163,14 @@ void TFontSmallTask::render() {
     pop_matrix();
     if (is_split_screen() != 0) {
         screen[0] -= (f32)get_screen_height__11TCameraCtrlFv();
-        screen[0] /= get_view_scale__11TCameraCtrlFv();
+        screen[0] /= TCameraCtrl::get_view_scale();
         screen[1] -= (f32)get_screen_width__11TCameraCtrlFv();
-        screen[1] /= get_fov__11TCameraCtrlFv();
+        screen[1] /= TCameraCtrl::get_fov();
     }
     x = screen[0] += offset_x;
     y = screen[1] += offset_y;
     {
-        f32 sc = get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
+        f32 sc = get_scale__15TWindowCtrlMainFv(TCameraCtrl::get_camera_no());
         depth = lbl_805DAA10 / (lbl_805DAA14 + sc);
     }
     cursor = text;
@@ -210,7 +207,7 @@ void TFontSmallTask::render() {
         x = adv * scale + x;
         reveal = reveal - lbl_805DAA2C * (adv / text_width);
     }
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 #pragma pop
 
@@ -380,7 +377,6 @@ s32 is_area_transfer_pending(void);
 s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c();
-s32 get_game_mode__6TLobbyFv();
 s32 get_actor_section_id(void *);
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -436,7 +432,7 @@ void find_leader_section_id(struct Out_800FD614 *out, s32 arg1) {
     s32 n;
     s32 i;
     VObj_800FD614 *p;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         p = (VObj_800FD614 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && arg1 == obj_getField1c()) {

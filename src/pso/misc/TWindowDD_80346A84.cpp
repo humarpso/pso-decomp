@@ -5,7 +5,6 @@ s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 get_word_select_context__9TWindowDDFv();
 s32 TWindowDD__sub_80346DB8(s32 arg0);
-s32 get_entry__9TWindowDDFl(s32 entry_index);
 }
 
 extern "C" {
@@ -202,7 +201,7 @@ s16 TWindowDD_read_indexed_value(s32 entry_index, s32 value_index) {
     s16 result;
     TWindowDDValueList *entry;
     result = -1;
-    entry = (TWindowDDValueList *)get_entry__9TWindowDDFl(entry_index);
+    entry = (TWindowDDValueList *)TWindowDD::get_entry(entry_index);
     if (entry != NULL) {
         if ((value_index < 0) || (value_index >= entry->count)) {
             result = -1;

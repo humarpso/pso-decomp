@@ -18,7 +18,6 @@ s32 GXLoadPosMtxImm(s32, s32);
 extern s32 (*model_node_callback)(void *);
 s32 PSMTXInverse(s32, s32 *);
 s32 PSMTXTranspose(s32 *, s32 *);
-s32 apply_motion_node_transform__10TObjPlayerFv(void *);
 s32 compose_motion_node_matrix(void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -34,7 +33,7 @@ void TObjPlayer::render_model_tree(void *arg0) {
     var_r31 = arg0;
     do {
         push_matrix();
-        apply_motion_node_transform__10TObjPlayerFv(var_r31);
+        ((TObjPlayer *)var_r31)->apply_motion_node_transform();
         if (((s32 (*)(void *)) model_node_callback) != NULL) {
             model_node_callback(var_r31);
         }

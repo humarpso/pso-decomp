@@ -2,6 +2,10 @@
 
 #include <stddef.h>
 #include "pso/misc/TWindowPartyStatus.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 struct Stack_8030C0C4 {
     f32 sp8;
     f32 spC;
@@ -28,9 +32,7 @@ s32 TWindowSubComCard__sub_80245320(void *, void *);
 s32 TWindowSubComCard__sub_802454E4(int);
 s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
 s32 apply_context_transform_to_rect(void *, void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D63F0;
@@ -60,8 +62,6 @@ void __dt__19TWindowSimpleStatusFv(void *, int);
 int update_hp_entry__20TWindowSubStatusDispFPv(void*);
 s32 apply_random_shake(void *);
 s32 update_lockon_window();
-s32 initialize_subwindow__9TWindowDDFv(void *);
-s32 update_fade__17TWindowSubComCardFv(void *);
 int update_status_entry__20TWindowSubStatusDispFv(void*);
 s32 update_status_help_item(void *);
 
@@ -86,7 +86,7 @@ void TWindowPartyStatus::draw_background(u8 *arg1) {
     f32 temp_f6;
     temp_f31 = lbl_805DF1EC / *(f32 *)((s8 *)arg0 + 0x54);
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFl((void *) (lbl_805D63F0));
+    TObjFish::set_global_param((s32)((void *) (lbl_805D63F0)));
     set_draw_texture_and_color((int) (0xB), (int) (*(s32 *)((s8 *)arg1 + 0x34)));
     temp_f2 = *(f32 *)((s8 *)arg1 + 0x10);
     stack.sp8 = temp_f2;
@@ -100,7 +100,7 @@ void TWindowPartyStatus::draw_background(u8 *arg1) {
     stack.sp24 = lbl_805DF204;
     apply_context_transform_to_rect((void *) (arg1), (void *) (&stack.sp8));
     draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (temp_f31));
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
     if (TWindowSubComCard__sub_80245558((void *) (arg1), (void *) (arg1 + 0x10), (void *) (arg1 + 0x18)) != 0) {
         TWindowSubComCard__sub_802454E4((int) (0xB));
         TWindowSubComCard__sub_80245320((void *) (&stack.sp8), (void *) (arg1));
@@ -121,8 +121,8 @@ void TWindowPartyStatus::run_task() {
     draw();
     update_status_help_item((void *) (arg0));
     update_status_icons__14TWindowComCardFPvPv((void *) (arg0), (int) (get_window_layout_position((int) (0xAC))));
-    initialize_subwindow__9TWindowDDFv((void *) (arg0));
-    update_fade__17TWindowSubComCardFv((void *) (arg0));
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
     apply_random_shake((void *) (arg0));
 }

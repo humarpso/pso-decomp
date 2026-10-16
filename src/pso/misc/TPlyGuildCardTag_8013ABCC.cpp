@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TPlyGuildCardTag.h"
+#include "pso/misc/TQuestListVM.h"
 
 extern "C" {
 void TPlyGuildCardTag__sub_8013ACA4(void *arg0, void *arg1);
@@ -8,7 +9,6 @@ void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
 void fn_8013ACE4(int a0);
     extern int area_random_seed;
 void set_area_random_seed(int a0);
-void set_field_20__12TQuestListVMFl(void *, s32);
 extern u8 *TQuestListOnline__instance;
 void TQuestListOnline__sub_8013ACF4(s32 arg0);
 }
@@ -36,7 +36,7 @@ void fn_8013ACE4(int a0) { item_drop_server_seed = a0; }
 void set_area_random_seed(int a0) { area_random_seed = a0; }
 void TQuestListOnline__sub_8013ACF4(s32 arg0) {
     if ((void *) TQuestListOnline__instance != NULL) {
-        set_field_20__12TQuestListVMFl(TQuestListOnline__instance, arg0);
+        ((TQuestListVM *)TQuestListOnline__instance)->set_field_20(arg0);
     }
 }
 

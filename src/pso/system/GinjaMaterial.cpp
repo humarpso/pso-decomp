@@ -59,7 +59,6 @@ s32 get_ginja_vertex_descriptor_type(u32 arg0, s32 arg1);
 void set_ginja_indexed_vtx_desc(s32 arg0);
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
-void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
 extern RecoveredCallback_d26337a2813d ginja_draw_end_callback;
 extern s32 ginja_draw_flags;
@@ -106,7 +105,6 @@ s32 draw_ginja_model_lists(GinjaModel *model);
 extern s32 ginja_draw_flags;
 extern s32 model_render_flags;
 extern S_803DB560 ginja_material_cache;
-void reset_particle_counter__10TObjPlayerFv(void);
 void apply_scene_fog(void);
 void prepare_ginja_model(void);
 void GXSetTexCoordGen2(s32 dst, u32 func, u32 src, s32 mtx, s32 normalize, s32 pt);
@@ -140,7 +138,6 @@ void init_model_draw_queue(void *);
 void flush_model_draw_queue(void);
 void prepare_ginja_model(void);
 void traverse_model_node_tree(void *, void *);
-void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
 s32 queue_model_draw_current_matrix(s32 arg0);
 s32 draw_ginja_model_lists(GinjaModel *model);
@@ -180,7 +177,7 @@ void draw_ginja_object(void *arg0) {
         ginja_draw_end_callback();
     }
     if ((u32) (ginja_draw_flags & 2) != 0U) {
-        set_effect_active__10TObjPlayerFv();
+        TObjPlayer::set_effect_active();
         apply_scene_fog();
     }
 }
@@ -513,7 +510,7 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
 #pragma peephole off
 void prepare_ginja_model(void) {
     if ((*(u32 *)&ginja_draw_flags) & 2) {
-        reset_particle_counter__10TObjPlayerFv();
+        TObjPlayer::reset_particle_counter();
         apply_scene_fog();
     }
     for (s32 i = 0; i < 11; ++i) {
@@ -531,7 +528,7 @@ void prepare_ginja_model(void) {
 #pragma peephole off
 void end_ginja_model_draw(void) {
     if ((u32) (ginja_draw_flags & 2) != 0) {
-        set_effect_active__10TObjPlayerFv();
+        TObjPlayer::set_effect_active();
         apply_scene_fog();
     }
     if ((u32) (model_render_flags & 1) == 0) {

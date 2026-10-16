@@ -1,12 +1,12 @@
 #include "types.h"
 #include "pso/misc/TORevlightCave01.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80173614_lbl_804B3A70 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80173614_lbl_804B3A70_size[sizeof(RecoveredGlobal_80173614_lbl_804B3A70) == 0x10 ? 1 : -1];
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80173614_lbl_804B3A70 bm_fs_obj_yukakaiten01_resource_descriptor;
 extern u32 TORevlightCave01__static_model_resource;
 }
@@ -38,7 +38,7 @@ void TORevlightCave01::release_static_instance() {
 void TORevlightCave01::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_yukakaiten01_resource_descriptor.value, 0, 0, 0));

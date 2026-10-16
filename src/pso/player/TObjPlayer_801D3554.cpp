@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -35,8 +37,6 @@ int TItemList__sub_801D5868(void*, void*);
 int __dl__FPv();
 s32 copy_item_data__9TItemListFv(s32, s32);
 s32 create_node__9TItemListFPvPvPvSc(s32, s32, s32, s32);
-s32 free_if_positive__6TLobbyFls(s32 arg0, s16 arg1);
-s32 set_field4__10TObjPlayerFl(s32, s32);
 
 void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 temp_r31;
@@ -46,7 +46,7 @@ void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
     temp_r30 = TItemList__sub_801D5854(arg0, 0);
     if (TItemList__sub_801D5844(temp_r31) != 0) {
         TItemList__sub_801D5838((void*)(temp_r31));
-        set_field4__10TObjPlayerFl(temp_r30, arg4);
+        ((TObjPlayer *)temp_r30)->set_field4(arg4);
         copy_item_data__9TItemListFv(temp_r30, arg3);
         create_node__9TItemListFPvPvPvSc(arg0, arg2, arg1, 0);
         TItemList__sub_801D5804((void*)(arg0));

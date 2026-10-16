@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TAdRicoRing.h"
+#include "pso/misc/TWindowActionPalette.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s16 TObjPlayer__sub_801BF57C(void* p);
@@ -18,14 +21,6 @@ s32 TObjPlayer__sub_801BF560(s16 *arg0);
 extern "C" {
 
 void TObjPlayer__sub_801BF47C(void* p);
-int update_action_palette__10TObjPlayerFv(void* p);
-int set_action_palette_mode__10TObjPlayerFv(void* p);
-int clear_flag0_bit1__10TObjPlayerFv(void* p);
-int set_flag_2__10TObjPlayerFv(void* p);
-int clear_flags__11TAdRicoRingFUl(void*, int);
-int set_flags__10TObjPlayerFUl(void*, int);
-int set_slot__20TWindowActionPaletteFUc(void*);
-int set_mode__20TWindowActionPaletteFUc(void*);
 
 u8 is_timer_running(u8 *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 4) != -1);

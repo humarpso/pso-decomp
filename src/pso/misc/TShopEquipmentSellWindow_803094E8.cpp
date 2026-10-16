@@ -1,11 +1,10 @@
 #include "types.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
 #include "pso/misc/TWindowCost.h"
+#include "pso/boss/TBoss7Crawfish.h"
 
 extern "C" {
 
-f32 get_health__14TBoss7CrawfishFv(void* p);
-void set_anim_timer__14TBoss7CrawfishFs(void* p, s16 v);
 void TBoss7Crawfish__vt42(void);
 void TBoss7Crawfish__vt43(void);
 void TBoss7Crawfish__vt44(void);

@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
 
 struct VBase_14_800A7BEC { char pad[0x14]; };
 
@@ -86,35 +94,25 @@ struct Player_800A7CA4 : VBase18_800A7CA4 {
 
 extern "C" {
 void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0);
-void set_param__12TObjEneLappyFl(void *, s32);
 void TObjPlayer__sub_800A7B54(u8 *arg0);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 request_two_effects__10TObjPlayerFv(void *);
-s32 apply_effect_variant_a__10TObjPlayerFll(void *, int);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 void TObjPlayer__sub_800A7988(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_800A77D4(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_800A7820(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_800A786C(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_800A78B8(s32 arg0);
 s32 TObjPlayer__sub_800A0554(void *);
-s32 play_area_se_with_particle__12TBoss3VoloptFv(void *);
 s32 advance_animation_playback();
 void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0);
-u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
@@ -125,26 +123,17 @@ extern s32 dimedian_type3_object;
 extern s32 lbl_805D5088;
 extern const f32 lbl_805D9AA4;
 void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o);
-s32 render_with_position_override__10TObjPlayerFPUcl(void *, void *, int);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 check_demo_mode__10TObjPlayerFv();
-s32 check_v2_mode__9TObjEneDDFv();
-s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 s32 update_obstruction_fade(void *);
-s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 render_world_model__10TObjPlayerFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 TObjPlayer__sub_8023DEE0(int, int, int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(void *);
 extern s32 dimedian_resource_handles[];
 extern s32 dimedian_last_draw_tick[];
@@ -182,7 +171,6 @@ s32 play_sound_effect(s32, s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 s16 TObjPlayer::get_field_2c8() { return *(s16*)((char*)this + 0x2c8); }
@@ -199,24 +187,24 @@ void TObjPlayer__sub_800A77D0(void) {  }
 
 void TObjPlayer__sub_800A77D4(s32 arg0) {
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), (s32)((int) (0x4003AD40)))))), (s32)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
-    play_effect_if_v2__10TObjPlayerFl((s32)((int) (-0x100)));
+    TObjPlayer::play_effect_if_v2((s32)((int) (-0x100)));
 }
 
 void TObjPlayer__sub_800A7820(s32 arg0) {
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), (s32)((int) (0x4003AD3D)))))), (s32)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
-    play_effect_if_v2__10TObjPlayerFl((s32)((int) (-0x100)));
+    TObjPlayer::play_effect_if_v2((s32)((int) (-0x100)));
 }
 
 void TObjPlayer__sub_800A786C(s32 arg0) {
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), (s32)((int) (0x4003A83E)))))), (s32)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
-    play_effect_if_v2__10TObjPlayerFl((s32)((int) (-0x100)));
+    TObjPlayer::play_effect_if_v2((s32)((int) (-0x100)));
 }
 
 extern f32 lbl_805D9AA0;
 
 void TObjPlayer__sub_800A78B8(s32 arg0) {
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((s32)((void *) (arg0)), (s32)((int) (0x4003A83F)))))), (s32)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
-    play_effect_if_v2__10TObjPlayerFl((s32)((int) (-0x100)));
+    TObjPlayer::play_effect_if_v2((s32)((int) (-0x100)));
 }
 
 void TObjPlayer::play_hit_sound() {
@@ -229,14 +217,14 @@ void TObjPlayer::play_hit_sound() {
         temp_r3 = copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B23C);
         play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
     }
-    play_effect_if_v2__10TObjPlayerFl(-0x100);
+    TObjPlayer::play_effect_if_v2(-0x100);
 }
 
 void TObjPlayer__sub_800A7988(s32 arg0) {
     s32 temp_r3;
-    apply_effect_variant_a__10TObjPlayerFll((void *) (arg0 + 0x38), (int) (0));
-    request_two_effects__10TObjPlayerFv((void *) (arg0 + 0x2FC));
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    TObjPlayer::apply_effect_variant_a((s32)((void *) (arg0 + 0x38)), (s32)((int) (0)));
+    ((TObjPlayer *)(arg0 + 0x2FC))->request_two_effects();
+    temp_r3 = TOKeyMachine01::get_global_state();
     if ((temp_r3 == 0x13) || (temp_r3 == 0x14)) {
         play_sound_effect((s32)(0x3AD3F), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
         return;
@@ -255,11 +243,11 @@ void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o) {
     }
     switch (o->fB8) {
     case 3:
-        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)dimedian_type3_object, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)dimedian_type3_object, o->fC0);
         idx = 0;
         break;
     case 4:
-        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D5088, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)lbl_805D5088, o->fC0);
         idx = 1;
         break;
     default:
@@ -301,15 +289,15 @@ void TObjPlayer__sub_800A7B54(u8 *arg0) {
     switch (temp_r0_2) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x368) = 0;
-        set_param__12TObjEneLappyFl(arg0, 0x2B);
+        ((TObjEneLappy *)arg0)->set_param(0x2B);
         return;
     case 1:
         *(s32 *)((s8 *)arg0 + 0x368) = 1;
-        set_param__12TObjEneLappyFl(arg0, 0x2A);
+        ((TObjEneLappy *)arg0)->set_param(0x2A);
         return;
     default:
         *(s32 *)((s8 *)arg0 + 0x368) = 2;
-        set_param__12TObjEneLappyFl(arg0, 0x29);
+        ((TObjEneLappy *)arg0)->set_param(0x29);
         return;
     }
 }
@@ -320,7 +308,7 @@ void TObjPlayer__sub_800A7BEC(Obj_800A7BEC *arg0) {
     default:
         if (arg0->f390 == 1) {
             arg0->state = 1;
-            play_area_se_with_particle__12TBoss3VoloptFv(arg0->sub38);
+            ((TBoss3Volopt *)(arg0->sub38))->play_area_se_with_particle();
             TObjPlayer__sub_800A0554((u8 *)arg0 + 0x3A8);
         } else {
             arg0->state = 2;
@@ -358,16 +346,16 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
         return;
     }
     fading = 0;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         update_obstruction_fade(&self->fades[mode]);
-        fading = updateFromCamera__15RenderFadeStateFPCf(&self->fades[mode], self->cam);
+        fading = ((RenderFadeState *)(&self->fades[mode]))->updateFromCamera((const f32*)(self->cam));
     }
     select_actor_lighting(self);
-    set_global_param__8TObjFishFl(self->f24);
+    TObjFish::set_global_param(self->f24);
     push_matrix();
     post_translate_matrix(self->pos);
     rotate_matrix_y(0, self->f60);
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         draw_chunk_object(self->f34);
     } else {
         switch (self->f326) {
@@ -380,7 +368,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
             break;
         }
         }
-        toggle_particle_effect__10TObjPlayerFv();
+        TObjPlayer::toggle_particle_effect();
         if (self->f390 == 1) {
             if (self->sub.active() != 0) {
                 lbl_805D5660 = model_render_flags;
@@ -392,7 +380,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
                     d = 0;
                 }
                 if (d != 0) {
-                    draw__16TObjEneRe7BeruraFv(self);
+                    ((TObjEneRe7Berura *)self)->draw();
                 }
                 self->sub.end();
                 chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -409,16 +397,16 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
             }
             if (doDraw != 0) {
                 if (vis == 1) {
-                    draw__16TObjEneRe7BeruraFv(self);
+                    ((TObjEneRe7Berura *)self)->draw();
                 } else {
-                    render_world_model__10TObjPlayerFv(self);
+                    ((TObjPlayer *)self)->render_world_model();
                 }
             }
             if (fading != 0) {
                 self->fades[mode].end();
             }
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         switch (self->f326) {
         case 0:
         case 1:
@@ -439,7 +427,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
         pos[0] = lbl_805D9AB4;
         pos[1] = lbl_805D9AB8;
         pos[2] = lbl_805D9ABC;
-        render_with_position_override__10TObjPlayerFPUcl(self, pos, 0);
+        ((TObjPlayer *)self)->render_with_position_override((u8 *)pos, (s32)0);
         break;
     }
 }

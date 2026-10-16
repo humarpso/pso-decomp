@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 struct Vec_80325F7C { f32 x, y, z; };
 
 struct Ray_80325F7C { Vec_80325F7C o; Vec_80325F7C d; };
@@ -24,8 +26,6 @@ typedef struct Wing_80326074 {
 
 extern "C" {
 void TBoss8Dragon__sub_80063FB8(s32, void *, f32);
-s32 get_instance_count__12TBoss8DragonFv(void);
-void update_scale__15TObjBoss2TunnelFv(void *);
 Ctl_80325F7C *get_player_by_client_id(s32);
 void get_wing_position__26TBoss5GryphonLightningWingFl(void *, void *);
 void copy_position__12TBoss8DragonFl(void *, void *);
@@ -36,7 +36,6 @@ extern const f32 lbl_805DF638;
 void fn_80325F7C(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80326074 *csnVecterUnder(void *, s32);
-void update_scale__15TObjBoss2TunnelFv(void *);
 void get_wing_position__26TBoss5GryphonLightningWingFl(void *, void *);
 void copy_position__12TBoss8DragonFl(void *, void *);
 void update_wing_segments(void *);
@@ -63,7 +62,7 @@ void fn_80325F7C(void *arg0) {
     s32 inst;
     s32 i;
     Ctl_80325F7C *c;
-    inst = get_instance_count__12TBoss8DragonFv();
+    inst = TBoss8Dragon::get_instance_count();
     if (inst != 0) {
         i = 0;
         do {
@@ -81,7 +80,7 @@ void fn_80325F7C(void *arg0) {
                 dir.x = ray.d.x;
                 dir.y = ray.d.y;
                 dir.z = ray.d.z;
-                update_scale__15TObjBoss2TunnelFv(&dir);
+                ((TObjBoss2Tunnel *)(&dir))->update_scale();
                 TObjPlayer__sub_80325D58(arg0, &pos, &dir, &hit);
                 TBoss8Dragon__sub_80063FB8(inst, &hit, lbl_805DF638);
             }
@@ -117,7 +116,7 @@ void rebuild_lightning_segments(Wing_80326074 *self) {
     copy_position__12TBoss8DragonFl(self, &q);
     VecCopy__FP3VecPC3Vec(&d, &p);
     subtract_vector(&d, &q);
-    len = ((f32 (*)(void *))update_scale__15TObjBoss2TunnelFv)(&d) / (f32)(self->n - 1);
+    len = ((TObjBoss2Tunnel *)(&d))->update_scale() / (f32)(self->n - 1);
     d.x *= len;
     d.y *= len;
     d.z *= len;

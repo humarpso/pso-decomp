@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 struct Handler_801E416C {
     u16 cmd;
     u16 mask;
@@ -15,7 +16,6 @@ struct Buf_801E416C {
 
 extern "C" {
 void debug_print__FPCc(const char *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 int sprintf(char *, const char *, ...);
 extern char pso_data_receive_log_format[];
 extern u8 subcommand_area_masks[];
@@ -35,7 +35,7 @@ void dispatch_pso_data_commands(Buf_801E416C *b) {
             if (pkt[0] == pso_command_dispatch_table[i].cmd) {
                 sprintf(msg, pso_data_receive_log_format, pkt[0], pkt[1]);
                 debug_print__FPCc(msg);
-                if (pso_command_dispatch_table[i].mask & subcommand_area_masks[get_global_state__14TOKeyMachine01Fv()]) {
+                if (pso_command_dispatch_table[i].mask & subcommand_area_masks[TOKeyMachine01::get_global_state()]) {
                     pso_command_dispatch_table[i].fn(pkt);
                 }
                 break;

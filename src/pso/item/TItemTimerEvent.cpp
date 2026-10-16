@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/TItemTimerEvent.h"
+#include "pso/boss/TBoss3Volopt.h"
 
 struct Base_8011E140_8011DA9C { char pad[0x18]; };
 struct VObj_8011E140_8011DA9C : Base_8011E140_8011DA9C {
@@ -58,7 +59,6 @@ u32 get_player_by_client_id(u16);
 void __dt__15TItemHeapObjectFv(void *, int);
 s32 fn_8011E1D4();
 void __dl__15TItemHeapObjectFPv(void *);
-s32 get_field_3e0__12TBoss3VoloptFv(s32);
 s32 obj_isState3_324(s32);
 s32 obj_testFlags30(s32, s32);
 s32 set_flag_10000__10TObjPlayerFv();
@@ -70,7 +70,7 @@ void TItemTimerEvent__sub_8011DA9C(void *arg0) {
 }
 
 void TItemTimerEvent::tick_hp_drain() {
-    get_field_3e0__12TBoss3VoloptFv(*(s32 *)((s8 *)this + 0x28));
+    ((TBoss3Volopt *)(*(s32 *)((s8 *)this + 0x28)))->get_field_3e0();
     if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)this + 0x28)) == 0) && (obj_testFlags30(*(s32 *)((s8 *)this + 0x28), 0x800) == 0)) {
         TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)this + 0x28), 1);
     }

@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TOMonumentAncient01.h"
+#include "pso/misc/TOHealGeneral.h"
+#include "pso/misc/TOKey.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80172758_lbl_804B38E0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80172758_lbl_804B38E0_size[sizeof(RecoveredGlobal_80172758_lbl_804B38E0) == 0x10 ? 1 : -1];
@@ -26,23 +30,18 @@ struct RecoveredGlobal_80172810___vt__19TOMonumentAncient01 {
 };
 
 extern "C" {
-s32 calc_angle_to__10TObjPlayerFPv(void *, void *);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 s32 start_camera_pan__10TObjPlayerFPvs(int, int, void *);
 s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_80172758_lbl_804B38E0 bm_fs_obj_o_sekihi01_resource_descriptor;
 extern u32 TOMonumentAncient01__resource_bundle;
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 update_heal_gauge_state__13TOHealGeneralFv(void *);
-s32 init__5TOKeyFv(void *);
 extern RecoveredGlobal_80172810_lbl_804B38F0 lbl_804B38F0;
 extern s32 __vt__19TOMonumentAncient01[];
 extern s32 TOMonumentAncient01__name;
@@ -64,7 +63,6 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_key_object__5TOKeyFs(void *, s32);
 
 extern void *tl_05;
 
@@ -90,7 +88,7 @@ extern s32 __vt__19TOMonumentAncient01[];
 void TOMonumentAncient01::load_resource_instance() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_fs_obj_o_sekihi01_resource_descriptor.value, 0, 0, 0));
@@ -103,7 +101,7 @@ void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOMonumentAncient01;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_key_object__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -114,7 +112,7 @@ void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80172810_lbl_804B38F0_size[sizeof(RecoveredGlobal_80172810_lbl_804B38F0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80172810___vt__19TOMonumentAncient01_size[sizeof(RecoveredGlobal_80172810___vt__19TOMonumentAncient01) == 0x44 ? 1 : -1];
 u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    init__5TOKeyFv((void *) (arg0));
+    ((TOKey *)arg0)->init();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -122,8 +120,8 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
-    update_heal_gauge_state__13TOHealGeneralFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB918;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB91C;
     return arg0;
@@ -157,7 +155,7 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
         temp_r3 = get_player_by_client_id((void *) (arg1));
         if (temp_r3 != 0) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 2;
-            start_camera_pan__10TObjPlayerFPvs((int) (temp_r3), (int) (0xC), (void *) (calc_angle_to__10TObjPlayerFPv((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38))));
+            start_camera_pan__10TObjPlayerFPvs((int) (temp_r3), (int) (0xC), (void *) (((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
             if (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
                 sp8 = (s16) *(s32 *)((s8 *)arg0 + 0xAC);
                 access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/TItemEffPG.h"
+#include "pso/item/TItemAttackCol.h"
 
 struct PgBase_8034FF4C { char pad[0x18]; };
 struct PgV_8034FF4C : PgBase_8034FF4C {
@@ -29,7 +30,6 @@ s32 TItemEffPG__begin_visual_fade(void *);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_attack_collision__14TItemAttackColFs(void *, int);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 has_game_join_id();
 s32 queue_destruction__7TObjectFv(void *);
@@ -74,7 +74,7 @@ extern s32 __vt__10TItemEffPG[];
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TItemEffPG;
-        destroy_attack_collision__14TItemAttackColFs(arg0, 0);
+        ((TItemAttackCol *)arg0)->destroy_attack_collision(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

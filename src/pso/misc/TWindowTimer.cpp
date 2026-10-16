@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowTimer.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowHelpItem.h"
+#include "pso/misc/TWindowSubShortMail.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct RecoveredGlobal_80287FBC_lbl_804D2E74 {
     s32 value;
@@ -17,7 +21,6 @@ s32 draw_visible_window_entries(void *, void *, int);
 extern s32 __vt__14TWindowMessage[];
 void render__12TWindowTimerFv(s32 arg0);
 s16 get_timer_value__12TWindowTimerFi(int);
-s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
 s32 ease_window_timer_position(void *);
 void run_task__12TWindowTimerFv(u8 *arg0);
@@ -36,7 +39,6 @@ s32 text_builder_append(s32 *);
 s32 text_builder_reset();
 s32 set_text_entry_string(s32, s32, s32);
 s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s32 reset_float_field__15TWindowHelpItemFv(s32);
 extern s32 lbl_8044FCE8[];
 extern s32 lbl_805DD888;
 extern s32 lbl_805DD88C;
@@ -53,15 +55,11 @@ s32 text_builder_reset();
 s32 set_text_entry_string(s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(s32);
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, s32);
-void destroy_window_base__9TWindowDDFs(void *, int);
 s32 is_com_card_active();
 s32 is_guild_card_receive_active();
 s32 init_timer_window_layout(s32);
 s32 init_timer_window_layout_alt(s32);
 s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s32 is_active__19TWindowSubShortMailFv();
-s32 reset_float_field__15TWindowHelpItemFv(s32);
 
 void TWindowTimer::update_chat_parts() {
     u8 *arg0 = (u8 *)this;
@@ -69,12 +67,12 @@ void TWindowTimer::update_chat_parts() {
 
     if (*(s32 *)((s8 *)arg0 + 0x60) & 1) {
         var_r3 = get_window_layout_position(0xA9);
-    } else if ((is_active__19TWindowSubShortMailFv() != 0) || (is_com_card_active() != 0) || (is_guild_card_receive_active() != 0)) {
+    } else if ((TWindowSubShortMail::is_active() != 0) || (is_com_card_active() != 0) || (is_guild_card_receive_active() != 0)) {
         var_r3 = get_window_layout_position(0xA8);
     } else {
         var_r3 = get_window_layout_position(0x22);
     }
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg0 + 0x30, var_r3);
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void*)var_r3);
 }
 
 extern s32 lbl_8044FCE0[];
@@ -90,7 +88,7 @@ void TWindowTimer::draw(s32 arg1, s32 arg2) {
     text_builder_append(lbl_8044FCE0);
     append_padded_number(arg2, 3);
     set_text_entry_string(temp_r31, get_shared_text_buffer(), 0x20);
-    reset_float_field__15TWindowHelpItemFv(temp_r31);
+    ((TWindowHelpItem *)temp_r31)->reset_float_field();
 }
 
 void TWindowTimer::set_time(u32 secs) {
@@ -113,7 +111,7 @@ void TWindowTimer::set_time(u32 secs) {
         append_padded_number((s32)(secs), (s32)(2));
     }
     set_text_entry_string((s32)(entry), (s32)(get_shared_text_buffer()), (s32)(0x20));
-    reset_float_field__15TWindowHelpItemFv(entry);
+    ((TWindowHelpItem *)entry)->reset_float_field();
 }
 
 void TWindowTimer::draw_tab(s32 arg0, s32 arg1) {
@@ -160,13 +158,13 @@ void run_task__12TWindowTimerFv(u8 *arg0) {
     temp_r31 = get_timer_value__12TWindowTimerFi((int) 1);
     ((TWindowTimer *)arg0)->draw((s32)((int) get_timer_value__12TWindowTimerFi((int) 0)), (s32)((int) temp_r31));
   }
- do { initialize_subwindow__9TWindowDDFv((void *) arg0); ((TWindowTimer *)arg0)->update_chat_parts(); ease_window_timer_position((void *) arg0); update_window_entry_list((void *) arg0, (void *) (arg0 + 0x24)); } while (0);
+ do { ((TWindowDD *)arg0)->initialize_subwindow(); ((TWindowTimer *)arg0)->update_chat_parts(); ease_window_timer_position((void *) arg0); update_window_entry_list((void *) arg0, (void *) (arg0 + 0x24)); } while (0);
 }
 
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TWindowTimer;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

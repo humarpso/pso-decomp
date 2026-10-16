@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/TItemLoad.h"
 
 extern "C" {
 
 void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1);
-s32 reset_ring_state__9TItemLoadFv(s32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 free_texture_if_valid(void *, void *);
@@ -21,10 +21,10 @@ void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
         switch (temp_r0) {
         case 2:
-            reset_ring_state__9TItemLoadFv(item_model_chunk_loader);
+            ((TItemLoad *)item_model_chunk_loader)->reset_ring_state();
             break;
         case 3:
-            reset_ring_state__9TItemLoadFv(item_texture_archive_loader);
+            ((TItemLoad *)item_texture_archive_loader)->reset_ring_state();
             break;
         }
         temp_r3 = *(void ***)((s8 *)arg0 + 0x3C);

@@ -3,6 +3,9 @@
 TBoss2Tentacle::~TBoss2Tentacle() {}
 
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct V3_80039DE0 { f32 x, y, z; };
 
@@ -74,15 +77,11 @@ s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
-s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_chunk_object(void *);
 s32 draw_model_motion(void *, int, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern Node_8003933C lbl_804FE5D8[];
 extern s32 *lbl_805D4BD0;
 extern G_80039C44 *TBoss2Tentacle__motion_data;
@@ -101,14 +100,12 @@ void TBoss2Tentacle__sub_80039D88(void* p);
 void TBoss2Tentacle__sub_80039DA4(void* p);
 void TBoss2Tentacle__sub_80039DBC(void* p);
 void TBoss2Tentacle__sub_80039DD4(void* p);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 f32 sin_table_lookup(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 subtract_vector(void *, void *);
-s32 concat_matrix__10TObjPlayerFUlUl(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 extern int TBoss2Tentacle__rest_angles[];
@@ -123,7 +120,6 @@ extern const f32 lbl_805D853C;
 extern const f32 lbl_805D8540;
 void run_task__14TBoss2TentacleFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 calc_random_scaled__10TObjPlayerFv();
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand();
 extern s32 __vt__14TBoss2Tentacle[];
@@ -176,26 +172,26 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     s32 var_r5;
     u8 *temp_r7;
     u8 *temp_r8;
-    set_global_flag__10TObjPlayerFv();
-    set_global_param__8TObjFishFl((void *) (lbl_805D4BD8));
+    TObjPlayer::set_global_flag();
+    TObjFish::set_global_param((s32)((void *) (lbl_805D4BD8)));
     push_matrix();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        concat_matrix__10TObjPlayerFUlUl((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 1:
     case 4:
     case 5:
-        concat_matrix__10TObjPlayerFUlUl((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 2:
-        concat_matrix__10TObjPlayerFUlUl((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         draw_chunk_object((void *) (lbl_805D4BD0));
@@ -215,7 +211,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         break;
     }
     pop_matrix();
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
 }
 
 typedef V3_80039DE0 V3_800394DC;
@@ -271,12 +267,12 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
         v.z = v.y = v.x = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
         push_matrix();
         set_matrix_identity(0);
-        concat_matrix__10TObjPlayerFUlUl(0, F(s32, 0x110));
+        TObjPlayer::concat_matrix(0, F(s32, 0x110));
         matrix_mult_vec(0, &v, arg0 + 0x140);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x12C);
         subtract_vector(&v, arg0 + 0x140);
-        len = clamp_velocity__15TObjBoss2TunnelFv(&v);
+        len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         F(s32, 0x11C) = (s32)(lbl_80435BA8[0] * atan2_float(v.x, v.z)) + 0x8000;
         VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x12C);
         switch (F(s32, 0x24)) {
@@ -500,7 +496,7 @@ Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *paren
     self->f11C = 0;
     self->f120 = 0;
     self->f124 = 0x5EF;
-    self->f128 = calc_random_scaled__10TObjPlayerFv();
+    self->f128 = TObjPlayer::calc_random_scaled();
     self->f138 = TBoss2Tentacle__data_805D8534;
     self->f13C = TBoss2Tentacle__data_805D8534;
     self->f14C = 0;

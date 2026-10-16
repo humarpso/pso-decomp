@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 extern "C" {
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 void play_door_sound(u8 *arg0);
 }
@@ -38,7 +38,7 @@ void *lbl_804B0BB8[21] = {
 
 void play_door_sound(u8 *arg0) {
     if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
-        switch ((u32)get_global_state__14TOKeyMachine01Fv()) {
+        switch ((u32)TOKeyMachine01::get_global_state()) {
         case 0:
         case 18:
             play_sound_effect(0x42A04, arg0 + 0x38, 0, 0);

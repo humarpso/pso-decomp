@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
+#include "pso/misc/TWindowCtrl.h"
 
 struct RecoveredGlobal_802EE4E0_lbl_804E3C5C {
     s32 value;
@@ -32,7 +33,6 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void run_load_callback_table(void *, int);
 u8 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
-void init_all_slots__11TWindowCtrlFv();
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern s32 lbl_804E3D1C[];
 extern Light_802EE574 boss7_derolle_light_pool[];
@@ -117,7 +117,7 @@ void TObjPlayer__sub_802EE574(void) {
         t->type = 0x1F;
         t->next = 0;
     }
-    init_all_slots__11TWindowCtrlFv();
+    TWindowCtrl::init_all_slots();
 }
 
 }

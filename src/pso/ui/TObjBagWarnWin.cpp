@@ -1,6 +1,8 @@
 #include "pso/TObjBagWarnWin.h"
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Sub_8006EC20 {
     u8 pad[0x1C];
@@ -21,7 +23,6 @@ s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
 s32 fn_8006EF80();
 Ctrl_8006EC20 *get_player_by_client_id(s32);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 TLobby__sub_80211C3C();
 extern s32 local_client_id;
 extern const f32 lbl_805D90B8;
@@ -31,7 +32,6 @@ extern const f32 lbl_805D90C4;
 s32 get_camera_id__11TCameraCtrlFv();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 set_position_xy(u32, f32, f32);
-s32 set_field_1c__6TLobbyFf(u32, f32);
 s32 send_and_handle__6TLobbyFii(u32, void *, s32);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, s32);
 s32 get_window_layout_position(s32);
@@ -55,7 +55,7 @@ s32 TObjBagWarnWin::should_show_warning(void *arg0) {
     if (ctrl == NULL) {
         return 0;
     }
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0:
         if (ctrl->f38 <= lbl_805D90B8 || ctrl->f38 >= lbl_805D90BC) {
             return 0;
@@ -102,7 +102,7 @@ void TObjBagWarnWin::open_message_window() {
     u8 *arg0 = (u8 *)this;
     *(u32 *)((s8 *)arg0 + 0x1C) = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x38), TObjBagWarnWin__message_window_size, 1);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
-        set_field_1c__6TLobbyFf(*(u32 *)((s8 *)arg0 + 0x1C), lbl_805D90C8);
+        ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_field_1c(lbl_805D90C8);
         if (get_camera_id__11TCameraCtrlFv() == 4) {
             set_position_xy(*(u32 *)((s8 *)arg0 + 0x1C), lbl_805D90CC, lbl_805D90CC);
         }

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TNpcPlayer.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Msg_8014DC5C { s16 hdr; s16 type; s16 angle; s16 flag; };
 
@@ -21,23 +22,17 @@ u32 TNpcPlayer__sub_80152978(s32);
 void partner_request_physical_attack(u8 *arg0);
 u8 *find_active_entity_by_id(s32);
 u8 *get_state_ptr__10TObjPlayerFv(void *);
-s16 calc_angle_to__10TObjPlayerFPv(void *, void *);
-void request_chatter__10TNpcPlayerFUl(void *, s32);
 void reset_partner_counter(void *, s32);
 void increment_partner_counter(void *, s32);
 s16 TNpcPlayer__sub_801528DC(void *);
 u32 get_npc_state__10TNpcPlayerFv(s32);
 s16 get_npc_type__10TNpcPlayerFPv(void *);
 s16 get_partner_counter(void *, s32);
-void update__10TNpcPlayerFv(void *);
 void init_6x45_attack_packet(void *);
-void update_players__10TNpcPlayerFv(void *);
 void init_6x44_attack_packet(void *);
-void update_lobby__10TNpcPlayerFv(void *);
 void init_6x43_attack_packet(void *);
 void set_field2__10TNpcPlayerFs(void *, s32);
 void set_field_0__10TNpcPlayerFs(void *, s32);
-void set_state__10TNpcPlayerFl(void *, s32);
 void send_partner_attack_stage_request(Self_8014DC5C *self);
 }
 
@@ -97,12 +92,12 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
             m0.flag = 0;
             tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
             if (tgt != NULL) {
-                m0.angle = calc_angle_to__10TObjPlayerFPv(self->npc->pl->pos, tgt + 0x38);
+                m0.angle = ((TObjPlayer *)(self->npc->pl->pos))->calc_angle_to(tgt + 0x38);
                 pl = self->npc->pl;
-                set_state__10TNpcPlayerFl(get_state_ptr__10TObjPlayerFv(pl->state), 1);
+                ((TNpcPlayer *)(get_state_ptr__10TObjPlayerFv(pl->state)))->set_state(1);
                 set_field_0__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
                 set_field2__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
-                update_lobby__10TNpcPlayerFv(&m0);
+                ((TNpcPlayer *)(&m0))->update_lobby();
                 increment_partner_counter(self->f5C, 1);
             }
         }
@@ -114,12 +109,12 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
             m1.flag = 1;
             tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
             if (tgt != NULL) {
-                m1.angle = calc_angle_to__10TObjPlayerFPv(self->npc->pl->pos, tgt + 0x38);
+                m1.angle = ((TObjPlayer *)(self->npc->pl->pos))->calc_angle_to(tgt + 0x38);
                 pl = self->npc->pl;
-                set_state__10TNpcPlayerFl(get_state_ptr__10TObjPlayerFv(pl->state), 1);
+                ((TNpcPlayer *)(get_state_ptr__10TObjPlayerFv(pl->state)))->set_state(1);
                 set_field_0__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
                 set_field2__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
-                update_players__10TNpcPlayerFv(&m1);
+                ((TNpcPlayer *)(&m1))->update_players();
                 increment_partner_counter(self->f5C, 1);
             }
         }
@@ -131,14 +126,14 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
             m2.flag = 1;
             tgt = find_active_entity_by_id(((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
             if (tgt != NULL) {
-                m2.angle = calc_angle_to__10TObjPlayerFPv(self->npc->pl->pos, tgt + 0x38);
+                m2.angle = ((TObjPlayer *)(self->npc->pl->pos))->calc_angle_to(tgt + 0x38);
                 pl = self->npc->pl;
-                set_state__10TNpcPlayerFl(get_state_ptr__10TObjPlayerFv(pl->state), 1);
+                ((TNpcPlayer *)(get_state_ptr__10TObjPlayerFv(pl->state)))->set_state(1);
                 set_field_0__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, ((GetState_8014DC5C)get_npc_state__10TNpcPlayerFv)(self->npc));
                 set_field2__10TNpcPlayerFs(get_state_ptr__10TObjPlayerFv(pl->state) + 4, TNpcPlayer__sub_801528DC(self->npc));
-                update__10TNpcPlayerFv(&m2);
+                ((TNpcPlayer *)(&m2))->update();
                 reset_partner_counter(self->f5C, 1);
-                request_chatter__10TNpcPlayerFUl(self, 0xD);
+                ((TNpcPlayer *)self)->request_chatter(0xD);
             }
         }
         break;

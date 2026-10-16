@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/object/TObjLuker.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801F301C_TLobby__data_80512220 { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_801F301C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F301C_TLobby__data_80512220) == 0x20 ? 1 : -1];
@@ -183,11 +186,8 @@ int VecCopy__FP3VecPC3Vec(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int check_technique_flag__10TObjPlayerFPv(void*);
-s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void*);
 int has_item_flag_4096__10TObjPlayerFPv(void*);
 s32 queue_destruction__7TObjectFv(s32);
-int read_be16_field2__10TObjPlayerFv(void*);
-s32 set_flag_4__9TObjLukerFv(void*);
 int set_flags__10TObjPlayerFUl(void*, int);
 
     extern unsigned char* TLobby__quest_data_base;
@@ -379,7 +379,7 @@ s32 *TObjItemOKWindow__sub_801F3268(void) {
 
 void clear_quest_vm_flag__6TLobbyFv(void) {
     if ((u32) quest_mission_manager != 0U) {
-        clear_flag4_bit4__22TQuestVmDownLoadServerFv((void*)quest_mission_manager);
+        ((TQuestVmDownLoadServer *)quest_mission_manager)->clear_flag4_bit4();
     }
 }
 
@@ -387,7 +387,7 @@ extern u32 quest_mission_manager;
 
 void free_luker_object__6TLobbyFv(void) {
     if ((u32) quest_mission_manager != 0U) {
-        set_flag_4__9TObjLukerFv((void*)quest_mission_manager);
+        ((TObjLuker *)quest_mission_manager)->set_flag_4();
     }
 }
 
@@ -438,7 +438,7 @@ void bswap_4x32__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)
 void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags | 0x10); }
 
 void sync_quest_register_and_send__6TLobbyFPv(void* p) { bswap_header__6TLobbyFPv((void*)((void*)((void*)(p)))); TLobby__send_and_handle_60(p); }
-void bswap_header__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
+void bswap_header__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
     extern int warning_aram_load_done_flag;

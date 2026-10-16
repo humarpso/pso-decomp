@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 
 struct F_80080798 { u16 *buffer; u32 cursor; };
 struct F_80080F68 { u16 *buffer; u32 cursor; };
@@ -48,7 +49,6 @@ extern "C" {
 
 void append_text__19TWindowKeyBoardSoftFPvPv(F_80080798 *arg0, u8 *arg1);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
-void clear_flag4_bit4__22TQuestVmDownLoadServerFv(void* p);
 
 void append_text__19TWindowKeyBoardSoftFPvPv(F_80080798 *arg0, u8 *arg1) {
     u8 c;

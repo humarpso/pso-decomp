@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOFenceAncient02.h"
+#include "pso/misc/TOFenceAncient01.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -31,10 +33,8 @@ struct Arr_80167020 { void *a; s32 b; s32 c; s32 d; };
 extern "C" {
 u8 *TLobby__sub_8001FE7C(void *, s16);
 void mem_free(u32);
-void free_if_valid__10TObjPlayerFl(s32);
 extern u8 *TOFenceAncient02__model_resource;
 extern u32 TOFenceAncient02__texture_variants;
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 init_fields__16TOFenceAncient01Fv();
@@ -68,7 +68,6 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy__16TOFenceAncient01Fs(void *, s32);
 
 extern void *tl_05;
 
@@ -92,7 +91,7 @@ void TOFenceAncient02::free_resources() {
     var_r31 = 4;
     do
     {
-      free_if_valid__10TObjPlayerFl(*((s32 *) (((s8 *) TOFenceAncient02__texture_variants) + var_r31)));
+      TObjPlayer::free_if_valid(*((s32 *) (((s8 *) TOFenceAncient02__texture_variants) + var_r31)));
       var_r30 += 1;
       var_r31 += 4;
     }
@@ -132,7 +131,7 @@ void *__dt__16TOFenceAncient02Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient02;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy__16TOFenceAncient01Fs(arg0, 0);
+        ((TOFenceAncient01 *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -158,7 +157,7 @@ u8 *TOFenceAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (temp_f1 - lbl_805DB620);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1CD0.value), (int) (3), (int) (temp_r6), (f32) (temp_f1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     fn_80166E64((void *) (arg0));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB624;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB628;

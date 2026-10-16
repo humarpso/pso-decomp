@@ -3,6 +3,7 @@
 #include "pso/item/TObjContainerBase.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct BmlResourceBlock_804B0068 { const char *model_filenames[4]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B0068_size[(sizeof(BmlResourceBlock_804B0068) == 0x20) ? 1 : -1];
@@ -51,7 +52,6 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u32 *mem_alloc(u32);
 u32 load_gvm_texture_file(void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_8044083C[];
 extern char lbl_80440850[];
 extern char lbl_8044086C[];
@@ -74,7 +74,7 @@ int TObjPlayer__sub_8015C884(void);
 
 void TLanguage::load_container_fragment_textures() {
     u8 *tbl = (u8 *)&bm_o_container_ancient_resource_bundle;
-    s32 state = get_global_state__14TOKeyMachine01Fv();
+    s32 state = TOKeyMachine01::get_global_state();
     void *p;
     if (enable_v2_features == 1 &&
         (state == 0x10 || state == 0x15 || state == 0x16 || state == 0x21)) {

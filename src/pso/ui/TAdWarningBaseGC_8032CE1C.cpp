@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct TAdWarningBaseGC {
     char pad0[0x1C];
@@ -19,7 +20,6 @@ extern "C" {
 u8 * get_quest_download_file_header(void);
 void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0);
 void DCInvalidateRange(void *, u32);
-void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
 void clear_aram_request_busy(u32);
 extern u8 ad_warning_arq_request[];
@@ -104,7 +104,7 @@ s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0) {
     ARQPostRequest(ad_warning_arq_request, 4, 1, 1, ad_warning_aram_base, arg0, size, clear_aram_request_busy);
 loop:
     if (aram_request_busy_flag != 0) {
-        run_frame__6TLobbyFv();
+        TLobby::run_frame();
         goto loop;
     }
     DCInvalidateRange((void *)arg0, size);

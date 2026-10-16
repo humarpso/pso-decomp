@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 u8 is_valid_player_motion_variant(u32 arg0);
@@ -13,7 +15,6 @@ void TObjSeabedSuisoBrakable__vt17(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TLobby__sub_802A7318(void* p);
 s32 TLobby__sub_803DA16C(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 struct Tbl_802A6F98 { s32 w[5]; };
 struct Brk_802A6F98 { s32 a[5]; s32 b[3]; s32 *c[3]; };
@@ -21,9 +22,7 @@ struct Brk_802A6F98 { s32 a[5]; s32 b[3]; s32 *c[3]; };
 void *get_bml_model(u32, int);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 count_linked_switches__23TObjSeabedSuisoBrakableFl(void *, int);
 u32 load_gvm_texture_file(void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 find_entry_by_name__12TObjDoorJungFPvPv(u32, s32);
 extern Tbl_802A6F98 seabed_suiso_texture_name_table;
 extern Tbl_802A6F98 lbl_80466C80;
@@ -42,7 +41,7 @@ extern u32 TObjSeabedSuisoBrakable__texture_gvm_handle;
 void TObjSeabedSuisoBrakable::free_static_resources() {
     if ((u32) TObjSeabedSuisoBrakable__texture_gvm_handle != 0U) {
         TLobby__sub_803DA16C((void*)TObjSeabedSuisoBrakable__texture_gvm_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TObjSeabedSuisoBrakable__texture_gvm_handle);
+        TAdSinglePlyChrSelectGC::safe_free(TObjSeabedSuisoBrakable__texture_gvm_handle);
         TObjSeabedSuisoBrakable__texture_gvm_handle = 0U;
     }
     if ((u32) TObjSeabedSuisoBrakable__resource_bundle != 0U) {
@@ -63,7 +62,7 @@ void TObjSeabedSuisoBrakable::load_resources() {
     Tbl_802A6F98 t1;
     Tbl_802A6F98 t2;
 
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 0x1D:
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
@@ -93,14 +92,14 @@ void TObjSeabedSuisoBrakable::load_resources() {
         break;
     }
     if ((item = get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, 0xC)) != NULL) {
-        TObjSeabedSuisoBrakable__model12_render_nodes[0] = count_linked_switches__23TObjSeabedSuisoBrakableFl(item, 1);
-        TObjSeabedSuisoBrakable__model12_render_nodes[1] = count_linked_switches__23TObjSeabedSuisoBrakableFl(item, 2);
-        TObjSeabedSuisoBrakable__model12_render_nodes[2] = count_linked_switches__23TObjSeabedSuisoBrakableFl(item, 4);
+        TObjSeabedSuisoBrakable__model12_render_nodes[0] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(1);
+        TObjSeabedSuisoBrakable__model12_render_nodes[1] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(2);
+        TObjSeabedSuisoBrakable__model12_render_nodes[2] = ((TObjSeabedSuisoBrakable *)item)->count_linked_switches(4);
     }
     if ((p = get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, 0xD)) != NULL) {
-        suiso_brakable_linked_switch_counts[0] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFl(p, 1);
-        suiso_brakable_linked_switch_counts[1] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFl(p, 2);
-        suiso_brakable_linked_switch_counts[2] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFl(p, 3);
+        suiso_brakable_linked_switch_counts[0] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(1);
+        suiso_brakable_linked_switch_counts[1] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(2);
+        suiso_brakable_linked_switch_counts[2] = (int) ((TObjSeabedSuisoBrakable *)p)->count_linked_switches(3);
         ptrs = (s32 **)suiso_brakable_linked_switch_counts;
         for (i = 0; i < 3; i++) {
             if (ptrs[i] != NULL) {

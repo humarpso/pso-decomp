@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCharaMaking.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline on
@@ -25,17 +27,12 @@ struct A_8028ECCC { u8 pad0[4]; s16 v[5]; s8 e; };
 struct B_8028ECCC { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
 
 extern "C" {
-s32 evict_char_entries__23TAdSinglePlyChrSelectGCFl(int);
 s32 TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
 u32 find_free_slot__23TAdSinglePlyChrSelectGCFv();
-s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 count_remaining_slots__23TAdSinglePlyChrSelectGCFv();
 extern s32 creation_player_character;
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
 void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED24 *s);
 void copy_player_visual_record(void *, void *);
-s32 get_display_index__12TCharaMakingFv(void *);
-s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 extern Row_8028EE20 class_appearance_table[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b);
@@ -82,19 +79,19 @@ void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED2
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
     ByteBlock_50 buf;
     u32 h;
-    if (count_remaining_slots__23TAdSinglePlyChrSelectGCFv() > 0) {
+    if (TAdSinglePlyChrSelectGC::count_remaining_slots() > 0) {
         buf = *(const ByteBlock_50 *)creation_player_character;
         if ((arg0 < 0) || (arg0 >= 5)) {
-            if (has_matching_entry__23TAdSinglePlyChrSelectGCFPv((void *) (&buf)) != 0) {
+            if (TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) != 0) {
                 return;
             }
             goto block_7;
         }
-        if ((has_matching_entry__23TAdSinglePlyChrSelectGCFPv((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)((void *) (arg0))) != 0)) {
+        if ((TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)((void *) (arg0))) != 0)) {
 block_7:
             h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             if (h == 0U) {
-                if (evict_char_entries__23TAdSinglePlyChrSelectGCFl((int) (1)) == 0) {
+                if (TAdSinglePlyChrSelectGC::evict_char_entries((int) (1)) == 0) {
                     return;
                 }
                 h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
@@ -111,7 +108,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_) {
     s32 max;
     s32 cur;
     s32 v;
-    max = class_appearance_table[get_display_index__12TCharaMakingFv(&c)].max[arg1];
+    max = class_appearance_table[((TCharaMaking *)(&c))->get_display_index()].max[arg1];
     cur = c.sel[arg1];
     v = cur;
     do {
@@ -121,7 +118,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_) {
     } while (v != cur);
     if (v != cur) {
         c.sel[arg1] = v;
-        if (has_matching_entry__23TAdSinglePlyChrSelectGCFPv(&c) == 0) {
+        if (TAdSinglePlyChrSelectGC::has_matching_entry(&c) == 0) {
             goto ok;
         }
     }
@@ -133,7 +130,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_) {
     } while (v != cur);
     if (v != cur) {
         c.sel[arg1] = v;
-        if (has_matching_entry__23TAdSinglePlyChrSelectGCFPv(&c) == 0) {
+        if (TAdSinglePlyChrSelectGC::has_matching_entry(&c) == 0) {
             goto ok;
         }
     }

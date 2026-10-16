@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/object/TObjVoloptCage.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -98,14 +102,11 @@ typedef struct Obj_80049430 {
 
 extern "C" {
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjVoloptCage__sub_800C76F0(void *);
-s32 update_prev_position__10TObjPlayerFv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 clear_volopt_cage_flag();
 void obj_clear_flag30_20000(void *arg0);
-s32 check_player_flag1__6TLobbyFv(int);
 s32 __dt__15TObjEnemyCustomFv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 send_code_45_1__10TObjPlayerFi(int);
@@ -116,9 +117,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
 void recalc_combat_stats__10TObjPlayerFv(void *, s32, int, int, f32, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
-void reset_photon_effect__12TBoss3VoloptFv(void *);
 void TObjEnemyCustom__ct();
-void set_param__12TObjEneLappyFl(void *, int);
 void init_collision_body_parts(void *, void *, int);
 s32 get_player_by_client_id(int);
 extern u8 volopt_cage_collision_body_desc[];
@@ -168,7 +167,7 @@ void TObjVoloptCage::update_state() {
 
 void TObjVoloptCage::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TObjVoloptCage__sub_800C76F0((void *) (arg0));
         return;
     }
@@ -188,7 +187,7 @@ void TObjVoloptCage::run_task() {
         *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
     update_state();
-    update_prev_position__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
 }
@@ -199,7 +198,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjVoloptCage.value;
         temp_r3 = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x338)));
         if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
-            if (check_player_flag1__6TLobbyFv((int) (temp_r3)) != 0) {
+            if (((TLobby *)temp_r3)->check_player_flag1() != 0) {
                 send_code_45_1__10TObjPlayerFi((int) (temp_r3));
             }
             obj_clear_flag30_20000((void *)((int) (temp_r3)));
@@ -233,8 +232,8 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     arg0->f80 = 0;
     arg0->f28 = arg1->f28;
     arg0->f2a = arg1->f2a;
-    reset_photon_effect__12TBoss3VoloptFv(arg0);
-    set_param__12TObjEneLappyFl(arg0, 0x2E);
+    ((TBoss3Volopt *)arg0)->reset_photon_effect();
+    ((TObjEneLappy *)arg0)->set_param(0x2E);
     arg0->f3c = lbl_805D8884;
     recalc_combat_stats__10TObjPlayerFv(arg0, lbl_805D4D18, 0, 0, lbl_805D8888, lbl_805D8888);
     arg0->flags |= 0x40000 | 0x8000;

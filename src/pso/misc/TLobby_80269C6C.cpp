@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_80269CA4_lbl_804D071C {
     s32 value;
@@ -34,7 +35,6 @@ void TLobby__sub_80269C90(void);
 
 extern "C" {
 
-f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 int append_message_window_line(void*, int, int, int);
 
 int TLobby::send_and_handle(int a1, int a2) { return append_message_window_line(this, a1, a2, -1); }
@@ -75,7 +75,7 @@ extern const f32 lbl_805DD238;
 
 void TLobby::update_window_mode_from_progress(void *arg1) {
     s32 arg0 = (s32)this;
-    TLobby::set_window_mode_4((void *)((void *)(arg0)), (s32)((s32)(arg1)), (s32)((s32)((s32) round_away_from_zero__20TWindowSubStatusDispFf((*(f32 *)((s8 *)arg1 + 4) - lbl_805DD238) / lbl_805DD238) + 2)));
+    TLobby::set_window_mode_4((void *)((void *)(arg0)), (s32)((s32)(arg1)), (s32)((s32)((s32) TWindowSubStatusDisp::round_away_from_zero((*(f32 *)((s8 *)arg1 + 4) - lbl_805DD238) / lbl_805DD238) + 2)));
 }
 
 s32 TLobby__sub_80269DA4(V2_80269DA4 size, void *arg1) {

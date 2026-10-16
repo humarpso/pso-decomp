@@ -12,7 +12,6 @@ int TBoss6Thanks__sub_8035D270(void* p);
 void *TBoss6Thanks__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 int check_ship_door__12TBoss6ThanksFv(void*);
-s32 dispatch_darkfalz_phase__12TBoss6ThanksFv();
 s32 fn_8035CAE0();
 s32 any_player_has_listed_equipment();
 s32 get_main_phase();
@@ -43,7 +42,7 @@ s32 TBoss6Thanks::try_dispatch_darkfalz_phase() {
     if (((s32) game_difficulty_selection == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (any_player_has_listed_equipment() == 0)) {
         return 0;
     }
-    dispatch_darkfalz_phase__12TBoss6ThanksFv();
+    TBoss6Thanks::dispatch_darkfalz_phase();
     return 1;
 }
 

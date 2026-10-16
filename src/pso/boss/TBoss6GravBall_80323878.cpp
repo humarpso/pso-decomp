@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_80323D20 {
     s32 f0; u8 pad[0xAC - 4]; s32 fAC; s32 fB0; s32 fB4; u8 padB8[4]; f32 fBC; s32 fC0; s32 fC4; f32 pos[3];
@@ -31,7 +32,6 @@ s32 query_teammate_state__9TObjEneDDFv(void);
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void construct_collider_proxy__10TObjPlayerFv(void *);
 s32 create_emitter__14TBoss6GravBallFl(void *, int);
 void TBoss6GravBall__sub_80323320(void *);
 extern s32 lbl_8047667C[];
@@ -67,7 +67,6 @@ s32 TBoss6GravBall__sub_803233AC();
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 spawn_particle_effect(void *, int);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 s32 get_state__14TBoss6GravBallFv(int);
 void init_parts__14TBoss6GravBallFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
@@ -205,7 +204,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss6GravBall;
         init_parts__14TBoss6GravBallFv(arg0);
         clear_player_grav_flags__14TBoss6GravBallFv((void *)(arg0));
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -214,7 +213,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
 }
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
     s32 i;
-    construct_collider_proxy__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->construct_collider_proxy();
     ((u8 **)arg0)[0x18 / 4] = ((u8 *)&__vt__14TBoss6GravBall);
     arg0->f0 = TBoss6GravBall__name;
     arg0->fAC = arg1;

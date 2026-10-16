@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
 
 struct RecoveredGlobal_80342384_TWindowDD__data_804EFC50 { s32 value; u8 remaining[0x3C]; };
 typedef char RecoveredGlobal_80342384_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80342384_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
@@ -15,10 +16,7 @@ s32 apply_entry_layout__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_803435A0(void *);
 s32 update_selection_state__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80347C50();
-s32 play_se__9TWindowDDFv();
-s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFv(void *);
 s32 TWindowDD__sub_803484C4(void *);
 void TWindowDD__sub_80342428(u8 *arg0);
 s32 __nw__7TObjectFUl(int);
@@ -27,7 +25,6 @@ u8 TWindowDD__sub_80342268(O_80342268 *self);
 u8 TWindowDD__sub_80342254(O_80342254 *self);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 s32 reset_fields__9TWindowDDFv(void *, void *);
-s32 load_element_list__9TWindowDDFv(void *);
 extern s32 lbl_805D42E0;
 extern const f32 TWindowDD__data_805DFCA8;
 s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2);
@@ -37,10 +34,7 @@ extern "C" {
 
 void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
 void mem_free(void *);
-s32 get_field_68__9TWindowDDFv(void* p);
-int spawn_window__9TWindowDDFv(void);
 
 extern "C" {
 void TWindowDD__sub_80341500();
@@ -83,7 +77,7 @@ void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFC90;
         if (*(void **)((s8 *)arg0 + 0x80) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0x80)); *(s32 *)((s8 *)arg0 + 0x80) = 0; }
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -107,7 +101,7 @@ s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2) {
     arg0->f60 = 0;
     arg0->f70 = arg1;
     reset_fields__9TWindowDDFv(arg0, (void *)v);
-    load_element_list__9TWindowDDFv(arg0);
+    ((TWindowDD *)arg0)->load_element_list();
     arg0->f5c = 0x01000000;
     return a0;
 #undef arg0
@@ -131,9 +125,9 @@ void TWindowDD__sub_80342428(u8 *arg0) {
   u8 *new_var;
   TWindowDD__sub_80347C50();
   update_selection_state__9TWindowDDFPv((void *) arg0);
-  if (test_input_flag_4__9TWindowDDFv((void *) arg0))
+  if (((TWindowDD *)arg0)->test_input_flag_4())
   {
-    play_sound__9TWindowDDFv();
+    TWindowDD::play_sound();
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0xB0)))) == 0xA)
     {
       new_var = arg0;
@@ -153,7 +147,7 @@ void TWindowDD__sub_80342428(u8 *arg0) {
   }
   if (TWindowDD__sub_803482B0((void *) arg0) != 0)
   {
-    play_se__9TWindowDDFv();
+    TWindowDD::play_se();
     apply_entry_layout__9TWindowDDFPv((void *) arg0);
   }
 }

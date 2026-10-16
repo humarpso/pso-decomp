@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TDLGraph.h"
 
 extern "C" {
 
 void *TDLGraph__ct(void *arg0);
-void reset__8TDLGraphFv(void *);
 void __ct__7TObjectFP7TObject(void *);
 void init_dl_graph_entries(void *);
 
@@ -21,7 +21,7 @@ void *TDLGraph__ct(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0x28) = -1;
     *(u32 *)((s8 *)arg0 + 0x2C) = -1;
     *(u32 *)((s8 *)arg0 + 0x30) = -1;
-    reset__8TDLGraphFv(arg0);
+    ((TDLGraph *)arg0)->reset();
     init_dl_graph_entries(arg0);
     *(u32 *)((s8 *)arg0 + 0x20) = 3;
     TDLGraph__graph_object = arg0;

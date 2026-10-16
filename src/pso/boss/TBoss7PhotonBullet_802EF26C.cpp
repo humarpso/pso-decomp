@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/TBoss7PhotonPad.h"
+#include "pso/boss/TBoss7Joint.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet { s32 value; u8 remaining[0x58]; };
 typedef char RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet_size[sizeof(RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet) == 0x5C ? 1 : -1];
@@ -49,7 +53,6 @@ extern void *__vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void queue_destruction__7TObjectFv(void *);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 project_actor_to_ground(void *, void *, void *);
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
 extern V2_802EF2AC lbl_80474038[];
@@ -63,14 +66,12 @@ extern "C" {
 
 void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1);
 void render__18TBoss7PhotonBulletFv(u8 *arg0);
-s32 draw_oriented_shadow__9TObjEneDDFllUl(void *, void *, int, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 void render__18TBoss7PhotonBulletFv(u8 *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0xE8) & 1) {
-        draw_oriented_shadow__9TObjEneDDFllUl(arg0 + 0x38, arg0 + 0xCC, 0, arg0 + 0xD8);
+        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xCC), (s32)0, (u32)(arg0 + 0xD8));
     }
 }
 
@@ -97,7 +98,7 @@ void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0) {
     arg0->pos[2] = arg0->c8;
     for (i = 0; i != 2; i++) {
         if (arg0->f0[i] != 0) {
-            copy_pos__11TNowLoadingFPv(arg0->f0[i], &arg0->c0);
+            ((TNowLoading *)(arg0->f0[i]))->copy_pos(&arg0->c0);
         }
     }
     if (arg0->e4 % 16 == 0) {
@@ -127,7 +128,7 @@ void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1) {
         *(void ***)((s8 *)arg0 + 0x18) = __vt__18TBoss7PhotonBullet;
         if (*(void **)((s8 *)arg0 + 0xF0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF0)); }
         if (*(void **)((s8 *)arg0 + 0xF4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF4)); }
-        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -182,8 +183,6 @@ extern Ent_802EF74C boss7_photon_bullet_level_table[];
 extern void *__vt__15TBoss7PhotonPad[];
 extern s32 lbl_805D3FD0;
 
-s32 get_state__11TBoss7JointFv();
-
 u32 __nw__7TObjectFUl(int);
 
 void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self);
@@ -203,7 +202,7 @@ void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self) {
 
     self->timer--;
     if (self->timer <= 0) {
-        st = get_state__11TBoss7JointFv();
+        st = TBoss7Joint::get_state();
         if (st != 0) {
             p = __nw__7TObjectFUl(0xF8);
             if (p != 0) {

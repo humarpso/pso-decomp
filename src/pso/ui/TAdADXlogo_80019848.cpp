@@ -1,6 +1,7 @@
 #include "pso/TAdADXlogo.h"
 
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
 
 struct Obj_800198C8 { u8 pad[0x1c]; s32 f1c; };
 
@@ -12,7 +13,6 @@ extern int TAdADXlogo__state;
 extern void *tl_00;
 extern const f32 lbl_805D7DD4;
 void *__nw__7TObjectFUl(u32 size);
-void init__22THunterGuildSeqOfflineFPvPv(void *a, void *b, void *c);
 void TAdADXlogo__sub_80019848(void);
 }
 
@@ -43,7 +43,7 @@ void TAdADXlogo::run_task() {
             TAdADXlogo__state = 2;
             p = __nw__7TObjectFUl(0x28);
             if (p != 0) {
-                init__22THunterGuildSeqOfflineFPvPv(p, tl_00, (void *)TAdADXlogo__sub_80019848);
+                ((THunterGuildSeqOffline *)p)->init(tl_00, (void *)TAdADXlogo__sub_80019848);
             }
         }
         break;

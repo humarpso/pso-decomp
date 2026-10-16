@@ -12,7 +12,6 @@ extern "C" {
 
 void *__ct__20TPlayerLevelFeedbackFP7TObjectUs(void *arg0, u16 arg1, u16 arg2);
 u32 spawn_particle_effect_with_flags(s32, s32, s32);
-s32 set_owner_id__13TParticleCtrlFUs(u32, u16);
 u32 get_player_by_client_id(u16);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -53,7 +52,6 @@ struct VO_801C6408 : VB_801C6408 {
 extern "C" {
 TParticleCtrl* create_particle_emitter(void*, int);
 s32 test_action_mask__10TObjPlayerFl(VO_801C6408*, s32);
-void copy_pos__11TNowLoadingFPv(TParticleCtrl*, Vec_801C6408*);
 s32 is_on_current_floor__10TObjPlayerFi(VO_801C6408*);
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern const f32 lbl_805DC338;
@@ -126,7 +124,6 @@ extern "C" {
 f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 void apply_stats_and_update__10TObjPlayerFPv(void* p);
 s32 test_flags_any(s32, s32);
-s32 check_state_flag_1__8TItemMagFv(s32);
 f32 get_stat_f32__8TItemMagFv(s32);
 s32 is_flag30_8_set__10TObjPlayerFi(s32);
 
@@ -220,18 +217,14 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C6FF8_lbl_804C4008 __vt__18TPlayerLobbyMarker;
 u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 get_cursor_state__11TMainCursorFv();
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF914(s32);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 scale_matrix(s32, f32, f32, f32);
 s32 translate_matrix_vec3(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(void *);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object();
 extern u8 player_lobby_marker_color_table[];
@@ -269,9 +262,6 @@ int test_flag_8__10TObjPlayerFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int clear_flags__11TAdRicoRingFUl(void*, int);
-void destroy__13TForceOperateFls(void *, int);
-int heap_alloc__5THeapFUl(void*, void*);
-int heap_free__5THeapFPv(void*, void*);
 
 }
 }
@@ -315,6 +305,12 @@ typedef char RecoveredGlobal_801C6FF8_lbl_804C4008_size[sizeof(RecoveredGlobal_8
 #include "pso/TPlyOnCreated.h"
 
 #include "types.h"
+#include "pso/THeap.h"
+#include "pso/item/TItemMag.h"
+#include "pso/misc/TForceOperate.h"
+#include "pso/misc/TMainCursor.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 
@@ -662,7 +658,7 @@ extern "C" {
 void *__dt__13TForceOperateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TForceOperate;
-        destroy__13TForceOperateFls((s8 *)arg0 + 0x1C, -1);
+        TForceOperate::destroy((s32)((s8 *)arg0 + 0x1C), (s16)(-1));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -694,14 +690,14 @@ s32 get_contact_surface_type(s32 arg0) {
 
 namespace accessors {
 extern "C" {
-void heap_alloc__10TObjPlayerFPv(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
+void heap_alloc__10TObjPlayerFPv(void* a0) { ((THeap *)obj_heap)->heap_alloc((size_t)a0); }
 
 }
 }
 
 namespace accessors {
 extern "C" {
-void free__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
+void free__10TObjPlayerFPv(void* a0) { ((THeap *)obj_heap)->heap_free(a0); }
 
 }
 }
@@ -746,20 +742,20 @@ void TPlayerLobbyMarker::render() {
     temp_r3 = ((s32 (*)(u16))accessors::get_player_by_client_id)(player_id);
     if ((temp_r3 != 0) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && (get_material_index() != 0) && (test_flag_2000000__10TObjPlayerFPv(temp_r3) == 0)) {
         push_matrix();
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
-        set_global_param__8TObjFishFl(shared_effect_texture_list);
+        TObjFish::set_global_param((s32)shared_effect_texture_list);
         model_render_flags |= 0x11;
         translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
         rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194) + rotation);
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
         set_chunk_material_color(player_lobby_marker_color_table + get_material_index() * 0x10);
-        get_cursor_state__11TMainCursorFv();
+        TMainCursor::get_cursor_state();
         draw_chunk_object();
         copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
         model_render_flags = lbl_805D5660;
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -896,7 +892,7 @@ f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
         var_f31 *= lbl_805DC340;
     }
     ((s32 (*)(s32, f32))TObjPlayer__sub_801C6FCC)(arg0, var_f31);
-    if (check_state_flag_1__8TItemMagFv(arg1 + 0x5B0) != 0) {
+    if (((TItemMag *)(arg1 + 0x5B0))->check_state_flag_1() != 0) {
         var_f31 *= get_stat_f32__8TItemMagFv(arg1 + 0x5B0);
     }
     return var_f31;
@@ -997,7 +993,7 @@ void TPlayerSoul::run_task() {
         if (h != 0) {
             p->get_pos(1, &v);
             v.y += lbl_805DC338;
-            copy_pos__11TNowLoadingFPv(h, &v);
+            ((TNowLoading *)h)->copy_pos(&v);
         }
     } else {
         queue_destruction();
@@ -1021,7 +1017,7 @@ TPlayerLevelFeedback::TPlayerLevelFeedback(TObject* parent, u16 id) : TObject(pa
     player = get_player_by_client_id(player_id);
     if (player != 0) {
         player = spawn_particle_effect_with_flags(player + 0x2FC, 0x23, 0x10);
-        if (player != 0) set_owner_id__13TParticleCtrlFUs(player, player_id);
+        if (player != 0) ((TParticleCtrl *)player)->set_owner_id(player_id);
     }
 }
 
@@ -1037,7 +1033,7 @@ void TPlayerLevelFeedback::run_task() {
         player = get_player_by_client_id(player_id);
         if (player != 0) {
             emitter = spawn_particle_effect_with_flags(player + 0x2FC, 0x20, 0x10);
-            if (emitter != 0) set_owner_id__13TParticleCtrlFUs(emitter, player_id);
+            if (emitter != 0) ((TParticleCtrl *)emitter)->set_owner_id(player_id);
         }
         queue_destruction();
     }

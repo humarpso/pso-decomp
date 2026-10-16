@@ -2,6 +2,9 @@
 
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TNowLoading.h"
 
 struct VBase_18_90ef41 { char pad[0x18]; };
 
@@ -287,8 +290,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 subtract_vector(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
-f32 update_scale__15TObjBoss2TunnelFv(void *);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 s32 is_alive__9TObjEneDDFv(s32);
 s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
@@ -297,9 +298,7 @@ extern const f32 lbl_805DE77C;
 void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
-s32 check_v2_mode__9TObjEneDDFv();
 s32 construct_collision_body(void *, void *, void *);
-s32 get_phase__19TObjEneBm9MericarolFv(void *);
 f32 vector_length(Vec_802D1880 *);
 s32 normalize_vector(Vec_802D1880 *);
 extern s32 lbl_804E18A8[];
@@ -347,10 +346,10 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Ve
     construct_collision_body(arg0, arg1, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E18A8;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F30;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         *(s32 *)((s8 *)arg0 + 0xF0) = 5;
     } else {
-        switch (get_phase__19TObjEneBm9MericarolFv(arg1)) {
+        switch (((TObjEneBm9Mericarol *)arg1)->get_phase()) {
         case 1:
             *(s32 *)((s8 *)arg0 + 0xF0) = 2;
             break;
@@ -365,7 +364,7 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Ve
         }
     }
     *(f32 *)((s8 *)arg0 + 0xF4) = farg0;
-    switch (get_phase__19TObjEneBm9MericarolFv(arg1)) {
+    switch (((TObjEneBm9Mericarol *)arg1)->get_phase()) {
     case 1:
         *(s32 *)((s8 *)arg0 + 0x104) = 0x20A;
         break;
@@ -421,11 +420,11 @@ void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o) {
         a.y += lbl_805DE778;
         VecCopy__FP3VecPC3Vec(&b, camera_ctrl_instance + 0x178);
         subtract_vector(&b, &a);
-        update_scale__15TObjBoss2TunnelFv(&b);
+        ((TObjBoss2Tunnel *)(&b))->update_scale();
         a.x = lbl_805DE77C * b.x + a.x;
         a.y = lbl_805DE77C * b.y + a.y;
         a.z = lbl_805DE77C * b.z + a.z;
-        copy_pos__11TNowLoadingFPv(o->effect, &a);
+        ((TNowLoading *)(o->effect))->copy_pos(&a);
     }
 }
 #define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())

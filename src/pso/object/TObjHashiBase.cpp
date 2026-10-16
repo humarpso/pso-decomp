@@ -17,6 +17,9 @@ struct VDisp : VBase {
 };
 
 #include <stddef.h>
+#include "pso/TMainTask.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
 struct Stack_80191874 {
     f32 sp8;
     u8 pad_C[0x4];
@@ -35,10 +38,8 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_ginja_object(s32);
 s32 draw_model_motion(s32, void *, f32);
-s32 get_state_flag__9TMainTaskFv();
 f32 xz_distance_squared(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 project_world_to_screen(int, void *, void *);
@@ -56,7 +57,6 @@ void handle_6x78(void *arg0);
 u8 is_current_floor_switch_set(u16, f32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x78__11TObjInfoColFv();
-void destroy_key_base__5TOKeyFs(void *, int);
 s32 fn_80191D14(u16, s32);
 s32 get_handle_6x78_entry(u16);
 s32 fn_80191D5C(u16);
@@ -75,7 +75,7 @@ s16 TObjHashiBase::update_visibility(f32 farg0, f32 farg1) {
     typedef char sp14_offset[(offsetof(Stack_80191874, sp14) == 0xC) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_80191874, sp18) == 0x10) ? 1 : -1];
     Stack_80191874 stack;
-    if (get_state_flag__9TMainTaskFv() == 1) {
+    if (TMainTask::get_state_flag() == 1) {
         return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     if (xz_distance_squared((void *) (camera_ctrl_instance + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
@@ -123,7 +123,7 @@ void TObjHashiBase::render() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         p = *(void **)((s8 *)arg0 + 0xBC);
         if (p != NULL) {
             draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), p, *(f32 *)((s8 *)arg0 + 0xB0));
@@ -173,7 +173,7 @@ extern "C" {
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjHashiBase;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjCMIcon.h"
 
 extern "C" {
 
@@ -10,7 +11,6 @@ public:
 };
 
 void reset_proportions__15TChCrCharSelectFv(void);
-void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 const s32 lbl_80464E90[2] = {0, 4};
 s32 TChCrCharSelect__input_mode;
@@ -32,7 +32,7 @@ void run_task__15TChCrCharSelectFv(TChCrCharSelect *self) {
         return;
     case 2:
     default:
-        reset_icon_flags__10TObjCMIconFv();
+        TObjCMIcon::reset_icon_flags();
         return;
     }
 }

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss7Joint.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -202,8 +204,6 @@ struct J_802EEB88 { u8 pad[0x38C]; u8 sub; };
 extern "C" {
 void TBoss7Joint__vt61(void* p);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 set_player_state_default__12TBoss8DragonFv(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805DEBB8;
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
@@ -288,13 +288,13 @@ extern s32 __vt__11TBoss7Joint[];
 
 void TBoss7Joint::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (check_demo_mode__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::check_demo_mode() == 0) {
         VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x3C0))));
         ((VObj_18 *)(arg0))->m81();
         store_position();
         ((VObj_18 *)(arg0))->m86();
         if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
-            set_player_state_default__12TBoss8DragonFv((void *) (arg0));
+            ((TBoss8Dragon *)arg0)->set_player_state_default();
             add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEBB8));
         }
     }

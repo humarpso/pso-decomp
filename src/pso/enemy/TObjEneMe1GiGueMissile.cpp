@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe1GiGueMissile.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TNeedleShoot.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile {
     s32 value;
@@ -10,17 +15,12 @@ extern "C" {
 int queue_destruction__7TObjectFv(void*);
 s32 get_bml_motion(void *, int);
 s32 get_bml_model(void *, int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_model_motion(void *, int, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern int TObjEneMe1GiGue_barrier_count;
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
@@ -32,8 +32,6 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0
 int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
 s32 TObjPlayer__sub_802A445C(void *, int);
-s32 update_lifetime__22TObjEneMe1GiGueMissileFv(void *);
-s32 update_position__12TNeedleShootFv(void *);
 extern const f32 lbl_805DE6DC;
 extern const f32 lbl_805DE6E0;
 }
@@ -65,7 +63,6 @@ struct VEnt_802CE088 : VBase_802CE088 {
 u8 *get_player_by_client_id(s32);
 f32 horizontal_distance_squared(void *, void *);
 void obj_setFlags30(void *, int);
-s32 get_global_state__14TOKeyMachine01Fv();
 void create_fire_explosion_effect(void *, f32, void *, int, void *);
 extern void *tl_07;
 extern const f32 lbl_805DE6D0;
@@ -94,7 +91,7 @@ void TObjEneMe1GiGueMissile::explode(void *pos) {
                     obj_setFlags30(p, 0x600);
                 }
             }
-            if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+            if (TOKeyMachine01::get_global_state() == 0x23) {
                 play_sound_effect(0x4003A312, (u32)((u8 *)p + 0x38), 0, 0);
             } else {
                 play_sound_effect(0x3A81F, (u32)((u8 *)p + 0x38), 0, 0);
@@ -138,17 +135,17 @@ void TObjEneMe1GiGueMissile::render() {
     return;
   }
   push_matrix();
-  begin_effect_render__13TParticleCtrlFv();
+  TParticleCtrl::begin_effect_render();
   post_translate_matrix((void *) (arg0 + 0x6C));
   temp_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0xA4)));
   rotate_matrix_y((int) 0, temp_r31);
   rotate_matrix_x((int) 0, (int) (*((s32 *) (((s8 *) arg0) + 0xA0))));
-  set_global_param__8TObjFishFl((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C))));
-  set_global_flag__10TObjPlayerFv();
+  TObjFish::set_global_param((s32)((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C)))));
+  TObjPlayer::set_global_flag();
   temp_r31 = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 5);
   draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
-  clear_global_state__10TObjPlayerFv();
-  end_effect_render__13TParticleCtrlFv();
+  TObjPlayer::clear_global_state();
+  TParticleCtrl::end_effect_render();
   pop_matrix();
 }
 
@@ -169,8 +166,8 @@ void TObjEneMe1GiGueMissile::run_task() {
     if (temp_f1 >= lbl_805DE6E0) {
         *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (temp_f1 - lbl_805DE6E0);
     }
-    update_position__12TNeedleShootFv((void *) (arg0));
-    update_lifetime__22TObjEneMe1GiGueMissileFv((void *) (arg0));
+    ((TNeedleShoot *)arg0)->update_position();
+    ((TObjEneMe1GiGueMissile *)arg0)->update_lifetime();
     TObjPlayer__sub_802A445C((void *) (arg0), (int) (1));
 }
 #pragma pop

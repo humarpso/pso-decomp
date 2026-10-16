@@ -2,6 +2,93 @@
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/boss/TBoss1Dragon.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/boss/TBoss7DeRolLeC.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneBalClaw.h"
+#include "pso/enemy/TObjEneBalClawClaw.h"
+#include "pso/enemy/TObjEneBeast.h"
+#include "pso/enemy/TObjEneBm3FlyNest.h"
+#include "pso/enemy/TObjEneBm5GibonU.h"
+#include "pso/enemy/TObjEneBm5Wolf.h"
+#include "pso/enemy/TObjEneBm9Mericarol.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneDelDepth.h"
+#include "pso/enemy/TObjEneDellBiter.h"
+#include "pso/enemy/TObjEneDf2Bringer.h"
+#include "pso/enemy/TObjEneDimedian.h"
+#include "pso/enemy/TObjEneDolmOlm.h"
+#include "pso/enemy/TObjEneEpsilonGuard.h"
+#include "pso/enemy/TObjEneGibbles.h"
+#include "pso/enemy/TObjEneIllGill.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/enemy/TObjEneMe1Gee.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/enemy/TObjEneMe3ShinowaMirage.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
+#include "pso/enemy/TObjEneMerillLia.h"
+#include "pso/enemy/TObjEneMoja.h"
+#include "pso/enemy/TObjEneMorfos.h"
+#include "pso/enemy/TObjEneRe2Flower.h"
+#include "pso/enemy/TObjEneRe4Sorcerer.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/enemy/TObjEneRecobox.h"
+#include "pso/enemy/TObjEneShark.h"
+#include "pso/enemy/TObjEneSlime.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/misc/TOCtrlDubchik.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TPlyPhotonChair.h"
+#include "pso/npc/TObjNpcAHM01.h"
+#include "pso/npc/TObjNpcARM00.h"
+#include "pso/npc/TObjNpcARW00.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcCloakroomBase.h"
+#include "pso/npc/TObjNpcConnoisseur.h"
+#include "pso/npc/TObjNpcExpertBase.h"
+#include "pso/npc/TObjNpcFemaleBase.h"
+#include "pso/npc/TObjNpcFemaleChild.h"
+#include "pso/npc/TObjNpcFemaleDwarf.h"
+#include "pso/npc/TObjNpcFemaleFat.h"
+#include "pso/npc/TObjNpcFemaleMacho.h"
+#include "pso/npc/TObjNpcFemaleOld.h"
+#include "pso/npc/TObjNpcFemaleTall.h"
+#include "pso/npc/TObjNpcGovernorBase.h"
+#include "pso/npc/TObjNpcHFW00.h"
+#include "pso/npc/TObjNpcHFW01.h"
+#include "pso/npc/TObjNpcHHM00.h"
+#include "pso/npc/TObjNpcHRM00.h"
+#include "pso/npc/TObjNpcHRM01.h"
+#include "pso/npc/TObjNpcHosa.h"
+#include "pso/npc/TObjNpcHosa2.h"
+#include "pso/npc/TObjNpcKenkyu.h"
+#include "pso/npc/TObjNpcKenkyu2.h"
+#include "pso/npc/TObjNpcKenkyuW.h"
+#include "pso/npc/TObjNpcMaleBase.h"
+#include "pso/npc/TObjNpcMaleChild.h"
+#include "pso/npc/TObjNpcMaleDwarf.h"
+#include "pso/npc/TObjNpcMaleFat.h"
+#include "pso/npc/TObjNpcMaleMacho.h"
+#include "pso/npc/TObjNpcMaleOld.h"
+#include "pso/npc/TObjNpcMaleTall.h"
+#include "pso/npc/TObjNpcNFM00.h"
+#include "pso/npc/TObjNpcNFM01.h"
+#include "pso/npc/TObjNpcNFW00.h"
+#include "pso/npc/TObjNpcNFW01.h"
+#include "pso/npc/TObjNpcNHW00.h"
+#include "pso/npc/TObjNpcNHW01.h"
+#include "pso/npc/TObjNpcNgcBase.h"
+#include "pso/npc/TObjNpcNurseBase.h"
+#include "pso/npc/TObjNpcSecretaryBase.h"
+#include "pso/npc/TObjNpcSoldierBase.h"
+#include "pso/npc/TObjNpcSoldierMacho.h"
+#include "pso/npc/TObjNpcSoutokufu.h"
+#include "pso/object/TObjCGrass.h"
+#include "pso/object/TObjGrass.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800F7A6C_lbl_804DB1F0 {
     s32 value;
@@ -33,7 +120,6 @@ s32 load_floor_resources(s32 arg0);
 s32 is_area_transfer_pending();
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int get_global_state__14TOKeyMachine01Fv(void);
 s32 load_current_floor_resources(void);
 int read_be16_field2__10TObjPlayerFv(void*);
 
@@ -91,437 +177,278 @@ s32 load_floor_resources(s32 arg0) {
     return 1;
 }
 void unload_current_floor_resources(void) {
-    unload_floor_resources(get_global_state__14TOKeyMachine01Fv());
+    unload_floor_resources(TOKeyMachine01::get_global_state());
 }
 
 s32 load_current_floor_resources(void) {
-    return load_floor_resources(get_global_state__14TOKeyMachine01Fv());
+    return load_floor_resources(TOKeyMachine01::get_global_state());
 }
 
 }
 
 extern "C" {
-void free_resources__12TBoss1DragonFv();
 void load_resources__12TBoss1DragonFv();
 void TBoss1DragonDemo__sub_8002B68C();
 void TBoss1DragonDemo__sub_8002B690();
 void reset_parts__13TBoss2DeRolLeFv();
 void load_resources__13TBoss2DeRolLeFv();
-void free_parts__12TBoss3VoloptFv();
-void load_resources__12TBoss3VoloptFv();
-void cleanup_global__14TBoss4DarkFalzFv();
-void load_resources__14TBoss4DarkFalzFv();
 void cleanup__13TBoss5GryphonFv();
 void TBoss8Dragon__sub_80065C90();
-void release_global_805D4F20__14TObjEneBalClawFv();
 void TObjEneBalClaw__sub_8008D924();
 void TObjEneBalClawClaw__sub_8008DC14();
-void spawn_child_enemy__18TObjEneBalClawClawFv();
 void fn_80090488();
 void spawn_lobby_npc_enemy();
 void free_boss4_rock_pool();
-void load_resources__12TObjEneBeastFv();
-void destroy_children__16TObjEneRe7BeruraFv();
-void load_static_resources__16TObjEneRe7BeruraFv();
-void free_resources__17TObjEneDf2BringerFv();
-void load_resources__17TObjEneDf2BringerFv();
 void fn_8009F410();
 void fn_8009F554();
 void TObjEneDarkGunCenter__sub_800A0E7C();
 void TObjEneDarkGunCenter__sub_800A0E80();
-void cleanup_effects__10TObjPlayerFv();
 void TObjPlayer__sub_800A2DCC();
-void free_resources__10TObjPlayerFv();
 void initialize_saver_resources();
-void free_boss_objects__15TObjEneDimedianFv();
-void load_dimedian_resources__6TLobbyFv();
-void free_effect_resources__10TObjPlayerFv();
 void TObjPlayer__sub_800AA82C();
-void free_resources__12TObjEneSharkFv();
-void load_shark_resources__6TLobbyFv();
-void free_resources__11TObjEneMojaFv();
 void load_resources__11TObjEneMojaFv();
-void free_fly__17TObjEneBm3FlyNestFv();
-void load_resources__17TObjEneBm3FlyNestFv();
-void release_global_805D5120__14TObjEneBm5WolfFv();
-void load_resources__14TObjEneBm5WolfFv();
-void release_global_805D5130__10TObjCGrassFv();
-void load_resources__10TObjCGrassFv();
 void release_resource__9TObjEneDDFv();
-void create_instance__9TObjEneDDFv();
-void destroy_all__9TObjGrassFv();
-void load_resources__9TObjGrassFv();
-void cleanup_handles__6TLobbyFv();
-void load_resources__12TObjEneLappyFv();
-void destroy_instance__16TObjEneRe2FlowerFv();
 void TObjPlayer__sub_800C44C4();
-void update_camera_if_active__15TObjEnemyCustomFv();
-void reset_instance__15TObjEnemyCustomFv();
 void free_globals__13TObjEneMe1GeeFv();
-void load_resources__13TObjEneMe1GeeFv();
-void release_static_resource__16TObjEneBm5GibonUFv();
-void load_resources__16TObjEneBm5GibonUFv();
 void free_static_instances__15TObjEneGyaranzoFv();
-void load_gyaranzo_resources__6TLobbyFv();
-void destroy_rocks__16TObjEneMerillLiaFv();
 void TObjEneMerillLia__sub_800D6D64();
-void destroy_static_lobby__10TObjPlayerFv();
 void load_corpse_mark_resource();
-void free_global_window__6TLobbyFv();
 void TLobby__sub_800DC028();
 void free_data__14TObjEnePanarmsFv();
 void load_and_spawn_npc__14TObjEnePanarmsFv();
-void free_shared_resources__23TObjEneMe3ShinowaMirageFv();
 void TObjEneMe3ShinowaMirage__sub_800E7B94();
-void free_instance__12TObjEneSlimeFv();
-void spawn_pair__12TObjEneSlimeFv();
-void free_bits__18TObjEneRe4SorcererFv();
-void load_resources__18TObjEneRe4SorcererFv();
 void free_shared_resources__16TObjEneMe3StelthFv();
 void load_shared_resources__16TObjEneMe3StelthFv();
-void free_resources__12TObjNpcAHM01Fv();
-void load_resources__12TObjNpcAHM01Fv();
-void free_resources__12TObjNpcARM00Fv();
-void load_resources__12TObjNpcARM00Fv();
-void free_resources__12TObjNpcARW00Fv();
-void load_resources__12TObjNpcARW00Fv();
-void free_static__11TObjNpcBaseFv();
 void load_ply_motion_npc_town();
-void destroy_static_instance__20TObjNpcCloakroomBaseFv();
-void load_shared_resource__20TObjNpcCloakroomBaseFv();
-void destroy_instance__18TObjNpcConnoisseurFv();
-void load_section_motion__18TObjNpcConnoisseurFv();
-void free_shared_data__17TObjNpcExpertBaseFv();
-void load_shared_resource__17TObjNpcExpertBaseFv();
 void TObjNpcFemaleBase__sub_80149C64();
 void TObjNpcFemaleBase__sub_80149C7C();
-void free_static_data__17TObjNpcFemaleBaseFv();
-void load_shared_resource__17TObjNpcFemaleBaseFv();
-void release_static_instance__18TObjNpcFemaleChildFv();
-void load_shared_resource__18TObjNpcFemaleChildFv();
-void unload_static_data__18TObjNpcFemaleDwarfFv();
-void load_static_resource__18TObjNpcFemaleDwarfFv();
-void free_static_model__16TObjNpcFemaleFatFv();
-void load_static_resource__16TObjNpcFemaleFatFv();
-void close_dialog_window__18TObjNpcFemaleMachoFv();
-void load_resources__18TObjNpcFemaleMachoFv();
-void destroy_static_instance__16TObjNpcFemaleOldFv();
-void load_resource_instance__16TObjNpcFemaleOldFv();
-void destroy_instance__17TObjNpcFemaleTallFv();
-void load_resource_instance__17TObjNpcFemaleTallFv();
 void TObjNpcFemaleTall__sub_8014AA48();
 void TObjNpcFemaleTall__sub_8014AA60();
-void free_shared_data__19TObjNpcGovernorBaseFv();
-void load_shared_resource__19TObjNpcGovernorBaseFv();
-void free_resources__12TObjNpcHFW00Fv();
-void load_resources__12TObjNpcHFW00Fv();
-void free_static_resources__12TObjNpcHFW01Fv();
-void load_resources__12TObjNpcHFW01Fv();
-void free_resources__12TObjNpcHHM00Fv();
-void load_resources__12TObjNpcHHM00Fv();
-void destroy_resources__12TObjNpcHRM00Fv();
-void load_resources__12TObjNpcHRM00Fv();
-void free_shared_objects__12TObjNpcHRM01Fv();
-void load_resources__12TObjNpcHRM01Fv();
 void TObjNpcLappy__sub_8014B828();
 void TObjNpcLappy__sub_8014B840();
-void free_static_data__15TObjNpcMaleBaseFv();
-void load_shared_resource__15TObjNpcMaleBaseFv();
-void release_static_instance__16TObjNpcMaleChildFv();
-void load_shared_resource__16TObjNpcMaleChildFv();
-void unload_static_data__16TObjNpcMaleDwarfFv();
-void load_shared_resource__16TObjNpcMaleDwarfFv();
-void free_static_model__14TObjNpcMaleFatFv();
-void load_static_resource__14TObjNpcMaleFatFv();
-void close_dialog_window__16TObjNpcMaleMachoFv();
-void load_static_resource__16TObjNpcMaleMachoFv();
-void destroy_static_instance__14TObjNpcMaleOldFv();
-void load_resource_instance__14TObjNpcMaleOldFv();
-void destroy_instance__15TObjNpcMaleTallFv();
-void load_resource_instance__15TObjNpcMaleTallFv();
-void free_resources__12TObjNpcNFM00Fv();
-void load_assets__12TObjNpcNFM00Fv();
-void free_resources__12TObjNpcNFM01Fv();
-void load_resources__12TObjNpcNFM01Fv();
-void free_resources__12TObjNpcNFW00Fv();
-void load_assets__12TObjNpcNFW00Fv();
-void free_resources__12TObjNpcNFW01Fv();
-void load_resources__12TObjNpcNFW01Fv();
-void free_static_resources__12TObjNpcNHW00Fv();
-void load_resources__12TObjNpcNHW00Fv();
-void free_resources__12TObjNpcNHW01Fv();
-void load_resources__12TObjNpcNHW01Fv();
-void free_shared_data__16TObjNpcNurseBaseFv();
-void load_shared_data__16TObjNpcNurseBaseFv();
-void free_static_data__20TObjNpcSecretaryBaseFv();
-void load_static_data__20TObjNpcSecretaryBaseFv();
-void release_static_instance__18TObjNpcSoldierBaseFv();
-void load_shared_resource__18TObjNpcSoldierBaseFv();
-void unload_static_data__19TObjNpcSoldierMachoFv();
-void load_shared_resource__19TObjNpcSoldierMachoFv();
-void destroy_instance__13TOCtrlDubchikFv();
-void load_shared_resource__13TOCtrlDubchikFv();
-void free_static_model__13TObjNpcKenkyuFv();
-void load_shared_resource__13TObjNpcKenkyuFv();
-void close_dialog_window__16TObjNpcSoutokufuFv();
-void load_shared_resource__16TObjNpcSoutokufuFv();
-void destroy_static_instance__11TObjNpcHosaFv();
-void load_static_resource__11TObjNpcHosaFv();
-void destroy_instance__14TObjNpcKenkyuWFv();
-void load_resource_instance__14TObjNpcKenkyuWFv();
-void free_all__14TBoss6PlotFalzFv();
-void load_resources__14TBoss6PlotFalzFv();
-void delete_barrier__15TObjEneMe1GiGueFv();
-void load_resources__15TObjEneMe1GiGueFv();
-void free_shared_instances__19TObjEneBm9MericarolFv();
 void TBoss4Type3__sub_802D1130();
-void free_static__14TObjEneGibblesFv();
-void load_resources__14TObjEneGibblesFv();
-void run_exit_callbacks__14TBoss7DeRolLeCFv();
 void TObjPlayer__sub_802EE574();
 void TBoss8Dragon__sub_802F3C74();
 void clear_boss8_dragon_leader_part();
-void free_static__12TBoss8DragonFv();
 void TBoss8Dragon__sub_802FDA78();
-void free_static_model__14TObjNpcKenkyu2Fv();
-void load_shared_resource__14TObjNpcKenkyu2Fv();
-void close_dialog_window__12TObjNpcHosa2Fv();
-void load_shared_resource__12TObjNpcHosa2Fv();
-void free_shared_resources__14TObjEneDolmOlmFv();
-void load_shared_resources__14TObjEneDolmOlmFv();
-void destroy_static_instance__16TObjEneDellBiterFv();
-void load_resources__16TObjEneDellBiterFv();
-void free_shared_data__15TObjEneDelDepthFv();
-void load_assets__15TObjEneDelDepthFv();
-void free_resources__18TObjEneMe3SinowZoaFv();
 void TObjEneMe3SinowZoa__sub_8031B240();
-void release_static_instance__14TObjEneRecoboxFv();
-void load_resources__14TObjEneRecoboxFv();
-void unload_static_data__13TObjEneMorfosFv();
 void TObjEneMorfos__sub_803350AC();
-void free_shared_resources__14TObjNpcNgcBaseFv();
-void load_resources__14TObjNpcNgcBaseFv();
-void free_instance__15TPlyPhotonChairFv();
 void load_and_spawn_chao_npc();
 void fn_8035B750();
 void fn_8035B788();
-void free_shared_resources__19TObjEneEpsilonGuardFv();
-void load_assets__19TObjEneEpsilonGuardFv();
-void free_effect__14TObjEneIllGillFv();
-void load_shared_resources__14TObjEneIllGillFv();
 
 FloorResourceCallbacks floor_resource_callbacks_selector_00[43] = {
-    { load_ply_motion_npc_town, free_static__11TObjNpcBaseFv },
+    { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcFemaleTall__sub_8014AA60, TObjNpcFemaleTall__sub_8014AA48 },
     { TObjNpcLappy__sub_8014B840, TObjNpcLappy__sub_8014B828 },
-    { load_shared_resource__17TObjNpcFemaleBaseFv, free_static_data__17TObjNpcFemaleBaseFv },
-    { load_shared_resource__18TObjNpcFemaleChildFv, release_static_instance__18TObjNpcFemaleChildFv },
-    { load_static_resource__18TObjNpcFemaleDwarfFv, unload_static_data__18TObjNpcFemaleDwarfFv },
-    { load_static_resource__16TObjNpcFemaleFatFv, free_static_model__16TObjNpcFemaleFatFv },
-    { load_resources__18TObjNpcFemaleMachoFv, close_dialog_window__18TObjNpcFemaleMachoFv },
-    { load_resource_instance__16TObjNpcFemaleOldFv, destroy_static_instance__16TObjNpcFemaleOldFv },
-    { load_resource_instance__17TObjNpcFemaleTallFv, destroy_instance__17TObjNpcFemaleTallFv },
-    { load_shared_resource__15TObjNpcMaleBaseFv, free_static_data__15TObjNpcMaleBaseFv },
-    { load_shared_resource__16TObjNpcMaleChildFv, release_static_instance__16TObjNpcMaleChildFv },
-    { load_shared_resource__16TObjNpcMaleDwarfFv, unload_static_data__16TObjNpcMaleDwarfFv },
-    { load_static_resource__14TObjNpcMaleFatFv, free_static_model__14TObjNpcMaleFatFv },
-    { load_static_resource__16TObjNpcMaleMachoFv, close_dialog_window__16TObjNpcMaleMachoFv },
-    { load_resource_instance__14TObjNpcMaleOldFv, destroy_static_instance__14TObjNpcMaleOldFv },
-    { load_resource_instance__15TObjNpcMaleTallFv, destroy_instance__15TObjNpcMaleTallFv },
-    { load_section_motion__18TObjNpcConnoisseurFv, destroy_instance__18TObjNpcConnoisseurFv },
-    { load_shared_resource__18TObjNpcSoldierBaseFv, release_static_instance__18TObjNpcSoldierBaseFv },
-    { load_shared_resource__19TObjNpcSoldierMachoFv, unload_static_data__19TObjNpcSoldierMachoFv },
-    { load_shared_resource__19TObjNpcGovernorBaseFv, free_shared_data__19TObjNpcGovernorBaseFv },
-    { load_shared_resource__20TObjNpcCloakroomBaseFv, destroy_static_instance__20TObjNpcCloakroomBaseFv },
-    { load_shared_resource__17TObjNpcExpertBaseFv, free_shared_data__17TObjNpcExpertBaseFv },
-    { load_shared_data__16TObjNpcNurseBaseFv, free_shared_data__16TObjNpcNurseBaseFv },
-    { load_static_data__20TObjNpcSecretaryBaseFv, free_static_data__20TObjNpcSecretaryBaseFv },
-    { load_resources__12TObjNpcHHM00Fv, free_resources__12TObjNpcHHM00Fv },
-    { load_resources__12TObjNpcNHW00Fv, free_static_resources__12TObjNpcNHW00Fv },
-    { load_resources__12TObjNpcHRM00Fv, destroy_resources__12TObjNpcHRM00Fv },
-    { load_resources__12TObjNpcARM00Fv, free_resources__12TObjNpcARM00Fv },
-    { load_resources__12TObjNpcARW00Fv, free_resources__12TObjNpcARW00Fv },
-    { load_resources__12TObjNpcHFW00Fv, free_resources__12TObjNpcHFW00Fv },
-    { load_assets__12TObjNpcNFM00Fv, free_resources__12TObjNpcNFM00Fv },
-    { load_assets__12TObjNpcNFW00Fv, free_resources__12TObjNpcNFW00Fv },
-    { load_resources__12TObjNpcNHW01Fv, free_resources__12TObjNpcNHW01Fv },
-    { load_resources__12TObjNpcAHM01Fv, free_resources__12TObjNpcAHM01Fv },
-    { load_resources__12TObjNpcHRM01Fv, free_shared_objects__12TObjNpcHRM01Fv },
-    { load_resources__12TObjNpcHFW01Fv, free_static_resources__12TObjNpcHFW01Fv },
-    { load_resources__12TObjNpcNFM01Fv, free_resources__12TObjNpcNFM01Fv },
-    { load_resources__12TObjNpcNFW01Fv, free_resources__12TObjNpcNFW01Fv },
-    { load_shared_resource__13TObjNpcKenkyuFv, free_static_model__13TObjNpcKenkyuFv },
-    { load_shared_resource__16TObjNpcSoutokufuFv, close_dialog_window__16TObjNpcSoutokufuFv },
+    { TObjNpcFemaleBase::load_shared_resource, TObjNpcFemaleBase::free_static_data },
+    { TObjNpcFemaleChild::load_shared_resource, TObjNpcFemaleChild::release_static_instance },
+    { TObjNpcFemaleDwarf::load_static_resource, TObjNpcFemaleDwarf::unload_static_data },
+    { TObjNpcFemaleFat::load_static_resource, TObjNpcFemaleFat::free_static_model },
+    { TObjNpcFemaleMacho::load_resources, TObjNpcFemaleMacho::close_dialog_window },
+    { TObjNpcFemaleOld::load_resource_instance, TObjNpcFemaleOld::destroy_static_instance },
+    { TObjNpcFemaleTall::load_resource_instance, TObjNpcFemaleTall::destroy_instance },
+    { TObjNpcMaleBase::load_shared_resource, TObjNpcMaleBase::free_static_data },
+    { TObjNpcMaleChild::load_shared_resource, TObjNpcMaleChild::release_static_instance },
+    { TObjNpcMaleDwarf::load_shared_resource, TObjNpcMaleDwarf::unload_static_data },
+    { TObjNpcMaleFat::load_static_resource, TObjNpcMaleFat::free_static_model },
+    { TObjNpcMaleMacho::load_static_resource, TObjNpcMaleMacho::close_dialog_window },
+    { TObjNpcMaleOld::load_resource_instance, TObjNpcMaleOld::destroy_static_instance },
+    { TObjNpcMaleTall::load_resource_instance, TObjNpcMaleTall::destroy_instance },
+    { TObjNpcConnoisseur::load_section_motion, TObjNpcConnoisseur::destroy_instance },
+    { TObjNpcSoldierBase::load_shared_resource, TObjNpcSoldierBase::release_static_instance },
+    { TObjNpcSoldierMacho::load_shared_resource, TObjNpcSoldierMacho::unload_static_data },
+    { TObjNpcGovernorBase::load_shared_resource, TObjNpcGovernorBase::free_shared_data },
+    { TObjNpcCloakroomBase::load_shared_resource, TObjNpcCloakroomBase::destroy_static_instance },
+    { TObjNpcExpertBase::load_shared_resource, TObjNpcExpertBase::free_shared_data },
+    { TObjNpcNurseBase::load_shared_data, TObjNpcNurseBase::free_shared_data },
+    { TObjNpcSecretaryBase::load_static_data, TObjNpcSecretaryBase::free_static_data },
+    { TObjNpcHHM00::load_resources, TObjNpcHHM00::free_resources },
+    { TObjNpcNHW00::load_resources, TObjNpcNHW00::free_static_resources },
+    { TObjNpcHRM00::load_resources, TObjNpcHRM00::destroy_resources },
+    { TObjNpcARM00::load_resources, TObjNpcARM00::free_resources },
+    { TObjNpcARW00::load_resources, TObjNpcARW00::free_resources },
+    { TObjNpcHFW00::load_resources, TObjNpcHFW00::free_resources },
+    { TObjNpcNFM00::load_assets, TObjNpcNFM00::free_resources },
+    { TObjNpcNFW00::load_assets, TObjNpcNFW00::free_resources },
+    { TObjNpcNHW01::load_resources, TObjNpcNHW01::free_resources },
+    { TObjNpcAHM01::load_resources, TObjNpcAHM01::free_resources },
+    { TObjNpcHRM01::load_resources, TObjNpcHRM01::free_shared_objects },
+    { TObjNpcHFW01::load_resources, TObjNpcHFW01::free_static_resources },
+    { TObjNpcNFM01::load_resources, TObjNpcNFM01::free_resources },
+    { TObjNpcNFW01::load_resources, TObjNpcNFW01::free_resources },
+    { TObjNpcKenkyu::load_shared_resource, TObjNpcKenkyu::free_static_model },
+    { TObjNpcSoutokufu::load_shared_resource, TObjNpcSoutokufu::close_dialog_window },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_01[8] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__12TObjEneBeastFv, free_boss4_rock_pool },
-    { load_resources__12TObjEneLappyFv, cleanup_handles__6TLobbyFv },
-    { load_resources__17TObjEneBm3FlyNestFv, free_fly__17TObjEneBm3FlyNestFv },
-    { load_resources__14TObjEneBm5WolfFv, release_global_805D5120__14TObjEneBm5WolfFv },
-    { load_and_spawn_chao_npc, free_instance__15TPlyPhotonChairFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneBeast::load_resources, free_boss4_rock_pool },
+    { TObjEneLappy::load_resources, TLobby::cleanup_handles },
+    { TObjEneBm3FlyNest::load_resources, TObjEneBm3FlyNest::free_fly },
+    { TObjEneBm5Wolf::load_resources, TObjEneBm5Wolf::release_global_805D5120 },
+    { load_and_spawn_chao_npc, TPlyPhotonChair::free_instance },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_02[10] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__11TObjEneMojaFv, free_resources__11TObjEneMojaFv },
-    { load_resources__12TObjEneLappyFv, cleanup_handles__6TLobbyFv },
-    { load_resources__17TObjEneBm3FlyNestFv, free_fly__17TObjEneBm3FlyNestFv },
-    { load_resources__14TObjEneBm5WolfFv, release_global_805D5120__14TObjEneBm5WolfFv },
-    { load_resources__12TObjEneBeastFv, free_boss4_rock_pool },
-    { load_and_spawn_chao_npc, free_instance__15TPlyPhotonChairFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
+    { TObjEneLappy::load_resources, TLobby::cleanup_handles },
+    { TObjEneBm3FlyNest::load_resources, TObjEneBm3FlyNest::free_fly },
+    { TObjEneBm5Wolf::load_resources, TObjEneBm5Wolf::release_global_805D5120 },
+    { TObjEneBeast::load_resources, free_boss4_rock_pool },
+    { load_and_spawn_chao_npc, TPlyPhotonChair::free_instance },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_03[10] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__9TObjGrassFv, destroy_all__9TObjGrassFv },
-    { load_resources__10TObjCGrassFv, release_global_805D5130__10TObjCGrassFv },
-    { TObjPlayer__sub_800C44C4, destroy_instance__16TObjEneRe2FlowerFv },
-    { TLobby__sub_800DC028, free_global_window__6TLobbyFv },
-    { load_shark_resources__6TLobbyFv, free_resources__12TObjEneSharkFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjGrass::load_resources, TObjGrass::destroy_all },
+    { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
+    { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
+    { TLobby__sub_800DC028, TLobby::free_global_window },
+    { TLobby::load_shark_resources, TObjEneShark::free_resources },
     { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_04[10] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__9TObjGrassFv, destroy_all__9TObjGrassFv },
-    { load_resources__10TObjCGrassFv, release_global_805D5130__10TObjCGrassFv },
-    { TObjPlayer__sub_800C44C4, destroy_instance__16TObjEneRe2FlowerFv },
-    { TLobby__sub_800DC028, free_global_window__6TLobbyFv },
-    { load_shark_resources__6TLobbyFv, free_resources__12TObjEneSharkFv },
-    { spawn_pair__12TObjEneSlimeFv, free_instance__12TObjEneSlimeFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjGrass::load_resources, TObjGrass::destroy_all },
+    { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
+    { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
+    { TLobby__sub_800DC028, TLobby::free_global_window },
+    { TLobby::load_shark_resources, TObjEneShark::free_resources },
+    { TObjEneSlime::spawn_pair, TObjEneSlime::free_instance },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_05[12] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TObjPlayer__sub_800C44C4, destroy_instance__16TObjEneRe2FlowerFv },
-    { TLobby__sub_800DC028, free_global_window__6TLobbyFv },
-    { load_shark_resources__6TLobbyFv, free_resources__12TObjEneSharkFv },
-    { spawn_pair__12TObjEneSlimeFv, free_instance__12TObjEneSlimeFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
+    { TLobby__sub_800DC028, TLobby::free_global_window },
+    { TLobby::load_shark_resources, TObjEneShark::free_resources },
+    { TObjEneSlime::spawn_pair, TObjEneSlime::free_instance },
     { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
-    { load_ply_motion_npc_town, free_static__11TObjNpcBaseFv },
+    { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
-    { load_shared_resource__20TObjNpcCloakroomBaseFv, destroy_static_instance__20TObjNpcCloakroomBaseFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TObjNpcCloakroomBase::load_shared_resource, TObjNpcCloakroomBase::destroy_static_instance },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_06_07[9] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TObjPlayer__sub_800AA82C, free_effect_resources__10TObjPlayerFv },
-    { load_gyaranzo_resources__6TLobbyFv, free_static_instances__15TObjEneGyaranzoFv },
-    { TObjEneMe3ShinowaMirage__sub_800E7B94, free_shared_resources__23TObjEneMe3ShinowaMirageFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjPlayer__sub_800AA82C, TObjPlayer::free_effect_resources },
+    { TLobby::load_gyaranzo_resources, free_static_instances__15TObjEneGyaranzoFv },
+    { TObjEneMe3ShinowaMirage__sub_800E7B94, TObjEneMe3ShinowaMirage::free_shared_resources },
     { fn_8009F554, fn_8009F410 },
-    { load_shared_resource__13TOCtrlDubchikFv, destroy_instance__13TOCtrlDubchikFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TOCtrlDubchik::load_shared_resource, TOCtrlDubchik::destroy_instance },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_08[11] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { initialize_saver_resources, free_resources__10TObjPlayerFv },
-    { load_resources__18TObjEneRe4SorcererFv, free_bits__18TObjEneRe4SorcererFv },
-    { load_static_resources__16TObjEneRe7BeruraFv, destroy_children__16TObjEneRe7BeruraFv },
-    { load_dimedian_resources__6TLobbyFv, free_boss_objects__15TObjEneDimedianFv },
-    { TObjEneBalClaw__sub_8008D924, release_global_805D4F20__14TObjEneBalClawFv },
-    { spawn_child_enemy__18TObjEneBalClawClawFv, TObjEneBalClawClaw__sub_8008DC14 },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { initialize_saver_resources, TObjPlayer::free_resources },
+    { TObjEneRe4Sorcerer::load_resources, TObjEneRe4Sorcerer::free_bits },
+    { TObjEneRe7Berura::load_static_resources, TObjEneRe7Berura::destroy_children },
+    { TLobby::load_dimedian_resources, TObjEneDimedian::free_boss_objects },
+    { TObjEneBalClaw__sub_8008D924, TObjEneBalClaw::release_global_805D4F20 },
+    { TObjEneBalClawClaw::spawn_child_enemy, TObjEneBalClawClaw__sub_8008DC14 },
     { spawn_lobby_npc_enemy, fn_80090488 },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_09[10] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { initialize_saver_resources, free_resources__10TObjPlayerFv },
-    { TObjPlayer__sub_800A2DCC, cleanup_effects__10TObjPlayerFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { initialize_saver_resources, TObjPlayer::free_resources },
+    { TObjPlayer__sub_800A2DCC, TObjPlayer::cleanup_effects },
     { TObjEneDarkGunCenter__sub_800A0E80, TObjEneDarkGunCenter__sub_800A0E7C },
-    { load_resources__17TObjEneDf2BringerFv, free_resources__17TObjEneDf2BringerFv },
-    { load_dimedian_resources__6TLobbyFv, free_boss_objects__15TObjEneDimedianFv },
-    { TObjEneBalClaw__sub_8008D924, release_global_805D4F20__14TObjEneBalClawFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TObjEneDf2Bringer::load_resources, TObjEneDf2Bringer::free_resources },
+    { TLobby::load_dimedian_resources, TObjEneDimedian::free_boss_objects },
+    { TObjEneBalClaw__sub_8008D924, TObjEneBalClaw::release_global_805D4F20 },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_10[11] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__18TObjEneRe4SorcererFv, free_bits__18TObjEneRe4SorcererFv },
-    { TObjPlayer__sub_800A2DCC, cleanup_effects__10TObjPlayerFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneRe4Sorcerer::load_resources, TObjEneRe4Sorcerer::free_bits },
+    { TObjPlayer__sub_800A2DCC, TObjPlayer::cleanup_effects },
     { TObjEneDarkGunCenter__sub_800A0E80, TObjEneDarkGunCenter__sub_800A0E7C },
-    { load_resources__17TObjEneDf2BringerFv, free_resources__17TObjEneDf2BringerFv },
-    { load_static_resources__16TObjEneRe7BeruraFv, destroy_children__16TObjEneRe7BeruraFv },
-    { load_dimedian_resources__6TLobbyFv, free_boss_objects__15TObjEneDimedianFv },
-    { TObjEneBalClaw__sub_8008D924, release_global_805D4F20__14TObjEneBalClawFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TObjEneDf2Bringer::load_resources, TObjEneDf2Bringer::free_resources },
+    { TObjEneRe7Berura::load_static_resources, TObjEneRe7Berura::destroy_children },
+    { TLobby::load_dimedian_resources, TObjEneDimedian::free_boss_objects },
+    { TObjEneBalClaw__sub_8008D924, TObjEneBalClaw::release_global_805D4F20 },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_11[6] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
     { TBoss1DragonDemo__sub_8002B690, TBoss1DragonDemo__sub_8002B68C },
-    { load_resources__12TBoss1DragonFv, free_resources__12TBoss1DragonFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { load_resources__12TBoss1DragonFv, TBoss1Dragon::free_resources },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_12[5] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
     { load_resources__13TBoss2DeRolLeFv, reset_parts__13TBoss2DeRolLeFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_13[4] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { load_resources__12TBoss3VoloptFv, free_parts__12TBoss3VoloptFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TBoss3Volopt::load_resources, TBoss3Volopt::free_parts },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_14[2] = {
-    { load_resources__14TBoss4DarkFalzFv, cleanup_global__14TBoss4DarkFalzFv },
+    { TBoss4DarkFalz::load_resources, TBoss4DarkFalz::cleanup_global },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_31[2] = {
-    { load_resources__14TBoss6PlotFalzFv, free_all__14TBoss6PlotFalzFv },
+    { TBoss6PlotFalz::load_resources, TBoss6PlotFalz::free_all },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_32[5] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TObjPlayer__sub_802EE574, run_exit_callbacks__14TBoss7DeRolLeCFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjPlayer__sub_802EE574, TBoss7DeRolLeC::run_exit_callbacks },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_33[6] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
     { clear_boss8_dragon_leader_part, TBoss8Dragon__sub_802F3C74 },
-    { TBoss8Dragon__sub_802FDA78, free_static__12TBoss8DragonFv },
-    { reset_instance__15TObjEnemyCustomFv, update_camera_if_active__15TObjEnemyCustomFv },
+    { TBoss8Dragon__sub_802FDA78, TBoss8Dragon::free_static },
+    { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
@@ -530,177 +457,177 @@ __declspec(section ".data") FloorResourceCallbacks floor_resource_callbacks_sele
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_16[10] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__11TObjEneMojaFv, free_resources__11TObjEneMojaFv },
-    { load_resources__9TObjGrassFv, destroy_all__9TObjGrassFv },
-    { load_resources__10TObjCGrassFv, release_global_805D5130__10TObjCGrassFv },
-    { load_shark_resources__6TLobbyFv, free_resources__12TObjEneSharkFv },
-    { TObjEneMe3ShinowaMirage__sub_800E7B94, free_shared_resources__23TObjEneMe3ShinowaMirageFv },
-    { initialize_saver_resources, free_resources__10TObjPlayerFv },
-    { load_resources__17TObjEneDf2BringerFv, free_resources__17TObjEneDf2BringerFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
+    { TObjGrass::load_resources, TObjGrass::destroy_all },
+    { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
+    { TLobby::load_shark_resources, TObjEneShark::free_resources },
+    { TObjEneMe3ShinowaMirage__sub_800E7B94, TObjEneMe3ShinowaMirage::free_shared_resources },
+    { initialize_saver_resources, TObjPlayer::free_resources },
+    { TObjEneDf2Bringer::load_resources, TObjEneDf2Bringer::free_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_17[10] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__11TObjEneMojaFv, free_resources__11TObjEneMojaFv },
-    { load_resources__9TObjGrassFv, destroy_all__9TObjGrassFv },
-    { load_resources__10TObjCGrassFv, release_global_805D5130__10TObjCGrassFv },
-    { load_shark_resources__6TLobbyFv, free_resources__12TObjEneSharkFv },
-    { TObjEneMe3ShinowaMirage__sub_800E7B94, free_shared_resources__23TObjEneMe3ShinowaMirageFv },
-    { initialize_saver_resources, free_resources__10TObjPlayerFv },
-    { load_resources__17TObjEneDf2BringerFv, free_resources__17TObjEneDf2BringerFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
+    { TObjGrass::load_resources, TObjGrass::destroy_all },
+    { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
+    { TLobby::load_shark_resources, TObjEneShark::free_resources },
+    { TObjEneMe3ShinowaMirage__sub_800E7B94, TObjEneMe3ShinowaMirage::free_shared_resources },
+    { initialize_saver_resources, TObjPlayer::free_resources },
+    { TObjEneDf2Bringer::load_resources, TObjEneDf2Bringer::free_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_18[29] = {
-    { load_ply_motion_npc_town, free_static__11TObjNpcBaseFv },
+    { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcFemaleTall__sub_8014AA60, TObjNpcFemaleTall__sub_8014AA48 },
     { TObjNpcLappy__sub_8014B840, TObjNpcLappy__sub_8014B828 },
-    { load_static_resource__18TObjNpcFemaleDwarfFv, unload_static_data__18TObjNpcFemaleDwarfFv },
-    { load_resource_instance__16TObjNpcFemaleOldFv, destroy_static_instance__16TObjNpcFemaleOldFv },
-    { load_shared_resource__16TObjNpcMaleChildFv, release_static_instance__16TObjNpcMaleChildFv },
-    { load_static_resource__14TObjNpcMaleFatFv, free_static_model__14TObjNpcMaleFatFv },
-    { load_resource_instance__14TObjNpcMaleOldFv, destroy_static_instance__14TObjNpcMaleOldFv },
-    { load_resource_instance__15TObjNpcMaleTallFv, destroy_instance__15TObjNpcMaleTallFv },
-    { load_section_motion__18TObjNpcConnoisseurFv, destroy_instance__18TObjNpcConnoisseurFv },
-    { load_shared_resource__18TObjNpcSoldierBaseFv, release_static_instance__18TObjNpcSoldierBaseFv },
-    { load_shared_resource__19TObjNpcGovernorBaseFv, free_shared_data__19TObjNpcGovernorBaseFv },
-    { load_shared_resource__20TObjNpcCloakroomBaseFv, destroy_static_instance__20TObjNpcCloakroomBaseFv },
-    { load_shared_data__16TObjNpcNurseBaseFv, free_shared_data__16TObjNpcNurseBaseFv },
-    { load_static_data__20TObjNpcSecretaryBaseFv, free_static_data__20TObjNpcSecretaryBaseFv },
-    { load_resources__12TObjNpcARM00Fv, free_resources__12TObjNpcARM00Fv },
-    { load_resources__12TObjNpcARW00Fv, free_resources__12TObjNpcARW00Fv },
-    { load_resources__12TObjNpcHFW00Fv, free_resources__12TObjNpcHFW00Fv },
-    { load_assets__12TObjNpcNFM00Fv, free_resources__12TObjNpcNFM00Fv },
-    { load_resources__12TObjNpcNFM01Fv, free_resources__12TObjNpcNFM01Fv },
-    { load_shared_resource__13TObjNpcKenkyuFv, free_static_model__13TObjNpcKenkyuFv },
-    { load_shared_resource__16TObjNpcSoutokufuFv, close_dialog_window__16TObjNpcSoutokufuFv },
-    { load_static_resource__11TObjNpcHosaFv, destroy_static_instance__11TObjNpcHosaFv },
-    { load_resource_instance__14TObjNpcKenkyuWFv, destroy_instance__14TObjNpcKenkyuWFv },
-    { load_shared_resource__12TObjNpcHosa2Fv, close_dialog_window__12TObjNpcHosa2Fv },
-    { load_shared_resource__14TObjNpcKenkyu2Fv, free_static_model__14TObjNpcKenkyu2Fv },
-    { load_resources__14TObjNpcNgcBaseFv, free_shared_resources__14TObjNpcNgcBaseFv },
+    { TObjNpcFemaleDwarf::load_static_resource, TObjNpcFemaleDwarf::unload_static_data },
+    { TObjNpcFemaleOld::load_resource_instance, TObjNpcFemaleOld::destroy_static_instance },
+    { TObjNpcMaleChild::load_shared_resource, TObjNpcMaleChild::release_static_instance },
+    { TObjNpcMaleFat::load_static_resource, TObjNpcMaleFat::free_static_model },
+    { TObjNpcMaleOld::load_resource_instance, TObjNpcMaleOld::destroy_static_instance },
+    { TObjNpcMaleTall::load_resource_instance, TObjNpcMaleTall::destroy_instance },
+    { TObjNpcConnoisseur::load_section_motion, TObjNpcConnoisseur::destroy_instance },
+    { TObjNpcSoldierBase::load_shared_resource, TObjNpcSoldierBase::release_static_instance },
+    { TObjNpcGovernorBase::load_shared_resource, TObjNpcGovernorBase::free_shared_data },
+    { TObjNpcCloakroomBase::load_shared_resource, TObjNpcCloakroomBase::destroy_static_instance },
+    { TObjNpcNurseBase::load_shared_data, TObjNpcNurseBase::free_shared_data },
+    { TObjNpcSecretaryBase::load_static_data, TObjNpcSecretaryBase::free_static_data },
+    { TObjNpcARM00::load_resources, TObjNpcARM00::free_resources },
+    { TObjNpcARW00::load_resources, TObjNpcARW00::free_resources },
+    { TObjNpcHFW00::load_resources, TObjNpcHFW00::free_resources },
+    { TObjNpcNFM00::load_assets, TObjNpcNFM00::free_resources },
+    { TObjNpcNFM01::load_resources, TObjNpcNFM01::free_resources },
+    { TObjNpcKenkyu::load_shared_resource, TObjNpcKenkyu::free_static_model },
+    { TObjNpcSoutokufu::load_shared_resource, TObjNpcSoutokufu::close_dialog_window },
+    { TObjNpcHosa::load_static_resource, TObjNpcHosa::destroy_static_instance },
+    { TObjNpcKenkyuW::load_resource_instance, TObjNpcKenkyuW::destroy_instance },
+    { TObjNpcHosa2::load_shared_resource, TObjNpcHosa2::close_dialog_window },
+    { TObjNpcKenkyu2::load_shared_resource, TObjNpcKenkyu2::free_static_model },
+    { TObjNpcNgcBase::load_resources, TObjNpcNgcBase::free_shared_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_21[9] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TObjPlayer__sub_800AA82C, free_effect_resources__10TObjPlayerFv },
-    { load_shared_resource__13TOCtrlDubchikFv, destroy_instance__13TOCtrlDubchikFv },
-    { load_gyaranzo_resources__6TLobbyFv, free_static_instances__15TObjEneGyaranzoFv },
-    { load_resources__14TObjEneBm5WolfFv, release_global_805D5120__14TObjEneBm5WolfFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjPlayer__sub_800AA82C, TObjPlayer::free_effect_resources },
+    { TOCtrlDubchik::load_shared_resource, TOCtrlDubchik::destroy_instance },
+    { TLobby::load_gyaranzo_resources, free_static_instances__15TObjEneGyaranzoFv },
+    { TObjEneBm5Wolf::load_resources, TObjEneBm5Wolf::release_global_805D5120 },
     { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
-    { initialize_saver_resources, free_resources__10TObjPlayerFv },
+    { initialize_saver_resources, TObjPlayer::free_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_22[9] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TObjPlayer__sub_800AA82C, free_effect_resources__10TObjPlayerFv },
-    { load_shared_resource__13TOCtrlDubchikFv, destroy_instance__13TOCtrlDubchikFv },
-    { load_resources__14TObjEneBm5WolfFv, release_global_805D5120__14TObjEneBm5WolfFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjPlayer__sub_800AA82C, TObjPlayer::free_effect_resources },
+    { TOCtrlDubchik::load_shared_resource, TOCtrlDubchik::destroy_instance },
+    { TObjEneBm5Wolf::load_resources, TObjEneBm5Wolf::release_global_805D5120 },
     { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
-    { initialize_saver_resources, free_resources__10TObjPlayerFv },
-    { load_resources__18TObjEneRe4SorcererFv, free_bits__18TObjEneRe4SorcererFv },
+    { initialize_saver_resources, TObjPlayer::free_resources },
+    { TObjEneRe4Sorcerer::load_resources, TObjEneRe4Sorcerer::free_bits },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_19_20[11] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_resources__12TObjEneLappyFv, cleanup_handles__6TLobbyFv },
-    { load_resources__11TObjEneMojaFv, free_resources__11TObjEneMojaFv },
-    { load_resources__9TObjGrassFv, destroy_all__9TObjGrassFv },
-    { load_resources__10TObjCGrassFv, release_global_805D5130__10TObjCGrassFv },
-    { TObjPlayer__sub_800C44C4, destroy_instance__16TObjEneRe2FlowerFv },
-    { load_resources__17TObjEneBm3FlyNestFv, free_fly__17TObjEneBm3FlyNestFv },
-    { load_dimedian_resources__6TLobbyFv, free_boss_objects__15TObjEneDimedianFv },
-    { load_static_resources__16TObjEneRe7BeruraFv, destroy_children__16TObjEneRe7BeruraFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneLappy::load_resources, TLobby::cleanup_handles },
+    { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
+    { TObjGrass::load_resources, TObjGrass::destroy_all },
+    { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
+    { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
+    { TObjEneBm3FlyNest::load_resources, TObjEneBm3FlyNest::free_fly },
+    { TLobby::load_dimedian_resources, TObjEneDimedian::free_boss_objects },
+    { TObjEneRe7Berura::load_static_resources, TObjEneRe7Berura::destroy_children },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_23_24_25_26_27[16] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
     { load_shared_resources__16TObjEneMe3StelthFv, free_shared_resources__16TObjEneMe3StelthFv },
-    { TObjEneMerillLia__sub_800D6D64, destroy_rocks__16TObjEneMerillLiaFv },
-    { TBoss4Type3__sub_802D1130, free_shared_instances__19TObjEneBm9MericarolFv },
-    { load_resources__16TObjEneBm5GibonUFv, release_static_resource__16TObjEneBm5GibonUFv },
-    { load_resources__14TObjEneGibblesFv, free_static__14TObjEneGibblesFv },
-    { load_resources__13TObjEneMe1GeeFv, free_globals__13TObjEneMe1GeeFv },
-    { load_resources__15TObjEneMe1GiGueFv, delete_barrier__15TObjEneMe1GiGueFv },
-    { load_resources__12TObjEneLappyFv, cleanup_handles__6TLobbyFv },
-    { load_ply_motion_npc_town, free_static__11TObjNpcBaseFv },
+    { TObjEneMerillLia__sub_800D6D64, TObjEneMerillLia::destroy_rocks },
+    { TBoss4Type3__sub_802D1130, TObjEneBm9Mericarol::free_shared_instances },
+    { TObjEneBm5GibonU::load_resources, TObjEneBm5GibonU::release_static_resource },
+    { TObjEneGibbles::load_resources, TObjEneGibbles::free_static },
+    { TObjEneMe1Gee::load_resources, free_globals__13TObjEneMe1GeeFv },
+    { TObjEneMe1GiGue::load_resources, TObjEneMe1GiGue::delete_barrier },
+    { TObjEneLappy::load_resources, TLobby::cleanup_handles },
+    { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcFemaleTall__sub_8014AA60, TObjNpcFemaleTall__sub_8014AA48 },
     { TObjNpcLappy__sub_8014B840, TObjNpcLappy__sub_8014B828 },
-    { load_resources__14TObjNpcNgcBaseFv, free_shared_resources__14TObjNpcNgcBaseFv },
+    { TObjNpcNgcBase::load_resources, TObjNpcNgcBase::free_shared_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_34[15] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_shared_resources__14TObjEneDolmOlmFv, free_shared_resources__14TObjEneDolmOlmFv },
-    { load_resources__14TObjEneRecoboxFv, release_static_instance__14TObjEneRecoboxFv },
-    { TObjEneMerillLia__sub_800D6D64, destroy_rocks__16TObjEneMerillLiaFv },
-    { load_resources__16TObjEneBm5GibonUFv, release_static_resource__16TObjEneBm5GibonUFv },
-    { load_resources__13TObjEneMe1GeeFv, free_globals__13TObjEneMe1GeeFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDolmOlm::load_shared_resources, TObjEneDolmOlm::free_shared_resources },
+    { TObjEneRecobox::load_resources, TObjEneRecobox::release_static_instance },
+    { TObjEneMerillLia__sub_800D6D64, TObjEneMerillLia::destroy_rocks },
+    { TObjEneBm5GibonU::load_resources, TObjEneBm5GibonU::release_static_resource },
+    { TObjEneMe1Gee::load_resources, free_globals__13TObjEneMe1GeeFv },
     { fn_8035B788, fn_8035B750 },
-    { load_resources__12TObjEneLappyFv, cleanup_handles__6TLobbyFv },
-    { load_ply_motion_npc_town, free_static__11TObjNpcBaseFv },
+    { TObjEneLappy::load_resources, TLobby::cleanup_handles },
+    { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcFemaleTall__sub_8014AA60, TObjNpcFemaleTall__sub_8014AA48 },
     { TObjNpcLappy__sub_8014B840, TObjNpcLappy__sub_8014B828 },
-    { load_resources__14TObjNpcNgcBaseFv, free_shared_resources__14TObjNpcNgcBaseFv },
+    { TObjNpcNgcBase::load_resources, TObjNpcNgcBase::free_shared_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_35[16] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TBoss4Type3__sub_802D1130, free_shared_instances__19TObjEneBm9MericarolFv },
-    { load_resources__14TObjEneGibblesFv, free_static__14TObjEneGibblesFv },
-    { load_resources__15TObjEneMe1GiGueFv, delete_barrier__15TObjEneMe1GiGueFv },
-    { load_resources__14TObjEneRecoboxFv, release_static_instance__14TObjEneRecoboxFv },
-    { load_resources__16TObjEneDellBiterFv, destroy_static_instance__16TObjEneDellBiterFv },
-    { load_assets__19TObjEneEpsilonGuardFv, free_shared_resources__19TObjEneEpsilonGuardFv },
-    { TObjPlayer__sub_800C44C4, destroy_instance__16TObjEneRe2FlowerFv },
-    { load_shared_resources__14TObjEneIllGillFv, free_effect__14TObjEneIllGillFv },
-    { load_ply_motion_npc_town, free_static__11TObjNpcBaseFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TBoss4Type3__sub_802D1130, TObjEneBm9Mericarol::free_shared_instances },
+    { TObjEneGibbles::load_resources, TObjEneGibbles::free_static },
+    { TObjEneMe1GiGue::load_resources, TObjEneMe1GiGue::delete_barrier },
+    { TObjEneRecobox::load_resources, TObjEneRecobox::release_static_instance },
+    { TObjEneDellBiter::load_resources, TObjEneDellBiter::destroy_static_instance },
+    { TObjEneEpsilonGuard::load_assets, TObjEneEpsilonGuard::free_shared_resources },
+    { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
+    { TObjEneIllGill::load_shared_resources, TObjEneIllGill::free_effect },
+    { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcFemaleTall__sub_8014AA60, TObjNpcFemaleTall__sub_8014AA48 },
     { TObjNpcLappy__sub_8014B840, TObjNpcLappy__sub_8014B828 },
-    { load_resources__14TObjNpcNgcBaseFv, free_shared_resources__14TObjNpcNgcBaseFv },
+    { TObjNpcNgcBase::load_resources, TObjNpcNgcBase::free_shared_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_28_29[14] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { load_shared_resources__14TObjEneDolmOlmFv, free_shared_resources__14TObjEneDolmOlmFv },
-    { TObjEneMorfos__sub_803350AC, unload_static_data__13TObjEneMorfosFv },
-    { load_resources__14TObjEneRecoboxFv, release_static_instance__14TObjEneRecoboxFv },
-    { TObjEneMe3SinowZoa__sub_8031B240, free_resources__18TObjEneMe3SinowZoaFv },
-    { load_assets__15TObjEneDelDepthFv, free_shared_data__15TObjEneDelDepthFv },
-    { load_resources__16TObjEneDellBiterFv, destroy_static_instance__16TObjEneDellBiterFv },
-    { load_ply_motion_npc_town, free_static__11TObjNpcBaseFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDolmOlm::load_shared_resources, TObjEneDolmOlm::free_shared_resources },
+    { TObjEneMorfos__sub_803350AC, TObjEneMorfos::unload_static_data },
+    { TObjEneRecobox::load_resources, TObjEneRecobox::release_static_instance },
+    { TObjEneMe3SinowZoa__sub_8031B240, TObjEneMe3SinowZoa::free_resources },
+    { TObjEneDelDepth::load_assets, TObjEneDelDepth::free_shared_data },
+    { TObjEneDellBiter::load_resources, TObjEneDellBiter::destroy_static_instance },
+    { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcFemaleTall__sub_8014AA60, TObjNpcFemaleTall__sub_8014AA48 },
     { TObjNpcLappy__sub_8014B840, TObjNpcLappy__sub_8014B828 },
-    { load_resources__14TObjNpcNgcBaseFv, free_shared_resources__14TObjNpcNgcBaseFv },
+    { TObjNpcNgcBase::load_resources, TObjNpcNgcBase::free_shared_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_30[4] = {
-    { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
-    { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
+    { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
+    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
     { TBoss8Dragon__sub_80065C90, cleanup__13TBoss5GryphonFv },
     { 0, 0 },
 };

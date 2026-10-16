@@ -13,6 +13,10 @@ struct VObj_18_f8ef8c : VBase_18_f8ef8c {
 
 #include <stddef.h>
 #include "pso/item/TItemAttackCol.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 struct VBase_18_f2ea1e { char pad[0x18]; };
 
 struct VObj_18_f2ea1e : VBase_18_f2ea1e {
@@ -155,18 +159,13 @@ void queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 test_flags_any(void *, int);
 s32 copy_position__15TEffStarLight2DFPv(int, void *);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 f32 vec_distance_squared(void *, void *);
 s32 has_game_join_id(void *);
 s32 check_hits__14TItemAttackColFPv(void *);
-u8 get_field_ed__10TObjPlayerFv(int);
 u32 find_item_by_id(int);
-u8 get_slot_count__14TItemProShieldFv(int);
 s32 play_weapon_hit_sound(void *);
-s32 reset_status_block__10TObjPlayerFv(void *);
 s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
 u8 *get_player_by_client_id(s32);
-f32 calc_photon_blast_charge__10TObjPlayerFPvl(int, int);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
 s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1);
@@ -175,15 +174,11 @@ extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
 void TObjPlayer__sub_802E451C(S_802E451C *arg0);
 Hit_802E3D8C *csnVector(void *, void *, s32);
-void set_flags__10TObjPlayerFUl(void *, u32);
 s32 VecCopy__FP3VecPC3Vec(s32 *, s32);
 extern const f32 lbl_805DE910;
 u32 query_game_join_id__10TObjPlayerFv(int);
 s32 run_with_transform_context__10TObjPlayerFii(int, void *);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl(void *);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -203,7 +198,6 @@ void *TItemAttackCol__ct(void *, void *, void *);
 s32 VecCopy__FP3VecPC3Vec(s32 *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_attack_collision__14TItemAttackColFs(void *, int);
 int fn_802E3BA8(void*, void*);
 void queue_destruction__7TObjectFv(void *);
 
@@ -257,7 +251,7 @@ void TItemAttackCol::move_with_collision(void *arg1) {
     Cb_802E3D8C cb;
     hit = csnVector(arg0 + 0x24, arg1, 0x8100);
     if (hit != NULL) {
-        set_flags__10TObjPlayerFUl(arg0 + 0xE0, 1);
+        ((TObjPlayer *)(arg0 + 0xE0))->set_flags(1);
         VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(hit->pos));
         cb = *(Cb_802E3D8C *)((s8 *)arg0 + 0x138);
         if (cb != NULL) {
@@ -276,9 +270,9 @@ void TItemAttackCol::render() {
     {
         if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0xEC) != 0U) {
-                notify_fish_if_valid__10TObjPlayerFUl(*(void **)((s8 *)arg0 + 0xEC));
+                TObjPlayer::notify_fish_if_valid((u32)(*(void **)((s8 *)arg0 + 0xEC)));
             }
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             attack_collider_render_owner = (int)arg0;
             attack_collider_active_count = 0;
             push_matrix();
@@ -289,7 +283,7 @@ void TItemAttackCol::render() {
             run_with_transform_context__10TObjPlayerFii((int) (*(u32 *)((s8 *)arg0 + 0xE8)), (void *) TItemAttackCol::add_to_active_list);
             pop_matrix();
             attack_collider_render_owner = 0;
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
     }
 }
@@ -318,15 +312,15 @@ void TItemAttackCol::run_task() {
     }
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x130);
     if (temp_r3_2 != 0U) {
-        copy_pos__11TNowLoadingFPv((int) (temp_r3_2), (void *) (arg0 + 0x24));
+        ((TNowLoading *)temp_r3_2)->copy_pos((void *) (arg0 + 0x24));
     }
     temp_r3_3 = *(u32 *)((s8 *)arg0 + 0x134);
     if (temp_r3_3 != 0U) {
-        copy_pos__11TNowLoadingFPv((int) (temp_r3_3), (void *) (arg0 + 0x24));
+        ((TNowLoading *)temp_r3_3)->copy_pos((void *) (arg0 + 0x24));
     }
     temp_r3_4 = *(u32 *)((s8 *)arg0 + 0x140);
     if (temp_r3_4 != 0U) {
-        copy_pos__11TNowLoadingFPv((int) (temp_r3_4), (void *) (arg0 + 0x24));
+        ((TNowLoading *)temp_r3_4)->copy_pos((void *) (arg0 + 0x24));
     }
     check_hits__14TItemAttackColFPv((void *) (arg0));
     if ((*(f32 *)((s8 *)arg0 + 0xDC) <= vec_distance_squared((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
@@ -341,7 +335,7 @@ void *__dt__14TItemAttackColFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0x130) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x130)); *(s32 *)((s8 *)arg0 + 0x130) = 0; }
         if (*(void **)((s8 *)arg0 + 0x134) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x134)); *(s32 *)((s8 *)arg0 + 0x134) = 0; }
         if (*(void **)((s8 *)arg0 + 0x140) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x140)); *(s32 *)((s8 *)arg0 + 0x140) = 0; }
-        destroy_attack_collision__14TItemAttackColFs(arg0, 0);
+        ((TItemAttackCol *)arg0)->destroy_attack_collision(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -409,12 +403,12 @@ s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1) {
             break;
         }
         temp_r31_2 = (s32) var_f31;
-        calc_photon_blast_charge__10TObjPlayerFPvl((int) (temp_r29), (int) (temp_r31_2));
+        TObjPlayer::calc_photon_blast_charge((void *)temp_r29, (s32)((int) (temp_r31_2)));
         ((VObj_18_f2ea1e *)(temp_r29))->m73();
         apply_camera_shake__10TObjPlayerFiii((int) (temp_r29), (int) (temp_r30), (int) (temp_r31_2));
-        reset_status_block__10TObjPlayerFv((void *) (&stack.sp8));
-        stack.sp8 = get_field_ed__10TObjPlayerFv((int) (temp_r28));
-        stack.sp9 = get_slot_count__14TItemProShieldFv((int) (temp_r28));
+        ((TObjPlayer *)(&stack.sp8))->reset_status_block();
+        stack.sp8 = ((TObjPlayer *)temp_r28)->get_field_ed();
+        stack.sp9 = ((TItemProShield *)temp_r28)->get_slot_count();
         stack.spC = (u8 *)(temp_r29);
         stack.sp14 = (u8 *)(temp_r30);
         stack.sp18 = *(s32 *)((s8 *)arg1 + 4);

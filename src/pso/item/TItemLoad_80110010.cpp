@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TItemLoad.h"
+#include "pso/TObject.h"
 
 struct Base_801104C4_80110010 { char pad[0x18]; };
 struct VObj_801104C4_80110010 : Base_801104C4_80110010 {
@@ -54,16 +55,13 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 __dl__FPv(void *);
 s32 mem_free(s32);
-s32 free_texture__9TItemLoadFv(s32 *);
-s32 set_parent__7TObjectFP7TObject(void *, u32);
-s32 update_all__9TItemLoadFv();
 
 extern s32 lbl_8049F43C[];
 
 void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 *)((s8 *)arg0 + 0x14) = (s32)lbl_8049F43C;
-        free_texture__9TItemLoadFv((s32 *)arg0);
+        ((TItemLoad *)arg0)->free_texture();
         mem_free(*(s32 *)((s8 *)arg0 + 0));
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -200,13 +198,13 @@ void TItemLoad::release_resource_by_id(s32 id) {
 void TItemLoad::update() {
     void *temp_r31;
 
-    update_all__9TItemLoadFv();
+    TItemLoad::update_all();
     if (((void *) TItemLoad__model_load_task_root != NULL) && ((u32) TItemLoad__completed_model_load_task_root != 0U)) {
         temp_r31 = *(void **)((s8 *)TItemLoad__model_load_task_root + 0x14);
         if (temp_r31 != NULL) {
             ((VObj_801104C4_80110010 *)temp_r31)->m1();
             if (TItemLoad__sub_801107F4(temp_r31) == 1) {
-                set_parent__7TObjectFP7TObject(temp_r31, TItemLoad__completed_model_load_task_root);
+                ((TObject *)temp_r31)->set_parent((TObject *)TItemLoad__completed_model_load_task_root);
             }
         }
     }

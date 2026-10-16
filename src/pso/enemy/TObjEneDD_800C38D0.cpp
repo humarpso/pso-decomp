@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneRe2Flower.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -153,13 +155,9 @@ struct VObj_800C3A00_800C38D0 : Base_800C3A00_800C38D0 {
 extern "C" {
 
 s32 advance_animation_playback();
-s32 play_area_se_with_particle__12TBoss3VoloptFv(void *);
-s32 play_area_sound_effect__12TBoss3VoloptFv(void *);
 s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 clear_child_flags__16TObjEneRe2FlowerFv(void *);
 s32 enemy_clear_target(void *);
-s32 get_flag_11__16TObjEneRe2FlowerFv(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
 void TObjEneDD::handle_state(s32 arg1) {
@@ -168,16 +166,16 @@ void TObjEneDD::handle_state(s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         ((V_En_800c38d0 *) arg0)->m93();
-        clear_child_flags__16TObjEneRe2FlowerFv(arg0);
+        ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 8);
         set_field_378__9TObjEneDDFPvi(arg0, 2);
         enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
-        if (get_flag_11__16TObjEneRe2FlowerFv(arg0) != 0) {
-            play_area_se_with_particle__12TBoss3VoloptFv(arg0 + 0x38);
+        if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0) {
+            ((TBoss3Volopt *)(arg0 + 0x38))->play_area_se_with_particle();
             return;
         }
-        play_area_sound_effect__12TBoss3VoloptFv(arg0 + 0x38);
+        ((TBoss3Volopt *)(arg0 + 0x38))->play_area_sound_effect();
         return;
     case 3:
         if (((V_Sub_800c38d0 *) (arg0 + 0x3F4))->m5() != 0) {

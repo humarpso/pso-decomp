@@ -1,6 +1,7 @@
 #include "pso/TShopWindowBase.h"
 
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct RecoveredGlobal_802239EC_lbl_8050E208 {
     s32 value;
@@ -47,7 +48,6 @@ void *__ct__15TShopWindowBaseFv(void *arg0);
 void draw_if_ready__15TShopWindowBaseFPv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_instance__11TCameraCtrlFv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 obj_getField1c(void *);
 
 void TShopWindowBase__vt9(void) {  }
@@ -56,7 +56,7 @@ extern f32 lbl_805DC728;
 extern f32 lbl_805DC72C;
 
 f32 TShopWindowBase::get_scale() {
-    if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && (get_instance__11TCameraCtrlFv() > 2)) {
+    if ((TRaderMapCore::is_not_split_screen() == 1) && (get_instance__11TCameraCtrlFv() > 2)) {
         return lbl_805DC728;
     }
     return lbl_805DC72C;

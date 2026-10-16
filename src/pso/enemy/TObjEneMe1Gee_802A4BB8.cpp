@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_802A4CC4_lbl_804DCFF8 {
     s32 value;
@@ -34,8 +35,6 @@ s32 set_global_param__8TObjFishFl();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 
 extern u32 me1gee_cached_model_handle;
 
@@ -46,7 +45,7 @@ void TObjEneMe1Gee::draw_model() {
         return;
     }
     push_matrix();
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     post_translate_matrix((void *) (arg0 + 0x6C));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA4)));
     rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA0)));
@@ -54,7 +53,7 @@ void TObjEneMe1Gee::draw_model() {
     set_global_param__8TObjFishFl();
     get_bml_model((void *) (me1gee_cached_model_handle), (int) (1));
     draw_ginja_object();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     pop_matrix();
 }
 void TObjEneMe1Gee::update_missile() {

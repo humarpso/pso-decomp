@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawClaw.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -24,7 +27,6 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-void update_dragon_boss_state__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_8008DD14();
 s32 update_move_to_target__10TObjPlayerFv();
 s32 TObjPlayer__sub_8008E254();
@@ -36,11 +38,6 @@ s32 run_death_sequence__10TObjPlayerFv();
 s32 TObjPlayer__sub_8008F910();
 s32 TObjPlayer__sub_8008FAD0();
 void TObjPlayer__sub_8008FF50(u8 *arg0);
-s32 update_if_active__15TObjEneMe1GiGueFl(void *, int);
-s32 clear_attack_flag__18TObjEneBalClawClawFv(void *);
-s32 set_attack_distance_flag__10TObjPlayerFv(void *);
-s32 get_flag_0x388_b24__10TObjPlayerFv(void *);
-s32 find_target_in_range__10TObjPlayerFf(void *, f32);
 s32 TObjEneMe1GiGue__sub_800C73F4(void *);
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805D9644;
@@ -65,24 +62,24 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
     if (F(s16, 0x326) != 0 && F(s16, 0x326) != 8) {
         F(s32, 0x3D4)++;
     }
-    if (get_flag_0x388_b24__10TObjPlayerFv(arg0) != 0) {
+    if (((TObjPlayer *)arg0)->get_flag_0x388_b24() != 0) {
         switch (F(s16, 0x326)) {
         case 0:
         case 1:
             if (F(s32, 0x3D4) > 0x708 || F(s16, 0x3DA) >= 2) {
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 0xB);
+                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xB);
                 return;
             }
             break;
         }
         if (VO->m17(0x1E) != 0) {
-            find_target_in_range__10TObjPlayerFf(arg0, lbl_805D9644);
+            ((TObjPlayer *)arg0)->find_target_in_range(lbl_805D9644);
         }
         switch (F(s16, 0x326)) {
         case 0:
         case 8:
             if (F(u32, 0x2A8) != 0) {
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 1);
+                ((TObjEneMe1GiGue *)arg0)->update_if_active(1);
                 F(s32, 0x38C) = 2;
             } else {
                 TObjEneMe1GiGue__sub_800C73F4(arg0);
@@ -114,36 +111,36 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
                 if (old != F(s32, 0x38C)) {
                     switch (F(s32, 0x38C)) {
                     case 0:
-                        update_if_active__15TObjEneMe1GiGueFl(arg0, 9);
+                        ((TObjEneMe1GiGue *)arg0)->update_if_active(9);
                         break;
                     case 1:
-                        clear_attack_flag__18TObjEneBalClawClawFv(arg0);
+                        ((TObjEneBalClawClaw *)arg0)->clear_attack_flag();
                         break;
                     case 2:
-                        set_attack_distance_flag__10TObjPlayerFv(arg0);
+                        ((TObjPlayer *)arg0)->set_attack_distance_flag();
                         break;
                     }
                 }
             } else {
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 8);
+                ((TObjEneMe1GiGue *)arg0)->update_if_active(8);
             }
             break;
         }
     } else {
         if (VO->m17(0x1E) != 0 && F(s16, 0x326) != 2) {
-            find_target_in_range__10TObjPlayerFf(arg0, lbl_805D9644);
+            ((TObjPlayer *)arg0)->find_target_in_range(lbl_805D9644);
         }
         switch (F(s16, 0x326)) {
         case 0:
             if (VO->m17(0x1E) != 0 && F(u32, 0x2A8) == 0) {
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 0xA);
+                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xA);
                 return;
             }
             break;
         case 1:
         case 12:
             if (F(s32, 0x3D4) > 0x708) {
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 0xA);
+                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xA);
                 return;
             }
             break;
@@ -152,14 +149,14 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
         case 0:
         case 8:
             if (F(u32, 0x2A8) != 0) {
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 0xC);
+                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xC);
             } else {
                 TObjEneMe1GiGue__sub_800C73F4(arg0);
             }
             break;
         case 1:
             if (F(u32, 0x2A8) == 0) {
-                update_if_active__15TObjEneMe1GiGueFl(arg0, 8);
+                ((TObjEneMe1GiGue *)arg0)->update_if_active(8);
             }
             break;
         }
@@ -173,7 +170,7 @@ void TObjPlayer__sub_8008FF50(u8 *arg0) {
     switch (temp_r0)
     {
       case 0:
-        update_dragon_boss_state__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->update_dragon_boss_state();
         return;
       case 1:
         TObjPlayer__sub_8008FAD0();

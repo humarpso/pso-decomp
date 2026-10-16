@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjHashiVersus2.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80445974[];
@@ -21,13 +23,11 @@ typedef char RecoveredGlobal_801913F8___vt__16TObjHashiVersus2_size[sizeof(Recov
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u32 TObjHashiVersus2__resource_bundle;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjHashiBase__ct(void *, s32);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 u8 is_current_floor_switch_set(int);
 extern RecoveredGlobal_801913F8_lbl_804B7D24 TObjHashiVersus2__collision_body_parts;
 extern s32 __vt__16TObjHashiVersus2[];
@@ -72,7 +72,7 @@ extern s32 __vt__16TObjHashiVersus2[];
 void TObjHashiVersus2::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjHashiVersus2__resource_descriptor, 0, 0, 0));
@@ -105,7 +105,7 @@ u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus2__resource_bundle), 0);
     init_collision_body_parts(arg0, (s32) &TObjHashiVersus2__collision_body_parts.value, 2);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
 

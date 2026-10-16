@@ -6,8 +6,6 @@ struct Ent_8013B2C8 { s32 w; };
 
 extern "C" {
 void fn_80044330(void *);
-void reset_slot__11TMainCursorFv(void *);
-void set_type__11TMainCursorFl(void *, s32);
 extern const f32 TMainCursor__data_805DB0C0;
 s32 is_channel_active__11TMainCursorFv(PaletteCursorOverride*);
 s32 can_start_technique__10TObjPlayerFPvi(TObjPlayer*, s32);
@@ -77,9 +75,9 @@ void TMainCursor::reset_state() {
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
-    set_type__11TMainCursorFl(arg0, 0);
+    ((TMainCursor *)arg0)->set_type(0);
     fn_80044330(arg0 + 0x40);
-    reset_slot__11TMainCursorFv(arg0 + 0x9C);
+    ((TMainCursor *)(arg0 + 0x9C))->reset_slot();
 }
 s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter) {
     if (is_channel_active__11TMainCursorFv(cursor) != 0) {

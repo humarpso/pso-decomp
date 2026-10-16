@@ -43,7 +43,6 @@ extern RecoveredGlobal_8006F23C_lbl_8048C9D8 challenge_mode_state;
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 challenge_mode_state;
 s32 is_split_screen(void);
-s32 get_instance__6TLobbyFv(void);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
 extern s32 lbl_80438590[];
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
@@ -93,14 +92,14 @@ s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot) {
     switch (slot) {
     case -1:
         if (is_split_screen()) {
-            s32 inst = get_instance__6TLobbyFv();
+            s32 inst = TLobby::get_instance();
             s32 r = 2;
             if (inst == 1) {
                 r = 3;
             }
             return r;
         }
-        return (get_instance__6TLobbyFv() == 1) ? 1 : 0;
+        return (TLobby::get_instance() == 1) ? 1 : 0;
     }
     return slot;
 }

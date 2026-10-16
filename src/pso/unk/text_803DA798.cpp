@@ -2,6 +2,7 @@
 
 #include <stddef.h>
 #include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 struct RecoveredFields_803DA84C_arg0 {
     u8 unknown_0[0x14];
     u32 field_14;
@@ -46,12 +47,10 @@ struct B_803DAE1C { u32 a; u32 b; Obj_803DAD84 *c; };
 extern "C" {
 extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
-void release_empty_ref_entry__10TObjPlayerFv(void *);
 s32 fn_803DB20C(void *);
 extern u8 *current_render_context;
 s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 find_table_index_by_id__10TObjPlayerFUl(u32);
 extern u8 *current_render_context;
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
@@ -75,9 +74,7 @@ s32 TObjPlayer__sub_803DB244(void);
 extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2);
 s32 TObjPlayer__sub_803DA104(int);
-s32 find_table_index_by_id__10TObjPlayerFUl(u32);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, void *);
-s32 find_record_index__10TObjPlayerFUlUl(u32 arg0, u32 arg1);
 void TObjPlayer__sub_803DAD24(void);
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
@@ -183,13 +180,13 @@ s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3) {
     s32 idx;
     s32 r;
     s32 slot;
-    idx = find_table_index_by_id__10TObjPlayerFUl(arg0);
+    idx = TObjPlayer::find_table_index_by_id(arg0);
     if (TObjPlayer__sub_803DA104(arg2) != 0) {
         if (idx < 0) {
             *arg3 = -1;
             return 0;
         }
-        r = find_record_index__10TObjPlayerFUlUl(arg0, arg1);
+        r = TObjPlayer::find_record_index(arg0, arg1);
         if (r < 0) {
             slot = find_free_slot__10TObjPlayerFPvPv(&sp8, NULL);
             if (slot < 0) {
@@ -308,7 +305,7 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     s32 temp_r3;
     u8 *var_r3;
     u8 *var_r4;
-    temp_r3 = find_table_index_by_id__10TObjPlayerFUl(arg0);
+    temp_r3 = TObjPlayer::find_table_index_by_id(arg0);
     if (temp_r3 < 0) {
         var_r3 = (u8 *)((void *)-1);
         return -1;
@@ -381,7 +378,7 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
             *(s32 *)((s8 *)current_render_context + 0x14) = -1;
         }
     }
-    release_empty_ref_entry__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->release_empty_ref_entry();
     return 1;
 }
 #pragma pop

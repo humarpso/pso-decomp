@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/TItemLoad.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Load_8010F838 { u8 pad[0x14]; void *vtbl; u8 pad18[0xC]; s32 id; s32 f28; s32 f2c[4]; s32 f3c; };
 
@@ -12,7 +14,6 @@ struct List_8010F68C { Ent_8010F68C *ents; u32 count; };
 struct Load_8010F68C { u8 pad[0x24]; s32 id; List_8010F68C *list; void *f2c[4]; void *f3c; };
 
 extern "C" {
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 mem_alloc(int);
 extern s32 lbl_805D2BE8;
 extern s32 lbl_805D2BEC;
@@ -22,12 +23,8 @@ extern s32 item_load_model_buffer;
 void TItemLoad__sub_8010F5A0(void);
 void init__9TItemLoadFv(void *, void *, int, int);
 extern s32 lbl_8049F40C[];
-s32 begin_load__9TItemLoadFl(void *, s32);
 s32 decompress_buffer__9TItemLoadFUl();
-s32 tmp_buf_release__6TLobbyFv(s32);
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPCc(s32);
-s32 reset_state__9TItemLoadFv(void *);
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
 extern s32 item_load_tmp_buffer;
@@ -44,15 +41,11 @@ struct VObj_8010F52C : Base_8010F52C {
 void *TItemLoad__sub_8010F950(void *arg0, s16 arg1);
 s32 TItemLoad__sub_8010FCB4(void *, s32);
 s32 decompress_buffer__9TItemLoadFUl();
-s32 tmp_buf_release__6TLobbyFv(s32);
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPCc(s32);
 s32 load_gvm_texture_archive(s32, s32);
 s32 __dl__FPv(void *);
-s32 begin_load__9TItemLoadFl(void *, s32);
 s32 mem_free(s32);
 void init__9TItemLoadFv(void *, void *, int, int);
-s32 reset_state__9TItemLoadFv(void *);
 
 extern void *item_texture_archive_loader;
 extern void *item_model_chunk_loader;
@@ -78,13 +71,13 @@ void TItemLoad__sub_8010F5A0(void) {
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0x28));
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)0x28)->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = ((s32)((TItemLoad *)temp_r3)->construct((void *)((void *) (lbl_805D2BE8)), (int)((int) (0xB5)), (int)((int) (0x144))));
     }
     (*(s32 *)&item_texture_archive_loader) = var_r0;
-    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0x40));
+    temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x40)->alloc();
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
         var_r0_2 = ((TItemLoad *)temp_r3_2)->construct_with_vtable((void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
@@ -96,7 +89,7 @@ void TItemLoad__sub_8010F5A0(void) {
 void TItemLoad::start_load_with_id(s32 id, s32 arg2) {
     Load_8010F61C *self = (Load_8010F61C *)this;
     s32 i;
-    if (id != 0 && begin_load__9TItemLoadFl(self, arg2) == 1) {
+    if (id != 0 && ((TItemLoad *)self)->begin_load(arg2) == 1) {
         self->id = id;
         self->f28 = 0;
         for (i = 0; i < 4; i++) {
@@ -117,7 +110,7 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
     void *p;
     u32 i;
     if (TLobby__sub_8001EEF4() == 1) {
-        h = tmp_buf_use_req__6TLobbyFPCc(item_load_tmp_buffer);
+        h = TLobby::tmp_buf_use_req((const char *)item_load_tmp_buffer);
         off = self->id;
         total = decompress_buffer__9TItemLoadFUl();
         pos = 0;
@@ -145,9 +138,9 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
                 break;
             }
         }
-        tmp_buf_release__6TLobbyFv(item_load_tmp_buffer);
+        ((TLobby *)item_load_tmp_buffer)->tmp_buf_release();
         self->id = 0;
-        reset_state__9TItemLoadFv(self);
+        ((TItemLoad *)self)->reset_state();
     }
 }
 
@@ -178,7 +171,7 @@ s32 TItemLoad::construct_with_vtable(void *a1, int a2, int a3) {
 }
 
 void TItemLoad::begin_load_if_pending(s32 arg1, s32 arg2) {
-    if ((arg1 != 0) && (begin_load__9TItemLoadFl(this, arg2) == 1)) {
+    if ((arg1 != 0) && (begin_load(arg2) == 1)) {
         *(s32 *)((s8 *)this + 0x24) = arg1;
     }
 }
@@ -189,12 +182,12 @@ void TItemLoad::reload_item() {
     s32 temp_r31;
 
     if (TLobby__sub_8001EEF4() == 1) {
-        temp_r31 = tmp_buf_use_req__6TLobbyFPCc(item_load_tmp_buffer);
+        temp_r31 = TLobby::tmp_buf_use_req((const char *)item_load_tmp_buffer);
         decompress_buffer__9TItemLoadFUl();
         load_gvm_texture_archive(temp_r31, *(s32 *)((s8 *)this + 0x24));
-        tmp_buf_release__6TLobbyFv(item_load_tmp_buffer);
+        ((TLobby *)item_load_tmp_buffer)->tmp_buf_release();
         *(s32 *)((s8 *)this + 0x24) = 0;
-        reset_state__9TItemLoadFv(this);
+        reset_state();
     }
 }
 

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss8DragonEffBreath.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 struct Vec_802FE024 { f32 x, y, z; };
 
@@ -29,7 +30,6 @@ extern "C" {
 void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, void *);
 void delete_buffer__12TBoss8DragonFis(void *, int);
-s32 setup_breath_instance__12TBoss8DragonFPviUli(u32, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 get_enemy_entity(int);
@@ -52,7 +52,7 @@ void TBoss8DragonEffBreath::run_task() {
         return;
     }
     if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (*(u16 *)((s8 *)arg0 + 0x38)))) != 0U)) {
-        setup_breath_instance__12TBoss8DragonFPviUli(ent, (void *) (arg0 + 0x1C), (int) (*(s32 *)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
+        TBoss8Dragon::setup_breath_instance((void *)ent, (int)((void *) (arg0 + 0x1C)), (u32)((int) (*(s32 *)((s8 *)arg0 + 0x34))), (int)((int) (*(s32 *)((s8 *)arg0 + 0x3C))));
     }
 }
 

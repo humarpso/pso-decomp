@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/THeap.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Ent_8020BB18 { u8 pad0[2]; s16 a; u8 pad1[0x3C]; u32 f40; };
 
 struct Src_8020B970 { s16 f0; u8 pad2[6]; u16 f8; s16 fA; s16 fC; u8 padE[0x44 - 0xE]; };
@@ -18,12 +21,9 @@ extern s32 tl_05;
 extern s32 tl_06;
 extern s32 tl_07;
 void TLobby__sub_8020BB18(void);
-void send_or_handle_packet__6TLobbyFPvPvPvPvUl(u32, void *, void *, u32, u32);
 void archive_pool_free(u32, void *);
 void *archive_pool_alloc(u32, u32);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
 void *alloc__22TQuestVmDownLoadServerFv(u32);
-void *heap_alloc__5THeapFUl(u32, u32);
 void *memcpy(void *, const void *, unsigned long);
 void *memset(void *, int, unsigned long);
 extern Slot_8020B970 TLobby__data_80513A40[];
@@ -54,7 +54,7 @@ s32 load_floor_enemy_group_entries__6TLobbyFiPvUi(s32 idx, Src_8020B970 *src, u3
         }
         s++;
     }
-    t->list = (Dst_8020B970 *)heap_alloc__5THeapFUl(TLobby__data_805D6108, t->count * 8);
+    t->list = (Dst_8020B970 *)((THeap *)TLobby__data_805D6108)->heap_alloc(t->count * 8);
     memset(t->list, 0, t->count * 8);
     s = src;
     d = t->list;
@@ -75,11 +75,11 @@ s32 load_floor_enemy_group_entries__6TLobbyFiPvUi(s32 idx, Src_8020B970 *src, u3
         buf = alloc__22TQuestVmDownLoadServerFv(sz);
         memcpy(buf, src, sz);
         if (TLobby__data_80513A40[idx].entry != NULL) {
-            send_or_handle_packet__6TLobbyFPvPvPvPvUl(TLobby__data_805D6104, buf, TLobby__data_80513A40[idx].entry, sz, 0);
+            TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)buf, (void *)(TLobby__data_80513A40[idx].entry), (void *)sz, (u32)0);
         }
-        safe_free__23TAdSinglePlyChrSelectGCFUl(buf);
+        TAdSinglePlyChrSelectGC::safe_free((u32)buf);
     } else if (TLobby__data_80513A40[idx].entry != NULL) {
-        send_or_handle_packet__6TLobbyFPvPvPvPvUl(TLobby__data_805D6104, src, TLobby__data_80513A40[idx].entry, sz, 0);
+        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)src, (void *)(TLobby__data_80513A40[idx].entry), (void *)sz, (u32)0);
     }
     return 1;
     }

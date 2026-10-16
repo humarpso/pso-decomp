@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
 s32* get_shared_text_buffer(void);
@@ -336,8 +337,6 @@ void read_disc_file(const char *, void *);
 void mem_free(void *);
 u8 *mem_alloc(u32);
 int bswap_32__FPUl(void *);
-s32 is_not_split_screen__13TRaderMapCoreFv(void);
-void move_data__6TLobbyFPCvUl(void *, void *, u32);
 extern const char lbl_80434A20[];
 extern const char lbl_80434A38[];
 extern const char lbl_80434A50[];
@@ -357,7 +356,7 @@ void load_battle_param_entry(void) {
   {
     name = lbl_80434A38;
   }
-  if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+  if (TRaderMapCore::is_not_split_screen() == 1)
   {
     name = lbl_80434A38;
   }
@@ -368,7 +367,7 @@ void load_battle_param_entry(void) {
     {
       name = lbl_80434A6C;
     }
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+    if (TRaderMapCore::is_not_split_screen() == 1)
     {
       name = lbl_80434A6C;
     }
@@ -379,7 +378,7 @@ void load_battle_param_entry(void) {
     read_disc_file(name, file);
     idx = battle_parameter_difficulty;
     new_var = (dst = TLobby__battle_parameter_buffer);
-    move_data__6TLobbyFPCvUl(dst->stats, file->stats[idx], sizeof(dst->stats));
+    ((TLobby *)(dst->stats))->move_data(file->stats[idx], sizeof(dst->stats));
     {
       Stats_8001DC30 *p = ((0, dst))->stats;
       s32 i;
@@ -390,7 +389,7 @@ void load_battle_param_entry(void) {
       }
 
     }
-    move_data__6TLobbyFPCvUl(new_var->pkts, (void *) ((((s32) file) + 0x3600) + (idx * 0x1200)), sizeof(dst->pkts));
+    ((TLobby *)(new_var->pkts))->move_data((void *) ((((s32) file) + 0x3600) + (idx * 0x1200)), sizeof(dst->pkts));
     {
       Pkt_8001DC30 *p = new_var->pkts;
       s32 i;
@@ -401,7 +400,7 @@ void load_battle_param_entry(void) {
       }
 
     }
-    move_data__6TLobbyFPCvUl(new_var->sw, (void *) ((((s32) file) + 0x7E00) + (idx * 0xC00)), sizeof(dst->sw));
+    ((TLobby *)(new_var->sw))->move_data((void *) ((((s32) file) + 0x7E00) + (idx * 0xC00)), sizeof(dst->sw));
     {
       s32 i;
       Sw_8001DC30 *p = new_var->sw;
@@ -412,7 +411,7 @@ void load_battle_param_entry(void) {
       }
 
     }
-    move_data__6TLobbyFPCvUl(new_var->pairs, (void *) ((((s32) file) + 0xAE00) + (1152 * (4 * idx))), sizeof(dst->pairs));
+    ((TLobby *)(new_var->pairs))->move_data((void *) ((((s32) file) + 0xAE00) + (1152 * (4 * idx))), sizeof(dst->pairs));
     {
       s32 i;
       Pair_8001DC30 *p = new_var->pairs;

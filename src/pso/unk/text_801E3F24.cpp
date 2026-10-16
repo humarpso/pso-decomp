@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Ent_801E3FA4 {
     u16 id;
@@ -16,7 +17,6 @@ void TObjPlayer__sub_801E3F24(s32 arg0);
 void TObjPlayer__sub_801E3F30(f32 farg0, f32 farg1, f32 farg2);
 void fn_801E3F44(f32 farg0, f32 farg1);
 void debug_print__FPCc(const char *);
-s32 get_global_state__14TOKeyMachine01Fv();
 int sprintf(char *, const char *, ...);
 extern char pso_data2_receive_log_format[];
 extern u8 subcommand_area_masks[];
@@ -71,7 +71,7 @@ void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
     char buf[0x80];
     s32 key = arg0->a;
     for (i = 0; pso_command_dispatch_table[i].id != 0; i++) {
-        if (key == pso_command_dispatch_table[i].id && (pso_command_dispatch_table[i].mask & subcommand_area_masks[get_global_state__14TOKeyMachine01Fv()])) {
+        if (key == pso_command_dispatch_table[i].id && (pso_command_dispatch_table[i].mask & subcommand_area_masks[TOKeyMachine01::get_global_state()])) {
             sprintf(buf, pso_data2_receive_log_format, arg0->a, arg0->b);
             debug_print__FPCc(buf);
             pso_command_dispatch_table[i].fn(arg0);

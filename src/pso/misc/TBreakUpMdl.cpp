@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TBreakUpMdl.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
@@ -130,13 +135,11 @@ struct Bringer_80097100 : VObj_18_26a62c {
 };
 
 extern "C" {
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_by_node_angles(void *, int);
@@ -170,7 +173,6 @@ s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(void *);
 void draw_ginja_model(s32);
 void set_chunk_material_override_pair(u32, u32);
 void set_chunk_material_color(Color_8009680C *);
@@ -182,7 +184,6 @@ extern const f32 lbl_805D97C8;
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D97CC;
 f32 rand_signed_unit(void);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 void *mem_alloc(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
@@ -199,18 +200,12 @@ extern s32 TBreakUpMdl__class_name;
 extern const f32 lbl_805D97D0;
 extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
-s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 int get_target_info__9TObjEneDDFPv(void*);
-s32 toggle_particle_effect__10TObjPlayerFv();
-s32 end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(void *);
 s32 draw_model_motion(s32, void *, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern Vec_80097100 lbl_8043A0E0;
 extern const f32 lbl_805D97D8;
 extern const f32 lbl_805D97DC;
@@ -237,7 +232,7 @@ void TBreakUpMdl::render() {
     Part_8009680C *part;
     s32 i;
     if (self->texlist != 0) {
-        set_global_param__8TObjFishFl(self->texlist);
+        TObjFish::set_global_param((s32)(self->texlist));
     }
     lbl_805D5660 = model_render_flags;
     if (self->alpha < lbl_805D97C8) {
@@ -340,7 +335,7 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
         part = &self->parts[i];
         matrix_mult_vec(0, (int)self->model->segs[i].a, (int)part);
         rotate_vector_by_matrix(0, self->model->segs[i].b, part->vel);
-        clamp_velocity__15TObjBoss2TunnelFv(part->vel);
+        ((TObjBoss2Tunnel *)(part->vel))->clamp_velocity();
         part->vel[1] = scale * (lbl_805D97D0 * (f32)rand()) + base;
         part->f18 = 0;
         part->f1c = arg6;
@@ -374,7 +369,7 @@ s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
-            clamp_velocity__15TObjBoss2TunnelFv(temp_r31 + 0x10);
+            ((TObjBoss2Tunnel *)(temp_r31 + 0x10))->clamp_velocity();
             var_r29 += 1;
             *(s32 *)temp_r31 = *(s32 *)((s8 *)var_r28 + 4);
         }
@@ -410,7 +405,7 @@ s32 TBreakUpMdl::build_node_records(u8 *arg1, s32 arg2) {
             temp_r4 = (long) (temp_r31 + 4);
             matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
             VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
-            clamp_velocity__15TObjBoss2TunnelFv(temp_r31 + 0x10);
+            ((TObjBoss2Tunnel *)(temp_r31 + 0x10))->clamp_velocity();
             var_r29 += 1;
             *(s32 *)temp_r31 = *(s32 *)((s8 *)var_r28 + 4);
         }

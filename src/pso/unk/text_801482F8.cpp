@@ -1,6 +1,12 @@
 #include "types.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/npc/TObjNpcFemaleBase.h"
+#include "pso/TObject.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNpcPlayer.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase18_801482f8 { char pad[0x18]; };
 struct VObj18_801482f8 : VBase18_801482f8 {
@@ -296,7 +302,6 @@ void select_enemy_destination(void *, void *, s32);
 void enemy_turn_toward_dest(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-void update_collisions__10TObjPlayerFv(void *);
 void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
@@ -314,23 +319,15 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 check_player_flag1__6TLobbyFv(void *);
-s32 update_active_player__11TCameraCtrlFv(void);
-s32 update_battle_camera__11TCameraCtrlFv(void);
 u32 create_conversation_camera(int);
 s32 end_conversation_camera(void);
 s32 begin_conversation_camera(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s32 send_6x3E__10TNpcPlayerFv(void *);
-s32 init_6x3E_packet__10TNpcPlayerFv(void *);
-void update_collisions__10TObjPlayerFv(void *);
 s32 send_code_45_1__10TObjPlayerFi(void *);
 u32 get_player_by_client_id();
 void *__ct__12TQuestThreadFv(void *, u32, s32);
 void *__nw__7TObjectFUl(u32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
-s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 subtract_vector(void *, void *);
 extern const f64 lbl_8043F550[];
 extern s32 local_client_id;
@@ -444,22 +441,22 @@ void TObjNpcBase::update_conversation() {
         case 0x41F:
             F(s16, 0x328) = 1;
             ((VObj_18_f3aa6a *)arg0)->m86(0);
-            init_6x3E_packet__10TNpcPlayerFv(&pkt1);
+            ((TNpcPlayer *)(&pkt1))->init_6x3E_packet();
             pkt1.id = obj_getField1c(F(void *, 0x2A8));
             VecCopy__FP3VecPC3Vec(&pkt1.pos, F(u8 *, 0x2A8) + 0x38);
             pkt1.ang = ang + 0x8000;
-            send_6x3E__10TNpcPlayerFv(&pkt1);
+            ((TNpcPlayer *)(&pkt1))->send_6x3E();
             break;
         default:
             if (angle_difference_abs(F(s32, 0x60), ang) < F(Lim_8014854C *, 0x350)->lim) {
                 F(s16, 0x328) = 1;
                 F(s32, 0x60) = ang;
                 ((VObj_18_f3aa6a *)arg0)->m86(0);
-                init_6x3E_packet__10TNpcPlayerFv(&pkt2);
+                ((TNpcPlayer *)(&pkt2))->init_6x3E_packet();
                 pkt2.id = obj_getField1c(F(void *, 0x2A8));
                 VecCopy__FP3VecPC3Vec(&pkt2.pos, F(u8 *, 0x2A8) + 0x38);
                 pkt2.ang = F(s32, 0x60) + 0x8000;
-                send_6x3E__10TNpcPlayerFv(&pkt2);
+                ((TNpcPlayer *)(&pkt2))->send_6x3E();
             } else {
                 F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), ang, F(Lim_8014854C *, 0x350)->lim);
             }
@@ -468,44 +465,44 @@ void TObjNpcBase::update_conversation() {
         break;
     case 1:
         F(s16, 0x328) = 2;
-        if (is_not_split_screen__13TRaderMapCoreFv() == 0) {
+        if (TRaderMapCore::is_not_split_screen() == 0) {
             switch (F(s32, 0x3AC)) {
             case 0x3E9:
                 F(u32, 0x3B4) = create_conversation_camera(7);
-                update_battle_camera__11TCameraCtrlFv();
+                TCameraCtrl::update_battle_camera();
                 break;
             case 0x3EA:
                 F(u32, 0x3B4) = create_conversation_camera(9);
-                update_battle_camera__11TCameraCtrlFv();
+                TCameraCtrl::update_battle_camera();
                 break;
             case 0x3EB:
                 F(u32, 0x3B4) = create_conversation_camera(8);
-                update_battle_camera__11TCameraCtrlFv();
+                TCameraCtrl::update_battle_camera();
                 break;
             case 0x41A:
                 F(u32, 0x3B4) = create_conversation_camera(0x11);
-                update_battle_camera__11TCameraCtrlFv();
+                TCameraCtrl::update_battle_camera();
                 break;
             case 0x41B:
                 F(u32, 0x3B4) = create_conversation_camera(0x12);
-                update_battle_camera__11TCameraCtrlFv();
+                TCameraCtrl::update_battle_camera();
                 break;
             case 0x41F:
                 F(u32, 0x3B4) = create_conversation_camera(0x13);
-                update_battle_camera__11TCameraCtrlFv();
+                TCameraCtrl::update_battle_camera();
                 break;
             default:
                 begin_conversation_camera();
                 break;
             }
         }
-        if (F(s32, 0x3AC) >= 100 && F(s32, 0x3AC) < 1000 && quest_mission_manager != 0 && all_parents_unqueued_for_destruction__7TObjectFv(quest_mission_manager) != 0) {
+        if (F(s32, 0x3AC) >= 100 && F(s32, 0x3AC) < 1000 && quest_mission_manager != 0 && ((TObject *)quest_mission_manager)->all_parents_unqueued_for_destruction() != 0) {
             m = __nw__7TObjectFUl(0x194);
             if (m != 0) {
                 m = __ct__12TQuestThreadFv(m, quest_mission_manager, F(s32, 0x3A8));
             }
             F(void *, 0x3B0) = m;
-        } else if (F(s32, 0x3AC) >= 1000 && quest_area_manager != 0 && all_parents_unqueued_for_destruction__7TObjectFv(quest_area_manager) != 0) {
+        } else if (F(s32, 0x3AC) >= 1000 && quest_area_manager != 0 && ((TObject *)quest_area_manager)->all_parents_unqueued_for_destruction() != 0) {
             m = __nw__7TObjectFUl(0x194);
             if (m != 0) {
                 m = __ct__12TQuestThreadFv(m, quest_area_manager, F(s32, 0x3A8));
@@ -514,7 +511,7 @@ void TObjNpcBase::update_conversation() {
         }
         break;
     case 2:
-        if ((F(u32, 0x3B0) != 0 && all_parents_unqueued_for_destruction__7TObjectFv(F(u32, 0x3B0)) == 0) || F(u32, 0x3B0) == 0) {
+        if ((F(u32, 0x3B0) != 0 && ((TObject *)(F(u32, 0x3B0)))->all_parents_unqueued_for_destruction() == 0) || F(u32, 0x3B0) == 0) {
             F(s16, 0x328) = 3;
             F(s32, 0x2AC) = 0;
             switch (F(s32, 0x3AC)) {
@@ -524,7 +521,7 @@ void TObjNpcBase::update_conversation() {
             case 0x41A:
             case 0x41B:
             case 0x41F:
-                update_active_player__11TCameraCtrlFv();
+                TCameraCtrl::update_active_player();
                 if (F(void *, 0x3B4) != 0) {
                     queue_destruction__7TObjectFv(F(void *, 0x3B4));
                     F(void *, 0x3B4) = 0;
@@ -536,7 +533,7 @@ void TObjNpcBase::update_conversation() {
             }
             if (F(void *, 0x2A8) != 0 && local_client_id == obj_getField1c(F(void *, 0x2A8))) {
                 p = ((u32 (*)(s32))get_player_by_client_id)(local_client_id);
-                if (p != 0 && check_player_flag1__6TLobbyFv((void *)p) != 0) {
+                if (p != 0 && ((TLobby *)p)->check_player_flag1() != 0) {
                     send_code_45_1__10TObjPlayerFi((void *)p);
                 }
             }
@@ -551,7 +548,7 @@ void TObjNpcBase::update_conversation() {
         F(void *, 0x3B0) = 0;
         break;
     }
-    update_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_collisions();
 }
 
 void TObjNpcBase::update_wandering() {
@@ -610,7 +607,7 @@ void TObjNpcBase::update_wandering() {
         }
         break;
     }
-    update_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_collisions();
 }
 
 void TObjNpcBase::update_standing() {

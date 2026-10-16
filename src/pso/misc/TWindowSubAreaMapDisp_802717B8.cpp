@@ -1,14 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowSubAreaMapDisp.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
-s32 show_radar__13TRaderMapCoreFv();
-s32 open_free_map_view__13TRaderMapCoreFv();
-s32 clear__13TRaderMapCoreFv();
-s32 clear_active_flag__11TWindowCtrlFv();
 s32 TWindowSubAreaMapDisp__sub_80246948();
-s32 set_flag_bit0__11TWindowCtrlFv();
 
 extern f32 lbl_805DD480;
 
@@ -16,14 +13,14 @@ void TWindowSubAreaMapDisp::update_visibility() {
     if ((s32) *(s32 *)((s8 *)this + 0x6C) != 0) {
         if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
             *(s32 *)((s8 *)this + 0x6C) = 0;
-            clear_active_flag__11TWindowCtrlFv();
-            clear__13TRaderMapCoreFv();
+            TWindowCtrl::clear_active_flag();
+            TRaderMapCore::clear();
         }
     } else if (!(*(s32 *)((s8 *)this + 0x2C) & 2) && (TWindowSubAreaMapDisp__sub_80246948() == 0)) {
         *(s32 *)((s8 *)this + 0x6C) = 1;
-        open_free_map_view__13TRaderMapCoreFv();
-        show_radar__13TRaderMapCoreFv();
-        set_flag_bit0__11TWindowCtrlFv();
+        TRaderMapCore::open_free_map_view();
+        TRaderMapCore::show_radar();
+        TWindowCtrl::set_flag_bit0();
         {
             f32 c = lbl_805DD480;
             *(f32 *)((s8 *)this + 0x60) = c;

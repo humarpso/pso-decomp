@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/TLobby.h"
 
 struct Ent_8002C730 { u8 pad0[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
 
@@ -31,13 +33,8 @@ int TObjBoss1Rock__sub_8002E3D0(void);
 void *__nw__7TObjectFUl(int);
 int create_instance__14TObjBoss1FloorFv(void*);
 int load_dragon_ground_assets(void);
-int forward_floor_2CB44__6TLobbyFv(void* p);
-int free_char_select__6TLobbyFv(void);
-int free_resources__12TBoss8DragonFv(void);
 void *get_instance__12TBoss1DragonFv(void);
-void init_bosses__6TLobbyFv(void);
 int is_count_below_limit__15TObjBoss1CraterFv(void *, void *);
-void update_boss1_objects__6TLobbyFv(void);
 
 void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
     void *x1;

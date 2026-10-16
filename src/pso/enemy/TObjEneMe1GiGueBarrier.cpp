@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe1GiGueBarrier.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80325BCC_lbl_804ECD40 { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_80325BCC_lbl_804ECD40_size[sizeof(RecoveredGlobal_80325BCC_lbl_804ECD40) == 0x30 ? 1 : -1];
@@ -26,7 +32,6 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 advance_animation_playback(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 s32 is_active_state__22TObjEneMe1GiGueBarrierFPv(int);
 s32 get_timer__22TObjEneMe1GiGueBarrierFPv(int);
@@ -37,8 +42,6 @@ s32 get_field_44c__22TObjEneMe1GiGueBarrierFPv(void *);
 s32 get_timer__22TObjEneMe1GiGueBarrierFPv(int);
 s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(int);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
-s32 set_field_dc__10TObjPlayerFl(void *, int);
 s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 TObjEneMe1GiGueBarrier__sub_802CABF4(void *);
@@ -48,15 +51,11 @@ extern s32 lbl_805D4198;
 extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2);
 s32 queue_destruction__7TObjectFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 extern const f32 lbl_805DF620;
 extern const f32 lbl_805DF624;
@@ -83,7 +82,7 @@ void TObjEneMe1GiGueBarrier::render() {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+    if (TOKeyMachine01::get_global_state() == 0x23) {
         if (((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DF620, lbl_805DF620, lbl_805DF624) == 0) {
             return;
         }
@@ -95,9 +94,9 @@ block_6:
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-            end_effect_render__13TParticleCtrlFv();
-            draw__16TObjEneRe7BeruraFv((void *) (arg0));
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            TParticleCtrl::end_effect_render();
+            ((TObjEneRe7Berura *)arg0)->draw();
             pop_matrix();
         }
     }
@@ -123,7 +122,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
         if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
             *(s32 *)((s8 *)arg0 + 0x104) = 1;
             *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-            if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+            if (TOKeyMachine01::get_global_state() == 0x23) {
                 play_sound_effect((int) (0x4003A316), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             } else {
                 play_sound_effect((int) (0x3A346), (void *) (arg0 + 0x38), (int) (0), (int) (0));
@@ -173,10 +172,10 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)temp_r5 + 0x2C);
     set_field_d8__10TObjPlayerFl((void *) (arg0), (void *) (&TObjEneMe1GiGueBarrier__animation_definitions.value), (int) (temp_r5));
-    set_field_dc__10TObjPlayerFl((void *) (arg0), (int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x430)));
+    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    ((TObjEnePanarms *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     return arg0;
 }
 

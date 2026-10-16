@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowSubTechnique.h"
+#include "pso/misc/TWindowOptionCtrl.h"
+#include "pso/object/TObjCityMainWarp.h"
 
 extern "C" {
 extern s32 lbl_805D49C0;
@@ -25,9 +27,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(s32, s32, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 is_technique_available__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
 s32 get_message_10__20TWindowSubStatusDispFl(int);
-s32 set_flag70_bit10__16TObjCityMainWarpFv(int);
 s32 set_field_1c__6TLobbyFf(int);
-s32 set_flag70_bit100__17TWindowOptionCtrlFv(int);
 f32 TWindowSubEquip__sub_80263AF8(int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
@@ -115,8 +115,8 @@ s32 TWindowSubTechnique::create_title_window() {
   temp_r31 = create_titled_window_menu((int) get_window_layout_position((int) 0x13), (int) 5, (int) temp_r31_2, (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   TWindowSubEquip__sub_80263AF8((int) (*((s32 *) (((s8 *) arg0) + 0x30))), (int) 1);
   set_field_1c__6TLobbyFf((int) temp_r31);
-  set_flag70_bit100__17TWindowOptionCtrlFv((int) temp_r31);
-  set_flag70_bit10__16TObjCityMainWarpFv((int) temp_r31);
+  ((TWindowOptionCtrl *)temp_r31)->set_flag70_bit100();
+  ((TObjCityMainWarp *)temp_r31)->set_flag70_bit10();
   return temp_r31;
 }
 

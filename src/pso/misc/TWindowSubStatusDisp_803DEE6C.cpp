@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 
 #pragma scheduling off
 
@@ -9,8 +10,6 @@ union Pipe_803DEECC { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 union Pipe_803DF00C { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 
 extern "C" {
-s32 load_screen_space_matrix__10TObjPlayerFv();
-s32 setup_render__10TObjPlayerFv();
 s32 setup_blended_textured_draw();
 void begin_screen_draw(s32 arg0);
 s32 load_list_texture(void *, int, int, int);
@@ -35,12 +34,12 @@ extern "C" {
 s32 TObjPlayer__sub_803E2248();
 
 void begin_screen_draw(s32 arg0) {
-    load_screen_space_matrix__10TObjPlayerFv();
+    TObjPlayer::load_screen_space_matrix();
     if (arg0 != 0) {
         setup_blended_textured_draw();
         return;
     }
-    setup_render__10TObjPlayerFv();
+    TObjPlayer::setup_render();
 }
 
 void TWindowSubStatusDisp::get_player() {

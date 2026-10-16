@@ -343,6 +343,8 @@ O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1) {
 }
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 
@@ -353,10 +355,8 @@ s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 void activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
-void cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
-s32 get_fish_count__8TObjFishFv(void);
 extern const u8 boss6_type2_appear_model_node_descriptors[];
 extern const u8 lbl_80478058[];
 extern const u8 lbl_80478064[];
@@ -395,7 +395,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TBoss6Demo20_TYPE2_APPEAR;
     *(s32 *)((s8 *)arg0 + 0) = (s32)TBoss6Demo20_TYPE2_APPEAR__name.value;
     *(s32 *)((s8 *)arg0 + 0xEC) = arg1;
-    count = get_fish_count__8TObjFishFv();
+    count = TObjFish::get_fish_count();
     for (i = 0; i < 2; i++) {
         {
             s32 t = lbl_804DF614[i];
@@ -420,7 +420,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     }
     activate_camera_mode(5);
     set_scripted_camera_pose((void *)lbl_80478058, (void *)lbl_80478058, (void *)lbl_80478064);
-    cache_target_and_forward__11TCameraCtrlFl((void *)boss6_type2_appear_camera_script, 0x416C);
+    ((TCameraCtrl *)boss6_type2_appear_camera_script)->cache_target_and_forward(0x416C);
     *(f32 *)((s8 *)arg0 + 0xE0) = lbl_805DFA70;
     *(f32 *)((s8 *)arg0 + 0xE4) = lbl_805DFA70;
     *(s32 *)((s8 *)arg0 + 0xE8) = 0;

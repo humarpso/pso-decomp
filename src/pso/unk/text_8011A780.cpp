@@ -2,6 +2,9 @@
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
+#include "pso/item/TItemData.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_8011AED8 {
     s8 sp8;
     u8 pad_9[0x3];
@@ -49,20 +52,16 @@ struct Req_8011AD1C {
 };
 
 extern "C" {
-s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
 u32 advance_item_id_counter(s32 arg0);
-s32 remove_item_condition__6TLobbyFll(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 s32 bswap_6xa2_fields__6TLobbyFv();
 s32 handle_box_drop_directive(void *);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
-s32 drop_stacked_item_passthrough__6TLobbyFv(void *);
 s32 insert_sorted_entry__6TLobbyFPv(void *);
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 item_sync_counter_table;
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
 void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
@@ -78,37 +77,26 @@ extern s32 build_item_id_mode;
 u32 build_item_id(u16 arg0);
 u32 build_item_id(u16 arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
-void apply_table_entry__6TLobbyFsPv(s16, Source_8011AA68 *);
 void init__9TItemDataFv(void *);
-void drop_item__10TObjPlayerFll(s32 arg0, s32 arg1);
-s32 isValidGroundDrop__9TItemDataFv(void *);
 void normalize__9TItemDataFv(void *p);
-void init_header_packet__6TLobbyFv(void *);
-void send_item_packet__6TLobbyFv(void *);
 extern Source_8011AA68 *TLobby__data_805D6140;
 u32 build_item_id(u16 arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 void apply_by_index__9TObjEnemyFs(s16, void *);
 void init__9TItemDataFv(void *);
 void drop_item_from_slot__10TObjPlayerFlll(s8 arg0, s32 arg1, s32 arg2);
-s32 isValidGroundDrop__9TItemDataFv(void *);
 void normalize__9TItemDataFv(void *p);
-void init_header_packet__6TLobbyFv(void *);
-void send_item_packet__6TLobbyFv(void *);
 extern Source_8011AB64 *TLobby__data_805D6144;
 void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
-void bswap_item_packet__6TLobbyFv(void* p);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 void apply_by_index__9TObjEnemyFs(s16, void *);
-void apply_table_entry__6TLobbyFsPv(s16, Source_8011AA68 *);
 s32 spawn_dropped_item_from_msg(void *, int);
 extern Source_8011AB64 *TLobby__data_805D6144;
 extern Source_8011AA68 *TLobby__data_805D6140;
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
 void bswap_6x60_drop_request_fields(void *);
 void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
-s32 get_player_floor__6TLobbyFl(s32);
 void handle_6x60_standard_drop_item_request(void *arg0);
 }
 
@@ -136,7 +124,7 @@ u32 build_item_id(u16 arg0) {
 
 void TLobby::observe_item_id() {
     int id = (int)this;
-    if (get_global_state__14TOKeyMachine01Fv() != 0xf) {
+    if (TOKeyMachine01::get_global_state() != 0xf) {
         s32 lo = 0x10000;
         if (lo < id && id < 0x2010000) {
             s32 idx = id >> 21;
@@ -149,7 +137,7 @@ void TLobby::observe_item_id() {
 
 void handle_6x5C_destroy_floor_item(void *arg0) {
     bswap_packet__6TLobbyFv();
-    remove_item_condition__6TLobbyFll(*(s32 *)((s8 *)arg0 + 8), *(s32 *)((s8 *)arg0 + 4));
+    TLobby::remove_item_condition(*(s32 *)((s8 *)arg0 + 8), *(s32 *)((s8 *)arg0 + 4));
 }
 
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
@@ -166,7 +154,7 @@ void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
 }
 
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
-    remove_item_condition__6TLobbyFll((s32)((void *) (arg0)), (s32)(_w1));
+    TLobby::remove_item_condition((s32)((void *) (arg0)), (s32)(_w1));
 }
 
 void TLobby::drop_item_from_source(s16 source, int client, s16 room, int slot, f32 x, f32 z) {
@@ -178,13 +166,13 @@ void TLobby::drop_item_from_source(s16 source, int client, s16 room, int slot, f
         if (row.claim != 0xFFFF) {
             id = build_item_id(row.claim);
             row.claim = 0xFFFF;
-            apply_table_entry__6TLobbyFsPv(source, &row);
+            TLobby::apply_table_entry(source, &row);
             init__9TItemDataFv(&item);
-            drop_item__10TObjPlayerFll(slot, (s32)&item);
+            TObjPlayer::drop_item(slot, (s32)&item);
             item.id = id;
-            if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
+            if (((TItemData *)(&item))->isValidGroundDrop() != 0) {
                 normalize__9TItemDataFv(&item);
-                init_header_packet__6TLobbyFv(&delivery);
+                ((TLobby *)(&delivery))->init_header_packet();
                 delivery.client = client;
                 delivery.kind = 2;
                 delivery.source = source;
@@ -192,7 +180,7 @@ void TLobby::drop_item_from_source(s16 source, int client, s16 room, int slot, f
                 delivery.z = z;
                 delivery.room = room;
                 copy_item_data__6TLobbyFPvPv(delivery.item, &item);
-                send_item_packet__6TLobbyFv(&delivery);
+                ((TLobby *)(&delivery))->send_item_packet();
             }
         }
     }
@@ -211,9 +199,9 @@ void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int s
             init__9TItemDataFv(&item);
             drop_item_from_slot__10TObjPlayerFlll(area, slot, (s32)&item);
             item.id = id;
-            if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
+            if (((TItemData *)(&item))->isValidGroundDrop() != 0) {
                 normalize__9TItemDataFv(&item);
-                init_header_packet__6TLobbyFv(&delivery);
+                ((TLobby *)(&delivery))->init_header_packet();
                 delivery.client = client;
                 delivery.kind = 1;
                 delivery.source = source;
@@ -221,7 +209,7 @@ void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int s
                 delivery.z = z;
                 copy_item_data__6TLobbyFPvPv(delivery.item, &item);
                 delivery.room = room;
-                send_item_packet__6TLobbyFv(&delivery);
+                ((TLobby *)(&delivery))->send_item_packet();
             }
         }
     }
@@ -253,7 +241,7 @@ void handle_6x60_standard_drop_item_request(void *arg0) {
     bswap_6x60_drop_request_fields(arg0);
     if ((u32)(req->size * 4) == 0x14) {
         client = req->client;
-        slot = get_player_floor__6TLobbyFl(client);
+        slot = TLobby::get_player_floor(client);
     } else {
         client = req->client;
         slot = req->slot;
@@ -271,7 +259,7 @@ void handle_6x60_standard_drop_item_request(void *arg0) {
 }
 
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt) {
-    bswap_item_packet__6TLobbyFv(pkt);
+    ((TLobby *)pkt)->bswap_item_packet();
     if ((u32)pkt->size * 4 == 0x28) {
         TItemData__sub_8010C740(pkt->item, 0);
     } else {
@@ -286,7 +274,7 @@ void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt) {
     } else {
         Row4_8011ADF4 row = (*(Row4_8011ADF4 * *)&TLobby__data_805D6140)[pkt->source];
         row.claim = 0xFFFF;
-        apply_table_entry__6TLobbyFsPv((s16)(pkt->source), (Source_8011AA68 *)(&row));
+        TLobby::apply_table_entry((s16)(pkt->source), (Source_8011AA68 *)(&row));
     }
     spawn_dropped_item_from_msg(&pkt->client, 0);
 }
@@ -298,7 +286,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     typedef char sp14_offset[(offsetof(Stack_8011AED8, sp14) == 0xC) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_8011AED8, sp18) == 0x10) ? 1 : -1];
     Stack_8011AED8 stack;
-    drop_stacked_item_passthrough__6TLobbyFv((void *) (&stack.sp8));
+    ((TLobby *)(&stack.sp8))->drop_stacked_item_passthrough();
     stack.sp8 = arg0;
     stack.spC = farg0;
     stack.sp10 = farg1;
@@ -310,7 +298,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
 
 void handle_6x62(void) {  }
 u32 advance_item_id_counter(s32 client) {
-    if (get_global_state__14TOKeyMachine01Fv() == 0xF)
+    if (TOKeyMachine01::get_global_state() == 0xF)
         return ((u32*)item_id_counter_table)[(u16)client]++;
     return ((u32*)item_sync_counter_table)[(u16)client]++;
 }

@@ -7,6 +7,9 @@ public:
 };
 
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800A4204_lbl_80490A18 {
     s32 value;
@@ -90,7 +93,6 @@ s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 set_chunk_material_override_pair(u32, u32);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object(s32);
@@ -115,8 +117,6 @@ extern const f32 lbl_805D9A04;
 extern const f32 lbl_805D9A08;
 void TObjPlayer__sub_800A4064(Obj_800A4064 *self);
 f32 newton_sqrtf(f32);
-void init_xyz_limits__10TObjPlayerFv(void);
-s32 draw_transformed_primitive__9TWindowDDFPvPvPv(void *, int, s32, int);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -151,7 +151,7 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     lbl_805D5668 = chunk_polygon_flags_or_mask;
     model_render_flags |= 0x810;
     set_chunk_material_override_pair(0xFFFF00FF, 0x800);
-    set_global_param__8TObjFishFl(TEneEffHamon__fish_effect_param);
+    TObjFish::set_global_param(TEneEffHamon__fish_effect_param);
     set_chunk_material_color(o->color50);
     push_matrix();
     post_translate_matrix(o->mtx1C);

@@ -1,6 +1,10 @@
 #include "types.h"
 #include "pso/misc/TWindowActionPalette.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TItemList.h"
+#include "pso/enemy/TObjEneBm5Wolf.h"
+#include "pso/misc/TFontSmallLobby.h"
+#include "pso/misc/TMainCursor.h"
 
 struct VBase_8003508C_80035084 {
     char pad[0x18];
@@ -102,11 +106,9 @@ struct C_801C1BA8 { u32 w[5]; };
 struct S_801C1BA8 { u8 a; u8 b; u8 c; u8 d; s32 e; C_801C1BA8 f; };
 
 extern "C" {
-int init_packet_9a__10TObjPlayerFv(void);
 void bswap_warp_packet__10TObjPlayerFPv(void* p);
 s32 TLobby__send_and_handle_60(s32);
 void bswap_warp_packet__10TObjPlayerFPv(void* p);
-int init_packet_9a__10TObjPlayerFv(void);
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
@@ -121,27 +123,19 @@ s32 TLobby__sub_801C19D0(void* p);
 int TObjPlayer__sub_800193FC(void);
 int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
-int test_immunity_flags__10TObjPlayerFl(void);
 int TObjPlayer__sub_8001943C(void);
-int add_status_effect_timer__10TObjPlayerFll(void);
 int obj_is_hit_receivable(void);
 void* TObjPlayer__sub_801C1A00(void* p);
 int TObjPlayer__sub_800193FC(void);
 int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
-int test_immunity_flags__10TObjPlayerFl(void);
 int TObjPlayer__sub_8001943C(void);
-int add_status_effect_timer__10TObjPlayerFll(void);
 int obj_is_hit_receivable(void);
     extern int TObjPlayer__data_8050D460[];
 void* TObjPlayer__sub_801C1A00(void* p);
-int push_list_node__14TObjEneBm5WolfFPPvPPv(void*, void*, void*);
-int unlink_list_node__14TObjEneBm5WolfFPPPvPPv(void*, void*, void*);
 int TObjEneBm5Wolf__sub_800B8A24(void);
 void TObjPlayer__sub_801C1A30(void* p);
 extern void *tl_04;
-int push_list_node__14TObjEneBm5WolfFPPvPPv(void*, void*, void*);
-int unlink_list_node__14TObjEneBm5WolfFPPPvPPv(void*, void*, void*);
 int TObjEneBm5Wolf__sub_800B8A24(void);
 void TObjPlayer__sub_801C1A30(void* p);
 void TObjPlayer__sub_801C1B0C(void);
@@ -163,8 +157,6 @@ int TItemList__sub_801D5804(void);
 int TWindowActionPalette__sub_801C1C20(void* p);
 int TItemList__sub_801D5854(void);
 int TItemList__sub_801D5868(void);
-int lookup_entry_by_count__9TItemListFl(void);
-int run_item_count_update__9TItemListFv(void);
 int TItemList__sub_801D591C(void);
 int TItemList__sub_801D598C(void);
 int TItemList__sub_801D59A0(void);
@@ -173,18 +165,14 @@ extern void *TItemList__name;
 int TItemList__sub_801D5804(void);
 int TItemList__sub_801D5854(void);
 int TItemList__sub_801D5868(void);
-int lookup_entry_by_count__9TItemListFl(void);
-int run_item_count_update__9TItemListFv(void);
 int TItemList__sub_801D591C(void);
 int TItemList__sub_801D598C(void);
 int TItemList__sub_801D59A0(void);
 int TWindowActionPalette__sub_801C1C20(void* p);
 int construct_pb_controller__15TFontSmallLobbyFi(void);
-int is_valid_index__15TFontSmallLobbyFs(void);
 int TObjPlayer__sub_801C1F50(void* p);
 int test_flags_any(void*, int);
 int construct_pb_controller__15TFontSmallLobbyFi(void);
-int is_valid_index__15TFontSmallLobbyFs(void);
 int TObjPlayer__sub_801C1F50(void* p);
 void TObjPlayer__sub_801C1F78(void* p, s16 v);
 void TObjPlayer__sub_801C1F78(void* p, s16 v);
@@ -306,16 +294,8 @@ void fn_801C1E98(void* p);
 void fn_801C1EE8(void* p);
 void fn_801C1EE8(void* p);
 void fn_801C1F40(s32 *arg0);
-s32 is_channel_active__11TMainCursorFv(s32);
-s32 set_slot__20TWindowActionPaletteFUc(s32, u8);
-s32 set_mode__20TWindowActionPaletteFUc(s32, u8);
-s32 set_slot__20TWindowActionPaletteFUc(s32, u8);
-s32 set_mode__20TWindowActionPaletteFUc(s32, u8);
 void is_action_channel_active(s32 *arg0, s32 arg1);
-s32 test_item_flags__10TObjPlayerFUl(void *, s32);
 u8 is_item_equipped(u8 *arg0);
-u8 get_type__11TMainCursorFv(void *);
-u8 get_enabled__11TMainCursorFv(void *);
 u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2);
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i);
 s32 get_field_ed__10TObjPlayerFv(void *p);
@@ -338,8 +318,6 @@ s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFv();
 int set_flags__10TObjPlayerFUl(void*, int);
 int test_flags_any(void*, int);
-s32 set_slot__20TWindowActionPaletteFUc(s32, u8);
-s32 set_mode__20TWindowActionPaletteFUc(s32, u8);
 int TFontSmallLobby__sub_801C0228(void*);
 s32 bswap_pkt_u16x2_u32x2__10TObjPlayerFPv();
 s32 bswap_pkt_u32x5__10TObjPlayerFPv();
@@ -406,7 +384,7 @@ void *TObjPlayer::reset_lobby_settings() {
 u8 is_item_equipped(u8 *arg0) {
   unsigned int var_r31;
   var_r31 = 0;
-  if ((test_item_flags__10TObjPlayerFUl(arg0, 4) != 0U) && (test_item_flags__10TObjPlayerFUl(arg0, 8) != 0U))
+  if ((((TObjPlayer *)arg0)->test_item_flags(4) != 0U) && (((TObjPlayer *)arg0)->test_item_flags(8) != 0U))
   {
     var_r31 = 1;
   }
@@ -449,7 +427,7 @@ int TWindowActionPalette__sub_801C1C20(void* p) { return *(u32*)((char*)p + 0x0)
 
 void TWindowActionPalette::is_channel_active_at(s32 arg0, s32 arg1, s32 arg2) {
     s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(arg1))));
-    is_channel_active__11TMainCursorFv((s32)(p + arg2));
+    ((TMainCursor *)(p + arg2))->is_channel_active();
 }
 
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i) {
@@ -466,18 +444,18 @@ void is_action_channel_active(s32 *arg0, s32 arg1) {
 void TWindowActionPalette::set_palette_entry(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(arg1))));
     s32 temp_r31 = (s32)(p + arg2);
-    set_mode__20TWindowActionPaletteFUc(temp_r31, (u8)arg3);
-    set_slot__20TWindowActionPaletteFUc(temp_r31, (u8)arg4);
+    ((TWindowActionPalette *)temp_r31)->set_mode((u8)arg3);
+    ((TWindowActionPalette *)temp_r31)->set_slot((u8)arg4);
 }
 
 void TWindowActionPalette::set_slot_by_index(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(arg1))));
-    set_slot__20TWindowActionPaletteFUc((s32)(p + arg2), (u8)arg3);
+    ((TWindowActionPalette *)(p + arg2))->set_slot((u8)arg3);
 }
 
 void TWindowActionPalette::set_slot_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(arg1))));
-    set_mode__20TWindowActionPaletteFUc((s32)(p + arg2), (u8)arg3);
+    ((TWindowActionPalette *)(p + arg2))->set_mode((u8)arg3);
 }
 
 u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2) {
@@ -487,7 +465,7 @@ u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2) {
   var_r31 = arg2;
   new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)(arg0), (s32)(arg1)));
   var_r3 = (u8 *) (new_var + (var_r31 * 4));
-  var_r3 = (u8 *) ((void *) get_enabled__11TMainCursorFv(var_r3));
+  var_r3 = (u8 *) ((void *) ((TMainCursor *)var_r3)->get_enabled());
   return var_r3;
 }
 
@@ -502,7 +480,7 @@ u8 *TWindowActionPalette::get_slot_type(s32 arg0, s32 arg1, s32 arg2) {
   new_var = ((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(arg1))));
   var_r31 = arg2;
   var_r3 = (u8 *) (new_var + (var_r31 * 4));
-  var_r3 = (u8 *) ((void *) get_type__11TMainCursorFv(var_r3));
+  var_r3 = (u8 *) ((void *) ((TMainCursor *)var_r3)->get_type());
   return var_r3;
 }
 

@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOFenceAncient01.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern char lbl_80441438[];
@@ -42,10 +43,8 @@ extern "C" {
 s32 fn_80166E64(u8 *arg0);
 u8 *TLobby__sub_8001FE7C(void *, s16);
 void mem_free(u32);
-void free_if_valid__10TObjPlayerFl(s32);
 extern u8 *TOFenceAncient01__model_resource;
 extern u32 TOFenceAncient01__resource_pointer_array;
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 init_fields__16TOFenceAncient01Fv();
@@ -81,8 +80,6 @@ s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-int clear_player_status_flag__10TObjPlayerFlUl(void*, void*, void*);
-s32 destroy__16TOFenceAncient01Fs(void *, s32);
 int set_indexed_flags(void*, void*, void*);
 
 extern void *tl_05;
@@ -106,7 +103,7 @@ void TOFenceAncient01::free_resources() {
     var_r31 = 4;
     do
     {
-      free_if_valid__10TObjPlayerFl(*((s32 *) (((s8 *) TOFenceAncient01__resource_pointer_array) + var_r31)));
+      TObjPlayer::free_if_valid(*((s32 *) (((s8 *) TOFenceAncient01__resource_pointer_array) + var_r31)));
       var_r30 += 1;
       var_r31 += 4;
     }
@@ -145,7 +142,7 @@ void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOFenceAncient01;
         unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
-        destroy__16TOFenceAncient01Fs(arg0, 0);
+        ((TOFenceAncient01 *)arg0)->destroy(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -172,7 +169,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (temp_f1 - lbl_805DB610);
     init_collision_body_parts((void *) (arg0), (void *) (&fence_ancient01_collision_parts.value), (int) (3), (int) (temp_r6), (f32) (temp_f1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     fn_80166E64((u8 *)((void *) (arg0)));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB614;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB618;
@@ -206,7 +203,7 @@ s32 fn_80166EA8(u8 *arg0, int _w1) {
 }
 
 void TOFenceAncient02__vt14(void) {  }
-void TOFenceAncient02__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; clear_player_status_flag__10TObjPlayerFlUl(p, (void*)0, (void*)8); }
+void TOFenceAncient02__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; ((TObjPlayer *)p)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
 void TOFenceAncient02__vt12(void* p) { *(int*)((char*)p + 0xac) = 1; *(int*)((char*)p + 0xd0) = 1; set_indexed_flags(p, (void*)0, (void*)8); }
 
 }

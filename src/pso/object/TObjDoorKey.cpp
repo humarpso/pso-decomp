@@ -1,6 +1,13 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjDoorKey.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyAncient01.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80445650[];
@@ -61,14 +68,12 @@ extern "C" {
 void TObjDoorKey__vt14(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void debug_draw_key_id__5TOKeyFv();
-void set_global_count__12TObjNpcEnemyFl(int);
 void debug_printf_at(int, void *, ...);
 extern u8 lbl_804456C8[];
 extern const f32 lbl_805DBE08;
 void TObjDoorKey__vt24(Key_8018FD9C *arg0);
 s32 get_bml_model(s32, int);
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_804456D8[];
 extern s32 TObjDoorKey__ginja_model_table[];
@@ -76,8 +81,6 @@ extern u32 door_key_resource_handle;
 extern s32 TObjDoorKey__texture_handle;
 extern s16 door_key_id_counter;
 extern s32 TObjDoorKey__data_805D5C04;
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void scroll_ginja_mesh_uvs(void *, int, int, int, int);
 void PPCSync();
@@ -85,7 +88,6 @@ void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(int);
 void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -96,14 +98,11 @@ extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__texture_handle;
 extern s32 TObjDoorKey__data_805D5C04;
 extern s32 model_render_flags;
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(int);
 void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
@@ -112,15 +111,12 @@ extern s32 TObjDoorKey__ginja_model_table[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__texture_handle;
 extern s32 model_render_flags;
-s32 get_global_state__14TOKeyMachine01Fv();
 void play_sound_effect(int, void *, int, int);
 void TObjDoorKey__vt16(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(Vec_80190020 *, int, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_key__5TOKeyFv(void *, void *);
 u8 *TOKey__ct(void *);
-void set_type__14TOKeyAncient01Fv(void *);
 extern u8 TObjDoorKey__collision_body_parts[];
 extern s32 __vt__11TObjDoorKey[];
 extern s32 TObjDoorKey__class_name;
@@ -147,10 +143,8 @@ int submit_cursor_candidate(void*, int);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__5TOKeyFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 clear_active_flag__13TParticleCtrlFv(void *);
 s32 enable__13TParticleCtrlFPv(void *);
 void *fn_8018FA6C();
-s32 free_if_valid__10TObjPlayerFl(s32);
 int is_not_split_screen__13TRaderMapCoreFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -175,7 +169,7 @@ void TObjDoorKey::render() {
         }
     } else {
         if ((u32) *(u32 *)((s8 *)this + 0xF8) != 0U) {
-            clear_active_flag__13TParticleCtrlFv(*(void **)((s8 *)this + 0xF8));
+            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xF8)))->clear_active_flag();
         }
         temp_r0 = *(s32 *)((s8 *)this + 0xD4);
         switch (temp_r0) {
@@ -196,12 +190,12 @@ s32 TObjDoorKey::draw_active_beam() {
         PPCSync();
         TObjDoorKey__data_805D5C04 = actor_frame_tick;
     }
-    set_global_param__8TObjFishFl(TObjDoorKey__texture_handle);
+    TObjFish::set_global_param(TObjDoorKey__texture_handle);
     push_matrix();
     post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
     set_chunk_material_color(door_key_beam_color_table[arg0->f8C]);
@@ -212,18 +206,18 @@ s32 TObjDoorKey::draw_active_beam() {
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     pop_matrix();
 }
 
 s32 TObjDoorKey::draw_inactive_badge() {
     Key_8018FCD8 *arg0 = (Key_8018FCD8 *)this;
-    set_global_param__8TObjFishFl(TObjDoorKey__texture_handle);
+    TObjFish::set_global_param(TObjDoorKey__texture_handle);
     push_matrix();
     post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
     set_chunk_material_color(door_key_beam_color_table[arg0->f8C]);
@@ -232,7 +226,7 @@ s32 TObjDoorKey::draw_inactive_badge() {
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     pop_matrix();
 }
 
@@ -240,9 +234,9 @@ void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
     debug_draw_key_id__5TOKeyFv();
     VecCopy__FP3VecPC3Vec(&arg0->f74, arg0->f38);
     arg0->f78 = arg0->f78 + lbl_805DBE08;
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130022, lbl_804456C8, arg0->f8C);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     if (arg0->f8C < 0) {
         arg0->f8C = 0;
     }
@@ -254,7 +248,7 @@ void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
 void TObjDoorKey__vt17(void) {  }
 
 void TObjDoorKey__vt16(u8 *arg0) {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 3:
     case 4:
     case 5:
@@ -328,11 +322,11 @@ void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     }
     init_collision_body_parts(arg0, TObjDoorKey__collision_body_parts, 1);
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
-    reset_photon_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     Vec_80190020 pos = *(Vec_80190020 *)((s8 *)arg0 + 0x38);
     pos.y += lbl_805DBE0C;
     *(s32 *)((s8 *)arg0 + 0xF8) = spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
-    set_type__14TOKeyAncient01Fv((u8 *)arg0 + 0x98);
+    ((TOKeyAncient01 *)((u8 *)arg0 + 0x98))->set_type();
     return arg0;
 }
 
@@ -353,7 +347,7 @@ void TObjDoorKey::free_key() {
         TLobby__sub_8001FE7C((void*)door_key_resource_handle, 1);
         door_key_resource_handle = 0U;
     }
-    free_if_valid__10TObjPlayerFl(TObjDoorKey__texture_handle);
+    TObjPlayer::free_if_valid(TObjDoorKey__texture_handle);
     TObjDoorKey__texture_handle = 0;
     TObjDoorKey__data_805D5C04 = 0;
 }
@@ -361,7 +355,7 @@ void TObjDoorKey::free_key() {
 extern void *tl_05;
 
 void TObjDoorKey::load_resources() {
-    s32 r = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    s32 r = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
     if (r != 0) {
         r = load_resource_from_descriptor(r, 5, &TObjDoorKey__resource_descriptor, 0, 0, 0);
     }

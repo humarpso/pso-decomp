@@ -1,6 +1,10 @@
 #include "types.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjFish.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Range_8033CDF8 { s32 lo; s32 hi; s32 idx; };
 
@@ -10,28 +14,17 @@ struct Fish_8033CDF8 { u8 pad[0x4C]; Vec_8033CDF8 vecs[3]; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-void request_destroy__11TBoss4Type2FUl(void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 void *create_particle_emitter(void *, int);
-s32 set_flags__11TBoss4Type2FUl(void *, int);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 play_persistent_sound(int, void *, int, int, int);
 s32 play_sound_effect(int, int, int, int);
-s32 queue_event_1D__12TBoss3VoloptFss(int, int);
-s32 get_phase__8TObjFishFv(int);
 extern Range_8033CDF8 fish_spawn_entry_table[];
 void TObjFish__sub_8033CDF8(u8 *arg0);
 int clear_render_callback__8TObjFishFv(void);
-void set_draw_callback_list__8TObjFishFv(void *);
-void reset_fish_globals__8TObjFishFv(void);
-void set_fade_material_color__14TBoss6PlotFalzFf(f32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void);
-s32 set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
-void set_global_flag__10TObjPlayerFv(void);
-void clear_global_state__10TObjPlayerFv(void);
 extern const f32 lbl_805DFA58;
 extern const f32 lbl_805DFA5C;
 extern const f32 lbl_805DFA60;
@@ -45,8 +38,6 @@ void *TObjFish__sub_8033D1AC(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void init_state_1__8TObjFishFPv(void *);
-void request_destroy__11TBoss4Type2FUl(void *);
 
 void TObjFish::render_fade_model() {
     u8 *arg0 = (u8 *)this;
@@ -62,21 +53,21 @@ void TObjFish::render_fade_model() {
     }
     if (lbl_805DFA5C != var_f31) {
         if (var_f31 < lbl_805DFA58) {
-            set_fade_material_color__14TBoss6PlotFalzFf(var_f31);
+            TBoss6PlotFalz::set_fade_material_color(var_f31);
         }
         push_matrix();
-        set_global_flag__10TObjPlayerFv();
+        TObjPlayer::set_global_flag();
         ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x1C);
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x2C));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x2C));
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x28), *(s32 *)((s8 *)arg0 + 0x30), *(f32 *)((s8 *)arg0 + 0x40));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x38));
-        set_draw_callback_list__8TObjFishFv(*(u8 **)((s8 *)arg0 + 0x88));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x38));
+        ((TObjFish *)(*(u8 **)((s8 *)arg0 + 0x88)))->set_draw_callback_list();
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0x3C), *(f32 *)((s8 *)arg0 + 0x40));
         ((int (*)(void *))clear_render_callback__8TObjFishFv)(*(u8 **)((s8 *)arg0 + 0x88));
-        clear_global_state__10TObjPlayerFv();
+        TObjPlayer::clear_global_state();
         pop_matrix();
         if (var_f31 < lbl_805DFA58) {
-            reset_fish_globals__8TObjFishFv();
+            TObjFish::reset_fish_globals();
         }
     }
 }
@@ -140,17 +131,17 @@ void TObjFish__sub_8033CDF8(u8 *arg0) {
             if (F(void *, 0x8C) == NULL) {
                 F(void *, 0x8C) = create_particle_emitter(p, 0x21F);
                 if (F(void *, 0x8C) != NULL) {
-                    set_flags__11TBoss4Type2FUl(F(void *, 0x8C), 0x40);
+                    ((TBoss4Type2 *)(F(void *, 0x8C)))->set_flags(0x40);
                 }
             } else {
-                copy_pos__11TNowLoadingFPv(F(void *, 0x8C), p);
+                ((TNowLoading *)(F(void *, 0x8C)))->copy_pos(p);
             }
             found = 1;
             break;
         }
     }
     if (found == 0 && F(void *, 0x8C) != NULL) {
-        request_destroy__11TBoss4Type2FUl(F(void *, 0x8C));
+        TBoss4Type2::request_destroy((u32)(F(void *, 0x8C)));
         F(void *, 0x8C) = NULL;
     }
     switch (F(s32, 0x44)) {
@@ -162,11 +153,11 @@ void TObjFish__sub_8033CDF8(u8 *arg0) {
     case 0x8C:
     case 0xBE:
     case 0xFF:
-        queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
+        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
         break;
     }
     F(s32, 0x44)++;
-    if (F(s32, 0x44) >= 0x101 || get_phase__8TObjFishFv(F(s32, 0x48)) != 3) {
+    if (F(s32, 0x44) >= 0x101 || ((TObjFish *)(F(s32, 0x48)))->get_phase() != 3) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -175,8 +166,8 @@ void *TObjFish::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EF9EC;
         restore_player_cameras();
-        if (*(void **)((s8 *)this + 0x88) != NULL) { init_state_1__8TObjFishFPv(*(void **)((s8 *)this + 0x88)); *(s32 *)((s8 *)this + 0x88) = 0; }
-        if (*(void **)((s8 *)this + 0x8C) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)this + 0x8C)); *(s32 *)((s8 *)this + 0x8C) = 0; }
+        if (*(void **)((s8 *)this + 0x88) != NULL) { TObjFish::init_state_1(*(void **)((s8 *)this + 0x88)); *(s32 *)((s8 *)this + 0x88) = 0; }
+        if (*(void **)((s8 *)this + 0x8C) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x8C))); *(s32 *)((s8 *)this + 0x8C) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

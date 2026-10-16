@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjQuestCol.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8019677C_lbl_80445E84 {
     s32 value;
@@ -12,7 +14,6 @@ struct RecoveredGlobal_8019677C___vt__17TObjQuestColALock {
 
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
-void reset_photon_effect__10TObjPlayerFv(s32);
 void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
@@ -40,7 +41,6 @@ s32 __dt__16TObjQuestColBaseFv(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
-s32 update_trigger_state__12TObjQuestColFf(void *, f32);
 
 void TObjQuestColALock__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
@@ -62,7 +62,7 @@ s32 TObjQuestColALock__vt13(void *arg0) {
             return 0;
         }
         submit_cursor_candidate(arg0, -1);
-        temp_r3_2 = update_trigger_state__12TObjQuestColFf(arg0, *(f32 *)((s8 *)arg0 + 0xAC));
+        temp_r3_2 = ((TObjQuestCol *)arg0)->update_trigger_state(*(f32 *)((s8 *)arg0 + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }
@@ -108,7 +108,7 @@ u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + *(f32 *)((s8 *)arg0 + 0x6C));
     refresh_collision_body_centers(arg0);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    reset_photon_effect__10TObjPlayerFv((s32) arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
 

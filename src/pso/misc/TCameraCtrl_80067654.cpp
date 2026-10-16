@@ -22,7 +22,6 @@ extern const f32 lbl_805D8F28;
 extern const f32 lbl_805D8F2C;
 extern const f32 lbl_805D8F30;
 extern const f32 lbl_805D8F34;
-void set_target__11TCameraCtrlFUl(void *, u32);
 u8 * TCameraCtrl__sub_80068714(void *);
 s32 get_player_by_client_id(u32);
 extern s32 lbl_804887C8[];
@@ -103,7 +102,7 @@ u8 *TCameraCtrl__sub_800677D4(u8 *arg0) {
     TCameraCtrl__sub_80068714(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800677D4_lbl_804887C8 *)&lbl_804887C8).value;
     *(s32 *)((s8 *)arg0 + 0x38) = 5;
-    set_target__11TCameraCtrlFUl(arg0, get_player_by_client_id(0U));
+    ((TCameraCtrl *)arg0)->set_target(get_player_by_client_id(0U));
     return arg0;
 }
 

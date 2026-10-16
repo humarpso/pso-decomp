@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TORockCaveBrakable.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_80174EA0_80174CC0 { char pad[0x18]; };
 struct VObj_80174EA0_80174CC0 : Base_80174EA0_80174CC0 {
@@ -79,7 +80,6 @@ void TORockCave__ct(void *);
 s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
@@ -127,7 +127,7 @@ void TORockCaveBrakable::update_break_state() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((VObj_80174EA0_80174CC0 *)this)->m17();
         return;
     }

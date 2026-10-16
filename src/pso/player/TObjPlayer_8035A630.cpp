@@ -5,7 +5,6 @@ extern "C" {
 
 extern s32 (*player_apply_callback_fn)(s32);
 s32 get_current_matrix(s32);
-s32 concat_matrix__10TObjPlayerFUlUl(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_chunk_model(s32);
@@ -35,7 +34,7 @@ void TObjPlayer::draw_node_tree(void *arg1) {
     do {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         push_matrix();
-        concat_matrix__10TObjPlayerFUlUl(0, node_matrix_array_base + (*(s32 *)((s8 *)this + 0x30) * 0x30));
+        TObjPlayer::concat_matrix(0, node_matrix_array_base + (*(s32 *)((s8 *)this + 0x30) * 0x30));
         *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) + 1);
         temp_r12 = *(s32 (**)(void *))((s8 *)this + 0x34);
         if (temp_r12 != NULL) {

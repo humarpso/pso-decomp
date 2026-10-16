@@ -1,4 +1,5 @@
 #include "pso/TObjItemOKWindow.h"
+#include "pso/misc/TWindowSubComCard.h"
 
 extern "C" void TWindow__close(void*);
 
@@ -28,7 +29,6 @@ s32 fn_801F4C98(void);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void align_menu_entry_positions(void *);
-void set_scroll_target__17TWindowSubComCardFff(void *, f32, f32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
 void *init_shop_judgment_window(void *);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
@@ -56,7 +56,7 @@ Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
     self->name = TObjItemOKWindow__class_name;
     self->win60 = init_shop_judgment_window(get_window_layout_position(0x57));
     if (self->win60 != NULL) {
-        set_scroll_target__17TWindowSubComCardFff(self->win60, lbl_805DC4E0, lbl_805DC4E4);
+        ((TWindowSubComCard *)(self->win60))->set_scroll_target(lbl_805DC4E0, lbl_805DC4E4);
         align_menu_entry_positions(self->win60);
     }
     self->win5C = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x56), 1);
@@ -70,7 +70,7 @@ Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
         self->term = 0;
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win5C, self->buf, 0x81, 0);
     }
-    set_scroll_target__17TWindowSubComCardFff(self->win5C, lbl_805DC4EC, lbl_805DC4F0);
+    ((TWindowSubComCard *)(self->win5C))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(self->win5C);
     set_status_flag_80__12TQuestThreadFPv(self->win5C);
     pos.x = lbl_805DC4F4;

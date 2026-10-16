@@ -1,9 +1,9 @@
 #include "types.h"
 #include "pso/misc/TWindowHelpItem.h"
+#include "pso/item/TItem.h"
 
 extern "C" {
 u8 * find_item_by_id(s32);
-s32 copy_to_item_data__5TItemFPv(void *, void *);
 }
 
 extern "C" {
@@ -18,14 +18,14 @@ void TWindowHelpItem::refresh_copied_items() {
     if (temp_r3 != -1) {
         temp_r3_2 = (u8 *)(find_item_by_id(temp_r3));
         if (temp_r3_2 != NULL) {
-            copy_to_item_data__5TItemFPv(temp_r3_2, arg0 + 0x74);
+            ((TItem *)temp_r3_2)->copy_to_item_data(arg0 + 0x74);
         }
     }
     temp_r3_3 = *(s32 *)((s8 *)arg0 + 0xA4);
     if (temp_r3_3 != -1) {
         temp_r3_4 = (u8 *)(find_item_by_id(temp_r3_3));
         if (temp_r3_4 != NULL) {
-            copy_to_item_data__5TItemFPv(temp_r3_4, arg0 + 0x88);
+            ((TItem *)temp_r3_4)->copy_to_item_data(arg0 + 0x88);
         }
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -30,14 +31,13 @@ void *TObjFogCollision__create(void *arg0);
 void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern s32 __vt__16TObjFogCollision[];
 
 void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjFogCollision;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

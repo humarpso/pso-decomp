@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_801D6F60 { u8 pad[0x16]; s16 v; };
 
@@ -38,7 +39,6 @@ u8 TLobby__sub_801D6DDC(void *arg0);
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 u8 ret_801D78E4();
 
@@ -77,7 +77,7 @@ s16 TLobby::clamp_player_index() {
     s16 var_r31;
 
     var_r31 = *(s16 *)((s8 *)this + 0x14);
-    if ((var_r31 < 0) || (var_r31 > get_max_level__10TObjPlayerFv())) {
+    if ((var_r31 < 0) || (var_r31 > TObjPlayer::get_max_level())) {
         var_r31 = 0;
     }
     return var_r31;
@@ -87,7 +87,7 @@ void TLobby::set_clamped_index(s16 arg1) {
     s16 var_r31;
 
     var_r31 = arg1;
-    if ((var_r31 < 0) || (var_r31 > get_max_level__10TObjPlayerFv())) {
+    if ((var_r31 < 0) || (var_r31 > TObjPlayer::get_max_level())) {
         var_r31 = 0;
     }
     *(s16 *)((s8 *)this + 0x14) = var_r31;

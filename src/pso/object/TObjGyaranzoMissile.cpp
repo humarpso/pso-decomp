@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjGyaranzoMissile.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800D4668_lbl_80494400 {
     s32 value;
@@ -92,7 +93,6 @@ struct Gyr_800D4990 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFv(void *, int);
 s32 rotate_vector_by_matrix(int, int, int);
@@ -141,9 +141,7 @@ s32 remap_area_sound_id(int, int);
 void *find_entity_by_id(u16);
 void init_all_slots__10TObjPlayerFv(void *);
 void check_enemy_body_collisions(void *);
-void check_object_collisions__10TObjPlayerFv(void *);
 s32 play_sound_effect(void *, void *, int, int);
-s32 is_valid_and_active__10TObjPlayerFUl(void *);
 extern Parm_800D47B4 lbl_8043C464[];
 extern const f32 lbl_805DA2C0;
 void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
@@ -151,10 +149,8 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
 Target_800D4990 *find_active_entity_by_id(u16);
-int scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 int direction_to_rotation_xy(void *, void *, void *);
 void check_enemy_body_collisions(void *);
-void check_object_collisions__10TObjPlayerFv(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -234,7 +230,7 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) lbl_805DA2A4;
     init_collision_body_parts((void *) (arg0), (void *) (&gyaranzo_missile_collision_body.value), (int) (1));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805DA2B8;
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0xEC) = 0xF;
     return arg0;
 }
@@ -246,7 +242,7 @@ void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
     owner = find_entity_by_id(arg0->ownerIdx);
     arg0->col->fC = lbl_805DA2C0;
     init_all_slots__10TObjPlayerFv(owner);
-    check_object_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->check_object_collisions();
     check_enemy_body_collisions(arg0);
     if (arg0->col->flags & 0x180000) {
         for (i = 0; i < 0x10; i++) {
@@ -254,7 +250,7 @@ void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
             if (q == NULL) {
                 break;
             }
-            if (is_valid_and_active__10TObjPlayerFUl(q) != 0) {
+            if (TObjPlayer::is_valid_and_active((u32)q) != 0) {
                 Parm_800D47B4 parm = lbl_8043C464[0];
                 parm.b = get_gyaranzo_missile_int_parameter(2);
                 q->v21(owner, parm, 0, -1, -1);
@@ -293,9 +289,9 @@ void TObjGyaranzoMissile::run_task() {
         subtract_vector(&d, &self->pos);
         dist = vector_length(&d);
         if (self->timer >= 15 && dist > TObjGyaranzoMissile__max_range) {
-            scale_velocity__19TObjGyaranzoMissileFf(&d, TObjGyaranzoMissile__max_range);
+            ((TObjGyaranzoMissile *)(&d))->scale_velocity(TObjGyaranzoMissile__max_range);
             vec3_add_to(&self->vel, &d);
-            scale_velocity__19TObjGyaranzoMissileFf(&self->vel, TObjGyaranzoMissile__speed_scale);
+            ((TObjGyaranzoMissile *)(&self->vel))->scale_velocity(TObjGyaranzoMissile__speed_scale);
         }
     }
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
@@ -312,7 +308,7 @@ void TObjGyaranzoMissile::run_task() {
             if (self->pos.y - p.y < lbl_805DA2C8) {
                 self->col->flags |= 2;
                 self->col->flags &= ~4;
-                check_object_collisions__10TObjPlayerFv(self);
+                ((TObjPlayer *)self)->check_object_collisions();
                 check_enemy_body_collisions(self);
                 if (self->col->flags & 0x180000) {
                     TObjGyaranzoMissile__sub_800D47B4((Missile_800D47B4 *)self);

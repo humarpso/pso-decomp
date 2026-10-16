@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
@@ -52,7 +54,6 @@ struct Player_80187438 {
 
 extern "C" {
 s32 get_current_floor(void);
-s32 get_field_3e4__10TObjPlayerFv(void *);
 f32 xz_distance_squared(void *, void *);
 s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
 s32 has_item_flag_4096__10TObjPlayerFPv(void *);
@@ -63,39 +64,25 @@ char *strcpy(char *, const char *);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCA8;
 s32 is_local_client_floor_leader(s32);
-s32 are_all_players_in_range__16TObjCityMainWarpFv(void *);
 s32 find_local_player_in_range__16TObjCityMainWarpFf(void *, f32);
 s32 close_windows__16TObjCityMainWarpFv();
-s32 send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFUs(void *, s32);
-s32 trigger_warp_effect__16TObjCityMainWarpFl(void *, s32);
 s32 TObjCityMainWarp__sub_801875F8(void *);
-s32 get_warp_state__19TWindowSubTradeMainFv();
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 local_client_id;
 extern void *city_common_model_archive;
 s32 get_main_phase();
 s32 is_local_client_floor_leader(s32);
-s32 are_all_players_in_range__16TObjCityMainWarpFv(void *);
 s32 find_local_player_in_range__16TObjCityMainWarpFf(void *, f32);
 s32 close_windows__16TObjCityMainWarpFv();
-s32 send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFUs(void *, s32);
-s32 notify_player_warp__16TObjCityMainWarpFPvl(void *, s32);
-s32 trigger_warp_effect__16TObjCityMainWarpFl(void *, s32);
 s32 TObjCityMainWarp__sub_801875F8(void *);
-s32 get_warp_state__19TWindowSubTradeMainFv();
 s32 TWindow__close(u32);
-s32 get_slot_or_neg1__17TWindowSubComCardFv(u32);
-s32 get_card_data__17TWindowSubComCardFv(u32);
-s32 is_child_visible__17TWindowSubComCardFv(u32);
 extern s32 local_client_id;
 extern void *city_common_model_archive;
 }
 
 extern "C" {
 
-s32 get_phase_flag__16TObjCityMainWarpFv();
 s32 find_local_player_in_range__16TObjCityMainWarpFf(void *, f32);
-s32 notify_player_warp__16TObjCityMainWarpFPvl(void *, s32);
 
 extern s32 local_client_id;
 extern void *city_common_model_archive;
@@ -116,10 +103,10 @@ void TObjCityMainWarp::update_state() {
         *(s32 *)((s8 *)this + 0xD4) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x2C);
         return;
     case 1:
-        if (get_phase_flag__16TObjCityMainWarpFv() == 0) {
+        if (TObjCityMainWarp::get_phase_flag() == 0) {
             temp_r3 = find_local_player_in_range__16TObjCityMainWarpFf(this, *(f32 *)((s8 *)this + 0xAC));
             if (temp_r3 != 0) {
-                notify_player_warp__16TObjCityMainWarpFPvl(this, local_client_id);
+                TObjCityMainWarp::notify_player_warp(this, local_client_id);
                 *(s32 *)((s8 *)this + 0xBC) = (s32) city_main_warp_destination_id;
                 ((F_V_80186f84 *) this)->m17(temp_r3);
                 *(s16 *)((s8 *)this + 0xE0) = 2;
@@ -154,19 +141,19 @@ void TObjCityMainWarp::update_warp_sequence() {
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFf)(*(f32 *)((s8 *)arg0 + 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
             if (*(s32 *)((s8 *)arg0 + 0x170) == 0) {
-                trigger_warp_effect__16TObjCityMainWarpFl(arg0, local_client_id);
+                ((TObjCityMainWarp *)arg0)->trigger_warp_effect(local_client_id);
                 *(s32 *)((s8 *)arg0 + 0x170) = 1;
             }
         }
-        if (get_warp_state__19TWindowSubTradeMainFv() != 0) {
+        if (TWindowSubTradeMain::get_warp_state() != 0) {
             if (is_local_client_floor_leader((*(s32 *)((s8 *)arg0 + 0x160))--) != 0) {
                 if (*(s32 *)((s8 *)arg0 + 0x160) <= 0) {
                     r = 1;
                 } else {
-                    r = are_all_players_in_range__16TObjCityMainWarpFv(arg0);
+                    r = ((TObjCityMainWarp *)arg0)->are_all_players_in_range();
                 }
                 if (r != 0) {
-                    send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFUs(arg0, 2);
+                    ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(2);
                     *(s16 *)((s8 *)arg0 + 0xE0) = 2;
                 }
             }
@@ -198,7 +185,7 @@ void TObjCityMainWarp::update_challenge_state() {
     case 1:
         if (((u32 (*)(f32))find_local_player_in_range__16TObjCityMainWarpFf)(*(f32 *)((s8 *)arg0 + 0xAC)) != 0) {
             TObjCityMainWarp__sub_801875F8(arg0);
-            trigger_warp_effect__16TObjCityMainWarpFl(arg0, local_client_id);
+            ((TObjCityMainWarp *)arg0)->trigger_warp_effect(local_client_id);
             *(s16 *)((s8 *)arg0 + 0xE0) = 2;
             break;
         }
@@ -214,23 +201,23 @@ void TObjCityMainWarp::update_challenge_state() {
     case 2:
         TObjCityMainWarp__sub_801875F8(arg0);
         if (*(u32 *)((s8 *)arg0 + 0x168) != 0) {
-            if (get_card_data__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x168)) != 0) {
+            if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x168)))->get_card_data() != 0) {
                 *(s16 *)((s8 *)arg0 + 0xE0) = 3;
-            } else if (is_child_visible__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x168)) != 0) {
-                r = get_slot_or_neg1__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x168));
+            } else if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x168)))->is_child_visible() != 0) {
+                r = ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x168)))->get_slot_or_neg1();
                 if (r == 0) {
-                    trigger_warp_effect__16TObjCityMainWarpFl(arg0, local_client_id);
+                    ((TObjCityMainWarp *)arg0)->trigger_warp_effect(local_client_id);
                     *(s32 *)((s8 *)arg0 + 0x170) = 1;
-                    send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFUs(arg0, 1);
+                    ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(1);
                     *(s16 *)((s8 *)arg0 + 0xE0) = 5;
                 } else if (r == 1) {
                     *(s16 *)((s8 *)arg0 + 0xE0) = 3;
                 }
             }
         }
-        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
-            ((s32 (*)())is_local_client_floor_leader)() != 0 && are_all_players_in_range__16TObjCityMainWarpFv(arg0) != 0) {
-            send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFUs(arg0, 2);
+        if (TWindowSubTradeMain::get_warp_state() != 0 && get_main_phase() == 0xF &&
+            ((s32 (*)())is_local_client_floor_leader)() != 0 && ((TObjCityMainWarp *)arg0)->are_all_players_in_range() != 0) {
+            ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(2);
             *(s16 *)((s8 *)arg0 + 0xE0) = 5;
         }
         if (*(s16 *)((s8 *)arg0 + 0xE0) != 2) {
@@ -238,7 +225,7 @@ void TObjCityMainWarp::update_challenge_state() {
         }
         break;
     case 3:
-        notify_player_warp__16TObjCityMainWarpFPvl(arg0, local_client_id);
+        TObjCityMainWarp::notify_player_warp(arg0, local_client_id);
         *(s16 *)((s8 *)arg0 + 0xE0) = 4;
         break;
     case 4:
@@ -246,9 +233,9 @@ void TObjCityMainWarp::update_challenge_state() {
             *(s16 *)((s8 *)arg0 + 0xE0) = 1;
             break;
         }
-        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
-            ((s32 (*)())is_local_client_floor_leader)() != 0 && are_all_players_in_range__16TObjCityMainWarpFv(arg0) != 0) {
-            send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFUs(arg0, 2);
+        if (TWindowSubTradeMain::get_warp_state() != 0 && get_main_phase() == 0xF &&
+            ((s32 (*)())is_local_client_floor_leader)() != 0 && ((TObjCityMainWarp *)arg0)->are_all_players_in_range() != 0) {
+            ((TObjCityMainWarp *)arg0)->send_6x6A_set_boss_warp_flags(2);
             *(s16 *)((s8 *)arg0 + 0xE0) = 5;
         }
         break;
@@ -276,7 +263,7 @@ void TObjPlayer::count_players_in_warp_radius() {
     for (i = 0; i < 4; i++) {
         pl = get_player_by_client_id(i);
         if (pl != NULL) {
-            room = get_field_3e4__10TObjPlayerFv(pl);
+            room = ((TObjPlayer *)pl)->get_field_3e4();
             if (room == self->fbc) {
                 self->f15c = 1;
             }
@@ -300,7 +287,7 @@ void TObjPlayer::count_players_in_warp_radius() {
         self->window = 0;
     }
     pl2 = get_player_by_client_id(local_client_id);
-    if (pl2 != NULL && get_field_3e4__10TObjPlayerFv(pl2) == get_current_floor()) {
+    if (pl2 != NULL && ((TObjPlayer *)pl2)->get_field_3e4() == get_current_floor()) {
         if (xz_distance_squared(pl2->pos, self->pos) <= (lbl_805DBCA8 + self->radius) * (lbl_805DBCA8 + self->radius)) {
             if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) != 0) {
                 check_technique_flag__10TObjPlayerFPv(pl2);

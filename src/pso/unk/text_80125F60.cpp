@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/item/TItemProShield.h"
 
 struct RecoveredGlobal_80125FD8_lbl_804A2868 {
     s32 value;
@@ -17,7 +18,6 @@ extern s32 tl_05;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80126054(u8 *arg0);
-u8 get_slot_count__14TItemProShieldFv(void *);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_80125FD8_lbl_804A2868 lbl_804A2868;
@@ -56,7 +56,7 @@ u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2868.value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x8000);
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD68;
-    if (get_slot_count__14TItemProShieldFv(arg0) == 1) {
+    if (((TItemProShield *)arg0)->get_slot_count() == 1) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 0xA;
     } else {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 1;

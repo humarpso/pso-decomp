@@ -19,9 +19,8 @@ extern "C" {
 void *TPlyGuildCardTag__sub_801E0314(void *arg0, void *arg1);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 int bswap_32__FPUl(void*);
-int bswap__16TPlyGuildCardTagFv(void*);
 
-void TPlyGuildCardTag::bswap_lobby_entry(void *entry) { bswap__16TPlyGuildCardTagFv(entry); bswap_32__FPUl((char*)entry + 0x8); }
+void TPlyGuildCardTag::bswap_lobby_entry(void *entry) { ((TPlyGuildCardTag *)entry)->bswap(); bswap_32__FPUl((char*)entry + 0x8); }
 
 }
 

@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/enemy/TObjEneBalClaw.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
+#include "pso/enemy/TObjEneMe1GiGue.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw { s32 value; u8 remaining[0x148]; };
 typedef char RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw_size[sizeof(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw) == 0x14C ? 1 : -1];
@@ -14,10 +16,7 @@ struct O_8008D700 { u8 pad0[0x30]; u32 flags; u8 pad34[0x378]; f32 f3ac; f32 f3b
 struct Obj_8008D79C { u8 pad0[0x388]; s32 flags; u8 pad38C[0x3B8 - 0x38C]; s32 f3B8; f32 f3BC; };
 
 extern "C" {
-void set_state__15TObjEneMe1GiGueFl(void *, s32);
 void TObjEneBalClaw__vt60(u8 *arg0);
-void add_flags_2e4__10TObjPlayerFUl(void *, s32);
-u8 * init_vtable_and_field18__10TObjPlayerFv(void *);
 u8 * TObjEnemyCustom__ct(void *);
 extern s32 __vt__14TObjEneBalClaw[];
 extern s32 lbl_805D2968;
@@ -28,7 +27,6 @@ extern s32 balclaw_last_shared_update_frame;
 extern s32 actor_frame_tick;
 void TObjPlayer__sub_8023DEE0(void *obj, s32 a, s32 b, u16 c);
 void TObjEneBalClaw__sub_8008D68C(void);
-void render_with_position_override__10TObjPlayerFPUcl(void *, void *, int);
 extern V_8008D700 lbl_80439B34;
 extern f32 lbl_805D9600;
 extern const f32 lbl_805D9604;
@@ -72,7 +70,7 @@ void TObjEneBalClaw::render_scaled(s32 arg1) {
         v.x = t;
         v.y = t;
         v.z = t;
-        render_with_position_override__10TObjPlayerFPUcl(arg0, &v, 0);
+        ((TObjPlayer *)arg0)->render_with_position_override((u8 *)(&v), (s32)0);
     }
 }
 
@@ -125,7 +123,7 @@ void TObjEneBalClaw::update_claw_angle() {
 extern u32 lbl_805D4F20;
 
 void TObjEneBalClaw__vt60(u8 *arg0) {
-    set_state__15TObjEneMe1GiGueFl(arg0, 4);
+    ((TObjEneMe1GiGue *)arg0)->set_state(4);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
 
@@ -153,9 +151,9 @@ void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
 u8 *TObjEneBalClaw__ct(u8 *arg0) {
     TObjEnemyCustom__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
-    init_vtable_and_field18__10TObjPlayerFv(arg0 + 0x390);
+    ((TObjPlayer *)(arg0 + 0x390))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2968;
-    add_flags_2e4__10TObjPlayerFUl(arg0, 8);
+    ((TObjPlayer *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000);
     *(s32 *)((s8 *)arg0 + 0x3B8) = 0;
     *(f32 *)((s8 *)arg0 + 0x3BC) = (f32) lbl_805D960C;

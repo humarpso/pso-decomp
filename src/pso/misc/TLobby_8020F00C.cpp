@@ -1,11 +1,11 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TRaderMapCore.h"
 
 extern "C" {
 
 void push_shop_pool_entry(u8 *arg0, s8 arg1);
 s32 get_game_play_mode();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void push_shop_pool_entry(u8 *arg0, s8 arg1) {
     s32 temp_r5;

@@ -1090,7 +1090,6 @@ int set_timer_value__12TWindowTimerFii(int a0, int a1);
 int close_timer_window__11TWindowCtrlFv(void*);
 int TWindowTimer__sub_8019A770(void* p);
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
-void reset_photon_effect__10TObjPlayerFv(s32);
 s32 initialize_linked_object_reference(void *, s32);
 extern s32 lbl_804B8E18[];
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
@@ -1304,6 +1303,7 @@ void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {
 }
 
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -1338,7 +1338,7 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x378) = 1;
     *(s32 *)((s8 *)arg0 + 0x37C) = 0x40107;
     initialize_linked_object_reference(arg0, (s32) (arg0 + 0x364));
-    reset_photon_effect__10TObjPlayerFv((s32) arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x35C) = 0;
     *(s16 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x10) = 0;
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x18) = 0;

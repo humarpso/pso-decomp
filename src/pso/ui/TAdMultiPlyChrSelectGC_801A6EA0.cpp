@@ -9,11 +9,10 @@ s32 check_packed_flag_match(s32, s32, s32, s32);
 extern "C" {
 
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 pack_color_bits__13TRaderMapCoreFll(s32, s32);
 s32 input_press_or_repeat(s32, s32, s32, s32);
 
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    u32 t = pack_color_bits__13TRaderMapCoreFll(arg0, arg1);
+    u32 t = TRaderMapCore::pack_color_bits(arg0, arg1);
     return input_press_or_repeat(arg0, t, arg2, arg3);
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -7,12 +8,8 @@ void psycho_wand_marker(s32 arg0);
 void psycho_wand_node_callback(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 add_actor_tp(s32, s16);
-s32 play_particle_effect_once__10TObjPlayerFv();
 s32 spawn_cane_effect__10TObjPlayerFiUii(s32, s32, s32);
-s32 is_mode_two_and_ready__10TObjPlayerFv(s32);
-s32 update_active_game_effect__10TObjPlayerFv(s32);
 s32 get_attack_stage__11TItemWeaponFv();
-s32 get_player_list__10TObjPlayerFv();
 s32 psycho_wand_roll_extra(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 translate_matrix(s32, f32, f32, f32);
@@ -42,11 +39,11 @@ void psycho_wand_marker(s32 arg0) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
-    if (is_mode_two_and_ready__10TObjPlayerFv(arg0) != 0) {
+    if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
         psycho_wand_roll_extra(arg0);
         return;
     }
-    update_active_game_effect__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_active_game_effect();
 }
 
 extern const f32 lbl_805DAEC8;
@@ -55,7 +52,7 @@ extern const f32 lbl_805DAECC;
 void psycho_wand_node_callback(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 2:
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x278));
@@ -69,7 +66,7 @@ void psycho_wand_node_callback(void *arg0) {
     case 3:
     case 4:
     case 6:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         return;
     }
 }

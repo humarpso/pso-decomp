@@ -1,8 +1,10 @@
 #include "pso/TBoss6EffFlowSoul.h"
 
-extern "C" void request_destroy__11TBoss4Type2FUl(void*);
-
 #include "types.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss6Type2.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TNowLoading.h"
 
 extern "C" {
 
@@ -21,9 +23,6 @@ struct Soul_8036A6B0 {
 
 void VecCopy__FP3VecPC3Vec(Vec_8036A6B0 *, Vec_8036A6B0 *);
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, Vec_8036A6B0 *);
-s32 query_teammate_state__9TObjEneDDFv(void *);
-void copy_pos_620__11TBoss6Type2Fl(s32, Vec_8036A6B0 *);
 u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 void subtract_vector(Vec_8036A6B0 *, Vec_8036A6B0 *);
@@ -40,11 +39,11 @@ void TBoss6EffFlowSoul::run_task() {
     f32 remain;
     f32 k;
 
-    if (query_teammate_state__9TObjEneDDFv(self) != 0) {
+    if (((TObjEneDD *)self)->query_teammate_state() != 0) {
         return;
     }
     if (self->player == 0xFFFF) {
-        copy_pos_620__11TBoss6Type2Fl(self->f1c, &target);
+        ((TBoss6Type2 *)(self->f1c))->copy_pos_620((s32)(&target));
     } else {
         p = get_player_by_client_id(self->player);
         if (p != NULL && is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
@@ -68,7 +67,7 @@ void TBoss6EffFlowSoul::run_task() {
         vec3_add_to(&self->pos, &d);
     }
     if (self->f20 != NULL) {
-        copy_pos__11TNowLoadingFPv(self->f20, &self->pos);
+        ((TNowLoading *)(self->f20))->copy_pos(&self->pos);
     }
     self->age++;
     if (self->age > self->duration) {
@@ -79,5 +78,5 @@ void TBoss6EffFlowSoul::run_task() {
 }
 
 TBoss6EffFlowSoul::~TBoss6EffFlowSoul() {
-    if (m_20 != nullptr) request_destroy__11TBoss4Type2FUl(m_20);
+    if (m_20 != nullptr) TBoss4Type2::request_destroy((u32)m_20);
 }

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrlMain.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 
 struct Ent_8024D520 { void *obj; u8 pad[0x18]; };
 
@@ -17,7 +20,6 @@ extern "C" {
 bool TWindowCtrlMain__sub_8024D868(u8 *arg0);
 void *__nw__7TObjectFUl(u32);
 void *__ct__7TObjectFP7TObject(void *, void *);
-void init_fields__15TWindowCtrlMainFv(void *);
 void *TWindowCtrlClipOut__ct(void *, void *);
 void *TWindowCtrlSub__ct(void *, void *);
 void *TWindowCtrlScreen__ct(void *, void *);
@@ -36,7 +38,6 @@ extern void *window_clip_out_instance;
 Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0);
 s32 __dt__7TObjectFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-s32 release_ptr__15TWindowCtrlMainFPPv(void *);
 extern u8 __vt__15TWindowCtrlMain[];
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
@@ -45,9 +46,6 @@ extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
-s32 free_window__15TWindowCtrlMainFv();
-s32 release_ptr__15TWindowCtrlMainFPPv(void *);
-s32 free_keyboard_soft__15TWindowCtrlMainFv();
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
 extern void *TWindowCtrlMain__window_task_root;
@@ -55,8 +53,6 @@ extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
 s32 load_hud_palette_textures();
-void init_fields__15TWindowCtrlMainFv(void *);
-s32 get_or_create_instance__19TWindowKeyBoardSoftFv();
 s32 TWindowCtrlMain__sub_8024EF30();
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__display_flags;
@@ -74,12 +70,9 @@ extern "C" {
 void TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
 int TCameraCtrl__sub_80068EF0(void);
-int restore_full_screen_view__11TCameraCtrlFv(void);
 int TWindowCtrlMain__sub_8024CE24(void);
 s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
-int begin_effect_render__13TParticleCtrlFv(void);
-int end_effect_render__13TParticleCtrlFv(void);
 int spawn_action_palette_slot_light(void*);
 int open_submenu__15TWindowSubEquipFll(void*);
 int render_nodes__7TObjectFv(void);
@@ -88,7 +81,7 @@ int send_and_handle__6TLobbyFii(void*);
 int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
 int update_com_card__9TWindowDDFv(void*);
 
-void TWindowCtrlMain::render() { reset_transform_state__10TObjPlayerFv(this); begin_effect_render__13TParticleCtrlFv(); restore_full_screen_view__11TCameraCtrlFv(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); end_effect_render__13TParticleCtrlFv(); }
+void TWindowCtrlMain::render() { reset_transform_state__10TObjPlayerFv(this); TParticleCtrl::begin_effect_render(); TCameraCtrl::restore_full_screen_view(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); TParticleCtrl::end_effect_render(); }
 int TWindowCtrlMain::run_task() { return update_com_card__9TWindowDDFv(this); }
 
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
@@ -111,7 +104,7 @@ void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
             TWindowCtrlMain__screen_controller = NULL;
         }
         for (i = 5; i >= 0; i--) {
-            release_ptr__15TWindowCtrlMainFPPv(&TWindowCtrlMain__viewport_states[i]);
+            TWindowCtrlMain::release_ptr((void **)(&TWindowCtrlMain__viewport_states[i]));
         }
         if (TWindowCtrlMain__instance != NULL) {
             delete (W_8024D3C0 *)TWindowCtrlMain__instance;
@@ -151,7 +144,7 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
     }
     for (i = 0; i < 6; i++) {
         e = &TWindowCtrlMain__viewport_states[i];
-        init_fields__15TWindowCtrlMainFv(e);
+        ((TWindowCtrlMain *)e)->init_fields();
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
             p = __ct__7TObjectFP7TObject(p, TWindowCtrlMain__window_task_root);
@@ -200,7 +193,7 @@ void TWindowCtrlMain::free_all_windows() {
         TWindowCtrlMain__screen_controller = NULL;
     }
     for (i = 5; i >= 0; i--) {
-        release_ptr__15TWindowCtrlMainFPPv(&TWindowCtrlMain__viewport_states[i]);
+        TWindowCtrlMain::release_ptr((void **)(&TWindowCtrlMain__viewport_states[i]));
     }
     if (TWindowCtrlMain__instance != NULL) {
         delete (W_8024D690 *)TWindowCtrlMain__instance;
@@ -209,15 +202,15 @@ void TWindowCtrlMain::free_all_windows() {
     if (root != NULL) {
         delete root;
     }
-    free_keyboard_soft__15TWindowCtrlMainFv();
-    free_window__15TWindowCtrlMainFv();
+    TWindowCtrlMain::free_keyboard_soft();
+    TWindowCtrlMain::free_window();
 }
 
 void TWindowCtrlMain::reset_all(void* _w0) {
     s32 i;
     load_hud_palette_textures();
     TWindowCtrlMain__sub_8024EF30();
-    get_or_create_instance__19TWindowKeyBoardSoftFv();
+    TWindowKeyBoardSoft::get_or_create_instance();
     TWindowCtrlMain__display_flags = 0;
     TWindowCtrlMain__window_task_root = 0;
     TWindowCtrlMain__screen_controller = 0;
@@ -226,7 +219,7 @@ void TWindowCtrlMain::reset_all(void* _w0) {
     TWindowCtrlMain__instance = 0;
     window_depth_order_cursor = lbl_805DCC58;
     for (i = 0; i < 6; i++) {
-        init_fields__15TWindowCtrlMainFv(&TWindowCtrlMain__viewport_states[i]);
+        ((TWindowCtrlMain *)(&TWindowCtrlMain__viewport_states[i]))->init_fields();
     }
 }
 

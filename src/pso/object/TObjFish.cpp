@@ -665,6 +665,9 @@ s32 init_fish_school__8TObjFishFPvPvii(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s
 
 #include "types.h"
 #include "pso/object/TObjFish.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #define alloc__23TAdSinglePlyChrSelectGCFv ((u8 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)
 #define __nw__7TObjectFUl ((u8 * (*)(s32))__nw__7TObjectFUl)
@@ -679,7 +682,6 @@ s32 is_split_screen(void);
 u8 *TObjFish__create(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 copy_xyz__10TObjPlayerFPv(void *, void *);
 s32 construct_world_actor_base();
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2);
@@ -692,14 +694,12 @@ extern "C" {
 void *__dt__8TObjFishFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
 
 void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjFish;
-        if (*(void **)((s8 *)arg0 + 0xA0) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUl(*(void **)((s8 *)arg0 + 0xA0)); *(s32 *)((s8 *)arg0 + 0xA0) = 0; }
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        if (*(void **)((s8 *)arg0 + 0xA0) != NULL) { TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)arg0 + 0xA0))); *(s32 *)((s8 *)arg0 + 0xA0) = 0; }
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -715,7 +715,7 @@ u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D58;
     *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
-    copy_xyz__10TObjPlayerFPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
+    ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
     var_f1 = *(f32 *)((s8 *)arg0 + 0x68);
     temp_f0 = *(f32 *)((s8 *)arg0 + 0x6C);

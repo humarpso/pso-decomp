@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/misc/TSceneSora.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TScene.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_802072E0___vt__10TSceneSora {
     s32 value;
@@ -40,7 +45,6 @@ extern s32 TSceneSora__sky_active_flag;
 extern s32 TSceneSora__instance;
 extern u32 TSceneSora__sky_bml_resource;
 void TSceneSora__sub_80207430(void);
-u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 extern s32 TSceneSora__instance;
@@ -68,21 +72,15 @@ s32 TObjFish__sub_8001EDB0(int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 set_global_param__8TObjFishFl();
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__sky_bml_resource;
-s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC608;
 void *get_current_floor();
 u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 update_lobby_scene__6TSceneFv(void *);
 s32 replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
 Ent_80207478 *get_floor_scene_table(s32);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 close_adxf_handle__6TLobbyFPv(void *);
 void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
@@ -108,7 +106,7 @@ typedef char RecoveredGlobal_802072E0___vt__10TSceneSora_size[sizeof(RecoveredGl
 void TSceneSora::render() {
     u8 *arg0 = (u8 *)this;
     if ((s32) TSceneSora__sky_active_flag != 0) {
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
         set_global_param__8TObjFishFl();
         push_matrix();
@@ -119,7 +117,7 @@ void TSceneSora::render() {
             draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x90)));
         }
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -131,7 +129,7 @@ void TSceneSora::run_task() {
             sky->frame = lbl_805DC608;
         }
     } else {
-        switch (get_global_state__14TOKeyMachine01Fv()) {
+        switch (TOKeyMachine01::get_global_state()) {
         case 1:
         case 2:
             sky->yaw++;
@@ -144,7 +142,7 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TSceneSora.value;
         TSceneSora__instance = 0;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -209,9 +207,9 @@ void TSceneSora::load_sky_resources() {
         ok = 0;
         tbl = get_floor_scene_table(ref.id);
         replace_file_extension__6TLobbyFPvPvPv(name1, tbl[ref.idx].name, lbl_8044A9D0);
-        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        if (TRaderMapCore::is_not_split_screen() == 1) {
             replace_file_extension__6TLobbyFPvPvPv(name2, tbl[ref.idx].name, lbl_8044A9D8);
-            ok = update_lobby_scene__6TSceneFv(name2);
+            ok = ((TScene *)name2)->update_lobby_scene();
         }
         if (ok <= 0) {
             replace_file_extension__6TLobbyFPvPvPv(name2, tbl[ref.idx].name, lbl_8044A9E0);
@@ -233,7 +231,7 @@ void TSceneSora::load_sky_resources() {
         }
         b.n = 0;
         a.n = 0;
-        o = (u32)alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+        o = (u32)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (o != 0) {
             o = TLobby__sub_8002058C((void *)o, 1, &b, &a, 0, 0, 0);
         }

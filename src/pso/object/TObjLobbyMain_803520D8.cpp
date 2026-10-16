@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/object/TObjLobbyMain.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #pragma readonly_strings on
 
 struct Vec3_80352240 {
@@ -37,8 +45,6 @@ void update_fade_in__13TObjLobbyMainFPv(u8 *arg0);
 s32 get_theme_lobby_type();
 void resolve_theme_index__13TObjLobbyMainFPv(u8 *arg0);
 void set_mode_index_from_state__13TObjLobbyMainFPv(u8 *arg0);
-void set_param_ptr__11TBoss4Type2Fl(void *, int);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 void matrix_mult_vec(int, Vec3_80352240 *, Vec3_80352240 *);
 void set_matrix_identity(int);
 void rotate_matrix_y(int, s32);
@@ -53,7 +59,6 @@ void rotate_matrix_y(int, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern void *TObjLobbyMain__bml_resource;
@@ -71,7 +76,6 @@ void update_computer_machines__13TObjLobbyMainFv(void);
 void update_particles__13TObjLobbyMainFPv(void *arg0);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
-s32 clear_active_flag__13TParticleCtrlFv(void *);
 s32 enable__13TParticleCtrlFPv(void *);
 s32 get_theme_lobby_type();
 
@@ -157,24 +161,24 @@ void update_emitter_positions__13TObjLobbyMainFPv(u8 *arg0) {
     case 3:
     if (*(void **)(arg0 + 0xD8) != NULL) {
         Vec3_80352240 v = {0.0f, 0.0f, 18.0f};
-        set_param_ptr__11TBoss4Type2Fl(*(void **)(arg0 + 0xD8), 0x222);
+        ((TBoss4Type2 *)(*(void **)(arg0 + 0xD8)))->set_param_ptr(0x222);
         push_matrix();
         set_matrix_identity(0);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);
-        copy_pos__11TNowLoadingFPv(*(void **)(arg0 + 0xD8), &v);
+        ((TNowLoading *)(*(void **)(arg0 + 0xD8)))->copy_pos(&v);
         pop_matrix();
     }
     if (*(void **)(arg0 + 0xDC) != NULL) {
         Vec3_80352240 v = {0.0f, 0.0f, -18.0f};
-        set_param_ptr__11TBoss4Type2Fl(*(void **)(arg0 + 0xDC), 0x222);
+        ((TBoss4Type2 *)(*(void **)(arg0 + 0xDC)))->set_param_ptr(0x222);
         push_matrix();
         set_matrix_identity(0);
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);
-        copy_pos__11TNowLoadingFPv(*(void **)(arg0 + 0xDC), &v);
+        ((TNowLoading *)(*(void **)(arg0 + 0xDC)))->copy_pos(&v);
         pop_matrix();
     }
         break;
@@ -186,10 +190,10 @@ void update_particles__13TObjLobbyMainFPv(void *arg0) {
         switch ((s16) *(s16 *)((s8 *)arg0 + 0xD0)) {
         case 3:
             if ((u32) *(u32 *)((s8 *)arg0 + 0xD8) != 0U) {
-                clear_active_flag__13TParticleCtrlFv(*(void **)((s8 *)arg0 + 0xD8));
+                ((TParticleCtrl *)(*(void **)((s8 *)arg0 + 0xD8)))->clear_active_flag();
             }
             if ((u32) *(u32 *)((s8 *)arg0 + 0xDC) != 0U) {
-                clear_active_flag__13TParticleCtrlFv(*(void **)((s8 *)arg0 + 0xDC));
+                ((TParticleCtrl *)(*(void **)((s8 *)arg0 + 0xDC)))->clear_active_flag();
             }
             break;
         default:
@@ -227,7 +231,7 @@ void TObjLobbyMain::render() {
         if (*(s32 *)((s8 *)arg0 + 0xC8) != 2) {
             scale_matrix(0, *(f32 *)((s8 *)arg0 + 0xD4), (1.0f), *(f32 *)((s8 *)arg0 + 0xD4));
         }
-        set_global_param__8TObjFishFl(lobby_main_lobby_type);
+        TObjFish::set_global_param((s32)lobby_main_lobby_type);
         idx = *(s16 *)((s8 *)arg0 + 0xD0);
         r = lbl_80479078[idx];
         if (r != 5) {
@@ -331,15 +335,11 @@ struct RecoveredGlobal_80352940___vt__13TObjLobbyMain {
 extern "C" {
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-int get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
 extern s32 lobby_main_computer_ginja_model;
 extern s32 lobby_main_computer_ginja_model_b;
 extern s32 lobby_computer_last_frame_tick;
 u32 create_particle_emitter(void *, int);
-s32 set_flags__11TBoss4Type2FUl(int, int);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *);
@@ -356,14 +356,12 @@ void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 check_demo_mode__10TObjPlayerFv();
-void destroy_key_base__5TOKeyFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 void TObjLobbyMain::run_task() {
     s32 temp_r0;
 
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TObjLobbyMain__sub_803520D8(this);
     }
     temp_r0 = *(s32 *)((s8 *)this + 0xC8);
@@ -406,13 +404,13 @@ extern s32 __vt__13TObjLobbyMain[];
 void TObjLobbyMain::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_lobby_main_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TObjLobbyMain__bml_resource) = (unsigned char *) ((void *) var_r0);
-    lobby_main_lobby_type = get_lobby_type__6TLobbyFv();
+    lobby_main_lobby_type = TLobby::get_lobby_type();
     lobby_main_computer_ginja_model = *(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 6)) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 4);
     lobby_main_computer_ginja_model_b = *(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 2)) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 4);
     lobby_computer_last_frame_tick = 0;
@@ -425,7 +423,7 @@ void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -444,13 +442,13 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u32 *)((s8 *)arg0 + 0xD8) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xD8);
     if (temp_r3 != 0U) {
-        set_flags__11TBoss4Type2FUl((int) (temp_r3), (int) (0x40));
+        ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
         enable__13TParticleCtrlFPv((int) (*(u32 *)((s8 *)arg0 + 0xD8)));
     }
     *(u32 *)((s8 *)arg0 + 0xDC) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0xDC);
     if (temp_r3_2 != 0U) {
-        set_flags__11TBoss4Type2FUl((int) (temp_r3_2), (int) (0x40));
+        ((TBoss4Type2 *)temp_r3_2)->set_flags((int) (0x40));
         enable__13TParticleCtrlFPv((int) (*(u32 *)((s8 *)arg0 + 0xDC)));
     }
     set_mode_index_from_state__13TObjLobbyMainFPv((void *) (arg0));
@@ -462,7 +460,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.0f);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804F0F34.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
 

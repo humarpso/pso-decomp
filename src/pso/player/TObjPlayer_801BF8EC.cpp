@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2);
@@ -26,23 +29,6 @@ void* TObjPlayer__sub_801BF934(void* p);
 void TObjPlayer__sub_801BF93C(void* p, s16 v);
 void TObjPlayer__sub_801BF954(void* p, s32 v);
 s32 TObjPlayer__sub_801BF95C(void* p);
-int check_flag_2__10TObjPlayerFv(void* p);
-int clear_fields__20TWindowSubStatusDispFv(void*);
-int clear_id__10TObjPlayerFv(void*);
-s16 get_action_id__10TObjPlayerFv(void* p);
-int get_enabled__11TMainCursorFv(void*);
-s32 get_lock_timer__10TObjPlayerFv(void* p);
-void* get_sub_object__10TObjPlayerFv(void* p);
-int get_type__11TMainCursorFv(void*);
-void* reset_sub_status_disp__10TObjPlayerFv(void* p);
-void set_action_id__10TObjPlayerFs(void* p, s16 v);
-void set_anim_state__10TObjPlayerFl(void* p, s32 v);
-void set_anim_state__10TObjPlayerFs(void* p, s16 v);
-int set_flag_4__10TObjPlayerFv(void* p);
-int set_flags__10TObjPlayerFUl(void*, int);
-void set_state__10TObjPlayerFs(void* p, s16 v);
-int test_flag_16__10TObjPlayerFv(void* p);
-int update_main_cursor__10TObjPlayerFv(void* p);
 
 void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + (arg1 * 4)) = arg2;

@@ -3,6 +3,8 @@
 TTecCtrl::~TTecCtrl() {}
 
 #include "types.h"
+#include "pso/TTecZondeEff.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8022F068_lbl_804CC934 {
     u8 * value;
@@ -11,7 +13,6 @@ struct RecoveredGlobal_8022F068_lbl_804CC934 {
 
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 void clear_zonde_beam_vertex_pointer(void);
 s32 TLobby__sub_803DA16C(void *, s32);
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
@@ -29,7 +30,6 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u8 *load_resource_from_descriptor(u8 *, s32, void *, s32, s32, s32);
 void **load_gvm_texture_file(void *);
 void bind_gvm_texture_list(void *, void *);
-void init_resources__12TTecZondeEffFv(void);
 void load_technique_resources(void);
 }
 
@@ -82,7 +82,7 @@ void TLobby__sub_8022F068(void) {
         if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
             TLobby__sub_803DA16C(lbl_805D63B0, (s32) temp_r4);
         }
-        safe_free__23TAdSinglePlyChrSelectGCFUl((u32) lbl_805D63B0);
+        TAdSinglePlyChrSelectGC::safe_free((u32) lbl_805D63B0);
         lbl_805D63B0 = NULL;
     }
     if ((void *) technique_effect_bml != NULL) {
@@ -98,7 +98,7 @@ void load_technique_resources(void) {
     technique_effect_bml = p;
     lbl_805D63B0 = load_gvm_texture_file(lbl_8044D088);
     bind_gvm_texture_list(lbl_8044D094, ((u8 *)&technique_ringwave_texture_list));
-    init_resources__12TTecZondeEffFv();
+    TTecZondeEff::init_resources();
 }
 
 }

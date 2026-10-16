@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TCheckRoomSequence.h"
 
 struct RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 {
     s32 value;
@@ -27,7 +28,6 @@ s32 TLobby__sub_8013AD5C(void* p);
 u8 TLobby__sub_8013AD6C(void* p);
 int TLobby__sub_8013AD74(void* p);
 int hex_to_decimal_string__22TAdEnterSerialAccessGCFi(void);
-void set_ready_flag__18TCheckRoomSequenceFv(void* p);
 
 int TLobby::get_status_flag() { return (*(u16*)((char*)this + 0x70) >> 1) & 0x1; }
 int TLobby::get_flag_bit2() { return (*(u16*)((char*)this + 0x70) >> 2) & 0x1; }

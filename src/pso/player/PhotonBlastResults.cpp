@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TLobby.h"
 
 struct Slot_801A8868 { u8 pad[0x18]; };
 struct Counts_801A8868 { s32 v[4]; };
@@ -36,11 +39,7 @@ extern "C" {
 
 s16 get_actor_attack_params_atp_min(void *);
 s16 get_ata__10TObjPlayerFPv(void *);
-s16 get_field_2c8__10TObjPlayerFv(void *);
-int activate_d04_slot__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_80113D90(void *);
-s16 get_mag_data__10TObjPlayerFv(void *);
-s16 get_hp__10TObjPlayerFv(void *);
 extern const f32 lbl_805DC110;
 extern const f32 lbl_805DC114;
 extern const f32 lbl_805DC118;
@@ -54,13 +53,9 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
 s32 create_particle_emitter(void *, s32);
-s32 construct_collider_proxy__10TObjPlayerFv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-int begin_effect_render__13TParticleCtrlFv(void);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
-int end_effect_render__13TParticleCtrlFv(void);
 void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
@@ -74,12 +69,10 @@ extern s32 photon_blast_donation_flags[];
 void clear_photon_blast_donations(void);
 s32 is_split_screen();
 s32 get_stat_by_key_state__10TObjPlayerFv(void *);
-u16 get_section_id__10TObjPlayerFv(void *);
 extern s32 local_client_id;
 s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
-void set_field_2__10TObjPlayerFs(void *, s16);
 void set_type__10TObjPlayerFs(void *, s16);
 s32 TObjPlayer__sub_801AA528(void *, int);
 s32 init_arrays__10TObjPlayerFi(void *);
@@ -91,8 +84,6 @@ extern Rec_801A8868 photon_blast_sequence_table[];
 void admit_photon_blast_sequence(u8 *players, void *self);
 
 int get_player_data__10TObjPlayerFi(int);
-s32 get_game_mode__6TLobbyFv(void);
-int get_enemy_count__9TObjEneDDFv(void);
 void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
 #pragma push
@@ -103,26 +94,26 @@ f32 TObjPlayer::calc_photon_blast_power(s32 arg1, f32 farg0) {
     void *mag;
     var_f30 = lbl_805DC110;
     if (*(u8 **)(arg0 + 0x38) != NULL) {
-        mag = (void *)activate_d04_slot__10TObjPlayerFv(*(u8 **)(arg0 + 0x38));
+        mag = (void *)((TObjPlayer *)(*(u8 **)(arg0 + 0x38)))->activate_d04_slot();
         if (mag != 0) {
             switch (arg1) {
             case 0:
-                var_f30 = farg0 + ((lbl_805DC114 * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC118 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
+                var_f30 = farg0 + ((lbl_805DC114 * (f32)((TObjPlayer *)mag)->get_mag_data()) + lbl_805DC118 * (f32)(TObjPlayer__sub_80113D90(mag) * (((TObjPlayer *)(*(u8 **)(arg0 + 0x38)))->get_field_2c8() + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
                 break;
             case 1:
-                var_f30 = farg0 + ((lbl_805DC11C * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC120 * (f32)(get_hp__10TObjPlayerFv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
+                var_f30 = farg0 + ((lbl_805DC11C * (f32)((TObjPlayer *)mag)->get_mag_data()) + lbl_805DC120 * (f32)(((TObjPlayer *)(*(u8 **)(arg0 + 0x38)))->get_hp() * TObjPlayer__sub_80113D90(mag)));
                 break;
             case 2:
-                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC128 * (f32)(TObjPlayer__sub_80113D90(mag) * (get_field_2c8__10TObjPlayerFv(*(u8 **)(arg0 + 0x38)) + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
+                var_f30 = farg0 + ((lbl_805DC124 * (f32)((TObjPlayer *)mag)->get_mag_data()) + lbl_805DC128 * (f32)(TObjPlayer__sub_80113D90(mag) * (((TObjPlayer *)(*(u8 **)(arg0 + 0x38)))->get_field_2c8() + get_actor_attack_params_atp_min(*(u8 **)(arg0 + 0x38)))));
                 break;
             case 3:
-                var_f30 = farg0 + ((lbl_805DC124 * (f32)get_mag_data__10TObjPlayerFv(mag)) + lbl_805DC128 * (f32)(get_ata__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
+                var_f30 = farg0 + ((lbl_805DC124 * (f32)((TObjPlayer *)mag)->get_mag_data()) + lbl_805DC128 * (f32)(get_ata__10TObjPlayerFPv(*(u8 **)(arg0 + 0x38)) * TObjPlayer__sub_80113D90(mag)));
                 break;
             case 4:
-                var_f30 = (lbl_805DC12C * (f32)get_mag_data__10TObjPlayerFv(mag)) + farg0;
+                var_f30 = (lbl_805DC12C * (f32)((TObjPlayer *)mag)->get_mag_data()) + farg0;
                 break;
             case 5:
-                var_f30 = 0.1f * (f32)get_mag_data__10TObjPlayerFv(mag);
+                var_f30 = 0.1f * (f32)((TObjPlayer *)mag)->get_mag_data();
                 if (var_f30 >= 20.0f) {
                     var_f30 = 20.0f;
                 }
@@ -159,7 +150,7 @@ s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records) {
     if (is_split_screen() != 0) {
         return 1;
     }
-    if (local_client_id == get_section_id__10TObjPlayerFv(records)) {
+    if (local_client_id == ((TObjPlayer *)records)->get_section_id()) {
         return 1;
     }
     local = get_player_by_client_id(local_client_id);
@@ -184,7 +175,7 @@ void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2) {
     Hit_801A86E0 tmp2;
 
     ent = ((u8 *(*)(u16))find_entity_by_id)(arg2);
-    for (i = get_game_mode__6TLobbyFv(); i < get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv(); i++) {
+    for (i = TLobby::get_game_mode(); i < TLobby::get_game_mode() + TObjEneDD::get_enemy_count(); i++) {
         plr = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (plr != NULL && !(*(s32 *)((s8 *)plr + 0x30) & 0x40000000)) {
             if (is_split_screen() != 0) {
@@ -235,22 +226,22 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
     Counts_801A8868 counts = photon_blast_result_counts_init;
     for (n = 0; n < 4; n++) {
         SET_TYPE(&b[n], 0xFFFF);
-        set_field_2__10TObjPlayerFs(&b[n], -1);
+        ((TObjPlayer *)(&b[n]))->set_field_2(-1);
     }
     n = 0;
     k = 0;
     for (j = 0; j < 4; j++, players += 0x18) {
-        p = get_player_by_client_id(get_section_id__10TObjPlayerFv(players));
+        p = get_player_by_client_id(((TObjPlayer *)players)->get_section_id());
         if (p != NULL && GET_STAT(p) == GET_STAT(self)
             && TObjPlayer__sub_80313114(players) != -1) {
-            SET_TYPE(&a[n], get_section_id__10TObjPlayerFv(players));
-            set_field_2__10TObjPlayerFs(&a[n], TObjPlayer__sub_80313114(players));
+            SET_TYPE(&a[n], ((TObjPlayer *)players)->get_section_id());
+            ((TObjPlayer *)(&a[n]))->set_field_2(TObjPlayer__sub_80313114(players));
             n++;
         }
     }
     for (i = n; i < 4; i++) {
         SET_TYPE(&a[i], 0xFFFF);
-        set_field_2__10TObjPlayerFs(&a[i], -1);
+        ((TObjPlayer *)(&a[i]))->set_field_2(-1);
     }
     for (m = 0; m < 4; m++) {
         if (m != 0) {

@@ -6,15 +6,11 @@ extern "C" {
 void *TWindowDD__sub_80340F70(void);
 void draw_and_scroll_entry__9TWindowDDFi(s32 arg0);
 void *dt__9TWindowDDFPvs(void *arg0, s16 arg1);
-s32 calc_inner_rect__9TWindowDDFPUc(s32, void *);
 s32 draw_visible_window_entries(s32, s32, void *, f32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFs(void *, int);
-s32 draw__9TWindowDDFllf(void *, void *, s32, f32);
 void *draw_default_entry__9TWindowDDFl();
-int initialize_subwindow__9TWindowDDFv(void*);
 int update_fade__17TWindowSubComCardFv(void*);
 
 extern "C" void TWindowDD__sub_80340A78();
@@ -46,7 +42,7 @@ W_80340F00 *construct_variant_b__9TWindowDDFPv(W_80340F00 *arg0);
 void *dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFBE4;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -80,7 +76,7 @@ void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
     void *temp_r3;
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    calc_inner_rect__9TWindowDDFPUc(arg0, temp_r3);
+    ((TWindowDD *)arg0)->calc_inner_rect((u8 *)temp_r3);
     ((TWindowDD *)arg0)->draw_entry_if_visible((void *)(temp_r3));
     temp_f1 = *(f32 *)((s8 *)temp_r3 + 0x14);
     *(f32 *)((s8 *)temp_r3 + 0x14) = (f32) (temp_f1 + lbl_805DFC90);
@@ -91,11 +87,10 @@ extern f32 lbl_805DFC94;
 
 void TWindowDD::draw_entry_if_visible(void *arg1) {
     if ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0) {
-        draw__9TWindowDDFllf(this, arg1,
-                               *(s32 *)((s8 *)this + 0x60), lbl_805DFC94);
+        draw((s32)arg1, (s32)(*(s32 *)((s8 *)this + 0x60)), (f32)lbl_805DFC94);
     }
 }
 
-void TWindowDD::init_window() { initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
+void TWindowDD::init_window() { initialize_subwindow(); update_fade__17TWindowSubComCardFv(this); update_window_entry_list(this, (char*)this + 0x24); }
 
 }

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/TAdMultiSelGameModeGC.h"
 
 extern "C" {
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
@@ -10,8 +11,6 @@ void draw_twin_weapon_trails(s32 arg0);
 }
 
 extern "C" {
-
-void set_selection_state__21TAdMultiSelGameModeGCFl(void* p, s32 v);
 
 s32 TAdMultiPlyChrSelectGC::get_player_index() { return *(s32*)((char*)this + 0x24); }
 void TAdMultiPlyChrSelectGC::set_cursor_index(s32 v) { *(s32*)((char*)this + 0x24) = v; }

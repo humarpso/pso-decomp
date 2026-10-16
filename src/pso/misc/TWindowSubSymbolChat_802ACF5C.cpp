@@ -1,16 +1,16 @@
 #include "types.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
 
 extern "C" {
 
 s32 get_zero_vec2();
-s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(s32, s32, s32);
 
 void TWindowSubSymbolChat::update_display(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = get_zero_vec2();
-    create_callback__22TAdEnterSerialAccessGCFPvPvPv(get_zero_vec2(), temp_r31, arg0);
+    TAdEnterSerialAccessGC::create_callback((void *)(get_zero_vec2()), (void *)temp_r31, (void *)arg0);
 }
 
 }

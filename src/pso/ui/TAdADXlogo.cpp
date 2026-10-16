@@ -2,6 +2,7 @@
 TAdADXlogo::~TAdADXlogo() {}
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -11,7 +12,6 @@ void *__ct__10TAdADXlogoFv(void *arg0);
 int get_logo_texture_e_handle(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *init_fade__6TLobbyFPvPv(void *, void *, void *);
 
 extern s32 __vt__10TAdADXlogo[];
 extern void *lbl_805D2600;
@@ -30,7 +30,7 @@ void *__ct__10TAdADXlogoFv(void *arg0) {
     lbl_805D49D0 = 0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPv(o, tl_00, destroy__10TAdADXlogoFv);
+        ((TLobby *)o)->init_fade(tl_00, destroy__10TAdADXlogoFv);
     }
     return arg0;
 }

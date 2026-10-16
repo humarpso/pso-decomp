@@ -591,6 +591,8 @@ struct RecoveredGlobal_8006B324_lbl_805137F8 {
 };
 
 #include <stddef.h>
+#include "pso/TMainTask.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 struct Stack_8006ABAC {
     s32 sp8;
     s32 spC;
@@ -733,7 +735,6 @@ struct V3_8006AD34 { f32 x, y, z; };
 u8 *get_target__11TCameraCtrlFv(void *);
 s32 reset_view_flags__11TCameraCtrlFv(void *);
 s32 cycle_spectate_target__11TCameraCtrlFv(void *);
-s32 render__15TObjBoss2TunnelFPv(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv();
 void vector_length(void *);
 f32 vec_squared_length(void *);
@@ -759,7 +760,6 @@ void set_target__11TCameraCtrlFii(int a0, int a1);
 void set_target_coords__11TCameraCtrlFii(int a0, int a1);
 int reset_to_local_player__11TCameraCtrlFv(void*);
 int set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void*);
-s32 get_state_flag__9TMainTaskFv();
 s32 is_split_screen();
 
 extern "C" {
@@ -817,7 +817,7 @@ void *lbl_80488AC0[6] = {
 };
 
 void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
-    if ((is_split_screen() == 0) && (get_state_flag__9TMainTaskFv() != 1)) {
+    if ((is_split_screen() == 0) && (TMainTask::get_state_flag() != 1)) {
         if ((u8) *(u8 *)((s8 *)arg0 + 0x1C) == 0) {
             setup_default_view__11TCameraCtrlFPvPv((Obj_8006AF9C *)(arg0), (Vec_8006AF9C *)(0));
         }
@@ -935,15 +935,15 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
     }
     if (is_split_screen() != 0) {
         if (TCameraCtrl__view_state[0] == 5) {
-            render__15TObjBoss2TunnelFPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
+            ((TObjBoss2Tunnel *)lbl_804FF5E8)->render(&TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
             for (i = 1; i < 4; i++) {
                 copy_view_params__11TCameraCtrlFii(&TCameraCtrl__view_matrices[i], &TCameraCtrl__view_matrices[0]);
             }
         } else {
-            render__15TObjBoss2TunnelFPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
+            ((TObjBoss2Tunnel *)lbl_804FF5E8)->render(&TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
         }
     } else {
-        render__15TObjBoss2TunnelFPv(lbl_804FF5E8, TCameraCtrl__view_matrix);
+        ((TObjBoss2Tunnel *)lbl_804FF5E8)->render(TCameraCtrl__view_matrix);
     }
     calc_rotated_axes__11TCameraCtrlFPv(arg0);
 }

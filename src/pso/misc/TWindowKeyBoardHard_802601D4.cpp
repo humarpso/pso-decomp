@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
+#include "pso/misc/TWindowDD.h"
 
 struct RecoveredGlobal_80260304_lbl_804CFAD0 {
     s32 value;
@@ -13,7 +14,6 @@ struct RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard {
 
 extern "C" {
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
-s32 release_keyboard__19TWindowKeyBoardHardFv(void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_80260304_lbl_804CFAD0 lbl_804CFAD0;
 extern s32 __vt__19TWindowKeyBoardHard[];
@@ -29,7 +29,6 @@ s32 is_key_active__19TWindowKeyBoardHardFv();
 void __dl__7TObjectFPv(void *);
 s32 update_fade__17TWindowSubComCardFv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
 s32 TWindowKeyBoardHard__sub_8025CC48(void *);
 s32 has_non_modifier_key__16TKeyBoardControlFv(void *);
 s32 process_all_key_states__16TKeyBoardControlFv(void *);
@@ -71,7 +70,7 @@ extern s32 __vt__19TWindowKeyBoardHard[];
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowKeyBoardHard;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -89,7 +88,7 @@ u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x64) = 0;
     *(s32 *)((s8 *)arg0 + 0x68) = 0;
     *(s32 *)((s8 *)arg0 + 0x6C) = 7;
-    release_keyboard__19TWindowKeyBoardHardFv((void *) (arg0));
+    ((TWindowKeyBoardHard *)arg0)->release_keyboard();
     return arg0;
 }
 

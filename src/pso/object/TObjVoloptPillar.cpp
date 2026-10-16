@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/object/TObjVoloptPillar.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct S_8004A574 {
     s32 f0;
@@ -91,11 +95,9 @@ extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88E4;
 extern const f32 lbl_805D88E8;
 S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2);
-void toggle_particle_effect__10TObjPlayerFv();
 void draw_blob_shadow(s32);
 void restore_scene_lighting();
 void select_actor_lighting(void *);
-void end_effect_render__13TParticleCtrlFv();
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
@@ -103,7 +105,6 @@ void rotate_matrix_x(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void draw_chunk_object(s32);
 extern s32 volopt_pillar_chunk_model_handle;
 extern s32 volopt_pillar_secondary_chunk_model;
@@ -123,9 +124,7 @@ s32 TObjVoloptPillar__sub_80048118(s32);
 f32 TBoss3Volopt__sub_8004812C(s32);
 void TBoss3Volopt__sub_8004885C(void *, Vec_8004A1CC *, s32, s32, s32, f32, f32);
 void fn_80049FD8(void *);
-void set_shake_preset__11TCameraCtrlFl(s32);
 void init_all_slots__10TObjPlayerFv(void *);
-void check_object_collisions__10TObjPlayerFv(void *);
 void play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(u32);
 void matrix_mult_vec(s32, void *, void *);
@@ -153,7 +152,6 @@ extern "C" {
 void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 
 extern u8 *boss3_volopt_resources;
 extern s32 volopt_pillar_chunk_model_handle;
@@ -167,19 +165,19 @@ void TObjVoloptPillar::render() {
     f32 s;
     if (arg0->m8(lbl_805D88B8, lbl_805D88BC) != 0) {
         select_actor_lighting(arg0);
-        toggle_particle_effect__10TObjPlayerFv();
+        TObjPlayer::toggle_particle_effect();
         push_matrix();
         post_translate_matrix(&arg0->f38);
-        set_global_param__8TObjFishFl(volopt_pillar_texture_param_a);
+        TObjFish::set_global_param(volopt_pillar_texture_param_a);
         draw_chunk_object(volopt_pillar_chunk_model_handle);
         pop_matrix();
         push_matrix();
         translate_matrix(0, arg0->f38, arg0->fb8, arg0->f40);
-        set_global_param__8TObjFishFl(volopt_pillar_texture_param_b);
+        TObjFish::set_global_param(volopt_pillar_texture_param_b);
         draw_chunk_object(volopt_pillar_secondary_chunk_model);
         pop_matrix();
         restore_scene_lighting();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         s = lbl_805D88C4 * (TObjVoloptPillar__data_805D88C8 - arg0->f3c) + lbl_805D88C0;
         push_matrix();
         translate_matrix(0, arg0->f38, lbl_805D88CC, arg0->f40);
@@ -216,7 +214,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                 fl->f18 |= 2;
                 init_all_slots__10TObjPlayerFv(fl);
             }
-            check_object_collisions__10TObjPlayerFv(self);
+            ((TObjPlayer *)self)->check_object_collisions();
             if (self->fa4->f18 & 0x80000) {
                 for (i = 0; i < 0x10; i++) {
                     bp = get_battle_param__10TObjPlayerFi(i);
@@ -257,7 +255,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                     TBoss3Volopt__sub_8004885C(p, &pos, 0x11E, 0xF, 0, lbl_805D88DC, lbl_805D88BC);
                 }
             }
-            set_shake_preset__11TCameraCtrlFl(1);
+            TCameraCtrl::set_shake_preset(1);
             play_sound_effect(0x4003AD09, &self->pos, 0, 0);
         }
         break;
@@ -288,7 +286,7 @@ void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjVoloptPillar;
         free_collision_body_parts(arg0);
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

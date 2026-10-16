@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/item/TItemMag.h"
+#include "pso/item/TItemData.h"
+#include "pso/item/TItemMagSub.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Obj_80113EDC { u8 pad[0x44]; u8 arr[1]; };
 
@@ -41,20 +44,12 @@ void TItemMag__sub_80113E3C(void* p);
 u8 TItemMag__sub_80113E74(void* p);
 f32 TItemMag__sub_80113EEC(void* p);
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
-int get_mag_mind_level__9TItemDataFv(void*);
 int test_flags_any(void*, int);
 s16 TObjPlayer__sub_80113D90(void* p);
-int get_level__9TItemDataFv(void*);
-s16 get_mag_data__10TObjPlayerFv(void* p);
 int get_mag_item_data(void* p);
 int get_mag_item_percent(void* p);
 int get_mag_item_stat_percent(void* p);
 int get_mag_level(void* p);
-int get_percent__9TItemDataFv(void*);
-int get_stat_percent__9TItemDataFv(void*);
-int is_growth_inactive__11TItemMagSubFv(void* p);
-void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
-int test_flags__11TItemMagSubFUl(void* p, u32 m);
 
 int TItemMag::get_status_flag() { return *(u32*)((char*)this + 0x18c) & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }

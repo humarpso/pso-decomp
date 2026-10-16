@@ -3,6 +3,7 @@
 TAdDrawLineTask::~TAdDrawLineTask() {}
 
 #include "types.h"
+#include "pso/object/TObjLuker.h"
 
 extern "C" {
 
@@ -12,7 +13,6 @@ int draw_projected_line_strip__10TObjPlayerFPvii(void*, void*, void*);
 s32 allow_rendering__7TObjectFv();
 s32 fn_80019B08(u32, s32);
 int reset_transform_state__10TObjPlayerFv(void*);
-s32 set_flag_4__9TObjLukerFv(void *);
 
 void render__15TAdDrawLineTaskFv(void* p) { reset_transform_state__10TObjPlayerFv(p); draw_projected_line_strip__10TObjPlayerFPvii((char*)p + 0x64, (void*)4, (void*)1); }
 
@@ -50,7 +50,7 @@ void run_task__15TAdDrawLineTaskFv(void *arg0) {
             fn_80019B08(temp, *(s32 *)((s8 *)arg0 + 0x20));
         }
     }
-    set_flag_4__9TObjLukerFv(arg0);
+    ((TObjLuker *)arg0)->set_flag_4();
 }
 
 }

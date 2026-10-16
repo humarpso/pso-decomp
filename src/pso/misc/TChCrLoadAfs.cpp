@@ -130,14 +130,11 @@ s32 strcmp(const char *, const char *);
 extern Te_8028BFA4 player_class_texture_archive_table[];
 extern const f32 lbl_805DD920;
 s32 find_player_texture_name_ordinal(u8 *arg0);
-int safe_free__23TAdSinglePlyChrSelectGCFUl(int);
-void set_render_rect__10TObjPlayerFllll(void *, s32, s32, s32, s32);
 void set_texture_name(void *, void *, s32, s32);
 s32 load_texture_list(void *);
 }
 
 extern "C" {
-int adxf_stop__6TLobbyFv(int);
 }
 
 #include "types.h"
@@ -175,6 +172,9 @@ void TChCrLoadAfs::start_download() {
 
 #include "types.h"
 #include "pso/misc/TChCrLoadAfsTextureReq.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 class Afs_8028BA64 {
 public:
@@ -210,13 +210,13 @@ void TChCrLoadAfs::run_task() {
 TChCrLoadAfs::~TChCrLoadAfs() {
     u32 handle = load_handle;
     if (handle != 0) {
-        if (TLobby__sub_803CC4C0((int)handle) == 2) adxf_stop__6TLobbyFv((int)load_handle);
+        if (TLobby__sub_803CC4C0((int)handle) == 2) ((TLobby *)load_handle)->adxf_stop();
         close_adxf_handle__6TLobbyFPv((int)load_handle);
         load_handle = 0;
     }
     u32 buffer = buffer_address;
     if (buffer != 0) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl((int)buffer);
+        TAdSinglePlyChrSelectGC::safe_free((int)buffer);
         buffer_address = 0;
     }
     release_load_slot__12TChCrLoadAfsFPv(this);
@@ -318,7 +318,7 @@ void TChCrLoadAfsTextureReq::update_loading(void *) {
     if (retry != 0) {
         close_adxf_handle__6TLobbyFPv(arg0->f60);
         arg0->f60 = 0;
-        safe_free__23TAdSinglePlyChrSelectGCFUl(arg0->bufs[arg0->f5c]);
+        TAdSinglePlyChrSelectGC::safe_free(arg0->bufs[arg0->f5c]);
         arg0->bufs[arg0->f5c] = 0;
         arg0->f2c = 1;
         return;
@@ -330,7 +330,7 @@ void TChCrLoadAfsTextureReq::update_loading(void *) {
         return;
     }
     for (i = 0; i < arg0->f58; i++) {
-        set_render_rect__10TObjPlayerFllll(&arg0->rects[i], arg0->bufs[i], 0, 0, 0);
+        ((TObjPlayer *)(&arg0->rects[i]))->set_render_rect(arg0->bufs[i], 0, 0, 0);
         set_texture_name(&arg0->f30->ents[i], &arg0->rects[i], 0, 0x40000000);
     }
     if (load_texture_list(arg0->f30) != -1) {

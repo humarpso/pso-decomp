@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/enemy/TObjEneRecon.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 
 s32 update_camera_sequence__9TObjEneDDFv();
-s32 begin_effect_render__13TParticleCtrlFv();
 s32 matrix_mult_vec(s32, s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -21,7 +21,7 @@ void TObjEneRecon::advance_intro_stage() {
         pop_matrix();
         break;
     case 10:
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         break;
     }
     recon_intro_stage += 1;

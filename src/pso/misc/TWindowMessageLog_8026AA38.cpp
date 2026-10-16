@@ -4,6 +4,8 @@ struct RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog { s32 value; u8 remain
 typedef char RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog_size[sizeof(RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog) == 0x18 ? 1 : -1];
 
 #include <stddef.h>
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 struct Stack_8026ABA8 {
     f32 sp8;
     f32 spC;
@@ -20,16 +22,13 @@ s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_window_scrollbar(int, int, void *);
 void render__17TWindowMessageLogFv(u8 *arg0);
-int initialize_subwindow__9TWindowDDFv(void *);
 void update_window_entry_list(void *, void *);
 void update_scroll__14TWindowMessageFPv(void *);
 void update_fade_offset__17TWindowMessageLogFPv(void *);
 void update_scroll_animation__17TWindowMessageLogFPv(void *);
-void increment_counter__20TWindowSubStatusDispFv(void *);
 extern const f32 lbl_805DD254;
 void run_task__17TWindowMessageLogFv(u8 *arg0);
 u8 * __dt__14TWindowMessageFv(void *, s16);
-s32 destroy_allocation__20TWindowSubStatusDispFls(s32, s16);
 s32 __dl__7TObjectFPv(void *);
 s32 TWindowCtrl__sub_8026AD60();
 extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
@@ -60,18 +59,18 @@ void run_task__17TWindowMessageLogFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
     if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD254) {
-        increment_counter__20TWindowSubStatusDispFv(*(u8 **)((s8 *)arg0 + 0x90));
+        ((TWindowSubStatusDisp *)(*(u8 **)((s8 *)arg0 + 0x90)))->increment_counter();
     }
     update_scroll_animation__17TWindowMessageLogFPv(arg0);
     update_scroll__14TWindowMessageFPv(arg0);
-    initialize_subwindow__9TWindowDDFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
     update_fade_offset__17TWindowMessageLogFPv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);
 }
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TWindowMessageLog.value;
-        destroy_allocation__20TWindowSubStatusDispFls(*(s32 *)((s8 *)arg0 + 0x90), 1);
+        TWindowSubStatusDisp::destroy_allocation(*(s32 *)((s8 *)arg0 + 0x90), 1);
         TWindowCtrl__sub_8026AD60();
         __dt__14TWindowMessageFv(arg0, 0);
         if (arg1 > 0) {

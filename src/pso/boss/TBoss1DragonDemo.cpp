@@ -3,6 +3,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/misc/TCameraCtrl.h"
 struct Stack_8002B744 {
     s8 sp8;
     s8 sp9;
@@ -22,7 +23,6 @@ s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
 s32 isV2Mode__12TBoss1DragonFv();
 s32 activate_camera_mode(int);
-s32 cache_target_and_forward__11TCameraCtrlFl(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo __vt__16TBoss1DragonDemo;
 extern s32 TBoss1DragonDemo__name;
@@ -72,7 +72,7 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
         stack.spC = *(f32 *)((s8 *)arg0 + 0x20);
         stack.sp10 = *(f32 *)((s8 *)arg0 + 0x1C);
         activate_camera_mode((int) (5));
-        cache_target_and_forward__11TCameraCtrlFl((void *) (&stack.sp8), (int) (0x238E));
+        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x238E));
         break;
     case 1:
         stack.sp8 = 1;
@@ -81,7 +81,7 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
         stack.spC = *(f32 *)((s8 *)arg0 + 0x20);
         stack.sp10 = *(f32 *)((s8 *)arg0 + 0x1C);
         activate_camera_mode((int) (5));
-        cache_target_and_forward__11TCameraCtrlFl((void *) (&stack.sp8), (int) (0x3333));
+        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x3333));
         break;
     }
     return arg0;

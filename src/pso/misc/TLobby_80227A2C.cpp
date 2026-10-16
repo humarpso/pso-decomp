@@ -88,6 +88,8 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TScene.h"
 struct RecoveredGlobal_80069094_camera_controller_registry { s32 value; u8 remaining[0x64]; };
 
 struct RecoveredGlobal_80069024_TCameraCtrl__data_804FF634 {
@@ -279,7 +281,6 @@ int fade_out_sound_slot(void*, int);
 int fade_voice_channels__6TLobbyFi(void*);
 s32 get_player_by_client_id(s32);
 s32 bswap_6xB2_play_sound();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 on_set_mode__6TLobbyFv(s32);
 s32 set_mode__6TLobbyFPvi(s32 *, s32);
 
@@ -313,7 +314,7 @@ void handle_6xB2_play_sound_from_player(void *arg0) {
     s32 temp_r3;
 
     bswap_6xB2_play_sound();
-    if ((s8) *(u8 *)((s8 *)arg0 + 4) == get_global_state__14TOKeyMachine01Fv()) {
+    if ((s8) *(u8 *)((s8 *)arg0 + 4) == TOKeyMachine01::get_global_state()) {
         if (*(s16 *)((s8 *)arg0 + 6) == 0xFFFF) {
             play_sound_effect(*(s32 *)((s8 *)arg0 + 8), 0, 0, 0);
             return;
@@ -523,18 +524,14 @@ struct P_80228A74 { u8 pad[0x109c]; s32 count; };
 struct L_8022884C { u8 pad[0x109c]; s32 count; s32 hi; s32 lo; };
 
 extern "C" {
-s32 get_instance__6TLobbyFv();
-s32 get_player_floor__6TLobbyFl(s32);
 s32 select_area_entrance(void *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void run_area_scene_cleanup(u8 *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
-s32 reset_story_select_state__6TLobbyFv();
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void promote_area_floor(u8 *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
-s32 set_scene__6TSceneFi(int);
 s32 set_current_floor_area(int);
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void load_area_scene_and_init(u8 *arg0);
@@ -547,7 +544,6 @@ void update_global_sound_frame(void);
 s32 reset_sound_state__6TLobbyFPv(void *);
 extern unsigned char sound_control_state[];
 void TLobby__sub_8022809C(void);
-s32 run_disk_error_check__6TLobbyFv();
 int render_tick__Fv(void);
 s32 init_sound_aux_effects(void *);
 s32 validate_and_set_selection__6TLobbyFPvi(void *, int);
@@ -569,7 +565,6 @@ u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
 s32 debug_printf_at(u32, void *, ...);
 void TLobby__sub_8022884C(L_8022884C *self);
-s32 run_frame__6TLobbyFv();
 s32 TLobby__sub_80226B64(int);
 extern s32 floor_sound_bank_table[];
 extern s32 floor_sound_bank_volume_table[];
@@ -584,8 +579,6 @@ void clear_work_buffer(u8 *arg0);
 s32 get_floor_map_terrain(s32);
 int pop_sound_groups__6TLobbyFPvi(void*, void*);
 void __ct__7TObjectFP7TObject(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
-s32 init_range__6TLobbyFl(void*, int);
 void memset(void *, int, int);
 int render_tick__Fv(void);
 
@@ -606,9 +599,9 @@ void load_floor_sound_bank(s32 arg0) {
             }
             validate_and_set_selection__6TLobbyFPvi((void *) (sound_control_state), (int) (temp_r31));
             do {
-                run_disk_error_check__6TLobbyFv();
+                TLobby::run_disk_error_check();
                 TLobby__sub_803CB81C();
-                run_frame__6TLobbyFv();
+                TLobby::run_frame();
             } while (((s32 (*)(void *))is_ready__6TLobbyFPv)((void *) (sound_control_state)) == 0);
             TLobby__sub_80226B64((int) (0));
         }
@@ -639,7 +632,7 @@ void TLobby::wait_for_sound_init() {
     validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value), (int) (0));
     do {
         TLobby__sub_803382E4();
-        run_disk_error_check__6TLobbyFv();
+        TLobby::run_disk_error_check();
         TLobby__sub_803CB81C();
         render_tick__Fv();
     } while (((s32 (*)())is_sound_enabled)() == 0);
@@ -650,7 +643,7 @@ void TLobby__sub_80228118(void) {
 }
 
 void TLobby::clear_ready_flag_unless_locked() {
-    if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
+    if (TOKeyMachine01::get_global_state() != 0xF) {
         *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) & 0xFFFFFFFE);
     }
 }
@@ -671,8 +664,8 @@ s32 select_area_entrance(void *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x20) & 1) {
         return 2;
     }
-    if ((get_instance__6TLobbyFv() == 0) && (get_player_floor__6TLobbyFl(*(s32 *)((s8 *)arg0 + 0)) == 0xD)) {
-        switch (get_player_floor__6TLobbyFl(*(s32 *)((s8 *)arg0 + 4))) {
+    if ((TLobby::get_instance() == 0) && (TLobby::get_player_floor(*(s32 *)((s8 *)arg0 + 0)) == 0xD)) {
+        switch (TLobby::get_player_floor(*(s32 *)((s8 *)arg0 + 4))) {
         case 8:
         case 9:
         case 10:
@@ -730,7 +723,7 @@ void load_area_scene_and_init(u8 *arg0) {
     var_r3 = *(s32 *)((s8 *)arg0 + 4);
     set_current_floor_area((int) (var_r3));
     var_r3 = *(s32 *)((s8 *)var_r31 + 0x10);
-    set_scene__6TSceneFi((int) (var_r3));
+    TScene::set_scene((int) (var_r3));
     var_r3 = *(s32 *)((s8 *)var_r31 + 4);
     var_r4 = (s32 *)(&sp8);
     if (lookup_scene_object__6TLobbyFPv(var_r3, var_r4) != 0) {
@@ -773,14 +766,14 @@ void promote_area_floor(u8 *arg0) {
     *(s32 *)((s8 *)var_r31 + 0) = (s32) *(s32 *)((s8 *)var_r31 + 4);
     *(s32 *)((s8 *)var_r31 + 4) = (s32) *(s32 *)((s8 *)var_r31 + 0xC);
     *(s32 *)((s8 *)var_r31 + 0x10) = (s32) *(s32 *)((s8 *)var_r31 + 0x18);
-    reset_story_select_state__6TLobbyFv();
+    TLobby::reset_story_select_state();
 }
 
 typedef char RecoveredGlobal_802287F0_lbl_80515BA0_size[sizeof(RecoveredGlobal_802287F0_lbl_80515BA0) == 0x28 ? 1 : -1];
 s32 TLobby::init_range_zero_global() { return ((TLobby *)((s32) &lbl_80515BA0.value))->init_range_zero(); }
 
 s32 TLobby::init_range_zero() {
-    init_range__6TLobbyFl(this, 0);
+    init_range(0);
     return (s32)this;
 }
 

@@ -1,16 +1,15 @@
 #include "pso/object/TObjDeadListWin.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 extern "C" {
 void queue_destruction__7TObjectFv(void*);
 s32 get_player_by_client_id(s32);
 s32 obj_testFlags30(s32, s32);
-s32 get_flagged_table_entry__6TLobbyFl(s32);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 TWindowCtrlMain__sub_8024CE58();
 char* strncpy(char*, const char*, int);
 char* strcat(char*, const char*);
 void* get_window_layout_position(s32);
 void TWindow__close(void*);
-s32 check_player_flag1__6TLobbyFv(s32);
 void send_and_handle__6TLobbyFii(u32, void*, s32);
 u32 set_window_mode_4__6TLobbyFPvll(void*, void*, s32);
 extern s32 local_client_id;
@@ -48,7 +47,7 @@ void TObjDeadListWin::update_countdown() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if ((check_player_flag1__6TLobbyFv(temp_r3) == 0) && (m_countdown > 0x5A)) m_countdown = 0x5A;
+    if ((((TLobby *)temp_r3)->check_player_flag1() == 0) && (m_countdown > 0x5A)) m_countdown = 0x5A;
     temp_r0 = m_countdown - 1;
     m_countdown = temp_r0;
     if (temp_r0 < 0) {
@@ -66,13 +65,13 @@ void TObjDeadListWin::refresh_names() {
     u8* me;
     for (i = 0; i < 4; i++) {
         player = (u8*)get_player_by_client_id(i);
-        if (m_names[i].text[0] == 0 && player != NULL && get_flagged_table_entry__6TLobbyFl(i) != 0) {
+        if (m_names[i].text[0] == 0 && player != NULL && TLobby::get_flagged_table_entry(i) != 0) {
             strncpy(m_names[i].text, (char*)player + 0x85C, 15);
             m_names[i].terminator = 0;
         }
     }
     me = (u8*)get_player_by_client_id(local_client_id);
-    if ((get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12)
+    if ((TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0x12)
         && TWindowCtrlMain__sub_8024CE58() != 0 && me != NULL
         && obj_testFlags30((s32)me, 0x02000000) == 0) {
         build_dead_list_window();

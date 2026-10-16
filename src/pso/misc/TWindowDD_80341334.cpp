@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowHelpItem.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct RecoveredGlobal_8034138C_TWindowDD__data_804EFC24 {
     s32 value;
@@ -26,11 +30,8 @@ struct RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 {
 };
 
 extern "C" {
-s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
-u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 s32 refresh_status_display__9TWindowDDFv(int);
-s32 reset_float_field__15TWindowHelpItemFv(int);
 s32 set_text_entry_string(int, void *, int);
 extern RecoveredGlobal_8034138C_TWindowDD__data_804EFC24 TWindowDD__data_804EFC24;
 extern s32 lbl_804EFC38[];
@@ -54,14 +55,13 @@ extern "C" {
 
 void *__dt__9TWindowDDFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
 
 extern s32 lbl_804EFC38[];
 
 void *__dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFC38;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -76,16 +76,16 @@ u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowDD__data_804EFC24.value), (int) (4), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8034138C_lbl_804EFC38 *)&lbl_804EFC38).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D42D8;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 0x64), (void *) (arg1));
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0 + 0x6C), (void *) (arg2));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x64))->copy_vec2((void *) (arg1));
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x6C))->copy_vec2((void *) (arg2));
     *(s32 *)((s8 *)arg0 + 0x60) = arg4;
-    temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFi(arg0, 0));
+    temp_r3 = (u8 *)(((TWindowSubStatusDisp *)arg0)->get_array_entry(0));
     if (temp_r3 != NULL) {
         set_text_entry_string((int) (temp_r3), (void *) (arg3), (int) (0x80));
         *(f32 *)((s8 *)temp_r3 + 8) = (f32) lbl_805DFC94;
         *(f32 *)((s8 *)temp_r3 + 0xC) = (f32) lbl_805DFC94;
         refresh_status_display__9TWindowDDFv((int) (temp_r3));
-        reset_float_field__15TWindowHelpItemFv((int) (temp_r3));
+        ((TWindowHelpItem *)temp_r3)->reset_float_field();
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x60);
     if ((temp_r0 == 1) || (temp_r0 == 3)) {

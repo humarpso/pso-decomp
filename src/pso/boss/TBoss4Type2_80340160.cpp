@@ -1,13 +1,11 @@
 #include "types.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjFish.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TNowLoading.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
-int query_teammate_state__9TObjEneDDFv(void *);
-s32 get_phase__8TObjFishFv(void *);
-void advance_offset__11TBoss4Type2Fv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 fn_8033FE30(void *);
@@ -24,7 +22,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void fn_80340040(void *);
-void request_destroy__11TBoss4Type2FUl(void *);
 
 int TBoss4Type2__sub_80340160(void* p) { return TObjPlayer__sub_8033FDB0(p); }
 
@@ -32,17 +29,17 @@ extern s32 lbl_804EFB78[];
 
 void TBoss4Type2__sub_80340180(u8 *arg0) {
     u8 *temp_r3;
-    if (query_teammate_state__9TObjEneDDFv(arg0) == 0) {
-        advance_offset__11TBoss4Type2Fv(arg0);
+    if (((TObjEneDD *)arg0)->query_teammate_state() == 0) {
+        ((TBoss4Type2 *)arg0)->advance_offset();
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x4C), (void *) (arg0 + 0x40));
         fn_8033FE30((void *) (arg0));
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x20));
         if (temp_r3 != NULL) {
-            copy_pos__11TNowLoadingFPv(temp_r3, arg0 + 0x40);
+            ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x40);
         }
         check_any_player_near((void *) (arg0));
         play_persistent_sound((int) (0x4003A126), (void *) (arg0), (void *) (arg0 + 0x40), (int) (0), (int) (0));
-        if (get_phase__8TObjFishFv(*(u8 **)((s8 *)arg0 + 0x1C)) != 4) {
+        if (((TObjFish *)(*(u8 **)((s8 *)arg0 + 0x1C)))->get_phase() != 4) {
             queue_destruction__7TObjectFv(arg0);
         }
     }
@@ -51,7 +48,7 @@ void TBoss4Type2__sub_80340180(u8 *arg0) {
 void *TBoss4Type2::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EFB78;
-        if (*(void **)((s8 *)this + 0x20) != NULL) { request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)this + 0x20)); *(s32 *)((s8 *)this + 0x20) = 0; }
+        if (*(void **)((s8 *)this + 0x20) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x20))); *(s32 *)((s8 *)this + 0x20) = 0; }
         fn_80340040(this);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

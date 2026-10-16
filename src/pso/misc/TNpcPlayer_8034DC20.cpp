@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TNpcPlayer.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8034DE10_lbl_80478C70 {
     s32 value;
@@ -38,34 +39,27 @@ struct RecoveredGlobal_8034DC24_lbl_804F07C8
 
 struct RecoveredGlobal_8034DC24_lbl_804F07C8;
 extern "C" {
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE10_lbl_80478C70 party_position_table;
 u8 *get_party_position(void);
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE70_lbl_80478C50 npc_lobby_entry_positions;
 s32 copy__10TNpcPlayerFPv(void *, void *, int);
 extern RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90 TNpcPlayer__template_table;
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C88;
 s32 get_party_yaw(void);
-s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C68;
 s32 TNpcPlayer__sub_8034DE40(void);
 s32 __dt__7TObjectFv(void *, int);
 s32 obj_isState3_324(int);
 s32 is_script_controlled__10TObjPlayerFv();
-u16 get_action_flags__10TNpcPlayerFv(int);
 u8 *get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 u8 *destroy_quest_party_area(u8 *arg0, s16 arg1);
 s32 obj_isState3_324(int);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s32, void *);
-u16 get_action_flags__10TNpcPlayerFv(int);
 u8 *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 get_field_67c__10TNpcPlayerFv(u8 *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 extern void *tl_00;
 u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent);
@@ -106,7 +100,7 @@ u8 *destroy_quest_party_area(u8 *arg0, s16 arg1) {
           }
         }
         else
-          if (((obj_isState3_324((int) temp_r3) != 0) && (get_action_flags__10TNpcPlayerFv((int) temp_r3) == ((-1U) & 0xFFFFu))) && (temp_r3 != 0))
+          if (((obj_isState3_324((int) temp_r3) != 0) && (((TNpcPlayer *)temp_r3)->get_action_flags() == ((-1U) & 0xFFFFu))) && (temp_r3 != 0))
         {
           PSO_VCALL_VObj_18_dac7f3_m0(temp_r3, 1);
         }
@@ -132,12 +126,12 @@ u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent) {
     *(s32 *)((s8 *)self + 0x1C) = 0;
     for (slot = 0; slot < 4; slot++) {
         player = get_player_by_client_id(slot);
-        if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFv)(player) == 0xFFFF) {
+        if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((TNpcPlayer *)player)->get_action_flags() == 0xFFFF) {
             continue;
         }
         task = __nw__7TObjectFUl(0xE8);
         if (task != NULL) {
-            construct_partner__10TNpcPlayerFPviisPv(task, ((u16 (*)(u8 *)) get_action_flags__10TNpcPlayerFv)(player), (u16) slot, get_field_67c__10TNpcPlayerFv(player), tl_00);
+            construct_partner__10TNpcPlayerFPviisPv(task, ((TNpcPlayer *)player)->get_action_flags(), (u16) slot, ((TNpcPlayer *)player)->get_field_67c(), tl_00);
         }
         (*(s32 *)((s8 *)self + 0x1C))++;
     }
@@ -145,20 +139,20 @@ u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent) {
 }
 
 s32 get_party_yaw(void) {
-    return *(s32 *)((s8 *)(&lbl_80478C88.value) + (get_instance__6TLobbyFv() * 4));
+    return *(s32 *)((s8 *)(&lbl_80478C88.value) + (TLobby::get_instance() * 4));
 }
 
 u8 *get_party_position(void) {
-    return (u8 *)&party_position_table.value + (get_instance__6TLobbyFv() * 0xC);
+    return (u8 *)&party_position_table.value + (TLobby::get_instance() * 0xC);
 }
 typedef char RecoveredGlobal_8034DE70_lbl_80478C50_size[sizeof(RecoveredGlobal_8034DE70_lbl_80478C50) == 0x18 ? 1 : -1];
 
 s32 TNpcPlayer__sub_8034DE40(void) {
-    return *(s32 *)((s8 *)(&lbl_80478C68.value) + (get_instance__6TLobbyFv() * 4));
+    return *(s32 *)((s8 *)(&lbl_80478C68.value) + (TLobby::get_instance() * 4));
 }
 
 u8 *TNpcPlayer::get_lobby_entry_ptr() {
-    return (u8 *)&npc_lobby_entry_positions.value + (get_instance__6TLobbyFv() * 0xC);
+    return (u8 *)&npc_lobby_entry_positions.value + (TLobby::get_instance() * 0xC);
 }
 typedef char RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90_size[sizeof(RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90) == 0xA00 ? 1 : -1];
 void TNpcPlayer::copy_entry_by_index(s32 arg1) {

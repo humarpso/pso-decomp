@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 
 struct TObjBase8017E8_8017E7F0 { char pad[0x18]; };
 struct TObjBgmCol8017E8_8017E7F0 : TObjBase8017E8_8017E7F0 {
@@ -16,14 +17,13 @@ void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__10TObjBgmColFv(void *arg0, s16 arg1);
 s32 construct_world_actor_base();
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern s32 __vt__10TObjBgmCol[];
 
 void *__dt__10TObjBgmColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjBgmCol;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

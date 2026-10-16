@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TAdSelectGameModeGC.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_802A1324_lbl_804DCB64 {
     s32 value;
@@ -10,10 +13,7 @@ void __ct__7TObjectFP7TObject(void *,void *);
 u8 *TMovie__ct(void *,void *,const s8 *,void (*)(s32),s32,s32,s32);
 void set_movie_finished_flag(s32);
 extern const s8 *opening_movie_path_table[10];
-s32 update_menu_cursor__6TLobbyFv();
 u8 *__nw__7TObjectFUl(s32);
-s32 get_mode_data__19TAdSelectGameModeGCFv();
-s32 get_data__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_802A1324_lbl_804DCB64 lbl_804DCB64;
 extern s32 opening_movie_selector;
 extern s32 current_language;
@@ -31,8 +31,8 @@ u8 *create_opening_movie_sequence(u8 *arg0) {
     u8 *temp_r3_2;
     __ct__7TObjectFP7TObject(arg0, tl_01);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804DCB64.value;
-    update_menu_cursor__6TLobbyFv();
-    if ((get_data__23TAdSinglePlyChrSelectGCFv() == 1) && (get_mode_data__19TAdSelectGameModeGCFv() == 1)) {
+    TLobby::update_menu_cursor();
+    if ((TAdSinglePlyChrSelectGC::get_data() == 1) && (TAdSelectGameModeGC::get_mode_data() == 1)) {
         set_movie_finished_flag(0);
         return arg0;
     }

@@ -1,5 +1,12 @@
 #include "types.h"
 #include "pso/misc/TWindowSubAreaMapDisp.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp { s32 value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp_size[sizeof(RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp) == 0x1C ? 1 : -1];
@@ -15,25 +22,16 @@ struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
 };
 
 extern "C" {
-int initialize_subwindow__9TWindowDDFv(void *);
-void update_manual_scroll__21TWindowSubAreaMapDispFv(void *);
-void update_visibility__21TWindowSubAreaMapDispFv(void *);
-int update_subwindow__20TWindowSubStatusDispFv(void *);
 extern const f32 lbl_805DD4F0;
-u8 * destroy_window_base__9TWindowDDFs(void *, s16);
 s32 destroy_status_display__20TWindowSubStatusDispFis(s32, s16);
 s32 mem_free(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 clear_active_flag__11TWindowCtrlFv();
-s32 clear__13TRaderMapCoreFv();
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
 u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1);
 u8 *get_shared_text_buffer();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *get_floor_destination_name(s32);
 s32 mem_alloc(void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 measure_string_len__20TWindowSubStatusDispFv(int);
 s32 append_text_space();
 s32 append_padded_number(int, int);
@@ -55,9 +53,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0);
 extern "C" {
 
 void apply_context_transform_to_rect(void *, void *);
-s32 set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
 extern const f64 lbl_8044F690;
@@ -116,7 +112,7 @@ void fn_80271848(s32 arg0, u8 *arg1) {
         color = -1;
     }
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(0, color);
     {
         f32 y;
@@ -178,7 +174,7 @@ void fn_80271848(s32 arg0, u8 *arg1) {
     r.v1 = lbl_805DD4D8;
     apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth(&r, scale);
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 void TWindowSubStatusDisp__sub_80271A6C(s32 arg0, u8 *arg1) {
@@ -214,11 +210,11 @@ void TWindowSubAreaMapDisp::render() {
 
 void TWindowSubAreaMapDisp::run_task() {
     u8 *arg0 = (u8 *)this;
-    initialize_subwindow__9TWindowDDFv(arg0);
-    update_visibility__21TWindowSubAreaMapDispFv(arg0);
-    update_manual_scroll__21TWindowSubAreaMapDispFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubAreaMapDisp *)arg0)->update_visibility();
+    ((TWindowSubAreaMapDisp *)arg0)->update_manual_scroll();
     if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD4F0) {
-        update_subwindow__20TWindowSubStatusDispFv(*(u8 **)((s8 *)arg0 + 0x70));
+        ((TWindowSubStatusDisp *)(*(u8 **)((s8 *)arg0 + 0x70)))->update_subwindow();
     }
 }
 u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1) {
@@ -229,11 +225,11 @@ u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x74) = 0U;
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x6C) != 0) {
-            clear_active_flag__11TWindowCtrlFv();
-            clear__13TRaderMapCoreFv();
+            TWindowCtrl::clear_active_flag();
+            TRaderMapCore::clear();
         }
         destroy_status_display__20TWindowSubStatusDispFis(*(s32 *)((s8 *)arg0 + 0x70), 1);
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -257,12 +253,12 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
         append_padded_number((int) (get_window_count_ratio_value()), (int) (2U));
         var_r30 = (u8 *)(get_shared_text_buffer());
     } else {
-        var_r30 = (u8 *)(get_floor_destination_name(get_global_state__14TOKeyMachine01Fv()));
+        var_r30 = (u8 *)(get_floor_destination_name(TOKeyMachine01::get_global_state()));
     }
     temp_r3 = measure_string_len__20TWindowSubStatusDispFv((int) (var_r30));
     *(s32 *)((s8 *)arg0 + 0x74) = mem_alloc((void *) (temp_r3 + 1));
     strncpy((int) (*(s32 *)((s8 *)arg0 + 0x74)), (int) (var_r30), (void *) (temp_r3 + 1));
-    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFv((int) ((void *)0x24));
+    temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
         var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii((int) (temp_r3_2), (int) (*(s32 *)((s8 *)arg0 + 0x74)), (int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));

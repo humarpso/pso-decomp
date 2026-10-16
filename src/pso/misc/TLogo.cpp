@@ -10,6 +10,13 @@ public:
 #include "pso/TMainTask.h"
 
 #include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TWindowCtrlMain.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct V3_8013F5E8 { s32 x, y, z; };
 struct V3_8013F6C4 { s32 x, y, z; };
@@ -26,7 +33,6 @@ s32 run_load_callback_table(void *, int);
 s32 init_menu_scene_lights(void *, int);
 s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(int, int, int);
-s32 create_quad_sprites__13TParticleCtrlFv();
 s32 TWindowCtrlMain__ct(u32);
 extern V3_8013F6C4 lbl_8043F138;
 extern V3_8013F6C4 lbl_8043F144;
@@ -58,10 +64,8 @@ s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
-s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 update_input_frame__16TKeyBoardControlFv();
 s32 controller_stuff__Fv();
 s32 render_tick__Fv();
 s32 update_sound_request_slots();
@@ -89,22 +93,22 @@ extern void *__vt__5TLogo[];
 extern void *TLogo__class_name;
 
 extern "C" {
-void reset_view_state__11TCameraCtrlFv(); void reset__11TCameraCtrlFv(); void init_default_view__11TCameraCtrlFv(); void reset_default_view__11TCameraCtrlFv();
-void update_keyboard_menu__6TLobbyFv(); void free_keyboard_soft_resources__6TLobbyFv();
-void register_texture_f256_ad_pic_2(); void free_global__23TAdSinglePlyChrSelectGCFv();
-void register_texture_f256_backtext(); void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv();
+void reset_view_state__11TCameraCtrlFv(); void reset__11TCameraCtrlFv(); void TCameraCtrl::init_default_view(); void TCameraCtrl::reset_default_view();
+void update_keyboard_menu__6TLobbyFv(); void TLobby::free_keyboard_soft_resources();
+void register_texture_f256_ad_pic_2(); void TAdSinglePlyChrSelectGC::free_global();
+void register_texture_f256_backtext(); void TAdSinglePlyChrSelectGC::free_singleton_805D65C0();
 void register_texture_logo_e(); void free_held_object__5TLogoFv(); void TLogo__sub_8001C364(); void TLogo__sub_8001C360();
-void TWindowCtrlMain__sub_8024D838(); void free_all_windows__15TWindowCtrlMainFv(); void TLogo__sub_80019A2C(); void TLogo__sub_80019A28();
+void TWindowCtrlMain__sub_8024D838(); void TWindowCtrlMain::free_all_windows(); void TLogo__sub_80019A2C(); void TLogo__sub_80019A28();
 void __dt__5TLogoFv(); void render_shadows__7TObjectFv();
 void *logo_load_callback_table[18] = {
     (void *)reset_view_state__11TCameraCtrlFv, (void *)reset__11TCameraCtrlFv,
-    (void *)init_default_view__11TCameraCtrlFv, (void *)reset_default_view__11TCameraCtrlFv,
-    (void *)update_keyboard_menu__6TLobbyFv, (void *)free_keyboard_soft_resources__6TLobbyFv,
-    (void *)register_texture_f256_ad_pic_2, (void *)free_global__23TAdSinglePlyChrSelectGCFv,
-    (void *)register_texture_f256_backtext, (void *)free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
+    (void *)TCameraCtrl::init_default_view, (void *)TCameraCtrl::reset_default_view,
+    (void *)update_keyboard_menu__6TLobbyFv, (void *)TLobby::free_keyboard_soft_resources,
+    (void *)register_texture_f256_ad_pic_2, (void *)TAdSinglePlyChrSelectGC::free_global,
+    (void *)register_texture_f256_backtext, (void *)TAdSinglePlyChrSelectGC::free_singleton_805D65C0,
     (void *)register_texture_logo_e, (void *)free_held_object__5TLogoFv,
     (void *)TLogo__sub_8001C364, (void *)TLogo__sub_8001C360,
-    (void *)TWindowCtrlMain__sub_8024D838, (void *)free_all_windows__15TWindowCtrlMainFv,
+    (void *)TWindowCtrlMain__sub_8024D838, (void *)TWindowCtrlMain::free_all_windows,
     (void *)TLogo__sub_80019A2C, (void *)TLogo__sub_80019A28,
 };
 void *__vt__5TLogo[6] = {
@@ -250,7 +254,7 @@ void run_frame__5TLogoFv(void) {
     activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
     controller_stuff__Fv();
-    update_input_frame__16TKeyBoardControlFv();
+    TKeyBoardControl::update_input_frame();
     main_task.some_empty_func();
     main_task.run_task();
     main_task.render();
@@ -260,7 +264,7 @@ void run_frame__5TLogoFv(void) {
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick__Fv();
@@ -293,7 +297,7 @@ void init_logo_scene__5TLogoFv(void) {
         return;
     }
     clear_callback_and_reset_keyboard__6TLobbyFv();
-    create_quad_sprites__13TParticleCtrlFv();
+    TParticleCtrl::create_quad_sprites();
     p = __nw__7TObjectFUl(0x38);
     if (p != 0) {
         ((void *(*)(u32, void *))__ct__5TLogoFv)(p, tl_01);

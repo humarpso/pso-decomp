@@ -6,7 +6,6 @@ extern "C" {
 void TObjEneDD__sub_800B9B24(void);
 int TObjLight__sub_801337F8(void*);
 int TObjLight__sub_801337FC(void*);
-s32 check_v2_mode__9TObjEneDDFv();
 
     extern int lbl_805D555C;
     extern int current_scene_light;
@@ -19,7 +18,7 @@ s32 TObjEneDD::clamp_frame_index(s32 arg0) {
 
     idx = arg0;
     limit = 0xE;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         limit = 0x1D;
     }
     if (idx < 0) {

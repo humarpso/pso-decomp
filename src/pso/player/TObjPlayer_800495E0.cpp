@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjFish.h"
+#include "pso/object/TObjGyaranzoMissile.h"
 
 struct Stack_800496D8
 {
@@ -46,9 +50,6 @@ struct VObj_80049A1C : VBase_80049A1C {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void copy_vec3__11TBoss4Type2FPv(void *, void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
-f32 scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 s32 direction_to_rotation_yx(void *, void *, void *);
@@ -82,8 +83,6 @@ s32 TBoss3Volopt__sub_8003F398();
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 s32 TObjVoloptPillar__sub_80048118(s32);
 s32 spawn_particle_effect(void *, s32);
-s32 init_all_slots__10TObjPlayerFv();
-s32 check_object_collisions__10TObjPlayerFv(void *);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 rand();
 extern Dmg_80049A1C lbl_80436710[];
@@ -95,8 +94,6 @@ s32 obj_is_hit_receivable(void *);
 s16 obj_getField1c(void *);
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 void create_cage__12TBoss3VoloptFPvUs(void *, u16);
-s32 init_all_slots__10TObjPlayerFv();
-s32 check_object_collisions__10TObjPlayerFv(void *);
 extern Dmg_80049A1C lbl_80436704[];
 s32 TObjPlayer__sub_800495F8(void *arg0);
 }
@@ -114,9 +111,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
-s32 set_global_param__8TObjFishFl(s32);
 
 u8 TObjPlayer::check_flag(s32 arg1) {
     return (u8) ((*(s32 *)((s8 *)this + 0x334) & arg1) != 0);
@@ -126,8 +121,8 @@ s32 TObjPlayer__sub_800495F8(void *arg0) {
     s32 i;
     VObj_80049A1C *p;
     void *cage;
-    init_all_slots__10TObjPlayerFv();
-    check_object_collisions__10TObjPlayerFv(arg0);
+    TObjPlayer::init_all_slots();
+    ((TObjPlayer *)arg0)->check_object_collisions();
     if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
@@ -170,9 +165,9 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
     stack.spC = new_var;
     stack.sp10 = *((s32 *) (((s8 *) temp_r3) + 0x304));
     subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38), (int) temp_r5);
-    scale_velocity__19TObjGyaranzoMissileFf(&stack.sp8, TObjPlayer__sub_800499FC((s32)((int) 1)));
+    ((TObjGyaranzoMissile *)(&stack.sp8))->scale_velocity(TObjPlayer__sub_800499FC((s32)((int) 1)));
     vec3_add_to((void *) (arg0 + 0xB4), (void *) (&stack.sp8));
-    scale_velocity__19TObjGyaranzoMissileFf(arg0 + 0xB4, TObjPlayer__sub_800499FC((s32)((int) 0)));
+    ((TObjGyaranzoMissile *)(arg0 + 0xB4))->scale_velocity(TObjPlayer__sub_800499FC((s32)((int) 0)));
   }
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
   vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
@@ -181,14 +176,14 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
   temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)));
   if (temp_r3_2 != 0)
   {
-    copy_pos__11TNowLoadingFPv(temp_r3_2, arg0 + 0x38);
-    copy_vec3__11TBoss4Type2FPv(*((u8 **) (((s8 *) arg0) + 0xD4)), arg0 + 0x5C);
+    ((TNowLoading *)temp_r3_2)->copy_pos(arg0 + 0x38);
+    ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD4))))->copy_vec3(arg0 + 0x5C);
   }
   temp_r3_3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)));
   if (temp_r3_3 != 0)
   {
-    copy_pos__11TNowLoadingFPv(temp_r3_3, arg0 + 0x38);
-    copy_vec3__11TBoss4Type2FPv(*((u8 **) (((s8 *) arg0) + 0xD8)), arg0 + 0x5C);
+    ((TNowLoading *)temp_r3_3)->copy_pos(arg0 + 0x38);
+    ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD8))))->copy_vec3(arg0 + 0x5C);
   }
   if (csnVector((void *) (arg0 + 0x44), (void *) (arg0 + 0x38), (int) (-1)) != 0U)
   {
@@ -216,7 +211,7 @@ void *TObjPlayer::destroy(s16 arg1) {
         if (*(void **)((s8 *)this + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD4)); }
         if (*(void **)((s8 *)this + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD8)); }
         if (*(void **)((s8 *)this + 0x10) != NULL) { TObjPlayer__sub_80049A0C((void*)(*(void **)((s8 *)this + 0x10))); }
-        destroy_particle_controller__10TObjPlayerFs(this, 0);
+        destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -263,8 +258,8 @@ void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
     play_sound_effect(0x4003AD15, arg0 + 0x38, 0, 0);
     play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = lbl_805D88A0;
-    init_all_slots__10TObjPlayerFv();
-    check_object_collisions__10TObjPlayerFv(arg0);
+    TObjPlayer::init_all_slots();
+    ((TObjPlayer *)arg0)->check_object_collisions();
     if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
@@ -282,7 +277,7 @@ void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
 }
 
 void draw_obj_model(u8 *arg0) {
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xB0));
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xB0));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));

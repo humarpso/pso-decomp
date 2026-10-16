@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/enemy/TObjEneRecobox.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRecon.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -211,39 +219,25 @@ struct Sub_8031FE98 { u8 b[0x1C]; };
 struct Self_8031FE98 { u8 pad[0x3FC]; s32 f3fc[4]; u8 pad40c[0x418 - 0x40C]; u16 f418[6]; u16 f424[30]; Sub_8031FE98 subs[4]; };
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void set_field_b8__14TObjEnePanarmsFs(void *, s16);
-void set_field_dc__10TObjPlayerFl(void *, s32);
-void set_field_d8__10TObjPlayerFl(void *, void *);
-s32 check_demo_mode__10TObjPlayerFv();
 void __dt__9TObjEneDDFv(void *, int);
 void init_object__9TObjEneDDFv(void *, s32, void *);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, int);
-void check_state_flag_4__9TObjEneDDFv(void *);
 void init_model__9TObjEneDDFv(void *, void *, int);
-s32 set_player_state_default__12TBoss8DragonFv(void *);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 s32 transition_enemy_state(void *, int);
 void init_position_vectors__9TObjEneDDFPv(void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-void init_common__18TObjEneMe3SinowZoaFv(void *);
-void activate_and_dispatch__10TObjPlayerFv(void *);
 void TObjPlayer__sub_800D7C58();
 void init_and_activate__10TObjPlayerFv();
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-s32 update_floor_probe__12TObjEneReconFv(void *);
-s32 handle_death_state__12TObjEneReconFl(void *, void *);
 s32 TObjEneRecon__sub_8031F408(void *, void *);
-s32 handle_action_state__12TObjEneReconFl(void *, void *);
-s32 update_state__12TObjEneReconFl(void *, void *);
 s32 TObjEneRecon__sub_8031F600(void *, void *);
 s32 TObjEneRecon__sub_8031F6C0(void *, void *);
-s32 handle_state__12TObjEneReconFl(void *, void *);
 void TObjEneRecon__sub_8031F800(void *);
-s32 restore_position__12TObjEneReconFv(void *);
 void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2);
 void fn_8031FD3C(u8 *arg0);
 Obj_8031FE14 * fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1);
@@ -308,7 +302,6 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
@@ -334,7 +327,6 @@ extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" u8 lbl_80476118[];
@@ -366,9 +358,6 @@ extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void set_state_6__12TObjEneReconFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
-extern "C" void test_flag_256__10TObjPlayerFPv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
 extern "C" void try_start_action__10TObjPlayerFPvii();
 extern "C" void update_action_hold_status__10TObjPlayerFv();
@@ -432,13 +421,13 @@ void *TObjEneRecobox__vtable[107] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TObjEneRecon__sub_8031FCAC, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&TObjEneRecon__sub_8031FCAC, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjEneRecon__sub_8031FC58, (void *)&TObjEneRecon__sub_8031FC5C, (void *)&set_state_6__12TObjEneReconFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
@@ -464,29 +453,29 @@ void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRecon__sub_8031F6C0((void *) (arg0), (void *) (arg2));
         return;
     case 1:
-        handle_state__12TObjEneReconFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRecon *)arg0)->handle_state((s32)((void *) (arg2)));
         return;
     case 2:
         TObjEneRecon__sub_8031F600((void *) (arg0), (void *) (arg2));
         return;
     case 3:
-        update_state__12TObjEneReconFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRecon *)arg0)->update_state((s32)((void *) (arg2)));
         return;
     case 4:
-        handle_action_state__12TObjEneReconFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRecon *)arg0)->handle_action_state((s32)((void *) (arg2)));
         return;
     case 5:
         TObjEneRecon__sub_8031F408((void *) (arg0), (void *) (arg2));
         return;
     case 6:
-        handle_death_state__12TObjEneReconFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRecon *)arg0)->handle_death_state((s32)((void *) (arg2)));
     default:
         return;
     }
 }
 
 void fn_8031FD3C(u8 *arg0) {
-    if (check_demo_mode__10TObjPlayerFv() != 0) {
+    if (TObjPlayer::check_demo_mode() != 0) {
         ((VObj_18 *)(arg0))->m103();
         return;
     }
@@ -496,10 +485,10 @@ void fn_8031FD3C(u8 *arg0) {
         transition_enemy_state((void *) (arg0), (int) (0));
     }
     ((VObj_18 *)(arg0))->m86();
-    restore_position__12TObjEneReconFv((void *) (arg0));
-    set_player_state_default__12TBoss8DragonFv((void *) (arg0));
+    ((TObjEneRecon *)arg0)->restore_position();
+    ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((VObj_18 *)(arg0))->m98();
-    update_floor_probe__12TObjEneReconFv((void *) (arg0));
+    ((TObjEneRecon *)arg0)->update_floor_probe();
 }
 
 Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
@@ -522,7 +511,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 n;
     init_object__9TObjEneDDFv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = TObjEneRecobox__vtable;
-    init_common__18TObjEneMe3SinowZoaFv(arg0 + 0x3C0);
+    ((TObjEneMe3SinowZoa *)(arg0 + 0x3C0))->init_common();
     __construct_array(arg0 + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4138;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
@@ -532,13 +521,13 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_model__9TObjEneDDFv(arg0, lbl_804EC684, 1);
     *(f32 *)((s8 *)arg0 + 0x300) = lbl_805DF464 + *(f32 *)((s8 *)arg0 + 0x3C);
     ((VObj_18_b2458f *)arg0)->m86();
-    set_field_d8__10TObjPlayerFl(arg0, TObjEneRecobox__animation_entries);
-    set_field_dc__10TObjPlayerFl(arg0, *(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
+    ((TObjPlayer *)arg0)->set_field_d8((s32)TObjEneRecobox__animation_entries);
+    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    set_field_b8__14TObjEnePanarmsFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjEnePanarms *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
-    check_state_flag_4__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->check_state_flag_4();
     *(u8 **)((s8 *)arg0 + 0x350) = TObjEneRecobox__attack_params;
     initialize_enemy_state__9TObjEneDDFv(arg0, 0x43);
     *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805DF468;
@@ -567,7 +556,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
         S->f418[i] = 0xFFFF;
     }
     for (i = 0; i < 4; i++) {
-        activate_and_dispatch__10TObjPlayerFv(&S->subs[i]);
+        ((TObjPlayer *)(&S->subs[i]))->activate_and_dispatch();
     }
     *(s32 *)((s8 *)arg0 + 0x4D8) = 0;
     *(s32 *)((s8 *)arg0 + 0x4DC) = 0;
@@ -588,7 +577,6 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
 #define TObjEneRecobox__static_instance (*(int *)&TObjEneRecobox__static_instance)
 
 extern "C" {
-s32 get_global_state__14TOKeyMachine01Fv();
 }
 
 extern "C" {
@@ -600,7 +588,7 @@ u32 TObjEneRecobox::remap_area_sound_id(u32 arg0) {
     if (((s32)(arg0 & 0xBFFF00FF) >> 16 << 16) != 0x30000) {
         return arg0;
     }
-    ret = get_global_state__14TOKeyMachine01Fv();
+    ret = TOKeyMachine01::get_global_state();
     switch (ret) {
     case 0x22:
         ret = arg0 - 0x40010000 + 0x4E19;
@@ -629,10 +617,9 @@ extern "C" {
 void *TObjEneRecobox__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
-s32 release_static_instance__12TObjEneReconFv();
 
 void TObjEneRecobox::release_static_instance() {
-    release_static_instance__12TObjEneReconFv();
+    TObjEneRecon::release_static_instance();
     if ((u32) TObjEneRecobox__static_instance != 0U) {
         TLobby__sub_8001FE7C((void*)TObjEneRecobox__static_instance, 1);
         TObjEneRecobox__static_instance = 0U;
@@ -663,8 +650,6 @@ s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
 u32 load_enemy_bml_resource(void *);
-void spawn_npc_enemy__6TLobbyFslllff(s16, s32, s32, void *, f32, f32);
-void load_resources__12TObjEneReconFv(void);
 extern Spawn_80320260 recobox_resource_binding_desc;
 extern "C" u8 lbl_80476118[];
 extern "C" u8 lbl_80476124[];
@@ -717,13 +702,13 @@ void TObjEneRecobox::load_resources() {
     lbl_805D6B14 = dispatch_shared_handler_b__6TLobbyFl(0x41);
     TObjEneRecobox__shared_object_handle = register_object__6TLobbyFl(0x41);
     lbl_805D6B1C = dispatch_shared_handler_a__6TLobbyFl(0x41);
-    load_resources__12TObjEneReconFv();
+    TObjEneRecon::load_resources();
     {
         Sub_80320260 *sp = &lbl_804EC684;
         Spawn_80320260 s = recobox_resource_binding_desc;
         box = (Box_80320260 *)TObjEneRecobox__static_instance;
         s.a = box->f430;
-        spawn_npc_enemy__6TLobbyFslllff(0xD, box->f42C->f18, box->f42C->f1C, &s, getf_80320260(sp), lbl_805DF46C);
+        TLobby::spawn_npc_enemy((s16)0xD, (s32)(box->f42C->f18), (s32)(box->f42C->f1C), (s32)(&s), (f32)(getf_80320260(sp)), (f32)lbl_805DF46C);
     }
 }
 

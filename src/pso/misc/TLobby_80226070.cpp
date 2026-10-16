@@ -46,7 +46,6 @@ void TLobby::init_layout_positions() {
 
 extern "C" {
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-s32 set_mode__6TLobbyFl(int);
 s32 OSSetSoundMode(int);
 extern Ent_80226294 lbl_805145F0[];
 extern u32 lbl_805DC748;
@@ -54,7 +53,6 @@ extern s32 lbl_805D62B0;
 void release_sound_with_fade(s32 idx);
 void stop_sound_request(s32 idx);
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-s32 set_mode__6TLobbyFl(int);
 u32 OSGetSoundMode();
 extern s8 lbl_805D3708;
 s32 TLobby__sub_80227D38();
@@ -129,14 +127,14 @@ int init_sound_mode__6TLobbyFPv(void *) {
     u8 *p;
     if (OSGetSoundMode() == 0U) {
         lbl_805D3708 = 1;
-        set_mode__6TLobbyFl(0);
+        TLobby::set_mode(0);
     } else {
-        set_mode__6TLobbyFl(1);
+        TLobby::set_mode(1);
         lbl_805D3708 = 0;
         p = get_global_state__23TAdSinglePlyChrSelectGCFv();
         if (p != NULL && p != NULL && *(s16 *)((s8 *)p + 0xE) != 0) {
             lbl_805D3708 = 2;
-            set_mode__6TLobbyFl(2);
+            TLobby::set_mode(2);
         }
     }
     return lbl_805D3708;
@@ -166,7 +164,7 @@ void TLobby::set_sound_output_mode(s32 arg0) {
         var_r30 = 0;
         break;
     }
-    set_mode__6TLobbyFl((int) (var_r30));
+    TLobby::set_mode((int) (var_r30));
 }
 void TLobby__sub_8022644C(void) {
     s32 i;

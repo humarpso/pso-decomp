@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 
 struct Quad_8024FBB0 {
     f32 x;
@@ -32,7 +33,6 @@ void render_forward__20TWindowSubStatusDispFPv();
 void apply_context_transform_to_rect(s32, void *);
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, u32);
 extern s32 text_draw_clip_context;
@@ -48,9 +48,7 @@ s32 get_font_char_advance(s32);
 s32 map_char_to_font_code(s32);
 void calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 void end_render_forward__20TWindowSubStatusDispFPv();
-void reset_gauge__20TWindowSubStatusDispFPv(s32);
 void apply_context_transform_to_rect(s32, void *);
-s32 is_point_in_bounds__19TWindowKeyBoardSoftFPv(s32, void *);
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
 void draw_textured_quad_at_depth(void *, f32);
 extern s32 current_language;
@@ -118,7 +116,7 @@ s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width
             }
         }
     }
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
     return ok;
 }
 
@@ -151,7 +149,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
     if (mode == 1) {
         col = color;
     }
-    reset_gauge__20TWindowSubStatusDispFPv(0);
+    TWindowSubStatusDisp::reset_gauge(0);
     while (*s != 0) {
         s = parse_text_control_codes(s, &flag, &col);
         if (mode == 1) {
@@ -199,7 +197,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
             ok = 0;
             q.x2 = q.x + width;
         }
-        if (text_clip_enabled_flag == 0 || is_point_in_bounds__19TWindowKeyBoardSoftFPv(text_draw_clip_context, &q) != 0) {
+        if (text_clip_enabled_flag == 0 || ((TWindowKeyBoardSoft *)text_draw_clip_context)->is_point_in_bounds(&q) != 0) {
             calc_gauge_scale__20TWindowSubStatusDispFPvPvi(glyph, &q, col);
             set_glyph_quad_extents(adv, &q);
             if ((f32)(u8)adv > width) {

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TLogo.h"
+#include "pso/ui/TAdVIConfigGC.h"
 
 extern "C" {
 
@@ -11,7 +12,6 @@ s32 disable_progressive_mode__13TAdVIConfigGCFPv();
 s32 spawn_fire_explosion_at(u32 a0 = 0, s32 a1 = 0);
 u32 VIGetDTVStatus();
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
-void set_field_2c__13TAdVIConfigGCFl(void* p, s32 v);
 
 extern s8 controller_physical_port_bank[];
 

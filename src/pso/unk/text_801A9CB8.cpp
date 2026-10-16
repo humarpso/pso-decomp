@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TFogCtrl.h"
+#include "pso/misc/TLobby.h"
 
 struct Rec_801AA17C {
     s32 kinds[4];
@@ -21,13 +24,10 @@ extern "C" {
 extern struct Rec_801AA17C photon_blast_sequence_table[];
 s32 get_photon_blast_chain(struct Rec_801AA17C *output, s32 player);
 void __dt__7TObjectFv(void *, int);
-void release_photon_blast_camera__11TCameraCtrlFv(void);
 void restore_player_cameras(void);
 void reset_cameras_to_actor(void *, int);
-void restore_fog_for_player__8TFogCtrlFll(int, int);
 void *get_player_by_client_id(s32);
 void release_photon_blast_player_holds(void *);
-void set_and_notify_default__6TLobbyFv(void);
 void __dl__7TObjectFPv(void *);
 void TLobby__sub_8024AC20(s32);
 extern u8 lbl_804C349C[];
@@ -44,16 +44,16 @@ Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
     if (self != NULL) {
         self->vt = lbl_804C349C;
         if (self->active != 0) {
-            set_and_notify_default__6TLobbyFv();
+            TLobby::set_and_notify_default();
             release_photon_blast_player_holds((u8 *)self + 0x90);
             if (get_player_by_client_id(local_client_id) != NULL) {
                 TLobby__sub_8024AC20(local_client_id);
-                release_photon_blast_camera__11TCameraCtrlFv();
+                TCameraCtrl::release_photon_blast_camera();
                 restore_player_cameras();
                 reset_cameras_to_actor(get_player_by_client_id(local_client_id), 0);
             }
         } else {
-            restore_fog_for_player__8TFogCtrlFll(self->id, 0);
+            TFogCtrl::restore_fog_for_player(self->id, 0);
         }
         if (self->id != 0xFFFF && self->id < 4) {
             for (i = 0; i < 4; i++) {

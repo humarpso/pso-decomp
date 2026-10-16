@@ -5,7 +5,6 @@ extern "C" {
 
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-void set_effect_state__10TObjPlayerFl(void *, int);
 
 extern s32 lbl_804A0BC0[];
 
@@ -15,7 +14,7 @@ void *TObjPlayer::enter_state_804A0BC0() {
     set_status_flags__10TObjPlayerFPvUi(this, 34);
     *(u32 *)((s8 *)this + 0x1F8) = 0;
     *(u32 *)((s8 *)this + 0x1FC) = 0;
-    set_effect_state__10TObjPlayerFl(this, 10);
+    set_effect_state(10);
     return this;
 }
 

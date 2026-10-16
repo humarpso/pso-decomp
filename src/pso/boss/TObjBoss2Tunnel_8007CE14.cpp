@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/TAdPlayerLoadGC.h"
 
 extern "C" {
 void xfree__FPv(void *);
@@ -11,9 +12,7 @@ extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 
 extern "C" {
 
-s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv();
-s32 load_snapshot__15TObjBoss2TunnelFv();
 
 s32 save_screen_snapshot();
 s32 memcard_check_snapshot(s32, s32 *);
@@ -29,11 +28,11 @@ s32 TObjBoss2Tunnel::save_snapshot() {
         }
         save_screen_snapshot();
 loop_4:
-        if (probe_card_slot__15TAdPlayerLoadGCFv(1) == 0) {
+        if (((TAdPlayerLoadGC *)1)->probe_card_slot() == 0) {
             TObjBoss2Tunnel__snapshot_saved_flag = 0;
             return -5;
         }
-        if (load_snapshot__15TObjBoss2TunnelFv() != 0) {
+        if (TObjBoss2Tunnel::load_snapshot() != 0) {
             if (verify_snapshot_checksum__15TObjBoss2TunnelFv() == 0) {
                 TObjBoss2Tunnel__snapshot_saved_flag = 1;
                 return -9;

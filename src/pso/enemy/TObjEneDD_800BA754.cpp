@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_800BA8E8_800BA754 { char pad[0x18]; };
 struct VObj_800BA8E8_800BA754 : Base_800BA8E8_800BA754 {
@@ -48,15 +49,9 @@ void TObjEneDD__vt85(void);
 void TObjEneDD__vt86(void *arg0);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
-int transform_part_positions__9TObjEneDDFv(void* a0 = 0);
 int init_collision_body_parts(void*);
 s32 check_enemy_body_collisions(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 check_object_collisions__10TObjPlayerFv(void *);
-void clear_field_388__9TObjEneDDFv(void* p);
-void init_model__9TObjEneDDFv(void* p);
-void set_active__9TObjEneDDFv(void* p);
-void transform_relative_position__9TObjEneDDFPv(void* p, void* a1);
 
 s32 TObjEneDD::is_target_unobstructed(s32 arg1) {
     s32 arg0 = (s32)this;
@@ -120,7 +115,7 @@ s32 TObjEneDD__vt87(O_800BA8A8 *self) {
 void TObjEneDD__vt86(void *arg0) {
     struct VObj_800BA8E8_800BA754 *o = (struct VObj_800BA8E8_800BA754 *)arg0;
     o->m86();
-    check_object_collisions__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->check_object_collisions();
     check_enemy_body_collisions(arg0);
 }
 

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Color_801E2F44 { u8 r, g, b, a; } Color_801E2F44;
 
@@ -10,13 +11,11 @@ void set_copy_clear_color_argb(u32 argb);
 
 extern "C" {
 
-int set_effect_active__10TObjPlayerFv(void);
-int reset_particle_counter__10TObjPlayerFv(void);
 int apply_scene_fog(void);
 
-void TParticleCtrl::begin_effect_render() { reset_particle_counter__10TObjPlayerFv(); apply_scene_fog(); }
+void TParticleCtrl::begin_effect_render() { TObjPlayer::reset_particle_counter(); apply_scene_fog(); }
 
-void TParticleCtrl::end_effect_render() { set_effect_active__10TObjPlayerFv(); apply_scene_fog(); }
+void TParticleCtrl::end_effect_render() { TObjPlayer::set_effect_active(); apply_scene_fog(); }
 void set_copy_clear_color_argb(u32 argb) {
     Color_801E2F44 c;
     c.a = argb >> 24;

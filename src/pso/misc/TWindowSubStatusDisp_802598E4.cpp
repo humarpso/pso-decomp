@@ -48,10 +48,8 @@ s32 set_glyph_quad_extents(s32, Pos_80259A84 *);
 s32 map_char_to_font_code(s32);
 s32 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, Pos_80259A84 *, s32);
 s32 end_render_forward__20TWindowSubStatusDispFPv();
-s32 reset_gauge__20TWindowSubStatusDispFPv(int);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Pos_80259A84 *);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(Pos_80259A84 *, f32);
 s32 set_draw_texture_and_color(int, int);
 void render_numeric_digit_entries(u8 *arg0, u8 *arg1);
@@ -130,7 +128,7 @@ void render_numeric_digit_entries(u8 *arg0, u8 *arg1) {
   switch (mode)
   {
     case 0:
-      reset_gauge__20TWindowSubStatusDispFPv(0);
+      TWindowSubStatusDisp::reset_gauge(0);
       arg1 = arg1;
       break;
     case 1:
@@ -178,7 +176,7 @@ void render_numeric_digit_entries(u8 *arg0, u8 *arg1) {
       end_render_forward__20TWindowSubStatusDispFPv();
       break;
     case 1:
-      get_player__20TWindowSubStatusDispFv();
+      TWindowSubStatusDisp::get_player();
       break;
   }
 }

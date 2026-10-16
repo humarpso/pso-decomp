@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/player/TObjPlayer.h"
 struct Vec_8029EC3C { f32 x; f32 y; f32 z; };
 
 struct Ray_8029EC3C { Vec_8029EC3C o; Vec_8029EC3C d; };
@@ -13,8 +15,6 @@ struct Hit_8029EC3C {
 
 extern "C" {
 void *get_player_by_client_id(s32);
-s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 get_stat_by_key_state__10TObjPlayerFv(void *);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 vec_squared_length(void *);
 void reflect_matrix_in_plane(s32, void *);
@@ -45,8 +45,8 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
     p = get_player_by_client_id(local_client_id);
     if (p == 0) return 0;
     scale = lbl_805DDD98;
-    if (get_global_state__14TOKeyMachine01Fv() == 0x1C) {
-        if ((s16)get_stat_by_key_state__10TObjPlayerFv(p) == 0x5A) {
+    if (TOKeyMachine01::get_global_state() == 0x1C) {
+        if ((s16)((TObjPlayer *)p)->get_stat_by_key_state() == 0x5A) {
             scale = lbl_805DDD9C;
         } else {
             scale = lbl_805DDD98;

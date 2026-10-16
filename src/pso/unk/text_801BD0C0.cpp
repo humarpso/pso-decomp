@@ -133,15 +133,11 @@ typedef struct Player_801BD0C0 {
 extern "C" {
 u16 obj_getField1c(void *);
 void select_class_action_provider__10TObjPlayerFPv(void *, s32);
-void update_input_and_draw__10TObjPlayerFv(void *);
 extern s32 TObjPlayer__shared_model_buffer;
 void TObjPlayer__sub_801BD240(P_801BD240 *arg0);
-void init_npc_animation__10TObjPlayerFPvPvPv(void *, void *, s32, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s32 get_idle_animation__10TObjPlayerFPv();
-void set_field_d8__10TObjPlayerFl(void *, s32);
-void update_animation_frame__10TObjPlayerFl(void *, s32);
 void set_motion_interpolation_flag(void *);
 Anim_801BD0C0 *get_anim_entry__10TObjPlayerFi(void *, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
@@ -154,8 +150,8 @@ extern "C" {
 void TObjPlayer::apply_motion_entry() {
     Player_801BD0C0 *self = (Player_801BD0C0 *)this;
     Anim_801BD0C0 *a;
-    set_field_d8__10TObjPlayerFl(self, self->ctrl->m5(has_valid_handle__10TObjPlayerFPv(self), get_handle_value__10TObjPlayerFPv(self)));
-    update_animation_frame__10TObjPlayerFl(self, self->anim);
+    ((TObjPlayer *)self)->set_field_d8(self->ctrl->m5(has_valid_handle__10TObjPlayerFPv(self), get_handle_value__10TObjPlayerFPv(self)));
+    ((TObjPlayer *)self)->update_animation_frame(self->anim);
     a = get_anim_entry__10TObjPlayerFi(self, self->anim);
     self->speed = a->speed;
     self->fid = a->id;
@@ -172,7 +168,7 @@ void TObjPlayer::apply_motion_entry() {
 
 void TObjPlayer::init_idle_animation() {
     Player_801BD1B4 *arg0 = (Player_801BD1B4 *)this;
-    init_npc_animation__10TObjPlayerFPvPvPv(arg0, (void *)arg0->anim->m5(has_valid_handle__10TObjPlayerFPv(arg0), get_handle_value__10TObjPlayerFPv(arg0)), arg0->anim->m74(), get_idle_animation__10TObjPlayerFPv());
+    ((TObjPlayer *)arg0)->init_npc_animation((void*)((void *)arg0->anim->m5(has_valid_handle__10TObjPlayerFPv(arg0), get_handle_value__10TObjPlayerFPv(arg0))), (void*)(arg0->anim->m74()), (void*)(get_idle_animation__10TObjPlayerFPv()));
 }
 
 void TObjPlayer__sub_801BD240(P_801BD240 *arg0) {
@@ -181,7 +177,7 @@ void TObjPlayer__sub_801BD240(P_801BD240 *arg0) {
     select_class_action_provider__10TObjPlayerFPv(arg0, t);
     arg0->f380->m3(obj_getField1c(arg0));
     ((TObjPlayer *)arg0)->init_idle_animation();
-    update_input_and_draw__10TObjPlayerFv(arg0);
+    ((TObjPlayer *)arg0)->update_input_and_draw();
 }
 
 }

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TItemLoad.h"
 
 extern "C" {
 void* TObjPlayer__sub_80363C5C(void*);
@@ -129,7 +130,6 @@ void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 VObj_18_1419ea *query_game_join_id__10TObjPlayerFv(s32);
 void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
-void reset_transform_state__10TObjPlayerFv(void);
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
 extern s32 lbl_805D5660;
@@ -159,7 +159,7 @@ void TObjPlayer__sub_80363D4C(void) {
     s32 *p;
     s32 n;
     VObj_18_1419ea *obj;
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     lbl_805D5660 = model_render_flags;
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
@@ -171,14 +171,14 @@ void TObjPlayer__sub_80363D4C(void) {
         if (obj != NULL) {
             set_depth_buffer_settings_id__FUl(1);
             obj->m26();
-            reset_transform_state__10TObjPlayerFv();
+            TObjPlayer::reset_transform_state();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
             set_depth_buffer_settings_id__FUl(2);
             obj->m26();
-            reset_transform_state__10TObjPlayerFv();
+            TObjPlayer::reset_transform_state();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -199,14 +199,13 @@ extern "C" {
 void *TObjPlayer__sub_80363EC4(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 get_model_ids__9TItemLoadFUcPlPl(s32, void **, s32 *);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
 void TObjPlayer::apply_loaded_item() {
     void *spC;
     s32 sp8;
 
-    get_model_ids__9TItemLoadFUcPlPl(5, &spC, &sp8);
+    TItemLoad::get_model_ids((u8)5, (s32 *)(&spC), (s32 *)(&sp8));
     if (spC != NULL) {
         submit_computer_command__10TObjPlayerFv(*(s32 *)((s8 *)spC + 0x2C), 2, 2, 0xB);
     }

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSnapShot.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_802A7AF8_lbl_804DDD28 { s32 value; u8 remaining[0x134]; };
 typedef char RecoveredGlobal_802A7AF8_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7AF8_lbl_804DDD28) == 0x138 ? 1 : -1];
@@ -44,10 +46,8 @@ struct VObj_802A7994 : VBase_802A7994 {
 struct Pair_802A7994 { s32 a; s32 b; };
 
 extern "C" {
-s32 get_hold_effect_count__10TObjPlayerFv(void);
 s32 mem_alloc(s32);
 s32 mem_free(s32);
-s32 write_packet_header__6TLobbyFllUl(s32, s32, s32, s32);
 void copy_motion_pair(void* p, void* q);
 int TLobby__sub_802A7B8C(void);
 int TLobby__sub_802A7B94(void);
@@ -60,7 +60,6 @@ s32 mem_free(s32);
 extern u32 snapshot_image_buffer;
 void TLobby__sub_802A7BD8(void);
 s32 fn_802A5C3C(s32);
-s32 get_size__15TWindowSnapShotFv(s32);
 s32 memcpy(s32, s32, s32);
 extern s32 shared_snapshot_capture;
 extern u32 snapshot_image_buffer;
@@ -76,12 +75,8 @@ extern s32 lbl_805D669C;
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
 s32 aram_dma_blocking__6TLobbyFllll(s32, s32, s32, s32, s32);
 s32 mem_alloc(s32);
-int get_width__15TWindowSnapShotFv(void);
-int get_max_players__6TLobbyFv(void);
-int get_height__15TWindowSnapShotFv(void);
 extern u32 snapshot_image_buffer;
 extern s32 snapshot_buffer_size;
-s32 free_if_positive__6TLobbyFls(s32, s16);
 s32 free__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1);
@@ -111,7 +106,7 @@ struct _VObj802A78E4_802a78e4_802A7848 : _VBase802A78E4_802a78e4_802A7848 { virt
 void TLobby::set_field_4(s32 v) { *(s32*)((char*)this + 0x4) = v; }
 s32 TLobby::get_hold_effect_size_by_type() {
     s32 temp_r3;
-    temp_r3 = get_hold_effect_count__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_hold_effect_count();
     switch (temp_r3) {
     case 0:
         return 0x38;
@@ -133,7 +128,7 @@ s32 TLobby::send_packet(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     }
     TLobby::send_type2_event((s32)(arg4), (s32)(temp_r3), (s32)(temp_r31_2));
     temp_r0 = ((_VObj802A78E4_802a78e4_802A7848*)this)->m0(arg1, arg2);
-    temp_r31 = write_packet_header__6TLobbyFllUl(temp_r3, arg3, temp_r0, 0x4000);
+    temp_r31 = ((TLobby *)temp_r3)->write_packet_header(arg3, temp_r0, 0x4000);
     mem_free(temp_r3);
     return temp_r31;
 }
@@ -174,7 +169,7 @@ void copy_motion_pair(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((cha
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 8) = &lbl_804DDD28.value;
-        free_if_positive__6TLobbyFls((s32) arg0, -1);
+        TLobby::free_if_positive((s32) arg0, -1);
         if (arg1 > 0) {
             free__10TObjPlayerFPv((void *) (arg0));
         }
@@ -208,7 +203,7 @@ s32 copy_if_space(void) {
     if (fn_802A5C3C(shared_snapshot_capture) >= 0x258) {
         return 0;
     }
-    memcpy((*(s32 *)&snapshot_image_buffer), get_size__15TWindowSnapShotFv(shared_snapshot_capture), snapshot_buffer_size);
+    memcpy((*(s32 *)&snapshot_image_buffer), ((TWindowSnapShot *)shared_snapshot_capture)->get_size(), snapshot_buffer_size);
     return 1;
 }
 
@@ -219,10 +214,10 @@ void TLobby::alloc_snapshot_buffer() {
   u8 *temp_r31_3;
   if (((u32) snapshot_image_buffer) == 0U)
   {
-    temp_r31 = get_height__15TWindowSnapShotFv();
-    temp_r31_2 = get_max_players__6TLobbyFv();
+    temp_r31 = TWindowSnapShot::get_height();
+    temp_r31_2 = TLobby::get_max_players();
     temp_r31_2 = temp_r31_2 * temp_r31;
-    temp_r31 = get_width__15TWindowSnapShotFv();
+    temp_r31 = TWindowSnapShot::get_width();
     temp_r31_3 = (u8 *) (temp_r31 + temp_r31_2);
     temp_r3 = ((int)mem_alloc((s32)(temp_r31_3)));
     snapshot_image_buffer = temp_r3;

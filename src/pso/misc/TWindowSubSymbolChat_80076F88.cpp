@@ -3,6 +3,7 @@
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
 #include "pso/misc/TWindowSubSymbolChat.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_800773BC_lbl_80438830 {
     s32 value;
@@ -49,14 +50,12 @@ int TWindowSubSymbolChat__sub_80076FE0(void* p);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 s32 strncpy(void *, void *, int);
 s32 copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
-s32 send_symbol_chat__20TWindowSubSymbolChatFv(void *);
 s32 TWindowSubSymbolChat__sub_80077704(void *);
 extern s32 local_client_id;
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 symbol_chat_sound_ids;
 E_80077480 *get_character_save_record(u32 id);
 u8 *get_symbol_chat_preset(s32 i);
-void move_words__6TLobbyFPUll(void *, void *, u32);
 s32 is_symbol_chat_preset_in_use(u32 *arg0);
 }
 
@@ -126,7 +125,7 @@ void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     temp_r4 = ((s32)((int)get_symbol_chat_preset((s32)((void *)((void *) (*arg0))))));
     packet.client_id = local_client_id;
     copy_symbol_chat_entry__6TLobbyFPvPv((void *) (&packet.data[0]), (void *) (temp_r4 + 0x1C));
-    send_symbol_chat__20TWindowSubSymbolChatFv((void *) (&packet.header));
+    ((TWindowSubSymbolChat *)(&packet.header))->send_symbol_chat();
 }
 
 int TWindowSubSymbolChat__sub_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1c) >> 9) & 0x1; }
@@ -196,7 +195,7 @@ void TWindowSubSymbolChat::remove_slot_shift_down(s32 i) {
     Obj_8007714C *self = (Obj_8007714C *)this;
     if (i < 11) {
         Ent_8007714C *p = &self->e[i];
-        move_words__6TLobbyFPUll(p, p + 1, ((11 - i) * sizeof(Ent_8007714C)) / 4);
+        ((TLobby *)p)->move_words((u32 *)(p + 1), (s32)(((11 - i) * sizeof(Ent_8007714C)) / 4));
     }
     self->e[11].id = -1;
     self->e[11].a = 0;

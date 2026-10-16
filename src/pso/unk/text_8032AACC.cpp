@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Pos_8032AACC { f32 x, y; };
 
@@ -17,13 +19,11 @@ struct Arg_8032AC24 { f32 x, y; u8 pad[8]; };
 extern "C" {
 char *realloc_buffer__17TWindowSubComCardFv(void *);
 s32 calc_text_width(void *);
-void render_status_disp__23TAdSinglePlyChrSelectGCFff(void *, f32, f32);
 void mem_free(char *);
 void fn_8025DE10(s32, Pos_8032AACC *);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
-s32 get_field20_state__22TAdEnterSerialAccessGCFv(void *);
 void *memset(void *, int, u32);
 s32 strlen(const char *);
 extern u8 lbl_80477210[];
@@ -70,9 +70,9 @@ void draw_masked_password_field(s32 arg0) {
         }
         buf[len] = 0;
         len = calc_text_width(lbl_805DF774);
-        render_status_disp__23TAdSinglePlyChrSelectGCFff(buf, lbl_80477220[0], lbl_80477220[1]);
+        ((TAdSinglePlyChrSelectGC *)buf)->render_status_disp(lbl_80477220[0], lbl_80477220[1]);
         Pos_8032AACC p2;
-        p2.x = lbl_80477220[0] + (f32) (len * get_field20_state__22TAdEnterSerialAccessGCFv(password_entry_keyboard_control));
+        p2.x = lbl_80477220[0] + (f32) (len * ((TAdEnterSerialAccessGC *)password_entry_keyboard_control)->get_field20_state());
         p2.y = lbl_80477220[1];
         fn_8025DE10(arg0, &p2);
         __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);

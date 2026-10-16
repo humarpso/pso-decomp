@@ -1,6 +1,5 @@
 #include "pso/TItemEffEquip.h"
 
-extern "C" int  all_parents_unqueued_for_destruction__7TObjectFv(TObject*);
 extern "C" void request_destroy__11TBoss4Type2FUl(void*);
 extern "C" void queue_destruction__7TObjectFv(TObject*);
 
@@ -10,7 +9,7 @@ extern void *__vt__13TItemEffEquip[];
 void __dt__7TObjectFv(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 void run_task__13TItemEffEquipFv(Equip_Self *self) {
-    if (all_parents_unqueued_for_destruction__7TObjectFv((TObject*)self->m_1c) == 0) {
+    if (((TObject *)((TObject*)self->m_1c))->all_parents_unqueued_for_destruction() == 0) {
         self->m_1c = NULL;
         queue_destruction__7TObjectFv((TObject*)self);
     }
@@ -38,7 +37,6 @@ u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
 s32 set_item_count__6TLobbyFs(void *, s32);
 s32 TLobby__sub_80103B04();
 s32 unregister_object_by_id(void *);
-s32 destroy_particle_controller__10TObjPlayerFs(void *, s32);
 u8 *get_player_by_client_id(u16);
 s32 __dl__7TObjectFPv(void *);
 s32 clear_obj_links(void *);
@@ -55,13 +53,15 @@ struct Obj_80108C90 {
 void disallow_rendering__7TObjectFv(void *);
 void fn_8002B630(void *, void *);
 s32 pop_free_id__6TLobbyFv();
-void reset_photon_effect__10TObjPlayerFv(void *);
 void initialize_linked_object_reference(void *, void *);
 void construct_collider_proxy__10TObjPlayerFv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
 #include "types.h"
 #include "pso/TItemEffFlame.h"
+#include "pso/TItemAttacker.h"
+#include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -70,7 +70,6 @@ void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
 s32 spawn_particle_effect(s32, s32);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
-void spawn_item_timer__13TItemAttackerFlll(void *, void *, s32);
 s32 spawn_equip_particle_effect(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 retire_equipment_effect[];
@@ -95,8 +94,8 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     self->x24 = arg5;
     if (self->src != NULL) {
         spawn_equip_particle_effect(arg0, arg4);
-        spawn_item_timer__13TItemAttackerFlll(arg0, TItemEffEquip__sub_801088F8, 0xA);
-        spawn_item_timer__13TItemAttackerFlll(arg0, retire_equipment_effect, 0x14);
+        TItemAttacker::spawn_item_timer((s32)arg0, (s32)TItemEffEquip__sub_801088F8, (s32)0xA);
+        TItemAttacker::spawn_item_timer((s32)arg0, (s32)retire_equipment_effect, (s32)0x14);
     } else {
         queue_destruction__7TObjectFv((TObject *)arg0);
     }
@@ -278,7 +277,7 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
             TLobby__sub_80103B04();
             set_item_count__6TLobbyFs(arg0, 0xFFFF);
         }
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -296,7 +295,7 @@ Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 
         set_item_count__6TLobbyFs(self, pop_free_id__6TLobbyFv());
     }
     initialize_linked_object_reference(self, self->sub);
-    reset_photon_effect__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->reset_photon_effect();
     disallow_rendering__7TObjectFv(self);
     return self;
 }

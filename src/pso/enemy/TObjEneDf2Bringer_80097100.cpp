@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TBreakUpMdl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
@@ -129,14 +134,11 @@ struct Bringer_80097100 : VObj_18_26a62c {
 };
 
 extern "C" {
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 collect_node_positions__11TBreakUpMdlFPUcl(u8 *arg0, u8 *arg1, s32 arg2);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_by_node_angles(void *, int);
@@ -144,29 +146,24 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 build_node_records__11TBreakUpMdlFPUcl(u8 *arg0, u8 *arg1, s32 arg2);
-s32 collect_node_positions__11TBreakUpMdlFPUcl(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 collect_node_positions__11TBreakUpMdlFPUcl(u8 *arg0, u8 *arg1, s32 arg2);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 build_node_records__11TBreakUpMdlFPUcl(u8 *arg0, u8 *arg1, s32 arg2);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D97C8;
-void init_alpha__11TBreakUpMdlFlf(u8 *arg0, s32 arg1, f32 farg0);
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
 void *mem_alloc(int);
 extern const f32 lbl_805D97CC;
@@ -175,7 +172,6 @@ s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(void *);
 void draw_ginja_model(s32);
 void set_chunk_material_override_pair(u32, u32);
 void set_chunk_material_color(Color_8009680C *);
@@ -184,14 +180,9 @@ extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
 extern const f32 lbl_805D97C8;
-void render__11TBreakUpMdlFv(BreakUp_8009680C *self);
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D97CC;
-void run_task__11TBreakUpMdlFv(BreakUp_8009693C *self);
 f32 rand_signed_unit(void);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
-void init_alpha__11TBreakUpMdlFlf(u8 *arg0, s32 arg1, f32 farg0);
-void copy__11TBreakUpMdlFPv(void* p, void* q);
 void *mem_alloc(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
@@ -210,16 +201,11 @@ extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 int get_target_info__9TObjEneDDFPv(void*);
-s32 toggle_particle_effect__10TObjPlayerFv();
-s32 end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(void *);
 s32 draw_model_motion(s32, void *, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern Vec_80097100 lbl_8043A0E0;
 extern const f32 lbl_805D97D8;
 extern const f32 lbl_805D97DC;
@@ -232,7 +218,6 @@ extern "C" {
 void TObjEneDf2Bringer__vt103(void* p);
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
-void copy__11TBreakUpMdlFPv(void* p, void* q);
 int TObjEneDf2Bringer__sub_800994F8(void*);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
@@ -249,8 +234,8 @@ void TObjEneDf2Bringer__vt104(Bringer_80097100 *self) {
     if (self->m8(lbl_805D97D8, lbl_805D97DC) != 0) {
         Vec_80097100 v = lbl_8043A0E0;
         update_player_state__9TObjEneDDFv(self, &v, 0);
-        toggle_particle_effect__10TObjPlayerFv();
-        set_global_param__8TObjFishFl(self->texlist);
+        TObjPlayer::toggle_particle_effect();
+        TObjFish::set_global_param((s32)(self->texlist));
         push_matrix();
         post_translate_matrix(self->pos);
         rotate_matrix_y((s32)(0), (s32)(self->f60));
@@ -267,11 +252,11 @@ void TObjEneDf2Bringer__vt104(Bringer_80097100 *self) {
         } else if (frame > (f32)(mot->count - 1)) {
             frame = (f32)(mot->count - 1);
         }
-        set_global_flag__10TObjPlayerFv();
+        TObjPlayer::set_global_flag();
         draw_model_motion(self->f34, mot, frame);
-        clear_global_state__10TObjPlayerFv();
+        TObjPlayer::clear_global_state();
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 

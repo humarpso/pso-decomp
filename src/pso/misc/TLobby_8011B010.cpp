@@ -2,16 +2,13 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-int reset_item_id_counters__6TLobbyFv(void);
 int mem_alloc(void*);
     extern int lbl_805D54E0;
     extern int build_item_id_mode;
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
 int TLobby__send_and_handle_60(void*);
-int bswap_item__6TLobbyFv(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
-void drop_stacked_item_passthrough__6TLobbyFv(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
 int bswap_32__FPUl(void*);
 extern s32 TLobby__data_805D6140;
@@ -38,9 +35,9 @@ s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-void*TLobby::init_bosses(void* a0) { (*(int *)&item_id_counter_table) = mem_alloc((void*)48); (*(int *)&item_sync_counter_table) = mem_alloc((void*)48); reset_item_id_counters__6TLobbyFv(); lbl_805D54E0 = 0; build_item_id_mode = 0; return a0; }
+void*TLobby::init_bosses(void* a0) { (*(int *)&item_id_counter_table) = mem_alloc((void*)48); (*(int *)&item_sync_counter_table) = mem_alloc((void*)48); TLobby::reset_item_id_counters(); lbl_805D54E0 = 0; build_item_id_mode = 0; return a0; }
 void TLobby::send_item_packet() { bswap_item_packet(); TLobby__send_and_handle_60(this); }
-void TLobby::bswap_item_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_item__6TLobbyFv((char*)this + 0x4); }
+void TLobby::bswap_item_packet() { read_be16_field2__10TObjPlayerFv(this); ((TLobby *)((char*)this + 0x4))->bswap_item(); }
 void *TLobby::init_header_packet() {
     init_header();
     *(s8 *)((s8 *)this + 0) = 0x5F;
@@ -52,7 +49,7 @@ void *TLobby::init_header_packet() {
     return this;
 }
 void *TLobby::init_header() {
-    drop_stacked_item_passthrough__6TLobbyFv((void *)((char *)this + 4));
+    ((TLobby *)((char *)this + 4))->drop_stacked_item_passthrough();
     *(u8 *)((s8 *)this + 0x0) = 95;
     *(u8 *)((s8 *)this + 0x1) = 10;
     return this;

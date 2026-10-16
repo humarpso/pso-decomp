@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TCharaMaking.h"
 
 extern "C" {
 
 void tick_and_apply_selection__15TChCrCharSelectFv(u8 *arg0);
 s32 get_char_select_class_id(void *);
 s32 get_class_appearance_preset();
-s32 create__12TCharaMakingFPvPv(void *, int);
 s32 copy_player_visual_record(int, int);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 s32 queue_destruction__7TObjectFv(void *);
@@ -25,7 +25,7 @@ void tick_and_apply_selection__15TChCrCharSelectFv(u8 *arg0) {
         copy_player_visual_record((int) (temp_r31), (int) (get_class_appearance_preset()));
         *(s8 *)((s8 *)temp_r31 + 0x30) = -1;
         *(s8 *)((s8 *)temp_r31 + 0) = 0;
-        create__12TCharaMakingFPvPv((void *) (tl_03), (int) (temp_r31));
+        TCharaMaking::create((void *)tl_03, (void *)temp_r31);
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

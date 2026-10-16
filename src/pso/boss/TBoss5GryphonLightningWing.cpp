@@ -11,6 +11,7 @@ struct Stack_80351DA8 {
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
+#include "pso/boss/TBoss8Dragon.h"
 
 #pragma opt_lifetimes off
 struct Stack_80351A80 {
@@ -44,7 +45,6 @@ extern const f32 lbl_805D8D48;
 s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(int, void *, int, int);
-s32 get_wing_position__26TBoss5GryphonLightningWingFl(s32, s32 *);
 s32 update_wing_segments(void *);
 s32 spawn_gryphon_lightning(void *);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
@@ -65,8 +65,6 @@ void TLobby__sub_80351DF8(void);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 u8 is_lobby_event_active(void);
 s32 TBoss8Dragon__sub_80063FB8(s32, s32 *, f32);
-s32 get_instance_count__12TBoss8DragonFv();
-s32 get_wing_position__26TBoss5GryphonLightningWingFl(s32, s32 *);
 
 extern f32 lbl_805DFED0;
 
@@ -74,9 +72,9 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
     s32 sp8;
     s32 temp_r3;
 
-    temp_r3 = get_instance_count__12TBoss8DragonFv();
+    temp_r3 = TBoss8Dragon::get_instance_count();
     if (temp_r3 != 0) {
-        get_wing_position__26TBoss5GryphonLightningWingFl(arg0, &sp8);
+        ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)(&sp8));
         TBoss8Dragon__sub_80063FB8(temp_r3, &sp8, lbl_805DFED0);
     }
 }
@@ -98,7 +96,7 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
     update_wing_segments((void *) (arg0));
     apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)((void *) (arg0)));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
-        get_wing_position__26TBoss5GryphonLightningWingFl((s32)((void *) (arg0)), (s32 *)((void *) (&stack.sp8)));
+        ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)((s32 *)((void *) (&stack.sp8))));
         play_sound_effect((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
     }
     spawn_gryphon_lightning((void *) (arg0));

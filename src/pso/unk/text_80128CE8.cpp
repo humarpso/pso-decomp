@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TAdRicoRing.h"
+#include "pso/TItemAttacker.h"
+#include "pso/player/TObjPlayer.h"
 struct Obj_80128E08 { u8 pad[0x184]; void *f184; void *f188; u8 pad2[0x1fc - 0x18c]; u8 f1fc[4]; };
 
 struct VBase_18 { char pad[0x18]; };
@@ -57,13 +60,9 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-s32 get_player_list__10TObjPlayerFv(void);
 s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
 void srank_punch_node_callback(Obj_80128E08 *self);
-s32 set_flags__10TObjPlayerFUl(void *, int);
-s32 clear_flags__11TAdRicoRingFUl(void *, int);
-s32 spawn_item_timer__13TItemAttackerFlll(void *, void *, int);
 s32 increment_burst_counter(int);
 s32 get_burst_counter(int);
 s32 TObjPlayer__sub_80128A70();
@@ -87,22 +86,22 @@ void srank_punch_marker(u8 *arg0) {
             increment_burst_counter((int) (temp_r31));
             var_r30 += 1;
         } while (var_r30 != 2);
-        set_flags__10TObjPlayerFUl((void *) (arg0 + 0x1FC), (int) (2));
-        spawn_item_timer__13TItemAttackerFlll((void *) (arg0), (void *) (clear_rico_ring_flag__10TObjPlayerFUi), (int) (0x3C));
-        set_flags__10TObjPlayerFUl((void *) (arg0 + 0x1FC), (int) (4));
+        ((TObjPlayer *)(arg0 + 0x1FC))->set_flags((int) (2));
+        TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (clear_rico_ring_flag__10TObjPlayerFUi)), (s32)((int) (0x3C)));
+        ((TObjPlayer *)(arg0 + 0x1FC))->set_flags((int) (4));
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x200, 0, 0, 1) == 1) {
-            clear_flags__11TAdRicoRingFUl((void *) (arg0 + 0x1FC), (int) (4));
+            ((TAdRicoRing *)(arg0 + 0x1FC))->clear_flags((int) (4));
             ((VObj_18 *)(arg0))->m49(arg0 + 0x20C, 0, 0, 0);
             return;
         }
-        clear_flags__11TAdRicoRingFUl((void *) (arg0 + 0x1FC), (int) (4));
+        ((TAdRicoRing *)(arg0 + 0x1FC))->clear_flags((int) (4));
         ((VObj_18 *)(arg0))->m49(arg0 + 0x20C, 0, 0, 1);
     }
 }
 
 void srank_punch_node_callback(Obj_80128E08 *self) {
     void *p;
-    switch (get_player_list__10TObjPlayerFv()) {
+    switch (TObjPlayer::get_player_list()) {
     case 1:
         if (test_flags_any(self->f1fc, 2) == 0) {
             if (test_flags_any(self->f1fc, 1)) {

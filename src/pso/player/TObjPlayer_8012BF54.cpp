@@ -5,18 +5,16 @@ extern "C" {
 
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 void TItemWeapon__ct(void *);
-s32 get_player_list__10TObjPlayerFv();
 
-void TObjPlayer::init_positions() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, (void*)-910, (void*)-7281); add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1fc, (void*)-910, (void*)-9102); }
+void TObjPlayer::init_positions() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)-910), (s32)((void*)-7281)); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1fc), (s32)((void*)-910), (s32)((void*)-9102)); }
 
-void TObjPlayer::init_pair_1f8() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, (void*)1820, (void*)0); add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1fc, (void*)1820, (void*)0); }
+void TObjPlayer::init_pair_1f8() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)1820), (s32)((void*)0)); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1fc), (s32)((void*)1820), (s32)((void*)0)); }
 
 void TObjPlayer::apply_conveyor_move() {
     s32 temp_r3;
 
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 1:
         rotate_matrix_z(0, -*(s32 *)((s8 *)this + 0x1FC));

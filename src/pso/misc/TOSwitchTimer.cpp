@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOSwitchTimer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_801783BC {
     f32 sp8;
@@ -28,13 +30,11 @@ struct RecoveredGlobal_80178604___vt__13TOSwitchTimer {
 };
 
 extern "C" {
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjRoomId__sub_80141CF4(s32, f32 *, f32, f32, f32);
 extern const f32 lbl_805DBA18;
 extern const f32 lbl_805DBA1C;
 extern const f32 lbl_805DBA20;
 extern const f32 lbl_805DBA24;
-u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
 void clear_floor_switch_flag(u16, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
@@ -59,7 +59,7 @@ void *__nw__7TObjectFUl(int);
 void TOSwitchTimer::render() {
     s32 arg0 = (s32)this;
     Stack_801783BC stack;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         stack.sp8 = lbl_805DBA18;
         stack.spC = lbl_805DBA1C;
         stack.sp10 = lbl_805DBA18;
@@ -126,7 +126,7 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x98) == 0U) {
             clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 0xA8), (s16) *(s32 *)((s8 *)arg0 + 0xB4));
         }
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }

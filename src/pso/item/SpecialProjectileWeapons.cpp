@@ -1,6 +1,12 @@
 #include "types.h"
 
 #include "pso/items/TItemWeapon.h"
+#include "pso/TItemAttacker.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemMag.h"
+#include "pso/object/TObjCamera.h"
+#include "pso/player/TObjPlayer.h"
 struct RecoilWeaponView : TItemWeapon {
     s32 projectileVisible;
     s32 projectileSpin;
@@ -32,14 +38,11 @@ typedef char StarLightParametersExtent[sizeof(StarLightParameters) == 0x14 ? 1 :
 typedef char StarLightFollowerExtent[sizeof(StarLightFollowerView) == 0x2C ? 1 : -1];
 
 extern "C" {
-void spawn_item_timer__13TItemAttackerFlll(void *, void (*)(void *), int);
 s32 launch_rare_weapon_special__10TObjPlayerFv(void *, void *, int, f32);
-s32 draw_status_icon__10TObjPlayerFl(void *, void *);
 
 void drill_launcher_marker(RecoilWeaponView *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 draw_ginja_object(void *);
-s32 get_player_list__10TObjPlayerFv();
 void drill_launcher_node_callback(void *arg0);
 void drill_launcher_update(void *arg0);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -60,13 +63,10 @@ void drill_launcher_return_timer(void *arg0);
 void increment_burst_counter(u8 *arg0);
 s32 get_burst_counter(void* p);
 s32 get_id__13TItemProArmorFv(void *);
-s32 roll_technique__11TItemWeaponFv(void *);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 init_vtable__13TItemProArmorFPv(s32, u32, s32, s32);
 void init_armor__10TObjPlayerFPv(void *arg0);
 s32 post_translate_matrix(void *);
-s32 get_mag_scale__10TObjPlayerFv(void *);
-s32 draw_icon__10TObjPlayerFll(void *, s32, s32 *);
 s32 draw_weapon_at_joint(void *, s32, void *);
 s32 warn_if_gauge_low__10TObjPlayerFv(s32);
 s32 set_model_fade_alpha__10TObjPlayerFf();
@@ -74,20 +74,13 @@ s32 TObjPlayer__sub_80364198();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 extern s32 model_render_flags;
 void draw_held_item__10TObjPlayerFPv(void *arg0);
-void play_particle_effect_once__10TObjPlayerFv();
 void TObjPlayer__sub_8012443C(MegidWeaponRenderView *arg0);
 s32 get_current_floor();
-s32 get_field_d8__10TObjPlayerFv(void *);
 s32 is_item_area_enabled();
 extern s32 tl_05;
 void update_blink__10TObjPlayerFPv(void *arg0);
-s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 get_tp__10TObjPlayerFv(void *);
 s32 create_ex__9TTecMegidFllll(void *, s32 *, s32, s32);
 void cast_megid__10TObjPlayerFPv(void *arg0);
 s32 __nw__7TObjectFUl(s32);
@@ -102,11 +95,9 @@ const StarLightParameters weapon_star_light_parameters[] = {
 StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, void *parent, s32 a, s32 b);
 void __dt__7TObjectFv(void *, int);
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
-s32 get_flag_40__8TItemMagFv(s32);
 s8 TObjPlayer__sub_80102C30();
 s32 copy_position__15TEffStarLight2DFPv(u32, s32 *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 queue_target_destruction__10TObjCameraFv(u32);
 void update_item_camera_target__10TObjPlayerFPv(void *arg0);
 }
 
@@ -114,12 +105,9 @@ extern "C" {
 
 void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1);
 void *TObjPlayer__sub_80124694(void *arg0);
-void set_flags__10TObjPlayerFUl(void *, int);
-void set_effect_state__10TObjPlayerFl(void *, int);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80124708(u8 *arg0);
 s32 is_owner_alive__10TObjPlayerFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl(int);
 s32 rotate_matrix_x(int, int);
 
 void TObjPlayer__sub_8012480C(void);
@@ -146,12 +134,12 @@ void update_item_camera_target__10TObjPlayerFPv(void *arg0) {
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
         temp_r3 = ((s32)find_item_by_id(*(s32 *)((s8 *)arg0 + 0x1C)));
-        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (draw_icon__10TObjPlayerFll((void *)(temp_r3), (s32)(*(s32 *)((s8 *)arg0 + 0x20)), (s32 *)(&sp8)) != 0)) {
-            if (get_flag_40__8TItemMagFv((s32)(temp_r3)) == 0) {
+        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)temp_r3)->draw_icon((s32)((s32)(*(s32 *)((s8 *)arg0 + 0x20))), (s32)((s32 *)(&sp8))) != 0)) {
+            if (((TItemMag *)temp_r3)->get_flag_40() == 0) {
                 copy_position__15TEffStarLight2DFPv(*(u32 *)((s8 *)arg0 + 0x24), &sp8);
                 return;
             }
-            queue_target_destruction__10TObjCameraFv(*(u32 *)((s8 *)arg0 + 0x24));
+            ((TObjCamera *)(*(u32 *)((s8 *)arg0 + 0x24)))->queue_target_destruction();
             return;
         }
     }
@@ -179,7 +167,7 @@ StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, voi
     self->f24 = 0;
     self->f28 = get_item_system_generation();
     p = find_item_by_id(self->f1c);
-    if (p != NULL && draw_icon__10TObjPlayerFll((void *)(p), (s32)(self->f20), (s32 *)(&v)) != 0) {
+    if (p != NULL && ((TObjPlayer *)p)->draw_icon((s32)((s32)(self->f20)), (s32)((s32 *)(&v))) != 0) {
         StarLightParameters blk = weapon_star_light_parameters[0];
         self->f24 = spawn_star_light_2d(&v, &blk, self);
     }
@@ -199,14 +187,14 @@ void create_icon__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
 void cast_megid__10TObjPlayerFPv(void *arg0) {
     s32 sp8;
     void *temp_r31;
-    if (is_mode_two_and_ready__10TObjPlayerFv((void *)(arg0)) != 0) {
-        if (draw_icon__10TObjPlayerFll(arg0, 5, &sp8) != 0) {
+    if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
+        if (((TObjPlayer *)arg0)->draw_icon((s32)5, (s32)(&sp8)) != 0) {
             temp_r31 = *(void **)((s8 *)arg0 + 0xF0);
-            create_ex__9TTecMegidFllll(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), get_tp__10TObjPlayerFv(arg0));
-            roll_technique__11TItemWeaponFv(arg0);
+            create_ex__9TTecMegidFllll(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), ((TObjPlayer *)arg0)->get_tp());
+            ((TItemWeapon *)arg0)->roll_technique();
         }
     } else {
-        update_active_game_effect__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->update_active_game_effect();
     }
 }
 
@@ -229,27 +217,27 @@ void update_blink__10TObjPlayerFPv(void *arg0) {
     if (((s32) *(s32 *)((s8 *)arg0 + 0x204) != temp_r3) && ((u32) *(u32 *)((s8 *)arg0 + 0xF4) != 0U)) {
         *(s32 *)((s8 *)arg0 + 0x204) = temp_r3;
         if (is_item_area_enabled() != 0) {
-            create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(get_field_d8__10TObjPlayerFv(arg0))), (s32)((s32)(5)));
+            create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(((TObjPlayer *)arg0)->get_field_d8())), (s32)((s32)(5)));
         }
     }
 }
 
 void TObjPlayer__sub_8012443C(MegidWeaponRenderView *arg0) {
-    switch (((u32)get_player_list__10TObjPlayerFv())) {
+    switch (((u32)TObjPlayer::get_player_list())) {
     case 1:
         rotate_matrix_y((int)(0), (int)(arg0->f200));
         return;
     case 2:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         return;
     case 3:
         rotate_matrix_y((int)(0), (int)(-arg0->f200));
         return;
     case 4:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         return;
     case 6:
-        play_particle_effect_once__10TObjPlayerFv();
+        TObjPlayer::play_particle_effect_once();
         break;
     case 0:
     case 5:
@@ -262,25 +250,25 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     void *temp_r31;
     void *temp_r5;
-    if (((void *) *(void **)((s8 *)arg0 + 0xF4) != NULL) && (get_flag_40__8TItemMagFv((s32)(arg0)) == 0)) {
+    if (((void *) *(void **)((s8 *)arg0 + 0xF4) != NULL) && (((TItemMag *)arg0)->get_flag_40() == 0)) {
         temp_r5 = *(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0xF4)) + 0x2C)) + 0x30);
         temp_r31 = *(void **)((s8 *)temp_r5 + 0x30);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x18);
         draw_weapon_at_joint(arg0, 0x30, temp_r5);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFE7);
-        if (draw_icon__10TObjPlayerFll(arg0, 5, &sp8) != 0) {
+        if (((TObjPlayer *)arg0)->draw_icon((s32)5, (s32)(&sp8)) != 0) {
             push_matrix();
             TObjPlayer__sub_80364198();
             model_render_flags &= 0xFFFFFFEF;
-            get_mag_scale__10TObjPlayerFv(arg0);
+            ((TObjPlayer *)arg0)->get_mag_scale();
             set_model_fade_alpha__10TObjPlayerFf();
             post_translate_matrix((void *)(&sp8));
             rotate_matrix_y((int)(0), (int)(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF0)) + 0x60)));
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x11);
             draw_ginja_object(temp_r31);
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             draw_ginja_object(*(void **)((s8 *)temp_r31 + 0x2C));
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
             temp_r3 = *(s32 *)((s8 *)temp_r31 + 0);
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (temp_r3 & ~0x11);
             warn_if_gauge_low__10TObjPlayerFv(temp_r3);
@@ -299,8 +287,8 @@ void init_armor__10TObjPlayerFPv(void *arg0) {
             init_vtable__13TItemProArmorFPv(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFv(arg0), 0x5A);
         }
     }
-    roll_technique__11TItemWeaponFv(arg0);
-    roll_technique__11TItemWeaponFv(arg0);
+    ((TItemWeapon *)arg0)->roll_technique();
+    ((TItemWeapon *)arg0)->roll_technique();
 }
 
 void drill_launcher_shot_render(u8 *);
@@ -328,7 +316,6 @@ extern "C" void apply_equip__11TItemWeaponFv();
 extern "C" void apply_object_set_data();
 extern "C" void bind_attribute_entries__11TItemWeaponFv();
 extern "C" void classify_actor_view_detail();
-extern "C" void copy_item_to_data__11TItemWeaponFl();
 extern "C" void deliver_hit__11TItemWeaponFPviPviif();
 extern "C" void dispatch_attack_marker__11TItemWeaponFv();
 extern "C" void dispatch_state__5TItemFv();
@@ -359,7 +346,6 @@ extern "C" void unequip__14TItemEquipBaseFv();
 extern "C" void update_active_weapon__11TItemWeaponFv();
 extern "C" void update_equip__14TItemEquipBaseFv();
 extern "C" void update_model_flags__11TItemWeaponFv();
-extern "C" void update_pickup_flag__5TItemFl();
 extern "C" void update_weapon_trails__11TItemWeaponFv();
 void *megid_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012463C, (void *)&run_task__5TItemFv,
@@ -369,8 +355,8 @@ void *megid_projectile_weapon_vtable[63] = {
     (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFv,
-    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&update_pickup_flag__5TItemFl,
-    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&copy_item_to_data__11TItemWeaponFl,
+    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
+    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&apply_equip__11TItemWeaponFv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFv, (void *)&reset_item_equip,
@@ -391,8 +377,8 @@ void *recoiling_projectile_weapon_vtable[63] = {
     (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFv,
-    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&update_pickup_flag__5TItemFl,
-    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&copy_item_to_data__11TItemWeaponFl,
+    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
+    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&apply_equip__11TItemWeaponFv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFv, (void *)&reset_item_equip,
@@ -419,9 +405,9 @@ void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1) {
 void *TObjPlayer__sub_80124694(void *arg0) {
     TItemWeapon__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
-    set_flags__10TObjPlayerFUl((void *)((char *)arg0 + 376), 32);
+    ((TObjPlayer *)((char *)arg0 + 376))->set_flags(32);
     set_status_flags__10TObjPlayerFPvUi(arg0, 35);
-    set_effect_state__10TObjPlayerFl(arg0, 12);
+    ((TObjPlayer *)arg0)->set_effect_state(12);
     *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
     *(u32 *)((s8 *)arg0 + 0x200) = 0;
     *(u32 *)((s8 *)arg0 + 0x204) = -1;
@@ -455,7 +441,7 @@ void drill_launcher_shot_render(u8 *arg0) {
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFFB);
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 10.0f;
             push_matrix();
-            notify_fish_if_valid__10TObjPlayerFUl((int) (*(u32 *)((s8 *)arg0 + 0x5C)));
+            TObjPlayer::notify_fish_if_valid((int) (*(u32 *)((s8 *)arg0 + 0x5C)));
             post_translate_matrix((void *) (arg0 + 0x1C));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x2C)));
             rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x28) - 0x4000));
@@ -499,7 +485,7 @@ void drill_launcher_marker(RecoilWeaponView *arg0) {
     s32 temp_r31;
     s32 var_r30;
     if ((s32) arg0->projectileVisible == 1) {
-        spawn_item_timer__13TItemAttackerFlll(arg0, drill_launcher_return_timer, 0x1E);
+        TItemAttacker::spawn_item_timer((s32)arg0, (s32)drill_launcher_return_timer, (s32)0x1E);
         arg0->projectileVisible = 0;
     }
     arg0->recoilPhase = 2;
@@ -511,8 +497,8 @@ void drill_launcher_marker(RecoilWeaponView *arg0) {
             var_r30 += 1;
         } while (var_r30 != 2);
     }
-    draw_status_icon__10TObjPlayerFl((void *) (arg0), (void *) (&sp8));
-    if (is_mode_two_and_ready__10TObjPlayerFv((void *) (arg0)) != 0) {
+    ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (&sp8)));
+    if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
         launch_rare_weapon_special__10TObjPlayerFv((void *) (arg0), (void *) (&sp8), (int) (1), (f32) (1.0f));
         return;
     }
@@ -520,7 +506,7 @@ void drill_launcher_marker(RecoilWeaponView *arg0) {
 }
 void drill_launcher_node_callback(void *arg0) {
     s32 temp_r3;
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     if ((temp_r3 > 0) && (temp_r3 < 4)) {
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x200));
         return;

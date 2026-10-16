@@ -159,7 +159,6 @@ typedef char RecoveredGlobal_8008CE80___vt__9TEndingAB_size[sizeof(RecoveredGlob
 
 extern "C" {
 s32 TKeyBoardControl__sub_8000F828(void);
-void init_float_table__9TEndingABFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8008CE80___vt__9TEndingAB __vt__9TEndingAB;
 
@@ -193,7 +192,7 @@ u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x20) = 0xFF;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    init_float_table__9TEndingABFv(arg0);
+    ((TEndingAB *)arg0)->init_float_table();
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {
     case 0:

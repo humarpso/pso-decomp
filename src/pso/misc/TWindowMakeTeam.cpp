@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowMakeTeam.h"
+#include "pso/misc/TWindowKeyBoardHard.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Obj_80264B38 { u8 pad[0x24]; void *f24; };
 
@@ -10,14 +13,12 @@ extern void *lbl_805D395C;
 void *TWindowMakeTeam__sub_80264B38(Obj_80264B38 *o);
 extern void *lbl_805D395C;
 void *TWindowMakeTeam__sub_80264B24(Obj_80264B24 *o);
-void set_selected_index__17TWindowSubComCardFs(s32, s16);
 void align_menu_entry_positions(s32);
 void calc_window_size__17TWindowSubComCardFPv(s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 extern u8 lbl_8044F300[];
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0);
-void set_selected_index__17TWindowSubComCardFs(s32, s16);
 void align_menu_entry_positions(s32);
 void calc_window_size__17TWindowSubComCardFPv(s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -32,16 +33,14 @@ void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 s32 mark_entry_by_id__17TWindowSubComCardFPvi(s32, s32);
 s32 disable_entry_by_id__17TWindowSubComCardFPvi(s32, s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s8 get_mode__6TLobbyFv();
-int test_card_flag__19TWindowKeyBoardHardFll(void*, int);
 int test_keyboard_card_flag4(void* p);
 
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0) {
-    get_message_10__20TWindowSubStatusDispFl(arg0 + 0x113);
+    TWindowSubStatusDisp::get_message_10(arg0 + 0x113);
 }
 s32 TWindowMakeTeam::draw_entry_0x110(s8 arg0) {
-    get_message_10__20TWindowSubStatusDispFl(arg0 + 0x110);
+    TWindowSubStatusDisp::get_message_10(arg0 + 0x110);
 }
 u8 TWindowMakeTeam::is_enabled() {
     if (get_mode__6TLobbyFv() == 1) {
@@ -115,7 +114,7 @@ s32 TWindowMakeTeam::create_status_menu_window() {
     }
     calc_window_size__17TWindowSubComCardFPv(r);
     align_menu_entry_positions(r);
-    set_selected_index__17TWindowSubComCardFs(r, *(s8 *)(arg0 + 0x1F));
+    ((TWindowSubComCard *)r)->set_selected_index(*(s8 *)(arg0 + 0x1F));
     return r;
 }
 
@@ -128,7 +127,7 @@ s32 TWindowMakeTeam::create_entry_menu_window() {
     forward_trade_action_default__16TObjCityMainWarpFPviii(r, TWindowMakeTeam::draw_entry_0x110(2), 6, 2);
     calc_window_size__17TWindowSubComCardFPv(r);
     align_menu_entry_positions(r);
-    set_selected_index__17TWindowSubComCardFs(r, *(s8 *)(arg0 + 0x1E));
+    ((TWindowSubComCard *)r)->set_selected_index(*(s8 *)(arg0 + 0x1E));
     return r;
 }
 

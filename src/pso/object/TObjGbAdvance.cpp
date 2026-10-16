@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TOKeyAncient01.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/object/TObjMesBase.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80187F78_lbl_804B6280 {
     s32 value;
@@ -11,17 +15,13 @@ struct RecoveredGlobal_80187F78___vt__13TObjGbAdvance {
 };
 
 extern "C" {
-void reset_photon_effect__10TObjPlayerFv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
-void set_type__14TOKeyAncient01Fv(void *);
 u8 * TObjMesBase__ct(void *, s32);
 extern RecoveredGlobal_80187F78_lbl_804B6280 lbl_804B6280;
 extern s32 __vt__13TObjGbAdvance[];
 extern s32 lbl_805D32D0;
 u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1);
 s32 get_bml_model(void *, s32);
-void debug_draw_label__11TObjMesBaseFv(void *);
-void set_global_count__12TObjNpcEnemyFl(int);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444B48[];
 extern u32 TObjComputer__model_archive;
@@ -69,17 +69,17 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32D0;
     init_collision_body_parts(arg0, (s32) &lbl_804B6280.value, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    reset_photon_effect__10TObjPlayerFv((s32) arg0);
-    set_type__14TOKeyAncient01Fv(arg0 + 0x98);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
+    ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
     return arg0;
 }
 void TObjComputer__vt14(void *arg0) {
-    debug_draw_label__11TObjMesBaseFv(arg0);
+    ((TObjMesBase *)arg0)->debug_draw_label();
     *(s32 *)((s8 *)arg0 + 0x88) = *(s32 *)((s8 *)arg0 + 0x88) % 2;
     *(s32 *)((s8 *)arg0 + 0xBC) = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)((s8 *)arg0 + 0x88)]);
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130021, lbl_80444B48);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
 }

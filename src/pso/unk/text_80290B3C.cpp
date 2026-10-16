@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemDrop.h"
 struct Hdr_80290B3C {
     u32 off;
     u32 count;
@@ -16,8 +17,6 @@ struct Ctx_80290B3C {
 };
 
 extern "C" {
-void *construct__9TItemDropFv(void *p);
-void *destroy__9TItemDropFs(void *p, s16 flag);
 u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
 }
 
@@ -31,7 +30,7 @@ u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     u32 i;
     u32 n;
     u32 r;
-    construct__9TItemDropFv(&c);
+    ((TItemDrop *)(&c))->construct();
     c.base = arg0;
     c.size = arg1;
     h = (Hdr_80290B3C *)(c.base + c.size) - 1;
@@ -44,7 +43,7 @@ u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     }
     r = h->end + c.base;
     c.result = r;
-    destroy__9TItemDropFs(&c, -1);
+    ((TItemDrop *)(&c))->destroy(-1);
     return r;
 }
 

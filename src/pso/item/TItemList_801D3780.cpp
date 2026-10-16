@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/TItemList.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/item/TItem.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801D401C_lbl_804C4498 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_801D401C_lbl_804C4498_size[sizeof(RecoveredGlobal_801D401C_lbl_804C4498) == 0x18 ? 1 : -1];
@@ -77,7 +82,6 @@ struct Search_801D3C38 {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-s16 get_stat_by_key_state__10TObjPlayerFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 placement_search_base_vtable[];
 extern const f32 lbl_805DC3D4;
@@ -96,9 +100,6 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
 s32 TItemList__sub_801D5884(void *, int);
 extern s32 placement_search_task_vtable[];
 u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
-s32 get_lobby_flag__6TLobbyFv(void);
-s32 get_enemy_count__9TObjEneDDFv(void);
-s32 get_game_mode__6TLobbyFv(void);
 Actor_801D3E20 *get_player_data__10TObjPlayerFi(s32 i);
 f32 horizontal_distance_squared(void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -108,19 +109,16 @@ void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
 s32 reset_placement_search_ring(void *arg0);
 s32 queue_destruction__7TObjectFv(void *);
-void lookup_entry_by_count__9TItemListFl(void *, int);
 void TItemList__sub_801D59A0(void *, int);
 void TItemList__sub_801D5A70(void *);
 void update_placement_search(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
-void assign_id_and_init__5TItemFll(void *, s32, void *);
 s32 get_item_type_or_default__9TItemListFv(void *);
 void send_code_45_1__10TObjPlayerFi(void *);
 void send_6x2A_drop_item__10TObjPlayerFv(void *, s32, void *, s32);
 void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
-void lookup_entry_by_count__9TItemListFl(void *, int);
 s32 TItemList__sub_801D58DC(void *);
 u8 *run_item_count_update__9TItemListFv(void *);
 void TItemList__sub_801D591C(void *);
@@ -130,12 +128,10 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 Ground_801D3C38 *csnVecterUnder(Vec_801D3E20 *, s32);
-s32 disconnect_protocol__6TLobbyFv();
 void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 s32 reset_placement_search_ring(void *arg0);
 s32 check_player_action_allowed(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Shape_801D3C38 placement_search_collision_body;
@@ -172,11 +168,11 @@ void run_item_drop_search_task(u8 *arg0) {
         if (player != NULL) {
             if (r->id == -1) {
                 if (r->source == -1) {
-                    assign_id_and_init__5TItemFll(r->item, TItemList__sub_801D58DC(arg0), get_ptr_0x44__9TItemListFPv(arg0));
+                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, r->extra);
                     send_code_45_1__10TObjPlayerFi(player);
                 } else {
-                    assign_id_and_init__5TItemFll(r->item, TItemList__sub_801D58DC(arg0), get_ptr_0x44__9TItemListFPv(arg0));
+                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, get_item_type_or_default__9TItemListFv(r->item));
                     send_code_45_1__10TObjPlayerFi(player);
                 }
@@ -187,7 +183,7 @@ void run_item_drop_search_task(u8 *arg0) {
         }
         break;
     case 2:
-        lookup_entry_by_count__9TItemListFl(arg0, *(s32 *)(arg0 + 0x54));
+        ((TItemList *)arg0)->lookup_entry_by_count(*(s32 *)(arg0 + 0x54));
         break;
     }
     queue_destruction__7TObjectFv(arg0);
@@ -252,7 +248,7 @@ void update_placement_search(u8 *arg0) {
         TItemList__sub_801D5A70(arg0);
         break;
     case 2:
-        lookup_entry_by_count__9TItemListFl(arg0, *(s32 *)((s8 *)arg0 + 0x54));
+        ((TItemList *)arg0)->lookup_entry_by_count(*(s32 *)((s8 *)arg0 + 0x54));
         break;
     }
     queue_destruction__7TObjectFv(arg0);
@@ -299,8 +295,8 @@ u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, 
 s32 step_placement_search(Search_801D3C38 *s) {
     Ground_801D3C38 *g;
     if (check_player_action_allowed() != 0 && s->online != 0 &&
-        probe_card_slot__15TAdPlayerLoadGCFv(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()) != 1) {
-        disconnect_protocol__6TLobbyFv();
+        ((TAdPlayerLoadGC *)(get_chr_select_state__23TAdSinglePlyChrSelectGCFv()))->probe_card_slot() != 1) {
+        TLobby::disconnect_protocol();
         queue_destruction__7TObjectFv(s);
         return 2;
     }
@@ -341,9 +337,9 @@ s32 step_placement_search(Search_801D3C38 *s) {
 #pragma pop
 
 void *find_placement_obstruction(void *self, Body_801D3E20 *s) {
-    s32 end = get_lobby_flag__6TLobbyFv();
+    s32 end = TLobby::get_lobby_flag();
     s32 i;
-    for (i = get_game_mode__6TLobbyFv() + get_enemy_count__9TObjEneDDFv(); i < end; i++) {
+    for (i = TLobby::get_game_mode() + TObjEneDD::get_enemy_count(); i < end; i++) {
         Actor_801D3E20 *a = get_player_data__10TObjPlayerFi(i);
         if (a != 0 && a->colliders != 0 && !(a->flags & 0x800)) {
             if (lbl_805DC3D0 > horizontal_distance_squared(&s->position, &a->pos)) {
@@ -395,7 +391,7 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
     } else {
         *(u16 *)((s8 *)arg0 + 0x20) = obj_getField1c(arg2);
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) get_stat_by_key_state__10TObjPlayerFv(arg2);
+        *(s32 *)((s8 *)arg0 + 0x24) = (s32) ((TObjPlayer *)arg2)->get_stat_by_key_state();
         *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg2 + 0x60);
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg3);

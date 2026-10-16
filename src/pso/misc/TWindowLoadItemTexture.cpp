@@ -2,6 +2,7 @@
 
 #include "types.h"
 #include "pso/misc/TWindowLoadItemTexture.h"
+#include "pso/misc/TWindowDD.h"
 
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv(void);
@@ -31,7 +32,6 @@ s32 draw_visible_window_entries(void *, void *, s32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFs(void *, int);
 void set_sprite_uv_bounds(f32, f32, f32, f32);
 s32 fn_8026287C(void *);
 void get_array_entry__20TWindowSubStatusDispFi(void *, int);
@@ -80,7 +80,7 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowLoadItemTexture;
         queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x6C));
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

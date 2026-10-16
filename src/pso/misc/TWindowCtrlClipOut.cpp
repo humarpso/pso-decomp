@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrlClipOut.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8024C8E8___vt__18TWindowCtrlClipOut {
     s32 value;
@@ -18,16 +21,12 @@ extern "C" {
 
 void *TWindowCtrlClipOut__ct(void *arg0);
 int TCameraCtrl__sub_80068EF0(void);
-int restore_full_screen_view__11TCameraCtrlFv(void);
 int TWindowCtrlMain__sub_8024CE34(void);
 int is_window_display_enabled(void*);
 void __ct__7TObjectFP7TObject(void *);
-int begin_effect_render__13TParticleCtrlFv(void);
-int end_effect_render__13TParticleCtrlFv(void);
 int render_nodes__7TObjectFv(void);
-int reset_transform_state__10TObjPlayerFv(void);
 
-void TWindowCtrlClipOut::render() { if (is_window_display_enabled(this) != 0) { reset_transform_state__10TObjPlayerFv(); begin_effect_render__13TParticleCtrlFv(); restore_full_screen_view__11TCameraCtrlFv(); TWindowCtrlMain__sub_8024CE34(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); end_effect_render__13TParticleCtrlFv(); } }
+void TWindowCtrlClipOut::render() { if (is_window_display_enabled(this) != 0) { TObjPlayer::reset_transform_state(); TParticleCtrl::begin_effect_render(); TCameraCtrl::restore_full_screen_view(); TWindowCtrlMain__sub_8024CE34(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); TParticleCtrl::end_effect_render(); } }
 
 extern s32 __vt__18TWindowCtrlClipOut[];
 extern void *TWindowCtrlClipOut__name;

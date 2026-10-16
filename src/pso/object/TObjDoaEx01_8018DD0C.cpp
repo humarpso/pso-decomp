@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjDoaEx01.h"
+#include "pso/TParticleCtrl.h"
 
 struct NjObj_8018DD0C {
     u32 evalflags;
@@ -26,8 +27,6 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -104,14 +103,14 @@ s32 TObjDoaEx01::draw_object_tree(s32 arg1) {
     }
     if (!(flags & 8) && obj->model != 0) {
         if ((u8 *)obj == TObjDoaEx01__alpha_model_node || (u8 *)obj == TObjDoaEx01__alpha_model_sibling) {
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             lbl_805D5660 = model_render_flags;
             model_render_flags = model_render_flags | 0x10;
             set_chunk_material_color((u8 *)this + 0xD4);
             draw_ginja_model(obj->model);
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         } else {
             draw_ginja_model(obj->model);
         }

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TOMonitorMachine01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
 
 typedef struct Mon_8017205C {
     u8 pad0[0x84];
@@ -99,12 +102,9 @@ int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
 int post_translate_matrix(void *);
-int set_global_param__8TObjFishFl(int);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
 void scale_matrix(s32, f32, f32, f32);
-int begin_effect_render__13TParticleCtrlFv();
-int end_effect_render__13TParticleCtrlFv();
 extern const f32 lbl_805DB8F0;
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
@@ -129,7 +129,6 @@ extern "C" {
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 
 void TOMonitorMachine01::run_task() {
     Mon_8017205C *self = (Mon_8017205C *)this;
@@ -185,13 +184,13 @@ void TOMonitorMachine01::render() {
         push_matrix();
         post_translate_matrix((u8 *)self + 0x38);
         rotate_matrix_y(0, self->f60);
-        set_global_param__8TObjFishFl(self->f24);
+        TObjFish::set_global_param(self->f24);
         n = self->model->root;
         push_matrix();
         translate_matrix(0, -self->fCC, 0.0f, 0.0f);
         draw_ginja_model(n->f4);
         pop_matrix();
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         n = n->next;
         if (self->f84 == 2) {
             push_matrix();
@@ -206,13 +205,13 @@ void TOMonitorMachine01::render() {
             draw_ginja_model(n->f4);
             pop_matrix();
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         n = n->next;
         push_matrix();
         translate_matrix(0, self->fCC, 0.0f, 0.0f);
         draw_ginja_model(n->f4);
         pop_matrix();
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         n = n->next;
         if (self->f84 == 0) {
             push_matrix();
@@ -227,7 +226,7 @@ void TOMonitorMachine01::render() {
             draw_ginja_model(n->f4);
             pop_matrix();
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -271,7 +270,7 @@ void TOMonitorMachine01::load_resources() {
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOMonitorMachine01;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

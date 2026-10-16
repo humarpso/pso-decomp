@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemProUnit.h"
 
 extern "C" {
-s32 set_evp__12TItemProUnitFf(int, f32);
 extern const f32 lbl_805DAD80;
 void fist_reset_attack_rate(u8 *arg0);
-s32 set_evp__12TItemProUnitFf(int, f32);
 extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
 extern s32 __vt__14TObjEneEpsilon[];
@@ -38,7 +37,7 @@ u8 *create_baranz_launcher(u8 *arg0) {
 }
 
 void fist_reset_attack_rate(u8 *arg0) {
-    set_evp__12TItemProUnitFf((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (f32) (lbl_805DAD80));
+    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp((f32) (lbl_805DAD80));
 }
 
 }

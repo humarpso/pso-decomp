@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss3Volopt.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8004885C_lbl_80484888 {
     s32 value;
@@ -18,7 +19,6 @@ extern s32 lbl_805D4D14;
 extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8854;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void copy_xyz__10TObjPlayerFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80484888[];
 extern u8 *tl_07;
@@ -114,7 +114,7 @@ u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4,
     *(s32 *)((s8 *)arg0 + 0x20) = arg3;
     *(f32 *)((s8 *)arg0 + 0x24) = farg0;
     if (arg4 != NULL) {
-        copy_xyz__10TObjPlayerFPv(arg0 + 0x38, arg4);
+        ((TObjPlayer *)(arg0 + 0x38))->copy_xyz(arg4);
     } else {
         *(s32 *)((s8 *)arg0 + 0x38) = 0;
         *(s32 *)((s8 *)arg0 + 0x3C) = 0;

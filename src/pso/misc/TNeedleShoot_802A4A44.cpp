@@ -41,7 +41,6 @@ void* get_shoot_data__12TNeedleShootFPv(void* p);
 s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
-s32 get_global_state__14TOKeyMachine01Fv();
 int queue_destruction__7TObjectFv(void*);
 
 void* get_shoot_data__12TNeedleShootFPv(void* p) { return (char*)p + 0x28; }
@@ -53,6 +52,7 @@ extern "C" {
 
 #include "types.h"
 #include "pso/misc/TNeedleShoot.h"
+#include "pso/misc/TOKeyMachine01.h"
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
 }
@@ -71,7 +71,7 @@ void TNeedleShoot::tick_lifetime() {
 
 void TNeedleShoot::init_velocity() {
     u8 *arg0 = (u8 *)this;
-    if (get_global_state__14TOKeyMachine01Fv() == 0x22) {
+    if (TOKeyMachine01::get_global_state() == 0x22) {
         play_sound_effect((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
     } else {
         play_sound_effect((int) (0x3A847), (void *) (arg0 + 0x6C), (int) (0), (int) (0));

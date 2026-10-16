@@ -163,14 +163,14 @@ void notify_scene__12TObjEneReconFi(s32 arg0) {
 
 #include "types.h"
 #include "pso/enemy/TObjEneRecon.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
 void __dl__FPv(void*);
-u32 alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 init_render_target__10TObjPlayerFv();
 s32 is_state_active__14TOKeyMachine01Fv();
-s32 reset_lobby_subobject__10TObjPlayerFv(void*);
 
 extern u32 scene_sora_instance;
 extern u32 scene_sora_recon_object;
@@ -179,7 +179,7 @@ void TObjEneRecon::destroy_instance() {
     scene_sora_instance = 0;
     if (is_state_active__14TOKeyMachine01Fv() != 0) {
         if ((u32) scene_sora_recon_object != 0U) {
-            reset_lobby_subobject__10TObjPlayerFv((void*)scene_sora_recon_object);
+            ((TObjPlayer *)scene_sora_recon_object)->reset_lobby_subobject();
         }
         if ((u32) scene_sora_recon_object != 0U) {
             __dl__FPv((void*)scene_sora_recon_object);
@@ -197,7 +197,7 @@ void TObjEneRecon::alloc_if_valid_state() {
 
     if (is_state_active__14TOKeyMachine01Fv() != 0) {
         scene_sora_instance = 0;
-        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv(0x28);
+        temp_r3 = ((TAdSinglePlyChrSelectGC *)0x28)->alloc();
         scene_sora_recon_object = temp_r3;
         if (temp_r3 != 0U) {
             init_render_target__10TObjPlayerFv();

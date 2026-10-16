@@ -1,9 +1,9 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -36,24 +36,15 @@ int start_freeze_self__10TObjPlayerFPv(void* p);
 void set_floor__10TObjPlayerFPvi(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
-int unregister_sub__10TObjPlayerFv(void* p);
-void set_control_role__10TObjPlayerFl(void* p, s32 v);
 u8 TObjPlayer__sub_801BEB3C(void* p);
 u8 TObjPlayer__sub_801BEB44(void* p);
 u8 TObjPlayer__sub_801BEB4C(void* p);
-void set_play_time__10TObjPlayerFl(void* p, s32 v);
-void reset_entrance_id__10TObjPlayerFv(void* p);
 int TObjPlayer__sub_801BEB68(void* p);
 u8 TObjPlayer__sub_801BEB8C(void* p);
-int query_field374__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEBB8(void* p);
-int query_flags_374__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEBE4(void* p);
-int get_quest_status__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEC10(void* p);
-int get_field_0x374__10TObjPlayerFv(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
-int is_mounted__15TPlyPhotonChairFv(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int set_state_flags__10TObjPlayerFUl(void*, int);

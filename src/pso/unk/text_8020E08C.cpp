@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 struct ObjRow_8020E08C { s16 type; s16 flags; u8 pad04[4]; u16 id; u8 tail[0x44 - 0xA]; };
 
 struct EneRow_8020E08C { s16 type; s16 flags; u8 pad04[6]; u16 id; u8 tail[0x48 - 0xC]; };
@@ -20,8 +22,6 @@ struct Rec4_8020E228 { u16 a; u16 id; };
 struct Rec12_8020E228 { u32 a; u16 id; u16 b; u32 c; };
 extern "C" {
 s32 get_current_floor(void);
-void *alloc__22TQuestVmDownLoadServerFv(s32);
-void send_or_handle_packet__6TLobbyFPvPvPvPvUl(void *, void *, void *, s32, u32);
 Archive_8020E08C TLobby__data_80513A40[18];
 Floor_8020E08C TLobby__floor_enemy_group_table[18];
 u32 TLobby__data_80513C80[18];
@@ -62,10 +62,10 @@ void arrive_floor_population(void) {
     bytes = floor->objects * 0x44;
     if (bytes > 0) {
         bytes = (bytes + 0x1F) & ~0x1F;
-        TLobby__data_805D610C = (ObjRow_8020E08C *)alloc__22TQuestVmDownLoadServerFv(bytes);
+        TLobby__data_805D610C = (ObjRow_8020E08C *)((TQuestVmDownLoadServer *)bytes)->alloc();
     }
     if (TLobby__data_805D610C != NULL) {
-        send_or_handle_packet__6TLobbyFPvPvPvPvUl(TLobby__data_805D6104, TLobby__data_80513A40[index].objects, TLobby__data_805D610C, bytes, 1);
+        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)(TLobby__data_80513A40[index].objects), (void *)TLobby__data_805D610C, (void *)bytes, (u32)1);
         o = TLobby__data_805D610C;
         r = floor->objectRows;
         for (i = 0; i < floor->objects; i++, o++, r++) {
@@ -79,10 +79,10 @@ void arrive_floor_population(void) {
     bytes = floor->enemies * 0x48;
     if (bytes > 0) {
         bytes = (bytes + 0x1F) & ~0x1F;
-        TLobby__data_805D6114 = (EneRow_8020E08C *)alloc__22TQuestVmDownLoadServerFv(bytes);
+        TLobby__data_805D6114 = (EneRow_8020E08C *)((TQuestVmDownLoadServer *)bytes)->alloc();
     }
     if (TLobby__data_805D6114 != NULL) {
-        send_or_handle_packet__6TLobbyFPvPvPvPvUl(TLobby__data_805D6104, TLobby__data_80513A40[index].enemies, TLobby__data_805D6114, bytes, 1);
+        TLobby::send_or_handle_packet((void *)TLobby__data_805D6104, (void *)(TLobby__data_80513A40[index].enemies), (void *)TLobby__data_805D6114, (void *)bytes, (u32)1);
         e = TLobby__data_805D6114;
         r2 = floor->enemyRows;
         for (j = 0; j < floor->enemies; j++, e++, r2++) {

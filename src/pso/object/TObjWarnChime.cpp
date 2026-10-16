@@ -1,12 +1,12 @@
 #include "pso/object/TObjWarnChime.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 void play_sound_effect(s32, s32, s32, s32);
 s16 obj_getS16_32C(void*);
-s16 get_field_2b8__14TItemProShieldFv(void*);
-u32 find_revival_item__10TObjPlayerFv(void*);
 void* get_player_by_client_id(s32);
-s32 should_update__11TCameraCtrlFv();
 extern const char TObjWarnChime_class_name[] = "TObjWarnChime";
 const char* TObjWarnChime_name = TObjWarnChime_class_name;
 }
@@ -31,12 +31,12 @@ void TObjWarnChime::update_player_hp_ratios() {
     changed = 0;
     for (i = 0; i < 4; i++) {
         p = get_player_by_client_id(i);
-        if (p == NULL || find_revival_item__10TObjPlayerFv(p) != 0) {
+        if (p == NULL || ((TObjPlayer *)p)->find_revival_item() != 0) {
             m_player_hp_ratios[i] = 1.0f;
             continue;
         }
         cur = obj_getS16_32C(p);
-        max = get_field_2b8__14TItemProShieldFv(p);
+        max = ((TItemProShield *)p)->get_field_2b8();
         if (0.0f == cur) {
             m_player_hp_ratios[i] = 1.0f;
             continue;
@@ -61,7 +61,7 @@ void TObjWarnChime::update_player_hp_ratios() {
     m_chime_interval = (s32)(12.0f * min) + 3;
 }
 void TObjWarnChime::update_when_camera_active() {
-    if (should_update__11TCameraCtrlFv() == 0) {
+    if (TCameraCtrl::should_update() == 0) {
         m_state = 0;
         return;
     }
@@ -71,7 +71,7 @@ void TObjWarnChime::update_when_camera_active() {
 void TObjWarnChime::reset_state() {
     m_countdown = -1;
     m_chime_interval = 0;
-    if (should_update__11TCameraCtrlFv() != 0) {
+    if (TCameraCtrl::should_update() != 0) {
         m_state = 1;
     }
 }

@@ -71,7 +71,6 @@ extern TexObj_803E224C context_texture_obj;
 extern Ctx_803E224C *current_render_context;
 void load_context_texture_obj(void);
 void GXBegin(int, int, u16);
-s32 load_screen_space_matrix__10TObjPlayerFv();
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803E2248(void);
@@ -80,7 +79,6 @@ void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mo
 void GXSetNumChans(u8);
 void GXSetChanCtrl(int, int, int, int, int, int, int);
 void GXBegin(int, int, u16);
-s32 load_screen_space_matrix__10TObjPlayerFv();
 void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
@@ -251,7 +249,7 @@ static inline void GXColor1u32_803E26A4(u32 c) {
 void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mode) {
     f32 inv;
     u32 c;
-    load_screen_space_matrix__10TObjPlayerFv();
+    TObjPlayer::load_screen_space_matrix();
     if (mode != 0) {
         TObjPlayer__sub_803E21DC();
     } else {
@@ -287,7 +285,7 @@ static inline void GXTexCoord2f32_803E2810(f32 s, f32 t) {
 void draw_textured_vertices__10TObjPlayerFPvii(Vtx_803E2810 *v, s32 n, s32 mode) {
     f32 inv;
     u32 c;
-    load_screen_space_matrix__10TObjPlayerFv();
+    TObjPlayer::load_screen_space_matrix();
     if (mode != 0) {
         setup_blended_textured_draw();
     } else {

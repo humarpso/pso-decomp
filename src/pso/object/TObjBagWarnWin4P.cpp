@@ -1,6 +1,9 @@
 #include "pso/TObjBagWarnWin4P.h"
 
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 TWindow__close(int);
@@ -19,12 +22,9 @@ s32 has_player_active_menu__11TWindowCtrlFv(u16);
 s32 is_slot_visible__11TWindowCtrlFv(u16);
 s32 get_window_layout_position(s32);
 void __ct__7TObjectFP7TObject(void *);
-int check_flag__10TObjPlayerFl(void*, int);
 u32 get_character_save_record(s32);
 s32 is_active__19THunterGuildWarningFv();
 s32 is_level_capped__23TAdSinglePlyChrSelectGCFv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
-int is_player_flag_4000_set__11TWindowCtrlFv(void* p);
 s32 obj_getField1c();
 s32 send_and_handle__6TLobbyFii(u32, void *, s32);
 s32 strncpy(void *, s32, s32);

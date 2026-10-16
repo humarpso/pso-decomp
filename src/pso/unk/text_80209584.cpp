@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Hdr_802095EC { s32 type; s32 size; s32 id; s32 x; };
 
@@ -6,12 +8,9 @@ struct Hdr_8020967C { s32 type; s32 size; s32 id; s32 x; };
 
 extern "C" {
 s32 __ct__14SubtractiveRngFv(void *);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 int mem_alloc(void *);
 u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1);
-void bswap_quad_word__6TLobbyFv(void *);
 Hdr_802095EC *find_type5_header__6TLobbyFPvi(Hdr_802095EC *arg, s32 id);
-void bswap_quad_word__6TLobbyFv(void *);
 Hdr_8020967C *find_chunk_by_id__6TLobbyFPvi(Hdr_8020967C *arg, s32 id);
 }
 
@@ -20,7 +19,7 @@ extern "C" {
 u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0xE8);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0xE8))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = __ct__14SubtractiveRngFv((void *) temp_r3);
@@ -37,7 +36,7 @@ Hdr_802095EC *find_type5_header__6TLobbyFPvi(Hdr_802095EC *arg, s32 id) {
     if ((p = arg) != NULL) {
         for (;;) {
             Hdr_802095EC h = *p;
-            bswap_quad_word__6TLobbyFv(&h);
+            ((TLobby *)(&h))->bswap_quad_word();
             if (h.type == 5) {
                 if (h.id == id) {
                     return p + 1;
@@ -56,7 +55,7 @@ Hdr_8020967C *find_chunk_by_id__6TLobbyFPvi(Hdr_8020967C *arg, s32 id) {
     if ((p = arg) != NULL) {
         for (;;) {
             Hdr_8020967C h = *p;
-            bswap_quad_word__6TLobbyFv(&h);
+            ((TLobby *)(&h))->bswap_quad_word();
             if (h.type == 4) {
                 if (h.id == id) {
                     return p + 1;

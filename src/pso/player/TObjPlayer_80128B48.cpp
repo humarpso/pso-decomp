@@ -14,7 +14,6 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 is_owner_alive__10TObjPlayerFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl(int);
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
@@ -25,7 +24,7 @@ void TObjPlayer::notify_and_detach_target() {
     u8 *arg0 = (u8 *)this;
     if ((is_owner_alive__10TObjPlayerFv() != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U)) {
         push_matrix();
-        notify_fish_if_valid__10TObjPlayerFUl((int) (*(u32 *)((s8 *)arg0 + 0x5C)));
+        TObjPlayer::notify_fish_if_valid((int) (*(u32 *)((s8 *)arg0 + 0x5C)));
         post_translate_matrix((void *) (arg0 + 0x1C));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x2C)));
         rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x28) - 0x4000));

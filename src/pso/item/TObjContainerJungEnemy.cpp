@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/TObjContainerJungEnemy.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8018CEDC_lbl_804B7168 {
     s32 value;
@@ -13,7 +14,6 @@ struct RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void reset_photon_effect__10TObjPlayerFv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018CEDC_lbl_804B7168 container_jung_collision_desc;
@@ -35,7 +35,6 @@ s32 unregister_object_by_id(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_container_object__10TObjPlayerFs(void *, s32);
 
 void TObjContainerJungEnemy__vt78(void *arg0) {
     s16 temp_r0;
@@ -98,7 +97,7 @@ void *__dt__22TObjContainerJungEnemyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjContainerJungEnemy;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_container_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -115,7 +114,7 @@ u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &container_jung_collision_desc.value, 1);
-    reset_photon_effect__10TObjPlayerFv((s32) arg0);
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&container_jung_collision_desc.value) + 4));

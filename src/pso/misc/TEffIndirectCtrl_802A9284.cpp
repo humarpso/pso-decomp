@@ -15,7 +15,6 @@ void load_indirect_dat(void);
 
 extern "C" {
 
-s32 free_buffers__16TEffIndirectCtrlFv();
 s32 TObjPlayer__sub_802A83F4();
 s32 xfree__FPv(s32);
 
@@ -28,7 +27,7 @@ void TEffIndirectCtrl::free_all() {
     s32 temp_r3;
 
     TObjPlayer__sub_802A83F4();
-    free_buffers__16TEffIndirectCtrlFv();
+    TEffIndirectCtrl::free_buffers();
     var_r31 = 0;
     var_r30 = var_r31;
     var_r28 = 0;

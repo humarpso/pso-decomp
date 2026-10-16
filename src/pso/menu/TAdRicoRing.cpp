@@ -2,20 +2,18 @@
 
 #include "types.h"
 #include "pso/ui/TAdRicoRingCtrl.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8001BD0C___vt__11TAdRicoRing { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8001BD0C___vt__11TAdRicoRing_size[sizeof(RecoveredGlobal_8001BD0C___vt__11TAdRicoRing) == 0x18 ? 1 : -1];
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void set_flags__10TObjPlayerFUl(void *, s32);
-void clear_flags__11TAdRicoRingFUl(void *, s32);
 volatile int test_flags_any(void *, s32);
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
 int TKeyBoardControl__sub_8000F828(void);
-void set_flags__10TObjPlayerFUl(void *, s32);
-u8 * init_forward__10TObjPlayerFv(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 __ct__7TObjectFP7TObject();
@@ -35,9 +33,8 @@ int push_matrix(void*);
 int pop_matrix(void);
 int func_803e11e8__FUl(void*);
 int func_803e11f0__Fv(void);
-int set_global_param__8TObjFishFl(void*);
 
-void TAdRicoRing::render() { push_matrix(this); set_global_param__8TObjFishFl(*(void**)((char*)this + 0x50)); post_translate_matrix((char*)this + 0x58); rotate_matrix_zyx((void*)0, *(void**)((char*)this + 0x64), *(void**)((char*)this + 0x68), *(void**)((char*)this + 0x6c)); func_803e11e8__FUl((void*)1); draw_chunk_object(*(void**)((char*)this + 0x4c)); func_803e11e8__FUl((void*)2); draw_chunk_object(*(void**)((char*)this + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
+void TAdRicoRing::render() { push_matrix(this); TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x50))); post_translate_matrix((char*)this + 0x58); rotate_matrix_zyx((void*)0, *(void**)((char*)this + 0x64), *(void**)((char*)this + 0x68), *(void**)((char*)this + 0x6c)); func_803e11e8__FUl((void*)1); draw_chunk_object(*(void**)((char*)this + 0x4c)); func_803e11e8__FUl((void*)2); draw_chunk_object(*(void**)((char*)this + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
 
 void TAdRicoRingCtrl::set_scale4(f32 farg0) {
     *(f32 *)((s8 *)this + 0x1C) = farg0;
@@ -74,7 +71,7 @@ void TAdRicoRing::run_task() {
       *((f32 *) (((s8 *) arg0) + 0x28)) = (f32) lbl_805D7E4C;
       *((f32 *) (((s8 *) arg0) + 0x24)) = (f32) lbl_805D7E4C;
       *((f32 *) (((s8 *) arg0) + 0x20)) = (f32) lbl_805D7E4C;
-      clear_flags__11TAdRicoRingFUl(arg0 + 0x2C, 2);
+      ((TAdRicoRing *)(arg0 + 0x2C))->clear_flags(2);
     }
   }
   *((s32 *) (((s8 *) arg0) + 0x68)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x68))) + (*((s32 *) (((s8 *) arg0) + 0x30))));
@@ -83,7 +80,7 @@ void TAdRicoRing::run_task() {
     *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) + (*((s32 *) (((s8 *) arg0) + 0x48))));
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0x30)))) >= 0xCCC)
     {
-      clear_flags__11TAdRicoRingFUl(arg0 + 0x2C, 4);
+      ((TAdRicoRing *)(arg0 + 0x2C))->clear_flags(4);
     }
   }
   else
@@ -91,7 +88,7 @@ void TAdRicoRing::run_task() {
     *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) - (*((s32 *) (((s8 *) arg0) + 0x48))));
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0x30)))) <= 0x5B0)
     {
-      set_flags__10TObjPlayerFUl(arg0 + 0x2C, 4);
+      ((TObjPlayer *)(arg0 + 0x2C))->set_flags(4);
     }
   }
 }
@@ -100,7 +97,7 @@ u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__11TAdRicoRing.value;
-    init_forward__10TObjPlayerFv(arg0 + 0x2C);
+    ((TObjPlayer *)(arg0 + 0x2C))->init_forward();
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdRicoRing__class_name;
     *(s32 *)((s8 *)arg0 + 0x4C) = get_bml_model((void *) (TAdRicoRing__resource_bundle), (int) (0));
     *(s32 *)((s8 *)arg0 + 0x50) = TObjFish__sub_8001EDB0((void *) (TAdRicoRing__resource_bundle), (int) (0));
@@ -120,7 +117,7 @@ u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x64) = 0;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D7E4C;
     *(s32 *)((s8 *)arg0 + 0x30) = 0x5B0;
-    set_flags__10TObjPlayerFUl((void *)(arg0 + 0x2C), (s32)(4U));
+    ((TObjPlayer *)(arg0 + 0x2C))->set_flags((s32)(4U));
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {
     case 0:

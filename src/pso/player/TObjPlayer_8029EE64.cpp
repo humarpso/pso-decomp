@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Vec_8029EFFC { f32 x, y, z; };
 
@@ -38,7 +39,6 @@ s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_effect_state__10TObjPlayerFl(s32);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 s32 load_current_pos_matrix(int);
@@ -59,7 +59,6 @@ void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 fabs_float(f32);
 Pl_8029EFFC *get_player_by_client_id(s32);
 s32 is_boss_area();
-s32 get_global_state__14TOKeyMachine01Fv();
 void render_task_layer_02__9TMainTaskFv(void *);
 void render_object_layers__9TMainTaskFi(void *, s32);
 s32 fn_8029E7BC(Vec_8029EFFC *, Vec_8029EFFC *);
@@ -69,7 +68,6 @@ void copy_reflection_vec__10TSceneSoraFPv(Vec_8029EFFC *);
 void TScene__sub_8029F5D8();
 void TScene__sub_8029F5E4(f32);
 void TScene__sub_8029F5EC();
-void copy_efb_to_texture__10TObjPlayerFv(s32);
 f32 vec_squared_length(Vec_8029EFFC *);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void normalize_vector(Vec_8029EFFC *);
@@ -94,7 +92,6 @@ extern "C" {
 void TSceneSora__sub_8029F3E4(void);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
-s32 set_global_effect_state__10TObjPlayerFl(s32);
 
 extern s32 model_render_flags;
 
@@ -102,7 +99,7 @@ void TObjPlayer::clear_state_if_flag80(s32 arg0) {
     if (arg0 & 0x80) {
         set_ginja_post_tev_stage_count(0);
         set_ginja_post_texgen_count(0);
-        set_global_effect_state__10TObjPlayerFl(0);
+        TObjPlayer::set_global_effect_state(0);
         model_render_flags &= 0xFFF7FFFF;
     }
 }
@@ -132,7 +129,7 @@ void TObjPlayer::setup_projection_texture(s32 arg0, s32 arg1, s32 arg2) {
             model_render_flags |= 0x80000;
             set_ginja_post_tev_stage_count((s32)((int) (1)));
             set_ginja_post_texgen_count((s32)((int) (1)));
-            set_global_effect_state__10TObjPlayerFl((s32)((int) (1)));
+            TObjPlayer::set_global_effect_state((s32)((int) (1)));
         }
     }
 }
@@ -176,7 +173,7 @@ void TSceneSora::render_reflections() {
         if (is_boss_area() != 0) {
             if (p != NULL) {
                 render_object_layers__9TMainTaskFi(main_task, 2);
-                if (get_global_state__14TOKeyMachine01Fv() == 0x20) {
+                if (TOKeyMachine01::get_global_state() == 0x20) {
                     c3.pos.x = p->pos38.x;
                     c3.pos.y = p->pos38.y;
                     c3.pos.z = p->pos38.z;
@@ -261,7 +258,7 @@ void TSceneSora::render_reflections() {
     if (TSceneSora__instance != 0) {
         TSceneSora__sky_active_flag = 1;
     }
-    copy_efb_to_texture__10TObjPlayerFv(o->f1C);
+    ((TObjPlayer *)(o->f1C))->copy_efb_to_texture();
     set_scene_flag__10TSceneSoraFi(o->f1C + 0x1C);
 }
 

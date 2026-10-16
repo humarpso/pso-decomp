@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjDFUsoTower.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Vec_80052090 {
     f32 x, y, z;
@@ -31,11 +33,9 @@ extern "C" {
 
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
-s32 sync_player_globals__10TObjPlayerFv();
 s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(s32);
 s32 set_color_blend_mode(s32, s32, s32, s32);
 
 extern const f32 lbl_805D8A30;
@@ -53,11 +53,11 @@ void TObjDFUsoTower::render() {
         }
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
         if (*(f32 *)((s8 *)arg0 + 0x94) < lbl_805D8A34) {
-            sync_player_globals__10TObjPlayerFv();
+            TObjPlayer::sync_player_globals();
         }
     }
 }

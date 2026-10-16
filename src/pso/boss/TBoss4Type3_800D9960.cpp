@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800D9960_lbl_80500FA4 {
     s32 value;
@@ -36,8 +37,6 @@ void bind_motion_context(s32, f32);
 void set_matrix_identity(s32);
 void push_matrix(Vec_800D9994 *);
 void pop_matrix();
-void set_global_flag__10TObjPlayerFv();
-void clear_global_state__10TObjPlayerFv();
 extern Vec_800D9994 lbl_80500F80;
 extern s32 lbl_805D5230;
 extern s32 lbl_805D5234;
@@ -64,7 +63,7 @@ void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     f32 f;
     s32 i;
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     lbl_80500F80.x = lbl_805DA3EC;
     lbl_80500F80.y = lbl_805DA3EC;
     lbl_80500F80.z = lbl_805DA3EC;
@@ -82,7 +81,7 @@ void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 a
         f += arg0->step;
     }
     pop_matrix();
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
 }
 
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1) {

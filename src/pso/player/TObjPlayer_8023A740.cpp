@@ -5,13 +5,11 @@ extern "C" {
 u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
 f64 atan2_float(f32, f32);
-s32 register_object__10TObjPlayerFv(void *);
 void *__ct__7TEffectFv(void *);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 init_collision_body_parts(u32, void *, int);
 u32 construct_collider_proxy__10TObjPlayerFv(u32, void *);
 u32 __nw__7TObjectFUl(int);
-s16 get_level_tier__10TObjPlayerFl(s16);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
 extern const f64 lbl_8044DC00;
@@ -26,13 +24,11 @@ extern const f32 lbl_805DC938;
 u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4);
 u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(s32);
-s32 register_object__10TObjPlayerFv(void *);
 void *__ct__7TEffectFv(void *);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 init_collision_body_parts(u32, void *, int);
 u32 construct_collider_proxy__10TObjPlayerFv(u32, void *);
 u32 __nw__7TObjectFUl(int);
-s16 get_level_tier__10TObjPlayerFl(s16);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
 f32 sin_table_lookup(s32);
@@ -80,7 +76,7 @@ u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3,
     u32 var_r0;
     __ct__7TEffectFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCC68;
-    register_object__10TObjPlayerFv(arg0 + 0x84);
+    ((TObjPlayer *)(arg0 + 0x84))->register_object();
     *(u16 *)((s8 *)arg0 + 0xC8) = 0xFFFF;
     dx = *(f32 *)((s8 *)arg3 + 0) - *(f32 *)((s8 *)arg2 + 0);
     dz = *(f32 *)((s8 *)arg3 + 8) - *(f32 *)((s8 *)arg2 + 8);
@@ -106,7 +102,7 @@ u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3,
     } else {
         *(s16 *)((s8 *)arg0 + 0xC4) = arg4;
     }
-    *(s16 *)((s8 *)arg0 + 0xC6) = get_level_tier__10TObjPlayerFl(*(s16 *)((s8 *)arg0 + 0xC4));
+    *(s16 *)((s8 *)arg0 + 0xC6) = TObjPlayer::get_level_tier(*(s16 *)((s8 *)arg0 + 0xC4));
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DC928;
@@ -153,7 +149,7 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     u32 var_r0;
     __ct__7TEffectFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCC68;
-    register_object__10TObjPlayerFv(arg0 + 0x84);
+    ((TObjPlayer *)(arg0 + 0x84))->register_object();
     *(u16 *)((s8 *)arg0 + 0xC8) = 0xFFFF;
     *(f32 *)((s8 *)arg0 + 0x20) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)arg0 + 0x24) = *(f32 *)((s8 *)arg2 + 4);
@@ -170,7 +166,7 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     } else {
         *(s16 *)((s8 *)arg0 + 0xC4) = arg4;
     }
-    *(s16 *)((s8 *)arg0 + 0xC6) = get_level_tier__10TObjPlayerFl(*(s16 *)((s8 *)arg0 + 0xC4));
+    *(s16 *)((s8 *)arg0 + 0xC6) = TObjPlayer::get_level_tier(*(s16 *)((s8 *)arg0 + 0xC4));
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DC928;

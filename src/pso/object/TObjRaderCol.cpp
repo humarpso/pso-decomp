@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjRaderCol.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -31,7 +33,6 @@ void queue_destruction__7TObjectFv(void *);
 f32 xz_distance_squared(void *, void *);
 int test_flag_2000000__10TObjPlayerFPv(void *);
 Ply_8019750C *get_player_by_client_id(s32);
-void reveal_region_by_id__13TRaderMapCoreFs(s16);
 void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0);
 extern s32 local_client_id;
 }
@@ -39,10 +40,7 @@ extern s32 local_client_id;
 extern "C" {
 
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
-s32 block_region_by_id__13TRaderMapCoreFs(s16);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void TObjRaderCol::render() {  }
 
@@ -65,7 +63,7 @@ void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
             for (j = 0; j < 4; j++) {
                 p = get_player_by_client_id(j);
                 if (p != 0 && xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
-                    reveal_region_by_id__13TRaderMapCoreFs(arg0->f94);
+                    TRaderMapCore::reveal_region_by_id(arg0->f94);
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
@@ -91,7 +89,7 @@ void TObjRaderCol::check_local_player_in_range(void *arg0_) {
     }
     if (p != 0) {
         if (xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
-            reveal_region_by_id__13TRaderMapCoreFs((s16)arg0->f94);
+            TRaderMapCore::reveal_region_by_id((s16)arg0->f94);
             queue_destruction__7TObjectFv(arg0);
         }
     }
@@ -104,11 +102,11 @@ void TObjRaderCol::run_task() {
     temp_r0 = *(s32 *)((s8 *)this + 0x98);
     switch (temp_r0) {
     case 0:
-        block_region_by_id__13TRaderMapCoreFs((s16) *(s32 *)((s8 *)this + 0x94));
+        TRaderMapCore::block_region_by_id((s16) *(s32 *)((s8 *)this + 0x94));
         *(s32 *)((s8 *)this + 0x98) = 1;
         return;
     case 1:
-        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        if (TRaderMapCore::is_not_split_screen() == 1) {
             check_any_player_in_range__12TObjRaderColFPv((Col_8019750C *)((void *)(this)));
             return;
         }
@@ -136,7 +134,7 @@ u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjRaderCol;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

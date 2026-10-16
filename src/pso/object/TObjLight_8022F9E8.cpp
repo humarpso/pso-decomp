@@ -1,10 +1,10 @@
 #include "types.h"
 
 #include "pso/effect/TechniqueChargeEmitter.h"
+#include "pso/player/TObjPlayer.h"
 extern "C" {
 extern u32 fire_technique_charge_effect_ids[];
 void* spawn_particle_effect(float*,u32);
-int check_flag_0x80__10TObjPlayerFv(void*);
 void queue_destruction__7TObjectFv(void*);
 void TObjLight__updateFireTechniqueCharge(TechniqueChargeEmitter* state);
 }
@@ -27,7 +27,7 @@ void TObjLight__updateFireTechniqueCharge(TechniqueChargeEmitter* state) {
     if(state->age%10==0) {
         for(int i=0;i<3;++i)spawn_particle_effect(state->position,fire_technique_charge_effect_ids[i]);
     }
-    if(!check_flag_0x80__10TObjPlayerFv(state->actor))queue_destruction__7TObjectFv(state);
+    if(!((TObjPlayer *)(state->actor))->check_flag_0x80())queue_destruction__7TObjectFv(state);
     else if(state->age>=180)queue_destruction__7TObjectFv(state);
 }
 

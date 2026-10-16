@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
+#include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 
 struct Obj_800E4554 { u8 pad0[0x1C]; u16 f1C; u8 pad1E[0xE]; s16 f2C; u8 pad2E[0x42C - 0x2E]; u16 slots[8]; };
 
@@ -112,7 +113,6 @@ u16 obj_getField1c();
 void TObjEneMe3Shinowa__ct(void *, void *);
 void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 void fn_800E762C(void *);
-void init_enemy__23TObjEneMe3ShinowaMirageFv(void *);
 extern s32 TObjEneMe3ShinowaReal_class_name;
 extern s32 __vt__21TObjEneMe3ShinowaReal[];
 Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *arg2);
@@ -196,7 +196,7 @@ Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *ar
     arg0->f0 = TObjEneMe3ShinowaReal_class_name;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     fn_800E762C(arg0);
-    init_enemy__23TObjEneMe3ShinowaMirageFv(arg0);
+    ((TObjEneMe3ShinowaMirage *)arg0)->init_enemy();
     arg0->f3D4 = 0;
     arg0->f3C4 &= 0xFFFFEFFF;
     for (i = 0; i < 4; i++) {

@@ -85,7 +85,6 @@ extern const f32 lbl_805D8F94;
 extern const f32 lbl_805D8F98;
 extern const f32 lbl_805D8F9C;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_camera_no__11TCameraCtrlFv(void);
 extern Flags_8006835C TCameraCtrl__view_state;
 extern View_8006835C *camera_ctrl_instance;
 void apply_camera_controller_pose(Cam_80068530 *arg0);
@@ -285,7 +284,7 @@ void apply_camera_controller_pose(Cam_80068530 *arg0) {
         V->target.x = V->curTarget.x;
         V->target.y = V->curTarget.y;
         V->target.z = V->curTarget.z;
-        no = get_camera_no__11TCameraCtrlFv();
+        no = TCameraCtrl::get_camera_no();
         VecCopy__FP3VecPC3Vec(&V->eye[no], &arg0->pos);
         VecCopy__FP3VecPC3Vec(&V->look[no], &arg0->target);
     } else {

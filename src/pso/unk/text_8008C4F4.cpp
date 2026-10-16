@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8008C534_main_task {
     s32 value;
@@ -21,7 +23,6 @@ s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-s32 update_input_frame__16TKeyBoardControlFv();
 s32 controller_stuff__Fv();
 s32 render_tick__Fv();
 s32 update_sound_request_slots();
@@ -35,7 +36,6 @@ extern RecoveredGlobal_8008C534_main_task main_task;
 void run_game_frame(void);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 render_tick__Fv();
-s32 stop_audio_streams__6TLobbyFv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8008C4F4_lbl_8048E7C0 ending_scene_callbacks;
 extern RecoveredGlobal_8008C534_main_task main_task;
@@ -51,7 +51,7 @@ typedef char RecoveredGlobal_8008C4F4_main_task_size[sizeof(RecoveredGlobal_8008
 void fn_8008C4F4(void) {
     s32 *var_r3;
     s32 var_r4;
-    stop_audio_streams__6TLobbyFv();
+    TLobby::stop_audio_streams();
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value);
     var_r3 = (s32 *)(&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value);
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8008C4F4_main_task *)&main_task).value));
@@ -66,7 +66,7 @@ void run_game_frame(void) {
     s32 *var_r3;
     func_803DCDFC__Fv();
     controller_stuff__Fv();
-    update_input_frame__16TKeyBoardControlFv();
+    TKeyBoardControl::update_input_frame();
     var_r3 = (s32 *)(&main_task.value);
     var_r3 = (s32 *)(&main_task.value);
     some_empty_func__9TMainTaskFv((void *) (&main_task.value));

@@ -1,6 +1,12 @@
 #include "types.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/object/TObjOnlineEnding.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -214,17 +220,13 @@ s32 queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
 void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
-s32 draw_player_model_by_client__10TObjPlayerFUslff(int, int, f32, f32);
 u32 calc_text_width(void *);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, int, f32);
 extern const f32 online_ending_scene_scale;
 extern f32 online_ending_quad_y_offset;
@@ -244,12 +246,10 @@ extern "C" {
 
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
 s32 restore_player_cameras();
-s32 get_online_result_value__6TLobbyFv();
 s32 TLobby__sub_80070ACC();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
 s32 TWindowSubStatusDisp__sub_800718D0();
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle__13TParticleCtrlFPvs(void *, s32);
 s32 get_card_window_value__16TObjOnlineEndingFv();
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 is_flag_set__6TLobbyFv();
@@ -264,7 +264,7 @@ void TObjOnlineEnding::create_result_window() {
     if (is_flag_set__6TLobbyFv() != 0) {
         temp_r30 = get_layout_id__20TWindowSubStatusDispFv(-1) - 1;
         {
-        s32 t = get_online_result_value__6TLobbyFv();
+        s32 t = TLobby::get_online_result_value();
         if (t == temp_r30) {
             var_r29 = (s32)__nw__7TObjectFUl(0x68);
             if (var_r29 != 0) {
@@ -285,11 +285,11 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
         lbl_804E3A38[2] = lbl_805DE930 + online_ending_scene_z_offset;
         online_ending_scene_translation_initialized = 1;
     }
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     post_translate_matrix(lbl_804E3A38);
     scale_matrix(0, online_ending_scene_scale, lbl_805DE934, lbl_805DE934);
-    set_global_param__8TObjFishFl(arg0->f94);
+    TObjFish::set_global_param(arg0->f94);
     draw_model_motion(arg0->f90, arg0->f98, arg0->f150);
     pop_matrix();
     for (i = 0; i < arg0->count; i++) {
@@ -314,11 +314,11 @@ void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0) {
             post_translate_matrix(e->f18);
             rotate_matrix_y(0, e->f1C);
             scale_matrix(0, e->f20, e->f20, e->f20);
-            draw_player_model_by_client__10TObjPlayerFUslff(e->id, e->f24, lbl_805DE944, lbl_805DE934);
+            TObjPlayer::draw_player_model_by_client(e->id, e->f24, lbl_805DE944, lbl_805DE934);
             pop_matrix();
         }
     }
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0) {
@@ -360,7 +360,7 @@ void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
         *(const s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjOnlineEnding;
         ((TObjOnlineEnding *)arg0)->close_window();
         restore_player_cameras();
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -392,9 +392,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 get_field_3e0__12TBoss3VoloptFv(void *);
 void construct_world_actor_base(void *, void *);
-s32 get_global_state__14TOKeyMachine01Fv();
 void play_area_music(void *);
 void fn_802E6218(void *);
 void fn_802E6260();
@@ -416,7 +414,7 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     construct_world_actor_base(arg0, parent);
     SELF->vt = (void *)__vt__16TObjOnlineEnding;
     SELF->f0 = TObjOnlineEnding__name;
-    SELF->fA0 = get_global_state__14TOKeyMachine01Fv();
+    SELF->fA0 = TOKeyMachine01::get_global_state();
     SELF->f9C = 0;
     obj = (TObject_802E4FFC *)arg0;
     switch (SELF->fA0) {
@@ -440,7 +438,7 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     }
     for (i = 0; i < 4; i++) {
         pl = (u8 *)((u32 (*)(s32))get_player_by_client_id)(i);
-        if (pl != 0 && SELF->fA0 == get_field_3e0__12TBoss3VoloptFv(pl)) {
+        if (pl != 0 && SELF->fA0 == ((TBoss3Volopt *)pl)->get_field_3e0()) {
             s32 c;
             e = &SELF->ent[SELF->count];
             e->active = 1;

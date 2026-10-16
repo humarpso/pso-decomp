@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/enemy/TObjEneSlimeOne.h"
 
 struct Stack_800EBE74 {
     f32 sp8;
@@ -24,8 +25,6 @@ s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, int, f32);
 }
 
 extern "C" {
-
-s32 get_attack_target__15TObjEneSlimeOneFv(void* p);
 
     extern int lbl_805D5660;
     extern int lbl_805D5664;

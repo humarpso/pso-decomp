@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowSubItemList.h"
+#include "pso/misc/TWindowSubItem.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList_size[sizeof(RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList) == 0x20 ? 1 : -1];
@@ -16,11 +18,8 @@ s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2);
-s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 create_menu_scroll_bar(void *);
-s32 ensure_status_display__20TWindowSubStatusDispFl(void *, int);
 s32 fn_802683F4(void *, void *, int, void *);
-s32 reset_selected__14TWindowSubItemFv(void *);
 extern s32 __vt__18TWindowSubItemList[];
 extern s32 TWindowSubItemList__class_name;
 u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2);
@@ -31,7 +30,6 @@ extern "C" {
 void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1);
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
-void destroy_item_list_resources__20TWindowSubStatusDispFs(void *, int);
 
 u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
@@ -72,7 +70,7 @@ extern s32 __vt__18TWindowSubItemList[];
 void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowSubItemList;
-        destroy_item_list_resources__20TWindowSubStatusDispFs(arg0, 0);
+        ((TWindowSubStatusDisp *)arg0)->destroy_item_list_resources(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -83,9 +81,9 @@ u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (0x24), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList *)&__vt__18TWindowSubItemList).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubItemList__class_name;
-    ensure_status_display__20TWindowSubStatusDispFl((void *) (arg0), (int) (get_message_10__20TWindowSubStatusDispFl((int) (0x24))));
+    ((TWindowSubStatusDisp *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
     create_menu_scroll_bar((void *) (arg0));
-    reset_selected__14TWindowSubItemFv((void *) (arg0));
+    ((TWindowSubItem *)arg0)->reset_selected();
     *(s32 *)((s8 *)arg0 + 0x8C) = 0;
     return arg0;
 }

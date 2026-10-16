@@ -37,17 +37,15 @@ __declspec(section ".ctors") static void *const __sinit_TObjPlayer_80354EC8_8035
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
+#include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 
 extern "C" {
 
 int __dl__FPv();
-int init_forward__10TObjPlayerFv(void*);
-int clear_id__10TObjPlayerFv(void*);
-int copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void*, void*);
 int fn_8035510C(void* a0 = 0, void* a1 = 0);
 int TAdPlyPltAnimCtrlGC__sub_80355168(void* a0 = 0);
 void TObjPlayer__sub_80354F8C(void* p);
-void init__19TAdPlyPltAnimCtrlGCFPv(void* p, void* a1);
 int TObjPlayer__sub_80354FB0(void* p);
 int TObjPlayer__sub_8035501C(void* p);
 int set_flags__10TObjPlayerFUl(void*, int);
@@ -62,13 +60,13 @@ int TObjPlayer::set_flag0_bits01() { return set_flags__10TObjPlayerFUl(this, 3);
 int TObjPlayer::clear_lock_flag() { return test_flags_any(this, 1); }
 int TObjPlayer__sub_8035501C(void* p) { return clear_flags__11TAdRicoRingFUl(p, 3); }
 int TObjPlayer::set_flag1() { return set_flags__10TObjPlayerFUl(this, 1); }
-void TObjPlayer::reset_field4() { clear_id__10TObjPlayerFv(this); *(int*)((char*)this + 0x4) = 0; }
+void TObjPlayer::reset_field4() { clear_id(); *(int*)((char*)this + 0x4) = 0; }
 s32 TObjPlayer__sub_80355098(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }
     return arg0;
 }
-void* init_and_reset_forward__10TObjPlayerFPv(void* p) { init_forward__10TObjPlayerFv(p); ((TObjPlayer *)p)->reset_field4(); return p; }
+void* init_and_reset_forward__10TObjPlayerFPv(void* p) { ((TObjPlayer *)p)->init_forward(); ((TObjPlayer *)p)->reset_field4(); return p; }
 
 }

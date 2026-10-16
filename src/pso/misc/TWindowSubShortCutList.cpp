@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowSubShortCutList.h"
+#include "pso/misc/TWindowChat.h"
+#include "pso/misc/TWindowShortListCtrl.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct Obj_8027E558 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x88 - 0x1C]; void *list; };
 
@@ -7,11 +10,8 @@ extern "C" {
 void TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_8044FAA8[];
-void *get_message_10__20TWindowSubStatusDispFl(s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void set_flag70_bit10__20TWindowShortListCtrlFv(void *);
 void set_cursor_index__20TWindowSubStatusDispFPvs(void *, s16);
-void ensure_status_display__20TWindowSubStatusDispFl(void *, void *);
 void fn_802683F4(void *, void *, s32, s16);
 void *init__21TWindowSubComCardListFiii(void *, s8, s32, s32);
 extern s32 __vt__22TWindowSubShortCutList[];
@@ -22,12 +22,10 @@ s32 get_shared_text_buffer();
 s32 fn_80076BC4(s32 *);
 s32 *get_chat_shortcut(s32);
 s32 get_symbol_chat_data__20TWindowSubSymbolChatFv();
-s32 open_symbol_chat__11TWindowChatFPl(s32 *);
 s8 get_type__20TWindowSubStatusDispFv(s32);
 s32 clamp_selection_to_valid_entry__20TShopArmorListWindowFv(void *);
 s32 save_cursor_selection__20TShopArmorListWindowFv();
 s32 reset_list__20TShopArmorListWindowFPv(void *);
-void draw_entry__22TWindowSubShortCutListFlUcll(void *, s32, u8, s32, s32);
 s32 update_state__9TWindowDDFv(s32 *, s32, u16);
 extern s32 local_client_id;
 }
@@ -44,7 +42,6 @@ s32 update_item_list_window();
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
-void destroy_item_list_resources__20TWindowSubStatusDispFs(void *, int);
 s32 draw_selected_list_entry(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 get_status_flag__6TLobbyFv(void *);
@@ -63,21 +60,21 @@ void TWindowSubShortCutList::refresh_entries() {
         temp_r3 = get_chat_shortcut(var_r29);
         switch (*temp_r3) {
         case 0:
-            draw_entry__22TWindowSubShortCutListFlUcll(this, var_r29, 0x33, 0, var_r29);
+            draw_entry(var_r29, 0x33, 0, var_r29);
             break;
         case 1:
             temp_r0 = fn_80076BC4(temp_r3 + 1);
-            draw_entry__22TWindowSubShortCutListFlUcll(this, var_r29, 0x12, temp_r0, var_r29);
+            draw_entry(var_r29, 0x12, temp_r0, var_r29);
             break;
         case 2:
             update_state__9TWindowDDFv(temp_r3 + 1, get_shared_text_buffer(), (u16) local_client_id);
-            draw_entry__22TWindowSubShortCutListFlUcll(this, var_r29, 0x10, get_shared_text_buffer(), var_r29);
+            draw_entry(var_r29, 0x10, get_shared_text_buffer(), var_r29);
             break;
         case 3:
-            open_symbol_chat__11TWindowChatFPl(temp_r3 + 1);
+            TWindowChat::open_symbol_chat(temp_r3 + 1);
             {
                 s32 d = get_symbol_chat_data__20TWindowSubSymbolChatFv();
-                draw_entry__22TWindowSubShortCutListFlUcll(this, var_r29, 0x11, d, var_r29);
+                draw_entry(var_r29, 0x11, d, var_r29);
             }
             break;
         }
@@ -125,7 +122,7 @@ void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubShortCutList;
         delete_if_allocated(*(void **)((s8 *)arg0 + 0x88), 1);
-        destroy_item_list_resources__20TWindowSubStatusDispFs(arg0, 0);
+        ((TWindowSubStatusDisp *)arg0)->destroy_item_list_resources(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -141,13 +138,13 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     ((Obj_8027E558 *)arg0)->f0 = TWindowSubShortCutList__class_name;
     row = (s32)arg2 / 4;
     col = (s32)arg2 % 4;
-    ensure_status_display__20TWindowSubStatusDispFl(arg0, get_message_10__20TWindowSubStatusDispFl(0x2D));
+    ((TWindowSubStatusDisp *)arg0)->ensure_status_display((s32)(TWindowSubStatusDisp::get_message_10(0x2D)));
     p = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
     if (p != NULL) {
         p = init__21TWindowSubComCardListFiii(p, row, 5, local_client_id);
     }
     ((Obj_8027E558 *)arg0)->list = p;
-    set_flag70_bit10__20TWindowShortListCtrlFv(arg0);
+    ((TWindowShortListCtrl *)arg0)->set_flag70_bit10();
     ((TWindowSubShortCutList *)arg0)->refresh_entries();
     set_cursor_index__20TWindowSubStatusDispFPvs(arg0, col);
     return arg0;

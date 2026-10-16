@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TMainCursor.h"
+#include "pso/misc/TForceOperate.h"
+#include "pso/misc/TWindowActionPalette.h"
 
 extern "C" {
 void TObjPlayer__sub_8013DEF8(u8 *arg0);
@@ -9,12 +11,7 @@ extern "C" {
 
 u16 TMainCursor__sub_8013E03C(void* p);
 int __dl__FPv();
-s32 destroy__13TForceOperateFls(s32 arg0, s16 arg1);
 int find_action_slot_for_target__11TMainCursorFllll(void*);
-s32 get_state__11TMainCursorFv(void* p);
-void set_field_0__13TForceOperateFs(void* p, s16 v);
-void set_mode__20TWindowActionPaletteFUc(void* p, u8 v);
-void set_slot__20TWindowActionPaletteFUc(void* p, u8 v);
 
 void TObjPlayer__sub_8013DEF8(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) | 1);

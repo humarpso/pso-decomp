@@ -57,8 +57,6 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 draw_status_icon__10TObjPlayerFl(void *, void *);
 void TObjPlayer__sub_8012150C(u8 *arg0);
 u8 * init_vtable_804A08B8__10TObjPlayerFv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -84,11 +82,11 @@ u8 *TObjPlayer::create_vtable_804A08B8(u8 *arg0) {
 void TObjPlayer__sub_8012150C(u8 *arg0) {
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        draw_status_icon__10TObjPlayerFl((void *) (arg0), (void *) (&sp8));
+        ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (&sp8)));
         ((VObj_18 *)(arg0))->m49(&sp8, 0, 0, 1);
         return;
     }
-    update_active_game_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->update_active_game_effect();
 }
 
 }

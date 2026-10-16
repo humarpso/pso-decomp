@@ -8,7 +8,6 @@ s32 TObjControl__ct(s32, s32);
 s32 TObjEneSlime__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 spawn_child__12TObjEneSlimeFsllff(s32, s32, s32, f32, f32);
 
 extern s32 slime_pair_resource_descriptor[];
 extern void *slime_bml_resource;
@@ -26,9 +25,9 @@ void TObjEneSlime::spawn_pair() {
     }
     slime_bml_resource = temp_r4;
     temp_r5 = *(void **)((s8 *)temp_r4 + 0x42C);
-    spawn_child__12TObjEneSlimeFsllff(0x28, *(s32 *)((s8 *)temp_r5 + 0x48), *(s32 *)((s8 *)temp_r5 + 0x4C), lbl_805DA66C, lbl_805DA6B4);
+    TObjEneSlime::spawn_child(0x28, *(s32 *)((s8 *)temp_r5 + 0x48), *(s32 *)((s8 *)temp_r5 + 0x4C), lbl_805DA66C, lbl_805DA6B4);
     temp_r5_2 = *(void **)((s8 *)slime_bml_resource + 0x42C);
-    spawn_child__12TObjEneSlimeFsllff(0x29, *(s32 *)((s8 *)temp_r5_2 + 0x58), *(s32 *)((s8 *)temp_r5_2 + 0x5C), lbl_805DA66C, lbl_805DA6B4);
+    TObjEneSlime::spawn_child(0x29, *(s32 *)((s8 *)temp_r5_2 + 0x58), *(s32 *)((s8 *)temp_r5_2 + 0x5C), lbl_805DA66C, lbl_805DA6B4);
 }
 
 extern s32 tl_04;

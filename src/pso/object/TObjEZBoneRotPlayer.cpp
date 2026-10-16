@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern void *__vt__19TObjEZBoneRotPlayer[];
@@ -58,10 +59,7 @@ struct Self_800FEEA4 {
 
 extern "C" {
 void fn_800FF788(void *, void *);
-void *get_item_ptr__10TObjPlayerFl(void *, s32);
 void matrix_mult_vec(s32, void *, void *);
-void invert_matrix_in_place__10TObjPlayerFUl(s32);
-void concat_matrix__10TObjPlayerFUlUl(s32, void *);
 void push_matrix(void);
 void pop_matrix(void);
 extern u8 TObjEZBoneRotPlayer__chain_gravity[];
@@ -81,13 +79,13 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
     PosDst_800FEEA4 *pd;
     if (self->rot_dst != NULL) {
         push_matrix();
-        invert_matrix_in_place__10TObjPlayerFUl(0);
+        TObjPlayer::invert_matrix_in_place(0);
         rs = self->rot_src;
         rd = self->rot_dst;
         while (rs->bone >= 0) {
             rd->angle = rs->angle;
             push_matrix();
-            concat_matrix__10TObjPlayerFUlUl(0, get_item_ptr__10TObjPlayerFl(self->model, rs->bone));
+            TObjPlayer::concat_matrix(0, ((TObjPlayer *)(self->model))->get_item_ptr(rs->bone));
             matrix_mult_vec(0, rs->data, rd->data);
             pop_matrix();
             rs++;
@@ -96,13 +94,13 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
         pop_matrix();
     }
     push_matrix();
-    invert_matrix_in_place__10TObjPlayerFUl(0);
+    TObjPlayer::invert_matrix_in_place(0);
     ps = self->pos_src;
     pd = self->pos_dst;
     while (ps->bone >= 0) {
         pd->val = self->model->base + ps->ofs;
         push_matrix();
-        concat_matrix__10TObjPlayerFUlUl(0, get_item_ptr__10TObjPlayerFl(self->model, ps->bone));
+        TObjPlayer::concat_matrix(0, ((TObjPlayer *)(self->model))->get_item_ptr(ps->bone));
         matrix_mult_vec(0, ps->data, pd->data);
         pop_matrix();
         ps++;

@@ -2,6 +2,8 @@
 #include "pso/TItemMenuCtrl.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/item/TItemEffectWeapon.h"
 
 extern "C" {
 void advance_angle_wrap(s32 *arg0, s32 arg1);
@@ -13,8 +15,6 @@ u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-int decrement_packed_timer__15TObjBoss2TunnelFPUll(void*);
-int decrement_timer__17TItemEffectWeaponFv(void* p);
 int set_flags__10TObjPlayerFUl(void*);
 
 int TItemMenuCtrl::set_menu_flags() { return set_flags__10TObjPlayerFUl((char*)this + 0x1c); }

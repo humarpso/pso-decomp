@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubQuestBoardSelect.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8027DA14_lbl_804D19A8 {
     s32 value;
@@ -11,10 +15,7 @@ struct RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect {
 };
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * get_quest_name__12TQuestThreadFv(void);
-s32 get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-s32 get_field_20__17TWindowSubComCardFv(void *);
 u8 * get_window_layout_position(s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(int);
@@ -22,7 +23,6 @@ u32 calc_text_width();
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 s32 set_text_entry_string(int, int, int);
 s32 update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *, f32, f32);
-s32 select_next__26TWindowSubQuestBoardSelectFv(void *);
 extern RecoveredGlobal_8027DA14_lbl_804D19A8 TWindowSubQuestBoardSelect__window_parameters;
 extern RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect __vt__26TWindowSubQuestBoardSelect;
 extern s32 TWindowSubQuestBoardSelect__class_name;
@@ -44,20 +44,20 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowSubQuestBoardSelect__window_parameters.value), (int) (4), (int) (get_window_layout_position(0x70)));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubQuestBoardSelect__class_name;
-    var_r30 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x24);
+    var_r30 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     if (var_r30 != 0) {
         var_r30 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r30, get_message_10__20TWindowSubStatusDispFl((int) (0x2B)), (s32) *(s16 *)((s8 *)arg0 + 0x20));
     }
     *(s32 *)((s8 *)arg0 + 0x64) = var_r30;
     *(s8 *)((s8 *)arg0 + 0x60) = 0;
-    temp_r30 = get_array_entry__20TWindowSubStatusDispFi(arg0, 0);
+    temp_r30 = ((TWindowSubStatusDisp *)arg0)->get_array_entry(0);
     set_text_entry_string((int) (temp_r30), (int) (get_quest_name__12TQuestThreadFv()), (int) (0));
-    get_field_20__17TWindowSubComCardFv((void *) temp_r30);
+    ((TWindowSubComCard *)temp_r30)->get_field_20();
     temp_f2 = (f32) calc_text_width();
     *(f32 *)((s8 *)temp_r30 + 8) = (f32) -((lbl_805DD6BC * temp_f2) - lbl_805DD6B8);
     *(s8 *)((s8 *)arg0 + 0x61) = -1;
     update_slot_display_flags__26TWindowSubQuestBoardSelectFPv((void *) (arg0), (f32) (lbl_805DD6BC), (f32) (temp_f2));
-    select_next__26TWindowSubQuestBoardSelectFv((void *) (arg0));
+    ((TWindowSubQuestBoardSelect *)arg0)->select_next();
     return arg0;
 }
 #pragma pop

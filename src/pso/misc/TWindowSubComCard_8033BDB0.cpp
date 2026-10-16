@@ -6,6 +6,10 @@ struct VObj : VBase { virtual void m0(int); };
 
 #include <stddef.h>
 #include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TCheckMemoryCard.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TWindowOptionCtrl.h"
 struct Stack_8033C024 {
     s32 sp8;
     s32 spC;
@@ -26,23 +30,18 @@ s32 poll_memcard_status__15TAdPlayerLoadGCFv(void *);
 void TWindow__close(void *);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 u32 get_message_10__20TWindowSubStatusDispFl(s32);
-void reparent_to_main_ctrl__17TWindowSubComCardFv(s32);
-s32 set_selected_index__17TWindowSubComCardFs(u32, s16);
 s32 align_menu_entry_positions(u32);
 s32 update_layout_height__17TWindowSubComCardFPvf(u32, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, s32, s32);
 u32 create_window_menu(s32 *, s32, s32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 *, s32);
 s32 complete_reveal__14TWindowMessageFPv(u32);
-s32 send_and_handle__6TLobbyFii(u32, u32, s32);
 u32 create_message_window__6TLobbyFllUls(s32 *, s32 *, s32, s32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
-s32 clear_flag70_bit4__17TWindowOptionCtrlFv(u32);
 extern s32 lbl_80477DB4[];
 extern s32 lbl_80477DBC[];
 extern s32 lbl_804EF8D8[];
 extern const f32 lbl_805D6D98;
-s32 is_visible__17TWindowSubComCardFv(void *);
 s32 get_selected_menu_value(void *);
 }
 
@@ -53,8 +52,6 @@ void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 init__22TQuestVmDownLoadServerFPvPvPvPv(void *, s32, s32, s32, s32);
-void render__16TCheckMemoryCardFv(void);
 int update_card_display__17TWindowSubComCardFPvPvPvPv(void*, int, int, int, int);
 
 void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u32 arg4) {
@@ -71,10 +68,10 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u3
         return;
     }
     if (*(u32 *)((s8 *)this + 0x30) != 0U && *(s32 *)((s8 *)this + 0x4C) != 0) {
-        reparent_to_main_ctrl__17TWindowSubComCardFv(*(s32 *)((s8 *)this + 0x30));
+        ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x30)))->reparent_to_main_ctrl();
     }
     if (arg1 != 0U) {
-        send_and_handle__6TLobbyFii(*(u32 *)((s8 *)this + 0x30), arg1, 3);
+        ((TLobby *)(*(u32 *)((s8 *)this + 0x30)))->send_and_handle(arg1, 3);
     }
     complete_reveal__14TWindowMessageFPv(*(u32 *)((s8 *)this + 0x30));
     if (arg2 == -1) {
@@ -89,7 +86,7 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u3
         return;
     }
     if (*(u32 *)((s8 *)this + 0x34) != 0U && *(s32 *)((s8 *)this + 0x4C) != 0) {
-        reparent_to_main_ctrl__17TWindowSubComCardFv(*(s32 *)((s8 *)this + 0x34));
+        ((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x34)))->reparent_to_main_ctrl();
     }
     msg = arg3;
     if (arg3 == 0U) {
@@ -106,11 +103,11 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u3
     update_layout_height__17TWindowSubComCardFPvf(*(u32 *)((s8 *)this + 0x34), lbl_805D6D98);
     align_menu_entry_positions(*(u32 *)((s8 *)this + 0x34));
     if (arg2 != -2) {
-        set_selected_index__17TWindowSubComCardFs(*(u32 *)((s8 *)this + 0x34), arg2);
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x34)))->set_selected_index(arg2);
     } else {
-        set_selected_index__17TWindowSubComCardFs(*(u32 *)((s8 *)this + 0x34), 0);
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x34)))->set_selected_index(0);
     }
-    clear_flag70_bit4__17TWindowOptionCtrlFv(*(u32 *)((s8 *)this + 0x34));
+    ((TWindowOptionCtrl *)(*(u32 *)((s8 *)this + 0x34)))->clear_flag70_bit4();
 }
 
 #pragma push
@@ -194,7 +191,7 @@ void TWindowSubComCard__sub_8033C198(void) {  }
 int TWindowSubComCard__sub_8033C19C(void* p) { return update_card_display__17TWindowSubComCardFPvPvPvPv(p, 0, -1, -1, -1); }
 void TWindowSubComCard::handle_menu_selection() {
     O_8033C1CC *arg0 = (O_8033C1CC *)this;
-    if (arg0->p == 0 || is_visible__17TWindowSubComCardFv(arg0->p) == 0) {
+    if (arg0->p == 0 || ((TWindowSubComCard *)(arg0->p))->is_visible() == 0) {
         return;
     }
     switch (get_selected_menu_value(arg0->p)) {

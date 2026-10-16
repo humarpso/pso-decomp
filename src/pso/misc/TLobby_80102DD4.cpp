@@ -143,6 +143,8 @@ void send_pick_up_item_request__6TLobbyFi(s32 arg0) {
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/TItemAttacker.h"
+#include "pso/player/TObjPlayer.h"
 
 struct AttackWeaponBase { char pad[0x18]; };
 
@@ -218,11 +220,9 @@ u8 fn_8010319C(u8 *arg0);
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
 s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);
-s32 spawn_item_timer__13TItemAttackerFlll(int, void *, void *);
 s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
-s32 show_miss_for_collider__10TObjPlayerFi(int, int);
 u8 *find_item_by_id(s32);
 f32 horizontal_distance_squared(void *, void *);
 u8 *resolve_hittable_target(u16, s16);
@@ -300,7 +300,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
         } else {
             temp_f31 = horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
             if (horizontal_distance_squared((void *) (temp_r30), (void *) (arg0 + 0x44)) < temp_f31) {
-                show_miss_for_collider__10TObjPlayerFi((int) (temp_r3), (int) (*(s16 *)((s8 *)arg0 + 0x2C)));
+                ((TObjPlayer *)temp_r3)->show_miss_for_collider((int) (*(s16 *)((s8 *)arg0 + 0x2C)));
             }
         }
     }
@@ -314,7 +314,7 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
         if (var_r0 != 0) {
             var_r0 = __ct__13TItemAttackerFv((void*)var_r0, (void *) (arg0), (void *) (arg1), arg2, (void *) (arg3));
         }
-        spawn_item_timer__13TItemAttackerFlll((int) (var_r0), (void *) (&TItemAttacker__sub_8010349C), (void *) (arg2));
+        TItemAttacker::spawn_item_timer((s32)((int) (var_r0)), (s32)((void *) (&TItemAttacker__sub_8010349C)), (s32)((void *) (arg2)));
     }
 }
 

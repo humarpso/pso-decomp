@@ -2,6 +2,8 @@
 #include "pso/misc/TOContainerAncientItemCommon.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TObjContainerItem.h"
 
 struct Base_8015B8E8 { char pad[0x18]; };
 
@@ -111,13 +113,10 @@ struct Ids_8015C234 { s32 f0; s32 a; s32 b; };
 struct Obj_8015C48C { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364; };
 
 extern "C" {
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_model(int);
 void TObjPlayer__sub_8015C3C8(u8 *arg0);
 extern s32 __vt__23TOContainerAncientEnemy[];
@@ -171,17 +170,15 @@ struct VObj_8015C098 : Base_8015C098 {
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_ancient_container__10TObjPlayerFs(void *, int);
 void init_ancient_container(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
-s32 spawn_item__17TObjContainerItemFl(void *, void *);
 
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((struct VObj_8015C098 *) arg0)->m77();
-            spawn_item__17TObjContainerItemFl(arg0, arg0);
+            ((TObjContainerItem *)arg0)->spawn_item((s32)arg0);
         }
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);
@@ -216,7 +213,7 @@ s32 TOContainerAncientItemCommon::create() {
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
-        destroy_ancient_container__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_ancient_container(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -285,7 +282,7 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
@@ -298,9 +295,9 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
             temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
             pop_matrix();
             pop_matrix();
             pop_matrix();

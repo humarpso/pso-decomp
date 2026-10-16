@@ -1,13 +1,13 @@
 #include "types.h"
 #include "pso/protocol/subcommand_validation.h"
 #include "pso/TObjBoss8DemoRoom.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8036B6D0_lbl_804F3660 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8036B6D0_lbl_804F3660_size[sizeof(RecoveredGlobal_8036B6D0_lbl_804F3660) == 0x10 ? 1 : -1];
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8036B6D0_lbl_804F3660 TObjBoss8DemoRoom__resource_desc;
 extern u32 TObjBoss8DemoRoom__shared_resource_object;
 }
@@ -40,7 +40,7 @@ void TObjBoss8DemoRoom::free_static_instance() {
 void TObjBoss8DemoRoom::load_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjBoss8DemoRoom__resource_desc.value, 0, 0, 0));

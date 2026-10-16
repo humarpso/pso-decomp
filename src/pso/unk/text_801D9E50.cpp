@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/protocol.h"
 
 struct VBase_18_44382c { char pad[0x18]; };
 
@@ -21,7 +22,6 @@ struct Stack_801D9E50 {
 };
 
 extern "C" {
-void bswap__13packet_headerFv(s32);
 void send_keepalive(u8 *arg0);
 }
 
@@ -32,7 +32,7 @@ void send_keepalive(u8 *arg0) {
     stack.sp8 = 0x1D;
     stack.sp9 = 0;
     stack.spA = 4;
-    bswap__13packet_headerFv((s32) &stack.sp8);
+    ((packet_header *)((s32) &stack.sp8))->bswap();
     ((VObj_18_44382c *)(arg0))->m8(&stack.sp8, 4);
 }
 

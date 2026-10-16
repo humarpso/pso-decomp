@@ -9,7 +9,6 @@ struct Stack_8031C190 {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
-void set_active__12TObjEneReconFv(void);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneRecon__data_805DF3C0;
 }
@@ -32,7 +31,7 @@ void TObjEneRecon::update_ground_probe() {
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x418) & 0x4000) {
-        set_active__12TObjEneReconFv();
+        TObjEneRecon::set_active();
     }
 }
 

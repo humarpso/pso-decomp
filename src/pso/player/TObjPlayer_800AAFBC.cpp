@@ -3,6 +3,17 @@
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjFish.h"
 struct Stack_800ABA9C {
     f32 sp8;
     f32 spC;
@@ -184,23 +195,17 @@ s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(s32);
 extern s32 lbl_805D5094;
 extern s32 model_render_flags;
 
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 void TObjPlayer__sub_800AB970(void);
-void set_param__12TObjEneLappyFl(void *, s32);
 void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 extern s32 shark_render_node_index;
 void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 s32 get_player_by_client_id(int);
@@ -212,22 +217,14 @@ f32 fabs_float(f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
 s32 TObjPlayer__sub_800AB068(u8 *arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void play_sound_4003A60D__10TObjPlayerFi(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_effect_if_v2__10TObjPlayerFl(int);
 s32 play_sound_effect(void *, void *, int, int);
 void TObjPlayer__sub_800AB974(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_effect_if_v2__10TObjPlayerFl(int);
 s32 play_sound_effect(void *, void *, int, int);
 void TObjPlayer__sub_800AB9C0(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_effect_if_v2__10TObjPlayerFl(int);
 s32 play_sound_effect(void *, void *, int, int);
 void TObjPlayer__sub_800ABA50(s32 arg0);
-s32 spawn_ground_effect__10TObjPlayerFl(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -239,7 +236,6 @@ extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BA4;
 extern const f32 lbl_805D9BA8;
 void spawn_front_ground_effect__10TObjPlayerFPv(u8 *arg0);
-s32 play_area_sound_effect__12TBoss3VoloptFv(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback();
 void TObjPlayer__sub_800ABCBC(Obj_800ABCBC *arg0);
@@ -256,8 +252,6 @@ extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *tl_06;
 extern const f32 lbl_805D9B64;
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
-s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -283,10 +277,8 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
-s32 clear_counter__10TObjPlayerFv(void *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
-s32 collect_and_count__12TBoss3VoloptFUll(void *, int);
 s32 construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
@@ -301,28 +293,16 @@ extern void *lbl_805D5090;
 extern void *tl_06;
 
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
-s32 render_with_position_override__10TObjPlayerFPUcl(void *, void *, int);
 s32 is_split_screen();
-s32 get_camera_mode__11TCameraCtrlFv();
-s32 check_demo_mode__10TObjPlayerFv();
-s32 check_v2_mode__9TObjEneDDFv();
-s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 s32 update_obstruction_fade(void *);
-s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 render_world_model__10TObjPlayerFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_object(s32);
-s32 set_global_state__16TObjEneRe7BeruraFl(void *);
 void update_particle_by_phase__10TObjPlayerFv(void);
 extern s32 shark_render_node_index;
 extern s32 lbl_805D5660;
@@ -346,7 +326,6 @@ void TObjPlayer__sub_800AAFF0(void* p, f32 v);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-s32 set_cancel_flag__10TObjPlayerFv(u32);
 
 extern void *lbl_805D5090;
 extern s32 lbl_805D5098;
@@ -428,7 +407,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
   temp_r3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x5C)));
   if (temp_r3 != 0)
   {
-    copy_pos__11TNowLoadingFPv(temp_r3, arg0 + 0x1C);
+    ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x1C);
   }
   *((f32 *) (((s8 *) arg0) + 0x58)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x58))) + lbl_805D9B5C);
   if ((*((f32 *) (((s8 *) arg0) + 0x58))) >= lbl_805D9B60)
@@ -486,7 +465,7 @@ Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2,
 void TObjPlayer::cancel_action() {
     if (get_action_priority() != 1) {
         if ((u32) *(u32 *)((s8 *)this + 0xD0) != 0U) {
-            set_cancel_flag__10TObjPlayerFv(*(u32 *)((s8 *)this + 0xD0));
+            ((TObjPlayer *)(*(u32 *)((s8 *)this + 0xD0)))->set_cancel_flag();
         }
         *(s16 *)((s8 *)this + 0xAE) = 2;
     }
@@ -496,8 +475,8 @@ s32 TObjPlayer::get_action_priority() {
 }
 void TObjPlayer::draw_model_no_fog() {
     u8 *arg0 = (u8 *)this;
-    set_global_param__8TObjFishFl(lbl_805D5094);
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xD8));
+    TObjFish::set_global_param(lbl_805D5094);
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xD8));
     push_matrix();
     post_translate_matrix(arg0 + 0xF0);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xC0));
@@ -572,7 +551,7 @@ void *TObjPlayer::destroy_with_particle_cleanup(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491478;
         if (*(void **)((s8 *)this + 0xD0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD0)); *(s32 *)((s8 *)this + 0xD0) = 0; }
-        destroy_particle_controller__10TObjPlayerFs(this, 0);
+        destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -593,7 +572,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     *(s16 *)((s8 *)arg0 + 0xAE) = 0;
     t = player_sub_800ab7a0_id_table[arg1];
     *(s32 *)((s8 *)arg0 + 0xD8) = arg3;
-    *(s32 *)((s8 *)arg0 + 0xC8) = collect_and_count__12TBoss3VoloptFUll((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18)), t);
+    *(s32 *)((s8 *)arg0 + 0xC8) = TBoss3Volopt::collect_and_count((u32)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18))), (s32)t);
     *(Vec_800AB7A0 **)((s8 *)arg0 + 0xCC) = &((Arr_800AB7A0 *)arg2)->arr[arg1];
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xF0), (void *) VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (arg4)));
     *(f32 *)((s8 *)arg0 + 0xE8) = 3.0f + *(f32 *)((s8 *)arg2 + 0x3C);
@@ -617,7 +596,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     }
     *(void **)((s8 *)arg0 + 0xD0) = obj;
     if (*(void **)((s8 *)arg0 + 0xD0) != NULL) {
-        clear_counter__10TObjPlayerFv(*(void **)((s8 *)arg0 + 0xD0));
+        ((TObjPlayer *)(*(void **)((s8 *)arg0 + 0xD0)))->clear_counter();
     }
     return arg0;
 }

@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TOChatSensor.h"
+#include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_8015AF10
 {
@@ -20,20 +22,15 @@ struct Packet_8015AD54 {
 
 extern "C" {
 u8 is_current_floor_switch_set(int);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 f32 newton_sqrtf(f32);
-s32 check_demo_mode__10TObjPlayerFv(void);
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DB388;
 extern const f32 lbl_805DB38C;
 void *strncpy(void *, void *, s32);
 s16 get_current_floor(void);
-void send_state__12TOChatSensorFv(void *);
-void init_packet_type__12TOChatSensorFv(void *);
 void *__ct__12TQuestThreadFv(void *, void *, u32);
 s32 find_chat_keyword(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
-void set_parent__7TObjectFP7TObject(void *, void *);
 extern void *current_language;
 extern void *quest_mission_manager;
 extern void *tl_00;
@@ -99,16 +96,16 @@ void TOChatSensor::handle_chat_message(void *arg1) {
                     }
                     *(void **)(arg0 + 0xC4) = o;
                     if (*(void **)(arg0 + 0xC4) != NULL) {
-                        set_parent__7TObjectFP7TObject(*(void **)(arg0 + 0xC4), tl_00);
+                        ((TObject *)(*(void **)(arg0 + 0xC4)))->set_parent((TObject *)tl_00);
                     }
                     *(s32 *)(arg0 + 0xC8) = 1;
                 }
             } else if (*(u16 *)(arg0 + 0x94) < 0x100) {
-                init_packet_type__12TOChatSensorFv(&pkt);
+                ((TOChatSensor *)(&pkt))->init_packet_type();
                 pkt.a = get_current_floor();
                 pkt.b = *(u16 *)(arg0 + 0x94);
                 pkt.c = 1;
-                send_state__12TOChatSensorFv(&pkt);
+                ((TOChatSensor *)(&pkt))->send_state();
             }
         }
     }
@@ -148,7 +145,7 @@ typedef struct Stack_8015AF10 Stack_8015AF10;
 void TOChatSensor::render() {
     u8 *arg0 = (u8 *)this;
   Stack_8015AF10 stack;
-  if (check_demo_mode__10TObjPlayerFv() == 1)
+  if (TObjPlayer::check_demo_mode() == 1)
   {
     stack.sp8 = lbl_805DB388;
     stack.spC = lbl_805DB388;
@@ -168,7 +165,7 @@ void TOChatSensor::run_task() {
             check_player_proximity();
             return;
         case 1:
-            if (((u32) *(u32 *)((s8 *)arg0 + 0xC4) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(*(u32 *)((s8 *)arg0 + 0xC4)) == 0)) {
+            if (((u32) *(u32 *)((s8 *)arg0 + 0xC4) != 0U) && (((TObject *)(*(u32 *)((s8 *)arg0 + 0xC4)))->all_parents_unqueued_for_destruction() == 0)) {
                 *(u32 *)((s8 *)arg0 + 0xC4) = 0U;
                 *(s32 *)((s8 *)arg0 + 0xC8) = 0;
                 return;

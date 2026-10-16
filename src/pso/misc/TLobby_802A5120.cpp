@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/TObjCMAssignMenu.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct V2_802A5208 { f32 x; f32 y; };
 
@@ -9,7 +10,6 @@ struct Tag_802A5208 { u8 pad0[0x24]; f32 t; };
 extern "C" {
 void draw_ui_sprite(s32, void *, f32, f32);
 void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 extern V2_802A5208 lbl_80466720[];
 extern V2_802A5208 lbl_80466728[];
 extern V2_802A5208 lbl_80466730[];
@@ -62,7 +62,7 @@ void TObjCMAssignMenu::draw_frame() {
     V2_802A5208 base = lbl_80466758[0];
     V2_802A5208 cur;
     for (; base.y <= lbl_805DDFE0; base.y += lbl_805DDFDC) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&cur, &base);
+        ((TWindowSubSymbolChatPartsSet *)(&cur))->copy_vec2(&base);
         draw_ui_sprite(0x81, &cur, lbl_805DDFD0, a);
         cur.x += lbl_805DDFD4;
         draw_ui_sprite_scaled(0x82, &cur, &scale, lbl_805DDFD0, a);

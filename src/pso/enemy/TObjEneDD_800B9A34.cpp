@@ -10,7 +10,6 @@ void enemy_init_validate_period(void *, int);
 void __dl__7TObjectFPv(void *);
 void enemy_init_acquire_period(void *, int);
 void enemy_clear_target(void *);
-void init_float_params__9TObjEneDDFv(void *);
 
 extern s32 lbl_80492558[];
 
@@ -33,7 +32,7 @@ void *TObjEneDD::init_object() {
     *(s32 **)((s8 *)this + 0x18) = lbl_80492558;
     *(void **)((s8 *)this + 0x0) = lbl_805D2A34;
     enemy_clear_target(this);
-    init_float_params__9TObjEneDDFv(this);
+    init_float_params();
     enemy_init_acquire_period(this, 30);
     enemy_init_validate_period(this, 30);
     return this;

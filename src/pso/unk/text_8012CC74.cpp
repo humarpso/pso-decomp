@@ -57,9 +57,7 @@ struct Pl_8012CCCC : PlB_8012CCCC {
 };
 
 extern "C" {
-void draw_status_icons__10TObjPlayerFPvPv(void *, void *, void *);
 void TObjPlayer__sub_8012CD68(u8 *arg0);
-u8 * init_state__10TObjPlayerFlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_saber_weapon(u8 *arg0);
@@ -74,7 +72,7 @@ u8 *create_saber_weapon(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_state__10TObjPlayerFlPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(((TObjPlayer *)temp_r3)->init_state(tl_05, arg0));
         }
         return var_r0;
     }
@@ -91,7 +89,7 @@ void TObjPlayer::toggle_slot_states() {
 }
 
 void TObjPlayer__sub_8012CD68(u8 *arg0) {
-    draw_status_icons__10TObjPlayerFPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
+    ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1F8, arg0 + 0x204);
 }
 
 }

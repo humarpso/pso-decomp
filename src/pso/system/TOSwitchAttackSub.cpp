@@ -1,8 +1,8 @@
 #include "pso/TOSwitchAttackSub.h"
+#include "pso/TParticleCtrl.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void*);
-void clear_active_flag__13TParticleCtrlFv(void*);
 void enable__13TParticleCtrlFPv(void*);
 f32 horizontal_distance_squared(const f32*, const f32*);
 u8* get_player_by_client_id(void*);
@@ -29,7 +29,7 @@ void TOSwitchAttackSub::run_task() {
             enable__13TParticleCtrlFPv(particle);
             return;
         }
-        clear_active_flag__13TParticleCtrlFv(particle);
+        ((TParticleCtrl *)particle)->clear_active_flag();
     }
 }
 

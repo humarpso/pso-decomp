@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TContainerAncient01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_8018B820_8018B79C { char pad[0x18]; };
 struct VObj_8018B820_8018B79C : Base_8018B820_8018B79C {
@@ -34,12 +36,10 @@ struct VObj8018B8BC_8018B79C : VBase8018B8BC_8018B79C {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 check_demo_mode__10TObjPlayerFv();
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 s32 TContainerAncient01__sub_8018B284(void *);
 s32 TContainerAncient01__sub_8018B48C(void *);
-s32 update_wait_for_player__19TContainerAncient01Fv(void *);
 s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__bml_resource;
@@ -67,9 +67,7 @@ s32 send_object_state_update(void *, s16 *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 check_demo_mode__10TObjPlayerFv();
 s32 reset_state__19TContainerAncient01Fv();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern f32 TContainerAncient01__data_805DBD14;
 
@@ -113,14 +111,14 @@ s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
 void TContainerAncient01::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj8018B8BC_8018B79C *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x35C) != 0) {
             scale_current_matrix(arg0 + 0x360);
         }
-        if (check_demo_mode__10TObjPlayerFv() == 1) {
+        if (TObjPlayer::check_demo_mode() == 1) {
             draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         } else {
             draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
@@ -133,12 +131,12 @@ void TContainerAncient01::run_task() {
     f32 temp_f1;
     f32 temp_f1_2;
     s16 temp_r0;
-    if (check_demo_mode__10TObjPlayerFv() == 0) {
+    if (TObjPlayer::check_demo_mode() == 0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x35C) == 0) {
             temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
             switch (temp_r0) {
             case 0:
-                update_wait_for_player__19TContainerAncient01Fv((void *) (arg0));
+                ((TContainerAncient01 *)arg0)->update_wait_for_player();
                 break;
             case 1:
                 TContainerAncient01__sub_8018B48C((void *) (arg0));
@@ -150,7 +148,7 @@ void TContainerAncient01::run_task() {
                 *(s16 *)((s8 *)arg0 + 0x326) = 0;
                 *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)arg0 + 0x326);
                 *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) TContainerAncient01__data_805DBD1C;
-                update_wait_for_player__19TContainerAncient01Fv((void *) (arg0));
+                ((TContainerAncient01 *)arg0)->update_wait_for_player();
                 break;
             }
             temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4);

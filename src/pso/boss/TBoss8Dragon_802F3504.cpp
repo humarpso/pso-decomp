@@ -3,7 +3,6 @@
 
 extern "C" {
 
-s32 get_part_count_plus__12TBoss8DragonFl(u32, s32);
 u32 get_enemy_entity();
 s32 set_state_22__12TBoss8DragonFv();
 
@@ -17,7 +16,7 @@ s32 TBoss8Dragon::find_target_enemy() {
     }
     var_r31 = 1;
 loop_3:
-    get_part_count_plus__12TBoss8DragonFl(boss8_dragon_leader_part, var_r31);
+    ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(var_r31);
     if (get_enemy_entity() != 0U) {
         return 1;
     }
@@ -38,7 +37,7 @@ s32 TBoss8Dragon::is_any_part_alive() {
     }
     var_r31 = 1;
 loop_3:
-    get_part_count_plus__12TBoss8DragonFl(boss8_dragon_leader_part, var_r31);
+    ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(var_r31);
     if (get_enemy_entity() != 0U) {
         return 0;
     }
@@ -57,7 +56,7 @@ void TBoss8Dragon::update_all_parts() {
     if ((u32) boss8_dragon_leader_part != 0U) {
         var_r31 = 1;
         do {
-            get_part_count_plus__12TBoss8DragonFl(boss8_dragon_leader_part, var_r31);
+            ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(var_r31);
             if (get_enemy_entity() != 0U) {
                 set_state_22__12TBoss8DragonFv();
             }

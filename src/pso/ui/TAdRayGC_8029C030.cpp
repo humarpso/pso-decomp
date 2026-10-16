@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct Base_8029c054_8029C030 { char pad[0x14]; };
 struct VObj_8029c054_8029C030 : Base_8029c054_8029C030 {
@@ -37,10 +39,7 @@ struct Rd_8029C094 {
 
 extern "C" {
 s32 isFading__15RenderFadeStateCFv(void *);
-void restore__15RenderFadeStateFv(void *);
-void fadeOut__15RenderFadeStateFv(void *);
 void set_cull_back__8TObjFishFv();
-s32 is_not_split_screen__13TRaderMapCoreFv();
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
 }
@@ -66,11 +65,11 @@ void TBoss8Dragon::update_near_fade() {
     set_cull_back__8TObjFishFv();
     matrix_mult_vec(0, arg0->pos, &v);
     if (-v.z < lbl_805DDD18) {
-        fadeOut__15RenderFadeStateFv(&arg0->fade);
+        ((RenderFadeState *)(&arg0->fade))->fadeOut();
     } else {
-        restore__15RenderFadeStateFv(&arg0->fade);
+        ((RenderFadeState *)(&arg0->fade))->restore();
     }
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         arg0->fading = 0;
     } else {
         arg0->fading = isFading__15RenderFadeStateCFv(&arg0->fade);

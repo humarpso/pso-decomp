@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemEffOrgaFlowShot.h"
+#include "pso/player/TObjPlayer.h"
 struct Owner_8012E5A0 { u8 pad[0x60]; s32 f60; };
 
 struct Self_8012E5A0 {
@@ -14,8 +16,6 @@ struct Vec_8012E5A0 { f32 x, y, z; };
 struct Ang_8012E5A0 { s32 x, y, z; };
 
 extern "C" {
-void approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
-void launch_weapon_casing__10TObjPlayerFlUllUlUl(s32, void *, s32, void *, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
@@ -33,7 +33,7 @@ void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self) {
     Vec_8012E5A0 v;
     Ang_8012E5A0 a;
     if (self->state == 1) {
-        approach_value__20TItemEffOrgaFlowShotFPfff(&self->f1FC, lbl_805DAF84, lbl_805DAF88);
+        TItemEffOrgaFlowShot::approach_value(&self->f1FC, lbl_805DAF84, lbl_805DAF88);
         if (lbl_805DAF88 == self->f1FC) {
             self->state = 2;
             ang = self->owner->f60 + 0x4000;
@@ -43,10 +43,10 @@ void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self) {
             a.x = 0x4000;
             a.y = self->owner->f60;
             a.z = 0;
-            launch_weapon_casing__10TObjPlayerFlUllUlUl(tl_05, self, 3, &v, &a);
+            TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)self, (s32)3, (u32)(&v), (u32)(&a));
         }
     } else if (self->state == 2) {
-        approach_value__20TItemEffOrgaFlowShotFPfff(&self->f1FC, lbl_805DAF8C, lbl_805DAF7C);
+        TItemEffOrgaFlowShot::approach_value(&self->f1FC, lbl_805DAF8C, lbl_805DAF7C);
         if (lbl_805DAF7C == self->f1FC) {
             self->state = 0;
         }

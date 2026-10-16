@@ -551,6 +551,9 @@ typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033
 
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 class Sel_8033B640 {
 public:
@@ -597,8 +600,6 @@ s32 __ct__12TAdBackTxtGCFv(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, s32);
 s32 __ct__9TAdBackGCFv(void *, void *);
 
-s32 get_flag_count__23TAdSinglePlyChrSelectGCFv();
-s32 init_slots__23TAdSinglePlyChrSelectGCFv();
 extern void *lbl_804EF8C0[];
 extern s32 tl_01;
 u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
@@ -640,22 +641,15 @@ extern "C" {
 }
 extern "C" {
 
-extern "C" void reset_default_view__11TCameraCtrlFv();
-extern "C" void init_default_view__11TCameraCtrlFv();
 extern "C" void reset_view_state__11TCameraCtrlFv();
-extern "C" void free_all_windows__15TWindowCtrlMainFv();
 extern "C" void TWindowCtrlMain__sub_8024D838();
-extern "C" void free_global__23TAdSinglePlyChrSelectGCFv();
-extern "C" void free_keyboard_soft_resources__6TLobbyFv();
-extern "C" void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv();
 extern "C" void register_texture_f256_ad_pic_2();
 extern "C" void register_texture_f256_backtext();
 extern "C" void reset__11TCameraCtrlFv();
-extern "C" void update_keyboard_menu__6TLobbyFv();
 void *character_select_scene_resource_callbacks[12] = {
-    (void *)&reset_view_state__11TCameraCtrlFv, (void *)&reset__11TCameraCtrlFv, (void *)&init_default_view__11TCameraCtrlFv, (void *)&reset_default_view__11TCameraCtrlFv,
-    (void *)&register_texture_f256_ad_pic_2, (void *)&free_global__23TAdSinglePlyChrSelectGCFv, (void *)&register_texture_f256_backtext, (void *)&free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
-    (void *)&TWindowCtrlMain__sub_8024D838, (void *)&free_all_windows__15TWindowCtrlMainFv, (void *)&update_keyboard_menu__6TLobbyFv, (void *)&free_keyboard_soft_resources__6TLobbyFv,
+    (void *)&reset_view_state__11TCameraCtrlFv, (void *)&reset__11TCameraCtrlFv, (void *)&TCameraCtrl::init_default_view, (void *)&TCameraCtrl::reset_default_view,
+    (void *)&register_texture_f256_ad_pic_2, (void *)&TAdSinglePlyChrSelectGC::free_global, (void *)&register_texture_f256_backtext, (void *)&TAdSinglePlyChrSelectGC::free_singleton_805D65C0,
+    (void *)&TWindowCtrlMain__sub_8024D838, (void *)&TWindowCtrlMain::free_all_windows, (void *)&TLobby::update_keyboard_menu, (void *)&TLobby::free_keyboard_soft_resources,
 };
 
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
@@ -702,7 +696,7 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) ((s8 (*)(void *))get_chr_select_state__23TAdSinglePlyChrSelectGCFv)(lbl_804EF8C0);
-    *(s32 *)((s8 *)arg0 + 0x28) = get_flag_count__23TAdSinglePlyChrSelectGCFv();
+    *(s32 *)((s8 *)arg0 + 0x28) = TAdSinglePlyChrSelectGC::get_flag_count();
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
@@ -716,7 +710,7 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     }
     ((s32 (*)(void *))alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv)(arg0);
     ((s32 (*)(void *))clear_buffer)(arg0);
-    init_slots__23TAdSinglePlyChrSelectGCFv();
+    TAdSinglePlyChrSelectGC::init_slots();
     return arg0;
 }
 

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TORockCaveSimple.h"
+#include "pso/object/TObjFish.h"
 
 struct Base1_80175024 { char pad[0x18]; };
 struct VObj1_80175024 : Base1_80175024 {
@@ -20,7 +21,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
-s32 set_global_param__8TObjFishFl(s32);
 
 void TORockCaveSimple::play_trigger_effect() {
     u8 *arg0 = (u8 *)this;
@@ -29,7 +29,7 @@ void TORockCaveSimple::play_trigger_effect() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }

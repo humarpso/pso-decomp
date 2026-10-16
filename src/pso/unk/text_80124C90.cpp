@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Vec_80124C90 { f32 x, y, z; };
 
@@ -18,11 +19,9 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 Hit_80124C90 *csnVector(void *, void *, int);
-s32 get_field_d8__10TObjPlayerFv(void *);
 void spawn_item_attacker(s32, void *, s32, void *);
 void create_lavis_shot(void *, void *, void *, f32);
 f32 *get_weapon_range_record(void *, s32);
-void *get_extended_state__10TObjPlayerFv(void *);
 f32 query_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(void *);
 u16 get_uid__10TObjPlayerFPv(void *);
@@ -52,7 +51,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
     Atk_80124C90 atk;
     s32 i;
     Hit_80124C90 *hit;
-    ext = get_extended_state__10TObjPlayerFv(me->pl);
+    ext = ((TObjPlayer *)(me->pl))->get_extended_state();
     if (ext == NULL) {
         return;
     }
@@ -95,7 +94,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
             atk.b = 1;
             atk.id0 = obj_getField1c(me->pl);
             atk.id1 = obj_getField1c(t);
-            atk.d8 = get_field_d8__10TObjPlayerFv(arg0);
+            atk.d8 = ((TObjPlayer *)arg0)->get_field_d8();
             atk.idx = get_captured_target_collider_index(e2);
             atk.f = query_extended_state__10TObjPlayerFv(me->pl);
             spawn_item_attacker(tl_05, &me->pl->pos38, (s32)(xyz_distance(pos, &part->v) / me->scale), &atk);

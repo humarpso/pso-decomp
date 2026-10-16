@@ -1,15 +1,16 @@
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TScene.h"
+#include "pso/object/TObjFish.h"
 
 struct Ent_801FB798 { s32 a; char *name; };
 
 extern "C" {
-s32 set_global_param__8TObjFishFl(s32);
 extern u32 TRaderMapCore__data_805D5F4C;
 s32 get_current_floor();
-s32 free_nodes_with_id__6TLobbyFUl(int);
 s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
-s32 free_statics__13TRaderMapCoreFv();
 s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__render_mode;
@@ -18,9 +19,6 @@ void copy_name(const char *);
 u8 *create_named_object(char *);
 void replace_file_extension__6TLobbyFPvPvPv(char *, char *, const char *);
 void init_radar_floor_flags(s32, u8 *);
-void load_frame_texture__13TRaderMapCoreFv(void);
-int get_status__6TSceneFv(void);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 Ent_801FB798 *get_floor_scene_table(s32);
 void bind_gvm_texture_list(char *, u8 *);
 extern const char lbl_8044A7B0[];
@@ -37,17 +35,15 @@ extern const char lbl_805DC5B0[3];
 extern "C" {
 
 s32 TRaderMapCore__ct(void *, s32);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 u32 __nw__7TObjectFUl(s32);
-s32 is_ready__6TLobbyFv();
 
 extern s32 tl_radermap;
 extern s32 tl_clipout;
 
 void TRaderMapCore::create() {
     void *obj;
-    if ((is_not_split_screen__13TRaderMapCoreFv() != 1) || (is_ready__6TLobbyFv() != 1)) {
-        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if ((TRaderMapCore::is_not_split_screen() != 1) || (TLobby::is_ready() != 1)) {
+        if (TRaderMapCore::is_not_split_screen() == 1) {
             if ((obj = (void *) __nw__7TObjectFUl(0x1A4)) != 0) {
                 TRaderMapCore__ct(obj, tl_clipout);
             }
@@ -64,7 +60,7 @@ void TRaderMapCore::unload_floor_map() {
     if (temp_r31 != NULL) {
         save_floor_discovery__13TRaderMapCoreFiPv((int) (get_current_floor()), (int) (temp_r31));
     }
-    free_statics__13TRaderMapCoreFv();
+    TRaderMapCore::free_statics();
     if ((void *) TRaderMapCore__floor_map_resource != NULL) {
         temp_r3 = *(u32 *)((s8 *)TRaderMapCore__floor_map_resource + 4);
         if (temp_r3 != 0U) {
@@ -72,7 +68,7 @@ void TRaderMapCore::unload_floor_map() {
         }
     }
     if ((void *) TRaderMapCore__floor_map_resource != NULL) {
-        free_nodes_with_id__6TLobbyFUl((int) (TRaderMapCore__floor_map_resource));
+        TLobby::free_nodes_with_id((int) (TRaderMapCore__floor_map_resource));
         TRaderMapCore__floor_map_resource = NULL;
     }
     TRaderMapCore__render_mode = 0;
@@ -83,8 +79,8 @@ void TRaderMapCore::load_map_resources() {
     Ent_801FB798 *e;
     s32 status;
     s32 state;
-    state = get_global_state__14TOKeyMachine01Fv();
-    status = get_status__6TSceneFv();
+    state = TOKeyMachine01::get_global_state();
+    status = TScene::get_status();
     e = get_floor_scene_table(state);
     replace_file_extension__6TLobbyFPvPvPv(buf, e[status].name, lbl_8044A7B0);
     TRaderMapCore__floor_map_resource = create_named_object(buf);
@@ -94,7 +90,7 @@ void TRaderMapCore::load_map_resources() {
     }
     copy_name(lbl_805DC5B0);
     lbl_805D49B4 = 0;
-    load_frame_texture__13TRaderMapCoreFv();
+    TRaderMapCore::load_frame_texture();
     e = (Ent_801FB798 *)TRaderMapCore__floor_map_resource;
     if (e != NULL) {
         init_radar_floor_flags(get_current_floor(), (u8 *)e);
@@ -107,7 +103,7 @@ void TRaderMapCore::load_map_resources() {
 
 s32 TRaderMapCore::apply_compass_param() {
     if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
-        set_global_param__8TObjFishFl((s32) TRaderMapCore__data_805D5F4C);
+        TObjFish::set_global_param((s32) TRaderMapCore__data_805D5F4C);
         return 1;
     }
     return -1;

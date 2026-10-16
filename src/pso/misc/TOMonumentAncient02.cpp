@@ -1,6 +1,14 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOMonumentAncient02.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TOKey.h"
+#include "pso/misc/TOKeyAncient01.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct BmlResourceBlock_804B3960 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B3960_size[(sizeof(BmlResourceBlock_804B3960) == 0x18) ? 1 : -1];
@@ -91,12 +99,9 @@ extern "C" {
 s32 create_particle_emitter(s32, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_map_object_base(void *);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 get_game_play_mode(void);
 s32 queue_destruction__7TObjectFv(void *);
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
-s32 set_type__14TOKeyAncient01Fv(void *);
 extern RecoveredGlobal_80172EA0_lbl_804B39A8 monument_ancient02_collision_parts;
 extern s32 __vt__19TOMonumentAncient02[];
 extern s32 enable_v2_features;
@@ -108,18 +113,14 @@ extern const f32 lbl_805DB938;
 u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u32 TOMonumentAncient02__model_resource;
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
 int post_translate_matrix(void *);
-int set_global_param__8TObjFishFl(int);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
-int begin_effect_render__13TParticleCtrlFv();
-int end_effect_render__13TParticleCtrlFv();
 void set_chunk_material_color(void *);
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -141,10 +142,7 @@ void unregister_object_by_id(void *);
 s32 submit_cursor_candidate(void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_key_base__5TOKeyFs(void *, int);
 s32 enable__13TParticleCtrlFPv(void *);
-s32 is_not_split_screen__13TRaderMapCoreFv();
-void request_destroy__11TBoss4Type2FUl(void *);
 
 void TOMonumentAncient02::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -159,7 +157,7 @@ void TOMonumentAncient02::run_task() {
         }
         return;
     case 1:
-        if ((is_not_split_screen__13TRaderMapCoreFv() != 1) && ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 1)) {
+        if ((TRaderMapCore::is_not_split_screen() != 1) && ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 1)) {
             submit_cursor_candidate(arg0, -1);
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
@@ -192,7 +190,7 @@ void TOMonumentAncient02::render() {
         }
         post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
-        set_global_param__8TObjFishFl(self->f24);
+        TObjFish::set_global_param(self->f24);
         m = self->model;
         post_translate_matrix(m->mtx);
         draw_ginja_model(m->f4);
@@ -213,14 +211,14 @@ void TOMonumentAncient02::render() {
             n = m->child;
             push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             lbl_805D5660 = model_render_flags;
             model_render_flags = model_render_flags | 0x20;
             set_chunk_material_color(&self->fD8);
             draw_ginja_model(n->f4);
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
             pop_matrix();
         }
         pop_matrix();
@@ -250,7 +248,7 @@ extern s32 __vt__19TOMonumentAncient02[];
 void TOMonumentAncient02::load_resources() {
     u8 *tbl = (u8 *)&monument_ancient02_resource_table;
     u8 *p;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
@@ -278,10 +276,10 @@ void TOMonumentAncient02::load_resources() {
 void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOMonumentAncient02;
-        request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0xE8));
+        TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0xE8)));
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -300,8 +298,8 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts(arg0, (s32) &monument_ancient02_collision_parts.value, 1);
     refresh_collision_body_centers((void *) (arg0));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
-    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    ((TObjPlayer *)arg0)->reset_photon_effect();
+    temp_r3 = TOKeyMachine01::get_global_state();
     switch (temp_r3) {
     default:
         *(s32 *)((s8 *)arg0 + 0xD0) = 0x2C;
@@ -319,7 +317,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xAC) = 0;
     *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     *(s32 *)((s8 *)arg0 + 0xCC) = 0;
-    set_type__14TOKeyAncient01Fv((void *) (arg0 + 0x98));
+    ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB934;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB938;
     *(f32 *)((s8 *)arg0 + 0xD8) = (f32) lbl_805DB92C;

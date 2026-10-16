@@ -68,10 +68,8 @@ extern s32 shop_tool_stock_level;
 void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
 s32 fn_80223B98(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
-void reset_counter_64__6TLobbyFv(void *);
 void push_shop_pool_entry(void *, u8);
 void shuffle_shop_pool_n_times(void *, s32);
-s32 pop_byte__6TLobbyFv(void *);
 void init__9TItemDataFv(void *);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
@@ -84,10 +82,8 @@ extern s32 shop_tool_stock_level;
 void generate_shop_technique_pool(s32 arg0);
 s32 fn_80223C28(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
-void reset_counter_64__6TLobbyFv(void *);
 void push_shop_pool_entry(void *, u8);
 void shuffle_shop_pool_n_times(void *, s32);
-s32 pop_byte__6TLobbyFv(void *);
 void init__9TItemDataFv(void *);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 TLobby__sub_80223E64(Item_802242F8 *, s32);
@@ -252,7 +248,7 @@ void generate_shop_technique_pool(s32 arg0) {
     arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[arg0];
     n = fn_80223B98(shop_tool_stock_level);
     if (n > 0) {
-        reset_counter_64__6TLobbyFv(&ctr);
+        ((TLobby *)(&ctr))->reset_counter_64();
         i = TLobby__sub_80223D48(shop_tool_stock_level);
         t = ((Tbl_8022403C **)lobby_tool_random_rel)[1];
         e = &t->base[i * t->count];
@@ -267,7 +263,7 @@ void generate_shop_technique_pool(s32 arg0) {
         shuffle_shop_pool_n_times(&ctr, 5);
         i = 0;
         while (i < n) {
-            s32 b = pop_byte__6TLobbyFv(&ctr);
+            s32 b = ((TLobby *)(&ctr))->pop_byte();
             if (b != -1) {
                 init__9TItemDataFv(&it);
                 it.b[0] = 3;
@@ -299,7 +295,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
     arr = ((Item_802242F8 **)&shop_tool_stock_buffers)[arg0];
     n = fn_80223C28(shop_tool_stock_level);
     if (n > 0) {
-        reset_counter_64__6TLobbyFv(&ctr);
+        ((TLobby *)(&ctr))->reset_counter_64();
         i = TLobby__sub_80223D48(shop_tool_stock_level);
         t = ((Tbl_80224190 **)lobby_tool_random_rel)[1];
         e = &t->base[i * t->count];
@@ -316,7 +312,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
             orig = n;
             j = 0;
             while (n > j) {
-                b = pop_byte__6TLobbyFv(&ctr);
+                b = ((TLobby *)(&ctr))->pop_byte();
                 if (b == 0xF) {
                     if (orig == n) {
                         n--;

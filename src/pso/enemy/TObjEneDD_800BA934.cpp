@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Part_800BA934 { u8 pad[0x1c]; u8 f1c[0x10]; };
 
@@ -28,9 +29,7 @@ int push_matrix(void);
 int set_matrix_identity(void *);
 f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
-int set_global_flag__10TObjPlayerFv(void);
 int matrix_mult_vec(void *, void *, void *);
-void clear_global_state__10TObjPlayerFv(void);
 int pop_matrix(void);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
@@ -62,11 +61,11 @@ void TObjEneDD::transform_part_positions() {
     set_matrix_identity(0);
     post_translate_matrix(self->f38);
     rotate_matrix_y(0, self->f60);
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     for (i = 0; i < self->count; i++) {
         matrix_mult_vec(0, &self->parts[i], self->parts[i].f1c);
     }
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     pop_matrix();
 }
 

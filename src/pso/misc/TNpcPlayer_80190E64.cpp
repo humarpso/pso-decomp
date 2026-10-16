@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNpcPlayer.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -38,15 +39,12 @@ struct Npc_80190FDC { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pad
 struct Ply_80190FDC { u8 pad0[0x38]; f32 pos[3]; };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__10TObjPlayerFv(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void request_file_read__6TLobbyFiiPvPv(void *, s32, void *, int);
-void ensure_rock_singleton__10TNpcPlayerFv();
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80445910[];
 extern s32 lbl_804B7C04[];
@@ -54,15 +52,12 @@ extern s32 lbl_805D5860;
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
 void unregister_object_by_id(void *);
 void free_collision_body_parts(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 Ctrl_801910F4 *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void*);
-s32 is_inactive__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
-void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
 Ctrl_801910F4 *get_player_by_client_id(u32);
@@ -123,7 +118,7 @@ Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2,
     arg0->f34 = arg4;
     arg0->f2C = 0;
     arg0->f38 = arg5;
-    ensure_rock_singleton__10TNpcPlayerFv();
+    TNpcPlayer::ensure_rock_singleton();
     request_file_read__6TLobbyFiiPvPv(lbl_80445910, lbl_805D5860, &arg0->f2C, 0);
     return arg0;
 }
@@ -157,8 +152,8 @@ void TLobby::update_npc_proximity() {
         }
     } else {
         p = (Ply_80190FDC *)get_player_by_client_id(arg0->fAC);
-        if (p != 0 && arg0->fB4 == 1 && is_inactive__10TObjPlayerFv(p) == 1) {
-            clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
+        if (p != 0 && arg0->fB4 == 1 && ((TObjPlayer *)p)->is_inactive() == 1) {
+            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
             arg0->fB4 = 0;
             p = (Ply_80190FDC *)get_player_by_client_id(arg0->fAC);
             if (p != 0) {
@@ -180,7 +175,7 @@ Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
                 c->v0(1);
             }
         }
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -189,14 +184,14 @@ Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
 }
 
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_collider_proxy__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B7C1C.value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s16 *)((s8 *)arg0 + 0xAC) = 3;
     *(s32 *)((s8 *)arg0 + 0xB0) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
     *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B7BD8.value), (int) (1));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }
 

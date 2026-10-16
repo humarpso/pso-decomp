@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrlPlayer.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/object/TObjLuker.h"
 
 struct Ctl_8024E2A8 {
     s32 f0;
@@ -19,21 +21,14 @@ extern "C" {
 
 void *__dt__17TWindowCtrlPlayerFv(void *arg0, s16 arg1);
 int TWindowCtrl__sub_8024DAAC(void*);
-int update_short_list_request__11TWindowCtrlFv(void*);
-int update_main_menu_request__11TWindowCtrlFv(void*);
-int update_target_info_window__11TWindowCtrlFv(void* a0 = 0);
-int update_child_window_visibility__11TWindowCtrlFv(void* a0 = 0);
-int update_trade_window_visibility__11TWindowCtrlFv(void* a0 = 0);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_8024E0F0(void* a0 = 0);
 void queue_destruction__7TObjectFv(void *);
 void run_all_updates__11TWindowCtrlFv(void* p);
-int show_active_window__11TWindowCtrlFv(void*);
 
 s32 is_split_screen(void);
-s32 set_flag_4__9TObjLukerFv(void *);
 void *__nw__7TObjectFUl(u32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void *TWindowActionPalette__ct(void *, s32);
@@ -98,13 +93,13 @@ struct Ctl_8024E2A8 *TWindowCtrlPlayer__ct(struct Ctl_8024E2A8 *arg0, void *pare
     }
     arg0->f2c = create_message_information_window(get_window_layout_position(0x20), lbl_8044EC4C, arg0->f24);
     arg0->f30 = create_status_window(arg0->f24);
-    set_flag_4__9TObjLukerFv(arg0->f30);
+    ((TObjLuker *)(arg0->f30))->set_flag_4();
     p = __nw__7TObjectFUl(0x78);
     if (p != 0) {
         p = TWindowActionPalette__ct(p, arg0->f24);
     }
     arg0->f34 = p;
-    set_flag_4__9TObjLukerFv(arg0->f34);
+    ((TObjLuker *)(arg0->f34))->set_flag_4();
     return arg0;
 }
 

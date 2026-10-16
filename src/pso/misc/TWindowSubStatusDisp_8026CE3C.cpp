@@ -3,11 +3,9 @@
 
 extern "C" {
 
-void * get_array_entry__20TWindowSubStatusDispFi(void * a0 = 0, s32 a1 = 0);
-
 f32 TWindowSubStatusDisp::get_scale() { return *(f32*)((char*)this + 0x1c); }
 void TWindowSubStatusDisp::set_entry1_field20(s32 arg1) {
-    *(s32 *)((s8 *)(get_array_entry__20TWindowSubStatusDispFi(this, 1)) + 0x20) = arg1;
+    *(s32 *)((s8 *)(get_array_entry(1)) + 0x20) = arg1;
 }
 
 }

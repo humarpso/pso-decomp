@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemData.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Pad_80120D50 { u8 pad[0x18]; };
 
@@ -12,12 +14,8 @@ struct V_80120D50 : Pad_80120D50 {
 
 extern "C" {
 u8 get_field_ed__10TObjPlayerFv(void *);
-s32 set_flags__10TObjPlayerFUl(void *, int);
-s32 clear_id__10TObjPlayerFv(void *);
 s32 TItemEquipBase__ct(void *, void *, u8 *);
 u8 *lookup_item_pmt_record(void *);
-s32 check_item_flags__9TItemDataFv(void *);
-s32 get_shield_pmt_entry__10TObjPlayerFUc(u8);
 u8 get_weapon_class_motion_type(u8);
 s32 set_weapon_category_flags(void *);
 s32 set_status_flags__10TObjPlayerFPvUi(void *, int);
@@ -45,11 +43,11 @@ u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
     *(void ***)((s8 *)arg0 + 0x18) = __vt__11TItemWeapon;
     ((V_80120D50 *)arg0)->v17(6);
     *(void **)((s8 *)arg0 + 0x1DC) = lookup_item_pmt_record(arg2);
-    *(s32 *)((s8 *)arg0 + 0x1E0) = get_shield_pmt_entry__10TObjPlayerFUc(*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x26));
+    *(s32 *)((s8 *)arg0 + 0x1E0) = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x26));
     temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x1DC));
     *(s16 *)((s8 *)arg0 + 0x1E8) = (s16) (s8) *(u8 *)((s8 *)temp_r4 + 0x17);
     *(u8 *)((s8 *)arg0 + 0x1D1) = (u8) *(u8 *)((s8 *)arg2 + 3);
-    temp_r3 = check_item_flags__9TItemDataFv((void *) (arg2));
+    temp_r3 = ((TItemData *)arg2)->check_item_flags();
     temp_r0 = *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x18);
     if (temp_r0 == 0) {
         *(u8 *)((s8 *)arg0 + 0x1D2) = (u8) (*(u8 *)((s8 *)arg2 + 4) & 0xFFFFFFBF);
@@ -93,12 +91,12 @@ u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
     if (get_field_ed__10TObjPlayerFv((void *) (arg0)) == 0) {
         *(s16 *)((s8 *)arg0 + 0x1E8) = -1;
     } else {
-        clear_id__10TObjPlayerFv((void *) (&lbl_805D53EC));
+        ((TObjPlayer *)(&lbl_805D53EC))->clear_id();
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC98;
     }
     set_weapon_category_flags((void *) (arg0));
     if (*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x27) & 1) {
-        set_flags__10TObjPlayerFUl((void *) (arg0 + 0x178), (int) (0x20));
+        ((TObjPlayer *)(arg0 + 0x178))->set_flags((int) (0x20));
     }
     if (*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x27) & 2) {
         set_status_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x40000));

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TWindowSubSymbolChatHelp.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_80284B84_lbl_804D2D10 {
     s32 value;
@@ -75,10 +78,7 @@ s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 begin_render__20TWindowSubStatusDispFl();
-void destroy_window_base__9TWindowDDFs(void *, int);
-s32 get_player__20TWindowSubStatusDispFv();
 int initialize_subwindow__9TWindowDDFv(void*);
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 lbl_805D63F0;
 
@@ -178,7 +178,7 @@ void draw_help_icon__24TWindowSubSymbolChatHelpFiPvii(s32 arg0, Win_802845EC *ar
 void TWindowSubSymbolChatHelp::draw_help_entries(void *arg1) {
     if ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0) {
         begin_screen_draw(1);
-        set_global_param__8TObjFishFl(lbl_805D63F0);
+        TObjFish::set_global_param(lbl_805D63F0);
         set_draw_texture_and_color(2, -1);
         draw_help_icon__24TWindowSubSymbolChatHelpFiPvii((s32)(this), (Win_802845EC *)(arg1), (s32)(0), (s32)(-1));
         draw_help_icon__24TWindowSubSymbolChatHelpFiPvii((s32)(this), (Win_802845EC *)(arg1), (s32)(1), (s32)(-1));
@@ -200,7 +200,7 @@ void TWindowSubSymbolChatHelp::draw_help_entries(void *arg1) {
             draw_help_icon__24TWindowSubSymbolChatHelpFiPvii((s32)(this), (Win_802845EC *)(arg1), (s32)(5), (s32)(0xFF808080));
         }
         draw_color_palette__24TWindowSubSymbolChatHelpFPvPv((Self_8028429C *)(this), (Win_8028429C *)(arg1));
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
         begin_screen_draw(1);
         begin_render__20TWindowSubStatusDispFl();
         set_draw_texture_and_color(1, -1);
@@ -223,7 +223,7 @@ void TWindowSubSymbolChatHelp::draw_help_entries(void *arg1) {
             draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), (s32)(4), (s32)(0xFF808080));
             draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii((Self_802844C8 *)(this), (Win_802844C8 *)(arg1), (s32)(5), (s32)(0xFF808080));
         }
-        get_player__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::get_player();
     }
 }
 
@@ -294,7 +294,7 @@ extern s32 __vt__24TWindowSubSymbolChatHelp[];
 void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__24TWindowSubSymbolChatHelp;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

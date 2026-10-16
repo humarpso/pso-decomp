@@ -2,6 +2,7 @@
 
 #include <stddef.h>
 #include "pso/misc/TScene.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_80083914 {
     f32 sp8;
     u8 pad_C[0x4];
@@ -19,8 +20,6 @@ f32 translate_current_matrix_ps(f32, f32, f32);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 is_split_screen();
-s32 check_all_players_ready__10TObjPlayerFv();
-s32 set_tex_coord_gen__10TObjPlayerFllll(int, int, int, int);
 f32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightFrustum(void *, f32, f32, f32, f32, f32, f32, f32, f32);
 f32 rotate_matrix_by_node_angles(void *, int);
@@ -55,7 +54,6 @@ f32 calc_camera_fov_degrees(void);
 
 extern "C" {
 
-s32 check_all_players_ready__10TObjPlayerFv();
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 s32 is_split_screen();
@@ -63,7 +61,7 @@ s32 is_split_screen();
 extern s32 model_render_flags;
 
 void TScene::apply_single_screen_state() {
-    if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0)) {
+    if ((is_split_screen() == 0) && (TObjPlayer::check_all_players_ready() != 0)) {
         model_render_flags &= 0xFFF7FFFF;
         set_ginja_post_tev_stage_count(0);
         set_ginja_post_texgen_count(0);
@@ -76,7 +74,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80083914, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80083914, sp10) == 0x8) ? 1 : -1];
     Stack_80083914 stack;
-    if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0)) {
+    if ((is_split_screen() == 0) && (TObjPlayer::check_all_players_ready() != 0)) {
         push_identity_matrix_ps();
         translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
         rotate_current_matrix_x_ps((int) (0x3800));
@@ -91,7 +89,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         load_current_pos_matrix((int) (0));
         GXSetTevOrder((int) (1), (int) (1), (int) (1), (int) (4));
         GXSetTevOp((int) (1), (int) (1));
-        set_tex_coord_gen__10TObjPlayerFllll((int) (1), (int) (0), (int) (0), (int) (0x1E));
+        TObjPlayer::set_tex_coord_gen((int) (1), (int) (0), (int) (0), (int) (0x1E));
         model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count((s32)((int) (1U)));
         set_ginja_post_texgen_count((s32)((int) (1U)));

@@ -1,21 +1,20 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
 void start_character_load_task__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 TLobby__sub_8001EEF4();
 u32 TLobby__sub_8002058C(u32, s32, void *, void *, s32, s32, s32);
-s32 start_load_default__6TLobbyFv(s32);
-u32 alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFv(void *);
 
 void start_character_load_task__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     u32 var_r31;
 
-    if ((TLobby__sub_8001EEF4() != 0) && (try_acquire_slot__23TAdSinglePlyChrSelectGCFv(arg0) != 0)) {
-        var_r31 = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
+    if ((TLobby__sub_8001EEF4() != 0) && (((TAdSinglePlyChrSelectGC *)arg0)->try_acquire_slot() != 0)) {
+        var_r31 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r31 != 0U) {
-            var_r31 = TLobby__sub_8002058C(var_r31, 6, arg0 + 0x60, arg0 + 0x64, 0, 0, start_load_default__6TLobbyFv(*(s32 *)((s8 *)arg0 + 0x24)));
+            var_r31 = TLobby__sub_8002058C(var_r31, 6, arg0 + 0x60, arg0 + 0x64, 0, 0, ((TLobby *)(*(s32 *)((s8 *)arg0 + 0x24)))->start_load_default());
         }
         *(u32 *)((s8 *)arg0 + 0x68) = var_r31;
         if (var_r31 != 0U) {

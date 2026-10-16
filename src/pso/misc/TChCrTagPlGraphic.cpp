@@ -3,6 +3,8 @@
 TChCrTagPlGraphic::~TChCrTagPlGraphic() {}
 
 #include "types.h"
+#include "pso/TChCrCharSelect.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct TChCrTagPlGraphic__data_804664A4 {
     s32 value;
@@ -15,7 +17,6 @@ struct RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic {
 };
 
 extern "C" {
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 u8 * __ct__8TChCrTagFv(void *, s32);
 extern const TChCrTagPlGraphic__data_804664A4 TChCrTagPlGraphic__data_804664A4;
 extern RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic __vt__17TChCrTagPlGraphic;
@@ -24,9 +25,6 @@ extern const f32 lbl_805DDF18;
 extern const f32 lbl_805DDF2C;
 extern const f32 lbl_805DDF30;
 u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2);
-s32 get_selected_index__15TChCrCharSelectFv();
-s32 get_selected_char__15TChCrCharSelectFv();
-s32 get_instance__15TChCrCharSelectFv();
 s32 TChCrTagPlGraphic__vt4(u8 *arg0);
 }
 
@@ -38,10 +36,9 @@ int TChCrTagPlGraphic__sub_802A3230(void*);
 int update_fade__8TChCrTagFPv(void*);
 void *__nw__7TObjectFUl(int);
 int restore_saved_depth_alpha_state(void);
-int draw_class_illustration__17TChCrTagPlGraphicFv(void*);
 int set_depth_buffer_settings_1__Fv(void*);
 
-void render__17TChCrTagPlGraphicFv(void* p) { set_depth_buffer_settings_1__Fv(p); draw_class_illustration__17TChCrTagPlGraphicFv(p); restore_saved_depth_alpha_state(); }
+void render__17TChCrTagPlGraphicFv(void* p) { set_depth_buffer_settings_1__Fv(p); ((TChCrTagPlGraphic *)p)->draw_class_illustration(); restore_saved_depth_alpha_state(); }
 
 void run_task__17TChCrTagPlGraphicFv(void* p) { update_fade__8TChCrTagFPv(p); TChCrTagPlGraphic__sub_802A3230(p); }
 
@@ -51,14 +48,14 @@ typedef char RecoveredGlobal_802A3454_TChCrTagPlGraphic__data_804664A4_size[size
 typedef char RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic_size[sizeof(RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic) == 0x20 ? 1 : -1];
 
 s32 TChCrTagPlGraphic__vt4(u8 *arg0) {
-    switch (get_selected_index__15TChCrCharSelectFv()) {
+    switch (TChCrCharSelect::get_selected_index()) {
     case 0:
-        if (*(s32 *)(arg0 + 0x20) / 4 == get_selected_char__15TChCrCharSelectFv()) {
+        if (*(s32 *)(arg0 + 0x20) / 4 == TChCrCharSelect::get_selected_char()) {
             return 1;
         }
         break;
     default:
-        if (*(s32 *)(arg0 + 0x20) == get_instance__15TChCrCharSelectFv()) {
+        if (*(s32 *)(arg0 + 0x20) == TChCrCharSelect::get_instance()) {
             return 1;
         }
         break;
@@ -79,7 +76,7 @@ u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2) {
     temp_r5 = (u8 *)&TChCrTagPlGraphic__data_804664A4.value + (*(s32 *)((s8 *)arg0 + 0x20) * 0x18);
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r5 + 4);
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)temp_r5 + 0);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(arg0 + 0x48, temp_r5 + 8);
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x48))->copy_vec2(temp_r5 + 8);
     return arg0;
 }
 

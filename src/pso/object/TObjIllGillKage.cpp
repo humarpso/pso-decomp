@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/object/TObjIllGillKage.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
 
 struct RecoveredGlobal_803655F8___vt__15TObjIllGillKage { s32 value; u8 remaining[0x30]; };
 typedef char RecoveredGlobal_803655F8___vt__15TObjIllGillKage_size[sizeof(RecoveredGlobal_803655F8___vt__15TObjIllGillKage) == 0x34 ? 1 : -1];
@@ -24,8 +26,6 @@ void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 obj_testFlags30(s32, s32);
 s32 play_effect__10TObjPlayerFiii(s32, s32, s32);
 int queue_destruction__7TObjectFv(void*);
@@ -47,7 +47,7 @@ void TObjIllGillKage::attack_target() {
 
     *(s32 *)((s8 *)this + 0x90) = 1;
     temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)this + 0x98));
-    if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
+    if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
         play_effect__10TObjPlayerFiii(temp_r3, *(s32 *)((s8 *)this + 0x94), 3);
     }
 }
@@ -75,7 +75,7 @@ extern s32 __vt__15TObjIllGillKage[];
 void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjIllGillKage;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

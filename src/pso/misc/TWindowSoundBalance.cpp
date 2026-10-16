@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowSoundBalance.h"
+#include "pso/item/TItemMag.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_80270C98_lbl_8050E208 {
     s32 value;
@@ -16,11 +22,8 @@ struct State_80270DCC { u8 pad[4]; s16 f4; s8 f6; };
 extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 update_fade__17TWindowSubComCardFv(void *);
-s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 update_window_entry_list(void *, void *);
 s32 is_active__17TWindowOptionCtrlFv();
-s32 handle_cancel__19TWindowSoundBalanceFv(void *);
 s32 TWindowSoundBalance__sub_8027095C(void *);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -42,13 +45,9 @@ extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
 s16 obj_getS16_2BA(void *);
-s16 get_field_2b8__14TItemProShieldFv(void *);
-s32 get_sub_value__8TItemMagFv(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-void update_status_entry__20TWindowSubStatusDispFv(void *);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
 u8 *get_player_by_client_id();
-s32 get_width__11TWindowCtrlFv();
 s32 draw_right_aligned_number(void *);
 s32 set_status_entry_target(void *, s32);
 s32 update_hp_entry__20TWindowSubStatusDispFPv(void *);
@@ -65,7 +64,6 @@ s32 draw_window_frame(s32, void *);
 s32 draw_visible_window_entries(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 s32 apply_balance__19TWindowSoundBalanceFPv(s32, void *, f32, f32);
-void destroy_window_base__9TWindowDDFs(void *, int);
 void *draw_default_entry__9TWindowDDFl();
 
 void TWindowSoundBalance::play_open_sound() {
@@ -127,18 +125,18 @@ void TWindowSoundBalance::run_task() {
             play_open_sound();
         }
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-            handle_cancel__19TWindowSoundBalanceFv((void *) (arg0));
+            ((TWindowSoundBalance *)arg0)->handle_cancel();
         }
     }
-    initialize_subwindow__9TWindowDDFv((void *) (arg0));
-    update_fade__17TWindowSubComCardFv((void *) (arg0));
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSoundBalance;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -1,9 +1,9 @@
 #include "pso/ui/TAdLoadQuestCellGC.h"
 
 #include "types.h"
+#include "pso/TMainTask.h"
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
 __declspec(section ".data") TAdLoadQuestCellGC *ad_load_quest_cell_table[3] = { 0, 0, 0 };
@@ -39,7 +39,7 @@ void TAdLoadQuestCellGC::render_state() {
 }
 
 void TAdLoadQuestCellGC::render() {
-    if (get_state_flag__9TMainTaskFv() != 1) {
+    if (TMainTask::get_state_flag() != 1) {
         ++m_frameCount;
         if (m_frameCount >= 2) {
             render_state();

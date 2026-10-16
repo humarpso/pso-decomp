@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 typedef struct Slot_8010F210 { u32 a; u32 b; } Slot_8010F210;
 
 extern "C" {
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TItemDrop__sub_8010F1B8(s32, void *, int);
 s32 fn_8010F210(Slot_8010F210 *arg0);
 }
@@ -24,7 +24,7 @@ s32 fn_8010F210(Slot_8010F210 *arg0) {
             i++;
         }
         if (found != 0) {
-            r = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
+            r = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
             if (r != 0) {
                 r = TItemDrop__sub_8010F1B8(r, arg0, found);
             }

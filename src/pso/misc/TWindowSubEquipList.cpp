@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubEquipList.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_802793E4___vt__19TWindowSubEquipList { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_802793E4___vt__19TWindowSubEquipList_size[sizeof(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList) == 0x20 ? 1 : -1];
@@ -14,8 +15,6 @@ void render__19TWindowSubEquipListFv(u8 *arg0);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2);
-s32 get_message_10__20TWindowSubStatusDispFl(int);
-s32 ensure_status_display__20TWindowSubStatusDispFl(void *, int);
 s32 fn_802683F4(void *, void *, int, void *);
 extern s32 __vt__19TWindowSubEquipList[];
 extern s32 TWindowSubEquipList__class_name;
@@ -27,7 +26,6 @@ extern "C" {
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1);
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
-void destroy_item_list_resources__20TWindowSubStatusDispFs(void *, int);
 
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
@@ -62,7 +60,7 @@ extern s32 __vt__19TWindowSubEquipList[];
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubEquipList;
-        destroy_item_list_resources__20TWindowSubStatusDispFs(arg0, 0);
+        ((TWindowSubStatusDisp *)arg0)->destroy_item_list_resources(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -73,7 +71,7 @@ u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (8), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList *)&__vt__19TWindowSubEquipList).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipList__class_name;
-    ensure_status_display__20TWindowSubStatusDispFl((void *) (arg0), (int) (get_message_10__20TWindowSubStatusDispFl((int) (0x25))));
+    ((TWindowSubStatusDisp *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x25))));
     return arg0;
 }
 

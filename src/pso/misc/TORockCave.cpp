@@ -1,6 +1,9 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TORockCave.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct BmlResourceBlock_804B3AB8 { const char *model_filenames[4]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B3AB8_size[(sizeof(BmlResourceBlock_804B3AB8) == 0x20) ? 1 : -1];
@@ -95,11 +98,9 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_ginja_object(int);
 u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u32 cave_rock_resource_bundle;
 extern u32 rock_cave_model_resource;
 }
@@ -114,7 +115,6 @@ void TLobby__sub_8001FE7C(void*, int);
 void TOSensor__sub_80175468(void);
 void construct_collider_proxy__10TObjPlayerFv(void *, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 
 extern u32 cave_rock_resource_bundle;
 extern u32 rock_cave_model_resource;
@@ -126,7 +126,7 @@ void TORockCave::draw_model() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         ((VObj_18 *)(arg0))->m13();
@@ -157,7 +157,7 @@ extern s32 __vt__10TORockCave[];
     }
 void TORockCave::load_resources() {
     u8 *tbl = (u8 *)&rock_cave_resource_table;
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 3:
         MK_80175224(cave_rock_resource_bundle, 0x10)
         MK_80175224(rock_cave_model_resource, 0x88)
@@ -180,7 +180,7 @@ void TORockCave::load_resources() {
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

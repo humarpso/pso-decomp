@@ -1,6 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowSubTechnique.h"
 #include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/misc/TWindowOptionCtrl.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/object/TObjCityMainWarp.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdChrSelASlotGC.h"
 
 struct Base_802870C4 { char pad[0x18]; };
 
@@ -42,16 +47,11 @@ s32 toggle_help_window_on_button(int, int);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 extern s32 lbl_805DD83C;
-s32 is_visible__17TWindowSubComCardFv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(void *);
-void set_flag_40__16TAdChrSelASlotGCFv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_player_by_client_id(int);
-void update_cursor__10TObjPlayerFl(s32, s32);
 s32 try_equip_item__10TObjPlayerFii(s32, s32);
 void set_status_flag_80__12TQuestThreadFPv(void *);
-void clear_flag_and_release__17TWindowSubComCardFv(void *);
 void play_sound_effect(s32, s32, s32, s32);
 void TWindow__close(void *);
 s32 set_field_1c__6TLobbyFf(s32);
@@ -59,9 +59,7 @@ s32 is_player_input_active(s32);
 void call_if_split_screen(void *, s32);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s16 get_selected_menu_value(void *);
-void set_selected_index__17TWindowSubComCardFs(void *, s16);
 void *create_message_window__6TLobbyFllUls(s32, void *, s32, s32);
-void clear_flag70_bit4__17TWindowOptionCtrlFv(void *);
 s32 get_window_layout_position(s32);
 s32 fn_80286AA8(void *);
 s32 update_selection__19TWindowSubTechniqueFPsPl(void *, void *, s32);
@@ -89,8 +87,6 @@ s32 create_titled_window_menu(s32, s32, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 set_field_1c__6TLobbyFf(s32);
-s32 set_flag70_bit100__17TWindowOptionCtrlFv(s32);
-s32 set_flag70_bit10__16TObjCityMainWarpFv(s32);
 
 extern const f32 lbl_805DD838;
 
@@ -100,13 +96,13 @@ s32 TWindowSubTechnique::open_menu() {
     temp_r31 = create_titled_window_menu(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFl(0x2F), *(s32 *)((s8 *)this + 0x28));
     TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)this + 0x30), 0);
     set_field_1c__6TLobbyFf(temp_r31);
-    set_flag70_bit100__17TWindowOptionCtrlFv(temp_r31);
+    ((TWindowOptionCtrl *)temp_r31)->set_flag70_bit100();
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x9C), 6, 0);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x9D), 6, 1);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x9E), 6, 2);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x9F), 6, 3);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xA0), 6, 4);
-    set_flag70_bit10__16TObjCityMainWarpFv(temp_r31);
+    ((TObjCityMainWarp *)temp_r31)->set_flag70_bit10();
     update_layout_height__17TWindowSubComCardFPvf(temp_r31, lbl_805DD838);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
@@ -170,23 +166,23 @@ void TWindowSubTechnique::run_task() {
         if (self->sel == 0) {
             self->sel = create_title_window__19TWindowSubTechniqueFv(self, get_selected_menu_value(self->list));
         }
-        set_flag_40__16TAdChrSelASlotGCFv(self->sel);
+        ((TAdChrSelASlotGC *)(self->sel))->set_flag_40();
         set_status_flag_80__12TQuestThreadFPv(self->sel);
         get_current_selection__19TWindowSubTechniqueFPv(self->f20, self->f24, self->player);
-        clear_flag_and_release__17TWindowSubComCardFv(self->list);
+        ((TWindowSubComCard *)(self->list))->clear_flag_and_release();
         self->state = 2;
     case 2: {
         s32 r = fn_80286AA8(self);
         if (r == 1 || update_selection__19TWindowSubTechniqueFPsPl(self->f20, self->f24, self->player) != 0) {
             rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, get_selected_menu_value(self->list));
             if (r != 0) {
-                set_selected_index__17TWindowSubComCardFs(self->sel, 0);
+                ((TWindowSubComCard *)(self->sel))->set_selected_index(0);
             }
         }
-        if (get_status_flag__17TWindowSubComCardFv(self->list) != 0) {
+        if (((TWindowSubComCard *)(self->list))->get_status_flag() != 0) {
             self->f30->m7();
             self->state = 6;
-        } else if (is_visible__17TWindowSubComCardFv(self->list) != 0) {
+        } else if (((TWindowSubComCard *)(self->list))->is_visible() != 0) {
             self->state = 3;
         }
         break;
@@ -198,24 +194,24 @@ void TWindowSubTechnique::run_task() {
         call_if_split_screen(self->help, self->player);
         ((TWindowSubTradeMain *)(self->sel))->clear_trade_flag();
         ((TWindowSubTechnique *)(self->sel))->clear_flag70_bit80();
-        clear_flag_and_release__17TWindowSubComCardFv(self->sel);
-        clear_flag70_bit4__17TWindowOptionCtrlFv(self->sel);
+        ((TWindowSubComCard *)(self->sel))->clear_flag_and_release();
+        ((TWindowOptionCtrl *)(self->sel))->clear_flag70_bit4();
         self->state = 4;
     case 4:
-        update_cursor__10TObjPlayerFl(ply, get_selected_menu_value(self->sel));
+        ((TObjPlayer *)ply)->update_cursor(get_selected_menu_value(self->sel));
         if (update_selection__19TWindowSubTechniqueFPsPl(self->f20, self->f24, self->player) != 0) {
             rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, get_selected_menu_value(self->list));
         }
         update_selected_help(get_selected_menu_value(self->sel));
-        if (get_status_flag__17TWindowSubComCardFv(self->sel) != 0) {
+        if (((TWindowSubComCard *)(self->sel))->get_status_flag() != 0) {
             self->state = 1;
         }
-        if (is_visible__17TWindowSubComCardFv(self->sel) != 0) {
+        if (((TWindowSubComCard *)(self->sel))->is_visible() != 0) {
             self->state = 5;
         }
         break;
     case 5:
-        update_cursor__10TObjPlayerFl(ply, get_selected_menu_value(self->sel));
+        ((TObjPlayer *)ply)->update_cursor(get_selected_menu_value(self->sel));
         if (is_technique_available__19TWindowSubTechniqueFii(get_selected_menu_value(self->sel), self->player) == 0 ||
             TWindowShortListCtrl__check_controller_button(controller_input_state[port].m20, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state[4].m20, 2) != 0) {

@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/ui/TWindowInputNumber.h"
+#include "pso/misc/TWindowHelpItem.h"
+#include "pso/misc/TWindowSubMag.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
 
@@ -7,15 +10,8 @@ s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 align_digits__18TWindowInputNumberFv(void *);
 s32 refresh_digit_entries__18TWindowInputNumberFPv(void *);
-s16 get_field_2F8__20TWindowSubStatusDispFv(void* p);
-s16 get_item_type__20TWindowSubStatusDispFv(void* p);
-s16 get_stat__20TWindowSubStatusDispFv(void* p);
-s16 get_value__20TWindowSubStatusDispFv(void* p);
 s32 is_confirmed__18TWindowInputNumberFv();
 s32 save_position__17TWindowSubComCardFPv();
-s32 set_entry_state__20TWindowSubStatusDispFSc(s32 a0 = 0, s32 a1 = 0);
-void set_flag0_bit20__15TWindowHelpItemFv(void* p);
-void set_flag60_bit4__13TWindowSubMagFv(void* p);
 
 void TWindowInputNumber::mark_confirmed() {
     if (!(*(u16 *)((s8 *)this + 0x60) & 8) && (is_confirmed__18TWindowInputNumberFv() == 0)) {
@@ -35,7 +31,7 @@ void TWindowInputNumber::confirm_input() {
     *(u16 *)((s8 *)this + 0x60) = (u16) (*(u16 *)((s8 *)this + 0x60) | 2);
     temp = (u32) *(u32 *)((s8 *)this + 0x70);
     if (temp != 0U) {
-        set_entry_state__20TWindowSubStatusDispFSc(temp, 2);
+        ((TWindowSubStatusDisp *)temp)->set_entry_state(2);
     }
 }
 

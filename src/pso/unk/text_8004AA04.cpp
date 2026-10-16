@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/boss/TBoss4Uro.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Obj_8004AA04 { s32 count; u8 pad[0xC]; void **items; };
 
 typedef struct Rec_8004AA80 {
@@ -20,10 +23,7 @@ void destroy_buffer_pair(void *p, s32 flag);
 int mem_free(void *p);
 void fn_8004AA04(Obj_8004AA04 *self);
 s32 get_bml_model(s32, s32);
-int get_instance_count__9TBoss4UroFv(void);
-s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32);
-s32 collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 *mem_alloc(s32);
 void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
 }
@@ -48,7 +48,7 @@ void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
     s32 t;
     s32 p;
     s32 j;
-    h = get_instance_count__9TBoss4UroFv();
+    h = TBoss4Uro::get_instance_count();
     if (h == 0 || arg1 == NULL || arg2 < 1) {
         return;
     }
@@ -62,8 +62,8 @@ void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2) {
     }
     for (i = 0; i < arg0->count; i++) {
         r = &arg1[i];
-        t = collect_and_count__12TBoss3VoloptFUll(get_bml_model(h, r->a), r->b);
-        p = alloc__23TAdSinglePlyChrSelectGCFv(0x14);
+        t = TBoss3Volopt::collect_and_count(get_bml_model(h, r->a), r->b);
+        p = ((TAdSinglePlyChrSelectGC *)0x14)->alloc();
         if (p != 0) {
             p = alloc_tables__6TLobbyFll(p, t, r->c);
         }

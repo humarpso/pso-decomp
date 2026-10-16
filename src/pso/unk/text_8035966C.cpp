@@ -1,7 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 extern "C" {
-s32 get_instance__15TWindowCtrlMainFv();
 s32 __nw__7TObjectFUl(int);
 s32 __ct__10TBoss4FadeFv(int, int);
 extern s32 tl_clipout;
@@ -14,7 +14,7 @@ s32 create_boss4_fade(void) {
     s32 temp_r3;
     s32 var_r0;
     s32 var_r31;
-    var_r31 = get_instance__15TWindowCtrlMainFv();
+    var_r31 = TWindowCtrlMain::get_instance();
     if (var_r31 == 0) {
         var_r31 = tl_clipout;
     }

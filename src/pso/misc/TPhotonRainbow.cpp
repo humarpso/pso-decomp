@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TPhotonRainbow.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 
@@ -10,10 +12,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 begin_effect_render__13TParticleCtrlFv();
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern u8 *camera_ctrl_instance;
 
@@ -23,22 +21,22 @@ void TPhotonRainbow::render() {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)camera_ctrl_instance + 0x178);
         *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)camera_ctrl_instance + 0x180);
     }
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     push_matrix();
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg0 + 0x90);
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, (s32) *(s32 *)((s8 *)arg0 + 0x60) / 2);
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
     draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x98));
     pop_matrix();
     push_matrix();
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg0 + 0x94);
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, 0x10000 - *(s32 *)((s8 *)arg0 + 0x60));
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
     draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x9C));
     pop_matrix();
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
 }
 
 void TPhotonRainbow::run_task() {
@@ -50,7 +48,7 @@ extern s32 __vt__14TPhotonRainbow[];
 void *__dt__14TPhotonRainbowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TPhotonRainbow;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

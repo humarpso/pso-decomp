@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/misc/TTecMegid.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TTecAnti.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80235348_lbl_804CC510
 {
@@ -238,13 +241,11 @@ struct Obj_802351B4
 extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 copy_params__8TTecAntiFPUc(void *, int);
 extern RecoveredGlobal_80235348_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80235348_lbl_804CC55C lbl_804CC55C;
 s32 queue_destruction__7TObjectFv(void *);
 void mem_free(void **);
 void __dl__7TObjectFPv(void *);
-void destroy_technique_effect_resources__10TObjPlayerFs(void *, s16);
 extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 extern void *__vt__9TTecMegid[];
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
@@ -272,7 +273,6 @@ void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
 void matrix_mult_vec(s32, Vec_80235740 *, Vec_80235740 *);
 void pop_matrices(s32);
-void copy_pos__11TNowLoadingFPv(void *, Vec_80235740 *);
 void move_technique_projectile(Obj_80235740 *);
 void advance_lifetime_or_destroy(Obj_80235740 *);
 void dispatch_technique_contact(Obj_80235740 *, s32);
@@ -281,7 +281,6 @@ extern u8 identity_matrix[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
 void *get_bml_model(s32, u32);
 s32 attach_particle_model(void *, void *, s32, int, int, f32);
-s32 set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect_with_rotation(void *, void *, u32, u16);
 void *spawn_continuous_particle_effect_with_flags(void *, u32, u16);
 void **mem_alloc(u32, s32);
@@ -383,7 +382,7 @@ void TTecMegid::spawn_particle_emitters() {
       row = &((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i];
       if (row->flags & 0x40)
       {
-        set_position_xy__10TObjPlayerFff(self->emitters[i], row->scale, row->scale);
+        ((TObjPlayer *)(self->emitters[i]))->set_position_xy(row->scale, row->scale);
       }
       if (((Data_802351B4 *) TTecMegid__emitter_bands)[self->band].rows[i].flags & 0x20)
       {
@@ -398,7 +397,7 @@ void TTecMegid::init_parameters() {
     u8 *arg0 = (u8 *)this;
   s32 new_var;
   new_var = calc_technique_parameters((int) 0x12, (int) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4, (int) 0xFFFF);
-  copy_params__8TTecAntiFPUc((void *) (arg0 + 0xCC), (int) new_var);
+  ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
     ((RecoveredFields_80235348_arg0 *) arg0)->field_CC = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x48))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x4A))) * ((RecoveredFields_80235348_arg0 *) arg0)->field_C4));
@@ -476,7 +475,7 @@ TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deletin
             }
         }
         mem_free(self->emitters);
-        destroy_technique_effect_resources__10TObjPlayerFs(self, 0);
+        ((TObjPlayer *)self)->destroy_technique_effect_resources(0);
         if (deleting > 0) __dl__7TObjectFPv(self);
     }
     return self;
@@ -500,9 +499,9 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
             p.x = self->pos.x + off.x;
             p.y = self->pos.y + off.y;
             p.z = self->pos.z + off.z;
-            copy_pos__11TNowLoadingFPv(self->emitters[i], &p);
+            ((TNowLoading *)(self->emitters[i]))->copy_pos(&p);
         } else {
-            copy_pos__11TNowLoadingFPv(self->emitters[i], &self->pos);
+            ((TNowLoading *)(self->emitters[i]))->copy_pos(&self->pos);
         }
     }
     move_technique_projectile(self);

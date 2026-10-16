@@ -16,16 +16,10 @@ extern "C" {
 void TObjPlayer__sub_801D9E2C(void *, s16);
 void set_technique_id__10TObjPlayerFs(void *, s16);
 u8 get_item_count_max__10TObjPlayerFv(void);
-void set_technique_state__10TObjPlayerFl(void *, s32);
 void set_technique_id__10TObjPlayerFUc(void *, u8);
 void TObjPlayer__sub_801D2CC4(void *, f32);
-void set_tech_override__10TObjPlayerFUc(void *, u8);
-void set_tech_level__10TObjPlayerFs(void *, s16);
-void reset_slots__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801D9E08(void *);
 void TObjPlayer__sub_801D9E10(void *, s32);
-void set_field_1c__10TObjPlayerFf(void *, f32);
-void set_field18__10TObjPlayerFf(void *, f32);
 extern const f32 lbl_805DC408;
 extern const f32 lbl_805DC40C;
 }
@@ -51,16 +45,16 @@ void TObjPlayer::reset_tech_state() {
         self->caps[i] = v;
     }
     set_technique_id__10TObjPlayerFUc(self, 0xFF);
-    set_tech_override__10TObjPlayerFUc(self, 0);
+    ((TObjPlayer *)self)->set_tech_override(0);
     set_technique_id__10TObjPlayerFs(self, 0);
-    set_tech_level__10TObjPlayerFs(self, 0);
+    ((TObjPlayer *)self)->set_tech_level(0);
     TObjPlayer__sub_801D9E10(self, 0);
-    set_technique_state__10TObjPlayerFl(self, 0);
+    ((TObjPlayer *)self)->set_technique_state(0);
     TObjPlayer__sub_801D2CC4(self, lbl_805DC408);
-    set_field18__10TObjPlayerFf(self, lbl_805DC408);
-    set_field_1c__10TObjPlayerFf(self, lbl_805DC40C);
+    ((TObjPlayer *)self)->set_field18(lbl_805DC408);
+    ((TObjPlayer *)self)->set_field_1c(lbl_805DC40C);
     reset_all_tech_slots();
-    reset_slots__10TObjPlayerFv(self);
+    ((TObjPlayer *)self)->reset_slots();
     self->fa = 0;
     self->f3 = 0;
     self->f2 = 0;

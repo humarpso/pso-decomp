@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss8DragonEffBullet.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TNowLoading.h"
 
 struct RecoveredGlobal_802FE378_lbl_80474B68 {
     s32 value;
@@ -43,7 +45,6 @@ struct RecoveredFields_802FE0E4_arg0 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 subtract_vector(void *, void *);
@@ -57,7 +58,6 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
 void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect_with_flags(void *, void *, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
 s32 get_enemy_entity(int);
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss8Dragon__sub_802FB220(int, void *, int);
@@ -110,11 +110,11 @@ void TBoss8DragonEffBullet::run_task() {
         }
         temp_r3 = (u8 *)(arg0->field_4C);
         if (temp_r3 != NULL) {
-            copy_pos__11TNowLoadingFPv((s32) temp_r3, &arg0->field_1C);
+            ((TNowLoading *)temp_r3)->copy_pos(&arg0->field_1C);
         }
         temp_r3_2 = (u8 *)(arg0->field_50);
         if (temp_r3_2 != NULL) {
-            copy_pos__11TNowLoadingFPv((s32) temp_r3_2, &arg0->field_1C);
+            ((TNowLoading *)temp_r3_2)->copy_pos(&arg0->field_1C);
         }
         return;
     case 1:
@@ -174,7 +174,7 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x40) = update_scale__15TObjBoss2TunnelFv((void *) (arg0 + 0x28));
+    *(f32 *)((s8 *)arg0 + 0x40) = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DEF04;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;

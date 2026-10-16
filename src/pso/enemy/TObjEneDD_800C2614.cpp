@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/player/TObjPlayer.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -158,15 +160,12 @@ struct Prm_800C2628 { f32 a, b, c, d, e; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800C2628 *, void *);
 void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
-s32 check_v2_mode__9TObjEneDDFv();
 void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
 void clear_attack_receipts(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
 s32 fn_800C3A60(void *, s32);
-s32 get_flag_11__16TObjEneRe2FlowerFv(void *);
-s32 clear_child_flags__16TObjEneRe2FlowerFv(void *);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
 extern Prm_800C2628 enemy_dd_attack_param_block;
@@ -183,11 +182,9 @@ void TObjEneDD__sub_800C2618(void* p);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 transition_enemy_state(void *, s32);
-s32 clear_child_flags__16TObjEneRe2FlowerFv(void *);
 s32 fn_800C3A60(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
 s32 objInBand__FP7GameObjf(f32);
-s32 play_effect_if_v2__10TObjPlayerFl(s32);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
 void TObjEneDD__sub_800C2614(void) {  }
@@ -203,7 +200,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
     case 4:
         F(s16, 0xB8) = 1;
         ((VObj_18_9e83f9 *)(arg0))->m94();
-        clear_child_flags__16TObjEneRe2FlowerFv(arg0);
+        ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         F(u32, 0x3C4) &= ~8;
         set_field_378__9TObjEneDDFPvi((void *)(arg0), (s32)(8));
         if (!(F(u32, 0x3C4) & 4)) {
@@ -228,7 +225,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
             {
                 Prm_800C2628 prm = lbl_8043BBA0;
                 prm.d = prm.b = *lbl_805D5170;
-                if (get_flag_11__16TObjEneRe2FlowerFv(arg0) != 0) {
+                if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0) {
                     TObjEneDD__sub_800BA5A4(arg0, &prm);
                 } else {
                     TObjEneDD__sub_800BA5A4(arg0, &enemy_dd_attack_param_block);
@@ -245,7 +242,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
                 clear_attack_receipts(arg0);
             }
         }
-        if (check_v2_mode__9TObjEneDDFv() != 0) {
+        if (TObjEneDD::check_v2_mode() != 0) {
             F(s32, 0x410) += 0x14;
         } else {
             F(s32, 0x410) += 1;
@@ -296,12 +293,12 @@ void TObjEneRe2Flower::handle_event(s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 6;
         ((V_A_800c294c_800C2614 *) arg0)->m94();
-        clear_child_flags__16TObjEneRe2FlowerFv(arg0);
+        ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
         set_field_378__9TObjEneDDFPvi(arg0, 3);
         *(s32 *)((s8 *)arg0 + 0x410) = 0;
         play_sound_effect(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
-        play_effect_if_v2__10TObjPlayerFl(-0x200);
+        TObjPlayer::play_effect_if_v2(-0x200);
         return;
     case 3:
         if (objInBand__FP7GameObjf(*(f32 *)((s8 *)arg0 + 0xC4) - lbl_805D9FC0) != 0) {

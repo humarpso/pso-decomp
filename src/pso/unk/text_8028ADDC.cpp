@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNowLoading.h"
 
 struct O_8028AE1C { u8 pad[0x1c]; s32 count; void **a; void **b; };
 
@@ -8,7 +9,6 @@ extern void *boss5_pillar_demo_ptr;
 void TObjBoss5PillarDemo__sub_8028AD88(void);
 void set_model_node_callback(void *fn);
 void fn_8028ADDC(void *p);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 extern u8 lbl_80450CD0[];
 void fn_8028AE1C(O_8028AE1C *arg0);
 }
@@ -26,10 +26,10 @@ void fn_8028AE1C(O_8028AE1C *arg0) {
     s32 i;
     for (i = 0; i < arg0->count; i++) {
         if (arg0->a[i] != 0) {
-            copy_pos__11TNowLoadingFPv(arg0->a[i], lbl_80450CD0);
+            ((TNowLoading *)(arg0->a[i]))->copy_pos(lbl_80450CD0);
         }
         if (arg0->b[i] != 0) {
-            copy_pos__11TNowLoadingFPv(arg0->b[i], lbl_80450CD0);
+            ((TNowLoading *)(arg0->b[i]))->copy_pos(lbl_80450CD0);
         }
     }
 }

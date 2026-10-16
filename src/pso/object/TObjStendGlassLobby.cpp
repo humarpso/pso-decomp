@@ -1,6 +1,12 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjStendGlassLobby.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKey.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 extern char lbl_80479658[];
@@ -33,8 +39,6 @@ struct Obj_80359758 { u8 pad[0xC8]; s32 state; f32 val; s32 flag; };
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjStendGlassLobby__static_model_resource;
 extern s32 stend_glass_lobby_type;
 s32 init_map_object_base(void *);
@@ -43,8 +47,6 @@ extern s32 TObjStendGlassLobby__name;
 extern u32 TObjStendGlassLobby__static_model_resource;
 extern s32 stend_glass_lobby_type;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 get_filtered_event_theme__6TLobbyFv();
 void TObjStendGlassLobby__sub_803596C0(void);
 }
 
@@ -53,7 +55,6 @@ extern "C" {
 void TObjStendGlassLobby__sub_803596C0(void);
 void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 get_filtered_event_theme__6TLobbyFv();
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 draw_ginja_object(int);
@@ -62,10 +63,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-void destroy_key_base__5TOKeyFs(void *, int);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(int);
 
 void TObjStendGlassLobby__sub_803596C0(void) {  }
 
@@ -74,8 +71,8 @@ void TObjStendGlassLobby::render() {
     f32 temp_f1;
 
     if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl((int) (*(u32 *)((s8 *)arg0 + 0x24)));
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param((int) (*(u32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
@@ -85,18 +82,18 @@ void TObjStendGlassLobby::render() {
         }
         draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
 void TObjStendGlassLobby::run_task() {
     Obj_80359758 *self = (Obj_80359758 *)this;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(void *))TObjStendGlassLobby__sub_803596C0)(self);
     }
     switch (self->state) {
     case 0:
-        if (self->flag == get_filtered_event_theme__6TLobbyFv()) {
+        if (self->flag == TLobby::get_filtered_event_theme()) {
             self->state = 2;
         }
         break;
@@ -122,7 +119,7 @@ void TObjStendGlassLobby::run_task() {
         break;
     case 3:
     default:
-        if (self->flag != get_filtered_event_theme__6TLobbyFv()) {
+        if (self->flag != TLobby::get_filtered_event_theme()) {
             self->state = 1;
         }
         break;
@@ -135,7 +132,7 @@ void TObjStendGlassLobby::update_state() {
     } else {
         *(s32 *)((s8 *)this + 0xD0) = 1;
     }
-    if ((s32) *(s32 *)((s8 *)this + 0xD0) == get_filtered_event_theme__6TLobbyFv()) {
+    if ((s32) *(s32 *)((s8 *)this + 0xD0) == TLobby::get_filtered_event_theme()) {
         *(s32 *)((s8 *)this + 0xC8) = 3;
         return;
     }
@@ -166,19 +163,19 @@ extern s32 __vt__19TObjStendGlassLobby[];
 void TObjStendGlassLobby::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjStendGlassLobby__resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjStendGlassLobby__static_model_resource) = var_r0;
-    stend_glass_lobby_type = get_lobby_type__6TLobbyFv();
+    stend_glass_lobby_type = TLobby::get_lobby_type();
 }
 
 void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjStendGlassLobby;
-        destroy_key_base__5TOKeyFs(arg0, 0);
+        ((TOKey *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

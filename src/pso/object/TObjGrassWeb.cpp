@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjGrassWeb.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 typedef struct Web_800BC798 {
     u8 pad0[0x38];
@@ -17,7 +20,6 @@ s32 construct_world_actor_base();
 extern s32 __vt__12TObjGrassWeb[];
 extern s32 lbl_805D2A3C;
 u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2);
-s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 extern s32 enable_v2_features;
 void TObjGrassWeb__sub_800BC798(Web_800BC798 *o);
@@ -30,9 +32,7 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(u32 *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 s32 mem_alloc(s32);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 fill_value_array(void *);
 s32 mem_free(u32);
 s32 obj_testFlags30(s32, s32);
@@ -42,7 +42,7 @@ int queue_destruction__7TObjectFv(void*);
 int TObjGrassWeb::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 
 void TObjGrassWeb__sub_800BC798(Web_800BC798 *o) {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 3:
     case 4:
     case 5:
@@ -71,7 +71,7 @@ void TObjGrassWeb::apply_to_player() {
 
     *(s32 *)((s8 *)this + 0x90) = 1;
     temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)this + 0xA4));
-    if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
+    if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
         play_effect__10TObjPlayerFiii(temp_r3, *(s32 *)((s8 *)this + 0x84), 1);
     }
 }
@@ -100,7 +100,7 @@ extern s32 __vt__12TObjGrassWeb[];
 void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjGrassWeb;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

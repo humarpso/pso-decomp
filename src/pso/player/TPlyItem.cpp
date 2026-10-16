@@ -104,21 +104,15 @@ struct Item_801D51A0 {
 };
 
 extern "C" {
-u8 get_field_ed__10TObjPlayerFv(void *);
-u8 get_field_ec__12TOSwitchItemFv(void *);
-s32 reduce_item_amount__6TLobbyFlll(s32, void *, void *, s32);
 void *get_owner_if_alive__10TObjPlayerFv(void *);
 s32 is_item_valid__9TItemListFl(void *);
 extern u8 *item_reduce_target_player;
 extern u8 item_reduce_owner_match_field_ec;
 extern u8 reduce_owner_match_id;
-u8 get_field_ec__12TOSwitchItemFv(void *);
-s32 reduce_item_amount__6TLobbyFlll(s32, void *, void *, s32);
 void *get_owner_if_alive__10TObjPlayerFv(void *);
 s32 is_item_valid__9TItemListFl(void *);
 extern u8 *item_reduce_target_player;
 extern u8 item_reduce_owner_match_field_ec;
-s32 get_field_d8__10TObjPlayerFv(void *);
 void *get_owner_if_alive__10TObjPlayerFv(void *);
 s32 is_item_valid__9TItemListFl(void *);
 extern s32 *TObjPlayer__owner_field_write_cursor;
@@ -136,12 +130,13 @@ TPlyItem::~TPlyItem() {
 #include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TItemList.h"
+#include "pso/misc/TOSwitchItem.h"
 
 extern "C" {
 
 void *TPlyItem__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void init_items__9TItemListFv(void *);
 
 extern s32 __vt__8TPlyItem[];
 extern void *lbl_805D356C;
@@ -149,7 +144,7 @@ extern void *lbl_805D356C;
 void *TPlyItem__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TPlyItem;
-    init_items__9TItemListFv((void *)((char *)arg0 + 32));
+    ((TItemList *)((char *)arg0 + 32))->init_items();
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D356C;
     *(u16 *)((s8 *)arg0 + 0x1C) = 0;
     *(u16 *)((s8 *)arg0 + 0x1E) = 0;
@@ -163,13 +158,13 @@ void TLobby::reduce_owner_matched_items() {
     for (it = self->child; it != NULL; it = it->next) {
         if (is_item_valid__9TItemListFl(it) != 0) {
             owner = (VObj_801D5004 *)get_owner_if_alive__10TObjPlayerFv(it);
-            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFv(owner) &&
-                reduce_owner_match_id == get_field_ed__10TObjPlayerFv(owner)) {
+            if (owner != NULL && item_reduce_owner_match_field_ec == ((TOSwitchItem *)owner)->get_field_ec() &&
+                reduce_owner_match_id == ((TObjPlayer *)owner)->get_field_ed()) {
                 if (item_reduce_owner_match_field_ec == 3) {
                     lobby = item_reduce_target_player;
-                    reduce_item_amount__6TLobbyFlll(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
+                    ((TLobby *)(*(s32 *)(lobby + 0xD00)))->reduce_item_amount((s32)lobby, (s32)it, (s32)(owner->v34()));
                 } else {
-                    reduce_item_amount__6TLobbyFlll(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
+                    ((TLobby *)(*(s32 *)(item_reduce_target_player + 0xD00)))->reduce_item_amount((s32)item_reduce_target_player, (s32)it, (s32)1);
                 }
             }
         }
@@ -184,12 +179,12 @@ void TLobby::reduce_child_item_amounts() {
     for (it = self->child; it != NULL; it = it->next) {
         if (is_item_valid__9TItemListFl(it) != 0) {
             owner = (VObj_801D50E0 *)get_owner_if_alive__10TObjPlayerFv(it);
-            if (owner != NULL && item_reduce_owner_match_field_ec == get_field_ec__12TOSwitchItemFv(owner)) {
+            if (owner != NULL && item_reduce_owner_match_field_ec == ((TOSwitchItem *)owner)->get_field_ec()) {
                 if (item_reduce_owner_match_field_ec == 3) {
                     lobby = item_reduce_target_player;
-                    reduce_item_amount__6TLobbyFlll(*(s32 *)(lobby + 0xD00), lobby, it, owner->v34());
+                    ((TLobby *)(*(s32 *)(lobby + 0xD00)))->reduce_item_amount((s32)lobby, (s32)it, (s32)(owner->v34()));
                 } else {
-                    reduce_item_amount__6TLobbyFlll(*(s32 *)(item_reduce_target_player + 0xD00), item_reduce_target_player, it, 1);
+                    ((TLobby *)(*(s32 *)(item_reduce_target_player + 0xD00)))->reduce_item_amount((s32)item_reduce_target_player, (s32)it, (s32)1);
                 }
             }
         }
@@ -202,7 +197,7 @@ void TObjPlayer::collect_owner_fields_recursive() {
     void *owner;
     for (it = self->child; it != NULL; it = it->next) {
         if (is_item_valid__9TItemListFl(it) != 0 && (owner = get_owner_if_alive__10TObjPlayerFv(it)) != NULL) {
-            *TObjPlayer__owner_field_write_cursor++ = get_field_d8__10TObjPlayerFv(owner);
+            *TObjPlayer__owner_field_write_cursor++ = ((TObjPlayer *)owner)->get_field_d8();
             inventory_walk_visit_count++;
         }
         ((TObjPlayer *)it)->collect_owner_fields_recursive();

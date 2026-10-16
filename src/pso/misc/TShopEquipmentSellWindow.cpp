@@ -1,5 +1,13 @@
 #include "types.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
+#include "pso/TShopWindowBase.h"
+#include "pso/item/TItem.h"
+#include "pso/misc/TCheckRoomSequence.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubItem.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TWindowInputNumber.h"
 
 struct Base_8021C870 { char pad[0x18]; };
 struct VObj_8021C870 : Base_8021C870 {
@@ -134,41 +142,30 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 void TShopEquipmentSellWindow__vt9(u8 *arg0);
 int count_matching_items__10TObjPlayerFPvi(void *a0, u32 *a1);
-s32 get_item_data_value__24TShopEquipmentSellWindowFUl(u32 arg0);
-s32 copy_to_item_data__5TItemFPv(u32, void *);
 int reset_list__20TShopArmorListWindowFPv(void *);
 s32 get_shop_text(s32);
 void *create_item_list_window(s32, s32, u16);
-void add_item__24TShopEquipmentSellWindowFlll(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void calc_list_content_extent(void *);
 void set_cursor_index__20TWindowSubStatusDispFPvs(void *, s16);
-s32 clear_selected_and_update_entry__14TWindowSubItemFv(void *);
 void *__nw__7TObjectFUl(u32);
 s32 obj_getField1c(s32);
 s32 get_window_layout_position(s32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
-s32 is_camera_ctrl_active__6TLobbyFv();
-void set_position__6TLobbyFff(void *p, f32 a, f32 b);
 void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
 s32 select_cursor_entry__6TLobbyFv(void *);
-s32 get_child_field1c__15TShopWindowBaseFv(void *);
 void *create_window_quantity(u16 arg0);
 u32 set_mode_and_refresh_object__10TObjPlayerFPvi(void *, void *);
 void *get_owner_if_alive__10TObjPlayerFv(u32);
-void set_entry_count__24TShopEquipmentSellWindowFPvPv(void *arg1, void *arg2);
 void *create_cost_window(u16);
 void get_item_count__24TShopEquipmentSellWindowFv(void *, s32);
 int set_field_20__12TQuestListVMFl(void *, int);
 extern const f32 lbl_805DC6D8;
 int set_field_20__12TQuestListVMFl(void *, int);
 s32 get_item_type_or_default__9TItemListFv(void *);
-s32 set_ready_flag__18TCheckRoomSequenceFv(u32);
 u32 set_mode_and_refresh_object__10TObjPlayerFPvi(void *, void *);
 void *get_owner_if_alive__10TObjPlayerFv(u32);
-void set_position__18TCheckRoomSequenceFff(void *, f32, f32);
 s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 get_child_field1c__15TShopWindowBaseFv(void *);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -182,15 +179,10 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 u32 create_window_menu(s32, s32, u16);
 s32 select_cursor_entry__6TLobbyFv(void *);
 s32 get_window_layout_position(s32);
-void set_entry_count__24TShopEquipmentSellWindowFPvPv(void *arg1, void *arg2);
 void get_item_count__24TShopEquipmentSellWindowFv(void *, s32);
-s32 is_camera_ctrl_active__6TLobbyFv();
 s32 obj_getField1c(s32);
 extern const f32 lbl_805DC6D8;
-s32 is_visible__17TWindowSubComCardFv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(void *);
 int set_field_20__12TQuestListVMFl(void *, int);
-s32 get_field_d8__10TObjPlayerFv(s32);
 s32 try_add_sale_meseta__10TObjPlayerFv(s32, s32, s32, s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
@@ -214,17 +206,12 @@ void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-s32 clear_selected_and_update_entry__14TWindowSubItemFv(void *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
-s32 get_result__24TShopEquipmentSellWindowFv(u32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 is_confirmed__18TWindowInputNumberFv(u32);
-s32 is_confirmed__24TShopEquipmentSellWindowFv(u32);
 void memset(void *, int, int);
 s32 obj_getField1c(s32);
 int set_field_20__12TQuestListVMFl(void *, int);
 s32 set_position_xy(u32, f32, f32);
-s32 set_ready_flag__18TCheckRoomSequenceFv(u32);
 
 void TShopEquipmentSellWindow__vt5(void *arg0) {
     struct VObj_8021C870 *o = (struct VObj_8021C870 *)*(void **)((s8 *)arg0 + 0x388);
@@ -251,11 +238,11 @@ s32 TShopEquipmentSellWindow::update() {
 void TShopEquipmentSellWindow::handle_sell_confirm() {
     Win_8021C968 *w = (Win_8021C968 *)this;
     s32 r;
-    if (w->card != NULL && is_visible__17TWindowSubComCardFv(w->card) != 0) {
+    if (w->card != NULL && ((TWindowSubComCard *)(w->card))->is_visible() != 0) {
         r = get_selected_menu_value(w->card);
         if (r == 0) {
             s32 i = select_cursor_entry__6TLobbyFv(w->list);
-            if (try_add_sale_meseta__10TObjPlayerFv(w->player, get_field_d8__10TObjPlayerFv(w->recs[i].item), w->recs[i].price * w->count, w->count) != 0) {
+            if (try_add_sale_meseta__10TObjPlayerFv(w->player, ((TObjPlayer *)(w->recs[i].item))->get_field_d8(), w->recs[i].price * w->count, w->count) != 0) {
                 TWindow__close(w->card);
                 w->card = NULL;
                 w->sel = i;
@@ -275,7 +262,7 @@ void TShopEquipmentSellWindow::handle_sell_confirm() {
             return;
         }
     }
-    if (w->card != NULL && get_status_flag__17TWindowSubComCardFv(w->card) != 0) {
+    if (w->card != NULL && ((TWindowSubComCard *)(w->card))->get_status_flag() != 0) {
         TWindow__close(w->card);
         w->card = NULL;
         set_field_20__12TQuestListVMFl(w, 5);
@@ -286,7 +273,7 @@ void TShopEquipmentSellWindow::handle_input_window_result() {
     f32 temp_f31;
     u16 temp_r31;
 
-    if (((u32) *(u32 *)((s8 *)this + 0x394) != 0U) && (is_confirmed__18TWindowInputNumberFv(*(u32 *)((s8 *)this + 0x394)) != 0)) {
+    if (((u32) *(u32 *)((s8 *)this + 0x394) != 0U) && (((TWindowInputNumber *)(*(u32 *)((s8 *)this + 0x394)))->is_confirmed() != 0)) {
         if ((u32) *(u32 *)((s8 *)this + 0x390) == 0U) {
             temp_r31 = (u16) obj_getField1c(*(s32 *)((s8 *)this + 0x24));
             *(u32 *)((s8 *)this + 0x390) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
@@ -294,17 +281,17 @@ void TShopEquipmentSellWindow::handle_input_window_result() {
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x390), get_shop_text(7), 6, 1);
             calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)this + 0x390));
             align_menu_entry_positions(*(u32 *)((s8 *)this + 0x390));
-            set_ready_flag__18TCheckRoomSequenceFv(*(u32 *)((s8 *)this + 0x390));
+            ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x390)))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
             set_position_xy(*(u32 *)((s8 *)this + 0x390), get_scale__15TShopWindowBaseFv(this), temp_f31);
         }
-        *(s32 *)((s8 *)this + 0x37C) = get_result__24TShopEquipmentSellWindowFv(*(u32 *)((s8 *)this + 0x394));
+        *(s32 *)((s8 *)this + 0x37C) = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x394)))->get_result();
         TWindow__close((void *)(*(u32 *)((s8 *)this + 0x394)));
         *(u32 *)((s8 *)this + 0x394) = 0U;
         set_field_20__12TQuestListVMFl((void *)(this), (int)(2));
         return;
     }
-    if (((u32) *(u32 *)((s8 *)this + 0x394) != 0U) && (is_confirmed__24TShopEquipmentSellWindowFv(*(u32 *)((s8 *)this + 0x394)) != 0)) {
+    if (((u32) *(u32 *)((s8 *)this + 0x394) != 0U) && (((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x394)))->is_confirmed() != 0)) {
         TWindow__close((void *)(*(u32 *)((s8 *)this + 0x394)));
         *(u32 *)((s8 *)this + 0x394) = 0U;
         set_field_20__12TQuestListVMFl((void *)(this), (int)(5));
@@ -313,7 +300,7 @@ void TShopEquipmentSellWindow::handle_input_window_result() {
 
 s32 TShopEquipmentSellWindow::close() {
     if ((u32) *(u32 *)((s8 *)this + 0x38C) != 0U) {
-        clear_selected_and_update_entry__14TWindowSubItemFv(*(void **)((s8 *)this + 0x38C));
+        ((TWindowSubItem *)(*(void **)((s8 *)this + 0x38C)))->clear_selected_and_update_entry();
     }
     set_field_20__12TQuestListVMFl((void *)(this), (int)(1));
 }
@@ -332,9 +319,9 @@ void TShopEquipmentSellWindow::handle_selection() {
         }
         if (w->status_win != NULL && i != w->sel) {
             if (set_mode_and_refresh_object__10TObjPlayerFPvi(w->owner->inventory, &w->entries[i].item) != 0) {
-                set_entry_count__24TShopEquipmentSellWindowFPvPv(w->status_win, ((void *(*)(void))get_owner_if_alive__10TObjPlayerFv)());
+                TShopEquipmentSellWindow::set_entry_count(w->status_win, ((void *(*)(void))get_owner_if_alive__10TObjPlayerFv)());
             } else {
-                set_entry_count__24TShopEquipmentSellWindowFPvPv(w->status_win, 0);
+                TShopEquipmentSellWindow::set_entry_count(w->status_win, 0);
             }
         }
         if (w->cost_win != NULL && i != w->sel && w->entries[i].price > 0) {
@@ -355,11 +342,11 @@ void TShopEquipmentSellWindow::handle_selection() {
             if (type > 1 && w->qty_win == NULL) {
                 n = __nw__7TObjectFUl(0x7C);
                 if (n != NULL) {
-                    n = __ct__18TWindowInputNumberFPvllls(n, get_window_layout_position(0x2B), 1, type, 1, get_child_field1c__15TShopWindowBaseFv(w));
+                    n = __ct__18TWindowInputNumberFPvllls(n, get_window_layout_position(0x2B), 1, type, 1, ((TShopWindowBase *)w)->get_child_field1c());
                 }
                 w->qty_win = n;
-                if (w->qty_win != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {
-                    set_position__18TCheckRoomSequenceFff(w->qty_win, lbl_805DC6D8, lbl_805DC6D8);
+                if (w->qty_win != NULL && TLobby::is_camera_ctrl_active() > 2) {
+                    ((TCheckRoomSequence *)(w->qty_win))->set_position(lbl_805DC6D8, lbl_805DC6D8);
                 }
                 set_field_20__12TQuestListVMFl(w, 3);
                 return;
@@ -371,7 +358,7 @@ void TShopEquipmentSellWindow::handle_selection() {
             forward_trade_action_default__16TObjCityMainWarpFPviii(w->menu_win, get_shop_text(7), 6, 1);
             calc_window_size__17TWindowSubComCardFPv(w->menu_win);
             align_menu_entry_positions(w->menu_win);
-            set_ready_flag__18TCheckRoomSequenceFv(w->menu_win);
+            ((TCheckRoomSequence *)(w->menu_win))->set_ready_flag();
             set_position_xy(w->menu_win, get_scale__15TShopWindowBaseFv(w), get_scale__15TShopWindowBaseFv(w));
             set_field_20__12TQuestListVMFl(w, 2);
         }
@@ -390,8 +377,8 @@ void TShopEquipmentSellWindow::build_sell_list() {
     self->count = 0;
     for (i = 0; i < n; i++) {
         if (ids[i] != 0) {
-            v = get_item_data_value__24TShopEquipmentSellWindowFUl(ids[i]);
-            if (v > 0 && copy_to_item_data__5TItemFPv(ids[i], &self->entries[self->count].item) != 0) {
+            v = TShopEquipmentSellWindow::get_item_data_value(ids[i]);
+            if (v > 0 && ((TItem *)(ids[i]))->copy_to_item_data(&self->entries[self->count].item) != 0) {
                 self->entries[self->count].id = ids[i];
                 self->entries[self->count].price = v / 8;
                 self->entries[self->count].index = i;
@@ -411,20 +398,20 @@ void TShopEquipmentSellWindow::build_sell_list() {
     if (self->list_win == NULL) {
         self->list_win = create_item_list_window(get_shop_text(self->text), self->count, obj_getField1c((s32)self->owner));
         for (i = 0; i < self->count; i++) {
-            add_item__24TShopEquipmentSellWindowFlll(self->list_win, self->entries[i].id, self->entries[i].price, i);
+            ((TShopEquipmentSellWindow *)(self->list_win))->add_item(self->entries[i].id, self->entries[i].price, i);
         }
         calc_list_content_extent(self->list_win);
     } else {
         reset_list__20TShopArmorListWindowFPv(self->list_win);
         for (i = 0; i < self->count; i++) {
-            add_item__24TShopEquipmentSellWindowFlll(self->list_win, self->entries[i].id, self->entries[i].price, i);
+            ((TShopEquipmentSellWindow *)(self->list_win))->add_item(self->entries[i].id, self->entries[i].price, i);
         }
         if (self->cursor > self->count - 1) {
             self->cursor = self->count - 1;
         }
         calc_list_content_extent(self->list_win);
         set_cursor_index__20TWindowSubStatusDispFPvs(self->list_win, self->cursor);
-        clear_selected_and_update_entry__14TWindowSubItemFv(self->list_win);
+        ((TWindowSubItem *)(self->list_win))->clear_selected_and_update_entry();
     }
     if (self->help_win == NULL) {
         p = __nw__7TObjectFUl(0xBC);
@@ -432,8 +419,8 @@ void TShopEquipmentSellWindow::build_sell_list() {
             p = __ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(0x27), obj_getField1c((s32)self->owner));
         }
         self->help_win = p;
-        if (self->help_win != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {
-            set_position__6TLobbyFff(self->help_win, lbl_805DC6D8, lbl_805DC6D8);
+        if (self->help_win != NULL && TLobby::is_camera_ctrl_active() > 2) {
+            ((TLobby *)(self->help_win))->set_position(lbl_805DC6D8, lbl_805DC6D8);
         }
         TWindowHelpItem__set_displayed_item_by_id(self->help_win, self->entries[0].item.id);
     } else if (self->list_win != NULL) {
@@ -441,20 +428,20 @@ void TShopEquipmentSellWindow::build_sell_list() {
         TWindowHelpItem__set_displayed_item_by_id(self->help_win, self->entries[v].item.id);
     }
     if (self->qty_win == NULL) {
-        self->qty_win = create_window_quantity(get_child_field1c__15TShopWindowBaseFv(self));
+        self->qty_win = create_window_quantity(((TShopWindowBase *)self)->get_child_field1c());
         r = set_mode_and_refresh_object__10TObjPlayerFPvi(self->owner->inventory, &self->entries[0].item);
         if (r != 0) {
-            set_entry_count__24TShopEquipmentSellWindowFPvPv(self->qty_win, get_owner_if_alive__10TObjPlayerFv(r));
+            TShopEquipmentSellWindow::set_entry_count(self->qty_win, get_owner_if_alive__10TObjPlayerFv(r));
         } else {
-            set_entry_count__24TShopEquipmentSellWindowFPvPv(self->qty_win, 0);
+            TShopEquipmentSellWindow::set_entry_count(self->qty_win, 0);
         }
     } else if (self->list_win != NULL) {
         v = select_cursor_entry__6TLobbyFv(self->list_win);
         r = set_mode_and_refresh_object__10TObjPlayerFPvi(self->owner->inventory, &self->entries[v].item);
         if (r != 0) {
-            set_entry_count__24TShopEquipmentSellWindowFPvPv(self->qty_win, get_owner_if_alive__10TObjPlayerFv(r));
+            TShopEquipmentSellWindow::set_entry_count(self->qty_win, get_owner_if_alive__10TObjPlayerFv(r));
         } else {
-            set_entry_count__24TShopEquipmentSellWindowFPvPv(self->qty_win, 0);
+            TShopEquipmentSellWindow::set_entry_count(self->qty_win, 0);
         }
     }
     if (self->cost_win == NULL) {

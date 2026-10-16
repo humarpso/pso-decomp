@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/npc/TObjNpcHRM00.h"
+#include "pso/misc/TLobby.h"
+#include "pso/npc/TObjNpcBase.h"
+#include "pso/npc/TObjNpcLappy.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -92,8 +97,6 @@ struct RecoveredGlobal_8014B3C8___vt__12TObjNpcHRM00 {
 };
 
 extern "C" {
-s32 init_position_vectors__10TObjPlayerFv(void *);
-s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__12TObjNpcHRM00[];
 extern s32 TObjNpcHRM00__name;
@@ -112,14 +115,11 @@ extern "C" {
 
 void * TObjNpcHRM01__create(void *arg0);
 void *__dt__12TObjNpcHRM00Fv(void *arg0, s16 arg1);
-void free_nodes_with_id__6TLobbyFUl(void*);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcHRM01__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_npc_lappy_base__12TObjNpcLappyFs(void *, int);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u32 TObjNpcHRM00__named_object_resource;
 extern u32 TObjNpcHRM00__body_texture_gvm;
@@ -127,11 +127,11 @@ extern u32 TObjNpcHRM00__body_texture_gvm;
 void TObjNpcHRM00::destroy_resources() {
     if ((u32) TObjNpcHRM00__body_texture_gvm != 0U) {
         TLobby__sub_803DA16C((void*)TObjNpcHRM00__body_texture_gvm);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(TObjNpcHRM00__body_texture_gvm);
+        TAdSinglePlyChrSelectGC::safe_free(TObjNpcHRM00__body_texture_gvm);
         TObjNpcHRM00__body_texture_gvm = 0U;
     }
     if ((u32) TObjNpcHRM00__named_object_resource != 0U) {
-        free_nodes_with_id__6TLobbyFUl((void*)TObjNpcHRM00__named_object_resource);
+        TLobby::free_nodes_with_id((u32)((void*)TObjNpcHRM00__named_object_resource));
         TObjNpcHRM00__named_object_resource = 0U;
     }
 }
@@ -146,7 +146,7 @@ void TObjNpcHRM00::load_resources() {
 void *__dt__12TObjNpcHRM00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcHRM00;
-        destroy_npc_lappy_base__12TObjNpcLappyFs(arg0, 0);
+        ((TObjNpcLappy *)arg0)->destroy_npc_lappy_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -162,10 +162,10 @@ u8 *TObjNpcHRM00__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014B3C8___vt__12TObjNpcHRM00 *)&__vt__12TObjNpcHRM00).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHRM00__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    init_position_vectors__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(*(s32 * *)&TObjNpcHRM00__named_object_resource);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)&TObjNpcHRM00__body_texture_gvm);
-    setup_common__11TObjNpcBaseFv((void *) (arg0));
+    ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }
 

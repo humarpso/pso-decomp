@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/object/TObjBgmColCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Names_8017E1E4 { const char *name[2]; };
 
 extern "C" {
-s32 get_global_state__14TOKeyMachine01Fv();
 void play_area_music(const char *);
 extern Names_8017E1E4 lbl_80443898[];
 extern char lbl_804438A0[];
@@ -24,7 +24,7 @@ extern "C" {
 void TObjBgmColCtrl::play_lobby_theme_music() {
     Names_8017E1E4 names = lbl_80443898[0];
     const char *name;
-    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+    if (TOKeyMachine01::get_global_state() == 0xF) {
         name = names.name[1];
         TObjBgmColCtrl__current_theme_id = TLobby__event_theme_id;
     } else {

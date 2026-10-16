@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TObjRain.h"
+#include "pso/player/TObjPlayer.h"
 struct Vec_80197904 { f32 x, y, z; };
 
 struct Drop_80197904 {
@@ -36,8 +37,6 @@ void vec3_add_to(void *, void *);
 void update_drops__8TObjRainFPv(struct Rain_80197904 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
-void reset_transform_state__10TObjPlayerFv(void);
-void init_xyz_limits__10TObjPlayerFv(void);
 void draw_line_list(void *, int, int);
 void reset_line_width(void);
 void set_line_width(int);
@@ -55,7 +54,7 @@ void TObjRain::draw_streaks() {
     struct Rain_801977D4 *self = (struct Rain_801977D4 *)this;
     struct Drop_801977D4 *drop;
     u32 i;
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     drop = self->drops;
     for (i = 0; i < self->count; drop++, i++) {
         if (drop->active != 0) {
@@ -75,7 +74,7 @@ void TObjRain::draw_streaks() {
         }
     }
     reset_line_width();
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
 }
 
 void update_drops__8TObjRainFPv(struct Rain_80197904 *self) {

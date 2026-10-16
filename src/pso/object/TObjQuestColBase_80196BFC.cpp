@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjQuestColBase.h"
+#include "pso/TObject.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_551843 { char pad[0x18]; };
 
@@ -83,8 +86,6 @@ struct RecoveredFields_80196DB4_arg0
 };
 
 extern "C" {
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-u8 * destroy_particle_controller__10TObjPlayerFs(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 TObjQuestColBase__instance_count;
@@ -94,8 +95,6 @@ extern RecoveredGlobal_80196C60_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-u16 alloc_actor_ids__6TLobbyFl(u16);
-s32 construct_collider_proxy__10TObjPlayerFv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 quest_col_base_class_name;
 extern u16 quest_collision_next_id;
@@ -135,7 +134,7 @@ void TObjQuestColBase::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));
-    if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0)) {
+    if ((temp_r3 != NULL) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0)) {
         *(u8 **)((s8 *)arg0 + 0xB8) = NULL;
     }
     if (((void *) *(u8 **)((s8 *)arg0 + 0xB8) == NULL) && (((VObj_18_551843 *)(arg0))->m13() != 0)) {
@@ -146,7 +145,7 @@ u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjQuestColBase.value;
         TObjQuestColBase__instance_count -= 1;
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -161,14 +160,14 @@ typedef char RecoveredGlobal_80196DB4___vt__16TObjQuestColBase_size[((sizeof(Rec
 #define PSO_VCALL_VObj_18_1a504b_m5(_self, _arg0) (((VObj_18_1a504b *)(_self))->m5((_arg0)))
 u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
   u16 temp_r6;
-  construct_collider_proxy__10TObjPlayerFv((void *) arg0);
+  ((TObjPlayer *)arg0)->construct_collider_proxy();
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_0 = quest_col_base_class_name;
   PSO_VCALL_VObj_18_1a504b_m5(arg0, arg2);
   temp_r6 = -1;
   if (((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C == temp_r6)
   {
-    ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = alloc_actor_ids__6TLobbyFl(0);
+    ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = TLobby::alloc_actor_ids(0);
   }
   temp_r6 = quest_collision_next_id;
   quest_collision_next_id = temp_r6 + 1;

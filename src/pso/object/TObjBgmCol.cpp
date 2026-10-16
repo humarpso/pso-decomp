@@ -1,10 +1,10 @@
 #include "types.h"
 #include "pso/object/TObjBgmCol.h"
+#include "pso/object/TObjBgmColCtrl.h"
 
 struct Zone_8017E748 { u8 pad[0x9C]; s32 category; };
 
 extern "C" {
-void play_lobby_theme_music__14TObjBgmColCtrlFv();
 s32 get_quest_bgm_issued_flag();
 void play_area_music(s32);
 extern s32 area_music_filename_table[];
@@ -40,7 +40,7 @@ void TObjBgmCol::run_task() {
         case 1:
             if (bgm_zone_category != zone->category) {
                 if (zone->category == 4) {
-                    play_lobby_theme_music__14TObjBgmColCtrlFv();
+                    TObjBgmColCtrl::play_lobby_theme_music();
                 } else {
                     play_area_music(area_music_filename_table[zone->category]);
                 }

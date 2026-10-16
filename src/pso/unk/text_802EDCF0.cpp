@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 
 struct Obj_802EDCF0 {
     u8 pad0[0x6D4];
@@ -25,7 +26,6 @@ s32 delete_buffer__12TBoss8DragonFis(void *, int);
 s32 mem_free(s32);
 s32 clear_obj_links(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_child__8TObjFishFv(void *);
 extern s32 TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
 u8 *fn_802EDCF0(u8 *arg0, s16 arg1);
@@ -75,7 +75,7 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
         if (boss7_joint_state == (u32) arg0) {
             boss7_joint_state = 0;
         }
-        destroy_child__8TObjFishFv(arg0);
+        ((TObjFish *)arg0)->destroy_child();
         __dt__7TObjectFv(arg0 + 0x690, -1);
         free_if_positive__13TBoss2DeRolLeFis(arg0 + 0x670, -1);
         free_if_positive__13TBoss2DeRolLeFis(arg0 + 0x650, -1);

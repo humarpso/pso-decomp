@@ -2,6 +2,7 @@
 
 #include <stddef.h>
 #include "pso/misc/TMovie.h"
+#include "pso/misc/TLobby.h"
 struct MovieFrameInfo {
     u32 field_00;
     u8 pad_C[0x4];
@@ -42,13 +43,10 @@ struct Movie_80143FB0 {
 extern "C" {
 
 s32 TMovie__sub_80143C94(int, int, int);
-s32 flush_and_reset__6TMovieFv();
 s32 flush_framebuffer(void *, void *, void *);
-s32 copy__6TMovieFPv(void *, void *);
 extern s32 (*TMovie__decode_frame_callback)(void **, u32 *);
 extern s32 (*lbl_805D6B3C)(void **);
 
-s32 get_lobby_data__6TLobbyFv();
 extern u8 lbl_8043F33C[];
 extern u8 lbl_8043F350[];
 extern u8 lbl_8043F35C[];
@@ -100,7 +98,7 @@ void TMovie::init_sfd_player(s32 arg1, s32 arg2) {
     } else {
         f->vt->f18(f, o->fA4);
     }
-    f->vt->f2C(f, get_lobby_data__6TLobbyFv());
+    f->vt->f2C(f, TLobby::get_lobby_data());
 }
 
 s32 TMovie::decode_frame() {
@@ -115,7 +113,7 @@ s32 TMovie::decode_frame() {
     u8 *temp_r4;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) {
-        flush_and_reset__6TMovieFv();
+        TMovie::flush_and_reset();
     }
     TMovie__decode_frame_callback(*(void ***)((s8 *)arg0 + 4), &frame.field_00);
     if (frame.field_00 != 0U) {
@@ -124,7 +122,7 @@ s32 TMovie::decode_frame() {
         } else {
             flush_framebuffer((void *) (arg0), (void *) (*(void ***)((s8 *)arg0 + 4)), (void *) (&frame.field_00));
         }
-        copy__6TMovieFPv((void *) (arg0 + 0x5C), (void *) (&frame.field_00));
+        ((TMovie *)(arg0 + 0x5C))->copy((void *) (&frame.field_00));
         lbl_805D6B3C(*(void ***)((s8 *)arg0 + 4));
     }
     temp_r3 = (void **)(*(void ***)((s8 *)arg0 + 4));

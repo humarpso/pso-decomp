@@ -1,6 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjEnvSoundEx.h"
 #include "pso/object/TObjEnvSoundGlobal.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -40,7 +42,6 @@ extern s32 TObjEnvSoundGlobal__class_name;
 u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801902D8_lbl_804B7A70 environment_sound_tables_by_area;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
@@ -58,7 +59,6 @@ void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 int is_not_split_screen__13TRaderMapCoreFv(void *);
 
 #pragma push
@@ -68,7 +68,7 @@ s32 TObjEnvSoundGlobal::setup_sound() {
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
-    temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (get_global_state__14TOKeyMachine01Fv() * 4));
+    temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (TOKeyMachine01::get_global_state() * 4));
     if (temp_r4 != 0U) {
         copy_pair__18TObjEnvSoundGlobalFPvPv((void*)((void *) (arg0 + 0x94)), (void*)((int) (temp_r4 + (*(s32 *)((s8 *)arg0 + 0x84) * 8))));
     } else {
@@ -109,7 +109,7 @@ void TObjEnvSoundGlobal::run_task() {
 void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjEnvSoundGlobal;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -158,7 +158,7 @@ s32 TObjEnvSoundEx::init_sound_params() {
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
-    temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (get_global_state__14TOKeyMachine01Fv() * 4));
+    temp_r4 = *(s32 *)((s8 *)(&environment_sound_tables_by_area.value) + (TOKeyMachine01::get_global_state() * 4));
     if (temp_r4 != 0U) {
         ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)((void *) (arg0 + 0x9C), (int) (temp_r4 + (*(s32 *)((s8 *)arg0 + 0x84) * 8)));
     } else {
@@ -230,7 +230,7 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEnvSoundEx;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

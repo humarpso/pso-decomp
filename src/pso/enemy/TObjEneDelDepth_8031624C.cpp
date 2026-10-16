@@ -1,5 +1,10 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDelDepth.h"
+#include "pso/enemy/TObjEneDelDepthBomb.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Pair_80316488 { s32 a; s32 b; } Pair_80316488;
 
@@ -32,19 +37,11 @@ typedef struct {
 
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, int);
-s32 draw__16TObjEneRe7BeruraFv(int);
-s32 get_data__15TObjEneDelDepthFv();
-s32 set_global_param__8TObjFishFl(int);
 s32 draw_model_motion(int, int, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 s32 get_bml_model(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, int);
 u8 *get_bml_motion(s32, s32);
-void set_field_b8__14TObjEnePanarmsFs(void *, s16);
-void init__14TObjEnePanarmsFPv(void *, s16);
-s32 get_data__15TObjEneDelDepthFv();
 extern E8_80316488 lbl_804E8760[];
 extern E14_80316488 lbl_804E8780[];
 extern const f32 lbl_805DF2EC;
@@ -57,7 +54,6 @@ extern "C" {
 
 void fn_80316680(void *arg0, s32 arg1);
 s32 __dl__FPv();
-f32 get_depth_radius__19TObjEneDelDepthBombFv(void* p);
 
 int TObjEneDelDepth::get_flag_bit4() { return (*(u32*)((char*)this + 0x30) >> 4) & 0x1; }
 
@@ -84,23 +80,23 @@ void TObjEneDelDepth::draw_model_part() {
     temp_r0 = *(s32 *)((s8 *)arg0 + 4);
     if (temp_r0 != -1) {
         if (temp_r0 < 6) {
-            set_global_param__8TObjFishFl(TObjFish__sub_8001EDB0(get_data__15TObjEneDelDepthFv(), 0));
-            draw__16TObjEneRe7BeruraFv((int) (*(s32 *)((s8 *)arg0 + 0)));
+            TObjFish::set_global_param(TObjFish__sub_8001EDB0(TObjEneDelDepth::get_data(), 0));
+            ((TObjEneRe7Berura *)(*(s32 *)((s8 *)arg0 + 0)))->draw();
             return;
         }
         if (temp_r0 < 0xA) {
-            set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0xC)));
-            set_global_flag__10TObjPlayerFv();
+            TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0xC)));
+            TObjPlayer::set_global_flag();
             draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
-            clear_global_state__10TObjPlayerFv();
+            TObjPlayer::clear_global_state();
             return;
         }
-        set_global_flag__10TObjPlayerFv();
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0xC)));
+        TObjPlayer::set_global_flag();
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0xC)));
         draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
-        set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x18)));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x18)));
         draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 0x14)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
-        clear_global_state__10TObjPlayerFv();
+        TObjPlayer::clear_global_state();
     }
 }
 #pragma pop
@@ -163,12 +159,12 @@ void TObjEneDelDepth::set_motion(s32 arg1) {
     }
     if (id < 6) {
         if (flag != 0) {
-            init__14TObjEnePanarmsFPv(self->obj, (s16)id);
+            ((TObjEnePanarms *)(self->obj))->init((void*)((s16)id));
         } else {
-            set_field_b8__14TObjEnePanarmsFs(self->obj, (s16)id);
+            ((TObjEnePanarms *)(self->obj))->set_field_b8((s16)id);
         }
     } else if (id < 0xA) {
-        s32 data = get_data__15TObjEneDelDepthFv();
+        s32 data = TObjEneDelDepth::get_data();
         E8_80316488 *e = &lbl_804E8760[self->id] - 6;
         self->r8 = get_bml_model(data, 1);
         self->rC = TObjFish__sub_8001EDB0(data, 1);
@@ -177,7 +173,7 @@ void TObjEneDelDepth::set_motion(s32 arg1) {
         self->f20 = e->f;
         self->f28 = lbl_805DF2EC;
     } else {
-        s32 data = get_data__15TObjEneDelDepthFv();
+        s32 data = TObjEneDelDepth::get_data();
         E14_80316488 *e = &lbl_804E8780[self->id] - 10;
         Pair_80316488 *q;
         self->r8 = get_bml_model(data, e->p0.a);

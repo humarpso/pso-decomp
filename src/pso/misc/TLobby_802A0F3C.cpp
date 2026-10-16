@@ -7,7 +7,6 @@
 struct ByteBlock_14 { s32 v[5]; };
 
 extern "C" {
-void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 lbl_804661E4[];
 extern const s32 lbl_804661F8[];
@@ -33,7 +32,7 @@ void TLobby::free_dialog_global() {
     extern int lobby_cursor_active_flag;
 
 void TLobby__sub_802A0F70(void) {
-    update_menu_cursor__6TLobbyFv();
+    TLobby::update_menu_cursor();
     ByteBlock_14 a = *(const ByteBlock_14 *)lbl_804661E4;
     ByteBlock_14 b = *(const ByteBlock_14 *)lbl_804661F8;
     s32 r4 = b.v[current_language];

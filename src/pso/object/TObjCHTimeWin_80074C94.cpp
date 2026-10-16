@@ -1,12 +1,11 @@
 #include "types.h"
 #include "pso/TObjCHTimeWin.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
 void init_timer__13TObjCHTimeWinFv(void);
 s32 TWindowCtrlMain__sub_8024CE58();
-s32 set_timer_window_time__11TWindowCtrlFv(s32);
-int create_alt_timer__11TWindowCtrlFv(void);
 void *__ct__13TObjCHTimeWinFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
@@ -17,7 +16,7 @@ extern void *TObjCHTimeWin__class_name;
 
 void TObjCHTimeWin::run_task() {
     if ((s32) *(s32 *)((s8 *)this + 0x1C) != 0) {
-        set_timer_window_time__11TWindowCtrlFv(TObjCHTimeWin__timer_value);
+        ((TWindowCtrl *)TObjCHTimeWin__timer_value)->set_timer_window_time();
         return;
     }
     if (TWindowCtrlMain__sub_8024CE58() == 1) {
@@ -26,7 +25,7 @@ void TObjCHTimeWin::run_task() {
     }
 }
 
-void init_timer__13TObjCHTimeWinFv(void) { create_alt_timer__11TWindowCtrlFv(); set_timer_window_time__11TWindowCtrlFv(TObjCHTimeWin__timer_value); }
+void init_timer__13TObjCHTimeWinFv(void) { TWindowCtrl::create_alt_timer(); ((TWindowCtrl *)TObjCHTimeWin__timer_value)->set_timer_window_time(); }
 
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct VBase_14 { char pad[0x14]; };
 struct VObj_14 : VBase_14 {
@@ -21,10 +22,8 @@ void fn_80156CEC(u8 *arg0);
 s32 fn_80156C88(f32 *arg0);
 f32 xz_distance_squared(void *, void *);
 s32 fn_80156C88(f32 *arg0);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u8 *camera_ctrl_instance;
 s32 fn_80156BBC(O_80156BBC *arg0, void *arg1);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 fn_80156C38(f32 *arg0);
 void step_laser_fence_fade(struct Laser_80156CA0 *p);
 }
@@ -32,7 +31,7 @@ void step_laser_fence_fade(struct Laser_80156CA0 *p);
 extern "C" {
 
 s32 fn_80156BBC(O_80156BBC *arg0, void *arg1) {
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         return 1;
     }
     if (xz_distance_squared(camera_ctrl_instance + 0x178, arg1) < arg0->f1c * arg0->f1c) {
@@ -44,7 +43,7 @@ s32 fn_80156BBC(O_80156BBC *arg0, void *arg1) {
 }
 
 s32 fn_80156C38(f32 *arg0) {
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         return 0;
     }
     return *arg0 < (0.0f);

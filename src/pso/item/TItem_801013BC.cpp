@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/item/TItem.h"
+#include "pso/item/TItemData.h"
+#include "pso/misc/TShopEquipmentSellWindow.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 
@@ -19,9 +22,7 @@ s32 set_item_count__6TLobbyFs(s32, s32);
 s32 TLobby__sub_80103B04();
 s32 set_indexed_flags(void *, int, int);
 s32 unregister_object_by_id(void *);
-void copy_to_item_data__5TItemFPv(void *, void *);
 u32 test_item_flags__10TObjPlayerFUl(void *, int);
-s32 has_flag_128__10TObjPlayerFv(void *);
 u32 calc_action_flags__9TItemDataFv(void *, u32, u32);
 u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind);
 }
@@ -33,45 +34,38 @@ void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
 s32 get_item_chunk_buffer(s32);
 void is_custom_name_srank__9TItemDataFPv(void *);
 void is_rare_item__9TItemDataFPv(void *);
-s32 format_item_name__9TItemDataFPc(s32 *, s32);
-int unregister_item__5TItemFv(void*);
 s32 pop_free_id__6TLobbyFv();
-void calc_display_grade__9TItemDataFv(void *);
-s32 clear_player_status_flag__10TObjPlayerFlUl(s32, s32, s32);
-void copy_to_item_data__5TItemFPv(void *, void *);
 int disallow_rendering__7TObjectFv(void*);
-void get_item_price_if_valid__24TShopEquipmentSellWindowFv(void *);
 int queue_destruction__7TObjectFv(void*);
-s32 reset_photon_effect__10TObjPlayerFv(s32);
 s32 set_item_count__6TLobbyFs(s32, s32);
 
 void TItem::update_item_data() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPv((void *)(this), (void *)(&sp8));
+    copy_to_item_data((void *)(&sp8));
     is_custom_name_srank__9TItemDataFPv(&sp8);
 }
 
 void TItem__sub_801013E8(void *arg0) {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPv((void *)(arg0), (void *)(&sp8));
+    ((TItem *)arg0)->copy_to_item_data((void *)(&sp8));
     is_rare_item__9TItemDataFPv(&sp8);
 }
 
-void TItem::destroy() { unregister_item__5TItemFv(this); disallow_rendering__7TObjectFv(this); queue_destruction__7TObjectFv(this); }
+void TItem::destroy() { unregister_item(); disallow_rendering__7TObjectFv(this); queue_destruction__7TObjectFv(this); }
 
 void TItem::copy_item_data_and_process() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPv((void *)(this), (void *)(&sp8));
-    get_item_price_if_valid__24TShopEquipmentSellWindowFv(&sp8);
+    copy_to_item_data((void *)(&sp8));
+    ((TShopEquipmentSellWindow *)(&sp8))->get_item_price_if_valid();
 }
 
 u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind) {
     u8 item[0x14];
     u32 r;
-    copy_to_item_data__5TItemFPv(p, item);
+    ((TItem *)p)->copy_to_item_data(item);
     if (kind == 0) {
         kind = p->f_F0;
     }
@@ -79,7 +73,7 @@ u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kin
     if (test_item_flags__10TObjPlayerFUl(p, 0x200) != 0) {
         r |= 2;
     }
-    if (r == 0 && has_flag_128__10TObjPlayerFv(p) != 0) {
+    if (r == 0 && ((TObjPlayer *)p)->has_flag_128() != 0) {
         r |= 0x10;
         r &= ~2;
     }
@@ -104,9 +98,9 @@ void TItem::unregister_from_world() {
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
     if ((u16) obj_getField1c((void *)(arg0)) == 0xFFFF) {
         set_item_count__6TLobbyFs(arg0, pop_free_id__6TLobbyFv());
-        reset_photon_effect__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->reset_photon_effect();
         if (arg1 != 0) {
-            clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 1);
+            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
         }
     }
 }
@@ -128,17 +122,17 @@ s32 TItem::register_attack() {
     s32 sp8[8];
     s32 temp_r3;
 
-    copy_to_item_data__5TItemFPv((void *)(this), (void *)(sp8));
+    copy_to_item_data((void *)(sp8));
     temp_r3 = get_item_chunk_buffer(0);
-    format_item_name__9TItemDataFPc(sp8, temp_r3);
+    ((TItemData *)sp8)->format_item_name((char *)temp_r3);
     return temp_r3;
 }
 
 void TItem::calc_display_grade() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPv((void *)(this), (void *)(&sp8));
-    calc_display_grade__9TItemDataFv(&sp8);
+    copy_to_item_data((void *)(&sp8));
+    ((TItemData *)(&sp8))->calc_display_grade();
 }
 void draw_model_node_tree(u8 *arg0) {
     s32 temp_r30;

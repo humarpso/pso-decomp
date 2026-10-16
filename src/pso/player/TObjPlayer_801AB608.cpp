@@ -2,6 +2,12 @@
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/TLobby.h"
+#include "pso/object/TObjFish.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Stack_801ABBAC {
     s32 sp8;
     f32 spC;
@@ -96,13 +102,10 @@ typedef struct Golla_801AB868 {
 } Golla_801AB868;
 
 extern "C" {
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-u8 * alloc_tables__6TLobbyFll(void *, s32, s32);
 extern u8 *photon_blast_shared_resource;
 extern u32 farlla_photon_blast_model_buffers;
 void create_farlla_photon_blast_model(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_b8__14TObjEnePanarmsFs(void *, int);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
@@ -119,20 +122,14 @@ extern const f32 lbl_805DC1A8;
 void run_task__12TPhotonGollaFPv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
-s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 set_photon_blast_joint_callback__10TObjPlayerFPv(void *);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 extern Color_801ABAA0 saved_model_draw_color;
 extern Color_801ABAA0 model_material_color;
 extern s32 lbl_805D5660;
@@ -166,7 +163,6 @@ extern const f32 lbl_805DC198;
 s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0);
 s32 find_entity_by_id(int);
 s32 rotate_matrix_y(int, int);
-void init_all_slots__10TObjPlayerFv(void);
 void mark_enemy_body_contacts(void *);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 void subtract_vector(void *, void *);
@@ -204,10 +200,10 @@ void TObjPlayer::destroy_buffers() {
 void create_farlla_photon_blast_model(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x14);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x14))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (alloc_tables__6TLobbyFll((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 8), 0));
+        var_r0 = (long) (((TLobby *)temp_r3)->alloc_tables(*(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 8), 0));
     }
     (*(s32 *)&farlla_photon_blast_model_buffers) = var_r0;
 }
@@ -276,7 +272,7 @@ s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
 void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
     s32 i;
     Target_801AB868 *candidate;
-    init_all_slots__10TObjPlayerFv();
+    TObjPlayer::init_all_slots();
     mark_enemy_body_contacts(self);
     if (self->fa4->flags & 0x100000) {
         for (i = 0; i < 16; i++) {
@@ -339,8 +335,8 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
 void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
     if (self->started != 0) {
         scroll_strip_uvs(golla_photon_blast_buffer_pair, self->f14C, 0);
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl(self->f24);
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param(self->f24);
         push_matrix();
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
@@ -350,18 +346,18 @@ void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
-        set_global_flag__10TObjPlayerFv();
+        TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        draw__16TObjEneRe7BeruraFv(self);
-        clear_global_state__10TObjPlayerFv();
+        ((TObjEneRe7Berura *)self)->draw();
+        TObjPlayer::clear_global_state();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
         pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
     }
 }
 
@@ -389,7 +385,7 @@ void run_task__12TPhotonGollaFPv(u8 *arg0) {
     if ((lbl_805DC1A8 == (f32) *(s32 *)((s8 *)arg0 + 0x1C8)) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (5));
         *(s32 *)((s8 *)arg0 + 0x1C8) = 0;
-        set_field_b8__14TObjEnePanarmsFs((void *) (arg0), (int) (0));
+        ((TObjEnePanarms *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (2));
     }
     *(s16 *)((s8 *)arg0 + 0x1B8) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);

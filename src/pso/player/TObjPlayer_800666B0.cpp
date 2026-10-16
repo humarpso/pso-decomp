@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonShockWave.h"
 
 struct O_800666C4 { s16 a; s16 b; s32 arr[4]; };
 
@@ -9,7 +10,6 @@ void fn_800666C4(O_800666C4 *self);
 extern "C" {
 
 void set_camera_capture_overlay_alpha(int a0);
-void render__22TBoss5GryphonShockWaveFv(void);
 
     extern unsigned char camera_capture_overlay_alpha;
     extern unsigned char camera_capture_flags;

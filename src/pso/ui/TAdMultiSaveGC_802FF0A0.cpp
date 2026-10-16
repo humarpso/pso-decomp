@@ -1,22 +1,21 @@
 #include "types.h"
 #include "pso/ui/TAdMultiSaveGC.h"
+#include "pso/TAdMultiChgGameModeGC.h"
+#include "pso/TMainTask.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_802FF0D8_lbl_804E6570 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802FF0D8_lbl_804E6570_size[sizeof(RecoveredGlobal_802FF0D8_lbl_804E6570) == 0x10 ? 1 : -1];
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_802FF0D8_lbl_804E6570 TAdMultiSaveGC__shared_resource_desc;
 extern u32 admultisave_shared_model_resource;
-s32 get_state_flag__9TMainTaskFv(void);
 }
 
 extern "C" {
 
 void TLobby__sub_8001FE7C(void*, int);
-int begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
-void queue_destruction__14TAdMultiSaveGCFv(void);
 int queue_destruction__7TObjectFv(void);
 
 extern u32 admultisave_shared_model_resource;
@@ -31,7 +30,7 @@ void TAdMultiSaveGC::free_window() {
 void TAdMultiSaveGC::load_shared_resource() {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TAdMultiSaveGC__shared_resource_desc.value, 0, 0, 0));
@@ -39,7 +38,7 @@ void TAdMultiSaveGC::load_shared_resource() {
     (*(s32 *)&admultisave_shared_model_resource) = var_r0;
 }
 void TAdMultiSaveGC::render(void *self) {
-    if (get_state_flag__9TMainTaskFv() == 1) return;
+    if (TMainTask::get_state_flag() == 1) return;
 }
 
 }

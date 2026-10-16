@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss8Dragon.h"
+#include "pso/object/TObjGrassWeb.h"
 
 struct AreaAttackHistory {
     void** entries;
@@ -31,7 +32,6 @@ s32 __dl__FPv(u32 *);
 s32 mem_alloc(s32);
 s32 fill_value_array(void *);
 s32 mem_free(u32);
-int queue_destruction__12TObjGrassWebFv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };

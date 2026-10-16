@@ -1,6 +1,7 @@
 #include "types.h"
 
 #include <stddef.h>
+#include "pso/TMainTask.h"
 struct Stack_801A2340 {
     f32 sp8;
     u8 pad_C[0x4];
@@ -15,7 +16,6 @@ struct RecoveredGlobal_801A2340_lbl_804FF610 {
 };
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 s32 is_in_shadow_range(f32, void *);
 s32 project_world_to_screen(int, void *, void *);
 f32 transform_point_by_current_matrix(void *, void *);
@@ -23,7 +23,6 @@ extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
 s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1);
-s32 get_state_flag__9TMainTaskFv();
 s32 is_in_shadow_range(f32, void *);
 s32 project_world_to_screen(int, void *, void *);
 f32 transform_point_by_current_matrix(void *, void *);
@@ -56,7 +55,7 @@ s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
         *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
-    if (get_state_flag__9TMainTaskFv() == 1) {
+    if (TMainTask::get_state_flag() == 1) {
         return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
@@ -111,7 +110,7 @@ s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1) {
         *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
-    if (get_state_flag__9TMainTaskFv() == 1) {
+    if (TMainTask::get_state_flag() == 1) {
         return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));

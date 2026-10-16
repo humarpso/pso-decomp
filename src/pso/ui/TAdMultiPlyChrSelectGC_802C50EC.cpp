@@ -1,5 +1,8 @@
 #include "types.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_802C658C_TAdMultiPlyChrSelectGC__data_804E0A48 {
     s32 value;
@@ -146,11 +149,8 @@ extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 s32 get_field_20__22TAdMultiPlyChrSelectGCFv();
-s32 get_state__22TAdMultiPlyChrSelectGCFv();
-s32 set_global_param__8TObjFishFl(s32);
 s32 set_cached_blend_factor(int, int);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D67D4;
@@ -192,7 +192,6 @@ extern "C" {
 
 s32 TAdMultiPlyChrSelectGC__sub_802C50EC(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C522C(s32);
-s32 get_state_flag__9TMainTaskFv();
 
 extern s32 TAdMultiPlyChrSelectGC__select_mode;
 
@@ -235,8 +234,8 @@ void TAdMultiPlyChrSelectGC::draw_selection_cursors() {
         }
     }
     if (TAdMultiPlyChrSelectGC__select_mode == 1) {
-        get_state__22TAdMultiPlyChrSelectGCFv();
-        get_state__22TAdMultiPlyChrSelectGCFv();
+        TAdMultiPlyChrSelectGC::get_state();
+        TAdMultiPlyChrSelectGC::get_state();
         if (get_field_20__22TAdMultiPlyChrSelectGCFv() < 0xD) {
             return;
         }
@@ -259,12 +258,12 @@ void TAdMultiPlyChrSelectGC::draw_selection_cursors() {
                 set_cached_blend_factor(0, 8);
                 set_cached_blend_factor(1, 0xA);
                 begin_screen_draw(1);
-                set_global_param__8TObjFishFl(lbl_805D67D4);
+                TObjFish::set_global_param(lbl_805D67D4);
                 set_draw_texture_and_color(0, self->sel[i][j]);
                 draw_textured_quad_at_depth(self->r324, lbl_805DE580);
                 draw_textured_quad_at_depth(self->r344, lbl_805DE580);
                 draw_textured_quad_at_depth(self->r364, lbl_805DE580);
-                get_player__20TWindowSubStatusDispFv();
+                TWindowSubStatusDisp::get_player();
                 set_cached_blend_factor(0, 8);
                 set_cached_blend_factor(1, 6);
             }
@@ -274,7 +273,7 @@ void TAdMultiPlyChrSelectGC::draw_selection_cursors() {
 
 void TAdMultiPlyChrSelectGC::update() {
     s32 arg0 = (s32)this;
-    if (get_state_flag__9TMainTaskFv() != 1) {
+    if (TMainTask::get_state_flag() != 1) {
         draw_selection_cursors();
         switch ((s32) TAdMultiPlyChrSelectGC__select_mode) {
         case 0:

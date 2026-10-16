@@ -141,16 +141,10 @@ void TLobby__sub_803BE0DC(void);
 extern s32 lbl_805D74F0;
 extern s32 lbl_805D7500;
 void dspInitCallback(void);
-s32 get_field_34__6TLobbyFv(int);
 void TLobby__sub_803BFE58(u8 *arg0);
-s32 get_field30__6TLobbyFv(int);
-s32 get_field_2c__6TLobbyFv(int);
-s32 get_field_28__6TLobbyFv(int);
-s32 get_slot__6TLobbyFv(int);
 void TLobby__sub_803BFEE8(u8 *arg0);
 s32 TLobby__sub_803C3ABC(int);
 s32 TLobby__sub_803C3AC4(int);
-s32 get_packet_flag_for_state__6TLobbyFv(int);
 s32 TLobby__sub_803C3B38(int);
 s32 TLobby__sub_803C3B44(int);
 s32 get_field_a8__6TLobbyFv(int);
@@ -160,10 +154,6 @@ s32 TLobby__sub_803C0010(u8 *arg0);
 s32 TLobby__sub_803C39CC(int);
 void TLobby__sub_803C0758(u8 *arg0);
 s32 TLobby__sub_803C1A00(int);
-s32 invoke_notify_callback__6TLobbyFv(int);
-void clear_record__6TLobbyFv(void *);
-void release_ref__6TLobbyFv(void);
-void init_once__6TLobbyFv(void);
 s32 memset(void *, int, int);
 s32 memset(void *, int, int);
 s32 memset(void *, int, int);
@@ -181,11 +171,8 @@ s32 memcmp(void *, void *, int);
 extern s32 lbl_805E0CB0;
 extern s32 lbl_805E0CB8;
 s32 TLobby__sub_803C3B38(int);
-s32 get_field_0x3c__6TLobbyFv(int);
 
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
-s32 get_client_count__6TLobbyFv(int);
-s32 get_client_count__6TLobbyFv(int);
 void EXIGetID(Snd_803C0BE8 *arg0);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void GXFlush(void);
@@ -208,22 +195,22 @@ s32 TLobby::get_offset_58() {
     return arg0 + 0x58;
 }
 void TLobby__sub_803BFE58(u8 *arg0) {
-    get_field_34__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->get_field_34();
 }
 void TLobby::dispatch_field4_event() {
     u8 *arg0 = (u8 *)this;
-    get_field30__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->get_field30();
 }
 void TLobby::send_with_offset4_alt() {
     u8 *arg0 = (u8 *)this;
-    get_field_2c__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->get_field_2c();
 }
 void TLobby::notify_client() {
     u8 *arg0 = (u8 *)this;
-    get_field_28__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->get_field_28();
 }
 void TLobby__sub_803BFEE8(u8 *arg0) {
-    get_slot__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->get_slot();
 }
 void TLobby::send_packet_by_id() {
     u8 *arg0 = (u8 *)this;
@@ -235,7 +222,7 @@ void TLobby::notify_field_4_alt() {
 }
 void TLobby::send_packet_by_id_2() {
     u8 *arg0 = (u8 *)this;
-    get_packet_flag_for_state__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->get_packet_flag_for_state();
 }
 void TLobby::send_with_offset4() {
     u8 *arg0 = (u8 *)this;
@@ -349,7 +336,7 @@ void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3) {
     } else {
         *arg3 = 0x1FFFFFFF;
     }
-    get_field_0x3c__6TLobbyFv(arg0->f4);
+    ((TLobby *)(arg0->f4))->get_field_0x3c();
 }
 
 void TLobby::reset_flag() {
@@ -377,7 +364,7 @@ void TLobby::set_network_result(s32 arg1) {
 void TLobby::set_param_and_notify(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 8) = arg1;
-    invoke_notify_callback__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->invoke_notify_callback();
 }
 
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self) {
@@ -390,11 +377,11 @@ void TLobby::reset_entry() {
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 4));
         if (temp_r3 != NULL) {
-            clear_record__6TLobbyFv(temp_r3);
+            ((TLobby *)temp_r3)->clear_record();
         }
-        init_once__6TLobbyFv();
+        TLobby::init_once();
         memset((void *) (arg0), (int) (0), (int) (0x9C));
-        release_ref__6TLobbyFv();
+        TLobby::release_ref();
     }
 }
 void TLobby::clear_session_buffer() {
@@ -433,7 +420,7 @@ void EXIGetID(Snd_803C0BE8 *arg0) {
     s16 *r;
     s32 i;
     s32 n;
-    if (arg0->state == 1 && get_client_count__6TLobbyFv(arg0->lobby) == 0) {
+    if (arg0->state == 1 && ((TLobby *)(arg0->lobby))->get_client_count() == 0) {
         arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
         n = arg0->size - arg0->pos;
         if (n > arg0->avail) {
@@ -471,7 +458,7 @@ void TLobby::convert_pcm_u8_to_s16() {
     s16 *r;
     s32 i;
     s32 n;
-    if (arg0->state == 1 && get_client_count__6TLobbyFv(arg0->lobby) == 0) {
+    if (arg0->state == 1 && ((TLobby *)(arg0->lobby))->get_client_count() == 0) {
         arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
         n = arg0->size - arg0->pos;
         if (n > arg0->avail) {

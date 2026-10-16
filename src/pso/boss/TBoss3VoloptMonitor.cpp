@@ -1,5 +1,9 @@
 #include "types.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -237,12 +241,8 @@ extern s32 volopt_monitor_node_array_handle;
 extern G_80042944 *volopt_monitor_resource_ptr;
 extern u32 volopt_monitor_texture_list;
 s32 recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
-s32 add_flags_2e4__10TObjPlayerFUl(void *, u32);
 s32 obj_setFlags30(void *, s32);
-s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 s16 fn_80042960(bool);
-s32 set_param__12TObjEneLappyFl(void *, s32);
-s32 update_prev_position__10TObjPlayerFv(void *);
 s32 rand();
 extern u8 TBoss3VoloptMonitor__init_param_block[];
 extern s8 volopt_target_slot_used[];
@@ -260,7 +260,6 @@ s32 set_depth_buffer_settings_id__FUl(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(void *);
 s32 draw_ginja_object(s32);
 extern s32 volopt_monitor_model_indices[];
 extern s32 volopt_monitor_texture_param[];
@@ -274,8 +273,6 @@ s32 obj_testFlags30(void *, int);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 void TBoss3VoloptMonitor__sub_800420D8(void);
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
-s32 check_demo_mode__10TObjPlayerFv();
-s32 update_prev_position__10TObjPlayerFv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 s32 scroll_ginja_mesh_uvs(int, int, int, int, int);
@@ -330,7 +327,6 @@ extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
 extern "C" void apply_attack_stat_status__10TObjPlayerFv();
 extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFlPv();
 extern "C" void apply_knockback_from_attacker();
 extern "C" void apply_movement_ailment__10TObjPlayerFv();
 extern "C" void apply_object_set_data();
@@ -357,7 +353,6 @@ extern "C" void get_actor_body_center();
 extern "C" void get_actor_level_index();
 extern "C" void get_enemy_name__14TObjEnePanarmsFv();
 extern "C" void get_pos__10TObjPlayerFii();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
@@ -368,9 +363,6 @@ extern "C" void reset_actor_action_state();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
-extern "C" void test_flag_256__10TObjPlayerFPv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
 extern "C" void try_start_action__10TObjPlayerFPvii();
 extern "C" void update_action_hold_status__10TObjPlayerFv();
@@ -467,7 +459,7 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
             }
         }
         volopt_monitor_texture_param[0] = *(s32 *)volopt_monitor_texture_list + v * 0xC;
-        set_global_param__8TObjFishFl(volopt_monitor_texture_param);
+        TObjFish::set_global_param((s32)volopt_monitor_texture_param);
         set_depth_buffer_settings_id__FUl(3);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
@@ -510,7 +502,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     s32 var_r30;
     s32 var_r4;
     s32 temp_r5;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(void *))TBoss3VoloptMonitor__sub_800420D8)(arg0);
         return;
     }
@@ -528,7 +520,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
     ((TBoss3VoloptMonitor *)arg0)->update_state();
-    update_prev_position__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->update_prev_position();
     if (obj_testFlags30((void *) (arg0), (int) (0x800)) == 0) {
         copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
         submit_cursor_candidate((void *) (arg0), (int) (-1));
@@ -610,12 +602,12 @@ void TBoss3VoloptMonitor__sub_80042510(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x2B8);
     *(s16 *)((s8 *)arg0 + 0x32E) = *(s16 *)((s8 *)arg0 + 0x2BA);
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
-    set_param__12TObjEneLappyFl(arg0, 0x2E);
-    update_prev_position__10TObjPlayerFv(arg0);
-    reset_photon_effect__12TBoss3VoloptFv(arg0);
+    ((TObjEneLappy *)arg0)->set_param(0x2E);
+    ((TObjPlayer *)arg0)->update_prev_position();
+    ((TBoss3Volopt *)arg0)->reset_photon_effect();
     *(s16 *)((s8 *)arg0 + 0x38E) = lbl_805D874C * (lbl_805D8740 * (f32)rand());
     *(s16 *)((s8 *)arg0 + 0x390) = lbl_805D8750 * (lbl_805D8740 * (f32)rand());
-    add_flags_2e4__10TObjPlayerFUl(arg0, 4);
+    ((TObjPlayer *)arg0)->add_flags_2e4(4);
     volopt_target_slot_used[*(s16 *)((s8 *)arg0 + 0x38C)] = 0;
     obj_setFlags30(arg0, 0x8000);
     ((VObj_80042510 *)arg0)->m80();
@@ -670,13 +662,13 @@ void *__vt__19TBoss3VoloptMonitor[84] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TObjEnemyCustom__sub_800C7DF4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
-    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&TObjEnemyCustom__sub_800C7DF4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
-    (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjEnemyCustom__sub_800C7DD0, (void *)&update_if_active__15TObjEnemyCustomFPv,
     (void *)&update_gigue__15TObjEnemyCustomFv, (void *)&TObjEnemyCustom__sub_800C7AE0, (void *)&TObjEnemyCustom__sub_800C79C8, (void *)&TObjEnemyCustom__sub_800C789C,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TBoss3Volopt__sub_800C762C, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,

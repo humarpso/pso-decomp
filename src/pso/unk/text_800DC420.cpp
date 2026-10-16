@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjGyaranzoMissile.h"
 
 struct D_800DC420 { u8 pad[0x18]; s32 arr[1]; };
 
@@ -92,7 +94,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, int);
 void *get_player_data__10TObjPlayerFi(s32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
 void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
 void *find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUl();
@@ -120,12 +121,10 @@ s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 s32 spawn_particle_effect(void *, int);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
 Obj_800DC4B4 *find_active_entity_by_id(u16);
 void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *, void *);
 void set_flag_20000__10TObjPlayerFPv(void *);
-void scale_velocity__19TObjGyaranzoMissileFf(void *, f32);
 f32 xyz_distance_squared(void *, void *);
 void *find_entity_by_id(u16);
 s32 play_sound_effect(int, void *, int, int);
@@ -142,7 +141,6 @@ extern "C" {
 void TObjPlayer__sub_800DC444(void);
 void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 s32 TObjPlayer__sub_800DC420(void *self, s32 i) {
@@ -220,7 +218,7 @@ void TObjPlayer::update_projectile() {
     Vec_800DC648 old = arg0->pos;
     vec3_add_to(&arg0->pos, &arg0->vel);
     if (arg0->link0 != NULL) {
-        copy_pos__11TNowLoadingFPv(arg0->link0, &arg0->pos);
+        ((TNowLoading *)(arg0->link0))->copy_pos(&arg0->pos);
     }
     arg0->timer += lbl_805D525C;
     if (arg0->trail != 0) {
@@ -231,7 +229,7 @@ void TObjPlayer::update_projectile() {
             TObjPlayer::snap_to_ground((s32)arg0, (s32)&arg0->prev);
         }
         if (arg0->link1 != NULL) {
-            copy_pos__11TNowLoadingFPv(arg0->link1, &arg0->prev);
+            ((TNowLoading *)(arg0->link1))->copy_pos(&arg0->prev);
         }
     }
     if (arg0->timer >= lbl_805DA478) {
@@ -258,7 +256,7 @@ void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
         if (*(void **)((s8 *)arg0 + 0xE0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0)); *(s32 *)((s8 *)arg0 + 0xE0) = 0; }
         if (*(void **)((s8 *)arg0 + 0xE4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE4)); *(s32 *)((s8 *)arg0 + 0xE4) = 0; }
-        destroy_particle_controller__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

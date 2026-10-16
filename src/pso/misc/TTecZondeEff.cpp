@@ -3,6 +3,12 @@
 TTecZondeEff::~TTecZondeEff() {}
 
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8023D988___vt__12TTecZondeEff {
     s32 value;
@@ -165,13 +171,6 @@ extern s32 TTecZondeEff__beam_vertex_data;
 extern const f32 TTecZondeEff__data_805DC990;
 void set_depth_buffer_settings_1__Fv();
 void restore_saved_depth_alpha_state();
-void reset_transform_state__10TObjPlayerFv();
-void init_xyz_limits__10TObjPlayerFv();
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
-void draw_transformed_primitive__9TWindowDDFPvPvPv(void *, s32, s32, s32);
-s32 get_global_state__14TOKeyMachine01Fv();
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void set_chunk_material_color(f32 *argb);
 extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
@@ -199,7 +198,6 @@ struct Obj_8023D294 { u8 pad[0x28]; Vec_8023D294 d; };
 extern "C" {
 
 f32 rand_signed_unit();
-void update_scale__15TObjBoss2TunnelFv(void *);
 extern const f32 TTecZondeEff__data_805DC994;
 extern const f32 lbl_805DC9A0;
 
@@ -341,7 +339,7 @@ void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
         out->y = a;
         out->z = b;
         out->x = inv * (a * p + b * q);
-        update_scale__15TObjBoss2TunnelFv(out);
+        ((TObjBoss2Tunnel *)out)->update_scale();
         break;
     }
     case 1: {
@@ -354,7 +352,7 @@ void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
         out->z = a;
         out->x = b;
         out->y = inv * (a * p + b * q);
-        update_scale__15TObjBoss2TunnelFv(out);
+        ((TObjBoss2Tunnel *)out)->update_scale();
         break;
     }
     case 2: {
@@ -367,7 +365,7 @@ void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
         out->x = a;
         out->y = b;
         out->z = inv * (a * p + b * q);
-        update_scale__15TObjBoss2TunnelFv(out);
+        ((TObjBoss2Tunnel *)out)->update_scale();
         break;
     }
     }
@@ -448,23 +446,23 @@ void TTecZondeEff::render() {
     u32 m3c[0x34 / 4];
     u32 m8[0x34 / 4];
     u32 id;
-    if (self->active == 0 || get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0xF) {
+    if (self->active == 0 || TOKeyMachine01::get_global_state() == 0 || TOKeyMachine01::get_global_state() == 0xF) {
         return;
     }
-    if (all_parents_unqueued_for_destruction__7TObjectFv(self) == 0) {
+    if (((TObject *)self)->all_parents_unqueued_for_destruction() == 0) {
         return;
     }
     id = model_render_flags;
     lbl_805D5660 = id;
     model_render_flags = id | 0x10;
-    begin_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::begin_effect_render();
     set_depth_buffer_settings_1__Fv();
     if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip((Obj_8023CED4 *)(self), (Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0) {
-        init_xyz_limits__10TObjPlayerFv();
-        draw_transformed_primitive__9TWindowDDFPvPvPv(verts, self->count * 2, TTecZondeEff__beam_vertex_data, 1);
-        reset_transform_state__10TObjPlayerFv();
+        TObjPlayer::init_xyz_limits();
+        ((TWindowDD *)verts)->draw_transformed_primitive((void*)(self->count * 2), (void*)TTecZondeEff__beam_vertex_data, (void*)1);
+        TObjPlayer::reset_transform_state();
     }
-    end_effect_render__13TParticleCtrlFv();
+    TParticleCtrl::end_effect_render();
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
     restore_saved_depth_alpha_state();

@@ -1,5 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowStatus.h"
+#include "pso/item/TItemMag.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 struct Quad_802710C4 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
@@ -13,9 +19,7 @@ s32 TWindowSubComCard__sub_802454E4(int);
 s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
 s32 apply_context_transform_to_rect(void *, void *);
 void draw_photon_blast_gauge_ring(s32, void *, const f32 *, f32, f32);
-s32 set_global_param__8TObjFishFl(void *);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern const f32 lbl_8044F650[];
@@ -23,10 +27,7 @@ extern const f32 lbl_805DD434;
 extern void *lbl_805D63F0;
 
 s16 obj_getS16_2BA(void *);
-s16 get_field_2b8__14TItemProShieldFv(void *);
-s32 get_sub_value__8TItemMagFv(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFi(void *, s32);
-void update_status_entry__20TWindowSubStatusDispFv(void *);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
 u8 *get_player_by_client_id();
 s32 get_width__11TWindowCtrlFv();
@@ -52,8 +53,6 @@ s32 update_window_entry_list(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
 s32 update_lockon_window(s32);
-s32 initialize_subwindow__9TWindowDDFv(s32);
-s32 update_fade__17TWindowSubComCardFv(s32);
 s32 update_status_help_item(s32);
 
 void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
@@ -71,7 +70,7 @@ void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
         b = get_array_entry__20TWindowSubStatusDispFi(arg0, 9);
         c = get_array_entry__20TWindowSubStatusDispFi(arg0, 6);
         d = get_array_entry__20TWindowSubStatusDispFi(arg0, 8);
-        *(s32 *)((s8 *)b + 0x20) = get_field_2b8__14TItemProShieldFv(pl);
+        *(s32 *)((s8 *)b + 0x20) = ((TItemProShield *)pl)->get_field_2b8();
         *(s32 *)((s8 *)a + 0x20) = *(s16 *)((s8 *)pl + 0x32C);
         v = update_hp_entry__20TWindowSubStatusDispFPv(arg0);
         *(s32 *)((s8 *)a + 0x1C) = v;
@@ -97,9 +96,9 @@ void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
         draw_right_aligned_number(a);
         *(f32 *)((s8 *)a + 8) = *(f32 *)((s8 *)b + 8) - *(f32 *)((s8 *)b + 0x10) - lbl_805DD430;
         *(f32 *)((s8 *)d + 8) = *(f32 *)((s8 *)a + 8);
-        update_status_entry__20TWindowSubStatusDispFv(arg0);
+        ((TWindowSubStatusDisp *)arg0)->update_status_entry();
         e = get_array_entry__20TWindowSubStatusDispFi(arg0, 0xE);
-        set_status_entry_target(e, get_sub_value__8TItemMagFv(pl));
+        set_status_entry_target(e, ((TItemMag *)pl)->get_sub_value());
     }
 }
 
@@ -113,7 +112,7 @@ void draw_background__13TWindowStatusFv(u8 *arg0, u8 *arg1) {
         draw_photon_blast_gauge_ring((s32)arg0, arg1, lbl_8044F650, *(s32 *)((s8 *)e + 0x20), lbl_805DD434);
     }
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param((s32)lbl_805D63F0);
     set_draw_texture_and_color(0xB, *(s32 *)((s8 *)arg1 + 0x34));
     { f32 r = TWindowSubComCard__sub_80244784(arg0);
     s = -1.0f / (0.0598f + *(f32 *)((s8 *)arg0 + 0x54));
@@ -136,7 +135,7 @@ void draw_background__13TWindowStatusFv(u8 *arg0, u8 *arg1) {
     q.v1 = 0.296875f;
     apply_context_transform_to_rect(arg1, &q);
     draw_textured_quad_at_depth(&q, s);
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
     if (TWindowSubComCard__sub_80245558(arg1, arg1 + 0x10, arg1 + 0x18) != 0) {
         TWindowSubComCard__sub_802454E4(0xB);
         TWindowSubComCard__sub_80245320(&q, arg1);
@@ -169,8 +168,8 @@ void TWindowStatus::run_task() {
     update_lockon_window(arg0);
     update_status_help_item(arg0);
     update_status_icons__14TWindowComCardFPvPv(arg0, get_window_layout_position(0x1D));
-    initialize_subwindow__9TWindowDDFv(arg0);
-    update_fade__17TWindowSubComCardFv(arg0);
+    ((TWindowDD *)arg0)->initialize_subwindow();
+    ((TWindowSubComCard *)arg0)->update_fade();
     update_window_entry_list(arg0, arg0 + 0x24);
 }
 

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/misc/TOCtrlDubchik.h"
 
 struct V3_8015C9D4 { f32 x, y, z; };
 
@@ -11,7 +12,6 @@ extern "C" {
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 s32 select_melee_contact_body__10TObjPlayerFv(f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void create_font__13TOCtrlDubchikFllll(void *, int, int, void *);
 extern char lbl_80440984[];
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3AC;
@@ -50,7 +50,7 @@ f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2) {
         } else {
             VecCopy__FP3VecPC3Vec(&sp8, &arg0->pos);
         }
-        create_font__13TOCtrlDubchikFllll(&sp8, 0xFFFF0000, 0x14, lbl_80440984);
+        TOCtrlDubchik::create_font((s32)(&sp8), (s32)0xFFFF0000, (s32)0x14, (s32)lbl_80440984);
     }
     return TOCtrlDubchik__data_805DB3A8;
 }

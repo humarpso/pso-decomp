@@ -17,7 +17,6 @@ struct RecoveredGlobal_803404A4_lbl_8050E208
 struct E_803403F8 { f32 a; f32 b; f32 c; f32 d; f32 e; s32 f; };
 
 extern "C" {
-s32 spawn_window__9TWindowDDFv();
 extern const f32 lbl_805DFC34;
 extern const f32 lbl_805DFC38;
 extern const f32 lbl_805DFC3C;
@@ -26,7 +25,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, void *);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, void *, int, int);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
-s32 spawn_window__9TWindowDDFv();
 extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC00;
 extern const f32 lbl_805DFC04;
@@ -43,8 +41,6 @@ void *TWindowDD__sub_8034094C(void *arg0, s16 arg1);
 void update_draw__9TWindowDDFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_window_base__9TWindowDDFs(void *, int);
-int initialize_subwindow__9TWindowDDFv(void*);
 int update_fade__17TWindowSubComCardFv(void*);
 
 void TWindowDD::reset_entries(f32 v) {
@@ -122,7 +118,7 @@ s32 TWindowDD_check_input_mask(void *input_context, s32 arg1) {
   return TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (void *) arg1);
 }
 
-void update_draw__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFv(p); update_fade__17TWindowSubComCardFv(p); }
+void update_draw__9TWindowDDFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); update_fade__17TWindowSubComCardFv(p); }
 
 void TWindowDD::set_clamped_page(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -164,7 +160,7 @@ void TWindowDD::handle_input() {
         *(s32 *)((s8 *)arg0 + 0x68) = 2;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x68) != temp_r31) {
-        spawn_window__9TWindowDDFv();
+        TWindowDD::spawn_window();
     }
 }
 #pragma pop
@@ -206,7 +202,7 @@ void TWindowDD::set_clamped_selection(s32 arg1) {
 void *TWindowDD__sub_8034094C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFBAC;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -245,7 +241,7 @@ void TWindowDD::init_layout_constants() {
     TWindowDD__layout_constants[2] = lbl_805DFC2C;
 }
 
-void TWindowDD::init() { initialize_subwindow__9TWindowDDFv(this); update_fade__17TWindowSubComCardFv(this); }
+void TWindowDD::init() { initialize_subwindow(); update_fade__17TWindowSubComCardFv(this); }
 
 extern s32 lbl_804785D8;
 extern const f32 lbl_805DFC6C;

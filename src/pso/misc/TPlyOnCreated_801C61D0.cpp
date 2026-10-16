@@ -7,7 +7,6 @@
 
 extern "C" {
 
-void run_task__20TPlayerReadyCallbackFv(void *arg0);
 void *get_player_by_client_id(u16);
 void *__ct__13TPlyOnCreatedFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);

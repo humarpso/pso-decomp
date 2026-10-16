@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowOptionCtrl.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
 
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
@@ -15,7 +16,6 @@ s32 add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(s32, s32, s32, s32);
 s32 set_window_mode_4__6TLobbyFPvll(void *, s32 *, s32);
 s32 warn_if_empty__17TWindowOptionCtrlFPUc(void *);
 void *get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv();
-void *get_formatted_serial__22TAdEnterSerialAccessGCFv();
 void *TAdEnterSerialAccessGC__sub_80321738();
 void *TAdEnterSerialAccessGC__sub_803217B8();
 void *TAdEnterSerialAccessGC__sub_80321874();
@@ -35,7 +35,7 @@ s32 TWindowOptionCtrl::create_serial_info_window(s32 arg1) {
         break;
     case 1:
         add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(w, get_localized_text_entry(0xF, 0x16), warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC__sub_80321738()), 0);
-        add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(w, get_localized_text_entry(0xF, 0x17), warn_if_empty__17TWindowOptionCtrlFPUc(get_formatted_serial__22TAdEnterSerialAccessGCFv()), 0);
+        add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(w, get_localized_text_entry(0xF, 0x17), warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC::get_formatted_serial()), 0);
         add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(w, get_localized_text_entry(0xF, 0x18), warn_if_empty__17TWindowOptionCtrlFPUc(get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv()), 0);
         break;
     }

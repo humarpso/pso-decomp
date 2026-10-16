@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/item/TItemEffArmor.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80107DA4_lbl_8049EFB8 {
     s32 value;
@@ -19,7 +21,6 @@ struct RecoveredGlobal_80107DF0_lbl_8058D4C0 {
 extern "C" {
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 publish_actor_light_scalars(int, f32, f32);
 extern const f32 TItemEffArmor__data_805DAAEC;
@@ -29,7 +30,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80107DA4_lbl_8049EFB8 lbl_8049EFB8;
 u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 notify_fish_if_valid__10TObjPlayerFUl(u32);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -69,7 +69,7 @@ void TItemEffArmor::render() {
     model_render_flags |= 0x10;
     copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &model_material_color.value);
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x38));
-    notify_fish_if_valid__10TObjPlayerFUl(*(u32 *)((s8 *)arg0 + 0x78));
+    TObjPlayer::notify_fish_if_valid(*(u32 *)((s8 *)arg0 + 0x78));
     draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x70)), (int) (*(s32 *)((s8 *)arg0 + 0x74)), (f32) (*(f32 *)((s8 *)arg0 + 0x24)));
     copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
     model_render_flags = lbl_805D5660;
@@ -89,7 +89,7 @@ void TItemEffArmor::run_task() {
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((*(f32 *)((s8 *)arg0 + 0x24) * *(f32 *)((s8 *)arg0 + 0x58)) / lbl_805DAAF0));
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        copy_pos__11TNowLoadingFPv(temp_r3, arg0 + 0x2C);
+        ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x2C);
     }
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) (TItemEffArmor__data_805DAAEC - (*(f32 *)((s8 *)arg0 + 0x24) / lbl_805DAAF0));
     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6C));

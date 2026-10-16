@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -55,7 +57,6 @@ extern "C" {
 void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1);
 void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
 void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
-void *alloc__22TQuestVmDownLoadServerFv(s32);
 void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1);
 void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
 void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
@@ -101,16 +102,15 @@ void *__dt__21TObjHMS_EZRope_PlayerFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__14TObjEZRopeBaseFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
 
 extern s32 __vt__21TObjHMS_EZRope_Player[];
 
 void *__dt__21TObjHMS_EZRope_PlayerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjHMS_EZRope_Player;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUl(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUl(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUl(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)((s8 *)arg0 + 0x44) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)arg0 + 0x3C))); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)arg0 + 0x40))); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { TAdSinglePlyChrSelectGC::safe_free((u32)(*(void **)((s8 *)arg0 + 0x44))); *(s32 *)((s8 *)arg0 + 0x44) = 0; }
         __dt__14TObjEZRopeBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -142,12 +142,12 @@ void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3) 
         for (q = SELF->list2; q->type >= 0; q++, n2++) {
         }
     }
-    SELF->a = (D1_800FF070 *)alloc__22TQuestVmDownLoadServerFv((n1 + 1) * 0x18);
-    SELF->b = (D2_800FF070 *)alloc__22TQuestVmDownLoadServerFv(n1 * 0x10);
+    SELF->a = (D1_800FF070 *)((TQuestVmDownLoadServer *)((n1 + 1) * 0x18))->alloc();
+    SELF->b = (D2_800FF070 *)((TQuestVmDownLoadServer *)(n1 * 0x10))->alloc();
     if (n2 == 0) {
         SELF->c = NULL;
     } else {
-        SELF->c = (D2_800FF070 *)alloc__22TQuestVmDownLoadServerFv((n2 + 1) * 0x10);
+        SELF->c = (D2_800FF070 *)((TQuestVmDownLoadServer *)((n2 + 1) * 0x10))->alloc();
     }
     {
         E1_800FF070 *p3;

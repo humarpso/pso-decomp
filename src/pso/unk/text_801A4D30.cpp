@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/TAdMultiChgGameModeGC.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/misc/TCheckMemoryCard.h"
+#include "pso/misc/TLobby.h"
 typedef struct Vec_801A4D30 {
     s32 x, y, z;
 } Vec_801A4D30;
@@ -23,18 +27,14 @@ void queue_destruction__7TObjectFv(void *);
 void set_active_camera_pose(void *, void *);
 void activate_camera_mode(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 get_instance__15TAdPlayerLoadGCFv(void);
 void TAdDialingGC__sub_801A4CA4(void *);
 s32 TWindowShortListCtrl__sub_801A513C(void *);
 int TWindowShortListCtrl__sub_801A5144(void *);
 s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv(void);
 void pso_system_load_gc(void);
-void request_scene_change__21TAdMultiChgGameModeGCFv(void);
 void TWindow__close(void *);
-void send_and_handle__6TLobbyFii(void *, s32, s32);
 void *update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8033B9F8(void *);
-void *create__16TCheckMemoryCardFPvPv(void *, void *, void *);
 extern Vec_801A4D30 lbl_80446940;
 extern Vec_801A4D30 lbl_8044694C;
 extern Pair_801A4D30 lbl_80446958[];
@@ -72,13 +72,13 @@ void run_memcard_check_scene(Obj_801A4D30 *self) {
         }
         self->state = 3;
     case 3:
-        if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+        if (TAdPlayerLoadGC::get_instance() == 0) {
             self->state = 4;
         }
         break;
     case 4:
         if (self->card == NULL) {
-            self->card = create__16TCheckMemoryCardFPvPv(self, NULL, NULL);
+            self->card = ((TCheckMemoryCard *)self)->create(NULL, NULL);
         }
         self->state = 5;
     case 5:
@@ -93,18 +93,18 @@ void run_memcard_check_scene(Obj_801A4D30 *self) {
         }
         break;
     case 6:
-        if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+        if (TAdPlayerLoadGC::get_instance() == 0) {
             self->state = 8;
         } else {
             Pair_801A4D30 a = lbl_80446958[0];
             Pair_801A4D30 b = lbl_80446960[0];
             self->window = update_window_mode_from_progress__6TLobbyFPv(&a, &b);
-            send_and_handle__6TLobbyFii(self->window, TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
+            ((TLobby *)(self->window))->send_and_handle(TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
             self->state = 7;
         }
         break;
     case 7:
-        if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+        if (TAdPlayerLoadGC::get_instance() == 0) {
             TWindow__close(self->window);
             self->window = NULL;
             self->state = 8;
@@ -115,7 +115,7 @@ void run_memcard_check_scene(Obj_801A4D30 *self) {
         if ((f32)self->timer > lbl_805DC0A8) {
             TAdDialingGC__sub_801A4CA4(self);
             self->state = 9;
-            request_scene_change__21TAdMultiChgGameModeGCFv();
+            TAdMultiChgGameModeGC::request_scene_change();
         }
         break;
     case 9:

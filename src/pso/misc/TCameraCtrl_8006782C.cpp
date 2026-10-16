@@ -19,7 +19,6 @@ struct Stack_8006786C {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 predict_obstruction__11TCameraCtrlFv(void *);
 f32 vector_length(void *);
 extern RecoveredGlobal_80067AB0_lbl_80438150 camera_ctrl_default_offset_vecs;
 extern u8 *camera_ctrl_instance;
@@ -45,11 +44,8 @@ extern "C" {
 
 void *TCameraCtrl__vt12(void);
 void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-s32 update_follow_camera__11TCameraCtrlFv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void deleting_dtor__11TCameraCtrlFs(void *, int);
-void *init__11TCameraCtrlFv(void *);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s16 obj_getField1c(u32);
 
@@ -139,7 +135,7 @@ void TCameraCtrl__sub_80067AB0(u8 *arg0) {
     stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - *(f32 *)((s8 *)arg0 + 0x4C);
     stack.sp10 = *(f32 *)((s8 *)camera_ctrl_instance + 0x18C) - *(f32 *)((s8 *)arg0 + 0x50);
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) ((lbl_805D8F54 * vector_length((void *) (&stack.sp8))) / lbl_805D8F4C);
-    if (predict_obstruction__11TCameraCtrlFv((void *) (arg0)) != 0) {
+    if (((TCameraCtrl *)arg0)->predict_obstruction() != 0) {
         *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) | 1);
     } else {
         *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) & 0xFFFFFFFE);
@@ -153,7 +149,7 @@ void TCameraCtrl__sub_80067AB0(u8 *arg0) {
 void *TCameraCtrl__vt12(void) {
     void *o = __nw__7TObjectFUl(0x130);
     if (o != NULL) {
-        o = init__11TCameraCtrlFv(o);
+        o = ((TCameraCtrl *)o)->init();
     }
     return o;
 }
@@ -163,7 +159,7 @@ extern u8 controller_input_state[];
 void TCameraCtrl::init_state() {
     *(s32 *)((s8 *)this + 0x38) = 0x15;
     if (is_on_current_screen__11TCameraCtrlFv(controller_input_state + 0x20, 0x10000) != 0) {
-        update_follow_camera__11TCameraCtrlFv(this);
+        update_follow_camera();
     } else {
         update_target_follow();
     }
@@ -175,7 +171,7 @@ extern s32 lbl_804887F8[];
 void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804887F8;
-        deleting_dtor__11TCameraCtrlFs(arg0, 0);
+        ((TCameraCtrl *)arg0)->deleting_dtor(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

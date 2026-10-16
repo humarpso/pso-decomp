@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 typedef struct Rec_8004E918 {
     s32 a;
@@ -18,16 +20,12 @@ typedef struct Obj_8004E918 {
 } Obj_8004E918;
 
 extern "C" {
-void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
-void set_global_flag__10TObjPlayerFv();
-void clear_global_state__10TObjPlayerFv();
 extern const f32 lbl_805D89B8;
 extern const f32 lbl_805D89BC;
 extern const f32 lbl_805D89C0;

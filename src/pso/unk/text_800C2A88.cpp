@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneMe3ShinowaReal.h"
+#include "pso/enemy/TObjEneRe2Flower.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_9c7b63
 {
@@ -146,20 +150,12 @@ struct RecoveredFields_800C2AC4_arg0
 };
 
 extern "C" {
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFv(void *);
-s32 refresh_and_send_entity_flags__12TBoss8DragonFv(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 fn_800C3A60(void *, int);
-s32 get_flag_11__16TObjEneRe2FlowerFv(void *);
-s32 clear_child_flags__16TObjEneRe2FlowerFv(void *);
 s32 init_death_params__18TObjEneMe3SinowZoaFPv(void *);
-s32 request_two_effects__10TObjPlayerFv(void *);
-s32 spawn_ground_effect__10TObjPlayerFl(void *, int);
-s32 apply_effect_variant_a__10TObjPlayerFll(void *, int);
 s32 TObjPlayer__sub_800D9290(void *, int);
 s32 advance_animation_playback(void *);
-s32 play_effect_if_v2__10TObjPlayerFl(int);
 s32 play_sound_effect(void *, void *, int, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -205,14 +201,14 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
     case 4:
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_B8 = 5;
       PSO_VCALL_VObj_18_9c7b63_m94(arg0);
-      clear_child_flags__16TObjEneRe2FlowerFv((void *) arg0);
+      ((TObjEneRe2Flower *)arg0)->clear_child_flags();
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_3C4 = (int) (((RecoveredFields_800C2AC4_arg0 *) arg0)->field_3C4 & 0xFFFFFFF7);
-      refresh_and_send_entity_flags__12TBoss8DragonFv((void *) arg0);
+      ((TBoss8Dragon *)arg0)->refresh_and_send_entity_flags();
       TBoss8Dragon__sub_800BB7D4((void *) arg0, (int) 0xF2);
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 0;
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_424 = (f32) lbl_805D9FAC;
       play_sound_effect((void *) fn_800C3A60((void *) arg0, (int) 0x4003A812), (void *) (arg0 + 0x38), (int) 0, (int) 0);
-      play_effect_if_v2__10TObjPlayerFl((int) (-0x200));
+      TObjPlayer::play_effect_if_v2((int) (-0x200));
       return;
     case 3:
       if (((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410) == 2)
@@ -227,7 +223,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
     {
       case 0:
         advance_animation_playback((void *) arg0);
-        if (get_flag_b4__21TObjEneMe3ShinowaRealFv((void *) arg0) != 0)
+        if (((TObjEneMe3ShinowaReal *)arg0)->get_flag_b4() != 0)
       {
         ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 1;
         temp_f1 = lbl_805D9FC4 * sin_table_lookup((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_60);
@@ -235,22 +231,22 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
         stack.sp8 = temp_f1;
         stack.sp10 = lbl_805D9FC4 * cos_table_lookup((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_60);
         vec3_add_to((void *) (&stack.sp8), (void *) (arg0 - -0x38));
-        if (get_flag_11__16TObjEneRe2FlowerFv((void *) arg0) != 0)
+        if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0)
         {
-          apply_effect_variant_a__10TObjPlayerFll((void *) (&stack.sp8), (int) 0x32);
-          request_two_effects__10TObjPlayerFv((void *) (&stack.sp8));
+          TObjPlayer::apply_effect_variant_a((s32)((void *) (&stack.sp8)), (s32)((int) 0x32));
+          ((TObjPlayer *)(&stack.sp8))->request_two_effects();
           init_death_params__18TObjEneMe3SinowZoaFPv((void *) (arg0 + 0x3F4));
         }
         else
         {
           TObjPlayer__sub_800D9290((void *) (&stack.sp8), (int) 0x32);
-          spawn_ground_effect__10TObjPlayerFl((void *) (&stack.sp8), (int) 0x46);
+          ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect((int) 0x46);
         }
       }
         PSO_VCALL_VObj_18_9c7b63_m100(arg0);
         return;
       case 1:
-        if (get_flag_11__16TObjEneRe2FlowerFv((void *) arg0) != 0)
+        if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0)
       {
         if (PSO_VCALL_VObj_14_00f1d1_m4(((u8 *) arg0) + 1012) != 0)
         {

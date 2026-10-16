@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/object/TObjLaboMapWarp.h"
 
 struct Obj_80185160 { u8 pad[0x8C]; s32 dest; };
 
@@ -9,8 +11,6 @@ extern int lbl_8050DC20[];
 extern s32 lobby_event_theme_id_table[];
 extern s32 TLobby__event_theme_id;
 void TLobby__sub_80184C80(void *p);
-void clamp_index__15TObjLaboMapWarpFv(void *);
-void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_804449C0[];
 extern const char lbl_804449D0[];
@@ -101,15 +101,15 @@ void TLobby::free_buffers() {
 }
 
 void TObjLaboMapWarp__vt17(Obj_80185160 *self) {
-    clamp_index__15TObjLaboMapWarpFv(self);
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    ((TObjLaboMapWarp *)self)->clamp_index();
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x13001C, lbl_804449C0);
     debug_printf_at(0x13001D, lbl_804449D0);
     debug_printf_at(0x13001E, lbl_804449E0);
     debug_printf_at(0x130020, lbl_804449F0);
     debug_printf_at(0x130021, lbl_80444A00);
     debug_printf_at(0x130022, lbl_80444A10, lbl_804B6028[self->dest]);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
 }

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdMcSelectGC.h"
+#include "pso/ui/TAdMcSelectCursorGC.h"
 
 extern "C" {
 void TAdMcSelectGC__sub_8032A180(void* p, s32 v);
@@ -9,14 +10,12 @@ extern "C" {
 
 void TAdMcSelectGC__sub_8032A140(void* p);
 void TAdMcSelectGC__sub_8032A15C(void* p);
-int release_cursor_entry__19TAdMcSelectCursorGCFv(void);
 void *TAdMcSelectGC__ct(void *, void *);
 int release_selected_entry__15TAdMcSelectMcGCFv(void);
 int TLobby__sub_802C78EC(void);
 int TLobby__sub_802C7920(void);
 void *__nw__7TObjectFUl(int);
 int init_memorycard__15TAdMcSelectMcGCFv(void);
-int init_resource__19TAdMcSelectCursorGCFv(void);
 
 extern void *TAdMcSelectGC__instance;
 
@@ -30,8 +29,8 @@ void *TAdMcSelectGC::create(void *arg0) {
     return o;
 }
 
-void TAdMcSelectGC::open() { TLobby__sub_802C78EC(); release_selected_entry__15TAdMcSelectMcGCFv(); release_cursor_entry__19TAdMcSelectCursorGCFv(); }
-void TAdMcSelectGC::close() { init_resource__19TAdMcSelectCursorGCFv(); init_memorycard__15TAdMcSelectMcGCFv(); TLobby__sub_802C7920(); }
+void TAdMcSelectGC::open() { TLobby__sub_802C78EC(); release_selected_entry__15TAdMcSelectMcGCFv(); TAdMcSelectCursorGC::release_cursor_entry(); }
+void TAdMcSelectGC::close() { TAdMcSelectCursorGC::init_resource(); init_memorycard__15TAdMcSelectMcGCFv(); TLobby__sub_802C7920(); }
 void TAdMcSelectGC__sub_8032A140(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
 
     extern int TAdMcSelectCursorGC__instance;

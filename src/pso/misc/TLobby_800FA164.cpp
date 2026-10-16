@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -8,7 +9,6 @@ s32 adxf_get_fsize_byte__6TLobbyFv();
 s32 TLobby__sub_803CC53C(s32);
 s32 close_adxf_handle__6TLobbyFPv(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
-s32 move_words__6TLobbyFPUll(void *, s32, s32);
 u8 *link_into_list__6TLobbyFv();
 s32 strncpy(void *, s32, s32);
 
@@ -41,7 +41,7 @@ s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 ar
     *(s32 *)((s8 *)var_r31 + 0x34) = 0;
     *(u32 *)((s8 *)var_r31 + 0x40) = arg2;
     if (arg2 != 0U) {
-        move_words__6TLobbyFPUll((u8 *)var_r31 + 0x44, arg3, 8);
+        ((TLobby *)((u8 *)var_r31 + 0x44))->move_words((u32 *)arg3, (s32)8);
     }
     if (arg4 != NULL) {
         *arg4 = var_r31;

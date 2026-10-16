@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcEnemy.h"
 struct Item_80189E3C { u8 pad[0x30]; s32 data[3]; };
 
 struct Obj_80189E3C {
@@ -12,7 +13,6 @@ struct Obj_80189E3C {
 
 extern "C" {
 void TItem__sub_80101DB8(Item_80189E3C *);
-void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80444F00[];
 extern const char lbl_80444F10[];
@@ -31,10 +31,10 @@ void debug_print_item_box_info(Obj_80189E3C *self) {
         self->x360 = 0;
     }
     if (self->x360 != 0) {
-        set_global_count__12TObjNpcEnemyFl(0xFFFFFF);
+        TObjNpcEnemy::set_global_count(0xFFFFFF);
         debug_printf_at(0x13001C, lbl_80444F00);
     } else {
-        set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+        TObjNpcEnemy::set_global_count(0xFF00FF);
         debug_printf_at(0x13001C, lbl_80444F10);
         debug_printf_at(0x130020, lbl_80444F20);
         item.data[0] = self->data[0];
@@ -42,7 +42,7 @@ void debug_print_item_box_info(Obj_80189E3C *self) {
         item.data[2] = self->data[2];
         TItem__sub_80101DB8(&item);
     }
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
 }

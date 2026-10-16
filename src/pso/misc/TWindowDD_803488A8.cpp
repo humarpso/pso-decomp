@@ -36,8 +36,6 @@ extern "C" {
 typedef struct { char pad[0xBC]; } Buf;
 
 s32 reset_entries__9TWindowDDFf(Buf *, s32);
-s32 can_append_chars__9TWindowDDFlPl(s32, s32 *);
-s32 draw_transformed_primitive__9TWindowDDFPvPvPv(Buf *, s32, s32, s32);
 s32 strlen();
 s32 strncpy(s32, s32, s32);
 
@@ -46,7 +44,7 @@ void TWindowDD::append_string(s32 arg0, s32 arg1, s32 *arg2) {
 
     if (arg0 != 0) {
         temp_r31 = strlen();
-        if (can_append_chars__9TWindowDDFlPl(temp_r31, arg2) != 0) {
+        if (TWindowDD::can_append_chars(temp_r31, arg2) != 0) {
             strncpy(arg1 + *arg2, arg0, temp_r31);
             *arg2 += temp_r31;
         }
@@ -65,7 +63,7 @@ void TWindowDD::draw(s32 arg1, s32 arg2, f32 farg0) {
     ((TWindowDD *)(&sp8))->copy_point_table((s32)(arg2));
     TWindowDD__sub_80348A2C((void *)(arg1), (void *)(&sp8));
     TWindowDD__sub_803489B8((A_803489B8 *)(arg1), (B_803489B8 *)(&sp8), (s32)(0));
-    draw_transformed_primitive__9TWindowDDFPvPvPv(&sp8, 8, temp_r31, 1);
+    ((TWindowDD *)(&sp8))->draw_transformed_primitive((void*)8, (void*)temp_r31, (void*)1);
 }
 
 #pragma push

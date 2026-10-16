@@ -4,6 +4,11 @@
 #include "pso/misc/TWindowFukidasi.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/TObject.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct UV_8024503C { f32 u, v; };
 
@@ -99,20 +104,13 @@ struct QFrameCtx_80245808
 };
 
 extern "C" {
-s32 reset_transform_state__10TObjPlayerFv();
-s32 init_xyz_limits__10TObjPlayerFv();
 s32 reset_line_width();
 s32 set_line_width(s32);
 void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
-f32 trunc_float__17TWindowSubComCardFf(f32);
 extern u16 window_ui_theme_index;
 extern s16 lbl_805D63F6;
 void draw_window_scanlines(u8 *arg0, u8 *arg1);
-s32 reset_transform_state__10TObjPlayerFv();
-s32 init_xyz_limits__10TObjPlayerFv();
-void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
 extern UVPair_8024503C selection_bar_texture_coordinates;
@@ -129,16 +127,12 @@ extern const f32 lbl_805DCB48;
 void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
 void draw_window_scanlines(u8 *arg0, u8 *arg1);
 void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
-void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv();
 void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCB10;
 void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r);
-void set_global_param__8TObjFishFl(s32);
 void begin_screen_draw(s32);
-void get_player__20TWindowSubStatusDispFv();
 void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCAD4;
@@ -178,10 +172,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 allow_rendering__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void*);
-f32 get_card_window_scale__20TWindowSubStatusDispFl(s16);
-s32 get_card_window_flags__20TWindowSubStatusDispFl(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 set_parent__7TObjectFP7TObject(s32, s32);
 int TWindowSubComCard__sub_80244774(void);
 f32 TWindowSubComCard__sub_80244784(void *arg0);
 void save_position__17TWindowSubComCardFPv(void* p);
@@ -201,13 +192,8 @@ void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
 void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 s32 TWindowSubAreaMapDisp__sub_80246948();
 s32 TWindowFukidasi__sub_8024695C(void *);
-s32 get_visible_flag__15TWindowFukidasiFv(void *);
-s32 is_bit10_set__15TWindowFukidasiFv(void *);
 s32 TWindowCtrlMain__sub_8024CE24();
 s32 apply_window_closing_stretch(int, int);
-s32 set_open_tick__19TWindowKeyBoardSoftFl(int, int);
-s32 set_bounds__19TWindowKeyBoardSoftFffff(int, f32, f32, f32, f32);
-s32 shrink_clip_right__19TWindowKeyBoardSoftFv(int);
 s32 animate_scale__19TWindowKeyBoardSoftFv();
 s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32);
 s32 init_window_layout_entries(void *, int, int);
@@ -287,7 +273,7 @@ f32 TWindowSubComCard::get_normalized_progress() {
 
 void TWindowSubComCard::reparent_to_main_ctrl() {
     s32 arg0 = (s32)this;
-    set_parent__7TObjectFP7TObject((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(TWindowCtrlMain__sub_8024CE24()))));
+    ((TObject *)arg0)->set_parent((TObject *)(TWindowCtrlMain__sub_8024CE24()));
 }
 
 void save_position__17TWindowSubComCardFPv(void* p) { *(f32*)((char*)p + 0x40) = *(f32*)((char*)p + 0x30); *(f32*)((char*)p + 0x44) = *(f32*)((char*)p + 0x34); *(f32*)((char*)p + 0x48) = *(f32*)((char*)p + 0x38); *(f32*)((char*)p + 0x4c) = *(f32*)((char*)p + 0x3c); }
@@ -371,7 +357,7 @@ void window_request_show(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (temp_r3 | 4);
         return;
     }
-    if (get_card_window_scale__20TWindowSubStatusDispFl(*(s16 *)((s8 *)arg0 + 0x20)) > lbl_805DCAD4) {
+    if (TWindowSubStatusDisp::get_card_window_scale(*(s16 *)((s8 *)arg0 + 0x20)) > lbl_805DCAD4) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0;
     }
     *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 3);
@@ -389,16 +375,16 @@ s32 setup_window_draw_context(u8 *arg0, s32 arg1) {
         animate_scale__19TWindowKeyBoardSoftFv();
     }
     if (*(s32 *)((s8 *)arg0 + 0x2C) & 0x80) {
-        shrink_clip_right__19TWindowKeyBoardSoftFv((int) (temp_r31));
+        ((TWindowKeyBoardSoft *)temp_r31)->shrink_clip_right();
     }
     if (*(s32 *)((s8 *)arg0 + 0x2C) & 8) {
-        set_bounds__19TWindowKeyBoardSoftFffff((int) (temp_r31), (f32) (lbl_805DCAD4), (f32) (lbl_805DCAD4), (f32) (lbl_805DCAD8), (f32) (lbl_805DCADC));
+        ((TWindowKeyBoardSoft *)temp_r31)->set_bounds((f32) (lbl_805DCAD4), (f32) (lbl_805DCAD4), (f32) (lbl_805DCAD8), (f32) (lbl_805DCADC));
     }
     var_r4 = *(s32 *)((s8 *)arg0 + 0x5C);
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 0x2000)) {
         var_r4 = (s32) ((f32) var_r4 - lbl_805DCAD0);
     }
-    set_open_tick__19TWindowKeyBoardSoftFl((int) (temp_r31), (int) (var_r4));
+    ((TWindowKeyBoardSoft *)temp_r31)->set_open_tick((int) (var_r4));
     apply_window_closing_stretch((int) (temp_r31), (int) (*(s16 *)((s8 *)arg0 + 0x22)));
     return temp_r31;
 }
@@ -436,16 +422,16 @@ Win_80244DFC *find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC 
     if (TWindowFukidasi__sub_8024695C(self) == 0) {
         return 0;
     }
-    if (is_bit10_set__15TWindowFukidasiFv(self) != 0) {
+    if (((TWindowFukidasi *)self)->is_bit10_set() != 0) {
         return 0;
     }
     if (fn_80244994(self) == 0) {
         return 0;
     }
     for (; p != 0; p = p->next) {
-        if (TWindowFukidasi__sub_8024695C(p) != 0 && is_bit10_set__15TWindowFukidasiFv(p) == 0 &&
+        if (TWindowFukidasi__sub_8024695C(p) != 0 && ((TWindowFukidasi *)p)->is_bit10_set() == 0 &&
             fn_80244994(p) != 0 && p != self &&
-            (get_visible_flag__15TWindowFukidasiFv(self) == 0 || get_visible_flag__15TWindowFukidasiFv(p) == 0) &&
+            (((TWindowFukidasi *)self)->get_visible_flag() == 0 || ((TWindowFukidasi *)p)->get_visible_flag() == 0) &&
             ((s32 (*)(void *, void *, void *))is_balloon_overlapping)(p, a, b) != 0) {
             return p;
         }
@@ -484,7 +470,7 @@ void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2) && !(temp_r3_2 & 0x20)) {
         ((s32 (*)(int, int, int, int))play_sound_effect)((int) (0x53703), (int) (0), (int) (0), (int) (0));
     }
-    if (((f32 (*)(int))get_card_window_scale__20TWindowSubStatusDispFl)((int) (*(s16 *)((s8 *)arg0 + 0x20))) <= lbl_805DCAD4) {
+    if (TWindowSubStatusDisp::get_card_window_scale((int) (*(s16 *)((s8 *)arg0 + 0x20))) <= lbl_805DCAD4) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
 }
@@ -509,9 +495,9 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
     y = *(f32 *)((s8 *)arg0 + 0x14) + *(f32 *)((s8 *)arg1 + 0xC);
     x = *(f32 *)((s8 *)arg0 + 0x10);
     z = lbl_805DCAE4 / (lbl_805DCAE8 + *(f32 *)((s8 *)arg0 + 0x38));
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);
-    set_global_param__8TObjFishFl(lbl_805D63F0);
+    TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(2, -1);
     q.x0 = x - 2.0f;
     q.y0 = y;
@@ -548,8 +534,8 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
     if (try_open__19TWindowKeyBoardSoftFii(arg0, &q) != 0) {
         draw_textured_quad_at_depth(&q, z);
     }
-    get_player__20TWindowSubStatusDispFv();
-    reset_transform_state__10TObjPlayerFv();
+    TWindowSubStatusDisp::get_player();
+    TObjPlayer::reset_transform_state();
 }
 
 #pragma push
@@ -624,7 +610,7 @@ void draw_quest_message_frame(struct QFrameWindow_80245808 *w, struct QFrameCtx_
   f32 rem;
   f32 half;
   begin_screen_draw((s32)(1));
-  set_global_param__8TObjFishFl((s32)((*(void * *)&lbl_805D63F0)));
+  TObjFish::set_global_param((s32)((*(void * *)&lbl_805D63F0)));
   set_draw_texture_and_color((s32)(1), (s32)(-1));
   if (w->height < 64.0f)
   {
@@ -667,7 +653,7 @@ void draw_quest_message_frame(struct QFrameWindow_80245808 *w, struct QFrameCtx_
     rem -= lbl_805DCAFC;
     q.y += step;
   }
-  get_player__20TWindowSubStatusDispFv();
+  TWindowSubStatusDisp::get_player();
 }
 
 #pragma push
@@ -683,8 +669,8 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     case 1:
         return;
     }
-    n1 = trunc_float__17TWindowSubComCardFf((12.0f + *(f32 *)((s8 *)arg0 + 0x44)) / 4.0f);
-    n2 = trunc_float__17TWindowSubComCardFf((*(f32 *)((s8 *)arg0 + 0x4C) - 24.0f) / 4.0f);
+    n1 = TWindowSubComCard::trunc_float((12.0f + *(f32 *)((s8 *)arg0 + 0x44)) / 4.0f);
+    n2 = TWindowSubComCard::trunc_float((*(f32 *)((s8 *)arg0 + 0x4C) - 24.0f) / 4.0f);
     y = ((5.0f * ((f32)lbl_805D63F6 - 0.2f * (f32)n1) - 100.0f) - 12.0f) - *(f32 *)((s8 *)arg0 + 0x40);
     if (y <= 0.0f) {
         return;
@@ -693,13 +679,13 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
         return;
     }
     set_line_width(12.0f * *(f32 *)((s8 *)arg1 + 0x2C));
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     step = 1.0f;
     for (i = 0; i < n2; i++) {
         TWindowSubComCard__sub_80245A10(arg0, i, arg1, y);
         y -= step;
     }
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     reset_line_width();
 }
 #pragma pop
@@ -769,7 +755,7 @@ void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r) {
   f32 dy;
   f32 rem;
   begin_screen_draw(1);
-  set_global_param__8TObjFishFl((s32)((*(void * *)&lbl_805D63F0)));
+  TObjFish::set_global_param((s32)((*(void * *)&lbl_805D63F0)));
   set_draw_texture_and_color(1, r->f34);
   n = (s32) a->f4C;
   n += (4 - (n & 3)) & 3;
@@ -813,7 +799,7 @@ void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r) {
     rem -= 32.0f;
     q.y0 += dy;
   }
-  get_player__20TWindowSubStatusDispFv();
+  TWindowSubStatusDisp::get_player();
   draw_window_scanlines((u8 *)(a), (u8 *)(r));
 }
 
@@ -838,7 +824,7 @@ void TWindowSubComCard::update_open_close() {
     s32 temp_r5;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0x5C) < 0x01000000) {
-        temp_r3 = get_card_window_flags__20TWindowSubStatusDispFl(*(s16 *)((s8 *)arg0 + 0x20));
+        temp_r3 = TWindowSubStatusDisp::get_card_window_flags(*(s16 *)((s8 *)arg0 + 0x20));
         temp_r3 += *(s32 *)((s8 *)arg0 + 0x5C);
         *(s32 *)((s8 *)arg0 + 0x5C) = temp_r3 + 1;
     }

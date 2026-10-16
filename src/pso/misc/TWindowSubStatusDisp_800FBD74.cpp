@@ -1,6 +1,15 @@
 #include "types.h"
 #include <stddef.h>
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneMe3ShinowaReal.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TFogCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/object/TObjFogCollisionPoison.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -195,40 +204,19 @@ struct FogCtrl_800FB134;
 struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
 s32 is_split_screen();
-s32 get_camera_mode__11TCameraCtrlFv();
-s32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-s32 get_nth_view_player_id__11TCameraCtrlFl(int);
 void read_disc_file(void *, void *);
-s32 destroy_instance__22TQuestVmDownLoadServerFv();
-void create_instance__8TFogCtrlFv(void);
-s32 update_all__8TFogCtrlFll(int, int);
-s32 select_fog_for_viewport__8TFogCtrlFlll(s32 arg0, s32 arg1, s32 arg2);
-s32 restore_fog_for_player__8TFogCtrlFll(s32 arg1, s32 arg0);
 s32 TFogCtrl__sub_800FAC84(void* p);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
-void* get_entry__8TFogCtrlFi(int a0);
-void clear_split_screen_fog__8TFogCtrlFv(void);
-void update_all__8TFogCtrlFv(void);
-void clear_active_flag__8TFogCtrlFv(void *arg0);
 s32 apply_fog_entry(void *arg0);
-s32 restore_fog__8TFogCtrlFl(u8 *arg0, s32 arg1);
 s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-void request_transition__8TFogCtrlFll(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_param__8TFogCtrlFv(void* p);
-void apply_slot_params__8TFogCtrlFl(FogCtrl_800FB134 *self, s32 idx);
-s32 is_controller_animated__8TFogCtrlFll(s32 arg0, s32 arg1);
 void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
-void load_entry_into_slot__8TFogCtrlFll(Ctrl_800FB424 *self, s32 i, s32 entry);
-void render__8TFogCtrlFv(void);
 u8 * __dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
 TFogCtrl_800FB92C * TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index);
 void TFogCtrl__sub_800FBA54(void);
 void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
-void update_fog_entries__8TFogCtrlFv(void);
 void create_area_fog_ctrl(void);
-void reset__8TFogCtrlFv(void);
 void init_scene_fog_system(void);
 void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
 void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
@@ -238,25 +226,17 @@ s32 get_small_font_glyph_width(u8 c);
 void TWindowSubStatusDisp__sub_800FC248(void);
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
-s32 reset_transform_state__10TObjPlayerFv();
 s32 mem_free(void*);
 FogParam_800FBC5C * mem_alloc(s32);
-s32 create__22TObjFogCollisionPoisonFv();
 s32 TObjFogCollisionPoison__sub_801533BC();
-void clear_state_array__22TObjFogCollisionPoisonFv(void);
-s32 begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv(void);
-s32 get_global_state__14TOKeyMachine01Fv();
 void __dl__7TObjectFPv(s32);
 u32 __nw__7TObjectFUl(int);
 u8 * __dt__7TObjectFv(void *, s16);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 is_online_ready__6TLobbyFv();
 void GXInitFogAdjTable(GXFogAdjTable_800FAE1C *, s32, void *);
 void GXSetFogRangeAdj(s32, s32, GXFogAdjTable_800FAE1C *);
 f32 sin_table_lookup(s32);
 s32 begin_screen_draw(int);
-s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, void *);
 void fn_803E1FC8(u32);
@@ -295,7 +275,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     Stack_800FBD74 stack;
     f32 temp_f7;
     f32 temp_f8;
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     begin_screen_draw((int) (1));
     render_forward__20TWindowSubStatusDispFPv();
     set_draw_texture_and_color((int) (0), (void *) (arg0));
@@ -317,14 +297,14 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp20 = (0.50390625f);
     stack.sp24 = (0.98046875f);
     draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (farg2));
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 void TWindowSubStatusDisp::draw_number_digits(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale) {
     Pos_800FBEA8 pos;
     s32 id;
     s32 i;
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
     set_draw_texture_and_color(0, color);
@@ -337,13 +317,13 @@ void TWindowSubStatusDisp::draw_number_digits(void *color, s16 value, u16 digits
         draw_textured_quad_at_depth(&pos, scale);
         value /= 10;
     }
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
     Pos_800FBFD8 pos;
     s32 id;
-    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer::reset_transform_state();
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
     set_draw_texture_and_color(0, color);
@@ -356,7 +336,7 @@ void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
         draw_textured_quad_at_depth(&pos, scale);
         x += ((u8 (*)(s32))get_small_font_glyph_width)(id);
     }
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 int get_name_text_width(void* p) { return ((int (*)(void*))calc_small_font_text_width)(p); }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 
 extern "C" {
 
@@ -7,7 +8,6 @@ u32 belra_cannon_create_extra_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 spawn_slot_emitter__18TItemShootParticleFPvii(u32, s32, s32);
 u32 spawn_shoot_particle__10TObjPlayerFUlllf(void *, s32, s32, f32);
 u32 create_shoot_model__10TObjPlayerFUiiif();
-s32 set_parent__7TObjectFP7TObject(u32, u32);
 
 void belra_cannon_update(void *arg0) {
     s32 *temp_r3;
@@ -47,7 +47,7 @@ u32 belra_cannon_create_extra_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
             }
         }
         spawn_slot_emitter__18TItemShootParticleFPvii(temp_r30, 0xDD, 0);
-        set_parent__7TObjectFP7TObject(temp_r30, temp_r31);
+        ((TObject *)temp_r30)->set_parent((TObject *)temp_r31);
     }
     return temp_r31;
 }

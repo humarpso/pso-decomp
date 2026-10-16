@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/TItemLoad.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8010FCB4_lbl_8049F42C {
     s32 value;
@@ -17,10 +18,7 @@ u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1);
 
 extern "C" {
 
-s32 request_load__9TItemLoadFl(void *, void *);
-u32 load_data__9TItemLoadFl(void *, int);
 s32 TItemLoad__sub_801107DC(void *);
-s32 set_flags__10TObjPlayerFUl(void *, int);
 s32 test_flags_any(void *, int);
 
 extern s32 item_load_compressed_work_buffer;
@@ -31,14 +29,14 @@ void TItemLoad::advance_load_state() {
     if (test_flags_any((void *) (arg0 + 0x1C), (int) (4)) == 0) {
         if ((s32) item_load_work_buffer_busy != 1) {
             item_load_work_buffer_busy = 1;
-            set_flags__10TObjPlayerFUl((void *) (arg0 + 0x1C), (int) (4));
+            ((TObjPlayer *)(arg0 + 0x1C))->set_flags((int) (4));
             goto block_3;
         }
     } else {
 block_3:
-        if (load_data__9TItemLoadFl((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x20))) != 0U) {
+        if (((TItemLoad *)arg0)->load_data((int) (*(s32 *)((s8 *)arg0 + 0x20))) != 0U) {
             TItemLoad__sub_801107DC((void *) (arg0));
-            request_load__9TItemLoadFl((void *) (arg0), (void *) (item_load_compressed_work_buffer));
+            ((TItemLoad *)arg0)->request_load((s32)((void *) (item_load_compressed_work_buffer)));
             *(s32 *)((s8 *)arg0 + 0x18) = 2;
         }
     }

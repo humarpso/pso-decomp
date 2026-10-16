@@ -1,4 +1,5 @@
 #include "pso/system/LscStream.h"
+#include "pso/misc/TLobby.h"
 
 struct SJIf_803D1A98 {
     void *f[9];
@@ -8,40 +9,28 @@ struct SJIf_803D1A98 {
 struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
 
 extern "C" {
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD14[];
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD58[];
-void set_callback__6TLobbyFUll(u32 arg0, s32 arg1);
 void *memset(void *dst, int val, unsigned long n);
 extern LscStream lsc_slot_table[];
 extern s32 lobby_slot_refcount;
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
 void TLobby__sub_803C89C4(void *);
 void TLobby__sub_803C8B38(void *);
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern char lbl_8047DCF0[];
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 extern LscStream lsc_slot_table[];
 extern char lbl_8047DDB8[];
 extern char lbl_8047DDE4[];
-void set_callback__6TLobbyFUll(u32 arg0, s32 arg1);
 void *memset(void *dst, int val, unsigned long n);
 extern LscStream lsc_slot_table[];
 extern s32 lobby_slot_refcount;
@@ -49,13 +38,11 @@ extern const char *volatile lbl_805E0DB0;
 extern LscStream lsc_slot_table[];
 void TLobby__sub_803C89C4(void *);
 void TLobby__sub_803C8B38(void *);
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 void notify_dvd_read__6TLobbyFv(void *);
 void enter_lock__6TLobbyFv(void *);
 extern char lbl_8047DCF0[];
 void TLobby__sub_803C89C4(void *);
 void TLobby__sub_803C8B38(void *);
-void log_printf__6TLobbyFPCce(const char *fmt, ...);
 void notify_dvd_read__6TLobbyFv(void *);
 void enter_lock__6TLobbyFv(void *);
 void *memset(void *dst, int val, unsigned long n);
@@ -66,7 +53,7 @@ extern "C" {
 
 s32 lsc_get_min_buffer_bytes(LscStream *p) {
     if (p == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
     return p->min_buffer_bytes;
@@ -74,11 +61,11 @@ s32 lsc_get_min_buffer_bytes(LscStream *p) {
 
 void lsc_set_min_buffer_bytes(LscStream *arg0, s32 arg1) {
     if (arg0 == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return;
     }
     if (arg1 < 0 || arg1 > arg0->buffer_capacity) {
-        log_printf__6TLobbyFPCce(lbl_8047DD14);
+        TLobby::log_printf(lbl_8047DD14);
         return;
     }
     arg0->min_buffer_bytes = arg1;
@@ -87,7 +74,7 @@ void lsc_set_min_buffer_bytes(LscStream *arg0, s32 arg1) {
 s32 lsc_get_stream_progress(LscStream *arg0, s32 arg1) {
     s32 i;
     if (arg0 == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return 0;
     }
     for (i = 0; i < 16; i++) {
@@ -96,7 +83,7 @@ s32 lsc_get_stream_progress(LscStream *arg0, s32 arg1) {
         }
     }
     if (i == 16) {
-        log_printf__6TLobbyFPCce(lbl_8047DD34);
+        TLobby::log_printf(lbl_8047DD34);
         return 0;
     }
     return arg0->entries[i].progress;
@@ -105,7 +92,7 @@ s32 lsc_get_stream_progress(LscStream *arg0, s32 arg1) {
 s32 lsc_get_stream_status(LscStream *arg0, s32 arg1) {
     s32 i;
     if (arg0 == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
     for (i = 0; i < 16; i++) {
@@ -114,7 +101,7 @@ s32 lsc_get_stream_status(LscStream *arg0, s32 arg1) {
         }
     }
     if (i == 16) {
-        log_printf__6TLobbyFPCce(lbl_8047DD34);
+        TLobby::log_printf(lbl_8047DD34);
         return -1;
     }
     return arg0->entries[i].status;
@@ -123,7 +110,7 @@ s32 lsc_get_stream_status(LscStream *arg0, s32 arg1) {
 char *lsc_get_stream_filename(LscStream *arg0, s32 arg1) {
     s32 i;
     if (arg0 == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return 0;
     }
     for (i = 0; i < 16; i++) {
@@ -132,7 +119,7 @@ char *lsc_get_stream_filename(LscStream *arg0, s32 arg1) {
         }
     }
     if (i == 16) {
-        log_printf__6TLobbyFPCce(lbl_8047DD34);
+        TLobby::log_printf(lbl_8047DD34);
         return 0;
     }
     return arg0->entries[i].filename;
@@ -140,11 +127,11 @@ char *lsc_get_stream_filename(LscStream *arg0, s32 arg1) {
 
 s32 lsc_get_queued_stream_id(LscStream *arg0, s32 arg1) {
     if (arg0 == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
     if (arg1 < 0 || arg1 >= arg0->queued_count) {
-        log_printf__6TLobbyFPCce(lbl_8047DD58);
+        TLobby::log_printf(lbl_8047DD58);
         return -1;
     }
     return arg0->entries[(arg0->read_index + arg1) % 16].stream_id;
@@ -152,7 +139,7 @@ s32 lsc_get_queued_stream_id(LscStream *arg0, s32 arg1) {
 
 s32 lsc_get_queued_stream_count(LscStream *p) {
     if (p == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
     return p->queued_count;
@@ -160,7 +147,7 @@ s32 lsc_get_queued_stream_count(LscStream *p) {
 
 s32 lsc_get_state(LscStream *arg0) {
     if (arg0 == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return -1;
     }
     return arg0->state;
@@ -181,7 +168,7 @@ void lsc_poll_all(void) {
 void lsc_stop(LscStream *arg0) {
     s32 sp8;
     if (arg0 == NULL) {
-        log_printf__6TLobbyFPCce((const char *) (((s32 *)&lbl_8047DCF0)));
+        TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
         return;
     }
     if ((s8) arg0->state != 0) {
@@ -197,7 +184,7 @@ void lsc_stop(LscStream *arg0) {
         }
         arg0->file_sector_count = 0;
         if (arg0 == NULL) {
-            log_printf__6TLobbyFPCce((const char *) (((s32 *)&lbl_8047DCF0)));
+            TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
         } else if ((s8) arg0->state == 0) {
             arg0->write_index = 0;
             arg0->read_index = 0;
@@ -212,13 +199,13 @@ void lsc_start(LscStream *o) {
     u8 lk0[4];
     u8 lk1[4];
     if (o == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DCF0);
+        TLobby::log_printf(lbl_8047DCF0);
         return;
     }
     ((void (*)(void *))enter_lock__6TLobbyFv)(lk0);
     if (o->state != 0) {
         if (o == 0) {
-            log_printf__6TLobbyFPCce(lbl_8047DCF0);
+            TLobby::log_printf(lbl_8047DCF0);
         } else if (o->state != 0) {
             ((void (*)(void *))enter_lock__6TLobbyFv)(lk1);
             o->state = 0;
@@ -232,7 +219,7 @@ void lsc_start(LscStream *o) {
             }
             o->file_sector_count = 0;
             if (o == 0) {
-                log_printf__6TLobbyFPCce(lbl_8047DCF0);
+                TLobby::log_printf(lbl_8047DCF0);
             } else if (o->state == 0) {
                 o->write_index = 0;
                 o->read_index = 0;
@@ -271,7 +258,7 @@ void lsc_destroy(LscStream *arg0) {
     if (arg0 != NULL) {
         enter_lock__6TLobbyFv((void *) (&spC));
         if (arg0 == NULL) {
-            log_printf__6TLobbyFPCce((const char *) (((s32 *)&lbl_8047DCF0)));
+            TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
         } else if ((s8) arg0->state != 0) {
             enter_lock__6TLobbyFv((void *) (&sp8));
             arg0->state = 0U;
@@ -285,7 +272,7 @@ void lsc_destroy(LscStream *arg0) {
             }
             arg0->file_sector_count = 0;
             if (arg0 == NULL) {
-                log_printf__6TLobbyFPCce((const char *) (((s32 *)&lbl_8047DCF0)));
+                TLobby::log_printf((const char *) (((s32 *)&lbl_8047DCF0)));
             } else if ((s8) arg0->state == 0) {
                 arg0->write_index = 0;
                 arg0->read_index = 0;
@@ -306,13 +293,13 @@ LscStream *lsc_create(void *sj_handle) {
     s32 i;
     LscStream *o;
     if (sj == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DDB8);
+        TLobby::log_printf(lbl_8047DDB8);
         return 0;
     }
     ((void (*)(void *))enter_lock__6TLobbyFv)(lk);
     o = find_free_803D1A98();
     if (o == 0) {
-        log_printf__6TLobbyFPCce(lbl_8047DDE4);
+        TLobby::log_printf(lbl_8047DDE4);
     } else {
         o->stream = sj;
         o->state = 0;
@@ -339,7 +326,7 @@ void lsc_shutdown(void) {
             }
         }
         memset(lsc_slot_table, 0, 0x4380);
-        set_callback__6TLobbyFUll(0, 0);
+        TLobby::set_callback(0, 0);
     }
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lock);
 }
@@ -351,7 +338,7 @@ void lsc_init(void) {
     ((void (*)(void *))enter_lock__6TLobbyFv)(sp8);
     if (lobby_slot_refcount == 0) {
         memset((void *)(lsc_slot_table), (int)(0), (unsigned long)(0x4380));
-        set_callback__6TLobbyFUll(0, 0);
+        TLobby::set_callback(0, 0);
     }
     lobby_slot_refcount++;
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(sp8);

@@ -1,4 +1,5 @@
 #include "pso/item/TItemEffectWeapon.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 u32 get_mode__11TCameraCtrlFPv(void*);
@@ -6,8 +7,6 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void set_depth_buffer_settings_1__Fv();
 void restore_saved_depth_alpha_state();
-void init_xyz_limits__10TObjPlayerFv();
-void reset_transform_state__10TObjPlayerFv();
 void reset_player_transform();
 void draw_untextured_trail_strip(TItemEffectWeapon::TrailVertex*, s32);
 void TObjPlayer__sub_803DF768(s32);
@@ -98,13 +97,13 @@ void TItemEffectWeapon::render_trail() {
             lbl_805D5660 = model_render_flags;
             set_depth_buffer_settings_1__Fv();
             model_render_flags |= 0x8000;
-            init_xyz_limits__10TObjPlayerFv();
+            TObjPlayer::init_xyz_limits();
             if (vertex_count > 2) {
                 TObjPlayer__sub_803DF768(1);
                 draw_untextured_trail_strip(vertices, vertex_count);
                 reset_player_transform();
             }
-            reset_transform_state__10TObjPlayerFv();
+            TObjPlayer::reset_transform_state();
             model_render_flags = lbl_805D5660;
             restore_saved_depth_alpha_state();
             end_effect_render__13TParticleCtrlFv();

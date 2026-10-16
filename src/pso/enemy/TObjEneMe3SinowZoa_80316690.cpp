@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
+#include "pso/TParticleCtrl.h"
 
 struct Vec_80316690 { f32 x, y, z; };
 
@@ -13,8 +14,6 @@ void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_80316690 *csnVectorUnder(void *, void *, s32);
-s32 get_particle_model__13TParticleCtrlFl(s32);
-int get_instance__13TParticleCtrlFv(void);
 void spawn_particle_effect(void *, int);
 void TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
@@ -48,7 +47,7 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
             TObjEneGibbles__sub_800D8988(arg0 + 0x38);
             p = DELL(hit->obj + 0x38, 0x49);
             if (p != 0) {
-                attach_particle_model(p, get_particle_model__13TParticleCtrlFl(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model(p, TParticleCtrl::get_particle_model(2), TParticleCtrl::get_instance(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x38, 0xA4);
             return 1;
@@ -57,7 +56,7 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
             TObjEneGibbles__sub_800D8988(arg0 + 0x38);
             p = DELL(hit->obj + 0x54, 0x49);
             if (p != 0) {
-                attach_particle_model(p, get_particle_model__13TParticleCtrlFl(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model(p, TParticleCtrl::get_particle_model(2), TParticleCtrl::get_instance(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x54, 0xA4);
             return 1;

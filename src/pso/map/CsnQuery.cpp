@@ -1,6 +1,7 @@
 #include "types.h"
 #include "pso/map/CsnQuery.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/object/TObjMapCsn.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -200,22 +201,18 @@ extern const f32 lbl_805D91F0;
 extern const f32 lbl_805D91FC;
 extern const f32 lbl_805D9208;
 extern const f32 lbl_805D920C;
-void get_map_count__10TObjMapCsnFv();
 CsnGroup **get_data_ptr__10TObjMapCsnFv();
 extern u32 lbl_804FFD40[];
 CsnGroup *select_ground_query_groups(CsnVector *arg0, u32 arg1);
-void get_map_count__10TObjMapCsnFv();
 CsnGroup **get_data_ptr__10TObjMapCsnFv();
 M_80079C64 *refill_csn_candidate_cache(P_80079C64 *arg0, M_80079C64 **arg1, u32 arg2);
 CsnGroup **get_data_ptr__10TObjMapCsnFv();
-void get_map_count__10TObjMapCsnFv();
 extern u32 lbl_804FFD40[];
 extern E_80079580 *wall_query_scene_buffer;
 s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask);
 f32 newton_sqrtf(f32);
 void TObjPlayer__sub_80079114(void);
 CsnGroup **get_data_ptr__10TObjMapCsnFv();
-void get_map_count__10TObjMapCsnFv();
 void vsub(void *, void *, void *);
 f32 vector_length(void *);
 extern u32 lbl_804FFD40[];
@@ -502,7 +499,7 @@ M_80079C64 *refill_csn_candidate_cache(P_80079C64 *arg0, M_80079C64 **arg1, u32 
     M_80079C64 **it;
     M_80079C64 *m;
     M_80079C64 **first;
-    get_map_count__10TObjMapCsnFv();
+    TObjMapCsn::get_map_count();
     it = (M_80079C64 **)get_data_ptr__10TObjMapCsnFv();
     first = arg1;
     while ((m = *it++) != 0) {
@@ -536,7 +533,7 @@ CsnGroup *select_ground_query_groups(CsnVector *origin, u32 mask) {
   float zSquared;
   CsnGroup **output;
   float zDelta;
-  get_map_count__10TObjMapCsnFv();
+  TObjMapCsn::get_map_count();
   input = get_data_ptr__10TObjMapCsnFv();
   output = ((CsnGroup * *)&lbl_804FFD40);
   while ((group = *(input++)) != 0)
@@ -580,7 +577,7 @@ s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask) {
     Grp_80079F58 *g;
     s32 n;
     Grp_80079F58 **dst;
-    get_map_count__10TObjMapCsnFv();
+    TObjMapCsn::get_map_count();
     src = (Grp_80079F58 **)get_data_ptr__10TObjMapCsnFv();
     if (src == NULL) {
         return 0;
@@ -652,7 +649,7 @@ Wall_8007A138 *query_collision_segment_groups(Vec_8007A138 *a, Vec_8007A138 *b, 
     f32 r;
     f32 dsq;
     n = 0;
-    get_map_count__10TObjMapCsnFv();
+    TObjMapCsn::get_map_count();
     src = (Wall_8007A138 **)get_data_ptr__10TObjMapCsnFv();
     dst = (Wall_8007A138 **)lbl_804FFD40;
     vsub(a, b, &d);

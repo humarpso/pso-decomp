@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
+#include "pso/misc/TWindowDD.h"
 #pragma fp_contract on
 
 extern "C" {
@@ -52,7 +53,6 @@ struct RecoveredGlobal_80262740_lbl_804D0004 {
 
 extern "C" {
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
-s32 close__19TWindowKeyBoardSoftFv(void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft soft_keyboard_window_and_action_data;
 extern s32 __vt__19TWindowKeyBoardSoft[];
@@ -65,14 +65,13 @@ extern "C" {
 
 void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFs(void *, int);
 
 extern s32 __vt__19TWindowKeyBoardSoft[];
 
 void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowKeyBoardSoft;
-        destroy_window_base__9TWindowDDFs(arg0, 0);
+        ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -91,7 +90,7 @@ u8 *TWindowKeyBoardSoft__ct(u8 *arg0, s32 arg1, s16 arg2) {
     *(s8 *)((s8 *)arg0 + 0x66) = 1;
     *(f32 *)((s8 *)arg0 + 0x68) = (f32) TWindowKeyBoardSoft__data_805DD090;
     *(s32 *)((s8 *)arg0 + 0x6C) = arg1;
-    close__19TWindowKeyBoardSoftFv((void *) (arg0));
+    ((TWindowKeyBoardSoft *)arg0)->close();
     return arg0;
 }
 

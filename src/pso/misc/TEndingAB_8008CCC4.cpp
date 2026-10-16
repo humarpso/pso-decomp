@@ -4,8 +4,6 @@
 extern "C" {
 
 s32 TEndingAB__sub_8008CCC0(s32);
-s32 draw_overlay__9TEndingABFv(s32);
-s32 set_fish_global_param__9TEndingABFv();
 
     extern const float lbl_805D9584;
     extern const float lbl_805D9588;
@@ -28,8 +26,8 @@ extern s32 TEndingAB__fade_sequence_state;
 void TEndingAB::render() {
     s32 arg0 = (s32)this;
     if ((s32) TEndingAB__fade_sequence_state != 0) {
-        set_fish_global_param__9TEndingABFv();
-        draw_overlay__9TEndingABFv(arg0);
+        TEndingAB::set_fish_global_param();
+        ((TEndingAB *)arg0)->draw_overlay();
         TEndingAB__sub_8008CCC0(arg0);
     }
 }

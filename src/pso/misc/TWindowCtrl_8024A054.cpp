@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
+#include "pso/TAdMultiChgGameModeGC.h"
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
@@ -13,7 +14,6 @@ extern "C" {
 struct Obj054_8024A054 { char pad[0x38]; u32 field38; };
 
 s32 is_player_input_active(s32 arg0);
-s32 is_input_phase_active__21TAdMultiChgGameModeGCFv();
 s32 get_multiplayer_controller_active_index(s32);
 u32 get_player_by_client_id(s32);
 s32 clear_flag1e_bit8__11TWindowCtrlFPv(void*);
@@ -43,7 +43,7 @@ s32 is_player_input_active(s32 arg0) {
     if (arg0 >= 4) {
         return 0;
     }
-    if (is_input_phase_active__21TAdMultiChgGameModeGCFv() != 0) {
+    if (TAdMultiChgGameModeGC::is_input_phase_active() != 0) {
         return get_multiplayer_controller_active_index(arg0);
     }
     if (get_player_by_client_id(arg0) == 0U) {

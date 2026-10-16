@@ -1,24 +1,20 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/enemy/TObjEneMe3ShinowaReal.h"
+#include "pso/enemy/TObjEnePanarms.h"
+#include "pso/misc/TWindowKeyBoardHard.h"
 
 extern "C" {
-s32 copy_header__6TLobbyFPv(void *, void *);
 extern s32 TLobby__data_805D6144;
 }
 
 extern "C" {
 
-void set_speed__12TBoss8DragonFf(void* p, f32 v);
 int TLobby__send_and_handle_60(void*);
-int get_flag_b4__21TObjEneMe3ShinowaRealFv(void* p);
-void set_field_b8__14TObjEnePanarmsFs(void* p, s16 v);
-int read_be16_field2__10TObjPlayerFv(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
-int test_card_flag_2__12TBoss8DragonFv(void* p);
-int test_card_flag__19TWindowKeyBoardHardFll(void*, int);
 f64 floor();
 
 void TObjPlayer::set_field_dc(s32 v) { *(s32*)((char*)this + 0xdc) = v; }
@@ -27,10 +23,10 @@ void TObjPlayer::reset_lobby_model() { reset_type(); }
 void TObjPlayer::reset_type() { *(s32*)((char*)this + 0x0) = 0; }
 void TObjPlayer::set_type(s32 v) { *(s32*)((char*)this + 0x0) = v; }
 void TObjPlayer::send_6x12_packet() { bswap_6x12_packet(); TLobby__send_and_handle_60(this); }
-void TObjPlayer::bswap_6x12_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
+void TObjPlayer::bswap_6x12_packet() { read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 void TObjPlayer::set_type_dragon() { *(u8*)((char*)this + 0x0) = 18; *(u8*)((char*)this + 0x1) = 5; }
-void TObjPlayer::bswap_dragon_boss_fields() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
-void TObjPlayer::bswap_stats() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
+void TObjPlayer::bswap_dragon_boss_fields() { read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
+void TObjPlayer::bswap_stats() { read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 s32 TLobby::exchange_object_state(s32 arg1, s16 arg2) {
     u8 *arg0 = (u8 *)this;
     s16 temp_r31;
@@ -39,10 +35,10 @@ s32 TLobby::exchange_object_state(s32 arg1, s16 arg2) {
         return 0;
     }
     if (arg2 == 0) {
-        copy_header__6TLobbyFPv((void *) (TLobby__data_805D6144 + (temp_r31 * 0xC)), (void *) (arg1));
+        ((TLobby *)(TLobby__data_805D6144 + (temp_r31 * 0xC)))->copy_header((void *) (arg1));
     }
     if (arg2 == 1) {
-        copy_header__6TLobbyFPv((void *) (arg1), (void *) (TLobby__data_805D6144 + (temp_r31 * 0xC)));
+        ((TLobby *)arg1)->copy_header((void *) (TLobby__data_805D6144 + (temp_r31 * 0xC)));
     }
     return 1;
 }

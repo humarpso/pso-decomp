@@ -1,5 +1,7 @@
 #include "types.h"
 #include "pso/misc/TODummyKeyCave01.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -55,9 +57,6 @@ s32 fn_80165940(void *, f32);
 extern s32 __vt__16TODummyKeyCave01[];
 extern s32 TODummyKeyCave01__class_name;
 u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 notify_fish_if_valid__10TObjPlayerFUl(u32);
 s32 rotate_matrix_zyx(s32, s32, s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -70,7 +69,6 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 s32 obj_clearFlags30(void *, s32);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 void *__nw__7TObjectFUl(int);
@@ -83,7 +81,6 @@ void TODummyKeyCave01__sub_80165E8C(void);
 void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern void *tl_05;
 
@@ -94,7 +91,7 @@ void TODummyKeyCave01::render() {
     s32 id;
     if (((VObj_80165B50 *)arg0)->m8((4e+02f), (2e+01f)) != 0 && *(void **)(arg0 + 0x34) != NULL &&
         (v = *(u32 *)(arg0 + 0x24)) != 0) {
-        notify_fish_if_valid__10TObjPlayerFUl(v);
+        TObjPlayer::notify_fish_if_valid(v);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
@@ -107,7 +104,7 @@ void TODummyKeyCave01::render() {
             model_render_flags = id | 0x10;
             set_chunk_material_color(arg0 + 0x9C);
         }
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         node = *(u8 **)(node + 0x2C);
         if (*(s32 *)(arg0 + 0xD0) != 0) {
             rotate_matrix_y(0, *(s32 *)(arg0 + 0xCC));
@@ -123,7 +120,7 @@ void TODummyKeyCave01::render() {
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         pop_matrix();
     }
 }
@@ -133,7 +130,7 @@ void TODummyKeyCave01::run_task() {
     u32 st;
     u8 skip;
     void *o;
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         obj_clearFlags30(self, 0x08000000);
     }
     if (self->f98 < 0x100) {
@@ -207,7 +204,7 @@ extern s32 __vt__16TODummyKeyCave01[];
 void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TODummyKeyCave01;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

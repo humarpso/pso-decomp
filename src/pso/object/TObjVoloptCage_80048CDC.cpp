@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/object/TObjVoloptCage.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Base_800490E8_80048F40 { char pad[0xC]; };
 struct VObj_800490E8_80048F40 : Base_800490E8_80048F40 {
@@ -181,7 +182,6 @@ void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
 s32 spawn_particle_effect(Vec_80048CDC *, s32);
 void create_breakup_mdl__12TBoss3VoloptFlllll(void *, void *, s32, void *, s32);
-void trigger_dell_biter_events__10TObjPlayerFv(void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -309,7 +309,7 @@ void TObjVoloptCage::update_breakup() {
         play_sound_effect(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
         create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
         create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
-        trigger_dell_biter_events__10TObjPlayerFv(arg0 + 0x2FC);
+        ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();
         *(s16 *)((s8 *)arg0 + 0x33C) = 0xC;
         disallow_rendering__7TObjectFv(arg0);
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;

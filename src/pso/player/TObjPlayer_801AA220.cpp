@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/misc/TCameraCtrl.h"
 
 extern "C" {
 
@@ -10,7 +11,6 @@ s32 construct_at_owner__18TPhotonMagicSquareFPviii(void *, s32, s32, s32);
 s32 get_player_by_client_id(u16);
 u32 __nw__7TObjectFUl(s32);
 s32 play_effect_default__10TObjPlayerFii(s32, s16);
-s32 set_shake_preset__11TCameraCtrlFl(s32);
 
 extern s32 tl_07;
 
@@ -26,7 +26,7 @@ void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
             play_effect_default__10TObjPlayerFii(temp_r3, *(s16 *)((s8 *)temp_r31 + 0x20));
         }
         spawn_particle_effect(temp_r3 + 0x38, 0x13D);
-        set_shake_preset__11TCameraCtrlFl(0);
+        TCameraCtrl::set_shake_preset(0);
         switch (arg0) {
         case 2:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);

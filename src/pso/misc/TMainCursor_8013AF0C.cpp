@@ -16,8 +16,6 @@ struct State_8013AF50 {
 };
 
 extern "C" {
-s32 reset_cursor_parts__11TMainCursorFv(void *);
-s32 sort_list__11TMainCursorFll(Cur_8013AF50 *, s32);
 s32 publish_target_list__11TMainCursorFPvi(Cur_8013AF50 *, s32);
 State_8013AF50 *get_state__11TMainCursorFv(s32);
 s32 publish_nearest_target__11TMainCursorFPv(void *);
@@ -41,12 +39,12 @@ void TMainCursor::refresh_all_lists() {
         return;
     }
     for (i = 0; i < 4; i++) {
-        sort_list__11TMainCursorFll(get_state__11TMainCursorFv(arg0 + 0x1C)->cur, i);
+        TMainCursor::sort_list((s32)(get_state__11TMainCursorFv(arg0 + 0x1C)->cur), (s32)i);
         publish_target_list__11TMainCursorFPvi(get_state__11TMainCursorFv(arg0 + 0x1C)->cur, i);
     }
     publish_nearest_target__11TMainCursorFPv(get_state__11TMainCursorFv(arg0 + 0x1C)->cur->sub);
     for (i = 0; i < 4; i++) {
-        reset_cursor_parts__11TMainCursorFv(&get_state__11TMainCursorFv(arg0 + 0x1C)->cur->parts[i]);
+        ((TMainCursor *)(&get_state__11TMainCursorFv(arg0 + 0x1C)->cur->parts[i]))->reset_cursor_parts();
     }
 }
 

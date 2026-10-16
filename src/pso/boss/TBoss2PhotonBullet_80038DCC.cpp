@@ -2,6 +2,9 @@
 
 #include <stddef.h>
 #include "pso/TBoss2PhotonPad.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 struct Stack_80038DCC {
     s32 sp8;
     s32 spC;
@@ -36,13 +39,11 @@ struct VObj_18_39be15 : VBase_18_39be15 {
 typedef struct Pair_80038E2C { s32 a; f32 b; } Pair_80038E2C;
 
 extern "C" {
-s32 draw_oriented_shadow__9TObjEneDDFllUl(void *, void *, int, void *);
 extern RecoveredGlobal_80038DCC_lbl_80435B6C lbl_80435B6C;
 void render__18TBoss2PhotonBulletFv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
 u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-s32 copy_pos__11TNowLoadingFPv(void *, void *);
 s32 project_actor_to_ground(void *, void *, void *);
 extern s32 lbl_80435B40[];
 extern const f32 lbl_805D8268;
@@ -51,7 +52,6 @@ extern Pair_80038E2C lbl_80435B38[];
 void run_task__18TBoss2PhotonBulletFv(u8 *arg0);
 void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_enemy_object__10TObjPlayerFs(void *, int);
 extern void *__vt__18TBoss2PhotonBullet[];
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 construct_collision_body(void *, void *, void *);
@@ -71,7 +71,7 @@ void render__18TBoss2PhotonBulletFv(u8 *arg0) {
         stack.sp8 = *(s32 *)((s8 *)(&lbl_80435B6C.value) + 0);
         stack.spC = *(s32 *)((s8 *)(&lbl_80435B6C.value) + 4);
         stack.sp10 = *(s32 *)((s8 *)(&lbl_80435B6C.value) + 8);
-        draw_oriented_shadow__9TObjEneDDFllUl((void *) (arg0 + 0x38), (void *) (arg0 + 0xCC), (int) (0), (void *) (&stack.sp8));
+        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)((void *) (arg0 + 0xCC)), (s32)((int) (0)), (u32)((void *) (&stack.sp8)));
     }
 }
 #pragma push
@@ -95,7 +95,7 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0) {
     if (*(u32 *)((s8 *)arg0 + 0xE4) == 0) {
         *(u32 *)((s8 *)arg0 + 0xE4) = spawn_continuous_particle_effect_with_flags(arg0 + 0xC0, 0xDF, 0x40);
     } else {
-        copy_pos__11TNowLoadingFPv((void *)*(u32 *)((s8 *)arg0 + 0xE4), arg0 + 0xC0);
+        ((TNowLoading *)((void *)*(u32 *)((s8 *)arg0 + 0xE4)))->copy_pos(arg0 + 0xC0);
     }
     if (*(s32 *)((s8 *)arg0 + 0xD8) % 15 == 0) {
         if (project_actor_to_ground(arg0, arg0 + 0x38, arg0 + 0xCC) != 0) {
@@ -123,7 +123,7 @@ void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 0x18) = __vt__18TBoss2PhotonBullet;
         if (*(void **)((s8 *)arg0 + 0xE4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE4)); *(s32 *)((s8 *)arg0 + 0xE4) = 0; }
-        destroy_enemy_object__10TObjPlayerFs(arg0, 0);
+        ((TObjPlayer *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

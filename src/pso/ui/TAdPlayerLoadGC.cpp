@@ -281,6 +281,8 @@ public:
 };
 
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct Vec2_802D6E7C { f32 x, y; };
 
@@ -304,13 +306,11 @@ struct Item_802D6BEC {
 };
 struct Entry_802D6DAC { s32 idx; const char *str; s32 id; Vec2_802D6E7C pos; };
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 void render_status_line__15TAdSubPlyItemGCFi(const char *, u32, f32, f32, f32);
 extern const f32 lbl_805DE7C0;
 extern const f32 lbl_805DE7C4;
 extern const f32 lbl_805DE7C8;
 char *strncpy(char *, const char *, u32);
-void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 extern s32 TAdSubPlyItemGC__name;
 u32 calc_text_width(const char *);
@@ -329,7 +329,7 @@ typedef struct S_802D6D88 { u8 pad0[0x43C]; s32 f[4]; } S_802D6D88;
 
 void render__15TAdSubPlyItemGCFv(Item_802D6BEC *self) {
     u32 i;
-    if (get_state_flag__9TMainTaskFv() != 1) {
+    if (TMainTask::get_state_flag() != 1) {
         for (i = 0; i < 4; i++) {
             if (self->flags[i] != 0 && self->names[i][0] != 0) {
                 render_status_line__15TAdSubPlyItemGCFi(self->names[i], (self->alpha[i] << 24) | 0x111111,
@@ -363,7 +363,7 @@ void set_entry_text__15TAdSubPlyItemGCFPvPv(Item_802D6BEC *self, Entry_802D6DAC 
     s32 i = e->idx;
     strncpy(self->names[i], e->str, 0xFE);
     self->ids[i] = e->id;
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv(&self->base[i], &e->pos);
+    ((TWindowSubSymbolChatPartsSet *)(&self->base[i]))->copy_vec2(&e->pos);
     self->pos[i].x = (lbl_805DE7CC + self->base[i].x) -
                      (f32)calc_text_width((const char *)format_level_text__15TAdSubPlyItemGCFii((s32)self, self->ids[i]));
     self->pos[i].y = lbl_805DE7D0 + self->base[i].y;

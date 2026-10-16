@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe3SinowZoaReal.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
 
 struct VBase_18_be4a70 { char pad[0x18]; };
 
@@ -99,7 +100,6 @@ struct SinowZoaRealVTableStorage {
 
 extern "C" {
 s32 invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
-s32 setup_move_bounds__18TObjEneMe3SinowZoaFv(void *);
 s32 init_enemy__18TObjEneMe3SinowZoaFPv(void *);
 void *TObjEneMe3SinowZoa__ct(void *, void *, void *);
 extern s32 __vt__22TObjEneMe3SinowZoaReal[];
@@ -162,7 +162,7 @@ u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(SinowZoaRealVTableStorage *)&__vt__22TObjEneMe3SinowZoaReal).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe3SinowZoaReal__name;
     invoke_initialization_hook__9TObjEneDDFPv((void *) (arg0), (void *) (arg2));
-    setup_move_bounds__18TObjEneMe3SinowZoaFv((void *) (arg0));
+    ((TObjEneMe3SinowZoa *)arg0)->setup_move_bounds();
     init_enemy__18TObjEneMe3SinowZoaFPv((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);

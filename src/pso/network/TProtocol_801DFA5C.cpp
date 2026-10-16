@@ -1,5 +1,7 @@
 #include "pso/packet_classes.h"
 #include <stddef.h>
+#include "pso/TPlyGuildCardTag.h"
+#include "pso/protocol.h"
 
 typedef char LobbyExitSize[(sizeof(TRecvExit<true>) == 8) ? 1 : -1];
 typedef char GameExitSize[(sizeof(TRecvExit<false>) == 8) ? 1 : -1];
@@ -11,8 +13,6 @@ extern "C" {
 
 int __ct__16TPlyGuildCardTagFv(void*);
 int bswap_32__FPUl(void*);
-int bswap__13packet_headerFv(void*);
-int bswap__16TPlyGuildCardTagFv(void*);
 
 }
 

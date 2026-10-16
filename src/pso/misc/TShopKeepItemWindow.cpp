@@ -48,6 +48,19 @@ struct Self_802219A0 {
 
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TShopKeepItemWindow.h"
+#include "pso/item/TItem.h"
+#include "pso/misc/TCheckRoomSequence.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TShopArmorListWindow.h"
+#include "pso/misc/TShopEquipmentSellWindow.h"
+#include "pso/misc/TShopGetItemWindow.h"
+#include "pso/misc/TShopJudgmentItemWindow.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/misc/TWindowSubItem.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TMessageWindowController.h"
+#include "pso/ui/TWindowInputNumber.h"
 struct VBase_80221F08 { char pad[0x18]; };
 
 struct VObj_80221F08 : VBase_80221F08 {
@@ -82,10 +95,6 @@ struct Self_80221F08 {
 extern "C" {
 u32 obj_getField1c(s32);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
-s32 set_ready_flag__18TCheckRoomSequenceFv(u32);
-s32 is_confirmed__24TShopEquipmentSellWindowFv(u32);
-s32 get_result__24TShopEquipmentSellWindowFv(u32);
-s32 is_confirmed__18TWindowInputNumberFv(u32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 set_position_xy(u32, f32, f32);
 void TWindow__close(void *);
@@ -95,13 +104,8 @@ s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 void TShopKeepItemWindow__vt9(u8 *arg0);
 void memset(void *, int, int);
 int sprintf(char *, const char *, ...);
-s32 append_text__24TMessageWindowControllerFPCc(s32, s32 *);
 extern char message_number_format[4];
-void append_file_number__24TMessageWindowControllerFv(s32 arg0);
-s32 is_visible__17TWindowSubComCardFv(void *);
-s32 get_status_flag__17TWindowSubComCardFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
-s32 get_field_d8__10TObjPlayerFv(s32);
 s32 get_item_record__23TShopJudgmentItemWindowFPv(s32, s32, s32);
 s32 store_item_in_bank(void *, s32, s32);
 s32 copy_bank_to_card_window(s32);
@@ -112,22 +116,13 @@ s32 get_selected_menu_value(void *);
 s32 select_cursor_entry__6TLobbyFv(s32);
 u32 obj_getField1c(s32);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
-s32 get_field_d8__10TObjPlayerFv(s32);
-s32 copy_to_item_data__5TItemFPv(u32, void *);
 s32 count_matching_items__10TObjPlayerFPvi(s32, u32 *);
-s32 clear_selected_and_update_entry__14TWindowSubItemFv(void *);
-void set_position__6TLobbyFff(u32, f32, f32);
-s16 get_cursor_index__18TShopGetItemWindowFv(u32);
 s32 get_shop_text(s32);
 void TWindowHelpItem__set_displayed_item_by_id(u32, s32);
-void clamp_selection_to_valid_entry__20TShopArmorListWindowFv(u32);
-void save_cursor_selection__20TShopArmorListWindowFv(u32);
 void reset_list__20TShopArmorListWindowFPv(u32);
 void calc_list_content_extent(u32);
-void add_list_entry__23TShopJudgmentItemWindowFll(u32, s32, s32);
 s32 get_window_layout_position(s32);
 u32 create_item_list_window(s32, s32, u16);
-s32 is_camera_ctrl_active__6TLobbyFv(void);
 extern f32 lbl_805DC710;
 }
 
@@ -137,16 +132,12 @@ void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void TShopKeepItemWindow__vt4(void *arg0);
 void TShopKeepItemWindow__vt5(void *arg0);
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
-void append_title_string__24TMessageWindowControllerFv(s32 arg0);
 void sort_bank_items(s32 slot);
-s32 append_text__24TMessageWindowControllerFPCc(s32, s32 *);
 s32 TShopWindowBase__sub_8022397C(void *);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-s32 clear_selected_and_update_entry__14TWindowSubItemFv(void *);
-s32 *get_status_window__20TWindowSubStatusDispFi(u16);
 void memset(void *, int, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
@@ -191,7 +182,7 @@ s32 TShopKeepItemWindow::close_with_ok_callback() {
 
 s32 TShopKeepItemWindow::close() {
     if ((u32) *(u32 *)((s8 *)this + 0x384) != 0U) {
-        clear_selected_and_update_entry__14TWindowSubItemFv(*(void **)((s8 *)this + 0x384));
+        ((TWindowSubItem *)(*(void **)((s8 *)this + 0x384)))->clear_selected_and_update_entry();
     }
     set_field_20__12TQuestListVMFl(this, 1);
 }
@@ -205,13 +196,13 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
     s32 i;
     void *win;
     win = self->f388;
-    if (win != NULL && is_visible__17TWindowSubComCardFv(win) != 0) {
+    if (win != NULL && ((TWindowSubComCard *)win)->is_visible() != 0) {
         base = TShopWindowBase__sub_8022397C(this);
         r = get_selected_menu_value(self->f388);
         if (r == 0) {
             i = select_cursor_entry__6TLobbyFv(self->f384);
             if (store_item_in_bank(&self->ents[i].f4, self->f378, base) != 0) {
-                get_item_record__23TShopJudgmentItemWindowFPv(self->f24, get_field_d8__10TObjPlayerFv(self->ents[i].f0), self->f378);
+                get_item_record__23TShopJudgmentItemWindowFPv(self->f24, ((TObjPlayer *)(self->ents[i].f0))->get_field_d8(), self->f378);
                 copy_bank_to_card_window(base);
                 play_sound_effect(0x52D01, 0, 0, 0);
                 TWindow__close(self->f388);
@@ -234,7 +225,7 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
         }
     }
     win = self->f388;
-    if (win != NULL && get_status_flag__17TWindowSubComCardFv(win) != 0) {
+    if (win != NULL && ((TWindowSubComCard *)win)->get_status_flag() != 0) {
         TWindow__close(self->f388);
         self->f388 = NULL;
         set_field_20__12TQuestListVMFl(this, 3);
@@ -246,22 +237,22 @@ void TShopKeepItemWindow::update_number_input() {
     u16 temp_r31;
     u32 w;
     w = *(u32 *)((s8 *)this + 0x38C);
-    if ((w != 0U) && (is_confirmed__18TWindowInputNumberFv(w) != 0)) {
+    if ((w != 0U) && (((TWindowInputNumber *)w)->is_confirmed() != 0)) {
         if ((u32) *(u32 *)((s8 *)this + 0x388) == 0U) {
             temp_r31 = obj_getField1c(*(s32 *)((s8 *)this + 0x24));
             *(u32 *)((s8 *)this + 0x388) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
-            set_ready_flag__18TCheckRoomSequenceFv(*(u32 *)((s8 *)this + 0x388));
+            ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x388)))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
             set_position_xy(*(u32 *)((s8 *)this + 0x388), get_scale__15TShopWindowBaseFv(this), temp_f31);
         }
-        *(s32 *)((s8 *)this + 0x378) = get_result__24TShopEquipmentSellWindowFv(*(u32 *)((s8 *)this + 0x38C));
+        *(s32 *)((s8 *)this + 0x378) = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x38C)))->get_result();
         TWindow__close((void *)(*(u32 *)((s8 *)this + 0x38C)));
         *(u32 *)((s8 *)this + 0x38C) = 0U;
         set_field_20__12TQuestListVMFl(this, 2);
         return;
     }
     w = *(u32 *)((s8 *)this + 0x38C);
-    if ((w != 0U) && (is_confirmed__24TShopEquipmentSellWindowFv(w) != 0)) {
+    if ((w != 0U) && (((TShopEquipmentSellWindow *)w)->is_confirmed() != 0)) {
         TWindow__close((void *)(*(u32 *)((s8 *)this + 0x38C)));
         *(u32 *)((s8 *)this + 0x38C) = 0U;
         set_field_20__12TQuestListVMFl(this, 3);
@@ -278,7 +269,7 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
     count = count_matching_items__10TObjPlayerFPvi(*(s32 *)((s8 *)self->f24 + 0xD00), buf);
     self->f374 = 0;
     for (i = 0; i < count; i++) {
-        if (buf[i] != 0 && copy_to_item_data__5TItemFPv(buf[i], self->ents[self->f374].item) != 0) {
+        if (buf[i] != 0 && ((TItem *)(buf[i]))->copy_to_item_data(self->ents[self->f374].item) != 0) {
             self->ents[self->f374].f0 = buf[i];
             self->ents[self->f374].f18 = i;
             self->f374++;
@@ -294,30 +285,30 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
     if (self->f384 == 0U) {
         self->f384 = create_item_list_window(get_shop_text(0x30), 0x40, obj_getField1c((s32)self->f24));
         for (s32 j = 0; j < self->f374; j++) {
-            add_list_entry__23TShopJudgmentItemWindowFll(self->f384, self->ents[j].f0, j);
+            ((TShopJudgmentItemWindow *)(self->f384))->add_list_entry(self->ents[j].f0, j);
         }
         calc_list_content_extent(self->f384);
-        cur = get_cursor_index__18TShopGetItemWindowFv(self->f384);
+        cur = ((TShopGetItemWindow *)(self->f384))->get_cursor_index();
     } else {
-        save_cursor_selection__20TShopArmorListWindowFv(self->f384);
+        ((TShopArmorListWindow *)(self->f384))->save_cursor_selection();
         reset_list__20TShopArmorListWindowFPv(self->f384);
         for (s32 j = 0; j < self->f374; j++) {
-            add_list_entry__23TShopJudgmentItemWindowFll(self->f384, self->ents[j].f0, j);
+            ((TShopJudgmentItemWindow *)(self->f384))->add_list_entry(self->ents[j].f0, j);
         }
-        clamp_selection_to_valid_entry__20TShopArmorListWindowFv(self->f384);
+        ((TShopArmorListWindow *)(self->f384))->clamp_selection_to_valid_entry();
         calc_list_content_extent(self->f384);
-        clear_selected_and_update_entry__14TWindowSubItemFv((void *)self->f384);
-        cur = get_cursor_index__18TShopGetItemWindowFv(self->f384);
+        ((TWindowSubItem *)((void *)self->f384))->clear_selected_and_update_entry();
+        cur = ((TShopGetItemWindow *)(self->f384))->get_cursor_index();
     }
     if (self->f390 == 0U) {
         self->f390 = (u32)new TWindowHelpItem((void *)get_window_layout_position(0x27), obj_getField1c((s32)self->f24));
-        if (self->f390 != 0U && is_camera_ctrl_active__6TLobbyFv() > 2) {
-            set_position__6TLobbyFff(self->f390, lbl_805DC710, lbl_805DC710);
+        if (self->f390 != 0U && TLobby::is_camera_ctrl_active() > 2) {
+            ((TLobby *)(self->f390))->set_position(lbl_805DC710, lbl_805DC710);
         }
-        TWindowHelpItem__set_displayed_item_by_id(self->f390, get_field_d8__10TObjPlayerFv(self->ents[cur].f0));
+        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TObjPlayer *)(self->ents[cur].f0))->get_field_d8());
         self->f37C = cur;
     } else {
-        TWindowHelpItem__set_displayed_item_by_id(self->f390, get_field_d8__10TObjPlayerFv(self->ents[cur].f0));
+        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TObjPlayer *)(self->ents[cur].f0))->get_field_d8());
         self->f37C = cur;
     }
 }

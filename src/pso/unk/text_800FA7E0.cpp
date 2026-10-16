@@ -2,7 +2,6 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-s32 free_static_buffer__6TLobbyFPv(void *);
 extern s32 async_file_read_current_request;
 extern u32 lobby_stack_entry_list_tail;
 extern s32 lobby_list_entry_count;
@@ -19,7 +18,7 @@ u8 *TLobby::pop_stack_entry(s16 arg1) {
         async_file_read_current_request = *(s32 *)((s8 *)arg0 + 0x38);
         lobby_list_entry_count -= 1;
         if (arg1 > 0) {
-            free_static_buffer__6TLobbyFPv((void *) (arg0));
+            TLobby::free_static_buffer((void *) (arg0));
         }
     }
     return arg0;

@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -264,15 +265,12 @@ u8 *TObjEneDD__vt98(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
-void calc_shot_position__9TObjEneDDFPUcfff(void *, void *, f32, f32, f32);
-void calc_shot_position__9TObjEneDDFPUcfff(void *, void *, f32, f32, f32);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 f32 newton_sqrtf(f32);
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 extern const f32 TObjEneDD__data_805D9E8C;
 void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
@@ -281,11 +279,7 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
 extern "C" {
 
 int init_collision_body_parts(void*);
-int transform_part_positions__9TObjEneDDFv(void* a0 = 0);
-void init_model__9TObjEneDDFv(void* p);
 void TObjEneDD__vt85(void);
-void clear_field_388__9TObjEneDDFv(void* p);
-void set_active__9TObjEneDDFv(void* p);
 
 int TObjEneDD::has_move_failures(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -314,7 +308,7 @@ void TObjEneDD::move_with_wall_slide_commit(f32 farg0, f32 farg1, f32 farg2) {
 void TObjEneDD::move_with_wall_stop(f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_shot_position__9TObjEneDDFPUcfff(arg0, &sp8, farg0, farg1, farg2);
+    ((TObjEneDD *)arg0)->calc_shot_position((u8 *)(&sp8), (f32)farg0, (f32)farg1, (f32)farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
@@ -335,7 +329,7 @@ void TObjEneDD::move_with_wall_slide_on_ground(f32 farg0, f32 farg1, f32 farg2) 
 void TObjEneDD::move_to_shot_position(f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_shot_position__9TObjEneDDFPUcfff(arg0, &sp8, farg0, farg1, farg2);
+    ((TObjEneDD *)arg0)->calc_shot_position((u8 *)(&sp8), (f32)farg0, (f32)farg1, (f32)farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
 
@@ -431,7 +425,7 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
     e->count++;
     v.x = *(f32 *)(n->wall + 0x14);
     v.z = -*(f32 *)(n->wall + 0xC);
-    clamp_velocity__15TObjBoss2TunnelFv(&v);
+    ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
     if (dx * v.x + dz * v.z >= TObjEneDD__data_805D9E8C) {
         dx = v.x;
         dz = v.z;

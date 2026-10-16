@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -22,7 +23,6 @@ struct RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05 {
 };
 
 extern "C" {
-s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TOWreckAncientBrakable__ct(void *, int);
 extern RecoveredGlobal_8017D39C_lbl_804B5418 TOWreckAncient__collision_body_templates;
@@ -42,7 +42,7 @@ u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncientBrakable05__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&TOWreckAncient__collision_body_templates.value + 0x84), (int) (1));
-    reset_photon_effect__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {

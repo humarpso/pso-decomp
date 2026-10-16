@@ -6,10 +6,6 @@ extern "C" {
 s32 get_id__13TItemProArmorFv(void *);
 u8 get_slot_count__14TItemProShieldFv();
 s32 create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, s32, s32);
-s32 drain_owner_hp_fraction__10TObjPlayerFf(void *, f32);
-s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
-s32 update_active_game_effect__10TObjPlayerFv(void *);
-s32 draw_icon__10TObjPlayerFll(void *, s32, s32 *);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 create_ex__9TTecMegidFllll(void *, s32 *, s32, s32);
 s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
@@ -42,14 +38,14 @@ void TObjPlayer::trigger_megid_special() {
 
     if (get_slot_count__14TItemProShieldFv() == 1) {
         create_item_eff_cane__10TObjPlayerFiUiii(tl_05, this, 2, 0x101);
-        if (is_mode_two_and_ready__10TObjPlayerFv(this) != 0) {
-            if (draw_icon__10TObjPlayerFll(this, 2, &sp8) != 0) {
+        if (is_mode_two_and_ready() != 0) {
+            if (draw_icon((s32)2, (s32)(&sp8)) != 0) {
                 temp_r3 = *(void **)((s8 *)this + 0xF0);
                 create_ex__9TTecMegidFllll(temp_r3, &sp8, *(s32 *)((s8 *)temp_r3 + 0x60), 0);
-                drain_owner_hp_fraction__10TObjPlayerFf(this, lbl_805DAF18);
+                drain_owner_hp_fraction(lbl_805DAF18);
             }
         } else {
-            update_active_game_effect__10TObjPlayerFv(this);
+            update_active_game_effect();
         }
     }
 }

@@ -1,13 +1,13 @@
 #include "types.h"
 #include "pso/TItemLoad.h"
+#include "pso/TAdRicoRing.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 test_flags_any(void *, int);
-s32 clear_flags__11TAdRicoRingFUl(s32, s32);
 s32 free_texture__9TItemLoadFv();
 s32 get_ring_lobby__9TItemLoadFv();
-s32 set_flags__10TObjPlayerFUl(s32, s32);
 
 void TItemLoad::update_ring() {
     s32 arg0 = (s32)this;
@@ -16,9 +16,9 @@ void TItemLoad::update_ring() {
     temp_r3 = get_ring_lobby__9TItemLoadFv();
     if (temp_r3 != 2) {
         if (temp_r3 == 3) {
-            clear_flags__11TAdRicoRingFUl(arg0 + 0x1C, 1);
+            ((TAdRicoRing *)(arg0 + 0x1C))->clear_flags(1);
         } else {
-            set_flags__10TObjPlayerFUl(arg0 + 0x1C, 1);
+            ((TObjPlayer *)(arg0 + 0x1C))->set_flags(1);
         }
         update_load_state();
     }

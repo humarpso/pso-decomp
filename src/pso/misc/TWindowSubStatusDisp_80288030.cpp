@@ -1,14 +1,11 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowHelpItem.h"
 
 extern "C" {
 s32 get_shared_text_buffer();
-u8 *get_message_10__20TWindowSubStatusDispFl(s32);
 s32 text_builder_append(void *);
 s32 text_builder_reset();
-u8 *get_sub_disp_ptr__20TWindowSubStatusDispFv(s32);
-s32 clear_visible_flag__20TWindowSubStatusDispFv(int);
-s32 set_flag0_bit2__15TWindowHelpItemFv(int);
 s32 set_text_entry_string(int, int, int);
 u8 *get_card_data_ptr__17TWindowSubComCardFPv(s32);
 u8 *TWindowSubComCard__sub_8027523C(s32);
@@ -27,13 +24,12 @@ s32 destroy_status_display__20TWindowSubStatusDispFis(s32 arg0, s16 arg1);
 s32 __dl__FPv(s32 a0 = 0);
 int update__20TWindowSubStatusDispFPv(void*);
 int TWindowSubStatusDisp__sub_802879B0(void*);
-s32 deleting_destructor__20TWindowSubStatusDispFls(s32 a0 = 0, s32 a1 = 0);
 
 int TWindowSubStatusDisp::forward_render() { return update__20TWindowSubStatusDispFPv(this); }
 int TWindowSubStatusDisp::update_subwindow() { return TWindowSubStatusDisp__sub_802879B0(this); }
 s32 destroy_status_display__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        deleting_destructor__20TWindowSubStatusDispFls(arg0, 0);
+        TWindowSubStatusDisp::deleting_destructor(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -67,7 +63,7 @@ void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
     temp_r26 = *(s32 *)((s8 *)temp_r3 + 0x20);
     text_builder_reset();
     text_builder_append((void *) (&lbl_805DD898));
-    text_builder_append((void *) (get_sub_disp_ptr__20TWindowSubStatusDispFv(arg1)));
+    text_builder_append((void *) (((TWindowSubStatusDisp *)arg1)->get_sub_disp_ptr()));
     set_text_entry_string((int) (temp_r31), (int) (get_shared_text_buffer()), (int) (0x60));
     text_builder_reset();
     text_builder_append((void *) (&lbl_805DD898));
@@ -82,22 +78,22 @@ void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
         text_builder_append((void *) (&lbl_805DD898));
         text_builder_append((void *) (get_card_data_ptr__17TWindowSubComCardFPv(arg1)));
         set_text_entry_string((int) (temp_r28), (int) (get_shared_text_buffer()), (int) (0x60));
-        clear_visible_flag__20TWindowSubStatusDispFv((int) (temp_r27));
-        clear_visible_flag__20TWindowSubStatusDispFv((int) (temp_r28));
+        ((TWindowSubStatusDisp *)temp_r27)->clear_visible_flag();
+        ((TWindowSubStatusDisp *)temp_r28)->clear_visible_flag();
     } else {
-        set_flag0_bit2__15TWindowHelpItemFv((int) (temp_r27));
-        set_flag0_bit2__15TWindowHelpItemFv((int) (temp_r28));
+        ((TWindowHelpItem *)temp_r27)->set_flag0_bit2();
+        ((TWindowHelpItem *)temp_r28)->set_flag0_bit2();
     }
-    temp_r31_2 = (u8 *)(get_sub_disp_ptr__20TWindowSubStatusDispFv(arg1));
+    temp_r31_2 = (u8 *)(((TWindowSubStatusDisp *)arg1)->get_sub_disp_ptr());
     if (strcmp((void *) (get_sub_obj__17TWindowSubComCardFPv(arg1)), (int) (temp_r31_2)) != 0) {
         text_builder_reset();
         text_builder_append((void *) (get_sub_obj__17TWindowSubComCardFPv(arg1)));
-        text_builder_append((void *) (get_message_10__20TWindowSubStatusDispFl(0x45)));
+        text_builder_append((void *) (TWindowSubStatusDisp::get_message_10(0x45)));
         set_text_entry_string((int) (temp_r26), (int) (get_shared_text_buffer()), (int) (0x60));
-        clear_visible_flag__20TWindowSubStatusDispFv((int) (temp_r26));
+        ((TWindowSubStatusDisp *)temp_r26)->clear_visible_flag();
         return;
     }
-    set_flag0_bit2__15TWindowHelpItemFv((int) (temp_r26));
+    ((TWindowHelpItem *)temp_r26)->set_flag0_bit2();
 }
 #pragma pop
 

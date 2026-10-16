@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowDuelResult.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/object/TObjLuker.h"
 struct Txt_802497A8 { u16 flags; u8 pad2[6]; f32 x; u8 padC[4]; f32 w; };
 
 struct Set_802497A8 { void *t0; Txt_802497A8 *t4; void *t8; void *tC; void *t10; void *t14; };
@@ -7,10 +10,8 @@ struct Win_802497A8 { u8 pad[4]; Set_802497A8 *set; };
 
 extern "C" {
 s32 get_shared_text_buffer();
-s32 get_card_id__17TWindowSubComCardFv(void *);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
-s32 get_stat_table_entry__9TObjLukerFi(int);
 s32 get_com_card_list__6TLobbyFPv(void *);
 void TWindowSubStatusDisp__sub_80228F5C(int);
 void text_builder_reset();
@@ -20,7 +21,6 @@ s8 TWindowComCard__sub_80249C18(void *);
 s8 TWindowComCard__sub_80249C20(void *);
 s32 get_class_name_text(int);
 void set_text_entry_string(void *, void *, int);
-void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern s32 com_card_status_text_table[];
 extern const f32 lbl_805DCBCC;
 void update_com_card_display(Win_802497A8 *arg0, void *arg1);
@@ -50,19 +50,19 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     if (n > 5) {
         n = 5;
     }
-    set_default_status__17TWindowDuelResultFPvi(tC, com_card_status_text_table[n]);
+    TWindowDuelResult::set_default_status(tC, com_card_status_text_table[n]);
     n = TWindowSubComCard__sub_8007B6EC(arg1);
     if (n > 0xC) {
         n = 0xC;
     }
-    set_default_status__17TWindowDuelResultFPvi(t8, get_class_name_text(n));
+    TWindowDuelResult::set_default_status(t8, get_class_name_text(n));
     n = TWindowComCard__sub_80249C18(arg1);
     if (n > 0xA) {
         n = 0xA;
     }
-    set_default_status__17TWindowDuelResultFPvi(t10, get_stat_table_entry__9TObjLukerFi(n));
+    TWindowDuelResult::set_default_status(t10, TObjLuker::get_stat_table_entry(n));
     if (TWindowSubComCard__sub_8007B6F4(arg1) != 0) {
-        id = get_card_id__17TWindowSubComCardFv(arg1);
+        id = ((TWindowSubComCard *)arg1)->get_card_id();
         if (id == 0) {
             t4->flags |= 2;
         } else {
