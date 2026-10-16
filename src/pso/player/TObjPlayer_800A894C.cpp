@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TObjEneDubchik.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -414,7 +415,7 @@ void TObjPlayer__sub_800A9E9C(void *arg0_);
 
 extern "C" {
 
-s32 TObjPlayer__sub_800A8A34(s32 arg0);
+s32 vfunc_40__14TObjEneDubchikFv(s32 arg0);
 s32 update_shock_clock__10TObjPlayerFPv();
 s32 update_movement_status__10TObjPlayerFv();
 
@@ -463,7 +464,8 @@ s32 TObjPlayer::try_apply_800a89b0() {
     return 0;
 }
 
-s32 TObjPlayer__sub_800A8A34(s32 arg0) {
+s32 TObjEneDubchik::vfunc_40() {
+    s32 arg0 = (s32)this;
     if (update_shock_clock__10TObjPlayerFPv() != 0) {
         ((TObjPlayer *)arg0)->clear_state7_flag();
         return 1;

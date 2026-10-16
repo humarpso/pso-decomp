@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804F27E0.h"
 
 struct VBase_18_f1aa6a { char pad[0x18]; };
 
@@ -86,7 +87,7 @@ extern "C" {
 s32 draw_weapon_model(void *);
 s16 get_validated_attack_stage(void *);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
-void TObjPlayer__sub_80362EF8(u8 *arg0);
+void emit_marker_effects__13TUnk_804F27E0Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_803630F0(u8 *arg0);
@@ -127,7 +128,8 @@ void TObjPlayer::create_cane_if_ready(s32 arg0, void *position) {
 
 extern s32 lbl_804F27E0[];
 
-void TObjPlayer__sub_80362EF8(u8 *arg0) {
+void TUnk_804F27E0::emit_marker_effects() {
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));

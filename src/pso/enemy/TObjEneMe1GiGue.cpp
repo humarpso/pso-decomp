@@ -107,16 +107,16 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-void TObjEneMe1GiGue__sub_802CDAB4();
+void vfunc_58__15TObjEneMe1GiGueFv();
 }
 extern "C" {
-void TObjEneMe1GiGue__sub_802CDAB8();
+void vfunc_60__15TObjEneMe1GiGueFv();
 }
 extern "C" {
-void TObjEneMe1GiGue__sub_802CDABC();
+void vfunc_59__15TObjEneMe1GiGueFv();
 }
 extern "C" {
-void TObjEneMe1GiGue__sub_802CDAC0();
+void vfunc_61__15TObjEneMe1GiGueFv();
 }
 extern "C" {
 void vfunc_28__15TObjEnemyCustomFv();
@@ -428,8 +428,8 @@ void *lbl_804E135C[83] = {
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
-    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjEneMe1GiGue__sub_802CDAB4, (void *)&TObjEneMe1GiGue__sub_802CDABC,
-    (void *)&TObjEneMe1GiGue__sub_802CDAB8, (void *)&TObjEneMe1GiGue__sub_802CDAC0, (void *)&enter_hit_reaction_state__15TObjEneMe1GiGueFPv, (void *)&enter_state_5_save_prev__15TObjEneMe1GiGueFPv,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__15TObjEneMe1GiGueFv, (void *)&vfunc_59__15TObjEneMe1GiGueFv,
+    (void *)&vfunc_60__15TObjEneMe1GiGueFv, (void *)&vfunc_61__15TObjEneMe1GiGueFv, (void *)&enter_hit_reaction_state__15TObjEneMe1GiGueFPv, (void *)&enter_state_5_save_prev__15TObjEneMe1GiGueFPv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
@@ -2610,10 +2610,10 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     return arg0;
 }
 
-void TObjEneMe1GiGue__sub_802CDAB4(void) {  }
-void TObjEneMe1GiGue__sub_802CDAB8(void) {  }
-void TObjEneMe1GiGue__sub_802CDABC(void) {  }
-void TObjEneMe1GiGue__sub_802CDAC0(void) {  }
+void TObjEneMe1GiGue::vfunc_58() {  }
+void TObjEneMe1GiGue::vfunc_60() {  }
+void TObjEneMe1GiGue::vfunc_59() {  }
+void TObjEneMe1GiGue::vfunc_61() {  }
 
 s32 get_gigue_int_parameter(s32 self, s32 i) {
     return (*(G_802CDAC4 * *)&TObjEneMe1GiGue__param_table)->v[i];

@@ -5,7 +5,7 @@
 extern "C" {
 
 int TAdStorySelectGC__sub_8019DC14(void);
-void TObjMapForceWarp__vt13(void);
+void slot3C__16TObjMapForceWarpFv(void);
 int get_bml_motion(void*, void*);
 int get_bml_model(void*, void*);
 
@@ -21,6 +21,6 @@ void TAdStorySelectGC::register_area_warp_object(void* a0) { get_bml_motion((voi
     extern int forest_warp_bml_resource;
 void TObjMapForceWarp::register_warp(void* a0) { get_bml_model((void*)(forest_warp_bml_resource), a0); }
 
-void TObjMapForceWarp__vt13(void) {  }
+void TObjMapForceWarp::slot3C() {  }
 
 }

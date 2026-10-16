@@ -1555,6 +1555,8 @@ force_active:
   - emit_deband_support_effect
   - emit_grass_footstep_particle__10TObjPlayerFi
   - emit_jellen_support_effect
+  - emit_marker_effects__13TUnk_804A4238Fv
+  - emit_marker_effects__13TUnk_804A4338Fv
   - emit_photon_blast_feedback_effects
   - emit_player_model_particle
   - emit_player_sprite_particle
@@ -2127,8 +2129,6 @@ force_active:
   - lappy_object_handles
   - lappy_variant_speed_ptr_table
   - laser_fence_switch_resource_descriptor
-  - launch_s_rank_j_cutter
-  - launch_s_rank_slicer
   - layercmp
   - layout_entries__17TWindowSubComCardFPv
   - lazer_fence_beam_motions
@@ -8279,9 +8279,13 @@ force_active:
   - vfunc_49__13TObjEneRe4BitFv
   - vfunc_50__13TObjEneRe4BitFv
   - vfunc_51__13TObjEneRe4BitFPv
+  - vfunc_58__15TObjEneMe1GiGueFv
+  - vfunc_59__15TObjEneMe1GiGueFv
+  - vfunc_60__15TObjEneMe1GiGueFv
   - vfunc_61__13TObjEneBm3FlyFv
   - vfunc_61__13TObjEneRe4BitFv
   - vfunc_61__14TObjEneBm5WolfFv
+  - vfunc_61__15TObjEneMe1GiGueFv
   - vfunc_61__17TObjEneBm3FlyNestFv
   - vfunc_61__18TObjEneRe4SorcererFv
   - vfunc_61__19TObjEneEpsilonGuardFv

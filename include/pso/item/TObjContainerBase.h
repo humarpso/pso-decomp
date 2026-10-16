@@ -7,9 +7,7 @@
 struct TObjContainerBase : public TUnk_804B6C24 {
     virtual ~TObjContainerBase();
     virtual void vfunc_80();
-    virtual void vfunc_6(s16 *, s32);
-    f32 receive_physical_hit();
-    f32 receive_technique_hit(s32 arg1, s32 *arg2);};
+    virtual void vfunc_6(s16 *, s32);};
 
 typedef char TObjContainerBase_size[sizeof(TObjContainerBase) == 0x368 ? 1 : -1];
 #endif

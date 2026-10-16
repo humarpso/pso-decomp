@@ -21,7 +21,6 @@ struct TObjMapWarp : TObjMapWarpPrefix {
     virtual void slot44();
     virtual void slot48();
     virtual void slot4C();
-    void closeAllPlayerWindows();
     virtual void closePlayerWindow(u16);
     u8 base1C[0x44];
     s32 sourceYaw;
@@ -35,6 +34,5 @@ struct TObjMapWarp : TObjMapWarpPrefix {
     void draw_debug_destinations();
     static u8 can_warp(s32 arg0, u16 arg1);
     void open_player_warp_window(s32 arg1);
-    void close_player_window(u16 arg1);
 };
 #endif

@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0BC0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecFoie.h"
 
 extern "C" {
 
 void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1);
-void TObjPlayer__sub_80121ACC(void *arg0);
+void update_attack__13TUnk_804A0BC0Fv(void *arg0);
 s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
@@ -57,12 +58,12 @@ void TObjPlayer::update_freeze_state() {
     }
 }
 
-void TObjPlayer__sub_80121ACC(void *arg0) {
+void TUnk_804A0BC0::update_attack() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1FC);
+    temp_r0 = *(s32 *)((s8 *)this + 0x1FC);
     if ((temp_r0 == 1) || (temp_r0 == 0)) {
-        *(s32 *)((s8 *)arg0 + 0x1FC) = 2;
+        *(s32 *)((s8 *)this + 0x1FC) = 2;
     }
 }
 

@@ -5,7 +5,7 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80121708(void *arg0);
+void hook__13TUnk_804A0AA8Fv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 is_owner_alive__15TItemShootModelFv();
@@ -28,8 +28,8 @@ void TUnk_804A0AA8::render() {
     }
 }
 
-void TObjPlayer__sub_80121708(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) + 0x3333);
+void TUnk_804A0AA8::hook() {
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) + 0x3333);
 }
 
 extern s32 lbl_804A0AA8[];

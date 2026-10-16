@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/TChCrTagOccHeader.h"
 
 extern "C" {
 
 int render__17TChCrTagOccHeaderFv(void* p);
 int fn_802A2A00(void*);
 
-int render__17TChCrTagOccHeaderFv(void* p) { return fn_802A2A00(p); }
+void TChCrTagOccHeader::render() { fn_802A2A00(this); }
 
 }
 
@@ -28,7 +29,8 @@ extern "C" {
 void run_task__17TChCrTagOccHeaderFv(u8 *arg0);
 s32 update_fade__8TChCrTagFPv();
 
-void run_task__17TChCrTagOccHeaderFv(u8 *arg0) {
+void TChCrTagOccHeader::run_task() {
+    u8 *arg0 = (u8 *)this;
     update_fade__8TChCrTagFPv();
     *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C) + 1);
 }

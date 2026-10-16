@@ -6,6 +6,7 @@
 class TUnk_804A6200 : public TItemWeapon {
 public:
     virtual ~TUnk_804A6200();
+    virtual void update_attack();
     u8 unk_1F8[0xC];
 };
 

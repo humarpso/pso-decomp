@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804F26E0.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
 extern "C" {
@@ -157,7 +158,7 @@ public:
 
 extern "C" {
 extern const f32 lbl_805E0258;
-void s_rank_knuckle_unequip(u8 *arg0);
+void vfunc_62__13TUnk_804F26E0Fv(u8 *arg0);
 extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
 void * init_s_rank_knuckle(void *, s32, void *);
@@ -341,7 +342,8 @@ void *TObjEneEpsilon__ct(void *arg0) {
 
 extern s32 lbl_804F26E0[];
 
-void s_rank_knuckle_unequip(u8 *arg0) {
+void TUnk_804F26E0::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
     ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp((f32) (lbl_805E0258));
 }
 

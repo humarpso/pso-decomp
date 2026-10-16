@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOHangceilingCave01Normal.h"
 #include "pso/misc/TUnk_804B2578.h"
 #include "pso/misc/TOHangceilingCave01.h"
 #include "pso/TParticleCtrl.h"
@@ -291,8 +292,8 @@ u8 * TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1);
 void TOHangceilingCave01Key__vt78(u8 *arg0);
 void * __dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Key__ct(void *arg0);
-void TOHangceilingCave01Normal__vt77(void *arg0);
-void TOHangceilingCave01Normal__vt78(Obj_80168010 *arg0);
+void vfunc_79__25TOHangceilingCave01NormalFv(void *arg0);
+void vfunc_80__25TOHangceilingCave01NormalFv(Obj_80168010 *arg0);
 void * __dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Normal__ct(void *arg0);
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0);
@@ -520,24 +521,25 @@ void *TOHangceilingCave01Key__ct(void *arg0) {
     return arg0;
 }
 
-void TOHangceilingCave01Normal__vt77(void *arg0) {
+void TOHangceilingCave01Normal::vfunc_79() {
     void *temp_r6;
     union { f64 d; u32 i[2]; } cvt;
 
     s32 *p;
-    *(void **)((s8 *)arg0 + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
+    *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
     p = turiten_singo_texture_lists;
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *p;
-    *(f32 *)((s8 *)arg0 + 0x354) = (f32) (lbl_805DB65C * *(f32 *)((s8 *)arg0 + 0x350));
-    ((s32 (*)(void *, s32, s32 *, f32))fn_801682E4)(arg0, 0, p, lbl_805DB65C);
-    temp_r6 = *(void **)((s8 *)arg0 + 0xA4);
+    *(s32 *)((s8 *)this + 0x24) = (s32) *p;
+    *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB65C * *(f32 *)((s8 *)this + 0x350));
+    ((s32 (*)(void *, s32, s32 *, f32))fn_801682E4)(this, 0, p, lbl_805DB65C);
+    temp_r6 = *(void **)((s8 *)this + 0xA4);
     *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) | lbl_805DB658);
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB650;
-    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DB654;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4) - lbl_805DB654;
+    *(f32 *)((s8 *)this + 0xC0) = (f32) lbl_805DB650;
+    *(f32 *)((s8 *)this + 0xC8) = (f32) lbl_805DB654;
+    *(f32 *)((s8 *)this + 0xC4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)this + 0xF8)) + 4) - lbl_805DB654;
 }
 
-void TOHangceilingCave01Normal__vt78(Obj_80168010 *arg0) {
+void TOHangceilingCave01Normal::vfunc_80() {
+    Obj_80168010 *arg0 = (Obj_80168010 *)this;
     switch (arg0->state) {
     case 0:
         if (lbl_805DB650 < arg0->f354) {
@@ -851,8 +853,8 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 int vfunc_21__13TUnk_804B2578FPvPvPvf(void);
 f32 vfunc_24__13TUnk_804B2578FPvPv(void);
 f32 vfunc_23__13TUnk_804B2578FPvPvPvll(void);
-void TOHangceilingCave01__sub_8016863C(void);
-void TOHangceilingCave01__sub_80168640(void);
+void vfunc_80__13TUnk_804B2578Fv(void);
+void vfunc_79__13TUnk_804B2578Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 bool TOHangceilingCave01__sub_801688C0(u8 *);
 s32 spawn_particle_effect(void *, s32);
@@ -896,8 +898,8 @@ f32 TUnk_804B2578::vfunc_23(void *, void *, void *, s32, s32) {
     return lbl_805DB650;
 }
 
-void TOHangceilingCave01__sub_8016863C(void) {  }
-void TOHangceilingCave01__sub_80168640(void) {  }
+void TUnk_804B2578::vfunc_80() {  }
+void TUnk_804B2578::vfunc_79() {  }
 
 extern const f32 lbl_805DB694;
 

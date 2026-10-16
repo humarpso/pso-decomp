@@ -298,13 +298,13 @@ extern "C" void TItemEquipBase__sub_8010A77C();
 extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
 extern "C" void TItemWeapon__sub_8011E5CC();
-extern "C" void TItemWeapon__sub_8011E5D4();
+extern "C" void reserved_53__11TItemWeaponFv();
 extern "C" void TItemWeapon__sub_8011E5D8();
-extern "C" void TItemWeapon__sub_8011E5DC();
+extern "C" void update_attack__11TItemWeaponFv();
 extern "C" void set_technique_roll__11TItemWeaponFl();
 extern "C" void TItemWeapon__sub_801200C0();
 extern "C" void TItemWeapon__sub_8012012C();
-extern "C" void TItemWeapon__sub_80120568();
+extern "C" void reserved_43__11TItemWeaponFv();
 extern "C" void TItemWeapon__sub_80121064();
 extern "C" void TItemWeapon__write_item_data();
 extern "C" void TItem__sub_801005D8();
@@ -314,12 +314,12 @@ extern "C" void TItem__sub_80100648();
 extern "C" void TItem__sub_80100B8C();
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void add_equip_stats__14TItemEquipBaseFPvi();
-extern "C" void apply_equip__11TItemWeaponFv();
+extern "C" void reserved_42__11TItemWeaponFv();
 extern "C" void apply_object_set_data();
-extern "C" void bind_attribute_entries__11TItemWeaponFv();
+extern "C" void reserved_46__11TItemWeaponFv();
 extern "C" void classify_actor_view_detail();
 extern "C" void deliver_hit__11TItemWeaponFPviPviif();
-extern "C" void dispatch_attack_marker__11TItemWeaponFv();
+extern "C" void reserved_28__11TItemWeaponFv();
 extern "C" void dispatch_state__5TItemFv();
 extern "C" void draw_equipped_weapon__11TItemWeaponFv();
 extern "C" void draw_weapon_trails__11TItemWeaponFPv();
@@ -327,12 +327,12 @@ extern "C" void equip__14TItemEquipBaseFv();
 extern "C" void get_attack_flags__11TItemWeaponFv();
 extern "C" void get_motion_ptr__11TItemWeaponFv();
 extern "C" void launch_shot__11TItemWeaponFPvPviii();
-extern "C" void load_weapon_model__11TItemWeaponFv();
+extern "C" void reserved_44__11TItemWeaponFv();
 extern "C" void register_attack__5TItemFv();
 extern "C" void release_member_90__10TObjPlayerFv();
 extern "C" void remove_equip_stats__14TItemEquipBaseFPvi();
 extern "C" void render_shadows__5TItemFv();
-extern "C" void reset_entries__11TItemWeaponFv();
+extern "C" void reserved_47__11TItemWeaponFv();
 extern "C" void reset_item_equip();
 extern "C" void ret_8010064C();
 extern "C" void ret_80100654();
@@ -347,7 +347,7 @@ extern "C" void try_pick_up_item__5TItemFPvi();
 extern "C" void unequip__14TItemEquipBaseFv();
 extern "C" void update_active_weapon__11TItemWeaponFv();
 extern "C" void update_equip__14TItemEquipBaseFv();
-extern "C" void update_model_flags__11TItemWeaponFv();
+extern "C" void reserved_32__11TItemWeaponFv();
 extern "C" void update_weapon_trails__11TItemWeaponFv();
 void *megid_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_8012463C, (void *)&run_task__5TItemFv,
@@ -357,13 +357,13 @@ void *megid_projectile_weapon_vtable[63] = {
     (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFv,
-    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
-    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
+    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
+    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&reserved_32__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
-    (void *)&apply_equip__11TItemWeaponFv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFv, (void *)&reset_item_equip,
-    (void *)&bind_attribute_entries__11TItemWeaponFv, (void *)&reset_entries__11TItemWeaponFv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
-    (void *)&cast_megid__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&draw_held_item__10TObjPlayerFPv,
+    (void *)&reserved_42__11TItemWeaponFv, (void *)&reserved_43__11TItemWeaponFv, (void *)&reserved_44__11TItemWeaponFv, (void *)&reset_item_equip,
+    (void *)&reserved_46__11TItemWeaponFv, (void *)&reserved_47__11TItemWeaponFv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
+    (void *)&cast_megid__10TObjPlayerFPv, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&draw_held_item__10TObjPlayerFPv,
     (void *)&update_blink__10TObjPlayerFPv, (void *)&init_armor__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&TObjPlayer__sub_8012443C, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };
@@ -379,13 +379,13 @@ void *recoiling_projectile_weapon_vtable[63] = {
     (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFv,
-    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
-    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&update_model_flags__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
+    (void *)&update_weapon_trails__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
+    (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&reserved_32__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
-    (void *)&apply_equip__11TItemWeaponFv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFv, (void *)&reset_item_equip,
-    (void *)&bind_attribute_entries__11TItemWeaponFv, (void *)&reset_entries__11TItemWeaponFv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
-    (void *)&drill_launcher_marker, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&TItemWeapon__sub_8011E5D4,
+    (void *)&reserved_42__11TItemWeaponFv, (void *)&reserved_43__11TItemWeaponFv, (void *)&reserved_44__11TItemWeaponFv, (void *)&reset_item_equip,
+    (void *)&reserved_46__11TItemWeaponFv, (void *)&reserved_47__11TItemWeaponFv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
+    (void *)&drill_launcher_marker, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&reserved_53__11TItemWeaponFv,
     (void *)&drill_launcher_update, (void *)&TItemWeapon__sub_8011E5CC, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&drill_launcher_node_callback, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };

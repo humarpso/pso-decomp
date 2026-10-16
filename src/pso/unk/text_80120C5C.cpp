@@ -73,7 +73,7 @@ extern T_80120C5C lbl_8043E828[];
 
 extern "C" {
 
-void TItemWeapon::load_weapon_model() {
+void TItemWeapon::reserved_44() {
     Pl_80120C5C *arg0 = (Pl_80120C5C *)this;
     u8 v = get_field_ed__10TObjPlayerFv();
     if (v >= 0xAA) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A5838.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -11,14 +12,15 @@ extern const f32 lbl_805DAF08;
 extern const f32 lbl_805DAF0C;
 extern const f32 lbl_805DAF10;
 extern const f32 lbl_805DAF14;
-void update_soul_scythe_sweep(u8 *self);
+void update_attack__13TUnk_804A5838Fv(u8 *self);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void update_soul_scythe_sweep(u8 *self) {
+void TUnk_804A5838::update_attack() {
+    u8 *self = (u8 *)this;
     s32 flag;
     s32 ok;
     s32 lo;

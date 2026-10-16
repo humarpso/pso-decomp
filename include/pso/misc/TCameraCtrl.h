@@ -131,7 +131,6 @@ struct TCameraCtrl : public TObject {
     static void set_active_camera_flag();
     void calc_follow_position();
     void update_follow_flags();
-    void recenter_with_obstruction(u8 *arg1, u8 *arg2);
     void compute_follow_target();
     void update_follow_camera();
     void *deleting_dtor(s16 arg1);

@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/player/TUnk_804A6108.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int TObjPlayer__sub_8012EF40(void* p);
+int update_weapon__13TUnk_804A6108Fv(void* p);
 s32 rotate_matrix_z(s32, s32);
 int advance_angle_wrap(void*, int);
 void TItemWeapon__ct(void *);
@@ -26,7 +27,7 @@ void TObjPlayer::update_boss2tunnel_move() {
         return;
     }
 }
-int TObjPlayer__sub_8012EF40(void* p) { return advance_angle_wrap((char*)p + 0x1f8, 3276); }
+void TUnk_804A6108::update_weapon() { advance_angle_wrap((char*)this + 0x1f8, 3276); }
 
 extern s32 lbl_804A6108[];
 

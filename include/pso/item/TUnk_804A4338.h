@@ -6,6 +6,7 @@
 class TUnk_804A4338 : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A4338();
+    virtual void emit_marker_effects();
     u8 unk_1C[0x170];
 };
 

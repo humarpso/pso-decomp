@@ -6,6 +6,8 @@
 class TUnk_804A444C : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A444C();
+    virtual void update_attack();
+    virtual void emit_marker_effects();
     u8 unk_1C[0x1E8];
 };
 

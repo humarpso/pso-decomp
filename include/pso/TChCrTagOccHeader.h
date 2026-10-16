@@ -6,6 +6,8 @@
 class TChCrTagOccHeader : public TChCrTag {
 public:
     virtual ~TChCrTagOccHeader();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

@@ -24,7 +24,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-void TItemProArmorParticle__vt14(void *arg0);
+void vfunc_46__21TItemProArmorParticleFv(void *arg0);
 void vfunc_44__21TItemProArmorParticleFv(void *arg0);
 void vfunc_45__21TItemProArmorParticleFv(void *arg0);
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
@@ -48,16 +48,16 @@ void TItemProArmorParticle::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 extern s32 tl_05;
 
-void TItemProArmorParticle__vt14(void *arg0) {
+void TItemProArmorParticle::vfunc_46() {
     s32 temp_r3;
     s32 temp_r31;
 
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 2) {
+    if ((s32) *(s32 *)((s8 *)this + 0x1A0) == 2) {
         temp_r3 = TOKeyMachine01::get_global_state();
-        if (temp_r3 != (s32) *(s32 *)((s8 *)arg0 + 0x198)) {
-            *(s32 *)((s8 *)arg0 + 0x198) = temp_r3;
+        if (temp_r3 != (s32) *(s32 *)((s8 *)this + 0x198)) {
+            *(s32 *)((s8 *)this + 0x198) = temp_r3;
             if (is_item_area_enabled() != 0) {
-                TItemProArmorParticle::create((s32)(tl_05), (s32)(((TObjPlayer *)arg0)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(arg0)), (s32)(*(s32 *)((s8 *)arg0 + 0x19C)));
+                TItemProArmorParticle::create((s32)(tl_05), (s32)(((TObjPlayer *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(*(s32 *)((s8 *)this + 0x19C)));
             }
         }
     }

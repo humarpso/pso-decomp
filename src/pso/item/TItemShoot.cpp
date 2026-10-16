@@ -26,7 +26,7 @@ void __dt__13TItemShootGunFv();
 void render__13TItemShootGunFv();
 void hook__13TItemShootGunFv();
 void __dt__18TItemShootParticleFv();
-void TItemShootParticle__vt4();
+void hook__18TItemShootParticleFv();
 void __dt__15TItemShootModelFv();
 void render__15TItemShootModelFv();
 void run_task__10TItemShootFv();
@@ -47,7 +47,7 @@ void *__vt__13TItemShootGun[7] = {
 void *__vt__18TItemShootParticle[7] = {
     0, 0, (void *)__dt__18TItemShootParticleFv, (void *)run_task__10TItemShootFv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
-    (void *)TItemShootParticle__vt4,
+    (void *)hook__18TItemShootParticleFv,
 };
 void *__vt__15TItemShootModel[7] = {
     0, 0, (void *)__dt__15TItemShootModelFv, (void *)run_task__10TItemShootFv,

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A6AD8.h"
 
 struct PlB_80130974 { char pad[0x18]; };
 
@@ -68,16 +69,17 @@ void yasminkov_9000m_eject_casing(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB008;
 extern const f32 lbl_805DB00C;
 extern const f32 lbl_805DB010;
-void yasminkov_9000m_update_recoil(u8 *arg0);
+void update_weapon__13TUnk_804A6AD8Fv(u8 *arg0);
 void spawn_particle_effect(void *, s32);
-void yasminkov_9000m_marker(Pl2_80130974 *arg0);
+void emit_marker_effects__13TUnk_804A6AD8Fv(Pl2_80130974 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void yasminkov_9000m_update_recoil(u8 *arg0) {
+void TUnk_804A6AD8::update_weapon() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);
     switch (temp_r0) {
@@ -106,7 +108,8 @@ void yasminkov_9000m_update_recoil(u8 *arg0) {
 }
 #pragma pop
 
-void yasminkov_9000m_marker(Pl2_80130974 *arg0) {
+void TUnk_804A6AD8::emit_marker_effects() {
+    Pl2_80130974 *arg0 = (Pl2_80130974 *)this;
     arg0->f1f8 = 2;
     if (arg0->m49(arg0->f208, 0, 0, 1) != 0) {
         arg0->m49(arg0->f214, 0, 0, 0);

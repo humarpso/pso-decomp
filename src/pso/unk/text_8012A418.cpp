@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4948.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -136,7 +137,7 @@ u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0);
-void deliver_srank_marker(u8 *arg0);
+void emit_marker_effects__13TUnk_804A4948Fv(u8 *arg0);
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
 s32 get_extended_state__10TObjPlayerFv(void *);
@@ -244,7 +245,8 @@ typedef struct VObj_18_24931d VObj_18_24931d;
 #define PSO_VCALL_VObj_18_24931d_m60(_self) (((VObj_18_24931d *)(_self))->m60())
 #define PSO_VCALL_VObj_18_24931d_m30(_self) (((VObj_18_24931d *)(_self))->m30())
 #define PSO_VCALL_VObj_18_24931d_m49(_self, _arg0, _arg1, _arg2, _arg3) (((VObj_18_24931d *)(_self))->m49((_arg0), (_arg1), (_arg2), (_arg3)))
-void deliver_srank_marker(u8 *arg0) {
+void TUnk_804A4948::emit_marker_effects() {
+    u8 *arg0 = (u8 *)this;
   s32 sp8;
   s32 temp_r0;
   s32 temp_r3;

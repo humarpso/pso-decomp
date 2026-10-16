@@ -1,24 +1,25 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0CB8.h"
 #include "pso/TObject.h"
 
 extern "C" {
 
-void belra_cannon_update(void *arg0);
+void update_weapon__13TUnk_804A0CB8Fv(void *arg0);
 u32 belra_cannon_create_extra_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 spawn_slot_emitter__18TItemShootParticleFPvii(u32, s32, s32);
 u32 spawn_shoot_particle__10TObjPlayerFUlllf(void *, s32, s32, f32);
 u32 create_shoot_model__10TObjPlayerFUiiif();
 
-void belra_cannon_update(void *arg0) {
+void TUnk_804A0CB8::update_weapon() {
     s32 *temp_r3;
     s32 temp_r4_2;
     void *temp_r4;
 
-    temp_r4 = *(void **)((s8 *)arg0 + 0xF4);
+    temp_r4 = *(void **)((s8 *)this + 0xF4);
     if (temp_r4 != NULL) {
         temp_r3 = *(s32 **)((s8 *)temp_r4 + 0x2C);
         temp_r4_2 = *temp_r3;
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 1) {
+        if ((s32) *(s32 *)((s8 *)this + 0x1F8) == 1) {
             if (temp_r4_2 & 8) {
                 *temp_r3 = temp_r4_2 & 0xFFFFFFF7;
             }

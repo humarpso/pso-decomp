@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void render__15TBoss2PhotonPadFv();
 
 #include <stddef.h>
 #include "pso/TBoss2PhotonPad.h"
@@ -196,7 +197,8 @@ void render_shadows__7TObjectFv(void);
 void *__dt__15TBoss2PhotonPadFv(void *self, s16 arg1);
 
 void TBoss2PhotonPad::render() {  }
-void run_task__15TBoss2PhotonPadFv(Pad_80039140 *self) {
+void TBoss2PhotonPad::run_task() {
+    Pad_80039140 *self = (Pad_80039140 *)this;
     void *inst;
     void *p;
 
@@ -253,7 +255,7 @@ void *__vt__18TBoss2PhotonBullet[23] = {
     0, 0, (void *)__dt__18TBoss2PhotonBulletFv, (void *)run_task__18TBoss2PhotonBulletFv, (void *)render__18TBoss2PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)call_vt13_with_default__10TObjPlayerFv, (void *)area_attack_deliver_direct, (void *)TObjPlayer__sub_800BC220, (void *)call_vt16_with_default__10TObjPlayerFv, (void *)area_attack_deliver_physical, (void *)dispatch_vt15__10TObjPlayerFPv, (void *)area_attack_apply_recoil, (void *)area_attack_receive_direct, (void *)apply_hit_if_active__10TObjPlayerFPvPf
 };
 void *__vt__15TBoss2PhotonPad[6] = {
-    0, 0, (void *)__dt__15TBoss2PhotonPadFv, (void *)run_task__15TBoss2PhotonPadFv, (void *)TBoss2PhotonPad::render, (void *)render_shadows__7TObjectFv
+    0, 0, (void *)__dt__15TBoss2PhotonPadFv, (void *)run_task__15TBoss2PhotonPadFv, (void *)&render__15TBoss2PhotonPadFv, (void *)render_shadows__7TObjectFv
 };
 }
 

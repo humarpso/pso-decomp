@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A3260.h"
 #include "pso/items/TItemWeaponMechgun.h"
 #include "pso/player/TObjPlayer.h"
 struct WeaponDispatchPrefix { char pad[0x18]; };
@@ -56,10 +57,10 @@ struct WeaponDispatch : WeaponDispatchPrefix {
 };
 
 extern "C" {
-void mechgun_sample_muzzle_points(u8 *arg0);
+void reserved_53__13TUnk_804A3260Fv(u8 *arg0);
 extern const f32 lbl_805DADD0;
 extern const f32 lbl_805DADD4;
-void mechgun_update_rotation_decay(void *arg0);
+void update_weapon__13TUnk_804A3260Fv(void *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_mechgun_weapon(u8 *arg0);
@@ -86,20 +87,21 @@ void TItemWeaponMechgun::prepareMarker() {
 
 extern "C" {
 
-void mechgun_update_rotation_decay(void *arg0) {
+void TUnk_804A3260::update_weapon() {
     s32 temp_r4;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x218) != -1) {
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x21C);
+    if ((s32) *(s32 *)((s8 *)this + 0x218) != -1) {
+        temp_r4 = *(s32 *)((s8 *)this + 0x21C);
         if (lbl_805DADD0 < (f32) temp_r4) {
-            *(s32 *)((s8 *)arg0 + 0x21C) = (s32) ((f32) temp_r4 - lbl_805DADD4);
-            if ((f32) *(s32 *)((s8 *)arg0 + 0x21C) < lbl_805DADD0) {
-                *(s32 *)((s8 *)arg0 + 0x21C) = 0;
+            *(s32 *)((s8 *)this + 0x21C) = (s32) ((f32) temp_r4 - lbl_805DADD4);
+            if ((f32) *(s32 *)((s8 *)this + 0x21C) < lbl_805DADD0) {
+                *(s32 *)((s8 *)this + 0x21C) = 0;
             }
         }
     }
 }
 
-void mechgun_sample_muzzle_points(u8 *arg0) {
+void TUnk_804A3260::reserved_53() {
+    u8 *arg0 = (u8 *)this;
     ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1F8, arg0 + 0x204);
 }
 

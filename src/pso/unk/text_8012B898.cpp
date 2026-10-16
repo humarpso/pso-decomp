@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4F60.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecBarta.h"
 #include "pso/misc/TTecFoie.h"
@@ -22,7 +23,7 @@ extern "C" {
 s32 get_current_floor();
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
-void psycho_wand_cast_technique(u8 *arg0, s32 arg1);
+void set_technique_roll__13TUnk_804A4F60Fl(u8 *arg0, s32 arg1);
 u8 * init_vtable_and_clear_field1f8__10TObjPlayerFv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -55,7 +56,8 @@ u8 *TObjPlayer::create_vtable_clear_field1f8(u8 *arg0) {
     return NULL;
 }
 
-void psycho_wand_cast_technique(u8 *arg0, s32 arg1) {
+void TUnk_804A4F60::set_technique_roll(s32 arg1) {
+    u8 *arg0 = (u8 *)this;
   s32 new_var;
   s32 temp_r31;
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U)

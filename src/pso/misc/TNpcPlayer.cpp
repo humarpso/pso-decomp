@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void render__10TNpcPlayerFv();
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/TObject.h"
@@ -1661,7 +1662,7 @@ void *lbl_804AF630[64] = {
 };
 void *__vt__10TNpcPlayer[6] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__10TNpcPlayerFv, (void *)&run_task__10TNpcPlayerFv,
-    (void *)&TNpcPlayer::render, (void *)&render_shadows__7TObjectFv,
+    (void *)&render__10TNpcPlayerFv, (void *)&render_shadows__7TObjectFv,
 };
 
 struct Info_8014E7A0 {
@@ -3387,7 +3388,8 @@ void TNpcPlayer::decide_action() {
     }
 }
 
-void run_task__10TNpcPlayerFv(u8 *arg0) {
+void TNpcPlayer::run_task() {
+    u8 *arg0 = (u8 *)this;
     u8 *owner;
     owner = *(u8 **)((s8 *)arg0 + 0x74);
     if (owner == NULL || (void *) *(u8 **)((s8 *)arg0 + 0x78) == NULL) {

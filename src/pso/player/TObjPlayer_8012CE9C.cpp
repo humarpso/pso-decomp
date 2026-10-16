@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/player/TUnk_804A5740.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 int TObjPlayer__sub_8012CE9C(void* p);
-int TObjPlayer__sub_8012CEC8(void* p);
+int update_attack__13TUnk_804A5740Fv(void* p);
 int rotate_matrix_x(void*, void*);
 int add_angle_clamped__10TObjPlayerFPlll(void*, int, int);
 void TItemWeapon__ct(void *);
@@ -12,7 +13,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 int get_player_list__10TObjPlayerFv(void*);
 
 int TObjPlayer__sub_8012CE9C(void* p) { return add_angle_clamped__10TObjPlayerFPlll((char*)p + 0x1f8, 1820, 10922); }
-int TObjPlayer__sub_8012CEC8(void* p) { return add_angle_clamped__10TObjPlayerFPlll((char*)p + 0x1f8, -1820, 0); }
+void TUnk_804A5740::update_attack() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, -1820, 0); }
 void TObjPlayer::release_container_if_positive() { if (get_player_list__10TObjPlayerFv(this) > 0) { rotate_matrix_x((void*)0, *(void**)((char*)this + 0x1f8)); } }
 
 extern s32 lbl_804A5740[];

@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/player/TUnk_804A2564.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1);
-void arm_faust_reload_timer(void* p);
-void count_faust_reload_timer(u8 *arg0);
+void emit_marker_effects__13TUnk_804A2564Fv(void* p);
+void update_weapon__13TUnk_804A2564Fv(u8 *arg0);
 void clear_faust_reload_timer(void* p);
 s32 draw_ginja_object(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -38,9 +39,10 @@ void TObjPlayer::draw_faust_loaded_projectile() {
     }
 }
 
-void arm_faust_reload_timer(void* p) { *(s32*)((char*)p + 0x234) = 60; }
+void TUnk_804A2564::emit_marker_effects() { *(s32*)((char*)this + 0x234) = 60; }
 
-void count_faust_reload_timer(u8 *arg0) {
+void TUnk_804A2564::update_weapon() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x234);
     if (temp_r4 > 0) {

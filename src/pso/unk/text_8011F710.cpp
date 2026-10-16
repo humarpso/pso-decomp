@@ -208,7 +208,7 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3,
     }
 }
 }
-void TItemWeapon::dispatch_attack_marker() {
+void TItemWeapon::reserved_28() {
     TItemWeapon* self=this;
     WeaponMarkerPacket packet;
     WeaponVector gun_point;

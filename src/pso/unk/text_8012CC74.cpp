@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A5648.h"
 #include "pso/player/TObjPlayer.h"
 
 struct PlB_8012CCCC { char pad[0x18]; };
@@ -57,7 +58,7 @@ struct Pl_8012CCCC : PlB_8012CCCC {
 };
 
 extern "C" {
-void TObjPlayer__sub_8012CD68(u8 *arg0);
+void reserved_53__13TUnk_804A5648Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_saber_weapon(u8 *arg0);
@@ -88,7 +89,8 @@ void TObjPlayer::toggle_slot_states() {
     }
 }
 
-void TObjPlayer__sub_8012CD68(u8 *arg0) {
+void TUnk_804A5648::reserved_53() {
+    u8 *arg0 = (u8 *)this;
     ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1F8, arg0 + 0x204);
 }
 

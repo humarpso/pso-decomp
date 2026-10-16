@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0CB8.h"
 #include "pso/TItemAttacker.h"
 #include "pso/player/TObjPlayer.h"
 struct Vec_80121CB8 { f32 x, y, z; };
@@ -71,12 +72,13 @@ void belra_cannon_create_extra_shot();
 void belra_cannon_create_shot();
 void belra_cannon_return_timer();
 extern const f32 lbl_805DACD0;
-void belra_cannon_marker(Self_80121CB8 *self);
+void emit_marker_effects__13TUnk_804A0CB8Fv(Self_80121CB8 *self);
 }
 
 extern "C" {
 
-void belra_cannon_marker(Self_80121CB8 *self) {
+void TUnk_804A0CB8::emit_marker_effects() {
+    Self_80121CB8 *self = (Self_80121CB8 *)this;
     Vec_80121CB8 v;
     if (((TObjPlayer *)self)->is_mode_two_and_ready() != 0) {
         self->fn1f0 = (void *)belra_cannon_create_extra_shot;

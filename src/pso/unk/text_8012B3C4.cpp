@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A4D70.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 
 extern "C" {
@@ -15,7 +16,7 @@ extern const f32 lbl_805DAE88;
 extern const f32 lbl_805DAE9C;
 extern const f32 lbl_805DAEA0;
 extern const f32 lbl_805DAEA4;
-void update_brionac_active_scale(u8 *arg0);
+void update_attack__13TUnk_804A4D70Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -29,7 +30,8 @@ void update_brionac_idle_scale(u8 *arg0) {
         }
     }
 }
-void update_brionac_active_scale(u8 *arg0) {
+void TUnk_804A4D70::update_attack() {
+    u8 *arg0 = (u8 *)this;
     if (get_slot_count__14TItemProShieldFv() == 5) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x20C), (f32)((f32) (lbl_805DAE9C)), (f32)((f32) (lbl_805DAE88)));
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x218), (f32)((f32) (lbl_805DAEA0)), (f32)((f32) (lbl_805DAE88)));

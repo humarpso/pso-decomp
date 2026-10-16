@@ -6,8 +6,8 @@
 class TChCrTag : public TObject {
 public:
     virtual ~TChCrTag();
+    virtual void render();
 public:
-    static void render();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A4138.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -11,14 +12,15 @@ extern const f32 lbl_805DAE08;
 extern const f32 lbl_805DAE0C;
 extern const f32 lbl_805DAE10;
 extern const f32 lbl_805DAE14;
-void TObjPlayer__sub_80129170(u8 *self);
+void update_attack__13TUnk_804A4138Fv(u8 *self);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_80129170(u8 *self) {
+void TUnk_804A4138::update_attack() {
+    u8 *self = (u8 *)this;
     s32 flag;
     s32 ok;
     s32 lo;

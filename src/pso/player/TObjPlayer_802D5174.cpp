@@ -280,7 +280,7 @@ s32 send_6x61_activate_mag_effect(void *, s16);
 void tick_mag_effect_counter__10TObjPlayerFPv(void *arg0);
 s32 spawn_item__10TObjPlayerFi(void *);
 void spawn_item_from_arg__10TObjPlayerFii(s32 arg0, s32 arg1);
-void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x);
+void set_technique_roll__13TUnk_804E21F8Fl(O_802D576C *self, s32 x);
 s32 get_flag_40__8TItemMagFv(void *);
 void draw_weapon_model(void);
 void rotate_matrix_x(s32, s32);
@@ -370,7 +370,8 @@ void draw_weapon_parts__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x) {
+void TUnk_804E21F8::set_technique_roll(s32 x) {
+    O_802D576C *self = (O_802D576C *)this;
     if (x < 5) self->v = x;
 }
 

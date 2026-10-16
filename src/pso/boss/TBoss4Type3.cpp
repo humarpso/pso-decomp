@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TUnk_80486924.h"
 #include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
@@ -711,13 +712,13 @@ void TBoss4Type2__sub_80057578(void* p);
 void init_state__11TBoss4Type2FPv(u8 *arg0);
 S_800578E8 * TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag);
 u8 *TBoss4Type2__ct(u8 *, s32, s32 *);
-void TBoss4Type2__sub_80058208(void);
-void TBoss4Type2__sub_8005820C(void);
-void TBoss4Type2__sub_80058210(void);
-void TBoss4Type2__sub_80058214(void);
-void TBoss4Type2__sub_80058218(void);
-void TBoss4Type2__sub_8005821C(void);
-void TBoss4Type2__sub_80058220(void);
+void vfunc_44__13TUnk_80486924Fv(void);
+void vfunc_45__13TUnk_80486924Fv(void);
+void vfunc_46__13TUnk_80486924Fv(void);
+void vfunc_47__13TUnk_80486924Fv(void);
+void vfunc_48__13TUnk_80486924Fl(void);
+void vfunc_49__13TUnk_80486924Fv(void);
+void vfunc_50__13TUnk_80486924Fv(void);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
@@ -1248,19 +1249,19 @@ extern "C" {
 Ply_80059ABC * get_player_by_client_id(int);
 }
 
-void TBoss4Type2__sub_80058208(void) {  }
+void TUnk_80486924::vfunc_44() {  }
 
-void TBoss4Type2__sub_8005820C(void) {  }
+void TUnk_80486924::vfunc_45() {  }
 
-void TBoss4Type2__sub_80058210(void) {  }
+void TUnk_80486924::vfunc_46() {  }
 
-void TBoss4Type2__sub_80058214(void) {  }
+void TUnk_80486924::vfunc_47() {  }
 
-void TBoss4Type2__sub_80058218(void) {  }
+void TUnk_80486924::vfunc_48(s32) {  }
 
-void TBoss4Type2__sub_8005821C(void) {  }
+void TUnk_80486924::vfunc_49() {  }
 
-void TBoss4Type2__sub_80058220(void) {  }
+void TUnk_80486924::vfunc_50() {  }
 
 }
 void TBoss4Type3::update_libera() {

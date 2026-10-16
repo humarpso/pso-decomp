@@ -866,7 +866,7 @@ extern "C" {
 void TOTrap__sub_80178BC0();
 void TOTrap__sub_801792AC();
 void TOTrap__sub_801792B0();
-void TOTrap__sub_801792B4();
+void vfunc_26__6TOTrapFll();
 void TOTrap__sub_801792CC();
 void TOTrap__sub_801792E4();
 void TOTrap__sub_801792FC();
@@ -980,7 +980,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&check_trigger_range__6TOTrapFUl,
     (void *)&get_scale__6TOTrapFUl,
     (void *)&vfunc_25__6TOTrapFPUc,
-    (void *)&TOTrap__sub_801792B4,
+    (void *)&vfunc_26__6TOTrapFll,
     (void *)&TOTrap__sub_801792CC,
     (void *)&TObjPlayer__sub_80011010,
     (void *)&TObjPlayer__sub_8000FF3C,

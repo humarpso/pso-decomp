@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/item/TUnk_804A6010.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void twinkle_star_turn_stars(void *arg0);
-void twinkle_star_spin(void *arg0);
-void twinkle_star_marker(s32 arg0);
+void update_weapon__13TUnk_804A6010Fv(void *arg0);
+void emit_marker_effects__13TUnk_804A6010Fv(s32 arg0);
 s32 spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 rotate_matrix_y(s32, s32);
@@ -27,13 +28,14 @@ void twinkle_star_turn_stars(void *arg0) {
     }
 }
 
-void twinkle_star_spin(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (*(s32 *)((s8 *)arg0 + 0x1F8) + 0xCCC);
+void TUnk_804A6010::update_weapon() {
+    *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 0xCCC);
 }
 
 extern s32 tl_05;
 
-void twinkle_star_marker(s32 arg0) {
+void TUnk_804A6010::emit_marker_effects() {
+    s32 arg0 = (s32)this;
     if (get_attack_stage__11TItemWeaponFv() == 0) {
         spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 2, 4);
     }

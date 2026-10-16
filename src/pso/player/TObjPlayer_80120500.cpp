@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void TItemWeapon::reset_entries() {
+void TItemWeapon::reserved_47() {
     s32 var_r30;
     void *temp_r3;
 

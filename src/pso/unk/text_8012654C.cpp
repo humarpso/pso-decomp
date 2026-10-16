@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2A58.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -56,12 +57,13 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 item_model_is_shown(void *, int);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
-void baranz_launcher_marker(u8 *arg0);
+void emit_marker_effects__13TUnk_804A2A58Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void baranz_launcher_marker(u8 *arg0) {
+void TUnk_804A2A58::emit_marker_effects() {
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
     s32 temp_r4;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x1FC);

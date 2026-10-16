@@ -151,7 +151,7 @@ void TObjMapWarp::open_player_warp_window(s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjMapWarp::close_player_window(u16 arg1) {
+void TObjMapWarp::closePlayerWindow(u16 arg1) {
     s32 arg0 = (s32)this;
     u32 temp_r3;
     u32 temp_r3_2;
@@ -169,7 +169,7 @@ void TObjMapWarp::close_player_window(u16 arg1) {
 }
 #pragma pop
 
-void TObjMapWarp::closeAllPlayerWindows() {
+void TObjMapWarp::slot38() {
     for(s32 slot=0;slot<4;++slot)closePlayerWindow((u16)slot);
 }
 

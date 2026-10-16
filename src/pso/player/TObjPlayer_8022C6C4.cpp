@@ -1,4 +1,6 @@
 #include "types.h"
+extern "C" void render__8TTecCtrlFv();
+extern "C" void run_task__8TTecCtrlFv();
 #include "pso/player/TObjPlayer.h"
 #include "pso/TTecCtrl.h"
 #include "pso/misc/TLockOnCursor.h"
@@ -142,8 +144,8 @@ void *lbl_804CC55C[38] = {
     (void *)0x3e99999a, (void *)0x40a00000,
 };
 void *__vt__8TTecCtrl[6] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__8TTecCtrlFv, (void *)&TTecCtrl::run_task,
-    (void *)&TTecCtrl::render, (void *)&render_shadows__7TObjectFv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__8TTecCtrlFv, (void *)&run_task__8TTecCtrlFv,
+    (void *)&render__8TTecCtrlFv, (void *)&render_shadows__7TObjectFv,
 };
 
 s32 TObjPlayer::get_level_tier(s32 arg0) {

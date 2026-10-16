@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A09B0.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -57,7 +58,7 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-void TObjPlayer__sub_8012150C(u8 *arg0);
+void emit_marker_effects__13TUnk_804A09B0Fv(u8 *arg0);
 u8 * init_vtable_804A08B8__10TObjPlayerFv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -79,7 +80,8 @@ u8 *TObjPlayer::create_vtable_804A08B8(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer__sub_8012150C(u8 *arg0) {
+void TUnk_804A09B0::emit_marker_effects() {
+    u8 *arg0 = (u8 *)this;
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (&sp8)));

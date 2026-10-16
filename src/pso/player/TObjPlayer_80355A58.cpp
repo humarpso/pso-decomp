@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804F1320.h"
 #include "pso/item/TItemMag.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -9,7 +10,7 @@ struct RecoveredGlobal_80355BA0_lbl_804F1320 {
 
 extern "C" {
 void send_6x61_activate_mag_effect(void *, s32);
-void photon_field_weapon_attack_marker(u8 *arg0);
+void emit_marker_effects__13TUnk_804F1320Fv(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern s32 lbl_804F1320[];
@@ -21,7 +22,7 @@ u8 *photon_field_weapon_ct(u8 *arg0, u8 *arg1);
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1);
-void photon_field_weapon_receive_effect(void *arg0, s32 arg1);
+void set_technique_roll__13TUnk_804F1320Fl(void *arg0, s32 arg1);
 s32 get_current_floor();
 s8 TObjPlayer__sub_80102C30(void *);
 s32 spawn_pg_effect__10TObjPlayerFPvPvif(void *, s32, s32, f32);
@@ -30,20 +31,21 @@ void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1);
 s32 reset_key_machine_state__10TObjPlayerFv();
 
-void photon_field_weapon_receive_effect(void *arg0, s32 arg1) {
+void TUnk_804F1320::set_technique_roll(s32 arg1) {
     s32 temp_r31;
 
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
-        temp_r31 = ((TObjPlayer *)(*(u32 *)((s8 *)arg0 + 0xF0)))->get_field_3e4();
+    if (((u32) *(u32 *)((s8 *)this + 0xF0) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        temp_r31 = ((TObjPlayer *)(*(u32 *)((s8 *)this + 0xF0)))->get_field_3e4();
         {
         s32 t = get_current_floor();
-        if ((t == temp_r31) && (TObjPlayer__sub_80102C30(arg0) == 2)) {
-            spawn_pg_effect__10TObjPlayerFPvPvif(arg0, *(u32 *)((s8 *)arg0 + 0xF0) + 0x2FC, arg1, *(f32 *)((s8 *)arg0 + 0x1F8));
+        if ((t == temp_r31) && (TObjPlayer__sub_80102C30(this) == 2)) {
+            spawn_pg_effect__10TObjPlayerFPvPvif(this, *(u32 *)((s8 *)this + 0xF0) + 0x2FC, arg1, *(f32 *)((s8 *)this + 0x1F8));
         }
         }
     }
 }
-void photon_field_weapon_attack_marker(u8 *arg0) {
+void TUnk_804F1320::emit_marker_effects() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
         temp_r3 = ((TItemMag *)(*(s32 *)((s8 *)arg0 + 0xF0)))->get_sub_value();

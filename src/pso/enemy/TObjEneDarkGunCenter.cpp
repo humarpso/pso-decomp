@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void render__20TObjEneDarkGunCenterFv();
 #include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -153,7 +154,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     0,
     (void *)__dt__20TObjEneDarkGunCenterFv,
     (void *)run_task__20TObjEneDarkGunCenterFv,
-    (void *)TObjEneDarkGunCenter::render,
+    (void *)&render__20TObjEneDarkGunCenterFv,
     (void *)render_actor_shadows_default,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
@@ -234,7 +235,8 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)clear_lobby_object_state__9TObjEnemyFv,
 };
 
-void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self) {
+void TObjEneDarkGunCenter::run_task() {
+    Gun_800A0B20 *self = (Gun_800A0B20 *)this;
     s32 ang;
     s32 i;
     s32 off;

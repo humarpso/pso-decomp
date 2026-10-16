@@ -16,7 +16,7 @@ extern "C" {
 s32 spawn_particle_effect(u32, s32);
 s32 rocket_punch_return_timer(u32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TObjPlayer__sub_8012C4E0(void);
+void hook__13TUnk_804A5340Fv(void);
 
 void rocket_punch_target_impact(void *self, u32 a, u32 b, s32 idx) {
     Mylla_8012C384 *m;
@@ -36,7 +36,7 @@ extern "C" {
 s32 spawn_particle_effect(u32, s32);
 s32 rocket_punch_return_timer(u32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TObjPlayer__sub_8012C4E0(void);
+void hook__13TUnk_804A5340Fv(void);
 
 void rocket_punch_wall_impact(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
     if ((arg1 != 0U) && (arg3 != 0U)) {

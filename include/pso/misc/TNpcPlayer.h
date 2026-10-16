@@ -6,6 +6,8 @@
 
 struct TNpcPlayer : public TObject {
     virtual ~TNpcPlayer();
+    virtual void run_task();
+    virtual void render();
     void partner_request_physical_attack();
     void send_partner_attack_stage_request();
     u32 m_1c;
@@ -43,7 +45,6 @@ struct TNpcPlayer : public TObject {
     void *dt(s16 arg1);
     s32 try_attack(s32 arg1, s32 arg2);
     s32 check_movement_progress();
-    static void render();
     void init_follow_target();
     void update_condition_flags();
     void init_state();

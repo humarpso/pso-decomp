@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/item/TUnk_804A69DC.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void TObjPlayer__sub_801305E8(void *arg0);
-void TObjPlayer__sub_80130630(u8 *arg0);
+void update_weapon__13TUnk_804A69DCFv(u8 *arg0);
 int rotate_matrix_x(void*, void*);
 s32 advance_angle_wrap(void *, s32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, s32);
@@ -50,7 +51,8 @@ void TObjPlayer::tick_meseta_counter() {
     }
 }
 
-void TObjPlayer__sub_80130630(u8 *arg0) {
+void TUnk_804A69DC::update_weapon() {
+    u8 *arg0 = (u8 *)this;
     advance_angle_wrap(arg0 + 0x1F8, *(s32 *)((s8 *)arg0 + 0x1FC));
 }
 

@@ -51,7 +51,7 @@ void is_actor_cadence_frame();
 void is_within_range__10TObjPlayerFl();
 void vfunc_21__13TUnk_804B6C24FPvPvPvf();
 void vfunc_22__21TObjContainerAbeEnemyFPvf();
-void receive_technique_hit__17TObjContainerBaseFlPl();
+void vfunc_23__13TUnk_804B6C24FPvPvPvll();
 void vfunc_24__13TUnk_804B6C24FPvPv();
 void vfunc_25__13TUnk_804B6C24FPUc();
 void vfunc_26__13TUnk_804B6C24Fll();
@@ -129,7 +129,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)is_within_range__10TObjPlayerFl,
     (void *)vfunc_21__13TUnk_804B6C24FPvPvPvf,
     (void *)vfunc_22__21TObjContainerAbeEnemyFPvf,
-    (void *)receive_technique_hit__17TObjContainerBaseFlPl,
+    (void *)vfunc_23__13TUnk_804B6C24FPvPvPvll,
     (void *)vfunc_24__13TUnk_804B6C24FPvPv,
     (void *)vfunc_25__13TUnk_804B6C24FPUc,
     (void *)vfunc_26__13TUnk_804B6C24Fll,

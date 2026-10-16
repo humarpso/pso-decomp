@@ -733,7 +733,7 @@ extern s16 TBoss3Volopt__phase2_position_table[];
 void copy_phase2_positions_to_global__12TBoss3VoloptFPv(O_80044CB8 *self);
 void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self);
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
-f32 receive_physical_attack_with_part_mask__12TBoss3VoloptFPvPvf(Obj_80044E4C *self, void *a1, f32 x);
+f32 vfunc_22__13TUnk_80484610FPvf(Obj_80044E4C *self, void *a1, f32 x);
 void *__nw__7TObjectFUl(s32);
 void spawn_sub_objects__12TBoss3VoloptFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -1002,7 +1002,8 @@ void receive_direct_attack_with_part_mask__12TBoss3VoloptFPvPviPv(Obj_80044DD4 *
     receive_direct_attack__10TObjPlayerFv(self, a1, v, a3, -1, -1);
 }
 
-f32 receive_physical_attack_with_part_mask__12TBoss3VoloptFPvPvf(Obj_80044E4C *self, void *a1, f32 x) {
+f32 TUnk_80484610::vfunc_22(void *a1, f32 x) {
+    Obj_80044E4C *self = (Obj_80044E4C *)this;
     u32 m = 0x800000;
     s32 i;
     for (i = 0; i < 4; i++) {

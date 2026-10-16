@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804F28E0.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Obj_803631E8 {
@@ -17,7 +18,7 @@ void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1);
 extern "C" {
 
 void s_rank_launcher_slide_node(void *arg0);
-void s_rank_launcher_marker(s32 arg0);
+void emit_marker_effects__13TUnk_804F28E0Fv(s32 arg0);
 s32 spawn_particle_effect(s32 *, s32);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
@@ -41,7 +42,8 @@ void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1) {
     arg1->fn70 = (void *)TObjPlayer::forward_item_effect_callback;
 }
 
-void s_rank_launcher_marker(s32 arg0) {
+void TUnk_804F28E0::emit_marker_effects() {
+    s32 arg0 = (s32)this;
     s32 sp8;
 
     ((TObjPlayer *)arg0)->draw_status_icon((s32)(&sp8));

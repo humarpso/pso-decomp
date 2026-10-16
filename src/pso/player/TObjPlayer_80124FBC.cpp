@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2260.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void TObjPlayer__sub_80125090(void *arg0);
+void update_weapon__13TUnk_804A2260Fv(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 TObjPlayer__sub_80124C90(void *);
@@ -37,8 +38,8 @@ void TObjPlayer::play_side_step_particle() {
     }
 }
 
-void TObjPlayer__sub_80125090(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (*(s32 *)((s8 *)arg0 + 0x1F8) + 0xAAA);
+void TUnk_804A2260::update_weapon() {
+    *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 0xAAA);
 }
 
 }

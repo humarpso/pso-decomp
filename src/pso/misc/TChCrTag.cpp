@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void render__8TChCrTagFv();
 #include "pso/TChCrTag.h"
 #include "pso/TChCrCharSelect.h"
 
@@ -116,7 +117,7 @@ void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2) {
 
 void *__vt__8TChCrTag[7] = {
     0, 0, (void *)__dt__8TChCrTagFv, (void *)update_fade__8TChCrTagFPv,
-    (void *)TChCrTag::render, (void *)render_shadows__7TObjectFv,
+    (void *)&render__8TChCrTagFv, (void *)render_shadows__7TObjectFv,
     (void *)TChCrTag__vt4,
 };
 

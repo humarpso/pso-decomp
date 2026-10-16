@@ -6,6 +6,7 @@
 
 struct TWindowSubMag : public TObject {
     virtual ~TWindowSubMag();
+    virtual void render();
     u8 m_1c;
     u8 m_1d;
     u8 m_1e;
@@ -32,7 +33,6 @@ struct TWindowSubMag : public TObject {
     void *create_action_menu(s32 id);
     s32 create_list();
     s32 setup_list();
-    static void render();
     static void run_task(void *arg0);
     s32 get_selected_blast();
     void set_flag60_bit8();

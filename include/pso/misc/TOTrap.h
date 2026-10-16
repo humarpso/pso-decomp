@@ -6,6 +6,7 @@
 
 struct TOTrap : public TUnk_804806E8 {
     virtual ~TOTrap();
+    virtual s32 vfunc_26(s32, s32);
     virtual void vfunc_6(s16 *, s32);
     virtual void vfunc_25(u8 *);
     virtual void run_task();

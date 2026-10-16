@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void render__12TObjGrassWebFv();
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjGrass.h"
 #include "pso/TParticleCtrl.h"
@@ -744,7 +745,7 @@ void *lbl_80492A00[11] = {
 };
 void *__vt__12TObjGrassWeb[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TObjGrassWebFv, (void *)&run_task__12TObjGrassWebFv,
-    (void *)&TObjGrassWeb::render, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&render__12TObjGrassWebFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__13TUnk_804B9870Fv,
 };

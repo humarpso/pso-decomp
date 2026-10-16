@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A1E28.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -34,7 +35,7 @@ extern "C" {
 s32 add_actor_tp(void *, s32);
 s16 obj_getS16_32E(void *);
 extern const f32 lbl_805DAD20;
-void sorcerers_cane_update(u8 *arg0);
+void update_weapon__13TUnk_804A1E28Fv(u8 *arg0);
 u8 * init_state__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -89,7 +90,8 @@ void sorcerers_cane_node_callback(u8 *arg0) {
     }
 }
 
-void sorcerers_cane_update(u8 *arg0) {
+void TUnk_804A1E28::update_weapon() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     s16 temp_r3_3;
     s32 temp_r3;

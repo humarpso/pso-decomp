@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A68C8.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/items/TItemWeapon.h"
@@ -8,12 +9,13 @@ s32 create_item_eff_cane__10TObjPlayerFiUiii(void *, void *, int, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAFF8;
 extern const f32 lbl_805DAFFC;
-void mace_of_adaman_update_active(u8 *arg0);
+void update_attack__13TUnk_804A68C8Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void mace_of_adaman_update_active(u8 *arg0) {
+void TUnk_804A68C8::update_attack() {
+    u8 *arg0 = (u8 *)this;
     u8 temp_r3;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) == 0) {
         temp_r3 = ((TItemProShield *)arg0)->get_slot_count();

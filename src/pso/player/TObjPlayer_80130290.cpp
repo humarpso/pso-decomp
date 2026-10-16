@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80130314(void *arg0);
+void hook__13TUnk_804A69C0Fv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 rotate_matrix_x(s32, s32);
@@ -27,8 +27,8 @@ void TUnk_804A69C0::render() {
     }
 }
 
-void TObjPlayer__sub_80130314(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 0xCCC);
+void TUnk_804A69C0::hook() {
+    *(s32 *)((s8 *)this + 0x28) = (s32) (*(s32 *)((s8 *)this + 0x28) + 0xCCC);
 }
 
 extern s32 lbl_804A69C0[];

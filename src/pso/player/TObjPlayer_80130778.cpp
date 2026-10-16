@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/item/TUnk_804A6AD8.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void *TObjPlayer__sub_80130778(void *arg0, s16 arg1);
 void TObjPlayer__sub_801307D0(void *arg0);
-void yasminkov_9000m_draw(void* p);
+void reserved_53__13TUnk_804A6AD8Fv(void* p);
 int draw_weapon_model(void*);
 int draw_weapon_at_joint(void*, void*);
 void __dl__7TObjectFPv(void *);
@@ -30,6 +31,6 @@ void TObjPlayer__sub_801307D0(void *arg0) {
     }
 }
 
-void yasminkov_9000m_draw(void* p) { draw_weapon_model(p); ((TObjPlayer *)p)->draw_icon((s32)((void*)3), (s32)((char*)p + 0x208)); ((TObjPlayer *)p)->draw_icon((s32)((void*)1), (s32)((char*)p + 0x220)); draw_weapon_at_joint(p, (void*)35); ((TObjPlayer *)p)->draw_icon((s32)((void*)3), (s32)((char*)p + 0x214)); ((TObjPlayer *)p)->draw_icon((s32)((void*)1), (s32)((char*)p + 0x22c)); }
+void TUnk_804A6AD8::reserved_53() { draw_weapon_model(this); ((TObjPlayer *)this)->draw_icon((s32)((void*)3), (s32)((char*)this + 0x208)); ((TObjPlayer *)this)->draw_icon((s32)((void*)1), (s32)((char*)this + 0x220)); draw_weapon_at_joint(this, (void*)35); ((TObjPlayer *)this)->draw_icon((s32)((void*)3), (s32)((char*)this + 0x214)); ((TObjPlayer *)this)->draw_icon((s32)((void*)1), (s32)((char*)this + 0x22c)); }
 
 }

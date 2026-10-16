@@ -1,12 +1,14 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0BC0.h"
 
 extern "C" {
-void TObjPlayer__sub_80121AEC(u8 *arg0);
+void update_weapon__13TUnk_804A0BC0Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80121AEC(u8 *arg0) {
+void TUnk_804A0BC0::update_weapon() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r4_2;

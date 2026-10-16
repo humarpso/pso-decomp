@@ -6,6 +6,7 @@
 
 struct TItemProArmorParticle : public TItemProArmor {
     virtual ~TItemProArmorParticle();
+    virtual void vfunc_46();
     virtual void vfunc_45();
     virtual void vfunc_44();
     u32 m_198;

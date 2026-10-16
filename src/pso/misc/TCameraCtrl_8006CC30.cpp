@@ -926,7 +926,7 @@ void TCameraCtrl::update_follow_flags() {
 
 void TCameraCtrl__sub_8006DCC8(void* p) { *(s32*)((char*)p + 0xfc) = 0; }
 
-void TCameraCtrl::recenter_with_obstruction(u8 *arg1, u8 *arg2) {
+void TUnk_80488E00::vfunc_9(u8 *arg1, u8 *arg2) {
     struct RecoveredFields_8006DCD4_arg0 *arg0 = (struct RecoveredFields_8006DCD4_arg0 *)this;
     f32 temp_f1;
     u8 *temp_r3;

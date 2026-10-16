@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804F14A8.h"
 #include "pso/player/TUnk_804F166C.h"
 
 struct Base_8035836C_80357734 { char pad[0x18]; };
@@ -270,7 +271,7 @@ s32 fill_status_info__10TObjPlayerFPvPv(void *, void *);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
 extern s32 tl_05;
-void TObjPlayer__sub_80357784(u8 *arg0);
+void emit_marker_effects__13TUnk_804F14A8Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -298,7 +299,7 @@ struct VObj_80358984_80357734 : Base_80358984_80357734 {
 
 void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
-int TObjPlayer__sub_803579F4(void* p);
+int update_attack__13TUnk_804F14A8Fv(void* p);
 void render__13TUnk_804F166CFv(void);
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -338,7 +339,8 @@ void TObjPlayer__sub_8035776C(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg1 + 0x78) = 0x12;
 }
 
-void TObjPlayer__sub_80357784(u8 *arg0) {
+void TUnk_804F14A8::emit_marker_effects() {
+    u8 *arg0 = (u8 *)this;
     Info_80357784 info;
     V_80357784 sp8;
     s32 temp_r5;
@@ -390,7 +392,7 @@ void TObjPlayer__sub_80357954(u8 *arg0) {
 }
 
 int TObjPlayer::clear_field1f8_flag8192() { return add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, 1820, 8192); }
-int TObjPlayer__sub_803579F4(void* p) { return add_angle_clamped__10TObjPlayerFPlll((char*)p + 0x1f8, -3640, 0); }
+void TUnk_804F14A8::update_attack() { add_angle_clamped__10TObjPlayerFPlll((char*)this + 0x1f8, -3640, 0); }
 
 extern s32 item_equip_variant_vtable[];
 

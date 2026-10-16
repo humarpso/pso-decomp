@@ -1,6 +1,7 @@
 #ifndef PSO_ITEMS_TITEMWEAPONPARTISAN_H
 #define PSO_ITEMS_TITEMWEAPONPARTISAN_H
 #include "pso/items/TItemWeapon.h"
+#include "pso/item/TUnk_804A4D70.h"
 struct TItemWeaponPartisan : TItemWeapon {
     virtual ~TItemWeaponPartisan();
     virtual void emit_marker_effects();
@@ -26,7 +27,7 @@ void update_active_game_effect__10TObjPlayerFv(TItemWeapon*);
 void spawn_particle_effect(WeaponVector*, s32);
 extern const f32 lbl_805DAE80 = 3.0f;
 }
-void TItemWeaponPartisan::emit_marker_effects() {
+void TUnk_804A4D70::emit_marker_effects() {
     switch (get_slot_count__14TItemProShieldFv(this)) {
     case 6:
         if (is_mode_two_and_ready__10TObjPlayerFv(this) && obj_getPtr2B0_20(player) >= 10000) {

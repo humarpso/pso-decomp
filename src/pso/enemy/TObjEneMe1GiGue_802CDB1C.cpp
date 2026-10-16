@@ -102,10 +102,10 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0);
 
 extern "C" {
 
-void TObjEneMe1GiGue__sub_802CDAB4(void);
-void TObjEneMe1GiGue__sub_802CDAB8(void);
-void TObjEneMe1GiGue__sub_802CDABC(void);
-void TObjEneMe1GiGue__sub_802CDAC0(void);
+void vfunc_58__15TObjEneMe1GiGueFv(void);
+void vfunc_60__15TObjEneMe1GiGueFv(void);
+void vfunc_59__15TObjEneMe1GiGueFv(void);
+void vfunc_61__15TObjEneMe1GiGueFv(void);
 void TObjEneMe1GiGue__sub_802CDAE8(void);
 void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1);
 void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1);

@@ -6,6 +6,8 @@
 
 struct TObjEneDarkGunCenter : public TObjEnemy {
     virtual ~TObjEneDarkGunCenter();
+    virtual void run_task();
+    virtual void render();
     void sub_800A0994();
     u32 m_374;
     u32 m_378;
@@ -13,7 +15,6 @@ struct TObjEneDarkGunCenter : public TObjEnemy {
     u32 m_380;
     u8 _pad384[0x20];
     u32 m_3a4;
-    static void render();
     static void *create(void *arg0);
     void hide_linked_enemies();};
 

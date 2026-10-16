@@ -2,7 +2,6 @@
 #define PSO_ITEMS_TITEMWEAPONPARTISAN_H
 #include "pso/items/TItemWeapon.h"
 struct TItemWeaponPartisan : TItemWeapon {
-    virtual void emit_marker_effects();
     s32 rotation;
     WeaponVector scale;
     WeaponVector first_translation;

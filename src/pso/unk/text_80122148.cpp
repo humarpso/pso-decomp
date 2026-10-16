@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A0EA8.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -93,7 +94,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFv(void *);
 void spawn_weapon_impact_effect();
 void create_shoot_model_rot_z();
 void create_gun_shot();
-void guld_milla_marker(Self_801221A0 *self);
+void emit_marker_effects__13TUnk_804A0EA8Fv(Self_801221A0 *self);
 }
 
 extern "C" {
@@ -111,7 +112,8 @@ u8 *create_state_vector_state__10TObjPlayerFi(s32 arg0) {
     }
     return NULL;
 }
-void guld_milla_marker(Self_801221A0 *self) {
+void TUnk_804A0EA8::emit_marker_effects() {
+    Self_801221A0 *self = (Self_801221A0 *)this;
     if (is_mode_two_and_ready__10TObjPlayerFv(self) != 0) {
         self->fn1f0 = (void *)create_shoot_model_rot_z;
         self->fn1ec = NULL;

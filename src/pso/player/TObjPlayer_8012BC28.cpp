@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4F60.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void psycho_wand_idle(u8 *arg0);
-void psycho_wand_active(u8 *arg0);
+void update_attack__13TUnk_804A4F60Fv(u8 *arg0);
 
 extern const f32 lbl_805DAED0;
 extern const f32 lbl_805DAED4;
@@ -20,7 +21,8 @@ void psycho_wand_idle(u8 *arg0) {
 extern const f32 lbl_805DAEC8;
 extern const f32 lbl_805DAED8;
 
-void psycho_wand_active(u8 *arg0) {
+void TUnk_804A4F60::update_attack() {
+    u8 *arg0 = (u8 *)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x274), (f32)((f32) (lbl_805DAED8)), (f32)((f32) (lbl_805DAEC8)));
     if (lbl_805DAEC8 == *(f32 *)((s8 *)arg0 + 0x274)) {
         TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), (s32)((int) (-0x71C)), (s32)((int) (0)));

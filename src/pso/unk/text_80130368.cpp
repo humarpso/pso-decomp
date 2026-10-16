@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A69DC.h"
 #include "pso/TItemAttacker.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -66,7 +67,7 @@ s8 TObjPlayer__sub_80102C30(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(int, int, int);
 s32 play_sound_effect(int, int, int, int);
-void TObjPlayer__sub_801303D8(u8 *arg0);
+void set_technique_roll__13TUnk_804A69DCFl(u8 *arg0);
 s32 init_shoot_model__10TObjPlayerFv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -75,7 +76,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 for_each_target_in_range__10TObjPlayerFPvf(void *, f32);
 void TObjPlayer__sub_801307D0(void);
 extern const f32 lbl_805DB000;
-void TObjPlayer__sub_80130490(u8 *arg0);
+void emit_marker_effects__13TUnk_804A69DCFv(u8 *arg0);
 }
 
 extern "C" {
@@ -100,7 +101,8 @@ s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg
     return var_r3;
 }
 
-void TObjPlayer__sub_801303D8(u8 *arg0) {
+void TUnk_804A69DC::set_technique_roll(s32) {
+    u8 *arg0 = (u8 *)this;
   s32 temp_r31;
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0))
   {
@@ -115,7 +117,8 @@ void TObjPlayer__sub_801303D8(u8 *arg0) {
     }
   }
 }
-void TObjPlayer__sub_80130490(u8 *arg0) {
+void TUnk_804A69DC::emit_marker_effects() {
+    u8 *arg0 = (u8 *)this;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (arg0 + 0x208)));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) > 0x1999) {
