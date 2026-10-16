@@ -6,6 +6,7 @@
 class TUnk_804A1B40 : public TItemWeapon {
 public:
     virtual ~TUnk_804A1B40();
+    virtual void reserved_53();
 };
 
 #endif

@@ -2695,8 +2695,8 @@ void receive_physical_attack__10TObjPlayerFv(void);
 void receive_direct_attack__10TObjPlayerFv(void);
 void receive_weapon_special_attack__10TObjPlayerFv(void);
 void apply_knockback_from_attacker(void);
-void try_start_action__10TObjPlayerFPvii(void);
-void roll_physical_accuracy__10TObjPlayerFv(void);
+void try_start_action__13TUnk_804806E8Fll(void);
+void roll_physical_accuracy__13TUnk_804806E8FPvlf(void);
 void vfunc_28__14TObjEneBm5WolfFv(void);
 void vfunc_29__13TUnk_804806E8Fv(void);
 void is_target_in_attack_range__10TObjPlayerFv(void);
@@ -2712,42 +2712,42 @@ void update_movement_status__10TObjPlayerFv(void);
 void update_shock_clock__10TObjPlayerFPv(void);
 void update_attack_stat_status(void);
 void update_defense_stat_status(void);
-void TObjPlayer__sub_800172CC(void);
-void apply_poison_status__10TObjPlayerFv(void);
-void apply_paralysis__10TObjPlayerFv(void);
-void apply_slow_status__10TObjPlayerFPv(void);
-void apply_confusion_status__10TObjPlayerFv(void);
-void apply_movement_ailment__10TObjPlayerFv(void);
-void apply_shock_status__10TObjPlayerFv(void);
-void clear_harmful_statuses__10TObjPlayerFv(void);
-void apply_attack_stat_status__10TObjPlayerFv(void);
+void vfunc_43__13TUnk_804806E8Fv(void);
+void apply_poison_status__13TUnk_804806E8Fv(void);
+void apply_paralysis__13TUnk_804806E8Fv(void);
+void apply_slow_status__13TUnk_804806E8Fv(void);
+void apply_confusion_status__13TUnk_804806E8Fv(void);
+void apply_movement_ailment__13TUnk_804806E8Fl(void);
+void apply_shock_status__13TUnk_804806E8Fv(void);
+void clear_harmful_statuses__13TUnk_804806E8Fv(void);
+void apply_attack_stat_status__13TUnk_804806E8FPv(void);
 void apply_defense_stat_status__10TObjPlayerFlPv(void);
 void cure_poison_ailment(void);
-void cure_paralysis__10TObjPlayerFv(void);
+void cure_paralysis__13TUnk_804806E8Fv(void);
 void clear_all_status_effects(void);
 void apply_action_hold_status(void);
-void apply_anti_technique__10TObjPlayerFv(void);
+void apply_anti_technique__13TUnk_804806E8Fl(void);
 void vfunc_58__13TUnk_804806E8Fv(void);
 void vfunc_59__13TUnk_804806E8Fv(void);
 void vfunc_60__13TUnk_804806E8Fv(void);
 void vfunc_61__14TObjEneBm5WolfFv(void);
-void reset_pose__10TObjPlayerFPv(void);
+void reset_pose__13TUnk_804806E8Fv(void);
 void vfunc_65__13TUnk_804806E8Fll(void);
 void vfunc_66__13TUnk_804806E8Fv(void);
 void vfunc_67__13TUnk_804806E8Fv(void);
-void get_pos__10TObjPlayerFii(void);
+void get_pos__13TUnk_804806E8Fl(void);
 void apply_switch_attack__10TObjPlayerFi(void);
 void enemy_spawn_jellen_effect(void);
 void trigger_switch_attack__10TObjPlayerFi(void);
 void enemy_spawn_zalure_effect(void);
 void vfunc_73__13TUnk_804806E8Fv(void);
-void update_and_send_enemy_hit_state(void);
+void vfunc_74__9TObjEnemyFl(void);
 void vfunc_75__13TUnk_804806E8Ff(void);
 void vfunc_76__13TUnk_804806E8Fv(void);
 void vfunc_77__13TUnk_804806E8Fv(void);
 void vfunc_78__13TUnk_804806E8Fl(void);
 void vfunc_79__9TObjEneDDFv(void);
-void apply_hit_message_flags__10TObjPlayerFPvPv(void);
+void apply_hit_message_flags__9TObjEnemyFPv(void);
 void apply_set_data__9TObjEnemyFPv(void);
 void clear_lobby_object_state__9TObjEnemyFv(void);
 void vfunc_83__12TObjEneDD_STFv(void);
@@ -2797,8 +2797,8 @@ void *lbl_804922F8[107] = {
     (void *)receive_direct_attack__10TObjPlayerFv,
     (void *)receive_weapon_special_attack__10TObjPlayerFv,
     (void *)apply_knockback_from_attacker,
-    (void *)try_start_action__10TObjPlayerFPvii,
-    (void *)roll_physical_accuracy__10TObjPlayerFv,
+    (void *)try_start_action__13TUnk_804806E8Fll,
+    (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)vfunc_28__14TObjEneBm5WolfFv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
     (void *)is_target_in_attack_range__10TObjPlayerFv,
@@ -2814,44 +2814,44 @@ void *lbl_804922F8[107] = {
     (void *)update_shock_clock__10TObjPlayerFPv,
     (void *)update_attack_stat_status,
     (void *)update_defense_stat_status,
-    (void *)TObjPlayer__sub_800172CC,
-    (void *)apply_poison_status__10TObjPlayerFv,
-    (void *)apply_paralysis__10TObjPlayerFv,
-    (void *)apply_slow_status__10TObjPlayerFPv,
-    (void *)apply_confusion_status__10TObjPlayerFv,
-    (void *)apply_movement_ailment__10TObjPlayerFv,
-    (void *)apply_shock_status__10TObjPlayerFv,
-    (void *)clear_harmful_statuses__10TObjPlayerFv,
-    (void *)apply_attack_stat_status__10TObjPlayerFv,
+    (void *)vfunc_43__13TUnk_804806E8Fv,
+    (void *)apply_poison_status__13TUnk_804806E8Fv,
+    (void *)apply_paralysis__13TUnk_804806E8Fv,
+    (void *)apply_slow_status__13TUnk_804806E8Fv,
+    (void *)apply_confusion_status__13TUnk_804806E8Fv,
+    (void *)apply_movement_ailment__13TUnk_804806E8Fl,
+    (void *)apply_shock_status__13TUnk_804806E8Fv,
+    (void *)clear_harmful_statuses__13TUnk_804806E8Fv,
+    (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)apply_defense_stat_status__10TObjPlayerFlPv,
     (void *)cure_poison_ailment,
-    (void *)cure_paralysis__10TObjPlayerFv,
+    (void *)cure_paralysis__13TUnk_804806E8Fv,
     (void *)clear_all_status_effects,
     (void *)apply_action_hold_status,
-    (void *)apply_anti_technique__10TObjPlayerFv,
+    (void *)apply_anti_technique__13TUnk_804806E8Fl,
     (void *)vfunc_58__13TUnk_804806E8Fv,
     (void *)vfunc_59__13TUnk_804806E8Fv,
     (void *)vfunc_60__13TUnk_804806E8Fv,
     (void *)vfunc_61__14TObjEneBm5WolfFv,
     (void *)vfunc_62__14TObjEneBm5WolfFv,
     (void *)vfunc_63__14TObjEneBm5WolfFv,
-    (void *)reset_pose__10TObjPlayerFPv,
+    (void *)reset_pose__13TUnk_804806E8Fv,
     (void *)vfunc_65__13TUnk_804806E8Fll,
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Fv,
-    (void *)get_pos__10TObjPlayerFii,
+    (void *)get_pos__13TUnk_804806E8Fl,
     (void *)apply_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_jellen_effect,
     (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect,
     (void *)vfunc_73__13TUnk_804806E8Fv,
-    (void *)update_and_send_enemy_hit_state,
+    (void *)vfunc_74__9TObjEnemyFl,
     (void *)vfunc_75__13TUnk_804806E8Ff,
     (void *)vfunc_76__13TUnk_804806E8Fv,
     (void *)vfunc_77__13TUnk_804806E8Fv,
     (void *)vfunc_78__13TUnk_804806E8Fl,
     (void *)vfunc_79__9TObjEneDDFv,
-    (void *)apply_hit_message_flags__10TObjPlayerFPvPv,
+    (void *)apply_hit_message_flags__9TObjEnemyFPv,
     (void *)apply_set_data__9TObjEnemyFPv,
     (void *)clear_lobby_object_state__9TObjEnemyFv,
     (void *)vfunc_83__12TObjEneDD_STFv,

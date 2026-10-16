@@ -44,7 +44,7 @@ typedef char StarLightFollowerExtent[sizeof(StarLightFollowerView) == 0x2C ? 1 :
 extern "C" {
 s32 launch_rare_weapon_special__10TObjPlayerFv(void *, void *, int, f32);
 
-void drill_launcher_marker(RecoilWeaponView *arg0);
+void emit_marker_effects__13TUnk_804A2164Fv(RecoilWeaponView *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 draw_ginja_object(void *);
 void drill_launcher_node_callback(void *arg0);
@@ -324,7 +324,7 @@ extern "C" void deliver_hit__11TItemWeaponFPviPviif();
 extern "C" void reserved_28__11TItemWeaponFv();
 extern "C" void dispatch_state__5TItemFv();
 extern "C" void reserved_25__11TItemWeaponFv();
-extern "C" void draw_weapon_trails__11TItemWeaponFPv();
+extern "C" void reserved_24__11TItemWeaponFv();
 extern "C" void equip__14TItemEquipBaseFv();
 extern "C" void get_attack_flags__11TItemWeaponFv();
 extern "C" void get_motion_ptr__11TItemWeaponFv();
@@ -358,7 +358,7 @@ void *megid_projectile_weapon_vtable[63] = {
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&reserved_12__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&reserved_14__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
-    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&reserved_25__11TItemWeaponFv,
+    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&reserved_24__11TItemWeaponFv, (void *)&reserved_25__11TItemWeaponFv,
     (void *)&reserved_26__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
     (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&reserved_32__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
@@ -380,14 +380,14 @@ void *recoiling_projectile_weapon_vtable[63] = {
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&reserved_12__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&reserved_14__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
-    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&reserved_25__11TItemWeaponFv,
+    (void *)&subtract_item_stat_bonus__14TItemEquipBaseFllPs, (void *)&subtract_equip_stats__14TItemEquipBaseFlPUcPUc, (void *)&reserved_24__11TItemWeaponFv, (void *)&reserved_25__11TItemWeaponFv,
     (void *)&reserved_26__11TItemWeaponFv, (void *)&update_equip__14TItemEquipBaseFv, (void *)&reserved_28__11TItemWeaponFv, (void *)&TItem::update_pickup_flag,
     (void *)&get_attack_flags__11TItemWeaponFv, (void *)&TItemEquipBase__sub_8010A77C, (void *)&reserved_32__11TItemWeaponFv, (void *)&TItemWeapon::copy_item_to_data,
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&reserved_42__11TItemWeaponFv, (void *)&reserved_43__11TItemWeaponFv, (void *)&reserved_44__11TItemWeaponFv, (void *)&reserved_45__11TItemWeaponFv,
     (void *)&reserved_46__11TItemWeaponFv, (void *)&reserved_47__11TItemWeaponFv, (void *)&reserved_48__11TItemWeaponFv, (void *)&launch_shot__11TItemWeaponFPvPviii,
-    (void *)&drill_launcher_marker, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&reserved_53__11TItemWeaponFv,
+    (void *)&emit_marker_effects__13TUnk_804A2164Fv, (void *)&update_attack__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E5D8, (void *)&reserved_53__11TItemWeaponFv,
     (void *)&update_weapon__13TUnk_804A2164Fv, (void *)&TItemWeapon__sub_8011E5CC, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&drill_launcher_node_callback, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };
@@ -485,16 +485,16 @@ s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 }
 typedef char BurstReadyOffset[offsetof(RecoilWeaponView, projectileVisible)==0x1F8 ? 1 : -1];
 typedef char BurstModeOffset[offsetof(RecoilWeaponView, recoilPhase)==0x204 ? 1 : -1];
-void drill_launcher_marker(RecoilWeaponView *arg0) {
+void TUnk_804A2164::emit_marker_effects() {
     WeaponVector sp8;
     s32 temp_r31;
     s32 var_r30;
-    if ((s32) arg0->projectileVisible == 1) {
-        TItemAttacker::spawn_item_timer((s32)arg0, (s32)drill_launcher_return_timer, (s32)0x1E);
-        arg0->projectileVisible = 0;
+    if ((s32) ((RecoilWeaponView *)this)->projectileVisible == 1) {
+        TItemAttacker::spawn_item_timer((s32)((RecoilWeaponView *)this), (s32)drill_launcher_return_timer, (s32)0x1E);
+        ((RecoilWeaponView *)this)->projectileVisible = 0;
     }
-    arg0->recoilPhase = 2;
-    temp_r31 = (s32)arg0->player + 0x7CC;
+    ((RecoilWeaponView *)this)->recoilPhase = 2;
+    temp_r31 = (s32)((RecoilWeaponView *)this)->player + 0x7CC;
     if (get_burst_counter((void*)((int) (temp_r31))) == 0) {
         var_r30 = 0;
         do {
@@ -502,12 +502,12 @@ void drill_launcher_marker(RecoilWeaponView *arg0) {
             var_r30 += 1;
         } while (var_r30 != 2);
     }
-    ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (&sp8)));
-    if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
-        launch_rare_weapon_special__10TObjPlayerFv((void *) (arg0), (void *) (&sp8), (int) (1), (f32) (1.0f));
+    ((TObjPlayer *)((RecoilWeaponView *)this))->draw_status_icon((s32)((void *) (&sp8)));
+    if (((TObjPlayer *)((RecoilWeaponView *)this))->is_mode_two_and_ready() != 0) {
+        launch_rare_weapon_special__10TObjPlayerFv((void *) (((RecoilWeaponView *)this)), (void *) (&sp8), (int) (1), (f32) (1.0f));
         return;
     }
-    arg0->deliver_projectile(&sp8, 0, 0, 1);
+    ((RecoilWeaponView *)this)->deliver_projectile(&sp8, 0, 0, 1);
 }
 void drill_launcher_node_callback(void *arg0) {
     s32 temp_r3;

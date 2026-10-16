@@ -100,7 +100,7 @@ s32 mem_alloc(s32);
 extern s32 player_action_motion_buffer;
 void TLobby__sub_802A7640(void);
 void TLobby__sub_802A769C(void);
-s32 TLobby__sub_802A7AF8(s32, s32 *);
+s32 vfunc_3__13TUnk_804DDD28Fs(s32, s32 *);
 s32 free__10TObjPlayerFPv(void *);
 extern s32 lbl_804DDBF0[];
 void *__dt__6TLobbyFPvs(void *arg0, s16 arg1);
@@ -215,7 +215,7 @@ void TLobby::enable_and_refresh() { TLobby::set_photon_chair_flag(1); TLobby::al
 void *__dt__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 8) = lbl_804DDBF0;
-        TLobby__sub_802A7AF8((s32)arg0, 0);
+        vfunc_3__13TUnk_804DDD28Fs((s32)arg0, 0);
         if (arg1 > 0) {
             free__10TObjPlayerFPv(arg0);
         }

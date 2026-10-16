@@ -78,7 +78,7 @@ struct VObj_8016C280 : VBase_8016C280 {
 
 extern "C" {
 s32 is_split_screen();
-s32 TOKeyCol__vt13(u8 *arg0);
+s32 is_confirm_pressed__8TOKeyColFv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 u8 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
@@ -323,25 +323,25 @@ block_5:
 }
 
 void TOKeyCol::vfunc_25() {  }
-s32 TOKeyCol__vt13(u8 *arg0) {
+s32 TOKeyCol::is_confirm_pressed() {
     s32 temp_r0;
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0xD0);
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
-            var_r3 = ((TOKey *)arg0)->is_any_player_in_range();
+            var_r3 = ((TOKey *)((u8 *)this))->is_any_player_in_range();
         } else {
-            var_r3 = ((TOKey *)arg0)->is_local_player_in_range();
+            var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1) || (var_r3 == 1)) {
+        if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
     case 1:
-        var_r31 = ((TOKey *)arg0)->is_any_player_in_range();
+        var_r31 = ((TOKey *)((u8 *)this))->is_any_player_in_range();
         break;
     }
     return var_r31;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2960.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -149,7 +150,7 @@ void frozen_shooter_freeze_hit(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
-void frozen_shooter_marker(Pl_801261BC *arg0);
+void emit_marker_effects__13TUnk_804A2960Fv(Pl_801261BC *arg0);
 }
 
 extern "C" {
@@ -175,19 +176,19 @@ void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o) {
     o->f4c = lbl_805DAD70;
     o->f78 = self->c;
 }
-void frozen_shooter_marker(Pl_801261BC *arg0) {
+void TUnk_804A2960::emit_marker_effects() {
     u8 buf[16];
     void *p;
-    ((TObjPlayer *)arg0)->draw_status_icon((s32)buf);
-    arg0->f1fc = 0;
+    ((TObjPlayer *)((Pl_801261BC *)this))->draw_status_icon((s32)buf);
+    ((Pl_801261BC *)this)->f1fc = 0;
     p = buf;
-    if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
-        fire_shot_at_target__11TItemWeaponFv(arg0, p, arg0->f188, 0);
-    } else if (((TItemProShield *)arg0)->get_slot_count() == 1) {
-        arg0->f1fc = 1;
-        fire_shot_at_target__11TItemWeaponFv(arg0, p, arg0->f188, 0);
+    if (((TObjPlayer *)((Pl_801261BC *)this))->is_mode_two_and_ready() != 0) {
+        fire_shot_at_target__11TItemWeaponFv(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
+    } else if (((TItemProShield *)((Pl_801261BC *)this))->get_slot_count() == 1) {
+        ((Pl_801261BC *)this)->f1fc = 1;
+        fire_shot_at_target__11TItemWeaponFv(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
     } else {
-        arg0->m49(p, 0, 0, 1);
+        ((Pl_801261BC *)this)->m49(p, 0, 0, 1);
     }
 }
 

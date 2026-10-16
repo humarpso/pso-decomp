@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A5A28.h"
 #include "pso/TItemAttacker.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -56,24 +57,24 @@ u8 *slow_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     return arg0;
 }
 
-void fire_slicer_with_timer__10TObjPlayerFPv(Self_8012D708 *self) {
+void TUnk_804A5A28::emit_marker_effects() {
     Tec_8012D708 tec;
 
     init_slicer_launch_state((SlicerState_801295FC *)&tec);
-    tec.id = obj_getField1c(self->owner);
-    tec.fC = ((TObjPlayer *)self)->get_field_d8();
-    tec.f4 = self->f24;
-    tec.f8 = self->f188;
-    tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
-    tec.f12 = get_validated_attack_stage((u8 *)self->owner + 0x7CC);
-    tec.f14 = query_extended_state__10TObjPlayerFv(self->owner);
+    tec.id = obj_getField1c(((Self_8012D708 *)this)->owner);
+    tec.fC = ((TObjPlayer *)((Self_8012D708 *)this))->get_field_d8();
+    tec.f4 = ((Self_8012D708 *)this)->f24;
+    tec.f8 = ((Self_8012D708 *)this)->f188;
+    tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)((Self_8012D708 *)this)->owner + 0x7CC);
+    tec.f12 = get_validated_attack_stage((u8 *)((Self_8012D708 *)this)->owner + 0x7CC);
+    tec.f14 = query_extended_state__10TObjPlayerFv(((Self_8012D708 *)this)->owner);
     tec.f18 = lbl_805DAF28;
     tec.f1C = lbl_805DAF2C;
     tec.f20 = lbl_805DAF28;
     tec.f24 = lbl_805DAF30;
-    tec.f28 = self->owner->f60;
-    ((TObjPlayer *)self)->draw_icon((s32)3, (s32)(&tec.pos));
-    ((TObjPlayer *)self)->draw_icon((s32)2, (s32)(&tec.dir));
+    tec.f28 = ((Self_8012D708 *)this)->owner->f60;
+    ((TObjPlayer *)((Self_8012D708 *)this))->draw_icon((s32)3, (s32)(&tec.pos));
+    ((TObjPlayer *)((Self_8012D708 *)this))->draw_icon((s32)2, (s32)(&tec.dir));
     TItemAttacker::spawn_item_timer((s32)(create__10TTecSlicerFPUs(&tec)), (s32)enlarge_flight_cutter_slicer, (s32)3);
 }
 

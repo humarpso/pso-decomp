@@ -6,6 +6,7 @@
 class TObjEneEpsilonBody : public TObjEneEpsilon {
 public:
     virtual ~TObjEneEpsilonBody();
+    virtual f32 receive_physical_attack(void *, f32);
     virtual void vfunc_28();
     virtual void vfunc_63();
     virtual void vfunc_62();

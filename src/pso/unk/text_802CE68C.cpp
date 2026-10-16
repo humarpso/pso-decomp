@@ -118,7 +118,7 @@ s32 draw_chunk_object(s32);
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
 extern const f32 lbl_805DE704;
-void draw_color_variant__10TObjPlayerFPv(u8 *arg0);
+void draw_color_variant__19TObjEneBm9MericarolFv(u8 *arg0);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -170,46 +170,46 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     pop_matrix();
     TObjPlayer::clear_global_state();
 }
-void draw_color_variant__10TObjPlayerFPv(u8 *arg0) {
+void TObjEneBm9Mericarol::draw_color_variant() {
     s32 s0;
     s32 s1;
     s32 s2;
-    if (((VObj_802CE740 *) arg0)->m8(lbl_805DE700, lbl_805DE704) != 0) {
+    if (((VObj_802CE740 *) ((u8 *)this))->m8(lbl_805DE700, lbl_805DE704) != 0) {
         Vec_802CE740 v = lbl_8047249C;
-        update_player_state__9TObjEneDDFv(arg0, &v, 0);
-        switch (*(s32 *)((s8 *)arg0 + 0x368)) {
+        update_player_state__9TObjEneDDFv(((u8 *)this), &v, 0);
+        switch (*(s32 *)((s8 *)((u8 *)this) + 0x368)) {
         case 1:
-            s0 = (**(s32 ***)((s8 *)arg0 + 0x24))[2];
-            s1 = (**(s32 ***)((s8 *)arg0 + 0x24))[5];
-            s2 = (**(s32 ***)((s8 *)arg0 + 0x24))[8];
-            (**(s32 ***)((s8 *)arg0 + 0x24))[2] = (**(s32 ***)((s8 *)arg0 + 0x24))[11];
-            (**(s32 ***)((s8 *)arg0 + 0x24))[5] = (**(s32 ***)((s8 *)arg0 + 0x24))[14];
-            (**(s32 ***)((s8 *)arg0 + 0x24))[8] = (**(s32 ***)((s8 *)arg0 + 0x24))[17];
+            s0 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2];
+            s1 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5];
+            s2 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8];
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[11];
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[14];
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[17];
             break;
         case 2:
-            s0 = (**(s32 ***)((s8 *)arg0 + 0x24))[2];
-            s1 = (**(s32 ***)((s8 *)arg0 + 0x24))[5];
-            s2 = (**(s32 ***)((s8 *)arg0 + 0x24))[8];
-            (**(s32 ***)((s8 *)arg0 + 0x24))[2] = (**(s32 ***)((s8 *)arg0 + 0x24))[20];
-            (**(s32 ***)((s8 *)arg0 + 0x24))[5] = (**(s32 ***)((s8 *)arg0 + 0x24))[23];
-            (**(s32 ***)((s8 *)arg0 + 0x24))[8] = (**(s32 ***)((s8 *)arg0 + 0x24))[26];
+            s0 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2];
+            s1 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5];
+            s2 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8];
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[20];
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[23];
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[26];
             break;
         }
-        TObjFish::set_global_param((s32)(*(void **)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((s32)(*(void **)((s8 *)((u8 *)this) + 0x24)));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        post_translate_matrix(((u8 *)this) + 0x38);
+        rotate_matrix_y(0, *(s32 *)((s8 *)((u8 *)this) + 0x60));
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
         set_scene_override(0);
-        draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
+        draw_chunk_object(*(s32 *)((s8 *)((u8 *)this) + 0x34));
         restore_default_scene();
         TParticleCtrl::end_effect_render();
         pop_matrix();
-        if (*(s32 *)((s8 *)arg0 + 0x368) == 1 || *(s32 *)((s8 *)arg0 + 0x368) == 2) {
-            (**(s32 ***)((s8 *)arg0 + 0x24))[2] = s0;
-            (**(s32 ***)((s8 *)arg0 + 0x24))[5] = s1;
-            (**(s32 ***)((s8 *)arg0 + 0x24))[8] = s2;
+        if (*(s32 *)((s8 *)((u8 *)this) + 0x368) == 1 || *(s32 *)((s8 *)((u8 *)this) + 0x368) == 2) {
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2] = s0;
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5] = s1;
+            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8] = s2;
         }
     }
 }

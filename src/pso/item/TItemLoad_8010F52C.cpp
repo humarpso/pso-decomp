@@ -30,7 +30,7 @@ s32 TLobby__sub_8001EEF4();
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
 extern s32 item_load_tmp_buffer;
-void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self);
+void vfunc_3__13TUnk_8049F40CFv(Load_8010F68C *self);
 }
 
 extern "C" {
@@ -101,7 +101,7 @@ void TItemLoad::start_load_with_id(s32 id, s32 arg2) {
     }
 }
 
-void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
+void TUnk_8049F40C::vfunc_3() {
     u32 pos;
     s32 tag;
     s32 size;
@@ -113,7 +113,7 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
     u32 i;
     if (TLobby__sub_8001EEF4() == 1) {
         h = TLobby::tmp_buf_use_req((const char *)item_load_tmp_buffer);
-        off = self->id;
+        off = ((Load_8010F68C *)this)->id;
         total = decompress_buffer__9TItemLoadFUl();
         pos = 0;
         n = 0;
@@ -123,26 +123,26 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
             switch (tag) {
             case 0x4E4A434D:
                 if (n < 4) {
-                    self->f2c[n] = p;
+                    ((Load_8010F68C *)this)->f2c[n] = p;
                     n++;
                 }
                 break;
             case 0x4E4A544C:
-                if (self->list == NULL) {
-                    self->list = (List_8010F68C *)p;
-                    for (i = 0; i != self->list->count; i++) {
-                        self->list->ents[i].vt = lbl_80506208;
+                if (((Load_8010F68C *)this)->list == NULL) {
+                    ((Load_8010F68C *)this)->list = (List_8010F68C *)p;
+                    for (i = 0; i != ((Load_8010F68C *)this)->list->count; i++) {
+                        ((Load_8010F68C *)this)->list->ents[i].vt = lbl_80506208;
                     }
                 }
                 break;
             case 0x4E4D444D:
-                self->f3c = p;
+                ((Load_8010F68C *)this)->f3c = p;
                 break;
             }
         }
         ((TLobby *)item_load_tmp_buffer)->tmp_buf_release();
-        self->id = 0;
-        ((TItemLoad *)self)->reset_state();
+        ((Load_8010F68C *)this)->id = 0;
+        ((TItemLoad *)((Load_8010F68C *)this))->reset_state();
     }
 }
 

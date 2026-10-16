@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageLog.h"
 
 struct RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog_size[sizeof(RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog) == 0x18 ? 1 : -1];
@@ -47,25 +48,25 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void render__17TWindowMessageLogFv(u8 *arg0) {
+void TWindowMessageLog::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    draw_window_scrollbar((int) (*(s32 *)((s8 *)arg0 + 0x90)), (int) (temp_r3), (void *) (arg0 + 0x68));
+    draw_window_frame((void *) (((u8 *)this)), (int) (temp_r3));
+    draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), (int) (temp_r3));
+    draw_window_scrollbar((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), (int) (temp_r3), (void *) (((u8 *)this) + 0x68));
 }
-void run_task__17TWindowMessageLogFv(u8 *arg0) {
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+void TWindowMessageLog::run_task() {
+    if (!(*(s32 *)((s8 *)((u8 *)this) + 0x2C) & 2)) {
+        *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x01000000;
     }
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD254) {
-        ((TWindowSubStatusDisp *)(*(u8 **)((s8 *)arg0 + 0x90)))->increment_counter();
+    if ((f32) *(s32 *)((s8 *)((u8 *)this) + 0x5C) >= lbl_805DD254) {
+        ((TWindowSubStatusDisp *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)))->increment_counter();
     }
-    update_scroll_animation__17TWindowMessageLogFPv(arg0);
-    update_scroll__14TWindowMessageFPv(arg0);
-    ((TWindowDD *)arg0)->initialize_subwindow();
-    update_fade_offset__17TWindowMessageLogFPv(arg0);
-    update_window_entry_list(arg0, arg0 + 0x24);
+    update_scroll_animation__17TWindowMessageLogFPv(((u8 *)this));
+    update_scroll__14TWindowMessageFPv(((u8 *)this));
+    ((TWindowDD *)((u8 *)this))->initialize_subwindow();
+    update_fade_offset__17TWindowMessageLogFPv(((u8 *)this));
+    update_window_entry_list(((u8 *)this), ((u8 *)this) + 0x24);
 }
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A3640.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecGiZonde.h"
 
@@ -16,7 +17,7 @@ s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 s32 get_extended_state__10TObjPlayerFv(s32);
 Item_80127BE0 *get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
-void TObjPlayer__sub_80127BE0(Self_80127BE0 *self);
+void emit_marker_effects__13TUnk_804A3640Fv(Self_80127BE0 *self);
 }
 
 extern "C" {
@@ -34,14 +35,14 @@ u8 *TObjPlayer::create_vtable_804A3548(u8 *arg0) {
     }
     return NULL;
 }
-void TObjPlayer__sub_80127BE0(Self_80127BE0 *self) {
+void TUnk_804A3640::emit_marker_effects() {
     Item_80127BE0 *item;
     s32 kind;
     s32 ext;
     s32 i;
     Tec_80127BE0 tec;
     u8 buf[0xC];
-    switch (is_status_subsystem_ready__10TObjPlayerFv(self->fF0)) {
+    switch (is_status_subsystem_ready__10TObjPlayerFv(((Self_80127BE0 *)this)->fF0)) {
     case 1:
         kind = 8;
         break;
@@ -52,8 +53,8 @@ void TObjPlayer__sub_80127BE0(Self_80127BE0 *self) {
         kind = 8;
         break;
     }
-    if (((TObjPlayer *)self)->draw_icon((s32)1, (s32)buf) != 0) {
-        ext = get_extended_state__10TObjPlayerFv(self->fF0);
+    if (((TObjPlayer *)((Self_80127BE0 *)this))->draw_icon((s32)1, (s32)buf) != 0) {
+        ext = get_extended_state__10TObjPlayerFv(((Self_80127BE0 *)this)->fF0);
         if (ext != 0) {
             for (i = 0; i != get_captured_target_count(ext); i++) {
                 item = get_captured_target_entry(ext, i);
@@ -62,7 +63,7 @@ void TObjPlayer__sub_80127BE0(Self_80127BE0 *self) {
                     tec.kind = 1;
                     tec.a = item->a;
                     tec.b = item->b;
-                    ((TTecGiZonde *)(self->fF0))->create((void *)buf, (void *)(&tec), (void *)kind);
+                    ((TTecGiZonde *)(((Self_80127BE0 *)this)->fF0))->create((void *)buf, (void *)(&tec), (void *)kind);
                 }
             }
         }

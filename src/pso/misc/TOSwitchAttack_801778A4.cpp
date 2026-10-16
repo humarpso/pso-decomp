@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSwitchItem.h"
 #include "pso/misc/TOSwitchAttack.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -76,7 +77,7 @@ extern s32 lbl_805D3178;
 u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 u16 obj_getField1c(void *);
-void TOSwitchItem__vt19(Self_80177CF4 *self);
+void send_switch_on__12TOSwitchItemFv(Self_80177CF4 *self);
 s32 get_current_floor();
 void spawn_particle_effect_with_flags(void *, s32, s32);
 f32 horizontal_distance_squared(void *, void *);
@@ -234,14 +235,14 @@ u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xA8) = 0;
     return arg0;
 }
-void TOSwitchItem__vt19(Self_80177CF4 *self) {
+void TOSwitchItem::send_switch_on() {
     Pkt_80177CF4 pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = obj_getField1c(self);
+    pkt.object = obj_getField1c(((Self_80177CF4 *)this));
     pkt.zero = 0;
-    pkt.switchId = self->switchId;
+    pkt.switchId = ((Self_80177CF4 *)this)->switchId;
     pkt.area = get_current_floor();
-    pkt.flags = self->on != 0;
+    pkt.flags = ((Self_80177CF4 *)this)->on != 0;
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 

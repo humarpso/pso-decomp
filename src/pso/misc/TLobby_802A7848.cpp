@@ -80,7 +80,7 @@ extern u32 snapshot_image_buffer;
 extern s32 snapshot_buffer_size;
 s32 free__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
-u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1);
+u8 *vfunc_3__13TUnk_804DDD28Fs(u8 *arg0, s16 arg1);
 s32 sub_802A7318__13TUnk_804DDD28Fv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
@@ -167,15 +167,15 @@ s32 load_action_motion_pairs(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3) 
 
 void copy_motion_pair(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 
-u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 8) = &lbl_804DDD28.value;
-        TLobby::free_if_positive((s32) arg0, -1);
+u8 *TUnk_804DDD28::vfunc_3(s16 arg1) {
+    if (((u8 *)this) != NULL) {
+        *(s32 **)((s8 *)((u8 *)this) + 8) = &lbl_804DDD28.value;
+        TLobby::free_if_positive((s32) ((u8 *)this), -1);
         if (arg1 > 0) {
-            free__10TObjPlayerFPv((void *) (arg0));
+            free__10TObjPlayerFPv((void *) (((u8 *)this)));
         }
     }
-    return arg0;
+    return ((u8 *)this);
 }
 
 typedef char RecoveredGlobal_802A7B50_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7B50_lbl_804DDD28) == 0x138 ? 1 : -1];

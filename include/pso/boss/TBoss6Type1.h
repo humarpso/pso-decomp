@@ -7,6 +7,7 @@
 struct Boss6EffectPoint { f32 x, y, z; };
 struct TBoss6Type1 : public TObjEnemy {
     virtual ~TBoss6Type1();
+    virtual void vfunc_62();
     virtual void clear_harmful_statuses();
     virtual void apply_shock_status();
     virtual void apply_movement_ailment(s32);

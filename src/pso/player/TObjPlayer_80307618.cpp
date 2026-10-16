@@ -51,7 +51,7 @@ void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
 void render__13TUnk_804E71A0Fv(void);
 void run_task__13TUnk_804E71A0Fv(void);
 void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1);
-void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0);
+void reserved_53__13TUnk_804E70A8Fv(u8 *arg0);
 void update_weapon__13TUnk_804E70A8Fv(void *arg0);
 f32 sin_table_lookup(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
@@ -66,14 +66,14 @@ void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
 s32 queue_destruction__7TObjectFv();
 s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
 
-void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804E70A8::reserved_53() {
     s32 temp_r31;
 
-    temp_r31 = *(s32 *)((s8 *)arg0 + 0xF4);
+    temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xF4);
     draw_weapon_model();
-    *(s32 *)((s8 *)arg0 + 0xF4) = (s32) *(s32 *)((s8 *)arg0 + 0x188);
-    draw_weapon_at_joint(arg0, 0x23);
-    *(s32 *)((s8 *)arg0 + 0xF4) = temp_r31;
+    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x188);
+    draw_weapon_at_joint(((u8 *)this), 0x23);
+    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
 }
 
 extern f32 lbl_805DF0A8;

@@ -6,6 +6,7 @@
 
 struct TOTrapAncient01 : public TOTrap {
     virtual ~TOTrapAncient01();
+    virtual void vfunc_82();
     virtual void vfunc_81();
     virtual void vfunc_84();
     virtual void play_sounds();

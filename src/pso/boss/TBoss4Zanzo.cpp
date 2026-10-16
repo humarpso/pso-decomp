@@ -530,7 +530,7 @@ s32 TBoss4Type2__sub_80057048(void *, int);
 s32 TBoss4Type2__sub_80057128(void *);
 s32 TBoss4Type2__sub_80057224(Obj_80057224 *self);
 void TBoss4Type2__sub_80057578(void* p);
-void init_state__11TBoss4Type2FPv(u8 *arg0);
+void vfunc_62__13TUnk_80486924Fv(u8 *arg0);
 S_800578E8 * TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag);
 u8 *TBoss4Type2__ct(u8 *, s32, s32 *);
 void apply_poison_status__13TUnk_80486924Fv(void);
@@ -1799,11 +1799,11 @@ void TUnk_80486924::vfunc_63() {
     }
 }
 
-void init_state__11TBoss4Type2FPv(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x3E4) = 1;
-    *(f32 *)((s8 *)arg0 + 0x3F0) = (f32) TBoss4Type2__data_805D8BD8;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
-    ((s32 (*)(int, void *, int, int, void *))play_sound_effect)(0x4003B723, arg0 + 0x38, 0, 1, arg0);
+void TUnk_80486924::vfunc_62() {
+    *(s32 *)((s8 *)((u8 *)this) + 0x3E4) = 1;
+    *(f32 *)((s8 *)((u8 *)this) + 0x3F0) = (f32) TBoss4Type2__data_805D8BD8;
+    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFFFDFF);
+    ((s32 (*)(int, void *, int, int, void *))play_sound_effect)(0x4003B723, ((u8 *)this) + 0x38, 0, 1, ((u8 *)this));
 }
 
 S_800578E8 *TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag) {

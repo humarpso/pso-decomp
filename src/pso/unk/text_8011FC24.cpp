@@ -30,7 +30,7 @@ s32 get_field_d8__10TObjPlayerFv(void *);
 u32 test_flags_1b8__10TObjPlayerFUl(void *, u32);
 void render_trail__17TItemEffectWeaponFv(void *);
 void push_id_to_list__10TObjPlayerFl(s32);
-void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0);
+void reserved_24__11TItemWeaponFv(u8 *arg0);
 }
 
 extern "C" {
@@ -72,18 +72,18 @@ void TItemWeapon::reserved_25() {
         }
     }
 }
-void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0) {
+void TItemWeapon::reserved_24() {
     s32 count;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(arg0, 0x80U) == 0U)) {
-        if (test_flags_1b8__10TObjPlayerFUl(arg0, 0x800U) != 0U) {
-            push_id_to_list__10TObjPlayerFl(get_field_d8__10TObjPlayerFv(arg0));
+    if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0x80U) == 0U)) {
+        if (test_flags_1b8__10TObjPlayerFUl(((u8 *)this), 0x800U) != 0U) {
+            push_id_to_list__10TObjPlayerFl(get_field_d8__10TObjPlayerFv(((u8 *)this)));
             return;
         }
-        ((TItemWeapon *)(arg0))->reserved_53();
-        ((TItemWeapon *)arg0)->update_trails();
+        ((TItemWeapon *)(((u8 *)this)))->reserved_53();
+        ((TItemWeapon *)((u8 *)this))->update_trails();
         count = 0;
         do {
-            void *trail = ((Trails_8011FE04 *)arg0)->trails[count];
+            void *trail = ((Trails_8011FE04 *)((u8 *)this))->trails[count];
             if (trail) {
                 render_trail__17TItemEffectWeaponFv(trail);
             }

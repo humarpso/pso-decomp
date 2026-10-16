@@ -6,6 +6,12 @@
 
 struct TOTrapChainSawDamage : public TOTrapChainSaw {
     virtual ~TOTrapChainSawDamage();
+    virtual void decode_params();
+    virtual void vfunc_25();
+    virtual void vfunc_14();
+    virtual void vfunc_26();
+    virtual void vfunc_27();
+    virtual void vfunc_28();
     u32 m_f8;
     u8 _padFC[0x4];
     u32 m_100;

@@ -6,6 +6,7 @@
 class TUnk_804A3830 : public TItemWeapon {
 public:
     virtual ~TUnk_804A3830();
+    virtual void reserved_53();
     void *construct_state_variant();
 };
 

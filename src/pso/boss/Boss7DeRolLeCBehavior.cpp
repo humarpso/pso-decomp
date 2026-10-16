@@ -4074,7 +4074,7 @@ s32 register_boss__6TLobbyFl(s32);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, s32, s32, s32);
 void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1);
 s32 update_local_colliders_from_world(void *, void *);
-void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0);
+void vfunc_88__14TBoss7DeRolLeCFv(u8 *arg0);
 }
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
@@ -4143,15 +4143,15 @@ void flee_if_disturbed__8TObjFishFPv(u8 *arg0) {
         add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEA44));
     }
 }
-void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0) {
+void TBoss7DeRolLeC::vfunc_88() {
     u8 sp8[0xC];
     f32 f;
     s32 set;
     s32 clr;
     s32 i;
-    VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x434);
-    update_local_colliders_from_world(arg0, sp8);
-    f = *(f32 *)((s8 *)arg0 + 0x3C);
+    VecCopy__FP3VecPC3Vec(sp8, ((u8 *)this) + 0x434);
+    update_local_colliders_from_world(((u8 *)this), sp8);
+    f = *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     if (f < lbl_805DEA1C) {
         set = 0;
         clr = 7;
@@ -4162,14 +4162,14 @@ void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0) {
         set = 3;
         clr = 4;
     }
-    f = *(f32 *)((s8 *)arg0 + 0x40);
+    f = *(f32 *)((s8 *)((u8 *)this) + 0x40);
     if (f < lbl_805DEBA0 && lbl_805DEAF4 < f) {
         set = 0;
         clr = 7;
     }
-    for (i = 0; i != *(s32 *)((s8 *)arg0 + 0xA8); i++) {
-        (*(Elem_802ED73C **)((s8 *)arg0 + 0xA4))[i].flags |= set;
-        (*(Elem_802ED73C **)((s8 *)arg0 + 0xA4))[i].flags &= ~clr;
+    for (i = 0; i != *(s32 *)((s8 *)((u8 *)this) + 0xA8); i++) {
+        (*(Elem_802ED73C **)((s8 *)((u8 *)this) + 0xA4))[i].flags |= set;
+        (*(Elem_802ED73C **)((s8 *)((u8 *)this) + 0xA4))[i].flags &= ~clr;
     }
 }
 

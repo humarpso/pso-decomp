@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A3830.h"
 
 struct RecoveredGlobal_80127F40_lbl_804A0588 {
     s32 value;
@@ -8,7 +9,7 @@ struct RecoveredGlobal_80127F40_lbl_804A0588 {
 extern "C" {
 s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
 s32 draw_weapon_at_joint(void *, int);
-void update_dual_weapon_trails__10TObjPlayerFPv(u8 *arg0);
+void reserved_53__13TUnk_804A3830Fv(u8 *arg0);
 u8 * init_vtable_804A3738__13TUnk_804A3738Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -42,17 +43,17 @@ u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     return arg0;
 }
 
-void update_dual_weapon_trails__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804A3830::reserved_53() {
     s32 temp_r31;
-    draw_weapon_at_joint((void *) (arg0), (int) (0x31));
-    update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
-    update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
-    temp_r31 = *(s32 *)((s8 *)arg0 + 0xF4);
-    *(s32 *)((s8 *)arg0 + 0xF4) = (s32) *(s32 *)((s8 *)arg0 + 0x188);
-    draw_weapon_at_joint((void *) (arg0), (int) (0x24));
-    *(s32 *)((s8 *)arg0 + 0xF4) = temp_r31;
-    update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (2));
-    update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (3));
+    draw_weapon_at_joint((void *) (((u8 *)this)), (int) (0x31));
+    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), (int) (0));
+    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), (int) (1));
+    temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xF4);
+    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x188);
+    draw_weapon_at_joint((void *) (((u8 *)this)), (int) (0x24));
+    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
+    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), (int) (2));
+    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), (int) (3));
 }
 
 }

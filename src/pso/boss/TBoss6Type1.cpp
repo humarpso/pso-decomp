@@ -1262,7 +1262,7 @@ void apply_confusion_status__11TBoss6Type1Fv(void);
 void apply_movement_ailment__11TBoss6Type1Fl(void);
 void apply_shock_status__11TBoss6Type1Fv(void);
 void clear_harmful_statuses__11TBoss6Type1Fv(void);
-void TBoss6Type1__vt60(u8 *arg0);
+void vfunc_62__11TBoss6Type1Fv(u8 *arg0);
 void vfunc_63__11TBoss6Type1Fv(void* p);
 void build_6xA4_olga_flow_boss_actions(void* p);
 s32 play_sound_effect(int, void *, int, int, void *);
@@ -2102,10 +2102,10 @@ void TBoss6Type1::vfunc_63() { if (*(int*)((char*)this + 0x374) != 40) { set_act
 
 extern const f32 TBoss6Type1__data_805DE2E4;
 
-void TBoss6Type1__vt60(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
-    *(f32 *)((s8 *)arg0 + 0x4D4) = (f32) TBoss6Type1__data_805DE2E4;
-    play_sound_effect(0x39E01, arg0 + 0x584, 0, 1, arg0);
+void TBoss6Type1::vfunc_62() {
+    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFFFDFF);
+    *(f32 *)((s8 *)((u8 *)this) + 0x4D4) = (f32) TBoss6Type1__data_805DE2E4;
+    play_sound_effect(0x39E01, ((u8 *)this) + 0x584, 0, 1, ((u8 *)this));
 }
 
 struct T1_802B529C;

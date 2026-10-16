@@ -6,6 +6,13 @@
 
 struct TOTrapChainSawKey : public TOTrapChainSaw {
     virtual ~TOTrapChainSawKey();
+    virtual void decode_params();
+    virtual void vfunc_16();
+    virtual void vfunc_18();
+    virtual void vfunc_14();
+    virtual void vfunc_25();
+    virtual int check_player_contact();
+    virtual void vfunc_27();
     u32 m_f8;
     u32 m_fc;
     u32 m_100;

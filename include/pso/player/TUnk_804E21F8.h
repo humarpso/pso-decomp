@@ -6,6 +6,8 @@
 class TUnk_804E21F8 : public TUnk_804E23F0 {
 public:
     virtual ~TUnk_804E21F8();
+    virtual void reserved_53();
+    virtual void emit_marker_effects();
     virtual void update_weapon();
     virtual void set_technique_roll(s32);
     void sub_802D577C();

@@ -60,7 +60,7 @@ extern s32 TObjDoorJung__class_name;
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_indexed_flags(void *, int, int);
 u8 is_current_floor_switch_set(int);
-void TObjDoorJung__vt12(Jung_8018F808 *arg0);
+void update_door_switch_state__12TObjDoorJungFv(Jung_8018F808 *arg0);
 struct Node_8018F4AC;
 Node_8018F4AC *get_bml_model(void *, int);
 void free_children__12TObjDoorJungFPvPv(s32, u16);
@@ -187,21 +187,21 @@ void TObjDoorJung::render() {
 
 extern s32 switch_doors_force_closed;
 
-void TObjDoorJung__vt12(Jung_8018F808 *arg0) {
+void TObjDoorJung::update_door_switch_state() {
     s32 ok = 1;
     s32 i = 0;
-    while (i < arg0->fD4) {
-        s32 t = is_current_floor_switch_set((u16)(arg0->fC8 + i)) - 1;
+    while (i < ((Jung_8018F808 *)this)->fD4) {
+        s32 t = is_current_floor_switch_set((u16)(((Jung_8018F808 *)this)->fC8 + i)) - 1;
         i++;
         ok = (t == 0) ? (ok & 1) : 0;
     }
     if (ok != 0) {
-        arg0->fD0 |= 1;
-        set_indexed_flags(arg0, 0, 8);
+        ((Jung_8018F808 *)this)->fD0 |= 1;
+        set_indexed_flags(((Jung_8018F808 *)this), 0, 8);
         return;
     }
-    arg0->fD0 &= ~1;
-    ((TObjPlayer *)arg0)->clear_player_status_flag((s32)(0), (s32)(8));
+    ((Jung_8018F808 *)this)->fD0 &= ~1;
+    ((TObjPlayer *)((Jung_8018F808 *)this))->clear_player_status_flag((s32)(0), (s32)(8));
 }
 
 void TObjDoorJung::run_task() {

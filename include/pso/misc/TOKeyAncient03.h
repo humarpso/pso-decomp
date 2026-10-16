@@ -6,6 +6,7 @@
 
 struct TOKeyAncient03 : public TOKey {
     virtual ~TOKeyAncient03();
+    virtual s32 is_confirm_pressed();
     virtual void vfunc_16();
     virtual void vfunc_17();
     virtual void vfunc_19();

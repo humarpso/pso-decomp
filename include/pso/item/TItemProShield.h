@@ -6,6 +6,8 @@
 
 struct TItemProShield : public TItemEquipBase {
     virtual ~TItemProShield();
+    virtual void vfunc_44();
+    virtual void vfunc_26();
     virtual void vfunc_30();
     virtual void vfunc_45();
     virtual void vfunc_46();

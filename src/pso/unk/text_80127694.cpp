@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A3358.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -56,34 +57,34 @@ s16 get_uid__10TObjPlayerFPv(void *);
 void *get_captured_target_entry(void *, int);
 s32 get_captured_target_count(void *);
 void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
-void update_zonde_effect__10TObjPlayerFPv(u8 *arg0);
+void emit_marker_effects__13TUnk_804A3358Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void update_zonde_effect__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804A3358::emit_marker_effects() {
     u8 pos[12];
     Rec_80127694 rec;
     void *st;
-    draw_icon__10TObjPlayerFll(arg0, 2, pos);
+    draw_icon__10TObjPlayerFll(((u8 *)this), 2, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFll(arg0, 3, pos);
+    draw_icon__10TObjPlayerFll(((u8 *)this), 3, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFll(arg0, 0, pos);
-    if (is_status_subsystem_ready__10TObjPlayerFv(*(void **)(arg0 + 0xF0)) == 2) {
-        if (((VObj_18 *)arg0)->m33() == 1) {
-            st = ((TObjPlayer *)(*(void **)(arg0 + 0xF0)))->get_extended_state();
+    draw_icon__10TObjPlayerFll(((u8 *)this), 0, pos);
+    if (is_status_subsystem_ready__10TObjPlayerFv(*(void **)(((u8 *)this) + 0xF0)) == 2) {
+        if (((VObj_18 *)((u8 *)this))->m33() == 1) {
+            st = ((TObjPlayer *)(*(void **)(((u8 *)this) + 0xF0)))->get_extended_state();
             if (get_captured_target_count(st) != 0) {
                 void *e = get_captured_target_entry(st, 0);
                 ((TObjPlayer *)(&rec))->construct_target_cursor_records();
                 rec.kind = 1;
                 rec.uid = get_uid__10TObjPlayerFPv(e);
                 rec.sub = get_captured_target_collider_index(e);
-                create_tec_zonde__10TObjPlayerFPvPvPvPv(*(void **)(arg0 + 0xF0), pos, &rec, 3);
+                create_tec_zonde__10TObjPlayerFPvPvPvPv(*(void **)(((u8 *)this) + 0xF0), pos, &rec, 3);
             }
         }
     } else {
-        ((TObjPlayer *)arg0)->update_active_game_effect();
+        ((TObjPlayer *)((u8 *)this))->update_active_game_effect();
     }
 }
 

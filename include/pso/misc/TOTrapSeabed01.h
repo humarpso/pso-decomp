@@ -6,6 +6,7 @@
 
 struct TOTrapSeabed01 : public TOTrap {
     virtual ~TOTrapSeabed01();
+    virtual int vfunc_67();
     virtual void vfunc_84();
     virtual void vfunc_81();
     virtual void vfunc_82();

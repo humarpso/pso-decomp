@@ -815,7 +815,7 @@ extern u8 *anim_model_matrix_array;
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
 extern const f32 lbl_805E0208;
-f32 receive_physical_attack_guarded__19TObjEneEpsilonGuardFPvPvf(u8 *arg0, u8 *arg1, f32 farg0);
+f32 receive_physical_attack__18TObjEneEpsilonBodyFPvf(u8 *arg0, u8 *arg1, f32 farg0);
 s32 get_bml_model(s32, s32);
 s32 set_indexed_flags(void *, s32, s32);
 extern s32 lbl_805D6FA0;
@@ -1076,13 +1076,14 @@ f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPvPv(Self_8035F5C8 *o
     return lbl_805E0208;
 }
 
-f32 receive_physical_attack_guarded__19TObjEneEpsilonGuardFPvPvf(u8 *arg0, u8 *arg1, f32 farg0) {
+f32 TObjEneEpsilonBody::receive_physical_attack(void *arg1_arg, f32 farg0) {
+    u8 *arg1 = (u8 *)arg1_arg;
     s32 temp_r5;
-    temp_r5 = *(s32 *)((s8 *)arg0 + 0x438);
+    temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x438);
     if (!(temp_r5 & 2) && !(temp_r5 & 0x40)) {
-        return receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
+        return receive_physical_attack__10TObjPlayerFv(((u8 *)this), arg1, farg0);
     }
-    try_apply_damage__19TObjEneEpsilonGuardFPvUii(arg0, (u32) (arg0 + 0x2FC), 0);
+    try_apply_damage__19TObjEneEpsilonGuardFPvUii(((u8 *)this), (u32) (((u8 *)this) + 0x2FC), 0);
     return lbl_805E0208;
 }
 

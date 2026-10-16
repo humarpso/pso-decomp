@@ -6,6 +6,7 @@
 
 struct TBoss8DragonEffTail : public TUnk_804928CC {
     virtual ~TBoss8DragonEffTail();
+    virtual void apply_hit_if_active(void *, f32 *);
     virtual void run_task();
     u32 m_b0;
     u32 m_b4;

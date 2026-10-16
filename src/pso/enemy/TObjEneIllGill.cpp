@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void render__15TObjIllGillKageFv();
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneIllGill.h"
@@ -452,7 +453,7 @@ void subtract_vector(void *, void *);
 extern Vec_80367FDC lbl_8047A328;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void TObjEneIllGill__vt26(Gill_80367FDC *self);
+void vfunc_28__14TObjEneIllGillFv(Gill_80367FDC *self);
 void subtract_vector(void *, void *);
 s32 apply_actor_gravity(void *, int, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
@@ -649,7 +650,7 @@ void *ill_gill_combat_parameter_variants[4] = {
 };
 void *__vt__15TObjIllGillKage[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__15TObjIllGillKageFv, (void *)&run_task__15TObjIllGillKageFv,
-    (void *)&TObjIllGillKage::render, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&render__15TObjIllGillKageFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
@@ -1717,7 +1718,7 @@ s32 TObjEneIllGill::update_action_hold_status() {
 
 #pragma push
 #pragma opt_loop_invariants off
-void TObjEneIllGill__vt26(Gill_80367FDC *self) {
+void TObjEneIllGill::vfunc_28() {
     u16 best;
     s32 i;
     u8 *pl;
@@ -1727,54 +1728,54 @@ void TObjEneIllGill__vt26(Gill_80367FDC *self) {
     u16 t;
     s32 ent;
     s32 x;
-    if (self->m17(0x1E) != 0) {
-        if (self->f390 != 0) {
-            self->f338 = 0xFFFF;
-            self->f2A8 = 0;
+    if (((Gill_80367FDC *)this)->m17(0x1E) != 0) {
+        if (((Gill_80367FDC *)this)->f390 != 0) {
+            ((Gill_80367FDC *)this)->f338 = 0xFFFF;
+            ((Gill_80367FDC *)this)->f2A8 = 0;
             return;
         }
-        if (obj_testFlags30(self, 0x10) != 0) {
+        if (obj_testFlags30(((Gill_80367FDC *)this), 0x10) != 0) {
             i = 0;
             best = 0xFFFF;
             Vec_80367FDC v = lbl_8047A328;
-            bestDist = *self->f350 * *self->f350;
+            bestDist = *((Gill_80367FDC *)this)->f350 * *((Gill_80367FDC *)this)->f350;
             for (; i < lbl_805D586C + lbl_805D5870; i++) {
                 pl = get_player_data__10TObjPlayerFi(i);
                 if (pl == NULL) break;
                 if (obj_is_hit_receivable(pl) == 0) continue;
                 id = obj_getField1c(pl);
                 if (id >= 0x4000) continue;
-                if (id == self->f1C) continue;
+                if (id == ((Gill_80367FDC *)this)->f1C) continue;
                 if (*(s32 *)((s8 *)pl + 0x30) & 0x02000800) continue;
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x2FC);
-                subtract_vector(&v, (u8 *)self + 0x2FC);
+                subtract_vector(&v, (u8 *)((Gill_80367FDC *)this) + 0x2FC);
                 d = v.x * v.x + v.z * v.z;
-                if (d < bestDist && check_path_obstructed(self, pl + 0x2FC) == 0) {
+                if (d < bestDist && check_path_obstructed(((Gill_80367FDC *)this), pl + 0x2FC) == 0) {
                     best = id;
                     bestDist = d;
                 }
             }
-            self->f338 = best;
+            ((Gill_80367FDC *)this)->f338 = best;
         } else {
-            self->f338 = find_nearest_visible_player(self, 0, self->f350, *self->f350);
+            ((Gill_80367FDC *)this)->f338 = find_nearest_visible_player(((Gill_80367FDC *)this), 0, ((Gill_80367FDC *)this)->f350, *((Gill_80367FDC *)this)->f350);
         }
-        t = self->f338;
+        t = ((Gill_80367FDC *)this)->f338;
         if (t < 0x1000) {
             ent = get_player_by_client_id(t);
             if (ent != 0) {
                 if (((TObjPlayer *)ent)->get_field_3e4() == get_current_floor()) {
-                    self->f2A8 = ent;
-                    obj_clearFlags30((void*)(self), (int)(0x04040000));
+                    ((Gill_80367FDC *)this)->f2A8 = ent;
+                    obj_clearFlags30((void*)(((Gill_80367FDC *)this)), (int)(0x04040000));
                     return;
                 }
             }
-            self->f2A8 = 0;
-            obj_setFlags30(self, 0x04040000);
+            ((Gill_80367FDC *)this)->f2A8 = 0;
+            obj_setFlags30(((Gill_80367FDC *)this), 0x04040000);
             return;
         }
         if (t < 0x4000) {
-            self->f2A8 = get_enemy_entity(t);
-            obj_clearFlags30((void*)(self), (int)(0x04040000));
+            ((Gill_80367FDC *)this)->f2A8 = get_enemy_entity(t);
+            obj_clearFlags30((void*)(((Gill_80367FDC *)this)), (int)(0x04040000));
         }
     }
 }

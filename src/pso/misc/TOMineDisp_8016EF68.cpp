@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMineDisp.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOMine.h"
@@ -92,24 +93,24 @@ void draw__10TOMineDispFPv(u8 *arg0) {
     pop_matrix();
 }
 
-void run_task__10TOMineDispFv(u8 *arg0) {
-    void *mine = *(void **)(arg0 + 0x10);
+void TOMineDisp::run_task() {
+    void *mine = *(void **)(((u8 *)this) + 0x10);
     u8 *p;
-    switch (*(s32 *)(arg0 + 0xA4)) {
+    switch (*(s32 *)(((u8 *)this) + 0xA4)) {
     case 0:
-        p = get_player_by_client_id(*(u16 *)(arg0 + 0xA8));
+        p = get_player_by_client_id(*(u16 *)(((u8 *)this) + 0xA8));
         if (p != NULL && is_locally_controlled__10TObjPlayerFPv() != 0 && fn_80171314(p) != 0) {
-            if (horizontal_distance_squared(arg0 + 0x38, p + 0x38) <= lbl_805DB850 ||
-                ((TObjPlayer *)p)->get_stat_by_key_state() == ((TObjPlayer *)arg0)->get_stat_by_key_state()) {
-                *(s32 *)(arg0 + 0xA4) = 2;
+            if (horizontal_distance_squared(((u8 *)this) + 0x38, p + 0x38) <= lbl_805DB850 ||
+                ((TObjPlayer *)p)->get_stat_by_key_state() == ((TObjPlayer *)((u8 *)this))->get_stat_by_key_state()) {
+                *(s32 *)(((u8 *)this) + 0xA4) = 2;
             }
         }
         break;
     case 3:
         break;
     case 2:
-        get_player_state__6TOMineFv(mine, *(u16 *)(arg0 + 0xA8));
-        VecCopy__FP3VecPC3Vec(arg0 + 0x38, ((TOMineTrap *)mine)->get_mine_data_ptr());
+        get_player_state__6TOMineFv(mine, *(u16 *)(((u8 *)this) + 0xA8));
+        VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x38, ((TOMineTrap *)mine)->get_mine_data_ptr());
         break;
     }
 }

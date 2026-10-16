@@ -6,6 +6,7 @@
 
 struct TOMineDisp : public TUnk_804B9870 {
     virtual ~TOMineDisp();
+    virtual void run_task();
     u32 m_90;
     u8 _pad94[0x10];
     u32 m_a4;

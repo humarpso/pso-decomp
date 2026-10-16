@@ -6,6 +6,8 @@
 
 struct TWindowMessageLog : public TWindowMessage {
     virtual ~TWindowMessageLog();
+    virtual void run_task();
+    virtual void render();
     u8 unk_90[0x8];
 };
 

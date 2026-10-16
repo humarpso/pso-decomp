@@ -6,6 +6,8 @@
 
 struct TOMine : public TUnk_804806E8 {
     virtual ~TOMine();
+    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual void vfunc_6(s16 *, s32);
     virtual f32 receive_physical_attack(void *, f32);
     virtual int vfunc_12();
     virtual void vfunc_7(void *);

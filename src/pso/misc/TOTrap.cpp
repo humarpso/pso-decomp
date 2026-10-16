@@ -212,7 +212,7 @@ s32 access_object_saved_state(void *, void *, int);
 s32 send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
-f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1);
+f32 receive_physical_attack__6TOTrapFPvf(u8 *arg0, u32 arg1);
 s32 submit_cursor_candidate(void *, s32);
 extern u32 trap_scale_factor_table[];
 extern s32 game_difficulty_selection;
@@ -375,16 +375,16 @@ void TOTrap::vfunc_6(s16 *arg1, s32 arg2) {
     }
 }
 
-f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
+f32 TOTrap::receive_physical_attack(void *arg1, f32) {
   s16 sp8;
   s32 temp_r3_2;
   u16 temp_r3;
-  if (((((u16) (*((u16 *) (((s8 *) arg0) + 0x1C)))) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) arg0) + 0x80)))) != 0U)) && (access_object_saved_state((void *) arg0, (void *) (&sp8), (int) 1) != 0))
+  if (((((u16) (*((u16 *) (((s8 *) ((u8 *)this)) + 0x1C)))) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) ((u8 *)this)) + 0x80)))) != 0U)) && (access_object_saved_state((void *) ((u8 *)this), (void *) (&sp8), (int) 1) != 0))
   {
-    *((s16 *) (((s8 *) arg0) + 0x326)) = 4;
-    sp8 = *((s16 *) (((s8 *) arg0) + 0x326));
-    access_object_saved_state((void *) arg0, (void *) (&sp8), (int) 0);
-    send_object_state_update((void *) arg0, (void *) (&sp8));
+    *((s16 *) (((s8 *) ((u8 *)this)) + 0x326)) = 4;
+    sp8 = *((s16 *) (((s8 *) ((u8 *)this)) + 0x326));
+    access_object_saved_state((void *) ((u8 *)this), (void *) (&sp8), (int) 0);
+    send_object_state_update((void *) ((u8 *)this), (void *) (&sp8));
     if (arg1 != 0U)
     {
       temp_r3 = obj_getField1c((u32)((void *) arg1));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A5C18.h"
 struct VBase_8012DE24 { char pad[0x18]; };
 
 struct VObj_8012DE24 : VBase_8012DE24 {
@@ -63,17 +64,17 @@ extern "C" {
 s32 spawn_particle_effect(void *, int);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 extern s32 basic_shot_angle_table[];
-void emit_shot_marker_effects(u8 *self);
+void emit_marker_effects__13TUnk_804A5C18Fv(u8 *self);
 }
 
 extern "C" {
 
-void emit_shot_marker_effects(u8 *self) {
+void TUnk_804A5C18::emit_marker_effects() {
     s32 sp8[3];
     s32 i;
     for (i = 0; (u32)i != 5U; i++) {
-        draw_icon__10TObjPlayerFll(self, ((struct Self_8012DE24 *)self)->icons[i], sp8);
-        ((VObj_8012DE24 *)self)->m49(sp8, i, basic_shot_angle_table[i], 1);
+        draw_icon__10TObjPlayerFll(((u8 *)this), ((struct Self_8012DE24 *)((u8 *)this))->icons[i], sp8);
+        ((VObj_8012DE24 *)((u8 *)this))->m49(sp8, i, basic_shot_angle_table[i], 1);
         if (i == 0) {
             spawn_particle_effect(sp8, 9);
         }

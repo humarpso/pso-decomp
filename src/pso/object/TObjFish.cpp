@@ -156,7 +156,7 @@ void vfunc_16__15TOKeyJungleMainFv(u8 *arg0);
 s32 get_difficulty_flag_bit__12TLevelSelectFll(s32, s32);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 game_difficulty_selection;
-void TOKeyJungleMain__vt12(u8 *arg0);
+void update_lock_state__15TOKeyJungleMainFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 bm_obj_jungle_mkey_resource_descriptor;
 extern u32 TOKeyJungleMain__static_model_resource;
@@ -264,17 +264,17 @@ void TOKeyJungleMain::send_switch_on() {
     dispatch_by_phase__15TOKeyJungleMainFiUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)((s8 *)arg0 + 0xC8) * 4))));
 }
 
-void TOKeyJungleMain__vt12(u8 *arg0) {
+void TOKeyJungleMain::update_lock_state() {
     s32 temp_r31;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 2) {
-        temp_r31 = *(s32 *)((s8 *)arg0 + 0xD4);
-        if (get_difficulty_flag_bit__12TLevelSelectFll(game_difficulty_selection, *(s32 *)((s8 *)(&TOKeyJungleMain__data_804653C8.value) + (*(s32 *)((s8 *)arg0 + 0xC8) * 4))) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xD4) = 1;
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0xD0) != 2) {
+        temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xD4);
+        if (get_difficulty_flag_bit__12TLevelSelectFll(game_difficulty_selection, *(s32 *)((s8 *)(&TOKeyJungleMain__data_804653C8.value) + (*(s32 *)((s8 *)((u8 *)this) + 0xC8) * 4))) != 0) {
+            *(s32 *)((s8 *)((u8 *)this) + 0xD4) = 1;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xD4) = 0;
+            *(s32 *)((s8 *)((u8 *)this) + 0xD4) = 0;
         }
-        if (temp_r31 != (s32) *(s32 *)((s8 *)arg0 + 0xD4)) {
-            ((VObj_18_076902 *)(arg0))->m20();
+        if (temp_r31 != (s32) *(s32 *)((s8 *)((u8 *)this) + 0xD4)) {
+            ((VObj_18_076902 *)(((u8 *)this)))->m20();
         }
     }
 }

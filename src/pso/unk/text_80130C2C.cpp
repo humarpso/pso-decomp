@@ -26,26 +26,26 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DB020;
-void yasminkov_3000r_marker(struct Pl_80130C2C *arg0);
+void emit_marker_effects__13TUnk_804A6BD0Fv(struct Pl_80130C2C *arg0);
 }
 
 extern "C" {
 
-void yasminkov_3000r_marker(struct Pl_80130C2C *arg0) {
+void TUnk_804A6BD0::emit_marker_effects() {
     struct Vec_80130C2C pos;
     struct Ang_80130C2C ang;
     struct Vec_80130C2C sp8;
     s32 a;
-    arg0->f204 = 2;
-    a = arg0->f0->angle - 0x4000;
+    ((struct Pl_80130C2C *)this)->f204 = 2;
+    a = ((struct Pl_80130C2C *)this)->f0->angle - 0x4000;
     pos.x = sin_table_lookup(a);
     pos.y = lbl_805DB020;
     pos.z = cos_table_lookup(a);
     ang.x = 0x4000;
-    ang.y = arg0->f0->angle;
+    ang.y = ((struct Pl_80130C2C *)this)->f0->angle;
     ang.z = 0;
-    TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)arg0, (s32)3, (u32)(&pos), (u32)(&ang));
-    ((TObjPlayer *)arg0)->draw_icon((s32)2, (s32)(&sp8));
+    TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)((struct Pl_80130C2C *)this), (s32)3, (u32)(&pos), (u32)(&ang));
+    ((TObjPlayer *)((struct Pl_80130C2C *)this))->draw_icon((s32)2, (s32)(&sp8));
     spawn_particle_effect(&sp8, 9);
 }
 

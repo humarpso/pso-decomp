@@ -443,8 +443,8 @@ void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0);
 void send_6x9C_enemy_low_game_flags(Obj_800F641C *self, s32 arg);
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
 s32 send_6x0A_enemy_state(void *, void *);
-s32 update_and_send_enemy_hit_state(u8 *self, s32 kind);
-void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
+s32 vfunc_74__9TObjEnemyFl(u8 *self, s32 kind);
+void apply_hit_message_flags__9TObjEnemyFPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
 void apply_set_data__9TObjEnemyFPv(A_800F698C *arg0, B_800F698C *arg1);
 void distribute_experience(TObjPlayer_800F6B68 *self);
 void award_enemy_experience(u8 *arg0, s32 arg1);
@@ -652,56 +652,57 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
     }
 }
 
-s32 update_and_send_enemy_hit_state(u8 *self, s32 kind) {
+s32 TObjEnemy::vfunc_74(s32 kind) {
     Pkt_800F65D0 pkt;
     s32 ret;
     ret = 0;
-    if (*(u16 *)(self + 0x1C) >= 0x1000 && *(u16 *)(self + 0x1C) < 0x4000) {
-        exchange_object_state__9TObjEnemyFls(self, &pkt, 1);
-        pkt.diff = *(s16 *)(self + 0x2B8) - *(s16 *)(self + 0x32C);
-        pkt.id = *(s32 *)(self + 0x30);
+    if (*(u16 *)(((u8 *)this) + 0x1C) >= 0x1000 && *(u16 *)(((u8 *)this) + 0x1C) < 0x4000) {
+        exchange_object_state__9TObjEnemyFls(((u8 *)this), &pkt, 1);
+        pkt.diff = *(s16 *)(((u8 *)this) + 0x2B8) - *(s16 *)(((u8 *)this) + 0x32C);
+        pkt.id = *(s32 *)(((u8 *)this) + 0x30);
         switch (kind) {
         case 9:
         case 11:
             pkt.a = kind;
-            pkt.av = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(self, 2) / lbl_805DA8C4 - lbl_805DA8C8);
+            pkt.av = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(((u8 *)this), 2) / lbl_805DA8C4 - lbl_805DA8C8);
             break;
         case 10:
         case 12:
             pkt.b = kind;
-            pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(self, 3) / lbl_805DA8C4 - lbl_805DA8C8);
+            pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(((u8 *)this), 3) / lbl_805DA8C4 - lbl_805DA8C8);
             break;
         }
-        ret = exchange_object_state__9TObjEnemyFls(self, &pkt, 0);
+        ret = exchange_object_state__9TObjEnemyFls(((u8 *)this), &pkt, 0);
         if (ret != 0) {
-            send_6x0A_enemy_state(self, &pkt);
+            send_6x0A_enemy_state(((u8 *)this), &pkt);
         }
     }
     return ret;
 }
 
-void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1) {
+void TObjEnemy::apply_hit_message_flags(void *arg1_arg) {
+    Msg_800F673C *arg1 = (Msg_800F673C *)arg1_arg;
     s32 flags;
     Pair_800F673C p;
-    arg0->f32C = arg0->f2B8 - arg1->f6;
+    ((VObj_800F673C *)this)->f32C = ((VObj_800F673C *)this)->f2B8 - arg1->f6;
     if (game_difficulty_selection == 3) {
         flags = arg1->flags & ~0x3F;
     } else {
         flags = arg1->flags;
-        if ((flags & 2) && obj_testFlags30(arg0, 2) == 0) {
-            arg0->m43();
+        if ((flags & 2) && obj_testFlags30(((VObj_800F673C *)this), 2) == 0) {
+            ((VObj_800F673C *)this)->m43();
         }
-        if ((flags & 4) && obj_testFlags30(arg0, 4) == 0) {
-            arg0->m47();
+        if ((flags & 4) && obj_testFlags30(((VObj_800F673C *)this), 4) == 0) {
+            ((VObj_800F673C *)this)->m47();
         }
-        if ((flags & 0x10) && obj_testFlags30(arg0, 0x10) == 0) {
-            arg0->m45();
+        if ((flags & 0x10) && obj_testFlags30(((VObj_800F673C *)this), 0x10) == 0) {
+            ((VObj_800F673C *)this)->m45();
         }
-        if ((flags & 0x20) && obj_testFlags30(arg0, 0x20) == 0) {
-            arg0->m46(0);
+        if ((flags & 0x20) && obj_testFlags30(((VObj_800F673C *)this), 0x20) == 0) {
+            ((VObj_800F673C *)this)->m46(0);
         }
     }
-    obj_setFlags30(arg0, flags);
+    obj_setFlags30(((VObj_800F673C *)this), flags);
     p.a = arg1->b8;
     p.b = arg1->b9;
     arg1->b8 = 0;
@@ -709,7 +710,7 @@ void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673
     switch (p.a) {
     case 9:
     case 11:
-        arg0->m49(p);
+        ((VObj_800F673C *)this)->m49(p);
         break;
     }
     p.a = arg1->bA;
@@ -719,7 +720,7 @@ void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673
     switch (p.a) {
     case 10:
     case 12:
-        arg0->m50(p);
+        ((VObj_800F673C *)this)->m50(p);
         break;
     }
 }

@@ -6,6 +6,7 @@
 
 struct TBoss7DeRolLeC : public TObjEneDD_ST {
     virtual ~TBoss7DeRolLeC();
+    virtual void vfunc_88();
     virtual void render_shadows();
     void vfunc_63();
     void vfunc_62();

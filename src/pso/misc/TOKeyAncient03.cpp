@@ -86,7 +86,7 @@ struct VObj_18_8016BABC : VBase_18_8016BABC {
 
 extern "C" {
 s32 is_split_screen();
-s32 TOKeyCave01__vt13(u8 *arg0);
+s32 is_confirm_pressed__11TOKeyCave01Fv(u8 *arg0);
 extern const f32 lbl_805DB718;
 extern const f32 lbl_805DB71C;
 extern const f32 lbl_805DB720;
@@ -349,25 +349,25 @@ block_5:
 }
 
 void TOKeyCave01::vfunc_25() {  }
-s32 TOKeyCave01__vt13(u8 *arg0) {
+s32 TOKeyCave01::is_confirm_pressed() {
     s32 temp_r0;
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0xD0);
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
-            var_r3 = ((TOKey *)arg0)->is_any_player_in_range();
+            var_r3 = ((TOKey *)((u8 *)this))->is_any_player_in_range();
         } else {
-            var_r3 = ((TOKey *)arg0)->is_local_player_in_range();
+            var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1) || (var_r3 == 1)) {
+        if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
     case 1:
-        var_r31 = ((TOKey *)arg0)->is_any_player_in_range();
+        var_r31 = ((TOKey *)((u8 *)this))->is_any_player_in_range();
         break;
     }
     return var_r31;

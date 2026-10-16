@@ -41,14 +41,14 @@ u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2) {
 
 #pragma push
 #pragma fp_contract on
-void render__19TWindowSubEquipListFv(u8 *arg0) {
+void TWindowSubEquipList::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)arg0 + 0x80), (int) (temp_r3));
+    draw_window_frame((void *) (((u8 *)this)), (int) (temp_r3));
+    draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), (int) (temp_r3));
+    draw_selected_list_entry((void *) (((u8 *)this)), (int) (temp_r3));
+    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x80) != 0U) {
+        forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)((u8 *)this) + 0x80), (int) (temp_r3));
     }
 }
 #pragma pop

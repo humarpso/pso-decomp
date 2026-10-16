@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A4B80.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -186,10 +187,10 @@ struct Pl_8012AC68 : PlB_8012AC68 {
 extern "C" {
 s32 send_6x61_activate_mag_effect(void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-void heaven_punisher_attack_marker(u8 *arg0);
+void emit_marker_effects__13TUnk_804A4B80Fv(u8 *arg0);
 s32 get_current_floor();
 s32 reset_key_machine_state__10TObjPlayerFv();
-void heaven_punisher_receive_effect(u8 *arg0, s32 arg1);
+void set_technique_roll__13TUnk_804A4B80Fl(u8 *arg0, s32 arg1);
 u32 *copy_attack_targets(u32 *dst, u32 *src);
 void spawn_heaven_effect__10TObjPlayerFlUlUsl(s32, s32, u32, s16);
 s32 get_captured_target_collider_index(s32);
@@ -206,21 +207,21 @@ typedef struct RecoveredFields_8012ABCC_arg0 RecoveredFields_8012ABCC_arg0;
 typedef struct VBase_18_382324 VBase_18_382324;
 typedef struct VObj_18_382324 VObj_18_382324;
 #define PSO_VCALL_VObj_18_382324_m49(_self, _arg0, _arg1, _arg2, _arg3) (((VObj_18_382324 *)(_self))->m49((_arg0), (_arg1), (_arg2), (_arg3)))
-void heaven_punisher_receive_effect(u8 *arg0, s32 arg1) {
-  if (((u32) ((RecoveredFields_8012ABCC_arg0 *) arg0)->field_F0) != 0U)
+void TUnk_804A4B80::set_technique_roll(s32 arg1) {
+  if (((u32) ((RecoveredFields_8012ABCC_arg0 *) ((u8 *)this))->field_F0) != 0U)
   {
     if (reset_key_machine_state__10TObjPlayerFv() != 0)
     {
-      if (get_current_floor() == ((TObjPlayer *)((int) ((RecoveredFields_8012ABCC_arg0 *) arg0)->field_F0))->get_field_3e4())
+      if (get_current_floor() == ((TObjPlayer *)((int) ((RecoveredFields_8012ABCC_arg0 *) ((u8 *)this))->field_F0))->get_field_3e4())
       {
         if (arg1 == 0)
         {
-          PSO_VCALL_VObj_18_382324_m49(arg0, ((u8 *) arg0) + 0x224, 0, 0, 1);
+          PSO_VCALL_VObj_18_382324_m49(((u8 *)this), ((u8 *) ((u8 *)this)) + 0x224, 0, 0, 1);
           return;
         }
         if (arg1 == 1)
         {
-          heaven_punisher_strike_locks((Pl_8012AC68 *)((void *) arg0));
+          heaven_punisher_strike_locks((Pl_8012AC68 *)((void *) ((u8 *)this)));
         }
       }
     }
@@ -244,21 +245,21 @@ void heaven_punisher_strike_locks(Pl_8012AC68 *arg0) {
     }
 }
 
-void heaven_punisher_attack_marker(u8 *arg0) {
+void TUnk_804A4B80::emit_marker_effects() {
     s32 sp8;
     s32 var_r31;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        copy_attack_targets((u32 *)((void *) (arg0 + 0x1F8)), (u32 *)((int) (((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0xF0)))->get_extended_state())));
-        ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (arg0 + 0x224)));
+        copy_attack_targets((u32 *)((void *) (((u8 *)this) + 0x1F8)), (u32 *)((int) (((TObjPlayer *)(*(s32 *)((s8 *)((u8 *)this) + 0xF0)))->get_extended_state())));
+        ((TObjPlayer *)((u8 *)this))->draw_status_icon((s32)((void *) (((u8 *)this) + 0x224)));
         var_r31 = 0;
         if (!((TLobby::get_internet_beat() / 100) & 1)) {
             var_r31 = 1;
         }
-        send_6x61_activate_mag_effect((void *) (arg0), (int) (var_r31));
+        send_6x61_activate_mag_effect((void *) (((u8 *)this)), (int) (var_r31));
         return;
     }
-    ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (&sp8)));
-    ((VObj_18 *)(arg0))->m49(&sp8, 0, 0, 1);
+    ((TObjPlayer *)((u8 *)this))->draw_status_icon((s32)((void *) (&sp8)));
+    ((VObj_18 *)(((u8 *)this)))->m49(&sp8, 0, 0, 1);
 }
 u32 *copy_attack_targets(u32 *dst, u32 *src) {
     u32 *d = dst;

@@ -52,18 +52,18 @@ void TObjIllGillKage::attack_target() {
     }
 }
 
-void run_task__15TObjIllGillKageFv(u8 *arg0) {
+void TObjIllGillKage::run_task() {
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x90);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x90);
     switch (temp_r0) {
     case 0:
-        ((TObjIllGillKage *)arg0)->attack_target();
+        ((TObjIllGillKage *)((u8 *)this))->attack_target();
         return;
     case 1:
-        tick_persistent_sound__15TObjIllGillKageFPv((u8 *)arg0);
+        tick_persistent_sound__15TObjIllGillKageFPv((u8 *)((u8 *)this));
         return;
     default:
-        ((TObjIllGillKage *)arg0)->queue_destruction();
+        ((TObjIllGillKage *)((u8 *)this))->queue_destruction();
         return;
     }
 }

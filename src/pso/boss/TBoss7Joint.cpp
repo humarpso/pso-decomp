@@ -240,7 +240,7 @@ void apply_movement_ailment__11TBoss7JointFl(void);
 void apply_shock_status__11TBoss7JointFv(void);
 void clear_harmful_statuses__11TBoss7JointFv(void);
 void vfunc_61__11TBoss7JointFv(void);
-void TBoss7Joint__vt60(u8 *arg0);
+void vfunc_62__11TBoss7JointFv(u8 *arg0);
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
 s32 init_boss_stats__11TBoss7JointFPv(void *);
@@ -263,25 +263,25 @@ void TBoss7Joint::store_position() {
 extern const f32 lbl_805DEBB0;
 extern const f32 lbl_805DEBB4;
 
-void TBoss7Joint__vt60(u8 *arg0) {
+void TBoss7Joint::vfunc_62() {
     s16 temp_r4;
     s32 temp_r31;
 
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x32C);
-    temp_r31 = *(s16 *)((s8 *)arg0 + 0x2B8) - temp_r4;
-    if (is_part_active__11TBoss7JointFv((void *) (arg0), (int) (temp_r4)) != 0U) {
-        TObjFish__sub_802EC468((void *) (arg0 + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
-        apply_damage_and_set_effect__8TObjFishFPvi((int) (*(s32 *)((s8 *)arg0 + 0x10)), (int) (temp_r31), (int) (*(u16 *)((s8 *)arg0 + 0x2D4)));
+    temp_r4 = *(s16 *)((s8 *)((u8 *)this) + 0x32C);
+    temp_r31 = *(s16 *)((s8 *)((u8 *)this) + 0x2B8) - temp_r4;
+    if (is_part_active__11TBoss7JointFv((void *) (((u8 *)this)), (int) (temp_r4)) != 0U) {
+        TObjFish__sub_802EC468((void *) (((u8 *)this) + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
+        apply_damage_and_set_effect__8TObjFishFPvi((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), (int) (temp_r31), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
     } else {
-        *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) - temp_r31);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) <= 0) {
-            *(s32 *)((s8 *)arg0 + 0x3C4) = 0;
-            init_boss_stats__11TBoss7JointFPv((void *) (arg0));
+        *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) - temp_r31);
+        if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C4) <= 0) {
+            *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = 0;
+            init_boss_stats__11TBoss7JointFPv((void *) (((u8 *)this)));
         }
     }
-    *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
-    set_flag_800__11TBoss7JointFPv((int) (*(s32 *)((s8 *)arg0 + 0x10)));
-    clear_attack_receipts((void *) (arg0));
+    *(s16 *)((s8 *)((u8 *)this) + 0x32C) = (s16) *(s16 *)((s8 *)((u8 *)this) + 0x2B8);
+    set_flag_800__11TBoss7JointFPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)));
+    clear_attack_receipts((void *) (((u8 *)this)));
 }
 
 extern s32 __vt__11TBoss7Joint[];

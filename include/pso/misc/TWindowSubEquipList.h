@@ -6,6 +6,7 @@
 
 struct TWindowSubEquipList : public TUnk_804D0618 {
     virtual ~TWindowSubEquipList();
+    virtual void render();
     void run_task();};
 
 typedef char TWindowSubEquipList_size[sizeof(TWindowSubEquipList) == 0x88 ? 1 : -1];

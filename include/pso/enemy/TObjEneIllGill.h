@@ -6,6 +6,7 @@
 
 struct TObjEneIllGill : public TObjEnemy {
     virtual ~TObjEneIllGill();
+    virtual void vfunc_28();
     virtual s32 update_action_hold_status();
     virtual s32 update_movement_status();
     virtual void vfunc_59();

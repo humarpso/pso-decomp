@@ -6,6 +6,7 @@
 
 struct TOSwitchItem : public TOKey {
     virtual ~TOSwitchItem();
+    virtual void send_switch_on();
     virtual void debug_draw_key_id();
     void run_task();
     u32 m_d8;

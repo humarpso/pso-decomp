@@ -6,6 +6,7 @@
 
 struct TBoss2Joint : public TObjEneDD {
     virtual ~TBoss2Joint();
+    virtual void vfunc_62();
     virtual void clear_harmful_statuses();
     virtual void apply_shock_status();
     virtual void apply_movement_ailment(s32);

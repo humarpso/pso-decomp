@@ -1154,7 +1154,8 @@ force_active:
   - check_memcard_slot__22TQuestVmDownLoadServerFv
   - check_open_trigger__20TContainerAncient01RFv
   - check_path_ahead__14TObjEneDolmOlmFPvif
-  - check_player_contact__14TOTrapChainSawFPv
+  - check_player_contact__14TOTrapChainSawFv
+  - check_player_contact__17TOTrapChainSawKeyFv
   - check_player_distance__8TOKurageFv
   - check_player_hits__15TBoss6SwordWaveFv
   - check_player_in_range__13TUnk_804B5BA8Flf
@@ -1166,7 +1167,6 @@ force_active:
   - check_slot_swap_allowed__23TAdSinglePlyChrSelectGCFPviPvi
   - check_system_file_status__23TAdSinglePlyChrSelectGCFv
   - check_target_collision__10TObjPlayerFPv
-  - check_target_in_range__14TObjEneDolmOlmFPv
   - check_team_balance__6TLobbyFPvi
   - check_trigger_flag__15TOTrapAncient01Fll
   - circling_state__14TObjEneBm5WolfFl
@@ -1198,6 +1198,7 @@ force_active:
   - clear_card_status_flags__6TLobbyFv
   - clear_entry_flags__20TBoss5GryphonColli_CFv
   - clear_episode1_quest_availability
+  - clear_field_d8__14TOTrapChainSawFv
   - clear_flag4c_bit8__13TWindowSubLogFv
   - clear_flag60_bit8__13TWindowSubMagFv
   - clear_flag70_bit80__19TWindowSubTechniqueFv
@@ -1386,6 +1387,9 @@ force_active:
   - deallocate_from_fixed_pools
   - debug_print_area_num__17TObjWarpBossMultiFv
   - debug_print_ranges__8TOKurageFv
+  - decode_params__14TOTrapChainSawFv
+  - decode_params__17TOTrapChainSawKeyFv
+  - decode_params__20TOTrapChainSawDamageFv
   - decrypt_network_info_cipher_block
   - decrypt_network_info_cipher_blocks
   - decrypt_network_info_cipher_round
@@ -1556,7 +1560,6 @@ force_active:
   - draw_window_uv_sprite_part
   - drill_launcher_create_shot
   - drill_launcher_ct
-  - drill_launcher_marker
   - drill_launcher_node_callback
   - drill_launcher_return_timer
   - dspInitCallback
@@ -1570,6 +1573,7 @@ force_active:
   - emit_grass_footstep_particle__10TObjPlayerFi
   - emit_jellen_support_effect
   - emit_marker_effects__13TUnk_804A204CFv
+  - emit_marker_effects__13TUnk_804A2164Fv
   - emit_marker_effects__13TUnk_804A4238Fv
   - emit_marker_effects__13TUnk_804A4338Fv
   - emit_photon_blast_feedback_effects
@@ -8116,7 +8120,8 @@ force_active:
   - update_emitter_positions__13TObjLobbyMainFv
   - update_entry_animation__12TAdMultiOkGCFi
   - update_entry_color__20TWindowSubStatusDispFv
-  - update_extension__14TOTrapChainSawFPv
+  - update_extension__14TOTrapChainSawFv
+  - update_extension__18TOTrapChainSawEdgeFv
   - update_fade__12TChCrEffFadeFv
   - update_fade__13TObjLobbyMainFv
   - update_fade__18TObjButterflyLobbyFv
@@ -8252,6 +8257,8 @@ force_active:
   - update_stream_buffers__6TLobbyFv
   - update_submenu__15TWindowMainMenuFv
   - update_surround_player_state__10TBoss4ZakoFv
+  - update_sweep__14TOTrapChainSawFv
+  - update_sweep__18TOTrapChainSawEdgeFv
   - update_target_follow__11TCameraCtrlFv
   - update_target_info_window__11TWindowCtrlFv
   - update_target_position__10TBoss4ZakoFPv
@@ -8298,17 +8305,30 @@ force_active:
   - vfunc_11__17TQuestListOfflineFv
   - vfunc_13__13TUnk_804B5C08Fl
   - vfunc_14__12TItemProUnitFv
+  - vfunc_14__14TOTrapChainSawFv
+  - vfunc_14__17TOTrapChainSawKeyFv
+  - vfunc_14__20TOTrapChainSawDamageFv
   - vfunc_16__12TItemProUnitFv
   - vfunc_16__13TItemProArmorFv
+  - vfunc_16__17TOTrapChainSawKeyFv
+  - vfunc_16__18TOTrapChainSawEdgeFv
+  - vfunc_18__17TOTrapChainSawKeyFv
   - vfunc_19__17TObjCityDoor_WarpFv
   - vfunc_20__17TOBarrierEnergy01Fv
   - vfunc_22__13TUnk_804B5BA8Fv
+  - vfunc_25__17TOTrapChainSawKeyFv
+  - vfunc_25__18TOTrapChainSawEdgeFv
+  - vfunc_25__20TOTrapChainSawDamageFv
+  - vfunc_26__20TOTrapChainSawDamageFv
+  - vfunc_27__17TOTrapChainSawKeyFv
+  - vfunc_27__20TOTrapChainSawDamageFv
   - vfunc_28__13TObjEneBm3FlyFv
   - vfunc_28__13TObjEneRe4BitFv
   - vfunc_28__14TObjEneBm5WolfFv
   - vfunc_28__17TObjEneBm3FlyNestFv
   - vfunc_28__18TObjEneRe4SorcererFv
   - vfunc_28__19TObjEneEpsilonGuardFv
+  - vfunc_28__20TOTrapChainSawDamageFv
   - vfunc_44__11TItemObjectFv
   - vfunc_44__12TItemProUnitFv
   - vfunc_44__13TUnk_8049F770Fv
@@ -8327,6 +8347,7 @@ force_active:
   - vfunc_58__18TObjEneBalClawClawFv
   - vfunc_59__14TObjEneDolmOlmFv
   - vfunc_59__15TObjEneMe1GiGueFv
+  - vfunc_60__14TObjEneDolmOlmFv
   - vfunc_60__15TObjEneMe1GiGueFv
   - vfunc_61__13TObjEneBm3FlyFv
   - vfunc_61__13TObjEneRe4BitFv
@@ -8349,6 +8370,7 @@ force_active:
   - vfunc_63__17TObjEneBm3FlyNestFv
   - vfunc_63__18TObjEneRe4SorcererFv
   - vfunc_63__19TObjEneEpsilonGuardFv
+  - vfunc_67__14TOTrapSeabed01Fv
   - vfunc_6__14TOTrapSeabed01FPsl
   - vfunc_6__18TItemEffNeedleBaseFv
   - vfunc_6__20TContainerAncient01RFPsl

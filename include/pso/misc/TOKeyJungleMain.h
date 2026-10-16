@@ -6,6 +6,7 @@
 
 struct TOKeyJungleMain : public TOKey {
     virtual ~TOKeyJungleMain();
+    virtual void update_lock_state();
     virtual void vfunc_16();
     virtual void vfunc_17();
     virtual void send_switch_on();

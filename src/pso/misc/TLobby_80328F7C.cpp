@@ -309,7 +309,7 @@ extern "C" {
 void *TLobby__sub_80329310(void *arg0, s16 arg1);
 void update_photon_chair__6TLobbyFv(void);
 void update_photon_chairs__6TLobbyFv(void);
-s32 TLobby__sub_802A7AF8(void *, s32);
+s32 vfunc_3__13TUnk_804DDD28Fs(void *, s32);
 s32 load_resources__15TPlyPhotonChairFv();
 
 int clear_flag_at_6c84__6TLobbyFv(void);
@@ -333,7 +333,7 @@ extern s32 lbl_804ED7D0[];
 void *TLobby__sub_80329310(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 8) = lbl_804ED7D0;
-        TLobby__sub_802A7AF8(arg0, 0);
+        vfunc_3__13TUnk_804DDD28Fs(arg0, 0);
         if (arg1 > 0) {
             free__10TObjPlayerFPv(arg0);
         }

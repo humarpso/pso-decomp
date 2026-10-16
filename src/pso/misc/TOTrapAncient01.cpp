@@ -296,7 +296,7 @@ struct Trap_80179B8C : VObj_80179B8C {
 };
 
 extern "C" {
-void set_triggered_state__6TOTrapFPvUi(void *, void *, f32);
+void receive_physical_attack__6TOTrapFPvf(void *, void *, f32);
 void receive_physical_attack__15TOTrapAncient01FPvf(void *arg0, void *arg1, f32 farg0);
 u16 obj_getField1c(void *);
 s32 obj_clear_flag30_20000(int);
@@ -348,7 +348,7 @@ extern s32 lbl_805D3530;
 extern const f32 lbl_805DBA48;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA54;
-void TOTrapAncient01__vt80(Trap_801797D4 *self);
+void vfunc_82__15TOTrapAncient01Fv(Trap_801797D4 *self);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 void update_obstruction_fade(void *);
@@ -432,23 +432,23 @@ void TOTrapAncient01::release_trapped_player() {
 
 f32 TOTrapAncient01::receive_physical_attack(void *arg1, f32 farg0) {
     ((TOTrapAncient01 *)this)->release_trapped_player();
-    set_triggered_state__6TOTrapFPvUi(this, arg1, farg0);
+    receive_physical_attack__6TOTrapFPvf(this, arg1, farg0);
 }
 
 void TOTrapAncient01::vfunc_84() {  }
 
 extern void *tl_05;
 
-void TOTrapAncient01__vt80(Trap_801797D4 *self) {
+void TOTrapAncient01::vfunc_82() {
     s32 i;
     VObj_801797D4 *p;
-    ((TObjPlayer *)self)->calc_attach_pos();
-    self->f354 -= lbl_805DBA48;
-    if (self->f354 < TOTrapAncient01__data_805DBA4C) {
-        self->fA4->fC = lbl_805DBA54;
-        set_indexed_flags(self, 0, 0x100);
+    ((TObjPlayer *)((Trap_801797D4 *)this))->calc_attach_pos();
+    ((Trap_801797D4 *)this)->f354 -= lbl_805DBA48;
+    if (((Trap_801797D4 *)this)->f354 < TOTrapAncient01__data_805DBA4C) {
+        ((Trap_801797D4 *)this)->fA4->fC = lbl_805DBA54;
+        set_indexed_flags(((Trap_801797D4 *)this), 0, 0x100);
         TObjPlayer::init_all_slots();
-        ((TObjPlayer *)self)->check_object_collisions();
+        ((TObjPlayer *)((Trap_801797D4 *)this))->check_object_collisions();
         for (i = 0; i < 16; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == 0) {
@@ -461,25 +461,25 @@ void TOTrapAncient01__vt80(Trap_801797D4 *self) {
                 break;
             }
             {
-            Pair_801797D4 v = self->f344;
-            p->m21(self, &v, 0, -1, -1);
+            Pair_801797D4 v = ((Trap_801797D4 *)this)->f344;
+            p->m21(((Trap_801797D4 *)this), &v, 0, -1, -1);
             }
-            if (self->f344.a < 5) {
-                p->m23(self, TOTrapAncient01__data_805DBA4C);
+            if (((Trap_801797D4 *)this)->f344.a < 5) {
+                p->m23(((Trap_801797D4 *)this), TOTrapAncient01__data_805DBA4C);
             }
         }
-        self->m20(self->f2A8, lbl_805DBA48);
+        ((Trap_801797D4 *)this)->m20(((Trap_801797D4 *)this)->f2A8, lbl_805DBA48);
     }
-    submit_cursor_candidate(self, -1);
+    submit_cursor_candidate(((Trap_801797D4 *)this), -1);
     switch (TOKeyMachine01::get_global_state()) {
     case 8:
     case 9:
     case 10:
-        play_persistent_sound(0x4004C618, self, (u8 *)self + 0x38, 0, 0);
+        play_persistent_sound(0x4004C618, ((Trap_801797D4 *)this), (u8 *)((Trap_801797D4 *)this) + 0x38, 0, 0);
         break;
     case 21:
     case 22:
-        play_persistent_sound(0x4004C610, self, (u8 *)self + 0x38, 0, 0);
+        play_persistent_sound(0x4004C610, ((Trap_801797D4 *)this), (u8 *)((Trap_801797D4 *)this) + 0x38, 0, 0);
         break;
     case 0:
         return;

@@ -99,7 +99,7 @@ void spawn_weapon_impact_effect(void);
 void create_shoot_model_rot_z(void);
 void create_gun_shot(void);
 extern const f32 lbl_805DAFC8;
-void twin_psychogun_marker(Self_8012FB08 *self);
+void emit_marker_effects__13TUnk_804A66D8Fv(Self_8012FB08 *self);
 }
 
 extern "C" {
@@ -122,25 +122,25 @@ u8 *create_effect_object__10TObjPlayerFi(s32 arg0) {
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
 
-void twin_psychogun_marker(Self_8012FB08 *self) {
+void TUnk_804A66D8::emit_marker_effects() {
     u8 *p;
     s32 i;
-    if (((TObjPlayer *)self)->is_mode_two_and_ready() != 0) {
-        p = self->owner + 0x7CC;
+    if (((TObjPlayer *)((Self_8012FB08 *)this))->is_mode_two_and_ready() != 0) {
+        p = ((Self_8012FB08 *)this)->owner + 0x7CC;
         for (i = 0; i != 2; i++) {
             increment_burst_counter(p);
         }
-        self->f1F0 = (void *)create_shoot_model_rot_z;
-        self->f1EC = (void *)spawn_weapon_impact_effect;
-        launch_rare_weapon_special__10TObjPlayerFv(self, self->f1F8, 1, lbl_805DAFC8);
-        launch_rare_weapon_special__10TObjPlayerFv(self, self->f204, 0, lbl_805DAFC8);
+        ((Self_8012FB08 *)this)->f1F0 = (void *)create_shoot_model_rot_z;
+        ((Self_8012FB08 *)this)->f1EC = (void *)spawn_weapon_impact_effect;
+        launch_rare_weapon_special__10TObjPlayerFv(((Self_8012FB08 *)this), ((Self_8012FB08 *)this)->f1F8, 1, lbl_805DAFC8);
+        launch_rare_weapon_special__10TObjPlayerFv(((Self_8012FB08 *)this), ((Self_8012FB08 *)this)->f204, 0, lbl_805DAFC8);
     } else {
-        self->f1F0 = (void *)create_gun_shot;
-        self->f1EC = (void *)spawn_weapon_impact_effect;
-        if (self->m49(self->f1F8, 0, 0, 1) != 0) {
-            self->m49(self->f204, 0, 0, 0);
+        ((Self_8012FB08 *)this)->f1F0 = (void *)create_gun_shot;
+        ((Self_8012FB08 *)this)->f1EC = (void *)spawn_weapon_impact_effect;
+        if (((Self_8012FB08 *)this)->m49(((Self_8012FB08 *)this)->f1F8, 0, 0, 1) != 0) {
+            ((Self_8012FB08 *)this)->m49(((Self_8012FB08 *)this)->f204, 0, 0, 0);
         } else {
-            self->m49(self->f204, 0, 0, 1);
+            ((Self_8012FB08 *)this)->m49(((Self_8012FB08 *)this)->f204, 0, 0, 1);
         }
     }
 }

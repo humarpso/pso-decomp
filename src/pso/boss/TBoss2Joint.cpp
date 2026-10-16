@@ -367,7 +367,7 @@ void apply_movement_ailment__11TBoss2JointFl(void);
 void apply_shock_status__11TBoss2JointFv(void);
 void clear_harmful_statuses__11TBoss2JointFv(void);
 void vfunc_61__11TBoss2JointFv(void);
-void TBoss2Joint__vt60(u8 *arg0);
+void vfunc_62__11TBoss2JointFv(u8 *arg0);
 void vfunc_63__11TBoss2JointFv(void* p);
 void vfunc_93__11TBoss2JointFv(void *arg0);
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
@@ -496,9 +496,9 @@ void TBoss2Joint::vfunc_61() {  }
 extern const f32 lbl_805D8484;
 extern const f32 lbl_805D8488;
 
-void TBoss2Joint__vt60(u8 *arg0) {
+void TBoss2Joint::vfunc_62() {
     s32 temp_r31;
-    struct TBJ_8003688C *self = (struct TBJ_8003688C *)arg0;
+    struct TBJ_8003688C *self = (struct TBJ_8003688C *)((u8 *)this);
 
     temp_r31 = *(s16 *)((s8 *)self + 0x2B8) - *(s16 *)((s8 *)self + 0x32C);
     if (!(*(s32 *)((s8 *)self + 0x38C) & 1)) {
@@ -509,11 +509,11 @@ void TBoss2Joint__vt60(u8 *arg0) {
             ((VTbj_8003688C *)self)->m102();
         }
     } else {
-        spawn_offset_particle__13TBoss2DeRolLeFiff(arg0 + 0x38, lbl_805D8484, lbl_805D8488);
+        spawn_offset_particle__13TBoss2DeRolLeFiff(((u8 *)this) + 0x38, lbl_805D8484, lbl_805D8488);
         apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(*(s32 *)((s8 *)self + 0x10), temp_r31, *(u16 *)((s8 *)self + 0x2D4));
     }
     *(s16 *)((s8 *)self + 0x32C) = (s16) *(s16 *)((s8 *)self + 0x2B8);
-    clear_attack_receipts(arg0);
+    clear_attack_receipts(((u8 *)this));
 }
 
 void TBoss2Joint::vfunc_63() { *(u32*)((char*)this + 0x30) &= 0xfffff7ff; }

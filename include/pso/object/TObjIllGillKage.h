@@ -6,12 +6,13 @@
 
 struct TObjIllGillKage : public TUnk_804B9870 {
     virtual ~TObjIllGillKage();
+    virtual void render();
+    virtual void run_task();
     u32 m_90;
     u32 m_94;
     u16 m_98;
     int queue_destruction();
     void attack_target();
-    static void render();
     u8 unk_9A[0x2];
 };
 

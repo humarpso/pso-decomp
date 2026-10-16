@@ -6,6 +6,7 @@
 
 struct TObjEneDolmOlm : public TUnk_80493450 {
     virtual ~TObjEneDolmOlm();
+    virtual void vfunc_60();
     virtual void vfunc_58();
     virtual void vfunc_59();
     virtual void vfunc_83();

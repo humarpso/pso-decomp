@@ -292,9 +292,9 @@ void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(s32);
-void draw_weapon_parts__10TObjPlayerFPv(u8 *arg0);
+void reserved_53__13TUnk_804E21F8Fv(u8 *arg0);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
-void fire_shots_spread__10TObjPlayerFPv(Pl_802D564C *arg0);
+void emit_marker_effects__13TUnk_804E21F8Fv(Pl_802D564C *arg0);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 rotate_matrix_about_axis(int, void *, int);
@@ -335,39 +335,39 @@ void spawn_item_from_arg__10TObjPlayerFii(s32 arg0, s32 arg1) {
     spawn_item__10TObjPlayerFi((void *) (arg1));
 }
 
-void fire_shots_spread__10TObjPlayerFPv(Pl_802D564C *arg0) {
+void TUnk_804E21F8::emit_marker_effects() {
     Ent_802D564C *p;
     s32 v;
     s32 step;
     s32 n;
     s32 cnt;
-    p = arg0->arr;
-    cnt = arg0->f24A;
+    p = ((Pl_802D564C *)this)->arr;
+    cnt = ((Pl_802D564C *)this)->f24A;
     n = cnt;
-    v = arg0->f250 - arg0->f0F0->f60;
+    v = ((Pl_802D564C *)this)->f250 - ((Pl_802D564C *)this)->f0F0->f60;
     step = 0x10000 / cnt;
     while (n != 0) {
-        fire_shot_at_target__11TItemWeaponFv(arg0, p++, arg0->f0F4, v);
+        fire_shot_at_target__11TItemWeaponFv(((Pl_802D564C *)this), p++, ((Pl_802D564C *)this)->f0F4, v);
         v += step;
         n--;
     }
-    arg0->m60((u8 *)arg0->f0F0 + 0x2FC);
-    arg0->f24A = 0;
-    arg0->f248 = 0x87;
+    ((Pl_802D564C *)this)->m60((u8 *)((Pl_802D564C *)this)->f0F0 + 0x2FC);
+    ((Pl_802D564C *)this)->f24A = 0;
+    ((Pl_802D564C *)this)->f248 = 0x87;
 }
 
-void draw_weapon_parts__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804E21F8::reserved_53() {
     E_802D56F0 *p;
     s32 n;
     draw_weapon_model();
-    if (get_flag_40__8TItemMagFv(arg0) == 0) {
-        n = *(s16 *)(arg0 + 0x24A);
-        p = ((S_802D56F0 *)arg0)->e;
+    if (get_flag_40__8TItemMagFv(((u8 *)this)) == 0) {
+        n = *(s16 *)(((u8 *)this) + 0x24A);
+        p = ((S_802D56F0 *)((u8 *)this))->e;
         while (n != 0) {
             push_matrix();
             post_translate_matrix(p++);
             rotate_matrix_x(0, -0x4000);
-            draw_ginja_object(((S_802D56F0 *)arg0)->fF4);
+            draw_ginja_object(((S_802D56F0 *)((u8 *)this))->fF4);
             pop_matrix();
             n--;
         }
