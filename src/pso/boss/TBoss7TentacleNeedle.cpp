@@ -199,19 +199,19 @@ extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
 
 void TBoss7Tentacle::restart_particle_effect() {
     u8 *arg0 = (u8 *)this;
-  s32 temp_r31;
+  s32 particle_effect;
   s32 temp_r3;
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0x40)))) != 0U)
   {
     queue_destruction__7TObjectFv((void*)(*((void **) (((s8 *) arg0) + 0x40))));
     *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
   }
-  temp_r31 = spawn_particle_effect((void *) (arg0 + 0x1C), (int) 0x215);
-  temp_r3 = temp_r31;
+  particle_effect = spawn_particle_effect((void *) (arg0 + 0x1C), (int) 0x215);
+  temp_r3 = particle_effect;
   if (temp_r3 != 0)
   {
-    temp_r31 = TObjPlayer__sub_802E80A0();
-    attach_particle_model((int) temp_r3, (int) queue_boss_effect__10TObjPlayerFPv((int) 4), (int) temp_r31, (int) 0, (int) 0, (f32) (*(f32 *)&TBoss7Tentacle__data_805DEC00));
+    particle_effect = TObjPlayer__sub_802E80A0();
+    attach_particle_model((int) temp_r3, (int) queue_boss_effect__10TObjPlayerFPv((int) 4), (int) particle_effect, (int) 0, (int) 0, (f32) (*(f32 *)&TBoss7Tentacle__data_805DEC00));
   }
   play_sound_effect((int) 0x3A809, (void *) (arg0 + 0x1C), (int) 0, (int) 0);
 }

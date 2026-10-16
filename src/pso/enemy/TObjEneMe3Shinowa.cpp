@@ -3419,7 +3419,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5F64(u8 *arg0, s32 arg1) {
     Vec_800E5F64 v;
     f32 d;
     s32 var_r4;
-    s32 temp_r3_4;
+    s32 entry;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 5;
@@ -3523,13 +3523,13 @@ void TObjEneMe3ShinowaMirage__sub_800E5F64(u8 *arg0, s32 arg1) {
             break;
         }
         if (*(s32 *)((s8 *)arg0 + 0x404) != 0) {
-            temp_r3_4 = TObjPlayer::lookup_entry_by_value((void *)TObjEneMe3ShinowaMirage__data_805D52AC, *(f32 *)((s8 *)arg0 + 0xC0));
-            if (temp_r3_4 != 0) {
+            entry = TObjPlayer::lookup_entry_by_value((void *)TObjEneMe3ShinowaMirage__data_805D52AC, *(f32 *)((s8 *)arg0 + 0xC0));
+            if (entry != 0) {
                 push_matrix();
                 set_matrix_identity(0);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-                mult_vec_array__10TObjPlayerFUll(0, temp_r3_4, &sp14, 2);
+                mult_vec_array__10TObjPlayerFUll(0, entry, &sp14, 2);
                 pop_matrix();
                 ((VObj_18_2add4a *)*(u8 **)((s8 *)arg0 + 0x3E0))->m4((s32 *)&sp14, (s32 *)&sp20);
             }
@@ -3802,58 +3802,58 @@ void TObjEneMe3Shinowa::action(s32 arg1) {
     }
 }
 
-void dispatch_action__23TObjEneMe3ShinowaMirageFPvUii(Obj_800E6DD8 *arg0, u32 arg1, s32 arg2) {
+void dispatch_action__23TObjEneMe3ShinowaMirageFPvUii(Obj_800E6DD8 *arg0_, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        arg0->v111(arg2);
+        arg0_->v111(arg2);
         return;
     case 1:
-        ((TObjEneMe3Shinowa *)arg0)->sub_800E6BB8(arg2);
+        ((TObjEneMe3Shinowa *)arg0_)->sub_800E6BB8(arg2);
         return;
     case 2:
-        TObjEneMe3ShinowaMirage__sub_800E69F0((u8 *)(arg0), (s32)(arg2));
+        TObjEneMe3ShinowaMirage__sub_800E69F0((u8 *)(arg0_), (s32)(arg2));
         return;
     case 3:
-        TObjEneMe3ShinowaMirage__sub_800E66FC((u8 *)arg0, arg2);
+        TObjEneMe3ShinowaMirage__sub_800E66FC((u8 *)arg0_, arg2);
         return;
     case 4:
-        ((TObjEneMe3ShinowaMirage *)arg0)->state_chase_target((s32)(arg2));
+        ((TObjEneMe3ShinowaMirage *)arg0_)->state_chase_target((s32)(arg2));
         return;
     case 5:
-        TObjEneMe3ShinowaMirage__sub_800E5F64((u8 *)(arg0), (s32)(arg2));
+        TObjEneMe3ShinowaMirage__sub_800E5F64((u8 *)(arg0_), (s32)(arg2));
         return;
     case 6:
-        TObjEneMe3ShinowaMirage__sub_800E5CE4((u8 *)(arg0), (s32)(arg2));
+        TObjEneMe3ShinowaMirage__sub_800E5CE4((u8 *)(arg0_), (s32)(arg2));
         return;
     case 7:
-        TObjEneMe3ShinowaReal__sub_800E5950((u8 *)(arg0), (s32)(arg2));
+        TObjEneMe3ShinowaReal__sub_800E5950((u8 *)(arg0_), (s32)(arg2));
         return;
     case 8:
-        TObjEneMe3ShinowaMirage__sub_800E54E8(arg0, arg2);
+        TObjEneMe3ShinowaMirage__sub_800E54E8(arg0_, arg2);
         return;
     case 11:
-        TObjEneMe3ShinowaMirage__sub_800E5220(arg0, arg2);
+        TObjEneMe3ShinowaMirage__sub_800E5220(arg0_, arg2);
         return;
     case 9:
-        TObjEneMe3ShinowaMirage__sub_800E50D8((u8 *) arg0, arg2);
+        TObjEneMe3ShinowaMirage__sub_800E50D8((u8 *) arg0_, arg2);
         return;
     case 10:
-        ((TObjEneMe3ShinowaMirage *)arg0)->state_cast_support(arg2);
+        ((TObjEneMe3ShinowaMirage *)arg0_)->state_cast_support(arg2);
         return;
     case 12:
-        TObjEneMe3ShinowaMirage__sub_800E4FE8((u8 *)(arg0), (s32)(arg2));
+        TObjEneMe3ShinowaMirage__sub_800E4FE8((u8 *)(arg0_), (s32)(arg2));
         return;
     case 13:
-        ((TObjEneMe3ShinowaMirage *)arg0)->state_break_apart((s32)(arg2));
+        ((TObjEneMe3ShinowaMirage *)arg0_)->state_break_apart((s32)(arg2));
         return;
     case 14:
-        arg0->v112(arg2);
+        arg0_->v112(arg2);
         return;
     case 15:
-        arg0->v113(arg2);
+        arg0_->v113(arg2);
         return;
     case 16:
-        arg0->v114(arg2);
+        arg0_->v114(arg2);
     default:
         return;
     }
@@ -3909,7 +3909,7 @@ void TObjEneMe3ShinowaMirage::update_by_distance() {
 void TObjEneMe3Shinowa::apply_effect_pair() {
     u8 *arg0 = (u8 *)this;
     s32 sp8[8];
-    u32 temp_r3;
+    u32 entry;
     u32 temp_r3_3;
     u8 *temp_r3_2;
     u8 *temp_r3_4;
@@ -3918,9 +3918,9 @@ void TObjEneMe3Shinowa::apply_effect_pair() {
     set_matrix_identity((int) (0));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    temp_r3 = TObjPlayer::lookup_entry_by_value((void *) (TObjEneMe3ShinowaMirage__data_805D52A4), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
-    if (temp_r3 != 0U) {
-        mult_vec_array__10TObjPlayerFUll((int) (0), (int) (temp_r3), (void *) (&sp8), (int) (2));
+    entry = TObjPlayer::lookup_entry_by_value((void *) (TObjEneMe3ShinowaMirage__data_805D52A4), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    if (entry != 0U) {
+        mult_vec_array__10TObjPlayerFUll((int) (0), (int) (entry), (void *) (&sp8), (int) (2));
         temp_r3_2 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x3E0));
         ((VObj18b_800e70d4_800E47DC *) temp_r3_2)->m4(&sp8, &sp8[3]);
     }

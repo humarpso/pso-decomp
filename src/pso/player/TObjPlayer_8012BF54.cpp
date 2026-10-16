@@ -13,10 +13,10 @@ void TObjPlayer::init_positions() { TObjPlayer::add_angle_clamped((s32 *)((char*
 void TUnk_804A5150::update_attack() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)1820), (s32)((void*)0)); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1fc), (s32)((void*)1820), (s32)((void*)0)); }
 
 void TObjPlayer::apply_conveyor_move() {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 1:
         rotate_matrix_z(0, -this->m_1fc);
         return;

@@ -267,16 +267,16 @@ void copy_pos__13TBoss6MagMineFi(s32 arg0) {
 
 void TUnk_804F322C::update_linked_state() {
     s32 temp_r31;
-    s32 temp_r31_2;
-    s32 temp_r30;
+    s32 bml_motion;
+    s32 bml_model;
 
     TObjPlayer::set_global_flag();
     temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)this + 0x374), 2);
-    temp_r30 = get_bml_model(*(s32 *)((s8 *)this + 0x374), 2);
-    temp_r31_2 = get_bml_motion(*(s32 *)((s8 *)this + 0x374), 0);
+    bml_model = get_bml_model(*(s32 *)((s8 *)this + 0x374), 2);
+    bml_motion = get_bml_motion(*(s32 *)((s8 *)this + 0x374), 0);
     TObjFish::set_global_param(temp_r31);
     TBoss6PlotFalz__sub_802AC008(*(f32 *)((s8 *)this + 0x3A8), 0.0f);
-    draw_model_motion(temp_r30, temp_r31_2, *(f32 *)((s8 *)this + 0x398));
+    draw_model_motion(bml_model, bml_motion, *(f32 *)((s8 *)this + 0x398));
     TBoss6PlotFalz::update_camera_target();
     TObjPlayer::clear_global_state();
 }
@@ -379,19 +379,19 @@ extern s32 lbl_804F322C[];
 
 #pragma push
 #pragma opt_common_subs off
-void vt2__13TBoss6MagMineFv(u8 *arg0) {
+void vt2__13TBoss6MagMineFv(u8 *arg0_) {
     f32 temp_f1;
-    if (is_player_in_range__13TBoss6MagMineFPv((void *)((void *) (arg0))) != 0) {
-        *(s32 *)((s8 *)arg0 + 0x394) = 0x96;
+    if (is_player_in_range__13TBoss6MagMineFPv((void *)((void *) (arg0_))) != 0) {
+        *(s32 *)((s8 *)arg0_ + 0x394) = 0x96;
     }
-    *(f32 *)((s8 *)arg0 + 0x398) += 0.33333334f;
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x398);
+    *(f32 *)((s8 *)arg0_ + 0x398) += 0.33333334f;
+    temp_f1 = *(f32 *)((s8 *)arg0_ + 0x398);
     if (temp_f1 >= 10.0f) {
-        *(f32 *)((s8 *)arg0 + 0x398) = (f32) (temp_f1 - 10.0f);
+        *(f32 *)((s8 *)arg0_ + 0x398) = (f32) (temp_f1 - 10.0f);
     }
-    *(s32 *)((s8 *)arg0 + 0x394) = (s32) (*(s32 *)((s8 *)arg0 + 0x394) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x394) >= 0x96) {
-        *(s32 *)((s8 *)arg0 + 0x390) = 3;
+    *(s32 *)((s8 *)arg0_ + 0x394) = (s32) (*(s32 *)((s8 *)arg0_ + 0x394) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0_ + 0x394) >= 0x96) {
+        *(s32 *)((s8 *)arg0_ + 0x390) = 3;
     }
 }
 #pragma pop
@@ -530,10 +530,10 @@ extern s32 tl_04;
 #pragma push
 #pragma opt_common_subs off
 #define self ((u8 *)arg0)
-s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
+s32 TBoss6MagMine__ct(s32 arg0, s32 parent, s32 arg2) {
     Key_80369228 key;
     u8 *d;
-    ((TObjEnemy *)self)->initialize((void*)arg1);
+    ((TObjEnemy *)self)->initialize((void*)parent);
     *(s32 **)((s8 *)self + 0x18) = lbl_804F322C;
     *(s32 *)((s8 *)self + 0) = lbl_805D44B0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x40);

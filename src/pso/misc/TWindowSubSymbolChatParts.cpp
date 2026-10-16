@@ -166,22 +166,22 @@ void fn_80284C04(u8 *arg0) {
 #pragma pop
 
 void select_symbol_chat_slot(void) {
-    s32 var_r31;
-    s32 temp_r30;
+    s32 j;
+    s32 i;
     s32 temp_r3;
     struct TWSC *temp_r29;
-    temp_r30 = ((s32 (*)(void))calc_symbol_index__25TWindowSubSymbolChatPartsFv)();
+    i = ((s32 (*)(void))calc_symbol_index__25TWindowSubSymbolChatPartsFv)();
     temp_r29 = get_instance__20TWindowSubSymbolChatFv();
     temp_r3 = TWindowSubSymbolChat::calc_remaining_slots();
-    if (temp_r3 > temp_r30) {
-        ((TWindowSubSymbolChat *)temp_r29)->remove_slot_shift_down(temp_r30);
+    if (temp_r3 > i) {
+        ((TWindowSubSymbolChat *)temp_r29)->remove_slot_shift_down(i);
         return;
     }
-    temp_r30 -= temp_r3;
-    for (var_r31 = 0; var_r31 < 4; var_r31 += 1) {
-        if (TWindowSubSymbolChat__sub_800771C4(temp_r29, var_r31) != 0) {
-            if (temp_r30-- <= 0) {
-                TWindowSubSymbolChat__sub_800771B0(temp_r29, var_r31);
+    i -= temp_r3;
+    for (j = 0; j < 4; j += 1) {
+        if (TWindowSubSymbolChat__sub_800771C4(temp_r29, j) != 0) {
+            if (i-- <= 0) {
+                TWindowSubSymbolChat__sub_800771B0(temp_r29, j);
                 return;
             }
         }
@@ -298,7 +298,7 @@ void TWindowSubSymbolChatParts::sub_80285274(u8 *arg1) {
 
 #pragma push
 #pragma fp_contract on
-void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1) {
+void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *ctx) {
     s32 i;
     s32 j;
     f32 *e0;
@@ -314,9 +314,9 @@ void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1) {
     h = lbl_805DD7F8;
     for (i = 0; i < arg0->count; row++) {
         off = lbl_805DD7D4 * (f32)row;
-        y = arg1->y;
+        y = ctx->y;
         y = y + off;
-        if (h + y < arg1->top || y > arg1->bottom) {
+        if (h + y < ctx->top || y > ctx->bottom) {
             i += 4;
         } else {
             x = lbl_805DD7DC + off;
@@ -327,7 +327,7 @@ void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1) {
                 e1[2] = lbl_805DD7D8 + e0[2];
                 e1[3] = lbl_805DD7D8 + e0[3];
                 TWindowSubSymbolChatPartsSet::set_part_sprite(e1, (s16)i, *arg0->p7C, *arg0->p80);
-                draw_visible_window_entries(arg0, arg0->sub, arg1);
+                draw_visible_window_entries(arg0, arg0->sub, ctx);
             }
         }
     }

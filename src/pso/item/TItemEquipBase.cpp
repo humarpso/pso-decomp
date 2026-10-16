@@ -927,10 +927,10 @@ void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TItemEquipBase__ct(u8 *arg0, s32 parent, s32 item) {
     s32 temp_r3;
     s32 var_r0;
-    TItem__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    TItem__ct((void *) (arg0), (void *) (parent), (void *) (item));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8010B684___vt__14TItemEquipBase *)&__vt__14TItemEquipBase).value;
     ((TObjPlayer *)(arg0 + 0x178))->init_forward();
     *(s32 *)((s8 *)arg0 + 0) = (s32) item_equip_base_class_name;

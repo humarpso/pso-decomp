@@ -33,12 +33,12 @@ s32 TWindowKeyBoardHard::test_card_flag(s32 arg1, s32 arg2) {
 }
 
 void TWindowKeyBoardHard::set_card_window_flags(void *arg0, s32 arg1, s32 arg2) {
-    void *temp_r3;
+    void *character_save_record;
 
-    temp_r3 = get_character_save_record();
-    if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)temp_r3 + 0x10) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x10) & arg2);
-        *(s32 *)((s8 *)temp_r3 + 0x10) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x10) | arg1);
+    character_save_record = get_character_save_record();
+    if (character_save_record != NULL) {
+        *(s32 *)((s8 *)character_save_record + 0x10) = (s32) (*(s32 *)((s8 *)character_save_record + 0x10) & arg2);
+        *(s32 *)((s8 *)character_save_record + 0x10) = (s32) (*(s32 *)((s8 *)character_save_record + 0x10) | arg1);
     }
 }
 

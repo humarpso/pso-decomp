@@ -471,11 +471,11 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
     f32 sp8[3];
     f32 temp_f31;
     s32 temp_r3_2;
-    u32 temp_r3;
+    u32 player;
     if (is_inactive() != 0) {
-        temp_r3 = get_player_by_client_id((void *) (get_target_id__11TMainCursorFv((void *) (this))));
-        if (temp_r3 != 0U) {
-            temp_r3_2 = check_visible__11TMainCursorFv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (arg2), (void *) (arg3));
+        player = get_player_by_client_id((void *) (get_target_id__11TMainCursorFv((void *) (this))));
+        if (player != 0U) {
+            temp_r3_2 = check_visible__11TMainCursorFv((void *) (player + 0x500), (int) (player), (void *) (arg2), (void *) (arg3));
             if (temp_r3_2 != -1) {
                 TObjFish::set_global_param((s32)((void *) (&shared_effect_texture_list)));
                 temp_f31 = *(f32 *)((s8 *)arg1 + 0xC);

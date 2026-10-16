@@ -136,9 +136,9 @@ void TObjPlayer__sub_803DA7E0(void) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803DA808(void *arg0, s32 arg1, void *arg2) {
+void TObjPlayer__sub_803DA808(void *buf, s32 arg1, void *arg2) {
     move_data__6TLobbyFPCvUl();
-    DCFlushRange(arg0, arg2);
+    DCFlushRange(buf, arg2);
 }
 
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -275,7 +275,7 @@ void TObjPlayer__sub_803DAC1C(s32 arg0) {
 #pragma push
 #pragma optimize_for_size on
 #pragma use_lmw_stmw off
-s32 TObjPlayer__sub_803DAC48(Obj_803DAB7C *arg0, s32 arg1, u32 arg2, u32 arg3, s32 *arg4, s32 *arg5) {
+s32 TObjPlayer__sub_803DAC48(Obj_803DAB7C *arg0, s32 i, u32 arg2, u32 arg3, s32 *arg4, s32 *arg5) {
     switch (TObjPlayer__sub_803DA8E4(arg2, arg3, *arg4, arg5)) {
     case -1:
         return -1;
@@ -284,10 +284,10 @@ s32 TObjPlayer__sub_803DAC48(Obj_803DAB7C *arg0, s32 arg1, u32 arg2, u32 arg3, s
         if (*arg5 < 0) {
             return -1;
         }
-        TObjPlayer__sub_803DAB7C(arg0, arg1, *arg5);
+        TObjPlayer__sub_803DAB7C(arg0, i, *arg5);
         return 0;
     case 1:
-        TObjPlayer__sub_803DAB7C(arg0, arg1, *arg5);
+        TObjPlayer__sub_803DAB7C(arg0, i, *arg5);
         return 1;
     }
     return 0;
@@ -302,16 +302,16 @@ void TObjPlayer__sub_803DAD24(void) {
 #pragma scheduling off
 s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     s32 temp_r0;
-    s32 temp_r3;
+    s32 table_index;
     u8 *var_r3;
     u8 *var_r4;
-    temp_r3 = TObjPlayer::find_table_index_by_id(arg0);
-    if (temp_r3 < 0) {
+    table_index = TObjPlayer::find_table_index_by_id(arg0);
+    if (table_index < 0) {
         var_r3 = (u8 *)((void *)-1);
         return -1;
     }
     var_r4 = (u8 *)((*(u8 * *)&record_array_ptr));
-    var_r4 += temp_r3 * 0x18;
+    var_r4 += table_index * 0x18;
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0xC));
     temp_r0 = (long) (var_r3 + 4);
     var_r3 = (u8 *)(current_render_context);

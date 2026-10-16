@@ -176,7 +176,7 @@ s32 format_trade_out_of_range_message(s32 arg0) {
 extern s32 local_client_id;
 
 s32 TLobby::show_event_message(s32 arg0, s32 arg1, s32 arg2) {
-    void *temp_r3;
+    void *item;
 
     switch (arg1) {
     case 0:
@@ -191,8 +191,8 @@ s32 TLobby::show_event_message(s32 arg0, s32 arg1, s32 arg2) {
         text_builder_append();
         return get_shared_text_buffer();
     case 2:
-        temp_r3 = find_item_by_id(arg2);
-        if (temp_r3 == NULL) {
+        item = find_item_by_id(arg2);
+        if (item == NULL) {
             return 0;
         }
         text_builder_reset();
@@ -204,7 +204,7 @@ s32 TLobby::show_event_message(s32 arg0, s32 arg1, s32 arg2) {
             ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE8));
             text_builder_append();
         }
-        ((VObj_802D2E28_0x30_802D2B64 *)temp_r3)->vma();
+        ((VObj_802D2E28_0x30_802D2B64 *)item)->vma();
         text_builder_append();
         ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE9));
         text_builder_append();
@@ -444,11 +444,11 @@ void TLobby::send_trade_proposal_result(s8 arg0, s8 arg1) {
 
 void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
     G_ModifyTradeProposal_6xA6 packet;
-    u32 temp_r3;
+    u32 player;
     u8 *temp_r3_2;
     build_6xA6_modify_trade_proposal((void *) (&packet.header));
-    temp_r3 = get_player_by_client_id((void *) (local_client_id));
-    if ((temp_r3 != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFv(temp_r3), ((temp_r3_2 == NULL) == 0))) {
+    player = get_player_by_client_id((void *) (local_client_id));
+    if ((player != 0U) && (temp_r3_2 = get_quest_id__12TQuestListVMFv(player), ((temp_r3_2 == NULL) == 0))) {
         if ((s32) (*(u8 *)&TLobby__trade_partner_client_id) != 4) {
             TWindowTradeRequest::close_request_window();
             if ((s8) (*(u8 *)&TLobby__trade_partner_client_id) == arg0) {

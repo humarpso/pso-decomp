@@ -178,11 +178,11 @@ struct VObj80108B5C_80108b5c : VBase0x18_80108b5c {
 
 void*TUnk_8049F038::vfunc_9() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
+    u8 *player;
 
-    temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
-    if (temp_r3 != NULL) {
-        ((VObj80108B5C_80108b5c *)temp_r3)->m63(this->m_b0, arg0 + 0x38);
+    player = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
+    if (player != NULL) {
+        ((VObj80108B5C_80108b5c *)player)->m63(this->m_b0, arg0 + 0x38);
     }
     return arg0 + 0x38;
 }
@@ -257,11 +257,11 @@ struct VObj80108BB0_80108bb0 : VBase0x18_2_80108bb0 {
 
 void TUnk_8049F038::run_task() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
+    u8 *player;
 
-    temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
-    if (temp_r3 != NULL) {
-        ((VObj80108BB0_80108bb0 *)temp_r3)->m63(this->m_b0, arg0 + 0x38);
+    player = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
+    if (player != NULL) {
+        ((VObj80108BB0_80108bb0 *)player)->m63(this->m_b0, arg0 + 0x38);
     }
 }
 

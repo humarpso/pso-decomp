@@ -40,8 +40,8 @@ void TObjPlayer__sub_80124C90(u8 *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_80124C90(u8 *arg0) {
-    Me_80124C90 *me = (Me_80124C90 *)arg0;
+void TObjPlayer__sub_80124C90(u8 *owner) {
+    Me_80124C90 *me = (Me_80124C90 *)owner;
     void *ext;
     Vec_80124C90 *pos;
     void *e;
@@ -69,7 +69,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
     if (found == 0) {
         Vec_80124C90 off;
         push_matrix_from(identity_matrix);
-        f32 *r1 = get_weapon_range_record(arg0, 2);
+        f32 *r1 = get_weapon_range_record(owner, 2);
         off.x = off.y = 0.0f;
         off.z = *r1;
         rotate_matrix_y(0, me->pl->angle);
@@ -93,14 +93,14 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
             atk.b = 1;
             atk.id0 = obj_getField1c(me->pl);
             atk.id1 = obj_getField1c(t);
-            atk.d8 = ((TObjPlayer *)arg0)->get_field_d8();
+            atk.d8 = ((TObjPlayer *)owner)->get_field_d8();
             atk.idx = get_captured_target_collider_index(e2);
             atk.f = query_extended_state__10TObjPlayerFv(me->pl);
             spawn_item_attacker(tl_05, &me->pl->pos38, (s32)(xyz_distance(pos, &part->v) / me->scale), &atk);
         }
     }
     {
-        f32 *rec = get_weapon_range_record(arg0, 2);
+        f32 *rec = get_weapon_range_record(owner, 2);
         s32 ang = me->pl->angle;
         Vec_80124C90 o;
         Vec_80124C90 v;
@@ -116,7 +116,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
             if (hit != NULL) {
                 VecCopy__FP3VecPC3Vec(&o, hit->pos);
             }
-            create_lavis_shot(arg0, pos, &o, xyz_distance(pos, &o) / me->scale);
+            create_lavis_shot(owner, pos, &o, xyz_distance(pos, &o) / me->scale);
         }
     }
 }

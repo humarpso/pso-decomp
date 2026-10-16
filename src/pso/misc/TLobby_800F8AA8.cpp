@@ -844,14 +844,14 @@ extern s32 pending_file_read_flush_requested;
 
 void TLobby::flush_pending() {
     u32 temp_r5;
-    s32 temp_r4;
+    s32 count;
     if ((s32) pending_file_read_flush_requested != 0) {
         temp_r5 = pending_file_read_destination;
         pending_file_read_flush_requested = 0;
         if ((temp_r5 != 0U)) {
-            temp_r4 = pending_file_read_sector_count;
-            if (temp_r4 != 0) {
-                TLobby::read_checked_align(*pending_file_read_handle_ref, temp_r4, temp_r5);
+            count = pending_file_read_sector_count;
+            if (count != 0) {
+                TLobby::read_checked_align(*pending_file_read_handle_ref, count, temp_r5);
             }
         }
         TLobby::flush_checked_reads();

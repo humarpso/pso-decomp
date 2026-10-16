@@ -393,12 +393,12 @@ void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *arg1) {
+void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *weapon, Obj_80362DE8 *arg1) {
     u8 sp8[16];
     arg1->f4C = lbl_805E0260;
     arg1->i58 = 0xC000;
     arg1->flags |= 0x282;
-    get_weapon_color__11TItemWeaponFPv(sp8, arg0);
+    get_weapon_color__11TItemWeaponFPv(sp8, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
     arg1->fn74 = (void *)TObjPlayer::create_network_object;
     arg1->fn70 = (void *)TObjPlayer__sub_8032E648;

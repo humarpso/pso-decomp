@@ -227,11 +227,11 @@ extern u32 TScene__material_info_buffer;
 extern s32 scene_file_buffer_size;
 
 void TScene::load_floor_rel_file(s32 arg0) {
-    u8 sp8[0x20];
-    replace_file_extension__6TLobbyFPvPvPv((s32 *)sp8, arg0, (s32 *)lbl_8044A938);
-    if (((TScene *)sp8)->update_lobby_scene() <= TScene__loaded_floor_rel_file_index) {
+    u8 id[0x20];
+    replace_file_extension__6TLobbyFPvPvPv((s32 *)id, arg0, (s32 *)lbl_8044A938);
+    if (((TScene *)id)->update_lobby_scene() <= TScene__loaded_floor_rel_file_index) {
         if (TScene__supplementary_rel_buffer != 0U) {
-            TScene__texture_wave_resource = (u32)load_relocatable_file((s32 *)sp8, TScene__supplementary_rel_buffer);
+            TScene__texture_wave_resource = (u32)load_relocatable_file((s32 *)id, TScene__supplementary_rel_buffer);
         } else {
             TScene__texture_wave_resource = 0;
         }
@@ -251,13 +251,13 @@ void TScene::load_tam_file(s32 arg0) {
 }
 
 void load_scene_map_file(s32 arg0) {
-    u8 sp8[0x20];
+    u8 id[0x20];
     Ent_802066BC *e;
     TScene__data_805D5FCC = NULL;
     TScene__data_805D5FE8 = -1;
-    replace_file_extension__6TLobbyFPvPvPv((s32 *)sp8, arg0, (s32 *)lbl_8044A948);
-    if (((TScene *)sp8)->update_lobby_scene() <= TScene__map_rel_load_size_limit && TScene__map_rel_load_buffer != 0) {
-        TScene__data_805D5FCC = load_relocatable_file((s32 *)sp8, TScene__map_rel_load_buffer);
+    replace_file_extension__6TLobbyFPvPvPv((s32 *)id, arg0, (s32 *)lbl_8044A948);
+    if (((TScene *)id)->update_lobby_scene() <= TScene__map_rel_load_size_limit && TScene__map_rel_load_buffer != 0) {
+        TScene__data_805D5FCC = load_relocatable_file((s32 *)id, TScene__map_rel_load_buffer);
     }
     if (TScene__data_805D5FCC != NULL) {
         for (e = scene_format_dispatch_tables; e->name != NULL; e++) {
@@ -443,12 +443,12 @@ void TScene::load_floor_bin_file(s32 arg0) {
 
 void TScene::load_map_texture_archive(s32 arg0) {
     char sp8[0x20];
-    s32 temp_r31;
+    s32 global_state;
     s32 var_r30;
     u32 temp_r3;
     u32 temp_r3_2;
 
-    temp_r31 = TOKeyMachine01::get_global_state();
+    global_state = TOKeyMachine01::get_global_state();
     TScene__texture_animation_buffer = 0U;
     var_r30 = 0;
     lbl_805D6018 = 0;
@@ -460,7 +460,7 @@ void TScene::load_map_texture_archive(s32 arg0) {
         replace_file_extension__6TLobbyFPvPvPv((s32 *)(sp8), (s32)(arg0), (s32 *)(lbl_8044A940));
         var_r30 = ((TScene *)sp8)->update_lobby_scene();
     }
-    if (temp_r31 == 0xF) {
+    if (global_state == 0xF) {
         if ((var_r30 > 0) && ((u32) var_r30 <= 0x100U)) {
             temp_r3 = ((TQuestVmDownLoadServer *)0x100)->alloc();
             TScene__texture_animation_buffer = temp_r3;
@@ -486,24 +486,24 @@ extern u32 TScene__collision_file_buffer;
 extern s32 lbl_805D6014;
 
 void TScene::load_supplementary_t_rel(s32 arg0) {
-    u8 sp8[0x20];
+    u8 id[0x20];
     s32 n;
     TScene__texture_wave_resource = 0;
     TScene__supplementary_rel_buffer = 0U;
     TScene__loaded_floor_rel_file_index = 0;
-    replace_file_extension__6TLobbyFPvPvPv((s32 *)sp8, arg0, (s32 *)lbl_8044A938);
-    n = ((TScene *)sp8)->update_lobby_scene();
+    replace_file_extension__6TLobbyFPvPvPv((s32 *)id, arg0, (s32 *)lbl_8044A938);
+    n = ((TScene *)id)->update_lobby_scene();
     if (n > 0) {
         TScene__supplementary_rel_buffer = ((TQuestVmDownLoadServer *)n)->alloc();
         if (TScene__supplementary_rel_buffer != 0U) {
-            TScene__texture_wave_resource = (u32)load_relocatable_file((s32 *)sp8, TScene__supplementary_rel_buffer);
+            TScene__texture_wave_resource = (u32)load_relocatable_file((s32 *)id, TScene__supplementary_rel_buffer);
             TScene__loaded_floor_rel_file_index = n;
         }
     }
 }
 
 void TScene::load_scene_rel_file(s32 arg0) {
-    u8 sp8[0x28];
+    u8 id[0x28];
     s32 state;
     s32 size;
     state = TOKeyMachine01::get_global_state();
@@ -513,25 +513,25 @@ void TScene::load_scene_rel_file(s32 arg0) {
     TScene__map_rel_load_size_limit = 0;
     TScene__data_805D5FE8 = -1;
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        replace_file_extension__6TLobbyFPvPvPv((s32 *)sp8, arg0, (s32 *)lbl_8044A9AC);
-        size = ((TScene *)sp8)->update_lobby_scene();
+        replace_file_extension__6TLobbyFPvPvPv((s32 *)id, arg0, (s32 *)lbl_8044A9AC);
+        size = ((TScene *)id)->update_lobby_scene();
     }
     if (size <= 0) {
-        replace_file_extension__6TLobbyFPvPvPv((s32 *)sp8, arg0, (s32 *)lbl_8044A948);
-        size = ((TScene *)sp8)->update_lobby_scene();
+        replace_file_extension__6TLobbyFPvPvPv((s32 *)id, arg0, (s32 *)lbl_8044A948);
+        size = ((TScene *)id)->update_lobby_scene();
     }
     if (state == 0xF) {
         if (size > 0 && (u32)size <= 0x80000U) {
             TScene__map_rel_load_buffer = ((TQuestVmDownLoadServer *)0x80000)->alloc();
             if (TScene__map_rel_load_buffer != 0U) {
-                TScene__data_805D5FCC = load_relocatable_file((s32 *)sp8, TScene__map_rel_load_buffer);
+                TScene__data_805D5FCC = load_relocatable_file((s32 *)id, TScene__map_rel_load_buffer);
                 TScene__map_rel_load_size_limit = 0x80000;
             }
         }
     } else if (size > 0) {
         TScene__map_rel_load_buffer = ((TQuestVmDownLoadServer *)size)->alloc();
         if (TScene__map_rel_load_buffer != 0U) {
-            TScene__data_805D5FCC = load_relocatable_file((s32 *)sp8, TScene__map_rel_load_buffer);
+            TScene__data_805D5FCC = load_relocatable_file((s32 *)id, TScene__map_rel_load_buffer);
             TScene__map_rel_load_size_limit = size;
         }
     }

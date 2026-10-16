@@ -1131,7 +1131,7 @@ s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     s16 temp_r0_2;
     s16 temp_r0_3;
     s16 temp_r0_4;
-    s16 temp_r30;
+    s16 attack_params_atp_max;
     u8 *temp_r4;
     u8 *temp_r6;
 
@@ -1173,8 +1173,8 @@ block_14:
     temp_r0 = *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0);
     *(s16 *)((s8 *)arg0 + 0x2C8) = temp_r0;
     *(s16 *)((s8 *)arg0 + 0x2C0) = temp_r0;
-    temp_r30 = get_attack_params_atp_max(*(u8 **)((s8 *)arg0 + 0x318));
-    temp_r0_2 = temp_r30 - get_attack_params_atp_min(*(u8 **)((s8 *)arg0 + 0x318));
+    attack_params_atp_max = get_attack_params_atp_max(*(u8 **)((s8 *)arg0 + 0x318));
+    temp_r0_2 = attack_params_atp_max - get_attack_params_atp_min(*(u8 **)((s8 *)arg0 + 0x318));
     *(s16 *)((s8 *)arg0 + 0x2CA) = temp_r0_2;
     *(s16 *)((s8 *)arg0 + 0x2C2) = temp_r0_2;
     temp_r0_3 = *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 4) + *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 0);

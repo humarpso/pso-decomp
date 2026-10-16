@@ -224,10 +224,10 @@ u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 val
 }
 
 void TObjPlayer::apply_container_item() {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 1:
         rotate_matrix_x(0, *(s32 *)&this->unk_1F8);
         return;

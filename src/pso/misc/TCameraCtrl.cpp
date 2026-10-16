@@ -414,23 +414,23 @@ typedef char RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628_size[((sizeof(R
 void TCameraCtrl::update_active_controller() {
   s32 temp_r3;
   s32 var_r27;
-  s32 var_r29;
+  s32 camera_no;
   s32 *new_var;
   u8 *temp_r30;
   if (((u8) (*((u8 *) (((s8 *) (&(*(RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value)) + 0)))) != 0)
   {
-    var_r29 = 0;
+    camera_no = 0;
   }
   else
     if (is_split_screen() != 0)
   {
-    var_r29 = TCameraCtrl::get_camera_no();
+    camera_no = TCameraCtrl::get_camera_no();
   }
   else
   {
-    var_r29 = 0;
+    camera_no = 0;
   }
-  temp_r30 = (u8 *) (*((void **) (((s8 *) (((u8 *) (&(*(RecoveredGlobal_8006A7D8_camera_controller_registry *)&camera_controller_registry).value)) + (((*((u8 *) (((s8 *) (&(*(RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value)) + 0))) + var_r29) * 4))) + 0)));
+  temp_r30 = (u8 *) (*((void **) (((s8 *) (((u8 *) (&(*(RecoveredGlobal_8006A7D8_camera_controller_registry *)&camera_controller_registry).value)) + (((*((u8 *) (((s8 *) (&(*(RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value)) + 0))) + camera_no) * 4))) + 0)));
   if (temp_r30 != 0)
   {
     if (!((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value)) + 8))) & 0x800))
@@ -451,10 +451,10 @@ void TCameraCtrl::update_active_controller() {
     var_r27 = 0;
     if (is_split_screen() != 0)
     {
-      if ((((*new_var) & 0x20) || ((*new_var) & 0x800)) && (!((*new_var) & (0x1000 << var_r29))))
+      if ((((*new_var) & 0x20) || ((*new_var) & 0x800)) && (!((*new_var) & (0x1000 << camera_no))))
       {
         var_r27 = 1;
-        *new_var = (s32) ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value)) + 8))) & ((-0x1001) << var_r29));
+        *new_var = (s32) ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value)) + 8))) & ((-0x1001) << camera_no));
       }
     }
     else

@@ -21,11 +21,11 @@ void post_chat_log_message(u16 arg0, s32 *arg1);
 
 extern "C" {
 
-void post_chat_log_message(u16 arg0, s32 *arg1) {
+void post_chat_log_message(u16 arg0, s32 *shared_text_buffer) {
     s32 temp_r30;
     s32 *temp_r31;
     if ((s32) arg0 == (s32) local_client_id) {
-        cache_last_chat_line(arg1);
+        cache_last_chat_line(shared_text_buffer);
     }
     temp_r31 = get_active_photon_object__17TWindowMessageLogFv(arg0);
     text_builder_reset();
@@ -35,13 +35,13 @@ void post_chat_log_message(u16 arg0, s32 *arg1) {
         text_builder_append(&lbl_805DD250);
         append_text_space();
     }
-    text_builder_append(arg1);
-    arg1 = (s32 *) get_shared_text_buffer();
+    text_builder_append(shared_text_buffer);
+    shared_text_buffer = (s32 *) get_shared_text_buffer();
     chat_log_add_line();
     {
         u32 tmp_ad = TWindowCtrl::get_field44();
         if (tmp_ad != 0U) {
-            ((TWindowMessageLog *)tmp_ad)->append_line((s32) arg1);
+            ((TWindowMessageLog *)tmp_ad)->append_line((s32) shared_text_buffer);
         }
     }
 }

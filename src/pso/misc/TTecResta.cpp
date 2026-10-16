@@ -360,10 +360,10 @@ typedef char RecoveredGlobal_80239C48___vt__9TTecResta_size[sizeof(RecoveredGlob
 
 #pragma push
 #pragma opt_common_subs off
-void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+void *TTecResta__ct(void *arg0, void *owner, void *pos, void *arg3, void *level) {
     u32 src;
     u8 *p;
-    TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
+    TTecPlayerInfluence__ct(arg0, owner, pos, level);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecResta;
     ((TObjPlayer *)((u8 *)arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3810;
@@ -386,10 +386,10 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
 }
 #pragma pop
 
-u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TTecResta__sub_80239C48(u8 *arg0, s32 owner, s32 pos, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
-    TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
+    TTecPlayerInfluence__ct((void *) (arg0), (void *) (owner), (void *) (pos), (void *) (level));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80239C48___vt__9TTecResta *)&__vt__9TTecResta).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3810;

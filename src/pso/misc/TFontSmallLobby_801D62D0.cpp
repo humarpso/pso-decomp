@@ -265,14 +265,14 @@ void clear_player_sub_object_slots(Obj_801D6A18 *p) {
     p->x14 = 0;
 }
 
-s32 accumulate_damage_stats(u8 *arg0, s32 arg1, s32 arg2) {
+s32 accumulate_damage_stats(u8 *arg0v, s32 arg1, s32 arg2) {
   f32 new_var;
   f32 temp_f1;
   new_var = (f32) arg2;
-  *((f32 *) (((s8 *) arg0) + 4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 4))) + new_var);
-  new_var = fn_801D6AB4(arg0, arg1, arg2);
+  *((f32 *) (((s8 *) arg0v) + 4)) = (f32) ((*((f32 *) (((s8 *) arg0v) + 4))) + new_var);
+  new_var = fn_801D6AB4(arg0v, arg1, arg2);
   temp_f1 = new_var;
-  *((f32 *) (((s8 *) arg0) + 0)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0))) + temp_f1);
+  *((f32 *) (((s8 *) arg0v) + 0)) = (f32) ((*((f32 *) (((s8 *) arg0v) + 0))) + temp_f1);
   return (s32) temp_f1;
 }
 

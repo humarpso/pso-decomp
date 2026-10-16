@@ -168,10 +168,10 @@ void TOKeyGenericSw::vfunc_16() {
 
 extern void *tl_05;
 
-void *TOKeyGenericSw::create(void *arg0) {
+void *TOKeyGenericSw::create(void *source) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
-        o = TOKeyGenericSw__ct(o, tl_05, arg0);
+        o = TOKeyGenericSw__ct(o, tl_05, source);
     }
     return o;
 }

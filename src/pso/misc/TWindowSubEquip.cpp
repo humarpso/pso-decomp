@@ -21,14 +21,14 @@ void TWindowSubEquip::update_displayed_item() {
 }
 
 void TWindowSubEquip::update() {
-    s32 temp_r3;
+    s32 player;
     s32 var_r3;
     s32 temp_r0;
 
-    temp_r3 = get_player_by_client_id(*(s32 *)&this->m_28);
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id(*(s32 *)&this->m_28);
+    if (player != 0) {
         temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_34);
-        if (get_slot_value__10TObjPlayerFPvi(temp_r3 + 0xD04, temp_r0) == 0U) {
+        if (get_slot_value__10TObjPlayerFPvi(player + 0xD04, temp_r0) == 0U) {
             var_r3 = -1;
         } else {
             var_r3 = get_field_d8__10TObjPlayerFv();

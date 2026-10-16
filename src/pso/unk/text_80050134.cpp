@@ -76,13 +76,13 @@ void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
 
 #pragma opt_propagation off
 #pragma opt_common_subs off
-Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *arg1) {
+Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *parent) {
   s32 k;
   s32 *ids2;
   s32 h;
   Obj_80050194 *new_var;
   s32 i;
-  construct_world_actor_base(arg0, arg1);
+  construct_world_actor_base(arg0, parent);
   new_var = arg0;
   new_var->vt = (void *) __vt__11TObjDFDemoF;
   new_var->f0 = TObjDFDemoF__name;

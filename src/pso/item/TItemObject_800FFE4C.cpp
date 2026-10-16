@@ -40,20 +40,20 @@ void TItem::use_combination_recipe() {
     s32 temp_r30_2;
     s32 temp_r31;
     u32 temp_r3_2;
-    void *temp_r30;
-    void *temp_r3;
+    void *unique_combination_target;
+    void *eligible_combination_recipe;
     if ((u32) this->m_f0 != 0U) {
         copy_to_item_data(sp1C);
-        temp_r30 = find_unique_combination_target(this->m_f0, sp1C);
-        temp_r3 = find_eligible_combination_recipe(this->m_f0, sp1C);
-        if ((temp_r3 != NULL) && (temp_r30 != NULL)) {
+        unique_combination_target = find_unique_combination_target(this->m_f0, sp1C);
+        eligible_combination_recipe = find_eligible_combination_recipe(this->m_f0, sp1C);
+        if ((eligible_combination_recipe != NULL) && (unique_combination_target != NULL)) {
             init__9TItemDataFv(sp8);
-            sp8[0] = *(u8 *)((s8 *)temp_r3 + 6);
-            sp8[1] = *(u8 *)((s8 *)temp_r3 + 7);
-            sp8[2] = *(u8 *)((s8 *)temp_r3 + 8);
-            temp_r31 = ((TObjPlayer *)temp_r30)->has_flag_128();
-            temp_r30_2 = get_field_d8__10TObjPlayerFv(temp_r30);
-            replace_item_with_new_code(sp8, temp_r30);
+            sp8[0] = *(u8 *)((s8 *)eligible_combination_recipe + 6);
+            sp8[1] = *(u8 *)((s8 *)eligible_combination_recipe + 7);
+            sp8[2] = *(u8 *)((s8 *)eligible_combination_recipe + 8);
+            temp_r31 = ((TObjPlayer *)unique_combination_target)->has_flag_128();
+            temp_r30_2 = get_field_d8__10TObjPlayerFv(unique_combination_target);
+            replace_item_with_new_code(sp8, unique_combination_target);
             temp_r3_2 = find_item_by_id(temp_r30_2);
             if ((temp_r31 != 0) && (temp_r3_2 != 0U)) {
                 ((TObjPlayer *)temp_r3_2)->add_item_flags(0x80);

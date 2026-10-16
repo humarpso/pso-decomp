@@ -619,9 +619,9 @@ f32 TObjPlayer::get_photon_blast_hold_frame() {
 
 f32 TObjPlayer::get_attack_recovery_count() {
     s32 arg0 = (s32)this;
-    s32 temp_r31;
-    temp_r31 = get_falz_phase();
-    return (f32) (s8) *(u8 *)((s8 *)((u8 *)(((u8 *)(&attack_recovery_count_table.value) + (((TObjPlayer *)arg0)->get_handle_value() * 3))) + temp_r31) + 0);
+    s32 falz_phase;
+    falz_phase = get_falz_phase();
+    return (f32) (s8) *(u8 *)((s8 *)((u8 *)(((u8 *)(&attack_recovery_count_table.value) + (((TObjPlayer *)arg0)->get_handle_value() * 3))) + falz_phase) + 0);
 }
 
 #pragma push
@@ -630,12 +630,12 @@ void TObjPlayer::select_normal_attack_marker() {
   s16 temp_r30;
   s16 temp_r31;
   s16 new_var;
-  s32 temp_r29;
-  temp_r29 = get_move_mode();
+  s32 move_mode;
+  move_mode = get_move_mode();
   new_var = ((TObjPlayer *)(((u8 *)this) + 0x7CC))->get_stage_strike_count();
   temp_r30 = new_var;
   temp_r31 = ((TObjPlayer *)((u8 *)this))->get_falz_phase();
-  lookup_attack_marker((s32) get_handle_value(), temp_r31, temp_r30, temp_r29);
+  lookup_attack_marker((s32) get_handle_value(), temp_r31, temp_r30, move_mode);
 }
 
 #pragma pop

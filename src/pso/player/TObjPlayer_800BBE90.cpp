@@ -207,7 +207,7 @@ void TUnk_804928CC::vfunc_19(void *arg1) {
     ((VObj800BC050_800bc050_800BBE90*)this)->m15(arg1, 0);
 }
 
-s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0) {
+s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 range) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC080 *t;
@@ -220,7 +220,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
     }
     TObjPlayer::init_all_slots();
     if (arg1->flags & 1) {
-        ((TUnk_804928CC *)arg0)->update_body_contact_flag(farg0);
+        ((TUnk_804928CC *)arg0)->update_body_contact_flag(range);
         mask |= 0x80000;
     }
     if (arg1->flags & 2) {
@@ -265,7 +265,7 @@ void TUnk_804928CC::vfunc_16(void *arg1, void *arg2) {
     ((VObj800BC220_800bc220_800BBE90*)this)->m12(arg1, arg2, 0);
 }
 
-s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0) {
+s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 range) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC250 *t;
@@ -276,7 +276,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
     }
     TObjPlayer::init_all_slots();
     if (arg1->flags & 1) {
-        ((TUnk_804928CC *)arg0)->update_body_contact_flag(farg0);
+        ((TUnk_804928CC *)arg0)->update_body_contact_flag(range);
         mask |= 0x80000;
     }
     if (arg1->flags & 2) {

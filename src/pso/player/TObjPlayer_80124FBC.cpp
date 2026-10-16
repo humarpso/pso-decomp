@@ -22,10 +22,10 @@ void TObjPlayer::launch_double_cannon_extra() {
 }
 
 void TObjPlayer::play_side_step_particle() {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 1:
         TObjPlayer::play_particle_effect_once();
         rotate_matrix_z(0, *(s32 *)&this->unk_1F8);

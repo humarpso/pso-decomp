@@ -623,19 +623,19 @@ void TObjPlayer::spawn_directional_particle_at_slot(s32 i) {
 
 #pragma push
 #pragma fp_contract on
-void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius) {
+void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *actor, Vec_800DA508 *center, f32 radius) {
     s32 ang;
     f32 r;
-    if (xz_distance_squared(&arg0->pos, &arg0->dest) < 400.0f) {
-        ang = (s32)(182.04445f * (360.0f * calc_boss4_scale__10TObjPlayerFi(arg0)));
-        r = 0.4f * (radius * (1.0f + calc_boss4_scale__10TObjPlayerFi(arg0)));
-        arg0->dest.x = r * cos_table_lookup(ang) + center->x;
-        arg0->dest.z = r * sin_table_lookup(ang) + center->z;
+    if (xz_distance_squared(&actor->pos, &actor->dest) < 400.0f) {
+        ang = (s32)(182.04445f * (360.0f * calc_boss4_scale__10TObjPlayerFi(actor)));
+        r = 0.4f * (radius * (1.0f + calc_boss4_scale__10TObjPlayerFi(actor)));
+        actor->dest.x = r * cos_table_lookup(ang) + center->x;
+        actor->dest.z = r * sin_table_lookup(ang) + center->z;
     }
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&arg0->v29C, &arg0->dest);
-    enemy_turn_toward_dest(arg0, arg0->param->turn);
-    enemy_set_heading_velocity(arg0, arg0->speed, arg0->angle);
-    move_with_wall_slide(arg0);
+    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&actor->v29C, &actor->dest);
+    enemy_turn_toward_dest(actor, actor->param->turn);
+    enemy_set_heading_velocity(actor, actor->speed, actor->angle);
+    move_with_wall_slide(actor);
 }
 #pragma pop
 
@@ -721,7 +721,7 @@ void TObjPlayer__sub_800DA7E4(u8 *arg0) {
     s16 temp_r4;
     s16 var_r3;
     s32 temp_r0;
-    u32 temp_r3;
+    u32 entity;
     s32 var_r30;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     switch (temp_r0) {
@@ -762,10 +762,10 @@ void TObjPlayer__sub_800DA7E4(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x378) = 1;
         temp_r4 = *(s16 *)((s8 *)arg0 + 0x33E);
         if (((s32) (temp_r4 - *(s16 *)((s8 *)arg0 + 0x32C)) > (s32) (temp_r4 / 4)) && !(*(s32 *)((s8 *)arg0 + 0x30) & 2)) {
-            temp_r3 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2D4));
-            if (temp_r3 != 0) {
+            entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2D4));
+            if (entity != 0) {
                 var_r30 = 1;
-                if ((*(s32 *)((s8 *)arg0 + 0x30) & 0x01000000) && (xz_distance_squared(arg0 + 0x38, (u8 *)temp_r3 + 0x38) > 400.0f)) {
+                if ((*(s32 *)((s8 *)arg0 + 0x30) & 0x01000000) && (xz_distance_squared(arg0 + 0x38, (u8 *)entity + 0x38) > 400.0f)) {
                     var_r30 = 0;
                 }
             }

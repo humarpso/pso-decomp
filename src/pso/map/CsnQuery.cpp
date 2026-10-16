@@ -746,15 +746,15 @@ done:
     TObjPlayer__sub_80079118((s32 *)(lbl_804389CC));
     return var_r31;
 }
-s32 *csnVecterUnder(s32 arg0, s32 arg1) {
+s32 *csnVecterUnder(s32 origin, s32 mask) {
     s32 *var_r31;
     TObjPlayer__sub_80079108();
     TObjPlayer__sub_8007911C();
-    TObjPlayer__sub_80079120(arg0);
+    TObjPlayer__sub_80079120(origin);
     var_r31 = ((s32 *)&lbl_80500140);
-    if (((u32)select_ground_query_groups((CsnVector *)(arg0), (u32)(arg1))) == 0U) {
+    if (((u32)select_ground_query_groups((CsnVector *)(origin), (u32)(mask))) == 0U) {
         var_r31 = 0;
-    } else if (evaluate_ground_triangles(arg0, arg1, lbl_804FFD40) == 0) {
+    } else if (evaluate_ground_triangles(origin, mask, lbl_804FFD40) == 0) {
         var_r31 = 0;
     }
     TObjPlayer__sub_80079118((s32 *)(lbl_804389E8));

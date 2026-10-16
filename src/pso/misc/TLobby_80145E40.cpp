@@ -106,7 +106,7 @@ extern u16 lbl_805D56CC;
 
 s32 init_work(s32 arg0, u8 *arg1) {
     u8 sp28[0x40];
-    u8 sp8[0x20];
+    u8 dst[0x20];
 
     memset((void *)(arg1), (s32)(0), (s32)(0x270));
     if (!(lbl_805D56CC & 1)) {
@@ -121,9 +121,9 @@ s32 init_work(s32 arg0, u8 *arg1) {
     TLobby__sub_803F5EC8((void *)(arg1 + 0x1CC), (int)(0x40));
     TLobby__sub_803F6000((void *)(arg1 + 0x20C), (int)(0x20));
     TLobby__sub_803F6138((void *)(arg1 + 0x22C), (int)(0x20));
-    memset((void *)(sp8), (s32)(0), (s32)(0x20));
+    memset((void *)(dst), (s32)(0), (s32)(0x20));
     memset((void *)(sp28), (s32)(0), (s32)(0x40));
-    TLobby__sub_803F524C((s32 *)sp8, 0x20);
+    TLobby__sub_803F524C((s32 *)dst, 0x20);
     TLobby__sub_803F53A0(0, arg1 + 0xA4, 0x40);
     TLobby__sub_803F53A0(1, arg1 + 0xE4, 0x40);
     TLobby__sub_803F53A0(2, arg1 + 0x124, 0x40);

@@ -804,13 +804,13 @@ void TUnk_804CE018::update_fade() {
 
 void TWindowSubComCard::update_open_close() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
+    s32 card_window_flags;
     s32 temp_r5;
 
     if ((s32) *(s32 *)&this->m_5c < 0x01000000) {
-        temp_r3 = TWindowSubStatusDisp::get_card_window_flags(*(s16 *)&this->m_20);
-        temp_r3 += *(s32 *)&this->m_5c;
-        *(s32 *)&this->m_5c = temp_r3 + 1;
+        card_window_flags = TWindowSubStatusDisp::get_card_window_flags(*(s16 *)&this->m_20);
+        card_window_flags += *(s32 *)&this->m_5c;
+        *(s32 *)&this->m_5c = card_window_flags + 1;
     }
     temp_r5 = *(s32 *)&this->m_2c;
     if (!(temp_r5 & 2)) {
@@ -836,9 +836,9 @@ void TWindowSubComCard::update_open_close() {
                 queue_destruction__7TObjectFv(arg0);
             }
             *(s16 *)((s8 *)arg0 + 0x22) = 0;
-            temp_r3 = *(s32 *)&this->m_2c;
-            if (temp_r3 & 4) {
-                if (!(temp_r3 & 0x20)) {
+            card_window_flags = *(s32 *)&this->m_2c;
+            if (card_window_flags & 4) {
+                if (!(card_window_flags & 0x20)) {
                     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x53703, 0U, 0, 0);
                 }
                 *(s32 *)&this->m_2c = (s32) (*(s32 *)&this->m_2c & 0xFFFFFFFB);
@@ -846,7 +846,7 @@ void TWindowSubComCard::update_open_close() {
                 *(s32 *)&this->m_5c = 0;
                 return;
             }
-            *(s32 *)&this->m_2c = (s32) (temp_r3 & 0xFFFFFFFD);
+            *(s32 *)&this->m_2c = (s32) (card_window_flags & 0xFFFFFFFD);
             disallow_rendering__7TObjectFv(arg0);
         }
     }

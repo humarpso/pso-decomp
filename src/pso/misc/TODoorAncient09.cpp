@@ -166,9 +166,9 @@ void TODoorAncient09::sub_80160968() {
 void TODoorAncient09::update_door_switch_state() {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    s32 temp_r0;
-    temp_r0 = this->m_cc;
-    switch (temp_r0) {
+    s32 cc;
+    cc = this->m_cc;
+    switch (cc) {
     case 1:
         ((TODoorAncient09 *)arg0)->sub_80160968();
         this->m_d0 = (s32) (this->m_d0 | 1);

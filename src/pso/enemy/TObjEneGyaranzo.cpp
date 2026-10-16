@@ -1840,7 +1840,7 @@ Obj_800D3E54 *fn_800D3E54(Obj_800D3E54 *arg0, s16 arg1) {
 u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s16 temp_r6;
     s32 temp_r5;
-    s32 var_r29;
+    s32 i;
     s32 var_r31;
 
     ((void (*)(void *, s32, void *)) TObjEnemyCustom__ct)(arg0, arg1, arg2);
@@ -1882,8 +1882,8 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     if (*(s16 *)((s8 *)arg2 + 0xA) != 0) {
         ((TObjEnemyCustom *)arg0)->sub_800C7860();
     }
-    for (var_r29 = 0; var_r29 < 4; var_r29++) {
-        ((TObjPlayer *)(&((Gy_800D3ED8 *) arg0)->e3EC[var_r29]))->activate_and_dispatch();
+    for (i = 0; i < 4; i++) {
+        ((TObjPlayer *)(&((Gy_800D3ED8 *) arg0)->e3EC[i]))->activate_and_dispatch();
     }
     ((VObj_18_fe72f9 *)(arg0))->m80();
     return arg0;

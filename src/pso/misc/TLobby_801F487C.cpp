@@ -37,10 +37,10 @@ void TLobby::clear_story_flags_and_reset_camera() {
 }
 
 void TLobby__sub_801F494C(u16 arg0) {
-    u32 temp_r3;
-    temp_r3 = get_character_save_record(arg0);
-    if (temp_r3 != 0U) {
-        memcpy(quest_story_flags_by_difficulty, (void *)(temp_r3 + 0x44), 0x200);
+    u32 character_save_record;
+    character_save_record = get_character_save_record(arg0);
+    if (character_save_record != 0U) {
+        memcpy(quest_story_flags_by_difficulty, (void *)(character_save_record + 0x44), 0x200);
     }
 }
 

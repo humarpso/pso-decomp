@@ -204,7 +204,7 @@ void TAdMultiPlyChrSelectGC::update_card_select() {
 }
 
 void TAdMultiPlyChrSelectGC::update_state_option() {
-    s32 temp_r3;
+    s32 selected_menu_value;
 
     if (((TAdMultiPlyChrSelectGC *)(*(u32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
         TAdMultiPlyChrSelectGC::reset_slot_selections();
@@ -222,8 +222,8 @@ void TAdMultiPlyChrSelectGC::update_state_option() {
         return;
     }
     if (((TWindowMenu *)(*(s32 *)((s8 *)this + 0x7C)))->is_visible() != 0) {
-        temp_r3 = get_selected_menu_value(*(s32 *)((s8 *)this + 0x7C));
-        switch (temp_r3) {
+        selected_menu_value = get_selected_menu_value(*(s32 *)((s8 *)this + 0x7C));
+        switch (selected_menu_value) {
         case 0:
             play_sound_effect(0x52D01, 0, 0, 0);
             TAdMultiPlyChrSelectGC__sub_802C561C(*(s32 *)((s8 *)this + 0x5C));

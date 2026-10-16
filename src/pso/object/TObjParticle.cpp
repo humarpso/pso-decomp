@@ -109,13 +109,13 @@ void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg2) {
+Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 parent, Src_80195400 *arg2) {
     u32 i;
     s32 entry;
     u16 flags;
     u16 base;
     u16 other;
-    construct_world_actor_base(arg0, (void *) arg1);
+    construct_world_actor_base(arg0, (void *) parent);
     arg0->vt = __vt__12TObjParticle;
     other = 0;
     arg0->f0 = obj_particle_class_name;

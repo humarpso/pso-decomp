@@ -116,13 +116,13 @@ f32 TObjPlayer::calc_photon_blast_power(s32 arg1, f32 farg0) {
 
 s32 TObjPlayer::is_any_teammate_in_state() {
     struct { u8 _pad[0x20]; } sp8;
-    s32 temp_r31;
+    s32 current_floor;
     s32 var_r30;
 
-    temp_r31 = get_current_floor();
+    current_floor = get_current_floor();
     var_r30 = 0;
 loop_1:
-    if ((((u32 (*)(s32))get_player_by_client_id)(var_r30) != 0U) && (temp_r31 == ((s32 (*)(void))get_field_3e4__10TObjPlayerFv)()) && (get_photon_blast_chain(&sp8, var_r30) == 2)) {
+    if ((((u32 (*)(s32))get_player_by_client_id)(var_r30) != 0U) && (current_floor == ((s32 (*)(void))get_field_3e4__10TObjPlayerFv)()) && (get_photon_blast_chain(&sp8, var_r30) == 2)) {
         return 1;
     }
     var_r30 += 1;

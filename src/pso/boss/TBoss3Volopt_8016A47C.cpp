@@ -108,9 +108,9 @@ void TOKey::play_activate_sound() {
     s32 temp_r0_3;
     s32 temp_r0_4;
     s32 temp_r0_5;
-    u32 temp_r3;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    u32 global_state;
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     case 1:
     case 2:
         temp_r0 = *(s32 *)&this->m_d0;

@@ -908,7 +908,7 @@ void load_area_dialogue_script(void) {
 s32 create_by_mode__12TQuestThreadFv(void) {
     s32 temp_r31;
     s32 temp_r31_2;
-    s32 temp_r31_3;
+    s32 quest_count;
     s32 var_r30;
     s32 var_r30_2;
     s32 var_r30_3;
@@ -939,8 +939,8 @@ s32 create_by_mode__12TQuestThreadFv(void) {
     case 4:
         var_r30_3 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x1A4);
         if (var_r30_3 != 0) {
-            temp_r31_3 = TQuestListOnline::get_quest_count();
-            var_r30_3 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30_3), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31_3));
+            quest_count = TQuestListOnline::get_quest_count();
+            var_r30_3 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30_3), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(quest_count));
         }
         return var_r30_3;
     case 5:

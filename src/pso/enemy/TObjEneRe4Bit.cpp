@@ -715,25 +715,25 @@ void TObjEneRe4Bit::handle_state_message(s32 msg) {
     }
 }
 
-void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2) {
+void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe4Bit *)arg0)->handle_state_message((s32)((void *) (arg2)));
+        ((TObjEneRe4Bit *)arg0)->handle_state_message((s32)((void *) (msg)));
         return;
     case 1:
-        ((TObjEneRe4Bit *)arg0)->handle_event((s32)((void *) (arg2)));
+        ((TObjEneRe4Bit *)arg0)->handle_event((s32)((void *) (msg)));
         return;
     case 2:
-        TObjEneRe4Bit__sub_800ECED0((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Bit__sub_800ECED0((void *)((void *) (arg0)), (s32)((void *) (msg)));
         return;
     case 3:
-        TObjEneRe4Bit__sub_800ECE04((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Bit__sub_800ECE04((u8 *)((void *) (arg0)), (s32)((void *) (msg)));
         return;
     case 5:
-        TObjEneRe4Bit__sub_800ECD28((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Bit__sub_800ECD28((u8 *)((void *) (arg0)), (s32)((void *) (msg)));
         return;
     case 6:
-        TObjEneRe4Bit__sub_800ECC14((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Bit__sub_800ECC14((u8 *)((void *) (arg0)), (s32)((void *) (msg)));
     default:
         return;
     }
@@ -1626,9 +1626,9 @@ void TObjEneRe4Bit::create_enabled(s32 arg1, s32 arg2, s32 arg3) {
     TObjEneRe4Bit::create((void *)(arg0), (void *)(arg1), (void *)(1), (void *)(arg2), (void *)(arg3));
 }
 
-void TObjEneRe4Bit::create_disabled(s32 arg1, s32 arg2, s32 arg3) {
+void TObjEneRe4Bit::create_disabled(s32 arg1, s32 arg2, s32 kind) {
     s32 arg0 = (s32)this;
-    TObjEneRe4Bit::create((void *)(arg0), (void *)(arg1), (void *)(0), (void *)(arg2), (void *)(arg3));
+    TObjEneRe4Bit::create((void *)(arg0), (void *)(arg1), (void *)(0), (void *)(arg2), (void *)(kind));
 }
 
 extern void *tl_04;

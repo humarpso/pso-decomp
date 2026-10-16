@@ -119,7 +119,7 @@ void TWindowHelpItem__sub_80253268(u8 *arg0) {
 
 void TWindowHelpItem::update_tech_disk_details() {
     s32 sp8;
-    s32 temp_r3;
+    s32 player;
     u8 *e0;
     u8 *e1;
     u8 *e2;
@@ -127,8 +127,8 @@ void TWindowHelpItem::update_tech_disk_details() {
     u8 *e4;
     u8 *e5;
     u8 *e6;
-    temp_r3 = get_player_by_client_id(*(s16 *)(((u8 *)this) + 0x20));
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id(*(s16 *)(((u8 *)this) + 0x20));
+    if (player != 0) {
         init_window_layout_entries(((u8 *)this) + 0x24, help_item_tech_disk_window_layout_table, *(s16 *)(((u8 *)this) + 0x20));
         *(V3_802532E8 *)(((u8 *)this) + 0xB0) = item_help_tech_disk_stats_callback;
         e0 = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 0);
@@ -147,7 +147,7 @@ void TWindowHelpItem::update_tech_disk_details() {
         e4 = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 4);
         e5 = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 5);
         e6 = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 6);
-        check_equip_requirements(temp_r3, *(void **)(((u8 *)this) + 0x68), &sp8);
+        check_equip_requirements(player, *(void **)(((u8 *)this) + 0x68), &sp8);
         if (sp8 & 1) {
             set_sprite_uv_from_pixels(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDE8);
             ((TWindowHelpItem *)e2)->set_flag0_bit2();

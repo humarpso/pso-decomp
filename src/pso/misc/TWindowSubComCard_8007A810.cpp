@@ -492,9 +492,9 @@ int clear(void* p);
 int memset(void*, int, int);
 
 void TWindowSubComCard::clear_and_init(void* a1) { clear(this); fill_guild_card_from_char__6TLobbyFl(this, a1); }
-s32 fn_8007B2E0(u8 *arg0, s32 arg1) {
+s32 fn_8007B2E0(u8 *arg0, s32 id) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(find_short_mail_by_id__6TLobbyFUi(arg1));
+    temp_r3 = (u8 *)(find_short_mail_by_id__6TLobbyFUi(id));
     if (temp_r3 == NULL) {
         return 0;
     }

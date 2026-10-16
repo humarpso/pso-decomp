@@ -157,19 +157,19 @@ void TObjEneReconBomb::render() {
     f32 temp_f0;
     f32 temp_f1;
     f32 var_f1;
-    s32 temp_r31;
+    s32 bml_model;
     s32 temp_r30;
     if ((u32) recon_bomb_bml_resource == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r31 = get_bml_model((void *) (recon_bomb_bml_resource), (int) (2));
+    bml_model = get_bml_model((void *) (recon_bomb_bml_resource), (int) (2));
     temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), (int) (2));
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     rotate_matrix_zyx((int) (0), (int) (*(s32 *)&this->m_5c), (int) (this->rotation_y), (int) (this->rotation_z));
     TObjFish::set_global_param((int) (temp_r30));
-    draw_chunk_object((int) (temp_r31));
+    draw_chunk_object((int) (bml_model));
     pop_matrix();
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + this->m_348), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));

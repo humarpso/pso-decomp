@@ -113,15 +113,15 @@ void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z) {
 }
 #pragma pop
 
-void rotate_matrix_yxz(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3) {
     if (arg2 != 0) {
-        rotate_matrix_y((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        rotate_matrix_y((void *)((void *) (matrix)), (s32)((void *) (arg2)));
     }
     if (arg1 != 0) {
-        rotate_matrix_x((void *)((void *) (arg0)), (s32)((void *) (arg1)));
+        rotate_matrix_x((void *)((void *) (matrix)), (s32)((void *) (arg1)));
     }
     if (arg3 != 0) {
-        rotate_matrix_z((void *)((void *) (arg0)), (s32)((void *) (arg3)));
+        rotate_matrix_z((void *)((void *) (matrix)), (s32)((void *) (arg3)));
     }
 }
 typedef f32 Mtx_803D8B5C[3][4];

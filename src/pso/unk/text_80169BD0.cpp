@@ -70,9 +70,9 @@ void TUnk_804B27D8::run_task() {
     f32 temp_f1;
     s32 temp_r0;
     s32 temp_r0_2;
-    s32 temp_r3_6;
+    s32 player;
     u32 temp_r3;
-    u32 temp_r3_2;
+    u32 dc;
     u32 temp_r3_3;
     u32 temp_r3_4;
     u32 temp_r3_5;
@@ -104,9 +104,9 @@ void TUnk_804B27D8::run_task() {
                     var_r0 = __ct__12TQuestThreadFv((int) (temp_r3), (void *) (quest_mission_manager), (int) (*(s32 *)&this->unk_D8));
                 }
                 this->m_dc = var_r0;
-                temp_r3_2 = this->m_dc;
-                if (temp_r3_2 != 0U) {
-                    ((TObject *)temp_r3_2)->set_parent((TObject *)tl_00);
+                dc = this->m_dc;
+                if (dc != 0U) {
+                    ((TObject *)dc)->set_parent((TObject *)tl_00);
                 }
             } else if (((u32) quest_area_manager != 0U) && (((TObject *)quest_area_manager)->all_parents_unqueued_for_destruction() != 0)) {
                 temp_r3_3 = __nw__7TObjectFUl((int) (0x194));
@@ -132,9 +132,9 @@ void TUnk_804B27D8::run_task() {
             this->m_dc = 0U;
             end_conversation_camera();
             if ((s32) this->m_94 == (s32) local_client_id) {
-                temp_r3_6 = get_player_by_client_id((void *) (local_client_id));
-                if ((temp_r3_6 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
-                    TObjPlayer::send_code_45_1((int) (temp_r3_6));
+                player = get_player_by_client_id((void *) (local_client_id));
+                if ((player != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
+                    TObjPlayer::send_code_45_1((int) (player));
                 }
             }
         }

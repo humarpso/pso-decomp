@@ -156,7 +156,7 @@ extern s32 lbl_804651C8[];
 extern s32 tl_particlemodel;
 
 s32 initialize_boss_scene(void) {
-    s32 temp_r3;
+    s32 global_state;
     u32 temp_new;
 
     TOKeyMachine01::get_global_state();
@@ -179,8 +179,8 @@ s32 initialize_boss_scene(void) {
         init_music_sequencer(6);
     }
     if ((get_main_phase() != 0xE) || (is_quest_active() == 0)) {
-        temp_r3 = TOKeyMachine01::get_global_state();
-        switch (temp_r3) {
+        global_state = TOKeyMachine01::get_global_state();
+        switch (global_state) {
         case 28:
             TBoss4DarkFalz::dispatch_by_main_phase(0x54);
             break;
@@ -260,14 +260,14 @@ void TLobby::open_giveup_window() {
 }
 
 void send_giveup_to_all_players__6TLobbyFv(void) {
-    s32 temp_r3;
+    s32 player;
     s32 var_r31;
 
     var_r31 = 0;
     do {
-        temp_r3 = get_player_by_client_id((int)(var_r31));
-        if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
-            TObjPlayer::send_code_45_1(temp_r3);
+        player = get_player_by_client_id((int)(var_r31));
+        if ((player != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
+            TObjPlayer::send_code_45_1(player);
         }
         ((TWindowCtrl *)var_r31)->unsuppress_slot();
         TLobby__sub_8024AC20(var_r31);
@@ -283,14 +283,14 @@ void play_all_players_effect__6TLobbyFPv(void* a0) { TObjPlayer__sub_8024ABDC((v
 
 void play_effect_all_players__6TLobbyFPv(void*) {
     s32 var_r31;
-    s32 var_r30;
+    s32 player;
 
     var_r31 = 0;
     do {
-        var_r30 = get_player_by_client_id((int)(var_r31));
-        if (var_r30 != 0) {
+        player = get_player_by_client_id((int)(var_r31));
+        if (player != 0) {
             if (check_player_flag1__6TLobbyFv() == 0) {
-                play_effect_default__10TObjPlayerFii(var_r30, -1);
+                play_effect_default__10TObjPlayerFii(player, -1);
             }
         }
         var_r31 += 1;
@@ -400,16 +400,16 @@ s32 get_selected_menu_value(u32);
 extern s32 lbl_804DBE90[];
 
 void TLobby::handle_retry_menu_select() {
-    s32 temp_r3;
+    s32 selected_menu_value;
 
     ((s32 (*)())close_giveup_window__6TLobbyFPv)();
     if ((u32) *(u32 *)((s8 *)this + 0x2C) == 0U) {
         open_giveup_window();
     }
     if (((TWindowMenu *)(*(u32 *)((s8 *)this + 0x2C)))->is_visible() != 0) {
-        temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x2C));
-        if (temp_r3 != 2) {
-            TLobby::set_retry_selection(lbl_804DBE90[temp_r3]);
+        selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)this + 0x2C));
+        if (selected_menu_value != 2) {
+            TLobby::set_retry_selection(lbl_804DBE90[selected_menu_value]);
             ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(this);
             play_effect_all_players__6TLobbyFPv(this);
             *(s32 *)((s8 *)this + 0x24) = 1;

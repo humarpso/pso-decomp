@@ -76,15 +76,15 @@ void TWindowEffectLight::draw_outline_quad(s32 color) {
     draw_textured_quad_at_depth(&q, TWindowEffectLight__data_805DE0E4);
 }
 
-u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3) {
+u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 id) {
     __ct__7TObjectFP7TObject(self, tl_window);
     *(void **)((s8 *)self + 0x18) = __vt__18TWindowEffectLight;
     *(s32 *)((s8 *)self + 0) = lbl_805D3E60;
     ((TWindowSubSymbolChatPartsSet *)(self + 0x1C))->copy_vec2(arg1);
-    ((TWindowKeyBoardSoft *)(self + 0x1C))->adjust_pos_for_split_screen(TCameraCtrl::get_split_screen_view_index(arg3));
+    ((TWindowKeyBoardSoft *)(self + 0x1C))->adjust_pos_for_split_screen(TCameraCtrl::get_split_screen_view_index(id));
     *(s16 *)((s8 *)self + 0x24) = arg2;
     *(s16 *)((s8 *)self + 0x26) = -1;
-    *(u32 *)((s8 *)self + 0x28) = arg3;
+    *(u32 *)((s8 *)self + 0x28) = id;
     return self;
 }
 

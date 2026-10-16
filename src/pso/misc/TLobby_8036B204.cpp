@@ -69,10 +69,10 @@ void send_slot_entity__6TLobbyFPvUsi(void *arg0, u16 arg1, s32 arg2) {
     }
     TLobby__sub_8036B1AC(arg2);
 }
-void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2) {
+void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 src) {
     if (arg0->base != 0) {
         s32 i = arg1;
-        copy_symbol_chat_entry__6TLobbyFPvPv(arg0->base + i * 0x3C, arg2);
+        copy_symbol_chat_entry__6TLobbyFPvPv(arg0->base + i * 0x3C, src);
         arg0->t[i] = 0x78;
     }
 }

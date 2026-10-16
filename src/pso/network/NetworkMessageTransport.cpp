@@ -540,17 +540,17 @@ s32 TLobby__sub_80426440(void) {
 
 s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
     s32 temp_r3;
-    u8 *temp_r3_2;
+    u8 *msg;
     u8 pad[8];
     temp_r3 = TLobby__sub_8042558C((void *) (arg1));
     if (temp_r3 == 0) {
         return -1;
     }
     NetMemcpy((void *) (temp_r3), (void *) (arg0), (int) (void *) (arg1));
-    temp_r3_2 = (u8 *)(TLobby__sub_804256B8(temp_r3));
-    if (temp_r3_2 != NULL) {
-        *(s32 *)((s8 *)temp_r3_2 + 4) = (s32) arg1;
-        OSSendMessage((void *) (((s32 *)&lbl_805CF240)), temp_r3_2, 0);
+    msg = (u8 *)(TLobby__sub_804256B8(temp_r3));
+    if (msg != NULL) {
+        *(s32 *)((s8 *)msg + 4) = (s32) arg1;
+        OSSendMessage((void *) (((s32 *)&lbl_805CF240)), msg, 0);
     }
     return 0;
 }

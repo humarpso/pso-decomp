@@ -284,9 +284,9 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    u32 temp_r3;
-    construct_world_actor_base((void *) (arg0), (void *) (arg2));
+u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
+    u32 player;
+    construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
     ((TUnk_804A7478 *)(arg0 + 0x98))->init();
     ((TUnk_804A7478 *)(arg0 + 0xB4))->init();
@@ -295,12 +295,12 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TPlyPhotonChair *)arg0)->set_field90((s32)((void *) (arg1)));
     *(s16 *)((s8 *)arg0 + 0x92) = 0;
     *(s32 *)((s8 *)arg0 + 0x94) = 0;
-    temp_r3 = get_player_by_client_id((int)((void *) ((s32) (u16) arg1)));
-    if (temp_r3 == 0U) {
+    player = get_player_by_client_id((int)((void *) ((s32) (u16) arg1)));
+    if (player == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }
-    get_rader_map__11TMainCursorFv((void *) (arg0 + 0xD0), (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id__15TPlyPhotonChairFv((int) (temp_r3)) * 0x10)));
+    get_rader_map__11TMainCursorFv((void *) (arg0 + 0xD0), (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id__15TPlyPhotonChairFv((int) (player)) * 0x10)));
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1));
     ((TPlyPhotonChair *)(arg0 + 0x98))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));
     ((TPlyPhotonChair *)(arg0 + 0x98))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));

@@ -1614,20 +1614,20 @@ void map_shape_region_samples(s32 region, s32 *samples) {
 }
 
 extern "C" {
-void TAdSinglePlyChrSelectGC::get_sorted_region_samples(s32 *arg1) {
+void TAdSinglePlyChrSelectGC::get_sorted_region_samples(s32 *samples) {
     s32 j;
     s32 y;
     s32 x;
     s32 i;
     TCharaMaking__sub_8028E3A0();
-    map_shape_region_samples((s32)(((void *)find_shape_triangle_region((u8 *)(this)))), (s32 *)(arg1));
+    map_shape_region_samples((s32)(((void *)find_shape_triangle_region((u8 *)(this)))), (s32 *)(samples));
     for (i = 0; i < 2; i++) {
         for (j = 2; j > i; j--) {
-            x = arg1[j];
-            y = arg1[j - 1];
+            x = samples[j];
+            y = samples[j - 1];
             if (x < y) {
-                arg1[j - 1] = x;
-                arg1[j] = y;
+                samples[j - 1] = x;
+                samples[j] = y;
             }
         }
     }

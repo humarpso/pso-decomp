@@ -120,11 +120,11 @@ extern "C" {
 
 void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     G_SymbolChat_6x07 packet;
-    s32 temp_r4;
+    s32 symbol_chat_preset;
     TWindowSubSymbolChat__sub_80077704((void *) (&packet.header));
-    temp_r4 = ((s32)((int)get_symbol_chat_preset((s32)((void *)((void *) (*arg0))))));
+    symbol_chat_preset = ((s32)((int)get_symbol_chat_preset((s32)((void *)((void *) (*arg0))))));
     packet.client_id = local_client_id;
-    copy_symbol_chat_entry__6TLobbyFPvPv((void *) (&packet.data[0]), (void *) (temp_r4 + 0x1C));
+    copy_symbol_chat_entry__6TLobbyFPvPv((void *) (&packet.data[0]), (void *) (symbol_chat_preset + 0x1C));
     ((TWindowSubSymbolChat *)(&packet.header))->send_symbol_chat();
 }
 

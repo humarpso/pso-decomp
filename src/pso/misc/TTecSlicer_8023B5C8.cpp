@@ -332,14 +332,14 @@ void TTecSlicer::update() {
 s32 TTecSlicer::create(u16 *arg0) {
     s32 var_r0;
     s32 var_r31;
-    u8 *temp_r3;
+    u8 *player;
     var_r31 = 0;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0))));
-        if (temp_r3 != NULL) {
+        player = (u8 *)(((u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0))));
+        if (player != NULL) {
             var_r0 = ((s32)__nw__7TObjectFUl((s32)((int) (0x140))));
             if (var_r0 != 0) {
-                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)temp_r3), (void *)((void *) ((u8 *)(temp_r3) + 0x38)), (int)((int) (*(s32 *)((s8 *)temp_r3 + 0x60))));
+                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)player), (void *)((void *) ((u8 *)(player) + 0x38)), (int)((int) (*(s32 *)((s8 *)player + 0x60))));
             }
             var_r31 = var_r0;
             TItemAttacker::spawn_item_timer((s32)((int) (var_r0)), (s32)((void *) (&destroy_if_set__10TTecSlicerFv)), (s32)((int) (0x5A)));

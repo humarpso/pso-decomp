@@ -48,11 +48,11 @@ u8 *TObjPlayer::create_state(s32 arg0) {
 typedef char RecoveredGlobal_80123CA8_lbl_8043E878_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E878) == 0x60 ? 1 : -1];
 typedef char RecoveredGlobal_80123CA8_lbl_8043E8D8_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E8D8) == 0x60 ? 1 : -1];
 void sorcerers_cane_node_callback(u8 *arg0) {
-    s32 temp_r3;
+    s32 player_list;
     s32 temp_r4;
     s32 temp_r4_2;
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 1:
         TObjPlayer::play_particle_effect_once();
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x1F8);

@@ -100,7 +100,7 @@ s32 TBoss5GryphonLightningEff::calc_segment_uvs(void *p_) {
 
 void TBoss5GryphonLightningEff::render() {
     char sp10C[0x270];
-    char sp70[0x9C];
+    char pts_arg[0x9C];
     char sp3C[0x34];
     char sp8[0x34];
     s32 temp_r4;
@@ -111,11 +111,11 @@ void TBoss5GryphonLightningEff::render() {
     TParticleCtrl::begin_effect_render();
     set_depth_buffer_settings_1__Fv();
     TObjPlayer::init_xyz_limits();
-    project_lightning_points(this, sp70, sp3C, sp8);
-    build_lightning_strip((void *)sp10C, (void *)sp70, (f32 *)sp3C, (f32 *)sp8);
+    project_lightning_points(this, pts_arg, sp3C, sp8);
+    build_lightning_strip((void *)sp10C, (void *)pts_arg, (f32 *)sp3C, (f32 *)sp8);
     ((TWindowDD *)sp10C)->draw_transformed_primitive((void*)(*(s32 *)((s8 *)this + 0x38) * 2), (void*)(calc_segment_uvs((void *)(sp10C))), (void*)1);
     if ((u8) *(u8 *)((s8 *)this + 0x260) == 1) {
-        build_lightning_strip((void *)sp10C, (void *)sp70, (f32 *)sp8, (f32 *)sp3C);
+        build_lightning_strip((void *)sp10C, (void *)pts_arg, (f32 *)sp8, (f32 *)sp3C);
         ((TWindowDD *)sp10C)->draw_transformed_primitive((void*)(*(s32 *)((s8 *)this + 0x38) * 2), (void*)(calc_segment_uvs((void *)(sp10C))), (void*)1);
     }
     TObjPlayer::reset_transform_state();

@@ -88,7 +88,7 @@ extern void* __vt__21TItemEffArmorParticle[];
 extern s32 TItemEffArmorParticle__class_name;
 
 void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
-    void *temp_r3;
+    void *player;
     u32 p;
 
     __ct__7TObjectFP7TObject(arg0, arg1);
@@ -98,9 +98,9 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
     *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
     *(s16 *)((s8 *)arg0 + 0x24) = (s16) arg3;
     *(s32 *)((s8 *)arg0 + 0x28) = get_item_system_generation();
-    temp_r3 = get_player_by_client_id((u16) arg3);
-    if (temp_r3 != NULL) {
-        *(u32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) temp_r3)->m7(), arg4, 0x10);
+    player = get_player_by_client_id((u16) arg3);
+    if (player != NULL) {
+        *(u32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) player)->m7(), arg4, 0x10);
         p = *(u32 *)((s8 *)arg0 + 0x20);
         if (p != 0U) {
             ((TParticleCtrl *)p)->set_owner_id(*(u16 *)((s8 *)arg0 + 0x24));

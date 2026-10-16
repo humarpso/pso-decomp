@@ -20,7 +20,7 @@ struct Entry_8034D3D0 {
     f32 weight;
 };
 
-s32 fn_8034D3D0(Entry_8034D3D0 *e, s32 n, s32 arg2, s32 arg3, s32 arg4, f32 scale) {
+s32 fn_8034D3D0(Entry_8034D3D0 *e, s32 n, s32 arg2, s32 closed, s32 arg4, f32 scale) {
     f32 sum;
     f32 total;
     f32 ratio;
@@ -36,7 +36,7 @@ s32 fn_8034D3D0(Entry_8034D3D0 *e, s32 n, s32 arg2, s32 arg3, s32 arg4, f32 scal
     if (0.0f == sum) {
         return 0;
     }
-    if (arg3 == 0) {
+    if (closed == 0) {
         total = (s32) (sum - e[n - 1].weight);
     } else {
         total = (s32) sum;
@@ -45,7 +45,7 @@ s32 fn_8034D3D0(Entry_8034D3D0 *e, s32 n, s32 arg2, s32 arg3, s32 arg4, f32 scal
     if (ratio >= 1.0f) {
         return 1;
     }
-    return eval_bezier_curve__12TBoss8DragonFPviiPvf((Vec4_8034D500 *)e, n, arg3, (Vec3_8034D500 *)arg4, ratio);
+    return eval_bezier_curve__12TBoss8DragonFPviiPvf((Vec4_8034D500 *)e, n, closed, (Vec3_8034D500 *)arg4, ratio);
 }
 
 }

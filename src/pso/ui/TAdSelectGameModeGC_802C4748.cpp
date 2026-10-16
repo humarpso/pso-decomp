@@ -77,10 +77,10 @@ void TAdSelectGameModeGC::render() {  }
 
 int TAdSelectGameModeGC::call_enable_camera(void* p) { return enable_camera__19TAdSelectGameModeGCFv(); }
 void TAdSelectGameModeGC__sub_802C478C(void) {
-    s32 temp_r3;
+    s32 mode_data;
     if (get_main_phase() == 0xE) {
-        temp_r3 = TAdSelectGameModeGC::get_mode_data();
-        switch (temp_r3) {
+        mode_data = TAdSelectGameModeGC::get_mode_data();
+        switch (mode_data) {
         case 0:
             ((s32)enable_camera__19TAdSelectGameModeGCFv());
             return;
@@ -94,7 +94,7 @@ void TAdSelectGameModeGC__sub_802C478C(void) {
     }
 }
 void run_task__19TAdSelectGameModeGCFv(u8 *arg0) {
-    s32 temp_r3;
+    s32 mode_data;
     TAdMultiChgGameModeGC::set_default_camera();
     if ((s32) TAdSelectGameModeGC__cached_mode_value != TAdSinglePlyChrSelectGC__sub_801334DC((int) (*(s32 *)((s8 *)arg0 + 0x1C)))) {
         ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x20)))->set_entry_value((int) (1), (int) (get_localized_text_entry((int) (0x15), (int) (TAdSinglePlyChrSelectGC__sub_801334DC((int) (*(s32 *)((s8 *)arg0 + 0x1C))) + 1))));
@@ -106,8 +106,8 @@ void run_task__19TAdSelectGameModeGCFv(u8 *arg0) {
         return;
     }
     if (((TAdSinglePlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x1C)))->get_selected_slot() == 1) {
-        temp_r3 = TAdSelectGameModeGC::get_mode_data();
-        switch (temp_r3) {
+        mode_data = TAdSelectGameModeGC::get_mode_data();
+        switch (mode_data) {
         case 0:
             TAdMultiChgGameModeGC::set_game_mode();
             return;

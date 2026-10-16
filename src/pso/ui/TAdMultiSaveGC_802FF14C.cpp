@@ -85,7 +85,7 @@ s32 TAdMultiSaveGC__sub_802FF314(void) {
     return r;
 }
 void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
-    s32 temp_r3;
+    s32 selected_menu_value;
     s32 var_r30;
     u32 temp_r0;
     if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
@@ -150,8 +150,8 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
         return;
     case 3:
         if (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0x30)))->is_visible() != 0) {
-            temp_r3 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x30)));
-            switch (temp_r3) {
+            selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x30)));
+            switch (selected_menu_value) {
             case 1:
                 *(u32 *)((s8 *)arg0 + 0x1C) = 8U;
                 return;

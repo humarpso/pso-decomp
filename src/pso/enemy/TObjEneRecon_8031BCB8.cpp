@@ -18,18 +18,18 @@ extern const f32 lbl_805DF3B8;
 extern "C" {
 
 void TObjEneRecon::render_shadows() {
-  s32 temp_r31;
+  s32 bml_model;
   if (((u32) TObjEneRecon__recobox_static_instance) != 0U)
   {
     s32 temp_r30;
-    temp_r31 = get_bml_model(TObjEneRecon__recobox_static_instance, 2);
+    bml_model = get_bml_model(TObjEneRecon__recobox_static_instance, 2);
     temp_r30 = TObjFish__sub_8001EDB0(TObjEneRecon__recobox_static_instance, 2);
     push_matrix();
     translate_matrix(0, *((f32 *) (((s8 *) this) + 0x38)), *((f32 *) (((s8 *) this) + 0x3C)), *((f32 *) (((s8 *) this) + 0x40)));
     rotate_matrix_zyx(0, *((s32 *) (((s8 *) this) + 0x5C)), *((s32 *) (((s8 *) this) + 0x60)), *((s32 *) (((s8 *) this) + 0x64)));
     scale_matrix(0, lbl_805DF3B8, lbl_805DF3B8, lbl_805DF3B8);
     TObjFish::set_global_param(temp_r30);
-    draw_chunk_object(temp_r31);
+    draw_chunk_object(bml_model);
     pop_matrix();
   }
 }

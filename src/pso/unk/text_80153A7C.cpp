@@ -190,13 +190,13 @@ s32 TObjFogCollision::check_collision(u16 arg1) {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f31;
-    s32 temp_r3;
+    s32 player;
 
-    temp_r3 = get_player_by_client_id((u16)arg1);
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id((u16)arg1);
+    if (player != 0) {
         temp_f0 = this->scale;
         temp_f31 = temp_f0 * temp_f0;
-        temp_f1 = horizontal_distance_squared(arg0 + 0x38, temp_r3 + 0x38);
+        temp_f1 = horizontal_distance_squared(arg0 + 0x38, player + 0x38);
         if (temp_f31 > temp_f1) {
             return 1;
         }

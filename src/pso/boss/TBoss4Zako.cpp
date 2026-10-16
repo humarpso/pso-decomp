@@ -581,10 +581,10 @@ s32 TBoss4Zako::create(s32 arg0) {
 extern "C" {
 #pragma push
 #pragma fp_contract on
-s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2) {
+s32 TBoss4Zako__ct(s32 arg0, s32 parent, s32 arg2) {
     u8 *self;
     self = (u8 *)arg0;
-    ((TObjEnemy *)arg0)->initialize((void*)arg1);
+    ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss4Zako;
     *(s32 *)((s8 *)THIS + 0) = lbl_805D27E8;
     ((TUnk_804806E8 *)THIS)->add_flags_2e4(8);
@@ -1076,23 +1076,23 @@ void vt4__9TBoss4UroFv(void *arg0) {
 extern "C" {
 #pragma push
 #pragma fp_contract on
-void update_target_position__10TBoss4ZakoFPv(u8 *arg0) {
+void update_target_position__10TBoss4ZakoFPv(u8 *actor) {
     s32 temp_r31;
     s32 temp_r3;
-    if (!(*(s32 *)((s8 *)arg0 + 0x3B8) & 0x7F)) {
-        if (*(s32 *)((s8 *)arg0 + 0x388) == 0xFFFF) {
-            *(u32 *)((s8 *)arg0 + 0x388) = (u32) find_nearest_visible_player(arg0, 0, lbl_805D8CF4);
+    if (!(*(s32 *)((s8 *)actor + 0x3B8) & 0x7F)) {
+        if (*(s32 *)((s8 *)actor + 0x388) == 0xFFFF) {
+            *(u32 *)((s8 *)actor + 0x388) = (u32) find_nearest_visible_player(actor, 0, lbl_805D8CF4);
             return;
         }
-        *(u32 *)((s8 *)arg0 + 0x388) = 0xFFFFU;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x378) != 0U) {
+        *(u32 *)((s8 *)actor + 0x388) = 0xFFFFU;
+        if ((u32) *(u32 *)((s8 *)actor + 0x378) != 0U) {
             temp_r3 = get_instance__14TBoss4DarkFalzFv();
             if (temp_r3 != 0) {
-                temp_r31 = (s32) (lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi(arg0));
-                VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x3C4), (void *)(get_position_ptr__10TObjPlayerFv(temp_r3)));
-                *(f32 *)((s8 *)arg0 + 0x3C8) = (f32) lbl_805D8CBC;
-                *(f32 *)((s8 *)arg0 + 0x3C4) = (f32) ((lbl_805D8CFC * sin_table_lookup(temp_r31)) + *(f32 *)((s8 *)arg0 + 0x3C4));
-                *(f32 *)((s8 *)arg0 + 0x3CC) = (f32) ((lbl_805D8CFC * cos_table_lookup(temp_r31)) + *(f32 *)((s8 *)arg0 + 0x3CC));
+                temp_r31 = (s32) (lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi(actor));
+                VecCopy__FP3VecPC3Vec((void *)(actor + 0x3C4), (void *)(get_position_ptr__10TObjPlayerFv(temp_r3)));
+                *(f32 *)((s8 *)actor + 0x3C8) = (f32) lbl_805D8CBC;
+                *(f32 *)((s8 *)actor + 0x3C4) = (f32) ((lbl_805D8CFC * sin_table_lookup(temp_r31)) + *(f32 *)((s8 *)actor + 0x3C4));
+                *(f32 *)((s8 *)actor + 0x3CC) = (f32) ((lbl_805D8CFC * cos_table_lookup(temp_r31)) + *(f32 *)((s8 *)actor + 0x3CC));
             }
         }
     }

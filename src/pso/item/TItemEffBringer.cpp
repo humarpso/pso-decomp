@@ -106,11 +106,11 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
 }
 #pragma pop
 
-void *TItemEffBringer::create(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+void *TItemEffBringer::create(u32 arg0, s32 src, s32 arg2, f32 farg0) {
     if ((lbl_805DAB10 != farg0) && (arg0 != 0U)) {
         void *obj = __nw__7TObjectFUl(0x90);
         if (obj != NULL) {
-            obj = __ct__15TItemEffBringerFv((Bringer_8010834C *)(obj), (u32)(arg0), (Vec_8010834C *)(arg1), (s32)(arg2), farg0);
+            obj = __ct__15TItemEffBringerFv((Bringer_8010834C *)(obj), (u32)(arg0), (Vec_8010834C *)(src), (s32)(arg2), farg0);
         }
         return obj;
     }

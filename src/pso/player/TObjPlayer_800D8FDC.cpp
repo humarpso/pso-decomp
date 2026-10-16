@@ -190,10 +190,10 @@ void TObjPlayer__sub_800D93F0(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 extern void *player_corpse_mark_resource;
 extern s32 tl_05;
 
-void spawn_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+void spawn_dead_spot__10TObjPlayerFiiif(s32 point, s32 selector, s32 delay, f32 farg0) {
     void *obj = __nw__7TObjectFUl(0xC8);
     if (obj != NULL) {
-        __ct__9TDeadSpotFv(obj, tl_05, arg0, *(s32 *)((s8 *)(*(void **)((s8 *)player_corpse_mark_resource + 0x42C)) + 0xC), arg1, arg2, farg0);
+        __ct__9TDeadSpotFv(obj, tl_05, point, *(s32 *)((s8 *)(*(void **)((s8 *)player_corpse_mark_resource + 0x42C)) + 0xC), selector, delay, farg0);
     }
 }
 

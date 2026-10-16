@@ -37,11 +37,11 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
     u16 temp_r8;
     u32 temp_r4;
     u8 *temp_r29;
-    s32 temp_r27;
+    s32 instance;
     *(s32 **)((s8 *)((u8 *)this) + 0x84) = arg2;
     temp_r3 = *(s32 **)((s8 *)((u8 *)this) + 0x84);
     *temp_r3 = 0;
-    temp_r27 = TWindowSubSymbolChat::get_instance();
+    instance = TWindowSubSymbolChat::get_instance();
     temp_r28 = (Data_80285E10 *)get_data_ptr__20TWindowSubSymbolChatFv();
     temp_r3_2 = TWindowSubSymbolChat::calc_remaining_slots();
     temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x6E);
@@ -49,7 +49,7 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
         *(f32 *)((s8 *)((u8 *)this) + 0x94) = (f32) lbl_805DD810;
         temp_r29 = (u8 *)&temp_r28->recs[temp_r0];
         *(s32 *)((s8 *)((u8 *)this) + 0x74) = (s32) *(s16 *)((s8 *)((u8 *)this) + 0x6E);
-        *(s32 *)((s8 *)((u8 *)this) + 0x78) = ((TWindowSubSymbolChat *)temp_r27)->find_free_entry((s32)((int) (0)));
+        *(s32 *)((s8 *)((u8 *)this) + 0x78) = ((TWindowSubSymbolChat *)instance)->find_free_entry((s32)((int) (0)));
         var_r31 = 0;
         *(s16 *)((s8 *)((u8 *)this) + 0x6E) = (s16) (s8) *(u8 *)((s8 *)temp_r29 + 0);
         *(s16 *)((s8 *)((u8 *)this) + 0x6A) = (s16) *(u8 *)((s8 *)temp_r29 + 1);
@@ -73,7 +73,7 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
     *(s8 *)((s8 *)((u8 *)this) + 0x69) = 3;
     var_r29 = *(s16 *)((s8 *)((u8 *)this) + 0x6E) - temp_r3_2;
     for (; var_r31 < 4; var_r31++) {
-        if (TWindowSubSymbolChat__sub_800771C4((int) (temp_r27), (int) (var_r31)) != 0) {
+        if (TWindowSubSymbolChat__sub_800771C4((int) (instance), (int) (var_r31)) != 0) {
             if (var_r29-- <= 0) {
                 temp_r4 = (u32) var_r31 >> 0x1FU;
                 temp_r8 = temp_r28->vals[var_r31];
@@ -105,7 +105,7 @@ void TWindowSubSymbolChat::init_symbol_layout(s32 *arg1) {
   u16 *temp_r30;
   u16 *temp_r31;
   u16 *temp_r3;
-  s32 temp_r3_2;
+  s32 instance;
   *((s32 **) (((s8 *) ((u8 *)this)) + 0x84)) = arg1;
   *((f32 *) (((s8 *) ((u8 *)this)) + 0x94)) = (f32) lbl_805DD810;
   if (((s32) (*arg1)) == 1)
@@ -130,9 +130,9 @@ void TWindowSubSymbolChat::init_symbol_layout(s32 *arg1) {
     *temp_r3 |= 2;
   }
   while (var_r29 < 4);
-  temp_r3_2 = TWindowSubSymbolChat::get_instance();
-  *((s32 *) (((s8 *) ((u8 *)this)) + 0x74)) = ((TWindowSubSymbolChat *)temp_r3_2)->find_free_entry(0);
-  *((s32 *) (((s8 *) ((u8 *)this)) + 0x78)) = ((TWindowSubSymbolChat *)temp_r3_2)->find_free_entry((*((s32 *) (((s8 *) ((u8 *)this)) + 0x74))) + 1);
+  instance = TWindowSubSymbolChat::get_instance();
+  *((s32 *) (((s8 *) ((u8 *)this)) + 0x74)) = ((TWindowSubSymbolChat *)instance)->find_free_entry(0);
+  *((s32 *) (((s8 *) ((u8 *)this)) + 0x78)) = ((TWindowSubSymbolChat *)instance)->find_free_entry((*((s32 *) (((s8 *) ((u8 *)this)) + 0x74))) + 1);
   *((s8 *) (((s8 *) ((u8 *)this)) + 0x69)) = 0;
   ((TWindowSubSymbolChatPartsSet *)((u8 *)this))->sub_8028625C();
 }

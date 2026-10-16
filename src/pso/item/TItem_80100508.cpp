@@ -69,12 +69,12 @@ void TItem::notify_owner(s32 arg1) {
     }
 }
 void TItem::apply_switch_attack(s32 arg1) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
 
     if (((u32) this->m_f0 != 0U) && (test_flag_2000000__10TObjPlayerFPv(this->m_f0) == 0)) {
-        temp_r3 = spawn_particle_effect_with_flags(this->m_f0 + 0x2FC, arg1, 0x10);
-        if (temp_r3 != 0) {
-            set_owner_id__13TParticleCtrlFUs(temp_r3, get_id__13TItemProArmorFv(this));
+        particle_effect_with_flags = spawn_particle_effect_with_flags(this->m_f0 + 0x2FC, arg1, 0x10);
+        if (particle_effect_with_flags != 0) {
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, get_id__13TItemProArmorFv(this));
         }
     }
 }

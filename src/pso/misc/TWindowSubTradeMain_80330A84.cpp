@@ -282,29 +282,29 @@ s32 TWindowSubTradeMain::create_help_item() {
 
 extern f32 TWindowSubTradeMain__data_805DF858;
 
-s32 TWindowSubTradeMain::create_input_number(s32 arg1) {
-    s32 var_r31;
+s32 TWindowSubTradeMain::create_input_number(s32 maximum) {
+    s32 storage;
 
-    var_r31 = __nw__7TObjectFUl(0x7C);
-    if (var_r31 != 0) {
-        var_r31 = __ct__18TWindowInputNumberFPvllls(var_r31, get_window_layout_position((s32)(0x5D)), 1, arg1, 1, (s16) *(s32 *)&this->m_28);
+    storage = __nw__7TObjectFUl(0x7C);
+    if (storage != 0) {
+        storage = __ct__18TWindowInputNumberFPvllls(storage, get_window_layout_position((s32)(0x5D)), 1, maximum, 1, (s16) *(s32 *)&this->m_28);
     }
-    ((TWindowInputNumber *)var_r31)->create(get_message_10__20TWindowSubStatusDispFl((s32)(0x28)));
-    ((TWindowInputNumber *)var_r31)->set_value(TWindowSubTradeMain__data_805DF858);
-    return var_r31;
+    ((TWindowInputNumber *)storage)->create(get_message_10__20TWindowSubStatusDispFl((s32)(0x28)));
+    ((TWindowInputNumber *)storage)->set_value(TWindowSubTradeMain__data_805DF858);
+    return storage;
 }
 
 extern s32 lbl_80477494[];
 
 s32 TWindowSubTradeMain::create_list() {
-    s32 temp_r31;
+    s32 equip_kind_window;
 
-    temp_r31 = create_equip_kind_window(get_window_layout_position((s32)(0x64)), lbl_80477494, *(s32 *)&this->m_28);
-    ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl((s32)(0x24)));
-    ((TWindowSubTradeMain *)temp_r31)->refresh_item_list((void*)(TLobby__sub_802D298C()));
+    equip_kind_window = create_equip_kind_window(get_window_layout_position((s32)(0x64)), lbl_80477494, *(s32 *)&this->m_28);
+    ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl((s32)(0x24)));
+    ((TWindowSubTradeMain *)equip_kind_window)->refresh_item_list((void*)(TLobby__sub_802D298C()));
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_2c, 2);
-    set_field_1c__6TLobbyFf(temp_r31);
-    return temp_r31;
+    set_field_1c__6TLobbyFf(equip_kind_window);
+    return equip_kind_window;
 }
 
 s32 TWindowSubTradeMain::open_trade_equip_window() {
@@ -485,35 +485,35 @@ s32 TWindowSubTradeMain::open_confirm_yes_no() {
 
 s32 TWindowSubTradeMain::create_trade_menu() {
     u8 *arg0 = (u8 *)this;
-  s32 temp_r31;
+  s32 titled_window_menu;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDD)));
-  temp_r31 = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)((int) 0x5E), (int) 4, (int) temp_r31_2, (int) ((RecoveredFields_80331434_arg0 *) arg0)->field_28);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDC)), (int) 6, (int) 0x11);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xE3)), (int) 6, (int) 0x16);
-  ((TWindowSubTradeMain *)temp_r31)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDE)), (int) 6, (int) 0x1A, (int) 0xFFEE946E);
-  ((TWindowSubTradeMain *)temp_r31)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
-  ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) TWindowSubTradeMain__data_805DF858);
-  align_menu_entry_positions((int) temp_r31);
-  return temp_r31;
+  titled_window_menu = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)((int) 0x5E), (int) 4, (int) temp_r31_2, (int) ((RecoveredFields_80331434_arg0 *) arg0)->field_28);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) titled_window_menu, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDC)), (int) 6, (int) 0x11);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) titled_window_menu, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xE3)), (int) 6, (int) 0x16);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDE)), (int) 6, (int) 0x1A, (int) 0xFFEE946E);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
+  ((TWindowSubComCardList *)titled_window_menu)->update_layout_height((f32) TWindowSubTradeMain__data_805DF858);
+  align_menu_entry_positions((int) titled_window_menu);
+  return titled_window_menu;
 }
 
 typedef struct RecoveredFields_80331520_arg0 RecoveredFields_80331520_arg0;
 #pragma fp_contract on
 s32 TWindowSubTradeMain::build_trade_menu() {
     u8 *arg0 = (u8 *)this;
-  s32 temp_r31;
+  s32 titled_window_menu;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl((s32)((int) 0x26)));
-  temp_r31 = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)((int) 0x5C), (int) 5, (int) temp_r31_2, (int) ((RecoveredFields_80331520_arg0 *) arg0)->field_28);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDA)), (int) 6, (int) 3);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDB)), (int) 6, (int) 0xA);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDC)), (int) 6, (int) 0x11);
-  ((TWindowSubTradeMain *)temp_r31)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDD)), (int) 6, (int) 0x14, (int) 0xFFEE946E);
-  ((TWindowSubTradeMain *)temp_r31)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
-  ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) TWindowSubTradeMain__data_805DF858);
-  align_menu_entry_positions((int) temp_r31);
-  return temp_r31;
+  titled_window_menu = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)((int) 0x5C), (int) 5, (int) temp_r31_2, (int) ((RecoveredFields_80331520_arg0 *) arg0)->field_28);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) titled_window_menu, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDA)), (int) 6, (int) 3);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) titled_window_menu, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDB)), (int) 6, (int) 0xA);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) titled_window_menu, (int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDC)), (int) 6, (int) 0x11);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDD)), (int) 6, (int) 0x14, (int) 0xFFEE946E);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
+  ((TWindowSubComCardList *)titled_window_menu)->update_layout_height((f32) TWindowSubTradeMain__data_805DF858);
+  align_menu_entry_positions((int) titled_window_menu);
+  return titled_window_menu;
 }
 
 void TWindowSubTradeMain::render() {  }

@@ -1301,67 +1301,67 @@ void * TObjEneDolmOlm__create(void *arg0) {
     }
     return o2;
 }
-void run_task__14TObjEneDolmOlmFPv(u8 *arg0) {
+void run_task__14TObjEneDolmOlmFPv(u8 *arg0_) {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    (((TObjEneDolmOlm *)(arg0))->vfunc_101());
+    (((TObjEneDolmOlm *)(arg0_))->vfunc_101());
     return;
   }
-  temp_r0 = ((RecoveredFields_8030247C_arg0 *) arg0)->field_326;
+  temp_r0 = ((RecoveredFields_8030247C_arg0 *) arg0_)->field_326;
   {
     switch (temp_r0)
     {
       case 0:
-        (((TObjEneDolmOlm *)(arg0))->vfunc_83());
+        (((TObjEneDolmOlm *)(arg0_))->vfunc_83());
         break;
       case 1:
-        (((TObjEneDolmOlm *)(arg0))->beast_idle_update());
+        (((TObjEneDolmOlm *)(arg0_))->beast_idle_update());
         break;
       case 2:
-        (((TObjEneDolmOlm *)(arg0))->update_turn_toward_target());
+        (((TObjEneDolmOlm *)(arg0_))->update_turn_toward_target());
         break;
       case 3:
-        (((TObjEneDolmOlm *)(arg0))->beast_update_approach());
-        ((TObjEneDolmOlm *)arg0)->init_body_sub();
+        (((TObjEneDolmOlm *)(arg0_))->beast_update_approach());
+        ((TObjEneDolmOlm *)arg0_)->init_body_sub();
         break;
       case 4:
-        (((TObjEneDolmOlm *)(arg0))->beast_update_group_chase());
-        ((TObjEneDolmOlm *)arg0)->init_body_sub();
+        (((TObjEneDolmOlm *)(arg0_))->beast_update_group_chase());
+        ((TObjEneDolmOlm *)arg0_)->init_body_sub();
         break;
       case 5:
-        (((TObjEneDolmOlm *)(arg0))->beast_update_attack());
+        (((TObjEneDolmOlm *)(arg0_))->beast_update_attack());
         break;
       case 6:
-        (((TObjEneDolmOlm *)(arg0))->vfunc_89());
+        (((TObjEneDolmOlm *)(arg0_))->vfunc_89());
         break;
       case 7:
-        (((TObjEneDolmOlm *)(arg0))->beast_update_hurt());
+        (((TObjEneDolmOlm *)(arg0_))->beast_update_hurt());
         break;
       case 8:
-        (((TObjEneDolmOlm *)(arg0))->beast_update_dead());
+        (((TObjEneDolmOlm *)(arg0_))->beast_update_dead());
         break;
       case 9:
-        (((TObjEneDolmOlm *)(arg0))->beast_retire_corpse());
+        (((TObjEneDolmOlm *)(arg0_))->beast_retire_corpse());
         break;
       case 10:
-        TObjEneDolmOlm__sub_80301C3C((void *) arg0);
-        ((TObjEneDolmOlm *)arg0)->init_body_sub();
+        TObjEneDolmOlm__sub_80301C3C((void *) arg0_);
+        ((TObjEneDolmOlm *)arg0_)->init_body_sub();
         break;
       case 11:
-        TObjEneDolmOlm__sub_8030177C((void *)((void *) arg0));
-        ((TObjEneDolmOlm *)arg0)->init_body_sub();
+        TObjEneDolmOlm__sub_8030177C((void *)((void *) arg0_));
+        ((TObjEneDolmOlm *)arg0_)->init_body_sub();
         break;
     }
   }
-  ((TObjEneDolmOlm *)arg0)->advance_position();
-  copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
-  submit_cursor_candidate((void *) arg0, (int) (-1));
-  if (((RecoveredFields_8030247C_arg0 *) arg0)->field_3E4 & 0x4000)
+  ((TObjEneDolmOlm *)arg0_)->advance_position();
+  copy_position__20TBoss3VoloptHiraisinFi((void *) arg0_);
+  submit_cursor_candidate((void *) arg0_, (int) (-1));
+  if (((RecoveredFields_8030247C_arg0 *) arg0_)->field_3E4 & 0x4000)
   {
     TObjEneRecon::set_active();
   }
-  ((RecoveredFields_8030247C_arg0 *) arg0)->field_2B4 = (f32) (((RecoveredFields_8030247C_arg0 *) arg0)->field_2B4 + TObjEneDolmOlm__data_805DEF50);
+  ((RecoveredFields_8030247C_arg0 *) arg0_)->field_2B4 = (f32) (((RecoveredFields_8030247C_arg0 *) arg0_)->field_2B4 + TObjEneDolmOlm__data_805DEF50);
 }
 void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
     s32 vis;
@@ -1776,8 +1776,8 @@ void TObjEneDolmOlm::vfunc_60() {
     f32 var_f30;
     u16 id;
     s32 var_r29;
-    u8 *temp_r3_2;
-    u8 *temp_r3_3;
+    u8 *player;
+    u8 *enemy_entity;
     switch (this->mode) {
     case 0:
     case 2:
@@ -1801,20 +1801,20 @@ void TObjEneDolmOlm::vfunc_60() {
         var_r29 = 0;
         var_f30 = TObjEneDolmOlm__data_805DEF6C;
         if (id < 0x1000U) {
-            temp_r3_2 = get_player_by_client_id(id);
-            if (temp_r3_2 != NULL) {
-                temp_f31 = horizontal_distance_squared((void *) (temp_r3_2 + 0x38), (void *) (((u8 *)this) + 0x38));
-                var_f30 = fabs_float(*(f32 *)((s8 *)temp_r3_2 + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
-                if (((TObjPlayer *)temp_r3_2)->get_field_3e4() == get_current_floor()) {
+            player = get_player_by_client_id(id);
+            if (player != NULL) {
+                temp_f31 = horizontal_distance_squared((void *) (player + 0x38), (void *) (((u8 *)this) + 0x38));
+                var_f30 = fabs_float(*(f32 *)((s8 *)player + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
+                if (((TObjPlayer *)player)->get_field_3e4() == get_current_floor()) {
                     if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->m_3d0)) {
                         var_r29 = 1;
                     }
                 }
             }
         } else if (id < 0x4000U) {
-            temp_r3_3 = get_enemy_entity(id);
-            if (temp_r3_3 != NULL) {
-                var_f30 = fabs_float(*(f32 *)((s8 *)temp_r3_3 + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
+            enemy_entity = get_enemy_entity(id);
+            if (enemy_entity != NULL) {
+                var_f30 = fabs_float(*(f32 *)((s8 *)enemy_entity + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
             }
         }
         if (var_r29 == 1) {

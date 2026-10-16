@@ -15,15 +15,15 @@ extern "C" {
 
 void TUnk_8049EFB8::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
+    s32 player;
     if (lbl_805DAAE8 <= (f32) *(s32 *)&this->unk_1C) {
-        temp_r3 = get_player_by_client_id((int) (this->m_20));
-        if (temp_r3 != 0) {
+        player = get_player_by_client_id((int) (this->m_20));
+        if (player != 0) {
             get_field_3e0__12TBoss3VoloptFv();
             if (is_item_area_enabled() == 1) {
-                obj_getField1c((int) (temp_r3));
+                obj_getField1c((int) (player));
                 if (TObjPlayer__sub_80117E50() != 0) {
-                    spawn_particle_effect((void *) (temp_r3 + 0x2FC), (int) (0x1BE));
+                    spawn_particle_effect((void *) (player + 0x2FC), (int) (0x1BE));
                 }
             }
         }

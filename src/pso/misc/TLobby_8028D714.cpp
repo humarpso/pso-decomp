@@ -33,20 +33,20 @@ extern u32 chr_select_load_buffer;
 
 typedef char RecoveredGlobal_8028D738_lbl_80518850_size[sizeof(RecoveredGlobal_8028D738_lbl_80518850) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8028D738_lbl_80518860_size[sizeof(RecoveredGlobal_8028D738_lbl_80518860) == 0x20 ? 1 : -1];
-s32 TLobby__sub_8028D738(s32 arg0) {
+s32 TLobby__sub_8028D738(s32 i) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r4;
     if ((u32) chr_select_load_buffer_base == 0U) {
         return 0;
     }
-    TLobby__sub_8028D7D0((s32)(arg0));
-    if (arg0 < 4) {
-        temp_r3_2 = chr_select_load_buffer_base + (arg0 * 0xA000);
-        *(s32 *)((s8 *)(&lbl_80518850.value) + (arg0 * 4)) = temp_r3_2;
+    TLobby__sub_8028D7D0((s32)(i));
+    if (i < 4) {
+        temp_r3_2 = chr_select_load_buffer_base + (i * 0xA000);
+        *(s32 *)((s8 *)(&lbl_80518850.value) + (i * 4)) = temp_r3_2;
         return temp_r3_2;
     }
-    temp_r4 = arg0 - 4;
+    temp_r4 = i - 4;
     temp_r3 = (*(s32 *)&chr_select_load_buffer) + (temp_r4 * 0xA000);
     *(s32 *)((s8 *)(&chr_select_load_buffer_table.value) + (temp_r4 * 4)) = temp_r3;
     return temp_r3;

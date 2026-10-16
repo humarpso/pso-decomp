@@ -534,9 +534,9 @@ Luker_801A16D8 *__dt__9TObjLukerFv(Luker_801A16D8 *arg0, s16 arg1) {
 }
 
 #define self ((Luker_801A1768 *)arg0)
-void *TObjLuker__ct(void *arg0, void *arg1, void *arg2) {
+void *TObjLuker__ct(void *arg0, void *parent, void *arg2) {
     s32 i;
-    construct_world_actor_base(self, arg1);
+    construct_world_actor_base(self, parent);
     self->f18 = __vt__9TObjLuker;
     self->f0 = lbl_805D34A8;
     ((VObj_801A1768 *)self)->m5(arg2);

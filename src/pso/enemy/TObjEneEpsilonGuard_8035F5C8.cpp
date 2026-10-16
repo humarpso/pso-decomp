@@ -1070,11 +1070,11 @@ f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPvPv(Self_8035F5C8 *o
 }
 
 f32 TObjEneEpsilonBody::receive_physical_attack(void *arg1_arg, f32 farg0) {
-    u8 *arg1 = (u8 *)arg1_arg;
+    u8 *att = (u8 *)arg1_arg;
     s32 temp_r5;
     temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x438);
     if (!(temp_r5 & 2) && !(temp_r5 & 0x40)) {
-        return receive_physical_attack__10TObjPlayerFv(((u8 *)this), arg1, farg0);
+        return receive_physical_attack__10TObjPlayerFv(((u8 *)this), att, farg0);
     }
     try_apply_damage((u32) (((u8 *)this) + 0x2FC), 0);
     return lbl_805E0208;
@@ -1451,7 +1451,7 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
 #pragma opt_propagation off
 void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0) {
     s32 var_r31;
-    s32 var_r31_2;
+    s32 i;
     if (TObjPlayer::check_demo_mode() != 0) {
         ((VObj_18_1fdb47 *)(arg0))->m104();
         return;
@@ -1479,11 +1479,11 @@ void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0) {
                 }
             }
         } else {
-            var_r31_2 = 0;
+            i = 0;
             do {
-                TObjEneEpsilonGuard__sub_803606A0((Obj_803606A0 *) (arg0), (int) (var_r31_2));
-                var_r31_2 += 1;
-            } while (var_r31_2 < 4);
+                TObjEneEpsilonGuard__sub_803606A0((Obj_803606A0 *) (arg0), (int) (i));
+                i += 1;
+            } while (i < 4);
         }
         if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 2) {
             if (*(s32 *)((s8 *)arg0 + 0x438) & 0x100) {

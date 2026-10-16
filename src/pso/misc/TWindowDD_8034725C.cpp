@@ -111,11 +111,11 @@ s32 TWindowDD::classify_id(s16 arg0) {
 
 s32 TWindowDD::get_player_battle_flag_state(u16 arg0) {
     s32 temp_r3_2;
-    void *temp_r3;
+    void *player;
 
-    temp_r3 = get_player_by_client_id((u16) arg0);
-    if (temp_r3 != NULL) {
-        temp_r3_2 = *(s32 *)((s8 *)temp_r3 + 0x890);
+    player = get_player_by_client_id((u16) arg0);
+    if (player != NULL) {
+        temp_r3_2 = *(s32 *)((s8 *)player + 0x890);
         if (temp_r3_2 & 1) {
             return 0;
         }
@@ -128,7 +128,7 @@ block_5:
     return 0;
 }
 
-void TWindowDD::format_type6_message(s32 arg1, void *arg2) {
+void TWindowDD::format_type6_message(s32 arg1, void *pos) {
     M_80347758 *arg0 = (M_80347758 *)this;
     s32 count;
     s32 n;
@@ -140,21 +140,21 @@ void TWindowDD::format_type6_message(s32 arg1, void *arg2) {
         n = 3;
     }
     for (i = 0; i < n - 1; i++) {
-        TWindowDD__sub_8034886C(arg0->a[i], arg1, arg2);
-        show_message_by_count__9TWindowDDFll(arg1, arg2);
+        TWindowDD__sub_8034886C(arg0->a[i], arg1, pos);
+        show_message_by_count__9TWindowDDFll(arg1, pos);
     }
-    TWindowDD__sub_8034886C(arg0->a[n - 1], arg1, arg2);
+    TWindowDD__sub_8034886C(arg0->a[n - 1], arg1, pos);
     if (count > 3) {
-        ((TWindowDD *)arg1)->append_prompt_newline((s32 *)arg2);
-        TWindowDD__sub_8034886C(arg0->a[3], arg1, arg2);
+        ((TWindowDD *)arg1)->append_prompt_newline((s32 *)pos);
+        TWindowDD__sub_8034886C(arg0->a[3], arg1, pos);
     }
 }
 
-void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2) {
-    TWindowDD__sub_80347474((s32)((s32) arg0), (s32)((s32) *(s16 *)((s8 *)arg0 + 4)), (s32)(arg1), (s32)(arg2));
+void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 pos) {
+    TWindowDD__sub_80347474((s32)((s32) arg0), (s32)((s32) *(s16 *)((s8 *)arg0 + 4)), (s32)(arg1), (s32)(pos));
     if ((s16) *(s16 *)((s8 *)arg0 + 0) > 1) {
-        ((TWindowDD *)arg1)->append_prompt_newline((s32 *)arg2);
-        TWindowDD__sub_8034886C((s32) *(s16 *)((s8 *)arg0 + 6), arg1, (void *) arg2);
+        ((TWindowDD *)arg1)->append_prompt_newline((s32 *)pos);
+        TWindowDD__sub_8034886C((s32) *(s16 *)((s8 *)arg0 + 6), arg1, (void *) pos);
     }
 }
 
@@ -168,7 +168,7 @@ void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
   s32 var_r4;
   s32 var_r5;
   s32 var_r6;
-  s32 var_r7;
+  s32 pos;
   var_r29 = arg1;
   var_r28 = arg0;
   var_r30 = arg2;
@@ -180,9 +180,9 @@ void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
   var_r5 = temp_r0;
   var_r4 = var_r29;
   var_r6 = var_r30;
-  var_r7 = var_r31;
+  pos = var_r31;
   var_r30 = (int) var_r4;
-  TWindowDD__sub_803474CC((int) var_r3, var_r30, (int) var_r5, (int) var_r6, (int) var_r7);
+  TWindowDD__sub_803474CC((int) var_r3, var_r30, (int) var_r5, (int) var_r6, (int) pos);
 }
 
 void TWindowDD__sub_80347758(M_80347758 *src, M_80347758 *dst) {

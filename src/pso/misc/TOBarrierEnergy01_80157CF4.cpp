@@ -65,9 +65,9 @@ void*TOBarrierEnergy01::init() { TLobby__sub_80156BA8(this); return this; }
 void TOBarrierEnergy01::vfunc_20() {  }
 void TOBarrierEnergy01::play_ambient_loop_sound() {
     s32 arg0 = (s32)this;
-    u32 temp_r3;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    u32 global_state;
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     case 1:
     case 2:
         play_persistent_sound((int) (0x4CB09), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));

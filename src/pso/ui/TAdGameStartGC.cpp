@@ -107,7 +107,7 @@ void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o) {
     o->f9C = -1;
 }
 
-void create_effects__14TAdGameStartGCFPv(u8 *arg0) {
+void create_effects__14TAdGameStartGCFPv(u8 *parent) {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 temp_r3_3;
@@ -120,51 +120,51 @@ void create_effects__14TAdGameStartGCFPv(u8 *arg0) {
     u32 var_r0_2;
     u32 var_r0_3;
     u32 var_r0_4;
-    *(s32 *)((s8 *)arg0 + 0xA0) = 1;
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0xC4);
+    *(s32 *)((s8 *)parent + 0xA0) = 1;
+    temp_r3 = *(u32 *)((s8 *)parent + 0xC4);
     if (temp_r3 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3));
-        *(u32 *)((s8 *)arg0 + 0xC4) = 0U;
+        *(u32 *)((s8 *)parent + 0xC4) = 0U;
     }
-    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0xC8);
+    temp_r3_2 = *(u32 *)((s8 *)parent + 0xC8);
     if (temp_r3_2 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3_2));
-        *(u32 *)((s8 *)arg0 + 0xC8) = 0U;
+        *(u32 *)((s8 *)parent + 0xC8) = 0U;
     }
-    temp_r3_3 = *(u32 *)((s8 *)arg0 + 0xCC);
+    temp_r3_3 = *(u32 *)((s8 *)parent + 0xCC);
     if (temp_r3_3 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3_3));
-        *(u32 *)((s8 *)arg0 + 0xCC) = 0U;
+        *(u32 *)((s8 *)parent + 0xCC) = 0U;
     }
-    temp_r3_4 = *(u32 *)((s8 *)arg0 + 0xD0);
+    temp_r3_4 = *(u32 *)((s8 *)parent + 0xD0);
     if (temp_r3_4 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3_4));
-        *(u32 *)((s8 *)arg0 + 0xD0) = 0U;
+        *(u32 *)((s8 *)parent + 0xD0) = 0U;
     }
     temp_r3_5 = __nw__7TObjectFUl((int) (0xC8));
     var_r0 = temp_r3_5;
     if (var_r0 != 0U) {
-        var_r0 = __ct__20TAdGameStartShadowGCFv((int) (temp_r3_5), (void *) (arg0));
+        var_r0 = __ct__20TAdGameStartShadowGCFv((int) (temp_r3_5), (void *) (parent));
     }
-    *(u32 *)((s8 *)arg0 + 0xC4) = var_r0;
+    *(u32 *)((s8 *)parent + 0xC4) = var_r0;
     temp_r3_6 = __nw__7TObjectFUl((int) (0x80));
     var_r0_2 = temp_r3_6;
     if (var_r0_2 != 0U) {
-        var_r0_2 = __ct__18TAdGameStartBackGCFv((int) (temp_r3_6), (void *) (arg0));
+        var_r0_2 = __ct__18TAdGameStartBackGCFv((int) (temp_r3_6), (void *) (parent));
     }
-    *(u32 *)((s8 *)arg0 + 0xC8) = var_r0_2;
+    *(u32 *)((s8 *)parent + 0xC8) = var_r0_2;
     temp_r3_7 = __nw__7TObjectFUl((int) (0x160));
     var_r0_3 = temp_r3_7;
     if (var_r0_3 != 0U) {
-        var_r0_3 = __ct__18TAdGameStartLineGCFv((int) (temp_r3_7), (void *) (arg0));
+        var_r0_3 = __ct__18TAdGameStartLineGCFv((int) (temp_r3_7), (void *) (parent));
     }
-    *(u32 *)((s8 *)arg0 + 0xCC) = var_r0_3;
+    *(u32 *)((s8 *)parent + 0xCC) = var_r0_3;
     temp_r3_8 = __nw__7TObjectFUl((int) (0x80));
     var_r0_4 = temp_r3_8;
     if (var_r0_4 != 0U) {
-        var_r0_4 = __ct__19TAdGameStartShineGCFv((int) (temp_r3_8), (void *) (arg0));
+        var_r0_4 = __ct__19TAdGameStartShineGCFv((int) (temp_r3_8), (void *) (parent));
     }
-    *(u32 *)((s8 *)arg0 + 0xD0) = var_r0_4;
+    *(u32 *)((s8 *)parent + 0xD0) = var_r0_4;
 }
 
 void run_task__14TAdGameStartGCFv(u8 *arg0) {

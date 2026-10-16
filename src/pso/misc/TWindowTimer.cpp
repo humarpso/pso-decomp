@@ -73,16 +73,16 @@ extern s32 lbl_8044FCE0[];
 extern s32 lbl_805DD884;
 
 void TWindowTimer::draw(s32 arg1, s32 arg2) {
-    s32 temp_r31;
+    s32 array_entry;
 
-    temp_r31 = get_array_entry(0);
+    array_entry = get_array_entry(0);
     text_builder_reset();
     text_builder_append(&lbl_805DD884);
     append_padded_number(arg1, 3);
     text_builder_append(lbl_8044FCE0);
     append_padded_number(arg2, 3);
-    set_text_entry_string(temp_r31, get_shared_text_buffer(), 0x20);
-    ((TWindowHelpItem *)temp_r31)->reset_float_field();
+    set_text_entry_string(array_entry, get_shared_text_buffer(), 0x20);
+    ((TWindowHelpItem *)array_entry)->reset_float_field();
 }
 
 void TWindowTimer::set_time(u32 secs) {

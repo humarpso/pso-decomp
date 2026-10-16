@@ -68,10 +68,10 @@ void *TObjContainerAbeEnemy__create(void *arg0) {
 
 extern void *tl_05;
 
-void *TObjBgmCol__create(void *arg0) {
+void *TObjBgmCol__create(void *set) {
     void *o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
-        o = TObjBgmCol__ct(o, tl_05, arg0);
+        o = TObjBgmCol__ct(o, tl_05, set);
     }
     return o;
 }

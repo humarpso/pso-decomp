@@ -38,7 +38,7 @@ s32 update_body_parts__10TObjPlayerFv(void *, void *);
 extern s32 __vt__10TObjPlayer[];
 extern s32 lbl_805D3530;
 
-u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 arg3, u8 *arg4) {
+u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 role, u8 *arg4) {
     construct_actor_base__10TObjPlayerFPvPv();
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = __vt__10TObjPlayer;
     ((TObjPlayer *)(((u8 *)this) + 0x340))->init_subobject();
@@ -79,7 +79,7 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 arg3, u8 *arg4
     *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D3530;
     ((TObjPlayer *)((u8 *)this))->init_action_provider();
     *(s16 *)((s8 *)((u8 *)this) + 0x1C) = arg2;
-    ((TObjPlayer *)((u8 *)this))->setup_control_role((s32)((void *) (arg3)));
+    ((TObjPlayer *)((u8 *)this))->setup_control_role((s32)((void *) (role)));
     update_body_parts__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg4 + 0x370));
     sub_801BEE2C__10TObjPlayerFs((void *) (((u8 *)this)), (int) (*(u8 *)((s8 *)arg4 + 1)));
     sub_801BEE24__10TObjPlayerFs((void *) (((u8 *)this)), (int) (*(u8 *)((s8 *)arg4 + 2)));
@@ -91,7 +91,7 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 arg3, u8 *arg4
     init_player_data__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg4 + 0x34C));
     ((TObjPlayer *)((u8 *)this))->create_lockon_cursor();
     ((TObjPlayer *)((u8 *)this))->sub_801BD318();
-    ((TObjPlayer *)((u8 *)this))->init_control_mode((s32)((void *) (arg3)));
+    ((TObjPlayer *)((u8 *)this))->init_control_mode((s32)((void *) (role)));
     TObjPlayer__sub_801BCA14((void *) (((u8 *)this)), (void *) (arg4));
     init_player_substructs__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg4 + 0x3C0));
     ((TObjPlayer *)((u8 *)this))->load_character_state((u8 *)arg4);

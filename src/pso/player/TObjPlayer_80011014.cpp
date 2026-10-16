@@ -1150,11 +1150,11 @@ void TUnk_804806E8::spawn_freeze_shell_effect(u32 arg1, s32 arg2) {
 }
 
 void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
     if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), (int)(0x02000000))) == 0) {
-        temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x21), (s32)(0x50));
-        if (temp_r3 != 0) {
-            set_owner_id__13TParticleCtrlFUs(temp_r3, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+        particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x21), (s32)(0x50));
+        if (particle_effect_with_flags != 0) {
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
         }
         if (arg1 != 0) {
             play_sound_effect((s32)(0xB210), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
@@ -1163,11 +1163,11 @@ void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1) {
 }
 
 void spawn_confusion_feedback_effect(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
     if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), (int)(0x02000000))) == 0) {
-        temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x24), (s32)(0x50));
-        if (temp_r3 != 0) {
-            set_owner_id__13TParticleCtrlFUs(temp_r3, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+        particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x24), (s32)(0x50));
+        if (particle_effect_with_flags != 0) {
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
         }
         if (arg1 != 0) {
             play_sound_effect((s32)(0xB20E), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
@@ -1176,11 +1176,11 @@ void spawn_confusion_feedback_effect(s32 arg0, s32 arg1) {
 }
 
 void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
     if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), (int)(0x02000000))) == 0) {
-        temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x27), (s32)(0x50));
-        if (temp_r3 != 0) {
-            set_owner_id__13TParticleCtrlFUs(temp_r3, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+        particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x27), (s32)(0x50));
+        if (particle_effect_with_flags != 0) {
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
         }
         if (arg1 != 0) {
             play_sound_effect((s32)(0xB20D), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
@@ -1189,11 +1189,11 @@ void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
 }
 
 void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
     if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), (int)(0x02000000))) == 0) {
-        temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x26), (s32)(0x50));
-        if (temp_r3 != 0) {
-            set_owner_id__13TParticleCtrlFUs(temp_r3, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+        particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x26), (s32)(0x50));
+        if (particle_effect_with_flags != 0) {
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
         }
         if (arg1 != 0) {
             play_sound_effect((s32)(0xB20C), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
@@ -1202,11 +1202,11 @@ void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1) {
 }
 
 void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
     if (((s32)((int (*)(void*, int))obj_testFlags30)((void*)(arg0), (int)(0x02000000))) == 0) {
-        temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x25), (s32)(0x50));
-        if (temp_r3 != 0) {
-            set_owner_id__13TParticleCtrlFUs(temp_r3, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
+        particle_effect_with_flags = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x25), (s32)(0x50));
+        if (particle_effect_with_flags != 0) {
+            set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(void*))obj_getField1c)((void*)(arg0)));
         }
         if (arg1 != 0) {
             play_sound_effect((s32)(0xCD0B), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
@@ -1214,12 +1214,12 @@ void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
     }
 }
 
-s32 calc_freeze_chance(TObjPlayer *arg0, TObjPlayer *arg1, TObjPlayer *arg2, f32 farg0) {
+s32 calc_freeze_chance(TObjPlayer *actor, TObjPlayer *arg1, TObjPlayer *arg2, f32 farg0) {
     f32 var_f31;
 
     var_f31 = farg0;
     if ((((u16 (*)(TObjPlayer *))obj_getField1c)(arg1) >= 0x1000U) && (((u16 (*)(TObjPlayer *))obj_getField1c)(arg1) < 0x4000U) && (((u16 (*)(TObjPlayer *))obj_getField1c)(arg2) < 0x1000U)) {
-        var_f31 = 0.75f - ((f32) ((TObjPlayer *)arg0)->get_class_id() / 100.0f);
+        var_f31 = 0.75f - ((f32) ((TObjPlayer *)actor)->get_class_id() / 100.0f);
         if (var_f31 < 0.0f) {
             var_f31 = 0.0f;
         }
@@ -1228,14 +1228,14 @@ s32 calc_freeze_chance(TObjPlayer *arg0, TObjPlayer *arg1, TObjPlayer *arg2, f32
     } else if ((0.4f) < var_f31) {
         var_f31 = (0.4f);
     }
-    return calc_boss4_scale__10TObjPlayerFi((s32) arg0) < var_f31;
+    return calc_boss4_scale__10TObjPlayerFi((s32) actor) < var_f31;
 }
 
-s32 calc_shock_chance(TObjPlayer *arg0, TObjPlayer *arg1, TObjPlayer *arg2) {
+s32 calc_shock_chance(TObjPlayer *actor, TObjPlayer *arg1, TObjPlayer *arg2) {
     f32 var_f31;
 
     if ((((u16 (*)(TObjPlayer *))obj_getField1c)(arg1) >= 0x1000U) && (((u16 (*)(TObjPlayer *))obj_getField1c)(arg2) < 0x1000U)) {
-        var_f31 = 0.75f - ((f32) ((TObjPlayer *)arg0)->get_item_index() / 100.0f);
+        var_f31 = 0.75f - ((f32) ((TObjPlayer *)actor)->get_item_index() / 100.0f);
         if (var_f31 < 0.0f) {
             var_f31 = 0.0f;
         }
@@ -1244,7 +1244,7 @@ s32 calc_shock_chance(TObjPlayer *arg0, TObjPlayer *arg1, TObjPlayer *arg2) {
     } else {
         var_f31 = (0.06666667f);
     }
-    return calc_boss4_scale__10TObjPlayerFi((s32) arg0) < var_f31;
+    return calc_boss4_scale__10TObjPlayerFi((s32) actor) < var_f31;
 }
 
 void TObjPlayer__sub_8001053C(u8 *arg0) {
@@ -1382,43 +1382,43 @@ void TUnk_804806E8::vfunc_73() {  }
 
 void enemy_spawn_zalure_effect(s32 arg0) {
     Stack_80010A84 stack;
-    s32 temp_r3;
+    s32 oneshot_particle_emitter;
     stack.spC = 0;
     stack.sp8 = 0;
     stack.sp10 = -0x8000;
-    temp_r3 = create_oneshot_particle_emitter((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (0x1FE), (int) (0x50));
-    if (temp_r3 != 0) {
-        set_owner_id__13TParticleCtrlFUs((s32)((int) (temp_r3)), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)((void *) (arg0))))));
+    oneshot_particle_emitter = create_oneshot_particle_emitter((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (0x1FE), (int) (0x50));
+    if (oneshot_particle_emitter != 0) {
+        set_owner_id__13TParticleCtrlFUs((s32)((int) (oneshot_particle_emitter)), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)((void *) (arg0))))));
     }
 }
 
 void trigger_switch_attack__10TObjPlayerFi(s32 arg0) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
 
-    temp_r3 = spawn_particle_effect_with_flags(arg0 + 0x2FC, 0x1FE, 0x50);
-    if (temp_r3 != 0) {
-        set_owner_id__13TParticleCtrlFUs(temp_r3, ((s32 (*)(s32))obj_getField1c)(arg0));
+    particle_effect_with_flags = spawn_particle_effect_with_flags(arg0 + 0x2FC, 0x1FE, 0x50);
+    if (particle_effect_with_flags != 0) {
+        set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(s32))obj_getField1c)(arg0));
     }
 }
 
 void enemy_spawn_jellen_effect(s32 arg0) {
     Stack_80010B44 stack;
-    s32 temp_r3;
+    s32 oneshot_particle_emitter;
     stack.spC = 0;
     stack.sp8 = 0;
     stack.sp10 = -0x8000;
-    temp_r3 = create_oneshot_particle_emitter((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (0x1FD), (int) (0x50));
-    if (temp_r3 != 0) {
-        set_owner_id__13TParticleCtrlFUs((s32)((int) (temp_r3)), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)((void *) (arg0))))));
+    oneshot_particle_emitter = create_oneshot_particle_emitter((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (0x1FD), (int) (0x50));
+    if (oneshot_particle_emitter != 0) {
+        set_owner_id__13TParticleCtrlFUs((s32)((int) (oneshot_particle_emitter)), (s32)((void *) (((s32 (*)(s32))obj_getField1c)((s32)((void *) (arg0))))));
     }
 }
 
 void apply_switch_attack__10TObjPlayerFi(s32 arg0) {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
 
-    temp_r3 = spawn_particle_effect_with_flags(arg0 + 0x2FC, 0x1FD, 0x50);
-    if (temp_r3 != 0) {
-        set_owner_id__13TParticleCtrlFUs(temp_r3, ((s32 (*)(s32))obj_getField1c)(arg0));
+    particle_effect_with_flags = spawn_particle_effect_with_flags(arg0 + 0x2FC, 0x1FD, 0x50);
+    if (particle_effect_with_flags != 0) {
+        set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, ((s32 (*)(s32))obj_getField1c)(arg0));
     }
 }
 
@@ -3680,11 +3680,11 @@ s32 TUnk_804806E8::roll_physical_accuracy(void *arg1, s32 arg2, f32 farg0) {
 }
 #pragma pop
 
-s32 TUnk_804806E8::try_start_action(s32 arg1, s32 arg2) {
+s32 TUnk_804806E8::try_start_action(s32 arg1, s32 collider) {
     if (((VObj_800163F8 *)this)->m25() != 0) {
         return 1;
     }
-    ((TObjPlayer *)this)->show_miss_for_collider(arg2);
+    ((TObjPlayer *)this)->show_miss_for_collider(collider);
     return 0;
 }
 

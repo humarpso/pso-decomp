@@ -100,17 +100,17 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     return 0;
 }
 
-s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1) {
-    u8 sp8[8];
+s32 bind_gvm_texture_list(s32 name, List_8023E638 *arg1) {
+    u8 m_texture_list[8];
     Rec_8023E638 *d;
     s32 i;
     s32 n;
-    if (arg0 == 0 || arg1 == NULL) {
+    if (name == 0 || arg1 == NULL) {
         return 0;
     }
     memset((s32)(lbl_805D63C0), (s32)(0), (s32)(0x1800));
-    TObjPlayer__sub_803DD5E8(sp8, lbl_805D63C0, lbl_805D63C4, 0x200);
-    if (TLobby::load_texture_pvm_file((const char *)arg0, (s32)sp8) == -1) {
+    TObjPlayer__sub_803DD5E8(m_texture_list, lbl_805D63C0, lbl_805D63C4, 0x200);
+    if (TLobby::load_texture_pvm_file((const char *)name, (s32)m_texture_list) == -1) {
         return 0;
     }
     n = arg1->count;

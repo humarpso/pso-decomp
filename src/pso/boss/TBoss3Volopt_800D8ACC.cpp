@@ -47,9 +47,9 @@ void TBoss3Volopt::create_breakup_mdl(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s3
 
 void TBoss3Volopt::play_area_variant_sound() {
     s32 arg0 = (s32)this;
-    s32 temp_r3;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    s32 global_state;
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     case 23:
     case 24:
     case 25:

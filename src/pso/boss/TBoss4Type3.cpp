@@ -1476,15 +1476,15 @@ void TBoss4Type3::update_cut() {
 }
 void TBoss4Type3::advance_cut() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
+    s32 random_scaled;
     if ((s32) this->m_398 == 0) {
         if ((s32) this->m_374 == 4) {
             *(s32 *)&this->m_3bc = 0;
             ((TBoss4Type3 *)arg0)->spawn_random_effect();
             return;
         }
-        temp_r3 = TBoss4Type3::get_random_scaled((void *)(arg0));
-        ((TBoss4Type3 *)arg0)->send_packed_action(this->m_374 - 1, temp_r3, temp_r3);
+        random_scaled = TBoss4Type3::get_random_scaled((void *)(arg0));
+        ((TBoss4Type3 *)arg0)->send_packed_action(this->m_374 - 1, random_scaled, random_scaled);
     }
 }
 void TBoss4Type3::enter_cut() {
@@ -1738,12 +1738,12 @@ s32 TBoss4Type3::choose_attack_heading_sector() {
     s32 arg0 = (s32)this;
     TypedVector_80059B78 sp8;
     f32 temp_f0;
-    u16 temp_r3;
-    temp_r3 = ((u16 (*)(void))pick_random_target_player__11TBoss4Type3Fv)();
-    if ((temp_r3 == 0xFFFFU) || (TBoss4Type3__sub_8005254C(temp_r3) == 0)) {
+    u16 id;
+    id = ((u16 (*)(void))pick_random_target_player__11TBoss4Type3Fv)();
+    if ((id == 0xFFFFU) || (TBoss4Type3__sub_8005254C(id) == 0)) {
         return TBoss4Type3::get_random_scaled((void *)((void *) (arg0)));
     }
-    VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (((s32)get_player_by_client_id((int) (temp_r3))) + 0x38));
+    VecCopy__FP3VecPC3Vec((void *) (&sp8), (void *) (((s32)get_player_by_client_id((int) (id))) + 0x38));
     temp_f0 = sp8.f.x - lbl_805D8C7C;
     sp8.f.x = temp_f0;
     return ((u32) ((s32) ((*(const f64 *)&lbl_80437890) * atan2_float((f32) (-temp_f0), (f32) (sp8.f.z))) + 0x800) >> 0xCU) & 0xF;
@@ -2289,12 +2289,12 @@ s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 
 extern const f32 lbl_805D8CAC;
 
-Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
+Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     s32 i;
     s32 model;
     s32 p;
 
-    ((TObjEnemy *)self)->initialize((void*)arg1);
+    ((TObjEnemy *)self)->initialize((void*)parent);
     self->vt = __vt__11TBoss4Type3;
     self->f0 = (s32)TBoss4Type3_name;
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);

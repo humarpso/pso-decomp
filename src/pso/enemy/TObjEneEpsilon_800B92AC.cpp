@@ -201,22 +201,22 @@ void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0) {
 
 void TObjEneEpsilon::fire_attack_a(s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f31;
-    f32 temp_f30;
+    f32 dist;
 
-    temp_f30 = farg0;
+    dist = farg0;
     update_angle((s32)(arg2));
     temp_f31 = cos_table_lookup(this->rotation_y);
-    calc_wall_clamped_destination(this, arg1, sin_table_lookup(this->rotation_y), temp_f31, temp_f30);
+    calc_wall_clamped_destination(this, arg1, sin_table_lookup(this->rotation_y), temp_f31, dist);
 }
 
 void TObjEneEpsilon::fire_attack_b(s32 arg1, s32 arg2, f32 farg0) {
-    f32 temp_f31;
-    f32 temp_f30;
+    f32 dz;
+    f32 dist;
 
-    temp_f30 = farg0;
+    dist = farg0;
     update_angle((s32)(arg2));
-    temp_f31 = cos_table_lookup(this->rotation_y);
-    calc_wall_slide_destination(this, arg1, sin_table_lookup(this->rotation_y), temp_f31, temp_f30);
+    dz = cos_table_lookup(this->rotation_y);
+    calc_wall_slide_destination(this, arg1, sin_table_lookup(this->rotation_y), dz, dist);
 }
 
 void TObjEneEpsilon::fire_attack_c(s32 arg1, s32 arg2, f32 farg0) {

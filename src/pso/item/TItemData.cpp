@@ -511,16 +511,16 @@ u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it) {
 f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
     s32 *var_r4;
     f32 var_f1;
-    s32 temp_r3;
+    s32 internet_beat;
     s32 temp_r3_2;
     s32 var_r3;
     var_f1 = lbl_805DAB6C;
     if ((s32) *(u8 *)((s8 *)arg0 + 1) != 0x94) {
         return var_f1;
     }
-    temp_r3 = TLobby::get_internet_beat();
-    var_r3 = temp_r3 >> 2;
-    var_r3 = temp_r3 / 4;
+    internet_beat = TLobby::get_internet_beat();
+    var_r3 = internet_beat >> 2;
+    var_r3 = internet_beat / 4;
     var_r4 = (s32 *)(&lbl_8043E348);
     temp_r3_2 = var_r3;
     var_r3 ^= 0x80000000;
@@ -793,11 +793,11 @@ s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0) {
 void TItemData__sub_8010CCB0(void) {  }
 void TItemData::normalize() {  }
 u8 TItemData::get_entry_field16() {
-    void *temp_r3;
+    void *item_pmt_record;
 
-    temp_r3 = lookup_item_pmt_record();
-    if (temp_r3 != NULL) {
-        return *(u8 *)((s8 *)temp_r3 + 0x16);
+    item_pmt_record = lookup_item_pmt_record();
+    if (item_pmt_record != NULL) {
+        return *(u8 *)((s8 *)item_pmt_record + 0x16);
     }
     return 0U;
 }
@@ -1954,35 +1954,35 @@ void *lookup_item_pmt_record(u8 *item) {
 int TItemData::calc_display_grade() {
     s16 temp_r3;
     u8 temp_b;
-    int var_r31;
+    int base_rarity;
 
-    var_r31 = get_base_rarity();
+    base_rarity = get_base_rarity();
     switch ((s32) (u8) *(u8 *)((s8 *)this + 0)) {
     case 0:
-        if ((u8) var_r31 < 9U) {
+        if ((u8) base_rarity < 9U) {
             temp_b = *(u8 *)((s8 *)this + 4);
             if (!(temp_b & 0x80)) {
-                var_r31 += get_unit_attribute_index__10TObjPlayerFUc(temp_b);
+                base_rarity += get_unit_attribute_index__10TObjPlayerFUc(temp_b);
             }
         } else if (*(u8 *)((s8 *)this + 4) & 0x80) {
-            var_r31 = 0;
+            base_rarity = 0;
         }
         break;
     case 1:
         if ((u8) *(u8 *)((s8 *)this + 1) == 3) {
             temp_r3 = get_field6_bswap__9TItemDataFPv((void *)(this));
             if (temp_r3 < 0) {
-                var_r31 -= 1;
+                base_rarity -= 1;
             } else if (temp_r3 > 0) {
-                var_r31 += 1;
+                base_rarity += 1;
             }
         }
         break;
     }
-    if ((u8) var_r31 > 0xCU) {
-        var_r31 = 0xC;
+    if ((u8) base_rarity > 0xCU) {
+        base_rarity = 0xC;
     }
-    return var_r31;
+    return base_rarity;
 }
 
 s32 TItemData::get_base_rarity() {

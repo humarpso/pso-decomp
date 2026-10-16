@@ -46,7 +46,7 @@ void TBoss5GryphonShockWave::run_task() {
     s32 temp_r0;
     s32 temp_r30;
     s32 temp_r3;
-    s32 temp_r3_2;
+    s32 particle_effect_with_flags;
     if (((TBoss8Dragon *)(*(s32 *)&this->m_38))->get_flag_bit6() != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
@@ -71,9 +71,9 @@ void TBoss5GryphonShockWave::run_task() {
         }
         break;
     case 2:
-        temp_r3_2 = spawn_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 4), 0x40);
-        if (temp_r3_2 != 0) {
-            attach_particle_model(temp_r3_2, get_bml_model(boss5_gryphon_bml_resource, 0), boss5_gryphon_texture_list, get_bml_motion(boss5_gryphon_bml_resource, 0), 0, lbl_805D8EE8);
+        particle_effect_with_flags = spawn_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 4), 0x40);
+        if (particle_effect_with_flags != 0) {
+            attach_particle_model(particle_effect_with_flags, get_bml_model(boss5_gryphon_bml_resource, 0), boss5_gryphon_texture_list, get_bml_motion(boss5_gryphon_bml_resource, 0), 0, lbl_805D8EE8);
         }
         spawn_particle_effect_with_flags(arg0 + 0x2C, *(s32 *)((s8 *)(*(u8 * *)&gryphon_shockwave_particle_ids_ptr) + 8), 0x40);
         play_sound_effect(0x40033C13, arg0 + 0x2C, 0, 0);

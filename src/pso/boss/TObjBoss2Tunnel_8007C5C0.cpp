@@ -313,13 +313,13 @@ bool TObjBoss2Tunnel::verify_snapshot_checksum() {
 
 s32 TObjBoss2Tunnel::load_snapshot() {
     Stack_8007CBC4 stack;
-    s32 temp_r31;
+    s32 buf;
     if (TAdPlayerLoadGC__sub_801E1B50((int) (1)) == 0) {
         if (((s32) (*(u16 *)&TObjBoss2Tunnel__snapshot_state) != 0) && ((s32) (*(u16 *)&TObjBoss2Tunnel__snapshot_state) >= 0) && ((s32) (*(u16 *)&TObjBoss2Tunnel__snapshot_state) < 3)) {
-            temp_r31 = TObjPlayer__sub_800845F8();
+            buf = TObjPlayer__sub_800845F8();
             if (TAdPlayerLoadGC__sub_801E1538((void *) (&stack.sp8), (int) (TObjBoss2Tunnel__snapshot_buffer)) == 0) {
-                memcpy((int) (temp_r31), (void *) (stack.sp60 + 8), (int) (0x1818C));
-                DCFlushRange((int) (temp_r31), (int) (0x1818C));
+                memcpy((int) (buf), (void *) (stack.sp60 + 8), (int) (0x1818C));
+                DCFlushRange((int) (buf), (int) (0x1818C));
             }
             lbl_805D49B4 = 0;
         }

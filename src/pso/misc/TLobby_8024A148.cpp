@@ -13,11 +13,11 @@ extern s32 TLobby__protocol_instance;
 
 void TLobby::send_card_window_state() {
     s32 sp8[5];
-    s32 temp_r31;
+    s32 character_save_record;
 
-    temp_r31 = get_character_save_record(0xFFFF);
+    character_save_record = get_character_save_record(0xFFFF);
     sp8[0] = open_hard_keyboard__6TLobbyFPv(local_client_id) ? 1 : 0;
-    TLobby__sub_80077798(temp_r31 + 0x22EC, sp8);
+    TLobby__sub_80077798(character_save_record + 0x22EC, sp8);
     ((TProtocol *)TLobby__protocol_instance)->send_choice_search_parameters((ChoiceSearchParameters &)sp8);
 }
 

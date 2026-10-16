@@ -187,9 +187,9 @@ s32 TLobby::get_item_data(u32 arg0) {
     }
     return 0;
 }
-void TLobby::forward_message(s32 arg0, u32 arg1) {
+void TLobby::forward_message(s32 buf, u32 arg1) {
     if (arg1 != 0U) {
-        ((TItemData *)arg1)->format_item_name((char *)arg0);
+        ((TItemData *)arg1)->format_item_name((char *)buf);
     }
 }
 void TLobby::mark_selected() { lobby_drop_flag = 1; }
@@ -262,13 +262,13 @@ void normalize_drop_area(s32 *p) {
     }
 }
 
-void TLobby::forward_to_player(int arg0, void *arg1) {
-    s32 temp_r3;
-    if (arg1 != NULL) {
-        temp_r3 = get_player_by_client_id(arg0);
-        if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
-            ((TObjPlayer *)temp_r3)->request_inventory_item((TItemData*)arg1);
-            send_6x25_equip_item(temp_r3, *(s32 *)((s8 *)arg1 + 0xC), 0);
+void TLobby::forward_to_player(int arg0, void *item) {
+    s32 player;
+    if (item != NULL) {
+        player = get_player_by_client_id(arg0);
+        if ((player != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
+            ((TObjPlayer *)player)->request_inventory_item((TItemData*)item);
+            send_6x25_equip_item(player, *(s32 *)((s8 *)item + 0xC), 0);
         }
     }
 }

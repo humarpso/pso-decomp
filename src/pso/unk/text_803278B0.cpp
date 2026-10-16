@@ -16,18 +16,18 @@ void collect_scroll_uv_entries__19TOComputerMachine01FiPvi(s32 arg0, Hdr_803278B
 
 extern "C" {
 
-void collect_scroll_uv_entries__19TOComputerMachine01FiPvi(s32 arg0, Hdr_803278B0 *arg1, s32 arg2) {
+void collect_scroll_uv_entries__19TOComputerMachine01FiPvi(s32 arg0, Hdr_803278B0 *arg1, s32 id) {
     s32 hit;
     Ent_803278B0 *e;
     s16 *q;
     s32 i;
     u16 n;
     hit = 0;
-    if (arg1->a != 0 && has_texture_scroll_entry(arg1->a, (u16) arg2) == 1) {
+    if (arg1->a != 0 && has_texture_scroll_entry(arg1->a, (u16) id) == 1) {
         set_ginja_texture_wrap_repeat(arg1->a);
         hit = 1;
     }
-    if (arg1->b != 0 && has_texture_scroll_entry(arg1->b, (u16) arg2) == 1) {
+    if (arg1->b != 0 && has_texture_scroll_entry(arg1->b, (u16) id) == 1) {
         set_ginja_texture_wrap_repeat(arg1->b);
         hit = 1;
     }

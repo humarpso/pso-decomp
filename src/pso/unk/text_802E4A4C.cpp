@@ -17,7 +17,7 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2);
 extern "C" {
 
 u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
-    u32 temp_r3;
+    u32 player;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804E355C.value;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DE914;
@@ -44,9 +44,9 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(f32 *)((s8 *)arg2 + 0x20);
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg2 + 0x24);
     *(s32 *)((s8 *)arg0 + 0xC0) = 1;
-    temp_r3 = get_player_by_client_id((int) ((s32) *(u16 *)((s8 *)arg2 + 0x14)));
-    if (temp_r3 != 0U) {
-        if (get_type__10TObjPlayerFPv((void *) (temp_r3 + 0x828)) != 0) {
+    player = get_player_by_client_id((int) ((s32) *(u16 *)((s8 *)arg2 + 0x14)));
+    if (player != 0U) {
+        if (get_type__10TObjPlayerFPv((void *) (player + 0x828)) != 0) {
             *(s32 *)((s8 *)arg0 + 0xBC) = 1;
         } else {
             *(s32 *)((s8 *)arg0 + 0xBC) = 0;

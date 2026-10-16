@@ -29,12 +29,12 @@ void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1) {
 
 void TObjPlayer::cast_foie_effect() {
     s32 sp8;
-    void *temp_r31;
+    void *owner;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if (draw_icon((s32)0, (s32)(&sp8)) != 0) {
-            temp_r31 = *(void * *)&this->unk_F0;
-            TTecFoie::create((void *)temp_r31, (void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r31 + 0x60)), (void *)(get_tp()));
+            owner = *(void * *)&this->unk_F0;
+            TTecFoie::create((void *)owner, (void *)(&sp8), (void *)(*(s32 *)((s8 *)owner + 0x60)), (void *)(get_tp()));
             roll_technique__11TItemWeaponFv(this);
         }
     } else {

@@ -2380,11 +2380,11 @@ extern s32 lbl_805D3EB0;
 
 #pragma push
 #pragma opt_common_subs off
-s32 TBoss6Type1__ct(s32 arg0_, s32 arg1, s32 arg2_) {
+s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     Tmp_802B93C4 tmp;
     s32 i;
 
-    ((TObjEnemy *)arg0)->initialize((void*)arg1);
+    ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__11TBoss6Type1;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3EB0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
@@ -2458,19 +2458,19 @@ u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1) {
     return (u8 *)arg0;
 }
 
-s32 TBoss6Type1::create(s32 arg0) {
-    s32 var_r31;
+s32 TBoss6Type1::create(s32 arg2_) {
+    s32 arg0_;
     s32 var_r4;
 
-    var_r31 = __nw__7TObjectFUl(0x684);
-    if (var_r31 != 0) {
+    arg0_ = __nw__7TObjectFUl(0x684);
+    if (arg0_ != 0) {
         var_r4 = __nw__7TObjectFUl(0x20);
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss6Type1__ct(var_r31, var_r4, arg0);
+        arg0_ = TBoss6Type1__ct(arg0_, var_r4, arg2_);
     }
-    return var_r31;
+    return arg0_;
 }
 
 void TBoss6Type1::apply_poison_status() {  }

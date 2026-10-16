@@ -812,7 +812,7 @@ void TObjCityMainWarp::update_warp_flags_from_story() {
     s32 var_ctr;
     s32 var_ctr_2;
     s32 var_r4;
-    s32 var_r5;
+    s32 i;
     s32 var_r5_2;
     if ((is_main_phase_15__9TObjEneDDFv(this) != 0) || (is_split_screen() != 0)) {
         var_r3 = 0x4F;
@@ -827,11 +827,11 @@ void TObjCityMainWarp::update_warp_flags_from_story() {
     if (get_story_flag(var_r31) != 0) {
         TObjCityMainWarp__visible_destination_mask |= 0x200;
     }
-    for (var_r5 = 0; var_r5 < 4; var_r5++) {
-        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
+    for (i = 0; i < 4; i++) {
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << i);
     }
-    for (var_r5 = 0xF; var_r5 < 0x11; var_r5++) {
-        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
+    for (i = 0xF; i < 0x11; i++) {
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << i);
     }
 }
 void TObjCityMainWarp::init_visible_mask() {
@@ -841,7 +841,7 @@ void TObjCityMainWarp::init_visible_mask() {
     s32 var_ctr;
     s32 var_ctr_2;
     s32 var_r4;
-    s32 var_r5;
+    s32 i;
     s32 var_r5_2;
     TObjCityMainWarp__visible_destination_mask |= 1;
     if ((is_main_phase_15__9TObjEneDDFv(this) != 0) || (is_split_screen() != 0)) {
@@ -852,11 +852,11 @@ void TObjCityMainWarp::init_visible_mask() {
     if (get_story_flag(var_r3) != 0) {
         TObjCityMainWarp__visible_destination_mask |= 4;
     }
-    for (var_r5 = 4; var_r5 < 11; var_r5++) {
-        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
+    for (i = 4; i < 11; i++) {
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << i);
     }
-    for (var_r5 = 0xF; var_r5 < 0x11; var_r5++) {
-        TObjCityMainWarp__visible_destination_mask &= ~(1 << var_r5);
+    for (i = 0xF; i < 0x11; i++) {
+        TObjCityMainWarp__visible_destination_mask &= ~(1 << i);
     }
 }
 

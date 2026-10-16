@@ -97,15 +97,15 @@ extern const f32 lbl_805D9038;
 
 void TUnk_80488D70::vfunc_6() {
     void *temp_r31;
-    void *temp_r3;
+    void *player;
 
     if ((u32) camera_ctrl_instance != 0U) {
         temp_r31 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
-        temp_r3 = get_player_by_client_id(0);
-        if (temp_r3 != NULL) {
-            *(f32 *)&this->unk_48 = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
-            this->m_4c = (f32) (lbl_805D9038 + *(f32 *)((s8 *)temp_r3 + 0x3C));
-            *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
+        player = get_player_by_client_id(0);
+        if (player != NULL) {
+            *(f32 *)&this->unk_48 = (f32) *(f32 *)((s8 *)player + 0x38);
+            this->m_4c = (f32) (lbl_805D9038 + *(f32 *)((s8 *)player + 0x3C));
+            *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)player + 0x40);
             this->m_3c = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
             *(f32 *)&this->unk_40 = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
             this->m_44 = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);

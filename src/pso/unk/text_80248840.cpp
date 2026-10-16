@@ -25,25 +25,25 @@ u8 *construct_symbol_chat_selection(u8 *arg0);
 extern "C" {
 
 u8 *construct_symbol_chat_selection(u8 *arg0) {
-    s32 var_r31;
+    s32 i;
     u8 *temp_r30;
-    u8 *temp_r3;
+    u8 *symbol_chat_preset;
     u8 *temp_r3_2;
     u8 *var_r0;
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE7D0;
     *(u8 **)((s8 *)arg0 + 0x1C) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_8044EAC0, 0xC);
-    var_r31 = 0;
+    i = 0;
     do {
-        temp_r3 = (u8 *)(get_symbol_chat_preset(var_r31));
-        temp_r30 = (u8 *)(((TWindowSubSymbolChat *)temp_r3)->get_symbol_chat_data());
-        if (is_symbol_chat_preset_in_use(temp_r3) != 0) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii(*(u8 **)((s8 *)arg0 + 0x1C), (s32) temp_r30, 0x66, var_r31);
+        symbol_chat_preset = (u8 *)(get_symbol_chat_preset(i));
+        temp_r30 = (u8 *)(((TWindowSubSymbolChat *)symbol_chat_preset)->get_symbol_chat_data());
+        if (is_symbol_chat_preset_in_use(symbol_chat_preset) != 0) {
+            forward_trade_action_default__16TObjCityMainWarpFPviii(*(u8 **)((s8 *)arg0 + 0x1C), (s32) temp_r30, 0x66, i);
         } else {
-            TWindowSubComCard::draw_text_gray((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x1C))), (s32)((int) (temp_r30)), (s32)((int) (0x46)), (s32)((int) (var_r31)));
+            TWindowSubComCard::draw_text_gray((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x1C))), (s32)((int) (temp_r30)), (s32)((int) (0x46)), (s32)((int) (i)));
         }
-        var_r31 += 1;
-    } while (var_r31 < 0xC);
+        i += 1;
+    } while (i < 0xC);
     ((TWindowSubComCardList *)(*(u8 **)((s8 *)arg0 + 0x1C)))->set_flag70_bit10();
     ((TWindowSubComCardList *)(*(u8 **)((s8 *)arg0 + 0x1C)))->set_scroll_target((f32) (lbl_805DCBA0), (f32) (lbl_805DCBA4));
     align_menu_entry_positions((void *) (*(u8 **)((s8 *)arg0 + 0x1C)));

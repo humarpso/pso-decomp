@@ -131,14 +131,14 @@ void TUnk_8048E1A4::freeze_shell_grow() {
 
 void TUnk_8048E1A4::run_task() {
     s32 temp_r0;
-    u32 var_r3;
+    u32 active_entity;
     u16 id = *(u16 *)((s8 *)this + 0x358);
     if ((id != 0xffffU) && (id < 0x4000U)) {
-        var_r3 = find_active_entity_by_id(id);
+        active_entity = find_active_entity_by_id(id);
     } else {
-        var_r3 = 0U;
+        active_entity = 0U;
     }
-    if (var_r3 == 0U) {
+    if (active_entity == 0U) {
         queue_destruction__7TObjectFv(this);
         disallow_rendering__7TObjectFv(this);
         return;

@@ -37,10 +37,10 @@ void *__dt__12TOChatSensorFv(void *arg0, s16 arg1) {
 
 extern u32 chat_sensor_table;
 
-u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2) {
+u32 TOChatSensor__ct(int arg0, void *parent, void *arg2) {
     s32 n;
     s32 *t;
-    construct_world_actor_base((void *) arg0, arg1);
+    construct_world_actor_base((void *) arg0, parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOChatSensor;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2ED8;
     ((TOChatSensor *)arg0)->vfunc_7(arg2);

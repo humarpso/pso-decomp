@@ -229,10 +229,10 @@ Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent) 
 }
 #pragma pop
 
-void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0) {
+void *TBoss6Demo10_TYPE1_APPEAR__create(void *parent) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = TBoss6Demo10_TYPE1_APPEAR__ct((Fish_8033CB4C *)(o), (void *)(arg0));
+        o = TBoss6Demo10_TYPE1_APPEAR__ct((Fish_8033CB4C *)(o), (void *)(parent));
     }
     return o;
 }

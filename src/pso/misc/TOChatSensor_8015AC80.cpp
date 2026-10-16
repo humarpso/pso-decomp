@@ -45,11 +45,11 @@ extern s32 local_client_id;
 
 void TOChatSensor::check_player_proximity() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r3;
+    u32 player;
 
-    temp_r3 = get_player_by_client_id((void *) (local_client_id));
-    if (temp_r3 != 0U) {
-        if (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)&this->unk_9C) {
+    player = get_player_by_client_id((void *) (local_client_id));
+    if (player != 0U) {
+        if (horizontal_distance_squared((void *) (player + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)&this->unk_9C) {
             *(s32 *)&this->m_a0 = 1;
             return;
         }

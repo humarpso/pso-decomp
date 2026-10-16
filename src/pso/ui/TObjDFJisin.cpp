@@ -330,13 +330,13 @@ S_80050A68 *__dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag) {
 
 #pragma push
 #pragma fp_contract on
-u8 *TObjDFHorming__ct(u8 *arg0, s32 arg1, s32 arg2, u16 arg3) {
+u8 *TObjDFHorming__ct(u8 *arg0, s32 parent, s32 arg2, u16 arg3) {
     f32 scale;
     s32 ang;
     u8 *p;
     s32 i;
 
-    construct_actor_base__10TObjPlayerFPvPv(arg0, arg1);
+    construct_actor_base__10TObjPlayerFPvPv(arg0, parent);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)__vt__13TObjDFHorming;
     *(s32 *)((s8 *)arg0 + 0) = TObjDFHorming__name;
     *(u16 *)((s8 *)arg0 + 0x334) = arg3;
@@ -405,12 +405,12 @@ void damage_players_near_point(s32 arg0, Vec_80050D74 *arg1) {
 
 void fn_spawn_particle_f3_with_flags(s32 arg0, s32 arg1) {
     Vec position;
-    u32 temp_r3;
+    u32 particle_effect;
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (&position.x), (void *) (arg1));
     position.y += lbl_805D8A90;
-    temp_r3 = spawn_particle_effect((void *) (&position.x), (int) (0xF3));
-    if (temp_r3 != 0U) {
-        ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
+    particle_effect = spawn_particle_effect((void *) (&position.x), (int) (0xF3));
+    if (particle_effect != 0U) {
+        ((TBoss4Type2 *)particle_effect)->set_flags((int) (0x40));
     }
 }
 
@@ -549,7 +549,7 @@ TObjDFRecBall::~TObjDFRecBall() {
 extern "C" {
 u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     s32 temp_r31;
-    u8 *temp_r3;
+    u8 *particle_emitter;
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__13TObjDFRecBall;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFRecBall__name;
@@ -561,9 +561,9 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     *(f32 *)((s8 *)arg0 + 0x3C) = cos_table_lookup(temp_r31);
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D8A34;
     *(s32 *)((s8 *)arg0 + 0x48) = 0x96;
-    temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0xAF));
-    *(u8 **)((s8 *)arg0 + 0x44) = temp_r3;
-    if (temp_r3 != NULL) {
+    particle_emitter = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0xAF));
+    *(u8 **)((s8 *)arg0 + 0x44) = particle_emitter;
+    if (particle_emitter != NULL) {
         ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x44)))->set_flags(0x40);
     }
     return arg0;
@@ -968,16 +968,16 @@ TObjDFTenchuFuru::~TObjDFTenchuFuru() {
     if (m_2c != nullptr) TBoss4Type2::request_destroy((u32)m_2c);
 }
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
-    u8 *temp_r3;
+    u8 *particle_emitter;
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjDFTenchuFuru.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFTenchuFuru__name;
     *(s32 *)((s8 *)arg0 + 0x28) = 5;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805D8AA0);
-    temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
-    *(u8 **)((s8 *)arg0 + 0x2C) = temp_r3;
-    if (temp_r3 != NULL) {
+    particle_emitter = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
+    *(u8 **)((s8 *)arg0 + 0x2C) = particle_emitter;
+    if (particle_emitter != NULL) {
         ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x2C)))->set_flags(0x40);
     }
     return arg0;

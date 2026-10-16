@@ -198,12 +198,12 @@ u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
 }
 
 void TUnk_804D1818::update_photon_selection() {
-    s32 temp_r31;
+    s32 selected_menu_value;
     s32 temp_r3;
 
-    temp_r31 = get_selected_menu_value(*(s32 *)&this->unk_28);
+    selected_menu_value = get_selected_menu_value(*(s32 *)&this->unk_28);
     temp_r3 = update_selected_item__17TWindowOptionCtrlFv(this->m_2c);
-    if ((temp_r31 == 4) && ((s8) (this->m_1d) != temp_r3)) {
+    if ((selected_menu_value == 4) && ((s8) (this->m_1d) != temp_r3)) {
         (this->m_1d) = (u8) temp_r3;
         if ((s8) (this->m_1d) == 0) {
             TBoss4Type3::spawn_effect(0xC0, 0xF, (s16) *(s32 *)&(*(s16 *)&this->m_20));
@@ -212,12 +212,12 @@ void TUnk_804D1818::update_photon_selection() {
 }
 
 void TUnk_804D1818::update_quest_board_card_flags() {
-    s32 temp_r31;
+    s32 selected_menu_value;
     s32 temp_r4;
 
-    temp_r31 = get_selected_menu_value(*(s32 *)&this->unk_28);
+    selected_menu_value = get_selected_menu_value(*(s32 *)&this->unk_28);
     temp_r4 = update_selected_item__17TWindowOptionCtrlFv(*(s32 *)&this->m_2c);
-    switch (temp_r31) {
+    switch (selected_menu_value) {
     case 0:
         ((TWindowSubQuestBoard *)(this->m_20))->set_card_flags_direct(temp_r4);
         return;
@@ -299,25 +299,25 @@ s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
 }
 
 s32 TUnk_804D1818::create_option_menu_window() {
-    s32 temp_r31;
+    s32 titled_window_menu;
 
-    temp_r31 = create_titled_window_menu(get_window_layout_position(0x15), 6, get_message_10__20TWindowSubStatusDispFl(0x2A), this->m_20);
+    titled_window_menu = create_titled_window_menu(get_window_layout_position(0x15), 6, get_message_10__20TWindowSubStatusDispFl(0x2A), this->m_20);
     if (is_split_screen() == 0) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x66), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x66), 6, 0);
     }
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x67), 6, 1);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x68), 6, 2);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x69), 6, 3);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x6A), 6, 4);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x67), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x68), 6, 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x69), 6, 3);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x6A), 6, 4);
     if (is_split_screen() == 0) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x6E), 6, 5);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x6E), 6, 5);
     }
-    ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-    ((TWindowSubComCardList *)temp_r31)->update_layout_height(lbl_805DD688);
-    align_menu_entry_positions(temp_r31);
+    ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
+    ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD688);
+    align_menu_entry_positions(titled_window_menu);
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_24, 0);
-    set_field_1c__6TLobbyFf(temp_r31);
-    return temp_r31;
+    set_field_1c__6TLobbyFf(titled_window_menu);
+    return titled_window_menu;
 }
 
 }

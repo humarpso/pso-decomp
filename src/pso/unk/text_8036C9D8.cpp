@@ -15,9 +15,9 @@ s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0);
 extern "C" {
 
 s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0) {
-    s32 temp_r3;
-    temp_r3 = get_player_by_client_id(arg0->header.client_id);
-    if (temp_r3 == 0) {
+    s32 player;
+    player = get_player_by_client_id(arg0->header.client_id);
+    if (player == 0) {
         return 0;
     }
     if (is_matching_id__6TLobbyFlUs(arg0, arg0->header.client_id) != 0) {
@@ -26,7 +26,7 @@ s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0) {
     if (((is_action_id_none(arg0->animation_number) == 0) && (arg0->animation_number < 0)) || (arg0->animation_number >= TLobby::get_hold_effect_size_by_type())) {
         return 0;
     }
-    if ((arg0->animation_timer < lbl_805E03A8) || (arg0->animation_timer >= ((TObjPlayer *)temp_r3)->get_table_value_f32(arg0->animation_number))) {
+    if ((arg0->animation_timer < lbl_805E03A8) || (arg0->animation_timer >= ((TObjPlayer *)player)->get_table_value_f32(arg0->animation_number))) {
         return 0;
     }
     return 1;

@@ -58,16 +58,16 @@ s32 is_any_player_near(s32 arg0) {
   s32 temp_r31;
   s32 var_r29;
   s32 new_var;
-  u8 *temp_r3;
+  u8 *player;
   temp_f31 = lbl_805DDCD0;
   var_r29 = 0;
   loop_1:
-  temp_r3 = (u8 *) get_player_by_client_id(var_r29);
-  if (temp_r3 != 0)
+  player = (u8 *) get_player_by_client_id(var_r29);
+  if (player != 0)
   {
-    temp_r31 = ((TObjPlayer *)temp_r3)->get_field_3e4();
+    temp_r31 = ((TObjPlayer *)player)->get_field_3e4();
     new_var = get_current_floor();
-    if ((new_var == temp_r31) && (((f32 (*)(void *, void *))xz_distance_squared)((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31))
+    if ((new_var == temp_r31) && (((f32 (*)(void *, void *))xz_distance_squared)((void *) (player + 0x38), (void *) (arg0 + 0x38)) < temp_f31))
     {
       return 1;
     }

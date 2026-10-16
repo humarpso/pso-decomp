@@ -69,13 +69,13 @@ void *TUnk_804E4BF0::dt(s16 arg1) {
     return this;
 }
 
-void *TUnk_804E4BF0::ct(void *arg1, void *arg2) {
+void *TUnk_804E4BF0::ct(void *arg1, void *arg1p) {
     __ct__7TObjectFP7TObject(this);
     (*(s32 * *)((u8 *)this + 0x18)) = lbl_804E4BF0;
     if (boss8_dragon_leader_part == NULL) {
         boss8_dragon_leader_part = this;
     }
-    TBoss4DarkFalz__sub_8004B4F0((void *)((char *)this + 28), arg2);
+    TBoss4DarkFalz__sub_8004B4F0((void *)((char *)this + 28), arg1p);
     return this;
 }
 

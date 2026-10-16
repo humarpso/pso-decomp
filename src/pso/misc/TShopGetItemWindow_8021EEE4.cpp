@@ -70,15 +70,15 @@ extern s32 local_client_id;
 
 void TShopGetItemWindow::calc_item_count(s32 *arg1) {
     s32 var_r31;
-    void *temp_r3;
+    void *player;
 
     var_r31 = 1;
     if (TRaderMapCore::is_not_split_screen() == 1) {
         var_r31 = ((VObj_8021EEEC_8021EEE4 *)this)->m14() + 1;
     } else {
-        temp_r3 = get_player_by_client_id(local_client_id);
-        if (temp_r3 != NULL) {
-            var_r31 = ((VObj_8021EEEC_8021EEE4 *)temp_r3)->m14() + 1;
+        player = get_player_by_client_id(local_client_id);
+        if (player != NULL) {
+            var_r31 = ((VObj_8021EEEC_8021EEE4 *)player)->m14() + 1;
         }
     }
     if (var_r31 < 1) {
@@ -94,10 +94,10 @@ void TShopGetItemWindow::calc_item_count(s32 *arg1) {
 void init_shop_world_context(void) {
     s32 temp_r3_2;
     s32 temp_r3_3;
-    void *temp_r3;
-    temp_r3 = get_player_by_client_id(local_client_id);
-    if (temp_r3 != NULL) {
-        shop_world_player_level = ((ShopPlayerLevel*)temp_r3)->levelIndex();
+    void *player;
+    player = get_player_by_client_id(local_client_id);
+    if (player != NULL) {
+        shop_world_player_level = ((ShopPlayerLevel*)player)->levelIndex();
         shop_world_player_level++;
     } else {
         shop_world_player_level = 1;

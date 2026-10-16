@@ -62,13 +62,13 @@ s32 TWindowSubStatusDisp::get_status_index_or_default(u16 *arg0) {
 extern s32 lbl_805D285C;
 
 s32 *TWindowSubStatusDisp::get_status_window(int arg0) {
-    u32 temp_r3;
+    u32 character_save_record;
 
-    temp_r3 = get_character_save_record((u16)arg0);
-    if (temp_r3 == 0U) {
+    character_save_record = get_character_save_record((u16)arg0);
+    if (character_save_record == 0U) {
         return &lbl_805D285C;
     }
-    return TWindowSubStatusDisp__sub_80071820((u32)(temp_r3 + 0x21C4));
+    return TWindowSubStatusDisp__sub_80071820((u32)(character_save_record + 0x21C4));
 }
 
 typedef char RecoveredGlobal_80071820_lbl_804FF820_size[sizeof(RecoveredGlobal_80071820_lbl_804FF820) == 0xC ? 1 : -1];
@@ -119,7 +119,7 @@ s32 TWindowSubStatusDisp__sub_800718D0(void) {
     return sum;
 }
 
-s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
+s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 slot) {
     s32 *p;
     s32 n;
     s32 r;
@@ -130,9 +130,9 @@ s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
     if (w == 0U) {
         return 0;
     }
-    p = (s32 *)TWindowSubStatusDisp__sub_8006F0D8((void *)(w + 0x21C4), (void *)arg1);
+    p = (s32 *)TWindowSubStatusDisp__sub_8006F0D8((void *)(w + 0x21C4), (void *)slot);
     sum = 0;
-    n = get_layout_id__20TWindowSubStatusDispFv((void *)arg1);
+    n = get_layout_id__20TWindowSubStatusDispFv((void *)slot);
     for (i = 0; i < n; i++, p++) {
         r = TLobby::get_valid_slot(*p);
         if (r == 0) {
@@ -143,15 +143,15 @@ s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1) {
     return sum;
 }
 
-s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2) {
+s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 slot) {
     s32 temp_r3;
-    u32 temp_r31;
-    temp_r31 = get_character_save_record((u32)arg1);
-    temp_r3 = get_layout_id__20TWindowSubStatusDispFv((void *) (arg2));
-    if ((arg0 < 0) || (arg0 >= temp_r3) || (temp_r31 == 0U)) {
+    u32 character_save_record;
+    character_save_record = get_character_save_record((u32)arg1);
+    temp_r3 = get_layout_id__20TWindowSubStatusDispFv((void *) (slot));
+    if ((arg0 < 0) || (arg0 >= temp_r3) || (character_save_record == 0U)) {
         return 0;
     }
-    return TLobby::get_valid_slot((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r31 + 0x21C4), (void *) (arg2))) + (arg0 * 4))));
+    return TLobby::get_valid_slot((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), (void *) (slot))) + (arg0 * 4))));
 }
 
 }

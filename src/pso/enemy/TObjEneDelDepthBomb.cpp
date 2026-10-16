@@ -571,7 +571,7 @@ void render__19TObjEneDelDepthBombFv(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f1;
     f32 var_f1;
-    s32 temp_r31;
+    s32 bml_model;
     s32 temp_r30;
 
     data = ((int (*)(void))get_data__15TObjEneDelDepthFv)();
@@ -579,13 +579,13 @@ void render__19TObjEneDelDepthBombFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r31 = get_bml_model(data, 2);
+    bml_model = get_bml_model(data, 2);
     temp_r30 = ((s32 (*)(int, int))TObjFish__sub_8001EDB0)(data, 2);
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
     TObjFish::set_global_param((int) (temp_r30));
-    draw_chunk_object((int) (temp_r31));
+    draw_chunk_object((int) (bml_model));
     pop_matrix();
     push_matrix();
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) (lbl_805DF250 + *(f32 *)((s8 *)arg0 + 0x340)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
@@ -1058,17 +1058,17 @@ void TObjEneDelDepth__sub_803142DC(u8 *arg0) {
 }
 #pragma pop
 
-void TObjEneDelDepth__sub_80314500(u8 *arg0) {
-  *((s32 *) (((s8 *) arg0) + 0x3C4)) = 0xFFFF;
-  *((s32 *) (((s8 *) arg0) + 0x394)) = (s32) ((((s32) (lbl_805DF2A0 * calc_boss4_scale__10TObjPlayerFi((void *)((s32) arg0)))) + 4) << 0x10);
-  *((s32 *) (((s8 *) arg0) + 0x384)) = 0x7FFFFFFF;
-  *((s32 *) (((s8 *) arg0) + 0x3BC)) = (s32) (*((s32 *) (((s8 *) TObjEneDelDepth__tune_params) + 0x1C)));
-  if (calc_boss4_scale__10TObjPlayerFi((void *)((s32) arg0)) > TObjEneDelDepth__data_805DF298)
+void TObjEneDelDepth__sub_80314500(u8 *actor) {
+  *((s32 *) (((s8 *) actor) + 0x3C4)) = 0xFFFF;
+  *((s32 *) (((s8 *) actor) + 0x394)) = (s32) ((((s32) (lbl_805DF2A0 * calc_boss4_scale__10TObjPlayerFi((void *)((s32) actor)))) + 4) << 0x10);
+  *((s32 *) (((s8 *) actor) + 0x384)) = 0x7FFFFFFF;
+  *((s32 *) (((s8 *) actor) + 0x3BC)) = (s32) (*((s32 *) (((s8 *) TObjEneDelDepth__tune_params) + 0x1C)));
+  if (calc_boss4_scale__10TObjPlayerFi((void *)((s32) actor)) > TObjEneDelDepth__data_805DF298)
   {
-    *((s32 *) (((s8 *) arg0) + 0x3BC)) = (s32) (((*((s32 *) (((s8 *) arg0) + 0x3BC))) & 0xFFFFFFFF) * (-1));
+    *((s32 *) (((s8 *) actor) + 0x3BC)) = (s32) (((*((s32 *) (((s8 *) actor) + 0x3BC))) & 0xFFFFFFFF) * (-1));
   }
-  set_motion__15TObjEneDelDepthFl((void*)((int) (*((s32 *) (((s8 *) arg0) + 0x37C)))), (void*)((int) 0));
-  ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(arg0), (void*)(2));
+  set_motion__15TObjEneDelDepthFl((void*)((int) (*((s32 *) (((s8 *) actor) + 0x37C)))), (void*)((int) 0));
+  ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(actor), (void*)(2));
 }
 
 void TObjEneDelDepth::try_enter_appear() {
@@ -1225,27 +1225,27 @@ void TObjEneDelDepth::update_movement() {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void start_move_toward_player__15TObjEneDelDepthFPv(u8 *arg0) {
+void start_move_toward_player__15TObjEneDelDepthFPv(u8 *actor) {
     f32 temp_f1;
     s32 temp_r31;
-    *(f32 *)((s8 *)arg0 + 0x3AC) = (*(const f32 *)&TObjEneDelDepth__data_805DF258);
-    if (find_nearest_visible_player(arg0, (int)(arg0 + 0x3B0), TObjEneDelDepth__data_805DF26C) == 0xFFFF) {
-        ((TObjEneDelDepth *)arg0)->set_action_state((s32)2);
+    *(f32 *)((s8 *)actor + 0x3AC) = (*(const f32 *)&TObjEneDelDepth__data_805DF258);
+    if (find_nearest_visible_player(actor, (int)(actor + 0x3B0), TObjEneDelDepth__data_805DF26C) == 0xFFFF) {
+        ((TObjEneDelDepth *)actor)->set_action_state((s32)2);
         return;
     }
-    temp_r31 = (s32) (lbl_805DF2B0 * calc_boss4_scale__10TObjPlayerFi(arg0));
-    *(f32 *)((s8 *)arg0 + 0x3B0) += TObjEneDelDepth__data_805DF270 * sin_table_lookup(temp_r31);
-    *(f32 *)((s8 *)arg0 + 0x3B8) += TObjEneDelDepth__data_805DF270 * cos_table_lookup(temp_r31);
-    if (vector_length(arg0 + 0x3B0) <= lbl_805DF288) {
-        ((TObjEneDelDepth *)arg0)->set_action_state((s32)2);
+    temp_r31 = (s32) (lbl_805DF2B0 * calc_boss4_scale__10TObjPlayerFi(actor));
+    *(f32 *)((s8 *)actor + 0x3B0) += TObjEneDelDepth__data_805DF270 * sin_table_lookup(temp_r31);
+    *(f32 *)((s8 *)actor + 0x3B8) += TObjEneDelDepth__data_805DF270 * cos_table_lookup(temp_r31);
+    if (vector_length(actor + 0x3B0) <= lbl_805DF288) {
+        ((TObjEneDelDepth *)actor)->set_action_state((s32)2);
         return;
     }
-    normalize_vector(arg0 + 0x3B0);
-    temp_f1 = (lbl_805DF2B8 * calc_boss4_scale__10TObjPlayerFi(arg0)) + lbl_805DF2B4;
-    *(f32 *)((s8 *)arg0 + 0x38C) = temp_f1;
-    *(f32 *)((s8 *)arg0 + 0x398) = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
-    ((int (*)(s32, int, f32))set_motion__15TObjEneDelDepthFl)(*(s32 *)((s8 *)arg0 + 0x37C), 7, temp_f1);
-    ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(arg0, (void *)3);
+    normalize_vector(actor + 0x3B0);
+    temp_f1 = (lbl_805DF2B8 * calc_boss4_scale__10TObjPlayerFi(actor)) + lbl_805DF2B4;
+    *(f32 *)((s8 *)actor + 0x38C) = temp_f1;
+    *(f32 *)((s8 *)actor + 0x398) = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
+    ((int (*)(s32, int, f32))set_motion__15TObjEneDelDepthFl)(*(s32 *)((s8 *)actor + 0x37C), 7, temp_f1);
+    ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(actor, (void *)3);
 }
 #pragma pop
 

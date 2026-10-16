@@ -81,8 +81,8 @@ extern "C" {
 
 #include "types.h"
 
-void is_current_floor_switch_set(s32 arg0) {
-    is_floor_switch_set((u32)arg0, (s16)((s16)((int) (get_current_floor()))));
+void is_current_floor_switch_set(s32 id) {
+    is_floor_switch_set((u32)id, (s16)((s16)((int) (get_current_floor()))));
 }
 
 void clear_floor_switch_flag(u32 id, s16 floor) {
@@ -106,8 +106,8 @@ void clear_floor_switch_flag(u32 id, s16 floor) {
     }
 }
 
-void clear_current_floor_switch(s32 arg0) {
-    clear_floor_switch_flag((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
+void clear_current_floor_switch(s32 id) {
+    clear_floor_switch_flag((u32)((u32)id), (s16)((s16)((int) (get_current_floor()))));
 }
 }
 
@@ -134,8 +134,8 @@ void set_floor_switch_flag(u32 id, s16 floor) {
     }
 }
 
-void set_current_floor_switch(s32 arg0) {
-    set_floor_switch_flag((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
+void set_current_floor_switch(s32 id) {
+    set_floor_switch_flag((u32)((u32)id), (s16)((s16)((int) (get_current_floor()))));
 }
 }
 

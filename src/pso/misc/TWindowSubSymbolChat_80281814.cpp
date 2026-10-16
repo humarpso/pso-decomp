@@ -178,10 +178,10 @@ void TWindowSubSymbolChat::update_sub_window() {
 }
 
 void TWindowSubSymbolChat::update_state() {
-    s32 temp_r3;
+    s32 selected_menu_value;
 
-    temp_r3 = get_selected_menu_value(*(s32 *)((s8 *)this + 0x38));
-    switch (temp_r3) {
+    selected_menu_value = get_selected_menu_value(*(s32 *)((s8 *)this + 0x38));
+    switch (selected_menu_value) {
     case 22:
         *(s8 *)((s8 *)this + 0x1C) = 0x18;
         return;
@@ -258,18 +258,18 @@ void TWindowSubSymbolChat::sub_80281CC4() {
 }
 
 s32 TWindowSubSymbolChat::create_keyboard_control() {
-    s32 var_r31;
+    s32 keyboard;
 
-    var_r31 = __nw__7TObjectFUl(0x2C);
-    if (var_r31 != 0) {
-        var_r31 = TKeyBoardControl__ct(var_r31, this, 0x90, 1, 4, local_client_id);
+    keyboard = __nw__7TObjectFUl(0x2C);
+    if (keyboard != 0) {
+        keyboard = TKeyBoardControl__ct(keyboard, this, 0x90, 1, 4, local_client_id);
     }
-    update_chat_window(var_r31);
-    get_keyboard_field_6c__15TWindowMakeTeamFv(var_r31, get_keyboard_ptr__20TWindowSubSymbolChatFv(*(s32 *)((s8 *)this + 0x28)));
-    ((TWindowMakeTeam *)var_r31)->set_sub_position((u8 *)(get_window_layout_position((s32)(0xBB))));
-    ((TWindowMakeTeam *)var_r31)->set_keyboard_flag62_bit2();
-    ((TWindowSubComCard *)var_r31)->destroy_keyboard();
-    return var_r31;
+    update_chat_window(keyboard);
+    get_keyboard_field_6c__15TWindowMakeTeamFv(keyboard, get_keyboard_ptr__20TWindowSubSymbolChatFv(*(s32 *)((s8 *)this + 0x28)));
+    ((TWindowMakeTeam *)keyboard)->set_sub_position((u8 *)(get_window_layout_position((s32)(0xBB))));
+    ((TWindowMakeTeam *)keyboard)->set_keyboard_flag62_bit2();
+    ((TWindowSubComCard *)keyboard)->destroy_keyboard();
+    return keyboard;
 }
 
 extern s32 lbl_804D2B48[];

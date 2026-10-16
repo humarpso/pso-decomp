@@ -26,18 +26,18 @@ typedef struct { u8 pad[0x1C]; u8 f[0x10]; } E80109;
 #define self ((u8 *)arg0)
 void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     Rec_80109B5C *temp_r5;
-    u8 *temp_r3;
+    u8 *entity;
     __ct__18TItemEffNeedleBaseFv(arg0, arg1, arg2);
     *(s32 **)((s8 *)self + 0x18) = __vt__14TItemEffNeedle;
     *(s32 *)((s8 *)self + 0) = (s32) TItemEffNeedle__class_name;
     *(u16 *)((s8 *)self + 0x50) = arg3;
     *(s32 *)((s8 *)self + 0x54) = arg4;
-    temp_r3 = find_entity_by_id(*(u16 *)((s8 *)self + 0x50));
-    if (temp_r3 != NULL) {
-        temp_r5 = *(Rec_80109B5C **)((s8 *)temp_r3 + 0xA4);
+    entity = find_entity_by_id(*(u16 *)((s8 *)self + 0x50));
+    if (entity != NULL) {
+        temp_r5 = *(Rec_80109B5C **)((s8 *)entity + 0xA4);
         VecCopy__FP3VecPC3Vec(self + 0x30, temp_r5[*(s32 *)((s8 *)self + 0x54)].pos);
         ((TObjPlayer *)(self + 0x58))->copy_xyz(self + 0x44);
-        *(s32 *)((s8 *)self + 0x5C) = (s32) (*(s32 *)((s8 *)self + 0x5C) - *(s32 *)((s8 *)temp_r3 + 0x60));
+        *(s32 *)((s8 *)self + 0x5C) = (s32) (*(s32 *)((s8 *)self + 0x5C) - *(s32 *)((s8 *)entity + 0x60));
     }
     return arg0;
 }

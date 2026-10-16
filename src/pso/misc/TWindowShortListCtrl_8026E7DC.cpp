@@ -128,14 +128,14 @@ void TWindowShortListCtrl::set_displayed_item(s32 arg1) {
 
 s32 TWindowShortListCtrl::is_technique_usable() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r3;
+    u32 player;
     u8 *temp_r31;
 
-    temp_r3 = get_player_by_client_id((s32)((int) (*(s32 *)&this->m_24)));
-    if (temp_r3 == 0U) {
+    player = get_player_by_client_id((s32)((int) (*(s32 *)&this->m_24)));
+    if (player == 0U) {
         return 0;
     }
-    temp_r31 = (unsigned char *) (temp_r3 + 0x85C);
+    temp_r31 = (unsigned char *) (player + 0x85C);
     if (temp_r31 == NULL) {
         return 0;
     }
@@ -162,32 +162,32 @@ void TWindowShortListCtrl::swap_card_entries(s32 arg1, s32 arg2) {
 }
 
 void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
-    s32 var_r30;
+    s32 player;
     s32 var_r4;
     s32 var_r5;
-    u32 temp_r3;
+    u32 item;
     u32 var_r29;
     u32 var_r31;
     u32 var_r3;
-    u8 var_r6;
+    u8 parameter;
     var_r31 = arg0;
     var_r3 = arg1;
-    var_r30 = get_player_by_client_id((s32)(var_r3));
-    if (var_r30 != 0) {
-        var_r29 = *(u32 *)((s8 *)var_r30 + 0x424);
+    player = get_player_by_client_id((s32)(var_r3));
+    if (player != 0) {
+        var_r29 = *(u32 *)((s8 *)player + 0x424);
         if (var_r29 != 0U) {
             var_r3 = var_r31;
-            temp_r3 = (unsigned long) (find_item_by_id((s32) var_r3));
-            var_r31 = temp_r3;
-            if ((var_r31 != 0) && (((TItem *)temp_r3)->get_field_ec() == 3)) {
+            item = (unsigned long) (find_item_by_id((s32) var_r3));
+            var_r31 = item;
+            if ((var_r31 != 0) && (((TItem *)item)->get_field_ec() == 3)) {
                 var_r3 = var_r31;
                 var_r31 = TItemObject__sub_80115DE8((int) (var_r3));
                 if ((s32) var_r31 != -1) {
-                    var_r4 = var_r30;
+                    var_r4 = player;
                     var_r3 = var_r29 + 0x520;
-                    var_r6 = (u8) var_r31;
+                    parameter = (u8) var_r31;
                     var_r5 = 4;
-                    if (canSetMenuCursorAction((s32) var_r3, var_r4, 4U, var_r6) != 0) {
+                    if (canSetMenuCursorAction((s32) var_r3, var_r4, 4U, parameter) != 0) {
                         var_r3 = var_r29 + 0x520;
                         var_r4 = 4;
                         ((TWindowActionPalette *)var_r3)->set_mode((int) (4));
@@ -223,7 +223,7 @@ typedef struct RecoveredFields_8026EA60_temp_r29 RecoveredFields_8026EA60_temp_r
 typedef struct RecoveredGlobal_8026EA60_lbl_8050E208 RecoveredGlobal_8026EA60_lbl_8050E208;
 void TWindowShortListCtrl::cycle_list_page() {
   s32 temp_r31;
-  u32 temp_r3;
+  u32 player;
   u8 temp_r31_2;
   u8 temp_r3_2;
   u8 temp_r3_3;
@@ -235,10 +235,10 @@ void TWindowShortListCtrl::cycle_list_page() {
   if (TWindowShortListCtrl__check_controller_button((void *) ((((u8 *) (&controller_input_state.value)) + (temp_r31 * 0x50)) + 0x20), (int) fn_8002AE08((int) ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_24)) != 0)
   {
     temp_r31_2 = ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_1C;
-    temp_r3 = ((u32)get_player_by_client_id((s32)((int) ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_24)));
-    if (temp_r3 != 0U)
+    player = ((u32)get_player_by_client_id((s32)((int) ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_24)));
+    if (player != 0U)
     {
-      temp_r29 = (u8 *) (temp_r3 + 0x85C);
+      temp_r29 = (u8 *) (player + 0x85C);
       if ((temp_r29 != 0) && (((u32) ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_34) == 0U))
       {
         ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_1C = (u8) (((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_1C + 1);
@@ -297,15 +297,15 @@ void TWindowShortListCtrl::refresh_technique_rows(s32 arg1, void *arg2_arg) {
     ((TWindowSubComCardList *)arg1)->set_selected_index(cur);
 }
 
-void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2) {
-    void *temp_r31;
+void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2_arg) {
+    void *window_menu;
 
-    temp_r31 = create_window_menu(arg1, 0x13, *(s32 *)&this->m_24);
+    window_menu = create_window_menu(arg1, 0x13, *(s32 *)&this->m_24);
     set_flag70_bit10__21TWindowSubComCardListFv();
-    *(s32 *)((s8 *)temp_r31 + 0x5C) = 0x01000000;
-    ((TWindowSubComCardList *)temp_r31)->set_flag70_bit100();
-    refresh_technique_rows((s32)((void*)((void*)(temp_r31))), (Sc_8026EBB0 *)((void*)((void*)(arg2))));
-    return temp_r31;
+    *(s32 *)((s8 *)window_menu + 0x5C) = 0x01000000;
+    ((TWindowSubComCardList *)window_menu)->set_flag70_bit100();
+    refresh_technique_rows((s32)((void*)((void*)(window_menu))), (Sc_8026EBB0 *)((void*)((void*)(arg2_arg))));
+    return window_menu;
 }
 void TWindowShortListCtrl::render() {  }
 
@@ -502,13 +502,13 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
 }
 
 void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
-    s32 temp_r3;
+    s32 player;
 
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__20TWindowShortListCtrl;
-        temp_r3 = get_player_by_client_id((s32)(*(s32 *)((s8 *)arg0 + 0x24)));
-        if ((temp_r3 != 0) && (has_player_active_menu__11TWindowCtrlFv(*(s32 *)((s8 *)arg0 + 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
-            ((TObjPlayer *)temp_r3)->init_parts();
+        player = get_player_by_client_id((s32)(*(s32 *)((s8 *)arg0 + 0x24)));
+        if ((player != 0) && (has_player_active_menu__11TWindowCtrlFv(*(s32 *)((s8 *)arg0 + 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
+            ((TObjPlayer *)player)->init_parts();
         }
         end_player_keyboard_hold(*(s32 *)((s8 *)arg0 + 0x24));
         TWindowCtrl::clear_flag_8();

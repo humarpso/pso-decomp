@@ -118,14 +118,14 @@ u8 *create_s_rank_j_cutter_weapon(u8 *arg0);
 
 extern "C" {
 
-u8 *create_s_rank_j_cutter_weapon(u8 *arg0) {
+u8 *create_s_rank_j_cutter_weapon(u8 *owner) {
     u8 *temp_r3;
     u8 *var_r0;
-    if (arg0 != NULL) {
+    if (owner != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(construct_s_rank_j_cutter_weapon(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(construct_s_rank_j_cutter_weapon(temp_r3, tl_05, owner));
         }
         return var_r0;
     }
@@ -280,14 +280,14 @@ u8 *create_s_rank_slicer_weapon(u8 *arg0);
 
 extern "C" {
 
-u8 *create_s_rank_slicer_weapon(u8 *arg0) {
+u8 *create_s_rank_slicer_weapon(u8 *owner) {
     u8 *temp_r3;
     u8 *var_r0;
-    if (arg0 != NULL) {
+    if (owner != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(construct_s_rank_slicer_weapon(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(construct_s_rank_slicer_weapon(temp_r3, tl_05, owner));
         }
         return var_r0;
     }

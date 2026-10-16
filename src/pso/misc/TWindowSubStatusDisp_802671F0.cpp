@@ -262,15 +262,15 @@ void push_status_disp_entry(void *arg0, s32 arg1, s32 arg2) {
 void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
     u16 *temp_r30;
-    u32 temp_r3;
+    u32 player;
 
     if ((s16) *(s16 *)((s8 *)arg0 + 0x72) < (s16) *(s16 *)((s8 *)arg0 + 0x76)) {
-        temp_r3 = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
-        if (temp_r3 != 0U) {
+        player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
+        if (player != 0U) {
             if (arg1 == 4) {
-                var_r31 = fn_801C5404(temp_r3 + 0x7C8);
+                var_r31 = fn_801C5404(player + 0x7C8);
             } else {
-                var_r31 = clamp_char_at__10TObjPlayerFl(temp_r3 + 0x7C4, arg1);
+                var_r31 = clamp_char_at__10TObjPlayerFl(player + 0x7C4, arg1);
             }
             if (var_r31 > 0) {
                 temp_r30 = ((u16 *(*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)(arg0, *(s16 *)((s8 *)arg0 + 0x72));

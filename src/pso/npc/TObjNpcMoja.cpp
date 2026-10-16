@@ -251,7 +251,7 @@ extern u8 *lbl_805D50D8;
 
 extern void *tl_04;
 
-void *TObjNpcMoja::create(void *arg0) {
+void *TObjNpcMoja::create(void *arg2v) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);
@@ -260,7 +260,7 @@ void *TObjNpcMoja::create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcMoja__ct(o2, o, arg0);
+        o2 = TObjNpcMoja__ct(o2, o, arg2v);
     }
     return o2;
 }

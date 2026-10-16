@@ -468,11 +468,11 @@ s32 TObjPlayer::run_next_key_callback(s32 arg0) {
 }
 
 #define G_803D6D0C ((St_803D6D0C *)current_motion_context)
-s32 TObjPlayer::sample_next_quaternion_key(s32 arg0) {
+s32 TObjPlayer::sample_next_quaternion_key(s32 output) {
     if (G_803D6D0C->keys[G_803D6D0C->idx] != 0) {
       interpolate_motion_quaternion_keys(
           (u32)(G_803D6D0C->keys[G_803D6D0C->idx]),
-          (u32)(G_803D6D0C->vals[G_803D6D0C->idx]), (s32)(arg0), G_803D6D0C->t);
+          (u32)(G_803D6D0C->vals[G_803D6D0C->idx]), (s32)(output), G_803D6D0C->t);
       G_803D6D0C->idx = G_803D6D0C->idx + 1;
       return 1;
     }
@@ -494,7 +494,7 @@ void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
 
 #pragma push
 #pragma scheduling off
-void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void interpolate_motion_vector_keys(u8 *keys, s32 count, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D6DDC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6DDC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6DDC, sp10) == 0x8) ? 1 : -1];
@@ -502,7 +502,7 @@ void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;
-    find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    find_motion_key_interval(keys, 0x10, count, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_f2 = *(f32 *)((s8 *)stack.spC + 4);
     *(f32 *)((s8 *)arg2 + 0) = (f32) (temp_f2 + (stack.sp10 * (*(f32 *)((s8 *)stack.sp8 + 4) - temp_f2)));
     temp_f2_2 = *(f32 *)((s8 *)stack.spC + 8);
@@ -514,14 +514,14 @@ void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void interpolate_motion_vector_keys_xy(u8 *keys, s32 count, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D6E8C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6E8C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6E8C, sp10) == 0x8) ? 1 : -1];
     Stack_803D6E8C stack;
     f32 temp_f2;
     f32 temp_f2_2;
-    find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    find_motion_key_interval(keys, 0x10, count, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_f2 = *(f32 *)((s8 *)stack.spC + 4);
     *(f32 *)((s8 *)arg2 + 0) = (f32) (temp_f2 + (stack.sp10 * (*(f32 *)((s8 *)stack.sp8 + 4) - temp_f2)));
     temp_f2_2 = *(f32 *)((s8 *)stack.spC + 8);
@@ -532,7 +532,7 @@ void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) 
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer::interpolate_motion_key(s32 arg1, s32 *arg2, f32 farg0) {
+void TObjPlayer::interpolate_motion_key(s32 count, s32 *arg2, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_803D6F20, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6F20, spC) == 0x4) ? 1 : -1];
@@ -541,7 +541,7 @@ void TObjPlayer::interpolate_motion_key(s32 arg1, s32 *arg2, f32 farg0) {
 
     s32 temp_r5;
 
-    find_motion_key_interval(arg0, 8, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    find_motion_key_interval(arg0, 8, count, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_r5 = *(s32 *)((s8 *)stack.spC + 4);
     *arg2 = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (*(s32 *)((s8 *)stack.sp8 + 4) - temp_r5)));
 }
@@ -549,7 +549,7 @@ void TObjPlayer::interpolate_motion_key(s32 arg1, s32 *arg2, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-void sample_motion_angle_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void sample_motion_angle_keys(u8 *keys, s32 count, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D6FC8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6FC8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6FC8, sp10) == 0x8) ? 1 : -1];
@@ -559,7 +559,7 @@ void sample_motion_angle_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s32 temp_r5_2;
     s32 temp_r5_3;
 
-    find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
+    find_motion_key_interval(keys, 0x10, count, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_r5 = *(s32 *)((s8 *)stack.spC + 4);
     *(s32 *)((s8 *)arg2 + 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (*(s32 *)((s8 *)stack.sp8 + 4) - temp_r5)));
     temp_r5_2 = *(s32 *)((s8 *)stack.spC + 8);
@@ -571,7 +571,7 @@ void sample_motion_angle_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void sample_motion_angle_keys_s16(u8 *keys, s32 count, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D7128, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D7128, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D7128, sp10) == 0x8) ? 1 : -1];
@@ -581,7 +581,7 @@ void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s16 temp_r5_2;
     s16 temp_r5_3;
 
-    find_motion_key_interval_u16(arg0, 8, arg1, farg0, (u16 **)&stack.spC, (u16 **)&stack.sp8, &stack.sp10);
+    find_motion_key_interval_u16(keys, 8, count, farg0, (u16 **)&stack.spC, (u16 **)&stack.sp8, &stack.sp10);
     temp_r5 = *(s16 *)((s8 *)stack.spC + 2);
     *(s32 *)((s8 *)arg2 + 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (*(s16 *)((s8 *)stack.sp8 + 2) - temp_r5)));
     temp_r5_2 = *(s16 *)((s8 *)stack.spC + 4);

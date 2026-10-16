@@ -214,9 +214,9 @@ void get_parts_entry__28TWindowSubSymbolChatPartsSetFii(s32 arg0, s32 arg1) {
     ((TUnk_804CE018 *)arg0)->get_array_entry((s32)(arg1 + 5));
 }
 
-void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 arg2) {
-    s32 *p = c->tbl + arg2;
-    setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii((Part_802480EC *)(p[5]), (Part_802480EC *)(p[9]), (Part_802480EC *)(p[1]), (u16)((u8)arg1), (s32)((arg1 >> 8) & 7), (s32)((arg1 >> 11) & 1), (s32)((arg1 >> 12) & 1), (s32)(arg2));
+void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 cur) {
+    s32 *p = c->tbl + cur;
+    setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii((Part_802480EC *)(p[5]), (Part_802480EC *)(p[9]), (Part_802480EC *)(p[1]), (u16)((u8)arg1), (s32)((arg1 >> 8) & 7), (s32)((arg1 >> 11) & 1), (s32)((arg1 >> 12) & 1), (s32)(cur));
 }
 
 #define w ((Win_80248374 *)arg0)
@@ -252,9 +252,9 @@ void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1) {
     } while (j < 0xC);
 }
 
-void TWindowSubSymbolChat::init_layout_entries(s32 arg1) {
+void TWindowSubSymbolChat::init_layout_entries(s32 player) {
     s32 arg0 = (s32)this;
-    init_window_layout_entries((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (arg1));
+    init_window_layout_entries((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (player));
 }
 
 void TWindowSubSymbolChatPartsSet::update_visibility() {
@@ -285,19 +285,19 @@ void TWindowSubSymbolChat::set_from_key(s32 arg1) {
 void render__17TWindowChatSymbolFv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
-    u8 *temp_r3;
+    u8 *c_arg;
 
-    temp_r3 = draw_default_entry__9TWindowDDFl();
-    if ((s32) *(s32 *)((s8 *)temp_r3 + 0x30) < 0) {
-        *(f32 *)((s8 *)temp_r3 + 0x28) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x5C) / lbl_805DCB9C);
-        *(f32 *)((s8 *)temp_r3 + 0x2C) = (f32) *(f32 *)((s8 *)temp_r3 + 0x28);
+    c_arg = draw_default_entry__9TWindowDDFl();
+    if ((s32) *(s32 *)((s8 *)c_arg + 0x30) < 0) {
+        *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x5C) / lbl_805DCB9C);
+        *(f32 *)((s8 *)c_arg + 0x2C) = (f32) *(f32 *)((s8 *)c_arg + 0x28);
     }
-    ((TUnk_804CE018 *)arg0)->draw_quest_message_frame(temp_r3);
-    *(f32 *)((s8 *)temp_r3 + 0x10) = (f32) ((lbl_805DCB7C * (*(f32 *)((s8 *)arg0 + 0x48) - lbl_805DCB94)) + *(f32 *)((s8 *)temp_r3 + 0x10));
+    ((TUnk_804CE018 *)arg0)->draw_quest_message_frame(c_arg);
+    *(f32 *)((s8 *)c_arg + 0x10) = (f32) ((lbl_805DCB7C * (*(f32 *)((s8 *)arg0 + 0x48) - lbl_805DCB94)) + *(f32 *)((s8 *)c_arg + 0x10));
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x4C);
     temp_f1 = temp_f2 - lbl_805DCB98;
-    *(f32 *)((s8 *)temp_r3 + 0x14) = (f32) ((lbl_805DCB7C * temp_f1) + *(f32 *)((s8 *)temp_r3 + 0x14));
-    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3, temp_f1, temp_f2, lbl_805DCB7C);
+    *(f32 *)((s8 *)c_arg + 0x14) = (f32) ((lbl_805DCB7C * temp_f1) + *(f32 *)((s8 *)c_arg + 0x14));
+    draw_visible_window_entries(arg0, arg0 + 0x24, c_arg, temp_f1, temp_f2, lbl_805DCB7C);
 }
 #pragma pop
 

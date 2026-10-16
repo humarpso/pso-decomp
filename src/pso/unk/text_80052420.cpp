@@ -90,13 +90,13 @@ u32 drain_player_hp(s32 arg0, u32 arg1);
 
 extern "C" {
 
-u32 drain_player_hp(s32 arg0, u32 arg1) {
+u32 drain_player_hp(s32 id, u32 arg1) {
     u32 n;
     VObj_80052420 *p;
     s32 v;
     n = arg1;
-    if ((u16)arg0 == 0xFFFF || (p = get_player_by_client_id(arg0)) == NULL ||
-        TBoss4Type3__sub_8005254C(arg0) == 0) {
+    if ((u16)id == 0xFFFF || (p = get_player_by_client_id(id)) == NULL ||
+        TBoss4Type3__sub_8005254C(id) == 0) {
         return 0;
     }
     v = obj_getS16_32C(p);
@@ -107,7 +107,7 @@ u32 drain_player_hp(s32 arg0, u32 arg1) {
         return n;
     }
     v -= n;
-    send_6x2F_change_player_hp(0xFFFF, arg0, v);
+    send_6x2F_change_player_hp(0xFFFF, id, v);
     TObjPlayer::calc_photon_blast_charge(p, n);
     p->m73();
     return n;

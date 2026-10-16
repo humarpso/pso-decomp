@@ -146,13 +146,13 @@ void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
 
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
     s16 sp8;
-    s32 temp_r3;
+    s32 player;
     switch (*(s32 *)((s8 *)arg0 + 0xAC)) {
     case 1:
-        temp_r3 = get_player_by_client_id((void *) (arg1));
-        if (temp_r3 != 0) {
+        player = get_player_by_client_id((void *) (arg1));
+        if (player != 0) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 2;
-            start_camera_pan__10TObjPlayerFs((int) (temp_r3), (int) (0xC), (void *) (((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
+            start_camera_pan__10TObjPlayerFs((int) (player), (int) (0xC), (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
             if (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0) {
                 sp8 = (s16) *(s32 *)((s8 *)arg0 + 0xAC);
                 ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));

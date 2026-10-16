@@ -9,10 +9,10 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TCheckRoomSequence::create(void *arg0) {
+void *TCheckRoomSequence::create(void *arg2_) {
     void *o = __nw__7TObjectFUl(0x4C);
     if (o != NULL) {
-        o = TCheckRoomSequence__ct(o, tl_05, arg0);
+        o = TCheckRoomSequence__ct(o, tl_05, arg2_);
     }
     return o;
 }

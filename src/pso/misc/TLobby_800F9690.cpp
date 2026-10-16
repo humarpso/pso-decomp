@@ -69,7 +69,7 @@ extern s32 lbl_80499A40[];
 struct Stream_800F979C { u8 data[0x2c]; };
 struct Sel_800F979C { u8 data[240]; };
 
-s32 load_encrypted_text_archive(char *arg0, s32 *arg1) {
+s32 load_encrypted_text_archive(char *name, s32 *arg1) {
     s32 size;
     s32 h;
     u8 *buf;
@@ -84,18 +84,18 @@ s32 load_encrypted_text_archive(char *arg0, s32 *arg1) {
     }
     if ((size <= 0x40000) && (TLobby__sub_8001EEF4() != 0)) {
         buf = (u8 *)TLobby::tmp_buf_use_req((const char *)lbl_80499A40);
-        read_disc_file((s32)arg0, (s32)buf);
+        read_disc_file((s32)name, (s32)buf);
         ret = ((TLobby *)buf)->alloc_download_quest(size, &sp8);
         ((TLobby *)lbl_80499A40)->tmp_buf_release();
     } else {
-        open__8TGStreamFPvPvi((s32 *)&st, (s32)arg0, 1);
+        open__8TGStreamFPvPvi((s32 *)&st, (s32)name, 1);
         buf = (u8 *)((TQuestVmDownLoadServer *)0x800)->alloc();
         ((TGStream *)((s32 *)&st))->read_sectors_sync((s32)1, (s32)buf);
         sp8 = *(s32 *)((s8 *)buf + 0);
         h = *(s32 *)((s8 *)buf + 4);
         TAdSinglePlyChrSelectGC::safe_free((u32)buf);
         ret = ((TQuestVmDownLoadServer *)sp8)->alloc();
-        buf = set_stream_and_load_file__6TLobbyFi((s32)arg0);
+        buf = set_stream_and_load_file__6TLobbyFi((s32)name);
         __ct__14SubtractiveRngFv((s32 *)&sel);
         subtractive_rng_seed((s32 *)&sel, h);
         subtractive_rng_xor_buffer((s32 *)&sel, buf + 8, size - 8);

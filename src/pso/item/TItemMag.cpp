@@ -403,18 +403,18 @@ void TItemMag::copy_owner_data() {
 }
 
 void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
-    s32 temp_r3;
-    s32 var_r30;
+    s32 i;
+    s32 slot;
     assign_default_photon_blast_palette_slots(*(s32 *)((s8 *)arg0 + 0xF0) + 0x500);
-    var_r30 = 0;
+    slot = 0;
     do {
-        temp_r3 = ((TItemMag *)(arg0 + 0x198))->get_photon_blast_at_slot(var_r30);
-        if (temp_r3 != -1) {
-            TItemMag__sub_80113EDC(*(s32 *)((s8 *)arg0 + 0xF0) + 0x4AC, (s16) temp_r3, ((u8 (*)(void *)) get_slot_count__14TItemProShieldFv)(arg0));
-            assign_photon_blast_palette_slot(*(u8 **)((s8 *)arg0 + 0xF0) + 0x500, (s16) temp_r3);
+        i = ((TItemMag *)(arg0 + 0x198))->get_photon_blast_at_slot(slot);
+        if (i != -1) {
+            TItemMag__sub_80113EDC(*(s32 *)((s8 *)arg0 + 0xF0) + 0x4AC, (s16) i, ((u8 (*)(void *)) get_slot_count__14TItemProShieldFv)(arg0));
+            assign_photon_blast_palette_slot(*(u8 **)((s8 *)arg0 + 0xF0) + 0x500, (s16) i);
         }
-        var_r30 += 1;
-    } while (var_r30 != 3);
+        slot += 1;
+    } while (slot != 3);
 }
 
 void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self) {
@@ -599,48 +599,48 @@ s32 get_evolution_stage__8TItemMagFPv(void * _w0) {
 
 s32 get_max_stat_flags__8TItemMagFi(s32 arg0) {
     s32 var_r31;
-    s16 temp_r30;
-    s16 temp_r29;
-    s16 temp_r28;
+    s16 mag_item_percent;
+    s16 mag_level;
+    s16 mag_item_data;
     s16 var_r0;
     s32 var_r4;
 
     var_r31 = 0;
-    temp_r30 = get_mag_item_percent();
-    temp_r29 = get_mag_level(arg0);
-    temp_r28 = get_mag_item_data(arg0);
+    mag_item_percent = get_mag_item_percent();
+    mag_level = get_mag_level(arg0);
+    mag_item_data = get_mag_item_data(arg0);
     get_mag_item_stat_percent(arg0);
-    if ((temp_r29 < temp_r30) && (temp_r28 < temp_r30)) {
+    if ((mag_level < mag_item_percent) && (mag_item_data < mag_item_percent)) {
         var_r31 |= 8;
     }
-    if ((temp_r30 < temp_r29) && (temp_r28 < temp_r29)) {
+    if ((mag_item_percent < mag_level) && (mag_item_data < mag_level)) {
         var_r31 |= 0x10;
     }
-    if ((temp_r29 < temp_r28) && (temp_r30 < temp_r28)) {
+    if ((mag_level < mag_item_data) && (mag_item_percent < mag_item_data)) {
         var_r31 |= 0x20;
     }
-    var_r0 = temp_r29;
+    var_r0 = mag_level;
     var_r4 = 0;
-    if (temp_r30 > temp_r29) {
-        var_r0 = temp_r30;
+    if (mag_item_percent > mag_level) {
+        var_r0 = mag_item_percent;
     }
-    if (var_r0 > temp_r28) {
-        var_r0 = temp_r29;
-        if (temp_r30 > temp_r29) {
-            var_r0 = temp_r30;
+    if (var_r0 > mag_item_data) {
+        var_r0 = mag_level;
+        if (mag_item_percent > mag_level) {
+            var_r0 = mag_item_percent;
         }
     } else {
-        var_r0 = temp_r28;
+        var_r0 = mag_item_data;
     }
     {
         s32 max32 = var_r0;
-        if (temp_r30 == max32) {
+        if (mag_item_percent == max32) {
             var_r4 = 1;
         }
-        if (temp_r29 == max32) {
+        if (mag_level == max32) {
             var_r4 += 1;
         }
-        if (temp_r28 == max32) {
+        if (mag_item_data == max32) {
             var_r4 += 1;
         }
     }
@@ -1683,25 +1683,25 @@ void TItemMag::serialize_to_item(void *item) {
 
 void TItemMag__vt43(u8 *arg0) {
   s32 temp_r3;
-  s32 var_r31;
+  s32 slot;
   u8 *temp_r6;
   u8 *new_var;
   if (((volatile int)((s32 (*)(void *))obj_isState2_324)(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
   {
     ((s32 (*)(void *))assign_default_photon_blast_palette_slots)((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
-    var_r31 = 0;
+    slot = 0;
     do
     {
-      temp_r3 = ((TItemMag *)(arg0 + 0x198))->get_photon_blast_at_slot(var_r31);
+      temp_r3 = ((TItemMag *)(arg0 + 0x198))->get_photon_blast_at_slot(slot);
       if (temp_r3 != (-1))
       {
         new_var = arg0;
         temp_r6 = (u8 *) (*((u8 **) (((s8 *) new_var) + 0xF0)));
         ((s32 (*)(void *, int, int, int))TItemMag__sub_80113EDC)((void *) (temp_r6 + 0x4AC), (int) ((s16) temp_r3), (int) (-1), (int) temp_r6);
       }
-      var_r31 += 1;
+      slot += 1;
     }
-    while (var_r31 != 3);
+    while (slot != 3);
     if (is_flag_20000_set__10TObjPlayerFv((void *) (*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
     {
       ((TItemMag *)((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC))->init_feed_timer();
@@ -1798,14 +1798,14 @@ u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src) {
 }
 #pragma pop
 
-u8 *TItemMag::create(s32 arg0) {
+u8 *TItemMag::create(s32 src) {
     u8 *temp_r3;
     u8 *var_r0;
-    if (arg0 != 0) {
+    if (src != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1E0));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TItemMag__ct((Mag_801139F4 *)(temp_r3), (s32)(tl_05), (s32)(arg0)));
+            var_r0 = (u8 *)(TItemMag__ct((Mag_801139F4 *)(temp_r3), (s32)(tl_05), (s32)(src)));
         }
         return var_r0;
     }

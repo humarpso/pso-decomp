@@ -20,29 +20,29 @@ extern s32 TLobby__data_805D6140;
 s32 TLobby::spawn_objects_at_pos(s16 arg0, s16 arg1) {
     s16 temp_r0;
     s16 temp_r3;
-    s32 temp_r31;
+    s32 obj_table_entry;
     s32 var_r30;
     u8 *var_r29;
     s32 var_r28;
-    u8 *temp_r3_2;
+    u8 *set_object;
 
     var_r30 = 0;
     var_r29 = get_object_count__6TLobbyFPv(TLobby__data_805D60FC);
-    temp_r31 = TLobby::get_obj_table_entry(TLobby__data_805D60FC);
-    for (var_r28 = 0; var_r28 < temp_r31; var_r28++, var_r29 += 0x44) {
+    obj_table_entry = TLobby::get_obj_table_entry(TLobby__data_805D60FC);
+    for (var_r28 = 0; var_r28 < obj_table_entry; var_r28++, var_r29 += 0x44) {
         temp_r3 = *(s16 *)((s8 *)var_r29 + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) *(s16 *)((s8 *)var_r29 + 0xC) == arg0) && ((s16) *(s16 *)((s8 *)var_r29 + 0xA) == arg1)) {
-            temp_r3_2 = create_set_object_from_row(var_r29);
-            if (temp_r3_2 != NULL) {
-                *(void **)((s8 *)var_r29 + 0x40) = temp_r3_2;
+            set_object = create_set_object_from_row(var_r29);
+            if (set_object != NULL) {
+                *(void **)((s8 *)var_r29 + 0x40) = set_object;
                 *(s16 *)((s8 *)var_r29 + 2) = (s16) (*(s16 *)((s8 *)var_r29 + 2) | 0x12);
-                *(s16 *)((s8 *)temp_r3_2 + 0x28) = (s16) *(s16 *)((s8 *)var_r29 + 0xC);
-                *(s16 *)((s8 *)temp_r3_2 + 0x2A) = (s16) *(s16 *)((s8 *)var_r29 + 0xA);
-                *(s16 *)((s8 *)temp_r3_2 + 0x2C) = (s16) *(s16 *)((s8 *)var_r29 + 4);
-                *(void **)((s8 *)temp_r3_2 + 0x80) = var_r29;
-                temp_r0 = *(s16 *)((s8 *)temp_r3_2 + 0x2C);
+                *(s16 *)((s8 *)set_object + 0x28) = (s16) *(s16 *)((s8 *)var_r29 + 0xC);
+                *(s16 *)((s8 *)set_object + 0x2A) = (s16) *(s16 *)((s8 *)var_r29 + 0xA);
+                *(s16 *)((s8 *)set_object + 0x2C) = (s16) *(s16 *)((s8 *)var_r29 + 4);
+                *(void **)((s8 *)set_object + 0x80) = var_r29;
+                temp_r0 = *(s16 *)((s8 *)set_object + 0x2C);
                 if (temp_r0 != -1) {
-                    ((VObj8020*)temp_r3_2)->m4(TLobby__data_805D6140 + (temp_r0 * 4), 0);
+                    ((VObj8020*)set_object)->m4(TLobby__data_805D6140 + (temp_r0 * 4), 0);
                 }
                 var_r30 += 1;
             } else {

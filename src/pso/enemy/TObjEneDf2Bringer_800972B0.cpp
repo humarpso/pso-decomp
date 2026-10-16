@@ -1519,7 +1519,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
 #pragma pop
 
 void bringer_render_node_callback(void) {
-    s32 temp_r4;
+    s32 pos;
     switch (TObjEneDf2Bringer__render_node_index) {
     case 8:
         rotate_matrix_x((int) (0), (int) (TObjEneDf2Bringer__render_rotation_x));
@@ -1528,9 +1528,9 @@ void bringer_render_node_callback(void) {
     case 16:
     case 26:
     case 41:
-        temp_r4 = TObjEneDf2Bringer__render_point_cursor;
-        TObjEneDf2Bringer__render_point_cursor = temp_r4 + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((void *) (&bringer_camera_ctrl_target_vec.value), (int) (temp_r4));
+        pos = TObjEneDf2Bringer__render_point_cursor;
+        TObjEneDf2Bringer__render_point_cursor = pos + 0xC;
+        get_camera_ctrl__9TObjEneDDFv((void *) (&bringer_camera_ctrl_target_vec.value), (int) (pos));
         break;
     }
     TObjEneDf2Bringer__render_node_index += 1;
@@ -1788,7 +1788,7 @@ void TObjEneDf2Bringer__sub_80097E9C(u8 *arg0, s32 arg1) {
     Stack_80097E9C stack;
     s32 temp_r0;
     s32 temp_r3;
-    s32 temp_r3_2;
+    s32 entry;
     u8 *temp_r3_3;
     switch (arg1) {
     case 4:
@@ -1824,14 +1824,14 @@ void TObjEneDf2Bringer__sub_80097E9C(u8 *arg0, s32 arg1) {
             if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TObjEneDf2Bringer__data_805D97F4)) != 0) {
                 spawn_offset_particle__17TObjEneDf2BringerFPv((void *) (arg0));
             }
-            temp_r3_2 = lookup_entry_by_value__10TObjPlayerFPvf((int) (TObjEneDf2Bringer__trail_buffer), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
-            if (temp_r3_2 != 0) {
+            entry = lookup_entry_by_value__10TObjPlayerFPvf((int) (TObjEneDf2Bringer__trail_buffer), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+            if (entry != 0) {
                 push_matrix();
                 set_matrix_identity((int) (0));
                 post_translate_matrix((void *) (arg0 + 0x38));
                 rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-                matrix_mult_vec((int) (0), (void *) (temp_r3_2 + 0x18), (void *) (&stack.sp8));
-                matrix_mult_vec((int) (0), (void *) (temp_r3_2), (void *) (&stack.sp14));
+                matrix_mult_vec((int) (0), (void *) (entry + 0x18), (void *) (&stack.sp8));
+                matrix_mult_vec((int) (0), (void *) (entry), (void *) (&stack.sp14));
                 pop_matrix();
                 temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x4A4));
                 ((VObj_18_d3b6b2 *)(temp_r3_3))->m4((s32 *)stack.sp8, (s32 *)stack.sp14);
@@ -2437,40 +2437,40 @@ void TObjEneDf2Bringer::handle_state(s32 arg1) {
         return;
     }
 }
-void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 arg2) {
+void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 mode) {
     switch (arg1) {
     case 0:
-        ((TObjEneDf2Bringer *)arg0)->handle_state((s32)((void *) (arg2)));
+        ((TObjEneDf2Bringer *)arg0)->handle_state((s32)((void *) (mode)));
         return;
     case 1:
-        TObjEneDf2Bringer__sub_80098BAC((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneDf2Bringer__sub_80098BAC((u8 *)((void *) (arg0)), (s32)((void *) (mode)));
         return;
     case 2:
-        ((TObjEneDf2Bringer *)arg0)->exec((s32)((void *) (arg2)));
+        ((TObjEneDf2Bringer *)arg0)->exec((s32)((void *) (mode)));
         return;
     case 3:
-        TObjEneDf2Bringer__sub_800987E8((void *) (arg0), (void *) (arg2));
+        TObjEneDf2Bringer__sub_800987E8((void *) (arg0), (void *) (mode));
         return;
     case 4:
-        TObjEneDf2Bringer__sub_8009859C((void *) (arg0), (void *) (arg2));
+        TObjEneDf2Bringer__sub_8009859C((void *) (arg0), (void *) (mode));
         return;
     case 5:
-        TObjEneDf2Bringer__sub_8009813C((void *) (arg0), (void *) (arg2));
+        TObjEneDf2Bringer__sub_8009813C((void *) (arg0), (void *) (mode));
         return;
     case 6:
-        TObjEneDf2Bringer__sub_80097E9C((void *) (arg0), (void *) (arg2));
+        TObjEneDf2Bringer__sub_80097E9C((void *) (arg0), (void *) (mode));
         return;
     case 7:
-        action__17TObjEneDf2BringerFPvi((void *) (arg0), (void *) (arg2));
+        action__17TObjEneDf2BringerFPvi((void *) (arg0), (void *) (mode));
         return;
     case 8:
-        TObjEneDf2Bringer__sub_80097820((void *) (arg0), (void *) (arg2));
+        TObjEneDf2Bringer__sub_80097820((void *) (arg0), (void *) (mode));
         return;
     case 9:
-        TObjEneDf2Bringer__sub_80097714((void *) (arg0), (void *) (arg2));
+        TObjEneDf2Bringer__sub_80097714((void *) (arg0), (void *) (mode));
         return;
     case 10:
-        TObjEneDf2Bringer__sub_80097620((void *) (arg0), (void *) (arg2));
+        TObjEneDf2Bringer__sub_80097620((void *) (arg0), (void *) (mode));
     default:
         return;
     }
@@ -2841,13 +2841,13 @@ s32 TObjEneDf2Bringer::check_stage_advance() {
 
 void TObjEneDf2Bringer::sub_80098DEC() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3_2;
+    s32 player;
     u16 temp_r3;
     temp_r3 = *(u16 *)((s8 *)arg0 + 0x2D4);
     if (temp_r3 < 0x1000U) {
-        temp_r3_2 = get_player_by_client_id((u32) temp_r3);
-        if (temp_r3_2 != 0) {
-            ((TObjEneDD_ST *)arg0)->set_target_player((void *)temp_r3_2);
+        player = get_player_by_client_id((u32) temp_r3);
+        if (player != 0) {
+            ((TObjEneDD_ST *)arg0)->set_target_player((void *)player);
         }
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 8);
     }

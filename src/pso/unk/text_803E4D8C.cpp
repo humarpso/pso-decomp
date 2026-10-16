@@ -104,17 +104,17 @@ typedef char RecoveredGlobal_803D77C0_lbl_804FA500_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA50C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
 
-void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
+void draw_motion_bound__10TObjPlayerFiiPvfi(s32 child, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
     u8 *p = model_draw_context;
     bind_motion_context(arg1);
     *(s32 *)(p + 0xC) = arg3;
     if (arg2 == NULL) {
-        draw_motion_node_tree_with_context(arg0);
+        draw_motion_node_tree_with_context(child);
         return;
     }
     TObjPlayer__sub_803E5458(0);
     TObjPlayer__sub_803E53F8(arg2, farg0);
-    ((TObjPlayer *)arg0)->draw_motion_node_list();
+    ((TObjPlayer *)child)->draw_motion_node_list();
 }
 
 void TObjPlayer::draw_motion_node_list() {

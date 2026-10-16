@@ -16,8 +16,8 @@ extern "C" {
 void TObjDFDemo5::update_particle_emitters() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    u32 *var_r29;
-    s32 var_r28;
+    u32 *particle_emitter;
+    s32 i;
     u32 temp_r3;
     u32 temp_r3_2;
     u32 temp_r3_3;
@@ -60,20 +60,20 @@ void TObjDFDemo5::update_particle_emitters() {
             ((TNowLoading *)temp_r3_4)->copy_pos(arg0 + 0x10C);
         }
     }
-    var_r29 = (u32 *)((u8 *)(arg0 + 0x9C));
-    for (var_r28 = 0; var_r28 < 2; var_r28++) {
+    particle_emitter = (u32 *)((u8 *)(arg0 + 0x9C));
+    for (i = 0; i < 2; i++) {
         if ((s32) *(s32 *)&this->m_e4 >= 0x2D) {
-            temp_r3_6 = *var_r29;
+            temp_r3_6 = *particle_emitter;
             if (temp_r3_6 != 0) {
                 TBoss4Type2::request_destroy(temp_r3_6);
-                *var_r29 = 0;
+                *particle_emitter = 0;
             }
         } else {
-            temp_r3_7 = *var_r29;
-            temp_r4 = (u8 *)&((O_8004F904 *)arg0)->arr[var_r28];
+            temp_r3_7 = *particle_emitter;
+            temp_r4 = (u8 *)&((O_8004F904 *)arg0)->arr[i];
             if (temp_r3_7 == 0) {
-                *var_r29 = create_particle_emitter((void *) (temp_r4), (int) (0x147));
-                temp_r3_8 = *var_r29;
+                *particle_emitter = create_particle_emitter((void *) (temp_r4), (int) (0x147));
+                temp_r3_8 = *particle_emitter;
                 if (temp_r3_8 != 0) {
                     ((TBoss4Type2 *)temp_r3_8)->set_flags(0x40U);
                 }
@@ -81,7 +81,7 @@ void TObjDFDemo5::update_particle_emitters() {
                 ((TNowLoading *)temp_r3_7)->copy_pos(temp_r4);
             }
         }
-        var_r29 = (u32 *)((u8 *)(arg0 + 0xA0));
+        particle_emitter = (u32 *)((u8 *)(arg0 + 0xA0));
     }
 }
 

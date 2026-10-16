@@ -160,7 +160,7 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
     typedef char sp14_offset[(offsetof(Stack_8011F7CC, sp14) == 0xC) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_8011F7CC, sp18) == 0x10) ? 1 : -1];
     Stack_8011F7CC stack;
-    f32 var_f31;
+    f32 attack_accuracy_scale;
     f32 var_f31_2;
     s32 temp_r31;
     s32 temp_r31_2;
@@ -169,12 +169,12 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
     if (TObjPlayer__sub_80102C30() == 2) {
         temp_r3 = (u8 *)(*(u8 * *)&this->player);
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
-            var_f31 = get_attack_accuracy_scale((void *) (temp_r3 + 0x7CC));
+            attack_accuracy_scale = get_attack_accuracy_scale((void *) (temp_r3 + 0x7CC));
             if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(((u8 *)this)))->m33() == 0)) {
-                var_f31 *= lbl_805DAC94;
+                attack_accuracy_scale *= lbl_805DAC94;
             }
             temp_r31 = arg4 * 0x2C;
-            if (((VObj_18_f8c4e0 *)(arg2))->m19(*(u8 * *)&this->player, *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31, 0, var_f31) != 0) {
+            if (((VObj_18_f8c4e0 *)(arg2))->m19(*(u8 * *)&this->player, *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31, 0, attack_accuracy_scale) != 0) {
                 var_f31_2 = lbl_805DAC98;
                 switch (arg3) {
                 case 0:

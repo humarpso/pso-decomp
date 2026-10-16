@@ -17,7 +17,7 @@ void TUnk_8049F3F4::run_task() {
     s32 temp_r0;
     s32 temp_r3;
     s32 var_r31;
-    s32 var_r30;
+    s32 i;
 
     temp_r0 = this->m_20;
     switch (temp_r0) {
@@ -29,14 +29,14 @@ void TUnk_8049F3F4::run_task() {
         return;
     case 2:
         if (((TItemLoad *)item_model_chunk_loader)->update_item() == 1) {
-            var_r30 = 0;
+            i = 0;
             var_r31 = 0;
             do {
-                temp_r3 = TItemLoad__sub_80110750(item_model_chunk_loader, var_r30);
-                var_r30 += 1;
+                temp_r3 = TItemLoad__sub_80110750(item_model_chunk_loader, i);
+                i += 1;
                 *(s32 *)(arg0 + var_r31 + 0x2C) = temp_r3;
                 var_r31 += 4;
-            } while (var_r30 != 4);
+            } while (i != 4);
             this->m_3c = TItemLoad__sub_80110748(item_model_chunk_loader);
             *(s32 *)&this->unk_40 = TItemLoad__sub_80110740(item_model_chunk_loader);
             if ((u32) this->m_3c != 0U) {

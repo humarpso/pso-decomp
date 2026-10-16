@@ -246,12 +246,12 @@ void TWindowCtrl::create_timer() {
 extern void *TWindowCtrl__active_window;
 
 void TWindowCtrl::set_timer_window_time() {
-    s32 arg0 = (s32)this;
+    s32 secs = (s32)this;
     u32 temp_r3;
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
         temp_r3 = *(u32 *)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x30);
         if (temp_r3 != 0U) {
-            ((TWindowTimer *)temp_r3)->set_time((u32)((void *) (arg0)));
+            ((TWindowTimer *)temp_r3)->set_time((u32)((void *) (secs)));
         }
     }
 }
@@ -291,10 +291,10 @@ inline u8 *get_obj_8024A5AC(s32 id) {
     }
     return NULL;
 }
-void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3) {
+void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 id, f32 *arg2, s32 *arg3) {
     u8 *obj;
     void *q;
-    obj = get_obj_8024A5AC(arg1);
+    obj = get_obj_8024A5AC(id);
     if (obj == NULL) {
         *arg2 = lbl_805DCBD8;
         *arg3 = 0;
@@ -323,19 +323,19 @@ f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(s32 arg0, RecoveredField
   f32 temp_f2;
   f32 temp_f3;
   f32 temp_f4;
-  u8 *temp_r3;
+  u8 *entity;
   if (arg2 == ((-1) & 0xFFFF))
   {
     return lbl_805DCBE0;
   }
-  temp_r3 = (u8 *) find_entity_by_id(arg2);
-  if (temp_r3 == 0)
+  entity = (u8 *) find_entity_by_id(arg2);
+  if (entity == 0)
   {
     return lbl_805DCBE0;
   }
-  temp_f4 = arg1->field_38 - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_38;
-  temp_f3 = arg1->field_3C - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_3C;
-  temp_f2 = arg1->field_40 - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_40;
+  temp_f4 = arg1->field_38 - ((RecoveredFields_8024A688_temp_r3 *) entity)->field_38;
+  temp_f3 = arg1->field_3C - ((RecoveredFields_8024A688_temp_r3 *) entity)->field_3C;
+  temp_f2 = arg1->field_40 - ((RecoveredFields_8024A688_temp_r3 *) entity)->field_40;
   return (temp_f2 * temp_f2) + ((temp_f4 * temp_f4) + (temp_f3 * temp_f3));
 }
 

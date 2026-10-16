@@ -113,7 +113,7 @@ void TLobby::cvfs_stop_tr() {
     }
 }
 
-s32 TLobby::cv_fs_req_rd(s32 arg1, s32 arg2) {
+s32 TLobby::cv_fs_req_rd(s32 error_context, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
@@ -125,7 +125,7 @@ s32 TLobby::cv_fs_req_rd(s32 arg1, s32 arg2) {
     }
     temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 * *)&this->m_name) + 0x20);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(*(s32 *)&this->m_flags, arg1, arg2);
+        var_r31 = temp_r12(*(s32 *)&this->m_flags, error_context, arg2);
     } else {
         var_r31 = 0;
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
@@ -135,7 +135,7 @@ s32 TLobby::cv_fs_req_rd(s32 arg1, s32 arg2) {
     return var_r31;
 }
 
-s32 TLobby::cv_fs_seek(s32 arg1, s32 arg2) {
+s32 TLobby::cv_fs_seek(s32 error_context, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
@@ -147,7 +147,7 @@ s32 TLobby::cv_fs_seek(s32 arg1, s32 arg2) {
     }
     temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 * *)&this->m_name) + 0x18);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(*(s32 *)&this->m_flags, arg1, arg2);
+        var_r31 = temp_r12(*(s32 *)&this->m_flags, error_context, arg2);
     } else {
         var_r31 = 0;
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {

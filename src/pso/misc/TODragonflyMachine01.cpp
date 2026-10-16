@@ -186,7 +186,7 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
 
 void TODummyKeyCave01Sound::play_cave01_key_sound() {
     s32 temp_r0;
-    s32 temp_r3;
+    s32 global_state;
     s32 temp_r3_2;
 
     temp_r0 = *(s32 *)((s8 *)this + 0x1C);
@@ -198,8 +198,8 @@ void TODummyKeyCave01Sound::play_cave01_key_sound() {
         play_sound_effect(0x53F06, 0, 0, 0);
         return;
     case 3:
-        temp_r3 = TOKeyMachine01::get_global_state();
-        if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
+        global_state = TOKeyMachine01::get_global_state();
+        if ((global_state != 0x10) && (global_state != 0x11)) {
             play_sound_effect(0x52812, 0, 0, 0);
             return;
         }

@@ -168,7 +168,7 @@ void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw) {
 
 #pragma push
 #pragma opt_common_subs off
-void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2) {
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2) {
     s32 temp_r3_2;
     u16 temp_r3;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
@@ -178,14 +178,14 @@ void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2) {
             mem_free((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))));
         }
     }
-    if ((arg1 != 0U) && (arg2 & 0x20)) {
-        temp_r3_2 = TWindowKeyBoardSoft::strnlen((s8 *)arg1, (u32)((int) (0x400)));
+    if ((str != 0U) && (arg2 & 0x20)) {
+        temp_r3_2 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)((int) (0x400)));
         *(u32 *)((s8 *)arg0 + 0x20) = ((u32)mem_alloc((s32)((void *) (temp_r3_2 + 1))));
-        strncpy((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))), (u32)((void *) (arg1)), (s32)((int) (temp_r3_2)));
+        strncpy((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))), (u32)((void *) (str)), (s32)((int) (temp_r3_2)));
         *(s8 *)((s8 *)(temp_r3_2 + *(u32 *)((s8 *)arg0 + 0x20)) + 0) = 0;
         *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x20);
     } else {
-        *(u32 *)((s8 *)arg0 + 0x20) = arg1;
+        *(u32 *)((s8 *)arg0 + 0x20) = str;
     }
     if (*(f32 *)((s8 *)arg0 + 0x28) > K_CFAC) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) K_CFAC;

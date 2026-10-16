@@ -21,23 +21,23 @@ extern const f32 lbl_805DD268;
 extern const f32 lbl_805DD26C;
 
 s32 TWindowOptionCtrl::create_list_window() {
-    s32 var_r31;
+    s32 idx;
     s32 temp_r30;
 
     fn_8036A514(2);
     temp_r30 = check_room_seq_4__16TAdChrSelASlotGCFl(get_option_entry__17TWindowOptionCtrlFi(0xCF), 0x31);
     set_flag70_bit100__21TWindowSubComCardListFv();
-    var_r31 = 0;
+    idx = 0;
     do {
-        if (fn_8036A620(var_r31) != 0) {
-            if (check_flag_index_set(var_r31) == 0) {
-                draw_text_gray__17TWindowSubComCardFllll(temp_r30, lbl_8044F4AC, 0x26, var_r31);
+        if (fn_8036A620(idx) != 0) {
+            if (check_flag_index_set(idx) == 0) {
+                draw_text_gray__17TWindowSubComCardFllll(temp_r30, lbl_8044F4AC, 0x26, idx);
             } else {
-                forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r30, get_option_table_entry(var_r31), 0x26, var_r31);
+                forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r30, get_option_table_entry(idx), 0x26, idx);
             }
         }
-        var_r31 += 1;
-    } while (var_r31 < 0x31);
+        idx += 1;
+    } while (idx < 0x31);
     ((TWindowOptionCtrl *)temp_r30)->set_flag70_bit400();
     ((TWindowSubComCardList *)temp_r30)->set_scroll_target(lbl_805DD268, lbl_805DD26C);
     align_menu_entry_positions(temp_r30);

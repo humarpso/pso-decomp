@@ -441,8 +441,8 @@ Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2);
 
 extern "C" {
 
-Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2) {
-    construct_world_actor_base(self, arg1);
+Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *parent, s32 arg2) {
+    construct_world_actor_base(self, parent);
     *(void **)((u8 *)self + 0x18) = __vt__18TObjCityDoor_Lobby;
     *(s32 *)self = (s32)TObjCityDoor_Lobby__name.value;
     self->m5(arg2);
@@ -573,10 +573,10 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjCityDoor_Med__create(void *arg0) {
+void *TObjCityDoor_Med__create(void *set) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
-        o = TObjCityDoor_Med__ct(o, tl_05, arg0);
+        o = TObjCityDoor_Med__ct(o, tl_05, set);
     }
     return o;
 }
@@ -826,10 +826,10 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjCityDoor_Warp__create(void *arg0) {
+void *TObjCityDoor_Warp__create(void *set) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
-        o = TObjCityDoor_Warp__ct(o, tl_05, arg0);
+        o = TObjCityDoor_Warp__ct(o, tl_05, set);
     }
     return o;
 }
@@ -928,10 +928,10 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjCityDoor_Guild__create(void *arg0) {
+void *TObjCityDoor_Guild__create(void *set) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
-        o = TObjCityDoor_Guild__ct(o, tl_05, arg0);
+        o = TObjCityDoor_Guild__ct(o, tl_05, set);
     }
     return o;
 }
@@ -1275,14 +1275,14 @@ void TUnk_804B5BA8::begin_state_1() {
 }
 
 s32 TObjPlayer::is_player_in_range(s32 arg0, s32 arg1, f32 farg0) {
-    s32 temp_r3;
+    s32 player;
     s32 temp_r3_2;
     s32 var_r30;
 
     var_r30 = 0;
 loop_1:
-    temp_r3 = get_player_by_client_id(var_r30);
-    if ((temp_r3 != 0) && ((temp_r3_2 = get_field_3e0__12TBoss3VoloptFv(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (horizontal_distance_squared(arg1, temp_r3 + 0x38) < farg0)) {
+    player = get_player_by_client_id(var_r30);
+    if ((player != 0) && ((temp_r3_2 = get_field_3e0__12TBoss3VoloptFv(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (horizontal_distance_squared(arg1, player + 0x38) < farg0)) {
         return 1;
     }
     var_r30 += 1;
@@ -1311,7 +1311,7 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     struct CopyStack_80182D8C { u8 bytes[0x2C]; };
     CopyStack_80182D8C copy_storage_80182D8C;
     u8 *temp_r4;
-    u8 *temp_r6;
+    u8 *count;
     construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80182D8C_lbl_804B5BA8 *)&city_door_base_vtable).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -1321,10 +1321,10 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     *(f32 *)((s8 *)arg0 + 0xB4) = lbl_805DBBE8[0];
     *(u8 **)((s8 *)arg0 + 0xB8) = arg3;
     *(ByteBlock_2C *)(copy_storage_80182D8C.bytes) = *(const ByteBlock_2C *)((s32) temp_r4 + 4);
-    temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));
-    (*(f32 *)(copy_storage_80182D8C.bytes + 0xC)) = *(f32 *)((s8 *)temp_r6 + 0xC);
-    (*(f32 *)(copy_storage_80182D8C.bytes + 0x10)) = *(f32 *)((s8 *)temp_r6 + 0x10);
-    init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80182D8C.bytes)), (int) (1), (int) (temp_r6));
+    count = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));
+    (*(f32 *)(copy_storage_80182D8C.bytes + 0xC)) = *(f32 *)((s8 *)count + 0xC);
+    (*(f32 *)(copy_storage_80182D8C.bytes + 0x10)) = *(f32 *)((s8 *)count + 0x10);
+    init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80182D8C.bytes)), (int) (1), (int) (count));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

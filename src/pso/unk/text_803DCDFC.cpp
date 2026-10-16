@@ -173,7 +173,7 @@ void TMovie::run_callback() {
 
 void init_locked_cache_heap(u8 *arg0) {
     s32 temp_r0;
-    s32 temp_r3;
+    s32 start;
 
     LCEnable();
     video_initial_display_framebuffer = *(s32 *)((s8 *)arg0 + 8);
@@ -182,8 +182,8 @@ void init_locked_cache_heap(u8 *arg0) {
     video_current_framebuffer = temp_r0;
     gx_fifo_buffer = *(s32 *)((s8 *)arg0 + 0x10);
     gx_fifo_buffer_size = *(s32 *)((s8 *)arg0 + 0x14);
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x18);
-    locked_cache_heap_handle = OSCreateHeap((int) (temp_r3), (int) (temp_r3 + *(s32 *)((s8 *)arg0 + 0x1C)));
+    start = *(s32 *)((s8 *)arg0 + 0x18);
+    locked_cache_heap_handle = OSCreateHeap((int) (start), (int) (start + *(s32 *)((s8 *)arg0 + 0x1C)));
     display_heap_size = *(s32 *)((s8 *)arg0 + 0x1C);
 }
 
@@ -371,13 +371,13 @@ E_803DD3C8 *fn_803DD3C8(s32 i) {
 #pragma pop
 
 
-s32 fn_803DD3DC(Fmt_803DD3DC *arg0) {
+s32 fn_803DD3DC(Fmt_803DD3DC *rmode) {
     Fmt_803DD3DC sp8;
-    if (arg0 == 0) {
-        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *)arg0, (GXRenderModeObj_803DD430 *)&sp8);
-        arg0 = &sp8;
+    if (rmode == 0) {
+        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *)rmode, (GXRenderModeObj_803DD430 *)&sp8);
+        rmode = &sp8;
     }
-    return (u16)((arg0->w + 15) & ~15) * arg0->h * 2;
+    return (u16)((rmode->w + 15) & ~15) * rmode->h * 2;
 }
 
 

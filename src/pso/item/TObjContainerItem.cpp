@@ -264,9 +264,9 @@ void TUnk_804B6C24::spawn_item(s32 arg1) {
     request_box_item_drop__13TUnk_804806E8FPvs(arg1, arg0 + 0x38, this->m_360, arg0);
 }
 void play_container_break_sound(s32 arg0) {
-    u32 temp_r3;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    u32 global_state;
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     case 1:
     case 2:
         play_sound_effect((int) (0x4BC10), (void *) (arg0 + 0x38), (int) (0), (int) (0));

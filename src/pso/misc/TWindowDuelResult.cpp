@@ -282,16 +282,16 @@ void draw_window__17TWindowDuelResultFPv(u8 *arg0) {
     draw_list_page_indicator((int) (*(s32 *)((s8 *)arg0 + 0x68)), (int) (temp_r3));
 }
 
-void update__17TWindowDuelResultFPv(u8 *arg0) {
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+void update__17TWindowDuelResultFPv(u8 *arg0_) {
+    if (!(*(s32 *)((s8 *)arg0_ + 0x2C) & 2)) {
+        *(s32 *)((s8 *)arg0_ + 0x5C) = 0x01000000;
     }
-    if (handle_list_page_flip_input(*(s32 *)((s8 *)arg0 + 0x68)) != 0) {
-        TWindowDuelResult__sub_8024F3CC(arg0);
+    if (handle_list_page_flip_input(*(s32 *)((s8 *)arg0_ + 0x68)) != 0) {
+        TWindowDuelResult__sub_8024F3CC(arg0_);
     }
-    TWindowDuelResult__sub_8024F330(arg0);
-    ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    TWindowDuelResult__sub_8024F330(arg0_);
+    ((TWindowDD *)arg0_)->initialize_subwindow();
+    ((TUnk_804CE018 *)arg0_)->update_window_entry_list(arg0_ + 0x24);
 }
 
 extern "C" void render_shadows__7TObjectFv();
@@ -314,30 +314,30 @@ void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult_size[sizeof(RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult) == 0x74 ? 1 : -1];
 typedef char RecoveredGlobal_8024F5B0_lbl_804CF020_size[sizeof(RecoveredGlobal_8024F5B0_lbl_804CF020) == 0x18 ? 1 : -1];
-u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
+u8 *TWindowDuelResult__ct(u8 *arg0_, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38F0;
+    construct_base__9TWindowDDFPUcsPUc((void *) (arg0_), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
+    *(s32 **)((s8 *)arg0_ + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
+    *(s32 *)((s8 *)arg0_ + 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)((void *)0xC))->alloc());
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(init__21TWindowSubComCardListFiii(temp_r3, 0, 2, (s32) *(s16 *)((s8 *)arg0 + 0x20)));
+        var_r0 = (u8 *)(init__21TWindowSubComCardListFiii(temp_r3, 0, 2, (s32) *(s16 *)((s8 *)arg0_ + 0x20)));
     }
-    *(u8 **)((s8 *)arg0 + 0x68) = var_r0;
+    *(u8 **)((s8 *)arg0_ + 0x68) = var_r0;
     if (TCameraCtrl::get_camera_id() > 2) {
-        *(f32 *)((s8 *)arg0 + 0x60) = (f32) (0.8f);
-        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (0.8f);
+        *(f32 *)((s8 *)arg0_ + 0x60) = (f32) (0.8f);
+        *(f32 *)((s8 *)arg0_ + 0x64) = (f32) (0.8f);
     } else if (TCameraCtrl::get_camera_id() == 2) {
-        *(f32 *)((s8 *)arg0 + 0x60) = (f32) (1.0f);
-        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0_ + 0x60) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0_ + 0x64) = (f32) (1.0f);
     } else {
-        *(f32 *)((s8 *)arg0 + 0x60) = (f32) (1.0f);
-        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0_ + 0x60) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0_ + 0x64) = (f32) (1.0f);
     }
-    TWindowDuelResult__sub_8024F3CC((void *) (arg0));
-    return arg0;
+    TWindowDuelResult__sub_8024F3CC((void *) (arg0_));
+    return arg0_;
 }
 
 }

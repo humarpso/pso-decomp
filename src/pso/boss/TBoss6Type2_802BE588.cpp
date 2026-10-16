@@ -249,7 +249,7 @@ void TBoss6Type2::start_flow_soul_effect() {
 
 void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
-    u32 temp_r3;
+    u32 player;
 
     play_persistent_sound((int) (0x4006A30B), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
@@ -259,9 +259,9 @@ void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
             if (((TBoss6Type2 *)arg0)->is_target_valid() == 0) {
                 play_sound_effect((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
-            temp_r3 = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x55C)));
-            if (temp_r3 != 0U) {
-                spawn_particle_effect((void *) (temp_r3 + 0x38), (int) (0x36));
+            player = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x55C)));
+            if (player != 0U) {
+                spawn_particle_effect((void *) (player + 0x38), (int) (0x36));
             }
         }
         ((TBoss6Type2 *)arg0)->set_action_state((void *)0x1B);
@@ -291,7 +291,7 @@ void TBoss6Type2__sub_802BEB78(u8 *arg0) {
 void TBoss6Type2__sub_802BEC28(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
-    u32 temp_r3;
+    u32 player;
     *(f32 *)((s8 *)arg0 + 0x41C) = (f32) (lbl_805DE4E4 - ((f32) *(s32 *)((s8 *)arg0 + 0x460) / (f32) *(s32 *)((s8 *)arg0 + 0x45C)));
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x41C);
     if (temp_f1 < lbl_805DE4E0) {
@@ -309,9 +309,9 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0) {
             if (((TBoss6Type2 *)arg0)->is_target_valid() == 0) {
                 play_sound_effect((int) (0x40069E13), (void *) (arg0 + 0x38), (int) (0), (int) (1));
             }
-            temp_r3 = get_player_by_client_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x55C)));
-            if (temp_r3 != 0U) {
-                spawn_particle_effect((void *) (temp_r3 + 0x38), (int) (0x36));
+            player = get_player_by_client_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x55C)));
+            if (player != 0U) {
+                spawn_particle_effect((void *) (player + 0x38), (int) (0x36));
             }
         }
         ((TBoss6Type2 *)arg0)->copy_anim_state();

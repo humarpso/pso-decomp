@@ -150,15 +150,15 @@ void *__dt__11TNowLoadingFv(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Vec_8001D3A8 *arg2) {
+TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *parent, void *arg1, Vec_8001D3A8 *arg2) {
     Vec_8001D3A8 dir;
     s32 out[3];
     Cam_8001D3A8 *cam;
     void *p;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    arg0->vtable = __vt__11TNowLoading;
-    arg0->unk0 = TNowLoading__class_name;
-    VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
+    __ct__7TObjectFP7TObject(parent, arg1);
+    parent->vtable = __vt__11TNowLoading;
+    parent->unk0 = TNowLoading__class_name;
+    VecCopy__FP3VecPC3Vec(&parent->pos, arg2);
     cam = (Cam_8001D3A8 *) &lbl_804FF5E8;
     out[0] = 0;
     out[1] = 0;
@@ -167,22 +167,22 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Ve
     dir.y = -cam->dir.y;
     dir.z = -cam->dir.z;
     direction_to_rotation_xz(&dir, &out[0], &out[2]);
-    arg0->pos.x = lbl_805D7EC0 * cam->dir.x + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0);
-    arg0->pos.y = lbl_805D7EC0 * cam->dir.y + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4);
-    arg0->pos.z = lbl_805D7EC0 * cam->dir.z + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8);
-    arg0->children[0] = NULL;
-    arg0->children[1] = NULL;
-    arg0->children[2] = NULL;
-    arg0->children[3] = NULL;
+    parent->pos.x = lbl_805D7EC0 * cam->dir.x + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0);
+    parent->pos.y = lbl_805D7EC0 * cam->dir.y + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4);
+    parent->pos.z = lbl_805D7EC0 * cam->dir.z + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8);
+    parent->children[0] = NULL;
+    parent->children[1] = NULL;
+    parent->children[2] = NULL;
+    parent->children[3] = NULL;
     p = __nw__7TObjectFUl(0x40);
     if (p != NULL) {
-        TAdLoadNetworkGC__ct(p, arg0, &arg0->pos);
+        TAdLoadNetworkGC__ct(p, parent, &parent->pos);
     }
     p = __nw__7TObjectFUl(0x5C);
     if (p != NULL) {
-        TLoadingCur__ct(p, arg0, &arg0->pos);
+        TLoadingCur__ct(p, parent, &parent->pos);
     }
-    return arg0;
+    return parent;
 }
 #pragma pop
 
@@ -217,16 +217,16 @@ s32 TLobby::aram_read_sync(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     DCInvalidateRange((void *)arg2, len);
     return 1;
 }
-s32 TLobby::aram_transfer_sync(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+s32 TLobby::aram_transfer_sync(s32 arg0, u32 buf, s32 arg2, s32 arg3) {
     u8 sp8[0x20];
     s32 len;
-    if (arg2 == 0 && arg1 == 0) {
+    if (arg2 == 0 && buf == 0) {
         return 0;
     }
     len = (arg3 + 0x1F) & ~0x1F;
     (*(volatile s32 *)&aram_dma_pending) = 1;
-    DCFlushRange((void *)arg1, len);
-    ARQPostRequest(sp8, arg0, 0, 1, arg1, arg2, len, (void *)TLobby__sub_8001D9DC);
+    DCFlushRange((void *)buf, len);
+    ARQPostRequest(sp8, arg0, 0, 1, buf, arg2, len, (void *)TLobby__sub_8001D9DC);
     for (;;) {
         if ((*(volatile s32 *)&aram_dma_pending) == 0) break;
         TLobby::run_frame();

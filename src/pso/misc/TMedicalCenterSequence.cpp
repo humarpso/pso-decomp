@@ -328,17 +328,17 @@ void TMedicalCenterSequence::handle_confirm() {
 }
 
 void TMedicalCenterSequence::handle_window_result() {
-    s32 temp_r3;
+    s32 selected_menu_value;
 
     if (((u32) this->m_30 != 0U) && (((TWindowMenu *)((u32) this->m_30))->is_visible() != 0)) {
-        temp_r3 = get_selected_menu_value(this->m_30);
-        if (temp_r3 == 0) {
+        selected_menu_value = get_selected_menu_value(this->m_30);
+        if (selected_menu_value == 0) {
             TWindow__close(this->m_30);
             this->m_30 = 0U;
             set_field_20((s32)((void*)(4)));
             return;
         }
-        if (temp_r3 == 1) {
+        if (selected_menu_value == 1) {
             TWindow__close(this->m_30);
             this->m_30 = 0U;
             set_field_20((s32)((void*)(5)));

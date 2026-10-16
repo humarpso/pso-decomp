@@ -728,13 +728,13 @@ void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
+void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
     Coll_8018B030 *c;
 
-    construct_actor_base__10TObjPlayerFPvPv(self, arg1, arg2);
+    construct_actor_base__10TObjPlayerFPvPv(self, arg1, parent);
     *(void **)((u8 *)self + 0x18) = (void *)__vt__20TContainerAncient01R;
     *(s32 *)self = TContainerAncient01R__name;
-    self->m5(arg2);
+    self->m5(parent);
     self->x34 = get_bml_model(TContainerAncient01R__bml_resource, 0);
     self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__bml_resource, 0);
     self->animTbl = (void *)TContainerAncient01__anim_table;

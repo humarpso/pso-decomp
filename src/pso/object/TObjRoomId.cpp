@@ -206,8 +206,8 @@ void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_801A1CD8___vt__10TObjRoomId_size[sizeof(RecoveredGlobal_801A1CD8___vt__10TObjRoomId) == 0x38 ? 1 : -1];
-u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (arg1));
+u8 *TObjRoomId__ct(u8 *arg0, s32 parent, s32 arg2) {
+    construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801A1CD8___vt__10TObjRoomId *)&__vt__10TObjRoomId).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34B0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -250,11 +250,11 @@ u8 TObjPlayer::sub_801A1DDC() {
 
 int TUnk_804B9870::vfunc_12() { return 0; }
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
-    u32 temp_r3;
+    u32 global_state;
 
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) < 0x1000U) {
-        temp_r3 = TOKeyMachine01::get_global_state();
-        if ((temp_r3 <= 2U) || ((s32) temp_r3 == 0x12) || (TContainerAncient01::is_global_state_in_table() != 0) || ((s32) temp_r3 == 0xC) || ((s32) temp_r3 == 0x20)) {
+        global_state = TOKeyMachine01::get_global_state();
+        if ((global_state <= 2U) || ((s32) global_state == 0x12) || (TContainerAncient01::is_global_state_in_table() != 0) || ((s32) global_state == 0xC) || ((s32) global_state == 0x20)) {
             *(s16 *)((s8 *)arg0 + 0x2E) = arg1;
         }
         *(s16 *)((s8 *)arg0 + 0x28) = arg1;

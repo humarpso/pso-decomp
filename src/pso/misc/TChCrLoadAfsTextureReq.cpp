@@ -241,7 +241,7 @@ void TLobby::update_model_load() {
     s32 *temp_r5;
     s32 temp_r0;
     s32 temp_r4;
-    u32 temp_r3;
+    u32 bml_model;
     u32 var_r31;
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x74) - 1;
     *(s32 *)((s8 *)((u8 *)this) + 0x74) = temp_r0;
@@ -260,9 +260,9 @@ void TLobby::update_model_load() {
             *(s32 *)((s8 *)((u8 *)this) + 0x74) = 0x12C;
         }
     } else if (fn_8001ED90((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68))) != 0) {
-        temp_r3 = get_bml_model((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), (int) (0));
-        **(u32 **)((s8 *)((u8 *)this) + 0x1C) = temp_r3;
-        if (temp_r3 != 0U) {
+        bml_model = get_bml_model((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), (int) (0));
+        **(u32 **)((s8 *)((u8 *)this) + 0x1C) = bml_model;
+        if (bml_model != 0U) {
             ((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->alloc_load_buffer((int) (TLobby__sub_8001ED88((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)))));
             TLobby__sub_8001FE7C((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), (int) (1));
             *(u32 *)((s8 *)((u8 *)this) + 0x68) = 0U;

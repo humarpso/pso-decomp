@@ -89,7 +89,7 @@ extern const f32 lbl_805DF78C;
 
 void TAdYesNoBaseGC::vfunc_11() {
     s32 temp_r0;
-    s32 temp_r3;
+    s32 selected_menu_value;
     s32 temp_r4;
 
     *(s32 *)&this->m_20 = (s32) *(s32 *)&this->m_1c;
@@ -102,8 +102,8 @@ void TAdYesNoBaseGC::vfunc_11() {
         break;
     case 1:
         if (((TWindowMenu *)(this->m_44))->is_visible() != 0) {
-            temp_r3 = get_selected_menu_value(this->m_44);
-            switch (temp_r3) {
+            selected_menu_value = get_selected_menu_value(this->m_44);
+            switch (selected_menu_value) {
             case 0:
                 ((VtObj8032C1C8_8032C188*)this)->m6();
                 *(s32 *)&this->m_1c = 2;

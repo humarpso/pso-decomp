@@ -168,8 +168,8 @@ s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1) {
     }
 }
 
-void check_valid_state__6TLobbyFi(s32 arg0) {
-    is_valid_state__6TLobbyFPvi((void *)((void *)(arg0)), (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
+void check_valid_state__6TLobbyFi(s32 unused) {
+    is_valid_state__6TLobbyFPvi((void *)((void *)(unused)), (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
 }
 
 int TUnk_804ED7D0::vfunc_76() {
@@ -179,10 +179,10 @@ int TUnk_804ED7D0::vfunc_76() {
 typedef char RecoveredGlobal_80329088_lbl_805430E8_size[sizeof(RecoveredGlobal_80329088_lbl_805430E8) == 0x1C0 ? 1 : -1];
 typedef char RecoveredGlobal_80329088_lbl_805432A8_size[sizeof(RecoveredGlobal_80329088_lbl_805432A8) == 0x1C0 ? 1 : -1];
 s32 *TLobby::get_state_table(s32 _w1) {
-    s32 arg0 = (s32)this;
+    s32 unused = (s32)this;
     s32 *var_r3;
     s32 temp_r3;
-    temp_r3 = is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(_w1));
+    temp_r3 = is_valid_state__6TLobbyFPvi((void *)(unused), (s32)(_w1));
     switch (temp_r3) {
     case 0:
         var_r3 = (s32 *)(&lbl_805430E8.value);

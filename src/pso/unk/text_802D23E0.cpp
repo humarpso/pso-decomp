@@ -57,15 +57,15 @@ extern "C" {
 typedef struct Stack_802D23E0 Stack_802D23E0;
 void TLobby::send_trade_proposal_modify() {
   Stack_802D23E0 stack;
-  u8 *temp_r3;
+  u8 *player;
   u8 *temp_r3_2;
   build_6xA6_modify_trade_proposal(&stack.sp8);
   if (((s32) TLobby__trade_proposal_state) == 2)
   {
-    temp_r3 = (u8 *) get_player_by_client_id(local_client_id);
-    if (temp_r3)
+    player = (u8 *) get_player_by_client_id(local_client_id);
+    if (player)
     {
-      temp_r3_2 = (u8 *) ((TQuestListVM *)temp_r3)->get_quest_id();
+      temp_r3_2 = (u8 *) ((TQuestListVM *)player)->get_quest_id();
       if (temp_r3_2 != 0)
       {
         stack.spC = 0;

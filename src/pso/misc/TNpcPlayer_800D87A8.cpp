@@ -24,10 +24,10 @@ void *TNpcPlayer::get_valid_target_player() {
 }
 
 void *find_active_entity_by_id(void) {
-    void *temp_r31;
-    temp_r31 = find_entity_by_id();
+    void *entity;
+    entity = find_entity_by_id();
     if (is_valid_and_active__10TObjPlayerFUl() != 0) {
-        return temp_r31;
+        return entity;
     }
     return 0;
 }

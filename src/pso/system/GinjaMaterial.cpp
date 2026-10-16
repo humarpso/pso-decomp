@@ -184,16 +184,16 @@ void draw_ginja_object(void *arg0) {
 
 #pragma push
 #pragma scheduling off
-s32 queue_model_draw_current_matrix(s32 arg0) {
-    queue_model_draw_matrix(arg0, current_matrix);
+s32 queue_model_draw_current_matrix(s32 model) {
+    queue_model_draw_matrix(model, current_matrix);
     return 1;
 }
 #pragma pop
 
-void draw_ginja_model(s32 arg0) {
+void draw_ginja_model(s32 model) {
     load_ginja_model_matrices((int)((int) (0)));
     prepare_ginja_model();
-    draw_ginja_model_lists((GinjaModel *)arg0);
+    draw_ginja_model_lists((GinjaModel *)model);
     end_ginja_model_draw();
 }
 
@@ -238,12 +238,12 @@ void set_ginja_channel_ctrl(s32 channel,s32 flags) {
 #define GC ((GinjaCounts_803DB734 *)&ginja_material_cache)
 #pragma push
 #pragma use_lmw_stmw off
-void set_ginja_channel_counts(s32 arg0, s32 arg1) {
+void set_ginja_channel_counts(s32 flags, s32 arg1) {
     s32 sum;
     s32 sum2;
     s32 i;
     if ((u32)(arg1 & 0x1903) != 0) {
-        s32 n = arg0 & 3;
+        s32 n = flags & 3;
         if ((u32)(model_render_flags & 0x80000) != 0) {
             s32 pre = GC->pre[0];
             s32 post = GC->post[0];
@@ -254,7 +254,7 @@ void set_ginja_channel_counts(s32 arg0, s32 arg1) {
                 ginja_pre_channel_callback(0);
             }
             for (i = 0; i < n; i++) {
-                set_ginja_channel_ctrl(pre + i, arg0);
+                set_ginja_channel_ctrl(pre + i, flags);
             }
             if (post != 0 && ginja_post_channel_callback != NULL) {
                 ginja_post_channel_callback(sum);
@@ -262,12 +262,12 @@ void set_ginja_channel_counts(s32 arg0, s32 arg1) {
         } else {
             GXSetNumChans(n);
             for (i = 0; i < n; i++) {
-                set_ginja_channel_ctrl(i, arg0);
+                set_ginja_channel_ctrl(i, flags);
             }
         }
     }
     if ((u32)(arg1 & 0xF0) != 0) {
-        u8 n = (u32)(arg0 & 0xF0) >> 4;
+        u8 n = (u32)(flags & 0xF0) >> 4;
         if ((u32)(model_render_flags & 0x80000) != 0) {
             s32 pre = GC->pre[1];
             s32 post = GC->post[1];
@@ -288,7 +288,7 @@ void set_ginja_channel_counts(s32 arg0, s32 arg1) {
         GC->texGenCount = n;
     }
     if ((u32)(arg1 & 0xF0000) != 0) {
-        u8 n = (u32)(arg0 & 0xF0000) >> 16;
+        u8 n = (u32)(flags & 0xF0000) >> 16;
         if ((u32)(model_render_flags & 0x80000) != 0) {
             s32 pre = GC->pre[2];
             s32 post = GC->post[2];

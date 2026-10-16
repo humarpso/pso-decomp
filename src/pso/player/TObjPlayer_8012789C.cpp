@@ -14,7 +14,7 @@ void TObjPlayer__sub_8012789C(void* p) { roll_technique__11TItemWeaponFv((void*)
 extern s32 tl_05;
 
 void TObjPlayer::cast_jellen_zalure() {
-    s32 temp_r3;
+    s32 owner;
     s32 temp_r3_2;
     s32 temp_r4;
     s32 temp_r4_2;
@@ -24,9 +24,9 @@ void TObjPlayer::cast_jellen_zalure() {
     }
     if (is_mode_two_and_ready() != 0) {
         if (get_tp() == 0) {
-            temp_r3 = *(s32 *)&this->unk_F0;
-            temp_r4 = temp_r3 + 0x38;
-            TTecJelin::create(temp_r3, temp_r4, temp_r4, 4);
+            owner = *(s32 *)&this->unk_F0;
+            temp_r4 = owner + 0x38;
+            TTecJelin::create(owner, temp_r4, temp_r4, 4);
         } else {
             temp_r3_2 = *(s32 *)&this->unk_F0;
             temp_r4_2 = temp_r3_2 + 0x38;

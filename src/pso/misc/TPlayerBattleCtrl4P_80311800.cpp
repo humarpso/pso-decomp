@@ -257,7 +257,7 @@ extern "C" {
 #pragma optimization_level 1
 void TPlayerBattleCtrl4P::open_result_windows() {
   u32 var_r31;
-  s32 temp_r3;
+  s32 player;
   if (!((s32)this))
   {
   }
@@ -266,14 +266,14 @@ void TPlayerBattleCtrl4P::open_result_windows() {
   var_r31 = 0;
   do
   {
-    temp_r3 = ((s32)get_player_by_client_id((s32)(var_r31)));
-    if (temp_r3 != 0)
+    player = ((s32)get_player_by_client_id((s32)(var_r31)));
+    if (player != 0)
     {
       if (check_player_flag1__6TLobbyFv() == 0)
       {
         TPlayerBattleCtrl4P::remove_player((void *) ((s32)this), (int) ((u16) var_r31), (int) 1);
       }
-      ((TObjPlayer *)temp_r3)->release_attached_resource();
+      ((TObjPlayer *)player)->release_attached_resource();
     }
     var_r31 += 1;
   }

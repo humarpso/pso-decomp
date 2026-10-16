@@ -175,21 +175,21 @@ bool TObjTradeCollision::is_player_outside_trade_radius(u32 arg1) {
     f32 temp_f0;
     f32 temp_f31;
     s32 temp_r31;
-    s32 temp_r3;
-    temp_r3 = get_player_by_client_id(arg1);
-    if (temp_r3 == 0) {
+    s32 player;
+    player = get_player_by_client_id(arg1);
+    if (player == 0) {
         return 0;
     }
     if (get_main_phase() != 0xF) {
         return 0;
     }
-    temp_r31 = ((TObjPlayer *)temp_r3)->get_field_3e4();
+    temp_r31 = ((TObjPlayer *)player)->get_field_3e4();
     if (temp_r31 != get_current_floor()) {
         return 0;
     }
     temp_f0 = *(f32 *)&this->unk_AC;
     temp_f31 = temp_f0 * temp_f0;
-    return (xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31) == 0;
+    return (xz_distance_squared((void *) (player + 0x38), (void *) (arg0 + 0x38)) < temp_f31) == 0;
 }
 #pragma pop
 

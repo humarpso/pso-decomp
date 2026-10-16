@@ -53,7 +53,7 @@ void TPhotonFarlla::run_task() {
     typedef char sp24_offset[(offsetof(Stack_801AB018, sp24) == 0x1C) ? 1 : -1];
     Stack_801AB018 stack;
     f32 temp_f1;
-    s32 temp_r3;
+    s32 entity;
     s32 temp_r3_3;
     s32 temp_r3_4;
     s32 temp_r3_5;
@@ -61,9 +61,9 @@ void TPhotonFarlla::run_task() {
     *(s32 *)&this->unk_1A4 = (s32) (*(s32 *)&this->unk_1A4 + 1);
     if (((s32) *(s32 *)&this->unk_1A4 == 0x32) && ((s32) this->m_1a0 == 0)) {
         this->m_1a0 = 1;
-        temp_r3 = find_entity_by_id((int) ((s32) this->m_17c));
-        if (temp_r3 != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (temp_r3 + 0x38));
+        entity = find_entity_by_id((int) ((s32) this->m_17c));
+        if (entity != 0) {
+            VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (entity + 0x38));
             stack.sp24 += lbl_805DC15C;
         }
         temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));

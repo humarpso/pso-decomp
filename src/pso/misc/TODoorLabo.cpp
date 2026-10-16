@@ -433,11 +433,11 @@ void TLobby::free_global_buffers() {
     }
 }
 void TLanguage__sub_8029FF0C(void) {
-    s32 temp_r3;
+    s32 global_state;
     s32 var_r0;
     s32 var_r0_2;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     case 28:
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r0 != 0) {

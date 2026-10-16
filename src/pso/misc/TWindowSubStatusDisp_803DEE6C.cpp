@@ -134,8 +134,8 @@ void DVDConvertEntrynumToPath(f32 *q) {
 #pragma opt_common_subs off
 #pragma scheduling off
 #pragma peephole off
-void set_draw_texture_and_color(s32 arg0, s32 arg1) {
-    load_list_texture((void *) (arg0), (int) (0), (int) (0), (int) (0));
+void set_draw_texture_and_color(s32 idx, s32 arg1) {
+    load_list_texture((void *) (idx), (int) (0), (int) (0), (int) (0));
     constant_material_color = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
 }
 #pragma pop

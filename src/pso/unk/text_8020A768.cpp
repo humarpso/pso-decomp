@@ -30,7 +30,7 @@ s32 load_object_set_file(s32 arg0, s32 arg1);
 
 extern "C" {
 
-s32 load_enemy_set_file(s32 arg0, s32 arg1) {
+s32 load_enemy_set_file(s32 idx, s32 arg1) {
     Name_8020A768 name;
     s32 size;
     Ent_8020A768 *p;
@@ -51,12 +51,12 @@ s32 load_enemy_set_file(s32 arg0, s32 arg1) {
         bswap_enemy_set_row(p);
         p->b = 0;
     }
-    floor = TLobby::get_player_floor(arg0);
+    floor = TLobby::get_player_floor(idx);
     reserve_enemy_set_actor_ids((struct SpawnRecord_8020A9C4 *)TLobby__map_set_file_buffer, n, floor);
-    init_floor_enemy_count__6TLobbyFlPUcUl(arg0, TLobby__map_set_file_buffer, size);
+    init_floor_enemy_count__6TLobbyFlPUcUl(idx, TLobby__map_set_file_buffer, size);
     return 1;
 }
-s32 load_object_set_file(s32 arg0, s32 arg1) {
+s32 load_object_set_file(s32 idx, s32 arg1) {
     Name_8020A834 name;
     s32 size;
     Ent_8020A834 *p;
@@ -77,9 +77,9 @@ s32 load_object_set_file(s32 arg0, s32 arg1) {
         swap_object_row_endian(p);
         p->b = 0;
     }
-    floor = TLobby::get_player_floor(arg0);
+    floor = TLobby::get_player_floor(idx);
     ((TLobby *)(*(Ent_8020A834 * *)&TLobby__map_set_file_buffer))->assign_object_ids(n, (void *)floor);
-    load_object_set_entries__6TLobbyFlPUcUl(arg0, (*(Ent_8020A834 * *)&TLobby__map_set_file_buffer), size);
+    load_object_set_entries__6TLobbyFlPUcUl(idx, (*(Ent_8020A834 * *)&TLobby__map_set_file_buffer), size);
     return 1;
 }
 

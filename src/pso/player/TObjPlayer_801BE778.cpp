@@ -256,15 +256,15 @@ int TObjPlayer__sub_801BEDB8(void*);
 
 void* TObjPlayer__sub_801BE918(void* a0, int a1, void* a2, void* a3) { *(float*)((char*)a2 + 0x0) = *(float*)((char*)a0 + a1 * 8 + 0x6b0); *(float*)((char*)a3 + 0x0) = *(float*)((char*)a0 + a1 * 8 + 0x6b4); return (char*)a0 + a1 * 8; }
 s32 TObjPlayer::clamp_index_to_max(s32 arg0) {
-    s32 var_r31;
+    s32 max_level;
 
-    var_r31 = arg0;
-    if (var_r31 < 0) {
-        var_r31 = 0;
-    } else if (var_r31 > TObjPlayer::get_max_level()) {
-        var_r31 = TObjPlayer::get_max_level();
+    max_level = arg0;
+    if (max_level < 0) {
+        max_level = 0;
+    } else if (max_level > TObjPlayer::get_max_level()) {
+        max_level = TObjPlayer::get_max_level();
     }
-    return var_r31;
+    return max_level;
 }
 void TObjPlayer::clamp_nested_index() {
     TObjPlayer::clamp_index_to_max(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x2B0)) + 0x18));

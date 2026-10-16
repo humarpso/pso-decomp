@@ -161,7 +161,7 @@ void TWindow::close_sub_windows() {
 
 void handle_confirm_dialog(void *arg0) {
     s32 temp_r0;
-    s32 temp_r3_2;
+    s32 selected_menu_value;
     VObj_80216BCC_80216B44 *temp_r3;
     VObj_80216BCC_80216B44 *temp_r3_3;
     VObj_80216BCC_80216B44 *temp_r3_4;
@@ -169,14 +169,14 @@ void handle_confirm_dialog(void *arg0) {
     temp_r3 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
     if (temp_r3->m8() != 0) {
         if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x38)))->is_visible() != 0)) {
-            temp_r3_2 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
-            if (temp_r3_2 == 0) {
+            selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
+            if (selected_menu_value == 0) {
                 temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)((s8 *)arg0 + 0x3C));
                 prepare_offline_quest_filenames((*(Entry_80216BCC_80216B44 **)((s8 *)arg0 + 0x54))[temp_r0].field18);
                 ((TShopWindowBase *)arg0)->set_field_20(3);
                 return;
             }
-            if (temp_r3_2 == 1) {
+            if (selected_menu_value == 1) {
                 ((TWindow *)arg0)->close_sub_windows();
                 temp_r3_3 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
                 if (temp_r3_3 != NULL) {

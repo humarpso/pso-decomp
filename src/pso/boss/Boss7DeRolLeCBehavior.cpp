@@ -532,15 +532,15 @@ typedef char RecoveredGlobal_802E80F4_lbl_8050BEC0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802E80F4_main_task_size[sizeof(RecoveredGlobal_802E80F4_main_task) == 0x34 ? 1 : -1];
 typedef char RecoveredGlobal_802E80F4_lbl_805412C0_size[sizeof(RecoveredGlobal_802E80F4_lbl_805412C0) == 0x268 ? 1 : -1];
 typedef char RecoveredGlobal_802E80F4_lbl_8058D4C0_size[sizeof(RecoveredGlobal_802E80F4_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void TObjPlayer__sub_802E80F4(u8 *arg0) {
+void TObjPlayer__sub_802E80F4(u8 *unused) {
     s32 *var_r30;
     s32 var_r29;
-    if (!(get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_802E80F4_main_task *)&main_task).value)) & 0x20) || !(*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805DEA1C)) {
-        var_r30 = (s32 *)((u8 *)(arg0 + 0x5F8));
+    if (!(get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_802E80F4_main_task *)&main_task).value)) & 0x20) || !(*(f32 *)((s8 *)unused + 0x3C) < lbl_805DEA1C)) {
+        var_r30 = (s32 *)((u8 *)(unused + 0x5F8));
         var_r29 = 0;
         do {
             if (((TBoss7Joint *)(*var_r30))->is_part_active() != 0U) {
-                TObjPlayer__sub_802E7F30((void *) (arg0), (int) (var_r29));
+                TObjPlayer__sub_802E7F30((void *) (unused), (int) (var_r29));
             }
             var_r29 += 1;
             var_r30 = (s32 *)((u8 *)var_r30 + (4));
@@ -552,14 +552,14 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
         TObjEneDD::clear_global_flag_400();
         TParticleCtrl::begin_effect_render();
         push_matrix();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x7AC) != 0U) {
-            if (*(s32 *)((s8 *)arg0 + 0x628) & 0x40) {
+        if ((u32) *(u32 *)((s8 *)unused + 0x7AC) != 0U) {
+            if (*(s32 *)((s8 *)unused + 0x628) & 0x40) {
                 *(s32 **)((s8 *)lbl_805D693C + 0x2C) = &boss7_derolle_light_pool.value;
             } else {
                 *(s32 **)((s8 *)lbl_805D693C + 0x2C) = (s32 *) lbl_805D6940;
             }
             TObjPlayer::draw_effect();
-            ((TObjPlayer *)(*(u32 *)((s8 *)arg0 + 0x7AC)))->draw_node_tree_if_visible();
+            ((TObjPlayer *)(*(u32 *)((s8 *)unused + 0x7AC)))->draw_node_tree_if_visible();
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -567,8 +567,8 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;
-        TObjPlayer__sub_802E7FC0((void *) (arg0));
-        ((TObject *)(arg0 + 0x690))->render_nodes();
+        TObjPlayer__sub_802E7FC0((void *) (unused));
+        ((TObject *)(unused + 0x690))->render_nodes();
     }
 }
 
@@ -1802,7 +1802,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     u32 var_r0_2;
     u32 var_r0_3;
     u8 *temp_r30;
-    u8 *temp_r30_2;
+    u8 *src;
     u8 *temp_r3;
     u8 *temp_r4;
     temp_r30 = (u8 *)((void *)((u8 *)(arg0) + 0x76C));
@@ -1892,16 +1892,16 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             }
             break;
         case 2:
-            temp_r30_2 = (u8 *)((void *)((u8 *)(arg0) + 0x778));
+            src = (u8 *)((void *)((u8 *)(arg0) + 0x778));
             *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DEA4C;
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
                 ((TBoss7LaserPtcl *)(*(void **)((s8 *)arg0 + 0x7A8)))->calc_position((u8 *)((u8 *)(arg0) + 0x4DC), (u8 *)((u8 *)(arg0) + 0x4E8));
-                ((TBoss7LaserPtcl *)(*(u32 *)((s8 *)arg0 + 0x7A8)))->calc_world_position((void *)temp_r30_2);
+                ((TBoss7LaserPtcl *)(*(u32 *)((s8 *)arg0 + 0x7A8)))->calc_world_position((void *)src);
                 calc_laser_ray_hit_point((int) (*(u32 *)((s8 *)arg0 + 0x7A8)), (void *) (&sp8));
             }
-            temp_r3 = (u8 *)(csnVector((s32 *)&sp8, temp_r30_2, 0x16EF));
+            temp_r3 = (u8 *)(csnVector((s32 *)&sp8, src, 0x16EF));
             if (temp_r3 != NULL) {
-                VecCopy__FP3VecPC3Vec((int)((int) (temp_r30_2)), (void *)((int) (*(s32 *)((s8 *)temp_r3 + 4))));
+                VecCopy__FP3VecPC3Vec((int)((int) (src)), (void *)((int) (*(s32 *)((s8 *)temp_r3 + 4))));
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x71C) == 0U) {
                     var_r0_2 = __nw__7TObjectFUl((int) (0x124));
                     if (var_r0_2 != 0U) {
@@ -1909,7 +1909,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                     }
                     *(u32 *)((s8 *)arg0 + 0x71C) = var_r0_2;
                 } else {
-                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x71C), temp_r30_2);
+                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x71C), src);
                 }
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x720) == 0U) {
                     var_r0_3 = __nw__7TObjectFUl((int) (0x124));
@@ -1918,13 +1918,13 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                     }
                     *(u32 *)((s8 *)arg0 + 0x720) = var_r0_3;
                 } else {
-                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x720), temp_r30_2);
+                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x720), src);
                 }
             }
             temp_r4 = (u8 *)((void *)((u8 *)(boss7_laser_particle_params) + -4));
             *(ByteBlock_14 *)(copy_storage_802E8FCC.bytes) = *(const ByteBlock_14 *)((s32) temp_r4 + 4);
             (*(f32 *)(copy_storage_802E8FCC.bytes + 0x4)) = *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x620)) + 0);
-            TObjEneDD::setup_instance((s32)((void *) (arg0)), (s32)((int) (temp_r30_2)), (u8 *)copy_storage_802E8FCC.bytes, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x718))));
+            TObjEneDD::setup_instance((s32)((void *) (arg0)), (s32)((int) (src)), (u8 *)copy_storage_802E8FCC.bytes, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x718))));
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
                 if (is_state_2__15TBoss7LaserPtclFv(*(void **)((s8 *)arg0 + 0x7A8)) != 0) {
                     *(s32 *)((s8 *)arg0 + 0x728) = 3;

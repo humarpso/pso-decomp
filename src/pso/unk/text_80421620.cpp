@@ -844,39 +844,39 @@ s16 TLobby__sub_80422F70(s16 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return var_r29;
 }
 
-s16 TLobby__sub_80423064(s16 arg0, s32 arg1) {
+s16 TLobby__sub_80423064(s16 idx, s32 arg1) {
     s16 temp_r3;
     s16 temp_r3_2;
     s16 var_r31;
-    s32 temp_r30;
-    if (arg0 < 0) {
+    s32 level;
+    if (idx < 0) {
         return -2;
     }
     TLobby::lock_mutex((int)((void *) (network_dispatch_state.value)));
-    temp_r30 = OSDisableInterrupts();
+    level = OSDisableInterrupts();
     switch (arg1) {
     case 0:
         var_r31 = 0;
-        temp_r3 = TLobby__sub_8040F1A0(arg0);
+        temp_r3 = TLobby__sub_8040F1A0(idx);
         if (temp_r3 < 0) {
             var_r31 = temp_r3;
         }
-        temp_r3_2 = TLobby__sub_80412210(arg0);
+        temp_r3_2 = TLobby__sub_80412210(idx);
         if (temp_r3_2 < 0) {
             var_r31 = temp_r3_2;
         }
         break;
     case 4:
-        var_r31 = TLobby__sub_8040F1A0(arg0);
+        var_r31 = TLobby__sub_8040F1A0(idx);
         break;
     case 6:
-        var_r31 = TLobby__sub_80412210(arg0);
+        var_r31 = TLobby__sub_80412210(idx);
         break;
     default:
         var_r31 = -2;
         break;
     }
-    OSRestoreInterrupts((int) (temp_r30));
+    OSRestoreInterrupts((int) (level));
     TUdpSocket::unlock_mutex((int)((void *) (network_dispatch_state.value)));
     return var_r31;
 }

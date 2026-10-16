@@ -99,14 +99,14 @@ void reinit_photon_blast_gauge(u16 *arg0) {
 
 void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
     struct { s16 a; u16 b; } sp8;
-    u8 *temp_r3;
+    u8 *player;
     ((TFontSmallLobby *)(&sp8))->init_6x3A_packet();
     clear_photon_blast_ready_flag__15TFontSmallLobbyFv((void *) (&sp8), (void *) (arg0));
     TFontSmallLobby__sub_801C01BC((void *) (&sp8));
     if (validate_6x3A_clear_photon_blast_ready_flag((void *) (&sp8)) != 0) {
-        temp_r3 = (u8 *)get_player_by_client_id((int) (sp8.b));
-        if (temp_r3 != 0) {
-            ((TFontSmallLobby *)(temp_r3 + 0x4AC))->set_bit1_at_40();
+        player = (u8 *)get_player_by_client_id((int) (sp8.b));
+        if (player != 0) {
+            ((TFontSmallLobby *)(player + 0x4AC))->set_bit1_at_40();
         }
     }
 }
@@ -123,19 +123,19 @@ void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0) {
 void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
     struct { s16 a; u16 b; } sp8;
     s32 temp_r31;
-    s32 temp_r3;
+    s32 player;
     s32 v;
     ((TFontSmallLobby *)(&sp8))->init_6x39_packet();
     handle_photon_blast_ready__15TFontSmallLobbyFv((void *) (&sp8), (void *) (arg0));
     TFontSmallLobby__sub_801C01BC((void *) (&sp8));
     if (validate_6x39_set_photon_blast_ready_flag((void *) (&sp8)) != 0) {
-        temp_r3 = get_player_by_client_id((int) (sp8.b));
-        if ((temp_r3 != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
-            temp_r31 = ((TObjPlayer *)temp_r3)->get_field_3e4();
+        player = get_player_by_client_id((int) (sp8.b));
+        if ((player != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+            temp_r31 = ((TObjPlayer *)player)->get_field_3e4();
             v = get_current_floor();
             if (v == temp_r31) {
-                ((TFontSmallLobby *)(temp_r3 + 0x4AC))->update_ready();
-                send_photon_blast_ready__15TFontSmallLobbyFv((void *) (temp_r3 + 0x4AC));
+                ((TFontSmallLobby *)(player + 0x4AC))->update_ready();
+                send_photon_blast_ready__15TFontSmallLobbyFv((void *) (player + 0x4AC));
             }
         }
     }
@@ -181,14 +181,14 @@ void TFontSmallLobby::reset_targets() {
 }
 void handle_6x38_donate_to_photon_blast(s32 arg0) {
     Cmd_801D61A0 cmd;
-    s32 temp_r3;
+    s32 player;
     TFontSmallLobby__sub_801D698C((void *) (&cmd));
     ((TFontSmallLobby *)(&cmd))->copy_packet_header_6x38((void *) (arg0));
     ((TFontSmallLobby *)(&cmd))->bswap_fields();
     if (validate_6x38_donate_to_photon_blast((void *) (&cmd)) != 0) {
-        temp_r3 = get_player_by_client_id(cmd.client);
-        if ((temp_r3 != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
-            if (get_current_floor() == ((TObjPlayer *)temp_r3)->get_field_3e4()) {
+        player = get_player_by_client_id(cmd.client);
+        if ((player != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+            if (get_current_floor() == ((TObjPlayer *)player)->get_field_3e4()) {
                 TObjPlayer::create_photon_blast_party_effects(cmd.client);
             }
         }

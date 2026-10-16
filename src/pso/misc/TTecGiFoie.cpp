@@ -279,11 +279,11 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
     return self;
 }
 
-void TTecGiFoie::create(void *arg0, void *arg1, void *arg2) {
+void TTecGiFoie::create(void *arg0, void *origin, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
-        TTecGiFoie__ct(o, arg0, arg1, arg2);
+        TTecGiFoie__ct(o, arg0, origin, level);
     }
 }
 

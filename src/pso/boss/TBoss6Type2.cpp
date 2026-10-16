@@ -1085,20 +1085,20 @@ void TBoss6Type2::reset_fish_fields() {
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
 void TBoss6Type2::restore_target_player_state() {
-    u8 *temp_r3;
+    u8 *player;
     u32 id = *(u16 *)((s8 *)((u8 *)this) + 0x55C);
     if (id != 0xFFFF) {
-        temp_r3 = get_player_by_client_id(id);
-        if (temp_r3 == NULL) {
+        player = get_player_by_client_id(id);
+        if (player == NULL) {
             reset_fish_fields__11TBoss6Type2Fv((Obj_802BA158 *)((void *)((void *) (((u8 *)this)))));
             return;
         }
-        ((TBoss6Type2 *)(temp_r3 + 0xCF4))->copy_vec2((void*)((void *) (((u8 *)this) + 0x574)));
-        ((TBoss6Type2 *)(temp_r3 + 0xB88))->copy_vec2((void*)((void *) (((u8 *)this) + 0x584)));
-        *(s32 *)((s8 *)temp_r3 + 0x34) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x58C);
-        *(s32 *)((s8 *)temp_r3 + 0x8B0) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x590);
-        *(s32 *)((s8 *)temp_r3 + 0x8AC) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x594);
-        *(s32 *)((s8 *)temp_r3 + 0x8B4) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x598);
+        ((TBoss6Type2 *)(player + 0xCF4))->copy_vec2((void*)((void *) (((u8 *)this) + 0x574)));
+        ((TBoss6Type2 *)(player + 0xB88))->copy_vec2((void*)((void *) (((u8 *)this) + 0x584)));
+        *(s32 *)((s8 *)player + 0x34) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x58C);
+        *(s32 *)((s8 *)player + 0x8B0) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x590);
+        *(s32 *)((s8 *)player + 0x8AC) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x594);
+        *(s32 *)((s8 *)player + 0x8B4) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x598);
         reset_fish_fields__11TBoss6Type2Fv((Obj_802BA158 *)((void *)((void *) (((u8 *)this)))));
     }
 }
@@ -2500,18 +2500,18 @@ void TBoss6Type2::get_phase_values(u16 *a, u16 *b, u16 *out) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
+f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
     s32 var_r31;
     s32 var_r30;
     s32 var_r29;
     u8 temp_r0;
 
     var_r31 = 1;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x418) != 0) && (arg1 != 0U)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x418) != 0) && (att != 0U)) {
         var_r30 = 0;
         var_r29 = 0;
         do {
-            temp_r0 = *get_attribute_entry__10TObjPlayerFl(arg1, var_r29);
+            temp_r0 = *get_attribute_entry__10TObjPlayerFl(att, var_r29);
             switch ((s32) temp_r0) {
             case 1:
                 var_r30 |= 1;
@@ -2533,7 +2533,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
         }
     }
     if (var_r31 != 0) {
-        return receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
+        return receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
     }
     ((TBoss6Type2 *)arg0)->sub_802BA078();
     ((TBoss6Type2 *)arg0)->spawn_hit_effects();
@@ -2953,11 +2953,11 @@ void TBoss6Type2::build_state_packet(u8 *arg1) {
 #pragma opt_common_subs off
 #define arg0 ((u8 *)arg0_)
 #define arg2 ((s32 *)arg2_)
-s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_) {
+s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     Tmp_802BE0D4 tmp;
     s32 i;
     s32 id;
-    ((TObjEnemy *)arg0)->initialize((void*)arg1);
+    ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__11TBoss6Type2;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3EB8;
     *(s32 *)((s8 *)arg0 + 0x3F8) = arg2[0];
@@ -3063,19 +3063,19 @@ void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 TBoss6Type2::create(s32 arg0) {
-    s32 var_r31;
+s32 TBoss6Type2::create(s32 arg2_) {
+    s32 arg0_;
     s32 var_r4;
 
-    var_r31 = __nw__7TObjectFUl(0x7B4);
-    if (var_r31 != 0) {
+    arg0_ = __nw__7TObjectFUl(0x7B4);
+    if (arg0_ != 0) {
         var_r4 = __nw__7TObjectFUl(0x20);
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss6Type2__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
+        arg0_ = TBoss6Type2__ct((s32)(arg0_), (s32)(var_r4), (s32)(arg2_));
     }
-    return var_r31;
+    return arg0_;
 }
 #pragma pop
 

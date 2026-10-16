@@ -271,12 +271,12 @@ int mem_free(void*);
 
 void clear_active_flag__13TParticleCtrlFv(void* p) { *(u16*)((char*)p + 0x2c) &= 0xfffe; }
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
-    u8 *temp_r3;
+    u8 *particle_memory;
     u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xC4))));
-    var_r0 = (u8 *)(temp_r3);
+    particle_memory = (u8 *)(((u8 *)alloc_particle_memory((int)(0xC4))));
+    var_r0 = (u8 *)(particle_memory);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(construct_radial_particle((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
+        var_r0 = (u8 *)(construct_radial_particle((u8 *)(particle_memory), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
     }
     return var_r0;
 }

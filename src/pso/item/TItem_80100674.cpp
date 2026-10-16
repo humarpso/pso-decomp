@@ -249,12 +249,12 @@ s32 TItem::vfunc_21(u8 *, s32, s32, s32) {  }
 void TItem::vfunc_20() {  }
 
 void give_item_to_client(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 player;
     u8 *temp_r3_2;
-    temp_r3 = get_player_by_client_id((void *) (u16)arg0);
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id((void *) (u16)arg0);
+    if (player != 0) {
         temp_r3_2 = lookup_inventory_item__10TObjPlayerFv(arg1);
-        if ((temp_r3_2 != NULL) && (pickup_item__10TObjPlayerFv((int) (temp_r3), (int) (temp_r3_2)) == 0U)) {
+        if ((temp_r3_2 != NULL) && (pickup_item__10TObjPlayerFv((int) (player), (int) (temp_r3_2)) == 0U)) {
             ((VObj_18 *)(temp_r3_2))->m27();
         }
     }
@@ -267,19 +267,19 @@ s32 consume_item_by_id(s32 arg0) {
   s32 temp_r30;
   s32 temp_r31;
   s32 temp_r3_2;
-  u8 *temp_r3;
-  temp_r3 = (u8 *) find_item_by_id(arg0);
-  if (temp_r3 == 0)
+  u8 *item;
+  item = (u8 *) find_item_by_id(arg0);
+  if (item == 0)
   {
     return 0;
   }
-  temp_r3_2 = get_player_by_client_id((void *)((u32) ((u16)get_id__13TItemProArmorFv(temp_r3))));
+  temp_r3_2 = get_player_by_client_id((void *)((u32) ((u16)get_id__13TItemProArmorFv(item))));
   if (temp_r3_2 == 0)
   {
     return 0;
   }
-  temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(temp_r3);
-  temp_r30 = ((TObjPlayer *)temp_r3)->get_field_d8();
+  temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(item);
+  temp_r30 = ((TObjPlayer *)item)->get_field_d8();
   ((TObjPlayer *)temp_r3_2)->dispatch_action(arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {

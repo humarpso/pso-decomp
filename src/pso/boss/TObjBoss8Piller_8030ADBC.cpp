@@ -44,12 +44,12 @@ void TObjBoss8Piller::render() {
 }
 void TObjBoss8Piller::run_task() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r3;
+    u32 enemy_entity;
     u32 temp_r3_2;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) + lbl_805DF150);
-    temp_r3 = get_enemy_entity((int) (*(u16 *)((s8 *)arg0 + 0x30)));
-    if (temp_r3 != 0U) {
-        TBoss8Dragon__sub_802FB1B0((int) (temp_r3), (f32) (lbl_805DF154), (void *) (arg0 + 0x1C));
+    enemy_entity = get_enemy_entity((int) (*(u16 *)((s8 *)arg0 + 0x30)));
+    if (enemy_entity != 0U) {
+        TBoss8Dragon__sub_802FB1B0((int) (enemy_entity), (f32) (lbl_805DF154), (void *) (arg0 + 0x1C));
     }
     temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2C)) + 4) - 1;
     if (*(f32 *)((s8 *)arg0 + 0x28) >= (f32) temp_r3_2) {

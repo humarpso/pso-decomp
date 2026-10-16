@@ -171,9 +171,9 @@ void TObjEneRe7BeruraPunch::update_flight() {
 #pragma pop
 
 s32 TObjEneRe7BeruraPunch::sub_80096150() {
-    u8 *temp_r31;
+    u8 *entity;
     void *temp_r4_2;
-    temp_r31 = find_entity_by_id(this->m_b0);
+    entity = find_entity_by_id(this->m_b0);
     *(f32 *)((s8 *)(this->m_a4) + 4) = *(f32 *)&this->unk_CC;
     *(f32 *)((s8 *)(this->m_a4) + 0x30) = *(f32 *)&this->unk_CC;
     temp_r4_2 = this->m_a4;
@@ -184,30 +184,30 @@ s32 TObjEneRe7BeruraPunch::sub_80096150() {
     if ((*(s32 *)((s8 *)temp_r4_2 + 0x18) | *(s32 *)((s8 *)temp_r4_2 + 0x44)) & 0x200000) {
         return 1;
     }
-    if (temp_r31 != 0) {
-        ((TObjEneRe7Berura *)temp_r31)->reload_stats_from_tables();
+    if (entity != 0) {
+        ((TObjEneRe7Berura *)entity)->reload_stats_from_tables();
     }
     Pair_80096150 p = lbl_80439F28[0];
     if (TObjEneDD::check_v2_mode() != 0) {
         p.b &= ~2;
     }
     ((VObj_80096150 *)this)->m15(&p, *(s32 *)&this->_padD8);
-    if (temp_r31 != 0) {
-        TObjEneRe7Berura__sub_80094C68(temp_r31);
+    if (entity != 0) {
+        TObjEneRe7Berura__sub_80094C68(entity);
     }
     return 0;
 }
 
 void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
+    u8 *entity;
 
     *(s32 *)&this->m_b8 = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0xDC, arg2);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
-    temp_r3 = find_entity_by_id(this->m_b0);
-    if (temp_r3 != NULL) {
-        this->rotation_y = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
+    entity = find_entity_by_id(this->m_b0);
+    if (entity != NULL) {
+        this->rotation_y = (s32) *(s32 *)((s8 *)entity + 0x60);
     } else {
         this->rotation_y = 0;
     }

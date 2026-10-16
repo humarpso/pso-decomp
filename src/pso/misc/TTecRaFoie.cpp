@@ -804,11 +804,11 @@ void TTecRaFoie::create(void *arg1, void *arg2, void *arg3) {
     }
 }
 
-void TTecRaFoie::create_ex(void *arg1, void *arg2, void *arg3) {
+void TTecRaFoie::create_ex(void *origin, void *targets, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        construct_targeted__10TTecRaFoieFPvPvPvPvi((u8 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (int)(arg3));
+        construct_targeted__10TTecRaFoieFPvPvPvPvi((u8 *)(o), (void *)(this), (void *)(origin), (void *)(targets), (int)(level));
     }
 }
 

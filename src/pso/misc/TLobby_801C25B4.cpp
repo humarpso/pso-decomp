@@ -527,7 +527,7 @@ void send_6x7D_set_battle_mode_data(void) {
 void init__6TLobbyFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r31;
-    u32 temp_r3_2;
+    u32 player;
 
     set_flag_270__6TLobbyFPv();
     close_and_play_effect__6TLobbyFii((u16) local_client_id, 1);
@@ -545,9 +545,9 @@ void init__6TLobbyFPv(void *arg0) {
     var_r31 = 0;
     *(s32 *)((s8 *)arg0 + 0x64) = 0;
     do {
-        temp_r3_2 = get_player_by_client_id(var_r31);
-        if (temp_r3_2 != 0U) {
-            clear_trap_counts(temp_r3_2 + 0x7C4);
+        player = get_player_by_client_id(var_r31);
+        if (player != 0U) {
+            clear_trap_counts(player + 0x7C4);
         }
         var_r31 += 1;
     } while (var_r31 < 4);
@@ -583,21 +583,21 @@ void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self) {
 __declspec(section ".rodata") char lbl_80446FF0[] = "duel1.adx";
 __declspec(section ".rodata") char lbl_80446FFC[] = "duel2.adx";
 void init_battle_round__6TLobbyFPv(void *arg0) {
-  s32 temp_r0;
+  s32 char_select_slot;
   s32 temp_r3;
   s32 var_ctr;
   s32 var_r3;
-  s32 var_r3_2;
+  s32 i;
   *((s32 *) (((s8 *) arg0) + 0x3C)) = TLobby__sub_801C417C();
   TWindowCtrl::create_alt_timer();
   ((TWindowCtrl *)(*((s32 *) (((s8 *) arg0) + 0x3C))))->set_timer_window_time();
   TOMineTrap::destroy_matching_traps();
-  temp_r0 = TAdSinglePlyChrSelectGC::get_char_select_slot();
-  temp_r0 = temp_r0 + 1;
+  char_select_slot = TAdSinglePlyChrSelectGC::get_char_select_slot();
+  char_select_slot = char_select_slot + 1;
   var_r3 = 0xFFFF;
-  if (temp_r0 < var_r3)
+  if (char_select_slot < var_r3)
   {
-    var_r3 = temp_r0;
+    var_r3 = char_select_slot;
   }
   set_slot__23TAdSinglePlyChrSelectGCFi((u16) var_r3);
   TAdSinglePlyChrSelectGC__sub_801FCE6C();
@@ -616,9 +616,9 @@ void init_battle_round__6TLobbyFPv(void *arg0) {
   }
   *((s32 *) (((s8 *) arg0) + 0x60)) = 0x5A;
   calc_player_rankings__6TLobbyFPv(arg0);
-  for (var_r3_2 = 0; var_r3_2 < 4; var_r3_2++)
+  for (i = 0; i < 4; i++)
   {
-    TLobby__battle_team_table[var_r3_2] = 1;
+    TLobby__battle_team_table[i] = 1;
   }
 }
 

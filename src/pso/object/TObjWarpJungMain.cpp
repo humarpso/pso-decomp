@@ -206,11 +206,11 @@ void TObjWarpJungMain::confirm_area_transfer(s32) { confirm_area_transfer__12TOb
 void TObjWarpJungMain::vfunc_14() { vfunc_14__12TObjWarpBaseFv(this); TWindowCtrl::clear_flag(); }
 
 void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
-    s32 var_r29;
+    s32 i;
     if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) {
         *(u32 *)((s8 *)arg0 + 0xB0) = create_window_menu(get_window_layout_position(0x32), 3, arg1);
-        for (var_r29 = 0; var_r29 < 3; var_r29++) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0xB0), get_localized_text_entry(9, jungle_warp_destination_text_ids[var_r29]), 0xE, var_r29);
+        for (i = 0; i < 3; i++) {
+            forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0xB0), get_localized_text_entry(9, jungle_warp_destination_text_ids[i]), 0xE, i);
         }
         ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0xB0)))->calc_window_size();
         align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0xB0));
@@ -355,10 +355,10 @@ f32 TObjWarpJung::get_static_field4_as_float() {
 void TObjWarpJung::set_global_render_param() { TObjFish::set_global_param((s32)((void*)(warp_jung_model_handle))); }
 
 void TObjWarpJung::render_warp_effect(s32 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 bml_model;
 
-    temp_r3 = get_bml_model(TObjWarpJung__beam_bml_resource, arg0);
-    draw_ginja_model_with_motion(temp_r3, (*(s32 *)&warp_jung_beam_motion), (f32) arg1);
+    bml_model = get_bml_model(TObjWarpJung__beam_bml_resource, arg0);
+    draw_ginja_model_with_motion(bml_model, (*(s32 *)&warp_jung_beam_motion), (f32) arg1);
 }
 
 }

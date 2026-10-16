@@ -298,7 +298,7 @@ void *__vt__15TObjEneDimedian[103] = {
 };
 #define __vt__15TObjEneDimedian ((u8 *)__vt__15TObjEneDimedian)
 
-void *TObjEneDimedian::create(void *arg0) {
+void *TObjEneDimedian::create(void *arg2_) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);
@@ -307,7 +307,7 @@ void *TObjEneDimedian::create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x43C);
     if (o2 != NULL) {
-        o2 = TObjEneDimedian__ct(o2, o, arg0);
+        o2 = TObjEneDimedian__ct(o2, o, arg2_);
     }
     return o2;
 }

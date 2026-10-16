@@ -69,12 +69,12 @@ extern f32 lbl_805DFED0;
 
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
     s32 sp8;
-    s32 temp_r3;
+    s32 instance_count;
 
-    temp_r3 = TBoss8Dragon::get_instance_count();
-    if (temp_r3 != 0) {
+    instance_count = TBoss8Dragon::get_instance_count();
+    if (instance_count != 0) {
         ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)(&sp8));
-        TBoss8Dragon__sub_80063FB8(temp_r3, &sp8, lbl_805DFED0);
+        TBoss8Dragon__sub_80063FB8(instance_count, &sp8, lbl_805DFED0);
     }
 }
 
@@ -124,7 +124,7 @@ s32 __ct__26TBoss5GryphonLightningWingFv(int arg0, void *arg1, void *a, void *mi
     return arg0;
 }
 
-s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 mid, s32 arg3, s32 arg4, s32 arg5) {
     Vec position;
     f32 ground_height;
     s32 allocation;
@@ -145,17 +145,17 @@ s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s3
     allocation = __nw__7TObjectFUl(0xA0);
     effect = allocation;
     if (effect != 0) {
-        effect = __ct__26TBoss5GryphonLightningWingFv((int)(allocation), (void *)((void*)arg0), (void *)((void*)arg1), (void *)((void*)arg2), (void *)(&position), (void *)((void*)arg4), (void *)((void*)arg5));
+        effect = __ct__26TBoss5GryphonLightningWingFv((int)(allocation), (void *)((void*)arg0), (void *)((void*)arg1), (void *)((void*)mid), (void *)(&position), (void *)((void*)arg4), (void *)((void*)arg5));
     }
     return effect;
 }
 
-void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
+void fn_80351DA8(s32 arg0, u8 *pos, u8 *out, s32 arg3, s32 arg4) {
     Stack_80351DA8 stack;
-    stack.sp8 = *(f32 *)((s8 *)arg2 + 0);
-    stack.spC = *(f32 *)((s8 *)arg1 + 4);
-    stack.sp10 = *(f32 *)((s8 *)arg2 + 8);
-    spawn_lightning_wing__12TBoss8DragonFiiiiii((s32)(arg0), (s32)((s32) arg1), (s32)((s32) &stack.sp8), (s32)((s32) arg2), (s32)(arg3), (s32)(arg4));
+    stack.sp8 = *(f32 *)((s8 *)out + 0);
+    stack.spC = *(f32 *)((s8 *)pos + 4);
+    stack.sp10 = *(f32 *)((s8 *)out + 8);
+    spawn_lightning_wing__12TBoss8DragonFiiiiii((s32)(arg0), (s32)((s32) pos), (s32)((s32) &stack.sp8), (s32)((s32) out), (s32)(arg3), (s32)(arg4));
 }
 
 void TLobby__sub_80351DF8(void) {  }

@@ -18,7 +18,7 @@ short TCameraCtrl::get_screen_height() {  return TCameraCtrl__viewport_x; }
 extern s32 local_client_id;
 
 s32 TCameraCtrl::should_update() {
-    s32 temp_r3;
+    s32 global_state;
 
     if (is_split_screen() == 0) {
         if ((get_player_by_client_id(local_client_id) == 0U) || (check_player_state_flag_2__6TLobbyFv() != 0)) {
@@ -30,14 +30,14 @@ s32 TCameraCtrl::should_update() {
         goto block_6;
     }
 block_6:
-    temp_r3 = TOKeyMachine01::get_global_state();
-    if (temp_r3 < 0xF) {
-        if (temp_r3 == 0) {
+    global_state = TOKeyMachine01::get_global_state();
+    if (global_state < 0xF) {
+        if (global_state == 0) {
             goto block_10;
         }
         goto block_11;
     }
-    if (temp_r3 < 0x13) {
+    if (global_state < 0x13) {
 block_10:
         return 0;
     }

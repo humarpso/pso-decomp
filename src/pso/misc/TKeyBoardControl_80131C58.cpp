@@ -383,10 +383,10 @@ void TKeyBoardControl::clear_key_state() {
     }
 }
 
-void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1) {
+void TKeyBoardControl__sub_801327DC(s32 arg0, u8 chan) {
     s32 sp8;
-    if (poll_keyboard_port((s32)((void *) (arg1)), (s32 *)((void *) (&sp8))) == 0) {
-        TKeyBoardControl__sub_803F0E90((s32)((void *) (arg1)), (s32)((int) (0)));
+    if (poll_keyboard_port((s32)((void *) (chan)), (s32 *)((void *) (&sp8))) == 0) {
+        TKeyBoardControl__sub_803F0E90((s32)((void *) (chan)), (s32)((int) (0)));
     }
 }
 

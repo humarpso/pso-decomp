@@ -499,7 +499,7 @@ void set_chunk_blend(u32 x) {
 #pragma peephole off
 void apply_chunk_texture_command(s32 arg0, s32 arg1) {
     s32 var_r31;
-    s32 var_r3;
+    s32 idx;
     s32 var_r4;
     s32 var_r5;
     s32 var_r6;
@@ -516,10 +516,10 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1) {
         var_r5 = 2;
     }
     var_r31 = arg1 & 0x1FFF;
-    var_r3 = var_r31;
+    idx = var_r31;
     var_r4 = var_r6;
     var_r6 = 0;
-    load_list_texture((int) (var_r3), (int) (var_r4), (int) (var_r5), (int) (0));
+    load_list_texture((int) (idx), (int) (var_r4), (int) (var_r5), (int) (0));
     chunk_texture_record_index = var_r31;
 }
 #pragma pop
@@ -760,9 +760,9 @@ void draw_chunk_model(void *arg0) {
 
 #pragma push
 #pragma scheduling off
-void draw_chunk_object(void *arg0) {
-    TObjPlayer::setup_model_draw_state((void *)(arg0));
-    transform_chunk_object_tree(arg0, (void (*)(void *))draw_chunk_vertices_cached__10TObjPlayerFPv);
+void draw_chunk_object(void *child) {
+    TObjPlayer::setup_model_draw_state((void *)(child));
+    transform_chunk_object_tree(child, (void (*)(void *))draw_chunk_vertices_cached__10TObjPlayerFPv);
     TObjPlayer::end_chunk_draw();
 }
 #pragma pop

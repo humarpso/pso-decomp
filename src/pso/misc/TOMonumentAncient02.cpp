@@ -288,7 +288,7 @@ void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80172EA0_lbl_804B39A8_size[sizeof(RecoveredGlobal_80172EA0_lbl_804B39A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02_size[sizeof(RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02) == 0x3C ? 1 : -1];
 u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    s32 temp_r3;
+    s32 global_state;
     init_map_object_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02 *)&__vt__19TOMonumentAncient02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient02__name;
@@ -298,8 +298,8 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts(arg0, (s32) &monument_ancient02_collision_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     default:
         *(s32 *)((s8 *)arg0 + 0xD0) = 0x2C;
         *(s32 *)((s8 *)arg0 + 0xD4) = 0x4C119;

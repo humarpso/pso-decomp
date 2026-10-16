@@ -241,8 +241,8 @@ void destroy__19TQuestListChallengeFv(void *arg0) {
 
 void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
     s32 temp_r0;
-    s32 temp_r3_2;
-    Entry_80288C78_80288B5C *temp_r4;
+    s32 selected_menu_value;
+    Entry_80288C78_80288B5C *identity;
     VObj_80288C78_80288B5C *temp_r3;
     VObj_80288C78_80288B5C *temp_r3_3;
     VObj_80288C78_80288B5C *temp_r3_4;
@@ -250,15 +250,15 @@ void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
     temp_r3 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
     if (temp_r3->m8() != 0) {
         if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x34)))->is_visible() == 1)) {
-            temp_r3_2 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x34));
-            if (temp_r3_2 == 0) {
+            selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x34));
+            if (selected_menu_value == 0) {
                 temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)((s8 *)arg0 + 0x38));
-                temp_r4 = *(Entry_80288C78_80288B5C **)((s8 *)arg0 + 0x58);
-                prepare_offline_quest_filenames(temp_r4[temp_r0].fieldC, (s32) temp_r4);
+                identity = *(Entry_80288C78_80288B5C **)((s8 *)arg0 + 0x58);
+                prepare_offline_quest_filenames(identity[temp_r0].fieldC, (s32) identity);
                 ((TShopWindowBase *)arg0)->set_field_20(3);
                 return;
             }
-            if (temp_r3_2 == 1) {
+            if (selected_menu_value == 1) {
                 close_windows__19TQuestListChallengeFPv((void *)(arg0));
                 temp_r3_3 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
                 if (temp_r3_3 != NULL) {

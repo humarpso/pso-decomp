@@ -1295,15 +1295,15 @@ s32 TObjWarpBoss::are_all_players_in_range() {
 #pragma push
 #pragma fp_contract on
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0) {
-    s32 temp_r31;
+    s32 current_floor;
     s32 temp_r3b;
-    s32 temp_r3;
-    temp_r3 = get_player_by_client_id(local_client_id);
-    if (temp_r3 != 0) {
-        temp_r31 = get_current_floor();
-        temp_r3b = ((TObjPlayer *)temp_r3)->get_field_3e4();
-        if ((temp_r3b == temp_r31) && (((f32 (*)(s32, s32))xz_distance_squared)(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
-            return temp_r3;
+    s32 player;
+    player = get_player_by_client_id(local_client_id);
+    if (player != 0) {
+        current_floor = get_current_floor();
+        temp_r3b = ((TObjPlayer *)player)->get_field_3e4();
+        if ((temp_r3b == current_floor) && (((f32 (*)(s32, s32))xz_distance_squared)(arg0 + 0x38, player + 0x38) < (farg0 * farg0))) {
+            return player;
         }
     }
     return 0;
@@ -1329,12 +1329,12 @@ void close_windows__17TObjWarpBossMultiFPv(void *arg0) {
 }
 
 void handle_6x6A_set_boss_warp_flags(void *arg0) {
-    void *temp_r3;
+    void *entity;
 
     bswap_6x6A_packet__19TWindowSubTradeMainFv();
-    temp_r3 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 2));
-    if (temp_r3 != NULL) {
-        *(s16 *)((s8 *)temp_r3 + 0xDC) = (s16) *(s16 *)((s8 *)arg0 + 4);
+    entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 2));
+    if (entity != NULL) {
+        *(s16 *)((s8 *)entity + 0xDC) = (s16) *(s16 *)((s8 *)arg0 + 4);
     }
 }
 
@@ -1348,22 +1348,22 @@ void TObjWarpBoss::send_cmd_6A(u16 value) {
 }
 
 void TObjWarpBossMulti::notify_player(void *arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 player;
 
-    temp_r3 = get_player_by_client_id(arg1);
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id(arg1);
+    if (player != 0) {
         send_code_45_1__10TObjPlayerFl();
-        obj_clear_flag30_20000(temp_r3);
+        obj_clear_flag30_20000(player);
     }
 }
 
 void TObjWarpBoss::warp_player(s32 arg1) {
-    s32 temp_r3;
+    s32 player;
 
-    temp_r3 = get_player_by_client_id(arg1);
-    if (temp_r3 != 0) {
-        play_effect_default__10TObjPlayerFii(temp_r3, -1);
-        obj_set_flag_20000(temp_r3);
+    player = get_player_by_client_id(arg1);
+    if (player != 0) {
+        play_effect_default__10TObjPlayerFii(player, -1);
+        obj_set_flag_20000(player);
         *(s32 *)((s8 *)this + 0x174) = 0x12C;
     }
 }

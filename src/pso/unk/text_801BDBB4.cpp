@@ -51,23 +51,23 @@ void TObjPlayer::create_active_players() {
 
 void TObjPlayer::refresh_player_lobby_headers() {
   s32 var_r31;
-  u8 *temp_r3;
+  u8 *player;
   s32 *var_r29;
   var_r31 = 0;
   var_r29 = &TObjPlayer__char_data_array.value;
   do
   {
     ((TObjPlayer *)var_r29)->init_select_txt();
-    temp_r3 = (u8 *) get_player_by_client_id(var_r31);
-    if (temp_r3 != 0)
+    player = (u8 *) get_player_by_client_id(var_r31);
+    if (player != 0)
     {
       if (is_locally_controlled__10TObjPlayerFPv() != 0)
       {
-        ((TObjPlayer *)var_r29)->copy_lobby_header((int) temp_r3);
+        ((TObjPlayer *)var_r29)->copy_lobby_header((int) player);
       }
-      if (temp_r3 != 0)
+      if (player != 0)
       {
-        PSO_VCALL_VObj_18_dac7f3_m0(temp_r3, 1);
+        PSO_VCALL_VObj_18_dac7f3_m0(player, 1);
       }
     }
     var_r31 += 1;

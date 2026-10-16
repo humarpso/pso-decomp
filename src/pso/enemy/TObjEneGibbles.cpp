@@ -1689,32 +1689,32 @@ void TObjEneGibbles__sub_802D9110(Gib_802D9110 *self) {
     submit_cursor_candidate(self, -1);
 }
 
-s32 TObjEneGibbles__sub_802D9A04(void *arg0) {
+s32 TObjEneGibbles__sub_802D9A04(void *target) {
     s32 i;
     VObj_802D9A04 *pl;
 
     for (i = 0; i < lbl_805D5868; i++) {
         pl = ((VObj_802D9A04 * (*)(s32))get_player_data__10TObjPlayerFi)(i);
         if (is_valid_and_active__10TObjPlayerFUl() != 0 && obj_getField1c(pl) < 0x1000U) {
-            f32 dist = horizontal_distance_squared((int) ((u8 *) pl + 0x2FC), (void *) ((s32) arg0 + 0x38));
+            f32 dist = horizontal_distance_squared((int) ((u8 *) pl + 0x2FC), (void *) ((s32) target + 0x38));
             if (dist <= ((TObjEneGibbles *)(*(void **)((s8 *)gibbles_combat_stat_entries + 4)))->get_pos_x() * ((TObjEneGibbles *)(*(void **)((s8 *)gibbles_combat_stat_entries + 4)))->get_pos_x()) {
                 Arg_802D9A04 tmp;
                 tmp.a = 0;
                 tmp.b = get_attack_params_atp_min(*(void **)((s8 *)gibbles_combat_stat_entries + 4));
                 Arg_802D9A04 a = tmp;
-                f32 res = pl->m21(arg0, &a, 0, -1, -1);
-                pl->m23(arg0);
+                f32 res = pl->m21(target, &a, 0, -1, -1);
+                pl->m23(target);
                 if (res > TObjEneGibbles__data_805DE7E4) {
                     obj_setFlags30(pl, 0x600);
                 }
             }
         }
     }
-    return ((s32 (*)(void *))TObjEneGibbles__sub_802D7BE0)(arg0);
+    return ((s32 (*)(void *))TObjEneGibbles__sub_802D7BE0)(target);
 }
 #pragma pop
 
-void slam_damage_players__14TObjEneGibblesFii(s32 arg0, s32 arg1) {
+void slam_damage_players__14TObjEneGibblesFii(s32 target, s32 arg1) {
     Vec_802D9B80 v;
     Hit_802D9B80 a;
     f32 d;
@@ -1722,15 +1722,15 @@ void slam_damage_players__14TObjEneGibblesFii(s32 arg0, s32 arg1) {
     u8 *p;
 
     if (arg1 == 0x35) {
-        ((s32 (*)(s32, void *, int))render_and_get_joint_pos__14TObjEneGibblesFPvii)(arg0, &v, 0x35);
+        ((s32 (*)(s32, void *, int))render_and_get_joint_pos__14TObjEneGibblesFPvii)(target, &v, 0x35);
     } else if (arg1 == 0x1F) {
-        ((s32 (*)(s32, void *, int))render_and_get_joint_pos__14TObjEneGibblesFPvii)(arg0, &v, 0x1F);
+        ((s32 (*)(s32, void *, int))render_and_get_joint_pos__14TObjEneGibblesFPvii)(target, &v, 0x1F);
     } else {
         return;
     }
     v.y += lbl_805DE808;
     if (csnVecterUnder(&v, 0x16EF) != 0) {
-        if (((TObjEneGibbles *)arg0)->spawn_ground_impact_effects(&v, lbl_805DE858) == 0) {
+        if (((TObjEneGibbles *)target)->spawn_ground_impact_effects(&v, lbl_805DE858) == 0) {
             v.y += TObjEneGibbles__data_805DE81C;
             spawn_particle_effect(&v, 0x64);
         }
@@ -1742,8 +1742,8 @@ void slam_damage_players__14TObjEneGibblesFii(s32 arg0, s32 arg1) {
                     a.x = 0;
                     a.y = get_attack_params_atp_min(*(void **)gibbles_combat_stat_entries);
                     Hit_802D9B80 h = a;
-                    ((VObj_18_22e4b0 *)p)->m21(arg0, &h, 0, -1, -1);
-                    ((VObj_18_22e4b0 *)p)->m23(arg0);
+                    ((VObj_18_22e4b0 *)p)->m21(target, &h, 0, -1, -1);
+                    ((VObj_18_22e4b0 *)p)->m23(target);
                 }
             }
         }
@@ -2378,15 +2378,15 @@ void TObjEneGibbles::turn_toward_target() {
 }
 
 void TObjEneGibbles::clamp_angle(s32 arg1) {
-    s32 var_r4;
+    s32 target_rot;
 
-    var_r4 = arg1;
-    if (var_r4 < -0x238E) {
-        var_r4 = -0x238E;
-    } else if (var_r4 > 0x238E) {
-        var_r4 = 0x238E;
+    target_rot = arg1;
+    if (target_rot < -0x238E) {
+        target_rot = -0x238E;
+    } else if (target_rot > 0x238E) {
+        target_rot = 0x238E;
     }
-    this->m_3bc = lerp_angle_half__10TObjPlayerFUsUs(this->m_3bc, var_r4);
+    this->m_3bc = lerp_angle_half__10TObjPlayerFUsUs(this->m_3bc, target_rot);
 }
 
 void gibbles_render_node_callback(void) {
@@ -2670,10 +2670,10 @@ Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1) {
     return self;
 }
 
-u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {
+u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     s32 i;
     void *p;
-    ((TObjEnemy *)arg0)->initialize(arg1);
+    ((TObjEnemy *)arg0)->initialize(parent);
     *(void **)((s8 *)arg0 + 0x18) = (void *)lbl_804E29F0;
     ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
     __construct_array(arg0 + 0x3DC, (void *)init_and_activate__10TObjPlayerFv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);

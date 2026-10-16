@@ -243,7 +243,7 @@ void TLobby__sub_8007BBF8(void) { quest_collision_next_id = 0; }
 extern s32 TLobby__protocol_instance;
 
 s32 TWindowSubComCard::get_card_slot(s32 arg0) {
-    s32 temp_r3;
+    s32 state;
     s32 var_r31;
     s32 var_r3;
     var_r31 = arg0;
@@ -255,9 +255,9 @@ s32 TWindowSubComCard::get_card_slot(s32 arg0) {
         var_r3 = 0;
         return 0;
     }
-    temp_r3 = TAdSinglePlyChrSelectGC::get_state();
-    var_r3 = temp_r3 + 0x10000;
-    var_r3 = temp_r3 + 0xD2C4;
+    state = TAdSinglePlyChrSelectGC::get_state();
+    var_r3 = state + 0x10000;
+    var_r3 = state + 0xD2C4;
     var_r3 += var_r31 * 0x90;
     return var_r3;
 }

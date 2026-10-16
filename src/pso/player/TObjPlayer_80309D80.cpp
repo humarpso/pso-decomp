@@ -124,21 +124,21 @@ Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o) {
 
 s32 TObjPlayer::check_hit_by_id_431(void* p, int a1) { return TObjPlayer::check_hit_by_id((s32)(p), (s32)(a1), (s32)(431)); }
 
-void emit_idle_water_splash(s32 arg0, s32 arg1) {
-    emit_player_sprite_particle((s32)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (0xA2)));
-    emit_player_model_particle((s32)((s32)((void *) (arg0))), (s32)((s32)((void *) (arg1))), (s32)((s32)((int) (0xA6))), (s32)((s32)((int) (2))));
+void emit_idle_water_splash(s32 owner, s32 position) {
+    emit_player_sprite_particle((s32)((void *) (owner)), (s32)((void *) (position)), (s32)((int) (0xA2)));
+    emit_player_model_particle((s32)((s32)((void *) (owner))), (s32)((s32)((void *) (position))), (s32)((s32)((int) (0xA6))), (s32)((s32)((int) (2))));
 }
 
-void emit_sand_step_particles(s32 arg0, s32 arg1) {
-    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x23D), (s32)(2));
-    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x23F), (s32)(0));
-    emit_player_particle((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x23E)));
+void emit_sand_step_particles(s32 owner, s32 position) {
+    emit_player_model_particle((s32)(owner), (s32)(position), (s32)(0x23D), (s32)(2));
+    emit_player_model_particle((s32)(owner), (s32)(position), (s32)(0x23F), (s32)(0));
+    emit_player_particle((void*)((void *) (owner)), (void*)((void *) (position)), (void*)((int) (0x23E)));
 }
 
-void emit_water_step_particles(s32 arg0, s32 arg1) {
-    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x237), (s32)(2));
-    emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x239), (s32)(0));
-    emit_player_particle((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x238)));
+void emit_water_step_particles(s32 owner, s32 position) {
+    emit_player_model_particle((s32)(owner), (s32)(position), (s32)(0x237), (s32)(2));
+    emit_player_model_particle((s32)(owner), (s32)(position), (s32)(0x239), (s32)(0));
+    emit_player_particle((void*)((void *) (owner)), (void*)((void *) (position)), (void*)((int) (0x238)));
 }
 
 void TObjPlayer::create_right_hand_ptcl(void *arg1) {
@@ -187,47 +187,47 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
 
 s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2) {
   Stack_8030A1E4 stack;
-  s32 temp_r3;
-  u8 *temp_r3_2;
-  temp_r3_2 = (u8 *) ((u8 *)find_entity_by_id((s32)(arg1)));
-  if (temp_r3_2 == 0)
+  s32 oneshot_particle_emitter;
+  u8 *entity;
+  entity = (u8 *) ((u8 *)find_entity_by_id((s32)(arg1)));
+  if (entity == 0)
   {
     return 0;
   }
   stack.spC = 0;
   stack.sp8 = 0;
   stack.sp10 = -0x8000;
-  temp_r3 = create_oneshot_particle_emitter((s32) (temp_r3_2 + 0x74), (s32) (&stack.sp8), arg2, 0x50);
-  if (temp_r3 != 0)
+  oneshot_particle_emitter = create_oneshot_particle_emitter((s32) (entity + 0x74), (s32) (&stack.sp8), arg2, 0x50);
+  if (oneshot_particle_emitter != 0)
   {
-    set_owner_id__13TParticleCtrlFUs((s32)((void *) temp_r3), (s32)(arg1));
+    set_owner_id__13TParticleCtrlFUs((s32)((void *) oneshot_particle_emitter), (s32)(arg1));
   }
-  return temp_r3;
+  return oneshot_particle_emitter;
 }
 
 s32 TObjPlayer::check_hit_by_id(s32 arg0, s32 arg1, s32 arg2) {
-    s32 temp_r3;
-    u32 temp_r3_2;
+    s32 particle_effect_with_flags;
+    u32 entity;
 
-    temp_r3_2 = find_entity_by_id(arg1);
-    if (temp_r3_2 == 0U) {
+    entity = find_entity_by_id(arg1);
+    if (entity == 0U) {
         return 0;
     }
-    temp_r3 = spawn_particle_effect_with_flags(temp_r3_2 + 0x74, arg2, 0x50);
-    if (temp_r3 != 0) {
-        set_owner_id__13TParticleCtrlFUs(temp_r3, arg1);
+    particle_effect_with_flags = spawn_particle_effect_with_flags(entity + 0x74, arg2, 0x50);
+    if (particle_effect_with_flags != 0) {
+        set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, arg1);
     }
-    return temp_r3;
+    return particle_effect_with_flags;
 }
 
 s32 emit_player_particle(void* p, void* a1, void* a2) { return spawn_particle_effect(a1, a2); }
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0) {
-    void *temp_r3;
-    temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv());
-    if (temp_r3 == NULL) {
+    void *player;
+    player = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv());
+    if (player == NULL) {
         return 0;
     }
-    ((VObj_PTR18_8030A400 *) temp_r3)->m63(0x30, get_position_ptr__10TObjPlayerFv(arg0));
+    ((VObj_PTR18_8030A400 *) player)->m63(0x30, get_position_ptr__10TObjPlayerFv(arg0));
     return get_position_ptr__10TObjPlayerFv(arg0);
 }
 

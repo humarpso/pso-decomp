@@ -407,34 +407,34 @@ void *__vt__12TObjEneRecon[107] = {
 };
 #define __vt__12TObjEneRecon ((s32 *)__vt__12TObjEneRecon)
 
-void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2) {
+void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneRecon *)arg0)->sub_8031D4B0((s32)((void *) (arg2)));
+        ((TObjEneRecon *)arg0)->sub_8031D4B0((s32)((void *) (msg)));
         return;
     case 1:
-        TObjEneRecon__sub_8031D380((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031D380((void *) (arg0), (void *) (msg));
         return;
     case 2:
-        TObjEneRecon__sub_8031CF30((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031CF30((void *) (arg0), (void *) (msg));
         return;
     case 3:
-        TObjEneRecon__sub_8031CCFC((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031CCFC((void *) (arg0), (void *) (msg));
         return;
     case 4:
-        TObjEneRecon__sub_8031C920((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031C920((void *) (arg0), (void *) (msg));
         return;
     case 6:
-        TObjEneRecon__sub_8031C624((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031C624((void *) (arg0), (void *) (msg));
         return;
     case 7:
-        TObjEneRecon__sub_8031C364((void *) (arg0), (void *) (arg2));
+        TObjEneRecon__sub_8031C364((void *) (arg0), (void *) (msg));
         return;
     case 5:
-        run_task__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
+        run_task__12TObjEneReconFPvi((void *) (arg0), (void *) (msg));
         return;
     case 8:
-        ((TObjEneRecon *)arg0)->handle_message((s32)((void *) (arg2)));
+        ((TObjEneRecon *)arg0)->handle_message((s32)((void *) (msg)));
     default:
         return;
     }
@@ -446,7 +446,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
     f32 var_f30;
     s16 temp_r0;
     s16 temp_r0_2;
-    s32 temp_r3;
+    s32 entity;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
@@ -454,13 +454,13 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         ((VObj_18_825e13 *)(arg0))->m103();
         return;
     }
-    temp_r3 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x434)));
-    if ((temp_r3 == 0) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {
+    entity = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x434)));
+    if ((entity == 0) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
-    if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv((int) (temp_r3)) == 1)) {
+    if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv((int) (entity)) == 1)) {
         *(s32 *)((s8 *)arg0 + 0x2DC) = (s32) (*(s32 *)((s8 *)arg0 + 0x2DC) | 4);
         ((TObjPlayer *)arg0)->set_hp_clamped((int) (0));
         obj_setFlags30(arg0, 0xA00U);

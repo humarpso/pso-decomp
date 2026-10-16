@@ -120,11 +120,11 @@ void update_main_warp_visible_mask(s32 arg0) {
 }
 
 void TObjCityMainWarp::set_active_bit(s32 _w0) {
-    s32 temp_r3;
+    s32 floor_warp_bit;
 
-    temp_r3 = TObjCityMainWarp::get_floor_warp_bit((s32)(_w0));
-    if (temp_r3 >= 0) {
-        TObjCityMainWarp__enabled_destinations |= 1 << temp_r3;
+    floor_warp_bit = TObjCityMainWarp::get_floor_warp_bit((s32)(_w0));
+    if (floor_warp_bit >= 0) {
+        TObjCityMainWarp__enabled_destinations |= 1 << floor_warp_bit;
     }
 }
 
@@ -171,15 +171,15 @@ s32 TObjCityMainWarpChallenge::are_all_players_in_range() {
 #pragma fp_contract on
 s32 TObjCityMainWarp::find_local_player_in_range(f32 farg0) {
     s32 arg0 = (s32)this;
-    s32 temp_r3;
-    s32 temp_r31;
+    s32 player;
+    s32 current_floor;
     s32 temp_r3b;
-    temp_r3 = get_player_by_client_id(local_client_id);
-    if (temp_r3 != 0) {
-        temp_r31 = get_current_floor();
-        temp_r3b = ((TObjPlayer *)temp_r3)->get_field_3e4();
-        if ((temp_r3b == temp_r31) && (xz_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
-            return temp_r3;
+    player = get_player_by_client_id(local_client_id);
+    if (player != 0) {
+        current_floor = get_current_floor();
+        temp_r3b = ((TObjPlayer *)player)->get_field_3e4();
+        if ((temp_r3b == current_floor) && (xz_distance_squared(arg0 + 0x38, player + 0x38) < (farg0 * farg0))) {
+            return player;
         }
     }
     return 0;

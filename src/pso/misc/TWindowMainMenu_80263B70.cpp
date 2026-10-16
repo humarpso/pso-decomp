@@ -92,18 +92,18 @@ void TWindowMainMenu::close_and_clear_flags() {
 }
 
 void TWindowMainMenu::open(s32 arg1) {
-    s32 temp_r3;
+    s32 player;
     s32 temp_r4;
 
-    temp_r3 = get_player_by_client_id((s32)(*(s32 *)((s8 *)this + 0x54)));
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id((s32)(*(s32 *)((s8 *)this + 0x54)));
+    if (player != 0) {
         temp_r4 = *(s32 *)((s8 *)this + 0x4C) | 1;
         *(s32 *)((s8 *)this + 0x4C) = temp_r4;
         *(s32 *)((s8 *)this + 0x5C) = arg1;
         *(s16 *)((s8 *)this + 0x50) = 0;
         ((s32 (*)(void *, s32))update_keyboard_card_state__15TWindowMainMenuFv)(this, temp_r4);
         populate_menu__15TWindowMainMenuFPvPv(this, *(s32 *)((s8 *)this + 0x5C));
-        ((TObjPlayer *)temp_r3)->reset_equip_slots();
+        ((TObjPlayer *)player)->reset_equip_slots();
     }
 }
 

@@ -13,13 +13,13 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 extern "C" {
 
 void TObjPlayer::update_input_and_draw() {
-    s32 arg0 = (s32)this;
+    s32 ctl = (s32)this;
     if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-        set_action_provider_variant__10TObjPlayerFPvs((void *) (arg0), (int) (TObjPlayer__sub_801C2114()));
+        set_action_provider_variant__10TObjPlayerFPvs((void *) (ctl), (int) (TObjPlayer__sub_801C2114()));
     }
-    ((TObjPlayer *)arg0)->init_idle_animation();
-    ((TObjPlayer *)arg0)->draw();
-    ((TObjPlayer *)arg0)->update_action_animation();
+    ((TObjPlayer *)ctl)->init_idle_animation();
+    ((TObjPlayer *)ctl)->draw();
+    ((TObjPlayer *)ctl)->update_action_animation();
 }
 
 }

@@ -48,10 +48,10 @@ extern const f32 lbl_805DAEC8;
 extern const f32 lbl_805DAECC;
 
 void psycho_wand_node_callback(void *arg0) {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 2:
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x278));
         return;

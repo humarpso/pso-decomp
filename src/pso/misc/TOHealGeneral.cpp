@@ -192,18 +192,18 @@ void TOHealGeneral::close_dialog_window() {
 typedef struct RecoveredGlobal_80169710_lbl_804B2748 RecoveredGlobal_80169710_lbl_804B2748;
 typedef struct RecoveredGlobal_80169710_lbl_804B2760 RecoveredGlobal_80169710_lbl_804B2760;
 void TOHealGeneral::load_resources() {
-  s32 temp_r3;
+  s32 global_state;
   s32 temp_r3_2;
   s32 temp_r3_3;
   s32 var_r0;
   s32 var_r0_2;
   int new_var;
-  temp_r3 = TOKeyMachine01::get_global_state();
-  if (temp_r3 < 0x22)
+  global_state = TOKeyMachine01::get_global_state();
+  if (global_state < 0x22)
   {
-    if (temp_r3 < 0x1E)
+    if (global_state < 0x1E)
     {
-      if (temp_r3 < 0x17)
+      if (global_state < 0x17)
       {
         temp_r3_2++;
         temp_r3_2--;
@@ -213,7 +213,7 @@ void TOHealGeneral::load_resources() {
     }
     goto block_8;
   }
-  if (temp_r3 < 0x24)
+  if (global_state < 0x24)
   {
     block_5:
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *) 0x440))->alloc();

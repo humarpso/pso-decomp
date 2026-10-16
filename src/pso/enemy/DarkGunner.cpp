@@ -1001,35 +1001,35 @@ void TObjPlayer::trigger_action_if_not_flagged() {
     }
 }
 
-void TObjPlayer__sub_800A1520(u8 *arg0) {
+void TObjPlayer__sub_800A1520(u8 *arg0_) {
   s16 temp_r0;
-  temp_r0 = *((s16 *) (((0, (s8 *) arg0)) + 0x326));
+  temp_r0 = *((s16 *) (((0, (s8 *) arg0_)) + 0x326));
   {
     switch (temp_r0)
     {
       case 0:
-        TObjPlayer__sub_800A27CC((void *) arg0);
+        TObjPlayer__sub_800A27CC((void *) arg0_);
         return;
       case 1:
-        TObjPlayer__sub_800A2390((void *)(arg0));
+        TObjPlayer__sub_800A2390((void *)(arg0_));
         return;
       case 2:
-        TObjPlayer__sub_800A1FEC((void *)((void *) arg0));
+        TObjPlayer__sub_800A1FEC((void *)((void *) arg0_));
         return;
       case 4:
-        TObjPlayer__sub_800A1D70((u8 *)((void *) arg0));
+        TObjPlayer__sub_800A1D70((u8 *)((void *) arg0_));
         return;
       case 3:
-        TObjPlayer__sub_800A16C4((u8 *)((void *) arg0));
+        TObjPlayer__sub_800A16C4((u8 *)((void *) arg0_));
         return;
       case 5:
-        TObjPlayer__sub_800A1C84((void *) arg0);
+        TObjPlayer__sub_800A1C84((void *) arg0_);
         return;
       case 6:
-        ((TObjPlayer *)arg0)->update_hide_sequence();
+        ((TObjPlayer *)arg0_)->update_hide_sequence();
         return;
       case 8:
-        ((TObjPlayer *)arg0)->update_move_to_destination();
+        ((TObjPlayer *)arg0_)->update_move_to_destination();
         break;
     }
   }

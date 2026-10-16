@@ -206,11 +206,11 @@ s32 TObjTombstone::project_to_screen(void *arg0, f32 *arg1, void *arg2) {
 void TObjTombstone::update_fade_by_distance() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    u32 temp_r3;
+    u32 player;
     TCameraCtrl::get_camera_no();
-    temp_r3 = get_player_by_client_id((int) (get_nth_view_player_id__11TCameraCtrlFl()));
-    if (temp_r3 != 0U) {
-        temp_f1 = xyz_distance((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
+    player = get_player_by_client_id((int) (get_nth_view_player_id__11TCameraCtrlFl()));
+    if (player != 0U) {
+        temp_f1 = xyz_distance((void *) (player + 0x38), (void *) (arg0 + 0x38));
         if (temp_f1 <= lbl_805D9180) {
             *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9178;
         } else if (temp_f1 >= TObjTombstone__data_805D917C) {

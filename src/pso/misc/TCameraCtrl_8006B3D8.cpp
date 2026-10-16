@@ -176,7 +176,7 @@ extern s32 tl_07;
 
 typedef struct RecoveredFields_8006B588_arg0 RecoveredFields_8006B588_arg0;
 typedef struct RecoveredGlobal_8006B588_lbl_80488AD8 RecoveredGlobal_8006B588_lbl_80488AD8;
-u8 *TCameraCtrl::init_conversation_camera(s32 arg1, s32 arg2, s32 arg3) {
+u8 *TCameraCtrl::init_conversation_camera(s32 i, s32 arg2, s32 arg3) {
   void *new_var;
   __ct__7TObjectFP7TObject((void *) ((u8 *)this), (void *) arg3);
   ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
@@ -184,9 +184,9 @@ u8 *TCameraCtrl::init_conversation_camera(s32 arg1, s32 arg2, s32 arg3) {
   activate_camera_mode((int) 9);
   if (is_split_screen() != 0)
   {
-    new_var = (void *) TCameraCtrl__sub_8006BAC8((void *) (*(s32 *)&camera_ctrl_instance), (void *) arg1);
+    new_var = (void *) TCameraCtrl__sub_8006BAC8((void *) (*(s32 *)&camera_ctrl_instance), (void *) i);
     VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x1C), new_var);
-    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x28), (void *) TCameraCtrl__sub_8006BAB4((void *) (*(s32 *)&camera_ctrl_instance), (void *) arg1));
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x28), (void *) TCameraCtrl__sub_8006BAB4((void *) (*(s32 *)&camera_ctrl_instance), (void *) i));
   }
   else
   {

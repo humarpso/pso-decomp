@@ -314,11 +314,11 @@ s32 TScene::find_section_at_position() {
 
 extern "C" {
 s32 TScene::get_player_ctrl_field(u16 arg0) {
-    u32 temp_r3;
+    u32 player;
 
-    temp_r3 = get_player_by_client_id((void *) (arg0));
-    if (temp_r3 != 0U) {
-        return ((TScene *)(temp_r3 + 0x38))->find_section_at_position();
+    player = get_player_by_client_id((void *) (arg0));
+    if (player != 0U) {
+        return ((TScene *)(player + 0x38))->find_section_at_position();
     }
     return -1;
 }
@@ -838,7 +838,7 @@ void TScene::render_animated_map_section(SceneMaterialSection *arg1, s32 arg2) {
 
 }
 
-s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4) {
+s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 unused, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4) {
     Vec_80204024 c;
     Vec_80204024 a;
     Vec_80204024 b;
@@ -881,7 +881,7 @@ s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec
         rotate_vector_by_matrix(0, arg3, &c);
         normalize_vector(&c);
         pop_matrix();
-        if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
+        if (TScene__sub_80204024(obj->radius, unused, &a, &b, &c) != 0) {
             obj->flags |= 0x10000;
             return 1;
         }
@@ -890,7 +890,7 @@ s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec
         rotate_vector_by_matrix(0, arg3, &c);
         normalize_vector(&c);
         pop_matrix();
-        if (TScene__sub_80204024(obj->radius, arg0, &a, &b, &c) != 0) {
+        if (TScene__sub_80204024(obj->radius, unused, &a, &b, &c) != 0) {
             obj->flags |= 0x10000;
             return 1;
         }

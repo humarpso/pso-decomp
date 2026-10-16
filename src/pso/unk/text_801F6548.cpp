@@ -103,7 +103,7 @@ void TMCFormatSequence::check_memcard_load_result() {
 }
 
 void TMCFormatSequence::process_format_result() {
-    s32 temp_r3;
+    s32 selected_menu_value;
 
     if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_card_slot() == 0) {
         show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
@@ -121,8 +121,8 @@ void TMCFormatSequence::process_format_result() {
         return;
     }
     if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowMenu *)(*(u32 *)&this->m_38))->is_visible() != 0)) {
-        temp_r3 = get_selected_menu_value(*(u32 *)&this->m_38);
-        if (temp_r3 == 0) {
+        selected_menu_value = get_selected_menu_value(*(u32 *)&this->m_38);
+        if (selected_menu_value == 0) {
             if (TAdPlayerLoadGC__sub_801E24F8(*(s32 *)((s8 *)this + 0x28), 0, 0, 0, 0) == 0) {
                 this->m_24 = 2;
             } else {
@@ -130,7 +130,7 @@ void TMCFormatSequence::process_format_result() {
                 this->m_24 = 3;
             }
         }
-        if (temp_r3 == 1) {
+        if (selected_menu_value == 1) {
             close_window();
             this->m_24 = 4;
         }

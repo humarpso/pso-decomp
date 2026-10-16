@@ -170,15 +170,15 @@ void TAdMultiChgGameModeGC__sub_8036DEDC(void *self) {
 }
 
 void TAdMultiChgGameModeGC::update_confirm_selection() {
-    s32 temp_r3;
+    s32 selected_menu_value;
     u32 temp_r3_2;
 
     if (handle_mode_selection() == 0) {
         temp_r3_2 = *(u32 *)((s8 *)this + 0x34);
         if (temp_r3_2 != 0U) {
             if (((TWindowMenu *)temp_r3_2)->is_visible() != 0) {
-                temp_r3 = get_selected_menu_value((void *)(*(u32 *)((s8 *)this + 0x34)));
-                switch (temp_r3) {
+                selected_menu_value = get_selected_menu_value((void *)(*(u32 *)((s8 *)this + 0x34)));
+                switch (selected_menu_value) {
                 case 0:
                     set_state((s32)(6));
                     close_window_30();
@@ -213,13 +213,13 @@ void close_windows_and_cleanup(void *arg0) {
 }
 
 void TAdMultiChgGameModeGC::update_card_confirm_selection() {
-    s32 temp_r3;
+    s32 selected_menu_value;
 
     if (handle_mode_selection() == 0) {
         if (*(void **)((s8 *)this + 0x34) != 0) {
             if (((TWindowMenu *)(*(void **)((s8 *)this + 0x34)))->is_visible() != 0) {
-                temp_r3 = get_selected_menu_value((void *)(*(void **)((s8 *)this + 0x34)));
-                switch (temp_r3) {
+                selected_menu_value = get_selected_menu_value((void *)(*(void **)((s8 *)this + 0x34)));
+                switch (selected_menu_value) {
                 case 0:
                     close_window_30();
                     close_window__21TAdMultiChgGameModeGCFPv((void*)(this));
@@ -302,14 +302,14 @@ s32 TAdMultiChgGameModeGC::setup_mode_menu(void *arg0, s32 arg1) {
 #undef self
 
 void TAdMultiChgGameModeGC::handle_menu_input() {
-    s32 temp_r3_2;
+    s32 selected_menu_value;
     u8 *temp_r3;
     if (handle_mode_selection() == 0) {
         temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x34));
         if (temp_r3 != NULL) {
             if (((int)((TWindowMenu *)temp_r3)->is_visible()) != 0) {
-                temp_r3_2 = get_selected_menu_value((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x34)));
-                switch (temp_r3_2) {
+                selected_menu_value = get_selected_menu_value((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x34)));
+                switch (selected_menu_value) {
                 case 0:
                     close_window_30();
                     close_window__21TAdMultiChgGameModeGCFPv((void*)(((u8 *)this)));

@@ -297,18 +297,18 @@ void TObjVoloptCage::update_collision_state() {
 void TObjVoloptCage::update_capture() {
     s32 temp_r0;
     s32 temp_r0_2;
-    s32 temp_r3;
+    s32 player;
 
     temp_r0 = *(s32 *)&this->state;
     switch (temp_r0) {
     case -1:
         break;
     case 0:
-        temp_r3 = get_player_by_client_id(this->targetId);
-        if (temp_r3 != 0) {
+        player = get_player_by_client_id(this->targetId);
+        if (player != 0) {
             if (is_locally_controlled__10TObjPlayerFPv() != 0) {
-                send_6x2C_impose_hold(temp_r3, ((u8 *)this) + 0x38, -1, 0, lbl_805D8870);
-                obj_set_flag_20000(temp_r3);
+                send_6x2C_impose_hold(player, ((u8 *)this) + 0x38, -1, 0, lbl_805D8870);
+                obj_set_flag_20000(player);
             }
             TLobby__sub_80049568();
         }

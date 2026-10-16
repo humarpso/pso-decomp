@@ -189,13 +189,13 @@ void TWindowMainMenu::render() {  }
 void TWindowMainMenu::run_task() {  }
 
 u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1) {
-    u32 temp_r3;
+    u32 player;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TWindowMainMenu.value;
         if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
-            temp_r3 = get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54));
-            if (temp_r3 != 0U) {
-                ((TObjPlayer *)temp_r3)->init_parts();
+            player = get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54));
+            if (player != 0U) {
+                ((TObjPlayer *)player)->init_parts();
             }
         }
         ((TWindowMainMenu *)arg0)->close_child_window();

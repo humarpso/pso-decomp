@@ -126,7 +126,7 @@ void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1) {
 
 void TObjEneMe1GiGueMissile::render() {
     u8 *arg0 = (u8 *)this;
-  s32 temp_r31;
+  s32 bml_motion;
   if (((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) == 0)
   {
     queue_destruction__7TObjectFv((void*)((void *) arg0));
@@ -135,13 +135,13 @@ void TObjEneMe1GiGueMissile::render() {
   push_matrix();
   TParticleCtrl::begin_effect_render();
   post_translate_matrix((void *) (arg0 + 0x6C));
-  temp_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0xA4)));
-  rotate_matrix_y((int) 0, temp_r31);
+  bml_motion = (int) (*((s32 *) (((s8 *) arg0) + 0xA4)));
+  rotate_matrix_y((int) 0, bml_motion);
   rotate_matrix_x((int) 0, (int) (*((s32 *) (((s8 *) arg0) + 0xA0))));
   TObjFish::set_global_param((s32)((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C)))));
   TObjPlayer::set_global_flag();
-  temp_r31 = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 5);
-  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
+  bml_motion = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 5);
+  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (int) bml_motion, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
   TObjPlayer::clear_global_state();
   TParticleCtrl::end_effect_render();
   pop_matrix();
@@ -170,10 +170,10 @@ void TObjEneMe1GiGueMissile::run_task() {
 }
 #pragma pop
 
-u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1) {
+u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f32 farg1) {
     u8 *temp_r3;
     u8 *temp_r3_2;
-    TNeedleShoot__ct(arg0, arg1, arg2, arg3);
+    TNeedleShoot__ct(arg0, arg1, from, to);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile *)&__vt__22TObjEneMe1GiGueMissile).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F20;
     *(f32 *)((s8 *)arg0 + 0xC0) = farg1;

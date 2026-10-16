@@ -162,21 +162,21 @@ void TPhotonPilla::render() {
 
 void TPhotonPilla::run_task() {
     Vec3 sp8;
-    s32 temp_r3;
+    s32 entity;
     s32 temp_r3_2;
 
     *(s32 *)((s8 *)this + 0x1A8) = (s32) (*(s32 *)((s8 *)this + 0x1A8) + 1);
     if (((s32) *(s32 *)((s8 *)this + 0x1A8) == 0x32) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 0)) {
         *(s32 *)((s8 *)this + 0x1A4) = 1;
         *(s32 *)((s8 *)this + 0x1A8) = 0;
-        temp_r3 = find_entity_by_id(*(u16 *)((s8 *)this + 0x17C));
-        if (temp_r3 != 0) {
-            VecCopy__FP3VecPC3Vec(&sp8, temp_r3 + 0x38);
+        entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x17C));
+        if (entity != 0) {
+            VecCopy__FP3VecPC3Vec(&sp8, entity + 0x38);
         }
         sp8.y = sp8.y + lbl_805DC230;
-        temp_r3 = __nw__7TObjectFUl(0xD0);
-        if (temp_r3 != 0U) {
-            TPhotonMagicSquare__ct(temp_r3, this, 3, &sp8, 0xD2, lbl_805DC234);
+        entity = __nw__7TObjectFUl(0xD0);
+        if (entity != 0U) {
+            TPhotonMagicSquare__ct(entity, this, 3, &sp8, 0xD2, lbl_805DC234);
         }
     }
     if ((lbl_805DC238 == (f32) *(s32 *)((s8 *)this + 0x1A8)) && ((s16) *(s16 *)((s8 *)this + 0xB8) == 1) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 1)) {

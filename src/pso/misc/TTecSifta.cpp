@@ -222,10 +222,10 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
 #pragma opt_common_subs off
 struct Obj_8023ACA8;
 #define arg0 ((u8 *)arg0_)
-void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4) {
+void *TTecSifta__ct(void *arg0_, void *owner, void *pos, void *arg3, void *level) {
     u8 *temp_r3;
     u32 t;
-    TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
+    TTecPlayerInfluence__ct(arg0, owner, pos, level);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecSifta;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3820;
@@ -249,10 +249,10 @@ void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4)
 #undef arg0
 #pragma pop
 
-u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 owner, s32 pos, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
-    TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
+    TTecPlayerInfluence__ct((void *) (arg0), (void *) (owner), (void *) (pos), (void *) (level));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3820;

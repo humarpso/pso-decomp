@@ -35,17 +35,17 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
 
 int TWindowSubTechnique::get_current_selection(void* _w1) { return get_selection__19TWindowSubTechniqueFPsPll((void*)(this), (void*)(_w1)); }
 
-s32 TWindowSubTechnique::is_technique_available(s32 arg0, s32 arg1) {
-    s32 temp_r3;
-    temp_r3 = ((s32)get_player_by_client_id(arg1));
-    if (temp_r3 == 0) {
+s32 TWindowSubTechnique::is_technique_available(s32 sub, s32 arg1) {
+    s32 player;
+    player = ((s32)get_player_by_client_id(arg1));
+    if (player == 0) {
         return 0;
     }
     if (reset_key_machine_state__10TObjPlayerFv() == 0) {
         return 0;
     }
-    if (TWindowSubTechnique::lookup_technique(arg0, arg1) != 0) {
-        return is_palette_entry_displayable__10TObjPlayerFv(temp_r3, 3, (u8) arg0);
+    if (TWindowSubTechnique::lookup_technique(sub, arg1) != 0) {
+        return is_palette_entry_displayable__10TObjPlayerFv(player, 3, (u8) sub);
     }
     return 0;
 }
@@ -57,19 +57,19 @@ s32 TWindowSubTechnique::lookup_technique(s32 arg0, s32 arg1) {
     }
     return can_use_palette_action__10TObjPlayerFPvUcUc(temp, 3, (u8) arg0);
 }
-void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2) {
-    s32 temp_r31;
+void draw_technique_row__19TWindowSubTechniqueFiii(s32 id, s32 arg1, s32 arg2) {
+    s32 technique_name;
 
-    temp_r31 = get_technique_name(arg0);
-    if (TWindowSubTechnique::lookup_technique((s32)(arg0), (s32)(arg1)) == 0) {
-        draw_text_gray__17TWindowSubComCardFllll(arg2, temp_r31, 6, arg0);
+    technique_name = get_technique_name(id);
+    if (TWindowSubTechnique::lookup_technique((s32)(id), (s32)(arg1)) == 0) {
+        draw_text_gray__17TWindowSubComCardFllll(arg2, technique_name, 6, id);
         return;
     }
-    if (TWindowSubTechnique::is_technique_available((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(arg1)))) == 0) {
-        add_text_entry__19TWindowSubTradeMainFllll(arg2, temp_r31, 0x16, arg0, 0xFFFD3901);
+    if (TWindowSubTechnique::is_technique_available((s32)((void*)((void*)(id))), (s32)((void*)((void*)(arg1)))) == 0) {
+        add_text_entry__19TWindowSubTradeMainFllll(arg2, technique_name, 0x16, id, 0xFFFD3901);
         return;
     }
-    forward_trade_action_default__16TObjCityMainWarpFPviii(arg2, temp_r31, 6, arg0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(arg2, technique_name, 6, id);
 }
 #pragma fp_contract on
 
@@ -90,15 +90,15 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
 
 s32 TWindowSubTechnique::create_title_window() {
     u8 *arg0 = (u8 *)this;
-  s32 temp_r31;
+  s32 titled_window_menu;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl((int) 0x30));
-  temp_r31 = create_titled_window_menu((int) get_window_layout_position((int) 0x13), (int) 5, (int) temp_r31_2, (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  titled_window_menu = create_titled_window_menu((int) get_window_layout_position((int) 0x13), (int) 5, (int) temp_r31_2, (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   TWindowSubEquip__sub_80263AF8((int) (*((s32 *) (((s8 *) arg0) + 0x30))), (int) 1);
-  set_field_1c__6TLobbyFf((int) temp_r31);
-  ((TWindowSubComCardList *)temp_r31)->set_flag70_bit100();
-  ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-  return temp_r31;
+  set_field_1c__6TLobbyFf((int) titled_window_menu);
+  ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit100();
+  ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
+  return titled_window_menu;
 }
 
 }

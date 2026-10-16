@@ -149,16 +149,16 @@ void TWindowStatus::render() {
   u8 *new_var;
   s32 temp_r31;
   f32 new_var2;
-  s32 temp_r3;
+  s32 ctx;
   temp_r31 = (s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0xE);
   ((s32 (*)(void))draw_right_aligned_number)();
   new_var2 = (f32) lbl_805DD474;
   new_var = arg0;
   temp_f1 = *((f32 *) (((s8 *) temp_r31) + 0x10));
   *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) ((lbl_805DD474 * temp_f1) + lbl_805DD470);
-  temp_r3 = draw_default_entry__9TWindowDDFl((void *) arg0, (f32) temp_f1, new_var2);
-  ((TWindowStatus *)arg0)->draw_background((u8 *)temp_r3);
-  draw_visible_window_entries((void *) new_var, (void *) (arg0 + 0x24), (int) temp_r3);
+  ctx = draw_default_entry__9TWindowDDFl((void *) arg0, (f32) temp_f1, new_var2);
+  ((TWindowStatus *)arg0)->draw_background((u8 *)ctx);
+  draw_visible_window_entries((void *) new_var, (void *) (arg0 + 0x24), (int) ctx);
 }
 
 void TWindowStatus::run_task() {

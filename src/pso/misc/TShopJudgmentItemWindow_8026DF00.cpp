@@ -15,10 +15,10 @@ extern "C" {
 extern s32 local_client_id;
 
 u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
-    s32 temp_r3;
+    s32 camera_id;
     u8 *var_r0;
-    temp_r3 = TCameraCtrl::get_camera_id();
-    switch (temp_r3) {
+    camera_id = TCameraCtrl::get_camera_id();
+    switch (camera_id) {
     case 1:
         TShopJudgmentItemWindow__sub_80267F9C((void *) (TShopJudgmentItemWindow__item_list_rect_table), arg1);
         break;

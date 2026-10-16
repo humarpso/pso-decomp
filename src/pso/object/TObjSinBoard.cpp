@@ -140,8 +140,8 @@ void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_80198228___vt__12TObjSinBoard_size[sizeof(RecoveredGlobal_80198228___vt__12TObjSinBoard) == 0x38 ? 1 : -1];
-u8 *TObjSinBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (arg1));
+u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2) {
+    construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198228___vt__12TObjSinBoard *)&__vt__12TObjSinBoard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSinBoard__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -157,7 +157,7 @@ void *TObjSinBoard__create(void *arg0) {
 }
 void TUnk_804B8DD0::render() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
+    u8 *bml_model;
     if ((s32) *(s32 *)&this->unk_3C != 0) {
         this->m_38 = (s32) (this->m_38 + 0x38E);
         if ((s32) this->m_38 >= 0x4000) {
@@ -169,8 +169,8 @@ void TUnk_804B8DD0::render() {
             this->m_38 = 0;
         }
     }
-    temp_r3 = (u8 *)(get_bml_model(gogo_ball_bml_resource, 1));
-    if (temp_r3 != NULL) {
+    bml_model = (u8 *)(get_bml_model(gogo_ball_bml_resource, 1));
+    if (bml_model != NULL) {
         if ((s32) this->m_28 != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)(&lobby_gvm_texture_handles.value) + 0x1C)));
         } else {
@@ -178,18 +178,18 @@ void TUnk_804B8DD0::render() {
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
-        ::draw_ginja_model((void *) (*(s32 *)((s8 *)temp_r3 + 4)));
+        ::draw_ginja_model((void *) (*(s32 *)((s8 *)bml_model + 4)));
         push_matrix();
-        ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x2C)) + 4)));
+        ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 4)));
         pop_matrix();
         push_matrix();
         rotate_matrix_z((int) (0), (int) (this->m_38));
         rotate_matrix_y((int) (0), (int) (0x8000));
-        ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x2C)) + 0x30)) + 4)));
+        ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 0x30)) + 4)));
         pop_matrix();
         push_matrix();
         rotate_matrix_z((int) (0), (int) (-this->m_38));
-        ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0x2C)) + 0x30)) + 0x30)) + 4)));
+        ::draw_ginja_model((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 0x30)) + 0x30)) + 4)));
         pop_matrix();
         pop_matrix();
     }

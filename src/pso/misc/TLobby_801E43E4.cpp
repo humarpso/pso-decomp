@@ -67,18 +67,18 @@ extern s32 TLobby__designated_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
 
-void dispatch_packet__6TLobbyFPv(void *arg0) {
-    s32 temp_r31;
+void dispatch_packet__6TLobbyFPv(void *src) {
+    s32 len;
 
-    temp_r31 = *(u8 *)((s8 *)arg0 + 1) * 4;
+    len = *(u8 *)((s8 *)src + 1) * 4;
     if (get_main_phase() == 0xE) {
         lbl_805D5E50 = 1;
-        dispatch_6x_subcommand((void *)(arg0));
+        dispatch_6x_subcommand((void *)(src));
         lbl_805D5E50 = 0;
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        ((TProtocol *)TLobby__protocol_instance)->send_subcommand_to_client((s32)TLobby__designated_client_id, (s8 *)arg0, (s32)temp_r31);
+        ((TProtocol *)TLobby__protocol_instance)->send_subcommand_to_client((s32)TLobby__designated_client_id, (s8 *)src, (s32)len);
     }
 }
 
@@ -108,17 +108,17 @@ void TLobby::send_60_sized() {
 }
 
 void TLobby__send_and_handle_60(u8 *arg0) {
-    s32 var_r5;
+    s32 len;
     u8 *var_r31;
     u8 *var_r3;
-    u8 *var_r4;
+    u8 *src;
     var_r31 = (u8 *)(arg0);
-    var_r4 = (u8 *)((*(u8 * *)&TLobby__protocol_instance));
-    var_r5 = *(u8 *)((s8 *)arg0 + 1) * 4;
-    if (var_r4 != NULL) {
-        var_r3 = (u8 *)(var_r4);
-        var_r4 = (u8 *)(var_r31);
-        TProtocol__send_60((int) (var_r3), (int) (var_r4), (int) (var_r5));
+    src = (u8 *)((*(u8 * *)&TLobby__protocol_instance));
+    len = *(u8 *)((s8 *)arg0 + 1) * 4;
+    if (src != NULL) {
+        var_r3 = (u8 *)(src);
+        src = (u8 *)(var_r31);
+        TProtocol__send_60((int) (var_r3), (int) (src), (int) (len));
     }
     var_r3 = (u8 *)(var_r31);
     lbl_805D5E50 = 1;

@@ -39,15 +39,15 @@ extern u32 TBoss6PlotFalz__type2_instance;
 void TBoss6PlotFalz::finish_and_dispatch_next_phase() {
     s32 sp10[2];
     u16 sp8[4];
-    s32 var_r29;
+    s32 i;
 
     if ((u32) TBoss6PlotFalz__type2_instance != 0U) {
         ((TBoss6Type2 *)TBoss6PlotFalz__type2_instance)->get_phase_values((u16 *)(((u8 *)this) + 0x2D6), (u16 *)(((u8 *)this) + 0x2D4), (u16 *)sp8);
-        var_r29 = 0;
+        i = 0;
         do {
-            obj_setArrS16_FC((void *) (((u8 *)this)), (int) (var_r29), (void *) (sp8[var_r29]));
-            var_r29 += 1;
-        } while (var_r29 < 4);
+            obj_setArrS16_FC((void *) (((u8 *)this)), (int) (i), (void *) (sp8[i]));
+            i += 1;
+        } while (i < 4);
     }
     TBoss6PlotFalz::get_target_pos_a((s32)((void *) (((u8 *)this))), (s32)((void *) (sp10)));
     destroy_static_instance__14TBoss6PlotFalzFv((void *) (((u8 *)this)));

@@ -201,8 +201,8 @@ void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_8030B708___vt__14TObjLiveCamera_size[sizeof(RecoveredGlobal_8030B708___vt__14TObjLiveCamera) == 0x34 ? 1 : -1];
-u8 *TObjLiveCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (arg1));
+u8 *TObjLiveCamera__ct(u8 *arg0, s32 parent, s32 arg2) {
+    construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8030B708___vt__14TObjLiveCamera *)&__vt__14TObjLiveCamera).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjLiveCamera__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -380,20 +380,20 @@ void TBoss8Dragon::update_live_camera() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     u32 temp_r3_4;
-    u8 *temp_r3;
+    u8 *player;
     u8 *temp_r3_2;
-    u8 *temp_r3_3;
+    u8 *enemy_entity;
     temp_r0 = *(s16 *)&this->unk_1C;
     switch (temp_r0) {
     case 1:
-        temp_r3 = (u8 *)(get_player_by_client_id((s32) *(u16 *)((s8 *)arg0 + 0x24)));
-        if (temp_r3 != NULL) {
-            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1B8 * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3 + 0x38));
-            *(f32 *)&this->m_38 = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)&this->unk_30);
-            *(f32 *)&this->unk_3C = (f32) ((lbl_805DF1B8 * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3 + 0x40));
-            this->m_40 = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
-            *(f32 *)&this->unk_44 = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)&this->unk_30);
-            this->m_48 = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
+        player = (u8 *)(get_player_by_client_id((s32) *(u16 *)((s8 *)arg0 + 0x24)));
+        if (player != NULL) {
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1B8 * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)player + 0x38));
+            *(f32 *)&this->m_38 = (f32) (*(f32 *)((s8 *)player + 0x3C) + *(f32 *)&this->unk_30);
+            *(f32 *)&this->unk_3C = (f32) ((lbl_805DF1B8 * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)player + 0x40));
+            this->m_40 = (f32) *(f32 *)((s8 *)player + 0x38);
+            *(f32 *)&this->unk_44 = (f32) (*(f32 *)((s8 *)player + 0x3C) + *(f32 *)&this->unk_30);
+            this->m_48 = (f32) *(f32 *)((s8 *)player + 0x40);
             *(s32 *)&this->unk_28 = (s32) (*(s32 *)&this->unk_28 + this->m_2c);
         }
         return;
@@ -411,15 +411,15 @@ void TBoss8Dragon::update_live_camera() {
         }
         break;
     case 3:
-        temp_r3_3 = (u8 *)(get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x24)));
-        if ((temp_r3_3 != NULL) && (*(f32 *)((s8 *)temp_r3_3 + 0x3C) >= lbl_805DF1B4)) {
-            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1CC * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
-            *(f32 *)&this->m_38 = (f32) (lbl_805DF1A8 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
-            *(f32 *)&this->unk_3C = (f32) ((lbl_805DF1CC * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
-            this->m_40 = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
-            *(f32 *)&this->unk_44 = (f32) (lbl_805DF1D4 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
-            this->m_48 = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
-            ((TObjLiveCameraCtrl *)arg0)->sub_8030B818((int)((int) (*(s32 *)((s8 *)temp_r3_3 + 0x60) - 0x8000)));
+        enemy_entity = (u8 *)(get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x24)));
+        if ((enemy_entity != NULL) && (*(f32 *)((s8 *)enemy_entity + 0x3C) >= lbl_805DF1B4)) {
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1CC * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)enemy_entity + 0x38));
+            *(f32 *)&this->m_38 = (f32) (lbl_805DF1A8 + *(f32 *)((s8 *)enemy_entity + 0x3C));
+            *(f32 *)&this->unk_3C = (f32) ((lbl_805DF1CC * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)enemy_entity + 0x40));
+            this->m_40 = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)enemy_entity + 0x38));
+            *(f32 *)&this->unk_44 = (f32) (lbl_805DF1D4 + *(f32 *)((s8 *)enemy_entity + 0x3C));
+            this->m_48 = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)enemy_entity + 0x40));
+            ((TObjLiveCameraCtrl *)arg0)->sub_8030B818((int)((int) (*(s32 *)((s8 *)enemy_entity + 0x60) - 0x8000)));
             return;
         }
         break;

@@ -245,7 +245,7 @@ void roll_item_channel_below(u32 arg0, s32 arg1) {
     __cvt_fp2unsigned((f32) arg0 * TObjPlayer::get_drop_random_float((u32)((void *) (arg1))));
 }
 
-void TObjPlayer::drop_item_from_slot(s32 arg0, s32 arg1, s32 arg2) {
+void TObjPlayer::drop_item_from_slot(s32 area, s32 arg1, s32 arg2) {
     s32 sp8;
     s32 temp_r5;
     sp8 = arg1;
@@ -253,7 +253,7 @@ void TObjPlayer::drop_item_from_slot(s32 arg0, s32 arg1, s32 arg2) {
         normalize_drop_area(&sp8);
         temp_r5 = sp8 - 1;
         sp8 = temp_r5;
-        select_enemy_drop__9TItemDropFPviiPv((*(u32 *)&item_mgr), arg0, temp_r5, arg2);
+        select_enemy_drop__9TItemDropFPviiPv((*(u32 *)&item_mgr), area, temp_r5, arg2);
     }
 }
 void TObjPlayer::drop_item(s32 arg0, s32 arg1) {
@@ -279,22 +279,22 @@ void TObjPlayer::drop_meseta_from_slot(s32 arg0, s32 arg1) {
     }
 }
 
-s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2) {
+s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id) {
     s32 idx;
     u8 *rec;
     idx = 0;
     switch ((u8) arg0) {
     case 0:
-        rec = (u8 *)get_item_pmt_record__10TObjPlayerFii(arg1, arg2);
+        rec = (u8 *)get_item_pmt_record__10TObjPlayerFii(type, id);
         if (rec != NULL) {
             idx = rec[0x1A];
         }
         break;
     case 1:
-        switch ((u8) arg1) {
+        switch ((u8) type) {
         case 1:
         case 2:
-            rec = (u8 *)get_armor_pmt_record(arg1, arg2);
+            rec = (u8 *)get_armor_pmt_record(type, id);
             if (rec != NULL) {
                 idx = rec[0x18];
             }

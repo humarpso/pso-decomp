@@ -71,13 +71,13 @@ s32 *TWindowKeyBoardBase::init_text_buffer_holder() {
 
 int TEF_LensFlare::is_player_near(f32 farg0) {
     s32 arg0 = (s32)this;
-    u32 temp_r3;
+    u32 player;
 
-    temp_r3 = get_player_by_client_id(local_client_id);
-    if (temp_r3 == 0U) {
+    player = get_player_by_client_id(local_client_id);
+    if (player == 0U) {
         return 0;
     }
-    return (u32) __cntlzw(horizontal_distance_squared(temp_r3 + 0x38, arg0 + 0x38) < farg0) >> 5;
+    return (u32) __cntlzw(horizontal_distance_squared(player + 0x38, arg0 + 0x38) < farg0) >> 5;
 }
 u8 *TEF_LensFlare__create(s32 arg0) {
     u8 *temp_r3;

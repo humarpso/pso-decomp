@@ -889,12 +889,12 @@ s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1);
 }
 
 void TObjPlayer::set_grabbed_state(s32 arg0) {
-    void *temp_r3;
+    void *entity;
 
-    temp_r3 = find_entity_by_id(lbl_805D271C);
-    if ((temp_r3 != NULL) && ((s16) *(s16 *)((s8 *)temp_r3 + 0x326) != 0xA)) {
-        update_if_active__15TObjEneMe1GiGueFl(temp_r3, 0xA);
-        *(s32 *)((s8 *)temp_r3 + 0x3C4) = arg0;
+    entity = find_entity_by_id(lbl_805D271C);
+    if ((entity != NULL) && ((s16) *(s16 *)((s8 *)entity + 0x326) != 0xA)) {
+        update_if_active__15TObjEneMe1GiGueFl(entity, 0xA);
+        *(s32 *)((s8 *)entity + 0x3C4) = arg0;
     }
 }
 
@@ -948,18 +948,18 @@ void TObjPlayer::update_topple_state() {
 }
 
 void TObjPlayer::link_photon(u16 arg0) {
-    void *temp_r3;
+    void *entity;
     void *temp_r4;
     void *temp_r5;
 
-    temp_r3 = find_entity_by_id(lbl_805D271C);
-    if ((temp_r3 != NULL) && ((s32) *(s32 *)((s8 *)temp_r3 + 0x3C8) <= 0)) {
+    entity = find_entity_by_id(lbl_805D271C);
+    if ((entity != NULL) && ((s32) *(s32 *)((s8 *)entity + 0x3C8) <= 0)) {
         temp_r4 = find_entity_by_id(arg0);
         if (temp_r4 != NULL) {
             f32 temp_f1 = (*(f32 *)&lbl_805D86B0);
-            temp_r5 = *(void **)((s8 *)temp_r3 + 0xA4);
+            temp_r5 = *(void **)((s8 *)entity + 0xA4);
             *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 0x04000000);
-            ((VObj_8003F6B4_8003F4C0*)temp_r3)->m20(temp_r4, temp_f1);
+            ((VObj_8003F6B4_8003F4C0*)entity)->m20(temp_r4, temp_f1);
         }
     }
 }
@@ -1557,10 +1557,10 @@ void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
     return arg0;
 }
 
-void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2) {
+void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg1_arg) {
     ((s32 (*)(void *, void *))TObjEnemyCustom__ct)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = TBoss3VoloptCore__vtable;
-    ((TUnk_80483A10 *)arg0)->apply_set_data(arg2);
+    ((TUnk_80483A10 *)arg0)->apply_set_data(arg1_arg);
     ((s32 (*)(void *))TBoss3VoloptCore__ct)(arg0);
     return arg0;
 }

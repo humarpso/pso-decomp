@@ -26,11 +26,11 @@ void TWindowMeseta::draw_value(s32 arg1) {
     draw_window_tab(arg1, arg1 + 0x10, 3, this->m_60);
 }
 void update_display__13TWindowMesetaFi(s32 arg0) {
-    s32 temp_r3;
+    s32 ctx;
 
-    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context(arg0 + 0x6C);
-    ((TWindowMeseta *)arg0)->draw_value(temp_r3);
-    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
+    ctx = ((TUnk_804CE018 *)arg0)->setup_window_draw_context(arg0 + 0x6C);
+    ((TWindowMeseta *)arg0)->draw_value(ctx);
+    draw_visible_window_entries(arg0, arg0 + 0x24, ctx);
 }
 
 }

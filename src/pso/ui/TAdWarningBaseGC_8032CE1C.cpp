@@ -115,16 +115,16 @@ int TAdWarningBaseGC__sub_8032D020(void) {  return ((TAdWarningBaseGC__aram_allo
 
 extern s32 lbl_804EDBD0[];
 
-s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1) {
+s32 post_aram_request__16TAdWarningBaseGCFii(s32 buf, s32 arg1) {
     u32 size;
     size = (arg1 + 0x1F) & ~0x1F;
     (*(s32 *)&TAdWarningBaseGC__aram_alloc_size) = arg1;
     if (size > TAdWarningBaseGC__aram_capacity) {
         return 0;
     }
-    DCFlushRange((void *)arg0, size);
+    DCFlushRange((void *)buf, size);
     aram_request_busy_flag = 1;
-    ARQPostRequest(ad_warning_arq_request, 4, 0, 1, arg0, ad_warning_aram_base, size, clear_aram_request_busy);
+    ARQPostRequest(ad_warning_arq_request, 4, 0, 1, buf, ad_warning_aram_base, size, clear_aram_request_busy);
     return 1;
 }
 

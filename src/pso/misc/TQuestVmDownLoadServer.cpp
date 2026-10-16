@@ -1410,12 +1410,12 @@ extern "C" {
 
 extern "C" {
 void TQuestVmDownLoadServer::handle_confirm_window() {
-    s32 temp_r3;
+    s32 selected_menu_value;
 
     if ((u32) *(u32 *)&this->m_290 != 0U) {
         if (((TWindowMenu *)(*(u32 *)&this->m_290))->is_visible() != 0) {
-            temp_r3 = get_selected_menu_value(*(u32 *)&this->m_290);
-            if (temp_r3 == 0) {
+            selected_menu_value = get_selected_menu_value(*(u32 *)&this->m_290);
+            if (selected_menu_value == 0) {
                 if ((u32) *(u32 *)&this->m_290 != 0U) {
                     TWindow__close((void *)(this->m_290));
                     *(u32 *)&this->m_290 = 0U;
@@ -1423,7 +1423,7 @@ void TQuestVmDownLoadServer::handle_confirm_window() {
                 this->state = 7;
                 return;
             }
-            if (temp_r3 == 1) {
+            if (selected_menu_value == 1) {
                 if ((u32) *(u32 *)&this->m_290 != 0U) {
                     TWindow__close((void *)(this->m_290));
                     *(u32 *)&this->m_290 = 0U;
@@ -1802,7 +1802,7 @@ void TQuestVmDownLoadServer::check_client_connections() {
 }
 
 extern "C" {
-void TQuestVmDownLoadServer::show_status_message(s32 arg1, s32 arg2) {
+void TQuestVmDownLoadServer::show_status_message(s32 text, s32 arg2) {
     u8*arg0 = (u8*)this;
     Pair_801F6E08 sp;
     if (*(u32*)(arg0 + 0x294) == 0) {
@@ -1810,7 +1810,7 @@ void TQuestVmDownLoadServer::show_status_message(s32 arg1, s32 arg2) {
         sp.b = lbl_8044A668[1];
         *(s32*)(arg0 + 0x294) = create_window__24TMessageWindowControllerFll(arg0 + 0x1C, get_window_layout_position(0x2F), &sp);
     }
-    ((TMessageWindowController *)(arg0 + 0x1C))->display_message((const char *)arg1, (s32)(arg2 | 0x80));
+    ((TMessageWindowController *)(arg0 + 0x1C))->display_message((const char *)text, (s32)(arg2 | 0x80));
 }
 }
 

@@ -12,9 +12,9 @@ extern "C" {
 
 void TUnk_804B0BB8::update_door_switch_state() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    temp_r0 = this->m_cc;
-    switch (temp_r0) {
+    s32 cc;
+    cc = this->m_cc;
+    switch (cc) {
     case 1:
         ((TUnk_804B0BB8 *)arg0)->play_door_sound();
         this->m_d0 = (s32) (this->m_d0 | 1);

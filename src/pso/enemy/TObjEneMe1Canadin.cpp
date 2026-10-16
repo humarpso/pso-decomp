@@ -3452,19 +3452,19 @@ void TObjEneMe1CanadinLeader__vt104(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4FD0 + 0x42C)) + 0x1C);
 }
 
-void run_task__23TObjEneMe1CanadinLeaderFv(u8 *arg0) {
+void run_task__23TObjEneMe1CanadinLeaderFv(u8 *pv) {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18 *)(arg0))->m112();
+        ((VObj_18 *)(pv))->m112();
         return;
     }
-    if (((VObj_18 *)(arg0))->m81() != 4) {
-        ((VObj_18 *)(arg0))->m83();
-        TObjEneMe1CanadinLeader::update_fade_sequence((void *) (arg0));
-        TObjEneMe1CanadinLeader::update_formation_state((void *)((void *) (arg0)));
+    if (((VObj_18 *)(pv))->m81() != 4) {
+        ((VObj_18 *)(pv))->m83();
+        TObjEneMe1CanadinLeader::update_fade_sequence((void *) (pv));
+        TObjEneMe1CanadinLeader::update_formation_state((void *)((void *) (pv)));
     }
-    ((TObjEneMe1Canadin *)arg0)->copy_pos();
-    ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((VObj_18 *)(arg0))->m98();
+    ((TObjEneMe1Canadin *)pv)->copy_pos();
+    ((TBoss8Dragon *)pv)->set_player_state_default();
+    ((VObj_18 *)(pv))->m98();
 }
 
 void *__dt__23TObjEneMe1CanadinLeaderFv(void *arg0, s16 arg1) {
@@ -3734,7 +3734,7 @@ void TObjEneMe1Canadin::render() {
 
 void fn_8009BD00(void) {
     s32 temp_r4;
-    s32 temp_r4_2;
+    s32 pos;
     s32 temp_r5;
     s32 temp_r5_2;
     switch (lbl_805D4FD4) {
@@ -3754,9 +3754,9 @@ void fn_8009BD00(void) {
     case 6:
     case 11:
     case 14:
-        temp_r4_2 = TObjEneMe1Canadin__render_point_cursor;
-        TObjEneMe1Canadin__render_point_cursor = temp_r4_2 + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((void *) (&lbl_80500960.value), (int) (temp_r4_2));
+        pos = TObjEneMe1Canadin__render_point_cursor;
+        TObjEneMe1Canadin__render_point_cursor = pos + 0xC;
+        get_camera_ctrl__9TObjEneDDFv((void *) (&lbl_80500960.value), (int) (pos));
         break;
     }
     lbl_805D4FD4 += 1;
@@ -4986,19 +4986,19 @@ u8 *TObjEneMe1Canadin::vfunc_101(u8 *) {
 
 #pragma push
 #pragma fp_contract on
-void calc_move_vector__17TObjEneMe1CanadinFiPv(s32 arg0, void *arg1) {
+void calc_move_vector__17TObjEneMe1CanadinFiPv(s32 actor, void *arg1) {
     f32 temp_f1;
     f32 temp_f31;
-    s32 temp_r31;
+    s32 random_scaled;
 
-    temp_r31 = TObjEneDD::get_random_scaled();
-    f32 fv = calc_boss4_scale__10TObjPlayerFi(arg0);
+    random_scaled = TObjEneDD::get_random_scaled();
+    f32 fv = calc_boss4_scale__10TObjPlayerFi(actor);
     temp_f31 = (lbl_805D98D0 * fv) + lbl_805D989C;
-    temp_f1 = temp_f31 * ((f32 (*)(s32, f32))sin_table_lookup)(temp_r31, fv);
+    temp_f1 = temp_f31 * ((f32 (*)(s32, f32))sin_table_lookup)(random_scaled, fv);
     *(f32 *)((s8 *)arg1 + 0) = temp_f1;
     *(f32 *)((s8 *)arg1 + 4) = (f32) lbl_805D9898;
-    *(f32 *)((s8 *)arg1 + 8) = (f32) (temp_f31 * ((f32 (*)(s32, f32))cos_table_lookup)(temp_r31, temp_f1));
-    ((s32 (*)(void *, s32))vec3_add_to)(arg1, arg0 + 0x38);
+    *(f32 *)((s8 *)arg1 + 8) = (f32) (temp_f31 * ((f32 (*)(s32, f32))cos_table_lookup)(random_scaled, temp_f1));
+    ((s32 (*)(void *, s32))vec3_add_to)(arg1, actor + 0x38);
 }
 extern int fold_flush_1;
 #pragma pop

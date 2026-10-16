@@ -193,9 +193,9 @@ void TLobby::load_now_loading_texture() {
 }
 
 void TLobby__sub_803384D4(void) {
-    s32 temp_r3;
-    temp_r3 = TAdPlayerLoadGC::get_instance();
-    switch (temp_r3) {
+    s32 instance;
+    instance = TAdPlayerLoadGC::get_instance();
+    switch (instance) {
     case 5:
     case 6:
     case 11:

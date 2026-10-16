@@ -417,13 +417,13 @@ void THunterGuildSeqOffline__sub_80213474(void *arg0) {
 
 void THunterGuildSeqOffline::handle_confirm_window() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3_2;
+    s32 selected_menu_value;
     u8 *temp_r3;
     u8 *temp_r3_3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C));
     if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
-        temp_r3_2 = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x3C));
-        switch (temp_r3_2) {
+        selected_menu_value = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x3C));
+        switch (selected_menu_value) {
         case 0:
             TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
             *(u8 **)((s8 *)arg0 + 0x3C) = NULL;

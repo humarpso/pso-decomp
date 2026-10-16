@@ -143,28 +143,28 @@ void fn_800E322C(void *p, void *t) {
     VecCopy__FP3VecPC3Vec(&arg0->pos, &sp);
 }
 
-void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1) {
+void fn_800E32C0(Obj_800E32C0 *target, V_800E32C0 *arg1) {
     Pair_800E32C0 sp10 = lbl_8043CDF8[0];
     Pair_800E32C0 sp8;
-    sp10.b = arg0->f38C;
-    if (arg0->f388 != arg1) {
+    sp10.b = target->f38C;
+    if (target->f388 != arg1) {
         sp8.a = sp10.a; *(s32 *)&sp8.b = *(s32 *)&sp10.b;
-        if (0.0f != arg1->m21(arg0->f10, &sp8, 0, -1, -1)) {
-            arg1->m23(arg0);
+        if (0.0f != arg1->m21(target->f10, &sp8, 0, -1, -1)) {
+            arg1->m23(target);
         }
-        arg0->f388 = arg1;
+        target->f388 = arg1;
     }
 }
-void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1) {
+void fn_800E3374(Obj_800E3374 *target, V_800E3374 *arg1) {
     Pair_800E3374 sp10 = lbl_8043CDF0[0];
     Pair_800E3374 sp8;
-    sp10.b = arg0->f38C;
-    if (arg0->f384 != arg1) {
+    sp10.b = target->f38C;
+    if (target->f384 != arg1) {
         sp8.a = sp10.a; *(s32 *)&sp8.b = *(s32 *)&sp10.b;
-        if (0.0f != arg1->m21(arg0->f10, &sp8, 0, -1, -1)) {
-            arg1->m23(arg0);
+        if (0.0f != arg1->m21(target->f10, &sp8, 0, -1, -1)) {
+            arg1->m23(target);
         }
-        arg0->f384 = arg1;
+        target->f384 = arg1;
     }
 }
 #pragma push
@@ -554,9 +554,9 @@ typedef struct VObj_18_f56c51 VObj_18_f56c51;
 #define self arg0
 extern const f32 lbl_805DA5A8 = 10.0f;
 extern const f32 lbl_805DA5AC = 2.8f;
-void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *parent, void *arg2, void *arg3, void *arg4) {
     f32 scale;
-    ((TObjEnemy *)self)->initialize(arg1);
+    ((TObjEnemy *)self)->initialize(parent);
     self->vt = __vt__22TObjEnePanarmsAtkColli;
     self->f0 = lbl_805D2AC0;
     VecCopy__FP3VecPC3Vec(&self->pos, arg2);

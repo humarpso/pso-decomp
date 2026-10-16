@@ -23,17 +23,17 @@ f32 TWindowSubStatusDisp::get_card_window_scale(s32 _w0) {
 
 s32 TWindowSubStatusDisp::get_card_window_flags(s32 arg0) {
     s32 var_r3;
-    void *temp_r3;
+    void *character_save_record;
 
     var_r3 = arg0;
     if (var_r3 >= 4) {
         var_r3 = local_client_id;
     }
-    temp_r3 = get_character_save_record(var_r3);
-    if (temp_r3 == NULL) {
+    character_save_record = get_character_save_record(var_r3);
+    if (character_save_record == NULL) {
         return 1;
     }
-    return ((u32) *(u32 *)((s8 *)temp_r3 + 0x10) >> 8U) & 3;
+    return ((u32) *(u32 *)((s8 *)character_save_record + 0x10) >> 8U) & 3;
 }
 
 }

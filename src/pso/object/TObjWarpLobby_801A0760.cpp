@@ -93,7 +93,7 @@ void TObjWarpLobby::render() {
 extern s32 __vt__13TObjWarpLobby[];
 
 void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
-    s32 temp_r31;
+    s32 selected_menu_value;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) + lbl_805DC068);
     if ((f32) (*(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xD8)) + 4) - 1) < *(f32 *)((s8 *)arg0 + 0xC8)) {
         *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DC06C;
@@ -104,13 +104,13 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
             ((TObjWarpLobby *)arg0)->open_lobby_menu();
         }
         if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) && (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0xB0)))->is_visible() != 0)) {
-            temp_r31 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0xB0));
+            selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0xB0));
             if (*(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
                 queue_destruction__7TObjectFv(*(u32 *)((s8 *)arg0 + 0xB0));
                 *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
                 TWindowCtrl::clear_flag();
             }
-            send_room_change__6TLobbyFi(temp_r31);
+            send_room_change__6TLobbyFi(selected_menu_value);
         }
     } else if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
         TWindow__close(*(void **)((s8 *)arg0 + 0xB0));

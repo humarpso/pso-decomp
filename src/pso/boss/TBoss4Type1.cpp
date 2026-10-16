@@ -680,7 +680,7 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
     s32 temp_r0_2;
     u32 temp_r3;
     u32 temp_r3_10;
-    u32 temp_r3_11;
+    u32 particle_emitter;
     u32 temp_r3_12;
     u32 temp_r3_13;
     u32 temp_r3_14;
@@ -769,9 +769,9 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
             }
         } else if (temp_f1_2 >= lbl_805D8B04) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x41C) == 0) {
-                temp_r3_11 = create_particle_emitter((int) (temp_r31), (int) (0x13A));
-                *(u32 *)((s8 *)arg0 + 0x41C) = temp_r3_11;
-                if (temp_r3_11 != 0) {
+                particle_emitter = create_particle_emitter((int) (temp_r31), (int) (0x13A));
+                *(u32 *)((s8 *)arg0 + 0x41C) = particle_emitter;
+                if (particle_emitter != 0) {
                     ((TBoss4Type2 *)((void *) *(u32 *)((s8 *)arg0 + 0x41C)))->set_flags(0x40U);
                 }
                 play_sound_effect((int) (0x40039717), (void *) (arg0 + 0x38), (int) (0), (int) (1));
@@ -1738,11 +1738,11 @@ extern const f32 lbl_805D8B84;
 Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2);
 #pragma push
 #pragma opt_loop_invariants off
-Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2) {
+Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 parent, s32 *arg2) {
     s32 i;
     s32 j;
 
-    ((TObjEnemy *)self)->initialize((void*)arg1);
+    ((TObjEnemy *)self)->initialize((void*)parent);
     self->vt = __vt__11TBoss4Type1;
     self->f0 = TBoss4Type1__name;
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);

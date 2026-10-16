@@ -235,16 +235,16 @@ void TPhotonMylla::run_task() {
     Stack_801AD5D8 stack;
     f32 temp_f1;
     f32 temp_f1_2;
-    u8 *temp_r3;
+    u8 *entity;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
     u8 *temp_r3_5;
     if (((s32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 == 0x32) && ((s32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A0 == 0)) {
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A0 = 1;
-        temp_r3 = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
-        if (temp_r3 != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp2C), (void *) (temp_r3 + 0x38));
+        entity = (u8 *)(find_entity_by_id(((RecoveredFields_801AD5D8_arg0 *)arg0)->field_17C));
+        if (entity != NULL) {
+            VecCopy__FP3VecPC3Vec((void *) (&stack.sp2C), (void *) (entity + 0x38));
         }
         temp_f1 = stack.sp30;
         stack.sp30 = temp_f1 + lbl_805DC1FC;

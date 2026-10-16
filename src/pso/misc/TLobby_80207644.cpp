@@ -192,21 +192,21 @@ void TLobby::copy_table_entries(u32 size) {
 
 void randomize_adventure_maps(void) {
   s32 *var_r31;
-  s32 var_r30;
+  s32 main_phase;
   s32 var_r29;
   var_r31 = (s32 *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&floor_map_registry).value);
   TAdStorySelectGC::set_state((s32)((void*)((*(s32 *)&selected_episode))));
-  var_r30 = get_main_phase();
+  main_phase = get_main_phase();
   if (TRaderMapCore::is_not_split_screen() == 1)
   {
-    var_r30 = 0xF;
+    main_phase = 0xF;
   }
   var_r29 = 0;
   do
   {
     if (((s32) (*((s32 *) (((s8 *) var_r31) + 0)))) >= 0)
     {
-      switch (var_r30)
+      switch (main_phase)
       {
         case 14:
           *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *) (&adventure_map_variation_count_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));

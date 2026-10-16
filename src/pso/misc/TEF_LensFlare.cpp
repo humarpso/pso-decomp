@@ -58,8 +58,8 @@ void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_800818D8_lbl_8048E040_size[sizeof(RecoveredGlobal_800818D8_lbl_8048E040) == 0xF0 ? 1 : -1];
 typedef char RecoveredGlobal_800818D8_lbl_8048E130_size[sizeof(RecoveredGlobal_800818D8_lbl_8048E130) == 0x38 ? 1 : -1];
-u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (arg1));
+u8 *TEF_LensFlare__ct(u8 *arg0, s32 parent, s32 arg2) {
+    construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800818D8_lbl_8048E130 *)&lbl_8048E130).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TEF_LensFlare__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

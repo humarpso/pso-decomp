@@ -168,15 +168,15 @@ u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1) {
 }
 
 u8 *TLobby::init_memory_pool(s32 arg1, s32 arg2, s32 arg3) {
-    s32 temp_r4;
+    s32 prev;
     u8 *temp_r3;
     u8 *temp_r5;
 
     *(void * *)&this->m_name = fn_803DE864(arg3, 0x10);
     if ((void *) *(void * *)&this->m_name != NULL) {
         *(s32 *)&this->m_flags = arg3;
-        temp_r4 = (arg2 + 0x1F) & 0xFFFFFFE0;
-        *(s32 *)&this->m_prev = temp_r4;
+        prev = (arg2 + 0x1F) & 0xFFFFFFE0;
+        *(s32 *)&this->m_prev = prev;
         temp_r3 = (unsigned char *) (*(void * *)&this->m_name);
         *(void **)((s8 *)((u8 *)this) + 0x2C) = temp_r3;
         temp_r5 = temp_r3 + 0x10;
@@ -187,7 +187,7 @@ u8 *TLobby::init_memory_pool(s32 arg1, s32 arg2, s32 arg3) {
         *(s32 *)((s8 *)temp_r5 + 0) = 0;
         *(void **)((s8 *)temp_r5 + 4) = (void *) *(void * *)&this->m_name;
         *(s32 *)((s8 *)temp_r5 + 8) = arg1;
-        *(s32 *)((s8 *)temp_r5 + 0xC) = temp_r4;
+        *(s32 *)((s8 *)temp_r5 + 0xC) = prev;
     }
     return ((u8 *)this);
 }
@@ -898,7 +898,7 @@ s32 TLobby::get_clock_frames() {
 }
 
 void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
-    f32 temp_f31;
+    f32 scale;
     f32 var_f4;
     s32 temp_r31;
     var_f4 = farg3;
@@ -906,11 +906,11 @@ void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
         if (var_f4 > lbl_805D7EEC) {
             var_f4 = lbl_805D7EEC;
         }
-        temp_f31 = lbl_805D7EF0 / farg2;
+        scale = lbl_805D7EF0 / farg2;
         temp_r31 = TLobby::calc_alpha_shifted(var_f4);
         if (get_main_phase() == 0xF) {
             TLobby::close_result_windows();
-            draw_small_font_text(temp_r31 | 0xFF0000 | 0xFFFF, ((u8* (*)(void))get_shared_text_buffer)(), farg0, lbl_805D7EF0 + farg1, temp_f31);
+            draw_small_font_text(temp_r31 | 0xFF0000 | 0xFFFF, ((u8* (*)(void))get_shared_text_buffer)(), farg0, lbl_805D7EF0 + farg1, scale);
         }
     }
 }

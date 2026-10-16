@@ -677,46 +677,46 @@ extern u32 TBoss4Type3_shared_instance;
 extern u32 lbl_805D6864;
 extern u32 lbl_805D6868;
 
-void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 arg2) {
+void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneBm9Mericarol *)arg0)->handle_action((s32)((void *) (arg2)));
+        ((TObjEneBm9Mericarol *)arg0)->handle_action((s32)((void *) (msg)));
         return;
     case 1:
-        TObjEneBm9Mericarol__sub_802D05BC((void *) (arg0), (void *) (arg2));
+        TObjEneBm9Mericarol__sub_802D05BC((void *) (arg0), (void *) (msg));
         return;
     case 2:
-        ((TObjEneBm9Mericarol *)arg0)->handle_event((s32)((void *) (arg2)));
+        ((TObjEneBm9Mericarol *)arg0)->handle_event((s32)((void *) (msg)));
         return;
     case 3:
-        TObjEneBm9Mericarol__sub_802D01D8((void *) (arg0), (void *) (arg2));
+        TObjEneBm9Mericarol__sub_802D01D8((void *) (arg0), (void *) (msg));
         return;
     case 4:
-        handle_shot_state__19TObjEneBm9MericarolFPvi((void *) (arg0), (void *) (arg2));
+        handle_shot_state__19TObjEneBm9MericarolFPvi((void *) (arg0), (void *) (msg));
         return;
     case 5:
-        TObjPlayer__sub_802CFB64((void *) (arg0), (void *) (arg2));
+        TObjPlayer__sub_802CFB64((void *) (arg0), (void *) (msg));
         return;
     case 6:
-        TObjEneDD__sub_802CF7B4((void *) (arg0), (void *) (arg2));
+        TObjEneDD__sub_802CF7B4((void *) (arg0), (void *) (msg));
         return;
     case 10:
-        TObjEneBm9Mericarol__sub_802CF368((void *) (arg0), (void *) (arg2));
+        TObjEneBm9Mericarol__sub_802CF368((void *) (arg0), (void *) (msg));
         return;
     case 11:
-        ((TObjEneBm9Mericarol *)arg0)->state_burrow((s32)((void *) (arg2)));
+        ((TObjEneBm9Mericarol *)arg0)->state_burrow((s32)((void *) (msg)));
         return;
     case 7:
-        TObjEneBm9Mericarol__sub_802CF4F8((void *) (arg0), (void *) (arg2));
+        TObjEneBm9Mericarol__sub_802CF4F8((void *) (arg0), (void *) (msg));
         return;
     case 8:
-        ((TObjEneBm9Mericarol *)arg0)->handle_motion_event((s32)((void *) (arg2)));
+        ((TObjEneBm9Mericarol *)arg0)->handle_motion_event((s32)((void *) (msg)));
         return;
     case 9:
-        TObjEneBm9Mericarol__sub_802CEDA0((void *) (arg0), (void *) (arg2));
+        TObjEneBm9Mericarol__sub_802CEDA0((void *) (arg0), (void *) (msg));
         return;
     case 12:
-        ((TObjEneBm9Mericarol *)arg0)->handle_state_message((s32)((void *) (arg2)));
+        ((TObjEneBm9Mericarol *)arg0)->handle_state_message((s32)((void *) (msg)));
     default:
         return;
     }
@@ -897,7 +897,7 @@ void *TObjEneBm9Mericarol::create(void *arg0) {
     return o;
 }
 
-s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
+s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 arg3, f32 range) {
     s32 hit;
     u32 mask;
     s32 obj;
@@ -910,7 +910,7 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 arg3, f32 farg0) 
     }
     TObjPlayer::init_all_slots();
     if (*(s32 *)((s8 *)arg1 + 4) & 1) {
-        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(farg0);
+        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(range);
         mask |= 0x80000;
     }
     if (*(s32 *)((s8 *)arg1 + 4) & 2) {

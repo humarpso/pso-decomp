@@ -47,7 +47,7 @@ extern u16 scene_sora_reflect_active;
 s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
     s32 sp8[8];
     s32 var_r3;
-    u32 temp_r3;
+    u32 player;
 
     if (TOKeyMachine01::is_state_active() == 0) {
         return 0;
@@ -55,11 +55,11 @@ s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
     if ((u16) scene_sora_reflect_active == 0) {
         return 1;
     }
-    temp_r3 = get_player_by_client_id(arg0);
-    if (temp_r3 == 0U) {
+    player = get_player_by_client_id(arg0);
+    if (player == 0U) {
         return 0;
     }
-    if (fn_8029E7BC(temp_r3 + 0x2FC, sp8) == 0) {
+    if (fn_8029E7BC(player + 0x2FC, sp8) == 0) {
         return 0;
     }
     if (arg1 != 0) {

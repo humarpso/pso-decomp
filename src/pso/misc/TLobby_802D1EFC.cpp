@@ -50,15 +50,15 @@ void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
     s32 temp_r29;
     s32 var_r31;
     u8 *temp_r31;
-    u8 *temp_r3;
+    u8 *player;
     s32 var_r26;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *var_r25;
     ((TLobby *)arg0)->update_both_halves();
-    temp_r3 = get_player_by_client_id(arg1);
-    if (temp_r3 != NULL) {
-        temp_r29 = ((TObjPlayer *)(*(s32 *)((s8 *)temp_r3 + 0xD00)))->run_and_get_result((int)((void *) ids));
+    player = get_player_by_client_id(arg1);
+    if (player != NULL) {
+        temp_r29 = ((TObjPlayer *)(*(s32 *)((s8 *)player + 0xD00)))->run_and_get_result((int)((void *) ids));
         var_r25 = (unsigned char *) (arg0 + 0xF8);
         var_r26 = 0;
         while (var_r26 < temp_r29) {
@@ -74,7 +74,7 @@ void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
             var_r26 += 1;
         }
         temp_r31 = (u8 *) ((TLobby *)(arg0 + 0xF8))->get_trade_obj_ptr();
-        temp_r3_3 = get_quest_id__12TQuestListVMFv(temp_r3);
+        temp_r3_3 = get_quest_id__12TQuestListVMFv(player);
         *(s32 *)((s8 *)temp_r31 + 0) = -0xFF;
         if (temp_r3_3 != NULL) {
             *(s32 *)((s8 *)temp_r31 + 4) = (s32) *(s32 *)((s8 *)temp_r3_3 + 0x20);

@@ -156,8 +156,8 @@ void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBGLightningCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (arg1));
+u8 *TBGLightningCtrl__ct(u8 *arg0, s32 parent, s32 arg2) {
+    construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBGLightningCtrl__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

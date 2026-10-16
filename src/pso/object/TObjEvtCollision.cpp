@@ -48,14 +48,14 @@ extern s32 local_client_id;
 
 s32 TObjEvtCollision::is_any_player_in_range(f32 farg0) {
     s32 arg0 = (s32)this;
-    s32 var_r31;
-    u32 temp_r3;
+    s32 i;
+    u32 player;
     u32 temp_r3_2;
 
     if (is_split_screen() != 0) {
-        for (var_r31 = 0; var_r31 < 4; var_r31 += 1) {
-            temp_r3 = get_player_by_client_id(var_r31);
-            if ((temp_r3 != 0U) && (xyz_distance_squared(temp_r3 + 0x38, arg0 + 0x38) < farg0)) {
+        for (i = 0; i < 4; i += 1) {
+            player = get_player_by_client_id(i);
+            if ((player != 0U) && (xyz_distance_squared(player + 0x38, arg0 + 0x38) < farg0)) {
                 return 1;
             }
         }

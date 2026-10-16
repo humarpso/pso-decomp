@@ -543,7 +543,7 @@ void TObjPlayer__sub_800C44C4(void) {
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D5174 + 0x42C));
     TLobby::spawn_npc_enemy((s16)((int) (0x37)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)((f32) (lbl_805D9FBC)), (f32)((f32) (lbl_805D9FAC)));
 }
-s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
+s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 range) {
     s32 result;
     s32 flags;
     s32 p;
@@ -556,7 +556,7 @@ s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
     }
     TObjPlayer::init_all_slots();
     if (*(s32 *)((s8 *)arg1 + 4) & 1) {
-        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(farg0);
+        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(range);
         flags |= 0x80000;
     }
     if (*(s32 *)((s8 *)arg1 + 4) & 2) {

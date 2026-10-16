@@ -503,18 +503,18 @@ typedef char RecoveredGlobal_8007119C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800710D8_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800710D8_lbl_8048C9D8) == 0x748 ? 1 : -1];
 #define TBL_800712D8 (*(Table_800712D8 *)lbl_804DB1F0)
 
-s32 TLobby__sub_80292270(s32 arg0, s32 arg1) {
+s32 TLobby__sub_80292270(s32 seed, s32 card) {
     s32 r;
     if (is_challenge_mode_active() == 0 || *(s32 *)((s8 *)lbl_804DB1F0 + 0) == -1 ||
-        (u32)get_character_save_record((u16)arg1) == 0) {
+        (u32)get_character_save_record((u16)card) == 0) {
         *(s32 *)((s8 *)lbl_804DB1F0 + 0x14) = -4;
         return -4;
     }
-    fabs_float(arg0 - *(s32 *)((s8 *)lbl_804DB1F0 + 0xC));
-    if (TLobby::is_value_out_of_range(arg0) != 0) {
-        arg0 = 0x8C9F;
+    fabs_float(seed - *(s32 *)((s8 *)lbl_804DB1F0 + 0xC));
+    if (TLobby::is_value_out_of_range(seed) != 0) {
+        seed = 0x8C9F;
     }
-    r = TLobby__sub_80292DA0(arg0, arg1);
+    r = TLobby__sub_80292DA0(seed, card);
     if (r == -1) {
         *(s32 *)((s8 *)lbl_804DB1F0 + 0x14) = -1;
         return -1;
@@ -523,7 +523,7 @@ s32 TLobby__sub_80292270(s32 arg0, s32 arg1) {
         *(s32 *)((s8 *)lbl_804DB1F0 + 0x14) = -2;
         return -2;
     }
-    if ((u32)get_character_save_record((u16)arg1) != 0 && is_level_capped__23TAdSinglePlyChrSelectGCFv() != 0) {
+    if ((u32)get_character_save_record((u16)card) != 0 && is_level_capped__23TAdSinglePlyChrSelectGCFv() != 0) {
         *(s32 *)((s8 *)lbl_804DB1F0 + 0x14) = -3;
         return -3;
     }
@@ -565,24 +565,24 @@ s32 TLobby__sub_802923C4(s32 idx, s32 value, s32 arg) {
 s32 TLobby__sub_802924B4(s32 arg0, u16 arg1) {
   s32 new_var2;
   s32 *temp_r3_2;
-  s32 temp_r3;
+  s32 character_save_record;
   u8 *temp_r30;
   int new_var;
   if ((((s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + 0x14)))) < 0) || (((s32) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + 0x14)))) > 2))
   {
     return 0;
   }
-  temp_r3 = get_character_save_record((s32) arg1);
+  character_save_record = get_character_save_record((s32) arg1);
   new_var = 0;
-  if (temp_r3 == new_var)
+  if (character_save_record == new_var)
   {
     return new_var;
   }
-  if (((TAdSinglePlyChrSelectGC *)(temp_r3 & 0xFFFFFFFFFFFFFFFFu))->register_in_free_room_slot(arg0) != 0)
+  if (((TAdSinglePlyChrSelectGC *)(character_save_record & 0xFFFFFFFFFFFFFFFFu))->register_in_free_room_slot(arg0) != 0)
   {
     temp_r30 = (((u8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + 0x14))) * 0x1C)) + 0x21C;
     new_var2 = TWindowSubStatusDisp::resolve_player_slot(-1);
-    temp_r3_2 = (s32 *) TWindowSubStatusDisp__sub_8006F134(temp_r3 + 0x21C4, new_var2);
+    temp_r3_2 = (s32 *) TWindowSubStatusDisp__sub_8006F134(character_save_record + 0x21C4, new_var2);
     *temp_r3_2 |= *((s32 *) (((s8 *) temp_r30) + 4));
     return 1;
   }
@@ -806,15 +806,15 @@ typedef char RecoveredGlobal_8029299C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8
 s32 TLobby__sub_8029299C(void) {
     s32 var_r31;
     u32 var_r30;
-    u8 *temp_r3;
+    u8 *player;
     if ((u32) challenge_retry_object == 0U) {
         return 0;
     }
     var_r31 = 0;
     var_r30 = 0;
     do {
-        temp_r3 = (u8 *)(((s32)get_player_by_client_id((int)(var_r30))));
-        if ((temp_r3 != NULL) && (((int)((TLobby *)temp_r3)->check_player_state_flag_2()) != 0)) {
+        player = (u8 *)(((s32)get_player_by_client_id((int)(var_r30))));
+        if ((player != NULL) && (((int)((TLobby *)player)->check_player_state_flag_2()) != 0)) {
             TLobby__sub_80293218((s32) var_r30);
             var_r31 = 1;
         }
@@ -828,14 +828,14 @@ s32 TLobby__sub_8029299C(void) {
 }
 s32 TLobby__sub_80292A34(void) {
     s32 var_r31;
-    u8 *temp_r3;
+    u8 *player;
     if ((u32) challenge_retry_object == 0U) {
         return 0;
     }
     var_r31 = 0;
 loop_3:
-    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id((int)(var_r31))));
-    if ((temp_r3 != NULL) && (((int)((TLobby *)temp_r3)->check_player_state_flag_2()) == 0)) {
+    player = (u8 *)(((u8 *)get_player_by_client_id((int)(var_r31))));
+    if ((player != NULL) && (((int)((TLobby *)player)->check_player_state_flag_2()) == 0)) {
         return 0;
     }
     var_r31 += 1;
@@ -847,15 +847,15 @@ loop_3:
 }
 
 #define GCW_80292AB4 ((u8 *(*)(u32))get_character_save_record)
-s32 TLobby__sub_80292AB4(s32 arg0, s32 arg1, s32 arg2) {
+s32 TLobby__sub_80292AB4(s32 arg0, s32 arg1, s32 slot) {
     s32 lo;
     s32 hi;
     s32 *flags;
     s32 i;
     Ent_80292AB4 *e;
     s32 w;
-    lo = calc_entry_offset__20TWindowSubStatusDispFv(arg2);
-    hi = calc_layout_hash__20TWindowSubStatusDispFv(arg2);
+    lo = calc_entry_offset__20TWindowSubStatusDispFv(slot);
+    hi = calc_layout_hash__20TWindowSubStatusDispFv(slot);
     if (GCW_80292AB4((u16)arg1) == NULL) {
         return -4;
     }
@@ -863,7 +863,7 @@ s32 TLobby__sub_80292AB4(s32 arg0, s32 arg1, s32 arg2) {
         return -4;
     }
     w = ((s32 (*)(u32))get_character_save_record)((u16)arg1) + 0x21C4;
-    flags = TWindowSubStatusDisp__sub_8006F134((u8 *)w, arg2);
+    flags = TWindowSubStatusDisp__sub_8006F134((u8 *)w, slot);
     e = (Ent_80292AB4 *)((u8 *)lbl_804DB1F0 + 0x254);
     for (i = 2; i >= 0; i--, e--) {
         if (e->id != 0 && e->id >= arg0) {
@@ -1324,7 +1324,7 @@ extern "C" void render_shadows__7TObjectFv();
 
 void setup_split_screen(void) {
     u32 var_r31;
-    u32 temp_r30;
+    u32 player;
     u32 temp_r4;
 
     split_screen_flag = 1;
@@ -1344,10 +1344,10 @@ void setup_split_screen(void) {
         set_split_screen_name__6TLobbyFi(lbl_80464E58);
         var_r31 = 0U;
         do {
-            temp_r30 = get_player_by_client_id(var_r31);
+            player = get_player_by_client_id(var_r31);
             temp_r4 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
-            if ((temp_r30 != 0U) && (temp_r4 != 0U)) {
-                export_character_data__10TObjPlayerFPvPv(temp_r30, temp_r4);
+            if ((player != 0U) && (temp_r4 != 0U)) {
+                export_character_data__10TObjPlayerFPvPv(player, temp_r4);
             }
             var_r31 += 1;
         } while (var_r31 != 4U);

@@ -84,13 +84,13 @@ s16 TLobby::clamp_player_index() {
 }
 
 void TLobby::set_clamped_index(s16 arg1) {
-    s16 var_r31;
+    s16 down;
 
-    var_r31 = arg1;
-    if ((var_r31 < 0) || (var_r31 > TObjPlayer::get_max_level())) {
-        var_r31 = 0;
+    down = arg1;
+    if ((down < 0) || (down > TObjPlayer::get_max_level())) {
+        down = 0;
     }
-    *(s16 *)&this->m_down = var_r31;
+    *(s16 *)&this->m_down = down;
 }
 
 void TLobby::set_clamped_value_1c(s32 arg1) {

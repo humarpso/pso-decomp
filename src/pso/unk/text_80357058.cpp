@@ -235,7 +235,7 @@ extern s32 __vt__20TItemEffOrgaFlowShot[];
 
 void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     s32 temp_r3;
-    s32 var_r30;
+    s32 i;
     if (has_game_join_id__13TUnk_804E355CFv() != 0) {
         check_hits__14TItemAttackColFPv((void *) (arg0));
     } else {
@@ -246,8 +246,8 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0x190) == *(f32 *)((s8 *)arg0 + 0x18C)) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x194), (f32)((f32) (lbl_805E0034)), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x198))));
     }
-    for (var_r30 = 0; var_r30 != 10; var_r30++) {
-        TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[var_r30].w), (s32)2);
+    for (i = 0; i != 10; i++) {
+        TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[i].w), (s32)2);
     }
     if (*(f32 *)((s8 *)arg0 + 0x194) == *(f32 *)((s8 *)arg0 + 0x198)) {
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x19C);

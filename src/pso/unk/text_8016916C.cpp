@@ -27,7 +27,7 @@ extern "C" {
 void TOHealGeneral::update_closing() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r3_2;
-    u8 *temp_r3;
+    u8 *player;
     apply_heal_to_target();
     *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc + 0x147);
     *(f32 *)&this->_padD0 = (f32) (*(f32 *)&this->_padD0 - lbl_805DB6B8);
@@ -36,9 +36,9 @@ void TOHealGeneral::update_closing() {
         *(f32 *)&this->_padD0 = (f32) lbl_805DB6C0;
         *(s32 *)&this->m_ac = 0;
         if (TOHangerMachine01::is_valid_slot((s32) arg0, this->m_f4) != 0) {
-            temp_r3 = (u8 *)(get_player_by_client_id((u32) this->m_f4));
-            if (temp_r3 != NULL) {
-                temp_r3_2 = obj_getS16_32C(temp_r3);
+            player = (u8 *)(get_player_by_client_id((u32) this->m_f4));
+            if (player != NULL) {
+                temp_r3_2 = obj_getS16_32C(player);
                 if (temp_r3_2 > 0) {
                     send_6x2F_change_player_hp(0xFFFFU, this->m_f4, temp_r3_2);
                 }

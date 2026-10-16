@@ -202,7 +202,7 @@ extern s32 actor_frame_tick;
 extern s32 lbl_805D667C;
 
 void TObjSeabedSuisoBrakable__vt12(void *arg0) {
-    s32 temp_r3;
+    s32 break_data;
     s32 temp_r3_2;
     void *temp_r31;
     void *temp_r31_2;
@@ -211,9 +211,9 @@ void TObjSeabedSuisoBrakable__vt12(void *arg0) {
         temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)arg0 + 0x34), 2);
         if ((s32) lbl_805D667C != (s32) actor_frame_tick) {
             if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
-                temp_r3 = TObjSeabedSuisoBrakable::get_break_data(1);
-                if (temp_r3 != -1) {
-                    scroll_ginja_mesh_uvs((s32)(*(u32 *)((s8 *)temp_r31 + 4)), (s32)(0), (s32)(1), (u16)((u16) temp_r3), (s32)(1));
+                break_data = TObjSeabedSuisoBrakable::get_break_data(1);
+                if (break_data != -1) {
+                    scroll_ginja_mesh_uvs((s32)(*(u32 *)((s8 *)temp_r31 + 4)), (s32)(0), (s32)(1), (u16)((u16) break_data), (s32)(1));
                 }
             }
             lbl_805D667C = actor_frame_tick;
@@ -372,7 +372,7 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 *temp_r3_4;
     s32 *temp_r3_5;
     s32 *temp_r3_6;
-    s32 temp_r31;
+    s32 break_data;
     s32 temp_r31_2;
     s32 var_r31;
     s32 var_r30;
@@ -407,10 +407,10 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         }
     }
     if ((s32) suiso_brakable_last_frame_tick != (s32) actor_frame_tick) {
-        temp_r31 = TObjSeabedSuisoBrakable::get_break_data(4);
+        break_data = TObjSeabedSuisoBrakable::get_break_data(4);
         temp_r3_5 = get_table1_entry__23TObjSeabedSuisoBrakableFi(2);
-        if ((temp_r3_5 != NULL) && (temp_r31 != -1)) {
-            scroll_ginja_mesh_uvs((s32)(*(s32 *)((s8 *)temp_r3_5 + 4)), (s32)(0), (s32)(1), (u16)((u16) temp_r31), (s32)(1));
+        if ((temp_r3_5 != NULL) && (break_data != -1)) {
+            scroll_ginja_mesh_uvs((s32)(*(s32 *)((s8 *)temp_r3_5 + 4)), (s32)(0), (s32)(1), (u16)((u16) break_data), (s32)(1));
         }
         temp_r31_2 = TObjSeabedSuisoBrakable::get_break_data(3);
         temp_r3_6 = get_table1_entry__23TObjSeabedSuisoBrakableFi(0);
@@ -433,15 +433,15 @@ extern s32 actor_frame_tick;
 extern s32 suiso_brakable_last_frame_tick;
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
-    s32 temp_r3;
+    s32 break_data;
     void *temp_r31;
 
     temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFl(*(s32 *)((s8 *)arg0 + 0xD4), 4);
     if ((s32) suiso_brakable_last_frame_tick != (s32) actor_frame_tick) {
         if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
-            temp_r3 = TObjSeabedSuisoBrakable::get_break_data(0);
-            if (temp_r3 != -1) {
-                ((s32 (*)(u32, s32, s32, u16, s32))scroll_ginja_mesh_uvs)(*(u32 *)((s8 *)temp_r31 + 4), 1, 0, (u16) temp_r3, 1);
+            break_data = TObjSeabedSuisoBrakable::get_break_data(0);
+            if (break_data != -1) {
+                ((s32 (*)(u32, s32, s32, u16, s32))scroll_ginja_mesh_uvs)(*(u32 *)((s8 *)temp_r31 + 4), 1, 0, (u16) break_data, 1);
             }
         }
         suiso_brakable_last_frame_tick = actor_frame_tick;

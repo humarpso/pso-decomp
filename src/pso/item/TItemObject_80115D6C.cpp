@@ -170,17 +170,17 @@ s32 TItemObject__sub_80115DE8(void *item) {
 }
 
 void handle_6x66_use_star_atomizer(u8 *arg0) {
-    u8 *temp_r3;
+    u8 *player;
     s32 var_r28;
     u8 *temp_r3_2;
     ((TObjPlayer *)arg0)->bswap_fields_x4();
-    temp_r3 = (u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 4));
-    if (temp_r3 != NULL) {
+    player = (u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 4));
+    if (player != NULL) {
         var_r28 = 0;
         do {
             temp_r3_2 = (u8 *)get_player_by_client_id(((Pkt_80115F28 *)arg0)->ids[var_r28]);
             if ((temp_r3_2 != NULL) && (((VObj_80115F28 *)temp_r3_2)->m31() == 0)) {
-                if (((TObjPlayer *)temp_r3)->get_field_3e4() == ((TObjPlayer *)temp_r3_2)->get_field_3e4()) {
+                if (((TObjPlayer *)player)->get_field_3e4() == ((TObjPlayer *)temp_r3_2)->get_field_3e4()) {
                     set_hp_clamped__10TObjPlayerFs(temp_r3_2, get_field_2b8__14TItemProShieldFv(temp_r3_2));
                     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
                         if (var_r28 == 0) {
@@ -402,22 +402,22 @@ void TItemObject::vfunc_44() {
 
 extern s32 lbl_805D2C28;
 
-void TItemObject__vt16(u8 *arg0, u8 *arg1) {
+void TItemObject__vt16(u8 *arg0, u8 *item) {
     if (((u8 (*)())get_field_ed__5TItemFv)() == 2) {
-        *(u8 *)((s8 *)arg1 + 4) = (u8) *(u8 *)((s8 *)arg0 + 0x100);
+        *(u8 *)((s8 *)item + 4) = (u8) *(u8 *)((s8 *)arg0 + 0x100);
     }
-    set_stack_count__24TShopEquipmentListWindowFSc((void *) (arg1), (void *) (((VObj_18 *)(arg0))->m34()));
+    set_stack_count__24TShopEquipmentListWindowFSc((void *) (item), (void *) (((VObj_18 *)(arg0))->m34()));
 }
 
-void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
+void *TItemObject__ct(void *arg0, void *arg1, void *item) {
     s16 temp_r3;
 
     TItem__ct();
     *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__11TItemObject;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C28;
-    *(void **)((s8 *)arg0 + 0xF8) = lookup_item_pmt_record(arg2);
-    *(u8 *)((s8 *)arg0 + 0x100) = (u8) *(u8 *)((s8 *)arg2 + 4);
-    ((TItemObject *)arg0)->store_encoded_value(get_item_type_or_default__9TItemListFv(arg2));
+    *(void **)((s8 *)arg0 + 0xF8) = lookup_item_pmt_record(item);
+    *(u8 *)((s8 *)arg0 + 0x100) = (u8) *(u8 *)((s8 *)item + 4);
+    ((TItemObject *)arg0)->store_encoded_value(get_item_type_or_default__9TItemListFv(item));
     if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 0x10) & 1) {
         ((TObjPlayer *)arg0)->add_item_flags(0x10);
     } else {

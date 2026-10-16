@@ -71,9 +71,9 @@ void TObjEneMe1Gee_NEEDLE::run_task() {
     }
     TNeedleShoot__sub_802A4668(this);
 }
-u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1) {
+u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f32 farg1) {
     u8 *temp_r3;
-    TNeedleShoot__ct(arg0, arg1, arg2, arg3);
+    TNeedleShoot__ct(arg0, arg1, from, to);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__20TObjEneMe1Gee_NEEDLE.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe1Gee_NEEDLE__name;
     *(f32 *)((s8 *)arg0 + 0xBC) = farg1;

@@ -35,20 +35,20 @@ typedef struct VObj_18_26c590 VObj_18_26c590;
 #define PSO_VCALL_VObj_18_26c590_m10(_self) (((VObj_18_26c590 *)(_self))->m10())
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   unsigned char new_var;
-  s32 temp_r3;
+  s32 player;
   u8 *temp_r4;
-  temp_r3 = get_player_by_client_id(arg1);
-  if (temp_r3 == 0)
+  player = get_player_by_client_id(arg1);
+  if (player == 0)
   {
     return 0;
   }
   *((u8 *) (((s8 *) arg0) + 0x8C)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x8C))) | 3);
-  strncpy((void *) (arg0 + 8), (void *) PSO_VCALL_VObj_18_26c590_m10(temp_r3), (int) 0x17);
+  strncpy((void *) (arg0 + 8), (void *) PSO_VCALL_VObj_18_26c590_m10(player), (int) 0x17);
   *((s8 *) (((s8 *) arg0) + 0x1F)) = 0;
-  *((u8 *) (((s8 *) arg0) + 0x8F)) = (u8) (*((u8 *) (((s8 *) temp_r3) + 0x88D)));
-  *((s8 *) (((s8 *) arg0) + 0x8E)) = ((TPlyPhotonChair *)temp_r3)->get_actor_section_id();
-  new_var = TObjPlayer__sub_801AFD8C((void *) temp_r3);
-  temp_r4 = (u8 *) (temp_r3 + 0xDAC);
+  *((u8 *) (((s8 *) arg0) + 0x8F)) = (u8) (*((u8 *) (((s8 *) player) + 0x88D)));
+  *((s8 *) (((s8 *) arg0) + 0x8E)) = ((TPlyPhotonChair *)player)->get_actor_section_id();
+  new_var = TObjPlayer__sub_801AFD8C((void *) player);
+  temp_r4 = (u8 *) (player + 0xDAC);
   *((s8 *) (((s8 *) arg0) + 0x8D)) = new_var;
   if (temp_r4 == 0)
   {

@@ -21,29 +21,29 @@ extern s32 tl_particlemodel;
 
 void cleanup_game_objects__9TMainTaskFv(void) {
     s32 temp_r29;
-    s32 temp_r30;
-    s32 temp_r31;
+    s32 main_phase;
+    s32 global_state;
 
     TEnding__sub_8008C9F8();
     TItemLoad::create();
     TObjPlayer::spawn_cleanup_helper((void *)tl_particlemodel);
     TObjPlayer::create_cleanup_object((void *)tl_item_equip);
-    temp_r30 = get_main_phase();
-    temp_r31 = TOKeyMachine01::get_global_state();
+    main_phase = get_main_phase();
+    global_state = TOKeyMachine01::get_global_state();
     temp_r29 = get_current_floor();
     item_ground_placement_enabled = 0;
     TLobby::clear_object_count();
     TLobby::respawn_missing_floor_items(temp_r29);
-    if ((temp_r31 == 0) || (temp_r31 == 0x12)) {
+    if ((global_state == 0) || (global_state == 0x12)) {
         ((TObjPlayer *)(&lbl_805D5440))->set_flags(1);
-        if ((temp_r30 != 0xE) && (temp_r30 == 0xF)) {
+        if ((main_phase != 0xE) && (main_phase == 0xF)) {
             TItemDrop::refresh_drop_table_if_changed();
         }
     }
     if (get_game_play_mode() == 1) {
         TItemDrop::refresh_drop_table_if_changed();
     }
-    if (temp_r30 == 0xF) {
+    if (main_phase == 0xF) {
         new TItemDisconnectCtrl;
     }
     item_ground_placement_enabled = 1;

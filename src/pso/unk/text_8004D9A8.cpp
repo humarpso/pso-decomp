@@ -306,14 +306,14 @@ void *__vt__11TObjDFDemo0[13] = {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-Obj_8004DEE0 *TObjDFDemo0__ct(void *arg0, void *arg1) {
+Obj_8004DEE0 *TObjDFDemo0__ct(void *arg0, void *parent) {
     Obj_8004DEE0 *self = (Obj_8004DEE0 *)arg0;
     s32 k;
     s32 h;
     s32 i;
     s32 j;
 
-    construct_world_actor_base(self, arg1);
+    construct_world_actor_base(self, parent);
     self->vt = (void *)__vt__11TObjDFDemo0;
     self->f0 = TObjDFDemo0__name;
     h = TBoss4Uro::get_instance_count();

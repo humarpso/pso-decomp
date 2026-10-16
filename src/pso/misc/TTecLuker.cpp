@@ -403,7 +403,7 @@ void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
-u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 arg3) {
+u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 ac) {
     construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (((u8 *)this)), (void *) (arg2));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), (void *) (arg1));
@@ -412,19 +412,19 @@ u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 arg3) {
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     TTecLuker__sub_80234F68((void*)((void *) (((u8 *)this) + 0x98)));
     *(s32 *)&this->unk_B0 = 0;
-    this->m_ac = arg3;
+    this->m_ac = ac;
     return ((u8 *)this);
 }
 
 void TTecLuker::apply_all_players() {
     s32 var_r31;
-    u32 temp_r3;
+    u32 player;
 
     var_r31 = 0;
     do {
-        temp_r3 = get_player_by_client_id((s32)(var_r31));
-        if (temp_r3 != 0U) {
-            reset_telepipe_record((O_802340A0 *)(temp_r3 + 0x830));
+        player = get_player_by_client_id((s32)(var_r31));
+        if (player != 0U) {
+            reset_telepipe_record((O_802340A0 *)(player + 0x830));
         }
         var_r31 += 1;
     } while (var_r31 < 4);
@@ -438,10 +438,10 @@ void TTecLuker::create_for_player(int arg0, s32 arg1) {
 }
 
 void create_quest_telepipe_for_client(u16 arg0) {
-    u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)get_player_by_client_id((s32)((u32) arg0))));
-    if (temp_r3 != NULL) {
-        ((TTecLuker *)temp_r3)->create(temp_r3 + 0x38, temp_r3 + 0x2FC, NULL);
+    u8 *player;
+    player = (u8 *)(((s32)get_player_by_client_id((s32)((u32) arg0))));
+    if (player != NULL) {
+        ((TTecLuker *)player)->create(player + 0x38, player + 0x2FC, NULL);
     }
 }
 
@@ -520,8 +520,8 @@ void reset_telepipe_record(O_802340A0 *o) {
     o->w14 = 0;
 }
 
-void TTecLuker::init_fields(s16 arg1) {
-    *(s16 *)&this->m_name = arg1;
+void TTecLuker::init_fields(s16 name) {
+    *(s16 *)&this->m_name = name;
     *(s16 *)((s8 *)this + 2) = 0;
     *(s32 *)&this->m_flags = 0;
 }
@@ -539,15 +539,15 @@ void TTecLuker::send_telepipe_packet() {
 }
 
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
-    u8 *temp_r3;
+    u8 *player;
     *(u16 *)((s8 *)arg0 + 0) = arg1;
     *(s16 *)((s8 *)arg0 + 2) = arg2;
     VecCopy__FP3VecPC3Vec(arg0 + 8, arg3);
     *(s32 *)((s8 *)arg0 + 4) = arg4;
     if (arg1 <= 4U) {
-        temp_r3 = (u8 *)(((s32)get_player_by_client_id((s32)((u32) arg1))));
-        if (temp_r3 != NULL) {
-            *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
+        player = (u8 *)(((s32)get_player_by_client_id((s32)((u32) arg1))));
+        if (player != NULL) {
+            *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)player + 0x60);
         }
     }
 }
@@ -825,7 +825,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
     u16 temp_r5;
     s32 var_r29;
     u8 *temp_r29;
-    u8 *temp_r3_2;
+    u8 *player;
     u8 *owner;
     u8 *tgt;
     u16 st;
@@ -876,10 +876,10 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         if ((get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xF6)) != 0) && (get_pipe_interaction_latch(*(void **)((s8 *)arg0 + 0xF0)) != 0) && (are_players_gathered_near(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
             offset_point_toward_camera(arg0 + 0xFC, (s32 *) &sp8, lbl_805DC858);
             spawn_particle_effect((float *) &sp8, 0xB3);
-            temp_r3_2 = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xF6));
-            if (temp_r3_2 != NULL) {
-                play_effect_default__10TObjPlayerFii(temp_r3_2, 0xA);
-                play_sound_effect(0x40022D1A, temp_r3_2 + 0x38, 0, 0);
+            player = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xF6));
+            if (player != NULL) {
+                play_effect_default__10TObjPlayerFii(player, 0xA);
+                play_sound_effect(0x40022D1A, player + 0x38, 0, 0);
             }
             TWindowCtrl::init_all_slots();
             *(s32 *)((s8 *)arg0 + 0x108) = 2;

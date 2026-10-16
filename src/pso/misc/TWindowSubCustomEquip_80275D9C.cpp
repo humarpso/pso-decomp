@@ -97,7 +97,7 @@ void TWindowSubCustomEquip::draw_cursor(u8 *arg1) {
     ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD564, arg1, &pos, arg0->f66);
 }
 
-void TWindowSubCustomEquip::update_palette_slot(s32 arg1, s32 arg2, s32 arg3) {
+void TWindowSubCustomEquip::update_palette_slot(s32 arg1, s32 kind, s32 arg3) {
     void *pl;
     u8 *a;
     u8 *b;
@@ -105,13 +105,13 @@ void TWindowSubCustomEquip::update_palette_slot(s32 arg1, s32 arg2, s32 arg3) {
     if (pl != NULL) {
         a = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F738[arg1]);
         b = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F740[arg1]);
-        if (can_use_palette_action__10TObjPlayerFPvUcUc(pl, arg2, arg3) != 0) {
+        if (can_use_palette_action__10TObjPlayerFPvUcUc(pl, kind, arg3) != 0) {
             *(s32 *)(a + 0x2C) = -1;
         } else {
             *(s32 *)(a + 0x2C) = 0xFF404040;
         }
-        draw_action_palette_icon(a, arg2, arg3);
-        update_palette_item_count_label(b, a, arg2, arg3, *(s16 *)(((u8 *)this) + 0x20));
+        draw_action_palette_icon(a, kind, arg3);
+        update_palette_item_count_label(b, a, kind, arg3, *(s16 *)(((u8 *)this) + 0x20));
     }
 }
 

@@ -269,16 +269,16 @@ extern const f32 TBoss6Mine__data_805DF580;
 
 void TBoss6Mine::draw() {
     s32 temp_r31;
-    s32 temp_r31_2;
-    s32 temp_r30;
+    s32 bml_motion;
+    s32 bml_model;
 
     TObjPlayer::set_global_flag();
     temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)&this->m_374, 2);
-    temp_r30 = get_bml_model(*(s32 *)&this->m_374, 2);
-    temp_r31_2 = get_bml_motion(*(s32 *)&this->m_374, 0);
+    bml_model = get_bml_model(*(s32 *)&this->m_374, 2);
+    bml_motion = get_bml_motion(*(s32 *)&this->m_374, 0);
     TObjFish::set_global_param(temp_r31);
     TBoss6PlotFalz__sub_802AC008(*(f32 *)&this->m_3c8, TBoss6Mine__data_805DF580);
-    draw_model_motion(temp_r30, temp_r31_2, *(f32 *)&this->_pad39C);
+    draw_model_motion(bml_model, bml_motion, *(f32 *)&this->_pad39C);
     TBoss6PlotFalz::update_camera_target();
     TObjPlayer::clear_global_state();
 }
@@ -504,12 +504,12 @@ extern s32 tl_04;
 #pragma fp_contract on
 #define VecCopyP ((u8 *(*)(void *, void *))VecCopy__FP3VecPC3Vec)
 #define THIS self
-s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
+s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     u8 *self;
     Tmp_80324A00 tmp;
     f32 f;
     self = (u8 *)arg0;
-    ((TObjEnemy *)arg0)->initialize((void*)arg1);
+    ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss6Mine;
     *(s32 *)((s8 *)THIS + 0) = lbl_805D4178;
     *(s32 *)((s8 *)THIS + 0x378) = *(s32 *)((s8 *)arg2 + 0x40);

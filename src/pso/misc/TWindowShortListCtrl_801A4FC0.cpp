@@ -51,58 +51,58 @@ void *TUnk_804C2298::destroy(s16 arg1) {
 extern void *tl_00;
 extern s32 lbl_804C2298[];
 
-void *construct_option_scene(void *arg0) {
+void *construct_option_scene(void *parent) {
     void *o;
     void *o2;
     void *o3;
     void *o4;
-    __ct__7TObjectFP7TObject(arg0, tl_00);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C2298;
+    __ct__7TObjectFP7TObject(parent, tl_00);
+    *(s32 **)((s8 *)parent + 0x18) = lbl_804C2298;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        __ct__9TAdBackGCFv(o, arg0);
+        __ct__9TAdBackGCFv(o, parent);
     }
     o2 = __nw__7TObjectFUl(0x28);
     if (o2 != NULL) {
-        __ct__12TAdBackTxtGCFv(o2, arg0);
+        __ct__12TAdBackTxtGCFv(o2, parent);
     }
     o3 = __nw__7TObjectFUl(0x138);
     if (o3 != NULL) {
-        __ct__10TAdTitleGCFv(o3, arg0, 3);
+        __ct__10TAdTitleGCFv(o3, parent, 3);
     }
     TKeyBoardControl__sub_8000F90C(9);
-    *(u32 *)((s8 *)arg0 + 0x20) = 4;
-    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u16 *)((s8 *)arg0 + 0x1E) = 0;
+    *(u32 *)((s8 *)parent + 0x20) = 4;
+    *(u8 *)((s8 *)parent + 0x1C) = 0;
+    *(u16 *)((s8 *)parent + 0x1E) = 0;
     o4 = __nw__7TObjectFUl(0x50);
     if (o4 != NULL) {
-        o4 = TWindowOptionCtrl__ct(o4, arg0);
+        o4 = TWindowOptionCtrl__ct(o4, parent);
     }
-    *(void **)((s8 *)arg0 + 0x24) = o4;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
-    return arg0;
+    *(void **)((s8 *)parent + 0x24) = o4;
+    *(u32 *)((s8 *)parent + 0x28) = 0;
+    *(u32 *)((s8 *)parent + 0x2C) = 0;
+    return parent;
 }
 
 s32 TWindowShortListCtrl__sub_801A513C(void* p) { return *(s32*)((char*)p + 0x24); }
 int TWindowShortListCtrl__sub_801A5144(void* p) { return *(u8*)((char*)p + 0x1d) & 0x1; }
 s32 TWindowShortListCtrl::get_card_window_flags() {
-    void *temp_r3;
+    void *character_save_record;
 
-    temp_r3 = get_character_save_record();
-    if (temp_r3 == NULL) {
+    character_save_record = get_character_save_record();
+    if (character_save_record == NULL) {
         return 0;
     }
-    return ((u32) *(u32 *)((s8 *)temp_r3 + 0x10) >> 0x10U) & 3;
+    return ((u32) *(u32 *)((s8 *)character_save_record + 0x10) >> 0x10U) & 3;
 }
 s32 TWindowShortListCtrl::get_card_status_bits() {
-    void *temp_r3;
+    void *character_save_record;
 
-    temp_r3 = get_character_save_record();
-    if (temp_r3 == NULL) {
+    character_save_record = get_character_save_record();
+    if (character_save_record == NULL) {
         return 0;
     }
-    return ((u32) *(u32 *)((s8 *)temp_r3 + 0x10) >> 0xDU) & 7;
+    return ((u32) *(u32 *)((s8 *)character_save_record + 0x10) >> 0xDU) & 7;
 }
 
 typedef char RecoveredGlobal_801A51C0_lbl_80446980_size[sizeof(RecoveredGlobal_801A51C0_lbl_80446980) == 0x18 ? 1 : -1];
@@ -111,13 +111,13 @@ s32 TLobby::get_table_entry_by_index() {
 }
 
 s32 fn_801A51F0(void) {
-    void *temp_r3;
+    void *character_save_record;
 
-    temp_r3 = get_character_save_record();
-    if (temp_r3 == NULL) {
+    character_save_record = get_character_save_record();
+    if (character_save_record == NULL) {
         return 0;
     }
-    return ((u32) *(u32 *)((s8 *)temp_r3 + 0x10) >> 0xAU) & 7;
+    return ((u32) *(u32 *)((s8 *)character_save_record + 0x10) >> 0xAU) & 7;
 }
 
 }

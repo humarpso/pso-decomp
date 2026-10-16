@@ -122,34 +122,34 @@ s32 has_serial_input__22TAdEnterSerialAccessGCFv(void) {
 }
 
 void TAdEnterSerialAccessGC::clear_serial_buffer() {
-    u32 temp_r3;
+    u32 instance;
 
-    temp_r3 = TAdSinglePlyChrSelectGC::get_instance();
-    if (temp_r3 != 0U) {
-        memset(temp_r3 + 0x1154C, 0, 0x10);
+    instance = TAdSinglePlyChrSelectGC::get_instance();
+    if (instance != 0U) {
+        memset(instance + 0x1154C, 0, 0x10);
     }
 }
 
 void clear_state(void) {
-    s32 temp_r3;
+    s32 instance;
 
-    temp_r3 = TAdSinglePlyChrSelectGC::get_instance();
-    if (temp_r3 != 0) {
-        memset(temp_r3 + 0x1152C, 0, 0x10);
-        memset(temp_r3 + 0x1153C, 0, 0x10);
-        memset(temp_r3 + 0x1154C, 0, 0x10);
+    instance = TAdSinglePlyChrSelectGC::get_instance();
+    if (instance != 0) {
+        memset(instance + 0x1152C, 0, 0x10);
+        memset(instance + 0x1153C, 0, 0x10);
+        memset(instance + 0x1154C, 0, 0x10);
     }
 }
 
 void TAdEnterSerialAccessGC::store_serial_access_key(s32 arg0, s32 arg1, s32 arg2) {
-    s32 temp_r3;
+    s32 instance;
 
-    temp_r3 = TAdSinglePlyChrSelectGC::get_instance();
-    if (temp_r3 != 0) {
-        strncpy(temp_r3 + 0x1152C, arg0, 0xF);
-        strncpy(temp_r3 + 0x1153C, arg1, 0xF);
+    instance = TAdSinglePlyChrSelectGC::get_instance();
+    if (instance != 0) {
+        strncpy(instance + 0x1152C, arg0, 0xF);
+        strncpy(instance + 0x1153C, arg1, 0xF);
         if (TAdPsoPassSaveGC__sub_8032B584() != 0) {
-            strncpy(temp_r3 + 0x1154C, arg2, 0xF);
+            strncpy(instance + 0x1154C, arg2, 0xF);
         }
     }
 }

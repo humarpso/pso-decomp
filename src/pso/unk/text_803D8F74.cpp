@@ -45,7 +45,7 @@ static inline f32 acosf_803D8F74(f32 v) {
     return (f32)acos(v);
 }
 
-void reflect_matrix_in_plane(u32 arg0, const ReflectionPlane *arg1)
+void reflect_matrix_in_plane(u32 matrix, const ReflectionPlane *arg1)
 {
     f32 xz = sqrtf_803D8F74(arg1->normal[0] * arg1->normal[0] + arg1->normal[2] * arg1->normal[2]);
     f32 len = sqrtf_803D8F74(arg1->normal[1] * arg1->normal[1] + xz * xz);
@@ -63,13 +63,13 @@ void reflect_matrix_in_plane(u32 arg0, const ReflectionPlane *arg1)
     if (arg1->normal[0] < (0.0f)) {
         ry = -(s32)((10430.38043493439) * acosf_803D8F74(arg1->normal[2] / xz));
     }
-    translate_matrix(arg0, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
-    rotate_matrix_y((Matrix34*)arg0, ry);
-    rotate_matrix_x(arg0, rx);
-    scale_matrix(arg0, 1.0f, 1.0f, -1.0f);
-    rotate_matrix_x(arg0, -rx);
-    rotate_matrix_y((Matrix34*)arg0, -ry);
-    translate_matrix(arg0, -arg1->origin[0], -arg1->origin[1], -arg1->origin[2]);
+    translate_matrix(matrix, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
+    rotate_matrix_y((Matrix34*)matrix, ry);
+    rotate_matrix_x(matrix, rx);
+    scale_matrix(matrix, 1.0f, 1.0f, -1.0f);
+    rotate_matrix_x(matrix, -rx);
+    rotate_matrix_y((Matrix34*)matrix, -ry);
+    translate_matrix(matrix, -arg1->origin[0], -arg1->origin[1], -arg1->origin[2]);
 }
 #pragma pop
 

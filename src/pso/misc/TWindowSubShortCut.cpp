@@ -95,13 +95,13 @@ s32 TWindowSubShortCut::open_confirm_prompt() {
 
 s32 TWindowSubShortCut::open_menu() {
     s32 temp_r31;
-    u32 *temp_r30;
+    u32 *chat_shortcut;
 
     select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_2c);
-    temp_r30 = get_chat_shortcut();
+    chat_shortcut = get_chat_shortcut();
     temp_r31 = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position((s32)(0x74)), 2, get_message_10__20TWindowSubStatusDispFl(0x2C));
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x7E), 6, 5);
-    if ((u32) *temp_r30 != 0U) {
+    if ((u32) *chat_shortcut != 0U) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x5A), 6, 9);
     } else {
         TWindowSubComCard::draw_text_gray(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x5A), 6, 9);

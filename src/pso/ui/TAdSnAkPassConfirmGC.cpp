@@ -92,18 +92,18 @@ void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0) {
+Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *parent) {
     void *p;
-    TAdYesNoBaseGC__ct(arg0);
-    arg0->vt = ((u8 *)&__vt__20TAdSnAkPassConfirmGC);
-    arg0->f0 = lbl_805D41F0;
+    TAdYesNoBaseGC__ct(parent);
+    parent->vt = ((u8 *)&__vt__20TAdSnAkPassConfirmGC);
+    parent->f0 = lbl_805D41F0;
     p = __nw__7TObjectFUl(0x138);
     if (p != 0) {
-        __ct__10TAdTitleGCFv(p, arg0, 0x11);
+        __ct__10TAdTitleGCFv(p, parent, 0x11);
     }
-    arg0->f48 = ((TWindowOptionCtrl *)lbl_804772C0)->create_serial_info_window(0);
-    ((TAdYesNoBaseGC *)arg0)->init_parts(lbl_804772C8, lbl_804772D0);
-    return arg0;
+    parent->f48 = ((TWindowOptionCtrl *)lbl_804772C0)->create_serial_info_window(0);
+    ((TAdYesNoBaseGC *)parent)->init_parts(lbl_804772C8, lbl_804772D0);
+    return parent;
 }
 
 void TAdYesNoBaseGC::vfunc_12() {

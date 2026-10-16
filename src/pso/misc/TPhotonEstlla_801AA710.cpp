@@ -163,15 +163,15 @@ void TPhotonEstlla::run_task() {
     Stack_801AA930 stack;
     f32 temp_f1;
     u32 temp_r3_2;
-    u8 *temp_r3;
+    u8 *entity;
     *(s32 *)&this->m_1a0 = (s32) (*(s32 *)&this->m_1a0 + 1);
     if (((s32) *(s32 *)&this->m_1a0 == 0x32) && ((s32) *(s32 *)&this->m_19c == 0)) {
         *(s32 *)&this->m_19c = 1;
-        temp_r3 = (u8 *)(find_entity_by_id(this->m_17c));
-        if (temp_r3 != NULL) {
-            stack.sp8 = *(f32 *)((s8 *)temp_r3 + 0x38);
-            stack.spC = lbl_805DC140 + *(f32 *)((s8 *)temp_r3 + 0x3C);
-            stack.sp10 = *(f32 *)((s8 *)temp_r3 + 0x40);
+        entity = (u8 *)(find_entity_by_id(this->m_17c));
+        if (entity != NULL) {
+            stack.sp8 = *(f32 *)((s8 *)entity + 0x38);
+            stack.spC = lbl_805DC140 + *(f32 *)((s8 *)entity + 0x3C);
+            stack.sp10 = *(f32 *)((s8 *)entity + 0x40);
         }
         temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));
         if (temp_r3_2 != 0U) {

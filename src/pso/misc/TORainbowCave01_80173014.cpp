@@ -83,10 +83,10 @@ extern s32 local_client_id;
 
 s32 TORainbowCave01::is_player_in_range(f32 farg0) {
     s32 arg0 = (s32)this;
-    s32 temp_r3;
+    s32 entity;
 
-    temp_r3 = find_entity_by_id((u16) local_client_id);
-    if ((temp_r3 != 0) && (horizontal_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < farg0)) {
+    entity = find_entity_by_id((u16) local_client_id);
+    if ((entity != 0) && (horizontal_distance_squared(arg0 + 0x38, entity + 0x38) < farg0)) {
         return 1;
     }
     return 0;

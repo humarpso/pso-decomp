@@ -324,9 +324,9 @@ void stop_cue_stream(void) {
     }
 }
 
-void play_cue_stream_file(s32 arg0) {
+void play_cue_stream_file(s32 name) {
     if ((void *) *(u8 **)((s8 *)(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value) + 8) != NULL) {
-        start_audio_stream_file(*(u8 **)((s8 *)(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value) + 8), arg0);
+        start_audio_stream_file(*(u8 **)((s8 *)(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value) + 8), name);
     }
 }
 typedef char RecoveredGlobal_802272B4_lbl_804CB850_size[sizeof(RecoveredGlobal_802272B4_lbl_804CB850) == 0xC ? 1 : -1];

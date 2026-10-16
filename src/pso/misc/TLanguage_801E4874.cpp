@@ -146,11 +146,11 @@ s32 TLanguage::read_u16_le() {
     return lo;
 }
 
-void update_texture_wave_image(void *arg0) {
+void update_texture_wave_image(void *wave) {
     if ((is_split_screen() == 0) || (TCameraCtrl::get_camera_no() == 0)) {
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x3C));
-        ((VObj_801E4B68_801E4874 *)arg0)->m0();
-        distort_texture_wave_image(arg0);
+        TObjFish::set_global_param(*(s32 *)((s8 *)wave + 0x3C));
+        ((VObj_801E4B68_801E4874 *)wave)->m0();
+        distort_texture_wave_image(wave);
     }
 }
 

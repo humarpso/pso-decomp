@@ -39,11 +39,11 @@ void byteswap_event_packet__6TLobbyFi(s32 arg0) {
 void TLobby::init_packet_67_04() { *(u8 *)&this->m_name = 103; *(u8*)((char*)this + 0x1) = 4; }
 
 void TOCtrlDubchik__sub_8015C9D0(void) {  }
-f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2) {
+f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *att, A_8015C9D4 *arg2) {
     V3_8015C9D4 sp8;
     if (arg0->f326 != 0) {
         if (select_melee_contact_body__10TObjPlayerFv(TOCtrlDubchik__data_805DB3AC) != 0) {
-            return receive_physical_attack__10TObjPlayerFv(arg0, arg1, TOCtrlDubchik__data_805DB3AC);
+            return receive_physical_attack__10TObjPlayerFv(arg0, att, TOCtrlDubchik__data_805DB3AC);
         }
         if (arg2 != NULL) {
             VecCopy__FP3VecPC3Vec(&sp8, &arg2->pos);

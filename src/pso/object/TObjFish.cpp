@@ -274,13 +274,13 @@ void TOKeyJungleMain::update_lock_state() {
 void TOKeyJungleMain::vfunc_16() {
     u8 *arg0 = (u8 *)this;
   unsigned int new_var;
-  s32 temp_r3;
+  s32 bml_motion;
   s32 temp_r3_3;
   u32 temp_r3_2;
   new_var = 0;
-  temp_r3 = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__static_model_resource)), (s32)(1));
+  bml_motion = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__static_model_resource)), (s32)(1));
   *((f32 *) (((s8 *) arg0) + 0xE8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xE8))) + lbl_805DDD38);
-  temp_r3_2 = (*((s32 *) (((s8 *) temp_r3) + 4))) - 1;
+  temp_r3_2 = (*((s32 *) (((s8 *) bml_motion) + 4))) - 1;
   if ((*((f32 *) (((s8 *) arg0) + 0xE8))) > ((f32) temp_r3_2))
   {
     *((f32 *) (((s8 *) arg0) + 0xE8)) = (f32) temp_r3_2;

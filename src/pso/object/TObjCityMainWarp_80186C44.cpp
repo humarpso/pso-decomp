@@ -64,22 +64,22 @@ void TObjCityMainWarpChallenge::send_6x6A_set_boss_warp_flags(u16 value) {
 }
 
 void TObjCityMainWarp::notify_player_warp(void *arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 player;
 
-    temp_r3 = get_player_by_client_id(arg1);
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id(arg1);
+    if (player != 0) {
         send_code_45_1__10TObjPlayerFl();
-        obj_clear_flag30_20000(temp_r3);
+        obj_clear_flag30_20000(player);
     }
 }
 
 void TObjCityMainWarpChallenge::trigger_warp_effect(s32 arg1) {
-    s32 temp_r3;
+    s32 player;
 
-    temp_r3 = get_player_by_client_id(arg1);
-    if (temp_r3 != 0) {
-        play_effect_default__10TObjPlayerFii(temp_r3, -1);
-        obj_set_flag_20000(temp_r3);
+    player = get_player_by_client_id(arg1);
+    if (player != 0) {
+        play_effect_default__10TObjPlayerFii(player, -1);
+        obj_set_flag_20000(player);
         this->m_174 = 0x12C;
     }
 }

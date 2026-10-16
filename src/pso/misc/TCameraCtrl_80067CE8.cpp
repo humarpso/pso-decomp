@@ -109,10 +109,10 @@ void TCameraCtrl::reset_behind_player() {
     typedef char spC_offset[(offsetof(Stack_80067E30, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80067E30, sp10) == 0x8) ? 1 : -1];
     Stack_80067E30 stack;
-    u8 *temp_r3;
-    temp_r3 = (u8 *)(get_player_by_client_id((s32)(0)));
-    if (temp_r3 != NULL) {
-        this->m_30 = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
+    u8 *player;
+    player = (u8 *)(get_player_by_client_id((s32)(0)));
+    if (player != NULL) {
+        this->m_30 = (s32) *(s32 *)((s8 *)player + 0x60);
         stack.sp8 = lbl_805D8F74;
         stack.spC = lbl_805D8F74;
         stack.sp10 = this->m_70;
@@ -128,12 +128,12 @@ void TCameraCtrl::reset_behind_player() {
 
 void target_player0__11TCameraCtrlFi(s32 arg0) {
     Stack_80067EE0 stack;
-    u8 *temp_r3;
-    temp_r3 = (u8 *)(get_player_by_client_id(0));
-    if (temp_r3 != NULL) {
-        stack.sp8 = *(f32 *)((s8 *)temp_r3 + 0x38);
-        stack.spC = lbl_805D8F78 + *(f32 *)((s8 *)temp_r3 + 0x3C);
-        stack.sp10 = *(f32 *)((s8 *)temp_r3 + 0x40);
+    u8 *player;
+    player = (u8 *)(get_player_by_client_id(0));
+    if (player != NULL) {
+        stack.sp8 = *(f32 *)((s8 *)player + 0x38);
+        stack.spC = lbl_805D8F78 + *(f32 *)((s8 *)player + 0x3C);
+        stack.sp10 = *(f32 *)((s8 *)player + 0x40);
         set_target_pos__13TUnk_80488DA0FPv((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805D8F78));
     }
 }

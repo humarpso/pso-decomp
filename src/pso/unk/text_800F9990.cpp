@@ -21,7 +21,7 @@ void strncpy(void *, void *, int);
 void apply_pointer_relocations(void *, void *);
 struct VOff_800F99D0_o { char pad_0[0x28]; char f_28[1]; };
 
-void alloc_named_object(void *arg0, void *arg1, void *arg2, void *arg3) {
+void alloc_named_object(void *arg0, void *arg1, void *arg2, void *hdr) {
     struct VOff_800F99D0_o *o;
     o = (struct VOff_800F99D0_o *)__nw__7TObjectFUl(0x3C);
     if (o != NULL) {
@@ -32,7 +32,7 @@ void alloc_named_object(void *arg0, void *arg1, void *arg2, void *arg3) {
     *(void **)((s8 *)o + 0x0) = o->f_28;
     *(void **)((s8 *)o + 0x1C) = arg1;
     *(void **)((s8 *)o + 0x20) = arg2;
-    apply_pointer_relocations(o, arg3);
+    apply_pointer_relocations(o, hdr);
 }
 
 }

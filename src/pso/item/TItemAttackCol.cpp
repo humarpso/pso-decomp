@@ -372,14 +372,14 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
     s32 temp_r31_2;
     u8 *temp_r30;
     u8 *temp_r29;
-    u32 temp_r28;
+    u32 item;
     s32 temp_r0;
     f32 var_f31;
     temp_r30 = (u8 *)(*(u8 **)((s8 *)arg1 + 0));
     temp_r29 = (u8 *)(get_player_by_client_id((s32) this->m_a8));
-    temp_r28 = find_item_by_id((int) (this->m_ac));
+    item = find_item_by_id((int) (this->m_ac));
     temp_r31 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg1 + 0)) + 0xA4) + (*(s32 *)((s8 *)arg1 + 4) * 0x2C);
-    if ((temp_r29 != NULL) && (temp_r28 != 0U) && (((VObj_18_f2ea1e *)(temp_r30))->m19(temp_r29, temp_r31, 0, *(f32 *)((s8 *)arg0 + 0xB0)) != 0)) {
+    if ((temp_r29 != NULL) && (item != 0U) && (((VObj_18_f2ea1e *)(temp_r30))->m19(temp_r29, temp_r31, 0, *(f32 *)((s8 *)arg0 + 0xB0)) != 0)) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
         var_f31 = lbl_805DE914;
         switch (temp_r0) {
@@ -399,8 +399,8 @@ s32 TUnk_804E355C::resolve_attack_col_hit(u8 *arg1) {
         ((VObj_18_f2ea1e *)(temp_r29))->m73();
         apply_camera_shake__10TObjPlayerFiii((int) (temp_r29), (int) (temp_r30), (int) (temp_r31_2));
         ((TObjPlayer *)(&stack.sp8))->reset_status_block();
-        stack.sp8 = ((TItem *)temp_r28)->get_field_ed();
-        stack.sp9 = ((TItemProShield *)temp_r28)->get_slot_count();
+        stack.sp8 = ((TItem *)item)->get_field_ed();
+        stack.sp9 = ((TItemProShield *)item)->get_slot_count();
         stack.spC = (u8 *)(temp_r29);
         stack.sp14 = (u8 *)(temp_r30);
         stack.sp18 = *(s32 *)((s8 *)arg1 + 4);

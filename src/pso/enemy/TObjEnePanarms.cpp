@@ -639,10 +639,10 @@ void TObjEnePanarms::update_attack() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f3;
     s32 temp_r0;
-    u8 *temp_r3;
+    u8 *entity;
 
-    temp_r3 = find_entity_by_id((u16) *(s32 *)&this->unk_3B8);
-    if ((temp_r3 == NULL) || (*(s32 *)((s8 *)temp_r3 + 0x30) & 0x02000800)) {
+    entity = find_entity_by_id((u16) *(s32 *)&this->unk_3B8);
+    if ((entity == NULL) || (*(s32 *)((s8 *)entity + 0x30) & 0x02000800)) {
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(2));
         return;
     }
@@ -653,8 +653,8 @@ void TObjEnePanarms::update_attack() {
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B72F), arg0 + 0x38, 0, 0);
     }
     if (this->m_c0 < TObjEnePanarms__data_805DA544) {
-        temp_f3 = *(f32 *)((s8 *)temp_r3 + 0x38);
-        this->rotation_y = approach_angle_limited(this->rotation_y, lbl_8043CDA0[this->m_380] + (s32) (TObjEnePanarms__data_8043CDD0 * atan2_float(temp_f3 - *(f32 *)&this->position[0], *(f32 *)((s8 *)temp_r3 + 0x40) - this->position[2], temp_f3)), 0x200);
+        temp_f3 = *(f32 *)((s8 *)entity + 0x38);
+        this->rotation_y = approach_angle_limited(this->rotation_y, lbl_8043CDA0[this->m_380] + (s32) (TObjEnePanarms__data_8043CDD0 * atan2_float(temp_f3 - *(f32 *)&this->position[0], *(f32 *)((s8 *)entity + 0x40) - this->position[2], temp_f3)), 0x200);
     }
     if (*(s32 *)&this->animationFlags & 0x10) {
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(0xA));

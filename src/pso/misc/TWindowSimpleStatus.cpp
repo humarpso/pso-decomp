@@ -33,10 +33,10 @@ s32 update_status_help_item(s32);
 }
 extern "C" {
 void render__19TWindowSimpleStatusFv(s32 arg0) {
-    s32 temp_r3;
-    temp_r3 = draw_default_entry__9TWindowDDFl();
-    ((TWindowSimpleStatus *)arg0)->draw_background((u8 *)temp_r3);
-    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    s32 ctx;
+    ctx = draw_default_entry__9TWindowDDFl();
+    ((TWindowSimpleStatus *)arg0)->draw_background((u8 *)ctx);
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (ctx));
 }
 
 void TWindowSimpleStatus::run_task() {

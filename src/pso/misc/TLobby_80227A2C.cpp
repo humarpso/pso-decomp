@@ -275,7 +275,7 @@ typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 void handle_6xB2_play_sound_from_player(void *arg0) {
-    s32 temp_r3;
+    s32 player;
 
     bswap_6xB2_play_sound();
     if ((s8) *(u8 *)((s8 *)arg0 + 4) == TOKeyMachine01::get_global_state()) {
@@ -283,9 +283,9 @@ void handle_6xB2_play_sound_from_player(void *arg0) {
             play_sound_effect(*(s32 *)((s8 *)arg0 + 8), 0, 0, 0);
             return;
         }
-        temp_r3 = get_player_by_client_id(local_client_id);
-        if (temp_r3 != 0) {
-            play_sound_effect(*(s32 *)((s8 *)arg0 + 8), temp_r3 + 0x38, 0, 0);
+        player = get_player_by_client_id(local_client_id);
+        if (player != 0) {
+            play_sound_effect(*(s32 *)((s8 *)arg0 + 8), player + 0x38, 0, 0);
         }
     }
 }

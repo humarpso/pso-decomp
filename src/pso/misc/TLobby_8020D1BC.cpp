@@ -21,22 +21,22 @@ void TLobby::assign_objects_to_slots(u8 *arg0, s32 arg1) {
     s16 temp_r0;
     u8 *ptr;
     s32 i;
-    u8 *temp_r3_2;
+    u8 *set_object;
 
     ptr = arg0;
     for (i = 0; i < arg1; i++, ptr += 0x44) {
         temp_r3 = *(s16 *)((s8 *)ptr + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (*(s16 *)((s8 *)ptr + 0) != -1) && ((temp_r3 & 0x10) || (temp_r3 & 1) || (*(s16 *)((s8 *)ptr + 0xA) == 0))) {
-            temp_r3_2 = create_set_object_from_row(ptr);
-            if (temp_r3_2 != NULL) {
-                *(void **)((s8 *)ptr + 0x40) = temp_r3_2;
+            set_object = create_set_object_from_row(ptr);
+            if (set_object != NULL) {
+                *(void **)((s8 *)ptr + 0x40) = set_object;
                 *(s16 *)((s8 *)ptr + 2) = (s16) (*(s16 *)((s8 *)ptr + 2) | 2);
-                *(s16 *)((s8 *)temp_r3_2 + 0x28) = (s16) *(s16 *)((s8 *)ptr + 0xC);
-                *(s16 *)((s8 *)temp_r3_2 + 0x2C) = (s16) *(s16 *)((s8 *)ptr + 4);
-                *(void **)((s8 *)temp_r3_2 + 0x80) = ptr;
-                temp_r0 = *(s16 *)((s8 *)temp_r3_2 + 0x2C);
+                *(s16 *)((s8 *)set_object + 0x28) = (s16) *(s16 *)((s8 *)ptr + 0xC);
+                *(s16 *)((s8 *)set_object + 0x2C) = (s16) *(s16 *)((s8 *)ptr + 4);
+                *(void **)((s8 *)set_object + 0x80) = ptr;
+                temp_r0 = *(s16 *)((s8 *)set_object + 0x2C);
                 if (temp_r0 != -1) {
-                    ((VObj_8020d1bc *) temp_r3_2)->m4(TLobby__data_805D6140 + (temp_r0 * 4), 0);
+                    ((VObj_8020d1bc *) set_object)->m4(TLobby__data_805D6140 + (temp_r0 * 4), 0);
                 }
             } else {
                 *(void **)((s8 *)ptr + 0x40) = NULL;

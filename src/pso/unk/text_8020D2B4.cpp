@@ -224,11 +224,11 @@ void TSetManager::update_decoration_spawning() { spawn_decorations_in_range((voi
 typedef char RecoveredGlobal_8020D6F0_TLobby__data_80513AD0_size[sizeof(RecoveredGlobal_8020D6F0_TLobby__data_80513AD0) == 0x1B0 ? 1 : -1];
 void TSetManager::apply_floor_set_rows() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
+    s32 current_floor;
     u8 *temp_r30;
-    temp_r3 = get_current_floor();
-    TLobby__data_805D60FC = temp_r3;
-    temp_r30 = (u8 *)&TLobby__floor_enemy_group_table.value + (temp_r3 * 0x18);
+    current_floor = get_current_floor();
+    TLobby__data_805D60FC = current_floor;
+    temp_r30 = (u8 *)&TLobby__floor_enemy_group_table.value + (current_floor * 0x18);
     if (!(*(s32 *)((s8 *)temp_r30 + 8) & 2)) {
         apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D610C)), (s32)((int) (*(s32 *)((s8 *)temp_r30 + 0))));
         *(s32 *)((s8 *)temp_r30 + 8) = (s32) (*(s32 *)((s8 *)temp_r30 + 8) | 2);

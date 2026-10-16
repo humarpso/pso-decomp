@@ -367,9 +367,9 @@ void TUnk_804F14A8::emit_marker_effects() {
 }
 
 void TObjPlayer__sub_80357954(u8 *arg0) {
-    u32 temp_r3;
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    u32 player_list;
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 2:
     case 5:
     case 8:
@@ -797,15 +797,15 @@ extern f32 lbl_805E0084;
 
 void TObjPlayer::spawn_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
-    s32 temp_r30;
+    s32 timed_particle_emitter;
 
     if (arg3 == 0) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xBD));
     }
     if (arg3 == 1) {
-        temp_r30 = create_timed_particle_emitter(arg2, 0x9A, 0, 0xF);
-        if (temp_r30 != 0) {
-            attach_particle_model(temp_r30, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
+        timed_particle_emitter = create_timed_particle_emitter(arg2, 0x9A, 0, 0xF);
+        if (timed_particle_emitter != 0) {
+            attach_particle_model(timed_particle_emitter, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
         }
     }
 }

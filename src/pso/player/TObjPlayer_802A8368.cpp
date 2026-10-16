@@ -80,16 +80,16 @@ s8 find_indirect_effect_ctrl();
 
 extern s32 indirect_effect_ctrl_table[];
 
-void TObjPlayer::play_particle_at_active_slot(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
-    s32 temp_r3;
+void TObjPlayer::play_particle_at_active_slot(s32 arg0, s32 sampler, s32 arg2, s32 arg3, s32 unused, s32 second) {
+    s32 indirect_effect_ctrl;
 
-    temp_r3 = (s32)(s8) find_indirect_effect_ctrl();
-    if ((temp_r3 != -1) && ((u32) indirect_effect_ctrl_table[temp_r3] != 0U)) {
+    indirect_effect_ctrl = (s32)(s8) find_indirect_effect_ctrl();
+    if ((indirect_effect_ctrl != -1) && ((u32) indirect_effect_ctrl_table[indirect_effect_ctrl] != 0U)) {
         if (arg3 != 0) {
-            setup_indirect_tev_alternate((s32)(indirect_effect_ctrl_table[temp_r3]), (s32)(arg4), (s32)(arg1), (s32)(arg2));
+            setup_indirect_tev_alternate((s32)(indirect_effect_ctrl_table[indirect_effect_ctrl]), (s32)(unused), (s32)(sampler), (s32)(arg2));
             return;
         }
-        setup_indirect_tev_ordinary((s32)(indirect_effect_ctrl_table[temp_r3]), (s32)(arg1), (s32)(arg2), (s32)(arg5));
+        setup_indirect_tev_ordinary((s32)(indirect_effect_ctrl_table[indirect_effect_ctrl]), (s32)(sampler), (s32)(arg2), (s32)(second));
     }
 }
 

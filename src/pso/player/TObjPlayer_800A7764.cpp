@@ -218,11 +218,11 @@ void TObjEneDimedian::vfunc_95() {
 
 void TObjEneDimedian::vfunc_94() {
     s32 arg0 = (s32)this;
-    s32 temp_r3;
+    s32 global_state;
     TObjPlayer::apply_effect_variant_a((s32)((void *) (arg0 + 0x38)), (s32)((int) (0)));
     ((TObjPlayer *)(arg0 + 0x2FC))->request_two_effects();
-    temp_r3 = TOKeyMachine01::get_global_state();
-    if ((temp_r3 == 0x13) || (temp_r3 == 0x14)) {
+    global_state = TOKeyMachine01::get_global_state();
+    if ((global_state == 0x13) || (global_state == 0x14)) {
         play_sound_effect((s32)(0x3AD3F), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
         return;
     }

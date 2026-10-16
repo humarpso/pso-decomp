@@ -31,12 +31,12 @@ void s_rank_launcher_slide_node(void *arg0) {
     }
 }
 
-void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1) {
+void s_rank_launcher_collider_block(Src_803631E8 *weapon, Obj_803631E8 *arg1) {
     u8 sp8[16];
     arg1->flags |= 0x39C;
-    get_weapon_color__11TItemWeaponFPv(sp8, arg0);
+    get_weapon_color__11TItemWeaponFPv(sp8, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
-    arg1->i44 = arg0->i188;
+    arg1->i44 = weapon->i188;
     arg1->i10 = 4;
     arg1->f4C = lbl_805E026C;
     arg1->fn70 = (void *)TObjPlayer::forward_item_effect_callback;

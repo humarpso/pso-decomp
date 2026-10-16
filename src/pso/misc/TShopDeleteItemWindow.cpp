@@ -138,28 +138,28 @@ extern s32 __vt__21TShopDeleteItemWindow[];
 
 void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
     Stack_803379E0 stack;
-    s32 temp_r30;
-    s32 temp_r3_2;
-    s32 temp_r3_3;
+    s32 slot;
+    s32 selected_menu_value;
+    s32 idx;
     u32 temp_r3;
     u32 temp_r3_4;
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x34);
     if ((temp_r3 != 0U) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
-        temp_r30 = sub_8022397C__15TShopWindowBaseFv((void *) (arg0));
-        temp_r3_2 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x34)));
-        if (temp_r3_2 == 0) {
-            temp_r3_3 = select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)((s8 *)arg0 + 0x30)));
-            if (copy_item_record__18TCheckRoomSequenceFiPvi((int) (temp_r3_3), (void *) (&stack.sp8), (int) (temp_r30)) != 0) {
-                remove_bank_item_amount__18TCheckRoomSequenceFiii((int) (temp_r3_3), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (temp_r30));
-                compact_items__18TCheckRoomSequenceFi((int) (temp_r30));
-                copy_bank_to_card_window((int) (temp_r30));
+        slot = sub_8022397C__15TShopWindowBaseFv((void *) (arg0));
+        selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x34)));
+        if (selected_menu_value == 0) {
+            idx = select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)((s8 *)arg0 + 0x30)));
+            if (copy_item_record__18TCheckRoomSequenceFiPvi((int) (idx), (void *) (&stack.sp8), (int) (slot)) != 0) {
+                remove_bank_item_amount__18TCheckRoomSequenceFiii((int) (idx), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (slot));
+                compact_items__18TCheckRoomSequenceFi((int) (slot));
+                copy_bank_to_card_window((int) (slot));
                 ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (0)));
             }
             TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
             return;
         }
-        if (temp_r3_2 == 1) {
+        if (selected_menu_value == 1) {
             TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
             ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (4)));

@@ -18,11 +18,11 @@ extern s32 lbl_804FF234[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 
-void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32 arg6, s32 arg7, f32 farg0) {
-    if (lbl_805D8A30 != farg0) {
+void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32 arg6, s32 appearance, f32 alpha) {
+    if (lbl_805D8A30 != alpha) {
         ((TObjDFTenchuFuru *)arg3)->draw_node_tree();
-        if (farg0 < lbl_805D8A34) {
-            TObjPlayer__sub_80052390(farg0);
+        if (alpha < lbl_805D8A34) {
+            TObjPlayer__sub_80052390(alpha);
         }
         TObjFish::set_global_param(arg0);
         draw_chunk_object(arg3);
@@ -42,7 +42,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             pop_matrix();
             TCharaMaking::clear_flag_bit0();
         }
-        if (farg0 < lbl_805D8A34) {
+        if (alpha < lbl_805D8A34) {
             TObjPlayer::sync_player_globals();
         }
         if (arg5 != 0U) {
@@ -50,14 +50,14 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             push_matrix();
             post_translate_matrix(lbl_804FF228);
             TObjFish::set_global_param(arg1);
-            TCharaMaking__draw_colored_hair(farg0, (s32)arg5, (CharacterAppearanceFields *)arg7, 0);
+            TCharaMaking__draw_colored_hair(alpha, (s32)arg5, (CharacterAppearanceFields *)appearance, 0);
             pop_matrix();
             TCharaMaking::clear_flag_bit0();
         }
     }
 }
 
-void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 farg0) {
+void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
     u8 *p;
     u32 m8b0;
     u32 m8ac;
@@ -67,7 +67,7 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 farg0) {
     u32 m34;
     s32 cf4;
 
-    if (lbl_805D8A30 == farg0) {
+    if (lbl_805D8A30 == alpha) {
         return;
     }
     if ((u16)arg0 == 0xFFFF) {
@@ -85,8 +85,8 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 farg0) {
     m8b4 = *(u32 *)((s8 *)p + 0x8B4);
     cf4 = (s32)(p + 0xCF4);
     ((TObjDFTenchuFuru *)m34)->draw_node_tree();
-    if (farg0 < lbl_805D8A34) {
-        TObjPlayer__sub_80052390(farg0);
+    if (alpha < lbl_805D8A34) {
+        TObjPlayer__sub_80052390(alpha);
     }
     TObjFish::set_global_param(cf4);
     draw_chunk_object(m34);
@@ -106,7 +106,7 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 farg0) {
         pop_matrix();
         TCharaMaking::clear_flag_bit0();
     }
-    if (farg0 < lbl_805D8A34) {
+    if (alpha < lbl_805D8A34) {
         TObjPlayer::sync_player_globals();
     }
     if (m8ac != 0U) {
@@ -114,7 +114,7 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 farg0) {
         push_matrix();
         post_translate_matrix(lbl_804FF228);
         TObjFish::set_global_param(a1c);
-        TCharaMaking__draw_colored_hair(farg0, (s32)m8ac, (CharacterAppearanceFields *)(p + 0x85C), 0);
+        TCharaMaking__draw_colored_hair(alpha, (s32)m8ac, (CharacterAppearanceFields *)(p + 0x85C), 0);
         pop_matrix();
         TCharaMaking::clear_flag_bit0();
     }

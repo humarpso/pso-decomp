@@ -431,23 +431,23 @@ void TLobby__sub_803C5E78(void) {
     } while (var_r30 < 8);
 }
 
-void adx_process_encoder_output(u8 *arg0) {
+void adx_process_encoder_output(u8 *arg0p) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; u8 pad_2[1]; u8 field_3; u8 pad_4[40]; s32 field_2C; s32 field_30; u8 pad_34[8]; s32 field_3C; };
     s32 temp_r3;
 loop_1:
-    if ((s8) ((Fields_arg0*)arg0)->field_3 == 0) {
+    if ((s8) ((Fields_arg0*)arg0p)->field_3 == 0) {
 loop_2:
-        temp_r3 = adx_encode_available_blocks(arg0);
+        temp_r3 = adx_encode_available_blocks(arg0p);
         if (temp_r3 != 0) {
-            ((Fields_arg0*)arg0)->field_2C = (s32) (((Fields_arg0*)arg0)->field_2C + temp_r3);
-            if ((s32) ((Fields_arg0*)arg0)->field_30 >= (s32) ((Fields_arg0*)arg0)->field_3C) {
-                ((Fields_arg0*)arg0)->field_3 = 1U;
+            ((Fields_arg0*)arg0p)->field_2C = (s32) (((Fields_arg0*)arg0p)->field_2C + temp_r3);
+            if ((s32) ((Fields_arg0*)arg0p)->field_30 >= (s32) ((Fields_arg0*)arg0p)->field_3C) {
+                ((Fields_arg0*)arg0p)->field_3 = 1U;
                 goto loop_1;
             }
             goto loop_2;
         }
-    } else if (TLobby::write_zero_padded_block(arg0) > 0) {
-        ((Fields_arg0*)arg0)->field_1 = 3;
+    } else if (TLobby::write_zero_padded_block(arg0p) > 0) {
+        ((Fields_arg0*)arg0p)->field_1 = 3;
     }
 }
 
@@ -784,8 +784,8 @@ s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0) {
 }
 #pragma pop
 
-void TLobby::set_field_10_and_notify(s32 arg1) {
-    *(s32 *)&this->m_up = arg1;
+void TLobby::set_field_10_and_notify(s32 up) {
+    *(s32 *)&this->m_up = up;
     ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_seek((int) (*(s32 *)&this->m_up), (int) (0));
     ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_tell();
 }
@@ -794,13 +794,13 @@ void TLobby__sub_803C8514(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x14) = (s32) (arg1 << 0xB);
 }
 
-void TLobby::set_buffer(void **arg1) {
+void TLobby::set_buffer(void **flags) {
     s32 temp_r3;
     u8 *temp_r5;
 
-    *(void ** *)&this->m_flags = arg1;
-    temp_r5 = (unsigned char *) (*arg1);
-    temp_r3 = (*(s32 (**)(void **, s32, void *))((s8 *)temp_r5 + 0x24))(arg1, 0, temp_r5);
+    *(void ** *)&this->m_flags = flags;
+    temp_r5 = (unsigned char *) (*flags);
+    temp_r3 = (*(s32 (**)(void **, s32, void *))((s8 *)temp_r5 + 0x24))(flags, 0, temp_r5);
     *(s32 *)((s8 *)((u8 *)this) + 0x18) = temp_r3;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = temp_r3;
 }

@@ -180,12 +180,12 @@ void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #define self ((Obj_8004EB78 *)arg0)
-void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+void *TObjDFDemo2__ct(void *arg0, void *parent, void *arg2, void *arg3, void *arg4) {
     s32 k;
     s32 cnt;
     s32 i;
 
-    construct_world_actor_base(self, arg1);
+    construct_world_actor_base(self, parent);
     self->vt18 = (u8 *)__vt__11TObjDFDemo2;
     self->vt0 = (s32) TObjDFDemo2__name;
     VecCopy__FP3VecPC3Vec(self->pos, arg2);

@@ -166,7 +166,7 @@ void TBoss4DarkFalz::update_fade_countdown() {
 
 void TBoss4DarkFalz::begin_defeat_sequence() {
     u16 sp8[4];
-    s32 var_r29;
+    s32 i;
     freeze_all_players__14TBoss4DarkFalzFPv((void*)(((u8 *)this)));
     TLobby::stop_audio_streams();
     TBoss4DarkFalz::dispatch_by_main_phase(0x37);
@@ -180,11 +180,11 @@ void TBoss4DarkFalz::begin_defeat_sequence() {
         ((s32 (*)(void *, void *, void *, void *))get_defeat_params__14TBoss4DarkFalzFPvPvPvPv)((*(u8 * *)&TBoss4DarkFalz__type3_instance), ((u8 *)this) + 0x2D6, ((u8 *)this) + 0x2D4, sp8);
         queue_destruction__7TObjectFv((*(u8 * *)&TBoss4DarkFalz__type3_instance));
         (*(u8 * *)&TBoss4DarkFalz__type3_instance) = NULL;
-        var_r29 = 0;
+        i = 0;
         do {
-            obj_setArrS16_FC(((u8 *)this), var_r29, sp8[var_r29]);
-            var_r29 += 1;
-        } while (var_r29 < 4);
+            obj_setArrS16_FC(((u8 *)this), i, sp8[i]);
+            i += 1;
+        } while (i < 4);
     }
     *(s32 *)((s8 *)((u8 *)this) + 0x380) = 0x12E;
 }

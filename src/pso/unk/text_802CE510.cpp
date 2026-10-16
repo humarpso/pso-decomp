@@ -42,7 +42,7 @@ void fn_802CE510(int arg0) {
   int temp_r31_2;
   int new_var;
   unsigned int temp_r31;
-  unsigned int temp_r3_2;
+  unsigned int particle_effect;
   unsigned int temp_r3_3;
   unsigned int temp_r3_4;
   u8 *temp_r3;
@@ -64,13 +64,13 @@ void fn_802CE510(int arg0) {
     {
       if (temp_r31 != 0)
       {
-        temp_r3_2 = spawn_particle_effect((void *) (((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_4 + 0x38), (int) 0x49);
-        if (temp_r3_2 != 0U)
+        particle_effect = spawn_particle_effect((void *) (((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_4 + 0x38), (int) 0x49);
+        if (particle_effect != 0U)
         {
           ;
-          attach_particle_model((int) temp_r3_2, (int) TParticleCtrl::get_particle_model((int) 2), (int) TParticleCtrl::get_instance(), (int) 0, (int) 1, (f32) lbl_805DE6F4);
+          attach_particle_model((int) particle_effect, (int) TParticleCtrl::get_particle_model((int) 2), (int) TParticleCtrl::get_instance(), (int) 0, (int) 1, (f32) lbl_805DE6F4);
           temp_r3 = temp_r3;
-          new_var = (int) temp_r3_2;
+          new_var = (int) particle_effect;
           ((TObjPlayer *)new_var)->set_position_xy((f32) lbl_805DE6EC, (f32) lbl_805DE6F4);
         }
         temp_r3_3 = spawn_particle_effect((void *) (((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_4 + 0x38), (int) 0xA4);

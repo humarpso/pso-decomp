@@ -248,9 +248,9 @@ void *__vt__12TOMineIcon04[87] = {
 
 void TOMineIcon04::vfunc_80() {
     s32 arg0 = (s32)this;
-    u32 temp_r3;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    u32 global_state;
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     case 1:
     case 2:
         play_sound_effect((int) (0x4C111), (void *) (arg0 + 0x38), (int) (0), (int) (0));

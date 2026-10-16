@@ -105,16 +105,16 @@ extern s32 *capsule_labo_switch_flags_ptr;
 void TOCapsuleLabo::load_resources() {
     s32 temp_r3;
     s32 var_r0;
-    u32 temp_r3_2;
+    u32 bml_model;
     temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOCapsuleLabo__resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TOCapsuleLabo__model_resource) = (unsigned char *) ((void *) var_r0);
-    temp_r3_2 = get_bml_model((void *) var_r0, 0);
-    if (temp_r3_2 != 0) {
-        (*(s32 *)&capsule_labo_switch_flags_ptr) = ((TObjSeabedSuisoBrakable *)temp_r3_2)->count_linked_switches(3);
+    bml_model = get_bml_model((void *) var_r0, 0);
+    if (bml_model != 0) {
+        (*(s32 *)&capsule_labo_switch_flags_ptr) = ((TObjSeabedSuisoBrakable *)bml_model)->count_linked_switches(3);
     }
 }
 

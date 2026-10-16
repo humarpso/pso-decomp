@@ -905,8 +905,8 @@ void TBoss4Type2__vt36(u8 *arg0) {
   int temp_r0;
   u16 temp_r3_4;
   unsigned int temp_r3;
-  unsigned int temp_r3_2;
-  unsigned int temp_r3_3;
+  unsigned int particle_emitter;
+  unsigned int particle_effect;
   unsigned int temp_r3_5;
   unsigned int temp_r3_6;
   unsigned int *new_var;
@@ -922,20 +922,20 @@ void TBoss4Type2__vt36(u8 *arg0) {
   else
     if ((*((unsigned int *) (((s8 *) arg0) + 0x448))) == 0)
   {
-    temp_r3_2 = create_particle_emitter((void *) (arg0 + 0x468), (int) 0x143);
+    particle_emitter = create_particle_emitter((void *) (arg0 + 0x468), (int) 0x143);
     new_var = (unsigned int *) (((s8 *) arg0) + 0x448);
-    *new_var = temp_r3_2;
-    if (temp_r3_2 != 0)
+    *new_var = particle_emitter;
+    if (particle_emitter != 0)
     {
       ((TBoss4Type2 *)(*new_var))->set_flags((int) 0x40);
     }
   }
   if ((*((int *) (((s8 *) arg0) + 0x398))) == 0x46)
   {
-    temp_r3_3 = spawn_particle_effect((void *) (arg0 + 0x468), (int) 0x13E);
-    if (temp_r3_3 != 0)
+    particle_effect = spawn_particle_effect((void *) (arg0 + 0x468), (int) 0x13E);
+    if (particle_effect != 0)
     {
-      ((TBoss4Type2 *)temp_r3_3)->set_flags((int) 0x40);
+      ((TBoss4Type2 *)particle_effect)->set_flags((int) 0x40);
     }
     temp_r3_4 = *((u16 *) (((s8 *) arg0) + 0x3C4));
     if (temp_r3_4 != ((unsigned short) (-1)))
@@ -1023,7 +1023,7 @@ void TBoss4Type2__vt21(Obj_80055BC0 *o) {
     s32 temp_r0_2;
     u32 temp_r3;
     u32 temp_r3_10;
-    u32 temp_r3_11;
+    u32 particle_emitter;
     u32 temp_r3_12;
     u32 temp_r3_13;
     u32 temp_r3_14;
@@ -1108,9 +1108,9 @@ void TBoss4Type2__vt21(Obj_80055BC0 *o) {
             }
         } else if (temp_f1_2 >= lbl_805D8BB8) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x438) == 0) {
-                temp_r3_11 = create_particle_emitter((void *) (&sp14), (int) (0x13A));
-                *(u32 *)((s8 *)arg0 + 0x438) = temp_r3_11;
-                if (temp_r3_11 != 0) {
+                particle_emitter = create_particle_emitter((void *) (&sp14), (int) (0x13A));
+                *(u32 *)((s8 *)arg0 + 0x438) = particle_emitter;
+                if (particle_emitter != 0) {
                     ((TBoss4Type2 *)((void *) *(u32 *)((s8 *)arg0 + 0x438)))->set_flags(0x40U);
                 }
                 play_sound_effect((int) (0x40039717), (void *) (arg0 + 0x38), (int) (0), (int) (1));
@@ -1818,11 +1818,11 @@ S_800578E8 *TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag) {
     return o;
 }
 
-u8 *TBoss4Type2__ct(u8 *arg0, s32 arg1, s32 *arg2) {
+u8 *TBoss4Type2__ct(u8 *arg0, s32 parent, s32 *arg2) {
     s32 i;
     s32 v;
 
-    ((TObjEnemy *)arg0)->initialize((void*)arg1);
+    ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80486924;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D27D8;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);

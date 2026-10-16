@@ -31,12 +31,12 @@ u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2) {
     register_indirect_effect_ctrl((s32)((s32) arg1));
     return arg0;
 }
-void register_indirect_effect_ctrl(s32 arg0) {
+void register_indirect_effect_ctrl(s32 kind) {
     u8 *p;
-    if (((s8 (*)(s32))find_indirect_effect_ctrl)(arg0) < 0 && indirect_effect_ctrl_count < 6) {
+    if (((s8 (*)(s32))find_indirect_effect_ctrl)(kind) < 0 && indirect_effect_ctrl_count < 6) {
         p = __nw__7TObjectFUl(0x54);
         if (p != NULL) {
-            p = TEffIndirectCtrl__ct(p, arg0, tl_01);
+            p = TEffIndirectCtrl__ct(p, kind, tl_01);
         }
         indirect_effect_ctrl_table[indirect_effect_ctrl_count] = p;
         indirect_effect_ctrl_count++;

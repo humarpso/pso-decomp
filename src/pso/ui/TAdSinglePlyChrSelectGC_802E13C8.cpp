@@ -191,7 +191,7 @@ s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void) {
 }
 
 s32 TAdTimeSetGC::poll_load_status() {
-    s32 temp_r3;
+    s32 load_result;
     s32 var_r31;
     s32 var_r31_2;
     s32 var_r3;
@@ -206,8 +206,8 @@ s32 TAdTimeSetGC::poll_load_status() {
         return 1;
     }
     if (((TAdPlayerLoadGC *)0)->probe_and_check_card() == 0) {
-        temp_r3 = TAdPlayerLoadGC::get_load_result(0);
-        switch (temp_r3) {
+        load_result = TAdPlayerLoadGC::get_load_result(0);
+        switch (load_result) {
         case -125:
             return 4;
         case -127:
@@ -326,7 +326,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg
     ((TAdSinglePlyChrSelectGC *)arg0)->open_message_choice((void *)((void*)((int) (temp_r31))), (s32)((void*)((void *) (arg2))), (void *)((void*)((int) (var_r6))), (void *)((void*)((int) (0))));
 }
 
-void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 arg2, void *arg3, void *arg4) {
+void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 sel, void *arg3, void *arg4) {
     if (((Self_802E1A8C *)this)->x50 != NULL || ((Self_802E1A8C *)this)->x54 != NULL) {
         return;
     }
@@ -338,7 +338,7 @@ void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 arg2, void *ar
         send_and_handle__6TLobbyFii(((Self_802E1A8C *)this)->x50, arg1, 3);
     }
     ((TWindowMessage *)(((Self_802E1A8C *)this)->x50))->complete_reveal();
-    if (arg2 == -1) {
+    if (sel == -1) {
         return;
     }
     ((Self_802E1A8C *)this)->x54 = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_804E3048, 2);
@@ -351,7 +351,7 @@ void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 arg2, void *ar
     if (m == NULL) {
         m = TWindowSubStatusDisp::get_message_10(0x5B);
     }
-    if (arg2 != -2) {
+    if (sel != -2) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(((Self_802E1A8C *)this)->x54, m, 5, 0);
         m2 = arg4;
         if (m2 == NULL) {
@@ -363,10 +363,10 @@ void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 arg2, void *ar
     }
     ((TWindowSubComCardList *)(((Self_802E1A8C *)this)->x54))->update_layout_height(lbl_805D68E0);
     align_menu_entry_positions(((Self_802E1A8C *)this)->x54);
-    if (arg2 == -2) {
+    if (sel == -2) {
         ((TWindowSubComCardList *)(((Self_802E1A8C *)this)->x54))->set_selected_index(0);
     } else {
-        ((TWindowSubComCardList *)(((Self_802E1A8C *)this)->x54))->set_selected_index(arg2);
+        ((TWindowSubComCardList *)(((Self_802E1A8C *)this)->x54))->set_selected_index(sel);
     }
     ((TWindowOptionCtrl *)(((Self_802E1A8C *)this)->x54))->clear_flag70_bit4();
 }
@@ -713,14 +713,14 @@ void TAdSinglePlyChrSelectGC::build_selection_summary() {
     ((s32 (*)(void *, void *, int, int, int))close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv)((void *) (arg0), (void *) (arg0 + 0x68), (int) (1), (int) (((s32 * (*)(s32, s32))get_localized_text_entry)(0x1C, 0x2A)), (int) (((s32 * (*)(s32, s32))get_localized_text_entry)(0x1C, 0x2B)));
 }
 void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0) {
-    s32 temp_r3;
+    s32 selected_menu_value;
     u32 temp_r3_2;
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x54);
     if (temp_r3_2 == 0U || is_visible__11TWindowMenuFv(temp_r3_2) == 0) {
         return;
     }
-    temp_r3 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x54)));
-        switch (temp_r3) {
+    selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x54)));
+        switch (selected_menu_value) {
         case 0:
             if (*(s32 *)((s8 *)arg0 + 0x44) & 0x80) {
                 TAdSinglePlyChrSelectGC::try_load_system_file();

@@ -180,35 +180,35 @@ void TLobby__sub_803362A4(void *arg0_) {
 void TLobby__sub_8033633C(void) {  }
 
 typedef char RecoveredGlobal_80336340_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80336340_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
-void update_title_idle_transition(Obj_80336340 *arg0) {
-    s32 var_r28;
+void update_title_idle_transition(Obj_80336340 *arg0_) {
+    s32 i;
     TAdMultiChgGameModeGC::set_default_camera();
     if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
-        for (var_r28 = 0; var_r28 != 3; var_r28++) {
-            if (arg0->objs[var_r28] != NULL) {
-                queue_destruction__7TObjectFv(arg0->objs[var_r28]);
-                arg0->objs[var_r28] = NULL;
+        for (i = 0; i != 3; i++) {
+            if (arg0_->objs[i] != NULL) {
+                queue_destruction__7TObjectFv(arg0_->objs[i]);
+                arg0_->objs[i] = NULL;
             }
         }
         TAdMultiChgGameModeGC::request_scene_change();
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x34) < (s32) *(s32 *)((s8 *)arg0 + 0x38)) {
+    if ((s32) *(s32 *)((s8 *)arg0_ + 0x34) < (s32) *(s32 *)((s8 *)arg0_ + 0x38)) {
         if ((((TKeyBoardControl *)(&TKeyBoardControl__global_key_state.value))->has_any_key_pressed() != 0) || (TKeyBoardControl::any_pad_input_active() != 0)) {
-            *(s32 *)((s8 *)arg0 + 0x34) = 0;
+            *(s32 *)((s8 *)arg0_ + 0x34) = 0;
         }
-        TLobby__sub_803362A4((void *) (arg0));
+        TLobby__sub_803362A4((void *) (arg0_));
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == (s32) *(s32 *)((s8 *)arg0 + 0x34)) {
-        ((TObject *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
+    if ((s32) *(s32 *)((s8 *)arg0_ + 0x38) == (s32) *(s32 *)((s8 *)arg0_ + 0x34)) {
+        ((TObject *)(*(void **)((s8 *)arg0_ + 0x24)))->set_flag_4();
         TWindowOptionCtrl__sub_802273B4((int) (0x1E));
     }
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) < (s32) *(s32 *)((s8 *)arg0 + 0x34)) && (((TAdSinglePlyChrSelectGC *)arg0)->start_offline_seq() != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0_ + 0x38) < (s32) *(s32 *)((s8 *)arg0_ + 0x34)) && (((TAdSinglePlyChrSelectGC *)arg0_)->start_offline_seq() != 0)) {
         TKeyBoardControl__sub_8000F90C((int) (2));
         set_opening_movie_purpose((int) (0));
         TKeyBoardControl__sub_8000F9CC((void *) (3));
     }
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) (*(s32 *)((s8 *)arg0 + 0x34) + 1);
+    *(s32 *)((s8 *)arg0_ + 0x34) = (s32) (*(s32 *)((s8 *)arg0_ + 0x34) + 1);
 }
 
 void TUnk_804EEF64::sub_8033645C() { if (*(unsigned int*)((char*)this + 0x2c) != 0) { queue_destruction__7TObjectFv((void*)((void*)(*(void**)((char*)this + 0x2c)))); *(int*)((char*)this + 0x2c) = 0; } }

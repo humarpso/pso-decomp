@@ -509,17 +509,17 @@ void TWindowHelpItem::update_stat_disp() {
     s32 c;
     s32 d;
     s32 e;
-    s32 temp_r3;
+    s32 player;
 
-    temp_r3 = get_player_by_client_id(this->m_20);
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id(this->m_20);
+    if (player != 0) {
         a = get_array_entry__13TUnk_804CE018Fi(this, 0);
         b = get_array_entry__13TUnk_804CE018Fi(this, 1);
         c = get_array_entry__13TUnk_804CE018Fi(this, 2);
         d = get_array_entry__13TUnk_804CE018Fi(this, 3);
         e = get_array_entry__13TUnk_804CE018Fi(this, 4);
         if (this->m_70 != 0) {
-            if (check_equip_requirements(temp_r3, this->m_70, &sp8) != 0) {
+            if (check_equip_requirements(player, this->m_70, &sp8) != 0) {
                 TWindowHelpItem::set_flag_0x10((u16 *)a, (s32)1);
                 TWindowHelpItem::set_flag_0x10((u16 *)b, (s32)1);
                 TWindowHelpItem::set_flag_0x10((u16 *)c, (s32)1);
@@ -646,11 +646,11 @@ void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
     s32 temp_r29;
     s32 temp_r28;
     s32 temp_r27;
-    s32 temp_r3;
+    s32 player;
     u32 temp_r4;
-    temp_r3 = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
-    if ((temp_r3 != 0) && (temp_r31 = get_array_entry__13TUnk_804CE018Fi(arg0, 0), temp_r30 = get_array_entry__13TUnk_804CE018Fi(arg0, 1), temp_r29 = get_array_entry__13TUnk_804CE018Fi(arg0, 2), temp_r28 = get_array_entry__13TUnk_804CE018Fi(arg0, 3), temp_r27 = get_array_entry__13TUnk_804CE018Fi(arg0, 4), (temp_r4 = *(u32 *)((s8 *)arg0 + 0x70), (temp_r4 == 0U) == 0))) {
-        if (check_equip_requirements((s32)(temp_r3), (s32)(temp_r4), (s32 *)(&sp8)) != 0) {
+    player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
+    if ((player != 0) && (temp_r31 = get_array_entry__13TUnk_804CE018Fi(arg0, 0), temp_r30 = get_array_entry__13TUnk_804CE018Fi(arg0, 1), temp_r29 = get_array_entry__13TUnk_804CE018Fi(arg0, 2), temp_r28 = get_array_entry__13TUnk_804CE018Fi(arg0, 3), temp_r27 = get_array_entry__13TUnk_804CE018Fi(arg0, 4), (temp_r4 = *(u32 *)((s8 *)arg0 + 0x70), (temp_r4 == 0U) == 0))) {
+        if (check_equip_requirements((s32)(player), (s32)(temp_r4), (s32 *)(&sp8)) != 0) {
             TWindowHelpItem::set_flag_0x10((u16 *)temp_r31, (s32)1);
             TWindowHelpItem::set_flag_0x10((u16 *)temp_r30, (s32)1);
             TWindowHelpItem::set_flag_0x10((u16 *)temp_r29, (s32)1);
@@ -792,22 +792,22 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
 void update_level_requirement__15TWindowHelpItemFPv(u8 *arg0) {
     s32 sp8;
     u8 *temp_r30;
-    u8 *temp_r31;
-    u8 *temp_r3;
-    temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20))));
-    if (temp_r3 != NULL) {
+    u8 *item_pmt_record;
+    u8 *player;
+    player = (u8 *)(((u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20))));
+    if (player != NULL) {
         if (get_quest_id__12TQuestListVMFv() != 0U) {
             update_stat_comparison__15TWindowHelpItemFv((Help_802549B0 *)((void *) (arg0)));
             temp_r30 = (u8 *)(((u8 *)get_array_entry__13TUnk_804CE018Fi(arg0, 0xA)));
-            temp_r31 = (u8 *)(lookup_item_pmt_record(*(s32 *)((s8 *)arg0 + 0x68)));
-            if (check_equip_requirements((s32)((s32)((int) (temp_r3))), (s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x68)))), (s32 *)((s32 *)((void *) (&sp8)))) == 0) {
+            item_pmt_record = (u8 *)(lookup_item_pmt_record(*(s32 *)((s8 *)arg0 + 0x68)));
+            if (check_equip_requirements((s32)((s32)((int) (player))), (s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x68)))), (s32 *)((s32 *)((void *) (&sp8)))) == 0) {
                 if (!(sp8 & 1)) {
                     goto block_4;
                 }
             } else {
 block_4:
-                if ((u8) *(u8 *)((s8 *)temp_r31 + 0x10) != 0) {
-                    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) (((VObj_18_eecf68 *)(temp_r3))->m14() + 1);
+                if ((u8) *(u8 *)((s8 *)item_pmt_record + 0x10) != 0) {
+                    *(s32 *)((s8 *)temp_r30 + 0x20) = (s32) (((VObj_18_eecf68 *)(player))->m14() + 1);
                 }
             }
         }
@@ -1138,31 +1138,31 @@ void TWindowHelpItem::dispatch_item_help() {
 #undef lbl_804CF7F0
 
 void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1) {
-    u8 *temp_r3;
+    u8 *item;
     if (arg1 == -1) {
         ((TWindowHelpItem *)arg0)->set_displayed_item_data((void*)((void*)(NULL)), (void*)((void*)((void *)-1)));
         return;
     }
-    temp_r3 = (u8 *)(find_item_by_id(arg1));
-    if (temp_r3 == NULL) {
+    item = (u8 *)(find_item_by_id(arg1));
+    if (item == NULL) {
         ((TWindowHelpItem *)arg0)->set_displayed_item_data((void*)((void*)(NULL)), (void*)((void*)((void *) arg1)));
         return;
     }
-    ((TItem *)temp_r3)->copy_to_item_data(arg0 + 0x88);
+    ((TItem *)item)->copy_to_item_data(arg0 + 0x88);
     ((TWindowHelpItem *)arg0)->set_displayed_item_data((void*)((void*)(arg0 + 0x88)), (void*)((void*)((void *) arg1)));
 }
 void show_item_by_id__15TWindowHelpItemFPvi(u8 *arg0, s32 arg1) {
-    u8 *temp_r3;
+    u8 *item;
     if (arg1 == -1) {
         ((TWindowHelpItem *)arg0)->set_items_and_refresh((void*)((void*)(NULL)), (void*)((void*)((void *)-1)));
         return;
     }
-    temp_r3 = (u8 *)(find_item_by_id(arg1));
-    if (temp_r3 == NULL) {
+    item = (u8 *)(find_item_by_id(arg1));
+    if (item == NULL) {
         ((TWindowHelpItem *)arg0)->set_items_and_refresh((void*)((void*)(NULL)), (void*)((void*)((void *) arg1)));
         return;
     }
-    ((TItem *)temp_r3)->copy_to_item_data(arg0 + 0x74);
+    ((TItem *)item)->copy_to_item_data(arg0 + 0x74);
     ((TWindowHelpItem *)arg0)->set_items_and_refresh((void*)((void*)(arg0 + 0x74)), (void*)((void*)((void *) arg1)));
 }
 void TWindowHelpItem::set_displayed_item_colored(u32 arg1) {

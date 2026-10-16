@@ -204,10 +204,10 @@ s32 is_split_screen();
 extern s32 game_difficulty_selection;
 
 s32 TLobby::get_drop_item_mode() {
-    s32 temp_r3;
+    s32 main_phase;
 
-    temp_r3 = get_main_phase();
-    switch (temp_r3) {
+    main_phase = get_main_phase();
+    switch (main_phase) {
     case 15:
         if ((TLobby::get_instance() == 0) && ((s32) game_difficulty_selection == 3)) {
             return 3;
@@ -246,14 +246,14 @@ extern u32 forest_rel_work_buffer;
 void TLobby::update_drop_item() {
     s32 *temp_r3;
     s32 temp_r0;
-    s32 temp_r30;
+    s32 drop_item_mode;
 
     lbl_805D606C = 0;
     lbl_805D6070 = NULL;
     if ((u32) forest_rel_work_buffer != 0U) {
-        temp_r30 = TLobby::get_drop_item_mode();
-        if (((TScene *)(forest_rel_filename_table[temp_r30]))->update_lobby_scene() <= 0x24B8) {
-            temp_r3 = load_relocatable_file(forest_rel_filename_table[temp_r30], forest_rel_work_buffer);
+        drop_item_mode = TLobby::get_drop_item_mode();
+        if (((TScene *)(forest_rel_filename_table[drop_item_mode]))->update_lobby_scene() <= 0x24B8) {
+            temp_r3 = load_relocatable_file(forest_rel_filename_table[drop_item_mode], forest_rel_work_buffer);
             lbl_805D6070 = temp_r3;
             if (temp_r3 != NULL) {
                 temp_r0 = *temp_r3;
@@ -335,7 +335,7 @@ extern u32 forest_rel_work_buffer;
 void TLobby::load_item_data() {
     s32 *temp_r3_2;
     s32 temp_r0;
-    s32 temp_r30;
+    s32 drop_item_mode;
     u32 temp_r3;
 
     lbl_805D606C = 0;
@@ -343,9 +343,9 @@ void TLobby::load_item_data() {
     temp_r3 = ((TQuestVmDownLoadServer *)0x24B8)->alloc();
     forest_rel_work_buffer = temp_r3;
     if (temp_r3 != 0U) {
-        temp_r30 = TLobby::get_drop_item_mode();
-        if (((TScene *)(forest_rel_filename_table[temp_r30]))->update_lobby_scene() <= 0x24B8) {
-            temp_r3_2 = load_relocatable_file(forest_rel_filename_table[temp_r30], forest_rel_work_buffer);
+        drop_item_mode = TLobby::get_drop_item_mode();
+        if (((TScene *)(forest_rel_filename_table[drop_item_mode]))->update_lobby_scene() <= 0x24B8) {
+            temp_r3_2 = load_relocatable_file(forest_rel_filename_table[drop_item_mode], forest_rel_work_buffer);
             lbl_805D6070 = temp_r3_2;
             if (temp_r3_2 != NULL) {
                 temp_r0 = *temp_r3_2;

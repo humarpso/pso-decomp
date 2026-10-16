@@ -22,12 +22,12 @@ int TWindowKeyBoardSoft::get_flag_bit6() { return (this->m_7c >> 6) & 0x1; }
 int TWindowKeyBoardSoft::get_flag_bit5() { return (this->m_7c >> 5) & 0x1; }
 int TWindowSubMag__sub_80262808(void* p) { return *(u16*)((char*)p + 0x62) & 0x8; }
 
-void TWindowSubMag::set_mag_slot_state(s32 arg1) {
+void TWindowSubMag::set_mag_slot_state(s32 item) {
     u16 *temp_r3;
 
     temp_r3 = get_array_entry__13TUnk_804CE018Fi(this, 0);
     *temp_r3 |= 2;
-    if ((*(TItemTexLoad**)((s8 *)this + 0x6C))->load_item_icon((TItemData*)arg1) != 0) {
+    if ((*(TItemTexLoad**)((s8 *)this + 0x6C))->load_item_icon((TItemData*)item) != 0) {
         *(s8 *)((s8 *)this + 0x60) = 1;
         return;
     }

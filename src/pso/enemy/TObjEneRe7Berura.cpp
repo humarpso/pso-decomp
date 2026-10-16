@@ -819,43 +819,43 @@ void TObjEneRe7Berura::handle_message_transition(s32 msg) {
     }
 }
 
-void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
+void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 mode) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe7Berura *)arg0)->handle_message_transition((s32)((void *) (arg2)));
+        ((TObjEneRe7Berura *)arg0)->handle_message_transition((s32)((void *) (mode)));
         return;
     case 1:
-        ((TObjEneRe7Berura *)arg0)->state_attack((s32)((void *) (arg2)));
+        ((TObjEneRe7Berura *)arg0)->state_attack((s32)((void *) (mode)));
         return;
     case 3:
-        TObjEneRe7Berura__sub_8009472C((void *) (arg0), (void *) (arg2));
+        TObjEneRe7Berura__sub_8009472C((void *) (arg0), (void *) (mode));
         return;
     case 2:
-        TObjEneRe7Berura__sub_80094624((void *) (arg0), (void *) (arg2));
+        TObjEneRe7Berura__sub_80094624((void *) (arg0), (void *) (mode));
         return;
     case 8:
-        ((TObjEneRe7Berura *)arg0)->handle_state((s32)((void *) (arg2)));
+        ((TObjEneRe7Berura *)arg0)->handle_state((s32)((void *) (mode)));
         return;
     case 4:
-        TObjEneRe7Berura__sub_800940E8((void *) (arg0), (void *) (arg2));
+        TObjEneRe7Berura__sub_800940E8((void *) (arg0), (void *) (mode));
         return;
     case 5:
-        TObjEneRe7Berura__sub_80093C80((void *) (arg0), (void *) (arg2));
+        TObjEneRe7Berura__sub_80093C80((void *) (arg0), (void *) (mode));
         return;
     case 6:
-        TObjEneRe7Berura__sub_80093888((void *) (arg0), (void *) (arg2));
+        TObjEneRe7Berura__sub_80093888((void *) (arg0), (void *) (mode));
         return;
     case 7:
-        ((TObjEneRe7Berura *)arg0)->run_flash_warning_state((s32)((void *) (arg2)));
+        ((TObjEneRe7Berura *)arg0)->run_flash_warning_state((s32)((void *) (mode)));
         return;
     case 9:
-        state_patrol__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (arg2));
+        state_patrol__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (mode));
         return;
     case 10:
-        TObjEneRe7Berura__sub_80093470((void *) (arg0), (void *) (arg2));
+        TObjEneRe7Berura__sub_80093470((void *) (arg0), (void *) (mode));
         return;
     case 11:
-        ((TObjEneRe7Berura *)arg0)->update_death_state((s32)((void *) (arg2)));
+        ((TObjEneRe7Berura *)arg0)->update_death_state((s32)((void *) (mode)));
     default:
         return;
     }
@@ -999,7 +999,7 @@ void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
     } while (var_r30 != NULL);
 }
 
-void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
+void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 child, u8 *arg1) {
     s32 temp_r4;
     s32 temp_r5;
     s32 temp_r6;
@@ -1012,7 +1012,7 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
     berura_attack_node_range_end = temp_r4;
     berura_attack_node_vec_ptr = (long) (arg1 + 0x58);
     push_matrix_from((void *) (identity_matrix), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
-    TObjEneRe7Berura::collect_node_matrices((void *)((void *) (arg0)), (int)((int) (0)));
+    TObjEneRe7Berura::collect_node_matrices((void *)((void *) (child)), (int)((int) (0)));
     pop_matrix();
 }
 

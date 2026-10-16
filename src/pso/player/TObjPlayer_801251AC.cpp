@@ -13,12 +13,12 @@ int draw_weapon_at_joint(void*, void*);
 s16 TObjPlayer::get_stage_strike_count() { return *(s16*)((char*)this + 0x12); }
 void TUnk_804A2358::emit_marker_effects() {
     s32 sp8;
-    void *temp_r31;
+    void *owner;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if (((TObjPlayer *)this)->draw_icon((s32)0, (s32)(&sp8)) != 0) {
-            temp_r31 = *(void * *)&this->player;
-            TTecFoie::create((void *)temp_r31, (void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r31 + 0x60)), (void *)(((TObjPlayer *)this)->get_tp() + 2));
+            owner = *(void * *)&this->player;
+            TTecFoie::create((void *)owner, (void *)(&sp8), (void *)(*(s32 *)((s8 *)owner + 0x60)), (void *)(((TObjPlayer *)this)->get_tp() + 2));
             roll_technique__11TItemWeaponFv(this);
         }
     } else {

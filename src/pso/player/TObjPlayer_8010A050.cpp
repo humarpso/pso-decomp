@@ -125,7 +125,7 @@ struct TItemData8_8010a060 { s8 a; s8 b; u8 c; s8 pad[21]; };
 
 void TUnk_8049F130::run_task() {
     struct TItemData8_8010a060 sp8;
-    s32 temp_r3;
+    s32 player;
 
     if ((u32) this->m_2c != get_item_system_generation()) {
         queue_destruction__7TObjectFv(this);
@@ -137,14 +137,14 @@ void TUnk_8049F130::run_task() {
         sp8.b = 2;
         sp8.c = *(u8 *)((s8 *)this + 0x2A);
         if ((count_nearby_players_with_shield__10TObjPlayerFUsPUc(this->m_28, &sp8.a) > 0) && ((s32) this->m_20 != -1)) {
-            temp_r3 = (s32)get_player_by_client_id(this->m_28);
-            if (temp_r3 != 0) {
+            player = (s32)get_player_by_client_id(this->m_28);
+            if (player != 0) {
                 get_field_3e0__12TBoss3VoloptFv();
                 if (is_item_area_enabled() == 1) {
                     if ((s32) *(s32 *)&this->unk_24 == 0) {
-                        create_timed_particle_emitter(temp_r3 + 0x2FC, this->m_20, 0, 0xA);
+                        create_timed_particle_emitter(player + 0x2FC, this->m_20, 0, 0xA);
                     } else {
-                        spawn_particle_effect(temp_r3 + 0x2FC, this->m_20);
+                        spawn_particle_effect(player + 0x2FC, this->m_20);
                     }
                 }
             }

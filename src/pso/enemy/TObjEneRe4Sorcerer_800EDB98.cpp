@@ -1808,9 +1808,9 @@ void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1) {
 void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 var_r3;
-    u8 *temp_r30;
+    u8 *entity;
 
-    temp_r30 = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x3E6)));
+    entity = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x3E6)));
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -1831,7 +1831,7 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E8);
         switch (temp_r0) {
         case 0:
-            if ((temp_r30 != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((int) (temp_r30)) != 0)) {
+            if ((entity != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) != 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
                 if (is_alive__9TObjEneDDFv(*(s32 *)((s8 *)arg0 + 0x390)) != 0) {
                     if ((void *) *(u8 **)((s8 *)arg0 + 0x390) != arg0) {
@@ -1860,7 +1860,7 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
             }
             break;
         case 1:
-            if ((temp_r30 != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((int) (temp_r30)) == 0)) {
+            if ((entity != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) == 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 5;
             } else if ((f32) *(s32 *)((s8 *)arg0 + 0x4E4) >= lbl_805DA7A8) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 4;
@@ -1871,8 +1871,8 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
         case 2:
         case 3:
             if ((*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DA7AC) && (temp_r0 == 3)) {
-                if (temp_r30 != NULL) {
-                    var_r3 = ((TObjEneRe4Sorcerer *)temp_r30)->get_state();
+                if (entity != NULL) {
+                    var_r3 = ((TObjEneRe4Sorcerer *)entity)->get_state();
                 } else {
                     var_r3 = 3;
                 }
@@ -1888,8 +1888,8 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
             }
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 5;
-                if (temp_r30 != NULL) {
-                    ((TObjEneRe4Sorcerer *)temp_r30)->set_attack_flag();
+                if (entity != NULL) {
+                    ((TObjEneRe4Sorcerer *)entity)->set_attack_flag();
                 }
             }
             break;
@@ -1906,8 +1906,8 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
         TObjEneRe4Sorcerer__sub_800EF214((s32) (arg0));
         return;
     case 5:
-        if (temp_r30 != NULL) {
-            ((TObjEneRe4Sorcerer *)temp_r30)->set_attack_flag();
+        if (entity != NULL) {
+            ((TObjEneRe4Sorcerer *)entity)->set_attack_flag();
         }
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFFFFFF7);
         enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
@@ -2037,8 +2037,8 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r5;
     s32 var_r3;
-    u32 temp_r30;
-    temp_r30 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x3E4));
+    u32 entity;
+    entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x3E4));
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -2061,7 +2061,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E8);
         switch (temp_r0) {
         case 0:
-            if ((temp_r30 != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((int) (temp_r30)) != 0)) {
+            if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) != 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
                 if (((TObjEneRe4Sorcerer *)arg0)->try_attack((f32) (lbl_805DA7BC), (f32) (lbl_805DA7BC)) == 0) {
                     *(s32 *)((s8 *)arg0 + 0x4E8) = 4;
@@ -2085,7 +2085,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
             ((TObjEneRe4Sorcerer *)arg0)->create_effect();
             break;
         case 1:
-            if ((temp_r30 != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((int) (temp_r30)) == 0)) {
+            if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) == 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 5;
             } else if ((s32) *(s32 *)((s8 *)arg0 + 0x4E4) >= 0x5A) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 3;
@@ -2097,8 +2097,8 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
         case 2:
         case 3:
             if ((*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DA7AC) && (temp_r0 == 3)) {
-                if (temp_r30 != 0U) {
-                    var_r3 = ((TObjEneRe4Sorcerer *)temp_r30)->get_state();
+                if (entity != 0U) {
+                    var_r3 = ((TObjEneRe4Sorcerer *)entity)->get_state();
                 } else {
                     var_r3 = 3;
                 }
@@ -2114,8 +2114,8 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
             }
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 5;
-                if (temp_r30 != 0U) {
-                    ((TObjEneRe4Sorcerer *)temp_r30)->set_attack_flag();
+                if (entity != 0U) {
+                    ((TObjEneRe4Sorcerer *)entity)->set_attack_flag();
                 }
             }
             break;
@@ -2132,8 +2132,8 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
         TObjEneRe4Sorcerer__sub_800EF214((s32) (arg0));
         return;
     case 5:
-        if (temp_r30 != 0U) {
-            ((TObjEneRe4Sorcerer *)temp_r30)->set_attack_flag();
+        if (entity != 0U) {
+            ((TObjEneRe4Sorcerer *)entity)->set_attack_flag();
         }
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFFFFFF7);
         break;
@@ -2368,37 +2368,37 @@ s32 TObjEneRe4Sorcerer::handle_state(s32 arg1) {
     }
 }
 
-void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2) {
+void TObjEneRe4Sorcerer__vt85(s32 arg0p, u32 arg1, s32 arg1p) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe4Sorcerer *)arg0)->handle_state((s32)((void *) (arg2)));
+        ((TObjEneRe4Sorcerer *)arg0p)->handle_state((s32)((void *) (arg1p)));
         return;
     case 1:
-        TObjEneRe4Sorcerer__sub_800EEFE4((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Sorcerer__sub_800EEFE4((u8 *)((void *) (arg0p)), (s32)((void *) (arg1p)));
         return;
     case 2:
-        TObjEneRe4Sorcerer__sub_800EEDE4((void *) (arg0), (void *) (arg2));
+        TObjEneRe4Sorcerer__sub_800EEDE4((void *) (arg0p), (void *) (arg1p));
         return;
     case 3:
-        TObjEneRe4Sorcerer__sub_800EEC00((void *)((void *) (arg0)), (void *)((void *) (arg2)));
+        TObjEneRe4Sorcerer__sub_800EEC00((void *)((void *) (arg0p)), (void *)((void *) (arg1p)));
         return;
     case 4:
-        ((TObjEneRe4Sorcerer *)arg0)->state_wait((s32)((void *) (arg2)));
+        ((TObjEneRe4Sorcerer *)arg0p)->state_wait((s32)((void *) (arg1p)));
         return;
     case 5:
-        TObjEneRe4Sorcerer__sub_800EE7DC((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Sorcerer__sub_800EE7DC((u8 *)((void *) (arg0p)), (s32)((void *) (arg1p)));
         return;
     case 6:
-        ((TObjEneRe4Sorcerer *)arg0)->update_state_machine((void *) (arg2));
+        ((TObjEneRe4Sorcerer *)arg0p)->update_state_machine((void *) (arg1p));
         return;
     case 7:
-        TObjEneRe4Sorcerer__sub_800EE1CC((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Sorcerer__sub_800EE1CC((u8 *)((void *) (arg0p)), (s32)((void *) (arg1p)));
         return;
     case 8:
-        TObjEneRe4Sorcerer__sub_800EE0F8((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        TObjEneRe4Sorcerer__sub_800EE0F8((u8 *)((void *) (arg0p)), (s32)((void *) (arg1p)));
         return;
     case 9:
-        ((TObjEneRe4Sorcerer *)arg0)->handle_death_state((s32)((void *) (arg2)));
+        ((TObjEneRe4Sorcerer *)arg0p)->handle_death_state((s32)((void *) (arg1p)));
     default:
         return;
     }
@@ -2490,24 +2490,24 @@ void TObjEneRe4Sorcerer::calc_orb_positions() {
 }
 
 void TObjEneRe4Sorcerer::apply_mylla_effect() {
-    u32 temp_r3;
-    temp_r3 = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E6));
-    if (temp_r3 != 0U) {
-        ((TObjEneRe4Sorcerer *)temp_r3)->set_state_flag_and_mode((s32)(2));
+    u32 entity;
+    entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E6));
+    if (entity != 0U) {
+        ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(2));
     }
 }
 
 void TObjEneRe4Sorcerer::set_photon_state() {
-    u32 temp_r3;
+    u32 entity;
     if ((s32) *(s32 *)((s8 *)this + 0x3E8) == 0) {
-        temp_r3 = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
-        if (temp_r3 != 0U) {
-            ((TObjEneRe4Sorcerer *)temp_r3)->set_state_flag_and_mode((s32)(0));
+        entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
+        if (entity != 0U) {
+            ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(0));
         }
     } else {
-        temp_r3 = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
-        if (temp_r3 != 0U) {
-            ((TObjEneRe4Sorcerer *)temp_r3)->set_state_flag_and_mode((s32)(1));
+        entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
+        if (entity != 0U) {
+            ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(1));
         }
     }
 }

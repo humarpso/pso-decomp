@@ -89,16 +89,16 @@ void *__dt__16TAdPsoPassSaveGCFv(void *arg0, s16 arg1) {
 extern s32 __vt__16TAdPsoPassSaveGC[];
 extern void *lbl_805D4310;
 
-void *TAdPsoPassSaveGC__ct(void *arg0) {
+void *TAdPsoPassSaveGC__ct(void *parent) {
     void *o;
-    TAdYesNoBaseGC__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TAdPsoPassSaveGC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D4310;
+    TAdYesNoBaseGC__ct(parent);
+    *(s32 **)((s8 *)parent + 0x18) = __vt__16TAdPsoPassSaveGC;
+    *(void **)((s8 *)parent + 0x0) = lbl_805D4310;
     o = __nw__7TObjectFUl(0x138);
     if (o != NULL) {
-        __ct__10TAdTitleGCFv(o, arg0, 18);
+        __ct__10TAdTitleGCFv(o, parent, 18);
     }
-    return arg0;
+    return parent;
 }
 
 }

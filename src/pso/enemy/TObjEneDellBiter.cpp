@@ -2265,7 +2265,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
 #undef VO
 
 void TObjEneDellBiter::step_demo_script() {
-    s32 temp_r4;
+    s32 pos;
     switch (TObjEneDellBiter__demo_script_step) {
     case 9:
     case 10:
@@ -2295,9 +2295,9 @@ void TObjEneDellBiter::step_demo_script() {
     case 12:
     case 22:
     case 32:
-        temp_r4 = TObjEneDellBiter__demo_script_cursor;
-        TObjEneDellBiter__demo_script_cursor = temp_r4 + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((void *) (&dellbiter_demo_camera_vec.value), (int) (temp_r4));
+        pos = TObjEneDellBiter__demo_script_cursor;
+        TObjEneDellBiter__demo_script_cursor = pos + 0xC;
+        get_camera_ctrl__9TObjEneDDFv((void *) (&dellbiter_demo_camera_vec.value), (int) (pos));
         break;
     }
     TObjEneDellBiter__demo_script_step += 1;
@@ -3088,17 +3088,17 @@ void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
     }
 }
 
-s32 TObjEneDellBiter__sub_803054A8(u8 *arg0) {
-    if (calc_boss4_scale__10TObjPlayerFi((s32)(arg0)) <= *(f32 *)((s8 *)arg0 + 0x4A8)) {
-        ((s32 (*)(void *, s32))transition_enemy_state)((void *)((void *) (arg0)), (s32)((int) (8)));
+s32 TObjEneDellBiter__sub_803054A8(u8 *actor) {
+    if (calc_boss4_scale__10TObjPlayerFi((s32)(actor)) <= *(f32 *)((s8 *)actor + 0x4A8)) {
+        ((s32 (*)(void *, s32))transition_enemy_state)((void *)((void *) (actor)), (s32)((int) (8)));
         return 1;
     }
     return 0;
 }
 
-s32 TObjEneDellBiter__sub_803054FC(u8 *arg0) {
-    if (calc_boss4_scale__10TObjPlayerFi((s32)(arg0)) <= *(f32 *)((s8 *)arg0 + 0x4B4)) {
-        ((s32 (*)(void *, s32))transition_enemy_state)((void *)((void *) (arg0)), (s32)((int) (9)));
+s32 TObjEneDellBiter__sub_803054FC(u8 *actor) {
+    if (calc_boss4_scale__10TObjPlayerFi((s32)(actor)) <= *(f32 *)((s8 *)actor + 0x4B4)) {
+        ((s32 (*)(void *, s32))transition_enemy_state)((void *)((void *) (actor)), (s32)((int) (9)));
         return 1;
     }
     return 0;
@@ -3114,13 +3114,13 @@ s32 TObjEneDellBiter::check_low_hp_transition() {
 }
 
 void TObjEneDellBiter::sub_803055C8() {
-    s32 temp_r3_2;
+    s32 player;
     u16 temp_r3;
     temp_r3 = *(u16 *)((s8 *)((u8 *)this) + 0x2D4);
     if (temp_r3 < 0x1000U) {
-        temp_r3_2 = get_player_by_client_id((u32) temp_r3);
-        if (temp_r3_2 != 0) {
-            ((TObjEneDD_ST *)((u8 *)this))->set_target_player((void *)temp_r3_2);
+        player = get_player_by_client_id((u32) temp_r3);
+        if (player != 0) {
+            ((TObjEneDD_ST *)((u8 *)this))->set_target_player((void *)player);
         }
         *(s32 *)((s8 *)((u8 *)this) + 0x3C0) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) | 8);
     }

@@ -14,24 +14,24 @@ void fn_80327A38(Acc_80327A38 *acc, Src_80327A38 *src, s32 id);
 
 extern "C" {
 
-void visit_model_tree_recursive(s32 arg0, u8 *arg1, s32 arg2) {
+void visit_model_tree_recursive(s32 acc, u8 *arg1, s32 arg2) {
   unsigned int new_var;
-  u32 temp_r4;
+  u32 src;
   u8 *temp_r4_2;
   u8 *var_r30;
   var_r30 = (u8 *) arg1;
   do
   {
-    temp_r4 = *((u32 *) (((s8 *) var_r30) + 4));
+    src = *((u32 *) (((s8 *) var_r30) + 4));
     new_var = arg2;
-    if (temp_r4 != 0U)
+    if (src != 0U)
     {
-      fn_80327A38((Acc_80327A38 *)((void *) arg0), (Src_80327A38 *)((int) temp_r4), (s32)((void *) new_var));
+      fn_80327A38((Acc_80327A38 *)((void *) acc), (Src_80327A38 *)((int) src), (s32)((void *) new_var));
     }
     temp_r4_2 = (u8 *) (*((u8 **) (((s8 *) var_r30) + 0x2C)));
     if (temp_r4_2 != 0)
     {
-      visit_model_tree_recursive(arg0, temp_r4_2, new_var);
+      visit_model_tree_recursive(acc, temp_r4_2, new_var);
     }
     var_r30 = (u8 *) (*((u8 **) (((s8 *) var_r30) + 0x30)));
   }

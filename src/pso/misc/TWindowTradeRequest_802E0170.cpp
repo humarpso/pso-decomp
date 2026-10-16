@@ -136,25 +136,25 @@ typedef struct VObj_18_f23ffb VObj_18_f23ffb;
 #define PSO_VCALL_VObj_18_f23ffb_m10(_self) (((VObj_18_f23ffb *)(_self))->m10())
 u8 *TWindowTradeRequest__ct(u8 *arg0) {
   u32 new_var;
-  s32 temp_r31;
+  s32 player;
   s8 *new_var2;
-  u8 *temp_r31_2;
+  u8 *window_layout_position;
   __ct__7TObjectFP7TObject();
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3F70;
-  temp_r31 = ((s32)get_player_by_client_id((void *)((u32) get_trade_mode__6TLobbyFv())));
+  player = ((s32)get_player_by_client_id((void *)((u32) get_trade_mode__6TLobbyFv())));
   text_builder_reset();
-  new_var = (u32) temp_r31;
+  new_var = (u32) player;
   if (new_var)
   {
-    PSO_VCALL_VObj_18_f23ffb_m10(temp_r31);
+    PSO_VCALL_VObj_18_f23ffb_m10(player);
     text_builder_append();
   }
   TWindowSubStatusDisp::get_message_10((int) 0xD9);
   text_builder_append();
   *((s32 *) (((s8 *) arg0) + 0x20)) = create__19TWindowMessageYesNoFPvPvPvPv((s32) arg0, local_client_id, 0, 0);
-  temp_r31_2 = (u8 *) get_window_layout_position(0xB2);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) get_shared_text_buffer(), (int) temp_r31_2, (f32) lbl_805DE8A0);
+  window_layout_position = (u8 *) get_window_layout_position(0xB2);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) get_shared_text_buffer(), (int) window_layout_position, (f32) lbl_805DE8A0);
   new_var2 = ((s8 *) arg0) + 0x1C;
   ((TWindowSubShortMail *)(*((s32 *) (((s8 *) arg0) + 0x20))))->notify_warp_flag70();
   if (((s32)get_player_by_client_id((void *)((u32) local_client_id))) != 0U)

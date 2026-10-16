@@ -292,11 +292,11 @@ extern const f32 lbl_805DA39C;
 
 #pragma push
 #pragma fp_contract on
-Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6) {
+Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * parent, Vec_800D8314 * point, void * texture, s32 selector, s32 delay, f32 _w6) {
     E_800D80E4 *p;
     s32 i;
     f32 bx, by, bz, s;
-    __ct__9TDeadSpotFv((Mark_800D8314 *)(arg0), (void *)(_w1), (Vec_800D8314 *)(_w2), (void *)(_w3), (s32)(_w4), (s32)(_w5), _w6);
+    __ct__9TDeadSpotFv((Mark_800D8314 *)(arg0), (void *)(parent), (Vec_800D8314 *)(point), (void *)(texture), (s32)(selector), (s32)(delay), _w6);
     arg0->vt = ((u8 *)&lbl_80494A10);
     p = arg0->e;
     arg0->c8 = TDeadSpot__data_805DA38C;

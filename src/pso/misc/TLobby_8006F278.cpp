@@ -19,16 +19,16 @@ s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 
 s32 TLobby::calc_challenge_time_limit() {
-    s32 var_r3;
+    s32 valid_slot;
 
     if (is_flag_set__6TLobbyFv() == 0) {
         return 0x12C;
     }
-    var_r3 = TLobby::get_valid_slot(*(s32 *)((s8 *)(&challenge_mode_state) + 0x10));
-    if ((var_r3 < 0x3C) || (var_r3 > 0xE10)) {
-        var_r3 = 0x12C;
+    valid_slot = TLobby::get_valid_slot(*(s32 *)((s8 *)(&challenge_mode_state) + 0x10));
+    if ((valid_slot < 0x3C) || (valid_slot > 0xE10)) {
+        valid_slot = 0x12C;
     }
-    return var_r3;
+    return valid_slot;
 }
 void TLobby::advance_state_if_flag_set() {
     if (is_flag_set__6TLobbyFv() != 0) {
@@ -197,15 +197,15 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;
-    s32 temp_r3_4;
+    s32 valid_slot;
     s32 var_r28;
-    u32 temp_r29;
-    temp_r29 = get_character_save_record((int) (0xFFFF));
+    u32 character_save_record;
+    character_save_record = get_character_save_record((int) (0xFFFF));
     temp_r3 = get_layout_id__20TWindowSubStatusDispFv((int) (-1));
-    if ((temp_r29 == 0U) || ((s32) challenge_mode_state.value < 0) || ((s32) challenge_mode_state.value >= temp_r3)) {
+    if ((character_save_record == 0U) || ((s32) challenge_mode_state.value < 0) || ((s32) challenge_mode_state.value >= temp_r3)) {
         return 0;
     }
-    temp_r3_2 = TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r29 + 0x21C4), (int) (-1));
+    temp_r3_2 = TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), (int) (-1));
     var_r28 = 0;
     temp_r30 = challenge_mode_state.value * 4;
     temp_r3_3 = *(s32 *)((s8 *)temp_r3_2 + temp_r30);
@@ -216,12 +216,12 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
         var_r28 = 1;
         goto block_12;
     }
-    temp_r3_4 = TLobby::get_valid_slot(temp_r3_3);
-    if (is_id_out_of_range__6TLobbyFi((s32)((int) (temp_r3_4))) != 0) {
+    valid_slot = TLobby::get_valid_slot(temp_r3_3);
+    if (is_id_out_of_range__6TLobbyFi((s32)((int) (valid_slot))) != 0) {
         *(s32 *)((s8 *)temp_r3_2 + temp_r30) = 0;
         return 0;
     }
-    if (arg0 < temp_r3_4) {
+    if (arg0 < valid_slot) {
         var_r28 = 1;
     }
 block_12:

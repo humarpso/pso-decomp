@@ -1549,25 +1549,25 @@ void TObjEneEpsilonGuard::vfunc_28() {  }
 
 extern void *tl_04;
 
-void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 arg2) {
+void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneEpsilonGuard *)arg0)->handle_event(arg2);
+        ((TObjEneEpsilonGuard *)arg0)->handle_event(msg);
         return;
     case 1:
-        ((s32 (*)(void *, s32))TObjEneEpsilonGuard__sub_8035E8C0)((void *) (arg0), arg2);
+        ((s32 (*)(void *, s32))TObjEneEpsilonGuard__sub_8035E8C0)((void *) (arg0), msg);
         return;
     case 2:
-        ((TObjEneEpsilonGuard *)arg0)->state_orbit(arg2);
+        ((TObjEneEpsilonGuard *)arg0)->state_orbit(msg);
         return;
     case 3:
-        ((s32 (*)(void *, s32))TObjEneEpsilonGuard__sub_8035E578)((void *) (arg0), arg2);
+        ((s32 (*)(void *, s32))TObjEneEpsilonGuard__sub_8035E578)((void *) (arg0), msg);
         return;
     case 4:
-        ((TObjEneEpsilonGuard *)arg0)->handle_break_state(arg2);
+        ((TObjEneEpsilonGuard *)arg0)->handle_break_state(msg);
         return;
     case 5:
-        ((TObjEneEpsilonGuard *)arg0)->handle_message(arg2);
+        ((TObjEneEpsilonGuard *)arg0)->handle_message(msg);
         return;
     }
 }
@@ -1675,7 +1675,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
 }
 
 void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6) {
-    s32 var_r30;
+    s32 i;
     TObjEneEpsilon__ct();
     *(void ***)((s8 *)arg0 + 0x18) = __vt__19TObjEneEpsilonGuard;
     ((TUnk_80494938 *)((u8 *)(arg0) + 0x4BC))->init_common();
@@ -1694,8 +1694,8 @@ void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, vo
     ((TObjEneEpsilonGuard *)arg0)->init_model_and_state();
     ((VObj_18_599a64 *)(arg0))->m93();
     *(s32 *)((s8 *)arg0 + 0x46C) = (s32) (*(s32 *)((s8 *)arg0 + 0x46C) | 0x10);
-    for (var_r30 = 0; var_r30 < 4; var_r30++) {
-        ((TObjPlayer *)(&((Self_8035F4B4 *)arg0)->recs[var_r30]))->activate_and_dispatch();
+    for (i = 0; i < 4; i++) {
+        ((TObjPlayer *)(&((Self_8035F4B4 *)arg0)->recs[i]))->activate_and_dispatch();
     }
     return arg0;
 }

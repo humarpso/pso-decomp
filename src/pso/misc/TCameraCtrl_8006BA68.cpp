@@ -246,18 +246,18 @@ void *__nw__7TObjectFUl(int);
 
 void*TUnk_80488B38::init_defaults() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float *)&this->unk_6C = 10.0f; *(int *)&this->m_38 = 0; return this; }
 
-s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0) {
-  f32 temp_f0;
+s32 approach_camera_scalar(f32 *arg0, f32 *target, f32 farg0) {
+  f32 step;
   f32 new_var;
   f32 temp_f1;
-  temp_f1 = fabs_float((*arg0) - (*arg1));
-  temp_f0 = (lbl_805D9018 * temp_f1) * (new_var = farg0);
-  if (temp_f1 > temp_f0)
+  temp_f1 = fabs_float((*arg0) - (*target));
+  step = (lbl_805D9018 * temp_f1) * (new_var = farg0);
+  if (temp_f1 > step)
   {
-    step_camera_scalar((f32 *)((void *) arg0), (f32 *)((void *) arg1), (f32 *)((void *) arg0), (f32) temp_f0);
+    step_camera_scalar((f32 *)((void *) arg0), (f32 *)((void *) target), (f32 *)((void *) arg0), (f32) step);
     return 0;
   }
-  *arg0 = *arg1;
+  *arg0 = *target;
   return 1;
 }
 
@@ -373,13 +373,13 @@ void TCameraCtrl::apply_look_at_from_target() {
 }
 #pragma pop
 
-void TCameraCtrl::cache_target_and_forward(s32 arg1) {
-    s32 arg0 = (s32)this;
+void TCameraCtrl::cache_target_and_forward(s32 unused) {
+    s32 playback_data = (s32)this;
     if ((void *) camera_ctrl_instance != NULL) {
         TCameraCtrl__saved_projection_angle = *(s32 *)((s8 *)camera_ctrl_instance + 0x19C);
-        scripted_camera_projection_angle = arg1;
+        scripted_camera_projection_angle = unused;
     }
-    configure_scripted_camera_playback((u8 *)(arg0), (s32)(arg1));
+    configure_scripted_camera_playback((u8 *)(playback_data), (s32)(unused));
 }
 
 typedef char RecoveredGlobal_8006C140_camera_controller_registry_size[sizeof(RecoveredGlobal_8006C140_camera_controller_registry) == 0x68 ? 1 : -1];

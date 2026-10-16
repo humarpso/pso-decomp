@@ -61,20 +61,20 @@ void TAdSinglePlyChrSelectGC::accumulate_rumble_strength(s16 *arg0, s32 arg1) {
     f32 temp_f1;
     s16 var_r3;
     u8 temp_r3_2;
-    u8 *temp_r3;
+    u8 *player;
     u8 *var_r30;
     s32 var_r29;
-    temp_r3 = (u8 *)(get_player_by_client_id(arg1));
-    if (temp_r3 != NULL) {
+    player = (u8 *)(get_player_by_client_id(arg1));
+    if (player != NULL) {
         var_r30 = (u8 *)(get_pad_rumble_effect_slots());
         var_r29 = 0;
         do {
             if ((((TBoss3Volopt *)var_r30)->is_active() != 0) && ((temp_r3_2 = *(u8 *)((s8 *)var_r30 + 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) *(s16 *)((s8 *)var_r30 + 2)))) {
                 if (temp_r3_2 & 2) {
-                    stack.sp8 = *(f32 *)((s8 *)var_r30 + 4) - *(f32 *)((s8 *)temp_r3 + 0x38);
-                    stack.spC = *(f32 *)((s8 *)var_r30 + 8) - *(f32 *)((s8 *)temp_r3 + 0x3C);
+                    stack.sp8 = *(f32 *)((s8 *)var_r30 + 4) - *(f32 *)((s8 *)player + 0x38);
+                    stack.spC = *(f32 *)((s8 *)var_r30 + 8) - *(f32 *)((s8 *)player + 0x3C);
                     temp_f1 = *(f32 *)((s8 *)var_r30 + 0xC);
-                    stack.sp10 = temp_f1 - *(f32 *)((s8 *)temp_r3 + 0x40);
+                    stack.sp10 = temp_f1 - *(f32 *)((s8 *)player + 0x40);
                     var_r3 = (s16) -((lbl_805DCA00 * update_scale__15TObjBoss2TunnelFv((void *) (&stack.sp8), (f32) (temp_f1))) - (f32) *(s16 *)((s8 *)var_r30 + 0x10));
                     if (var_r3 < 0xA) {
                         var_r3 = 0xA;

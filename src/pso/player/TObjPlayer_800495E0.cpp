@@ -151,18 +151,18 @@ void TUnk_80484A94::run_task() {
   Stack_800496D8 stack;
   s32 temp_r0;
   s32 temp_r5;
-  u8 *temp_r3;
+  u8 *player;
   s32 new_var;
   u8 *temp_r3_2;
   u8 *temp_r3_3;
-  temp_r3 = (u8 *) get_player_by_client_id(*((s32 *) (((s8 *) arg0) + 0xCC)));
-  if (temp_r3)
+  player = (u8 *) get_player_by_client_id(*((s32 *) (((s8 *) arg0) + 0xCC)));
+  if (player)
   {
-    temp_r5 = *((s32 *) (((s8 *) temp_r3) + 0x2FC));
-    new_var = *((s32 *) (((s8 *) temp_r3) + 0x300));
+    temp_r5 = *((s32 *) (((s8 *) player) + 0x2FC));
+    new_var = *((s32 *) (((s8 *) player) + 0x300));
     stack.sp8 = temp_r5;
     stack.spC = new_var;
-    stack.sp10 = *((s32 *) (((s8 *) temp_r3) + 0x304));
+    stack.sp10 = *((s32 *) (((s8 *) player) + 0x304));
     subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38), (int) temp_r5);
     ((TObjGyaranzoMissile *)(&stack.sp8))->scale_velocity(TObjPlayer__sub_800499FC((s32)((int) 1)));
     vec3_add_to((void *) (arg0 + 0xB4), (void *) (&stack.sp8));

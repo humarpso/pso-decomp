@@ -127,15 +127,15 @@ void TObjVoloptCage::run_task() {
 }
 
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
-    s32 temp_r3;
+    s32 player;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjVoloptCage.value;
-        temp_r3 = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x338)));
-        if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
-            if (((TLobby *)temp_r3)->check_player_flag1() != 0) {
-                TObjPlayer::send_code_45_1((int) (temp_r3));
+        player = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x338)));
+        if ((player != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
+            if (((TLobby *)player)->check_player_flag1() != 0) {
+                TObjPlayer::send_code_45_1((int) (player));
             }
-            obj_clear_flag30_20000((void *)((int) (temp_r3)));
+            obj_clear_flag30_20000((void *)((int) (player)));
         }
         clear_volopt_cage_flag();
         free_collision_body_parts((void *) (arg0));

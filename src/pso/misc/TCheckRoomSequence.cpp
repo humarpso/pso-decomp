@@ -661,7 +661,7 @@ int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p) { return set_field_
 #pragma push
 #pragma optimization_level 1
 void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
-    s32 temp_r3;
+    s32 selected_menu_value;
     u16 temp_r30;
     switch (*(s32 *)((s8 *)arg0 + 0x2C)) {
     case 0:
@@ -680,13 +680,13 @@ void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
         return;
     case 1:
         if (((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) && (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0x3C)))->is_visible() != 0)) {
-            temp_r3 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
-            if (temp_r3 == 0) {
+            selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
+            if (selected_menu_value == 0) {
                 set_field_20__15TShopWindowBaseFl((void *) (arg0), (void *) (7));
                 TWindow__close((TWin_8020F070 *) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
             }
-            if (temp_r3 == 1) {
+            if (selected_menu_value == 1) {
                 set_field_20__15TShopWindowBaseFl((void *) (arg0), (void *) (9));
                 TWindow__close((TWin_8020F070 *) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
@@ -708,7 +708,7 @@ void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
 #pragma push
 #pragma optimization_level 1
 void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0) {
-    s32 temp_r3;
+    s32 selected_menu_value;
     u16 temp_r30;
     switch (*(s32 *)((s8 *)arg0 + 0x2C)) {
     case 0:
@@ -727,13 +727,13 @@ void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0) {
         return;
     case 1:
         if (((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) && (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0x3C)))->is_visible() != 0)) {
-            temp_r3 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
-            if (temp_r3 == 0) {
+            selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
+            if (selected_menu_value == 0) {
                 set_field_20__15TShopWindowBaseFl((void *) (arg0), (void *) (6));
                 TWindow__close((TWin_8020F070 *) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
             }
-            if (temp_r3 == 1) {
+            if (selected_menu_value == 1) {
                 set_field_20__15TShopWindowBaseFl((void *) (arg0), (void *) (4));
                 TWindow__close((TWin_8020F070 *) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
@@ -759,7 +759,7 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
     f32 temp_f31_2;
     s32 temp_r0;
     s32 temp_r0_2;
-    s32 temp_r3;
+    s32 selected_menu_value;
     s32 temp_r3_2;
     u16 temp_r30;
     u16 temp_r30_2;
@@ -781,13 +781,13 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             return;
         case 1:
             if (((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) && (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0x3C)))->is_visible() != 0)) {
-                temp_r3 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
-                if (temp_r3 == 0) {
+                selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
+                if (selected_menu_value == 0) {
                     set_field_20__15TShopWindowBaseFl((void *) (arg0), (void *) (3));
                     TWindow__close((TWin_8020F070 *) (*(u32 *)((s8 *)arg0 + 0x3C)));
                     *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
                 }
-                if (temp_r3 == 1) {
+                if (selected_menu_value == 1) {
                     set_field_20__15TShopWindowBaseFl((void *) (arg0), (void *) (0xA));
                     TWindow__close((TWin_8020F070 *) (*(u32 *)((s8 *)arg0 + 0x3C)));
                     *(u32 *)((s8 *)arg0 + 0x3C) = 0U;

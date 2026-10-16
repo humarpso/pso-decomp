@@ -22,15 +22,15 @@ void enlarge_flight_cutter_slicer(void *arg0) {
 
 void TObjPlayer::setup_item_render() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3_2;
+    s32 player_list;
     s32 temp_r3_3;
     u8 temp_r3;
 
     temp_r3 = get_slot_count__14TItemProShieldFv();
     switch ((s32) temp_r3) {
     case 5:
-        temp_r3_2 = TObjPlayer::get_player_list();
-        switch (temp_r3_2) {
+        player_list = TObjPlayer::get_player_list();
+        switch (player_list) {
         case 1:
             rotate_matrix_x(0, *(s32 *)&this->unk_1F8);
             return;

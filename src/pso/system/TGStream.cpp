@@ -406,24 +406,24 @@ TGStreamPrefix *destroy_gstream(TGStreamPrefix *arg0, s16 arg1) {
     return arg0;
 }
 
-TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *arg0, void *arg1, s32 arg2) {
+TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *arg0, void *file, s32 arg2) {
     s32 temp_r3;
 
     arg0->adxf_handle = 0;
     arg0->archive_entry = NULL;
     TGStream::reset();
-    arg0->archive_entry = (GslArchiveEntry *)((void * (*)(void *, s32))find_gsl_entry)(arg1, 1);
+    arg0->archive_entry = (GslArchiveEntry *)((void * (*)(void *, s32))find_gsl_entry)(file, 1);
     if ((void *) arg0->archive_entry != NULL) {
         arg0->adxf_handle = (s32) TItemDrop__gsl_adxf_handle;
         TLobby__sub_803CC578(arg0->adxf_handle, arg0->archive_entry->archive_offset, 0);
         gstream_file_size = arg0->archive_entry->file_size;
         ((s32 (*)(void *, void *, s32))strncpy)(arg0, arg0->archive_entry, 0x20);
     } else {
-        temp_r3 = get_file_size__6TLobbyFv(arg1);
+        temp_r3 = get_file_size__6TLobbyFv(file);
         gstream_file_size = temp_r3;
         if (temp_r3 > 0) {
-            arg0->adxf_handle = ((s32 (*)(void *, s32))adxf_open__6TLobbyFUii)(arg1, 0);
-            ((s32 (*)(void *, void *, s32))strncpy)(arg0, arg1, 0x20);
+            arg0->adxf_handle = ((s32 (*)(void *, s32))adxf_open__6TLobbyFUii)(file, 0);
+            ((s32 (*)(void *, void *, s32))strncpy)(arg0, file, 0x20);
         } else {
             gstream_file_size = 0;
             arg0->name[0] = 0;

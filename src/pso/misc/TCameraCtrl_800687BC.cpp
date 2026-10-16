@@ -618,7 +618,7 @@ inline void viewport_80068B34(void) {
     GXSetViewport(TCameraCtrl__viewport_x, TCameraCtrl__viewport_y, TCameraCtrl__viewport_size, TCameraCtrl__viewport_height, 0.0f, 1.0f);
     GXSetScissor(TCameraCtrl__viewport_x, TCameraCtrl__viewport_y, TCameraCtrl__viewport_size, TCameraCtrl__viewport_height);
 }
-void TCameraCtrl::set_split_viewport(s32 arg0, s32 arg1) {
+void TCameraCtrl::set_split_viewport(s32 arg0, s32 i) {
     switch (arg0) {
     case 1:
         TCameraCtrl::set_fullscreen_viewport();
@@ -627,7 +627,7 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 arg1) {
         TCameraCtrl::set_target_coords(0, 0);
         set_target__11TCameraCtrlFii(0x280, 0xF0);
         GXSetViewport(0.0f, 0.0f, 640.0f, 480.0f, 0.0f, 1.0f);
-        if (arg1 == 0) {
+        if (i == 0) {
             GXSetScissor(0, 0x6A, 0x280, 0xF0);
             GXSetScissorBoxOffset(0, 0x6A);
         } else {
@@ -636,8 +636,8 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 arg1) {
         }
         break;
     case 3:
-        if (arg1 != 2) {
-            quad_80068B34(arg1);
+        if (i != 2) {
+            quad_80068B34(i);
         } else {
             TCameraCtrl::set_target_coords(0xA0, 0xF0);
             set_target__11TCameraCtrlFii(0x140, 0xF0);
@@ -645,7 +645,7 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 arg1) {
         viewport_80068B34();
         break;
     case 4:
-        quad_80068B34(arg1);
+        quad_80068B34(i);
         viewport_80068B34();
         break;
     default:
@@ -1093,7 +1093,7 @@ void TCameraCtrl::update_pose_smoothing() {
     u8 *arg0 = (u8 *)this;
   u8 *new_var;
   u8 *temp_r30;
-  u8 *temp_r30_2;
+  u8 *current;
   u8 *temp_r31;
   if ((*(s32 *)&TCameraCtrl__pose_snap_flags) & 1)
   {
@@ -1108,9 +1108,9 @@ void TCameraCtrl::update_pose_smoothing() {
     temp_r31 = new_var;
     approach_camera_vector((void *) temp_r31, (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x178), (int) temp_r31);
-    temp_r30_2 = (u8 *) (temp_r30 + 0x104);
-    approach_camera_vector((void *) temp_r30_2, (void *) (arg0 + 0x1AC), (f32) (*((f32 *) (((s8 *) arg0) + 0x1BC))));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x184), (int) temp_r30_2);
+    current = (u8 *) (temp_r30 + 0x104);
+    approach_camera_vector((void *) current, (void *) (arg0 + 0x1AC), (f32) (*((f32 *) (((s8 *) arg0) + 0x1BC))));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x184), (int) current);
     return;
   }
   approach_camera_vector((void *) (arg0 + 0x178), (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));

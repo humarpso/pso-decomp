@@ -16,16 +16,16 @@ int TObjEneRe7BeruraPunch::is_patrol_active() { return (*(u32 *)&this->m_b0 >> 2
 
 extern f32 lbl_805D9790;
 
-void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 arg1) {
-    s32 temp_r3;
+void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 target) {
+    s32 entity;
 
     apply_hit_if_active__13TUnk_804928CCFPvPf();
     if (TObjEneDD::check_v2_mode() != 0) {
-        obj_getField1c(arg1);
+        obj_getField1c(target);
         if (is_player_entity_id() != 0) {
-            temp_r3 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0));
-            if ((temp_r3 != 0) && (calc_boss4_scale__10TObjPlayerFi() < lbl_805D9790)) {
-                TObjEneDD__sub_800BA438(temp_r3, arg1);
+            entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0));
+            if ((entity != 0) && (calc_boss4_scale__10TObjPlayerFi() < lbl_805D9790)) {
+                TObjEneDD__sub_800BA438(entity, target);
             }
         }
     }

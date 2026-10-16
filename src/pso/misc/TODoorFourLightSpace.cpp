@@ -269,7 +269,7 @@ s32 TODoorFourLightSpace::draw_lights() {
 void TODoorFourLightSpace::render() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    s32 temp_r0_2;
+    s32 cc;
 
     if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DD8F0) == 1)) {
         temp_r0 = *(s32 *)&this->m_ac;
@@ -294,8 +294,8 @@ void TODoorFourLightSpace::render() {
             pop_matrix();
             return;
         case 0:
-            temp_r0_2 = this->m_cc;
-            if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
+            cc = this->m_cc;
+            if ((cc == 2) || (cc == 3)) {
                 draw_lights();
                 return;
             }
@@ -525,7 +525,7 @@ s32 TODoorFourLightRuins::draw_model_and_lights(void *arg0) {
 void TODoorFourLightRuins::render() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    s32 temp_r0_2;
+    s32 cc;
 
     if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DD8F0) == 1)) {
         temp_r0 = *(s32 *)&this->m_ac;
@@ -550,8 +550,8 @@ void TODoorFourLightRuins::render() {
             pop_matrix();
             return;
         case 0:
-            temp_r0_2 = this->m_cc;
-            if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
+            cc = this->m_cc;
+            if ((cc == 2) || (cc == 3)) {
                 TODoorFourLightRuins::draw_model_and_lights((void *)(arg0));
                 return;
             }

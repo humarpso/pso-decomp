@@ -162,20 +162,20 @@ void *TWindowComCard::create(void *arg0, void *arg1) {
 extern "C" {
 
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
-    s32 temp_r3;
+    s32 keyboard_mode;
     s32 temp_r3_2;
     s32 var_r0;
-    temp_r3 = TWindowSubComCard::get_keyboard_mode();
-    if (temp_r3 == 0) {
+    keyboard_mode = TWindowSubComCard::get_keyboard_mode();
+    if (keyboard_mode == 0) {
         return 0;
     }
-    if (TWindowSubComCard__sub_8007B070(temp_r3) != 0) {
-        ((TWindowSubComCard *)temp_r3)->clear_and_init((void *) (local_client_id));
+    if (TWindowSubComCard__sub_8007B070(keyboard_mode) != 0) {
+        ((TWindowSubComCard *)keyboard_mode)->clear_and_init((void *) (local_client_id));
     }
     temp_r3_2 = ((s32)__nw__7TObjectFUl((int) (0x60)));
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TWindowComCard__ct((u8 *)((void *)(temp_r3_2)), (s32)((void *)(arg0)), (s32)((void *)(temp_r3))));
+        var_r0 = ((s32)TWindowComCard__ct((u8 *)((void *)(temp_r3_2)), (s32)((void *)(arg0)), (s32)((void *)(keyboard_mode))));
     }
     return var_r0;
 }

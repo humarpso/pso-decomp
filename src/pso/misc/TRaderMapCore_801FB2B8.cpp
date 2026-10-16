@@ -85,7 +85,7 @@ void TRaderMapCore::advance_scroll() {
     this->m_19c = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(this->m_198));
 }
 void run_task__13TRaderMapCoreFv(u8 *arg0) {
-    s32 temp_r3;
+    s32 player;
     s32 temp_r4;
     s32 var_r31;
     if ((u32) TRaderMapCore__floor_map_resource != 0U) {
@@ -113,9 +113,9 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;
             do {
-                temp_r3 = get_player_by_client_id((int) (var_r31));
-                if (temp_r3 != 0) {
-                    update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (temp_r3 + 0x38));
+                player = get_player_by_client_id((int) (var_r31));
+                if (player != 0) {
+                    update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (player + 0x38));
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);

@@ -242,18 +242,18 @@ void TWindowSubCustomEquip::handle_cursor_input() {
     u8 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
-    u8 *temp_r3;
+    u8 *array_entry;
     temp_r29 = is_player_input_active((int) (this->m_20));
     temp_r31 = (u8 *)(((u8 *)get_array_entry((s32)(0x10))));
-    temp_r3 = (u8 *)(((u8 *)get_array_entry((s32)(7))));
+    array_entry = (u8 *)(((u8 *)get_array_entry((s32)(7))));
     temp_r4 = this->m_63;
     if ((s8) temp_r4 > 0) {
         this->m_63 = (u8) (temp_r4 - 1);
         *(s32 *)((s8 *)temp_r31 + 0x2C) = -1;
-        *(s32 *)((s8 *)temp_r3 + 0x2C) = -1;
+        *(s32 *)((s8 *)array_entry + 0x2C) = -1;
     } else {
         *(s32 *)((s8 *)temp_r31 + 0x2C) = 0xFF666666;
-        *(s32 *)((s8 *)temp_r3 + 0x2C) = 0xFF666666;
+        *(s32 *)((s8 *)array_entry + 0x2C) = 0xFF666666;
     }
     temp_r31_2 = (u8 *)&controller_input_state.value + (temp_r29 * 0x50) + 0x20;
     if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0xF0), (int) (6), (int) (1)) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {

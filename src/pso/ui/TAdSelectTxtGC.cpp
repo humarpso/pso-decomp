@@ -112,11 +112,11 @@ void TAdSelectTxtGC::init_slot_entries(void *arg1_arg, void *arg2) {
     }
 }
 
-void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg1_arg, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdSelectTxtGC;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D3D88;
-    ((TAdSelectTxtGC *)arg0)->init_slot_entries((Src_802A1838 *)(arg2), (void *)(arg3));
+    ((TAdSelectTxtGC *)arg0)->init_slot_entries((Src_802A1838 *)(arg1_arg), (void *)(arg3));
     return arg0;
 }
 

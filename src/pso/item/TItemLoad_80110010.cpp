@@ -104,27 +104,27 @@ void TItemLoad::get_data_entry(s32 arg0, s32 *arg1) {
 
 extern s32 TItemLoad__bml_resource;
 
-void TItemLoad::lookup_item_data(s32 arg0, s32 *arg1) {
-    if (arg1 != NULL) {
-        *arg1 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0));
+void TItemLoad::lookup_item_data(s32 arg0, s32 *bml_model) {
+    if (bml_model != NULL) {
+        *bml_model = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0));
     }
 }
 
 extern s32 TItemLoad__bml_resource;
 
-void TItemLoad::get_item_params(s32 *arg0, s32 *arg1, s32 *arg2) {
-    if ((arg0 != NULL) && (arg1 != NULL) && (arg2 != NULL)) {
-        *arg0 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(1));
+void TItemLoad::get_item_params(s32 *bml_model, s32 *arg1, s32 *bml_motion) {
+    if ((bml_model != NULL) && (arg1 != NULL) && (bml_motion != NULL)) {
+        *bml_model = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(1));
         *arg1 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
-        *arg2 = get_bml_motion(TItemLoad__bml_resource, 0);
+        *bml_motion = get_bml_motion(TItemLoad__bml_resource, 0);
     }
 }
 
 extern s32 TItemLoad__bml_resource;
 
-void TItemLoad::get_model_ids(u8 arg0, s32 *arg1, s32 *arg2) {
-    if ((arg1 != NULL) && (arg2 != NULL)) {
-        *arg1 = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0 + 2));
+void TItemLoad::get_model_ids(u8 arg0, s32 *bml_model, s32 *arg2) {
+    if ((bml_model != NULL) && (arg2 != NULL)) {
+        *bml_model = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0 + 2));
         *arg2 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
     }
 }

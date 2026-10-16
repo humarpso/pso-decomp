@@ -108,11 +108,11 @@ void TWindowMainMenu1P::vfunc_8() {
 }
 void TWindowMainMenu1P::vfunc_6() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
+    u8 *player;
     if (!(*(s32 *)((s8 *)arg0 + 0x4C) & 1)) {
-        temp_r3 = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));
-        if (temp_r3 != NULL) {
-            if (((TObjPlayer *)temp_r3)->is_ready() != 0) {
+        player = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));
+        if (player != NULL) {
+            if (((TObjPlayer *)player)->is_ready() != 0) {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D04A0.value);
             } else {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D0460.value);

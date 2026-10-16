@@ -64,12 +64,12 @@ s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
 extern s32 lbl_805DAA34;
 
 f32 calc_small_font_scale(void) {
-    f32 temp_f1;
-    temp_f1 = TCameraCtrl::get_view_scale();
-    if (temp_f1 >= 1.0) {
+    f32 view_scale;
+    view_scale = TCameraCtrl::get_view_scale();
+    if (view_scale >= 1.0) {
         return lbl_805DAA00;
     }
-    return lbl_805DAA04 / temp_f1;
+    return lbl_805DAA04 / view_scale;
 }
 
 }

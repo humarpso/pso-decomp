@@ -119,7 +119,7 @@ void TAdMultiPlyChrSelectGC::initialize_selection_state(s32 arg1) {
 #pragma pop
 
 u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
-    u8 *temp_r3;
+    u8 *global_state;
     u8 *temp_r3_10;
     u8 *temp_r3_11;
     u8 *temp_r3_2;
@@ -132,9 +132,9 @@ u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
     u8 *temp_r3_9;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802DFD9C___vt__22TAdMultiPlyChrSelectGC *)&__vt__22TAdMultiPlyChrSelectGC).value;
-        temp_r3 = (u8 *)(TAdMultiPlyChrSelectGC::get_global_state());
-        if (temp_r3 != NULL) {
-            queue_destruction__7TObjectFv(temp_r3);
+        global_state = (u8 *)(TAdMultiPlyChrSelectGC::get_global_state());
+        if (global_state != NULL) {
+            queue_destruction__7TObjectFv(global_state);
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x5C));
         if (temp_r3_2 != NULL) {

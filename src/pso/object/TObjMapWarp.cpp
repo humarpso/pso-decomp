@@ -154,16 +154,16 @@ void TObjMapWarp::open_player_warp_window(s32 arg1) {
 void TObjMapWarp::closePlayerWindow(u16 arg1) {
     s32 arg0 = (s32)this;
     u32 temp_r3;
-    u32 temp_r3_2;
+    u32 player;
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + ((arg1 * 4) & 0x3FFFC));
     temp_r3 = *(u32 *)((s8 *)temp_r31 + 0xEC);
     if (temp_r3 != 0U) {
         TWindow__close((int) (temp_r3));
         *(u32 *)((s8 *)temp_r31 + 0xEC) = 0U;
-        temp_r3_2 = ((u32)get_player_by_client_id((u32)((void *) ((s32) arg1))));
-        if (temp_r3_2 != 0U) {
-            fn_8019DD24((void *) (temp_r3_2 + 0x550), (int) (4));
+        player = ((u32)get_player_by_client_id((u32)((void *) ((s32) arg1))));
+        if (player != 0U) {
+            fn_8019DD24((void *) (player + 0x550), (int) (4));
         }
     }
 }

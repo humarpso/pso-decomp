@@ -144,10 +144,10 @@ void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
     s32 var_r31_2;
     s32 var_r31_3;
     s32 var_r31_4;
-    s32 var_r30;
+    s32 i;
     ((TObjPlayer *)(arg0 + 0x1C))->clear_id();
-    for (var_r30 = 0; var_r30 < 4; var_r30++) {
-        ((TMainCursor *)((s32)&((Cur_8013DAB0 *)arg0)->arr[var_r30]))->reset_state();
+    for (i = 0; i < 4; i++) {
+        ((TMainCursor *)((s32)&((Cur_8013DAB0 *)arg0)->arr[i]))->reset_state();
     }
     ((TLockOnCursor *)(arg0 + 0x4EC))->reset_state();
     TLockOnCursor__sub_8013EC1C(arg0 + 0x508);

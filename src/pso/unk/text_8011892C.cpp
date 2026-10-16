@@ -131,15 +131,15 @@ void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out) {
 
 void TItemProUnit::vfunc_49() {
     u8 *arg0 = (u8 *)this;
-    s32 var_r30;
+    s32 i;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x18C) == 0x13) {
         ((TItemProUnit *)(*(s32 *)&this->m_f0 + 0x7CC))->set_evp(TItemProUnit__data_805DABF8);
     }
-    var_r30 = 0;
+    i = 0;
     do {
-        set_technique_level_entry((void *)(*(s32 *)&this->m_f0 + 0x428), (s16) var_r30, (u8) (get_cast_technique_level((void *)(*(s32 *)&this->m_f0 + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
-        var_r30 += 1;
-    } while (var_r30 != 0x13);
+        set_technique_level_entry((void *)(*(s32 *)&this->m_f0 + 0x428), (s16) i, (u8) (get_cast_technique_level((void *)(*(s32 *)&this->m_f0 + 0x428), (s16) i) - ((PU_801189AC *)arg0)->arr[i]));
+        i += 1;
+    } while (i != 0x13);
     memset(arg0 + 0x192, 0, 0x26);
 }
 
@@ -376,7 +376,7 @@ void TItemProUnit::apply_unit_effect_flags() {
 
 u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s16 temp_r0;
-    u8 *temp_r3;
+    u8 *item_pmt_record;
 
     TItemEquipBase__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TItemProUnit;
@@ -384,11 +384,11 @@ u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((VItemProUnit_8011892C *)arg0)->m17((s8) (*(u8 *)((s8 *)arg2 + 4) + 9));
     *(s16 *)((s8 *)arg0 + 0x190) = 0;
     *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) TItemProUnit__data_805DABF8;
-    temp_r3 = lookup_item_pmt_record(arg2);
-    if (temp_r3 != NULL) {
-        *(s16 *)((s8 *)arg0 + 0x18C) = (s16) *(s16 *)((s8 *)temp_r3 + 8);
-        *(s16 *)((s8 *)arg0 + 0x18E) = (s16) *(s16 *)((s8 *)temp_r3 + 0xA);
-        *(s16 *)((s8 *)arg0 + 0x1BE) = (s16) (*(s16 *)((s8 *)temp_r3 + 0xC) * 2);
+    item_pmt_record = lookup_item_pmt_record(arg2);
+    if (item_pmt_record != NULL) {
+        *(s16 *)((s8 *)arg0 + 0x18C) = (s16) *(s16 *)((s8 *)item_pmt_record + 8);
+        *(s16 *)((s8 *)arg0 + 0x18E) = (s16) *(s16 *)((s8 *)item_pmt_record + 0xA);
+        *(s16 *)((s8 *)arg0 + 0x1BE) = (s16) (*(s16 *)((s8 *)item_pmt_record + 0xC) * 2);
     } else {
         *(s16 *)((s8 *)arg0 + 0x18C) = 0;
         *(s16 *)((s8 *)arg0 + 0x18E) = 0;

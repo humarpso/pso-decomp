@@ -20,12 +20,12 @@ void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s
 
 extern "C" {
 
-void *TAdLoadQuestPrtTxtGC::create_particle(void *arg0, s32 arg1, s32 arg2) {
+void *TAdLoadQuestPrtTxtGC::create_particle(void *position, s32 arg1, s32 use_self) {
     void *o;
     if (particle_pool_limit > arg1) {
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = ((TParticleCtrl *)o)->initialize((const void *)arg0, (s32)(&particle_global_entry_table[arg1]), (s32)0, (s32)0, (s32)0, (s32)arg2);
+            o = ((TParticleCtrl *)o)->initialize((const void *)position, (s32)(&particle_global_entry_table[arg1]), (s32)0, (s32)0, (s32)0, (s32)use_self);
         }
         return o;
     }
@@ -33,7 +33,7 @@ void *TAdLoadQuestPrtTxtGC::create_particle(void *arg0, s32 arg1, s32 arg2) {
         s32 idx = arg1 - 0x200;
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = ((TParticleCtrl *)o)->initialize((const void *)arg0, (s32)(&particle_area_entry_table[idx]), (s32)0, (s32)0, (s32)0, (s32)arg2);
+            o = ((TParticleCtrl *)o)->initialize((const void *)position, (s32)(&particle_area_entry_table[idx]), (s32)0, (s32)0, (s32)0, (s32)use_self);
         }
         return o;
     }

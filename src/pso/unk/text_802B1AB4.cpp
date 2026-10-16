@@ -60,11 +60,11 @@ extern "C" {
 s32 TWindowSubTrade::open_trade_confirm_prompt(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r29;
-    u8 *temp_r29_2;
-    temp_r29_2 = (u8 *)(get_player_by_client_id(arg1));
+    u8 *player;
+    player = (u8 *)(get_player_by_client_id(arg1));
     text_builder_reset();
-    if (temp_r29_2 != NULL) {
-        ((VObj_18_f23ffb *)(temp_r29_2))->m10();
+    if (player != NULL) {
+        ((VObj_18_f23ffb *)(player))->m10();
         text_builder_append();
     }
     TWindowSubStatusDisp::get_message_10((int) (0xD6));

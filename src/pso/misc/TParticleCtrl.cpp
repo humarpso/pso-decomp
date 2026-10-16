@@ -256,10 +256,10 @@ void TUnk_8048E6A8::render() {
 
 void TUnk_8048E6A8::run_task() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r3;
+    u32 player;
 
-    temp_r3 = get_player_by_client_id((void *) (local_client_id));
-    if ((temp_r3 != 0U) && (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < lbl_805D947C)) {
+    player = get_player_by_client_id((void *) (local_client_id));
+    if ((player != 0U) && (horizontal_distance_squared((void *) (player + 0x38), (void *) (arg0 + 0x38)) < lbl_805D947C)) {
         if (this->scale > lbl_805D9480) {
             lbl_805D2930 = 1;
             return;

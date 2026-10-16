@@ -120,7 +120,7 @@ s32 TWindowSubComCard::get_chr_select() {
     return lbl_805D4E58;
 }
 
-void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1) {
+void TWindowSubComCard__sub_800778B4(Out_800778B4 *arr, Tbl_800777C4 *arg1) {
     s32 i;
     s32 n;
     u16 id;
@@ -128,10 +128,10 @@ void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1) {
     Out_800778B4 *dst;
     Ent_800777C4 *e;
     S_80077840 tmp[5];
-    copy_struct28__17TWindowSubComCardFii((s32) tmp, (s32) arg0);
-    TWindowSubComCard__sub_80077980((S_80077980 *) arg0);
+    copy_struct28__17TWindowSubComCardFii((s32) tmp, (s32) arr);
+    TWindowSubComCard__sub_80077980((S_80077980 *) arr);
     n = arg1->count;
-    dst = arg0;
+    dst = arr;
     e = arg1->e;
     i = 0;
     while (i < n) {

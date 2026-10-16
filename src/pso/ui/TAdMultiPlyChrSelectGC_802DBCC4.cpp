@@ -127,16 +127,16 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1) {
 }
 
 s32 TAdMultiPlyChrSelectGC::create_choice_menu() {
-    s32 temp_r31;
-    temp_r31 = create_window_menu((void *) (lbl_80472890), (int) (4), (int) (TAdMultiPlyChrSelectGC::get_clamped_cursor()));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (2))), (int) (6), (int) (0));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (5))), (int) (6), (int) (3));
-    ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) (lbl_805DE894));
-    ((TWindowSubComCardList *)temp_r31)->set_selected_index((int) (0));
-    align_menu_entry_positions((int) (temp_r31));
-    return temp_r31;
+    s32 window_menu;
+    window_menu = create_window_menu((void *) (lbl_80472890), (int) (4), (int) (TAdMultiPlyChrSelectGC::get_clamped_cursor()));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (window_menu), (int) (get_localized_text_entry((int) (0x1F), (int) (2))), (int) (6), (int) (0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (window_menu), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (window_menu), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (window_menu), (int) (get_localized_text_entry((int) (0x1F), (int) (5))), (int) (6), (int) (3));
+    ((TWindowSubComCardList *)window_menu)->update_layout_height((f32) (lbl_805DE894));
+    ((TWindowSubComCardList *)window_menu)->set_selected_index((int) (0));
+    align_menu_entry_positions((int) (window_menu));
+    return window_menu;
 }
 
 void TAdMultiPlyChrSelectGC::collect_player_slots() {

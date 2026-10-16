@@ -113,7 +113,7 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1) {
 #pragma peephole off
 #pragma scheduling off
 void draw_ginja_motion_node_tree(u8 *arg0) {
-    u32 temp_r3;
+    u32 model;
     u8 *temp_r3_2;
     u8 *var_r31;
     var_r31 = (u8 *)(arg0);
@@ -123,9 +123,9 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
         if (((s32 (*)(void *)) (*(RecoveredCallback_92513335c3ed *)&model_node_callback)) != NULL) {
             (*(RecoveredCallback_92513335c3ed *)&model_node_callback)(var_r31);
         }
-        temp_r3 = *(u32 *)((s8 *)var_r31 + 4);
-        if ((temp_r3 != 0U) && ((u32) (*(s32 *)((s8 *)var_r31 + 0) & 8) == 0)) {
-            queue_model_draw_matrix((int) (temp_r3), (void *) (current_matrix));
+        model = *(u32 *)((s8 *)var_r31 + 4);
+        if ((model != 0U) && ((u32) (*(s32 *)((s8 *)var_r31 + 0) & 8) == 0)) {
+            queue_model_draw_matrix((int) (model), (void *) (current_matrix));
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x2C));
         if (temp_r3_2 != NULL) {

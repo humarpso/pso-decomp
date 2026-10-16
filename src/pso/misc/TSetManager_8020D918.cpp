@@ -132,12 +132,12 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
 #pragma push
 #pragma scheduling off
 void TLobby::clear_floor_flags_and_depart() {
-    s32 temp_r3;
+    s32 unused;
     TLobby__sub_8020D94C();
-    temp_r3 = TLobby__data_805D6134 & ~8;
-    TLobby__data_805D6134 = temp_r3;
+    unused = TLobby__data_805D6134 & ~8;
+    TLobby__data_805D6134 = unused;
     TLobby__data_805D6134 &= ~16;
-    depart_floor_population((int)(temp_r3));
+    depart_floor_population((int)(unused));
 }
 #pragma pop
 

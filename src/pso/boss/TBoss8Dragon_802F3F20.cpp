@@ -82,7 +82,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     Vec_802F3F20 sp14;
     Vec_802F3F20 sp8;
     f32 temp_f31;
-    u8 *temp_r3;
+    u8 *entity;
     s32 i;
     if (camera_ctrl_instance == 0) {
         return 0;
@@ -103,13 +103,13 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
         return 0;
     }
     TCameraCtrl::get_camera_target_id(-1);
-    temp_r3 = find_entity_by_id();
-    if (temp_r3 == 0) {
+    entity = find_entity_by_id();
+    if (entity == 0) {
         return 0;
     }
     VecCopy__FP3VecPC3Vec(&sp14, camera_ctrl_instance + 0x178);
     sp14.y = TBoss8Dragon__data_805DED50;
-    VecCopy__FP3VecPC3Vec(&sp8, temp_r3 + 0x38);
+    VecCopy__FP3VecPC3Vec(&sp8, entity + 0x38);
     subtract_vector(&sp8, &sp14);
     sp8.y = TBoss8Dragon__data_805DED50;
     temp_f31 = ((TObjBoss2Tunnel *)(&sp8))->clamp_velocity();

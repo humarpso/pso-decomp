@@ -45,12 +45,12 @@ s32 any_player_has_listed_equipment(void) {
     }
     return 0;
 }
-void fn_8035D3E0(Obj_8035D3E0 *arg0, Out_8035D3E0 *arg1) {
+void fn_8035D3E0(Obj_8035D3E0 *weapon, Out_8035D3E0 *arg1) {
     f32 sp8[4];
     arg1->f40 |= 0x1C;
-    get_weapon_color__11TItemWeaponFPv(sp8, arg0);
+    get_weapon_color__11TItemWeaponFPv(sp8, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
-    arg1->f44 = arg0->f188;
+    arg1->f44 = weapon->f188;
     arg1->f70 = (void *)TObjPlayer::forward_item_effect_callback;
 }
 

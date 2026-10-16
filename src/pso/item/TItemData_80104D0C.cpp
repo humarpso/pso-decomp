@@ -57,7 +57,7 @@ u8 TItemData::is_item_usable(s32 arg0, u8 *arg1) {
     return (u8) (find_eligible_combination_recipe((s32)(arg0), (u8 *)(arg1)) != 0);
 }
 #define o ((Obj_80104DAC *)arg0)
-s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
+s32 find_eligible_combination_recipe(s32 arg0, u8 *item) {
     ItemData_80104DAC d;
     ItemData_80104DAC d2;
     MagData_80104DAC mag;
@@ -66,12 +66,12 @@ s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
     void *it;
     u8 v;
     rec = NULL;
-    if (o != NULL && arg1 != NULL) {
-        it = find_unique_combination_target(o, arg1);
+    if (o != NULL && item != NULL) {
+        it = find_unique_combination_target(o, item);
         if (it != NULL) {
             init__9TItemDataFv(&d);
             ((TItem *)it)->copy_to_item_data(&d);
-            rec = find_item_combination_recipe(arg1, it);
+            rec = find_item_combination_recipe(item, it);
         } else {
             return 0;
         }

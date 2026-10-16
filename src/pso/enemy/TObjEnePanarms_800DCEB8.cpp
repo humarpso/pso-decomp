@@ -759,26 +759,26 @@ void TObjEnePanarms__sub_800DDC30(Obj_800DDC30 *o) {
 }
 #pragma pop
 
-void TObjEnePanarms__sub_800DDED8(u8 *arg0) {
+void TObjEnePanarms__sub_800DDED8(u8 *actor) {
     s16 var_r30;
-    switch (*(s32 *)((s8 *)arg0 + 0x38C)) {
+    switch (*(s32 *)((s8 *)actor + 0x38C)) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x38C) = 1;
+        *(s32 *)((s8 *)actor + 0x38C) = 1;
         var_r30 = 2;
         break;
     case 1:
-        *(s32 *)((s8 *)arg0 + 0x38C) = 0;
+        *(s32 *)((s8 *)actor + 0x38C) = 0;
         var_r30 = 1;
         break;
     default:
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x3FC) += 1;
-    *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x390)) + 0x18) &= ~0x08000000;
-    *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x390)) + 0x18) |= 1;
-    obj_clearFlags30(arg0, 0x04040000);
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (lbl_805DA4BC * (f32) ((s32) (lbl_805DA4D4 * calc_boss4_scale__10TObjPlayerFi(arg0)) + 1));
-    set_field_b8__10TObjMotionFs(arg0, var_r30);
+    *(s32 *)((s8 *)actor + 0x3FC) += 1;
+    *(u32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x390)) + 0x18) &= ~0x08000000;
+    *(u32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x390)) + 0x18) |= 1;
+    obj_clearFlags30(actor, 0x04040000);
+    *(s32 *)((s8 *)actor + 0x388) = (s32) (lbl_805DA4BC * (f32) ((s32) (lbl_805DA4D4 * calc_boss4_scale__10TObjPlayerFi(actor)) + 1));
+    set_field_b8__10TObjMotionFs(actor, var_r30);
 }
 
 void TObjEnePanarms::update_fall() {

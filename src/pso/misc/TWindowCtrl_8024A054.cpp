@@ -38,14 +38,14 @@ void TWindowCtrl__sub_8024A08C(void) {
     }
 }
 
-s32 is_player_input_active(s32 arg0) {
-    if (arg0 >= 4) {
+s32 is_player_input_active(s32 param_1) {
+    if (param_1 >= 4) {
         return 0;
     }
     if (TAdMultiChgGameModeGC::is_input_phase_active() != 0) {
-        return get_multiplayer_controller_active_index(arg0);
+        return get_multiplayer_controller_active_index(param_1);
     }
-    if (get_player_by_client_id(arg0) == 0U) {
+    if (get_player_by_client_id(param_1) == 0U) {
         return 0;
     }
     return get_map_id__13TRaderMapCoreFv();

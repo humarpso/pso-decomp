@@ -246,15 +246,15 @@ u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, 
 }
 #pragma pop
 
-void TWindowKeyBoardSoft::adjust_pos_for_split_screen(s32 arg1) {
+void TWindowKeyBoardSoft::adjust_pos_for_split_screen(s32 i) {
     Vec2_8024EC34 *arg0 = (Vec2_8024EC34 *)this;
     Vec2_8024EC34 *p;
-    if (is_split_screen() == 0 || arg1 == 0x64) {
+    if (is_split_screen() == 0 || i == 0x64) {
         return;
     }
-    p = get_viewport_offset__19TWindowKeyBoardSoftFi(arg1);
-    arg0->x = arg0->x + (p->x + TCameraCtrl__sub_80068A04(arg1));
-    arg0->y = arg0->y + (p->y + TCameraCtrl::get_split_offset(arg1));
+    p = get_viewport_offset__19TWindowKeyBoardSoftFi(i);
+    arg0->x = arg0->x + (p->x + TCameraCtrl__sub_80068A04(i));
+    arg0->y = arg0->y + (p->y + TCameraCtrl::get_split_offset(i));
     arg0->x = arg0->x / TCameraCtrl::get_view_scale();
     arg0->y = arg0->y / TCameraCtrl::get_fov();
 }
@@ -282,11 +282,11 @@ Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32 i) {
     return get_zero_vec2();
 }
 
-u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u32 _w4, f32 _w5) {
+u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 pos, s32 size, s32 scale, s32 flags, u32 _w4, f32 depth) {
     if ((u32) soft_keyboard_instance == 0U) {
         return 0U;
     }
-    init_text_window_layout((Win_8024EA50 *)(soft_keyboard_instance), (f32 *)(arg0), (f32 *)(arg1), (f32 *)(arg2), (u32)(arg3), _w5);
+    init_text_window_layout((Win_8024EA50 *)(soft_keyboard_instance), (f32 *)(pos), (f32 *)(size), (f32 *)(scale), (u32)(flags), depth);
     return soft_keyboard_instance;
 }
 

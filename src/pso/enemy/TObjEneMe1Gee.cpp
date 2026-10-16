@@ -3678,13 +3678,13 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
 }
 
 void TObjEneMe1Gee::advance_camera_ctrl_step() {
-    s32 temp_r4;
+    s32 pos;
     s32 temp_r4_2;
     switch ((s32) TObjEneMe1Gee__render_node_index) {
     case 4:
-        temp_r4 = gee_camera_ctrl_step_ptr;
-        gee_camera_ctrl_step_ptr = temp_r4 + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((s32) &gee_camera_ctrl_vec.value, temp_r4);
+        pos = gee_camera_ctrl_step_ptr;
+        gee_camera_ctrl_step_ptr = pos + 0xC;
+        get_camera_ctrl__9TObjEneDDFv((s32) &gee_camera_ctrl_vec.value, pos);
         break;
     case 7:
         temp_r4_2 = gee_camera_ctrl_step_ptr;
@@ -4794,58 +4794,58 @@ void TObjEneMe1Gee::state_attack_loop(s32 arg1) {
     }
 }
 
-void TObjEneMe1Gee__vt85(Ene_800CB3A4 *arg0, u32 arg1, s32 arg2) {
+void TObjEneMe1Gee__vt85(Ene_800CB3A4 *arg0, u32 arg1, s32 mode) {
     switch (arg1) {
     case 0:
-        ((TObjEneMe1Gee *)arg0)->state_attack_loop(arg2);
+        ((TObjEneMe1Gee *)arg0)->state_attack_loop(mode);
         break;
     case 1:
-        ((TObjEneMe1Gee *)arg0)->state_move(arg2);
+        ((TObjEneMe1Gee *)arg0)->state_move(mode);
         break;
     case 2:
-        ((void (*)(void *, s32))TObjEneMe1Gee__sub_800CAFD8)(arg0, arg2);
+        ((void (*)(void *, s32))TObjEneMe1Gee__sub_800CAFD8)(arg0, mode);
         break;
     case 3:
-        ((TObjEneMe1Gee *)arg0)->state_hover(arg2);
+        ((TObjEneMe1Gee *)arg0)->state_hover(mode);
         break;
     case 4:
-        arg0->v108(arg2);
+        arg0->v108(mode);
         break;
     case 5:
-        arg0->v109(arg2);
+        arg0->v109(mode);
         break;
     case 6:
-        ((TObjEneMe1Gee *)arg0)->state_attack(arg2);
+        ((TObjEneMe1Gee *)arg0)->state_attack(mode);
         break;
     case 7:
-        TObjEneMe1Gee__sub_800CA454((void *)(arg0), (s32)(arg2));
+        TObjEneMe1Gee__sub_800CA454((void *)(arg0), (s32)(mode));
         break;
     case 8:
-        TObjEneMe1Gee__sub_800C9DF8(arg0, arg2);
+        TObjEneMe1Gee__sub_800C9DF8(arg0, mode);
         break;
     case 9:
-        TObjEneMe1Gee__sub_800C9A94((void *)(arg0), (s32)(arg2));
+        TObjEneMe1Gee__sub_800C9A94((void *)(arg0), (s32)(mode));
         break;
     case 10:
-        ((void (*)(void *, s32))run_task__13TObjEneMe1GeeFPvi)(arg0, arg2);
+        ((void (*)(void *, s32))run_task__13TObjEneMe1GeeFPvi)(arg0, mode);
         break;
     case 12:
-        ((void (*)(void *, s32))TObjEneMe1Gee__sub_800C9580)(arg0, arg2);
+        ((void (*)(void *, s32))TObjEneMe1Gee__sub_800C9580)(arg0, mode);
         break;
     case 13:
-        TObjEneMe1Gee__sub_800C96B4((Gee_800C96B4 *)(arg0), (s32)(arg2));
+        TObjEneMe1Gee__sub_800C96B4((Gee_800C96B4 *)(arg0), (s32)(mode));
         break;
     case 14:
-        arg0->v110(arg2);
+        arg0->v110(mode);
         break;
     case 15:
-        ((TObjEneMe1Gee *)arg0)->state_return_home(arg2);
+        ((TObjEneMe1Gee *)arg0)->state_return_home(mode);
         break;
     case 17:
-        ((TObjEneMe1Gee *)arg0)->handle_event(arg2);
+        ((TObjEneMe1Gee *)arg0)->handle_event(mode);
         break;
     case 18:
-        ((TObjEneMe1Gee *)arg0)->state_orbit(arg2);
+        ((TObjEneMe1Gee *)arg0)->state_orbit(mode);
         break;
     }
 }
@@ -5201,19 +5201,19 @@ u8 *TObjEneMe1Gee::vfunc_101(u8 *) {
 
 #pragma push
 #pragma fp_contract on
-void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1) {
+void calc_position__13TObjEneMe1GeeFiPv(s32 actor, void *arg1) {
     f32 temp_f1;
     f32 temp_f31;
-    s32 temp_r31;
+    s32 random_scaled;
 
-    temp_r31 = TObjEneDD::get_random_scaled();
-    f32 fv = calc_boss4_scale__10TObjPlayerFi(arg0);
+    random_scaled = TObjEneDD::get_random_scaled();
+    f32 fv = calc_boss4_scale__10TObjPlayerFi(actor);
     temp_f31 = (TObjEneMe1Gee__data_805DA0E8 * fv) + lbl_805DA0B8;
-    temp_f1 = temp_f31 * sin_table_lookup(temp_r31, fv);
+    temp_f1 = temp_f31 * sin_table_lookup(random_scaled, fv);
     *(f32 *)((s8 *)arg1 + 0) = temp_f1;
     *(f32 *)((s8 *)arg1 + 4) = (f32) TObjEneMe1Gee__data_805DA0B4;
-    *(f32 *)((s8 *)arg1 + 8) = (f32) (temp_f31 * ((f32 (*)(s32, f32))cos_table_lookup)(temp_r31, temp_f1));
-    vec3_add_to(arg1, arg0 + 0x38);
+    *(f32 *)((s8 *)arg1 + 8) = (f32) (temp_f31 * ((f32 (*)(s32, f32))cos_table_lookup)(random_scaled, temp_f1));
+    vec3_add_to(arg1, actor + 0x38);
 }
 #pragma pop
 
@@ -5323,7 +5323,7 @@ void *__dt__13TObjEneMe1GeeFv(void *arg0, s16 arg1) {
 #pragma opt_loop_invariants off
 void init_state__13TObjEneMe1GeeFPv(u8 *arg0) {
     s32 temp_r0;
-    s32 var_r29;
+    s32 i;
     s32 var_r30;
     u8 *temp_r4;
     ((TObjEneDD *)arg0)->init_position_vectors();
@@ -5354,8 +5354,8 @@ void init_state__13TObjEneMe1GeeFPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x408) = 0;
     *(s32 *)((s8 *)arg0 + 0x40C) = 0;
     *(s32 *)((s8 *)arg0 + 0x410) = 0;
-    for (var_r29 = 0; var_r29 < 2; var_r29++) {
-        VecCopy__FP3VecPC3Vec(&((Gee_800CC430 *)arg0)->v[var_r29], &((Gee_800CC430 *)arg0)->pos);
+    for (i = 0; i < 2; i++) {
+        VecCopy__FP3VecPC3Vec(&((Gee_800CC430 *)arg0)->v[i], &((Gee_800CC430 *)arg0)->pos);
     }
     *(s32 *)((s8 *)arg0 + 0x430) = 0;
     *(s32 *)((s8 *)arg0 + 0x434) = 0;

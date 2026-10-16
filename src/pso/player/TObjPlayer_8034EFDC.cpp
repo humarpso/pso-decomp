@@ -223,11 +223,11 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
 }
 void TObjPlayer::spawn_particle_at_entity_slot(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r5;
-    void *temp_r3;
-    temp_r3 = find_entity_by_id(arg2);
-    if (temp_r3 != NULL) {
-        temp_r5 = *(u8 **)((s8 *)temp_r3 + 0xA4);
-        if ((temp_r5 != NULL) && (arg3 < (s32) *(s32 *)((s8 *)temp_r3 + 0xA8))) {
+    void *entity;
+    entity = find_entity_by_id(arg2);
+    if (entity != NULL) {
+        temp_r5 = *(u8 **)((s8 *)entity + 0xA4);
+        if ((temp_r5 != NULL) && (arg3 < (s32) *(s32 *)((s8 *)entity + 0xA8))) {
             spawn_particle_effect(&((Tbl_8034F204 *)temp_r5)->arr[arg3], 0x1BF);
         }
     }
@@ -335,10 +335,10 @@ void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o) {
 }
 
 void TObjPlayer::pose_gi_gue_bazooka_nodes() {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 2:
         rotate_matrix_x(0, *(s32 *)&this->unk_1F8);
         return;
@@ -401,10 +401,10 @@ u8 *TObjPlayer::create_gi_gue_bazooka(s32 arg0) {
 #include "pso/player/TObjPlayer.h"
 
 void TObjPlayer::dispatch_by_state() {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 2:
         rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
         return;

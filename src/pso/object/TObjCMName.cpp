@@ -1423,11 +1423,11 @@ void run_task__16TObjCMAssignMenuFv(void *arg0) {
 }
 #pragma pop
 
-void * create__16TObjCMAssignMenuFPvPv(void *arg0, void *arg1) {
+void * create__16TObjCMAssignMenuFPvPv(void *parent, void *kind) {
     void *o;
     o = __nw__7TObjectFUl(0x5C);
     if (o != NULL) {
-        o = __ct__16TObjCMAssignMenuFv((void *)(o), (void *)(arg0), (void *)(arg1));
+        o = __ct__16TObjCMAssignMenuFv((void *)(o), (void *)(parent), (void *)(kind));
     }
     return o;
 }
@@ -2028,14 +2028,14 @@ void TObjCMMainMenu::update_slide_offset() {
 
 extern "C" {
 void TObjCMMainMenu::update_random_proportion_action(void * _w0) {
-    f32 temp_f31;
+    f32 right_trigger_ratio;
     f32 temp_f31_2;
     if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
         switch (TObjCMMainMenu__data_805D659C) {
         case 0:
         case 1:
-            temp_f31 = TObjCMProportion::get_right_trigger_ratio();
-            temp_f31_2 = TObjCMProportion::get_ratio() - temp_f31;
+            right_trigger_ratio = TObjCMProportion::get_right_trigger_ratio();
+            temp_f31_2 = TObjCMProportion::get_ratio() - right_trigger_ratio;
             if (fabs_float(temp_f31_2) > lbl_805DDBF4) {
                 TObjCMMainMenu__sub_80298DA0((s32) (lbl_805DDBF8 * temp_f31_2));
             }

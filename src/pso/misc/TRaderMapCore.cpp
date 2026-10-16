@@ -712,7 +712,7 @@ void TRaderMapCore::pan_horizontal(f32 farg0) {
     }
 }
 
-s32 add_radar_scaled_marker(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f32 scale) {
+s32 add_radar_scaled_marker(Vec_801F9B8C *pos, s32 arg1, s16 arg2, s32 arg3, f32 scale) {
     Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__map_view_state;
     Vec_801F9B8C v;
     u8 pad[0x10];
@@ -723,13 +723,13 @@ s32 add_radar_scaled_marker(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f3
     if (!(arg3 & 1)) {
         v.x = cam->x;
         v.z = cam->z;
-        if (xz_distance_squared(arg0, &v) > lbl_805DC564) {
+        if (xz_distance_squared(pos, &v) > lbl_805DC564) {
             return 0;
         }
     }
-    ((Dot_801F9B8C *)&TRaderMapCore__marker_buffer)[TRaderMapCore__data_805D5F30].x = arg0->x;
+    ((Dot_801F9B8C *)&TRaderMapCore__marker_buffer)[TRaderMapCore__data_805D5F30].x = pos->x;
     d = &((Dot_801F9B8C *)&TRaderMapCore__marker_buffer)[TRaderMapCore__data_805D5F30];
-    d->z = arg0->z;
+    d->z = pos->z;
     d->w = scale;
     d->color = arg1;
     d->type = arg2;
@@ -738,7 +738,7 @@ s32 add_radar_scaled_marker(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f3
     return 1;
 }
 
-s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3) {
+s32 minimap_render_dot(Vec_801F9B8C *pos, s32 arg1, s16 arg2, s32 arg3) {
     Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__map_view_state;
     Vec_801F9B8C v;
     u8 pad[0x10];
@@ -749,13 +749,13 @@ s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3) {
     if (!(arg3 & 1)) {
         v.x = cam->x;
         v.z = cam->z;
-        if (xz_distance_squared(arg0, &v) > lbl_805DC564) {
+        if (xz_distance_squared(pos, &v) > lbl_805DC564) {
             return 0;
         }
     }
-    ((Dot_801F9B8C *)&TRaderMapCore__marker_buffer)[TRaderMapCore__data_805D5F30].x = arg0->x;
+    ((Dot_801F9B8C *)&TRaderMapCore__marker_buffer)[TRaderMapCore__data_805D5F30].x = pos->x;
     d = &((Dot_801F9B8C *)&TRaderMapCore__marker_buffer)[TRaderMapCore__data_805D5F30];
-    d->z = arg0->z;
+    d->z = pos->z;
     d->w = TRaderMapCore__data_805DC534;
     d->color = arg1;
     d->type = arg2;
@@ -795,7 +795,7 @@ s32 TRaderMapCore::reveal_region_by_id(s16 id) {
 }
 
 #define MAP_801F9D84 ((Map_801F9D84 *) TRaderMapCore__floor_map_resource)
-void update_radar_auto_discovery(s32 arg0, s32 arg1, void *arg2) {
+void update_radar_auto_discovery(s32 arg0, s32 arg1, void *pos) {
     Vec_801F9D84 v;
     Region_801F9D84 *r;
     s32 i;
@@ -812,7 +812,7 @@ void update_radar_auto_discovery(s32 arg0, s32 arg1, void *arg2) {
                     v.y = r->y + r->model->m->a.y;
                     v.z = r->z + r->model->m->a.z;
                 }
-                if (xz_distance_squared(&v, arg2) < r->radius * r->radius) {
+                if (xz_distance_squared(&v, pos) < r->radius * r->radius) {
                     r->flags &= ~1;
                     r->fade = TRaderMapCore__data_805DC568;
                 }

@@ -428,7 +428,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     s16 temp_r3_2;
     s16 temp_r3_4;
     s32 temp_r3_3;
-    s32 var_r28;
+    s32 i;
     s32 var_r30;
     s32 var_r4;
     s32 temp_r5;
@@ -472,8 +472,8 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     }
     if ((s32) lbl_805D4CA8 != (s32) actor_frame_tick) {
         lbl_805D4CA8 = actor_frame_tick;
-        for (var_r28 = 0; var_r28 < 4; var_r28++) {
-            scroll_ginja_mesh_uvs(lbl_804FEEC0[var_r28], 0, 0x20, 0, 1);
+        for (i = 0; i < 4; i++) {
+            scroll_ginja_mesh_uvs(lbl_804FEEC0[i], 0, 0x20, 0, 1);
             PPCSync();
         }
     }

@@ -2948,20 +2948,20 @@ void TObjEneMorfos::handle_event_transition(s32 ev) {
     }
 }
 
-void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2) {
+void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 ev) {
     switch (arg1) {
-    case 0: ((TObjEneMorfos *)arg0)->handle_event_transition(arg2); break;
-    case 1: TObjEneMorfos__sub_803342B8(arg0, arg2); break;
-    case 3: ((TObjEneMorfos *)arg0)->state_appear(arg2); break;
-    case 2: TObjEneMorfos__sub_80334030(arg0, arg2); break;
-    case 7: TObjEneMorfos__sub_80333E48(arg0, arg2); break;
-    case 4: TObjEneMorfos__sub_80333AD0((u8 *)(arg0), (s32)(arg2)); break;
-    case 5: TObjEneMorfos__sub_80332FD4((u8 *)(arg0), (s32)(arg2)); break;
-    case 6: TObjEneMorfos__sub_80333690((u8 *)(arg0), (s32)(arg2)); break;
-    case 9: state_rotating_projectile_burst__13TObjEneMorfosFPvi((u8 *)(arg0), (s32)(arg2)); break;
-    case 8: ((TObjEneMorfos *)arg0)->state_patrol(arg2); break;
-    case 10: TObjEneMorfos__sub_80332DBC(arg0, arg2); break;
-    case 11: ((TObjEneMorfos *)arg0)->state_death(arg2); break;
+    case 0: ((TObjEneMorfos *)arg0)->handle_event_transition(ev); break;
+    case 1: TObjEneMorfos__sub_803342B8(arg0, ev); break;
+    case 3: ((TObjEneMorfos *)arg0)->state_appear(ev); break;
+    case 2: TObjEneMorfos__sub_80334030(arg0, ev); break;
+    case 7: TObjEneMorfos__sub_80333E48(arg0, ev); break;
+    case 4: TObjEneMorfos__sub_80333AD0((u8 *)(arg0), (s32)(ev)); break;
+    case 5: TObjEneMorfos__sub_80332FD4((u8 *)(arg0), (s32)(ev)); break;
+    case 6: TObjEneMorfos__sub_80333690((u8 *)(arg0), (s32)(ev)); break;
+    case 9: state_rotating_projectile_burst__13TObjEneMorfosFPvi((u8 *)(arg0), (s32)(ev)); break;
+    case 8: ((TObjEneMorfos *)arg0)->state_patrol(ev); break;
+    case 10: TObjEneMorfos__sub_80332DBC(arg0, ev); break;
+    case 11: ((TObjEneMorfos *)arg0)->state_death(ev); break;
     }
 }
 
@@ -3121,12 +3121,12 @@ void TObjEneMorfos::vfunc_62() {
     }
 }
 
-f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
+f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *att, f32 scale) {
     Vec_80334A4C v;
     f32 ret = TObjEneMorfos__data_805DF874;
     s32 d;
-    if (arg1 != 0) {
-        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, &arg1->pos);
+    if (att != 0) {
+        ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, &att->pos);
         subtract_vector(&v, &arg0->pos);
         d = angle_difference_abs(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * atan2_float(v.x, v.z)));
     } else {
@@ -3139,10 +3139,10 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
         } else {
             arg0->f3C0 &= ~0x10;
             arg0->f3C0 |= 0x20;
-            ret = receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
+            ret = receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
         }
     } else {
-        ret = receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
+        ret = receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
     }
     return ret;
 }

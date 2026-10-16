@@ -363,15 +363,15 @@ void TPhotonGolla::run_task() {
     typedef char spC_offset[(offsetof(Stack_801ABBAC, spC) == 0x4) ? 1 : -1];
     Stack_801ABBAC stack;
     s32 temp_r0;
-    s32 temp_r3;
+    s32 entity;
     u32 temp_r3_2;
     *(s32 *)&this->unk_1C8 = (s32) (*(s32 *)&this->unk_1C8 + 1);
     if (((s32) *(s32 *)&this->unk_1C8 == 0x32) && ((s32) this->m_1c4 == 0)) {
         this->m_1c4 = 1;
         *(s32 *)&this->unk_1C8 = 0;
-        temp_r3 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x158)));
-        if (temp_r3 != 0) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3 + 0x38));
+        entity = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x158)));
+        if (entity != 0) {
+            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (entity + 0x38));
         }
         stack.spC += lbl_805DC1A0;
         temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));

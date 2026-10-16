@@ -1017,7 +1017,7 @@ void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) & 0xFFFFFFFD);
 }
 
-void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
+void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 str, s16 arg3, f32 farg0) {
     s32 temp_r3;
 
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3900;
@@ -1027,10 +1027,10 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     *(s8 *)((s8 *)arg0 + 0x73) = -1;
     *(s16 *)((s8 *)arg0 + 0x76) = arg1;
     *(s16 *)((s8 *)arg0 + 0x20) = arg3;
-    if (arg2 != 0) {
-        temp_r3 = TWindowKeyBoardSoft::strnlen((s8 *)arg2, (u32)0x18);
+    if (str != 0) {
+        temp_r3 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)0x18);
         *(s32 *)((s8 *)arg0 + 0x78) = mem_alloc(temp_r3 + 1);
-        strncpy(*(s32 *)((s8 *)arg0 + 0x78), arg2, temp_r3 + 1);
+        strncpy(*(s32 *)((s8 *)arg0 + 0x78), str, temp_r3 + 1);
     } else {
         *(s32 *)((s8 *)arg0 + 0x78) = 0;
     }

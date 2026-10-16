@@ -63,10 +63,10 @@ void TAdSinglePlyChrSelectGC::destroy() {
 }
 void TAdSinglePlyChrSelectGC__sub_801C5158(void) { (*(int *)&ad_single_ply_chr_select_instance) = 0; }
 s32 TAdSinglePlyChrSelectGC::create_if_key_pressed() {
-    s32 temp_r3;
+    s32 global_state;
     u32 var_r0;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
+    global_state = TOKeyMachine01::get_global_state();
+    if ((global_state != 0x10) && (global_state != 0x11)) {
         return 0;
     }
     if ((u32) ad_single_ply_chr_select_instance != 0U) {

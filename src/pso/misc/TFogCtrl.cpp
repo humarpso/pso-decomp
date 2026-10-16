@@ -440,7 +440,7 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   s32 var_r30;
   s32 var_r31;
   s32 var_r4;
-  s32 var_r5;
+  s32 entry;
   u8 *var_r29;
   u8 *var_r3;
   var_r29 = arg0;
@@ -462,13 +462,13 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     return 1;
   }
   var_r3 = (u8 *) var_r29;
-  var_r5 = var_r30;
+  entry = var_r30;
   var_r4 = 2;
-  ((TFogCtrl *)var_r3)->load_entry_into_slot((int) 2, (int) var_r5);
+  ((TFogCtrl *)var_r3)->load_entry_into_slot((int) 2, (int) entry);
   var_r3 = (u8 *) var_r29;
-  var_r5 = var_r31;
+  entry = var_r31;
   var_r4 = 0;
-  ((TFogCtrl *)var_r3)->request_transition((s32)((int) 0), (s32)((int) var_r5));
+  ((TFogCtrl *)var_r3)->request_transition((s32)((int) 0), (s32)((int) entry));
   var_r3 = (u8 *) ((void *) 1);
   return 1;
 }

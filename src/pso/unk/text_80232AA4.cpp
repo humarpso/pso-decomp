@@ -12,10 +12,10 @@ extern "C" {
 
 void TUnk_804CC870::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
-    temp_r3 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x1C)));
-    if (temp_r3 != 0) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (temp_r3 + 0x38));
+    s32 entity;
+    entity = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x1C)));
+    if (entity != 0) {
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (entity + 0x38));
     }
     this->m_48 = (s32) (this->m_48 + 1);
     if ((s32) this->m_48 >= 7) {

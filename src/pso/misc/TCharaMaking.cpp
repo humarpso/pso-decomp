@@ -174,8 +174,8 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
 }
 #pragma pop
 
-void TCharaMaking::setup_from_data(s32 arg0, s32 arg1) {
-    TCharaMaking__draw_colored_hair(1.0f, arg0, (CharacterAppearanceFields *)arg1, 0);
+void TCharaMaking::setup_from_data(s32 arg0, s32 appearance) {
+    TCharaMaking__draw_colored_hair(1.0f, arg0, (CharacterAppearanceFields *)appearance, 0);
 }
 
 typedef char RecoveredGlobal_8028DE78_lbl_804D9164_size[sizeof(RecoveredGlobal_8028DE78_lbl_804D9164) == 0x414 ? 1 : -1];
@@ -333,40 +333,40 @@ void TCharaMaking::enable_making() { model_render_flags = (model_render_flags | 
 typedef struct Appearance Appearance;
 typedef struct ClassAppearance ClassAppearance;
 typedef struct TextureList TextureList;
-void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3) {
+void TCharaMaking__bind_appearance_texture_lists(s32 *output, s32 *arg1, s32 *arg2, struct Appearance *appearance) {
   s32 temp_r4;
-  struct ClassAppearance *temp_r28;
+  struct ClassAppearance *definition;
   struct TextureList **temp_r3;
   struct TextureList **temp_r3_2;
   struct TextureList *temp_r6;
   ClassAppearance *new_var;
   struct TextureList *temp_r6_2;
-  temp_r4 = ((TCharaMaking *)arg3)->get_display_index() * 0x2C;
+  temp_r4 = ((TCharaMaking *)appearance)->get_display_index() * 0x2C;
   new_var = (ClassAppearance *) (((u8 *) class_appearance_table) + temp_r4);
-  *arg0 = 0;
-  temp_r28 = new_var;
-  temp_r3 = temp_r28->hairTextures;
+  *output = 0;
+  definition = new_var;
+  temp_r3 = definition->hairTextures;
   if (temp_r3 != 0)
   {
-    temp_r6 = temp_r3[arg3->hair];
+    temp_r6 = temp_r3[appearance->hair];
     if (temp_r6 != 0)
     {
-      build_appearance_texture_names__12TCharaMakingFv(arg0, arg3, temp_r28, temp_r6);
-      *arg0 = 1;
+      build_appearance_texture_names__12TCharaMakingFv(output, appearance, definition, temp_r6);
+      *output = 1;
     }
   }
   *arg1 = 0;
-  temp_r3_2 = temp_r28->headTextures;
+  temp_r3_2 = definition->headTextures;
   if (temp_r3_2 != 0)
   {
-    temp_r6_2 = temp_r3_2[arg3->head];
+    temp_r6_2 = temp_r3_2[appearance->head];
     if (temp_r6_2 != 0)
     {
-      build_appearance_texture_names__12TCharaMakingFv(arg1, arg3, temp_r28, temp_r6_2);
+      build_appearance_texture_names__12TCharaMakingFv(arg1, appearance, definition, temp_r6_2);
       *arg1 = 1;
     }
   }
-  build_appearance_texture_names__12TCharaMakingFv(arg2, arg3, temp_r28, temp_r28->bodyTextures);
+  build_appearance_texture_names__12TCharaMakingFv(arg2, appearance, definition, definition->bodyTextures);
   *arg2 = 1;
 }
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0) {

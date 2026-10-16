@@ -96,9 +96,9 @@ struct _VBase802A78E4_802a78e4_802A7848 { char pad[8]; };
 struct _VObj802A78E4_802a78e4_802A7848 : _VBase802A78E4_802a78e4_802A7848 { virtual s32 m0(s32, s32); };
 void TLobby::set_field_4(s32 v) { *(s32 *)&this->m_flags = v; }
 s32 TLobby::get_hold_effect_size_by_type() {
-    s32 temp_r3;
-    temp_r3 = TObjPlayer::get_hold_effect_count();
-    switch (temp_r3) {
+    s32 hold_effect_count;
+    hold_effect_count = TObjPlayer::get_hold_effect_count();
+    switch (hold_effect_count) {
     case 0:
         return 0x38;
     case 1:
@@ -200,16 +200,16 @@ s32 copy_if_space(void) {
 
 void TLobby::alloc_snapshot_buffer() {
   s32 temp_r31;
-  s32 temp_r31_2;
+  s32 max_players;
   u32 temp_r3;
   u8 *temp_r31_3;
   if (((u32) snapshot_image_buffer) == 0U)
   {
     temp_r31 = TWindowSnapShot::get_height();
-    temp_r31_2 = TLobby::get_max_players();
-    temp_r31_2 = temp_r31_2 * temp_r31;
+    max_players = TLobby::get_max_players();
+    max_players = max_players * temp_r31;
     temp_r31 = TWindowSnapShot::get_width();
-    temp_r31_3 = (u8 *) (temp_r31 + temp_r31_2);
+    temp_r31_3 = (u8 *) (temp_r31 + max_players);
     temp_r3 = ((int)mem_alloc((s32)(temp_r31_3)));
     snapshot_image_buffer = temp_r3;
     if (temp_r3 != 0U)

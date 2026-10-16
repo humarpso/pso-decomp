@@ -762,7 +762,7 @@ s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2) {
     return 0;
 }
 
-s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2) {
+s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     u8 *arg0 = (u8 *)arg0p;
     s32 sp18;
     s32 sp14;
@@ -770,7 +770,7 @@ s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2) {
     s16 temp_r6;
     u8 *temp_r3;
     *(s16 *)((s8 *)arg0 + 2) = 1;
-    if (ARStartDMA((void *) (arg1), (void *) (arg2), (void *) (&sp10), (void *) (arg0 + 0xC), (void *) (arg0 + 0xD), (void *) (arg0 + 0xF), (void *) (arg0 + 0xE), (void *) (arg0 + 0x14), (void *) (arg0 + 0x18), (void *) (arg0 + 0x10)) < 0) {
+    if (ARStartDMA((void *) (hdr), (void *) (size), (void *) (&sp10), (void *) (arg0 + 0xC), (void *) (arg0 + 0xD), (void *) (arg0 + 0xF), (void *) (arg0 + 0xE), (void *) (arg0 + 0x14), (void *) (arg0 + 0x18), (void *) (arg0 + 0x10)) < 0) {
         return 0;
     }
     if ((s8) *(u8 *)((s8 *)arg0 + 0xC) > 4) {
@@ -784,15 +784,15 @@ s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2) {
         *(s16 *)((s8 *)arg0 + 0xA8) = 0xA;
         goto block_11;
     }
-    if (TLobby__sub_803C48C8(arg1, arg2, (void *) (arg0 + 0x1C)) < 0) {
+    if (TLobby__sub_803C48C8(hdr, size, (void *) (arg0 + 0x1C)) < 0) {
         return 0;
     }
-    if (((TLobby *)arg1)->parse_header_loop_points((s32)((void *) (arg2)), (u16 *)(&sp18), (u16 *)(&sp14)) < 0) {
+    if (((TLobby *)hdr)->parse_header_loop_points((s32)((void *) (size)), (u16 *)(&sp18), (u16 *)(&sp14)) < 0) {
         return 0;
     }
     ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->calc_adx_coeffs_at_offset((void *)(*(s32 *)((s8 *)arg0 + 0x14)), (s32)((int) (*(s16 *)((s8 *)arg0 + 0x1C))));
     TLobby__sub_803CB570((int) (*(s32 *)((s8 *)arg0 + 8)), (void *) (&sp18), (void *) (&sp14));
-    __DVDPrepareResetAsync((void *) (arg1), (void *) (arg2), (void *) (arg0 + 0x20), (void *) (arg0 + 0x24), (void *) (arg0 + 0x26), (void *) (arg0 + 0x28), (void *) (arg0 + 0x2C), (void *) (arg0 + 0x30), (void *) (arg0 + 0x34));
+    __DVDPrepareResetAsync((void *) (hdr), (void *) (size), (void *) (arg0 + 0x20), (void *) (arg0 + 0x24), (void *) (arg0 + 0x26), (void *) (arg0 + 0x28), (void *) (arg0 + 0x2C), (void *) (arg0 + 0x30), (void *) (arg0 + 0x34));
     *(s16 *)((s8 *)arg0 + 0xA8) = 0;
 block_11:
     temp_r3 = (u8 *)(arg0 + 0x4C);
@@ -885,11 +885,11 @@ s32 TLobby::is_spsd_header() {
     return 0;
 }
 struct Hdr_803C44C0;
-s32 TLobby__sub_803C43A8(void *arg0, void *arg1, void *arg2) {
+s32 TLobby__sub_803C43A8(void *arg0, void *hdr, void *arg2) {
     Hdl_803C43A8 *h = (Hdl_803C43A8 *)arg0;
     s16 n;
     h->f2 = 1;
-    if (TLobby__sub_803C44C0((Hdr_803C44C0 *)((Hdr_803C44C0 *)arg1), (s32)((s32)arg2), (s16 *)(&n), (s8 *)(&h->fc), (s8 *)(&h->fd), (s8 *)(&h->ff), (s8 *)(&h->fe), (s32 *)(&h->f14), (s32 *)(&h->f18), (s32 *)(&h->f10), (s16 *)(&h->faa)) < 0) {
+    if (TLobby__sub_803C44C0((Hdr_803C44C0 *)((Hdr_803C44C0 *)hdr), (s32)((s32)arg2), (s16 *)(&n), (s8 *)(&h->fc), (s8 *)(&h->fd), (s8 *)(&h->ff), (s8 *)(&h->fe), (s32 *)(&h->f14), (s32 *)(&h->f18), (s32 *)(&h->f10), (s16 *)(&h->faa)) < 0) {
         return 0;
     }
     h->f1c = 0;

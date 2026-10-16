@@ -66,34 +66,34 @@ extern s32 TLobby__data_805D6144;
 s32 TLobby::spawn_matching_objects(s16 arg0, s16 arg1, s32 arg2) {
     s16 temp_r0;
     s16 temp_r3;
-    s32 temp_r31;
+    s32 object_type;
     s32 var_r30;
     u8 *var_r29;
     s32 var_r28;
-    u8 *temp_r3_2;
+    u8 *item;
 
     var_r30 = 0;
     if ((s32) TLobby__data_805D60FC < 0) {
         return 0;
     }
     var_r29 = resolve_matching_object__6TLobbyFv(TLobby__data_805D60FC);
-    temp_r31 = TLobby::get_object_type(TLobby__data_805D60FC);
-    for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
+    object_type = TLobby::get_object_type(TLobby__data_805D60FC);
+    for (var_r28 = 0; var_r28 < object_type; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = *(s16 *)((s8 *)var_r29 + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) *(s16 *)((s8 *)var_r29 + 0xC) == arg0) && ((s16) *(s16 *)((s8 *)var_r29 + 0xE) == arg1)) {
-            temp_r3_2 = construct_enemy_from_set_row(var_r29);
-            if (temp_r3_2 != NULL) {
-                *(void **)((s8 *)var_r29 + 0x44) = temp_r3_2;
+            item = construct_enemy_from_set_row(var_r29);
+            if (item != NULL) {
+                *(void **)((s8 *)var_r29 + 0x44) = item;
                 *(s16 *)((s8 *)var_r29 + 2) = (s16) (*(s16 *)((s8 *)var_r29 + 2) | 2);
-                *(s16 *)((s8 *)temp_r3_2 + 0x28) = (s16) *(s16 *)((s8 *)var_r29 + 0xC);
-                *(s16 *)((s8 *)temp_r3_2 + 0x2A) = (s16) *(s16 *)((s8 *)var_r29 + 0xE);
-                *(s16 *)((s8 *)temp_r3_2 + 0x2C) = (s16) *(s16 *)((s8 *)var_r29 + 4);
-                *(void **)((s8 *)temp_r3_2 + 0x80) = var_r29;
-                temp_r0 = *(s16 *)((s8 *)temp_r3_2 + 0x2C);
+                *(s16 *)((s8 *)item + 0x28) = (s16) *(s16 *)((s8 *)var_r29 + 0xC);
+                *(s16 *)((s8 *)item + 0x2A) = (s16) *(s16 *)((s8 *)var_r29 + 0xE);
+                *(s16 *)((s8 *)item + 0x2C) = (s16) *(s16 *)((s8 *)var_r29 + 4);
+                *(void **)((s8 *)item + 0x80) = var_r29;
+                temp_r0 = *(s16 *)((s8 *)item + 0x2C);
                 if (temp_r0 != -1) {
-                    ((VObj *)temp_r3_2)->m77(TLobby__data_805D6144 + (temp_r0 * 0xC));
+                    ((VObj *)item)->m77(TLobby__data_805D6144 + (temp_r0 * 0xC));
                 }
-                append_wave_member(arg2, temp_r3_2);
+                append_wave_member(arg2, item);
                 var_r30 += 1;
             } else {
                 *(void **)((s8 *)var_r29 + 0x44) = NULL;

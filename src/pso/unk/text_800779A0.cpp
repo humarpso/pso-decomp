@@ -16,7 +16,7 @@ Obj_80077A28 *construct_entry_array(Obj_80077A28 *self);
 
 extern "C" {
 
-void fn_800779A0(u8 *arg0) {
+void fn_800779A0(u8 *src) {
     s32 temp_r3;
     s32 var_r0;
     if ((void *) lbl_805D4E5C == NULL) {
@@ -27,7 +27,7 @@ void fn_800779A0(u8 *arg0) {
         }
         lbl_805D4E5C = (unsigned char *) ((void *) var_r0);
     }
-    fn_800779FC((u32 *)(lbl_805D4E5C), (u32 *)(arg0));
+    fn_800779FC((u32 *)(lbl_805D4E5C), (u32 *)(src));
 }
 u32 *fn_800779FC(u32 *dst, u32 *src) {
     u32 *d = dst;

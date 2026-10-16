@@ -66,10 +66,10 @@ s8 *TWindowSubStatusDisp::copy_message_page_text() {
     return s + 2;
 }
 
-void text_builder_append(u8 *arg0) {
+void text_builder_append(u8 *str) {
   s32 temp_r3;
-  temp_r3 = TWindowKeyBoardSoft::strnlen((s8 *)arg0, (u32)0xFFU);
-  strncpy((*(s32 *)&text_builder_write_cursor), (s32) arg0, temp_r3);
+  temp_r3 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)0xFFU);
+  strncpy((*(s32 *)&text_builder_write_cursor), (s32) str, temp_r3);
   *(((s8 *) (*(s32 *)&text_builder_write_cursor)) - (-temp_r3)) = 0;
   (*(s32 *)&text_builder_write_cursor) += temp_r3;
 }

@@ -68,11 +68,11 @@ void TUnk_804E70A8::update_weapon() {
 extern s32 lbl_804E70A8[];
 
 void TObjPlayer__sub_803076F8(u8 *arg0) {
-    s32 temp_r31;
+    s32 player_list;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0) {
-        temp_r31 = TObjPlayer::get_player_list();
+        player_list = TObjPlayer::get_player_list();
         ((TObjPlayer *)arg0)->setup_particle_once();
-        TObjPlayer::load_projection_tex((s32)((void *) (arg0)), (s32)((int) ((s32) (lbl_805DF0AC * (f32) (*(s32 *)((s8 *)arg0 + 0x1FC) + (temp_r31 * 3))))));
+        TObjPlayer::load_projection_tex((s32)((void *) (arg0)), (s32)((int) ((s32) (lbl_805DF0AC * (f32) (*(s32 *)((s8 *)arg0 + 0x1FC) + (player_list * 3))))));
     }
 }
 

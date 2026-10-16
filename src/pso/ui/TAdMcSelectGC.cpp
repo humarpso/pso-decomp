@@ -57,11 +57,11 @@ void TAdMcSelectGC::update_state() {
 
 s32 TAdMcSelectGC::get_selected_slot_index() {
     s32 var_r0;
-    u8 *temp_r3;
-    temp_r3 = (u8 *)(((int)TAdMcSelectGC::get_mc_count()));
+    u8 *mc_count;
+    mc_count = (u8 *)(((int)TAdMcSelectGC::get_mc_count()));
     var_r0 = 0;
-    if (temp_r3 != NULL) {
-        var_r0 = ((TAdMcSelectGC *)temp_r3)->get_slot_index();
+    if (mc_count != NULL) {
+        var_r0 = ((TAdMcSelectGC *)mc_count)->get_slot_index();
     }
     return var_r0;
 }

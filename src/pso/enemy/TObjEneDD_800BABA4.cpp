@@ -262,17 +262,17 @@ int TObjEneDD::has_move_failures(s32 arg1) {
     return var_r5;
 }
 
-void TObjEneDD::move_to_wall_clamped_destination(f32 farg0, f32 farg1, f32 farg2) {
+void TObjEneDD::move_to_wall_clamped_destination(f32 farg0, f32 farg1, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, dist);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
-void TObjEneDD::move_with_wall_slide_commit(f32 farg0, f32 farg1, f32 farg2) {
+void TObjEneDD::move_with_wall_slide_commit(f32 dx, f32 dz, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), dx, dz, dist);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
@@ -283,17 +283,17 @@ void TObjEneDD::move_with_wall_stop(f32 farg0, f32 farg1, f32 farg2) {
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
-void TObjEneDD::move_clamped_on_ground(f32 farg0, f32 farg1, f32 farg2) {
+void TObjEneDD::move_clamped_on_ground(f32 farg0, f32 farg1, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, dist);
     ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
 }
 
-void TObjEneDD::move_with_wall_slide_on_ground(f32 farg0, f32 farg1, f32 farg2) {
+void TObjEneDD::move_with_wall_slide_on_ground(f32 dx, f32 dz, f32 dist) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
+    calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), dx, dz, dist);
     ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
 }
 

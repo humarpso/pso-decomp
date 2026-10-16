@@ -17,16 +17,16 @@ s32 is_split_screen();
 extern s32 local_client_id;
 
 s32 TObjPlayer::is_active_battle_player() {
-    s32 temp_r31;
-    s32 temp_r3;
+    s32 current_floor;
+    s32 player;
 
     if (is_split_screen() != 0) {
         return 0;
     }
-    temp_r3 = get_player_by_client_id(local_client_id);
-    if (temp_r3 != 0) {
-        temp_r31 = get_current_floor();
-        return temp_r31 - ((TObjPlayer *)temp_r3)->get_field_3e4() ? 1 : 0;
+    player = get_player_by_client_id(local_client_id);
+    if (player != 0) {
+        current_floor = get_current_floor();
+        return current_floor - ((TObjPlayer *)player)->get_field_3e4() ? 1 : 0;
     }
     return 0;
 }

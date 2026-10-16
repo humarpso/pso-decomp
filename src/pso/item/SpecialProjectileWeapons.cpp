@@ -129,15 +129,15 @@ void *weapon_star_light_follower_vtable[6] = {
 
 void TUnk_804A2018::run_task() {
     s32 sp8;
-    s32 temp_r3;
+    s32 item;
     if ((u32) this->m_28 != ((u32)get_item_system_generation())) {
         queue_destruction__7TObjectFv(this);
         return;
     }
     if ((u32) *(u32 *)&this->unk_24 != 0U) {
-        temp_r3 = ((s32)find_item_by_id(*(s32 *)&this->unk_1C));
-        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)temp_r3)->draw_icon((s32)((s32)(this->m_20)), (s32)((s32 *)(&sp8))) != 0)) {
-            if (((TItemMag *)temp_r3)->get_flag_40() == 0) {
+        item = ((s32)find_item_by_id(*(s32 *)&this->unk_1C));
+        if ((item != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)item)->draw_icon((s32)((s32)(this->m_20)), (s32)((s32 *)(&sp8))) != 0)) {
+            if (((TItemMag *)item)->get_flag_40() == 0) {
                 copy_position__15TEffStarLight2DFPv(*(u32 *)&this->unk_24, &sp8);
                 return;
             }
@@ -176,12 +176,12 @@ StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, voi
     return self;
 }
 
-void create_icon__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
+void create_icon__10TObjPlayerFiii(s32 parent, s32 arg1, s32 arg2) {
     void *temp_r3;
-    if (arg0 != 0) {
+    if (parent != 0) {
         temp_r3 = (void *)((u32)__nw__7TObjectFUl(0x2C));
         if (temp_r3 != (void *)0U) {
-            TObjPlayer__sub_801241D4((StarLightFollowerView *)(temp_r3), (void *)(arg0), (s32)(arg1), (s32)(arg2));
+            TObjPlayer__sub_801241D4((StarLightFollowerView *)(temp_r3), (void *)(parent), (s32)(arg1), (s32)(arg2));
         }
     }
 }
@@ -508,13 +508,13 @@ void TUnk_804A2164::emit_marker_effects() {
     ((RecoilWeaponView *)this)->deliver_projectile(&sp8, 0, 0, 1);
 }
 void drill_launcher_node_callback(void *arg0) {
-    s32 temp_r3;
-    temp_r3 = TObjPlayer::get_player_list();
-    if ((temp_r3 > 0) && (temp_r3 < 4)) {
+    s32 player_list;
+    player_list = TObjPlayer::get_player_list();
+    if ((player_list > 0) && (player_list < 4)) {
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x200));
         return;
     }
-    if (temp_r3 == 4) {
+    if (player_list == 4) {
         if (*(u32 *)((s8 *)arg0 + 0x188) != 0U) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 1) {
                 draw_ginja_object((void *)(*(u32 *)((s8 *)arg0 + 0x188)));

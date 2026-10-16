@@ -239,14 +239,14 @@ void TUnk_804A05A8::vfunc_6() {
 }
 
 void TUnk_804A05C8::vfunc_6() {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
 
     if ((test_flag_2000000__10TObjPlayerFPv(*(s32 *)&this->m_28) == 0) && (is_flag_20000_set__10TObjPlayerFv(*(s32 *)&this->m_28) == 0)) {
         ((TBoss3Volopt *)(*(s32 *)&this->m_28))->get_field_3e0();
         if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(*(s32 *)&this->m_28), (s32)(0x800)) == 0)) {
-            temp_r3 = spawn_particle_effect_with_flags(*(s32 *)&this->m_28 + 0x2FC, *(s32 *)&this->unk_2C, 0x10);
-            if (temp_r3 != 0) {
-                set_owner_id__13TParticleCtrlFUs(temp_r3, obj_getField1c(*(s32 *)&this->m_28));
+            particle_effect_with_flags = spawn_particle_effect_with_flags(*(s32 *)&this->m_28 + 0x2FC, *(s32 *)&this->unk_2C, 0x10);
+            if (particle_effect_with_flags != 0) {
+                set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, obj_getField1c(*(s32 *)&this->m_28));
             }
         }
     }

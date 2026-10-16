@@ -38,10 +38,10 @@ void mark_unequippable_items(Wn_80278460 *arg0) {
     }
 }
 void fn_80278518(void *arg0, s32 arg1) {
-    s32 var_r31;
+    s32 i;
     u16 *temp_r30;
-    for (var_r31 = 0; var_r31 < *(s16 *)((s8 *)arg0 + 0x76); var_r31++) {
-        temp_r30 = ((u16 *(*)(void *, s32)) get_array_entry__13TUnk_804CE018Fi)(arg0, var_r31);
+    for (i = 0; i < *(s16 *)((s8 *)arg0 + 0x76); i++) {
+        temp_r30 = ((u16 *(*)(void *, s32)) get_array_entry__13TUnk_804CE018Fi)(arg0, i);
         if ((is_flag_4_set__20TWindowSubStatusDispFv() != 0) && (arg1 == ((TWindowSubItem *)temp_r30)->get_cursor_pos())) {
             *(s32 *)((s8 *)temp_r30 + 0x2C) = 0xFFAAAAAA;
             *(s32 *)((s8 *)temp_r30 + 0x30) = 0xFF909090;

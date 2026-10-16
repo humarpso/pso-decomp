@@ -84,11 +84,11 @@ Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key) {
     return NULL;
 }
 
-void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1) {
+void TLobby__sub_802099FC(Out_802099FC *arg0, s32 key) {
     Hdr_802099FC hdr = *(Hdr_802099FC *)TLobby__item_data_table_buffer;
     Rec_802099FC *p;
     TLobby__sub_8020A568(&hdr);
-    p = bsearch_record__6TLobbyFPvii((void *)(TLobby__item_data_table_buffer + hdr.table), (s32)(hdr.count), (s32)(arg1));
+    p = bsearch_record__6TLobbyFPvii((void *)(TLobby__item_data_table_buffer + hdr.table), (s32)(hdr.count), (s32)(key));
     if (p != NULL) {
         Rec_802099FC r = *p;
         TLobby__sub_8020A48C(&r);

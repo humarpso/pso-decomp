@@ -109,16 +109,16 @@ void TPhotonLeilla::run_task() {
     Stack_801AC574 stack;
     f32 temp_f1;
     f32 temp_f1_2;
-    u8 *temp_r3;
+    u8 *entity;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     *(s32 *)&this->m_1ac = (s32) (*(s32 *)&this->m_1ac + 1);
     if (((s32) *(s32 *)&this->m_1ac == 0x32) && ((s32) *(s32 *)&this->m_19c == 0)) {
         *(s32 *)&this->m_19c = 1;
         *(s32 *)&this->m_1ac = 0;
-        temp_r3 = (u8 *)(find_entity_by_id(this->m_17c));
-        if (temp_r3 != NULL) {
-            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3 + 0x38));
+        entity = (u8 *)(find_entity_by_id(this->m_17c));
+        if (entity != NULL) {
+            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (entity + 0x38));
         }
         temp_f1 = stack.spC;
         stack.spC = temp_f1 + lbl_805DC1C4;

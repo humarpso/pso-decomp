@@ -237,13 +237,13 @@ void TOKeyCave01::free_objects() {
 extern s32 __vt__11TOKeyCave01[];
 
 void TOKeyCave01::load_resources() {
-    s32 temp_r31;
+    s32 global_state;
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *var_r0;
     u8 *var_r0_2;
-    temp_r31 = TOKeyMachine01::get_global_state();
-    if ((TContainerAncient01::is_global_state_in_table() == 1) || (temp_r31 == 0x1C) || (temp_r31 == 0x1D)) {
+    global_state = TOKeyMachine01::get_global_state();
+    if ((TContainerAncient01::is_global_state_in_table() == 1) || (global_state == 0x1C) || (global_state == 0x1D)) {
         temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)0x440)->alloc());
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {

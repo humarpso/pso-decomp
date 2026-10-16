@@ -570,14 +570,14 @@ inline Slot_803CD16C *alloc_803CD3A8(void) {
     s->used = 1;
     return s;
 }
-inline s32 open_803CD3A8(Slot_803CD16C *s, u32 arg0, s32 arg1) {
+inline s32 open_803CD3A8(Slot_803CD16C *s, u32 name, s32 mode) {
     u32 h;
     s32 sz;
-    if (arg0 == 0) {
+    if (name == 0) {
         TLobby::notify_error((const char *)lbl_8047CBA4);
         return -1;
     }
-    h = TLobby__sub_803C8CDC(arg0, arg1, 0);
+    h = TLobby__sub_803C8CDC(name, mode, 0);
     if (h == 0) {
         TLobby::notify_error((const char *)lbl_8047CBD8);
         return -1;

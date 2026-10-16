@@ -129,13 +129,13 @@ void THunterGuildSeqOffline::request_close() {
 typedef char RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 void THunterGuildSeqOffline::handle_cancel_choice() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3_2;
+    s32 selected_menu_value;
     u8 *temp_r3;
     temp_r3 = (u8 *)(this->m_2c);
     if (temp_r3 != NULL) {
         if (((TWindowMenu *)temp_r3)->is_visible() != 0) {
-            temp_r3_2 = get_selected_menu_value(this->m_2c);
-            if (temp_r3_2 == 0) {
+            selected_menu_value = get_selected_menu_value(this->m_2c);
+            if (selected_menu_value == 0) {
                 TWindow__close(this->m_2c);
                 this->m_2c = NULL;
                 ((VObj_18_97738d *)(arg0))->m7(9, 1);
@@ -146,7 +146,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
                 ((TShopWindowBase *)arg0)->set_field_20((s32)(5));
                 return;
             }
-            if (temp_r3_2 == 1) {
+            if (selected_menu_value == 1) {
                 TWindow__close(this->m_2c);
                 this->m_2c = NULL;
                 ((VObj_18_97738d *)(arg0))->m7(0xA, 1);

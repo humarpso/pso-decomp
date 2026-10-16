@@ -271,7 +271,7 @@ void TShopJudgmentItemWindow::invoke_callback_170_and_destroy() {
 
 void TShopJudgmentItemWindow::handle_pay_confirm() {
     f32 temp_f31;
-    s32 temp_r3;
+    s32 selected_menu_value;
     s32 temp_r31;
 
     if (((TShopWindowBase *)(((u8 *)this)))->vfunc_10() != 0) {
@@ -283,8 +283,8 @@ void TShopJudgmentItemWindow::handle_pay_confirm() {
             ((TUnk_804CDFE8 *)(*(s32 *)&this->m_158))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (((u8 *)this))), temp_f31);
         }
         if (((u32) this->m_158 != 0U) && (((TWindowMenu *)(*(void * *)&this->m_158))->is_visible() != 0)) {
-            temp_r3 = get_selected_menu_value((s32) (this->m_158));
-            if (temp_r3 == 0) {
+            selected_menu_value = get_selected_menu_value((s32) (this->m_158));
+            if (selected_menu_value == 0) {
                 if ((u32) this->m_160 != 0U) {
                     TWindow__close(*(void * *)&this->m_160);
                     this->m_160 = 0U;
@@ -309,7 +309,7 @@ void TShopJudgmentItemWindow::handle_pay_confirm() {
                 ((TShopWindowBase *)((u8 *)this))->set_field_20(5);
                 return;
             }
-            if (temp_r3 == 1) {
+            if (selected_menu_value == 1) {
                 TWindow__close(*(void * *)&this->m_158);
                 this->m_158 = 0U;
                 ((VObj_18 *)(((u8 *)this)))->m6(8, 1);
@@ -421,7 +421,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
 
 void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     f32 temp_f31;
-    s32 temp_r3;
+    s32 selected_menu_value;
     s32 temp_r31;
     if (((TShopWindowBase *)(arg0))->vfunc_10() != 0) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x158) == 0U) {
@@ -431,8 +431,8 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
             ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x158)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), temp_f31);
         }
         if (((u32) *(u32 *)((s8 *)arg0 + 0x158) != 0U) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
-            temp_r3 = get_selected_menu_value((s32) (*(u32 *)((s8 *)arg0 + 0x158)));
-            if (temp_r3 == 0) {
+            selected_menu_value = get_selected_menu_value((s32) (*(u32 *)((s8 *)arg0 + 0x158)));
+            if (selected_menu_value == 0) {
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x160) != 0U) {
                     TWindow__close(*(void **)((s8 *)arg0 + 0x160));
                     *(u32 *)((s8 *)arg0 + 0x160) = 0U;
@@ -466,7 +466,7 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 ((TShopWindowBase *)arg0)->set_field_20((s32) (0));
                 return;
             }
-            if (temp_r3 == 1) {
+            if (selected_menu_value == 1) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                 *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                 ((VObj_18 *)(arg0))->m6(9, 1);
@@ -541,12 +541,12 @@ void TShopJudgmentItemWindow::create_result_windows() {
 #pragma push
 #pragma fp_contract on
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
-    s32 temp_r3;
+    s32 selected_menu_value;
     u8 *temp_r31;
     if (((VObj_18 *) arg0)->m8() != 0) {
         if ((*(void **)((s8 *)arg0 + 0x158) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
-            temp_r3 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x158)));
-            if ((temp_r3 == 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x154) != 0U)) {
+            selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x158)));
+            if ((selected_menu_value == 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x154) != 0U)) {
                 if (obj_getPtr2B0_20((int) (*(s32 *)((s8 *)arg0 + 0x24))) < 0x64) {
                     TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                     *(u32 *)((s8 *)arg0 + 0x158) = 0U;
@@ -572,7 +572,7 @@ void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (3)));
                 return;
             }
-            if (temp_r3 == 1) {
+            if (selected_menu_value == 1) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                 *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                 ((VObj_18 *) arg0)->m6(4, 1);

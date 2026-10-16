@@ -4250,7 +4250,7 @@ void TBoss2DeRolLe__sub_80034258(Obj_80034258 *self) {
     }
 }
 
-void pick_random_target__13TBoss2DeRolLeFi(s32 arg0) {
+void pick_random_target__13TBoss2DeRolLeFi(s32 actor) {
     s32 n;
     s32 p;
     s32 j;
@@ -4258,20 +4258,20 @@ void pick_random_target__13TBoss2DeRolLeFi(s32 arg0) {
 
     n = TLobby::get_game_mode();
     if (n == 0) {
-        enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
+        enemy_clear_target__12TObjEneDD_STFUs((void *) (actor));
         return;
     }
     if (n == 1) {
         p = get_player_data__10TObjPlayerFi(0);
-        ((TObjEneDD_ST *)arg0)->set_target_player((void *)p);
+        ((TObjEneDD_ST *)actor)->set_target_player((void *)p);
         return;
     }
-    j = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) n * calc_boss4_scale__10TObjPlayerFi((void *) (arg0)));
-    enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
+    j = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) n * calc_boss4_scale__10TObjPlayerFi((void *) (actor)));
+    enemy_clear_target__12TObjEneDD_STFUs((void *) (actor));
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(j);
         if (is_alive__9TObjEneDDFv() != 0) {
-            ((TObjEneDD_ST *)arg0)->set_target_player((void *)p);
+            ((TObjEneDD_ST *)actor)->set_target_player((void *)p);
             return;
         }
         if (++j >= n) {

@@ -152,20 +152,20 @@ typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
 void TShopGetItemWindow::handle_withdraw_confirm() {
   Stack_8021E5D8 stack;
-  s32 temp_r30;
-  s32 temp_r3_2;
-  s32 temp_r3_3;
+  s32 slot;
+  s32 selected_menu_value;
+  s32 idx;
   u32 temp_r3;
   u32 temp_r3_4;
   temp_r3 = ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_2C;
   if ((temp_r3 != 0U) && (((TWindowMenu *)temp_r3)->is_visible() != 0))
   {
-    temp_r30 = sub_8022397C__15TShopWindowBaseFv((void *) ((u8 *)this));
-    temp_r3_2 = get_selected_menu_value((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_2C);
-    if (temp_r3_2 == 0)
+    slot = sub_8022397C__15TShopWindowBaseFv((void *) ((u8 *)this));
+    selected_menu_value = get_selected_menu_value((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_2C);
+    if (selected_menu_value == 0)
     {
-      temp_r3_3 = select_cursor_entry__22TWindowSubShortCutListFv((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_28);
-      if (copy_item_record__18TCheckRoomSequenceFiPvi((int) temp_r3_3, (void *) (&stack.sp8), (int) (temp_r30 & 0xFFFFFFFFFFFFFFFFu)) != 0)
+      idx = select_cursor_entry__22TWindowSubShortCutListFv((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_28);
+      if (copy_item_record__18TCheckRoomSequenceFiPvi((int) idx, (void *) (&stack.sp8), (int) (slot & 0xFFFFFFFFFFFFFFFFu)) != 0)
       {
         stack.sp14 = -1;
         if (TCheckRoomSequence::get_item_def((u32)((void *) (&stack.sp8))) != 0)
@@ -180,9 +180,9 @@ void TShopGetItemWindow::handle_withdraw_confirm() {
         else
         {
           ((TObjPlayer *)((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_24))->request_inventory_item((TItemData*)(&stack.sp8));
-          remove_bank_item_amount__18TCheckRoomSequenceFiii((int) temp_r3_3, (int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_54, (int) temp_r30);
-          compact_items__18TCheckRoomSequenceFi((int) temp_r30);
-          copy_bank_to_card_window((int) temp_r30);
+          remove_bank_item_amount__18TCheckRoomSequenceFiii((int) idx, (int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_54, (int) slot);
+          compact_items__18TCheckRoomSequenceFi((int) slot);
+          copy_bank_to_card_window((int) slot);
           ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((int) 0));
         }
       }
@@ -190,7 +190,7 @@ void TShopGetItemWindow::handle_withdraw_confirm() {
       ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_2C = 0U;
       return;
     }
-    if (temp_r3_2 == 1)
+    if (selected_menu_value == 1)
     {
       TWindow__close((void *)((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_2C));
       ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_2C = 0U;

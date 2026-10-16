@@ -720,17 +720,17 @@ s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
     return 0;
 }
 
-s32 send_network_frame(u16 arg0, u8 *arg1) {
+s32 send_network_frame(u16 len, u8 *src) {
     if ((s16) network_pppoe_transport_enabled != 0) {
         if ((s16) net_slot_id < 0) {
             return 5;
         }
-        if (TLobby__sub_80427F48(net_slot_id, arg1, arg0) < 0) {
+        if (TLobby__sub_80427F48(net_slot_id, src, len) < 0) {
             return 5;
         }
         goto block_7;
     }
-    if (((u16)TLobby::write_ring_buffer(arg1, (s32) arg0)) == 0) {
+    if (((u16)TLobby::write_ring_buffer(src, (s32) len)) == 0) {
         return 5;
     }
 block_7:

@@ -27,9 +27,9 @@ s32 get_window_layout_position(s32);
 extern s32 lbl_80478C2C[];
 
 void TWindowSubInformationBoard::open_card_info_window() {
-    s32 temp_r3;
-    temp_r3 = get_window_layout_position(0xA5);
-    TLobby::set_window_mode_4((void *)temp_r3, (s32)lbl_80478C2C, (s32)1);
+    s32 window_layout_position;
+    window_layout_position = get_window_layout_position(0xA5);
+    TLobby::set_window_mode_4((void *)window_layout_position, (s32)lbl_80478C2C, (s32)1);
     *(s32 *)&this->m_24 = -1;
 }
 void *TWindowSubComCard__sub_8034CDE0(void) {

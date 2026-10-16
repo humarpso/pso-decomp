@@ -205,9 +205,9 @@ f32 TObjEneEpsilonGuard::receive_physical_attack(void *, f32) {
     ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
     return TObjEneEpsilonGuard__data_805E01D8;
 }
-f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5) {
+f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 att, Msg_8035DD18 *msg, void *coll, s32 tech, s32 arg5) {
     if (msg->type == 0x14) {
-        return receive_direct_attack__10TObjPlayerFv((void *)arg0, arg1, *msg, arg3, arg4, arg5);
+        return receive_direct_attack__10TObjPlayerFv((void *)arg0, att, *msg, coll, tech, arg5);
     }
     ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
     return TObjEneEpsilonGuard__data_805E01D8;

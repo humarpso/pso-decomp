@@ -122,9 +122,9 @@ s32 TObjDoaEx01::draw_object_tree(s32 arg1) {
 }
 
 void TObjDoaEx01::try_open() {
-    s32 temp_r31;
+    s32 bml_model;
 
-    temp_r31 = get_bml_model(TObjDoaEx01__resource_bundle, 0);
+    bml_model = get_bml_model(TObjDoaEx01__resource_bundle, 0);
     if (((TObjDoaEx01_VObj*)((u8 *)this))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
         ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)))->free_children((void *)1);
         ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)))->free_children((void *)1);
@@ -133,7 +133,7 @@ void TObjDoaEx01::try_open() {
         push_matrix();
         post_translate_matrix(((u8 *)this) + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree((s32)(temp_r31));
+        ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree((s32)(bml_model));
         pop_matrix();
     }
 }

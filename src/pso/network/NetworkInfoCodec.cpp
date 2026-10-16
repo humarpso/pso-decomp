@@ -369,7 +369,7 @@ s32 parse_hex_string(char *s) {
 #pragma push
 #pragma use_lmw_stmw off
 #pragma scheduling off
-s32 decode_network_info_payload(u8 *arg0, u8 *arg1, u32 arg2, NetworkInfoConfig *arg3) {
+s32 decode_network_info_payload(u8 *arg0, u8 *arg1, u32 arg2, NetworkInfoConfig *config) {
     u32 *key;
     u32 i;
     s32 r;
@@ -380,7 +380,7 @@ s32 decode_network_info_payload(u8 *arg0, u8 *arg1, u32 arg2, NetworkInfoConfig 
             return -1;
         }
     }
-    r = parse_netinfo((char *)arg1, arg2, arg3);
+    r = parse_netinfo((char *)arg1, arg2, config);
     release_network_info_cipher_key(key);
     clear_network_info_cipher_pool();
     return r;
@@ -416,14 +416,14 @@ void decrypt_network_info_cipher_round(u32 *arg0, u32 *arg1) {
 #pragma scheduling off
 #pragma peephole off
 #pragma optimization_level 2
-void decrypt_network_info_cipher_block(u32 *arg0, NetworkInfoCipherBlock *arg1, NetworkInfoCipherBlock *arg2) {
+void decrypt_network_info_cipher_block(u32 *arg0, NetworkInfoCipherBlock *src, NetworkInfoCipherBlock *dst) {
     u32 sp8[4];
     s32 i;
-    copy_network_info_cipher_block(sp8, (u32 *)arg1);
+    copy_network_info_cipher_block(sp8, (u32 *)src);
     for (i = 4; i > 0; i--) {
         decrypt_network_info_cipher_round(arg0 + (i - 1) * 4 + 1, sp8);
     }
-    copy_network_info_cipher_block((u32 *)arg2, sp8);
+    copy_network_info_cipher_block((u32 *)dst, sp8);
 }
 #pragma pop
 
@@ -477,7 +477,7 @@ s32 decrypt_network_info_cipher_blocks(u32 *key, u8 *src, s32 len, u8 *dst) {
 #pragma scheduling off
 #pragma peephole off
 #pragma optimization_level 2
-u32 *allocate_network_info_cipher_key(s32 arg0) {
+u32 *allocate_network_info_cipher_key(s32 src) {
     s32 i;
     u32 *b;
     u32 mask;
@@ -497,7 +497,7 @@ u32 *allocate_network_info_cipher_key(s32 arg0) {
     }
     slot = (u32 *)&((NetworkInfoCipherPoolView *)network_info_cipher_pool_binding.pool)->slots[i];
     *slot = 1 << i;
-    copy_network_info_cipher_block(slot + 1, (u32 *)arg0);
+    copy_network_info_cipher_block(slot + 1, (u32 *)src);
     for (i = 0; i < 3; i++) {
         a = &((NetworkInfoCipherKey *)slot)->keys[i][0];
         b = &((NetworkInfoCipherKey *)slot)->keys[i + 1][0];

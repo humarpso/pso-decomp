@@ -59,7 +59,7 @@ u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2) {
 
 void TOMineTrap__vt81(s32 arg0) {
     u32 var_r31;
-    u16 var_r30;
+    u16 i;
 
     if (is_split_screen() == 0) {
         var_r31 = __nw__7TObjectFUl(0xB0);
@@ -71,10 +71,10 @@ void TOMineTrap__vt81(s32 arg0) {
             VecCopy__FP3VecPC3Vec(var_r31 + 0x38, arg0 + 0x38);
         }
     } else {
-        for (var_r30 = 0; var_r30 != 4; var_r30++) {
+        for (i = 0; i != 4; i++) {
             var_r31 = __nw__7TObjectFUl(0xB0);
             if (var_r31 != 0U) {
-                var_r31 = TOMineTrapDisp__ct(var_r31, arg0, var_r30, get_trap_type__10TOMineTrapFv(arg0));
+                var_r31 = TOMineTrapDisp__ct(var_r31, arg0, i, get_trap_type__10TOMineTrapFv(arg0));
             }
             if (var_r31 != 0U) {
                 VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);
@@ -172,12 +172,12 @@ struct VObj8016F3C4 : VObj8016F3C4Base { virtual s32 m0(); virtual s32 m1(); vir
 
 int TOMineTrap::vfunc_12() {
     s32 var_r31;
-    void *temp_r3;
+    void *player;
 
     var_r31 = 0;
-    temp_r3 = get_player_by_client_id((u16)((s32 (*)(void))get_trap_type__10TOMineTrapFv)());
-    if (temp_r3 != NULL) {
-        var_r31 = ((VObj8016F3C4 *)temp_r3)->m10();
+    player = get_player_by_client_id((u16)((s32 (*)(void))get_trap_type__10TOMineTrapFv)());
+    if (player != NULL) {
+        var_r31 = ((VObj8016F3C4 *)player)->m10();
     }
     return var_r31;
 }

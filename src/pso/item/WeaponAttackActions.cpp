@@ -602,8 +602,8 @@ void TItemWeapon::create_weapon_trail_effects() {
     }
 }
 
-u32 pack_weapon_trail_color(void *arg0) {
-    V4_8011EA10 w = get_weapon_color__11TItemWeaponFPv(arg0);
+u32 pack_weapon_trail_color(void *weapon) {
+    V4_8011EA10 w = get_weapon_color__11TItemWeaponFPv(weapon);
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
 
@@ -762,10 +762,10 @@ void TObjPlayer::launch_rare_weapon_special(void *origin, s32 enable, f32 scale)
     }
 }
 
-s32 TItemWeapon::launch_shot(u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
     s32 var_r31;
     ShotPayload hit;
-    f32 *temp_r3_2;
+    f32 *weapon_range_record;
     f32 temp_f1;
     f32 temp_f2;
     f32 temp_f3;
@@ -788,8 +788,8 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
             var_r23 = 0;
             var_r29 = (u8 *)(NULL);
             ShotVector endpoint = *(ShotVector *)arg1;
-            if (arg2 < get_captured_target_count(temp_r3)) {
-                temp_r22 = (u8 *)get_captured_target_entry(temp_r3,arg2);
+            if (i < get_captured_target_count(temp_r3)) {
+                temp_r22 = (u8 *)get_captured_target_entry(temp_r3,i);
                 var_r29 = (u8 *)(((Obj_8011F474 *(*)(s32, s16))resolve_hittable_target)(((s32 (*)(void *))get_uid__10TObjPlayerFv)(temp_r22),get_captured_target_collider_index(temp_r22)));
                 if (var_r29 != NULL) {
                     temp_r22_2 = (u8 *)&(*(Rec_8011F108 **)((s8 *)var_r29 + 0xA4))[get_captured_target_collider_index(temp_r22)];
@@ -806,10 +806,10 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
             if (var_r23 == 0) {
                 ShotVector fallback;
                 push_matrix_from((void *) (identity_matrix));
-                temp_r3_2 = (f32 *)(get_weapon_range_record(((u8 *)this), ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (*(u8 * *)&this->player))));
+                weapon_range_record = (f32 *)(get_weapon_range_record(((u8 *)this), ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (*(u8 * *)&this->player))));
                 fallback.y = lbl_805DAC98;
                 fallback.x = lbl_805DAC98;
-                fallback.z = *(f32 *)((s8 *)temp_r3_2 + 0);
+                fallback.z = *(f32 *)((s8 *)weapon_range_record + 0);
                 rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60) + arg3));
                 transform_point_by_current_matrix((void *) (&fallback.x), (void *) (&endpoint.x));
                 pop_matrix();
@@ -821,7 +821,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
             temp_r3_3 = (u8 *)(csnVector(&rayOrigin.x, &endpoint.x, 0x8100));
             if (temp_r3_3 == NULL) {
                 if (var_r29 != NULL) {
-                    temp_r22_3 = (u8 *)get_captured_target_entry(temp_r3,arg2);
+                    temp_r22_3 = (u8 *)get_captured_target_entry(temp_r3,i);
                     temp_r22_2 = (u8 *)&(*(Rec_8011F108 **)((s8 *)var_r29 + 0xA4))[get_captured_target_collider_index(temp_r22_3)];
                     var_f31 = xyz_distance((void *) (arg1), (void *) &((Rec_8011F108 *)temp_r22_2)->pos) / *(f32 *)((s8 *)((u8 *)this) + 0x1E4);
                     if (arg4 != 0) {

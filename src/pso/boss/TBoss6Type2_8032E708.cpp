@@ -1079,14 +1079,14 @@ void TBoss6Mag::sync_hp() {
 void TBoss6Mag::draw_model_motion_blend() {
     Stack_8032FE50 stack;
     s32 temp_r31;
-    s32 temp_r31_2;
+    s32 bml_model;
     TObjPlayer::set_global_flag();
     temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)this + 0x374), 1);
-    temp_r31_2 = get_bml_model(*(s32 *)((s8 *)this + 0x374), 1);
+    bml_model = get_bml_model(*(s32 *)((s8 *)this + 0x374), 1);
     TObjFish::set_global_param(temp_r31);
     if ((0.0f) == *(f32 *)((s8 *)this + 0x3E8)) {
         ((TObjFish *)(*(s32 *)((s8 *)this + 0x458)))->set_draw_callback_list();
-        draw_model_motion(temp_r31_2, *(s32 *)((s8 *)this + 0x3DC), *(f32 *)((s8 *)this + 0x3E0));
+        draw_model_motion(bml_model, *(s32 *)((s8 *)this + 0x3DC), *(f32 *)((s8 *)this + 0x3E0));
         clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)this + 0x458));
     } else {
         stack.sp8 = *(s32 *)((s8 *)this + 0x3F0);
@@ -1094,7 +1094,7 @@ void TBoss6Mag::draw_model_motion_blend() {
         stack.spC = *(s32 *)((s8 *)this + 0x3DC);
         stack.sp14 = *(f32 *)((s8 *)this + 0x3E0);
         ((TObjFish *)(*(s32 *)((s8 *)this + 0x458)))->set_draw_callback_list();
-        draw_model_blend_motion(temp_r31_2, &stack.sp8, *(f32 *)((s8 *)this + 0x3E8));
+        draw_model_blend_motion(bml_model, &stack.sp8, *(f32 *)((s8 *)this + 0x3E8));
         clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)this + 0x458));
     }
     TObjPlayer::clear_global_state();
@@ -1106,17 +1106,17 @@ typedef char RecoveredGlobal_8032FF24_lbl_804EDD94_size[sizeof(RecoveredGlobal_8
 void TBoss6Mag::change_motion(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;
-    s32 temp_r3;
+    s32 bml_motion;
     if ((arg1 != -1) && (arg1 != (s32) *(s32 *)((s8 *)arg0 + 0x3D4))) {
         *(s32 *)((s8 *)arg0 + 0x3D4) = arg1;
         temp_r31 = arg1 * 0x10;
         *(s32 *)((s8 *)arg0 + 0x3D8) = (s32) *(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8032FF24_lbl_804EDD94 *)&boss6_type2_motion_table).value) + temp_r31) + 0);
-        temp_r3 = get_bml_motion((int) (*(s32 *)((s8 *)arg0 + 0x374)), (int) (*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8032FF24_lbl_804EDD94 *)&boss6_type2_motion_table).value) + temp_r31) + 8)));
+        bml_motion = get_bml_motion((int) (*(s32 *)((s8 *)arg0 + 0x374)), (int) (*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8032FF24_lbl_804EDD94 *)&boss6_type2_motion_table).value) + temp_r31) + 8)));
         *(f32 *)((s8 *)arg0 + 0x3E8) = (f32) *(f32 *)((s8 *)arg0 + 0x3EC);
         *(s32 *)((s8 *)arg0 + 0x3F0) = (s32) *(s32 *)((s8 *)arg0 + 0x3DC);
         *(f32 *)((s8 *)arg0 + 0x3F4) = (f32) *(f32 *)((s8 *)arg0 + 0x3E0);
         *(f32 *)((s8 *)arg0 + 0x3E4) = (f32) *(f32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8032FF24_lbl_804EDD94 *)&boss6_type2_motion_table).value) + temp_r31) + 0xC);
-        *(s32 *)((s8 *)arg0 + 0x3DC) = temp_r3;
+        *(s32 *)((s8 *)arg0 + 0x3DC) = bml_motion;
         *(f32 *)((s8 *)arg0 + 0x3E0) = (f32) (0.0f);
     }
 }
@@ -1152,12 +1152,12 @@ void TBoss6Mag::update_motion_playback() {
 }
 
 void TBoss6Type2__sub_803300C8(u8 *arg0) {
-    s32 temp_r3;
+    s32 bml_motion;
     copy_vec3__11TBoss6Type2Fii((s32)((s32)((void *) (arg0 + 0x3D4))), (s32)((s32)((void *) (&boss6_type2_zero_vec3_block.value))));
     ((TBoss6Type2 *)(arg0 + 0x3DC))->copy_state((void*)((void *) (&boss6_type2_initial_state.value)));
-    temp_r3 = get_bml_motion((int) (*(s32 *)((s8 *)arg0 + 0x374)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)boss6_type2_motion_table).value) + 8)));
-    *(s32 *)((s8 *)arg0 + 0x3F0) = temp_r3;
-    *(s32 *)((s8 *)arg0 + 0x3DC) = temp_r3;
+    bml_motion = get_bml_motion((int) (*(s32 *)((s8 *)arg0 + 0x374)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)boss6_type2_motion_table).value) + 8)));
+    *(s32 *)((s8 *)arg0 + 0x3F0) = bml_motion;
+    *(s32 *)((s8 *)arg0 + 0x3DC) = bml_motion;
     *(f32 *)((s8 *)arg0 + 0x3E4) = (f32) *(f32 *)((s8 *)(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)boss6_type2_motion_table).value) + 0xC);
 }
 void TBoss6Type2::copy_state(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)this + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
@@ -1198,14 +1198,14 @@ extern "C" {
 f32 receive_direct_attack__10TObjPlayerFv(void *, void *, P_80330240, void *, void *, void *);
 s32 query_teammate_state__9TObjEneDDFv();
 
-f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 arg2, void *arg3, void *arg4, void *arg5) {
+f32 fn_80330240(O_80330240 *arg0, void *att, P_80330240 arg2, void *coll, void *tech, void *arg5) {
     while (arg0->f388 == 0) {
         if (arg2.a != 0x14 && query_teammate_state__9TObjEneDDFv() == 0) {
             return (0.0f);
         }
         break;
     }
-    return receive_direct_attack__10TObjPlayerFv(arg0, arg1, arg2, arg3, arg4, arg5);
+    return receive_direct_attack__10TObjPlayerFv(arg0, att, arg2, coll, tech, arg5);
 }
 }
 extern "C" {

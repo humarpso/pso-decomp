@@ -249,15 +249,15 @@ u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1) {
 }
 
 u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
-    u8 *temp_r3;
+    u8 *instance_count;
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss4Thanks.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss4Thanks__class_name;
-    temp_r3 = (u8 *)(TBoss4Uro::get_instance_count());
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(temp_r3, 1);
-    *(s32 *)((s8 *)arg0 + 0x38) = TObjFish__sub_8001EDB0(temp_r3, 1);
-    *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_motion(temp_r3, 0x46);
-    *(s32 *)((s8 *)arg0 + 0x40) = get_bml_motion(temp_r3, 0x47);
+    instance_count = (u8 *)(TBoss4Uro::get_instance_count());
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(instance_count, 1);
+    *(s32 *)((s8 *)arg0 + 0x38) = TObjFish__sub_8001EDB0(instance_count, 1);
+    *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_motion(instance_count, 0x46);
+    *(s32 *)((s8 *)arg0 + 0x40) = get_bml_motion(instance_count, 0x47);
     TBoss4Thanks__sub_8035C480((s32)((s32) arg0));
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;

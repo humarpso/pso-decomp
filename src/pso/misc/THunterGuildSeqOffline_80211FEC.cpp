@@ -65,17 +65,17 @@ void *THunterGuildSeqOffline::create(void *arg0) {
 int THunterGuildSeqOffline__sub_80212060(int a0) {  return THunterGuildSeqOffline__instance_table[a0]; }
 
 s32 THunterGuildSeqOffline__sub_80212074(void) {
-    s32 temp_r3;
+    s32 player;
     s32 temp_r3_2;
     s32 temp_r3_3;
     if ((s32) TLobby__designated_client_id == (s32) local_client_id) {
         return 0;
     }
-    temp_r3 = get_player_by_client_id((int)((void *) (local_client_id)));
-    if (temp_r3 == 0) {
+    player = get_player_by_client_id((int)((void *) (local_client_id)));
+    if (player == 0) {
         return 0;
     }
-    temp_r3_3 = ((TBoss3Volopt *)temp_r3)->get_field_3e0();
+    temp_r3_3 = ((TBoss3Volopt *)player)->get_field_3e0();
     if ((temp_r3_3 != 0x12) && ((temp_r3_3 >= 0x12) || (temp_r3_3 != 0))) {
         return 0;
     }
@@ -83,7 +83,7 @@ s32 THunterGuildSeqOffline__sub_80212074(void) {
     if (temp_r3_2 == 0) {
         return 0;
     }
-    return (u32)__cntlzw((u32)((xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (temp_r3_2 + 0x38)) > (*(const f32 *)&THunterGuildSeqOffline__data_805DC648)))) >> 5;
+    return (u32)__cntlzw((u32)((xz_distance_squared((void *) (player + 0x38), (void *) (temp_r3_2 + 0x38)) > (*(const f32 *)&THunterGuildSeqOffline__data_805DC648)))) >> 5;
 }
 
 s32 THunterGuildSeqOffline::check_party_gathered() {
@@ -128,16 +128,16 @@ s32 THunterGuildSeqOffline::check_party_gathered() {
 void TMemberCheck::update_member_proximity() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;
-    s32 temp_r3;
+    s32 player;
     s32 var_r30;
     if ((u32) (this->m_1C) != 0U) {
         temp_r31 = get_player_by_client_id((int) (TLobby__designated_client_id));
         var_r30 = 0;
         do {
             if (var_r30 != (s32) TLobby__designated_client_id) {
-                temp_r3 = get_player_by_client_id((int) (var_r30));
-                if (temp_r3 != 0) {
-                    if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (temp_r3 + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
+                player = get_player_by_client_id((int) (var_r30));
+                if (player != 0) {
+                    if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (player + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
                         ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (1), (int) (var_r30));
                     } else {
                         ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (0), (int) (var_r30));

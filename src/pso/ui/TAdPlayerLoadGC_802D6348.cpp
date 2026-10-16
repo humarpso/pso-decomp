@@ -40,12 +40,12 @@ void TAdPlayerLoadGC::play_load_sound() {
     }
 }
 
-void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1) {
+void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *weapon, B_802D6390 *arg1) {
     u8 sp8[16];
     arg1->f40 |= 0x11C;
-    get_weapon_color__11TItemWeaponFPv(sp8, arg0);
+    get_weapon_color__11TItemWeaponFPv(sp8, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
-    arg1->f44 = arg0->f188;
+    arg1->f44 = weapon->f188;
     arg1->f10 = 4;
     arg1->f4C = lbl_805DE7AC;
     arg1->f70 = forward_item_effect_callback__10TObjPlayerFll;

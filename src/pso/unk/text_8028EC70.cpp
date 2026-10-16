@@ -76,18 +76,18 @@ void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED2
 
 #pragma push
 #pragma fp_contract on
-void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
+void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg1_) {
     ByteBlock_50 buf;
     u32 h;
     if (TAdSinglePlyChrSelectGC::count_remaining_slots() > 0) {
         buf = *(const ByteBlock_50 *)creation_player_character;
-        if ((arg0 < 0) || (arg0 >= 5)) {
+        if ((arg1_ < 0) || (arg1_ >= 5)) {
             if (TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) != 0) {
                 return;
             }
             goto block_7;
         }
-        if ((TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)((void *) (arg0))) != 0)) {
+        if ((TAdSinglePlyChrSelectGC::has_matching_entry((void *) (&buf)) == 0) || (TAdSinglePlyChrSelectGC__sub_8028EE20((void *)((void *) (&buf)), (void *)((void *) (arg1_))) != 0)) {
 block_7:
             h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             if (h == 0U) {

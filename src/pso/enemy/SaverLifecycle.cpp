@@ -377,16 +377,16 @@ extern s32 lbl_805D5064;
 
 void TObjEneSaver::apply_lookup_entry_effect() {
     struct { s32 a, b, c; s32 d, e, f, g, h; } sp8;
-    s32 temp_r3;
+    s32 entry;
     u8 *temp_r3_2;
 
-    temp_r3 = TObjPlayer::lookup_entry_by_value((void *) (lbl_805D5064), (f32) (this->m_c0));
-    if (temp_r3 != 0) {
+    entry = TObjPlayer::lookup_entry_by_value((void *) (lbl_805D5064), (f32) (this->m_c0));
+    if (entry != 0) {
         push_matrix();
         set_matrix_identity((int) (0));
         post_translate_matrix((void *) (((u8 *)this) + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
-        mult_vec_array__10TObjPlayerFUll((int) (0), (int) (temp_r3), (void *) (&sp8), (int) (2));
+        mult_vec_array__10TObjPlayerFUll((int) (0), (int) (entry), (void *) (&sp8), (int) (2));
         pop_matrix();
         temp_r3_2 = (unsigned char *) (*(void **)((s8 *)((u8 *)this) + 0x3C0));
         if (temp_r3_2 != NULL) {
@@ -2023,15 +2023,15 @@ void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14 *self) {
 }
 
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    s32 var_r4;
+    s32 target_rot;
 
-    var_r4 = arg1;
-    if (var_r4 < -0x238E) {
-        var_r4 = -0x238E;
-    } else if (var_r4 > 0x238E) {
-        var_r4 = 0x238E;
+    target_rot = arg1;
+    if (target_rot < -0x238E) {
+        target_rot = -0x238E;
+    } else if (target_rot > 0x238E) {
+        target_rot = 0x238E;
     }
-    *(s32 *)((s8 *)arg0 + 0x39C) = lerp_angle_half__10TObjPlayerFUsUs(*(s32 *)((s8 *)arg0 + 0x39C), var_r4);
+    *(s32 *)((s8 *)arg0 + 0x39C) = lerp_angle_half__10TObjPlayerFUsUs(*(s32 *)((s8 *)arg0 + 0x39C), target_rot);
 }
 
 extern void *tl_04;

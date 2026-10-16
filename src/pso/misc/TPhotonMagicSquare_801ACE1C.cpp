@@ -241,7 +241,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
     return arg0;
 }
 u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
-    s32 temp_r3;
+    s32 entity;
     construct_world_actor_base((void *) (((u8 *)this)));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
     *(s32 *)&this->m_name = (s32) TPhotonMagicSquare__data_805D3508;
@@ -255,9 +255,9 @@ u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     this->target_scale = (f32) (0.0f);
     *(f32 *)&this->m_70 = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
-    temp_r3 = find_entity_by_id((void *) (arg3));
-    if (temp_r3 != 0) {
-        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0xB8), (void *) (temp_r3 + 0x38));
+    entity = find_entity_by_id((void *) (arg3));
+    if (entity != 0) {
+        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0xB8), (void *) (entity + 0x38));
     }
     *(f32 *)((s8 *)((u8 *)this) + 0xBC) += (2.0f);
     *(s32 *)&this->m_b0 = 0;

@@ -214,15 +214,15 @@ s32 TWindowChat::submit_keyboard_input() {
 extern "C" {
 
 void TWindowChat::update() {
-    s32 temp_r3;
+    s32 player;
     if (is_open() == 0) {
         this->flags = (u16) (this->flags | 1);
         TWindowChat__sub_80247E50((u8 *)(this));
         TWindowChat__sub_80247DFC((u8 *)(this));
-        temp_r3 = get_player_by_client_id(local_client_id);
-        if ((temp_r3 != 0) && !(this->flags & 2) && (is_mode_bit6() != 0)) {
+        player = get_player_by_client_id(local_client_id);
+        if ((player != 0) && !(this->flags & 2) && (is_mode_bit6() != 0)) {
             if (has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) {
-                ((TObjPlayer *)temp_r3)->init_parts();
+                ((TObjPlayer *)player)->init_parts();
             }
             end_player_keyboard_hold(local_client_id);
         }
@@ -315,10 +315,10 @@ void TWindowChat::close_all_children() {
 extern "C" {
 
 void TWindowChat::handle_input() {
-    s32 temp_r3;
+    s32 player;
     u8 temp_r0;
-    temp_r3 = get_player_by_client_id(local_client_id);
-    if (temp_r3 != 0) {
+    player = get_player_by_client_id(local_client_id);
+    if (player != 0) {
         if (this->flags & 2) {
             ((TWindowChat*)((Win_802473C8 *)(this)))->handle_dpad_shortcuts();
             if (((TWindowChat*)((u8 *)(this)))->submit_keyboard_input() != 0) {
@@ -330,7 +330,7 @@ void TWindowChat::handle_input() {
             case 0:
                 if ((((TWindowChat*)((u8 *)(this)))->submit_keyboard_input() != 0) && (sub_80247EC0() != 0)) {
                     if (is_mode_bit6() != 0) {
-                        ((TObjPlayer *)temp_r3)->init_parts();
+                        ((TObjPlayer *)player)->init_parts();
                         end_player_keyboard_hold(local_client_id);
                     }
                     ((TWindowChat*)((void *)((void *)(this))))->close_all_children();
@@ -341,7 +341,7 @@ void TWindowChat::handle_input() {
             case 1:
                 if ((sub_80247128() != 0) && (sub_80247EC0() != 0)) {
                     if (is_mode_bit6() != 0) {
-                        ((TObjPlayer *)temp_r3)->init_parts();
+                        ((TObjPlayer *)player)->init_parts();
                         end_player_keyboard_hold(local_client_id);
                     }
                     ((TWindowChat*)((void *)((void *)(this))))->close_all_children();
@@ -352,7 +352,7 @@ void TWindowChat::handle_input() {
             case 2:
                 if ((sub_80247080() != 0) && (sub_80247EC0() != 0)) {
                     if (is_mode_bit6() != 0) {
-                        ((TObjPlayer *)temp_r3)->init_parts();
+                        ((TObjPlayer *)player)->init_parts();
                         end_player_keyboard_hold(local_client_id);
                     }
                     ((TWindowChat*)((void *)((void *)(this))))->close_all_children();
@@ -368,9 +368,9 @@ void TWindowChat::handle_chat_input() {
     u8 *arg0 = (u8 *)this;
   u8 temp_r3_2;
   u8 *temp_r30;
-  s32 temp_r3;
-  temp_r3 = get_player_by_client_id((s32)((void *) local_client_id));
-  if (temp_r3 != 0)
+  s32 player;
+  player = get_player_by_client_id((s32)((void *) local_client_id));
+  if (player != 0)
   {
     if (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E & 2)
     {
@@ -383,7 +383,7 @@ void TWindowChat::handle_chat_input() {
         if (is_mode_bit6() != 0)
         {
           begin_player_keyboard_hold((void *) local_client_id);
-          ((TObjPlayer *)temp_r3)->reset_equip_slots();
+          ((TObjPlayer *)player)->reset_equip_slots();
         }
       }
     }
@@ -399,7 +399,7 @@ void TWindowChat::handle_chat_input() {
       ((TWindowChat*)((u8 *)((void *)((u8 *)((void *) arg0)))))->open_next_input_window();
       if (is_mode_bit6() != 0)
       {
-        ((TObjPlayer *)temp_r3)->init_parts();
+        ((TObjPlayer *)player)->init_parts();
         end_player_keyboard_hold((s32)((void *) local_client_id));
       }
     }
@@ -492,14 +492,14 @@ void TWindowChat::run_task() {
 
 extern "C" {
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
-    s32 temp_r3;
+    s32 player;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TWindowChat;
-        temp_r3 = get_player_by_client_id(local_client_id);
-        if (temp_r3 != 0) {
+        player = get_player_by_client_id(local_client_id);
+        if (player != 0) {
             if (!(*(u16 *)((s8 *)arg0 + 0x1E) & 2)) {
                 if (((TWindowChat *)arg0)->is_mode_bit6() != 0) {
-                    ((TObjPlayer *)temp_r3)->init_parts();
+                    ((TObjPlayer *)player)->init_parts();
                     end_player_keyboard_hold(local_client_id);
                 }
             }

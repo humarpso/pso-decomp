@@ -34,7 +34,7 @@ extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 alpha, f32 farg0, f32 farg1) {
     typedef char sp8_offset[(offsetof(Stack_80290E28, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80290E28, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80290E28, sp10) == 0x8) ? 1 : -1];
@@ -47,7 +47,7 @@ void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 fa
     temp_r6 = (u8 *)(stack.spC + (stack.sp8 * 0x14));
     stack.sp10 += (f32) *(s16 *)((s8 *)temp_r6 + 4);
     stack.sp14 += (f32) *(s16 *)((s8 *)temp_r6 + 6);
-    draw_ui_sprite_scaled((f32) (farg0), (f32) (farg1), (void *) (arg0), (void *) (&stack.sp10), (void *) (arg2));
+    draw_ui_sprite_scaled((f32) (farg0), (f32) (farg1), (void *) (arg0), (void *) (&stack.sp10), (void *) (alpha));
 }
 #pragma pop
 

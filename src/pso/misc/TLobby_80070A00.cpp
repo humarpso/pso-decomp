@@ -405,14 +405,14 @@ void TLobby__sub_80070EE4(s32 arg0) {
 
 s32 TLobby__sub_80070F4C(void) {
     u32 var_r31;
-    u8 *temp_r3;
+    u8 *player;
     if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) *(s32 *)((s8 *)(*(u8 * *)&challenge_task) + 0x1C) != 2)) {
         return 0;
     }
     var_r31 = 0;
 loop_4:
-    temp_r3 = (u8 *)(get_player_by_client_id(var_r31));
-    if ((temp_r3 != NULL) && (((TLobby *)temp_r3)->check_player_state_flag_2() != 0)) {
+    player = (u8 *)(get_player_by_client_id(var_r31));
+    if ((player != NULL) && (((TLobby *)player)->check_player_state_flag_2() != 0)) {
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070F4C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x20) = 1;
         return 1;
     }
@@ -425,14 +425,14 @@ loop_4:
 typedef char RecoveredGlobal_80070FD8_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070FD8_lbl_8048C9D8) == 0x748 ? 1 : -1];
 s32 TLobby__sub_80070FD8(void) {
     u32 var_r31;
-    u8 *temp_r3;
+    u8 *player;
     if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) *(s32 *)((s8 *)(*(u8 * *)&challenge_task) + 0x1C) != 2)) {
         return 0;
     }
     var_r31 = 0;
 loop_4:
-    temp_r3 = (u8 *)(get_player_by_client_id(var_r31));
-    if ((temp_r3 != NULL) && (((TLobby *)temp_r3)->check_player_state_flag_2() == 0)) {
+    player = (u8 *)(get_player_by_client_id(var_r31));
+    if ((player != NULL) && (((TLobby *)player)->check_player_state_flag_2() == 0)) {
         return 0;
     }
     var_r31 += 1;
@@ -558,9 +558,9 @@ s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg) {
 }
 
 s32 *TLobby__sub_800713C8(void) {
-    s32 temp_r3;
-    temp_r3 = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_804FF82C.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
+    s32 character_save_record;
+    character_save_record = get_character_save_record(0xFFFFU);
+    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_804FF82C.value), (void *) (character_save_record + 0x229C), (int) (0xC), (int) (character_save_record));
     return &lbl_804FF82C.value;
 }
 

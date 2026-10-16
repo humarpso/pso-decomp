@@ -664,13 +664,13 @@ extern "C" {
 
 typedef char RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 void fn_80214254(u8 *arg0) {
-    s32 temp_r3_2;
+    s32 selected_menu_value;
     u8 *temp_r3;
     u8 *temp_r3_3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x38));
     if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
-        temp_r3_2 = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x38));
-        switch (temp_r3_2) {
+        selected_menu_value = get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0x38));
+        switch (selected_menu_value) {
         case 0:
             TWindow__close(*(u8 **)((s8 *)arg0 + 0x38));
             *(u8 **)((s8 *)arg0 + 0x38) = NULL;

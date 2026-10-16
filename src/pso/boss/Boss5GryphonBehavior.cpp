@@ -2537,11 +2537,11 @@ void TBoss5Gryphon::draw_body() {
 }
 
 void TBoss8Dragon__sub_8005E17C(void) {
-    s32 temp_r4;
+    s32 pos;
     if ((s32) boss5_gryphon_render_node_index == (s32) *(s32 *)((s8 *)(&boss5_gryphon_bone_capture_node_indices.value) + (boss5_gryphon_bone_capture_index * 4))) {
-        temp_r4 = boss5_gryphon_bone_capture_output;
-        boss5_gryphon_bone_capture_output = temp_r4 + 0xC;
-        get_camera_ctrl__9TObjEneDDFv((s32) &boss5_gryphon_bone_capture_origin.value, temp_r4);
+        pos = boss5_gryphon_bone_capture_output;
+        boss5_gryphon_bone_capture_output = pos + 0xC;
+        get_camera_ctrl__9TObjEneDDFv((s32) &boss5_gryphon_bone_capture_origin.value, pos);
         boss5_gryphon_bone_capture_index += 1;
     }
     boss5_gryphon_render_node_index += 1;
@@ -4141,11 +4141,11 @@ void TBoss8Dragon__sub_80063714(void) {  }
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss8Dragon::spawn_switch_attack() {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
 
-    temp_r3 = spawn_particle_effect_with_flags(this, 0x211, 0x40);
-    if (temp_r3 != 0) {
-        attach_particle_model(temp_r3, get_bml_model(boss5_gryphon_bml_resource, 2), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
+    particle_effect_with_flags = spawn_particle_effect_with_flags(this, 0x211, 0x40);
+    if (particle_effect_with_flags != 0) {
+        attach_particle_model(particle_effect_with_flags, get_bml_model(boss5_gryphon_bml_resource, 2), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
     }
 }
 #pragma pop
@@ -4167,11 +4167,11 @@ void TBoss8Dragon::spawn_switch_attack() {
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss8Dragon::spawn_attack_effect() {
-    s32 temp_r3;
+    s32 particle_effect_with_flags;
 
-    temp_r3 = spawn_particle_effect_with_flags(this, 0x210, 0x40);
-    if (temp_r3 != 0) {
-        attach_particle_model(temp_r3, get_bml_model(boss5_gryphon_bml_resource, 1), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
+    particle_effect_with_flags = spawn_particle_effect_with_flags(this, 0x210, 0x40);
+    if (particle_effect_with_flags != 0) {
+        attach_particle_model(particle_effect_with_flags, get_bml_model(boss5_gryphon_bml_resource, 1), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
     }
 }
 #pragma pop
@@ -5378,7 +5378,7 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 var_r30;
-    s32 var_r31;
+    s32 i;
     if (((int (*)())check_demo_mode__10TObjPlayerFv)() != 0) {
         ((VObj_18 *)(arg0))->m103();
         return;
@@ -5436,8 +5436,8 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
         ((TObject *)(arg0 + 0x4C4))->run_tasks();
     }
     project_sound_origin_from_camera((void *) (arg0 + 0x38), (void *) (arg0 + 0x560), (f32) (lbl_805D8DAC));
-    for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        update_obstruction_fade(&((Dragon_800653C4 *)arg0)->fade[var_r31]);
+    for (i = 0; i < 4; i++) {
+        update_obstruction_fade(&((Dragon_800653C4 *)arg0)->fade[i]);
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x4E4) != 0) {
         ((TBoss5Gryphon *)arg0)->update_collider_from_table();

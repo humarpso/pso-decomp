@@ -30,11 +30,11 @@ void step_laser_fence_fade(struct Laser_80156CA0 *p);
 
 extern "C" {
 
-s32 fn_80156BBC(O_80156BBC *arg0, void *arg1) {
+s32 fn_80156BBC(O_80156BBC *arg0, void *pos) {
     if (TRaderMapCore::is_not_split_screen() == 1) {
         return 1;
     }
-    if (xz_distance_squared(camera_ctrl_instance + 0x178, arg1) < arg0->f1c * arg0->f1c) {
+    if (xz_distance_squared(camera_ctrl_instance + 0x178, pos) < arg0->f1c * arg0->f1c) {
         arg0->f18 = 0;
     } else {
         arg0->f18 = 1;

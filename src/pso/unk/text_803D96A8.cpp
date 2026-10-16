@@ -74,17 +74,17 @@ void rotate_matrix_x(Matrix34* matrix, s32 angle) {
 #pragma push
 #pragma scheduling off
 void TObjPlayer::concat_matrix(u32 arg0, u32 arg1) {
-    u32 var_r3;
+    u32 elements;
     u32 var_r4;
-    var_r3 = arg0;
+    elements = arg0;
     var_r4 = arg1;
-    if (var_r3 == 0U) {
-        var_r3 = current_matrix;
+    if (elements == 0U) {
+        elements = current_matrix;
     }
     if (var_r4 == 0U) {
         var_r4 = current_matrix;
     }
-    PSMTXConcat((int) (var_r3), (int) (var_r4), (int) (var_r3));
+    PSMTXConcat((int) (elements), (int) (var_r4), (int) (elements));
 }
 #pragma pop
 
@@ -93,17 +93,17 @@ void TObjPlayer::concat_matrix(u32 arg0, u32 arg1) {
 #pragma fp_contract on
 void TCameraCtrl::concat_matrix(u32 arg0, u32 arg1) {
     u32 var_r4;
-    u32 var_r5;
+    u32 elements;
     var_r4 = arg1;
     if (arg0 == 0U) {
-        var_r5 = current_matrix;
+        elements = current_matrix;
     } else {
-        var_r5 = arg0;
+        elements = arg0;
     }
     if (var_r4 == 0U) {
         var_r4 = current_matrix;
     }
-    PSMTXConcat((int) (var_r4), (int) (var_r5), (int) (var_r5));
+    PSMTXConcat((int) (var_r4), (int) (elements), (int) (elements));
 }
 #pragma pop
 
@@ -236,7 +236,7 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
     s32 *temp_r4_2;
     s32 temp_r0;
     s32 temp_r3;
-    s32 temp_r3_2;
+    s32 record_index;
     s32 temp_r6;
     u8 *temp_r29;
     u8 *temp_r31;
@@ -248,8 +248,8 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
         j = arg1 - 1;
         temp_r29 = ((Tbl_803D9E38 *)temp_r6)->arr[j].p;
         *(s32 *)((s8 *)arg2 + 0) = *(s32 *)((s8 *)(*(s32 **)((s8 *)temp_r29 + 0xC)) + 0);
-        temp_r3_2 = TObjPlayer::find_record_index((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
-        if (temp_r3_2 < 0) {
+        record_index = TObjPlayer::find_record_index((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
+        if (record_index < 0) {
             if (find_free_slot__10TObjPlayerFPvPv((void *) (&sp8), (int) (0)) < 0) {
                 return -1;
             }
@@ -263,7 +263,7 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
             TObjPlayer__sub_803DAD24((int) (sp8), (int) (temp_r4));
             goto block_7;
         }
-        temp_r0 = record_array_ptr + (temp_r3_2 * 0x18);
+        temp_r0 = record_array_ptr + (record_index * 0x18);
         sp8 = temp_r0;
         *(s32 *)((s8 *)temp_r31 + 8) = temp_r0;
         temp_r4_2 = (s32 *)(*(s32 **)((s8 *)sp8 + 0xC));

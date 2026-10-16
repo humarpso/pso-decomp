@@ -194,7 +194,7 @@ void TWindowSubCustomSelect::draw_cursor(u8 *arg1) {
 
 #pragma push
 #pragma opt_loop_invariants off
-void TWindowSubCustomSelect::draw_palette_cells(int arg1) {
+void TWindowSubCustomSelect::draw_palette_cells(int ctx) {
     u32 i;
     s32 p;
     Ent_802776D0 *e;
@@ -217,8 +217,8 @@ void TWindowSubCustomSelect::draw_palette_cells(int arg1) {
         }
         fx = lbl_805DD5C8 * (f32)(i % 3);
         fy = TWindowSubCustomSelect__data_805DD5B0 * (f32)(i / 3);
-        y = *(f32 *)((s8 *)arg1 + 0x14) + fy;
-        if (lbl_805DD5D4 + (lbl_805DD5D8 + y) < *(f32 *)((s8 *)arg1 + 0x40) || lbl_805DD5D8 + y > *(f32 *)((s8 *)arg1 + 0x48)) {
+        y = *(f32 *)((s8 *)ctx + 0x14) + fy;
+        if (lbl_805DD5D4 + (lbl_805DD5D8 + y) < *(f32 *)((s8 *)ctx + 0x40) || lbl_805DD5D8 + y > *(f32 *)((s8 *)ctx + 0x48)) {
             continue;
         }
         w1 = get_array_entry__13TUnk_804CE018Fi(this, 1);
@@ -237,7 +237,7 @@ void TWindowSubCustomSelect::draw_palette_cells(int arg1) {
         }
         draw_action_palette_icon(w1, id, sub);
         update_palette_item_count_label(w2, w1, id, sub, this->m_20);
-        draw_visible_window_entries(this, &*(u8 *)((s8 *)this + 0x24), (void *)arg1);
+        draw_visible_window_entries(this, &*(u8 *)((s8 *)this + 0x24), (void *)ctx);
     }
 }
 #pragma pop

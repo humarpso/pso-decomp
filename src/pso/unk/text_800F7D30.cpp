@@ -14,7 +14,7 @@ extern "C" {
 u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
   s32 var_r28;
   s32 var_r29;
-  s32 var_r4;
+  s32 src;
   s32 var_r5;
   s32 var_r6;
   u32 var_r30;
@@ -36,16 +36,16 @@ u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
   if (var_r31 != 0U)
   {
     var_r3 = var_r31;
-    var_r4 = var_r29;
+    src = var_r29;
     var_r5 = var_r28;
     var_r6 = 0;
-    var_r30_2 = prs_decompress((int) var_r3, (int) var_r4, (int) var_r5, (int) 0);
+    var_r30_2 = prs_decompress((int) var_r3, (int) src, (int) var_r5, (int) 0);
     phi_r30 = var_r30_2;
   }
   if (var_r31 != 0U)
   {
     var_r3 = var_r31;
-    var_r4 = 1;
+    src = 1;
     TLobby::destroy_ep3_exist((int) var_r3, (int) 1);
   }
   var_r3 = phi_r30;

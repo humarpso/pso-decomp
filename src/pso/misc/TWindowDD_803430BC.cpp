@@ -1007,11 +1007,11 @@ void free_buffers__9TWindowDDFv(void) {
         lbl_805D6E50 = 0U;
     }
 }
-s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 value_index) {
     s16 v;
     switch (arg1) {
     case 0:
-        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
+        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), value_index);
         if (v == -0x1E) {
             switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
@@ -1041,7 +1041,7 @@ s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         v = -0x3C;
         break;
     case 3:
-        v = TWindowDD_read_resolved_value(arg2, arg3);
+        v = TWindowDD_read_resolved_value(arg2, value_index);
         if (((s32 (*)(s16))TWindowDD__sub_80347858)(v) != 0) {
             if (v == 0x43) {
                 v = -0x46;
@@ -1055,11 +1055,11 @@ s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 5:
-        v = TWindowDD_read_indexed_value(0xE, arg3);
+        v = TWindowDD_read_indexed_value(0xE, value_index);
         break;
     case 12:
         {
-            s16 t = TWindowDD_read_resolved_value(0xF9, arg3);
+            s16 t = TWindowDD_read_resolved_value(0xF9, value_index);
             if (t == 0x43) {
                 v = -0x46;
             } else if (t == 0x44) {
@@ -1070,7 +1070,7 @@ s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 13:
-        if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
+        if (TWindowDD_read_resolved_value(-0x50, value_index) == 0x2C8) {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
@@ -1094,11 +1094,11 @@ s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     }
     return v;
 }
-s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 value_index) {
     s16 v;
     switch (arg1) {
     case 0:
-        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
+        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), value_index);
         if (v == -0x1E) {
             switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
@@ -1128,7 +1128,7 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         v = -0x3C;
         break;
     case 3:
-        v = TWindowDD_read_resolved_value(arg2, arg3);
+        v = TWindowDD_read_resolved_value(arg2, value_index);
         if (((s32 (*)(s16))TWindowDD__sub_80347858)(v) != 0) {
             if (v == 0x43) {
                 v = -0x46;
@@ -1142,11 +1142,11 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 5:
-        v = TWindowDD_read_indexed_value(0xE, arg3);
+        v = TWindowDD_read_indexed_value(0xE, value_index);
         break;
     case 12:
         {
-            s16 t = TWindowDD_read_resolved_value(0xF9, arg3);
+            s16 t = TWindowDD_read_resolved_value(0xF9, value_index);
             if (t == 0x43) {
                 v = -0x46;
             } else if (t == 0x44) {
@@ -1157,7 +1157,7 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 13:
-        if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
+        if (TWindowDD_read_resolved_value(-0x50, value_index) == 0x2C8) {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
@@ -1181,11 +1181,11 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     }
     return v;
 }
-s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 value_index) {
     s16 v;
     switch (arg1) {
     case 0:
-        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
+        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), value_index);
         if (v == -0x1E) {
             switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
@@ -1215,7 +1215,7 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         v = -0x3C;
         break;
     case 3:
-        v = TWindowDD_read_resolved_value(arg2, arg3);
+        v = TWindowDD_read_resolved_value(arg2, value_index);
         if (((s32 (*)(s16))TWindowDD__sub_80347858)(v) != 0) {
             if (v == 0x43) {
                 v = -0x46;
@@ -1229,11 +1229,11 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 5:
-        v = TWindowDD_read_indexed_value(0xE, arg3);
+        v = TWindowDD_read_indexed_value(0xE, value_index);
         break;
     case 12:
         {
-            s16 t = TWindowDD_read_resolved_value(0xF9, arg3);
+            s16 t = TWindowDD_read_resolved_value(0xF9, value_index);
             if (t == 0x43) {
                 v = -0x46;
             } else if (t == 0x44) {
@@ -1244,7 +1244,7 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 13:
-        if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
+        if (TWindowDD_read_resolved_value(-0x50, value_index) == 0x2C8) {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
@@ -1269,7 +1269,7 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     return v;
 }
 
-s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2) {
+s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *src, char *arg1, u16 arg2) {
     s32 k;
     s32 n;
     s32 m;
@@ -1277,14 +1277,14 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
     s32 pos;
     i = 0;
     pos = i;
-    n = arg0->count;
+    n = src->count;
     if (n == 0) {
         arg1[0] = i;
         return 1;
     }
-    switch (arg0->type) {
+    switch (src->type) {
     case 1:
-        TWindowDD__sub_8034740C(arg0, arg1, &pos);
+        TWindowDD__sub_8034740C(src, arg1, &pos);
         break;
     case 2:
         if (n > 2) {
@@ -1294,25 +1294,25 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
             if (m == 1) {
                 append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
             }
-            TWindowDD__sub_8034886C(arg0->ids[m], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[m], arg1, &pos);
         }
         append_char__9TWindowDDFSclPl(0x3F, arg1, &pos);
-        if (arg0->count > 2) {
+        if (src->count > 2) {
             append_prompt_newline__9TWindowDDFPl(arg1, &pos);
-            TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[2], arg1, &pos);
         }
         break;
     case 3:
         if (n > 1) {
             struct { DD_803461CC dd; u8 pad[0x10]; } tmp;
-            TWindowDD__sub_80347758(arg0, &tmp.dd);
+            TWindowDD__sub_80347758(src, &tmp.dd);
             pos = format_message_text__9TWindowDDFPvPvUs(&tmp.dd, arg1, arg2);
         } else {
-            TWindowDD__sub_8034886C(arg0->ids[0], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[0], arg1, &pos);
         }
         break;
     case 4: {
-        s32 id = arg0->ids[0];
+        s32 id = src->ids[0];
         k = 0;
         if (id == 0x2C4) {
             TWindowDD__sub_8034886C(id, arg1, &pos);
@@ -1331,7 +1331,7 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
             k = 1;
         }
         if (n > 1) {
-            i = arg0->ids[1];
+            i = src->ids[1];
             show_message_by_count__9TWindowDDFll(arg1, &pos);
             if (k == 0) {
                 TWindowDD__sub_8034886C(i, arg1, &pos);
@@ -1347,18 +1347,18 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
         }
         if (n > 2) {
             show_message_by_count__9TWindowDDFll(arg1, &pos);
-            TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_80347474(src, src->ids[2], arg1, &pos);
         }
         if (n > 3) {
-            TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[3], arg1, &pos);
         }
         arg1[0] = fn_80228C54(arg1[0]);
         break;
     }
     case 5: {
         s32 mode;
-        k = arg0->ids[0];
-        TWindowDD__sub_80347474(arg0, k, arg1, &pos);
+        k = src->ids[0];
+        TWindowDD__sub_80347474(src, k, arg1, &pos);
         if (k == 0x2C4) {
             mode = 0;
             i = get_player_battle_flag_state__9TWindowDDFUs(arg2);
@@ -1404,7 +1404,7 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
             s32 j;
             show_message_by_count__9TWindowDDFll(arg1, &pos);
             found = 1;
-            k = arg0->ids[1];
+            k = src->ids[1];
             for (j = 0; j < TWindowDD__data_805D6E44[3].n; j++) {
                 if (k == TWindowDD__data_805D6E44[3].list[j]) {
                     found = 0;
@@ -1429,7 +1429,7 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
                 show_message_by_count__9TWindowDDFll(arg1, &pos);
             }
             if (i == 0) {
-                TWindowDD__sub_80347474(arg0, k, arg1, &pos);
+                TWindowDD__sub_80347474(src, k, arg1, &pos);
             } else {
                 Pair_80344980 *p;
                 if (i == 1) {
@@ -1439,37 +1439,37 @@ s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 ar
                 } else {
                     p = &TWindowDD__data_805D6E44[2];
                 }
-                TWindowDD__sub_803474CC(arg0, k, TWindowDD__data_805D6E28[p->list[clamp_range_5FA_682__9TWindowDDFs(k)]], arg1, &pos);
+                TWindowDD__sub_803474CC(src, k, TWindowDD__data_805D6E28[p->list[clamp_range_5FA_682__9TWindowDDFs(k)]], arg1, &pos);
             }
         }
         if (n > 2) {
-            TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[2], arg1, &pos);
         }
         arg1[0] = fn_80228C54(arg1[0]);
         break;
     }
     case 6:
-        format_type6_message__9TWindowDDFlPv(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFlPv(src, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
     return pos;
 }
 
-s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2) {
+s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *src, char *arg1, u16 arg2) {
     s32 pos;
     s32 id;
     s32 kind;
     s32 n;
     pos = 0;
-    n = arg0->count;
+    n = src->count;
     if (n == 0) {
         arg1[0] = 0;
         return 1;
     }
-    switch (arg0->type) {
+    switch (src->type) {
     case 1:
-        TWindowDD__sub_8034740C(arg0, arg1, &pos);
+        TWindowDD__sub_8034740C(src, arg1, &pos);
         break;
     case 2:
         if (n > 2) {
@@ -1481,22 +1481,22 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
             if (i == 1) {
                 append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
             }
-            TWindowDD__sub_8034886C(arg0->ids[i], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[i], arg1, &pos);
         }
         }
         append_char__9TWindowDDFSclPl(0x3F, arg1, &pos);
-        if (arg0->count > 2) {
+        if (src->count > 2) {
             append_prompt_newline__9TWindowDDFPl(arg1, &pos);
-            TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[2], arg1, &pos);
         }
         break;
     case 3:
         if (n > 1) {
             struct { DD_803461CC dd; u8 pad[0x10]; } tmp;
-            TWindowDD__sub_80347758(arg0, &tmp.dd);
+            TWindowDD__sub_80347758(src, &tmp.dd);
             pos = format_german_message__9TWindowDDFPvPvUs(&tmp.dd, arg1, arg2);
         } else {
-            TWindowDD__sub_8034886C(arg0->ids[0], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[0], arg1, &pos);
         }
         break;
     case 4: {
@@ -1505,7 +1505,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
         char *s1;
         char *s2;
         s32 id4;
-        id4 = arg0->ids[0];
+        id4 = src->ids[0];
         s1 = 0;
         k = 0;
         if (id4 == 0x2C4) {
@@ -1525,7 +1525,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
             s1 = TWindowDD__data_805D6E28[0x2A3];
         }
         if (n > 1) {
-            id1 = arg0->ids[1];
+            id1 = src->ids[1];
             kind = k;
             if (kind == 0) {
                 s2 = (char *)TWindowDD__sub_80348B70(id1);
@@ -1538,9 +1538,9 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
                 }
                 s2 = TWindowDD__data_805D6E28[pp->list[id1 - 0x5AC]];
             }
-            if (n > 3 && arg0->ids[3] == 0x685) {
+            if (n > 3 && src->ids[3] == 0x685) {
                 if (s1 != 0 && s2 != 0) {
-                    TWindowDD__sub_8034694C(arg0, id1, s1, s2, arg1, &pos);
+                    TWindowDD__sub_8034694C(src, id1, s1, s2, arg1, &pos);
                 }
             } else {
                 append_string__9TWindowDDFllPl(s1, arg1, &pos);
@@ -1552,10 +1552,10 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
         }
         if (n > 2) {
             show_message_by_count__9TWindowDDFll(arg1, &pos);
-            TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_80347474(src, src->ids[2], arg1, &pos);
         }
         if (n > 3) {
-            TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[3], arg1, &pos);
         }
         arg1[0] = fn_80228C54(arg1[0]);
         break;
@@ -1564,7 +1564,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
         s32 mode;
         char *s3;
         char *s1;
-        id = arg0->ids[0];
+        id = src->ids[0];
         s3 = 0;
         if (id == 0x2C4) {
             mode = 0;
@@ -1614,7 +1614,7 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
             s32 found;
             s32 cnt;
             found = 1;
-            id = arg0->ids[1];
+            id = src->ids[1];
             cnt = TWindowDD__data_805D6E44[4].n;
             {
             s32 i;
@@ -1640,22 +1640,22 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
                     s3 = TWindowDD__data_805D6E28[0x6A9];
                     break;
                 }
-                if (n > 2 && arg0->ids[2] == 0x685) {
+                if (n > 2 && src->ids[2] == 0x685) {
                     if (s1 != 0 && s3 != 0) {
-                        TWindowDD__sub_8034694C(arg0, arg0->ids[0], s1, s3, arg1, &pos);
+                        TWindowDD__sub_8034694C(src, src->ids[0], s1, s3, arg1, &pos);
                     }
                 } else {
-                    TWindowDD__sub_803474CC(arg0, arg0->ids[0], s1, arg1, &pos);
+                    TWindowDD__sub_803474CC(src, src->ids[0], s1, arg1, &pos);
                     show_message_by_count__9TWindowDDFll(arg1, &pos);
                     append_string__9TWindowDDFllPl(s3, arg1, &pos);
                 }
                 show_message_by_count__9TWindowDDFll(arg1, &pos);
             } else {
-                TWindowDD__sub_803474CC(arg0, arg0->ids[0], s1, arg1, &pos);
+                TWindowDD__sub_803474CC(src, src->ids[0], s1, arg1, &pos);
                 show_message_by_count__9TWindowDDFll(arg1, &pos);
             }
             if (kind == 0) {
-                TWindowDD__sub_80347474(arg0, id, arg1, &pos);
+                TWindowDD__sub_80347474(src, id, arg1, &pos);
             } else {
                 Pair_80344980 *pp;
                 if (kind == 2) {
@@ -1667,21 +1667,21 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
                 } else {
                     pp = &TWindowDD__data_805D6E44[3];
                 }
-                TWindowDD__sub_803474CC(arg0, id, TWindowDD__data_805D6E28[pp->list[clamp_range_5FA_682__9TWindowDDFs(id)]], arg1, &pos);
+                TWindowDD__sub_803474CC(src, id, TWindowDD__data_805D6E28[pp->list[clamp_range_5FA_682__9TWindowDDFs(id)]], arg1, &pos);
             }
-        } else if (arg0->ids[0] == 0x2C7) {
+        } else if (src->ids[0] == 0x2C7) {
             append_string__9TWindowDDFllPl(s1, arg1, &pos);
         } else {
-            TWindowDD__sub_80347474(arg0, arg0->ids[0], arg1, &pos);
+            TWindowDD__sub_80347474(src, src->ids[0], arg1, &pos);
         }
         if (n > 2) {
-            TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[2], arg1, &pos);
         }
         arg1[0] = fn_80228C54(arg1[0]);
         break;
     }
     case 6:
-        format_type6_message__9TWindowDDFlPv(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFlPv(src, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
@@ -1690,20 +1690,20 @@ s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 
 
 #pragma push
 #pragma opt_common_subs on
-s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2) {
+s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *src, char *arg1, u16 arg2) {
     s32 b;
     s32 n;
     s32 i;
     s32 pos;
     pos = 0;
-    n = arg0->count;
+    n = src->count;
     if (n == 0) {
         arg1[0] = 0;
         return 1;
     }
-    switch (arg0->type) {
+    switch (src->type) {
     case 1:
-        TWindowDD__sub_8034740C(arg0, arg1, &pos);
+        TWindowDD__sub_8034740C(src, arg1, &pos);
         break;
     case 2:
         if (n > 2) {
@@ -1714,28 +1714,28 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
             if (i == 1) {
                 append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
             }
-            TWindowDD__sub_8034886C(arg0->ids[i], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[i], arg1, &pos);
         }
         }
         append_char__9TWindowDDFSclPl(0x3F, arg1, &pos);
-        if (arg0->count > 2) {
+        if (src->count > 2) {
             append_prompt_newline__9TWindowDDFPl(arg1, &pos);
-            TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[2], arg1, &pos);
         }
         break;
     case 3:
         if (n > 1) {
             struct { DD_803461CC dd; u8 pad[0x10]; } tmp;
-            TWindowDD__sub_80347758(arg0, &tmp.dd);
+            TWindowDD__sub_80347758(src, &tmp.dd);
             pos = format_english_message__9TWindowDDFPvPvUs(&tmp.dd, arg1, arg2);
         } else {
-            TWindowDD__sub_8034886C(arg0->ids[0], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[0], arg1, &pos);
         }
         break;
     case 4: {
         s32 id;
         s32 k;
-        id = arg0->ids[0];
+        id = src->ids[0];
         if (id != 712) {
             TWindowDD__sub_8034886C(id, arg1, &pos);
         }
@@ -1753,7 +1753,7 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
             k = 2;
         }
         if (n > 1) {
-            i = arg0->ids[1];
+            i = src->ids[1];
             show_message_by_count__9TWindowDDFll(arg1, &pos);
             if (k == 0) {
                 TWindowDD__sub_8034886C(i, arg1, &pos);
@@ -1763,7 +1763,7 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
         }
         if (n > 2) {
             show_message_by_count__9TWindowDDFll(arg1, &pos);
-            switch (TWindowDD__data_805D6E48[clamp_range_2C9_552__9TWindowDDFs(arg0->ids[2])]) {
+            switch (TWindowDD__data_805D6E48[clamp_range_2C9_552__9TWindowDDFs(src->ids[2])]) {
             case 1:
                 append_string__9TWindowDDFllPl(TWindowDD__data_805D6E28[(0x19E4 / 4)], arg1, &pos);
                 append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
@@ -1773,10 +1773,10 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
                 append_char__9TWindowDDFSclPl(0x20, arg1, &pos);
                 break;
             }
-            TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_80347474(src, src->ids[2], arg1, &pos);
         }
         if (n > 3) {
-            TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[3], arg1, &pos);
         }
         arg1[0] = fn_80228C54(arg1[0]);
         break;
@@ -1784,8 +1784,8 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
     case 5: {
         s32 kind;
         s32 id;
-        id = arg0->ids[0];
-        TWindowDD__sub_80347474(arg0, id, arg1, &pos);
+        id = src->ids[0];
+        TWindowDD__sub_80347474(src, id, arg1, &pos);
         if (id == 708) {
             kind = 0;
         } else if (id == 711) {
@@ -1804,7 +1804,7 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
             s32 notfound;
             char *str;
             show_message_by_count__9TWindowDDFll(arg1, &pos);
-            b = arg0->ids[1];
+            b = src->ids[1];
             notfound = 1;
             for (i = 0; i < TWindowDD__data_805D6E44[0].n; i++) {
                 if (b == TWindowDD__data_805D6E44[0].list[i]) {
@@ -1837,19 +1837,19 @@ s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16
                 }
             }
             if (str != 0) {
-                TWindowDD__sub_803474CC(arg0, b, str, arg1, &pos);
+                TWindowDD__sub_803474CC(src, b, str, arg1, &pos);
             } else {
-                TWindowDD__sub_80347474(arg0, b, arg1, &pos);
+                TWindowDD__sub_80347474(src, b, arg1, &pos);
             }
         }
         if (n > 2) {
-            TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
+            TWindowDD__sub_8034886C(src->ids[2], arg1, &pos);
         }
         arg1[0] = fn_80228C54(arg1[0]);
         break;
     }
     case 6:
-        format_type6_message__9TWindowDDFlPv(arg0, arg1, &pos);
+        format_type6_message__9TWindowDDFlPv(src, arg1, &pos);
         break;
     }
     arg1[pos++] = 0;
@@ -1937,11 +1937,11 @@ s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1) {
     return pos;
 }
 
-s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 value_index) {
     s16 v;
     switch (arg1) {
     case 0:
-        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
+        v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), value_index);
         if (v == -0x1E) {
             switch (get_word_select_context__9TWindowDDFv(arg0)) {
             case 1:
@@ -1971,7 +1971,7 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         v = -0x3C;
         break;
     case 3:
-        v = TWindowDD_read_resolved_value(arg2, arg3);
+        v = TWindowDD_read_resolved_value(arg2, value_index);
         if (((s32 (*)(s16))TWindowDD__sub_80347858)(v) != 0) {
             if (v == 0x43) {
                 v = -0x46;
@@ -1985,11 +1985,11 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 5:
-        v = TWindowDD_read_indexed_value(0xE, arg3);
+        v = TWindowDD_read_indexed_value(0xE, value_index);
         break;
     case 12:
         {
-            s16 t = TWindowDD_read_resolved_value(0xF9, arg3);
+            s16 t = TWindowDD_read_resolved_value(0xF9, value_index);
             if (t == 0x43) {
                 v = -0x46;
             } else if (t == 0x44) {
@@ -2000,7 +2000,7 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 13:
-        if (TWindowDD_read_resolved_value(-0x50, arg3) == 0x2C8) {
+        if (TWindowDD_read_resolved_value(-0x50, value_index) == 0x2C8) {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x78))[*(s16 *)(arg0 + 0xFC) - 0x37];
         } else {
             v = (*(s16 **)(TWindowDD__ws_data_table + 0x80))[*(s16 *)(arg0 + 0xFC) - 0x37];
@@ -2024,13 +2024,13 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     }
     return v;
 }
-s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
+s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 value_index) {
     s32 var_r31;
     s16 temp_r31;
 
     switch (arg1) {
     case 0:
-        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(TWindowDD__sub_80346DB8((s32) arg0), arg3);
+        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(TWindowDD__sub_80346DB8((s32) arg0), value_index);
         if (var_r31 == -0x1E) {
             switch (((int (*)(u8 *)) get_word_select_context__9TWindowDDFv)(arg0)) {
             case 1:
@@ -2060,7 +2060,7 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         var_r31 = -0x3C;
         break;
     case 3:
-        temp_r31 = TWindowDD_read_resolved_value(arg2, arg3);
+        temp_r31 = TWindowDD_read_resolved_value(arg2, value_index);
         if (((s32 (*)(s16)) TWindowDD__sub_80347858)(temp_r31) != 0) {
             var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xF, temp_r31 - 0x37);
         } else {
@@ -2068,10 +2068,10 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         break;
     case 5:
-        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xE, arg3);
+        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xE, value_index);
         break;
     case 7:
-        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xF, arg3);
+        var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0xF, value_index);
         break;
     case 8:
         var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(0x10, *(s16 *)(arg0 + 0xFC) - 0x37);
@@ -2080,7 +2080,7 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         var_r31 = -0x32;
         break;
     case 10:
-        if (TWindowDD_read_resolved_value(0x118, arg3) == 0x685) {
+        if (TWindowDD_read_resolved_value(0x118, value_index) == 0x685) {
             var_r31 = -0x3C;
         } else {
             var_r31 = -1;

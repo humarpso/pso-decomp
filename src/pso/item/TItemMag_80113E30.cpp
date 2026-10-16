@@ -141,25 +141,25 @@ void TItemMag::add_stat_clamped(s16 *arg0, s32 arg1) {
 
 #pragma push
 #pragma opt_propagation off
-void mag_feed_add_mind(u8 *arg0, s16 arg1) {
+void mag_feed_add_mind(u8 *mag, s16 arg1) {
     s16 temp_r31;
-    s16 temp_r3;
+    s16 mag_total_level;
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146A4((void *) (arg0));
+    temp_r31 = TItemData__sub_801146A4((void *) (mag));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_mag_total_level((void *) (arg0));
-        if (temp_r3 < 0xC8) {
-            *(s16 *)((s8 *)arg0 + 0xA) = *(s16 *)((s8 *)arg0 + 0xA) + var_r30;
+        mag_total_level = get_mag_total_level((void *) (mag));
+        if (mag_total_level < 0xC8) {
+            *(s16 *)((s8 *)mag + 0xA) = *(s16 *)((s8 *)mag + 0xA) + var_r30;
             return;
         }
-        if (temp_r3 == 0xC8) {
+        if (mag_total_level == 0xC8) {
             temp_r3_2 = 0x63 - temp_r31;
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            *(s16 *)((s8 *)arg0 + 0xA) = *(s16 *)((s8 *)arg0 + 0xA) + var_r30;
+            *(s16 *)((s8 *)mag + 0xA) = *(s16 *)((s8 *)mag + 0xA) + var_r30;
         }
     }
 }
@@ -168,25 +168,25 @@ void mag_feed_add_mind(u8 *arg0, s16 arg1) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
+void TItemMag__sub_80114198(u8 *mag, s16 arg1) {
     s16 temp_r31;
-    s16 temp_r3;
+    s16 mag_total_level;
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146C0((void *) (arg0));
+    temp_r31 = TItemData__sub_801146C0((void *) (mag));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_mag_total_level((void *) (arg0));
-        if (temp_r3 < 0xC8) {
-            *(s16 *)((s8 *)arg0 + 8) = *(s16 *)((s8 *)arg0 + 8) + var_r30;
+        mag_total_level = get_mag_total_level((void *) (mag));
+        if (mag_total_level < 0xC8) {
+            *(s16 *)((s8 *)mag + 8) = *(s16 *)((s8 *)mag + 8) + var_r30;
             return;
         }
-        if (temp_r3 == 0xC8) {
+        if (mag_total_level == 0xC8) {
             temp_r3_2 = 0x63 - temp_r31;
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            *(s16 *)((s8 *)arg0 + 8) = *(s16 *)((s8 *)arg0 + 8) + var_r30;
+            *(s16 *)((s8 *)mag + 8) = *(s16 *)((s8 *)mag + 8) + var_r30;
         }
     }
 }
@@ -196,18 +196,18 @@ void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
 #pragma opt_propagation off
 void TItemMag::add_stat_level_capped(s16 arg1) {
     s16 temp_r31;
-    s16 temp_r3;
+    s16 mag_total_level;
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
     temp_r31 = TItemData__sub_801146DC((void *) (((u8 *)this)));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_mag_total_level((void *) (((u8 *)this)));
-        if (temp_r3 < 0xC8) {
+        mag_total_level = get_mag_total_level((void *) (((u8 *)this)));
+        if (mag_total_level < 0xC8) {
             *(s16 *)((s8 *)((u8 *)this) + 6) = *(s16 *)((s8 *)((u8 *)this) + 6) + var_r30;
             return;
         }
-        if (temp_r3 == 0xC8) {
+        if (mag_total_level == 0xC8) {
             temp_r3_2 = 0x63 - temp_r31;
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
@@ -221,41 +221,41 @@ void TItemMag::add_stat_level_capped(s16 arg1) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void mag_feed_add_def(u8 *arg0, s16 arg1) {
+void mag_feed_add_def(u8 *mag, s16 arg1) {
     s16 temp_r31;
-    s16 temp_r3;
+    s16 mag_total_level;
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146F8((void *) (arg0));
+    temp_r31 = TItemData__sub_801146F8((void *) (mag));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_mag_total_level((void *) (arg0));
-        if (temp_r3 < 0xC8) {
-            *(s16 *)((s8 *)arg0 + 4) = *(s16 *)((s8 *)arg0 + 4) + var_r30;
+        mag_total_level = get_mag_total_level((void *) (mag));
+        if (mag_total_level < 0xC8) {
+            *(s16 *)((s8 *)mag + 4) = *(s16 *)((s8 *)mag + 4) + var_r30;
             return;
         }
-        if (temp_r3 == 0xC8) {
+        if (mag_total_level == 0xC8) {
             temp_r3_2 = 0x63 - temp_r31;
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            *(s16 *)((s8 *)arg0 + 4) = *(s16 *)((s8 *)arg0 + 4) + var_r30;
+            *(s16 *)((s8 *)mag + 4) = *(s16 *)((s8 *)mag + 4) + var_r30;
         }
     }
 }
 #pragma pop
 
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
-    s32 var_r30;
+    s32 slot;
 
     if (arg1 < 6U) {
-        var_r30 = 0;
+        slot = 0;
 loop_2:
-        if ((s32) arg1 == ((TItemMag *)arg0)->get_photon_blast_at_slot((s32)(var_r30))) {
+        if ((s32) arg1 == ((TItemMag *)arg0)->get_photon_blast_at_slot((s32)(slot))) {
             return 1;
         }
-        var_r30 += 1;
-        if (var_r30 == 3) {
+        slot += 1;
+        if (slot == 3) {
             goto block_5;
         }
         goto loop_2;

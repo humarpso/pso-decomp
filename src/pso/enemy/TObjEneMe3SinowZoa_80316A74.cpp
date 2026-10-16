@@ -435,13 +435,13 @@ inline s32 seek_80316C3C(Obj_80316C3C *arg0, Vec_80316C3C *diff) {
     return angle;
 }
 
-f32 receive_damage_and_transition__18TObjEneMe3SinowZoaFPviii(u8 *arg0, s32 arg1, Pair_80316A74 arg2, s32 arg3) {
+f32 receive_damage_and_transition__18TObjEneMe3SinowZoaFPviii(u8 *actor, s32 arg1, Pair_80316A74 arg2, s32 arg3) {
     f32 temp_f31;
-    temp_f31 = ((f32 (*)(void *, s32, Pair_80316A74, s32, s32, s32))receive_direct_attack__10TObjPlayerFv)(arg0, arg1, arg2, arg3, -1, -1);
-    if (*(s32 *)((s8 *)arg0 + 0x3C0) == 1 && calc_boss4_scale__10TObjPlayerFi(arg0) <= *(f32 *)((s8 *)arg0 + 0x3F0)) {
-        transition_enemy_state(arg0, 0x12);
-    } else if (*(s16 *)((s8 *)arg0 + 0x326) == 2) {
-        transition_enemy_state(arg0, 6);
+    temp_f31 = ((f32 (*)(void *, s32, Pair_80316A74, s32, s32, s32))receive_direct_attack__10TObjPlayerFv)(actor, arg1, arg2, arg3, -1, -1);
+    if (*(s32 *)((s8 *)actor + 0x3C0) == 1 && calc_boss4_scale__10TObjPlayerFi(actor) <= *(f32 *)((s8 *)actor + 0x3F0)) {
+        transition_enemy_state(actor, 0x12);
+    } else if (*(s16 *)((s8 *)actor + 0x326) == 2) {
+        transition_enemy_state(actor, 6);
     }
     return temp_f31;
 }
