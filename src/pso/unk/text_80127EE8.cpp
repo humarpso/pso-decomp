@@ -48,7 +48,7 @@ void TUnk_804A3830::reserved_53() {
     update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), (int) (0));
     update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), (int) (1));
     temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xF4);
-    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x188);
+    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) this->projectile;
     draw_weapon_at_joint((void *) (((u8 *)this)), (int) (0x24));
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
     update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), (int) (2));

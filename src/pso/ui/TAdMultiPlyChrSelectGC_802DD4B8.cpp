@@ -13,32 +13,32 @@ s32 play_sound_effect(s32, s32, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 void TAdMultiPlyChrSelectGC::update_state() {
-    if ((u32) *(u32 *)((s8 *)this + 0x88) != 0U) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x88));
-        *(u32 *)((s8 *)this + 0x88) = 0U;
+    if ((u32) *(u32 *)&this->unk_88 != 0U) {
+        queue_destruction__7TObjectFv(*(void * *)&this->unk_88);
+        *(u32 *)&this->unk_88 = 0U;
     }
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() <= 1) {
-        if (((TAdMultiPlyChrSelectGC *)(*(u32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
+        if (((TAdMultiPlyChrSelectGC *)(*(u32 *)&this->unk_68))->get_player_index() == 1) {
             TAdMultiPlyChrSelectGC::reset_slot_selections();
         }
         ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_state_ready();
         play_sound_effect(0x52F16, 0, 0, 0);
-        if ((u32) *(u32 *)((s8 *)this + 0x68) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x68));
-            *(u32 *)((s8 *)this + 0x68) = 0U;
+        if ((u32) *(u32 *)&this->unk_68 != 0U) {
+            queue_destruction__7TObjectFv(*(void * *)&this->unk_68);
+            *(u32 *)&this->unk_68 = 0U;
         }
         *(s32 *)&this->m_20 = 0xB;
         return;
     }
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() == 0x19) {
-        ((TAdMultiPlyChrSelectGC *)(*(u32 *)((s8 *)this + 0x68)))->set_cursor_index(0xF);
+        ((TAdMultiPlyChrSelectGC *)(*(u32 *)&this->unk_68))->set_cursor_index(0xF);
         *(s32 *)&this->m_20 = 0x13;
         return;
     }
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() == 0x18) {
-        if ((u32) *(u32 *)((s8 *)this + 0x80) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x80));
-            *(u32 *)((s8 *)this + 0x80) = 0U;
+        if ((u32) *(u32 *)&this->unk_80 != 0U) {
+            queue_destruction__7TObjectFv(*(void * *)&this->unk_80);
+            *(u32 *)&this->unk_80 = 0U;
         }
         if (TAdMultiPlyChrSelectGC::get_global_state() != 0U) {
             clear_entries__18TAdChrMoveEffectGCFv();
@@ -53,11 +53,11 @@ void TAdMultiPlyChrSelectGC::update_card_select_state() {
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() <= 1) {
         ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_state_ready();
         play_sound_effect(0x52F16, 0, 0, 0);
-        if (((TAdMultiPlyChrSelectGC *)(*(u32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
+        if (((TAdMultiPlyChrSelectGC *)(*(u32 *)&this->unk_68))->get_player_index() == 1) {
             TAdMultiPlyChrSelectGC::reset_slot_selections();
-            if ((u32) *(u32 *)((s8 *)this + 0x68) != 0U) {
-                queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x68));
-                *(u32 *)((s8 *)this + 0x68) = 0U;
+            if ((u32) *(u32 *)&this->unk_68 != 0U) {
+                queue_destruction__7TObjectFv(*(void * *)&this->unk_68);
+                *(u32 *)&this->unk_68 = 0U;
             }
             *(s32 *)&this->m_20 = 0xB;
             return;

@@ -248,15 +248,15 @@ extern const char TOHangceilingCave01KeyQuick__class_name_string[] = "TOHangceil
 void TOHangceilingCave01KeyQuick::vfunc_79() {
     u8 *p;
 
-    *(s32 *)((s8 *)this + 0x24) = turiten_singo_texture_lists[1];
-    *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
-    *(f32 *)((s8 *)this + 0x354) = lbl_805DB650;
+    this->texture_id = turiten_singo_texture_lists[1];
+    *(void * *)&this->unknownF8 = get_bml_motion(TOHangceilingCave01__model_archive, 1);
+    *(f32 *)&this->unk_354 = lbl_805DB650;
     ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(this, 3);
-    p = *(u8 **)((s8 *)this + 0xA4);
+    p = *(u8 * *)&this->m_a4;
     *(s32 *)((s8 *)p + 0x18) &= ~8;
-    *(f32 *)((s8 *)this + 0xC0) = lbl_805DB650;
-    *(f32 *)((s8 *)this + 0xC8) = lbl_805DB654;
-    *(f32 *)((s8 *)this + 0xC4) = (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)this + 0xF8)) + 4) - lbl_805DB654;
+    this->m_c0 = lbl_805DB650;
+    this->m_c8 = lbl_805DB654;
+    *(f32 *)&this->unk_C4 = (f32) *(u32 *)((s8 *)(*(u8 * *)&this->unknownF8) + 4) - lbl_805DB654;
     ((s32 (*)(void *))reset_state)(this);
 }
 
@@ -266,10 +266,10 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
     s16 temp_r0;
     u8 *temp_r3;
     u8 *temp_r4;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 3:
-        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0x35C))) == 1) && (*(f32 *)((s8 *)arg0 + 0xC0) <= *(f32 *)((s8 *)arg0 + 0xC4))) {
+        if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_35C)) == 1) && (this->m_c0 <= *(f32 *)&this->unk_C4)) {
             ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), (int) (2));
         }
         ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
@@ -277,37 +277,37 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
     case 1:
         ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
         ((TUnk_804B2578 *)arg0)->sub_80168488();
-        if (lbl_805DB65C < *(f32 *)((s8 *)arg0 + 0xC0)) {
-            temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+        if (lbl_805DB65C < this->m_c0) {
+            temp_r3 = (u8 *)(*(u8 * *)&this->m_a4);
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF7);
         }
-        if (lbl_805DB660 == *(f32 *)((s8 *)arg0 + 0xC0)) {
+        if (lbl_805DB660 == this->m_c0) {
             ((TOHangceilingCave01KeyQuick *)(arg0))->vfunc_79();
         }
         break;
     case 2:
-        if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0x35C))) == 1) {
-            if (lbl_805DB650 != *(f32 *)((s8 *)arg0 + 0xC0)) {
+        if (is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_35C)) == 1) {
+            if (lbl_805DB650 != this->m_c0) {
                 ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
             }
-            if (lbl_805DB664 == *(f32 *)((s8 *)arg0 + 0xC0)) {
-                temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+            if (lbl_805DB664 == this->m_c0) {
+                temp_r4 = (u8 *)(*(u8 * *)&this->m_a4);
                 *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | lbl_805DB658);
                 return;
             }
         } else {
-            if ((lbl_805DB668 <= *(f32 *)((s8 *)arg0 + 0xC0)) && (*(f32 *)((s8 *)arg0 + 0xC0) <= *(f32 *)((s8 *)arg0 + 0xC4))) {
-                *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB650;
-            } else if (lbl_805DB66C <= *(f32 *)((s8 *)arg0 + 0xC0)) {
-                *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB654;
-            } else if (lbl_805DB670 <= *(f32 *)((s8 *)arg0 + 0xC0)) {
-                *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB674;
-            } else if (lbl_805DB678 <= *(f32 *)((s8 *)arg0 + 0xC0)) {
-                *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB67C;
-            } else if (lbl_805DB680 <= *(f32 *)((s8 *)arg0 + 0xC0)) {
-                *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB65C;
+            if ((lbl_805DB668 <= this->m_c0) && (this->m_c0 <= *(f32 *)&this->unk_C4)) {
+                this->m_c0 = (f32) lbl_805DB650;
+            } else if (lbl_805DB66C <= this->m_c0) {
+                this->m_c0 = (f32) lbl_805DB654;
+            } else if (lbl_805DB670 <= this->m_c0) {
+                this->m_c0 = (f32) lbl_805DB674;
+            } else if (lbl_805DB678 <= this->m_c0) {
+                this->m_c0 = (f32) lbl_805DB67C;
+            } else if (lbl_805DB680 <= this->m_c0) {
+                this->m_c0 = (f32) lbl_805DB65C;
             } else {
-                *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB684;
+                this->m_c0 = (f32) lbl_805DB684;
             }
             ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), (int) (1));
         }
@@ -338,15 +338,15 @@ u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
 void TOHangceilingCave01Key::vfunc_79() {
     u8 *p;
 
-    *(s32 *)((s8 *)this + 0x24) = turiten_singo_texture_lists[1];
-    *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, 1);
-    *(f32 *)((s8 *)this + 0x354) = lbl_805DB650;
+    this->texture_id = turiten_singo_texture_lists[1];
+    *(void * *)&this->unknownF8 = get_bml_motion(TOHangceilingCave01__model_archive, 1);
+    *(f32 *)&this->unk_354 = lbl_805DB650;
     ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(this, 3);
-    p = *(u8 **)((s8 *)this + 0xA4);
+    p = *(u8 * *)&this->m_a4;
     *(s32 *)((s8 *)p + 0x18) &= ~8;
-    *(f32 *)((s8 *)this + 0xC0) = lbl_805DB650;
-    *(f32 *)((s8 *)this + 0xC8) = lbl_805DB654;
-    *(f32 *)((s8 *)this + 0xC4) = (f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)this + 0xF8)) + 4) - lbl_805DB654;
+    this->m_c0 = lbl_805DB650;
+    this->m_c8 = lbl_805DB654;
+    *(f32 *)&this->unk_C4 = (f32) *(u32 *)((s8 *)(*(u8 * *)&this->unknownF8) + 4) - lbl_805DB654;
     ((s32 (*)(void *))reset_state)(this);
 }
 
@@ -404,16 +404,16 @@ void TOHangceilingCave01Normal::vfunc_79() {
     union { f64 d; u32 i[2]; } cvt;
 
     s32 *p;
-    *(void **)((s8 *)this + 0xF8) = get_bml_motion(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
+    *(void * *)&this->unknownF8 = get_bml_motion(TOHangceilingCave01__model_archive, hanging_ceiling_motion_index);
     p = turiten_singo_texture_lists;
-    *(s32 *)((s8 *)this + 0x24) = (s32) *p;
-    *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB65C * *(f32 *)((s8 *)this + 0x350));
+    this->texture_id = (s32) *p;
+    *(f32 *)&this->unk_354 = (f32) (lbl_805DB65C * this->m_350);
     ((s32 (*)(void *, s32, s32 *, f32))sub_801682E4__13TUnk_804B2578Fl)(this, 0, p, lbl_805DB65C);
-    temp_r6 = *(void **)((s8 *)this + 0xA4);
+    temp_r6 = this->m_a4;
     *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) | lbl_805DB658);
-    *(f32 *)((s8 *)this + 0xC0) = (f32) lbl_805DB650;
-    *(f32 *)((s8 *)this + 0xC8) = (f32) lbl_805DB654;
-    *(f32 *)((s8 *)this + 0xC4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)this + 0xF8)) + 4) - lbl_805DB654;
+    this->m_c0 = (f32) lbl_805DB650;
+    this->m_c8 = (f32) lbl_805DB654;
+    *(f32 *)&this->unk_C4 = (f32) *(u32 *)((s8 *)(*(void * *)&this->unknownF8) + 4) - lbl_805DB654;
 }
 
 void TOHangceilingCave01Normal::vfunc_80() {
@@ -476,9 +476,9 @@ f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0) {
 }
 
 void TUnk_804B2578::advance_wrap_offset() {
-    *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)((s8 *)this + 0xC0) + *(f32 *)((s8 *)this + 0xC8));
-    if (*(f32 *)((s8 *)this + 0xC4) < *(f32 *)((s8 *)this + 0xC0)) {
-        *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)&lbl_805DB650);
+    this->m_c0 = (f32) (this->m_c0 + this->m_c8);
+    if (*(f32 *)&this->unk_C4 < this->m_c0) {
+        this->m_c0 = (f32) (*(f32 *)&lbl_805DB650);
     }
 }
 
@@ -583,7 +583,7 @@ void TUnk_804B2578::sub_80168488() {
             if ((((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor()) && (check_actor_body_contact(temp_r3, lbl_805DB688) != 0U)) {
                 Pair_80168488 t;
                 t.a = 0;
-                t.b = ((VO_80168488 *)this)->m79(*(f32 *)((s8 *)((VO_80168488 *)this) + 0x338));
+                t.b = ((VO_80168488 *)this)->m79(this->m_338);
                 hit_80168488(temp_r3, ((VO_80168488 *)this), t);
                 obj_setFlags30(temp_r3, 0x400);
                 ((s32 (*)(void *, void *))fn_80168280)(((VO_80168488 *)this), temp_r3);
@@ -665,16 +665,16 @@ void TUnk_804B2578::init_geometry() {
     f32 temp_f2;
     VObj_80168588 *self = (VObj_80168588 *)this;
 
-    *(s32 *)((s8 *)this + 0x35C) = (s32) *(s32 *)((s8 *)this + 0x84);
-    *(u32 *)((s8 *)this + 0x358) = (u32) *(u32 *)((s8 *)this + 0x8C);
-    if ((u32) *(u32 *)((s8 *)this + 0x358) >= 3U) {
-        *(u32 *)((s8 *)this + 0x358) = 2U;
+    *(s32 *)((s8 *)this + 0x35C) = (s32) this->m_84;
+    this->m_358 = (u32) this->m_8c;
+    if ((u32) this->m_358 >= 3U) {
+        this->m_358 = 2U;
     }
-    temp_f2 = lbl_805DB690 + *(f32 *)((s8 *)this + 0x68);
-    *(f32 *)((s8 *)this + 0x350) = (f32) (temp_f2 - lbl_805DB654);
-    ((void (*)(void *, f32, f32))set_scale__13TUnk_804B2578Ff)(this, lbl_805DB688 + *(f32 *)((s8 *)this + 0x70), temp_f2);
+    temp_f2 = lbl_805DB690 + this->scale;
+    this->m_350 = (f32) (temp_f2 - lbl_805DB654);
+    ((void (*)(void *, f32, f32))set_scale__13TUnk_804B2578Ff)(this, lbl_805DB688 + *(f32 *)&this->m_70, temp_f2);
     self->v77();
-    *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB654 - *(f32 *)((s8 *)this + 0x6C));
+    *(f32 *)&this->unk_354 = (f32) (lbl_805DB654 - this->target_scale);
 }
 
 int TUnk_804B2578::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
@@ -710,7 +710,7 @@ void TUnk_804B2578::render() {
         if ((void *) TOHangceilingCave01__model_root != NULL) {
             TParticleCtrl::begin_effect_render();
             if ((u32) this->m_358 == 0U) {
-                temp_f2 = *(f32 *)((s8 *)arg0 + 0x354);
+                temp_f2 = *(f32 *)&this->unk_354;
                 temp_f1 = this->m_350;
                 temp_r29 = temp_f2 <= temp_f1;
                 temp_r30 = temp_f2 <= (lbl_805DB674 * temp_f1);

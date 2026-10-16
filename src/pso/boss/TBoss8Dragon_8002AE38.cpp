@@ -14,7 +14,7 @@ void TBoss8Dragon::set_speed(f32 v) { this->m_10 = v; }
 
 void TObjEnemy::sub_8002AE64() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) & 0xFFFFFFFE);
+    *(s32 *)&this->animationFlags = (s32) (*(s32 *)&this->animationFlags & 0xFFFFFFFE);
 }
 
 }

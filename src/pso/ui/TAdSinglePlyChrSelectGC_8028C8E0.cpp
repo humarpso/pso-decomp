@@ -282,8 +282,8 @@ void TAdSinglePlyChrSelectGC::request_model_loads() {
 }
 
 void TChCrLoadReq::sub_8028CEEC(s32 *) {
-    if (((s32) chr_select_load_slot_count <= 1) && ((s32) *(s32 *)((s8 *)this + 0x8C) != 0)) {
-        *(s32 *)((s8 *)this + 0x8C) = 0;
+    if (((s32) chr_select_load_slot_count <= 1) && ((s32) this->m_8c != 0)) {
+        this->m_8c = 0;
         if (--chr_select_load_slot_count == 0) {
             return;
         }

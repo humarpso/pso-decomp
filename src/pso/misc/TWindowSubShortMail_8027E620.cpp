@@ -128,7 +128,7 @@ extern const f32 TWindowSubShortMail__data_805DD6C8;
 s32 TWindowSubShortMail::open_delete_confirm_dialog() {
     s32 temp_r29;
 
-    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, *(s32 *)((s8 *)this + 0x20), 0, 0);
+    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, *(s32 *)&this->m_20, 0, 0);
     open_yes_no_prompt(temp_r29, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0x104), get_window_layout_position((s32)(0xa3)), TWindowSubShortMail__data_805DD6C8);
     free_member__17TWindowSubComCardFv(temp_r29, 0);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
@@ -140,7 +140,7 @@ extern const f32 TWindowSubShortMail__data_805DD6C8;
 s32 TWindowSubShortMail::open_confirm_dialog() {
     s32 temp_r29;
 
-    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, *(s32 *)((s8 *)this + 0x20), 0, 0);
+    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, *(s32 *)&this->m_20, 0, 0);
     open_yes_no_prompt(temp_r29, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0x3e), get_window_layout_position((s32)(0x9f)), TWindowSubShortMail__data_805DD6C8);
     free_member__17TWindowSubComCardFv(temp_r29, 0);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
@@ -318,7 +318,7 @@ s32 TWindowSubShortMail::create_list_item() {
     s32 temp_r3;
 
     temp_r3 = get_window_layout_position((s32)(0x9B));
-    temp_r31 = fn_80267F38(temp_r3, lbl_8044FAC4, 8, (s16) *(s32 *)((s8 *)this + 0x20));
+    temp_r31 = fn_80267F38(temp_r3, lbl_8044FAC4, 8, (s16) *(s32 *)&this->m_20);
     ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x2E));
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
     return temp_r31;
@@ -766,11 +766,11 @@ s32 TUnk_804D1AD0::create_status_category_menu() {
 void TUnk_804D1AD0::render() {  }
 
 void TUnk_804D1AD0::run_task() {
-    is_player_input_active(*(s32 *)((s8 *)this + 0x1C));
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x24)))->get_status_flag() != 0) {
+    is_player_input_active(*(s32 *)&this->unk_1C);
+    if (((TWindowSubComCard *)(*(s32 *)&this->unk_24))->get_status_flag() != 0) {
         ((VObj_8027FBF0_8027E620 *) this->m_20)->m7();
     }
-    fn_8027FD94(this->m_28, get_selected_menu_value(*(s32 *)((s8 *)this + 0x24)));
+    fn_8027FD94(this->m_28, get_selected_menu_value(*(s32 *)&this->unk_24));
 }
 
 extern s32 status_category_window_vtable[];
@@ -779,7 +779,7 @@ void *TUnk_804D1AD0::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = status_category_window_vtable;
         if (*(void * *)&this->m_28 != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&this->m_28)); *(s32 *)&this->m_28 = 0; }
-        if (*(void * *)&(*(u32 *)((u8 *)this + 0x24)) != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&(*(u32 *)((u8 *)this + 0x24)))); *(s32 *)&(*(u32 *)((u8 *)this + 0x24)) = 0; }
+        if (*(void * *)&(*(u32 *)&this->unk_24) != NULL) { ((void (*)(void *)) TWindow__close)((void *)(*(void * *)&(*(u32 *)&this->unk_24))); *(s32 *)&(*(u32 *)&this->unk_24) = 0; }
         __dt__7TObjectFv((void *)(this), (int)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));

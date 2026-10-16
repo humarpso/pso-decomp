@@ -22,7 +22,7 @@ void TLobby::link_into_list() {
     *(s32 *)((s8 *)this + 0x30) = 0;
     *(s32 *)((s8 *)this + 0x2C) = 0;
     lobby_list_entry_count += 1;
-    *(s32 *)((s8 *)this + 4) = lobby_list_next_id++;
+    *(s32 *)&this->m_flags = lobby_list_next_id++;
 }
 
 }

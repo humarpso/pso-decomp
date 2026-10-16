@@ -15,11 +15,11 @@ void TObjPlayer::update_boss2tunnel_move() {
     switch (temp_r3) {
     case 1:
         TObjPlayer::play_particle_effect_once();
-        rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1F8));
+        rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
         return;
     case 2:
         TObjPlayer::play_particle_effect_once();
-        rotate_matrix_z(0, -*(s32 *)((s8 *)this + 0x1F8));
+        rotate_matrix_z(0, -*(s32 *)&this->unk_1F8);
         return;
     case 3:
         TObjPlayer::play_particle_effect_once();
@@ -33,7 +33,7 @@ extern s32 lbl_804A6108[];
 void *TUnk_804A6108::init_effect_state() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A6108;
-    *(u32 *)((s8 *)this + 0x1F8) = 0;
+    *(u32 *)&this->unk_1F8 = 0;
     return this;
 }
 

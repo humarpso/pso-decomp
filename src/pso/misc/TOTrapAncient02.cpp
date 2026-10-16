@@ -611,7 +611,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
 void TOTrapAncient02R::calc_trap_count() {
     s32 temp_r4;
 
-    *(s32 *)&this->m_360 = (s32) (*(f32 *)((s8 *)this + 0x70) + ((lbl_805DBA7C * (f32) game_difficulty_selection) + lbl_805DBA78));
+    *(s32 *)&this->m_360 = (s32) (*(f32 *)&this->m_70 + ((lbl_805DBA7C * (f32) game_difficulty_selection) + lbl_805DBA78));
     temp_r4 = *(s32 *)&this->m_360;
     if (temp_r4 < 0) {
         *(s32 *)&this->m_360 = 0;
@@ -633,36 +633,36 @@ void TOTrapAncient02R::vfunc_82() {
     s16 temp_r0;
     set_indexed_flags(this, 0, 1);
     submit_cursor_candidate(this, -1);
-    temp_r0 = *(s16 *)((s8 *)this + 0x328);
+    temp_r0 = this->phase;
     switch (temp_r0) {
     case 0:
     case 1:
-        *(s16 *)((s8 *)this + 0x328) = 2;
+        this->phase = 2;
     case 2:
-        *(s32 *)((s8 *)this + 0x354) = (s32) (*(s32 *)((s8 *)this + 0x354) - 1);
-        if ((s32) *(s32 *)((s8 *)this + 0x354) < 0) {
-            *(s16 *)((s8 *)this + 0x328) = 3;
-            *(s32 *)((s8 *)this + 0x354) = (s32) *(s32 *)((s8 *)this + 0x350);
+        this->timer = (s32) (this->timer - 1);
+        if ((s32) this->timer < 0) {
+            this->phase = 3;
+            this->timer = (s32) this->reset;
         }
         break;
     case 3:
-        if (lbl_805DBA80 < *(f32 *)((s8 *)this + 0x348)) {
-            *(f32 *)((s8 *)this + 0x348) -= lbl_805DBA78;
+        if (lbl_805DBA80 < this->h348) {
+            this->h348 -= lbl_805DBA78;
             return;
         }
-        *(s16 *)((s8 *)this + 0x328) = 4;
-        *(f32 *)((s8 *)this + 0x348) = (f32) lbl_805DBA80;
+        this->phase = 4;
+        this->h348 = (f32) lbl_805DBA80;
         return;
     case 4:
-        if (lbl_805DBA80 < *(f32 *)((s8 *)this + 0x344)) {
-            *(f32 *)((s8 *)this + 0x344) -= lbl_805DBA78;
+        if (lbl_805DBA80 < this->h344) {
+            this->h344 -= lbl_805DBA78;
             return;
         }
-        *(s16 *)((s8 *)this + 0x326) = 0;
-        *(s16 *)((s8 *)this + 0x328) = 0;
-        *(f32 *)((s8 *)this + 0x344) = (f32) lbl_805DBA80;
-        *(u16 *)((s8 *)this + 0x33C) = 0xFFFF;
-        *(s32 *)((s8 *)this + 0x2A8) = 0;
+        this->mode = 0;
+        this->phase = 0;
+        this->h344 = (f32) lbl_805DBA80;
+        this->player = 0xFFFF;
+        *(s32 *)&this->target = 0;
         break;
     }
 }

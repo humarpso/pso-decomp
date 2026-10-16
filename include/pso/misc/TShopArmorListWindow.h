@@ -21,7 +21,8 @@ struct TShopArmorListWindow : public TShopWindowBase {
     u32 m_40;
     u8 _pad44[0x4];
     u32 m_48;
-    u8 unk_4C[0x28];
+    u8 unk_4C[0x26];
+    s16 m_72;
     s16 m_74;
     u8 unk_76[0x2];
     s16 m_78;

@@ -166,7 +166,7 @@ void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TUnk_804F0810::emit_marker_effects() {
     u8 sp8[0x18];
-    struct VObj_8034EFDC *o = (struct VObj_8034EFDC *)*(void **)((s8 *)this + 0xF0);
+    struct VObj_8034EFDC *o = (struct VObj_8034EFDC *)*(void * *)&this->player;
     o->m63(0x30, sp8);
     spawn_particle_effect(sp8, 0x1D0);
 }
@@ -202,7 +202,7 @@ void *TUnk_804F0810::enter_timed_state(s32 _w1, void *_w2) {
     TItemWeapon__ct((void *)(this), (void *)(_w1));
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0810;
     set_status_flags__10TObjPlayerFUl(this, 1);
-    *(u32 *)((s8 *)this + 0x1F8) = 13653;
+    *(u32 *)&this->unk_1F8 = 13653;
     return this;
 }
 
@@ -340,16 +340,16 @@ void TObjPlayer::pose_gi_gue_bazooka_nodes() {
     temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 2:
-        rotate_matrix_x(0, *(s32 *)((s8 *)this + 0x1F8));
+        rotate_matrix_x(0, *(s32 *)&this->unk_1F8);
         return;
     case 3:
-        rotate_matrix_x(0, *(s32 *)((s8 *)this + 0x1FC));
+        rotate_matrix_x(0, this->m_1fc);
         return;
     case 5:
-        rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x200));
+        rotate_matrix_z(0, *(s32 *)&this->unk_200);
         return;
     case 4:
-        rotate_matrix_z(0, -*(s32 *)((s8 *)this + 0x200));
+        rotate_matrix_z(0, -*(s32 *)&this->unk_200);
         return;
     }
 }
@@ -406,7 +406,7 @@ void TObjPlayer::dispatch_by_state() {
     temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 2:
-        rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1F8));
+        rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
         return;
     case 8:
         rotate_matrix_z(0, this->m_1fc);

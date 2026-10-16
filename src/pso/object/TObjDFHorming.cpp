@@ -283,7 +283,7 @@ s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2) {
     return 1;
 }
 
-void TBoss4DarkFalz::sub_8004AFB8() { *(s32*)((char*)this + 0x384) = 1; }
+void TBoss4DarkFalz::sub_8004AFB8() { this->m_384 = 1; }
 
 s32 TBoss4DarkFalz::count_active_players() {
     s32 count = 0;

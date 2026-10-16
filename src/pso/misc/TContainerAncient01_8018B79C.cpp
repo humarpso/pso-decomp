@@ -68,9 +68,9 @@ extern f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01::receive_physical_attack(void *, f32) {
     s16 sp8;
 
-    if ((u16) *(u16 *)((s8 *)this + 0x1C) >= 0x1000U) {
+    if ((u16) this->m_1c >= 0x1000U) {
         reset_state__19TContainerAncient01Fv();
-        if (((u32) *(u32 *)((s8 *)this + 0x80) != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
+        if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
             sp8 = 1;
             access_object_saved_state(&sp8, 0);
             send_object_state_update(&sp8);
@@ -150,14 +150,14 @@ void TContainerAncient01::run_task() {
             this->m_2b4 = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
             submit_cursor_candidate((void *) (arg0), (int) (-1), (f32) (temp_f1));
         } else {
-            temp_f1_2 = *(f32 *)((s8 *)arg0 + 0x364);
+            temp_f1_2 = *(f32 *)&this->unk_364;
             if (temp_f1_2 <= lbl_805DBD50) {
                 *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - lbl_805DBD54);
-                if (*(f32 *)((s8 *)arg0 + 0x3C) <= (lbl_805DBD58 * *(f32 *)((s8 *)arg0 + 0x364))) {
+                if (*(f32 *)((s8 *)arg0 + 0x3C) <= (lbl_805DBD58 * *(f32 *)&this->unk_364)) {
                     queue_destruction__7TObjectFv(arg0);
                 }
             } else {
-                *(f32 *)((s8 *)arg0 + 0x364) = (f32) (temp_f1_2 - lbl_805DBD54);
+                *(f32 *)&this->unk_364 = (f32) (temp_f1_2 - lbl_805DBD54);
             }
         }
     }

@@ -411,20 +411,20 @@ void TObjPlayer::set_flag_start_effect() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
 
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x388);
+    temp_r3 = *(s32 *)&this->unk_388;
     if (!(temp_r3 & 0x04000000)) {
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (temp_r3 | 0x04000000);
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFF7FFFFF);
-        *(s16 *)((s8 *)arg0 + 0x33C) = 0x1E;
-        TObjPlayer::create_dead_spot((s32)(arg0 + 0x2FC), (s32)(*(s16 *)((s8 *)arg0 + 0x33C)), (f32)lbl_805D9ADC);
+        *(s32 *)&this->unk_388 = (s32) (temp_r3 | 0x04000000);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 1);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFF7FFFFF);
+        *(s16 *)&this->unk_33C = 0x1E;
+        TObjPlayer::create_dead_spot((s32)(arg0 + 0x2FC), (s32)(*(s16 *)&this->unk_33C), (f32)lbl_805D9ADC);
     }
 }
 
 void TObjPlayer::clear_state7_flag() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)&this->m_374 == 7) {
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)arg0)->update_if_active(0);
     }
 }
@@ -595,16 +595,16 @@ void TObjPlayer::update_timed_state() {
     temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
-        *(s16 *)((s8 *)this + 0xB8) = (s16) ((*(u32 *)((s8 *)this + 0x388) & 0x1000000) ? 0 : 5);
-        *(u32 *)((s8 *)this + 0x388) = (u32) (*(u32 *)((s8 *)this + 0x388) | 0x800000);
+        *(s16 *)&this->unk_B8 = (s16) ((*(u32 *)&this->unk_388 & 0x1000000) ? 0 : 5);
+        *(u32 *)&this->unk_388 = (u32) (*(u32 *)&this->unk_388 | 0x800000);
         this->m_37c = 1;
     case 1:
         if (!(*(s32 *)&this->actor_flags & 0x800000)) {
             apply_actor_gravity(this, 0, lbl_805D9AE0);
         }
         if (*(s32 *)&this->actor_flags & 0x40000) {
-            temp_r4 = *(s16 *)((s8 *)this + 0x33C);
-            *(s16 *)((s8 *)this + 0x33C) = (s16) (temp_r4 - 1);
+            temp_r4 = *(s16 *)&this->unk_33C;
+            *(s16 *)&this->unk_33C = (s16) (temp_r4 - 1);
             if (temp_r4 < 0) {
                 this->m_37c = -1;
             }
@@ -612,7 +612,7 @@ void TObjPlayer::update_timed_state() {
         break;
     case -1:
         *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFFFBFFFF);
-        *(s16 *)((s8 *)this + 0x33C) = (s16) *(s16 *)((s8 *)this + 0x33A);
+        *(s16 *)&this->unk_33C = (s16) *(s16 *)((s8 *)this + 0x33A);
         break;
     }
 }

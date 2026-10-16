@@ -5,8 +5,8 @@
 
 extern "C" {
 
-s16 TWindowChoiceSetting::get_field_74() { return *(s16*)((char*)this + 0x74); }
+s16 TWindowChoiceSetting::get_field_74() { return this->m_74; }
 
-int TUnk_804D0658::is_open() { return (*(u16*)((char*)this + 0x70) >> 1) & 0x1; }
+int TUnk_804D0658::is_open() { return (this->m_70 >> 1) & 0x1; }
 
 }

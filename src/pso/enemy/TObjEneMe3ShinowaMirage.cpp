@@ -579,20 +579,20 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
     if (temp_r3 != 0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-        VecCopy__FP3VecPC3Vec((void *) (*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C), (void *) (arg0 + 0x38));
+        VecCopy__FP3VecPC3Vec((void *) (*(s32 *)&this->m_a4 + 0x1C), (void *) (arg0 + 0x38));
         ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (temp_r3 + 0x5C));
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF;
-        *(s32 *)((s8 *)arg0 + 0x30) = temp_r4;
-        *(s32 *)((s8 *)arg0 + 0x30) = 0x20000000;
-        *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
+        temp_r4 = *(s32 *)&this->actorFlags & 0xFFFFF7FF;
+        *(s32 *)&this->actorFlags = temp_r4;
+        *(s32 *)&this->actorFlags = 0x20000000;
+        this->hp = (s16) this->hpmax;
         *(s32 *)((s8 *)arg0 + 0x3D4) = arg1;
         enemy_set_target_id((void *) (arg0), (int) (TObjEneMe3ShinowaReal__sub_800E45CC((int) (temp_r3), (int) (temp_r4))));
         *(f32 *)((s8 *)arg0 + 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
         temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFDFF;
         *(s32 *)((s8 *)arg0 + 0x3C4) = temp_r4_2;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0xA;
+        this->m_b8 = 0xA;
         advance_animation_playback((void *)((void *) (arg0)), (int)((int) (temp_r4_2)));
-        *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (u32) (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4) - 1);
+        this->m_c0 = (f32) (u32) (*(s32 *)((s8 *)(*(void * *)&this->unknownF8) + 4) - 1);
         transition_enemy_state((void*)((void *) (arg0)), (int)((int) (8)));
         clear_mirage();
     }
@@ -604,7 +604,7 @@ u8 TObjEneMe3ShinowaMirage::can_hit_same_target() { return 0; }
 void TObjEneMe3ShinowaMirage::vfunc_105() {  }
 
 void TObjEneMe3ShinowaMirage::vfunc_62() {
-    if (*(s16 *)((s8 *)this + 0x326) != 15) {
+    if (this->mode != 15) {
         transition_enemy_state((void*)(this), (int)(15));
     }
     clear_attack_receipts();
@@ -614,7 +614,7 @@ extern s32 __vt__23TObjEneMe3ShinowaMirage[];
 
 void TObjEneMe3ShinowaMirage::vfunc_63() {
     u8 *arg0 = (u8 *)this;
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xF) {
+    if ((s16) this->mode != 0xF) {
         transition_enemy_state((void*)((void *)(arg0)), (int)((int) (0xF)));
     }
 }

@@ -12,26 +12,26 @@ void TUnk_80490470::calc_recoil_offsets() {
     f32 temp_f1;
     f32 var_f0;
 
-    temp_f1 = *(f32 *)((s8 *)this + 0x18);
+    temp_f1 = *(f32 *)&this->unk_18;
     if (temp_f1 > lbl_805D9960) {
         if (temp_f1 > lbl_805D995C) {
-            *(f32 *)((s8 *)this + 0) = (f32) lbl_805D9958;
+            *(f32 *)&this->unk_0 = (f32) lbl_805D9958;
         } else {
-            *(f32 *)((s8 *)this + 0) = (f32) (temp_f1 - lbl_805D995C);
+            *(f32 *)&this->unk_0 = (f32) (temp_f1 - lbl_805D995C);
         }
-        *(f32 *)((s8 *)this + 4) = (f32) lbl_805D9958;
-        *(f32 *)((s8 *)this + 8) = (f32) lbl_805D9958;
-        *(f32 *)((s8 *)this + 0xC) = (f32) lbl_805D9958;
+        *(f32 *)&this->m_4 = (f32) lbl_805D9958;
+        *(f32 *)&this->unk_8 = (f32) lbl_805D9958;
+        *(f32 *)&this->m_c = (f32) lbl_805D9958;
         return;
     }
-    *(f32 *)((s8 *)this + 0) = (f32) lbl_805D9964;
-    var_f0 = *(f32 *)((s8 *)this + 0x18) - lbl_805D9960;
+    *(f32 *)&this->unk_0 = (f32) lbl_805D9964;
+    var_f0 = *(f32 *)&this->unk_18 - lbl_805D9960;
     if (var_f0 < lbl_805D9964) {
         var_f0 = lbl_805D9964;
     }
-    *(f32 *)((s8 *)this + 4) = var_f0;
-    *(f32 *)((s8 *)this + 8) = var_f0;
-    *(f32 *)((s8 *)this + 0xC) = var_f0;
+    *(f32 *)&this->m_4 = var_f0;
+    *(f32 *)&this->unk_8 = var_f0;
+    *(f32 *)&this->m_c = var_f0;
 }
 
 }
@@ -42,11 +42,11 @@ extern "C" {
 
     extern const float lbl_805D9958;
     extern const float lbl_805D9964;
-void TUnk_80490470::reset_obstruction_fade() { *(float*)((char*)this + 0x18) = lbl_805D9958; *(float*)((char*)this + 0x0) = lbl_805D9964; *(float*)((char*)this + 0x4) = lbl_805D9964; *(float*)((char*)this + 0x8) = lbl_805D9964; *(float*)((char*)this + 0xc) = lbl_805D9964; }
+void TUnk_80490470::reset_obstruction_fade() { *(float *)&this->unk_18 = lbl_805D9958; *(float *)&this->unk_0 = lbl_805D9964; this->m_4 = lbl_805D9964; *(float *)&this->unk_8 = lbl_805D9964; this->m_c = lbl_805D9964; }
 
     extern const float lbl_805D9958;
     extern const float lbl_805D995C;
-void TUnk_80490470::vfunc_4() { *(float*)((char*)this + 0x18) = lbl_805D995C; *(float*)((char*)this + 0x0) = lbl_805D9958; *(float*)((char*)this + 0x4) = lbl_805D9958; *(float*)((char*)this + 0x8) = lbl_805D9958; *(float*)((char*)this + 0xc) = lbl_805D9958; }
+void TUnk_80490470::vfunc_4() { *(float *)&this->unk_18 = lbl_805D995C; *(float *)&this->unk_0 = lbl_805D9958; this->m_4 = lbl_805D9958; *(float *)&this->unk_8 = lbl_805D9958; this->m_c = lbl_805D9958; }
 
 }
 
@@ -83,7 +83,7 @@ extern "C" {
 extern const f32 lbl_805D995C;
 
 void TUnk_80490470::set_rate_from_divisor(s32 arg1) {
-    *(f32 *)((s8 *)this + 0x10) = (f32) (lbl_805D995C / (f32) arg1);
+    *(f32 *)&this->unk_10 = (f32) (lbl_805D995C / (f32) arg1);
 }
 #pragma push
 #pragma fp_contract on
@@ -155,7 +155,7 @@ int TObjPlayer__sub_800D9718(void);
 
     extern s32 lbl_80490470[];
     extern const float lbl_805D9958;
-void*TUnk_80490470::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float*)((char*)this + 0x18) = lbl_805D9958; return this; }
+void*TUnk_80490470::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float *)&this->unk_18 = lbl_805D9958; return this; }
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {

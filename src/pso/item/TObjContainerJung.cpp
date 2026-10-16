@@ -202,12 +202,12 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
 void TObjContainerJung::vfunc_81() {
     u8 *arg0 = (u8 *)this;
     if ((void *)(*(u8 **)&TObjContainerJung__bml_model_resource) != NULL) {
-        switch (*(s16 *)((s8 *)arg0 + 0x326)) {
+        switch (this->mode) {
         case 0:
             TObjFish::set_global_param(TObjContainerJung__bml_aux_handle);
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+            rotate_matrix_y(0, this->rotation_y);
             scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
             get_bml_model(*(u8 **)&TObjContainerJung__bml_model_resource, 0);
             draw_ginja_object();
@@ -226,10 +226,10 @@ void TObjContainerJung::vfunc_81() {
 void TObjContainerJung::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+        if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);
         }
     case 1:

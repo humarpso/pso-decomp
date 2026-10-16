@@ -199,7 +199,7 @@ typedef char RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0_
 void TShopEquipmentGearSequence::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
+    temp_r0 = this->m_20;
     switch (temp_r0) {
     case 0:
         restore_player_state__13TShopSequenceFv((void *) (arg0));

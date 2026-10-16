@@ -63,6 +63,6 @@ void load_indirect_info(void) {
 
 void TEffIndirectCtrl__sub_802A9548(void* p) { *(s16*)((char*)p + 0x46) = 0; }
 u8 TEffIndirectCtrl__sub_802A9554(void* p) { return *(u8*)((char*)p + 0x25); }
-void TEffIndirectCtrl::sub_802A955C() { *(s16*)((char*)this + 0x46) = 1; }
+void TEffIndirectCtrl::sub_802A955C() { *(s16 *)&this->m_46 = 1; }
 
 }

@@ -55,7 +55,7 @@ f32 TObjEneDD::calc_elapsed_scaled() {
 }
 
 u8 TObjEneDD::vfunc_99() {
-    return (u8) (((*(s32 *)((s8 *)this + 0x30) & 0x10) - 0x10) == 0);
+    return (u8) (((*(s32 *)&this->actorFlags & 0x10) - 0x10) == 0);
 }
 
 void TObjEneDD::vfunc_98() {
@@ -77,7 +77,7 @@ void TObjEneDD::vfunc_97() {
 void TObjEneDD::vfunc_96() {
     ((VObj_800BA0D8_800B9FE8*)this)->m90();
     ((VObj_800BA0D8_800B9FE8*)this)->m91();
-    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFBFBFFFF);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
 }
 
 }

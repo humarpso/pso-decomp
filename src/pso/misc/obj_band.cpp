@@ -192,8 +192,8 @@ f32 sample_attack_root_motion(Actor_80142950 *a, f32 *x, f32 *z) {
 s32 TObjPlayer::is_anim_finished() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)this + 0xB0);
-    if ((!(temp_r4 & 4) || (temp_r4 & 1)) && ((s16) *(s16 *)((s8 *)this + 0xB8) == (s16) *(s16 *)((s8 *)this + 0xBA))) {
+    temp_r4 = *(s32 *)&this->unk_B0;
+    if ((!(temp_r4 & 4) || (temp_r4 & 1)) && ((s16) *(s16 *)&this->unk_B8 == (s16) *(s16 *)&this->m_ba)) {
         return 1;
     }
     return 0;
@@ -264,33 +264,33 @@ void TObjPlayer::clear_next_entry(s32 arg0, u8 *arg1) {
 }
 
 s32 TObjPlayer::draw_model_with_callback(s32 arg1, s32 arg2, f32 farg0) {
-    if ((arg1 == 0) || ((u32) *(u32 *)((s8 *)this + 0x34) == 0U)) {
+    if ((arg1 == 0) || ((u32) *(u32 *)&this->_pad34 == 0U)) {
         return 0;
     }
     TObjPlayer::set_global_flag();
     player_joint_matrix_write_ptr = arg2;
     TObjEneRe7Berura::set_global_state((s32)((s32 *)save_joint_matrix_callback));
-    render_model_tree__12TBoss8DragonFPv(*(u32 *)((s8 *)this + 0x34), arg1, farg0);
+    render_model_tree__12TBoss8DragonFPv(*(u32 *)&this->_pad34, arg1, farg0);
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjPlayer::clear_global_state();
     return 1;
 }
 
 s32 TObjEnemy::render_anim_model(f32 farg0) {
-    if (((u32) *(u32 *)((s8 *)this + 0xF8) == 0U) || ((u32) *(u32 *)((s8 *)this + 0x34) == 0U)) {
+    if (((u32) this->unknownF8 == 0U) || ((u32) *(u32 *)&this->model == 0U)) {
         return 0;
     }
     TObjPlayer::set_global_flag();
     player_joint_matrix_write_ptr = anim_model_matrix_array;
     TObjEneRe7Berura::set_global_state((s32)((s32 *)save_joint_matrix_callback));
-    ((s32 (*)(u32, u32, f32))render_model_tree__12TBoss8DragonFPv)(*(u32 *)((s8 *)this + 0x34), *(u32 *)((s8 *)this + 0xF8), farg0);
+    ((s32 (*)(u32, u32, f32))render_model_tree__12TBoss8DragonFPv)(*(u32 *)&this->model, this->unknownF8, farg0);
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjPlayer::clear_global_state();
     return 1;
 }
 
 f32 TObjEneDD_ST::get_speed_or_default() {
-    if (*(s32 *)((s8 *)this + 0xB0) & 4) {
+    if (*(s32 *)&this->animationFlags & 4) {
         return (*(f32 *)&lbl_805DB168);
     }
     return get_speed__13TUnk_804806E8Fv();
@@ -329,15 +329,15 @@ void TObjPlayer::draw_model_with_callback() {
     s32 temp_r3;
     u32 temp_r0;
 
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0xE0);
+    temp_r0 = *(u32 *)&this->m_e0;
     if (temp_r0 != 0U) {
         (*(u32 *)&player_joint_matrix_write_ptr) = temp_r0;
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(save_joint_matrix_callback)));
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0xB0);
+        temp_r3 = *(s32 *)&this->unk_B0;
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-            draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
+            draw_model_blend_motion(*(s32 *)&this->_pad34, arg0 + 0xE4, *(f32 *)&this->m_c0);
         } else {
-            draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+            draw_model_motion(*(s32 *)&this->_pad34, *(s32 *)&this->unk_F8, *(f32 *)&this->m_c0);
         }
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(NULL)));
         TObjPlayer::reset_transform_state();
@@ -347,11 +347,11 @@ void TObjPlayer::draw_model_with_callback() {
 void TObjPlayer::render_world_model() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::set_global_flag();
-    if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
-        draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
+    if (*(s32 *)&this->unk_B0 & 4) {
+        draw_model_blend_motion(*(s32 *)&this->_pad34, arg0 + 0xE4, *(f32 *)&this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(chunk_model_node_callback)));
-        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+        draw_model_motion(*(s32 *)&this->_pad34, *(s32 *)&this->unk_F8, *(f32 *)&this->m_c0);
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(0)));
     }
     TObjPlayer::reset_transform_state();
@@ -362,15 +362,15 @@ void TObjEneRe7Berura::draw() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
-    if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
-        draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
+    if (*(s32 *)&this->animationFlags & 4) {
+        draw_model_blend_motion(*(s32 *)&this->model, arg0 + 0xE4, this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state((s32)chunk_model_node_callback);
-        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+        draw_model_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         TObjEneRe7Berura::set_global_state((s32)0);
     }
     TObjPlayer::reset_transform_state();
-    restore_actor_draw_lighting(*(s32 *)((s8 *)arg0 + 0));
+    restore_actor_draw_lighting(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }
 
@@ -378,15 +378,15 @@ void TObjNpcEnemy::draw_model() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
-    if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
-        draw_ginja_model_tree__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
+    if (*(s32 *)&this->animationFlags & 4) {
+        draw_ginja_model_tree__10TObjPlayerFPv(*(s32 *)&this->model, arg0 + 0xE4, this->m_c0);
     } else {
         set_model_node_callback(model_node_callback);
-        draw_ginja_model__10TObjPlayerFl(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+        draw_ginja_model__10TObjPlayerFl(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         set_model_node_callback(0);
     }
     TObjPlayer::reset_transform_state();
-    restore_actor_draw_lighting(*(s32 *)((s8 *)arg0 + 0));
+    restore_actor_draw_lighting(*(s32 *)&this->m_name);
     TObjPlayer::clear_global_state();
 }
 

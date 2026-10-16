@@ -16,10 +16,10 @@ s32 restore_render_scissor(int);
 s32 TObjEneRecobox::render_trap_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
         if (((TObjEneRecon *)(((u8 *)this) + 0x3E4))->push_reflect_matrix() != 0) {
-            TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
+            TObjFish::set_global_param((int) (this->texture_id));
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+            rotate_matrix_y((int) (0), (int) (this->rotation_y));
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
             restore_render_scissor((int) (1));

@@ -377,7 +377,7 @@ void TUnk_804C3248::update_photon_blast_attachments() {
     }
 }
 
-void TUnk_804C3248::free_photon() { void* m = *(void**)((char*)this + 0x148); if (m) mem_free(m); }
+void TUnk_804C3248::free_photon() { void* m = *(void* *)&this->m_148; if (m) mem_free(m); }
 
 int update_all_default__8TFogCtrlFv(void) { return update_all__8TFogCtrlFl((void*)(0)); }
 void apply_all_default__8TFogCtrlFv(void) { TFogCtrl::apply_all((s32)((void*)63), (s32)((void*)0)); }

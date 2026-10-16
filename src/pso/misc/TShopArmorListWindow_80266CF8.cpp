@@ -37,9 +37,9 @@ void TShopArmorListWindow::save_cursor_selection() {
 }
 void TShopArmorListWindow::reset_list() {
     u32 i;
-    *(s16 *)((s8 *)((u8 *)this) + 0x72) = 0;
-    *(s16 *)((s8 *)((u8 *)this) + 0x74) = 0;
-    for (i = 0; i < (u32)*(s16 *)((s8 *)((u8 *)this) + 0x76); i++) {
+    this->m_72 = 0;
+    this->m_74 = 0;
+    for (i = 0; i < (u32)*(s16 *)&this->unk_76; i++) {
         reset__20TWindowSubStatusDispFPv(get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i));
     }
 }

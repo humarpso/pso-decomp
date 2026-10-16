@@ -14,7 +14,7 @@ void TWindowSubSymbolChat::set_flag60_bit2() {
 }
 
 s32 TWindowSubSymbolChatParts::sub_80283974() {
-    return *(u8 *)((s8 *)this + 0x70) & 1;
+    return this->m_70 & 1;
 }
 
 s32 TWindowSubSymbolChat__sub_80283980(void *arg0) {
@@ -22,7 +22,7 @@ s32 TWindowSubSymbolChat__sub_80283980(void *arg0) {
 }
 
 s32 TWindowSubSymbolChatFaceType::is_open() {
-    return *(u8 *)((s8 *)this + 0x60) & 1;
+    return this->m_60 & 1;
 }
 
 s32 TWindowSubSymbolChat__sub_80283998(void *arg0) {

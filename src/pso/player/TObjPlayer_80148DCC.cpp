@@ -133,16 +133,16 @@ s32 get_player_by_client_id(u32);
 void TObjNpcBase::vfunc_28() {
     f32 *temp_r5;
 
-    if ((s16) *(s16 *)((s8 *)this + 0x326) != 3) {
+    if ((s16) this->mode != 3) {
         if (this->vfunc_19(30) != 0) {
-            temp_r5 = *(f32 **)((s8 *)this + 0x350);
-            *(u16 *)((s8 *)this + 0x338) = find_nearest_visible_player(this, 0, temp_r5, *temp_r5);
+            temp_r5 = *(f32 * *)&this->movementParameters;
+            this->targetId = find_nearest_visible_player(this, 0, temp_r5, *temp_r5);
             {
-                u32 tmp338 = (u32) *(u16 *)((s8 *)this + 0x338);
+                u32 tmp338 = (u32) this->targetId;
                 if (tmp338 != 0xFFFF) {
-                    *(s32 *)((s8 *)this + 0x2A8) = get_player_by_client_id(tmp338);
+                    *(s32 *)&this->target = get_player_by_client_id(tmp338);
                 } else {
-                    *(s32 *)((s8 *)this + 0x2A8) = 0;
+                    *(s32 *)&this->target = 0;
                 }
             }
         }
@@ -154,16 +154,16 @@ extern s32 model_render_flags;
 void TObjPlayer::draw_model() {
     u8 *arg0 = (u8 *)this;
     VObj1_80148e54 *self = (VObj1_80148e54 *)arg0;
-    if ((self->m8(*(f32 *)((s8 *)arg0 + 0x398), *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x390) == 1)) {
+    if ((self->m8(*(f32 *)&this->unk_398, *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)&this->unk_390 == 1)) {
         select_actor_lighting(arg0);
         model_render_flags |= 1;
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(*(s32 *)&this->unk_24);
         push_matrix_from(0);
         translate_matrix_vec3(0, arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->m_60);
         TObjPlayer::set_global_flag();
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x394) != 0) {
-            draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
+        if ((s32) this->m_394 != 0) {
+            draw_chunk_object(*(s32 *)&this->_pad34);
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }

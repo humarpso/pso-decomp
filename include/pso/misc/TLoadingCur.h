@@ -16,7 +16,9 @@ struct TLoadingCur : public TObject {
     void render();
     void run_task();
     u8 is_flag_set();
-    u8 unk_38[0x24];
+    u8 unk_38[0x1C];
+    f32 m_54;
+    u8 unk_58[0x4];
 };
 
 typedef char TLoadingCur_size[sizeof(TLoadingCur) == 0x5C ? 1 : -1];

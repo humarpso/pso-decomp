@@ -145,14 +145,14 @@ void TObjContainerJungEx::vfunc_81() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
         TObjContainerJungEx__sub_8018D900(0);
         set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         get_model__19TObjContainerJungExFl(0);
         draw_ginja_object();
@@ -169,10 +169,10 @@ void TObjContainerJungEx::vfunc_81() {
 void TObjContainerJungEx::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+        if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);
         }
     case 1:

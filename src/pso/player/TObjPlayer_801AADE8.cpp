@@ -91,7 +91,7 @@ void TPhotonFarlla::update_all_slots() {
         var_r31 = 0;
         do {
             if (TObjPlayer::get_battle_param(var_r31) != 0U) {
-                queue_photon_blast_hit((u16) obj_getField1c(), 0, 0, *(f32 *)((s8 *)this + 0x150));
+                queue_photon_blast_hit((u16) obj_getField1c(), 0, 0, this->m_150);
             }
             var_r31 += 1;
         } while (var_r31 < 0x10);

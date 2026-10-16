@@ -140,9 +140,9 @@ void TObjEneRecon::handle_action_state(s32 arg1) {
 
     switch (arg1) {
     case 4:
-        temp_r4 = *(s32 *)((s8 *)this + 0x40C) & 0xFFFFFFFE;
-        *(s32 *)((s8 *)this + 0x40C) = temp_r4;
-        *(s16 *)((s8 *)this + 0xB8) = 2;
+        temp_r4 = *(s32 *)&this->m_428 & 0xFFFFFFFE;
+        *(s32 *)&this->m_428 = temp_r4;
+        this->m_b8 = 2;
         ((VObj_8031F4A8 *)this)->m94();
         set_field_378(2);
         return;
@@ -162,14 +162,14 @@ void TObjEneRecon::handle_action_state(s32 arg1) {
 void TObjEneRecon::update_state(s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s32 *)((s8 *)this + 0x40C) = *(s32 *)((s8 *)this + 0x40C) & 0xFFFFFFFE;
-        *(s16 *)((s8 *)this + 0xB8) = 1;
+        *(s32 *)&this->m_428 = *(s32 *)&this->m_428 & 0xFFFFFFFE;
+        this->m_b8 = 1;
         ((VObj_8031F550 *)this)->m94();
         set_field_378(3);
         return;
     case 3:
         if (get_flag_b4__9TObjEneDDFv() != 0) {
-            *(s32 *)((s8 *)this + 0x4D8) = 0;
+            this->m_4d8 = 0;
             *(s32 *)((s8 *)this + 0x4DC) = 0x1E;
             transition_enemy_state(this, 4);
         }

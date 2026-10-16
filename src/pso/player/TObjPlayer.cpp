@@ -165,16 +165,16 @@ void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjPlayer::set_position(f32 a, f32 b, f32 c) { *(f32 *)&this->m_38 = a; *(f32*)((char*)this + 0x3c) = b; this->m_40 = c; }
+void TObjPlayer::set_position(f32 a, f32 b, f32 c) { *(f32 *)&this->m_38 = a; *(f32 *)&this->unk_3C = b; this->m_40 = c; }
 
 void TObjPlayer::set_meseta(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x20) = arg1;
 }
 
-void TObjPlayer::sub_801BEE24(s16 v) { *(s16*)((char*)this + 0x2be) = v; }
+void TObjPlayer::sub_801BEE24(s16 v) { *(s16 *)&this->unk_2BE = v; }
 
-void TObjPlayer::sub_801BEE2C(s16 v) { *(s16*)((char*)this + 0x2bc) = v; }
+void TObjPlayer::sub_801BEE2C(s16 v) { this->m_2bc = v; }
 
 void TObjPlayer::bswap_status_effect_data() {
     bswap_32__FPUl(this);

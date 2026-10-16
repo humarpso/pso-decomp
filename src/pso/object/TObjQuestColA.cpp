@@ -15,7 +15,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-int TObjQuestColA::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void**)((char*)this + 0xb0)); }
+int TObjQuestColA::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void* *)&this->m_b0); }
 
 extern s8 controller_input_state[];
 extern s32 local_client_id;
@@ -34,7 +34,7 @@ int TObjQuestColA::vfunc_15() {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
-        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)((s8 *)this + 0xAC));
+        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)&this->unk_AC);
         if (temp_r3_2 == 1) {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();
         }

@@ -19,7 +19,10 @@ public:
     virtual void run_task();
     u8 unk_70[0x8];
     s16 m_78;
-    u8 unk_7A[0xE];
+    u8 unk_7A[0x2];
+    f32 m_7c;
+    u8 unk_80[0x4];
+    f32 m_84;
     f32 m_88;
     u8 unk_8C[0x4];
     f32 m_90;

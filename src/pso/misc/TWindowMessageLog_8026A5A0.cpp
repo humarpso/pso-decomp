@@ -11,12 +11,12 @@ void TWindowMessageLog::update_scroll_animation() {
     f32 temp_f1;
     f32 temp_f1_2;
 
-    temp_f1 = *(f32 *)((s8 *)this + 0x94);
+    temp_f1 = this->m_94;
     if (lbl_805DD240 != temp_f1) {
-        *(f32 *)((s8 *)this + 0x84) = (f32) (*(f32 *)((s8 *)this + 0x84) + temp_f1);
-        temp_f1_2 = *(f32 *)((s8 *)this + 0x6C);
-        *(f32 *)((s8 *)this + 0x6C) = (f32) (temp_f1_2 + *(f32 *)((s8 *)this + 0x94));
-        *(f32 *)((s8 *)this + 0x94) = (f32) (*(f32 *)((s8 *)this + 0x94) * lbl_805DD240);
+        this->m_84 = (f32) (this->m_84 + temp_f1);
+        temp_f1_2 = this->m_6c;
+        this->m_6c = (f32) (temp_f1_2 + this->m_94);
+        this->m_94 = (f32) (this->m_94 * lbl_805DD240);
         clamp_scroll_offset__17TWindowMessageLogFv(temp_f1_2);
     }
 }

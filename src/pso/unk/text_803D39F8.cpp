@@ -55,7 +55,7 @@ s32 TLobby::get_handle_field_checked() {
         }
         return 0;
     }
-    return *(s32 *)((s8 *)arg0 + 0x14);
+    return *(s32 *)&this->m_down;
 }
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
 
@@ -83,7 +83,7 @@ s32 TLobby::get_field4_or_report() {
         }
         return 0;
     }
-    return *(s32 *)((s8 *)arg0 + 0x4);
+    return *(s32 *)&this->m_flags;
 }
 s32 TLobby::get_handle_value_checked_b() {
     S_803D3B2C *arg0 = (S_803D3B2C *)this;

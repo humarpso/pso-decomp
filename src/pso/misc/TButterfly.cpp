@@ -50,7 +50,7 @@ void TButterfly::init_motion() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0x38);
     *(f32 *)&this->m_9c = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0xA0) = (f32) (0.0f);
+    *(f32 *)&this->unk_A0 = (f32) (0.0f);
     this->m_a4 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xA8) = (f32) ((0.5f) * ((3.0517578e-05f) * (f32) rand()));
     this->m_b0 = (f32) (0.0f);

@@ -208,7 +208,7 @@ s32 TLobby::adxf_get_fsize_byte() {
         TLobby::notify_error((const char *)(&lbl_8047C910.value));
         return -3;
     }
-    return *(s32 *)((s8 *)arg0 + 0x10);
+    return *(s32 *)&this->m_up;
 }
 typedef char RecoveredGlobal_803CC53C_lbl_8047C93C_size[sizeof(RecoveredGlobal_803CC53C_lbl_8047C93C) == 0x74 ? 1 : -1];
 s32 TLobby__sub_803CC53C(u8 *arg0) {

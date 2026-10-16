@@ -30,14 +30,14 @@ extern s32 __vt__20TWindowMessageScroll[];
 void TWindowMessageScroll::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x6C);
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x94));
+    temp_f1 = this->m_6c;
+    this->m_6c = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x94));
     retire_scrolled_lines__14TWindowMessageFv((f32) (temp_f1));
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
-    if ((((TUnk_804CE018 *)arg0)->sub_80244994() != 0) && (*(f32 *)((s8 *)arg0 + 0x80) <= *(f32 *)((s8 *)arg0 + 0x6C))) {
-        **(s32 **)((s8 *)arg0 + 0x98) = 1;
+    if ((((TUnk_804CE018 *)arg0)->sub_80244994() != 0) && (*(f32 *)&this->unk_80 <= this->m_6c)) {
+        *this->m_98 = 1;
     }
 }
 

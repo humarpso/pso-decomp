@@ -10,7 +10,9 @@ public:
     void *destroy(s16);
     virtual void render();
     virtual void run_task();
-    u8 unk_AC[0x34];
+    u8 unk_AC[0x28];
+    void * m_d4;
+    u8 unk_D8[0x8];
 };
 typedef char TUnk_80484A94_size[sizeof(TUnk_80484A94) == 0xE0 ? 1 : -1];
 

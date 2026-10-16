@@ -233,9 +233,9 @@ void TOMineTrap::set_triggered() {
 
 void TOMineTrap::vfunc_86() {
     u8 *arg0 = (u8 *)this;
-    *(s16 *)((s8 *)arg0 + 0x326) = 2;
+    this->mode = 2;
     set_indexed_flags(arg0, 0, 1);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
 }
 
 void TOMineTrap::destroy_matching_traps() {
@@ -366,7 +366,7 @@ void TOMine::vfunc_85() {  }
 int TOMine::vfunc_12() { get_localized_text_entry((void*)16, (void*)16); }
 void TOMine::update_state() {
     s32 temp_r0;
-    *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)((s8 *)this + 0x70);
+    *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)&this->m_70;
     temp_r0 = *(s32 *)((s8 *)this + 0x348);
     if (temp_r0 < 0) {
         *(s32 *)&this->m_344 = 0;
@@ -424,9 +424,9 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
         return;
     }
     if (temp_r0 == 3) {
-        *(s16 *)((s8 *)((u8 *)this) + 0x326) = temp_r0;
+        this->mode = temp_r0;
         set_indexed_flags((void *)((void *) (((u8 *)this))), (s32)((int) (0)), (s32)((int) (1)));
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFBFFFF);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
         ((TObjPlayer *)((u8 *)this))->calc_attach_pos();
         refresh_collision_body_centers();
         ((TOMine *)(((u8 *)this)))->vfunc_81();
@@ -511,9 +511,9 @@ void TOMine::update_trigger() {
 }
 void TOMine::vfunc_86() {
     u8 *arg0 = (u8 *)this;
-    *(s16 *)((s8 *)arg0 + 0x326) = 2;
+    this->mode = 2;
     set_indexed_flags(arg0, 0, 1);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
     ((TObjPlayer *)arg0)->calc_attach_pos();
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TOMine *)(arg0))->vfunc_81();

@@ -30,7 +30,7 @@ extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC::check_cancel_input() {
     if ((((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
         TAdPlayerLoadGC::set_state(1);
-        *(s32 *)((s8 *)this + 0x58) = 0;
+        *(s32 *)&this->unk_58 = 0;
         *(s32 *)&this->m_20 = 0x1D;
     }
 }
@@ -74,8 +74,8 @@ void TAdMultiPlyChrSelectGC::handle_input() {
         this->m_94 = 0U;
     }
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) {
-        if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() < 0xE) {
-            *(s32 *)((s8 *)this + 0x58) = 0;
+        if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->unk_68))->get_player_index() < 0xE) {
+            *(s32 *)&this->unk_58 = 0;
         }
         *(s32 *)&this->m_20 = 0x1D;
         return;

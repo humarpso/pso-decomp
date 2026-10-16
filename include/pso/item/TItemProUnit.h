@@ -12,7 +12,9 @@ struct TItemProUnit : public TItemEquipBase {
     void vfunc_48();
     void vfunc_45();
     void vfunc_44();
-    u8 unk_18C[0x16];
+    u8 unk_18C[0x2];
+    s16 m_18e;
+    u8 unk_190[0x12];
     s16 m_1bc;
     s16 m_1be;
     static u8 *create(u8 *arg0);

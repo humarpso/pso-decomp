@@ -23,7 +23,7 @@ void TWindowSubQuestBoardSelect::sub_8027D230() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     u8 *temp_r3;
-    temp_r31 = (u8 *)&quest_board_handlers.value + ((s8) *(u8 *)((s8 *)arg0 + 0x61) * 0x24);
+    temp_r31 = (u8 *)&quest_board_handlers.value + ((s8) this->m_61 * 0x24);
     temp_r3 = (u8 *)(((TUnk_804CE018 *)arg0)->get_array_entry(1));
     set_text_entry_string(temp_r3, (u32) temp_r31, 0);
     measure_message_text_width(temp_r3, lbl_805DD690);

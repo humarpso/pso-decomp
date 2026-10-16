@@ -31,7 +31,7 @@ void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1);
 #define P1_805D49E0 (*(Plr_8001A4CC **)&lbl_805D49E0)
 extern "C" {
 
-s32 TItemMag::get_type() { return *(s32*)((char*)this + 0x4); }
+s32 TItemMag::get_type() { return *(s32 *)&this->m_4; }
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
     d->f0 = s->f0;
     d->a = s->a;

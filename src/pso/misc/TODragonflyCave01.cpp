@@ -285,9 +285,9 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
         *(s32 *)&this->m_ac = 1;
         *(s32 *)&this->m_cc = 0;
         this->rotation_y = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0), (f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8)));
-        this->m_e0 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) * *(f32 *)((s8 *)arg0 + 0x70));
-        *(f32 *)((s8 *)arg0 + 0xE4) = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 4) * *(f32 *)((s8 *)arg0 + 0x70));
-        this->m_e8 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) * *(f32 *)((s8 *)arg0 + 0x70));
+        this->m_e0 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) * *(f32 *)&this->m_70);
+        *(f32 *)&this->unk_E4 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 4) * *(f32 *)&this->m_70);
+        this->m_e8 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) * *(f32 *)&this->m_70);
         return 1;
     }
     return 0;
@@ -308,17 +308,17 @@ void TODragonfly::move_toward_target() {
 void TODragonfly::sub_80164990() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
-    temp_r5 = *(s32 *)((s8 *)arg0 + 0xCC);
-    *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (temp_r5 + 1);
+    temp_r5 = *(s32 *)&this->m_cc;
+    *(s32 *)&this->m_cc = (s32) (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
         if (is_any_player_within_radius_xz((s32) arg0, lbl_805DB588) == 1) {
-            if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + *(f32 *)((s8 *)arg0 + 0x6C)) == 1) {
-                *(s32 *)((s8 *)arg0 + 0xAC) = 3;
-                *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+            if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->target_scale) == 1) {
+                *(s32 *)&this->m_ac = 3;
+                *(s32 *)&this->m_cc = 0;
             }
-        } else if (((TODragonfly *)arg0)->pick_random_destination(*(f32 *)((s8 *)arg0 + 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
-            *(s32 *)((s8 *)arg0 + 0xAC) = 1;
-            *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+        } else if (((TODragonfly *)arg0)->pick_random_destination(this->target_scale * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand())) - lbl_805DB560)) == 1) {
+            *(s32 *)&this->m_ac = 1;
+            *(s32 *)&this->m_cc = 0;
         }
     }
 }

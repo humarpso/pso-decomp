@@ -29,7 +29,7 @@ void TBoss5Gryphon::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
 
-    f32 temp_f3 = farg2 + *(f32 *)((s8 *)arg0 + 0x37C);
+    f32 temp_f3 = farg2 + this->m_37c;
     if (((TBoss5Gryphon *)arg0)->enemy_probe_wall_ahead(farg0, farg1, temp_f3) == 0U) {
         *(f32 *)((s8 *)arg1 + 0) = (f32) ((farg0 * farg2) + *(f32 *)((s8 *)arg0 + 0x38));
         *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
@@ -62,7 +62,7 @@ u8 *TObjEneDD::vfunc_103(u8 *arg1) {
     Vec position;
     u8 *temp_r3;
     position.x = *(f32 *)((s8 *)arg1 + 0);
-    position.y = *(f32 *)((s8 *)arg1 + 4) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
+    position.y = *(f32 *)((s8 *)arg1 + 4) + *(f32 *)((s8 *)(this->m_2b0) + 0x10);
     position.z = *(f32 *)((s8 *)arg1 + 8);
     if (csnVectorUnder(&position.x, arg0 + 0x120, 0xE0) != NULL) {
         return NULL;

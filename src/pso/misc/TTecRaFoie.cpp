@@ -165,7 +165,7 @@ void TTecRaFoie::vfunc_9() {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x7A);
+    temp_r0 = *(s16 *)&this->unk_7A;
     switch (temp_r0) {
     case 0:
         temp_r3 = play_sound_effect(0x4002A602, (int) (arg0 + 0x7C), 0, 0);
@@ -442,9 +442,9 @@ void TUnk_804CCB28::run_task() {
     Stack_80238388 stack;
     f32 temp_f1;
     this->m_58 = (s32) (this->m_58 + 1);
-    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x5C) >= 0x10) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
+    *(s32 *)&this->unk_5C = (s32) (*(s32 *)&this->unk_5C + 1);
+    if ((s32) *(s32 *)&this->unk_5C >= 0x10) {
+        *(s32 *)&this->unk_5C = 0;
     }
     if ((s32) this->m_58 > 0x6E) {
         queue_destruction__7TObjectFv((void *) (arg0));

@@ -24,7 +24,7 @@ void TObjPlayer::build_shop_item_list() {
     s32 temp_r3_2;
     u32 i;
 
-    temp_r3 = get_player_by_client_id(*(s16 *)((s8 *)((u8 *)this) + 0x20));
+    temp_r3 = get_player_by_client_id(*(s16 *)&this->m_20);
     if (temp_r3 != NULL) {
         temp_r30 = ((TObjPlayer *)(*(s32 *)((s8 *)temp_r3 + 0xD00)))->run_and_get_result((int)spC);
         for (i = 0; i < temp_r30; i++) {

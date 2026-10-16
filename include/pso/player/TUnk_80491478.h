@@ -7,7 +7,9 @@ class TUnk_80491478 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_80491478();
     void *destroy_with_particle_cleanup(s16);
-    u8 unk_AC[0x50];
+    u8 unk_AC[0x24];
+    s32 m_d0;
+    u8 unk_D4[0x28];
 };
 typedef char TUnk_80491478_size[sizeof(TUnk_80491478) == 0xFC ? 1 : -1];
 

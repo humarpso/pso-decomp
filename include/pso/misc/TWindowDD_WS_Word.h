@@ -9,7 +9,9 @@ public:
     void *destroy(s16);
     u8 sub_80342268();
     u8 sub_80342254();
-    u8 unk_1C[0x74];
+    u8 unk_1C[0x64];
+    void * m_80;
+    u8 unk_84[0xC];
 };
 typedef char TWindowDD_WS_Word_size[sizeof(TWindowDD_WS_Word) == 0x90 ? 1 : -1];
 

@@ -227,18 +227,18 @@ void TObjNpcEnemy::reset_all_anim_fields() {
 }
 
 s32 TObjNpcEnemy::sub_802D7444() {
-    return (**(s16 **)((s8 *)this + 0x3B8) != 0x3F) ? 1 : 0;
+    return (**(s16 * *)&this->m_3b8 != 0x3F) ? 1 : 0;
 }
 
 void TObjNpcEnemy::vfunc_88() {
     void *temp_r4;
 
-    temp_r4 = *(void **)((s8 *)this + 0x3B8);
-    if ((s16) *(s16 *)((s8 *)this + 0x326) != 2) {
-        *(s16 *)((s8 *)this + 0xB8) = (s16) *(s16 *)((s8 *)temp_r4 + 0x1C);
+    temp_r4 = *(void * *)&this->m_3b8;
+    if ((s16) this->mode != 2) {
+        this->m_b8 = (s16) *(s16 *)((s8 *)temp_r4 + 0x1C);
         return;
     }
-    *(s16 *)((s8 *)this + 0xB8) = (s16) *(s16 *)((s8 *)temp_r4 + 0x1E);
+    this->m_b8 = (s16) *(s16 *)((s8 *)temp_r4 + 0x1E);
 }
 
 extern const f32 lbl_805DE7D8;
@@ -283,11 +283,11 @@ void TObjNpcEnemy::draw_debug_info() {
     debug_printf_at(0x130018, lbl_80472600);
     debug_printf_at(0x13001A, lbl_80472610);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
-    p = TObjNpcEnemy::get_entry_by_index((s16) *(s32 *)((s8 *)arg0 + 0x5C));
-    if (p != *(s16 **)((s8 *)arg0 + 0x3B8)) {
+    p = TObjNpcEnemy::get_entry_by_index((s16) *(s32 *)&this->m_5c);
+    if (p != *(s16 * *)&this->m_3b8) {
         ((TObjNpcEnemy *)arg0)->set_npc_data(p);
     }
-    p = *(s16 **)((s8 *)arg0 + 0x3B8);
+    p = *(s16 * *)&this->m_3b8;
     if (p == NULL) {
         TObjNpcEnemy::set_global_count(0xFF0000FF);
         debug_printf_at(0x240018, lbl_80472620);
@@ -301,13 +301,13 @@ void TObjNpcEnemy::draw_debug_info() {
         break;
     case 1:
     case 3:
-        if (p[0x10] <= *(s32 *)((s8 *)arg0 + 0x64) || *(s32 *)((s8 *)arg0 + 0x64) < 0) {
+        if (p[0x10] <= this->rotation_z || this->rotation_z < 0) {
             TObjNpcEnemy::set_global_count(0xFF0000FF);
             debug_printf_at(0x24001A, lbl_80472620);
             TObjNpcEnemy::set_global_count(0xF0F0F0FF);
-            *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+            this->m_b8 = 0;
         } else {
-            *(s16 *)((s8 *)arg0 + 0xB8) = *(s32 *)((s8 *)arg0 + 0x64);
+            this->m_b8 = this->rotation_z;
         }
         advance_animation_playback(arg0);
         break;

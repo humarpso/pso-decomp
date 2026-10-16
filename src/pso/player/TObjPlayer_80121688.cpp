@@ -28,7 +28,7 @@ void TUnk_804A0AA8::render() {
 }
 
 void TUnk_804A0AA8::hook() {
-    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) + 0x3333);
+    this->m_30 = (s32) (this->m_30 + 0x3333);
 }
 
 extern s32 lbl_804A0AA8[];
@@ -36,7 +36,7 @@ extern s32 lbl_804A0AA8[];
 void *TUnk_804A0AA8::init_item_shoot_model() {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0AA8;
-    (*(u32 *)((u8 *)this + 0x30)) = 0;
+    (*(u32 *)&this->m_30) = 0;
     return this;
 }
 

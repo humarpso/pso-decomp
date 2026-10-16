@@ -12,7 +12,8 @@ struct TObjCityAreaWarp : public TObjAreaWarp {
     void do_warp();
     void run_task();
     static void *create(void *arg0);
-    u8 unk_AC[0x1C];
+    u8 unk_AC[0x18];
+    f32 m_c4;
 };
 
 typedef char TObjCityAreaWarp_size[sizeof(TObjCityAreaWarp) == 0xC8 ? 1 : -1];

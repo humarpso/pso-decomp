@@ -159,10 +159,10 @@ void TObjEneMe1GiGueMissile::run_task() {
         queue_destruction__7TObjectFv((void*)((void *) (arg0)));
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (*(f32 *)((s8 *)arg0 + 0xBC) + lbl_805DE6DC);
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0xBC);
+    *(f32 *)&this->unk_BC = (f32) (*(f32 *)&this->unk_BC + lbl_805DE6DC);
+    temp_f1 = *(f32 *)&this->unk_BC;
     if (temp_f1 >= lbl_805DE6E0) {
-        *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (temp_f1 - lbl_805DE6E0);
+        *(f32 *)&this->unk_BC = (f32) (temp_f1 - lbl_805DE6E0);
     }
     ((TNeedleShoot *)arg0)->update_position();
     ((TObjEneMe1GiGueMissile *)arg0)->update_lifetime();

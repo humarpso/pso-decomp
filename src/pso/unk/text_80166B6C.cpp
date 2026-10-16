@@ -174,34 +174,34 @@ u8 *TOFenceAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 s32 TUnk_804B1B80::sub_80166E64() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0xCC) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xCC);
+    *(s32 *)&this->m_cc = (s32) this->m_84;
+    temp_r0 = *(s32 *)&this->m_cc;
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+        *(s32 *)&this->unk_C8 = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 1;
+        *(s32 *)&this->unk_C8 = 1;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 2;
+        *(s32 *)&this->unk_C8 = 2;
     }
-    return *(s32 *)((s8 *)arg0 + 0xCC);
+    return *(s32 *)&this->m_cc;
 }
 
 s32 TUnk_804B1B80::sub_80166EA8(int _w1) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0xD4) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD4);
+    *(s32 *)&this->m_d4 = (s32) *(s32 *)&this->m_88;
+    temp_r0 = *(s32 *)&this->m_d4;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xD4) = 0;
+        *(s32 *)&this->m_d4 = 0;
     } else if (temp_r0 >= 4) {
-        *(s32 *)((s8 *)arg0 + 0xD4) = 3;
+        *(s32 *)&this->m_d4 = 3;
     }
-    return *(s32 *)((s8 *)arg0 + 0xD4);
+    return *(s32 *)&this->m_d4;
 }
 
 void TOFenceAncient02::vfunc_16() {  }
-void TOFenceAncient02::vfunc_15() { *(int*)((char*)this + 0xac) = 0; *(int*)((char*)this + 0xd0) = 0; ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
-void TOFenceAncient02::vfunc_14() { *(int*)((char*)this + 0xac) = 1; *(int*)((char*)this + 0xd0) = 1; set_indexed_flags(this, (void*)0, (void*)8); }
+void TOFenceAncient02::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
+void TOFenceAncient02::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; set_indexed_flags(this, (void*)0, (void*)8); }
 
 }
 

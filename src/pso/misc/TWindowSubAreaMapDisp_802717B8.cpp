@@ -23,7 +23,7 @@ void TWindowSubAreaMapDisp::update_visibility() {
         TWindowCtrl::set_flag_bit0();
         {
             f32 c = lbl_805DD480;
-            *(f32 *)((s8 *)this + 0x60) = c;
+            *(f32 *)&this->unk_60 = c;
             this->m_64 = c;
             *(f32 *)&this->unk_68 = c;
         }

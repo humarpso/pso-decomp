@@ -97,19 +97,19 @@ extern void *tl_05;
 void TOKeyMachine01::run_task() {
     u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg0))->m12();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
+    if ((s32) *(s32 *)&this->m_d4 != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
             ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (1));
             ((VObj_18 *)(arg0))->m16();
-            *(s32 *)((s8 *)arg0 + 0xD4) = 1;
+            *(s32 *)&this->m_d4 = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
             ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (0));
             ((VObj_18 *)(arg0))->m17();
-            *(s32 *)((s8 *)arg0 + 0xD4) = 0;
+            *(s32 *)&this->m_d4 = 0;
         }
     }
 }
@@ -120,15 +120,15 @@ void TOKeyMachine01::render() {
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
-    if (((VObj_8016D540 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
-        TObjFish::set_global_param(TOKeyMachine01__texture_lists[*(s32 *)((s8 *)arg0 + 0xD4)]);
+    if (((VObj_8016D540 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
+        TObjFish::set_global_param(TOKeyMachine01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        temp_r31 = *(u8 **)((s8 *)arg0 + 0x34);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
+        if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
             model_render_flags = temp_r4 | 0x10;
@@ -147,7 +147,7 @@ void TOKeyMachine01::render() {
         pop_matrix();
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
+        if ((s32) *(s32 *)&this->m_d4 != 1) {
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
         }

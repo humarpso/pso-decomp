@@ -108,7 +108,7 @@ typedef char RecoveredFields_8017CCA4_arg0_E8_offset[offsetof(RecoveredFields_80
 void TObjGoalWarpAncient::debug_print_area_num() {
     debug_print_area_num__12TObjAreaWarpFv();
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
+    if ((s32) *(s32 *)&this->m_8c < 0) {
         *(s32 *)((s8 *)this + 0xD8) = TObjGoalWarpAncient::get_instance();
         debug_printf_at(0x130022, lbl_80443288);
     } else {

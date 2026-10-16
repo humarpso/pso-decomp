@@ -206,7 +206,7 @@ void TObjCityDoor_Lobby::process_lobby_action_14() {
         TObjFish::set_global_param((*(s32 *)&city_common_texture_list));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         get_city_common_model(0xE);
         draw_ginja_object();
         pop_matrix();
@@ -739,7 +739,7 @@ void TObjCityDoor_Warp::city_door_play_open_sound() {
 void TObjCityDoor_Warp::city_door_tick_opening() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0xB4);
+    temp_f1 = this->m_b4;
     if ((temp_f1 >= lbl_805DBBF8) && (temp_f1 <= lbl_805DBBFC)) {
         update_technique_slot__10TTecRaFoieFl((s32)(play_sound_effect((s32)((int) (0x42A04)), (s32)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)))), (s32)((int) (-0x500)), (s32)((int) (0)));
     }
@@ -1225,7 +1225,7 @@ void city_door_play_close_sound(s32 arg0) {
 void TUnk_804B5BA8::check_ground_or_fall() {
     void *temp_r4;
 
-    temp_r4 = *(void **)((s8 *)this + 0xB8);
+    temp_r4 = *(void * *)&this->unk_B8;
     if (((VObj_80182A58_8018291C *)this)->m12(*(f32 *)((s8 *)temp_r4 + 8)) == 0) {
         *(s32 *)((s8 *)this + 0xAC) = 3;
         ((VObj_80182A58_8018291C *)this)->m17();
@@ -1265,11 +1265,11 @@ void TUnk_804B5BA8::begin_state_1() {
     void *temp_r4;
     VObj_80182C04_8018291C *obj = (VObj_80182C04_8018291C *)this;
 
-    temp_r4 = *(void **)((s8 *)this + 0xB8);
+    temp_r4 = *(void * *)&this->unk_B8;
     if (obj->m12(*(f32 *)((s8 *)temp_r4 + 4)) != 0) {
         *(s32 *)((s8 *)this + 0xAC) = 1;
         obj->m18();
-        temp_r3 = *(void **)((s8 *)this + 0xA4);
+        temp_r3 = this->m_a4;
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFFE);
     }
 }

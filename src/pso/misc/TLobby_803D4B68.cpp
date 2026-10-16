@@ -20,13 +20,13 @@ u32 TLobby::get_packet_size() {
     if (arg0 == NULL) {
         var_r0 = -1;
     } else {
-        var_r0 = *(u32 *)((s8 *)arg0 + 8) & 1;
+        var_r0 = *(u32 *)&this->m_prev & 1;
     }
     if (var_r0 == 1) {
         if (arg0 == NULL) {
             var_r0_2 = -1;
         } else {
-            var_r0_2 = ((u32) *(u32 *)((s8 *)arg0 + 8) >> 1U) & 1;
+            var_r0_2 = ((u32) *(u32 *)&this->m_prev >> 1U) & 1;
         }
         if ((var_r0_2 == 0) && (var_r3 > 0)) {
             var_r3 = 0x2000;
@@ -52,13 +52,13 @@ u32 TLobby::get_available_size() {
     if (arg0 == NULL) {
         var_r0 = -1;
     } else {
-        var_r0 = *(u32 *)((s8 *)arg0 + 8) & 1;
+        var_r0 = *(u32 *)&this->m_prev & 1;
     }
     if (var_r0 == 1) {
         if (arg0 == NULL) {
             var_r0_2 = -1;
         } else {
-            var_r0_2 = ((u32) *(u32 *)((s8 *)arg0 + 8) >> 1U) & 1;
+            var_r0_2 = ((u32) *(u32 *)&this->m_prev >> 1U) & 1;
         }
         if ((var_r0_2 == 0) && (var_r3 < 0x2000)) {
             var_r3 = 0;

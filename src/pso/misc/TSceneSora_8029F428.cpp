@@ -148,9 +148,9 @@ void *TUnk_804DC7C4::destroy(s16 arg1) {
         scene_sora_reflect_active = 0;
         scene_sora_recon_active_flag = 0;
         lbl_805D65F0 = 0;
-        if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x20));
-            *(u32 *)((s8 *)this + 0x20) = 0U;
+        if ((u32) this->m_20 != 0U) {
+            queue_destruction__7TObjectFv(*(void * *)&this->m_20);
+            this->m_20 = 0U;
         }
         TScene::set_id(0);
         TScene::set_active_scene(0);

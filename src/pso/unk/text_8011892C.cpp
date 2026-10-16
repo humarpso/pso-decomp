@@ -133,11 +133,11 @@ void TItemProUnit::vfunc_49() {
     u8 *arg0 = (u8 *)this;
     s32 var_r30;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x18C) == 0x13) {
-        ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(TItemProUnit__data_805DABF8);
+        ((TItemProUnit *)(*(s32 *)&this->m_f0 + 0x7CC))->set_evp(TItemProUnit__data_805DABF8);
     }
     var_r30 = 0;
     do {
-        set_technique_level_entry((void *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x428), (s16) var_r30, (u8) (get_cast_technique_level((void *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
+        set_technique_level_entry((void *)(*(s32 *)&this->m_f0 + 0x428), (s16) var_r30, (u8) (get_cast_technique_level((void *)(*(s32 *)&this->m_f0 + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
         var_r30 += 1;
     } while (var_r30 != 0x13);
     memset(arg0 + 0x192, 0, 0x26);
@@ -341,7 +341,7 @@ void TItemProUnit::apply_unit_effect_flags() {
     temp_r4 = *(s16 *)((s8 *)arg0 + 0x18C);
     switch (temp_r4) {
     case 18:
-        *(s16 *)((s8 *)arg0 + 0x190) = (s16) *(s16 *)((s8 *)arg0 + 0x18E);
+        *(s16 *)((s8 *)arg0 + 0x190) = (s16) this->m_18e;
         return;
     case 20:
         ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (8));
@@ -350,7 +350,7 @@ void TItemProUnit::apply_unit_effect_flags() {
         ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (2));
         return;
     case 19:
-        *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) (TItemProUnit__data_805DABF8 + ((f32) *(s16 *)((s8 *)arg0 + 0x18E) / lbl_805DAC00));
+        *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) (TItemProUnit__data_805DABF8 + ((f32) this->m_18e / lbl_805DAC00));
         return;
     case 22:
         ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x80));

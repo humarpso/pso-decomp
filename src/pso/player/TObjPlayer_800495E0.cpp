@@ -121,7 +121,7 @@ s32 TUnk_80484A94::sub_800495F8() {
     void *cage;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)this)->check_object_collisions();
-    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0xA4)) + 0x18) & 0x80000) {
+    if (*(s32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == NULL) {
@@ -129,8 +129,8 @@ s32 TUnk_80484A94::sub_800495F8() {
             }
             if (obj_is_hit_receivable(p) != 0) {
                 Dmg_80049A1C t = lbl_80436704[0];
-                p->m21(*(s32 *)((s8 *)this + 0x10), &t, 0, -1, -1);
-                cage = *(void **)((s8 *)this + 0x10);
+                p->m21(*(s32 *)&this->m_up, &t, 0, -1, -1);
+                cage = *(void * *)&this->m_up;
                 if (cage != NULL) {
                     ((TBoss3Volopt *)cage)->create_cage(((u16 (*)(void *))obj_getField1c)(p));
                 }
@@ -207,9 +207,9 @@ void *TUnk_80484A94::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80484A94;
         free_collision_body_parts(this);
-        if (*(void **)((s8 *)this + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xD4)); }
+        if (this->m_d4 != NULL) { queue_destruction__7TObjectFv(this->m_d4); }
         if (*(void * *)&(*(s32 *)((u8 *)this + 0xD8)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(s32 *)((u8 *)this + 0xD8))); }
-        if (*(void **)((s8 *)this + 0x10) != NULL) { TObjPlayer__sub_80049A0C((void*)(*(void **)((s8 *)this + 0x10))); }
+        if (*(void * *)&this->m_up != NULL) { TObjPlayer__sub_80049A0C((void*)(*(void * *)&this->m_up)); }
         destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -283,7 +283,7 @@ void TUnk_80484AFC::render() {
     rotate_matrix_x(0, *(s32 *)&this->m_5c);
     rotate_matrix_y(0, this->rotation_y);
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object(*(s32 *)((s8 *)arg0 + 0xAC));
+    draw_chunk_object(*(s32 *)&this->unk_AC);
     pop_matrix();
 }
 

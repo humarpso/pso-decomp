@@ -20,7 +20,7 @@ extern s32 lbl_804EEF80[];
 void *TUnk_804EEF80::construct(void *arg1) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EEF80;
-    *(void **)((s8 *)this + 0x1C) = arg1;
+    *(void * *)&this->unk_1C = arg1;
     return this;
 }
 

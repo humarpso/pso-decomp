@@ -145,8 +145,8 @@ void TNpcPlayer::partner_request_physical_attack() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r31;
     u32 temp_r3;
-    temp_r31 = TNpcPlayer__sub_80152978(*(s32 *)((s8 *)arg0 + 0x78));
-    temp_r3 = get_npc_state__10TNpcPlayerFv(*(s32 *)((s8 *)arg0 + 0x78));
+    temp_r31 = TNpcPlayer__sub_80152978(*(s32 *)&this->m_78);
+    temp_r3 = get_npc_state__10TNpcPlayerFv(*(s32 *)&this->m_78);
     if (temp_r3 != temp_r31) {
         set_partner_counter(arg0 + 0x5C, 1, 0);
     }

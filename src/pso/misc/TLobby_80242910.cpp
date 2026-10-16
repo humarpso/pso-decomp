@@ -37,7 +37,7 @@ extern "C" {
 void TAdSinglePlyChrSelectGC__sub_80242B24(void* p);
 void TLobby__sub_80242918(void);
 
-s32 TLobby::get_id() { return *(s32*)((char*)this + 0x0); }
+s32 TLobby::get_id() { return *(s32 *)&this->m_name; }
 
 extern u16 lbl_805D63FC;
 

@@ -46,6 +46,6 @@ int TMainCursor::init_field_60() { return ((TMainCursor *)((char*)this + 0x60))-
 int TMainCursor::get_action_palette() { return set_slot__20TWindowActionPaletteFUc(this); }
 int TMainCursor__sub_8013E6E0(void* p) { return ((TMainCursor *)((char*)p + 0x60))->update_action_palette(); }
 int TMainCursor::update_action_palette() { return set_mode__20TWindowActionPaletteFUc(this); }
-void TMainCursor::sub_8013E724(f32 v) { *(f32*)((char*)this + 0x2c) = v; }
+void TMainCursor::sub_8013E724(f32 v) { this->m_2c = v; }
 
 }

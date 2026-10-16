@@ -20,7 +20,9 @@ struct TObjDFHorming : public TUnk_804806E8 {
     u8 _pad364[0x4];
     u32 m_368;
     void* m_36c;
-    u8 unk_370[0x10];
+    u8 unk_370[0x8];
+    void * m_378;
+    u8 unk_37C[0x4];
     static u8 is_boss_active();
 };
 

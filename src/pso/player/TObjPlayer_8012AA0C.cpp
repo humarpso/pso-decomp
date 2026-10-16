@@ -25,7 +25,7 @@ void TObjPlayer::update_motion_state(s32 arg0) {
 void TObjPlayer::update_photon_chair_sit() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::get_player_list() == 2) {
-        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x1F8));
+        rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
         advance_angle_wrap(arg0 + 0x1F8, 0x1999);
     }
 }
@@ -33,6 +33,6 @@ void TObjPlayer::update_photon_chair_sit() {
     extern unsigned char create_lavis_shot[];
     extern unsigned char lavis_cannon_weapon_vtable[];
     extern const float lbl_805DAE70;
-void*TUnk_804A4A88::init_state_object() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lavis_cannon_weapon_vtable; set_status_flags__10TObjPlayerFUl(this, (void*)34); *(int*)((char*)this + 0x1f0) = (int)create_lavis_shot; (*(float *)((u8 *)this + 0x1E4)) = lbl_805DAE70; *(int*)((char*)this + 0x1f8) = 0; return this; }
+void*TUnk_804A4A88::init_state_object() { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lavis_cannon_weapon_vtable; set_status_flags__10TObjPlayerFUl(this, (void*)34); *(int*)((char*)this + 0x1f0) = (int)create_lavis_shot; (*(float *)((u8 *)this + 0x1E4)) = lbl_805DAE70; *(int *)&this->unk_1F8 = 0; return this; }
 
 }

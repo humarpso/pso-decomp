@@ -17,7 +17,7 @@ void TUnk_804A2358::emit_marker_effects() {
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if (((TObjPlayer *)this)->draw_icon((s32)0, (s32)(&sp8)) != 0) {
-            temp_r31 = *(void **)((s8 *)this + 0xF0);
+            temp_r31 = *(void * *)&this->player;
             TTecFoie::create((void *)temp_r31, (void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r31 + 0x60)), (void *)(((TObjPlayer *)this)->get_tp() + 2));
             roll_technique__11TItemWeaponFv(this);
         }

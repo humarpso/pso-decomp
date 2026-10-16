@@ -85,7 +85,7 @@ void TUnk_804B27D8::run_task() {
     temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
-        if ((((VObj_18_ac8580 *)(arg0))->m12() != 0) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD8) > 0)) {
+        if ((((VObj_18_ac8580 *)(arg0))->m12() != 0) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
             *(s32 *)&this->m_ac = 1;
         }
         break;
@@ -101,7 +101,7 @@ void TUnk_804B27D8::run_task() {
                 temp_r3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0 = temp_r3;
                 if (var_r0 != 0U) {
-                    var_r0 = __ct__12TQuestThreadFv((int) (temp_r3), (void *) (quest_mission_manager), (int) (*(s32 *)((s8 *)arg0 + 0xD8)));
+                    var_r0 = __ct__12TQuestThreadFv((int) (temp_r3), (void *) (quest_mission_manager), (int) (*(s32 *)&this->unk_D8));
                 }
                 this->m_dc = var_r0;
                 temp_r3_2 = this->m_dc;
@@ -112,7 +112,7 @@ void TUnk_804B27D8::run_task() {
                 temp_r3_3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0_2 = temp_r3_3;
                 if (var_r0_2 != 0U) {
-                    var_r0_2 = __ct__12TQuestThreadFv((int) (temp_r3_3), (void *) (quest_area_manager), (int) (*(s32 *)((s8 *)arg0 + 0xD8)));
+                    var_r0_2 = __ct__12TQuestThreadFv((int) (temp_r3_3), (void *) (quest_area_manager), (int) (*(s32 *)&this->unk_D8));
                 }
                 this->m_dc = var_r0_2;
                 temp_r3_4 = this->m_dc;

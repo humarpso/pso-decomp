@@ -127,15 +127,15 @@ typedef char RecoveredGlobal_8017C8EC_lbl_804B528C_size[sizeof(RecoveredGlobal_8
 u8 *TOVS2Wall01::init_wreck_object(s32 arg1, s32 arg2) {
     init_map_object_base((void *) (((u8 *)this)), (int) ((*(s32 *)&tl_05)));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
-    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D31C4;
+    *(s32 *)&this->m_name = (s32) lbl_805D31C4;
     ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg1);
-    *(u8 **)((s8 *)((u8 *)this) + 0x34) = get_bml_model((*(s32 *)&TOVS2Wall01__bml_resource), arg2);
-    *(f32 *)((s8 *)((u8 *)this) + 0xC4) = (f32) (lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x34)) + 4)) + 0x14));
-    *(s32 *)((s8 *)((u8 *)this) + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *) (arg2));
+    *(u8 * *)&this->model = get_bml_model((*(s32 *)&TOVS2Wall01__bml_resource), arg2);
+    *(f32 *)&this->unk_C4 = (f32) (lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&this->model) + 4)) + 0x14));
+    this->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *) (arg2));
     init_collision_body_parts((void *) (((u8 *)this)), (void *) ((u8 *)&ovs2wall01_collision_parts.value + (arg2 * 0x2C)), (int) (1));
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
-    *(s32 *)((s8 *)((u8 *)this) + 0xC8) = TObjMapCsn::create((s32)((void *) (arg1)));
-    *(s32 *)((s8 *)((u8 *)this) + 0xCC) = 1;
+    *(s32 *)&this->m_c8 = TObjMapCsn::create((s32)((void *) (arg1)));
+    *(s32 *)&this->unk_CC = 1;
     return ((u8 *)this);
 }
 

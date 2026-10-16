@@ -330,7 +330,7 @@ u16 TBoss6PlotFalz::pick_random_active_player() {
 }
 
 s32 TBoss6PlotFalz::is_active() {
-    if ((is_state_1f__14TBoss6PlotFalzFUi() != 0) && !(*(s32 *)((s8 *)this + 0x30) & 0x02000800)) {
+    if ((is_state_1f__14TBoss6PlotFalzFUi() != 0) && !(*(s32 *)&this->actorFlags & 0x02000800)) {
         return 1;
     }
     return 0;
@@ -655,7 +655,7 @@ void TBoss6PlotFalz::apply_fade_alpha(s32 arg1, f32 farg0) {
     f32 var_f1;
     u8 *temp_r3;
     var_f1 = farg0;
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
+    temp_r3 = (u8 *)(this->m_380);
     if ((temp_r3 != NULL) && !(var_f1 <= 0.0f)) {
         if (var_f1 > 1.0f) {
             var_f1 = 1.0f;
@@ -910,11 +910,11 @@ void TBoss6PlotFalz::spawn_type2() {
     u16 temp_r4;
     if ((u32) TBoss6PlotFalz__type2_instance == 0U) {
         sp8 = (u8 *)(arg0);
-        stack.sp4C = *(u8 *)((s8 *)arg0 + 0x37C);
+        stack.sp4C = this->m_37c;
         TBoss4DarkFalz__sub_8004B4F0((void *) (&stack.spC), (void *) (arg0 + 0x388));
         stack.sp14 = 1;
-        stack.spC = *(s16 *)((s8 *)arg0 + 0x2C) + 0x1FF;
-        temp_r4 = *(u16 *)((s8 *)arg0 + 0x1C);
+        stack.spC = *(s16 *)&this->m_2c + 0x1FF;
+        temp_r4 = this->m_1c;
         stack.sp12 = temp_r4 + 0x1FF;
         TBoss6PlotFalz__type2_instance = create__11TBoss6Type2Fl((void *) (&sp8), (int) (temp_r4));
     }
@@ -927,10 +927,10 @@ void TBoss6PlotFalz::spawn_type1() {
     u16 temp_r4;
     if ((u32) TBoss6PlotFalz__type1_instance == 0U) {
         sp8 = (u8 *)(arg0);
-        stack.sp4C = *(u8 *)((s8 *)arg0 + 0x37C);
+        stack.sp4C = this->m_37c;
         TBoss4DarkFalz__sub_8004B4F0((void *) (&stack.spC), (void *) (arg0 + 0x388));
-        stack.spC = *(s16 *)((s8 *)arg0 + 0x2C) + 0x200;
-        temp_r4 = *(u16 *)((s8 *)arg0 + 0x1C);
+        stack.spC = *(s16 *)&this->m_2c + 0x200;
+        temp_r4 = this->m_1c;
         stack.sp12 = temp_r4 + 0x200;
         TBoss6PlotFalz__type1_instance = create__11TBoss6Type1Fl((void *) (&sp8), (int) (temp_r4));
     }

@@ -94,7 +94,7 @@ int TLobby__sub_802A7868(void* p) { return match_coordinate_pair(p); }
 void TLobby::set_photon_chair_flag(int a0) { player_action_provider_selector = a0; }
 struct _VBase802A78E4_802a78e4_802A7848 { char pad[8]; };
 struct _VObj802A78E4_802a78e4_802A7848 : _VBase802A78E4_802a78e4_802A7848 { virtual s32 m0(s32, s32); };
-void TLobby::set_field_4(s32 v) { *(s32*)((char*)this + 0x4) = v; }
+void TLobby::set_field_4(s32 v) { *(s32 *)&this->m_flags = v; }
 s32 TLobby::get_hold_effect_size_by_type() {
     s32 temp_r3;
     temp_r3 = TObjPlayer::get_hold_effect_count();
@@ -155,7 +155,7 @@ s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
     return 1;
 }
 
-void TUnk_804DDD28::copy_motion_pair(void*q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); }
+void TUnk_804DDD28::copy_motion_pair(void*q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); this->m_4 = *(u32*)((char*)q + 0x4); }
 
 u8 *TUnk_804DDD28::vfunc_3(s16 arg1) {
     if (((u8 *)this) != NULL) {
@@ -181,8 +181,8 @@ int TUnk_804DDD28::vfunc_8() { return 0; }
 int TUnk_804DDD28::vfunc_9() { return 0; }
 void TUnk_804DDD28::vfunc_14() {  }
 int TUnk_804DDD28::vfunc_75() { return 0; }
-s32 TLobby::get_param() { return *(s32*)((char*)this + 0x0); }
-s32 TLobby::get_field_04() { return *(s32*)((char*)this + 0x4); }
+s32 TLobby::get_param() { return *(s32 *)&this->m_name; }
+s32 TLobby::get_field_04() { return *(s32 *)&this->m_flags; }
 void TLobby__sub_802A7BC8(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 void TLobby__sub_802A7BD8(void) {
     if ((u32) snapshot_image_buffer != 0U) {

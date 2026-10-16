@@ -1588,20 +1588,20 @@ s32 TLobby::shutdown_network_handle() {
 
 void TLobby::init_msg(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0) = arg1;
-    *(s8 *)((s8 *)arg0 + 4) = 4;
+    *(s32 *)&this->m_name = arg1;
+    *(s8 *)&this->m_flags = 4;
 }
 
 void TLobby::init_packet_header(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0) = arg1;
-    *(s8 *)((s8 *)arg0 + 4) = 3;
+    *(s32 *)&this->m_name = arg1;
+    *(s8 *)&this->m_flags = 3;
 }
 
 void TLobby::set_value_and_enable(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0) = arg1;
-    *(s8 *)((s8 *)arg0 + 4) = 1;
+    *(s32 *)&this->m_name = arg1;
+    *(s8 *)&this->m_flags = 1;
 }
 
 struct Ent_80406B14 { s16 st; u8 pad[0x9c - 2]; };
@@ -3227,7 +3227,7 @@ s32 TLobby::close_and_reset_connection() {
     s16 *temp_r3_3;
     s32 temp_r3;
     s32 var_r31;
-    var_r31 = close_8040BF38(arg0, *(s16 *)((s8 *)arg0 + 4));
+    var_r31 = close_8040BF38(arg0, *(s16 *)&this->m_flags);
     TLobby__sub_80421814();
     temp_r3_2 = (s16 *)(*(s16 **)((s8 *)arg0 + 0x18));
     if (temp_r3_2 != NULL) {
@@ -3243,13 +3243,13 @@ s32 TLobby::close_and_reset_connection() {
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s16 *)((s8 *)arg0 + 0) = 0;
-    *(s16 *)((s8 *)arg0 + 8) = 0;
-    *(s16 *)((s8 *)arg0 + 0x10) = -0x41;
+    *(s16 *)&this->m_name = 0;
+    *(s16 *)&this->m_prev = 0;
+    *(s16 *)&this->m_up = -0x41;
     *(s16 *)((s8 *)arg0 + 0x12) = 0;
-    if (*(u32 *)((s8 *)arg0 + 0xC) != 0xFFFFFFFFU) {
+    if (*(u32 *)&this->m_next != 0xFFFFFFFFU) {
         TLobby::resume_thread();
-        *(s32 *)((s8 *)arg0 + 0xC) = -1;
+        *(s32 *)&this->m_next = -1;
     }
     TLobby__sub_804217E4();
     return var_r31;
@@ -6809,11 +6809,11 @@ s32 TLobby__sub_8041EB74(u8 *arg0) {
 
 s32 TLobby::close_if_open() {
     u8 *arg0 = (u8 *)this;
-    if ((u8) *(u8 *)((s8 *)arg0 + 0x14) == 0) {
+    if ((u8) *(u8 *)&this->m_down == 0) {
         return -1;
     }
     TLobby__sub_8041579C((void *) (arg0 + 0x18));
-    *(u8 *)((s8 *)arg0 + 0x14) = 0U;
+    *(u8 *)&this->m_down = 0U;
     return 0;
 }
 

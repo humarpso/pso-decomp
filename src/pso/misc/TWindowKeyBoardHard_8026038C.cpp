@@ -15,8 +15,8 @@ void TWindowKeyBoardHard::clear_card_window_flag(s32 arg0, s32 arg1) {
 void TWindowKeyBoardHard::set_card_window_flag(s32 arg0, s32 arg1) {
     TWindowKeyBoardHard::set_card_window_flags((void *)arg0, (s32)(arg1 << 5), (s32)(-0x21));
 }
-int TWindowKeyBoardHard::sub_8026042C() { return (*(u32*)((char*)this + 0x60) >> 6) & 0x1; }
-int TWindowKeyBoardHard::sub_80260438() { return (*(u32*)((char*)this + 0x60) >> 10) & 0x1; }
+int TWindowKeyBoardHard::sub_8026042C() { return (this->m_60 >> 6) & 0x1; }
+int TWindowKeyBoardHard::sub_80260438() { return (this->m_60 >> 10) & 0x1; }
 int TWindowKeyBoardHard::is_key_active() { return this->m_60 & 0x200; }
 
 }

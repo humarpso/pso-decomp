@@ -84,15 +84,15 @@ void TBoss6Type2::update_zako_spawn_timer() {
 
 void TBoss6Type2::send_state_action() {
     s32 temp_r0;
-    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x460) == 0) {
-        temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x374);
+    if ((s32) this->m_460 == 0) {
+        temp_r0 = *(s32 *)&this->m_374;
         switch (temp_r0) {
         case 6:
-            *(s32 *)((s8 *)((u8 *)this) + 0x46C) = 0;
+            *(s32 *)&this->m_46c = 0;
             send_action_packet((s8)((void*)(0xC)));
             return;
         case 9:
-            *(s32 *)((s8 *)((u8 *)this) + 0x46C) = 1;
+            *(s32 *)&this->m_46c = 1;
             send_action_packet((s8)((void*)(0xC)));
             return;
         default:
@@ -133,7 +133,7 @@ void TBoss6Type2::update_zako_phase() {
 void TBoss6Type2::init_attack_params() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0x45C) = 0x4B;
+    *(s32 *)&this->unk_45C = 0x4B;
     this->m_460 = 0x4B;
     *(s32 *)&this->unk_504 = 0;
     temp_r0 = *(s32 *)&this->m_374;
@@ -224,7 +224,7 @@ void TBoss6Type2::reset_state_timers() {
     s32 temp_r0;
 
     temp_r0 = *(s32 *)((s8 *)this + 0x4EC);
-    *(s32 *)((s8 *)this + 0x45C) = temp_r0;
+    *(s32 *)&this->unk_45C = temp_r0;
     this->m_460 = temp_r0;
     TBoss6Type2__sub_802BB768();
 }

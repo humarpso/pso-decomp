@@ -262,7 +262,7 @@ typedef char RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90_size
 void TMedicalCenterSequence::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
+    temp_r0 = this->m_20;
     switch (temp_r0) {
     case 0:
         ((VObj_18_0e2b36 *)(arg0))->m10();
@@ -330,26 +330,26 @@ void TMedicalCenterSequence::handle_confirm() {
 void TMedicalCenterSequence::handle_window_result() {
     s32 temp_r3;
 
-    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (((TWindowMenu *)((u32) *(u32 *)((s8 *)this + 0x30)))->is_visible() != 0)) {
-        temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)this + 0x30));
+    if (((u32) this->m_30 != 0U) && (((TWindowMenu *)((u32) this->m_30))->is_visible() != 0)) {
+        temp_r3 = get_selected_menu_value(this->m_30);
         if (temp_r3 == 0) {
-            TWindow__close(*(u32 *)((s8 *)this + 0x30));
-            *(u32 *)((s8 *)this + 0x30) = 0U;
+            TWindow__close(this->m_30);
+            this->m_30 = 0U;
             set_field_20((s32)((void*)(4)));
             return;
         }
         if (temp_r3 == 1) {
-            TWindow__close(*(u32 *)((s8 *)this + 0x30));
-            *(u32 *)((s8 *)this + 0x30) = 0U;
+            TWindow__close(this->m_30);
+            this->m_30 = 0U;
             set_field_20((s32)((void*)(5)));
             return;
         }
         goto block_6;
     }
 block_6:
-    if (((u32) *(u32 *)((s8 *)this + 0x30) != 0U) && (((TWindowSubComCard *)((u32) *(u32 *)((s8 *)this + 0x30)))->get_status_flag() != 0)) {
-        TWindow__close(*(u32 *)((s8 *)this + 0x30));
-        *(u32 *)((s8 *)this + 0x30) = 0U;
+    if (((u32) this->m_30 != 0U) && (((TWindowSubComCard *)((u32) this->m_30))->get_status_flag() != 0)) {
+        TWindow__close(this->m_30);
+        this->m_30 = 0U;
         set_field_20((s32)((void*)(5)));
     }
 }

@@ -13,7 +13,8 @@ struct TBoss4DarkFalz : public TObjEnemy {
     u32 m_374;
     u32 m_378;
     u32 m_37c;
-    u8 _pad380[0x8];
+    u8 unk_380[0x4];
+    s32 m_384;
     u32 m_388;
     u32 m_38c;
     u32 m_390;

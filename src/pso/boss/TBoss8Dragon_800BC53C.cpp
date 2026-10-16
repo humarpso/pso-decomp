@@ -58,9 +58,9 @@ void *TBoss8Dragon::init_buffer(s32 arg1, s32 arg2) {
     } else {
         this->m_0 = 0;
     }
-    *(s32 *)((s8 *)this + 4) = arg2;
+    *(s32 *)&this->unk_4 = arg2;
     *(s32 *)&this->m_8 = 0;
-    *(s32 *)((s8 *)this + 0xC) = arg1;
+    *(s32 *)&this->unk_C = arg1;
     fill_value_array(this);
     return this;
 }

@@ -29,7 +29,7 @@ void TObjPlayer::load_char_data(u8 *arg1) {
     query_field374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEBB8((void *) (arg1))));
     TObjPlayer__sub_801BEB68((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEB8C((void *) (arg1))));
     init_player_data__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (arg1 + 0x118));
-    *(s16 *)((s8 *)((u8 *)this) + 0x32C) = (s16) *(s16 *)((s8 *)arg1 + 0x22);
+    this->m_32c = (s16) *(s16 *)((s8 *)arg1 + 0x22);
     TObjPlayer__sub_801B2014((void *) (((u8 *)this)));
 }
 

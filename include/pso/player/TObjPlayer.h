@@ -84,7 +84,9 @@ struct TObjPlayer
     float m_58;
     u8 unk_5C[0x4];
     s32 m_60;
-    u8 unk_64[0xC];
+    u8 unk_64[0x4];
+    f32 m_68;
+    u8 unk_6C[0x4];
     int m_70;
     u8 unk_74[0x4];
     float m_78;
@@ -133,7 +135,9 @@ struct TObjPlayer
     void * m_128;
     u8 unk_12C[0xF];
     u8 m_13b;
-    u8 unk_13C[0x1B];
+    u8 unk_13C[0x14];
+    f32 m_150;
+    u8 unk_154[0x3];
     u8 m_157;
     u8 unk_158[0x18];
     s32 m_170;
@@ -189,7 +193,9 @@ struct TObjPlayer
     short m_2c8;
     u8 unk_2CA[0x2];
     s16 m_2cc;
-    u8 unk_2CE[0x6];
+    u8 unk_2CE[0x2];
+    s16 m_2d0;
+    u8 unk_2D2[0x2];
     u16 m_2d4;
     u8 unk_2D6[0xE];
     u32 m_2e4;
@@ -221,7 +227,9 @@ struct TObjPlayer
     void* m_340;
     u8 _pad344[0x8];
     void* m_34c;
-    u8 _pad350[0x10];
+    u8 unk_350[0x4];
+    f32 m_354;
+    u8 unk_358[0x8];
     void* m_360;
     u8 unk_364[0x8];
     s32 m_36c;
@@ -249,7 +257,9 @@ struct TObjPlayer
     s32 m_3c4;
     u8 unk_3C8[0x8];
     s32 m_3d0;
-    u8 unk_3D4[0x10];
+    u8 unk_3D4[0x8];
+    s32 m_3dc;
+    u8 unk_3E0[0x4];
     s32 m_3e4;
     u8 unk_3E8[0x4];
     s32 m_3ec;
@@ -257,7 +267,9 @@ struct TObjPlayer
     s32 m_3f4;
     u8 unk_3F8[0x4];
     f32 m_3fc;
-    u8 unk_400[0x10];
+    u8 unk_400[0x4];
+    f32 m_404;
+    u8 unk_408[0x8];
     void* m_410;
     u8 _pad414[0x8];
     void* m_41c;

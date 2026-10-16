@@ -106,10 +106,10 @@ void TWindowSubAreaMapDisp::update_manual_scroll() {
             this->m_64 = (f32) (this->m_64 - lbl_805DD478);
         }
         if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x40)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x40)) != 0)) {
-            *(f32 *)((s8 *)arg0 + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x60) + lbl_805DD478);
+            *(f32 *)&this->unk_60 = (f32) (*(f32 *)&this->unk_60 + lbl_805DD478);
         }
         if ((is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x80)) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x80)) != 0)) {
-            *(f32 *)((s8 *)arg0 + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x60) - lbl_805DD478);
+            *(f32 *)&this->unk_60 = (f32) (*(f32 *)&this->unk_60 - lbl_805DD478);
         }
         if (is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x20000)) != 0) {
             *(f32 *)&this->unk_68 = (f32) (*(f32 *)&this->unk_68 - lbl_805DD478);
@@ -117,10 +117,10 @@ void TWindowSubAreaMapDisp::update_manual_scroll() {
         if (is_on_current_screen__11TCameraCtrlFv((int) (temp_r31), (int) (0x10000)) != 0) {
             *(f32 *)&this->unk_68 = (f32) (*(f32 *)&this->unk_68 + lbl_805DD478);
         }
-        TRaderMapCore::pan_horizontal((f32) (*(f32 *)((s8 *)arg0 + 0x60)));
+        TRaderMapCore::pan_horizontal((f32) (*(f32 *)&this->unk_60));
         TRaderMapCore::pan_vertical((f32) (this->m_64));
         TRaderMapCore::add_zoom_distance((f32) (*(f32 *)&this->unk_68));
-        *(f32 *)((s8 *)arg0 + 0x60) = (f32) (*(f32 *)((s8 *)arg0 + 0x60) * lbl_805DD47C);
+        *(f32 *)&this->unk_60 = (f32) (*(f32 *)&this->unk_60 * lbl_805DD47C);
         this->m_64 = (f32) (this->m_64 * lbl_805DD47C);
         *(f32 *)&this->unk_68 = (f32) (*(f32 *)&this->unk_68 * lbl_805DD47C);
     }

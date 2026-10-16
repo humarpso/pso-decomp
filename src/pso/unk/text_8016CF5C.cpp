@@ -101,7 +101,7 @@ s32 TOKeyMachine01::is_confirm_pressed() {
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0xD0);
+    temp_r0 = *(s32 *)&this->m_d0;
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
@@ -109,7 +109,7 @@ s32 TOKeyMachine01::is_confirm_pressed() {
         } else {
             var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0xD4) == 1) || (var_r3 == 1)) {
+        if (((s32) *(s32 *)&this->m_d4 == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
@@ -183,20 +183,20 @@ void TOKeyMachine01__vt16(s32 arg0) {
 void TOKeyMachine01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xF8) == 1) {
-        *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) + lbl_805DB780);
-        if (lbl_805DB784 <= *(f32 *)((s8 *)arg0 + 0xEC)) {
-            *(s32 *)((s8 *)arg0 + 0xF8) = 0;
+    if ((s32) this->m_f8 == 1) {
+        this->m_ec = (f32) (this->m_ec + lbl_805DB780);
+        if (lbl_805DB784 <= this->m_ec) {
+            this->m_f8 = 0;
         }
     } else {
-        *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) - lbl_805DB780);
-        if (*(f32 *)((s8 *)arg0 + 0xEC) <= lbl_805DB788) {
-            *(s32 *)((s8 *)arg0 + 0xF8) = 1;
+        this->m_ec = (f32) (this->m_ec - lbl_805DB780);
+        if (this->m_ec <= lbl_805DB788) {
+            this->m_f8 = 1;
         }
     }
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x6C);
+    temp_f1 = this->target_scale;
     if (temp_f1 < lbl_805DB788) {
-        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (temp_f1 - lbl_805DB78C);
+        this->target_scale = (f32) (temp_f1 - lbl_805DB78C);
     }
 }
 void TOKeyMachine01::vfunc_16() {

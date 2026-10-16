@@ -24,11 +24,11 @@ void TObjPlayer::cast_jellen_zalure() {
     }
     if (is_mode_two_and_ready() != 0) {
         if (get_tp() == 0) {
-            temp_r3 = *(s32 *)((s8 *)this + 0xF0);
+            temp_r3 = *(s32 *)&this->unk_F0;
             temp_r4 = temp_r3 + 0x38;
             TTecJelin::create(temp_r3, temp_r4, temp_r4, 4);
         } else {
-            temp_r3_2 = *(s32 *)((s8 *)this + 0xF0);
+            temp_r3_2 = *(s32 *)&this->unk_F0;
             temp_r4_2 = temp_r3_2 + 0x38;
             TTecZarua::create_instance(temp_r3_2, temp_r4_2, temp_r4_2, 4);
         }

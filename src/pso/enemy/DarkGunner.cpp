@@ -968,11 +968,11 @@ s32 TObjPlayer::update_hide_sequence() {
     switch (temp_r0) {
     case 0:
         obj_clearFlags30(arg0, 0x240300);
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x800000);
-        temp_r5 = *(s32 *)((s8 *)arg0 + 0x388);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x800000);
+        temp_r5 = *(s32 *)&this->unk_388;
         temp_r4 = temp_r5 & 0xFFB7FFFF;
-        *(s32 *)((s8 *)arg0 + 0x388) = temp_r4;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 8;
+        *(s32 *)&this->unk_388 = temp_r4;
+        *(s16 *)&this->unk_B8 = 8;
         this->m_39c = TObjPlayer__sub_800A3210((s32)(1), (s32)(temp_r4), (s32)(temp_r5));
         this->m_37c = 1;
     case 1:
@@ -988,7 +988,7 @@ s32 TObjPlayer::update_hide_sequence() {
         }
         break;
     case -1:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFF7FFFFF);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFF7FFFFF);
         break;
     }
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
@@ -996,7 +996,7 @@ s32 TObjPlayer::update_hide_sequence() {
 }
 
 void TObjPlayer::trigger_action_if_not_flagged() {
-    if (!(*(s32 *)&this->actor_flags & 0x800) && !(*(s32 *)((s8 *)this + 0x388) & 0x800000)) {
+    if (!(*(s32 *)&this->actor_flags & 0x800) && !(*(s32 *)&this->unk_388 & 0x800000)) {
         update_if_active__15TObjEneMe1GiGueFl(this, 6);
     }
 }
@@ -1446,7 +1446,7 @@ s32 TObjPlayer__sub_800A2390(void *arg0_) {
 void TObjPlayer::set_hidden_flag() {
     if (!(*(s32 *)&this->actor_flags & 0x800)) {
         update_if_active__15TObjEneMe1GiGueFl(this, 1);
-        *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) | 0x20000);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000);
     }
 }
 
@@ -1582,9 +1582,9 @@ s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2) {
     return (*(G_800A3210 * *)&lbl_805D5004)->arr[i];
 }
 
-int TObjPlayer::is_flag_set_388_bit26() { return (*(u32*)((char*)this + 0x388) >> 26) & 0x1; }
+int TObjPlayer::is_flag_set_388_bit26() { return (*(u32 *)&this->unk_388 >> 26) & 0x1; }
 
-void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int *)&this->_pad34 = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int*)((char*)this + 0x24) = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
+void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int *)&this->_pad34 = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int *)&this->unk_24 = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
 
 void TObjPlayer::clear_counter() { *(s32 *)&this->m_340 = 0; }
 

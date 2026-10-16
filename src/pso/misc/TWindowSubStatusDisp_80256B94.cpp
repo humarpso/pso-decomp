@@ -75,7 +75,7 @@ void TUnk_804CF930::sub_80256BDC(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_80256BDC_lbl_804CF918 *)&lbl_804CF918).value;
     *(s16 *)((s8 *)arg0 + 0) = 0;
-    *(s16 *)((s8 *)arg0 + 2) = arg1;
+    this->m_2 = arg1;
 }
 
 void TWindowSubStatusDisp__sub_80256BF8(void) {  }

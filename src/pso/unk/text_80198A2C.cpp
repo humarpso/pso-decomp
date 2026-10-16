@@ -578,12 +578,12 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
 
 extern "C" {
 void TWindowTimer::copy_state(u8 *arg1) {
-    *(f32 *)((s8 *)((u8 *)this) + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
-    *(f32 *)((s8 *)((u8 *)this) + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
-    *(f32 *)((s8 *)((u8 *)this) + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
-    *(f32 *)((s8 *)((u8 *)this) + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
-    *(f32 *)((s8 *)((u8 *)this) + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
-    *(s16 *)((s8 *)((u8 *)this) + 0x14) = (s16) *(s16 *)((s8 *)arg1 + 0x14);
+    *(f32 *)&this->m_name = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)&this->m_flags = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)&this->m_prev = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(f32 *)&this->m_next = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+    *(f32 *)&this->m_up = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    *(s16 *)&this->m_down = (s16) *(s16 *)((s8 *)arg1 + 0x14);
     *(u8 *)((s8 *)((u8 *)this) + 0x16) = (u8) *(u8 *)((s8 *)arg1 + 0x16);
     *(u8 *)((s8 *)((u8 *)this) + 0x17) = (u8) *(u8 *)((s8 *)arg1 + 0x17);
     *(u8 *)((s8 *)((u8 *)this) + 0x18) = (u8) *(u8 *)((s8 *)arg1 + 0x18);
@@ -592,9 +592,9 @@ void TWindowTimer::copy_state(u8 *arg1) {
     *(ByteBlock_C *)((s32) ((u8 *)this) + 0x20) = *(const ByteBlock_C *)((s32) arg1 + 0x20);
     *(ByteBlock_C *)((s32) ((u8 *)this) + 0x2C) = *(const ByteBlock_C *)((s32) arg1 + 0x2C);
     *(ByteBlock_C *)((s32) ((u8 *)this) + 0x38) = *(const ByteBlock_C *)((s32) arg1 + 0x38);
-    *(f32 *)((s8 *)((u8 *)this) + 0x44) = (f32) *(f32 *)((s8 *)arg1 + 0x44);
+    this->m_44 = (f32) *(f32 *)((s8 *)arg1 + 0x44);
     *(u16 *)((s8 *)((u8 *)this) + 0x48) = (u16) *(u16 *)((s8 *)arg1 + 0x48);
-    *(f32 *)((s8 *)((u8 *)this) + 0x4C) = (f32) *(f32 *)((s8 *)arg1 + 0x4C);
+    this->m_4c = (f32) *(f32 *)((s8 *)arg1 + 0x4C);
     *(f32 *)((s8 *)((u8 *)this) + 0x50) = (f32) *(f32 *)((s8 *)arg1 + 0x50);
 }
 
@@ -1112,8 +1112,8 @@ s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFv();
 
 void TUnk_804B8E18::update_best_time() {
-    if ((*(s16 *)((s8 *)gogo_ball_sync_state + 0x12) == 0) && ((s32) *(s32 *)((s8 *)this + 0x354) <= (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14))) {
-        *(s32 *)((s8 *)this + 0x354) = (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14);
+    if ((*(s16 *)((s8 *)gogo_ball_sync_state + 0x12) == 0) && ((s32) this->m_354 <= (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14))) {
+        this->m_354 = (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14);
         *(f32 *)((s8 *)this + 0x38) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 0);
         *(f32 *)((s8 *)this + 0x3C) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 4);
         *(f32 *)((s8 *)this + 0x40) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 8);

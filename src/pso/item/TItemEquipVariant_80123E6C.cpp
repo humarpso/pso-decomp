@@ -16,9 +16,9 @@ void sorcerers_cane_idle(void *arg0) {
 void TUnk_804A1E28::update_attack() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x1FE);
+    temp_r0 = *(s16 *)&this->unk_1FE;
     if ((temp_r0 == 2) || (temp_r0 == 3)) {
-        *(s16 *)((s8 *)this + 0x1FE) = 1;
+        *(s16 *)&this->unk_1FE = 1;
     }
 }
 

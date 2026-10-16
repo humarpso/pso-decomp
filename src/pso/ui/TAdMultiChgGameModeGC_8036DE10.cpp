@@ -498,7 +498,7 @@ void TUnk_804F3A20::run_task() {
     if (this->m_20 & 1) {
         ((TAdMultiChgGameModeGC *)arg0)->set_state((s32)((s32)((int) (9))));
     }
-    temp_r6 = (u8 *)&multi_chg_game_mode_entry_table.value + (*(s32 *)((s8 *)arg0 + 0x1C) * 0x18);
+    temp_r6 = (u8 *)&multi_chg_game_mode_entry_table.value + (*(s32 *)&this->unk_1C * 0x18);
     member_action.words[0] = *(s32 *)((s8 *)temp_r6 + 0xC);
     member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 0x10);
     member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 0x14);

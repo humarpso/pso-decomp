@@ -318,7 +318,7 @@ s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 s32 queue_destruction__7TObjectFv();
 
-f32 TObjEneGibbles::get_pos_x() { return *(f32*)((char*)this + 0x10); }
+f32 TObjEneGibbles::get_pos_x() { return *(f32 *)&this->m_up; }
 
 void TObjEneMoja::bindModel(int index) {
     model=lbl_805D50D8->models[index].model;

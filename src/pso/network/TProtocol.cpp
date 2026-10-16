@@ -212,7 +212,7 @@ extern char TProtocol__send_pso_data_log_format[];
 void TProtocol::send_subcommand_to_client(s32 flag, s8 *src, s32 len) {
     char buf[0x80];
     sprintf(buf, TProtocol__send_pso_data2_log_format, *src, len, flag);
-    if (*(s32 *)((char *)((VObj_18_801DC084 *)this) + 0x1910) != 0) {
+    if (*(s32 *)&this->m_connected != 0) {
         Pkt_801DC084 pkt;
         int size;
         pkt.cmd = 0x62;

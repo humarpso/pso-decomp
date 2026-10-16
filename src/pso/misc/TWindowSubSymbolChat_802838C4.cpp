@@ -27,7 +27,7 @@ s16 TWindowSubSymbolChat::get_cursor_x() {
 }
 
 s32 TWindowSubSymbolChatPartsSet::is_active() {
-    return *(u8 *)((s8 *)this + 0x68) & 1;
+    return this->m_68 & 1;
 }
 
 s32 TWindowSubSymbolChat__sub_80283900(void *arg0) {

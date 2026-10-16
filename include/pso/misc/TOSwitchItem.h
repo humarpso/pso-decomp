@@ -13,7 +13,11 @@ struct TOSwitchItem : public TOKey {
     void update_anim();
     void render();
     static void *create(void *arg0);
-    u8 unk_DC[0x1C];
+    u8 unk_DC[0xC];
+    f32 m_e8;
+    u8 unk_EC[0x4];
+    s32 m_f0;
+    u8 unk_F4[0x4];
 };
 
 typedef char TOSwitchItem_size[sizeof(TOSwitchItem) == 0xF8 ? 1 : -1];

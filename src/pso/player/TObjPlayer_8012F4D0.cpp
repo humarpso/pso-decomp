@@ -19,7 +19,7 @@ void TUnk_804A63F0::emit_marker_effects() {
     }
     ((TObjPlayer *)arg0)->draw_icon((s32)((int) (0)), (s32)((void *) (&sp8)));
     if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
-        temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xF0));
+        temp_r3 = (unsigned char *) (*(void * *)&this->player);
         ((TTecBarta *)temp_r3)->create_ex((void *)(temp_r3 + 0x38), (void *)(*(s32 *)((s8 *)temp_r3 + 0x60)), (void *)3);
         return;
     }

@@ -411,8 +411,8 @@ u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 arg3) {
     obj_setFlags30((void *) (((u8 *)this)), (int) (0x40000000));
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     TTecLuker__sub_80234F68((void*)((void *) (((u8 *)this) + 0x98)));
-    *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 0;
-    *(s32 *)((s8 *)((u8 *)this) + 0xAC) = arg3;
+    *(s32 *)&this->unk_B0 = 0;
+    this->m_ac = arg3;
     return ((u8 *)this);
 }
 

@@ -32,7 +32,7 @@ void TObjPlayer::setup_item_render() {
         temp_r3_2 = TObjPlayer::get_player_list();
         switch (temp_r3_2) {
         case 1:
-            rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x1F8));
+            rotate_matrix_x(0, *(s32 *)&this->unk_1F8);
             return;
         case 2:
             scale_current_matrix(arg0 + 0x1FC);
@@ -46,7 +46,7 @@ void TObjPlayer::setup_item_render() {
             post_translate_matrix(arg0 + 0x1FC);
             return;
         case 2:
-            rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x1F8));
+            rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
             break;
         }
         break;

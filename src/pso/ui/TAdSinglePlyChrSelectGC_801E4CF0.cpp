@@ -26,7 +26,7 @@ extern s32 lbl_804C57E0[];
 
 void *TAdSinglePlyChrSelectGC::destroy_and_free(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x50) = lbl_804C57E0;
+        *(s32 * *)&this->unk_50 = lbl_804C57E0;
         TLobby__sub_803DA16C(this->m_3c);
         TAdSinglePlyChrSelectGC::safe_free(this->m_44);
         if (arg1 > 0) {
@@ -40,11 +40,11 @@ void TAdSinglePlyChrSelectGC::init_image_buffer(u8 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
-    *(void **)((s8 *)arg0 + 0x40) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x48) = arg2;
-    *(s32 *)&this->m_flags = (s32) *(u16 *)((s8 *)(*(void **)((s8 *)arg0 + 0x40)) + 0x1C);
-    *(s32 *)&this->m_name = (s32) *(u16 *)((s8 *)(*(void **)((s8 *)arg0 + 0x40)) + 0x1E);
-    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x40));
+    *(void * *)&this->unk_40 = arg1;
+    *(s32 *)&this->unk_48 = arg2;
+    *(s32 *)&this->m_flags = (s32) *(u16 *)((s8 *)(*(void * *)&this->unk_40) + 0x1C);
+    *(s32 *)&this->m_name = (s32) *(u16 *)((s8 *)(*(void * *)&this->unk_40) + 0x1E);
+    temp_r3 = (unsigned char *) (*(void * *)&this->unk_40);
     *(s32 *)&this->m_prev = (s32) *(u16 *)((s8 *)temp_r3 + 8);
     *(s32 *)&this->m_prev = (s32) (*(s32 *)&this->m_prev | (*(u16 *)((s8 *)temp_r3 + 0xA) << 0x10));
     this->m_44 = ((TQuestVmDownLoadServer *)((*(s32 *)&this->m_name * (*(s32 *)&this->m_flags * 2)) + 0x20))->alloc();

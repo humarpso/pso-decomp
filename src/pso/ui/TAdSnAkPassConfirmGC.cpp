@@ -68,8 +68,8 @@ void TAdSnAkPassConfirmGC::render() {
 }
 
 void TAdSnAkPassConfirmGC__vt8(void) { get_localized_text_entry((void*)39, (void*)0); }
-void TAdSnAkPassConfirmGC::vfunc_9() { if (*(unsigned int*)((char*)this + 0x48) != 0) { TWindow__close(*(void**)((char*)this + 0x48)); *(int*)((char*)this + 0x48) = 0; } }
-void TAdSnAkPassConfirmGC::vfunc_8() { if (*(unsigned int*)((char*)this + 0x48) != 0) { TWindow__close(*(void**)((char*)this + 0x48)); *(int*)((char*)this + 0x48) = 0; } }
+void TAdSnAkPassConfirmGC::vfunc_9() { if (*(unsigned int *)&this->m_48 != 0) { TWindow__close(*(void* *)&this->m_48); *(int *)&this->m_48 = 0; } }
+void TAdSnAkPassConfirmGC::vfunc_8() { if (*(unsigned int *)&this->m_48 != 0) { TWindow__close(*(void* *)&this->m_48); *(int *)&this->m_48 = 0; } }
 int TAdSnAkPassConfirmGC__vt5(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
 int TAdSnAkPassConfirmGC__vt4(void* p) { return set_state_0x1a__21TAdMultiChgGameModeGCFv(p); }
 

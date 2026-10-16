@@ -619,10 +619,10 @@ void TObjEneDD::state_chase_target(s32 arg1) {
     case 5:
         break;
     case 4:
-        if (*(s16 *)((s8 *)arg0 + 0x326) == 2) {
-            *(s16 *)((s8 *)arg0 + 0xB8) = 3;
+        if (this->mode == 2) {
+            this->m_b8 = 3;
         } else {
-            *(s16 *)((s8 *)arg0 + 0xB8) = 2;
+            this->m_b8 = 2;
         }
         ((VObj_18 *)(arg0))->m94();
         ((TObjEneRe2Flower *)arg0)->set_child_flags();
@@ -640,8 +640,8 @@ void TObjEneDD::state_chase_target(s32 arg1) {
             if (d > lbl_805D9FE0 || *(void **)((s8 *)arg0 + 0x390) == NULL) {
                 transition_enemy_state(arg0, 2);
             } else if (d < lbl_805D9FE4) {
-                t = angle_difference_abs(*(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x420));
-                if (t < ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0x318)))->get_field_0c()) {
+                t = angle_difference_abs(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x420));
+                if (t < ((TObjPlayer *)(*(s32 *)&this->m_318))->get_field_0c()) {
                     transition_enemy_state(arg0, 5);
                 }
             } else if ((f32)*(s32 *)((s8 *)arg0 + 0x414) > lbl_805D9FE8) {
@@ -671,8 +671,8 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         ((TObjEneDD *)arg0)->update_velocity();
         (*(s32 *)((s8 *)arg0 + 0x414))++;
         *(s32 *)((s8 *)arg0 + 0x420) = (s32)(lbl_8043BBD8 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8)));
-        *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x420), *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
-        *(s32 *)((s8 *)arg0 + 0x60) = (s16)*(s32 *)((s8 *)arg0 + 0x60);
+        this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x420), *(void **)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
+        this->rotation_y = (s16)this->rotation_y;
         ((VObj_18 *)(arg0))->m100();
         ((VObj_18 *)(arg0))->m86();
         noop__9TObjEneDDFv(arg0);

@@ -91,9 +91,9 @@ s32 TObjEneRecon::push_reflect_matrix() {
     if (((u8 *)this) == NULL) {
         return 0;
     }
-    stack.sp8 = *(f32 *)((s8 *)((u8 *)this) + 0);
-    stack.spC = *(f32 *)((s8 *)((u8 *)this) + 4);
-    stack.sp10 = *(f32 *)((s8 *)((u8 *)this) + 8);
+    stack.sp8 = *(f32 *)&this->m_name;
+    stack.spC = *(f32 *)&this->m_flags;
+    stack.sp10 = *(f32 *)&this->m_prev;
     stack.sp14 = lbl_805DDD8C;
     stack.sp18 = lbl_805DDD90;
     stack.sp1C = stack.sp14;

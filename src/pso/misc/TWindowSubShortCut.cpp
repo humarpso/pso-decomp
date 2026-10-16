@@ -114,7 +114,7 @@ s32 TWindowSubShortCut::open_menu() {
 
 void TWindowSubShortCut::open_com_card_list() {
     s32 tmp = get_window_layout_position((s32)(0x72));
-    ((TWindowSubShortCutList *)tmp)->create((void *)(*(s32 *)((s8 *)this + 0x24)));
+    ((TWindowSubShortCutList *)tmp)->create((void *)(*(s32 *)&this->m_24));
 }
 void TWindowSubShortCut::render() {  }
 

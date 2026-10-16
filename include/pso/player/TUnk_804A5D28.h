@@ -7,7 +7,8 @@ class TUnk_804A5D28 : public TItemWeapon {
 public:
     virtual ~TUnk_804A5D28();
     void*setup_flame_effect();
-    u8 unk_1F8[0x8];
+    u8 unk_1F8[0x4];
+    s32 m_1fc;
 };
 
 #endif

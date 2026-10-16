@@ -299,7 +299,7 @@ extern f32 lbl_805DB6D8;
 
 void TUnk_804B27D8::vfunc_6(s16 *arg1, s32) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *arg1;
+    *(s32 *)&this->m_ac = (s32) *arg1;
 }
 
 void TOHealGeneral::accept_player(u16 arg1) {

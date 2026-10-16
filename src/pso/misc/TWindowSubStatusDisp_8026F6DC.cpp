@@ -374,10 +374,10 @@ void TWindowLockOn::update_for_player_index(s32 arg1) {
         set_text_entry_string(((u8 *)this), temp_r31, 0x20);
     }
     if (temp_r30->m31() != 0) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x24) = 0xFFFF0000;
+        *(s32 *)&this->m_24 = 0xFFFF0000;
         return;
     }
-    *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) *(s32 *)((s8 *)temp_r29 + 0x18);
+    *(s32 *)&this->m_24 = (s32) *(s32 *)((s8 *)temp_r29 + 0x18);
 }
 
 void update_lockon_window(u8 *arg0) {
@@ -483,7 +483,7 @@ void TWindowSimpleStatus::draw_background(u8 *arg1) {
     pos.y = lbl_805DD398 + *(f32 *)((s8 *)arg1 + 0x14);
     size.x = lbl_805DD3E4;
     size.y = lbl_805DD3E8;
-    scale = lbl_805DD3EC / *(f32 *)((s8 *)((u8 *)this) + 0x54);
+    scale = lbl_805DD3EC / this->m_54;
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(0xB, *(s32 *)((s8 *)arg1 + 0x34));

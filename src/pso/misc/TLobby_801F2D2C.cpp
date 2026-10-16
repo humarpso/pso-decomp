@@ -247,12 +247,12 @@ s32 dispatch_quest_opcode(void) {
 }
 
 void TLobby::save_quest_state_to_record() {
-    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) (*(s32 *)&TLobby__quest_data_base);
-    *(s32 *)((s8 *)((u8 *)this) + 4) = (s32) TLobby__data_805D5E74;
-    *(s32 *)((s8 *)((u8 *)this) + 8) = (s32) TLobby__script_reg_array;
-    *(s32 *)((s8 *)((u8 *)this) + 0xC) = (s32) (*(s32 *)&TLobby__quest_message_window);
-    *(s32 *)((s8 *)((u8 *)this) + 0x10) = (s32) (*(s32 *)&TLobby__quest_choice_window);
-    *(u8 *)((s8 *)((u8 *)this) + 0x14) = (u8) TLobby__active_window_index;
+    *(s32 *)&this->m_name = (s32) (*(s32 *)&TLobby__quest_data_base);
+    *(s32 *)&this->m_flags = (s32) TLobby__data_805D5E74;
+    *(s32 *)&this->m_prev = (s32) TLobby__script_reg_array;
+    *(s32 *)&this->m_next = (s32) (*(s32 *)&TLobby__quest_message_window);
+    *(s32 *)&this->m_up = (s32) (*(s32 *)&TLobby__quest_choice_window);
+    *(u8 *)&this->m_down = (u8) TLobby__active_window_index;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = (s32) TLobby__script_stack_depth;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = (s32) (*(s32 *)&TLobby__quest_script_pc);
     *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) lbl_805D5E94;
@@ -282,12 +282,12 @@ void TLobby::save_quest_state_to_record() {
 }
 
 void TLobby::load_quest_globals() {
-    (*(s32 *)&TLobby__quest_data_base) = *(s32 *)((s8 *)((u8 *)this) + 0);
-    TLobby__data_805D5E74 = *(s32 *)((s8 *)((u8 *)this) + 4);
-    TLobby__script_reg_array = *(s32 *)((s8 *)((u8 *)this) + 8);
-    (*(s32 *)&TLobby__quest_message_window) = *(s32 *)((s8 *)((u8 *)this) + 0xC);
-    (*(s32 *)&TLobby__quest_choice_window) = *(s32 *)((s8 *)((u8 *)this) + 0x10);
-    TLobby__active_window_index = *(u8 *)((s8 *)((u8 *)this) + 0x14);
+    (*(s32 *)&TLobby__quest_data_base) = *(s32 *)&this->m_name;
+    TLobby__data_805D5E74 = *(s32 *)&this->m_flags;
+    TLobby__script_reg_array = *(s32 *)&this->m_prev;
+    (*(s32 *)&TLobby__quest_message_window) = *(s32 *)&this->m_next;
+    (*(s32 *)&TLobby__quest_choice_window) = *(s32 *)&this->m_up;
+    TLobby__active_window_index = *(u8 *)&this->m_down;
     TLobby__script_stack_depth = *(s32 *)((s8 *)((u8 *)this) + 0x1C);
     (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)((u8 *)this) + 0x20);
     lbl_805D5E94 = *(s32 *)((s8 *)((u8 *)this) + 0x24);

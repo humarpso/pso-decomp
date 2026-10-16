@@ -815,7 +815,7 @@ u32 TLobby::compute_range_end(s32 arg1, u32 arg2) {
     u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     send_ring_buffer_base = arg1;
-    lobby_ring_buffer_size = *(s32 *)((s8 *)arg0 + 0x10);
+    lobby_ring_buffer_size = *(s32 *)&this->m_up;
     temp_r3 = arg1 + lobby_ring_buffer_size;
     if (temp_r3 > arg2) {
         send_ring_buffer_base = 0;
@@ -868,24 +868,24 @@ s32 TLobby__sub_803F8470(u8 *data, s32 size) {
 s32 TLobby::validate_and_store_net_params() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
-    if ((u16) *(u16 *)((s8 *)arg0 + 4) > 0x200U) {
+    if ((u16) this->m_flags > 0x200U) {
         return -1;
     }
-    if ((u16) *(u16 *)((s8 *)arg0 + 6) > 0x400U) {
+    if ((u16) this->m_id > 0x400U) {
         return -1;
     }
-    temp_r5 = *(s32 *)((s8 *)arg0 + 8);
+    temp_r5 = *(s32 *)&this->m_prev;
     if ((temp_r5 < 0x400) || (temp_r5 > 0xFFFF)) {
         return -1;
     }
-    lbl_805D47F8 = *(s16 *)((s8 *)arg0 + 0);
+    lbl_805D47F8 = *(s16 *)&this->m_name;
     lbl_805D4804 = *(s16 *)((s8 *)arg0 + 2);
-    net_param_player_count = *(u16 *)((s8 *)arg0 + 4);
-    net_param_room_count = *(u16 *)((s8 *)arg0 + 6);
-    lbl_805D4800 = *(s32 *)((s8 *)arg0 + 8);
-    lbl_805D4808 = *(s32 *)((s8 *)arg0 + 0xC);
-    lbl_805D480C = *(s32 *)((s8 *)arg0 + 0x10);
-    net_param_word_h = *(s32 *)((s8 *)arg0 + 0x14);
+    net_param_player_count = this->m_flags;
+    net_param_room_count = this->m_id;
+    lbl_805D4800 = *(s32 *)&this->m_prev;
+    lbl_805D4808 = *(s32 *)&this->m_next;
+    lbl_805D480C = *(s32 *)&this->m_up;
+    net_param_word_h = *(s32 *)&this->m_down;
     net_param_word_i = *(s32 *)((s8 *)arg0 + 0x18);
     return TLobby__sub_803F861C((Info_803F861C *)((int) (0)));
 }

@@ -116,7 +116,7 @@ u32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 get_field_ed__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 
-s32 TObjPlayer::get_entity_id() { return *(s32*)((char*)this + 0x24); }
+s32 TObjPlayer::get_entity_id() { return *(s32 *)&this->unk_24; }
 s32 TObjPlayer__sub_8010A058(void* p) { return *(s32*)((char*)p + 0xf4); }
 
 extern const f32 lbl_805DAB58;
@@ -131,7 +131,7 @@ void TUnk_8049F130::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if (lbl_805DAB58 == (f32) *(s32 *)((s8 *)this + 0x1C)) {
+    if (lbl_805DAB58 == (f32) *(s32 *)&this->unk_1C) {
         init__9TItemDataFv(&sp8.a);
         sp8.a = 1;
         sp8.b = 2;
@@ -141,7 +141,7 @@ void TUnk_8049F130::run_task() {
             if (temp_r3 != 0) {
                 get_field_3e0__12TBoss3VoloptFv();
                 if (is_item_area_enabled() == 1) {
-                    if ((s32) *(s32 *)((s8 *)this + 0x24) == 0) {
+                    if ((s32) *(s32 *)&this->unk_24 == 0) {
                         create_timed_particle_emitter(temp_r3 + 0x2FC, this->m_20, 0, 0xA);
                     } else {
                         spawn_particle_effect(temp_r3 + 0x2FC, this->m_20);
@@ -149,9 +149,9 @@ void TUnk_8049F130::run_task() {
                 }
             }
         }
-        *(s32 *)((s8 *)this + 0x1C) = 0;
+        *(s32 *)&this->unk_1C = 0;
     }
-    *(s32 *)((s8 *)this + 0x1C) = (s32) (*(s32 *)((s8 *)this + 0x1C) + 1);
+    *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
 }
 
 extern s32 lbl_8049F130[];
@@ -195,23 +195,23 @@ void TUnk_8049F148::run_task() {
         if (temp_r3_2 != (s32) this->m_20) {
             this->m_20 = temp_r3_2;
             if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == ((TObjPlayer *)temp_r3)->get_field_3e4())) {
-                *(u32 *)((s8 *)this + 0x1C) = create_particle_emitter(sp8, 0x101);
+                *(u32 *)&this->unk_1C = create_particle_emitter(sp8, 0x101);
             } else {
-                *(u32 *)((s8 *)this + 0x1C) = 0U;
+                *(u32 *)&this->unk_1C = 0U;
             }
         }
         temp_r3_3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
-        if ((u32) *(u32 *)((s8 *)this + 0x1C) != 0U) {
+        if ((u32) *(u32 *)&this->unk_1C != 0U) {
             s32 var_r30 = 0;
             if ((temp_r3_3 != 0U) && (get_field_ed__5TItemFv() == 0x1A)) {
                 var_r30 = 1;
             }
             if (var_r30 != 0) {
-                ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x1C)))->clear_active_flag();
+                ((TParticleCtrl *)(*(u32 *)&this->unk_1C))->clear_active_flag();
             } else {
-                ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x1C)))->enable();
+                ((TParticleCtrl *)(*(u32 *)&this->unk_1C))->enable();
             }
-            ((TNowLoading *)(*(u32 *)((s8 *)this + 0x1C)))->copy_pos(sp8);
+            ((TNowLoading *)(*(u32 *)&this->unk_1C))->copy_pos(sp8);
         }
     } else {
         queue_destruction__7TObjectFv(this);

@@ -205,7 +205,7 @@ void TObjEneRe2Flower_EffCurse3::run_task() {
 void *TObjEneRe2Flower_EffCurse3::dt_with_child_destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
-        if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)this + 0x24))); *(s32 *)((s8 *)this + 0x24) = 0; }
+        if (*(void * *)&this->unk_24 != NULL) { queue_destruction__7TObjectFv((void*)(*(void * *)&this->unk_24)); *(s32 *)&this->unk_24 = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -217,11 +217,11 @@ void *TObjEneRe2Flower_EffCurse3::dt_with_child_destroy(s16 arg1) {
 void *TObjEneRe2Flower_EffCurse3::init_target_ref(s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)this + 0x18) = TObjEneRe2Flower_EffCurse3__vtable;
-    *(s32 *)((s8 *)this + 0) = (s32) lbl_805D2A58;
+    *(s32 *)&this->m_name = (s32) lbl_805D2A58;
     *(s32 *)((s8 *)this + 0x1C) = 0;
-    (*(s32 *)((u8 *)this + 0x20)) = arg2;
-    if (is_alive__9TObjEneDDFv((*(s32 *)((u8 *)this + 0x20))) != 0) {
-        *(s32 *)((s8 *)this + 0x24) = spawn_continuous_particle_effect_with_flags((*(s32 *)((u8 *)this + 0x20)) + 0x38, 0xDE, 0x40);
+    (this->m_20) = arg2;
+    if (is_alive__9TObjEneDDFv((this->m_20)) != 0) {
+        *(s32 *)&this->unk_24 = spawn_continuous_particle_effect_with_flags((this->m_20) + 0x38, 0xDE, 0x40);
     }
     return this;
 }

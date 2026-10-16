@@ -10,7 +10,9 @@ public:
     void *destroy(s16);
     virtual void render();
     virtual void run_task();
-    u8 unk_AC[0x10];
+    u8 unk_AC[0x4];
+    f32 m_b0;
+    u8 unk_B4[0x8];
     s32 m_bc;
     u8 unk_C0[0x4];
     s32 m_c4;

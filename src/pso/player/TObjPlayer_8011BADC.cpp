@@ -8,7 +8,7 @@ extern "C" {
 u32 query_game_join_id__10TObjPlayerFv(s32);
 
 s32 TItemShootModel::is_owner_alive() {
-    if (query_game_join_id__10TObjPlayerFv(*(s32 *)((s8 *)this + 0x54)) == 0U) {
+    if (query_game_join_id__10TObjPlayerFv(*(s32 *)&this->m_54) == 0U) {
         return 0;
     }
     return all_parents_unqueued_for_destruction() != 0 ? 1 : 0;

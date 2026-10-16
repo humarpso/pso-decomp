@@ -18,14 +18,14 @@ void TUnk_804A4F60::update_weapon() {
     s16 temp_r3;
 
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
-        temp_r3 = obj_getS16_32E(*(s32 *)((s8 *)this + 0xF0));
+        temp_r3 = obj_getS16_32E(*(s32 *)&this->player);
         temp_r0 = *(s16 *)((s8 *)this + 0x1F8) - temp_r3;
         if (temp_r0 != 0) {
             *(s16 *)((s8 *)this + 0x1F8) = temp_r3;
         }
         if (temp_r0 > 0) {
-            TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)this + 0xF0), temp_r0);
-            add_actor_tp(*(s32 *)((s8 *)this + 0xF0), (s16) (temp_r0 / 2));
+            TObjectV8047c128_subtract_hp(*(s32 *)&this->player, temp_r0);
+            add_actor_tp(*(s32 *)&this->player, (s16) (temp_r0 / 2));
         }
     }
 }

@@ -132,7 +132,7 @@ void TObjDoaEx01::try_open() {
         set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix(((u8 *)this) + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)((u8 *)this) + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree((s32)(temp_r31));
         pop_matrix();
     }
@@ -149,8 +149,8 @@ void TObjDoaEx01::draw_model() {
         set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix((void *) (((u8 *)this) + 0x38));
-        rotate_matrix_y((0), (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-        temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0xB0);
+        rotate_matrix_y((0), (this->rotation_y));
+        temp_f31 = this->m_b0;
         if (temp_f31 > TObjDoaEx01__data_805DBDA0) {
             temp_r31 = get_bml_motion((TObjDoaEx01__resource_bundle), (0));
             draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__resource_bundle), (0)), temp_r31, temp_f31);

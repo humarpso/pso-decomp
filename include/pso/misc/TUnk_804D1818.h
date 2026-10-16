@@ -13,7 +13,10 @@ public:
     void update_quest_board_card_flags();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x8];
+    u8 unk_1C[0x1];
+    u8 m_1d;
+    u8 unk_1E[0x2];
+    s32 m_20;
     void * m_24;
     u8 unk_28[0x4];
     u32 m_2c;

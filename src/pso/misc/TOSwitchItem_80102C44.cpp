@@ -7,6 +7,6 @@
 
 extern "C" {
 
-u8 TItem::get_field_ec() { return *(u8*)((char*)this + 0xec); }
+u8 TItem::get_field_ec() { return this->m_ec; }
 
 }

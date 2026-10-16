@@ -209,15 +209,15 @@ void TOKeyJungleMain::load_static_resource() {
 }
 
 void TOKeyJungleMain::debug_draw_key_id() {
-    *(s32 *)((s8 *)this + 0xC8) = *(s32 *)((s8 *)this + 0x84);
-    if (*(s32 *)((s8 *)this + 0xC8) < 0) {
-        *(s32 *)((s8 *)this + 0xC8) = 0;
+    *(s32 *)&this->m_e4 = this->m_84;
+    if (*(s32 *)&this->m_e4 < 0) {
+        *(s32 *)&this->m_e4 = 0;
     }
-    if (*(s32 *)((s8 *)this + 0xC8) > 2) {
-        *(s32 *)((s8 *)this + 0xC8) = 2;
+    if (*(s32 *)&this->m_e4 > 2) {
+        *(s32 *)&this->m_e4 = 2;
     }
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    debug_printf_at(0x130020, lbl_80465A2C, ((s32 *)&TOKeyJungleMain__data_804653C8)[*(s32 *)((s8 *)this + 0xC8)]);
+    debug_printf_at(0x130020, lbl_80465A2C, ((s32 *)&TOKeyJungleMain__data_804653C8)[*(s32 *)&this->m_e4]);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
@@ -253,19 +253,19 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
 typedef char RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
 void TOKeyJungleMain::send_switch_on() {
     u8 *arg0 = (u8 *)this;
-    dispatch_by_phase__15TOKeyJungleMainFlUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)((s8 *)arg0 + 0xC8) * 4))));
+    dispatch_by_phase__15TOKeyJungleMainFlUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)&this->m_e4 * 4))));
 }
 
 void TOKeyJungleMain::update_lock_state() {
     s32 temp_r31;
-    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0xD0) != 2) {
-        temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xD4);
-        if (TLevelSelect::get_difficulty_flag_bit(game_difficulty_selection, *(s32 *)((s8 *)(&TOKeyJungleMain__data_804653C8.value) + (*(s32 *)((s8 *)((u8 *)this) + 0xC8) * 4))) != 0) {
-            *(s32 *)((s8 *)((u8 *)this) + 0xD4) = 1;
+    if ((s32) *(s32 *)&this->m_d0 != 2) {
+        temp_r31 = *(s32 *)&this->m_d4;
+        if (TLevelSelect::get_difficulty_flag_bit(game_difficulty_selection, *(s32 *)((s8 *)(&TOKeyJungleMain__data_804653C8.value) + (*(s32 *)&this->m_e4 * 4))) != 0) {
+            *(s32 *)&this->m_d4 = 1;
         } else {
-            *(s32 *)((s8 *)((u8 *)this) + 0xD4) = 0;
+            *(s32 *)&this->m_d4 = 0;
         }
-        if (temp_r31 != (s32) *(s32 *)((s8 *)((u8 *)this) + 0xD4)) {
+        if (temp_r31 != (s32) *(s32 *)&this->m_d4) {
             ((VObj_18_076902 *)(((u8 *)this)))->m20();
         }
     }
@@ -343,12 +343,12 @@ u8 TObjFish::update_state() {
         case 0:
             if (is_lobby_event_active() == 0) {
                 *(s16 *)((s8 *)this + 0x90) = 2;
-                *(s16 *)((s8 *)this + 0x92) = 0x28;
+                this->m_92 = 0x28;
             }
             goto Lend;
         case 2:
-            *(s16 *)((s8 *)this + 0x92) = (s16) (*(s16 *)((s8 *)this + 0x92) - 1);
-            if (*(s16 *)((s8 *)this + 0x92) <= 0) {
+            this->m_92 = (s16) (this->m_92 - 1);
+            if (this->m_92 <= 0) {
                 *(s16 *)((s8 *)this + 0x90) = 3;
             }
             goto Lend;
@@ -615,16 +615,16 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
     } else {
         *(s16 *)((s8 *)((u8 *)this) + 0x90) = 3;
     }
-    *(s16 *)((s8 *)((u8 *)this) + 0x92) = 0;
-    if (*(s32 *)((s8 *)((u8 *)this) + 0x94) < 1) {
+    this->m_92 = 0;
+    if (*(s32 *)&this->m_94 < 1) {
         return 0;
     }
-    *(Ent_8029E170 **)((s8 *)((u8 *)this) + 0xA0) = (Ent_8029E170 *) ((TQuestVmDownLoadServer *)(*(s32 *)((s8 *)((u8 *)this) + 0x94) * 0x44))->alloc();
-    if (*(Ent_8029E170 **)((s8 *)((u8 *)this) + 0xA0) == NULL) {
+    *(Ent_8029E170 * *)&this->m_a0 = (Ent_8029E170 *) ((TQuestVmDownLoadServer *)(*(s32 *)&this->m_94 * 0x44))->alloc();
+    if (*(Ent_8029E170 * *)&this->m_a0 == NULL) {
         return 0;
     }
-    p = *(Ent_8029E170 **)((s8 *)((u8 *)this) + 0xA0);
-    for (i = 0; i < *(s32 *)((s8 *)((u8 *)this) + 0x94); i++) {
+    p = *(Ent_8029E170 * *)&this->m_a0;
+    for (i = 0; i < *(s32 *)&this->m_94; i++) {
         p->pos.x = lbl_805DDD70 * (arg1->x * (lbl_805DDD64 * (f32) rand() - lbl_805DDD60));
         p->pos.y = lbl_805DDD70 * (arg1->y * (lbl_805DDD64 * (f32) rand() - lbl_805DDD60));
         p->pos.z = lbl_805DDD70 * (arg1->z * (lbl_805DDD64 * (f32) rand() - lbl_805DDD60));

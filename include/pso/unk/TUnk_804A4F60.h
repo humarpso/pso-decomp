@@ -11,7 +11,9 @@ public:
     virtual void emit_marker_effects();
     virtual void update_weapon();
     virtual void set_technique_roll(s32);
-    u8 unk_1F8[0x84];
+    u8 unk_1F8[0x7C];
+    f32 m_274;
+    u8 unk_278[0x4];
 };
 
 #endif

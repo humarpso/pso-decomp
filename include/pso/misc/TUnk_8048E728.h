@@ -14,11 +14,16 @@ public:
     void * m_20;
     u8 unk_24[0x4];
     f32 m_28;
-    u8 unk_2C[0x10];
+    u8 unk_2C[0x4];
+    f32 m_30;
+    u8 unk_34[0x4];
+    f32 m_38;
     f32 m_3c;
     u8 unk_40[0x4];
     f32 m_44;
-    u8 unk_48[0x28];
+    u8 unk_48[0x10];
+    f32 m_58;
+    u8 unk_5C[0x14];
     f32 m_70;
     u8 unk_74[0x4];
     f32 m_78;

@@ -130,12 +130,12 @@ extern f32 lbl_805DB748;
 void TOKeyCave01::vfunc_16() {
     s32 temp_r4;
 
-    if (lbl_805DB748 < *(f32 *)((s8 *)this + 0x6C)) {
-        *(f32 *)((s8 *)this + 0x6C) = (f32) (*(f32 *)((s8 *)this + 0x6C) + lbl_805DB744);
+    if (lbl_805DB748 < this->target_scale) {
+        this->target_scale = (f32) (this->target_scale + lbl_805DB744);
     }
-    temp_r4 = *(s32 *)((s8 *)this + 0xFC);
+    temp_r4 = *(s32 *)&this->unk_FC;
     if (temp_r4 < 0x2000) {
-        *(s32 *)((s8 *)this + 0xFC) = (s32) (temp_r4 + 0x333);
+        *(s32 *)&this->unk_FC = (s32) (temp_r4 + 0x333);
     }
 }
 
@@ -144,19 +144,19 @@ extern void *tl_05;
 void TOKeyCave01::run_task() {
     u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg0))->m12();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
+    if ((s32) *(s32 *)&this->m_d4 != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
             ((TOKeyCave01 *)arg0)->send_switch_changed((int) (1));
             ((VObj_18 *)(arg0))->m16();
-            *(s32 *)((s8 *)arg0 + 0xD4) = 1;
+            *(s32 *)&this->m_d4 = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
             ((TOKeyCave01 *)arg0)->send_switch_changed((int) (0));
             ((VObj_18 *)(arg0))->m17();
-            *(s32 *)((s8 *)arg0 + 0xD4) = 0;
+            *(s32 *)&this->m_d4 = 0;
         }
     }
 }
@@ -167,15 +167,15 @@ void TOKeyCave01::render() {
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
-    if (((VObj_8016C280 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
-        TObjFish::set_global_param((int) TOKeyCave01__texture_lists[*(s32 *)((s8 *)arg0 + 0xD4)]);
+    if (((VObj_8016C280 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
+        TObjFish::set_global_param((int) TOKeyCave01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        temp_r31 = *(u8 **)((s8 *)arg0 + 0x34);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
+        if ((s32) *(s32 *)&this->m_d4 != 1) {
             temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
             model_render_flags = temp_r4 | 0x10;
@@ -189,7 +189,7 @@ void TOKeyCave01::render() {
             post_translate_matrix((void *) (arg0 + 0x68));
             break;
         case 1:
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xFC)));
+            rotate_matrix_y((int) (0), (int) (*(s32 *)&this->unk_FC));
             break;
         }
         post_translate_matrix((void *) (temp_r31_2 + 8));
@@ -201,7 +201,7 @@ void TOKeyCave01::render() {
         pop_matrix();
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
+        if ((s32) *(s32 *)&this->m_d4 != 1) {
             set_chunk_material_color((void *) chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
         }
@@ -325,7 +325,7 @@ s32 TOKeyCol::is_confirm_pressed() {
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0xD0);
+    temp_r0 = *(s32 *)&this->m_d0;
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
@@ -333,7 +333,7 @@ s32 TOKeyCol::is_confirm_pressed() {
         } else {
             var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0xD4) == 1) || (var_r3 == 1)) {
+        if (((s32) *(s32 *)&this->m_d4 == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;

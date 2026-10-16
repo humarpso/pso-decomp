@@ -102,13 +102,13 @@ void TOSwitchItem::update_anim() {
     f32 temp_f0;
 
     init_switch_id__5TOKeyFv();
-    temp_f0 = *(f32 *)((s8 *)this + 0x68);
-    *(f32 *)((s8 *)this + 0xE8) = (f32) (temp_f0 * temp_f0);
-    *(s32 *)((s8 *)this + 0xF0) = (s32) *(s32 *)((s8 *)this + 0x88);
-    if ((s32) *(s32 *)((s8 *)this + 0xF0) >= 8) {
-        *(s32 *)((s8 *)this + 0xF0) = 0;
+    temp_f0 = this->scale;
+    this->m_e8 = (f32) (temp_f0 * temp_f0);
+    this->m_f0 = (s32) *(s32 *)&this->m_88;
+    if ((s32) this->m_f0 >= 8) {
+        this->m_f0 = 0;
     }
-    *(s32 *)((s8 *)this + 0xF4) = (s32) (*(s32 *)((s8 *)this + 0x8C) + 1);
+    *(s32 *)&this->unk_F4 = (s32) (*(s32 *)&this->m_8c + 1);
 }
 
 void TOSwitchItem::render() {
@@ -119,7 +119,7 @@ void TOSwitchItem::render() {
         stack.spC = lbl_805DBA10;
         stack.sp10 = lbl_805DBA10;
         stack.sp14 = lbl_805DBA14;
-        newton_sqrtf((f32) (*(f32 *)((s8 *)arg0 + 0xE8)));
+        newton_sqrtf((f32) (this->m_e8));
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
     }
 }

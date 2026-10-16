@@ -151,19 +151,19 @@ void TOKeyGenericSw::render() {
 void TOKeyGenericSw::vfunc_17() {
     update_anim_phase__13TUnk_804AFBF8Fv();
     ((VObj_8016CB88_8016CA60*)this)->m18();
-    *(s32 *)((s8 *)this + 0xF4) = 1;
-    *(s32 *)((s8 *)this + 0xEC) = 0;
+    this->m_f4 = 1;
+    this->m_ec = 0;
     *(s32 *)((s8 *)this + 0xF0) = 0;
-    *(s32 *)((s8 *)this + 0xF8) = (s32) *(s32 *)((s8 *)this + 0xF4);
+    *(s32 *)&this->unk_F8 = (s32) this->m_f4;
 }
 
 void TOKeyGenericSw::vfunc_16() {
     update_anim_phase__13TUnk_804AFBF8Fv();
     ((VObj_8016CBE4_8016CA60*)this)->m18();
-    *(s32 *)((s8 *)this + 0xEC) = 1;
-    *(s32 *)((s8 *)this + 0xF4) = 0;
-    *(s32 *)((s8 *)this + 0xF8) = 0;
-    *(s32 *)((s8 *)this + 0xF0) = (s32) *(s32 *)((s8 *)this + 0xEC);
+    this->m_ec = 1;
+    this->m_f4 = 0;
+    *(s32 *)&this->unk_F8 = 0;
+    *(s32 *)((s8 *)this + 0xF0) = (s32) this->m_ec;
 }
 
 extern void *tl_05;

@@ -27,7 +27,7 @@ void TUnk_804A69C0::render() {
 }
 
 void TUnk_804A69C0::hook() {
-    *(s32 *)((s8 *)this + 0x28) = (s32) (*(s32 *)((s8 *)this + 0x28) + 0xCCC);
+    this->m_28 = (s32) (this->m_28 + 0xCCC);
 }
 
 extern s32 lbl_804A69C0[];

@@ -30,7 +30,9 @@ struct TBoss2Joint : public TObjEneDD {
     void run_task();
     s32 init_params();
     void render();
-    u8 unk_384[0x38];
+    u8 unk_384[0x24];
+    f32 m_3a8;
+    u8 unk_3AC[0x10];
 };
 
 typedef char TBoss2Joint_size[sizeof(TBoss2Joint) == 0x3BC ? 1 : -1];

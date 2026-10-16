@@ -290,7 +290,7 @@ void * create_random_particle(void *arg0, void *arg1, void *arg2) {
 }
 void TUnk_8048E7A8::check_radial_particle_retire() {
     u8 *arg0 = (u8 *)this;
-    if ((*(f32 *)((s8 *)arg0 + 0x58) >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((void *) (arg0 + 0x3C)))) {
+    if ((this->m_58 >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((void *) (arg0 + 0x3C)))) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
@@ -315,7 +315,7 @@ void TUnk_8048E7A8::render() {
             VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x70);
         }
         end.x = pos.x + this->m_3c;
-        end.y = pos.y + *(f32 *)((s8 *)arg0 + 0x40);
+        end.y = pos.y + *(f32 *)&this->unk_40;
         end.z = pos.z + this->m_44;
         len = vector_length(arg0 + 0x3C);
         if (TParticleCtrl__data_805D955C == len) {
@@ -330,7 +330,7 @@ void TUnk_8048E7A8::render() {
         *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)((s8 *)(*(u8 * *)&this->m_20) + 0x64) * len;
     } else {
         this->m_88 = this->m_28;
-        *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)((s8 *)arg0 + 0x2C);
+        *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)&this->unk_2C;
     }
     this->m_88 = this->m_88 * this->m_a4;
     *(f32 *)((s8 *)arg0 + 0x8C) = *(f32 *)((s8 *)arg0 + 0x8C) * *(f32 *)((s8 *)arg0 + 0xA8);

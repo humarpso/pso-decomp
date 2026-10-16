@@ -1374,7 +1374,7 @@ void TLobby__sub_80293218(s32 arg0) {
 
 void TLobby::copy_struct(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
-    *(u8 *)((s8 *)arg0 + 0) = (u8) *(u8 *)((s8 *)arg1 + 0);
+    *(u8 *)&this->m_name = (u8) *(u8 *)((s8 *)arg1 + 0);
     *(u8 *)((s8 *)arg0 + 1) = (u8) *(u8 *)((s8 *)arg1 + 1);
     *(u8 *)((s8 *)arg0 + 2) = (u8) *(u8 *)((s8 *)arg1 + 2);
     *(u8 *)((s8 *)arg0 + 3) = (u8) *(u8 *)((s8 *)arg1 + 3);

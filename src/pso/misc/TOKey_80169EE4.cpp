@@ -78,15 +78,15 @@ extern s32 lbl_804B27D8[];
 void *TUnk_804B27D8::init() {
     init_map_object_base(this);
     *(s32 * *)((u8 *)this + 0x18) = lbl_804B27D8;
-    *(u32 *)((s8 *)this + 0xD0) = -1;
-    (*(u32 *)((u8 *)this + 0xC8)) = 0;
+    *(u32 *)&this->unk_D0 = -1;
+    (*(u32 *)&this->unk_C8) = 0;
     this->m_ac = 0;
-    *(u32 *)((s8 *)this + 0xCC) = 0;
-    *(u32 *)((s8 *)this + 0xD4) = 0;
-    *(u32 *)((s8 *)this + 0xD8) = 0;
+    *(u32 *)&this->m_cc = 0;
+    *(u32 *)&this->m_d4 = 0;
+    *(u32 *)&this->unk_D8 = 0;
     TOKey__sub_80169FB0((void*)((void *)((char *)this + 152)));
-    *(u32 *)((s8 *)this + 0xDC) = 0;
-    *(u32 *)((s8 *)this + 0xE0) = 1;
+    this->m_dc = 0;
+    *(u32 *)&this->m_e0 = 1;
     return this;
 }
 
@@ -110,15 +110,15 @@ void TOKey::handle_switch_trigger(void *arg1) {
     } else {
         clear_current_floor_switch(*(u16 *)((s8 *)arg1 + 8));
     }
-    temp_r0 = *(s32 *)((s8 *)this + 0xD4);
+    temp_r0 = *(s32 *)&this->m_d4;
     switch (temp_r0) {
     case 0:
         ((VObj_8016A004_80169EE4 *)this)->m16();
-        *(s32 *)((s8 *)this + 0xD4) = 1;
+        *(s32 *)&this->m_d4 = 1;
         return;
     case 1:
         ((VObj_8016A004_80169EE4 *)this)->m17();
-        *(s32 *)((s8 *)this + 0xD4) = 0;
+        *(s32 *)&this->m_d4 = 0;
         return;
     }
 }
@@ -147,8 +147,8 @@ void TOKey::vfunc_13(s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
-    if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1))) {
+    temp_r0 = *(s32 *)&this->m_d0;
+    if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)&this->m_d4 != 1))) {
         temp_r3 = get_player_by_client_id((u16)((u16)arg1));
         if (temp_r3 != 0) {
             start_camera_pan__10TObjPlayerFs(temp_r3, 0xC, ((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to(arg0 + 0x38));
@@ -163,7 +163,7 @@ extern s8 controller_input_state[];
 void TOKey::send_switch_on() {
     SwitchPacket packet;
     ((TLobby *)(&packet))->init_6x05_switch_changed();
-    packet.object=*(u16*)((u8*)this+0x1c);
+    packet.object=this->m_1c;
     packet.zero=0;
     packet.switchId=*(s32 *)&this->m_e4;
     packet.area=((s8)get_current_floor());
@@ -204,11 +204,11 @@ s32 TOKey::is_local_player_in_range() {
 s32 TOKey::is_confirm_pressed() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0xD0);
+    temp_r0 = *(s32 *)&this->m_d0;
     if (temp_r0 == 2) {
         return 0;
     }
-    if ((temp_r0 == 0) && ((s32) *(s32 *)((s8 *)this + 0xD4) == 1)) {
+    if ((temp_r0 == 0) && ((s32) *(s32 *)&this->m_d4 == 1)) {
         return 0;
     }
     if ((is_local_player_in_range() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {

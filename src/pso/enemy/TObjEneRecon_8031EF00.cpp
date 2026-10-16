@@ -4,7 +4,7 @@
 extern "C" {
 
 u8 TObjEneRecon::is_anim_6() {
-    return (u8) (*(s16 *)((s8 *)this + 0x326) == 6);
+    return (u8) (this->mode == 6);
 }
 
 }

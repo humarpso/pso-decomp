@@ -77,14 +77,14 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 init_parts__10TObjPlayerFv();
 
 void TWindowFukidasi__sub_80252C38(void* p) { *(u8*)((char*)p + 0x71) |= 0x4; }
-void TUnk_804CF0B8::clear_visible_flag() { *(u8*)((char*)this + 0x71) &= 0xfe; }
-void TUnk_804CF0B8::set_flag() { *(u8*)((char*)this + 0x71) |= 0x1; }
-void TUnk_804CF0B8::sub_80252C68() { *(u8*)((char*)this + 0x71) |= 0x20; }
-int TUnk_804CF0B8::is_flag_set() { return *(u8*)((char*)this + 0x71) & 0x1; }
-void TUnk_804CF0B8::clear_flag_20() { *(u8*)((char*)this + 0x71) &= 0xffffffdf; }
-int TUnk_804CF0B8::is_active() { return (*(u8*)((char*)this + 0x71) >> 2) & 0x1; }
-void TUnk_804CF0B8::clear_flag() { *(u8*)((char*)this + 0x71) &= 0xfffffffb; }
-int TUnk_804CF0B8::is_balloon_visible() { return (*(u8*)((char*)this + 0x71) >> 5) & 0x1; }
+void TUnk_804CF0B8::clear_visible_flag() { this->m_71 &= 0xfe; }
+void TUnk_804CF0B8::set_flag() { this->m_71 |= 0x1; }
+void TUnk_804CF0B8::sub_80252C68() { this->m_71 |= 0x20; }
+int TUnk_804CF0B8::is_flag_set() { return this->m_71 & 0x1; }
+void TUnk_804CF0B8::clear_flag_20() { this->m_71 &= 0xffffffdf; }
+int TUnk_804CF0B8::is_active() { return (this->m_71 >> 2) & 0x1; }
+void TUnk_804CF0B8::clear_flag() { this->m_71 &= 0xfffffffb; }
+int TUnk_804CF0B8::is_balloon_visible() { return (this->m_71 >> 5) & 0x1; }
 int fn_80252CBC(void* p) { return *(u16*)((char*)p + 0x0) & 0x10; }
 void TWindowGetComCard::render() {  }
 

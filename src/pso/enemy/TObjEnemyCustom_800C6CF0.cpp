@@ -311,9 +311,9 @@ u8 TObjEnemyCustom::find_target_in_range(f32 farg0) {
     if (obj_testFlags30(this, 0x10) != 0) {
         return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(this, farg0);
     }
-    *(u16 *)((s8 *)this + 0x338) = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(this, 0, farg0);
-    (*(s32 *)((u8 *)this + 0x2A8)) = get_player_by_client_id(*(u16 *)((s8 *)this + 0x338));
-    return (u8) ((*(s32 *)((u8 *)this + 0x2A8)) != 0);
+    this->targetId = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(this, 0, farg0);
+    (*(s32 *)&this->target) = get_player_by_client_id(this->targetId);
+    return (u8) ((*(s32 *)&this->target) != 0);
 }
 
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {

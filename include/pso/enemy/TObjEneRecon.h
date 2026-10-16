@@ -71,7 +71,11 @@ struct TObjEneRecon : public TObjEneDD_ST {
     void remove_child_entity(u8 *arg1);
     s32 has_child_in_anim_5();
     s32 is_below_child_limit(u16 arg1);
-    u8 unk_47C[0x68];
+    u8 unk_47C[0x54];
+    f32 m_4d0;
+    u8 unk_4D4[0x4];
+    s32 m_4d8;
+    u8 unk_4DC[0x8];
     static s32 render_player_marker(u16 arg0, s32 arg1);
     s32 push_reflect_matrix();
     static void update_particle_if_active();

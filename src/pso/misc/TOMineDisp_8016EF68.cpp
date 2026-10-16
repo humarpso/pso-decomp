@@ -66,19 +66,19 @@ void TOMineDisp::draw() {
     s32 temp_r31;
     s32 temp_r4;
     u16 id = TCameraCtrl::get_nth_view_player_id(get_camera_mode__11TCameraCtrlFv());
-    if (id != *(u16 *)((s8 *)((u8 *)this) + 0xA8)) {
+    if (id != this->m_a8) {
         return;
     }
-    if (*(s32 *)((s8 *)((u8 *)this) + 0xA4) != 2) {
+    if (*(s32 *)&this->m_a4 != 2) {
         return;
     }
     if (((VObj_8016EFB4 *)((u8 *)this))->m8(lbl_805DB854, lbl_805DB858) == 0) {
         return;
     }
     push_matrix();
-    temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0x10);
+    temp_r31 = *(s32 *)&this->m_up;
     post_translate_matrix(((u8 *)this) + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)((u8 *)this) + 0x60));
+    rotate_matrix_y(0, this->rotation_y);
     ((TOMine *)temp_r31)->free_parts();
     TParticleCtrl::begin_effect_render();
     temp_r4 = model_render_flags;

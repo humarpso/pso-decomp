@@ -285,10 +285,10 @@ void TOTrap::vfunc_82() {
 
     calc_attach_pos__10TObjPlayerFv();
     refresh_collision_body_centers();
-    if ((s32) *(s32 *)((s8 *)this + 0x84) < 0) {
+    if ((s32) this->m_84 < 0) {
         u32 p;
-        ((V_A_80178BC0 *)this)->m20(*(u32 *)((s8 *)this + 0x2A8), TOTrap__data_805DBA38);
-        p = *(u32 *)((s8 *)this + 0x2A8);
+        ((V_A_80178BC0 *)this)->m20(*(u32 *)&this->target, TOTrap__data_805DBA38);
+        p = *(u32 *)&this->target;
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {

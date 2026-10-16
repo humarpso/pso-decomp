@@ -11,7 +11,11 @@ public:
     virtual void update_weapon();
     virtual void set_technique_roll(s32);
     void sub_802D577C();
-    u8 unk_204[0x50];
+    u8 unk_204[0x44];
+    s16 m_248;
+    u8 unk_24A[0x2];
+    f32 m_24c;
+    u8 unk_250[0x4];
 };
 
 #endif

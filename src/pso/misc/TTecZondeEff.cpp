@@ -532,7 +532,7 @@ typedef char RecoveredGlobal_8023DA10___vt__12TTecZondeEff_size[sizeof(Recovered
 u8 *TTecZonde::construct_bolt_effect(u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1) {
     __ct__7TObjectFP7TObject(((u8 *)this), arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8023DA10___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
-    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) TTecZondeEff_class_name;
+    *(s32 *)&this->m_name = (s32) TTecZondeEff_class_name;
     *(f32 *)((s8 *)((u8 *)this) + 0x244) = farg1;
     *(s32 *)((s8 *)((u8 *)this) + 0x254) = arg4;
     *(s32 *)((s8 *)((u8 *)this) + 0x258) = arg5;
@@ -553,7 +553,7 @@ u8 *TTecZonde::construct_bolt_effect(u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32
 u8 *TTecZondeEff::construct(u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(((u8 *)this), arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8023DADC___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
-    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) TTecZondeEff_class_name;
+    *(s32 *)&this->m_name = (s32) TTecZondeEff_class_name;
     *(f32 *)((s8 *)((u8 *)this) + 0x244) = (f32) TTecZondeEff__data_805DC994;
     *(s32 *)((s8 *)((u8 *)this) + 0x254) = 0x08000000;
     *(s32 *)((s8 *)((u8 *)this) + 0x258) = 0x14;

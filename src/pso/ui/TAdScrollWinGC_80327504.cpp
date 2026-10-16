@@ -61,9 +61,9 @@ void TAdScrollWinGC::run_task() {
     }
     this->m_3c += 0xC;
     this->m_3c = this->m_3c > 0xFF ? 0xFF : this->m_3c;
-    *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805DF6A0;
+    *(f32 *)&this->unk_1C = lbl_805DF6A0;
     this->m_20 = lbl_805DF6A4;
-    *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DF6A8;
+    *(f32 *)&this->unk_24 = lbl_805DF6A8;
     this->m_28 = lbl_805DF6AC;
     d = *(s16 *)((s8 *)controller_physical_port_bank + 0x3A);
     if (d < 0) {

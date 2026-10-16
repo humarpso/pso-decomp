@@ -122,8 +122,8 @@ int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 
 s32 TLobby::get_valid_child() {
-    if (is_valid_player_motion_variant((void*)(*(s32 *)((s8 *)this + 4))) != 0) {
-        return *(s32 *)((s8 *)this + 4);
+    if (is_valid_player_motion_variant((void*)(*(s32 *)&this->m_flags)) != 0) {
+        return *(s32 *)&this->m_flags;
     }
     return 0;
 }
@@ -133,7 +133,7 @@ s32 TLobby::validate_handle(s32 *arg0) {
     }
     return 0;
 }
-void TUnk_804DDD28::sub_802A7318() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; }
+void TUnk_804DDD28::sub_802A7318() { *(s32*)((char*)this + 0x0) = 0; *(s32 *)&this->m_4 = 0; }
 
 extern s32 player_action_motion_buffer;
 

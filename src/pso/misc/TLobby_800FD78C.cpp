@@ -9,14 +9,14 @@ s32 TCameraCtrl__sub_8006B370(f32);
 void TLobby::init_range(s32 arg1) {
     s32 temp_r5;
 
-    *(s32 *)((s8 *)this + 4) = arg1;
+    *(s32 *)&this->m_flags = arg1;
     temp_r5 = arg1 + 1;
-    *(s32 *)((s8 *)this + 8) = temp_r5;
-    *(s32 *)((s8 *)this + 0xC) = temp_r5;
-    *(s32 *)((s8 *)this + 0x10) = 0;
-    *(s32 *)((s8 *)this + 0x14) = 0;
+    *(s32 *)&this->m_prev = temp_r5;
+    *(s32 *)&this->m_next = temp_r5;
+    *(s32 *)&this->m_up = 0;
+    *(s32 *)&this->m_down = 0;
     *(s32 *)((s8 *)this + 0x18) = 0;
-    *(s32 *)((s8 *)this + 0) = -1;
+    *(s32 *)&this->m_name = -1;
     *(s32 *)((s8 *)this + 0x1C) = 0;
     *(s32 *)((s8 *)this + 0x20) = 0;
 }

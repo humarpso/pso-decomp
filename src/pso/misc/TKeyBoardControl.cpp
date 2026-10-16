@@ -217,7 +217,7 @@ void TWindowKeyBoardSoft::sub_80260808(s32 arg1) {
     s32 temp_r5;
     temp_r5 = arg1 * 0x50;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x6C) != 0U)) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x60) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x60) & 0xFFFFFFEF);
+        *(s32 *)&this->m_7c = (s32) (*(s32 *)&this->m_7c & 0xFFFFFFEF);
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         ((TWindowKeyBoardSoft *)(*(u32 *)((s8 *)((u8 *)this) + 0x6C)))->handle_backspace();
     }

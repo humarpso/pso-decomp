@@ -8,7 +8,7 @@ s32 TObjQuestColBase__ct();
 s32 update_trigger_state__16TObjQuestColBaseFf(f32);
 
 int TObjQuestCol2::vfunc_15() {
-    return (u32)__cntlzw(1 - update_trigger_state__16TObjQuestColBaseFf(*(f32 *)((s8 *)this + 0xAC))) >> 5;
+    return (u32)__cntlzw(1 - update_trigger_state__16TObjQuestColBaseFf(*(f32 *)&this->unk_AC)) >> 5;
 }
 
 extern s32 __vt__13TObjQuestCol2[];

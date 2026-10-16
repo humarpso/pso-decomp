@@ -11,7 +11,11 @@ struct TCineCtrl : public TObject {
     static void reset_state(s32 arg0);
     static void reset(s32 arg0);
     void run_task();
-    u8 unk_1C[0x14];
+    u8 unk_1C[0x4];
+    f32 m_20;
+    u8 unk_24[0x3];
+    s8 m_27;
+    u8 unk_28[0x8];
     void update_letterbox_hide();
 };
 

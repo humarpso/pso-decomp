@@ -125,16 +125,16 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
-    *(s32 *)((s8 *)this + 0xAC) = (s32) *arg1;
-    switch (*(s32 *)((s8 *)this + 0xAC)) {
+    *(s32 *)&this->m_ac = (s32) *arg1;
+    switch (*(s32 *)&this->m_ac) {
     case 2:
-        dispatch_by_main_phase__14TBoss4DarkFalzFUs(*(s32 *)((s8 *)this + 0xD0));
-        *(s32 *)((s8 *)this + 0xC8) = 1;
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs(*(s32 *)&this->m_d0);
+        *(s32 *)&this->m_c8 = 1;
         break;
     default:
-        if (get_story_flag(*(s32 *)((s8 *)this + 0xD0)) != 0) {
-            *(s32 *)((s8 *)this + 0xAC) = 2;
-            *(s32 *)((s8 *)this + 0xC8) = 1;
+        if (get_story_flag(*(s32 *)&this->m_d0) != 0) {
+            *(s32 *)&this->m_ac = 2;
+            *(s32 *)&this->m_c8 = 1;
         }
         break;
     }

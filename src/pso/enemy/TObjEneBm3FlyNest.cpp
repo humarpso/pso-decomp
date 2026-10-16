@@ -1725,7 +1725,7 @@ void TObjEneBm3FlyNest::render_with_state_debug() {
     f32 var_f31;
     Ent_800B23A0 *var_r30;
     if (((TObjEneDD *)arg0)->get_target_info() != 0) {
-        switch (*(s32 *)((s8 *)arg0 + 0x38C)) {
+        switch (*(s32 *)&this->m_3a8) {
         default:
         case 2:
             debug_printf_at(pack_debug_text_position(0, 0), lbl_8043B328);
@@ -1737,43 +1737,43 @@ void TObjEneBm3FlyNest::render_with_state_debug() {
             debug_printf_at(pack_debug_text_position(0, 0), lbl_8043B348);
             break;
         }
-        debug_printf_at(pack_debug_text_position(0, 1), lbl_8043B358, *(s32 *)((s8 *)arg0 + 0x390));
-        debug_printf_at(pack_debug_text_position(0, 2), lbl_8043B368, *(s32 *)((s8 *)arg0 + 0x394));
+        debug_printf_at(pack_debug_text_position(0, 1), lbl_8043B358, *(s32 *)&this->m_3ac);
+        debug_printf_at(pack_debug_text_position(0, 2), lbl_8043B368, *(s32 *)&this->m_3b0);
     }
-    switch (*(s32 *)((s8 *)arg0 + 0x38C)) {
+    switch (*(s32 *)&this->m_3a8) {
     default:
     case 2:
         var_f31 = 0.0f;
-        var_r30 = (*(Pair_800B23A0 **)((s8 *)arg0 + 0xDC))[*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD8)) + 4)].e;
+        var_r30 = (*(Pair_800B23A0 * *)&this->motion_list)[*(s32 *)((s8 *)(*(u8 * *)&this->action_table) + 4)].e;
         break;
     case 9:
-        var_r30 = (*(Pair_800B23A0 **)((s8 *)arg0 + 0xDC))[*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD8)) + 0x74)].e;
+        var_r30 = (*(Pair_800B23A0 * *)&this->motion_list)[*(s32 *)((s8 *)(*(u8 * *)&this->action_table) + 0x74)].e;
         var_f31 = var_r30->count - 1;
         break;
     case 5:
-        var_r30 = (*(Pair_800B23A0 **)((s8 *)arg0 + 0xDC))[*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xD8)) + 0x34)].e;
+        var_r30 = (*(Pair_800B23A0 * *)&this->motion_list)[*(s32 *)((s8 *)(*(u8 * *)&this->action_table) + 0x34)].e;
         var_f31 = var_r30->count - 1;
         break;
     }
     if (((VObj_18_800B23A0 *)arg0)->m8(500.0f, 120.0f) != 0) {
         Vec_800B23A0 v = lbl_8043B31C;
         update_player_state__9TObjEneDDFv(arg0, &v, 1);
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(this->texture_id);
         ((void (*)(void))push_matrix)();
         ((void (*)(void *))post_translate_matrix)(arg0 + 0x38);
         translate_matrix(0, 0.0f, -5.0f, 0.0f);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
         TObjPlayer::set_global_flag();
-        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), var_r30, var_f31);
+        draw_model_motion(*(s32 *)&this->model, var_r30, var_f31);
         TObjPlayer::clear_global_state();
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();
     }
     ((void (*)(void))push_matrix)();
     ((void (*)(void *))post_translate_matrix)(arg0 + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+    rotate_matrix_y(0, this->rotation_y);
     translate_matrix(0, *(f32 *)((s8 *)arg0 + 0x35C), *(f32 *)((s8 *)arg0 + 0x360), *(f32 *)((s8 *)arg0 + 0x364));
     draw_chunk_object(debug_chunk_object);
     ((void (*)(void))pop_matrix)();
@@ -2208,10 +2208,10 @@ void TObjEneBm3FlyNest::state_initial_emit(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        this->m_b8 = 0;
         ((VObj_18 *)(arg0))->m93();
         ((TObjEneDD *)arg0)->set_field_378(2);
-        *(f32 *)((s8 *)arg0 + 0x4B0) = -5.0f;
+        *(f32 *)&this->m_4cc = -5.0f;
         *(s32 *)((s8 *)arg0 + 0x4C8) = 0;
         *(s32 *)((s8 *)arg0 + 0x4CC) = 0;
         *(s32 *)((s8 *)arg0 + 0x4D0) = 0;
@@ -2219,22 +2219,22 @@ void TObjEneBm3FlyNest::state_initial_emit(s32 arg1) {
     case 3:
         advance_animation_playback((void *) (arg0));
         if (*(s32 *)((s8 *)arg0 + 0x4D0) == 3) {
-            switch (*(s32 *)((s8 *)arg0 + 0x38C)) {
+            switch (*(s32 *)&this->m_3a8) {
             case 2:
-                transition_enemy_state((void *) (arg0), *(s32 *)((s8 *)arg0 + 0x38C));
+                transition_enemy_state((void *) (arg0), *(s32 *)&this->m_3a8);
                 break;
             case 5:
-                transition_enemy_state((void *) (arg0), *(s32 *)((s8 *)arg0 + 0x38C));
+                transition_enemy_state((void *) (arg0), *(s32 *)&this->m_3a8);
                 break;
             case 9:
-                *(s16 *)((s8 *)arg0 + 0xB8) = 7;
+                this->m_b8 = 7;
                 advance_animation_playback((void *) (arg0));
-                *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805D9D14;
+                this->m_c0 = lbl_805D9D14;
                 advance_animation_playback((void *) (arg0));
-                *(f32 *)((s8 *)arg0 + 0xC0) = *(f32 *)((s8 *)arg0 + 0xC4) - lbl_805D9D18;
-                *(s32 *)((s8 *)arg0 + 0x30) |= 0x800;
+                this->m_c0 = *(f32 *)&this->unk_C4 - lbl_805D9D18;
+                *(s32 *)&this->actorFlags |= 0x800;
                 *(s32 *)((s8 *)arg0 + 0x3A8) = 1;
-                transition_enemy_state((void *) (arg0), *(s32 *)((s8 *)arg0 + 0x38C));
+                transition_enemy_state((void *) (arg0), *(s32 *)&this->m_3a8);
                 break;
             }
         }
@@ -2248,7 +2248,7 @@ void TObjEneBm3FlyNest::state_initial_emit(s32 arg1) {
         case 0:
             if (*(s32 *)((s8 *)arg0 + 0x4C8) > 0x3C) {
                 *(s32 *)((s8 *)arg0 + 0x4D0) = 2;
-                *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+                this->m_b8 = 1;
             }
             break;
         case 1:
@@ -2258,10 +2258,10 @@ void TObjEneBm3FlyNest::state_initial_emit(s32 arg1) {
             break;
         case 2:
             if (get_flag_b4__9TObjEneDDFv((void *) (arg0)) != 0) {
-                *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+                this->m_b8 = 0;
             }
             if ((*(s32 *)((s8 *)arg0 + 0x4C8) % 10) == 0) {
-                if (*(s32 *)((s8 *)arg0 + 0x4CC) < *(s32 *)((s8 *)arg0 + 0x390)) {
+                if (*(s32 *)((s8 *)arg0 + 0x4CC) < *(s32 *)&this->m_3ac) {
                     ((TObjEneBm3FlyNest *)arg0)->spawn_child();
                     *(s32 *)((s8 *)arg0 + 0x4CC) += 1;
                 } else {
@@ -2347,22 +2347,22 @@ void TObjEneBm3FlyNest::init_params() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    *(s32 *)((s8 *)this + 0x38C) = 2;
-    *(s32 *)((s8 *)this + 0x390) = (s32) *(f32 *)((s8 *)this + 0x358);
-    temp_r0 = *(s32 *)((s8 *)this + 0x390);
+    *(s32 *)&this->m_3a8 = 2;
+    *(s32 *)&this->m_3ac = (s32) *(f32 *)((s8 *)this + 0x358);
+    temp_r0 = *(s32 *)&this->m_3ac;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0x390) = 0;
+        *(s32 *)&this->m_3ac = 0;
     } else if (temp_r0 > 6) {
-        *(s32 *)((s8 *)this + 0x390) = 6;
+        *(s32 *)&this->m_3ac = 6;
     }
-    *(s32 *)((s8 *)this + 0x394) = (s32) *(f32 *)((s8 *)this + 0x35C);
-    temp_r0_2 = *(s32 *)((s8 *)this + 0x394);
+    *(s32 *)&this->m_3b0 = (s32) *(f32 *)((s8 *)this + 0x35C);
+    temp_r0_2 = *(s32 *)&this->m_3b0;
     if (temp_r0_2 < 0) {
-        *(s32 *)((s8 *)this + 0x394) = 0;
+        *(s32 *)&this->m_3b0 = 0;
         return;
     }
     if (temp_r0_2 > 0x1E) {
-        *(s32 *)((s8 *)this + 0x394) = 0x1E;
+        *(s32 *)&this->m_3b0 = 0x1E;
     }
 }
 
@@ -2395,11 +2395,11 @@ void TObjEneBm3FlyNest::update_replenish() {
     s32 temp_r0_2;
     s32 temp_r0_3;
     s32 var_r5;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x4B4);
+    temp_r0 = *(s32 *)&this->m_4d0;
     switch (temp_r0) {
     case 0:
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x3B0) <= (s32) ((s32) *(s32 *)((s8 *)arg0 + 0x390) / 2)) || ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) != 0)) {
-            *(s32 *)((s8 *)arg0 + 0x4B4) = 1;
+        if (((s32) *(s32 *)((s8 *)arg0 + 0x3B0) <= (s32) ((s32) *(s32 *)&this->m_3ac / 2)) || ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) != 0)) {
+            *(s32 *)&this->m_4d0 = 1;
             *(s32 *)((s8 *)arg0 + 0x4BC) = 0;
         }
         return;
@@ -2413,11 +2413,11 @@ void TObjEneBm3FlyNest::update_replenish() {
                 if (temp_r0_2 < var_r5) {
                     var_r5 = temp_r0_2;
                 }
-                temp_r0_3 = *(s32 *)((s8 *)arg0 + 0x394) - *(s32 *)((s8 *)arg0 + 0x3B4);
+                temp_r0_3 = *(s32 *)&this->m_3b0 - *(s32 *)((s8 *)arg0 + 0x3B4);
                 if (temp_r0_3 < var_r5) {
                     var_r5 = temp_r0_3;
                 }
-                *(s32 *)((s8 *)arg0 + 0x4B8) = var_r5;
+                *(s32 *)&this->m_4d4 = var_r5;
                 return;
             }
         }
@@ -2434,11 +2434,11 @@ void TObjEneBm3FlyNest::vfunc_61() {  }
 void TObjEneBm3FlyNest::vfunc_62() {
     s16 temp_r0;
 
-    if (((s16) *(s16 *)((s8 *)this + 0x326) == 3) && (TObjEneDD::check_v2_mode() != 0)) {
+    if (((s16) this->mode == 3) && (TObjEneDD::check_v2_mode() != 0)) {
         ((s32 (*)(void *))clear_attack_receipts__9TObjEneDDFv)(this);
         return;
     }
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if (temp_r0 == 4) {
         ((s32 (*)(void *))clear_attack_receipts__9TObjEneDDFv)(this);
         return;
@@ -2451,7 +2451,7 @@ void TObjEneBm3FlyNest::vfunc_62() {
 void TObjEneBm3FlyNest::vfunc_63() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if ((temp_r0 != 9) && (temp_r0 != 8) && (temp_r0 != 4)) {
         if ((s32) *(s32 *)((s8 *)this + 0x3A8) == 0) {
             transition_enemy_state(this, 4);
@@ -2703,15 +2703,15 @@ void TObjEneBm3FlyNest::render_parts() {
     u8 *arg0 = (u8 *)this;
     ((s32 (*)(s32, void *))set_global_param__8TObjFishFl)(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x42C)) + 0xC), (*(u8 * *)&lbl_805D5108));
     push_matrix();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x2C) == 0) {
-        post_translate_matrix(*(void **)((s8 *)arg0 + 0x30));
+    if ((s32) *(s32 *)&this->m_2c == 0) {
+        post_translate_matrix(*(void * *)&this->actorFlags);
     } else {
-        post_translate_matrix(*(void **)((s8 *)arg0 + 0x34));
+        post_translate_matrix(*(void * *)&this->model);
     }
     post_translate_matrix(arg0 + 0x1C);
     ((s32 (*)(s32, s32))rotate_matrix_y)(0, *(s32 *)((s8 *)arg0 + 0x40));
     TObjPlayer::set_global_flag();
-    ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x42C)) + 8), *(s32 *)((s8 *)arg0 + 0x48), *(f32 *)((s8 *)arg0 + 0x4C));
+    ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x42C)) + 8), *(s32 *)&this->m_48, *(f32 *)&this->m_4c);
     TObjPlayer::clear_global_state();
     pop_matrix();
 }

@@ -15,7 +15,10 @@ struct TObjBoss1Rock : public TObject {
     u32 m_34;
     u32 m_38;
     u32 m_3c;
-    u8 _pad40[0x10];
+    u8 unk_40[0x4];
+    f32 m_44;
+    u8 unk_48[0x4];
+    f32 m_4c;
     u32 m_50;
     virtual void render();
     virtual void run_task();

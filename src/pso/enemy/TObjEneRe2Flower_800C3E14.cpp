@@ -402,7 +402,7 @@ void TObjEneRe2Flower::vfunc_61() {  }
 void TObjEneRe2Flower::vfunc_62() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if (temp_r0 != 9) {
         if (temp_r0 == 8) {
             begin_state_242__16TObjEneRe2FlowerFv();
@@ -415,7 +415,7 @@ void TObjEneRe2Flower::vfunc_62() {
 void TObjEneRe2Flower::vfunc_63() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     if ((temp_r0 != 0xA) && (temp_r0 != 0xB)) {
         transition_enemy_state(this, 0xA);
     }
@@ -551,7 +551,7 @@ s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
     s32 ok;
     result = 0;
     flags = 0;
-    if (*(u32 *)((s8 *)((u8 *)this) + 0xAC) == 0) {
+    if (*(u32 *)&this->m_ac == 0) {
         return 0;
     }
     TObjPlayer::init_all_slots();
@@ -563,15 +563,15 @@ s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
         ((TUnk_804AF8A0 *)((u8 *)this))->mark_enemy_body_contacts();
         flags |= 0x100000;
     }
-    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xA4)) + 0x18) & flags) {
+    if (*(s32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & flags) {
         for (i = 0; i < 0x10; i++) {
             p = TObjPlayer::get_battle_param(i);
             if (p == 0) {
                 break;
             }
-            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != *(u32 *)((s8 *)((u8 *)this) + 0xAC) &&
+            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != *(u32 *)&this->m_ac &&
                 is_area_attack_target_eligible((s32)((u8 *)this), *(s32 *)((s8 *)p + 0x30)) != 0 &&
-                !(fabs_float(*(f32 *)((s8 *)((u8 *)this) + 0xB8) - *(f32 *)((s8 *)p + 0x300)) > lbl_805DA000)) {
+                !(fabs_float(*(f32 *)&this->unk_B8 - *(f32 *)((s8 *)p + 0x300)) > lbl_805DA000)) {
                 ok = 1;
                 if (arg3 != 0 && attack_target_history_add((s32)arg3, p) == 0) {
                     ok = 0;

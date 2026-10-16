@@ -138,7 +138,7 @@ bool TWindowCtrl__sub_8024701C(Win_8024701C *w) {
 s32 TWindowChat::sub_80247080() {
     s32 *temp_r31;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x30));
+    temp_r3 = (u8 *)(*(u8 * *)&this->symbolChatWindow);
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -146,13 +146,13 @@ s32 TWindowChat::sub_80247080() {
         ((TWindowChat *)((u8 *)this))->set_input_active();
         return 1;
     }
-    if (((TWindowChat *)(*(u8 **)((s8 *)((u8 *)this) + 0x30)))->get_subcard_field1c() == 0) {
+    if (((TWindowChat *)(*(u8 * *)&this->symbolChatWindow))->get_subcard_field1c() == 0) {
         return 0;
     }
     ((TWindowChat *)((u8 *)this))->set_active_flag();
-    temp_r31 = (s32 *)(*(s32 *)((s8 *)((u8 *)this) + 0x38) + 4);
-    *temp_r31 = ((TWindowChat *)(*(u8 **)((s8 *)((u8 *)this) + 0x30)))->forward_card_at_1c();
-    if (*(u16 *)((s8 *)((u8 *)this) + 0x1E) & 0x80) {
+    temp_r31 = (s32 *)(*(s32 *)&this->result + 4);
+    *temp_r31 = ((TWindowChat *)(*(u8 * *)&this->symbolChatWindow))->forward_card_at_1c();
+    if (this->flags & 0x80) {
         TWindowChat::open_symbol_chat((s32 *)temp_r31);
         update_selected_symbol__20TWindowSubSymbolChatFv();
     }
@@ -162,7 +162,7 @@ s32 TWindowChat::sub_80247080() {
 s32 TWindowChat::sub_80247128() {
     s32 temp_r3_2;
     u32 temp_r3;
-    temp_r3 = *(u32 *)((s8 *)((u8 *)this) + 0x34);
+    temp_r3 = *(u32 *)&this->wordSelectWindow;
     if (temp_r3 == 0U) {
         return 0;
     }
@@ -613,7 +613,7 @@ int TWindowChat::is_mode_bit4() { return (this->flags >> 4) & 0x1; }
 int TWindowChat::is_open() { return this->flags & 0x1; }
 
 s32 TWindowChat::sub_80247EC0() {
-    return (u8) ((*(u16 *)((s8 *)((u8 *)this) + 0x1E) & 0x240) != 0);
+    return (u8) ((this->flags & 0x240) != 0);
 }
 
 void fn_80247ED8(void* p) { *(u32*)((char*)p + 0x60) |= 0x2; }

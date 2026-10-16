@@ -145,8 +145,8 @@ void TObjEnemyCustom::vfunc_65(s32 arg1, s32 arg2) {
 void TObjEneGyaranzo::render_anim_model_at_pos() {
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-    ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (*(f32 *)((s8 *)((u8 *)this) + 0xC0)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (this->m_c0));
     pop_matrix();
 }
 

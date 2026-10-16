@@ -31,11 +31,11 @@ void TWindowCtrl__sub_8024C73C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xfffffff7
 void TWindowCtrl__sub_8024C74C(void* p) { *(u16*)((char*)p + 0x1c) |= 0x10; }
 void TWindowCtrl__sub_8024C75C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffef; }
 void TWindowCtrl::set_radar_dirty_flag() {
-    *(u16 *)((s8 *)this + 0x1C) = (u16) (*(u16 *)((s8 *)this + 0x1C) | 1);
+    this->m_1c = (u16) (this->m_1c | 1);
     TRaderMapCore::hide_radar();
 }
 void TWindowCtrl::clear_flag_bit0() {
-    *(u16 *)((s8 *)this + 0x1C) = (u16) (*(u16 *)((s8 *)this + 0x1C) & 0xFFFE);
+    this->m_1c = (u16) (this->m_1c & 0xFFFE);
     TRaderMapCore::show_radar();
 }
 
@@ -93,7 +93,7 @@ int TWindowCtrl__sub_8024C7E0(void* p) { return (*(u16*)((char*)p + 0x1c) >> 2) 
 int TWindowCtrl::is_enabled() { return (this->m_1c >> 3) & 0x1; }
 int TWindowCtrl__sub_8024C7F8(void* p) { return (*(u16*)((char*)p + 0x1c) >> 4) & 0x1; }
 int TWindowCtrl::is_visible() { return this->m_1c & 0x1; }
-s16 TUnk_804CF0B8::get_field_20() { return *(s16 *)&(*(u16 *)((u8 *)this + 0x20)); }
+s16 TUnk_804CF0B8::get_field_20() { return *(s16 *)&(this->m_20); }
 s16 TWindowSimpleStatus::get_width() { return *(s16 *)&this->m_20; }
 
 }

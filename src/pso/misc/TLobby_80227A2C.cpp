@@ -610,8 +610,8 @@ void TLobby::clear_ready_flag_unless_locked() {
 }
 
 void TLobby::set_area(s32 arg1) {
-    *(s32 *)((s8 *)this + 0xC) = arg1;
-    *(s32 *)((s8 *)this + 0x18) = get_floor_map_terrain(*(s32 *)((s8 *)this + 0xC));
+    *(s32 *)&this->m_next = arg1;
+    *(s32 *)((s8 *)this + 0x18) = get_floor_map_terrain(*(s32 *)&this->m_next);
 }
 
 #pragma push
@@ -855,9 +855,9 @@ void *TUnk_804CC048::construct(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804CC048;
     *(void **)((s8 *)this + 0x10A0) = arg2;
-    *(void **)((s8 *)this + 0x10A4) = arg3;
+    this->m_10a4 = arg3;
     memset((void *)((void *)((char *)this + 28)), (int)(0), (int)(4096));
-    *(u32 *)((s8 *)this + 0x109C) = 0;
+    this->m_109c = 0;
     return this;
 }
 void TLobby::trim_whitespace() {

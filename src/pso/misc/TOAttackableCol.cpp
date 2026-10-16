@@ -113,9 +113,9 @@ void TOAttackableCol::init_params() {
     } else if (temp_r0 > 0x100) {
         *(s32 *)&this->m_33c = 0x100;
     }
-    *(s32 *)((s8 *)this + 0x340) = (s32) *(s32 *)&this->m_88;
-    if ((s32) *(s32 *)((s8 *)this + 0x340) < 0) {
-        *(s32 *)((s8 *)this + 0x340) = 0;
+    *(s32 *)&this->unk_340 = (s32) *(s32 *)&this->m_88;
+    if ((s32) *(s32 *)&this->unk_340 < 0) {
+        *(s32 *)&this->unk_340 = 0;
     }
     this->m_344 = (s32) *(s32 *)&this->m_8c;
     if ((s32) this->m_344 < 0) {
@@ -132,13 +132,13 @@ void TOAttackableCol::init_params() {
         clear_player_status_flag__10TObjPlayerFlUl((void*)(this), (int)(0), (int)(0x08000000));
     }
     if ((s32) this->m_344 == 0) {
-        *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)((s8 *)this + 0x70);
-        temp_r0_3 = *(s32 *)((s8 *)this + 0x348);
+        *(s32 *)&this->unk_348 = (s32) *(f32 *)&this->m_70;
+        temp_r0_3 = *(s32 *)&this->unk_348;
         if ((temp_r0_3 < 0) || (temp_r0_3 >= 0x100)) {
-            *(s32 *)((s8 *)this + 0x348) = -1;
+            *(s32 *)&this->unk_348 = -1;
         }
     } else {
-        *(s32 *)((s8 *)this + 0x348) = -1;
+        *(s32 *)&this->unk_348 = -1;
     }
 }
 
@@ -269,7 +269,7 @@ void TOAttackableCol::check_door_trigger() {
     s32 temp_r0_2;
 
     temp_r0 = this->m_34c;
-    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(this, -1), (((s32) *(s32 *)&this->m_33c > 0) == 0)) || (((s32) this->m_344 == 0) && (temp_r0_2 = *(s32 *)((s8 *)this + 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
+    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(this, -1), (((s32) *(s32 *)&this->m_33c > 0) == 0)) || (((s32) this->m_344 == 0) && (temp_r0_2 = *(s32 *)&this->unk_348, ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
         *(s32 *)&this->m_33c = 0;
         send_state_change((u16)((s32)(1)));
     }

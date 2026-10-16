@@ -74,12 +74,12 @@ void TMainCursor::refresh_target_marker() {
         queue_destruction__7TObjectFv((void *) (((u8 *)this)));
         return;
     }
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0;
-    *(f32 *)((s8 *)((u8 *)this) + 0x28) = (f32) lbl_805DB0D4;
-    *(f32 *)((s8 *)((u8 *)this) + 0x34) = *(f32 *)((s8 *)((u8 *)this) + 0x28) - TMainCursor__data_805DB0CC;
-    *(f32 *)((s8 *)((u8 *)this) + 0x38) = lbl_805DB0D8 + *(f32 *)((s8 *)((u8 *)this) + 0x28);
-    *(f32 *)((s8 *)((u8 *)this) + 0x30) = *(f32 *)((s8 *)((u8 *)this) + 0x38);
-    *(f32 *)((s8 *)((u8 *)this) + 0x3C) = lbl_805DB0DC;
+    *(s32 *)&this->m_1c = 0;
+    *(f32 *)&this->unk_28 = (f32) lbl_805DB0D4;
+    *(f32 *)&this->m_34 = *(f32 *)&this->unk_28 - TMainCursor__data_805DB0CC;
+    *(f32 *)&this->unk_38 = lbl_805DB0D8 + *(f32 *)&this->unk_28;
+    *(f32 *)&this->unk_30 = *(f32 *)&this->unk_38;
+    this->m_3c = lbl_805DB0DC;
     ((TMainCursor *)((u8 *)this))->update_position();
     if (check_can_pickup__11TMainCursorFi((void *) (((u8 *)this))) != 0) {
         ((TMainCursor *)((u8 *)this))->check_flag_4();

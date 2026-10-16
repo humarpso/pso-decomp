@@ -209,17 +209,17 @@ extern f32 lbl_805DBCE8;
 
 void TObjComputer::clear_ref_if_destroyed() {
     clear_ref_if_destroyed__11TObjMesBaseFv();
-    *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)((s8 *)this + 0xC0) + lbl_805DBCE8);
+    *(f32 *)&this->_padC0 = (f32) (*(f32 *)&this->_padC0 + lbl_805DBCE8);
 }
 
 extern f32 lbl_805DBCE8;
 
 void TObjComputer::vfunc_14() {
     vfunc_14__11TObjMesBaseFv();
-    if ((s32) *(s32 *)((s8 *)this + 0xB4) != 0) {
+    if ((s32) this->messageLabel != 0) {
         submit_cursor_candidate(this, -1);
     }
-    *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)((s8 *)this + 0xC0) + lbl_805DBCE8);
+    *(f32 *)&this->_padC0 = (f32) (*(f32 *)&this->_padC0 + lbl_805DBCE8);
 }
 
 extern void *tl_05;

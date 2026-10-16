@@ -1967,7 +1967,7 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
     ((TBoss4Type3 *)self)->draw_model_set((const s32 *)b.p, b.f);
 }
 
-void TBoss4Type3::copy_pair(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); this->m_4 = *(f32*)((char*)q + 0x4); }
+void TBoss4Type3::copy_pair(void* q) { *(u32 *)&this->unk_0 = *(u32*)((char*)q + 0x0); this->m_4 = *(f32*)((char*)q + 0x4); }
 
 }
 

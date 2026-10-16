@@ -251,7 +251,7 @@ void TWindowMainMenu::update_description_text(s32 arg1) {
     }
 }
 
-void TWindowMainMenu::destroy_submenu() { if (*(unsigned int*)((char*)this + 0x20) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0x20)); *(int*)((char*)this + 0x20) = 0; } }
+void TWindowMainMenu::destroy_submenu() { if (*(unsigned int *)&this->m_20 != 0) { queue_destruction__7TObjectFv(*(void* *)&this->m_20); *(int *)&this->m_20 = 0; } }
 
 }
 
@@ -294,9 +294,9 @@ void TWindowMainMenu1P::create_char_select_slot() {
     set_scale_f();
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        o = construct_character_select_transition(o, this, *(void **)((s8 *)this + 0x54));
+        o = construct_character_select_transition(o, this, this->m_54);
     }
-    *(void **)((s8 *)this + 0x20) = o;
+    *(void * *)&this->m_20 = o;
 }
 void TWindowMainMenu::create_submenu(u32 arg1) {
     s32 temp_r3;
@@ -347,7 +347,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0 != 0) {
             var_r0 = construct_status_category_window((int) (temp_r3), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0;
+        this->m_20 = var_r0;
         return;
     case 0:
     case 1:
@@ -356,7 +356,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_2 != 0) {
             var_r0_2 = TWindowSubEquip__sub_80275CB0((int) (temp_r3_2), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_2;
+        this->m_20 = var_r0_2;
         return;
     case 9:
     case 10:
@@ -365,7 +365,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_3 != 0) {
             var_r0_3 = TWindowSubEquip__ct((int) (temp_r3_3), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_3;
+        this->m_20 = var_r0_3;
         return;
     case 11:
         temp_r3_4 = ((s32)__nw__7TObjectFUl((int) (0x44)));
@@ -373,7 +373,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_4 != 0) {
             var_r0_4 = TWindowSubItem__ct((int) (temp_r3_4), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_4;
+        this->m_20 = var_r0_4;
         return;
     case 23:
     case 24:
@@ -382,7 +382,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_5 != 0) {
             var_r0_5 = TWindowSubMag__ct((int) (temp_r3_5), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_5;
+        this->m_20 = var_r0_5;
         return;
     case 26:
     case 27:
@@ -392,7 +392,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_6 != 0) {
             var_r0_6 = TWindowSubTrade__ct((int) (temp_r3_6), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_6;
+        this->m_20 = var_r0_6;
         return;
     case 29:
         temp_r3_7 = ((s32)__nw__7TObjectFUl((int) (0xA8)));
@@ -400,7 +400,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_7 != 0) {
             var_r0_7 = TWindowSubTradeMain__ct((int) (temp_r3_7), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_7;
+        this->m_20 = var_r0_7;
         return;
     case 30:
         temp_r3_8 = ((s32)__nw__7TObjectFUl((int) (0x2C)));
@@ -408,7 +408,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_8 != 0) {
             var_r0_8 = __ct__22TWindowSubTradeMessageFP7TObjectl((int) (temp_r3_8), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_8;
+        this->m_20 = var_r0_8;
         return;
     case 12:
     case 13:
@@ -417,7 +417,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_9 != 0) {
             var_r0_9 = TWindowSubAreaMap__ct((int) (temp_r3_9), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_9;
+        this->m_20 = var_r0_9;
         return;
     case 15:
     case 16:
@@ -426,7 +426,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_10 != 0) {
             var_r0_10 = TWindowSubQuestBoard__ct((int) (temp_r3_10), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_10;
+        this->m_20 = var_r0_10;
         return;
     case 3:
     case 4:
@@ -435,7 +435,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_11 != 0) {
             var_r0_11 = TWindowSubTechnique__ct((int) (temp_r3_11), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_11;
+        this->m_20 = var_r0_11;
         return;
     case 18:
         temp_r3_12 = ((s32)__nw__7TObjectFUl((int) (0x60)));
@@ -443,7 +443,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_12 != 0) {
             var_r0_12 = TWindowSubSymbolChat__ct((int) (temp_r3_12), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_12;
+        this->m_20 = var_r0_12;
         return;
     case 14:
         temp_r3_13 = ((s32)__nw__7TObjectFUl((int) (0x88)));
@@ -451,7 +451,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_13 != 0) {
             var_r0_13 = TWindowSubComCard__ct((int) (temp_r3_13), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_13;
+        this->m_20 = var_r0_13;
         return;
     case 21:
         temp_r3_14 = ((s32)__nw__7TObjectFUl((int) (0x80)));
@@ -459,7 +459,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_14 != 0) {
             var_r0_14 = TWindowSubLog__ct((int) (temp_r3_14), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_14;
+        this->m_20 = var_r0_14;
         return;
     case 6:
         temp_r3_15 = ((s32)__nw__7TObjectFUl((int) (0x30)));
@@ -467,7 +467,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_15 != 0) {
             var_r0_15 = TWindowSubQuestBoard__sub_8027CE74((int) (temp_r3_15), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_15;
+        this->m_20 = var_r0_15;
         return;
     case 19:
     case 20:
@@ -476,7 +476,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_16 != 0) {
             var_r0_16 = TWindowSubShortMail__ct((int) (temp_r3_16), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_16;
+        this->m_20 = var_r0_16;
         return;
     case 22:
         temp_r3_17 = ((s32)__nw__7TObjectFUl((int) (0x914)));
@@ -484,7 +484,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_17 != 0) {
             var_r0_17 = TWindowSubInformationBoard__ct((int) (temp_r3_17), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_17;
+        this->m_20 = var_r0_17;
         return;
     case 17:
         temp_r3_18 = ((s32)__nw__7TObjectFUl((int) (0x94)));
@@ -492,7 +492,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_18 != 0) {
             var_r0_18 = TWindowSubShortCut__ct((int) (temp_r3_18), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_18;
+        this->m_20 = var_r0_18;
         return;
     case 7:
     case 8:
@@ -501,7 +501,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         if (var_r0_19 != 0) {
             var_r0_19 = TWindowSubGameEnd__ct((int) (temp_r3_19), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x20) = var_r0_19;
+        this->m_20 = var_r0_19;
     default:
         return;
     }

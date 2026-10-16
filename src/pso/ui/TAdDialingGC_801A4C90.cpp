@@ -19,7 +19,7 @@ s32 TAdDialingGC__sub_801A4C9C(void) {
 void TUnk_804C2298::sub_801A4CA4() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x20);
+    temp_r0 = this->m_20;
     switch (temp_r0) {
     case 0:
         TAdDialingGC::select_dial_image((void *)1, (s32)0);

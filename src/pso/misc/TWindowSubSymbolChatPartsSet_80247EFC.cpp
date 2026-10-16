@@ -105,8 +105,8 @@ extern const f32 lbl_805DCB9C;
 int TWindowSubSymbolChatPartsSet::get_parts_entry(int a0) {  return symbol_chat_parts_color_table[a0]; }
 
 void TWindowSubSymbolChatPartsSet::set_pos(s16 arg1, s16 arg2) {
-    *(f32 *)((s8 *)((u8 *)this) + 8) = (f32) (lbl_805DCB78 + (f32) arg1);
-    *(f32 *)((s8 *)((u8 *)this) + 0xC) = (f32) arg2;
+    *(f32 *)&this->m_prev = (f32) (lbl_805DCB78 + (f32) arg1);
+    *(f32 *)&this->m_next = (f32) arg2;
 }
 
 #pragma push
@@ -259,17 +259,17 @@ void TWindowSubSymbolChat::init_layout_entries(s32 arg1) {
 
 void TWindowSubSymbolChatPartsSet::update_visibility() {
     u8 *arg0 = (u8 *)this;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x64) == 0) && (((u32) *(u32 *)((s8 *)arg0 + 0x60) == 0U) || (is_symbol_chat_preset_in_use((void *) *(u32 *)((s8 *)arg0 + 0x60)) == 0))) {
+    if (((s32) *(s32 *)&this->m_64 == 0) && (((u32) this->m_60 == 0U) || (is_symbol_chat_preset_in_use((void *) this->m_60) == 0))) {
         disallow_rendering__7TObjectFv(arg0);
         return;
     }
     allow_rendering__7TObjectFv(arg0);
-    set_symbol_chat_parts__20TWindowSubSymbolChatFiPv((s32)(arg0 + 0x24), (void *)(((TWindowSubSymbolChat *)(*(u32 *)((s8 *)arg0 + 0x60)))->get_data_ptr()));
+    set_symbol_chat_parts__20TWindowSubSymbolChatFiPv((s32)(arg0 + 0x24), (void *)(((TWindowSubSymbolChat *)(this->m_60))->get_data_ptr()));
 }
 
 void TWindowSubSymbolChatPartsSet::set_selection(u32 arg1) {
-    if ((u32) *(u32 *)((s8 *)this + 0x60) != arg1) {
-        *(u32 *)((s8 *)this + 0x60) = arg1;
+    if ((u32) this->m_60 != arg1) {
+        this->m_60 = arg1;
         update_visibility();
     }
 }

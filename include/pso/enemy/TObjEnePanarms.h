@@ -47,7 +47,11 @@ struct TObjEnePanarms : public TObjEnemy {
     void* m_400;
     u8 unk_404[0x58];
     s32 m_45c;
-    u8 unk_460[0x14];
+    u8 unk_460[0x4];
+    f32 m_464;
+    u8 unk_468[0x4];
+    f32 m_46c;
+    u8 unk_470[0x4];
     u32 m_474;
     u32 m_478;
     int find_nearest_enemy_with_flag(s32 arg1, f32 farg0);

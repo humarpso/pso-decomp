@@ -167,7 +167,7 @@ s32 TObjEnvSoundEx::init_sound_params() {
         *(s32 *)&this->m_a0 = -1;
     }
     this->m_98 = fabs_float(this->target_scale);
-    *(f32 *)&this->unk_A4 = (f32) *(f32 *)((s8 *)arg0 + 0x70);
+    *(f32 *)&this->unk_A4 = (f32) *(f32 *)&this->m_70;
     if (*(f32 *)&this->unk_A4 <= lbl_805DBE18) {
         *(f32 *)&this->unk_A4 = (f32) lbl_805DBE1C;
     }

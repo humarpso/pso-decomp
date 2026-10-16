@@ -42,9 +42,16 @@ public:
     u16 m_376;
     u32 m_378;
     u32 m_37c;
-    u8 unk_380[0x10];
+    u8 unk_380[0x4];
+    f32 m_384;
+    u8 unk_388[0x4];
+    u32 m_38c;
     s32 m_390;
-    u8 unk_394[0x14];
+    u8 unk_394[0x4];
+    float m_398;
+    u8 unk_39C[0x4];
+    float m_3a0;
+    u8 unk_3A4[0x4];
 };
 
 #endif

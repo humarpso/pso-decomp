@@ -120,9 +120,9 @@ void TCameraCtrl::reset_behind_player() {
         rotate_matrix_y((int) (0), (int) (this->m_30));
         matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
-        this->m_3c = (f32) (*(f32 *)((s8 *)arg0 + 0x48) + stack.sp8);
-        *(f32 *)((s8 *)arg0 + 0x40) = (f32) (this->m_4c + stack.spC);
-        this->m_44 = (f32) (*(f32 *)((s8 *)arg0 + 0x50) + stack.sp10);
+        this->m_3c = (f32) (*(f32 *)&this->unk_48 + stack.sp8);
+        *(f32 *)&this->unk_40 = (f32) (this->m_4c + stack.spC);
+        this->m_44 = (f32) (*(f32 *)&this->unk_50 + stack.sp10);
     }
 }
 

@@ -139,7 +139,7 @@ void TObjEneDD::vfunc_95() {
     struct VObj_800BA138 *o = (struct VObj_800BA138 *)this;
     o->m88();
     o->m91();
-    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) | 0x04040000);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x04040000);
 }
 
 void TObjEneDD::vfunc_94() {
@@ -262,7 +262,7 @@ u8 TObjEneDD::is_alive() {
     int var_r31;
 
     var_r31 = 0;
-    if ((this != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(*(s32 *)((s8 *)this + 0x30) & 0x02040800)) {
+    if ((this != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(*(s32 *)&this->actorFlags & 0x02040800)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

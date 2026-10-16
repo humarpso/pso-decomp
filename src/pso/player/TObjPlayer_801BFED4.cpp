@@ -62,7 +62,7 @@ u8 *TObjPlayer::copy_hold_params(u8 *arg1) {
     return ((u8 *)this);
 }
 
-s16 TBoss7Crawfish::get_floor() { return *(s16*)((char*)this + 0xb8); }
+s16 TBoss7Crawfish::get_floor() { return this->m_b8; }
 int TUnk_804DDD28::vfunc_77() { return 0; }
 int TUnk_804DDD28::vfunc_10() { return 0; }
 int TUnk_804DDD28::vfunc_5() { return 0; }

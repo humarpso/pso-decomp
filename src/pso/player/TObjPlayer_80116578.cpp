@@ -15,7 +15,7 @@ extern "C" {
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void* a0 = 0);
 
-s32 TItem::get_item_flags() { return *(s32*)((char*)this + 0xdc); }
+s32 TItem::get_item_flags() { return *(s32 *)&this->m_dc; }
 void TObjPlayer::bswap_fields_x4() { read_be16_field2(); { int i; for (i = 0; i < 4; i++) { bswap_16__FPUs((char*)this + 0x4 + i * 2); } } }
 void TObjPlayer::bswap_and_send_item() { bswap_fields_x4(); TLobby__send_and_handle_60(this); }
 void TObjPlayer::set_type_bytes() { *(u8*)((char*)this + 0x0) = 102; *(u8*)((char*)this + 0x1) = 3; }

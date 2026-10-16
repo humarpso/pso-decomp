@@ -14,7 +14,7 @@ extern "C" {
 
 f64 floor();
 
-int TObjEneDD::get_flag_b4() { return (*(u32*)((char*)this + 0xb0) >> 4) & 0x1; }
+int TObjEneDD::get_flag_b4() { return (this->animationFlags >> 4) & 0x1; }
 
 f32 TObjEneMe3ShinowaReal::get_random_float() {
     return (f32) floor();

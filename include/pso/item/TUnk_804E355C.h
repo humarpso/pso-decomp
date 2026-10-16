@@ -17,9 +17,14 @@ public:
     float m_30;
     u8 unk_34[0xC];
     f32 m_40;
-    u8 unk_44[0x68];
+    u8 unk_44[0x60];
+    s32 m_a4;
+    u16 m_a8;
+    u8 unk_AA[0x2];
     s32 m_ac;
-    u8 unk_B0[0x14];
+    u8 unk_B0[0x4];
+    f32 m_b4;
+    u8 unk_B8[0xC];
 };
 
 #endif

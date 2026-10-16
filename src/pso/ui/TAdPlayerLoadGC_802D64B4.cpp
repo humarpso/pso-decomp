@@ -14,7 +14,7 @@ int set_status_flags__10TObjPlayerFUl(void*, void*);
 
     extern unsigned char lbl_804E24F0[];
     extern const float lbl_805DE7A8;
-void*TUnk_804E24F0::init_object(s32 _w1, void *_w2) { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804E24F0; set_status_flags__10TObjPlayerFUl(this, (void*)2); *(float*)((char*)this + 0x1f8) = lbl_805DE7A8; return this; }
+void*TUnk_804E24F0::init_object(s32 _w1, void *_w2) { TItemWeapon__ct(); *(int*)((char*)this + 0x18) = (int)lbl_804E24F0; set_status_flags__10TObjPlayerFUl(this, (void*)2); *(float *)&this->unk_1F8 = lbl_805DE7A8; return this; }
 u8 *TAdPlayerLoadGC::create_instance() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;

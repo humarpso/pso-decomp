@@ -167,39 +167,39 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
     u8 *temp_r3;
     u8 *temp_r3_2;
     if (TObjPlayer__sub_80102C30() == 2) {
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0));
+        temp_r3 = (u8 *)(*(u8 * *)&this->player);
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
             var_f31 = get_attack_accuracy_scale((void *) (temp_r3 + 0x7CC));
             if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(((u8 *)this)))->m33() == 0)) {
                 var_f31 *= lbl_805DAC94;
             }
             temp_r31 = arg4 * 0x2C;
-            if (((VObj_18_f8c4e0 *)(arg2))->m19(*(u8 **)((s8 *)((u8 *)this) + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31, 0, var_f31) != 0) {
+            if (((VObj_18_f8c4e0 *)(arg2))->m19(*(u8 * *)&this->player, *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31, 0, var_f31) != 0) {
                 var_f31_2 = lbl_805DAC98;
                 switch (arg3) {
                 case 0:
-                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)((u8 *)this) + 0xF0), farg0);
+                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 * *)&this->player, farg0);
                     break;
                 case 1:
-                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)((u8 *)this) + 0xF0), farg0);
-                    ((VObj_18_f8c4e0 *)(arg2))->m23(*(u8 **)((s8 *)((u8 *)this) + 0xF0), lbl_805DAC94 * var_f31_2);
+                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 * *)&this->player, farg0);
+                    ((VObj_18_f8c4e0 *)(arg2))->m23(*(u8 * *)&this->player, lbl_805DAC94 * var_f31_2);
                     break;
                 case 2:
-                    ((VObj_18_f8c4e0 *)(arg2))->m22(*(u8 **)((s8 *)((u8 *)this) + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31);
+                    ((VObj_18_f8c4e0 *)(arg2))->m22(*(u8 * *)&this->player, *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31);
                     break;
                 }
                 if (((s32 (*)(s32, void *, s32, s32)) *(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4)) != NULL) {
                     (*(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4))(tl_05, ((u8 *)this), obj_getField1c((void *) (arg2)), arg4);
                 }
                 temp_r31_2 = (s32) var_f31_2;
-                TObjPlayer::calc_photon_blast_charge((void *) (*(u8 **)((s8 *)((u8 *)this) + 0xF0)), (int) (temp_r31_2));
-                temp_r3_2 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0));
+                TObjPlayer::calc_photon_blast_charge((void *) (*(u8 * *)&this->player), (int) (temp_r31_2));
+                temp_r3_2 = (u8 *)(*(u8 * *)&this->player);
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
-                apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 **)((s8 *)((u8 *)this) + 0xF0)), (void *) (arg2), (int) (temp_r31_2));
+                apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 * *)&this->player), (void *) (arg2), (int) (temp_r31_2));
                 ((TObjPlayer *)(&stack.sp8))->reset_status_block();
                 stack.sp8 = ((TItem *)((u8 *)this))->get_field_ed();
                 stack.sp9 = ((TItemProShield *)((u8 *)this))->get_slot_count();
-                stack.spC = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0));
+                stack.spC = (u8 *)(*(u8 * *)&this->player);
                 stack.sp14 = (u8 *)(arg2);
                 stack.sp18 = arg4;
                 play_weapon_hit_sound((void *) (&stack.sp8));

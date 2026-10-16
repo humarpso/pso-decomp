@@ -182,7 +182,7 @@ extern const f32 lbl_805DD1BC = 0.5f;
 #define lbl_805DD1BC (*(const f32 *)&lbl_805DD1BC)
 
 void TWindowSubShortCutList::select_cursor_entry() {
-    get_array_entry__13TUnk_804CE018Fi(this, *(s16 *)((s8 *)this + 0x74));
+    get_array_entry__13TUnk_804CE018Fi(this, *(s16 *)&this->unk_74);
     get_cursor_pos__14TWindowSubItemFv();
 }
 
@@ -458,25 +458,25 @@ void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3)
 }
 
 void TUnk_804D0618::set_flag4() {
-    if (!(*(u16 *)((s8 *)this + 0x70) & 8) && (((s32 (*)(void))get_status_flag__13TUnk_804D0618Fv)() == 0)) {
+    if (!(this->m_70 & 8) && (((s32 (*)(void))get_status_flag__13TUnk_804D0618Fv)() == 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) | 4);
+        this->m_70 = (u16) (this->m_70 | 4);
     }
 }
 
 void TUnk_804D0618::handle_open() {
     s32 temp_r31;
-    temp_r31 = get_array_entry__13TUnk_804CE018Fi(this, *(s16 *)((s8 *)this + 0x74));
+    temp_r31 = get_array_entry__13TUnk_804CE018Fi(this, *(s16 *)&this->unk_74);
     if ((is_flag_4_set__20TWindowSubStatusDispFv() == 0) || (is_flag80_set__20TWindowSubStatusDispFv(temp_r31) != 0)) {
         play_sound_effect(0x53F06, 0, 0, 0);
         return;
     }
-    if (!(*(u16 *)((s8 *)this + 0x70) & 0x100)) {
+    if (!(this->m_70 & 0x100)) {
         play_sound_effect(0x52D01, 0, 0, 0);
     }
-    *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) | 2);
-    if (*(void **)((s8 *)this + 0x80) != NULL) {
-        ((TWindowSubStatusDisp *)(*(void **)((s8 *)this + 0x80)))->set_entry_state(2);
+    this->m_70 = (u16) (this->m_70 | 2);
+    if (this->m_80 != NULL) {
+        ((TWindowSubStatusDisp *)(this->m_80))->set_entry_state(2);
     }
 }
 
@@ -484,19 +484,19 @@ void TUnk_804D0618::move_cursor_next() {
     s16 var_r31;
 
     play_sound_effect(0x54100, 0, 0, 0);
-    var_r31 = *(s16 *)((s8 *)this + 0x74);
+    var_r31 = *(s16 *)&this->unk_74;
 loop_1:
     var_r31 += 1;
-    if (var_r31 >= (s16) *(s16 *)((s8 *)this + 0x76)) {
-        if (!(*(u16 *)((s8 *)this + 0x70) & 1)) {
+    if (var_r31 >= (s16) this->m_76) {
+        if (!(this->m_70 & 1)) {
             var_r31 = 0;
             goto block_4;
         }
     } else {
 block_4:
-        if (var_r31 != (s16) *(s16 *)((s8 *)this + 0x74)) {
+        if (var_r31 != (s16) *(s16 *)&this->unk_74) {
             if (sub_80266B18(var_r31) != 0) {
-                *(s16 *)((s8 *)this + 0x74) = var_r31;
+                *(s16 *)&this->unk_74 = var_r31;
             } else {
                 goto loop_1;
             }
@@ -508,19 +508,19 @@ void TUnk_804D0618::move_cursor() {
     s16 var_r31;
 
     play_sound_effect(0x54100, 0, 0, 0);
-    var_r31 = *(s16 *)((s8 *)this + 0x74);
+    var_r31 = *(s16 *)&this->unk_74;
 loop_1:
     var_r31 -= 1;
     if (var_r31 < 0) {
-        if (!(*(u16 *)((s8 *)this + 0x70) & 1)) {
-            var_r31 = *(s16 *)((s8 *)this + 0x76) - 1;
+        if (!(this->m_70 & 1)) {
+            var_r31 = this->m_76 - 1;
             goto block_4;
         }
     } else {
 block_4:
-        if (var_r31 != (s16) *(s16 *)((s8 *)this + 0x74)) {
+        if (var_r31 != (s16) *(s16 *)&this->unk_74) {
             if (sub_80266B18(var_r31) != 0) {
-                *(s16 *)((s8 *)this + 0x74) = var_r31;
+                *(s16 *)&this->unk_74 = var_r31;
             } else {
                 goto loop_1;
             }
@@ -552,8 +552,8 @@ void TUnk_804D0618::create_menu_scroll_bar() {
     f32 temp_f2;
     u32 temp_r3;
     u32 var_r0;
-    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x84) == 0U) {
-        temp_f2 = *(f32 *)((s8 *)((u8 *)this) + 0x38);
+    if ((u32) *(u32 *)&this->unk_84 == 0U) {
+        temp_f2 = this->m_38;
         temp_f1 = temp_f2 - lbl_805DD180;
         stack.spC = lbl_805DD188;
         stack.sp8 = temp_f1;
@@ -562,21 +562,21 @@ void TUnk_804D0618::create_menu_scroll_bar() {
         if (var_r0 != 0U) {
             var_r0 = reset_selection__20TWindowSubStatusDispFv((int) (temp_r3), (void *) (&stack.sp8));
         }
-        *(u32 *)((s8 *)((u8 *)this) + 0x84) = var_r0;
-        *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x2C) | 0x80);
+        *(u32 *)&this->unk_84 = var_r0;
+        this->m_2c = (s32) (this->m_2c | 0x80);
     }
 }
 
 void TUnk_804D0618::ensure_status_display(s32 arg1) {
     u32 var_r0;
 
-    if ((u32) *(u32 *)((s8 *)this + 0x80) == 0U) {
+    if ((u32) *(u32 *)&this->m_80 == 0U) {
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
             var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(var_r0, arg1, this->m_20);
         }
-        *(u32 *)((s8 *)this + 0x80) = var_r0;
-        (*(s32 *)((u8 *)this + 0x2C)) = (s32) ((*(s32 *)((u8 *)this + 0x2C)) | 0x40);
+        *(u32 *)&this->m_80 = var_r0;
+        (this->m_2c) = (s32) ((this->m_2c) | 0x40);
     }
 }
 
@@ -612,11 +612,11 @@ void TWindowSubStatusDisp::init_scroll_pos() {
 void TUnk_804D0618::center_list_selection() {
     f32 target;
 
-    if ((*(u32 *)((s8 *)((u8 *)this) + 0x84) != 0U) && (*(u32 *)((s8 *)((u8 *)this) + 0x50) == 0U)) {
-        f32 t = (*(f32 *)((s8 *)((u8 *)this) + 0x4C) - lbl_805DD1C8) - lbl_805DD1CC;
-        target = lbl_805DD1C4 + (f32) (*(s16 *)((s8 *)((u8 *)this) + 0x74) * 0x14);
+    if ((*(u32 *)&this->unk_84 != 0U) && (*(u32 *)((s8 *)((u8 *)this) + 0x50) == 0U)) {
+        f32 t = (*(f32 *)&this->m_4c - lbl_805DD1C8) - lbl_805DD1CC;
+        target = lbl_805DD1C4 + (f32) (*(s16 *)&this->unk_74 * 0x14);
         target -= lbl_805DD1BC * t;
-        *(f32 *)((s8 *)((u8 *)this) + 0x6C) += target - *(f32 *)((s8 *)((u8 *)this) + 0x6C);
+        *(f32 *)&this->unk_6C += target - *(f32 *)&this->unk_6C;
     }
 }
 #pragma pop
@@ -624,14 +624,14 @@ void TUnk_804D0618::center_list_selection() {
 void TUnk_804D0618::clamp_item_list_scroll() {
     Stack_80267D14 stack;
     f32 temp_f1;
-    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x84) != 0U) {
+    if ((u32) *(u32 *)&this->unk_84 != 0U) {
         stack.sp8 = lbl_805DD188;
-        temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x4C) - (*(const f32 *)&lbl_805DD18C);
+        temp_f1 = *(f32 *)&this->m_4c - (*(const f32 *)&lbl_805DD18C);
         stack.spC = temp_f1;
-        if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x80) != 0U) {
+        if ((u32) *(u32 *)&this->m_80 != 0U) {
             stack.spC = temp_f1 - (*(const f32 *)&lbl_805DD190);
         }
-        clamp_list_scroll_offset((int) (*(u32 *)((s8 *)((u8 *)this) + 0x84)), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8));
+        clamp_list_scroll_offset((int) (*(u32 *)&this->unk_84), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8));
     }
 }
 
@@ -664,8 +664,8 @@ void TUnk_804D0618::update_scroll_offset() {
 void TUnk_804D0618::draw_selected_list_entry(s32 arg1) {
     u16 *temp_r3;
 
-    if (!(*(u16 *)((s8 *)this + 0x70) & 0x80)) {
-        temp_r3 = ((u16 *(*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)((void *)(this), (s16)(*(s16 *)((s8 *)this + 0x74)));
+    if (!(this->m_70 & 0x80)) {
+        temp_r3 = ((u16 *(*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)((void *)(this), (s16)(*(s16 *)&this->unk_74));
         if (*temp_r3 & 1) {
             draw_selection_bar(arg1, temp_r3, get_status_flag__13TUnk_804D0618Fv(this));
         }

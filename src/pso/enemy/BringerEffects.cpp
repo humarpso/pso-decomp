@@ -121,16 +121,16 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
 void TUnk_8048FE08::sub_8009A11C() { *(s32*)((char*)this + 0xb0) = 0; }
 void TObjEneDf2Bringer::setup_dir_shot(const void *arg1, s32 arg2, f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), arg1);
-    *(s32 *)((s8 *)((u8 *)this) + 0x60) = arg2;
-    *(f32 *)((s8 *)((u8 *)this) + 0xB8) = sin_table_lookup((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-    *(f32 *)((s8 *)((u8 *)this) + 0xBC) = (f32) 0.0f;
-    *(f32 *)((s8 *)((u8 *)this) + 0xC0) = cos_table_lookup((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-    *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 1;
-    fill_value_array((int) (*(s32 *)((s8 *)((u8 *)this) + 0xC4)));
-    *(f32 *)((s8 *)((u8 *)this) + 0xC8) = (f32) 0.0f;
-    *(f32 *)((s8 *)((u8 *)this) + 0xCC) = (f32) 0.0f;
-    *(f32 *)((s8 *)((u8 *)this) + 0xD0) = farg0;
-    *(s32 *)((s8 *)((u8 *)this) + 0xB4) = 0x19;
+    this->rotation_y = arg2;
+    *(f32 *)&this->m_b8 = sin_table_lookup((int) (this->rotation_y));
+    *(f32 *)&this->m_bc = (f32) 0.0f;
+    this->m_c0 = cos_table_lookup((int) (this->rotation_y));
+    *(s32 *)&this->animationFlags = 1;
+    fill_value_array((int) (*(s32 *)&this->unk_C4));
+    this->m_c8 = (f32) 0.0f;
+    *(f32 *)&this->unk_CC = (f32) 0.0f;
+    this->m_d0 = farg0;
+    *(s32 *)&this->m_b4 = 0x19;
 }
 
 extern s32 lbl_8048FE08[];
@@ -145,23 +145,23 @@ void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void*TUnk_8048FE08::init(int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int*)((char*)this + 0x0) = bringer_tp_absorb_effect_name; *(int*)((char*)this + 0xb0) = 0; *(float*)((char*)this + 0xd0) = 0.0f; *(float*)((char*)this + 0xc8) = 0.0f; *(float*)((char*)this + 0xcc) = 0.0f; *(int*)((char*)this + 0xb4) = 0; *(float*)((char*)this + 0x38) = 0.0f; *(float*)((char*)this + 0x3c) = 0.0f; *(float*)((char*)this + 0x40) = 0.0f; *(float*)((char*)this + 0xb8) = 0.0f; *(float*)((char*)this + 0xbc) = 0.0f; *(float*)((char*)this + 0xc0) = 0.0f; *(int*)((char*)this + 0xc4) = a3; *(int*)((char*)*(int*)((char*)this + 0xa4) + 0x14) = 1; return this; }
+void*TUnk_8048FE08::init(int a1, int a2, int a3) { construct_collision_body(); *(int*)((char*)this + 0x18) = (int)((unsigned char *)&lbl_8048FE08); *(int *)&this->m_name = bringer_tp_absorb_effect_name; *(int*)((char*)this + 0xb0) = 0; *(float *)&this->unk_D0 = 0.0f; *(float*)((char*)this + 0xc8) = 0.0f; this->m_cc = 0.0f; this->m_b4 = 0; *(float*)((char*)this + 0x38) = 0.0f; *(float*)((char*)this + 0x3c) = 0.0f; *(float*)((char*)this + 0x40) = 0.0f; *(float*)((char*)this + 0xb8) = 0.0f; this->m_bc = 0.0f; *(float*)((char*)this + 0xc0) = 0.0f; this->m_c4 = a3; *(int*)((char*)*(int *)&this->m_a4 + 0x14) = 1; return this; }
 void TObjEneDf2Bringer__sub_8009A2A0(void) {  }
 
 #pragma push
 #pragma fp_contract on
 void TObjEneDf2Bringer::update_projectile_motion() {
     f32 temp_f2;
-    *(f32 *)((s8 *)((u8 *)this) + 0x50) += 1.0f;
-    temp_f2 = 6.0f * *(f32 *)((s8 *)((u8 *)this) + 0x50);
-    if (temp_f2 >= *(f32 *)((s8 *)((u8 *)this) + 0x4C)) {
+    *(f32 *)&this->m_50 += 1.0f;
+    temp_f2 = 6.0f * *(f32 *)&this->m_50;
+    if (temp_f2 >= *(f32 *)&this->m_4c) {
         VecCopy__FP3VecPC3Vec((void *)(((u8 *)this) + 0x1C), (const void *)(((u8 *)this) + 0x34));
         queue_destruction__7TObjectFv(((u8 *)this));
         return;
     }
-    *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x40) * temp_f2) + *(f32 *)((s8 *)((u8 *)this) + 0x28));
-    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x44) * temp_f2) + *(f32 *)((s8 *)((u8 *)this) + 0x2C));
-    *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x48) * temp_f2) + *(f32 *)((s8 *)((u8 *)this) + 0x30));
+    *(f32 *)&this->m_1c = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x40) * temp_f2) + *(f32 *)&this->m_28);
+    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) ((*(f32 *)&this->m_44 * temp_f2) + *(f32 *)&this->m_2c);
+    *(f32 *)&this->texture_id = (f32) ((*(f32 *)&this->m_48 * temp_f2) + *(f32 *)&this->actorFlags);
 }
 #pragma pop
 
@@ -224,7 +224,7 @@ extern "C" {
 void TObjPlayer::draw_trail_pair() {
     push_matrix();
     ((f32 (*)(void *))post_translate_matrix)(((u8 *)this) + 0x20);
-    rotate_matrix_y(0U, *(s32 *)((s8 *)((u8 *)this) + 0x34));
+    rotate_matrix_y(0U, *(s32 *)&this->_pad34);
     ((TObjPlayer *)(((u8 *)this) + 0x40))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)((u8 *)this) + 0x2C) < 1.0f));
     ((TObjPlayer *)(((u8 *)this) + 0xA0))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)((u8 *)this) + 0x2C) < 1.0f));
     pop_matrix();

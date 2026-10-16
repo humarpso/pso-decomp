@@ -144,7 +144,7 @@ extern s32 lbl_804EDBD0[];
 void *TUnk_804EDBD0::init_vtable() {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDBD0;
-    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(u32 *)&this->unk_1C = 0;
     return this;
 }
 

@@ -51,19 +51,19 @@ void TOKeyCol::vfunc_16() {  }
 void TOKeyCol::run_task() {
     u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg0))->m12();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
+    if ((s32) *(s32 *)&this->m_d4 != 1) {
         ((VObj_18 *)(arg0))->m15();
         if (((VObj_18 *)(arg0))->m13() == 1) {
             ((TOKeyCol *)arg0)->send_switch_changed((int) (1));
             ((VObj_18 *)(arg0))->m16();
-            *(s32 *)((s8 *)arg0 + 0xD4) = 1;
+            *(s32 *)&this->m_d4 = 1;
         }
     } else {
         ((VObj_18 *)(arg0))->m14();
         if (((VObj_18 *)(arg0))->m13() != 1) {
             ((TOKeyCol *)arg0)->send_switch_changed((int) (0));
             ((VObj_18 *)(arg0))->m17();
-            *(s32 *)((s8 *)arg0 + 0xD4) = 0;
+            *(s32 *)&this->m_d4 = 0;
         }
     }
 }

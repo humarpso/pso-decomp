@@ -156,7 +156,7 @@ void TBoss7DeRolLeC::update_or_dispatch() {
         sub_802ECAA4();
         return;
     }
-    ((VObj_802ED928*)this)->m85((*(s16 *)((u8 *)this + 0x326)), 9);
+    ((VObj_802ED928*)this)->m85((this->mode), 9);
 }
 
 void TObjPlayer__sub_802ED984(void) {  }

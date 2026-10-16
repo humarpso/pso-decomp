@@ -28,7 +28,9 @@ struct TObjEneDolmOlm : public TUnk_80493450 {
     u8 _pad3C0[0x4];
     u32 m_3c4;
     u32 m_3c8;
-    u8 _pad3CC[0xC];
+    u8 unk_3CC[0x4];
+    f32 m_3d0;
+    u8 unk_3D4[0x4];
     void* m_3d8;
     u8 _pad3DC[0x8];
     u32 m_3e4;

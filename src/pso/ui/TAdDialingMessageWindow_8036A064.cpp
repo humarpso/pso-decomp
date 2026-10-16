@@ -14,10 +14,10 @@ void TUnk_804F3428::run_task() {
     void *temp2_r3;
 
     if ((u32) this->m_20 != 0U) {
-        temp_r3 = *(u32 *)((s8 *)this + 0x1C);
+        temp_r3 = *(u32 *)&this->unk_1C;
         if (temp_r3 != 0U) {
-            *(u32 *)((s8 *)this + 0x1C) = (u32) (temp_r3 - 1);
-            if ((u32) *(u32 *)((s8 *)this + 0x1C) == 0U) {
+            *(u32 *)&this->unk_1C = (u32) (temp_r3 - 1);
+            if ((u32) *(u32 *)&this->unk_1C == 0U) {
                 temp2_r3 = *(void * *)&this->m_20;
                 if ((u32) temp2_r3 != 0U) {
                     ((TAdDialingMessageWindow *)temp2_r3)->set_flag_and_notify();
@@ -47,7 +47,7 @@ void *TUnk_804F3428::init(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F3428;
     *(void * *)&this->m_20 = arg2;
-    *(void * *)&(*(u32 *)((u8 *)this + 0x1C)) = arg3;
+    *(void * *)&(*(u32 *)&this->unk_1C) = arg3;
     return this;
 }
 

@@ -134,14 +134,14 @@ void TUnk_804A2018::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
-        temp_r3 = ((s32)find_item_by_id(*(s32 *)((s8 *)this + 0x1C)));
+    if ((u32) *(u32 *)&this->unk_24 != 0U) {
+        temp_r3 = ((s32)find_item_by_id(*(s32 *)&this->unk_1C));
         if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)temp_r3)->draw_icon((s32)((s32)(this->m_20)), (s32)((s32 *)(&sp8))) != 0)) {
             if (((TItemMag *)temp_r3)->get_flag_40() == 0) {
-                copy_position__15TEffStarLight2DFPv(*(u32 *)((s8 *)this + 0x24), &sp8);
+                copy_position__15TEffStarLight2DFPv(*(u32 *)&this->unk_24, &sp8);
                 return;
             }
-            ((TObjCamera *)(*(u32 *)((s8 *)this + 0x24)))->queue_target_destruction();
+            ((TObjCamera *)(*(u32 *)&this->unk_24))->queue_target_destruction();
             return;
         }
     }
@@ -191,7 +191,7 @@ void TUnk_804A204C::emit_marker_effects() {
     void *temp_r31;
     if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
         if (((TObjPlayer *)this)->draw_icon((s32)5, (s32)(&sp8)) != 0) {
-            temp_r31 = *(void **)((s8 *)this + 0xF0);
+            temp_r31 = *(void * *)&this->player;
             create_ex__9TTecMegidFllll(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), ((TObjPlayer *)this)->get_tp());
             ((TItemWeapon *)this)->roll_technique();
         }
@@ -202,22 +202,22 @@ void TUnk_804A204C::emit_marker_effects() {
 
 void TUnk_804A204C::update_weapon() {
     s32 temp_r3;
-    if ((s32) *(s32 *)((s8 *)this + 0x1FC) == 1) {
+    if ((s32) this->m_1fc == 1) {
         *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) + 0xAAA);
         if ((s32) *(s32 *)((s8 *)this + 0x200) >= 0x2000) {
             *(s32 *)((s8 *)this + 0x200) = 0x2000;
-            *(s32 *)((s8 *)this + 0x1FC) = 0;
+            this->m_1fc = 0;
         }
     } else {
         *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) - 0xAAA);
         if ((s32) *(s32 *)((s8 *)this + 0x200) <= -0x2000) {
             *(s32 *)((s8 *)this + 0x200) = -0x2000;
-            *(s32 *)((s8 *)this + 0x1FC) = 1;
+            this->m_1fc = 1;
         }
     }
     temp_r3 = get_current_floor();
-    if (((s32) *(s32 *)((s8 *)this + 0x204) != temp_r3) && ((u32) *(u32 *)((s8 *)this + 0xF4) != 0U)) {
-        *(s32 *)((s8 *)this + 0x204) = temp_r3;
+    if (((s32) this->m_204 != temp_r3) && ((u32) *(u32 *)((s8 *)this + 0xF4) != 0U)) {
+        this->m_204 = temp_r3;
         if (is_item_area_enabled() != 0) {
             create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(((TObjPlayer *)this)->get_field_d8())), (s32)((s32)(5)));
         }
@@ -265,7 +265,7 @@ void TUnk_804A204C::reserved_53() {
             ((TObjPlayer *)this)->get_mag_scale();
             set_model_fade_alpha__10TObjPlayerFf();
             post_translate_matrix((void *)(&sp8));
-            rotate_matrix_y((int)(0), (int)(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xF0)) + 0x60)));
+            rotate_matrix_y((int)(0), (int)(*(s32 *)((s8 *)(*(void * *)&this->player) + 0x60)));
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x11);
             draw_ginja_object(temp_r31);
             TParticleCtrl::begin_effect_render();
@@ -526,32 +526,32 @@ void TUnk_804A2164::update_weapon() {
     s32 temp_r0;
     void *temp_r4;
     void *temp_r4_2;
-    *(s32 *)((s8 *)this + 0x1FC) = (s32) (*(s32 *)((s8 *)this + 0x1FC) + 0x1999);
-    temp_r4 = *(void **)((s8 *)this + 0x188);
+    this->m_1fc = (s32) (this->m_1fc + 0x1999);
+    temp_r4 = *(void * *)&this->projectile;
     if (temp_r4 != NULL) {
         temp_r4_2 = *(void **)((s8 *)temp_r4 + 0x2C);
         *(s32 *)((s8 *)temp_r4_2 + 0) = (s32) (*(s32 *)((s8 *)temp_r4_2 + 0) & 0xFFFFFFFD);
-        *(s32 *)((s8 *)temp_r4_2 + 0x18) = (s32) *(s32 *)((s8 *)this + 0x1FC);
+        *(s32 *)((s8 *)temp_r4_2 + 0x18) = (s32) this->m_1fc;
     }
-    temp_r0 = *(s32 *)((s8 *)this + 0x204);
+    temp_r0 = this->m_204;
     switch (temp_r0) {
     case 1:
         *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) + 0xE38);
         if ((s32) *(s32 *)((s8 *)this + 0x200) >= 0) {
             *(s32 *)((s8 *)this + 0x200) = 0;
-            *(s32 *)((s8 *)this + 0x204) = 0;
+            this->m_204 = 0;
         }
         return;
     case 2:
         *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) - 0xE38);
         if ((s32) *(s32 *)((s8 *)this + 0x200) <= -0x31C7) {
             *(s32 *)((s8 *)this + 0x200) = -0x31C7;
-            *(s32 *)((s8 *)this + 0x204) = 3;
+            this->m_204 = 3;
             return;
         }
         break;
     case 3:
-        *(s32 *)((s8 *)this + 0x204) = 1;
+        this->m_204 = 1;
         return;
     }
 }

@@ -216,8 +216,8 @@ void *TUnk_804EEF64::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EEF64;
         (*(s32 *)&title_scene_instance) = 0;
-        if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
-            queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)this + 0x20)));
+        if ((u32) *(u32 *)&this->m_20 != 0U) {
+            queue_destruction__7TObjectFv((void*)(this->m_20));
         }
         sub_8033645C();
         TCameraCtrl__sub_800694A8();
@@ -236,7 +236,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EEF64;
     title_scene_instance = (u32)arg0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    this->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
@@ -246,9 +246,9 @@ u8 *TUnk_804EEF64::construct_title_scene() {
     TAdMultiPlyChrSelectGC__sub_803367E8();
     lobby_game_mode_state = 0;
     if (TKeyBoardControl__sub_8000F828() == 0) {
-        *(s32 *)((s8 *)arg0 + 0x38) = 0x4B0;
+        this->m_38 = 0x4B0;
     } else {
-        *(s32 *)((s8 *)arg0 + 0x38) = 0x320;
+        this->m_38 = 0x320;
     }
     p = __nw__7TObjectFUl(0x24);
     if (p != 0) {
@@ -264,8 +264,8 @@ u8 *TUnk_804EEF64::construct_title_scene() {
     if (p != 0) {
         p = ((TUnk_804EE470 *)p)->ct_with_parent((void *)tl_clipout);
     }
-    *(void **)((s8 *)arg0 + 0x20) = p;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    this->m_20 = p;
+    this->m_28 = 0;
     if (*(void **)((s8 *)arg0 + 0x24) != 0) {
         ((TObject *)(*(void **)((s8 *)arg0 + 0x24)))->set_flag_4();
     }
@@ -285,9 +285,9 @@ u8 *TUnk_804EEF64::construct_title_scene() {
     }
     {
         V3_80336520 v = lbl_80477818;
-        *(s32 *)((s8 *)arg0 + 0x40) = create_particle__20TAdLoadQuestPrtTxtGCFPvll(&v, 0x1E3, 1);
+        this->m_40 = create_particle__20TAdLoadQuestPrtTxtGCFPvll(&v, 0x1E3, 1);
         *(s32 *)((s8 *)arg0 + 0x44) = create_particle__20TAdLoadQuestPrtTxtGCFPvll(&v, 0x1E4, 1);
-        *(s32 *)((s8 *)arg0 + 0x48) = create_particle__20TAdLoadQuestPrtTxtGCFPvll(&v, 0x1E5, 1);
+        this->m_48 = create_particle__20TAdLoadQuestPrtTxtGCFPvll(&v, 0x1E5, 1);
     }
     p = __nw__7TObjectFUl(0x28);
     if (p != 0) {

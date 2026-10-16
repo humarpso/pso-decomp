@@ -295,7 +295,7 @@ void TLobby::load_texture_sub(void *arg1, s32 arg2) {
 void TLobby::set_flag_and_notify() {
     s32 (*temp_r12)(s32);
 
-    *(s32 *)((s8 *)this + 0) = (s32) (*(s32 *)((s8 *)this + 0) | 0x400);
+    *(s32 *)&this->m_name = (s32) (*(s32 *)&this->m_name | 0x400);
     temp_r12 = *(s32 (**)(s32))((s8 *)this + 0x41C);
     if (temp_r12 != NULL) {
         temp_r12(*(s32 *)((s8 *)this + 0x420));
@@ -734,9 +734,9 @@ void TLobby::reset_battle_state() {
     *(s32 *)((s8 *)this + 0x434) = 0;
     *(s32 *)((s8 *)this + 0x438) = 0;
     *(s32 *)((s8 *)this + 0x43C) = 0;
-    *(s32 *)((s8 *)this + 0xC) = 0;
-    *(s32 *)((s8 *)this + 8) = 0;
-    *(s32 *)((s8 *)this + 4) = 0;
+    *(s32 *)&this->m_next = 0;
+    *(s32 *)&this->m_prev = 0;
+    *(s32 *)&this->m_flags = 0;
     *(s32 *)((s8 *)this + 0x418) = 0;
     *(s32 *)((s8 *)this + 0x428) = 0;
     lbl_805D4AD0 = 0;

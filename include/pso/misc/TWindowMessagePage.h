@@ -14,7 +14,8 @@ struct TWindowMessagePage : public TWindowMessage {
     static void set_text(s32 a, s32 b, s32 c);
     void render();
     void run_task();
-    u8 unk_90[0x8];
+    u8 unk_90[0x4];
+    u32 m_94;
 };
 
 typedef char TWindowMessagePage_size[sizeof(TWindowMessagePage) == 0x98 ? 1 : -1];

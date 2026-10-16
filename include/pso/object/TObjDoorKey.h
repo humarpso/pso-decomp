@@ -19,7 +19,10 @@ struct TObjDoorKey : public TOKey {
     void run_task();
     static void free_key();
     static void load_resources();
-    u8 unk_E0[0x1C];
+    u8 unk_E0[0x10];
+    s32 m_f0;
+    u8 unk_F4[0x4];
+    u32 m_f8;
 };
 
 typedef char TObjDoorKey_size[sizeof(TObjDoorKey) == 0xFC ? 1 : -1];

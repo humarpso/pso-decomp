@@ -19,6 +19,6 @@ void TMainCursor::set_target_id_at_60(u8 arg1) {
 
 extern "C" {
 
-void TMainCursor::set_target_id(s16 v) { *(s16*)((char*)this + 0x6) = v; }
+void TMainCursor::set_target_id(s16 v) { *(s16 *)&this->m_id = v; }
 
 }

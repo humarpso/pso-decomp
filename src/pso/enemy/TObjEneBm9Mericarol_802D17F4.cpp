@@ -217,8 +217,8 @@ extern s32 lbl_804E18A8[];
 void *TObjEneBm9Mericarol_Bomb::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E18A8;
-        if (*(void **)((s8 *)this + 0x110) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x110)); *(s32 *)((s8 *)this + 0x110) = 0; }
-        if (*(void **)((s8 *)this + 0x114) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x114)); *(s32 *)((s8 *)this + 0x114) = 0; }
+        if (this->m_110 != NULL) { queue_destruction__7TObjectFv(this->m_110); *(s32 *)&this->m_110 = 0; }
+        if (*(void * *)&this->unk_114 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_114); *(s32 *)&this->unk_114 = 0; }
         destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -349,7 +349,7 @@ typedef struct VObj_18_477421 VObj_18_477421;
 void *TObjEneBm9Mericarol_EffCurse3::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E1908;
-        if (*(void **)((s8 *)this + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x24)); *(s32 *)((s8 *)this + 0x24) = 0; }
+        if (*(void * *)&this->unk_24 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_24); *(s32 *)&this->unk_24 = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -364,11 +364,11 @@ extern s32 lbl_805D3F38;
 void *TObjEneBm9Mericarol_EffCurse3::construct(s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)this + 0x18) = lbl_804E1908;
-    *(s32 *)((s8 *)this + 0) = (s32) lbl_805D3F38;
+    *(s32 *)&this->m_name = (s32) lbl_805D3F38;
     *(s32 *)((s8 *)this + 0x1C) = 0;
-    *(s32 *)((s8 *)this + 0x20) = arg2;
-    if (is_alive__9TObjEneDDFv(*(s32 *)((s8 *)this + 0x20)) != 0) {
-        *(s32 *)((s8 *)this + 0x24) = spawn_continuous_particle_effect_with_flags(*(s32 *)((s8 *)this + 0x20) + 0x38, 0x20D, 0x40);
+    this->m_20 = arg2;
+    if (is_alive__9TObjEneDDFv(this->m_20) != 0) {
+        *(s32 *)&this->unk_24 = spawn_continuous_particle_effect_with_flags(this->m_20 + 0x38, 0x20D, 0x40);
     }
     return this;
 }

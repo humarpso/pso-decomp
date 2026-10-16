@@ -40,12 +40,12 @@ void TObjPlayer::clamp_stat_354() {
     extern f32 lbl_805D9BD8;
     extern f32 lbl_805D9BDC;
     f32 lo = lbl_805D9BD8;
-    if (*(f32 *)((s8 *)this + 0x354) < lo) {
-        *(f32 *)((s8 *)this + 0x354) = lo;
-    } else if (lbl_805D9BDC < *(f32 *)((s8 *)this + 0x354)) {
-        *(f32 *)((s8 *)this + 0x354) = (f32) lbl_805D9BDC;
+    if (this->m_354 < lo) {
+        this->m_354 = lo;
+    } else if (lbl_805D9BDC < this->m_354) {
+        this->m_354 = (f32) lbl_805D9BDC;
     }
-    *(s32 *)((s8 *)this + 0x374) = (s32) *(f32 *)((s8 *)this + 0x354);
+    *(s32 *)&this->m_374 = (s32) this->m_354;
 }
 void TObjEneMoja::select_rare_variant() {
     u8 *arg0 = (u8 *)this;
@@ -141,16 +141,16 @@ void TObjPlayer::update_ground_effect() {
         ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (((u8 *)this)), (int) (0x3A807)), (void *) (((u8 *)this) + 0x38), (int) (0), (int) (0));
         TObjPlayer::play_effect_if_v2((int) (-0x300));
     }
-    *(f32 *)((s8 *)((u8 *)this) + 0x310) = (f32) lbl_805D9BD8;
-    *(f32 *)((s8 *)((u8 *)this) + 0x308) = (f32) lbl_805D9BD8;
+    *(f32 *)&this->unk_310 = (f32) lbl_805D9BD8;
+    *(f32 *)&this->unk_308 = (f32) lbl_805D9BD8;
     apply_actor_gravity((void *) (((u8 *)this)), (int) (0), (f32) (lbl_805D9BD8));
     ((TObjPlayer *)((u8 *)this))->update_collisions();
-    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0xB4) != 8U) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFBFFF9FF);
-        temp_r4 = (unsigned char *) (*(void **)((s8 *)((u8 *)this) + 0xA4));
+    if ((u32) this->m_b4 != 8U) {
+        *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFBFFF9FF);
+        temp_r4 = (unsigned char *) (*(void * *)&this->m_a4);
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFBFFFFFF);
-        *(s16 *)((s8 *)((u8 *)this) + 0x33E) = (s16) *(s16 *)((s8 *)((u8 *)this) + 0x32C);
-        *(s32 *)((s8 *)((u8 *)this) + 0x388) = 0;
+        this->m_33e = (s16) this->m_32c;
+        *(s32 *)&this->unk_388 = 0;
     }
 }
 
@@ -777,13 +777,13 @@ void TObjPlayer::update_invincibility() {
         ((s32 (*)(void *, s32, f32))apply_actor_gravity)(this, 0, lbl_805D9BD8);
     }
     update_collisions();
-    temp_r4 = *(s16 *)((s8 *)this + 0x33C);
-    *(s16 *)((s8 *)this + 0x33C) = (s16) (temp_r4 - 1);
+    temp_r4 = *(s16 *)&this->unk_33C;
+    *(s16 *)&this->unk_33C = (s16) (temp_r4 - 1);
     if (temp_r4 < 0) {
         *(s32 *)&this->actor_flags &= 0xFFFFFEFF;
         temp_r4_2 = *(void * *)&this->m_a4;
         *(s32 *)((s8 *)temp_r4_2 + 0x18) |= lbl_805D9BFC;
-        *(s16 *)((s8 *)this + 0x33C) = (s16) *(s16 *)((s8 *)this + 0x33A);
+        *(s16 *)&this->unk_33C = (s16) *(s16 *)((s8 *)this + 0x33A);
         this->m_33e = (s16) this->m_32c;
     }
 }
@@ -1196,36 +1196,36 @@ s32 TObjEneMoja::select_attack() {
     u8 *t;
     u8 *c;
     Vec_800AE18C d;
-    if (*(s16 *)((s8 *)((u8 *)this) + 0x326) > 1 && (t = *(u8 **)((s8 *)((u8 *)this) + 0x2A8)) != NULL &&
-        *(u32 *)((s8 *)((u8 *)this) + 0x318) != 0 && !(*(u32 *)((s8 *)t + 0x30) & 0x02000800)) {
+    if (this->mode > 1 && (t = this->m_2a8) != NULL &&
+        this->m_318 != 0 && !(*(u32 *)((s8 *)t + 0x30) & 0x02000800)) {
         dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(((u8 *)this), t, &d);
-        angd = angle_difference_abs(*(s32 *)((s8 *)((u8 *)this) + 0x60),
+        angd = angle_difference_abs(this->m_60,
                                     (s32)(lbl_8043B0C8[0] * atan2_float(d.x, d.z)));
-        c = *(u8 **)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x2A8)) + 0xA4);
+        c = *(u8 **)((s8 *)(this->m_2a8) + 0xA4);
         if (c != NULL) {
             radius = *(f32 *)((s8 *)c + 0xC);
         } else {
             radius = lbl_805D9BE8;
         }
         for (i = 0; i < 3; i++) {
-            *(u32 *)((s8 *)((u8 *)this) + 0x318) = lbl_805D50CC[i + *(s32 *)((s8 *)((u8 *)this) + 0x368) * 3];
-            sq = (radius + ((TObjPlayer *)(*(u32 *)((s8 *)((u8 *)this) + 0x318)))->get_pos_x()) *
-                 (radius + ((TObjPlayer *)(*(u32 *)((s8 *)((u8 *)this) + 0x318)))->get_pos_x());
-            lim = ((TObjPlayer *)(*(u32 *)((s8 *)((u8 *)this) + 0x318)))->get_field_0c();
+            this->m_318 = lbl_805D50CC[i + this->rare * 3];
+            sq = (radius + ((TObjPlayer *)(this->m_318))->get_pos_x()) *
+                 (radius + ((TObjPlayer *)(this->m_318))->get_pos_x());
+            lim = ((TObjPlayer *)(this->m_318))->get_field_0c();
             if (dist <= sq && angd <= lim) {
-                *(s32 *)((s8 *)((u8 *)this) + 0x380) = i;
-                switch (*(s32 *)((s8 *)((u8 *)this) + 0x380)) {
+                this->attack = i;
+                switch (this->attack) {
                 case 0:
-                    if (*(s32 *)((s8 *)((u8 *)this) + 0x384) == -1) {
-                        *(s32 *)((s8 *)((u8 *)this) + 0x384) = 0;
+                    if (this->attackSequence == -1) {
+                        this->attackSequence = 0;
                     }
                     return 1;
                 case 1:
-                    if (*(s32 *)((s8 *)((u8 *)this) + 0x384) != -1 && !(*(f32 *)((s8 *)((u8 *)this) + 0x390) < lbl_805D9C1C)) {
-                        if (((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < *(f32 *)((s8 *)((u8 *)this) + 0x390)) {
+                    if (this->attackSequence != -1 && !(this->techniqueChance < lbl_805D9C1C)) {
+                        if (((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->techniqueChance) {
                             return 1;
                         }
-                        *(s32 *)((s8 *)((u8 *)this) + 0x384) = -1;
+                        this->attackSequence = -1;
                         {
                             Vec_800AE18C v = *(Vec_800AE18C *)(((u8 *)this) + 0x2FC);
                             select_enemy_destination(((u8 *)this), &v, 1);
@@ -1237,11 +1237,11 @@ s32 TObjEneMoja::select_attack() {
                     }
                     break;
                 case 2:
-                    if (*(s32 *)((s8 *)((u8 *)this) + 0x384) != -1) {
-                        if (lbl_805D9C30 < dist && ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < *(f32 *)((s8 *)((u8 *)this) + 0x394)) {
+                    if (this->attackSequence != -1) {
+                        if (lbl_805D9C30 < dist && ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->jumpChance) {
                             return 1;
                         }
-                        *(s32 *)((s8 *)((u8 *)this) + 0x384) = -1;
+                        this->attackSequence = -1;
                         {
                             Vec_800AE18C v = *(Vec_800AE18C *)(((u8 *)this) + 0x2FC);
                             select_enemy_destination(((u8 *)this), &v, 1);

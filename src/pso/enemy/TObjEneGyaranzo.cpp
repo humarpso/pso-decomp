@@ -334,7 +334,7 @@ s32 TBoss3Volopt__sub_800D8D88(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 
 void TObjEneGyaranzo::init_params_from_table() {
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x350)) + 4) = get_gyaranzo_missile_float_parameter(1);
+    *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4) = get_gyaranzo_missile_float_parameter(1);
     lbl_805D51F0 = get_gyaranzo_missile_float_parameter(2);
     TObjGyaranzoMissile__speed_scale = get_gyaranzo_missile_float_parameter(3);
     TObjGyaranzoMissile__max_range = get_gyaranzo_missile_float_parameter(4);
@@ -443,7 +443,7 @@ void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
     }
 }
 
-void TObjGyaranzoMissile::copy_from(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); }
+void TObjGyaranzoMissile::copy_from(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); }
 #define V ((VObj_18_f1aa6a *)(arg0))
 #define NEW(d, id) { void *o = __nw__7TObjectFUl(0xDC); if (o != NULL) { TObjGyaranzoMissile__ct(o, arg0, &d, id); } }
 #pragma pool_data off
@@ -1288,17 +1288,17 @@ void TObjEneGyaranzo::sub_800D2900() {
     s32 idx;
     Vec_800D2900 v;
     void *obj;
-    if (*(s32 *)((s8 *)((u8 *)this) + 0x3A8) < 2) {
-        (*(s32 *)((s8 *)((u8 *)this) + 0x3A8))++;
-        switch (*(s32 *)((s8 *)((u8 *)this) + 0x3A8)) {
+    if (*(s32 *)&this->m_3a8 < 2) {
+        (*(s32 *)&this->m_3a8)++;
+        switch (*(s32 *)&this->m_3a8) {
         case 1:
             start = 0;
-            *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 5;
+            *(s32 *)&this->m_38c = 5;
             end = 5;
             break;
         case 2:
             start = 5;
-            *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 0xD;
+            *(s32 *)&this->m_38c = 0xD;
             end = 0xD;
             break;
         }
@@ -1331,18 +1331,18 @@ void TObjPlayer::update_aim_and_fire() {
     s32 var_r30;
     u8 *temp_r6;
     void *uninit;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x37C);
+    temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) | 0x40000);
-        *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
-        *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 1;
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
+        *(s16 *)&this->unk_B8 = 0;
+        this->m_37c = 1;
     case 1:
         var_r30 = 0;
         if (((TObjEnemy *)(((u8 *)this)))->vfunc_19(0x1E) != 0) {
             ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range((f32) (lbl_805DA274));
         }
-        temp_r6 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x2A8));
+        temp_r6 = (u8 *)(*(u8 * *)&this->m_2a8);
         if (temp_r6 != NULL) {
             Vec_800D2CE4 v = *(Vec_800D2CE4 *)(temp_r6 + 0x38);
             subtract_vector((void *) (&v), (void *) (((u8 *)this) + 0x38));
@@ -1355,26 +1355,26 @@ void TObjPlayer::update_aim_and_fire() {
             var_r30 = 1;
         }
         if (var_r30 != 0) {
-            *(s16 *)((s8 *)((u8 *)this) + 0x33C) = get_gyaranzo_missile_int_parameter((int) (0));
-            *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 2;
-            *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 2;
+            *(s16 *)&this->unk_33C = get_gyaranzo_missile_int_parameter((int) (0));
+            *(s16 *)&this->unk_B8 = 2;
+            this->m_37c = 2;
         }
         break;
     case 2:
-        if (*(f32 *)((s8 *)((u8 *)this) + 0xC0) >= lbl_805DA278) {
+        if (*(f32 *)&this->m_c0 >= lbl_805DA278) {
             spawn_missile_volley__19TObjGyaranzoMissileFPv();
-            *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 3;
+            this->m_37c = 3;
         }
         break;
     case 3:
-        *(s16 *)((s8 *)((u8 *)this) + 0x33C) = (s16) (*(s16 *)((s8 *)((u8 *)this) + 0x33C) - 1);
-        if (*(s16 *)((s8 *)((u8 *)this) + 0x33C) <= 0) {
-            *(s32 *)((s8 *)((u8 *)this) + 0x37C) = -1;
+        *(s16 *)&this->unk_33C = (s16) (*(s16 *)&this->unk_33C - 1);
+        if (*(s16 *)&this->unk_33C <= 0) {
+            this->m_37c = -1;
             update_if_active__15TObjEneMe1GiGueFl(uninit, 0);
         }
         break;
     case -1:
-        *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) & 0xFFFBFFFF);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFBFFFF);
         break;
     }
     advance_animation_playback((void *) (((u8 *)this)));
@@ -1428,7 +1428,7 @@ void TObjPlayer::update_death_breakup() {
 void TObjEneGyaranzo::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(5);
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
+    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 1);
 }
 
 void TObjPlayer__sub_800D30A8(Obj_800D30A8 *arg0) {
@@ -1635,38 +1635,38 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
 void TObjEneGyaranzo::sub_800D37F4() {
     s32 a;
     u16 r;
-    switch (*(s16 *)((s8 *)((u8 *)this) + 0x326)) {
+    switch (this->mode) {
     case 0:
     case 8:
         if (((VObj_18 *)(((u8 *)this)))->m17(0x1E) != 0) {
             select_targets__19TObjGyaranzoMissileFPv(((u8 *)this));
-            if (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) > 0) {
-                switch (*(s32 *)((s8 *)((u8 *)this) + 0x3A8)) {
+            if (*(s32 *)&this->unk_3CC > 0) {
+                switch (*(s32 *)&this->m_3a8) {
                 case 0:
-                    if (*(s16 *)((s8 *)((u8 *)this) + 0x32C) <= *(s32 *)((s8 *)((u8 *)this) + 0x3B0)) {
-                        *(u16 *)((s8 *)((u8 *)this) + 0x338) = *(s32 *)((s8 *)((u8 *)this) + 0x3C8);
+                    if (this->hp <= *(s32 *)&this->m_3b0) {
+                        this->targetId = this->m_3c8;
                         a = 9;
                     } else {
-                        *(u16 *)((s8 *)((u8 *)this) + 0x338) = *(s32 *)((s8 *)((u8 *)this) + 0x3C0);
+                        this->targetId = this->m_3c0;
                         a = 1;
                     }
-                    if (*(u16 *)((s8 *)((u8 *)this) + 0x338) != 0xFFFF) {
+                    if (this->targetId != 0xFFFF) {
                         update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), a);
-                        *(s32 *)((s8 *)((u8 *)this) + 0x378) = 2;
+                        *(s32 *)&this->m_378 = 2;
                     }
                     break;
                 case 1:
-                    *(u16 *)((s8 *)((u8 *)this) + 0x338) = *(s32 *)((s8 *)((u8 *)this) + 0x3C0);
-                    if (*(u16 *)((s8 *)((u8 *)this) + 0x338) != 0xFFFF) {
+                    this->targetId = this->m_3c0;
+                    if (this->targetId != 0xFFFF) {
                         update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 9);
-                        *(s32 *)((s8 *)((u8 *)this) + 0x378) = 2;
+                        *(s32 *)&this->m_378 = 2;
                     }
                     break;
                 case 2:
-                    *(u16 *)((s8 *)((u8 *)this) + 0x338) = *(s32 *)((s8 *)((u8 *)this) + 0x3BC);
-                    if (*(u16 *)((s8 *)((u8 *)this) + 0x338) != 0xFFFF) {
+                    this->targetId = *(s32 *)((s8 *)((u8 *)this) + 0x3BC);
+                    if (this->targetId != 0xFFFF) {
                         update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 9);
-                        *(s32 *)((s8 *)((u8 *)this) + 0x378) = 2;
+                        *(s32 *)&this->m_378 = 2;
                     }
                     break;
                 }
@@ -1678,12 +1678,12 @@ void TObjEneGyaranzo::sub_800D37F4() {
         break;
     case 1:
         if (((VObj_18 *)(((u8 *)this)))->m17(0x1E) != 0) {
-            f32 *p = *(f32 **)((s8 *)((u8 *)this) + 0x350);
+            f32 *p = *(f32 * *)&this->movementParameters;
             r = find_nearest_visible_player(((u8 *)this), 0, (int)p, lbl_805DA290 + *p);
-            if (*(u16 *)((s8 *)((u8 *)this) + 0x338) == 0xFFFF) {
-                *(u16 *)((s8 *)((u8 *)this) + 0x338) = r;
+            if (this->targetId == 0xFFFF) {
+                this->targetId = r;
             }
-            if (*(u16 *)((s8 *)((u8 *)this) + 0x338) == 0xFFFF) {
+            if (this->targetId == 0xFFFF) {
                 update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 8);
             }
         }

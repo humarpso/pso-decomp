@@ -12,7 +12,7 @@ extern s32 lbl_804F0C08[];
 void *TUnk_804F0C08::initialize(void *arg1, void *arg2, void *arg3) {
     TItemEffPG__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0C08;
-    *(void **)((s8 *)this + 0xD4) = arg3;
+    *(void * *)&this->unk_D4 = arg3;
     return this;
 }
 

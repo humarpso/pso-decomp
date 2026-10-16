@@ -310,8 +310,8 @@ extern s32 spawn_hit_particles_at_vec__10TObjPlayerFiii[];
 void *TUnk_804E2000::enter_state_341() {
     init_state_445__10TObjPlayerFPv(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804E2000;
-    *(u32 *)((s8 *)this + 0x1FC) = 341;
-    *(s32 **)((s8 *)this + 0x208) = spawn_hit_particles_at__10TObjPlayerFiii;
+    this->m_1fc = 341;
+    this->m_208 = spawn_hit_particles_at__10TObjPlayerFiii;
     *(s32 **)((s8 *)this + 0x204) = spawn_hit_particles_at_vec__10TObjPlayerFiii;
     return this;
 }
@@ -381,10 +381,10 @@ void TUnk_804E21F8::sub_802D577C() {
     s32 cnt;
     n = *(s16 *)((s8 *)arg0 + 0x24A);
     if (n != 0) {
-        ang = *(s32 *)((s8 *)arg0 + 0x250);
+        ang = *(s32 *)&this->unk_250;
         cnt = n;
         p = arg0 + 0x20C;
-        q = *(u8 **)((s8 *)arg0 + 0xF0) + 0x2FC;
+        q = *(u8 * *)&this->player + 0x2FC;
         pa = &lbl_8047259C;
         pb = &player_pb_zero_vec_block;
         ang2 = 0x31C7;
@@ -392,7 +392,7 @@ void TUnk_804E21F8::sub_802D577C() {
         step2 = 0x238E / n;
         while (cnt != 0) {
             V_802D577C a = *pa;
-            a.z = *(f32 *)((s8 *)arg0 + 0x24C);
+            a.z = this->m_24c;
             V_802D577C b = *pb;
             b.x = cos_table_lookup(ang2);
             b.y = sin_table_lookup(ang2);
@@ -407,23 +407,23 @@ void TUnk_804E21F8::sub_802D577C() {
             cnt--;
             p += 0xC;
         }
-        *(s32 *)((s8 *)arg0 + 0x250) += 0x38E;
+        *(s32 *)&this->unk_250 += 0x38E;
     }
 }
 
 void TUnk_804E21F8::update_weapon() {
     s16 temp_r4;
     s16 temp_r4_2;
-    temp_r4 = *(s16 *)((s8 *)this + 0x248);
+    temp_r4 = this->m_248;
     temp_r4 += 1;
-    *(s16 *)((s8 *)this + 0x248) = temp_r4;
+    this->m_248 = temp_r4;
     if ((s16) temp_r4 == 0x96) {
         temp_r4_2 = *(s16 *)((s8 *)this + 0x24A);
         if (temp_r4_2 < 5) {
             *(s16 *)((s8 *)this + 0x24A) = (s16) (temp_r4_2 + 1);
             send_6x61_activate_mag_effect__14TItemEquipBaseFl((void *)(this), *(s16 *)((s8 *)this + 0x24A));
         }
-        *(s16 *)((s8 *)this + 0x248) = 0;
+        this->m_248 = 0;
     }
     sub_802D577C();
 }
@@ -509,9 +509,9 @@ extern s32 create_and_init_effect__10TObjPlayerFlPUll[];
 void *TUnk_804E22F4::init_type_447() {
     init_state_445__10TObjPlayerFPv(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804E22F4;
-    *(u32 *)((s8 *)this + 0x1FC) = 447;
+    this->m_1fc = 447;
     *(s32 **)((s8 *)this + 0x204) = alloc_and_init__10TObjPlayerFlll;
-    *(s32 **)((s8 *)this + 0x208) = create_and_init_effect__10TObjPlayerFlPUll;
+    this->m_208 = create_and_init_effect__10TObjPlayerFlPUll;
     return this;
 }
 
@@ -522,9 +522,9 @@ extern s32 create_aux_object__10TObjPlayerFlPUll[];
 void *TUnk_804E1F04::init_vtable_and_handlers_341() {
     init_state_445__10TObjPlayerFPv(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804E1F04;
-    *(u32 *)((s8 *)this + 0x1FC) = 341;
+    this->m_1fc = 341;
     *(s32 **)((s8 *)this + 0x204) = TItemWpnCardEffect__sub_8032E588;
-    *(s32 **)((s8 *)this + 0x208) = create_aux_object__10TObjPlayerFlPUll;
+    this->m_208 = create_aux_object__10TObjPlayerFlPUll;
     return this;
 }
 

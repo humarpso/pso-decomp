@@ -4,9 +4,9 @@
 
 extern "C" {
 
-int TWindowCtrl::is_flag_2_set() { return *(u16*)((char*)this + 0x4) & 0x4; }
-void TWindowCtrl::set_flag1e_bit8() { *(u16*)((char*)this + 0x1e) |= 0x8; }
-void TWindowCtrl::clear_flag1e_bit8() { *(u16*)((char*)this + 0x1e) &= 0xfffffff7; }
+int TWindowCtrl::is_flag_2_set() { return this->m_flags & 0x4; }
+void TWindowCtrl::set_flag1e_bit8() { this->m_1e |= 0x8; }
+void TWindowCtrl::clear_flag1e_bit8() { this->m_1e &= 0xfffffff7; }
 
 }
 
@@ -34,6 +34,6 @@ extern "C" {
 
 void TWindowCtrl::set_flag1e_bit40() { this->m_1e |= 0x40; }
 u16 TWindowCtrl::get_flags() { return this->m_76; }
-int TUnk_804CF0B8::get_flag_bit1() { return ((*(u8 *)((u8 *)this + 0x71)) >> 1) & 0x1; }
+int TUnk_804CF0B8::get_flag_bit1() { return ((this->m_71) >> 1) & 0x1; }
 
 }

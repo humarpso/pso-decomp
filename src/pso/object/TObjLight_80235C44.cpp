@@ -133,15 +133,15 @@ u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0x24), (void *) (arg1));
     VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x34), (void *) (arg2));
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = arg3;
-    *(s32 *)((s8 *)((u8 *)this) + 0x4C) = 0;
-    *(f32 *)((s8 *)((u8 *)this) + 0x50) = farg0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x54) = arg4;
+    *(s32 *)&this->m_1c = arg3;
+    *(s32 *)&this->m_4c = 0;
+    *(f32 *)&this->m_50 = farg0;
+    *(s32 *)&this->m_54 = arg4;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = 1;
-    *(f32 *)((s8 *)((u8 *)this) + 0x58) = farg1;
-    *(f32 *)((s8 *)((u8 *)this) + 0x5C) = farg2;
-    *(u16 *)((s8 *)((u8 *)this) + 0x60) = obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
-    TObjLight::find_light_params((f32 *)(((u8 *)this) + 0x40), (f32 *)(&stack.sp8), (u32)((int) ((s32) *(u16 *)((s8 *)((u8 *)this) + 0x60))));
+    *(f32 *)&this->m_58 = farg1;
+    *(f32 *)&this->m_5c = farg2;
+    *(u16 *)&this->rotation_y = obj_getField1c((int) (*(s32 *)&this->m_54));
+    TObjLight::find_light_params((f32 *)(((u8 *)this) + 0x40), (f32 *)(&stack.sp8), (u32)((int) ((s32) *(u16 *)&this->rotation_y)));
     return ((u8 *)this);
 }
 typedef char RecoveredGlobal_80235F60_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235F60_lbl_804CCAA8) == 0x18 ? 1 : -1];

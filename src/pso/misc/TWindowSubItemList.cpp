@@ -51,12 +51,12 @@ void TWindowSubItemList::render() {
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     ((TUnk_804D0618 *)arg0)->draw_selected_list_entry((int) (temp_r3));
     ((TWindowSubItemList *)arg0)->sub_8027ACF8((u8 *)temp_r3);
-    draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0x1E));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)arg0 + 0x80), (int) (temp_r3));
+    draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (this->m_8c), (int) (0x1E));
+    if ((u32) *(u32 *)&this->m_80 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(this->m_80, (int) (temp_r3));
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x84) != 0U) {
-        draw_window_scrollbar(*(void **)((s8 *)arg0 + 0x84), (int) (temp_r3), (void *) (arg0 + 0x68));
+    if ((u32) *(u32 *)&this->unk_84 != 0U) {
+        draw_window_scrollbar(*(void * *)&this->unk_84, (int) (temp_r3), (void *) (arg0 + 0x68));
     }
 }
 #pragma pop

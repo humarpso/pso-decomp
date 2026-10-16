@@ -202,15 +202,15 @@ void TChallenge4PResult::sub_8034B8B0() { *(s32*)((char*)this + 0x1c) = 3; }
 
 void TChallenge4PResult::sub_8034B8BC() {
     ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (1))))));
-    TLobby__sub_802924B4((void *) (((u8 *)this) + 0x34), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x24)));
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0x5A;
+    TLobby__sub_802924B4((void *) (((u8 *)this) + 0x34), (int) (this->slot_index));
+    this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
 }
 
 void TChallenge4PResult::sub_8034B918() {
     ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (2))))));
-    TLobby__sub_802924B4((void *) (((u8 *)this) + 0x48), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x24)));
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0x5A;
+    TLobby__sub_802924B4((void *) (((u8 *)this) + 0x48), (int) (this->slot_index));
+    this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
 }
 
@@ -233,8 +233,8 @@ extern "C" {
 
 void TChallenge4PResult::sub_8034BA2C() {
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x20) - 1;
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = temp_r0;
+    temp_r0 = this->wait_frames - 1;
+    this->wait_frames = temp_r0;
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 2;
     }

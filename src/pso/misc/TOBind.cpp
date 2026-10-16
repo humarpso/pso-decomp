@@ -14,8 +14,8 @@ void TOBind::sub_8015860C() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB8) + *(f32 *)((s8 *)arg0 + 0xC0));
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0xBC);
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB8) + *(f32 *)&this->unk_C0);
+    temp_f1 = this->m_bc;
     temp_f0 = *(f32 *)((s8 *)arg0 + 0xB8);
     if (temp_f1 < temp_f0) {
         *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (temp_f0 - temp_f1);

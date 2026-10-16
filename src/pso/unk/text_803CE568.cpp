@@ -74,9 +74,9 @@ s32 TLobby::cv_fs_get_stat() {
         }
         return 3;
     }
-    temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x2C);
+    temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 * *)&this->m_name) + 0x2C);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4));
+        var_r31 = temp_r12(*(s32 *)&this->m_flags);
     } else if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
         cvfs_completion_callback(lbl_805D75FC, lbl_8047D7C8, 0);
     }
@@ -102,9 +102,9 @@ void TLobby::cvfs_stop_tr() {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D7E4, 0);
         }
     } else {
-        temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x28);
+        temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 * *)&this->m_name) + 0x28);
         if (temp_r12 != NULL) {
-            temp_r12(*(s32 *)((s8 *)arg0 + 4));
+            temp_r12(*(s32 *)&this->m_flags);
             return;
         }
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
@@ -123,9 +123,9 @@ s32 TLobby::cv_fs_req_rd(s32 arg1, s32 arg2) {
         }
         return 0;
     }
-    temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x20);
+    temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 * *)&this->m_name) + 0x20);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4), arg1, arg2);
+        var_r31 = temp_r12(*(s32 *)&this->m_flags, arg1, arg2);
     } else {
         var_r31 = 0;
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
@@ -145,9 +145,9 @@ s32 TLobby::cv_fs_seek(s32 arg1, s32 arg2) {
         }
         return 0;
     }
-    temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x18);
+    temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 * *)&this->m_name) + 0x18);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4), arg1, arg2);
+        var_r31 = temp_r12(*(s32 *)&this->m_flags, arg1, arg2);
     } else {
         var_r31 = 0;
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
@@ -167,9 +167,9 @@ s32 TLobby::cv_fs_tell() {
         }
         return 0;
     }
-    temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x1C);
+    temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 * *)&this->m_name) + 0x1C);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4));
+        var_r31 = temp_r12(*(s32 *)&this->m_flags);
     } else {
         var_r31 = 0;
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
@@ -186,11 +186,11 @@ void TLobby::cv_fs_close() {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D8EC, 0);
         }
     } else {
-        temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x14);
+        temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 * *)&this->m_name) + 0x14);
         if (temp_r12 != NULL) {
-            temp_r12(*(s32 *)((s8 *)arg0 + 4));
-            *(s32 *)((s8 *)arg0 + 4) = 0;
-            *(u8 **)((s8 *)arg0 + 0) = NULL;
+            temp_r12(*(s32 *)&this->m_flags);
+            *(s32 *)&this->m_flags = 0;
+            *(u8 * *)&this->m_name = NULL;
             return;
         }
         if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {

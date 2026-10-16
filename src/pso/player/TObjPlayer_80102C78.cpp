@@ -10,7 +10,7 @@ void bswap_32__FPUl(u32* p);
 void TObjPlayer__sub_80102D84(u8 *arg0);
 
 void TObjPlayer::set_facing(s16 v) { *(s16*)((char*)this + 0x32e) = v; }
-s16 TObjPlayer::get_stat_bonus() { return *(s16*)((char*)this + 0x2be); }
+s16 TObjPlayer::get_stat_bonus() { return *(s16 *)&this->unk_2BE; }
 s16 TObjPlayer::get_stat() { return this->m_2bc; }
 int TObjPlayer::get_equip_field_d04() { return get_slot_value__10TObjPlayerFPvi((char*)this + 0xd04); }
 void TObjPlayer::is_flag_20000_set() {

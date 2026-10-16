@@ -65,8 +65,8 @@ void TUnk_804A2A58::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     s32 temp_r4;
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x1FC);
-    *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (temp_r4 + 0x2AAA);
+    temp_r4 = this->m_1fc;
+    this->m_1fc = (s32) (temp_r4 + 0x2AAA);
     if (item_model_is_shown((void *)(arg0), (int) (temp_r4)) != 0) {
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (2), (void *) (&sp8));
         ((VObj_18 *)(arg0))->m49(&sp8, 0, 0x4FA, 1);

@@ -211,7 +211,7 @@ void TItemEffOrgaFlowShot::update_position_from_velocity() {
     this->m_40 = temp_f2;
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805E002C + *(f32 *)&this->m_194);
     this->m_24 = (f32) ((this->m_17c * temp_f2) + this->m_114);
-    *(f32 *)&this->m_28 = (f32) *(f32 *)((s8 *)arg0 + 0x118);
+    *(f32 *)&this->m_28 = (f32) *(f32 *)&this->unk_118;
     *(f32 *)&this->unk_2C = (f32) ((this->m_184 * temp_f2) + this->m_11c);
 }
 #pragma pop

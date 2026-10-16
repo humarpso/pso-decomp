@@ -9,7 +9,7 @@ void TObjEneMe1GiGueMissile::update_lifetime() {
     f32 temp_f1;
 
     temp_f1 = this->m_24;
-    if (temp_f1 > *(f32 *)((s8 *)this + 0x20)) {
+    if (temp_f1 > *(f32 *)&this->unk_20) {
         queue_destruction__7TObjectFv();
         return;
     }

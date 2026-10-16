@@ -17,7 +17,7 @@ void TObjPlayer::update_area_effect_objects() {
     switch ((s32) temp_r3) {
     case 6:
         if (TObjPlayer::get_player_list() == 4) {
-            rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x1F8)));
+            rotate_matrix_z((int) (0), (int) (*(s32 *)&this->unk_1F8));
         }
         break;
     case 5:

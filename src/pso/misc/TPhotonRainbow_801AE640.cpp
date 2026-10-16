@@ -36,6 +36,6 @@ void TObjPlayer__sub_801AE724(void) {  }
 void TObjPlayer__sub_801AE728(void) {  }
 
     extern const float lbl_805DC260;
-void TPhotonYoulla::sub_801AE72C() { *(float*)((char*)this + 0x184) = lbl_805DC260; *(float*)((char*)this + 0x188) = lbl_805DC260; *(float*)((char*)this + 0x18c) = lbl_805DC260; *(float*)((char*)this + 0x190) = lbl_805DC260; }
+void TPhotonYoulla::sub_801AE72C() { *(float *)&this->m_184 = lbl_805DC260; *(float*)((char*)this + 0x188) = lbl_805DC260; this->m_18c = lbl_805DC260; *(float *)&this->unk_190 = lbl_805DC260; }
 
 }

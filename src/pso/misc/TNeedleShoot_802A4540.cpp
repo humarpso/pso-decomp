@@ -48,11 +48,11 @@ void TNeedleShoot::check_wall_hit() {
     Stack_802A4544 stack;
     u8 *temp_r3;
     stack.sp8 = *(f32 *)((s8 *)((u8 *)this) + 0x28);
-    stack.spC = *(f32 *)((s8 *)((u8 *)this) + 0x2C);
-    stack.sp10 = *(f32 *)((s8 *)((u8 *)this) + 0x30);
-    stack.sp14 = *(f32 *)((s8 *)((u8 *)this) + 0x6C);
-    stack.sp18 = *(f32 *)((s8 *)((u8 *)this) + 0x70);
-    stack.sp1C = *(f32 *)((s8 *)((u8 *)this) + 0x74);
+    stack.spC = this->m_2c;
+    stack.sp10 = *(f32 *)&this->unk_30;
+    stack.sp14 = *(f32 *)&this->m_6c;
+    stack.sp18 = *(f32 *)&this->unk_70;
+    stack.sp1C = this->m_74;
     temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x6C), (int) (*(s32 *)((s8 *)temp_r3 + 4)));

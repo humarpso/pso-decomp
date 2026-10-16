@@ -105,7 +105,7 @@ extern "C" {
 
 }
 void TPlayerBattleCtrl4P::begin_battle_reload_fade() {
-    if (--*(s32 *)((u8 *)((void *)this) + 0x240) <= 0) {
+    if (--this->frame_timer <= 0) {
         TLobby__sub_8020BC50();
         TLobby__sub_801036CC();
         if (quest_mission_manager != NULL) {
@@ -192,13 +192,13 @@ extern "C" {
 }
 void TPlayerBattleCtrl4P::close_rematch_menu() {
     u32 var_r31;
-    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x20) != 0U) {
-        TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x20));
-        *(u32 *)((s8 *)((u8 *)this) + 0x20) = 0U;
+    if ((u32) *(u32 *)&this->intro_window != 0U) {
+        TWindow__close(*(void * *)&this->intro_window);
+        *(u32 *)&this->intro_window = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x24) != 0U) {
-        TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x24));
-        *(u32 *)((s8 *)((u8 *)this) + 0x24) = 0U;
+    if ((u32) *(u32 *)&this->menu_window != 0U) {
+        TWindow__close(*(void * *)&this->menu_window);
+        *(u32 *)&this->menu_window = 0U;
     }
     var_r31 = 0;
     do {

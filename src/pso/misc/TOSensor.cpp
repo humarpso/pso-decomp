@@ -234,17 +234,17 @@ void TOSensorAncient01::vfunc_25() {  }
 #pragma push
 #pragma opt_common_subs off
 void TOSensorAncient01::update_pulse_value() {
-    if (*(s32 *)((s8 *)((u8 *)this) + 0xF4) & 1) {
-        *(f32 *)((s8 *)((u8 *)this) + 0xF0) += (0.26666668f);
-        if ((4.0f) < *(f32 *)((s8 *)((u8 *)this) + 0xF0)) {
-            *(f32 *)((s8 *)((u8 *)this) + 0xF0) = (f32) (4.0f);
-            *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0xF4) & 0xFFFFFFFE);
+    if (*(s32 *)&this->unk_F4 & 1) {
+        this->m_f0 += (0.26666668f);
+        if ((4.0f) < this->m_f0) {
+            this->m_f0 = (f32) (4.0f);
+            *(s32 *)&this->unk_F4 = (s32) (*(s32 *)&this->unk_F4 & 0xFFFFFFFE);
         }
     } else {
-        *(f32 *)((s8 *)((u8 *)this) + 0xF0) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xF0) - (0.26666668f));
-        if (*(f32 *)((s8 *)((u8 *)this) + 0xF0) < (0.0f)) {
-            *(f32 *)((s8 *)((u8 *)this) + 0xF0) = (f32) (0.0f);
-            *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0xF4) | 1);
+        this->m_f0 = (f32) (this->m_f0 - (0.26666668f));
+        if (this->m_f0 < (0.0f)) {
+            this->m_f0 = (f32) (0.0f);
+            *(s32 *)&this->unk_F4 = (s32) (*(s32 *)&this->unk_F4 | 1);
         }
     }
 }
@@ -262,12 +262,12 @@ void TOSensorAncient01::vfunc_16() {
     s32 temp_r3;
     *(s32 *)((s8 *)arg0 + 0xEC) += (1.31e+03f);
     ((TOSensorAncient01 *)arg0)->update_pulse_value();
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0xE8);
+    temp_r3 = this->m_e8;
     if (temp_r3 > 0) {
-        *(s32 *)((s8 *)arg0 + 0xE8) = (s32) (temp_r3 - 1);
+        this->m_e8 = (s32) (temp_r3 - 1);
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
+    this->m_e8 = 0;
     *(f32 *)((s8 *)arg0 + 0x3C) += (1.0f);
 }
 
@@ -357,18 +357,18 @@ void TOSensorAncient01::render() {
     u8 *temp_r30_8;
     u8 *temp_r30_9;
 
-    if (((VObj_80175994 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj_80175994 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)((s8 *)arg0 + 0x8C) * 8)));
-        temp_r30 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)&this->m_8c * 8)));
+        temp_r30 = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix((void *) (temp_r30 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30 + 4));
         TParticleCtrl::begin_effect_render();
         push_matrix();
         temp_r30_2 = (u8 *)(*(u8 **)((s8 *)temp_r30 + 0x2C));
-        if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (3e+01f)) {
+        if ((f32) this->m_e8 < (3e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             TObjFish::set_global_param(tbl[sensor_texture_table_index].b);
         }
@@ -377,7 +377,7 @@ void TOSensorAncient01::render() {
         pop_matrix();
         push_matrix();
         temp_r30_3 = (u8 *)(*(u8 **)((s8 *)temp_r30_2 + 0x30));
-        if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (6e+01f)) {
+        if ((f32) this->m_e8 < (6e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             TObjFish::set_global_param(tbl[sensor_texture_table_index].b);
         }
@@ -386,7 +386,7 @@ void TOSensorAncient01::render() {
         pop_matrix();
         push_matrix();
         temp_r30_4 = (u8 *)(*(u8 **)((s8 *)temp_r30_3 + 0x30));
-        if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (9e+01f)) {
+        if ((f32) this->m_e8 < (9e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             TObjFish::set_global_param(tbl[sensor_texture_table_index].b);
         }
@@ -403,22 +403,22 @@ void TOSensorAncient01::render() {
         TParticleCtrl::end_effect_render();
         push_matrix();
         temp_r30_6 = (u8 *)(*(u8 **)((s8 *)temp_r30_5 + 0x2C));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 8) + *(f32 *)((s8 *)arg0 + 0xF0)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0x10)));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 8) + this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0x10)));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_6 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_7 = (u8 *)(*(u8 **)((s8 *)temp_r30_6 + 0x30));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_7 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0x10) - *(f32 *)((s8 *)arg0 + 0xF0)));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_7 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0x10) - this->m_f0));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_7 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_8 = (u8 *)(*(u8 **)((s8 *)temp_r30_7 + 0x30));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 8) - *(f32 *)((s8 *)arg0 + 0xF0)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0x10)));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 8) - this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0x10)));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_8 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_9 = (u8 *)(*(u8 **)((s8 *)temp_r30_8 + 0x30));
-        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_9 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0x10) + *(f32 *)((s8 *)arg0 + 0xF0)));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_9 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0x10) + this->m_f0));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_9 + 4));
         pop_matrix();
         pop_matrix();

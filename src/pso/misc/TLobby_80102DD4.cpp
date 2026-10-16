@@ -26,14 +26,14 @@ u8 TLobby::is_matching_id(s32 arg0, u16 arg1) {
 
 void TLobby::bswap_shop_item() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap__9TItemDataFv((char*)this + 0x4); }
 void TLobby::send_item_and_handle_60() { bswap_shop_item(); TLobby__send_and_handle_60(this); }
-void TLobby::copy_item_data(void* q) { *(u8*)((char*)this + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)this + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)this + 0x3) = *(u8*)((char*)q + 0x3); *(u8*)((char*)this + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)this + 0x6) = *(u32*)((char*)q + 0x6); *(u16*)((char*)this + 0xa) = *(u16*)((char*)q + 0xa); *(u32*)((char*)this + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)this + 0x10) = *(u32*)((char*)q + 0x10); }
+void TLobby::copy_item_data(void* q) { *(u8 *)&this->m_name = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)this + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)this + 0x3) = *(u8*)((char*)q + 0x3); *(u8 *)&this->m_flags = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32 *)&this->m_id = *(u32*)((char*)q + 0x6); *(u16*)((char*)this + 0xa) = *(u16*)((char*)q + 0xa); *(u32 *)&this->m_next = *(u32*)((char*)q + 0xc); *(u32 *)&this->m_up = *(u32*)((char*)q + 0x10); }
 void init_6x5E_buy_item_header(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
 void TLobby::bswap_6x5D() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap_16__FPUs((s32)((char*)this + 0x4)); bswap_16__FPUs((s32)((char*)this + 0x6)); ((TObjPlayer *)((char*)this + 0x8))->bswap_pkt_u32x2(); bswap__9TItemDataFv((char*)this + 0x10); }
 void TLobby::send_6x5D() { bswap_6x5D(); TLobby__send_and_handle_60(this); }
 void*TLobby::init_fields() { init_default_fields(); *(unsigned char*)((char*)this + 0x24) = 2; *(unsigned char*)((char*)this + 0x25) = 0; *(unsigned char*)((char*)this + 0x26) = 0; *(unsigned char*)((char*)this + 0x27) = 0; *(unsigned char*)((char*)this + 0x1) = 10; return this; }
 
     extern const float lbl_805DAA88;
-void TLobby::init_default_fields() { *(short*)((char*)this + 0x4) = 0; *(short*)((char*)this + 0x6) = 0; *(float*)((char*)this + 0xc) = lbl_805DAA88; *(float*)((char*)this + 0x8) = lbl_805DAA88; *(unsigned char*)((char*)this + 0x0) = 93; *(unsigned char*)((char*)this + 0x1) = 9; }
+void TLobby::init_default_fields() { *(short *)&this->m_flags = 0; *(short *)&this->m_id = 0; *(float *)&this->m_next = lbl_805DAA88; *(float *)&this->m_prev = lbl_805DAA88; *(unsigned char *)&this->m_name = 93; *(unsigned char*)((char*)this + 0x1) = 9; }
 
 }
 
@@ -241,7 +241,7 @@ void TLobby__sub_801030EC(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
-void TUnk_804B9870::set_item_count(s16 v) { *(s16*)((char*)this + 0x1c) = v; }
+void TUnk_804B9870::set_item_count(s16 v) { *(s16 *)&this->m_1c = v; }
 s32 TLobby::drop_stacked_item_passthrough() {
     s32 arg0 = (s32)this;
     init_floor_item_entry();
@@ -251,18 +251,18 @@ s32 TLobby::drop_stacked_item_passthrough() {
 void TLobby::init_floor_item_entry() {
     u8 *arg0 = (u8 *)this;
     *(s8 *)((s8 *)arg0 + 1) = 0;
-    *(s8 *)((s8 *)arg0 + 0) = -1;
+    *(s8 *)&this->m_name = -1;
     *(s16 *)((s8 *)arg0 + 2) = -1;
-    *(f32 *)((s8 *)arg0 + 4) = (f32) lbl_805DAA88;
-    *(f32 *)((s8 *)arg0 + 8) = (f32) lbl_805DAA88;
-    *(s16 *)((s8 *)arg0 + 0xC) = -1;
+    *(f32 *)&this->m_flags = (f32) lbl_805DAA88;
+    *(f32 *)&this->m_prev = (f32) lbl_805DAA88;
+    *(s16 *)&this->m_next = -1;
     *(s16 *)((s8 *)arg0 + 0xE) = 0;
     init__9TItemDataFv(arg0 + 0x10);
 }
 
 u8 TUnk_804AF8A0::sub_8010319C() {
     u8 *arg0 = (u8 *)this;
-    return (u8) (*(u16 *)((s8 *)arg0 + 0x94) != 0xFFFF);
+    return (u8) (this->m_94 != 0xFFFF);
 }
 
 void TItem__sub_801031C0(void* p) { *(s32*)((char*)p + 0x0) = 4; }

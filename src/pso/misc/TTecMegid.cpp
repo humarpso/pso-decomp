@@ -495,7 +495,7 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
 
 void TUnk_804CCA78::run_task() {
     this->m_1e = (s16) (this->m_1e + 1);
-    if ((s16) this->m_1e > (s16) *(s16 *)((s8 *)this + 0x1C)) {
+    if ((s16) this->m_1e > (s16) *(s16 *)&this->unk_1C) {
         queue_destruction__7TObjectFv((void *)((void *)(this)));
     }
 }

@@ -37,8 +37,8 @@ void *TUnk_804C2298::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804C2298;
         TLobby::stop_audio_streams();
-        if (*(void * *)&(*(u32 *)((u8 *)this + 0x2C)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(u32 *)((u8 *)this + 0x2C))); *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = 0; }
-        if (*(void * *)&(*(void * *)((u8 *)this + 0x28)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(void * *)((u8 *)this + 0x28))); *(s32 *)&(*(void * *)((u8 *)this + 0x28)) = 0; }
+        if (*(void * *)&(*(u32 *)&this->unk_2C) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(u32 *)&this->unk_2C)); *(s32 *)&(*(u32 *)&this->unk_2C) = 0; }
+        if (*(void * *)&(this->m_28) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->m_28)); *(s32 *)&(this->m_28) = 0; }
         if (*(void * *)&(*(u32 *)((u8 *)this + 0x24)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(u32 *)((u8 *)this + 0x24))); *(s32 *)&(*(u32 *)((u8 *)this + 0x24)) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

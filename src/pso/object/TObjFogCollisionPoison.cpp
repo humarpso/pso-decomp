@@ -92,10 +92,10 @@ typedef char RecoveredGlobal_80153084_lbl_804AF7B0_size[sizeof(RecoveredGlobal_8
 u8 *TObjFogCollisionPoison::init_base(u8 *arg1, s16 arg2) {
     __ct__7TObjectFP7TObject(((u8 *)this), arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80153084_lbl_804AF7B0 *)&lbl_804AF7B0).value;
-    *(s16 *)((s8 *)((u8 *)this) + 0x28) = arg2;
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0x96;
+    *(s16 *)&this->m_28 = arg2;
+    *(s32 *)&this->m_1c = 0x96;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x24) = 0;
+    this->texture_id = 0;
     return ((u8 *)this);
 }
 
@@ -107,7 +107,7 @@ void TObjFogCollision_Manager::run_task() {
         temp_r0 = *(s32 *)&this->unk_2C;
         switch (temp_r0) {
         case 0:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0) {
+            if ((s32) *(s32 *)&this->unk_1C > 0) {
                 var_r4 = this->m_20;
                 if (var_r4 >= 0x1000) {
                     var_r4 -= 0x1000;
@@ -117,15 +117,15 @@ void TObjFogCollision_Manager::run_task() {
                 } else if (var_r4 >= 0x80) {
                     var_r4 = 0x7F;
                 }
-                if ((s32) *(s32 *)((s8 *)arg0 + 0x24) != 0) {
+                if ((s32) *(s32 *)&this->unk_24 != 0) {
                     TFogCtrl::select_fog_for_viewport(this->m_28, var_r4, 0);
                 } else {
                     TFogCtrl::select_fog_for_viewport(this->m_28, var_r4, 1);
                 }
-                *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+                *(s32 *)&this->unk_1C = 0;
             } else {
                 *(s32 *)&this->unk_2C = 1;
-                if ((s32) *(s32 *)((s8 *)arg0 + 0x24) != 0) {
+                if ((s32) *(s32 *)&this->unk_24 != 0) {
                     TFogCtrl::restore_fog_for_player(this->m_28, 0);
                 } else {
                     TFogCtrl::restore_fog_for_player(this->m_28, 1);
@@ -133,8 +133,8 @@ void TObjFogCollision_Manager::run_task() {
             }
             break;
         case 1:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0) {
-                *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+            if ((s32) *(s32 *)&this->unk_1C > 0) {
+                *(s32 *)&this->unk_1C = 0;
                 *(s32 *)&this->unk_2C = 0;
             }
             break;
@@ -185,13 +185,13 @@ u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1) {
 u8 *TObjFogCollisionPoison::construct_with_index(u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(((u8 *)this), arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_804AF7C8.value;
-    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D2E84;
-    *(s32 *)((s8 *)((u8 *)this) + 0x28) = arg2;
-    *(s32 *)((s8 *)(&TObjFogCollisionPoison__instances.value) + (*(s32 *)((s8 *)((u8 *)this) + 0x28) * 4)) = (long) (((u8 *)this));
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0;
+    *(s32 *)&this->m_name = (s32) lbl_805D2E84;
+    *(s32 *)&this->m_28 = arg2;
+    *(s32 *)((s8 *)(&TObjFogCollisionPoison__instances.value) + (*(s32 *)&this->m_28 * 4)) = (long) (((u8 *)this));
+    *(s32 *)&this->m_1c = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x24) = 1;
-    *(s32 *)((s8 *)((u8 *)this) + 0x2C) = 1;
+    this->texture_id = 1;
+    *(s32 *)&this->m_2c = 1;
     return ((u8 *)this);
 }
 

@@ -13,7 +13,8 @@ struct TOKeyAncient02 : public TOKey {
     static void *create(void *arg0);
     static void free_static();
     static void load_resources();
-    u8 unk_D8[0x18];
+    u8 unk_D8[0x14];
+    s32 m_ec;
 };
 
 typedef char TOKeyAncient02_size[sizeof(TOKeyAncient02) == 0xF0 ? 1 : -1];

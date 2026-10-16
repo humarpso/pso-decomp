@@ -886,9 +886,9 @@ void TObjEneMerillLia::vfunc_94() {
     Stack_800D5060 stack;
     stack.sp8 = TObjEneMerillLia__data_805DA300;
     stack.spC = lbl_805DA304;
-    stack.sp10 = TObjEneMerillLia__data_805DA308 * *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
+    stack.sp10 = TObjEneMerillLia__data_805DA308 * *(f32 *)((s8 *)(this->m_2b0) + 0x10);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
@@ -1054,7 +1054,7 @@ void TObjEneMerillLia::reset_state_clear_status() {
 void TObjEneMerillLia::init_attack_state() {
     this->mode = 4;
     this->phase = 0;
-    *(s16 *)((s8 *)this + 0x374) = (s16) this->m_3d8;
+    this->m_374 = (s16) this->m_3d8;
     obj_clearFlags30(this, 0x04240000);
     clear_player_status_flag__10TObjPlayerFlUl(this, 0, 0x0A000000);
 }
@@ -1479,40 +1479,40 @@ void TObjEneMerillLia::beast_update_approach() {
     u8 *arg0 = (u8 *)this;
     Vec_800D6618 sp14;
     f32 r;
-    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
+    switch (this->phase) {
     case 0:
         apply_actor_gravity(arg0, 0, TObjEneMerillLia__data_805DA300);
         advance_animation_playback(arg0);
-        if (*(u32 *)((s8 *)arg0 + 0xB4) != 0x20U) {
-            *(s16 *)((s8 *)arg0 + 0x328) = 1;
-            *(s16 *)((s8 *)arg0 + 0xB8) = 2;
+        if (this->m_b4 != 0x20U) {
+            this->phase = 1;
+            this->m_b8 = 2;
         }
         break;
     default:
         spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)(arg0));
-        if (*(u32 *)((s8 *)arg0 + 0x2A8) != 0U) {
+        if (*(u32 *)&this->target != 0U) {
             if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
-                if ((f32) (*(u32 *)((s8 *)arg0 + 0x38C))++ < lbl_805DA31C) {
+                if ((f32) (this->m_38c)++ < lbl_805DA31C) {
                     VecCopy__FP3VecPC3Vec(&sp14, arg0 + 0x50);
                 } else {
-                    VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)((s8 *)arg0 + 0x2A8) + 0x2FC));
+                    VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
                 }
             } else {
-                *(u32 *)((s8 *)arg0 + 0x38C) = 0U;
-                VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)((s8 *)arg0 + 0x2A8) + 0x2FC));
+                this->m_38c = 0U;
+                VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
             }
             update_target_near_flag(arg0);
             TObjPlayer__sub_800C4E08(arg0);
             advance_animation_playback(arg0);
             {
                 Vec_800D6618 sp8 = sp14;
-                enemy_move_toward(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8), &sp8, 0, *(f32 *)((s8 *)arg0 + 0x394));
+                enemy_move_toward(arg0, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8), &sp8, 0, *(f32 *)&this->unk_394);
             }
-            if (*(u16 *)((s8 *)arg0 + 0x338) == 0xFFFF) {
-                if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (r = *(f32 *)((s8 *)arg0 + 0x394) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC)) * r ||
-                    lbl_805DA320 < (f32) (*(s32 *)((s8 *)arg0 + 0x2AC))++) {
-                    *(u32 *)((s8 *)arg0 + 0x2A8) = 0U;
-                    *(s32 *)((s8 *)arg0 + 0x2AC) = 0;
+            if (this->targetId == 0xFFFF) {
+                if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (r = *(f32 *)&this->unk_394 + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC)) * r ||
+                    lbl_805DA320 < (f32) (*(s32 *)&this->m_2ac)++) {
+                    *(u32 *)&this->target = 0U;
+                    *(s32 *)&this->m_2ac = 0;
                 }
             }
         }

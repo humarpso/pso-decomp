@@ -205,8 +205,8 @@ void TObjEneEpsilon::fire_attack_a(s32 arg1, s32 arg2, f32 farg0) {
 
     temp_f30 = farg0;
     update_angle((s32)(arg2));
-    temp_f31 = cos_table_lookup(*(s32 *)((s8 *)this + 0x60));
-    calc_wall_clamped_destination(this, arg1, sin_table_lookup(*(s32 *)((s8 *)this + 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(this->rotation_y);
+    calc_wall_clamped_destination(this, arg1, sin_table_lookup(this->rotation_y), temp_f31, temp_f30);
 }
 
 void TObjEneEpsilon::fire_attack_b(s32 arg1, s32 arg2, f32 farg0) {
@@ -215,8 +215,8 @@ void TObjEneEpsilon::fire_attack_b(s32 arg1, s32 arg2, f32 farg0) {
 
     temp_f30 = farg0;
     update_angle((s32)(arg2));
-    temp_f31 = cos_table_lookup(*(s32 *)((s8 *)this + 0x60));
-    calc_wall_slide_destination(this, arg1, sin_table_lookup(*(s32 *)((s8 *)this + 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(this->rotation_y);
+    calc_wall_slide_destination(this, arg1, sin_table_lookup(this->rotation_y), temp_f31, temp_f30);
 }
 
 void TObjEneEpsilon::fire_attack_c(s32 arg1, s32 arg2, f32 farg0) {
@@ -225,18 +225,18 @@ void TObjEneEpsilon::fire_attack_c(s32 arg1, s32 arg2, f32 farg0) {
 
     temp_f30 = farg0;
     update_angle((s32)(arg2));
-    temp_f31 = cos_table_lookup(*(s32 *)((s8 *)this + 0x60));
-    calc_shot_position__13TBoss5GryphonFPUcfff(this, arg1, sin_table_lookup(*(s32 *)((s8 *)this + 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(this->rotation_y);
+    calc_shot_position__13TBoss5GryphonFPUcfff(this, arg1, sin_table_lookup(this->rotation_y), temp_f31, temp_f30);
 }
 
 extern const f64 lbl_8043B698;
 
 void TObjEneEpsilon::update_angle(s32 arg1) {
-    *(s32 *)((s8 *)this + 0x60) = (s32) approach_angle_limited(*(s32 *)((s8 *)this + 0x60), (s32) (lbl_8043B698 * atan2_float(*(f32 *)((s8 *)this + 0x3A0), *(f32 *)((s8 *)this + 0x3A8))), arg1);
+    this->rotation_y = (s32) approach_angle_limited(this->rotation_y, (s32) (lbl_8043B698 * atan2_float(this->m_3a0, *(f32 *)((s8 *)this + 0x3A8))), arg1);
 }
 
 s32 TObjEneEpsilon::update_death_check() {
-    if ((((VObj_800B9578_800B92AC *)this)->m97() == 0) && (is_player_entity_id(*(u16 *)((s8 *)this + 0x38C)) == 0)) {
+    if ((((VObj_800B9578_800B92AC *)this)->m97() == 0) && (is_player_entity_id(this->m_38c) == 0)) {
         enemy_clear_target__12TObjEneDD_STFUs(this);
         return 0;
     }
@@ -260,7 +260,7 @@ block_5:
 
 void TObjEneDD_ST::enemy_init_validate_period(s32 arg1) {
     *(s32 *)((s8 *)((u8 *)this) + 0x3BC) = arg1;
-    *(s32 *)((s8 *)((u8 *)this) + 0x3B8) = (s32) ((*(u16 *)((s8 *)((u8 *)this) + 0x1C) + 3) % *(s32 *)((s8 *)((u8 *)this) + 0x3BC));
+    *(s32 *)((s8 *)((u8 *)this) + 0x3B8) = (s32) ((this->m_1c + 3) % *(s32 *)((s8 *)((u8 *)this) + 0x3BC));
 }
 
 int copy_position__14TObjEneEpsilonFPv(void* p, void * _w1) { return VecCopy__FP3VecPC3Vec((char*)p + 0x394); }
@@ -499,7 +499,7 @@ s32 enemy_bind_or_clear_target(void *self, u16 x) {
 int TObjEneEpsilon__vt101(void* p) { return spawn_part__14TObjEneEpsilonFi(p); }
 
 void TObjEneDD_ST::enemy_init_acquire_period(s32 arg1) {
-    *(s32 *)((s8 *)((u8 *)this) + 0x3B0) = (s32) (*(u16 *)((s8 *)((u8 *)this) + 0x1C) % arg1);
+    *(s32 *)((s8 *)((u8 *)this) + 0x3B0) = (s32) (this->m_1c % arg1);
     *(s32 *)((s8 *)((u8 *)this) + 0x3B4) = arg1;
 }
 

@@ -69,11 +69,11 @@ s32 set_depth_buffer_settings_id__FUl(s32);
 
 void TItem::apply_item_flags(s32 arg1) {
     if (is_usable__9TItemDataFPv(arg1) != 0) {
-        *(s32 *)((s8 *)this + 0xDC) = (s32) (*(s32 *)((s8 *)this + 0xDC) | 0x100);
-        *(s16 *)((s8 *)this + 0xE8) = get_packed_value__9TItemDataFPv(arg1);
+        *(s32 *)&this->m_dc = (s32) (*(s32 *)&this->m_dc | 0x100);
+        *(s16 *)&this->m_e8 = get_packed_value__9TItemDataFPv(arg1);
     }
     if (is_wrapped__9TItemDataFPv(arg1) != 0) {
-        *(s32 *)((s8 *)this + 0xDC) = (s32) (*(s32 *)((s8 *)this + 0xDC) | 0x400);
+        *(s32 *)&this->m_dc = (s32) (*(s32 *)&this->m_dc | 0x400);
     }
 }
 }
@@ -142,16 +142,16 @@ void TObjPlayer::draw_item_model() {
 void TItem::sub_8010043C(u8 arg1) {
     u8 *arg0 = (u8 *)this;
     u8 temp_r0;
-    *(u8 *)((s8 *)arg0 + 0xEF) = arg1;
-    temp_r0 = *(u8 *)((s8 *)arg0 + 0xEF);
+    this->model_index = arg1;
+    temp_r0 = this->model_index;
     if (temp_r0 < 0xBU) {
         if (temp_r0 == 7) {
-            *(s8 *)((s8 *)arg0 + 0xEA) = 5;
+            *(s8 *)&this->m_ea = 5;
         }
         return;
     }
-    *(u8 *)((s8 *)arg0 + 0xEF) = 2U;
-    *(s8 *)((s8 *)arg0 + 0xEA) = 0;
+    this->model_index = 2U;
+    *(s8 *)&this->m_ea = 0;
 }
 
 u16 TObjPlayer__sub_80100474(void* p) { return *(u16*)((char*)p + 0xe8); }

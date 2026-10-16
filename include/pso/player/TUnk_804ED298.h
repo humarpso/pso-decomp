@@ -8,7 +8,8 @@ public:
     virtual ~TUnk_804ED298();
     virtual void update_attack();
     void*set_mode_floats(s32, void *);
-    u8 unk_1F8[0x8];
+    u8 unk_1F8[0x4];
+    float m_1fc;
 };
 
 #endif

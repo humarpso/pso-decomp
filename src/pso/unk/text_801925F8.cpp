@@ -44,8 +44,8 @@ void TObjLazerFenceExtra::render_lazer_fence_model() {
     TObjFish::set_global_param((s32)lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)this + 56));
-    rotate_matrix_y(0, *(void **)((s8 *)this + 0x60));
-    draw_ginja_object(*(void **)((s8 *)this + 0xBC));
+    rotate_matrix_y(0, *(void * *)&this->rotation_y);
+    draw_ginja_object(*(void * *)&this->m_d8);
     pop_matrix();
 }
 

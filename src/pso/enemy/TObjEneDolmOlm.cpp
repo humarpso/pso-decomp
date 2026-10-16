@@ -1456,10 +1456,10 @@ void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
 s32 TObjEneDolmOlm::render_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
         if (((TObjEneRecon *)(((u8 *)this) + 0x3D8))->push_reflect_matrix() != 0) {
-            TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
+            TObjFish::set_global_param((int) (this->texture_id));
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+            rotate_matrix_y((int) (0), (int) (this->rotation_y));
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
             restore_render_scissor((int) (1));
@@ -1703,32 +1703,32 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
 void TObjEneDolmOlm::vfunc_58() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 1:
-        if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
-            *(s16 *)((s8 *)this + 0x326) = 0;
-            *(s16 *)((s8 *)this + 0x328) = 0;
+        if ((s32) this->m_390 != 0) {
+            this->mode = 0;
+            this->phase = 0;
         }
         break;
     case 10:
         break;
     case 0:
-        switch ((s16) *(s16 *)((s8 *)this + 0x328)) {
+        switch ((s16) this->phase) {
         case 2:
-            if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
-                *(s16 *)((s8 *)this + 0x328) = 0;
+            if ((s32) this->m_390 != 0) {
+                this->phase = 0;
             }
             break;
         }
         break;
     default:
-        if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
-            *(s16 *)((s8 *)this + 0x326) = 0;
+        if ((s32) this->m_390 != 0) {
+            this->mode = 0;
         } else {
-            *(s16 *)((s8 *)this + 0x326) = 1;
+            this->mode = 1;
         }
-        *(s16 *)((s8 *)this + 0x328) = 0;
+        this->phase = 0;
         ((VObj_80301690_80300CE4 *) this)->m100();
         obj_setFlags30(this, 0x04040000);
         set_indexed_flags(this, 0, 0x0A000000);
@@ -1739,29 +1739,29 @@ void TObjEneDolmOlm::vfunc_59() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     if (obj_testFlags30(arg0, 0x1000U) != 0) {
-        *(s16 *)((s8 *)arg0 + 0x326) = 4;
+        this->mode = 4;
     }
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 1:
-        *(s16 *)((s8 *)arg0 + 0x328) = 0;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34C) == 0U) {
-            *(s16 *)((s8 *)arg0 + 0x326) = 3;
-            *(s16 *)((s8 *)arg0 + 0xB8) = 7;
+        this->phase = 0;
+        if ((u32) *(u32 *)&this->children == 0U) {
+            this->mode = 3;
+            this->m_b8 = 7;
         } else {
-            *(s16 *)((s8 *)arg0 + 0x326) = 2;
-            *(s16 *)((s8 *)arg0 + 0xB8) = 0xA;
+            this->mode = 2;
+            this->m_b8 = 0xA;
         }
         obj_clearFlags30(arg0, 0x04040000U);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x0A000000U);
         return;
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 5;
+        this->m_b8 = 5;
         return;
     default:
-        *(s16 *)((s8 *)arg0 + 0x326) = 3;
-        *(s16 *)((s8 *)arg0 + 0x328) = 1;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 2;
+        this->mode = 3;
+        this->phase = 1;
+        this->m_b8 = 2;
         obj_clearFlags30(arg0, 0x04040000U);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x0A000000U);
         return;
@@ -1778,26 +1778,26 @@ void TObjEneDolmOlm::vfunc_60() {
     s32 var_r29;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
-    switch (*(s16 *)((s8 *)((u8 *)this) + 0x326)) {
+    switch (this->mode) {
     case 0:
     case 2:
     case 10:
     case 11:
         break;
     case 1:
-        *(s16 *)((s8 *)((u8 *)this) + 0x328) = 0;
-        if (*(u32 *)((s8 *)((u8 *)this) + 0x34C) == 0U) {
-            *(s16 *)((s8 *)((u8 *)this) + 0x326) = 3;
-            *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 7;
+        this->phase = 0;
+        if (*(u32 *)&this->children == 0U) {
+            this->mode = 3;
+            this->m_b8 = 7;
         } else {
-            *(s16 *)((s8 *)((u8 *)this) + 0x326) = 2;
-            *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0xA;
+            this->mode = 2;
+            this->m_b8 = 0xA;
         }
         obj_clearFlags30((void *) (((u8 *)this)), (int) (0x04040000));
         ((TObjPlayer *)((u8 *)this))->clear_player_status_flag((int) (0), (int) (0x0A000000));
         break;
     default:
-        id = *(u16 *)((s8 *)((u8 *)this) + 0x338);
+        id = this->targetId;
         var_r29 = 0;
         var_f30 = TObjEneDolmOlm__data_805DEF6C;
         if (id < 0x1000U) {
@@ -1806,7 +1806,7 @@ void TObjEneDolmOlm::vfunc_60() {
                 temp_f31 = horizontal_distance_squared((void *) (temp_r3_2 + 0x38), (void *) (((u8 *)this) + 0x38));
                 var_f30 = fabs_float(*(f32 *)((s8 *)temp_r3_2 + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
                 if (((TObjPlayer *)temp_r3_2)->get_field_3e4() == get_current_floor()) {
-                    if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)((s8 *)((u8 *)this) + 0x368) * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)((s8 *)((u8 *)this) + 0x368) * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < *(f32 *)((s8 *)((u8 *)this) + 0x3D0))) {
+                    if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->m_3d0)) {
                         var_r29 = 1;
                     }
                 }
@@ -1818,20 +1818,20 @@ void TObjEneDolmOlm::vfunc_60() {
             }
         }
         if (var_r29 == 1) {
-            *(s16 *)((s8 *)((u8 *)this) + 0x326) = 0xB;
-            *(s16 *)((s8 *)((u8 *)this) + 0x328) = 0;
+            this->mode = 0xB;
+            this->phase = 0;
             obj_setFlags30((void *) (((u8 *)this)), (int) (0x200000));
             obj_clearFlags30((void *) (((u8 *)this)), (int) (0x04040000));
             ((TObjPlayer *)((u8 *)this))->clear_player_status_flag((int) (0), (int) (0x0A000000));
             return;
         }
         if (var_f30 < TObjEneDolmOlm__data_805DEF6C) {
-            *(s16 *)((s8 *)((u8 *)this) + 0x326) = 5;
-            *(s16 *)((s8 *)((u8 *)this) + 0x328) = 1;
+            this->mode = 5;
+            this->phase = 1;
             if (TObjEneDolmOlm__data_805DEF5C < ((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this))) {
-                *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 3;
+                this->m_b8 = 3;
             } else {
-                *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 4;
+                this->m_b8 = 4;
             }
             obj_setFlags30((void *) (((u8 *)this)), (int) (0x200000));
             obj_clearFlags30((void *) (((u8 *)this)), (int) (0x04040000));
@@ -1855,7 +1855,7 @@ void TObjEneDolmOlm::check_path_ahead(s32 arg1, f32 farg0) {
     Stack_80301264 stack;
     stack.spC = TObjEneDolmOlm__data_805DEF54;
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
-    stack.sp10 = (TObjEneDolmOlm__data_805DEF68 * farg0) + *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xA4)) + 0xC);
+    stack.sp10 = (TObjEneDolmOlm__data_805DEF68 * farg0) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC);
     push_matrix_from((void *) (&(*(RecoveredGlobal_80301264_lbl_8058D490 *)&identity_matrix).value));
     rotate_matrix_y((int)((int) (0)), (int)((void *) (arg1)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
@@ -1865,26 +1865,26 @@ void TObjEneDolmOlm::check_path_ahead(s32 arg1, f32 farg0) {
 }
 #pragma pop
 void TObjEneDolmOlm::sub_80301148() {
-    if (*(s32 *)((s8 *)((u8 *)this) + 0x368) < 1) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x334) = 0;
-        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 0;
+    if (*(s32 *)&this->variant < 1) {
+        *(s32 *)&this->subtype = 0;
+        *(s32 *)&this->variant = 0;
         ((TObjEneLappy *)((u8 *)this))->set_param(0x40);
     } else {
-        *(s32 *)((s8 *)((u8 *)this) + 0x334) = 2;
-        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 1;
+        *(s32 *)&this->subtype = 2;
+        *(s32 *)&this->variant = 1;
         ((TObjEneLappy *)((u8 *)this))->set_param(0x41);
     }
-    ((TObjEneDolmOlm *)((u8 *)this))->load_params_from_table(*(s32 *)((s8 *)((u8 *)this) + 0x368));
+    ((TObjEneDolmOlm *)((u8 *)this))->load_params_from_table(*(s32 *)&this->variant);
     TObjPlayer::set_global_flag();
     draw_trail_with_colors(TObjEneDolmOlm__data_805D6A14,
-        ((T_80301148 *)TObjEneDolmOlm__resource_bundle)->a[*(s32 *)((s8 *)((u8 *)this) + 0x368)].v,
+        ((T_80301148 *)TObjEneDolmOlm__resource_bundle)->a[*(s32 *)&this->variant].v,
         ((T_80301148 *)TObjEneDolmOlm__resource_bundle)->b[TObjEneDolmOlm__param_table[13]].v, 0x1C, 0x1D);
     draw_trail_with_colors(TObjEneDolmOlm__data_805D6A18,
-        ((T_80301148 *)TObjEneDolmOlm__resource_bundle)->a[*(s32 *)((s8 *)((u8 *)this) + 0x368)].v,
+        ((T_80301148 *)TObjEneDolmOlm__resource_bundle)->a[*(s32 *)&this->variant].v,
         ((T_80301148 *)TObjEneDolmOlm__resource_bundle)->b[TObjEneDolmOlm__param_table[17]].v, 0x14, 0x15);
     TObjPlayer::clear_global_state();
     *(f32 *)((s8 *)((u8 *)this) + 0x3CC) = lbl_805DEF64 + *(f32 *)((s8 *)((u8 *)this) + 0x35C);
-    *(f32 *)((s8 *)((u8 *)this) + 0x3D0) = lbl_805DEF64 + *(f32 *)((s8 *)((u8 *)this) + 0x360);
+    this->m_3d0 = lbl_805DEF64 + *(f32 *)((s8 *)((u8 *)this) + 0x360);
 }
 void TObjEneDolmOlm::vfunc_93() {
     Obj_800A7A14 *o = (Obj_800A7A14 *)this;

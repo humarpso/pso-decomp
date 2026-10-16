@@ -20,7 +20,7 @@ s32 TObjPlayer::draw_icon(s32 arg1, s32 arg2) {
     FloatTriplet floats;
     void *temp_r3;
 
-    temp_r3 = *(void **)((s8 *)this + 0xF0);
+    temp_r3 = *(void * *)&this->unk_F0;
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -33,7 +33,7 @@ s32 TObjPlayer::draw_icon(s32 arg1, s32 arg2) {
         floats.spC = lbl_805DAC98;
         floats.sp8 = lbl_805DAC98;
         push_matrix();
-        TObjPlayer::copy_matrix(0, get_model_joint_matrix(*(void **)((s8 *)this + 0xF0), arg1));
+        TObjPlayer::copy_matrix(0, get_model_joint_matrix(*(void * *)&this->unk_F0, arg1));
         TCameraCtrl::concat_matrix(0, get_view_matrix__11TCameraCtrlFv());
         transform_point_by_current_matrix(&floats.sp8, arg2);
         pop_matrix();

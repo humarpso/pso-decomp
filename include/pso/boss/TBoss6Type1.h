@@ -28,7 +28,9 @@ struct TBoss6Type1 : public TObjEnemy {
     u8 unk_3FC[0x4];
     void* trail_point_receiver;
     void* effect_point_receiver;
-    u8 unk_408[0xC];
+    u8 unk_408[0x4];
+    s32 m_40c;
+    u8 unk_410[0x4];
     s32 m_414;
     u8 unk_418[0x4];
     u8 m_41c;
@@ -50,7 +52,8 @@ struct TBoss6Type1 : public TObjEnemy {
     s32 m_4ac;
     u8 unk_4B0[0x4];
     f32 m_4b4;
-    u8 unk_4B8[0x20];
+    u8 unk_4B8[0x1C];
+    f32 m_4d4;
     f32 m_4d8;
     u8 unk_4DC[0x4];
     s32 m_4e0;

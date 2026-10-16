@@ -4210,9 +4210,9 @@ void TBoss2DeRolLe::clear_play_flags() {
     void *temp_r3;
     void *temp_r4;
 
-    temp_r4 = *(void **)((s8 *)this + 0xA4);
+    temp_r4 = this->m_a4;
     *(s32 *)((s8 *)temp_r4 + 0x44) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x44) & 0xFFFFFFFE);
-    temp_r3 = *(void **)((s8 *)this + 0xA4);
+    temp_r3 = this->m_a4;
     *(s32 *)((s8 *)temp_r3 + 0x70) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x70) & 0xFFFFFFFE);
 }
 

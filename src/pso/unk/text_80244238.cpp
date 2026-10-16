@@ -63,7 +63,7 @@ Ctx_80244364 *get_draw_context__11TWindowBaseFPv(Obj_80244364 *self) {
 
 void TUnk_804CDFE8::sub_802443B4() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3878;
+    *(s32 *)&this->m_name = (s32) lbl_805D3878;
     *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DCAAC;
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DCAAC;
     set_position_xy__13TUnk_804CDFE8Fff((f32) (lbl_805DCAB0), (f32) (lbl_805DCAB0));

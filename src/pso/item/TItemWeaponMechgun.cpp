@@ -86,12 +86,12 @@ extern "C" {
 
 void TUnk_804A3260::update_weapon() {
     s32 temp_r4;
-    if ((s32) *(s32 *)((s8 *)this + 0x218) != -1) {
-        temp_r4 = *(s32 *)((s8 *)this + 0x21C);
+    if ((s32) this->m_218 != -1) {
+        temp_r4 = *(s32 *)&this->unk_21C;
         if (lbl_805DADD0 < (f32) temp_r4) {
-            *(s32 *)((s8 *)this + 0x21C) = (s32) ((f32) temp_r4 - lbl_805DADD4);
-            if ((f32) *(s32 *)((s8 *)this + 0x21C) < lbl_805DADD0) {
-                *(s32 *)((s8 *)this + 0x21C) = 0;
+            *(s32 *)&this->unk_21C = (s32) ((f32) temp_r4 - lbl_805DADD4);
+            if ((f32) *(s32 *)&this->unk_21C < lbl_805DADD0) {
+                *(s32 *)&this->unk_21C = 0;
             }
         }
     }

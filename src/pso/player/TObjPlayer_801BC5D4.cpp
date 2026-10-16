@@ -18,19 +18,19 @@ void TObjPlayer::reset_state() {
     ((TObjPlayer *)(arg0 + 0x7CC))->reset_movement_state();
     TObjPlayer__sub_801BF690(arg0 + 0x730);
     ((TObjPlayer *)(arg0 + 0x608))->set_vec4_const();
-    *(s32 *)((s8 *)arg0 + 0x548) = 0;
+    *(s32 *)&this->unk_548 = 0;
     ((TObjPlayer *)(arg0 + 0x340))->init_tag();
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
     TObjPlayer__sub_8011E204(arg0, 0x283);
     this->m_3f4 = 0;
-    *(s32 *)((s8 *)arg0 + 0x3F0) = 0;
+    *(s32 *)&this->unk_3F0 = 0;
     this->m_3ec = 0;
     *(f32 *)((s8 *)arg0 + 0x400) = (f32) TObjPlayer__data_805DC278;
     this->m_3fc = (f32) TObjPlayer__data_805DC278;
-    *(f32 *)((s8 *)arg0 + 0x3F8) = (f32) TObjPlayer__data_805DC278;
-    *(f32 *)((s8 *)arg0 + 0x310) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)&this->unk_3F8 = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)&this->unk_310 = (f32) TObjPlayer__data_805DC278;
     this->m_30c = (f32) TObjPlayer__data_805DC278;
-    *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)&this->unk_308 = (f32) TObjPlayer__data_805DC278;
     zero_vec3(arg0 + 0x5FC);
 }
 

@@ -370,9 +370,9 @@ extern s32 area_random_seed;
 
 void TObjEneDD::init_common_from(u8 *arg1) {
     reset_state_fields();
-    *(s16 *)((s8 *)((u8 *)this) + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
+    *(s16 *)&this->m_28 = (s16) *(s16 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)((u8 *)this) + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    subtractive_rng_seed((void *) (((u8 *)this) + 0x160), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x1C) + area_random_seed));
+    subtractive_rng_seed((void *) (((u8 *)this) + 0x160), (int) (this->m_1c + area_random_seed));
 }
 
 int TObjEneDD::get_target_info() { return fn_800FD8A0(this); }
@@ -406,9 +406,9 @@ void TObjEneDD::invoke_initialization_hook() {
 void TObjEneDD::vfunc_79() {
     s16 temp_r31;
 
-    temp_r31 = *(s16 *)((s8 *)this + 0x326);
+    temp_r31 = this->mode;
     vfunc_79__9TObjEnemyFv();
-    *(s16 *)((s8 *)this + 0x326) = temp_r31;
+    this->mode = temp_r31;
 }
 
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1) {
@@ -419,10 +419,10 @@ void load_enemy_bml_resource_named(s32 arg0, s32 arg1) {
 }
 
 void TObjEneDD::copy_resource_desc(u8 *arg1) {
-    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
-    *(s32 *)((s8 *)((u8 *)this) + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
-    *(s32 *)((s8 *)((u8 *)this) + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
-    *(s16 *)((s8 *)((u8 *)this) + 0xC) = (s16) *(s16 *)((s8 *)arg1 + 0xC);
+    *(s32 *)&this->m_name = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(s32 *)&this->m_flags = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)&this->m_prev = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(s16 *)&this->m_next = (s16) *(s16 *)((s8 *)arg1 + 0xC);
     *(s16 *)((s8 *)((u8 *)this) + 0xE) = (s16) *(s16 *)((s8 *)arg1 + 0xE);
 }
 
@@ -440,7 +440,7 @@ s32 load_enemy_bml_resource(u8 *arg0) {
 void TObjEneDD::set_field_378(s32 v) { *(s32*)((char*)this + 0x378) = v; }
 
 void TObjEneDD::sub_800BBA0C() {
-    *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) *(s16 *)((s8 *)((u8 *)this) + 0x326);
+    *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) this->mode;
 }
 
 void transition_enemy_state(V_800BBA18 *self, s16 state) {
@@ -450,16 +450,16 @@ void transition_enemy_state(V_800BBA18 *self, s16 state) {
 }
 
 u8 TObjEneDD::vfunc_86() {
-    return (u8) (*(s32 *)((s8 *)this + 0x374) != *(s16 *)((s8 *)this + 0x326));
+    return (u8) (*(s32 *)((s8 *)this + 0x374) != this->mode);
 }
 
 extern const f32 TObjEneDD__data_805D9E8C;
 
 void TObjEneDD::vfunc_85() {
     if (((VObj_18 *)(this))->m84() == 0) {
-        ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 3);
+        ((VObj_18 *)(this))->m85(this->mode, 3);
     }
-    ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 0);
+    ((VObj_18 *)(this))->m85(this->mode, 0);
     sub_800BBA0C();
 }
 
@@ -498,11 +498,11 @@ void TObjEneDD::init_position_vectors() {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDD__data_805D9E8C;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDD__data_805D9E8C;
-    *(f32 *)((s8 *)arg0 + 0x310) = (f32) TObjEneDD__data_805D9E8C;
-    *(f32 *)((s8 *)arg0 + 0x248) = (f32) TObjEneDD__data_805D9E8C;
+    this->m_310 = (f32) TObjEneDD__data_805D9E8C;
+    this->m_248 = (f32) TObjEneDD__data_805D9E8C;
     *(f32 *)((s8 *)arg0 + 0x24C) = (f32) TObjEneDD__data_805D9E8C;
-    *(f32 *)((s8 *)arg0 + 0x250) = (f32) TObjEneDD__data_805D9E8C;
-    *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
+    this->m_250 = (f32) TObjEneDD__data_805D9E8C;
+    *(s32 *)&this->target = 0;
     ((VObj800BBC80_800BB804 *) arg0)->m80();
 }
 

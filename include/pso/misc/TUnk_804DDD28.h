@@ -4,7 +4,8 @@
 
 class TUnk_804DDD28 {
 public:
-    u8 unk_0[0x8];
+    u8 unk_0[0x4];
+    u32 m_4;
     virtual ~TUnk_804DDD28();
     void copy_motion_pair(void*);
     s32 load_action_motion_pairs(s32, s32, s32);

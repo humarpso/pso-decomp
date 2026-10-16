@@ -43,9 +43,9 @@ void TItemEffPG::run_task() {
     }
     if (var_r31 != 0) {
         temp_f1 = this->m_40;
-        if (temp_f1 < *(f32 *)((s8 *)this + 0xC4)) {
+        if (temp_f1 < *(f32 *)&this->unk_C4) {
             this->m_40 = (f32) (temp_f1 + this->m_c8);
-            temp_f1_2 = *(f32 *)((s8 *)this + 0xC4);
+            temp_f1_2 = *(f32 *)&this->unk_C4;
             if (temp_f1_2 < this->m_40) {
                 this->m_40 = temp_f1_2;
             }

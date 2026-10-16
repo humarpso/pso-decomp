@@ -108,7 +108,7 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 
-void TODoorLaboNormal::init_field_d4() { *(int*)((char*)this + 0xd4) = get_bml_model((s32)(TODoorLabo__model_archive), 0); }
+void TODoorLaboNormal::init_field_d4() { *(int *)&this->m_d4 = get_bml_model((s32)(TODoorLabo__model_archive), 0); }
 
 s32 TODoorLaboNormal__vt20(void) {
     return TODoorLaboNormal__green_texture_list;
@@ -188,13 +188,13 @@ void TODoorLabo::init_model_by_type() {
     s32 tbl[2];
     tbl[0] = lbl_80465FF8[0];
     tbl[1] = lbl_80465FF8[1];
-    if (*(s32 *)((s8 *)this + 0x88) < 0) {
-        *(s32 *)((s8 *)this + 0x88) = 0;
+    if (*(s32 *)&this->m_88 < 0) {
+        *(s32 *)&this->m_88 = 0;
     }
-    if (*(s32 *)((s8 *)this + 0x88) > 1) {
-        *(s32 *)((s8 *)this + 0x88) = 1;
+    if (*(s32 *)&this->m_88 > 1) {
+        *(s32 *)&this->m_88 = 1;
     }
-    *(s32 *)((s8 *)this + 0xD4) = get_bml_model(TODoorLabo__bml_resource, tbl[*(s32 *)((s8 *)this + 0x88)]);
+    *(s32 *)&this->m_d4 = get_bml_model(TODoorLabo__bml_resource, tbl[*(s32 *)&this->m_88]);
 }
 
 s32 TODoorLabo__vt20(void) {

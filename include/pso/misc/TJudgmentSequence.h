@@ -12,7 +12,9 @@ struct TJudgmentSequence : public TShopSequence {
     void handle_confirm();
     void setup_counter_camera();
     static void *create(void *arg0);
-    u8 unk_1C[0x18];
+    u8 unk_1C[0x4];
+    s32 m_20;
+    u8 unk_24[0x10];
     void open_judgment_window();
 };
 

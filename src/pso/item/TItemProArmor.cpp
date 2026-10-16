@@ -137,7 +137,7 @@ u8 *TItemProArmor::create_instance() {
 void TUnk_8049FF88::vfunc_44() {
     s32 temp_r3;
 
-    temp_r3 = get_item_field_6__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0xF0));
+    temp_r3 = get_item_field_6__10TObjPlayerFPv(*(s32 *)&this->m_f0);
     if (temp_r3 != 0) {
         add_weapon_grind(temp_r3, get_tool_pmt_amount_byte__11TItemObjectFv(this));
     }
@@ -204,21 +204,21 @@ void TItemProArmor__sub_801178A8(void* p, void* q) { *(u8*)((char*)p + 0x5) = *(
 void TItemProArmor::vfunc_40() {
     u8 *arg0 = (u8 *)this;
     u8 temp_r4;
-    temp_r4 = *(u8 *)((s8 *)arg0 + 0x192);
+    temp_r4 = this->m_192;
     if (temp_r4 < 4U) {
-        *(u8 *)((s8 *)arg0 + 0x192) = (u8) (temp_r4 + 1);
+        this->m_192 = (u8) (temp_r4 + 1);
     }
 }
 
-int TItemProArmor::vfunc_39() { return *(u8*)((char*)this + 0x192); }
+int TItemProArmor::vfunc_39() { return this->m_192; }
 
 void TItemProArmor::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((u8) *(u8 *)((s8 *)arg0 + 0x195) < (u8) *(u8 *)((s8 *)arg0 + 0x193)) {
-        *(u8 *)((s8 *)arg0 + 0x193) = 0U;
+    if ((u8) this->m_195 < (u8) this->m_193) {
+        this->m_193 = 0U;
     }
-    if ((u8) *(u8 *)((s8 *)arg0 + 0x196) < (u8) *(u8 *)((s8 *)arg0 + 0x194)) {
-        *(u8 *)((s8 *)arg0 + 0x194) = 0U;
+    if ((u8) this->m_196 < (u8) this->m_194) {
+        this->m_194 = 0U;
     }
 }
 
@@ -453,7 +453,7 @@ void TItemProArmor::vfunc_44() {
 }
 
 void TItemProArmor::vfunc_16() {
-    if (*(u16 *)((s8 *)this + 0x190) & 1) {
+    if (this->m_190 & 1) {
         refresh_owner_stats__5TItemFv();
     }
 }

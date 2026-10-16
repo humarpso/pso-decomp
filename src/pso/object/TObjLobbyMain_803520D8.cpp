@@ -86,38 +86,38 @@ void TObjLobbyMain__sub_803520D8(void) {  }
 void TObjLobbyMain::resolve_theme_index() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
-    *(u32 *)((s8 *)arg0 + 0xCC) = ((u32)get_theme_lobby_type());
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0xCC);
+    *(u32 *)&this->_padCC = ((u32)get_theme_lobby_type());
+    temp_r0 = *(u32 *)&this->_padCC;
     switch (temp_r0) {
     case 1:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0xC;
+        this->m_d0 = 0xC;
         return;
     case 5:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0xF;
+        this->m_d0 = 0xF;
         return;
     case 7:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0xA;
+        this->m_d0 = 0xA;
         return;
     case 3:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0x10;
+        this->m_d0 = 0x10;
         return;
     case 9:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0x11;
+        this->m_d0 = 0x11;
         return;
     case 8:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0xB;
+        this->m_d0 = 0xB;
         return;
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0xE;
+        this->m_d0 = 0xE;
         return;
     case 10:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 1;
+        this->m_d0 = 1;
         return;
     case 11:
-        *(s16 *)((s8 *)arg0 + 0xD0) = 0xD;
+        this->m_d0 = 0xD;
         return;
     default:
-        *(s16 *)((s8 *)arg0 + 0xD0) = (s16) *(s16 *)((s8 *)arg0 + 0xD2);
+        this->m_d0 = (s16) *(s16 *)&this->unk_D2;
         return;
     }
 }
@@ -125,37 +125,37 @@ void TObjLobbyMain::resolve_theme_index() {
 void TObjLobbyMain::set_mode_index_from_state() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = *(u32 *)&this->m_84;
     switch (temp_r0) {
     case 1:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 1;
+        *(s16 *)&this->unk_D2 = 1;
         return;
     case 2:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 2;
+        *(s16 *)&this->unk_D2 = 2;
         return;
     case 3:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 3;
+        *(s16 *)&this->unk_D2 = 3;
         return;
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 4;
+        *(s16 *)&this->unk_D2 = 4;
         return;
     case 5:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 5;
+        *(s16 *)&this->unk_D2 = 5;
         return;
     case 6:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 6;
+        *(s16 *)&this->unk_D2 = 6;
         return;
     case 7:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 7;
+        *(s16 *)&this->unk_D2 = 7;
         return;
     case 8:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 8;
+        *(s16 *)&this->unk_D2 = 8;
         return;
     case 9:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 9;
+        *(s16 *)&this->unk_D2 = 9;
         return;
     default:
-        *(s16 *)((s8 *)arg0 + 0xD2) = 0;
+        *(s16 *)&this->unk_D2 = 0;
         return;
     }
 }
@@ -191,31 +191,31 @@ void TObjLobbyMain::update_emitter_positions() {
 }
 
 void TObjLobbyMain::update_particles() {
-    if ((s32) *(s32 *)((s8 *)this + 0xC8) == 2) {
-        switch ((s16) *(s16 *)((s8 *)this + 0xD0)) {
+    if ((s32) *(s32 *)&this->m_c8 == 2) {
+        switch ((s16) this->m_d0) {
         case 3:
-            if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-                ((TParticleCtrl *)(*(void **)((s8 *)this + 0xD8)))->clear_active_flag();
+            if ((u32) this->m_d8 != 0U) {
+                ((TParticleCtrl *)(*(void * *)&this->m_d8))->clear_active_flag();
             }
-            if ((u32) *(u32 *)((s8 *)this + 0xDC) != 0U) {
-                ((TParticleCtrl *)(*(void **)((s8 *)this + 0xDC)))->clear_active_flag();
+            if ((u32) this->m_dc != 0U) {
+                ((TParticleCtrl *)(*(void * *)&this->m_dc))->clear_active_flag();
             }
             break;
         default:
-            if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-                enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD8));
+            if ((u32) this->m_d8 != 0U) {
+                enable__13TParticleCtrlFv(*(void * *)&this->m_d8);
             }
-            if ((u32) *(u32 *)((s8 *)this + 0xDC) != 0U) {
-                enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xDC));
+            if ((u32) this->m_dc != 0U) {
+                enable__13TParticleCtrlFv(*(void * *)&this->m_dc);
             }
             break;
         }
     } else {
-        if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-            enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD8));
+        if ((u32) this->m_d8 != 0U) {
+            enable__13TParticleCtrlFv(*(void * *)&this->m_d8);
         }
-        if ((u32) *(u32 *)((s8 *)this + 0xDC) != 0U) {
-            enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xDC));
+        if ((u32) this->m_dc != 0U) {
+            enable__13TParticleCtrlFv(*(void * *)&this->m_dc);
         }
     }
 }
@@ -275,22 +275,22 @@ void TObjLobbyMain::advance_motion_frame() {
 
 void TObjLobbyMain::update_fade_in() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0xD4) += 0.1f;
-    if (*(f32 *)((s8 *)arg0 + 0xD4) >= (1.0f)) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 2;
-        *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (1.0f);
+    this->m_d4 += 0.1f;
+    if (this->m_d4 >= (1.0f)) {
+        *(s32 *)&this->m_c8 = 2;
+        this->m_d4 = (f32) (1.0f);
     }
 }
 
 void TObjLobbyMain::update_fade() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0xD4) -= 0.1f;
-    if (*(f32 *)((s8 *)arg0 + 0xD4) <= (0.0f)) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 1;
-        *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
+    this->m_d4 -= 0.1f;
+    if (this->m_d4 <= (0.0f)) {
+        *(s32 *)&this->m_c8 = 1;
+        this->m_d4 = (f32) (0.0f);
         resolve_theme_index__13TObjLobbyMainFv((u8 *)(arg0));
         update_emitter_positions__13TObjLobbyMainFv((u8 *)((void *) (arg0)));
-        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.0f);
+        this->m_b0 = (f32) (0.0f);
     }
 }
 

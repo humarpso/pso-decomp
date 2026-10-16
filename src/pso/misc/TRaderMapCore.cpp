@@ -930,7 +930,7 @@ void TRaderMapCore::draw_enemy_gate_markers() {
     copy_vec4__13TRaderMapCoreFPvPv(&(*(RecoveredGlobal_801FA1E0_lbl_8050BEC0 *)&saved_model_draw_color).value, &(*(RecoveredGlobal_801FA1E0_lbl_8058D4C0 *)&model_material_color).value);
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    model_render_flags |= *(s32 *)((s8 *)((u8 *)this) + 0x194);
+    model_render_flags |= *(s32 *)&this->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x100);
     for (i = 0, g = (Gate_801FA1E0 *)&TRaderMapCore__marker_buffer; i < TRaderMapCore__data_805D5F30; i++, g++) {
         TRaderMapCore__sub_801F967C(((u8 *)this), g->color);
@@ -940,11 +940,11 @@ void TRaderMapCore::draw_enemy_gate_markers() {
         switch (g->kind) {
         case 0:
             scale_matrix(0, lbl_805DC57C * g->scale, lbl_805DC580, lbl_805DC584 * g->scale);
-            draw_ginja_object(*(s32 *)((s8 *)((u8 *)this) + 0x180));
+            draw_ginja_object(*(s32 *)&this->m_180);
             break;
         case 1:
             scale_matrix(0, lbl_805DC580 * g->scale, lbl_805DC580, lbl_805DC580 * g->scale);
-            draw_ginja_object(*(s32 *)((s8 *)((u8 *)this) + 0x17C));
+            draw_ginja_object(*(s32 *)&this->m_17c);
             break;
         }
         pop_matrix();

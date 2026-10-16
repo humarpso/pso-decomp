@@ -8,7 +8,7 @@ extern "C" {
 s32 TObjPlayer__sub_80082300(void* p);
 
 void TUnk_8048E1A4::apply_knockback_from_attacker(u8 *) {  }
-void TObjPlayer::set_position_xy(f32 a, f32 b) { this->m_40 = a; *(f32*)((char*)this + 0x44) = b; }
+void TObjPlayer::set_position_xy(f32 a, f32 b) { this->m_40 = a; *(f32 *)&this->unk_44 = b; }
 
 f32 TUnk_804806E8::get_speed() { return *(f32 *)&this->m_c0; }
 

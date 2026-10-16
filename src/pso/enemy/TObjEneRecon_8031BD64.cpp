@@ -28,13 +28,13 @@ void TObjEneRecon::vfunc_106() {
     u8 *arg0 = (u8 *)this;
     if (((VObj800AFB60_8031bd64 *) arg0)->m8(lbl_805DF3BC, TObjEneRecon__data_805DF3C0) != 0) {
         update_player_state__9TObjEneDDFv(arg0, 0, 0);
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
-        draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
+        draw_chunk_object(*(s32 *)&this->model);
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

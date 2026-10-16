@@ -48,23 +48,23 @@ void TObjPlayer::draw_mag() {
         set_model_fade_alpha__10TObjPlayerFf();
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 1);
         *(s32 *)((s8 *)temp_r30 + 0) = (s32) (*(s32 *)((s8 *)temp_r30 + 0) & 0xFFFFFFFD);
-        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) + *(s32 *)((s8 *)this + 0x1F8));
+        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) + *(s32 *)&this->unk_1F8);
         *(s32 *)((s8 *)temp_r29 + 0) = (s32) (*(s32 *)((s8 *)temp_r29 + 0) & 0xFFFFFFFD);
-        temp_r6 = *(s32 *)((s8 *)this + 0x1F8);
+        temp_r6 = *(s32 *)&this->unk_1F8;
         *(s32 *)((s8 *)temp_r29 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r29 + 0x18) - temp_r6);
         if (draw_icon__10TObjPlayerFll(this, 1, &sp8, temp_r6) != 0) {
             push_matrix();
             post_translate_matrix(&sp8);
-            rotate_matrix_y(0, *(s32 *)((s8 *)(*(void **)((s8 *)this + 0xF0)) + 0x60));
+            rotate_matrix_y(0, *(s32 *)((s8 *)(*(void * *)&this->unk_F0) + 0x60));
             draw_ginja_object(temp_r31);
             pop_matrix();
         }
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFFE);
         *(s32 *)((s8 *)temp_r30 + 0) = (s32) (*(s32 *)((s8 *)temp_r30 + 0) | 2);
-        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) - *(s32 *)((s8 *)this + 0x1F8));
+        *(s32 *)((s8 *)temp_r30 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r30 + 0x18) - *(s32 *)&this->unk_1F8);
         *(s32 *)((s8 *)temp_r29 + 0) = (s32) (*(s32 *)((s8 *)temp_r29 + 0) | 2);
         temp_r3 = *(s32 *)((s8 *)temp_r29 + 0x18);
-        *(s32 *)((s8 *)temp_r29 + 0x18) = (s32) (temp_r3 + *(s32 *)((s8 *)this + 0x1F8));
+        *(s32 *)((s8 *)temp_r29 + 0x18) = (s32) (temp_r3 + *(s32 *)&this->unk_1F8);
         warn_if_gauge_low__10TObjPlayerFv(temp_r3);
         TObjPlayer__sub_8036414C();
     }
@@ -80,15 +80,15 @@ void TObjPlayer::try_spawn_cane_effect(s32 arg0) {
 
 void TObjPlayer::update_pulse() {
     if ((s32) this->m_1fc != 0) {
-        *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 0x38E);
-        if ((s32) *(s32 *)((s8 *)this + 0x1F8) >= 0x1555) {
-            *(s32 *)((s8 *)this + 0x1F8) = 0x1555;
+        *(s32 *)&this->unk_1F8 = (s32) (*(s32 *)&this->unk_1F8 + 0x38E);
+        if ((s32) *(s32 *)&this->unk_1F8 >= 0x1555) {
+            *(s32 *)&this->unk_1F8 = 0x1555;
             this->m_1fc = 0;
         }
     } else {
-        *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) - 0x38E);
-        if ((s32) *(s32 *)((s8 *)this + 0x1F8) <= 0) {
-            *(s32 *)((s8 *)this + 0x1F8) = 0x1555;
+        *(s32 *)&this->unk_1F8 = (s32) (*(s32 *)&this->unk_1F8 - 0x38E);
+        if ((s32) *(s32 *)&this->unk_1F8 <= 0) {
+            *(s32 *)&this->unk_1F8 = 0x1555;
             this->m_1fc = 1;
         }
     }

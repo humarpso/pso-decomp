@@ -86,16 +86,16 @@ void TObjTombstone::update_rise() {
     f32 temp_f1;
     f32 temp_f1_2;
     if ((is_other_tombstone_closer__13TObjTombstoneFv() == 0) && (this->m_b0 < TObjTombstone__data_805D917C)) {
-        temp_f1 = *(f32 *)((s8 *)arg0 + 0xB4) + lbl_805D91B4;
-        *(f32 *)((s8 *)arg0 + 0xB4) = temp_f1;
+        temp_f1 = *(f32 *)&this->unk_B4 + lbl_805D91B4;
+        *(f32 *)&this->unk_B4 = temp_f1;
         if (temp_f1 > TObjTombstone__data_805D9178) {
-            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9178;
+            *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9178;
         }
     } else {
-        temp_f1_2 = *(f32 *)((s8 *)arg0 + 0xB4) + lbl_805D91B8;
-        *(f32 *)((s8 *)arg0 + 0xB4) = temp_f1_2;
+        temp_f1_2 = *(f32 *)&this->unk_B4 + lbl_805D91B8;
+        *(f32 *)&this->unk_B4 = temp_f1_2;
         if (temp_f1_2 < TObjTombstone__data_805D9174) {
-            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9174;
+            *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9174;
         }
     }
 }

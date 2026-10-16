@@ -43,12 +43,12 @@ void TPlyPhotonChair::activate() { *(s32*)((char*)this + 0x18) = 1; }
 void TObjMotion::set_motion_interpolation_flag() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    temp_r3 = *(u8 **)((s8 *)arg0 + 0xF8);
+    temp_r3 = *(u8 * *)&this->unknownF8;
     *(u16 *)((s8 *)temp_r3 + 0xA) = (u16) (*(u16 *)((s8 *)temp_r3 + 0xA) | 0x80);
 }
 
 u8 TObjMotion::sub_80143960(s32 arg1) {
-    return (u8) ((*(s32 *)((s8 *)((u8 *)this) + 0xB0) & arg1) != 0);
+    return (u8) ((*(s32 *)&this->animationFlags & arg1) != 0);
 }
 
 }

@@ -60,7 +60,7 @@ void TCineCtrl::render() {
         vl.col = col;
         vl.n = 0;
         vl.cap = 4;
-        *(s8 *)((s8 *)arg0 + 0x27) = (s8) *(f32 *)((s8 *)arg0 + 0x1C);
+        this->m_27 = (s8) *(f32 *)((s8 *)arg0 + 0x1C);
         vl.pos[0] = TCineCtrl__data_805D91D0;
         vl.pos[1] = TCineCtrl__data_805D91D0;
         vl.col[0] = *(u32 *)((s8 *)arg0 + 0x24);
@@ -68,17 +68,17 @@ void TCineCtrl::render() {
         vl.pos[3] = TCineCtrl__data_805D91D0;
         vl.col[1] = *(u32 *)((s8 *)arg0 + 0x24);
         vl.pos[4] = lbl_805D91D4;
-        vl.pos[5] = *(f32 *)((s8 *)arg0 + 0x20);
+        vl.pos[5] = this->m_20;
         vl.col[2] = *(u32 *)((s8 *)arg0 + 0x24);
         vl.pos[6] = TCineCtrl__data_805D91D0;
-        vl.pos[7] = *(f32 *)((s8 *)arg0 + 0x20);
+        vl.pos[7] = this->m_20;
         vl.col[3] = *(u32 *)((s8 *)arg0 + 0x24);
         ((TObjCMHairMenu *)(&vl))->draw_tri_fan_2d(4U, 0x16, lbl_805D91D8);
         vl.pos[0] = TCineCtrl__data_805D91D0;
-        vl.pos[1] = lbl_805D91DC - *(f32 *)((s8 *)arg0 + 0x20);
+        vl.pos[1] = lbl_805D91DC - this->m_20;
         vl.col[0] = *(u32 *)((s8 *)arg0 + 0x24);
         vl.pos[2] = lbl_805D91D4;
-        vl.pos[3] = lbl_805D91DC - *(f32 *)((s8 *)arg0 + 0x20);
+        vl.pos[3] = lbl_805D91DC - this->m_20;
         vl.col[1] = *(u32 *)((s8 *)arg0 + 0x24);
         vl.pos[4] = lbl_805D91D4;
         vl.pos[5] = lbl_805D91DC;
@@ -96,12 +96,12 @@ void TCineCtrl::render() {
 void TCineCtrl::update_letterbox_hide() {
     s32 (*temp_r12)(void *);
     *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x1C) - lbl_805D91E0);
-    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x20) - lbl_805D91E4);
+    this->m_20 = (f32) (this->m_20 - lbl_805D91E4);
     if (*(f32 *)((s8 *)((u8 *)this) + 0x1C) <= TCineCtrl__data_805D91D0) {
         *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) TCineCtrl__data_805D91D0;
     }
-    if (*(f32 *)((s8 *)((u8 *)this) + 0x20) <= TCineCtrl__data_805D91D0) {
-        *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) TCineCtrl__data_805D91D0;
+    if (this->m_20 <= TCineCtrl__data_805D91D0) {
+        this->m_20 = (f32) TCineCtrl__data_805D91D0;
         temp_r12 = *(s32 (**)(void *))((s8 *)((u8 *)this) + 0x2C);
         if (temp_r12 != NULL) {
             temp_r12(((u8 *)this));
@@ -131,12 +131,12 @@ extern const f32 TCineCtrl__data_805D91D0;
 void TCineCtrl::update_letterbox_show() {
     s32 (*temp_r12)(void *);
     *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x1C) + lbl_805D91E0);
-    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x20) + lbl_805D91E4);
+    this->m_20 = (f32) (this->m_20 + lbl_805D91E4);
     if (*(f32 *)((s8 *)((u8 *)this) + 0x1C) >= lbl_805D91E8) {
         *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) lbl_805D91E8;
     }
-    if (*(f32 *)((s8 *)((u8 *)this) + 0x20) >= lbl_805D91EC) {
-        *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) lbl_805D91EC;
+    if (this->m_20 >= lbl_805D91EC) {
+        this->m_20 = (f32) lbl_805D91EC;
         temp_r12 = *(s32 (**)(void *))((s8 *)((u8 *)this) + 0x2C);
         if (temp_r12 != NULL) {
             temp_r12(((u8 *)this));

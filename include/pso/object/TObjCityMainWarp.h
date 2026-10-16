@@ -10,7 +10,11 @@ struct TObjCityMainWarp : public TObjAreaWarp {
     virtual void vfunc_18(s32);
     virtual void debug_print_area_num();
     void run_task();
-    u8 unk_AC[0x88];
+    u8 unk_AC[0x4];
+    u32 m_b0;
+    u8 unk_B4[0x10];
+    f32 m_c4;
+    u8 unk_C8[0x6C];
     u32 m_150;
     static void update_unlock_flags();
     static void set_active_bit(s32 _w0);

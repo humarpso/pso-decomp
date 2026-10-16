@@ -30,11 +30,11 @@ s32 TObjDoorJung::find_entry_by_name(const char *name) {
 }
 
 void TObjDoorJung::free_children(void *arg1) {
-    if (*(void **)((s8 *)this + 0x8) != NULL) {
-        set_material_texture_slot(*(void **)((s8 *)this + 0x8));
+    if (*(void * *)&this->m_prev != NULL) {
+        set_material_texture_slot(*(void * *)&this->m_prev);
     }
-    if (*(void **)((s8 *)this + 0xC) != NULL) {
-        ((void (*)(void *, void *))set_material_texture_slot)(*(void **)((s8 *)this + 0xC), arg1);
+    if (*(void * *)&this->m_next != NULL) {
+        ((void (*)(void *, void *))set_material_texture_slot)(*(void * *)&this->m_next, arg1);
     }
 }
 

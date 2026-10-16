@@ -123,26 +123,26 @@ void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void TOKeyAncient01::set_type() { *(s32*)((char*)this + 0x0) = 3; }
+void TOKeyAncient01::set_type() { *(s32 *)&this->m_name = 3; }
 
 void TOKeyAncient01::vfunc_25() {  }
 
 void TOKeyAncient01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj18*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj18*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1) {
-            draw_ginja_model_with_motion((void *) (*(u8 **)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+        rotate_matrix_y((int) (0), (void *) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        if ((s32) *(s32 *)&this->m_d4 != 1) {
+            draw_ginja_model_with_motion((void *) (*(u8 * *)&this->model), (int) (*(s32 *)&this->m_bc), (f32) (this->m_b0));
         } else {
             push_matrix();
-            post_translate_matrix((void *) (*(u8 **)((s8 *)arg0 + 0x34) + 8));
-            rotate_matrix_z((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 0x1C)));
-            rotate_matrix_x((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 0x14)));
-            rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 0x18)));
-            draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)));
+            post_translate_matrix((void *) (*(u8 * *)&this->model + 8));
+            rotate_matrix_z((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x1C)));
+            rotate_matrix_x((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x14)));
+            rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x18)));
+            draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 4)));
             pop_matrix();
         }
         pop_matrix();

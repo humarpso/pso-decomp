@@ -525,7 +525,7 @@ void TObjAreaWarpEndingJung::render() {
         if (TObjWarpJung::update_warp_display() != 0) {
             PPCSync();
         }
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x8C);
+        temp_r0 = *(s32 *)&this->m_8c;
         switch (temp_r0) {
         case 0:
             TObjWarpJung__sub_801A0404(0);
@@ -537,10 +537,10 @@ void TObjAreaWarpEndingJung::render() {
         TObjWarpJung::set_global_render_param();
         ((s32 (*)(void))push_matrix)();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         TObjWarpJung::render_warp(0);
         TParticleCtrl::begin_effect_render();
-        TObjWarpJung::render_warp_effect(1, (s32) *(f32 *)((s8 *)arg0 + 0xC4));
+        TObjWarpJung::render_warp_effect(1, (s32) this->m_c4);
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }
@@ -549,10 +549,10 @@ void TObjAreaWarpEndingJung::render() {
 void TObjAreaWarpEndingJung::run_task() {
     f32 temp_f1;
 
-    temp_f1 = *(f32 *)((s8 *)this + 0xC4);
-    *(f32 *)((s8 *)this + 0xC4) = (f32) (temp_f1 + lbl_805DBFDC);
-    if (*(f32 *)((s8 *)this + 0xC4) > (get_static_field4_as_float__12TObjWarpJungFv(temp_f1) - lbl_805DBFE0)) {
-        *(f32 *)((s8 *)this + 0xC4) = (f32) lbl_805DBFE4;
+    temp_f1 = this->m_c4;
+    this->m_c4 = (f32) (temp_f1 + lbl_805DBFDC);
+    if (this->m_c4 > (get_static_field4_as_float__12TObjWarpJungFv(temp_f1) - lbl_805DBFE0)) {
+        this->m_c4 = (f32) lbl_805DBFE4;
     }
     handle_area_selection();
 }

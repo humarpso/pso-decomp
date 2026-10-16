@@ -19,22 +19,22 @@ void TObjDFDemo4::sub_8004F1FC() {
     s32 var_r31;
     u8 *temp_r30;
     s32 var_r29;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xF8) >= 0x44) {
+    if ((s32) *(s32 *)&this->m_f8 >= 0x44) {
         push_matrix();
         TObjPlayer::set_global_flag();
         post_translate_matrix((void *) (arg0 + 0xE8));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xF4)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_f4));
         var_r29 = 0;
         var_r31 = 0;
         do {
             temp_r30 = arg0 + var_r31;
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)temp_r30 + 0xC8)));
             if (var_r29 == 0) {
-                ((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x100)))->set_draw_callback_list();
+                ((TObjFish *)(*(s32 *)&this->m_100))->set_draw_callback_list();
             }
-            draw_model_motion((int) (*(s32 *)((s8 *)temp_r30 + 0xC4)), (int) (*(s32 *)((s8 *)temp_r30 + 0xCC)), (f32) (*(f32 *)((s8 *)arg0 + 0xFC)));
+            draw_model_motion((int) (*(s32 *)((s8 *)temp_r30 + 0xC4)), (int) (*(s32 *)((s8 *)temp_r30 + 0xCC)), (f32) (*(f32 *)&this->_padFC));
             if (var_r29 == 0) {
-                clear_render_callback__8TObjFishFv((int) (*(s32 *)((s8 *)arg0 + 0x100)));
+                clear_render_callback__8TObjFishFv((int) (*(s32 *)&this->m_100));
             }
             var_r29 += 1;
             var_r31 += 0xC;

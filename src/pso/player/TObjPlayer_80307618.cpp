@@ -44,7 +44,7 @@ void TUnk_804E70A8::reserved_53() {
 
     temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xF4);
     draw_weapon_model();
-    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x188);
+    *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) this->projectile;
     draw_weapon_at_joint(((u8 *)this), 0x23);
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
 }
@@ -60,8 +60,8 @@ void TUnk_804E70A8::update_weapon() {
             }
         }
     } else {
-        *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) + 0xB6);
-        *(s32 *)((s8 *)this + 0x1FC) = (s32) (lbl_805DF0A8 * sin_table_lookup(*(s32 *)((s8 *)this + 0x200)));
+        *(s32 *)&this->unk_200 = (s32) (*(s32 *)&this->unk_200 + 0xB6);
+        this->m_1fc = (s32) (lbl_805DF0A8 * sin_table_lookup(*(s32 *)&this->unk_200));
     }
 }
 

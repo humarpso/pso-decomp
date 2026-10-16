@@ -18,7 +18,7 @@ void TUnk_804A0CB8::update_weapon() {
     if (temp_r4 != NULL) {
         temp_r3 = *(s32 **)((s8 *)temp_r4 + 0x2C);
         temp_r4_2 = *temp_r3;
-        if ((s32) *(s32 *)((s8 *)this + 0x1F8) == 1) {
+        if ((s32) *(s32 *)&this->unk_1F8 == 1) {
             if (temp_r4_2 & 8) {
                 *temp_r3 = temp_r4_2 & 0xFFFFFFF7;
             }

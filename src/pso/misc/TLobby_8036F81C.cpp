@@ -19,8 +19,8 @@ s32 TLobby::destroy_ep3_exist(s32 arg0, s16 arg1) {
 
 void *TLobby::reset_counters() {
     TAdEp3Exist__sub_8036F574();
-    *(s32 *)((s8 *)this + 0x10) = 0;
-    *(s32 *)((s8 *)this + 0x14) = 0;
+    *(s32 *)&this->m_up = 0;
+    *(s32 *)&this->m_down = 0;
     *(s32 *)((s8 *)this + 0x18) = 0;
     *(s32 *)((s8 *)this + 0x1C) = 0;
     *(s32 *)((s8 *)this + 0x20) = 0;

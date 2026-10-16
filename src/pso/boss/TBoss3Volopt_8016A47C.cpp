@@ -113,7 +113,7 @@ void TOKey::play_activate_sound() {
     switch (temp_r3) {
     case 1:
     case 2:
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
+        temp_r0 = *(s32 *)&this->m_d0;
         switch (temp_r0) {
         case 0:
             play_sound_effect((int) (0x4C60A), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -126,7 +126,7 @@ void TOKey::play_activate_sound() {
     case 3:
     case 4:
     case 5:
-        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xD0);
+        temp_r0_2 = *(s32 *)&this->m_d0;
         switch (temp_r0_2) {
         case 0:
             play_sound_effect((int) (0x44609), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -138,7 +138,7 @@ void TOKey::play_activate_sound() {
         break;
     case 6:
     case 7:
-        temp_r0_3 = *(s32 *)((s8 *)arg0 + 0xD0);
+        temp_r0_3 = *(s32 *)&this->m_d0;
         switch (temp_r0_3) {
         case 0:
             play_sound_effect((int) (0x4004C603), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -151,7 +151,7 @@ void TOKey::play_activate_sound() {
     case 8:
     case 9:
     case 10:
-        temp_r0_4 = *(s32 *)((s8 *)arg0 + 0xD0);
+        temp_r0_4 = *(s32 *)&this->m_d0;
         switch (temp_r0_4) {
         case 0:
             play_sound_effect((int) (0x4004C60A), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -164,7 +164,7 @@ void TOKey::play_activate_sound() {
     case 16:
     case 17:
         if ((s32) enable_v2_features == 1) {
-            temp_r0_5 = *(s32 *)((s8 *)arg0 + 0xD0);
+            temp_r0_5 = *(s32 *)&this->m_d0;
             switch (temp_r0_5) {
             case 0:
                 play_sound_effect((int) (0x4004C601), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));

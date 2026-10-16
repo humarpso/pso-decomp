@@ -924,18 +924,18 @@ void TObjEneRe7Berura::run_flash_warning_state(s32 arg1) {
     s32 v;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 5;
+        this->m_b8 = 5;
         ((V_800936A8 *)arg0)->m94();
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFFC);
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 4);
         ((TObjEneDD *)arg0)->set_field_378(4);
         *(s32 *)((s8 *)arg0 + 0x4C0) = 0;
-        *(s32 *)((s8 *)arg0 + 0x4C4) = TObjEneRe7Berura__sub_80094DB4(arg0);
+        this->m_4c4 = TObjEneRe7Berura__sub_80094DB4(arg0);
         *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
         *(s32 *)((s8 *)arg0 + 0x4C8) = 0x300;
         break;
     case 3:
-        if (*(s32 *)((s8 *)arg0 + 0x4C0) >= *(s32 *)((s8 *)arg0 + 0x4C4)) {
+        if (*(s32 *)((s8 *)arg0 + 0x4C0) >= this->m_4c4) {
             transition_enemy_state(arg0, 4);
         }
         break;
@@ -946,10 +946,10 @@ void TObjEneRe7Berura::run_flash_warning_state(s32 arg1) {
         if (t > 0) {
             *(s32 *)((s8 *)arg0 + 0x4C8) = t - 0xB;
             v = (*(s32 *)((s8 *)arg0 + 0x4C8) > 0x100) ? 0x100 : *(s32 *)((s8 *)arg0 + 0x4C8);
-            if (*(s32 *)((s8 *)arg0 + 0x4BC) > 0) {
-                *(s32 *)((s8 *)arg0 + 0x60) += v;
+            if (this->m_4bc > 0) {
+                this->rotation_y += v;
             } else {
-                *(s32 *)((s8 *)arg0 + 0x60) -= v;
+                this->rotation_y -= v;
             }
         }
         if ((*(s32 *)((s8 *)arg0 + 0x4C0) & 0x1F) < 0x10) {
@@ -1298,12 +1298,12 @@ void TObjEneRe7Berura::handle_state(s32 arg1) {
     s32 temp_r0_2;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        this->m_b8 = 0;
         ((VObj_18 *)(arg0))->m93();
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFF8);
         ((TObjEneDD *)arg0)->set_field_378((int) (8));
         *(s32 *)((s8 *)arg0 + 0x4C0) = 0;
-        *(s32 *)((s8 *)arg0 + 0x4C4) = 0;
+        this->m_4c4 = 0;
         return;
     case 3:
         if (check_death_trigger__16TObjEneRe7BeruraFv() == 0) {
@@ -1326,9 +1326,9 @@ void TObjEneRe7Berura::handle_state(s32 arg1) {
                 ((TObjEneDD *)arg0)->update_velocity();
                 *(s32 *)((s8 *)arg0 + 0x4C0) = 2;
             } else {
-                *(s32 *)((s8 *)arg0 + 0x4C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C4) + 1);
-                if ((s32) *(s32 *)((s8 *)arg0 + 0x4C4) > 0x3C) {
-                    *(s32 *)((s8 *)arg0 + 0x4C4) = 0;
+                this->m_4c4 = (s32) (this->m_4c4 + 1);
+                if ((s32) this->m_4c4 > 0x3C) {
+                    this->m_4c4 = 0;
                     *(s32 *)((s8 *)arg0 + 0x4C0) = 1;
                     ((VSub_80094470 *)(arg0 + 0x3D8))->v2();
                     *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 2);

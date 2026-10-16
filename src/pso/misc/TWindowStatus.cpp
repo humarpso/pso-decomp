@@ -114,7 +114,7 @@ void TWindowStatus::draw_background(u8 *arg1) {
     TObjFish::set_global_param((s32)lbl_805D63F0);
     set_draw_texture_and_color(0xB, *(s32 *)((s8 *)arg1 + 0x34));
     { f32 r = TWindowSubComCard__sub_80244784(((u8 *)this));
-    s = -1.0f / (0.0598f + *(f32 *)((s8 *)((u8 *)this) + 0x54));
+    s = -1.0f / (0.0598f + this->m_54);
     q.x0 = -(69.0f * (w = 1.0f - r)); }
     q.y0 = -(80.0f * w);
     q.x1 = 69.0f + q.x0;

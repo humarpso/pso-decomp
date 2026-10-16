@@ -151,7 +151,7 @@ s32 TLobby::parse_header_loop_points(s32 arg1, u16 *arg2, u16 *arg3) {
     u8 var_r7;
     if (arg1 < 0x14) {
         var_r0 = -1;
-    } else if ((u16) *(u16 *)((s8 *)arg0 + 0) != 0x8000) {
+    } else if ((u16) *(u16 *)&this->m_name != 0x8000) {
         var_r0 = -2;
     } else if ((s16) *(s16 *)((s8 *)arg0 + 2) < 0x10) {
         var_r0 = -1;
@@ -166,7 +166,7 @@ s32 TLobby::parse_header_loop_points(s32 arg1, u16 *arg2, u16 *arg3) {
         if (arg1 < 0x20) {
             return -1;
         }
-        if ((u16) *(u16 *)((s8 *)arg0 + 0) != 0x8000) {
+        if ((u16) *(u16 *)&this->m_name != 0x8000) {
             return -2;
         }
         if ((s16) *(s16 *)((s8 *)arg0 + 2) < 0x1C) {

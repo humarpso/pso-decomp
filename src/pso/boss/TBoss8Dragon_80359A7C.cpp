@@ -234,11 +234,11 @@ void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80359DC4_lbl_804F1A78_size[sizeof(RecoveredGlobal_80359DC4_lbl_804F1A78) == 0x1B0 ? 1 : -1];
 u8 *TBoss8Dragon::ct_attack_object(s32 arg1, s32 arg2, s32 arg3) {
     TBoss8Dragon__ct(((u8 *)this), arg1, arg2);
-    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80359DC4_lbl_804F1A78 *)&boss8_dragon_attack_object_vtable).value;
-    *(s32 *)((s8 *)((u8 *)this) + 0x3C0) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) | 0x40);
-    *(s16 *)((s8 *)((u8 *)this) + 0x67A) = -1;
-    *(s16 *)((s8 *)((u8 *)this) + 0x32C) = arg3;
-    *(s16 *)((s8 *)((u8 *)this) + 0x2B8) = arg3;
+    this->m_18 = &(*(RecoveredGlobal_80359DC4_lbl_804F1A78 *)&boss8_dragon_attack_object_vtable).value;
+    *(s32 *)&this->m_3c0 = (s32) (*(s32 *)&this->m_3c0 | 0x40);
+    *(s16 *)&this->m_67a = -1;
+    this->m_32c = arg3;
+    this->m_2b8 = arg3;
     return ((u8 *)this);
 }
 

@@ -164,11 +164,11 @@ u8 *TObjNpcMaleTall__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TObjNpcMoja::vfunc_88() {
-    if ((s16) *(s16 *)((s8 *)this + 0x326) != 2) {
-        *(s16 *)((s8 *)this + 0xB8) = 0;
+    if ((s16) this->mode != 2) {
+        this->m_b8 = 0;
         return;
     }
-    *(s16 *)((s8 *)this + 0xB8) = 1;
+    this->m_b8 = 1;
 }
 
 }

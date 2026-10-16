@@ -179,7 +179,7 @@ void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1) {
 
 void TBoss8DragonEffTail::apply_hit_if_active(void *arg1_arg, f32 *) {
     u8 *arg1 = (u8 *)arg1_arg;
-    ((VObj_18 *)(arg1))->m20(*(s32 *)((s8 *)((u8 *)this) + 0xAC), ((u8 *)this), lbl_805DEF18);
+    ((VObj_18 *)(arg1))->m20(*(s32 *)&this->m_ac, ((u8 *)this), lbl_805DEF18);
 }
 
 void TBoss8DragonEffTail::enable() { *(int *)&this->m_bc = 1; get_state(); }

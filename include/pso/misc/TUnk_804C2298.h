@@ -10,7 +10,11 @@ public:
     void sub_801A4CA4();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x14];
+    u8 unk_1C[0x4];
+    s32 m_20;
+    u8 unk_24[0x4];
+    void * m_28;
+    u8 unk_2C[0x4];
 };
 typedef char TUnk_804C2298_size[sizeof(TUnk_804C2298) == 0x30 ? 1 : -1];
 

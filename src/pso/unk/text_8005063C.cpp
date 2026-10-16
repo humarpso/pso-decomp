@@ -66,14 +66,14 @@ void steer_homing_direction(Obj_8005063C *arg0) {
 
 void TObjDFHorming::sub_8005076C() {
     f32 temp_f1;
-    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x370) - *(f32 *)((s8 *)((u8 *)this) + 0x300);
+    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x370) - this->m_300;
     if (temp_f1 > lbl_805D8A30) {
         *(f32 *)((s8 *)((u8 *)this) + 0x34C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x34C) + lbl_805D8A58);
     } else {
         *(f32 *)((s8 *)((u8 *)this) + 0x34C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x34C) - lbl_805D8A58);
     }
     if (fabs_float(temp_f1) < lbl_805D8A5C) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 1;
+        *(s32 *)&this->m_368 = 1;
     }
 }
 

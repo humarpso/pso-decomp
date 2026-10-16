@@ -49,29 +49,29 @@ extern "C" {
 void TObjEneRecobox::sub_8031F800() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    *(s32 *)((s8 *)arg0 + 0x3DC) = (s32) *(s32 *)((s8 *)arg0 + 0x368);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3DC) <= 0) {
-        *(s32 *)((s8 *)arg0 + 0x3DC) = 0;
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0x368) >= 2) {
-        *(s32 *)((s8 *)arg0 + 0x3DC) = 2;
+    *(s32 *)&this->m_3f8 = (s32) *(s32 *)&this->variant;
+    if ((s32) *(s32 *)&this->m_3f8 <= 0) {
+        *(s32 *)&this->m_3f8 = 0;
+    } else if ((s32) *(s32 *)&this->variant >= 2) {
+        *(s32 *)&this->m_3f8 = 2;
     }
-    *(f32 *)((s8 *)arg0 + 0x4D0) = (f32) *(f32 *)((s8 *)arg0 + 0x354);
+    *(f32 *)&this->m_4ec = (f32) *(f32 *)((s8 *)arg0 + 0x354);
     *(f32 *)((s8 *)arg0 + 0x4D4) = (f32) *(f32 *)((s8 *)arg0 + 0x358);
     if (*(f32 *)((s8 *)arg0 + 0x4D4) <= lbl_805DF44C) {
         *(f32 *)((s8 *)arg0 + 0x4D4) = (f32) lbl_805DF44C;
     }
-    *(s32 *)((s8 *)arg0 + 0x3F8) = (s32) *(f32 *)((s8 *)arg0 + 0x360);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3F8);
+    *(s32 *)&this->m_414 = (s32) *(f32 *)((s8 *)arg0 + 0x360);
+    temp_r0 = *(s32 *)&this->m_414;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0x3F8) = 0;
+        *(s32 *)&this->m_414 = 0;
     } else if (temp_r0 > 6) {
-        *(s32 *)((s8 *)arg0 + 0x3F8) = 6;
+        *(s32 *)&this->m_414 = 6;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3F8) == 0) {
-        *(s32 *)((s8 *)arg0 + 0x3F4) = 0;
+    if ((s32) *(s32 *)&this->m_414 == 0) {
+        *(s32 *)&this->m_410 = 0;
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x3F4) = 0x1E;
+    *(s32 *)&this->m_410 = 0x1E;
 }
 #pragma pop
 

@@ -14,7 +14,7 @@ extern s32 player_apply_callback_fn;
 
 void TObjPlayer::apply_with_callback(s32 arg1, f32 farg0) {
     this->m_20 = arg1;
-    *(f32 *)((s8 *)this + 0x24) = farg0;
+    *(f32 *)&this->unk_24 = farg0;
     player_node_matrix_cursor = 0;
     player_node_matrix_count = *(s32 *)&this->unk_2C;
     node_matrix_array_base = *(s32 *)&this->m_28;

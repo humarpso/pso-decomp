@@ -8,7 +8,11 @@ public:
     virtual ~TUnk_804F01A8();
     void *ct();
     void *destroy(s16);
-    u8 unk_1C[0x14];
+    u8 unk_1C[0x4];
+    u32 m_20;
+    u8 unk_24[0x4];
+    u32 m_28;
+    u8 unk_2C[0x4];
 };
 typedef char TUnk_804F01A8_size[sizeof(TUnk_804F01A8) == 0x30 ? 1 : -1];
 

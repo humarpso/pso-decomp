@@ -49,10 +49,10 @@ void TWindowMessageLog::clamp_scroll_offset() {
     Stack_8026A434 stack;
     f32 temp_f1;
     stack.sp8 = lbl_805DD240;
-    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x4C);
+    temp_f1 = *(f32 *)&this->m_4c;
     stack.spC = temp_f1 - lbl_805DD244;
     if (clamp_list_scroll_offset((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), (void *) (((u8 *)this) + 0x68), (void *) (&stack.sp8), (f32) (temp_f1)) != 0) {
-        *(f32 *)((s8 *)((u8 *)this) + 0x84) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x6C);
+        this->m_84 = (f32) this->m_6c;
     }
 }
 void TWindowMessageLog::update_scroll_position() {
@@ -61,14 +61,14 @@ void TWindowMessageLog::update_scroll_position() {
     s32 temp_r3;
     s32 temp_r4;
     s32 var_r30;
-    temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x88);
+    temp_r4 = *(s32 *)&this->m_88;
     var_r30 = temp_r4 - 1;
     if (var_r30 < 0) {
-        var_r30 = *(s32 *)((s8 *)((u8 *)this) + 0x8C) - 1;
+        var_r30 = *(s32 *)&this->m_8c - 1;
     }
     temp_r31 = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(temp_r4);
     temp_r3 = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(var_r30);
-    stack.sp8 = (*(f32 *)((s8 *)((u8 *)this) + 0x48) - lbl_805DD248) - lbl_805DD24C;
+    stack.sp8 = (this->m_48 - lbl_805DD248) - lbl_805DD24C;
     stack.spC = (*(f32 *)((s8 *)temp_r3 + 0xC) + *(f32 *)((s8 *)temp_r3 + 0x14)) - *(f32 *)((s8 *)temp_r31 + 0xC);
     ((TWindowMenu *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)))->copy_position(&stack.sp8);
     ((TWindowMessageLog *)((u8 *)this))->clamp_scroll_offset();

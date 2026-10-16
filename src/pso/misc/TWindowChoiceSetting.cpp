@@ -54,7 +54,7 @@ void TUnk_804D0658::move_next_choice() {
     var_r31 = this->m_74;
 loop_1:
     var_r31 += 1;
-    if (var_r31 >= (s16) *(s16 *)((s8 *)this + 0x76)) {
+    if (var_r31 >= (s16) *(s16 *)&this->unk_76) {
         if (!(this->m_70 & 1)) {
             var_r31 = 0;
             goto block_4;
@@ -79,7 +79,7 @@ loop_1:
     var_r31 -= 1;
     if (var_r31 < 0) {
         if (!(this->m_70 & 1)) {
-            var_r31 = *(s16 *)((s8 *)this + 0x76) - 1;
+            var_r31 = *(s16 *)&this->unk_76 - 1;
             goto block_4;
         }
     } else {
@@ -307,8 +307,8 @@ void TWindowSubStatusDisp::handle_choice_input() {
 void *TUnk_804D0658::destroy_children(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = choice_setting_popup_vtable;
-        TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)this + 0x7C)), (s16)1);
-        TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)this + 0x78)), (s16)1);
+        TWindowSubStatusDisp::destroy_allocation((s32)(*(void * *)&this->unk_7C), (s16)1);
+        TWindowSubStatusDisp::destroy_status_display((s32)(*(void * *)&this->m_78), (s16)1);
         destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

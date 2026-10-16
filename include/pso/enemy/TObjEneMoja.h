@@ -41,7 +41,9 @@ struct TObjEneMoja {
     f32 m_308;
     u8 unk_30C[0x4];
     f32 m_310;
-    u8 unk_314[0x12];
+    u8 unk_314[0x4];
+    u32 m_318;
+    u8 unk_31C[0xA];
     s16 mode;
     s16 phase;
     u8 unknown_32A[2];

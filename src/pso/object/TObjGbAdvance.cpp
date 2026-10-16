@@ -42,7 +42,7 @@ s32 __dt__11TObjMesBaseFv(void *, s32);
 
 void TObjGbAdvance::vfunc_14() {
     vfunc_14__11TObjMesBaseFv();
-    if ((s32) *(s32 *)((s8 *)this + 0xB4) != 0) {
+    if ((s32) this->messageLabel != 0) {
         submit_cursor_candidate(this, -1);
     }
 }
@@ -75,8 +75,8 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
 }
 void TObjComputer::debug_draw_label() {
     ((TObjMesBase *)this)->TObjMesBase::debug_draw_label();
-    *(s32 *)((s8 *)this + 0x88) = *(s32 *)((s8 *)this + 0x88) % 2;
-    *(s32 *)((s8 *)this + 0xBC) = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)((s8 *)this + 0x88)]);
+    *(s32 *)&this->m_88 = *(s32 *)&this->m_88 % 2;
+    *(s32 *)&this->m_bc = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)&this->m_88]);
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130021, lbl_80444B48);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);

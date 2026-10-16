@@ -656,12 +656,12 @@ void TLobby::copy_challenge_settings(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r6;
     u8 *temp_r8;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
-    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
-    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
-    *(s32 *)((s8 *)arg0 + 0xC) = (s32) *(s32 *)((s8 *)arg1 + 0xC);
-    *(s32 *)((s8 *)arg0 + 0x10) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
-    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)&this->m_name = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(f32 *)&this->m_flags = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(s32 *)&this->m_prev = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(s32 *)&this->m_next = (s32) *(s32 *)((s8 *)arg1 + 0xC);
+    *(s32 *)&this->m_up = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)&this->m_down = (s32) *(s32 *)((s8 *)arg1 + 0x14);
     *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
     *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg1 + 0x20);

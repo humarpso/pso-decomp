@@ -82,7 +82,7 @@ void TObjButterflyLobby::init_params() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x98, arg0 + 0x38);
     this->m_a4 = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0xA8) = 0.0f;
+    *(f32 *)&this->unk_A8 = 0.0f;
     this->m_ac = 0.0f;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.5f * (3.0517578125e-05f * (f32) rand()));
     this->m_b8 = 0.0f;

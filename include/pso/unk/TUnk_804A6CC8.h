@@ -9,7 +9,13 @@ public:
     virtual void update_weapon();
     virtual void emit_marker_effects();
     virtual void update_attack();
-    u8 unk_1F8[0x20];
+    u8 unk_1F8[0x4];
+    f32 m_1fc;
+    u8 unk_200[0x4];
+    f32 m_204;
+    u8 unk_208[0x8];
+    f32 m_210;
+    u8 unk_214[0x4];
 };
 
 #endif

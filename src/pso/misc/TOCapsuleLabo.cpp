@@ -156,7 +156,7 @@ void TOCapsuleLabo::render() {
 }
 
 void TOCapsuleLabo::vfunc_15() {
-    *(s32 *)((s8 *)this + 0xE4) = (s32) (*(s32 *)((s8 *)this + 0xE4) + 0x222);
+    *(s32 *)&this->m_e4 = (s32) (*(s32 *)&this->m_e4 + 0x222);
 }
 
 extern s32 __vt__13TOCapsuleLabo[];

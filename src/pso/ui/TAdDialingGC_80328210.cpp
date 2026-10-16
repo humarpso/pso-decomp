@@ -165,13 +165,13 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
 extern f32 lbl_805DF6E0;
 
 void TAdDialingGC::spawn_title_screen(s32) {
-    if (!(*(s32 *)((s8 *)this + 0xA4) & 1)) {
+    if (!(*(s32 *)&this->m_a4 & 1)) {
         u32 temp_nw;
-        if (((s32) *(s32 *)((s8 *)this + 0x1C) == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
+        if (((s32) *(s32 *)&this->m_1c == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
             __ct__10TAdTitleGCFv(temp_nw, this, 5);
         }
         create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0x11, lbl_805DF6E0);
-        *(s32 *)((s8 *)this + 0xA4) = (s32) (*(s32 *)((s8 *)this + 0xA4) | 1);
+        *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 1);
     }
 }
 

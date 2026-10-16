@@ -235,14 +235,14 @@ void TWindowComCard::set_help_mode(s32 arg1) {
     void *temp_r4;
 
     if (arg1 == 0xE) {
-        *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 2);
+        *(u16 *)&this->m_name = (u16) (*(u16 *)&this->m_name | 2);
         return;
     }
-    *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) & 0xFFFFFFFD);
+    *(u16 *)&this->m_name = (u16) (*(u16 *)&this->m_name & 0xFFFFFFFD);
     if (arg1 < 0xA) {
-        *(s32 *)((s8 *)this + 0x34) = 1;
+        this->m_34 = 1;
     } else {
-        *(s32 *)((s8 *)this + 0x34) = 2;
+        this->m_34 = 2;
     }
     temp_r4 = com_card_help_panel_rect_table + (arg1 * 8);
     set_sprite_uv_from_pixels(this, *(f32 *)((s8 *)temp_r4 + 0), *(f32 *)((s8 *)temp_r4 + 4));

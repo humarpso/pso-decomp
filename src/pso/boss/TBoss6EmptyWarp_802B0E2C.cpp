@@ -30,8 +30,8 @@ void TBoss6EmptyWarp::run_task() {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 3) {
+    *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
+    if ((s32) *(s32 *)&this->unk_1C > 3) {
         TBoss6EmptyWarp::init_warp();
         if (is_ship_door_ready__12TBoss6ThanksFv() != 0) {
             TBoss6Thanks::create();
@@ -94,7 +94,7 @@ void *TBoss6EmptyWarp::create() {
 }
 
 void TBoss6EmptyWarp::activate_warp() {
-    *(s32 *)((s8 *)this + 0x1C) = 1;
+    *(s32 *)&this->unk_1C = 1;
     play_sound_effect(0x4003351F, 0, 0, 0);
 }
 void TBoss6EmptyWarp__sub_802B1004(void* p) { *(s32*)((char*)p + 0x20) = 0; *(s32*)((char*)p + 0x1c) = 2; }

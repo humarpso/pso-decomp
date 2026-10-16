@@ -176,7 +176,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 destroy_photon_motion_object(void *, s32);
 
     extern const float lbl_805DC1F8;
-void TPhotonMylla::sub_801AD4A8() { *(float*)((char*)this + 0x184) = lbl_805DC1F8; *(float*)((char*)this + 0x188) = lbl_805DC1F8; *(float*)((char*)this + 0x18c) = lbl_805DC1F8; *(float*)((char*)this + 0x190) = lbl_805DC1F8; }
+void TPhotonMylla::sub_801AD4A8() { *(float *)&this->m_184 = lbl_805DC1F8; *(float*)((char*)this + 0x188) = lbl_805DC1F8; this->m_18c = lbl_805DC1F8; *(float *)&this->unk_190 = lbl_805DC1F8; }
 
 extern s32 __vt__12TPhotonMylla[];
 

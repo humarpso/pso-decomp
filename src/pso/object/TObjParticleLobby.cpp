@@ -163,7 +163,7 @@ void TObjParticleLobby::setup_emitter() {
     if (*(void * *)&this->m_d4 != NULL) {
         ((TBoss4Type2 *)(*(void * *)&this->m_d4))->set_param_ptr(v);
     }
-    f = *(f32 *)((s8 *)this + 0x70);
+    f = *(f32 *)&this->m_70;
     if (f < 0.0f) {
         t = 0x2;
         if (*(s32 *)&this->m_88 == 1) {

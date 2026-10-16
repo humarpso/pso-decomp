@@ -46,8 +46,8 @@ void TWindowSubEquipList::render() {
     draw_window_frame((void *) (((u8 *)this)), (int) (temp_r3));
     draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), (int) (temp_r3));
     draw_selected_list_entry((int) (temp_r3));
-    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x80) != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)((u8 *)this) + 0x80), (int) (temp_r3));
+    if ((u32) *(u32 *)&this->m_80 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(this->m_80, (int) (temp_r3));
     }
 }
 #pragma pop

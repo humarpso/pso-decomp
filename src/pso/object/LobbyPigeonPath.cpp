@@ -158,15 +158,15 @@ s32 filter_lobby_pigeon_theme(void *);
 void TUnk_804E0898::select_lobby_pigeon_model() {
     s32 temp_r3;
 
-    if ((s32) *(s32 *)((s8 *)this + 0x8C) < 1) {
-        *(s32 *)((s8 *)this + 0xA0) = 0;
+    if ((s32) *(s32 *)&this->m_8c < 1) {
+        this->m_a0 = 0;
     } else {
-        *(s32 *)((s8 *)this + 0xA0) = 1;
+        this->m_a0 = 1;
     }
-    temp_r3 = *(s32 *)((s8 *)this + 0x88);
+    temp_r3 = *(s32 *)&this->m_88;
     if (temp_r3 < 1) {
         *(s32 *)((s8 *)this + 0xA4) = 0;
-    } else if ((s32) *(s32 *)((s8 *)this + 0xA0) == 0) {
+    } else if ((s32) this->m_a0 == 0) {
         if (temp_r3 > 1) {
             *(s32 *)((s8 *)this + 0xA4) = 3;
         } else {
@@ -846,7 +846,7 @@ s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
 void TUnk_804E08D4::vfunc_14() {
     u8 *arg0 = (u8 *)this;
     if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
-        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
+        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param((*(s32 *)&lobby_kamome_texture_gvm_handle));
     push_matrix();
@@ -855,7 +855,7 @@ void TUnk_804E08D4::vfunc_14() {
     post_translate_matrix(arg0 + 0xAC);
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
+    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -866,25 +866,25 @@ void TUnk_804E08D4::vfunc_13(s32) {
     Mtx_802C17FC m;
     s32 temp_r0;
 
-    *(f32 *)((s8 *)arg0 + 0xA4) += jungle_seagull_path_profiles[*(s32 *)((s8 *)arg0 + 0xC8)].b;
+    this->m_a4 += jungle_seagull_path_profiles[this->m_c8].b;
     if (((TObjPlayer *)arg0)->update_path_steering() == 0) {
-        *(f32 *)((s8 *)arg0 + 0xA4) = (0.0f);
+        this->m_a4 = (0.0f);
     }
-    *(f32 *)((s8 *)arg0 + 0xA8) += jungle_seagull_path_profiles[*(s32 *)((s8 *)arg0 + 0xC8)].c;
-    if (*(f32 *)((s8 *)arg0 + 0xA8) > (f32) ((*(Anim_802C17FC **)((s8 *)arg0 + 0x9C))->n - 1)) {
-        *(f32 *)((s8 *)arg0 + 0xA8) = (0.0f);
+    this->m_a8 += jungle_seagull_path_profiles[this->m_c8].c;
+    if (this->m_a8 > (f32) ((*(Anim_802C17FC * *)&this->m_9c)->n - 1)) {
+        this->m_a8 = (0.0f);
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xCC) - 1;
-    *(s32 *)((s8 *)arg0 + 0xCC) = temp_r0;
+    temp_r0 = *(s32 *)&this->unk_CC - 1;
+    *(s32 *)&this->unk_CC = temp_r0;
     if (temp_r0 < 0) {
         Vec_802C17FC v = lbl_80471908;
         ((s32 (*)(void *))set_matrix_identity)(&m);
         ((s32 (*)(void *, void *))translate_matrix_vec3)(&m, arg0 + 0x38);
-        ((s32 (*)(void *, int))rotate_matrix_y)(&m, *(s32 *)((s8 *)arg0 + 0x60));
+        ((s32 (*)(void *, int))rotate_matrix_y)(&m, this->rotation_y);
         ((s32 (*)(void *, void *))translate_matrix_vec3)(&m, arg0 + 0xAC);
         ((s32 (*)(void *, void *, void *))matrix_mult_vec)(&m, &v, &v);
         play_sound_effect(0x4BC04, arg0 + 0x38, 0x7F, 0);
-        *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32) rand()))) + (1.5e+02f));
+        *(s32 *)&this->unk_CC = (s32) (((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32) rand()))) + (1.5e+02f));
     }
 }
 #pragma pop
@@ -1043,7 +1043,7 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
 void TUnk_804E0910::vfunc_14() {
     u8 *arg0 = (u8 *)this;
     if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
-        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
+        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param((*(s32 *)&lobby_pigeon_texture_gvm));
     push_matrix();
@@ -1052,7 +1052,7 @@ void TUnk_804E0910::vfunc_14() {
     post_translate_matrix(arg0 + 0xAC);
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
+    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -1256,7 +1256,7 @@ s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
 void TUnk_804E094C::vfunc_14() {
     u8 *arg0 = (u8 *)this;
     if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
-        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
+        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param((*(s32 *)&jungle_ebi_texture_gvm_handle));
     push_matrix();
@@ -1265,7 +1265,7 @@ void TUnk_804E094C::vfunc_14() {
     post_translate_matrix(arg0 + 0xAC);
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
+    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
     pop_matrix();
 }
 
@@ -1443,7 +1443,7 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
 void TUnk_804E0988::vfunc_14() {
     u8 *arg0 = (u8 *)this;
     if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
-        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
+        ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)&this->unk_98, *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
     TObjFish::set_global_param(seabed_dolphin_texture_handle);
     push_matrix();
@@ -1453,7 +1453,7 @@ void TUnk_804E0988::vfunc_14() {
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
     TObjPlayer::set_global_flag();
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
+    draw_model_motion(*(s32 *)&this->unk_98, this->m_9c, this->m_a8);
     TObjPlayer::clear_global_state();
     pop_matrix();
 }
@@ -1629,7 +1629,7 @@ void __dl__7TObjectFPv(void *);
 
 void TObjPathObj::render() {
     u8 *arg0 = (u8 *)this;
-    if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0x90), this->m_94) != 0)) {
+    if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)&this->unk_90, this->m_94) != 0)) {
         this->vfunc_14();
     }
 }

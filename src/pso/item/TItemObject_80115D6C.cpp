@@ -117,11 +117,11 @@ void *__vt__11TItemObject[] = {
     (void *)vfunc_44__11TItemObjectFv,
 };
 
-u8 TItemObject::sub_80115D7C() { return *(u8*)((char*)this + 0x100); }
+u8 TItemObject::sub_80115D7C() { return this->m_100; }
 
 u8 TItemObject::get_tool_pmt_amount_byte() {
     u8 *arg0 = (u8 *)this;
-    return (u8) *(u16 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 8);
+    return (u8) *(u16 *)((s8 *)(*(void * *)&this->m_f8) + 8);
 }
 
 void TItemObject::vfunc_14() {
@@ -381,10 +381,10 @@ void TItemObject::vfunc_31() {
         ((TItemObject *)this)->set_flag_1024();
         return;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0xF0) != 0U) {
-        *(u8 *)((s8 *)this + 0x101) = 0U;
+    if ((u32) this->m_f0 != 0U) {
+        this->m_101 = 0U;
         o->m42();
-        if ((u8) *(u8 *)((s8 *)this + 0x101) == 0) {
+        if ((u8) this->m_101 == 0) {
             ((TItem *)this)->apply_switch_attack(0x1AF);
             ((TItem *)this)->notify_owner(0x5B211);
         }
@@ -397,7 +397,7 @@ void TItemObject::vfunc_31() {
 
 void TItemObject::vfunc_44() {
     update_pickup_flag__5TItemFl();
-    *(s8 *)((s8 *)this + 0x101) = 1;
+    *(s8 *)&this->m_101 = 1;
 }
 
 extern s32 lbl_805D2C28;

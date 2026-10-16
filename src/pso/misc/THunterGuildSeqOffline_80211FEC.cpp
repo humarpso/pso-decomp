@@ -130,7 +130,7 @@ void TMemberCheck::update_member_proximity() {
     s32 temp_r31;
     s32 temp_r3;
     s32 var_r30;
-    if ((u32) (*(u32 *)((u8 *)this + 0x1C)) != 0U) {
+    if ((u32) (this->m_1C) != 0U) {
         temp_r31 = get_player_by_client_id((int) (TLobby__designated_client_id));
         var_r30 = 0;
         do {
@@ -138,15 +138,15 @@ void TMemberCheck::update_member_proximity() {
                 temp_r3 = get_player_by_client_id((int) (var_r30));
                 if (temp_r3 != 0) {
                     if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (temp_r3 + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
-                        ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (1), (int) (var_r30));
+                        ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (1), (int) (var_r30));
                     } else {
-                        ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (0), (int) (var_r30));
+                        ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (0), (int) (var_r30));
                     }
                 } else {
-                    ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (0), (int) (var_r30));
+                    ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (0), (int) (var_r30));
                 }
             } else {
-                ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (1), (int) (var_r30));
+                ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (1), (int) (var_r30));
             }
             var_r30 += 1;
         } while (var_r30 < 4);

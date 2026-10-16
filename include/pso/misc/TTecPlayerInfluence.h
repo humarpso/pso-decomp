@@ -21,7 +21,9 @@ struct TTecPlayerInfluence : public TEffect {
     u8 _padAA[0x2];
     u32 m_ac;
     void* m_b0;
-    u8 _padB4[0x10];
+    u8 unk_B4[0x8];
+    f32 m_bc;
+    u8 unk_C0[0x4];
     u32 m_c4;
     u32 m_c8;
     u8 _padCC[0x10];

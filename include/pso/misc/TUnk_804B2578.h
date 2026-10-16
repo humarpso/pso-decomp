@@ -24,7 +24,9 @@ public:
     virtual s32 select_melee_contact_body(void *, f32);
     virtual void render();
     virtual void run_task();
-    u8 unk_334[0xC];
+    u8 unk_334[0x4];
+    f32 m_338;
+    u8 unk_33C[0x4];
     u32 m_340;
     u8 unk_344[0xC];
     f32 m_350;

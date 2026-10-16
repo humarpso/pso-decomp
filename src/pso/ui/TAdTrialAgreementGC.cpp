@@ -32,7 +32,7 @@ void TAdTrialAgreementGC::render() {
 
 void TAdTrialAgreementGC::vfunc_8() { TKeyBoardControl__sub_8000F9CC((void*)0); }
 void TAdTrialAgreementGC::vfunc_7() { request_scene_change__21TAdMultiChgGameModeGCFv(this); }
-void TAdTrialAgreementGC::vfunc_6() { if (*(unsigned int*)((char*)this + 0x38) != 0) { ((TAdScrollWinGC *)(*(void**)((char*)this + 0x38)))->close_window(); *(int*)((char*)this + 0x38) = 0; } }
+void TAdTrialAgreementGC::vfunc_6() { if (*(unsigned int *)&this->m_38 != 0) { ((TAdScrollWinGC *)(*(void* *)&this->m_38))->close_window(); *(int *)&this->m_38 = 0; } }
 void TAdTrialAgreementGC::wait_for_load() {
 loop_1:
     if ((((TAdPlayerLoadGC *)0)->probe_card_slot() != 0) && (TAdPlayerLoadGC__sub_801E1B50(0) != 0)) {

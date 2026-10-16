@@ -50,7 +50,7 @@ extern s32 lbl_805D5E50;
 void TLobby::send_command(u32 arg1) {
     s32 sp8;
 
-    sp8 = *(s32 *)((s8 *)this + 4);
+    sp8 = *(s32 *)&this->m_flags;
     bswap_32__FPUl(&sp8);
     if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;

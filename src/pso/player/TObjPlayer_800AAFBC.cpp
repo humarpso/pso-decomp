@@ -291,7 +291,7 @@ void TObjPlayer::init_level_stats(s32 arg1) {
     } else {
         var_r0 = lbl_805D5098;
     }
-    *(s32 *)((s8 *)this + 0x24) = var_r0;
+    *(s32 *)&this->unk_24 = var_r0;
 }
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
@@ -384,7 +384,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
 void *TObjPlayer::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491460;
-        if (*(void **)((s8 *)this + 0x5C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x5C)); }
+        if (*(void * *)&this->unk_5C != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_5C); }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -503,7 +503,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
 void *TUnk_80491478::destroy_with_particle_cleanup(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491478;
-        if (*(void * *)&(*(s32 *)((u8 *)this + 0xD0)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(s32 *)((u8 *)this + 0xD0))); (*(s32 *)((u8 *)this + 0xD0)) = 0; }
+        if (*(void * *)&(this->m_d0) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->m_d0)); (this->m_d0) = 0; }
         destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

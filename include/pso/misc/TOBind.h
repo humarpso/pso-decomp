@@ -10,7 +10,9 @@ struct TOBind : public TUnk_804AF8A0 {
     u8 unk_AC[0x4];
     u32 m_b0;
     u32 m_b4;
-    u8 _padB8[0xC];
+    u8 unk_B8[0x4];
+    f32 m_bc;
+    u8 unk_C0[0x4];
     u32 m_c4;
     u32 m_c8;
     u32 m_cc;

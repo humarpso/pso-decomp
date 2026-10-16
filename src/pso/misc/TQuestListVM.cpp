@@ -601,8 +601,8 @@ void TQuestListVM::sub_80219064() {
 
 s32 TQuestListVM::quest_vm_load() {
     if (TLobby__sub_8001EEF4() != 0) {
-        *(s32 *)((s8 *)this + 0x2384) = TLobby::tmp_buf_use_req((const char *)TQuestListVM__data_8044BF20);
-        ((TShopWindowBase *)this)->set_field_20((s32)((void*)(*(s32 *)((s8 *)this + 0x2370))));
+        *(s32 *)&this->m_2384 = TLobby::tmp_buf_use_req((const char *)TQuestListVM__data_8044BF20);
+        ((TShopWindowBase *)this)->set_field_20((s32)((void*)(*(s32 *)&this->m_2370)));
     }
 }
 

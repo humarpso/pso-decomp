@@ -11,7 +11,7 @@ extern s32 lbl_8048E5F4[];
 void *TUnk_8048E5F4::init_subobject(void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_8048E5F4;
-    *(void **)((s8 *)this + 0x1C) = arg2;
+    *(void * *)&this->unk_1C = arg2;
     return this;
 }
 

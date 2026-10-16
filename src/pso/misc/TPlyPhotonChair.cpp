@@ -316,7 +316,7 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 int TPlyPhotonChair__sub_8035B520(void* p) { return *(u32*)((char*)p + 0x94) == 0; }
-u16 TPlyPhotonChair::sub_8035B530() { return *(u16*)((char*)this + 0x90); }
+u16 TPlyPhotonChair::sub_8035B530() { return *(u16 *)&this->unk_90; }
 void TPlyPhotonChair::set_field90(s32 v) { *(s16 *)&this->unk_90 = v; }
 void TPlyPhotonChair::render(void* p, void* a1) { copy_vec4__13TRaderMapCoreFPvPv(a1, p); }
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v) { *(f32*)((char*)p + 0x14) = v; }
@@ -354,7 +354,7 @@ u8 *TUnk_804A7488::init_parts() {
     return arg0;
 }
 
-void TUnk_804A7488::sub_8035B66C() { *(s32*)((char*)this + 0x0) = 0; }
+void TUnk_804A7488::sub_8035B66C() { *(s32 *)&this->unk_0 = 0; }
 
 extern u32 chao_npc_instance_handle;
 

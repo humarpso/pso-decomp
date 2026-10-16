@@ -447,7 +447,7 @@ s32 TWindowSubItem::create_menu_window() {
 
 s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     s32 temp_r31;
-    temp_r31 = create_titled_window_menu(((int)get_window_layout_position((s32)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFl((s32)((int) (0x26))), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
+    temp_r31 = create_titled_window_menu(((int)get_window_layout_position((s32)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFl((s32)((int) (0x26))), (int) (*(s32 *)&this->m_24));
     if (arg1 == -0xFF) {
         TWindowSubItem::add_meseta_purpose_actions((s32)((void *) (((u8 *)this))), (s32)((int) (temp_r31)));
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
@@ -455,7 +455,7 @@ s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     } else {
         add_item_purpose_actions((u8 *)((void *) (((u8 *)this))), (s32)((int) (temp_r31)), (s32)((void *) (arg1)));
     }
-    TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x2C))), (s32)((int) (1)));
+    TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)&this->m_2c)), (s32)((int) (1)));
     set_field_1c__6TLobbyFf((s32)((int) (temp_r31)));
     ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
     ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) (lbl_805DD630));

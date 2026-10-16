@@ -34,9 +34,9 @@ void TObjPlayer::release_subobjects() {
         TObjPlayer::set_global_flag();
         post_translate_matrix(arg0 + 0xD4);
         rotate_matrix_y(0, this->m_e0);
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xCC));
+        TObjFish::set_global_param(*(s32 *)&this->unk_CC);
         ((TObjFish *)(this->m_108))->set_draw_callback_list();
-        draw_model_motion(this->m_c8, this->m_d0, *(f32 *)((s8 *)arg0 + 0xE8));
+        draw_model_motion(this->m_c8, this->m_d0, *(f32 *)&this->unk_E8);
         clear_render_callback__8TObjFishFv(this->m_108);
         TObjPlayer::clear_global_state();
         pop_matrix();
@@ -64,15 +64,15 @@ int TObjPlayer::draw_fading_motion() {
     TObjPlayer::set_global_flag();
     post_translate_matrix(arg0 + 0xD4);
     rotate_matrix_y(0, this->m_e0);
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xA8));
+    TObjFish::set_global_param(*(s32 *)&this->unk_A8);
     ((TObjFish *)(this->m_ec))->set_draw_callback_list();
-    draw_model_motion(*(s32 *)&this->m_a4, this->m_ac, *(f32 *)((s8 *)arg0 + 0xE8));
+    draw_model_motion(*(s32 *)&this->m_a4, this->m_ac, *(f32 *)&this->unk_E8);
     clear_render_callback__8TObjFishFv(this->m_ec);
-    frac = (s32)*(f32 *)((s8 *)arg0 + 0xE8) % 30;
+    frac = (s32)*(f32 *)&this->unk_E8 % 30;
     TObjFish::set_global_param(*(s32 *)&this->m_b4);
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0xB0), *(s32 *)((s8 *)arg0 + 0xB8), frac);
+    draw_model_motion(*(s32 *)&this->unk_B0, *(s32 *)&this->unk_B8, frac);
     TObjFish::set_global_param(this->m_c0);
-    draw_model_motion(*(s32 *)((s8 *)arg0 + 0xBC), *(s32 *)((s8 *)arg0 + 0xC4), frac);
+    draw_model_motion(*(s32 *)&this->unk_BC, *(s32 *)&this->unk_C4, frac);
     TObjPlayer::clear_global_state();
     pop_matrix();
     if (alpha < 1.0f) {

@@ -17,7 +17,9 @@ struct TObjWarpLobby : public TObjAreaWarp {
     static void release_static();
     void open_lobby_menu();
     void render();
-    u8 unk_C4[0x1C];
+    u8 unk_C4[0x4];
+    f32 m_c8;
+    u8 unk_CC[0x14];
 };
 
 typedef char TObjWarpLobby_size[sizeof(TObjWarpLobby) == 0xE0 ? 1 : -1];

@@ -28,7 +28,7 @@ s32 TItemShootParticle::spawn_slot_emitter(s32 arg1, s32 arg2) {
     if ((arg2 >= 0) && (arg2 < 2)) {
         temp_r31 = (arg2 * 4) + 0x58;
         TBoss4Type2::request_destroy(*(s32 *)((s8 *)((u8 *)this) + temp_r31));
-        *(s32 *)((s8 *)((u8 *)this) + temp_r31) = spawn_particle_effect_with_rotation((s32) (((u8 *)this) + 0x1C), (s32) (((u8 *)this) + 0x28), arg1, (s32) (u16) (*(u16 *)((s8 *)((u8 *)this) + 0x60) | 0x40));
+        *(s32 *)((s8 *)((u8 *)this) + temp_r31) = spawn_particle_effect_with_rotation((s32) (((u8 *)this) + 0x1C), (s32) (((u8 *)this) + 0x28), arg1, (s32) (u16) (this->m_60 | 0x40));
         return *(s32 *)((s8 *)((u8 *)this) + temp_r31);
     }
     return 0;

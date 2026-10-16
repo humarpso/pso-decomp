@@ -30,13 +30,13 @@ s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1) {
 
 void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
     if ((arg1 != NULL) && ((s16) *arg1 == 1)) {
-        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
+        this->m_d0 = (s32) (this->m_d0 | 1);
         if (arg2 == 0) {
-            *(f32 *)((s8 *)this + 0xB4) = (f32) (*(u32 *)((s8 *)(*(void **)((s8 *)this + 0xBC)) + 4) - 1);
+            *(f32 *)&this->m_b4 = (f32) (*(u32 *)((s8 *)(*(void * *)&this->m_bc) + 4) - 1);
             set_indexed_flags((s32)this, 0, 8);
-            if ((u32) *(u32 *)((s8 *)this + 0xDC) != 0U) {
-                queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xDC));
-                *(u32 *)((s8 *)this + 0xDC) = 0U;
+            if ((u32) this->m_dc != 0U) {
+                queue_destruction__7TObjectFv(*(void * *)&this->m_dc);
+                this->m_dc = 0U;
             }
         }
     }

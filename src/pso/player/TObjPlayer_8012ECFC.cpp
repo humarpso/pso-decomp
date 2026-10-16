@@ -26,7 +26,7 @@ void twinkle_star_turn_stars(void *arg0) {
 }
 
 void TUnk_804A6010::update_weapon() {
-    *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 0xCCC);
+    *(s32 *)&this->unk_1F8 = (s32) (*(s32 *)&this->unk_1F8 + 0xCCC);
 }
 
 extern s32 tl_05;

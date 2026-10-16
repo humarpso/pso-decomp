@@ -131,20 +131,20 @@ void TUnk_804887F8::update_follow_flags() {
     typedef char spC_offset[(offsetof(Stack_80067AB0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80067AB0, sp10) == 0x8) ? 1 : -1];
     Stack_80067AB0 stack;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0x15;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805D8F50;
-    stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x184) - *(f32 *)((s8 *)arg0 + 0x48);
-    stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - *(f32 *)((s8 *)arg0 + 0x4C);
+    this->m_38 = 0x15;
+    this->m_58 = (f32) lbl_805D8F50;
+    stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x184) - *(f32 *)&this->unk_48;
+    stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x188) - this->m_4c;
     stack.sp10 = *(f32 *)((s8 *)camera_ctrl_instance + 0x18C) - *(f32 *)((s8 *)arg0 + 0x50);
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) ((lbl_805D8F54 * vector_length((void *) (&stack.sp8))) / lbl_805D8F4C);
     if (((TUnk_80488E00 *)arg0)->predict_obstruction() != 0) {
-        *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) | 1);
+        this->m_fc = (s32) (this->m_fc | 1);
     } else {
-        *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) & 0xFFFFFFFE);
+        this->m_fc = (s32) (this->m_fc & 0xFFFFFFFE);
     }
-    *(f32 *)((s8 *)arg0 + 0xE8) = (f32) lbl_805D8F38;
+    this->m_e8 = (f32) lbl_805D8F38;
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805D8F58;
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805D8F5C;
+    this->m_f0 = (f32) lbl_805D8F5C;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (&camera_ctrl_default_offset_vecs.value));
 }
 
@@ -159,13 +159,13 @@ void *TCameraCtrl__vt12(void) {
 extern u8 controller_input_state[];
 
 void TCameraCtrl::init_state() {
-    *(s32 *)((s8 *)this + 0x38) = 0x15;
+    *(s32 *)&this->unk_38 = 0x15;
     if (is_on_current_screen__11TCameraCtrlFv(controller_input_state + 0x20, 0x10000) != 0) {
         update_follow_camera();
     } else {
         update_target_follow();
     }
-    *(s32 *)((s8 *)this + 0x38) = (s32) (*(s32 *)((s8 *)this + 0x38) | 0x10);
+    *(s32 *)&this->unk_38 = (s32) (*(s32 *)&this->unk_38 | 0x10);
 }
 
 extern s32 lbl_804887F8[];

@@ -76,36 +76,36 @@ f32 TOTrapAncient02R::receive_weapon_special_attack(void *, void *) {
 
 void TOTrapAncient02R::init_trap_param_clamped() {
     s32 temp_r0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x368) = (s32) *(f32 *)((s8 *)((u8 *)this) + 0x6C);
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x368);
+    *(s32 *)&this->m_368 = (s32) this->target_scale;
+    temp_r0 = *(s32 *)&this->m_368;
     if (temp_r0 < 1) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 1;
+        *(s32 *)&this->m_368 = 1;
         return;
     }
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x368) = 0x100;
+        *(s32 *)&this->m_368 = 0x100;
     }
 }
 
 void TOTrapAncient02R::clamp_trap_level_param() {
     s32 temp_r0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x35C) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x8C);
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x35C);
+    *(s32 *)&this->m_35c = (s32) *(s32 *)&this->m_8c;
+    temp_r0 = *(s32 *)&this->m_35c;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x35C) = 0;
+        *(s32 *)&this->m_35c = 0;
         return;
     }
     if (temp_r0 >= 5) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x35C) = 4;
+        *(s32 *)&this->m_35c = 4;
     }
 }
 
 void TOTrapAncient02R::init_trap_object_id() {
     s32 temp_r0;
-    *(s32 *)((s8 *)((u8 *)this) + 0x364) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x88);
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x364);
+    *(s32 *)&this->m_364 = (s32) *(s32 *)&this->m_88;
+    temp_r0 = *(s32 *)&this->m_364;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x364) = -1;
+        *(s32 *)&this->m_364 = -1;
     }
 }
 

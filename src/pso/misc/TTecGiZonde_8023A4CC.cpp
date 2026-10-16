@@ -81,12 +81,12 @@ void TTecGiZonde::render() {  }
 void TUnk_804CCC68::advance_lifetime_or_destroy() {
     f32 temp_f1;
 
-    temp_f1 = *(f32 *)((s8 *)this + 0x74);
-    if (temp_f1 > *(f32 *)((s8 *)this + 0x70)) {
+    temp_f1 = this->traveled;
+    if (temp_f1 > this->range) {
         queue_destruction__7TObjectFv((void *)(this));
         return;
     }
-    *(f32 *)((s8 *)this + 0x74) = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0x64));
+    this->traveled = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0x64));
 }
 
 #pragma push

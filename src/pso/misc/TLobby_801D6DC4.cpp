@@ -49,7 +49,7 @@ void TLobby::set_volume(u8 arg1) {
     if (var_r4 > 0x63U) {
         var_r4 = 0;
     }
-    *(u8 *)((s8 *)this + 0x10) = var_r4;
+    *(u8 *)&this->m_up = var_r4;
 }
 
 u8 TLobby__sub_801D6DDC(void *arg0) {
@@ -76,7 +76,7 @@ void TLobby::set_validated_field_0x11(u8 arg1) {
 s16 TLobby::clamp_player_index() {
     s16 var_r31;
 
-    var_r31 = *(s16 *)((s8 *)this + 0x14);
+    var_r31 = *(s16 *)&this->m_down;
     if ((var_r31 < 0) || (var_r31 > TObjPlayer::get_max_level())) {
         var_r31 = 0;
     }
@@ -90,7 +90,7 @@ void TLobby::set_clamped_index(s16 arg1) {
     if ((var_r31 < 0) || (var_r31 > TObjPlayer::get_max_level())) {
         var_r31 = 0;
     }
-    *(s16 *)((s8 *)this + 0x14) = var_r31;
+    *(s16 *)&this->m_down = var_r31;
 }
 
 void TLobby::set_clamped_value_1c(s32 arg1) {

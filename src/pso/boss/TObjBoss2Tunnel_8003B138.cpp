@@ -957,8 +957,8 @@ extern s32 lbl_804835D8[];
 void TUnk_804835D8::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0x1E) {
+    *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
+    if ((s32) *(s32 *)&this->unk_1C > 0x1E) {
         this->m_20 += (1.0f);
         temp_f1 = this->m_20;
         if (temp_f1 > (7e+01f)) {
@@ -988,8 +988,8 @@ extern s32 lbl_804835D8[];
 void *TUnk_804835D8::init() {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804835D8;
-    *(u32 *)((s8 *)this + 0x1C) = 0;
-    *(f32 *)((s8 *)this + 0x20) = (0.0f);
+    *(u32 *)&this->unk_1C = 0;
+    this->m_20 = (0.0f);
     return this;
 }
 

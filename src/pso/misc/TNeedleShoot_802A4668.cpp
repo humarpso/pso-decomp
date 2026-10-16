@@ -32,7 +32,7 @@ void TNeedleShoot::update_position() {
     f32 temp_f2;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg0 + 0x6C));
     *(f32 *)&this->m_6c = (f32) ((*(f32 *)&this->m_94 * *(f32 *)&this->_padAC) + *(f32 *)&this->m_6c);
-    *(f32 *)((s8 *)arg0 + 0x70) = (f32) ((*(f32 *)((s8 *)arg0 + 0x98) * *(f32 *)&this->_padAC) + *(f32 *)((s8 *)arg0 + 0x70));
+    *(f32 *)&this->unk_70 = (f32) ((*(f32 *)&this->unk_98 * *(f32 *)&this->_padAC) + *(f32 *)&this->unk_70);
     temp_f2 = this->m_9c;
     temp_f1 = *(f32 *)&this->_padAC;
     this->m_74 = (f32) ((temp_f2 * temp_f1) + this->m_74);

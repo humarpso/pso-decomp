@@ -15,7 +15,11 @@ struct TOKeyGenericSw : public TOKey {
     static void *create(void *arg0);
     static void free_shared_resources();
     static void load_resources();
-    u8 unk_E0[0x1C];
+    u8 unk_E0[0xC];
+    s32 m_ec;
+    u8 unk_F0[0x4];
+    s32 m_f4;
+    u8 unk_F8[0x4];
 };
 
 typedef char TOKeyGenericSw_size[sizeof(TOKeyGenericSw) == 0xFC ? 1 : -1];

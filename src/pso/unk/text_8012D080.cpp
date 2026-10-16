@@ -26,21 +26,21 @@ void TUnk_804A5838::update_attack() {
     f32 speed;
     f32 flo;
     f32 fhi;
-    if (*(void **)((s8 *)self + 0xF0) != NULL) {
-        speed = ((TUnk_804806E8 *)(*(void **)((s8 *)self + 0xF0)))->get_speed();
-        flag = ((TObjPlayer *)(*(void **)((s8 *)self + 0xF0)))->is_flag_b0_4();
+    if (*(void * *)&this->player != NULL) {
+        speed = ((TUnk_804806E8 *)(*(void * *)&this->player))->get_speed();
+        flag = ((TObjPlayer *)(*(void * *)&this->player))->is_flag_b0_4();
         ok = 1;
-        if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x20) != 0) {
+        if (test_action_mask__10TObjPlayerFl(*(void * *)&this->player, 0x20) != 0) {
             flo = lbl_805DAF00;
             lo = 0;
             fhi = lbl_805DAF04;
             hi = 0x4000;
-        } else if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x40) != 0) {
+        } else if (test_action_mask__10TObjPlayerFl(*(void * *)&this->player, 0x40) != 0) {
             flo = lbl_805DAF08;
             lo = 0x4000;
             fhi = lbl_805DAF0C;
             hi = -0x4000;
-        } else if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x80) != 0) {
+        } else if (test_action_mask__10TObjPlayerFl(*(void * *)&this->player, 0x80) != 0) {
             flo = lbl_805DAF10;
             lo = -0x4000;
             fhi = lbl_805DAF14;
@@ -51,14 +51,14 @@ void TUnk_804A5838::update_attack() {
         if (ok == 1) {
             if (flag == 0) {
                 if (speed < flo) {
-                    *(s32 *)((s8 *)self + 0x1F8) = lo;
+                    *(s32 *)&this->unk_1F8 = lo;
                 } else if (flo <= speed && speed <= fhi) {
-                    *(s32 *)((s8 *)self + 0x1F8) = (s32)((speed - flo) * ((f32)(hi - lo) / (fhi - flo)) + (f32)lo);
+                    *(s32 *)&this->unk_1F8 = (s32)((speed - flo) * ((f32)(hi - lo) / (fhi - flo)) + (f32)lo);
                 } else {
-                    *(s32 *)((s8 *)self + 0x1F8) = hi;
+                    *(s32 *)&this->unk_1F8 = hi;
                 }
             } else {
-                *(s32 *)((s8 *)self + 0x1F8) = hi;
+                *(s32 *)&this->unk_1F8 = hi;
             }
         }
     }

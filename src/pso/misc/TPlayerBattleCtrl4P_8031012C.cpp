@@ -760,8 +760,8 @@ void TPlayerBattleCtrl4P::set_score(s32 v) { this->phase_state = v; }
 
 void TPlayerBattleCtrl4P::set_split_screen_battle_phase(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x298) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x29C) = 0;
+    this->phase = arg1;
+    this->phase_state = 0;
 }
 
 void TPlayerBattleCtrl4P::update_all_players() {

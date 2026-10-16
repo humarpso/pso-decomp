@@ -606,13 +606,13 @@ void TObjContainerJungEnemy::vfunc_6(s16 *arg1, s32 arg2) {
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((void *) (arg0));
-            *(s16 *)((s8 *)arg0 + 0x326) = 1;
+            this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
+        this->mode = 1;
     }
 }
 
@@ -723,17 +723,17 @@ void TObjContainerJungEnemy::vfunc_81() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
-        draw_ginja_object(*(void **)((s8 *)arg0 + 0x368));
+        draw_ginja_object(*(void * *)&this->m_368);
         TParticleCtrl::begin_effect_render();
-        draw_ginja_object(*(void **)((s8 *)arg0 + 0x374));
+        draw_ginja_object(*(void * *)&this->m_374);
         TParticleCtrl::end_effect_render();
         pop_matrix();
     case 1:

@@ -7,7 +7,9 @@ class TItemShootParticle : public TItemShoot {
 public:
     virtual ~TItemShootParticle();
     virtual void hook();
-    u8 unk_58[0xC];
+    u8 unk_58[0x8];
+    u16 m_60;
+    u8 unk_62[0x2];
 public:
     s32 spawn_slot_emitter(s32 arg1, s32 arg2);
 };

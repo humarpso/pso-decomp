@@ -179,7 +179,7 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TOCapsuleAncient01::vfunc_15() {
-    *(s32 *)((s8 *)this + 0xE4) = (s32) (*(s32 *)((s8 *)this + 0xE4) + 0x222);
+    *(s32 *)&this->m_e4 = (s32) (*(s32 *)&this->m_e4 + 0x222);
 }
 
 }

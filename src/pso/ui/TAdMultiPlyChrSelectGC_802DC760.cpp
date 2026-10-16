@@ -62,13 +62,13 @@ void TAdMultiPlyChrSelectGC::update_input_state() {
             ((TWindowSubComCard *)(*(void * *)&this->m_94))->close();
             this->m_94 = 0U;
         }
-        *(s32 *)((s8 *)this + 0x58) = (s32) (*(s32 *)((s8 *)this + 0x58) + 1);
+        *(s32 *)&this->unk_58 = (s32) (*(s32 *)&this->unk_58 + 1);
         *(s32 *)&this->m_20 = 0x1F;
         return;
     }
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) {
-        if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() < 0xE) {
-            *(s32 *)((s8 *)this + 0x58) = 0;
+        if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->unk_68))->get_player_index() < 0xE) {
+            *(s32 *)&this->unk_58 = 0;
         }
         if ((u32) this->m_94 != 0U) {
             ((TWindowSubComCard *)(*(void * *)&this->m_94))->close();
@@ -88,7 +88,7 @@ void TAdMultiPlyChrSelectGC::update_input_state() {
                 ((TWindowSubComCard *)(*(void * *)&this->m_94))->close();
                 this->m_94 = 0U;
             }
-            *(s32 *)((s8 *)this + 0x58) = (s32) (*(s32 *)((s8 *)this + 0x58) + 1);
+            *(s32 *)&this->unk_58 = (s32) (*(s32 *)&this->unk_58 + 1);
             *(s32 *)&this->m_20 = 0x1F;
             break;
         }

@@ -32,7 +32,7 @@ void TObjPlayer::apply_shield_scale_to_unit() {
         var_f31 = lbl_805DAD90;
         break;
     }
-    ((TItemProUnit *)(*(s32 *)((s8 *)this + 0xF0) + 0x7CC))->set_evp(var_f31);
+    ((TItemProUnit *)(*(s32 *)&this->unk_F0 + 0x7CC))->set_evp(var_f31);
 }
 
 }

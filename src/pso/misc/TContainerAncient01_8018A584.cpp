@@ -542,15 +542,15 @@ void TContainerAncient01R::check_open_trigger() {
 void TContainerAncient01::init_positions() {
     u8 *arg0 = (u8 *)this;
     this->m_33c = (f32) (TContainerAncient01__data_805DBD3C + (this->scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
-    *(f32 *)((s8 *)arg0 + 0x340) = (f32) (lbl_805DBD40 + (this->target_scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
-    this->m_344 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    *(f32 *)&this->unk_340 = (f32) (lbl_805DBD40 + (this->target_scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    this->m_344 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)&this->m_8c + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x348, arg0 + 0x38);
     this->m_34c = (f32) (this->m_34c + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x354, arg0 + 0x348);
     *(f32 *)&this->unk_358 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + *(f32 *)&this->unk_358);
     *(s32 *)&this->m_360 = 0;
-    *(f32 *)((s8 *)arg0 + 0x364) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
+    *(f32 *)&this->unk_364 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
     this->m_368 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
     *(f32 *)&this->unk_36C = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
     this->hp = (s16) this->rotation_z;
@@ -596,10 +596,10 @@ void TContainerAncient01R::open_container() {
 f32 TContainerAncient01R::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
-        *(s16 *)((s8 *)arg0 + 0x338) = (s16) (*(s16 *)((s8 *)arg0 + 0x338) + 1);
-        if (((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
-            sp8 = *(s16 *)((s8 *)arg0 + 0x338);
+    if ((u16) this->m_1c >= 0x1000U) {
+        this->m_338 = (s16) (this->m_338 + 1);
+        if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
+            sp8 = this->m_338;
             ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
             ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
         }
@@ -876,15 +876,15 @@ void TContainerAncient01::init_state_vectors() {
     u8 *arg0 = (u8 *)this;
     *(f32 *)&this->m_338 = (f32) (TContainerAncient01__data_805DBD3C + (this->scale - TContainerAncient01__data_805DBD10));
     this->m_33c = (f32) (lbl_805DBD40 + (this->target_scale - TContainerAncient01__data_805DBD10));
-    *(f32 *)((s8 *)arg0 + 0x340) = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - TContainerAncient01__data_805DBD10));
+    *(f32 *)&this->unk_340 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - TContainerAncient01__data_805DBD10));
     *(s32 *)&this->unk_36C = (s32) (*(s32 *)&this->m_8c + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x344, arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x348) = (f32) (*(f32 *)((s8 *)arg0 + 0x348) + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
+    *(f32 *)&this->unk_348 = (f32) (*(f32 *)&this->unk_348 + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x350, arg0 + 0x344);
     this->m_354 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + this->m_354);
     *(s32 *)&this->m_35c = 0;
     *(f32 *)&this->m_360 = (f32) TContainerAncient01__data_805DBD10;
-    *(f32 *)((s8 *)arg0 + 0x364) = (f32) TContainerAncient01__data_805DBD10;
+    *(f32 *)&this->unk_364 = (f32) TContainerAncient01__data_805DBD10;
     this->m_368 = (f32) TContainerAncient01__data_805DBD10;
 }
 #pragma pop

@@ -64,7 +64,7 @@ void TObjPlayer::launch_guardianna_colliders() {
     s32 sp8;
 
     draw_icon((s32)4, (s32)(&sp8));
-    if (get_validated_attack_stage(*(s32 *)((s8 *)this + 0xF0) + 0x7CC) == 2) {
+    if (get_validated_attack_stage(*(s32 *)&this->unk_F0 + 0x7CC) == 2) {
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0);
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0x1555);
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, -0x1555);
@@ -216,7 +216,7 @@ extern "C" {
     extern const float lbl_805DF7D8;
     extern const float lbl_805DF7E0;
     extern const float lbl_805DF7E4;
-void TObjPlayer::init_offset_vectors() { this->m_70 = 0; *(float*)((char*)this + 0x74) = lbl_805DF7E4; this->m_78 = lbl_805DF7E4; *(float*)((char*)this + 0x7c) = lbl_805DF7E4; this->m_80 = lbl_805DF7D8; *(float*)((char*)this + 0x84) = lbl_805DF7E0; this->m_88 = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
+void TObjPlayer::init_offset_vectors() { this->m_70 = 0; *(float *)&this->unk_74 = lbl_805DF7E4; this->m_78 = lbl_805DF7E4; *(float *)&this->unk_7C = lbl_805DF7E4; this->m_80 = lbl_805DF7D8; *(float *)&this->unk_84 = lbl_805DF7E0; this->m_88 = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
 
 }
 

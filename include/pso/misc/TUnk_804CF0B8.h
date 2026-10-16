@@ -21,7 +21,13 @@ public:
     void set_flag2c_bit200();
     void clear_flag2c_bit200();
     void set_flag2c_bit100();
-    u8 unk_1C[0x7C];
+    u8 unk_1C[0x4];
+    u16 m_20;
+    u8 unk_22[0xA];
+    u32 m_2c;
+    u8 unk_30[0x41];
+    u8 m_71;
+    u8 unk_72[0x26];
 };
 typedef char TUnk_804CF0B8_size[sizeof(TUnk_804CF0B8) == 0x98 ? 1 : -1];
 

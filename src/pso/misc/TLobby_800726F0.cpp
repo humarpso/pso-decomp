@@ -165,7 +165,7 @@ void TLobby::send_6x7C_packet() {
     TLobby__send_and_handle_60((void *)(arg0));
 }
 void TLobby::init_pkt_cmd_7C() {
-    *(s8 *)((s8 *)((u8 *)this) + 0) = 0x7C;
+    *(s8 *)&this->m_name = 0x7C;
     *(s8 *)((s8 *)((u8 *)this) + 1) = 0x42;
 }
 
@@ -302,15 +302,15 @@ void TObjChallengeRetry::handle_loss_sequence() {
         sub_80072B70();
         close_window_2c();
         *(s32 *)((s8 *)this + 0x28) = 0x1E;
-        *(s32 *)((s8 *)this + 0x1C) = 4;
+        *(s32 *)&this->_pad1c = 4;
         return;
     default:
-        if (((s32) *(s32 *)((s8 *)this + 0x20) != 0) && ((s32) *(s32 *)((s8 *)this + 0x24) == 0)) {
+        if (((s32) this->m_20 != 0) && ((s32) this->m_24 == 0)) {
             TLobby::send_45_and_close_windows(this);
             TLobby::show_ctrl_and_play_effect((void*)(this));
             sub_80072B70();
             open_loss_menu();
-            *(s32 *)((s8 *)this + 0x1C) = 2;
+            *(s32 *)&this->_pad1c = 2;
         }
         return;
     }
@@ -332,8 +332,8 @@ void TObjChallengeRetry::update_challenge_retry() {
         TLobby::send_challenge_retry_cmd(challenge_retry_cmd_table[temp_r3]);
         TLobby::send_45_and_close_windows(this);
         play_player_default_effect__6TLobbyFv((s32)(this));
-        *(s32 *)((s8 *)this + 0x24) = 1;
-        *(s32 *)((s8 *)this + 0x1C) = 3;
+        this->m_24 = 1;
+        *(s32 *)&this->_pad1c = 3;
         return;
     }
 block_6:
@@ -341,7 +341,7 @@ block_6:
         close_window_2c();
         TLobby::send_45_and_close_windows(this);
         TLobby::play_default_effect((void*)(this));
-        *(s32 *)((s8 *)this + 0x1C) = 1;
+        *(s32 *)&this->_pad1c = 1;
     }
 }
 void TObjChallengeRetry::handle_challenge_retry_confirm() {
@@ -349,7 +349,7 @@ void TObjChallengeRetry::handle_challenge_retry_confirm() {
     if ((((u32)get_player_by_client_id(local_client_id)) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {
         TLobby::send_45_and_close_windows(this);
         TLobby::show_ctrl_and_play_effect((void*)(this));
-        *(s32 *)((s8 *)this + 0x1C) = 2;
+        *(s32 *)&this->_pad1c = 2;
     }
 }
 

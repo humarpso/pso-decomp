@@ -166,7 +166,7 @@ u8 TODoorVS2Door01::is_open() {
     int var_r31;
 
     var_r31 = 0;
-    if ((is_in_view_depth__13TUnk_804AFBF8Ff() != 0) || ((s32) *(s32 *)((s8 *)this + 0xAC) != 0)) {
+    if ((is_in_view_depth__13TUnk_804AFBF8Ff() != 0) || ((s32) *(s32 *)&this->m_ac != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

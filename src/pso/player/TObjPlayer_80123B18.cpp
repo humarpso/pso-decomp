@@ -13,11 +13,11 @@ extern const f32 lbl_805DAD18;
 void TUnk_804A1D30::update_attack() {
     f32 temp_f2;
 
-    temp_f2 = *(f32 *)((s8 *)this + 0x200);
+    temp_f2 = this->m_200;
     if (temp_f2 < lbl_805DAD18) {
-        *(f32 *)((s8 *)this + 0x200) = (f32) (temp_f2 + lbl_805DAD14);
-        if (lbl_805DAD18 < *(f32 *)((s8 *)this + 0x200)) {
-            *(f32 *)((s8 *)this + 0x200) = (f32) lbl_805DAD18;
+        this->m_200 = (f32) (temp_f2 + lbl_805DAD14);
+        if (lbl_805DAD18 < this->m_200) {
+            this->m_200 = (f32) lbl_805DAD18;
         }
     }
 }

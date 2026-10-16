@@ -39,7 +39,7 @@ void TLobby::send_item_packet() { bswap_item_packet(); TLobby__send_and_handle_6
 void TLobby::bswap_item_packet() { read_be16_field2__10TObjPlayerFv(this); ((TLobby *)((char*)this + 0x4))->bswap_item(); }
 void *TLobby::init_header_packet() {
     init_header();
-    *(s8 *)((s8 *)this + 0) = 0x5F;
+    *(s8 *)&this->m_name = 0x5F;
     *(s8 *)((s8 *)this + 0x28) = 2;
     *(s8 *)((s8 *)this + 0x29) = 0;
     *(s8 *)((s8 *)this + 0x2A) = 0;
@@ -49,7 +49,7 @@ void *TLobby::init_header_packet() {
 }
 void *TLobby::init_header() {
     ((TLobby *)((char *)this + 4))->drop_stacked_item_passthrough();
-    *(u8 *)((s8 *)this + 0x0) = 95;
+    *(u8 *)&this->m_name = 95;
     *(u8 *)((s8 *)this + 0x1) = 10;
     return this;
 }
@@ -62,7 +62,7 @@ s32 TLobby::apply_table_entry(s16 arg0, void * _w1) {
     return 1;
 }
 void TLobby::copy_short_fields(void *arg1) {
-    *(s16 *)((s8 *)this + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(s16 *)&this->m_name = (s16) *(s16 *)((s8 *)arg1 + 0);
     *(u16 *)((s8 *)this + 2) = (u16) *(u16 *)((s8 *)arg1 + 2);
 }
 

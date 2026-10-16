@@ -24,7 +24,7 @@ void TOSwitchAttack::init_params() {
     temp_f0 = this->scale;
     this->m_94 = (f32) (temp_f0 * temp_f0);
     *(f32 *)&this->unk_98 = (f32) (this->target_scale * (lbl_805DBA00 * (f32) (game_difficulty_selection + 1)));
-    *(f32 *)((s8 *)this + 0x90) = (f32) *(f32 *)((s8 *)this + 0x70);
+    *(f32 *)&this->unk_90 = (f32) *(f32 *)&this->m_70;
     if ((u8) this->m_a7 >= 0x15U) {
         this->m_a7 = 0U;
     }

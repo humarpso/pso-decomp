@@ -23,7 +23,9 @@ struct TWindowMainMenu : public TObject {
     virtual void vfunc_8();
     virtual void vfunc_9();
     void set_scale_f();
-    u8 unk_1C[0x10];
+    u8 unk_1C[0x4];
+    s32 m_20;
+    u8 unk_24[0x8];
     u32 m_48;
     u32 m_4c;
     u16 m_50;

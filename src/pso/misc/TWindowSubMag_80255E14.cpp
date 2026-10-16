@@ -6,14 +6,14 @@
 
 extern "C" {
 
-void TWindowHelpItem::set_flag60_bit4() { *(u8*)((char*)this + 0x60) |= 0x4; }
+void TWindowHelpItem::set_flag60_bit4() { this->m_60 |= 0x4; }
 
 void TWindowHelpItem::sub_80255E24() {
     u8 *arg0 = (u8 *)this;
     u8 temp_r4;
-    temp_r4 = *(u8 *)((s8 *)arg0 + 0x60);
+    temp_r4 = this->m_60;
     if (temp_r4 & 2) {
-        *(u8 *)((s8 *)arg0 + 0x60) = (u8) (temp_r4 & 0xFFFFFFFB);
+        this->m_60 = (u8) (temp_r4 & 0xFFFFFFFB);
     }
 }
 

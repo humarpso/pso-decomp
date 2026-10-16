@@ -97,7 +97,7 @@ void TObjEneBalClaw::update_claw_angle() {
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFF9);
         if (*(s32 *)&this->m_388 & 0x10000) {
             temp_f1 = this->m_3b4;
-            temp_f0 = *(f32 *)((s8 *)this + 0x3B0);
+            temp_f0 = *(f32 *)&this->unk_3B0;
             if (temp_f1 < temp_f0) {
                 this->m_3b4 = (f32) (temp_f1 + lbl_805D9600);
                 return;

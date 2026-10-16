@@ -11,7 +11,8 @@ struct TWindowMessageLog : public TWindowMessage {
     void clamp_scroll_offset();
     virtual void run_task();
     virtual void render();
-    u8 unk_90[0x8];
+    u8 unk_90[0x4];
+    f32 m_94;
     static s32 get_active_photon_object();
     void update_scroll_position();
     void append_line(s32 arg1);

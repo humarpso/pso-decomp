@@ -8,7 +8,10 @@ public:
     virtual ~TUnk_804CC048();
     void *construct(void *, void *, void *);
     virtual void render();
-    u8 unk_1C[0x108C];
+    u8 unk_1C[0x1080];
+    u32 m_109c;
+    u8 unk_10A0[0x4];
+    void * m_10a4;
 };
 typedef char TUnk_804CC048_size[sizeof(TUnk_804CC048) == 0x10A8 ? 1 : -1];
 

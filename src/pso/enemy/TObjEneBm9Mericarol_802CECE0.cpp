@@ -991,17 +991,17 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
 
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 7;
+        this->m_b8 = 7;
         ((V_A_802cf040_802CECE0 *) arg0)->m94();
         TObjEneBm9Mericarol__sub_802D093C(arg0);
-        temp_r5 = *(s32 *)((s8 *)arg0 + 0x438);
-        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (temp_r5 & ~0x28);
+        temp_r5 = *(s32 *)&this->m_454;
+        *(s32 *)&this->m_454 = (s32) (temp_r5 & ~0x28);
         set_field_378__9TObjEneDDFl(arg0, 3, temp_r5);
-        *(s32 *)((s8 *)arg0 + 0x490) = 0;
+        *(s32 *)&this->m_4ac = 0;
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AD0F), arg0 + 0x38, 0, 0);
         return;
     case 3:
-        if (objInBand__FP7GameObjf(*(f32 *)((s8 *)arg0 + 0xC4) - lbl_805DE6F4) != 0) {
+        if (objInBand__FP7GameObjf(*(f32 *)&this->unk_C4 - lbl_805DE6F4) != 0) {
             transition_enemy_state(arg0, 3);
         }
         ((V_A_802cf040_802CECE0 *) arg0)->m100();
@@ -1009,12 +1009,12 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
         return;
     case 0:
         advance_animation_playback((void *)((void *)(arg0)));
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x490);
-        *(s32 *)((s8 *)arg0 + 0x490) = (s32) (temp_r4 + 1);
+        temp_r4 = *(s32 *)&this->m_4ac;
+        *(s32 *)&this->m_4ac = (s32) (temp_r4 + 1);
         TObjEneBm9Mericarol__sub_802D073C((void *)((void *)(arg0)));
         return;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) & 0xFFFFFFFD);
+        *(s32 *)&this->m_454 = (s32) (*(s32 *)&this->m_454 & 0xFFFFFFFD);
     case 1:
         return;
     }

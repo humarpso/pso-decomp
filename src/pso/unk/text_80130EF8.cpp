@@ -36,9 +36,9 @@ void TUnk_804A6CC8::update_attack() {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);
     if (temp_r0 == 0) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (u8) (temp_r0 == 0);
-        *(f32 *)((s8 *)arg0 + 0x204) = (f32) lbl_805DB03C;
+        this->m_204 = (f32) lbl_805DB03C;
         *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DB03C;
-        *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DB03C;
+        this->m_1fc = (f32) lbl_805DB03C;
     }
 }
 #pragma push
@@ -51,29 +51,29 @@ void TUnk_804A6CC8::update_weapon() {
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x208);
     switch (temp_r0) {
     case 1:
-        *(f32 *)((s8 *)((u8 *)this) + 0x210) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x210) - lbl_805DB040);
-        if (*(f32 *)((s8 *)((u8 *)this) + 0x210) <= lbl_805DB044) {
-            *(f32 *)((s8 *)((u8 *)this) + 0x210) = (f32) lbl_805DB044;
+        this->m_210 = (f32) (this->m_210 - lbl_805DB040);
+        if (this->m_210 <= lbl_805DB044) {
+            this->m_210 = (f32) lbl_805DB044;
             *(s32 *)((s8 *)((u8 *)this) + 0x208) = 0;
             break;
         }
         break;
     case 2:
-        *(f32 *)((s8 *)((u8 *)this) + 0x210) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x210) + lbl_805DB040);
-        if (lbl_805DB048 <= *(f32 *)((s8 *)((u8 *)this) + 0x210)) {
-            *(f32 *)((s8 *)((u8 *)this) + 0x210) = (f32) lbl_805DB048;
+        this->m_210 = (f32) (this->m_210 + lbl_805DB040);
+        if (lbl_805DB048 <= this->m_210) {
+            this->m_210 = (f32) lbl_805DB048;
             *(s32 *)((s8 *)((u8 *)this) + 0x208) = 3;
             break;
         }
         break;
     case 3:
         *(s32 *)((s8 *)((u8 *)this) + 0x208) = 1;
-        temp_r31 = *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x60) - 0x4000;
+        temp_r31 = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60) - 0x4000;
         buffer_14[0] = sin_table_lookup(temp_r31);
         buffer_14[1] = lbl_805DB03C;
         buffer_14[2] = cos_table_lookup(temp_r31);
         buffer_8[0] = 0x4000;
-        buffer_8[1] = *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x60);
+        buffer_8[1] = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60);
         buffer_8[2] = 0;
         TObjPlayer::launch_weapon_casing(tl_05, (u32) ((u8 *)this), 3, (u32) &buffer_14[0], (u32) &buffer_8[0]);
         break;

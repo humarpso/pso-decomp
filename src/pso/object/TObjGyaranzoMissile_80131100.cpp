@@ -87,29 +87,29 @@ void TUnk_804A6DC0::update_weapon() {
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x1F8);
     switch (temp_r0) {
     case 1:
-        *(f32 *)((s8 *)((u8 *)this) + 0x200) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x200) - lbl_805DB050);
-        if (*(f32 *)((s8 *)((u8 *)this) + 0x200) <= (*(const f32 *)&lbl_805DB054)) {
-            *(f32 *)((s8 *)((u8 *)this) + 0x200) = (f32) (*(const f32 *)&lbl_805DB054);
+        this->m_200 = (f32) (this->m_200 - lbl_805DB050);
+        if (this->m_200 <= (*(const f32 *)&lbl_805DB054)) {
+            this->m_200 = (f32) (*(const f32 *)&lbl_805DB054);
             *(s32 *)((s8 *)((u8 *)this) + 0x1F8) = 0;
             break;
         }
         break;
     case 2:
-        *(f32 *)((s8 *)((u8 *)this) + 0x200) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x200) + lbl_805DB050);
-        if (lbl_805DB058 <= *(f32 *)((s8 *)((u8 *)this) + 0x200)) {
-            *(f32 *)((s8 *)((u8 *)this) + 0x200) = (f32) lbl_805DB058;
+        this->m_200 = (f32) (this->m_200 + lbl_805DB050);
+        if (lbl_805DB058 <= this->m_200) {
+            this->m_200 = (f32) lbl_805DB058;
             *(s32 *)((s8 *)((u8 *)this) + 0x1F8) = 3;
             break;
         }
         break;
     case 3:
         *(s32 *)((s8 *)((u8 *)this) + 0x1F8) = 1;
-        temp_r31 = *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x60) - 0x4000;
+        temp_r31 = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60) - 0x4000;
         buffer_14[0] = sin_table_lookup(temp_r31);
         buffer_14[1] = lbl_805DB05C;
         buffer_14[2] = cos_table_lookup(temp_r31);
         buffer_8[0] = 0x4000;
-        buffer_8[1] = *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x60);
+        buffer_8[1] = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60);
         buffer_8[2] = 0;
         TObjPlayer::launch_weapon_casing(tl_05, (u32) ((u8 *)this), 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
         break;

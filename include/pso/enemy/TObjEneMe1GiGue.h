@@ -29,7 +29,10 @@ struct TObjEneMe1GiGue : public TObjEnemyCustom {
     void* m_3fc;
     u8 _pad400[0x18];
     void* m_418;
-    u8 _pad41C[0x2C];
+    u8 unk_41C[0x18];
+    s32 m_434;
+    u8 unk_438[0xC];
+    f32 m_444;
     u32 m_448;
     void dispatch_state();
     static void *create(void *arg0);

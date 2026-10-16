@@ -32,11 +32,11 @@ void TObjBoss1Rock::run_task() {
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x20);
     if (temp_f2 < lbl_805D8208) {
         *(f32 *)((s8 *)arg0 + 0x20) = (f32) (temp_f2 * lbl_805D820C);
-        *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) * lbl_805D8210);
+        *(f32 *)&this->unk_2C = (f32) (*(f32 *)&this->unk_2C * lbl_805D8210);
         *(f32 *)&this->m_28 = (f32) (*(f32 *)&this->m_28 * lbl_805D8214);
         this->m_30 = (f32) (this->m_30 * lbl_805D8214);
     }
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) + lbl_805D8218);
+    *(f32 *)&this->unk_2C = (f32) (*(f32 *)&this->unk_2C + lbl_805D8218);
     *(s32 *)&this->m_34 = (s32) (*(s32 *)&this->m_34 + 0x60);
     *(s32 *)&this->m_38 = (s32) (*(s32 *)&this->m_38 + 0x110);
 }

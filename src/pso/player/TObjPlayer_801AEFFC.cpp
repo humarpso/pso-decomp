@@ -26,7 +26,7 @@ s32 TObjPlayer::get_card_window_field_244() {
 
 void TObjPlayer::init_local_pad_binding() {
     if (((s32)is_locally_controlled__10TObjPlayerFPv((void*)(((u8 *)this)))) != 0) {
-        init_pad_binding((void *) (((u8 *)this) + 0x550), (void *) (obj_getField1c((void *) (((u8 *)this)))), (int) ((s16) *(s32 *)((s8 *)((u8 *)this) + 0x3D0)));
+        init_pad_binding((void *) (((u8 *)this) + 0x550), (void *) (obj_getField1c((void *) (((u8 *)this)))), (int) ((s16) this->m_3d0));
     }
 }
 

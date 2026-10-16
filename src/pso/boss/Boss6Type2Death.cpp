@@ -137,14 +137,14 @@ extern "C" const char *TBoss6Demo21_TYPE2_DEAD__name = lbl_80478088;
 #pragma pool_data off
 extern "C" {
 void TBoss6Demo21_TYPE2_DEAD::draw_model_13() {
-    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x50) >= 0x1AC) {
+    if ((s32) this->m_50 >= 0x1AC) {
         push_matrix();
         TObjPlayer::set_global_flag();
         post_translate_matrix((void *) (((u8 *)this) + 0x58));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x44)));
-        ((TObjFish *)(*(s32 *)((s8 *)((u8 *)this) + 0x9C)))->set_draw_callback_list();
-        draw_model_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x40)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x48)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x4C)));
-        clear_render_callback__8TObjFishFv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x9C)));
+        ((TObjFish *)(this->m_9c))->set_draw_callback_list();
+        draw_model_motion((int) (this->m_40), (int) (this->m_48), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x4C)));
+        clear_render_callback__8TObjFishFv((int) (this->m_9c));
         TObjPlayer::clear_global_state();
         pop_matrix();
     }
@@ -227,7 +227,7 @@ void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_5(void *p) {
 void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_4() {
     f32 var_f31;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x50);
+    temp_r0 = this->m_50;
     if (temp_r0 < 0x101) {
         var_f31 = (1.0f);
     } else if (temp_r0 >= 0x10F) {
@@ -242,10 +242,10 @@ void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_4() {
         push_matrix();
         TObjPlayer::set_global_flag();
         post_translate_matrix(((u8 *)this) + 0x58);
-        TObjFish::set_global_param(*(s32 *)((s8 *)((u8 *)this) + 0x20));
-        ((TObjFish *)(*(s32 *)((s8 *)((u8 *)this) + 0x70)))->set_draw_callback_list();
+        TObjFish::set_global_param(this->m_20);
+        ((TObjFish *)(this->m_70))->set_draw_callback_list();
         draw_model_motion(*(s32 *)((s8 *)((u8 *)this) + 0x1C), *(s32 *)((s8 *)((u8 *)this) + 0x24), *(f32 *)((s8 *)((u8 *)this) + 0x4C));
-        clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)((u8 *)this) + 0x70));
+        clear_render_callback__8TObjFishFv(this->m_70);
         TObjPlayer::clear_global_state();
         pop_matrix();
         if (var_f31 < (1.0f)) {

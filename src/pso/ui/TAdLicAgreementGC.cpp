@@ -51,7 +51,7 @@ void TAdLicAgreementGC::render() {
 void TAdLicAgreementGC::vfunc_9() { set_game_mode__21TAdMultiChgGameModeGCFv(this); }
 void TAdLicAgreementGC::vfunc_8() { request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 void TAdLicAgreementGC::vfunc_7() { set_mode_1c__21TAdMultiChgGameModeGCFv(this); }
-void TAdLicAgreementGC::vfunc_6() { if (*(unsigned int*)((char*)this + 0x38) != 0) { ((TAdScrollWinGC *)(*(void**)((char*)this + 0x38)))->close_window(); *(int*)((char*)this + 0x38) = 0; } }
+void TAdLicAgreementGC::vfunc_6() { if (*(unsigned int *)&this->m_38 != 0) { ((TAdScrollWinGC *)(*(void* *)&this->m_38))->close_window(); *(int *)&this->m_38 = 0; } }
 
 void TAdLicAgreementGC::run_task() {
     struct VObj_80329C84_80329BB8 *o = (struct VObj_80329C84_80329BB8 *)this;

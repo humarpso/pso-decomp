@@ -58,7 +58,7 @@ u8 *TItemProArmor::create() {
 void TUnk_8049FEB8::run_task() {
     s32 temp_r3;
 
-    if (get_player_by_client_id(*(u16 *)((s8 *)this + 0x1C)) == 0U) {
+    if (get_player_by_client_id(*(u16 *)&this->unk_1C) == 0U) {
         queue_destruction__7TObjectFv(this);
         return;
     }
@@ -75,7 +75,7 @@ extern s32 lbl_8049FEB8[];
 void *TUnk_8049FEB8::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049FEB8;
-        TItemTimerEvent::clear_timer_slot(*(u16 *)&(*(u16 *)((u8 *)this + 0x1C)));
+        TItemTimerEvent::clear_timer_slot(*(u16 *)&(*(u16 *)&this->unk_1C));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

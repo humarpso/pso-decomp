@@ -17,7 +17,8 @@ public:
     virtual void run_task();
     u8 unk_38C[0xE4];
     s32 m_470;
-    u8 unk_474[0x8];
+    u8 unk_474[0x4];
+    void * m_478;
     s32 m_47c;
     u8 unk_480[0x4];
     f32 m_484;

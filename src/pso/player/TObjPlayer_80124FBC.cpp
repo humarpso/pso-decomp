@@ -12,7 +12,7 @@ extern f32 lbl_805DAD3C;
 
 void TObjPlayer::launch_double_cannon_extra() {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        if (((TObjPlayer *)(*(s32 *)((s8 *)this + 0xF0) + 0x7CC))->get_stage_strike_count() == 0) {
+        if (((TObjPlayer *)(*(s32 *)&this->unk_F0 + 0x7CC))->get_stage_strike_count() == 0) {
             drain_owner_hp_fraction(lbl_805DAD3C);
             TObjPlayer__sub_80124C90(this);
         }
@@ -28,17 +28,17 @@ void TObjPlayer::play_side_step_particle() {
     switch (temp_r3) {
     case 1:
         TObjPlayer::play_particle_effect_once();
-        rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1F8));
+        rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
         return;
     case 4:
         TObjPlayer::play_particle_effect_once();
-        rotate_matrix_z(0, -*(s32 *)((s8 *)this + 0x1F8));
+        rotate_matrix_z(0, -*(s32 *)&this->unk_1F8);
         return;
     }
 }
 
 void TUnk_804A2260::update_weapon() {
-    *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 0xAAA);
+    *(s32 *)&this->unk_1F8 = (s32) (*(s32 *)&this->unk_1F8 + 0xAAA);
 }
 
 }

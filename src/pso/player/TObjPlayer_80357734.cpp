@@ -347,7 +347,7 @@ void TUnk_804F14A8::emit_marker_effects() {
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (6), (void *) (&info.v[2]));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (9), (void *) (&info.v[3]));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (0xA), (void *) (&info.v[4]));
-        temp_r5 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60);
+        temp_r5 = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60);
         info.f28 = temp_r5;
         info.f10 = 0xA;
         create__20TItemEffOrgaFlowShotFPvPv((int) (tl_05), (void *) (&info), (int) (temp_r5));
@@ -408,7 +408,7 @@ void *TUnk_804F14A8::init_state_34_alt(s32 _w1, void *_w2) {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = item_equip_variant_vtable;
     set_status_flags__10TObjPlayerFUl(this, 34);
-    *(u32 *)((s8 *)this + 0x1F8) = 0;
+    *(u32 *)&this->unk_1F8 = 0;
     *(s32 **)((s8 *)this + 0x1F0) = spawn_shoot_particle__10TItemShootFv;
     return this;
 }
@@ -520,9 +520,9 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
 #pragma fp_contract on
 void TUnk_804F166C::update_inward_orbit_point() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) ((*(f32 *)((s8 *)arg0 + 0x40) * sin_table_lookup((void *)(*(s32 *)((s8 *)arg0 + 0x44)))) + *(f32 *)((s8 *)arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg0 + 0x20);
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x40) * cos_table_lookup((void *)(*(s32 *)((s8 *)arg0 + 0x44)))) + *(f32 *)((s8 *)arg0 + 0x24));
+    this->m_34 = (f32) ((this->m_40 * sin_table_lookup((void *)(*(s32 *)&this->unk_44))) + *(f32 *)((s8 *)arg0 + 0x1C));
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) this->m_20;
+    this->m_3c = (f32) ((this->m_40 * cos_table_lookup((void *)(*(s32 *)&this->unk_44))) + *(f32 *)((s8 *)arg0 + 0x24));
 }
 #pragma pop
 
@@ -534,7 +534,7 @@ void TUnk_804F166C::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
     u8 *temp_r3;
-    *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) - 0x1999);
+    *(s32 *)&this->unk_44 = (s32) (*(s32 *)&this->unk_44 - 0x1999);
     this->m_40 = (f32) (this->m_40 - lbl_805E006C);
     ((TUnk_804F166C *)arg0)->update_inward_orbit_point();
     temp_r3 = (u8 *)(*(u8 * *)&this->unk_4C);
@@ -552,7 +552,7 @@ void TUnk_804F166C::run_task() {
 void *TUnk_804F166C::dt_with_child_queue(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = inward_orbit_effect_vtable;
-        if (*(void **)((s8 *)this + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x4C)); }
+        if (*(void * *)&this->unk_4C != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_4C); }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

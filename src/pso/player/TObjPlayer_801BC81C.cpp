@@ -46,7 +46,7 @@ void TObjPlayer::reset_area_entry_state() {
     }
 }
 
-void TObjPlayer::destroy_owned_object() { if (*(unsigned int*)((char*)this + 0x548) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0x548)); *(int*)((char*)this + 0x548) = 0; } }
+void TObjPlayer::destroy_owned_object() { if (*(unsigned int *)&this->unk_548 != 0) { queue_destruction__7TObjectFv(*(void* *)&this->unk_548); *(int *)&this->unk_548 = 0; } }
 
 }
 

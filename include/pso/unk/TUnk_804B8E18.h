@@ -10,7 +10,9 @@ public:
     void update_goal_checks(u16);
     void update_best_time();
     void *destroy_player_obj(s16);
-    u8 unk_334[0x70];
+    u8 unk_334[0x20];
+    s32 m_354;
+    u8 unk_358[0x4C];
 };
 typedef char TUnk_804B8E18_size[sizeof(TUnk_804B8E18) == 0x3A4 ? 1 : -1];
 

@@ -709,7 +709,7 @@ void TBoss3Volopt::sub_8003D340() {
     s32 i;
     s32 j;
 
-    switch (*(s32 *)((s8 *)((u8 *)this) + 0x37C)) {
+    switch (*(s32 *)&this->state) {
     case 0:
         for (i = 0; i < 6; i++) {
             volopt_target_entity_ids[i] = GPO(((u8 *)this), i + 1);
@@ -735,7 +735,7 @@ void TBoss3Volopt::sub_8003D340() {
                 TBoss3VoloptHiraisin__ct(o, ((u8 *)this), lbl_805D271A, GAA(((u8 *)this), 0x21));
             }
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x374) = 1;
+        *(s32 *)&this->next_action = 1;
         break;
     }
 }

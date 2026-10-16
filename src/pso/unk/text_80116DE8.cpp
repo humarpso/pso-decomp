@@ -151,36 +151,36 @@ void TUnk_8049FBC0::vfunc_44() {
     temp_r3 = get_slot_count__14TItemProShieldFv();
     switch (temp_r3) {
     case 0:
-        add_stat_and_item__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
+        add_stat_and_item__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
         break;
     case 1:
-        if (check_class_equip_permission((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (0xD7)) == 0) {
-            add_mst_and_item__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
+        if (check_class_equip_permission((void *) (*(u8 * *)&this->m_f0), (int) (0xD7)) == 0) {
+            add_mst_and_item__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
         }
         break;
     case 2:
-        add_evp_material__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
+        add_evp_material__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
         break;
     case 3:
-        obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
+        obj_getField1c((void *) (*(u8 * *)&this->m_f0));
         if (calc_equip_bonus__10TObjPlayerFUs() < 0xFA) {
-            apply_speed_with_camera_scale__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
+            apply_speed_with_camera_scale__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
         }
         break;
     case 4:
-        obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
-        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (0xD7)) == 0)) {
-            set_speed_scaled_by_camera__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
+        obj_getField1c((void *) (*(u8 * *)&this->m_f0));
+        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (*(u8 * *)&this->m_f0), (int) (0xD7)) == 0)) {
+            set_speed_scaled_by_camera__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
         }
         break;
     case 5:
-        add_dfp_material__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
+        add_dfp_material__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
         break;
     case 6:
-        apply_luck_reward__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
+        apply_luck_reward__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
         break;
     }
-    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
+    temp_r3_2 = (u8 *)(*(u8 * *)&this->m_f0);
     ((VObj_18_ddf499 *)(temp_r3_2))->m71();
 }
 void *item_object_variant_deleting_dtor_80116F10(void *arg0, s16 arg1) {

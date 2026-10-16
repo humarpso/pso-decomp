@@ -157,12 +157,12 @@ void TObjDoorKey::render() {
     s32 temp_r0;
 
     if (((TObjDoorKeyVObj_8018FAEC*)this)->m8(lbl_805DBE00, lbl_805DBE04) == 0) {
-        if ((u32) *(u32 *)((s8 *)this + 0xF8) != 0U) {
-            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xF8)))->enable();
+        if ((u32) this->m_f8 != 0U) {
+            ((TParticleCtrl *)(*(void * *)&this->m_f8))->enable();
         }
     } else {
-        if ((u32) *(u32 *)((s8 *)this + 0xF8) != 0U) {
-            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xF8)))->clear_active_flag();
+        if ((u32) this->m_f8 != 0U) {
+            ((TParticleCtrl *)(*(void * *)&this->m_f8))->clear_active_flag();
         }
         temp_r0 = *(s32 *)&this->m_d4;
         switch (temp_r0) {
@@ -266,7 +266,7 @@ void TObjDoorKey__vt16(u8 *arg0) {
 void TObjDoorKey::vfunc_16() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) + 0x14);
-    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x200);
+    this->m_f0 = (s32) (this->m_f0 + 0x200);
 }
 
 void TObjDoorKey::vfunc_17() { submit_cursor_candidate(this, -1); }

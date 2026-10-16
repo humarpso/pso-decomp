@@ -12,7 +12,15 @@ public:
     s32 poll_load_status();
     virtual void run_task();
     s32 state_index;
-    u8 unknown_20[0x24];
+    u8 unk_20[0x4];
+    s32 m_24;
+    u8 unk_28[0x4];
+    s32 m_2c;
+    u8 unk_30[0x4];
+    s32 m_34;
+    u8 unk_38[0x4];
+    s32 m_3c;
+    u8 unk_40[0x4];
     s32 load_status;
     u8 unknown_48[8];
     TObject *owned_object;

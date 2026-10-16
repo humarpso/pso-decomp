@@ -14,7 +14,8 @@ struct TObjWarpJung : public TObjAreaWarp {
     static void render_warp_effect(s32 arg0, s32 arg1);
     static void render_warp(void* a0);
     static s32 update_warp_display();
-    u8 unk_AC[0x1C];
+    u8 unk_AC[0x18];
+    f32 m_c4;
 };
 
 typedef char TObjWarpJung_size[sizeof(TObjWarpJung) == 0xC8 ? 1 : -1];

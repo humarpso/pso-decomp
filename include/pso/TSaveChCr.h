@@ -10,7 +10,8 @@ public:
     s32 poll_memcard_status();
     virtual void run_task();
     s32 state_index;
-    u8 unk_20[0x8];
+    u8 unk_20[0x4];
+    s32 m_24;
     s32 m_28;
     s32 card_status;
     u8 unknown_30[8];

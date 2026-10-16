@@ -21,7 +21,10 @@ struct TOKeyMachine01 : public TOKey {
     static void load_assets();
     static s32 is_state_active();
     void send_switch_changed(s32 flags);
-    u8 unk_E0[0x1C];
+    u8 unk_E0[0xC];
+    f32 m_ec;
+    u8 unk_F0[0x8];
+    s32 m_f8;
 };
 
 typedef char TOKeyMachine01_size[sizeof(TOKeyMachine01) == 0xFC ? 1 : -1];

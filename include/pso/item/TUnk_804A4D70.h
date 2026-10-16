@@ -10,7 +10,9 @@ public:
     virtual void update_attack();
     virtual void emit_marker_effects();
     void apply_scale_if_active(f32);
-    u8 unk_1F8[0x28];
+    u8 unk_1F8[0x14];
+    f32 m_20c;
+    u8 unk_210[0x10];
 };
 
 #endif

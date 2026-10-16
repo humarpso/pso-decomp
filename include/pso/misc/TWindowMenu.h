@@ -24,7 +24,11 @@ struct TWindowMenu : public TUnk_804CDFE8 {
     void* m_24;
     u8 _pad28[0x4];
     u32 m_2c;
-    u8 _pad30[0x2C];
+    u8 unk_30[0x8];
+    f32 m_38;
+    u8 unk_3C[0xC];
+    f32 m_48;
+    u8 unk_4C[0x10];
     u32 m_5c;
     u8 _pad60[0x8];
     void* m_68;
@@ -34,7 +38,8 @@ struct TWindowMenu : public TUnk_804CDFE8 {
     u16 m_74;
     u16 m_76;
     u16 m_78;
-    u8 _pad7A[0x6];
+    u8 unk_7A[0x2];
+    u32 m_7c;
     u32 m_80;
     u32 m_84;
     u32 m_88;

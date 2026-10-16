@@ -588,7 +588,7 @@ s32 TWindowSubMag::get_selected_blast() {
     return o->arr[o->f61];
 }
 
-int TWindowSubMagPhoton::get_active_flag() { return *(u8*)((char*)this + 0x60) & 0x1; }
+int TWindowSubMagPhoton::get_active_flag() { return this->m_60 & 0x1; }
 int TWindowSubMag__sub_8027C0E8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 
 bool is_mag_full(u8 *arg0) {

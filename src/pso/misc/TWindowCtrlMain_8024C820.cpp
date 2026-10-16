@@ -21,6 +21,6 @@ void TWindowCtrlMain::release_ptr(void **arg0) {
     extern const float TWindowCtrlMain__data_805DCC18;
     extern const float TWindowCtrlMain__data_805DCC1C;
     extern const float TWindowCtrlMain__data_805DCC20;
-void TWindowCtrlMain::init_fields() { *(int*)((char*)this + 0x0) = 0; *(int*)((char*)this + 0x4) = 0; *(float*)((char*)this + 0x8) = TWindowCtrlMain__data_805DCC18; *(float*)((char*)this + 0xc) = TWindowCtrlMain__data_805DCC18; *(float*)((char*)this + 0x10) = TWindowCtrlMain__data_805DCC18; *(float*)((char*)this + 0x14) = TWindowCtrlMain__data_805DCC1C; *(float*)((char*)this + 0x18) = TWindowCtrlMain__data_805DCC20; }
+void TWindowCtrlMain::init_fields() { *(int *)&this->m_name = 0; *(int *)&this->m_flags = 0; *(float *)&this->m_prev = TWindowCtrlMain__data_805DCC18; *(float *)&this->m_next = TWindowCtrlMain__data_805DCC18; *(float *)&this->m_up = TWindowCtrlMain__data_805DCC18; *(float *)&this->m_down = TWindowCtrlMain__data_805DCC1C; *(float*)((char*)this + 0x18) = TWindowCtrlMain__data_805DCC20; }
 
 }

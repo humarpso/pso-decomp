@@ -65,8 +65,8 @@ void TLoadingCur::update_camera_facing_offset() {
         stack.spC = *(s32 *)((s8 *)(&lbl_804349FC.value) + 4);
         stack.sp10 = *(s32 *)((s8 *)(&lbl_804349FC.value) + 8);
         *(f32 *)((s8 *)arg0 + 0x50) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC);
-        *(f32 *)((s8 *)arg0 + 0x54) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10);
-        *(f32 *)((s8 *)arg0 + 0x58) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14);
+        this->m_54 = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10);
+        *(f32 *)&this->unk_58 = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14);
         direction_to_rotation_xy((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.spC));
         push_matrix_from((void *) (&identity_matrix.value));
         rotate_matrix_y((int) (0), (int) (stack.spC));

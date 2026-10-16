@@ -8,7 +8,9 @@ public:
     virtual ~TUnk_804A5C18();
     virtual void emit_marker_effects();
     virtual void update_attack();
-    u8 unk_1F8[0x30];
+    u8 unk_1F8[0x28];
+    s32 m_220;
+    u8 unk_224[0x4];
 };
 
 #endif

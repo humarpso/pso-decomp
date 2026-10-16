@@ -72,8 +72,8 @@ void TUnk_80494968::run_task() {
 }
 
 void TUnk_80494968::sub_800D7818(s32 arg1, s32 arg2) {
-    *(s32 *)((s8 *)this + 0x120) = arg1;
-    *(s32 *)((s8 *)this + 0x124) = arg2;
+    this->m_120 = arg1;
+    *(s32 *)&this->unk_124 = arg2;
 }
 
 }

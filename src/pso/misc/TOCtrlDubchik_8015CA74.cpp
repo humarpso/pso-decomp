@@ -310,9 +310,9 @@ void TOCtrlDubchik::complete_and_destroy() {
 #pragma opt_common_subs off
 void TOCtrlDubchik::decay_timer_and_clear_flag() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x384) = (f32) (*(f32 *)((s8 *)arg0 + 0x384) - TOCtrlDubchik__data_805DB3B0);
-    if (*(f32 *)((s8 *)arg0 + 0x384) < TOCtrlDubchik__data_805DB3A8) {
-        *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
+    *(f32 *)&this->unk_384 = (f32) (*(f32 *)&this->unk_384 - TOCtrlDubchik__data_805DB3B0);
+    if (*(f32 *)&this->unk_384 < TOCtrlDubchik__data_805DB3A8) {
+        *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3A8;
         this->mode = 0;
         set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
     }
@@ -336,12 +336,12 @@ void TOCtrlDubchik::update_spin() {
     f32 temp_f1;
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x380);
+    temp_r4 = *(s32 *)&this->m_380;
     temp_f1 = (f32) temp_r4;
-    *(s32 *)((s8 *)((u8 *)this) + 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
-    *(f32 *)((s8 *)((u8 *)this) + 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(*(s32 *)((s8 *)((u8 *)this) + 0x380)));
-    apply_actor_gravity(((u8 *)this), ((u8 *)this) + 0x390, *(f32 *)((s8 *)((u8 *)this) + 0x37C));
-    *(s32 *)((s8 *)((u8 *)this) + 0x38C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x38C) + 0x147);
+    *(s32 *)&this->m_380 = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
+    this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(*(s32 *)&this->m_380));
+    apply_actor_gravity(((u8 *)this), ((u8 *)this) + 0x390, this->m_37c);
+    *(s32 *)&this->m_38c = (s32) (*(s32 *)&this->m_38c + 0x147);
 }
 
 extern void *tl_05;
@@ -375,15 +375,15 @@ void TOCtrlDubchik::sub_8015CCF4() {
 void TOCtrlDubchik::update_bobbing() {
     f32 temp_f1;
     s32 temp_r4;
-    temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x380);
+    temp_r4 = *(s32 *)&this->m_380;
     temp_f1 = (f32) temp_r4;
-    *(s32 *)((s8 *)((u8 *)this) + 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
-    *(f32 *)((s8 *)((u8 *)this) + 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x380)))));
-    apply_actor_gravity((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x390), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x37C)));
-    *(f32 *)((s8 *)((u8 *)this) + 0x384) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x384) + TOCtrlDubchik__data_805DB3B0);
-    if (TOCtrlDubchik__data_805DB3AC < *(f32 *)((s8 *)((u8 *)this) + 0x384)) {
-        *(f32 *)((s8 *)((u8 *)this) + 0x384) = (f32) TOCtrlDubchik__data_805DB3AC;
-        *(s16 *)((s8 *)((u8 *)this) + 0x326) = 2;
+    *(s32 *)&this->m_380 = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
+    this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (*(s32 *)&this->m_380))));
+    apply_actor_gravity((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x390), (f32) (this->m_37c));
+    *(f32 *)&this->unk_384 = (f32) (*(f32 *)&this->unk_384 + TOCtrlDubchik__data_805DB3B0);
+    if (TOCtrlDubchik__data_805DB3AC < *(f32 *)&this->unk_384) {
+        *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3AC;
+        this->mode = 2;
     }
 }
 #pragma pop
@@ -518,7 +518,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 s32 TOCtrlDubchik::select_melee_contact_body(void *, f32) {
-    if (*(s16 *)((s8 *)this + 0x326) != 0) {
+    if (this->mode != 0) {
         return select_melee_contact_body__10TObjPlayerFv();
     }
     return 0;
@@ -533,7 +533,7 @@ f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *
 
 s32 TOCtrlDubchik::try_start_action(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
-    if (*(s16 *)((s8 *)arg0 + 0x326) != 0) {
+    if (this->mode != 0) {
         return try_start_action__13TUnk_804806E8Fll((void *) (arg0), (void *) (arg1), (void *) (arg2));
     }
     return 0;
@@ -541,7 +541,7 @@ s32 TOCtrlDubchik::try_start_action(s32 arg1, s32 arg2) {
 
 s32 TOCtrlDubchik::roll_physical_accuracy(void *arg1, s32 arg2, f32 farg0) {
     u8 *arg0 = (u8 *)this;
-    if (*(s16 *)((s8 *)arg0 + 0x326) != 0) {
+    if (this->mode != 0) {
         return roll_physical_accuracy__13TUnk_804806E8FPvlf((void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
     }
     return 0;

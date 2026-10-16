@@ -14,7 +14,7 @@ void TObjPlayer::start_shield_action() {
         if (is_mode_two_and_ready() != 0) {
             drain_owner_hp_fraction(lbl_805DADB0);
             launch_rare_weapon_special(0, 1, lbl_805DADB4);
-            play_sound_effect(0x4001A341, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0);
+            play_sound_effect(0x4001A341, *(s32 *)&this->unk_F0 + 0x38, 0, 0);
             return;
         }
         update_active_game_effect();

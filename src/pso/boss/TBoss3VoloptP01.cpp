@@ -287,7 +287,7 @@ s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 
 void TObjPlayer::set_target_id(s32 arg1) {
     if (obj_testFlags30(this, 0x800) == 0) {
-        *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) & 0xFFFFFFFE);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
         update_if_active__15TObjEneMe1GiGueFl(this, 2);
         this->m_3a8 = arg1;
     }
@@ -1221,21 +1221,21 @@ void TBoss3VoloptP01::run_state_machine() {
 extern "C" {
 
 void TBoss3VoloptP01::sub_80043758() {
-    switch (*(s32 *)((s8 *)((u8 *)this) + 0x37C)) {
+    switch (*(s32 *)&this->state) {
     case 0:
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) |= 0x40000;
-        *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
+        *(s32 *)&this->actorFlags |= 0x40000;
+        this->m_b8 = 0;
         advance_animation_playback((int)((u8 *)this));
         *(f32 *)((s8 *)((u8 *)this) + 0x38C) = (-4e+01f);
-        reset_look_state__11TCameraCtrlFv(*(s32 *)((s8 *)((u8 *)this) + 0x3B8));
+        reset_look_state__11TCameraCtrlFv(*(s32 *)&this->m_3b8);
         *(s32 *)((s8 *)((u8 *)this) + 0x3A8) = 0;
-        *(s32 *)((s8 *)((u8 *)this) + 0x388) &= ~0x80000;
-        *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 1;
+        *(s32 *)&this->m_388 &= ~0x80000;
+        *(s32 *)&this->state = 1;
         break;
     case 1:
         break;
     case -1:
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) &= ~0x40000;
+        *(s32 *)&this->actorFlags &= ~0x40000;
         break;
     }
 }

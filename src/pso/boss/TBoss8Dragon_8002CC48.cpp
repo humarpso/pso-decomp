@@ -417,19 +417,19 @@ s32 is_dragon_trail_damaging(u8 *arg0) {
     return *(f32 *)((s8 *)arg0 + 0x34) >= lbl_805D81D0;
 }
 
-void TBoss8Dragon::set_field_3c() { set_field_1c(); *(int*)((char*)this + 0x3c) = 1; }
-void TBoss8Dragon::set_field_1c() { *(s32*)((char*)this + 0x1c) = 1; }
+void TBoss8Dragon::set_field_3c() { set_field_1c(); *(int *)&this->unk_3C = 1; }
+void TBoss8Dragon::set_field_1c() { *(s32 *)&this->unk_1C = 1; }
 
 void TBoss8Dragon::spawn_child_object() {
     void *o;
-    *(u32 *)((s8 *)this + 0x1C) = 0;
+    *(u32 *)&this->unk_1C = 0;
     *(f32 *)&this->m_34 = lbl_805D81A0;
     *(f32 *)&this->unk_30 = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
         TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void * *)&this->m_10), (int)(30));
     }
-    *(u32 *)((s8 *)this + 0x3C) = 0;
+    *(u32 *)&this->unk_3C = 0;
 }
 
 void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1) {
@@ -605,16 +605,16 @@ f32 TBoss8Dragon::apply_velocity_scale(f32 farg0, f32 farg1) {
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
         *(f32 *)((s8 *)((f32 *)this) + 0) = var_f31;
-        *(f32 *)((s8 *)((f32 *)this) + 4) = (f32) lbl_805D81F4;
-        *(f32 *)((s8 *)((f32 *)this) + 8) = var_f31;
+        *(f32 *)&this->unk_4 = (f32) lbl_805D81F4;
+        this->m_8 = var_f31;
     } else {
         temp_r31 = (s32) (lbl_805D81F8 * (temp_f1 / farg0));
         var_f31 = farg1 * (lbl_805D81F4 + cos_table_lookup(temp_r31, lbl_805D81F8));
         temp_f1_2 = sin_table_lookup(temp_r31);
         temp_f2 = *(f32 *)((s8 *)((f32 *)this) + 0) * temp_f1_2;
         *(f32 *)((s8 *)((f32 *)this) + 0) = temp_f2;
-        *(f32 *)((s8 *)((f32 *)this) + 4) = (f32) lbl_805D81F4;
-        *(f32 *)((s8 *)((f32 *)this) + 8) = (f32) (*(f32 *)((s8 *)((f32 *)this) + 8) * temp_f1_2);
+        *(f32 *)&this->unk_4 = (f32) lbl_805D81F4;
+        this->m_8 = (f32) (this->m_8 * temp_f1_2);
         update_scale__15TObjBoss2TunnelFv(((f32 *)this), temp_f1_2);
     }
     return var_f31;

@@ -457,9 +457,9 @@ void TObjPlayer::init_forward_default() {
 
 int TItem::vfunc_33() { return 0; }
 int TItem::vfunc_43() { return 0; }
-int TObjPlayer::test_item_flags(u32 m) { return *(u32*)((char*)this + 0xdc) & m; }
-void TObjPlayer::clear_item_flags(u32 v) { *(u32*)((char*)this + 0xdc) &= ~v; }
-void TObjPlayer::add_item_flags(u32 v) { *(u32*)((char*)this + 0xdc) |= v; }
+int TObjPlayer::test_item_flags(u32 m) { return *(u32 *)&this->unk_DC & m; }
+void TObjPlayer::clear_item_flags(u32 v) { *(u32 *)&this->unk_DC &= ~v; }
+void TObjPlayer::add_item_flags(u32 v) { *(u32 *)&this->unk_DC |= v; }
 int TObjPlayer::has_flag_128() { return test_item_flags((u32)((u32)(128))); }
 s8 TObjPlayer__sub_80102C30(u8 *arg0) {
     return (s8) *(u8 *)((s8 *)arg0 + 0xEB);

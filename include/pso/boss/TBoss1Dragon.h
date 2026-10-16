@@ -62,7 +62,8 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     static void clearControlOverride();
     static void setControlOverride(s16 controlId);
     static void requestActionRefresh();
-    u8 unk_374[0x20];
+    u8 unk_374[0x1C];
+    u32 m_390;
     f32 targetX;
     f32 targetY;
     f32 targetZ;

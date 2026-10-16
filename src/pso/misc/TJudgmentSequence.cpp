@@ -189,7 +189,7 @@ typedef char RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80_size[size
 
 struct Seq_80215CB8;
 void TJudgmentSequence::vfunc_11() {
-    switch (*(s32 *)((s8 *)this + 0x20)) {
+    switch (this->m_20) {
     case 0:
         ((VtObj80215E74*)this)->m10();
         break;

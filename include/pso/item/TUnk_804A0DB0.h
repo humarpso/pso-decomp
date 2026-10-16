@@ -8,7 +8,9 @@ public:
     virtual ~TUnk_804A0DB0();
     void*init_state_vector();
     virtual void emit_marker_effects();
-    u8 unk_1F8[0xC];
+    u8 unk_1F8[0x4];
+    float m_1fc;
+    u8 unk_200[0x4];
 };
 
 #endif

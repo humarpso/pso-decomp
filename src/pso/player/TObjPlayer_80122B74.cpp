@@ -15,7 +15,7 @@ void TObjPlayer::cast_foie() {
     draw_icon((s32)2, (s32)(&sp8));
     spawn_particle_effect(&sp8, 0x1BF);
     if (is_mode_two_and_ready() != 0) {
-        temp_r3 = *(void **)((s8 *)this + 0xF0);
+        temp_r3 = *(void * *)&this->unk_F0;
         TTecFoie::create((void *)temp_r3, (void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r3 + 0x60)), (void *)3);
         return;
     }

@@ -92,11 +92,11 @@ u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
         temp_r3 = create_player_object(*(u16 *)((s8 *)((u8 *)this) + 0x30), 6, build_npc_player_record__10TNpcPlayerFl(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
         if (temp_r3 != NULL) {
             *(s16 *)((s8 *)temp_r3 + 0x324) = 6;
-            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x38) == 1) {
+            if ((s32) this->m_38 == 1) {
                 queue_player_injured_pose();
                 set_player_quest_control_flag(temp_r3);
             }
-            send_6x24_teleport_player(*(u16 *)((s8 *)((u8 *)this) + 0x30), ((u8 *)this) + 0x1C, *(s32 *)((s8 *)((u8 *)this) + 0x28));
+            send_6x24_teleport_player(*(u16 *)((s8 *)((u8 *)this) + 0x30), ((u8 *)this) + 0x1C, *(s32 *)&this->_pad28);
         }
         __dt__7TObjectFv(((u8 *)this), 0);
         if (arg1 > 0) {

@@ -116,9 +116,9 @@ void TDLGraph::draw_percent_text(f32 farg0, f32 farg1) {
     s8 sp8;
     s32 var_r5;
 
-    if (*(s32 *)((s8 *)this + 0x20) & 2) {
+    if (*(s32 *)&this->m_20 & 2) {
         sp8 = 0;
-        var_r5 = (s32) (lbl_805D92AC * *(f32 *)((s8 *)this + 0x1C));
+        var_r5 = (s32) (lbl_805D92AC * *(f32 *)&this->_pad1C);
         if (var_r5 < 0) {
             var_r5 = 0;
         } else if (var_r5 > 0x64) {

@@ -58,7 +58,7 @@ void TObjEneBm9Mericarol::handle_event(s32 arg1) {
 
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)this + 0xB8) = 2;
+        this->m_b8 = 2;
         ((V_A *) this)->m94();
         TObjEneBm9Mericarol__sub_802D093C(this);
         temp_r5 = *(s32 *)&this->m_454;

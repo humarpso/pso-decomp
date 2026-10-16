@@ -80,7 +80,7 @@ void *__nw__7TObjectFUl(int);
 
 void TOBind::render() {
     u8 *arg0 = (u8 *)this;
-    if (((BindObj_801586B8*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xD0), this->m_d4) != 0) {
+    if (((BindObj_801586B8*)arg0)->m8(*(f32 *)&this->unk_D0, this->m_d4) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

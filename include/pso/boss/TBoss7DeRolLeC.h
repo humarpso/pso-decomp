@@ -27,7 +27,9 @@ struct TBoss7DeRolLeC : public TObjEneDD_ST {
     void apply_paralysis();
     void apply_poison_status();
     void vfunc_28();
-    u8 unk_374[0x30];
+    u8 unk_374[0x18];
+    u16 m_38c;
+    u8 unk_38E[0x16];
     void* m_3c0;
     u8 _pad3C4[0x25C];
     u32 m_620;

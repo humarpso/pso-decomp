@@ -232,9 +232,9 @@ void TMainCursor::run_task() {
     temp_r0 = *(s32 *)&this->m_1c;
     switch (temp_r0) {
     case 0:
-        *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) - TMainCursor__data_805DB0CC);
-        if (!(*(f32 *)((s8 *)arg0 + 0x30) > *(f32 *)&this->m_34)) {
-            *(f32 *)((s8 *)arg0 + 0x30) = (f32) *(f32 *)((s8 *)arg0 + 0x28);
+        *(f32 *)&this->unk_30 = (f32) (*(f32 *)&this->unk_30 - TMainCursor__data_805DB0CC);
+        if (!(*(f32 *)&this->unk_30 > *(f32 *)&this->m_34)) {
+            *(f32 *)&this->unk_30 = (f32) *(f32 *)&this->unk_28;
             *(s32 *)&this->m_1c = 1;
             if (((TMainCursor *)arg0)->init_render_flags() == 0) {
                 if (((TMainCursor *)arg0)->update() != 0) {

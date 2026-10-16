@@ -36,13 +36,13 @@ void TObjPlayer::on_zone_exit() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
 
-    if (((VObj18_80166970 *) arg0)->m8(*(f32 *)&this->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj18_80166970 *) arg0)->m8(*(f32 *)&this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->m_60));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(s32 *)&this->unk_24));
         if ((s32) this->m_d0 == 0) {
-            draw_ginja_model_with_motion((void *) (*(void * *)&this->_pad34), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+            draw_ginja_model_with_motion((void *) (*(void * *)&this->_pad34), (int) (*(s32 *)&this->unk_BC), (f32) (*(f32 *)&this->unk_B0));
         } else {
             temp_r31 = (unsigned char *) (*(void * *)&this->_pad34);
             push_matrix();
@@ -78,8 +78,8 @@ void *TUnk_804B1B80::init_fields() {
     *(s32 **)((s8 *)this + 0x18) = lbl_804B1B80;
     *(u32 *)&this->m_ac = 0;
     this->m_cc = -1;
-    *(u32 *)((s8 *)this + 0xC8) = 0;
-    *(u32 *)((s8 *)this + 0xD0) = 0;
+    *(u32 *)&this->unk_C8 = 0;
+    *(u32 *)&this->unk_D0 = 0;
     this->m_d4 = 0;
     return this;
 }

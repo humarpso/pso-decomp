@@ -49,12 +49,12 @@ void TItemProArmorParticle::vfunc_16() {
     s32 temp_r3;
     s32 temp_r31;
 
-    if ((s32) *(s32 *)((s8 *)this + 0x1A0) == 2) {
+    if ((s32) *(s32 *)&this->m_1a0 == 2) {
         temp_r3 = TOKeyMachine01::get_global_state();
-        if (temp_r3 != (s32) *(s32 *)((s8 *)this + 0x198)) {
-            *(s32 *)((s8 *)this + 0x198) = temp_r3;
+        if (temp_r3 != (s32) *(s32 *)&this->m_198) {
+            *(s32 *)&this->m_198 = temp_r3;
             if (is_item_area_enabled() != 0) {
-                TItemProArmorParticle::create((s32)(tl_05), (s32)(((TObjPlayer *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(*(s32 *)((s8 *)this + 0x19C)));
+                TItemProArmorParticle::create((s32)(tl_05), (s32)(((TObjPlayer *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(*(s32 *)&this->m_19c));
             }
         }
     }
@@ -107,7 +107,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
 void *TUnk_804A05C8::initialize(void *arg1, void *arg2, void *arg3, void *arg4) {
     TItemTimerEvent__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A05C8;
-    (*(void * *)((u8 *)this + 0x2C)) = arg4;
+    (*(void * *)&this->unk_2C) = arg4;
     return this;
 }
 

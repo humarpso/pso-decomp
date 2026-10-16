@@ -23,7 +23,7 @@ void TUnk_8049F3F4::run_task() {
     switch (temp_r0) {
     case 1:
         if (((u32) item_model_chunk_loader != 0U) && ((u32) item_texture_archive_loader != 0U)) {
-            ((TItemLoad *)item_model_chunk_loader)->start_load_with_id(item_load_model_buffer + (*(s32 *)((s8 *)arg0 + 0x1C) * 0x2C00), *(s32 *)((s8 *)arg0 + 0x24));
+            ((TItemLoad *)item_model_chunk_loader)->start_load_with_id(item_load_model_buffer + (*(s32 *)&this->unk_1C * 0x2C00), *(s32 *)&this->unk_24);
             this->m_20 = 2;
         }
         return;

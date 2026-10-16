@@ -215,7 +215,7 @@ void TWindowShortListCtrl::destroy_children() {
 }
 
 void TWindowShortListCtrl::sub_8026EA48() {
-    *(u8 *)((s8 *)((u8 *)this) + 0x1D) = (u8) *(u8 *)((s8 *)((u8 *)(&lbl_805DD380) + (s8) *(u8 *)((s8 *)((u8 *)this) + 0x1C)) + 0);
+    this->m_1d = (u8) *(u8 *)((s8 *)((u8 *)(&lbl_805DD380) + (s8) this->m_1c) + 0);
 }
 
 typedef struct RecoveredFields_8026EA60_arg0 RecoveredFields_8026EA60_arg0;
@@ -542,6 +542,6 @@ void TWindowShortListCtrl::update_cursor_pos() {
     *(s16 *)((s8 *)arg0 + 0x7A) = get_cursor_pos();
 }
 
-s16 TWindowSubComCardList::get_selected_index() { return *(s16*)((char*)this + 0x7a); }
+s16 TWindowSubComCardList::get_selected_index() { return *(s16 *)&this->unk_7A; }
 
 }

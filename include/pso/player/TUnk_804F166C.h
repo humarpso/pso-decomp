@@ -10,7 +10,12 @@ public:
     void update_inward_orbit_point();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x24];
+    u8 unk_1C[0x4];
+    f32 m_20;
+    u8 unk_24[0x10];
+    f32 m_34;
+    u8 unk_38[0x4];
+    f32 m_3c;
     f32 m_40;
     u8 unk_44[0x4];
     s32 m_48;

@@ -132,7 +132,7 @@ void TBoss7Crawfish::register_attack_hits() {
     msg.p = (u8 *)((Obj_803086A8 *)this) + 0x374;
     msg.one = 1;
     VecCopy__FP3VecPC3Vec(&msg.pos, (u8 *)((Obj_803086A8 *)this) + 0x38);
-    msg.id = *(s32 *)((s8 *)((Obj_803086A8 *)this) + 0x60);
+    msg.id = this->rotation_y;
     TObjPlayer::apply_status_effect((s32)(&msg));
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         if ((u32)((Obj_803086A8 *)this)->count < 4) {

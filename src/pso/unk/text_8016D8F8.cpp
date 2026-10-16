@@ -23,10 +23,10 @@ void TOKurage::sub_8016D8F8() {
     typedef char sp10_offset[(offsetof(Stack_8016D8F8, sp10) == 0x8) ? 1 : -1];
     Stack_8016D8F8 stack;
     ((TObjPlayer *)(&stack.sp8))->copy_xyz((void *) (arg0 + 0x5C));
-    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (lbl_805DB7A0 * (*(f32 *)((s8 *)arg0 + 0x40) - *(f32 *)((s8 *)arg0 + 0x4C)));
-    *(s32 *)((s8 *)arg0 + 0x64) = (s32) (lbl_805DB7A4 * (*(f32 *)((s8 *)arg0 + 0x38) - *(f32 *)((s8 *)arg0 + 0x44)));
-    *(s32 *)((s8 *)arg0 + 0x5C) = approach_angle_limited((int) (stack.sp8), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (0x40));
-    *(s32 *)((s8 *)arg0 + 0x64) = approach_angle_limited((int) (stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x64)), (int) (0x40));
+    *(s32 *)&this->m_5c = (s32) (lbl_805DB7A0 * (*(f32 *)((s8 *)arg0 + 0x40) - *(f32 *)&this->m_4c));
+    this->rotation_z = (s32) (lbl_805DB7A4 * (*(f32 *)((s8 *)arg0 + 0x38) - *(f32 *)&this->m_44));
+    *(s32 *)&this->m_5c = approach_angle_limited((int) (stack.sp8), (int) (*(s32 *)&this->m_5c), (int) (0x40));
+    this->rotation_z = approach_angle_limited((int) (stack.sp10), (int) (this->rotation_z), (int) (0x40));
 }
 
 }

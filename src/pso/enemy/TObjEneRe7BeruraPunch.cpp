@@ -210,9 +210,9 @@ void TObjEneRe7BeruraPunch::init() {
 
     *(s32 *)&this->m_b4 = 0;
     *(s32 *)&this->m_b8 = 0;
-    *(f32 *)((s8 *)arg0 + 0xBC) = (f32) lbl_805D9794;
+    *(f32 *)&this->unk_BC = (f32) lbl_805D9794;
     this->m_c0 = (f32) lbl_805D9794;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805D9794;
+    *(f32 *)&this->unk_C4 = (f32) lbl_805D9794;
     this->m_c8 = (f32) lbl_805D9794;
     *(f32 *)&this->unk_CC = (f32) lbl_805D9794;
     *(s32 *)&this->m_d0 = 0;

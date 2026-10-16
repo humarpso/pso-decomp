@@ -990,7 +990,7 @@ void TLobby::update_periodic_tick() {
     }
 }
 void TLobby__sub_801A4C6C(void* p) { *(u32*)((char*)p + 0x20) |= 0x1; }
-void TLobby::set_value(s32 v) { *(s32*)((char*)this + 0xc) = v; }
+void TLobby::set_value(s32 v) { *(s32 *)&this->m_next = v; }
 void TLobby::reset_counter() { challenge_task_created = 0; }
 
 }

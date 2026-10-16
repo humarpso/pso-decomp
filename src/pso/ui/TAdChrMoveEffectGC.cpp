@@ -48,7 +48,7 @@ void TAdChrMoveEffectGC::sub_80348E34() {
     u8 *e;
     s32 i;
     u8 *src;
-    if (*(s32 *)((s8 *)((u8 *)this) + 0x20) != 0) {
+    if (*(s32 *)&this->m_20 != 0) {
         for (i = 0; i < 16; i++) {
             e = ((u8 *)this) + i * 0x38;
             if (*(u32 *)((s8 *)e + 0x54) & 1) {

@@ -93,8 +93,8 @@ void TObjQuestColALock2::update_room_id_check() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r5;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
-        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)((s8 *)arg0 + 0xAC)));
-        temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)&this->unk_AC));
+        temp_r5 = (u8 *)(*(u8 * *)&this->m_a4);
         fn_80141CBC((void *) (arg0 + 0x38), (void *) (&lbl_804A7428.value), (int) (temp_r5), (f32) (lbl_805DBF00 * *(f32 *)((s8 *)temp_r5 + 0xC)));
     }
 }
@@ -134,7 +134,7 @@ int TObjQuestColALock2::vfunc_15() {
             return 0;
         }
         submit_cursor_candidate(this, -1);
-        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)((s8 *)this + 0xAC));
+        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)&this->unk_AC);
         if (temp_r3_2 == 1) {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();
         }

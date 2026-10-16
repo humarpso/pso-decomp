@@ -33,7 +33,7 @@ void *TWindowSubQuestBoard__ct(void *arg0, void *arg1, void *arg2) {
 }
 
 u8 TWindowSubQuestBoard::get_page_index() { return *(u8*)((char*)this + 0x61); }
-int TWindowSubQuestBoardSelect::is_open() { return *(u8*)((char*)this + 0x60) & 0x1; }
+int TWindowSubQuestBoardSelect::is_open() { return this->m_60 & 0x1; }
 int TWindowSubQuestBoard__sub_8027D1DC(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 
 }

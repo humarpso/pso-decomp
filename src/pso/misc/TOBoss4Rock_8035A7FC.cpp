@@ -13,7 +13,7 @@ extern s32 lbl_804F1C58[];
 void *TUnk_804F1C58::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804F1C58;
-        mem_free(*(void * *)&(*(void * *)((u8 *)this + 0x28)));
+        mem_free(*(void * *)&(this->m_28));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

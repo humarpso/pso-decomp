@@ -75,31 +75,31 @@ void TUnk_804A1E28::update_weapon() {
     s16 temp_r3_3;
     s32 temp_r3;
     s32 temp_r3_2;
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x1FE) == 1) {
+    if ((s16) *(s16 *)&this->unk_1FE == 1) {
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x1F8);
         if (temp_r3 == 7) {
-            *(s16 *)((s8 *)arg0 + 0x1FE) = 0;
+            *(s16 *)&this->unk_1FE = 0;
         } else {
             *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (temp_r3 + 1);
         }
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x1FE) == 2) {
+    if ((s16) *(s16 *)&this->unk_1FE == 2) {
         temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x1F8);
         if (temp_r3_2 == 0) {
-            *(s16 *)((s8 *)arg0 + 0x1FE) = 3;
+            *(s16 *)&this->unk_1FE = 3;
         } else {
             *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (temp_r3_2 - 1);
         }
     }
-    temp_r3_3 = obj_getS16_32E(*(u8 **)((s8 *)arg0 + 0xF0));
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1FC) - temp_r3_3;
+    temp_r3_3 = obj_getS16_32E(*(u8 * *)&this->player);
+    temp_r0 = this->m_1fc - temp_r3_3;
     if (temp_r0 < 0) {
-        *(s16 *)((s8 *)arg0 + 0x1FC) = temp_r3_3;
+        this->m_1fc = temp_r3_3;
         return;
     }
     if (temp_r0 > 0) {
-        add_actor_tp(*(u8 **)((s8 *)arg0 + 0xF0), (s32) (lbl_805DAD20 * (f32) temp_r0));
-        *(s16 *)((s8 *)arg0 + 0x1FC) = obj_getS16_32E(*(u8 **)((s8 *)arg0 + 0xF0));
+        add_actor_tp(*(u8 * *)&this->player, (s32) (lbl_805DAD20 * (f32) temp_r0));
+        this->m_1fc = obj_getS16_32E(*(u8 * *)&this->player);
     }
 }
 

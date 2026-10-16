@@ -411,7 +411,7 @@ void TBoss2Joint::call_36A90_with_1() { init_joint_offset((s32)((int)(1))); }
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 void TBoss2Joint::init_joint_offset(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x3A8) = (f32) TBoss2Joint__data_805D8474;
+    this->m_3a8 = (f32) TBoss2Joint__data_805D8474;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x3AC), (void *) ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
 }
 
@@ -444,7 +444,7 @@ void TBoss2Joint__vt102(Obj_80036ACC *self) {
 }
 
 void TBoss2Joint::vfunc_93() {
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 6) {
+    if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 6) {
         vfunc_93__9TObjEneDDFv((void *)(this));
         return;
     }
@@ -456,7 +456,7 @@ void TBoss2Joint::vfunc_88() {
     u8 *temp_r3;
     if (*(f32 *)((s8 *)arg0 + 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
         vfunc_94__9TObjEneDDFv((void *)(arg0));
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+        temp_r3 = (u8 *)(*(u8 * *)&this->m_a4);
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF9);
     } else {
         vfunc_93__9TObjEneDDFv((void *)(arg0));
@@ -499,7 +499,7 @@ void TBoss2Joint::vfunc_62() {
     clear_attack_receipts();
 }
 
-void TBoss2Joint::vfunc_63() { *(u32*)((char*)this + 0x30) &= 0xfffff7ff; }
+void TBoss2Joint::vfunc_63() { this->actorFlags &= 0xfffff7ff; }
 void TBoss2Joint::vfunc_28() {  }
 
 extern s32 __vt__11TBoss2Joint[];
@@ -510,9 +510,9 @@ void TBoss2Joint::run_task() {
         VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
         this->vfunc_83();
         if (((VObj_18 *)(arg0))->m84() == 0) {
-            ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
+            ((VObj_18 *)(arg0))->m85(this->mode, 3);
         }
-        ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+        ((VObj_18 *)(arg0))->m85(this->mode, 0);
         ((TObjEneDD *)arg0)->sub_800BBA0C();
         TBoss2Joint__sub_80036940((void *) (arg0));
         update_position_history();

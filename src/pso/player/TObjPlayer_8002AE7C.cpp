@@ -17,7 +17,7 @@ int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 
-void TObjPlayer::set_field_dc(s32 v) { *(s32*)((char*)this + 0xdc) = v; }
+void TObjPlayer::set_field_dc(s32 v) { *(s32 *)&this->unk_DC = v; }
 void TObjPlayer::set_field_d8(s32 v) { this->m_d8 = v; }
 void TObjPlayer::reset_lobby_model() { reset_type(); }
 void TObjPlayer::reset_type() { *(s32*)((char*)this + 0x0) = 0; }
@@ -30,7 +30,7 @@ void TObjPlayer::bswap_stats() { read_be16_field2(); bswap_16__FPUs((char*)this 
 s32 TObjEnemy::exchange_object_state(s32 arg1, s16 arg2) {
     u8 *arg0 = (u8 *)this;
     s16 temp_r31;
-    temp_r31 = *(s16 *)((s8 *)arg0 + 0x2C);
+    temp_r31 = *(s16 *)&this->m_2c;
     if ((temp_r31 < 0) || (temp_r31 > 0xB4F)) {
         return 0;
     }

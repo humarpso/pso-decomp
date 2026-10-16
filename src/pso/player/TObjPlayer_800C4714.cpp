@@ -353,7 +353,7 @@ extern "C" {
 void *TObjEneRe2Flower_Bomb::destroy_and_free(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804933D8;
-        if (*(void **)((s8 *)this + 0xFC) != NULL) { queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)this + 0xFC))); *(s32 *)((s8 *)this + 0xFC) = 0; }
+        if (this->m_fc != NULL) { queue_destruction__7TObjectFv((void*)(this->m_fc)); *(s32 *)&this->m_fc = 0; }
         ((TUnk_804928CC *)this)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

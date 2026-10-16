@@ -76,7 +76,7 @@ u8 TWindowDD_WS_Word::sub_80342268() {
 void *TWindowDD_WS_Word::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EFC90;
-        if (*(void **)((s8 *)this + 0x80) != NULL) { mem_free(*(void **)((s8 *)this + 0x80)); *(s32 *)((s8 *)this + 0x80) = 0; }
+        if (this->m_80 != NULL) { mem_free(this->m_80); *(s32 *)&this->m_80 = 0; }
         ((TWindowDD *)this)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

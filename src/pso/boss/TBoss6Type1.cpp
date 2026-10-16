@@ -1024,7 +1024,7 @@ void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *self, f32 dy) {
 
 void TBoss6Type1::sub_802B5CB4() {
     u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)((u8 *)this) + 0x374);
+    temp_r0 = this->m_374;
     switch (temp_r0) {
     case 1:
     case 2:
@@ -1070,7 +1070,7 @@ void TBoss6Type1::sub_802B5CB4() {
         ((TBoss6Type1 *)((u8 *)this))->request_default_jittered_camera();
         break;
     case 37:
-        if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x410) > (s32) ((f32) *(s32 *)((s8 *)((u8 *)this) + 0x40C) - lbl_805DE348)) {
+        if ((s32) *(s32 *)&this->unk_410 > (s32) ((f32) this->m_40c - lbl_805DE348)) {
             ((TBoss6Type1 *)((u8 *)this))->request_default_jittered_camera();
             break;
         }
@@ -1129,7 +1129,7 @@ int TBoss6Type1::is_time_up() {
     if ((s32) this->m_414 == 0) {
         return 0;
     }
-    return calc_field4b0_delta() >= (s32) *(s32 *)((s8 *)this + 0x490) ? 1 : 0;
+    return calc_field4b0_delta() >= (s32) *(s32 *)&this->unk_490 ? 1 : 0;
 }
 
 extern f32 lbl_805DE350;
@@ -1261,7 +1261,7 @@ int read_be16_field2__10TObjPlayerFv(void*);
 extern const f32 TBoss6Type1__data_805DE2D0;
 
 void TBoss6Type1::reset_param() {
-    *(f32 *)((s8 *)this + 0x4DC) = (f32) TBoss6Type1__data_805DE2D0;
+    *(f32 *)&this->unk_4DC = (f32) TBoss6Type1__data_805DE2D0;
 }
 
 #pragma push
@@ -1269,9 +1269,9 @@ void TBoss6Type1::reset_param() {
 #pragma opt_propagation off
 void TBoss6Type1::decrease_field_clamped_min() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x4DC) = (f32) (*(f32 *)((s8 *)arg0 + 0x4DC) + lbl_805DE370);
-    if (*(f32 *)((s8 *)arg0 + 0x4DC) < TBoss6Type1__data_805DE2D0) {
-        *(f32 *)((s8 *)arg0 + 0x4DC) = (f32) TBoss6Type1__data_805DE2D0;
+    *(f32 *)&this->unk_4DC = (f32) (*(f32 *)&this->unk_4DC + lbl_805DE370);
+    if (*(f32 *)&this->unk_4DC < TBoss6Type1__data_805DE2D0) {
+        *(f32 *)&this->unk_4DC = (f32) TBoss6Type1__data_805DE2D0;
     }
 }
 #pragma pop
@@ -1280,9 +1280,9 @@ void TBoss6Type1::decrease_field_clamped_min() {
 #pragma opt_common_subs off
 void TBoss6Type1::increase_field_clamped_max() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x4DC) = (f32) (*(f32 *)((s8 *)arg0 + 0x4DC) + lbl_805DE374);
-    if (*(f32 *)((s8 *)arg0 + 0x4DC) > TBoss6Type1__data_805DE2E4) {
-        *(f32 *)((s8 *)arg0 + 0x4DC) = (f32) TBoss6Type1__data_805DE2E4;
+    *(f32 *)&this->unk_4DC = (f32) (*(f32 *)&this->unk_4DC + lbl_805DE374);
+    if (*(f32 *)&this->unk_4DC > TBoss6Type1__data_805DE2E4) {
+        *(f32 *)&this->unk_4DC = (f32) TBoss6Type1__data_805DE2E4;
     }
 }
 #pragma pop
@@ -1715,10 +1715,10 @@ void TBoss6Type1::clear_part_flag_bit0() {
 
 void TBoss6Type1::update_parts_flags() {
     clear_part_flag_bit0();
-    if (*(s32 *)((s8 *)this + 0x418) & 1) {
+    if (*(s32 *)&this->unk_418 & 1) {
         set_child_flags();
     }
-    if (*(s32 *)((s8 *)this + 0x418) & 2) {
+    if (*(s32 *)&this->unk_418 & 2) {
         enable_parts();
     }
 }
@@ -1865,11 +1865,11 @@ void TBoss6Type1::update_turn_to_center() {
 }
 
 s32 TBoss6Type1::calc_field4b0_delta() {
-    return *(s32 *)((s8 *)this + 0x4B0) - this->hp;
+    return *(s32 *)&this->unk_4B0 - this->hp;
 }
 
 void TBoss6Type1::latch_phase_counter() {
-    *(s32 *)((s8 *)this + 0x4B0) = (s32) this->hp;
+    *(s32 *)&this->unk_4B0 = (s32) this->hp;
 }
 
 typedef char RecoveredGlobal_802B7E88_lbl_80470CEC_size[sizeof(RecoveredGlobal_802B7E88_lbl_80470CEC) == 0x30 ? 1 : -1];
@@ -1881,17 +1881,17 @@ void TBoss6Type1::load_params_from_table() {
     if ((f32) this->m_47c <= TBoss6Type1__data_805DE2D0) {
         this->m_47c = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0);
     }
-    *(s32 *)((s8 *)arg0 + 0x480) = (s32) *(f32 *)((s8 *)temp_r3 + 8);
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x480) <= TBoss6Type1__data_805DE2D0) {
-        *(s32 *)((s8 *)arg0 + 0x480) = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 4);
+    *(s32 *)&this->unk_480 = (s32) *(f32 *)((s8 *)temp_r3 + 8);
+    if ((f32) *(s32 *)&this->unk_480 <= TBoss6Type1__data_805DE2D0) {
+        *(s32 *)&this->unk_480 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 4);
     }
     this->m_484 = (s32) *(f32 *)((s8 *)temp_r3 + 0xC);
     if ((f32) this->m_484 <= TBoss6Type1__data_805DE2D0) {
         this->m_484 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 8);
     }
-    *(s32 *)((s8 *)arg0 + 0x488) = (s32) *(f32 *)((s8 *)temp_r3 + 0x10);
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x488) <= TBoss6Type1__data_805DE2D0) {
-        *(s32 *)((s8 *)arg0 + 0x488) = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0xC);
+    *(s32 *)&this->unk_488 = (s32) *(f32 *)((s8 *)temp_r3 + 0x10);
+    if ((f32) *(s32 *)&this->unk_488 <= TBoss6Type1__data_805DE2D0) {
+        *(s32 *)&this->unk_488 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0xC);
     }
     this->m_4a4 = (s32) *(f32 *)((s8 *)temp_r3 + 0x14);
     if ((f32) this->m_4a4 <= TBoss6Type1__data_805DE2D0) {
@@ -1901,29 +1901,29 @@ void TBoss6Type1::load_params_from_table() {
     if ((s32) this->m_48c <= 0) {
         this->m_48c = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x10);
     }
-    *(s32 *)((s8 *)arg0 + 0x490) = (s32) *(s32 *)((s8 *)temp_r3 + 0x1C);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x490) <= 0) {
-        *(s32 *)((s8 *)arg0 + 0x490) = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x14);
+    *(s32 *)&this->unk_490 = (s32) *(s32 *)((s8 *)temp_r3 + 0x1C);
+    if ((s32) *(s32 *)&this->unk_490 <= 0) {
+        *(s32 *)&this->unk_490 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x14);
     }
     this->m_494 = (s32) *(s32 *)((s8 *)temp_r3 + 0x20);
     if ((s32) this->m_494 <= 0) {
         this->m_494 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x18);
     }
-    *(s32 *)((s8 *)arg0 + 0x498) = (s32) *(s32 *)((s8 *)temp_r3 + 0x24);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x498) <= 0) {
-        *(s32 *)((s8 *)arg0 + 0x498) = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x1C);
+    *(s32 *)&this->unk_498 = (s32) *(s32 *)((s8 *)temp_r3 + 0x24);
+    if ((s32) *(s32 *)&this->unk_498 <= 0) {
+        *(s32 *)&this->unk_498 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x1C);
     }
     this->m_49c = (s32) *(s32 *)((s8 *)temp_r3 + 0x28);
     if ((s32) this->m_49c <= 0) {
         this->m_49c = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x20);
     }
-    *(s32 *)((s8 *)arg0 + 0x4A0) = (s32) *(s32 *)((s8 *)temp_r3 + 0x2C);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x4A0) <= 0) {
-        *(s32 *)((s8 *)arg0 + 0x4A0) = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x24);
+    *(s32 *)&this->unk_4A0 = (s32) *(s32 *)((s8 *)temp_r3 + 0x2C);
+    if ((s32) *(s32 *)&this->unk_4A0 <= 0) {
+        *(s32 *)&this->unk_4A0 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x24);
     }
-    *(s32 *)((s8 *)arg0 + 0x4A8) = (s32) *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 0x14);
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x4A8) <= TBoss6Type1__data_805DE2D0) {
-        *(s32 *)((s8 *)arg0 + 0x4A8) = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x2C);
+    *(s32 *)&this->unk_4A8 = (s32) *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 0x14);
+    if ((f32) *(s32 *)&this->unk_4A8 <= TBoss6Type1__data_805DE2D0) {
+        *(s32 *)&this->unk_4A8 = (s32) *(s32 *)((s8 *)(&TBoss6Type1__param_table.value) + 0x2C);
     }
 }
 
@@ -2035,7 +2035,7 @@ void TBoss6Type1::advance_animations() {
     }
 }
 
-void TBoss6Type1::copy_transform(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); (*(f32 *)&this->m_flags) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); (*(f32 *)&this->m_next) = *(f32*)((char*)q + 0xc); *(f32*)((char*)this + 0x10) = *(f32*)((char*)q + 0x10); (*(u32 *)&this->m_down) = *(u32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
+void TBoss6Type1::copy_transform(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); (*(f32 *)&this->m_flags) = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); (*(f32 *)&this->m_next) = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); (*(u32 *)&this->m_down) = *(u32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }
 
 Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s) {
     *d = *s;
@@ -2082,13 +2082,13 @@ void TBoss6Type1::render_shadows() {
     }
 }
 
-void TBoss6Type1::vfunc_63() { if (*(int*)((char*)this + 0x374) != 40) { set_action_state((s32)((void*)40)); } }
+void TBoss6Type1::vfunc_63() { if (*(int *)&this->m_374 != 40) { set_action_state((s32)((void*)40)); } }
 
 extern const f32 TBoss6Type1__data_805DE2E4;
 
 void TBoss6Type1::vfunc_62() {
-    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFFFDFF);
-    *(f32 *)((s8 *)((u8 *)this) + 0x4D4) = (f32) TBoss6Type1__data_805DE2E4;
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
+    this->m_4d4 = (f32) TBoss6Type1__data_805DE2E4;
     play_sound_effect(0x39E01, ((u8 *)this) + 0x584, 0, 1, ((u8 *)this));
 }
 

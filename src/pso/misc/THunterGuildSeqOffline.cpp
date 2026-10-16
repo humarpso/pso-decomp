@@ -204,17 +204,17 @@ u16 obj_getField1c(s32);
 int restore_player_state__13TShopSequenceFv(void*);
 
 void THunterGuildSeqOffline::handle_select() {
-    void *p = *(void **)((s8 *)this + 0x34);
+    void *p = *(void * *)&this->m_34;
     if (p != NULL) {
         if (((TObject *)p)->all_parents_unqueued_for_destruction() != 1) {
-            *(u32 *)((s8 *)this + 0x34) = 0U;
+            *(u32 *)&this->m_34 = 0U;
             goto block_3;
         }
     } else {
 block_3:
         if ((((V_A_80212D9C *) this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
             ((V_A_80212D9C *) this)->m7(0xC, 1);
-            *(s32 *)((s8 *)this + 0x38) = 1;
+            *(s32 *)&this->unk_38 = 1;
             set_field_20((s32)((void*)(5)));
         }
     }
@@ -226,11 +226,11 @@ void THunterGuildSeqOffline::open_judgment_window() {
 
     if ((((VObj_802136A4_80212e50_80212D9C *)this)->m10() != 0)
         && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
-        temp_r31 = (u16)obj_getField1c(*(s32 *)((s8 *)this + 0x24));
-        *(s32 *)((s8 *)this + 0x2C) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
-        ((TWindowSubComCardList *)(*(s32 *)((s8 *)this + 0x2C)))->set_selected_index(1);
+        temp_r31 = (u16)obj_getField1c(this->m_24);
+        *(s32 *)&this->m_2c = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+        ((TWindowSubComCardList *)(*(s32 *)&this->m_2c))->set_selected_index(1);
         temp_f31 = get_scale__15TShopWindowBaseFv(this);
-        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)this + 0x2C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)&this->m_2c))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
         ((VObj_802136A4_80212e50_80212D9C *)this)->m9(8, 1);
         set_field_20((s32)((void*)(6)));
     }
@@ -243,7 +243,7 @@ void THunterGuildSeqOffline::resolve_active_quest_result() {
             if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFF) == 1) {
                 ((VObj_18_b54460 *)(arg0))->m7(0xB, 1);
                 if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 4) != -1) {
-                    *(s32 *)((s8 *)arg0 + 0x34) = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 4));
+                    this->m_34 = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 4));
                 }
                 ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(7)));
                 return;
@@ -251,7 +251,7 @@ void THunterGuildSeqOffline::resolve_active_quest_result() {
             if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFD) == 1) {
                 ((VObj_18_b54460 *)(arg0))->m7(0x12, 1);
                 if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 0) != -1) {
-                    *(s32 *)((s8 *)arg0 + 0x34) = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 0));
+                    this->m_34 = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 0));
                 }
                 ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(8)));
                 return;
@@ -428,9 +428,9 @@ void THunterGuildSeqOffline::handle_confirm_window() {
             TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
             *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(9, 1);
-            *(s32 *)((s8 *)arg0 + 0x34) = 1;
+            this->m_34 = 1;
             if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 8) != -1) {
-                *(s32 *)((s8 *)arg0 + 0x38) = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 8));
+                *(s32 *)&this->unk_38 = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 8));
             }
             ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0xC)));
             break;
@@ -438,7 +438,7 @@ void THunterGuildSeqOffline::handle_confirm_window() {
             TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
             *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
-            *(s32 *)((s8 *)arg0 + 0x34) = 0;
+            this->m_34 = 0;
             ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0xC)));
             break;
         }
@@ -448,7 +448,7 @@ void THunterGuildSeqOffline::handle_confirm_window() {
         TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
         *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
         ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
-        *(s32 *)((s8 *)arg0 + 0x34) = 0;
+        this->m_34 = 0;
         ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0xC)));
     }
 }
@@ -459,7 +459,7 @@ void THunterGuildSeqOffline::open_judgment_item_window() {
 
     if ((((VObj_802136A4_80212D9C *)this)->m10() != 0)
         && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
-        temp_r31 = (u16)obj_getField1c(*(s32 *)((s8 *)this + 0x24));
+        temp_r31 = (u16)obj_getField1c(this->m_24);
         *(s32 *)((s8 *)this + 0x3C) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)((s8 *)this + 0x3C)))->set_selected_index(1);
         temp_f31 = get_scale__15TShopWindowBaseFv(this);

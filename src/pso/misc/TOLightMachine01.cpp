@@ -72,7 +72,7 @@ void *__nw__7TObjectFUl(int);
 
 void TOLightMachine01::run_task() {
     *(s32 *)&this->m_a8 = (s32) (*(s32 *)&this->m_a8 + *(s32 *)&this->m_a4);
-    this->m_9c = (f32) (*(f32 *)((s8 *)this + 0x98) * sin_table_lookup(*(s32 *)&this->m_a8));
+    this->m_9c = (f32) (*(f32 *)&this->unk_98 * sin_table_lookup(*(s32 *)&this->m_a8));
     *(s32 *)&this->m_ac = (s32) (*(s32 *)&this->m_ac + *(s32 *)&this->m_8c);
 }
 
@@ -82,7 +82,7 @@ extern const f32 lbl_805DB828;
 
 void TOLightMachine01::render() {
     u8 *arg0 = (u8 *)this;
-    if (((VObj_8016E9F4_8016E998 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x90), this->m_94) != 0) {
+    if (((VObj_8016E9F4_8016E998 *)arg0)->m8(*(f32 *)&this->unk_90, this->m_94) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

@@ -81,7 +81,7 @@ s32 TUnk_8048E1A4::freeze_shell_hold() {
     if (p == 0) {
         return;
     }
-    *(s32 *)((s8 *)this + 0x60) += 0x10;
+    this->rotation_y += 0x10;
     if (obj_testFlags30(p, 0x800) == 0) {
         if (obj_testFlags30(p, 0x20) != 0) {
             return;
@@ -95,9 +95,9 @@ s32 TUnk_8048E1A4::freeze_shell_hold() {
     p = spawn_particle_effect((u8 *)this + 0x38, 0x33);
     if (p != 0) {
         attach_particle_model(p, get_bml_model(freeze_shell_bml_resource, 0), TObjFish__sub_8001EDB0(freeze_shell_bml_resource, 1), get_bml_motion(freeze_shell_bml_resource, 0), 0, lbl_805D9384);
-        ((TObjPlayer *)p)->set_position_xy(*(f32 *)((s8 *)this + 0x68), *(f32 *)((s8 *)this + 0x6C));
+        ((TObjPlayer *)p)->set_position_xy(this->scale, this->target_scale);
     }
-    *(f32 *)((s8 *)this + 0xC0) = lbl_805D9378;
+    this->m_c0 = lbl_805D9378;
 }
 
 void TUnk_8048E1A4::freeze_shell_grow() {
@@ -107,21 +107,21 @@ void TUnk_8048E1A4::freeze_shell_grow() {
     typedef char sp10_offset[(offsetof(Stack_80081CD0, sp10) == 0x8) ? 1 : -1];
     Stack_80081CD0 stack;
     f32 temp_f0;
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x1000);
-    *(f32 *)((s8 *)arg0 + 0x70) = (f32) (*(f32 *)((s8 *)arg0 + 0x70) + lbl_805D9388);
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0x70);
-    *(f32 *)((s8 *)arg0 + 0x6C) = temp_f0;
-    *(f32 *)((s8 *)arg0 + 0x68) = temp_f0;
-    if (*(f32 *)((s8 *)arg0 + 0x338) < *(f32 *)((s8 *)arg0 + 0x68)) {
+    this->rotation_y = (s32) (this->rotation_y + 0x1000);
+    *(f32 *)&this->m_70 = (f32) (*(f32 *)&this->m_70 + lbl_805D9388);
+    temp_f0 = *(f32 *)&this->m_70;
+    this->target_scale = temp_f0;
+    this->scale = temp_f0;
+    if (this->m_338 < this->scale) {
         *(s32 *)((s8 *)arg0 + 0x334) = 1;
     }
     *(s32 *)((s8 *)arg0 + 0x33C) = (s32) (*(s32 *)((s8 *)arg0 + 0x33C) + 1);
     if ((*(s32 *)((s8 *)arg0 + 0x33C) % 3) == 0) {
         stack.sp8 = lbl_805D9378;
         stack.spC = lbl_805D9378;
-        stack.sp10 = lbl_805D938C * *(f32 *)((s8 *)arg0 + 0x68);
+        stack.sp10 = lbl_805D938C * this->scale;
         push_matrix_from((void *) (&identity_matrix.value));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60) * 2));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y * 2));
         rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
         vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));

@@ -8,7 +8,11 @@ struct TBoss6PlotFalz : public TObjEnemy {
     virtual ~TBoss6PlotFalz();
     void sub_802AAC98();
     void vfunc_63();
-    u8 unk_374[0x40];
+    u8 unk_374[0x8];
+    u8 m_37c;
+    u8 unk_37D[0x3];
+    u8 * m_380;
+    u8 unk_384[0x30];
     u32 m_3cc;
     u32 m_3d0;
     u32 m_3d4;

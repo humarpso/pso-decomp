@@ -908,9 +908,9 @@ void TObjPlayer::update_topple_state() {
     case -1:
         break;
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x10000);
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        if (angle_difference_abs(this->m_60, *(s32 *)((s8 *)arg0 + 0x398) - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x10000);
+        *(s16 *)&this->unk_B8 = 0;
+        if (angle_difference_abs(this->m_60, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
             this->m_37c = 3;
         } else {
             this->m_37c = 1;
@@ -924,18 +924,18 @@ void TObjPlayer::update_topple_state() {
         }
         break;
     case 2:
-        this->m_60 = approach_angle_limited(this->m_60, *(s32 *)((s8 *)arg0 + 0x398) - 0x4000, boss3_volopt_turn_angle_limit);
-        if (angle_difference_abs(this->m_60, *(s32 *)((s8 *)arg0 + 0x398) - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
+        this->m_60 = approach_angle_limited(this->m_60, *(s32 *)&this->unk_398 - 0x4000, boss3_volopt_turn_angle_limit);
+        if (angle_difference_abs(this->m_60, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
             this->m_37c = 3;
         }
         break;
     case 3:
         play_persistent_sound(0x4003BC05, arg0, arg0 + 0x38, 0, 0);
         advance_animation_playback(arg0);
-        *(s32 *)((s8 *)arg0 + 0x390) = (s32) (*(s32 *)((s8 *)arg0 + 0x390) - TObjPlayer__sub_80040AE4(0));
+        *(s32 *)&this->unk_390 = (s32) (*(s32 *)&this->unk_390 - TObjPlayer__sub_80040AE4(0));
         this->m_394 = (s32) (this->m_394 - TObjPlayer__sub_80040AE4(0));
         TObjPlayer__sub_8003FCD0((u8 *)(arg0));
-        *(s32 *)((s8 *)arg0 + 0x398) = calc_spin_value();
+        *(s32 *)&this->unk_398 = calc_spin_value();
         if ((s32) this->m_394 <= -0x238E) {
             ((VObj_8003f510_8003F4C0*)arg0)->m56();
         }
@@ -1093,14 +1093,14 @@ void TObjPlayer::set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
 
     if (obj_testFlags30(this, 0x800) == 0) {
-        temp_r4 = *(s32 *)((s8 *)this + 0x388) | 0x20000;
-        *(s32 *)((s8 *)this + 0x388) = temp_r4;
+        temp_r4 = *(s32 *)&this->unk_388 | 0x20000;
+        *(s32 *)&this->unk_388 = temp_r4;
         this->m_3bc = arg1;
-        *(s32 *)((s8 *)this + 0x3C0) = arg2;
+        *(s32 *)&this->unk_3C0 = arg2;
         this->m_3c4 = arg3;
         boss3_volopt_core_active_flag = 0;
         alloc_boss_target_slot__10TObjPlayerFPvi((Obj_8003F730 *)(this), (s32)(temp_r4));
-        *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) & 0xFFFFFFFE);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
         ((VObj_8003FB3C_8003F4C0 *)this)->m57();
     }
 }
@@ -1164,7 +1164,7 @@ void TObjPlayer__sub_8003FCD0(u8 *arg0) {
 }
 
 s32 TObjPlayer::calc_spin_value() {
-    return (s32) (lbl_805D86B4 * (f32) ((((s32) (u16) *(s32 *)((s8 *)this + 0x390) / 10922) * 0x3C) + 0x78));
+    return (s32) (lbl_805D86B4 * (f32) ((((s32) (u16) *(s32 *)&this->unk_390 / 10922) * 0x3C) + 0x78));
 }
 
 void TObjPlayer::update_state_spin() {
@@ -1175,25 +1175,25 @@ void TObjPlayer::update_state_spin() {
     switch (temp_r0) {
     case 0:
         *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags | 0x40000);
-        *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) | 0x20000);
-        *(s32 *)((s8 *)this + 0x390) = 0x4000;
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000);
+        *(s32 *)&this->unk_390 = 0x4000;
         this->m_394 = -0x1555;
         *(u16 *)((s8 *)this + 0x338) = 0xFFFF;
-        *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) | 0x10000);
-        *(s16 *)((s8 *)this + 0xB8) = 0;
-        *(s32 *)((s8 *)this + 0x5C) = 0;
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x10000);
+        *(s16 *)&this->unk_B8 = 0;
+        *(s32 *)&this->unk_5C = 0;
         TObjPlayer__sub_8003FCD0((u8 *)(this));
-        *(s32 *)((s8 *)this + 0x398) = calc_spin_value();
-        this->m_60 = (s32) *(s32 *)((s8 *)this + 0x398);
-        *(s16 *)((s8 *)this + 0x33C) = 0x5A;
+        *(s32 *)&this->unk_398 = calc_spin_value();
+        this->m_60 = (s32) *(s32 *)&this->unk_398;
+        *(s16 *)&this->unk_33C = 0x5A;
         this->m_37c = 1;
     case 1:
         advance_animation_playback(this);
-        temp_r3 = *(s16 *)((s8 *)this + 0x33C) - 1;
-        *(s16 *)((s8 *)this + 0x33C) = temp_r3;
+        temp_r3 = *(s16 *)&this->unk_33C - 1;
+        *(s16 *)&this->unk_33C = temp_r3;
         if ((s16) temp_r3 <= 0) {
             *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFFFBFFFF);
-            *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) & 0xFFFFFFFE);
+            *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
             ((E_V_8003fde8_8003F4C0 *) this)->m56();
         }
         break;
@@ -1206,13 +1206,13 @@ s32 TObjPlayer::check_target_collision() {
     s32 found;
     s32 i;
     VObj_18_c44252 *obj;
-    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x2A8) == 0U) {
+    if ((u32) *(u32 *)&this->m_2a8 == 0U) {
         return 0;
     }
     found = 0;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)((u8 *)this))->check_object_collisions();
-    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xA4)) + 0x18) & 0x80000) {
+    if (*(s32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             obj = (VObj_18_c44252 *)TObjPlayer::get_battle_param(i);
             if (obj == NULL) {
@@ -1223,7 +1223,7 @@ s32 TObjPlayer::check_target_collision() {
                     obj->m23(((u8 *)this), lbl_805D86D4);
                     obj->m20(((u8 *)this), lbl_805D86B0);
                 }
-                if ((u32) obj == (u32) *(u32 *)((s8 *)((u8 *)this) + 0x2A8)) {
+                if ((u32) obj == (u32) *(u32 *)&this->m_2a8) {
                     found = 1;
                 }
             }
@@ -1268,11 +1268,11 @@ void TObjPlayer::update_grabbed_state() {
     switch (temp_r0) {
     case 0:
         if (obj_testFlags30((void *)(this), (s32)(0x02000000)) != 0) {
-            *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) | 0x40000);
+            *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
         }
         obj_clearFlags30(this, 0x02200200);
         this->m_33e = (s16) this->m_32c;
-        *(s16 *)((s8 *)this + 0xB8) = 3;
+        *(s16 *)&this->unk_B8 = 3;
         play_sound_effect(0x4003A81F, 0, 0, 0);
         play_sound_effect(0x4003BC20, 0, 0, 0);
         if ((s32) local_client_id == (s32) this->m_2d4) {
@@ -1283,8 +1283,8 @@ void TObjPlayer::update_grabbed_state() {
     case 1:
         advance_animation_playback(this);
         if ((u32) this->m_b4 != 8U) {
-            *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) & 0xFFFFFFFE);
-            if (*(s32 *)((s8 *)this + 0x388) & 0x40000) {
+            *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
+            if (*(s32 *)&this->unk_388 & 0x40000) {
                 TObjPlayer::set_grabbed_state((s32)(0xF));
             } else {
                 update_if_active__15TObjEneMe1GiGueFl((void*)(this), (s32)(*(s32 *)&this->unk_380));
@@ -1292,7 +1292,7 @@ void TObjPlayer::update_grabbed_state() {
         }
         return;
     case -1:
-        *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) & 0xFFFBFFFF);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFBFFFF);
         break;
     }
 }

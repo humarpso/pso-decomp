@@ -267,12 +267,12 @@ s32 TUnk_80494AE0::advance_toward_max() {
     f32 temp_f1;
     s32 var_r0;
 
-    temp_f1 = *(f32 *)((s8 *)this + 0);
+    temp_f1 = *(f32 *)&this->unk_0;
     var_r0 = 0;
     if (temp_f1 < lbl_805DA3DC) {
-        *(f32 *)((s8 *)this + 0) = (f32) (temp_f1 + *(f32 *)((s8 *)this + 0x10));
+        *(f32 *)&this->unk_0 = (f32) (temp_f1 + *(f32 *)&this->unk_10);
     } else {
-        *(f32 *)((s8 *)this + 0) = (f32) lbl_805DA3DC;
+        *(f32 *)&this->unk_0 = (f32) lbl_805DA3DC;
         var_r0 = 1;
     }
     return var_r0;
@@ -288,12 +288,12 @@ s32 TUnk_80494AE0::decay_value_toward_floor() {
     f32 temp_f1;
     s32 var_r0;
 
-    temp_f1 = *(f32 *)((s8 *)this + 0);
+    temp_f1 = *(f32 *)&this->unk_0;
     var_r0 = 0;
     if (temp_f1 > lbl_805DA3D8) {
-        *(f32 *)((s8 *)this + 0) = (f32) (temp_f1 - *(f32 *)((s8 *)this + 0x10));
+        *(f32 *)&this->unk_0 = (f32) (temp_f1 - *(f32 *)&this->unk_10);
     } else {
-        *(f32 *)((s8 *)this + 0) = (f32) lbl_805DA3D8;
+        *(f32 *)&this->unk_0 = (f32) lbl_805DA3D8;
         var_r0 = 1;
     }
     return var_r0;
@@ -305,7 +305,7 @@ extern "C" {
 
     extern const f32 lbl_805DA3D8;
     extern const f32 lbl_805DA3DC;
-void TUnk_80494AE0::reset_obstruction_fade() { *(float*)((char*)this + 0x0) = lbl_805DA3D8; *(float*)((char*)this + 0x4) = lbl_805DA3DC; *(float*)((char*)this + 0x8) = lbl_805DA3DC; *(float*)((char*)this + 0xc) = lbl_805DA3DC; }
+void TUnk_80494AE0::reset_obstruction_fade() { *(float *)&this->unk_0 = lbl_805DA3D8; this->m_4 = lbl_805DA3DC; *(float *)&this->unk_8 = lbl_805DA3DC; this->m_c = lbl_805DA3DC; }
 
 }
 
@@ -332,12 +332,12 @@ s32 __dl__FPv(void *);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
 
     extern const f32 lbl_805DA3DC;
-void TUnk_80494AE0::vfunc_4() { *(float*)((char*)this + 0x0) = lbl_805DA3DC; *(float*)((char*)this + 0x4) = lbl_805DA3DC; *(float*)((char*)this + 0x8) = lbl_805DA3DC; *(float*)((char*)this + 0xc) = lbl_805DA3DC; }
+void TUnk_80494AE0::vfunc_4() { *(float *)&this->unk_0 = lbl_805DA3DC; this->m_4 = lbl_805DA3DC; *(float *)&this->unk_8 = lbl_805DA3DC; this->m_c = lbl_805DA3DC; }
 
 extern const f32 lbl_805DA3E0;
 
 void TUnk_80494AE0::set_rate_from_divisor(s32 arg1) {
-    *(f32 *)((s8 *)this + 0x10) = (f32) (lbl_805DA3E0 / (f32) arg1);
+    *(f32 *)&this->unk_10 = (f32) (lbl_805DA3E0 / (f32) arg1);
 }
 
 extern s32 lbl_80494AE0[];

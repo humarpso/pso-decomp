@@ -326,21 +326,21 @@ void TBoss8Dragon::choose_next_camera_shot() {
     }
     r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
     if (r < lbl_805DF180) {
-        *(s16 *)((s8 *)arg0 + 0x1C) = 1;
+        *(s16 *)&this->unk_1C = 1;
     } else if (r < lbl_805DF184) {
-        *(s16 *)((s8 *)arg0 + 0x1C) = 2;
+        *(s16 *)&this->unk_1C = 2;
     } else if (r < lbl_805DF188) {
-        *(s16 *)((s8 *)arg0 + 0x1C) = 3;
+        *(s16 *)&this->unk_1C = 3;
     } else {
-        *(s16 *)((s8 *)arg0 + 0x1C) = 4;
+        *(s16 *)&this->unk_1C = 4;
     }
-    switch (*(s16 *)((s8 *)arg0 + 0x1C)) {
+    switch (*(s16 *)&this->unk_1C) {
     case 0:
         break;
     case 1:
         this->m_1e = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
         *(u16 *)((s8 *)arg0 + 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
-        *(s32 *)((s8 *)arg0 + 0x28) = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
+        *(s32 *)&this->unk_28 = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
         this->m_2c = lbl_805DF194 * (lbl_805DF198 * (calc_random_ratio__10TObjPlayerFv(arg0 + 0x54) - lbl_805DF19C));
         *(f32 *)&this->unk_30 = lbl_805DF1A0 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF174;
         break;
@@ -349,7 +349,7 @@ void TBoss8Dragon::choose_next_camera_shot() {
         *(u16 *)((s8 *)arg0 + 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
         p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x24));
         if (p != NULL) {
-            *(s32 *)((s8 *)arg0 + 0x28) = *(s32 *)((s8 *)p + 0x60) - 0x8000;
+            *(s32 *)&this->unk_28 = *(s32 *)((s8 *)p + 0x60) - 0x8000;
         }
         break;
     case 3:
@@ -357,17 +357,17 @@ void TBoss8Dragon::choose_next_camera_shot() {
         *(u16 *)((s8 *)arg0 + 0x24) = ((u16 (*)(void *))call_null__12TBoss8DragonFv)(arg0);
         p = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x24));
         if (p != NULL) {
-            *(s32 *)((s8 *)arg0 + 0x28) = *(s32 *)((s8 *)p + 0x60) - 0x8000;
+            *(s32 *)&this->unk_28 = *(s32 *)((s8 *)p + 0x60) - 0x8000;
         }
         break;
     case 4:
         this->m_1e = lbl_805DF1A8 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A8;
-        *(s32 *)((s8 *)arg0 + 0x28) = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
-        *(f32 *)&this->m_34 = lbl_805DF1AC * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x28));
+        *(s32 *)&this->unk_28 = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
+        *(f32 *)&this->m_34 = lbl_805DF1AC * sin_table_lookup(*(s32 *)&this->unk_28);
         *(f32 *)&this->m_38 = lbl_805DF1B0;
-        *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DF1AC * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x28));
+        *(f32 *)&this->unk_3C = lbl_805DF1AC * cos_table_lookup(*(s32 *)&this->unk_28);
         this->m_40 = lbl_805DF1B4;
-        *(f32 *)((s8 *)arg0 + 0x44) = lbl_805DF1B4;
+        *(f32 *)&this->unk_44 = lbl_805DF1B4;
         this->m_48 = lbl_805DF1B4;
         break;
     }
@@ -383,29 +383,29 @@ void TBoss8Dragon::update_live_camera() {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1C);
+    temp_r0 = *(s16 *)&this->unk_1C;
     switch (temp_r0) {
     case 1:
         temp_r3 = (u8 *)(get_player_by_client_id((s32) *(u16 *)((s8 *)arg0 + 0x24)));
         if (temp_r3 != NULL) {
-            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1B8 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3 + 0x38));
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1B8 * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3 + 0x38));
             *(f32 *)&this->m_38 = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)&this->unk_30);
-            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DF1B8 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3 + 0x40));
+            *(f32 *)&this->unk_3C = (f32) ((lbl_805DF1B8 * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3 + 0x40));
             this->m_40 = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
-            *(f32 *)((s8 *)arg0 + 0x44) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)&this->unk_30);
+            *(f32 *)&this->unk_44 = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) + *(f32 *)&this->unk_30);
             this->m_48 = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
-            *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + this->m_2c);
+            *(s32 *)&this->unk_28 = (s32) (*(s32 *)&this->unk_28 + this->m_2c);
         }
         return;
     case 2:
         temp_r3_2 = (u8 *)(get_player_by_client_id((s32) *(u16 *)((s8 *)arg0 + 0x24)));
         if (temp_r3_2 != NULL) {
-            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1BC * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1BC * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
             *(f32 *)&this->m_38 = (f32) (lbl_805DF1C0 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
-            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DF1BC * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
-            this->m_40 = (f32) ((lbl_805DF1C4 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
-            *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1C8 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
-            this->m_48 = (f32) ((lbl_805DF1C4 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
+            *(f32 *)&this->unk_3C = (f32) ((lbl_805DF1BC * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
+            this->m_40 = (f32) ((lbl_805DF1C4 * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
+            *(f32 *)&this->unk_44 = (f32) (lbl_805DF1C8 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
+            this->m_48 = (f32) ((lbl_805DF1C4 * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
             ((TObjLiveCameraCtrl *)arg0)->sub_8030B818((int)((int) (*(s32 *)((s8 *)temp_r3_2 + 0x60) - 0x8000)));
             return;
         }
@@ -413,12 +413,12 @@ void TBoss8Dragon::update_live_camera() {
     case 3:
         temp_r3_3 = (u8 *)(get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x24)));
         if ((temp_r3_3 != NULL) && (*(f32 *)((s8 *)temp_r3_3 + 0x3C) >= lbl_805DF1B4)) {
-            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1CC * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
+            *(f32 *)&this->m_34 = (f32) ((lbl_805DF1CC * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
             *(f32 *)&this->m_38 = (f32) (lbl_805DF1A8 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
-            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DF1CC * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
-            this->m_40 = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
-            *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1D4 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
-            this->m_48 = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
+            *(f32 *)&this->unk_3C = (f32) ((lbl_805DF1CC * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
+            this->m_40 = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
+            *(f32 *)&this->unk_44 = (f32) (lbl_805DF1D4 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
+            this->m_48 = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)&this->unk_28))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
             ((TObjLiveCameraCtrl *)arg0)->sub_8030B818((int)((int) (*(s32 *)((s8 *)temp_r3_3 + 0x60) - 0x8000)));
             return;
         }
@@ -434,7 +434,7 @@ void TBoss8Dragon::update_live_camera() {
 #pragma pop
 
 void TBoss8Dragon::update_toggle_state() {
-    if ((s32) *(s32 *)((s8 *)this + 0x4C) >= TBoss8Dragon__sub_802F3638()) {
+    if ((s32) *(s32 *)&this->unk_4C >= TBoss8Dragon__sub_802F3638()) {
         if ((s32) *(s32 *)&this->unk_20 == 1) {
             if ((u32) this->m_50 != 0U) {
                 TObjPlayer__sub_80082CBC(*(void * *)&this->m_50);

@@ -95,7 +95,7 @@ u8 *TItemProShield__sub_80116744(u8 *arg0) {
 void TUnk_8049F828::vfunc_44() {
     s32 temp_r3;
 
-    temp_r3 = ((TObjPlayer *)(*(s32 *)((s8 *)this + 0xF0)))->activate_d04_slot();
+    temp_r3 = ((TObjPlayer *)(*(s32 *)&this->m_f0))->activate_d04_slot();
     if (temp_r3 != 0) {
         apply_transform_action__8TItemMagFUc(temp_r3, get_slot_count__14TItemProShieldFv(this));
     }
@@ -186,8 +186,8 @@ void TUnk_8049F8E0::vfunc_44() {
     s32 temp_r3;
     u32 temp_r424;
     int temp_r31;
-    if (sub_801A1DDC__10TObjPlayerFv(*(void **)((s8 *)this + 0xF0)) != 0) {
-        temp_r424 = (u32) *(u32 *)((s8 *)(*(void **)((s8 *)this + 0xF0)) + 0x424);
+    if (sub_801A1DDC__10TObjPlayerFv(*(void * *)&this->m_f0) != 0) {
+        temp_r424 = (u32) *(u32 *)((s8 *)(*(void * *)&this->m_f0) + 0x424);
         if (temp_r424 != 0U) {
             temp_r3 = ((TMainCursor *)temp_r424)->find_by_pos(4, 9);
             if (temp_r3 != 0) {
@@ -195,7 +195,7 @@ void TUnk_8049F8E0::vfunc_44() {
                 if ((u16) get_type_id__10TObjPlayerFv() != 0xffffU) {
                     TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
                     temp_r31 = get_type_id__10TObjPlayerFv();
-                    send_6x33_revive_player(obj_getField1c(*(void **)((s8 *)this + 0xF0)), temp_r31);
+                    send_6x33_revive_player(obj_getField1c(*(void * *)&this->m_f0), temp_r31);
                 }
             }
         }
@@ -243,11 +243,11 @@ void TUnk_8049F998::vfunc_44() {
     temp_r3 = ((u8 (*)())get_slot_count__14TItemProShieldFv)();
     switch ((s32) temp_r3) {
     case 0:
-        obj = *(struct VObj_80116A5C_80116634 **)((s8 *)this + 0xF0);
+        obj = *(struct VObj_80116A5C_80116634 * *)&this->m_f0;
         obj->m51();
         return;
     case 1:
-        obj = *(struct VObj_80116A5C_80116634 **)((s8 *)this + 0xF0);
+        obj = *(struct VObj_80116A5C_80116634 * *)&this->m_f0;
         obj->m52();
         return;
     }
@@ -367,7 +367,7 @@ u8 *create_status_cure_item(u8 *arg0) {
 }
 
 void TUnk_8049FA50::vfunc_44() {
-    struct VObj_80116BBC_80116634 *o = (struct VObj_80116BBC_80116634 *)*(void **)((s8 *)this + 0xF0);
+    struct VObj_80116BBC_80116634 *o = (struct VObj_80116BBC_80116634 *)*(void * *)&this->m_f0;
     o->m48();
 }
 
@@ -406,7 +406,7 @@ u8 *create_sol_atomizer_item(u8 *arg0) {
     return NULL;
 }
 
-void TUnk_8049FB08::vfunc_44() { send_star_atomizer_targets(*(void**)((char*)this + 0xf0)); }
+void TUnk_8049FB08::vfunc_44() { send_star_atomizer_targets(*(void* *)&this->m_f0); }
 
 extern void *item_star_atomizer_vtable[];
 

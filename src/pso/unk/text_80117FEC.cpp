@@ -17,7 +17,7 @@ void TItemProShield::sub_80117FEC() {
     switch (temp_r3) {
     case 34:
     case 35:
-        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (*(s32 *)((s8 *)arg0 + 0x19C) | 1);
+        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 1);
         break;
     case 22:
         ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x80));
@@ -25,30 +25,30 @@ void TItemProShield::sub_80117FEC() {
     case 49:
         ((TItemEquipBase *)arg0)->set_equip_flag((int) (0x3A));
         ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (2));
-        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (*(s32 *)((s8 *)arg0 + 0x19C) | 2);
+        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
         break;
     case 48:
         ((TItemEquipBase *)arg0)->set_equip_flag((int) (0x28));
         break;
     case 42:
-        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (*(s32 *)((s8 *)arg0 + 0x19C) | 2);
+        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
         break;
     case 50:
         ((TItemEquipBase *)arg0)->set_equip_flag((int) (0x3A));
-        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (*(s32 *)((s8 *)arg0 + 0x19C) | 2);
+        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
         break;
     }
     if ((temp_r3 == 0x27) || ((temp_r3 >= 0x33U) && (temp_r3 <= 0x39U)) || ((temp_r3 >= 0x53U) && (temp_r3 <= 0x82U)) || (temp_r3 == 0x52)) {
         ((TItemEquipBase *)arg0)->set_equip_flag((int) (0x22));
-        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (*(s32 *)((s8 *)arg0 + 0x19C) | 2);
+        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
     }
-    temp_r0 = *(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x18C)) + 0x1A);
+    temp_r0 = *(u8 *)((s8 *)(*(u8 * *)&this->m_18c) + 0x1A);
     switch ((s32) temp_r0) {
     case 1:
-        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (*(s32 *)((s8 *)arg0 + 0x19C) | 4);
+        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 4);
         return;
     case 3:
-        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (*(s32 *)((s8 *)arg0 + 0x19C) | 8);
+        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 8);
     case 2:
     case 0:
         return;

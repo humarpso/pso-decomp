@@ -38,16 +38,16 @@ int render__14TWindowMessageFv(void*);
 s32 send_and_handle__6TLobbyFii(void *, s32, s32);
 
 s32 TWindowMessagePage::is_ready() {
-    if ((u32) *(u32 *)((s8 *)this + 0x94) != 0U) {
+    if ((u32) this->m_94 != 0U) {
         return 0;
     }
     return is_message_window_ready() != 0 ? 1 : 0;
 }
 
 void TWindowMessagePage::update_message() {
-    if ((u32) *(u32 *)((s8 *)this + 0x94) != 0U) {
+    if ((u32) this->m_94 != 0U) {
         text_builder_reset();
-        *(u32 *)((s8 *)this + 0x94) = copy_message_page_text__20TWindowSubStatusDispFv(*(u32 *)((s8 *)this + 0x94));
+        this->m_94 = copy_message_page_text__20TWindowSubStatusDispFv(this->m_94);
         send_and_handle__6TLobbyFii(this, get_shared_text_buffer(), *(s32 *)((s8 *)this + 0x90));
     }
 }
@@ -89,7 +89,7 @@ void TWindowMessagePage::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
     draw__14TWindowMessageFv();
-    temp_r5 = is_player_input_active((int) (*(s16 *)((s8 *)arg0 + 0x20))) * 0x50;
+    temp_r5 = is_player_input_active((int) (this->m_20)) * 0x50;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
         if (((TWindowMessagePage *)arg0)->is_message_window_ready() != 0) {
             update_message();

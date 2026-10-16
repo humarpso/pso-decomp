@@ -753,11 +753,11 @@ extern s32 net_transport_buffer_ptr_b;
 
 void TLobby::init_params() {
     u8 *arg0 = (u8 *)this;
-    *(s16 *)((s8 *)arg0 + 4) = (s16) net_param_room_count;
-    *(s32 *)((s8 *)arg0 + 8) = (s32) lbl_805D4800;
-    *(s32 *)((s8 *)arg0 + 0xC) = (s32) lbl_805D4800;
+    *(s16 *)&this->m_flags = (s16) net_param_room_count;
+    *(s32 *)&this->m_prev = (s32) lbl_805D4800;
+    *(s32 *)&this->m_next = (s32) lbl_805D4800;
     *(s16 *)((s8 *)arg0 + 0xA0) = 0x64;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) net_transport_buffer_ptr_b;
+    *(s32 *)&this->m_name = (s32) net_transport_buffer_ptr_b;
 }
 
 void TLobby__sub_803F87C4(void) {
@@ -968,9 +968,9 @@ typedef char RecoveredGlobal_803F8B7C_lbl_805BD66C_size[sizeof(RecoveredGlobal_8
 void TLobby::init_net_recv_desc() {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 0xA) = 0x500;
-    *(s16 *)((s8 *)arg0 + 0xC) = 2;
-    *(s32 **)((s8 *)arg0 + 0x10) = &lbl_805D7A58;
-    *(s32 **)((s8 *)arg0 + 0x14) = &lobby_net_recv_desc.value;
+    *(s16 *)&this->m_next = 2;
+    *(s32 * *)&this->m_up = &lbl_805D7A58;
+    *(s32 * *)&this->m_down = &lobby_net_recv_desc.value;
 }
 
 u8 *TLobby::layout_buffers(u8 *p, u8 *end) {

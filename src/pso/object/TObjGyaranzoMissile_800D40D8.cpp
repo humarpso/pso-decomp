@@ -135,20 +135,20 @@ void TUnk_8049442C::update_ground_fall(s32 *arg1, f32 farg0) {
         VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&position.x));
     }
     if (temp_r31 == 1) {
-        *(f32 *)((s8 *)((u8 *)this) + 0xB0) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xB0) + lbl_805DA2A0);
-        *(f32 *)((s8 *)((u8 *)this) + 0x3C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3C) + *(f32 *)((s8 *)((u8 *)this) + 0xB0));
+        this->m_b0 = (f32) (this->m_b0 + lbl_805DA2A0);
+        *(f32 *)((s8 *)((u8 *)this) + 0x3C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3C) + this->m_b0);
         temp_f1 = position.y + farg0;
         position.y = temp_f1;
         if (*(f32 *)((s8 *)((u8 *)this) + 0x3C) <= temp_f1) {
             *(f32 *)((s8 *)((u8 *)this) + 0x3C) = temp_f1;
-            *(f32 *)((s8 *)((u8 *)this) + 0xB0) = (f32) lbl_805DA2A4;
-            *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) | 0x800000);
+            this->m_b0 = (f32) lbl_805DA2A4;
+            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x800000);
             return;
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFF7FFFFF);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFF7FFFFF);
         return;
     }
-    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFF7FFFFF);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFF7FFFFF);
 }
 
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
@@ -187,7 +187,7 @@ void TUnk_8049442C::render() {
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->m_bc);
-    rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0xC0));
+    rotate_matrix_x(0, *(s32 *)&this->unk_C0);
     model_render_flags &= 0xFFFFFBFF;
     draw_chunk_object(this->m_c4);
     pop_matrix();

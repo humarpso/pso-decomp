@@ -53,10 +53,10 @@ void TMainCursor__sub_8013E800(Obj_8013E800 *self) {
 
 extern "C" {
 
-s32 TMainCursor::get_body_exclude_mask() { return *(s32*)((char*)this + 0xc); }
-s32 TMainCursor::get_body_include_mask() { return *(s32*)((char*)this + 0x8); }
-s32 TMainCursor::get_actor_exclude_mask() { return *(s32*)((char*)this + 0x14); }
-s32 TMainCursor::get_actor_include_mask() { return *(s32*)((char*)this + 0x10); }
+s32 TMainCursor::get_body_exclude_mask() { return *(s32 *)&this->m_next; }
+s32 TMainCursor::get_body_include_mask() { return *(s32 *)&this->m_prev; }
+s32 TMainCursor::get_actor_exclude_mask() { return *(s32 *)&this->m_down; }
+s32 TMainCursor::get_actor_include_mask() { return *(s32 *)&this->m_up; }
 void TMainCursor::store_sorted_record(void* p, void* a1, void* a2) { ((int (*)(void *))copy_target_record__11TMainCursorFPvPv)(a2); }
 
 }

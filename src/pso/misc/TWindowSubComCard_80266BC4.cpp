@@ -4,6 +4,6 @@
 
 extern "C" {
 
-void TWindowMenu::reset_selection() { *(s16*)((char*)this + 0x7a) = -1; }
+void TWindowMenu::reset_selection() { *(s16 *)&this->unk_7A = -1; }
 
 }

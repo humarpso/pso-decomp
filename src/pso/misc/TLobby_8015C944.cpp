@@ -36,7 +36,7 @@ void byteswap_event_packet__6TLobbyFi(s32 arg0) {
     bswap_32__FPUl(arg0 + 8);
     bswap_32__FPUl(arg0 + 0xC);
 }
-void TLobby::init_packet_67_04() { *(u8*)((char*)this + 0x0) = 103; *(u8*)((char*)this + 0x1) = 4; }
+void TLobby::init_packet_67_04() { *(u8 *)&this->m_name = 103; *(u8*)((char*)this + 0x1) = 4; }
 
 void TOCtrlDubchik__sub_8015C9D0(void) {  }
 f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2) {

@@ -16,6 +16,6 @@ void TObjPlayer__sub_801AA6E4(u8 *arg0, u8 *arg1) {
 }
 
     extern const float lbl_805DC138;
-void TPhotonEstlla::sub_801AA6F8() { *(float*)((char*)this + 0x180) = lbl_805DC138; *(float*)((char*)this + 0x184) = lbl_805DC138; *(float*)((char*)this + 0x188) = lbl_805DC138; *(float*)((char*)this + 0x18c) = lbl_805DC138; }
+void TPhotonEstlla::sub_801AA6F8() { *(float *)&this->m_180 = lbl_805DC138; *(float*)((char*)this + 0x184) = lbl_805DC138; this->m_188 = lbl_805DC138; *(float *)&this->unk_18C = lbl_805DC138; }
 
 }

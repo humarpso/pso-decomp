@@ -109,11 +109,11 @@ f32 TBoss6Tube::calc_tube_progress(s32 arg0) {
 void TBoss6Tube::sub_802B1218() {
     u8 *arg0 = (u8 *)this;
     if (((0.0f) == TBoss6Tube__scroll_delta) && ((s32) TBoss6Tube__previous_scroll_phase == 0)) {
-        TBoss6Tube__previous_scroll_phase = *(s32 *)((s8 *)arg0 + 0x28);
+        TBoss6Tube__previous_scroll_phase = *(s32 *)&this->m_28;
         return;
     }
-    TBoss6Tube__scroll_delta = TBoss6Tube::scale_by_const(TBoss6Tube::calc_tube_progress(TBoss6Tube__previous_scroll_phase - *(s32 *)((s8 *)arg0 + 0x28)));
-    TBoss6Tube__previous_scroll_phase = *(s32 *)((s8 *)arg0 + 0x28);
+    TBoss6Tube__scroll_delta = TBoss6Tube::scale_by_const(TBoss6Tube::calc_tube_progress(TBoss6Tube__previous_scroll_phase - *(s32 *)&this->m_28));
+    TBoss6Tube__previous_scroll_phase = *(s32 *)&this->m_28;
 }
 
 void TBoss6Tube::reset_state() {

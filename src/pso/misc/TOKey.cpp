@@ -125,13 +125,13 @@ void TOKey::trigger_activate_sound() {
 void TOKey::update_lock_state() {
     u8 temp_r3;
 
-    if ((s32) *(s32 *)((s8 *)this + 0xD0) != 2) {
-        temp_r3 = is_current_floor_switch_set((u16) *(s32 *)((s8 *)this + 0xC8));
+    if ((s32) *(s32 *)&this->m_d0 != 2) {
+        temp_r3 = is_current_floor_switch_set((u16) *(s32 *)&this->m_e4);
         if (temp_r3 == 0) {
-            *(s32 *)((s8 *)this + 0xD4) = 0;
+            *(s32 *)&this->m_d4 = 0;
         }
         if (temp_r3 == 1) {
-            *(s32 *)((s8 *)this + 0xD4) = 1;
+            *(s32 *)&this->m_d4 = 1;
         }
     }
 }
@@ -141,7 +141,7 @@ void TOKey::update_armed_switch() {
     s32 temp_r0;
     s32 temp_r0_2;
     ((VObj_18 *)(arg0))->m12();
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD4);
+    temp_r0 = *(s32 *)&this->m_d4;
     switch (temp_r0) {
     case 0:
         if ((s32) *(s32 *)((s8 *)arg0 + 0xE0) != 0) {
@@ -186,14 +186,14 @@ void TOKey::reset_and_notify() {
 void TOKey::init_switch_id() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = this->m_84;
     if ((temp_r0 < 0) || (temp_r0 > 0xFF)) {
-        *(s32 *)((s8 *)this + 0xC8) = -1;
-        *(s32 *)((s8 *)this + 0xD0) = 2;
+        *(s32 *)&this->m_e4 = -1;
+        *(s32 *)&this->m_d0 = 2;
         return;
     }
-    *(s32 *)((s8 *)this + 0xC8) = temp_r0;
-    *(s32 *)((s8 *)this + 0xD0) = 0;
+    *(s32 *)&this->m_e4 = temp_r0;
+    *(s32 *)&this->m_d0 = 0;
 }
 
 void TOKey::init_key() {

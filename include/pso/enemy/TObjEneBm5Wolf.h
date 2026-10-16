@@ -19,7 +19,13 @@ struct TObjEneBm5Wolf
 
     void ** m_4;
 
-    u8 unk_8[0x30];
+    u8 unk_8[0x1C];
+
+    s32 m_24;
+
+    u8 unk_28[0xC];
+
+    s32 m_34;
     f32 position[3];
     u8 _pad44[0x1C];
     s32 facing;
@@ -31,7 +37,10 @@ struct TObjEneBm5Wolf
     f32 m_c0;
     u8 unk_C4[0x4];
     f32 playbackSpeed;
-    u8 unk_CC[0x23C];
+    u8 unk_CC[0x230];
+    f32 m_2fc;
+    u8 unk_300[0x4];
+    f32 m_304;
     f32 m_308;
     u8 unk_30C[0x4];
     f32 m_310;
@@ -43,7 +52,9 @@ struct TObjEneBm5Wolf
     s16 m_33e;
     u8 unk_340[0x10];
     u32 m_350;
-    u8 unk_354[0x24];
+    u8 unk_354[0x4];
+    f32 m_358;
+    u8 unk_35C[0x1C];
     s32 m_378;
     u8 unk_37C[0x14];
     void* target;

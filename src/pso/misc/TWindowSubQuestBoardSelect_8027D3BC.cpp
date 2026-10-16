@@ -44,13 +44,13 @@ void TWindowSubQuestBoardSelect::update_slot_display_flags() {
     } while (var_r30 < 6);
     temp_r3 = get_array_entry__13TUnk_804CE018Fi(this, 1);
     if (var_r29 != 0) {
-        *(s8 *)((s8 *)this + 0x61) = -1;
+        *(s8 *)&this->m_61 = -1;
         *temp_r3 |= 2;
-        *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 4);
+        this->m_60 = (u8) (this->m_60 | 4);
         return;
     }
     *temp_r3 &= 0xFFFFFFFD;
-    *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) & 0xFFFFFFFB);
+    this->m_60 = (u8) (this->m_60 & 0xFFFFFFFB);
 }
 
 }

@@ -21,7 +21,8 @@ public:
     void reset_request();
     void copy(void* q);
     static void *create(void *arg0);
-    u8 unk_68[0x28];
+    u8 unk_68[0x24];
+    s32 m_8c;
 };
 typedef char TChCrLoadReq_state_offset[(offsetof(TChCrLoadReq,state)==0x60)?1:-1];
 typedef char TChCrLoadReq_timer_offset[(offsetof(TChCrLoadReq,timer)==0x64)?1:-1];

@@ -69,11 +69,11 @@ void TMainCursor::reset_state() {
     *(f32 *)&this->m_24 = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)&this->m_20 = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)&this->m_1c = (f32) TMainCursor__data_805DB0C0;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) TMainCursor__data_805DB0C0;
+    *(f32 *)&this->unk_28 = (f32) TMainCursor__data_805DB0C0;
     this->m_2c = (f32) TMainCursor__data_805DB0C0;
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) TMainCursor__data_805DB0C0;
+    *(f32 *)&this->unk_30 = (f32) TMainCursor__data_805DB0C0;
     this->m_34 = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    *(s32 *)&this->unk_38 = 0;
     this->m_3c = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     ((TMainCursor *)arg0)->set_type(0);

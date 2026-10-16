@@ -24,7 +24,9 @@ struct TObjEneGibbles : public TObjEnemy {
     void*vfunc_9();
     u32 resolve_sound_id(u32 sound_id);
     s32 m_374;
-    u8 unk_378[0x8];
+    u8 unk_378[0x4];
+    s16 m_37c;
+    u8 unk_37E[0x2];
     s32 m_380;
     u8 unk_384[0x4];
     s16 m_388;
@@ -34,7 +36,9 @@ struct TObjEneGibbles : public TObjEnemy {
     f32 m_394;
     u8 unk_398[0x4];
     s32 m_39c;
-    u8 unk_3A0[0x1C];
+    u8 unk_3A0[0x10];
+    u8 * m_3b0;
+    u8 unk_3B4[0x8];
     s32 m_3bc;
     u8 unk_3C0[0x8C];
     static void set_min_clamped_entry_value(s32 arg0, s32 arg1, f32 farg0);

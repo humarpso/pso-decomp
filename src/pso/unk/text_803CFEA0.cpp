@@ -73,7 +73,7 @@ s32 TLobby::get_field10_or_report() {
         }
         return 0;
     }
-    return *(s32 *)((s8 *)arg0 + 0x10);
+    return *(s32 *)&this->m_up;
 }
 
 s32 TLobby::get_handle_value_checked() {

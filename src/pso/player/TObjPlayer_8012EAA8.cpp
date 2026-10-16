@@ -22,10 +22,10 @@ void TObjPlayer::cast_shifta_deband() {
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if (get_tp() == 0) {
-            temp_r3 = *(s32 *)((s8 *)this + 0xF0);
+            temp_r3 = *(s32 *)&this->unk_F0;
             TTecDeband::create(temp_r3, temp_r3 + 0x38, 2);
         } else {
-            temp_r3_2 = *(s32 *)((s8 *)this + 0xF0);
+            temp_r3_2 = *(s32 *)&this->unk_F0;
             TTecSifta::create((void *)temp_r3_2, (void *)(temp_r3_2 + 0x38), (void *)2);
         }
         roll_technique__11TItemWeaponFv(this);
@@ -43,7 +43,7 @@ extern s32 lbl_804A5F18[];
 void *TObjPlayer::init_variant_a() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A5F18;
-    *(u32 *)((s8 *)this + 0x1F8) = 10922;
+    *(u32 *)&this->unk_1F8 = 10922;
     set_status_flags(1570);
     set_effect_state(2);
     return this;

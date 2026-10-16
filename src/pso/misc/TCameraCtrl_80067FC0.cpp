@@ -152,7 +152,7 @@ O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self) {
     return self;
 }
 
-void TUnk_80488DA0::set_target_pos(void*q) { *(f32*)((char*)this + 0x48) = *(f32*)((char*)q + 0x0); (*(f32 *)((u8 *)this + 0x4C)) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x50) = *(f32*)((char*)q + 0x8); }
+void TUnk_80488DA0::set_target_pos(void*q) { *(f32 *)&this->unk_48 = *(f32*)((char*)q + 0x0); (this->m_4c) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x50) = *(f32*)((char*)q + 0x8); }
 
 #pragma push
 #pragma fp_contract on

@@ -31,8 +31,8 @@ void TItemAttackCol::check_object_hits() {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
         if (try_add_hit_target__14TItemAttackColFPvPv(((u8 *)this), e) != 0) {
             ((VObj_18_909b87 *)((u8 *)this))->m4(e);
-            *(s32 *)((s8 *)((u8 *)this) + 0xA4) -= 1;
-            if (*(s32 *)((s8 *)((u8 *)this) + 0xA4) == 0) {
+            this->m_a4 -= 1;
+            if (this->m_a4 == 0) {
                 queue_destruction__7TObjectFv(((u8 *)this));
                 reset_global_table();
                 return;

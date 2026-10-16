@@ -102,7 +102,7 @@ void TOVS2Wall01::render() {
     u8 *arg0 = (u8 *)this;
     s32 var_r31;
     update_obstruction_fade((void *) (arg0 + 0x340));
-    *(s32 *)&this->m_35c = ((VObj_18_26a62c *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0x334), this->m_338);
+    *(s32 *)&this->m_35c = ((VObj_18_26a62c *)(arg0))->m8(*(f32 *)&this->unk_334, this->m_338);
     if ((s32) *(s32 *)&this->m_35c == 1) {
         if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;

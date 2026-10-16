@@ -91,7 +91,7 @@ void TNowLoading::run_task() {
     u32 temp_r3_8;
     if ((u32) camera_ctrl_instance == 0U) {
         *(f32 *)&this->m_2c = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0));
-        *(f32 *)((s8 *)arg0 + 0x30) = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4));
+        *(f32 *)&this->unk_30 = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4));
         this->m_34 = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14)) + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8));
         temp_r3 = this->m_1c;
         if (temp_r3 != 0U) {

@@ -41,9 +41,9 @@ void TObjCityMainWarp::close_windows() {
         ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x168)))->close();
         *(u32 *)((s8 *)this + 0x168) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0xB0) != 0U) {
-        TWindow__close(*(void **)((s8 *)this + 0xB0));
-        *(u32 *)((s8 *)this + 0xB0) = 0U;
+    if ((u32) this->m_b0 != 0U) {
+        TWindow__close(*(void * *)&this->m_b0);
+        this->m_b0 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x164) != 0U) {
         TWindow__close(*(void **)((s8 *)this + 0x164));
@@ -80,7 +80,7 @@ void TObjCityMainWarpChallenge::trigger_warp_effect(s32 arg1) {
     if (temp_r3 != 0) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
         obj_set_flag_20000(temp_r3);
-        *(s32 *)((s8 *)this + 0x174) = 0x12C;
+        this->m_174 = 0x12C;
     }
 }
 void TObjCityMainWarp::update_floor_switch_state() {

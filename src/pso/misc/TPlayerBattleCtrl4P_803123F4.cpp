@@ -58,10 +58,10 @@ void *lbl_804E7D4C[7] = {
 
 }
 void TPlayerBattleCtrl4P::show_intro_text() {
-    if (*(void **)((s8 *)((void *)this) + 0x20) != NULL) {
-        send_and_handle__6TLobbyFii(*(void **)((s8 *)((void *)this) + 0x20), (void *)((char *)((void *)this) + 56), 128);
+    if (*(void * *)&this->intro_window != NULL) {
+        send_and_handle__6TLobbyFii(*(void * *)&this->intro_window, (void *)((char *)((void *)this) + 56), 128);
     }
-    *(u32 *)((s8 *)((void *)this) + 0x240) = 240;
+    *(u32 *)&this->frame_timer = 240;
     set_score(2);
 }
 extern "C" {
@@ -137,13 +137,13 @@ void *__vt__19TPlayerBattleCtrl4P[6] = {
 TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::destroy(s16 should_free) {
     if (((void *)this) != NULL) {
         *(s32 **)((s8 *)((void *)this) + 0x18) = __vt__19TPlayerBattleCtrl4P;
-        if ((u32) *(u32 *)((s8 *)((void *)this) + 0x20) != 0U) {
-            TWindow__close(*(void **)((s8 *)((void *)this) + 0x20));
-            *(u32 *)((s8 *)((void *)this) + 0x20) = 0U;
+        if ((u32) *(u32 *)&this->intro_window != 0U) {
+            TWindow__close(*(void * *)&this->intro_window);
+            *(u32 *)&this->intro_window = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)((void *)this) + 0x24) != 0U) {
-            TWindow__close(*(void **)((s8 *)((void *)this) + 0x24));
-            *(u32 *)((s8 *)((void *)this) + 0x24) = 0U;
+        if ((u32) *(u32 *)&this->menu_window != 0U) {
+            TWindow__close(*(void * *)&this->menu_window);
+            *(u32 *)&this->menu_window = 0U;
         }
         close_player_windows();
         TPlayerBattleCtrl4P__instance = 0;
@@ -171,16 +171,16 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
 
     __ct__7TObjectFP7TObject(((void *)this), parent);
     *(void **)((s8 *)((void *)this) + 0x18) = __vt__19TPlayerBattleCtrl4P;
-    *(s32 *)((s8 *)((void *)this) + 0) = TPlayerBattleCtrl4P__name;
+    *(s32 *)&this->m_name = TPlayerBattleCtrl4P__name;
     set_split_screen_battle_phase((s32)0);
-    *(s32 *)((s8 *)((void *)this) + 0x20) = 0;
-    *(s32 *)((s8 *)((void *)this) + 0x24) = 0;
+    *(s32 *)&this->intro_window = 0;
+    *(s32 *)&this->menu_window = 0;
     clear_split_screen_battle_window_slots(((void *)this));
     p = lbl_804E7D4C;
     if (current_language == 0) {
         p = TPlayerBattleCtrl4P__message_table_language0;
     }
-    *(void ***)((s8 *)((void *)this) + 0x294) = p;
+    *(void ** *)&this->message_table = p;
     for (i = 0; i < 4; i++) {
         s32 pl = get_player_by_client_id(i);
         if (pl != 0) {
@@ -188,6 +188,6 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
         }
     }
     TPlayerBattleCtrl4P__instance = (s32)((void *)this);
-    *(s32 *)((s8 *)((void *)this) + 0x1C) = 0;
+    *(s32 *)&this->rule_data = 0;
     return this;
 }

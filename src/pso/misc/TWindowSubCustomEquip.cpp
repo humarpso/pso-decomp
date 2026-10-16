@@ -243,12 +243,12 @@ void TWindowSubCustomEquip::handle_cursor_input() {
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r3;
-    temp_r29 = is_player_input_active((int) (*(s16 *)((s8 *)((u8 *)this) + 0x20)));
+    temp_r29 = is_player_input_active((int) (this->m_20));
     temp_r31 = (u8 *)(((u8 *)get_array_entry((s32)(0x10))));
     temp_r3 = (u8 *)(((u8 *)get_array_entry((s32)(7))));
-    temp_r4 = *(u8 *)((s8 *)((u8 *)this) + 0x63);
+    temp_r4 = this->m_63;
     if ((s8) temp_r4 > 0) {
-        *(u8 *)((s8 *)((u8 *)this) + 0x63) = (u8) (temp_r4 - 1);
+        this->m_63 = (u8) (temp_r4 - 1);
         *(s32 *)((s8 *)temp_r31 + 0x2C) = -1;
         *(s32 *)((s8 *)temp_r3 + 0x2C) = -1;
     } else {
@@ -256,31 +256,31 @@ void TWindowSubCustomEquip::handle_cursor_input() {
         *(s32 *)((s8 *)temp_r3 + 0x2C) = 0xFF666666;
     }
     temp_r31_2 = (u8 *)&controller_input_state.value + (temp_r29 * 0x50) + 0x20;
-    if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0xF0), (int) (6), (int) (1)) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (*(s16 *)((s8 *)((u8 *)this) + 0x20))))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
+    if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0xF0), (int) (6), (int) (1)) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
         play_sound_effect((s32)((int) (0x54100)), (s32)((int) (0)), (s32)((int) (0)), (s32)((int) (0)));
-        if (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (*(s16 *)((s8 *)((u8 *)this) + 0x20))))) != 0) {
-            *(u8 *)((s8 *)((u8 *)this) + 0x62) = (u8) (1 - *(u8 *)((s8 *)((u8 *)this) + 0x62));
-            *(u8 *)((s8 *)((u8 *)this) + 0x63) = 3U;
+        if (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) {
+            this->m_62 = (u8) (1 - this->m_62);
+            this->m_63 = 3U;
         }
         if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
-            *(u8 *)((s8 *)((u8 *)this) + 0x61) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x61) - 1);
+            this->m_61 = (u8) (this->m_61 - 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
-            *(u8 *)((s8 *)((u8 *)this) + 0x61) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x61) + 1);
+            this->m_61 = (u8) (this->m_61 + 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x80), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x80), (int) (6), (int) (1)) != 0)) {
-            *(u8 *)((s8 *)((u8 *)this) + 0x61) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x61) - 1);
+            this->m_61 = (u8) (this->m_61 - 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x40), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x40), (int) (6), (int) (1)) != 0)) {
-            *(u8 *)((s8 *)((u8 *)this) + 0x61) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x61) + 1);
+            this->m_61 = (u8) (this->m_61 + 1);
         }
-        temp_r3_2 = *(u8 *)((s8 *)((u8 *)this) + 0x61);
+        temp_r3_2 = this->m_61;
         if ((s8) temp_r3_2 < 0) {
-            *(u8 *)((s8 *)((u8 *)this) + 0x61) = (u8) (temp_r3_2 + 3);
+            this->m_61 = (u8) (temp_r3_2 + 3);
         }
-        temp_r3_3 = *(u8 *)((s8 *)((u8 *)this) + 0x61);
+        temp_r3_3 = this->m_61;
         if ((s8) temp_r3_3 >= 3) {
-            *(u8 *)((s8 *)((u8 *)this) + 0x61) = (u8) (temp_r3_3 - 3);
+            this->m_61 = (u8) (temp_r3_3 - 3);
         }
     }
 }

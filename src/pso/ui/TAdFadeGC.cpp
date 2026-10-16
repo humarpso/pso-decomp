@@ -187,7 +187,7 @@ bool TObjTradeCollision::is_player_outside_trade_radius(u32 arg1) {
     if (temp_r31 != get_current_floor()) {
         return 0;
     }
-    temp_f0 = *(f32 *)((s8 *)arg0 + 0xAC);
+    temp_f0 = *(f32 *)&this->unk_AC;
     temp_f31 = temp_f0 * temp_f0;
     return (xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < temp_f31) == 0;
 }

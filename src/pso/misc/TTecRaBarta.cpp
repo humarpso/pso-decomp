@@ -264,36 +264,36 @@ void TTecRaBarta::vfunc_9() {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x7A);
+    temp_r0 = *(s16 *)&this->unk_7A;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
+        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)&this->m_ec;
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
+        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
         return;
     case 2:
     case 3:
-        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
+        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)&this->m_ec;
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
+        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)&this->m_ec;
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        *(s32 *)((s8 *)this + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)this + 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)((s8 *)this + 0xEC);
+        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)&this->m_ec;
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFl(temp_r3, -0x100, 0);
         }

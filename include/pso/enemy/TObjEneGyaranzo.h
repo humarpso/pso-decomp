@@ -25,7 +25,11 @@ struct TObjEneGyaranzo : public TObjEnemyCustom {
     u32 m_3b0;
     u32 m_3b4;
     u32 m_3b8;
-    u8 _pad3BC[0x14];
+    u8 unk_3BC[0x4];
+    s32 m_3c0;
+    u8 unk_3C4[0x4];
+    s32 m_3c8;
+    u8 unk_3CC[0x4];
     void* m_3d0;
     u8 _pad3D4[0x18];
     void* m_3ec;

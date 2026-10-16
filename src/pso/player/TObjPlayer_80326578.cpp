@@ -140,15 +140,15 @@ void TUnk_804ECFB0::update_weapon() {
     s32 temp_r31;
 
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
-        temp_r3 = obj_getS16_32E(*(s32 *)((s8 *)this + 0xF0));
-        temp_r0 = *(s16 *)((s8 *)this + 0x1FC) - temp_r3;
+        temp_r3 = obj_getS16_32E(*(s32 *)&this->player);
+        temp_r0 = this->m_1fc - temp_r3;
         if (temp_r0 != 0) {
-            *(s16 *)((s8 *)this + 0x1FC) = temp_r3;
+            this->m_1fc = temp_r3;
         }
         if (temp_r0 > 0) {
             temp_r31 = temp_r0 / 2;
-            TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)this + 0xF0), (s16) temp_r31);
-            add_actor_tp(*(s32 *)((s8 *)this + 0xF0), (s16) temp_r31);
+            TObjectV8047c128_subtract_hp(*(s32 *)&this->player, (s16) temp_r31);
+            add_actor_tp(*(s32 *)&this->player, (s16) temp_r31);
         }
     }
     *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 1);
@@ -229,10 +229,10 @@ void TObjPlayer::apply_container_item() {
     temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 1:
-        rotate_matrix_x(0, *(s32 *)((s8 *)this + 0x1F8));
+        rotate_matrix_x(0, *(s32 *)&this->unk_1F8);
         return;
     case 2:
-        rotate_matrix_x(0, *(s32 *)((s8 *)this + 0x1FC));
+        rotate_matrix_x(0, this->m_1fc);
         return;
     }
 }
@@ -240,7 +240,7 @@ void TObjPlayer::apply_container_item() {
 void TObjPlayer::approach_target_angle() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)0x71C, (s32)0x4000);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0x4000) {
+    if ((s32) *(s32 *)&this->unk_1F8 == 0x4000) {
         TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1FC), (s32)0x71C, (s32)0x4000);
     }
 }
@@ -248,7 +248,7 @@ void TObjPlayer::approach_target_angle() {
 void TUnk_804ED0A8::update_attack() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1FC), (s32)(-0xAAA), (s32)0);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) == 0) {
+    if ((s32) this->m_1fc == 0) {
         TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)(-0xAAA), (s32)0);
     }
 }
@@ -273,7 +273,7 @@ void *TUnk_804ED0A8::init_state_1536(s32 _w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = lbl_804ED0A8;
     set_status_flags__10TObjPlayerFUl(this, 1536);
     *(u32 *)((s8 *)this + 0x1F8) = 0;
-    *(u32 *)((s8 *)this + 0x1FC) = 0;
+    *(u32 *)&this->m_1fc = 0;
     return this;
 }
 
@@ -414,7 +414,7 @@ void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1);
 #define lbl_804ED298 ((unsigned char *)lbl_804ED298)
 #define lbl_805DF660 (*(const float *)&lbl_805DF660)
     extern const float lbl_805DF678;
-void*TUnk_804ED298::set_mode_floats(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED298; *(float*)((char*)this + 0x1f8) = lbl_805DF660; *(float*)((char*)this + 0x1fc) = lbl_805DF678; return this; }
+void*TUnk_804ED298::set_mode_floats(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED298; *(float*)((char*)this + 0x1f8) = lbl_805DF660; this->m_1fc = lbl_805DF678; return this; }
 
 extern const f32 lbl_805DF684;
 extern const f32 lbl_805DF688;
@@ -496,7 +496,7 @@ s32 update_active_game_effect__10TObjPlayerFv(void *);
 
 #define lbl_804ED390 ((unsigned char *)lbl_804ED390)
 #define lbl_805DF680 (*(const float *)&lbl_805DF680)
-void*TUnk_804ED390::init_vtable_1f8(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED390; *(float*)((char*)this + 0x1f8) = lbl_805DF680; return this; }
+void*TUnk_804ED390::init_vtable_1f8(s32 _w1, void *_w2) { ((int (*)())TItemWeapon__ct)(); *(int*)((char*)this + 0x18) = (int)lbl_804ED390; *(float *)&this->unk_1F8 = lbl_805DF680; return this; }
 
     extern const float lbl_805DF690;
 
@@ -520,14 +520,14 @@ void TUnk_804ED488::emit_marker_effects() {
     s32 temp_r31;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        temp_r31 = (s16) ((TItemProShield *)(*(s32 *)((s8 *)this + 0xF0)))->get_field_2b8();
-        if ((s32) ((s16) obj_getS16_32C(*(s32 *)((s8 *)this + 0xF0)) * 8) < temp_r31) {
-            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, -0x238E);
-            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, -0x11C7);
-            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0);
-            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0x11C7);
-            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0x238E);
-            play_sound_effect(0x4001A642, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0);
+        temp_r31 = (s16) ((TItemProShield *)(*(s32 *)&this->player))->get_field_2b8();
+        if ((s32) ((s16) obj_getS16_32C(*(s32 *)&this->player) * 8) < temp_r31) {
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x238E);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x11C7);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, 0);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, 0x11C7);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, 0x238E);
+            play_sound_effect(0x4001A642, *(s32 *)&this->player + 0x38, 0, 0);
             return;
         }
         update_active_game_effect__10TObjPlayerFv(this);

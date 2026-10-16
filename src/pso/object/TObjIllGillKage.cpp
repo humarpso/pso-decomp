@@ -32,10 +32,10 @@ int TObjIllGillKage::queue_destruction() { return queue_destruction__7TObjectFv(
 void TObjIllGillKage::tick_persistent_sound() {
     s32 temp_r3;
     play_persistent_sound((int) (0x4003A357), (void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x38), (int) (0), (int) (0));
-    temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x94);
-    *(s32 *)((s8 *)((u8 *)this) + 0x94) = (s32) (temp_r3 - 1);
+    temp_r3 = *(s32 *)&this->m_94;
+    *(s32 *)&this->m_94 = (s32) (temp_r3 - 1);
     if (temp_r3 < 0) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x90) = 2;
+        *(s32 *)&this->m_90 = 2;
     }
 }
 
@@ -51,7 +51,7 @@ void TObjIllGillKage::attack_target() {
 
 void TObjIllGillKage::run_task() {
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x90);
+    temp_r0 = *(s32 *)&this->m_90;
     switch (temp_r0) {
     case 0:
         ((TObjIllGillKage *)((u8 *)this))->attack_target();

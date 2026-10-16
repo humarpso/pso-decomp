@@ -299,12 +299,12 @@ void TObjVoloptCage::update_capture() {
     s32 temp_r0_2;
     s32 temp_r3;
 
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x37C);
+    temp_r0 = *(s32 *)&this->state;
     switch (temp_r0) {
     case -1:
         break;
     case 0:
-        temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)((u8 *)this) + 0x338));
+        temp_r3 = get_player_by_client_id(this->targetId);
         if (temp_r3 != 0) {
             if (is_locally_controlled__10TObjPlayerFPv() != 0) {
                 send_6x2C_impose_hold(temp_r3, ((u8 *)this) + 0x38, -1, 0, lbl_805D8870);
@@ -312,10 +312,10 @@ void TObjVoloptCage::update_capture() {
             }
             TLobby__sub_80049568();
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 1;
+        *(s32 *)&this->state = 1;
     case 1:
-        temp_r0_2 = *(s32 *)((s8 *)((u8 *)this) + 0x38C) - 1;
-        *(s32 *)((s8 *)((u8 *)this) + 0x38C) = temp_r0_2;
+        temp_r0_2 = *(s32 *)&this->unk_38C - 1;
+        *(s32 *)&this->unk_38C = temp_r0_2;
         if (temp_r0_2 <= 0) {
             obj_setFlags30(((u8 *)this), 0x800);
             ((TObjVoloptCage_VObj_80048F40*)((u8 *)this))->m61();
@@ -331,25 +331,25 @@ extern struct VObj_800490E8_80048F40 *volopt_cage_breakup_model;
 void TObjVoloptCage::sub_80049000() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
+    temp_r0 = *(s32 *)&this->state;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
+        *(s32 *)&this->state = 1;
         play_sound_effect(0x4003A80A, (u32) ((u8 *)(arg0) + 0x38), 0xA, 0);
         break;
     case 1:
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805D8874);
         if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805D8878) {
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8878;
-            *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (TObjVoloptPillar__sub_80048118(4) + 0x1C2);
-            *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
+            *(s32 *)&this->unk_38C = (s32) (TObjVoloptPillar__sub_80048118(4) + 0x1C2);
+            *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
             this->vfunc_59();
             break;
         }
         break;
     case -1:
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
         break;
     }
 }

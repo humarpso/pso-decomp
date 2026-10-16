@@ -74,12 +74,12 @@ void TUnk_804CC148::count_if_within_range() {
     u8 *arg0 = (u8 *)this;
     Stack_8022BF8C_more_8022be64_1 stack;
     f32 temp_f1;
-    stack.sp8 = *(f32 *)((s8 *)arg0 + 0x20) - *(f32 *)((s8 *)arg0 + 0x7C);
+    stack.sp8 = *(f32 *)((s8 *)arg0 + 0x20) - this->m_7c;
     stack.spC = *(f32 *)((s8 *)arg0 + 0x24) - *(f32 *)((s8 *)arg0 + 0x80);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
-    stack.sp10 = temp_f1 - *(f32 *)((s8 *)arg0 + 0x84);
+    stack.sp10 = temp_f1 - this->m_84;
     if (vector_length((void *) (&stack.sp8), (f32) (temp_f1)) <= *(f32 *)((s8 *)arg0 + 0x64)) {
-        *(s32 *)((s8 *)arg0 + 0x6C) = (s32) (*(s32 *)((s8 *)arg0 + 0x6C) + 1);
+        *(s32 *)&this->field_6c = (s32) (*(s32 *)&this->field_6c + 1);
     }
 }
 
@@ -125,7 +125,7 @@ void TUnk_804CC148::run_task() {
 void *TUnk_804CC148::destroy_technique_base(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804CC148;
-        if (*(void **)((s8 *)this + 0xE8) != NULL) { free_collision_body_parts(*(void **)((s8 *)this + 0xE8)); }
+        if (*(void * *)&this->m_e8 != NULL) { free_collision_body_parts(*(void * *)&this->m_e8); }
         __dt__7TEffectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

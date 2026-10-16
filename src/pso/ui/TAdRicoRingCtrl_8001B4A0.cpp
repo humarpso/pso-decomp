@@ -93,14 +93,14 @@ void TAdRicoRingCtrl::start_fade_all(f32 x) {
 void TAdRicoRingCtrl::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + this->m_28);
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x24);
+    *(f32 *)&this->unk_24 = (f32) (*(f32 *)&this->unk_24 + this->m_28);
+    temp_f1 = *(f32 *)&this->unk_24;
     if (temp_f1 < lbl_805D7E4C) {
-        *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805D7E4C;
+        *(f32 *)&this->unk_24 = (f32) lbl_805D7E4C;
         return;
     }
     if (temp_f1 > (*(f32 *)&TAdRicoRingCtrl__data_805D7E50)) {
-        *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)&TAdRicoRingCtrl__data_805D7E50);
+        *(f32 *)&this->unk_24 = (f32) (*(f32 *)&TAdRicoRingCtrl__data_805D7E50);
     }
 }
 #pragma pop

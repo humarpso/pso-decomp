@@ -34,7 +34,7 @@ void TUnk_804A4D70::update_attack() {
     if (get_slot_count__14TItemProShieldFv() == 5) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x20C), (f32)((f32) (lbl_805DAE9C)), (f32)((f32) (lbl_805DAE88)));
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x218), (f32)((f32) (lbl_805DAEA0)), (f32)((f32) (lbl_805DAE88)));
-        if (lbl_805DAE88 <= *(f32 *)((s8 *)arg0 + 0x20C)) {
+        if (lbl_805DAE88 <= this->m_20c) {
             TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)((f32) (lbl_805DAE9C)), (f32)((f32) (lbl_805DAEA4)));
         }
     }

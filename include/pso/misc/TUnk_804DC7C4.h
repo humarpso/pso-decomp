@@ -9,7 +9,9 @@ public:
     void *destroy(s16);
     virtual void render_shadows();
     virtual void render();
-    u8 unk_1C[0x20];
+    u8 unk_1C[0x4];
+    u32 m_20;
+    u8 unk_24[0x18];
 };
 typedef char TUnk_804DC7C4_size[sizeof(TUnk_804DC7C4) == 0x3C ? 1 : -1];
 

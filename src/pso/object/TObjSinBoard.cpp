@@ -158,7 +158,7 @@ void *TObjSinBoard__create(void *arg0) {
 void TUnk_804B8DD0::render() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3C) != 0) {
+    if ((s32) *(s32 *)&this->unk_3C != 0) {
         this->m_38 = (s32) (this->m_38 + 0x38E);
         if ((s32) this->m_38 >= 0x4000) {
             this->m_38 = 0x4000;
@@ -198,24 +198,24 @@ void TUnk_804B8DD0::run_task() {
     s32 t;
     if (this->m_28 != 0) {
         if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x10 : 1)) {
-            *(s32 *)((s8 *)this + 0x3C) = 1;
+            *(s32 *)&this->unk_3C = 1;
             update_effects();
         } else {
-            *(s32 *)((s8 *)this + 0x3C) = 0;
+            *(s32 *)&this->unk_3C = 0;
             this->m_30 = 0;
         }
     } else {
         if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x20 : 2)) {
-            *(s32 *)((s8 *)this + 0x3C) = 1;
+            *(s32 *)&this->unk_3C = 1;
             update_effects();
         } else {
-            *(s32 *)((s8 *)this + 0x3C) = 0;
+            *(s32 *)&this->unk_3C = 0;
             this->m_30 = 0;
         }
     }
-    t = *(s32 *)((s8 *)this + 0x2C);
-    *(s32 *)((s8 *)this + 0x2C) = t + 1;
-    if (t >= *(s32 *)((s8 *)this + 0x34)) {
+    t = *(s32 *)&this->unk_2C;
+    *(s32 *)&this->unk_2C = t + 1;
+    if (t >= *(s32 *)&this->unk_34) {
         queue_destruction__7TObjectFv(this);
     }
 }
@@ -228,25 +228,25 @@ void TUnk_804B8DD0::update_effects() {
     Vec_80198504 vdb;
     void *o;
     if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) == 0) {
-        (*(s32 *)((s8 *)arg0 + 0x30))++;
-        if (*(s32 *)((s8 *)arg0 + 0x30) == 1) {
+        (this->m_30)++;
+        if (this->m_30 == 1) {
             o = (void *)__nw__7TObjectFUl(0x58);
             if (o != NULL) {
-                TWindowTimer__sub_80198CF8(o, arg0 + 0x1C, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), *(s32 *)((s8 *)arg0 + 0x28), *(s32 *)((s8 *)arg0 + 0x40), tl_06);
+                TWindowTimer__sub_80198CF8(o, arg0 + 0x1C, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), this->m_28, this->m_40, tl_06);
             }
         }
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) == 6) {
-        (*(s32 *)((s8 *)arg0 + 0x30))++;
-        if (*(s32 *)((s8 *)arg0 + 0x30) % 5 == 0 && *(s32 *)((s8 *)arg0 + 0x30) <= 0x1E) {
+        (this->m_30)++;
+        if (this->m_30 % 5 == 0 && this->m_30 <= 0x1E) {
             VecCopy__FP3VecPC3Vec(&v6, arg0 + 0x1C);
             v6.y += lbl_805DBF40;
             spawn_particle_effect_with_flags(&v6, 0x20D, 0x40);
             play_sound_effect(0x4001A82E, arg0 + 0x1C, 0, 0);
         }
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) == 2) {
-        (*(s32 *)((s8 *)arg0 + 0x30))++;
-        if (*(s32 *)((s8 *)arg0 + 0x28) != 0) {
-            if (*(s32 *)((s8 *)arg0 + 0x30) == 1) {
+        (this->m_30)++;
+        if (this->m_28 != 0) {
+            if (this->m_30 == 1) {
                 TCameraCtrl::set_shake_preset(2);
                 VecCopy__FP3VecPC3Vec(&v2a, arg0 + 0x1C);
                 v2a.y += lbl_805DBF40;
@@ -255,7 +255,7 @@ void TUnk_804B8DD0::update_effects() {
                 play_sound_effect(0x4001C112, arg0 + 0x1C, 0, 0);
             }
         } else {
-            if (*(s32 *)((s8 *)arg0 + 0x30) == 1) {
+            if (this->m_30 == 1) {
                 TCameraCtrl::set_shake_preset(2);
                 VecCopy__FP3VecPC3Vec(&v2b, arg0 + 0x1C);
                 v2b.y += lbl_805DBF40;
@@ -265,9 +265,9 @@ void TUnk_804B8DD0::update_effects() {
             }
         }
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) != 0) {
-        (*(s32 *)((s8 *)arg0 + 0x30))++;
-        if (*(s32 *)((s8 *)arg0 + 0x28) != 0) {
-            if (*(s32 *)((s8 *)arg0 + 0x30) % 5 == 0 && *(s32 *)((s8 *)arg0 + 0x30) <= 0x32) {
+        (this->m_30)++;
+        if (this->m_28 != 0) {
+            if (this->m_30 % 5 == 0 && this->m_30 <= 0x32) {
                 VecCopy__FP3VecPC3Vec(&vda, arg0 + 0x1C);
                 vda.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&vda, 0x20E, 0x40);
@@ -277,7 +277,7 @@ void TUnk_804B8DD0::update_effects() {
                 }
             }
         } else {
-            if (*(s32 *)((s8 *)arg0 + 0x30) % 5 == 0 && *(s32 *)((s8 *)arg0 + 0x30) <= 0x32) {
+            if (this->m_30 % 5 == 0 && this->m_30 <= 0x32) {
                 VecCopy__FP3VecPC3Vec(&vdb, arg0 + 0x1C);
                 vdb.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&vdb, 0x20F, 0x40);

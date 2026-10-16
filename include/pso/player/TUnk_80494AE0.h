@@ -4,7 +4,11 @@
 
 class TUnk_80494AE0 {
 public:
-    u8 unk_0[0x14];
+    u8 unk_0[0x4];
+    float m_4;
+    u8 unk_8[0x4];
+    float m_c;
+    u8 unk_10[0x4];
     virtual ~TUnk_80494AE0();
     virtual void set_rate_from_divisor(s32);
     virtual void vfunc_4();

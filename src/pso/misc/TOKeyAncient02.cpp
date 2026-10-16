@@ -127,12 +127,12 @@ void TOKeyAncient02::render() {
     u8 *temp_r31_3;
     u8 *temp_r31_4;
     u8 *temp_r31_5;
-    if (((VObj18*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj18*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        temp_r31 = *(u8 **)((s8 *)arg0 + 0x34);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (this->texture_id));
+        temp_r31 = *(u8 * *)&this->model;
         push_matrix();
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
@@ -150,7 +150,7 @@ void TOKeyAncient02::render() {
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TOKeyAncient02__texture_lists) + (*(s32 *)((s8 *)arg0 + 0xD4) * 4))));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TOKeyAncient02__texture_lists) + (*(s32 *)&this->m_d4 * 4))));
         TParticleCtrl::begin_effect_render();
         temp_r31_4 = (u8 *)((*(u8 * *)&TOKeyAncient02__model_root));
         push_matrix();
@@ -159,7 +159,7 @@ void TOKeyAncient02::render() {
         temp_r31_5 = *(u8 **)((s8 *)temp_r31_4 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_5 + 8));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xEC)));
+        rotate_matrix_y((int) (0), (int) (this->m_ec));
         draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_5 + 4)));
         pop_matrix();
         pop_matrix();
@@ -301,7 +301,7 @@ s32 TOKeyAncient03::is_confirm_pressed() {
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0xD0);
+    temp_r0 = *(s32 *)&this->m_d0;
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
@@ -309,7 +309,7 @@ s32 TOKeyAncient03::is_confirm_pressed() {
         } else {
             var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0xD4) == 1) || (var_r3 == 1)) {
+        if (((s32) *(s32 *)&this->m_d4 == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;

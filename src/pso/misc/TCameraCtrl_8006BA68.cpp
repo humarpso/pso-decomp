@@ -244,7 +244,7 @@ s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 
-void*TUnk_80488B38::init_defaults() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float*)((char*)this + 0x6c) = 10.0f; *(int*)((char*)this + 0x38) = 0; return this; }
+void*TUnk_80488B38::init_defaults() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float *)&this->unk_6C = 10.0f; *(int *)&this->m_38 = 0; return this; }
 
 s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0) {
   f32 temp_f0;

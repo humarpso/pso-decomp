@@ -23,7 +23,7 @@ extern const f32 lbl_805DAED8;
 void TUnk_804A4F60::update_attack() {
     u8 *arg0 = (u8 *)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x274), (f32)((f32) (lbl_805DAED8)), (f32)((f32) (lbl_805DAEC8)));
-    if (lbl_805DAEC8 == *(f32 *)((s8 *)arg0 + 0x274)) {
+    if (lbl_805DAEC8 == this->m_274) {
         TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), (s32)((int) (-0x71C)), (s32)((int) (0)));
     }
 }

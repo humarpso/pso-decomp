@@ -93,7 +93,7 @@ void TAdAgreementBaseGC::draw_agreement_text() {
 }
 #pragma pop
 
-void TAdAgreementBaseGC::vfunc_9() { *(s32*)((char*)this + 0x1c) = 4; }
+void TAdAgreementBaseGC::vfunc_9() { *(s32 *)&this->m_1c = 4; }
 
 extern s32 __vt__18TAdAgreementBaseGC[];
 

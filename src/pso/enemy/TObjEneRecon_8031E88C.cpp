@@ -190,7 +190,7 @@ void TObjEneRecobox::draw_with_debug_info() {
     s32 temp_r0;
     s32 temp_r0_2;
     if (get_target_info__9TObjEneDDFv() != 0) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x3DC);
+        temp_r0 = *(s32 *)&this->m_3f8;
         switch (temp_r0) {
         case 0:
             debug_printf_at(pack_debug_text_position(0, 9), lbl_804763D4);
@@ -208,11 +208,11 @@ void TObjEneRecobox::draw_with_debug_info() {
         debug_printf_at(pack_debug_text_position(0, 5), lbl_80476440);
     }
     if (((VObj_18_26a62c *)(arg0))->m8(TObjEneRecon__data_805DF438, lbl_805DF43C) != 0) {
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3DC);
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        temp_r0_2 = *(s32 *)&this->m_3f8;
         switch (temp_r0_2) {
         case 1:
             rotate_matrix_x((int) (0), (int) (0x8000));
@@ -223,13 +223,13 @@ void TObjEneRecobox::draw_with_debug_info() {
         }
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
-        draw_chunk_object((void *) (*(s32 *)((s8 *)arg0 + 0x34)));
+        draw_chunk_object((void *) (*(s32 *)&this->model));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
     draw_chunk_object((void *) (debug_chunk_object));
     pop_matrix();
 }

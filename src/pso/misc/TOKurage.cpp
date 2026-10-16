@@ -145,7 +145,7 @@ void TOKurage::init() {
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0xE4, arg0 + 0x38);
     *(f32 *)&this->m_d8 = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0xDC) = (f32) (0.0f);
+    *(f32 *)&this->unk_DC = (f32) (0.0f);
     this->m_e0 = (f32) (0.0f);
     this->m_f8 = (f32) (0.0f);
     *(s8 *)&this->m_100 = 0;
@@ -153,7 +153,7 @@ void TOKurage::init() {
     this->m_fc = 0x1E;
     this->m_fe = 0;
     *(f32 *)&this->m_104 = (f32) (1.0f);
-    *(f32 *)((s8 *)arg0 + 0x108) = (f32) (1.0f);
+    *(f32 *)&this->unk_108 = (f32) (1.0f);
     this->m_10c = (f32) (1.0f);
     *(f32 *)&this->unk_110 = (f32) (1.0f);
 }

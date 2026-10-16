@@ -33,7 +33,7 @@ void TObjPlayer::cast_foie_effect() {
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if (draw_icon((s32)0, (s32)(&sp8)) != 0) {
-            temp_r31 = *(void **)((s8 *)this + 0xF0);
+            temp_r31 = *(void * *)&this->unk_F0;
             TTecFoie::create((void *)temp_r31, (void *)(&sp8), (void *)(*(s32 *)((s8 *)temp_r31 + 0x60)), (void *)(get_tp()));
             roll_technique__11TItemWeaponFv(this);
         }
@@ -42,7 +42,7 @@ void TObjPlayer::cast_foie_effect() {
     }
 }
 
-void TObjPlayer::release_container_if_active() { if (get_player_list__10TObjPlayerFv(this) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)this + 0x1f8)); } }
+void TObjPlayer::release_container_if_active() { if (get_player_list__10TObjPlayerFv(this) == 1) { rotate_matrix_x((void*)0, *(void* *)&this->unk_1F8); } }
 
 extern f32 lbl_805DACC8;
 extern f32 lbl_805DACCC;
@@ -59,9 +59,9 @@ void TObjPlayer::update_freeze_state() {
 void TUnk_804A0BC0::update_attack() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1FC);
+    temp_r0 = this->m_1fc;
     if ((temp_r0 == 1) || (temp_r0 == 0)) {
-        *(s32 *)((s8 *)this + 0x1FC) = 2;
+        this->m_1fc = 2;
     }
 }
 

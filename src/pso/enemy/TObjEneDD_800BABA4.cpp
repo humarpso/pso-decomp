@@ -313,9 +313,9 @@ u8 *TObjEneDD::vfunc_102() {
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x48) = temp_f31;
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
+    *(f32 *)&this->m_44 = (f32) *(f32 *)((s8 *)arg0 + 0x38);
+    *(f32 *)&this->m_48 = temp_f31;
+    *(f32 *)&this->m_4c = (f32) *(f32 *)((s8 *)arg0 + 0x40);
     *(s32 *)((s8 *)arg0 + 0x384) = 0;
     return temp_r3;
 }
@@ -328,9 +328,9 @@ u8 *TObjEneDD::vfunc_101(u8 *arg1) {
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x48) = temp_f31;
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
+    *(f32 *)&this->m_44 = (f32) *(f32 *)((s8 *)arg0 + 0x38);
+    *(f32 *)&this->m_48 = temp_f31;
+    *(f32 *)&this->m_4c = (f32) *(f32 *)((s8 *)arg0 + 0x40);
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0);
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)arg1 + 8);
     *(s32 *)((s8 *)arg0 + 0x384) = 0;
@@ -342,15 +342,15 @@ u8 *TBoss5Gryphon::try_move_actor_xz_on_ground(u8 *arg1) {
     temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     temp_r3 = (unsigned char *) (((VObj_18_3f4583 *)(((u8 *)this)))->m101());
     if (temp_r3 != NULL) {
-        *(f32 *)((s8 *)((u8 *)this) + 0x44) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x38);
-        *(f32 *)((s8 *)((u8 *)this) + 0x48) = temp_f31;
-        *(f32 *)((s8 *)((u8 *)this) + 0x4C) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x40);
+        *(f32 *)&this->m_44 = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x38);
+        *(f32 *)&this->m_48 = temp_f31;
+        *(f32 *)&this->m_4c = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x40);
         *(f32 *)((s8 *)((u8 *)this) + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0);
         *(f32 *)((s8 *)((u8 *)this) + 0x40) = (f32) *(f32 *)((s8 *)arg1 + 8);
         VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
-        *(s32 *)((s8 *)((u8 *)this) + 0x384) = 0;
+        this->m_384 = 0;
     } else {
-        *(s32 *)((s8 *)((u8 *)this) + 0x384) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x384) + 1);
+        this->m_384 = (s32) (this->m_384 + 1);
     }
     return temp_r3;
 }

@@ -168,7 +168,7 @@ void TTecBarta::update_technique_by_state() {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xC6);
+    temp_r0 = this->band;
     switch (temp_r0) {
     case 0:
         temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);

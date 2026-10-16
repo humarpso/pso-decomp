@@ -59,7 +59,7 @@ u8 TObjEneDD::is_valid_target() {
     int var_r31;
 
     var_r31 = 0;
-    if ((this != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(*(s32 *)((s8 *)this + 0x30) & 0x06040800)) {
+    if ((this != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(*(s32 *)&this->actorFlags & 0x06040800)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

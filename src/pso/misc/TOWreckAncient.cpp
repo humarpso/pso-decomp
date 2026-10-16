@@ -72,7 +72,7 @@ s32 __dl__7TObjectFPv(void *);
 void TOWreckAncient::render() {
     u8 *arg0 = (u8 *)this;
     VObj1_8017dce0 *self = (VObj1_8017dce0 *)arg0;
-    if (self->m8(*(f32 *)((s8 *)arg0 + 0xAC), this->m_b0) != 0) {
+    if (self->m8(*(f32 *)&this->unk_AC, this->m_b0) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

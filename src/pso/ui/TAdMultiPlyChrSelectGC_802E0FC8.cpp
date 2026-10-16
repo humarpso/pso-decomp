@@ -25,7 +25,7 @@ void *TUnk_804E3008::init_player(void *arg1, void *arg2, void *arg3, void *arg4)
     TObjMotion__ct(this);
     *(s32 **)((s8 *)this + 0x18) = multi_chr_select_player_actor_ops;
     *(void **)((s8 *)this + 0x10C) = arg4;
-    *(void **)((s8 *)this + 0x108) = arg3;
+    this->m_108 = arg3;
     sub_802E0F58((s32)arg2);
     return this;
 }

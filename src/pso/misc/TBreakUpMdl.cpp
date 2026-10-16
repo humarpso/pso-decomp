@@ -396,8 +396,8 @@ void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1) {
 }
 
 u8 *TBreakUpMdl::setup_pieces(s32 arg1, s32 arg2, f32 farg0) {
-    *(s32 **)((s8 *)((u8 *)this) + 0xC) = &(*(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
-    *(s32 *)((s8 *)((u8 *)this) + 8) = 1;
+    *(s32 * *)&this->m_next = &(*(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
+    *(s32 *)&this->m_prev = 1;
     alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from((u32) &identity_matrix.value);
@@ -420,12 +420,12 @@ u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
 typedef char RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8009705C_lbl_8058D490_size[sizeof(RecoveredGlobal_8009705C_lbl_8058D490) == 0x30 ? 1 : -1];
 u8 *TBreakUpMdl::init_from_model(s32 arg1) {
-    *(s32 **)((s8 *)((u8 *)this) + 0xC) = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
+    *(s32 * *)&this->m_next = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
     push_matrix_from((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value);
     ((TBreakUpMdl *)((u8 *)this))->build_node_records((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
-    *(s32 *)((s8 *)((u8 *)this) + 8) = 0;
+    *(s32 *)&this->m_prev = 0;
     return ((u8 *)this);
 }
 

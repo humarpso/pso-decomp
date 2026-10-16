@@ -42,7 +42,7 @@ void *__nw__7TObjectFUl(int);
     extern int TCameraCtrl__saved_projection_angle;
     extern int scripted_camera_projection_angle;
     extern const float lbl_805D9028;
-void*TUnk_80488B68::sub_8006C5D8() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B68; *(int*)((char*)this + 0x38) = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char*)((char*)this + 0x99) = 0; *(unsigned char*)((char*)this + 0x98) = 0; *(short*)((char*)this + 0x9a) = 0; *(float*)((char*)this + 0x9c) = lbl_805D9028; *(float*)((char*)this + 0xa0) = lbl_805D9028; *(float*)((char*)this + 0x6c) = lbl_805D9028; *(float*)((char*)this + 0x70) = lbl_805D9028; *(float*)((char*)this + 0x74) = lbl_805D9028; *(float*)((char*)this + 0x78) = lbl_805D9028; *(float*)((char*)this + 0x7c) = lbl_805D9028; *(float*)((char*)this + 0x80) = lbl_805D9028; *(int*)((char*)this + 0x84) = 0; *(int*)((char*)this + 0x88) = 0; *(int*)((char*)this + 0x8c) = 0; *(int*)((char*)this + 0x90) = 0; *(int*)((char*)this + 0x94) = 0; return this; }
+void*TUnk_80488B68::sub_8006C5D8() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B68; *(int *)&this->m_38 = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char*)((char*)this + 0x99) = 0; this->m_98 = 0; this->m_9a = 0; *(float*)((char*)this + 0x9c) = lbl_805D9028; this->m_a0 = lbl_805D9028; *(float*)((char*)this + 0x6c) = lbl_805D9028; this->m_70 = lbl_805D9028; *(float*)((char*)this + 0x74) = lbl_805D9028; this->m_78 = lbl_805D9028; *(float*)((char*)this + 0x7c) = lbl_805D9028; this->m_80 = lbl_805D9028; *(int*)((char*)this + 0x84) = 0; this->m_88 = 0; *(int*)((char*)this + 0x8c) = 0; this->m_90 = 0; *(int*)((char*)this + 0x94) = 0; return this; }
 
 void TCameraCtrl::free_entries() {
     s32 i;
@@ -103,13 +103,13 @@ void TUnk_80488D70::vfunc_6() {
         temp_r31 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
         temp_r3 = get_player_by_client_id(0);
         if (temp_r3 != NULL) {
-            *(f32 *)((s8 *)this + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
-            *(f32 *)((s8 *)this + 0x4C) = (f32) (lbl_805D9038 + *(f32 *)((s8 *)temp_r3 + 0x3C));
+            *(f32 *)&this->unk_48 = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
+            this->m_4c = (f32) (lbl_805D9038 + *(f32 *)((s8 *)temp_r3 + 0x3C));
             *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
-            *(f32 *)((s8 *)this + 0x3C) = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
-            *(f32 *)((s8 *)this + 0x40) = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
-            *(f32 *)((s8 *)this + 0x44) = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
-            *(f32 *)((s8 *)this + 0x58) = (f32) *(f32 *)((s8 *)temp_r31 + 0x10);
+            this->m_3c = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
+            *(f32 *)&this->unk_40 = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
+            this->m_44 = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
+            this->m_58 = (f32) *(f32 *)((s8 *)temp_r31 + 0x10);
         }
     }
 }

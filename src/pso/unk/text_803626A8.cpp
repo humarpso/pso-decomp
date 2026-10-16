@@ -249,8 +249,8 @@ void TObjEneEpsilonGuard::sub_803626A8(s32 arg1, s32 arg2) {
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-    ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (*(f32 *)((s8 *)((u8 *)this) + 0xC0)));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (this->m_c0));
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
@@ -344,7 +344,7 @@ extern s32 lbl_804F26E0[];
 
 void TUnk_804F26E0::vfunc_62() {
     u8 *arg0 = (u8 *)this;
-    ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp((f32) (lbl_805E0258));
+    ((TItemProUnit *)(*(s32 *)&this->player + 0x7CC))->set_evp((f32) (lbl_805E0258));
 }
 
 void s_rank_knuckle_equip(u8 *arg0) {

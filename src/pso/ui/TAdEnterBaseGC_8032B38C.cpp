@@ -60,7 +60,7 @@ void TAdEnterBaseGC::create_parts() {
         if (var_r0 != 0U) {
             var_r0 = __ct__14TAdSelectCurGCFv((int) (temp_r3_3), (int) (tl_clipout), (void *) ((u8 *)&lbl_80477198.value + 0x10), (void *) ((u8 *)&lbl_804771B8.value + 8));
         }
-        *(u32 *)((s8 *)((u8 *)this) + 0x2C) = var_r0;
+        *(u32 *)&this->unk_2C = var_r0;
         return;
     }
     temp_r3_4 = __nw__7TObjectFUl((int) (0x708));
@@ -68,10 +68,10 @@ void TAdEnterBaseGC::create_parts() {
     if (var_r0_2 != 0U) {
         var_r0_2 = __ct__14TAdSelectCurGCFv((int) (temp_r3_4), (int) (tl_clipout), (void *) (&lbl_80477198.value), (void *) (&lbl_804771B8.value));
     }
-    *(u32 *)((s8 *)((u8 *)this) + 0x2C) = var_r0_2;
+    *(u32 *)&this->unk_2C = var_r0_2;
 }
 
-void TAdEnterBaseGC::sub_8032B460(int a1) { *(int*)((char*)this + 0x24) = 0; this->m_20 = 0; TAdEnterBaseGC__entry_mode = a1; *(int*)((char*)this + 0x38) = 0; *(int*)((char*)this + 0x3c) = 0; this->m_28 = 0; *(int*)((char*)this + 0x2c) = 0; this->m_30 = 0; *(int *)&this->unk_34 = 0; password_entry_keyboard_control = 0; }
+void TAdEnterBaseGC::sub_8032B460(int a1) { *(int *)&this->m_24 = 0; this->m_20 = 0; TAdEnterBaseGC__entry_mode = a1; *(int*)((char*)this + 0x38) = 0; *(int*)((char*)this + 0x3c) = 0; this->m_28 = 0; *(int *)&this->unk_2C = 0; this->m_30 = 0; *(int *)&this->unk_34 = 0; password_entry_keyboard_control = 0; }
 
 extern s32 __vt__14TAdEnterBaseGC[];
 

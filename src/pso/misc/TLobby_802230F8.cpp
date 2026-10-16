@@ -20,7 +20,7 @@ s32 TLobby__sub_802232F8(void *arg0, void *arg1);
 s32 TLobby::compare_version(void *arg1) {
     u32 b, a;
 
-    a = *(u8 *)((s8 *)this + 0);
+    a = *(u8 *)&this->m_name;
     b = *(u8 *)((s8 *)arg1 + 0);
     if (a > b) {
         return 1;
@@ -47,7 +47,7 @@ s32 TLobby::compare_greater(void *arg1) {
     u8 temp_r0;
     u8 temp_r5;
 
-    temp_r5 = *(u8 *)((s8 *)this + 0);
+    temp_r5 = *(u8 *)&this->m_name;
     temp_r0 = *(u8 *)((s8 *)arg1 + 0);
     if (temp_r5 > temp_r0) {
         return 1;

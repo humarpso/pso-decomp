@@ -97,7 +97,9 @@ public:
     f32 m_c0;
     u8 unk_C4[0x4];
     f32 m_c8;
-    u8 unk_CC[0xC];
+    u8 unk_CC[0x4];
+    f32 m_d0;
+    u8 unk_D4[0x4];
     void* action_table;
     void* motion_list;
     void* motion_buffer;

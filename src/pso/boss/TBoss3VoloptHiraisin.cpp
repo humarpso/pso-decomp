@@ -466,7 +466,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void);
 void TBoss3VoloptHiraisin::dispatch_state() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
     case 1:

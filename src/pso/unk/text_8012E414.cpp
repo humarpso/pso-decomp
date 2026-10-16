@@ -28,9 +28,9 @@ u8 *TObjPlayer::construct_weapon_casing(u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, 
     VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x2C, arg3);
     ((TObjPlayer *)(((u8 *)this) + 0x38))->copy_xyz(arg5);
     VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x20, arg4);
-    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x20) * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));
-    *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x24) * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));
-    *(f32 *)((s8 *)((u8 *)this) + 0x28) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x28) * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));
+    *(f32 *)&this->m_20 = (f32) (*(f32 *)&this->m_20 * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));
+    *(f32 *)&this->unk_24 = (f32) (*(f32 *)&this->unk_24 * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));
+    *(f32 *)&this->m_28 = (f32) (*(f32 *)&this->m_28 * ((lbl_805DAF74 * (lbl_805DAF78 * (f32) rand())) + lbl_805DAF74));
     return ((u8 *)this);
 }
 #pragma pop

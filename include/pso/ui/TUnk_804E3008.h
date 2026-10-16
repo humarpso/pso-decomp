@@ -8,7 +8,14 @@ public:
     virtual ~TUnk_804E3008();
     void *init_player(void *, void *, void *, void *);
     void sub_802E0F58(s32);
-    u8 unk_FC[0x78];
+    u8 unk_FC[0x4];
+    s32 m_100;
+    u8 unk_104[0x4];
+    void * m_108;
+    u8 unk_10C[0x4];
+    s32 m_110;
+    u8 unk_114[0x5C];
+    s32 m_170;
 };
 typedef char TUnk_804E3008_size[sizeof(TUnk_804E3008) == 0x174 ? 1 : -1];
 

@@ -94,7 +94,7 @@ extern f32 lbl_805DAA90;
 f32 TObjPlayer::get_mag_scale() {
     u32 temp_r3;
 
-    temp_r3 = *(u32 *)((s8 *)this + 0xF0);
+    temp_r3 = *(u32 *)&this->unk_F0;
     if (temp_r3 != 0U) {
         return ((TObjPlayer *)(temp_r3 + 0x608))->get_mag_scale_f();
     }
@@ -149,7 +149,7 @@ void TObjPlayer::setup_particle_once() {
     TObjPlayer::play_particle_effect_once();
     if (test_flags_any(&lbl_805D53EC, 8) == 0) {
         setup_particle_tev(0);
-        TObjPlayer::notify_fish_if_valid(*(s32 *)((s8 *)this + 0x24));
+        TObjPlayer::notify_fish_if_valid(*(s32 *)&this->unk_24);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(8);
     }
 }
@@ -237,7 +237,7 @@ s16 TObjPlayer::calc_equip_bonus(u16 arg0) {
 }
 void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     Stack_801012DC stack;
-    if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324((int) (*(u32 *)((s8 *)((u8 *)this) + 0xF0))) == 0)) {
+    if (((u32) this->m_f0 != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324((int) (this->m_f0)) == 0)) {
         TObjPlayer__sub_80102D84((void *) (&stack.sp8));
         stack.spC = ((TObjPlayer *)((u8 *)this))->get_field_d8();
         stack.sp10 = arg1;

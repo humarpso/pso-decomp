@@ -632,7 +632,7 @@ void TItemEquipBase::sub_8010A948() {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv((void *) (((u8 *)this))), (int) (0));
     }
     if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (((u8 *)this)))), (s32)((int)((int) (0x20))), (s32)((int)((int) (0x40))))) != 0) {
-        ((TItemEquipBase *)(*(s32 *)((s8 *)((u8 *)this) + 0xF0) + 0x7CC))->check_flag_32();
+        ((TItemEquipBase *)(*(s32 *)&this->m_f0 + 0x7CC))->check_flag_32();
     }
     if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (((u8 *)this)))), (s32)((int)((int) (0x80))), (s32)((int)((int) (0x100))))) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv((void *) (((u8 *)this))), (int) (1));
@@ -733,18 +733,18 @@ void TItemEquipBase::subtract_equip_stats(s32 arg1, u8 *arg2, u8 *arg3) {
     if (arg2 != NULL) {
         *(s16 *)((s8 *)arg2 + 0) = (s16) (*(s16 *)((s8 *)arg2 + 0) - this->m_14c);
         *(s32 *)((s8 *)arg2 + 0x1C) = (s32) (*(s32 *)((s8 *)arg2 + 0x1C) - this->m_168);
-        *(s16 *)((s8 *)arg2 + 2) = (s16) (*(s16 *)((s8 *)arg2 + 2) - *(s16 *)((s8 *)arg0 + 0x14E));
+        *(s16 *)((s8 *)arg2 + 2) = (s16) (*(s16 *)((s8 *)arg2 + 2) - *(s16 *)&this->unk_14E);
         *(s16 *)((s8 *)arg2 + 4) = (s16) (*(s16 *)((s8 *)arg2 + 4) - this->m_150);
-        *(s16 *)((s8 *)arg2 + 6) = (s16) (*(s16 *)((s8 *)arg2 + 6) - *(s16 *)((s8 *)arg0 + 0x152));
+        *(s16 *)((s8 *)arg2 + 6) = (s16) (*(s16 *)((s8 *)arg2 + 6) - *(s16 *)&this->unk_152);
         *(s16 *)((s8 *)arg2 + 8) = (s16) (*(s16 *)((s8 *)arg2 + 8) - this->m_154);
-        *(s16 *)((s8 *)arg2 + 0xA) = (s16) (*(s16 *)((s8 *)arg2 + 0xA) - *(s16 *)((s8 *)arg0 + 0x156));
+        *(s16 *)((s8 *)arg2 + 0xA) = (s16) (*(s16 *)((s8 *)arg2 + 0xA) - *(s16 *)&this->unk_156);
     }
     if (arg3 != NULL) {
-        *(s16 *)((s8 *)arg3 + 0) = (s16) (*(s16 *)((s8 *)arg3 + 0) - *(s16 *)((s8 *)arg0 + 0xF8));
+        *(s16 *)((s8 *)arg3 + 0) = (s16) (*(s16 *)((s8 *)arg3 + 0) - *(s16 *)&this->unk_F8);
         *(s16 *)((s8 *)arg3 + 2) = (s16) (*(s16 *)((s8 *)arg3 + 2) - this->m_fa);
-        *(s16 *)((s8 *)arg3 + 4) = (s16) (*(s16 *)((s8 *)arg3 + 4) - *(s16 *)((s8 *)arg0 + 0xFC));
+        *(s16 *)((s8 *)arg3 + 4) = (s16) (*(s16 *)((s8 *)arg3 + 4) - *(s16 *)&this->unk_FC);
         *(s16 *)((s8 *)arg3 + 6) = (s16) (*(s16 *)((s8 *)arg3 + 6) - this->m_fe);
-        *(s16 *)((s8 *)arg3 + 8) = (s16) (*(s16 *)((s8 *)arg3 + 8) - *(s16 *)((s8 *)arg0 + 0x100));
+        *(s16 *)((s8 *)arg3 + 8) = (s16) (*(s16 *)((s8 *)arg3 + 8) - *(s16 *)&this->unk_100);
         *(s16 *)((s8 *)arg3 + 0xA) = (s16) (*(s16 *)((s8 *)arg3 + 0xA) - this->m_102);
         *(s16 *)((s8 *)arg3 + 0xC) = (s16) (*(s16 *)((s8 *)arg3 + 0xC) - *(s16 *)((s8 *)arg0 + 0x104));
     }
@@ -905,7 +905,7 @@ void TItemEquipBase::request_model_load(s32 arg1) {
     item_data.data1.data_u8[0] = ((TItem *)((u8 *)this))->get_field_ec();
     item_data.data1.data_u8[1] = arg1;
     item_data.data1.data_u8[2] = ((TItemProShield *)((u8 *)this))->get_slot_count();
-    *(s16 *)((s8 *)((u8 *)this) + 0x172) = request_item_model_load((void *) (&item_data.data1.data_u8[0]));
+    *(s16 *)&this->m_172 = request_item_model_load((void *) (&item_data.data1.data_u8[0]));
 }
 
 void TItemEquipBase::update_with_player() {

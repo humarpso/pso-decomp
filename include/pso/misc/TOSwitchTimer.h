@@ -19,7 +19,8 @@ struct TOSwitchTimer : public TUnk_804B9870 {
     virtual void render();
     virtual void run_task();
     static void *create(void *arg0);
-    u8 unk_B1[0x7];
+    u8 unk_B1[0x3];
+    s32 m_b4;
 };
 
 typedef char TOSwitchTimer_size[sizeof(TOSwitchTimer) == 0xB8 ? 1 : -1];

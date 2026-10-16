@@ -19,7 +19,10 @@ struct TOKeyAncient03 : public TOKey {
     static void *create(void *arg0);
     static void cleanup_refs();
     static void load_resources();
-    u8 unk_E0[0x1C];
+    u8 unk_E0[0xC];
+    f32 m_ec;
+    u8 unk_F0[0x8];
+    s32 m_f8;
 };
 
 typedef char TOKeyAncient03_size[sizeof(TOKeyAncient03) == 0xFC ? 1 : -1];

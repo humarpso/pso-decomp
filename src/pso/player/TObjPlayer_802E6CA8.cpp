@@ -203,8 +203,8 @@ void TUnk_804E3BA8::render() {
         post_translate_matrix(part);
         rotate_matrix_z(0, part->f20);
         rotate_matrix_x(0, part->f18);
-        translate_matrix(0, -this->m_30, -*(f32 *)((s8 *)arg0 + 0x34), -this->m_38);
-        TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)arg0 + 0x2C));
+        translate_matrix(0, -this->m_30, -*(f32 *)&this->unk_34, -this->m_38);
+        TObjPlayer::concat_matrix(0, *(s32 *)&this->unk_2C);
         switch (part->type) {
         case 0:
         case 1:
@@ -248,13 +248,13 @@ u8 *TObjPlayer::init_breakup_pieces(void *arg1, s32 arg2) {
     *(u8 **)((s8 *)((u8 *)this) + 0x18) = ((u8 *)&lbl_804E3BA8);
     ((TUnk_804E3BD8 *)((u8 *)this))->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = arg2;
-    part = *(Part_802E6F10 **)((s8 *)((u8 *)this) + 0x28);
+    part = *(Part_802E6F10 * *)&this->m_28;
     push_matrix();
     set_matrix_identity(0);
     TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)((u8 *)this) + 0x2C));
     (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).z = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).y = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).x = lbl_805DE9CC;
     matrix_mult_vec(0, ((u8 *)this) + 0x30, ((u8 *)this) + 0x30);
-    for (i = 0; i < *(s32 *)((s8 *)((u8 *)this) + 0x24); i++) {
+    for (i = 0; i < *(s32 *)&this->unk_24; i++) {
         matrix_mult_vec(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].pos, &part->pos);
         rotate_vector_by_matrix(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].rot, &part->rot);
         part->rot.y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
@@ -372,9 +372,9 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     }
     *(s32 **)((s8 *)this + 0x1C) = var_r0;
     temp_r4 = *(s32 **)((s8 *)this + 0x1C);
-    *(s32 *)((s8 *)this + 0x24) = (s32) *temp_r4;
+    this->m_24 = (s32) *temp_r4;
     TObjPlayer__sub_802E75B8(this, temp_r4);
-    *(s32 *)&(*(u32 *)((u8 *)this + 0x28)) = mem_alloc(*(s32 *)((s8 *)this + 0x24) * 0x2C);
+    *(s32 *)&(*(u32 *)&this->unk_28) = mem_alloc(this->m_24 * 0x2C);
 }
 
 extern s32 lbl_804E3BD8[];
@@ -401,7 +401,7 @@ void *TObjPlayer::init_zeroed_object() {
     *(s32 **)((s8 *)this + 0x18) = lbl_804E3BD8;
     *(u32 *)&this->m_20 = 0;
     *(u32 *)((s8 *)this + 0x1C) = 0;
-    *(u32 *)((s8 *)this + 0x24) = 0;
+    *(u32 *)&this->unk_24 = 0;
     this->m_28 = 0;
     return this;
 }

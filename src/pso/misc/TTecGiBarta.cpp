@@ -407,7 +407,7 @@ u8 *TTecGiBarta::construct_facing(void * _w1, void * _w2, void * _w3, void * _w4
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
     (*(void * *)((u8 *)this + 0x18)) = __vt__11TTecGiBarta;
-    *(s32 *)((s8 *)arg0 + 0) = tec_gibarta_class_name_ptr;
+    *(s32 *)&this->m_name = tec_gibarta_class_name_ptr;
     calc_params();
     for (i = 0; i < 0x20; i++) {
         ((Obj_80230CFC *)arg0)->ids[i] = 0xFFFF;

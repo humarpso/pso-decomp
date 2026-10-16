@@ -92,7 +92,7 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1);
 
 extern "C" {
 
-int TWindowMenu::is_visible() { return (*(u16*)((char*)this + 0x70) >> 1) & 0x1; }
+int TWindowMenu::is_visible() { return (this->m_70 >> 1) & 0x1; }
 typedef char RecoveredGlobal_800739BC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800739BC_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
 #define CHAL ((Chal_80073738 *)&challenge_mode_state)

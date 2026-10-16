@@ -94,12 +94,12 @@ void TItemEffArmor::run_task() {
     *(f32 *)&this->m_38 = (f32) (TItemEffArmor__data_805DAAEC - (this->m_24 / lbl_805DAAF0));
     temp_r3_2 = (u8 *)(*(u8 * *)&this->m_6c);
     if (temp_r3_2 != NULL) {
-        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (this->m_60), (f32) (*(f32 *)((s8 *)arg0 + 0x5C)));
+        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (this->m_60), (f32) (*(f32 *)&this->unk_5C));
     }
-    if (*(f32 *)((s8 *)arg0 + 0x5C) >= TItemEffArmor__data_805DAAEC) {
+    if (*(f32 *)&this->unk_5C >= TItemEffArmor__data_805DAAEC) {
         *(f32 *)&this->unk_64 = (f32) (lbl_805DAAF4 * *(f32 *)&this->unk_64);
     }
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) (*(f32 *)((s8 *)arg0 + 0x5C) + *(f32 *)&this->unk_64);
+    *(f32 *)&this->unk_5C = (f32) (*(f32 *)&this->unk_5C + *(f32 *)&this->unk_64);
     if (lbl_805DAAF0 == this->m_24) {
         queue_destruction__7TObjectFv(arg0);
     }

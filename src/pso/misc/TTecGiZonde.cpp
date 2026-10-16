@@ -314,8 +314,8 @@ void TTecGiZonde::deliver_chain_hits() {
 }
 
 void TTecGiZonde::run_task() {
-    *(u32 *)((s8 *)this + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)this + 0xC8));
-    if ((u32) *(u32 *)((s8 *)this + 0x1C) == 0U) {
+    this->source = find_entity_by_id(this->sourceId);
+    if ((u32) this->source == 0U) {
         queue_destruction__7TObjectFv(this);
         return;
     }

@@ -8,7 +8,9 @@ public:
     virtual ~TUnk_804A1570();
     virtual void reserved_53();
     void*enter_state_513();
-    u8 unk_1F8[0xC];
+    u8 unk_1F8[0x4];
+    s32 m_1fc;
+    u8 unk_200[0x4];
 };
 
 #endif

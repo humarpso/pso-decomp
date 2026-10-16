@@ -205,8 +205,8 @@ void TUnk_804F1280::render() {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x20));
         rotate_matrix_y((int) (0), (int) (this->m_34));
-        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x30)));
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x38)));
+        rotate_matrix_x((int) (0), (int) (*(s32 *)&this->unk_30));
+        rotate_matrix_z((int) (0), (int) (*(s32 *)&this->unk_38));
         TObjFish::set_global_param((int) (this->m_3c));
         TBoss6PlotFalz::set_fade_material_color((f32) (TBoss6Rock__data_805DFF4C));
         draw_ginja_object((int) (*(s32 *)&this->unk_40));
@@ -506,14 +506,14 @@ void TBoss6Rock::update_fall() {
         var_f1 = lbl_805DFF9C;
         var_f2 = lbl_805DFFA0;
     }
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (*(f32 *)((s8 *)arg0 + 0xCC) + var_f1);
-    if (*(f32 *)((s8 *)arg0 + 0xCC) < var_f2) {
-        *(f32 *)((s8 *)arg0 + 0xCC) = var_f2;
+    *(f32 *)&this->unk_CC = (f32) (*(f32 *)&this->unk_CC + var_f1);
+    if (*(f32 *)&this->unk_CC < var_f2) {
+        *(f32 *)&this->unk_CC = var_f2;
     }
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)((s8 *)arg0 + 0xCC));
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)&this->unk_CC);
     if (*(f32 *)((s8 *)arg0 + 0x3C) <= TBoss6Rock__data_805DFF50) {
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6Rock__data_805DFF50;
-        *(f32 *)((s8 *)arg0 + 0xCC) = (f32) TBoss6Rock__data_805DFF50;
+        *(f32 *)&this->unk_CC = (f32) TBoss6Rock__data_805DFF50;
         TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
         ((TBoss6Rock *)arg0)->sub_80353F5C();
         play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));

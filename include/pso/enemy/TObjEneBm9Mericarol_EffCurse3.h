@@ -9,7 +9,9 @@ public:
     void *construct(s32, s32);
     void *destroy(s16);
     virtual void run_task();
-    u8 unk_1C[0xC];
+    u8 unk_1C[0x4];
+    s32 m_20;
+    u8 unk_24[0x4];
 };
 typedef char TObjEneBm9Mericarol_EffCurse3_size[sizeof(TObjEneBm9Mericarol_EffCurse3) == 0x28 ? 1 : -1];
 

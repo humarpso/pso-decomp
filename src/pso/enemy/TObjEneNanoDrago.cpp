@@ -222,11 +222,11 @@ typedef char RecoveredGlobal_800D9E8C_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 void TObjPlayer::render_model_transformed() {
     f32 temp_f1;
     ((s32 (*)(u32))push_matrix_from)((u32) &identity_matrix.value);
-    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x38)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x404) + (*(f32 *)((s8 *)((u8 *)this) + 0x3C) + *(f32 *)((s8 *)((u8 *)this) + 0x3E4))), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x40)));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x68);
+    translate_matrix((int) (0), (f32) (*(f32 *)&this->m_38), (f32) (this->m_404 + (*(f32 *)&this->unk_3C + *(f32 *)&this->m_3e4)), (f32) (this->m_40));
+    rotate_matrix_y((int) (0), (int) (this->m_60));
+    temp_f1 = this->m_68;
     scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
-    ((TObjEnemy *)((u8 *)this))->render_anim_model(*(f32 *)((s8 *)((u8 *)this) + 0xC0));
+    ((TObjEnemy *)((u8 *)this))->render_anim_model(*(f32 *)&this->m_c0);
     pop_matrix();
     ((VObj_18_fe09eb *)(((u8 *)this)))->m63(0x55, (u8 *)(((u8 *)this)) + 0x39C);
     ((VObj_18_fe09eb *)(((u8 *)this)))->m63(0x54, (u8 *)(((u8 *)this)) + 0x3A8);
@@ -367,35 +367,35 @@ void TObjPlayer::update_death_state() {
     s32 temp_r4;
     s32 temp_r5;
 
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x37C);
+    temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
-        *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) | 4);
-        temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x30) | 0x04000000;
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) = temp_r4;
-        *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 4);
+        temp_r4 = *(s32 *)&this->actor_flags | 0x04000000;
+        *(s32 *)&this->actor_flags = temp_r4;
+        *(s16 *)&this->unk_B8 = 0;
         play_area_sound_effect__12TBoss3VoloptFv(((u8 *)this) + 0x2FC, temp_r4);
         TObjEneMe3SinowZoa__sub_800D758C(((u8 *)this) + 0x3E8);
-        *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 1;
+        this->m_37c = 1;
     case 1:
         advance_animation_playback(((u8 *)this));
         if (((V_Sub_800da0b8 *) (((u8 *)this) + 0x3E8))->m5() == 1) {
-            *(s32 *)((s8 *)((u8 *)this) + 0x37C) = -1;
+            this->m_37c = -1;
         }
         ((TObjPlayer *)((u8 *)this))->update_collisions();
         return;
     case -1:
-        temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x388);
-        *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (temp_r5 & ~5);
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFBFFFFFF);
+        temp_r5 = *(s32 *)&this->unk_388;
+        *(s32 *)&this->unk_388 = (s32) (temp_r5 & ~5);
+        *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFBFFFFFF);
         update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0, temp_r5);
         break;
     }
 }
 
 void TObjPlayer::trigger_hit_camera_shake(u32 arg1) {
-    if ((arg1 == get_player_by_client_id(0)) && ((s32) *(s32 *)((s8 *)this + 0x3DC) <= 0)) {
-        *(s32 *)((s8 *)this + 0x3DC) = 0x1E;
+    if ((arg1 == get_player_by_client_id(0)) && ((s32) this->m_3dc <= 0)) {
+        this->m_3dc = 0x1E;
         TCameraCtrl::set_shake_preset(1);
     }
 }
@@ -586,9 +586,9 @@ void update_death_sequence__10TObjPlayerFPv(u8 *arg0);
 extern "C" {
 
 void TObjPlayer::set_flag_20000() {
-    if (!(*(s32 *)((s8 *)this + 0x388) & 0x20000)) {
+    if (!(*(s32 *)&this->unk_388 & 0x20000)) {
         ((s32 (*)(void *, s32))update_if_active__15TObjEneMe1GiGueFl)(this, 0xC);
-        *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) | 0x20000 | 1);
+        *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000 | 1);
     }
 }
 
@@ -1203,28 +1203,28 @@ void begin_action4__10TObjPlayerFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x10000 | 1);
 }
 void TObjEneNanoDrago::sub_800DB970() {
-    if (*(s32 *)((s8 *)((u8 *)this) + 0x388) & 0x40000) {
+    if (this->flags388 & 0x40000) {
         return;
     }
-    switch (*(s32 *)((s8 *)((u8 *)this) + 0x37C)) {
+    switch (this->state) {
     case -1:
         break;
     case 0:
-        *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 1;
-        *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 1;
-        *(s32 *)((s8 *)((u8 *)this) + 0x384) = 0x96;
+        this->fb8 = 1;
+        this->state = 1;
+        this->m_384 = 0x96;
         ((s32 (*)(void *))sub_8004292C__15TObjEnemyCustomFv)(((u8 *)this));
     case 1:
         advance_animation_playback(((u8 *)this));
-        ((s32 (*)(void *, void *, f32))update_circle_move__10TObjPlayerFPvPvf)(((u8 *)this), ((u8 *)this) + 0x50, *(f32 *)((s8 *)((u8 *)this) + 0x358));
+        ((s32 (*)(void *, void *, f32))update_circle_move__10TObjPlayerFPvPvf)(((u8 *)this), ((u8 *)this) + 0x50, this->m_358);
         if (objInBand__FP7GameObjf(((u8 *)this), 4.0f) != 0 || objInBand__FP7GameObjf(((u8 *)this), 20.0f) != 0) {
             play_sound_effect(0x4003AD23, ((u8 *)this) + 0x38, 0, 0);
         }
-        *(s32 *)((s8 *)((u8 *)this) + 0x384) = *(s32 *)((s8 *)((u8 *)this) + 0x384) - 1;
-        if (*(s32 *)((s8 *)((u8 *)this) + 0x384) <= 0) {
-            *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
-            *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 2;
-            *(s32 *)((s8 *)((u8 *)this) + 0x384) = 0x5A;
+        this->m_384 = this->m_384 - 1;
+        if (this->m_384 <= 0) {
+            this->fb8 = 0;
+            this->state = 2;
+            this->m_384 = 0x5A;
         }
         ((s32 (*)(void *))check_object_collisions__10TObjPlayerFv)(((u8 *)this));
         apply_actor_gravity(((u8 *)this), 0, 0.0f);
@@ -1232,9 +1232,9 @@ void TObjEneNanoDrago::sub_800DB970() {
     case 2:
         advance_animation_playback(((u8 *)this));
         ((s32 (*)(void *))check_object_collisions__10TObjPlayerFv)(((u8 *)this));
-        *(s32 *)((s8 *)((u8 *)this) + 0x384) = *(s32 *)((s8 *)((u8 *)this) + 0x384) - 1;
-        if (*(s32 *)((s8 *)((u8 *)this) + 0x384) <= 0) {
-            *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 0;
+        this->m_384 = this->m_384 - 1;
+        if (this->m_384 <= 0) {
+            this->state = 0;
         }
         break;
     }

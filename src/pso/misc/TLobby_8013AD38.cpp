@@ -30,7 +30,7 @@ u8 TLobby__sub_8013AD6C(void* p);
 int TLobby__sub_8013AD74(void* p);
 int hex_to_decimal_string__22TAdEnterSerialAccessGCFi(void);
 
-int TUnk_804D0618::get_status_flag() { return (*(u16*)((char*)this + 0x70) >> 1) & 0x1; }
+int TUnk_804D0618::get_status_flag() { return (this->m_70 >> 1) & 0x1; }
 int TLobby::get_flag_bit2() { return (*(u16*)((char*)this + 0x70) >> 2) & 0x1; }
 int TLobby__sub_8013AD50(void* p) { return (*(u8*)((char*)p + 0x1d) >> 1) & 0x1; }
 s32 TLobby__sub_8013AD5C(void* p) { return *(s32*)((char*)p + 0x20); }

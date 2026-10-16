@@ -68,7 +68,7 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_model_12() {
     TObjPlayer::set_global_flag();
     post_translate_matrix((void *)&boss6_type2_appear_origin);
     TObjFish::set_global_param(*(s32 *)((s8 *)this + 0xD8));
-    draw_model_motion(*(s32 *)((s8 *)this + 0xD4), *(s32 *)((s8 *)this + 0xDC), *(f32 *)((s8 *)this + 0xE0));
+    draw_model_motion(this->m_d4, this->m_dc, *(f32 *)((s8 *)this + 0xE0));
     TObjPlayer::clear_global_state();
     pop_matrix();
 }
@@ -93,15 +93,15 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_1_pair() {
         if (var_f31 < lbl_805DFA74) {
             TBoss6PlotFalz::set_fade_material_color(var_f31);
         }
-        TObjFish::set_global_param(*(s32 *)((s8 *)this + 0xCC));
+        TObjFish::set_global_param(this->m_cc);
         TObjPlayer::set_global_flag();
         push_matrix();
         post_translate_matrix((s32 *)((u8 *)this + 0x4C));
-        draw_model_motion(*(s32 *)((s8 *)this + 0xC8), *(s32 *)((s8 *)this + 0xD0), *(f32 *)((s8 *)this + 0xE4));
+        draw_model_motion(*(s32 *)((s8 *)this + 0xC8), *(s32 *)((s8 *)this + 0xD0), this->m_e4);
         pop_matrix();
         push_matrix();
         post_translate_matrix((s32 *)((u8 *)this + 0x58));
-        draw_model_motion(*(s32 *)((s8 *)this + 0xC8), *(s32 *)((s8 *)this + 0xD0), *(f32 *)((s8 *)this + 0xE4));
+        draw_model_motion(*(s32 *)((s8 *)this + 0xC8), *(s32 *)((s8 *)this + 0xD0), this->m_e4);
         pop_matrix();
         TObjPlayer::clear_global_state();
         if (var_f31 < lbl_805DFA74) {
@@ -123,7 +123,7 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_4() {
     } else {
         var_f31 = (f32)(temp_r3 - 0x72) / lbl_805DFA7C;
     }
-    if ((lbl_805DFA70 != var_f31) && ((u32) *(u32 *)((s8 *)this + 0x7C) != 0U)) {
+    if ((lbl_805DFA70 != var_f31) && ((u32) this->m_7c != 0U)) {
         if (var_f31 < lbl_805DFA74) {
             TBoss6PlotFalz::set_fade_material_color(var_f31);
         }
@@ -131,9 +131,9 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_4() {
         TObjPlayer::set_global_flag();
         post_translate_matrix((void *)&boss6_type2_appear_origin);
         TObjFish::set_global_param(*(s32 *)((s8 *)this + 0xC0));
-        ((TObjFish *)(*(u32 *)((s8 *)this + 0x7C)))->set_draw_callback_list();
-        draw_model_motion(*(s32 *)((s8 *)this + 0xBC), *(s32 *)((s8 *)this + 0xC4), *(f32 *)((s8 *)this + 0xE0));
-        clear_render_callback__8TObjFishFv(*(u32 *)((s8 *)this + 0x7C));
+        ((TObjFish *)(this->m_7c))->set_draw_callback_list();
+        draw_model_motion(this->m_bc, this->m_c4, *(f32 *)((s8 *)this + 0xE0));
+        clear_render_callback__8TObjFishFv(this->m_7c);
         TObjPlayer::clear_global_state();
         pop_matrix();
         if (var_f31 < lbl_805DFA74) {

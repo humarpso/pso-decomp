@@ -527,19 +527,19 @@ void *TBoss3VoloptMonitor::create(void *arg0) {
 
 void TBoss3VoloptMonitor::sub_80042510() {
     u8 *arg0 = (u8 *)this;
-    *(u8 **)((s8 *)arg0 + 0x350) = TBoss3VoloptMonitor__init_param_block;
-    *(s16 *)((s8 *)volopt_monitor_boss_stats_ptr_a + 6) = fn_80042960(*(s16 *)((s8 *)arg0 + 0x38C) % 4 != 0);
+    *(u8 * *)&this->movementParameters = TBoss3VoloptMonitor__init_param_block;
+    *(s16 *)((s8 *)volopt_monitor_boss_stats_ptr_a + 6) = fn_80042960(this->m_38c % 4 != 0);
     ((TUnk_804806E8 *)arg0)->recalc_combat_stats((void *)volopt_monitor_boss_stats_ptr_a, (void *)volopt_monitor_boss_stats_ptr_b, (void *)volopt_monitor_object_handle, (f32)lbl_805D8748, (f32)lbl_805D8748);
-    *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x2B8);
-    *(s16 *)((s8 *)arg0 + 0x32E) = *(s16 *)((s8 *)arg0 + 0x2BA);
-    *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
+    this->hp = this->hpmax;
+    *(s16 *)&this->m_32e = this->m_2ba;
+    this->referenceHp = this->hp;
     ((TObjEneLappy *)arg0)->set_param(0x2E);
     ((TObjEnemy *)arg0)->update_prev_position();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    *(s16 *)((s8 *)arg0 + 0x38E) = lbl_805D874C * (lbl_805D8740 * (f32)rand());
-    *(s16 *)((s8 *)arg0 + 0x390) = lbl_805D8750 * (lbl_805D8740 * (f32)rand());
+    this->m_38e = lbl_805D874C * (lbl_805D8740 * (f32)rand());
+    this->m_390 = lbl_805D8750 * (lbl_805D8740 * (f32)rand());
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(4);
-    volopt_target_slot_used[*(s16 *)((s8 *)arg0 + 0x38C)] = 0;
+    volopt_target_slot_used[this->m_38c] = 0;
     obj_setFlags30(arg0, 0x8000);
     ((VObj_80042510 *)arg0)->m80();
 }
@@ -662,7 +662,7 @@ void TObjEnemyCustom::set_flags_30() { this->actorFlags |= 0x4040000; }
 
 void TObjEnemyCustom::sub_8004292C() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFBFFFF);
+    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
 }
 void TBoss3VoloptMonitor::sub_80042944(s32 i) {
     O_80042944 *self = (O_80042944 *)this;

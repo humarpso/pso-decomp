@@ -125,8 +125,8 @@ void TObjEneRe7BeruraPunch::update_velocity_and_snap() {
     if (((VObj_14_c1c33b *)((u8 *)(arg0) + (248)))->m4() != 0) {
         *(s32 *)&this->m_b4 = 0;
     }
-    *(f32 *)&this->m_dc = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xBC))) + *(f32 *)&this->m_dc);
-    this->m_e4 = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)arg0 + 0xC4))) + this->m_e4);
+    *(f32 *)&this->m_dc = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)&this->unk_BC)) + *(f32 *)&this->m_dc);
+    this->m_e4 = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)&this->unk_C4)) + this->m_e4);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
 }
 #pragma pop
@@ -142,28 +142,28 @@ void TObjEneRe7BeruraPunch::update_flight() {
     Stack_80096030 stack;
     s32 var_r31;
     u8 *temp_r3;
-    *(f32 *)((s8 *)((u8 *)this) + 0xF4) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0xF4) + lbl_805D97A4);
-    if (*(f32 *)((s8 *)((u8 *)this) + 0xF4) > lbl_805D97A8) {
-        *(f32 *)((s8 *)((u8 *)this) + 0xF4) = (f32) lbl_805D97A8;
+    this->m_f4 = (f32) (this->m_f4 + lbl_805D97A4);
+    if (this->m_f4 > lbl_805D97A8) {
+        this->m_f4 = (f32) lbl_805D97A8;
     }
     var_r31 = 0;
-    *(f32 *)((s8 *)((u8 *)this) + 0x114) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x114) + TObjEneRe7BeruraPunch__data_805D97A0);
-    stack.sp8 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)((u8 *)this) + 0xBC)) + *(f32 *)((s8 *)((u8 *)this) + 0x38);
-    stack.spC = *(f32 *)((s8 *)((u8 *)this) + 0xE0);
-    stack.sp10 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)((s8 *)((u8 *)this) + 0xC4)) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
+    this->m_114 = (f32) (this->m_114 + TObjEneRe7BeruraPunch__data_805D97A0);
+    stack.sp8 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)&this->unk_BC) + *(f32 *)((s8 *)((u8 *)this) + 0x38);
+    stack.spC = *(f32 *)&this->unk_E0;
+    stack.sp10 = (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)&this->unk_C4) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
     temp_r3 = (u8 *)(csnVector((s32) (((u8 *)this) + 0xDC), (s32) &stack.sp8, 0x88E0));
     if (temp_r3 != NULL) {
         var_r31 = 1;
-        *(f32 *)((s8 *)((u8 *)this) + 0xDC) = (f32) **(f32 **)((s8 *)temp_r3 + 4);
-        *(f32 *)((s8 *)((u8 *)this) + 0xDC) = (f32) **(f32 **)((s8 *)temp_r3 + 4);
+        *(f32 *)&this->m_dc = (f32) **(f32 **)((s8 *)temp_r3 + 4);
+        *(f32 *)&this->m_dc = (f32) **(f32 **)((s8 *)temp_r3 + 4);
     } else {
-        *(f32 *)((s8 *)((u8 *)this) + 0xDC) = stack.sp8;
-        *(f32 *)((s8 *)((u8 *)this) + 0xE4) = stack.sp10;
+        *(f32 *)&this->m_dc = stack.sp8;
+        this->m_e4 = stack.sp10;
     }
     ((TObjEneRe7BeruraPunch *)((u8 *)this))->snap_to_ground();
-    if ((var_r31 != 0) || (sub_80096150() != 0) || (*(f32 *)((s8 *)((u8 *)this) + 0x114) > *(f32 *)((s8 *)((u8 *)this) + 0xC8))) {
-        *(s32 *)((s8 *)((u8 *)this) + 0xB4) = 2;
-        if (find_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0xB0)) != NULL) {
+    if ((var_r31 != 0) || (sub_80096150() != 0) || (this->m_114 > this->m_c8)) {
+        *(s32 *)&this->m_b4 = 2;
+        if (find_entity_by_id(this->m_b0) != NULL) {
             TObjEneRe7Berura__sub_80094D98();
         }
     }
@@ -173,14 +173,14 @@ void TObjEneRe7BeruraPunch::update_flight() {
 s32 TObjEneRe7BeruraPunch::sub_80096150() {
     u8 *temp_r31;
     void *temp_r4_2;
-    temp_r31 = find_entity_by_id(*(u16 *)((s8 *)this + 0xB0));
-    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = *(f32 *)((s8 *)this + 0xCC);
-    *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x30) = *(f32 *)((s8 *)this + 0xCC);
-    temp_r4_2 = *(void **)((s8 *)this + 0xA4);
-    *(f32 *)((s8 *)temp_r4_2 + 0x34) = lbl_805D97AC * (lbl_805D97B0 * *(f32 *)((s8 *)this + 0xF4));
+    temp_r31 = find_entity_by_id(this->m_b0);
+    *(f32 *)((s8 *)(this->m_a4) + 4) = *(f32 *)&this->unk_CC;
+    *(f32 *)((s8 *)(this->m_a4) + 0x30) = *(f32 *)&this->unk_CC;
+    temp_r4_2 = this->m_a4;
+    *(f32 *)((s8 *)temp_r4_2 + 0x34) = lbl_805D97AC * (lbl_805D97B0 * this->m_f4);
     refresh_collision_body_centers__13TUnk_804AF8A0Fv(this, temp_r4_2, lbl_805D97B0, lbl_805D97AC);
     ((TObjPlayer *)this)->update_enemy_collision_flags();
-    temp_r4_2 = *(void **)((s8 *)this + 0xA4);
+    temp_r4_2 = this->m_a4;
     if ((*(s32 *)((s8 *)temp_r4_2 + 0x18) | *(s32 *)((s8 *)temp_r4_2 + 0x44)) & 0x200000) {
         return 1;
     }
@@ -191,7 +191,7 @@ s32 TObjEneRe7BeruraPunch::sub_80096150() {
     if (TObjEneDD::check_v2_mode() != 0) {
         p.b &= ~2;
     }
-    ((VObj_80096150 *)this)->m15(&p, *(s32 *)((s8 *)this + 0xD8));
+    ((VObj_80096150 *)this)->m15(&p, *(s32 *)&this->_padD8);
     if (temp_r31 != 0) {
         TObjEneRe7Berura__sub_80094C68(temp_r31);
     }
@@ -211,9 +211,9 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     } else {
         this->rotation_y = 0;
     }
-    *(f32 *)((s8 *)arg0 + 0xBC) = sin_table_lookup(this->rotation_y);
+    *(f32 *)&this->unk_BC = sin_table_lookup(this->rotation_y);
     this->m_c0 = (f32) lbl_805D9794;
-    *(f32 *)((s8 *)arg0 + 0xC4) = cos_table_lookup(this->rotation_y);
+    *(f32 *)&this->unk_C4 = cos_table_lookup(this->rotation_y);
     this->m_c8 = (f32) lbl_805D97B4;
     ((TObjEneRe7BeruraPunch *)arg0)->reset();
     *(s32 *)&this->m_b4 = 1;

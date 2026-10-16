@@ -57,7 +57,11 @@ struct TObjEneRe7Berura : public TObjEneDD_ST {
     static void *spawn_punch(void *arg0);
     static void set_global_state(s32 arg0);
     void draw();
-    u8 unk_430[0xB4];
+    u8 unk_430[0x8C];
+    s32 m_4bc;
+    u8 unk_4C0[0x4];
+    s32 m_4c4;
+    u8 unk_4C8[0x1C];
     void update_death_state(s32 mode);
 };
 

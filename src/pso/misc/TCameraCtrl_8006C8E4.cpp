@@ -52,7 +52,7 @@ extern s32 lbl_80488D70[];
 void *TUnk_80488D70::init_subobject() {
     ((void (*)(void *))TCameraCtrl__sub_80068714)(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_80488D70;
-    *(u32 *)((s8 *)this + 0x38) = 4;
+    *(u32 *)&this->m_38 = 4;
     return this;
 }
 

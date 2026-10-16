@@ -17,6 +17,6 @@ void belra_cannon_return_timer(void *arg0) {
 void TObjPlayer::notify_tentacle_if_mode1() { if (get_player_list__10TObjPlayerFv(this) == 1) { scale_current_matrix((char*)this + 0x1f8); } }
 
     extern const float lbl_805DACD8;
-void TUnk_804A0DB0::emit_marker_effects() { *(float*)((char*)this + 0x1fc) = lbl_805DACD8; }
+void TUnk_804A0DB0::emit_marker_effects() { this->m_1fc = lbl_805DACD8; }
 
 }

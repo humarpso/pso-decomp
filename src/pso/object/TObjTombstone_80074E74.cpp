@@ -212,11 +212,11 @@ void TObjTombstone::update_fade_by_distance() {
     if (temp_r3 != 0U) {
         temp_f1 = xyz_distance((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
         if (temp_f1 <= lbl_805D9180) {
-            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9178;
+            *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9178;
         } else if (temp_f1 >= TObjTombstone__data_805D917C) {
-            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9174;
+            *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9174;
         } else {
-            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
+            *(f32 *)&this->unk_B4 = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
         }
         TObjTombstone::draw_name_labels((void *)((void *) (arg0)));
     }

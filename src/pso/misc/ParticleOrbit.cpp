@@ -366,7 +366,7 @@ void *TParticleCtrl::alloc_child_particle(void *arg1, void *arg2, void *arg3) {
 }
 void TUnk_8048E790::retire_orbit_particle() {
     u8 *arg0 = (u8 *)this;
-    if (*(f32 *)((s8 *)arg0 + 0x58) >= TParticleCtrl__data_805D9528) {
+    if (this->m_58 >= TParticleCtrl__data_805D9528) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
@@ -382,7 +382,7 @@ void TUnk_8048E790::render() {
     if (all_parents_unqueued_for_destruction__7TObjectFv() != 0) {
         temp_f3 = *(f32 *)((s8 *)(this->m_20) + 0x70) * cos_table_lookup(this->m_dc);
         this->m_88 = (f32) (this->m_28 * (TParticleCtrl__data_805D9528 + temp_f3));
-        *(f32 *)((s8 *)arg0 + 0x8C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) * (TParticleCtrl__data_805D9528 - temp_f3));
+        *(f32 *)((s8 *)arg0 + 0x8C) = (f32) (*(f32 *)&this->unk_2C * (TParticleCtrl__data_805D9528 - temp_f3));
         this->m_88 = (f32) (this->m_88 * this->m_a4);
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) (*(f32 *)((s8 *)arg0 + 0x8C) * *(f32 *)((s8 *)arg0 + 0xA8));
         temp_r3 = *(u16 *)((s8 *)arg0 + 0x24);
@@ -395,8 +395,8 @@ void TUnk_8048E790::render() {
                 post_translate_matrix(&sp8);
                 temp_f1_2 = this->m_88;
                 scale_matrix(0, temp_f1_2, temp_f1_2, temp_f1_2);
-                rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0xA0));
-                rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x98));
+                rotate_matrix_z(0, *(s32 *)&this->unk_A0);
+                rotate_matrix_x(0, *(s32 *)&this->unk_98);
                 rotate_matrix_y(0, this->m_9c);
                 lbl_805D5660 = model_render_flags;
                 if (*(u16 *)((s8 *)arg0 + 0x24) & 0x400) {

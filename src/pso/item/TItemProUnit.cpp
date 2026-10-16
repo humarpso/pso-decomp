@@ -48,7 +48,7 @@ void *__dt__12TItemProUnitFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TItemProUnit::set_evp(f32 v) { *(f32*)((char*)this + 0x8) = v; }
+void TItemProUnit::set_evp(f32 v) { *(f32 *)&this->m_prev = v; }
 f32 TItemProUnit__sub_8011901C(void* p) { return *(f32*)((char*)p + 0x8); }
 
 extern s32 lbl_804A0608[];

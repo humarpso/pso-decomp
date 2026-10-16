@@ -72,7 +72,7 @@ void TItemWeapon::vfunc_27() {
 }
 void TItemWeapon::vfunc_26() {
     s32 count;
-    if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x80U) == 0U)) {
+    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x80U) == 0U)) {
         if (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x800U) != 0U) {
             TObjPlayer::push_id_to_list(get_field_d8__10TObjPlayerFv(((u8 *)this)));
             return;

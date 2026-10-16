@@ -66,13 +66,13 @@ u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     construct_actor_base__10TObjPlayerFPvPv((void *) (((u8 *)this)));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
     ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg2);
-    *(s32 *)((s8 *)((u8 *)this) + 0x34) = get_bml_model((void *) (TOHangceilingCave01__model_archive), (void *) (turiten_singo_key_model_index));
-    *(s32 *)((s8 *)((u8 *)this) + 0xF8) = get_bml_motion((void *) (TOHangceilingCave01__model_archive), (void *) (hanging_ceiling_motion_index));
+    *(s32 *)&this->model = get_bml_model((void *) (TOHangceilingCave01__model_archive), (void *) (turiten_singo_key_model_index));
+    *(s32 *)&this->unknownF8 = get_bml_motion((void *) (TOHangceilingCave01__model_archive), (void *) (hanging_ceiling_motion_index));
     init_collision_body_parts((void *) (((u8 *)this)), (void *) (&lbl_804B2174.value), (int) (1));
     ((TUnk_804AF8A0 *)((u8 *)this))->refresh_collision_body_centers();
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     reset_state((void *) (((u8 *)this)));
-    temp_r4 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xA4));
+    temp_r4 = (u8 *)(*(u8 * *)&this->m_a4);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | 0x1080);
     return ((u8 *)this);
 }
@@ -87,6 +87,6 @@ f32 TUnk_804B2578::receive_physical_attack(void *, f32) {
 
 void TUnk_804B2578::apply_knockback_from_attacker(u8 *) {  }
 
-void TUnk_804B2578::set_scale(f32 v) { *(f32*)((char*)this + 0x338) = v; }
+void TUnk_804B2578::set_scale(f32 v) { this->m_338 = v; }
 
 }

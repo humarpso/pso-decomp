@@ -100,7 +100,7 @@ s32 TOSymbolchatColli::get_state() {
     if (is_current_floor_switch_set(this->m_37c) == 1) {
         return 3;
     }
-    if (is_current_floor_switch_set(*(u16 *)((s8 *)this + 0x37A)) == 1) {
+    if (is_current_floor_switch_set(*(u16 *)&this->unk_37A) == 1) {
         return 2;
     }
     return (u32) __cntlzw(1 - is_current_floor_switch_set(this->m_378)) >> 5;

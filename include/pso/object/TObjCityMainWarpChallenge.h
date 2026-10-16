@@ -27,7 +27,9 @@ struct TObjCityMainWarpChallenge : public TObjAreaWarp {
     void update_state();
     void render();
     void run_task();
-    u8 unk_154[0x2C];
+    u8 unk_154[0x20];
+    s32 m_174;
+    u8 unk_178[0x8];
 };
 
 typedef char TObjCityMainWarpChallenge_size[sizeof(TObjCityMainWarpChallenge) == 0x180 ? 1 : -1];

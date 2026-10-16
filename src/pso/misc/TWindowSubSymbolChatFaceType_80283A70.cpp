@@ -59,28 +59,28 @@ void TWindowSubSymbolChatFaceType::handle_input() {
     if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
         play_sound_effect(0x54100, 0U, 0, 0);
         if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
-            *(u8 *)((s8 *)arg0 + 0x62) = (u8) (*(u8 *)((s8 *)arg0 + 0x62) - 1);
+            this->m_62 = (u8) (this->m_62 - 1);
         }
         if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
-            *(u8 *)((s8 *)arg0 + 0x62) = (u8) (*(u8 *)((s8 *)arg0 + 0x62) + 1);
+            this->m_62 = (u8) (this->m_62 + 1);
         }
         if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
-            *(u8 *)((s8 *)arg0 + 0x61) = (u8) (*(u8 *)((s8 *)arg0 + 0x61) + 1);
+            this->m_61 = (u8) (this->m_61 + 1);
         }
         if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
-            *(u8 *)((s8 *)arg0 + 0x61) = (u8) (*(u8 *)((s8 *)arg0 + 0x61) - 1);
+            this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((s8) *(u8 *)((s8 *)arg0 + 0x61) < 0) {
-            *(u8 *)((s8 *)arg0 + 0x61) = 0U;
+        if ((s8) this->m_61 < 0) {
+            this->m_61 = 0U;
         }
-        if ((s8) *(u8 *)((s8 *)arg0 + 0x61) >= 2) {
-            *(u8 *)((s8 *)arg0 + 0x61) = 1U;
+        if ((s8) this->m_61 >= 2) {
+            this->m_61 = 1U;
         }
-        if ((s8) *(u8 *)((s8 *)arg0 + 0x62) < 0) {
-            *(u8 *)((s8 *)arg0 + 0x62) = 0U;
+        if ((s8) this->m_62 < 0) {
+            this->m_62 = 0U;
         }
-        if ((s8) *(u8 *)((s8 *)arg0 + 0x62) >= 2) {
-            *(u8 *)((s8 *)arg0 + 0x62) = 1U;
+        if ((s8) this->m_62 >= 2) {
+            this->m_62 = 1U;
         }
     }
 }

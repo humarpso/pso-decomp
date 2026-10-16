@@ -177,39 +177,39 @@ void TObjEneBm9Mericarol::draw_color_variant() {
     if (((VObj_802CE740 *) ((u8 *)this))->m8(lbl_805DE700, lbl_805DE704) != 0) {
         Vec_802CE740 v = lbl_8047249C;
         update_player_state__9TObjEneDDFv(((u8 *)this), &v, 0);
-        switch (*(s32 *)((s8 *)((u8 *)this) + 0x368)) {
+        switch (*(s32 *)&this->variant) {
         case 1:
-            s0 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2];
-            s1 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5];
-            s2 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8];
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[11];
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[14];
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[17];
+            s0 = (**(s32 ** *)&this->texture_id)[2];
+            s1 = (**(s32 ** *)&this->texture_id)[5];
+            s2 = (**(s32 ** *)&this->texture_id)[8];
+            (**(s32 ** *)&this->texture_id)[2] = (**(s32 ** *)&this->texture_id)[11];
+            (**(s32 ** *)&this->texture_id)[5] = (**(s32 ** *)&this->texture_id)[14];
+            (**(s32 ** *)&this->texture_id)[8] = (**(s32 ** *)&this->texture_id)[17];
             break;
         case 2:
-            s0 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2];
-            s1 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5];
-            s2 = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8];
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[20];
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[23];
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8] = (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[26];
+            s0 = (**(s32 ** *)&this->texture_id)[2];
+            s1 = (**(s32 ** *)&this->texture_id)[5];
+            s2 = (**(s32 ** *)&this->texture_id)[8];
+            (**(s32 ** *)&this->texture_id)[2] = (**(s32 ** *)&this->texture_id)[20];
+            (**(s32 ** *)&this->texture_id)[5] = (**(s32 ** *)&this->texture_id)[23];
+            (**(s32 ** *)&this->texture_id)[8] = (**(s32 ** *)&this->texture_id)[26];
             break;
         }
-        TObjFish::set_global_param((s32)(*(void **)((s8 *)((u8 *)this) + 0x24)));
+        TObjFish::set_global_param((s32)(*(void * *)&this->texture_id));
         push_matrix();
         post_translate_matrix(((u8 *)this) + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)((u8 *)this) + 0x60));
+        rotate_matrix_y(0, this->rotation_y);
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
         set_scene_override(0);
-        draw_chunk_object(*(s32 *)((s8 *)((u8 *)this) + 0x34));
+        draw_chunk_object(*(s32 *)&this->model);
         restore_default_scene();
         TParticleCtrl::end_effect_render();
         pop_matrix();
-        if (*(s32 *)((s8 *)((u8 *)this) + 0x368) == 1 || *(s32 *)((s8 *)((u8 *)this) + 0x368) == 2) {
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[2] = s0;
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[5] = s1;
-            (**(s32 ***)((s8 *)((u8 *)this) + 0x24))[8] = s2;
+        if (*(s32 *)&this->variant == 1 || *(s32 *)&this->variant == 2) {
+            (**(s32 ** *)&this->texture_id)[2] = s0;
+            (**(s32 ** *)&this->texture_id)[5] = s1;
+            (**(s32 ** *)&this->texture_id)[8] = s2;
         }
     }
 }

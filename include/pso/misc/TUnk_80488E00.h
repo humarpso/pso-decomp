@@ -14,7 +14,14 @@ public:
     virtual void vfunc_10();
     virtual void vfunc_8(void *);
     virtual void vfunc_6();
-    u8 unk_6C[0xA4];
+    u8 unk_6C[0x7C];
+    f32 m_e8;
+    u8 unk_EC[0x4];
+    f32 m_f0;
+    u8 unk_F4[0x8];
+    s32 m_fc;
+    u8 unk_100[0xC];
+    s32 m_10c;
 };
 typedef char TUnk_80488E00_size[sizeof(TUnk_80488E00) == 0x110 ? 1 : -1];
 

@@ -51,10 +51,10 @@ void TWindowMessageLog::render() {
     draw_window_scrollbar((int) (*(s32 *)((s8 *)((u8 *)this) + 0x90)), (int) (temp_r3), (void *) (((u8 *)this) + 0x68));
 }
 void TWindowMessageLog::run_task() {
-    if (!(*(s32 *)((s8 *)((u8 *)this) + 0x2C) & 2)) {
-        *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x01000000;
+    if (!(*(s32 *)&this->m_2c & 2)) {
+        *(s32 *)&this->m_5c = 0x01000000;
     }
-    if ((f32) *(s32 *)((s8 *)((u8 *)this) + 0x5C) >= lbl_805DD254) {
+    if ((f32) *(s32 *)&this->m_5c >= lbl_805DD254) {
         ((TWindowSubStatusDisp *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)))->increment_counter();
     }
     update_scroll_animation();

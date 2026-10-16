@@ -39,7 +39,7 @@ void TAdRicoRing::render() { push_matrix(this); TObjFish::set_global_param((s32)
 void TAdRicoRingCtrl::set_scale4(f32 farg0) {
     *(f32 *)&this->m_1c = farg0;
     *(f32 *)&this->m_20 = farg0;
-    *(f32 *)((s8 *)this + 0x24) = farg0;
+    *(f32 *)&this->unk_24 = farg0;
     this->m_28 = farg0;
 }
 

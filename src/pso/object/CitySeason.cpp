@@ -715,11 +715,11 @@ extern "C" {
 
 void TObjCity_Season_SonicAdv2::run_task() { advance_anim_time(sub_80183C38(), lbl_805DBC5C); }
 s32 TObjCity_Season_SonicAdv2::sub_80183C38() {
-    if (*(s32 *)((s8 *)this + 0x84) < 0) {
+    if (this->m_84 < 0) {
         return 0;
     }
-    if (*(s32 *)((s8 *)this + 0x84) < 4) {
-        return *(s32 *)((s8 *)this + 0x84);
+    if (this->m_84 < 4) {
+        return this->m_84;
     }
     return 3;
 }
@@ -1322,7 +1322,7 @@ extern s32 __vt__24TObjCity_Season_XmasTree[];
 void *TObjCity_Season_XmasTree::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__24TObjCity_Season_XmasTree;
-        if (*(void **)((s8 *)this + 0xB4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xB4)); *(s32 *)((s8 *)this + 0xB4) = 0; }
+        if (*(void * *)&this->unk_B4 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_B4); *(s32 *)&this->unk_B4 = 0; }
         ((TUnk_804B5E48 *)this)->destroy_seasonal_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -1615,7 +1615,7 @@ int get_anim_frame__13TUnk_804B5E48Fv(void* a0);
 s32 free_collision_body_parts(void *);
 
 #define city_season_easter_egg_model_table (*(int (*)[1])&city_season_easter_egg_model_table)
-int TUnk_804B5E48::get_anim_frame() {  return city_season_easter_egg_model_table[*(int*)((char*)this + 0xac)]; }
+int TUnk_804B5E48::get_anim_frame() {  return city_season_easter_egg_model_table[*(int *)&this->unk_AC]; }
 
 extern s32 lbl_804B5E48[];
 
@@ -1623,7 +1623,7 @@ void *TUnk_804B5E48::destroy_seasonal_object(s16 arg1) {
     if (this != NULL) {
         u32 var_r0;
         *(s32 **)((s8 *)this + 0x18) = lbl_804B5E48;
-        var_r0 = (u32) *(u32 *)((s8 *)this + 0xA4);
+        var_r0 = (u32) *(u32 *)&this->m_a4;
         if (var_r0 != 0U) {
             unregister_object_by_id();
             free_collision_body_parts(this);

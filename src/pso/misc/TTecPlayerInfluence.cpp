@@ -176,7 +176,7 @@ void TTecPlayerInfluence::tick_lifetime() {
     }
 }
 
-void TTecPlayerInfluence::sub_80237258() { *(f32*)((char*)this + 0xbc) = *(f32*)((char*)this + 0x3c); }
+void TTecPlayerInfluence::sub_80237258() { this->m_bc = *(f32*)((char*)this + 0x3c); }
 
 extern s32 __vt__19TTecPlayerInfluence[];
 

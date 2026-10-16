@@ -29,14 +29,14 @@ extern s32 plist_texture_matches_filter;
 void *TLobby::alloc_tables(s32 arg1, s32 arg2) {
     s32 temp_r6;
 
-    *(s32 *)((s8 *)this + 4) = 0;
-    *(s32 *)((s8 *)this + 0) = 0;
+    *(s32 *)&this->m_flags = 0;
+    *(s32 *)&this->m_name = 0;
     plist_texture_matches_filter = 0;
     count_model_strips_by_texture();
-    *(s32 *)((s8 *)this + 8) = mem_alloc(*(s32 *)((s8 *)this + 4) * 8);
-    *(s32 *)((s8 *)this + 0xC) = mem_alloc(*(s32 *)((s8 *)this + 0) * 4);
-    plist_strip_write_ptr = *(s32 *)((s8 *)this + 8);
-    temp_r6 = *(s32 *)((s8 *)this + 0xC);
+    *(s32 *)&this->m_prev = mem_alloc(*(s32 *)&this->m_flags * 8);
+    *(s32 *)&this->m_next = mem_alloc(*(s32 *)&this->m_name * 4);
+    plist_strip_write_ptr = *(s32 *)&this->m_prev;
+    temp_r6 = *(s32 *)&this->m_next;
     plist_strip_uv_write_ptr = temp_r6;
     plist_texture_matches_filter = 0;
     collect_model_strips_by_texture(this, arg1, arg2, temp_r6);

@@ -8,7 +8,9 @@ public:
     virtual ~TUnk_804E4788();
     void *destroy_and_delete(s16);
     virtual void run_task();
-    u8 unk_1C[0x108];
+    u8 unk_1C[0x100];
+    void * m_11c;
+    u8 unk_120[0x4];
 };
 typedef char TUnk_804E4788_size[sizeof(TUnk_804E4788) == 0x124 ? 1 : -1];
 
