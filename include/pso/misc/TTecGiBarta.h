@@ -2,18 +2,11 @@
 #define PSO_MISC_TTECGIBARTA_H
 
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 
-struct TTecGiBarta
-{
-    u8 unk_0[0x18];
-    void * m_18;
-    u32 m_1c;
-    u8 unk_20[0xA6];
-    s16 m_c6;
-    u16 m_c8;
-    u8 _padCA[0x2E];
-    u32 m_f8;
-    u8 _padFC[0x78];
+struct TTecGiBarta : public TUnk_804CCC68 {
+    virtual ~TTecGiBarta();
+    u8 unk_130[0x44];
     u32 m_174;
     void update_technique_by_phase();
     void create_particles();
@@ -22,8 +15,7 @@ struct TTecGiBarta
     void create_ex(void *arg1, void *arg2, void *arg3);
     void run_task();
     u8 *construct_facing(void * _w1, void * _w2, void * _w3, void * _w4);
-    void render();
-};
+    void render();};
 typedef char TTecGiBarta_size[sizeof(TTecGiBarta)==0x178?1:-1];
 
 #endif

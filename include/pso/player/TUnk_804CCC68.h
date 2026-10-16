@@ -3,6 +3,7 @@
 #include "types.h"
 #include "pso/effect/TEffect.h"
 
+struct TechniqueContactActor;
 struct TechniqueContactBody;
 
 class TUnk_804CCC68 : public TEffect {

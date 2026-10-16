@@ -179,7 +179,7 @@ void TTecGiBarta::update_technique_by_phase() {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = this->m_c6;
+    temp_r0 = this->band;
     switch (temp_r0) {
     case 0:
         temp_r3 = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
@@ -374,8 +374,8 @@ TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 dele
 }
 
 void TTecGiBarta::run_task() {
-    this->m_1c = find_entity_by_id(this->m_c8);
-    if ((u32) this->m_1c == 0U) {
+    this->source = find_entity_by_id(this->sourceId);
+    if ((u32) this->source == 0U) {
         queue_destruction__7TObjectFv(this);
         return;
     }
@@ -407,15 +407,15 @@ u8 *TTecGiBarta::construct_facing(void * _w1, void * _w2, void * _w3, void * _w4
     u8 *arg0 = (u8 *)this;
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
-    this->m_18 = __vt__11TTecGiBarta;
+    (*(void * *)((u8 *)this + 0x18)) = __vt__11TTecGiBarta;
     *(s32 *)((s8 *)arg0 + 0) = tec_gibarta_class_name_ptr;
     calc_params();
     for (i = 0; i < 0x20; i++) {
         ((Obj_80230CFC *)arg0)->ids[i] = 0xFFFF;
     }
     *(s32 *)&this->m_174 = 0;
-    if (*(void * *)&this->m_1c != 0) {
-        *(s16 *)&this->m_c8 = obj_getField1c(*(void * *)&this->m_1c);
+    if (*(void * *)&this->source != 0) {
+        *(s16 *)&this->sourceId = obj_getField1c(*(void * *)&this->source);
     }
     create_particles();
     update_technique_by_phase();

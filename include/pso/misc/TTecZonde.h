@@ -2,18 +2,14 @@
 #define PSO_MISC_TTECZONDE_H
 
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 
-struct TTecZonde
-{
-    u32 m_1c;
-    u8 _pad20[0xA6];
-    s16 m_c6;
-    u16 m_c8;
-    u8 _padCA[0x66];
-    u32 m_130;
-    u16 m_134;
+struct TTecZonde : public TUnk_804CCC68 {
+    virtual ~TTecZonde();
     void render();
     void run_task();
+    u8 unk_130[0x5C];
 };
 
+typedef char TTecZonde_size[sizeof(TTecZonde) == 0x18C ? 1 : -1];
 #endif
