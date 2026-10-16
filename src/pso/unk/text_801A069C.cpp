@@ -11,9 +11,9 @@ void TObjWarpLobby__vt18(void *arg0);
 
 extern "C" {
 
-void vfunc_20__16TObjWarpJungMainFv(void);
+void debug_print_area_num__16TObjWarpJungMainFv(void);
 
-void TObjWarpJungMain::vfunc_20() {  }
+void TObjWarpJungMain::debug_print_area_num() {  }
 void TObjWarpLobby__vt18(void *arg0) {
     s32 temp_r0;
     s32 base;

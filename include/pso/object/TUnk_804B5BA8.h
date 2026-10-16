@@ -9,10 +9,10 @@ public:
     virtual s32 check_player_in_range(s32, f32);
     virtual void begin_state_1();
     virtual void vfunc_16();
-    virtual void vfunc_17();
+    virtual void city_door_tick_opening();
     virtual void check_ground_or_fall();
     virtual void vfunc_19();
-    virtual void vfunc_20();
+    virtual void city_door_play_open_sound();
     virtual void dispatch_state();
     virtual void vfunc_22();
     u8 unk_AC[0x8];

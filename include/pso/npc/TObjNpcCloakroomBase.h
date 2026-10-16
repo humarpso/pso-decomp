@@ -6,7 +6,7 @@
 
 struct TObjNpcCloakroomBase : public TUnk_804A8640 {
     virtual ~TObjNpcCloakroomBase();
-    virtual void vfunc_90();
+    virtual void play_voice();
     virtual f32 vfunc_23(void *, void *, void *, s32, s32);
     static void *create(void *arg0);
     static void destroy_static_instance();

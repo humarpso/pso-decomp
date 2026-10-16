@@ -12,7 +12,7 @@ public:
     virtual void vfunc_17();
     virtual s32 vfunc_18(void *, void *, f32);
     virtual void vfunc_19(void *);
-    virtual void vfunc_20(void *, f32);
+    virtual void area_attack_apply_recoil(void *, f32);
     virtual void vfunc_21(void *, f32 *, void *);
     virtual void vfunc_22(void *, f32 *);
     void *init_instance(void *, void *, void *, void *);

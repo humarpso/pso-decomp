@@ -805,7 +805,7 @@ void TObjAreaWarpEnding::open_confirm_window(s16 arg1) {
 }
 
 void TObjAreaWarpEnding__vt18(Obj_8019BCBC *self) {
-    ((TObjAreaWarp *)self)->debug_print_area_num();
+    ((TObjAreaWarp *)self)->TObjAreaWarp::debug_print_area_num();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     if (self->f8C < 0) {
         self->f8C = 0;
@@ -936,7 +936,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
 }
 
 void TObjAreaWarpQuest__vt18(Obj_8019C144 *self) {
-    ((TObjAreaWarp *)self)->debug_print_area_num();
+    ((TObjAreaWarp *)self)->TObjAreaWarp::debug_print_area_num();
     if (self->f68 < 0.0f) {
         self->f68 = 0.0f;
     }
@@ -1052,7 +1052,7 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TObjAreaWarpForest__vt18(Obj_8019C53C *self) {
-    ((TObjAreaWarp *)self)->debug_print_area_num();
+    ((TObjAreaWarp *)self)->TObjAreaWarp::debug_print_area_num();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     if (self->f8C < 0) {
         self->f8C = 0;

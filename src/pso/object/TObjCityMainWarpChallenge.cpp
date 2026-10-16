@@ -33,7 +33,7 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444A44[];
 extern char lbl_80444A58[];
-void vfunc_20__25TObjCityMainWarpChallengeFv(void *arg0);
+void debug_print_area_num__25TObjCityMainWarpChallengeFv(void *arg0);
 }
 
 extern "C" {
@@ -85,7 +85,7 @@ extern const f32 lbl_805DBCB8;
 extern const f32 lbl_805DBCBC;
 extern const f32 lbl_805DBCC0;
 
-void TObjCityMainWarpChallenge::vfunc_20() {
+void TObjCityMainWarpChallenge::debug_print_area_num() {
     s32 v = *(s32 *)((u8 *)this + 0x88);
     if (v < 0 || v > 0xFF) {
         *(s32 *)((u8 *)this + 0x16C) = -1;

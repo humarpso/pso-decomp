@@ -385,7 +385,7 @@ void TObjNpcBase::vfunc_89() {
     }
 }
 
-void TObjNpcBase::vfunc_87(s32 arg1, s32 arg2) {
+void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)&this->variant;
@@ -416,7 +416,7 @@ void TObjNpcBase::vfunc_87(s32 arg1, s32 arg2) {
     *(f32 *)&this->unk_398 = (f32) lbl_805DB1C0;
 }
 
-void TObjNpcBase::vfunc_86() {
+void TObjNpcBase::update_conversation() {
     u8 *arg0 = (u8 *)this;
     Pkt_8014854C pkt1;
     Pkt_8014854C pkt2;
@@ -551,7 +551,7 @@ void TObjNpcBase::vfunc_86() {
     ((TObjPlayer *)arg0)->update_collisions();
 }
 
-void TObjNpcBase::vfunc_85() {
+void TObjNpcBase::update_wandering() {
     u8 *arg0 = (u8 *)this;
     switch (this->phase) {
     case 0: {
@@ -610,7 +610,7 @@ void TObjNpcBase::vfunc_85() {
     ((TObjPlayer *)arg0)->update_collisions();
 }
 
-void TObjNpcBase::vfunc_84() {
+void TObjNpcBase::update_standing() {
     u8 *arg0 = (u8 *)this;
     switch (this->phase) {
     case 0:

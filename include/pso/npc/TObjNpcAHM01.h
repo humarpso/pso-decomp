@@ -6,7 +6,7 @@
 
 struct TObjNpcAHM01 : public TUnk_804A9F50 {
     virtual ~TObjNpcAHM01();
-    virtual void vfunc_90();
+    virtual void play_voice();
     static void free_resources();
     static void load_resources();};
 

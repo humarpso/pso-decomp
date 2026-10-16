@@ -8,14 +8,13 @@ struct TObjMesBase : public TUnk_804AF8A0 {
     virtual ~TObjMesBase();
     virtual void vfunc_14();
     virtual void clear_ref_if_destroyed();
-    virtual void vfunc_16();
+    virtual void debug_draw_label();
     virtual void run_task();
     void* messageChild;
     s32 messagePhase;
     s32 messageLabel;
     s32 messageBank;
     void start_message();
-    void debug_draw_label();
 };
 typedef char TObjMesBaseSizeCheck[sizeof(TObjMesBase) == 0xBC ? 1 : -1];
 

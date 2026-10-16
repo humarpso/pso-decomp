@@ -74,7 +74,7 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 void TObjComputer__vt14(void *arg0) {
-    ((TObjMesBase *)arg0)->debug_draw_label();
+    ((TObjMesBase *)arg0)->TObjMesBase::debug_draw_label();
     *(s32 *)((s8 *)arg0 + 0x88) = *(s32 *)((s8 *)arg0 + 0x88) % 2;
     *(s32 *)((s8 *)arg0 + 0xBC) = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)((s8 *)arg0 + 0x88)]);
     TObjNpcEnemy::set_global_count(0xFF00FF);

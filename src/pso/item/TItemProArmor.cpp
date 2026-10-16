@@ -342,7 +342,7 @@ void vfunc_25__5TItemFv();
 void vfunc_26__5TItemFv();
 void vfunc_27__5TItemFv();
 void vfunc_28__5TItemFv();
-void vfunc_29__5TItemFv();
+void destroy__5TItemFv();
 void vfunc_30__5TItemFv();
 void vfunc_31__11TItemObjectFv();
 void vfunc_32__5TItemFv();
@@ -407,7 +407,7 @@ void *lbl_8049FF88[46] = {
     (void *)vfunc_26__5TItemFv,
     (void *)vfunc_27__5TItemFv,
     (void *)vfunc_28__5TItemFv,
-    (void *)vfunc_29__5TItemFv,
+    (void *)destroy__5TItemFv,
     (void *)vfunc_30__5TItemFv,
     (void *)vfunc_31__11TItemObjectFv,
     (void *)vfunc_32__5TItemFv,

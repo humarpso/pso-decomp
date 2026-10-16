@@ -164,7 +164,7 @@ void load_static_resource__15TOKeyJungleMainFv(void);
 s32 dispatch_by_phase__15TOKeyJungleMainFiUs(void *, int);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 game_difficulty_selection;
-void vfunc_21__15TOKeyJungleMainFv(u8 *arg0);
+void send_switch_on__15TOKeyJungleMainFv(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -179,7 +179,7 @@ s32 set_global_count__12TObjNpcEnemyFl(s32);
 void debug_printf_at(s32, const char *, ...);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern char lbl_80465A2C[];
-void vfunc_26__15TOKeyJungleMainFv(void *arg0);
+void debug_draw_key_id__15TOKeyJungleMainFv(void *arg0);
 }
 
 extern "C" {
@@ -216,7 +216,7 @@ void load_static_resource__15TOKeyJungleMainFv(void) {
     (*(s32 *)&TOKeyJungleMain__static_model_resource) = var_r0;
 }
 
-void TOKeyJungleMain::vfunc_26() {
+void TOKeyJungleMain::debug_draw_key_id() {
     *(s32 *)((s8 *)this + 0xC8) = *(s32 *)((s8 *)this + 0x84);
     if (*(s32 *)((s8 *)this + 0xC8) < 0) {
         *(s32 *)((s8 *)this + 0xC8) = 0;
@@ -259,7 +259,7 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
-void TOKeyJungleMain::vfunc_21() {
+void TOKeyJungleMain::send_switch_on() {
     u8 *arg0 = (u8 *)this;
     dispatch_by_phase__15TOKeyJungleMainFiUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)((s8 *)arg0 + 0xC8) * 4))));
 }

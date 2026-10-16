@@ -46,7 +46,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     initialize__9TObjEnemyFPv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EBC28___vt__12TObjEneSlime *)&__vt__12TObjEneSlime).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AD8;
-    ((TObjEneSlime *)(arg0))->vfunc_81(arg2);
+    ((TObjEneSlime *)(arg0))->apply_set_data(arg2);
     ((TObjEneSlime *)(arg0))->clear_lobby_object_state();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x374), (void *) (arg2));

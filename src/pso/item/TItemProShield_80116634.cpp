@@ -552,7 +552,7 @@ void vfunc_33__5TItemFv();
 void vfunc_43__5TItemFv();
 void apply_object_set_data();
 void classify_actor_view_detail();
-void vfunc_29__5TItemFv();
+void destroy__5TItemFv();
 void dispatch_state__5TItemFv();
 void vfunc_36__11TItemObjectFv();
 void register_attack__5TItemFv();
@@ -592,7 +592,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&vfunc_26__5TItemFv,
     (void *)&vfunc_27__5TItemFv,
     (void *)&vfunc_28__5TItemFv,
-    (void *)&vfunc_29__5TItemFv,
+    (void *)&destroy__5TItemFv,
     (void *)&vfunc_30__5TItemFv,
     (void *)&vfunc_31__11TItemObjectFv,
     (void *)&vfunc_32__5TItemFv,
@@ -640,7 +640,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&vfunc_26__5TItemFv,
     (void *)&vfunc_27__5TItemFv,
     (void *)&vfunc_28__5TItemFv,
-    (void *)&vfunc_29__5TItemFv,
+    (void *)&destroy__5TItemFv,
     (void *)&vfunc_30__5TItemFv,
     (void *)&vfunc_31__11TItemObjectFv,
     (void *)&vfunc_32__5TItemFv,
@@ -688,7 +688,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&vfunc_26__5TItemFv,
     (void *)&vfunc_27__5TItemFv,
     (void *)&vfunc_28__5TItemFv,
-    (void *)&vfunc_29__5TItemFv,
+    (void *)&destroy__5TItemFv,
     (void *)&vfunc_30__5TItemFv,
     (void *)&vfunc_31__11TItemObjectFv,
     (void *)&vfunc_32__5TItemFv,
@@ -736,7 +736,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&vfunc_26__5TItemFv,
     (void *)&vfunc_27__5TItemFv,
     (void *)&vfunc_28__5TItemFv,
-    (void *)&vfunc_29__5TItemFv,
+    (void *)&destroy__5TItemFv,
     (void *)&vfunc_30__5TItemFv,
     (void *)&vfunc_31__11TItemObjectFv,
     (void *)&vfunc_32__5TItemFv,
@@ -784,7 +784,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&vfunc_26__5TItemFv,
     (void *)&vfunc_27__5TItemFv,
     (void *)&vfunc_28__5TItemFv,
-    (void *)&vfunc_29__5TItemFv,
+    (void *)&destroy__5TItemFv,
     (void *)&vfunc_30__5TItemFv,
     (void *)&vfunc_31__11TItemObjectFv,
     (void *)&vfunc_32__5TItemFv,
@@ -832,7 +832,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&vfunc_26__5TItemFv,
     (void *)&vfunc_27__5TItemFv,
     (void *)&vfunc_28__5TItemFv,
-    (void *)&vfunc_29__5TItemFv,
+    (void *)&destroy__5TItemFv,
     (void *)&vfunc_30__5TItemFv,
     (void *)&vfunc_31__11TItemObjectFv,
     (void *)&vfunc_32__5TItemFv,

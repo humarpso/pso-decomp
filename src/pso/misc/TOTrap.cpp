@@ -275,7 +275,7 @@ void TOTrap::vfunc_89() {  }
 
 extern const f32 TOTrap__data_805DBA38;
 
-s32 TOTrap::vfunc_83() {
+s32 TOTrap::is_any_player_matching_stat() {
     s32 i;
     void *p;
     for (i = 0; i < 4; i++) {
@@ -334,13 +334,13 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
     }
 }
 
-void TOTrap::vfunc_80() {
+void TOTrap::submit_cursor_and_notify() {
     u8 *arg0 = (u8 *)this;
     submit_cursor_candidate((void *)((void *) (arg0)), (s32)((int) (-1)));
     ((VObj_18_f90cfc *)(arg0))->m77();
 }
 
-void TOTrap::vfunc_79() {
+void TOTrap::find_target_player() {
     Obj_80178E10 *arg0 = (Obj_80178E10 *)this;
     calc_attach_pos__10TObjPlayerFv();
     arg0->idx = find_nearest_visible_player(arg0, 0, arg0->range);
@@ -359,7 +359,7 @@ void TOTrap::vfunc_79() {
     }
 }
 
-void TOTrap::vfunc_85() {
+void TOTrap::play_sounds() {
     s32 arg0 = (s32)this;
     spawn_particle_effect(arg0 + 0x2FC, 0x45);
     spawn_particle_effect(arg0 + 0x2FC, 0x46);

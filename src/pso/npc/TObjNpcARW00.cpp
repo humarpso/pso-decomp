@@ -119,7 +119,7 @@ struct Npc_801480FC {
 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
-void vfunc_90__12TObjNpcARW00Fv(s32 arg0);
+void play_voice__12TObjNpcARW00Fv(s32 arg0);
 extern s32 __vt__12TObjNpcARW00[];
 extern s32 TObjNpcARW00__name;
 extern u32 TObjNpcARW00__static_model;
@@ -193,7 +193,7 @@ u8 *TObjNpcARW00__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjNpcARW00::vfunc_90() {
+void TObjNpcARW00::play_voice() {
     s32 arg0 = (s32)this;
     play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }

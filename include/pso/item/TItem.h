@@ -22,7 +22,7 @@ struct TItem : public TUnk_804AF8A0 {
     virtual void vfunc_26();
     virtual void vfunc_27();
     virtual void vfunc_28();
-    virtual void vfunc_29();
+    virtual void destroy();
     virtual void vfunc_30();
     virtual void vfunc_31();
     virtual int vfunc_32();

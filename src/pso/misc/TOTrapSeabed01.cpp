@@ -908,7 +908,7 @@ void cure_paralysis__10TObjPlayerFv();
 void cure_poison_ailment();
 void enemy_spawn_jellen_effect();
 void enemy_spawn_zalure_effect();
-void vfunc_79__6TOTrapFv();
+void find_target_player__6TOTrapFv();
 void fn_80010EBC();
 void fn_80010EC0();
 void fn_80010EC4();
@@ -918,12 +918,12 @@ void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
 void get_scale__6TOTrapFUl();
 void is_actor_cadence_frame();
-void vfunc_83__6TOTrapFv();
+void is_any_player_matching_stat__6TOTrapFv();
 void is_target_in_attack_range__10TObjPlayerFv();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
-void vfunc_80__6TOTrapFv();
+void submit_cursor_and_notify__6TOTrapFv();
 void trigger_switch_attack__10TObjPlayerFi();
 void update_action_hold_status__10TObjPlayerFv();
 void update_action_timer__10TObjPlayerFPv();
@@ -1033,11 +1033,11 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&fn_80010EC4,
     (void *)&fn_80010EC0,
     (void *)&fn_80010EBC,
-    (void *)&vfunc_79__6TOTrapFv,
-    (void *)&vfunc_80__6TOTrapFv,
+    (void *)&find_target_player__6TOTrapFv,
+    (void *)&submit_cursor_and_notify__6TOTrapFv,
     (void *)&TOTrapSeabed01__vt79,
     (void *)&TOTrapSeabed01__vt80,
-    (void *)&vfunc_83__6TOTrapFv,
+    (void *)&is_any_player_matching_stat__6TOTrapFv,
     (void *)&TOTrapSeabed01__vt82,
     (void *)&TOTrapSeabed01__vt83,
     (void *)&vfunc_86__6TOTrapFv,

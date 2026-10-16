@@ -6,8 +6,8 @@
 
 struct TObjCityDoor_Warp : public TUnk_804B5BA8 {
     virtual ~TObjCityDoor_Warp();
-    virtual void vfunc_17();
-    virtual void vfunc_20();
+    virtual void city_door_tick_opening();
+    virtual void city_door_play_open_sound();
     virtual void render();
     virtual void run_task();
 };

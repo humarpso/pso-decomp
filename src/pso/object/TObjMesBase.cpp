@@ -178,7 +178,7 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
     return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
 void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
-    ((TObjMesBase *)arg0)->debug_draw_label();
+    ((TObjMesBase *)arg0)->TObjMesBase::debug_draw_label();
     arg0->fBC = (s32)fabs_float(arg0->f68);
     arg0->fBC = arg0->fBC % 2;
     arg0->fBC = lbl_80445DF4[arg0->fBC];

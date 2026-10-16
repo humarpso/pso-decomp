@@ -142,7 +142,7 @@ void TOKey::update_lock_state() {
     }
 }
 
-void TOKey::vfunc_24() {
+void TOKey::update_armed_switch() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
@@ -167,7 +167,7 @@ void TOKey::vfunc_24() {
     }
 }
 
-void TOKey::vfunc_26() {
+void TOKey::debug_draw_key_id() {
     VObj_8016AA20 *arg0 = (VObj_8016AA20 *)this;
     arg0->f84 = arg0->f84 % 256;
     if (arg0->f84 < 0 || arg0->f84 > 0xFF) {

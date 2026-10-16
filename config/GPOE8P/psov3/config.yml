@@ -1168,6 +1168,10 @@ force_active:
   - city_door_base_vtable
   - city_door_lobby_collision_vertices
   - city_door_lobby_quad_triangle_indices
+  - city_door_play_open_sound__13TUnk_804B5BA8Fv
+  - city_door_play_open_sound__17TObjCityDoor_WarpFv
+  - city_door_tick_opening__13TUnk_804B5BA8Fv
+  - city_door_tick_opening__17TObjCityDoor_WarpFv
   - city_vertical_model_max_y_offset
   - city_vertical_model_min_y_offset
   - city_vertical_model_vtable
@@ -1372,6 +1376,7 @@ force_active:
   - dead_list_text_prefix
   - dead_list_window_position
   - deallocate_from_fixed_pools
+  - debug_print_area_num__17TObjWarpBossMultiFv
   - debug_print_ranges__8TOKurageFv
   - decrypt_network_info_cipher_block
   - decrypt_network_info_cipher_blocks
@@ -8272,12 +8277,7 @@ force_active:
   - vfunc_11__17TQuestListOfflineFv
   - vfunc_13__13TUnk_804B5C08Fl
   - vfunc_16__12TItemProUnitFv
-  - vfunc_17__13TUnk_804B5BA8Fv
-  - vfunc_17__17TObjCityDoor_WarpFv
-  - vfunc_20__13TUnk_804B5BA8Fv
   - vfunc_20__17TOBarrierEnergy01Fv
-  - vfunc_20__17TObjCityDoor_WarpFv
-  - vfunc_20__17TObjWarpBossMultiFv
   - vfunc_22__13TUnk_804B5BA8Fv
   - vfunc_22__15TObjEneMe1GiGueFPvf
   - vfunc_22__16TOTrapAncient02RFPvf

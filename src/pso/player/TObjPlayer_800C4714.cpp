@@ -1184,7 +1184,7 @@ void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void apply_hit_if_active__10TObjPlayerFPvPf();
 void apply_object_set_data();
-void vfunc_20__13TUnk_804928CCFPvf();
+void area_attack_apply_recoil__13TUnk_804928CCFPvf();
 void area_attack_deliver_physical();
 void area_attack_receive_direct();
 void classify_actor_view_detail();
@@ -1207,7 +1207,7 @@ void *lbl_804933D8[24] = {
     (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&call_vt13_with_default__10TObjPlayerFv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
     (void *)&TObjPlayer__sub_800BC220, (void *)&call_vt16_with_default__10TObjPlayerFv, (void *)&area_attack_deliver_physical, (void *)&dispatch_vt15__10TObjPlayerFPv,
-    (void *)&vfunc_20__13TUnk_804928CCFPvf, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__10TObjPlayerFPvPf, (void *)0x0,
+    (void *)&area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__10TObjPlayerFPvPf, (void *)0x0,
 };
 }
 #define lbl_8043BC10 ((const Vec_800C4A5C *)lbl_8043BC10)

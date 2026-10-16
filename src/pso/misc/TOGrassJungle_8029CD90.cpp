@@ -43,7 +43,7 @@ struct VObj_8029CD90 : Base_8029CD90 {
     virtual s32 m8(f32, f32);
 };
 
-void vfunc_22__15TOKeyJungleMainFv(s32 arg0);
+void play_activate_sound__15TOKeyJungleMainFv(s32 arg0);
 void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
@@ -101,7 +101,7 @@ u8 *TOGrassJungle__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TOKeyJungleMain::vfunc_22() {
+void TOKeyJungleMain::play_activate_sound() {
     s32 arg0 = (s32)this;
     s32 var_r31;
     s32 temp_r3;

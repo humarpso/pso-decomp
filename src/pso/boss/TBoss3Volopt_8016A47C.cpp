@@ -102,7 +102,7 @@ void TBoss3Volopt::call_vt21() {
     struct VObj_8016A604 *o = (struct VObj_8016A604 *)this;
     o->m21();
 }
-void TOKey::vfunc_22() {
+void TOKey::play_activate_sound() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;

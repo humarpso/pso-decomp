@@ -113,7 +113,7 @@ u8 *TObjNpcCloakroomBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 f32 vfunc_23__20TObjNpcCloakroomBaseFPvPvPvll(void);
-void vfunc_90__20TObjNpcCloakroomBaseFv(s32 arg0);
+void play_voice__20TObjNpcCloakroomBaseFv(s32 arg0);
 void * TObjNpcConnoisseur__create(void *arg0);
 void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -123,7 +123,7 @@ void *TObjNpcConnoisseur__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void TObjNpcCloakroomBase::vfunc_90() {
+void TObjNpcCloakroomBase::play_voice() {
     s32 arg0 = (s32)this;
     if (TOKeyMachine01::get_global_state() != 5) {
         play_sound_effect(0x40003804, arg0 + 0x38, 0, 0);

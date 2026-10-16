@@ -99,7 +99,7 @@ s16 TOKey::update_object_view_visibility(f32, f32) {
     return 0;
 }
 
-void TOKey::vfunc_27(void *arg1) {
+void TOKey::handle_switch_trigger(void *arg1) {
     s32 temp_r0;
 
     if ((*(u8 *)((s8 *)arg1 + 0xB) & 2) && ((s8) *(u8 *)((s8 *)arg1 + 0xA) == get_current_floor())) {
@@ -160,7 +160,7 @@ void TOKey::vfunc_13(s32 arg1) {
 
 extern s8 controller_input_state[];
 
-void TOKey::vfunc_21() {
+void TOKey::send_switch_on() {
     SwitchPacket packet;
     ((TLobby *)(&packet))->init_6x05_switch_changed();
     packet.object=*(u16*)((u8*)this+0x1c);

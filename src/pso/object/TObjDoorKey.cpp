@@ -67,7 +67,7 @@ struct Vec_80190020 { f32 x, y, z; };
 extern "C" {
 void TObjDoorKey__vt14(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void vfunc_26__5TOKeyFv();
+void debug_draw_key_id__5TOKeyFv();
 void debug_printf_at(int, void *, ...);
 extern u8 lbl_804456C8[];
 extern const f32 lbl_805DBE08;
@@ -135,7 +135,7 @@ int TObjDoorKey__vt22(void* p);
 void * TObjEnvSoundGlobal__create(void *arg0);
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-int vfunc_24__5TOKeyFv(void*);
+int update_armed_switch__5TOKeyFv(void*);
 s32 free_collision_body_parts(void *);
 void *TObjEnvSoundGlobal__ct(void *, void *, void *);
 s32 unregister_object_by_id(void *);
@@ -231,7 +231,7 @@ s32 TObjDoorKey::draw_inactive_badge() {
 }
 
 void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
-    vfunc_26__5TOKeyFv();
+    debug_draw_key_id__5TOKeyFv();
     VecCopy__FP3VecPC3Vec(&arg0->f74, arg0->f38);
     arg0->f78 = arg0->f78 + lbl_805DBE08;
     TObjNpcEnemy::set_global_count(0xFF00FF);
@@ -275,7 +275,7 @@ void TObjDoorKey__vt14(u8 *arg0) {
 }
 
 int TObjDoorKey__vt15(void* p) { return submit_cursor_candidate(p, -1); }
-int TObjDoorKey__vt22(void* p) { return vfunc_24__5TOKeyFv(p); }
+int TObjDoorKey__vt22(void* p) { return update_armed_switch__5TOKeyFv(p); }
 
 void TObjDoorKey::run_task() {
     struct VObj_8018FF74_8018FAEC *o = (struct VObj_8018FF74_8018FAEC *)this;

@@ -7,7 +7,7 @@
 struct TOSensor : public TOKey {
     virtual ~TOSensor();
     virtual void vfunc_17();
-    virtual void vfunc_24();
+    virtual void update_armed_switch();
     virtual void vfunc_25();
     void render();};
 

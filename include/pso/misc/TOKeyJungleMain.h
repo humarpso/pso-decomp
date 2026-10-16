@@ -7,9 +7,9 @@
 struct TOKeyJungleMain : public TOKey {
     virtual ~TOKeyJungleMain();
     virtual void vfunc_17();
-    virtual void vfunc_21();
-    virtual void vfunc_26();
-    virtual void vfunc_22();
+    virtual void send_switch_on();
+    virtual void debug_draw_key_id();
+    virtual void play_activate_sound();
     void render();
     static void init_key_slots(void* _w0);
     u8 unk_D8[0x18];

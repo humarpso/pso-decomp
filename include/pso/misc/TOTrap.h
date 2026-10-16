@@ -6,13 +6,13 @@
 
 struct TOTrap : public TUnk_804806E8 {
     virtual ~TOTrap();
-    virtual void vfunc_79();
-    virtual void vfunc_80();
+    virtual void find_target_player();
+    virtual void submit_cursor_and_notify();
     virtual void vfunc_81();
     virtual void vfunc_82();
-    virtual s32 vfunc_83();
+    virtual s32 is_any_player_matching_stat();
     virtual void vfunc_84();
-    virtual void vfunc_85();
+    virtual void play_sounds();
     virtual void vfunc_86();
     virtual f32 vfunc_87();
     virtual void vfunc_88();

@@ -1108,7 +1108,7 @@ void TObjPlayer__sub_800BC220();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
-void vfunc_20__13TUnk_804928CCFPvf();
+void area_attack_apply_recoil__13TUnk_804928CCFPvf();
 void area_attack_deliver_physical();
 void area_attack_receive_direct();
 void classify_actor_view_detail();

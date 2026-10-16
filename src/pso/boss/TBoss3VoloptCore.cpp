@@ -718,7 +718,7 @@ extern "C" {
 void apply_poison_status__10TObjPlayerFv();
 }
 extern "C" {
-void vfunc_81__9TObjEnemyFPv();
+void apply_set_data__9TObjEnemyFPv();
 }
 extern "C" {
 void apply_shock_status__10TObjPlayerFv();
@@ -891,7 +891,7 @@ void *TBoss3VoloptCore__vtable[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__15TObjEnemyCustomFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&vfunc_81__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define TBoss3VoloptCore__vtable ((s32 *)TBoss3VoloptCore__vtable)
 
@@ -1571,7 +1571,7 @@ void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
 void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2) {
     ((s32 (*)(void *, void *))TObjEnemyCustom__ct)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = TBoss3VoloptCore__vtable;
-    ((TUnk_80483A10 *)arg0)->vfunc_81(arg2);
+    ((TUnk_80483A10 *)arg0)->apply_set_data(arg2);
     ((s32 (*)(void *))TBoss3VoloptCore__ct)(arg0);
     return arg0;
 }

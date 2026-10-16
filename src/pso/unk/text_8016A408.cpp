@@ -8,7 +8,7 @@ void submit_cursor_candidate(void *, s32);
 
 extern "C" {
 
-void TOKey::vfunc_20() {
+void TOKey::submit_cursor_target() {
     Obj_8016A408 *self = (Obj_8016A408 *)this;
     switch (self->state) {
     case 0:

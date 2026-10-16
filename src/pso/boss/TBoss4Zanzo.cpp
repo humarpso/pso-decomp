@@ -1838,7 +1838,7 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 arg1, s32 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D27D8;
     ((TObjPlayer *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x38C) = arg2[0];
-    ((TUnk_80486924 *)arg0)->vfunc_81(arg2 + 1);
+    ((TUnk_80486924 *)arg0)->apply_set_data(arg2 + 1);
     ((TUnk_80486924 *)arg0)->clear_lobby_object_state();
     *(s32 *)((s8 *)arg0 + 0x390) = TBoss4Uro::get_instance_count();
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
