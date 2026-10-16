@@ -2,23 +2,16 @@
 #define PSO_ENEMY_TOBJENEBM5GIBONU_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneBm5GibonU
-{
+struct TObjEneBm5GibonU : public TObjEneDD_ST {
+    virtual ~TObjEneBm5GibonU();
     void update_center_position();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x7C];
-    s16 m_b8;
-    u8 _padBA[0x26C];
-    s16 m_326;
-    u8 _pad328[0x28];
-    u32 m_350;
-    u8 _pad354[0x6C];
+    u8 unk_374[0x30];
     void* m_3c0;
     u8 _pad3C4[0x8];
     void* m_3cc;
@@ -69,6 +62,8 @@ struct TObjEneBm5GibonU
     s32 check_and_update();
     s32 try_activate();
     void debug_print_tech_params();
+    u8 unk_54C[0x1C];
 };
 
+typedef char TObjEneBm5GibonU_size[sizeof(TObjEneBm5GibonU) == 0x568 ? 1 : -1];
 #endif

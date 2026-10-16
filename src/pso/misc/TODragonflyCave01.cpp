@@ -302,7 +302,7 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (&lbl_8050BEE0.value));
     subtract_vector((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
     if (((TObjPlayer *)(&lbl_8050BEE0.value))->check_camera_distance() == 1) {
-        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_ac = 1;
         *(s32 *)&this->m_cc = 0;
         this->rotation_y = (s32) (lbl_804411B0 * atan2_float((f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0), (f64) *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8)));
         this->m_e0 = (f32) (*(f32 *)((s8 *)(&lbl_8050BEE0.value) + 0) * *(f32 *)((s8 *)arg0 + 0x70));
@@ -408,7 +408,7 @@ void TODragonfly::run_task() {
         return;
     }
     update_anim_phase__13TUnk_804AFBF8Fv(this);
-    temp_r0 = *(s32 *)&this->unk_AC;
+    temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
         update_idle();

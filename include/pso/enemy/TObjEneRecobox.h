@@ -2,9 +2,10 @@
 #define PSO_ENEMY_TOBJENERECOBOX_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneRecobox
-{
+struct TObjEneRecobox : public TObjEneDD_ST {
+    virtual ~TObjEneRecobox();
     void sub_8031F800();
     void sub_8031F6C0(s32);
     void update_floor_probe();
@@ -12,18 +13,7 @@ struct TObjEneRecobox
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x7C];
-    s16 m_b8;
-    u8 _padBA[0x26C];
-    s16 m_326;
-    u8 _pad328[0x28];
-    u32 m_350;
-    u8 _pad354[0x6C];
+    u8 unk_374[0x30];
     void* m_3c0;
     u8 _pad3C4[0x1C];
     u32 m_3e0;
@@ -47,6 +37,8 @@ struct TObjEneRecobox
     static u32 remap_area_sound_id(u32 arg0);
     static void release_static_instance();
     static void load_resources();
+    u8 unk_4D4[0x20];
 };
 
+typedef char TObjEneRecobox_size[sizeof(TObjEneRecobox) == 0x4F4 ? 1 : -1];
 #endif

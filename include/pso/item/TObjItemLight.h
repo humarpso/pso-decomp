@@ -2,16 +2,13 @@
 #define PSO_ITEM_TOBJITEMLIGHT_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjItemLight
-{
+struct TObjItemLight : public TUnk_804B9870 {
+    virtual ~TObjItemLight();
     void run_task();
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x20];
-    void* m_5c;
-    u8 _pad60[0x34];
-    u32 m_94;
+    u8 unk_90[0x8];
 };
 
+typedef char TObjItemLight_size[sizeof(TObjItemLight) == 0x98 ? 1 : -1];
 #endif

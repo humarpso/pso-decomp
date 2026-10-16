@@ -174,7 +174,7 @@ extern const f32 lbl_805DB4F0;
 void TODoorMachine01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB4F0) != 1)) {
-        *(s32 *)&this->unk_AC = 3;
+        *(s32 *)&this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
     }
@@ -185,7 +185,7 @@ extern void *tl_05;
 void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB4F4)) == 1)) {
-        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_ac = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
         play_sound_effect((s32)((int) (0x4004BC01)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }

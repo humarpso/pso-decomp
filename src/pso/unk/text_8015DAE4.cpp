@@ -73,13 +73,13 @@ void TUnk_804B0BB8::run_task() {
         return;
     }
     if ((s32) switch_doors_force_closed != 0) {
-        *(s32 *)&this->unk_AC = 0;
+        *(s32 *)&this->m_ac = 0;
         this->m_d0 = (s32) (this->m_d0 & 0xFFFFFFFE);
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (8));
     } else {
         ((VObj_18 *)(arg0))->m12();
     }
-    temp_r0 = *(s32 *)&this->unk_AC;
+    temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
         ((VObj_18 *)(arg0))->m13();

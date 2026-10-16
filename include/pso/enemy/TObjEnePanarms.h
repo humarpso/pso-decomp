@@ -2,50 +2,15 @@
 #define PSO_ENEMY_TOBJENEPANARMS_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TObjEnePanarms
-{
+struct TObjEnePanarms : public TObjEnemy {
+    virtual ~TObjEnePanarms();
     s32 sub_800DE390();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void set_random_action_timer(int minimum, int range);
-
-    u8 _pad00[0x1C];
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0x4];
-    s16 m_2c;
-    u8 unk_2E[0x2];
-    s32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 unk_3C[0x4];
-    f32 m_40;
-    void* m_44;
-    u8 _pad48[0x8];
-    void* m_50;
-    u8 unk_54[0xC];
-    s32 m_60;
-    u8 unk_64[0x10];
-    void* m_74;
-    u8 _pad78[0x38];
-    u32 m_b0;
-    u8 unk_B4[0x4];
-    s16 m_b8;
-    u8 unk_BA[0x6];
-    f32 m_c0;
-    u8 unk_C4[0x1E4];
-    u32 m_2a8;
-    u8 _pad2AC[0x50];
-    void* m_2fc;
-    u8 _pad300[0x2C];
-    s16 m_32c;
-    u8 _pad32E[0x10];
-    u16 m_33e;
-    u8 unk_340[0x30];
-    void* m_370;
     u8 unk_374[0x4];
     s32 m_378;
     u8 unk_37C[0x4];
@@ -121,7 +86,6 @@ struct TObjEnePanarms
     static s32 create(s32 arg0);
     void init(void* a1);
     int get_state_flag();
-    void copy_target_state(void* a1);
-};
+    void copy_target_state(void* a1);};
 
 #endif

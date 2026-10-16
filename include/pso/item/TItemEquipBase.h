@@ -26,7 +26,9 @@ struct TItemEquipBase : public TItem {
     s16 m_150;
     u8 unk_152[0x2];
     s16 m_154;
-    u8 unk_156[0x12];
+    u8 unk_156[0x2];
+    u32 m_158;
+    u8 unk_15C[0xC];
     s32 m_168;
     u8 unk_16C[0x4];
     u8 m_170;

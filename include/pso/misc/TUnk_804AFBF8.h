@@ -10,9 +10,9 @@ public:
     void update_anim_phase();
     virtual void render();
     virtual void run_task();
-    u8 unk_AC[0x4];
+    u32 m_ac;
     f32 m_b0;
-    u8 unk_B4[0x4];
+    u32 m_b4;
     f32 m_b8;
     u8 unk_BC[0x4];
     f32 m_c0;

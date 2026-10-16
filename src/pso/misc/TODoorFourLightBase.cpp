@@ -132,7 +132,7 @@ s32 TODoorFourLightBase::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
+    } else if ((s32) *(s32 *)&this->m_8c < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             this->m_cc = 3;
         } else {

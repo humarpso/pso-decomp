@@ -2,24 +2,15 @@
 #define PSO_ENEMY_TOBJENEBM9MERICAROL_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneBm9Mericarol
-{
+struct TObjEneBm9Mericarol : public TObjEneDD_ST {
+    virtual ~TObjEneBm9Mericarol();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    u8 _pad38[0x80];
-    s16 m_b8;
-    u8 _padBA[0x26C];
-    s16 m_326;
-    u8 _pad328[0x28];
-    u32 m_350;
-    u8 _pad354[0x6C];
+    u8 unk_374[0x30];
     u32 m_3c0;
     u32 m_3c4;
     void* m_3c8;
@@ -61,6 +52,8 @@ struct TObjEneBm9Mericarol
     void *dt(s16 arg1);
     void *destroy(s16 arg1);
     void *construct(s32 arg1, s32 arg2);
+    u8 unk_494[0x1C];
 };
 
+typedef char TObjEneBm9Mericarol_size[sizeof(TObjEneBm9Mericarol) == 0x4B0 ? 1 : -1];
 #endif

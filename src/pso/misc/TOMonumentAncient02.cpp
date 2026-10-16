@@ -148,10 +148,10 @@ void TOMonumentAncient02::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->unk_AC;
+    temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     default:
-        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_ac = 1;
         if ((u32) this->m_e8 != 0U) {
             enable__13TParticleCtrlFPv(*(void * *)&this->m_e8);
         }

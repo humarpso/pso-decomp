@@ -2,9 +2,10 @@
 #define PSO_ENEMY_TOBJENEDF2BRINGER_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneDf2Bringer
-{
+struct TObjEneDf2Bringer : public TObjEneDD_ST {
+    virtual ~TObjEneDf2Bringer();
     void set_effect_pos_above_self();
     void sub_80098DEC();
     void vfunc_63();
@@ -13,21 +14,7 @@ struct TObjEneDf2Bringer
     void vfunc_28();
     void render();
     void run_task();
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x74];
-    u32 m_d8;
-    u32 m_dc;
-    u8 _padE0[0x21C];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x98];
+    u8 unk_374[0x30];
     u32 m_3c0;
     void* m_3c4;
     u8 _pad3C8[0x10];
@@ -52,6 +39,8 @@ struct TObjEneDf2Bringer
     static void free_resources();
     void *create();
     static void load_resources();
+    u8 unk_490[0x38];
 };
 
+typedef char TObjEneDf2Bringer_size[sizeof(TObjEneDf2Bringer) == 0x4C8 ? 1 : -1];
 #endif

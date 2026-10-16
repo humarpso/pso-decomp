@@ -75,7 +75,7 @@ extern s32 lbl_804B1B80[];
 void *TOFenceAncient01::init_fields() {
     init_map_object_base(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804B1B80;
-    *(u32 *)&this->unk_AC = 0;
+    *(u32 *)&this->m_ac = 0;
     this->m_cc = -1;
     *(u32 *)((s8 *)this + 0xC8) = 0;
     *(u32 *)((s8 *)this + 0xD0) = 0;

@@ -2,9 +2,10 @@
 #define PSO_ENEMY_TOBJENERECON_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneRecon
-{
+struct TObjEneRecon : public TObjEneDD_ST {
+    virtual ~TObjEneRecon();
     void update_flag_0x444();
     void sub_8031D4B0(s32);
     void vfunc_63();
@@ -13,33 +14,6 @@ struct TObjEneRecon
     void vfunc_28();
     void render();
     void run_task();
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0x4];
-    u16 m_2c;
-    u8 _pad2E[0x6];
-    u32 m_34;
-    u32 m_38;
-    u32 m_3c;
-    u32 m_40;
-    u8 _pad44[0x18];
-    u32 m_5c;
-    u32 m_60;
-    u32 m_64;
-    u8 _pad68[0x18];
-    u32 m_80;
-    u8 _pad84[0x20];
-    u32 m_a4;
-    u8 _padA8[0x1A0];
-    void* m_248;
-    u8 _pad24C[0x90];
-    u32 m_2dc;
-    u8 _pad2E0[0x1C];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x68];
     u32 m_390;
     u8 _pad394[0x78];
     void* m_40c;
@@ -94,6 +68,8 @@ struct TObjEneRecon
     void remove_child_entity(u8 *arg1);
     s32 has_child_in_anim_5();
     s32 is_below_child_limit(u16 arg1);
+    u8 unk_47C[0x68];
 };
 
+typedef char TObjEneRecon_size[sizeof(TObjEneRecon) == 0x4E4 ? 1 : -1];
 #endif

@@ -134,7 +134,7 @@ s32 TODoorFourLightSpace::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
+    } else if ((s32) *(s32 *)&this->m_8c < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             this->m_cc = 3;
         } else {
@@ -278,7 +278,7 @@ void TODoorFourLightSpace::render() {
     s32 temp_r0_2;
 
     if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DD8F0) == 1)) {
-        temp_r0 = *(s32 *)&this->unk_AC;
+        temp_r0 = *(s32 *)&this->m_ac;
         switch (temp_r0) {
         case 1:
         case 3:
@@ -296,7 +296,7 @@ void TODoorFourLightSpace::render() {
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, this->rotation_y);
-            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, *(f32 *)&this->unk_B4);
+            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, *(f32 *)&this->m_b4);
             pop_matrix();
             return;
         case 0:
@@ -402,7 +402,7 @@ s32 TODoorFourLightRuins::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
+    } else if ((s32) *(s32 *)&this->m_8c < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             this->m_cc = 3;
         } else {
@@ -539,7 +539,7 @@ void TODoorFourLightRuins::render() {
     s32 temp_r0_2;
 
     if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->unk_C4) == 1) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DD8F0) == 1)) {
-        temp_r0 = *(s32 *)&this->unk_AC;
+        temp_r0 = *(s32 *)&this->m_ac;
         switch (temp_r0) {
         case 1:
         case 3:
@@ -557,7 +557,7 @@ void TODoorFourLightRuins::render() {
             set_global_param__8TObjFishFl();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, this->rotation_y);
-            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, *(f32 *)&this->unk_B4);
+            draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->unk_BC, *(f32 *)&this->m_b4);
             pop_matrix();
             return;
         case 0:

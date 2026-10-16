@@ -192,7 +192,7 @@ s32 TODoorAncient08::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if (((s32) *(s32 *)&this->unk_8C < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
+    } else if (((s32) *(s32 *)&this->m_8c < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
         this->m_cc = 3;
     } else {
         this->m_cc = 2;
@@ -344,7 +344,7 @@ void TODoorAncient08::render() {
     s32 temp_r0;
 
     if ((VCALL_m8(arg0) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB470) != 0)) {
-        temp_r0 = *(s32 *)&this->unk_AC;
+        temp_r0 = *(s32 *)&this->m_ac;
         switch (temp_r0) {
         case 1:
         case 3:
@@ -360,7 +360,7 @@ void TODoorAncient08::render() {
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
-            draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unk_BC, *(f32 *)&this->unk_B4 - lbl_805DB474);
+            draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unk_BC, *(f32 *)&this->m_b4 - lbl_805DB474);
             pop_matrix();
             return;
         case 0:

@@ -2,17 +2,10 @@
 #define PSO_OBJECT_TOBJWARPJUNG_H
 
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 
-struct TObjWarpJung
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x28];
-    u32 m_8c;
-    u8 _pad90[0x30];
-    u32 m_c0;
+struct TObjWarpJung : public TObjAreaWarp {
+    virtual ~TObjWarpJung();
     void render();
     void run_task();
     static f32 get_static_field4_as_float();
@@ -20,6 +13,8 @@ struct TObjWarpJung
     static void render_warp_effect(s32 arg0, s32 arg1);
     static void render_warp(void* a0);
     static s32 update_warp_display();
+    u8 unk_AC[0x1C];
 };
 
+typedef char TObjWarpJung_size[sizeof(TObjWarpJung) == 0xC8 ? 1 : -1];
 #endif

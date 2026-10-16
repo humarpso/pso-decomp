@@ -2,23 +2,10 @@
 #define PSO_MISC_TOSENSORANCIENT01_H
 
 #include "types.h"
+#include "pso/misc/TOSensor.h"
 
-struct TOSensorAncient01
-{
-    u8 _pad1C[0x18];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x24];
-    u32 m_88;
-    u32 m_8c;
-    u8 _pad90[0x2C];
-    u32 m_bc;
-    u8 _padC0[0x10];
-    u32 m_d0;
-    u8 _padD4[0x14];
-    u32 m_e8;
+struct TOSensorAncient01 : public TOSensor {
+    virtual ~TOSensorAncient01();
     u32 m_ec;
     u8 _padF0[0x4];
     u32 m_f4;
@@ -26,6 +13,8 @@ struct TOSensorAncient01
     static void *create(void *arg0);
     static void destroy();
     static void load_resources();
+    u8 unk_DC[0x1C];
 };
 
+typedef char TOSensorAncient01_size[sizeof(TOSensorAncient01) == 0xF8 ? 1 : -1];
 #endif

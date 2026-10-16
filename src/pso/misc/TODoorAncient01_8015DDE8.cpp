@@ -135,7 +135,7 @@ extern const f32 lbl_805DB3E0;
 void TODoorAncient01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB3E0) == 0)) {
-        *(s32 *)&this->unk_AC = 3;
+        *(s32 *)&this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
     }
@@ -146,7 +146,7 @@ extern const f32 lbl_805DB3E4;
 void TODoorAncient01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB3E4) != 0)) {
-        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_ac = 1;
         set_indexed_flags(arg0, 0, 8);
         play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
     }
@@ -165,7 +165,7 @@ void TODoorAncient01::render() {
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TODoorAncient01__texture_lists) + ((this->m_d0 * 4) & 4))));
-        if ((s32) *(s32 *)&this->unk_AC == 0) {
+        if ((s32) *(s32 *)&this->m_ac == 0) {
             temp_r31 = *(u8 * *)&this->model;
             post_translate_matrix((void *) (temp_r31 + 8));
             draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));

@@ -183,7 +183,7 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         model_render_flags |= 0x400000;
         func_803e11e8__FUl(1);
         draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
-        TObjFish::set_global_param(*(s32 *)&this->unk_1C);
+        TObjFish::set_global_param(*(s32 *)&this->m_1c);
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)&this->m_20, *(f32 *)&this->actorFlags);
         func_803e11f0__Fv();
         model_render_flags &= ~0x400000;
@@ -193,7 +193,7 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
         set_cull_mode_front__8TObjFishFv();
         draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
-        TObjFish::set_global_param(*(s32 *)&this->unk_1C);
+        TObjFish::set_global_param(*(s32 *)&this->m_1c);
         set_cull_back__8TObjFishFv();
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)&this->m_20, *(f32 *)&this->actorFlags);
         set_cull_mode_front__8TObjFishFv();

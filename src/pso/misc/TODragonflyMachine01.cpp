@@ -99,7 +99,7 @@ void TODragonflyMachine01::run_task() {
         return;
     }
     update_anim_phase__13TUnk_804AFBF8Fv(this);
-    temp_r0 = *(s32 *)&this->unk_AC;
+    temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
         TODragonflyMachine01__sub_80164F50(this);

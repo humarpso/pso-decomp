@@ -2,9 +2,10 @@
 #define PSO_ENEMY_TOBJENERE2FLOWER_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneRe2Flower
-{
+struct TObjEneRe2Flower : public TObjEneDD_ST {
+    virtual ~TObjEneRe2Flower();
     void sub_800C3DC4();
     bool sub_800C3B8C();
     void dispatch_action(s32);
@@ -12,20 +13,7 @@ struct TObjEneRe2Flower
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x54];
-    s16 m_b8;
-    u8 _padBA[0x26C];
-    s16 m_326;
-    u8 _pad328[0x28];
-    u32 m_350;
-    u8 _pad354[0x6C];
+    u8 unk_374[0x30];
     u32 m_3c0;
     u32 m_3c4;
     u8 _pad3C8[0x4];
@@ -55,6 +43,8 @@ struct TObjEneRe2Flower
     static void destroy_instance();
     static void *create(void *arg0);
     int get_flag_11();
+    u8 unk_410[0x1C];
 };
 
+typedef char TObjEneRe2Flower_size[sizeof(TObjEneRe2Flower) == 0x42C ? 1 : -1];
 #endif

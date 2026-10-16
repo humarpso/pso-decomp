@@ -191,8 +191,8 @@ int queue_destruction__7TObjectFv(void*);
 
 void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0) {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)&this->unk_1C = arg1;
-    if ((s32) *(s32 *)&this->unk_1C != 0) {
+    *(s32 *)&this->m_1c = arg1;
+    if ((s32) *(s32 *)&this->m_1c != 0) {
         VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (const void *)((void *) (arg2)));
         ((TObjPlayer *)(arg0 + 0x30))->copy_xyz((void *) (arg3));
         *(f32 *)&this->m_2c = farg0;
@@ -240,7 +240,7 @@ extern s32 lbl_804F1280[];
 void *TBoss6Rock::init_object(void *) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F1280;
-    *(u32 *)&this->unk_1C = 0;
+    *(u32 *)&this->m_1c = 0;
     return this;
 }
 

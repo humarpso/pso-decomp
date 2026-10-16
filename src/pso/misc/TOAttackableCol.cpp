@@ -132,7 +132,7 @@ void TOAttackableCol::init_params() {
     if ((s32) *(s32 *)((s8 *)this + 0x340) < 0) {
         *(s32 *)((s8 *)this + 0x340) = 0;
     }
-    this->m_344 = (s32) *(s32 *)&this->unk_8C;
+    this->m_344 = (s32) *(s32 *)&this->m_8c;
     if ((s32) this->m_344 < 0) {
         this->m_344 = 0;
     }

@@ -70,12 +70,12 @@ void TODoorAncient05::vfunc_17() {
     if (this->m_d0 & 1) {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB420) != 1) {
-            *(s32 *)&this->unk_AC = 3;
+            *(s32 *)&this->m_ac = 3;
             ((TObjPlayer *)arg0)->clear_player_status_flag((s32)0, (s32)8);
             play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
         }
     } else {
-        *(s32 *)&this->unk_AC = 3;
+        *(s32 *)&this->m_ac = 3;
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, (s32)8);
         play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
@@ -89,7 +89,7 @@ void TODoorAncient05::play_proximity_sound() {
     if (this->m_d0 & 1) {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4);
         if (is_any_player_within_radius_xz((void *)((s32) arg0), lbl_805DB424) == 1) {
-            *(s32 *)&this->unk_AC = 1;
+            *(s32 *)&this->m_ac = 1;
             set_indexed_flags(arg0, 0, 8);
             play_sound_effect((s32)(0x4004B708), (void *)((u32) (arg0 + 0x38)), (s32)(0), (s32)(0));
         }

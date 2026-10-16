@@ -164,7 +164,7 @@ s32 TODoorCave01::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if ((s32) *(s32 *)&this->unk_8C < 0) {
+    } else if ((s32) *(s32 *)&this->m_8c < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             this->m_cc = 3;
         } else {
@@ -181,7 +181,7 @@ extern const f32 lbl_805DB490;
 void TODoorCave01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (((u8) ((u32) __cntlzw(this->m_d0 & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
-        *(s32 *)&this->unk_AC = 3;
+        *(s32 *)&this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
@@ -189,7 +189,7 @@ void TODoorCave01::vfunc_17() {
 void TODoorCave01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
-        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_ac = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
         play_sound_effect((s32)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }

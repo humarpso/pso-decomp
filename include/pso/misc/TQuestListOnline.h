@@ -1,10 +1,11 @@
 #ifndef PSO_MISC_TQUESTLISTONLINE_H
 #define PSO_MISC_TQUESTLISTONLINE_H
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TQuestListOnline {
+struct TQuestListOnline : public TShopWindowBase {
+    virtual ~TQuestListOnline();
     void vfunc_11();
-    u8 base_prefix[0x1C];
     u32 unknown1c;
     u32 state;
     s32 window_owner;
@@ -49,8 +50,7 @@ struct TQuestListOnline {
     static void ensure_online_quests_loaded();
     static int get_quest_list_flag();
     static void close_windows_and_reset();
-    static void handle_quest_ready();
-};
+    static void handle_quest_ready();};
 #include <stddef.h>
 typedef char QuestListOnlineSize[(sizeof(TQuestListOnline)==0x70)?1:-1];
 typedef char QuestListOnline_state[(offsetof(TQuestListOnline,state)==0x20)?1:-1];

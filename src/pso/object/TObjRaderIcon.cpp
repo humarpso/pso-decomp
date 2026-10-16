@@ -94,7 +94,7 @@ void TObjRaderIcon::initialize_from_placement() {
     if (*(f32 *)&this->_pad9C < 0.0f) {
         *(f32 *)&this->_pad9C = 0.0f;
     }
-    *(s32 *)&this->m_a0 = (s32) *(s32 *)&this->unk_8C;
+    *(s32 *)&this->m_a0 = (s32) *(s32 *)&this->m_8c;
     *(s32 *)&this->m_94 = (s32) (u16) ((s32) *(s32 *)&this->m_88 >> 0x10);
     *(s32 *)&this->m_98 = (s32) (u16) *(s32 *)&this->m_88;
     if ((s32) *(s32 *)&this->m_94 < 0) {

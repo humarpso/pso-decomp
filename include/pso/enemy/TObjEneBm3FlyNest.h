@@ -2,28 +2,17 @@
 #define PSO_ENEMY_TOBJENEBM3FLYNEST_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
-struct TObjEneBm3FlyNest
-{
+struct TObjEneBm3FlyNest : public TObjEneDD {
+    virtual ~TObjEneBm3FlyNest();
     void init_params();
     void state_initial_emit(s32);
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x7C];
-    s16 m_b8;
-    u8 _padBA[0x26C];
-    s16 m_326;
-    u8 _pad328[0x28];
-    u32 m_350;
-    u8 _pad354[0x40];
+    u8 unk_374[0x4];
     u32 m_394;
     u8 _pad398[0x10];
     u32 m_3a8;
@@ -56,6 +45,8 @@ struct TObjEneBm3FlyNest
     static void load_resources();
     void render_parts();
     static void init_vertex_table();
+    u8 unk_4BC[0x20];
 };
 
+typedef char TObjEneBm3FlyNest_size[sizeof(TObjEneBm3FlyNest) == 0x4DC ? 1 : -1];
 #endif

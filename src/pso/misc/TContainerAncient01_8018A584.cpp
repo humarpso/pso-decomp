@@ -556,7 +556,7 @@ void TContainerAncient01::init_positions() {
     this->m_33c = (f32) (TContainerAncient01__data_805DBD3C + (this->scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     *(f32 *)((s8 *)arg0 + 0x340) = (f32) (lbl_805DBD40 + (this->target_scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     this->m_344 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
-    *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)&this->unk_8C + 4);
+    *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)&this->m_8c + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x348, arg0 + 0x38);
     this->m_34c = (f32) (this->m_34c + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x354, arg0 + 0x348);
@@ -889,7 +889,7 @@ void TContainerAncient01::init_state_vectors() {
     *(f32 *)&this->m_338 = (f32) (TContainerAncient01__data_805DBD3C + (this->scale - TContainerAncient01__data_805DBD10));
     this->m_33c = (f32) (lbl_805DBD40 + (this->target_scale - TContainerAncient01__data_805DBD10));
     *(f32 *)((s8 *)arg0 + 0x340) = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)((s8 *)arg0 + 0x70) - TContainerAncient01__data_805DBD10));
-    *(s32 *)&this->unk_36C = (s32) (*(s32 *)&this->unk_8C + 4);
+    *(s32 *)&this->unk_36C = (s32) (*(s32 *)&this->m_8c + 4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x344, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x348) = (f32) (*(f32 *)((s8 *)arg0 + 0x348) + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
     VecCopy__FP3VecPC3Vec(arg0 + 0x350, arg0 + 0x344);

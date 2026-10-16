@@ -115,7 +115,7 @@ s32 is_challenge_mode_active();
 s32 get_current_floor();
 s32 is_flag_set__6TLobbyFv();
 
-void TObjTombstone::copy_matrix(void* q) { *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); *(f32 *)&this->m_down = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); *(f32 *)&this->unk_1C = *(f32*)((char*)q + 0x1c); *(f32 *)&this->m_20 = *(f32*)((char*)q + 0x20); *(f32 *)&this->texture_id = *(f32*)((char*)q + 0x24); }
+void TObjTombstone::copy_matrix(void* q) { *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); *(f32 *)&this->m_down = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); *(f32 *)&this->m_1c = *(f32*)((char*)q + 0x1c); *(f32 *)&this->m_20 = *(f32*)((char*)q + 0x20); *(f32 *)&this->texture_id = *(f32*)((char*)q + 0x24); }
 
 typedef char RecoveredGlobal_80074FAC_lbl_8043878C_size[sizeof(RecoveredGlobal_80074FAC_lbl_8043878C) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250_size[sizeof(RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250) == 0x28 ? 1 : -1];

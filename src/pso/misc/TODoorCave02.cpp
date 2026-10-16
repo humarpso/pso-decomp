@@ -59,12 +59,12 @@ void TODoorCave02::vfunc_17() {
     if (this->m_d0 & 1) {
         this->texture_id = (s32) *(s32 *)((s8 *)cave_door02_resources + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4B0) != 1) {
-            *(s32 *)&this->unk_AC = 3;
+            *(s32 *)&this->m_ac = 3;
             ((TObjPlayer *)arg0)->clear_player_status_flag((s32)0, (s32)8);
             play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
         }
     } else {
-        *(s32 *)&this->unk_AC = 3;
+        *(s32 *)&this->m_ac = 3;
         this->texture_id = (s32) *(s32 *)((s8 *)cave_door02_resources + 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, (s32)8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
@@ -88,7 +88,7 @@ void TODoorCave02::play_proximity_sound() {
         }
     }
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB4C0)) == 1)) {
-        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_ac = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
         play_sound_effect((s32)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
@@ -130,7 +130,7 @@ void TODoorCave02::render() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        if ((s32) *(s32 *)&this->unk_AC == 0) {
+        if ((s32) *(s32 *)&this->m_ac == 0) {
             TObjFish::set_global_param(*(s32 *)(cave_door02_resources + ((this->m_d0 * 4) & 4)));
             draw_parts((void *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)));
             draw_parts((void *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x30)));

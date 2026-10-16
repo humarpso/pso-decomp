@@ -2,16 +2,15 @@
 #define PSO_ENEMY_TOBJENEME3SINOWZOAREAL_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
 
-struct TObjEneMe3SinowZoaReal
-{
+struct TObjEneMe3SinowZoaReal : public TObjEneMe3SinowZoa {
+    virtual ~TObjEneMe3SinowZoaReal();
     void vfunc_63();
     void vfunc_62();
-    u8 _pad1C[0x30A];
-    s16 m_326;
-    u8 _pad328[0xD4];
-    u32 m_3fc;
     static void *create_instance(void *arg0);
+    u8 unk_3FC[0x60];
 };
 
+typedef char TObjEneMe3SinowZoaReal_size[sizeof(TObjEneMe3SinowZoaReal) == 0x45C ? 1 : -1];
 #endif

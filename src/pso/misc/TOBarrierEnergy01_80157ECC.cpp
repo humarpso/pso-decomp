@@ -13,7 +13,7 @@ void TOBarrierEnergy01::play_proximity_sound() {
     update_anim_phase__13TUnk_804AFBF8Fv();
     ((TOBarrierEnergy01 *)this)->play_ambient_loop_sound();
     if (this->m_d0 & 1) {
-        *(s32 *)&this->unk_AC = 1;
+        *(s32 *)&this->m_ac = 1;
         set_indexed_flags(this, 0, 8);
         this->texture_id = (s32) *(s32 *)((s8 *)TOBarrierEnergy01__texture_lists + 4);
     }

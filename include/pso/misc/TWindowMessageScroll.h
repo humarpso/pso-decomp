@@ -2,14 +2,13 @@
 #define PSO_MISC_TWINDOWMESSAGESCROLL_H
 
 #include "types.h"
+#include "pso/misc/TWindowMessageQuest.h"
 
-struct TWindowMessageScroll
-{
-    u8 _pad1C[0x8];
-    void* m_24;
-    u8 _pad28[0x70];
-    u32 m_98;
+struct TWindowMessageScroll : public TWindowMessageQuest {
+    virtual ~TWindowMessageScroll();
     void run_task();
+    u8 unk_94[0x8];
 };
 
+typedef char TWindowMessageScroll_size[sizeof(TWindowMessageScroll) == 0x9C ? 1 : -1];
 #endif

@@ -2,19 +2,12 @@
 #define PSO_MISC_TOHANGCEILINGCAVE01KEYQUICK_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804B2578.h"
 
-struct TOHangceilingCave01KeyQuick
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x7C];
-    u32 m_a4;
-    u8 _padA8[0x50];
-    u32 m_f8;
-    u8 _padFC[0x22A];
-    s16 m_326;
-    u8 _pad328[0x34];
-    u32 m_35c;
+struct TOHangceilingCave01KeyQuick : public TUnk_804B2578 {
+    virtual ~TOHangceilingCave01KeyQuick();
+    u8 unk_35C[0x4];
 };
 
+typedef char TOHangceilingCave01KeyQuick_size[sizeof(TOHangceilingCave01KeyQuick) == 0x360 ? 1 : -1];
 #endif

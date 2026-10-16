@@ -133,8 +133,8 @@ void TOMine::run_task() {
             VecCopy__FP3VecPC3Vec((void *) (*(s32 *)&this->m_a4 + 0x1C), (void *) (arg0 + 0x334));
             return;
         case 3:
-            temp_r3 = *(s32 *)&this->unk_8C;
-            *(s32 *)&this->unk_8C = (s32) (temp_r3 - 1);
+            temp_r3 = *(s32 *)&this->m_8c;
+            *(s32 *)&this->m_8c = (s32) (temp_r3 - 1);
             if (temp_r3 < 0) {
                 this->mode = 4;
             }

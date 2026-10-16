@@ -101,7 +101,7 @@ void TObjDoaEx01::vfunc_18() {
     this->m_b0 = (f32) (this->m_b0 - this->m_b8);
     if (this->m_b0 < TObjDoaEx01__data_805DBDA0) {
         this->m_b0 = (f32) TObjDoaEx01__data_805DBDA0;
-        *(s32 *)&this->unk_AC = 0;
+        *(s32 *)&this->m_ac = 0;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
     }
 }

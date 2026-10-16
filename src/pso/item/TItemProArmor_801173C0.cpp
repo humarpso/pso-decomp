@@ -159,7 +159,7 @@ extern s32 lbl_8049FEB8[];
 void *TItemProArmor::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049FEB8;
-        TItemTimerEvent::clear_timer_slot(*(u16 *)&this->unk_1C);
+        TItemTimerEvent::clear_timer_slot(*(u16 *)&this->m_1c);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

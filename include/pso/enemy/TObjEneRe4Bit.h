@@ -2,9 +2,10 @@
 #define PSO_ENEMY_TOBJENERE4BIT_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneRe4Bit
-{
+struct TObjEneRe4Bit : public TObjEneDD_ST {
+    virtual ~TObjEneRe4Bit();
     void sub_800ED408();
     void call_vt_90_91();
     void clear_state_flags_when_done();
@@ -23,21 +24,7 @@ struct TObjEneRe4Bit
     void vfunc_28();
     void render();
     void run_task();
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0x4];
-    u16 m_2c;
-    u8 _pad2E[0x6];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x40];
-    u32 m_a4;
-    u8 _padA8[0x27E];
-    s16 m_326;
-    u8 _pad328[0x98];
+    u8 unk_374[0x30];
     u32 m_3c0;
     u16 m_3c4;
     u8 _pad3C6[0x2];
@@ -50,6 +37,8 @@ struct TObjEneRe4Bit
     u32 m_3f0;
     u8 _pad3F4[0x10];
     u32 m_404;
+    u8 unk_3EC[0x24];
 };
 
+typedef char TObjEneRe4Bit_size[sizeof(TObjEneRe4Bit) == 0x410 ? 1 : -1];
 #endif

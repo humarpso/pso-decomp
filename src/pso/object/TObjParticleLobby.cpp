@@ -169,7 +169,7 @@ void TObjParticleLobby::setup_emitter() {
             t = 0x42;
         }
         flags = t;
-        if (*(s32 *)&this->unk_8C == 1) {
+        if (*(s32 *)&this->m_8c == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 2) {
@@ -178,7 +178,7 @@ void TObjParticleLobby::setup_emitter() {
             t = 0x48;
         }
         flags = t;
-        if (*(s32 *)&this->unk_8C == 1) {
+        if (*(s32 *)&this->m_8c == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 3) {
@@ -187,14 +187,14 @@ void TObjParticleLobby::setup_emitter() {
             t = 0x44;
         }
         flags = t;
-        if (*(s32 *)&this->unk_8C == 1) {
+        if (*(s32 *)&this->m_8c == 1) {
             flags = t | 0x2000;
         }
     } else {
         if (*(s32 *)&this->m_88 == 1) {
             flags = 0x40;
         }
-        if (*(s32 *)&this->unk_8C == 1) {
+        if (*(s32 *)&this->m_8c == 1) {
             flags |= 0x2000;
         }
     }

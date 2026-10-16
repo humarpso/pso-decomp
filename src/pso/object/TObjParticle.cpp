@@ -76,12 +76,12 @@ void TObjParticle::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 var_f31;
 
-    if (((TOKeyMachine01::get_global_state() == 0xE) || ((s32) this->m_84 == 1)) && ((s32) *(s32 *)&this->unk_8C != 1)) {
+    if (((TOKeyMachine01::get_global_state() == 0xE) || ((s32) this->m_84 == 1)) && ((s32) *(s32 *)&this->m_8c != 1)) {
         var_f31 = lbl_805DBEE0;
     } else {
         var_f31 = lbl_805DBEE4;
     }
-    if (((s32) *(s32 *)&this->unk_8C == 1) && ((s32) this->m_84 == 1)) {
+    if (((s32) *(s32 *)&this->m_8c == 1) && ((s32) this->m_84 == 1)) {
         var_f31 = lbl_805DBEE8;
     }
     if (xyz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) > var_f31) {

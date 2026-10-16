@@ -2,16 +2,14 @@
 #define PSO_UI_TADENTERPPPPASSGC_H
 
 #include "types.h"
+#include "pso/ui/TAdEnterBaseGC.h"
 
-struct TAdEnterPPPPassGC
-{
+struct TAdEnterPPPPassGC : public TAdEnterBaseGC {
+    virtual ~TAdEnterPPPPassGC();
     void render();
     void run_task();
-    u32 m_1c;
-    u8 _pad20[0x4];
-    u32 m_24;
-    u8 _pad28[0x18];
-    u32 m_40;
+    u8 unk_38[0xC];
 };
 
+typedef char TAdEnterPPPPassGC_size[sizeof(TAdEnterPPPPassGC) == 0x44 ? 1 : -1];
 #endif

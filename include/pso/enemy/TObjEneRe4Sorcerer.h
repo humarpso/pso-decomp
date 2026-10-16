@@ -2,31 +2,17 @@
 #define PSO_ENEMY_TOBJENERE4SORCERER_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneRe4Sorcerer
-{
+struct TObjEneRe4Sorcerer : public TObjEneDD_ST {
+    virtual ~TObjEneRe4Sorcerer();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
     void render();
     void run_task();
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x40];
-    u32 m_a4;
-    u8 _padA8[0x254];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x64];
-    u16 m_38c;
-    u8 _pad38E[0x32];
+    u8 unk_374[0x30];
     s16 m_3c0;
     u8 _pad3C2[0x6];
     u32 m_3c8;
@@ -60,6 +46,8 @@ struct TObjEneRe4Sorcerer
     static void free_bits();
     void *create();
     static void load_resources();
+    u8 unk_45C[0x94];
 };
 
+typedef char TObjEneRe4Sorcerer_size[sizeof(TObjEneRe4Sorcerer) == 0x4F0 ? 1 : -1];
 #endif

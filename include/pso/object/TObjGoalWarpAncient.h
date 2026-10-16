@@ -2,20 +2,13 @@
 #define PSO_OBJECT_TOBJGOALWARPANCIENT_H
 
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 
-struct TObjGoalWarpAncient
-{
+struct TObjGoalWarpAncient : public TObjAreaWarp {
+    virtual ~TObjGoalWarpAncient();
     void render();
     void run_task();
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x28];
-    u32 m_8c;
-    u8 _pad90[0x30];
-    u32 m_c0;
-    u8 _padC4[0x8];
+    u8 unk_AC[0x4];
     u32 m_cc;
     u32 m_d0;
     u32 m_d4;
@@ -28,6 +21,8 @@ struct TObjGoalWarpAncient
     static void register_warp_object(void* a0);
     static s32 get_instance();
     static void register_warp(void* a0);
+    u8 unk_D0[0x1C];
 };
 
+typedef char TObjGoalWarpAncient_size[sizeof(TObjGoalWarpAncient) == 0xEC ? 1 : -1];
 #endif

@@ -2,8 +2,11 @@
 #define PSO_ITEM_TITEMEFFECTWEAPON_H
 
 #include "types.h"
+#include "pso/item/TItemHeapObject.h"
 
-class TItemEffectWeapon {
+class TItemEffectWeapon : public TItemHeapObject {
+public:
+    virtual ~TItemEffectWeapon();
     void run_task();
 public:
     struct TrailVertex {
@@ -16,8 +19,6 @@ public:
     static void release_trail_buffer(void* buffer);
     static void free_static_effects();
     static void initialize_static_effects();
-
-    u8 object_state[0x1C];
     TrailVertex* vertices;
     s32 vertex_count;
     u32 color;
@@ -25,8 +26,7 @@ public:
 public:
     int decrement_timer();
     void*init(s32 _w1, void * _w2);
-    u8 *create_instance();
-};
+    u8 *create_instance();};
 
 #include <stddef.h>
 typedef char WeaponTrailVertexSize[(sizeof(TItemEffectWeapon::TrailVertex) == 0x10) ? 1 : -1];

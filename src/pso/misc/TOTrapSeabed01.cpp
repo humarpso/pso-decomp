@@ -760,8 +760,8 @@ void TOTrapSeabed01::clamp_params_and_init() {
         this->target_scale = TOTrapSeabed01__data_805DE644[0];
     }
     *(f32 *)&this->m_354 = ((VObj_802CA5F4 *)this)->m85(this->target_scale);
-    *(s32 *)&this->unk_8C = CLAMPI(*(s32 *)&this->unk_8C, 0, 5);
-    *(s32 *)&this->m_350 = trap_seabed01_param_index_table[*(s32 *)&this->unk_8C];
+    *(s32 *)&this->m_8c = CLAMPI(*(s32 *)&this->m_8c, 0, 5);
+    *(s32 *)&this->m_350 = trap_seabed01_param_index_table[*(s32 *)&this->m_8c];
 }
 #pragma pop
 

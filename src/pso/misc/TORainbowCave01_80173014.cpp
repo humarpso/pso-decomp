@@ -99,7 +99,7 @@ void TORainbowCave01::init_light_params(int _w1, f32 _w2, f32 _w3) {
     u8 *arg0 = (u8 *)this;
     f32 k = 0.0009765625f;
     *(f32 *)((s8 *)arg0 + 0xC8) = 1.0f / ((f32) this->m_84 * k + 29.999998f);
-    this->m_d0 = 4e+04f + (f32) *(s32 *)&this->unk_8C;
+    this->m_d0 = 4e+04f + (f32) *(s32 *)&this->m_8c;
     VecCopy__FP3VecPC3Vec(arg0 + 0xD4, arg0 + 0x68);
 }
 #pragma pop

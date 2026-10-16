@@ -88,15 +88,15 @@ void TObjEneDelDepth::draw_model_part() {
         if (temp_r0 < 0xA) {
             TObjFish::set_global_param((int) (*(s32 *)&this->m_next));
             TObjPlayer::set_global_flag();
-            draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->unk_28));
+            draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->m_28));
             TObjPlayer::clear_global_state();
             return;
         }
         TObjPlayer::set_global_flag();
         TObjFish::set_global_param((int) (*(s32 *)&this->m_next));
-        draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->unk_28));
+        draw_model_motion((int) (*(s32 *)&this->m_prev), (int) (*(s32 *)&this->m_up), (f32) (*(f32 *)&this->m_28));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x18)));
-        draw_model_motion((int) (*(s32 *)&this->m_down), (int) (*(s32 *)&this->unk_1C), (f32) (*(f32 *)&this->unk_28));
+        draw_model_motion((int) (*(s32 *)&this->m_down), (int) (*(s32 *)&this->m_1c), (f32) (*(f32 *)&this->m_28));
         TObjPlayer::clear_global_state();
     }
 }
@@ -141,7 +141,7 @@ s32 TObjEneDelDepth::is_state_complete() {
         TObjEneDelDepth__state_complete_flag = 1;
         lbl_805D6AC8 = temp_f1 - lbl_805DF2E8;
     }
-    if (*(f32 *)&this->unk_28 == lbl_805D6AC8) {
+    if (*(f32 *)&this->m_28 == lbl_805D6AC8) {
         return 1;
     }
     return 0;

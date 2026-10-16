@@ -598,7 +598,7 @@ void TOMineTrap::update_state() {
     }
     if (get_main_phase() == 0xE) {
         *(s32 *)&this->m_344 = 0;
-        *(s32 *)&this->unk_8C = 0x1E;
+        *(s32 *)&this->m_8c = 0x1E;
         return;
     }
     *(s32 *)&this->m_344 = 2;
@@ -657,7 +657,7 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
 
 f32 TOMineTrap::trigger_explosion() {
     s16 sp8;
-    if (((u16) *(u16 *)&this->unk_1C >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
         this->mode = 5;
         sp8 = this->mode;
         send_object_state_update(this, &sp8);
@@ -723,7 +723,7 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
 
 void TOMineTrap::update_trigger() {
     s16 sp8;
-    if (((u16) *(u16 *)&this->unk_1C >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
         this->mode = 3;
         sp8 = this->mode;
         send_object_state_update(this, &sp8);

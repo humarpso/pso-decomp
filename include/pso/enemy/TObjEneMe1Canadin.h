@@ -2,32 +2,16 @@
 #define PSO_ENEMY_TOBJENEME1CANADIN_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneMe1Canadin
-{
+struct TObjEneMe1Canadin : public TObjEneDD_ST {
+    virtual ~TObjEneMe1Canadin();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
     void render();
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0x4];
-    u16 m_2c;
-    u8 _pad2E[0x2];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x40];
-    u32 m_a4;
-    u8 _padA8[0x254];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x98];
+    u8 unk_374[0x30];
     u32 m_3c0;
     u32 m_3c4;
     u32 m_3c8;
@@ -67,6 +51,8 @@ struct TObjEneMe1Canadin
     void setup_enemy();
     void *init(void *arg1, void *arg2, void *arg3);
     static void *create(void *arg0);
+    u8 unk_4AE[0x1E];
 };
 
+typedef char TObjEneMe1Canadin_size[sizeof(TObjEneMe1Canadin) == 0x4CC ? 1 : -1];
 #endif

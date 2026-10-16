@@ -60,7 +60,7 @@ void TObjFish::render_fade_model() {
         TObjPlayer::set_global_flag();
         ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x1C);
         TObjFish::set_global_param(*(s32 *)&this->m_2c);
-        draw_model_motion(*(s32 *)&this->unk_28, *(s32 *)&this->actorFlags, *(f32 *)((s8 *)arg0 + 0x40));
+        draw_model_motion(*(s32 *)&this->m_28, *(s32 *)&this->actorFlags, *(f32 *)((s8 *)arg0 + 0x40));
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x38));
         ((TObjFish *)(this->m_88))->set_draw_callback_list();
         draw_model_motion(*(s32 *)&this->model, *(s32 *)((s8 *)arg0 + 0x3C), *(f32 *)((s8 *)arg0 + 0x40));
@@ -169,7 +169,7 @@ void *TObjFish::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EF9EC;
         restore_player_cameras();
         if (*(void * *)&this->m_88 != NULL) { TObjFish::init_state_1(*(void * *)&this->m_88); *(s32 *)&this->m_88 = 0; }
-        if (*(void * *)&this->unk_8C != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&this->unk_8C)); *(s32 *)&this->unk_8C = 0; }
+        if (*(void * *)&this->m_8c != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_8c)); *(s32 *)&this->m_8c = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

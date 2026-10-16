@@ -160,7 +160,7 @@ void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2) {
 
 void TObjFogCollisionPoison::record_hit(s32 arg1, s32 arg2) {
     if ((s32) *(s32 *)&this->m_20 <= arg1) {
-        *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
+        *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c + 1);
         *(s32 *)&this->m_20 = arg1;
         this->texture_id = arg2;
     }
@@ -238,7 +238,7 @@ u8 TObjFogCollisionPoison::check_switch() {
     s32 temp_r31;
 
     temp_r31 = sub_80153A0C__22TObjFogCollisionSwitchFv();
-    return (u8) (temp_r31 == is_current_floor_switch_set((u16) *(s32 *)&this->unk_8C));
+    return (u8) (temp_r31 == is_current_floor_switch_set((u16) *(s32 *)&this->m_8c));
 }
 
 void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {

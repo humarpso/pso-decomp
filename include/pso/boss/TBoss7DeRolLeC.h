@@ -2,9 +2,10 @@
 #define PSO_BOSS_TBOSS7DEROLLEC_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TBoss7DeRolLeC
-{
+struct TBoss7DeRolLeC : public TObjEneDD_ST {
+    virtual ~TBoss7DeRolLeC();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
@@ -16,27 +17,7 @@ struct TBoss7DeRolLeC
     void vfunc_45();
     void vfunc_44();
     void vfunc_28();
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0x4];
-    s16 m_2c;
-    u8 _pad2E[0x6];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x74];
-    u32 m_b0;
-    u8 _padB4[0x4];
-    s16 m_b8;
-    u8 _padBA[0x1FE];
-    u16 m_2b8;
-    u8 _pad2BA[0x6C];
-    s16 m_326;
-    u8 _pad328[0x4];
-    u16 m_32c;
-    u8 _pad32E[0x22];
-    u32 m_350;
-    u8 _pad354[0x6C];
+    u8 unk_374[0x30];
     void* m_3c0;
     u8 _pad3C4[0x25C];
     u32 m_620;
@@ -98,6 +79,8 @@ struct TBoss7DeRolLeC
     void set_field_38(s32 v);
     static void run_exit_callbacks();
     static void *create(void *arg0);
+    u8 unk_7B8[0x1C];
 };
 
+typedef char TBoss7DeRolLeC_size[sizeof(TBoss7DeRolLeC) == 0x7D4 ? 1 : -1];
 #endif

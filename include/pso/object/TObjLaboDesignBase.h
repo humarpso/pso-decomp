@@ -2,20 +2,14 @@
 #define PSO_OBJECT_TOBJLABODESIGNBASE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjLaboDesignBase
-{
+struct TObjLaboDesignBase : public TUnk_804AF8A0 {
+    virtual ~TObjLaboDesignBase();
     void render();
     void run_task();
-    u8 _pad1C[0x2];
-    s16 m_1e;
-    u8 _pad20[0x18];
-    void* m_38;
-    u8 _pad3C[0x70];
-    u32 m_ac;
-    u32 m_b0;
-    u8 _padB4[0x8];
-    u32 m_bc;
+    u8 unk_AC[0x14];
 };
 
+typedef char TObjLaboDesignBase_size[sizeof(TObjLaboDesignBase) == 0xC0 ? 1 : -1];
 #endif

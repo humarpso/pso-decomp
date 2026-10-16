@@ -2,18 +2,10 @@
 #define PSO_OBJECT_TOBJAREAWARPENDING_H
 
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 
-struct TObjAreaWarpEnding
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x28];
-    u32 m_8c;
-    u8 _pad90[0x30];
-    u32 m_c0;
-    u8 _padC4[0x4];
+struct TObjAreaWarpEnding : public TObjAreaWarp {
+    virtual ~TObjAreaWarpEnding();
     u32 m_c8;
     u32 m_cc;
     u32 m_d0;
@@ -23,6 +15,8 @@ struct TObjAreaWarpEnding
     void open_confirm_window(s16 arg1);
     void render();
     void run_task();
+    u8 unk_C0[0x1C];
 };
 
+typedef char TObjAreaWarpEnding_size[sizeof(TObjAreaWarpEnding) == 0xDC ? 1 : -1];
 #endif

@@ -2,21 +2,13 @@
 #define PSO_OBJECT_TOBJWARPBOSSMULTI_H
 
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 
-struct TObjWarpBossMulti
-{
+struct TObjWarpBossMulti : public TObjAreaWarp {
+    virtual ~TObjWarpBossMulti();
     void render();
     void run_task();
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x40];
-    u32 m_a4;
-    u8 _padA8[0x14];
-    u32 m_bc;
-    u32 m_c0;
-    u8 _padC4[0x10];
+    u8 unk_AC[0xC];
     u32 m_d4;
     u32 m_d8;
     u32 m_dc;
@@ -32,6 +24,8 @@ struct TObjWarpBossMulti
     static s32 is_lobby_active();
     static s32 get_boss_warp_flag();
     static void notify_player(void *arg0, s32 arg1);
+    u8 unk_DC[0x24];
 };
 
+typedef char TObjWarpBossMulti_size[sizeof(TObjWarpBossMulti) == 0x100 ? 1 : -1];
 #endif

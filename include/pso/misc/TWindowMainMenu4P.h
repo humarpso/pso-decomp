@@ -2,15 +2,14 @@
 #define PSO_MISC_TWINDOWMAINMENU4P_H
 
 #include "types.h"
+#include "pso/misc/TWindowMainMenu.h"
 
-struct TWindowMainMenu4P
-{
-    u8 _pad1C[0x30];
-    u32 m_4c;
-    u8 _pad50[0x4];
-    u32 m_54;
+struct TWindowMainMenu4P : public TWindowMainMenu {
+    virtual ~TWindowMainMenu4P();
     void render();
     void run_task();
+    u8 unk_44[0x1C];
 };
 
+typedef char TWindowMainMenu4P_size[sizeof(TWindowMainMenu4P) == 0x60 ? 1 : -1];
 #endif

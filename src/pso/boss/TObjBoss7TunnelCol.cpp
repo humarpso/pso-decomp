@@ -61,7 +61,7 @@ void TObjBoss7TunnelCol::update_collision() {
     struct VOff_802F1C68_arg0_802f1c68_802F1B7C *self = (struct VOff_802F1C68_arg0_802f1c68_802F1B7C *)this;
     set_matrix_identity(self->f_48);
     translate_matrix_vec3(self->f_48, (void *)((char *)this + 28));
-    rotate_matrix_yxz(self->f_48, *(void * *)&this->unk_28, this->m_2c, *(void * *)&this->actorFlags);
+    rotate_matrix_yxz(self->f_48, *(void * *)&this->m_28, this->m_2c, *(void * *)&this->actorFlags);
 }
 
 extern f32 lbl_805DECA4;

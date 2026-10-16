@@ -130,7 +130,7 @@ void TOHealGeneral::run_task() {
         TOHangerMachine01__sub_80169168(this);
         return;
     }
-    temp_r0 = *(s32 *)&this->unk_AC;
+    temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
         find_heal_target__13TOHealGeneralFPv(this);
@@ -308,10 +308,10 @@ void TOHealGeneral::accept_player(u16 arg1) {
     if (*(s32 *)((s8 *)this + 0xD8) > 0) {
         if (arg1 == local_client_id) {
             p = get_player_by_client_id(arg1);
-            if (p == NULL || *(s32 *)&this->unk_AC != 1) {
+            if (p == NULL || *(s32 *)&this->m_ac != 1) {
                 return;
             }
-            *(s32 *)&this->unk_AC = 2;
+            *(s32 *)&this->m_ac = 2;
             this->m_94 = arg1;
             play_effect_default__10TObjPlayerFii(p, -1);
         } else {
@@ -376,7 +376,7 @@ s32 TOHealGeneral::update_heal_gauge_state() {
         *(s32 *)&this->unk_C8 = 2;
     }
     set_script_entry((s32)((s32)(*(s32 *)&this->m_88)));
-    set_enable_count((s32)(*(s32 *)&this->unk_8C));
+    set_enable_count((s32)(*(s32 *)&this->m_8c));
     return *(s32 *)&this->_padD0;
 }
 

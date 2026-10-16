@@ -73,7 +73,7 @@ void *__nw__7TObjectFUl(int);
 void TOLightMachine01::run_task() {
     *(s32 *)&this->m_a8 = (s32) (*(s32 *)&this->m_a8 + *(s32 *)&this->m_a4);
     this->m_9c = (f32) (*(f32 *)((s8 *)this + 0x98) * sin_table_lookup(*(s32 *)&this->m_a8));
-    *(s32 *)&this->m_ac = (s32) (*(s32 *)&this->m_ac + *(s32 *)&this->unk_8C);
+    *(s32 *)&this->m_ac = (s32) (*(s32 *)&this->m_ac + *(s32 *)&this->m_8c);
 }
 
 extern s32 light_machine_ginja_model_handle;

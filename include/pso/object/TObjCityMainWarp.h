@@ -2,24 +2,12 @@
 #define PSO_OBJECT_TOBJCITYMAINWARP_H
 
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 
-struct TObjCityMainWarp
-{
+struct TObjCityMainWarp : public TObjAreaWarp {
+    virtual ~TObjCityMainWarp();
     void run_task();
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x24];
-    u32 m_88;
-    u8 _pad8C[0x24];
-    u32 m_b0;
-    u8 _padB4[0x4];
-    u16 m_b8;
-    u8 _padBA[0x2];
-    u32 m_bc;
-    u32 m_c0;
-    u8 _padC4[0x8C];
+    u8 unk_AC[0x88];
     u32 m_150;
     static void update_unlock_flags();
     static void set_active_bit(s32 _w0);
@@ -36,6 +24,8 @@ struct TObjCityMainWarp
     static void clear_active_bit();
     void update_warp_flags_from_story();
     void init_visible_mask();
+    u8 unk_138[0x1C];
 };
 
+typedef char TObjCityMainWarp_size[sizeof(TObjCityMainWarp) == 0x154 ? 1 : -1];
 #endif

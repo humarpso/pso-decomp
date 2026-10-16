@@ -11,7 +11,7 @@ struct TAdEnterBaseGC : public TObject {
     void reset(int a1);
     u8 unk_1C[0x4];
     int m_20;
-    u8 unk_24[0x4];
+    u32 m_24;
     int m_28;
     u8 unk_2C[0x4];
     int m_30;

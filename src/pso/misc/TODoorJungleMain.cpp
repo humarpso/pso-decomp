@@ -402,8 +402,8 @@ void TODoorJungleMain::run_task() {
     ((VObj_18_26c409 *)(arg0))->m12();
     if (this->m_d0 & 1) {
         flag = 0;
-        *(f32 *)&this->unk_B4 += this->m_b8;
-        t = *(f32 *)&this->unk_B4;
+        *(f32 *)&this->m_b4 += this->m_b8;
+        t = *(f32 *)&this->m_b4;
         if ((f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1) - lbl_805DDCD4 < t &&
             t < (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1)) {
             set_indexed_flags((s32)arg0, 0, 8);
@@ -414,9 +414,9 @@ void TODoorJungleMain::run_task() {
         } else {
             flag = 1;
         }
-        if (*(f32 *)&this->unk_B4 > (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1)) {
+        if (*(f32 *)&this->m_b4 > (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1)) {
             flag = 0;
-            *(f32 *)&this->unk_B4 = (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1);
+            *(f32 *)&this->m_b4 = (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->unk_BC) + 4) - 1);
         } else {
             play_persistent_sound(0x43220, arg0, arg0 + 0x38, 0, 0);
         }

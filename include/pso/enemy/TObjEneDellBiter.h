@@ -2,27 +2,17 @@
 #define PSO_ENEMY_TOBJENEDELLBITER_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneDellBiter
-{
+struct TObjEneDellBiter : public TObjEneDD_ST {
+    virtual ~TObjEneDellBiter();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
     void render();
     void run_task();
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x298];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x98];
+    u8 unk_374[0x30];
     u32 m_3c0;
     u32 m_3c4;
     u8 _pad3C8[0xC];
@@ -50,6 +40,8 @@ struct TObjEneDellBiter
     static void destroy_static_instance();
     static void load_resources();
     void *init_instance(void *arg1, void *arg2, void *arg3, void *arg4);
+    u8 unk_4A4[0x40];
 };
 
+typedef char TObjEneDellBiter_size[sizeof(TObjEneDellBiter) == 0x4E4 ? 1 : -1];
 #endif

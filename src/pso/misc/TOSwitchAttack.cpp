@@ -38,7 +38,7 @@ void TOSwitchAttack::init_params() {
     if ((u16) this->m_a2 >= 0x100U) {
         this->m_a2 = 0xFFFFU;
     }
-    this->m_a4 = (u16) *(s32 *)&this->unk_8C;
+    this->m_a4 = (u16) *(s32 *)&this->m_8c;
     if ((u16) this->m_a4 > 1U) {
         this->m_a4 = 1U;
     }

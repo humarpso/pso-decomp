@@ -18,7 +18,9 @@ public:
     virtual s32 vfunc_20(void *, f32);
     virtual void render();
     virtual void run_task();
-    u8 unk_334[0x1C];
+    u8 unk_334[0xC];
+    u32 m_340;
+    u8 unk_344[0xC];
     f32 m_350;
     u8 unk_354[0x4];
     u32 m_358;

@@ -2,31 +2,12 @@
 #define PSO_BOSS_TBOSS2DEROLLE_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TBoss2DeRolLe
-{
+struct TBoss2DeRolLe : public TObjEneDD_ST {
+    virtual ~TBoss2DeRolLe();
     void clear_play_flags();
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0x4];
-    s16 m_2c;
-    u8 _pad2E[0x6];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x74];
-    u32 m_b0;
-    u8 _padB4[0x4];
-    s16 m_b8;
-    u8 _padBA[0x1FE];
-    u16 m_2b8;
-    u8 _pad2BA[0x6C];
-    s16 m_326;
-    u8 _pad328[0x4];
-    u16 m_32c;
-    u8 _pad32E[0x22];
-    u32 m_350;
-    u8 _pad354[0x6C];
+    u8 unk_374[0x30];
     u32 m_3c0;
     u32 m_3c4;
     u32 m_3c8;
@@ -79,6 +60,8 @@ struct TBoss2DeRolLe
     u8 _pad740[0x18];
     u32 m_758;
     void set_target_player(void *player);
+    u8 unk_740[0x1C];
 };
 
+typedef char TBoss2DeRolLe_size[sizeof(TBoss2DeRolLe) == 0x75C ? 1 : -1];
 #endif

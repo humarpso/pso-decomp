@@ -2,12 +2,11 @@
 #define PSO_BOSS_TBOSS4THANKS_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBoss4Thanks {
+struct TBoss4Thanks : public TObject {
+    virtual ~TBoss4Thanks();
     void render();
-
-    u8 unknown00[0x18];
-    void *virtualTable;
     s32 state;
     s32 current_motion;
     s32 next_motion;
@@ -30,11 +29,9 @@ struct TBoss4Thanks {
     void run_task();
     static void *create();
     s32 is_door_open_and_ready();
-    static s32 check_ready();
-};
+    static s32 check_ready();};
 
 #include <stddef.h>
-typedef char TBoss4Thanks_virtualTable_offset[(offsetof(TBoss4Thanks, virtualTable) == 0x18) ? 1 : -1];
 typedef char TBoss4Thanks_state_offset[(offsetof(TBoss4Thanks, state) == 0x1C) ? 1 : -1];
 typedef char TBoss4Thanks_current_motion_offset[(offsetof(TBoss4Thanks, current_motion) == 0x20) ? 1 : -1];
 typedef char TBoss4Thanks_next_motion_offset[(offsetof(TBoss4Thanks, next_motion) == 0x24) ? 1 : -1];

@@ -368,7 +368,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
                     play_effect_default__10TObjPlayerFii(temp_r3, -1);
                 }
                 ((VObj18_801482f8 *) this)->vf160(1);
-                *(s32 *)&this->unk_2AC = 0;
+                *(s32 *)&this->m_2ac = 0;
             }
         } else {
             this->m_94 = 0xFFFFU;
@@ -600,10 +600,10 @@ void TObjNpcBase::update_wandering() {
     case 2:
         break;
     case 3:
-        (*(s32 *)&this->unk_2AC)++;
-        if (lbl_805DB1DC < (f32) *(s32 *)&this->unk_2AC) {
+        (*(s32 *)&this->m_2ac)++;
+        if (lbl_805DB1DC < (f32) *(s32 *)&this->m_2ac) {
             this->phase = 0;
-            *(s32 *)&this->unk_2AC = 0;
+            *(s32 *)&this->m_2ac = 0;
         }
         break;
     }

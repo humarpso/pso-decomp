@@ -2,32 +2,11 @@
 #define PSO_ENEMY_TOBJENEDD_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TObjEneDD
-{
+struct TObjEneDD : public TObjEnemy {
+    virtual ~TObjEneDD();
     int get_flag_b4();
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x68];
-    u32 m_a4;
-    u32 m_a8;
-    u8 _padAC[0x74];
-    void* m_120;
-    u8 _pad124[0x124];
-    void* m_248;
-    u8 _pad24C[0x64];
-    u32 m_2b0;
-    u8 _pad2B4[0x72];
-    s16 m_326;
-    u8 _pad328[0x4C];
-    u32 m_374;
-    u32 m_378;
-    u8 _pad37C[0x4];
-    u32 m_380;
-    u32 m_384;
-    u32 m_388;
     static f32 calc_elapsed_scaled();
     void init_float_params();
     void update_velocity();
@@ -87,7 +66,6 @@ struct TObjEneDD
     void handle_state(s32 arg1);
     static void noop();
     void state_damaged(s32 arg1);
-    void state_chase_target(s32 arg1);
-};
+    void state_chase_target(s32 arg1);};
 
 #endif

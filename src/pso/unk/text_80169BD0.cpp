@@ -85,11 +85,11 @@ void TUnk_804B27D8::run_task() {
         ((VObj_18_ac8580 *)(arg0))->m14();
         return;
     }
-    temp_r0 = *(s32 *)&this->unk_AC;
+    temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
         if ((((VObj_18_ac8580 *)(arg0))->m12() != 0) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD8) > 0)) {
-            *(s32 *)&this->unk_AC = 1;
+            *(s32 *)&this->m_ac = 1;
         }
         break;
     case 1:
@@ -97,7 +97,7 @@ void TUnk_804B27D8::run_task() {
         break;
     case 2:
         if ((s32) this->m_94 == (s32) local_client_id) {
-            *(s32 *)&this->unk_AC = 3;
+            *(s32 *)&this->m_ac = 3;
             begin_conversation_camera();
             temp_r0_2 = this->m_d4;
             if ((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8) && ((u32) quest_mission_manager != 0U) && (((TObject *)quest_mission_manager)->all_parents_unqueued_for_destruction() != 0)) {
@@ -124,14 +124,14 @@ void TUnk_804B27D8::run_task() {
                 }
             }
         } else {
-            *(s32 *)&this->unk_AC = 1;
+            *(s32 *)&this->m_ac = 1;
             this->m_94 = 0xFFFFU;
         }
         break;
     case 3:
         temp_r3_5 = this->m_dc;
         if (((temp_r3_5 != 0U) && (((TObject *)temp_r3_5)->all_parents_unqueued_for_destruction() == 0)) || ((u32) this->m_dc == 0U)) {
-            *(s32 *)&this->unk_AC = 0;
+            *(s32 *)&this->m_ac = 0;
             this->m_dc = 0U;
             end_conversation_camera();
             if ((s32) this->m_94 == (s32) local_client_id) {
@@ -144,7 +144,7 @@ void TUnk_804B27D8::run_task() {
         break;
     }
     this->m_b0 = (f32) (this->m_b0 + lbl_805DB6DC);
-    temp_f1 = *(f32 *)&this->unk_B4;
+    temp_f1 = *(f32 *)&this->m_b4;
     temp_f0 = this->m_b0;
     if (temp_f1 < temp_f0) {
         this->m_b0 = (f32) (temp_f0 - temp_f1);

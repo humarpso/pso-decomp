@@ -2,20 +2,21 @@
 #define PSO_ENEMY_TOBJENEME3SINOWZOA_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
-struct TObjEneMe3SinowZoa
-{
+struct TObjEneMe3SinowZoa : public TObjEneDD_ST {
+    virtual ~TObjEneMe3SinowZoa();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
-    u8 _pad1C[0x30A];
-    s16 m_326;
-    u8 _pad328[0x98];
+    u8 unk_374[0x30];
     u32 m_3c0;
     u8 _pad3C4[0x8];
     u32 m_3cc;
-    u8 _pad3D0[0x44];
+    u8 unk_3D0[0x10];
+    u32 m_3e0;
+    u8 unk_3E4[0x30];
     void* m_414;
     void state_knockback(s32 arg1);
     void handle_state_substate(s32 arg1);
@@ -32,7 +33,6 @@ struct TObjEneMe3SinowZoa
     void render_with_stealth_debug();
     void update_move();
     static void set_entry_value_clamped(s32 arg0, f32 farg0);
-    static void free_resources();
-};
+    static void free_resources();};
 
 #endif

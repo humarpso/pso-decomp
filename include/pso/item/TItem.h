@@ -20,7 +20,8 @@ struct TItem : public TUnk_804AF8A0 {
     void render_owned();
     void render_following_owner();
     void* m_ac;
-    u8 _padB0[0x28];
+    u8 unk_B0[0x24];
+    u32 m_d4;
     u32 m_d8;
     u32 m_dc;
     u32 m_e0;

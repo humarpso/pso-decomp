@@ -2,37 +2,17 @@
 #define PSO_ENEMY_TOBJENEEPSILONGUARD_H
 
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon.h"
 
-struct TObjEneEpsilonGuard
-{
+struct TObjEneEpsilonGuard : public TObjEneEpsilon {
+    virtual ~TObjEneEpsilonGuard();
     void vfunc_63();
     void vfunc_62();
     void vfunc_61();
     void vfunc_28();
     void render();
     void run_task();
-    u16 m_1c;
-    u8 _pad1E[0xA];
-    u16 m_28;
-    u16 m_2a;
-    u16 m_2c;
-    u8 _pad2E[0x2];
-    u32 m_30;
-    u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x14];
-    void* m_50;
-    u8 _pad54[0x8];
-    u32 m_5c;
-    u32 m_60;
-    u32 m_64;
-    u8 _pad68[0x3C];
-    u32 m_a4;
-    u8 _padA8[0x254];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x138];
+    u8 unk_3A8[0x9C];
     void* m_460;
     u8 _pad464[0x8];
     u32 m_46c;
@@ -59,6 +39,8 @@ struct TObjEneEpsilonGuard
     static s32 create_damage_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     static void free_shared_resources();
     static void load_assets();
+    u8 unk_4A4[0x34];
 };
 
+typedef char TObjEneEpsilonGuard_size[sizeof(TObjEneEpsilonGuard) == 0x4D8 ? 1 : -1];
 #endif

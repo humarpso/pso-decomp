@@ -65,7 +65,7 @@ extern s32 lbl_80484870[];
 void *TBoss3Volopt::ct(void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(this, tl_05);
     *(s32 **)((s8 *)this + 0x18) = lbl_80484870;
-    *(void * *)&this->unk_1C = arg1;
+    *(void * *)&this->m_1c = arg1;
     *(void * *)&this->m_20 = arg2;
     return this;
 }
@@ -200,7 +200,7 @@ void *TBoss3Volopt::init_fade_color(void *arg1, void *arg2) {
     init_object((void *)(tl_fade));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848A0;
     *(void * *)&this->texture_id = arg2;
-    *(f32 *)&this->unk_1C = lbl_805D8858;
+    *(f32 *)&this->m_1c = lbl_805D8858;
     this->m_20 = 255;
     *(u8 *)((s8 *)this + 0x21) = 255;
     this->m_22 = 255;
@@ -215,9 +215,9 @@ extern s32 lbl_804848B8[];
 void TBoss3Volopt::update_fade_out() {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)();
-    *(f32 *)&this->unk_1C = (f32) (*(f32 *)&this->unk_1C + lbl_805D8850);
-    if (*(f32 *)&this->unk_1C >= lbl_805D8858) {
-        *(f32 *)&this->unk_1C = (f32) lbl_805D8858;
+    *(f32 *)&this->m_1c = (f32) (*(f32 *)&this->m_1c + lbl_805D8850);
+    if (*(f32 *)&this->m_1c >= lbl_805D8858) {
+        *(f32 *)&this->m_1c = (f32) lbl_805D8858;
         temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x24);
         if (temp_r12 != NULL) {
             temp_r12();
@@ -249,7 +249,7 @@ void *TBoss3Volopt::init_fade(void *arg1, void *arg2) {
     init_object((void *)((void *)(tl_fade)));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848B8;
     *(void * *)&this->texture_id = arg2;
-    *(f32 *)&this->unk_1C = lbl_805D8854;
+    *(f32 *)&this->m_1c = lbl_805D8854;
     this->m_20 = 255;
     *(u8 *)((s8 *)this + 0x21) = 255;
     this->m_22 = 255;

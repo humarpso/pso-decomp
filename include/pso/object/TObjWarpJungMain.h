@@ -2,24 +2,14 @@
 #define PSO_OBJECT_TOBJWARPJUNGMAIN_H
 
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 
-struct TObjWarpJungMain
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x28];
-    u32 m_8c;
-    u8 _pad90[0x20];
-    u32 m_b0;
-    u8 _padB4[0x4];
-    u16 m_b8;
-    u8 _padBA[0x2];
-    u32 m_bc;
-    u32 m_c0;
+struct TObjWarpJungMain : public TObjAreaWarp {
+    virtual ~TObjWarpJungMain();
     void render();
     void run_task();
+    u8 unk_AC[0x1C];
 };
 
+typedef char TObjWarpJungMain_size[sizeof(TObjWarpJungMain) == 0xC8 ? 1 : -1];
 #endif

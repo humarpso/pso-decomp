@@ -2,14 +2,12 @@
 #define PSO_MISC_TWINDOWMAINMENU_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowMainMenu
-{
+struct TWindowMainMenu : public TObject {
+    virtual ~TWindowMainMenu();
     void set_scale_f();
-    u32 m_1c;
-    u32 m_20;
-    u32 m_24;
-    u8 _pad28[0x20];
+    u8 unk_1C[0x10];
     u32 m_48;
     u32 m_4c;
     u16 m_50;
@@ -43,7 +41,6 @@ struct TWindowMainMenu
     void update_slide_position();
     void handle_cancel();
     void handle_confirm();
-    static void *create_menu(void *arg0, void *arg1);
-};
+    static void *create_menu(void *arg0, void *arg1);};
 
 #endif
