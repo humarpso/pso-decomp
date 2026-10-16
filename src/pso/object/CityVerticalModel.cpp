@@ -48,7 +48,7 @@ struct RecoveredGlobal_801830BC_lbl_804B5C08 {
 };
 
 extern "C" {
-void reset_city_vertical_model_motion(void* a0);
+void vfunc_13__13TUnk_804B5C08Fl(void* a0);
 s32 get_city_common_model(int);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
@@ -79,7 +79,7 @@ u8 *construct_city_vertical_model(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void reset_city_vertical_model_motion(void* a0) { *(float*)((char*)a0 + 0x9c) = lbl_805DBC00; *(int*)((char*)a0 + 0x90) = 1; }
+void TUnk_804B5C08::vfunc_13(s32) { *(float*)((char*)this + 0x9c) = lbl_805DBC00; *(int*)((char*)this + 0x90) = 1; }
 typedef struct RecoveredFields_80182E90_arg0 RecoveredFields_80182E90_arg0;
 typedef struct VBase_18_26a62c VBase_18_26a62c;
 typedef struct VObj_18_26a62c VObj_18_26a62c;
@@ -197,10 +197,10 @@ void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void reset_motion_fields__10TObjPlayerFv();
-void TParticleCtrl__sub_801A2124();
-void update_object_view_visibility();
+void vfunc_9__13TUnk_804B9870Fv();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C();
+void vfunc_12__13TUnk_804B9870Fv();
 s32 city_vertical_model_vtable[14] = {
     0,
     0,
@@ -211,10 +211,10 @@ s32 city_vertical_model_vtable[14] = {
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,
     (s32)reset_motion_fields__10TObjPlayerFv,
-    (s32)TParticleCtrl__sub_801A2124,
-    (s32)update_object_view_visibility,
+    (s32)vfunc_9__13TUnk_804B9870Fv,
+    (s32)update_object_view_visibility__13TUnk_804B9870Fff,
     (s32)classify_actor_view_detail,
-    (s32)TObjRoomId__sub_801A1E2C,
-    (s32)reset_city_vertical_model_motion,
+    (s32)vfunc_12__13TUnk_804B9870Fv,
+    (s32)vfunc_13__13TUnk_804B5C08Fl,
 };
 }

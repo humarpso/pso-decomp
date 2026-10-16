@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerBase.h"
 #include "pso/item/TObjContainerItem.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -113,7 +114,7 @@ struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
-void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__17TObjContainerBaseFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -208,7 +209,8 @@ void *TObjContainerBase__create(void *arg0) {
     }
     return o;
 }
-void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TObjContainerBase::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj_18 *)(arg0))->m77();

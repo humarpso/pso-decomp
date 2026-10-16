@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void vfunc_27__13TUnk_804B6C24FPvlf();
 #include "pso/item/TObjContainerItem.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -32,14 +33,14 @@ void __dt__21TObjContainerAbeEnemyFv();
 void run_task__13TUnk_804B6C24Fv();
 void render__13TUnk_804B6C24Fv();
 void render_shadows__7TObjectFv();
-void TObjContainerAbeEnemy__vt4();
+void vfunc_6__21TObjContainerAbeEnemyFPsl();
 void apply_object_set_data();
-void reset_actor_action_state();
-void get_actor_body_center();
-void update_object_view_visibility();
+void reset_motion_fields__13TUnk_804806E8Fv();
+void vfunc_9__13TUnk_804806E8Fv();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C();
-void TObjPlayer__sub_80019568();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void add_actor_exp();
 void consume_timer_field__10TObjPlayerFPvi();
 void get_actor_level_index();
@@ -47,12 +48,12 @@ void update_actor_ground_y();
 void TObjPlayer__sub_80018E6C();
 void is_actor_cadence_frame();
 void is_within_range__10TObjPlayerFl();
-void TObjPlayer__sub_8015C884();
-void TObjContainerAbeEnemy__vt20();
+void vfunc_21__13TUnk_804B6C24FPvPvPvf();
+void vfunc_22__21TObjContainerAbeEnemyFPvf();
 void receive_technique_hit__17TObjContainerBaseFlPl();
-void call_vt5_and_get_default_scale__10TObjPlayerFv();
-void TLobby__sub_8015C8C4();
-void TLobby__sub_8015C8C8();
+void vfunc_24__13TUnk_804B6C24FPvPv();
+void vfunc_25__13TUnk_804B6C24FPUc();
+void vfunc_26__13TUnk_804B6C24Fll();
 void TObjPlayer__sub_80011010();
 void TObjPlayer__sub_8000FF3C();
 void is_target_in_attack_range__10TObjPlayerFv();
@@ -110,14 +111,14 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)run_task__13TUnk_804B6C24Fv,
     (void *)render__13TUnk_804B6C24Fv,
     (void *)render_shadows__7TObjectFv,
-    (void *)TObjContainerAbeEnemy__vt4,
+    (void *)vfunc_6__21TObjContainerAbeEnemyFPsl,
     (void *)apply_object_set_data,
-    (void *)reset_actor_action_state,
-    (void *)get_actor_body_center,
-    (void *)update_object_view_visibility,
+    (void *)reset_motion_fields__13TUnk_804806E8Fv,
+    (void *)vfunc_9__13TUnk_804806E8Fv,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail,
-    (void *)TObjRoomId__sub_801A1E2C,
-    (void *)TObjPlayer__sub_80019568,
+    (void *)vfunc_12__13TUnk_804B9870Fv,
+    (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,
     (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,
@@ -125,13 +126,13 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)TObjPlayer__sub_80018E6C,
     (void *)is_actor_cadence_frame,
     (void *)is_within_range__10TObjPlayerFl,
-    (void *)TObjPlayer__sub_8015C884,
-    (void *)TObjContainerAbeEnemy__vt20,
+    (void *)vfunc_21__13TUnk_804B6C24FPvPvPvf,
+    (void *)vfunc_22__21TObjContainerAbeEnemyFPvf,
     (void *)receive_technique_hit__17TObjContainerBaseFlPl,
-    (void *)call_vt5_and_get_default_scale__10TObjPlayerFv,
-    (void *)TLobby__sub_8015C8C4,
-    (void *)TLobby__sub_8015C8C8,
-    (void *)TObjContainerBase::check_accuracy_hit,
+    (void *)vfunc_24__13TUnk_804B6C24FPvPv,
+    (void *)vfunc_25__13TUnk_804B6C24FPUc,
+    (void *)vfunc_26__13TUnk_804B6C24Fll,
+    (void *)&vfunc_27__13TUnk_804B6C24FPvlf,
     (void *)TObjPlayer__sub_80011010,
     (void *)TObjPlayer__sub_8000FF3C,
     (void *)is_target_in_attack_range__10TObjPlayerFv,
@@ -192,7 +193,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
 
 extern "C" {
 
-void TObjContainerItem__vt78(void *arg0);
+void vfunc_80__17TObjContainerItemFv(void *arg0);
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1);
 s32 request_box_item_drop(s32, void *, s32, void *);
 s32 free_collision_body_parts(void *);
@@ -201,14 +202,14 @@ s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void TObjContainerItem__vt78(void *arg0) {
+void TObjContainerItem::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
-            submit_cursor_candidate(arg0, -1);
+        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+            submit_cursor_candidate(this, -1);
         }
     case 1:
         return;

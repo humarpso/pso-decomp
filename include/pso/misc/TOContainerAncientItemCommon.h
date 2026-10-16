@@ -6,6 +6,7 @@
 
 struct TOContainerAncientItemCommon : public TUnk_804B08BC {
     virtual ~TOContainerAncientItemCommon();
+    virtual void vfunc_6(s16 *, s32);
     s32 create();};
 
 typedef char TOContainerAncientItemCommon_size[sizeof(TOContainerAncientItemCommon) == 0x368 ? 1 : -1];

@@ -77,8 +77,8 @@ void queue_destruction__7TObjectFv(void *);
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
 void render_shadows__7TObjectFv(); void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
-void TParticleCtrl__sub_801A2124(); void update_object_view_visibility(); void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C(); void TObjPlayer__sub_80019568();
+void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail();
+void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl();
 #pragma readonly_strings on
 __declspec(section ".data") void *bm_obj_lobby_suisou_model_names[2] = { (void *)"lobby_suisou_s_waku.gj", 0 };
 #pragma explicit_zero_data on
@@ -89,8 +89,8 @@ char *lbl_805D44C4 = "TObjSuisouLobby";
 void *__vt__15TObjSuisouLobby[14] = {
     0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,
     (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
-    (void *)release_member_90__10TObjPlayerFv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility,
-    (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568,
+    (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff,
+    (void *)classify_actor_view_detail, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl,
 };
 const f32 lbl_8047A3D0[1][3] = { { 0.0f, 0.0f, 60.0f } };
 const f32 lbl_8047A3DC[1][3] = { { 0.0f, 0.0f, -60.0f } };

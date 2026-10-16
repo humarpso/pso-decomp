@@ -122,11 +122,11 @@ extern "C" {
 
 u16 TObjEneMe3ShinowaReal__sub_800E45CC(void* p);
 void TObjEneMe3ShinowaReal__vt109(void* p);
-void TObjEneMe3ShinowaReal__vt60(void* p);
-void TObjEneMe3ShinowaReal__vt61(void* p);
+void vfunc_62__21TObjEneMe3ShinowaRealFv(void* p);
+void vfunc_63__21TObjEneMe3ShinowaRealFv(void* p);
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1);
-int TObjEneMe3Shinowa__vt60(void*);
-int TObjEneMe3Shinowa__vt61(void*);
+int vfunc_62__17TObjEneMe3ShinowaFv(void*);
+int vfunc_63__17TObjEneMe3ShinowaFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__17TObjEneMe3ShinowaFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -171,8 +171,8 @@ void TObjEneMe3ShinowaReal::try_spawn_mirages() {
     }
 }
 
-void TObjEneMe3ShinowaReal__vt60(void* p) { ((TObjEneMe3ShinowaReal *)p)->try_spawn_mirages(); TObjEneMe3Shinowa__vt60(p); }
-void TObjEneMe3ShinowaReal__vt61(void* p) { ((TObjEneMe3ShinowaReal *)p)->try_spawn_mirages(); TObjEneMe3Shinowa__vt61(p); }
+void TObjEneMe3ShinowaReal::vfunc_62() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); vfunc_62__17TObjEneMe3ShinowaFv(this); }
+void TObjEneMe3ShinowaReal::vfunc_63() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); vfunc_63__17TObjEneMe3ShinowaFv(this); }
 
 extern s32 __vt__21TObjEneMe3ShinowaReal[];
 

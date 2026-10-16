@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerAbeEnemy.h"
 #include "pso/object/TObjComputer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -170,7 +171,7 @@ struct Obj_8018860C {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
-void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__21TObjContainerAbeEnemyFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
@@ -225,7 +226,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
-f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0);
+f32 vfunc_22__21TObjContainerAbeEnemyFPvf(Obj_80188768 *arg0);
 int spawn_particle_effect_with_flags(void *, int, int);
 void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(void *);
@@ -404,7 +405,8 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row) {
     return self;
 }
 
-void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TObjContainerAbeEnemy::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj_18 *)(arg0))->m77();
@@ -464,7 +466,8 @@ void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self) {
 }
 #pragma pop
 
-f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0) {
+f32 TObjContainerAbeEnemy::vfunc_22(void *, f32) {
+    Obj_80188768 *arg0 = (Obj_80188768 *)this;
     s16 sp8;
     Pkt_80188768 pkt;
     if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {

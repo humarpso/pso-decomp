@@ -631,10 +631,10 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-void TObjRoomId__sub_801A1E2C();
+void vfunc_12__13TUnk_804B9870Fv();
 }
 extern "C" {
-void TParticleCtrl__sub_801A2124();
+void vfunc_9__13TUnk_804B9870Fv();
 }
 extern "C" {
 void __dt__12TObjGrassWebFv();
@@ -687,7 +687,7 @@ extern "C" {
 void run_task__12TObjGrassWebFv();
 }
 extern "C" {
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 }
 extern void *bm_ene_grass_model_names[2];
 extern void *bm_ene_grass_motion_names[9];
@@ -701,7 +701,7 @@ extern "C" {
 extern u8 lbl_8043B74C[]; extern "C" u8 lbl_8043B760[];
 }
 extern "C" {
-extern void TLobby__sub_801A1FD8(); extern "C" void TObjRoomId__sub_801A1E2C(); extern "C" void TParticleCtrl__sub_801A2124();
+extern void TLobby__sub_801A1FD8(); extern "C" void vfunc_12__13TUnk_804B9870Fv(); extern "C" void vfunc_9__13TUnk_804B9870Fv();
 }
 extern "C" {
 extern void __dt__12TObjGrassWebFv(); extern "C" void apply_object_set_data(); extern "C" void classify_actor_view_detail();
@@ -709,7 +709,7 @@ extern void __dt__12TObjGrassWebFv(); extern "C" void apply_object_set_data(); e
 extern "C" {
 }
 extern "C" {
-extern void run_task__12TObjGrassWebFv(); extern "C" void update_object_view_visibility();
+extern void run_task__12TObjGrassWebFv(); extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 }
 __declspec(section ".data") void *bm_ene_grass_model_names[2] = {
     (void *)&lbl_8043B6A0, (void *)0x0,
@@ -744,8 +744,8 @@ void *lbl_80492A00[11] = {
 void *__vt__12TObjGrassWeb[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TObjGrassWebFv, (void *)&run_task__12TObjGrassWebFv,
     (void *)&TObjGrassWeb::render, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C,
+    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
 #define bm_ene_grass_resource_descriptor ((s32 *)bm_ene_grass_resource_descriptor)
 #define TObjGrass__grass_type_param_table ((s32 *)TObjGrass__grass_type_param_table)

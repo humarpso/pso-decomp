@@ -6,6 +6,7 @@
 
 struct TODoorJungleMain : public TUnk_804B0BB8 {
     virtual ~TODoorJungleMain();
+    virtual void update_door_switch_state();
     u32 m_d4;
     u32 m_d8;
     u32 m_dc;

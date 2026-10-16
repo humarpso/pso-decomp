@@ -6,6 +6,7 @@
 
 struct TObjContainerJungEx : public TUnk_804B6C24 {
     virtual ~TObjContainerJungEx();
+    virtual void vfunc_6(s16 *, s32);
     static void *create(void *arg0);
     static u8 *get_model(s32 arg0);
     static void free_data();

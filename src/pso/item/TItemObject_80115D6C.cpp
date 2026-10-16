@@ -79,7 +79,7 @@ struct VObj_80115D94_80115D6C : Base_80115D94_80115D6C {
 
 u8 TItemObject__sub_80115D7C(void* p);
 void TItemObject__vt12(void *arg0);
-u8 *TItemObject__vt7(u8 *arg0);
+u8 *vfunc_9__11TItemObjectFv(u8 *arg0);
 void TItem__sub_80115D68(void);
 s32 copy_and_register_item_data__11TItemObjectFv(void *);
 
@@ -105,7 +105,7 @@ void *__vt__11TItemObject[] = {
     0, 0,
     (void *)__dt__11TItemObjectFv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv,
     (void *)render_shadows__5TItemFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
-    (void *)release_member_90__10TObjPlayerFv, (void *)TItemObject__vt7, (void *)TItem__sub_80100B8C,
+    (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFPvi,
     (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC,
     (void *)TItem__sub_80100678, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C,
@@ -238,7 +238,8 @@ void send_star_atomizer_targets(void *arg0) {
     }
 }
 
-u8 *TItemObject__vt7(u8 *arg0) {
+void*TItemObject::vfunc_9() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r4;
 
     temp_r4 = *(u32 *)((s8 *)arg0 + 0xF0);

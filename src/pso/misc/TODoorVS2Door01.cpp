@@ -79,7 +79,7 @@ struct Door_80163FB4 : VObj_80163FB4 {
 };
 
 extern "C" {
-void TODoorVS2Door01__vt14(u8 *arg0);
+void vfunc_16__15TODoorVS2Door01Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
@@ -96,7 +96,7 @@ extern s32 TODoorVS2Door01__class_name;
 extern u32 door_vs2_shared_bml_archive;
 extern s32 *TODoorVS2Door01__texture_lists;
 u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TODoorVS2Door01__vt16(u8 *arg0);
+void vfunc_18__15TODoorVS2Door01Fv(u8 *arg0);
 u8 is_open__15TODoorVS2Door01FPv(void *arg0);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
@@ -109,9 +109,9 @@ extern s32 *TODoorVS2Door01__texture_lists;
 
 extern "C" {
 
-void TODoorVS2Door01__vt13(u8 *arg0);
-void TODoorVS2Door01__vt15(u8 *arg0);
-void TODoorVS2Door01__vt18(void);
+void play_proximity_sound__15TODoorVS2Door01Fv(u8 *arg0);
+void vfunc_17__15TODoorVS2Door01Fv(u8 *arg0);
+void vfunc_20__15TODoorVS2Door01Fv(void);
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1);
 u8 is_open__15TODoorVS2Door01FPv(void *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -125,11 +125,12 @@ s32 is_in_view_depth();
 s32 mem_free(void*);
 s32 set_indexed_flags(void *, s32, s32);
 
-void TODoorVS2Door01__vt18(void) {  }
+void TODoorVS2Door01::vfunc_20() {  }
 
 #pragma push
 #pragma opt_common_subs off
-void TODoorVS2Door01__vt16(u8 *arg0) {
+void TODoorVS2Door01::vfunc_18() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (*(f32 *)((s8 *)arg0 + 0xD4) - *(f32 *)((s8 *)arg0 + 0xB8));
     if (*(f32 *)((s8 *)arg0 + 0xD4) <= (0.0f)) {
         *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
@@ -138,7 +139,8 @@ void TODoorVS2Door01__vt16(u8 *arg0) {
 }
 #pragma pop
 
-void TODoorVS2Door01__vt15(u8 *arg0) {
+void TODoorVS2Door01::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz((1e+04f)) == 0)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
@@ -146,7 +148,8 @@ void TODoorVS2Door01__vt15(u8 *arg0) {
     }
 }
 
-void TODoorVS2Door01__vt14(u8 *arg0) {
+void TODoorVS2Door01::vfunc_16() {
+    u8 *arg0 = (u8 *)this;
     f32 lim = 19.0f;
     *(f32 *)((s8 *)arg0 + 0xD4) = *(f32 *)((s8 *)arg0 + 0xD4) + *(f32 *)((s8 *)arg0 + 0xB8);
     if (lim <= *(f32 *)((s8 *)arg0 + 0xD4)) {
@@ -155,7 +158,8 @@ void TODoorVS2Door01__vt14(u8 *arg0) {
     }
 }
 
-void TODoorVS2Door01__vt13(u8 *arg0) {
+void TODoorVS2Door01::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((4.9e+03f)) != 0)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);

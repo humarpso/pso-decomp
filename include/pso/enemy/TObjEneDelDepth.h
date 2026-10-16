@@ -6,6 +6,9 @@
 
 struct TObjEneDelDepth : public TObjEnemy {
     virtual ~TObjEneDelDepth();
+    virtual void vfunc_63();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
     u32 m_374;
     u8 _pad378[0x4];
     u32 m_37c;

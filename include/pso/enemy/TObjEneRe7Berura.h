@@ -5,6 +5,10 @@
 
 struct TObjEneRe7Berura
 {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void vfunc_28();
     void render();
     void run_task();
     u8 _pad1C[0x8];

@@ -55,7 +55,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 request_box_item_drop(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
-void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__17TObjContainerJungFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__bml_model_resource;
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -196,7 +196,8 @@ void TObjContainerJung__vt77(const Obj_8018D4DC *self) {
 }
 #pragma pop
 
-void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj*)arg0)->m77();

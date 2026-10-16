@@ -1078,10 +1078,10 @@ struct VObj_80038948_80038610 : Base_80038948_80038610 {
 };
 
 void TBoss2Mine__vt102(void *arg0, s32 arg1);
-void TBoss2Mine__vt59(void);
+void vfunc_61__10TBoss2MineFv(void);
 void TBoss2Mine__vt85(void *arg0, s32 arg1, s32 arg2);
-void TBoss2Mine__vt26(void);
-void TBoss2Mine__vt61(void* p);
+void vfunc_28__10TBoss2MineFv(void);
+void vfunc_63__10TBoss2MineFv(void* p);
 
 void TBoss2Mine__vt102(void *arg0, s32 arg1) {
     s32 temp_r4;
@@ -1216,7 +1216,7 @@ void TBoss2Mine::update_move_flag() {
 }
 
 void TBoss2Mine::save_position() { VecCopy__FP3VecPC3Vec((char*)this + 0x74, (char*)this + 0x2fc); }
-void TBoss2Mine__vt59(void) {  }
+void TBoss2Mine::vfunc_61() {  }
 
 }
 
@@ -1335,7 +1335,7 @@ struct VObj_18 : VBase_18 {
     virtual s32 m107();
 };
 extern "C" {
-int TBoss2Mine__vt60(void* p);
+int vfunc_62__10TBoss2MineFv(void* p);
 int clear_attack_receipts(void*);
 s32 TObjEneDD__sub_800BBA0C(void *);
 s32 refresh_collision_body_centers(void *);
@@ -1343,14 +1343,14 @@ s32 refresh_collision_body_centers(void *);
 
 extern "C" {
 
-void TBoss2Mine__vt26(void);
-void TBoss2Mine__vt61(void* p);
-void TBoss2Mine__vt59(void);
+void vfunc_28__10TBoss2MineFv(void);
+void vfunc_63__10TBoss2MineFv(void* p);
+void vfunc_61__10TBoss2MineFv(void);
 
-int TBoss2Mine__vt60(void* p) { return clear_attack_receipts(p); }
+void TBoss2Mine::vfunc_62() { clear_attack_receipts(this); }
 
-void TBoss2Mine__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 4) { transition_enemy_state(p, (void*)4); } }
-void TBoss2Mine__vt26(void) {  }
+void TBoss2Mine::vfunc_63() { if (*(short*)((char*)this + 0x326) != 4) { transition_enemy_state(this, (void*)4); } }
+void TBoss2Mine::vfunc_28() {  }
 void TBoss2Mine::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() != 0) {

@@ -1,6 +1,11 @@
 #pragma push
 
 #include "types.h"
+#include "pso/object/TUnk_804E0988.h"
+#include "pso/object/TUnk_804E094C.h"
+#include "pso/object/TUnk_804E0910.h"
+#include "pso/object/TUnk_804E08D4.h"
+#include "pso/object/TUnk_804E0898.h"
 struct Vec_802C0CAC { f32 x, y, z; };
 
 struct Entry_802C0CAC { s32 a; union { s32 b; f32 pa; }; union { s32 c; f32 pb; }; f32 d; s32 e; };
@@ -226,7 +231,7 @@ s32 rotate_matrix_z(s32, s32);
 void scale_matrix(void *, f32, f32, f32);
 s32 draw_model_motion(s32, s32, f32);
 extern void *lobby_pigeon_lobby_type;
-void draw_lobby_pigeon(LobbyPigeon *self);
+void vfunc_14__13TUnk_804E0898Fv(LobbyPigeon *self);
 }
 
 extern "C" {
@@ -547,7 +552,7 @@ void destroy_instance__10TObjPlayerFv(void);
 void load_kamome_resources__10TObjPlayerFv(void);
 s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self);
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
-void draw_debug_lines__10TObjPlayerFPv(u8 *arg0);
+void vfunc_14__13TUnk_804E08D4Fv(u8 *arg0);
 void * dt_path_obj__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void * TObjPlayer__sub_802C19E8(void *arg0);
 void * create__10TObjPlayerFPv(void *arg0);
@@ -555,14 +560,14 @@ void free_statics__10TObjPlayerFv(void);
 void load_jungle_bird_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
-void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0);
+void vfunc_14__13TUnk_804E0910Fv(u8 *arg0);
 void * deleting_dtor_pathobj__10TObjPlayerFPvs(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
 void * create_path_obj__10TObjPlayerFPv(void *arg0);
 void free_chr_select__10TObjPlayerFv(void);
 void load_jungle_ebi_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
-void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0);
+void vfunc_14__13TUnk_804E094CFv(u8 *arg0);
 void * TObjPlayer__sub_802C27A4(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2);
 void * TObjPlayer__sub_802C28B4(void *arg0);
@@ -570,7 +575,7 @@ void TObjPlayer__sub_802C2900(void);
 void load_seabed_dolphin__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
 s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
-void draw_model_parts__10TObjPlayerFPv(u8 *arg0);
+void vfunc_14__13TUnk_804E0988Fv(u8 *arg0);
 void * TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -639,7 +644,8 @@ extern "C" {
 extern Ent_802C0F3C lobby_pigeon_path_profiles[];
 }
 
-void draw_lobby_pigeon(LobbyPigeon *self) {
+void TUnk_804E0898::vfunc_14() {
+    LobbyPigeon *self = (LobbyPigeon *)this;
   if (check_demo_mode__10TObjPlayerFv() == 1 &&
       get_state_flag__9TMainTaskFv() == 0)
     draw_line_strip__10TObjPlayerFPviif((u8 *)(self), (s32)(self->model),
@@ -660,7 +666,8 @@ void draw_lobby_pigeon(LobbyPigeon *self) {
   pop_matrix();
 }
 
-void update_lobby_pigeon(Obj_802C0F3C *self) {
+void TUnk_804E0898::vfunc_13(s32) {
+    Obj_802C0F3C *self = (Obj_802C0F3C *)this;
   update_lobby_pigeon_visibility((LobbyPigeon *)(self));
   self->b4 += lobby_pigeon_path_profiles[self->d8].pa;
   if (((s32 (*)(void *))advance_lobby_pigeon_path)(self) == 0) {
@@ -874,7 +881,8 @@ s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
     return r;
 }
 
-void draw_debug_lines__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804E08D4::vfunc_14() {
+    u8 *arg0 = (u8 *)this;
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
@@ -1071,7 +1079,8 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
     return r;
 }
 
-void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804E0910::vfunc_14() {
+    u8 *arg0 = (u8 *)this;
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
@@ -1282,7 +1291,8 @@ s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
     return r;
 }
 
-void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804E094C::vfunc_14() {
+    u8 *arg0 = (u8 *)this;
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
@@ -1467,7 +1477,8 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
     return r;
 }
 
-void draw_model_parts__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804E0988::vfunc_14() {
+    u8 *arg0 = (u8 *)this;
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
@@ -1649,8 +1660,8 @@ u8 *TObjPathObj__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TObjPathObj__vt11(void);
-void TObjPathObj__vt12(void);
+void vfunc_13__11TObjPathObjFl(void);
+void vfunc_14__11TObjPathObjFv(void);
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
@@ -1690,8 +1701,8 @@ u8 *TObjPathObj__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjPathObj__vt12(void) {  }
-void TObjPathObj__vt11(void) {  }
+void TObjPathObj::vfunc_14() {  }
+void TObjPathObj::vfunc_13(s32) {  }
 
 }
 

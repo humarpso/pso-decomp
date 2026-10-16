@@ -6,6 +6,15 @@
 
 struct TOAttackableCol : public TUnk_804806E8 {
     virtual ~TOAttackableCol();
+    virtual void vfunc_6(s16 *, s32);
+    virtual s32 vfunc_27(void *, s32, f32);
+    virtual s32 vfunc_26(s32, s32);
+    virtual void vfunc_25(u8 *);
+    virtual f32 vfunc_24(void *, void *);
+    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
+    virtual f32 vfunc_22(void *, f32);
+    virtual int vfunc_21(void *, void *, void *, float);
+    virtual s32 vfunc_20(void *, f32);
     u8 unk_334[0x8];
     u32 m_33c;
     void init_params();

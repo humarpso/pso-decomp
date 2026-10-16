@@ -184,7 +184,7 @@ extern const f64 TObjEnePanarms__data_8043CD20;
 void TObjEnePanarms__sub_800DE124(Obj_800DE124 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void play_attack_sounds__14TObjEnePanarmsFPv(Obj_800DE2D0 *arg0);
+void vfunc_62__14TObjEnePanarmsFv(Obj_800DE2D0 *arg0);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 s32 TObjEnePanarms__sub_800DE390(Obj_800DE390 *arg0);
 f64 atan2_float(f32, f32);
@@ -316,11 +316,11 @@ u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1);
 extern "C" {
 
 void TObjEnePanarms__sub_800DE2B0(void* p);
-void TObjEnePanarms__sub_800DE2C0(void* p);
+void vfunc_61__14TObjEnePanarmsFv(void* p);
 void TObjEnePanarms__sub_800DEEF8(void* p);
 void free_data__14TObjEnePanarmsFv(void);
 void init_state__14TObjEnePanarmsFPv(u8 *arg0);
-void set_state__14TObjEnePanarmsFPv(void* p);
+void vfunc_63__14TObjEnePanarmsFv(void* p);
 void try_activate__14TObjEnePanarmsFPv(void* p);
 void update_spin__14TObjEnePanarmsFPv(void *arg0);
 void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0);
@@ -889,9 +889,10 @@ void init_state__14TObjEnePanarmsFPv(u8 *arg0) {
 
 void try_activate__14TObjEnePanarmsFPv(void* p) { if (check_demo_mode__10TObjPlayerFv(p) == 0) { set_state__14TObjEnePanarmsFPvi((Obj_800DED30 *)((void*)(p)), (s32)((void*)((void*)1))); } }
 void TObjEnePanarms__sub_800DE2B0(void* p) { *(s32*)((char*)p + 0x3e0) = 1; *(s32*)((char*)p + 0x3dc) = 1; }
-void TObjEnePanarms__sub_800DE2C0(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffffeff; }
+void TObjEnePanarms::vfunc_61() { *(u32*)((char*)this + 0x30) &= 0xfffffeff; }
 
-void play_attack_sounds__14TObjEnePanarmsFPv(Obj_800DE2D0 *arg0) {
+void TObjEnePanarms::vfunc_62() {
+    Obj_800DE2D0 *arg0 = (Obj_800DE2D0 *)this;
     switch (arg0->f374) {
     case 1:
     case 2:
@@ -904,7 +905,7 @@ void play_attack_sounds__14TObjEnePanarmsFPv(Obj_800DE2D0 *arg0) {
     }
 }
 
-void set_state__14TObjEnePanarmsFPv(void* p) { if (*(int*)((char*)p + 0x374) != 4) { set_state__14TObjEnePanarmsFPvi((Obj_800DED30 *)((void*)(p)), (s32)((void*)((void*)4))); } }
+void TObjEnePanarms::vfunc_63() { if (*(int*)((char*)this + 0x374) != 4) { set_state__14TObjEnePanarmsFPvi((Obj_800DED30 *)((void*)(this)), (s32)((void*)((void*)4))); } }
 
 s32 TObjEnePanarms__sub_800DE390(Obj_800DE390 *arg0) {
     switch (arg0->f374) {

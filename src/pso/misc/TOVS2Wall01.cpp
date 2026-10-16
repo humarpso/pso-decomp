@@ -25,22 +25,22 @@ extern s32 tl_05;
 
 extern "C" {
 
-void TOVS2Wall01__vt4(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__11TOVS2Wall01FPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 init__11TOVS2Wall01Fi();
 
-void TOVS2Wall01__vt4(void *arg0, s16 *arg1, s32 arg2) {
+void TOVS2Wall01::vfunc_6(s16 *arg1, s32 arg2) {
     s32 temp_r0;
 
     if (arg1 != NULL) {
-        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *arg1;
+        *(s16 *)((s8 *)this + 0x326) = (s16) *arg1;
     }
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     if (temp_r0 != 1) {
         if ((temp_r0 >= 1) || (temp_r0 < 0)) {
-            *(s16 *)((s8 *)arg0 + 0x326) = 0;
+            *(s16 *)((s8 *)this + 0x326) = 0;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0x33C) = 0;
+        *(s32 *)((s8 *)this + 0x33C) = 0;
         if (arg2 != 0) {
             init__11TOVS2Wall01Fi();
         }

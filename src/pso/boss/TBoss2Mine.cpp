@@ -1,19 +1,20 @@
 #include "types.h"
+#include "pso/boss/TBoss2Mine.h"
 
 extern "C" {
 
 void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4);
 void TBoss2Mine__sub_80038D84(void);
 int TBoss2Mine__sub_80038D88(void* p);
-void TBoss2Mine__vt42(void);
-void TBoss2Mine__vt43(void);
-void TBoss2Mine__vt44(void);
-void TBoss2Mine__vt45(void);
-void TBoss2Mine__vt46(void);
-void TBoss2Mine__vt47(void);
-void TBoss2Mine__vt48(void);
-void TBoss2Mine__vt49(void);
-void TBoss2Mine__vt50(void);
+void vfunc_44__10TBoss2MineFv(void);
+void vfunc_45__10TBoss2MineFv(void);
+void vfunc_46__10TBoss2MineFv(void);
+void vfunc_47__10TBoss2MineFv(void);
+void vfunc_48__10TBoss2MineFl(void);
+void vfunc_49__10TBoss2MineFv(void);
+void vfunc_50__10TBoss2MineFv(void);
+void vfunc_51__10TBoss2MineFPv(void);
+void apply_defense_stat_status__10TBoss2MineFPv(void);
 s32 init__10TBoss2MineFPvi(void *, s32);
 s32 TObjEneDD__ct(void *, s32);
 int TObjPlayer__sub_800F0928(void*);
@@ -41,14 +42,14 @@ void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
 
 void TBoss2Mine__sub_80038D84(void) {  }
 int TBoss2Mine__sub_80038D88(void* p) { return TObjPlayer__sub_800F0928(p); }
-void TBoss2Mine__vt42(void) {  }
-void TBoss2Mine__vt43(void) {  }
-void TBoss2Mine__vt44(void) {  }
-void TBoss2Mine__vt45(void) {  }
-void TBoss2Mine__vt46(void) {  }
-void TBoss2Mine__vt47(void) {  }
-void TBoss2Mine__vt48(void) {  }
-void TBoss2Mine__vt49(void) {  }
-void TBoss2Mine__vt50(void) {  }
+void TBoss2Mine::vfunc_44() {  }
+void TBoss2Mine::vfunc_45() {  }
+void TBoss2Mine::vfunc_46() {  }
+void TBoss2Mine::vfunc_47() {  }
+void TBoss2Mine::vfunc_48(s32) {  }
+void TBoss2Mine::vfunc_49() {  }
+void TBoss2Mine::vfunc_50() {  }
+void TBoss2Mine::vfunc_51(void *) {  }
+void TBoss2Mine::apply_defense_stat_status(void *) {  }
 
 }

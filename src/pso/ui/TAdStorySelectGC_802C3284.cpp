@@ -56,8 +56,8 @@ Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent);
 
 extern "C" {
 
-void TObjPathObj__vt11(void);
-void TObjPathObj__vt12(void);
+void vfunc_13__11TObjPathObjFl(void);
+void vfunc_14__11TObjPathObjFv(void);
 
 void TAdStorySelectGC::render() {  }
 void TAdStorySelectGC::run_task() {

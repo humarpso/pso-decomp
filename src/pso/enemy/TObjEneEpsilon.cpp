@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon.h"
 
 extern "C" {
 
-int TObjEneEpsilon__vt28(void);
-int TObjEneEpsilon__vt37(void);
+int vfunc_30__14TObjEneEpsilonFv(void);
+int vfunc_39__14TObjEneEpsilonFv(void);
 
-int TObjEneEpsilon__vt28(void) { return 0; }
-int TObjEneEpsilon__vt37(void) { return 0; }
+s32 TObjEneEpsilon::vfunc_30() { return 0; }
+s32 TObjEneEpsilon::vfunc_39() { return 0; }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcBase.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -149,7 +150,7 @@ s32 push_matrix_from(s32);
 s32 pop_matrix();
 s32 get_player_by_client_id(u32);
 
-void TObjPlayer::update_battle_target() {
+void TObjNpcBase::vfunc_28() {
     f32 *temp_r5;
 
     if ((s16) *(s16 *)((s8 *)this + 0x326) != 3) {

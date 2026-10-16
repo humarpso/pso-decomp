@@ -6,6 +6,15 @@
 
 struct TObjEnemyCustom : public TObjEnemy {
     virtual ~TObjEnemyCustom();
+    virtual void vfunc_79();
+    virtual void vfunc_65(s32, s32);
+    virtual void vfunc_63();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
+    virtual void vfunc_60();
+    virtual void vfunc_59();
+    virtual void vfunc_58();
+    virtual void vfunc_28();
     virtual void render();
     virtual void run_task();
     u32 next_action;
@@ -18,7 +27,6 @@ struct TObjEnemyCustom : public TObjEnemy {
     void update_knockback_state();
     void update_state_machine();
     void update();
-    int update_gigue();
     void update_wander_state();
     void update_state();
     void dispatch_state();

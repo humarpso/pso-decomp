@@ -5,6 +5,10 @@
 
 struct TObjEneRe2Flower
 {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void vfunc_28();
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0xC];

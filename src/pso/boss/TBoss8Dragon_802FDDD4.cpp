@@ -18,13 +18,13 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
-void TBoss8Dragon__sub_802FDE68(void);
-void TBoss8Dragon__sub_802FDE6C(void);
-void TBoss8Dragon__sub_802FDE70(void);
-void TBoss8Dragon__sub_802FDE74(void);
-void TBoss8Dragon__sub_802FDE78(void);
-void TBoss8Dragon__sub_802FDE7C(void);
-void TBoss8Dragon__sub_802FDE80(void);
+void vfunc_44__12TBoss8DragonFv(void);
+void vfunc_45__12TBoss8DragonFv(void);
+void vfunc_46__12TBoss8DragonFv(void);
+void vfunc_47__12TBoss8DragonFv(void);
+void vfunc_48__12TBoss8DragonFl(void);
+void vfunc_49__12TBoss8DragonFv(void);
+void vfunc_50__12TBoss8DragonFv(void);
 void build_6xA8_gol_dragon_boss_actions(void* p);
 void TBoss8Dragon__sub_802FDF10(void);
 extern f32 lbl_805D6980;
@@ -50,13 +50,13 @@ Node_802FDDD4 *clone_node_tree__12TBoss8DragonFPvPvi(Node_802FDDD4 *src, Node_80
     return dst;
 }
 
-void TBoss8Dragon__sub_802FDE68(void) {  }
-void TBoss8Dragon__sub_802FDE6C(void) {  }
-void TBoss8Dragon__sub_802FDE70(void) {  }
-void TBoss8Dragon__sub_802FDE74(void) {  }
-void TBoss8Dragon__sub_802FDE78(void) {  }
-void TBoss8Dragon__sub_802FDE7C(void) {  }
-void TBoss8Dragon__sub_802FDE80(void) {  }
+void TBoss8Dragon::vfunc_44() {  }
+void TBoss8Dragon::vfunc_45() {  }
+void TBoss8Dragon::vfunc_46() {  }
+void TBoss8Dragon::vfunc_47() {  }
+void TBoss8Dragon::vfunc_48(s32) {  }
+void TBoss8Dragon::vfunc_49() {  }
+void TBoss8Dragon::vfunc_50() {  }
 void TBoss8Dragon::send_swapped_packet() { bswap_packet(); TLobby__send_and_handle_60(this); }
 void TBoss8Dragon::bswap_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/enemy/TObjEneDimedian.h"
 #include "pso/misc/TLobby.h"
 #include "pso/enemy/TObjEneBeast.h"
@@ -136,16 +137,16 @@ extern "C" void apply_slow_status__10TObjPlayerFPv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_80019568();
-extern "C" void TObjPlayer__sub_80092A7C();
-extern "C" void TObjPlayer__sub_800A77D0();
-extern "C" void TObjPlayer__sub_800A77D4();
-extern "C" void TObjPlayer__sub_800A7820();
-extern "C" void TObjPlayer__sub_800A786C();
-extern "C" void TObjPlayer__sub_800A78B8();
-extern "C" void TObjPlayer__sub_800A7988();
-extern "C" void TObjPlayer__sub_800A7A14();
-extern "C" void TObjPlayer__sub_800A7BEC();
+extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
+extern "C" void vfunc_100__13TUnk_80493450Fv();
+extern "C" void vfunc_101__15TObjEneDimedianFv();
+extern "C" void vfunc_99__15TObjEneDimedianFv();
+extern "C" void vfunc_98__15TObjEneDimedianFv();
+extern "C" void vfunc_97__15TObjEneDimedianFv();
+extern "C" void vfunc_96__15TObjEneDimedianFv();
+extern "C" void vfunc_94__15TObjEneDimedianFv();
+extern "C" void vfunc_93__15TObjEneDimedianFv();
+extern "C" void vfunc_83__15TObjEneDimedianFv();
 extern "C" void draw_actor_model__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800C53B4();
 extern "C" void update_turn_toward_target__10TObjPlayerFv();
@@ -189,26 +190,26 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void clear_lobby_object_state();
-extern "C" void get_actor_body_center();
+extern "C" void clear_lobby_object_state__9TObjEnemyFv();
+extern "C" void vfunc_9__13TUnk_804806E8Fv();
 extern "C" void get_actor_level_index();
-extern "C" void get_enemy_name__14TObjEnePanarmsFv();
+extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 
-extern "C" void play_hit_sound__10TObjPlayerFv();
+extern "C" void vfunc_95__15TObjEneDimedianFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_actor_shadows_default();
-extern "C" void request_stand_action__12TObjEneBeastFv();
-extern "C" void reset_actor_action_state();
+extern "C" void request_stand_action__13TUnk_80493450Fv();
+extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void run_task__13TUnk_80493450Fv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void set_dead_and_check_destroy__10TObjPlayerFv();
+extern "C" void vfunc_92__15TObjEneDimedianFv();
 extern "C" void tick_freeze_and_reset_appearance();
 extern "C" void tick_freeze_state__10TObjPlayerFv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
@@ -219,7 +220,7 @@ extern "C" void update_actor_ground_y();
 extern "C" void update_attack_stat_status();
 extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
-extern "C" void update_object_view_visibility();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *dimedian_model_name_table[4];
 extern void *dimedian_motion_name_table[13];
@@ -270,12 +271,12 @@ void *dimedian_collision_body_table[33] = {
 void *__vt__15TObjEneDimedian[103] = {
     (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800A846C, (void *)&run_task__13TUnk_80493450Fv,
     (void *)&draw_actor_model__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjEneBeast::is_lying_down,
+    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_80493450Fv,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold__12TObjEneBeastFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&tick_freeze_and_reset_appearance,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
@@ -288,12 +289,12 @@ void *__vt__15TObjEneDimedian[103] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjPlayer__sub_800A7BEC,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__15TObjEneDimedianFv,
     (void *)&beast_idle_update, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&beast_update_approach, (void *)&beast_update_group_chase,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&beast_update_hurt, (void *)&beast_update_dead,
-    (void *)&set_dead_and_check_destroy__10TObjPlayerFv, (void *)&TObjPlayer__sub_800A7A14, (void *)&TObjPlayer__sub_800A7988, (void *)&play_hit_sound__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_800A78B8, (void *)&TObjPlayer__sub_800A786C, (void *)&TObjPlayer__sub_800A7820, (void *)&TObjPlayer__sub_800A77D4,
-    (void *)&TObjPlayer__sub_80092A7C, (void *)&TObjPlayer__sub_800A77D0, (void *)&request_stand_action__12TObjEneBeastFv,
+    (void *)&vfunc_92__15TObjEneDimedianFv, (void *)&vfunc_93__15TObjEneDimedianFv, (void *)&vfunc_94__15TObjEneDimedianFv, (void *)&vfunc_95__15TObjEneDimedianFv,
+    (void *)&vfunc_96__15TObjEneDimedianFv, (void *)&vfunc_97__15TObjEneDimedianFv, (void *)&vfunc_98__15TObjEneDimedianFv, (void *)&vfunc_99__15TObjEneDimedianFv,
+    (void *)&vfunc_100__13TUnk_80493450Fv, (void *)&vfunc_101__15TObjEneDimedianFv, (void *)&request_stand_action__13TUnk_80493450Fv,
 };
 #define __vt__15TObjEneDimedian ((u8 *)__vt__15TObjEneDimedian)
 

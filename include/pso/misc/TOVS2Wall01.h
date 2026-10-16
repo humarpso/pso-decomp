@@ -6,6 +6,7 @@
 
 struct TOVS2Wall01 : public TUnk_804806E8 {
     virtual ~TOVS2Wall01();
+    virtual void vfunc_6(s16 *, s32);
     u8 unk_334[0x8];
     u32 m_33c;
     void* m_340;

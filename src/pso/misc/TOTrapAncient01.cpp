@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrap.h"
 #include "pso/misc/TOTrapAncient01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/RenderFadeState.h"
@@ -295,7 +296,7 @@ struct Trap_80179B8C : VObj_80179B8C {
 
 extern "C" {
 void set_triggered_state__6TOTrapFPvUi(void *, void *, f32);
-void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
+void vfunc_22__15TOTrapAncient01FPvf(void *arg0, void *arg1, f32 farg0);
 u16 obj_getField1c(void *);
 s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFv();
@@ -374,12 +375,12 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self);
 
 extern "C" {
 
-void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__15TOTrapAncient01FPsl(void *arg0, s16 *arg1, s32 arg2);
 void TOTrapAncient01__vt82(void);
 void TOTrapAncient01__vt84(void);
 void TOTrapAncient01__vt86(void);
 void TOTrapAncient02R__vt84(void *arg0);
-void TOTrap__sub_8017939C(void);
+void vfunc_25__6TOTrapFPUc(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
@@ -388,18 +389,18 @@ s32 is_current_room(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
-void TOTrap__sub_8017939C(void) {  }
+void TOTrap::vfunc_25(u8 *) {  }
 void TOTrapAncient01__vt84(void) {  }
 void TOTrapAncient01__vt86(void) {  }
 
-void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
+void TOTrapAncient01::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 4) {
         if (arg2 == 1) {
-            ((VObj_801793A8_8017939C *)arg0)->m83();
+            ((VObj_801793A8_8017939C *)this)->m83();
         }
-        ((TOTrapAncient01 *)arg0)->release_trapped_player();
-        set_flag8__6TLobbyFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        ((TOTrapAncient01 *)this)->release_trapped_player();
+        set_flag8__6TLobbyFPv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 
@@ -428,9 +429,9 @@ void TOTrapAncient01::release_trapped_player() {
     }
 }
 
-void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0) {
-    ((TOTrapAncient01 *)arg0)->release_trapped_player();
-    set_triggered_state__6TOTrapFPvUi(arg0, arg1, farg0);
+f32 TOTrapAncient01::vfunc_22(void *arg1, f32 farg0) {
+    ((TOTrapAncient01 *)this)->release_trapped_player();
+    set_triggered_state__6TOTrapFPvUi(this, arg1, farg0);
 }
 
 void TOTrapAncient01__vt82(void) {  }

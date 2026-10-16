@@ -147,13 +147,13 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 }
 extern "C" {
-void TObjRoomId__sub_801A1E2C();
+void vfunc_12__13TUnk_804B9870Fv();
 }
 extern "C" {
-void TParticleCtrl__sub_801A2124();
+void vfunc_9__13TUnk_804B9870Fv();
 }
 extern "C" {
 void apply_object_set_data();
@@ -873,7 +873,7 @@ extern "C" {
 void reset_movement__10TObjPlayerFv();
 }
 extern "C" {
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 }
 extern void *lbl_804D3A08[14];
 extern void *lbl_804D3A40[4];
@@ -1413,8 +1413,8 @@ void *lbl_804D400C[18] = {
 void *lbl_804D4054[21] = {
     (void *)0x0, (void *)0x0, (void *)&TAdSinglePlyChrSelectGC__sub_802908CC, (void *)&run_task__12TCMCharacterFv,
     (void *)&close_if_active__23TAdSinglePlyChrSelectGCFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_movement__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)0x0, (void *)0x0,
+    (void *)&reset_movement__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0,
 };

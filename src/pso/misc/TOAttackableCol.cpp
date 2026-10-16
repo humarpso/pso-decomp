@@ -53,18 +53,18 @@ struct Obj_801575AC {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-int TOAttackableCol__vt24(void);
-int TOAttackableCol__vt25(void);
-int TOAttackableCol__vt18(void);
-int TOAttackableCol__vt19(void);
-f32 TOAttackableCol__vt20(void* p, s32 _w1);
-f32 TOAttackableCol__vt21(void* p, s32 _w1);
-f32 TOAttackableCol__vt22(void* p, s32 _w1);
+int vfunc_26__15TOAttackableColFll(void);
+int vfunc_27__15TOAttackableColFPvlf(void);
+int vfunc_20__15TOAttackableColFPvf(void);
+int vfunc_21__15TOAttackableColFPvPvPvf(void);
+f32 vfunc_22__15TOAttackableColFPvf(void* p, s32 _w1);
+f32 vfunc_23__15TOAttackableColFPvPvPvll(void* p, s32 _w1);
+f32 vfunc_24__15TOAttackableColFPvPv(void* p, s32 _w1);
 void *fn_80157CA8(void *arg0);
 void TOAttackableCol__sub_80157310(void * = 0);
 extern s32 __vt__11TOVS2Wall01[];
 s32 access_object_saved_state(void *, void *, int);
-void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__15TOAttackableColFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
 void *__nw__7TObjectFUl(int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
@@ -95,11 +95,11 @@ extern "C" {
 
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
-void TOAttackableCol__vt23(void);
+void vfunc_25__15TOAttackableColFPUc(void);
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
-void TOBarrierEnergy01__vt18(void);
+void vfunc_20__17TOBarrierEnergy01Fv(void);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(void *);
 s32 submit_cursor_candidate(void *, s32);
@@ -184,7 +184,8 @@ int TOAttackableCol::send_state_change(u16 state) {
     }
 }
 
-void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TOAttackableCol::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     s32 temp_r0;
     if (arg1 != NULL) {
@@ -354,21 +355,21 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-int TOAttackableCol__vt24(void) { return 1; }
+s32 TOAttackableCol::vfunc_26(s32, s32) { return 1; }
 
-int TOAttackableCol__vt25(void) { return 1; }
+s32 TOAttackableCol::vfunc_27(void *, s32, f32) { return 1; }
 
-int TOAttackableCol__vt18(void) { return 1; }
+s32 TOAttackableCol::vfunc_20(void *, f32) { return 1; }
 
-int TOAttackableCol__vt19(void) { return 1; }
+int TOAttackableCol::vfunc_21(void *, void *, void *, float) { return 1; }
 
-f32 TOAttackableCol__vt20(void* p, s32 _w1) { return ((TOAttackableCol *)p)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::vfunc_22(void *_w1, f32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
 
-f32 TOAttackableCol__vt21(void* p, s32 _w1) { return ((TOAttackableCol *)p)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::vfunc_23(void *_w1, void *, void *, s32, s32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
 
-f32 TOAttackableCol__vt22(void* p, s32 _w1) { return ((TOAttackableCol *)p)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::vfunc_24(void *_w1, void *) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
 
-void TOAttackableCol__vt23(void) {  }
+void TOAttackableCol::vfunc_25(u8 *) {  }
 
 void TOAttackableCol__sub_80157C20(void* p, s32 v) { *(s32*)((char*)p + 0x33c) = v; }
 s32 TOAttackableCol__sub_80157C28(void* p) { return *(s32*)((char*)p + 0x33c); }

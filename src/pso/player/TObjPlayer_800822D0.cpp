@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E1A4.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -6,10 +7,10 @@ extern "C" {
 
 extern "C" {
 
-void TObjPlayer__sub_800822D0(void);
+void vfunc_25__13TUnk_8048E1A4FPUc(void);
 s32 TObjPlayer__sub_80082300(void* p);
 
-void TObjPlayer__sub_800822D0(void) {  }
+void TUnk_8048E1A4::vfunc_25(u8 *) {  }
 void TObjPlayer::set_position_xy(f32 a, f32 b) { *(f32*)((char*)this + 0x40) = a; *(f32*)((char*)this + 0x44) = b; }
 
 f32 TObjPlayer::get_speed() { return *(f32*)((char*)this + 0xc0); }

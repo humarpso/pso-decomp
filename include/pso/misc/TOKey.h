@@ -5,6 +5,8 @@
 
 struct TOKey
 {
+    void vfunc_13(s32);
+    s16 update_object_view_visibility(f32, f32);
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0xC];
@@ -37,9 +39,7 @@ struct TOKey
     void *destroy_key_base(s16 arg1);
     void *destroy_key_object(s16 arg1);
     void *init();
-    s32 set_ready_if_pressed();
     void handle_switch_trigger(void *arg1);
-    void trigger_camera_pan(s32 arg1);
     void send_switch_on();
     s32 is_any_player_in_range();
     s32 is_local_player_in_range();

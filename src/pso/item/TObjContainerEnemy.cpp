@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerItem.h"
 #include "pso/item/TObjContainerEnemy.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -122,7 +123,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 request_box_item_drop(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
-void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__17TObjContainerItemFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, void *, void *);
@@ -140,7 +141,7 @@ void post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-void TObjContainerItem__vt79(struct Box_80189A50 *self);
+void vfunc_81__17TObjContainerItemFv(struct Box_80189A50 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
@@ -151,12 +152,12 @@ extern s32 lbl_805D5B7C;
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
-void TObjContainerItem__vt77(Obj_8018990C *self);
+void vfunc_79__17TObjContainerItemFv(Obj_8018990C *self);
 }
 
 extern "C" {
 
-void TObjContainerEnemy__vt78(void *arg0);
+void vfunc_80__18TObjContainerEnemyFv(void *arg0);
 void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
@@ -164,14 +165,14 @@ s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void TObjContainerEnemy__vt78(void *arg0) {
+void TObjContainerEnemy::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
-            submit_cursor_candidate(arg0, -1);
+        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+            submit_cursor_candidate(this, -1);
         }
     case 1:
         return;
@@ -220,7 +221,8 @@ u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TObjContainerItem::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj18 *) arg0)->m77();
@@ -238,7 +240,8 @@ void TObjContainerItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-void TObjContainerItem__vt77(Obj_8018990C *self) {
+void TObjContainerItem::vfunc_79() {
+    Obj_8018990C *self = (Obj_8018990C *)this;
     void *o;
     if (self->f326 != 1) {
         Spawn_8018990C a = *lbl_805D5B80;
@@ -265,7 +268,8 @@ void TObjContainerItem__vt77(Obj_8018990C *self) {
     }
 }
 
-void TObjContainerItem__vt79(struct Box_80189A50 *self) {
+void TObjContainerItem::vfunc_81() {
+    struct Box_80189A50 *self = (struct Box_80189A50 *)this;
     if (lbl_805D5B78 != 0) {
         switch (self->state) {
         case 0:

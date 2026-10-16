@@ -83,10 +83,10 @@ void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void reset_motion_fields__10TObjPlayerFv();
-void TParticleCtrl__sub_801A2124();
-void update_object_view_visibility();
+void vfunc_9__13TUnk_804B9870Fv();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C();
+void vfunc_12__13TUnk_804B9870Fv();
 S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag);
 u8 *TObjDFDemo3__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 
@@ -102,8 +102,8 @@ void *lbl_804856E0[3] = {
 void *__vt__11TObjDFDemo3[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo3Fv, (void *)&run_task__11TObjDFDemo3Fv,
     (void *)&render__11TObjDFDemo3Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C,
+    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
 
 void TObjDFDemo3::render() {

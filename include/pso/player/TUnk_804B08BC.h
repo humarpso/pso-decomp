@@ -6,6 +6,9 @@
 class TUnk_804B08BC : public TUnk_804B6C24 {
 public:
     virtual ~TUnk_804B08BC();
+    virtual void vfunc_81();
+    virtual void vfunc_80();
+    virtual void vfunc_79();
 };
 typedef char TUnk_804B08BC_size[sizeof(TUnk_804B08BC) == 0x368 ? 1 : -1];
 

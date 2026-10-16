@@ -24,7 +24,6 @@ struct TObjFish : public TUnk_804B9870 {
     static void create_splash_particle(s32 arg0, s32 arg1, s32 arg2);
     static void spawn_particle(s32 arg0, s32 arg1, f32 farg0);
     void init_models();
-    void spawn_break_debris();
     static void free_resource();
     static void load_area_resource();
     static void draw_callback_transform_to_view();

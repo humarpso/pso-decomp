@@ -6,6 +6,7 @@
 
 struct TItemObject
 {
+    void*vfunc_9();
     void store_encoded_value(s32 value);
     s32 load_encoded_value();
 

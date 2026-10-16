@@ -348,10 +348,10 @@ void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void reset_motion_fields__10TObjPlayerFv();
-void TParticleCtrl__sub_801A2124();
-void update_object_view_visibility();
+void vfunc_9__13TUnk_804B9870Fv();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C();
+void vfunc_12__13TUnk_804B9870Fv();
 void *__vt__16TBGLightningCtrl[] = {
     0, 0,
     (void *)__dt__16TBGLightningCtrlFv,
@@ -361,10 +361,10 @@ void *__vt__16TBGLightningCtrl[] = {
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
     (void *)reset_motion_fields__10TObjPlayerFv,
-    (void *)TParticleCtrl__sub_801A2124,
-    (void *)update_object_view_visibility,
+    (void *)vfunc_9__13TUnk_804B9870Fv,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail,
-    (void *)TObjRoomId__sub_801A1E2C,
+    (void *)vfunc_12__13TUnk_804B9870Fv,
 };
 void *__vt__12TBGLightning[] = {
     0, 0,

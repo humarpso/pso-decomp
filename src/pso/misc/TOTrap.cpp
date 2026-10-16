@@ -365,7 +365,7 @@ void TOTrap::play_sounds() {
     spawn_particle_effect(arg0 + 0x2FC, 0x46);
 }
 
-void TOTrap::trigger(s16 *arg1, s32 arg2) {
+void TOTrap::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 4) {
         if (arg2 == 1) {
             ((VObj_80178EF8_80178BC0 *)this)->m83();

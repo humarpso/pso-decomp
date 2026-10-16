@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488E00.h"
 #include "pso/camera/CameraArrivalReset.h"
 #include "pso/camera/FollowCameraController.h"
 struct V_8006CC7C { f32 x, y, z; };
@@ -374,7 +375,7 @@ void push_matrix_from(void *);
 void pop_matrices(s32);
 extern FollowVector lbl_80438534;
 extern u8 identity_matrix[];
-void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1);
+void vfunc_8__13TUnk_80488E00FPv(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1);
 void matrix_mult_vec(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
@@ -387,7 +388,7 @@ extern void *local_client_id;
 extern FollowVector lbl_80438528;
 extern Preset_8006DEF8 *follow_camera_init_pose_table[];
 extern u8 lbl_804FF5E8[];
-void follow_camera_init_pose(Cam_8006DEF8 *self);
+void vfunc_10__13TUnk_80488E00Fv(Cam_8006DEF8 *self);
 s32 is_split_screen();
 int get_camera_mode__11TCameraCtrlFv();
 FollowVector *get_position_ptr__10TObjPlayerFv(void *);
@@ -437,7 +438,7 @@ extern "C" {
 
 void* TCameraCtrl__sub_8006CC30(void* a0);
 void TCameraCtrl__sub_8006DCC8(void* p);
-void TCameraCtrl__sub_8006DEF4(void);
+void vfunc_6__13TUnk_80488E00Fv(void);
 s32 TCameraCtrl__sub_8006E7FC(void* p);
 void TCameraCtrl__sub_8006E804(void* a0);
 void *TCameraCtrl__vt0(void);
@@ -944,7 +945,9 @@ void TCameraCtrl::recenter_with_obstruction(u8 *arg1, u8 *arg2) {
     }
 }
 
-void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1) {
+void TUnk_80488E00::vfunc_8(void *arg1_arg) {
+    Cam_8006DD78 *arg0 = (Cam_8006DD78 *)this;
+    const Tgt_8006DD78 *arg1 = (const Tgt_8006DD78 *)arg1_arg;
     FollowVector v = lbl_80438534;
     FollowVector d;
     Hit_8006DD78 *hit;
@@ -975,9 +978,10 @@ void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1
     }
 }
 
-void TCameraCtrl__sub_8006DEF4(void) {  }
+void TUnk_80488E00::vfunc_6() {  }
 
-void follow_camera_init_pose(Cam_8006DEF8 *self) {
+void TUnk_80488E00::vfunc_10() {
+    Cam_8006DEF8 *self = (Cam_8006DEF8 *)this;
     FollowVector v = lbl_80438528;
     Tgt_8006DEF8 *p;
     s32 state;

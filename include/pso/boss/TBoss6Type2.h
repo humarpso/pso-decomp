@@ -8,6 +8,7 @@ struct TBoss6Type2Point { f32 x, y, z; };
 
 struct TBoss6Type2
 {
+    f32 vfunc_23(void *, void *, void *, s32, s32);
     u8 _unknown0[0x1C];
     u8 _pad1C[0x8];
     u32 m_24;

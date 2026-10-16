@@ -117,8 +117,8 @@ u8 *TODoorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TODoorAncient01__vt13(u8 *arg0);
-void TODoorAncient01__vt15(u8 *arg0);
+void play_proximity_sound__15TODoorAncient01Fv(u8 *arg0);
+void vfunc_17__15TODoorAncient01Fv(u8 *arg0);
 void *__dt__15TODoorAncient01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -132,7 +132,8 @@ s32 set_indexed_flags(void *, s32, s32);
 
 extern const f32 lbl_805DB3E0;
 
-void TODoorAncient01__vt15(u8 *arg0) {
+void TODoorAncient01::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB3E0) == 0)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
@@ -142,7 +143,8 @@ void TODoorAncient01__vt15(u8 *arg0) {
 
 extern const f32 lbl_805DB3E4;
 
-void TODoorAncient01__vt13(u8 *arg0) {
+void TODoorAncient01::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz(lbl_805DB3E4) != 0)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);

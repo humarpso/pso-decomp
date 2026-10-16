@@ -1333,7 +1333,7 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1);
 
 extern "C" {
 
-void TBoss6PlotFalz__vt61(void);
+void vfunc_63__14TBoss6PlotFalzFv(void);
 
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self) {
     s32 i;
@@ -1537,7 +1537,7 @@ extern s32 lbl_805D3E50;
 
 extern "C" {
 
-void TBoss6PlotFalz__vt61(void);
+void vfunc_63__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 int TItemEffOrgaFlowShot__sub_80357204(void);
 int TLobby__sub_8001FE7C(void*, void*);
@@ -1557,7 +1557,7 @@ void TBoss6PlotFalz::run_task() {
     }
 }
 
-void TBoss6PlotFalz__vt61(void) {  }
+void TBoss6PlotFalz::vfunc_63() {  }
 
 typedef struct RecoveredFields_802AC904_arg0 RecoveredFields_802AC904_arg0;
 typedef struct RecoveredGlobal_802AC904___vt__14TBoss6PlotFalz RecoveredGlobal_802AC904___vt__14TBoss6PlotFalz;

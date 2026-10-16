@@ -5,6 +5,8 @@
 
 struct TObjEneEpsilon
 {
+    s32 vfunc_39();
+    s32 vfunc_30();
     u8 _pad1C[0x370];
     u16 m_38c;
     u8 _pad38E[0x32];

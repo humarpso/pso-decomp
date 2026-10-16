@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientItemRare.h"
 
 struct Base_8015BF38 { char pad[0x18]; };
 #define M0(x) virtual void m##x();
@@ -17,7 +18,7 @@ struct VObj_8015BF38 : Base_8015BF38 {
 extern "C" {
 
 void *TOContainerAncientItemNone__ct(void *arg0);
-void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__26TOContainerAncientItemRareFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 request_box_item_drop(void *, void *, s32);
 void TOContainerAncientItemRare__ct(void *);
 s32 queue_destruction__7TObjectFv(void *);
@@ -33,7 +34,8 @@ void *TOContainerAncientItemNone__ct(void *arg0) {
     return arg0;
 }
 
-void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TOContainerAncientItemRare::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015BF38*)arg0)->m77();

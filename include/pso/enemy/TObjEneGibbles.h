@@ -4,6 +4,7 @@
 #include <stddef.h>
 
 struct TObjEneGibbles {
+    void*vfunc_9();
     u32 resolve_sound_id(u32 sound_id);
     u8 unknown_00[0x18];
     void* virtual_table;

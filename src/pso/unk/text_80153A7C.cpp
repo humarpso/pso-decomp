@@ -116,7 +116,7 @@ extern "C" {
 
 void *TObjFogCollisionSwitch__create(void *arg0);
 int TObjFogCollision__sub_80153F70(void);
-void TObjFogCollision__vt11(u8 *arg0);
+void vfunc_13__16TObjFogCollisionFl(u8 *arg0);
 f32 horizontal_distance_squared(void *, s32);
 s32 get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(int);
@@ -229,7 +229,8 @@ block_5:
     return 0;
 }
 
-void TObjFogCollision__vt11(u8 *arg0) {
+void TObjFogCollision::vfunc_13(s32) {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {

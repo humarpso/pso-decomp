@@ -18,5 +18,5 @@ typedef char ArrivalPoseHeading[offsetof(ArrivalCameraPose,heading)==0x30?1:-1];
 typedef char ArrivalPosePosition[offsetof(ArrivalCameraPose,position)==0x3C?1:-1];
 typedef char ArrivalPoseTarget[offsetof(ArrivalCameraPose,target)==0x48?1:-1];
 typedef char ArrivalActorHeading[offsetof(ArrivalCameraActor,heading)==0x60?1:-1];
-extern "C" void reset_follow_camera_after_warp(ArrivalCameraPose *, const ArrivalCameraActor *);
+extern "C" void vfunc_8__13TUnk_80488E00FPv(ArrivalCameraPose *, const ArrivalCameraActor *);
 #endif

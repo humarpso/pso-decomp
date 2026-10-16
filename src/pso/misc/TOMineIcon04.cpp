@@ -108,7 +108,7 @@ void apply_slow_status__10TObjPlayerFPv();
 void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void add_actor_exp();
 void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
@@ -133,13 +133,13 @@ void fn_80010EBC();
 void fn_80010EC0();
 void fn_80010EC4();
 void fn_80010EC8();
-void get_actor_body_center();
+void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
 void render_shadows__7TObjectFv();
-void reset_actor_action_state();
+void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void run_task__6TOMineFv();
 void spawn_effect__10TOMineTrapFv();
@@ -152,7 +152,7 @@ void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
 void update_movement_status__10TObjPlayerFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 
 void *__vt__12TOMineIcon04[87] = {
@@ -164,12 +164,12 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)render_shadows__7TObjectFv,
     (void *)TOMineTrap__sub_80170768,
     (void *)init_object_set_pos__10TOMineTrapFv,
-    (void *)reset_actor_action_state,
-    (void *)get_actor_body_center,
-    (void *)update_object_view_visibility,
+    (void *)reset_motion_fields__13TUnk_804806E8Fv,
+    (void *)vfunc_9__13TUnk_804806E8Fv,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail,
     (void *)TOMineTrap::init_trap,
-    (void *)TObjPlayer__sub_80019568,
+    (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,
     (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,

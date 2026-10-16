@@ -5,6 +5,10 @@
 
 struct TObjEneBm3FlyNest
 {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void vfunc_28();
     u16 m_1c;
     u8 _pad1E[0x6];
     u32 m_24;

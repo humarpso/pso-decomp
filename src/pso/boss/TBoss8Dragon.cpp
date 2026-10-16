@@ -1784,10 +1784,10 @@ u8 TBoss8Dragon__sub_802FC88C(void *arg0);
 s32 is_health_low__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_802FC9D8(u8 *arg0);
 bool TBoss8Dragon__sub_802FCCBC(u8 *arg0);
-void TBoss8Dragon__sub_802FCD00(void);
-void TBoss8Dragon__sub_802FCD04(void);
-void TBoss8Dragon__sub_802FCD08(void);
-void TBoss8Dragon__sub_802FCD0C(void);
+void vfunc_61__12TBoss8DragonFv(void);
+void vfunc_62__12TBoss8DragonFv(void);
+void vfunc_63__12TBoss8DragonFv(void);
+void vfunc_28__12TBoss8DragonFv(void);
 u8 *TBoss8Dragon__ct(u8 *, void *, void *);
 void TBoss8Dragon__sub_802FD9D0(void);
 s32 build_6xA8_gol_dragon_boss_actions(void *);
@@ -1964,25 +1964,25 @@ void TBoss8Dragon__sub_802FA4E4();
 extern "C" {
 }
 extern "C" {
-void TBoss8Dragon__sub_802FDE68();
+void vfunc_44__12TBoss8DragonFv();
 }
 extern "C" {
-void TBoss8Dragon__sub_802FDE6C();
+void vfunc_45__12TBoss8DragonFv();
 }
 extern "C" {
-void TBoss8Dragon__sub_802FDE70();
+void vfunc_46__12TBoss8DragonFv();
 }
 extern "C" {
-void TBoss8Dragon__sub_802FDE74();
+void vfunc_47__12TBoss8DragonFv();
 }
 extern "C" {
-void TBoss8Dragon__sub_802FDE78();
+void vfunc_48__12TBoss8DragonFl();
 }
 extern "C" {
-void TBoss8Dragon__sub_802FDE7C();
+void vfunc_49__12TBoss8DragonFv();
 }
 extern "C" {
-void TBoss8Dragon__sub_802FDE80();
+void vfunc_50__12TBoss8DragonFv();
 }
 extern "C" {
 void TLobby__sub_801A1FD8();
@@ -2168,7 +2168,7 @@ extern "C" {
 extern u8 TObjPlayer__sub_80018F64[];
 }
 extern "C" {
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 }
 extern "C" {
 void update_and_send_enemy_hit_state();
@@ -2195,7 +2195,7 @@ extern "C" {
 void fn_80010EC8();
 }
 extern "C" {
-void clear_lobby_object_state();
+void clear_lobby_object_state__9TObjEnemyFv();
 }
 extern "C" {
 extern u8 fn_801A1F48[];
@@ -2207,7 +2207,7 @@ extern "C" {
 extern u8 fn_801A2340[];
 }
 extern "C" {
-void get_enemy_name__14TObjEnePanarmsFv();
+void vfunc_12__9TObjEnemyFv();
 }
 extern "C" {
 void get_pos__10TObjPlayerFii();
@@ -2520,24 +2520,24 @@ void *__vt__12TBoss8Dragon[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TBoss8DragonFPvs, (void *)&run_task__12TBoss8DragonFv,
     (void *)&TBoss8Dragon__sub_802F4380, (void *)&render_shadows__12TBoss8DragonFv, (void *)&TLobby__sub_801A1FD8, (void *)&fn_801A1F48,
     (void *)&TObjPlayer__sub_80018F64, (void *)&TObjPlayer__sub_80018F5C, (void *)&fn_801A2340, (void *)&fn_801A212C,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&TObjPlayer__sub_8001119C, (void *)&TObjPlayer__sub_80018EE4, (void *)&TObjPlayer__sub_80018E6C, (void *)&TObjPlayer__sub_80011704,
     (void *)&TObjPlayer__sub_80016454, (void *)&TObjPlayer__sub_80015DE8, (void *)&TObjPlayer__sub_80014108, (void *)&calc_direct_attack_damage__12TBoss8DragonFPvPvPviii,
     (void *)&TObjPlayer__sub_80011824, (void *)&TObjPlayer__sub_8001401C, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&TObjPlayer__sub_800162E0,
-    (void *)&TBoss8Dragon__sub_802FCD0C, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjPlayer__sub_8001745C, (void *)&TObjPlayer::test_flag_256,
+    (void *)&vfunc_28__12TBoss8DragonFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjPlayer__sub_8001745C, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&TObjPlayer__sub_800171A0,
     (void *)&TObjPlayer__sub_80016FF8, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016D78,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&TBoss8Dragon__sub_802FDE68, (void *)&TBoss8Dragon__sub_802FDE6C, (void *)&TBoss8Dragon__sub_802FDE70, (void *)&TBoss8Dragon__sub_802FDE74,
-    (void *)&TBoss8Dragon__sub_802FDE78, (void *)&TBoss8Dragon__sub_802FDE7C, (void *)&TBoss8Dragon__sub_802FDE80, (void *)&TObjPlayer__sub_80014E74,
+    (void *)&vfunc_44__12TBoss8DragonFv, (void *)&vfunc_45__12TBoss8DragonFv, (void *)&vfunc_46__12TBoss8DragonFv, (void *)&vfunc_47__12TBoss8DragonFv,
+    (void *)&vfunc_48__12TBoss8DragonFl, (void *)&vfunc_49__12TBoss8DragonFv, (void *)&vfunc_50__12TBoss8DragonFv, (void *)&TObjPlayer__sub_80014E74,
     (void *)&TObjPlayer__sub_80014C78, (void *)&TObjPlayer__sub_80014C1C, (void *)&TObjPlayer__sub_80014B5C, (void *)&TObjPlayer__sub_80014900,
     (void *)&TObjPlayer__sub_8001489C, (void *)&TObjPlayer__sub_800105E4, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
-    (void *)&TObjPlayer__sub_80014890, (void *)&TBoss8Dragon__sub_802FCD00, (void *)&TBoss8Dragon__sub_802FCD04, (void *)&TBoss8Dragon__sub_802FCD08,
+    (void *)&TObjPlayer__sub_80014890, (void *)&vfunc_61__12TBoss8DragonFv, (void *)&vfunc_62__12TBoss8DragonFv, (void *)&vfunc_63__12TBoss8DragonFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&TObjPlayer__sub_80010B44, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&TObjPlayer__sub_80010A84, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&TObjPlayer__sub_800F698C, (void *)&clear_lobby_object_state, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&TObjPlayer__sub_800F698C, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TBoss8Dragon__sub_802FA4E4,
     (void *)&update_colliders__12TBoss8DragonFPv, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -6925,13 +6925,13 @@ bool TBoss8Dragon__sub_802FCCBC(u8 *arg0) {
 
 void TBoss8Dragon::set_state_22() { if (*(short*)((char*)this + 0x326) != 22) { ((int (*)(void*, void*))send_action_packet__12TBoss8DragonFPvi)(this, (void*)22); } }
 
-void TBoss8Dragon__sub_802FCD00(void) {  }
+void TBoss8Dragon::vfunc_61() {  }
 
-void TBoss8Dragon__sub_802FCD04(void) {  }
+void TBoss8Dragon::vfunc_62() {  }
 
-void TBoss8Dragon__sub_802FCD08(void) {  }
+void TBoss8Dragon::vfunc_63() {  }
 
-void TBoss8Dragon__sub_802FCD0C(void) {  }
+void TBoss8Dragon::vfunc_28() {  }
 
 void TBoss8Dragon::check_death() {
     if (((s32 (*)(void))is_health_low__12TBoss8DragonFPv)() != 0) {

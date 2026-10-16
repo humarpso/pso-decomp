@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
 
 typedef struct Plr_800C6E34 {
     u8 pad0[0x2A8];
@@ -97,15 +98,15 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 
 extern "C" {
 
-void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0);
+void vfunc_79__15TObjEnemyCustomFv(void *arg0);
 s32 call_vt78__10TObjPlayerFv();
 
-void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0) {
+void TObjEnemyCustom::vfunc_79() {
     s16 temp_r31;
 
-    temp_r31 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r31 = *(s16 *)((s8 *)this + 0x326);
     call_vt78__10TObjPlayerFv();
-    *(s16 *)((s8 *)arg0 + 0x326) = temp_r31;
+    *(s16 *)((s8 *)this + 0x326) = temp_r31;
 }
 
 u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {

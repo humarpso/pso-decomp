@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B08BC.h"
 #include "pso/misc/TOContainerAncientItemCommon.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -118,9 +119,9 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-void TObjPlayer__sub_8015C3C8(u8 *arg0);
+void vfunc_81__13TUnk_804B08BCFv(u8 *arg0);
 extern s32 __vt__23TOContainerAncientEnemy[];
-void TObjPlayer__sub_8015C3C8(u8 *arg0);
+void vfunc_81__13TUnk_804B08BCFv(u8 *arg0);
 s32 is_quest_active();
 void * TOContainerAncientItemCommon__ct(void *, void *);
 s32 __nw__7TObjectFUl(int);
@@ -167,22 +168,22 @@ struct VObj_8015C098 : Base_8015C098 {
     virtual void m77();
 };
 
-void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__28TOContainerAncientItemCommonFPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void init_ancient_container(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
-void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
+void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
-            ((struct VObj_8015C098 *) arg0)->m77();
-            ((TObjContainerItem *)arg0)->spawn_item((s32)arg0);
+            ((struct VObj_8015C098 *) this)->m77();
+            ((TObjContainerItem *)this)->spawn_item((s32)this);
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
-        set_flag8__6TLobbyFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        *(s16 *)((s8 *)this + 0x326) = 1;
+        set_flag8__6TLobbyFPv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 
@@ -230,7 +231,7 @@ void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D2EFC;
     return arg0;
 }
-void TObjFish::spawn_break_debris() {
+void TUnk_804B08BC::vfunc_79() {
     Obj_8015C234 *self = (Obj_8015C234 *)this;
     extern const u32 ancient_container_resource_bundle;
     if (self->f326 == 1) {
@@ -271,7 +272,8 @@ void TObjFish::spawn_break_debris() {
     play_container_break_sound((s32)self);
 }
 
-void TObjPlayer__sub_8015C3C8(u8 *arg0) {
+void TUnk_804B08BC::vfunc_81() {
+    u8 *arg0 = (u8 *)this;
     extern u32 ancient_container_resource_bundle;
     u8 *temp_r31;
     u8 *temp_r31_2;
@@ -305,7 +307,7 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
         }
     }
 }
-void TObjPlayer::submit_cursor_candidate_if_idle() {
+void TUnk_804B08BC::vfunc_80() {
     Obj_8015C48C *self = (Obj_8015C48C *)this;
     switch (self->a326) {
     case 0:

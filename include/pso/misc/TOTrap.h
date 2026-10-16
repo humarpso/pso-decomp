@@ -6,6 +6,8 @@
 
 struct TOTrap : public TUnk_804806E8 {
     virtual ~TOTrap();
+    virtual void vfunc_6(s16 *, s32);
+    virtual void vfunc_25(u8 *);
     virtual void run_task();
     f32 range;
     f32 dist;
@@ -17,7 +19,6 @@ struct TOTrap : public TUnk_804806E8 {
     void submit_cursor_and_notify();
     void find_target_player();
     void play_sounds();
-    void trigger(s16 *arg1, s32 arg2);
     virtual void render();
     f32 check_trigger_range(u32 arg1);
     f32 get_scale(u32 arg1);};

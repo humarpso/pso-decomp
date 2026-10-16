@@ -111,7 +111,7 @@ u8 *TObjNpcCloakroomBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-f32 TObjNpcCloakroomBase__vt21(void);
+f32 vfunc_23__20TObjNpcCloakroomBaseFPvPvPvll(void);
 void TObjNpcCloakroomBase__vt88(s32 arg0);
 void * TObjNpcConnoisseur__create(void *arg0);
 void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1);
@@ -194,7 +194,7 @@ u8 *TObjNpcCloakroomBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-f32 TObjNpcCloakroomBase__vt21(void) {
+f32 TObjNpcCloakroomBase::vfunc_23(void *, void *, void *, s32, s32) {
     return lbl_805DB1E8;
 }
 

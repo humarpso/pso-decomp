@@ -73,7 +73,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, s32);
 void play_door_sound(void *);
 u8 is_current_floor_switch_set(u16);
-void TODoorFourLightSpace__vt12(u8 *arg0);
+void update_door_switch_state__20TODoorFourLightSpaceFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -105,8 +105,8 @@ struct VObj_802898E8 : Base_802898E8 {
     virtual s32 m8(f32, f32);
 };
 
-s32 TODoorFourLightSpace__vt17(void *arg0);
-void TODoorFourLightSpace__vt4(void *arg0, s16 *arg1);
+s32 init_door_switch_binding__20TODoorFourLightSpaceFv(void *arg0);
+void vfunc_6__20TODoorFourLightSpaceFPsl(void *arg0, s16 *arg1);
 void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1);
 void fn_802898E8(void);
 void fn_802898EC(void);
@@ -125,35 +125,36 @@ s32 set_global_param__8TObjFishFl();
 
 void fn_802898E8(void) {  }
 void fn_802898EC(void) {  }
-s32 TODoorFourLightSpace__vt17(void *arg0) {
+s32 TODoorFourLightSpace::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+        *(s32 *)((s8 *)this + 0xCC) = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
+        *(s32 *)((s8 *)this + 0xCC) = 1;
+    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 3;
+            *(s32 *)((s8 *)this + 0xCC) = 3;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+            *(s32 *)((s8 *)this + 0xCC) = 2;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+        *(s32 *)((s8 *)this + 0xCC) = 2;
     }
-    return *(s32 *)((s8 *)arg0 + 0xC8);
+    return *(s32 *)((s8 *)this + 0xC8);
 }
-void TODoorFourLightSpace__vt4(void *arg0, s16 *arg1) {
+void TODoorFourLightSpace::vfunc_6(s16 *arg1, s32) {
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
     }
 }
 
 extern const f32 lbl_805DD8F0;
 
-void TODoorFourLightSpace__vt12(u8 *arg0) {
+void TODoorFourLightSpace::update_door_switch_state() {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     s32 fail;
     s32 i;
@@ -358,7 +359,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 extern "C" {
 u8 is_current_floor_switch_set(u16);
-void TODoorFourLightRuins__vt12(u8 *arg0);
+void update_door_switch_state__20TODoorFourLightRuinsFv(u8 *arg0);
 }
 
 extern "C" {
@@ -376,8 +377,8 @@ struct VObj_8028A030 : Base_8028A030 {
     virtual s32 m8(f32, f32);
 };
 
-s32 TODoorFourLightRuins__vt17(void *arg0);
-void TODoorFourLightRuins__vt4(void *arg0, s16 *arg1);
+s32 init_door_switch_binding__20TODoorFourLightRuinsFv(void *arg0);
+void vfunc_6__20TODoorFourLightRuinsFPsl(void *arg0, s16 *arg1);
 void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -392,36 +393,37 @@ s32 is_in_view_depth(void *, f32);
 s32 get_main_phase();
 s32 set_global_param__8TObjFishFl();
 
-s32 TODoorFourLightRuins__vt17(void *arg0) {
+s32 TODoorFourLightRuins::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+        *(s32 *)((s8 *)this + 0xCC) = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
+        *(s32 *)((s8 *)this + 0xCC) = 1;
+    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 3;
+            *(s32 *)((s8 *)this + 0xCC) = 3;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+            *(s32 *)((s8 *)this + 0xCC) = 2;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+        *(s32 *)((s8 *)this + 0xCC) = 2;
     }
-    return *(s32 *)((s8 *)arg0 + 0xC8);
+    return *(s32 *)((s8 *)this + 0xC8);
 }
 
-void TODoorFourLightRuins__vt4(void *arg0, s16 *arg1) {
+void TODoorFourLightRuins::vfunc_6(s16 *arg1, s32) {
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
     }
 }
 
 extern const f32 lbl_805DD8F0;
 
-void TODoorFourLightRuins__vt12(u8 *arg0) {
+void TODoorFourLightRuins::update_door_switch_state() {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     s32 off;
     s32 i;

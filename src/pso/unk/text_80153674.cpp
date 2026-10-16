@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/object/TObjFogCollisionSwitch.h"
 #include "pso/object/TObjFogCollision.h"
 
@@ -43,7 +44,7 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0);
 
 extern "C" {
 
-void TObjFogCollisionPoison__vt11(void *arg0);
+void vfunc_13__22TObjFogCollisionPoisonFl(void *arg0);
 void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1);
 void *create__22TObjFogCollisionPoisonFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
@@ -67,10 +68,10 @@ void run_task__22TObjFogCollisionPoisonFv(void *self) {
     }
 }
 
-void TObjFogCollisionPoison__vt11(void *arg0) {
+void TObjFogCollisionPoison::vfunc_13(s32) {
     f32 var_f2;
 
-    *(s32 *)((s8 *)arg0 + 0x98) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(*(f32 *)((s8 *)arg0 + 0x6C));
+    *(s32 *)((s8 *)this + 0x98) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(*(f32 *)((s8 *)this + 0x6C));
     switch ((s32) game_difficulty_selection) {
     default:
     case 0:
@@ -86,7 +87,7 @@ void TObjFogCollisionPoison__vt11(void *arg0) {
         var_f2 = lbl_805DB25C;
         break;
     }
-    *(s32 *)((s8 *)arg0 + 0x98) = (s32) ((f32) *(s32 *)((s8 *)arg0 + 0x98) * var_f2);
+    *(s32 *)((s8 *)this + 0x98) = (s32) ((f32) *(s32 *)((s8 *)this + 0x98) * var_f2);
 }
 
 extern s32 __vt__22TObjFogCollisionPoison[];

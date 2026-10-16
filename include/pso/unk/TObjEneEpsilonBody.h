@@ -8,6 +8,7 @@ public:
     virtual ~TObjEneEpsilonBody();
     virtual void vfunc_105();
     virtual void vfunc_106();
+    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
     u8 unk_3A8[0x16C];
 };
 typedef char TObjEneEpsilonBody_size[sizeof(TObjEneEpsilonBody) == 0x514 ? 1 : -1];

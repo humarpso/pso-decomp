@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorCave01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -57,7 +58,7 @@ struct Door_801615C4 {
 };
 
 extern "C" {
-void TODoorCave01__vt4(u8 *arg0, s16 *arg1);
+void vfunc_6__12TODoorCave01FPsl(u8 *arg0, s16 *arg1);
 s32 set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -65,7 +66,7 @@ extern const f32 lbl_805DB494;
 extern const f32 lbl_805DB498;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A0;
-void TODoorCave01__vt13(u8 *arg0);
+void play_proximity_sound__12TODoorCave01Fv(u8 *arg0);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -86,9 +87,9 @@ u8 is_current_floor_switch_set(u16);
 
 extern "C" {
 
-void TODoorCave01__vt15(u8 *arg0);
-s32 TODoorCave01__vt17(void *arg0);
-void TODoorCave01__vt18(void);
+void vfunc_17__12TODoorCave01Fv(u8 *arg0);
+s32 init_door_switch_binding__12TODoorCave01Fv(void *arg0);
+void vfunc_20__12TODoorCave01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(f32);
 s32 get_main_phase();
@@ -124,7 +125,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TODoorCave01__vt18(void) {  }
+void TODoorCave01::vfunc_20() {  }
 
 void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src) {
     State_80161320 st;
@@ -145,43 +146,46 @@ void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src) {
     }
 }
 
-void TODoorCave01__vt4(u8 *arg0, s16 *arg1) {
+void TODoorCave01::vfunc_6(s16 *arg1, s32) {
+    u8 *arg0 = (u8 *)this;
     if ((s16) *arg1 == 1) {
         *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 0xF0000 | 1);
     }
 }
 
-s32 TODoorCave01__vt17(void *arg0) {
+s32 TODoorCave01::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+        *(s32 *)((s8 *)this + 0xCC) = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
+        *(s32 *)((s8 *)this + 0xCC) = 1;
+    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 3;
+            *(s32 *)((s8 *)this + 0xCC) = 3;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+            *(s32 *)((s8 *)this + 0xCC) = 2;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+        *(s32 *)((s8 *)this + 0xCC) = 2;
     }
-    return *(s32 *)((s8 *)arg0 + 0xC8);
+    return *(s32 *)((s8 *)this + 0xC8);
 }
 
 extern const f32 lbl_805DB490;
 
-void TODoorCave01__vt15(u8 *arg0) {
+void TODoorCave01::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (((u8) ((u32) __cntlzw(*(s32 *)((s8 *)arg0 + 0xD0) & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
 }
-void TODoorCave01__vt13(u8 *arg0) {
+void TODoorCave01::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
@@ -200,7 +204,8 @@ void TODoorCave01__vt13(u8 *arg0) {
     }
 }
 
-void TODoorCave01__vt12(u8 *arg0) {
+void TODoorCave01::update_door_switch_state() {
+    u8 *arg0 = (u8 *)this;
     Door_801615C4 *d = (Door_801615C4 *)arg0;
     State_80161320 st;
     s32 i;

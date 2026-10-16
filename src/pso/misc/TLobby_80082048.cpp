@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_8048E1A4.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
 extern "C" {
@@ -83,10 +84,10 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 extern "C" {
 
 void *destroy_freeze_shell(void *arg0, s16 arg1);
-int TObjPlayer__sub_800822B0(void);
-int TObjPlayer__sub_800822B8(void);
-f32 TObjPlayer__sub_800822C0(void);
-f32 TObjPlayer__sub_800822C8(void);
+int vfunc_20__13TUnk_8048E1A4FPvf(void);
+int vfunc_21__13TUnk_8048E1A4FPvPvPvf(void);
+f32 vfunc_23__13TUnk_8048E1A4FPvPvPvll(void);
+f32 vfunc_24__13TUnk_8048E1A4FPvPv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
@@ -191,18 +192,18 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
 }
 #pragma pop
 
-int TObjPlayer__sub_800822B0(void) { return 1; }
-int TObjPlayer__sub_800822B8(void) { return 1; }
+s32 TUnk_8048E1A4::vfunc_20(void *, f32) { return 1; }
+int TUnk_8048E1A4::vfunc_21(void *, void *, void *, float) { return 1; }
 
 extern const f32 lbl_805D9378;
 
-f32 TObjPlayer__sub_800822C0(void) {
+f32 TUnk_8048E1A4::vfunc_23(void *, void *, void *, s32, s32) {
     return lbl_805D9378;
 }
 
 extern const f32 lbl_805D9378;
 
-f32 TObjPlayer__sub_800822C8(void) {
+f32 TUnk_8048E1A4::vfunc_24(void *, void *) {
     return lbl_805D9378;
 }
 

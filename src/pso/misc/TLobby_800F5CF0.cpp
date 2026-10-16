@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
@@ -13,7 +14,7 @@ struct Stack_800F5D80 {
 
 extern "C" {
 s32 exchange_object_state__6TLobbyFls(void *, void *, int);
-void clear_lobby_object_state(s32 arg0);
+void clear_lobby_object_state__9TObjEnemyFv(s32 arg0);
 }
 
 extern "C" {
@@ -43,7 +44,8 @@ void *TLobby::alloc_tables(s32 arg1, s32 arg2) {
     collect_model_strips_by_texture(this, arg1, arg2, temp_r6);
     return this;
 }
-void clear_lobby_object_state(s32 arg0) {
+void TObjEnemy::clear_lobby_object_state() {
+    s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_800F5D80, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800F5D80, spE) == 0x6) ? 1 : -1];
     Stack_800F5D80 stack;

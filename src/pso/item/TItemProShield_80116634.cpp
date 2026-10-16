@@ -519,7 +519,7 @@ void TItemObject__vt16();
 void TItemObject__vt29();
 void TItemObject__vt35();
 void TItemObject__vt36();
-void TItemObject__vt7();
+void vfunc_9__11TItemObjectFv();
 void TItem__sub_801005D8();
 void TItem__sub_801005DC();
 void TItem__sub_801005E0();
@@ -565,7 +565,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
-    (void *)&TItemObject__vt7,
+    (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
@@ -613,7 +613,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
-    (void *)&TItemObject__vt7,
+    (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
@@ -661,7 +661,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
-    (void *)&TItemObject__vt7,
+    (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
@@ -709,7 +709,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
-    (void *)&TItemObject__vt7,
+    (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
@@ -757,7 +757,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
-    (void *)&TItemObject__vt7,
+    (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
@@ -805,7 +805,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&TLobby__sub_801A1FD8,
     (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv,
-    (void *)&TItemObject__vt7,
+    (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,

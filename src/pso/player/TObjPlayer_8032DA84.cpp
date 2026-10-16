@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TUnk_804EDD20.h"
+#include "pso/item/TUnk_804EDD44.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemWpnCardEffect.h"
@@ -17,14 +19,14 @@ struct RecoveredGlobal_8032DC94_lbl_8058D4C0
 };
 
 extern "C" {
-void TObjPlayer__sub_8032DDD8(u8 *arg0);
+void start_card_effect_trail__13TUnk_804EDD20Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_guardianna(u8 *arg0);
 extern const f32 lbl_805DF7D8;
 extern const f32 lbl_805DF7DC;
 extern const f32 lbl_805DF7E0;
-void TObjPlayer__sub_8032DD7C(u8 *arg0);
+void vfunc_8__13TUnk_804EDD20Fv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 *query_game_join_id__10TObjPlayerFv(s32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -48,7 +50,7 @@ extern "C" {
 
 void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1);
-void TObjPlayer__sub_8032DDE8(void* p);
+void start_card_effect_flash__13TUnk_804EDD20Fv(void* p);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32 *, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv(void *);
 void TItemWeapon__ct(void *);
@@ -188,7 +190,8 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjPlayer__sub_8032DD7C(u8 *arg0) {
+void TUnk_804EDD20::vfunc_8() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0x70) & 1) {
         *(f32 *)((s8 *)arg0 + 0x80) = (f32) (*(f32 *)((s8 *)arg0 + 0x80) + lbl_805DF7DC);
         if (*(f32 *)((s8 *)arg0 + 0x80) > lbl_805DF7E0) {
@@ -203,11 +206,12 @@ void TObjPlayer__sub_8032DD7C(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8032DDD8(u8 *arg0) {
+void TUnk_804EDD20::start_card_effect_trail() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x70) = (s32) (*(s32 *)((s8 *)arg0 + 0x70) & 0xFFFFFFFE);
 }
 
-void TObjPlayer__sub_8032DDE8(void* p) { *(u32*)((char*)p + 0x70) |= 0x1; }
+void TUnk_804EDD20::start_card_effect_flash() { *(u32*)((char*)this + 0x70) |= 0x1; }
 
 }
 
@@ -301,7 +305,7 @@ u32 create_particle_emitter(void *, int);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DF7E8;
-void start_card_effect_flash(u8 *arg0);
+void start_card_effect_flash__13TUnk_804EDD44Fv(u8 *arg0);
 u8 *find_entity_by_id(u16);
 void anchor_card_effect(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -314,7 +318,7 @@ void run_card_effect(u8 *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_8032E054(void);
+void vfunc_8__13TUnk_804EDD44Fv(void);
 
 void anchor_card_effect(u8 *arg0) {
   u16 temp_r3;
@@ -343,10 +347,10 @@ void TObjPlayer::destroy_effect_objects() {
     }
 }
 
-void TObjPlayer__sub_8032E054(void) {  }
+void TUnk_804EDD44::vfunc_8() {  }
 #pragma push
 #pragma fp_contract on
-void TObjPlayer::start_card_effect_trail() {
+void TUnk_804EDD44::start_card_effect_trail() {
     u8 *arg0 = (u8 *)this;
     *(u32 *)((s8 *)arg0 + 0x24) = create_particle_emitter((void *) (arg0 + 0x64), (int) (0x1B6));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
@@ -357,7 +361,8 @@ void TObjPlayer::start_card_effect_trail() {
 
 #pragma push
 #pragma fp_contract on
-void start_card_effect_flash(u8 *arg0) {
+void TUnk_804EDD44::start_card_effect_flash() {
+    u8 *arg0 = (u8 *)this;
     u32 p;
     u32 q;
     *(u32 *)((s8 *)arg0 + 0x1C) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x64), (void *) (arg0 + 0x54), (int) (0x1B9), (int) (0x104));

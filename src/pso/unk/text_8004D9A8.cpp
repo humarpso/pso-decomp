@@ -289,18 +289,18 @@ extern s32 lbl_80485EB0[];
 extern s32 TObjDFDemo0__name;
 
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjRoomId__sub_801A1E2C();
-extern "C" void TParticleCtrl__sub_801A2124();
+extern "C" void vfunc_12__13TUnk_804B9870Fv();
+extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void apply_object_set_data();
 extern "C" void classify_actor_view_detail();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void reset_motion_fields__10TObjPlayerFv();
-extern "C" void update_object_view_visibility();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 void *__vt__11TObjDFDemo0[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo0Fv, (void *)&TBoss3Volopt__sub_8004DA7C,
     (void *)&fn_8004D9A8, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C,
+    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
 
 #pragma push

@@ -346,7 +346,7 @@ extern char lbl_8043F544[];
 
 extern "C" {
 
-void TObjPlayer__sub_80148D80(void);
+void vfunc_83__11TObjNpcBaseFv(void);
 u32 get_player_by_client_id();
 s32 play_effect_default__10TObjPlayerFii(u32, s32);
 
@@ -635,7 +635,7 @@ void TObjNpcBase::update_standing() {
     }
 }
 
-void TObjNpcBase::activate_idle_mode() {
+void TObjNpcBase::vfunc_59() {
     s16 temp_r0;
     temp_r0 = *(s16 *)((s8 *)this + 0x326);
     if ((temp_r0 >= 4) || (temp_r0 < 1)) {
@@ -651,11 +651,11 @@ void TObjNpcBase::activate_idle_mode() {
     }
 }
 
-void TObjPlayer__sub_80148D80(void) {  }
+void TObjNpcBase::vfunc_83() {  }
 
  }
 
-void TObjNpcBase::deactivateIdleMode() {
+void TObjNpcBase::vfunc_58() {
     if (mode != 0) {
         mode = 0;
         phase = 0;

@@ -1103,10 +1103,10 @@ int queue_destruction__7TObjectFv(void*);
 }
 extern "C" {
 void TLobby__sub_801A1FD8();
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void TObjPlayer__sub_800BC220();
-void TObjRoomId__sub_801A1E2C();
-void TParticleCtrl__sub_801A2124();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
 void area_attack_apply_recoil();
 void area_attack_deliver_physical();
@@ -1115,7 +1115,7 @@ void classify_actor_view_detail();
 void hit_area_targets__10TObjPlayerFPvPviUif();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);

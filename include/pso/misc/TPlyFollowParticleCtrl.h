@@ -6,6 +6,7 @@
 
 struct TPlyFollowParticleCtrl : public TUnk_804AF8A0 {
     virtual ~TPlyFollowParticleCtrl();
+    virtual void*vfunc_9();
     u16 m_ac;
     u16 m_ae;
     void set_type(s16 v);

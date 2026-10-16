@@ -848,9 +848,9 @@ struct VObj_18_26a62c : VBase_18_26a62c {
     virtual s32 m8(f32, f32);
 };
 
-int TOHangceilingCave01__sub_80168624(void);
-f32 TOHangceilingCave01__sub_8016862C(void);
-f32 TOHangceilingCave01__sub_80168634(void);
+int vfunc_21__13TUnk_804B2578FPvPvPvf(void);
+f32 vfunc_24__13TUnk_804B2578FPvPv(void);
+f32 vfunc_23__13TUnk_804B2578FPvPvPvll(void);
 void TOHangceilingCave01__sub_8016863C(void);
 void TOHangceilingCave01__sub_80168640(void);
 void TLobby__sub_8001FE7C(void*, int);
@@ -886,13 +886,13 @@ void TOHangceilingCave01::init_geometry() {
     *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB654 - *(f32 *)((s8 *)this + 0x6C));
 }
 
-int TOHangceilingCave01__sub_80168624(void) { return 1; }
+int TUnk_804B2578::vfunc_21(void *, void *, void *, float) { return 1; }
 
-f32 TOHangceilingCave01__sub_8016862C(void) {
+f32 TUnk_804B2578::vfunc_24(void *, void *) {
     return lbl_805DB650;
 }
 
-f32 TOHangceilingCave01__sub_80168634(void) {
+f32 TUnk_804B2578::vfunc_23(void *, void *, void *, s32, s32) {
     return lbl_805DB650;
 }
 

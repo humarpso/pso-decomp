@@ -216,7 +216,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TBoss6Mine__sub_80323E68(void* a0);
+void vfunc_62__10TBoss6MineFv(void* a0);
 void TBoss6Mine__vt1(void *arg0);
 void TBoss6Mine__vt4(u8 *arg0);
 void TBoss6Mine__vt6(s32 arg0);
@@ -250,14 +250,14 @@ void TBoss6Mine::render_shadows() {
     }
 }
 
-void TBoss6Mine::set_state7() {
+void TBoss6Mine::vfunc_63() {
     if ((s32) *(s32 *)((s8 *)this + 0x380) != 7) {
         *(s32 *)((s8 *)this + 0x380) = 7;
     }
 }
 
     extern const float TBoss6Mine__data_805DF584;
-void TBoss6Mine__sub_80323E68(void* a0) { *(int*)((char*)a0 + 0x30) = (*(int*)((char*)a0 + 0x30) & 0xfffffdff); *(float*)((char*)a0 + 0x3c8) = TBoss6Mine__data_805DF584; }
+void TBoss6Mine::vfunc_62() { *(int*)((char*)this + 0x30) = (*(int*)((char*)this + 0x30) & 0xfffffdff); *(float*)((char*)this + 0x3c8) = TBoss6Mine__data_805DF584; }
 
 void TBoss6Mine::copy_pos() {
     s32 arg0 = (s32)this;

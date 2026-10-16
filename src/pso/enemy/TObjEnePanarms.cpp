@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnePanBARA.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "dolphin/mtx.h"
 #include <stddef.h>
@@ -301,8 +302,8 @@ s32 TObjEnePanarms__sub_800E1C98(void *, s32);
 void TObjEnePanarms__sub_800E1D38(void *arg0);
 int TObjEnePanarms__sub_800E1D94(void* p);
 void TObjEnePanarms__sub_800E1E14(u8 *arg0);
-void TObjEnePanarms__sub_800E1E64(void* p);
-void TObjEnePanarms__sub_800E1ED0(u8 *arg0);
+void vfunc_61__14TObjEnePanBARAFv(void* p);
+void vfunc_63__14TObjEnePanBARAFv(u8 *arg0);
 void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0);
 Obj_800E24A4 * fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1);
 s32 TObjEnePanBARA__ct(s32, s32, s32, s32);
@@ -1392,9 +1393,9 @@ void TObjEnePanarms__sub_800E1E14(u8 *arg0) {
     ((s32 (*)(void *, int, int))TObjEnePanarms__sub_800E1C98)((void *) (arg0), (int) (1), (int) (temp_r5));
 }
 
-void TObjEnePanarms__sub_800E1E64(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffffeff; }
+void TObjEnePanBARA::vfunc_61() { *(u32*)((char*)this + 0x30) &= 0xfffffeff; }
 
-void TObjEnePanarms::exit_to_state_6() {
+void TObjEnePanBARA::vfunc_62() {
     Obj_800E1E74 *self = (Obj_800E1E74 *)this;
     switch (self->state) {
     case 0:
@@ -1411,7 +1412,8 @@ void TObjEnePanarms::exit_to_state_6() {
 
 #pragma push
 #pragma fp_contract on
-void TObjEnePanarms__sub_800E1ED0(u8 *arg0) {
+void TObjEnePanBARA::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     s32 st = *(s32 *)((s8 *)arg0 + 0x378);
     switch (st) {
     case 7:

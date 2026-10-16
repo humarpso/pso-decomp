@@ -6,6 +6,9 @@
 
 struct TODoorFourLightRuins : public TUnk_804B0BB8 {
     virtual ~TODoorFourLightRuins();
+    virtual s32 init_door_switch_binding();
+    virtual void update_door_switch_state();
+    virtual void vfunc_6(s16 *, s32);
     u32 m_d4;
     static s32 draw_model_and_lights(void *arg0);
     virtual void render();

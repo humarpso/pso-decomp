@@ -168,12 +168,12 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0);
 
 extern "C" {
 
-s32 TOMineTrap__vt10(void);
+s32 vfunc_12__10TOMineTrapFv(void);
 
 struct VObj8016F3C4Base { char pad[0x18]; };
 struct VObj8016F3C4 : VObj8016F3C4Base { virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3(); virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7(); virtual s32 m8(); virtual s32 m9(); virtual s32 m10(); virtual s32 m11(); };
 
-s32 TOMineTrap__vt10(void) {
+int TOMineTrap::vfunc_12() {
     s32 var_r31;
     void *temp_r3;
 

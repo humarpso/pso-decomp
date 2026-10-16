@@ -86,13 +86,13 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TLobby__sub_801A1FD8();
-void TObjRoomId__sub_801A1E2C();
-void TParticleCtrl__sub_801A2124();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
 void classify_actor_view_detail();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__10TObjPlayerFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 
 const char *TObjDFDemo2__name = "TObjDFDemo2";
 __declspec(section ".rodata") Pose_8004EB78 lbl_80437384 = {0, 0, 0};
@@ -105,8 +105,8 @@ void *lbl_80485680[3] = {
 void *__vt__11TObjDFDemo2[13] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo2Fv, (void *)&run_task__11TObjDFDemo2Fv,
     (void *)&render__11TObjDFDemo2Fv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C,
+    (void *)&reset_motion_fields__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__13TUnk_804B9870Fv,
 };
 
 void TObjDFDemo2::render() {

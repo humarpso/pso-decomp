@@ -6,6 +6,9 @@
 
 struct TODoorMachine02 : public TUnk_804B0BB8 {
     virtual ~TODoorMachine02();
+    virtual void vfunc_20();
+    virtual void vfunc_17();
+    virtual void play_proximity_sound();
     void* m_d4;
     virtual void render();
     static void *create(void *arg0);

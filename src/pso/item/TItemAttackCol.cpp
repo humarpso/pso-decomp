@@ -210,7 +210,8 @@ void TItemAttackCol::shift_collision_bounds() {
     *(s32 *)((s8 *)this + 0x11C) = (s32) (*(s32 *)((s8 *)this + 0x11C) - 0xCCC);
 }
 
-void TItemAttackCol__vt4(Obj_802E3C4C *o, s32 *a) {
+void TItemAttackCol::vfunc_6(s32 *a) {
+    Obj_802E3C4C *o = (Obj_802E3C4C *)this;
     if (!(o->fE4 & 0x80)) {
         if (resolve_attack_col_hit((u8 *)o, (u8 *)a) != 0) {
             if (o->cb != NULL) {

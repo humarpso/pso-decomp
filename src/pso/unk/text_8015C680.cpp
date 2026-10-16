@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/misc/TLanguage.h"
@@ -68,9 +69,9 @@ extern u32 *ancient_container_fragment_texture_lists;
 
 extern "C" {
 
-void TLobby__sub_8015C8C4(void);
-int TLobby__sub_8015C8C8(void);
-int TObjPlayer__sub_8015C884(void);
+void vfunc_25__13TUnk_804B6C24FPUc(void);
+int vfunc_26__13TUnk_804B6C24Fll(void);
+int vfunc_21__13TUnk_804B6C24FPvPvPvf(void);
 
 void TLanguage::load_container_fragment_textures() {
     u8 *tbl = (u8 *)&bm_o_container_ancient_resource_bundle;
@@ -111,17 +112,17 @@ void TLanguage::load_container_fragment_textures() {
     }
 }
 
-int TObjPlayer__sub_8015C884(void) { return 1; }
+int TUnk_804B6C24::vfunc_21(void *, void *, void *, float) { return 1; }
 
-f32 TObjPlayer::call_vt5_and_get_default_scale() {
+f32 TUnk_804B6C24::vfunc_24(void *, void *) {
     Obj_8015C88C *self = (Obj_8015C88C *)this;
     self->m20(0, lbl_805DB398);
     return lbl_805DB39C;
 }
 
-void TLobby__sub_8015C8C4(void) {  }
-int TLobby__sub_8015C8C8(void) { return 1; }
-int TObjContainerBase::check_accuracy_hit() { return 1; }
+void TUnk_804B6C24::vfunc_25(u8 *) {  }
+s32 TUnk_804B6C24::vfunc_26(s32, s32) { return 1; }
+s32 TUnk_804B6C24::vfunc_27(void *, s32, f32) { return 1; }
 
 }
 

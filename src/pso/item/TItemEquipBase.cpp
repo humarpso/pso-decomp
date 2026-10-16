@@ -516,13 +516,13 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
     virtual void m19();
 };
 
-void TItemEquipBase__sub_8010A788(void);
+void vfunc_50__14TItemEquipBaseFv(void);
 void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *row);
-void TItemEquipBase__sub_8010A938(void);
-void TItemEquipBase__sub_8010A93C(void);
-void TItemEquipBase__sub_8010A940(void);
-void TItemEquipBase__sub_8010B620(void);
-void TItemEquipBase__vt42(void);
+void vfunc_49__14TItemEquipBaseFv(void);
+void vfunc_48__14TItemEquipBaseFv(void);
+void vfunc_45__14TItemEquipBaseFv(void);
+void vfunc_46__14TItemEquipBaseFv(void);
+void vfunc_44__14TItemEquipBaseFv(void);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 subtract_s16_stat(void *, void *);
 s32 TObjPlayer__sub_800194E8(void *);
@@ -561,7 +561,7 @@ s8 TItemEquipBase__sub_8010A77C(u8 *arg0) {
     return (s8) *(u8 *)((s8 *)arg0 + 0x170);
 }
 
-void TItemEquipBase__sub_8010A788(void) {  }
+void TItemEquipBase::vfunc_50() {  }
 
 void TItemEquipBase::bind_loaded_resources() {
     u8 *arg0 = (u8 *)this;
@@ -626,11 +626,11 @@ void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *
     } while (i != 3);
 }
 
-void TItemEquipBase__sub_8010A938(void) {  }
-void TItemEquipBase__sub_8010A93C(void) {  }
-void TItemEquipBase__sub_8010A940(void) {  }
+void TItemEquipBase::vfunc_49() {  }
+void TItemEquipBase::vfunc_48() {  }
+void TItemEquipBase::vfunc_45() {  }
 
-void TItemEquipBase__vt42(void) {  }
+void TItemEquipBase::vfunc_44() {  }
 
 void TItemEquipBase__sub_8010A948(u8 *arg0) {
     if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (s32)((int)((int) (2))), (s32)((int)((int) (4))))) != 0) {
@@ -921,7 +921,7 @@ void TItemEquipBase::update_with_player() {
     s32 object = (s32)this;
     request_model_load__14TItemEquipBaseFPvi((u8*)object, get_field_ed__10TObjPlayerFv((void*)object));
 }
-void TItemEquipBase__sub_8010B620(void) {  }
+void TItemEquipBase::vfunc_46() {  }
 
 extern s32 __vt__14TItemEquipBase[];
 

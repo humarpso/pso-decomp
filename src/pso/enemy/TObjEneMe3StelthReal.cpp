@@ -113,12 +113,12 @@ typedef struct EneStelth_800F0CE8 EneStelth_800F0CE8;
 
 void TObjEneMe3StelthReal__vt105(void *arg0);
 void TObjEneMe3StelthReal__vt109(void);
-int TObjEneMe3StelthReal__vt60(void* p);
-int TObjEneMe3StelthReal__vt61(void* p);
+int vfunc_62__20TObjEneMe3StelthRealFv(void* p);
+int vfunc_63__20TObjEneMe3StelthRealFv(void* p);
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
 s32 transition_enemy_state(void *, s32);
-int TObjEneMe3Stelth__vt60(void*);
-int TObjEneMe3Stelth__vt61(void*);
+int vfunc_62__16TObjEneMe3StelthFv(void*);
+int vfunc_63__16TObjEneMe3StelthFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__16TObjEneMe3StelthFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -138,8 +138,8 @@ void TObjEneMe3StelthReal__vt105(void *arg0) {
     transition_enemy_state(self, 6);
 }
 
-int TObjEneMe3StelthReal__vt60(void* p) { return TObjEneMe3Stelth__vt60(p); }
-int TObjEneMe3StelthReal__vt61(void* p) { return TObjEneMe3Stelth__vt61(p); }
+void TObjEneMe3StelthReal::vfunc_62() { vfunc_62__16TObjEneMe3StelthFv(this); }
+void TObjEneMe3StelthReal::vfunc_63() { vfunc_63__16TObjEneMe3StelthFv(this); }
 
 extern s32 __vt__20TObjEneMe3StelthReal[];
 

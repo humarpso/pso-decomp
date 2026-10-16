@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoaEx01.h"
 #include "pso/item/TObjContainerJungEx.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -39,13 +40,13 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 fe_obj_hako02_resource_descriptor;
 extern u32 TObjContainerJungEx__resource_bundle;
 extern const f32 TObjDoaEx01__data_805DBDA0;
-void TObjDoaEx01__vt16(u8 *arg0);
+void vfunc_18__11TObjDoaEx01Fv(u8 *arg0);
 extern const f32 TObjDoaEx01__data_805DBDA8;
-void TObjDoaEx01__vt14(O_8018DB94 *self);
+void vfunc_16__11TObjDoaEx01Fv(O_8018DB94 *self);
 s32 is_any_player_within_radius_xz(void *, f32);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
-void TObjDoaEx01__vt15(Obj_8018DA54 *self);
+void vfunc_17__11TObjDoaEx01Fv(Obj_8018DA54 *self);
 void set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(void *, f32);
 void play_sound_effect(s32, void *, s32, s32);
@@ -53,7 +54,7 @@ extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
 extern const f32 lbl_805DBDAC;
 extern const f32 lbl_805DBDB0;
-void TObjDoaEx01__vt13(Obj_8018DBCC *self);
+void play_proximity_sound__11TObjDoaEx01Fv(Obj_8018DBCC *self);
 }
 
 extern "C" {
@@ -95,7 +96,8 @@ void TObjContainerJungEx::load_resource_instance() {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjDoaEx01__vt16(u8 *arg0) {
+void TObjDoaEx01::vfunc_18() {
+    u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) - *(f32 *)((s8 *)arg0 + 0xB8));
     if (*(f32 *)((s8 *)arg0 + 0xB0) < TObjDoaEx01__data_805DBDA0) {
         *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
@@ -105,7 +107,8 @@ void TObjDoaEx01__vt16(u8 *arg0) {
 }
 #pragma pop
 
-void TObjDoaEx01__vt15(Obj_8018DA54 *self) {
+void TObjDoaEx01::vfunc_17() {
+    Obj_8018DA54 *self = (Obj_8018DA54 *)this;
     if (self->flags & 1) {
         if (is_any_player_within_radius_xz(self, lbl_805DBDA4) == 0) {
             self->state = 3;
@@ -141,14 +144,16 @@ void TObjDoaEx01__vt15(Obj_8018DA54 *self) {
     }
 }
 
-void TObjDoaEx01__vt14(O_8018DB94 *self) {
+void TObjDoaEx01::vfunc_16() {
+    O_8018DB94 *self = (O_8018DB94 *)this;
     self->pos += self->speed;
     if (self->pos > self->max - TObjDoaEx01__data_805DBDA8) {
         self->pos = self->max - TObjDoaEx01__data_805DBDA8;
         self->state = 2;
     }
 }
-void TObjDoaEx01__vt13(Obj_8018DBCC *self) {
+void TObjDoaEx01::play_proximity_sound() {
+    Obj_8018DBCC *self = (Obj_8018DBCC *)this;
     if (self->flags & 1) {
         if (is_any_player_within_radius_xz(self, lbl_805DBDAC) == 1) {
             self->state = 1;

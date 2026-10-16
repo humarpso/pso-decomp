@@ -998,11 +998,11 @@ void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void release_member_90__10TObjPlayerFv();
-void TParticleCtrl__sub_801A2124();
-void update_object_view_visibility();
+void vfunc_9__13TUnk_804B9870Fv();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C();
-void TObjPlayer__sub_80019568();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void TObjWarpBase__vt12();
 void open_confirm_window__12TObjAreaWarpFUs();
 void is_warp_enabled__12TObjAreaWarpFi();
@@ -1055,11 +1055,11 @@ s32 __vt__17TObjWarpBossMulti[21] = {
     (s32)&TLobby__sub_801A1FD8,
     (s32)&apply_object_set_data,
     (s32)&release_member_90__10TObjPlayerFv,
-    (s32)&TParticleCtrl__sub_801A2124,
-    (s32)&update_object_view_visibility,
+    (s32)&vfunc_9__13TUnk_804B9870Fv,
+    (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
     (s32)&classify_actor_view_detail,
-    (s32)&TObjRoomId__sub_801A1E2C,
-    (s32)&TObjPlayer__sub_80019568,
+    (s32)&vfunc_12__13TUnk_804B9870Fv,
+    (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&TObjWarpBase__vt12,
     (s32)&open_confirm_window__12TObjAreaWarpFUs,
     (s32)&is_warp_enabled__12TObjAreaWarpFi,

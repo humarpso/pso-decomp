@@ -285,7 +285,7 @@ extern "C" {
 int TContainerAncient01__sub_8018ACC0(void);
 f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2);
 void render__20TContainerAncient01RFv(u8 *arg0);
-void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__20TContainerAncient01RFPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -306,10 +306,10 @@ s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
-extern "C" void call_vt5_and_get_default_scale__19TContainerAncient01FPv();
-extern "C" void TContainerAncient01__sub_8018BE68();
-extern "C" void TContainerAncient01__sub_8018BE6C();
-extern "C" void TContainerAncient01__sub_8018BE74();
+extern "C" void vfunc_24__20TContainerAncient01RFPvPv();
+extern "C" void vfunc_25__20TContainerAncient01RFPUc();
+extern "C" void vfunc_26__20TContainerAncient01RFll();
+extern "C" void vfunc_27__20TContainerAncient01RFPvlf();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A78();
 extern "C" void TObjPlayer__sub_80010A80();
@@ -328,8 +328,8 @@ extern "C" void apply_slow_status__10TObjPlayerFPv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_80019568();
-extern "C" void TObjRoomId__sub_801A1E2C();
+extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
+extern "C" void vfunc_12__13TUnk_804B9870Fv();
 extern "C" void add_actor_exp();
 extern "C" void apply_action_hold_status();
 extern "C" void apply_anti_technique__10TObjPlayerFv();
@@ -352,7 +352,7 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void get_actor_body_center();
+extern "C" void vfunc_9__13TUnk_804806E8Fv();
 extern "C" void get_actor_level_index();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void is_actor_cadence_frame();
@@ -368,7 +368,7 @@ extern "C" u8 lbl_80445034[];
 extern "C" u8 lbl_80445048[];
 extern "C" u8 lbl_8044505C[];
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void reset_actor_action_state();
+extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi();
 extern "C" void update_action_hold_status__10TObjPlayerFv();
@@ -378,7 +378,7 @@ extern "C" void update_attack_stat_status();
 extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
-extern "C" void update_object_view_visibility();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *fe_obj_h_s_konte_model_names[3];
 extern void *fe_obj_h_s_konte_motion_names[3];
@@ -414,12 +414,12 @@ void *TContainerAncient01__anim_table[12] = {
 };
 void *__vt__20TContainerAncient01R[79] = {
     (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&run_task__20TContainerAncient01RFv,
-    (void *)&render__20TContainerAncient01RFv, (void *)&render_shadows__7TObjectFv, (void *)&set_target_value__19TContainerAncient01FPvPvi, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&render__20TContainerAncient01RFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__20TContainerAncient01RFPsl, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&is_within_range__19TContainerAncient01Fii, (void *)&TContainerAncient01__sub_8018ACC0, (void *)&save_and_send_state__19TContainerAncient01FPv, (void *)&check_item_type_range__19TContainerAncient01FPviPv,
-    (void *)&call_vt5_and_get_default_scale__19TContainerAncient01FPv, (void *)&TContainerAncient01__sub_8018BE68, (void *)&TContainerAncient01__sub_8018BE6C, (void *)&TContainerAncient01__sub_8018BE74,
+    (void *)&vfunc_24__20TContainerAncient01RFPvPv, (void *)&vfunc_25__20TContainerAncient01RFPUc, (void *)&vfunc_26__20TContainerAncient01RFll, (void *)&vfunc_27__20TContainerAncient01RFPvlf,
     (void *)&TObjPlayer__sub_80011010, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
@@ -572,18 +572,18 @@ void TContainerAncient01::init_positions() {
 }
 #pragma pop
 
-void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2) {
+void TContainerAncient01R::vfunc_6(s16 *arg1, s32 arg2) {
     s16 temp_r4;
-    *(s16 *)((s8 *)arg0 + 0x338) = (s16) *arg1;
+    *(s16 *)((s8 *)this + 0x338) = (s16) *arg1;
     if (arg2 != 0) {
-        temp_r4 = *(s16 *)((s8 *)arg0 + 0x338);
-        if ((*(s16 *)((s8 *)arg0 + 0x32C) - temp_r4) <= 0) {
-            ((TContainerAncient01 *)arg0)->reset_hp();
-            ((TContainerAncient01 *)arg0)->open_container();
-            *(s32 *)((s8 *)arg0 + 0x360) = 1;
+        temp_r4 = *(s16 *)((s8 *)this + 0x338);
+        if ((*(s16 *)((s8 *)this + 0x32C) - temp_r4) <= 0) {
+            ((TContainerAncient01 *)this)->reset_hp();
+            ((TContainerAncient01 *)this)->open_container();
+            *(s32 *)((s8 *)this + 0x360) = 1;
         }
-    } else if ((*(s16 *)((s8 *)arg0 + 0x32C) - *(s16 *)((s8 *)arg0 + 0x338)) <= 0) {
-        *(s32 *)((s8 *)arg0 + 0x360) = 1;
+    } else if ((*(s16 *)((s8 *)this + 0x32C) - *(s16 *)((s8 *)this + 0x338)) <= 0) {
+        *(s32 *)((s8 *)this + 0x360) = 1;
     }
 }
 
@@ -765,7 +765,7 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
 }
 #pragma pop
 
-void TContainerAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__19TContainerAncient01FPsl(void *arg0, s16 *arg1, s32 arg2);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
@@ -898,14 +898,14 @@ void TContainerAncient01::init_state_vectors() {
 }
 #pragma pop
 
-void TContainerAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
+void TContainerAncient01::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
-            TContainerAncient01__sub_8018B700((Obj_8018B700 *)(arg0));
-            *(s32 *)((s8 *)arg0 + 0x35C) = 1;
+            TContainerAncient01__sub_8018B700((Obj_8018B700 *)(this));
+            *(s32 *)((s8 *)this + 0x35C) = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)arg0 + 0x35C) = 1;
+        *(s32 *)((s8 *)this + 0x35C) = 1;
     }
 }
 void TContainerAncient01__sub_8018B700(Obj_8018B700 *arg0) {

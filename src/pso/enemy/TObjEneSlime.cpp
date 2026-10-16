@@ -126,7 +126,7 @@ extern u32 model_render_flags;
 extern "C" {
 
 void TObjEneSlime__sub_800EB9F0(void* p, void* q);
-void TObjEneSlime__vt61(void* p);
+void vfunc_63__12TObjEneSlimeFv(void* p);
 s32 exchange_object_state__6TLobbyFls(void *, s32 *, s32);
 s32 send_6x0A_enemy_state(void *, s32 *);
 s32 has_no_active_slot(void *);
@@ -209,6 +209,6 @@ void TObjEneSlime::run_task() {
     }
 }
 
-void TObjEneSlime__vt61(void* p) { ((TObjEneSlime *)p)->release_split_slimes(); }
+void TObjEneSlime::vfunc_63() { ((TObjEneSlime *)this)->release_split_slimes(); }
 
 }

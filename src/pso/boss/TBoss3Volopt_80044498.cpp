@@ -880,7 +880,7 @@ void send_random_params__12TBoss3VoloptFv(void);
 
 extern "C" {
 
-void TBoss3Volopt__sub_80045234(void);
+void vfunc_79__13TUnk_80484610Fv(void);
 void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0);
 s32 count_dead_parts__12TBoss3VoloptFPv(void *arg0);
 void create_cage__12TBoss3VoloptFPvUs(void *arg0, u16 arg1);
@@ -1120,7 +1120,7 @@ void push_players_out_of_radius__12TBoss3VoloptFPv(Obj_8004512C *self) {
     }
 }
 
-void TBoss3Volopt__sub_80045234(void) {  }
+void TUnk_80484610::vfunc_79() {  }
 
 extern u16 TBoss3Volopt__cage_entity_id;
 extern s32 lbl_805D2714;

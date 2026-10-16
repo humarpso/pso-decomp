@@ -6,6 +6,10 @@
 #include <stddef.h>
 
 struct TObjEneBm3Fly {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void vfunc_28();
     void render();
     void run_task();
 

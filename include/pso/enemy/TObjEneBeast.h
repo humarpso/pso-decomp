@@ -5,6 +5,15 @@
 
 struct TObjEneBeast
 {
+    void vfunc_83();
+    void vfunc_101();
+    void vfunc_99();
+    void vfunc_98();
+    void vfunc_97();
+    void vfunc_96();
+    void vfunc_95();
+    void vfunc_94();
+    void vfunc_93();
     u8 _pad00[0x1C];
     u16 m_1c;
     u8 _pad1E[0x9A];
@@ -42,16 +51,10 @@ struct TObjEneBeast
     void* m_3a8;
     void* m_3ac;
     u8 m_3b0[4][0x1C];
-    static void on_attack_cooldown_expired();
-    void spawn_death_fire();
-    void update_claw_trail();
     void select_subtype();
-    void update_appearance();
     static void *create(void *arg0);
     static void load_resources();
     s32 update_action_hold();
-    static int is_lying_down();
-    void request_stand_action();
     void select_model_record(s32 i);
 };
 

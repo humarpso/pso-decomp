@@ -6,6 +6,7 @@
 class TUnk_804E08D4 : public TObjPathObj {
 public:
     virtual ~TUnk_804E08D4();
+    virtual void vfunc_14();
     u8 unk_98[0x38];
 };
 typedef char TUnk_804E08D4_size[sizeof(TUnk_804E08D4) == 0xD0 ? 1 : -1];

@@ -1533,7 +1533,7 @@ void run_guard_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void remove_photon_blast_participant(s32 arg0);
 u8 * get_photon_blast_element__10TObjPlayerFi(s32 arg0);
 void update_active_instance__10TObjPlayerFi(s32 arg0);
-void TObjPlayer__vt73(s32 arg0, f32 farg0);
+void vfunc_75__10TObjPlayerFf(s32 arg0, f32 farg0);
 void release_all_players_control_lock(void);
 void release_photon_blast_player_holds(u16 *p);
 void freeze_players_for_photon_blast(s16 arg0, u16 *arg1);
@@ -4252,7 +4252,8 @@ void update_active_instance__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-void TObjPlayer__vt73(s32 arg0, f32 farg0) {
+void TObjPlayer::vfunc_75(f32 farg0) {
+    s32 arg0 = (s32)this;
     if (((s32 (*)(void))is_locally_controlled__10TObjPlayerFPv)() == 0 || obj_testFlags30(arg0, 0x800) != 0 ||
         activate_d04_slot__10TObjPlayerFv(arg0) == 0 || ((s32 (*)(s32, s32))is_alt_photon_blast_bank_empty__10TObjPlayerFPv)(arg0 + 0x500, 1) != 0 ||
         reset_key_machine_state__10TObjPlayerFv() == 0) {

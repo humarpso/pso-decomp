@@ -279,7 +279,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
 
-void TOContainerAncientEnemy::check_and_destroy(s16 *arg1, s32 arg2) {
+void TOContainerAncientEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015B8E8 *)this)->m77();
@@ -292,7 +292,7 @@ void TOContainerAncientEnemy::check_and_destroy(s16 *arg1, s32 arg2) {
 
 extern s32 __vt__23TOContainerAncientEnemy[];
 
-void TOContainerAncientEnemy::spawn_break_debris() {
+void TOContainerAncientEnemy::vfunc_79() {
     Obj_8015B94C *self = (Obj_8015B94C *)this;
     extern const u32 ancient_container_resource_bundle;
     void *o;
@@ -329,7 +329,7 @@ void TOContainerAncientEnemy::spawn_break_debris() {
     }
 }
 
-f32 TOContainerAncientEnemy::open_and_send() {
+f32 TOContainerAncientEnemy::vfunc_22(void *, f32) {
     O_8015BAE0 *arg0 = (O_8015BAE0 *)this;
     s16 sp8;
     s32 r4;
@@ -349,7 +349,7 @@ f32 TOContainerAncientEnemy::open_and_send() {
     return lbl_805DB39C;
 }
 
-void TOContainerAncientEnemy::draw_debug_event_no() {
+void TOContainerAncientEnemy::debug_print_item_box_info() {
     Obj_80188814 *self = (Obj_80188814 *)this;
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130020, lbl_80440830, self->id);
@@ -357,7 +357,7 @@ void TOContainerAncientEnemy::draw_debug_event_no() {
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
 }
 
-void TOContainerAncientEnemy::draw_model() {
+void TOContainerAncientEnemy::vfunc_81() {
     u8 *arg0 = (u8 *)this;
     extern u32 ancient_container_resource_bundle;
     u8 *temp_r31;
@@ -393,7 +393,7 @@ void TOContainerAncientEnemy::draw_model() {
     }
 }
 
-void TOContainerAncientEnemy::submit_cursor_candidate_if_idle() {
+void TOContainerAncientEnemy::vfunc_80() {
     Obj_8015BCC0 *self = (Obj_8015BCC0 *)this;
     switch (self->a326) {
     case 0:

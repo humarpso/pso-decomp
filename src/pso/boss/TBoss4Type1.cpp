@@ -584,7 +584,7 @@ extern "C" void TObjPlayer__sub_80014894();
 extern "C" void TObjPlayer__sub_80014898();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_80019568();
+extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void TObjPlayer__sub_80055678();
 extern "C" void TObjPlayer__sub_8005567C();
 extern "C" void TObjPlayer__sub_80055680();
@@ -614,10 +614,10 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void clear_lobby_object_state();
-extern "C" void get_actor_body_center();
+extern "C" void clear_lobby_object_state__9TObjEnemyFv();
+extern "C" void vfunc_9__13TUnk_804806E8Fv();
 extern "C" void get_actor_level_index();
-extern "C" void get_enemy_name__14TObjEnePanarmsFv();
+extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
@@ -625,7 +625,7 @@ extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_actor_shadows_default();
-extern "C" void reset_actor_action_state();
+extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
@@ -638,7 +638,7 @@ extern "C" void update_attack_stat_status();
 extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
-extern "C" void update_object_view_visibility();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 void TBoss4Type2__sub_80054738(Obj_80054738 *self);
@@ -648,8 +648,8 @@ void *boss4_type2_state_motion_index_table[3] = {
 void *__vt__11TBoss4Type1[83] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TBoss4Type1Fv, (void *)&TBoss4Type2__sub_80054738,
     (void *)&render_and_update_effects__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
@@ -666,7 +666,7 @@ void *__vt__11TBoss4Type1[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define lbl_80485AE0 ((u8 *)lbl_80485AE0)
 #define lbl_80485EB0 ((s32 *)lbl_80485EB0)

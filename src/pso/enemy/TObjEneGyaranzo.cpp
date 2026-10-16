@@ -974,13 +974,13 @@ extern s32 model_render_flags;
 extern void *tl_04;
 
 extern "C" {
-void TBoss3Volopt__sub_800C762C();
+void vfunc_65__15TObjEnemyCustomFll();
 }
 extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-void TObjEnemyCustom__sub_800C7DF4();
+void vfunc_28__15TObjEnemyCustomFv();
 }
 extern "C" {
 void TObjGyaranzoMissile__sub_800D40D8();
@@ -1019,7 +1019,7 @@ extern "C" {
 void TObjPlayer__sub_80018E6C();
 }
 extern "C" {
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 }
 extern "C" {
 void update_and_send_enemy_hit_state();
@@ -1072,7 +1072,7 @@ extern "C" {
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
 }
 extern "C" {
-void call_player_preserving_field__15TObjEnemyCustomFPv();
+void vfunc_79__15TObjEnemyCustomFv();
 }
 extern "C" {
 void check_and_update__16TObjEneBm5GibonUFv();
@@ -1111,16 +1111,16 @@ extern "C" {
 void fn_80010EC8();
 }
 extern "C" {
-void clear_lobby_object_state();
+void clear_lobby_object_state__9TObjEnemyFv();
 }
 extern "C" {
-void get_actor_body_center();
+void vfunc_9__13TUnk_804806E8Fv();
 }
 extern "C" {
 void get_actor_level_index();
 }
 extern "C" {
-void get_enemy_name__14TObjEnePanarmsFv();
+void vfunc_12__9TObjEnemyFv();
 }
 extern "C" {
 void get_pos__10TObjPlayerFii();
@@ -1191,7 +1191,7 @@ extern "C" {
 void render_actor_shadows_default();
 }
 extern "C" {
-void reset_actor_action_state();
+void reset_motion_fields__13TUnk_804806E8Fv();
 }
 extern "C" {
 void reset_pose__10TObjPlayerFPv();
@@ -1236,10 +1236,10 @@ extern "C" {
 void update_flag30_timer__10TObjPlayerFPv();
 }
 extern "C" {
-void update_gigue__15TObjEnemyCustomFv();
+void vfunc_60__15TObjEnemyCustomFv();
 }
 extern "C" {
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 }
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
@@ -1293,12 +1293,12 @@ void *gyaranzo_death_breakup_params[7] = {
 void *gyaranzo_actor_vtable_ops[83] = {
     (void *)0x0, (void *)0x0, (void *)&fn_800D3E54, (void *)&update_main__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800D35D8, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TObjEnemyCustom__sub_800C7DF4, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjGyaranzoMissile__sub_800D40E0, (void *)&TObjPlayer::test_flag_256,
+    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjGyaranzoMissile__sub_800D40E0, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&check_and_update__16TObjEneBm5GibonUFv,
     (void *)&try_activate__16TObjEneBm5GibonUFv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
@@ -1306,12 +1306,12 @@ void *gyaranzo_actor_vtable_ops[83] = {
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjGyaranzoMissile__sub_800D40E8, (void *)&TObjGyaranzoMissile__sub_800D40DC,
-    (void *)&update_gigue__15TObjEnemyCustomFv, (void *)&TObjGyaranzoMissile__sub_800D40D8, (void *)&TObjPlayer__sub_800D31EC, (void *)&TObjPlayer__sub_800D306C,
-    (void *)&reset_pose__10TObjPlayerFPv, (void *)&TBoss3Volopt__sub_800C762C, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
+    (void *)&vfunc_60__15TObjEnemyCustomFv, (void *)&TObjGyaranzoMissile__sub_800D40D8, (void *)&TObjPlayer__sub_800D31EC, (void *)&TObjPlayer__sub_800D306C,
+    (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&vfunc_79__15TObjEnemyCustomFv,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define bm_ene_gyaranzo_resource_descriptor ((s32 *)bm_ene_gyaranzo_resource_descriptor)
 #define gyaranzo_resource_index_table ((s16 *)gyaranzo_resource_index_table)

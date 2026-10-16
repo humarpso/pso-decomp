@@ -49,7 +49,6 @@ struct TBoss3Volopt : public TObjEnemyCustom {
     void play_area_se_with_particle();
     void play_area_sound_effect();
     static s32 collect_and_count(u32 arg0, s32 arg1);
-    void play_proximity_sound();
     void call_vt21();
     int is_active();
     static void update_if_active(s32 _w0);

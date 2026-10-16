@@ -114,7 +114,7 @@ struct Obj_8018CFD4 { u8 pad[0x38]; Vec_8018CFD4 pos; };
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
-void TObjContainerJungEx__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__19TObjContainerJungExFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -209,7 +209,8 @@ void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self) {
 }
 #pragma pop
 
-void TObjContainerJungEx__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj_18 *)(arg0))->m77();

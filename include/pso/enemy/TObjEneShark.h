@@ -5,6 +5,14 @@
 #include "pso/misc/RenderFadeState.h"
 
 struct TObjEneShark {
+    void vfunc_83();
+    void vfunc_101();
+    void vfunc_98();
+    void vfunc_97();
+    void vfunc_96();
+    void vfunc_95();
+    void vfunc_94();
+    void vfunc_93();
     void render();
 
     u8 unknown00[0x18];

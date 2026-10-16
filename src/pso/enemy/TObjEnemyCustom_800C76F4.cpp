@@ -7,8 +7,8 @@
 
 extern "C" {
 void TObjEnemyCustom__sub_800C7860(u8 *arg0);
-void TObjEnemyCustom__sub_800C789C(u8 *arg0);
-void TObjEnemyCustom__sub_800C79C8(u8 *arg0);
+void vfunc_63__15TObjEnemyCustomFv(u8 *arg0);
+void vfunc_62__15TObjEnemyCustomFv(u8 *arg0);
 s32 apply_actor_gravity(void *, s32, f32, f32);
 s32 move_with_wall_slide(void *);
 s32 advance_animation_playback(void *);
@@ -102,7 +102,8 @@ void TObjEnemyCustom__sub_800C7860(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
 
-void TObjEnemyCustom__sub_800C789C(u8 *arg0) {
+void TObjEnemyCustom::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(5);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
@@ -139,7 +140,8 @@ void TObjEnemyCustom::update_knockback_state() {
         break;
     }
 }
-void TObjEnemyCustom__sub_800C79C8(u8 *arg0) {
+void TObjEnemyCustom::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(4);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }

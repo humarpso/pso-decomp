@@ -74,9 +74,9 @@ extern "C" {
 void TObjPlayer__sub_801BE2C0(void* p, s32 v);
 s32 TObjPlayer__sub_801BE2C8(void* p);
 int TObjPlayer__sub_801BE2D0(void* p);
-void TObjPlayer__vt66(void *arg0, s32 arg1);
-int TObjPlayer__vt74(void* p);
-int TObjPlayer__vt75(void* p);
+void vfunc_68__10TObjPlayerFl(void *arg0, s32 arg1);
+int vfunc_76__10TObjPlayerFv(void* p);
+int vfunc_77__10TObjPlayerFv(void* p);
 int TObjPlayer__vt77(void);
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
 s32 is_quest_active();
@@ -96,13 +96,13 @@ s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjPlayer__vt66(void *arg0, s32 arg1) {
-    ((VObj_801BE210_801BE1C0*)arg0)->m63(0x3A, arg1);
+void TObjPlayer::vfunc_68(s32 arg1) {
+    ((VObj_801BE210_801BE1C0*)this)->m63(0x3A, arg1);
 }
 
-int TObjPlayer__vt74(void* p) { return subtract_photon_blast_charge((char*)p + 0x4ac); }
+void TObjPlayer::vfunc_76() { subtract_photon_blast_charge((char*)this + 0x4ac); }
 
-int TObjPlayer__vt75(void* p) { return add_photon_blast_chain_charge((char*)p + 0x4ac); }
+void TObjPlayer::vfunc_77() { add_photon_blast_chain_charge((char*)this + 0x4ac); }
 
 int TObjPlayer__vt77(void) { return 0; }
 u8 TObjPlayer::check_camera_mode() {

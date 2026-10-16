@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
 
 struct V3_800C7458 { f32 x; s32 y; f32 z; };
 
@@ -101,7 +102,7 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_800C762C_lbl_8043BCA0 lbl_8043BCA0;
 extern s32 anim_model_matrix_array;
-void TBoss3Volopt__sub_800C762C(s32 arg0, s32 arg1, s32 arg2);
+void vfunc_65__15TObjEnemyCustomFll(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -130,7 +131,7 @@ s32 TBoss3Volopt::query_field_30(s32 *arg1) {
 typedef char RecoveredGlobal_800C7698_lbl_8058D490_size[sizeof(RecoveredGlobal_800C7698_lbl_8058D490) == 0x30 ? 1 : -1];
 
 typedef char RecoveredGlobal_800C762C_lbl_8043BCA0_size[sizeof(RecoveredGlobal_800C762C_lbl_8043BCA0) == 0xC ? 1 : -1];
-void TBoss3Volopt__sub_800C762C(s32 arg0, s32 arg1, s32 arg2) {
+void TObjEnemyCustom::vfunc_65(s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_800C762C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800C762C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800C762C, sp10) == 0x8) ? 1 : -1];

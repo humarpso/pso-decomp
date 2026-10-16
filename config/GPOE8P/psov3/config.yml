@@ -172,7 +172,6 @@ force_active:
   - TMainCursor__sub_8013E4A0
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
-  - TOBarrierEnergy01__vt18
   - TOCapsuleLabo__resource_descriptor
   - TOChatSensorCapture__class_name
   - TODoorCave01__resource_descriptor
@@ -193,7 +192,6 @@ force_active:
   - TOSensor__sub_80175514
   - TOSignCave01__resource_descriptor
   - TOSignCave02__resource_descriptor
-  - TOTrapAncient02R__vt20
   - TOTrapAncient02R__vt77
   - TOTrapAncient02R__vt78
   - TOTrapAncient02R__vt79
@@ -257,19 +255,6 @@ force_active:
   - TObjEneMe3Stelth__resistance_params_by_variant
   - TObjEneMe3Stelth__shared_params
   - TObjEneRe2Flower_EffCurse3__vtable
-  - TObjEneRe4Bit__vt26
-  - TObjEneRe4Bit__vt42
-  - TObjEneRe4Bit__vt43
-  - TObjEneRe4Bit__vt44
-  - TObjEneRe4Bit__vt45
-  - TObjEneRe4Bit__vt46
-  - TObjEneRe4Bit__vt47
-  - TObjEneRe4Bit__vt48
-  - TObjEneRe4Bit__vt49
-  - TObjEneRe4Bit__vt50
-  - TObjEneRe4Bit__vt59
-  - TObjEneRe4Bit__vt60
-  - TObjEneRe4Bit__vt61
   - TObjEneRe4Bit__vt85
   - TObjEneRe4Bit__vt86
   - TObjEneRe4Bit_boss_handles
@@ -289,7 +274,6 @@ force_active:
   - TObjOnlineEndingHexLine_corner_offsets
   - TObjOnlineEndingHexMove__default_move_params
   - TObjPlayer__sub_800181DC
-  - TObjPlayer__sub_80040ADC
   - TObjPlayer__sub_800DA1F4
   - TObjPlayer__sub_800FF1FC
   - TObjPlayer__sub_800FF220
@@ -324,7 +308,6 @@ force_active:
   - TObjSeabedSuisoBrakable__model12_render_nodes
   - TObjSeabedSuisoBrakable__vt12
   - TObjSeabedSuisoBrakable__vt14
-  - TObjSeabedSuisoBrakable__vt15
   - TObjSeabedSuiso_CH__ct
   - TObjSinBoard__texture_name
   - TObjSinBoard__texture_surface
@@ -675,6 +658,7 @@ force_active:
   - apply_clamped_mode_param__10TObjPlayerFPv
   - apply_contact_damage__10TBoss4ZakoFv
   - apply_dakuten_to_last_char__19TWindowKeyBoardSoftFv
+  - apply_defense_stat_status__13TObjEneRe4BitFPv
   - apply_fog_entry
   - apply_heal_to_target__13TOHealGeneralFv
   - apply_hit_to_target__14TBoss7CrawfishFPvPv
@@ -2640,10 +2624,6 @@ force_active:
   - play_pitched_cue__13TObjEneBm3FlyFi
   - play_proximity_effect__14TObjEneBm5WolfFv
   - play_sifta_cast_sound
-  - play_sound_4003AD00__14TObjEneDolmOlmFi
-  - play_sound_4003a801__14TObjEneDolmOlmFi
-  - play_sound_4003a802__14TObjEneDolmOlmFi
-  - play_sound_4003b203__14TObjEneDolmOlmFi
   - play_walk_sound__12TObjEneLappyFv
   - player_asset_PLATEX_AFS
   - player_asset_PLBTEX_AFS
@@ -7247,6 +7227,7 @@ force_active:
   - request_menu__16TQuestListOnlineFv
   - request_scene_change__11TAdEp3ExistFv
   - request_split_screen_battle_event
+  - request_stand_action__14TObjEneDolmOlmFv
   - request_transition__17TAdEnterPPPPassGCFPv
   - request_transition__18TAdEnterPasswordGCFPv
   - request_transition__8TFogCtrlFll
@@ -7256,7 +7237,6 @@ force_active:
   - reset__14TObjEneBm5WolfFv
   - reset_all_tech_slots__10TObjPlayerFv
   - reset_and_invoke__6TLobbyFv
-  - reset_city_vertical_model_motion
   - reset_effect_entries__18TAdChrMoveEffectGCFv
   - reset_field28__10TObjPlayerFv
   - reset_fields_1e__10TTecSlicerFv
@@ -7851,6 +7831,7 @@ force_active:
   - sound_effect_range_w_enemy
   - sound_effect_range_w_env
   - sound_effect_range_weapon
+  - spawn_break_effect__23TObjSeabedSuisoBrakableFv
   - spawn_child__17TObjEneBm3FlyNestFv
   - spawn_concentrate__12TPhotonGollaFPv
   - spawn_decorations_in_range
@@ -7860,7 +7841,6 @@ force_active:
   - spawn_fire_explosion__10TObjPlayerFUii
   - spawn_fire_explosion_at_item__10TObjPlayerFii
   - spawn_fire_explosion_for_item__10TObjPlayerFii
-  - spawn_front_ground_effect__14TObjEneDolmOlmFPv
   - spawn_ground_effects__14TObjEneDolmOlmFPvPv
   - spawn_hit_particle_trio__10TObjPlayerFv
   - spawn_item_follow_effect
@@ -8032,7 +8012,6 @@ force_active:
   - update_duel_start_countdown
   - update_dying__9TObjGrassFPv
   - update_dying_state__14TObjEneBm5WolfFl
-  - update_effect_joint_pos__14TObjEneDolmOlmFPv
   - update_effect_params__10TTecDebandFv
   - update_effect_params__9TTecSiftaFv
   - update_effects__14TOSwitchAttackFPv
@@ -8206,15 +8185,71 @@ force_active:
   - varGet32
   - varSet32
   - verify_save_checksum__23TAdSinglePlyChrSelectGCFv
+  - vfunc_100__14TObjEneDolmOlmFv
+  - vfunc_101__12TObjEneSharkFv
+  - vfunc_101__14TObjEneDolmOlmFv
   - vfunc_11__17TQuestListOfflineFv
+  - vfunc_13__13TUnk_804B5C08Fl
+  - vfunc_20__17TOBarrierEnergy01Fv
+  - vfunc_22__16TOTrapAncient02RFPvf
+  - vfunc_28__13TObjEneBm3FlyFv
+  - vfunc_28__13TObjEneRe4BitFv
+  - vfunc_28__14TObjEneBm5WolfFv
+  - vfunc_28__17TObjEneBm3FlyNestFv
+  - vfunc_28__18TObjEneRe4SorcererFv
+  - vfunc_28__19TObjEneEpsilonGuardFv
+  - vfunc_30__13TUnk_80483A10Fv
   - vfunc_44__12TItemProUnitFv
+  - vfunc_44__13TObjEneRe4BitFv
   - vfunc_45__12TItemProUnitFv
+  - vfunc_45__13TObjEneRe4BitFv
+  - vfunc_46__13TObjEneRe4BitFv
+  - vfunc_47__13TObjEneRe4BitFv
   - vfunc_48__12TItemProUnitFv
+  - vfunc_48__13TObjEneRe4BitFl
   - vfunc_49__12TItemProUnitFv
+  - vfunc_49__13TObjEneRe4BitFv
+  - vfunc_50__13TObjEneRe4BitFv
+  - vfunc_51__13TObjEneRe4BitFPv
+  - vfunc_61__13TObjEneBm3FlyFv
+  - vfunc_61__13TObjEneRe4BitFv
+  - vfunc_61__14TObjEneBm5WolfFv
+  - vfunc_61__17TObjEneBm3FlyNestFv
+  - vfunc_61__18TObjEneRe4SorcererFv
+  - vfunc_61__19TObjEneEpsilonGuardFv
+  - vfunc_62__13TObjEneBm3FlyFv
+  - vfunc_62__13TObjEneRe4BitFv
+  - vfunc_62__14TObjEneBm5WolfFv
+  - vfunc_62__17TObjEneBm3FlyNestFv
+  - vfunc_62__18TObjEneRe4SorcererFv
+  - vfunc_62__19TObjEneEpsilonGuardFv
+  - vfunc_63__13TObjEneBm3FlyFv
+  - vfunc_63__13TObjEneRe4BitFv
+  - vfunc_63__14TObjEneBm5WolfFv
+  - vfunc_63__17TObjEneBm3FlyNestFv
+  - vfunc_63__18TObjEneRe4SorcererFv
+  - vfunc_63__19TObjEneEpsilonGuardFv
+  - vfunc_6__14TOTrapSeabed01FPsl
   - vfunc_6__18TItemEffNeedleBaseFv
+  - vfunc_6__20TContainerAncient01RFPsl
   - vfunc_80__12TOMineIcon04Fv
   - vfunc_82__12TOMineIcon04Fv
+  - vfunc_83__12TObjEneSharkFv
+  - vfunc_83__14TObjEneDolmOlmFv
   - vfunc_84__12TOMineIcon04Fv
+  - vfunc_93__12TObjEneSharkFv
+  - vfunc_93__14TObjEneDolmOlmFv
+  - vfunc_94__12TObjEneSharkFv
+  - vfunc_94__14TObjEneDolmOlmFv
+  - vfunc_95__12TObjEneSharkFv
+  - vfunc_95__14TObjEneDolmOlmFv
+  - vfunc_96__12TObjEneSharkFv
+  - vfunc_96__14TObjEneDolmOlmFv
+  - vfunc_97__12TObjEneSharkFv
+  - vfunc_97__14TObjEneDolmOlmFv
+  - vfunc_98__12TObjEneSharkFv
+  - vfunc_98__14TObjEneDolmOlmFv
+  - vfunc_9__13TUnk_8049F038Fv
   - voiceRemovePriority
   - voiceResetLastStarted
   - volopt_hiraisin_model_data

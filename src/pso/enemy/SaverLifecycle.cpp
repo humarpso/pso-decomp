@@ -221,7 +221,7 @@ void TObjPlayer__sub_80014838();
 void TObjPlayer__sub_80014840();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void TObjPlayer__sub_800A48C4(Obj_800A48C4 *o);
 void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self);
 void TObjPlayer__sub_800A617C(void *arg0);
@@ -249,7 +249,7 @@ void call_vt78__10TObjPlayerFv();
 void classify_actor_view_detail();
 void clear_all_status_effects();
 void clear_harmful_statuses__10TObjPlayerFv();
-void clear_lobby_object_state();
+void clear_lobby_object_state__9TObjEnemyFv();
 void consume_timer_field__10TObjPlayerFPvi();
 void cure_paralysis__10TObjPlayerFv();
 void cure_poison_ailment();
@@ -263,7 +263,7 @@ void fn_80010EC0();
 void fn_80010EC4();
 void fn_80010EC8();
 void get_actor_level_index();
-void get_enemy_name__14TObjEnePanarmsFv();
+void vfunc_12__9TObjEnemyFv();
 void get_pos__10TObjPlayerFii();
 void is_actor_cadence_frame();
 s32 is_target_in_attack_arc__10TObjPlayerFPv(u8 *arg0);
@@ -284,7 +284,7 @@ void receive_direct_attack__10TObjPlayerFv();
 void receive_physical_attack__10TObjPlayerFv();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void render_actor_shadows_default();
-void reset_actor_action_state();
+void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void roll_physical_accuracy__10TObjPlayerFv();
 void select_melee_contact_body__10TObjPlayerFv();
@@ -298,7 +298,7 @@ void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
 s32 update_landing_recovery__10TObjPlayerFPv(u8 *arg0);
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 void update_shock_clock__10TObjPlayerFPv();
 extern void *bm_ene_df1_saver_model_names[2];
@@ -339,8 +339,8 @@ void *saver_collision_body_part_table[11] = {
 void *TObjEneSaver__vtable[83] = {
     (void *)0x0, (void *)0x0, (void *)&fn_800A73F8, (void *)&TObjPlayer__sub_800A6EC0,
     (void *)&TObjPlayer__sub_800A6C54, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&TObjPlayer__sub_800A772C, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_800A772C, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
@@ -357,7 +357,7 @@ void *TObjEneSaver__vtable[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 }
 

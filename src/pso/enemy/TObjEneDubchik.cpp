@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/unk/TObjEneDubchik.h"
 
 extern "C" {
 
-void TObjEneDubchik__sub_800AAF70(void);
-void TObjEneDubchik__sub_800AAF74(void);
+void vfunc_58__14TObjEneDubchikFv(void);
+void vfunc_59__14TObjEneDubchikFv(void);
 
-void TObjEneDubchik__sub_800AAF70(void) {  }
-void TObjEneDubchik__sub_800AAF74(void) {  }
+void TObjEneDubchik::vfunc_58() {  }
+void TObjEneDubchik::vfunc_59() {  }
 
 }

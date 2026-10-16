@@ -48,7 +48,7 @@ struct RecoveredGlobal_80365210___vt__18TObjLaboDesignBase {
 extern "C" {
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(void *, s32);
-s16 update_object_view_visibility(void *, f32, f32);
+s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 extern s32 camera_ctrl_instance;
 extern void *lazer_fence_norm_texture_list;
@@ -264,7 +264,7 @@ s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1) {
         *(s16 *)((s8 *)arg0 + 0x1E) = 1;
         return *(s16 *)((s8 *)arg0 + 0x1E);
     }
-    return update_object_view_visibility(arg0, farg0, farg1);
+    return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
 
 void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1) {

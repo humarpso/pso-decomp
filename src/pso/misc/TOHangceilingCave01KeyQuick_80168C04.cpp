@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B2578.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -39,9 +40,9 @@ u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-int TOHangceilingCave01KeyQuick__sub_80168D20(void);
-f32 TOHangceilingCave01KeyQuick__sub_80168D28(void);
-void TOHangceilingCave01KeyQuick__sub_80168D30(void);
+int vfunc_20__13TUnk_804B2578FPvf(void);
+f32 vfunc_22__13TUnk_804B2578FPvf(void);
+void vfunc_25__13TUnk_804B2578FPUc(void);
 void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 arg1);
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v);
 s32 free_collision_body_parts(void *);
@@ -82,15 +83,15 @@ u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, s32 arg1, s32 arg2) 
     return arg0;
 }
 
-int TOHangceilingCave01KeyQuick__sub_80168D20(void) { return 1; }
+s32 TUnk_804B2578::vfunc_20(void *, f32) { return 1; }
 
 extern f32 lbl_805DB650;
 
-f32 TOHangceilingCave01KeyQuick__sub_80168D28(void) {
+f32 TUnk_804B2578::vfunc_22(void *, f32) {
     return lbl_805DB650;
 }
 
-void TOHangceilingCave01KeyQuick__sub_80168D30(void) {  }
+void TUnk_804B2578::vfunc_25(u8 *) {  }
 
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x338) = v; }
 

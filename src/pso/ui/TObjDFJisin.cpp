@@ -610,8 +610,8 @@ void apply_slow_status__10TObjPlayerFPv();
 void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
-void TObjPlayer__sub_80019568();
-void TObjRoomId__sub_801A1E2C();
+void vfunc_13__13TUnk_804AF8A0Fl();
+void vfunc_12__13TUnk_804B9870Fv();
 void __dt__11TObjDFJisinFv();
 void __dt__13TObjDFRecBallFv();
 void __dt__16TObjDFBeamCursorFv();
@@ -640,7 +640,7 @@ void fn_80010EBC();
 void fn_80010EC0();
 void fn_80010EC4();
 void fn_80010EC8();
-void get_actor_body_center();
+void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
 void has_flag_0x800__10TObjPlayerFPv();
@@ -651,7 +651,7 @@ void receive_physical_attack__10TObjPlayerFv();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void reset_actor_action_state();
+void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void roll_physical_accuracy__10TObjPlayerFv();
 void run_task__11TObjDFJisinFv();
@@ -669,7 +669,7 @@ void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
 void update_movement_status__10TObjPlayerFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 void *__vt__13TObjDFHorming[] = {
     0,
@@ -680,12 +680,12 @@ void *__vt__13TObjDFHorming[] = {
     (void *)render_shadows__7TObjectFv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
-    (void *)reset_actor_action_state,
-    (void *)get_actor_body_center,
-    (void *)update_object_view_visibility,
+    (void *)reset_motion_fields__13TUnk_804806E8Fv,
+    (void *)vfunc_9__13TUnk_804806E8Fv,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail,
-    (void *)TObjRoomId__sub_801A1E2C,
-    (void *)TObjPlayer__sub_80019568,
+    (void *)vfunc_12__13TUnk_804B9870Fv,
+    (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,
     (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,

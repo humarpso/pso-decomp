@@ -5,6 +5,7 @@
 
 struct TBoss6PlotFalz
 {
+    void vfunc_63();
     u8 _pad1C[0x14];
     u32 m_30;
     u8 _pad34[0x4];

@@ -30,12 +30,12 @@ s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient07__texture_lists;
 extern const f32 lbl_805DB464;
-void TODoorAncient07__vt13(u8 *arg0);
+void play_proximity_sound__15TODoorAncient07Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void TODoorAncient07__vt15(u8 *arg0);
+void vfunc_17__15TODoorAncient07Fv(u8 *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 void *TODoorAncient07__ct(void *, void *, void *);
 s32 is_any_player_within_radius_xz(void *, f32);
@@ -65,7 +65,8 @@ void TODoorAncient07::render() {
     }
 }
 
-void TODoorAncient07__vt15(u8 *arg0) {
+void TODoorAncient07::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
         *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)TODoorAncient07__texture_lists + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB460) != 1) {
@@ -83,7 +84,8 @@ void TODoorAncient07__vt15(u8 *arg0) {
 
 extern void *tl_05;
 
-void TODoorAncient07__vt13(u8 *arg0) {
+void TODoorAncient07::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
         *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)TODoorAncient07__texture_lists + 4);
         if (is_any_player_within_radius_xz((void *)((s32) arg0), lbl_805DB464) == 1) {

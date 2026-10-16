@@ -14,7 +14,7 @@ extern "C" {
 void TODoorJungleMain__vt4(void *arg0, s16 *arg1, s32 arg2);
 s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(s32, s32);
-s32 update_object_view_visibility(s32, f32, f32);
+s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_indexed_flags(s32, s32, s32);
 
@@ -24,7 +24,7 @@ s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1) {
     if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
         return 1;
     }
-    return update_object_view_visibility(arg0, farg0, farg1);
+    return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
 
 extern const f64 lbl_80465410;
@@ -361,7 +361,8 @@ void TODoorJungleMain::render() {
     }
 }
 
-void TODoorJungleMain__vt12(Door_8029B524 *self) {
+void TODoorJungleMain::update_door_switch_state() {
+    Door_8029B524 *self = (Door_8029B524 *)this;
     s16 sp8;
     s32 lvl;
     s32 prev;

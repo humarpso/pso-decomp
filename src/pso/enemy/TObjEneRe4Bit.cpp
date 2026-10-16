@@ -1,6 +1,7 @@
 struct Obj_800ED4BC;
 
 #include "types.h"
+#include "pso/enemy/TObjEneRe4Bit.h"
 
 struct VBase_18_f9c8ca
 {
@@ -374,7 +375,7 @@ extern "C" void TObjPlayer__sub_80014894();
 extern "C" void TObjPlayer__sub_80014898();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_80019568();
+extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void update_and_send_enemy_hit_state();
 extern "C" void add_actor_exp();
 extern "C" void apply_action_hold_status();
@@ -395,10 +396,10 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void clear_lobby_object_state();
-extern "C" void get_actor_body_center();
+extern "C" void clear_lobby_object_state__9TObjEnemyFv();
+extern "C" void vfunc_9__13TUnk_804806E8Fv();
 extern "C" void get_actor_level_index();
-extern "C" void get_enemy_name__14TObjEnePanarmsFv();
+extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
@@ -407,7 +408,7 @@ extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_actor_shadows_default();
-extern "C" void reset_actor_action_state();
+extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
@@ -423,7 +424,7 @@ extern "C" void update_attack_stat_status();
 extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
-extern "C" void update_object_view_visibility();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 
@@ -432,19 +433,19 @@ extern "C" {
 }
 
 extern "C" {
-void TObjEneRe4Bit__vt26(void);
-void TObjEneRe4Bit__vt42(void);
-void TObjEneRe4Bit__vt43(void);
-void TObjEneRe4Bit__vt44(void);
-void TObjEneRe4Bit__vt45(void);
-void TObjEneRe4Bit__vt46(void);
-void TObjEneRe4Bit__vt47(void);
-void TObjEneRe4Bit__vt48(void);
-void TObjEneRe4Bit__vt49(void);
-void TObjEneRe4Bit__vt50(void);
-void TObjEneRe4Bit__vt59(void);
-void TObjEneRe4Bit__vt60(u8 *arg0);
-void TObjEneRe4Bit__vt61(u8 *arg0);
+void vfunc_28__13TObjEneRe4BitFv(void);
+void vfunc_44__13TObjEneRe4BitFv(void);
+void vfunc_45__13TObjEneRe4BitFv(void);
+void vfunc_46__13TObjEneRe4BitFv(void);
+void vfunc_47__13TObjEneRe4BitFv(void);
+void vfunc_48__13TObjEneRe4BitFl(void);
+void vfunc_49__13TObjEneRe4BitFv(void);
+void vfunc_50__13TObjEneRe4BitFv(void);
+void vfunc_51__13TObjEneRe4BitFPv(void);
+void apply_defense_stat_status__13TObjEneRe4BitFPv(void);
+void vfunc_61__13TObjEneRe4BitFv(void);
+void vfunc_62__13TObjEneRe4BitFv(u8 *arg0);
+void vfunc_63__13TObjEneRe4BitFv(u8 *arg0);
 void TObjEneRe4Bit__vt86(void *arg0);
 void * __dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void run_task__13TObjEneRe4BitFv(u8 *arg0);
@@ -462,25 +463,25 @@ void *re4_bit_model_node_desc[11] = {
 void *__vt__13TObjEneRe4Bit[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TObjEneRe4BitFv, (void *)&run_task__13TObjEneRe4BitFv,
     (void *)&render__13TObjEneRe4BitFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TObjEneRe4Bit__vt26, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
+    (void *)&vfunc_28__13TObjEneRe4BitFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&TObjEneRe4Bit__vt42, (void *)&TObjEneRe4Bit__vt43, (void *)&TObjEneRe4Bit__vt44, (void *)&TObjEneRe4Bit__vt45,
-    (void *)&TObjEneRe4Bit__vt46, (void *)&TObjEneRe4Bit__vt47, (void *)&TObjEneRe4Bit__vt48, (void *)&TObjEneRe4Bit__vt49,
-    (void *)&TObjEneRe4Bit__vt50, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&vfunc_44__13TObjEneRe4BitFv, (void *)&vfunc_45__13TObjEneRe4BitFv, (void *)&vfunc_46__13TObjEneRe4BitFv, (void *)&vfunc_47__13TObjEneRe4BitFv,
+    (void *)&vfunc_48__13TObjEneRe4BitFl, (void *)&vfunc_49__13TObjEneRe4BitFv, (void *)&vfunc_50__13TObjEneRe4BitFv, (void *)&vfunc_51__13TObjEneRe4BitFPv,
+    (void *)&apply_defense_stat_status__13TObjEneRe4BitFPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
-    (void *)&TObjPlayer__sub_80014890, (void *)&TObjEneRe4Bit__vt59, (void *)&TObjEneRe4Bit__vt60, (void *)&TObjEneRe4Bit__vt61,
+    (void *)&TObjPlayer__sub_80014890, (void *)&vfunc_61__13TObjEneRe4BitFv, (void *)&vfunc_62__13TObjEneRe4BitFv, (void *)&vfunc_63__13TObjEneRe4BitFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneRe4Bit__vt85,
     (void *)&TObjEneRe4Bit__vt86, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -1447,8 +1448,8 @@ struct Vec_800ED4BC { f32 x, y, z; };
 struct Obj_800ED4BC { u8 pad0[0x38]; f32 f38; u8 pad3C[4]; f32 f40; u8 pad44[0x2FC - 0x44]; Vec_800ED4BC v2FC; u8 pad308[0x3C0 - 0x308]; Vec_800ED4BC *f3C0; u8 pad3C4[0x3D8 - 0x3C4]; f32 f3D8; u8 pad3DC[0x3F8 - 0x3DC]; Vec_800ED4BC v3F8; };
 
 extern "C" {
-void TObjEneRe4Bit__vt60(u8 *arg0);
-void TObjEneRe4Bit__vt61(u8 *arg0);
+void vfunc_62__13TObjEneRe4BitFv(u8 *arg0);
+void vfunc_63__13TObjEneRe4BitFv(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 set_player_state_default__12TBoss8DragonFv(void *);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
@@ -1464,8 +1465,8 @@ void update_homing_velocity__13TObjEneRe4BitFPv(Obj_800ED4BC *arg0);
 extern "C" {
 
 u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, s16 arg6);
-void TObjEneRe4Bit__vt26(void);
-void TObjEneRe4Bit__vt59(void);
+void vfunc_28__13TObjEneRe4BitFv(void);
+void vfunc_61__13TObjEneRe4BitFv(void);
 void TObjEneRe4Bit__vt86(void *arg0);
 void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
@@ -1512,9 +1513,10 @@ void TObjEneRe4Bit__vt86(void *arg0) {
     *(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 4) = (f32) (*(f32 *)((s8 *)arg0 + 0x300) - *(f32 *)((s8 *)arg0 + 0x3C));
 }
 void copy_pos__13TObjEneRe4BitFPv(void* p) { ((int (*)(void*, void*))VecCopy__FP3VecPC3Vec)((void*)((char*)p + 0x74), (void*)((char*)p + 0x2fc)); }
-void TObjEneRe4Bit__vt59(void) {  }
+void TObjEneRe4Bit::vfunc_61() {  }
 
-void TObjEneRe4Bit__vt60(u8 *arg0) {
+void TObjEneRe4Bit::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 5) {
         if (*(s32 *)((s8 *)arg0 + 0x3CC) & 0x1000) {
             ((s32 (*)())clear_attack_receipts)();
@@ -1524,7 +1526,8 @@ void TObjEneRe4Bit__vt60(u8 *arg0) {
     }
 }
 
-void TObjEneRe4Bit__vt61(u8 *arg0) {
+void TObjEneRe4Bit::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if (temp_r0 != 6) {
@@ -1537,7 +1540,7 @@ void TObjEneRe4Bit__vt61(u8 *arg0) {
     }
 }
 
-void TObjEneRe4Bit__vt26(void) {  }
+void TObjEneRe4Bit::vfunc_28() {  }
 
 void run_task__13TObjEneRe4BitFv(u8 *arg0) {
     s32 temp_r3;
@@ -1700,24 +1703,24 @@ void TObjEneRe4Bit__sub_800EDAB4(void) {
 
 extern "C" {
 
-void TObjEneRe4Bit__vt42(void);
-void TObjEneRe4Bit__vt43(void);
-void TObjEneRe4Bit__vt44(void);
-void TObjEneRe4Bit__vt45(void);
-void TObjEneRe4Bit__vt46(void);
-void TObjEneRe4Bit__vt47(void);
-void TObjEneRe4Bit__vt48(void);
-void TObjEneRe4Bit__vt49(void);
-void TObjEneRe4Bit__vt50(void);
+void vfunc_44__13TObjEneRe4BitFv(void);
+void vfunc_45__13TObjEneRe4BitFv(void);
+void vfunc_46__13TObjEneRe4BitFv(void);
+void vfunc_47__13TObjEneRe4BitFv(void);
+void vfunc_48__13TObjEneRe4BitFl(void);
+void vfunc_49__13TObjEneRe4BitFv(void);
+void vfunc_50__13TObjEneRe4BitFv(void);
+void vfunc_51__13TObjEneRe4BitFPv(void);
+void apply_defense_stat_status__13TObjEneRe4BitFPv(void);
 
-void TObjEneRe4Bit__vt42(void) {  }
-void TObjEneRe4Bit__vt43(void) {  }
-void TObjEneRe4Bit__vt44(void) {  }
-void TObjEneRe4Bit__vt45(void) {  }
-void TObjEneRe4Bit__vt46(void) {  }
-void TObjEneRe4Bit__vt47(void) {  }
-void TObjEneRe4Bit__vt48(void) {  }
-void TObjEneRe4Bit__vt49(void) {  }
-void TObjEneRe4Bit__vt50(void) {  }
+void TObjEneRe4Bit::vfunc_44() {  }
+void TObjEneRe4Bit::vfunc_45() {  }
+void TObjEneRe4Bit::vfunc_46() {  }
+void TObjEneRe4Bit::vfunc_47() {  }
+void TObjEneRe4Bit::vfunc_48(s32) {  }
+void TObjEneRe4Bit::vfunc_49() {  }
+void TObjEneRe4Bit::vfunc_50() {  }
+void TObjEneRe4Bit::vfunc_51(void *) {  }
+void TObjEneRe4Bit::apply_defense_stat_status(void *) {  }
 
 }

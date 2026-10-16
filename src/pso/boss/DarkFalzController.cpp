@@ -162,7 +162,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2);
 
 extern "C" {
 
-void TBoss4DarkFalz__vt61(void);
+void vfunc_63__14TBoss4DarkFalzFv(void);
 int TBoss4DarkFalz__sub_8030AD38(void);
 int TLobby__sub_8001FE7C(void*, void*);
 s32 TObjControl__ct(s32, s32);
@@ -185,7 +185,7 @@ void TBoss4DarkFalz::run_task() {
     }
 }
 
-void TBoss4DarkFalz__vt61(void) {  }
+void TBoss4DarkFalz::vfunc_63() {  }
 
     extern int darkfalz_dat_resource;
 

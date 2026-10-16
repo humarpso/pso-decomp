@@ -2128,7 +2128,7 @@ s32 update_action_timer__10TObjPlayerFPv(s32);
 s32 update_action_hold_status__10TObjPlayerFv(s32);
 s32 update_poison_status__10TObjPlayerFv(s32);
 s32 recalc_combat_stats__10TObjPlayerFv(s32, s32, s32, s32, f32, f32);
-s32 reset_actor_action_state(void *);
+s32 reset_motion_fields__13TUnk_804806E8Fv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void * a0);
 s32 obj_getArrWord_254(void *, s32);
@@ -8088,7 +8088,7 @@ void TObjPlayer__vt6(s32 arg0) {
     reset_motion_fields__10TObjPlayerFv();
     ((TObjPlayer *)arg0)->release_member_90();
     ((TObjPlayer *)arg0)->reset_movement();
-    reset_actor_action_state((void *) (arg0));
+    reset_motion_fields__13TUnk_804806E8Fv((void *) (arg0));
     ((TObjPlayer *)arg0)->reset_state();
     TObjPlayer__sub_801BD3A4((void *) (arg0));
     ((TObjPlayer *)arg0)->place_on_area_entry();

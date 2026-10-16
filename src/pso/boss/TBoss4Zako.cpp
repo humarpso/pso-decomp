@@ -1498,14 +1498,14 @@ void TObjPlayer__sub_800172CC();
 void is_target_in_attack_range__10TObjPlayerFv();
 void TObjPlayer__sub_80018E6C();
 void update_actor_ground_y();
-void get_actor_body_center();
-void reset_actor_action_state();
+void vfunc_9__13TUnk_804806E8Fv();
+void reset_motion_fields__13TUnk_804806E8Fv();
 void get_pos__10TObjPlayerFii();
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void run_task__10TBoss4ZakoFv();
-void clear_lobby_object_state();
+void clear_lobby_object_state__9TObjEnemyFv();
 void render_actor_shadows_default();
-void get_enemy_name__14TObjEnePanarmsFv();
+void vfunc_12__9TObjEnemyFv();
 void update_and_send_enemy_hit_state();
 void apply_hit_message_flags__10TObjPlayerFPvPv();
 void call_vt78__10TObjPlayerFv();
@@ -1513,7 +1513,7 @@ void apply_set_data__9TObjEnemyFPvPv();
 void apply_object_set_data();
 void TLobby__sub_801A1FD8();
 void classify_actor_view_detail();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 s32 __vt__11TBoss4Bishi[83] = {
     0,
     0,
@@ -1523,12 +1523,12 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)render_actor_shadows_default,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,
-    (s32)reset_actor_action_state,
-    (s32)get_actor_body_center,
-    (s32)update_object_view_visibility,
+    (s32)reset_motion_fields__13TUnk_804806E8Fv,
+    (s32)vfunc_9__13TUnk_804806E8Fv,
+    (s32)update_object_view_visibility__13TUnk_804B9870Fff,
     (s32)classify_actor_view_detail,
-    (s32)get_enemy_name__14TObjEnePanarmsFv,
-    (s32)TObjPlayer__sub_80019568,
+    (s32)vfunc_12__9TObjEnemyFv,
+    (s32)vfunc_13__13TUnk_804AF8A0Fl,
     (s32)add_actor_exp,
     (s32)consume_timer_field__10TObjPlayerFPvi,
     (s32)get_actor_level_index,
@@ -1597,7 +1597,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)call_vt78__10TObjPlayerFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
     (s32)apply_set_data__9TObjEnemyFPvPv,
-    (s32)clear_lobby_object_state,
+    (s32)clear_lobby_object_state__9TObjEnemyFv,
 };
 s32 __vt__9TBoss4Uro[83] = {
     0,
@@ -1608,12 +1608,12 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)render_actor_shadows_default,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,
-    (s32)reset_actor_action_state,
-    (s32)get_actor_body_center,
-    (s32)update_object_view_visibility,
+    (s32)reset_motion_fields__13TUnk_804806E8Fv,
+    (s32)vfunc_9__13TUnk_804806E8Fv,
+    (s32)update_object_view_visibility__13TUnk_804B9870Fff,
     (s32)classify_actor_view_detail,
-    (s32)get_enemy_name__14TObjEnePanarmsFv,
-    (s32)TObjPlayer__sub_80019568,
+    (s32)vfunc_12__9TObjEnemyFv,
+    (s32)vfunc_13__13TUnk_804AF8A0Fl,
     (s32)add_actor_exp,
     (s32)consume_timer_field__10TObjPlayerFPvi,
     (s32)get_actor_level_index,
@@ -1682,7 +1682,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)call_vt78__10TObjPlayerFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
     (s32)apply_set_data__9TObjEnemyFPvPv,
-    (s32)clear_lobby_object_state,
+    (s32)clear_lobby_object_state__9TObjEnemyFv,
 };
 s32 __vt__10TBoss4Zako[83] = {
     0,
@@ -1693,12 +1693,12 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)render_actor_shadows_default,
     (s32)TLobby__sub_801A1FD8,
     (s32)apply_object_set_data,
-    (s32)reset_actor_action_state,
-    (s32)get_actor_body_center,
-    (s32)update_object_view_visibility,
+    (s32)reset_motion_fields__13TUnk_804806E8Fv,
+    (s32)vfunc_9__13TUnk_804806E8Fv,
+    (s32)update_object_view_visibility__13TUnk_804B9870Fff,
     (s32)classify_actor_view_detail,
-    (s32)get_enemy_name__14TObjEnePanarmsFv,
-    (s32)TObjPlayer__sub_80019568,
+    (s32)vfunc_12__9TObjEnemyFv,
+    (s32)vfunc_13__13TUnk_804AF8A0Fl,
     (s32)add_actor_exp,
     (s32)consume_timer_field__10TObjPlayerFPvi,
     (s32)get_actor_level_index,
@@ -1767,6 +1767,6 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)call_vt78__10TObjPlayerFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
     (s32)apply_set_data__9TObjEnemyFPvPv,
-    (s32)clear_lobby_object_state,
+    (s32)clear_lobby_object_state__9TObjEnemyFv,
 };
 }

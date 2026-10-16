@@ -1052,13 +1052,13 @@ extern "C" {
 extern u8 update_actor_ground_y[];
 }
 extern "C" {
-extern u8 get_actor_body_center[];
+extern u8 vfunc_9__13TUnk_804806E8Fv[];
 }
 extern "C" {
-extern u8 reset_actor_action_state[];
+extern u8 reset_motion_fields__13TUnk_804806E8Fv[];
 }
 extern "C" {
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 }
 extern "C" {
 extern u8 render_actor_shadows_default[];
@@ -1091,7 +1091,7 @@ extern "C" {
 void fn_80010EC8();
 }
 extern "C" {
-void clear_lobby_object_state();
+void clear_lobby_object_state__9TObjEnemyFv();
 }
 extern "C" {
 extern u8 apply_object_set_data[];
@@ -1100,10 +1100,10 @@ extern "C" {
 extern u8 classify_actor_view_detail[];
 }
 extern "C" {
-extern u8 update_object_view_visibility[];
+extern u8 update_object_view_visibility__13TUnk_804B9870Fff[];
 }
 extern "C" {
-void get_enemy_name__14TObjEnePanarmsFv();
+void vfunc_12__9TObjEnemyFv();
 }
 extern "C" {
 void get_pos__10TObjPlayerFii();
@@ -1215,8 +1215,8 @@ void *boss4_type3_radar_marker_colors[4] = {
 void *__vt__11TBoss4Type3[83] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__11TBoss4Type3FPvs, (void *)&run_task__11TBoss4Type3Fv,
     (void *)&TBoss4Type3__sub_8005A86C, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
@@ -1233,7 +1233,7 @@ void *__vt__11TBoss4Type3[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define lbl_80486FB0 ((u8 *)lbl_80486FB0)
 #define boss4_type3_index_table ((u8 *)boss4_type3_index_table)

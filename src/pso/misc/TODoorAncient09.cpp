@@ -74,7 +74,7 @@ extern "C" {
 s32 access_object_saved_state(void *, void *, int);
 s32 door_ancient09_sync_state(void *, void *);
 u8 is_current_floor_switch_set(int);
-void TODoorAncient09__vt12(u8 *arg0);
+void update_door_switch_state__15TODoorAncient09Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
@@ -87,13 +87,13 @@ s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern void *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB488;
-void TODoorAncient09__vt15(u8 *arg0);
+void vfunc_17__15TODoorAncient09Fv(u8 *arg0);
 s32 set_indexed_flags(void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern void *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB48C;
-void TODoorAncient09__vt13(u8 *arg0);
+void play_proximity_sound__15TODoorAncient09Fv(u8 *arg0);
 u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -112,9 +112,9 @@ struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
     virtual s32 m8(f32, f32);
 };
 
-s32 TODoorAncient09__vt17(void *arg0);
-void TODoorAncient09__vt18(void);
-void TODoorAncient09__vt4(void *arg0, s16 *arg1);
+s32 init_door_switch_binding__15TODoorAncient09Fv(void *arg0);
+void vfunc_20__15TODoorAncient09Fv(void);
+void vfunc_6__15TODoorAncient09FPsl(void *arg0, s16 *arg1);
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TODoorAncient09__ct(void *, void *, void *);
@@ -132,27 +132,27 @@ s32 mem_free(void*);
 s32 get_main_phase();
 s32 is_split_screen();
 
-void TODoorAncient09__vt4(void *arg0, s16 *arg1) {
+void TODoorAncient09::vfunc_6(s16 *arg1, s32) {
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
     }
 }
 
-s32 TODoorAncient09__vt17(void *arg0) {
+s32 TODoorAncient09::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+        *(s32 *)((s8 *)this + 0xCC) = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 1;
-    } else if (((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 3;
+        *(s32 *)((s8 *)this + 0xCC) = 1;
+    } else if (((s32) *(s32 *)((s8 *)this + 0x8C) < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
+        *(s32 *)((s8 *)this + 0xCC) = 3;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+        *(s32 *)((s8 *)this + 0xCC) = 2;
     }
-    return *(s32 *)((s8 *)arg0 + 0xC8);
+    return *(s32 *)((s8 *)this + 0xC8);
 }
 
 extern const f32 lbl_805DB480;
@@ -193,7 +193,8 @@ void TODoorAncient09::play_door_sound() {
 
 #pragma push
 #pragma fp_contract on
-void TODoorAncient09__vt12(u8 *arg0) {
+void TODoorAncient09::update_door_switch_state() {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xCC);
@@ -313,11 +314,12 @@ void TODoorAncient09::render() {
     }
 }
 
-void TODoorAncient09__vt18(void) {  }
+void TODoorAncient09::vfunc_20() {  }
 
 extern void *tl_05;
 
-void TODoorAncient09__vt15(u8 *arg0) {
+void TODoorAncient09::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)(arg0 + 0xD0) & 1) {
         *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient09__texture_lists)[1];
         if (is_any_player_within_radius_xz(arg0, lbl_805DB488) == 1) {
@@ -353,7 +355,8 @@ void TODoorAncient09__vt15(u8 *arg0) {
     }
 }
 
-void TODoorAncient09__vt13(u8 *arg0) {
+void TODoorAncient09::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(arg0, lbl_805DB48C) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
         *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient09__texture_lists)[1];

@@ -456,7 +456,7 @@ s32 access_object_saved_state(void *, void *, int);
 s32 __dt__6TOTrapFv(void *, s32);
 void * TOTrap__ct(void *, void *, void *);
 void TOTrapAncient02R__vt77(Obj_8017A8B0 *self);
-f32 TOTrapAncient02R__vt20(Obj_8017A988 *self);
+f32 vfunc_22__16TOTrapAncient02RFPvf(Obj_8017A988 *self);
 void * __dt__16TOTrapAncient02RFv(void *arg0, s16 arg1);
 void * TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2);
 void TOTrapAncient02__vt84(void);
@@ -507,12 +507,12 @@ extern void *tl_05;
 
 #pragma push
 #pragma fp_contract on
-void TOTrapAncient02R__vt21();
-void TOTrapAncient02R__vt22();
+void vfunc_23__16TOTrapAncient02RFPvPvPvll();
+void vfunc_24__16TOTrapAncient02RFPvPv();
 void TOTrapAncient02R__vt84();
 void TOTrapAncient02R__vt86();
 void TOTrap__sub_80178BC0();
-void TOTrap__sub_8017939C();
+void vfunc_25__6TOTrapFPUc();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A78();
 void TObjPlayer__sub_80010A80();
@@ -528,8 +528,8 @@ void TObjPlayer__sub_80014894();
 void TObjPlayer__sub_80014898();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
-void TObjPlayer__sub_80019568();
-void TObjRoomId__sub_801A1E2C();
+void vfunc_13__13TUnk_804AF8A0Fl();
+void vfunc_12__13TUnk_804B9870Fv();
 void add_actor_exp();
 void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
@@ -554,21 +554,21 @@ void fn_80010EBC();
 void fn_80010EC0();
 void fn_80010EC4();
 void fn_80010EC8();
-void get_actor_body_center();
+void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
 void play_sounds__6TOTrapFv();
 void render_shadows__7TObjectFv();
-void reset_actor_action_state();
+void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void ret_8017B878();
-void ret_8017B880();
-void ret_8017B888();
-void ret_8017B890();
-void ret_8017B898();
-void trigger__6TOTrapFPsl();
+void vfunc_26__16TOTrapAncient02RFll();
+void vfunc_27__16TOTrapAncient02RFPvlf();
+void vfunc_20__16TOTrapAncient02RFPvf();
+void vfunc_21__16TOTrapAncient02RFPvPvPvf();
+void vfunc_6__6TOTrapFPsl();
 void trigger_switch_attack__10TObjPlayerFi();
 void update_action_hold_status__10TObjPlayerFv();
 void update_action_timer__10TObjPlayerFPv();
@@ -577,7 +577,7 @@ void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
 void update_movement_status__10TObjPlayerFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 void update_shock_clock__10TObjPlayerFPv();
 void run_task__6TOTrapFv();
@@ -635,28 +635,28 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&run_task__6TOTrapFv,
     (s32)&render__15TOTrapAncient02Fv,
     (s32)&render_shadows__7TObjectFv,
-    (s32)&trigger__6TOTrapFPsl,
+    (s32)&vfunc_6__6TOTrapFPsl,
     (s32)&apply_object_set_data,
-    (s32)&reset_actor_action_state,
-    (s32)&get_actor_body_center,
-    (s32)&update_object_view_visibility,
+    (s32)&reset_motion_fields__13TUnk_804806E8Fv,
+    (s32)&vfunc_9__13TUnk_804806E8Fv,
+    (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
     (s32)&classify_actor_view_detail,
-    (s32)&TObjRoomId__sub_801A1E2C,
-    (s32)&TObjPlayer__sub_80019568,
+    (s32)&vfunc_12__13TUnk_804B9870Fv,
+    (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&add_actor_exp,
     (s32)&consume_timer_field__10TObjPlayerFPvi,
     (s32)&get_actor_level_index,
     (s32)&update_actor_ground_y,
     (s32)&TObjPlayer__sub_80018E6C,
     (s32)&is_actor_cadence_frame,
-    (s32)&ret_8017B890,
-    (s32)&ret_8017B898,
-    (s32)&TOTrapAncient02R__vt20,
-    (s32)&TOTrapAncient02R__vt21,
-    (s32)&TOTrapAncient02R__vt22,
-    (s32)&TOTrap__sub_8017939C,
-    (s32)&ret_8017B880,
-    (s32)&ret_8017B888,
+    (s32)&vfunc_20__16TOTrapAncient02RFPvf,
+    (s32)&vfunc_21__16TOTrapAncient02RFPvPvPvf,
+    (s32)&vfunc_22__16TOTrapAncient02RFPvf,
+    (s32)&vfunc_23__16TOTrapAncient02RFPvPvPvll,
+    (s32)&vfunc_24__16TOTrapAncient02RFPvPv,
+    (s32)&vfunc_25__6TOTrapFPUc,
+    (s32)&vfunc_26__16TOTrapAncient02RFll,
+    (s32)&vfunc_27__16TOTrapAncient02RFPvlf,
     (s32)&TObjPlayer__sub_80011010,
     (s32)&TObjPlayer__sub_8000FF3C,
     (s32)&is_target_in_attack_range__10TObjPlayerFv,
@@ -924,7 +924,8 @@ extern int fold_flush_1;
 
 #pragma push
 #pragma fp_contract on
-f32 TOTrapAncient02R__vt20(Obj_8017A988 *self) {
+f32 TOTrapAncient02R::vfunc_22(void *, f32) {
+    Obj_8017A988 *self = (Obj_8017A988 *)this;
     s16 msg;
     if (self->id >= 0x4000 && self->x80 != 0) {
         Vec_8017A988 v = self->pos;

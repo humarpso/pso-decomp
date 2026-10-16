@@ -1,4 +1,6 @@
 #include "pso/misc/RenderFadeState.h"
+#include "pso/misc/TContainerAncient01.h"
+#include "pso/misc/TContainerAncient01R.h"
 
 #include "types.h"
 
@@ -78,10 +80,10 @@ extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
-f32 call_vt5_and_get_default_scale__19TContainerAncient01FPv(V_8018BE30 *self);
+f32 vfunc_24__20TContainerAncient01RFPvPv(V_8018BE30 *self);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
-f32 TContainerAncient01__vt22(V_8018BE98 *self);
+f32 vfunc_24__19TContainerAncient01FPvPv(V_8018BE98 *self);
 f32 xyz_distance_squared(void *, void *);
 void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
@@ -94,13 +96,13 @@ s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1);
 
 extern "C" {
 
-void TContainerAncient01__sub_8018BE68(void);
-int TContainerAncient01__sub_8018BE6C(void);
-int TContainerAncient01__sub_8018BE74(void);
+void vfunc_25__20TContainerAncient01RFPUc(void);
+int vfunc_26__20TContainerAncient01RFll(void);
+int vfunc_27__20TContainerAncient01RFPvlf(void);
 s32 TContainerAncient01__sub_8018BE90(void);
-void TContainerAncient01__vt23(void);
-int TContainerAncient01__vt24(void);
-int TContainerAncient01__vt25(void);
+void vfunc_25__19TContainerAncient01FPUc(void);
+int vfunc_26__19TContainerAncient01Fll(void);
+int vfunc_27__19TContainerAncient01FPvlf(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
 int get_table_entry__19TContainerAncient01Fi(int a0);
 s32 free_collision_body_parts(void *);
@@ -153,14 +155,15 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 #pragma pop
 
-f32 call_vt5_and_get_default_scale__19TContainerAncient01FPv(V_8018BE30 *self) {
+f32 TContainerAncient01R::vfunc_24(void *, void *) {
+    V_8018BE30 *self = (V_8018BE30 *)this;
     self->m20(0, TContainerAncient01__data_805DBD10);
     return TContainerAncient01__data_805DBD14;
 }
 
-void TContainerAncient01__sub_8018BE68(void) {  }
-int TContainerAncient01__sub_8018BE6C(void) { return 1; }
-int TContainerAncient01__sub_8018BE74(void) { return 1; }
+void TContainerAncient01R::vfunc_25(u8 *) {  }
+s32 TContainerAncient01R::vfunc_26(s32, s32) { return 1; }
+s32 TContainerAncient01R::vfunc_27(void *, s32, f32) { return 1; }
 
     extern int TContainerAncient01__effect_id_table[];
 int get_table_entry__19TContainerAncient01Fi(int a0) {  return TContainerAncient01__effect_id_table[a0]; }
@@ -171,14 +174,15 @@ s32 TContainerAncient01__sub_8018BE90(void) {
     return TContainerAncient01__bml_resource;
 }
 
-f32 TContainerAncient01__vt22(V_8018BE98 *self) {
+f32 TContainerAncient01::vfunc_24(void *, void *) {
+    V_8018BE98 *self = (V_8018BE98 *)this;
     self->m20(0, TContainerAncient01__data_805DBD10);
     return TContainerAncient01__data_805DBD14;
 }
 
-void TContainerAncient01__vt23(void) {  }
-int TContainerAncient01__vt24(void) { return 1; }
-int TContainerAncient01__vt25(void) { return 1; }
+void TContainerAncient01::vfunc_25(u8 *) {  }
+s32 TContainerAncient01::vfunc_26(s32, s32) { return 1; }
+s32 TContainerAncient01::vfunc_27(void *, s32, f32) { return 1; }
 #pragma push
 #pragma fp_contract on
 s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1) {
@@ -532,7 +536,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBD98;
-f32 TObjContainerJungEnemy__vt20(Obj_8018CB44 *arg0);
+f32 vfunc_22__22TObjContainerJungEnemyFPvf(Obj_8018CB44 *arg0);
 extern u8 container_ido_collision_parts[];
 extern s32 __vt__16TObjContainerIdo[];
 extern s32 lbl_805D330C;
@@ -728,7 +732,8 @@ void TObjContainerJungEnemy__vt77(const Obj_8018C9F0 *self) {
 }
 #pragma pop
 
-f32 TObjContainerJungEnemy__vt20(Obj_8018CB44 *arg0) {
+f32 TObjContainerJungEnemy::vfunc_22(void *, f32) {
+    Obj_8018CB44 *arg0 = (Obj_8018CB44 *)this;
     s16 sp8;
     Pkt_8018CB44 pkt;
     if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {

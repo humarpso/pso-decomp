@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void test_flag_256__13TUnk_80493450Fv();
 
 struct Obj_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; u8 pad44[0x2A8 - 0x44]; void *f2a8; u8 pad2ac[0x326 - 0x2AC]; s16 f326; s16 f328; u8 pad32a[0x338 - 0x32A]; u16 f338; u8 pad33a[0x350 - 0x33A]; f32 *f350; u8 pad354[0x3D0 - 0x354]; f32 f3d0; };
 struct Pl_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; };
@@ -499,7 +500,7 @@ void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void *, s32);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-void TObjEneMerillLia__sub_800D51C8(Ene_800D51C8 *arg0);
+void vfunc_59__16TObjEneMerillLiaFv(Ene_800D51C8 *arg0);
 s16 find_nearest_visible_player(void *, s32, f32);
 s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
@@ -509,13 +510,13 @@ s32 advance_animation_playback(void *);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 s32 set_indexed_flags(void *, s32, s32);
 extern const f32 lbl_805DA304;
-void TObjEneMerillLia__sub_800D64F0(Ene_800D64F0 *arg0);
+void vfunc_83__16TObjEneMerillLiaFv(Ene_800D64F0 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 extern const f32 TObjEneMerillLia__data_805DA308;
-void TObjEneMerillLia__sub_800D52DC(Ene_800D52DC *arg0);
+void vfunc_60__16TObjEneMerillLiaFv(Ene_800D52DC *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
@@ -618,7 +619,7 @@ void * TObjEneMerillLia__create(void *arg0);
 void TObjEneMerillLia__sub_800D4D70(void);
 void TObjEneMerillLia__sub_800D50FC(void);
 void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1);
-void update_motion_state__16TObjEneMerillLiaFPv(void *arg0);
+void vfunc_58__16TObjEneMerillLiaFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void free_collision_body_parts(void *);
@@ -646,11 +647,11 @@ extern "C" void apply_slow_status__10TObjPlayerFPv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_80019568();
-extern "C" void TObjPlayer__sub_80092A7C();
+extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
+extern "C" void vfunc_100__13TUnk_80493450Fv();
 extern "C" void TObjPlayer__sub_800C53B4();
 extern "C" void update_turn_toward_target__10TObjPlayerFv();
-extern "C" void TObjPlayer__sub_800C69FC();
+extern "C" void vfunc_95__13TUnk_80493450Fv();
 extern "C" void update_and_send_enemy_hit_state();
 extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
 extern "C" void add_actor_exp();
@@ -686,10 +687,10 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void clear_lobby_object_state();
-extern "C" void get_actor_body_center();
+extern "C" void clear_lobby_object_state__9TObjEnemyFv();
+extern "C" void vfunc_9__13TUnk_804806E8Fv();
 extern "C" void get_actor_level_index();
-extern "C" void get_enemy_name__14TObjEnePanarmsFv();
+extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void is_actor_cadence_frame();
 extern "C" void is_target_in_attack_range__10TObjPlayerFv();
@@ -715,8 +716,8 @@ extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_actor_shadows_default();
-extern "C" void request_stand_action__12TObjEneBeastFv();
-extern "C" void reset_actor_action_state();
+extern "C" void request_stand_action__13TUnk_80493450Fv();
+extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
@@ -729,7 +730,7 @@ extern "C" void update_actor_ground_y();
 extern "C" void update_attack_stat_status();
 extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
-extern "C" void update_object_view_visibility();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *lbl_804944D0[3];
 extern void *lbl_804944DC[17];
@@ -793,30 +794,30 @@ void *lbl_804946A4[33] = {
 void *lbl_80494728[103] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneMerillLiaFPvs, (void *)&run_state_dispatch__16TObjEneMerillLiaFPv,
     (void *)&render__16TObjEneMerillLiaFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjEneBeast::is_lying_down,
+    (void *)&beast_select_target, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_80493450Fv,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold__12TObjEneBeastFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&tick_freeze_and_reset_appearance,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
-    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&update_motion_state__16TObjEneMerillLiaFPv, (void *)&TObjEneMerillLia__sub_800D51C8,
-    (void *)&TObjEneMerillLia__sub_800D52DC, (void *)&clear_flag_0x100__10TObjPlayerFv, (void *)&enter_state7__10TObjPlayerFv, (void *)&enter_state_8__10TObjPlayerFv,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__16TObjEneMerillLiaFv, (void *)&vfunc_59__16TObjEneMerillLiaFv,
+    (void *)&vfunc_60__16TObjEneMerillLiaFv, (void *)&clear_flag_0x100__10TObjPlayerFv, (void *)&enter_state7__10TObjPlayerFv, (void *)&enter_state_8__10TObjPlayerFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneMerillLia__sub_800D64F0,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__16TObjEneMerillLiaFv,
     (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&update_chase_target__16TObjEneMerillLiaFPv, (void *)&TObjEneMerillLia__sub_800D6110,
     (void *)&beast_update_attack, (void *)&TObjPlayer__sub_800C53B4, (void *)&TObjEneMerillLia__sub_800D59E4, (void *)&beast_update_dead,
-    (void *)&beast_retire_corpse, (void *)&TObjEneMerillLia__sub_800D50FC, (void *)&spawn_front_ground_effect__16TObjEneMerillLiaFPv, (void *)&TObjPlayer__sub_800C69FC,
+    (void *)&beast_retire_corpse, (void *)&TObjEneMerillLia__sub_800D50FC, (void *)&spawn_front_ground_effect__16TObjEneMerillLiaFPv, (void *)&vfunc_95__13TUnk_80493450Fv,
     (void *)&play_sound_3ab02__16TObjEneMerillLiaFi, (void *)&play_sound_3b201__16TObjEneMerillLiaFi, (void *)&play_target_sound_alt_id__16TObjEneMerillLiaFi, (void *)&play_target_sound__16TObjEneMerillLiaFi,
-    (void *)&TObjPlayer__sub_80092A7C, (void *)&TObjEneMerillLia__sub_800D4D70, (void *)&request_stand_action__12TObjEneBeastFv,
+    (void *)&vfunc_100__13TUnk_80493450Fv, (void *)&TObjEneMerillLia__sub_800D4D70, (void *)&request_stand_action__13TUnk_80493450Fv,
 };
 #define lbl_80494728 ((s32 *)lbl_80494728)
 
@@ -927,7 +928,8 @@ void TObjEneMerillLia::clamp_and_apply_mode_param() {
     }
 }
 
-void TObjEneMerillLia__sub_800D51C8(Ene_800D51C8 *arg0) {
+void TObjEneMerillLia::vfunc_59() {
+    Ene_800D51C8 *arg0 = (Ene_800D51C8 *)this;
     if (obj_testFlags30(arg0, 0x1000) != 0) {
         arg0->state = 4;
     }
@@ -965,7 +967,8 @@ void TObjEneMerillLia__sub_800D51C8(Ene_800D51C8 *arg0) {
     }
 }
 
-void TObjEneMerillLia__sub_800D52DC(Ene_800D52DC *arg0) {
+void TObjEneMerillLia::vfunc_60() {
+    Ene_800D52DC *arg0 = (Ene_800D52DC *)this;
     switch (arg0->state) {
     case 0:
     case 2:
@@ -1002,10 +1005,10 @@ void TObjEneMerillLia__sub_800D52DC(Ene_800D52DC *arg0) {
     }
 }
 
-void update_motion_state__16TObjEneMerillLiaFPv(void *arg0) {
+void TObjEneMerillLia::vfunc_58() {
     s32 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     if (temp_r0 != 4) {
         if (temp_r0 < 4) {
             if (temp_r0 < 3) {
@@ -1018,14 +1021,14 @@ void update_motion_state__16TObjEneMerillLiaFPv(void *arg0) {
             }
         } else if ((temp_r0 >= 0xE) || (temp_r0 < 0xB)) {
 block_7:
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 0) {
-                *(s16 *)((s8 *)arg0 + 0x326) = 0;
+            if ((s32) *(s32 *)((s8 *)this + 0x390) != 0) {
+                *(s16 *)((s8 *)this + 0x326) = 0;
             } else {
-                *(s16 *)((s8 *)arg0 + 0x326) = 1;
+                *(s16 *)((s8 *)this + 0x326) = 1;
             }
-            *(s16 *)((s8 *)arg0 + 0x328) = 0;
-            obj_setFlags30(arg0, 0x04040000);
-            set_indexed_flags(arg0, 0, 0x0A000000);
+            *(s16 *)((s8 *)this + 0x328) = 0;
+            obj_setFlags30(this, 0x04040000);
+            set_indexed_flags(this, 0, 0x0A000000);
         }
     }
 block_end:
@@ -1430,7 +1433,8 @@ void TObjEneMerillLia__sub_800D6110(Obj_800D6110 *arg0) {
 }
 #pragma pop
 
-void TObjEneMerillLia__sub_800D64F0(Ene_800D64F0 *arg0) {
+void TObjEneMerillLia::vfunc_83() {
+    Ene_800D64F0 *arg0 = (Ene_800D64F0 *)this;
     switch (arg0->sub) {
     case 0:
     default:

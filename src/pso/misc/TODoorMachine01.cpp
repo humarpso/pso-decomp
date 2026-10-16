@@ -109,7 +109,7 @@ extern const f32 lbl_805DB4F4;
 extern const f32 lbl_805DB4F8;
 extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB500;
-void TODoorMachine01__vt13(u8 *arg0);
+void play_proximity_sound__15TODoorMachine01Fv(u8 *arg0);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -122,7 +122,7 @@ extern const f32 lbl_805DB508;
 u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void play_door_sound(void *);
 u8 is_current_floor_switch_set(u16);
-void TODoorMachine01__vt12(Door_80162A70 *self);
+void update_door_switch_state__15TODoorMachine01Fv(Door_80162A70 *self);
 s32 is_in_view_depth(void *, f32);
 int rotate_matrix_y(int, int);
 int push_matrix();
@@ -155,8 +155,8 @@ extern s32 *TODoorMachine01__global_param_id_array;
 
 extern "C" {
 
-void TODoorMachine01__vt15(u8 *arg0);
-void TODoorMachine01__vt18(void);
+void vfunc_17__15TODoorMachine01Fv(u8 *arg0);
+void vfunc_20__15TODoorMachine01Fv(void);
 void *__dt__15TODoorMachine01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -167,11 +167,12 @@ s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
-void TODoorMachine01__vt18(void) {  }
+void TODoorMachine01::vfunc_20() {  }
 
 extern const f32 lbl_805DB4F0;
 
-void TODoorMachine01__vt15(u8 *arg0) {
+void TODoorMachine01::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB4F0) != 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
@@ -181,7 +182,8 @@ void TODoorMachine01__vt15(u8 *arg0) {
 
 extern void *tl_05;
 
-void TODoorMachine01__vt13(u8 *arg0) {
+void TODoorMachine01::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB4F4)) == 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
@@ -200,7 +202,8 @@ void TODoorMachine01__vt13(u8 *arg0) {
     }
 }
 
-void TODoorMachine01__vt12(Door_80162A70 *self) {
+void TODoorMachine01::update_door_switch_state() {
+    Door_80162A70 *self = (Door_80162A70 *)this;
     s32 i;
     s32 j;
     s32 k;

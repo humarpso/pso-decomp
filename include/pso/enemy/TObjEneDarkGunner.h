@@ -5,6 +5,12 @@
 
 struct TObjEneDarkGunner : public TObjEnemyCustom {
     virtual ~TObjEneDarkGunner();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
+    virtual void vfunc_59();
+    virtual void vfunc_58();
+    virtual s32 vfunc_36();
+    virtual void vfunc_28();
     f32 render_y_offset;
     u8 unknown390[0x60];
     void* children[4];

@@ -758,14 +758,14 @@ void TObjFish::free_resource() {
     }
 }
 void TLobby__sub_801A1FD8();
-void TObjRoomId__sub_801A1E2C();
-void TParticleCtrl__sub_801A2124();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
 void classify_actor_view_detail();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__10TObjPlayerFv();
 void run_task__8TObjFishFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 #pragma push
 extern const f64 lbl_80465E00 = 10430.38043493439;
 #pragma pop
@@ -841,10 +841,10 @@ void *__vt__8TObjFish[13] = {
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
     (void *)reset_motion_fields__10TObjPlayerFv,
-    (void *)TParticleCtrl__sub_801A2124,
-    (void *)update_object_view_visibility,
+    (void *)vfunc_9__13TUnk_804B9870Fv,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail,
-    (void *)TObjRoomId__sub_801A1E2C,
+    (void *)vfunc_12__13TUnk_804B9870Fv,
 };
 
 void TObjFish::load_area_resource() {

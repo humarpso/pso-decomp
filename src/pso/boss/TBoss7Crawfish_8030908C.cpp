@@ -128,13 +128,13 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TBoss7Crawfish__vt42(void);
-void TBoss7Crawfish__vt43(void);
-void TBoss7Crawfish__vt44(void);
-void TBoss7Crawfish__vt45(void);
-void TBoss7Crawfish__vt46(void);
-void TBoss7Crawfish__vt47(void);
-void TBoss7Crawfish__vt48(void);
+void vfunc_44__14TBoss7CrawfishFv(void);
+void vfunc_45__14TBoss7CrawfishFv(void);
+void vfunc_46__14TBoss7CrawfishFv(void);
+void vfunc_47__14TBoss7CrawfishFv(void);
+void vfunc_48__14TBoss7CrawfishFl(void);
+void vfunc_49__14TBoss7CrawfishFv(void);
+void vfunc_50__14TBoss7CrawfishFv(void);
 void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
 s32 TBoss7Crawfish__sub_80308BEC(void *);
@@ -271,13 +271,13 @@ void TBoss7Crawfish::load_static_resource() {
     (*(s32 *)&TBoss7Crawfish__shared_resource) = var_r0;
 }
 
-void TBoss7Crawfish__vt42(void) {  }
-void TBoss7Crawfish__vt43(void) {  }
-void TBoss7Crawfish__vt44(void) {  }
-void TBoss7Crawfish__vt45(void) {  }
-void TBoss7Crawfish__vt46(void) {  }
-void TBoss7Crawfish__vt47(void) {  }
-void TBoss7Crawfish__vt48(void) {  }
+void TBoss7Crawfish::vfunc_44() {  }
+void TBoss7Crawfish::vfunc_45() {  }
+void TBoss7Crawfish::vfunc_46() {  }
+void TBoss7Crawfish::vfunc_47() {  }
+void TBoss7Crawfish::vfunc_48(s32) {  }
+void TBoss7Crawfish::vfunc_49() {  }
+void TBoss7Crawfish::vfunc_50() {  }
 f32 TBoss7Crawfish::get_health() { return *(f32*)((char*)this + 0xc8); }
 void TBoss7Crawfish::set_anim_timer(s16 v) { *(s16*)((char*)this + 0xb8) = v; }
 

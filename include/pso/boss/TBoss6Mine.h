@@ -6,6 +6,8 @@
 
 struct TBoss6Mine : public TObjEnemy {
     virtual ~TBoss6Mine();
+    virtual void vfunc_63();
+    virtual void vfunc_62();
     virtual void render_shadows();
     virtual void render();
     u32 m_374;
@@ -28,7 +30,6 @@ struct TBoss6Mine : public TObjEnemy {
     void* m_3bc;
     u8 _pad3C0[0xC];
     u32 m_3cc;
-    void set_state7();
     void copy_pos();
     void draw();
     void update_facing_angles();

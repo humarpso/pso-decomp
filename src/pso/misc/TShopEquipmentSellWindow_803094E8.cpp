@@ -5,13 +5,13 @@
 
 extern "C" {
 
-void TBoss7Crawfish__vt42(void);
-void TBoss7Crawfish__vt43(void);
-void TBoss7Crawfish__vt44(void);
-void TBoss7Crawfish__vt45(void);
-void TBoss7Crawfish__vt46(void);
-void TBoss7Crawfish__vt47(void);
-void TBoss7Crawfish__vt48(void);
+void vfunc_44__14TBoss7CrawfishFv(void);
+void vfunc_45__14TBoss7CrawfishFv(void);
+void vfunc_46__14TBoss7CrawfishFv(void);
+void vfunc_47__14TBoss7CrawfishFv(void);
+void vfunc_48__14TBoss7CrawfishFl(void);
+void vfunc_49__14TBoss7CrawfishFv(void);
+void vfunc_50__14TBoss7CrawfishFv(void);
 int initialize_subwindow__9TWindowDDFv(void*);
 int update_window_entry_list(void*, void*);
 int fn_80269078(void*);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
 #include "pso/TMainTask.h"
@@ -22,7 +23,7 @@ f32 transform_point_by_current_matrix(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
-s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1);
+s16 update_object_view_visibility__13TUnk_804B9870Fff(u8 *arg0, f32 farg0, f32 farg1);
 s32 is_in_shadow_range(f32, void *);
 s32 project_world_to_screen(int, void *, void *);
 f32 transform_point_by_current_matrix(void *, void *);
@@ -96,7 +97,8 @@ s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
 }
 #pragma pop
 
-s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1) {
+s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
+    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801A2340, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_801A2340, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_801A2340, sp14) == 0xC) ? 1 : -1];

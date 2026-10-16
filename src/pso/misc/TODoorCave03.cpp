@@ -84,22 +84,22 @@ struct Model_801625AC {
 
 extern "C" {
 extern const f32 lbl_805DB4D8;
-void TODoorCave03__vt15(u8 *arg0);
+void vfunc_17__12TODoorCave03Fv(u8 *arg0);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
-void TODoorCave03__vt16(u8 *arg0);
+void vfunc_18__12TODoorCave03Fv(u8 *arg0);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4DC;
-void TODoorCave03__vt14(u8 *arg0);
+void vfunc_16__12TODoorCave03Fv(u8 *arg0);
 s32 set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(void *, f32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4E0;
 extern const f32 lbl_805DB4E4;
-void TODoorCave03__vt13(u8 *arg0);
+void play_proximity_sound__12TODoorCave03Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 
 extern s32 enable_v2_features;
@@ -129,7 +129,7 @@ void render__12TODoorCave03Fv(u8 *arg0);
 
 extern "C" {
 
-void TODoorCave03__vt18(void);
+void vfunc_20__12TODoorCave03Fv(void);
 void *__dt__12TODoorCave03Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -137,11 +137,12 @@ s32 unregister_object_by_id(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void TODoorCave03__vt18(void) {  }
+void TODoorCave03::vfunc_20() {  }
 
 extern void *tl_05;
 
-void TODoorCave03__vt16(u8 *arg0) {
+void TODoorCave03::vfunc_18() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     f32 temp_f3;
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x3C);
@@ -155,7 +156,8 @@ void TODoorCave03__vt16(u8 *arg0) {
     play_persistent_sound(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
 }
 
-void TODoorCave03__vt15(u8 *arg0) {
+void TODoorCave03::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4D8) != 1) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 3;
@@ -167,7 +169,8 @@ void TODoorCave03__vt15(u8 *arg0) {
     }
 }
 
-void TODoorCave03__vt14(u8 *arg0) {
+void TODoorCave03::vfunc_16() {
+    u8 *arg0 = (u8 *)this;
   f32 temp_f1;
   f32 temp_f3;
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
@@ -184,7 +187,8 @@ void TODoorCave03__vt14(u8 *arg0) {
   play_persistent_sound(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
 }
 
-void TODoorCave03__vt13(u8 *arg0) {
+void TODoorCave03::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     temp_r4 = *(s32 *)((s8 *)arg0 + 0xD0);
     if (temp_r4 & 1) {

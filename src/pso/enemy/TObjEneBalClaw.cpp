@@ -16,7 +16,7 @@ struct O_8008D700 { u8 pad0[0x30]; u32 flags; u8 pad34[0x378]; f32 f3ac; f32 f3b
 struct Obj_8008D79C { u8 pad0[0x388]; s32 flags; u8 pad38C[0x3B8 - 0x38C]; s32 f3B8; f32 f3BC; };
 
 extern "C" {
-void TObjEneBalClaw__vt60(u8 *arg0);
+void vfunc_62__14TObjEneBalClawFv(u8 *arg0);
 u8 * TObjEnemyCustom__ct(void *);
 extern s32 __vt__14TObjEneBalClaw[];
 extern s32 lbl_805D2968;
@@ -37,9 +37,9 @@ extern const f32 lbl_805D9608;
 extern "C" {
 
 void TObjEneBalClawClaw__sub_8008DC14(void);
-int TObjEneBalClaw__vt28(void);
-void TObjEneBalClaw__vt57(void);
-void TObjEneBalClaw__vt59(void);
+int vfunc_30__14TObjEneBalClawFv(void);
+void vfunc_59__14TObjEneBalClawFv(void);
+void vfunc_61__14TObjEneBalClawFv(void);
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TObjPlayer__sub_800A05B8(void *, int);
@@ -122,7 +122,8 @@ void TObjEneBalClaw::update_claw_angle() {
 
 extern u32 lbl_805D4F20;
 
-void TObjEneBalClaw__vt60(u8 *arg0) {
+void TObjEneBalClaw::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(4);
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
@@ -162,9 +163,9 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
     return arg0;
 }
 
-void TObjEneBalClaw__vt59(void) {  }
-void TObjEneBalClaw__vt57(void) {  }
-int TObjEneBalClaw__vt28(void) { return 0; }
+void TObjEneBalClaw::vfunc_61() {  }
+void TObjEneBalClaw::vfunc_59() {  }
+s32 TObjEneBalClaw::vfunc_30() { return 0; }
 void TObjEneBalClawClaw::clear_attack_flag() { *(u32*)((char*)this + 0x388) &= 0xfffeffff; }
 void TObjEneBalClawClaw__sub_8008DC14(void) {  }
 

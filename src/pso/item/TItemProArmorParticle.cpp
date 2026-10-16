@@ -29,7 +29,7 @@ void vfunc_44__21TItemProArmorParticleFv(void *arg0);
 void vfunc_45__21TItemProArmorParticleFv(void *arg0);
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
 s32 TItemEffArmorParticle__ct(u32, s32, s32, s32, s32);
-s32 TItemEquipBase__sub_8010A940();
+s32 vfunc_45__14TItemEquipBaseFv();
 s32 vfunc_44__13TItemProArmorFv();
 void TItemTimerEvent__ct(void *);
 s32 is_item_area_enabled();
@@ -67,7 +67,7 @@ void TItemProArmorParticle::vfunc_45() {
     if ((s32) *(s32 *)((s8 *)this + 0x1A0) == 2) {
         *(s32 *)((s8 *)this + 0x198) = -1;
     }
-    TItemEquipBase__sub_8010A940();
+    vfunc_45__14TItemEquipBaseFv();
 }
 
 void TItemProArmorParticle::vfunc_44() {

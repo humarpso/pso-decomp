@@ -243,7 +243,7 @@ void render_shadows__5TItemFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void release_member_90__10TObjPlayerFv();
-void TParticleCtrl__sub_801A2124();
+void vfunc_9__13TUnk_804B9870Fv();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
 void register_attack__5TItemFv();
@@ -274,9 +274,9 @@ void TItem__sub_80100648();
 void TItem__sub_801005E4();
 void TItem__sub_801005D8();
 void TObjPlayer__sub_80102BD8();
-void TItemEquipBase__sub_8010B620();
+void vfunc_46__14TItemEquipBaseFv();
 void release__14TItemEquipBaseFv();
-void TItemEquipBase__sub_8010A788();
+void vfunc_50__14TItemEquipBaseFv();
 }
 
 void *__vt__12TItemProUnit[51] = {
@@ -289,7 +289,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv,
-    (void *)TParticleCtrl__sub_801A2124,
+    (void *)vfunc_9__13TUnk_804B9870Fv,
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
@@ -326,11 +326,11 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TObjPlayer__sub_80102BD8,
     (void *)vfunc_44__12TItemProUnitFv,
     (void *)vfunc_45__12TItemProUnitFv,
-    (void *)TItemEquipBase__sub_8010B620,
+    (void *)vfunc_46__14TItemEquipBaseFv,
     (void *)release__14TItemEquipBaseFv,
     (void *)vfunc_48__12TItemProUnitFv,
     (void *)vfunc_49__12TItemProUnitFv,
-    (void *)TItemEquipBase__sub_8010A788,
+    (void *)vfunc_50__14TItemEquipBaseFv,
 };
 
 void TItemProUnit::apply_unit_effect_flags() {

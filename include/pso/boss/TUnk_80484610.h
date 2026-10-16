@@ -6,6 +6,7 @@
 class TUnk_80484610 : public TObjEnemyCustom {
 public:
     virtual ~TUnk_80484610();
+    virtual void vfunc_79();
     virtual void run_task();
     u8 unk_38C[0x184];
 };

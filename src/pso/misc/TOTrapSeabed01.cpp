@@ -689,7 +689,7 @@ extern s32 trap_seabed01_param_index_table[];
 
 extern "C" {
 
-void TOTrapSeabed01__vt4(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__14TOTrapSeabed01FPsl(void *arg0, s16 *arg1, s32 arg2);
 void TOTrapSeabed01__vt82(void);
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -802,20 +802,20 @@ void TOTrapSeabed01::load_resources() {
     }
 }
 
-void TOTrapSeabed01__vt4(void *arg0, s16 *arg1, s32 arg2) {
+void TOTrapSeabed01::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 4) {
         if (arg2 == 1) {
-            ((VObj_802CA8C8_eabed01 *)arg0)->m83();
+            ((VObj_802CA8C8_eabed01 *)this)->m83();
         }
-        s32 tmp = *(s32 *)((s8 *)arg0 + 0x358);
+        s32 tmp = *(s32 *)((s8 *)this + 0x358);
         if (tmp >= 0) {
             stop_sound_request(tmp);
             tmp = -1;
-            *(s32 *)((s8 *)arg0 + 0x358) = tmp;
+            *(s32 *)((s8 *)this + 0x358) = tmp;
         }
-        ((s32 (*)(void *))fn_802C9D38)(arg0);
-        set_flag8__6TLobbyFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        ((s32 (*)(void *))fn_802C9D38)(this);
+        set_flag8__6TLobbyFPv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 
@@ -870,7 +870,7 @@ void TOTrap__sub_801792B4();
 void TOTrap__sub_801792CC();
 void TOTrap__sub_801792E4();
 void TOTrap__sub_801792FC();
-void TOTrap__sub_8017939C();
+void vfunc_25__6TOTrapFPUc();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A78();
 void TObjPlayer__sub_80010A80();
@@ -885,8 +885,8 @@ void TObjPlayer__sub_80014894();
 void TObjPlayer__sub_80014898();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
-void TObjPlayer__sub_80019568();
-void TObjRoomId__sub_801A1E2C();
+void vfunc_13__13TUnk_804AF8A0Fl();
+void vfunc_12__13TUnk_804B9870Fv();
 void add_actor_exp();
 void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
@@ -913,7 +913,7 @@ void fn_80010EBC();
 void fn_80010EC0();
 void fn_80010EC4();
 void fn_80010EC8();
-void get_actor_body_center();
+void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
 void get_scale__6TOTrapFUl();
@@ -921,7 +921,7 @@ void is_actor_cadence_frame();
 void is_any_player_matching_stat__6TOTrapFv();
 void is_target_in_attack_range__10TObjPlayerFv();
 void render_shadows__7TObjectFv();
-void reset_actor_action_state();
+void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void submit_cursor_and_notify__6TOTrapFv();
 void trigger_switch_attack__10TObjPlayerFi();
@@ -932,7 +932,7 @@ void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
 void update_movement_status__10TObjPlayerFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 void update_shock_clock__10TObjPlayerFPv();
 void run_task__6TOTrapFv();
@@ -960,14 +960,14 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&run_task__6TOTrapFv,
     (void *)&render__14TOTrapSeabed01Fv,
     (void *)&render_shadows__7TObjectFv,
-    (void *)&TOTrapSeabed01__vt4,
+    (void *)&vfunc_6__14TOTrapSeabed01FPsl,
     (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state,
-    (void *)&get_actor_body_center,
-    (void *)&update_object_view_visibility,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv,
+    (void *)&vfunc_9__13TUnk_804806E8Fv,
+    (void *)&update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C,
-    (void *)&TObjPlayer__sub_80019568,
+    (void *)&vfunc_12__13TUnk_804B9870Fv,
+    (void *)&vfunc_13__13TUnk_804AF8A0Fl,
     (void *)&add_actor_exp,
     (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index,
@@ -979,7 +979,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&TOTrapSeabed01__vt20,
     (void *)&check_trigger_range__6TOTrapFUl,
     (void *)&get_scale__6TOTrapFUl,
-    (void *)&TOTrap__sub_8017939C,
+    (void *)&vfunc_25__6TOTrapFPUc,
     (void *)&TOTrap__sub_801792B4,
     (void *)&TOTrap__sub_801792CC,
     (void *)&TObjPlayer__sub_80011010,

@@ -201,7 +201,7 @@ void apply_slow_status__10TObjPlayerFPv();
 void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void update_and_send_enemy_hit_state();
 void apply_hit_message_flags__10TObjPlayerFPvPv();
 void add_actor_exp();
@@ -230,16 +230,16 @@ void fn_80010EBC();
 void fn_80010EC0();
 void fn_80010EC4();
 void fn_80010EC8();
-void clear_lobby_object_state();
-void get_actor_body_center();
+void clear_lobby_object_state__9TObjEnemyFv();
+void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
-void get_enemy_name__14TObjEnePanarmsFv();
+void vfunc_12__9TObjEnemyFv();
 void get_pos__10TObjPlayerFii();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void render_actor_shadows_default();
-void reset_actor_action_state();
+void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void roll_physical_accuracy__10TObjPlayerFv();
 void select_melee_contact_body__10TObjPlayerFv();
@@ -252,7 +252,7 @@ void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
 void update_movement_status__10TObjPlayerFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 void *TBoss6Mag__collision_body_parts[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41f00000,
@@ -273,8 +273,8 @@ void *lbl_804EDDEC[83] = {
 
     (void *)0x0, (void *)0x0, (void *)fn_8033068C, (void *)run_task__9TBoss6MagFv,
     (void *)render__9TBoss6MagFv, (void *)render_actor_shadows_default, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
-    (void *)reset_actor_action_state, (void *)get_actor_body_center, (void *)update_object_view_visibility, (void *)classify_actor_view_detail,
-    (void *)get_enemy_name__14TObjEnePanarmsFv, (void *)TObjPlayer__sub_80019568, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
+    (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail,
+    (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index, (void *)update_actor_ground_y, (void *)TObjPlayer__sub_80018E6C, (void *)is_actor_cadence_frame,
     (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)get_conditional_rate__10TObjPlayerFPv, (void *)fn_80330240,
     (void *)receive_weapon_special_attack__10TObjPlayerFv, (void *)apply_knockback_from_attacker, (void *)try_start_action__10TObjPlayerFPvii, (void *)roll_physical_accuracy__10TObjPlayerFv,
@@ -291,7 +291,7 @@ void *lbl_804EDDEC[83] = {
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
     (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)call_vt78__10TObjPlayerFv,
-    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state__9TObjEnemyFv,
 };
 
 }

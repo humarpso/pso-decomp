@@ -6,6 +6,10 @@
 
 struct TObjEneBm5Wolf
 {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void vfunc_28();
     void roaming_state(int event);
     void choose_roaming_destination();
 

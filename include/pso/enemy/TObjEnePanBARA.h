@@ -6,6 +6,9 @@
 class TObjEnePanBARA : public TObjEnemy {
 public:
     virtual ~TObjEnePanBARA();
+    virtual void vfunc_63();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
     u8 unk_374[0xFC];
 };
 typedef char TObjEnePanBARA_size[sizeof(TObjEnePanBARA) == 0x470 ? 1 : -1];

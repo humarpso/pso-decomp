@@ -19,7 +19,7 @@ void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
 extern Vec_8017F6C0 lbl_804FF610;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB5C;
-s32 TObjCamera__vt8(Obj_8017F6C0 *o, f32 r, f32 d);
+s32 update_object_view_visibility__10TObjCameraFff(Obj_8017F6C0 *o, f32 r, f32 d);
 }
 
 extern "C" {
@@ -37,7 +37,8 @@ void TObjCamera::update_camera_slots() {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-s32 TObjCamera__vt8(Obj_8017F6C0 *o, f32 r, f32 d) {
+s16 TObjCamera::update_object_view_visibility(f32 r, f32 d) {
+    Obj_8017F6C0 *o = (Obj_8017F6C0 *)this;
     Vec_8017F6C0 v;
     Out_8017F6C0 out;
     matrix_mult_vec(0, &o->pos, &v);

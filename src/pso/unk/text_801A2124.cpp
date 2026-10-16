@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 
-void* TParticleCtrl__sub_801A2124(void* p);
+void* vfunc_9__13TUnk_804B9870Fv(void* p);
 
-void* TParticleCtrl__sub_801A2124(void* p) { return (char*)p + 0x74; }
+void*TUnk_804B9870::vfunc_9() { return (char*)this + 0x74; }
 
 }

@@ -6,6 +6,7 @@
 
 struct TObjEneSlime : public TObjEnemy {
     virtual ~TObjEneSlime();
+    virtual void vfunc_63();
     void* m_374;
     u8 _pad378[0x3C];
     u32 m_3b4;

@@ -6,6 +6,12 @@
 class TUnk_80488A28 : public TObject {
 public:
     virtual ~TUnk_80488A28();
+    virtual void vfunc_6();
+    virtual void vfunc_7();
+    virtual void vfunc_8(void *);
+    virtual void vfunc_9(u8 *, u8 *);
+    virtual void vfunc_10();
+    virtual void post_update_view();
     virtual void run_task();
     u8 unk_1C[0x50];
 };

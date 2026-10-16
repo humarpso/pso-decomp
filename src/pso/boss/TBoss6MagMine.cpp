@@ -181,7 +181,7 @@ s32 check_demo_mode__10TObjPlayerFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
 void submit_cursor_candidate(void *, int);
 void add_radar_scaled_marker(void *, int, int, int, f32);
-void TBoss6MagMine__sub_80368994(u8 *arg0);
+void vfunc_62__13TUnk_804F322CFv(u8 *arg0);
 void vt2__13TBoss6MagMineFv(u8 *arg0);
 void vt1__13TBoss6MagMineFv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -223,7 +223,7 @@ void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1);
 
 extern "C" {
 
-void TBoss6MagMine__sub_8036897C(void *arg0);
+void vfunc_63__13TUnk_804F322CFv(void *arg0);
 void vt3__13TBoss6MagMineFv(s32 arg0);
 void vt4__13TBoss6MagMineFv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
@@ -251,13 +251,14 @@ void __dt__9TObjEnemyFv(void *, int);
 s32 __nw__7TObjectFUl(s32);
 int queue_destruction__7TObjectFv(void*);
 
-void TBoss6MagMine__sub_8036897C(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 4) {
-        *(s32 *)((s8 *)arg0 + 0x390) = 4;
+void TUnk_804F322C::vfunc_63() {
+    if ((s32) *(s32 *)((s8 *)this + 0x390) != 4) {
+        *(s32 *)((s8 *)this + 0x390) = 4;
     }
 }
 
-void TBoss6MagMine__sub_80368994(u8 *arg0) {
+void TUnk_804F322C::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
     *(f32 *)((s8 *)arg0 + 0x3A8) = (f32) 1.0f;
 }

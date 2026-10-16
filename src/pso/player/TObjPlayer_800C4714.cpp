@@ -1175,12 +1175,12 @@ s32 vec3_add_to(void *, void *);
 }
 extern "C" {
 void TLobby__sub_801A1FD8();
-void TObjPlayer__sub_80019568();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void call_vt16_with_default__10TObjPlayerFv();
 void TObjPlayer__sub_800BC220();
 void call_vt13_with_default__10TObjPlayerFv();
-void TObjRoomId__sub_801A1E2C();
-void TParticleCtrl__sub_801A2124();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_9__13TUnk_804B9870Fv();
 void apply_hit_if_active__10TObjPlayerFPvPf();
 void apply_object_set_data();
 void area_attack_apply_recoil();
@@ -1191,7 +1191,7 @@ void dispatch_vt15__10TObjPlayerFPv();
 void hit_area_targets__10TObjPlayerFPvPviUif();
 void release_member_90__10TObjPlayerFv();
 void render_shadows__7TObjectFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
@@ -1203,8 +1203,8 @@ s32 lbl_805D2A50 = (s32)lbl_8043BC24;
 void *lbl_804933D8[24] = {
     (void *)0x0, (void *)0x0, (void *)&destroy_and_free__10TObjPlayerFPvs, (void *)&run_task__21TObjEneRe2Flower_BombFv,
     (void *)&render__21TObjEneRe2Flower_BombFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&call_vt13_with_default__10TObjPlayerFv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&call_vt13_with_default__10TObjPlayerFv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
     (void *)&TObjPlayer__sub_800BC220, (void *)&call_vt16_with_default__10TObjPlayerFv, (void *)&area_attack_deliver_physical, (void *)&dispatch_vt15__10TObjPlayerFPv,
     (void *)&area_attack_apply_recoil, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__10TObjPlayerFPvPf, (void *)0x0,
 };

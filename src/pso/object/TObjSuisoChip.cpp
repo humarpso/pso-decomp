@@ -181,7 +181,7 @@ void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self);
 extern "C" {
 
 void TObjSeabedSuisoBrakable__vt12(void *arg0);
-void TObjSeabedSuisoBrakable__vt15(void);
+void spawn_break_effect__23TObjSeabedSuisoBrakableFv(void);
 void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1);
 void render__23TObjSeabedSuisoBrakableFv(void *arg0);
 void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p);
@@ -291,7 +291,7 @@ void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
     }
 }
 
-void TObjSeabedSuisoBrakable__vt15(void) {  }
+void TObjSeabedSuisoBrakable::spawn_break_effect() {  }
 
 extern void *__vt__23TObjSeabedSuisoBrakable[];
 
@@ -687,11 +687,11 @@ void update_break_state__18TORockCaveBrakableFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void release_member_90__10TObjPlayerFv();
-void TParticleCtrl__sub_801A2124();
-void update_object_view_visibility();
+void vfunc_9__13TUnk_804B9870Fv();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C();
-void TObjPlayer__sub_80019568();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_13__13TUnk_804AF8A0Fl();
 void vfunc_15__10TORockCaveFv();
 void vfunc_18__18TORockCaveBrakableFv();
 void vfunc_19__23TObjSeabedSuisoBrakableFv();
@@ -699,9 +699,9 @@ void *__vt__13TObjSuisoChip[14] = {
     0, 0, (void *)__dt__13TObjSuisoChipFv, (void *)update__8TObjChipFPv, (void *)dispatch_vt9__8TObjChipFPv, (void *)render_shadows__7TObjectFv, (void *)init_chips__8TObjChipFPv, (void *)spawn_chips__8TObjChipFPvPv, (void *)vfunc_8__13TObjSuisoChipFv, (void *)tick_chips__8TObjChipFPv, (void *)vfunc_10__13TObjSuisoChipFv, (void *)render__8TObjChipFPv, (void *)vfunc_12__13TObjSuisoChipFv, (void *)draw_chips__8TObjChipFPv
 };
 void *__vt__23TObjSeabedSuisoBrakable[20] = {
-    0, 0, (void *)__dt__23TObjSeabedSuisoBrakableFv, (void *)update_break_state__18TORockCaveBrakableFv, (void *)render__23TObjSeabedSuisoBrakableFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568, (void *)TObjSeabedSuisoBrakable__vt12, (void *)vfunc_15__10TORockCaveFv, (void *)TObjSeabedSuisoBrakable__vt14, (void *)TObjSeabedSuisoBrakable__vt15, (void *)vfunc_18__18TORockCaveBrakableFv, (void *)vfunc_19__23TObjSeabedSuisoBrakableFv
+    0, 0, (void *)__dt__23TObjSeabedSuisoBrakableFv, (void *)update_break_state__18TORockCaveBrakableFv, (void *)render__23TObjSeabedSuisoBrakableFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)TObjSeabedSuisoBrakable__vt12, (void *)vfunc_15__10TORockCaveFv, (void *)TObjSeabedSuisoBrakable__vt14, (void *)spawn_break_effect__23TObjSeabedSuisoBrakableFv, (void *)vfunc_18__18TORockCaveBrakableFv, (void *)vfunc_19__23TObjSeabedSuisoBrakableFv
 };
 void *__vt__18TObjSeabedSuiso_CH[14] = {
-    0, 0, (void *)__dt__18TObjSeabedSuiso_CHFv, (void *)update_anim_if_active__23TObjSeabedSuisoBrakableFPv, (void *)draw_model__23TObjSeabedSuisoBrakableFPv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568
+    0, 0, (void *)__dt__18TObjSeabedSuiso_CHFv, (void *)update_anim_if_active__23TObjSeabedSuisoBrakableFPv, (void *)draw_model__23TObjSeabedSuisoBrakableFPv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl
 };
 }

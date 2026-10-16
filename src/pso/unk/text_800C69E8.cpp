@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TObjPlayer.h"
 
 struct P_800C6A18 { u8 pad[0x30]; u32 flags; };
@@ -33,24 +34,24 @@ u8 is_local_client_floor_leader(void);
 
 extern "C" {
 
-void TObjPlayer__sub_800C69E8(void* p);
-void TObjPlayer__sub_800C69F4(void);
-void TObjPlayer__sub_800C69F8(void);
-void TObjPlayer__sub_800C69FC(void);
-void TObjPlayer__sub_800C6A00(void);
-void TObjPlayer__sub_800C6A04(void);
-void TObjPlayer__sub_800C6A08(void);
-void TObjPlayer__sub_800C6A0C(void);
+void vfunc_83__13TUnk_80493450Fv(void* p);
+void vfunc_93__13TUnk_80493450Fv(void);
+void vfunc_94__13TUnk_80493450Fv(void);
+void vfunc_95__13TUnk_80493450Fv(void);
+void vfunc_96__13TUnk_80493450Fv(void);
+void vfunc_97__13TUnk_80493450Fv(void);
+void vfunc_98__13TUnk_80493450Fv(void);
+void vfunc_101__13TUnk_80493450Fv(void);
 u16 get_enemy_target_id(void* p);
 
-void TObjPlayer__sub_800C69E8(void* p) { *(s16*)((char*)p + 0x326) = 1; }
-void TObjPlayer__sub_800C69F4(void) {  }
-void TObjPlayer__sub_800C69F8(void) {  }
-void TObjPlayer__sub_800C69FC(void) {  }
-void TObjPlayer__sub_800C6A00(void) {  }
-void TObjPlayer__sub_800C6A04(void) {  }
-void TObjPlayer__sub_800C6A08(void) {  }
-void TObjPlayer__sub_800C6A0C(void) {  }
+void TUnk_80493450::vfunc_83() { *(s16*)((char*)this + 0x326) = 1; }
+void TUnk_80493450::vfunc_93() {  }
+void TUnk_80493450::vfunc_94() {  }
+void TUnk_80493450::vfunc_95() {  }
+void TUnk_80493450::vfunc_96() {  }
+void TUnk_80493450::vfunc_97() {  }
+void TUnk_80493450::vfunc_98() {  }
+void TUnk_80493450::vfunc_101() {  }
 u16 get_enemy_target_id(void* p) { return *(u16*)((char*)p + 0x338); }
 void TObjPlayer::release_destroyed_target() {
     O_800C6A18 *self = (O_800C6A18 *)this;

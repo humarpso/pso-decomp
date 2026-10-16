@@ -6,12 +6,12 @@
 
 struct TOContainerAncientEnemy : public TUnk_804B6C24 {
     virtual ~TOContainerAncientEnemy();
-    void check_and_destroy(s16 *arg1, s32 arg2);
-    void spawn_break_debris();
-    f32 open_and_send();
-    void draw_debug_event_no();
-    void draw_model();
-    void submit_cursor_candidate_if_idle();};
+    virtual void debug_print_item_box_info();
+    virtual void vfunc_81();
+    virtual void vfunc_80();
+    virtual void vfunc_79();
+    virtual void vfunc_6(s16 *, s32);
+    virtual f32 vfunc_22(void *, f32);};
 
 typedef char TOContainerAncientEnemy_size[sizeof(TOContainerAncientEnemy) == 0x368 ? 1 : -1];
 #endif

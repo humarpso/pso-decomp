@@ -111,12 +111,12 @@ extern "C" {
 
 void TObjEneMe3SinowZoaReal__vt105(void *arg0);
 void TObjEneMe3SinowZoaReal__vt109(void);
-int TObjEneMe3SinowZoaReal__vt60(void* p);
-int TObjEneMe3SinowZoaReal__vt61(void* p);
+int vfunc_62__22TObjEneMe3SinowZoaRealFv(void* p);
+int vfunc_63__22TObjEneMe3SinowZoaRealFv(void* p);
 void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1);
 s32 transition_enemy_state(void *, s32);
-int TObjEneMe3SinowZoa__vt60(void*);
-int TObjEneMe3SinowZoa__vt61(void*);
+int vfunc_62__18TObjEneMe3SinowZoaFv(void*);
+int vfunc_63__18TObjEneMe3SinowZoaFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -138,8 +138,8 @@ void TObjEneMe3SinowZoaReal__vt105(void *arg0) {
     transition_enemy_state(self, 6);
 }
 
-int TObjEneMe3SinowZoaReal__vt60(void* p) { return TObjEneMe3SinowZoa__vt60(p); }
-int TObjEneMe3SinowZoaReal__vt61(void* p) { return TObjEneMe3SinowZoa__vt61(p); }
+void TObjEneMe3SinowZoaReal::vfunc_62() { vfunc_62__18TObjEneMe3SinowZoaFv(this); }
+void TObjEneMe3SinowZoaReal::vfunc_63() { vfunc_63__18TObjEneMe3SinowZoaFv(this); }
 
 extern s32 __vt__22TObjEneMe3SinowZoaReal[];
 

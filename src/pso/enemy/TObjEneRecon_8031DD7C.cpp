@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 
 struct Base_8031DE2C { char pad[0x18]; };
 struct VObj_8031DE2C : Base_8031DE2C {
@@ -69,9 +70,9 @@ void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void TObjEneRecon__vt60(void* p);
-void TObjEneRecon__vt59(void);
-void TObjEneRecon__vt26(void);
+void vfunc_62__12TObjEneReconFv(void* p);
+void vfunc_61__12TObjEneReconFv(void);
+void vfunc_28__12TObjEneReconFv(void);
 
 #pragma push
 #pragma fp_contract on
@@ -90,9 +91,9 @@ void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void TObjEneRecon__vt60(void* p);
-void TObjEneRecon__vt59(void);
-void TObjEneRecon__vt26(void);
+void vfunc_62__12TObjEneReconFv(void* p);
+void vfunc_61__12TObjEneReconFv(void);
+void vfunc_28__12TObjEneReconFv(void);
 
 void advance_field398__12TObjEneReconFPv(void *arg0) {
     ((s32 (*)())enemy_copy_target_destination)();
@@ -102,8 +103,8 @@ void sync_height__12TObjEneReconFPv(void *arg0) {
     ((s32 (*)())enemy_copy_target_destination)();
     *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x460);
 }
-void TObjEneRecon__vt59(void) {  }
-void TObjEneRecon__vt60(void* p) { if (*(short*)((char*)p + 0x326) != 6) { transition_enemy_state(p, (void*)6); } }
+void TObjEneRecon::vfunc_61() {  }
+void TObjEneRecon::vfunc_62() { if (*(short*)((char*)this + 0x326) != 6) { transition_enemy_state(this, (void*)6); } }
 
 }
 
@@ -111,17 +112,18 @@ void TObjEneRecon__vt60(void* p) { if (*(short*)((char*)p + 0x326) != 6) { trans
 
 extern "C" {
 int transition_enemy_state(void*, void*);
-void TObjEneRecon__vt61(u8 *arg0);
+void vfunc_63__12TObjEneReconFv(u8 *arg0);
 }
 
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void TObjEneRecon__vt60(void* p);
-void TObjEneRecon__vt59(void);
-void TObjEneRecon__vt26(void);
+void vfunc_62__12TObjEneReconFv(void* p);
+void vfunc_61__12TObjEneReconFv(void);
+void vfunc_28__12TObjEneReconFv(void);
 
-void TObjEneRecon__vt61(u8 *arg0) {
+void TObjEneRecon::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 != 7) && (temp_r0 != 8)) {
@@ -136,10 +138,10 @@ void TObjEneRecon__vt61(u8 *arg0) {
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void TObjEneRecon__vt60(void* p);
-void TObjEneRecon__vt59(void);
-void TObjEneRecon__vt26(void);
+void vfunc_62__12TObjEneReconFv(void* p);
+void vfunc_61__12TObjEneReconFv(void);
+void vfunc_28__12TObjEneReconFv(void);
 
-void TObjEneRecon__vt26(void) {  }
+void TObjEneRecon::vfunc_28() {  }
 
 }

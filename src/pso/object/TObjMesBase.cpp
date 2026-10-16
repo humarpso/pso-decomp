@@ -65,7 +65,7 @@ void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 s32 construct_collider_proxy__10TObjPlayerFv();
 void __dl__7TObjectFPv(void *);
 f32 xz_distance_squared(s32, s32);
-s32 update_object_view_visibility(s32, f32, f32);
+s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
 
 }
 
@@ -173,7 +173,7 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
     if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) < (farg1 * farg1)) {
         return 1;
     }
-    return update_object_view_visibility(arg0, farg0, farg1);
+    return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
 void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
     ((TObjMesBase *)arg0)->debug_draw_label();

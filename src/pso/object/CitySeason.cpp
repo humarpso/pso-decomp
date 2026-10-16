@@ -186,7 +186,7 @@ extern const char lbl_80444218[];
 extern const char lbl_80444228[];
 extern const char lbl_80444238[];
 extern const char lbl_80444248[];
-void draw_debug_info__16TObjEneBm5GibonUFv(void);
+void vfunc_13__28TObjCity_Season_FireWorkCtrlFl(void);
 }
 
 extern "C" {
@@ -222,7 +222,7 @@ TObjCity_Season_FireWork::TObjCity_Season_FireWork(TObject* parent, void* positi
 
 extern "C" {
 
-void draw_debug_info__16TObjEneBm5GibonUFv(void) {
+void TObjCity_Season_FireWorkCtrl::vfunc_13(s32) {
     ((void (*)(void))fn_8018355C)();
     set_global_count__12TObjNpcEnemyFl(0xFF00FF);
     debug_printf_at(0x13001C, (void *)lbl_80444218);

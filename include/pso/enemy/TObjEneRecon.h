@@ -5,6 +5,10 @@
 
 struct TObjEneRecon
 {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void vfunc_28();
     void render();
     void run_task();
     u16 m_1c;
@@ -85,7 +89,6 @@ struct TObjEneRecon
     void update_child_spawn();
     u8 is_out_of_range();
     void restore_position();
-    void set_state_6();
     void*get_field_38_ptr();
     void remove_child_entity(u8 *arg1);
     s32 has_child_in_anim_5();

@@ -23,6 +23,17 @@ struct DragonMotionEntry { u32 unknown00; DragonMotion* motion; };
 struct DragonAnimationEntry { u32 unknown00; s32 motionIndex; u8 unknown08[8]; };
 
 struct TBoss1Dragon {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void vfunc_50();
+    void vfunc_49();
+    void vfunc_48(s32);
+    void vfunc_47();
+    void vfunc_46();
+    void vfunc_45();
+    void vfunc_44();
+    void vfunc_28();
     void render_low_detail();
     static bool isV2Mode();
     static DragonModelNode* cloneModelHierarchy(DragonModelNode* source, DragonModelNode* output, void* model);
@@ -153,10 +164,6 @@ struct TBoss1Dragon {
     static s32 get_instance();
     void set_child_motion(u8 *arg1);
     void *dt(s16 arg1);
-    static void apply_paralysis();
-    static void apply_confusion();
-    static void apply_freeze();
-    static void apply_shock();
     static void select_fireball_particle_table();
     static void init_gravity_globals();
     int get_position();

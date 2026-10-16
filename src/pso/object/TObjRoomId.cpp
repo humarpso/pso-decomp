@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TLobby.h"
@@ -87,7 +88,7 @@ extern const f32 lbl_805DC090;
 extern "C" {
 
 void set_player_room_control_flag(void *arg0);
-int TObjRoomId__sub_801A1E2C(void);
+int vfunc_12__13TUnk_804B9870Fv(void);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
 u8 is_current_room__10TObjRoomIdFPv(void *arg0);
@@ -252,7 +253,7 @@ u8 is_current_room__10TObjRoomIdFPv(void *arg0) {
     return (u8) (*(u16 *)((s8 *)arg0 + 0x1C) == local_client_id);
 }
 
-int TObjRoomId__sub_801A1E2C(void) { return 0; }
+int TUnk_804B9870::vfunc_12() { return 0; }
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
     u32 temp_r3;
 

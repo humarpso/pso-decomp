@@ -5,6 +5,8 @@
 
 struct TObjEneMe3ShinowaMirage
 {
+    void vfunc_63();
+    void vfunc_62();
     u16 m_1c;
     u8 _pad1E[0xE];
     u16 m_2c;

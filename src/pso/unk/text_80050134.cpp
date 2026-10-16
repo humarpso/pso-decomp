@@ -44,15 +44,15 @@ void play_sound_effect(s32, void *, s32, s32);
 extern s32 TObjDFDemoF__name;
 extern const f32 lbl_805D8A28;
 void TLobby__sub_801A1FD8();
-void TObjRoomId__sub_801A1E2C();
-void TParticleCtrl__sub_801A2124();
+void vfunc_12__13TUnk_804B9870Fv();
+void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
 void classify_actor_view_detail();
 void render__11TObjDFDemoFFv();
 void run_task__11TObjDFDemoFFv();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__10TObjPlayerFv();
-void update_object_view_visibility();
+void update_object_view_visibility__13TUnk_804B9870Fff();
 
 s32 TObjDFDemoF__bml_model_id_table[3] = {0x0, 0x10, 0x11};
 s32 lbl_80485834[3] = {-1, 0x26, 0x27};
@@ -60,7 +60,7 @@ void *lbl_80485840[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
 void *lbl_8048584C[3] = {(void *) 0x0, (void *) 0x0, (void *) 0x0};
 void *lbl_80485858[3] = {(void *) 0x50000, (void *) 0x0, (void *) 0x3f000000};
 void *three_part_model_translate_offset[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
-void *__vt__11TObjDFDemoF[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&run_task__11TObjDFDemoFFv), (void *) (&render__11TObjDFDemoFFv), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFv), (void *) (&TParticleCtrl__sub_801A2124), (void *) (&update_object_view_visibility), (void *) (&classify_actor_view_detail), (void *) (&TObjRoomId__sub_801A1E2C), (void *) 0x0};
+void *__vt__11TObjDFDemoF[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&run_task__11TObjDFDemoFFv), (void *) (&render__11TObjDFDemoFFv), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFv), (void *) (&vfunc_9__13TUnk_804B9870Fv), (void *) (&update_object_view_visibility__13TUnk_804B9870Fff), (void *) (&classify_actor_view_detail), (void *) (&vfunc_12__13TUnk_804B9870Fv), (void *) 0x0};
 
 void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

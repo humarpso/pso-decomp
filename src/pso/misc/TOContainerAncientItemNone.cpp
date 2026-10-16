@@ -85,7 +85,7 @@ struct VObj_8015BE34 : Base_8015BE34 {
 
 extern "C" {
 
-void TOContainerAncientItemNone__vt4(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__26TOContainerAncientItemNoneFPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__26TOContainerAncientItemNoneFv(void *arg0, s16 arg1);
 void *TOContainerAncientItemNone__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -94,14 +94,14 @@ void *__nw__7TObjectFUl(int);
 s32 set_flag8__6TLobbyFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
-void TOContainerAncientItemNone__vt4(void *arg0, s16 *arg1, s32 arg2) {
+void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
-            ((VObj_8015BE34 *)arg0)->m77();
+            ((VObj_8015BE34 *)this)->m77();
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
-        set_flag8__6TLobbyFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+        *(s16 *)((s8 *)this + 0x326) = 1;
+        set_flag8__6TLobbyFPv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 

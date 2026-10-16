@@ -24,7 +24,7 @@ u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2);
 
 extern "C" {
 
-void TObjContainerJungEnemy__vt78(void *arg0);
+void vfunc_80__22TObjContainerJungEnemyFv(void *arg0);
 void *__dt__22TObjContainerJungEnemyFv(void *arg0, s16 arg1);
 s32 TObjContainerJungEx__sub_8018D900(s32);
 s32 get_model__19TObjContainerJungExFl(s32);
@@ -36,14 +36,14 @@ s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void TObjContainerJungEnemy__vt78(void *arg0) {
+void TObjContainerJungEnemy::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
-            submit_cursor_candidate(arg0, -1);
+        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+            submit_cursor_candidate(this, -1);
         }
     case 1:
         return;

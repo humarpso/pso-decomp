@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -8,7 +9,7 @@ s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D4;
-void TBoss3Volopt__sub_8015D7B0(u8 *arg0);
+void vfunc_17__13TUnk_804B0BB8Fv(u8 *arg0);
 void set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -18,7 +19,8 @@ extern const f32 lbl_805DB3D8;
 
 extern "C" {
 
-void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
+void TUnk_804B0BB8::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D4) != 0) {
         return;
     }
@@ -56,7 +58,7 @@ void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
         break;
     }
 }
-void TBoss3Volopt::play_proximity_sound() {
+void TUnk_804B0BB8::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D8) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;

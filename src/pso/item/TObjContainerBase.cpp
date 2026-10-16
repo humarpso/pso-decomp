@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TObjContainerBase.h"
+#include "pso/item/TObjContainerNoItem.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -53,11 +55,11 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__6TLobbyFPv(void *);
-void TObjContainerNoItem__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__19TObjContainerNoItemFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern const f32 lbl_805DBCF4;
-f32 TObjContainerNoItem__vt20(u8 *arg0);
+f32 vfunc_22__19TObjContainerNoItemFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -76,7 +78,7 @@ void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
-void TObjContainerNoItem__vt77(Obj_8018990C *self);
+void vfunc_79__19TObjContainerNoItemFv(Obj_8018990C *self);
 s32 draw_ginja_box_tree(s32);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
@@ -86,26 +88,26 @@ s32 post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-void TObjContainerNoItem__vt79(u8 *arg0);
+void vfunc_81__19TObjContainerNoItemFv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjContainerBase__vt78(void *arg0);
+void vfunc_80__17TObjContainerBaseFv(void *arg0);
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 
-void TObjContainerBase__vt78(void *arg0) {
+void TObjContainerBase::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
-            submit_cursor_candidate(arg0, -1);
+        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+            submit_cursor_candidate(this, -1);
         }
     case 1:
         return;
@@ -143,7 +145,8 @@ u8 *TObjContainerBase__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-void TObjContainerNoItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TObjContainerNoItem::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((VObj18*)arg0)->m77();
@@ -162,7 +165,8 @@ void TObjContainerNoItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
 
 typedef char RecoveredGlobal_801897A4_lbl_804B63BC_size[sizeof(RecoveredGlobal_801897A4_lbl_804B63BC) == 0x15C ? 1 : -1];
 typedef char RecoveredGlobal_801897A4___vt__18TObjContainerEnemy_size[sizeof(RecoveredGlobal_801897A4___vt__18TObjContainerEnemy) == 0x14C ? 1 : -1];
-void TObjContainerNoItem__vt77(Obj_8018990C *self) {
+void TObjContainerNoItem::vfunc_79() {
+    Obj_8018990C *self = (Obj_8018990C *)this;
     void *o;
     if (self->f326 != 1) {
         Spawn_8018990C a = *lbl_805D5B80;
@@ -189,7 +193,8 @@ void TObjContainerNoItem__vt77(Obj_8018990C *self) {
     }
 }
 
-f32 TObjContainerNoItem__vt20(u8 *arg0) {
+f32 TObjContainerNoItem::vfunc_22(void *, f32) {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
@@ -198,7 +203,8 @@ f32 TObjContainerNoItem__vt20(u8 *arg0) {
     }
     return lbl_805DBCF4;
 }
-void TObjContainerNoItem__vt79(u8 *arg0) {
+void TObjContainerNoItem::vfunc_81() {
+    u8 *arg0 = (u8 *)this;
     if (lbl_805D5B78 != 0U) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 1:

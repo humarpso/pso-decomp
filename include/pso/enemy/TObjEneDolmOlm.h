@@ -6,6 +6,16 @@
 
 struct TObjEneDolmOlm : public TUnk_80493450 {
     virtual ~TObjEneDolmOlm();
+    virtual void vfunc_83();
+    virtual void request_stand_action();
+    virtual void vfunc_101();
+    virtual void vfunc_100();
+    virtual void vfunc_98();
+    virtual void vfunc_97();
+    virtual void vfunc_96();
+    virtual void vfunc_95();
+    virtual void vfunc_94();
+    virtual void vfunc_93();
     void* m_3a8;
     u8 _pad3AC[0x10];
     u32 m_3bc;

@@ -105,7 +105,7 @@ s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 s32 play_door_sound(void *);
 u8 is_current_floor_switch_set(int);
-void TODoorFourLightBase__vt12(u8 *arg0);
+void update_door_switch_state__19TODoorFourLightBaseFv(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -117,42 +117,43 @@ void render__19TODoorFourLightBaseFv(u8 *arg0);
 
 extern "C" {
 
-s32 TODoorFourLightBase__vt17(void *arg0);
-void TODoorFourLightBase__vt4(void *arg0, s16 *arg1);
+s32 init_door_switch_binding__19TODoorFourLightBaseFv(void *arg0);
+void vfunc_6__19TODoorFourLightBaseFPsl(void *arg0, s16 *arg1);
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 get_main_phase();
 
-s32 TODoorFourLightBase__vt17(void *arg0) {
+s32 TODoorFourLightBase::init_door_switch_binding() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
+    *(s32 *)((s8 *)this + 0xC8) = (s32) *(s32 *)((s8 *)this + 0x84);
+    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
     if (temp_r0 > 0x100) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+        *(s32 *)((s8 *)this + 0xCC) = 0;
     } else if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 1;
-    } else if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
+        *(s32 *)((s8 *)this + 0xCC) = 1;
+    } else if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 3;
+            *(s32 *)((s8 *)this + 0xCC) = 3;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+            *(s32 *)((s8 *)this + 0xCC) = 2;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+        *(s32 *)((s8 *)this + 0xCC) = 2;
     }
-    return *(s32 *)((s8 *)arg0 + 0xC8);
+    return *(s32 *)((s8 *)this + 0xC8);
 }
 
-void TODoorFourLightBase__vt4(void *arg0, s16 *arg1) {
+void TODoorFourLightBase::vfunc_6(s16 *arg1, s32) {
     if ((s16) *arg1 == 1) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
     }
 }
 
 extern s32 __vt__19TODoorFourLightBase[];
 
-void TODoorFourLightBase__vt12(u8 *arg0) {
+void TODoorFourLightBase::update_door_switch_state() {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     switch (*(s32 *)((s8 *)arg0 + 0xCC)) {
     case 1:

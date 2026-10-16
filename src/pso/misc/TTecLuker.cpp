@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CC9D4.h"
 
 struct BaseM_80234C90_80233B38 { char pad[0x24]; };
 struct VM_80234C90_80233B38 : BaseM_80234C90_80233B38 { virtual void m0(int); };
@@ -371,7 +372,7 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TTecLuker::set_interaction_latch() { *(s32*)((char*)this + 0xb0) = 1; }
+void TUnk_804CC9D4::vfunc_13(s32) { *(s32*)((char*)this + 0xb0) = 1; }
 
 extern const f32 lbl_805DC858;
 

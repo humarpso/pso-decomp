@@ -1,4 +1,8 @@
 #include "pso/boss/TBoss1Dragon.h"
+extern "C" void vfunc_45__12TBoss1DragonFv();
+extern "C" void vfunc_47__12TBoss1DragonFv();
+extern "C" void vfunc_48__12TBoss1DragonFl();
+extern "C" void vfunc_49__12TBoss1DragonFv();
 
 struct DragonVisibilityBase { u8 opaque[0x18]; };
 struct DragonVisibilityDispatch : DragonVisibilityBase {
@@ -2313,7 +2317,7 @@ extern "C" void TObjPlayer__sub_80014898();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_80019568();
+extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void update_and_send_enemy_hit_state();
 extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
 extern "C" void add_actor_exp();
@@ -2336,10 +2340,10 @@ extern "C" void fn_80010EBC();
 extern "C" void fn_80010EC0();
 extern "C" void fn_80010EC4();
 extern "C" void fn_80010EC8();
-extern "C" void clear_lobby_object_state();
-extern "C" void get_actor_body_center();
+extern "C" void clear_lobby_object_state__9TObjEnemyFv();
+extern "C" void vfunc_9__13TUnk_804806E8Fv();
 extern "C" void get_actor_level_index();
-extern "C" void get_enemy_name__14TObjEnePanarmsFv();
+extern "C" void vfunc_12__9TObjEnemyFv();
 extern "C" void get_pos__10TObjPlayerFii();
 extern "C" void has_flag_0x800__10TObjPlayerFPv();
 extern "C" void is_actor_cadence_frame();
@@ -2377,7 +2381,7 @@ extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
 extern "C" void render_low_detail__12TBoss1DragonFv();
-extern "C" void reset_actor_action_state();
+extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__10TObjPlayerFPv();
 extern "C" void roll_physical_accuracy__10TObjPlayerFv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
@@ -2393,18 +2397,18 @@ extern "C" void update_attack_stat_status();
 extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
-extern "C" void update_object_view_visibility();
+extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *lbl_80480F88[3];
 extern void *lbl_80480F94[31];
 int TBoss1Dragon__sub_80020A34(void* p);
-void TBoss1Dragon__sub_8002966C(void);
-void TBoss1Dragon__sub_80029670(void);
-void TBoss1Dragon__sub_80029674(void);
-void TBoss1Dragon__sub_80029678(void);
-void TBoss1Dragon__sub_8002ADAC(void);
-void TBoss1Dragon__sub_8002ADB4(void);
-void TBoss1Dragon__sub_8002ADC4(void);
+void vfunc_61__12TBoss1DragonFv(void);
+void vfunc_62__12TBoss1DragonFv(void);
+void vfunc_63__12TBoss1DragonFv(void);
+void vfunc_28__12TBoss1DragonFv(void);
+void vfunc_44__12TBoss1DragonFv(void);
+void vfunc_46__12TBoss1DragonFv(void);
+void vfunc_50__12TBoss1DragonFv(void);
 void update_colliders__12TBoss1DragonFPv(u8 *arg0);
 void *TBoss1Dragon__data_80480CE0[8] = {
     (void *)0x2, (void *)0x3, (void *)0x4, (void *)0x5,
@@ -2528,25 +2532,25 @@ void *lbl_804811CC[45] = {
 void *lbl_80481280[107] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__12TBoss1DragonFPvs, (void *)&run_task__12TBoss1DragonFPv,
     (void *)&render__12TBoss1DragonFv, (void *)&render_shadows__12TBoss1DragonFPv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
+    (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&TBoss1Dragon__sub_80029678, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
+    (void *)&vfunc_28__12TBoss1DragonFv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&TBoss1Dragon__sub_8002ADAC, (void *)&TBoss1Dragon::apply_paralysis, (void *)&TBoss1Dragon__sub_8002ADB4, (void *)&TBoss1Dragon::apply_confusion,
-    (void *)&TBoss1Dragon::apply_freeze, (void *)&TBoss1Dragon::apply_shock, (void *)&TBoss1Dragon__sub_8002ADC4, (void *)&apply_attack_stat_status__10TObjPlayerFv,
+    (void *)&vfunc_44__12TBoss1DragonFv, (void *)&vfunc_45__12TBoss1DragonFv, (void *)&vfunc_46__12TBoss1DragonFv, (void *)&vfunc_47__12TBoss1DragonFv,
+    (void *)&vfunc_48__12TBoss1DragonFl, (void *)&vfunc_49__12TBoss1DragonFv, (void *)&vfunc_50__12TBoss1DragonFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
-    (void *)&TObjPlayer__sub_80014890, (void *)&TBoss1Dragon__sub_8002966C, (void *)&TBoss1Dragon__sub_80029670, (void *)&TBoss1Dragon__sub_80029674,
+    (void *)&TObjPlayer__sub_80014890, (void *)&vfunc_61__12TBoss1DragonFv, (void *)&vfunc_62__12TBoss1DragonFv, (void *)&vfunc_63__12TBoss1DragonFv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_action__12TBoss1DragonFiUii,
     (void *)&update_colliders__12TBoss1DragonFPv, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -2698,14 +2702,14 @@ s32 play_persistent_sound(s32, s32, s32, s32, s32);
 void bswap_dragon_boss_fields__10TObjPlayerFv(void *);
 void bswap_stats__10TObjPlayerFv(void *);
 void calc_target_vector__12TBoss1DragonFPv(u8 *arg0);
-void TBoss1Dragon__sub_8002966C(void);
-void TBoss1Dragon__sub_80029670(void);
-void TBoss1Dragon__sub_80029674(void);
-void TBoss1Dragon__sub_80029678(void);
+void vfunc_61__12TBoss1DragonFv(void);
+void vfunc_62__12TBoss1DragonFv(void);
+void vfunc_63__12TBoss1DragonFv(void);
+void vfunc_28__12TBoss1DragonFv(void);
 void *init_base__12TBoss1DragonFPv(void *arg0);
-void TBoss1Dragon__sub_8002ADAC(void);
-void TBoss1Dragon__sub_8002ADB4(void);
-void TBoss1Dragon__sub_8002ADC4(void);
+void vfunc_44__12TBoss1DragonFv(void);
+void vfunc_46__12TBoss1DragonFv(void);
+void vfunc_50__12TBoss1DragonFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -7282,13 +7286,13 @@ void TBoss1Dragon::update_position_history() {
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 
-void TBoss1Dragon__sub_8002966C(void) {  }
+void TBoss1Dragon::vfunc_61() {  }
 
-void TBoss1Dragon__sub_80029670(void) {  }
+void TBoss1Dragon::vfunc_62() {  }
 
-void TBoss1Dragon__sub_80029674(void) {  }
+void TBoss1Dragon::vfunc_63() {  }
 
-void TBoss1Dragon__sub_80029678(void) {  }
+void TBoss1Dragon::vfunc_28() {  }
 
 void TBoss1Dragon::check_death() {
     if (((TBoss1Dragon*)this)->isHpPhasePending() != 0) {
@@ -7999,18 +8003,18 @@ s32 TBoss1Dragon::countModelNodes(DragonModelNode* source) {
 
 extern "C" {
 
-void TBoss1Dragon__sub_8002ADAC(void) {  }
+void TBoss1Dragon::vfunc_44() {  }
 
-void TBoss1Dragon::apply_paralysis() {  }
+void TBoss1Dragon::vfunc_45() {  }
 
-void TBoss1Dragon__sub_8002ADB4(void) {  }
+void TBoss1Dragon::vfunc_46() {  }
 
-void TBoss1Dragon::apply_confusion() {  }
+void TBoss1Dragon::vfunc_47() {  }
 
-void TBoss1Dragon::apply_freeze() {  }
+void TBoss1Dragon::vfunc_48(s32) {  }
 
-void TBoss1Dragon::apply_shock() {  }
+void TBoss1Dragon::vfunc_49() {  }
 
-void TBoss1Dragon__sub_8002ADC4(void) {  }
+void TBoss1Dragon::vfunc_50() {  }
 
 }

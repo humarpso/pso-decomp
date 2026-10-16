@@ -10,6 +10,11 @@ struct player_stats;
 
 struct TObjPlayer
 {
+    void vfunc_77();
+    void vfunc_76();
+    void vfunc_75(f32);
+    void vfunc_68(s32);
+    int vfunc_67();
     void render_shadows();
     void render();
     void run_task();
@@ -212,7 +217,6 @@ struct TObjPlayer
     void draw_tri_fan_3d(s32 n, u32 flags);
     static void render_tree(void *arg0);
     void draw_compass_sprite(s32 idx, s32 color, s32 flags, f32 z);
-    void submit_cursor_candidate_if_idle();
     void init_vec_record();
     s32 get_entrance_id();
     void copy_efb_to_texture();
@@ -364,7 +368,6 @@ struct TObjPlayer
     void clear_velocity_vectors();
     static void set_com_card_window(s32 arg0);
     static s32 check_demo_mode();
-    f32 advance_hit_counter(u32 arg1);
     int queue_destruction();
     void set_position_xy(f32 a, f32 b);
     f32 get_speed();
@@ -396,8 +399,6 @@ struct TObjPlayer
     void trigger_targets_action();
     s16 get_field_2c8();
     void set_flags_B0(u32 v);
-    void play_hit_sound();
-    void set_dead_and_check_destroy();
     void set_flag_start_effect();
     void clear_state7_flag();
     s32 try_apply_800a89b0();
@@ -703,7 +704,6 @@ struct TObjPlayer
     static s32 is_in_range(f32 farg0);
     void reset_movement();
     void*get_anim_entry(int a1);
-    void update_battle_target();
     void draw_model();
     void draw_if_visible();
     static void apply_status_effect(s32 a);
@@ -1268,7 +1268,6 @@ struct TObjPlayer
     static void alloc_and_init(s32 arg0, s32 arg1, s32 arg2);
     static void create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2);
     void destroy_effect_objects();
-    void start_card_effect_trail();
     static void start_guardianna_hit_card(s32 arg0, u32 *arg1, s32 arg2);
     static void create_aux_object(s32 arg0, u32 *arg1, s32 arg2);
     static void create_network_object(s32 arg0, u32 *arg1, s32 arg2);
@@ -1430,7 +1429,6 @@ struct TObjPlayer
     static u8 *create_state_0(u8 *arg0);
     static u8 *create_vtable_804A63F0(u8 *arg0);
     static u8 *create_position_state(u8 *arg0);
-    f32 call_vt5_and_get_default_scale();
     s32 is_within_range(s32 arg1);
     static void clear_photon_blast_slots();
     void place_on_area_entry();

@@ -5,6 +5,19 @@
 
 struct TObjEneRe4Bit
 {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
+    void apply_defense_stat_status(void *);
+    void vfunc_51(void *);
+    void vfunc_50();
+    void vfunc_49();
+    void vfunc_48(s32);
+    void vfunc_47();
+    void vfunc_46();
+    void vfunc_45();
+    void vfunc_44();
+    void vfunc_28();
     void render();
     void run_task();
     u16 m_1c;

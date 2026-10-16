@@ -466,14 +466,14 @@ struct Vec_800E420C { f32 x, y, z; };
 extern "C" {
 int transition_enemy_state(void*, int);
 void clear_attack_receipts(void *);
-void TObjEneMe3ShinowaMirage__vt60(void *arg0);
+void vfunc_62__23TObjEneMe3ShinowaMirageFv(void *arg0);
 s32 draw_model__23TObjEneMe3ShinowaMirageFPv();
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjEneMe3Shinowa__sub_800E7724(void *);
 s32 find_entity_by_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 int transition_enemy_state(void*, int);
-void TObjEneMe3ShinowaMirage__vt61(u8 *arg0);
+void vfunc_63__23TObjEneMe3ShinowaMirageFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 create_particle_emitter(s32, s32);
@@ -613,16 +613,17 @@ int TObjEneMe3ShinowaMirage__vt105(void* p) { return transition_enemy_state((voi
 int TObjEneMe3ShinowaMirage__vt104(void) { return 0; }
 void TObjEneMe3ShinowaMirage__vt103(void) {  }
 
-void TObjEneMe3ShinowaMirage__vt60(void *arg0) {
-    if (*(s16 *)((s8 *)arg0 + 0x326) != 15) {
-        transition_enemy_state((void*)(arg0), (int)(15));
+void TObjEneMe3ShinowaMirage::vfunc_62() {
+    if (*(s16 *)((s8 *)this + 0x326) != 15) {
+        transition_enemy_state((void*)(this), (int)(15));
     }
-    clear_attack_receipts(arg0);
+    clear_attack_receipts(this);
 }
 
 extern s32 __vt__23TObjEneMe3ShinowaMirage[];
 
-void TObjEneMe3ShinowaMirage__vt61(u8 *arg0) {
+void TObjEneMe3ShinowaMirage::vfunc_63() {
+    u8 *arg0 = (u8 *)this;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xF) {
         transition_enemy_state((void*)((void *)(arg0)), (int)((int) (0xF)));
     }

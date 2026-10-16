@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOMineIcon01.h"
+#include "pso/misc/TOMine.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -11,12 +13,12 @@ bool TOMineTrap__vt19(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TOMineIcon01__vt82(void);
+void vfunc_84__12TOMineIcon01Fv(void);
 s16 TOMineTrap__sub_80171340(void* p);
 void TOMineTrap__sub_80171348(void* p, s16 v);
 int TOMineTrap__sub_80171350(void);
 u16 TOMineTrap__sub_80171358(void* p);
-void TOMineTrap__sub_80171380(void);
+void vfunc_84__6TOMineFv(void);
 void TOMineTrap__sub_8017141C(void* p);
 void fn_80171314(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -47,7 +49,7 @@ void TOMineTrap::set_instance(int a0) { mine_trap_instance_id = a0; }
     extern int mine_trap_count;
 void TOMineTrap::set_trap_count(int a0) { mine_trap_count = a0; }
 
-void TOMineTrap__sub_80171380(void) {  }
+void TOMine::vfunc_84() {  }
 
 bool TOMineTrap__vt18(u8 *arg0, s32 arg1) {
     return arg1 != *(s32 *)((s8 *)arg0 + 0x2A8);
@@ -62,6 +64,6 @@ void TOMineTrap::send_and_handle_60() { bswap_6x80_trigger_trap(); TLobby__send_
 
 void TOMineTrap__sub_8017141C(void* p) { *(u8*)((char*)p + 0x0) = 128; *(u8*)((char*)p + 0x1) = 2; }
 
-void TOMineIcon01__vt82(void) {  }
+void TOMineIcon01::vfunc_84() {  }
 
 }

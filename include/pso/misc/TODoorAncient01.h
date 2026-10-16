@@ -6,6 +6,9 @@
 
 struct TODoorAncient01 : public TUnk_804B0BB8 {
     virtual ~TODoorAncient01();
+    virtual void vfunc_20();
+    virtual void vfunc_17();
+    virtual void play_proximity_sound();
     void *destroy_ancient_door_base(s16 arg1);
     virtual void render();
     static void *create(void *arg0);

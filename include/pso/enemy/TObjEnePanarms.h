@@ -5,6 +5,9 @@
 
 struct TObjEnePanarms
 {
+    void vfunc_63();
+    void vfunc_62();
+    void vfunc_61();
     void set_random_action_timer(int minimum, int range);
 
     u8 _pad00[0x1C];
@@ -81,7 +84,6 @@ struct TObjEnePanarms
     void reset_split();
     static int do_action_2(void* p);
     void init_state();
-    void exit_to_state_6();
     void update_linked_effect();
     void draw();
     static s32 create_bara(s32 arg0, s32 arg1);
@@ -90,7 +92,6 @@ struct TObjEnePanarms
     static s32 create(s32 arg0);
     void init(void* a1);
     int get_state_flag();
-    int get_enemy_name();
     void copy_target_state(void* a1);
 };
 

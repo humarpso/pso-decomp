@@ -42,7 +42,7 @@ extern const f32 lbl_805DA070;
 
 extern "C" {
 
-void TObjEnemyCustom__sub_800C7AE0(void);
+void vfunc_61__15TObjEnemyCustomFv(void);
 s32 advance_animation_playback(void *);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 s32 apply_actor_gravity(void *, s32, f32);
@@ -83,7 +83,7 @@ void TObjEnemyCustom::update_state_machine() {
     }
 }
 
-void TObjEnemyCustom__sub_800C7AE0(void) {  }
+void TObjEnemyCustom::vfunc_61() {  }
 
 extern const f32 lbl_805DA068;
 extern const f32 lbl_805DA074;
@@ -125,7 +125,7 @@ void TObjEnemyCustom::update() {
     }
 }
 
-int TObjEnemyCustom::update_gigue() { return update_if_active__15TObjEneMe1GiGueFl(this, 2); }
+void TObjEnemyCustom::vfunc_60() { update_if_active__15TObjEneMe1GiGueFl(this, 2); }
 void TObjEnemyCustom::update_wander_state() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;

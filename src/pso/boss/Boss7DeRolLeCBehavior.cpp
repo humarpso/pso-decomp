@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/TObject.h"
 #include <stddef.h>
 
@@ -4261,24 +4262,25 @@ extern "C" {
 void set_flag_800__11TBoss7JointFPv(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void *, void *, void *);
 s32 clear_attack_receipts(void *);
-void TObjFish__sub_802ED86C(u8 *arg0);
+void vfunc_62__14TBoss7DeRolLeCFv(u8 *arg0);
 }
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)
 
 extern "C" {
 
-void TObjFish__sub_802ED868(void);
-void TObjFish__sub_802ED920(void);
-void TObjFish__sub_802ED924(void);
+void vfunc_61__14TBoss7DeRolLeCFv(void);
+void vfunc_63__14TBoss7DeRolLeCFv(void);
+void vfunc_28__14TBoss7DeRolLeCFv(void);
 
 void TObjFish::sync_position_vectors() {
     s32 arg0 = (s32)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
-void TObjFish__sub_802ED868(void) {  }
+void TBoss7DeRolLeC::vfunc_61() {  }
 
-void TObjFish__sub_802ED86C(u8 *arg0) {
+void TBoss7DeRolLeC::vfunc_62() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     temp_r4 = *(s16 *)((s8 *)arg0 + 0x2B8) - *(s16 *)((s8 *)arg0 + 0x32C);
     if (*(s32 *)((s8 *)arg0 + 0x628) & 8) {
@@ -4297,8 +4299,8 @@ void TObjFish__sub_802ED86C(u8 *arg0) {
     clear_attack_receipts((void *) (arg0));
 }
 
-void TObjFish__sub_802ED920(void) {  }
-void TObjFish__sub_802ED924(void) {  }
+void TBoss7DeRolLeC::vfunc_63() {  }
+void TBoss7DeRolLeC::vfunc_28() {  }
 
 }
 

@@ -116,7 +116,7 @@ extern char lbl_8043F44C[];
 extern "C" {
 
 void * TObjNpcARM00__create(void *arg0);
-int TObjNpcFemaleBase__sub_80147CD4(void);
+int vfunc_30__11TObjNpcBaseFv(void);
 void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
@@ -174,7 +174,7 @@ void TObjNpcAHM01__vt88(s32 arg0) {
     play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 
-int TObjNpcFemaleBase__sub_80147CD4(void) { return 0; }
+s32 TObjNpcBase::vfunc_30() { return 0; }
 
 extern void *tl_04;
 

@@ -6,7 +6,11 @@
 
 struct TObjNpcBase : public TObjEnemy {
     virtual ~TObjNpcBase();
-    void deactivateIdleMode();
+    virtual void vfunc_83();
+    virtual void vfunc_59();
+    virtual void vfunc_58();
+    virtual s32 vfunc_30();
+    virtual void vfunc_28();
     u8 unk_374[0x14];
     u32 m_388;
     u32 m_38c;
@@ -25,8 +29,7 @@ struct TObjNpcBase : public TObjEnemy {
     void apply_set_params(s32 arg1, s32 arg2);
     void update_conversation();
     void update_wandering();
-    void update_standing();
-    void activate_idle_mode();};
+    void update_standing();};
 
 typedef char NpcBaseSize[(sizeof(TObjNpcBase) == 0x3B8) ? 1 : -1];
 

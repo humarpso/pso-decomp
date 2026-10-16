@@ -6,6 +6,12 @@
 
 struct TObjEneBalClaw : public TObjEnemyCustom {
     virtual ~TObjEneBalClaw();
+    virtual void vfunc_62();
+    virtual void vfunc_61();
+    virtual void vfunc_59();
+    virtual s32 vfunc_39();
+    virtual s32 vfunc_36();
+    virtual s32 vfunc_30();
     u8 _pad38C[0x4];
     void* m_390;
     u8 _pad394[0x24];

@@ -100,7 +100,7 @@ extern const f32 lbl_805DB514;
 extern const f32 lbl_805DB518;
 extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB520;
-void TODoorMachine02__vt13(u8 *arg0);
+void play_proximity_sound__15TODoorMachine02Fv(u8 *arg0);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
@@ -138,8 +138,8 @@ extern s32 *door_machine02_texture_param_table;
 
 extern "C" {
 
-void TODoorMachine02__vt15(u8 *arg0);
-void TODoorMachine02__vt18(void);
+void vfunc_17__15TODoorMachine02Fv(u8 *arg0);
+void vfunc_20__15TODoorMachine02Fv(void);
 void *__dt__15TODoorMachine02Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -150,11 +150,12 @@ s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
-void TODoorMachine02__vt18(void) {  }
+void TODoorMachine02::vfunc_20() {  }
 
 extern const f32 lbl_805DB510;
 
-void TODoorMachine02__vt15(u8 *arg0) {
+void TODoorMachine02::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)((s8 *)arg0 + 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB510) != 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
@@ -164,7 +165,8 @@ void TODoorMachine02__vt15(u8 *arg0) {
 
 extern void *tl_05;
 
-void TODoorMachine02__vt13(u8 *arg0) {
+void TODoorMachine02::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB514)) == 1)) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));

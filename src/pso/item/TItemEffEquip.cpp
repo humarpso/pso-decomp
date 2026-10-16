@@ -34,7 +34,7 @@ extern "C" {
 
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
 void run_task__13TUnk_8049F038Fv(u8 *arg0);
-u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
+u8 *vfunc_9__13TUnk_8049F038Fv(u8 *arg0);
 s32 set_item_count__6TLobbyFs(void *, s32);
 s32 TLobby__sub_80103B04();
 s32 unregister_object_by_id(void *);
@@ -179,7 +179,8 @@ struct VObj80108B5C_80108b5c : VBase0x18_80108b5c {
     virtual void m63(s32, void *);
 };
 
-u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0) {
+void*TUnk_8049F038::vfunc_9() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
     temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
@@ -317,10 +318,10 @@ void render_shadows__7TObjectFv(void);
 void TLobby__sub_801A1FD8(void);
 void apply_object_set_data(void);
 void release_member_90__10TObjPlayerFv(void *);
-void update_object_view_visibility(void);
+void update_object_view_visibility__13TUnk_804B9870Fff(void);
 void classify_actor_view_detail(void);
-void TObjRoomId__sub_801A1E2C(void);
-void TObjPlayer__sub_80019568(void);
+void vfunc_12__13TUnk_804B9870Fv(void);
+void vfunc_13__13TUnk_804AF8A0Fl(void);
 
 void *__vt__13TItemEffEquip[6] = {
     0, 0, (void *)__dt__13TItemEffEquipFv, (void *)run_task__13TItemEffEquipFv,
@@ -330,8 +331,8 @@ void *lbl_8049F038[14] = {
     0, 0, (void *)destroy__13TItemEffFlameFPvs, (void *)run_task__13TUnk_8049F038Fv,
     (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
     (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
-    (void *)release_member_90__10TObjPlayerFv, (void *)notify_hit_and_get_pos__13TItemEffFlameFPv,
-    (void *)update_object_view_visibility, (void *)classify_actor_view_detail,
-    (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568,
+    (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_8049F038Fv,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail,
+    (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl,
 };
 }

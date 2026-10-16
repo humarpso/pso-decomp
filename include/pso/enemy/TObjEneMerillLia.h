@@ -6,6 +6,10 @@
 
 struct TObjEneMerillLia : public TUnk_80493450 {
     virtual ~TObjEneMerillLia();
+    virtual void vfunc_83();
+    virtual void vfunc_60();
+    virtual void vfunc_59();
+    virtual void vfunc_58();
     void* m_3a8;
     s32 get_clamped_level();
     void clamp_and_apply_mode_param();

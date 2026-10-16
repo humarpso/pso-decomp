@@ -19,7 +19,7 @@ f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2);
 
 s32 TLobby__send_and_handle_60(void *);
 void TOCtrlDubchik__sub_8015C9D0(void);
-void TObjPlayer__sub_8015C940(void);
+void vfunc_6__13TUnk_804B6C24FPsl(void);
 s32 bswap_32__FPUl(s32);
 void byteswap_event_packet__6TLobbyFi(s32 arg0);
 s32 read_be16_field2__10TObjPlayerFv();

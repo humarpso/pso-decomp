@@ -218,8 +218,8 @@ extern const f32 lbl_805DABB4;
 #pragma auto_inline off
 #pragma dont_inline off
 extern "C" void TItemEquipBase__sub_8010A77C();
-extern "C" void TItemEquipBase__sub_8010A938();
-extern "C" void TItemEquipBase__sub_8010A93C();
+extern "C" void vfunc_49__14TItemEquipBaseFv();
+extern "C" void vfunc_48__14TItemEquipBaseFv();
 extern "C" void TItemMag__vt48();
 extern "C" void TItem__sub_80100648();
 extern "C" void TItem__sub_80100674();
@@ -229,7 +229,7 @@ extern "C" void TItem__sub_801007A8();
 extern "C" void TItem__sub_80100B8C();
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TObjPlayer__sub_80102BD8();
-extern "C" void TParticleCtrl__sub_801A2124();
+extern "C" void vfunc_9__13TUnk_804B9870Fv();
 extern "C" void add_equip_stats__14TItemEquipBaseFPvi();
 extern "C" void apply_object_set_data();
 extern "C" void classify_actor_view_detail();
@@ -257,7 +257,7 @@ extern "C" { void *__dt__8TItemMagFv(void *, s16); void TItemMag__vt12(s32); int
 void *__vt__8TItemMag[51] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__8TItemMagFv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
-    (void *)&release_member_90__10TObjPlayerFv, (void *)&TParticleCtrl__sub_801A2124, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
+    (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&TItemMag__vt12, (void *)&TItemMag__vt13,
     (void *)&TItemMag__vt14, (void *)&TItemMag__vt15, (void *)&serialize_to_item__8TItemMagFPv, (void *)&set_attach_slot__14TItemEquipBaseFSc,
     (void *)&equip__14TItemEquipBaseFv, (void *)&unequip__14TItemEquipBaseFv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
@@ -267,7 +267,7 @@ void *__vt__8TItemMag[51] = {
     (void *)&ret_80100664, (void *)&ret_8010065C, (void *)&ret_80100654, (void *)&ret_8010064C,
     (void *)&TItem__sub_80100648, (void *)&TItemMag__vt39, (void *)&TItemMag__vt40, (void *)&TObjPlayer__sub_80102BD8,
     (void *)&TItemMag__vt42, (void *)&TItemMag__vt43, (void *)&TItemMag__vt44, (void *)&TItemMag__vt45,
-    (void *)&TItemEquipBase__sub_8010A93C, (void *)&TItemEquipBase__sub_8010A938, (void *)&TItemMag__vt48,
+    (void *)&vfunc_48__14TItemEquipBaseFv, (void *)&vfunc_49__14TItemEquipBaseFv, (void *)&TItemMag__vt48,
 };
 #define __vt__8TItemMag ((s32 *)__vt__8TItemMag)
 

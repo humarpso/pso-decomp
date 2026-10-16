@@ -55,7 +55,7 @@ s32 set_current_floor_switch(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x05_switch_flag__5TOKeyFv();
-s32 update_object_view_visibility();
+s32 update_object_view_visibility__13TUnk_804B9870Fff();
 void init_map_object_base(void *);
 s32 start_camera_pan__10TObjPlayerFPvs(s32, s32, s32);
 
@@ -90,8 +90,8 @@ void *TOKey::init() {
 }
 
 void TOKey__sub_80169FB0(void* p) { *(s32*)((char*)p + 0x0) = 1; }
-s32 TOKey::set_ready_if_pressed() {
-    if (update_object_view_visibility() == 1) {
+s16 TOKey::update_object_view_visibility(f32, f32) {
+    if (update_object_view_visibility__13TUnk_804B9870Fff() == 1) {
         *(s32 *)((s8 *)this + 0xE4) = 1;
         return 1;
     }
@@ -141,7 +141,7 @@ void handle_6x05_write_switch_flag(void *arg0) {
     clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 8), *(s8 *)((s8 *)arg0 + 0xA));
 }
 
-void TOKey::trigger_camera_pan(s32 arg1) {
+void TOKey::vfunc_13(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r3;

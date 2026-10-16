@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/boss/TBoss7Joint.h"
 #include "pso/enemy/TObjEneDD.h"
 
@@ -19,13 +20,13 @@ void init_boss_stats__11TBoss7JointFPv(u8 *arg0);
 
 extern "C" {
 
-void TBoss7Joint__sub_802EE6E8(void);
-void TBoss7Joint__sub_802EE6EC(void);
-void TBoss7Joint__sub_802EE6F0(void);
-void TBoss7Joint__sub_802EE6F4(void);
-void TBoss7Joint__sub_802EE6F8(void);
-void TBoss7Joint__sub_802EE6FC(void);
-void TBoss7Joint__sub_802EE700(void);
+void vfunc_44__14TBoss7DeRolLeCFv(void);
+void vfunc_45__14TBoss7DeRolLeCFv(void);
+void vfunc_46__14TBoss7DeRolLeCFv(void);
+void vfunc_47__14TBoss7DeRolLeCFv(void);
+void vfunc_48__14TBoss7DeRolLeCFl(void);
+void vfunc_49__14TBoss7DeRolLeCFv(void);
+void vfunc_50__14TBoss7DeRolLeCFv(void);
 void TBoss7Joint__sub_802EE7B8(void* p);
 void TBoss7Joint__sub_802EE800(void* p);
 void TBoss7Joint__vt91(void *arg0);
@@ -39,13 +40,13 @@ int read_be16_field2__10TObjPlayerFv(void*);
     extern int boss7_joint_state;
 int TBoss7Joint::get_state() {  return boss7_joint_state; }
 
-void TBoss7Joint__sub_802EE6E8(void) {  }
-void TBoss7Joint__sub_802EE6EC(void) {  }
-void TBoss7Joint__sub_802EE6F0(void) {  }
-void TBoss7Joint__sub_802EE6F4(void) {  }
-void TBoss7Joint__sub_802EE6F8(void) {  }
-void TBoss7Joint__sub_802EE6FC(void) {  }
-void TBoss7Joint__sub_802EE700(void) {  }
+void TBoss7DeRolLeC::vfunc_44() {  }
+void TBoss7DeRolLeC::vfunc_45() {  }
+void TBoss7DeRolLeC::vfunc_46() {  }
+void TBoss7DeRolLeC::vfunc_47() {  }
+void TBoss7DeRolLeC::vfunc_48(s32) {  }
+void TBoss7DeRolLeC::vfunc_49() {  }
+void TBoss7DeRolLeC::vfunc_50() {  }
 void TBoss7Joint::read_state() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 void TBoss7Joint::byteswap_action_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
 void TBoss7Joint::update_and_send_60() { byteswap_action_packet(); TLobby__send_and_handle_60(this); }

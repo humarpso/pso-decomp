@@ -5,6 +5,14 @@
 class TUnk_804B9870 : public TObject {
 public:
     virtual ~TUnk_804B9870();
+    virtual void vfunc_6(s16 *, s32);
+    virtual void vfunc_7(void *);
+    virtual void reset_motion_fields();
+    virtual void*vfunc_9();
+    virtual s16 update_object_view_visibility(f32, f32);
+    virtual s16 vfunc_11(f32, f32, f32);
+    virtual int vfunc_12();
+    virtual void vfunc_13(s32);
     u8 unk_1C[0x8];
     s32 texture_id;
     u8 unk_28[0x8];
@@ -21,6 +29,7 @@ public:
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
     virtual ~TUnk_804AF8A0();
+    virtual void vfunc_13(s32);
     u8 unknown90[0x1C];
 };
 class TObjMotion : public TUnk_804AF8A0 {

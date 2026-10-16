@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/npc/TObjNpcEnemy.h"
 struct Item_80189E3C { u8 pad[0x30]; s32 data[3]; };
 
@@ -18,12 +19,13 @@ extern const char lbl_80444F00[];
 extern const char lbl_80444F10[];
 extern const char lbl_80444F20[];
 extern const f32 lbl_805DBCF4;
-void debug_print_item_box_info(Obj_80189E3C *self);
+void debug_print_item_box_info__13TUnk_804B6C24Fv(Obj_80189E3C *self);
 }
 
 extern "C" {
 
-void debug_print_item_box_info(Obj_80189E3C *self) {
+void TUnk_804B6C24::debug_print_item_box_info() {
+    Obj_80189E3C *self = (Obj_80189E3C *)this;
     Item_80189E3C item;
     if (self->x68 > lbl_805DBCF4) {
         self->x360 = 1;

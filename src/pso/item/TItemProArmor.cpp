@@ -318,7 +318,7 @@ void render_shadows__5TItemFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
 void release_member_90__10TObjPlayerFv();
-void TItemObject__vt7();
+void vfunc_9__11TItemObjectFv();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
 void register_attack__5TItemFv();
@@ -353,7 +353,7 @@ void TItem__sub_80100648();
 void TItem__sub_801005E4();
 void TItem__sub_801005D8();
 void TObjPlayer__sub_80102BD8();
-void TParticleCtrl__sub_801A2124();
+void vfunc_9__13TUnk_804B9870Fv();
 void set_attach_slot__14TItemEquipBaseFSc();
 void equip__14TItemEquipBaseFv();
 void unequip__14TItemEquipBaseFv();
@@ -366,11 +366,11 @@ void TItemEquipBase__sub_8010A77C();
 void ret_80100664();
 void ret_8010065C();
 void ret_80100654();
-void TItemEquipBase__sub_8010A940();
+void vfunc_45__14TItemEquipBaseFv();
 void release__14TItemEquipBaseFv();
-void TItemEquipBase__sub_8010A93C();
-void TItemEquipBase__sub_8010A938();
-void TItemEquipBase__sub_8010A788();
+void vfunc_48__14TItemEquipBaseFv();
+void vfunc_49__14TItemEquipBaseFv();
+void vfunc_50__14TItemEquipBaseFv();
 }
 
 void *lbl_8049FF88[46] = {
@@ -383,7 +383,7 @@ void *lbl_8049FF88[46] = {
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv,
-    (void *)TItemObject__vt7,
+    (void *)vfunc_9__11TItemObjectFv,
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
@@ -432,7 +432,7 @@ void *__vt__13TItemProArmor[51] = {
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv,
-    (void *)TParticleCtrl__sub_801A2124,
+    (void *)vfunc_9__13TUnk_804B9870Fv,
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
@@ -468,12 +468,12 @@ void *__vt__13TItemProArmor[51] = {
     (void *)TItem__sub_801005D8,
     (void *)TObjPlayer__sub_80102BD8,
     (void *)vfunc_44__13TItemProArmorFv,
-    (void *)TItemEquipBase__sub_8010A940,
+    (void *)vfunc_45__14TItemEquipBaseFv,
     (void *)vfunc_46__13TItemProArmorFv,
     (void *)release__14TItemEquipBaseFv,
-    (void *)TItemEquipBase__sub_8010A93C,
-    (void *)TItemEquipBase__sub_8010A938,
-    (void *)TItemEquipBase__sub_8010A788,
+    (void *)vfunc_48__14TItemEquipBaseFv,
+    (void *)vfunc_49__14TItemEquipBaseFv,
+    (void *)vfunc_50__14TItemEquipBaseFv,
 };
 
 void TItemProArmor::vfunc_44() {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/DamageBookkeeping.h"
 #include "pso/player/TObjPlayer.h"
 #include "dolphin/mtx.h"
@@ -966,8 +968,8 @@ void enemy_turn_half_toward_dest(Obj_80018570 *self);
 void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn);
 u8 * TObjPlayer__sub_80018E6C(u8 *arg0, u8 *arg1);
 u8 * update_actor_ground_y(u8 *arg0);
-void* get_actor_body_center(void* p);
-void reset_actor_action_state(Obj_80018F64 *self);
+void* vfunc_9__13TUnk_804806E8Fv(void* p);
+void reset_motion_fields__13TUnk_804806E8Fv(Obj_80018F64 *self);
 void * destroy_motion_object__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void get_pos__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
@@ -994,7 +996,7 @@ s16 TObjPlayer__sub_800194E8(void* p);
 s16 get_stats_atp_max__10TObjPlayerFPv(void* p);
 s16 get_attack_params_atp_max(void* p);
 void TObjPlayer__sub_8001951C(void* p);
-void TObjPlayer__sub_80019568(void* p, s16 v);
+void vfunc_13__13TUnk_804AF8A0Fl(void* p, s16 v);
 u8 obj_is_hit_receivable(u8 *arg0);
 int get_player_data__10TObjPlayerFi(int a0);
 u32 obj_testFlags30(ObjFlags* p, u32 mask);
@@ -2012,9 +2014,9 @@ void render__7TObjectFv(void);
 void render_shadows__7TObjectFv(void);
 void TLobby__sub_801A1FD8(void);
 void apply_object_set_data(void);
-void update_object_view_visibility(void);
+void update_object_view_visibility__13TUnk_804B9870Fff(void);
 void classify_actor_view_detail(void);
-void TObjRoomId__sub_801A1E2C(void);
+void vfunc_12__13TUnk_804B9870Fv(void);
 int calc_distance_accuracy_penalty__10TObjPlayerFv(RangedActor* target,RangedActor* attacker,RangedBody* body,const RangedVec* origin,float multiplier);
 f32 receive_physical_attack__10TObjPlayerFv(Obj_80014108 *self, Obj_80014108 *att, f32 scale);
 s32 roll_physical_accuracy__10TObjPlayerFv(Obj_800162E0 *arg0, void *arg1, s32 arg2, f32 farg0);
@@ -2042,12 +2044,12 @@ void *lbl_804806E8[] = {
     (void *)render_shadows__7TObjectFv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
-    (void *)reset_actor_action_state,
-    (void *)get_actor_body_center,
-    (void *)update_object_view_visibility,
+    (void *)reset_motion_fields__13TUnk_804806E8Fv,
+    (void *)vfunc_9__13TUnk_804806E8Fv,
+    (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail,
-    (void *)TObjRoomId__sub_801A1E2C,
-    (void *)TObjPlayer__sub_80019568,
+    (void *)vfunc_12__13TUnk_804B9870Fv,
+    (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,
     (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,
@@ -4625,9 +4627,10 @@ u8 *update_actor_ground_y(u8 *arg0) {
     return temp_r3;
 }
 
-void* get_actor_body_center(void* p) { return (char*)p + 0x2fc; }
+void*TUnk_804806E8::vfunc_9() { return (char*)this + 0x2fc; }
 
-void reset_actor_action_state(Obj_80018F64 *self) {
+void TUnk_804806E8::reset_motion_fields() {
+    Obj_80018F64 *self = (Obj_80018F64 *)this;
     self->v104.x = self->v104.y = self->v104.z = (0.0f);
     self->v290.x = self->v290.y = self->v290.z = (0.0f);
     self->v29c.x = self->v29c.y = self->v29c.z = (0.0f);
@@ -4963,7 +4966,7 @@ void TObjPlayer::add_flags_2e4(u32 v) { *(u32*)((char*)this + 0x2e4) |= v; }
 
 void*TObjPlayer::init_192dc_return_self(void* p) { ((int (*)(void*))reset_status_effect_row)(p); return p; }
 
-void TObjPlayer__sub_80019568(void* p, s16 v) { *(s16*)((char*)p + 0x94) = v; }
+void TUnk_804AF8A0::vfunc_13(s32 v) { *(s16*)((char*)this + 0x94) = v; }
 
 u8 obj_is_hit_receivable(u8 *arg0) {
     return (u8) (*(u16 *)((s8 *)arg0 + 0x96) == 1);

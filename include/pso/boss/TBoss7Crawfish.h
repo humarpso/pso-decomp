@@ -6,6 +6,13 @@
 
 struct TBoss7Crawfish : public TObjEnemy {
     virtual ~TBoss7Crawfish();
+    virtual void vfunc_50();
+    virtual void vfunc_49();
+    virtual void vfunc_48(s32);
+    virtual void vfunc_47();
+    virtual void vfunc_46();
+    virtual void vfunc_45();
+    virtual void vfunc_44();
     void* m_374;
     u8 _pad378[0x28];
     u32 m_3a0;

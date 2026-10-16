@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOAirconCave01.h"
 
 extern "C" {
 
-void TObjPlayer__sub_8015C940(void);
+void vfunc_6__13TUnk_804B6C24FPsl(void);
 void TOCtrlDubchik__sub_8015C9D0(void);
 void __dl__7TObjectFPv(void *);
 s32 bswap_32__FPUl(s32);
@@ -25,6 +26,6 @@ void *TObjPlayer::destroy_container_object(s16 arg1) {
     return this;
 }
 
-void TObjPlayer__sub_8015C940(void) {  }
+void TUnk_804B6C24::vfunc_6(s16 *, s32) {  }
 
 }

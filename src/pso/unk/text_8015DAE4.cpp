@@ -29,7 +29,7 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 play_door_sound(void *);
 u8 is_current_floor_switch_set(int);
-void update_door_switch_state(u8 *arg0);
+void update_door_switch_state__13TUnk_804B0BB8Fv(u8 *arg0);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
 extern s32 switch_doors_force_closed;
 void run_task__13TUnk_804B0BB8Fv(u8 *arg0);
@@ -37,7 +37,8 @@ void run_task__13TUnk_804B0BB8Fv(u8 *arg0);
 
 extern "C" {
 
-void update_door_switch_state(u8 *arg0) {
+void TUnk_804B0BB8::update_door_switch_state() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xCC);
     switch (temp_r0) {

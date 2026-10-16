@@ -12,7 +12,7 @@ extern const f32 lbl_805DB4B4;
 extern const f32 lbl_805DB4B8;
 extern const f32 lbl_805DB4BC;
 extern const f32 lbl_805DB4C0;
-void TODoorCave02__vt13(u8 *arg0);
+void play_proximity_sound__12TODoorCave02Fv(u8 *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -38,8 +38,8 @@ struct VObj_80161D38 : Base_80161D38 {
     virtual s32 m8(f32, f32);
 };
 
-void TODoorCave02__vt15(u8 *arg0);
-void TODoorCave02__vt18(void);
+void vfunc_17__12TODoorCave02Fv(u8 *arg0);
+void vfunc_20__12TODoorCave02Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
 s32 post_translate_matrix(void *);
@@ -49,12 +49,13 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 is_in_view_depth(void *, f32);
 
-void TODoorCave02__vt18(void) {  }
+void TODoorCave02::vfunc_20() {  }
 
 extern u8 *cave_door02_resources;
 extern const f32 lbl_805DB4B0;
 
-void TODoorCave02__vt15(u8 *arg0) {
+void TODoorCave02::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
         *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)cave_door02_resources + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4B0) != 1) {
@@ -73,7 +74,8 @@ void TODoorCave02__vt15(u8 *arg0) {
 extern u8 *cave_door02_resources;
 extern const f32 lbl_805DB4C4;
 
-void TODoorCave02__vt13(u8 *arg0) {
+void TODoorCave02::play_proximity_sound() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)arg0 + 0xD0) & 0x100000) {
         *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD8) + lbl_805DB4B4);
         if (lbl_805DB4B8 <= *(f32 *)((s8 *)arg0 + 0xD8)) {
