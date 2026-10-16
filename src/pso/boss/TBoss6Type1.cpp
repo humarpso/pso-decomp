@@ -1255,13 +1255,13 @@ void send_flow_action_if_idle__11TBoss6Type1FPvc(u8 *arg0, s8 arg1);
 
 extern "C" {
 
-void vfunc_44__11TBoss6Type1Fv(void);
-void vfunc_45__11TBoss6Type1Fv(void);
-void vfunc_46__11TBoss6Type1Fv(void);
-void vfunc_47__11TBoss6Type1Fv(void);
-void vfunc_48__11TBoss6Type1Fl(void);
-void vfunc_49__11TBoss6Type1Fv(void);
-void vfunc_50__11TBoss6Type1Fv(void);
+void apply_poison_status__11TBoss6Type1Fv(void);
+void apply_paralysis__11TBoss6Type1Fv(void);
+void apply_slow_status__11TBoss6Type1Fv(void);
+void apply_confusion_status__11TBoss6Type1Fv(void);
+void apply_movement_ailment__11TBoss6Type1Fl(void);
+void apply_shock_status__11TBoss6Type1Fv(void);
+void clear_harmful_statuses__11TBoss6Type1Fv(void);
 void TBoss6Type1__vt60(u8 *arg0);
 void vfunc_63__11TBoss6Type1Fv(void* p);
 void build_6xA4_olga_flow_boss_actions(void* p);
@@ -2490,13 +2490,13 @@ s32 TBoss6Type1::create(s32 arg0) {
     return var_r31;
 }
 
-void TBoss6Type1::vfunc_44() {  }
-void TBoss6Type1::vfunc_45() {  }
-void TBoss6Type1::vfunc_46() {  }
-void TBoss6Type1::vfunc_47() {  }
-void TBoss6Type1::vfunc_48(s32) {  }
-void TBoss6Type1::vfunc_49() {  }
-void TBoss6Type1::vfunc_50() {  }
+void TBoss6Type1::apply_poison_status() {  }
+void TBoss6Type1::apply_paralysis() {  }
+void TBoss6Type1::apply_slow_status() {  }
+void TBoss6Type1::apply_confusion_status() {  }
+void TBoss6Type1::apply_movement_ailment(s32) {  }
+void TBoss6Type1::apply_shock_status() {  }
+void TBoss6Type1::clear_harmful_statuses() {  }
 void*TBoss6Type1::get_mag_mine_ptr() { return (char*)this + 0x388; }
 int TBoss6Type1::is_idle() { return this->m_374 == 0; }
 int TBoss6Type1::read_be16_field2() { return read_be16_field2__10TObjPlayerFv(this); }

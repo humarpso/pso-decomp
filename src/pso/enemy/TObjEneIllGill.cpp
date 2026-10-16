@@ -397,10 +397,10 @@ extern const f32 TObjEneIllGill__data_805E02BC;
 void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1);
 s32 update_movement_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
-s32 vfunc_39__14TObjEneIllGillFv(u8 *arg0);
+s32 update_movement_status__14TObjEneIllGillFv(u8 *arg0);
 s32 update_action_hold_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
-s32 vfunc_36__14TObjEneIllGillFv(u8 *arg0);
+s32 update_action_hold_status__14TObjEneIllGillFv(u8 *arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 extern const f32 TObjEneIllGill__data_805E02BC;
@@ -1670,7 +1670,7 @@ void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
 }
 
 typedef struct RecoveredFields_80367EFC_arg0 RecoveredFields_80367EFC_arg0;
-s32 TObjEneIllGill::vfunc_39() {
+s32 TObjEneIllGill::update_movement_status() {
     u8 *arg0 = (u8 *)this;
   if (update_movement_status__10TObjPlayerFv((void *) arg0) != 0)
   {
@@ -1693,7 +1693,7 @@ s32 TObjEneIllGill::vfunc_39() {
 }
 
 typedef struct RecoveredFields_80367F6C_arg0 RecoveredFields_80367F6C_arg0;
-s32 TObjEneIllGill::vfunc_36() {
+s32 TObjEneIllGill::update_action_hold_status() {
     u8 *arg0 = (u8 *)this;
   if (0 != update_action_hold_status__10TObjPlayerFv((void *) arg0))
   {

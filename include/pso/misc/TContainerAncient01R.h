@@ -6,19 +6,19 @@
 
 struct TContainerAncient01R : public TUnk_804806E8 {
     virtual ~TContainerAncient01R();
-    virtual int vfunc_21(void *, void *, void *, float);
-    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
-    virtual f32 vfunc_22(void *, f32);
+    virtual int calc_distance_accuracy_penalty(void *, void *, void *, float);
+    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_physical_attack(void *, f32);
     void open_container();
     void check_open_trigger();
     void update_spawning();
     s32 sub_8018A688();
     void reset_hp();
     virtual void vfunc_6(s16 *, s32);
-    virtual s32 vfunc_27(void *, s32, f32);
-    virtual s32 vfunc_26(s32, s32);
+    virtual s32 roll_physical_accuracy(void *, s32, f32);
+    virtual s32 try_start_action(s32, s32);
     virtual void vfunc_25(u8 *);
-    virtual f32 vfunc_24(void *, void *);
+    virtual f32 receive_weapon_special_attack(void *, void *);
     virtual void render();
     virtual void run_task();
     static void init_table_entries();

@@ -71,10 +71,10 @@ struct VObj_800A749C : VBase_800A749C {
 extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
 s32 obj_clearFlags30(void *, int);
-s32 vfunc_39__12TObjEneSaverFv(u8 *arg0);
+s32 update_movement_status__12TObjEneSaverFv(u8 *arg0);
 s32 update_action_hold_status__10TObjPlayerFv();
 s32 obj_clearFlags30(void *, int);
-s32 vfunc_36__12TObjEneSaverFv(u8 *arg0);
+s32 update_action_hold_status__12TObjEneSaverFv(u8 *arg0);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
@@ -269,7 +269,7 @@ void get_actor_level_index();
 void vfunc_12__9TObjEnemyFv();
 void get_pos__10TObjPlayerFii();
 void is_actor_cadence_frame();
-s32 vfunc_30__12TObjEneSaverFv(u8 *arg0);
+s32 is_target_in_attack_range__12TObjEneSaverFv(u8 *arg0);
 extern u8 lbl_8043A738[];
 extern u8 lbl_8043A74C[];
 extern u8 lbl_8043A768[];
@@ -294,13 +294,13 @@ void select_melee_contact_body__10TObjPlayerFv();
 void vfunc_63__12TObjEneSaverFv(void *arg0);
 void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__10TObjPlayerFPvii();
-s32 vfunc_36__12TObjEneSaverFv(u8 *arg0);
+s32 update_action_hold_status__12TObjEneSaverFv(u8 *arg0);
 void update_action_timer__10TObjPlayerFPv();
 void update_actor_ground_y();
 void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
-s32 vfunc_39__12TObjEneSaverFv(u8 *arg0);
+s32 update_movement_status__12TObjEneSaverFv(u8 *arg0);
 void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 void update_shock_clock__10TObjPlayerFPv();
@@ -347,9 +347,9 @@ void *TObjEneSaver__vtable[83] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&find_nearest_target__10TObjPlayerFPv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&vfunc_30__12TObjEneSaverFv, (void *)&test_flag_256__12TObjEneSaverFv,
+    (void *)&find_nearest_target__10TObjPlayerFPv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__12TObjEneSaverFv, (void *)&test_flag_256__12TObjEneSaverFv,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&vfunc_36__12TObjEneSaverFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&vfunc_39__12TObjEneSaverFv,
+    (void *)&update_action_hold_status__12TObjEneSaverFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__12TObjEneSaverFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
@@ -795,7 +795,7 @@ extern const f64 lbl_8043A8D0[];
 extern s32 *player_object_ptr_array;
 extern const f32 lbl_805D9A70;
 extern const f32 lbl_805D9A74;
-s32 vfunc_30__12TObjEneSaverFv(u8 *arg0);
+s32 is_target_in_attack_range__12TObjEneSaverFv(u8 *arg0);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_move_toward(void *, s32, Vec_800A5DC4 *, int, f32 *, f32);
 s32 select_enemy_destination(void *, Vec_800A5DC4 *, int);
@@ -1354,7 +1354,7 @@ void TObjEneSaver::vfunc_60() {
     self->f30 |= 0x200000;
 }
 
-s32 TObjEneSaver::vfunc_30() {
+s32 TObjEneSaver::is_target_in_attack_range() {
     u8 *arg0 = (u8 *)this;
     Vec_800A5BBC v;
     f32 var_f29;
@@ -1860,7 +1860,7 @@ void TObjEneSaver::vfunc_58() {
 
 #define P_800A677C(p) ((Obj_800A677C *)(p))
 
-s32 TObjEneSaver::vfunc_39() {
+s32 TObjEneSaver::update_movement_status() {
     u8 *arg0 = (u8 *)this;
     if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
@@ -1883,7 +1883,7 @@ s32 TObjEneSaver::vfunc_39() {
     return 0;
 }
 
-s32 TObjEneSaver::vfunc_36() {
+s32 TObjEneSaver::update_action_hold_status() {
     u8 *arg0 = (u8 *)this;
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {

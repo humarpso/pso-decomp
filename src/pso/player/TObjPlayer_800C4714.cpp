@@ -1005,7 +1005,7 @@ extern const f32 lbl_805DA034;
     extern const float lbl_805DA064;
 s32 update_movement_status__10TObjPlayerFv(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
-s32 vfunc_39__13TUnk_80493450Fv(u8 *arg0);
+s32 update_movement_status__13TUnk_80493450Fv(u8 *arg0);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;

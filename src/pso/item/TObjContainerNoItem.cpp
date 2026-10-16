@@ -176,7 +176,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
-f32 vfunc_22__18TObjContainerEnemyFPvf(Obj_801894F8 *arg0);
+f32 receive_physical_attack__18TObjContainerEnemyFPvf(Obj_801894F8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_container_param(int);
 extern s32 lbl_805D5B7C;
@@ -314,7 +314,7 @@ void TObjContainerEnemy::vfunc_79() {
     }
 }
 
-f32 TObjContainerEnemy::vfunc_22(void *, f32) {
+f32 TObjContainerEnemy::receive_physical_attack(void *, f32) {
     Obj_801894F8 *arg0 = (Obj_801894F8 *)this;
     s16 sp8;
     Pkt_801894F8 pkt;

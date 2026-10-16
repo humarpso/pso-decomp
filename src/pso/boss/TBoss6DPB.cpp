@@ -72,10 +72,10 @@ extern const f32 lbl_805E01C8;
 u8 *__nw__7TObjectFUl(s32);
 s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
-f32 vfunc_24__19TObjEneEpsilonGuardFPvPv(s32 arg0);
+f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPv(s32 arg0);
 s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
-f32 vfunc_22__19TObjEneEpsilonGuardFPvf(s32 arg0);
+f32 receive_physical_attack__19TObjEneEpsilonGuardFPvf(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -203,12 +203,12 @@ u8 *TBoss6Type2::create_dpb(s32 arg0, s32 arg1, f32 farg0) {
 }
 #pragma pop
 
-f32 TObjEneEpsilonGuard::vfunc_24(void *, void *) {
+f32 TObjEneEpsilonGuard::receive_weapon_special_attack(void *, void *) {
     s32 arg0 = (s32)this;
     try_apply_damage__19TObjEneEpsilonGuardFPvUii((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
     return TObjEneEpsilonGuard__data_805E01D8;
 }
-f32 TObjEneEpsilonGuard::vfunc_22(void *, f32) {
+f32 TObjEneEpsilonGuard::receive_physical_attack(void *, f32) {
     s32 arg0 = (s32)this;
     try_apply_damage__19TObjEneEpsilonGuardFPvUii((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
     return TObjEneEpsilonGuard__data_805E01D8;

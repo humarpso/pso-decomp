@@ -51,9 +51,9 @@ void init_trap_param_clamped(u8 *arg0);
 void clamp_trap_level_param(u8 *arg0);
 void init_trap_object_id(u8 *arg0);
 extern const f32 lbl_805DBA78;
-void vfunc_23__16TOTrapAncient02RFPvPvPvll(Obj_8017B8A0 *self);
+void receive_direct_attack__16TOTrapAncient02RFPvPvPvll(Obj_8017B8A0 *self);
 extern const f32 lbl_805DBA78;
-void vfunc_24__16TOTrapAncient02RFPvPv(V_8017B8D4 *self);
+void receive_weapon_special_attack__16TOTrapAncient02RFPvPv(V_8017B8D4 *self);
 s32 access_object_saved_state(void *, void *, int);
 void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
@@ -71,12 +71,12 @@ extern "C" {
 
 void TOVS2Wall01__sub_8017B9AC(void);
 
-f32 TOTrapAncient02R::vfunc_23(void *, void *, void *, s32, s32) {
+f32 TOTrapAncient02R::receive_direct_attack(void *, void *, void *, s32, s32) {
     Obj_8017B8A0 *self = (Obj_8017B8A0 *)this;
     self->m20(0, lbl_805DBA78);
 }
 
-f32 TOTrapAncient02R::vfunc_24(void *, void *) {
+f32 TOTrapAncient02R::receive_weapon_special_attack(void *, void *) {
     V_8017B8D4 *self = (V_8017B8D4 *)this;
     self->m20(0, lbl_805DBA78);
 }

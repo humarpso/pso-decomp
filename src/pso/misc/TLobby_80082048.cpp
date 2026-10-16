@@ -84,10 +84,10 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 extern "C" {
 
 void *destroy_freeze_shell(void *arg0, s16 arg1);
-int vfunc_20__13TUnk_8048E1A4FPvf(void);
-int vfunc_21__13TUnk_8048E1A4FPvPvPvf(void);
-f32 vfunc_23__13TUnk_8048E1A4FPvPvPvll(void);
-f32 vfunc_24__13TUnk_8048E1A4FPvPv(void);
+int select_melee_contact_body__13TUnk_8048E1A4FPvf(void);
+int calc_distance_accuracy_penalty__13TUnk_8048E1A4FPvPvPvf(void);
+f32 receive_direct_attack__13TUnk_8048E1A4FPvPvPvll(void);
+f32 receive_weapon_special_attack__13TUnk_8048E1A4FPvPv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
@@ -192,18 +192,18 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
 }
 #pragma pop
 
-s32 TUnk_8048E1A4::vfunc_20(void *, f32) { return 1; }
-int TUnk_8048E1A4::vfunc_21(void *, void *, void *, float) { return 1; }
+s32 TUnk_8048E1A4::select_melee_contact_body(void *, f32) { return 1; }
+int TUnk_8048E1A4::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
 extern const f32 lbl_805D9378;
 
-f32 TUnk_8048E1A4::vfunc_23(void *, void *, void *, s32, s32) {
+f32 TUnk_8048E1A4::receive_direct_attack(void *, void *, void *, s32, s32) {
     return lbl_805D9378;
 }
 
 extern const f32 lbl_805D9378;
 
-f32 TUnk_8048E1A4::vfunc_24(void *, void *) {
+f32 TUnk_8048E1A4::receive_weapon_special_attack(void *, void *) {
     return lbl_805D9378;
 }
 

@@ -40,8 +40,8 @@ u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-int vfunc_20__13TUnk_804B2578FPvf(void);
-f32 vfunc_22__13TUnk_804B2578FPvf(void);
+int select_melee_contact_body__13TUnk_804B2578FPvf(void);
+f32 receive_physical_attack__13TUnk_804B2578FPvf(void);
 void vfunc_25__13TUnk_804B2578FPUc(void);
 void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 arg1);
 void set_scale__13TUnk_804B2578Ff(void* p, f32 v);
@@ -83,11 +83,11 @@ u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, s32 arg1, s32 arg2) 
     return arg0;
 }
 
-s32 TUnk_804B2578::vfunc_20(void *, f32) { return 1; }
+s32 TUnk_804B2578::select_melee_contact_body(void *, f32) { return 1; }
 
 extern f32 lbl_805DB650;
 
-f32 TUnk_804B2578::vfunc_22(void *, f32) {
+f32 TUnk_804B2578::receive_physical_attack(void *, f32) {
     return lbl_805DB650;
 }
 

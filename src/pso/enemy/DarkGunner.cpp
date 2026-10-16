@@ -371,7 +371,7 @@ u8 * TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2);
 void clear_lappy_flag_set_param(u8 *arg0);
 void fn_800A0FDC(u8 *arg0);
 void TObjPlayer__sub_800A100C(s32 _w0);
-s32 vfunc_36__17TObjEneDarkGunnerFv(s32 arg0);
+s32 update_action_hold_status__17TObjEneDarkGunnerFv(s32 arg0);
 void init_scale_global__10TObjPlayerFv(void);
 void TObjPlayer__sub_800A1520(u8 *arg0);
 void TObjPlayer__sub_800A159C(Obj_800A159C *o);
@@ -774,7 +774,7 @@ void *__vt__17TObjEneDarkGunner[83] = {
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
     (void *)&vfunc_28__17TObjEneDarkGunnerFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&vfunc_36__17TObjEneDarkGunnerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer::update_movement_and_notify,
+    (void *)&update_action_hold_status__17TObjEneDarkGunnerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer::update_movement_and_notify,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
@@ -858,7 +858,7 @@ s32 TObjPlayer::update_movement_and_notify(s32 arg0) {
     return 0;
 }
 
-s32 TObjEneDarkGunner::vfunc_36() {
+s32 TObjEneDarkGunner::update_action_hold_status() {
     s32 arg0 = (s32)this;
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         TObjPlayer__sub_800A100C(arg0);

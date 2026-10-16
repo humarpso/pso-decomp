@@ -55,9 +55,9 @@ s32 TContainerAncient01__vt18(s32 arg0, s32 arg1);
 
 extern "C" {
 
-int vfunc_21__19TContainerAncient01FPvPvPvf(void);
-f32 vfunc_22__19TContainerAncient01FPvf(void *arg0);
-f32 vfunc_23__19TContainerAncient01FPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
+int calc_distance_accuracy_penalty__19TContainerAncient01FPvPvPvf(void);
+f32 receive_physical_attack__19TContainerAncient01FPvf(void *arg0);
+f32 receive_direct_attack__19TContainerAncient01FPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
 s32 scale_current_matrix(void *);
 s32 access_object_saved_state(void *, s16 *, s32);
 s32 post_translate_matrix(void *);
@@ -71,7 +71,7 @@ s32 reset_state__19TContainerAncient01Fv();
 
 extern f32 TContainerAncient01__data_805DBD14;
 
-f32 TContainerAncient01::vfunc_22(void *, f32) {
+f32 TContainerAncient01::receive_physical_attack(void *, f32) {
     s16 sp8;
 
     if ((u16) *(u16 *)((s8 *)this + 0x1C) >= 0x1000U) {
@@ -88,7 +88,7 @@ f32 TContainerAncient01::vfunc_22(void *, f32) {
 extern f32 TContainerAncient01__data_805DBD10;
 extern f32 TContainerAncient01__data_805DBD14;
 
-f32 TContainerAncient01::vfunc_23(void *arg1, void *arg2_arg, void *, s32, s32) {
+f32 TContainerAncient01::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
     s32 *arg2 = (s32 *)arg2_arg;
     s32 temp_r4;
     struct VObj_8018B820_8018B79C *o = (struct VObj_8018B820_8018B79C *)this;
@@ -100,7 +100,7 @@ f32 TContainerAncient01::vfunc_23(void *arg1, void *arg2_arg, void *, s32, s32) 
     return TContainerAncient01__data_805DBD14;
 }
 
-int TContainerAncient01::vfunc_21(void *, void *, void *, float) { return 1; }
+int TContainerAncient01::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
 extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;

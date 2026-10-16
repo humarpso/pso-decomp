@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/player/TUnk_804B6C24.h"
-extern "C" void vfunc_27__13TUnk_804B6C24FPvlf();
+extern "C" void roll_physical_accuracy__13TUnk_804B6C24FPvlf();
 #include "pso/item/TObjContainerItem.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -49,12 +49,12 @@ void update_actor_ground_y();
 void TObjPlayer__sub_80018E6C();
 void is_actor_cadence_frame();
 void is_within_range__10TObjPlayerFl();
-void vfunc_21__13TUnk_804B6C24FPvPvPvf();
-void vfunc_22__21TObjContainerAbeEnemyFPvf();
-void vfunc_23__13TUnk_804B6C24FPvPvPvll();
-void vfunc_24__13TUnk_804B6C24FPvPv();
+void calc_distance_accuracy_penalty__13TUnk_804B6C24FPvPvPvf();
+void receive_physical_attack__21TObjContainerAbeEnemyFPvf();
+void receive_direct_attack__13TUnk_804B6C24FPvPvPvll();
+void receive_weapon_special_attack__13TUnk_804B6C24FPvPv();
 void vfunc_25__13TUnk_804B6C24FPUc();
-void vfunc_26__13TUnk_804B6C24Fll();
+void try_start_action__13TUnk_804B6C24Fll();
 void vfunc_28__13TUnk_804806E8Fv();
 void vfunc_29__13TUnk_804806E8Fv();
 void is_target_in_attack_range__10TObjPlayerFv();
@@ -127,13 +127,13 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)TObjPlayer__sub_80018E6C,
     (void *)is_actor_cadence_frame,
     (void *)is_within_range__10TObjPlayerFl,
-    (void *)vfunc_21__13TUnk_804B6C24FPvPvPvf,
-    (void *)vfunc_22__21TObjContainerAbeEnemyFPvf,
-    (void *)vfunc_23__13TUnk_804B6C24FPvPvPvll,
-    (void *)vfunc_24__13TUnk_804B6C24FPvPv,
+    (void *)calc_distance_accuracy_penalty__13TUnk_804B6C24FPvPvPvf,
+    (void *)receive_physical_attack__21TObjContainerAbeEnemyFPvf,
+    (void *)receive_direct_attack__13TUnk_804B6C24FPvPvPvll,
+    (void *)receive_weapon_special_attack__13TUnk_804B6C24FPvPv,
     (void *)vfunc_25__13TUnk_804B6C24FPUc,
-    (void *)vfunc_26__13TUnk_804B6C24Fll,
-    (void *)&vfunc_27__13TUnk_804B6C24FPvlf,
+    (void *)try_start_action__13TUnk_804B6C24Fll,
+    (void *)&roll_physical_accuracy__13TUnk_804B6C24FPvlf,
     (void *)vfunc_28__13TUnk_804806E8Fv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
     (void *)is_target_in_attack_range__10TObjPlayerFv,

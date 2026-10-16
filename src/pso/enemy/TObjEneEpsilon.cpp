@@ -3,10 +3,10 @@
 
 extern "C" {
 
-int vfunc_30__14TObjEneEpsilonFv(void);
-int vfunc_39__14TObjEneEpsilonFv(void);
+int is_target_in_attack_range__14TObjEneEpsilonFv(void);
+int update_movement_status__14TObjEneEpsilonFv(void);
 
-s32 TObjEneEpsilon::vfunc_30() { return 0; }
-s32 TObjEneEpsilon::vfunc_39() { return 0; }
+s32 TObjEneEpsilon::is_target_in_attack_range() { return 0; }
+s32 TObjEneEpsilon::update_movement_status() { return 0; }
 
 }

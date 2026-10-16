@@ -869,7 +869,7 @@ extern "C" {
 void vfunc_89__6TOTrapFv();
 void vfunc_86__6TOTrapFv();
 void vfunc_88__6TOTrapFv();
-void vfunc_26__6TOTrapFll();
+void try_start_action__6TOTrapFll();
 void TOTrap__sub_801792CC();
 void TOTrap__sub_801792E4();
 void TOTrap__sub_801792FC();
@@ -983,7 +983,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&check_trigger_range__6TOTrapFUl,
     (void *)&get_scale__6TOTrapFUl,
     (void *)&vfunc_25__6TOTrapFPUc,
-    (void *)&vfunc_26__6TOTrapFll,
+    (void *)&try_start_action__6TOTrapFll,
     (void *)&TOTrap__sub_801792CC,
     (void *)&vfunc_28__13TUnk_804806E8Fv,
     (void *)&vfunc_29__13TUnk_804806E8Fv,

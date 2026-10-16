@@ -359,13 +359,13 @@ extern const f32 lbl_805D8490;
 extern "C" {
 
 void vfunc_28__11TBoss2JointFv(void);
-void vfunc_44__11TBoss2JointFv(void);
-void vfunc_45__11TBoss2JointFv(void);
-void vfunc_46__11TBoss2JointFv(void);
-void vfunc_47__11TBoss2JointFv(void);
-void vfunc_48__11TBoss2JointFl(void);
-void vfunc_49__11TBoss2JointFv(void);
-void vfunc_50__11TBoss2JointFv(void);
+void apply_poison_status__11TBoss2JointFv(void);
+void apply_paralysis__11TBoss2JointFv(void);
+void apply_slow_status__11TBoss2JointFv(void);
+void apply_confusion_status__11TBoss2JointFv(void);
+void apply_movement_ailment__11TBoss2JointFl(void);
+void apply_shock_status__11TBoss2JointFv(void);
+void clear_harmful_statuses__11TBoss2JointFv(void);
 void vfunc_61__11TBoss2JointFv(void);
 void TBoss2Joint__vt60(u8 *arg0);
 void vfunc_63__11TBoss2JointFv(void* p);
@@ -599,13 +599,13 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
     return arg0;
 }
 
-void TBoss2Joint::vfunc_44() {  }
-void TBoss2Joint::vfunc_45() {  }
-void TBoss2Joint::vfunc_46() {  }
-void TBoss2Joint::vfunc_47() {  }
-void TBoss2Joint::vfunc_48(s32) {  }
-void TBoss2Joint::vfunc_49() {  }
-void TBoss2Joint::vfunc_50() {  }
+void TBoss2Joint::apply_poison_status() {  }
+void TBoss2Joint::apply_paralysis() {  }
+void TBoss2Joint::apply_slow_status() {  }
+void TBoss2Joint::apply_confusion_status() {  }
+void TBoss2Joint::apply_movement_ailment(s32) {  }
+void TBoss2Joint::apply_shock_status() {  }
+void TBoss2Joint::clear_harmful_statuses() {  }
 
 void TUnk_80482C58::run_task() {
     Laser_80037074 *self = (Laser_80037074 *)this;

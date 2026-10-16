@@ -6,14 +6,14 @@ extern "C" {
 void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4);
 void TBoss2Mine__sub_80038D84(void);
 int TBoss2Mine__sub_80038D88(void* p);
-void vfunc_44__10TBoss2MineFv(void);
-void vfunc_45__10TBoss2MineFv(void);
-void vfunc_46__10TBoss2MineFv(void);
-void vfunc_47__10TBoss2MineFv(void);
-void vfunc_48__10TBoss2MineFl(void);
-void vfunc_49__10TBoss2MineFv(void);
-void vfunc_50__10TBoss2MineFv(void);
-void vfunc_51__10TBoss2MineFPv(void);
+void apply_poison_status__10TBoss2MineFv(void);
+void apply_paralysis__10TBoss2MineFv(void);
+void apply_slow_status__10TBoss2MineFv(void);
+void apply_confusion_status__10TBoss2MineFv(void);
+void apply_movement_ailment__10TBoss2MineFl(void);
+void apply_shock_status__10TBoss2MineFv(void);
+void clear_harmful_statuses__10TBoss2MineFv(void);
+void apply_attack_stat_status__10TBoss2MineFPv(void);
 void apply_defense_stat_status__10TBoss2MineFPv(void);
 s32 init__10TBoss2MineFPvi(void *, s32);
 s32 TObjEneDD__ct(void *, s32);
@@ -42,14 +42,14 @@ void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
 
 void TBoss2Mine__sub_80038D84(void) {  }
 int TBoss2Mine__sub_80038D88(void* p) { return TObjPlayer__sub_800F0928(p); }
-void TBoss2Mine::vfunc_44() {  }
-void TBoss2Mine::vfunc_45() {  }
-void TBoss2Mine::vfunc_46() {  }
-void TBoss2Mine::vfunc_47() {  }
-void TBoss2Mine::vfunc_48(s32) {  }
-void TBoss2Mine::vfunc_49() {  }
-void TBoss2Mine::vfunc_50() {  }
-void TBoss2Mine::vfunc_51(void *) {  }
+void TBoss2Mine::apply_poison_status() {  }
+void TBoss2Mine::apply_paralysis() {  }
+void TBoss2Mine::apply_slow_status() {  }
+void TBoss2Mine::apply_confusion_status() {  }
+void TBoss2Mine::apply_movement_ailment(s32) {  }
+void TBoss2Mine::apply_shock_status() {  }
+void TBoss2Mine::clear_harmful_statuses() {  }
+void TBoss2Mine::apply_attack_stat_status(void *) {  }
 void TBoss2Mine::apply_defense_stat_status(void *) {  }
 
 }

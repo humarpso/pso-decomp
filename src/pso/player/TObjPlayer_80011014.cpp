@@ -3758,7 +3758,7 @@ s32 update_defense_stat_status(u8 *arg0) {
                 case 11:
                     break;
                 case 10:
-                    ((TUnk_804806E8 *)arg0)->vfunc_71();
+                    ((TUnk_804806E8 *)arg0)->trigger_switch_attack();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x40022C2C, arg0 + 0x38, 0, 0);
                     }
@@ -3798,7 +3798,7 @@ s32 update_attack_stat_status(u8 *arg0) {
                 case 10:
                     break;
                 case 9:
-                    ((TUnk_804806E8 *)arg0)->vfunc_69();
+                    ((TUnk_804806E8 *)arg0)->apply_switch_attack();
                     if ((((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x10000000) == 0) || (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(arg0) != 0)) {
                         ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4002462A, arg0 + 0x38, 0, 0);
                     }

@@ -11,9 +11,9 @@ struct TObjEneBalClaw : public TObjEnemyCustom {
     virtual void vfunc_62();
     virtual void vfunc_61();
     virtual void vfunc_59();
-    virtual s32 vfunc_39();
-    virtual s32 vfunc_36();
-    virtual s32 vfunc_30();
+    virtual s32 update_movement_status();
+    virtual s32 update_action_hold_status();
+    virtual s32 is_target_in_attack_range();
     u8 _pad38C[0x4];
     void* m_390;
     u8 unk_394[0x8];

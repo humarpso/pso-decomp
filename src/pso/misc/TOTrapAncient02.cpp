@@ -354,7 +354,7 @@ s32 access_object_saved_state(void *, void *, int);
 s32 __dt__6TOTrapFv(void *, s32);
 void * TOTrap__ct(void *, void *, void *);
 void find_target_player__16TOTrapAncient02RFv(Obj_8017A8B0 *self);
-f32 vfunc_22__16TOTrapAncient02RFPvf(Obj_8017A988 *self);
+f32 receive_physical_attack__16TOTrapAncient02RFPvf(Obj_8017A988 *self);
 void * __dt__16TOTrapAncient02RFv(void *arg0, s16 arg1);
 void * TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2);
 void vfunc_86__15TOTrapAncient02Fv(void);
@@ -405,8 +405,8 @@ extern void *tl_05;
 
 #pragma push
 #pragma fp_contract on
-void vfunc_23__16TOTrapAncient02RFPvPvPvll();
-void vfunc_24__16TOTrapAncient02RFPvPv();
+void receive_direct_attack__16TOTrapAncient02RFPvPvPvll();
+void receive_weapon_special_attack__16TOTrapAncient02RFPvPv();
 void vfunc_86__16TOTrapAncient02RFv();
 void vfunc_88__16TOTrapAncient02RFv();
 void vfunc_89__6TOTrapFv();
@@ -462,10 +462,10 @@ void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void is_any_player_matching_stat__16TOTrapAncient02RFv();
-void vfunc_26__16TOTrapAncient02RFll();
-void vfunc_27__16TOTrapAncient02RFPvlf();
-void vfunc_20__16TOTrapAncient02RFPvf();
-void vfunc_21__16TOTrapAncient02RFPvPvPvf();
+void try_start_action__16TOTrapAncient02RFll();
+void roll_physical_accuracy__16TOTrapAncient02RFPvlf();
+void select_melee_contact_body__16TOTrapAncient02RFPvf();
+void calc_distance_accuracy_penalty__16TOTrapAncient02RFPvPvPvf();
 void vfunc_6__6TOTrapFPsl();
 void trigger_switch_attack__10TObjPlayerFi();
 void update_action_hold_status__10TObjPlayerFv();
@@ -547,14 +547,14 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&update_actor_ground_y,
     (s32)&TObjPlayer__sub_80018E6C,
     (s32)&is_actor_cadence_frame,
-    (s32)&vfunc_20__16TOTrapAncient02RFPvf,
-    (s32)&vfunc_21__16TOTrapAncient02RFPvPvPvf,
-    (s32)&vfunc_22__16TOTrapAncient02RFPvf,
-    (s32)&vfunc_23__16TOTrapAncient02RFPvPvPvll,
-    (s32)&vfunc_24__16TOTrapAncient02RFPvPv,
+    (s32)&select_melee_contact_body__16TOTrapAncient02RFPvf,
+    (s32)&calc_distance_accuracy_penalty__16TOTrapAncient02RFPvPvPvf,
+    (s32)&receive_physical_attack__16TOTrapAncient02RFPvf,
+    (s32)&receive_direct_attack__16TOTrapAncient02RFPvPvPvll,
+    (s32)&receive_weapon_special_attack__16TOTrapAncient02RFPvPv,
     (s32)&vfunc_25__6TOTrapFPUc,
-    (s32)&vfunc_26__16TOTrapAncient02RFll,
-    (s32)&vfunc_27__16TOTrapAncient02RFPvlf,
+    (s32)&try_start_action__16TOTrapAncient02RFll,
+    (s32)&roll_physical_accuracy__16TOTrapAncient02RFPvlf,
     (s32)&vfunc_28__13TUnk_804806E8Fv,
     (s32)&vfunc_29__13TUnk_804806E8Fv,
     (s32)&is_target_in_attack_range__10TObjPlayerFv,
@@ -823,7 +823,7 @@ extern int fold_flush_1;
 
 #pragma push
 #pragma fp_contract on
-f32 TOTrapAncient02R::vfunc_22(void *, f32) {
+f32 TOTrapAncient02R::receive_physical_attack(void *, f32) {
     Obj_8017A988 *self = (Obj_8017A988 *)this;
     s16 msg;
     if (self->id >= 0x4000 && self->x80 != 0) {

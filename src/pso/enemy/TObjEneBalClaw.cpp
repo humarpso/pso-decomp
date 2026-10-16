@@ -38,7 +38,7 @@ extern const f32 lbl_805D9608;
 extern "C" {
 
 void TObjEneBalClawClaw__sub_8008DC14(void);
-int vfunc_30__14TObjEneBalClawFv(void);
+int is_target_in_attack_range__14TObjEneBalClawFv(void);
 void vfunc_59__14TObjEneBalClawFv(void);
 void vfunc_61__14TObjEneBalClawFv(void);
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
@@ -166,7 +166,7 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
 
 void TObjEneBalClaw::vfunc_61() {  }
 void TObjEneBalClaw::vfunc_59() {  }
-s32 TObjEneBalClaw::vfunc_30() { return 0; }
+s32 TObjEneBalClaw::is_target_in_attack_range() { return 0; }
 void TObjEneBalClaw::clear_attack_flag() { this->m_388 &= 0xfffeffff; }
 void TObjEneBalClawClaw__sub_8008DC14(void) {  }
 

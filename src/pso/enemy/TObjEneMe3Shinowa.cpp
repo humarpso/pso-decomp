@@ -2467,7 +2467,7 @@ extern "C" {
 void vfunc_107__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void vfunc_108__23TObjEneMe3ShinowaMirageFv();
+void update_player_state_default__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
 void update_effect__23TObjEneMe3ShinowaMirageFv();
@@ -2476,7 +2476,7 @@ extern "C" {
 void dispatch_if_active__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
-void vfunc_112__23TObjEneMe3ShinowaMirageFv();
+void apply_effect_pair__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
 void TObjEneMe3ShinowaMirage__vt113();
@@ -2806,8 +2806,8 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
     (void *)&select_and_apply_target__23TObjEneMe3ShinowaMirageFPv, (void *)&vfunc_105__23TObjEneMe3ShinowaMirageFv, (void *)&can_hit_same_target__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_107__23TObjEneMe3ShinowaMirageFv,
-    (void *)&vfunc_108__23TObjEneMe3ShinowaMirageFv, (void *)&update_effect__23TObjEneMe3ShinowaMirageFv, (void *)&dispatch_if_active__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_111__17TObjEneMe3ShinowaFv,
-    (void *)&vfunc_112__23TObjEneMe3ShinowaMirageFv, (void *)&action__17TObjEneMe3ShinowaFl, (void *)&vfunc_114__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__vt113,
+    (void *)&update_player_state_default__23TObjEneMe3ShinowaMirageFv, (void *)&update_effect__23TObjEneMe3ShinowaMirageFv, (void *)&dispatch_if_active__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_111__17TObjEneMe3ShinowaFv,
+    (void *)&apply_effect_pair__23TObjEneMe3ShinowaMirageFv, (void *)&action__17TObjEneMe3ShinowaFl, (void *)&vfunc_114__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__vt113,
     (void *)&vfunc_116__17TObjEneMe3ShinowaFv, (void *)&update_mirage__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__sub_800E47DC,
 };
 #define shinowa_mirage_model_init_data ((u8 *)shinowa_mirage_model_init_data)
@@ -3946,7 +3946,7 @@ void TObjEneMe3ShinowaMirage::update_by_distance() {
     o->m96();
 }
 
-void TObjEneMe3Shinowa::vfunc_112() {
+void TObjEneMe3Shinowa::apply_effect_pair() {
     u8 *arg0 = (u8 *)this;
     s32 sp8[8];
     u32 temp_r3;
@@ -4035,7 +4035,7 @@ extern int fold_flush_2;
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMe3Shinowa::vfunc_108() {
+void TObjEneMe3Shinowa::update_player_state_default() {
     u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_800E7324, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800E7324, spC) == 0x4) ? 1 : -1];

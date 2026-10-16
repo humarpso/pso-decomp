@@ -648,8 +648,10 @@ force_active:
   - append_text__24TMessageWindowControllerFPCc
   - append_title_string__24TMessageWindowControllerFv
   - apply_ad_rico_ring__14TItemEquipBaseFl
+  - apply_attack_stat_status__13TObjEneRe4BitFPv
   - apply_blend_mode_1__10TObjPlayerFv
   - apply_clamped_mode_param__12TObjEneSharkFv
+  - apply_confusion_status__13TObjEneRe4BitFv
   - apply_contact_damage__10TBoss4ZakoFv
   - apply_dakuten_to_last_char__19TWindowKeyBoardSoftFv
   - apply_defense_stat_status__13TObjEneRe4BitFPv
@@ -659,19 +661,24 @@ force_active:
   - apply_mourning_jellen__14TObjEneBm5WolfFv
   - apply_mourning_zalure__14TObjEneBm5WolfFv
   - apply_move_friction__12TObjEneLappyFv
+  - apply_movement_ailment__13TObjEneRe4BitFl
   - apply_mylla_effect__18TObjEneRe4SorcererFv
   - apply_node_oscillation__11TItemMagSubFPv
+  - apply_paralysis__13TObjEneRe4BitFv
   - apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi
   - apply_photon_blast_effects__10TObjPlayerFv
   - apply_placement_matrix__11TItemMagSubFv
   - apply_player_54a00__9TObjEnemyFv
+  - apply_poison_status__13TObjEneRe4BitFv
   - apply_position_to_node_list__14TObjEneBm5WolfFv
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
   - apply_room_transform_to_object_rows
   - apply_rule_configuration__19TPlayerBattleCtrl4PFl
+  - apply_shock_status__13TObjEneRe4BitFv
   - apply_shower_damage_to_players__9TBoss6DPBFv
   - apply_slot_params__8TFogCtrlFl
+  - apply_slow_status__13TObjEneRe4BitFv
   - apply_story_quest_unlock_rules
   - apply_symbol__20TWindowSubSymbolChatFv
   - apply_to_player__12TObjGrassWebFv
@@ -1006,6 +1013,7 @@ force_active:
   - calc_clamp_offset__11TLoadingCurFlPUcPUc
   - calc_damage__11TTecRaZondeFv
   - calc_death_slide_speed__14TObjEneBm5WolfFPvf
+  - calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf
   - calc_duel_number_uv
   - calc_highlight_scale__12TChCrTagNameFPv
   - calc_hit_zone_index__10TObjPlayerFv
@@ -1198,6 +1206,7 @@ force_active:
   - clear_flags_60__12TObjEneLappyFv
   - clear_flags__11TItemMagSubFUl
   - clear_four_slots__6TLobbyFv
+  - clear_harmful_statuses__13TObjEneRe4BitFv
   - clear_network_info_cipher_pool
   - clear_photon_blast_slots__10TObjPlayerFv
   - clear_pipe_interaction_latch
@@ -2108,6 +2117,7 @@ force_active:
   - is_signboard_texture_buffer_missing
   - is_slot_active__14TShopGeneratorFi
   - is_stat_over_limit__6TLobbyFl
+  - is_target_in_attack_range__13TUnk_80483A10Fv
   - is_target_in_range__11TObjInfoColFf
   - is_value_out_of_range__6TLobbyFl
   - is_visible__14TBoss7CrawfishFPv
@@ -7113,6 +7123,11 @@ force_active:
   - rebuild_area_keep_players__6TLobbyFv
   - rebuild_item_list__18TShopGetItemWindowFv
   - receive_attack__15TObjEneMe1GiGueFPviii
+  - receive_direct_attack__20TContainerAncient01RFPvPvPvll
+  - receive_physical_attack__15TObjEneMe1GiGueFPvf
+  - receive_physical_attack__16TOTrapAncient02RFPvf
+  - receive_physical_attack__20TContainerAncient01RFPvf
+  - receive_weapon_special_attack__15TObjEneMe1GiGueFPvPv
   - recoil_weapon_shoot_model_vtable
   - recoiling_projectile_weapon_vtable
   - record_hit__22TObjFogCollisionPoisonFll
@@ -8042,6 +8057,7 @@ force_active:
   - update__23TShopJudgmentItemWindowFv
   - update__24TShopEquipmentSellWindowFv
   - update__9TObjGrassFv
+  - update_action_hold_status__15TObjEneMe1GiGueFv
   - update_active__10TChallengeFv
   - update_ai__9TObjGrassFPv
   - update_and_destroy__10TObjPlayerFPv
@@ -8286,24 +8302,15 @@ force_active:
   - vfunc_16__13TItemProArmorFv
   - vfunc_19__17TObjCityDoor_WarpFv
   - vfunc_20__17TOBarrierEnergy01Fv
-  - vfunc_21__20TContainerAncient01RFPvPvPvf
   - vfunc_22__13TUnk_804B5BA8Fv
-  - vfunc_22__15TObjEneMe1GiGueFPvf
-  - vfunc_22__16TOTrapAncient02RFPvf
-  - vfunc_22__20TContainerAncient01RFPvf
-  - vfunc_23__20TContainerAncient01RFPvPvPvll
-  - vfunc_24__15TObjEneMe1GiGueFPvPv
   - vfunc_28__13TObjEneBm3FlyFv
   - vfunc_28__13TObjEneRe4BitFv
   - vfunc_28__14TObjEneBm5WolfFv
   - vfunc_28__17TObjEneBm3FlyNestFv
   - vfunc_28__18TObjEneRe4SorcererFv
   - vfunc_28__19TObjEneEpsilonGuardFv
-  - vfunc_30__13TUnk_80483A10Fv
-  - vfunc_36__15TObjEneMe1GiGueFv
   - vfunc_44__11TItemObjectFv
   - vfunc_44__12TItemProUnitFv
-  - vfunc_44__13TObjEneRe4BitFv
   - vfunc_44__13TUnk_8049F770Fv
   - vfunc_44__13TUnk_8049F828Fv
   - vfunc_44__13TUnk_8049F8E0Fv
@@ -8313,15 +8320,8 @@ force_active:
   - vfunc_44__13TUnk_8049FBC0Fv
   - vfunc_44__13TUnk_8049FF88Fv
   - vfunc_45__12TItemProUnitFv
-  - vfunc_45__13TObjEneRe4BitFv
-  - vfunc_46__13TObjEneRe4BitFv
-  - vfunc_47__13TObjEneRe4BitFv
   - vfunc_48__12TItemProUnitFv
-  - vfunc_48__13TObjEneRe4BitFl
   - vfunc_49__12TItemProUnitFv
-  - vfunc_49__13TObjEneRe4BitFv
-  - vfunc_50__13TObjEneRe4BitFv
-  - vfunc_51__13TObjEneRe4BitFPv
   - vfunc_58__14TObjEneDolmOlmFv
   - vfunc_58__15TObjEneMe1GiGueFv
   - vfunc_58__18TObjEneBalClawClawFv

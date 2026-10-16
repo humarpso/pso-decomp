@@ -83,10 +83,10 @@ extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
-f32 vfunc_24__20TContainerAncient01RFPvPv(V_8018BE30 *self);
+f32 receive_weapon_special_attack__20TContainerAncient01RFPvPv(V_8018BE30 *self);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
-f32 vfunc_24__19TContainerAncient01FPvPv(V_8018BE98 *self);
+f32 receive_weapon_special_attack__19TContainerAncient01FPvPv(V_8018BE98 *self);
 f32 xyz_distance_squared(void *, void *);
 void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
@@ -100,12 +100,12 @@ s32 update_object_view_visibility__16TObjContainerIdoFff(u8 *arg0, f32 farg0, f3
 extern "C" {
 
 void vfunc_25__20TContainerAncient01RFPUc(void);
-int vfunc_26__20TContainerAncient01RFll(void);
-int vfunc_27__20TContainerAncient01RFPvlf(void);
+int try_start_action__20TContainerAncient01RFll(void);
+int roll_physical_accuracy__20TContainerAncient01RFPvlf(void);
 s32 TContainerAncient01__sub_8018BE90(void);
 void vfunc_25__19TContainerAncient01FPUc(void);
-int vfunc_26__19TContainerAncient01Fll(void);
-int vfunc_27__19TContainerAncient01FPvlf(void);
+int try_start_action__19TContainerAncient01Fll(void);
+int roll_physical_accuracy__19TContainerAncient01FPvlf(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
 int get_table_entry__19TContainerAncient01Fi(int a0);
 s32 free_collision_body_parts(void *);
@@ -158,15 +158,15 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 #pragma pop
 
-f32 TContainerAncient01R::vfunc_24(void *, void *) {
+f32 TContainerAncient01R::receive_weapon_special_attack(void *, void *) {
     V_8018BE30 *self = (V_8018BE30 *)this;
     self->m20(0, TContainerAncient01__data_805DBD10);
     return TContainerAncient01__data_805DBD14;
 }
 
 void TContainerAncient01R::vfunc_25(u8 *) {  }
-s32 TContainerAncient01R::vfunc_26(s32, s32) { return 1; }
-s32 TContainerAncient01R::vfunc_27(void *, s32, f32) { return 1; }
+s32 TContainerAncient01R::try_start_action(s32, s32) { return 1; }
+s32 TContainerAncient01R::roll_physical_accuracy(void *, s32, f32) { return 1; }
 
     extern int TContainerAncient01__effect_id_table[];
 int get_table_entry__19TContainerAncient01Fi(int a0) {  return TContainerAncient01__effect_id_table[a0]; }
@@ -177,15 +177,15 @@ s32 TContainerAncient01__sub_8018BE90(void) {
     return TContainerAncient01__bml_resource;
 }
 
-f32 TContainerAncient01::vfunc_24(void *, void *) {
+f32 TContainerAncient01::receive_weapon_special_attack(void *, void *) {
     V_8018BE98 *self = (V_8018BE98 *)this;
     self->m20(0, TContainerAncient01__data_805DBD10);
     return TContainerAncient01__data_805DBD14;
 }
 
 void TContainerAncient01::vfunc_25(u8 *) {  }
-s32 TContainerAncient01::vfunc_26(s32, s32) { return 1; }
-s32 TContainerAncient01::vfunc_27(void *, s32, f32) { return 1; }
+s32 TContainerAncient01::try_start_action(s32, s32) { return 1; }
+s32 TContainerAncient01::roll_physical_accuracy(void *, s32, f32) { return 1; }
 #pragma push
 #pragma fp_contract on
 s16 TObjContainerIdo::update_object_view_visibility(f32 farg0, f32 farg1) {
@@ -526,7 +526,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBD98;
-f32 vfunc_22__22TObjContainerJungEnemyFPvf(Obj_8018CB44 *arg0);
+f32 receive_physical_attack__22TObjContainerJungEnemyFPvf(Obj_8018CB44 *arg0);
 extern u8 container_ido_collision_parts[];
 extern s32 __vt__16TObjContainerIdo[];
 extern s32 lbl_805D330C;
@@ -723,7 +723,7 @@ void TObjContainerJungEnemy__vt77(const Obj_8018C9F0 *self) {
 }
 #pragma pop
 
-f32 TObjContainerJungEnemy::vfunc_22(void *, f32) {
+f32 TObjContainerJungEnemy::receive_physical_attack(void *, f32) {
     Obj_8018CB44 *arg0 = (Obj_8018CB44 *)this;
     s16 sp8;
     Pkt_8018CB44 pkt;

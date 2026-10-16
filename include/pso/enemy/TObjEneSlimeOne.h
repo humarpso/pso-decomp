@@ -9,7 +9,7 @@ struct TObjEneSlimeOne : public TObjEnemy {
     virtual void vfunc_63();
     virtual void vfunc_62();
     virtual void vfunc_61();
-    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
+    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
     virtual void render();
     virtual void run_task();
     u8 unk_374[0x10];

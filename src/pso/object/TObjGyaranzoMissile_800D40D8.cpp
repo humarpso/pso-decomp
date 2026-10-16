@@ -107,7 +107,7 @@ extern "C" {
 
 void vfunc_61__15TObjEneGyaranzoFv(void);
 void vfunc_59__15TObjEneGyaranzoFv(void);
-int vfunc_30__15TObjEneGyaranzoFv(void);
+int is_target_in_attack_range__15TObjEneGyaranzoFv(void);
 void vfunc_58__15TObjEneGyaranzoFv(void);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
@@ -118,7 +118,7 @@ s32 pop_matrix();
 
 void TObjEneGyaranzo::vfunc_61() {  }
 void TObjEneGyaranzo::vfunc_59() {  }
-s32 TObjEneGyaranzo::vfunc_30() { return 0; }
+s32 TObjEneGyaranzo::is_target_in_attack_range() { return 0; }
 void TObjEneGyaranzo::vfunc_58() {  }
 
 extern s32 model_render_flags;

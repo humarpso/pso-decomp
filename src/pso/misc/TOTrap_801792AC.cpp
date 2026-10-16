@@ -51,7 +51,7 @@ struct VObj_80179358_801792AC : Base_80179358_801792AC {
 };
 
 extern "C" {
-u8 vfunc_26__6TOTrapFll(u8 *arg0, s32 arg1);
+u8 try_start_action__6TOTrapFll(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1);
@@ -66,7 +66,7 @@ void vfunc_84__6TOTrapFv(void);
 void TOTrap::vfunc_86() {  }
 void TOTrap::vfunc_88() {  }
 
-s32 TOTrap::vfunc_26(s32 arg1, s32) {
+s32 TOTrap::try_start_action(s32 arg1, s32) {
     u8 *arg0 = (u8 *)this;
     return (u8) (arg1 != *(s32 *)((s8 *)arg0 + 0x2A8));
 }

@@ -599,8 +599,8 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-s32 vfunc_36__9TObjGrassFv(void *arg0);
-s32 vfunc_39__9TObjGrassFv(void *arg0);
+s32 update_action_hold_status__9TObjGrassFv(void *arg0);
+s32 update_movement_status__9TObjGrassFv(void *arg0);
 void vfunc_59__9TObjGrassFv(void *arg0);
 void vfunc_60__9TObjGrassFv(void *arg0);
 void vfunc_61__9TObjGrassFv(void *arg0);
@@ -1667,7 +1667,7 @@ void TObjGrass::vfunc_58() {
     }
 }
 
-s32 TObjGrass::vfunc_39() {
+s32 TObjGrass::update_movement_status() {
     if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (*(s16 *)((s8 *)this + 0x326)) {
         case 0:
@@ -1681,7 +1681,7 @@ s32 TObjGrass::vfunc_39() {
     return 0;
 }
 
-s32 TObjGrass::vfunc_36() {
+s32 TObjGrass::update_action_hold_status() {
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (*(s16 *)((s8 *)this + 0x326)) {
         case 0:

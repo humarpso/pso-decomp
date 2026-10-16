@@ -31,13 +31,13 @@ extern "C" {
 
 void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 s32 *TBoss8Dragon__sub_80065F08(void);
-void vfunc_44__13TBoss5GryphonFv(void);
-void vfunc_45__13TBoss5GryphonFv(void);
-void vfunc_46__13TBoss5GryphonFv(void);
-void vfunc_47__13TBoss5GryphonFv(void);
-void vfunc_48__13TBoss5GryphonFl(void);
-void vfunc_49__13TBoss5GryphonFv(void);
-void vfunc_50__13TBoss5GryphonFv(void);
+void apply_poison_status__13TBoss5GryphonFv(void);
+void apply_paralysis__13TBoss5GryphonFv(void);
+void apply_slow_status__13TBoss5GryphonFv(void);
+void apply_confusion_status__13TBoss5GryphonFv(void);
+void apply_movement_ailment__13TBoss5GryphonFl(void);
+void apply_shock_status__13TBoss5GryphonFv(void);
+void clear_harmful_statuses__13TBoss5GryphonFv(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
@@ -110,13 +110,13 @@ s32 *TBoss8Dragon__sub_80065F08(void) {
 
 int TBoss8Dragon::get_instance_count() {  return boss5_gryphon_instance; }
 
-void TBoss5Gryphon::vfunc_44() {  }
-void TBoss5Gryphon::vfunc_45() {  }
-void TBoss5Gryphon::vfunc_46() {  }
-void TBoss5Gryphon::vfunc_47() {  }
-void TBoss5Gryphon::vfunc_48(s32) {  }
-void TBoss5Gryphon::vfunc_49() {  }
-void TBoss5Gryphon::vfunc_50() {  }
+void TBoss5Gryphon::apply_poison_status() {  }
+void TBoss5Gryphon::apply_paralysis() {  }
+void TBoss5Gryphon::apply_slow_status() {  }
+void TBoss5Gryphon::apply_confusion_status() {  }
+void TBoss5Gryphon::apply_movement_ailment(s32) {  }
+void TBoss5Gryphon::apply_shock_status() {  }
+void TBoss5Gryphon::clear_harmful_statuses() {  }
 void TBoss8Dragon::init_color() { *(u8 *)&this->m_0 = 160; *(u8*)((char*)this + 0x1) = 10; }
 
 void TBoss8Dragon::send_spawn_params_packet() { byteswap_action_packet(); TLobby__send_and_handle_60(this); }

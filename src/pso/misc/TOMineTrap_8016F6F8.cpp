@@ -105,8 +105,8 @@ extern "C" {
 void set_indexed_flags(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
 void vfunc_86__10TOMineTrapFv(u8 *arg0);
-int vfunc_27__6TOMineFPvlf(void);
-int vfunc_26__6TOMineFll(void);
+int roll_physical_accuracy__6TOMineFPvlf(void);
+int try_start_action__6TOMineFll(void);
 void vfunc_25__6TOMineFPUc(void);
 void vfunc_79__6TOMineFv(void);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
@@ -325,8 +325,8 @@ s32 TOMineTrap::is_target_in_list(void *obj) {
     return 0;
 }
 
-s32 TOMine::vfunc_27(void *, s32, f32) { return 1; }
-s32 TOMine::vfunc_26(s32, s32) { return 1; }
+s32 TOMine::roll_physical_accuracy(void *, s32, f32) { return 1; }
+s32 TOMine::try_start_action(s32, s32) { return 1; }
 void TOMine::vfunc_25(u8 *) {  }
 void TOMine::vfunc_79() {  }
 s32 TOMineTrap::check_trigger(u32 arg1) {
@@ -383,7 +383,7 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
 void TOMine::vfunc_7(void *) {
     u8 *arg0 = (u8 *)this;
     apply_object_set_data();
-    this->vfunc_83();
+    this->spawn_disp_objects();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
 }
 void TOMine::vfunc_85() {  }
@@ -459,7 +459,7 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-f32 TOMine::vfunc_22(void *, f32) {
+f32 TOMine::receive_physical_attack(void *, f32) {
     s16 sp8;
     if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
         this->mode = 5;
@@ -473,7 +473,7 @@ f32 TOMineTrap::calc_trigger_range(s32 arg1) {
         return lbl_805DB85C;
     }
     if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (obj_getS16_116(arg1) != 0)) {
-        this->vfunc_22(0, TOMineTrap__data_805DB868);
+        this->receive_physical_attack(0, TOMineTrap__data_805DB868);
     }
     return lbl_805DB85C;
 }
@@ -518,7 +518,7 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
     else
     {
       block_13:
-      (((TOMine *)(arg0))->vfunc_22((0), ((*(const f32 *)&TOMineTrap__data_805DB868))));
+      (((TOMine *)(arg0))->receive_physical_attack((0), ((*(const f32 *)&TOMineTrap__data_805DB868))));
     }
   }
   return (*(const f32 *)&lbl_805DB85C);
@@ -640,7 +640,7 @@ void detonate__10TOMineTrapFPv(u8 *arg0) {
     }
     *(s16 *)(arg0 + 0x326) = 6;
     ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
-    ((TOMine *)arg0)->vfunc_22(0, TOMineTrap__data_805DB868);
+    ((TOMine *)arg0)->receive_physical_attack(0, TOMineTrap__data_805DB868);
 }
 
 }

@@ -8,12 +8,12 @@ public:
     virtual ~TUnk_80493450();
     virtual void vfunc_61();
     virtual void vfunc_59();
-    virtual s32 vfunc_36();
-    virtual s32 vfunc_39();
+    virtual s32 update_action_hold_status();
+    virtual s32 update_movement_status();
     virtual void vfunc_60();
     virtual void vfunc_83();
     virtual void beast_idle_update();
-    virtual void vfunc_85();
+    virtual void update_turn_toward_target();
     virtual void beast_update_approach();
     virtual void beast_update_group_chase();
     virtual void vfunc_88();

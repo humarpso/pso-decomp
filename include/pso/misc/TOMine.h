@@ -6,17 +6,17 @@
 
 struct TOMine : public TUnk_804806E8 {
     virtual ~TOMine();
-    virtual f32 vfunc_22(void *, f32);
+    virtual f32 receive_physical_attack(void *, f32);
     virtual int vfunc_12();
     virtual void vfunc_7(void *);
     virtual void vfunc_25(u8 *);
-    virtual s32 vfunc_26(s32, s32);
-    virtual s32 vfunc_27(void *, s32, f32);
+    virtual s32 try_start_action(s32, s32);
+    virtual s32 roll_physical_accuracy(void *, s32, f32);
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual void vfunc_81();
     virtual void vfunc_82();
-    virtual void vfunc_83();
+    virtual void spawn_disp_objects();
     virtual void vfunc_84();
     virtual void vfunc_85();
     virtual void vfunc_86();

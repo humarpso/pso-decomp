@@ -58,7 +58,7 @@ void vfunc_6__19TObjContainerNoItemFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern const f32 lbl_805DBCF4;
-f32 vfunc_22__19TObjContainerNoItemFPvf(u8 *arg0);
+f32 receive_physical_attack__19TObjContainerNoItemFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -192,7 +192,7 @@ void TObjContainerNoItem::vfunc_79() {
     }
 }
 
-f32 TObjContainerNoItem::vfunc_22(void *, f32) {
+f32 TObjContainerNoItem::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
     if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {

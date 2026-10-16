@@ -1942,25 +1942,25 @@ extern "C" {
 void dispatch_state_event__13TBoss5GryphonFPvii();
 }
 extern "C" {
-void vfunc_44__13TBoss5GryphonFv();
+void apply_poison_status__13TBoss5GryphonFv();
 }
 extern "C" {
-void vfunc_45__13TBoss5GryphonFv();
+void apply_paralysis__13TBoss5GryphonFv();
 }
 extern "C" {
-void vfunc_46__13TBoss5GryphonFv();
+void apply_slow_status__13TBoss5GryphonFv();
 }
 extern "C" {
-void vfunc_47__13TBoss5GryphonFv();
+void apply_confusion_status__13TBoss5GryphonFv();
 }
 extern "C" {
-void vfunc_48__13TBoss5GryphonFl();
+void apply_movement_ailment__13TBoss5GryphonFl();
 }
 extern "C" {
-void vfunc_49__13TBoss5GryphonFv();
+void apply_shock_status__13TBoss5GryphonFv();
 }
 extern "C" {
-void vfunc_50__13TBoss5GryphonFv();
+void clear_harmful_statuses__13TBoss5GryphonFv();
 }
 extern "C" {
 void TLobby__sub_801A1FD8();
@@ -2549,8 +2549,8 @@ void *__vt__13TBoss5Gryphon[107] = {
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&vfunc_44__13TBoss5GryphonFv, (void *)&vfunc_45__13TBoss5GryphonFv, (void *)&vfunc_46__13TBoss5GryphonFv, (void *)&vfunc_47__13TBoss5GryphonFv,
-    (void *)&vfunc_48__13TBoss5GryphonFl, (void *)&vfunc_49__13TBoss5GryphonFv, (void *)&vfunc_50__13TBoss5GryphonFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
+    (void *)&apply_poison_status__13TBoss5GryphonFv, (void *)&apply_paralysis__13TBoss5GryphonFv, (void *)&apply_slow_status__13TBoss5GryphonFv, (void *)&apply_confusion_status__13TBoss5GryphonFv,
+    (void *)&apply_movement_ailment__13TBoss5GryphonFl, (void *)&apply_shock_status__13TBoss5GryphonFv, (void *)&clear_harmful_statuses__13TBoss5GryphonFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__13TBoss5GryphonFv, (void *)&vfunc_62__13TBoss5GryphonFv, (void *)&vfunc_63__13TBoss5GryphonFv,

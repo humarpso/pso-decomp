@@ -107,11 +107,11 @@ void init_collision_body_parts(void *, void *, s32);
 extern u8 npc_default_battle_stats[];
 extern u8 npc_movement_parameters[];
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void vfunc_93__11TObjNpcBaseFv();
-extern "C" void vfunc_30__11TObjNpcBaseFv();
+extern "C" void draw_debug_info__11TObjNpcBaseFv();
+extern "C" void is_target_in_attack_range__11TObjNpcBaseFv();
 extern "C" void vfunc_92__11TObjNpcBaseFv();
 extern "C" void vfunc_91__11TObjNpcBaseFv();
-extern "C" void vfunc_89__11TObjNpcBaseFv();
+extern "C" void debug_draw_talk__11TObjNpcBaseFv();
 extern "C" void vfunc_88__12TObjNpcLappyFv();
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
@@ -217,7 +217,7 @@ void *__vt__12TObjNpcLappy[95] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&vfunc_28__11TObjNpcBaseFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&vfunc_30__11TObjNpcBaseFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&vfunc_28__11TObjNpcBaseFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__11TObjNpcBaseFv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
@@ -232,8 +232,8 @@ void *__vt__12TObjNpcLappy[95] = {
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__11TObjNpcBaseFv,
     (void *)&update_standing__11TObjNpcBaseFv, (void *)&update_wandering__11TObjNpcBaseFv, (void *)&update_conversation__11TObjNpcBaseFv, (void *)&apply_set_params__11TObjNpcBaseFll,
-    (void *)&vfunc_88__12TObjNpcLappyFv, (void *)&vfunc_89__11TObjNpcBaseFv, (void *)&play_voice__11TObjNpcBaseFv, (void *)&vfunc_91__11TObjNpcBaseFv,
-    (void *)&vfunc_92__11TObjNpcBaseFv, (void *)&vfunc_93__11TObjNpcBaseFv, (void *)0x0,
+    (void *)&vfunc_88__12TObjNpcLappyFv, (void *)&debug_draw_talk__11TObjNpcBaseFv, (void *)&play_voice__11TObjNpcBaseFv, (void *)&vfunc_91__11TObjNpcBaseFv,
+    (void *)&vfunc_92__11TObjNpcBaseFv, (void *)&draw_debug_info__11TObjNpcBaseFv, (void *)0x0,
 };
 extern s32 TObjNpcLappy__name;
 extern u8 *rappy_bml_resource;

@@ -213,7 +213,7 @@ extern const f32 TContainerAncient01__data_805DBD34;
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
-f32 vfunc_22__20TContainerAncient01RFPvf(u8 *arg0);
+f32 receive_physical_attack__20TContainerAncient01RFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD3C;
@@ -283,8 +283,8 @@ void sub_8018B284__19TContainerAncient01Fv(Obj_8018B284 *self);
 
 extern "C" {
 
-int vfunc_21__20TContainerAncient01RFPvPvPvf(void);
-f32 vfunc_23__20TContainerAncient01RFPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
+int calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf(void);
+f32 receive_direct_attack__20TContainerAncient01RFPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
 void render__20TContainerAncient01RFv(u8 *arg0);
 void vfunc_6__20TContainerAncient01RFPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 scale_current_matrix(void *);
@@ -307,10 +307,10 @@ s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
-extern "C" void vfunc_24__20TContainerAncient01RFPvPv();
+extern "C" void receive_weapon_special_attack__20TContainerAncient01RFPvPv();
 extern "C" void vfunc_25__20TContainerAncient01RFPUc();
-extern "C" void vfunc_26__20TContainerAncient01RFll();
-extern "C" void vfunc_27__20TContainerAncient01RFPvlf();
+extern "C" void try_start_action__20TContainerAncient01RFll();
+extern "C" void roll_physical_accuracy__20TContainerAncient01RFPvlf();
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
 extern "C" void vfunc_74__13TUnk_804806E8Fl();
 extern "C" void vfunc_73__13TUnk_804806E8Fv();
@@ -419,8 +419,8 @@ void *__vt__20TContainerAncient01R[79] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
-    (void *)&is_within_range__19TContainerAncient01Fii, (void *)&vfunc_21__20TContainerAncient01RFPvPvPvf, (void *)&vfunc_22__20TContainerAncient01RFPvf, (void *)&vfunc_23__20TContainerAncient01RFPvPvPvll,
-    (void *)&vfunc_24__20TContainerAncient01RFPvPv, (void *)&vfunc_25__20TContainerAncient01RFPUc, (void *)&vfunc_26__20TContainerAncient01RFll, (void *)&vfunc_27__20TContainerAncient01RFPvlf,
+    (void *)&is_within_range__19TContainerAncient01Fii, (void *)&calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf, (void *)&receive_physical_attack__20TContainerAncient01RFPvf, (void *)&receive_direct_attack__20TContainerAncient01RFPvPvPvll,
+    (void *)&receive_weapon_special_attack__20TContainerAncient01RFPvPv, (void *)&vfunc_25__20TContainerAncient01RFPUc, (void *)&try_start_action__20TContainerAncient01RFll, (void *)&roll_physical_accuracy__20TContainerAncient01RFPvlf,
     (void *)&vfunc_28__13TUnk_804806E8Fv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
@@ -605,7 +605,7 @@ void TContainerAncient01R::open_container() {
     }
 }
 
-f32 TContainerAncient01R::vfunc_22(void *, f32) {
+f32 TContainerAncient01R::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
@@ -619,7 +619,7 @@ f32 TContainerAncient01R::vfunc_22(void *, f32) {
     return (*(const f32 *)&TContainerAncient01__data_805DBD14);
 }
 
-f32 TContainerAncient01R::vfunc_23(void *arg1, void *arg2_arg, void *, s32, s32) {
+f32 TContainerAncient01R::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
     s32 *arg2 = (s32 *)arg2_arg;
     s32 temp_r4;
     struct VObj_8018AC68_8018A584 *o = (struct VObj_8018AC68_8018A584 *)this;
@@ -631,7 +631,7 @@ f32 TContainerAncient01R::vfunc_23(void *arg1, void *arg2_arg, void *, s32, s32)
     return TContainerAncient01__data_805DBD14;
 }
 
-int TContainerAncient01R::vfunc_21(void *, void *, void *, float) { return 1; }
+int TContainerAncient01R::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
 extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;

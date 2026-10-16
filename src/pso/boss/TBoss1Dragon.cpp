@@ -2,10 +2,10 @@
 #include "pso/boss/TUnk_80481B34.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
-extern "C" void vfunc_45__12TBoss1DragonFv();
-extern "C" void vfunc_47__12TBoss1DragonFv();
-extern "C" void vfunc_48__12TBoss1DragonFl();
-extern "C" void vfunc_49__12TBoss1DragonFv();
+extern "C" void apply_paralysis__12TBoss1DragonFv();
+extern "C" void apply_confusion_status__12TBoss1DragonFv();
+extern "C" void apply_movement_ailment__12TBoss1DragonFl();
+extern "C" void apply_shock_status__12TBoss1DragonFv();
 
 struct DragonVisibilityBase { u8 opaque[0x18]; };
 struct DragonVisibilityDispatch : DragonVisibilityBase {
@@ -2409,9 +2409,9 @@ void vfunc_61__12TBoss1DragonFv(void);
 void vfunc_62__12TBoss1DragonFv(void);
 void vfunc_63__12TBoss1DragonFv(void);
 void vfunc_28__12TBoss1DragonFv(void);
-void vfunc_44__12TBoss1DragonFv(void);
-void vfunc_46__12TBoss1DragonFv(void);
-void vfunc_50__12TBoss1DragonFv(void);
+void apply_poison_status__12TBoss1DragonFv(void);
+void apply_slow_status__12TBoss1DragonFv(void);
+void clear_harmful_statuses__12TBoss1DragonFv(void);
 void update_colliders__12TBoss1DragonFPv(u8 *arg0);
 void *TBoss1Dragon__data_80480CE0[8] = {
     (void *)0x2, (void *)0x3, (void *)0x4, (void *)0x5,
@@ -2544,8 +2544,8 @@ void *lbl_80481280[107] = {
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&vfunc_44__12TBoss1DragonFv, (void *)&vfunc_45__12TBoss1DragonFv, (void *)&vfunc_46__12TBoss1DragonFv, (void *)&vfunc_47__12TBoss1DragonFv,
-    (void *)&vfunc_48__12TBoss1DragonFl, (void *)&vfunc_49__12TBoss1DragonFv, (void *)&vfunc_50__12TBoss1DragonFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
+    (void *)&apply_poison_status__12TBoss1DragonFv, (void *)&apply_paralysis__12TBoss1DragonFv, (void *)&apply_slow_status__12TBoss1DragonFv, (void *)&apply_confusion_status__12TBoss1DragonFv,
+    (void *)&apply_movement_ailment__12TBoss1DragonFl, (void *)&apply_shock_status__12TBoss1DragonFv, (void *)&clear_harmful_statuses__12TBoss1DragonFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__12TBoss1DragonFv, (void *)&vfunc_62__12TBoss1DragonFv, (void *)&vfunc_63__12TBoss1DragonFv,
@@ -2710,9 +2710,9 @@ void vfunc_62__12TBoss1DragonFv(void);
 void vfunc_63__12TBoss1DragonFv(void);
 void vfunc_28__12TBoss1DragonFv(void);
 void *init_base__13TUnk_80481B34Fv(void *arg0);
-void vfunc_44__12TBoss1DragonFv(void);
-void vfunc_46__12TBoss1DragonFv(void);
-void vfunc_50__12TBoss1DragonFv(void);
+void apply_poison_status__12TBoss1DragonFv(void);
+void apply_slow_status__12TBoss1DragonFv(void);
+void clear_harmful_statuses__12TBoss1DragonFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -8006,18 +8006,18 @@ s32 TBoss1Dragon::countModelNodes(DragonModelNode* source) {
 
 extern "C" {
 
-void TBoss1Dragon::vfunc_44() {  }
+void TBoss1Dragon::apply_poison_status() {  }
 
-void TBoss1Dragon::vfunc_45() {  }
+void TBoss1Dragon::apply_paralysis() {  }
 
-void TBoss1Dragon::vfunc_46() {  }
+void TBoss1Dragon::apply_slow_status() {  }
 
-void TBoss1Dragon::vfunc_47() {  }
+void TBoss1Dragon::apply_confusion_status() {  }
 
-void TBoss1Dragon::vfunc_48(s32) {  }
+void TBoss1Dragon::apply_movement_ailment(s32) {  }
 
-void TBoss1Dragon::vfunc_49() {  }
+void TBoss1Dragon::apply_shock_status() {  }
 
-void TBoss1Dragon::vfunc_50() {  }
+void TBoss1Dragon::clear_harmful_statuses() {  }
 
 }

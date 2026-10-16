@@ -677,9 +677,9 @@ struct VObj_18_26a62c : VBase_18_26a62c {
     virtual s32 m8(f32, f32);
 };
 
-int vfunc_21__13TUnk_804B2578FPvPvPvf(void);
-f32 vfunc_24__13TUnk_804B2578FPvPv(void);
-f32 vfunc_23__13TUnk_804B2578FPvPvPvll(void);
+int calc_distance_accuracy_penalty__13TUnk_804B2578FPvPvPvf(void);
+f32 receive_weapon_special_attack__13TUnk_804B2578FPvPv(void);
+f32 receive_direct_attack__13TUnk_804B2578FPvPvPvll(void);
 void vfunc_80__13TUnk_804B2578Fv(void);
 void vfunc_79__13TUnk_804B2578Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
@@ -715,13 +715,13 @@ void TOHangceilingCave01::init_geometry() {
     *(f32 *)((s8 *)this + 0x354) = (f32) (lbl_805DB654 - *(f32 *)((s8 *)this + 0x6C));
 }
 
-int TUnk_804B2578::vfunc_21(void *, void *, void *, float) { return 1; }
+int TUnk_804B2578::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-f32 TUnk_804B2578::vfunc_24(void *, void *) {
+f32 TUnk_804B2578::receive_weapon_special_attack(void *, void *) {
     return lbl_805DB650;
 }
 
-f32 TUnk_804B2578::vfunc_23(void *, void *, void *, s32, s32) {
+f32 TUnk_804B2578::receive_direct_attack(void *, void *, void *, s32, s32) {
     return lbl_805DB650;
 }
 

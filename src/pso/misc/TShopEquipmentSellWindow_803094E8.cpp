@@ -5,13 +5,13 @@
 
 extern "C" {
 
-void vfunc_44__14TBoss7CrawfishFv(void);
-void vfunc_45__14TBoss7CrawfishFv(void);
-void vfunc_46__14TBoss7CrawfishFv(void);
-void vfunc_47__14TBoss7CrawfishFv(void);
-void vfunc_48__14TBoss7CrawfishFl(void);
-void vfunc_49__14TBoss7CrawfishFv(void);
-void vfunc_50__14TBoss7CrawfishFv(void);
+void apply_poison_status__14TBoss7CrawfishFv(void);
+void apply_paralysis__14TBoss7CrawfishFv(void);
+void apply_slow_status__14TBoss7CrawfishFv(void);
+void apply_confusion_status__14TBoss7CrawfishFv(void);
+void apply_movement_ailment__14TBoss7CrawfishFl(void);
+void apply_shock_status__14TBoss7CrawfishFv(void);
+void clear_harmful_statuses__14TBoss7CrawfishFv(void);
 int initialize_subwindow__9TWindowDDFv(void*);
 int update_window_entry_list(void*, void*);
 int fn_80269078(void*);

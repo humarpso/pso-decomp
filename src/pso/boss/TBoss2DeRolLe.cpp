@@ -12,13 +12,13 @@ extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv();
 extern "C" void vfunc_63__13TBoss2DeRolLeFv();
 extern "C" void vfunc_28__13TBoss2DeRolLeFv();
 extern "C" void __dt__13TBoss2DeRolLeFPvs();
-extern "C" void vfunc_44__13TBoss2DeRolLeFv();
-extern "C" void vfunc_45__13TBoss2DeRolLeFv();
-extern "C" void vfunc_46__13TBoss2DeRolLeFv();
-extern "C" void vfunc_47__13TBoss2DeRolLeFv();
-extern "C" void vfunc_48__13TBoss2DeRolLeFl();
-extern "C" void vfunc_49__13TBoss2DeRolLeFv();
-extern "C" void vfunc_50__13TBoss2DeRolLeFv();
+extern "C" void apply_poison_status__13TBoss2DeRolLeFv();
+extern "C" void apply_paralysis__13TBoss2DeRolLeFv();
+extern "C" void apply_slow_status__13TBoss2DeRolLeFv();
+extern "C" void apply_confusion_status__13TBoss2DeRolLeFv();
+extern "C" void apply_movement_ailment__13TBoss2DeRolLeFl();
+extern "C" void apply_shock_status__13TBoss2DeRolLeFv();
+extern "C" void clear_harmful_statuses__13TBoss2DeRolLeFv();
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void vfunc_103__9TObjEneDDFPUc();
 extern "C" void vfunc_79__9TObjEneDDFv();
@@ -237,8 +237,8 @@ void *__vt__13TBoss2DeRolLe[107] = {
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&vfunc_44__13TBoss2DeRolLeFv, (void *)&vfunc_45__13TBoss2DeRolLeFv, (void *)&vfunc_46__13TBoss2DeRolLeFv, (void *)&vfunc_47__13TBoss2DeRolLeFv,
-    (void *)&vfunc_48__13TBoss2DeRolLeFl, (void *)&vfunc_49__13TBoss2DeRolLeFv, (void *)&vfunc_50__13TBoss2DeRolLeFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
+    (void *)&apply_poison_status__13TBoss2DeRolLeFv, (void *)&apply_paralysis__13TBoss2DeRolLeFv, (void *)&apply_slow_status__13TBoss2DeRolLeFv, (void *)&apply_confusion_status__13TBoss2DeRolLeFv,
+    (void *)&apply_movement_ailment__13TBoss2DeRolLeFl, (void *)&apply_shock_status__13TBoss2DeRolLeFv, (void *)&clear_harmful_statuses__13TBoss2DeRolLeFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFlPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__13TBoss2DeRolLeFv, (void *)&apply_damage_taken__13TBoss2DeRolLeFPv, (void *)&vfunc_63__13TBoss2DeRolLeFv,
@@ -5404,13 +5404,13 @@ extern "C" {
 void vfunc_63__13TBoss2DeRolLeFv(void);
 void vfunc_28__13TBoss2DeRolLeFv(void);
 void TBoss2DeRolLe__sub_8003508C(void *arg0);
-void vfunc_44__13TBoss2DeRolLeFv(void);
-void vfunc_45__13TBoss2DeRolLeFv(void);
-void vfunc_46__13TBoss2DeRolLeFv(void);
-void vfunc_47__13TBoss2DeRolLeFv(void);
-void vfunc_48__13TBoss2DeRolLeFl(void);
-void vfunc_49__13TBoss2DeRolLeFv(void);
-void vfunc_50__13TBoss2DeRolLeFv(void);
+void apply_poison_status__13TBoss2DeRolLeFv(void);
+void apply_paralysis__13TBoss2DeRolLeFv(void);
+void apply_slow_status__13TBoss2DeRolLeFv(void);
+void apply_confusion_status__13TBoss2DeRolLeFv(void);
+void apply_movement_ailment__13TBoss2DeRolLeFl(void);
+void apply_shock_status__13TBoss2DeRolLeFv(void);
+void clear_harmful_statuses__13TBoss2DeRolLeFv(void);
 void TBoss2DeRolLe__sub_80036358(void* p);
 void TBoss2DeRolLe__sub_800363A0(void* p);
 void *create__13TBoss2DeRolLeFPv(void *arg0);
@@ -5805,13 +5805,13 @@ extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv();
 extern "C" void vfunc_63__13TBoss2DeRolLeFv();
 extern "C" void vfunc_28__13TBoss2DeRolLeFv();
 extern "C" void __dt__13TBoss2DeRolLeFPvs();
-extern "C" void vfunc_44__13TBoss2DeRolLeFv();
-extern "C" void vfunc_45__13TBoss2DeRolLeFv();
-extern "C" void vfunc_46__13TBoss2DeRolLeFv();
-extern "C" void vfunc_47__13TBoss2DeRolLeFv();
-extern "C" void vfunc_48__13TBoss2DeRolLeFl();
-extern "C" void vfunc_49__13TBoss2DeRolLeFv();
-extern "C" void vfunc_50__13TBoss2DeRolLeFv();
+extern "C" void apply_poison_status__13TBoss2DeRolLeFv();
+extern "C" void apply_paralysis__13TBoss2DeRolLeFv();
+extern "C" void apply_slow_status__13TBoss2DeRolLeFv();
+extern "C" void apply_confusion_status__13TBoss2DeRolLeFv();
+extern "C" void apply_movement_ailment__13TBoss2DeRolLeFl();
+extern "C" void apply_shock_status__13TBoss2DeRolLeFv();
+extern "C" void clear_harmful_statuses__13TBoss2DeRolLeFv();
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void vfunc_103__9TObjEneDDFPUc();
 extern "C" void vfunc_79__9TObjEneDDFv();
@@ -6433,13 +6433,13 @@ s32 get_instance__13TBoss2DeRolLeFv(void) {
     return TBoss2DeRolLe__instance;
 }
 
-void TBoss2DeRolLe::vfunc_44() {  }
-void TBoss2DeRolLe::vfunc_45() {  }
-void TBoss2DeRolLe::vfunc_46() {  }
-void TBoss2DeRolLe::vfunc_47() {  }
-void TBoss2DeRolLe::vfunc_48(s32) {  }
-void TBoss2DeRolLe::vfunc_49() {  }
-void TBoss2DeRolLe::vfunc_50() {  }
+void TBoss2DeRolLe::apply_poison_status() {  }
+void TBoss2DeRolLe::apply_paralysis() {  }
+void TBoss2DeRolLe::apply_slow_status() {  }
+void TBoss2DeRolLe::apply_confusion_status() {  }
+void TBoss2DeRolLe::apply_movement_ailment(s32) {  }
+void TBoss2DeRolLe::apply_shock_status() {  }
+void TBoss2DeRolLe::clear_harmful_statuses() {  }
 void swap_endian__13TBoss2DeRolLeFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void send_6x13__13TBoss2DeRolLeFPv(void* p) { swap_6x13_fields__13TBoss2DeRolLeFPv((void*)(p)); TLobby__send_and_handle_60(p); }

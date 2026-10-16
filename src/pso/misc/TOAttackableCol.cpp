@@ -53,13 +53,13 @@ struct Obj_801575AC {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-int vfunc_26__15TOAttackableColFll(void);
-int vfunc_27__15TOAttackableColFPvlf(void);
-int vfunc_20__15TOAttackableColFPvf(void);
-int vfunc_21__15TOAttackableColFPvPvPvf(void);
-f32 vfunc_22__15TOAttackableColFPvf(void* p, s32 _w1);
-f32 vfunc_23__15TOAttackableColFPvPvPvll(void* p, s32 _w1);
-f32 vfunc_24__15TOAttackableColFPvPv(void* p, s32 _w1);
+int try_start_action__15TOAttackableColFll(void);
+int roll_physical_accuracy__15TOAttackableColFPvlf(void);
+int select_melee_contact_body__15TOAttackableColFPvf(void);
+int calc_distance_accuracy_penalty__15TOAttackableColFPvPvPvf(void);
+f32 receive_physical_attack__15TOAttackableColFPvf(void* p, s32 _w1);
+f32 receive_direct_attack__15TOAttackableColFPvPvPvll(void* p, s32 _w1);
+f32 receive_weapon_special_attack__15TOAttackableColFPvPv(void* p, s32 _w1);
 void *fn_80157CA8(void *arg0);
 void TOAttackableCol__sub_80157310(void * = 0);
 extern s32 __vt__11TOVS2Wall01[];
@@ -355,19 +355,19 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-s32 TOAttackableCol::vfunc_26(s32, s32) { return 1; }
+s32 TOAttackableCol::try_start_action(s32, s32) { return 1; }
 
-s32 TOAttackableCol::vfunc_27(void *, s32, f32) { return 1; }
+s32 TOAttackableCol::roll_physical_accuracy(void *, s32, f32) { return 1; }
 
-s32 TOAttackableCol::vfunc_20(void *, f32) { return 1; }
+s32 TOAttackableCol::select_melee_contact_body(void *, f32) { return 1; }
 
-int TOAttackableCol::vfunc_21(void *, void *, void *, float) { return 1; }
+int TOAttackableCol::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-f32 TOAttackableCol::vfunc_22(void *_w1, f32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::receive_physical_attack(void *_w1, f32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
 
-f32 TOAttackableCol::vfunc_23(void *_w1, void *, void *, s32, s32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::receive_direct_attack(void *_w1, void *, void *, s32, s32) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
 
-f32 TOAttackableCol::vfunc_24(void *_w1, void *) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
+f32 TOAttackableCol::receive_weapon_special_attack(void *_w1, void *) { return ((TOAttackableCol *)this)->apply_hit((s32)(_w1)); }
 
 void TOAttackableCol::vfunc_25(u8 *) {  }
 

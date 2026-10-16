@@ -200,7 +200,7 @@ void TObjNpcARW00::play_voice() {
 
 void TObjNpcBase::vfunc_92() {  }
 void TObjNpcBase::vfunc_91() {  }
-void TObjNpcBase::vfunc_93() {
+void TObjNpcBase::draw_debug_info() {
     Npc_801480FC *o = (Npc_801480FC *)this;
     o->f384 = o->f60;
     o->f38C = 0;

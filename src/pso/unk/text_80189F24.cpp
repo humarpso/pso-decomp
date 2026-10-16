@@ -175,7 +175,7 @@ void TUnk_804B6C24::run_task() {
     *(s32 *)((s8 *)arg0 + 0x364) = 0;
 }
 
-f32 TUnk_804B6C24::vfunc_22(void *, f32) {
+f32 TUnk_804B6C24::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
     if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
@@ -186,7 +186,7 @@ f32 TUnk_804B6C24::vfunc_22(void *, f32) {
     return (*(const f32 *)&lbl_805DBCF4);
 }
 
-f32 TUnk_804B6C24::vfunc_23(void *arg1, void *arg2_arg, void *, s32, s32) {
+f32 TUnk_804B6C24::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
     s32 *arg2 = (s32 *)arg2_arg;
     s32 temp_r4;
     struct VObj_8018A0B4 *o = (struct VObj_8018A0B4 *)this;

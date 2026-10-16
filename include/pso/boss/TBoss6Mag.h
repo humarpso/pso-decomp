@@ -6,7 +6,7 @@
 
 struct TBoss6Mag : public TObjEnemy {
     virtual ~TBoss6Mag();
-    virtual f32 vfunc_22(void *, f32);
+    virtual f32 receive_physical_attack(void *, f32);
     virtual void vfunc_63();
     void render();
     void run_task();

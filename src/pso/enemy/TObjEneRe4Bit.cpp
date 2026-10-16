@@ -434,14 +434,14 @@ extern "C" {
 
 extern "C" {
 void vfunc_28__13TObjEneRe4BitFv(void);
-void vfunc_44__13TObjEneRe4BitFv(void);
-void vfunc_45__13TObjEneRe4BitFv(void);
-void vfunc_46__13TObjEneRe4BitFv(void);
-void vfunc_47__13TObjEneRe4BitFv(void);
-void vfunc_48__13TObjEneRe4BitFl(void);
-void vfunc_49__13TObjEneRe4BitFv(void);
-void vfunc_50__13TObjEneRe4BitFv(void);
-void vfunc_51__13TObjEneRe4BitFPv(void);
+void apply_poison_status__13TObjEneRe4BitFv(void);
+void apply_paralysis__13TObjEneRe4BitFv(void);
+void apply_slow_status__13TObjEneRe4BitFv(void);
+void apply_confusion_status__13TObjEneRe4BitFv(void);
+void apply_movement_ailment__13TObjEneRe4BitFl(void);
+void apply_shock_status__13TObjEneRe4BitFv(void);
+void clear_harmful_statuses__13TObjEneRe4BitFv(void);
+void apply_attack_stat_status__13TObjEneRe4BitFPv(void);
 void apply_defense_stat_status__13TObjEneRe4BitFPv(void);
 void vfunc_61__13TObjEneRe4BitFv(void);
 void vfunc_62__13TObjEneRe4BitFv(u8 *arg0);
@@ -472,8 +472,8 @@ void *__vt__13TObjEneRe4Bit[107] = {
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
-    (void *)&vfunc_44__13TObjEneRe4BitFv, (void *)&vfunc_45__13TObjEneRe4BitFv, (void *)&vfunc_46__13TObjEneRe4BitFv, (void *)&vfunc_47__13TObjEneRe4BitFv,
-    (void *)&vfunc_48__13TObjEneRe4BitFl, (void *)&vfunc_49__13TObjEneRe4BitFv, (void *)&vfunc_50__13TObjEneRe4BitFv, (void *)&vfunc_51__13TObjEneRe4BitFPv,
+    (void *)&apply_poison_status__13TObjEneRe4BitFv, (void *)&apply_paralysis__13TObjEneRe4BitFv, (void *)&apply_slow_status__13TObjEneRe4BitFv, (void *)&apply_confusion_status__13TObjEneRe4BitFv,
+    (void *)&apply_movement_ailment__13TObjEneRe4BitFl, (void *)&apply_shock_status__13TObjEneRe4BitFv, (void *)&clear_harmful_statuses__13TObjEneRe4BitFv, (void *)&apply_attack_stat_status__13TObjEneRe4BitFPv,
     (void *)&apply_defense_stat_status__13TObjEneRe4BitFPv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
     (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__13TObjEneRe4BitFv, (void *)&vfunc_62__13TObjEneRe4BitFv, (void *)&vfunc_63__13TObjEneRe4BitFv,
@@ -1705,24 +1705,24 @@ void TObjEneRe4Bit__sub_800EDAB4(void) {
 
 extern "C" {
 
-void vfunc_44__13TObjEneRe4BitFv(void);
-void vfunc_45__13TObjEneRe4BitFv(void);
-void vfunc_46__13TObjEneRe4BitFv(void);
-void vfunc_47__13TObjEneRe4BitFv(void);
-void vfunc_48__13TObjEneRe4BitFl(void);
-void vfunc_49__13TObjEneRe4BitFv(void);
-void vfunc_50__13TObjEneRe4BitFv(void);
-void vfunc_51__13TObjEneRe4BitFPv(void);
+void apply_poison_status__13TObjEneRe4BitFv(void);
+void apply_paralysis__13TObjEneRe4BitFv(void);
+void apply_slow_status__13TObjEneRe4BitFv(void);
+void apply_confusion_status__13TObjEneRe4BitFv(void);
+void apply_movement_ailment__13TObjEneRe4BitFl(void);
+void apply_shock_status__13TObjEneRe4BitFv(void);
+void clear_harmful_statuses__13TObjEneRe4BitFv(void);
+void apply_attack_stat_status__13TObjEneRe4BitFPv(void);
 void apply_defense_stat_status__13TObjEneRe4BitFPv(void);
 
-void TObjEneRe4Bit::vfunc_44() {  }
-void TObjEneRe4Bit::vfunc_45() {  }
-void TObjEneRe4Bit::vfunc_46() {  }
-void TObjEneRe4Bit::vfunc_47() {  }
-void TObjEneRe4Bit::vfunc_48(s32) {  }
-void TObjEneRe4Bit::vfunc_49() {  }
-void TObjEneRe4Bit::vfunc_50() {  }
-void TObjEneRe4Bit::vfunc_51(void *) {  }
+void TObjEneRe4Bit::apply_poison_status() {  }
+void TObjEneRe4Bit::apply_paralysis() {  }
+void TObjEneRe4Bit::apply_slow_status() {  }
+void TObjEneRe4Bit::apply_confusion_status() {  }
+void TObjEneRe4Bit::apply_movement_ailment(s32) {  }
+void TObjEneRe4Bit::apply_shock_status() {  }
+void TObjEneRe4Bit::clear_harmful_statuses() {  }
+void TObjEneRe4Bit::apply_attack_stat_status(void *) {  }
 void TObjEneRe4Bit::apply_defense_stat_status(void *) {  }
 
 }

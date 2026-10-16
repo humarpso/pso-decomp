@@ -17,7 +17,7 @@ struct TOTrap : public TUnk_804806E8 {
     virtual f32 vfunc_87();
     virtual void vfunc_88();
     virtual void vfunc_89();
-    virtual s32 vfunc_26(s32, s32);
+    virtual s32 try_start_action(s32, s32);
     virtual void vfunc_6(s16 *, s32);
     virtual void vfunc_25(u8 *);
     virtual void run_task();

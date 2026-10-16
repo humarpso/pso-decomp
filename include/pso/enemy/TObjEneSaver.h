@@ -6,9 +6,9 @@
 
 struct TObjEneSaver : public TObjEnemy {
     virtual ~TObjEneSaver();
-    virtual s32 vfunc_36();
-    virtual s32 vfunc_39();
-    virtual s32 vfunc_30();
+    virtual s32 update_action_hold_status();
+    virtual s32 update_movement_status();
+    virtual s32 is_target_in_attack_range();
     virtual int test_flag_256();
     virtual void vfunc_61();
     virtual void vfunc_63();

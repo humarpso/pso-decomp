@@ -518,10 +518,10 @@ extern "C" {
 void vfunc_105__23TObjEneMe3ShinowaMirageFv(void);
 int can_hit_same_target__23TObjEneMe3ShinowaMirageFv(void);
 int vfunc_107__23TObjEneMe3ShinowaMirageFv(void* p);
-void vfunc_108__23TObjEneMe3ShinowaMirageFv(void);
+void update_player_state_default__23TObjEneMe3ShinowaMirageFv(void);
 s32 update_effect__23TObjEneMe3ShinowaMirageFv(s32 arg0);
 void dispatch_if_active__23TObjEneMe3ShinowaMirageFv(s32 arg0);
-void vfunc_112__23TObjEneMe3ShinowaMirageFv(void);
+void apply_effect_pair__23TObjEneMe3ShinowaMirageFv(void);
 void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1);
 s32 enemy_set_target_id(void *, int);
 int transition_enemy_state(void*, int);
@@ -548,7 +548,7 @@ void TObjEneMe3ShinowaMirage::render() {
     }
 }
 
-void TObjEneMe3ShinowaMirage::vfunc_112() {  }
+void TObjEneMe3ShinowaMirage::apply_effect_pair() {  }
 
 void TObjEneMe3ShinowaMirage::dispatch_if_active() {
     s32 arg0 = (s32)this;
@@ -613,7 +613,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
     }
 }
 
-void TObjEneMe3ShinowaMirage::vfunc_108() {  }
+void TObjEneMe3ShinowaMirage::update_player_state_default() {  }
 void TObjEneMe3ShinowaMirage::vfunc_107() { transition_enemy_state((void*)(this), (int)(4)); }
 u8 TObjEneMe3ShinowaMirage::can_hit_same_target() { return 0; }
 void TObjEneMe3ShinowaMirage::vfunc_105() {  }

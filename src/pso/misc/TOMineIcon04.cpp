@@ -80,8 +80,8 @@ void TOMineIcon04::vfunc_82() { spawn_particle_effect((char*)this + 0x2fc, 140);
 
 extern void *tl_05;
 
-void vfunc_27__6TOMineFPvlf();
-void vfunc_26__6TOMineFll();
+void roll_physical_accuracy__6TOMineFPvlf();
+void try_start_action__6TOMineFll();
 void vfunc_25__6TOMineFPUc();
 void vfunc_79__6TOMineFv();
 void spawn_disp_objects__10TOMineTrapFPv();
@@ -144,7 +144,7 @@ void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void run_task__6TOMineFv();
 void spawn_effect__10TOMineTrapFv();
-void vfunc_22__6TOMineFPvf();
+void receive_physical_attack__6TOMineFPvf();
 void trigger_switch_attack__10TObjPlayerFi();
 void update_action_hold_status__10TObjPlayerFv();
 void update_action_timer__10TObjPlayerFPv();
@@ -179,12 +179,12 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)is_actor_cadence_frame,
     (void *)can_trigger__10TOMineTrapFUl,
     (void *)check_trigger__10TOMineTrapFUl,
-    (void *)vfunc_22__6TOMineFPvf,
+    (void *)receive_physical_attack__6TOMineFPvf,
     (void *)TOMineTrap__sub_80170924,
     (void *)calc_trigger_range__10TOMineTrapFl,
     (void *)vfunc_25__6TOMineFPUc,
-    (void *)vfunc_26__6TOMineFll,
-    (void *)vfunc_27__6TOMineFPvlf,
+    (void *)try_start_action__6TOMineFll,
+    (void *)roll_physical_accuracy__6TOMineFPvlf,
     (void *)vfunc_28__13TUnk_804806E8Fv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
     (void *)is_target_in_attack_range__10TObjPlayerFv,

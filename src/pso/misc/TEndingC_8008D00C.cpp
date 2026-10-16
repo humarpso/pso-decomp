@@ -398,8 +398,8 @@ extern "C" {
 
 extern "C" {
 
-s32 vfunc_36__14TObjEneBalClawFv(s32 arg0);
-s32 vfunc_39__14TObjEneBalClawFv(s32 arg0);
+s32 update_action_hold_status__14TObjEneBalClawFv(s32 arg0);
+s32 update_movement_status__14TObjEneBalClawFv(s32 arg0);
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
 
@@ -420,7 +420,7 @@ void TObjEneBalClaw::clear_flag_in_state7() {
     }
 }
 
-s32 TObjEneBalClaw::vfunc_39() {
+s32 TObjEneBalClaw::update_movement_status() {
     s32 arg0 = (s32)this;
     if (update_movement_status__10TObjPlayerFv() != 0) {
         ((TObjEneBalClaw *)arg0)->clear_flag_in_state7();
@@ -429,7 +429,7 @@ s32 TObjEneBalClaw::vfunc_39() {
     return 0;
 }
 
-s32 TObjEneBalClaw::vfunc_36() {
+s32 TObjEneBalClaw::update_action_hold_status() {
     s32 arg0 = (s32)this;
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         ((TObjEneBalClaw *)arg0)->clear_flag_in_state7();

@@ -143,7 +143,7 @@ void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
-f32 vfunc_22__21TObjContainerAbeEnemyFPvf(Obj_80188768 *arg0);
+f32 receive_physical_attack__21TObjContainerAbeEnemyFPvf(Obj_80188768 *arg0);
 int spawn_particle_effect_with_flags(void *, int, int);
 void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(void *);
@@ -383,7 +383,7 @@ void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self) {
 }
 #pragma pop
 
-f32 TObjContainerAbeEnemy::vfunc_22(void *, f32) {
+f32 TObjContainerAbeEnemy::receive_physical_attack(void *, f32) {
     Obj_80188768 *arg0 = (Obj_80188768 *)this;
     s16 sp8;
     Pkt_80188768 pkt;

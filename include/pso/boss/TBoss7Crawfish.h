@@ -7,13 +7,13 @@
 struct TBoss7Crawfish : public TObjEnemy {
     virtual ~TBoss7Crawfish();
     s16 get_floor();
-    virtual void vfunc_50();
-    virtual void vfunc_49();
-    virtual void vfunc_48(s32);
-    virtual void vfunc_47();
-    virtual void vfunc_46();
-    virtual void vfunc_45();
-    virtual void vfunc_44();
+    virtual void clear_harmful_statuses();
+    virtual void apply_shock_status();
+    virtual void apply_movement_ailment(s32);
+    virtual void apply_confusion_status();
+    virtual void apply_slow_status();
+    virtual void apply_paralysis();
+    virtual void apply_poison_status();
     void* m_374;
     u8 _pad378[0x28];
     u32 m_3a0;

@@ -297,7 +297,7 @@ struct Trap_80179B8C : VObj_80179B8C {
 
 extern "C" {
 void set_triggered_state__6TOTrapFPvUi(void *, void *, f32);
-void vfunc_22__15TOTrapAncient01FPvf(void *arg0, void *arg1, f32 farg0);
+void receive_physical_attack__15TOTrapAncient01FPvf(void *arg0, void *arg1, f32 farg0);
 u16 obj_getField1c(void *);
 s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFv();
@@ -430,7 +430,7 @@ void TOTrapAncient01::release_trapped_player() {
     }
 }
 
-f32 TOTrapAncient01::vfunc_22(void *arg1, f32 farg0) {
+f32 TOTrapAncient01::receive_physical_attack(void *arg1, f32 farg0) {
     ((TOTrapAncient01 *)this)->release_trapped_player();
     set_triggered_state__6TOTrapFPvUi(this, arg1, farg0);
 }

@@ -5,7 +5,7 @@
 struct TObjEnemy : public TUnk_804806E8 {
     virtual ~TObjEnemy();
     virtual void vfunc_79();
-    virtual void vfunc_80(void *);
+    virtual void apply_hit_message_flags(void *);
     virtual void apply_set_data(void *);
     virtual void clear_lobby_object_state();
     s32 exchange_object_state(s32, s16);

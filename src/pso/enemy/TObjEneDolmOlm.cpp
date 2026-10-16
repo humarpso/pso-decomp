@@ -956,7 +956,7 @@ extern "C" {
 extern "C" {
 }
 extern "C" {
-void vfunc_39__13TUnk_80493450Fv();
+void update_movement_status__13TUnk_80493450Fv();
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -965,7 +965,7 @@ extern "C" {
 void try_start_action__10TObjPlayerFPvii();
 }
 extern "C" {
-void vfunc_36__13TUnk_80493450Fv();
+void update_action_hold_status__13TUnk_80493450Fv();
 }
 extern "C" {
 void update_action_timer__10TObjPlayerFPv();
@@ -1049,7 +1049,7 @@ void *lbl_804E6928[103] = {
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
     (void *)&beast_select_target, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__13TUnk_80493450Fv,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&vfunc_36__13TUnk_80493450Fv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&vfunc_39__13TUnk_80493450Fv,
+    (void *)&update_action_hold_status__13TUnk_80493450Fv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__13TUnk_80493450Fv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
@@ -1346,7 +1346,7 @@ void run_task__14TObjEneDolmOlmFPv(u8 *arg0) {
         (((TObjEneDolmOlm *)(arg0))->beast_idle_update());
         break;
       case 2:
-        (((TObjEneDolmOlm *)(arg0))->vfunc_85());
+        (((TObjEneDolmOlm *)(arg0))->update_turn_toward_target());
         break;
       case 3:
         (((TObjEneDolmOlm *)(arg0))->beast_update_approach());

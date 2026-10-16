@@ -8,7 +8,7 @@ int queue_destruction__7TObjectFv(void*);
 
 extern f32 lbl_805D9378;
 
-f32 TUnk_8048E1A4::vfunc_22(void *arg1, f32) {
+f32 TUnk_8048E1A4::receive_physical_attack(void *arg1, f32) {
     if (arg1 != 0U) {
         this->m_354 = (s32) (this->m_354 + 1);
         if ((s32) this->m_354 >= 3) {

@@ -232,13 +232,13 @@ extern "C" {
 struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
 void vfunc_28__11TBoss7JointFv(void);
-void vfunc_44__11TBoss7JointFv(void);
-void vfunc_45__11TBoss7JointFv(void);
-void vfunc_46__11TBoss7JointFv(void);
-void vfunc_47__11TBoss7JointFv(void);
-void vfunc_48__11TBoss7JointFl(void);
-void vfunc_49__11TBoss7JointFv(void);
-void vfunc_50__11TBoss7JointFv(void);
+void apply_poison_status__11TBoss7JointFv(void);
+void apply_paralysis__11TBoss7JointFv(void);
+void apply_slow_status__11TBoss7JointFv(void);
+void apply_confusion_status__11TBoss7JointFv(void);
+void apply_movement_ailment__11TBoss7JointFl(void);
+void apply_shock_status__11TBoss7JointFv(void);
+void clear_harmful_statuses__11TBoss7JointFv(void);
 void vfunc_61__11TBoss7JointFv(void);
 void TBoss7Joint__vt60(u8 *arg0);
 void TBoss7Joint__vt85(void);
@@ -352,12 +352,12 @@ void TBoss7Joint::vfunc_28() {  }
 void TBoss7Joint::vfunc_63() { *(u32*)((char*)this + 0x30) &= 0xfffff7ff; }
 
 void TBoss7Joint::vfunc_61() {  }
-void TBoss7Joint::vfunc_44() {  }
-void TBoss7Joint::vfunc_45() {  }
-void TBoss7Joint::vfunc_46() {  }
-void TBoss7Joint::vfunc_47() {  }
-void TBoss7Joint::vfunc_48(s32) {  }
-void TBoss7Joint::vfunc_49() {  }
-void TBoss7Joint::vfunc_50() {  }
+void TBoss7Joint::apply_poison_status() {  }
+void TBoss7Joint::apply_paralysis() {  }
+void TBoss7Joint::apply_slow_status() {  }
+void TBoss7Joint::apply_confusion_status() {  }
+void TBoss7Joint::apply_movement_ailment(s32) {  }
+void TBoss7Joint::apply_shock_status() {  }
+void TBoss7Joint::clear_harmful_statuses() {  }
 
 }

@@ -153,7 +153,7 @@ void TOContainerAncientEnemy::vfunc_79() {
     }
 }
 
-f32 TOContainerAncientEnemy::vfunc_22(void *, f32) {
+f32 TOContainerAncientEnemy::receive_physical_attack(void *, f32) {
     O_8015BAE0 *arg0 = (O_8015BAE0 *)this;
     s16 sp8;
     s32 r4;

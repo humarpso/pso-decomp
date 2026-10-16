@@ -10,11 +10,11 @@ public:
     s32 freeze_shell_hold();
     void update_freeze_shell_timer();
     virtual void vfunc_25(u8 *);
-    virtual f32 vfunc_24(void *, void *);
-    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
-    virtual f32 vfunc_22(void *, f32);
-    virtual int vfunc_21(void *, void *, void *, float);
-    virtual s32 vfunc_20(void *, f32);
+    virtual f32 receive_weapon_special_attack(void *, void *);
+    virtual f32 receive_direct_attack(void *, void *, void *, s32, s32);
+    virtual f32 receive_physical_attack(void *, f32);
+    virtual int calc_distance_accuracy_penalty(void *, void *, void *, float);
+    virtual s32 select_melee_contact_body(void *, f32);
     virtual void render();
     virtual void run_task();
     u8 unk_334[0x20];

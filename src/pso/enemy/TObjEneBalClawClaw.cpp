@@ -1178,9 +1178,9 @@ f32 xz_distance_squared(void *, void *);
 
 extern "C" void vfunc_65__15TObjEnemyCustomFll();
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void vfunc_30__14TObjEneBalClawFv();
-extern "C" void vfunc_36__14TObjEneBalClawFv();
-extern "C" void vfunc_39__14TObjEneBalClawFv();
+extern "C" void is_target_in_attack_range__14TObjEneBalClawFv();
+extern "C" void update_action_hold_status__14TObjEneBalClawFv();
+extern "C" void update_movement_status__14TObjEneBalClawFv();
 extern "C" void vfunc_59__14TObjEneBalClawFv();
 extern "C" void vfunc_61__14TObjEneBalClawFv();
 extern "C" void vfunc_62__14TObjEneBalClawFv();
@@ -1274,9 +1274,9 @@ void *__vt__18TObjEneBalClawClaw[83] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&vfunc_30__14TObjEneBalClawFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__14TObjEneBalClawFv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&vfunc_36__14TObjEneBalClawFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&vfunc_39__14TObjEneBalClawFv,
+    (void *)&update_action_hold_status__14TObjEneBalClawFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__14TObjEneBalClawFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,

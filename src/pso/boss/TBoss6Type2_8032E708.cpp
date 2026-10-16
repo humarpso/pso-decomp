@@ -181,7 +181,7 @@ extern "C" {
 void *fn_8033068C(void *arg0, s16 arg1);
 void run_task__9TBoss6MagFv(u8 *arg0);
 void render__9TBoss6MagFv(void* p);
-f32 vfunc_22__9TBoss6MagFPvf(void *arg0);
+f32 receive_physical_attack__9TBoss6MagFPvf(void *arg0);
 f32 fn_80330240(O_80330240 *arg0, void *arg1, P_80330240 arg2, void *arg3, void *arg4, void *arg5);
 void spawn_ground_effect__10TObjPlayerFPv(u8 *arg0);
 void vfunc_63__9TBoss6MagFv(u8 *arg0);
@@ -276,7 +276,7 @@ void *lbl_804EDDEC[83] = {
     (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail,
     (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index, (void *)update_actor_ground_y, (void *)TObjPlayer__sub_80018E6C, (void *)is_actor_cadence_frame,
-    (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)vfunc_22__9TBoss6MagFPvf, (void *)fn_80330240,
+    (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)receive_physical_attack__9TBoss6MagFPvf, (void *)fn_80330240,
     (void *)receive_weapon_special_attack__10TObjPlayerFv, (void *)apply_knockback_from_attacker, (void *)try_start_action__10TObjPlayerFPvii, (void *)roll_physical_accuracy__10TObjPlayerFv,
     (void *)vfunc_28__13TUnk_804806E8Fv, (void *)vfunc_29__13TUnk_804806E8Fv, (void *)is_target_in_attack_range__10TObjPlayerFv, (void *)TObjPlayer::test_flag_256,
     (void *)TObjPlayer::test_flag30_512, (void *)TObjPlayer::has_flag_0x800, (void *)TObjPlayer::test_flag_1000, (void *)update_poison_status__10TObjPlayerFv,
@@ -1214,10 +1214,10 @@ extern "C" {
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BD340(int);
 void vfunc_63__9TBoss6MagFv(u8 *arg0);
-f32 vfunc_22__9TBoss6MagFPvf(void *arg0);
+f32 receive_physical_attack__9TBoss6MagFPvf(void *arg0);
 f32 receive_physical_attack__10TObjPlayerFv();
 
-f32 TBoss6Mag::vfunc_22(void *, f32) {
+f32 TBoss6Mag::receive_physical_attack(void *, f32) {
     if ((s32) *(s32 *)((s8 *)this + 0x388) != 0) {
         return receive_physical_attack__10TObjPlayerFv();
     }

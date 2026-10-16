@@ -7,9 +7,9 @@
 struct TOCtrlDubchik : public TObjEnemy {
     virtual ~TOCtrlDubchik();
     virtual void vfunc_25(u8 *);
-    virtual s32 vfunc_27(void *, s32, f32);
-    virtual s32 vfunc_26(s32, s32);
-    virtual s32 vfunc_20(void *, f32);
+    virtual s32 roll_physical_accuracy(void *, s32, f32);
+    virtual s32 try_start_action(s32, s32);
+    virtual s32 select_melee_contact_body(void *, f32);
     virtual void render();
     u8 unk_374[0xC];
     u32 m_380;

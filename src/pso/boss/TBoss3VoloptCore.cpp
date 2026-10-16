@@ -575,7 +575,7 @@ void * destroy__13TUnk_80483A10Fs(void *arg0, s16 arg1);
 void TBoss3VoloptCore__ct(VObj_80040894 *arg0);
 void * create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
 void * TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2);
-int vfunc_30__13TUnk_80483A10Fv(void);
+int is_target_in_attack_range__13TUnk_80483A10Fv(void);
 s32 TObjPlayer__sub_80040AE4(s32 i);
 void update_if_active__15TObjEneMe1GiGueFl(void*, s32);
 s32 TCameraCtrl__sub_8006A044(s32, f32);
@@ -878,7 +878,7 @@ void *TBoss3VoloptCore__vtable[83] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&vfunc_30__13TUnk_80483A10Fv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&vfunc_28__15TObjEnemyCustomFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__13TUnk_80483A10Fv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
@@ -1576,7 +1576,7 @@ void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-s32 TUnk_80483A10::vfunc_30() { return 0; }
+s32 TUnk_80483A10::is_target_in_attack_range() { return 0; }
 
 s32 TObjPlayer__sub_80040AE4(s32 i) {
     return (*(G_80040AE4 * *)&volopt_array_resource_ptr)->arr[i];

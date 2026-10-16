@@ -208,9 +208,9 @@ extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
 s32 try_start_action__10TObjPlayerFPvii(void *, void *, void *);
-s32 vfunc_26__13TOCtrlDubchikFll(u8 *arg0, s32 arg1, s32 arg2);
+s32 try_start_action__13TOCtrlDubchikFll(u8 *arg0, s32 arg1, s32 arg2);
 s32 roll_physical_accuracy__10TObjPlayerFv(void *, void *, void *, f32);
-s32 vfunc_27__13TOCtrlDubchikFPvlf(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
+s32 roll_physical_accuracy__13TOCtrlDubchikFPvlf(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 initialize__9TObjEnemyFPv(void *);
 void set_indexed_flags(void *, s32, s32);
@@ -272,7 +272,7 @@ f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *
 
 extern "C" {
 
-s32 vfunc_20__13TOCtrlDubchikFPvf(void *arg0);
+s32 select_melee_contact_body__13TOCtrlDubchikFPvf(void *arg0);
 void vfunc_25__13TOCtrlDubchikFPUc(void);
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
@@ -429,7 +429,7 @@ void TOCtrlDubchik::run_task() {
     }
     if (obj_testFlags30(arg0, 0x800) != 0) {
         *(s16 *)(arg0 + 0x326) = 6;
-    } else if (this->vfunc_39() != 0) {
+    } else if (this->update_movement_status() != 0) {
         refresh_collision_body_centers(arg0);
         submit_cursor_candidate(arg0, -1);
         return;
@@ -534,7 +534,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-s32 TOCtrlDubchik::vfunc_20(void *, f32) {
+s32 TOCtrlDubchik::select_melee_contact_body(void *, f32) {
     if (*(s16 *)((s8 *)this + 0x326) != 0) {
         return select_melee_contact_body__10TObjPlayerFv();
     }
@@ -548,7 +548,7 @@ f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *
     return TOCtrlDubchik__data_805DB3A8;
 }
 
-s32 TOCtrlDubchik::vfunc_26(s32 arg1, s32 arg2) {
+s32 TOCtrlDubchik::try_start_action(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     if (*(s16 *)((s8 *)arg0 + 0x326) != 0) {
         return try_start_action__10TObjPlayerFPvii((void *) (arg0), (void *) (arg1), (void *) (arg2));
@@ -556,7 +556,7 @@ s32 TOCtrlDubchik::vfunc_26(s32 arg1, s32 arg2) {
     return 0;
 }
 
-s32 TOCtrlDubchik::vfunc_27(void *arg1, s32 arg2, f32 farg0) {
+s32 TOCtrlDubchik::roll_physical_accuracy(void *arg1, s32 arg2, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     if (*(s16 *)((s8 *)arg0 + 0x326) != 0) {
         return roll_physical_accuracy__10TObjPlayerFv((void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
