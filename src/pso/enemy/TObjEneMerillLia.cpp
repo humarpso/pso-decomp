@@ -652,7 +652,7 @@ extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void vfunc_13__13TUnk_804AF8A0Fl();
 extern "C" void vfunc_100__13TUnk_80493450Fv();
 extern "C" void vfunc_89__13TUnk_80493450Fv();
-extern "C" void update_turn_toward_target__10TObjPlayerFv();
+extern "C" void update_turn_toward_target__13TUnk_80493450Fv();
 extern "C" void vfunc_95__13TUnk_80493450Fv();
 extern "C" void update_and_send_enemy_hit_state();
 extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
@@ -815,7 +815,7 @@ void *lbl_80494728[103] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&update_and_send_enemy_hit_state, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__16TObjEneMerillLiaFv,
-    (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&beast_update_approach__16TObjEneMerillLiaFv, (void *)&beast_update_group_chase__16TObjEneMerillLiaFv,
+    (void *)&TObjEneMerillLia__sub_800D5BCC, (void *)&update_turn_toward_target__13TUnk_80493450Fv, (void *)&beast_update_approach__16TObjEneMerillLiaFv, (void *)&beast_update_group_chase__16TObjEneMerillLiaFv,
     (void *)&beast_update_attack, (void *)&vfunc_89__13TUnk_80493450Fv, (void *)&TObjEneMerillLia__sub_800D59E4, (void *)&beast_update_dead__13TUnk_80493450Fv,
     (void *)&beast_retire_corpse__13TUnk_80493450Fv, (void *)&vfunc_93__16TObjEneMerillLiaFv, (void *)&vfunc_94__16TObjEneMerillLiaFv, (void *)&vfunc_95__13TUnk_80493450Fv,
     (void *)&vfunc_96__16TObjEneMerillLiaFv, (void *)&vfunc_97__16TObjEneMerillLiaFv, (void *)&vfunc_98__16TObjEneMerillLiaFv, (void *)&vfunc_99__16TObjEneMerillLiaFv,

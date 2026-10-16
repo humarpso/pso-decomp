@@ -1177,12 +1177,12 @@ s32 vec3_add_to(void *, void *);
 extern "C" {
 void TLobby__sub_801A1FD8();
 void vfunc_13__13TUnk_804AF8A0Fl();
-void call_vt16_with_default__10TObjPlayerFv();
+void call_vt16_with_default__13TUnk_804928CCFv();
 void vfunc_16__13TUnk_804928CCFPvPv();
-void call_vt13_with_default__10TObjPlayerFv();
+void call_vt13_with_default__13TUnk_804928CCFv();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
-void apply_hit_if_active__10TObjPlayerFPvPf();
+void apply_hit_if_active__13TUnk_804928CCFPvPf();
 void apply_object_set_data();
 void area_attack_apply_recoil__13TUnk_804928CCFPvf();
 void area_attack_deliver_physical();
@@ -1205,9 +1205,9 @@ void *lbl_804933D8[24] = {
     (void *)0x0, (void *)0x0, (void *)&destroy_and_free__21TObjEneRe2Flower_BombFs, (void *)&run_task__21TObjEneRe2Flower_BombFv,
     (void *)&render__21TObjEneRe2Flower_BombFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
-    (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&call_vt13_with_default__10TObjPlayerFv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
-    (void *)&vfunc_16__13TUnk_804928CCFPvPv, (void *)&call_vt16_with_default__10TObjPlayerFv, (void *)&area_attack_deliver_physical, (void *)&vfunc_19__13TUnk_804928CCFPv,
-    (void *)&area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__10TObjPlayerFPvPf, (void *)0x0,
+    (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&call_vt13_with_default__13TUnk_804928CCFv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
+    (void *)&vfunc_16__13TUnk_804928CCFPvPv, (void *)&call_vt16_with_default__13TUnk_804928CCFv, (void *)&area_attack_deliver_physical, (void *)&vfunc_19__13TUnk_804928CCFPv,
+    (void *)&area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__13TUnk_804928CCFPvPf, (void *)0x0,
 };
 }
 #define lbl_8043BC10 ((const Vec_800C4A5C *)lbl_8043BC10)

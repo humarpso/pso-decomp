@@ -345,7 +345,6 @@ struct TObjPlayer
     static void free_resources();
     void enter_state_8();
     void enter_state7();
-    void update_turn_toward_target();
     void tick_freeze_state();
     void update_death_breakup();
     void dispatch_state_update();
@@ -582,9 +581,6 @@ struct TObjPlayer
     s32 get_action_priority();
     void draw_model_no_fog();
     void update_invincibility();
-    void apply_hit_if_active(void *arg1, f32 *arg2);
-    void call_vt16_with_default();
-    void call_vt13_with_default();
     static void update_effect_sequence();
     void activate_and_dispatch();
     static void init_effect_9472();

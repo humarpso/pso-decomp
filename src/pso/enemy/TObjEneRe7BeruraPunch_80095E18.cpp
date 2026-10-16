@@ -8,7 +8,7 @@ void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 arg1);
 s32 TObjEneDD__sub_800BA438(s32, s32);
 s32 is_player_entity_id();
 s32 find_entity_by_id(u16);
-s32 apply_hit_if_active__10TObjPlayerFPvPf();
+s32 apply_hit_if_active__13TUnk_804928CCFPvPf();
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 obj_getField1c(s32);
 
@@ -19,7 +19,7 @@ extern f32 lbl_805D9790;
 void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 arg1) {
     s32 temp_r3;
 
-    apply_hit_if_active__10TObjPlayerFPvPf();
+    apply_hit_if_active__13TUnk_804928CCFPvPf();
     if (TObjEneDD::check_v2_mode() != 0) {
         obj_getField1c(arg1);
         if (is_player_entity_id() != 0) {

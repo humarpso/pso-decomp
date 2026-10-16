@@ -198,7 +198,7 @@ s32 obj_isState2_324(void *);
 
 extern const f32 lbl_805D9EB0;
 
-void TObjPlayer::apply_hit_if_active(void *arg1, f32 *arg2) {
+void TUnk_804928CC::apply_hit_if_active(void *arg1, f32 *arg2) {
     ((VObj_800bbe90*)arg1)->m20(this->m_ac, lbl_805D9EB0);
     if (obj_isState2_324(arg1) == 0) {
         ((VObj_800bbe90*)this)->m18(arg1, *arg2);
@@ -286,7 +286,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer::call_vt16_with_default() {
+void TUnk_804928CC::call_vt16_with_default() {
     u8 *arg0 = (u8 *)this;
     ((VObj *)arg0)->m16(lbl_805D9EB4);
 }
@@ -335,7 +335,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
     return hit;
 }
 
-void TObjPlayer::call_vt13_with_default() {
+void TUnk_804928CC::call_vt13_with_default() {
     u8 *arg0 = (u8 *)this;
     ((VObj *)arg0)->m13(lbl_805D9EB4);
 }

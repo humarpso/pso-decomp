@@ -1449,7 +1449,7 @@ void TUnk_80493450::beast_update_approach() {
     obj_clearFlags30(arg0, 0x200000);
 }
 
-void TObjPlayer::update_turn_toward_target() {
+void TUnk_80493450::update_turn_toward_target() {
     Player_800C5B10 *arg0 = (Player_800C5B10 *)this;
     s32 ang;
     advance_animation_playback();

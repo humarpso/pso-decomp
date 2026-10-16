@@ -892,7 +892,7 @@ extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
-extern "C" void update_turn_toward_target__10TObjPlayerFv();
+extern "C" void update_turn_toward_target__13TUnk_80493450Fv();
 extern void *bm_ene_bm1_shark_model_names[4];
 extern void *bm_ene_bm1_shark_motion_names[13];
 void *bm_ene_bm1_shark_model_names[4] = {
@@ -961,7 +961,7 @@ void *lbl_8049168C[103] = {
     (void *)&enemy_spawn_zalure_effect, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&update_and_send_enemy_hit_state, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneSharkFv,
-    (void *)&beast_idle_update__13TUnk_80493450Fv, (void *)&update_turn_toward_target__10TObjPlayerFv, (void *)&beast_update_approach__13TUnk_80493450Fv, (void *)&beast_update_group_chase__13TUnk_80493450Fv,
+    (void *)&beast_idle_update__13TUnk_80493450Fv, (void *)&update_turn_toward_target__13TUnk_80493450Fv, (void *)&beast_update_approach__13TUnk_80493450Fv, (void *)&beast_update_group_chase__13TUnk_80493450Fv,
     (void *)&beast_update_attack, (void *)&vfunc_89__13TUnk_80493450Fv, (void *)&beast_update_hurt__13TUnk_80493450Fv, (void *)&beast_update_dead__13TUnk_80493450Fv,
     (void *)&beast_retire_corpse__13TUnk_80493450Fv, (void *)&vfunc_93__12TObjEneSharkFv, (void *)&vfunc_94__12TObjEneSharkFv, (void *)&vfunc_95__12TObjEneSharkFv,
     (void *)&vfunc_96__12TObjEneSharkFv, (void *)&vfunc_97__12TObjEneSharkFv, (void *)&vfunc_98__12TObjEneSharkFv, (void *)&vfunc_99__13TUnk_80493450Fv,
