@@ -65,7 +65,6 @@ s32 get_window_layout_position(int);
 s32 TWindowMainMenu__sub_802ADADC(int, int);
 s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
-void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void init_parts__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(u32);
@@ -74,10 +73,10 @@ extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
 u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 void sub_80263D7C__15TWindowMainMenuFv(void *, int);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *, int);
-void update_description_text__15TWindowMainMenuFPvi(void *, int);
+void update_description_text__15TWindowMainMenuFl(void *, int);
 s16 TWindowMainMenu__sub_802ADB00(u32);
-s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(void *, s16 *, s32 *);
-void update_description_text__15TWindowMainMenuFPvi(void *, int);
+s32 filter_menu_entry__15TWindowMainMenuFPsPl(void *, s16 *, s32 *);
+void update_description_text__15TWindowMainMenuFl(void *, int);
 s32 get_window_layout_position(int);
 s32 TWindowMainMenu__sub_802ADADC(int, int);
 s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
@@ -113,15 +112,15 @@ void TWindowMainMenu::refresh_submenu(void* a1) { if (*(unsigned int*)((char*)th
 
 void TWindowMainMenu::close() { if (*(unsigned int*)((char*)this + 0x1c) != 0) { TWindow__close(*(void**)((char*)this + 0x1c)); *(int*)((char*)this + 0x1c) = 0; } }
 
-void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1) {
+void TWindowMainMenu::open_menu_with_entry(s16 arg1) {
     u32 temp_r31;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
-        *(u32 *)((s8 *)arg0 + 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position((int) (0x1A))), (int) (*(s32 *)((s8 *)arg0 + 0x54)));
+    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x1C) == 0U) {
+        *(u32 *)((s8 *)((u8 *)this) + 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position((int) (0x1A))), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
     }
-    temp_r31 = *(u32 *)((s8 *)arg0 + 0x1C);
+    temp_r31 = *(u32 *)((s8 *)((u8 *)this) + 0x1C);
     append_child_rows__15TWindowMainMenuFPvi((int) (temp_r31), (void *) (arg1));
     TWindowMainMenu__sub_802ADADC((int) (temp_r31), (int) (0));
-    ((TWindowMainMenu *)arg0)->update_submenu();
+    ((TWindowMainMenu *)((u8 *)this))->update_submenu();
 }
 
 void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1) {
@@ -140,7 +139,7 @@ void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1) {
         if (id == 0x1F) {
             break;
         }
-        if (filter_menu_entry__15TWindowMainMenuFPvPvPv(arg0, &id, &flag) != 0) {
+        if (filter_menu_entry__15TWindowMainMenuFPsPl(arg0, &id, &flag) != 0) {
             if (flag != 0) {
                 append_child_rows__15TWindowMainMenuFPvi(w, (void *)(s32)id);
             } else {
@@ -151,7 +150,7 @@ void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1) {
     ((TWindowMainMenu *)w)->update_scaled_position();
     TWindowMainMenu__sub_802ADADC(w, *(s16 *)(arg0 + 0x52));
     d = ((TWindowMainMenu *)w)->get_selected_item_type();
-    update_description_text__15TWindowMainMenuFPvi(arg0, d);
+    update_description_text__15TWindowMainMenuFl(arg0, d);
 }
 
 void TWindowMainMenu::handle_menu_selection() {
@@ -161,7 +160,7 @@ void TWindowMainMenu::handle_menu_selection() {
     if ((((Menu_802647CC *)this)->flags & 1) && !(((Menu_802647CC *)this)->flags & 4) && (node = ((Menu_802647CC *)this)->node) != 0) {
         ((Menu_802647CC *)this)->sel = TWindowMainMenu__sub_802ADB00(node);
         id = ((TWindowMainMenu *)node)->get_selected_item_type();
-        update_description_text__15TWindowMainMenuFPvi(((Menu_802647CC *)this), id);
+        update_description_text__15TWindowMainMenuFl(((Menu_802647CC *)this), id);
         if (((TWindowMenuMainMenu *)node)->get_menu_flag() != 0) {
             add_menu_entry(id);
             e = ((Menu_802647CC *)this)->ents[((Menu_802647CC *)this)->sel].next;

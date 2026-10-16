@@ -158,7 +158,7 @@ s32 advance_animation_playback();
 s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
-s32 set_field_378__9TObjEneDDFPvi(void *, s32);
+s32 set_field_378__9TObjEneDDFl(void *, s32);
 
 void TObjEneDD::handle_state(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -168,7 +168,7 @@ void TObjEneDD::handle_state(s32 arg1) {
         ((V_En_800c38d0 *) arg0)->m93();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 8);
-        set_field_378__9TObjEneDDFPvi(arg0, 2);
+        set_field_378__9TObjEneDDFl(arg0, 2);
         enemy_clear_target__12TObjEneDD_STFUs(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
         if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0) {

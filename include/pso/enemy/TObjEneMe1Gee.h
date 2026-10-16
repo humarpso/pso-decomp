@@ -69,6 +69,24 @@ struct TObjEneMe1Gee : public TObjEneDD_ST {
     static void cache_result_805D6660();
     static void queue_debug_text(s32 arg0, char *arg1);
     u8 unk_472[0x1E];
+    static void advance_camera_ctrl_step();
+    void state_orbit(s32 arg1);
+    void handle_event(s32 arg1);
+    void state_return_home(s32 arg1);
+    void state_attack(s32 arg1);
+    void state_hover(s32 arg1);
+    void state_move(s32 arg1);
+    void set_flag3c8_bit40();
+    void set_flag3c8_bit8();
+    void update_photon_target();
+    static s32 handle_message(s32 arg0, s32 arg1);
+    s32 check_death_trigger();
+    s32 check_can_attack();
+    void update_angle();
+    void update_from_float_sum();
+    void set_move_speed_x();
+    static void free_globals();
+    static void *create(void *arg0);
 };
 
 typedef char TObjEneMe1Gee_size[sizeof(TObjEneMe1Gee) == 0x490 ? 1 : -1];

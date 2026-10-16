@@ -474,7 +474,6 @@ f32 cos_table_lookup(s32);
 extern const f32 TBoss6Type1__data_805DE32C;
 extern const float TBoss6Type1__data_805DE344;
 extern const f32 TBoss6Type1__data_805DE360;
-void spawn_grav_ball__11TBoss6Type1FPv(Boss_802B683C *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vec3_add_to(void *, void *);
 f32 subtract_vector(void *, void *);
@@ -491,7 +490,6 @@ f32 vector_length(void *, f32);
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE2E0;
 extern const float TBoss6Type1__data_805DE344;
-void damage_players_in_range__11TBoss6Type1FPv(Boss_802B6B34 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 s32 play_sound_effect(int, void *, int, int, void *);
@@ -1291,7 +1289,7 @@ void TBoss6Type1::increase_field_clamped_max() {
 
 #pragma push
 #pragma fp_contract on
-void spawn_grav_ball__11TBoss6Type1FPv(Boss_802B683C *arg0) {
+void TBoss6Type1::spawn_grav_ball() {
     Vec_802B683C v;
     s32 flag;
     u8 *pl;
@@ -1299,28 +1297,28 @@ void spawn_grav_ball__11TBoss6Type1FPv(Boss_802B683C *arg0) {
     s32 ang;
     f32 r;
     flag = 1;
-    pl = get_player_by_client_id(arg0->f41C & 3);
+    pl = get_player_by_client_id(((Boss_802B683C *)this)->f41C & 3);
     if (is_active__14TBoss6PlotFalzFv() != 0) {
         VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
         flag = 0;
-        v.y = arg0->pos.y;
+        v.y = ((Boss_802B683C *)this)->pos.y;
     }
-    b = arg0->f41C;
+    b = ((Boss_802B683C *)this)->f41C;
     if (b & 0x40) {
         flag = 1;
     }
     if (flag != 0) {
         ang = (b & 0xF) << 12;
         r = TBoss6Type1__data_805DE32C * ((f32)((b >> 3) & 0xF) / TBoss6Type1__data_805DE360) + (*(const f32 *)&TBoss6Type1__data_805DE344);
-        VecCopy__FP3VecPC3Vec(&v, &arg0->pos);
+        VecCopy__FP3VecPC3Vec(&v, &((Boss_802B683C *)this)->pos);
         v.x += r * sin_table_lookup(ang);
         v.z += r * cos_table_lookup(ang);
     }
-    TBoss6Type1::create_grav_ball(arg0, &v);
+    TBoss6Type1::create_grav_ball(((Boss_802B683C *)this), &v);
 }
 #pragma pop
 
-void damage_players_in_range__11TBoss6Type1FPv(Boss_802B6B34 *arg0) {
+void TBoss6Type1::damage_players_in_range() {
     s32 n;
     s32 i;
     Player_802B6B34 *p;
@@ -1332,12 +1330,12 @@ void damage_players_in_range__11TBoss6Type1FPv(Boss_802B6B34 *arg0) {
             v.y = TBoss6Type1__data_805DE2D0;
             if (!(((f32 (*)(void *))vector_length)(&v) > (*(const f32 *)&TBoss6Type1__data_805DE344))) {
                 Arg_802B6B34 a[2];
-                s32 r = TBoss6PlotFalz::rand_vary_count(arg0->f488, TBoss6Type1__data_805DE2E0);
+                s32 r = TBoss6PlotFalz::rand_vary_count(((Boss_802B6B34 *)this)->f488, TBoss6Type1__data_805DE2E0);
                 a[0].kind = 1;
                 a[1].kind = 1;
                 a[1].v.f = (f32)r;
                 a[0].v.i = a[1].v.i;
-                p->m21(arg0, a, 0, -1, -1);
+                p->m21(((Boss_802B6B34 *)this), a, 0, -1, -1);
             }
         }
     }
@@ -1582,7 +1580,8 @@ extern const f32 lbl_805DE3A0;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void update_beam_attack__11TBoss6Type1FPv(Boss_802B7530 *self) {
+void TBoss6Type1::update_beam_attack() {
+    Boss_802B7530 *self = (Boss_802B7530 *)this;
     Line_802B7530 line;
     Vec_802B7530 v;
     Vec_802B7530 w;

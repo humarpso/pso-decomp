@@ -193,8 +193,8 @@ void advance_wrap_offset__13TUnk_804B2578Fv(void *arg0);
 void fn_80168280(Obj_80168280 *self, u32 v);
 void reset_state(u8 *arg0);
 void sub_801682E4__13TUnk_804B2578Fl(Obj_801682E4 *o, s32 arg1);
-void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
-void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
+void destroy_hanging_object__27TOHangceilingCave01KeyQuickFs(void *, int);
+void init_base__27TOHangceilingCave01KeyQuickFll(void *);
 void set_scale__13TUnk_804B2578Ff(void *, f32);
 void * get_player_by_client_id(s32);
 s32 load_gvm_texture_file(void *);
@@ -319,7 +319,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
 void *__dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__27TOHangceilingCave01KeyQuick;
-        destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(arg0, 0);
+        destroy_hanging_object__27TOHangceilingCave01KeyQuickFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -328,7 +328,7 @@ void *__dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1) {
 }
 
 u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
-    ((u8 * (*)(void *, s32))init_base__27TOHangceilingCave01KeyQuickFPvii)(arg0, arg1);
+    ((u8 * (*)(void *, s32))init_base__27TOHangceilingCave01KeyQuickFll)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick *)&__vt__27TOHangceilingCave01KeyQuick).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOHangceilingCave01KeyQuick__class_name;
     ((TUnk_804B2578 *)arg0)->init_geometry();
@@ -384,7 +384,7 @@ void TOHangceilingCave01Key::vfunc_80() {
 void *__dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TOHangceilingCave01Key;
-        destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(arg0, 0);
+        destroy_hanging_object__27TOHangceilingCave01KeyQuickFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -393,7 +393,7 @@ void *__dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1) {
 }
 
 void *TOHangceilingCave01Key__ct(void *arg0) {
-    init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
+    init_base__27TOHangceilingCave01KeyQuickFll(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TOHangceilingCave01Key;
     *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Key__class_name;
     ((TUnk_804B2578 *)arg0)->init_geometry();
@@ -455,7 +455,7 @@ void TOHangceilingCave01Normal::vfunc_80() {
 void *__dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TOHangceilingCave01Normal;
-        destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(arg0, 0);
+        destroy_hanging_object__27TOHangceilingCave01KeyQuickFs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -464,7 +464,7 @@ void *__dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1) {
 }
 
 void *TOHangceilingCave01Normal__ct(void *arg0) {
-    init_base__27TOHangceilingCave01KeyQuickFPvii(arg0);
+    init_base__27TOHangceilingCave01KeyQuickFll(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TOHangceilingCave01Normal;
     *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Normal__class_name;
     ((TUnk_804B2578 *)arg0)->init_geometry();

@@ -58,8 +58,8 @@ extern "C" {
 s32 get_current_floor(void);
 f32 xz_distance_squared(void *, void *);
 s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
-s32 has_item_flag_4096__10TObjPlayerFPv(void *);
-s32 check_technique_flag__10TObjPlayerFPv(void *);
+s32 has_item_flag_4096__10TObjPlayerFv(void *);
+s32 check_technique_flag__10TObjPlayerFv(void *);
 Player_80187438 *get_player_by_client_id(s32);
 s32 TWindow__close(u32);
 char *strcpy(char *, const char *);
@@ -292,10 +292,10 @@ void TObjCityMainWarpChallenge::count_players_in_warp_radius() {
     if (pl2 != NULL && ((TObjPlayer *)pl2)->get_field_3e4() == get_current_floor()) {
         if (xz_distance_squared(pl2->pos, self->pos) <= (lbl_805DBCA8 + self->radius) * (lbl_805DBCA8 + self->radius)) {
             if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) != 0) {
-                check_technique_flag__10TObjPlayerFPv(pl2);
+                check_technique_flag__10TObjPlayerFv(pl2);
             }
         } else if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) == 0) {
-            has_item_flag_4096__10TObjPlayerFPv(pl2);
+            has_item_flag_4096__10TObjPlayerFv(pl2);
         }
     }
 }

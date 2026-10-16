@@ -531,27 +531,17 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 
 void *destroy_lobby_pigeon(void *arg0, s16 arg1);
-void * create_child_object__10TObjPlayerFPv(void *arg0);
-void destroy_instance__10TObjPlayerFv(void);
-void load_kamome_resources__10TObjPlayerFv(void);
-s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self);
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
 void * TObjPlayer__sub_802C19E8(void *arg0);
 void * create__10TObjPlayerFPv(void *arg0);
-void free_statics__10TObjPlayerFv(void);
-void load_jungle_bird_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
-void * create_path_obj__10TObjPlayerFPv(void *arg0);
-void free_chr_select__10TObjPlayerFv(void);
-void load_jungle_ebi_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
 void * TObjPlayer__sub_802C27A4(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2);
 void * TObjPlayer__sub_802C28B4(void *arg0);
 void TObjPlayer__sub_802C2900(void);
-void load_seabed_dolphin__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
 s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
 void * TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1);
@@ -736,7 +726,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     return self;
 }
 
-void *create_child_object__10TObjPlayerFPv(void *arg0) {
+void *TObjPlayer::create_child_object(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = ((void * (*)(void *, void *, void *))TObjPlayer__sub_802C19E8)(o, tl_05, arg0);
@@ -744,7 +734,7 @@ void *create_child_object__10TObjPlayerFPv(void *arg0) {
     return o;
 }
 
-void destroy_instance__10TObjPlayerFv(void) {
+void TObjPlayer::destroy_instance() {
     if ((u32) lobby_kamome_texture_gvm_handle != 0U) {
         TLobby__sub_803DA16C((void*)lobby_kamome_texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(lobby_kamome_texture_gvm_handle);
@@ -756,7 +746,7 @@ void destroy_instance__10TObjPlayerFv(void) {
     }
 }
 
-void load_kamome_resources__10TObjPlayerFv(void) {
+void TObjPlayer::load_kamome_resources() {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
@@ -768,7 +758,7 @@ void load_kamome_resources__10TObjPlayerFv(void) {
     (*(u8 * *)&lobby_kamome_texture_gvm_handle) = load_gvm_texture_file((s32) &lbl_80471978.value);
 }
 
-s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self) {
+s32 TObjPlayer::update_path_steering() {
     Vec_802C1660 a;
     Vec_802C1660 b;
     Vec_802C1660 d;
@@ -778,52 +768,52 @@ s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self) {
     s32 old;
     s32 diff;
     ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
-              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
-                                                 self->fA4);
-    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
+              f32))sample_clamped_path_position)(((Obj_802C1428 *)this), ((Obj_802C1428 *)this)->f98, ((Obj_802C1428 *)this)->fA0, &a,
+                                                 ((Obj_802C1428 *)this)->fA4);
+    ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)(&((Obj_802C1428 *)this)->vAC, &a);
     r = ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
                   f32))sample_clamped_path_position)(
-        self, self->f98, self->fA0, &b, self->fA4 + jungle_seagull_path_profiles[self->fC8].d);
+        ((Obj_802C1428 *)this), ((Obj_802C1428 *)this)->f98, ((Obj_802C1428 *)this)->fA0, &b, ((Obj_802C1428 *)this)->fA4 + jungle_seagull_path_profiles[((Obj_802C1428 *)this)->fC8].d);
     ((void (*)(Vec_802C1660 *, Vec_802C1660 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C1660 *, Vec_802C1660 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1660 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
-    self->fBC = approach_angle_limited(self->fBC, tmp, jungle_seagull_path_profiles[self->fC8].e);
-    old = self->fB8;
+    ((Obj_802C1428 *)this)->fBC = approach_angle_limited(((Obj_802C1428 *)this)->fBC, tmp, jungle_seagull_path_profiles[((Obj_802C1428 *)this)->fC8].e);
+    old = ((Obj_802C1428 *)this)->fB8;
     tmp = (s32)(lbl_80471960[0] * atan2_float(b.x - a.x, b.z - a.z));
-    self->fB8 = approach_angle_limited(old, tmp, jungle_seagull_path_profiles[self->fC8].e);
+    ((Obj_802C1428 *)this)->fB8 = approach_angle_limited(old, tmp, jungle_seagull_path_profiles[((Obj_802C1428 *)this)->fC8].e);
     diff = angle_diff_s16(old, tmp);
     if (diff > 0x30) {
-        if (self->fC4 > 0) {
-            self->fC4 = 0;
+        if (((Obj_802C1428 *)this)->fC4 > 0) {
+            ((Obj_802C1428 *)this)->fC4 = 0;
         }
-        self->fC4 -= 0x40;
-        if (self->fC4 < -0x200) {
-            self->fC4 = -0x200;
+        ((Obj_802C1428 *)this)->fC4 -= 0x40;
+        if (((Obj_802C1428 *)this)->fC4 < -0x200) {
+            ((Obj_802C1428 *)this)->fC4 = -0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 < -0x2000) {
-            self->fC0 = -0x2000;
+        ((Obj_802C1428 *)this)->fC0 += ((Obj_802C1428 *)this)->fC4;
+        if (((Obj_802C1428 *)this)->fC0 < -0x2000) {
+            ((Obj_802C1428 *)this)->fC0 = -0x2000;
         }
     } else if (diff < -0x30) {
-        if (self->fC4 < 0) {
-            self->fC4 = 0;
+        if (((Obj_802C1428 *)this)->fC4 < 0) {
+            ((Obj_802C1428 *)this)->fC4 = 0;
         }
-        self->fC4 += 0x40;
-        if (self->fC4 > 0x200) {
-            self->fC4 = 0x200;
+        ((Obj_802C1428 *)this)->fC4 += 0x40;
+        if (((Obj_802C1428 *)this)->fC4 > 0x200) {
+            ((Obj_802C1428 *)this)->fC4 = 0x200;
         }
-        self->fC0 += self->fC4;
-        if (self->fC0 > 0x2000) {
-            self->fC0 = 0x2000;
+        ((Obj_802C1428 *)this)->fC0 += ((Obj_802C1428 *)this)->fC4;
+        if (((Obj_802C1428 *)this)->fC0 > 0x2000) {
+            ((Obj_802C1428 *)this)->fC0 = 0x2000;
         }
     } else {
-        self->fC4 = 0;
-        if (self->fC0 > 0x100) {
-            self->fC0 -= 0x100;
-        } else if (self->fC0 < -0x100) {
-            self->fC0 += 0x100;
+        ((Obj_802C1428 *)this)->fC4 = 0;
+        if (((Obj_802C1428 *)this)->fC0 > 0x100) {
+            ((Obj_802C1428 *)this)->fC0 -= 0x100;
+        } else if (((Obj_802C1428 *)this)->fC0 < -0x100) {
+            ((Obj_802C1428 *)this)->fC0 += 0x100;
         } else {
-            self->fC0 = 0;
+            ((Obj_802C1428 *)this)->fC0 = 0;
         }
     }
     return r;
@@ -877,7 +867,7 @@ void TUnk_804E08D4::vfunc_13(s32) {
     s32 temp_r0;
 
     *(f32 *)((s8 *)arg0 + 0xA4) += jungle_seagull_path_profiles[*(s32 *)((s8 *)arg0 + 0xC8)].b;
-    if (((s32 (*)(void *))update_path_steering__10TObjPlayerFPv)(arg0) == 0) {
+    if (((TObjPlayer *)arg0)->update_path_steering() == 0) {
         *(f32 *)((s8 *)arg0 + 0xA4) = (0.0f);
     }
     *(f32 *)((s8 *)arg0 + 0xA8) += jungle_seagull_path_profiles[*(s32 *)((s8 *)arg0 + 0xC8)].c;
@@ -941,7 +931,7 @@ void *create__10TObjPlayerFPv(void *arg0) {
     return o;
 }
 
-void free_statics__10TObjPlayerFv(void) {
+void TObjPlayer::free_statics() {
     if ((u32) lobby_pigeon_texture_gvm != 0U) {
         TLobby__sub_803DA16C((void*)lobby_pigeon_texture_gvm);
         TAdSinglePlyChrSelectGC::safe_free(lobby_pigeon_texture_gvm);
@@ -953,7 +943,7 @@ void free_statics__10TObjPlayerFv(void) {
     }
 }
 
-void load_jungle_bird_resources__10TObjPlayerFv(void) {
+void TObjPlayer::load_jungle_bird_resources() {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
@@ -1121,7 +1111,7 @@ u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {
   return arg0;
 }
 
-void *create_path_obj__10TObjPlayerFPv(void *arg0) {
+void *TObjPlayer::create_path_obj(void *arg0) {
     void *o = __nw__7TObjectFUl(0xCC);
     if (o != NULL) {
         o = ((void * (*)(void *, void *, void *))TObjPlayer__sub_802C27FC)(o, tl_05, arg0);
@@ -1129,7 +1119,7 @@ void *create_path_obj__10TObjPlayerFPv(void *arg0) {
     return o;
 }
 
-void free_chr_select__10TObjPlayerFv(void) {
+void TObjPlayer::free_chr_select() {
     if ((u32) jungle_ebi_texture_gvm_handle != 0U) {
         TLobby__sub_803DA16C((void*)jungle_ebi_texture_gvm_handle);
         TAdSinglePlyChrSelectGC::safe_free(jungle_ebi_texture_gvm_handle);
@@ -1141,7 +1131,7 @@ void free_chr_select__10TObjPlayerFv(void) {
     }
 }
 
-void load_jungle_ebi_resources__10TObjPlayerFv(void) {
+void TObjPlayer::load_jungle_ebi_resources() {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
@@ -1353,7 +1343,7 @@ void TObjPlayer__sub_802C2900(void) {
     }
 }
 
-void load_seabed_dolphin__10TObjPlayerFv(void) {
+void TObjPlayer::load_seabed_dolphin() {
     Obj_802C2958 *o = ((Obj_802C2958 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)(0x440);
     if (o != 0) {
         o = ((Obj_802C2958 * (*)(Obj_802C2958 *, s32, void *, s32, s32, s32))load_resource_from_descriptor)(o, 5, bm_obj_seabed_dolphin_resource_descriptor, 0, 0, 0);

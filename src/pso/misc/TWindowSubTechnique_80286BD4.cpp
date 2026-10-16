@@ -9,7 +9,6 @@ int get_selection__19TWindowSubTechniqueFPsPll(void*, void* a1);
 u32 get_player_by_client_id(s32);
 s32 is_palette_entry_displayable__10TObjPlayerFv(s32, s32, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 is_technique_available__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 set_field_1c__6TLobbyFf(int);
 f32 TWindowSubEquip__sub_80263AF8(int, int);
@@ -36,7 +35,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
 
 int TWindowSubTechnique::get_current_selection(void* _w1) { return get_selection__19TWindowSubTechniqueFPsPll((void*)(this), (void*)(_w1)); }
 
-s32 is_technique_available__19TWindowSubTechniqueFii(s32 arg0, s32 arg1) {
+s32 TWindowSubTechnique::is_technique_available(s32 arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = ((s32)get_player_by_client_id(arg1));
     if (temp_r3 == 0) {
@@ -66,7 +65,7 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2)
         draw_text_gray__17TWindowSubComCardFllll(arg2, temp_r31, 6, arg0);
         return;
     }
-    if (is_technique_available__19TWindowSubTechniqueFii((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(arg1)))) == 0) {
+    if (TWindowSubTechnique::is_technique_available((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(arg1)))) == 0) {
         add_text_entry__19TWindowSubTradeMainFllll(arg2, temp_r31, 0x16, arg0, 0xFFFD3901);
         return;
     }

@@ -38,10 +38,10 @@ s32 obj_getField1c(void *);
 s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
 void init_target_vector__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 get_body_exclude_mask__11TMainCursorFPv(void *);
-s32 get_body_include_mask__11TMainCursorFPv(void *);
-s32 get_actor_exclude_mask__11TMainCursorFPv(void *);
-s32 get_actor_include_mask__11TMainCursorFPv(void *);
+s32 get_body_exclude_mask__11TMainCursorFv(void *);
+s32 get_body_include_mask__11TMainCursorFv(void *);
+s32 get_actor_exclude_mask__11TMainCursorFv(void *);
+s32 get_actor_include_mask__11TMainCursorFv(void *);
 s32 set_cursor_id__11TMainCursorFs(s32, int);
 s32 set_size__11TMainCursorFf(f32);
 s32 TMainCursor__sub_8013F13C(void *);
@@ -49,7 +49,7 @@ f32 TMainCursor__sub_8013F14C(s32);
 s32 get_record_at__11TMainCursorFPvi(void *, int);
 s32 TMainCursor__sub_8013F168(void *);
 f32 horizontal_distance_squared(void *, void *);
-s32 set_flag_bit__11TMainCursorFPviUs(void *, int, int);
+s32 set_flag_bit__11TMainCursorFlUs(void *, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best);
 }
@@ -63,7 +63,7 @@ s32 store_sorted_record__11TMainCursorFPvPvPv(s32, Ent_8013C678 *, Ent_8013C678 
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
 s32 is_channel_active__11TMainCursorFv();
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1 = 0, void* a2 = 0);
-int init_slot__11TMainCursorFPvi(void*, void*);
+int init_slot__11TMainCursorFl(void*, void*);
 u8 TMainCursor__sub_8013E900(s32);
 s32 get_record_at__11TMainCursorFPvi(void *, int);
 s32 TMainCursor__sub_8013F170(void *, int);
@@ -197,8 +197,8 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
     if (player == NULL || ((TObject *)player)->all_parents_unqueued_for_destruction() == 0) {
         return 0;
     }
-    if (obj_testFlags30(player, get_actor_include_mask__11TMainCursorFPv(cursor)) == 0 ||
-        obj_testFlags30(player, get_actor_exclude_mask__11TMainCursorFPv(cursor)) != 0) {
+    if (obj_testFlags30(player, get_actor_include_mask__11TMainCursorFv(cursor)) == 0 ||
+        obj_testFlags30(player, get_actor_exclude_mask__11TMainCursorFv(cursor)) != 0) {
         return 0;
     }
     yaw = *(s32 *)(target + 0x60);
@@ -208,14 +208,14 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
             continue;
         }
         c->flags &= ~0x10000000;
-        set_flag_bit__11TMainCursorFPviUs(player, i, obj_getField1c(target));
+        set_flag_bit__11TMainCursorFlUs(player, i, obj_getField1c(target));
         if (!(c->flags & 1)) {
             continue;
         }
-        if (!(c->flags & get_body_include_mask__11TMainCursorFPv(cursor))) {
+        if (!(c->flags & get_body_include_mask__11TMainCursorFv(cursor))) {
             continue;
         }
-        if (c->flags & get_body_exclude_mask__11TMainCursorFPv(cursor)) {
+        if (c->flags & get_body_exclude_mask__11TMainCursorFv(cursor)) {
             continue;
         }
         dist = horizontal_distance_squared(cursor + 0x1C, c->pos);
@@ -333,7 +333,7 @@ void TMainCursor::reset_slots() {
     } while (i < 4);
 }
 
-void TMainCursor::init_slots() { { int i; for (i = 0; i < 4; i++) { init_slot__11TMainCursorFPvi(this, (void*)i); } } }
+void TMainCursor::init_slots() { { int i; for (i = 0; i < 4; i++) { init_slot__11TMainCursorFl(this, (void*)i); } } }
 
 s32 TMainCursor::find_by_pos(s16 arg1, s16 arg2) {
     s32 arg0 = (s32)this;

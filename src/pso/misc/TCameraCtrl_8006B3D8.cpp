@@ -88,7 +88,6 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern const s32 lbl_80488AD8[];
 extern u32 camera_ctrl_instance;
 extern s32 TCameraCtrl__fixed_npc_camera_active;
-u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
@@ -109,8 +108,8 @@ void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1);
 void *TCameraCtrl__vt9(void);
 s32 restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
-s32 activate_body_collision__10TObjPlayerFPv();
-s32 deactivate_body_collision__10TObjPlayerFPv();
+s32 activate_body_collision__10TObjPlayerFv();
+s32 deactivate_body_collision__10TObjPlayerFv();
 u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -120,7 +119,7 @@ extern s32 local_client_id;
 
 void TCameraCtrl::update_active_player() {
     if (get_player_by_client_id(local_client_id) != 0U) {
-        activate_body_collision__10TObjPlayerFPv();
+        activate_body_collision__10TObjPlayerFv();
     }
 }
 
@@ -128,7 +127,7 @@ extern s32 local_client_id;
 
 void TCameraCtrl::update_battle_camera() {
     if (get_player_by_client_id(local_client_id) != 0U) {
-        deactivate_body_collision__10TObjPlayerFPv();
+        deactivate_body_collision__10TObjPlayerFv();
     }
 }
 
@@ -146,7 +145,7 @@ u8 *create_conversation_camera(s32 arg0) {
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x38))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(init_conversation_camera__11TCameraCtrlFPviii((u8 *)(temp_r3), (s32)(temp_r31), (s32)(arg0), (s32)(tl_07)));
+        var_r0 = (u8 *)(((TCameraCtrl *)temp_r3)->init_conversation_camera((s32)(temp_r31), (s32)(arg0), (s32)(tl_07)));
     }
     return var_r0;
 }
@@ -177,26 +176,26 @@ extern s32 tl_07;
 
 typedef struct RecoveredFields_8006B588_arg0 RecoveredFields_8006B588_arg0;
 typedef struct RecoveredGlobal_8006B588_lbl_80488AD8 RecoveredGlobal_8006B588_lbl_80488AD8;
-u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TCameraCtrl::init_conversation_camera(s32 arg1, s32 arg2, s32 arg3) {
   void *new_var;
-  __ct__7TObjectFP7TObject((void *) arg0, (void *) arg3);
-  ((RecoveredFields_8006B588_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
-  ((RecoveredFields_8006B588_arg0 *) arg0)->field_34 = arg2;
+  __ct__7TObjectFP7TObject((void *) ((u8 *)this), (void *) arg3);
+  ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
+  ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_34 = arg2;
   activate_camera_mode((int) 9);
   if (is_split_screen() != 0)
   {
     new_var = (void *) TCameraCtrl__sub_8006BAC8((void *) (*(s32 *)&camera_ctrl_instance), (void *) arg1);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), new_var);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) TCameraCtrl__sub_8006BAB4((void *) (*(s32 *)&camera_ctrl_instance), (void *) arg1));
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x1C), new_var);
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x28), (void *) TCameraCtrl__sub_8006BAB4((void *) (*(s32 *)&camera_ctrl_instance), (void *) arg1));
   }
   else
   {
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) ((*(s32 *)&camera_ctrl_instance) + 0x178));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) ((*(s32 *)&camera_ctrl_instance) + 0x184));
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x1C), (void *) ((*(s32 *)&camera_ctrl_instance) + 0x178));
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x28), (void *) ((*(s32 *)&camera_ctrl_instance) + 0x184));
   }
-  set_active_camera_pose((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
+  set_active_camera_pose((void *) (((u8 *)this) + 0x1C), (void *) (((u8 *)this) + 0x28));
   TCameraCtrl__fixed_npc_camera_active = 0;
-  return arg0;
+  return ((u8 *)this);
 }
 
 void TCameraCtrl::create(s32 arg0, s32 arg1, s32 arg2) {

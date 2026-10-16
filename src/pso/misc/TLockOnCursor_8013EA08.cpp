@@ -15,13 +15,13 @@ extern "C" {
 
 s32 TLockOnCursor__sub_8013EB2C(void* p);
 int TLockOnCursor__sub_8013EB34(void);
-int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
+int is_same_target__11TMainCursorFPv(void* a0 = 0, void* a1 = 0);
 int test_flags_any(void*, int);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 
 int TLockOnCursor::render_part() { return test_flags_any((char*)this + 0x8, 2); }
-void TLockOnCursor::update_cursor_pos() { is_same_target__11TMainCursorFPvPv((char*)this + 0xc, (char*)this + 0x14); }
+void TLockOnCursor::update_cursor_pos() { is_same_target__11TMainCursorFPv((char*)this + 0xc, (char*)this + 0x14); }
 int TLockOnCursor::set_flag_8_bit0() { return set_flags__10TObjPlayerFUl((char*)this + 0x8, 1); }
 int TLockOnCursor::update_ring() { return clear_flags__11TAdRicoRingFUl((char*)this + 0x8, 1); }
 int TLockOnCursor::is_bit1_set() { return set_flags__10TObjPlayerFUl((char*)this + 0x8, 2); }

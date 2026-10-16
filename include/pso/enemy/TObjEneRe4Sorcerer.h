@@ -52,6 +52,15 @@ struct TObjEneRe4Sorcerer : public TObjEneDD_ST {
     void *create();
     static void load_resources();
     u8 unk_45C[0x94];
+    void set_flag3cc_bit2000();
+    void invoke_state_callbacks();
+    void clear_state_flag_0x10();
+    void set_flag_and_notify();
+    void set_attack_flag();
+    void set_state_flag_and_mode(s32 arg1);
+    void*get_spell_data();
+    s32 get_state();
+    s32 update_farthest_target(s32 arg1, f32 *arg2);
 };
 
 typedef char TObjEneRe4Sorcerer_size[sizeof(TObjEneRe4Sorcerer) == 0x4F0 ? 1 : -1];

@@ -84,6 +84,7 @@ struct TObjEneMoja {
     s32 update_freeze_timer();
     s32 update_action_hold();
     void run_task();
+    s32 select_attack();
 };
 typedef char MojaSize[(sizeof(TObjEneMoja)==0x40C)?1:-1];
 #include <stddef.h>

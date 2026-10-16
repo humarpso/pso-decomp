@@ -118,12 +118,11 @@ s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 align_menu_entry_positions(int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(s32);
-s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
 s32 TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-u32 get_usable_action_flags__5TItemFPvUiUi(int, int, int);
+u32 get_usable_action_flags__5TItemFUlUl(int, int, int);
 s32 get_item_info__10TObjPlayerFllPs(int, int, void *);
 void *find_item_by_id(s32);
 s32 get_player_by_client_id(s32);
@@ -144,7 +143,6 @@ Quest_8027ABFC *get_quest_id__12TQuestListVMFv(void *);
 void calc_list_content_extent(void *);
 void push_status_disp_entry(void *, s32, s32);
 void add_battle_stat_entry(void *, s32, s32, s32);
-void gray_out_unusable_entries__14TWindowSubItemFPv(Wn_8027AA80 *arg0);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 void populate_sub_item_list(Win_8027ABFC *arg0);
 s32 get_player_by_client_id(s32);
@@ -153,10 +151,10 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1);
 void *find_item_by_id(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_usable__14TWindowSubItemFi(s32);
-void send_trap_packet__10TObjPlayerFPvi(s32, s32);
-void request_meseta_drop__10TObjPlayerFPvi(s32, s32);
-void request_item_drop__10TObjPlayerFPvii(s32, s32, s32);
+s32 is_usable__14TWindowSubItemFl(s32);
+void send_trap_packet__10TObjPlayerFi(s32, s32);
+void request_meseta_drop__10TObjPlayerFl(s32, s32);
+void request_item_drop__10TObjPlayerFll(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 u32 is_action_active__10TObjPlayerFPv(s32);
 void decrement_clamped(void *, s32);
@@ -171,7 +169,6 @@ s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 get_selected_menu_value(u32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 s32 get_window_layout_position(s32);
-s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1);
 void TWindowSubItem__sub_8027AA30(u8 *arg0);
 extern Pad_80279FFC controller_input_state[];
 }
@@ -187,7 +184,7 @@ s32 send_6x25_equip_item(s32, s32, s32);
 s32 is_boss_area();
 s32 get_player_by_client_id(s32);
 int clamp_selection_to_valid_entry__20TShopArmorListWindowFv(void*);
-int reset_list__20TShopArmorListWindowFPv(void*);
+int reset_list__20TShopArmorListWindowFv(void*);
 s32 TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 __ct__18TWindowInputNumberFPvllls(s32, s32, s32, s32, s32, s16);
 s32 get_window_layout_position(s32);
@@ -198,7 +195,7 @@ s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 __nw__7TObjectFUl(s32);
-s32 close_sub_window__10TObjPlayerFPv();
+s32 close_sub_window__10TObjPlayerFv();
 s32 try_send_6x27_use_item(s32, s32);
 s32 create_sub_item_list_window(s32, s32 *, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -213,7 +210,6 @@ s32 set_field_1c__6TLobbyFf(s32);
 
 extern "C" {
 Quest_8027ABFC *get_quest_id__12TQuestListVMFv(void *);
-void gray_out_unusable_entries__14TWindowSubItemFPv(Wn_8027AA80 *arg0);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 }
 
@@ -264,7 +260,7 @@ void TWindowSubItem::close_windows(s32 arg1) {
     if (get_player_by_client_id((s32)(*(s32 *)&this->m_24)) != 0U) {
         switch (arg1) {
         case 0:
-            close_sub_window__10TObjPlayerFPv();
+            close_sub_window__10TObjPlayerFv();
             *(s8 *)&this->m_1c = 0x16;
             return;
         case 1:
@@ -344,9 +340,9 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
   temp_r3 = ((s32)find_item_by_id((s32)((void *) arg2)));
   if (temp_r3 != 0)
   {
-    if (get_usable_action_flags__5TItemFPvUiUi((int) temp_r3, (int) 2, (int) 0) != 0U)
+    if (get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 2, (int) 0) != 0U)
     {
-      if ((get_usable_action_flags__5TItemFPvUiUi((int) temp_r3, (int) 1, (int) 0) != 0U) || (TOKeyMachine01::get_global_state() == 0xF))
+      if ((get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 1, (int) 0) != 0U) || (TOKeyMachine01::get_global_state() == 0xF))
       {
         TWindowSubComCard::draw_text_gray((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0x60))), (s32)((int) 6), (s32)((int) 0));
       }
@@ -356,7 +352,7 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
       }
     }
     ((TItem *)(0, (int) (temp_r3 & 0xFFFFFFFFu)))->get_field_ec();
-    if (get_usable_action_flags__5TItemFPvUiUi((int) temp_r3, (int) 8, (int) 0) != 0U)
+    if (get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 8, (int) 0) != 0U)
     {
       if (((TObjPlayer *)temp_r3)->test_item_flags((int) 8) != 0U)
       {
@@ -385,7 +381,7 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
         }
       }
     }
-    if ((TOKeyMachine01::get_global_state() == 0xF) || (get_usable_action_flags__5TItemFPvUiUi((int) temp_r3, (int) 0x10, (int) 0) != 0U))
+    if ((TOKeyMachine01::get_global_state() == 0xF) || (get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 0x10, (int) 0) != 0U))
     {
       TWindowSubComCard::draw_text_gray((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0x5F))), (s32)((int) 6), (s32)((int) 3));
     }
@@ -454,17 +450,17 @@ s32 TWindowSubItem::create_menu_window() {
     return temp_r31;
 }
 
-s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1) {
+s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     s32 temp_r31;
-    temp_r31 = create_titled_window_menu(((int)get_window_layout_position((s32)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFl((s32)((int) (0x26))), (int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    temp_r31 = create_titled_window_menu(((int)get_window_layout_position((s32)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFl((s32)((int) (0x26))), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
     if (arg1 == -0xFF) {
-        TWindowSubItem::add_meseta_purpose_actions((s32)((void *) (arg0)), (s32)((int) (temp_r31)));
+        TWindowSubItem::add_meseta_purpose_actions((s32)((void *) (((u8 *)this))), (s32)((int) (temp_r31)));
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
-        TWindowSubItem::draw_slot((s32)((void *) (arg0)), (s32)((int) (temp_r31)), (s32)((void *) (arg1)));
+        TWindowSubItem::draw_slot((s32)((void *) (((u8 *)this))), (s32)((int) (temp_r31)), (s32)((void *) (arg1)));
     } else {
-        add_item_purpose_actions((u8 *)((void *) (arg0)), (s32)((int) (temp_r31)), (s32)((void *) (arg1)));
+        add_item_purpose_actions((u8 *)((void *) (((u8 *)this))), (s32)((int) (temp_r31)), (s32)((void *) (arg1)));
     }
-    TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)((s8 *)arg0 + 0x2C))), (s32)((int) (1)));
+    TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x2C))), (s32)((int) (1)));
     set_field_1c__6TLobbyFf((s32)((int) (temp_r31)));
     ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
     ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) (lbl_805DD630));
@@ -541,7 +537,7 @@ void TWindowSubItem::run_task() {
                 F(u32, 0x40) = 0;
             }
             if (F(u32, 0x34) == 0) {
-                F(u32, 0x34) = open_purpose_window__14TWindowSubItemFPvi(arg0, select_cursor_entry__22TWindowSubShortCutListFv(LIST));
+                F(u32, 0x34) = ((TWindowSubItem *)arg0)->open_purpose_window(select_cursor_entry__22TWindowSubShortCutListFv(LIST));
             }
             ((TWindowSubComCard *)(F(u32, 0x34)))->clear_flag_and_release();
             ((TWindowSubComCard *)(F(u32, 0x34)))->clear_transition_flag();
@@ -563,7 +559,7 @@ void TWindowSubItem::run_task() {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 F(u8, 0x1C) = 3;
             }
-            if (is_usable__14TWindowSubItemFi(p) != 0) {
+            if (is_usable__14TWindowSubItemFl(p) != 0) {
                 exec_item_command(select_cursor_entry__22TWindowSubShortCutListFv(LIST), get_selected_menu_value(F(u32, 0x34)));
                 return;
             }
@@ -585,7 +581,7 @@ void TWindowSubItem::run_task() {
             s16 cur = ((TShopGetItemWindow *)LIST)->get_cursor_index();
             ((TWindowSubItem *)LIST)->refresh();
             TWindowSubItem__sub_8027AB10((Wn_8027AB10 *) LIST);
-            gray_out_unusable_entries__14TWindowSubItemFPv((Wn_8027AA80 *) LIST);
+            ((TWindowSubItem *)LIST)->gray_out_unusable_entries();
             ((TWindowSubItem *)LIST)->set_field_74(cur);
             ((TWindowSubItem *)LIST)->clear_selected_and_update_entry();
             ((TWindowSubItem *)LIST)->reset_selected();
@@ -605,7 +601,7 @@ void TWindowSubItem::run_task() {
             break;
         case 10:
             TWindowSubItem__sub_8027AB10((Wn_8027AB10 *) LIST);
-            gray_out_unusable_entries__14TWindowSubItemFPv((Wn_8027AA80 *) LIST);
+            ((TWindowSubItem *)LIST)->gray_out_unusable_entries();
             TWindowSubItem__sub_8027AA30((u8 *) LIST);
             ((TWindowSubItem *)LIST)->clear_selected_and_update_entry();
             F(u8, 0x1C) = 0xB;
@@ -650,8 +646,8 @@ void TWindowSubItem::run_task() {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 F(u8, 0x1C) = 3;
             }
-            if (is_usable__14TWindowSubItemFi(p) != 0) {
-                request_item_drop__10TObjPlayerFPvii(p, select_cursor_entry__22TWindowSubShortCutListFv(LIST), F(s32, 0x28));
+            if (is_usable__14TWindowSubItemFl(p) != 0) {
+                request_item_drop__10TObjPlayerFll(p, select_cursor_entry__22TWindowSubShortCutListFv(LIST), F(s32, 0x28));
                 F(u8, 0x1C) = 0x16;
                 return;
             }
@@ -664,8 +660,8 @@ void TWindowSubItem::run_task() {
                 F(u8, 0x1C) = 1;
             }
             p = get_player_by_client_id(F(s32, 0x24));
-            if (p != 0 && is_usable__14TWindowSubItemFi(p) != 0 && TWindowCtrl__sub_8024A228(F(s32, 0x24)) != 0) {
-                send_trap_packet__10TObjPlayerFPvi(p, select_cursor_entry__22TWindowSubShortCutListFv(LIST) & 0xF);
+            if (p != 0 && is_usable__14TWindowSubItemFl(p) != 0 && TWindowCtrl__sub_8024A228(F(s32, 0x24)) != 0) {
+                send_trap_packet__10TObjPlayerFi(p, select_cursor_entry__22TWindowSubShortCutListFv(LIST) & 0xF);
                 F(u8, 0x1C) = 1;
                 return;
             }
@@ -678,7 +674,7 @@ void TWindowSubItem::run_task() {
                 F(u8, 0x1C) = 1;
             }
             p = get_player_by_client_id(F(s32, 0x24));
-            if (p != 0 && is_usable__14TWindowSubItemFi(p) != 0 && TAdSinglePlyChrSelectGC::create_if_key_pressed() != 0) {
+            if (p != 0 && is_usable__14TWindowSubItemFl(p) != 0 && TAdSinglePlyChrSelectGC::create_if_key_pressed() != 0) {
                 decrement_clamped((void *) (p + 0x7C8), 1);
                 F(u8, 0x1C) = 1;
                 return;
@@ -723,8 +719,8 @@ void TWindowSubItem::run_task() {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 F(u8, 0x1C) = 3;
             }
-            if (is_usable__14TWindowSubItemFi(p) != 0) {
-                request_meseta_drop__10TObjPlayerFPvi(p, F(s32, 0x28));
+            if (is_usable__14TWindowSubItemFl(p) != 0) {
+                request_meseta_drop__10TObjPlayerFl(p, F(s32, 0x28));
                 F(u8, 0x1C) = 0x16;
                 return;
             }
@@ -803,12 +799,12 @@ s32 TWindowSubItem__sub_8027AA78(s32 arg0) {
     return arg0 - 0x10;
 }
 
-void gray_out_unusable_entries__14TWindowSubItemFPv(Wn_8027AA80 *arg0) {
+void TWindowSubItem::gray_out_unusable_entries() {
     s32 i;
     En_8027AA80 *e;
 
-    for (i = 0; i < arg0->f76; i++) {
-        e = (En_8027AA80 *)((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(arg0, i);
+    for (i = 0; i < ((Wn_8027AA80 *)this)->f76; i++) {
+        e = (En_8027AA80 *)((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((Wn_8027AA80 *)this), i);
         if (is_flag_4_set__20TWindowSubStatusDispFv() != 0 && ((s32 (*)(void *))get_cursor_pos__14TWindowSubItemFv)(e) == -0xFF) {
             e->c2c = 0xFFAAAAAA;
             e->c34 = 0xFF909090;
@@ -831,7 +827,7 @@ void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0) {
     }
 }
 
-void TWindowSubItem::refresh() { save_cursor_selection__20TShopArmorListWindowFv(this); reset_list__20TShopArmorListWindowFPv(this); populate_sub_item_list((Win_8027ABFC*)(this)); clamp_selection_to_valid_entry__20TShopArmorListWindowFv(this); clamp_scroll_offset__20TWindowSubStatusDispFv(this); reset_selected(); }
+void TWindowSubItem::refresh() { save_cursor_selection__20TShopArmorListWindowFv(this); reset_list__20TShopArmorListWindowFv(this); populate_sub_item_list((Win_8027ABFC*)(this)); clamp_selection_to_valid_entry__20TShopArmorListWindowFv(this); clamp_scroll_offset__20TWindowSubStatusDispFv(this); reset_selected(); }
 
 void populate_sub_item_list(Win_8027ABFC *arg0) {
     s32 ids[30];

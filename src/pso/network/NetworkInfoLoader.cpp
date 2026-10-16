@@ -60,7 +60,7 @@ s32 request_network_info_exists(s32 arg0);
 s32 get_network_config_mode(void);
 extern NetworkInfoLoadState network_info_load_state;
 s32 take_network_info_exists_result(s32 *arg0, s32 *arg1);
-s32 request_card_open__15TAdPlayerLoadGCFiPv(s32 arg0, const char *arg1);
+s32 request_card_open__15TAdPlayerLoadGCFlPCc(s32 arg0, const char *arg1);
 
 extern NetworkInfoLoadState network_info_load_state;
 void update_network_info_exists(void);
@@ -347,7 +347,7 @@ void update_network_info_exists(void) {
     switch (s->phase) {
     case 1:
         TAdPlayerLoadGC::get_or_set_channel_flag(s->card_channel, 1);
-        network_info_load_state.card_result = request_card_open__15TAdPlayerLoadGCFiPv(s->card_channel, "sega_network_information");
+        network_info_load_state.card_result = request_card_open__15TAdPlayerLoadGCFlPCc(s->card_channel, "sega_network_information");
         if (network_info_load_state.card_result < 0) {
             TAdPlayerLoadGC::get_or_set_channel_flag(s->card_channel, 0);
             network_info_load_state.result = -209;

@@ -30,7 +30,9 @@ struct TShopGetItemWindow : public TShopWindowBase {
     s32 handle_withdraw_list_input();
     void rebuild_item_list();
     s16 get_cursor_index();
-    void calc_item_count(s32 *arg1);};
+    void calc_item_count(s32 *arg1);
+    void handle_withdraw_confirm();
+};
 
 typedef char TShopGetItemWindow_size[sizeof(TShopGetItemWindow) == 0x68 ? 1 : -1];
 #endif

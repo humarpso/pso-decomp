@@ -12,6 +12,9 @@ public:
     void draw_model(void* a1, s32 a2);
     void set_all_entry_flags();
     static void render();
+public:
+    int get_state();
+    void draw_linked_model(void* position, s32 yaw);
 };
 
 #endif

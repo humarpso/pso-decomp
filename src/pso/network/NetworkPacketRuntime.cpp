@@ -282,7 +282,6 @@ s32 OSRestoreInterrupts(s32);
 s32 OSSleepThread(void *);
 extern s32 network_thread_queue;
 extern u32 lbl_805D7BA8;
-void clear_message_entry__6TLobbyFi(s32 a);
 void NetUnregisterTimer(void *);
 extern s16 network_link_status_cache;
 extern s32 lbl_805D7BB0;
@@ -484,7 +483,7 @@ static inline NetworkPacketBufferDescriptor *find_804253F8(u32 arg0) {
     return &network_packet_buffer_descriptors[i];
 }
 
-void clear_message_entry__6TLobbyFi(s32 a) {
+void TLobby::clear_message_entry(s32 a) {
     R_804253A0 *r;
     u8 unused[8];
     TLobby::lock_mutex((int)((void *)lbl_805D7BA8));

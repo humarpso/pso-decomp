@@ -19,6 +19,7 @@ struct TMedicalCenterSequence : public TShopSequence {
     void show_already_healthy();
     s32 handle_window_input();
     u8 unk_1C[0x1C];
+    void show_fee_prompt();
 };
 
 typedef char TMedicalCenterSequence_size[sizeof(TMedicalCenterSequence) == 0x38 ? 1 : -1];

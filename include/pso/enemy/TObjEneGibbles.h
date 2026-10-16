@@ -52,6 +52,9 @@ struct TObjEneGibbles : public TObjEnemy {
     void init_params();
     static void *create(void *arg0);
     static void free_static();
-    static void load_resources();};
+    static void load_resources();
+    f32 get_pos_x();
+    void turn_toward_target();
+};
 typedef char TObjEneGibbles_size[(sizeof(TObjEneGibbles) ==0x44C) ?1:-1];
 #endif

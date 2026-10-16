@@ -9,12 +9,12 @@ extern s32 tl_05;
 
 extern "C" {
 
-int set_status_flags__10TObjPlayerFPvUi(void*, void*);
+int set_status_flags__10TObjPlayerFUl(void*, void*);
 int construct_srank_weapon(void);
 
     extern unsigned char lbl_804F28E0[];
     extern const float lbl_805E0268;
-void*TUnk_804F28E0::init(s32 _w1, void *_w2) { construct_srank_weapon(); *(int*)((char*)this + 0x18) = (int)lbl_804F28E0; set_status_flags__10TObjPlayerFPvUi(this, (void*)2); *(float*)((char*)this + 0x1fc) = lbl_805E0268; return this; }
+void*TUnk_804F28E0::init(s32 _w1, void *_w2) { construct_srank_weapon(); *(int*)((char*)this + 0x18) = (int)lbl_804F28E0; set_status_flags__10TObjPlayerFUl(this, (void*)2); *(float*)((char*)this + 0x1fc) = lbl_805E0268; return this; }
 u8 *TItemEffectWeapon::create_instance() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;

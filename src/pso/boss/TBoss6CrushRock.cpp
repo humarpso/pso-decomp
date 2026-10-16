@@ -1,4 +1,5 @@
 #include "pso/TBoss6CrushRock.h"
+#include "pso/boss/TBoss6Rock.h"
 
 TBoss6CrushRock::~TBoss6CrushRock() {}
 
@@ -66,7 +67,7 @@ u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 #pragma push
 #pragma fp_contract on
-void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
+void TBoss6Rock::spawn_crush_rocks(s32 kind) {
     f32 radius;
     s32 base;
     s32 n;
@@ -76,7 +77,7 @@ void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
     if (TBoss6CrushRock::is_falz_alive() == 0) {
         return;
     }
-    ((TBoss6CrushPtcl *)self)->create();
+    ((TBoss6CrushPtcl *)((Vec_8035A460 *)this))->create();
     radius = lbl_805E00D8;
     base = 5;
     n = 2;
@@ -94,7 +95,7 @@ void spawn_crush_rocks__10TBoss6RockFPvi(Vec_8035A460 *self, s32 kind) {
     }
     for (i = 0; i < 0x12 / n; i++) {
         for (j = 0; j < n; j++) {
-            Vec_8035A460 p = *self;
+            Vec_8035A460 p = *((Vec_8035A460 *)this);
             s32 angle = (s32)(lbl_805E00D0 * (lbl_805E00CC * (f32)rand()));
             p.x += radius * sin_table_lookup(angle);
             p.y += lbl_805E00E0 * (lbl_805E00CC * (f32)rand());

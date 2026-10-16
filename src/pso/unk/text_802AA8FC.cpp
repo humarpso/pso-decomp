@@ -3,25 +3,23 @@
 
 extern "C" {
 
-s32 get_next_point__14TBoss6PlotFalzFPvPvPv(void *arg0, s16 *arg1, s16 *arg2);
-u8 is_flag_set__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0);
 s32 get_main_phase();
 s32 is_split_screen();
 
 extern s32 TBoss6PlotFalz__instance;
 
-u8 is_flag_set__14TBoss6PlotFalzFv(void) {
+u8 TBoss6PlotFalz::is_flag_set() {
     return (u8) (TBoss6PlotFalz__instance != 0);
 }
 
-s32 get_next_point__14TBoss6PlotFalzFPvPvPv(void *arg0, s16 *arg1, s16 *arg2) {
+s32 TBoss6PlotFalz::get_next_point(s16 *arg1, s16 *arg2) {
     if (((s32 (*)(void))TBoss6PlotFalz__sub_802AAC74)() < 1) {
         return 0;
     }
-    *arg1 = *(s16 *)((s8 *)arg0 + 0x2C) + *(s32 *)((s8 *)arg0 + 0x3C8);
-    *arg2 = *(u16 *)((s8 *)arg0 + 0x1C) + *(s32 *)((s8 *)arg0 + 0x3C8);
-    *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) + 1);
+    *arg1 = *(s16 *)((s8 *)this + 0x2C) + *(s32 *)((s8 *)this + 0x3C8);
+    *arg2 = *(u16 *)((s8 *)this + 0x1C) + *(s32 *)((s8 *)this + 0x3C8);
+    *(s32 *)((s8 *)this + 0x3C8) = (s32) (*(s32 *)((s8 *)this + 0x3C8) + 1);
     return 1;
 }
 

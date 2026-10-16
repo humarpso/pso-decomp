@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
-void dispatch_fish_event__6TLobbyFPv(void* a0);
 int get_bml_model(void*, void*);
 
     extern u32 container_breakup_model_archive;
-void dispatch_fish_event__6TLobbyFPv(void* a0) { get_bml_model((void*)(container_breakup_model_archive), a0); }
+void TLobby::dispatch_fish_event(void* a0) { get_bml_model((void*)(container_breakup_model_archive), a0); }
 
 }
 
@@ -24,19 +24,17 @@ extern u8 fe_obj_con_hahen1_resource_descriptor[];
 extern u8 bm_obj_seabed_con_rare_resource_descriptor[];
 extern u32 container_breakup_model_archive;
 extern u32 lbl_805D5B8C;
-void load_console_resources__6TLobbyFv(void);
 }
 
 extern "C" {
 
-void free_chr_select_slot__6TLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 
 extern u32 container_breakup_model_archive;
 extern u32 lbl_805D5B8C;
 
-void free_chr_select_slot__6TLobbyFv(void) {
+void TLobby::free_chr_select_slot() {
     if ((u32) lbl_805D5B8C != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D5B8C);
         TAdSinglePlyChrSelectGC::safe_free(lbl_805D5B8C);
@@ -47,7 +45,7 @@ void free_chr_select_slot__6TLobbyFv(void) {
         container_breakup_model_archive = 0U;
     }
 }
-void load_console_resources__6TLobbyFv(void) {
+void TLobby::load_console_resources() {
     void *p;
     container_breakup_model_archive = 0;
     switch (TOKeyMachine01::get_global_state()) {

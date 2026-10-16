@@ -65,7 +65,7 @@ s32 get_state_flag__9TMainTaskFv();
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 get_localized_text_entry(int, int);
-s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(void *, void *);
 u8 *get_instance__23TAdSinglePlyChrSelectGCFv(void);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void);
@@ -214,7 +214,7 @@ void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
     o->x28 = 0;
     o->x30 = 0;
     flag[0] = 0;
-    res = load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(flag, save);
+    res = load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(flag, save);
     ok = false;
     if (res != 0) {
         if (flag[0] != 0) {

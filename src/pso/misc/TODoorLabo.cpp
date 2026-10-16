@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TODoorFourLightBase.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjMotion.h"
@@ -87,7 +88,6 @@ extern u8 lbl_8046605C[];
 extern u32 TODoorLabo__model_archive;
 extern u32 TODoorLaboNormal__green_texture_list;
 extern u32 TODoorLaboNormal__red_texture_list;
-void load_resources__10TODoorLaboFv(void);
 s32 get_bml_model(s32, s32);
 extern s32 lbl_80465FF8[];
 extern s32 TODoorLabo__bml_resource;
@@ -102,7 +102,6 @@ void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1);
 s32 TODoorLabo__vt19(void);
 s32 TODoorLabo__vt20(void);
 void *__dt__10TODoorLaboFv(void *arg0, s16 arg1);
-void free_resources__10TODoorLaboFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
@@ -156,7 +155,7 @@ Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self) {
     return self;
 }
 
-void free_resources__10TODoorLaboFv(void) {
+void TODoorLabo::free_resources() {
     if ((u32) TODoorLaboNormal__red_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)TODoorLaboNormal__red_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TODoorLaboNormal__red_texture_list);
@@ -175,7 +174,7 @@ void free_resources__10TODoorLaboFv(void) {
 
 extern s32 TODoorLabo__green_texture_list;
 
-void load_resources__10TODoorLaboFv(void) {
+void TODoorLabo::load_resources() {
     s32 r = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
     if (r != 0) {
         r = load_resource_from_descriptor(r, 5, &labo_door_resource_descriptor_2, 0, 0, 0);
@@ -252,11 +251,10 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
 
 extern "C" {
 
-void free_all_resources__23TAdSinglePlyChrSelectGCFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 
-void free_all_resources__23TAdSinglePlyChrSelectGCFv(void) {
+void TAdSinglePlyChrSelectGC::free_all_resources() {
     if ((u32) labo_door_red_textures != 0U) {
         TLobby__sub_803DA16C((void*)labo_door_red_textures);
         TAdSinglePlyChrSelectGC::safe_free(labo_door_red_textures);
@@ -413,13 +411,12 @@ void TLanguage__sub_8029FF0C(void);
 
 extern "C" {
 
-void free_global_buffers__6TLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 
 extern u32 seabed_four_light_door_bml_resource;
 
-void free_global_buffers__6TLobbyFv(void) {
+void TLobby::free_global_buffers() {
     if ((u32) TODoorFourLightSeabedU__texture_list != 0U) {
         TLobby__sub_803DA16C((void*)TODoorFourLightSeabedU__texture_list);
         TAdSinglePlyChrSelectGC::safe_free(TODoorFourLightSeabedU__texture_list);

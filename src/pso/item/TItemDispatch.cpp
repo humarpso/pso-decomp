@@ -280,7 +280,6 @@ void TItem::run_task() {
 extern "C" {
 
 void *__dt__5TItemFv(void *arg0, s16 arg1);
-void free_obj_heap__10TObjPlayerFPv(void *);
 
 extern void *__vt__5TItem[];
 
@@ -292,7 +291,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
         ((TItem *)arg0)->unregister_item();
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -319,7 +318,7 @@ void fn_8002B630(void *, void *);
 void sub_8010043C__5TItemFUc(void *, s32);
 void set_item_count__13TUnk_804B9870Fs(void *, s32);
 void TItem__sub_801031C0(void *);
-s8 get_type_nibble__9TItemDataFPv(void *);
+s8 get_type_nibble__9TItemDataFv(void *);
 s32 is_rare_item__9TItemDataFPv(void *);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 item_collider_body[];
@@ -352,7 +351,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     *(s32 *)((s8 *)self + 0xF4) = 0;
     *(s16 *)((s8 *)self + 0xE8) = 0;
     ((TItem *)self)->apply_item_flags((s32)item);
-    *(s8 *)((s8 *)self + 0xEA) = get_type_nibble__9TItemDataFPv(item);
+    *(s8 *)((s8 *)self + 0xEA) = get_type_nibble__9TItemDataFv(item);
     if (is_rare_item__9TItemDataFPv(item) != 0) {
         sub_8010043C__5TItemFUc(self, 4);
     } else {
@@ -390,17 +389,16 @@ extern u32 player_rock_objects_handle;
 extern "C" {
 
 s8 TObjPlayer__sub_80102C30(u8 *arg0);
-void free_obj_heap__10TObjPlayerFPv(void* a0);
 int get_item_system_generation(void);
 void advance_item_system_generation(void);
 int dispatch_item_by_type__6TLobbyFv(void*);
 void mem_free(void*);
-void free_rock_objects__6TLobbyFis(void*, int);
+void free_rock_objects__6TLobbyFls(void*, int);
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
 
     extern int obj_heap;
-void free_obj_heap__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
+void TObjPlayer::free_obj_heap(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
 
     extern int obj_heap;
 void TObjPlayer::alloc_from_obj_heap(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
@@ -425,7 +423,7 @@ void TObjPlayer::free_globals() {
     TObjPlayer::free_static_buffer();
     TObjPlayer::free_global_805D6FB8();
     if ((u32) player_rock_objects_handle != 0U) {
-        free_rock_objects__6TLobbyFis((void*)player_rock_objects_handle, 1);
+        free_rock_objects__6TLobbyFls((void*)player_rock_objects_handle, 1);
         player_rock_objects_handle = 0U;
     }
     if ((u32) item_registry_sorted_entries != 0U) {

@@ -37,18 +37,15 @@ void load_obj_lobby_main(void);
 s32 run_load_callback_table(void *, int);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
-s32 run_lobby_load_tables__6TLobbyFv(void);
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 void fn_80198E84(void);
 void TLobby__sub_8035202C(void);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
-void clear_session_buffers__6TLobbyFv(void);
 }
 
 extern "C" {
 
-void create_tasks__6TLobbyFv(void);
 s32 TCineCtrl__ct(u32, s32);
 s32 create_area_fog_ctrl();
 s32 THunterGuildSeqOnlineTask__ct(u32, s32);
@@ -65,7 +62,7 @@ s32 ct_register__6TLobbyFv(u32, s32);
 s32 TWindowTimer__sub_80198D98();
 s32 TLobby__sub_8032BDC4(u32, s32);
 s32 TLobby__sub_8033ED24(u32, s32);
-s32 construct_party_area__10TNpcPlayerFPvPv(u32, s32);
+s32 construct_party_area__10TNpcPlayerFPv(u32, s32);
 s32 TLobby__sub_80351F3C();
 s32 get_main_phase();
 s32 is_split_screen();
@@ -76,7 +73,7 @@ extern s32 tl_06;
 extern s32 tl_particlemodel;
 extern s32 tl_fade;
 
-void create_tasks__6TLobbyFv(void) {
+void TLobby::create_tasks() {
     u32 tmp;
     create_area_fog_ctrl();
     if (is_split_screen() == 0) {
@@ -123,7 +120,7 @@ void create_tasks__6TLobbyFv(void) {
     restore_floor_telepipes();
     tmp = __nw__7TObjectFUl(0x20);
     if (tmp != 0U) {
-        construct_party_area__10TNpcPlayerFPvPv(tmp, tl_06);
+        construct_party_area__10TNpcPlayerFPv(tmp, tl_06);
     }
     tmp = __nw__7TObjectFUl(0x28);
     if (tmp != 0U) {
@@ -152,7 +149,7 @@ typedef char RecoveredGlobal_8007BA98_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8007BA20_lbl_8048D4C0_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D4C0) == 0xE8 ? 1 : -1];
 typedef char RecoveredGlobal_8007BA20_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D5A8) == 0x20 ? 1 : -1];
-void clear_session_buffers__6TLobbyFv(void) {
+void TLobby::clear_session_buffers() {
     if (TOKeyMachine01::get_global_state() == 0xF) {
         TLobby::free_dialing_gc();
         fn_80198E84();
@@ -164,7 +161,7 @@ void clear_session_buffers__6TLobbyFv(void) {
     call_funcs_reverse__6TLobbyFPvUi((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D4C0 *)&lbl_8048D4C0).value, 0xE8U);
 }
 
-s32 run_lobby_load_tables__6TLobbyFv(void) {
+s32 TLobby::run_lobby_load_tables() {
     s32 temp_r3;
     s32 temp_r3_2;
     temp_r3_2 = run_load_callback_table((void *) (&lbl_8048D4C0.value), (int) (0xE8));
@@ -191,43 +188,41 @@ s32 run_lobby_load_tables__6TLobbyFv(void) {
 
 extern "C" {
 
-s32 run_lobby_load_tables__6TLobbyFv();
 s32 is_area_transfer_pending();
 s32 apply_phase_keyboard_mode();
 s32 load_area_gsl();
 s32 close_gsl_archive();
 s32 update_key_machine__6TLobbyFv();
-void reset_and_invoke__6TLobbyFv(void);
 int reset_keyboard_state__6TLobbyFv(void);
 int clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int invoke_callback__6TLobbyFv(void);
 
-s32 check_disconnect_conditions__6TLobbyFv(void) {
+s32 TLobby::check_disconnect_conditions() {
     apply_phase_keyboard_mode();
-    if (run_lobby_load_tables__6TLobbyFv() == 0) {
-        reset_and_invoke__6TLobbyFv();
+    if (TLobby::run_lobby_load_tables() == 0) {
+        TLobby::reset_and_invoke();
         return 1;
     }
     load_area_gsl();
     if (update_key_machine__6TLobbyFv() == 0) {
         close_gsl_archive();
-        reset_and_invoke__6TLobbyFv();
+        TLobby::reset_and_invoke();
         return 1;
     }
     if (load_current_floor_resources() == 0) {
         close_gsl_archive();
-        reset_and_invoke__6TLobbyFv();
+        TLobby::reset_and_invoke();
         return 1;
     }
     close_gsl_archive();
     if (is_area_transfer_pending() != 0) {
-        reset_and_invoke__6TLobbyFv();
+        TLobby::reset_and_invoke();
         return 1;
     }
     clear_callback_and_reset_keyboard__6TLobbyFv();
     return 0;
 }
-void reset_and_invoke__6TLobbyFv(void) { reset_keyboard_state__6TLobbyFv(); invoke_callback__6TLobbyFv(); clear_callback_and_reset_keyboard__6TLobbyFv(); }
+void TLobby::reset_and_invoke() { reset_keyboard_state__6TLobbyFv(); invoke_callback__6TLobbyFv(); clear_callback_and_reset_keyboard__6TLobbyFv(); }
 
 }
 

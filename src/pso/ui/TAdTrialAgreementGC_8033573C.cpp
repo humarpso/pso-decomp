@@ -39,7 +39,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 __nw__7TObjectFUl(int);
 s32 TAdScrollWinGC__ct(int, void *, int, int);
 s32 TAdAgreementBaseGC__ct(void *);
-s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
 extern s32 __vt__19TAdTrialAgreementGC[];
 extern s32 TAdTrialAgreementGC__name;
 u8 *TAdTrialAgreementGC__ct(u8 *arg0);
@@ -48,7 +47,6 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0);
 extern "C" {
 
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
-s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TAdAgreementBaseGCFv(void *, int);
@@ -56,7 +54,7 @@ s32 wait_for_load__19TAdTrialAgreementGCFv(s32);
 
 extern s32 pso_system_card_filename[];
 
-s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
+s32 TAdTrialAgreementGC::check_card_file(s32 arg0) {
     s32 temp_r3;
 
     if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
@@ -103,7 +101,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdTrialAgreementGC__name;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    if (check_card_file__19TAdTrialAgreementGCFi((s32)((void *) (arg0))) != 0) {
+    if (TAdTrialAgreementGC::check_card_file((s32)((void *) (arg0))) != 0) {
         ((VObj_18_f8ef8c *)(arg0))->m5();
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;

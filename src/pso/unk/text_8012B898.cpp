@@ -30,7 +30,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s32 get_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(s32);
-s16 get_uid__10TObjPlayerFPv(s32);
+s16 get_uid__10TObjPlayerFv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 s32 rand(void);
@@ -90,7 +90,7 @@ void TUnk_804A4F60::psycho_wand_roll_extra() {
     item = get_captured_target_entry(ext, 0);
     if (get_captured_target_count(ext) != 0) {
         ((Self_8012B9B4 *)this)->f208 = 1;
-        ((Self_8012B9B4 *)this)->f20C = get_uid__10TObjPlayerFPv(item);
+        ((Self_8012B9B4 *)this)->f20C = get_uid__10TObjPlayerFv(item);
         ((Self_8012B9B4 *)this)->f20E = get_captured_target_collider_index(item);
     } else {
         ((Self_8012B9B4 *)this)->f208 = 0;

@@ -32,7 +32,7 @@ void set_creation_projection_center(f32 farg0);
 extern u8 lbl_804D9578[];
 extern s32 creation_sprite_table_index;
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
-void load_texture_pvm_file__6TLobbyFPvi(int, void *);
+void load_texture_pvm_file__6TLobbyFPCcl(int, void *);
 s32 create__10TObjCMIconFPv(int);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern s32 lbl_804DA944[];
@@ -85,7 +85,7 @@ void fn_80291178(void) {
     }
     TObjCMIcon::init_icon_table();
     (*(s32 *)&cmicon_instance) = create__10TObjCMIconFPv(tl_06);
-    load_texture_pvm_file__6TLobbyFPvi(lbl_804DA944[creation_sprite_table_index], ((s32 *)&creation_sprite_table));
+    load_texture_pvm_file__6TLobbyFPCcl(lbl_804DA944[creation_sprite_table_index], ((s32 *)&creation_sprite_table));
 }
 
 void set_creation_projection_center(f32 farg0) {

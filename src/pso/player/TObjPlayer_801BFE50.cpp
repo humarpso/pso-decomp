@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
@@ -7,12 +8,11 @@ void TObjPlayer__sub_801BFE88(u8 *arg0);
 
 extern "C" {
 
-void* init_pair__10TObjPlayerFPv(void* p);
 s32 init_state__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801BFED4(void* p);
 s32 setup_state__10TObjPlayerFv();
 
-void* init_pair__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BFE88((u8 *)(p)); TObjPlayer__sub_801BFE88((u8 *)((char*)p + 0xc)); return p; }
+void*TObjPlayer::init_pair() { TObjPlayer__sub_801BFE88((u8 *)(this)); TObjPlayer__sub_801BFE88((u8 *)((char*)this + 0xc)); return this; }
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"

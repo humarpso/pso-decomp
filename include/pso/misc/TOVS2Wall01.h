@@ -26,7 +26,10 @@ struct TOVS2Wall01 : public TUnk_804806E8 {
     void *destroy(s16 arg1);
     void byteswap_hit_packet();
     void update_and_send();
-    void*init();};
+    void*init();
+    u8 *init_wreck_object(s32 arg1, s32 arg2);
+    void save_and_send_state(u16 arg1);
+};
 
 typedef char TOVS2Wall01_size[sizeof(TOVS2Wall01) == 0x360 ? 1 : -1];
 #endif

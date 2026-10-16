@@ -44,7 +44,7 @@ extern "C" {
 s32 draw_window_frame(void *, int);
 s32 draw_default_entry__9TWindowDDFl();
 u8 * get_window_layout_position(s32);
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, int, int);
 extern RecoveredGlobal_80284B84_lbl_804D2D10 lbl_804D2D10;
 extern s32 __vt__24TWindowSubSymbolChatHelp[];
 extern s32 TWindowSubSymbolChatHelp__name;
@@ -303,7 +303,7 @@ void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80284B84_lbl_804D2D10_size[sizeof(RecoveredGlobal_80284B84_lbl_804D2D10) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp_size[sizeof(RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp) == 0x1C ? 1 : -1];
 u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D2D10.value), (int) (4), (int) (get_window_layout_position(0x7E)));
+    construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (&lbl_804D2D10.value), (int) (4), (int) (get_window_layout_position(0x7E)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp *)&__vt__24TWindowSubSymbolChatHelp).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubSymbolChatHelp__name;
     *(s8 *)((s8 *)arg0 + 0x60) = 0;

@@ -11,6 +11,7 @@ struct TObjCity_Season_FireWorkCtrl : public TUnk_804B9870 {
     virtual void run_task();
 
     u8 unk_90[0x4];
+    void *dt(s16 arg1);
 };
 
 typedef char TObjCity_Season_FireWorkCtrl_size[sizeof(TObjCity_Season_FireWorkCtrl) == 0x94 ? 1 : -1];

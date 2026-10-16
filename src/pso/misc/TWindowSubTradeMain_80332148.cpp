@@ -12,7 +12,7 @@ s32 TWindowSubComCard__sub_8024AB98(s32);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 end_camera_pan__10TObjPlayerFPv();
+s32 end_camera_pan__10TObjPlayerFv();
 s32 TLobby__sub_802D29E8(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -24,7 +24,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
         TLobby__sub_802D29E8(arg0);
         check_flags_and_proceed__6TLobbyFv();
         if (get_player_by_client_id(*(s32 *)((s8 *)arg0 + 0x28)) != 0U) {
-            end_camera_pan__10TObjPlayerFPv();
+            end_camera_pan__10TObjPlayerFv();
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50));

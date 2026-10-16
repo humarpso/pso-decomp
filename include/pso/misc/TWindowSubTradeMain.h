@@ -63,6 +63,11 @@ struct TWindowSubTradeMain : public TObject {
     u8 unk_84[0x4];
     s16 m_88;
     u8 unk_8A[0x1E];
+    void forward_to_child(s32 arg1);
+    void notify_child_if_present(s32 arg1);
+    void draw_item_slot();
+    void update_trade_window();
+    static void update_position_if_changed(s32 arg0, u8 *arg1, u8 *arg2);
 };
 
 typedef char TWindowSubTradeMain_size[sizeof(TWindowSubTradeMain) == 0xA8 ? 1 : -1];

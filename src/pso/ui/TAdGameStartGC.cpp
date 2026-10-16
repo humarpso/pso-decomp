@@ -56,7 +56,7 @@ Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
 s32 queue_destruction__7TObjectFv(int);
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
 u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
@@ -194,16 +194,16 @@ void run_task__14TAdGameStartGCFv(u8 *arg0) {
         if (TWindowShortListCtrl__check_controller_button(pad, 8) != 0) {
             destroy_windows__14TAdGameStartGCFPv((Obj_802E6380 *) arg0);
         }
-        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x10, 6, 1) != 0) {
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(pad, 0x10, 6, 1) != 0) {
             destroy_windows__14TAdGameStartGCFPv((Obj_802E6380 *) arg0);
         }
-        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x20, 6, 1) != 0) {
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(pad, 0x20, 6, 1) != 0) {
             destroy_windows__14TAdGameStartGCFPv((Obj_802E6380 *) arg0);
         }
-        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x40, 6, 1) != 0) {
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(pad, 0x40, 6, 1) != 0) {
             destroy_windows__14TAdGameStartGCFPv((Obj_802E6380 *) arg0);
         }
-        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(pad, 0x80, 6, 1) != 0) {
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(pad, 0x80, 6, 1) != 0) {
             destroy_windows__14TAdGameStartGCFPv((Obj_802E6380 *) arg0);
         }
     }

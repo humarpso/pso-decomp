@@ -34,14 +34,14 @@ void *__nw__7TObjectFUl(int);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
-s32 is_active_state__22TObjEneMe1GiGueBarrierFPv(int);
-s32 get_timer__22TObjEneMe1GiGueBarrierFPv(int);
-s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(int);
+s32 is_active_state__22TObjEneMe1GiGueBarrierFv(int);
+s32 get_timer__22TObjEneMe1GiGueBarrierFv(int);
+s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFv(int);
 u16 obj_getField1c(void *);
 u8 * TObjMotion__ct(void *);
-s32 get_field_44c__22TObjEneMe1GiGueBarrierFPv(void *);
-s32 get_timer__22TObjEneMe1GiGueBarrierFPv(int);
-s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(int);
+s32 get_field_44c__22TObjEneMe1GiGueBarrierFv(void *);
+s32 get_timer__22TObjEneMe1GiGueBarrierFv(int);
+s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFv(int);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
@@ -70,7 +70,7 @@ void TObjEneMe1GiGueBarrier__sub_80325CC0(void);
 void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
-void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(void *);
+void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFv(void *);
 s32 get_barrier_count__15TObjEneMe1GiGueFv();
 
 extern s32 __vt__22TObjEneMe1GiGueBarrier[];
@@ -113,8 +113,8 @@ void TObjEneMe1GiGueBarrier::run_task() {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (update_and_get_pos__22TObjEneMe1GiGueBarrierFPv((int) (temp_r0))));
-    this->rotation_y = get_timer__22TObjEneMe1GiGueBarrierFPv((int) (this->m_fc));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (update_and_get_pos__22TObjEneMe1GiGueBarrierFv((int) (temp_r0))));
+    this->rotation_y = get_timer__22TObjEneMe1GiGueBarrierFv((int) (this->m_fc));
     advance_animation_playback((void *) (arg0));
     *(s32 *)&this->m_108 = (s32) (*(s32 *)&this->m_108 - 1);
     temp_r0_2 = *(s32 *)&this->m_104;
@@ -137,7 +137,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
         break;
     default:
     case 1:
-        if (((s32) *(s32 *)&this->m_108 <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFPv((int) (this->m_fc)) != 0)) {
+        if (((s32) *(s32 *)&this->m_108 <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFv((int) (this->m_fc)) != 0)) {
             *(s32 *)&this->m_104 = 2;
             this->m_b8 = 2;
         }
@@ -148,7 +148,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
 void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEneMe1GiGueBarrier;
-        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(*(void **)((s8 *)arg0 + 0xFC)); }
+        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFv(*(void **)((s8 *)arg0 + 0xFC)); }
         __dt__10TObjMotionFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -164,9 +164,9 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4198;
     *(u8 **)((s8 *)arg0 + 0xFC) = arg2;
     *(u16 *)((s8 *)arg0 + 0x100) = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
-    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (int)((void *) (update_and_get_pos__22TObjEneMe1GiGueBarrierFPv((int)((s32) *(u8 **)((s8 *)arg0 + 0xFC))))));
-    *(s32 *)((s8 *)arg0 + 0x60) = get_timer__22TObjEneMe1GiGueBarrierFPv((int)(*(u8 **)((s8 *)arg0 + 0xFC)));
-    *(s32 *)((s8 *)arg0 + 0x108) = get_field_44c__22TObjEneMe1GiGueBarrierFPv(*(u8 **)((s8 *)arg0 + 0xFC));
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (int)((void *) (update_and_get_pos__22TObjEneMe1GiGueBarrierFv((int)((s32) *(u8 **)((s8 *)arg0 + 0xFC))))));
+    *(s32 *)((s8 *)arg0 + 0x60) = get_timer__22TObjEneMe1GiGueBarrierFv((int)(*(u8 **)((s8 *)arg0 + 0xFC)));
+    *(s32 *)((s8 *)arg0 + 0x108) = get_field_44c__22TObjEneMe1GiGueBarrierFv(*(u8 **)((s8 *)arg0 + 0xFC));
     TObjEneMe1GiGueBarrier__sub_802CABF4((void *) (*(u8 **)((s8 *)arg0 + 0xFC)));
     *(s32 *)((s8 *)arg0 + 0x104) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C)) + 0x28);

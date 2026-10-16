@@ -13,8 +13,6 @@ u32 lbl_80499A30[4] = { 0, 0, 0, 0 };
 
 extern "C" {
 
-void reset_keyboard_state__6TLobbyFv(void);
-
     extern unsigned char area_transfer_pending_flag;
 extern "C" u8 lbl_8043D7A8[];
 extern "C" u8 lbl_8043D820[];
@@ -746,7 +744,7 @@ __declspec(section ".data") void *lbl_8049C61C[2] = {
 #define lobby_font_texture_prs_data ((u8 *)lobby_font_texture_prs_data)
 #define lbl_8049C61C ((u8 *)lbl_8049C61C)
 
-void reset_keyboard_state__6TLobbyFv(void) { area_transfer_pending_flag = 0; TKeyBoardControl::reset(); }
+void TLobby::reset_keyboard_state() { area_transfer_pending_flag = 0; TKeyBoardControl::reset(); }
 
 }
 
@@ -757,10 +755,8 @@ bool is_area_transfer_pending(void);
 extern "C" {
 
 void TLobby__sub_800F8AD0(void);
-void clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int TKeyBoardControl__sub_8000F92C(void);
 void TLobby__sub_800F8BD8(void);
-void set_keyboard_mode__6TLobbyFi(int);
 
 extern u32 main_phase_deferred_callback;
 #define area_transfer_pending_flag (*(s8 *)&area_transfer_pending_flag)
@@ -775,7 +771,7 @@ bool is_area_transfer_pending(void) {
     return (*(u8 *)&area_transfer_pending_flag) != 0;
 }
 
-void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TLobbyFi(0); TKeyBoardControl::reset(); }
+void TLobby::clear_callback_and_reset_keyboard() { TLobby::set_keyboard_mode(0); TKeyBoardControl::reset(); }
 
 }
 
@@ -784,7 +780,6 @@ void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TL
 extern "C" {
 s32 get_main_phase();
 s32 is_quest_active();
-void set_keyboard_mode__6TLobbyFi(int);
 void TLobby__sub_800F8BD8(void);
 void apply_phase_keyboard_mode(void);
 }
@@ -792,41 +787,38 @@ void apply_phase_keyboard_mode(void);
 extern "C" {
 
 void TLobby__sub_800F8BD8(void);
-void invoke_callback__6TLobbyFv(void);
 #define main_phase_deferred_callback (*(s32 (**)())&main_phase_deferred_callback)
 int TKeyBoardControl__sub_8000F92C(void);
-void clear_callback_and_reset_keyboard__6TLobbyFv(void);
-void set_keyboard_mode__6TLobbyFi(int);
 
 void apply_phase_keyboard_mode(void) {
     switch (get_main_phase()) {
     case 15:
         if (is_quest_active() != 0) {
-            set_keyboard_mode__6TLobbyFi((int)(TLobby::init_chr_select));
+            TLobby::set_keyboard_mode((int)(TLobby::init_chr_select));
         } else {
-            set_keyboard_mode__6TLobbyFi((int)(TLobby::reset_to_chr_select));
+            TLobby::set_keyboard_mode((int)(TLobby::reset_to_chr_select));
         }
         break;
     case 14:
         if (is_quest_active() != 0) {
-            set_keyboard_mode__6TLobbyFi((int)(TLobby::shutdown_keyboard_control));
+            TLobby::set_keyboard_mode((int)(TLobby::shutdown_keyboard_control));
         } else {
-            set_keyboard_mode__6TLobbyFi((int)(TLobby::reset_keyboard_input));
+            TLobby::set_keyboard_mode((int)(TLobby::reset_keyboard_input));
         }
         break;
     case 1:
     case 2:
-        set_keyboard_mode__6TLobbyFi((int)(TLobby__sub_800F8BD8));
+        TLobby::set_keyboard_mode((int)(TLobby__sub_800F8BD8));
         break;
     default:
-        set_keyboard_mode__6TLobbyFi((int)(0));
+        TLobby::set_keyboard_mode((int)(0));
         break;
     }
 }
 
 void TLobby__sub_800F8BD8(void) { TKeyBoardControl::reset(); TKeyBoardControl__sub_8000F92C(); }
 
-void invoke_callback__6TLobbyFv(void) {
+void TLobby::invoke_callback() {
     if (((s32 (*)()) main_phase_deferred_callback) != NULL) {
         main_phase_deferred_callback();
     }
@@ -838,20 +830,19 @@ void invoke_callback__6TLobbyFv(void) {
 
 extern "C" {
 #define main_phase_deferred_callback (*(int *)&main_phase_deferred_callback)
-void set_keyboard_mode__6TLobbyFi(int a0) { main_phase_deferred_callback = a0; }
+void TLobby::set_keyboard_mode(int a0) { main_phase_deferred_callback = a0; }
 }
 
 #undef main_phase_deferred_callback
 
 extern "C" {
 
-void flush_checked_reads__6TLobbyFv();
 extern s32 *pending_file_read_handle_ref;
 extern s32 pending_file_read_sector_count;
 extern u32 pending_file_read_destination;
 extern s32 pending_file_read_flush_requested;
 
-void flush_pending__6TLobbyFv(void) {
+void TLobby::flush_pending() {
     u32 temp_r5;
     s32 temp_r4;
     if ((s32) pending_file_read_flush_requested != 0) {
@@ -863,11 +854,11 @@ void flush_pending__6TLobbyFv(void) {
                 TLobby::read_checked_align(*pending_file_read_handle_ref, temp_r4, temp_r5);
             }
         }
-        flush_checked_reads__6TLobbyFv();
+        TLobby::flush_checked_reads();
     }
 }
 
-void flush_checked_reads__6TLobbyFv() {
+void TLobby::flush_checked_reads() {
     s32 i;
 
     for (i = 0; i < 4; i++) {
@@ -880,21 +871,18 @@ void flush_checked_reads__6TLobbyFv() {
 }
 
 extern "C" {
-void clear_player_slot_tables__6TLobbyFi(s32 n);
 }
 
 extern "C" {
 
-void reset_read_state__6TLobbyFv(void);
-
 #define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
 #define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)
 #define pending_file_read_destination (*(int *)&pending_file_read_destination)
-void reset_read_state__6TLobbyFv(void) { pending_file_read_handle_ref = 0; pending_file_read_sector_count = 0; pending_file_read_destination = 0; }
+void TLobby::reset_read_state() { pending_file_read_handle_ref = 0; pending_file_read_sector_count = 0; pending_file_read_destination = 0; }
 #undef pending_file_read_handle_ref
 #undef pending_file_read_sector_count
 #undef pending_file_read_destination
-void clear_player_slot_tables__6TLobbyFi(s32 n) {
+void TLobby::clear_player_slot_tables(s32 n) {
     s32 i;
     if (n == -1) {
         for (i = 0; i < 4; i++) {
@@ -911,7 +899,8 @@ void clear_player_slot_tables__6TLobbyFi(s32 n) {
     lbl_80499A30[n] = 0;
 }
 
-void set_entry_params__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TLobby::set_entry_params(s32 arg1, s32 arg2, s32 arg3) {
+    s32 arg0 = (s32)this;
     lobby_checked_read_ptr_table[arg1] = (s32 *)arg0;
     lbl_80499A10[arg1] = arg2;
     lbl_80499A20[arg1] = arg3;
@@ -924,29 +913,25 @@ void set_entry_params__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 extern "C" {
 extern u8 lobby_font_texture_loaded;
 void TLobby__sub_803DA16C(void *p);
-void release_menu_font__6TLobbyFv(void);
 extern u8 lobby_font_texture_loaded;
 extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPCc(const char *);
 s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
-void load_font_texture__6TLobbyFv(void);
 void begin_screen_draw(int);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(void *, int);
-void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0);
 }
 
 extern "C" {
 
 void TLobby__sub_800F8DD8(void);
 void TLobby__sub_800F8F34(void);
-void set_read_params__6TLobbyFiii(int a0, int a1, int a2);
 
 #define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
 #define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)
 #define pending_file_read_destination (*(int *)&pending_file_read_destination)
-void set_read_params__6TLobbyFiii(int a0, int a1, int a2) { pending_file_read_handle_ref = a0; pending_file_read_sector_count = a1; pending_file_read_destination = a2; }
+void TLobby::set_read_params(int a0, int a1, int a2) { pending_file_read_handle_ref = a0; pending_file_read_sector_count = a1; pending_file_read_destination = a2; }
 #undef pending_file_read_handle_ref
 #undef pending_file_read_sector_count
 #undef pending_file_read_destination
@@ -956,7 +941,7 @@ void TLobby__sub_800F8DD8(void) { pending_file_read_flush_requested = 1; }
 
     extern unsigned char lobby_state_byte_flag;
 
-void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
+void TLobby::draw_fullscreen_texture_quad() {
     f32 v[8];
     v[0] = 128.0f;
     v[1] = 48.0f;
@@ -966,19 +951,19 @@ void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
     v[7] = v[6] = 1.0f;
     TObjFish::set_global_param((s32)lbl_8049C61C);
     begin_screen_draw(0);
-    set_draw_texture_and_color(arg0, -1);
+    set_draw_texture_and_color(this, -1);
     draw_textured_quad_at_depth(v, (0.5f));
     TWindowSubStatusDisp::get_player();
 }
 
-void release_menu_font__6TLobbyFv(void) {
+void TLobby::release_menu_font() {
     if (lobby_font_texture_loaded) {
         TLobby__sub_803DA16C(lbl_8049C61C);
     }
     lobby_font_texture_loaded = 0;
 }
 
-void load_font_texture__6TLobbyFv(void) {
+void TLobby::load_font_texture() {
     void *file = tmp_buf_use_req__6TLobbyFPCc(lbl_8043D9F4);
     if (file != 0) {
         s32 r;
@@ -1004,12 +989,10 @@ void TLobby__sub_800F8F34(void) { lobby_state_byte_flag = 1; }
 
 extern "C" {
 
-void reset_state_byte__6TLobbyFv(void);
-
 #define lobby_state_byte_flag (*(s8 *)&lobby_state_byte_flag)
 extern u8 lobby_wait_ready_flag;
 
-void reset_state_byte__6TLobbyFv(void) {
+void TLobby::reset_state_byte() {
     if ((u8) lobby_wait_ready_flag == 0) {
         lobby_state_byte_flag = 0;
     }
@@ -1066,7 +1049,6 @@ typedef struct {
 
 s32 DVDGetDriveStatus(void);
 void TCameraCtrl__sub_80068EF0(void);
-void flush_pending__6TLobbyFv(void);
 void TLobby__sub_800F8DD8(void);
 
 void set_depth_buffer_settings_1__Fv(void);
@@ -1124,7 +1106,7 @@ s32 TLobby::run_disk_error_check() {
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         if (lobby_font_texture_loaded != 0) {
-            ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(0);
+            ((TLobby *)0)->draw_fullscreen_texture_quad();
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 0);
         }
@@ -1140,7 +1122,7 @@ s32 TLobby::run_disk_error_check() {
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
         if (lobby_font_texture_loaded != 0) {
-            ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(1);
+            ((TLobby *)1)->draw_fullscreen_texture_quad();
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 1);
         }
@@ -1153,7 +1135,7 @@ s32 TLobby::run_disk_error_check() {
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
         if (lobby_font_texture_loaded != 0) {
-            ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(2);
+            ((TLobby *)2)->draw_fullscreen_texture_quad();
         } else if (get_main_phase() == 0xF) {
             show_msg_800F8FB8(TLobby__disk_error_msg_last, 0);
         } else {
@@ -1168,7 +1150,7 @@ s32 TLobby::run_disk_error_check() {
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
         if (lobby_font_texture_loaded != 0) {
-            ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(3);
+            ((TLobby *)3)->draw_fullscreen_texture_quad();
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 3);
         }
@@ -1182,7 +1164,7 @@ s32 TLobby::run_disk_error_check() {
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         if (lobby_font_texture_loaded != 0) {
-            ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(4);
+            ((TLobby *)4)->draw_fullscreen_texture_quad();
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 4);
         }
@@ -1199,7 +1181,7 @@ s32 TLobby::run_disk_error_check() {
         return 0;
     }
     if (status == 0) {
-        flush_pending__6TLobbyFv();
+        TLobby::flush_pending();
     }
     return 1;
 }

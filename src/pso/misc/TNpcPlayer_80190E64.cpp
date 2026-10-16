@@ -47,7 +47,7 @@ extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void request_file_read__6TLobbyFiiPvPv(void *, s32, void *, int);
+void request_file_read__6TLobbyFllPlPPv(void *, s32, void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80445910[];
 extern s32 lbl_804B7C04[];
@@ -72,7 +72,6 @@ extern void *tl_07;
 extern "C" {
 
 void TLobby__sub_80190FD0(int a0);
-u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1);
 s32 build_npc_player_record__10TNpcPlayerFl(s32);
 s32 send_6x24_teleport_player(u16, void *, s32);
 u8 *create_player_object(u16, s32, s32);
@@ -86,26 +85,26 @@ void TUnk_804B7C04::run_task() { if (this->m_2c == 1) { queue_destruction__7TObj
 
 extern s32 lbl_804B7C04[];
 
-u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
+u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
     u8 *temp_r3;
 
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B7C04;
-        temp_r3 = create_player_object(*(u16 *)((s8 *)arg0 + 0x30), 6, build_npc_player_record__10TNpcPlayerFl(*(s32 *)((s8 *)arg0 + 0x34)));
+    if (((u8 *)this) != NULL) {
+        *(s32 **)((s8 *)((u8 *)this) + 0x18) = lbl_804B7C04;
+        temp_r3 = create_player_object(*(u16 *)((s8 *)((u8 *)this) + 0x30), 6, build_npc_player_record__10TNpcPlayerFl(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
         if (temp_r3 != NULL) {
             *(s16 *)((s8 *)temp_r3 + 0x324) = 6;
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == 1) {
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x38) == 1) {
                 queue_player_injured_pose();
                 set_player_quest_control_flag(temp_r3);
             }
-            send_6x24_teleport_player(*(u16 *)((s8 *)arg0 + 0x30), arg0 + 0x1C, *(s32 *)((s8 *)arg0 + 0x28));
+            send_6x24_teleport_player(*(u16 *)((s8 *)((u8 *)this) + 0x30), ((u8 *)this) + 0x1C, *(s32 *)((s8 *)((u8 *)this) + 0x28));
         }
-        __dt__7TObjectFv(arg0, 0);
+        __dt__7TObjectFv(((u8 *)this), 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(((u8 *)this));
         }
     }
-    return arg0;
+    return ((u8 *)this);
 }
 
     extern int npc_proximity_target_id;
@@ -120,7 +119,7 @@ Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2,
     arg0->f2C = 0;
     arg0->f38 = arg5;
     TNpcPlayer::ensure_rock_singleton();
-    request_file_read__6TLobbyFiiPvPv(lbl_80445910, lbl_805D5860, &arg0->f2C, 0);
+    request_file_read__6TLobbyFllPlPPv(lbl_80445910, lbl_805D5860, &arg0->f2C, 0);
     return arg0;
 }
 

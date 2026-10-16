@@ -33,7 +33,7 @@ struct RecoveredGlobal_80172810___vt__19TOMonumentAncient01 {
 };
 
 extern "C" {
-s32 start_camera_pan__10TObjPlayerFPvs(int, int, void *);
+s32 start_camera_pan__10TObjPlayerFs(int, int, void *);
 s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -152,7 +152,7 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
         temp_r3 = get_player_by_client_id((void *) (arg1));
         if (temp_r3 != 0) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 2;
-            start_camera_pan__10TObjPlayerFPvs((int) (temp_r3), (int) (0xC), (void *) (((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
+            start_camera_pan__10TObjPlayerFs((int) (temp_r3), (int) (0xC), (void *) (((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
             if (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0) {
                 sp8 = (s16) *(s32 *)((s8 *)arg0 + 0xAC);
                 ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));

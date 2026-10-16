@@ -47,6 +47,20 @@ struct TObjEneEpsilonGuard : public TObjEneEpsilon {
     static void free_shared_resources();
     static void load_assets();
     u8 unk_4A4[0x34];
+    s32 is_guard_active();
+    s32 is_state_flag_set();
+    s32 is_guard_ready();
+    void clear_and_flag_state();
+    void set_flag_8_and_notify();
+    void set_target(s32 arg1, s32 arg2, s32 arg3);
+    static void advance_camera_ctrl_step();
+    void handle_message(s32 arg1);
+    void handle_break_state(s32 arg1);
+    void state_orbit(s32 arg1);
+    void update_center_position();
+    s32 calc_angle_to_target();
+    void set_orbit_destination(s32 arg1);
+    s32 assign_guard_targets();
 };
 
 typedef char TObjEneEpsilonGuard_size[sizeof(TObjEneEpsilonGuard) == 0x4D8 ? 1 : -1];

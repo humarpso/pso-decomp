@@ -17,7 +17,9 @@ struct TAdTrialAgreementGC : public TAdAgreementBaseGC {
     void update_title_prompt();
     void handle_cursor_input();
     void render_screen();
-    void run_state();};
+    void run_state();
+    static s32 check_card_file(s32 arg0);
+};
 
 typedef char TAdTrialAgreementGC_size[sizeof(TAdTrialAgreementGC) == 0x3C ? 1 : -1];
 #endif

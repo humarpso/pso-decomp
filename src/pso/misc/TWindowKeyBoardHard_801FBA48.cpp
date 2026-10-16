@@ -16,7 +16,7 @@ void draw_ginja_box_tree(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void render_tick__Fv();
 void render_frame__23TAdSinglePlyChrSelectGCFv();
-void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
+void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(void *, void *, s32);
 void subtractive_rng_unshuffle(void *, void *, void *, s32);
 void subtractive_rng_make_shuffle(void *);
 void subtractive_rng_xor_buffer(void *, void *, s32);
@@ -25,7 +25,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(void *);
 void destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(void *, s32);
 void copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-void *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(void *);
+void *construct_chardata_array__23TAdSinglePlyChrSelectGCFv(void *);
 extern u8 chr_select_rng_state[];
 extern s32 chr_select_serial_seeds[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
@@ -38,7 +38,6 @@ void *memcpy(void *, const void *, u32);
 extern char lbl_804C8954[];
 extern s32 chr_select_serial_seeds[];
 extern s32 lbl_805D49B4;
-u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, char *desc);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
 void poll_load_status__15TAdPlayerLoadGCFl(s32, void *);
 extern char lbl_804C88C0[];
@@ -126,11 +125,11 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     void *b;
     a = alloc__23TAdSinglePlyChrSelectGCFv(0x194B0);
     if (a != 0) {
-        a = construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(a);
+        a = construct_chardata_array__23TAdSinglePlyChrSelectGCFv(a);
     }
     b = alloc__23TAdSinglePlyChrSelectGCFv(0x194B0);
     if (b != 0) {
-        b = construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(b);
+        b = construct_chardata_array__23TAdSinglePlyChrSelectGCFv(b);
     }
     copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(a, arg0);
     subtractive_rng_seed(chr_select_rng_state, chr_select_serial_seeds[1]);
@@ -140,12 +139,12 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(b, 1);
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(a, 1);
     subtractive_rng_seed(chr_select_rng_state, chr_select_serial_seeds[0]);
-    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(chr_select_rng_state, arg0, 0x194B0);
+    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(chr_select_rng_state, arg0, 0x194B0);
     subtractive_rng_seed(chr_select_rng_state, TAdSinglePlyChrSelectGC__sub_80202A68(arg0));
     subtractive_rng_xor_buffer(chr_select_rng_state, arg0, 0x194AC);
 }
 
-u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, char *desc) {
+u8 TAdSinglePlyChrSelectGC::load_and_verify_character_save(char *desc) {
     s32 sum;
     u8 *buf;
     s32 res;
@@ -178,7 +177,7 @@ u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, ch
     saved = *(s32 *)data;
     *(s32 *)data = 0;
     res = TAdSinglePlyChrSelectGC__sub_80201204(data, 0x194B0);
-    strncpy(name, (char *)(data + 0x193F0), 0x10);
+    strncpy(((char *)this), (char *)(data + 0x193F0), 0x10);
     strncpy(desc, (char *)(data + 0x19400), 0x10);
     TAdSinglePlyChrSelectGC::safe_free((u32)data);
     TAdSinglePlyChrSelectGC::safe_free((u32)buf);

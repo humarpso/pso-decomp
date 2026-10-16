@@ -265,7 +265,7 @@ s32 handle_list_page_flip_input(int);
 extern s32 lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
+void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, s32);
 void *init__21TWindowSubComCardListFiii(void *, int, int, s32);
 s32 get_window_layout_position(int);
 
@@ -277,7 +277,6 @@ SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1);
 
 extern "C" {
 
-void update_status__20TWindowSubStatusDispFPv(u8 *arg0);
 u32 get_player_by_client_id(s16);
 s32 draw_window_frame(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -343,14 +342,14 @@ void TWindowSubStatusDisp::dispatch_page_update() {
 #pragma defer_codegen off
 
 extern "C" {
-void update_status__20TWindowSubStatusDispFPv(u8 *arg0) {
+void TWindowSubStatusDisp::update_status() {
     s32 temp_r3;
 
-    if (get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20)) != 0U) {
-        temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x6C));
-        draw_window_frame(arg0, temp_r3);
-        draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-        draw_list_page_indicator(*(s32 *)((s8 *)arg0 + 0x68), temp_r3);
+    if (get_player_by_client_id(*(s16 *)((s8 *)((u8 *)this) + 0x20)) != 0U) {
+        temp_r3 = ((TUnk_804CE018 *)((u8 *)this))->setup_window_draw_context((s32)(((u8 *)this) + 0x6C));
+        draw_window_frame(((u8 *)this), temp_r3);
+        draw_visible_window_entries(((u8 *)this), ((u8 *)this) + 0x24, temp_r3);
+        draw_list_page_indicator(*(s32 *)((s8 *)((u8 *)this) + 0x68), temp_r3);
     }
 }
 
@@ -391,7 +390,7 @@ void *TWindowSubStatusDisp::dt(s16 arg1) {
 }
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     void *w;
-    construct_base__9TWindowDDFPvPvsPv(arg0, TWindowSubStatusDisp__window_layout, arg1, get_window_layout_position(0x19));
+    construct_base__9TWindowDDFPUcsPUc(arg0, TWindowSubStatusDisp__window_layout, arg1, get_window_layout_position(0x19));
     arg0->vt = ((u8 *)&__vt__20TWindowSubStatusDisp);
     arg0->f0 = TWindowSubStatusDisp__class_name;
     arg0->f20 = arg1;

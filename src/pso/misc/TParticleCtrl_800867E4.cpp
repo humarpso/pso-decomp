@@ -18,16 +18,16 @@ struct Ent_800868C4 { u8 data[0x98]; };
 extern "C" {
 s32 get_bml_model(void *, s32);
 extern u8 *TParticleCtrl__regular_bml_resource;
-s32 alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
+s32 alloc_child_particle__13TParticleCtrlFPvPvPv(void *, void *, void *, void *);
 extern RecoveredGlobal_8008683C_lbl_804393F0 lbl_804393F0;
 extern s32 particle_pool_limit;
 extern Ent_800868C4 *particle_global_entry_table;
 extern Ent_800868C4 *particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
-void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
+void *initialize_with_flags__13TParticleCtrlFPCvlllllUs(void *, void *, void *, s32, s32, s32, s32, s32);
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 void *__nw__7TObjectFUl(int);
-void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, Ent_800868C4 *entry, s32 a, s32 b, s32 c, s32 d);
+void *initialize__13TParticleCtrlFPCvlllll(void *self, void *owner, Ent_800868C4 *entry, s32 a, s32 b, s32 c, s32 d);
 extern s32 particle_pool_limit;
 extern Ent_800868C4 *particle_global_entry_table;
 extern Ent_800868C4 *particle_area_entry_table;
@@ -70,7 +70,7 @@ void TParticleCtrl::generate_child_default(s32 arg1, s32 arg2) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804393F0.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 8);
-    alloc_child_particle__13TParticleCtrlFPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
+    alloc_child_particle__13TParticleCtrlFPvPvPv((void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
 }
 
 s32 TParticleCtrl::get_particle_model(s32 arg0) {
@@ -89,7 +89,7 @@ void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, 
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, pos, &particle_global_entry_table[idx], 0, a, b, 0, c);
+            p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, pos, &particle_global_entry_table[idx], 0, a, b, 0, c);
         }
         return p;
     }
@@ -97,7 +97,7 @@ void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, 
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, pos, &particle_area_entry_table[idx], 0, a, b, 0, c);
+            p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, pos, &particle_area_entry_table[idx], 0, a, b, 0, c);
         }
         return p;
     }
@@ -113,7 +113,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPvPviiiii(p, owner, &particle_global_entry_table[idx], 0, b, c, 0);
+            p = initialize__13TParticleCtrlFPCvlllll(p, owner, &particle_global_entry_table[idx], 0, b, c, 0);
         }
         return p;
     }
@@ -121,7 +121,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPvPviiiii(p, owner, &particle_area_entry_table[idx], 0, b, c, 0);
+            p = initialize__13TParticleCtrlFPCvlllll(p, owner, &particle_area_entry_table[idx], 0, b, c, 0);
         }
         return p;
     }

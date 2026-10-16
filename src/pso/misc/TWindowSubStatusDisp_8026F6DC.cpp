@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowSimpleStatus.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -21,9 +22,9 @@ int obj_getArrWord_254(void *p, int i);
 void * get_player_by_client_id();
 void *__nw__7TObjectFUl(int);
 void TWindow__close(void *);
-void *get_card_name_ptr__14TWindowComCardFPv(void *p);
+void *get_card_name_ptr__14TWindowComCardFv(void *p);
 s32 get_status_effect_icon_index(u32 arg0);
-void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1);
+void set_selected_index__14TWindowComCardFl(void *arg0, s32 arg1);
 void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
 void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
 extern const f32 lbl_805DD38C;
@@ -115,8 +116,6 @@ s32 start_text_color_transition(void *, s32, f32);
 s32 set_text_entry_string(void *, s32, s32);
 s32 set_sprite_uv_from_pixels(s32, f32, f32);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
-s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0);
-void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
 void update_lockon_window(u8 *arg0);
 s32 update_photon_blast_player_marker(s32 arg0, s32 arg1);
 s32 rand(void);
@@ -219,7 +218,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     return var_r31;
 }
 
-s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0) {
+s32 TWindowSubStatusDisp::update_hp_entry() {
     s32 var_r30;
     s32 var_r4;
     u8 *temp_r31;
@@ -227,13 +226,13 @@ s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0) {
     get_width__19TWindowSimpleStatusFv();
     temp_r3 = (u8 *)(((u8 *)get_player_by_client_id()));
     if (temp_r3 == NULL) {
-        ((TWindowSubStatusDisp *)arg0)->init_gauge_entry();
+        ((TWindowSubStatusDisp *)((u8 *)this))->init_gauge_entry();
         return 0xFF00FF15;
     }
-    temp_r31 = (u8 *)(((u8 *)get_array_entry__13TUnk_804CE018Fi(arg0, 3)));
+    temp_r31 = (u8 *)(((u8 *)get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 3)));
     *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) ((TItemProShield *)temp_r3)->get_field_2b8();
     if (*(f32 *)((s8 *)temp_r31 + 0x24) > (f32) *(s16 *)((s8 *)temp_r3 + 0x32C)) {
-        *(s32 *)((s8 *)arg0 + 0x60) = 4;
+        *(s32 *)((s8 *)((u8 *)this) + 0x60) = 4;
     }
     *(f32 *)((s8 *)temp_r31 + 0x24) = (f32) *(s16 *)((s8 *)temp_r3 + 0x32C);
     if (*(f32 *)((s8 *)temp_r31 + 0x24) > (lbl_805DD390 * *(f32 *)((s8 *)temp_r31 + 0x20))) {
@@ -275,7 +274,7 @@ void TWindowSimpleStatus::update_status_icons(void *arg1) {
                 break;
             }
         }
-        name = (s32)get_card_name_ptr__14TWindowComCardFPv((void *)i);
+        name = (s32)get_card_name_ptr__14TWindowComCardFv((void *)i);
         w = ((Disp_8026F9F4 *)this)->windows[j];
         if (w == NULL) {
             w = __nw__7TObjectFUl(0x74);
@@ -286,7 +285,7 @@ void TWindowSimpleStatus::update_status_icons(void *arg1) {
             ((TLobby *)(((Disp_8026F9F4 *)this)->windows[j]))->set_field_1c(lbl_805DD38C + ((TUnk_804CE018 *)((Disp_8026F9F4 *)this))->get_scale());
         } else {
             TWindowComCard__sub_80249D7C((u8 *)w, 0);
-            set_selected_index__14TWindowComCardFPvi(((Disp_8026F9F4 *)this)->windows[j], name);
+            set_selected_index__14TWindowComCardFl(((Disp_8026F9F4 *)this)->windows[j], name);
         }
         count = 1;
     } else if (((Disp_8026F9F4 *)this)->windows[j] != NULL) {
@@ -313,7 +312,7 @@ void TWindowSimpleStatus::update_status_icons(void *arg1) {
                 ((TLobby *)(((Disp_8026F9F4 *)this)->windows[j]))->set_field_1c(lbl_805DD398 + ((f32)k + ((TUnk_804CE018 *)((Disp_8026F9F4 *)this))->get_scale()));
             } else {
                 TWindowComCard__sub_80249D7C((u8 *)w, count);
-                set_selected_index__14TWindowComCardFPvi(((Disp_8026F9F4 *)this)->windows[j], name);
+                set_selected_index__14TWindowComCardFl(((Disp_8026F9F4 *)this)->windows[j], name);
             }
             count++;
         }
@@ -341,51 +340,51 @@ void TWindowSubStatusDisp::update_hp_tp_level() {
     s32 temp_r31;
     s32 temp_r31_2;
     temp_r31 = ((s32 (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 6);
-    *(s32 *)((s8 *)temp_r31 + 0x2C) = ((s32 (*)(void *))update_hp_entry__20TWindowSubStatusDispFPv)((void *) (arg0));
+    *(s32 *)((s8 *)temp_r31 + 0x2C) = ((TWindowSubStatusDisp *)arg0)->update_hp_entry();
     temp_r31_2 = ((s32 (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 7);
     *(s32 *)((s8 *)temp_r31_2 + 0x2C) = update_hp_gauge__20TWindowSubStatusDispFi((s32) arg0);
     update_status_entry();
 }
 
-void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
+void TWindowLockOn::update_for_player_index(s32 arg1) {
     s32 temp_r31;
     struct VObj_8026ff0c *temp_r30;
     u8 *temp_r29;
 
     temp_r30 = ((VObj_8026ff0c * (*)(s32))get_player_by_client_id)(arg1);
     if (temp_r30 == NULL) {
-        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
+        ((TWindowHelpItem *)((u8 *)this))->set_flag0_bit2();
         return;
     }
     temp_r29 = (u8 *)temp_r30 + 0x85C;
     if (temp_r29 == NULL) {
-        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
+        ((TWindowHelpItem *)((u8 *)this))->set_flag0_bit2();
         return;
     }
     temp_r31 = temp_r30->m10();
     if (temp_r31 == 0) {
-        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
+        ((TWindowHelpItem *)((u8 *)this))->set_flag0_bit2();
         return;
     }
     if (((TObjPlayer *)temp_r30)->is_inactive() == 0) {
-        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
+        ((TWindowHelpItem *)((u8 *)this))->set_flag0_bit2();
         return;
     }
-    ((TWindowSubStatusDisp *)arg0)->clear_visible_flag();
-    if ((((TWindowSubComCard *)arg0)->get_field_20() == 0U) || (strcmp(((TWindowSubComCard *)arg0)->get_field_20(), temp_r31) != 0)) {
-        set_text_entry_string(arg0, temp_r31, 0x20);
+    ((TWindowSubStatusDisp *)((u8 *)this))->clear_visible_flag();
+    if ((((TWindowSubComCard *)((u8 *)this))->get_field_20() == 0U) || (strcmp(((TWindowSubComCard *)((u8 *)this))->get_field_20(), temp_r31) != 0)) {
+        set_text_entry_string(((u8 *)this), temp_r31, 0x20);
     }
     if (temp_r30->m31() != 0) {
-        *(s32 *)((s8 *)arg0 + 0x24) = 0xFFFF0000;
+        *(s32 *)((s8 *)((u8 *)this) + 0x24) = 0xFFFF0000;
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)temp_r29 + 0x18);
+    *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) *(s32 *)((s8 *)temp_r29 + 0x18);
 }
 
 void update_lockon_window(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = ((s32 (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 1);
-    ((void (*)(void *, s32))update_for_player_index__13TWindowLockOnFPvi)((void *) temp_r31, ((s32 (*)(void *))get_width__19TWindowSimpleStatusFv)((void *) (arg0)));
+    ((TWindowLockOn *)temp_r31)->update_for_player_index(((s32 (*)(void *))get_width__19TWindowSimpleStatusFv)((void *) (arg0)));
 }
 
 s32 update_photon_blast_player_marker(s32 arg0, s32 arg1) {

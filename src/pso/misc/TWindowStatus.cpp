@@ -35,7 +35,7 @@ u8 *get_player_by_client_id();
 s32 get_width__19TWindowSimpleStatusFv();
 s32 draw_right_aligned_number(void *);
 s32 set_status_entry_target(void *, s32);
-s32 update_hp_entry__20TWindowSubStatusDispFPv(void *);
+s32 update_hp_entry__20TWindowSubStatusDispFv(void *);
 extern const f32 lbl_805DD430;
 void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0);
 
@@ -72,7 +72,7 @@ void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
         d = get_array_entry__13TUnk_804CE018Fi(arg0, 8);
         *(s32 *)((s8 *)b + 0x20) = ((TItemProShield *)pl)->get_field_2b8();
         *(s32 *)((s8 *)a + 0x20) = *(s16 *)((s8 *)pl + 0x32C);
-        v = update_hp_entry__20TWindowSubStatusDispFPv(arg0);
+        v = update_hp_entry__20TWindowSubStatusDispFv(arg0);
         *(s32 *)((s8 *)a + 0x1C) = v;
         *(s32 *)((s8 *)c + 0x24) = v;
         *(s32 *)((s8 *)b + 0x1C) = v;
@@ -102,20 +102,20 @@ void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
     }
 }
 
-void draw_background__13TWindowStatusFv(u8 *arg0, u8 *arg1) {
+void TWindowStatus::draw_background(u8 *arg1) {
     Quad_802710C4 q;
     f32 w;
     f32 s;
 
     {
-        u8 *e = get_array_entry__13TUnk_804CE018Fi(arg0, 0xE);
-        draw_photon_blast_gauge_ring((s32)arg0, arg1, lbl_8044F650, *(s32 *)((s8 *)e + 0x20), lbl_805DD434);
+        u8 *e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 0xE);
+        draw_photon_blast_gauge_ring((s32)((u8 *)this), arg1, lbl_8044F650, *(s32 *)((s8 *)e + 0x20), lbl_805DD434);
     }
     begin_screen_draw(1);
     TObjFish::set_global_param((s32)lbl_805D63F0);
     set_draw_texture_and_color(0xB, *(s32 *)((s8 *)arg1 + 0x34));
-    { f32 r = TWindowSubComCard__sub_80244784(arg0);
-    s = -1.0f / (0.0598f + *(f32 *)((s8 *)arg0 + 0x54));
+    { f32 r = TWindowSubComCard__sub_80244784(((u8 *)this));
+    s = -1.0f / (0.0598f + *(f32 *)((s8 *)((u8 *)this) + 0x54));
     q.x0 = -(69.0f * (w = 1.0f - r)); }
     q.y0 = -(80.0f * w);
     q.x1 = 69.0f + q.x0;
@@ -158,7 +158,7 @@ void TWindowStatus::render() {
   temp_f1 = *((f32 *) (((s8 *) temp_r31) + 0x10));
   *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) ((lbl_805DD474 * temp_f1) + lbl_805DD470);
   temp_r3 = draw_default_entry__9TWindowDDFl((void *) arg0, (f32) temp_f1, new_var2);
-  draw_background__13TWindowStatusFv(arg0, (u8 *)temp_r3);
+  ((TWindowStatus *)arg0)->draw_background((u8 *)temp_r3);
   draw_visible_window_entries((void *) new_var, (void *) (arg0 + 0x24), (int) temp_r3);
 }
 

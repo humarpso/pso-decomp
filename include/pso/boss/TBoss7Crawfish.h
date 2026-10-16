@@ -38,7 +38,9 @@ struct TBoss7Crawfish : public TObjEnemy {
     static void destroy_instance();
     static void load_static_resource();
     f32 get_health();
-    void set_anim_timer(s16 v);};
+    void set_anim_timer(s16 v);
+    void register_attack_hits();
+};
 
 typedef char TBoss7Crawfish_size[sizeof(TBoss7Crawfish) == 0x3D0 ? 1 : -1];
 #endif

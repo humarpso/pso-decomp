@@ -77,7 +77,7 @@ int open_submenu__15TWindowSubEquipFll(void*);
 int render_nodes__7TObjectFv(void);
 int reset_transform_state__10TObjPlayerFv(void*);
 int send_and_handle__6TLobbyFii(void*);
-int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
+int try_open_battle_menu__15TWindowMainMenuFs(void*);
 int update_com_card__9TWindowDDFv(void*);
 
 void TWindowCtrlMain::render() { reset_transform_state__10TObjPlayerFv(this); TParticleCtrl::begin_effect_render(); TCameraCtrl::restore_full_screen_view(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); TParticleCtrl::end_effect_render(); }
@@ -232,7 +232,7 @@ bool TWindowCtrlMain__sub_8024D868(u8 *arg0) {
 void TWindowCtrlMain::update_child_2c() { void* m = *(void**)((char*)this + 0x2c); if (m) send_and_handle__6TLobbyFii(m); }
 void TWindowCtrlMain::spawn_palette_slot_light() { void* m = *(void**)((char*)this + 0x34); if (m) spawn_action_palette_slot_light(m); }
 void TWindowCtrlMain::update_field28() { void* m = *(void**)((char*)this + 0x28); if (m) open_submenu__15TWindowSubEquipFll(m); }
-void TWindowCtrlMain::free_member() { void* m = *(void**)((char*)this + 0x28); if (m) try_open_battle_menu__15TWindowMainMenuFPvs(m); }
+void TWindowCtrlMain::free_member() { void* m = *(void**)((char*)this + 0x28); if (m) try_open_battle_menu__15TWindowMainMenuFs(m); }
 s32 TWindowCtrlMain::get_main_menu_message() {
     void *p = *(void **)((s8 *)this + 0x28);
     if (p == 0) {

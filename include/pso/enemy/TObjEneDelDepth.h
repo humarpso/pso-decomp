@@ -58,7 +58,11 @@ struct TObjEneDelDepth : public TObjEnemy {
     void update_animation_frame();
     s32 is_state_complete();
     void set_motion(s32 arg1);
-    static s32 conditional_delete(s32 arg0, s16 arg1);};
+    static s32 conditional_delete(s32 arg0, s16 arg1);
+    void start_attack_motion();
+    void enter_appear_state();
+    void update_scale_pulse();
+};
 
 typedef char TObjEneDelDepth_size[sizeof(TObjEneDelDepth) == 0x3F4 ? 1 : -1];
 #endif

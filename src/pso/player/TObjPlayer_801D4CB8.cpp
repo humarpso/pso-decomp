@@ -3,11 +3,9 @@
 
 extern "C" {
 
-int count_matching_items__10TObjPlayerFPvi(void* a0, int a1);
-
     extern s32 inventory_walk_visit_count;
     extern s32 player_owner_collect_cursor;
-int count_matching_items__10TObjPlayerFPvi(void* a0, int a1) { player_owner_collect_cursor = a1; inventory_walk_visit_count = 0; ((TObjPlayer *)(*(int*)((char*)a0 + 0x1c4)))->collect_item_owners_recursive(); return inventory_walk_visit_count; }
+int TObjPlayer::count_matching_items(int a1) { player_owner_collect_cursor = a1; inventory_walk_visit_count = 0; ((TObjPlayer *)(*(int*)((char*)this + 0x1c4)))->collect_item_owners_recursive(); return inventory_walk_visit_count; }
 
 }
 
@@ -15,15 +13,12 @@ int count_matching_items__10TObjPlayerFPvi(void* a0, int a1) { player_owner_coll
 
 extern "C" {
 
-int apply_shop_judgment__10TObjPlayerFPvi(void* a0, int a1);
-void set_flag_and_update__10TObjPlayerFPvi(void* a0, int a1);
-
     extern s32 inventory_walk_visit_count;
     extern s32 player_owner_collect_cursor;
-int apply_shop_judgment__10TObjPlayerFPvi(void* a0, int a1) { player_owner_collect_cursor = a1; inventory_walk_visit_count = 0; ((TObjPlayer *)(*(int*)((char*)a0 + 0x1c4)))->collect_alive_owners(); return inventory_walk_visit_count; }
+int TObjPlayer::apply_shop_judgment(int a1) { player_owner_collect_cursor = a1; inventory_walk_visit_count = 0; ((TObjPlayer *)(*(int*)((char*)this + 0x1c4)))->collect_alive_owners(); return inventory_walk_visit_count; }
 
     extern s32 item_reduce_target_player;
-void set_flag_and_update__10TObjPlayerFPvi(void* a0, int a1) { item_reduce_target_player = a1; ((TObjPlayer *)(*(int*)((char*)a0 + 0x1c4)))->unequip_invalid_items_recursive(); }
+void TObjPlayer::set_flag_and_update(int a1) { item_reduce_target_player = a1; ((TObjPlayer *)(*(int*)((char*)this + 0x1c4)))->unequip_invalid_items_recursive(); }
 
 }
 
@@ -39,7 +34,6 @@ struct VObj_801D4D48 : Base_801D4D48 {
 
 extern "C" {
 
-s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 lookup_item_def__9TItemDataFPv(s32);
 void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1);
 void *get_owner_if_alive__10TObjPlayerFv(void *);
@@ -48,11 +42,11 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 extern s32 inventory_walk_visit_count;
 extern s32 inventory_search_item_data;
 
-s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+s32 TObjPlayer::count_items_by_id(s32 arg1) {
     void *temp_r3;
 
     if (lookup_item_def__9TItemDataFPv(arg1) != 0) {
-        if (((u32 (*)(void *, s32))set_mode_and_refresh_object__10TObjPlayerFPvi)(arg0, arg1) != 0U) {
+        if (((u32 (*)(void *, s32))set_mode_and_refresh_object__10TObjPlayerFPvi)(this, arg1) != 0U) {
             temp_r3 = ((void *(*)())get_owner_if_alive__10TObjPlayerFv)();
             if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {
                 return ((VObj_801D4D48 *)temp_r3)->m34();
@@ -62,7 +56,7 @@ s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     }
     inventory_search_item_data = arg1;
     inventory_walk_visit_count = 0;
-    ((TObjPlayer *)(*(s32 *)((s8 *)arg0 + 0x1C4)))->count_items_recursive();
+    ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x1C4)))->count_items_recursive();
     return inventory_walk_visit_count;
 }
 

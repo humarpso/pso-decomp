@@ -102,7 +102,6 @@ void TObjEneSlimeOne__sub_800EC470(void* p);
 void TObjEneSlime__sub_800EB9F0(void* p, void* q);
 void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
-void init_slots__12TObjEneSlimeFPv(Obj_800EB984 *self);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 set_cull_none__8TObjFishFv();
@@ -146,12 +145,12 @@ void TObjEneSlime::release_split_slimes() {
     }
 }
 
-void init_slots__12TObjEneSlimeFPv(Obj_800EB984 *self) {
+void TObjEneSlime::init_slots() {
     s32 i;
     for (i = 0; i < 4; i++) {
-        TObjEneSlime__sub_800EB9F0(&self->slots[i], (void *)&lbl_8043D218);
+        TObjEneSlime__sub_800EB9F0(&((Obj_800EB984 *)this)->slots[i], (void *)&lbl_8043D218);
     }
-    spawn_slime_in_slot(self, 0, 0, 0);
+    spawn_slime_in_slot(((Obj_800EB984 *)this), 0, 0, 0);
 }
 
 void TObjEneSlime__sub_800EB9F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }

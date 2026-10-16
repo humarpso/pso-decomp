@@ -10,7 +10,7 @@ void TLobby__sub_803CBFF0(void);
 void TLobby__sub_803CC030(void);
 s32 set_stream_channel_pan__6TLobbyFll();
 s32 set_sound_stream_volume();
-s32 set_stream_frequency__6TLobbyFPvi();
+s32 set_stream_frequency__6TLobbyFl();
 s32 TLobby__sub_803D4704();
 s32 get_packet_size__6TLobbyFv();
 s32 get_available_size__6TLobbyFv();
@@ -26,7 +26,7 @@ void TLobby::trigger_sub_task() {
 }
 
 void TLobby__sub_803CBF90(void) {
-    set_stream_frequency__6TLobbyFPvi();
+    set_stream_frequency__6TLobbyFl();
 }
 
 void TLobby__sub_803CBFB0(void) {

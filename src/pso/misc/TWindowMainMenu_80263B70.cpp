@@ -21,28 +21,26 @@ struct VObj_80263C24_80263B70 : Base_80263C24_80263B70 {
 
 extern "C" {
 
-void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1);
 s32 get_player_by_client_id(s32);
 struct Obj_80263D7C; struct Obj_80263DBC;
-s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2);
-s32 open_menu_with_entry__15TWindowMainMenuFPvs(void *, s16);
+s32 open_menu_with_entry__15TWindowMainMenuFs(void *, s16);
 void destroy_submenu__15TWindowMainMenuFv(void* p);
-s32 reset_equip_slots__10TObjPlayerFPv(s32);
+s32 reset_equip_slots__10TObjPlayerFv(s32);
 
-void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1) {
+void TWindowMainMenu::try_open_battle_menu(s16 arg1) {
     s32 spC;
     s16 sp8;
     s32 temp_r3;
 
     sp8 = arg1;
-    temp_r3 = get_player_by_client_id(*(s32 *)((s8 *)arg0 + 0x54));
-    if ((temp_r3 != 0) && !(*(s32 *)((s8 *)arg0 + 0x4C) & 1) && (filter_menu_entry__15TWindowMainMenuFPvPvPv((u8 *)arg0, &sp8, &spC) != 0) && (spC != 0)) {
-        *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C) | 1);
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
-        open_menu_with_entry__15TWindowMainMenuFPvs(arg0, sp8);
-        ((TWindowMainMenu *)arg0)->create_submenu(sp8);
-        reset_equip_slots__10TObjPlayerFPv(temp_r3);
-        ((V_A_80263b70 *) arg0)->m5();
+    temp_r3 = get_player_by_client_id(*(s32 *)((s8 *)this + 0x54));
+    if ((temp_r3 != 0) && !(*(s32 *)((s8 *)this + 0x4C) & 1) && (filter_menu_entry(&sp8, &spC) != 0) && (spC != 0)) {
+        *(s32 *)((s8 *)this + 0x4C) = (s32) (*(s32 *)((s8 *)this + 0x4C) | 1);
+        *(s32 *)((s8 *)this + 0x5C) = 0;
+        open_menu_with_entry__15TWindowMainMenuFs(this, sp8);
+        ((TWindowMainMenu *)this)->create_submenu(sp8);
+        reset_equip_slots__10TObjPlayerFv(temp_r3);
+        ((V_A_80263b70 *) this)->m5();
     }
 }
 
@@ -79,7 +77,7 @@ s32 populate_menu__15TWindowMainMenuFPvPv(void *, s32);
 void close_child_window__15TWindowMainMenuFv(void* p);
 
 s32 init_parts__10TObjPlayerFPv();
-s32 reset_equip_slots__10TObjPlayerFPv(s32);
+s32 reset_equip_slots__10TObjPlayerFv(s32);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *arg0);
 
 void TWindowMainMenu::close_and_clear_flags() {
@@ -107,7 +105,7 @@ void TWindowMainMenu::open(s32 arg1) {
         *(s16 *)((s8 *)this + 0x50) = 0;
         ((s32 (*)(void *, s32))update_keyboard_card_state__15TWindowMainMenuFv)(this, temp_r4);
         populate_menu__15TWindowMainMenuFPvPv(this, *(s32 *)((s8 *)this + 0x5C));
-        reset_equip_slots__10TObjPlayerFPv(temp_r3);
+        reset_equip_slots__10TObjPlayerFv(temp_r3);
     }
 }
 
@@ -143,14 +141,12 @@ s32 is_quest_active();
 s32 get_short_mail_ctrl__6TLobbyFv();
 s32 is_trade_range_bit_set(s32);
 extern s32 local_client_id;
-s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2);
 }
 
 extern "C" {
 
 void close_child_window__15TWindowMainMenuFv(void* p);
 void destroy_submenu__15TWindowMainMenuFv(void* p);
-void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *arg0);
 u32 create_message_window__6TLobbyFllUls(u32, s32 *, s32, s32);
 
@@ -170,11 +166,11 @@ void TWindowMainMenu::update_keyboard_card_state() {
     update_selection_value();
 }
 
-s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) {
+s32 TWindowMainMenu::filter_menu_entry(s16 *arg1, s32 *arg2) {
     u8 *base;
     u8 *p;
     s32 st;
-    base = ((u8 *(*)(s32))get_player_by_client_id)(*(s32 *)((s8 *)arg0 + 0x54));
+    base = ((u8 *(*)(s32))get_player_by_client_id)(*(s32 *)((s8 *)((u8 *)this) + 0x54));
     if (base == NULL) {
         return 0;
     }
@@ -244,16 +240,16 @@ void TWindowMainMenu::close_child_window() { if (*(unsigned int*)((char*)this + 
 extern s32 lbl_8044F2E0[];
 extern const f32 lbl_805DD13C;
 
-void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x48) != arg1) {
-        *(s32 *)((s8 *)arg0 + 0x48) = arg1;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x24) == 0U) {
+void TWindowMainMenu::update_description_text(s32 arg1) {
+    if ((s32) *(s32 *)((s8 *)this + 0x48) != arg1) {
+        *(s32 *)((s8 *)this + 0x48) = arg1;
+        if ((u32) *(u32 *)((s8 *)this + 0x24) == 0U) {
             u32 tmp = get_window_layout_position(0x1B);
-            *(u32 *)((s8 *)arg0 + 0x24) = create_message_window__6TLobbyFllUls(tmp, lbl_8044F2E0, 1, *(s32 *)((s8 *)arg0 + 0x54));
-            ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x24)))->set_field_1c(lbl_805DD13C);
-            call_if_split_screen(*(u32 *)((s8 *)arg0 + 0x24), *(s32 *)((s8 *)arg0 + 0x54));
+            *(u32 *)((s8 *)this + 0x24) = create_message_window__6TLobbyFllUls(tmp, lbl_8044F2E0, 1, *(s32 *)((s8 *)this + 0x54));
+            ((TLobby *)(*(u32 *)((s8 *)this + 0x24)))->set_field_1c(lbl_805DD13C);
+            call_if_split_screen(*(u32 *)((s8 *)this + 0x24), *(s32 *)((s8 *)this + 0x54));
         }
-        ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x24)))->send_and_handle(select_main_menu_item_10(arg1), 0x80);
+        ((TLobby *)(*(u32 *)((s8 *)this + 0x24)))->send_and_handle(select_main_menu_item_10(arg1), 0x80);
     }
 }
 

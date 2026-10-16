@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TUnk_80494938.h"
 
@@ -6,7 +7,6 @@ struct O_800D72A4 { u8 pad[0x18]; f32 f18; };
 
 extern "C" {
 extern const float lbl_805DA348;
-s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0);
 extern const f32 lbl_805DA34C;
 extern const float lbl_805DA348;
 extern const float lbl_805DA348;
@@ -21,7 +21,6 @@ s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
 
 extern "C" {
 
-void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q);
 int set_chunk_blend(int);
 
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
@@ -35,10 +34,10 @@ s32 TUnk_80494938::vfunc_10() {
 
 void TUnk_80494938::set_flags_and_apply_damage_color() { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(8448); }
 
-s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0) {
-    *(f32 *)((s8 *)arg0 + 0x18) = (f32) (*(f32 *)((s8 *)arg0 + 0x18) + *(f32 *)((s8 *)arg0 + 0x10));
-    ((TUnk_80494938 *)arg0)->sub_800D741C();
-    return *(f32 *)((s8 *)arg0 + 0x18) >= farg0;
+s32 TObjEneMe3SinowZoa::advance_timer(f32 farg0) {
+    *(f32 *)((s8 *)((u8 *)this) + 0x18) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x18) + *(f32 *)((s8 *)((u8 *)this) + 0x10));
+    ((TUnk_80494938 *)((u8 *)this))->sub_800D741C();
+    return *(f32 *)((s8 *)((u8 *)this) + 0x18) >= farg0;
 }
 
 s32 TUnk_80494938::advance_toward_max() {
@@ -77,7 +76,7 @@ void TUnk_80494938::sub_800D741C() {
     *(f32 *)((s8 *)arg0 + 0) = (f32) lbl_805DA354;
 }
 
-void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); }
+void TObjEneMe3SinowZoa::copy_position_vector(void* q) { *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)this + 0xc) = *(f32*)((char*)q + 0xc); }
 
     extern const float lbl_805DA348;
     extern const float lbl_805DA350;
@@ -89,13 +88,11 @@ void TUnk_80494938::reset_obstruction_fade() { *(float*)((char*)this + 0x18) = l
 
 extern "C" {
 
-void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v);
-
     extern const float lbl_805DA348;
     extern const float lbl_805DA34C;
 void TUnk_80494938::vfunc_4() { *(float*)((char*)this + 0x18) = lbl_805DA34C; *(float*)((char*)this + 0x0) = lbl_805DA348; *(float*)((char*)this + 0x4) = lbl_805DA348; *(float*)((char*)this + 0x8) = lbl_805DA348; *(float*)((char*)this + 0xc) = lbl_805DA348; }
 
-void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
+void TObjEneMe3SinowZoa::set_field_10(f32 v) { *(f32*)((char*)this + 0x10) = v; }
 
 }
 
@@ -126,7 +123,6 @@ extern const f32 lbl_805DA35C;
 extern const f32 lbl_805DA34C;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA348;
-void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self);
 }
 
 extern "C" {
@@ -139,13 +135,13 @@ void TUnk_80494938::set_rate_from_divisor(s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self) {
-    self->m1(10);
-    self->f18 = lbl_805DA35C * self->f10 + lbl_805DA34C;
-    self->f0 = lbl_805DA354;
-    self->f4 = lbl_805DA348;
-    self->f8 = lbl_805DA348;
-    self->fc = lbl_805DA348;
+void TObjEneMe3SinowZoa::init_death_params() {
+    ((V_800D7524 *)this)->m1(10);
+    ((V_800D7524 *)this)->f18 = lbl_805DA35C * ((V_800D7524 *)this)->f10 + lbl_805DA34C;
+    ((V_800D7524 *)this)->f0 = lbl_805DA354;
+    ((V_800D7524 *)this)->f4 = lbl_805DA348;
+    ((V_800D7524 *)this)->f8 = lbl_805DA348;
+    ((V_800D7524 *)this)->fc = lbl_805DA348;
 }
 #pragma pop
 

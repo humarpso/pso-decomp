@@ -17,7 +17,7 @@ extern s32 lbl_805DCAB8;
 extern "C" {
 
 void sub_802443B4__13TUnk_804CDFE8Fv(void *, void *);
-void construct_base__9TWindowDDFPvPvsPv(void *);
+void construct_base__9TWindowDDFPUcsPUc(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFs(void *, int);
 
@@ -37,7 +37,7 @@ void *TUnk_804CDFE8::destroy_window(s16 arg1) {
 extern s32 lbl_804CDFE8[];
 
 void *TUnk_804CDFE8::construct_with_parent(void *arg1) {
-    construct_base__9TWindowDDFPvPvsPv(this);
+    construct_base__9TWindowDDFPUcsPUc(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804CDFE8;
     sub_802443B4__13TUnk_804CDFE8Fv(this, arg1);
     return this;

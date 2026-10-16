@@ -6,7 +6,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_shot_weapon(u8 *arg0);
 s32 TItemWeapon__ct(void *, s32, void *);
-s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
+s32 set_status_flags__10TObjPlayerFUl(void *, s32);
 void spawn_weapon_impact_effect();
 void create_gun_shot();
 extern u8 lbl_804A5C18[];
@@ -21,7 +21,7 @@ void *construct_shot_weapon(void *arg0, s32 parent, void *arg2) {
     u8 temp_r0;
     TItemWeapon__ct(arg0, parent, arg2);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804A5C18;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 2);
+    set_status_flags__10TObjPlayerFUl(arg0, 2);
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;
     *(void **)((s8 *)arg0 + 0x1EC) = (void *)spawn_weapon_impact_effect;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAF68;

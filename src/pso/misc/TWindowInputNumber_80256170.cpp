@@ -40,7 +40,7 @@ struct Win_80256354 { u8 p0[0x62]; s8 f62; u8 p63[5]; s32 f68; };
 
 extern "C" {
 void draw_right_aligned_number(void *);
-void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
+void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
 extern s32 __vt__18TWindowInputNumber[];
 extern s32 TWindowInputNumber__name;
@@ -61,13 +61,13 @@ void render__18TWindowInputNumberFv(u8 *arg0);
 s32 draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
+u32 construct_type1_heading__20TWindowSubStatusDispFll(u32, s32, s16);
 void __dl__7TObjectFPv(void *);
-s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
-void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
+s32 apply_choice__20TWindowChoiceSettingFllll(void *, s32, s32, s32);
+void destroy_status_display__20TWindowSubStatusDispFls(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(int, int, int, int);
 s32 is_player_input_active(int);
 extern const f32 lbl_805DCE54;
 
@@ -80,7 +80,7 @@ void TWindowInputNumber::create(s32 arg1) {
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
             u32 saved = var_r0;
-            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(saved, arg1, *(s16 *)((s8 *)this + 0x20));
+            var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(saved, arg1, *(s16 *)((s8 *)this + 0x20));
         }
         *(u32 *)((s8 *)this + 0x70) = var_r0;
         *(s32 *)((s8 *)this + 0x2C) = (s32) (*(s32 *)((s8 *)this + 0x2C) | 0x40);
@@ -175,30 +175,30 @@ void TWindowInputNumber::run_task() {
     if ((((TWindowInputNumber *)arg0)->is_confirmed() == 0) && !(*(u16 *)((s8 *)arg0 + 0x60) & 0x40) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x60) & 0x10) {
             temp_r29 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
-            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
+            if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
                 ((TWindowInputNumber *)arg0)->update_value();
             }
-            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x20), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
+            if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r29), (int) (0x20), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
                 ((TWindowInputNumber *)arg0)->update();
             }
-            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x40), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
+            if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r29), (int) (0x40), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
                 ((TWindowInputNumber *)arg0)->move_cursor_next();
             }
-            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x80), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
+            if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r29), (int) (0x80), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
                 ((TWindowInputNumber *)arg0)->handle_decrement();
             }
         } else {
             temp_r29_2 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r29_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
                 ((TWindowInputNumber *)arg0)->update_value();
             }
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r29_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
                 ((TWindowInputNumber *)arg0)->update();
             }
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x40), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r29_2), (int) (0x40), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
                 ((TWindowInputNumber *)arg0)->move_cursor_next();
             }
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x80), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r29_2), (int) (0x80), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
                 ((TWindowInputNumber *)arg0)->handle_decrement();
             }
         }
@@ -224,7 +224,7 @@ extern s32 __vt__18TWindowInputNumber[];
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowInputNumber;
-        if (*(void **)((s8 *)arg0 + 0x70) != NULL) { destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)arg0 + 0x70), 1); }
+        if (*(void **)((s8 *)arg0 + 0x70) != NULL) { destroy_status_display__20TWindowSubStatusDispFls(*(void **)((s8 *)arg0 + 0x70), 1); }
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -241,7 +241,7 @@ typedef char RecoveredGlobal_80256A60___vt__18TWindowInputNumber_size[sizeof(Rec
 
 TWindowInputNumber::TWindowInputNumber(void *position, s32 low, s32 high,
                                      s32 initial, s16 client) {
-    construct_base__9TWindowDDFPvPvsPv(this, &lbl_804CF8EC.value, client, position);
+    construct_base__9TWindowDDFPUcsPUc(this, &lbl_804CF8EC.value, client, position);
     objectVtable = __vt__18TWindowInputNumber;
     className = TWindowInputNumber__name;
     clientIndex = client;
@@ -272,7 +272,7 @@ s32 TWindowInputNumber::is_locked(s32 arg1) {
     if (*(u16 *)((s8 *)this + 0x60) & 0x20) {
         return 0;
     }
-    return apply_choice__20TWindowChoiceSettingFiiii(controller_input_state + 0x160, arg1, 6, 1);
+    return apply_choice__20TWindowChoiceSettingFllll(controller_input_state + 0x160, arg1, 6, 1);
 }
 
 }

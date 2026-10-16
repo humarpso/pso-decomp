@@ -32,7 +32,7 @@ void handle_6x03(void);
 void handle_6x04_legacy_activate_switch_by_token(void *arg0);
 void handle_6x9E_player_camera_shutter_sound(void);
 s32 TObjDoorKey__sub_8018FAEC(u16, u16);
-s32 bswap_switch_activate_token__6TLobbyFPv();
+s32 bswap_switch_activate_token__6TLobbyFv();
 
 void TObjPlayer__sub_801E3F24(s32 arg0) {
     *(s32 *)0xCC008000 = arg0;
@@ -56,7 +56,7 @@ void handle_6x9E_player_camera_shutter_sound(void) {
 }
 
 void handle_6x04_legacy_activate_switch_by_token(void *arg0) {
-    bswap_switch_activate_token__6TLobbyFPv();
+    bswap_switch_activate_token__6TLobbyFv();
     TObjDoorKey__sub_8018FAEC(*(u16 *)((s8 *)arg0 + 2), *(u16 *)((s8 *)arg0 + 4));
 }
 

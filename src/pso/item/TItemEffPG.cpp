@@ -56,14 +56,14 @@ void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-void set_status_flags__10TObjPlayerFPvUi(void *, int);
+void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804F0AF8[];
 
 void *TUnk_804F0AF8::init_fields(s32 _w1, void *_w2) {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0AF8;
-    set_status_flags__10TObjPlayerFPvUi(this, 1);
+    set_status_flags__10TObjPlayerFUl(this, 1);
     *(u32 *)((s8 *)this + 0x1F8) = -30947;
     *(u32 *)((s8 *)this + 0x1FC) = -7281;
     return this;

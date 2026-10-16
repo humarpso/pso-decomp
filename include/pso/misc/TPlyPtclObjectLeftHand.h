@@ -6,6 +6,7 @@
 
 struct TPlyPtclObjectLeftHand : public TPlyFollowParticleCtrl {
     virtual ~TPlyPtclObjectLeftHand();
+    static s32 update_attachment(s32 arg0);
 };
 
 typedef char TPlyPtclObjectLeftHand_size[sizeof(TPlyPtclObjectLeftHand) == 0xB0 ? 1 : -1];

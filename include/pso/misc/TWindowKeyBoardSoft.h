@@ -91,6 +91,8 @@ struct TWindowKeyBoardSoft
     static void dispatch_request_0x13(s32 arg0, s32 arg1, s32 arg2);
     static void dispatch_request_0x10(s32 a, s32 b);
     static void dispatch_request_0f(s32 a, s32 b);
+    static void free_instance();
+    static void free_resources();
 };
 
 #endif

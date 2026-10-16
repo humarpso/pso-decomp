@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 is_matching_id__6TLobbyFiUs(void *, u16);
+s32 is_matching_id__6TLobbyFlUs(void *, u16);
 int get_slot_value__10TObjPlayerFPvi(void*);
 int TLobby__send_and_handle_60(void* a0 = 0);
 void bswap_32__FPUl(u32* p);
@@ -36,7 +36,7 @@ void TObjPlayer__sub_80102D84(u8 *arg0) {
 }
 
 u8 TObjPlayer::is_not_matching_lobby_id() {
-    return (u8) (is_matching_id__6TLobbyFiUs(this, *(u16 *)((s8 *)this + 2)) == 0);
+    return (u8) (is_matching_id__6TLobbyFlUs(this, *(u16 *)((s8 *)this + 2)) == 0);
 }
 
 }

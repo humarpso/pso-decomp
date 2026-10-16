@@ -336,9 +336,9 @@ struct Ent_800F0F84 { u8 pad0[0x18]; u32 f18; };
 
 extern "C" {
 s32 is_split_screen();
-s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 set_field_378__9TObjEneDDFl(void *, int);
 s32 transition_enemy_state(void *, int);
-s32 copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void *, void *);
+s32 copy_position_vector__18TObjEneMe3SinowZoaFPv(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
@@ -353,7 +353,7 @@ s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 enemy_turn_toward_dest(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 set_field_378__9TObjEneDDFl(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
@@ -439,7 +439,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         F(s16, 0xB8) = 0xA;
-        set_field_378__9TObjEneDDFPvi(arg0, 6);
+        set_field_378__9TObjEneDDFl(arg0, 6);
         ((VObj_18_444bc5 *)(arg0))->m94();
         F(s32, 0x3CC) &= 0xFFFFFFF8;
         F(s32, 0x3CC) |= 0x10000;
@@ -539,7 +539,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         F(s16, 0xB8) = 0xB;
-        set_field_378__9TObjEneDDFPvi(arg0, 6);
+        set_field_378__9TObjEneDDFl(arg0, 6);
         VO->m94();
         F(s32, 0x3CC) &= 0xFFFFFFF1;
         F(s32, 0x3CC) |= 1;
@@ -567,7 +567,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
                     q.b = me3_stelth_offset_vec.b;
                     q.c = me3_stelth_offset_vec.c;
                     q.d = me3_stelth_offset_vec.d;
-                    copy_position_vector__18TObjEneMe3SinowZoaFPvPv(arg0 + 0x404, &q);
+                    copy_position_vector__18TObjEneMe3SinowZoaFPv(arg0 + 0x404, &q);
                     F(s32, 0x424) = 1;
                 }
                 break;

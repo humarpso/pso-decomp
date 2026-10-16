@@ -215,7 +215,6 @@ s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
 s32 TBoss8Dragon__sub_8002DB04(void *arg0);
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1);
 Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material);
-f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1);
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 f32 rand_signed_unit(void);
 
@@ -592,31 +591,31 @@ Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 widt
 
 f32 TBoss8Dragon::apply_default_velocity_scale() {
     f32 *vector = (f32 *)this;
-    return apply_velocity_scale__12TBoss8DragonFPvff(vector, lbl_805D81E4, lbl_805D81D4);
+    return ((TBoss8Dragon *)vector)->apply_velocity_scale(lbl_805D81E4, lbl_805D81D4);
 }
 
-f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1) {
+f32 TBoss8Dragon::apply_velocity_scale(f32 farg0, f32 farg1) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f2;
     f32 var_f31;
     s32 temp_r31;
 
-    temp_f1 = ((TObjBoss2Tunnel *)arg0)->clamp_velocity();
+    temp_f1 = ((TObjBoss2Tunnel *)((f32 *)this))->clamp_velocity();
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
-        *(f32 *)((s8 *)arg0 + 0) = var_f31;
-        *(f32 *)((s8 *)arg0 + 4) = (f32) lbl_805D81F4;
-        *(f32 *)((s8 *)arg0 + 8) = var_f31;
+        *(f32 *)((s8 *)((f32 *)this) + 0) = var_f31;
+        *(f32 *)((s8 *)((f32 *)this) + 4) = (f32) lbl_805D81F4;
+        *(f32 *)((s8 *)((f32 *)this) + 8) = var_f31;
     } else {
         temp_r31 = (s32) (lbl_805D81F8 * (temp_f1 / farg0));
         var_f31 = farg1 * (lbl_805D81F4 + cos_table_lookup(temp_r31, lbl_805D81F8));
         temp_f1_2 = sin_table_lookup(temp_r31);
-        temp_f2 = *(f32 *)((s8 *)arg0 + 0) * temp_f1_2;
-        *(f32 *)((s8 *)arg0 + 0) = temp_f2;
-        *(f32 *)((s8 *)arg0 + 4) = (f32) lbl_805D81F4;
-        *(f32 *)((s8 *)arg0 + 8) = (f32) (*(f32 *)((s8 *)arg0 + 8) * temp_f1_2);
-        update_scale__15TObjBoss2TunnelFv(arg0, temp_f1_2);
+        temp_f2 = *(f32 *)((s8 *)((f32 *)this) + 0) * temp_f1_2;
+        *(f32 *)((s8 *)((f32 *)this) + 0) = temp_f2;
+        *(f32 *)((s8 *)((f32 *)this) + 4) = (f32) lbl_805D81F4;
+        *(f32 *)((s8 *)((f32 *)this) + 8) = (f32) (*(f32 *)((s8 *)((f32 *)this) + 8) * temp_f1_2);
+        update_scale__15TObjBoss2TunnelFv(((f32 *)this), temp_f1_2);
     }
     return var_f31;
 }

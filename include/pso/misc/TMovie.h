@@ -33,7 +33,9 @@ struct TMovie : public TObject {
     void copy(void* q);
     void free_buffer();
     static void render_until_finished();
-    s32 check_skip_input();};
+    s32 check_skip_input();
+    static void run_callback();
+};
 
 typedef char TMovie_size[sizeof(TMovie) == 0x4C ? 1 : -1];
 #endif

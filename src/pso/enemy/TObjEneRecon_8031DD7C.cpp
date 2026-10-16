@@ -21,30 +21,28 @@ VV(91)VV(92)VV(93)VV(94)VV(95)VV(96)VV(97)VV(98)VV(99)
 
 extern "C" {
 
-void update_collide_flag__12TObjEneReconFPv(void *arg0);
-void set_flag2__12TObjEneReconFPv(void *arg0);
 u32 move_with_wall_slide_commit__9TObjEneDDFfff();
 u32 TObjEneEpsilon__sub_800B92F8(void *, s32, void *, f32);
 
 extern f32 *TObjEneRecon__data_805D6AFC;
 
-void update_collide_flag__12TObjEneReconFPv(void *arg0) {
+void TObjEneRecon::update_collide_flag() {
     void *temp_r5;
 
-    temp_r5 = *(void **)((s8 *)arg0 + 0x350);
-    if (TObjEneEpsilon__sub_800B92F8(arg0, *(s32 *)((s8 *)temp_r5 + 8), temp_r5, *TObjEneRecon__data_805D6AFC) != 0U) {
-        *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
+    temp_r5 = *(void **)((s8 *)this + 0x350);
+    if (TObjEneEpsilon__sub_800B92F8(this, *(s32 *)((s8 *)temp_r5 + 8), temp_r5, *TObjEneRecon__data_805D6AFC) != 0U) {
+        *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) | 2);
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFD);
+    *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) & 0xFFFFFFFD);
 }
 
-void set_flag2__12TObjEneReconFPv(void *arg0) {
+void TObjEneRecon::set_flag2() {
     if (move_with_wall_slide_commit__9TObjEneDDFfff() != 0U) {
-        *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
+        *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) | 2);
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFD);
+    *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) & 0xFFFFFFFD);
 }
 
 void TObjEneRecon::update_flag_0x444() {
@@ -63,7 +61,6 @@ extern "C" {
 void enemy_copy_target_destination__12TObjEneDD_STFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -72,11 +69,11 @@ int transition_enemy_state(void*, void*);
 
 #pragma push
 #pragma fp_contract on
-void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
-    enemy_copy_target_destination__12TObjEneDD_STFv(arg0);
-    *(f32 *)((s8 *)arg0 + 0x394) = (f32) ((*(f32 *)((s8 *)arg0 + 0x468) * sin_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x394));
-    *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x460);
-    *(f32 *)((s8 *)arg0 + 0x39C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x468) * cos_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x39C));
+void TObjEneRecon::set_orbit_destination(s32 arg1) {
+    enemy_copy_target_destination__12TObjEneDD_STFv(((u8 *)this));
+    *(f32 *)((s8 *)((u8 *)this) + 0x394) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x468) * sin_table_lookup(arg1)) + *(f32 *)((s8 *)((u8 *)this) + 0x394));
+    *(f32 *)((s8 *)((u8 *)this) + 0x398) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x460);
+    *(f32 *)((s8 *)((u8 *)this) + 0x39C) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x468) * cos_table_lookup(arg1)) + *(f32 *)((s8 *)((u8 *)this) + 0x39C));
 }
 #pragma pop
 
@@ -88,13 +85,13 @@ extern "C" {
 
 int transition_enemy_state(void*, void*);
 
-void advance_field398__12TObjEneReconFPv(void *arg0) {
+void TObjEneRecon::advance_field398() {
     ((s32 (*)())enemy_copy_target_destination__12TObjEneDD_STFv)();
-    *(f32 *)((s8 *)arg0 + 0x398) = (f32) (*(f32 *)((s8 *)arg0 + 0x398) + *(f32 *)((s8 *)arg0 + 0x464));
+    *(f32 *)((s8 *)this + 0x398) = (f32) (*(f32 *)((s8 *)this + 0x398) + *(f32 *)((s8 *)this + 0x464));
 }
-void sync_height__12TObjEneReconFPv(void *arg0) {
+void TObjEneRecon::sync_height() {
     ((s32 (*)())enemy_copy_target_destination__12TObjEneDD_STFv)();
-    *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x460);
+    *(f32 *)((s8 *)this + 0x398) = (f32) *(f32 *)((s8 *)this + 0x460);
 }
 void TObjEneRecon::vfunc_61() {  }
 void TObjEneRecon::vfunc_62() { if (*(short*)((char*)this + 0x326) != 6) { transition_enemy_state(this, (void*)6); } }

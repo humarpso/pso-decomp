@@ -40,7 +40,7 @@ void close_gsl_archive();
 s32 strcmp(void *, void *);
 s32 fn_800F93B4(void *, GslArchiveEntry *, s32);
 s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, const void *);
-s32 close_adxf_handle__6TLobbyFPv(u32);
+s32 close_adxf_handle__6TLobbyFv(u32);
 s32 strlen(char *);
 s32 strncpy(char *, char *, s32);
 u32 adxf_open__6TLobbyFUii(char *, s32);
@@ -276,7 +276,7 @@ void close_gsl_archive(void) {
     char buf[32];
     s32 n;
     if (TItemDrop__data_805D53CC == 0) {
-        close_adxf_handle__6TLobbyFPv(TItemDrop__gsl_adxf_handle);
+        close_adxf_handle__6TLobbyFv(TItemDrop__gsl_adxf_handle);
         TItemDrop__gsl_adxf_handle = 0;
     } else {
         n = strlen(gsl_archive_path_buffer_ptr);
@@ -397,7 +397,7 @@ s32 refill_gstream_buffer(s32 arg0) {
 TGStreamPrefix *destroy_gstream(TGStreamPrefix *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) (u32)arg0->archive_entry == 0U) {
-            ((s32 (*)(s32))close_adxf_handle__6TLobbyFPv)(arg0->adxf_handle);
+            ((s32 (*)(s32))close_adxf_handle__6TLobbyFv)(arg0->adxf_handle);
         }
         if ((s32) arg0->direct_read_mode == 0) {
             ((TLobby *)lbl_8043DAF8)->tmp_buf_release();

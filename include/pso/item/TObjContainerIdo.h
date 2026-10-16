@@ -22,6 +22,7 @@ struct TObjContainerIdo : public TUnk_804B97C0 {
     static void free_resources();
     static void load_resources();
     u8 unk_108[0x4];
+    static void *create(void *arg0);
 };
 
 typedef char TObjContainerIdo_size[sizeof(TObjContainerIdo) == 0x10C ? 1 : -1];

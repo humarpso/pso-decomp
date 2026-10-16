@@ -3,7 +3,6 @@
 
 extern "C" {
 
-s32 check_technique_level__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2);
 u8 TObjPlayer__sub_801C010C(s32, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 u8 get_effective_technique_level__10TObjPlayerFPvs(s32, s32);
@@ -22,7 +21,7 @@ u8 TObjPlayer::is_valid_technique_slot(u8 arg0) {
     return (u8) (arg0 <= 0xFU);
 }
 
-s32 check_technique_level__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2) {
+s32 TObjPlayer::check_technique_level(s32 arg0, s32 arg1, u8 arg2) {
     if (is_invalid_slot__10TObjPlayerFUc(arg2) != 0) {
         return 1;
     }

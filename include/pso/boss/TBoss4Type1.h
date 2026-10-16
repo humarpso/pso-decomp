@@ -54,6 +54,7 @@ struct TBoss4Type1
     u8 _pad3DC[0xA4];
     u32 m_480;
     void* m_484;
+    static s32 create(s32 arg0);
 };
 
 #endif

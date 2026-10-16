@@ -36,13 +36,11 @@ extern void *creation_player_character;
 extern s32 creation_main_menu_obj;
 u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1);
 s32 is_active__23TAdSinglePlyChrSelectGCFv(void *self);
-s32 update_main_menu__12TCharaMakingFi(s32 arg0);
 }
 
 extern "C" {
 
 void TCharaMaking__sub_8028E790(void);
-s32 update_main_menu__12TCharaMakingFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
 s32 fn_8028D8F4();
 s32 fn_80291268();
@@ -66,7 +64,7 @@ void TCharaMaking::update_light_direction() {
     *(f32 *)((s8 *)(&TObjLight__scene_light_state.value) + 8) = (f32) (temp_f31 * cos_table_lookup(*(s32 *)&this->m_20));
 }
 
-s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
+s32 TCharaMaking::update_main_menu(s32 arg0) {
     s32 var_r3;
 
     if (is_state_3__14TObjCMMainMenuFv(creation_main_menu_obj) != 0) {
@@ -92,7 +90,7 @@ extern void *creation_player_character;
 
 void TCharaMaking::run_task() {
     if (!is_active__23TAdSinglePlyChrSelectGCFv(this)) return;
-    if (update_main_menu__12TCharaMakingFi((s32)(this))) return;
+    if (TCharaMaking::update_main_menu((s32)(this))) return;
 }
 
 void *TCharaMaking::create(void *arg0, void *arg1) {

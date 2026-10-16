@@ -54,7 +54,7 @@ u32 get_player_by_client_id(void *);
 u8 *get_window_layout_position(s32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
-s32 reset_equip_slots__10TObjPlayerFPv();
+s32 reset_equip_slots__10TObjPlayerFv();
 s32 text_builder_append();
 s32 text_builder_reset();
 s32 __ct__7TObjectFP7TObject();
@@ -159,7 +159,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   ((TWindowSubShortMail *)(*((s32 *) (((s8 *) arg0) + 0x20))))->notify_warp_flag70();
   if (((s32)get_player_by_client_id((void *)((u32) local_client_id))) != 0U)
   {
-    reset_equip_slots__10TObjPlayerFPv();
+    reset_equip_slots__10TObjPlayerFv();
   }
   TObjPlayer__sub_8024ABDC((void *) local_client_id);
   fn_8024AC64((void *) local_client_id);

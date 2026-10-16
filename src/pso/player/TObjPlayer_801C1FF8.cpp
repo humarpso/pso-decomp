@@ -21,14 +21,14 @@ struct S_801C20A4 { u16 f0; s16 f2; s32 f4; f32 f8; f32 fC; f32 f10; s32 f14; u8
 extern "C" {
 s32 TObjPlayer__sub_801C2044(s32 *arg0);
 u8 TObjPlayer__sub_801C21C4(O_801C21C4 *self, s32 i);
-void is_slot_within_limit__10TObjPlayerFiiUc(u8 id, s16 i, u8 v);
+void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
 void __dl__FPv(void *);
 void __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_801AA528(void);
 void *fn_801C2308(void *arg0, s16 arg1);
 void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_801AA528(void);
-void init_arrays__10TObjPlayerFi(void);
+void init_arrays__10TObjPlayerFv(void);
 void *fn_801C2360(void *arg0);
 extern const f32 TObjPlayer__data_805DC278;
 S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0);
@@ -57,7 +57,7 @@ int test_flags_any(void*, int);
 void TObjPlayer__sub_8012AF00(void *);
 int __ct__12TPlyCharDataFv(void*);
 int fn_8035B00C(void*);
-void reset_movement_state__10TObjPlayerFPv(void *);
+void reset_movement_state__10TObjPlayerFv(void *);
 
 extern const f32 TObjPlayer__data_805DC294;
 
@@ -65,7 +65,7 @@ void *TObjPlayer::init() {
     ((TObjPlayer *)((char *)this + 12))->init_forward();
     TObjPlayer__sub_8012AF00((void *)((char *)this + 48));
     *(f32 *)((s8 *)this + 0x8) = TObjPlayer__data_805DC294;
-    reset_movement_state__10TObjPlayerFPv(this);
+    reset_movement_state__10TObjPlayerFv(this);
     return this;
 }
 
@@ -130,7 +130,7 @@ u8 TObjPlayer__sub_801C21C4(O_801C21C4 *self, s32 i) {
 u8 TObjPlayer::get_slot_value_checked(s32 i) {
     O_801C21D4 *self = (O_801C21D4 *)this;
     u8 v = self->arr[i];
-    is_slot_within_limit__10TObjPlayerFiiUc(self->id, i, v);
+    is_slot_within_limit__10TObjPlayerFllUc(self->id, i, v);
     return v;
 }
 
@@ -159,7 +159,7 @@ void *fn_801C2308(void *arg0, s16 arg1) {
     return arg0;
 }
 void *fn_801C2360(void *arg0) {
-    __construct_array(arg0, (void *)init_arrays__10TObjPlayerFi, (void *)TObjPlayer__sub_801AA528, 0x18, 4);
+    __construct_array(arg0, (void *)init_arrays__10TObjPlayerFv, (void *)TObjPlayer__sub_801AA528, 0x18, 4);
     return arg0;
 }
 

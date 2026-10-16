@@ -5,7 +5,7 @@
 
 extern "C" {
 
-s32 is_key_active__16TKeyBoardControlFPv(u32);
+s32 is_key_active__16TKeyBoardControlFv(u32);
 s32 TWindowKeyBoardSoft__sub_80260904(void *, s32);
 s32 TWindowKeyBoardSoft__sub_80260E30(void *, s32);
 s32 sub_80244994__13TUnk_804CE018Fv();
@@ -20,7 +20,7 @@ void TWindowKeyBoardSoft::run_task() {
     s32 temp_r3;
 
     if ((u32) *(u32 *)((s8 *)this + 0x6C) != 0U) {
-        if ((sub_80244994__13TUnk_804CE018Fv() != 0) && (is_key_active__16TKeyBoardControlFPv(*(u32 *)((s8 *)this + 0x6C)) == 0)) {
+        if ((sub_80244994__13TUnk_804CE018Fv() != 0) && (is_key_active__16TKeyBoardControlFv(*(u32 *)((s8 *)this + 0x6C)) == 0)) {
             temp_r3 = is_player_input_active(*(s16 *)((s8 *)this + 0x20));
             handle_page_cycle_input(temp_r3);
             TWindowKeyBoardSoft__sub_80260E30(this, temp_r3);
@@ -49,7 +49,7 @@ struct RecoveredGlobal_80262740_lbl_804D0004 {
 };
 
 extern "C" {
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft soft_keyboard_window_and_action_data;
 extern s32 __vt__19TWindowKeyBoardSoft[];
@@ -78,7 +78,7 @@ void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft_size[sizeof(RecoveredGlobal_80262740___vt__19TWindowKeyBoardSoft) == 0x224 ? 1 : -1];
 typedef char RecoveredGlobal_80262740_lbl_804D0004_size[sizeof(RecoveredGlobal_80262740_lbl_804D0004) == 0x1C ? 1 : -1];
 u8 *TWindowKeyBoardSoft__ct(u8 *arg0, s32 arg1, s16 arg2) {
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&soft_keyboard_window_and_action_data.value), (void *) (arg2), (int) (get_window_layout_position((int) (0xBA))));
+    construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (&soft_keyboard_window_and_action_data.value), (void *) (arg2), (int) (get_window_layout_position((int) (0xBA))));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80262740_lbl_804D0004 *)&__vt__19TWindowKeyBoardSoft).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) keyboard_soft_type_name_pointer;
     *(s32 *)((s8 *)arg0 + 0x60) = 0;

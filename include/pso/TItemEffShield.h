@@ -9,6 +9,8 @@ public:
     virtual void run_task();
 public:
     void spawn_recipe_particles();
+public:
+    u8 *ct_init(u8 *arg1, s16 arg2);
 };
 
 #endif

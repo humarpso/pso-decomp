@@ -9,12 +9,10 @@ s32 gryphon_demo_collision_body_desc[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 
 
 extern "C" {
 
-int get_state__17TBoss5GryphonDemoFPv(void* p);
-void draw_linked_model__17TBoss5GryphonDemoFPv(TBoss5GryphonColli* p, void* position, s32 yaw);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 
-int get_state__17TBoss5GryphonDemoFPv(void* p) { return ((int (*)(void*))TBoss5GryphonDemo__sub_8006626C)(*(void**)((char*)p + 0x1c)); }
-void draw_linked_model__17TBoss5GryphonDemoFPv(TBoss5GryphonColli* p, void* position, s32 yaw) { ((TBoss5GryphonDemo *)(p->objects[0]))->draw_model(position, yaw); }
+int TBoss5GryphonDemo::get_state() { return ((int (*)(void*))TBoss5GryphonDemo__sub_8006626C)(*(void**)((char*)this + 0x1c)); }
+void TBoss5GryphonDemo::draw_linked_model(void* position, s32 yaw) { ((TBoss5GryphonDemo *)(((TBoss5GryphonColli*)this)->objects[0]))->draw_model(position, yaw); }
 
 }
 

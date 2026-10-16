@@ -3,14 +3,14 @@
 struct Row_8020C354 { s16 type, flags; u8 u4[8]; s16 room; u8 ue[0x3a]; };
 
 extern "C" {
-Row_8020C354 *resolve_matching_object__6TLobbyFPv(s32 floor);
+Row_8020C354 *resolve_matching_object__6TLobbyFv(s32 floor);
 s32 is_room_free_of_active_enemies(s32 floor, s16 room);
 }
 
 extern "C" {
 
 s32 is_room_free_of_active_enemies(s32 floor, s16 room) {
-    Row_8020C354 *rows = resolve_matching_object__6TLobbyFPv(floor);
+    Row_8020C354 *rows = resolve_matching_object__6TLobbyFv(floor);
     s32 count = TLobby::get_object_type(floor);
     if (rows != NULL) {
         for (; count > 0; count--, rows++) {

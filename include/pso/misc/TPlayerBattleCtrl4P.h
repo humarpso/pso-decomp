@@ -93,6 +93,12 @@ public:
     static void update();
     static void reset_random_enemies_mode();
     static void init_instance_with_text(s32 arg0, s32 arg1);
+public:
+    void update_player_alive_flags();
+    void update_timed_events(s32 frames);
+    void reset_players();
+    void start_duel();
+    void init_battle();
 };
 #include <stddef.h>
 typedef char BattleCtrlSize[(sizeof(TPlayerBattleCtrl4P)==0x2A0)?1:-1];

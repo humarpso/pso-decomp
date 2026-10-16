@@ -1,4 +1,5 @@
 #include "pso/render/DebugFont.h"
+#include "pso/misc/TWindowCtrlMain.h"
 #include "types.h"
 #include "pso/TObjCMHairMenu.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -189,7 +190,6 @@ struct Tris_801E3784 {
 };
 
 extern "C" {
-void draw_strip_swap_color__15TWindowCtrlMainFPviif(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
@@ -303,23 +303,23 @@ void reset_line_width(void) { current_line_width = 12; }
 
     extern int current_line_width;
 void set_line_width(int a0) { current_line_width = a0; }
-void draw_strip_swap_color__15TWindowCtrlMainFPviif(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3) {
+void TWindowCtrlMain::draw_strip_swap_color(s32 n, s32 flags, f32 _w3) {
     s32 i;
     u32 x;
     u32 *p;
     if (!(flags & 2)) {
-        ((TObjCMHairMenu *)c)->draw_tri_fan_2d((s32)(n), (s32)(flags), _w3);
+        ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d((s32)(n), (s32)(flags), _w3);
         return;
     }
-    p = c->data;
+    p = ((Ctrl_801E352C *)this)->data;
     for (i = 0; i < n; i++) {
         x = *p;
         *p = (x << 8) | (x >> 24);
         p++;
     }
-    ((TObjCMHairMenu *)c)->draw_tri_fan_2d((s32)(n), (s32)(flags), _w3);
+    ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d((s32)(n), (s32)(flags), _w3);
     {
-    u32 *q = c->data;
+    u32 *q = ((Ctrl_801E352C *)this)->data;
     u32 y;
     for (i = 0; i < n; i++) {
         y = *q;

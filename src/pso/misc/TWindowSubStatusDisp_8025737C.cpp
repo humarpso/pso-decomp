@@ -138,7 +138,6 @@ void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
-u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];
@@ -279,15 +278,15 @@ void *TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1) {
+u8 *TWindowSubStatusDisp::init_layout_entry_copy(u8 *arg1) {
     ((s32 (*)(void))init_from__13TUnk_804CF930FPvi)();
-    *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_80257B4C_lbl_804CF948 *)&lbl_804CF948).value;
-    *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(f32 *)((s8 *)arg0 + 0x24);
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)arg1 + 0x24);
-    *(s32 *)((s8 *)arg0 + 0x64) = (s32) *(s32 *)((s8 *)arg1 + 0x28);
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) *(s32 *)((s8 *)arg0 + 0x18);
-    *(s16 *)((s8 *)arg0 + 0x2A) = 0;
-    return arg0;
+    *(s32 **)((s8 *)((u8 *)this) + 4) = &(*(RecoveredGlobal_80257B4C_lbl_804CF948 *)&lbl_804CF948).value;
+    *(s16 *)((s8 *)((u8 *)this) + 0x28) = (s16) *(f32 *)((s8 *)((u8 *)this) + 0x24);
+    *(s32 *)((s8 *)((u8 *)this) + 0x60) = (s32) *(s32 *)((s8 *)arg1 + 0x24);
+    *(s32 *)((s8 *)((u8 *)this) + 0x64) = (s32) *(s32 *)((s8 *)arg1 + 0x28);
+    *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x18);
+    *(s16 *)((s8 *)((u8 *)this) + 0x2A) = 0;
+    return ((u8 *)this);
 }
 
 }

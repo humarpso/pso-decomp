@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A1E28.h"
 
 struct RecoveredGlobal_80123CA8_lbl_8043E878 {
@@ -18,7 +19,6 @@ extern const f32 lbl_805DAD20;
 u8 * init_state__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_state__10TObjPlayerFi(s32 arg0);
 s32 scale_current_matrix(void *, int);
 extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
 extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
@@ -27,7 +27,7 @@ void sorcerers_cane_node_callback(u8 *arg0);
 
 extern "C" {
 
-u8 *create_state__10TObjPlayerFi(s32 arg0) {
+u8 *TObjPlayer::create_state(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

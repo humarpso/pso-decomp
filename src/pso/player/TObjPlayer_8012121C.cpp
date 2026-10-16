@@ -1,16 +1,15 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int is_flag_b0_4__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80121228(void* p, u32 v);
 s16 get_captured_target_collider_index(void* p);
-u16 get_uid__10TObjPlayerFPv(void* p);
 
-int is_flag_b0_4__10TObjPlayerFPv(void* p) { return *(u32*)((char*)p + 0xb0) & 0x4; }
+int TObjPlayer::is_flag_b0_4() { return *(u32*)((char*)this + 0xb0) & 0x4; }
 void TObjPlayer__sub_80121228(void* p, u32 v) { *(u32*)((char*)p + 0x28) |= v; }
 s16 get_captured_target_collider_index(void* p) { return *(s16*)((char*)p + 0x2); }
-u16 get_uid__10TObjPlayerFPv(void* p) { return *(u16*)((char*)p + 0x0); }
+u16 TObjPlayer::get_uid() { return *(u16*)((char*)this + 0x0); }
 
 }
 
@@ -25,10 +24,8 @@ s32 *get_captured_target_entry(Obj_80121248 *self, s32 i);
 
 extern "C" {
 
-int is_flag_b0_4__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80121228(void* p, u32 v);
 s16 get_captured_target_collider_index(void* p);
-u16 get_uid__10TObjPlayerFPv(void* p);
 
 s32 *get_captured_target_entry(Obj_80121248 *self, s32 i) {
     return &self->arr[i];

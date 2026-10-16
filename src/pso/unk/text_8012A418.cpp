@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/unk/TUnk_804A4948.h"
 
 struct VBase_18_24931d
@@ -111,17 +112,16 @@ typedef struct Pl_8012A470
 
 extern "C" {
 s8 TObjPlayer__sub_80102C30();
-s32 deliver_hit__11TItemWeaponFPviPviif(void *, u32, u32, s32, s32, f32);
+s32 deliver_hit__11TItemWeaponFlPUcllf(void *, u32, u32, s32, s32, f32);
 void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0);
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
 s32 get_extended_state__10TObjPlayerFv(void *);
 s32 get_captured_target_collider_index(s32);
-u16 get_uid__10TObjPlayerFPv(s32);
+u16 get_uid__10TObjPlayerFv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 s32 resolve_hittable_target(s32, s32);
@@ -129,7 +129,7 @@ s32 resolve_hittable_target(s32, s32);
 
 extern "C" {
 
-u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0) {
+u8 *TObjPlayer::create_state_8012a418(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
@@ -161,7 +161,7 @@ void TUnk_804A4948::send_srank_stat_extra_to_locks() {
     for (i = 0; i != get_captured_target_count((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF); i++)
     {
       e = get_captured_target_entry(st, i);
-      uid = get_uid__10TObjPlayerFPv(e);
+      uid = get_uid__10TObjPlayerFv(e);
       r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) get_captured_target_collider_index(e)));
       if (r != 0)
       {
@@ -208,11 +208,11 @@ void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 f
                 if (arg3 == 2) {
                     ((TUnk_804A4948 *)arg0)->send_srank_stat_extra((u32)(arg2), (s32)(arg4));
                 } else {
-                    deliver_hit__11TItemWeaponFPviPviif(arg0, f, arg2, arg3, arg4, farg0);
+                    deliver_hit__11TItemWeaponFlPUcllf(arg0, f, arg2, arg3, arg4, farg0);
                 }
                 break;
             default:
-                deliver_hit__11TItemWeaponFPviPviif(arg0, f, arg2, arg3, arg4, farg0);
+                deliver_hit__11TItemWeaponFlPUcllf(arg0, f, arg2, arg3, arg4, farg0);
                 break;
             }
         }

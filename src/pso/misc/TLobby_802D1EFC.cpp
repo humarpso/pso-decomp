@@ -29,7 +29,6 @@ u32 find_item_by_id();
 s32 item_identity_matches(void *, void *);
 s32 TObjPlayer__sub_801C1AC8();
 Entry_802D20C8 *find_free_trade_slot__6TLobbyFPv(void *);
-s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2);
 u8 *get_quest_id__12TQuestListVMFv(void *);
 u32 find_item_by_id();
 u8 *get_player_by_client_id(s32);
@@ -102,7 +101,7 @@ void TLobby::clear_stale_entries(u8 *arg0) {
         var_r29 += 8;
     } while (var_r28 < 0x1E);
 }
-s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
+s32 TLobby::add_trade_item(u32 arg1, s32 arg2) {
     ItemB_802D20C8 a;
     ItemA_802D20C8 b;
     u32 item;
@@ -110,7 +109,7 @@ s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
     u32 found;
     s32 i;
     if (arg1 == 0xFFFFFF01) {
-        s32 *t = (s32 *) ((TLobby *)arg0)->get_trade_obj_ptr();
+        s32 *t = (s32 *) ((TLobby *)((Entry_802D20C8 *)this))->get_trade_obj_ptr();
         t[1] += arg2;
         return t[1] > 999999;
     }
@@ -120,7 +119,7 @@ s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
     }
     if (TObjPlayer__sub_801C1AC8() != 0) {
         ((TItem *)item)->copy_to_item_data(&a);
-        e = arg0;
+        e = ((Entry_802D20C8 *)this);
         for (i = 0; i < 30; i++, e++) {
             if (e->id != 0xFFFFFFFF && e->id != 0xFFFFFF01) {
                 found = ((u32 (*)(u32)) find_item_by_id)(e->id);
@@ -136,7 +135,7 @@ s32 add_trade_item__6TLobbyFPvUii(Entry_802D20C8 *arg0, u32 arg1, s32 arg2) {
             }
         }
     }
-    e = find_free_trade_slot__6TLobbyFPv(arg0);
+    e = find_free_trade_slot__6TLobbyFPv(((Entry_802D20C8 *)this));
     if (e == NULL) {
         return 3;
     }

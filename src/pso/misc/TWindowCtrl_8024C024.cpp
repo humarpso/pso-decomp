@@ -17,7 +17,7 @@ typedef struct Ctrl_8024C024 {
 
 extern "C" {
 s32 is_split_screen();
-void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024C024 *);
+void update_party_status_rows__11TWindowCtrlFv(Ctrl_8024C024 *);
 extern s16 lbl_8044EBD4[];
 extern s16 lbl_8044EBE0[];
 }
@@ -37,7 +37,7 @@ void TWindowCtrl::update_open_sequence() {
         if (o->timer == lbl_8044EBE0[o->step]) {
             if (o->slots[o->step] != NULL) {
                 ((TQuestVmDownLoadServer *)(o->slots[o->step]))->clear_flag4_bit4();
-                update_party_status_rows__11TWindowCtrlFPv(o);
+                update_party_status_rows__11TWindowCtrlFv(o);
                 o->slots[o->step]->fade = 0;
             }
             o->step++;

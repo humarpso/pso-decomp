@@ -24,7 +24,7 @@ f32 TWindowSubStatusDisp__sub_802877A4(f32);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 u32 calc_text_width(int);
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
 s32 set_text_entry_string(int, int, int);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8024E548_lbl_804CEB70 window_deposit_layout;
@@ -83,7 +83,7 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   s32 temp_r3;
   u32 temp_r3_2;
   u8 *temp_r31;
-  construct_base__9TWindowDDFPvPvsPv((void *) arg0, (void *) (&window_deposit_layout.value), (void *) arg1, (int) get_window_layout_position((int) 0x29));
+  construct_base__9TWindowDDFPUcsPUc((void *) arg0, (void *) (&window_deposit_layout.value), (void *) arg1, (int) get_window_layout_position((int) 0x29));
   *((s32 **) (((s8 *) arg0) + (((((0x18 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))) = &(*(RecoveredGlobal_8024E548___vt__14TWindowDeposit *)&__vt__14TWindowDeposit).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowDeposit__name;
   temp_r3 = TQuestVmDownLoadServer__sub_8006EF6C((int) 2);

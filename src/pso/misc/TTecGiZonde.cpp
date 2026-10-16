@@ -63,7 +63,6 @@ struct Chain_80231C58 {
 extern "C" {
 u32 find_entity_by_id(u16);
 s32 is_parents_unqueued__9TTecLukerFUl();
-void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self);
 s16 obj_getField1c(void *);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -77,7 +76,7 @@ s32 is_parents_unqueued__9TTecLukerFUl();
 f32 vector_length(Vec_80231C58 *);
 void normalize_vector(Vec_80231C58 *);
 void *__nw__7TObjectFUl(int);
-void construct_bolt_effect__9TTecZondeFPvPvPvPviiff(void *, s32, void *, void *, s32, s32, f32, f32);
+void construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(void *, s32, void *, void *, s32, s32, f32, f32);
 void construct_helper_effect__11TTecGiZondeFPvPvPvPvi(void *, void *, void *, s32, s32);
 extern s32 tl_07;
 extern const f32 lbl_805DC828;
@@ -123,7 +122,7 @@ s32 TTecGiZonde::find_chain_targets() {
     case 0:
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -134,7 +133,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC830;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -145,7 +144,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC834;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -156,7 +155,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC830;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -171,7 +170,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC834;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -185,15 +184,15 @@ s32 TTecGiZonde::find_chain_targets() {
     case 5:
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC838);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC838);
         }
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
         }
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -229,49 +228,49 @@ s32 TTecGiZonde::find_chain_targets() {
         case 0:
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
             }
             break;
         case 1:
             scale *= lbl_805DC830;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
             }
             break;
         case 2:
             scale *= lbl_805DC834;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
             }
             break;
         case 3:
             scale *= lbl_805DC830;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
             }
             break;
         case 4:
             scale *= lbl_805DC834;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
             }
             break;
         case 5:
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC838);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC838);
             }
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
             }
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
             }
             break;
         }
@@ -303,13 +302,13 @@ void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self) {
+void TTecGiZonde::deliver_chain_hits() {
     s32 i;
     u32 actor;
-    for (i = 0; i < self->count; i++) {
-        actor = find_entity_by_id(self->targets[i].id);
+    for (i = 0; i < ((GChain_80232598 *)this)->count; i++) {
+        actor = find_entity_by_id(((GChain_80232598 *)this)->targets[i].id);
         if (is_parents_unqueued__9TTecLukerFUl() != 0 && TObjPlayer::is_valid_and_active(actor) != 0) {
-            ((VObj_80232598 *)self)->m6(actor);
+            ((VObj_80232598 *)((GChain_80232598 *)this))->m6(actor);
         }
     }
 }
@@ -325,7 +324,7 @@ void TTecGiZonde::run_task() {
         return;
     }
     if (find_chain_targets() == 1) {
-        deliver_chain_hits__11TTecGiZondeFPv((GChain_80232598 *)(this));
+        deliver_chain_hits();
     }
     queue_destruction__7TObjectFv(this);
 }

@@ -9,7 +9,7 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFv();
-s32 send_code_45_1__10TObjPlayerFi(int);
+s32 send_code_45_1__10TObjPlayerFl(int);
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -54,7 +54,7 @@ void TOTrapSeabed01::sub_802C9D38() {
             temp_r3 = get_player_by_client_id((void *) (obj_getField1c(o)));
             if (temp_r3 != 0) {
                 if (check_player_flag1__6TLobbyFv() != 0) {
-                    send_code_45_1__10TObjPlayerFi((int) (temp_r3));
+                    send_code_45_1__10TObjPlayerFl((int) (temp_r3));
                 }
                 obj_clear_flag30_20000((int) (temp_r3));
             }
@@ -64,7 +64,7 @@ void TOTrapSeabed01::sub_802C9D38() {
         if ((o2 != NULL) && ((s32) local_client_id == (s32) obj_getField1c(o2))) {
         temp_r3_2 = get_player_by_client_id((void *) (local_client_id));
         if ((temp_r3_2 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
-            send_code_45_1__10TObjPlayerFi((int) (temp_r3_2));
+            send_code_45_1__10TObjPlayerFl((int) (temp_r3_2));
         }
         }
     }

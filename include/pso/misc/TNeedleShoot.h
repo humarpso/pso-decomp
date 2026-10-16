@@ -38,7 +38,10 @@ struct TNeedleShoot : public TObject {
     u32 m_b8;
     virtual void run_task();
     virtual void render();
-    void update_position();};
+    void update_position();
+    void check_wall_hit();
+    void*get_shoot_data();
+};
 
 typedef char TNeedleShoot_size[sizeof(TNeedleShoot) == 0xBC ? 1 : -1];
 #endif

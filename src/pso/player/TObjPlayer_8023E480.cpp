@@ -27,7 +27,7 @@ void prs_decompress_buffer(s32, s32);
 s32 read_disc_file(void *, s32);
 s32 sprintf(char *, const char *, ...);
 s32 TLobby__sub_803CC53C();
-void close_adxf_handle__6TLobbyFPv(s32);
+void close_adxf_handle__6TLobbyFv(s32);
 s32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(s32, s32);
 s32 xmalloc__FUl(s32);
@@ -35,7 +35,7 @@ void xfree__FPv(s32);
 extern char texture_prs_filename_format[];
 extern char texture_prs_disc_filename_buffer[];
 s32 TLobby__sub_8023E554(s32 arg0, s32 arg1);
-s32 load_texture_pvm_file__6TLobbyFPvi(s32, void *);
+s32 load_texture_pvm_file__6TLobbyFPCcl(s32, void *);
 void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
 s32 memset(s32, s32, s32);
 extern s32 lbl_805D63C0;
@@ -87,7 +87,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     if (((TScene *)texture_prs_disc_filename_buffer)->update_lobby_scene() != -1) {
         a = adxf_open__6TLobbyFUii(texture_prs_disc_filename_buffer, 0);
         b = TLobby__sub_803CC53C();
-        close_adxf_handle__6TLobbyFPv(a);
+        close_adxf_handle__6TLobbyFv(a);
         b = xmalloc__FUl((s32)(b << 11));
         if (read_disc_file(texture_prs_disc_filename_buffer, b) != -1) {
             c = xmalloc__FUl((s32)(0x200000));
@@ -111,7 +111,7 @@ s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1) {
     }
     memset((s32)(lbl_805D63C0), (s32)(0), (s32)(0x1800));
     TObjPlayer__sub_803DD5E8(sp8, lbl_805D63C0, lbl_805D63C4, 0x200);
-    if (load_texture_pvm_file__6TLobbyFPvi(arg0, sp8) == -1) {
+    if (load_texture_pvm_file__6TLobbyFPCcl(arg0, sp8) == -1) {
         return 0;
     }
     n = arg1->count;

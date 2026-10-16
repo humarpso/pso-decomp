@@ -145,24 +145,24 @@ extern "C" void TAdMultiPlyChrSelectGC__sub_802DE7D0();
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DEDA8();
 extern "C" void check_cancel_input__22TAdMultiPlyChrSelectGCFv();
 extern "C" void close_and_reset__22TAdMultiPlyChrSelectGCFv();
-extern "C" void close_windows__22TAdMultiPlyChrSelectGCFPv();
+extern "C" void close_windows__22TAdMultiPlyChrSelectGCFv();
 extern "C" void handle_cancel_state__22TAdMultiPlyChrSelectGCFv();
 extern "C" void handle_confirm_state__22TAdMultiPlyChrSelectGCFv();
 extern "C" void handle_input__22TAdMultiPlyChrSelectGCFv();
-extern "C" void init_windows__22TAdMultiPlyChrSelectGCFPv();
-extern "C" void open_char_select__22TAdMultiPlyChrSelectGCFPv();
+extern "C" void init_windows__22TAdMultiPlyChrSelectGCFv();
+extern "C" void open_char_select__22TAdMultiPlyChrSelectGCFv();
 extern "C" void request_scene_change__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update__22TAdMultiPlyChrSelectGCFPv();
 extern "C" void update_button_input__22TAdMultiPlyChrSelectGCFv();
-extern "C" void update_card_confirm__22TAdMultiPlyChrSelectGCFPv();
-extern "C" void update_card_select__22TAdMultiPlyChrSelectGCFPv();
+extern "C" void update_card_confirm__22TAdMultiPlyChrSelectGCFv();
+extern "C" void update_card_select__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_card_select_state__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_confirm_start__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_input_state__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_select__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_state__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_state_move__22TAdMultiPlyChrSelectGCFv();
-extern "C" void update_state_option__22TAdMultiPlyChrSelectGCFPv();
+extern "C" void update_state_option__22TAdMultiPlyChrSelectGCFv();
 extern "C" void update_state_wait_card__22TAdMultiPlyChrSelectGCFv();
 void *lbl_804E2B90[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&update_state_serial__22TAdMultiPlyChrSelectGCFPv,
@@ -177,25 +177,25 @@ void *lbl_804E2BB4[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TAdMultiPlyChrSelectGC__sub_802DE7D0,
 };
 void *lbl_804E2BC0[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&update_card_confirm__22TAdMultiPlyChrSelectGCFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&update_card_confirm__22TAdMultiPlyChrSelectGCFv,
 };
 void *lbl_804E2BCC[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&update_state_option__22TAdMultiPlyChrSelectGCFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&update_state_option__22TAdMultiPlyChrSelectGCFv,
 };
 void *lbl_804E2BD8[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&update_card_select__22TAdMultiPlyChrSelectGCFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&update_card_select__22TAdMultiPlyChrSelectGCFv,
 };
 void *lbl_804E2BE4[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&update__22TAdMultiPlyChrSelectGCFPv,
 };
 void *lbl_804E2BF0[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&close_windows__22TAdMultiPlyChrSelectGCFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&close_windows__22TAdMultiPlyChrSelectGCFv,
 };
 void *lbl_804E2BFC[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&open_char_select__22TAdMultiPlyChrSelectGCFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&open_char_select__22TAdMultiPlyChrSelectGCFv,
 };
 void *lbl_804E2C08[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&init_windows__22TAdMultiPlyChrSelectGCFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&init_windows__22TAdMultiPlyChrSelectGCFv,
 };
 void *lbl_804E2C14[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&reset_to_select__22TAdMultiPlyChrSelectGCFv,

@@ -10,7 +10,7 @@ extern "C" {
 void TObjPlayer__sub_802A1588(void* p);
 int TAdSelectTxtGC__sub_802A16A8(void*);
 s32 TAdSelectTxtGC__sub_802A16C0(void *);
-int init_action_config__10TObjPlayerFPv(void*);
+int init_action_config__10TObjPlayerFv(void*);
 s32 export_character_data__10TObjPlayerFPvPv(void *, void *);
 int clear_player_data_block(void*);
 int init_inventory_items__12TPlyCharDataFv(void*);
@@ -35,6 +35,6 @@ void TObjPlayer::init_item_counts_max() {
     }
 }
 
-void TObjPlayer__sub_802A1588(void* p) { init_action_config__10TObjPlayerFPv(p); init_action_config__10TObjPlayerFPv((char*)p + 0x24); }
+void TObjPlayer__sub_802A1588(void* p) { init_action_config__10TObjPlayerFv(p); init_action_config__10TObjPlayerFv((char*)p + 0x24); }
 
 }

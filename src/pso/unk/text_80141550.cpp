@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 
 struct Stack_801415BC {
     f32 sp8;
@@ -15,20 +17,15 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
 void set_shadow_material_state(void);
-void copy_config__10TObjPlayerFPvPv(void *, void *);
-void init_default_config__10TObjPlayerFv(void);
 }
 
 extern "C" {
 
-int set_cull_none__8TObjFishFv(void);
-int set_cull_mode_front__8TObjFishFv(void);
-int set_cull_back__8TObjFishFv(void);
 int GXSetCullMode(void*);
 
-int set_cull_none__8TObjFishFv(void) { return GXSetCullMode((void*)(0)); }
-int set_cull_mode_front__8TObjFishFv(void) { return GXSetCullMode((void*)(1)); }
-int set_cull_back__8TObjFishFv(void) { return GXSetCullMode((void*)(2)); }
+int TObjFish::set_cull_none() { return GXSetCullMode((void*)(0)); }
+int TObjFish::set_cull_mode_front() { return GXSetCullMode((void*)(1)); }
+int TObjFish::set_cull_back() { return GXSetCullMode((void*)(2)); }
 void set_shadow_material_state(void) {
     Stack_801415BC stack;
     stack.spC = lbl_805DB150;
@@ -50,7 +47,7 @@ u32 photon_chair_color_vec4[4];
 Cfg_80141604 depth_buffer_settings;
 Cfg_80141604 depth_buffer_config_copy;
 Cfg_80141604 saved_depth_alpha_scene_state;
-void init_default_config__10TObjPlayerFv(void) {
+void TObjPlayer::init_default_config() {
     depth_buffer_settings.a = 7;
     depth_buffer_settings.b = 1;
     depth_buffer_settings.c = 1;
@@ -58,8 +55,8 @@ void init_default_config__10TObjPlayerFv(void) {
     depth_buffer_settings.e = 1;
     depth_buffer_settings.f = 0xBF;
     depth_buffer_settings.g = 1;
-    copy_config__10TObjPlayerFPvPv(&depth_buffer_config_copy, &depth_buffer_settings);
-    copy_config__10TObjPlayerFPvPv(&saved_depth_alpha_scene_state, &depth_buffer_settings);
+    ((TObjPlayer *)(&depth_buffer_config_copy))->copy_config(&depth_buffer_settings);
+    ((TObjPlayer *)(&saved_depth_alpha_scene_state))->copy_config(&depth_buffer_settings);
 }
 
 }
@@ -116,9 +113,7 @@ void set_material_alpha_compare_reference(s32);
 void set_depth_buffer_settings_2__Fv(void);
 s32 set_ginja_draw_list_mask(int);
 void func_80141618__Fv(void);
-void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 void restore_depth_buffer_settings__Fv(void);
-void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 void save_depth_buffer_settings__Fv(void);
 void set_material_alpha_compare_reference(s32);
 extern s32 model_render_flags;
@@ -132,14 +127,12 @@ void set_scene_override(u8 scene);
 
 extern "C" {
 
-void copy_config__10TObjPlayerFPvPv(void* p, void* q);
-
 void set_ginja_draw_end_callback(void *);
 void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_801416AC(void);
 #define depth_buffer_settings (*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)
 #define saved_depth_alpha_scene_state (*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state)
-void copy_config__10TObjPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u8*)((char*)p + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); *(u8*)((char*)p + 0xc) = *(u8*)((char*)q + 0xc); *(u8*)((char*)p + 0xd) = *(u8*)((char*)q + 0xd); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); }
+void TObjPlayer::copy_config(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u8*)((char*)this + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)this + 0x8) = *(u32*)((char*)q + 0x8); *(u8*)((char*)this + 0xc) = *(u8*)((char*)q + 0xc); *(u8*)((char*)this + 0xd) = *(u8*)((char*)q + 0xd); *(u32*)((char*)this + 0x10) = *(u32*)((char*)q + 0x10); }
 #undef depth_buffer_settings
 #undef saved_depth_alpha_scene_state
 void TObjPlayer__sub_801416AC(void) {
@@ -150,8 +143,8 @@ void TObjPlayer__sub_801416AC(void) {
     depth_buffer_settings.e = 1;
     depth_buffer_settings.f = 0xBF;
     depth_buffer_settings.g = 1;
-    copy_config__10TObjPlayerFPvPv(&depth_buffer_config_copy, &depth_buffer_settings);
-    copy_config__10TObjPlayerFPvPv(&saved_depth_alpha_scene_state, &depth_buffer_settings);
+    ((TObjPlayer *)(&depth_buffer_config_copy))->copy_config(&depth_buffer_settings);
+    ((TObjPlayer *)(&saved_depth_alpha_scene_state))->copy_config(&depth_buffer_settings);
     TObjPlayer::set_global_state((s32)((void *)restore_saved_depth_alpha_state));
     set_ginja_draw_end_callback((void *)restore_saved_depth_alpha_state);
 }
@@ -174,13 +167,13 @@ void set_depth_buffer_settings_id__FUl(s32 arg0) {
 }
 
 void restore_depth_buffer_settings__Fv(void) {
-    copy_config__10TObjPlayerFPvPv((void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C000 *)&depth_buffer_settings).value)), (void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C028 *)&saved_depth_alpha_scene_state).value)));
+    ((TObjPlayer *)(&(*(RecoveredGlobal_80141788_lbl_8050C000 *)&depth_buffer_settings).value))->copy_config((void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C028 *)&saved_depth_alpha_scene_state).value)));
 }
 
 typedef char RecoveredGlobal_801417B8_lbl_8050C000_size[sizeof(RecoveredGlobal_801417B8_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_801417B8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417B8_lbl_8050C028) == 0x18 ? 1 : -1];
 void save_depth_buffer_settings__Fv(void) {
-    copy_config__10TObjPlayerFPvPv((void*)((void *) (&(*(RecoveredGlobal_801417B8_lbl_8050C028 *)&saved_depth_alpha_scene_state).value)), (void*)((void *) (&(*(RecoveredGlobal_801417B8_lbl_8050C000 *)&depth_buffer_settings).value)));
+    ((TObjPlayer *)(&(*(RecoveredGlobal_801417B8_lbl_8050C028 *)&saved_depth_alpha_scene_state).value))->copy_config((void*)((void *) (&(*(RecoveredGlobal_801417B8_lbl_8050C000 *)&depth_buffer_settings).value)));
 }
 
 typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417E8_lbl_8050C028) == 0x18 ? 1 : -1];

@@ -1,4 +1,5 @@
 #include "pso/TProtocol.h"
+#include "pso/misc/TLobby.h"
 #include <stddef.h>
 typedef char TradeResultCallbackOffset[(offsetof(TProtocol, m_recv_handlers) + offsetof(recv_packet_handlers, handle_D4_trade_result_packet) == 0xBC9C) ? 1 : -1];
 typedef char TradeAdvanceCallbackOffset[(offsetof(TProtocol, m_recv_handlers) + offsetof(recv_packet_handlers, handle_D1_advance_trade_state_packet) == 0xBCA0) ? 1 : -1];
@@ -108,7 +109,6 @@ extern char TProtocol__send_trade_list_log_format[];
 void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
 int TLobby__sub_801DF024(void *);
 int TLobby__sub_801DF064(void *);
-void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str);
 }
 
 extern "C" {
@@ -228,8 +228,8 @@ void TProtocol::send_disable_auto_reply() {
     header.bswap();
     send((u8*)&header, sizeof(header));
 }
-void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str) {
-    if (*(s32 *)((char *)obj + 0x1910) != 0) {
+void TLobby::send_text_packet_c7(char *str) {
+    if (*(s32 *)((char *)((VObj_18_801DA734 *)this) + 0x1910) != 0) {
     Pkt_801DA734 pkt;
     s32 n;
     memset(&pkt, 0, 0x204);
@@ -240,6 +240,6 @@ void send_text_packet_c7__6TLobbyFPvPv(VObj_18_801DA734 *obj, char *str) {
     n = (strlen(t) + 8) & ~3;
     pkt.size = n;
     TLobby__sub_801DF064(&pkt);
-    obj->m8(&pkt, n);
+    ((VObj_18_801DA734 *)this)->m8(&pkt, n);
     }
 }

@@ -11,6 +11,8 @@ public:
     virtual void render();
 public:
     static void *create(void *arg0);
+public:
+    void update_camera();
 };
 
 #endif

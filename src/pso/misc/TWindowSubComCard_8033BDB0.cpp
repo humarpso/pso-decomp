@@ -36,7 +36,7 @@ s32 align_menu_entry_positions(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, s32, s32);
 u32 create_window_menu(s32 *, s32, s32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 *, s32);
-s32 complete_reveal__14TWindowMessageFPv(u32);
+s32 complete_reveal__14TWindowMessageFv(u32);
 u32 create_message_window__6TLobbyFllUls(s32 *, s32 *, s32, s32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
 extern s32 lbl_80477DB4[];
@@ -72,7 +72,7 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u3
     if (arg1 != 0U) {
         ((TLobby *)(*(u32 *)((s8 *)this + 0x30)))->send_and_handle(arg1, 3);
     }
-    complete_reveal__14TWindowMessageFPv(*(u32 *)((s8 *)this + 0x30));
+    complete_reveal__14TWindowMessageFv(*(u32 *)((s8 *)this + 0x30));
     if (arg2 == -1) {
         return;
     }

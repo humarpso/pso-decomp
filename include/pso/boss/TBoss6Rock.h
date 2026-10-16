@@ -39,7 +39,12 @@ struct TBoss6Rock : public TUnk_804AF8A0 {
     static u8 is_active();
     static void create_rock_pool(s32 arg0);
     static void free_data();
-    static void load_resources();};
+    static void load_resources();
+    void spawn_crush_rocks(s32 kind);
+    void break_rocks_in_radius(f32 r);
+    s32 push_out_of_rocks(f32 r);
+    static s32 get_point(s32 arg0, s32 arg1, f32 *arg2);
+};
 
 typedef char TBoss6Rock_size[sizeof(TBoss6Rock) == 0xE8 ? 1 : -1];
 #endif

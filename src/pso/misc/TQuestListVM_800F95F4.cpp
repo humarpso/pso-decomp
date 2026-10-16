@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s32 crypt_data_be__23TAdSinglePlyChrSelectGCFPvPvi(s32 *, void *, s32);
+s32 crypt_data_be__23TAdSinglePlyChrSelectGCFPUll(s32 *, void *, s32);
 s32 subtractive_rng_seed(s32 *, u32);
 s32 prs_decompress_buffer(void *, s32);
 s32 bswap_32__FPUl(u32 *);
@@ -24,7 +24,7 @@ u32 TQuestListVM::decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3) {
     }
     __ct__14SubtractiveRngFv(&sp10[0]);
     subtractive_rng_seed(&sp10[0], sp8);
-    crypt_data_be__23TAdSinglePlyChrSelectGCFPvPvi(&sp10[0], arg0 + 8, arg1 - 8);
+    crypt_data_be__23TAdSinglePlyChrSelectGCFPUll(&sp10[0], arg0 + 8, arg1 - 8);
     prs_decompress_buffer(arg0 + 8, arg2);
     return spC;
 }

@@ -34,6 +34,19 @@ public:
     void play_particle(s32 arg1, s16 arg2);
     static void reset_particles();
     static void setup_particle_draw(s32 arg0);
+public:
+    void *alloc_child_particle(void *arg1, void *arg2, void *arg3);
+    u8 *init_random_particle(u8 *arg1, u8 *arg2, s32 arg3);
+    u8 *construct_particle_obj(s32 arg1, s32 arg2);
+    u8 *init_particle_obj(s32 arg1, s32 arg2);
+    void enable();
+    void *initialize_with_flags(const void *position, s32 particle_index, s32 field30, s32 field34, s32 field38, s32 use_self, u16 flags);
+    void *initialize(const void *position, s32 particle_index, s32 field30, s32 field34, s32 field38, s32 use_self);
+    void attach_model(s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+    static void free_system();
+    static void free_all();
+    static void init_particle_buffer();
+    static s32 get_particle_by_index(s32 arg0);
 };
 
 #endif

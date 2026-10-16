@@ -51,7 +51,7 @@ s32 check_player_flag1__6TLobbyFv();
 s32 end_conversation_camera();
 s32 begin_conversation_camera();
 s32 is_any_player_within_radius_xz(void *, f32);
-s32 send_code_45_1__10TObjPlayerFi(int);
+s32 send_code_45_1__10TObjPlayerFl(int);
 s32 get_player_by_client_id(void *);
 u32 __ct__12TQuestThreadFv(int, void *, int);
 u32 __nw__7TObjectFUl(int);
@@ -135,7 +135,7 @@ void TUnk_804B27D8::run_task() {
             if ((s32) this->m_94 == (s32) local_client_id) {
                 temp_r3_6 = get_player_by_client_id((void *) (local_client_id));
                 if ((temp_r3_6 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
-                    send_code_45_1__10TObjPlayerFi((int) (temp_r3_6));
+                    send_code_45_1__10TObjPlayerFl((int) (temp_r3_6));
                 }
             }
         }

@@ -55,7 +55,7 @@ extern s32 music_fade_frames_remaining;
 extern const f32 lbl_805DC764;
 s32 get_music_base_gain(void);
 void TLobby__sub_80227AA8(s32);
-void set_field_40_and_notify__6TLobbyFPvs(s32, s32);
+void set_field_40_and_notify__6TLobbyFs(s32, s32);
 s32 TLobby__sub_803C9CB0(s32);
 s32 stop_audio_stream(int);
 extern s32 lbl_804CB850[];
@@ -176,7 +176,7 @@ void update_music_fade(void) {
             } else {
                 v = -999;
             }
-            set_field_40_and_notify__6TLobbyFPvs(lbl_804CB850[i], v);
+            set_field_40_and_notify__6TLobbyFs(lbl_804CB850[i], v);
         }
         if (--music_fade_frames_remaining <= 0) {
             s32 st;

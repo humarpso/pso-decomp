@@ -167,7 +167,6 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 void vfunc_101__12TObjEneSharkFv(void);
 extern s32 shark_render_node_index;
-void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vec3_add_to(void *, void *);
@@ -252,7 +251,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
-void update_particle_by_phase__10TObjPlayerFv(void);
 extern s32 shark_render_node_index;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -429,7 +427,7 @@ void TObjEneShark::vfunc_83() {
     }
 }
 
-void update_particle_by_phase__10TObjPlayerFv(void) {
+void TObjPlayer::update_particle_by_phase() {
     switch (shark_render_node_index) {
     case 0x10:
     case 0x1A:
@@ -522,7 +520,7 @@ void TObjEneShark::render() {
     }
     TObjPlayer::toggle_particle_effect();
     shark_render_node_index = 0;
-    TObjEneRe7Berura::set_global_state((s32)((void *) update_particle_by_phase__10TObjPlayerFv));
+    TObjEneRe7Berura::set_global_state((s32)((void *) TObjPlayer::update_particle_by_phase));
     if ((*((s32 *) (((s8 *) arg0) + 0x390))) == 1)
     {
       if (((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m8() != 0)

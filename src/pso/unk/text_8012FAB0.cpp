@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A66D8.h"
 
 struct VBase_8012FB08 { char pad[0x18]; };
@@ -71,8 +72,7 @@ extern "C" {
 u8 * initialize_effect_object__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_effect_object__10TObjPlayerFi(s32 arg0);
-void launch_rare_weapon_special__10TObjPlayerFv(void *, void *, s32, f32);
+void launch_rare_weapon_special__10TObjPlayerFPvlf(void *, void *, s32, f32);
 void increment_burst_counter(void *);
 void spawn_weapon_impact_effect(void);
 void create_shoot_model_rot_z(void);
@@ -82,7 +82,7 @@ extern const f32 lbl_805DAFC8;
 
 extern "C" {
 
-u8 *create_effect_object__10TObjPlayerFi(s32 arg0) {
+u8 *TObjPlayer::create_effect_object(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
@@ -110,8 +110,8 @@ void TUnk_804A66D8::emit_marker_effects() {
         }
         ((Self_8012FB08 *)this)->f1F0 = (void *)create_shoot_model_rot_z;
         ((Self_8012FB08 *)this)->f1EC = (void *)spawn_weapon_impact_effect;
-        launch_rare_weapon_special__10TObjPlayerFv(((Self_8012FB08 *)this), ((Self_8012FB08 *)this)->f1F8, 1, lbl_805DAFC8);
-        launch_rare_weapon_special__10TObjPlayerFv(((Self_8012FB08 *)this), ((Self_8012FB08 *)this)->f204, 0, lbl_805DAFC8);
+        launch_rare_weapon_special__10TObjPlayerFPvlf(((Self_8012FB08 *)this), ((Self_8012FB08 *)this)->f1F8, 1, lbl_805DAFC8);
+        launch_rare_weapon_special__10TObjPlayerFPvlf(((Self_8012FB08 *)this), ((Self_8012FB08 *)this)->f204, 0, lbl_805DAFC8);
     } else {
         ((Self_8012FB08 *)this)->f1F0 = (void *)create_gun_shot;
         ((Self_8012FB08 *)this)->f1EC = (void *)spawn_weapon_impact_effect;

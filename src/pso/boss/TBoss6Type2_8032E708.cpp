@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss6Mag.h"
 
@@ -369,9 +370,8 @@ s32 calc_dir_angles__11TBoss6Type2FPvPvPvPv(void *arg0, s32 *arg1, s32 *arg2, Ve
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 f32 subtract_vector(void *, int);
-void turn_toward_target__11TBoss6Type2FPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void push_out_of_rocks__10TBoss6RockFPvf(void *, f32);
+void push_out_of_rocks__10TBoss6RockFf(void *, f32);
 void send_6xAD_grid_positions__11TBoss6Type2FUcll(s32, void *, s32);
 s32 rand(void);
 f32 sin_table_lookup(void *);
@@ -808,7 +808,7 @@ void TBoss6Mag::spawn_falling_rocks() {
         p->x = r * ((f32 (*)(s32))sin_table_lookup)(ang) + p->x;
         p->y = (0.0f);
         p->z = r * ((f32 (*)(s32))cos_table_lookup)(ang) + p->z;
-        push_out_of_rocks__10TBoss6RockFPvf(p, (1e+01f));
+        push_out_of_rocks__10TBoss6RockFf(p, (1e+01f));
     }
     send_6xAD_grid_positions__11TBoss6Type2FUcll(*(s32 *)((s8 *)arg0 + 0x384), pts, 3);
 }
@@ -840,7 +840,7 @@ void TBoss6Type2::apply_random_drift() {
 #pragma push
 #pragma fp_contract on
 struct Vec_8032EF34;
-void turn_toward_target__11TBoss6Type2FPv(u8 *arg0) {
+void TBoss6Type2::turn_toward_target() {
     Vec_8032F690 v;
     s32 a;
     s32 b;
@@ -848,18 +848,18 @@ void turn_toward_target__11TBoss6Type2FPv(u8 *arg0) {
     u8 *p;
     u16 id;
     p = NULL;
-    id = *(u16 *)((s8 *)arg0 + 0x408);
+    id = *(u16 *)((s8 *)((u8 *)this) + 0x408);
     if (id != 0xFFFF) {
         p = ((u8 *(*)(u16))get_player_by_client_id)(id);
     }
     if (p == NULL) {
-        if (*(u8 **)((s8 *)arg0 + 0x378) == NULL) {
-            VecCopy__FP3VecPC3Vec(&v, arg0 + 0x50);
+        if (*(u8 **)((s8 *)((u8 *)this) + 0x378) == NULL) {
+            VecCopy__FP3VecPC3Vec(&v, ((u8 *)this) + 0x50);
         } else {
             s32 ang;
             u8 *t;
-            ang = (s32)((12288.0f) * ((TBoss6Type2 *)arg0)->apply_direction_sign((1.0f)) + (f32)*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x378)) + 0x60));
-            t = *(u8 **)((s8 *)arg0 + 0x378);
+            ang = (s32)((12288.0f) * ((TBoss6Type2 *)((u8 *)this))->apply_direction_sign((1.0f)) + (f32)*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x378)) + 0x60));
+            t = *(u8 **)((s8 *)((u8 *)this) + 0x378);
             VecCopy__FP3VecPC3Vec(&v, t + 0x38);
             v.x += (5e+01f) * ((f32 (*)(s32))sin_table_lookup)(ang);
             v.z += (5e+01f) * ((f32 (*)(s32))cos_table_lookup)(ang);
@@ -869,17 +869,17 @@ void turn_toward_target__11TBoss6Type2FPv(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(&v, p + 0x38);
         v.y = (3e+01f);
     }
-    if (project_actor_to_ground(arg0, &v, 0) != 0) {
+    if (project_actor_to_ground(((u8 *)this), &v, 0) != 0) {
         v.y += (3e+01f);
     }
-    ((f32 (*)(void *, void *))subtract_vector)(&v, arg0 + 0x38);
+    ((f32 (*)(void *, void *))subtract_vector)(&v, ((u8 *)this) + 0x38);
     turn = 0x1B4;
-    if (((TBoss6Type2 *)(*(s32 *)((s8 *)arg0 + 0x378)))->get_state() == 0xE) {
+    if (((TBoss6Type2 *)(*(s32 *)((s8 *)((u8 *)this) + 0x378)))->get_state() == 0xE) {
         turn = 0x6D0;
     }
-    calc_dir_angles__11TBoss6Type2FPvPvPvPv((void *)(arg0), (s32 *)(&a), (s32 *)(&b), (Vec_8032EF34 *)((struct Vec_8032EF34 *)&v));
-    *(s32 *)((s8 *)arg0 + 0x60) = ((TBoss6Type2 *)arg0)->step_angle_toward(*(s32 *)((s8 *)arg0 + 0x60), a, turn);
-    *(s32 *)((s8 *)arg0 + 0x5C) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x5C), b, 0x1B4);
+    calc_dir_angles__11TBoss6Type2FPvPvPvPv((void *)(((u8 *)this)), (s32 *)(&a), (s32 *)(&b), (Vec_8032EF34 *)((struct Vec_8032EF34 *)&v));
+    *(s32 *)((s8 *)((u8 *)this) + 0x60) = ((TBoss6Type2 *)((u8 *)this))->step_angle_toward(*(s32 *)((s8 *)((u8 *)this) + 0x60), a, turn);
+    *(s32 *)((s8 *)((u8 *)this) + 0x5C) = approach_angle_limited(*(s32 *)((s8 *)((u8 *)this) + 0x5C), b, 0x1B4);
 }
 #pragma pop
 
@@ -1256,7 +1256,7 @@ s32 post_translate_matrix(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-s32 break_rocks_in_radius__10TBoss6RockFPvf(void *, f32);
+s32 break_rocks_in_radius__10TBoss6RockFf(void *, f32);
 void render__9TBoss6MagFv(void* p);
 s32 play_persistent_sound(int, void *, void *, int, int);
 
@@ -1333,7 +1333,7 @@ void TBoss6Mag::run_task() {
             ((TObjPlayer *)arg0)->update_collisions();
             submit_cursor_candidate((void *) (arg0), (int) (-1));
         }
-        break_rocks_in_radius__10TBoss6RockFPvf((void *) (arg0 + 0x38), (f32) (1e+01f));
+        break_rocks_in_radius__10TBoss6RockFf((void *) (arg0 + 0x38), (f32) (1e+01f));
         var_r4 = 0xFF7F5126;
         if ((s32) *(s32 *)((s8 *)arg0 + 0x388) != 0) {
             var_r4 = -0x5DB4;

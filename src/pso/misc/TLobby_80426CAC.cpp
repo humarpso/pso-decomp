@@ -97,7 +97,7 @@ extern u8 lbl_805CF380[0x48];
 RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 void TLobby__sub_803F95E4(u32);
 extern s16 network_link_status_cache;
-void clear_message_entry__6TLobbyFi(s32);
+void clear_message_entry__6TLobbyFl(s32);
 s32 NetMemcpy(void *, void *, int);
 void TLobby__sub_803F95E4(u32);
 extern u32 lobby_buffer_pool_alarm_handle;
@@ -162,7 +162,7 @@ void TLobby__sub_80424CA8(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 u8 *TLobby__sub_804256B8(s32);
 s32 OSReceiveMessage(void *, void *, int);
-void clear_message_entry__6TLobbyFi(s32);
+void clear_message_entry__6TLobbyFl(s32);
 void TLobby__sub_80425D88(u8 v);
 extern u8 lbl_805CF240[];
 extern u8 lbl_805CF380[];
@@ -237,7 +237,6 @@ s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_80427378(Ent_80427D40 *);
 s16 TLobby__sub_804275B0(s32, u16);
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
-s16 pppoe_recv_packet__6TLobbyFPvUsPv(u8 *buf, u16 bufLen, u16 *outLen);
 s32 EXIDeselect(s32);
 s32 memcpy(void *, void *, int);
 extern s32 exi_receive_callback;
@@ -245,7 +244,6 @@ extern s32 exi_dma_read_length;
 extern u32 exi_dma_write_length;
 void TLobby__sub_80429AC8(void);
 s32 NetMemcpy(void *, void *, int);
-s16 build_ethernet_frame_header__6TLobbyFPvPvPvUsUcUsUs(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len);
 }
 
 extern "C" {
@@ -291,7 +289,7 @@ s32 TLobby__sub_80426660(u8 *arg0);
 
 s32 TLobby__sub_80426B88(s16 arg0);
 
-s16 build_ethernet_frame_header__6TLobbyFPvPvPvUsUcUsUs(u8 *dst, void *src, void *mac, u16 type, u8 flag, u16 a, u16 len) {
+s16 TLobby::build_ethernet_frame_header(void *src, void *mac, u16 type, u8 flag, u16 a, u16 len) {
   u8 *p;
   u8 c;
   u16 t;
@@ -299,11 +297,11 @@ s16 build_ethernet_frame_header__6TLobbyFPvPvPvUsUcUsUs(u8 *dst, void *src, void
   u8 *new_var;
   u16 l;
   s16 r;
-  new_var = dst;
+  new_var = ((u8 *)this);
   NetMemcpy(new_var, src, 6);
   NetMemcpy(new_var + 6, mac, 6);
   t = type;
-  NetMemcpy(dst + 0xC, &t, 2);
+  NetMemcpy(((u8 *)this) + 0xC, &t, 2);
   p = new_var + 0xE;
   c = 0x11;
   NetMemcpy(p, &c, 1);
@@ -422,7 +420,7 @@ static inline void check_80427D40(void) {
         }
     }
 }
-s16 pppoe_recv_packet__6TLobbyFPvUsPv(u8 *buf, u16 bufLen, u16 *outLen) {
+s16 TLobby::pppoe_recv_packet(u16 bufLen, u16 *outLen) {
     u16 type;
     s32 pkt;
     u16 id;
@@ -452,11 +450,11 @@ s16 pppoe_recv_packet__6TLobbyFPvUsPv(u8 *buf, u16 bufLen, u16 *outLen) {
         ret = 0;
         NetMemcpy(&len, (u8 *)pkt + 0x12, 2);
         src = (u8 *)pkt + 0x14;
-        if (buf != NULL && len <= bufLen) {
+        if (((u8 *)this) != NULL && len <= bufLen) {
             e = ((Ent_80427D40 *)TLobby__sub_80427C6C(pkt, id));
             if (e != NULL && e->state == 4) {
                 ret = e - TBL_80427D40;
-                NetMemcpy(buf, src, len);
+                NetMemcpy(((u8 *)this), src, len);
                 if (outLen != NULL) {
                     *outLen = len;
                 }

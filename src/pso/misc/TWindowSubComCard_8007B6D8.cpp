@@ -10,7 +10,7 @@ s32 TWindowSubComCard__sub_8007B6F4(O_8007B6F4 *self);
 extern "C" {
 
 u8 TWindowSubComCard__sub_8007B6EC(void* p);
-int send_subcommand_to_client__6TLobbyFPvUi(void*, void*);
+int send_subcommand_to_client__6TLobbyFUl(void*, void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 void init_guild_card_tag__17TWindowSubComCardFi(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -28,7 +28,7 @@ s32 TWindowSubComCard__sub_8007B6F4(O_8007B6F4 *self) {
 
 void TWindowSubComCard::bswap_guild_card() { read_be16_field2__10TObjPlayerFv(this); ((TWindowSubComCard *)((char*)this + 0x4))->bswap_guild_card_tag(); }
 int TWindowSubComCard::bswap_guild_card_tag() { return bswap__16TPlyGuildCardTagFv(this); }
-void TWindowSubComCard::init_card(void* a1) { bswap_guild_card(); send_subcommand_to_client__6TLobbyFPvUi(this, a1); }
+void TWindowSubComCard::init_card(void* a1) { bswap_guild_card(); send_subcommand_to_client__6TLobbyFUl(this, a1); }
 
     extern int com_card_keyboard_mode;
 int TWindowSubComCard::get_keyboard_mode() {  return com_card_keyboard_mode; }

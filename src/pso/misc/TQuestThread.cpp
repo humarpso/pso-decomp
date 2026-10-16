@@ -181,7 +181,7 @@ s32 mem_free(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 void * get_player_by_client_id(s32);
-s32 dispatch_quest__6TLobbyFi(void *);
+s32 dispatch_quest__6TLobbyFv(void *);
 void close_windows__6TLobbyFv(void);
 s32 init_quest_script_context(s32, void *);
 s32 bswap_header__6TLobbyFPv();
@@ -410,7 +410,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     switch (o->state) {
     case 0:
     case 1:
-        o->state = dispatch_quest__6TLobbyFi(o->sub1C);
+        o->state = dispatch_quest__6TLobbyFv(o->sub1C);
         break;
     case 2:
         ((void (*)(void *))queue_destruction__7TObjectFv)(o);
@@ -633,7 +633,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
     switch (t->state) {
     case 0:
     case 1:
-        t->state = ((u32 (*)(void *))dispatch_quest__6TLobbyFi)(t->m1C);
+        t->state = ((u32 (*)(void *))dispatch_quest__6TLobbyFv)(t->m1C);
         break;
     case 2:
         ((s32 (*)(void *))queue_destruction__7TObjectFv)(t);

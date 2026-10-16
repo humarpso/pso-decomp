@@ -104,7 +104,7 @@ void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv(void);
 s32 spawn_particle_effect(void *, int);
 s32 play_sound_effect(int, void *, int, int);
-s32 spawn_crush_rocks__10TBoss6RockFPvi(void *, int);
+s32 spawn_crush_rocks__10TBoss6RockFl(void *, int);
 extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03C0;
 extern const f32 lbl_805E03C4;
@@ -199,7 +199,7 @@ void TBoss6RockChase::run_task() {
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
             spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
             TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
-            spawn_crush_rocks__10TBoss6RockFPvi((void *) (arg0 + 0x38), (int) (*(s32 *)&this->m_b0));
+            spawn_crush_rocks__10TBoss6RockFl((void *) (arg0 + 0x38), (int) (*(s32 *)&this->m_b0));
             play_sound_effect((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             queue_destruction__7TObjectFv(arg0);
         }

@@ -26,6 +26,7 @@ struct TObjWarpBossMulti : public TObjAreaWarp {
     static s32 get_boss_warp_flag();
     static void notify_player(void *arg0, s32 arg1);
     u8 unk_DC[0x24];
+    static int is_flag_clear(void* p);
 };
 
 typedef char TObjWarpBossMulti_size[sizeof(TObjWarpBossMulti) == 0x100 ? 1 : -1];

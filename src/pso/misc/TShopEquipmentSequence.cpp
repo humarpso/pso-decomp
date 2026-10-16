@@ -137,14 +137,12 @@ void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
 void exit__22TShopEquipmentSequenceFPv(void *arg0);
 void init_window__22TShopEquipmentSequenceFPv(void *arg0);
 extern void *tl_05;
-void open_sell_window__22TShopEquipmentSequenceFPv(S_8021D6D8 *self);
 s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentListWindow__ct(void *, s32, void *, s32);
 void exit__22TShopEquipmentSequenceFPv(void *arg0);
 extern void *tl_05;
-void open_buy_window__22TShopEquipmentSequenceFPv(S_8021D750 *self);
 u16 obj_getField1c(void *);
 s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 get_shop_text(s32 arg0);
@@ -152,7 +150,7 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 void align_menu_entry_positions(void *w);
-void calc_window_size__17TWindowSubComCardFPv(void *w);
+void calc_window_size__17TWindowSubComCardFv(void *w);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(int, f32);
@@ -222,25 +220,25 @@ typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
 
-void open_sell_window__22TShopEquipmentSequenceFPv(S_8021D6D8 *self) {
+void TShopEquipmentSequence::open_sell_window() {
     W_8021D6D8 *o = (W_8021D6D8 *)__nw__7TObjectFUl(0x3ac);
     if (o != 0) {
-        o = (W_8021D6D8 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, self, self->f24, 0x26));
+        o = (W_8021D6D8 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, ((S_8021D6D8 *)this), ((S_8021D6D8 *)this)->f24, 0x26));
     }
     o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
     o->cb1 = (void *)init_window__22TShopEquipmentSequenceFPv;
     reset_controller_input_state();
-    set_field_20__15TShopWindowBaseFl(self, 7);
+    set_field_20__15TShopWindowBaseFl(((S_8021D6D8 *)this), 7);
 }
 
-void open_buy_window__22TShopEquipmentSequenceFPv(S_8021D750 *self) {
+void TShopEquipmentSequence::open_buy_window() {
     W_8021D750 *o = (W_8021D750 *)__nw__7TObjectFUl(0x194);
     if (o != 0) {
-        o = (W_8021D750 *)(TShopEquipmentListWindow__ct(o, (s32)tl_05, self, self->f24));
+        o = (W_8021D750 *)(TShopEquipmentListWindow__ct(o, (s32)tl_05, ((S_8021D750 *)this), ((S_8021D750 *)this)->f24));
     }
     o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
     reset_controller_input_state();
-    set_field_20__15TShopWindowBaseFl(self, 7);
+    set_field_20__15TShopWindowBaseFl(((S_8021D750 *)this), 7);
 }
 
 void TShopEquipmentSequence::update_buy_sell_choice() {
@@ -251,7 +249,7 @@ void TShopEquipmentSequence::update_buy_sell_choice() {
         self->win = (void *)create_window_menu(((s32 (*)(int))get_window_layout_position)(0x2B), 2, id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(6), 6, 1);
-        calc_window_size__17TWindowSubComCardFPv(self->win);
+        calc_window_size__17TWindowSubComCardFv(self->win);
         align_menu_entry_positions(self->win);
         ((TCheckRoomSequence *)(self->win))->set_ready_flag();
         ((TUnk_804CDFE8 *)(self->win))->set_position_xy(get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
@@ -309,10 +307,10 @@ void TShopEquipmentSequence::vfunc_11() {
         ((TShopEquipmentSequence *)arg0)->update_buy_sell_choice();
         return;
     case 3:
-        open_buy_window__22TShopEquipmentSequenceFPv((S_8021D750 *)((void *) (arg0)));
+        ((TShopEquipmentSequence *)arg0)->open_buy_window();
         return;
     case 4:
-        open_sell_window__22TShopEquipmentSequenceFPv((S_8021D6D8 *)((void *) (arg0)));
+        ((TShopEquipmentSequence *)arg0)->open_sell_window();
         return;
     case 5:
         ((s32)set_field_20__15TShopWindowBaseFl((void *)((void *) (arg0)), (s32)((int) (9))));

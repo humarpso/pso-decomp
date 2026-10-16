@@ -51,7 +51,7 @@ s32 memset(void *, int, int);
 void ar_alloc__6TLobbyFv(void);
 void get_state_zero__6TLobbyFv(void);
 void process_connection_state__6TLobbyFv(void);
-void forward_notify_error__6TLobbyFii(void);
+void forward_notify_error__6TLobbyFll(void);
 extern u8 adx_stream_player_pool[];
 extern s32 lbl_805D4658;
 extern s32 TLobby_init_ref_count;
@@ -388,7 +388,7 @@ void TLobby::init_and_add_ref() {
         TLobby::reset_sound_buffers();
         TLobby::init_afs_adxf_state();
         TLobby__sub_803CC114();
-        flush_update__6TLobbyFv((void *)forward_notify_error__6TLobbyFii, 0);
+        flush_update__6TLobbyFv((void *)forward_notify_error__6TLobbyFll, 0);
         memset(adx_stream_player_pool, 0, 0xA80);
         lsc_init();
         if (lbl_805D4658 == 1) {

@@ -131,7 +131,6 @@ extern "C" {
 s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
 extern RecoveredGlobal_80329088_lbl_805430E8 lbl_805430E8;
 extern RecoveredGlobal_80329088_lbl_805432A8 lbl_805432A8;
-s32 *get_state_table__6TLobbyFii(s32 arg0, s32 _w1);
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 town_player_motion_clip_index_tables;
@@ -144,14 +143,13 @@ s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c);
 
 extern "C" {
 
-s32 get_cell_address__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 void check_valid_state__6TLobbyFi(s32 arg0);
 s32 is_handle_valid__10TObjPlayerFv();
 
 extern s32 lbl_805D6C80;
 
-s32 get_cell_address__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
-    struct VObj_80328F7C *o = (struct VObj_80328F7C *)arg0;
+s32 TLobby::get_cell_address(s32 arg1, s32 arg2) {
+    struct VObj_80328F7C *o = (struct VObj_80328F7C *)this;
     return lbl_805D6C80 + ((arg2 + (arg1 * o->m73())) << 0xE);
 }
 
@@ -180,7 +178,8 @@ int TUnk_804ED7D0::vfunc_76() {
 }
 typedef char RecoveredGlobal_80329088_lbl_805430E8_size[sizeof(RecoveredGlobal_80329088_lbl_805430E8) == 0x1C0 ? 1 : -1];
 typedef char RecoveredGlobal_80329088_lbl_805432A8_size[sizeof(RecoveredGlobal_80329088_lbl_805432A8) == 0x1C0 ? 1 : -1];
-s32 *get_state_table__6TLobbyFii(s32 arg0, s32 _w1) {
+s32 *TLobby::get_state_table(s32 _w1) {
+    s32 arg0 = (s32)this;
     s32 *var_r3;
     s32 temp_r3;
     temp_r3 = is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(_w1));
@@ -229,7 +228,6 @@ typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 
-void free_singleton_805D6C80__6TLobbyFv(void);
 s32 apply_player_flag_2__6TLobbyFv();
 void mem_free(void*);
 s32 set_flag_1_at_6c84__6TLobbyFv();
@@ -250,7 +248,7 @@ int TUnk_804ED7D0::vfunc_5() {
 
 #define lbl_805D6C80 (*(u32 *)&lbl_805D6C80)
 
-void free_singleton_805D6C80__6TLobbyFv(void) {
+void TLobby::free_singleton_805D6C80() {
     if ((u32) lbl_805D6C80 != 0U) {
         mem_free((void*)lbl_805D6C80);
         lbl_805D6C80 = 0U;
@@ -280,14 +278,12 @@ void alloc_work_buffer__6TLobbyFv(void) {
 extern "C" {
 
 void *TLobby__sub_80329310(void *arg0, s16 arg1);
-void update_photon_chair__6TLobbyFv(void);
-void update_photon_chairs__6TLobbyFv(void);
 s32 vfunc_3__13TUnk_804DDD28Fs(void *, s32);
 
 s32 free__10TObjPlayerFPv(void *);
 
-void update_photon_chairs__6TLobbyFv(void) { TPlyPhotonChair::free_static_model(); free_singleton_805D6C80__6TLobbyFv(); TLobby::set_photon_chair_flag(0); TLobby::clear_flag_at_6c84(); }
-void update_photon_chair__6TLobbyFv(void) {
+void TLobby::update_photon_chairs() { TPlyPhotonChair::free_static_model(); TLobby::free_singleton_805D6C80(); TLobby::set_photon_chair_flag(0); TLobby::clear_flag_at_6c84(); }
+void TLobby::update_photon_chair() {
     TLobby::set_photon_chair_flag(0);
     if (((u32 (*)(void))alloc_work_buffer__6TLobbyFv)() == 0U) {
         TLobby::set_photon_chair_flag(1);
@@ -315,7 +311,6 @@ void *TLobby__sub_80329310(void *arg0, s16 arg1) {
 
 extern "C" {
 
-void init_player_forward__6TLobbyFv(void);
 void TLobby__sub_802A7B50(void *);
 
 extern s32 lbl_804ED7D0[];
@@ -328,13 +323,13 @@ void *TUnk_804ED7D0::init_vtable8() {
 
 extern s32 lbl_805D6C84;
 
-void init_player_forward__6TLobbyFv(void) {
+void TLobby::init_player_forward() {
     ((TObjPlayer *)(&lbl_805D6C84))->init_forward();
 }
 
 }
 
-__declspec(section ".ctors") static void *const __sinit_TLobby_80328F7C_80329368_cpp_ref = (void *)init_player_forward__6TLobbyFv;
+__declspec(section ".ctors") static void *const __sinit_TLobby_80328F7C_80329368_cpp_ref = (void *)TLobby::init_player_forward;
 
 #include "types.h"
 #include "pso/misc/TLobby.h"

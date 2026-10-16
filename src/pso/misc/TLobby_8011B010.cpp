@@ -16,14 +16,13 @@ extern s32 TLobby__data_805D6140;
 
 extern "C" {
 
-s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1);
 s32 __dl__FPv(s32);
 s32 mem_free(s32);
 
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
 
-s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1) {
+s32 TLobby::free_rock_objects(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         mem_free(item_sync_counter_table);
         item_sync_counter_table = 0;

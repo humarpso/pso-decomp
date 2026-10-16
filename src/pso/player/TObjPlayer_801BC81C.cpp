@@ -3,11 +3,9 @@
 
 extern "C" {
 
-void reset_area_entry_state__10TObjPlayerFPv(void *arg0);
-void init_battle__10TObjPlayerFi(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-int sync_current_floor__10TObjPlayerFPv(void*);
-int sync_current_area__10TObjPlayerFPv(void*);
+int sync_current_floor__10TObjPlayerFv(void*);
+int sync_current_area__10TObjPlayerFv(void*);
 void for_each_player_slot__10TObjPlayerFv(void *);
 void TObjPlayer__sub_801BC8F0(s32 arg0);
 void TObjPlayer__sub_801BCA0C(void);
@@ -15,7 +13,7 @@ void TObjPlayer__sub_801BCA10(void);
 void TObjPlayer__sub_801BCAB0(void);
 void TObjPlayer__sub_801BCB28(void);
 int is_script_controlled__10TObjPlayerFv(void*);
-s32 apply_state_transform__10TObjPlayerFUi(s32);
+s32 apply_state_transform__10TObjPlayerFv(s32);
 s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 obj_isState2_324();
@@ -26,7 +24,8 @@ s32 set_flag_400000__10TObjPlayerFi(void *);
 
 extern "C" {
 
-void init_battle__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::init_battle() {
+    s32 arg0 = (s32)this;
     ((s32 (*)())TObjPlayer__sub_801BC8F0)();
     set_flag_400000__10TObjPlayerFi((void *) (arg0));
     ((TObjPlayer *)(arg0 + 0x634))->enter_battle_state();
@@ -37,16 +36,16 @@ void init_battle__10TObjPlayerFi(s32 arg0) {
 #include "types.h"
 
 extern "C" {
-extern s32 update_photon_chair__10TObjPlayerFi[];
+extern s32 update_photon_chair__10TObjPlayerFv[];
 }
 
-void reset_area_entry_state__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::reset_area_entry_state() {
     s32 x;
-    ((TObjPlayer *)((char *)arg0 + 900))->update_child(arg0);
-    ((TObjPlayer *)((char *)arg0 + 1588))->enter_battle_state();
-    x = is_locally_controlled__10TObjPlayerFPv(arg0);
+    ((TObjPlayer *)((char *)this + 900))->update_child(this);
+    ((TObjPlayer *)((char *)this + 1588))->enter_battle_state();
+    x = is_locally_controlled__10TObjPlayerFPv(this);
     if (x != 0) {
-        for_each_player_slot__10TObjPlayerFv(update_photon_chair__10TObjPlayerFi);
+        for_each_player_slot__10TObjPlayerFv(update_photon_chair__10TObjPlayerFv);
     }
 }
 
@@ -155,14 +154,14 @@ void TObjPlayer::update_state() {
     if (obj_isState2_324() != 0) {
         ((TObjPlayer *)arg0)->set_flag_400000();
     } else {
-        sync_current_area__10TObjPlayerFPv((void*)(arg0));
-        sync_current_floor__10TObjPlayerFPv((void*)(arg0));
+        sync_current_area__10TObjPlayerFv((void*)(arg0));
+        sync_current_floor__10TObjPlayerFv((void*)(arg0));
     }
     if ((is_final_phase__10TObjPlayerFv() != 0) && (sub_801A1DDC__10TObjPlayerFv(arg0) != 0)) {
-        apply_state_transform__10TObjPlayerFUi(arg0);
+        apply_state_transform__10TObjPlayerFv(arg0);
     }
 }
 void TObjPlayer__sub_801BCB28(void) {  }
-void TObjPlayer::update_if_active() { if (is_script_controlled__10TObjPlayerFv(this) != 0) { sync_current_area__10TObjPlayerFPv(this); sync_current_floor__10TObjPlayerFPv(this); } }
+void TObjPlayer::update_if_active() { if (is_script_controlled__10TObjPlayerFv(this) != 0) { sync_current_area__10TObjPlayerFv(this); sync_current_floor__10TObjPlayerFv(this); } }
 
 }

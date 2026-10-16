@@ -67,7 +67,7 @@ s32 update_button_hold_counters(int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 s32 TKeyBoardControl__sub_80132310(s32);
-u8 get_key_state_2__16TKeyBoardControlFPv(void *);
+u8 get_key_state_2__16TKeyBoardControlFv(void *);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void reset_system();
@@ -130,7 +130,7 @@ s32 TKeyBoardControl::get_ascii_key() {
   s32 temp_r3;
   s32 var_r3;
   u8 temp_r31;
-  if (get_key_state_2__16TKeyBoardControlFPv(&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value) == 0)
+  if (get_key_state_2__16TKeyBoardControlFv(&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value) == 0)
   {
     return 0;
   }
@@ -492,7 +492,7 @@ extern s32 lbl_805D34C8;
 extern s8 lbl_805D5D08;
 extern s8 keyboard_reset_button_pressed;
 extern s8 pad_recalibration_hold_frames[4];
-u8 get_key_state_2__16TKeyBoardControlFPv(void *);
+u8 get_key_state_2__16TKeyBoardControlFv(void *);
 s32 read_input__16TKeyBoardControlFl(u8);
 void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
 extern const f32 lbl_805DC0C0;
@@ -648,7 +648,7 @@ s32 TKeyBoardControl::poll_key_state() {
             self->f0 |= TKeyBoardControl_key_bit_table[i];
         }
     }
-    n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
+    n = get_key_state_2__16TKeyBoardControlFv(TKeyBoardControl__global_key_state);
     for (j = 0; j < n; j++) {
         ((void (*)(u8, u32 *))accumulate_key_bits)(((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__global_key_state, j), &self->f8);
     }

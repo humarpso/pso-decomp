@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdEnterSerialAccessGC.h"
 #pragma readonly_strings on
 
 struct RecoveredGlobal_8032B904_lbl_80477278 { s32 value; u8 remaining[0xC]; };
@@ -202,7 +203,7 @@ s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_804764C8[];
 extern u8 lbl_804764D0[];
 void queue_destruction__7TObjectFv(void *);
-s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(void *, void *);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 void *__nw__7TObjectFUl(int);
 void __ct__9TAdBackGCFv(void *, void *);
@@ -245,11 +246,9 @@ extern s32 TAdEnterSerialAccessGC__input_state;
 extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
 extern char lbl_805DF4E0[4];
 extern const f32 lbl_805DF4E4;
-void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0);
 void draw_window_frame();
 s32 get_localized_text_entry(int, void *);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
-void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0);
 extern V_803212F8 serial_entry_status_line_position[];
 extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
 void sscanf(int, const char *, ...);
@@ -294,10 +293,10 @@ void TAdEnterSerialAccessGC::draw_screen(void *arg0, void *arg1) {
     draw_window_frame();
     render_status_line__15TAdSubPlyItemGCFi((void *)get_localized_text_entry(0x17, (void *)4), -1, serial_entry_status_line_position[0].a, serial_entry_status_line_position[0].b, TAdEnterSerialAccessGC__data_805DF4DC);
     TAdEnterSerialAccessGC::draw_serial_plates();
-    draw_serial_chars__22TAdEnterSerialAccessGCFi((s32)arg1);
+    TAdEnterSerialAccessGC::draw_serial_chars((s32)arg1);
 }
 
-void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0) {
+void TAdEnterSerialAccessGC::draw_serial_chars(s32 arg0) {
     char text[0xFF];
     char buf[8];
     Pos_80321358 pos;
@@ -704,7 +703,7 @@ struct TAdEnterSerialAccessGC_80321F60 {
 };
 u32 calc_text_width(void *);
 void *__ct__10TAdTitleGCFv(void *, void *, s32);
-u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(void *, s32);
+u32 create_keyboard_control__22TAdEnterSerialAccessGCFll(void *, s32);
 void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self) {
     void *p;
     f32 w;
@@ -731,7 +730,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
             ((TLevelSelect *)((int)self->field_54))->add_item_rect(&TAdEnterSerialAccessGC__selection_positions);
             ((TAdEnterSerialAccessGC *)((int)self->field_54))->set_active();
         }
-        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 0);
+        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFll(self, 0);
         TAdEnterSerialAccessGC__input_state = 2;
         break;
     case 2:
@@ -751,7 +750,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         self->field_50 = p;
         self->field_58 = TAdEnterSerialAccessGC::open_message_window(self, (void *)1);
         self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
-        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 1);
+        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFll(self, 1);
         TAdEnterSerialAccessGC__input_state = 4;
         break;
     case 4:
@@ -824,7 +823,7 @@ u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
         return arg0;
     }
     flag[0] = 0;
-    if (load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(flag, sp8) != 0 && flag[0] != 0) {
+    if (load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(flag, sp8) != 0 && flag[0] != 0) {
         ((void (*)(s8 *)) init__22TAdEnterSerialAccessGCFv)(flag);
         TAdEnterSerialAccessGC__sub_8032190C((s32) sp8);
         TAdEnterSerialAccessGC__sub_80322418(get_field_118__22TAdEnterSerialAccessGCFv(), 1);

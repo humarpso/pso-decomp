@@ -93,7 +93,6 @@ extern "C" {
 
 s32 TContainerAncient01__sub_8018BE90(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
-int get_table_entry__19TContainerAncient01Fi(int a0);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 
@@ -153,7 +152,7 @@ s32 TContainerAncient01R::try_start_action(s32, s32) { return 1; }
 s32 TContainerAncient01R::roll_physical_accuracy(void *, s32, f32) { return 1; }
 
     extern int TContainerAncient01__effect_id_table[];
-int get_table_entry__19TContainerAncient01Fi(int a0) {  return TContainerAncient01__effect_id_table[a0]; }
+int TContainerAncient01::get_table_entry(int a0) {  return TContainerAncient01__effect_id_table[a0]; }
 
 extern s32 TContainerAncient01__bml_resource;
 
@@ -237,7 +236,6 @@ struct VMem_8018C06C {
     virtual void m7();
 };
 
-void *create__16TObjContainerIdoFPv(void *arg0);
 u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void render__16TObjContainerIdoFv(u8 *arg0);
 s32 post_translate_matrix(void *);
@@ -427,7 +425,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
 
 extern void *tl_05;
 
-void *create__16TObjContainerIdoFPv(void *arg0) {
+void *TObjContainerIdo::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
         o = TObjContainerIdo__ct((u8 *)o, (s32)tl_05, (s32)arg0);

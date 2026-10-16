@@ -472,7 +472,6 @@ int strncmp(const char *, const char *, u32);
 extern RecoveredGlobal_803E8084_lbl_80590AC4 quest_name_index_table;
 extern s32 quest_download_name_search_lo;
 extern s32 quest_download_name_search_hi;
-s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key);
 s32 TQuestVmDownLoadServer__sub_803F0BE0(void * _w0, void * _w1);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
 extern s32 lbl_805D78F8;
@@ -546,7 +545,6 @@ extern s32 lbl_805D78FC;
 extern s32 lbl_805D7904;
 s32 TQuestVmDownLoadServer__sub_803EEA48(s32 arg0, s32 arg1, void *arg2, s32 *arg3);
 int strncmp(const char *, const char *, u32);
-s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key);
 u8 *get_cached_page__22TQuestVmDownLoadServerFi(s32 page);
 s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len, Info_803F0138 *out);
 void DCInvalidateRange(void *, u32);
@@ -1348,7 +1346,7 @@ s32 TQuestVmDownLoadServer::has_name_mismatch(u8 *arg1) {
 }
 #pragma pop
 
-s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key) {
+s32 TQuestVmDownLoadServer::find_name_index() {
     s32 mid;
     s32 hi;
     s32 lo;
@@ -1357,7 +1355,7 @@ s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key) {
     lo = quest_download_name_search_lo;
     while (lo + 1 < hi) {
         mid = (hi + lo) / 2;
-        r = strncmp(key, ((Name_803E7EE4 *)&quest_name_index_table)[mid], 4);
+        r = strncmp(((const char *)this), ((Name_803E7EE4 *)&quest_name_index_table)[mid], 4);
         if (r == 0) {
             return mid;
         }
@@ -1367,7 +1365,7 @@ s32 find_name_index__22TQuestVmDownLoadServerFPv(const char *key) {
             hi = mid;
         }
     }
-    if (strncmp(key, ((Name_803E7EE4 *)&quest_name_index_table)[lo], 4) < 0) {
+    if (strncmp(((const char *)this), ((Name_803E7EE4 *)&quest_name_index_table)[lo], 4) < 0) {
         return lo - 1;
     }
     return lo;
@@ -4092,7 +4090,7 @@ s32 find_symbol_entry__22TQuestVmDownLoadServerFPvsPv(const char *name, s16 len,
         out->off = -1;
         return 0;
     }
-    id = find_name_index__22TQuestVmDownLoadServerFPv(name);
+    id = ((TQuestVmDownLoadServer *)name)->find_name_index();
     {
         u8 *get_cached_page__22TQuestVmDownLoadServerFi(void);
         base = get_cached_page__22TQuestVmDownLoadServerFi();

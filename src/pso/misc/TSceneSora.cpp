@@ -81,7 +81,7 @@ u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, 
 s32 replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
 Ent_80207478 *get_floor_scene_table(s32);
-s32 close_adxf_handle__6TLobbyFPv(void *);
+s32 close_adxf_handle__6TLobbyFv(void *);
 void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
@@ -217,7 +217,7 @@ void TSceneSora::load_sky_resources() {
         p = adxf_open__6TLobbyFUii(name2, 0);
         if (p != NULL) {
             b.buf = name2;
-            close_adxf_handle__6TLobbyFPv(p);
+            close_adxf_handle__6TLobbyFv(p);
         } else {
             return;
         }
@@ -225,7 +225,7 @@ void TSceneSora::load_sky_resources() {
         if (p != NULL) {
             a.buf = name1;
             TSceneSora__has_sky_motion = 1;
-            close_adxf_handle__6TLobbyFPv(p);
+            close_adxf_handle__6TLobbyFv(p);
         } else {
             a.buf = NULL;
         }

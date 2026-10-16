@@ -1,18 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
 
 extern "C" {
 
 void init_6x5E_buy_item_header(void* p);
-void bswap_6x5D__6TLobbyFPv(void* p);
-void bswap_shop_item__6TLobbyFPv(void* p);
-void copy_item_data__6TLobbyFPvPv(void* p, void* q);
-void init_default_fields__6TLobbyFPv(void* a0);
-void* init_fields__6TLobbyFPv(void* p);
-u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1);
-void send_6x5D__6TLobbyFPv(void* p);
-void send_item_and_handle_60__6TLobbyFPv(void* p);
 s32 TLobby__send_and_handle_60(void *);
 s32 bswap_16__FPUs(s32);
 int bswap__9TItemDataFv(void*);
@@ -21,7 +14,7 @@ s32 read_be16_field2__10TObjPlayerFv();
 extern s32 local_client_id;
 extern s32 lbl_805D5E50;
 
-u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1) {
+u8 TLobby::is_matching_id(s32 arg0, u16 arg1) {
     int var_r5;
 
     var_r5 = 0;
@@ -31,16 +24,16 @@ u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1) {
     return (u8) var_r5;
 }
 
-void bswap_shop_item__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(p); bswap__9TItemDataFv((char*)p + 0x4); }
-void send_item_and_handle_60__6TLobbyFPv(void* p) { bswap_shop_item__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
-void copy_item_data__6TLobbyFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)p + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)p + 0x3) = *(u8*)((char*)q + 0x3); *(u8*)((char*)p + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)p + 0x6) = *(u32*)((char*)q + 0x6); *(u16*)((char*)p + 0xa) = *(u16*)((char*)q + 0xa); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); }
+void TLobby::bswap_shop_item() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap__9TItemDataFv((char*)this + 0x4); }
+void TLobby::send_item_and_handle_60() { bswap_shop_item(); TLobby__send_and_handle_60(this); }
+void TLobby::copy_item_data(void* q) { *(u8*)((char*)this + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)this + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)this + 0x3) = *(u8*)((char*)q + 0x3); *(u8*)((char*)this + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)this + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)this + 0x6) = *(u32*)((char*)q + 0x6); *(u16*)((char*)this + 0xa) = *(u16*)((char*)q + 0xa); *(u32*)((char*)this + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)this + 0x10) = *(u32*)((char*)q + 0x10); }
 void init_6x5E_buy_item_header(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
-void bswap_6x5D__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(p); bswap_16__FPUs((s32)((char*)p + 0x4)); bswap_16__FPUs((s32)((char*)p + 0x6)); ((TObjPlayer *)((char*)p + 0x8))->bswap_pkt_u32x2(); bswap__9TItemDataFv((char*)p + 0x10); }
-void send_6x5D__6TLobbyFPv(void* p) { bswap_6x5D__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
-void* init_fields__6TLobbyFPv(void* p) { init_default_fields__6TLobbyFPv((void*)((void*)(p))); *(unsigned char*)((char*)p + 0x24) = 2; *(unsigned char*)((char*)p + 0x25) = 0; *(unsigned char*)((char*)p + 0x26) = 0; *(unsigned char*)((char*)p + 0x27) = 0; *(unsigned char*)((char*)p + 0x1) = 10; return p; }
+void TLobby::bswap_6x5D() { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(this); bswap_16__FPUs((s32)((char*)this + 0x4)); bswap_16__FPUs((s32)((char*)this + 0x6)); ((TObjPlayer *)((char*)this + 0x8))->bswap_pkt_u32x2(); bswap__9TItemDataFv((char*)this + 0x10); }
+void TLobby::send_6x5D() { bswap_6x5D(); TLobby__send_and_handle_60(this); }
+void*TLobby::init_fields() { init_default_fields(); *(unsigned char*)((char*)this + 0x24) = 2; *(unsigned char*)((char*)this + 0x25) = 0; *(unsigned char*)((char*)this + 0x26) = 0; *(unsigned char*)((char*)this + 0x27) = 0; *(unsigned char*)((char*)this + 0x1) = 10; return this; }
 
     extern const float lbl_805DAA88;
-void init_default_fields__6TLobbyFPv(void* a0) { *(short*)((char*)a0 + 0x4) = 0; *(short*)((char*)a0 + 0x6) = 0; *(float*)((char*)a0 + 0xc) = lbl_805DAA88; *(float*)((char*)a0 + 0x8) = lbl_805DAA88; *(unsigned char*)((char*)a0 + 0x0) = 93; *(unsigned char*)((char*)a0 + 0x1) = 9; }
+void TLobby::init_default_fields() { *(short*)((char*)this + 0x4) = 0; *(short*)((char*)this + 0x6) = 0; *(float*)((char*)this + 0xc) = lbl_805DAA88; *(float*)((char*)this + 0x8) = lbl_805DAA88; *(unsigned char*)((char*)this + 0x0) = 93; *(unsigned char*)((char*)this + 0x1) = 9; }
 
 }
 
@@ -66,12 +59,10 @@ void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0) {
 struct O_80103044 { u8 f0; u8 f1; u8 pad[2]; u16 f4; u16 f6; s32 f8; };
 
 extern "C" {
-void init_6x59_packet__6TLobbyFPv(O_80103044 *self);
 }
 
 extern "C" {
 
-void send_pick_up_item__6TLobbyFi(s32 arg0);
 s32 TLobby__send_and_handle_60(void *);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
@@ -86,16 +77,17 @@ extern "C" {
 
 extern "C" {
 
-void send_pick_up_item__6TLobbyFi(s32 arg0) {
+void TLobby::send_pick_up_item() {
+    s32 arg0 = (s32)this;
     ((s32 (*)())bswap_pick_up_item_packet__6TLobbyFi)();
     TLobby__send_and_handle_60((void *) (arg0));
 }
-void init_6x59_packet__6TLobbyFPv(O_80103044 *self) {
-    self->f4 = 0xFFFF;
-    self->f6 = 0;
-    self->f8 = -1;
-    self->f0 = 0x59;
-    self->f1 = 3;
+void TLobby::init_6x59_packet() {
+    ((O_80103044 *)this)->f4 = 0xFFFF;
+    ((O_80103044 *)this)->f6 = 0;
+    ((O_80103044 *)this)->f8 = -1;
+    ((O_80103044 *)this)->f0 = 0x59;
+    ((O_80103044 *)this)->f1 = 3;
 }
 
 }
@@ -129,7 +121,8 @@ s32 bswap_32__FPUl(s32);
 
 }
 
-void send_pick_up_item_request__6TLobbyFi(s32 arg0) {
+void TLobby::send_pick_up_item_request() {
+    s32 arg0 = (s32)this;
     ((s32 (*)())bswap_pick_up_item_request__6TLobbyFi)();
     dispatch_packet__6TLobbyFPv((void *) (arg0));
 }

@@ -50,7 +50,6 @@ struct VObj_8017B9B0 : VBase_8017B9B0 {
 extern "C" {
 extern const f32 lbl_805DBA78;
 extern const f32 lbl_805DBA78;
-void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
 VObj_8017B9B0 *find_entity_by_id();
 void init__11TOVS2Wall01Fi(void *);
@@ -165,24 +164,24 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
     }
 }
 
-void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1) {
+void TOVS2Wall01::save_and_send_state(u16 arg1) {
     s16 sp8;
     Pkt_8017BAFC pkt;
-    s16 v = arg0->state;
+    s16 v = ((Obj_8017BAFC *)this)->state;
     Sub_8017BAFC *sub;
     if (arg1 == 1) {
         v = 1;
     }
-    if ((arg0->sub != NULL) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
+    if ((((Obj_8017BAFC *)this)->sub != NULL) && (((TUnk_804AF8A0 *)((Obj_8017BAFC *)this))->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = v;
-        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
-        sub = arg0->sub;
+        ((TUnk_804AF8A0 *)((Obj_8017BAFC *)this))->access_object_saved_state(&sp8, 0);
+        sub = ((Obj_8017BAFC *)this)->sub;
         ((TOVS2Wall01 *)(&pkt))->init();
-        pkt.b = arg0->f1C;
+        pkt.b = ((Obj_8017BAFC *)this)->f1C;
         pkt.c = sp8;
         pkt.d = sub->f4;
         pkt.e = arg1;
-        pkt.f = arg0->f33C;
+        pkt.f = ((Obj_8017BAFC *)this)->f33C;
         ((TOVS2Wall01 *)(&pkt))->update_and_send();
     }
 }

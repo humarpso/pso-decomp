@@ -37,7 +37,6 @@ struct RecoveredGlobal_80146D50_lbl_8050C784 {
 };
 
 extern "C" {
-void flush_pending_flags__6TLobbyFv(void);
 s32 TLobby__sub_803FAFDC();
 s32 TLobby__sub_803FB184(void *);
 s32 TLobby__sub_803FB1A4(void *);
@@ -48,16 +47,13 @@ s32 TLobby__sub_80424CA8();
 s32 TLobby__sub_80424CF4(void *, void *, int);
 void TLobby__sub_801469B8(void* p);
     extern int lbl_805D5708;
-void call_146CA0_with_5708__6TLobbyFv(void);
 void* TLobby__sub_80146D68(int a0);
 void TLobby__sub_8014715C(void* p, void* q);
 s32 TLobby__sub_8040A3C0();
 extern s32 lbl_805D570C;
-void teardown_boss2__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 void strncpy(s32, s32, s32);
 s32 memset(int, int, int);
-void set_ppp_password__6TLobbyFi(s32 arg0);
 void TLobby__sub_8014672C(s32 *arg0);
 extern s32 lbl_805D56D8;
 extern s32 lobby_dns_server_addr;
@@ -71,12 +67,9 @@ s32 *TLobby__sub_80146D44(void);
 u8 *TLobby__sub_80146D50(s32 arg0);
 s32 TLobby__sub_801466F4(u32 arg0);
 s32 TLobby__sub_80145EE4(void);
-s32 poll_connect__6TLobbyFv(void);
-void set_battle_flag__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_80146314(s32 *);
 s32 TLobby__sub_80146588(s32 *arg0);
 s32 TLobby__sub_801465C0(s32 *);
-s32 set_dns_servers__6TLobbyFv(void);
 void fn_80147A68(void);
 void TLobby__sub_804073B8(void);
 s16 run_connect_step__6TLobbyFv(void);
@@ -87,7 +80,6 @@ extern s32 lbl_805D56D8;
 extern s32 lobby_connect_battle_flag;
 extern s32 TLobby__connect_pending_flags;
 extern s32 lobby_connect_active_flag;
-s32 run_connect_sequence__6TLobbyFv(void);
 }
 
 struct Sub_801465C0 {
@@ -160,7 +152,6 @@ extern s32 lbl_805D56F4;
 s32 TLobby__sub_80145E40(void);
 s32 init_struct(void *);
 s32 init_work(int, void *);
-void load_network_configs__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -168,13 +159,6 @@ extern "C" {
 int TLobby__sub_80146724(void);
 int TLobby__sub_80146740(void);
 int TLobby__sub_8014677C(void);
-void cleanup__6TLobbyFv(void* _w0);
-void flush_pending_flag2__6TLobbyFv(void);
-int get_link_status_value__6TLobbyFv(void);
-void init_keyboard_buffer__6TLobbyFv(void);
-s32 poll_connect__6TLobbyFv(void);
-s32 query_task_active__6TLobbyFv(void);
-void set_battle_flag__6TLobbyFi(s32 arg0);
 int TLobby__sub_80145A94(void);
 int TLobby__sub_80145DB4(void*);
 s32 TLobby__sub_80147284();
@@ -204,9 +188,9 @@ extern s32 lbl_805D5714;
 #define lbl_8050CCE8 (*(RecoveredGlobal_80146CB8_lbl_8050CCE8 *)lbl_8050CCE8)
 #define lbl_8050CE14 (*(RecoveredGlobal_80146D44_lbl_8050CE14 *)lbl_8050CE14)
 
-void init_keyboard_buffer__6TLobbyFv(void) { keyboard_buffer_cursor = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; get_network_config_buffer_size((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
+void TLobby::init_keyboard_buffer() { keyboard_buffer_cursor = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; get_network_config_buffer_size((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
 
-s32 poll_connect__6TLobbyFv(void) {
+s32 TLobby::poll_connect() {
     s32 var_r31;
 
     var_r31 = 0;
@@ -228,7 +212,7 @@ loop_1:
 extern s32 TLobby__connect_pending_flags;
 extern s32 TLobby__battle_flag;
 
-void flush_pending_flag2__6TLobbyFv(void) {
+void TLobby::flush_pending_flag2() {
     if (TLobby__connect_pending_flags & 2) {
         TLobby__sub_804219D0(0, 0, TLobby__battle_flag);
         TLobby__connect_pending_flags &= 0xFFFFFFFD;
@@ -238,7 +222,7 @@ void flush_pending_flag2__6TLobbyFv(void) {
 extern s32 TLobby__connect_pending_flags;
 extern s32 TLobby__battle_flag;
 
-void set_battle_flag__6TLobbyFi(s32 arg0) {
+void TLobby::set_battle_flag(s32 arg0) {
     TLobby__battle_flag = arg0;
     TLobby__connect_pending_flags |= 2;
     TLobby__sub_80421A50(0, 0, arg0);
@@ -310,7 +294,7 @@ int TLobby__sub_80146740(void) { return 0; }
 
 extern s32 lobby_connect_active_flag;
 
-s32 query_task_active__6TLobbyFv(void) {
+s32 TLobby::query_task_active() {
     if ((s32) lobby_connect_active_flag != 0) {
         return TLobby::get_task_count();
     }
@@ -318,15 +302,15 @@ s32 query_task_active__6TLobbyFv(void) {
 }
 
 int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4((void*)(1)); }
-int get_link_status_value__6TLobbyFv(void) { return TLobby__sub_80145DB4((void*)(4)); }
+int TLobby::get_link_status_value() { return TLobby__sub_80145DB4((void*)(4)); }
 
 extern s32 TLobby__connect_pending_flags;
 extern u32 lbl_805D5700;
 extern s32 TLobby__net_session_mode;
 
-void cleanup__6TLobbyFv(void* _w0) {
+void TLobby::cleanup() {
     if ((s32) TLobby__net_session_mode != 0) {
-        TLobby__sub_801469B8((void*)(_w0));
+        TLobby__sub_801469B8((void*)(this));
     } else {
         TLobby__sub_80147284();
     }
@@ -339,13 +323,13 @@ void cleanup__6TLobbyFv(void* _w0) {
         lbl_805D5700 = 0U;
     }
 }
-void TLobby__sub_801469B8(void* p) { flush_pending_flags__6TLobbyFv(); }
-void flush_pending_flags__6TLobbyFv(void) {
+void TLobby__sub_801469B8(void* p) { TLobby::flush_pending_flags(); }
+void TLobby::flush_pending_flags() {
     struct { u8 pad0[4]; s16 f4; u8 pad6[0x3E]; } spC;
     s16 sp8;
 
     TLobby__connect_pending_flags &= 0xFFFFFFFE;
-    teardown_boss2__6TLobbyFv();
+    TLobby::teardown_boss2();
     if (TLobby__sub_80145EE4() != 0) {
         if (TLobby__connect_pending_flags & 0x10) {
             TLobby__sub_80424CF4((void *) ((s16) lbl_805D2D00), (void *) (lbl_805D56D8), (int) (3));
@@ -382,7 +366,7 @@ void flush_pending_flags__6TLobbyFv(void) {
     }
 }
 
-s32 run_connect_sequence__6TLobbyFv(void) {
+s32 TLobby::run_connect_sequence() {
     s32 sp8;
     s32 id;
     s32 r;
@@ -394,7 +378,7 @@ s32 run_connect_sequence__6TLobbyFv(void) {
         TLobby__connect_pending_flags |= 0x80;
         id = run_connect_step__6TLobbyFv();
         TLobby__connect_pending_flags |= 0x40;
-        r = poll_connect__6TLobbyFv();
+        r = TLobby::poll_connect();
         if (r == 0) {
             return 0xF;
         }
@@ -425,18 +409,18 @@ s32 run_connect_sequence__6TLobbyFv(void) {
             m[2] = sp8;
             m[3] = 0;
             if (TLobby__sub_8042315C((s16)lbl_805D2D00, &lbl_8050C0A8) == 0) {
-                set_battle_flag__6TLobbyFi(lobby_connect_battle_flag);
+                TLobby::set_battle_flag(lobby_connect_battle_flag);
             } else {
                 return 0xD;
             }
-            return set_dns_servers__6TLobbyFv();
+            return TLobby::set_dns_servers();
         }
         return r;
     }
     return 0xE;
 }
 
-void call_146CA0_with_5708__6TLobbyFv(void) { TLobby__sub_80146CA0((s32)((void*)(lbl_805D5708))); }
+void TLobby::call_146CA0_with_5708() { TLobby__sub_80146CA0((s32)((void*)(lbl_805D5708))); }
 
 typedef char RecoveredGlobal_80146CB8_lbl_8050CCE8_size[sizeof(RecoveredGlobal_80146CB8_lbl_8050CCE8) == 0x12C ? 1 : -1];
 
@@ -445,7 +429,7 @@ u8 *TLobby__sub_80146CA0(s32 arg0) {
     return (u8 *)&(*(RecoveredGlobal_80146CA0_lbl_8050C784 *)&lbl_8050C784).value + (arg0 << 5) + 0x438;
 }
 
-void set_ppp_password__6TLobbyFi(s32 arg0) {
+void TLobby::set_ppp_password(s32 arg0) {
     u8 *temp_r31;
     TLobby__sub_8014618C();
     TLobby::is_state_active();
@@ -475,7 +459,7 @@ void* TLobby__sub_80146D68(int a0) {  return (char*)lbl_8050C784 + a0 * 460; }
 #define A_80146D7C (*(Acct_80146D7C (*)[3])lbl_8050C784)
 #define C_80146D7C (*(Conn_80146D7C *)&lbl_8050CCE8)
 #define S_80146D7C ((char *(*)(char *, const char *, u32))strncpy)
-void load_network_configs__6TLobbyFv(void) {
+void TLobby::load_network_configs() {
     Work_80146D7C w;
     Info_80146D7C info;
 
@@ -550,7 +534,7 @@ void load_network_configs__6TLobbyFv(void) {
 #undef C_80146D7C
 #undef S_80146D7C
 void TLobby__sub_8014715C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
-void teardown_boss2__6TLobbyFv(void) {
+void TLobby::teardown_boss2() {
     if ((s32) lbl_805D570C != 0) {
         TLobby::clear_all_used_records();
         TLobby__sub_8040A3C0();
@@ -588,7 +572,6 @@ s16 TLobby__sub_8040ADE8(Req_801471A0 *);
 extern char lbl_8043F3F0[];
 extern char lbl_8043F404[];
 extern s32 lbl_805D570C;
-s32 set_dns_servers__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -605,7 +588,7 @@ s32 TLobby__sub_803FAFDC();
 extern s32 lbl_805D2D00;
 extern s32 TLobby__connect_pending_flags;
 
-s32 set_dns_servers__6TLobbyFv(void) {
+s32 TLobby::set_dns_servers() {
     Req_801471A0 req;
     s16 r1;
     s16 r2;
@@ -640,12 +623,12 @@ s32 TLobby__sub_80147284(void) {
         sp8 = 1;
         TLobby__sub_803FB1A4(&sp8);
     }
-    flush_pending_flag2__6TLobbyFv();
+    TLobby::flush_pending_flag2();
     if (TLobby__connect_pending_flags & 4) {
         TLobby__sub_803FAFDC();
         TLobby__connect_pending_flags &= 0xFFFFFFFB;
     }
-    teardown_boss2__6TLobbyFv();
+    TLobby::teardown_boss2();
     lbl_805D2D00 = -1;
     return 0;
 }
@@ -690,7 +673,7 @@ void TLobby::init_account_entries() {
     if (TLobby__sub_8014618C() != 0) {
         TLobby__net_session_mode = 1;
     }
-    load_network_configs__6TLobbyFv();
+    TLobby::load_network_configs();
     memset(lbl_8050CE14, 0, 0x20);
     strncpy(lbl_8050CE14, lbl_8050C784[2].user, 0x1F);
     memset(lbl_8050CE34, 0, 0x20);

@@ -36,6 +36,7 @@ struct TObjEneMe3ShinowaMirage : public TObjEneMe3Shinowa {
     static void set_slot_min_clamped_value(s32 arg0, f32 farg0);
     static void free_shared_resources();
     u8 unk_418[0x28];
+    void draw_model();
 };
 
 typedef char TObjEneMe3ShinowaMirage_size[sizeof(TObjEneMe3ShinowaMirage) == 0x440 ? 1 : -1];

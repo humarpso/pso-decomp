@@ -9,6 +9,7 @@ struct TObjDFDemo0 : public TUnk_804B9870 {
     u32 m_90;
     void* m_94;
     u8 unk_98[0x78];
+    static void *create(void *arg0);
 };
 
 typedef char TObjDFDemo0_size[sizeof(TObjDFDemo0) == 0x110 ? 1 : -1];

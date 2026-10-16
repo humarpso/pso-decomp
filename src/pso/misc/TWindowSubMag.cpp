@@ -108,10 +108,10 @@ s32 update_help_item__13TWindowSubMagFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 is_usable__14TWindowSubItemFi(void *);
+s32 is_usable__14TWindowSubItemFl(void *);
 s32 feed_mag__13TWindowSubMagFPvPvPv(void *, s32, s32);
 s32 window_request_refresh(void *);
-s32 update_mag_status_gauges__9TItemDataFPv(void *);
+s32 update_mag_status_gauges__9TItemDataFv(void *);
 s32 are_status_entries_ready__13TWindowSubMagFi(void *);
 s32 fn_8025373C(void *);
 void *TWindowSubMagPhoton__ct(void *, s32, s32, s32);
@@ -426,7 +426,7 @@ void TWindowSubMag::run_task(void *arg0) {
             test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state[4].sub, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             self->state = 5;
-        } else if (is_usable__14TWindowSubItemFi(player) != 0) {
+        } else if (is_usable__14TWindowSubItemFl(player) != 0) {
             self->slots = ((TWindowSubMag *)self)->count_slots();
             feed_mag__13TWindowSubMagFPvPvPv(player, select_cursor_entry__22TWindowSubShortCutListFv((s32)self->list),
                                              select_cursor_entry__22TWindowSubShortCutListFv((s32)self->list2));
@@ -440,7 +440,7 @@ void TWindowSubMag::run_task(void *arg0) {
         ((TWindowHelpItem *)(self->help))->refresh_copied_items();
         ((TWindowSubMag *)((s32)self->list))->init_and_setup((void*)2);
         ((TWindowSubMag *)(self->slotwin))->set_mag_slot_state(((TWindowSubMag *)(self->help))->get_mag_state());
-        if (update_mag_status_gauges__9TItemDataFPv(self->help) != 0) {
+        if (update_mag_status_gauges__9TItemDataFv(self->help) != 0) {
             self->state = 9;
         } else {
             self->state = 3;

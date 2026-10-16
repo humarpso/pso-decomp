@@ -26,7 +26,7 @@ extern "C" {
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 int get_array_entry__13TUnk_804CE018Fi(void*, int);
 s32 save_position__13TUnk_804CE018Fv(void *);
-void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
+void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
 void refresh_status_display__9TWindowDDFv(void *);
 s32 set_text_entry_string(s32, s32, s32);
 s32 get_window_layout_position(int);
@@ -96,7 +96,7 @@ typedef char RecoveredGlobal_8026D674___vt__11TWindowRoom_size[sizeof(RecoveredG
 
 TWindowRoom::TWindowRoom(char *title) {
     RoomTitleEntry *entry;
-    construct_base__9TWindowDDFPvPvsPv(this, &room_window_base_parameters.value, 4,
+    construct_base__9TWindowDDFPUcsPUc(this, &room_window_base_parameters.value, 4,
                                     (void *)get_window_layout_position(0xAF));
     objectVtable = __vt__11TWindowRoom;
     className = TWindowRoom__class_name;

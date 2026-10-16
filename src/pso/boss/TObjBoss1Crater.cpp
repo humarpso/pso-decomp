@@ -115,7 +115,6 @@ extern const V3_8002C544 lbl_80435560;
 extern "C" {
 
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
-s32 is_count_below_limit__15TObjBoss1CraterFv(void);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(void *);
@@ -253,7 +252,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     return self;
 }
 
-s32 is_count_below_limit__15TObjBoss1CraterFv(void) {
+s32 TObjBoss1Crater::is_count_below_limit() {
     return TObjBoss1Crater__instance_count < 0x14;
 }
 

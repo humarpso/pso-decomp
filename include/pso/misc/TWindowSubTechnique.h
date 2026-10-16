@@ -29,7 +29,9 @@ struct TWindowSubTechnique : public TObject {
     static s32 update_selection(s16 *arg0, s32 *arg1);
     int get_current_selection(void* _w1);
     static s32 lookup_technique(s32 arg0, s32 arg1);
-    s32 create_title_window();};
+    s32 create_title_window();
+    static s32 is_technique_available(s32 arg0, s32 arg1);
+};
 
 typedef char TWindowSubTechnique_size[sizeof(TWindowSubTechnique) == 0x40 ? 1 : -1];
 #endif

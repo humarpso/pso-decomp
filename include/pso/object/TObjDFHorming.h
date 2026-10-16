@@ -21,6 +21,7 @@ struct TObjDFHorming : public TUnk_804806E8 {
     u32 m_368;
     void* m_36c;
     u8 unk_370[0x10];
+    static u8 is_boss_active();
 };
 
 typedef char TObjDFHorming_size[sizeof(TObjDFHorming) == 0x380 ? 1 : -1];

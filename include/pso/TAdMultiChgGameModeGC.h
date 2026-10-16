@@ -41,6 +41,23 @@ public:
     static void render_scene();
     static void render_game_mode_change();
     static void sync_mode_state();
+public:
+    void close_windows_on_selection();
+    void update_confirm_selection();
+    void update_card_confirm_selection();
+    void close_windows_and_reopen();
+    void close_window_30();
+    static s32 setup_mode_menu(void *arg0, s32 arg1);
+    void handle_menu_input();
+    void create_back_objects();
+    void update_mode_selection();
+    void load_system_on_mode_default();
+    s32 handle_mode_selection();
+    void update_mode_selection_and_save();
+    void check_player_load_result();
+    int request_scene_change_vt();
+    void set_state(s32 arg1);
+    void confirm_mode_selection();
 };
 
 #endif

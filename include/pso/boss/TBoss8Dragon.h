@@ -258,6 +258,18 @@ struct TBoss8Dragon
     void update_live_camera();
     void update_toggle_state();
     static s32 calc_binomial_coefficient(s32 n, s32 k);
+    void play_animation_index(s32 arg1);
+    void render_body_model();
+    void select_freeze_target();
+    void emit_body_effects();
+    f32 apply_velocity_scale(f32 farg0, f32 farg1);
+    void get_follow_camera_offsets(u8 *arg1);
+    s32 is_closest_part();
+    s32 push_apart_from_parts();
+    s32 is_near_other_part();
+    void draw_with_fade(s32 arg1, s32 arg2);
+    void draw();
+    u8 *ct_attack_object(s32 arg1, s32 arg2, s32 arg3);
 };
 
 #include <stddef.h>

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TUnk_8049CA54.h"
 #include "pso/TFontSmallHelp.h"
 #include "pso/misc/TFontSmallLobby.h"
@@ -41,7 +42,6 @@ extern char *status_text_label_table[];
 extern Ent_800FC968 lobby_player_status_records[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
-s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ void TWindowCtrlMain::advance_card_status(s32 arg0) {
     }
     fn_800FCCC8(arg0, var_r4);
 }
-s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0) {
+s32 TWindowSubStatusDisp::build_status_text(s32 arg0) {
     s32 mode;
     s32 *name;
     u8 *info;
@@ -144,7 +144,7 @@ void TUnk_8049CA54::run_task() {
     temp_r3_2 = ((s32 (*)(s32))get_card_status_bits__20TWindowShortListCtrlFv)(*(s32 *)&this->player_id);
     if ((s32) *(s32 *)&this->unk_60 != temp_r3_2) {
         *(s32 *)&this->unk_60 = temp_r3_2;
-        temp_r3_3 = (u32)build_status_text__20TWindowSubStatusDispFi(*(s32 *)&this->player_id);
+        temp_r3_3 = (u32)TWindowSubStatusDisp::build_status_text(*(s32 *)&this->player_id);
         set_help_text((const char *)temp_r3_3);
         if (temp_r3_3 != 0U) {
             if ((s32) *(s32 *)&this->unk_60 == 3) {

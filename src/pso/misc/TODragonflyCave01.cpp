@@ -47,7 +47,6 @@ extern "C" {
 
 void *TODragonflyCave01__create(void *arg0);
 void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1);
-void release_static_instance__17TODragonflyCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
@@ -63,7 +62,7 @@ void *TODragonflyCave01__create(void *arg0) {
 
 extern u32 TODragonflyCave01__static_model_resource;
 
-void release_static_instance__17TODragonflyCave01Fv(void) {
+void TODragonflyCave01::release_static_instance() {
     if ((u32) TODragonflyCave01__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TODragonflyCave01__static_model_resource, 1);
         TODragonflyCave01__static_model_resource = 0U;
@@ -73,7 +72,7 @@ void release_static_instance__17TODragonflyCave01Fv(void) {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 
-void load_resources__17TODragonflyCave01Fv(void) {
+void TODragonflyCave01::load_resources() {
     void *o;
 
     switch (TOKeyMachine01::get_global_state()) {

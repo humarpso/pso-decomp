@@ -40,6 +40,8 @@ public:
     static void unmount_card(s32 chan);
     static s32 take_network_info_load_result(s32 arg0, s32 *arg1);
     static s32 take_network_info_poll_result(s32 arg0, s32 *arg1);
+public:
+    static s32 request_card_open(s32 arg0, const char *arg1);
 };
 
 #endif

@@ -30,7 +30,7 @@ extern "C" {
 s32 get_shared_text_buffer();
 s32 init_com_card__17TWindowSubComCardFv();
 s32 TWindowGetComCard__sub_8007B594();
-s32 reset_equip_slots__10TObjPlayerFPv();
+s32 reset_equip_slots__10TObjPlayerFv();
 u32 get_player_by_client_id(s32);
 s32 get_com_card_list__6TLobbyFPv(int);
 s32 text_builder_append();
@@ -46,7 +46,7 @@ extern s32 TWindowGetComCard__name;
 extern s32 local_client_id;
 u8 *TWindowGetComCard__ct(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
-void start_player_data_load__17TWindowSubComCardFi(void);
+void start_player_data_load__17TWindowSubComCardFl(void);
 void TWindowGetComCard__sub_8007B54C(void);
 s32 TWindowGetComCard__sub_8007B594();
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
@@ -55,7 +55,7 @@ void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
-void complete_reveal__14TWindowMessageFPv(void *);
+void complete_reveal__14TWindowMessageFv(void *);
 extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
 extern s32 local_client_id;
@@ -100,7 +100,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             self->state = 2;
         }
         if (TWindowShortListCtrl__check_controller_button(controller_input_state[0].m20, 4) != 0) {
-            complete_reveal__14TWindowMessageFPv(self->fmt);
+            complete_reveal__14TWindowMessageFv(self->fmt);
             self->state = 2;
         }
         break;
@@ -135,7 +135,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
     case 4:
         if (TAdPlayerLoadGC::get_instance() == 0) {
             TWindowGetComCard__sub_8007B594();
-            start_player_data_load__17TWindowSubComCardFi();
+            start_player_data_load__17TWindowSubComCardFl();
             TWindowGetComCard__sub_8007B54C();
             queue_destruction__7TObjectFv(self);
             self->state = 6;
@@ -202,7 +202,7 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x28) = 0x384;
     }
     if (get_player_by_client_id((s32)((void *) (local_client_id))) != 0U) {
-        reset_equip_slots__10TObjPlayerFPv();
+        reset_equip_slots__10TObjPlayerFv();
     }
     TObjPlayer__sub_8024ABDC((void *) (local_client_id));
     fn_8024AC64((void *) (local_client_id));

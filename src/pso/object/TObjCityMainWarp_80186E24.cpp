@@ -12,7 +12,7 @@ s32 request_active_window_close();
 s32 begin_player_keyboard_hold(s32);
 s32 end_player_keyboard_hold(s32);
 s32 align_menu_entry_positions(u32);
-s32 calc_window_size__17TWindowSubComCardFPv(u32);
+s32 calc_window_size__17TWindowSubComCardFv(u32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 get_window_layout_position(s32);
 extern s32 local_client_id;
@@ -33,7 +33,7 @@ void update_challenge_warp_window(void *arg0) {
                 if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
                     ((TWindowSubTradeMain *)(*(u32 *)((s8 *)arg0 + 0xB0)))->add_text_entry(get_message_10__20TWindowSubStatusDispFl(0x40), 0, 0, -1);
                     ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag_40();
-                    calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0xB0));
+                    calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0xB0));
                     align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0xB0));
                 }
                 begin_player_keyboard_hold(local_client_id);

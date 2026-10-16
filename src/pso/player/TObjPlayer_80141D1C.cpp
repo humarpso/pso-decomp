@@ -18,7 +18,6 @@ f32 newton_sqrtf(f32);
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void calc_circle_offset_pos__10TObjPlayerFiPvPvf(s32 arg0, void *arg1, void *arg2, f32 farg0);
 f32 vec_distance_squared(u8 *arg0, u8 *arg1);
 u16 approach_angle_adaptive(s32 a0, s32 b0);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
@@ -31,7 +30,6 @@ u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0);
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
 void vsub(void *arg0, void *arg1, void *arg2);
@@ -54,7 +52,7 @@ s32 TObjPlayer::check_camera_distance() {
 
 extern const f32 lbl_805DB150;
 
-void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0) {
+void TObjPlayer::calc_direction_vector(s32 arg0, void *arg1, f32 farg0) {
     f32 temp_f1;
 
     temp_f1 = farg0 * sin_table_lookup(arg0);
@@ -65,7 +63,7 @@ void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-void calc_circle_offset_pos__10TObjPlayerFiPvPvf(s32 arg0, void *arg1, void *arg2, f32 farg0) {
+void TObjPlayer::calc_circle_offset_pos(s32 arg0, void *arg1, void *arg2, f32 farg0) {
     *(f32 *)((s8 *)arg2 + 0) = (f32) ((farg0 * sin_table_lookup(arg0)) + *(f32 *)((s8 *)arg1 + 0));
     *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
     *(f32 *)((s8 *)arg2 + 8) = (f32) ((farg0 * cos_table_lookup((s32)(arg0))) + *(f32 *)((s8 *)arg1 + 8));

@@ -7,7 +7,7 @@ extern "C" {
 
 s32 get_class_attack_template(void *);
 s32 get_class_defense_template(void *);
-s32 apply_input_mode__10TObjPlayerFi(void *);
+s32 apply_input_mode__10TObjPlayerFv(void *);
 s32 copy_data__6TLobbyFPvPv(void *);
 s32 set_move_mode__10TObjPlayerFi(void *);
 
@@ -22,7 +22,7 @@ void TObjPlayer::init_player_data() {
     copy_data__6TLobbyFPvPv(arg0 + 0xD38);
     this->m_d48 = temp_f31;
     *(void * *)&this->m_2b0 = (void *) (arg0 + 0xD38);
-    apply_input_mode__10TObjPlayerFi(arg0);
+    apply_input_mode__10TObjPlayerFv(arg0);
     set_move_mode__10TObjPlayerFi(arg0);
     ((TObjPlayer *)arg0)->init_trait_flags();
     ((TLobby *)(arg0 + 0xD5C))->copy_from((void *)(get_class_attack_template(arg0)));

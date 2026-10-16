@@ -86,7 +86,11 @@ struct TRaderMapCore : public TUnk_804B9870 {
     static void init_map_ptr();
     static s32 is_not_split_screen();
     static void clear();
-    static void apply_packed_flags(s32 arg0, s32 arg1, s32 arg2, s32 arg3);};
+    static void apply_packed_flags(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+    void gather_player_markers();
+    void draw_enemy_gate_markers();
+    s32 get_map_id();
+};
 
 typedef char RadarViewportSize[(sizeof(RadarViewportParameters) == 0x30) ? 1 : -1];
 typedef char RadarViewportCenterX[(offsetof(RadarViewportParameters, center_x) == 0x8) ? 1 : -1];

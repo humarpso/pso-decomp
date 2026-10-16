@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -7,8 +8,8 @@ int bswap_16__FPUs(void*);
 int TLobby__send_and_handle_60(void*);
 void build_6x76_set_entity_set_flags(void* p);
 
-void bswap_player_fields__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-void send_player_update__6TLobbyFPv(void* p) { bswap_player_fields__6TLobbyFPv(p); TLobby__send_and_handle_60(p); }
+void TLobby::bswap_player_fields() { ((TObjPlayer *)this)->read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+void TLobby::send_player_update() { bswap_player_fields(); TLobby__send_and_handle_60(this); }
 
 }
 

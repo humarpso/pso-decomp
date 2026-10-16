@@ -64,7 +64,6 @@ void matrix_mult_vec(s32, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
 extern u8 TObjEZBoneRotPlayer__chain_gravity[];
-void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self);
 }
 
 extern "C" {
@@ -73,20 +72,20 @@ int TObjPlayer__sub_800FEE84(void* p);
 int sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(void*);
 
 int TObjPlayer__sub_800FEE84(void* p) { return sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(p); }
-void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
+void TObjPlayer::update_bone_attach_points() {
     RotSrc_800FEEA4 *rs;
     RotDst_800FEEA4 *rd;
     PosSrc_800FEEA4 *ps;
     PosDst_800FEEA4 *pd;
-    if (self->rot_dst != NULL) {
+    if (((Self_800FEEA4 *)this)->rot_dst != NULL) {
         push_matrix();
         TObjPlayer::invert_matrix_in_place(0);
-        rs = self->rot_src;
-        rd = self->rot_dst;
+        rs = ((Self_800FEEA4 *)this)->rot_src;
+        rd = ((Self_800FEEA4 *)this)->rot_dst;
         while (rs->bone >= 0) {
             rd->angle = rs->angle;
             push_matrix();
-            TObjPlayer::concat_matrix(0, ((TObjMotion *)(self->model))->get_item_ptr(rs->bone));
+            TObjPlayer::concat_matrix(0, ((TObjMotion *)(((Self_800FEEA4 *)this)->model))->get_item_ptr(rs->bone));
             matrix_mult_vec(0, rs->data, rd->data);
             pop_matrix();
             rs++;
@@ -96,19 +95,19 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
     }
     push_matrix();
     TObjPlayer::invert_matrix_in_place(0);
-    ps = self->pos_src;
-    pd = self->pos_dst;
+    ps = ((Self_800FEEA4 *)this)->pos_src;
+    pd = ((Self_800FEEA4 *)this)->pos_dst;
     while (ps->bone >= 0) {
-        pd->val = self->model->base + ps->ofs;
+        pd->val = ((Self_800FEEA4 *)this)->model->base + ps->ofs;
         push_matrix();
-        TObjPlayer::concat_matrix(0, ((TObjMotion *)(self->model))->get_item_ptr(ps->bone));
+        TObjPlayer::concat_matrix(0, ((TObjMotion *)(((Self_800FEEA4 *)this)->model))->get_item_ptr(ps->bone));
         matrix_mult_vec(0, ps->data, pd->data);
         pop_matrix();
         ps++;
         pd++;
     }
     pop_matrix();
-    ((TObjEZRopeBase *)self)->sub_800FF788(TObjEZBoneRotPlayer__chain_gravity);
+    ((TObjEZRopeBase *)((Self_800FEEA4 *)this))->sub_800FF788(TObjEZBoneRotPlayer__chain_gravity);
 }
 
 }

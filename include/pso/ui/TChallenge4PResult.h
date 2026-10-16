@@ -40,6 +40,8 @@ public:
     void update_wait_input();
     void handle_result_code();
     void update_input();
+public:
+    int get_player_rank();
 };
 
 #include <stddef.h>

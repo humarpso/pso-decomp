@@ -360,7 +360,6 @@ void TObjPlayer__sub_800A04F0(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 advance_animation_playback(void *);
-void update_death_state__16TObjEneRe7BeruraFPvi(VObj_18_444bc5 *obj, s32 mode);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -600,12 +599,12 @@ void TObjEneRe7Berura::demo_frame_callback() {
     re7_berura_demo_state += 1;
 }
 
-void update_death_state__16TObjEneRe7BeruraFPvi(VObj_18_444bc5 *obj, s32 mode) {
-    F_8009331C *self = (F_8009331C *)obj;
+void TObjEneRe7Berura::update_death_state(s32 mode) {
+    F_8009331C *self = (F_8009331C *)((VObj_18_444bc5 *)this);
     switch (mode) {
     case 4:
         self->fB8 = 7;
-        obj->m94();
+        ((VObj_18_444bc5 *)this)->m94();
         self->f3C0 &= ~7;
         advance_animation_playback(self);
         ((TBoss8Dragon *)self)->refresh_and_send_entity_flags();

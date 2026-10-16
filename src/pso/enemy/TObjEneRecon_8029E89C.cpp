@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
 #include "pso/misc/TOKeyMachine01.h"
 
 struct Vec_8029EA4C { f32 x, y, z; };
@@ -27,26 +28,23 @@ s32 push_matrix();
 extern u16 scene_sora_reflect_active;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
-s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0);
 }
 
 extern "C" {
 
-s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1);
 void restore_render_scissor(s32 arg0);
-void update_particle_if_active__12TObjEneReconFv(void);
 s32 GXSetScissor(s32, s32, s32, s32);
 s32 reflect_matrix_in_plane(s32, s32 *);
 s32 push_matrix();
 s32 pop_matrix();
 u32 get_player_by_client_id(u32);
 s32 fn_8029E7BC(s32, s32 *);
-u32 get_state__10TSceneSoraFPv(void*);
+u32 get_state__10TSceneSoraFv(void*);
 s32 reset_ind_tev_stages__13TParticleCtrlFPv();
 
 extern u16 scene_sora_reflect_active;
 
-s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
+s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
     s32 sp8[8];
     s32 var_r3;
     u32 temp_r3;
@@ -78,7 +76,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
 
 extern u16 scene_sora_reflect_active;
 
-s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0) {
+s32 TObjEneRecon::push_reflect_matrix() {
     typedef char sp8_offset[(offsetof(Stack_8029E960, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8029E960, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8029E960, sp10) == 0x8) ? 1 : -1];
@@ -90,16 +88,16 @@ s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0) {
     if ((u16) scene_sora_reflect_active == 0) {
         return 1;
     }
-    if (arg0 == NULL) {
+    if (((u8 *)this) == NULL) {
         return 0;
     }
-    stack.sp8 = *(f32 *)((s8 *)arg0 + 0);
-    stack.spC = *(f32 *)((s8 *)arg0 + 4);
-    stack.sp10 = *(f32 *)((s8 *)arg0 + 8);
+    stack.sp8 = *(f32 *)((s8 *)((u8 *)this) + 0);
+    stack.spC = *(f32 *)((s8 *)((u8 *)this) + 4);
+    stack.sp10 = *(f32 *)((s8 *)((u8 *)this) + 8);
     stack.sp14 = lbl_805DDD8C;
     stack.sp18 = lbl_805DDD90;
     stack.sp1C = stack.sp14;
-    temp_r3 = TObjEneRecon__sub_8029EA4C(arg0, 1);
+    temp_r3 = TObjEneRecon__sub_8029EA4C(((u8 *)this), 1);
     if (temp_r3 != 0) {
         push_matrix();
         reflect_matrix_in_plane(0, (s32 *)&stack.sp8);
@@ -132,8 +130,8 @@ s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1) {
     return 0;
 }
 
-void update_particle_if_active__12TObjEneReconFv(void) {
-    if (((u32) scene_sora_instance != 0U) && (get_state__10TSceneSoraFPv((void*)scene_sora_instance) != 0U)) {
+void TObjEneRecon::update_particle_if_active() {
+    if (((u32) scene_sora_instance != 0U) && (get_state__10TSceneSoraFv((void*)scene_sora_instance) != 0U)) {
         reset_ind_tev_stages__13TParticleCtrlFPv();
     }
 }
@@ -144,15 +142,14 @@ void update_particle_if_active__12TObjEneReconFv(void) {
 
 extern "C" {
 
-void notify_scene__12TObjEneReconFi(s32 arg0);
 s32 play_particle__13TParticleCtrlFls(u32, s32, s32);
 
 extern u32 scene_sora_instance;
 
-void notify_scene__12TObjEneReconFi(s32 arg0) {
+void TObjEneRecon::notify_scene(s32 arg0) {
     u32 temp_r31;
     if ((u32) scene_sora_instance != 0U) {
-        temp_r31 = get_state__10TSceneSoraFPv((void*)scene_sora_instance);
+        temp_r31 = get_state__10TSceneSoraFv((void*)scene_sora_instance);
         if (temp_r31 != 0U) {
             play_particle__13TParticleCtrlFls(temp_r31, 0, arg0);
         }

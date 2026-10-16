@@ -350,7 +350,6 @@ struct Obj_800BB88C {
 };
 
 extern "C" {
-void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 load_enemy_bml_resource(u8 *arg0);
@@ -362,10 +361,6 @@ extern const f32 TObjEneDD__data_805D9E8C;
 extern "C" {
 
 s32 pack_debug_text_position(s32 arg0, s32 arg1);
-void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
-int get_target_info__9TObjEneDDFPv(void* p);
-void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
-void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 s32 subtractive_rng_seed(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vfunc_79__9TObjEnemyFv();
@@ -380,7 +375,7 @@ void TObjEneDD::init_common_from(u8 *arg1) {
     subtractive_rng_seed((void *) (((u8 *)this) + 0x160), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x1C) + area_random_seed));
 }
 
-int get_target_info__9TObjEneDDFPv(void* p) { return fn_800FD8A0(p); }
+int TObjEneDD::get_target_info() { return fn_800FD8A0(this); }
 
 s32 pack_debug_text_position(s32 arg0, s32 arg1) {
     return ((arg0 + 0x13) << 0x10) | (arg1 + 0x1A);
@@ -418,17 +413,17 @@ void TObjEneDD::vfunc_79() {
 
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1) {
     s32 sp8;
-    copy_resource_desc__9TObjEneDDFPvPv((u8 *)((void *) (&sp8)), (u8 *)((void *) (arg0)));
+    ((TObjEneDD *)(&sp8))->copy_resource_desc((u8 *)((void *) (arg0)));
     sp8 = arg1;
     load_enemy_bml_resource((u8 *)((void *)((void *) (&sp8))));
 }
 
-void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
-    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
-    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
-    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
-    *(s16 *)((s8 *)arg0 + 0xC) = (s16) *(s16 *)((s8 *)arg1 + 0xC);
-    *(s16 *)((s8 *)arg0 + 0xE) = (s16) *(s16 *)((s8 *)arg1 + 0xE);
+void TObjEneDD::copy_resource_desc(u8 *arg1) {
+    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(s32 *)((s8 *)((u8 *)this) + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)((u8 *)this) + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(s16 *)((s8 *)((u8 *)this) + 0xC) = (s16) *(s16 *)((s8 *)arg1 + 0xC);
+    *(s16 *)((s8 *)((u8 *)this) + 0xE) = (s16) *(s16 *)((s8 *)arg1 + 0xE);
 }
 
 s32 load_enemy_bml_resource(u8 *arg0) {
@@ -442,7 +437,7 @@ s32 load_enemy_bml_resource(u8 *arg0) {
     return var_r0;
 }
 
-void set_field_378__9TObjEneDDFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
+void TObjEneDD::set_field_378(s32 v) { *(s32*)((char*)this + 0x378) = v; }
 
 void TObjEneDD::sub_800BBA0C() {
     *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) *(s16 *)((s8 *)((u8 *)this) + 0x326);
@@ -494,7 +489,8 @@ s32 TObjEneDD::vfunc_83() {
     return 0;
 }
 
-void init_position_vectors__9TObjEneDDFPv(u8 *arg0) {
+void TObjEneDD::init_position_vectors() {
+    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
@@ -563,11 +559,9 @@ struct VObj_800BBDD4 : Base_800BBDD4 {
     virtual void m0(int);
 };
 
-void release_resource__9TObjEneDDFv(void);
-
 extern struct VObj_800BBDD4 *obj_ene_dd_instance;
 
-void release_resource__9TObjEneDDFv(void) {
+void TObjEneDD::release_resource() {
     if (obj_ene_dd_instance != NULL) {
         if (obj_ene_dd_instance != NULL) {
             obj_ene_dd_instance->m0(1);

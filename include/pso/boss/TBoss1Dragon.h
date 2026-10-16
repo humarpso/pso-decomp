@@ -142,7 +142,17 @@ struct TBoss1Dragon : public TObjEneDD_ST {
     void set_child_motion(u8 *arg1);
     static void select_fireball_particle_table();
     static void init_gravity_globals();
-    int get_position();};
+    int get_position();
+    void draw();
+    void update_burrow_inward_run(u32 arg1, s32 arg2);
+    void release_held_player();
+    void init_control_mode();
+    void apply_fireball_impact_damage(s32 arg1);
+    void deliver_breath_attack(s32 arg1, s32 arg2);
+    void sweep_death_body_attack();
+    int apply_foot_step_attack(int arg1);
+    void receive_state_request(u8 *arg1);
+};
 
 #include <stddef.h>
 #define DRAGON_OFFSET(member, offset) \

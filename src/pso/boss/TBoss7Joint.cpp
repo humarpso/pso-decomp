@@ -218,7 +218,7 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 fn_8002B630(void *, void *);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
-s32 init_position_vectors__9TObjEneDDFPv();
+s32 init_position_vectors__9TObjEneDDFv();
 s32 TBoss7Joint_get_shell_max_hp();
 extern s32 lbl_80473FB8[];
 extern s32 lbl_804E45C8[];
@@ -233,7 +233,7 @@ void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
 void TObjEneDD__vt0(void *, int);
 s32 TObjFish__sub_802EC468(void *, f32, f32);
-s32 apply_damage_and_set_effect__8TObjFishFPvi(int, int, int);
+s32 apply_damage_and_set_effect__8TObjFishFl(int, int, int);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 u32 is_part_active__11TBoss7JointFv(void *, int);
@@ -255,7 +255,7 @@ void TBoss7Joint::vfunc_62() {
     temp_r31 = *(s16 *)((s8 *)((u8 *)this) + 0x2B8) - temp_r4;
     if (is_part_active__11TBoss7JointFv((void *) (((u8 *)this)), (int) (temp_r4)) != 0U) {
         TObjFish__sub_802EC468((void *) (((u8 *)this) + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
-        apply_damage_and_set_effect__8TObjFishFPvi((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), (int) (temp_r31), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
+        apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), (int) (temp_r31), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
     } else {
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) - temp_r31);
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C4) <= 0) {
@@ -300,7 +300,7 @@ typedef char RecoveredGlobal_802EEC60___vt__11TBoss7Joint_size[sizeof(RecoveredG
 
 #pragma opt_common_subs off
 s32 TBoss7Joint::init_params() {
-    ((s32 (*)(void *))init_position_vectors__9TObjEneDDFPv)(this);
+    ((s32 (*)(void *))init_position_vectors__9TObjEneDDFv)(this);
     fn_8002B630(&((J_802EEB88 *)this)->sub, lbl_80473FB8);
     initialize_linked_object_reference(&((J_802EEB88 *)this)->sub);
     transform_part_positions();

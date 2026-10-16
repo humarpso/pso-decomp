@@ -91,8 +91,8 @@ extern const f32 lbl_805DAD80;
 extern const f32 lbl_805DAD94;
 void reflect_knuckle_second_hand(s32 arg0);
 void spawn_particle_effect(void *, s32);
-void spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, s32, s32);
-s32 has_valid_handle__10TObjPlayerFPv(void *);
+void spawn_cane_effects__10TObjPlayerFP5TItemll(s32, void *, s32, s32);
+s32 has_valid_handle__10TObjPlayerFv(void *);
 s16 get_validated_attack_stage(void *);
 extern s32 knuckle_marker_joint_table[];
 extern s32 tl_05;
@@ -124,12 +124,12 @@ void TItemWeaponFist::emit_marker_effects() {
   {
     if (((TItemWeapon *)arg0)->get_attack_stage() == 0)
     {
-      spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, -1, -2);
+      spawn_cane_effects__10TObjPlayerFP5TItemll(tl_05, arg0, -1, -2);
     }
   }
   else
   {
-    k = has_valid_handle__10TObjPlayerFPv(arg0->player) * 3;
+    k = has_valid_handle__10TObjPlayerFv(arg0->player) * 3;
     stage = get_validated_attack_stage(((u8 *) arg0->player) + 0x7CC);
     index = stage;
     index += k;

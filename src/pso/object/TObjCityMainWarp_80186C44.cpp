@@ -32,7 +32,7 @@ s32 TWindow__close(void *);
 s32 obj_clear_flag30_20000(s32);
 s32 obj_set_flag_20000(s32);
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
-s32 send_code_45_1__10TObjPlayerFi();
+s32 send_code_45_1__10TObjPlayerFl();
 
 extern s32 local_client_id;
 
@@ -68,7 +68,7 @@ void TObjCityMainWarp::notify_player_warp(void *arg0, s32 arg1) {
 
     temp_r3 = get_player_by_client_id(arg1);
     if (temp_r3 != 0) {
-        send_code_45_1__10TObjPlayerFi();
+        send_code_45_1__10TObjPlayerFl();
         obj_clear_flag30_20000(temp_r3);
     }
 }

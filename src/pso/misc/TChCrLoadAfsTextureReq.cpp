@@ -57,7 +57,6 @@ s32 fn_8001ED90(int);
 u32 get_bml_model(int, int);
 s32 TLobby__sub_8001FE7C(int, int);
 u32 TLobby__sub_8002058C(int, int, void *, void *, int, int, int);
-void update_model_load__6TLobbyFPv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
@@ -67,7 +66,7 @@ void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
 void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 s32 TLobby__sub_803CC4C0(s32);
-void close_adxf_handle__6TLobbyFPv(s32);
+void close_adxf_handle__6TLobbyFv(s32);
 extern s32 __vt__22TChCrLoadAfsTextureReq[];
 Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
 }
@@ -151,7 +150,7 @@ Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
             if (TLobby__sub_803CC4C0(arg0->handle) == 2) {
                 ((TLobby *)(arg0->handle))->adxf_stop();
             }
-            close_adxf_handle__6TLobbyFPv(arg0->handle);
+            close_adxf_handle__6TLobbyFv(arg0->handle);
             arg0->handle = 0;
         }
         finish_request__22TChCrLoadAfsTextureReqFPv(arg0);
@@ -239,40 +238,40 @@ f32 TLobby__sub_8028C50C(void) {
 }
 #pragma push
 #pragma fp_contract on
-void update_model_load__6TLobbyFPv(u8 *arg0) {
+void TLobby::update_model_load() {
     s32 *temp_r5;
     s32 temp_r0;
     s32 temp_r4;
     u32 temp_r3;
     u32 var_r31;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x74) - 1;
-    *(s32 *)((s8 *)arg0 + 0x74) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x74) - 1;
+    *(s32 *)((s8 *)((u8 *)this) + 0x74) = temp_r0;
     if (temp_r0 < 0) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x68) != 0U) {
-            TLobby__sub_8001FE7C((int) *(u32 *)((s8 *)arg0 + 0x68), (int) (1));
+        if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x68) != 0U) {
+            TLobby__sub_8001FE7C((int) *(u32 *)((s8 *)((u8 *)this) + 0x68), (int) (1));
         } else {
             return;
         }
         var_r31 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r31 != 0U) {
-            var_r31 = TLobby__sub_8002058C((int) (var_r31), (int) (6), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64), (int) (0), (int) (0), (int) (((TLobby *)(*(s32 *)((s8 *)arg0 + 0x24)))->start_load_default()));
+            var_r31 = TLobby__sub_8002058C((int) (var_r31), (int) (6), (void *) (((u8 *)this) + 0x60), (void *) (((u8 *)this) + 0x64), (int) (0), (int) (0), (int) (((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->start_load_default()));
         }
-        *(u32 *)((s8 *)arg0 + 0x68) = var_r31;
+        *(u32 *)((s8 *)((u8 *)this) + 0x68) = var_r31;
         if (var_r31 != 0U) {
-            *(s32 *)((s8 *)arg0 + 0x74) = 0x12C;
+            *(s32 *)((s8 *)((u8 *)this) + 0x74) = 0x12C;
         }
-    } else if (fn_8001ED90((int) (*(u32 *)((s8 *)arg0 + 0x68))) != 0) {
-        temp_r3 = get_bml_model((int) (*(u32 *)((s8 *)arg0 + 0x68)), (int) (0));
-        **(u32 **)((s8 *)arg0 + 0x1C) = temp_r3;
+    } else if (fn_8001ED90((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68))) != 0) {
+        temp_r3 = get_bml_model((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), (int) (0));
+        **(u32 **)((s8 *)((u8 *)this) + 0x1C) = temp_r3;
         if (temp_r3 != 0U) {
-            ((TLobby *)(*(s32 *)((s8 *)arg0 + 0x24)))->alloc_load_buffer((int) (TLobby__sub_8001ED88((int) (*(u32 *)((s8 *)arg0 + 0x68)))));
-            TLobby__sub_8001FE7C((int) (*(u32 *)((s8 *)arg0 + 0x68)), (int) (1));
-            *(u32 *)((s8 *)arg0 + 0x68) = 0U;
-            ((TChCrLoadGmNjReq *)arg0)->sub_8028C8A8();
-            temp_r5 = *(s32 **)((s8 *)arg0 + 0x28);
+            ((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->alloc_load_buffer((int) (TLobby__sub_8001ED88((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)))));
+            TLobby__sub_8001FE7C((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), (int) (1));
+            *(u32 *)((s8 *)((u8 *)this) + 0x68) = 0U;
+            ((TChCrLoadGmNjReq *)((u8 *)this))->sub_8028C8A8();
+            temp_r5 = *(s32 **)((s8 *)((u8 *)this) + 0x28);
             temp_r4 = *temp_r5;
-            *temp_r5 = temp_r4 & ~*(s32 *)((s8 *)arg0 + 0x20);
-            queue_destruction__7TObjectFv((void *) (arg0), (int) (temp_r4), (int) (temp_r5));
+            *temp_r5 = temp_r4 & ~*(s32 *)((s8 *)((u8 *)this) + 0x20);
+            queue_destruction__7TObjectFv((void *) (((u8 *)this)), (int) (temp_r4), (int) (temp_r5));
         }
     }
 }

@@ -40,7 +40,6 @@ extern s32 TLockOnCursor__target_cursor_model;
 extern s32 main_cursor_model;
 void load_target_cursor_models(void);
 s32 __dt__7TObjectFv(void *, int);
-s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 Obj_8013DCCC *release_target__13TLockOnCursorFv(void *);
 Obj_8013DCCC *cleanup_field__13TLockOnCursorFv(void *);
 Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFv(void *);
@@ -82,7 +81,6 @@ extern "C" {
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2);
-s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 s32 TLockOnCursor__sub_8013EB80(s32);
 s32 TLockOnCursor__sub_8013EB8C(s32);
 void sub_8013EEC0__13TLockOnCursorFs(void *, void *);
@@ -225,7 +223,7 @@ u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
         __destroy_arr(arg0 + 0x5C, __dt_deleting__13TLockOnCursorFis, 0x124, 4);
         ((TMainCursor *)(arg0 + 0x48))->destroy(-1);
         __dt__13TLockOnCursorFis(arg0 + 0x3C, -1);
-        dt__13TLockOnCursorFis((s32)(arg0 + 0x24), -1);
+        TLockOnCursor::dt((s32)(arg0 + 0x24), -1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -234,7 +232,7 @@ u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {
+s32 TLockOnCursor::dt(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TLockOnCursor::free_if_owned(arg0, 0);
         if (arg1 > 0) {

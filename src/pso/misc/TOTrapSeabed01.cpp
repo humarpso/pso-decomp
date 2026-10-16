@@ -360,14 +360,12 @@ s32 draw_ginja_model(int);
 extern s32 TOTrapSeabed01__texture_file;
 s32 is_split_screen();
 s32 get_state_flag__9TMainTaskFv();
-void draw__14TOTrapSeabed01FPv(u8 *arg0);
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0);
 }
 
 extern "C" {
 
-void draw__14TOTrapSeabed01FPv(u8 *arg0);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(int, int, int, void *, int);
 s32 post_translate_matrix(void *);
@@ -460,16 +458,16 @@ void TOTrapSeabed01::draw_object_tree(u8 *arg1) {
     } while (var_r30 != NULL);
 }
 
-void draw__14TOTrapSeabed01FPv(u8 *arg0) {
-    if ((TRaderMapCore::is_not_split_screen() != 1) || ((s32) *(s32 *)((s8 *)arg0 + 0x34C) == 0)) {
+void TOTrapSeabed01::draw() {
+    if ((TRaderMapCore::is_not_split_screen() != 1) || ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x34C) == 0)) {
         set_depth_buffer_settings_3__Fv();
         set_depth_buffer_settings_id__FUl((int)(1));
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param((s32)((void *)(TOTrapSeabed01__texture_file)));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        ((s32 (*)(int, int))rotate_matrix_y)((int)(0), (int)(*(s32 *)((s8 *)arg0 + 0x60)));
-        ((TOTrapSeabed01 *)arg0)->draw_object_tree((u8 *)(*(s32 *)((s8 *)arg0 + 0x34)));
+        post_translate_matrix(((u8 *)this) + 0x38);
+        ((s32 (*)(int, int))rotate_matrix_y)((int)(0), (int)(*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+        ((TOTrapSeabed01 *)((u8 *)this))->draw_object_tree((u8 *)(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
         pop_matrix();
         TParticleCtrl::end_effect_render();
         func_80141618__Fv();
@@ -481,7 +479,7 @@ void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
         switch (arg0->f326) {
         case 0:
         case 1:
-            draw__14TOTrapSeabed01FPv((u8 *)(arg0));
+            ((TOTrapSeabed01 *)arg0)->draw();
             break;
         case 2:
         case 3:
@@ -663,7 +661,7 @@ s32 get_bml_model(int, int);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u32 load_gvm_texture_file(void *);
-s32 find_entry_by_name__12TObjDoorJungFPvPv(u32, void *);
+s32 find_entry_by_name__12TObjDoorJungFPCc(u32, void *);
 extern u8 lbl_804720E8[];
 extern u8 lbl_80472100[];
 extern SeabedTrapResourceDescriptor seabed_trap_resource_descriptor;
@@ -784,7 +782,7 @@ void TOTrapSeabed01::load_resources() {
     lbl_805D681C = 0;
     seabed01_ginja_mesh_index = -1;
     if (t != 0U) {
-        seabed01_ginja_mesh_index = find_entry_by_name__12TObjDoorJungFPvPv(t, lbl_80472100);
+        seabed01_ginja_mesh_index = find_entry_by_name__12TObjDoorJungFPCc(t, lbl_80472100);
     }
 }
 

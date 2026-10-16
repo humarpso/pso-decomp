@@ -7,7 +7,6 @@ struct Boss_802B057C { u8 pad[0x3CC]; s32 f3CC; };
 extern "C" {
 void apply_fade_alpha__14TBoss6PlotFalzFlf(void *, f32, s32);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
-void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 void apply_fade_alpha__14TBoss6PlotFalzFlf(void *, f32, s32);
 void TBoss6PlotFalz__sub_802B06D0(void *arg0);
@@ -17,9 +16,6 @@ extern "C" {
 
 void TBoss6PlotFalz__sub_802B03F4(void);
 void TBoss6PlotFalz__sub_802B0448(void* p);
-void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p);
-void advance_timer__14TBoss6PlotFalzFPv(void *arg0);
-void check_action_7__14TBoss6PlotFalzFi(s32 arg0);
 void stop_adx_audio(void *arg0);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
@@ -29,23 +25,24 @@ int is_ready__14TBoss6PlotFalzFv(void*);
 s32 queue_destruction__7TObjectFv(void *);
 
 void TBoss6PlotFalz__sub_802B03F4(void) {  }
-void check_action_7__14TBoss6PlotFalzFi(s32 arg0) {
+void TBoss6PlotFalz::check_action_7() {
+    s32 arg0 = (s32)this;
     if ((TBoss6PlotFalz::is_boss_active() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
         ((TBoss6PlotFalz *)arg0)->send_6xA3_action((s8)((void*)(7)));
     }
 }
 void TBoss6PlotFalz__sub_802B0448(void* p) { end_cutscene_camera__14TBoss6PlotFalzFPv(p); refresh_players_equipment__14TBoss6PlotFalzFPv(); *(int*)((char*)p + 0x3d0) = 0; *(int*)((char*)p + 0x3cc) = 0; ((TBoss6PlotFalz *)p)->spawn_type2(); }
-void advance_timer__14TBoss6PlotFalzFPv(void *arg0) {
+void TBoss6PlotFalz::advance_timer() {
     s32 temp_r0;
 
     refresh_players_equipment__14TBoss6PlotFalzFPv();
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3CC) + 1;
-    *(s32 *)((s8 *)arg0 + 0x3CC) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)this + 0x3CC) + 1;
+    *(s32 *)((s8 *)this + 0x3CC) = temp_r0;
     if (temp_r0 > 0x198) {
-        ((TBoss6PlotFalz *)arg0)->set_state(6);
+        ((TBoss6PlotFalz *)this)->set_state(6);
     }
 }
-void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p) { if (is_ready__14TBoss6PlotFalzFv(p) != 0) { ((TBoss6PlotFalz *)p)->send_6xA3_action((s8)((void*)6)); } }
+void TBoss6PlotFalz::advance_phase_if_ready() { if (is_ready__14TBoss6PlotFalzFv(this) != 0) { ((TBoss6PlotFalz *)this)->send_6xA3_action((s8)((void*)6)); } }
 
 extern s32 lbl_80470990[];
 
@@ -60,17 +57,17 @@ void stop_adx_audio(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
     create_boss6_type2_appearance(arg0);
 }
-void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o) {
-    s32 t = o->f3CC;
+void TBoss6PlotFalz::update_cutscene_fade() {
+    s32 t = ((Boss_802B057C *)this)->f3CC;
     if (t <= 0x2D) {
-        apply_fade_alpha__14TBoss6PlotFalzFlf(o, 1.0f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFlf(((Boss_802B057C *)this), 1.0f, 0);
     } else if (t > 0x2D && t < 0x10E) {
-        apply_fade_alpha__14TBoss6PlotFalzFlf(o, (f32)(0x10E - t) / 225.0f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFlf(((Boss_802B057C *)this), (f32)(0x10E - t) / 225.0f, 0);
     }
-    if (o->f3CC == 0x2D) {
+    if (((Boss_802B057C *)this)->f3CC == 0x2D) {
         ((void (*)(void)) end_cutscene_camera__14TBoss6PlotFalzFPv)();
     }
-    o->f3CC = o->f3CC + 1;
+    ((Boss_802B057C *)this)->f3CC = ((Boss_802B057C *)this)->f3CC + 1;
 }
 
 }

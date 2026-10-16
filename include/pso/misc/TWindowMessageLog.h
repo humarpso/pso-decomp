@@ -12,6 +12,10 @@ struct TWindowMessageLog : public TWindowMessage {
     virtual void run_task();
     virtual void render();
     u8 unk_90[0x8];
+    static s32 get_active_photon_object();
+    void update_scroll_position();
+    void append_line(s32 arg1);
+    void load_chat_history();
 };
 
 typedef char TWindowMessageLog_size[sizeof(TWindowMessageLog) == 0x98 ? 1 : -1];

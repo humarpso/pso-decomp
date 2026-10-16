@@ -13,6 +13,7 @@ struct TJudgmentSequence : public TShopSequence {
     void setup_counter_camera();
     static void *create(void *arg0);
     u8 unk_1C[0x18];
+    void open_judgment_window();
 };
 
 typedef char TJudgmentSequence_size[sizeof(TJudgmentSequence) == 0x34 ? 1 : -1];

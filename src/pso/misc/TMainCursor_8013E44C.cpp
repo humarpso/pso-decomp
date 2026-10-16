@@ -3,18 +3,17 @@
 
 extern "C" {
 int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1);
-int is_same_target__11TMainCursorFPvPv(void *a, void *b);
 }
 
 extern "C" {
 
 int set_flags__10TObjPlayerFUl(void*, int);
 
-int is_same_target__11TMainCursorFPvPv(void *a, void *b) {
+int TMainCursor::is_same_target(void *b) {
     u8 result = 0;
-    if (TMainCursor__sub_8013E40C((u8 *)a, ((TMainCursor *)b)->get_id()) != 0) {
-        if (((u8)((TMainCursor *)a)->get_type()) == ((u8)((TMainCursor *)b)->get_type())) {
-            if (((u8)((TMainCursor *)a)->get_enabled()) == ((u8)((TMainCursor *)b)->get_enabled())) {
+    if (TMainCursor__sub_8013E40C((u8 *)this, ((TMainCursor *)b)->get_id()) != 0) {
+        if (((u8)((TMainCursor *)this)->get_type()) == ((u8)((TMainCursor *)b)->get_type())) {
+            if (((u8)((TMainCursor *)this)->get_enabled()) == ((u8)((TMainCursor *)b)->get_enabled())) {
                 result = 1;
             }
         }

@@ -15,9 +15,8 @@ extern "C" {
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 play_sound_effect(int, void *, int, int);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
-int send_state_action_packet__11TBoss6Type2FPv(void*);
-int send_action_packet__11TBoss6Type2FPvc(void*, void*);
-void send_state_action__11TBoss6Type2FPv(u8 *arg0);
+int send_state_action_packet__11TBoss6Type2Fv(void*);
+int send_action_packet__11TBoss6Type2FSc(void*, void*);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 lbl_805D6750;
 extern u8 lbl_805D6754;
@@ -37,8 +36,8 @@ s32 TBoss6Type2__sub_802BA9E4();
 u16 TBoss6Type2__sub_802BB694();
 s32 TBoss6Type2__sub_802BB768();
 s32 TBoss6Type2__sub_802BB7C0(void *);
-int send_state_action_packet__11TBoss6Type2FPv(void*);
-int send_action_packet__11TBoss6Type2FPvc(void*, void*);
+int send_state_action_packet__11TBoss6Type2Fv(void*);
+int send_action_packet__11TBoss6Type2FSc(void*, void*);
 s32 play_persistent_sound(int, void *, void *, int, int);
 
 #include "types.h"
@@ -87,21 +86,21 @@ void TBoss6Type2::update_zako_spawn_timer() {
     }
 }
 
-void send_state_action__11TBoss6Type2FPv(u8 *arg0) {
+void TBoss6Type2::send_state_action() {
     s32 temp_r0;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x460) == 0) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x374);
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x460) == 0) {
+        temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x374);
         switch (temp_r0) {
         case 6:
-            *(s32 *)((s8 *)arg0 + 0x46C) = 0;
-            send_action_packet__11TBoss6Type2FPvc((void*)(arg0), (void*)(0xC));
+            *(s32 *)((s8 *)((u8 *)this) + 0x46C) = 0;
+            send_action_packet__11TBoss6Type2FSc((void*)(((u8 *)this)), (void*)(0xC));
             return;
         case 9:
-            *(s32 *)((s8 *)arg0 + 0x46C) = 1;
-            send_action_packet__11TBoss6Type2FPvc((void*)(arg0), (void*)(0xC));
+            *(s32 *)((s8 *)((u8 *)this) + 0x46C) = 1;
+            send_action_packet__11TBoss6Type2FSc((void*)(((u8 *)this)), (void*)(0xC));
             return;
         default:
-            send_state_action_packet__11TBoss6Type2FPv((void*)(arg0));
+            send_state_action_packet__11TBoss6Type2Fv((void*)(((u8 *)this)));
             break;
         }
     }
@@ -175,7 +174,7 @@ void TBoss6Type2__sub_802BF834(u8 *arg0) {
     }
 }
 
-void TBoss6Type2::check_state_0x460_eq0() { if (*(int *)&this->m_460 == 0) { send_state_action_packet__11TBoss6Type2FPv(this); } }
+void TBoss6Type2::check_state_0x460_eq0() { if (*(int *)&this->m_460 == 0) { send_state_action_packet__11TBoss6Type2Fv(this); } }
 void TBoss6Type2__sub_802BF904(void* p) { *(s32*)((char*)p + 0x45c) = 45; *(s32*)((char*)p + 0x460) = 45; }
 void TBoss6Type2::tick_action_timer() {
     s32 temp_r0;
@@ -193,7 +192,7 @@ void TBoss6Type2::pick_next_zako() {
             update_action_state();
             return;
         }
-        send_action_packet__11TBoss6Type2FPvc((void*)((void*)(this)), (void*)((void*)(3)));
+        send_action_packet__11TBoss6Type2FSc((void*)((void*)(this)), (void*)((void*)(3)));
     }
 }
 
@@ -245,25 +244,25 @@ void TBoss6Type2::tick_timer_460() {
 void TBoss6Type2::select_attack_state() {
     if ((s32) this->m_460 == 0) {
         if (TBoss6Type2__sub_802BA9E4() != 0) {
-            send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(0xD));
+            send_action_packet__11TBoss6Type2FSc((void*)(this), (void*)(0xD));
             return;
         }
         if ((get_phase() == 0xD) && (is_ready_to_attack() != 0)) {
             *(s16 *)&this->m_464 = is_falz_ready();
-            send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(0x18));
+            send_action_packet__11TBoss6Type2FSc((void*)(this), (void*)(0x18));
             return;
         }
         if (TBoss6Type2__sub_802BA944(this) != 0) {
-            send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(0xE));
+            send_action_packet__11TBoss6Type2FSc((void*)(this), (void*)(0xE));
             return;
         }
         if (get_phase() == 0xD) {
             *(s32 *)&this->m_428 = pick_random_other_index();
             *(s32 *)&this->m_430 = choose_next_index();
-            send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(1));
+            send_action_packet__11TBoss6Type2FSc((void*)(this), (void*)(1));
             return;
         }
-        send_action_packet__11TBoss6Type2FPvc((void*)(this), (void*)(2));
+        send_action_packet__11TBoss6Type2FSc((void*)(this), (void*)(2));
     }
 }
 

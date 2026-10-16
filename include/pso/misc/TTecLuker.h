@@ -28,7 +28,9 @@ struct TTecLuker : public TUnk_804CC148 {
     void send_swapped_telepipe_packet();
     void byteswap_telepipe_packet();
     void set_state(s32 v);
-    static s32 is_parents_unqueued(u32 arg0);};
+    static s32 is_parents_unqueued(u32 arg0);
+    u8 *construct_field_collider(s32 arg1, s32 arg2, s32 arg3);
+};
 
 typedef char TTecLuker_size[sizeof(TTecLuker) == 0x110 ? 1 : -1];
 #endif

@@ -106,7 +106,6 @@ struct Ctrl_8008767C {
 struct GenEntry_8008767C { s32 id; Gen_8008767C fn; };
 
 extern "C" {
-void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -115,15 +114,12 @@ int mem_free(void*);
 extern s32 particle_area_entry_table;
 extern u32 TParticleCtrl__regular_bml_resource;
 extern u32 TParticleCtrl__texture_list;
-void free_all__13TParticleCtrlFv(void);
 s32 read_disc_file(s32, s32);
 s32 mem_alloc(s32);
 extern u32 particle_pool_limit;
 extern int particle_global_entry_table;
-void init_particle_buffer__13TParticleCtrlFv(void);
 extern s32 particle_area_entry_table;
 extern int particle_global_entry_table;
-s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 void *alloc_particle_memory(int);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
@@ -219,7 +215,6 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D955C;
-void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
@@ -252,8 +247,6 @@ extern "C" {
 int TParticleCtrl__sub_800884F0(void* p);
 void set_particle_draw_scale(void* p, f32 a, f32 b);
 void clear_active_flag__13TParticleCtrlFv(void* p);
-void enable__13TParticleCtrlFPv(void* p);
-void free_system__13TParticleCtrlFv(void);
 int copy_xyz__10TObjPlayerFPv(void*);
 int mem_free(void*);
 
@@ -273,9 +266,9 @@ int mem_free(void*);
     }                                                                                 \
     if (self->flags & 0x200) {                                                        \
         if (self->flags & 0x400) {                                                    \
-            attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 1, self->frame); \
+            ((TParticleCtrl *)p)->attach_model(self->model, self->texlist, self->motion, 1, self->frame); \
         } else {                                                                      \
-            attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 0, self->frame); \
+            ((TParticleCtrl *)p)->attach_model(self->model, self->texlist, self->motion, 0, self->frame); \
         }                                                                             \
     }
 void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
@@ -380,9 +373,9 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
                 }
                 if (self->flags & 0x200) {
                     if (self->flags & 0x400) {
-                        attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 1, self->frame);
+                        ((TParticleCtrl *)p)->attach_model(self->model, self->texlist, self->motion, 1, self->frame);
                     } else {
-                        attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 0, self->frame);
+                        ((TParticleCtrl *)p)->attach_model(self->model, self->texlist, self->motion, 0, self->frame);
                     }
                 }
                 if (self->flags & 0x2000) {
@@ -407,7 +400,7 @@ extern const char *TParticleCtrl__particle_entry_path;
 }
 
 void clear_active_flag__13TParticleCtrlFv(void* p) { *(u16*)((char*)p + 0x2c) &= 0xfffe; }
-void enable__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) |= 0x1; }
+void TParticleCtrl::enable() { *(u16*)((char*)this + 0x2c) |= 0x1; }
 extern "C" {
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -640,50 +633,33 @@ void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(
     return particle;
 }
 
-void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(
-    ParticleCtrlData *particle,
-    const void *position,
-    s32 particle_index,
-    s32 field30,
-    s32 field34,
-    s32 field38,
-    s32 use_self,
-    u16 flags)
-{
-    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
+void *TParticleCtrl::initialize_with_flags(const void *position, s32 particle_index, s32 field30, s32 field34, s32 field38, s32 use_self, u16 flags) {
+    INITIALIZE_PARTICLE(((ParticleCtrlData *)this), position, particle_index, field30, field34,
                         field38, use_self, flags, CLEAR_PARTICLE_DIRECTION,
                         position);
-    return particle;
+    return ((ParticleCtrlData *)this);
 }
 
-void *initialize__13TParticleCtrlFPvPviiiii(
-    ParticleCtrlData *particle,
-    const void *position,
-    s32 particle_index,
-    s32 field30,
-    s32 field34,
-    s32 field38,
-    s32 use_self)
-{
-    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
+void *TParticleCtrl::initialize(const void *position, s32 particle_index, s32 field30, s32 field34, s32 field38, s32 use_self) {
+    INITIALIZE_PARTICLE(((ParticleCtrlData *)this), position, particle_index, field30, field34,
                         field38, use_self, 0, CLEAR_PARTICLE_DIRECTION,
                         position);
-    return particle;
+    return ((ParticleCtrlData *)this);
 }
 
 }
 
 int TParticleCtrl__sub_800884F0(void* p) { return copy_xyz__10TObjPlayerFPv((char*)p + 0x98); }
 
-void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
-    *(s32 *)((s8 *)arg0 + 0xB0) = arg1;
-    *(s32 *)((s8 *)arg0 + 0xB4) = arg2;
-    *(s32 *)((s8 *)arg0 + 0xB8) = arg3;
-    *(f32 *)((s8 *)arg0 + 0xC0) = farg0;
+void TParticleCtrl::attach_model(s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+    *(s32 *)((s8 *)((u8 *)this) + 0xB0) = arg1;
+    *(s32 *)((s8 *)((u8 *)this) + 0xB4) = arg2;
+    *(s32 *)((s8 *)((u8 *)this) + 0xB8) = arg3;
+    *(f32 *)((s8 *)((u8 *)this) + 0xC0) = farg0;
     if (arg4 != 0) {
-        *(u16 *)((s8 *)arg0 + 0x24) = (u16) (*(u16 *)((s8 *)arg0 + 0x24) | 0x400);
+        *(u16 *)((s8 *)((u8 *)this) + 0x24) = (u16) (*(u16 *)((s8 *)((u8 *)this) + 0x24) | 0x400);
     }
-    *(u16 *)((s8 *)arg0 + 0x24) = (u16) (*(u16 *)((s8 *)arg0 + 0x24) | 0x200);
+    *(u16 *)((s8 *)((u8 *)this) + 0x24) = (u16) (*(u16 *)((s8 *)((u8 *)this) + 0x24) | 0x200);
 }
 
 void set_particle_tint_color(u8 *arg0, void *arg1) {
@@ -694,8 +670,8 @@ void set_particle_tint_color(u8 *arg0, void *arg1) {
 void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
 
     extern int particle_global_entry_table;
-void free_system__13TParticleCtrlFv(void) { mem_free((void*)(particle_global_entry_table)); particle_global_entry_table = 0; }
-void free_all__13TParticleCtrlFv(void) {
+void TParticleCtrl::free_system() { mem_free((void*)(particle_global_entry_table)); particle_global_entry_table = 0; }
+void TParticleCtrl::free_all() {
     mem_free((void*)(particle_area_entry_table));
     particle_area_entry_table = 0;
     if ((u32) TParticleCtrl__regular_bml_resource != 0U) {
@@ -708,7 +684,7 @@ void free_all__13TParticleCtrlFv(void) {
         TParticleCtrl__texture_list = 0U;
     }
 }
-void init_particle_buffer__13TParticleCtrlFv(void) {
+void TParticleCtrl::init_particle_buffer() {
     s32 temp_r3;
     temp_r3 = read_disc_file((s32)TParticleCtrl__particle_entry_path, ((*(s32 *)&particle_global_entry_table) = mem_alloc(0x13000)));
     particle_pool_limit = 0;
@@ -716,7 +692,7 @@ void init_particle_buffer__13TParticleCtrlFv(void) {
         particle_pool_limit = (u32) temp_r3 / 152U;
     }
 }
-s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0) {
+s32 TParticleCtrl::get_particle_by_index(s32 arg0) {
     if (arg0 >= 0x200) {
         return particle_area_entry_table + ((arg0 - 0x200) * 0x98);
     }

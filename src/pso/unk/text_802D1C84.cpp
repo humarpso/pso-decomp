@@ -132,7 +132,7 @@ void fn_802D1C84(void) {
 }
 
 void *mem_alloc(s32);
-void pso_load_texture__6TLobbyFPv(void *, void *);
+void pso_load_texture__6TLobbyFv(void *, void *);
 void set_texture_name(void *, void *, int, int);
 
 u32 lbl_80540B98[9];
@@ -144,7 +144,7 @@ void fn_802D1CC8(void) {
     set_texture_name(lbl_80540BBC, lbl_80540B98, 0x18696, 0x40800000);
     lbl_80540BC8[0] = (u32)lbl_80540BBC;
     lbl_80540BC8[1] = 1;
-    pso_load_texture__6TLobbyFPv(lbl_80540BC8, lbl_80540BBC);
+    pso_load_texture__6TLobbyFv(lbl_80540BC8, lbl_80540BBC);
 }
 #define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
 #define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())

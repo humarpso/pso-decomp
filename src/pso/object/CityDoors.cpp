@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
@@ -169,14 +170,13 @@ extern const f32 lbl_805DBBE4;
 
 extern "C" {
 
-void free_map_resources__6TLobbyFv(void);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 
 extern u8 *city_common_model_archive;
 extern s32 city_common_texture_list;
 
-void free_map_resources__6TLobbyFv(void) {
+void TLobby::free_map_resources() {
     if ((u32) city_common_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)city_common_texture_list);
         TAdSinglePlyChrSelectGC::safe_free(city_common_texture_list);

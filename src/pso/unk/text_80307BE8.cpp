@@ -5,7 +5,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFv();
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
-s32 advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
+s32 advance_matching_entries__22THunterGuildSeqOfflineFll(int, int, int);
 void update_players_in_range(u8 *arg0);
 }
 
@@ -26,16 +26,16 @@ void update_players_in_range(u8 *arg0) {
             temp_r3 = get_player_by_client_id((int) (var_r28));
             if (temp_r3 != 0) {
                 if ((get_current_floor() == get_field_3e4__10TObjPlayerFv()) && (xz_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 8)) <= *(f32 *)((s8 *)arg0 + 0))) {
-                    advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (*(u32 *)((s8 *)arg0 + 0x24)), (int) (1), (int) (var_r28));
+                    advance_matching_entries__22THunterGuildSeqOfflineFll((int) (*(u32 *)((s8 *)arg0 + 0x24)), (int) (1), (int) (var_r28));
                     *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) | (1 << var_r28));
                     *(s32 *)((s8 *)arg0 + 0x18) = 1;
                 } else {
-                    advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (*(u32 *)((s8 *)arg0 + 0x24)), (int) (0), (int) (var_r28));
+                    advance_matching_entries__22THunterGuildSeqOfflineFll((int) (*(u32 *)((s8 *)arg0 + 0x24)), (int) (0), (int) (var_r28));
                     *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & ~(1 << var_r28));
                     *(s32 *)((s8 *)arg0 + 0x14) = 0;
                 }
             } else {
-                advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (*(u32 *)((s8 *)arg0 + 0x24)), (int) (0), (int) (var_r28));
+                advance_matching_entries__22THunterGuildSeqOfflineFll((int) (*(u32 *)((s8 *)arg0 + 0x24)), (int) (0), (int) (var_r28));
             }
             var_r28 += 1;
         } while (var_r28 < 4);

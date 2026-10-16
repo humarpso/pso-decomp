@@ -93,7 +93,7 @@ void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void *__nw__7TObjectFUl(int);
 void construct_area_technique_base(void *, void *, void *, void *, int);
-u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
+u8 *construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
@@ -481,13 +481,13 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
         {
             u8 *o = (u8 *)__nw__7TObjectFUl(0x260);
             if (o != 0) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (5.0f));
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (5.0f));
             }
         }
         if (self->band == 5) {
             u8 *o = (u8 *)__nw__7TObjectFUl(0x260);
             if (o != 0) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (0.5f));
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, (0.5f));
             }
         }
     }

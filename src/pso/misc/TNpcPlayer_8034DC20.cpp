@@ -63,7 +63,6 @@ void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 extern void *tl_00;
-u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent);
 }
 
 extern "C" {
@@ -116,13 +115,13 @@ u8 *destroy_quest_party_area(u8 *arg0, s16 arg1) {
   return arg0;
 }
 
-u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent) {
+u8 *TNpcPlayer::construct_party_area(void *parent) {
     void *task;
     s32 slot;
     u8 *player;
-    __ct__7TObjectFP7TObject(self, parent);
-    *(void **)((s8 *)self + 0x18) = &lbl_804F07C8;
-    *(s32 *)((s8 *)self + 0x1C) = 0;
+    __ct__7TObjectFP7TObject(((u8 *)this), parent);
+    *(void **)((s8 *)((u8 *)this) + 0x18) = &lbl_804F07C8;
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0;
     for (slot = 0; slot < 4; slot++) {
         player = get_player_by_client_id(slot);
         if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((TNpcPlayer *)player)->get_action_flags() == 0xFFFF) {
@@ -132,9 +131,9 @@ u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent) {
         if (task != NULL) {
             construct_partner__10TNpcPlayerFPviisPv(task, ((TNpcPlayer *)player)->get_action_flags(), (u16) slot, ((TNpcPlayer *)player)->get_field_67c(), tl_00);
         }
-        (*(s32 *)((s8 *)self + 0x1C))++;
+        (*(s32 *)((s8 *)((u8 *)this) + 0x1C))++;
     }
-    return self;
+    return ((u8 *)this);
 }
 
 s32 get_party_yaw(void) {

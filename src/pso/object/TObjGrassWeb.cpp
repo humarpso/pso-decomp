@@ -32,7 +32,7 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 s32 obj_testFlags30(s32, s32);
-s32 play_effect__10TObjPlayerFiii(s32, s32, s32);
+s32 play_effect__10TObjPlayerFlll(s32, s32, s32);
 int queue_destruction__7TObjectFv(void*);
 
 int TObjGrassWeb::queue_destruction() { return queue_destruction__7TObjectFv(this); }
@@ -68,7 +68,7 @@ void TObjGrassWeb::apply_to_player() {
     *(s32 *)&this->m_90 = 1;
     temp_r3 = get_player_by_client_id(this->m_a4);
     if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
-        play_effect__10TObjPlayerFiii(temp_r3, this->m_84, 1);
+        play_effect__10TObjPlayerFlll(temp_r3, this->m_84, 1);
     }
 }
 

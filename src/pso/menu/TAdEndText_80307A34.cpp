@@ -37,13 +37,12 @@ void start_ending_sequence(void);
 
 extern "C" {
 
-void cleanup__10TAdEndTextFv(void);
 int TLobby__sub_800FC3CC(void);
 int delete_all_task_children__9TMainTaskFv(void*);
 int render_tick__Fv(void);
 
     extern int ending_sequence_active;
-void cleanup__10TAdEndTextFv(void) { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick__Fv(); }
+void TAdEndText::cleanup() { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick__Fv(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
 void TKeyBoardControl::run_main_frame() {
     s32 *var_r3;

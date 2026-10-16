@@ -25,7 +25,6 @@ s16 TItemData__sub_801146C0(void *);
 void TItemMag__sub_80114198(u8 *arg0, s16 arg1);
 s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146DC(void *);
-void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1);
 s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146F8(void *);
 void mag_feed_add_def(u8 *arg0, s16 arg1);
@@ -195,17 +194,17 @@ void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_propagation off
-void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1) {
+void TItemMag::add_stat_level_capped(s16 arg1) {
     s16 temp_r31;
     s16 temp_r3;
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146DC((void *) (arg0));
+    temp_r31 = TItemData__sub_801146DC((void *) (((u8 *)this)));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_mag_total_level((void *) (arg0));
+        temp_r3 = get_mag_total_level((void *) (((u8 *)this)));
         if (temp_r3 < 0xC8) {
-            *(s16 *)((s8 *)arg0 + 6) = *(s16 *)((s8 *)arg0 + 6) + var_r30;
+            *(s16 *)((s8 *)((u8 *)this) + 6) = *(s16 *)((s8 *)((u8 *)this) + 6) + var_r30;
             return;
         }
         if (temp_r3 == 0xC8) {
@@ -213,7 +212,7 @@ void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1) {
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            *(s16 *)((s8 *)arg0 + 6) = *(s16 *)((s8 *)arg0 + 6) + var_r30;
+            *(s16 *)((s8 *)((u8 *)this) + 6) = *(s16 *)((s8 *)((u8 *)this) + 6) + var_r30;
         }
     }
 }

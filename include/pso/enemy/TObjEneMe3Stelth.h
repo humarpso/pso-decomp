@@ -46,6 +46,13 @@ struct TObjEneMe3Stelth : public TObjEneDD_ST {
     static void destroy_resources();
     s32 try_spawn_ground_effect(s32 arg1);
     void play_hit_effect();
-    static void spawn_attack(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1);};
+    static void spawn_attack(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1);
+    static void add_instance();
+    void update_distance_state();
+    static void set_slot_min_clamped_value(s32 arg0, f32 farg0);
+    static void free_shared_resources();
+    int create_real();
+    static void load_shared_resources();
+};
 
 #endif

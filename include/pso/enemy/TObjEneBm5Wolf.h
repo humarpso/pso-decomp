@@ -111,6 +111,8 @@ struct TObjEneBm5Wolf
     void push_list_node(void **arg1, void **arg2);
     void unlink_list_node(void ***arg1, void **arg2);
     static void register_global_objects();
+    void flanking_state(s32 arg1);
+    void howling_state(s32 arg1);
 };
 
 typedef char WolfOffset_position[offsetof(TObjEneBm5Wolf, position) == 0x38 ? 1 : -1];

@@ -52,7 +52,6 @@ int sprintf(char *, const char *, ...);
 s32 TLobby__sub_803DF1CC(void);
 s32 fn_803DF204(s32);
 extern char lbl_8043F168[];
-s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr);
 }
 
 extern "C" {
@@ -62,7 +61,7 @@ extern "C" {
 #define EOF_8013F99C(c) (((s32 (*)(u8 *))lzss_input_exhausted)(c))
 #define PUT_8013F99C(c, v) (((void (*)(u8 *, s32))TLobby__sub_8013FF64)(c, v))
 #define GET_8013F99C(c) (((s32 (*)(u8 *))lzss_read_byte)(c))
-s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr) {
+s32 TLobby::lz_compress_packet(void *src, s32 size, s32 *hdr) {
     u8 code_buf[17];
     char msg[256];
     s32 t0;
@@ -78,90 +77,90 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
     s32 t1;
     out = hdr;
     t0 = TLobby__sub_803DF1CC();
-    ((TLobby *)lz)->set_range((int)src, size, (s32)(hdr + 2));
-    ((TLobby *)lz)->init_lookup_tables();
+    ((TLobby *)((Lz_8013F99C *)this))->set_range((int)src, size, (s32)(hdr + 2));
+    ((TLobby *)((Lz_8013F99C *)this))->init_lookup_tables();
     code_buf[0] = 0;
     mask = code_buf_ptr = 1;
-    lz->codesize = 0;
+    ((Lz_8013F99C *)this)->codesize = 0;
     s = 0;
     r = 0xFEE;
     for (i = 0; i < 0xFEE; i++) {
-        lz->text_buf[i] = 0;
+        ((Lz_8013F99C *)this)->text_buf[i] = 0;
     }
     for (len = 0; len < 0x12; len++) {
-        c = GET_8013F99C((u8 *)lz);
-        if (EOF_8013F99C((u8 *)lz) != 0) {
+        c = GET_8013F99C((u8 *)((Lz_8013F99C *)this));
+        if (EOF_8013F99C((u8 *)((Lz_8013F99C *)this)) != 0) {
             break;
         }
-        lz->text_buf[0xFEE + len] = c;
+        ((Lz_8013F99C *)this)->text_buf[0xFEE + len] = c;
     }
     if (len == 0) {
-        return lz->codesize;
+        return ((Lz_8013F99C *)this)->codesize;
     }
     for (i = 1; i <= 0x12; i++) {
-        lzss_insert_ring_node((Lz_8013FDC4 *)lz, r - i);
+        lzss_insert_ring_node((Lz_8013FDC4 *)((Lz_8013F99C *)this), r - i);
     }
-    lzss_insert_ring_node((Lz_8013FDC4 *)lz, r);
+    lzss_insert_ring_node((Lz_8013FDC4 *)((Lz_8013F99C *)this), r);
     do {
-        if (lz->match_length > len) {
-            lz->match_length = len;
+        if (((Lz_8013F99C *)this)->match_length > len) {
+            ((Lz_8013F99C *)this)->match_length = len;
         }
-        if (lz->match_length < 3) {
-            lz->match_length = 1;
+        if (((Lz_8013F99C *)this)->match_length < 3) {
+            ((Lz_8013F99C *)this)->match_length = 1;
             code_buf[0] |= mask;
-            code_buf[code_buf_ptr++] = lz->text_buf[r];
+            code_buf[code_buf_ptr++] = ((Lz_8013F99C *)this)->text_buf[r];
         } else {
-            code_buf[code_buf_ptr++] = lz->match_position;
-            code_buf[code_buf_ptr++] = ((lz->match_position >> 4) & 0xF0) | (lz->match_length - 3);
+            code_buf[code_buf_ptr++] = ((Lz_8013F99C *)this)->match_position;
+            code_buf[code_buf_ptr++] = ((((Lz_8013F99C *)this)->match_position >> 4) & 0xF0) | (((Lz_8013F99C *)this)->match_length - 3);
         }
         if ((mask <<= 1) == 0) {
             for (i = 0; i < code_buf_ptr; i++) {
-                PUT_8013F99C((u8 *)lz, code_buf[i]);
+                PUT_8013F99C((u8 *)((Lz_8013F99C *)this), code_buf[i]);
             }
-            lz->codesize += code_buf_ptr;
+            ((Lz_8013F99C *)this)->codesize += code_buf_ptr;
             code_buf[0] = 0;
             code_buf_ptr = mask = 1;
         }
-        i = lz->match_length;
+        i = ((Lz_8013F99C *)this)->match_length;
         for (m = 0; m < i; m++) {
-            c = GET_8013F99C((u8 *)lz);
-            if (EOF_8013F99C((u8 *)lz) != 0) {
+            c = GET_8013F99C((u8 *)((Lz_8013F99C *)this));
+            if (EOF_8013F99C((u8 *)((Lz_8013F99C *)this)) != 0) {
                 break;
             }
-            lzss_remove_ring_node((Lz_8013FCB0 *)lz, s);
-            lz->text_buf[s] = c;
+            lzss_remove_ring_node((Lz_8013FCB0 *)((Lz_8013F99C *)this), s);
+            ((Lz_8013F99C *)this)->text_buf[s] = c;
             if (s < 0x11) {
-                lz->text_buf[s + 0x1000] = c;
+                ((Lz_8013F99C *)this)->text_buf[s + 0x1000] = c;
             }
             s = (s + 1) & 0xFFF;
             r = (r + 1) & 0xFFF;
-            lzss_insert_ring_node((Lz_8013FDC4 *)lz, r);
+            lzss_insert_ring_node((Lz_8013FDC4 *)((Lz_8013F99C *)this), r);
         }
         while (m++ < i) {
-            lzss_remove_ring_node((Lz_8013FCB0 *)lz, s);
+            lzss_remove_ring_node((Lz_8013FCB0 *)((Lz_8013F99C *)this), s);
             s = (s + 1) & 0xFFF;
             r = (r + 1) & 0xFFF;
             if (--len) {
-                lzss_insert_ring_node((Lz_8013FDC4 *)lz, r);
+                lzss_insert_ring_node((Lz_8013FDC4 *)((Lz_8013F99C *)this), r);
             }
         }
     } while (len > 0);
     if (code_buf_ptr > 1) {
         s32 k;
         for (k = 0; k < code_buf_ptr; k++) {
-            PUT_8013F99C((u8 *)lz, code_buf[k]);
+            PUT_8013F99C((u8 *)((Lz_8013F99C *)this), code_buf[k]);
         }
-        lz->codesize += code_buf_ptr;
+        ((Lz_8013F99C *)this)->codesize += code_buf_ptr;
     }
     out[0] = size;
-    out[1] = lz->codesize;
+    out[1] = ((Lz_8013F99C *)this)->codesize;
     bswap_32__FPUl((u32 *)out);
     bswap_32__FPUl((u32 *)(out + 1));
-    lz->codesize += 8;
+    ((Lz_8013F99C *)this)->codesize += 8;
     t1 = TLobby__sub_803DF1CC();
-    sprintf(msg, lbl_8043F168, size, lz->codesize, fn_803DF204(TLobby::calc_delta(t0, t1)));
+    sprintf(msg, lbl_8043F168, size, ((Lz_8013F99C *)this)->codesize, fn_803DF204(TLobby::calc_delta(t0, t1)));
     debug_print__FPCc(msg);
-    return lz->codesize;
+    return ((Lz_8013F99C *)this)->codesize;
 }
 #pragma pop
 

@@ -163,7 +163,6 @@ void TParticleCtrl__sub_8008655C(void *, int);
 void *alloc_particle_memory(int);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
 void TParticleCtrl__sub_8008655C(void *, int);
@@ -357,11 +356,11 @@ u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 
     }
     return var_r0;
 }
-void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *TParticleCtrl::alloc_child_particle(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = alloc_particle_memory(0xe0);
     if (o != NULL) {
-        o = ((TUnk_8048E790 *)o)->init_random_particle((void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        o = ((TUnk_8048E790 *)o)->init_random_particle((void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
     return o;
 }

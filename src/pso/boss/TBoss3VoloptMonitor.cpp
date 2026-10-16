@@ -163,7 +163,7 @@ s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
 Fish_80042408 *get_bml_model(s32, s32);
 void TObjGyaranzoMissile__sub_80131488(void *);
-void load_texture_pvm_file__6TLobbyFPvi(void *, void *);
+void load_texture_pvm_file__6TLobbyFPCcl(void *, void *);
 extern u8 lbl_80436608[];
 extern s32 volopt_monitor_model_indices[];
 extern s32 lbl_804FEEC0[];
@@ -507,7 +507,7 @@ void TBoss3VoloptMonitor::load_resources() {
     (*(u8 * *)&volopt_monitor_texture_list) = (u8 *)volopt_monitor_texture_list_desc;
     (*(s32 *)&volopt_monitor_resource_ptr) = boss3_volopt_resources;
     TObjGyaranzoMissile__sub_80131488(volopt_monitor_texture_list_desc);
-    load_texture_pvm_file__6TLobbyFPvi(lbl_80436608, (*(u8 * *)&volopt_monitor_texture_list));
+    load_texture_pvm_file__6TLobbyFPCcl(lbl_80436608, (*(u8 * *)&volopt_monitor_texture_list));
     for (i = 0; i < 4; i++) {
         lbl_804FEEC0[i] = get_bml_model((*(s32 *)&volopt_monitor_resource_ptr), volopt_monitor_model_indices[8 + i])->f4;
     }

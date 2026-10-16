@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_804217E4_lbl_805C1C50 {
     s32 value;
@@ -244,7 +245,6 @@ extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
 extern u32 lbl_805D7B58;
 extern u32 lbl_805D7B60;
-s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0);
 u16 str_length__6TLobbyFl(void *);
 s32 NetMemset(void *, int, int);
 s32 NetMemcpy(void *, void *, int);
@@ -256,7 +256,6 @@ extern s32 lbl_805D7B28;
 extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
 extern u32 lbl_805D7B58;
-s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0);
 u16 str_length__6TLobbyFl(void *);
 s32 NetMemset(void *, int, int);
 s32 NetMemcpy(void *, void *, int);
@@ -267,7 +266,6 @@ extern s32 lbl_805D7B28;
 extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
 extern u32 lbl_805D7B60;
-s32 build_dhcp_release__6TLobbyFPv(u8 *arg0);
 s32 resume_thread__6TLobbyFv(s32);
 extern S_804220A0 *tcp_protocol_state[];
 s32 set_slot_state_and_resume__6TLobbyFv(s32 idx, void (*cb)(s16, s16), s16 arg2);
@@ -912,21 +910,21 @@ s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
     return r;
 }
 
-s32 build_dhcp_release__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::build_dhcp_release() {
     s32 m;
     u8 *p;
     u16 len;
-    NetMemset(arg0, 0, 0x5DC);
-    arg0[0] = 1;
-    arg0[1] = 1;
-    arg0[2] = 6;
-    arg0[3] = 0;
+    NetMemset(((u8 *)this), 0, 0x5DC);
+    ((u8 *)this)[0] = 1;
+    ((u8 *)this)[1] = 1;
+    ((u8 *)this)[2] = 6;
+    ((u8 *)this)[3] = 0;
     TLobby::get_time_ms((s32 *)(&lbl_805D7B60));
     lbl_805D7B50 = lbl_805D7B60;
-    NetMemcpy(arg0 + 4, &lbl_805D7B50, 4);
-    *(s32 *)(arg0 + 0xC) = lbl_805D7B28;
-    NetMemcpy(arg0 + 0x1C, lbl_805D7B1C, 6);
-    p = arg0 + 0xEC;
+    NetMemcpy(((u8 *)this) + 4, &lbl_805D7B50, 4);
+    *(s32 *)(((u8 *)this) + 0xC) = lbl_805D7B28;
+    NetMemcpy(((u8 *)this) + 0x1C, lbl_805D7B1C, 6);
+    p = ((u8 *)this) + 0xEC;
     *(s32 *)p = lbl_805D7B4C;
     p += 4;
     *p++ = 0x35;
@@ -950,26 +948,26 @@ s32 build_dhcp_release__6TLobbyFPv(u8 *arg0) {
         p += m;
     }
     *p++ = 0xFF;
-    return p - arg0;
+    return p - ((u8 *)this);
 }
 
-s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::dhcp_build_packet() {
     s32 m;
     u8 *p;
     u16 len;
     u32 tmp;
-    NetMemset(arg0, 0, 0x5DC);
-    arg0[0] = 1;
-    arg0[1] = 1;
-    arg0[2] = 6;
-    arg0[3] = 0;
-    NetMemcpy(arg0 + 4, &lbl_805D7B50, 4);
-    *(u16 *)(arg0 + 0xA) = 0;
+    NetMemset(((u8 *)this), 0, 0x5DC);
+    ((u8 *)this)[0] = 1;
+    ((u8 *)this)[1] = 1;
+    ((u8 *)this)[2] = 6;
+    ((u8 *)this)[3] = 0;
+    NetMemcpy(((u8 *)this) + 4, &lbl_805D7B50, 4);
+    *(u16 *)(((u8 *)this) + 0xA) = 0;
     if (lbl_805D4820 == 4 || lbl_805D4820 == 5) {
-        *(s32 *)(arg0 + 0xC) = lbl_805D7B28;
+        *(s32 *)(((u8 *)this) + 0xC) = lbl_805D7B28;
     }
-    NetMemcpy(arg0 + 0x1C, lbl_805D7B1C, 6);
-    p = arg0 + 0xEC;
+    NetMemcpy(((u8 *)this) + 0x1C, lbl_805D7B1C, 6);
+    p = ((u8 *)this) + 0xEC;
     *(s32 *)p = (*(s32 *)&lbl_805D7B4C);
     p += 4;
     *p++ = 0x35;
@@ -1015,25 +1013,25 @@ s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
         p += m;
     }
     *p++ = 0xFF;
-    return p - arg0;
+    return p - ((u8 *)this);
 }
 
-s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
+s32 TLobby::build_dhcp_discover_packet() {
     u32 spC;
     u8 *p;
     u16 len;
     s32 n;
-    NetMemset(arg0, 0, 0x5DC);
-    arg0[0] = 1;
-    arg0[1] = 1;
-    arg0[2] = 6;
-    arg0[3] = 0;
+    NetMemset(((u8 *)this), 0, 0x5DC);
+    ((u8 *)this)[0] = 1;
+    ((u8 *)this)[1] = 1;
+    ((u8 *)this)[2] = 6;
+    ((u8 *)this)[3] = 0;
     TLobby::get_time_ms((s32 *)(&lbl_805D7B60));
     lbl_805D7B50 = lbl_805D7B60;
-    NetMemcpy(arg0 + 4, &lbl_805D7B50, 4);
-    *(s16 *)(arg0 + 0xA) = 0;
-    NetMemcpy(arg0 + 0x1C, lbl_805D7B1C, 6);
-    p = arg0 + 0xEC;
+    NetMemcpy(((u8 *)this) + 4, &lbl_805D7B50, 4);
+    *(s16 *)(((u8 *)this) + 0xA) = 0;
+    NetMemcpy(((u8 *)this) + 0x1C, lbl_805D7B1C, 6);
+    p = ((u8 *)this) + 0xEC;
     *(u32 *)p = lbl_805D7B4C;
     p += 4;
     *p++ = 0x35;
@@ -1067,7 +1065,7 @@ s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
         p += n;
     }
     *p++ = 0xFF;
-    return p - arg0;
+    return p - ((u8 *)this);
 }
 
 s32 TLobby__sub_8042455C(void *a) {

@@ -104,11 +104,11 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
 s32 get_attack_stage__11TItemWeaponFv();
 void construct_srank_weapon(void *);
-s32 create_item_eff_cane__10TObjPlayerFiUiii(s32, s32, s32, s32);
+s32 create_item_eff_cane__10TObjPlayerFP5TItemll(s32, s32, s32, s32);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
-void set_status_flags__10TObjPlayerFPvUi(void *, int);
+void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TObjPlayer::set_pause_flag_from_state() {
     if (get_attack_stage__11TItemWeaponFv() == 2) {
@@ -122,7 +122,7 @@ extern s32 tl_05;
 
 void TObjPlayer::create_cane_if_ready(s32 arg0, void *position) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, -1, 0x1BD);
+        create_item_eff_cane__10TObjPlayerFP5TItemll(tl_05, arg0, -1, 0x1BD);
     }
 }
 
@@ -179,7 +179,7 @@ void TUnk_804F27E0::reserved_53() {
 void *TUnk_804F27E0::enter_state_804F27E0(s32 _w1, void *_w2) {
     construct_srank_weapon(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F27E0;
-    set_status_flags__10TObjPlayerFPvUi(this, 3);
+    set_status_flags__10TObjPlayerFUl(this, 3);
     *(u32 *)&(*(s32 *)((u8 *)this + 0x1FC)) = 0;
     return this;
 }

@@ -50,6 +50,11 @@ struct TObjEneMe3SinowZoa : public TObjEneDD_ST {
     s32 check_floor_contact(void *arg1);
     void check_and_notify();
     static void set_entry_value_clamped(s32 arg0, f32 farg0);
-    static void free_resources();};
+    static void free_resources();
+    s32 advance_timer(f32 farg0);
+    void copy_position_vector(void* q);
+    void set_field_10(f32 v);
+    void init_death_params();
+};
 
 #endif

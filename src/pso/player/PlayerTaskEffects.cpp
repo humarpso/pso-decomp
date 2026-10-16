@@ -318,7 +318,6 @@ extern s32 __vt__18TPlayerLobbyMarker[];
 #undef TObjPlayer__sub_801C6FCC
 
 extern "C" {
-void new_child_object__10TObjPlayerFi(s32 arg0);
 }
 
 extern "C" {
@@ -976,7 +975,7 @@ void TPlayerSoul::run_task() {
 }
 
 extern "C" {
-void new_child_object__10TObjPlayerFi(s32 arg0) {
+void TObjPlayer::new_child_object(s32 arg0) {
     void* obj = __nw__7TObjectFUl(0x24);
     if (obj != 0) {
         ((void *(*)(void *, s32, s32)) __ct__20TPlayerLevelFeedbackFP7TObjectUs)(obj, tl_07, arg0);

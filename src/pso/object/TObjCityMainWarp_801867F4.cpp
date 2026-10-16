@@ -24,7 +24,6 @@ extern RecoveredGlobal_80186AF4_lbl_804FF800 lobby_name_string_buffer;
 s32 *TObjCityMainWarp__sub_80186AF4(void);
 extern const Bits_80186A3C city_main_warp_floor_bit_table;
 s32 is_warp_excluded_area(s32);
-s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor);
 s32 is_split_screen();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_warp_flags_from_story__16TObjCityMainWarpFv();
@@ -123,13 +122,13 @@ void update_main_warp_visible_mask(s32 arg0) {
 void TObjCityMainWarp::set_active_bit(s32 _w0) {
     s32 temp_r3;
 
-    temp_r3 = get_floor_warp_bit__16TObjCityMainWarpFi((s32)(_w0));
+    temp_r3 = TObjCityMainWarp::get_floor_warp_bit((s32)(_w0));
     if (temp_r3 >= 0) {
         TObjCityMainWarp__enabled_destinations |= 1 << temp_r3;
     }
 }
 
-s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor) {
+s32 TObjCityMainWarp::get_floor_warp_bit(s32 floor) {
     s32 bit = -1;
     Bits_80186A3C bits = city_main_warp_floor_bit_table;
     if (is_warp_excluded_area(TLobby::get_player_floor(floor)) == 0) {

@@ -19,7 +19,7 @@ s32 TObjFogCollision__sub_80153F70(void *self);
 s32 TObjFogCollision__sub_80153F68(void *self);
 void run_task__22TObjFogCollisionPoisonFv(void *self);
 s32 is_split_screen();
-s32 init_base__22TObjFogCollisionPoisonFPvPvs(void *, void *, u16);
+s32 init_base__22TObjFogCollisionPoisonFPUcs(void *, void *, u16);
 s32 TObjFogCollisionSwitch__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 extern s32 __vt__22TObjFogCollisionPoison[];
@@ -110,13 +110,13 @@ void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2) {
         for (i = 0; i != 4; i++) {
             o = __nw__7TObjectFUl(0x2C);
             if (o != NULL) {
-                init_base__22TObjFogCollisionPoisonFPvPvs(o, arg0, i);
+                init_base__22TObjFogCollisionPoisonFPUcs(o, arg0, i);
             }
         }
     } else {
         o = __nw__7TObjectFUl(0x2C);
         if (o != NULL) {
-            init_base__22TObjFogCollisionPoisonFPvPvs(o, arg0, local_client_id);
+            init_base__22TObjFogCollisionPoisonFPUcs(o, arg0, local_client_id);
         }
     }
     return arg0;

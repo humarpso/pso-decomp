@@ -99,7 +99,6 @@ s32 create_oneshot_particle_emitter(void *, void *, int, int);
 s32 get_item_system_generation(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049F148[];
-u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 void disallow_rendering__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8010A5E0___vt__14TItemEffShield __vt__14TItemEffShield;
@@ -133,14 +132,14 @@ void *__dt__14TItemEffShieldFPvs(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8010A404_lbl_8049F148_size[sizeof(RecoveredGlobal_8010A404_lbl_8049F148) == 0x18 ? 1 : -1];
-u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8010A404_lbl_8049F148 *)&lbl_8049F148).value;
-    *(s16 *)((s8 *)arg0 + 0x24) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x20) = -1;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = get_item_system_generation();
-    return arg0;
+u8 *TItemEffShield::ct_init(u8 *arg1, s16 arg2) {
+    __ct__7TObjectFP7TObject(((u8 *)this), arg1);
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8010A404_lbl_8049F148 *)&lbl_8049F148).value;
+    *(s16 *)((s8 *)((u8 *)this) + 0x24) = arg2;
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = -1;
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x28) = get_item_system_generation();
+    return ((u8 *)this);
 }
 
 void TItemEffShield::spawn_recipe_particles() {

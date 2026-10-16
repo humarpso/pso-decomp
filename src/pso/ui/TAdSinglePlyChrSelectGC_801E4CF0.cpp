@@ -5,7 +5,7 @@
 
 extern "C" {
 
-s32 pso_load_texture__6TLobbyFPv(void *);
+s32 pso_load_texture__6TLobbyFv(void *);
 s32 TLobby__sub_803DA16C(s32);
 s32 set_texture_name(void *, void *, int, int);
 s32 __dl__FPv(void *);
@@ -52,7 +52,7 @@ void TAdSinglePlyChrSelectGC::init_image_buffer(u8 *arg1, s32 arg2) {
     *(s32 *)((s8 *)(*(void * *)&this->m_3c) + 4) = 1;
     ((TObjPlayer *)(arg0 + 0x18))->set_render_rect((int) (this->m_44 + 0x20), (int) (5), (int) (*(s32 *)&this->m_flags), (int) (*(s32 *)&this->m_name));
     set_texture_name((void *) (arg0 + 0xC), (void *) (arg0 + 0x18), (int) (*(s32 *)&this->m_prev), (int) (0x40800000));
-    pso_load_texture__6TLobbyFPv((void *) (*(void * *)&this->m_3c));
+    pso_load_texture__6TLobbyFv((void *) (*(void * *)&this->m_3c));
 }
 
 }

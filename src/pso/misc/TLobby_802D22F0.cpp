@@ -16,7 +16,7 @@ void TLobby__sub_802D2358(E_802D2358 *p);
 extern "C" {
 
 void TLobby__sub_802D22F0(void* p, void* q);
-int byteswap_trade_packet__6TLobbyFPv(void);
+int byteswap_trade_packet__6TLobbyFv(void);
 
 void TLobby__sub_802D22F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void*TLobby::get_trade_obj_ptr() { return (char*)this + 0xf0; }
@@ -47,6 +47,6 @@ void TLobby__sub_802D2358(E_802D2358 *p) {
     }
 }
 
-void TLobby::prepare_trade_packet() { *(short*)((char*)this + 0x2) = local_client_id; byteswap_trade_packet__6TLobbyFPv(); }
+void TLobby::prepare_trade_packet() { *(short*)((char*)this + 0x2) = local_client_id; byteswap_trade_packet__6TLobbyFv(); }
 
 }

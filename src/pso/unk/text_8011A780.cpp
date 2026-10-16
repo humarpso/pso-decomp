@@ -59,15 +59,15 @@ void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 s32 bswap_6xa2_fields__6TLobbyFv();
 s32 handle_box_drop_directive(void *);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
-s32 copy_item_data__6TLobbyFPvPv(void *, void *);
-s32 insert_sorted_entry__6TLobbyFPv(void *);
+s32 copy_item_data__6TLobbyFPv(void *, void *);
+s32 insert_sorted_entry__6TLobbyFv(void *);
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
 extern s32 item_sync_counter_table;
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
 void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
 void *find_item_condition_entry__6TLobbyFii(s16 a, u32 b);
-void init_6x59_packet__6TLobbyFPv(Cmd_8011A9D8 *cmd);
-void send_pick_up_item__6TLobbyFi(Cmd_8011A9D8 *cmd);
+void init_6x59_packet__6TLobbyFv(Cmd_8011A9D8 *cmd);
+void send_pick_up_item__6TLobbyFv(Cmd_8011A9D8 *cmd);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
@@ -76,12 +76,12 @@ s32 is_quest_active();
 extern s32 build_item_id_mode;
 u32 build_item_id(u16 arg0);
 u32 build_item_id(u16 arg0);
-s32 copy_item_data__6TLobbyFPvPv(void *, void *);
+s32 copy_item_data__6TLobbyFPv(void *, void *);
 void init__9TItemDataFv(void *);
 void normalize__9TItemDataFv(void *p);
 extern Source_8011AA68 *TLobby__data_805D6140;
 u32 build_item_id(u16 arg0);
-s32 copy_item_data__6TLobbyFPvPv(void *, void *);
+s32 copy_item_data__6TLobbyFPv(void *, void *);
 void apply_by_index__9TObjEnemyFs(s16, void *);
 void init__9TItemDataFv(void *);
 void drop_item_from_slot__10TObjPlayerFlll(s8 arg0, s32 arg1, s32 arg2);
@@ -144,12 +144,12 @@ void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
     bswap_pick_up_item_request__6TLobbyFi(msg);
     if (find_item_condition_entry__6TLobbyFii(msg->s8, msg->u4) != 0) {
         Cmd_8011A9D8 cmd;
-        init_6x59_packet__6TLobbyFPv(&cmd);
+        init_6x59_packet__6TLobbyFv(&cmd);
         cmd.a = msg->u2;
         cmd.b = msg->u2;
         cmd.c = msg->s8;
         cmd.d = msg->u4;
-        send_pick_up_item__6TLobbyFi(&cmd);
+        send_pick_up_item__6TLobbyFv(&cmd);
     }
 }
 
@@ -179,7 +179,7 @@ void TLobby::drop_item_from_source(s16 source, int client, s16 room, int slot, f
                 delivery.x = x;
                 delivery.z = z;
                 delivery.room = room;
-                copy_item_data__6TLobbyFPvPv(delivery.item, &item);
+                copy_item_data__6TLobbyFPv(delivery.item, &item);
                 ((TLobby *)(&delivery))->send_item_packet();
             }
         }
@@ -207,7 +207,7 @@ void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int s
                 delivery.source = source;
                 delivery.x = x;
                 delivery.z = z;
-                copy_item_data__6TLobbyFPvPv(delivery.item, &item);
+                copy_item_data__6TLobbyFPv(delivery.item, &item);
                 delivery.room = room;
                 ((TLobby *)(&delivery))->send_item_packet();
             }
@@ -291,9 +291,9 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     stack.spC = farg0;
     stack.sp10 = farg1;
     stack.sp14 = arg1;
-    copy_item_data__6TLobbyFPvPv((void *) (&stack.sp18), (void *) (arg2));
+    copy_item_data__6TLobbyFPv((void *) (&stack.sp18), (void *) (arg2));
     ((TLobby *)(*(s32 *)((s8 *)arg2 + 0xC)))->observe_item_id();
-    insert_sorted_entry__6TLobbyFPv((void *) (&stack.sp8));
+    insert_sorted_entry__6TLobbyFv((void *) (&stack.sp8));
 }
 
 void handle_6x62(void) {  }

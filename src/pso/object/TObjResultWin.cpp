@@ -11,7 +11,7 @@
 struct ControllerInputStateResultWin { s32 value; u8 remaining[0x1AC]; };
 extern "C" {
 char* TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(int);
 int sprintf(char*, const char*, ...);
 int strncmp(const char*, const char*, unsigned long);
 char* strncat(char*, const char*, unsigned long);
@@ -98,7 +98,7 @@ void TObjResultWin::build_result_text() {
         strncat(m_text, tmp, 0x30);
     }
     strncat(m_text, challenge_result_newline, 2);
-    if (resolve_player_slot__20TWindowSubStatusDispFi(-1) == 0) {
+    if (resolve_player_slot__20TWindowSubStatusDispFl(-1) == 0) {
         n = TQuestVmDownLoadServer__sub_8006EF6C(0x57);
         if (m_result.previous.award_name[0] == 0 || strncmp(m_result.previous.award_name, m_result.current.award_name, 0xC) == 0) {
             sprintf(tmp, challenge_result_value_format, n, m_result.current.award_name);

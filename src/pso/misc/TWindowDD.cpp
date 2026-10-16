@@ -23,7 +23,7 @@ extern const f32 lbl_805DFC3C;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, void *);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
-s32 apply_choice__20TWindowChoiceSettingFiiii(void *, void *, int, int);
+s32 apply_choice__20TWindowChoiceSettingFllll(void *, void *, int, int);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
 extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC00;
@@ -110,7 +110,7 @@ typedef char RecoveredGlobal_80340508_lbl_8050E208_size[((sizeof(RecoveredGlobal
 typedef struct RecoveredGlobal_803404A4_lbl_8050E208 RecoveredGlobal_803404A4_lbl_8050E208;
 typedef char RecoveredGlobal_803404A4_lbl_8050E208_size[((sizeof(RecoveredGlobal_803404A4_lbl_8050E208)) == 0x1B0) ? (1) : (-1)];
 s32 TWindowDD::apply_both_choices(s32 arg0, s32 arg1) {
-  return apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x20), (void *) arg1, (int) 6, (int) 1) | apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x160), (void *) arg1, (int) 6, (int) 1);
+  return apply_choice__20TWindowChoiceSettingFllll((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x20), (void *) arg1, (int) 6, (int) 1) | apply_choice__20TWindowChoiceSettingFllll((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x160), (void *) arg1, (int) 6, (int) 1);
 }
 #pragma pop
 
@@ -211,11 +211,11 @@ void *TWindowDD__sub_8034094C(void *arg0, s16 arg1) {
 }
 
 struct W_803409A4 { u8 pad0[0x18]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; s32 f60; s32 f64; s32 f68; };
-void *construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
+void *construct_base__9TWindowDDFPUcsPUc(void *, void *, int, void *);
 
 #define arg0 ((W_803409A4 *)arg0v)
 void *TWindowDD::construct_variant_a(void *arg0v) {
-    construct_base__9TWindowDDFPvPvsPv(arg0, TWindowDD__layout_constants, 4, TWindowDD__layout_constant_pair);
+    construct_base__9TWindowDDFPUcsPUc(arg0, TWindowDD__layout_constants, 4, TWindowDD__layout_constant_pair);
     arg0->p18 = lbl_804EFBAC;
     arg0->f60 = 1;
     arg0->f64 = 2;

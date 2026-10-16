@@ -193,7 +193,6 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void TTecLuker__sub_80234F68(void* p);
 extern RecoveredGlobal_80233D18_lbl_804CC9A8 telepipe_field_collision_body_template;
 extern s32 telepipe_field_collider_vtable[];
-u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 bool TTecLuker__sub_8023401C(u8 *arg0);
 extern u32 recovery_technique_charge_particle_ids[];
 void* spawn_particle_effect(float*,u32);
@@ -226,7 +225,6 @@ void *__nw__7TObjectFUl(int);
 s32 obj_getField1c(void *);
 s32 get_stat_by_key_state__13TUnk_804B9870Fv(void *);
 s32 get_current_floor(void);
-u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 extern s32 tl_07;
 extern s32 tl_05;
@@ -288,7 +286,7 @@ extern u8 TTecLuker__visit_counts[4];
 extern const f32 lbl_805DC858;
 void run_task__9TTecLukerFv(u8 *arg0);
 s32 is_split_screen();
-s32 enable__13TParticleCtrlFPv(u32);
+s32 enable__13TParticleCtrlFv(u32);
 f32 horizontal_distance_squared(void *, void *);
 u32 get_player_by_client_id(s32);
 void TTecLuker__sub_8023503C(void* p);
@@ -405,17 +403,17 @@ void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
-u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (void *) (arg2));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg1));
-    init_collision_body_parts((void *) (arg0), (void *) (&telepipe_field_collision_body_template.value), (int) (1));
-    obj_setFlags30((void *) (arg0), (int) (0x40000000));
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    TTecLuker__sub_80234F68((void*)((void *) (arg0 + 0x98)));
-    *(s32 *)((s8 *)arg0 + 0xB0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xAC) = arg3;
-    return arg0;
+u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 arg3) {
+    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (((u8 *)this)), (void *) (arg2));
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), (void *) (arg1));
+    init_collision_body_parts((void *) (((u8 *)this)), (void *) (&telepipe_field_collision_body_template.value), (int) (1));
+    obj_setFlags30((void *) (((u8 *)this)), (int) (0x40000000));
+    ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
+    TTecLuker__sub_80234F68((void*)((void *) (((u8 *)this) + 0x98)));
+    *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0xAC) = arg3;
+    return ((u8 *)this);
 }
 
 void TTecLuker::apply_all_players() {
@@ -623,7 +621,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
       {
         if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
         {
-          enable__13TParticleCtrlFPv(self->kids[i]);
+          enable__13TParticleCtrlFv(self->kids[i]);
           if (self->f28 != 0)
           {
             TTecLuker__sub_80235048((void*)(self->f28));
@@ -651,7 +649,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
     {
       if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
       {
-        enable__13TParticleCtrlFPv(self->kids[i]);
+        enable__13TParticleCtrlFv(self->kids[i]);
         if (self->f28 != 0)
         {
           TTecLuker__sub_80235048((void*)(self->f28));
@@ -803,7 +801,7 @@ void TTecLuker::setup_telepipe_field() {
     } else {
         u8 *c = (u8 *)__nw__7TObjectFUl(0xb4);
         if (c != 0) {
-            c = construct_field_collider__9TTecLukerFPviii(c, (s32)&s->pos, tl_05, 0);
+            c = ((TTecLuker *)c)->construct_field_collider((s32)&s->pos, tl_05, 0);
         }
         s->collider = c;
     }

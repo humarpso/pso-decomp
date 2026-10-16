@@ -388,7 +388,7 @@ struct M_80298450 { u8 pad[0x38]; f32 f38; };
 f32 fabs_float(f32);
 s32 queue_destruction__7TObjectFv(void *);
 void copy_player_visual_record(void *, void *);
-void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
+void draw_strip_swap_color__15TWindowCtrlMainFllf(void *, int, int, f32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 __dl__7TObjectFPv(void *);
@@ -1765,7 +1765,7 @@ void TObjCMMainMenu::draw_footer_divider() {
         }
         prim.colors = cols;
         prim.pts = q->p;
-        draw_strip_swap_color__15TWindowCtrlMainFPviif(&prim, 4, 6, lbl_805DDB90);
+        draw_strip_swap_color__15TWindowCtrlMainFllf(&prim, 4, 6, lbl_805DDB90);
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TSceneSora.h"
 #include "pso/misc/TUnk_804DC7C4.h"
 
 #include <stddef.h>
@@ -121,12 +122,9 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
 };
 
 extern "C" {
-s32 get_state__10TSceneSoraFPv(void* p);
 extern s32 lbl_805D65F0;
-void set_scene_flag__10TSceneSoraFi(int a0);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 sora_reflection_ray_direction;
-void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -199,9 +197,9 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDD8C;
     return arg0;
 }
-s32 get_state__10TSceneSoraFPv(void* p) { return *(s32*)((char*)p + 0x20); }
-void set_scene_flag__10TSceneSoraFi(int a0) { (*(int *)&lbl_805D65F0) = a0; }
-void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0) {
+s32 TSceneSora::get_state() { return *(s32*)((char*)this + 0x20); }
+void TSceneSora::set_scene_flag(int a0) { (*(int *)&lbl_805D65F0) = a0; }
+void TSceneSora::copy_reflection_vec(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *)(&sora_reflection_ray_direction.value), (int)(arg0));
 }
 

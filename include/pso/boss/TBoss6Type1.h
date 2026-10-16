@@ -156,7 +156,17 @@ struct TBoss6Type1 : public TObjEnemy {
     void spawn_map_csn();
     static void *create_zanzo(void *arg0, void *arg1, void *arg2);
     static void *create_grav_ball(void *arg0, void *arg1);
-    void set_effect_points(f32 *a, u32 *b);};
+    void set_effect_points(f32 *a, u32 *b);
+    void spawn_grav_ball();
+    void damage_players_in_range();
+    void update_beam_attack();
+    void init_charge_attack();
+    void reset_effects();
+    void init_charge();
+    void update_hit_timer();
+    void init_state();
+    void tick_trap_countdown();
+};
 typedef char Boss6EffectPoint_size[(sizeof(Boss6EffectPoint)==0xC)?1:-1];
 typedef char TBoss6Type1_receiver_offset[(offsetof(TBoss6Type1,effect_point_receiver)==0x404)?1:-1];
 typedef char TBoss6Type1_points_offset[(offsetof(TBoss6Type1,effect_points)==0x638)?1:-1];

@@ -40,7 +40,7 @@ void *destroy_item_follow_effect(void *arg0, s16 arg1);
 s32 find_item_by_id(s32);
 u32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
-s32 enable__13TParticleCtrlFPv(u32);
+s32 enable__13TParticleCtrlFv(u32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 obj_testFlags30(s32, s32);
@@ -68,10 +68,10 @@ void TUnk_804A2660::run_task() {
                 if ((((TItemMag *)var_r30)->get_flag_40() == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
                     ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x24)))->clear_active_flag();
                 } else {
-                    enable__13TParticleCtrlFPv(*(u32 *)((s8 *)this + 0x24));
+                    enable__13TParticleCtrlFv(*(u32 *)((s8 *)this + 0x24));
                 }
             } else {
-                enable__13TParticleCtrlFPv(*(u32 *)((s8 *)this + 0x24));
+                enable__13TParticleCtrlFv(*(u32 *)((s8 *)this + 0x24));
             }
         }
     }

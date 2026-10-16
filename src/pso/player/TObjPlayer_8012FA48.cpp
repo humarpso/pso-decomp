@@ -4,7 +4,7 @@
 extern "C" {
 
 void TItemWeapon__ct(void *);
-void set_status_flags__10TObjPlayerFPvUi(void *, int);
+void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804A65E0[];
 
@@ -13,7 +13,7 @@ void *TObjPlayer::initialize_effect_object() {
     *(s32 **)((s8 *)this + 0x18) = lbl_804A65E0;
     ((TObjPlayer *)((char *)this + 516))->construct_target_cursor_records();
     ((TObjPlayer *)((char *)this + 376))->set_flags(32);
-    set_status_flags__10TObjPlayerFPvUi(this, 34);
+    set_status_flags__10TObjPlayerFUl(this, 34);
     set_effect_state(5);
     return this;
 }

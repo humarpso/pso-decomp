@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcMoja.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcNFM00.h"
@@ -108,7 +109,6 @@ extern char lbl_8043FD34[];
 extern "C" {
 
 void * TObjNpcNFM00__create(void *arg0);
-void * create__11TObjNpcMojaFPv(void *arg0);
 void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
@@ -251,7 +251,7 @@ extern u8 *lbl_805D50D8;
 
 extern void *tl_04;
 
-void * create__11TObjNpcMojaFPv(void *arg0) {
+void *TObjNpcMoja::create(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

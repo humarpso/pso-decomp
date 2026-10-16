@@ -156,6 +156,21 @@ struct TCameraCtrl : public TObject {
     f32 m_1c8;
     u8 unk_1CC[0x4];
     f32 m_1d0;
+    static void update();
+    static void reset_view_state();
+    static void select_active_controller(s8 arg0);
+    static void calc_axes_from_angles(s32 arg0, s32 arg1, s32 arg2);
+    static int get_instance();
+    static int get_camera_id();
+    static void set_target_coords(int a0, int a1);
+    int reset_battle_camera();
+    u8 *init_conversation_camera(s32 arg1, s32 arg2, s32 arg3);
+    static s32 clamp_distance(s32 arg0, s32 arg1, s32 arg2);
+    static void free_entries();
+    static void load_camera_banks();
+    void update_debug_camera();
+    void update_follow_motion_state();
+    static s32 init_projection_state();
 };
 
 typedef char TCameraCtrl_size[sizeof(TCameraCtrl) == 0x1D4 ? 1 : -1];

@@ -3,10 +3,10 @@
 
 extern "C" {
 
-s32 transform_vertex_list__23TAdSinglePlyChrSelectGCFPv();
+s32 transform_vertex_list__23TAdSinglePlyChrSelectGCFv();
 
 void TAdSinglePlyChrSelectGC::advance_field28() {
-    transform_vertex_list__23TAdSinglePlyChrSelectGCFPv();
+    transform_vertex_list__23TAdSinglePlyChrSelectGCFv();
     *(s32 *)&this->m_28 = (s32) (*(s32 *)&this->m_28 + 0x444);
 }
 

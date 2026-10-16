@@ -31,7 +31,7 @@ extern const f32 lbl_805DD144;
 void get_lobby_field_20__15TWindowMakeTeamFv(void *, f32);
 void update_chat_window(void *);
 void get_keyboard_field_6c__15TWindowMakeTeamFv(void *, char *);
-void set_entry_string_by_id__15TWindowMakeTeamFPvPvi(void *, char *, s32);
+void set_entry_string_by_id__15TWindowMakeTeamFPvl(void *, char *, s32);
 void mem_free(void *);
 char *realloc_buffer__17TWindowSubComCardFv(void *);
 char *get_shared_text_buffer(void);
@@ -96,12 +96,12 @@ void TWindowMakeTeam::run_task() {
         get_lobby_field_20__15TWindowMakeTeamFv(self->keyboard, lbl_805DD144);
         update_chat_window(self->keyboard);
         get_keyboard_field_6c__15TWindowMakeTeamFv(self->keyboard, self->name);
-        set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, NULL, 0);
+        set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, NULL, 0);
         self->state = 4;
     }
     case 4:
         if (((TWindowSubComCard *)(self->keyboard))->is_keyboard_active() != 0) {
-            set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, self->name, 0);
+            set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, self->name, 0);
             self->state = 1;
         }
         if (((TWindowSubComCard *)(self->keyboard))->update_keyboard() != 0) {
@@ -111,7 +111,7 @@ void TWindowMakeTeam::run_task() {
             TWindowSubComCard__sub_80225E80(self->name, get_shared_text_buffer());
             n = measure_string_len__20TWindowSubStatusDispFv(self->name);
             strncpy(self->name, get_shared_text_buffer(), n);
-            set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, self->name, 0);
+            set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, self->name, 0);
             self->state = 1;
         }
         break;
@@ -124,12 +124,12 @@ void TWindowMakeTeam::run_task() {
         ((TWindowMakeTeam *)(self->keyboard))->set_sub_position((u8 *)(get_window_layout_position(0xCC)));
         get_lobby_field_20__15TWindowMakeTeamFv(self->keyboard, lbl_805DD144);
         get_keyboard_field_6c__15TWindowMakeTeamFv(self->keyboard, self->comment);
-        set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, NULL, 1);
+        set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, NULL, 1);
         self->state = 6;
     }
     case 6:
         if (((TWindowSubComCard *)(self->keyboard))->is_keyboard_active() != 0) {
-            set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, self->comment, 1);
+            set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, self->comment, 1);
             self->state = 1;
         }
         if (((TWindowSubComCard *)(self->keyboard))->update_keyboard() != 0) {
@@ -139,7 +139,7 @@ void TWindowMakeTeam::run_task() {
             TWindowSubComCard__sub_80225E80(self->comment, get_shared_text_buffer());
             n = measure_string_len__20TWindowSubStatusDispFv(self->comment);
             strncpy(self->comment, get_shared_text_buffer(), n);
-            set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, self->comment, 1);
+            set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, self->comment, 1);
             self->state = 1;
         }
         break;
@@ -151,7 +151,7 @@ void TWindowMakeTeam::run_task() {
             self->state = 1;
         } else if (((TWindowMenu *)(self->window))->is_visible() != 0) {
             self->sel1E = get_selected_menu_value(self->window);
-            set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, draw_entry_0x110__15TWindowMakeTeamFSc(self->sel1E), 2);
+            set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, draw_entry_0x110__15TWindowMakeTeamFSc(self->sel1E), 2);
             ((TWindowMakeTeam *)self)->send_state();
             self->state = 1;
         }
@@ -164,7 +164,7 @@ void TWindowMakeTeam::run_task() {
             self->state = 1;
         } else if (((TWindowMenu *)(self->window))->is_visible() != 0) {
             self->sel1F = get_selected_menu_value(self->window);
-            set_entry_string_by_id__15TWindowMakeTeamFPvPvi(self->menu, init_status_disp__15TWindowMakeTeamFc(self->sel1F), 3);
+            set_entry_string_by_id__15TWindowMakeTeamFPvl(self->menu, init_status_disp__15TWindowMakeTeamFc(self->sel1F), 3);
             self->state = 1;
         }
         break;

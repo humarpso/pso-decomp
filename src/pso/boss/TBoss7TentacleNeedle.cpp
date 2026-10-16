@@ -11,7 +11,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-s32 emit_hit_effect__18TBoss7PhotonBulletFPvPv(u32, void *);
+s32 emit_hit_effect__18TBoss7PhotonBulletFPv(u32, void *);
 s32 TBoss7Tentacle__sub_802F0608(void *, f32);
 void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
@@ -519,7 +519,7 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
                 {
                     u32 st = TBoss7Joint::get_state();
                     if (st != 0U) {
-                        emit_hit_effect__18TBoss7PhotonBulletFPvPv(st, &p);
+                        emit_hit_effect__18TBoss7PhotonBulletFPv(st, &p);
                     }
                 }
                 play_sound_effect(0x3A809, &p, 0, 0);

@@ -18,14 +18,14 @@ struct Sel_802DC118 { u8 pad[0x64]; u32 win; };
 extern "C" {
 s32 get_localized_text_entry(int, int);
 s32 set_status_flag_80__12TQuestThreadFPv(int);
-s32 calc_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 calc_layout_height__17TWindowSubComCardFf(int, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 extern const f32 lbl_805DE890;
 s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1);
 s32 get_localized_text_entry(int, int);
 s32 set_status_flag_80__12TQuestThreadFPv(int);
-s32 calc_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 calc_layout_height__17TWindowSubComCardFf(int, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 extern const f32 lbl_805DE890;
@@ -114,7 +114,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1) {
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_localized_text_entry((int) 0x1F, (int) 7), (int) 0x21, (int) 0);
   ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
   set_status_flag_80__12TQuestThreadFPv((int) temp_r31);
-  calc_layout_height__17TWindowSubComCardFPvf((int) temp_r31, (f32) lbl_805DE890);
+  calc_layout_height__17TWindowSubComCardFf((int) temp_r31, (f32) lbl_805DE890);
   return temp_r31;
 }
 
@@ -124,7 +124,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1) {
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_localized_text_entry((int) 0x1F, (int) 6), (int) 0x21, (int) 0);
   ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
   set_status_flag_80__12TQuestThreadFPv((int) temp_r31);
-  calc_layout_height__17TWindowSubComCardFPvf((int) temp_r31, (f32) lbl_805DE890);
+  calc_layout_height__17TWindowSubComCardFf((int) temp_r31, (f32) lbl_805DE890);
   return temp_r31;
 }
 

@@ -4,7 +4,7 @@ extern "C" {
 
 s32 set_action_provider_variant__10TObjPlayerFPvs(void *, int);
 s16 TObjPlayer__sub_801C2114();
-s32 draw__10TObjPlayerFPv(void *);
+s32 draw__10TObjPlayerFv(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 
 #include "types.h"
@@ -18,7 +18,7 @@ void TObjPlayer::update_input_and_draw() {
         set_action_provider_variant__10TObjPlayerFPvs((void *) (arg0), (int) (TObjPlayer__sub_801C2114()));
     }
     ((TObjPlayer *)arg0)->init_idle_animation();
-    draw__10TObjPlayerFPv((void *) (arg0));
+    draw__10TObjPlayerFv((void *) (arg0));
     ((TObjPlayer *)arg0)->update_action_animation();
 }
 

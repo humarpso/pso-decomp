@@ -180,7 +180,6 @@ void read_disc_file(void *, void *);
 s32 TFogCtrl__sub_800FAC84(void* p);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
 s32 apply_fog_entry(void *arg0);
-s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
 u8 * __dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
@@ -232,7 +231,7 @@ s32 TFogCtrl::select_fog_for_viewport(s32 arg0, s32 arg1, s32 arg2) {
         arg0 = 0;
     }
     if ((arg0 >= 0) && (arg0 < 4) && ((u32) TFogCtrl__fog_instance_table[arg0] != 0U)) {
-        return ((s32)select_fog__8TFogCtrlFPvii((u8 *)((s32)(TFogCtrl__fog_instance_table[arg0])), (s32)((s32)(arg1)), (s32)((s32)(arg2))));
+        return ((s32)((TFogCtrl *)(TFogCtrl__fog_instance_table[arg0]))->select_fog((s32)((s32)(arg1)), (s32)((s32)(arg2))));
     }
     return 0;
 }
@@ -419,16 +418,16 @@ s32 TFogCtrl::restore_fog(s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    struct Ctrl_800FAFE0 *self = (struct Ctrl_800FAFE0 *)arg0;
-    if (((TFogCtrl *)arg0)->get_param() != 0) {
+s32 TFogCtrl::select_fog(s32 arg1, s32 arg2) {
+    struct Ctrl_800FAFE0 *self = (struct Ctrl_800FAFE0 *)((u8 *)this);
+    if (((TFogCtrl *)((u8 *)this))->get_param() != 0) {
         return 0;
     }
     if (self->slots[self->selected]->identity == arg1) {
         return 1;
     }
-    ((TFogCtrl *)arg0)->load_entry_into_slot(2, arg1);
-    ((TFogCtrl *)arg0)->request_transition(1, arg2);
+    ((TFogCtrl *)((u8 *)this))->load_entry_into_slot(2, arg1);
+    ((TFogCtrl *)((u8 *)this))->request_transition(1, arg2);
     return 1;
 }
 #pragma pop

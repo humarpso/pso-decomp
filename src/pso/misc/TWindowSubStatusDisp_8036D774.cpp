@@ -19,7 +19,7 @@ s32 set_depth_buffer_settings_2__Fv();
 s32 restore_saved_depth_alpha_state();
 extern s32 TBGMulti__textures;
 extern s32 split_screen_hud_animation_frame;
-void draw_strip_swap_color__15TWindowCtrlMainFPviif(Desc_8036D774 *, int, int, f32);
+void draw_strip_swap_color__15TWindowCtrlMainFllf(Desc_8036D774 *, int, int, f32);
 s32 begin_screen_draw(int);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
@@ -54,7 +54,7 @@ void TWindowSubStatusDisp::draw_split_screen_dividers() {
     d.pos[6] = (1.6e+02f);
     d.pos[7] = (4.8e+02f);
     d.col[3] = 0xFF000000;
-    draw_strip_swap_color__15TWindowCtrlMainFPviif(&d, 4, 0x16, (-2.0f));
+    draw_strip_swap_color__15TWindowCtrlMainFllf(&d, 4, 0x16, (-2.0f));
     d.pos[0] = (0.0f);
     d.pos[1] = (0.0f);
     d.pos[2] = (6.4e+02f);
@@ -63,7 +63,7 @@ void TWindowSubStatusDisp::draw_split_screen_dividers() {
     d.pos[5] = (2.4e+02f);
     d.pos[6] = (0.0f);
     d.pos[7] = (2.4e+02f);
-    draw_strip_swap_color__15TWindowCtrlMainFPviif(&d, 4, 0x16, (-2.0f));
+    draw_strip_swap_color__15TWindowCtrlMainFllf(&d, 4, 0x16, (-2.0f));
 }
 
 void TWindowSubStatusDisp::draw_tiled_background() {

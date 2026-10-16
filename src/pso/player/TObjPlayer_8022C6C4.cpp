@@ -70,7 +70,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
 Ent_8022D27C *find_entity_by_id(u16);
-void get_hand_joint_position__10TObjPlayerFPvi(void *, void *);
+void get_hand_joint_position__10TObjPlayerFl(void *, void *);
 Target_8022D27C *get_technique_data__10TObjPlayerFPv(void *);
 u8 get_cast_technique_level(void *, int);
 void create__10TTecDebandFllll(void *, void *, void *, int);
@@ -88,7 +88,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(u32);
 Params_8022C738 *get_technique_base_params(void);
-void *construct_actor_light__9TObjLightFPviiiiifffi(void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32, f32, f32, f32);
+void *construct_actor_light__9TObjLightFlllllfffl(void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32, f32, f32, f32);
 void *initialize__9TObjLightFPvii(void *, void *, s32);
 void *init__9TObjLightFPvii(void *, void *, s32);
 void *init_from_owner__10TTecSlicerFPvii(void *, void *, s32);
@@ -186,7 +186,7 @@ s32 TObjPlayer::get_level_tier(s32 arg0) {
         void *o = __nw__7TObjectFUl(100);                                                        \
         if (o != NULL) {                                                                         \
             ((void *(*)(f32, f32, f32, void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32)) \
-                 construct_actor_light__9TObjLightFPviiiiifffi)(lbl_805DC7DC, lbl_805DC7E0, TObjLight__scene_light_state.f1C, \
+                 construct_actor_light__9TObjLightFlllllfffl)(lbl_805DC7DC, lbl_805DC7E0, TObjLight__scene_light_state.f1C, \
                                           o, &c, &v, base, owner, tl_07);                        \
         }                                                                                        \
         if (is_locally_controlled__10TObjPlayerFPv(owner) != 0) {                                \
@@ -387,7 +387,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
     ofs.x += pl->pos.x;
     ofs.y += pl->pos.y;
     ofs.z += pl->pos.z;
-    get_hand_joint_position__10TObjPlayerFPvi(pl, &hand);
+    get_hand_joint_position__10TObjPlayerFl(pl, &hand);
     switch (tech) {
     case 0:
         if (n != 0) {

@@ -100,7 +100,7 @@ u8 exi_dma_buffer[0x600];
 u8 exi_dma_write_buffer[0xC00];
 void TLobby__sub_803F95E4(u32);
 extern s16 network_link_status_cache;
-void clear_message_entry__6TLobbyFi(s32);
+void clear_message_entry__6TLobbyFl(s32);
 s32 NetMemcpy(void *, void *, int);
 void TLobby__sub_803F95E4(u32);
 extern u32 lobby_buffer_pool_alarm_handle;
@@ -171,7 +171,7 @@ void TLobby__sub_80424CA8(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 u8 *TLobby__sub_804256B8(s32);
 s32 OSReceiveMessage(void *, void *, int);
-void clear_message_entry__6TLobbyFi(s32);
+void clear_message_entry__6TLobbyFl(s32);
 void TLobby__sub_80425D88(u8 v);
 extern u8 lbl_805CF240[];
 extern u8 lbl_805CF380[];
@@ -248,7 +248,7 @@ extern s32 network_thread_queue;
 s32 NetMemcmp(void *, void *, int);
 s32 NetMemcpy(void *, void *, int);
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
-s16 pppoe_recv_packet__6TLobbyFPvUsPv(u8 *buf, u16 bufLen, u16 *outLen);
+s16 pppoe_recv_packet__6TLobbyFUsPUs(u8 *buf, u16 bufLen, u16 *outLen);
 void DCInvalidateRange(void *, u32);
 s32 EXIDeselect(s32);
 void TLobby__sub_80429648(void);
@@ -330,7 +330,7 @@ Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-s16 pppoe_recv_packet__6TLobbyFPvUsPv(u8 *buf, u16 bufLen, u16 *outLen);
+s16 pppoe_recv_packet__6TLobbyFUsPUs(u8 *buf, u16 bufLen, u16 *outLen);
 #pragma pop
 
 s32 TLobby__sub_80428358(void);

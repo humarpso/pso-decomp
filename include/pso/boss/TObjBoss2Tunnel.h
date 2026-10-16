@@ -87,7 +87,12 @@ struct TObjBoss2Tunnel : public TObject {
     void update_spawn_timer(s32 arg1, s32 arg2, s32 arg3);
     void advance_effect_timer();
     static void enable_and_trigger();
-    static void reset_player_state();};
+    static void reset_player_state();
+    static void create_particle_effect(s32 arg0, s32 arg1, f32 farg0);
+    void detach_children(void *arg);
+    static void set_global_flag_100();
+    static s32 is_active();
+};
 
 typedef char TObjBoss2Tunnel_size[sizeof(TObjBoss2Tunnel) == 0xDC ? 1 : -1];
 #endif

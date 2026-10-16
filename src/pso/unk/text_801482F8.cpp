@@ -324,7 +324,7 @@ s32 end_conversation_camera(void);
 s32 begin_conversation_camera(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s32 send_code_45_1__10TObjPlayerFi(void *);
+s32 send_code_45_1__10TObjPlayerFl(void *);
 u32 get_player_by_client_id();
 void *__ct__12TQuestThreadFv(void *, u32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -531,7 +531,7 @@ void TObjNpcBase::update_conversation() {
             if (F(void *, 0x2A8) != 0 && local_client_id == obj_getField1c(F(void *, 0x2A8))) {
                 p = ((u32 (*)(s32))get_player_by_client_id)(local_client_id);
                 if (p != 0 && ((TLobby *)p)->check_player_flag1() != 0) {
-                    send_code_45_1__10TObjPlayerFi((void *)p);
+                    send_code_45_1__10TObjPlayerFl((void *)p);
                 }
             }
         }

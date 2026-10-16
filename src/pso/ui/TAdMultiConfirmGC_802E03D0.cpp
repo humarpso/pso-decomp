@@ -33,7 +33,7 @@ struct Stack_802E0468
 };
 
 extern "C" {
-void play_phase_transition_sound__10TObjPlayerFi(s32);
+void play_phase_transition_sound__10TObjPlayerFl(s32);
 void set_chunk_material_override_pair(s32, s32);
 void set_chunk_material_color(void *);
 extern s32 lbl_805D5660;
@@ -102,7 +102,7 @@ u8 *get_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void *init_appearance_load_request__10TNpcPlayerFPvPvii(void *, void *, void *, int);
-s32 is_unloaded__12TChCrLoadAfsFPv(void *);
+s32 is_unloaded__12TChCrLoadAfsFv(void *);
 void set_load_state__14TAdPlyStatusGCFPvi(void *, int);
 }
 
@@ -386,7 +386,7 @@ void TNpcPlayer::update_model_load() {
             }
             F(0xFC, s32) = F(0x100, s32) - 1;
             F(0x100, s32) = 0;
-        } else if (is_unloaded__12TChCrLoadAfsFPv(F(0x170, void *)) != 0) {
+        } else if (is_unloaded__12TChCrLoadAfsFv(F(0x170, void *)) != 0) {
             F(0xFC, s32) = 3;
             F(0x118, s32) = 0;
         }
@@ -463,7 +463,7 @@ void TObjPlayer::update_chara_making() {
     ((TAdPlyStatusGC *)(this->m_170))->get_status_data();
     set_global_param__8TObjFishFl();
     ((TAdPlyStatusGC *)(this->m_170))->get_field_4a0();
-    ((s32 (*)())play_phase_transition_sound__10TObjPlayerFi)();
+    ((s32 (*)())play_phase_transition_sound__10TObjPlayerFl)();
     pop_matrix();
     if (((TAdPlyStatusGC *)(this->m_170))->get_field_49c() != 0U) {
         ((TObjMotion *)arg0)->get_item_ptr((int) (0x3B));
@@ -472,7 +472,7 @@ void TObjPlayer::update_chara_making() {
         set_global_param__8TObjFishFl();
         TCharaMaking::enable_making();
         ((TAdPlyStatusGC *)(this->m_170))->get_field_49c();
-        ((s32 (*)())play_phase_transition_sound__10TObjPlayerFi)();
+        ((s32 (*)())play_phase_transition_sound__10TObjPlayerFl)();
         TCharaMaking::clear_flag_bit0();
         pop_matrix();
     }
@@ -512,7 +512,7 @@ void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   stack.sp10 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x44))));
   stack.sp14 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x46))));
   set_chunk_material_color(&stack.sp8);
-  play_phase_transition_sound__10TObjPlayerFi(arg1);
+  play_phase_transition_sound__10TObjPlayerFl(arg1);
   chunk_polygon_flags_and_mask = lbl_805D5664;
   chunk_polygon_flags_or_mask = lbl_805D5668;
   model_render_flags = lbl_805D5660;

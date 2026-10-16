@@ -78,7 +78,7 @@ void update_computer_machines__13TObjLobbyMainFv(void);
 void update_particles__13TObjLobbyMainFv(void *arg0);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
-s32 enable__13TParticleCtrlFPv(void *);
+s32 enable__13TParticleCtrlFv(void *);
 s32 get_theme_lobby_type();
 
 void TObjLobbyMain__sub_803520D8(void) {  }
@@ -203,19 +203,19 @@ void TObjLobbyMain::update_particles() {
             break;
         default:
             if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-                enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xD8));
+                enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD8));
             }
             if ((u32) *(u32 *)((s8 *)this + 0xDC) != 0U) {
-                enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xDC));
+                enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xDC));
             }
             break;
         }
     } else {
         if ((u32) *(u32 *)((s8 *)this + 0xD8) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xD8));
+            enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xD8));
         }
         if ((u32) *(u32 *)((s8 *)this + 0xDC) != 0U) {
-            enable__13TParticleCtrlFPv(*(void **)((s8 *)this + 0xDC));
+            enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xDC));
         }
     }
 }
@@ -313,7 +313,7 @@ void reset_state__13TObjLobbyMainFPv(void *arg0) {
 #define reset_state__13TObjLobbyMainFPv ((s32 (*)(void *))reset_state__13TObjLobbyMainFPv)
 #define update_computer_machines__13TObjLobbyMainFv ((s32 (*)(void *))update_computer_machines__13TObjLobbyMainFv)
 #define update_particles__13TObjLobbyMainFv ((s32 (*)(void *))update_particles__13TObjLobbyMainFv)
-#define enable__13TParticleCtrlFPv ((s32 (*)(int))enable__13TParticleCtrlFPv)
+#define enable__13TParticleCtrlFv ((s32 (*)(int))enable__13TParticleCtrlFv)
 #define TObjLobbyMain__bml_resource (*(u32 *)&TObjLobbyMain__bml_resource)
 #define lobby_main_lobby_type (*(s32 *)&lobby_main_lobby_type)
 struct RecoveredGlobal_803527F0_lbl_804F0F24 { s32 value; u8 remaining[0xC]; };
@@ -449,13 +449,13 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xD8);
     if (temp_r3 != 0U) {
         ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
-        enable__13TParticleCtrlFPv((int) (*(u32 *)((s8 *)arg0 + 0xD8)));
+        enable__13TParticleCtrlFv((int) (*(u32 *)((s8 *)arg0 + 0xD8)));
     }
     *(u32 *)((s8 *)arg0 + 0xDC) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0xDC);
     if (temp_r3_2 != 0U) {
         ((TBoss4Type2 *)temp_r3_2)->set_flags((int) (0x40));
-        enable__13TParticleCtrlFPv((int) (*(u32 *)((s8 *)arg0 + 0xDC)));
+        enable__13TParticleCtrlFv((int) (*(u32 *)((s8 *)arg0 + 0xDC)));
     }
     set_mode_index_from_state__13TObjLobbyMainFv((void *) (arg0));
     resolve_theme_index__13TObjLobbyMainFv((void *) (arg0));
@@ -482,6 +482,6 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
 #undef reset_state__13TObjLobbyMainFPv
 #undef update_computer_machines__13TObjLobbyMainFv
 #undef update_particles__13TObjLobbyMainFv
-#undef enable__13TParticleCtrlFPv
+#undef enable__13TParticleCtrlFv
 #undef TObjLobbyMain__bml_resource
 #undef lobby_main_lobby_type

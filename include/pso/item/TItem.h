@@ -90,7 +90,11 @@ struct TItem : public TUnk_804AF8A0 {
     void update_timer();
     static void push_to_player_list(void* a0);
     void update_owner_visibility();
-    void set_owner_client(u16 arg1);};
+    void set_owner_client(u16 arg1);
+    void refresh_owner_stats();
+    u32 get_usable_action_flags(u32 mask, u32 kind);
+    void try_pick_up_item(s32 id);
+};
 
 typedef char TItemModeOffset[(offsetof(TItem, render_mode) == 0xEB) ? 1 : -1];
 typedef char TItemModelOffset[(offsetof(TItem, model_index) == 0xEF) ? 1 : -1];

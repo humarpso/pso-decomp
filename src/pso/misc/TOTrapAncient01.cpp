@@ -302,7 +302,7 @@ void receive_physical_attack__6TOTrapFPvf(void *, void *, f32);
 u16 obj_getField1c(void *);
 s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFv();
-s32 send_code_45_1__10TObjPlayerFi(int);
+s32 send_code_45_1__10TObjPlayerFl(int);
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -404,7 +404,7 @@ void TOTrapAncient01::release_trapped_player() {
             temp_r3 = get_player_by_client_id((void *) (obj_getField1c(*(void * *)&this->target)));
             if (temp_r3 != 0) {
                 if (check_player_flag1__6TLobbyFv() != 0) {
-                    send_code_45_1__10TObjPlayerFi((int) (temp_r3));
+                    send_code_45_1__10TObjPlayerFl((int) (temp_r3));
                 }
                 obj_clear_flag30_20000((int) (temp_r3));
             }
@@ -413,7 +413,7 @@ void TOTrapAncient01::release_trapped_player() {
         temp_r3_2 = get_player_by_client_id((void *) local_client_id);
         if (temp_r3_2 != 0) {
             if (check_player_flag1__6TLobbyFv() != 0) {
-                send_code_45_1__10TObjPlayerFi((int) (temp_r3_2));
+                send_code_45_1__10TObjPlayerFl((int) (temp_r3_2));
             }
             obj_clear_flag30_20000((int) (temp_r3_2));
         }

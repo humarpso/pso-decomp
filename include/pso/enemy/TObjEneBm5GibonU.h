@@ -65,6 +65,21 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
     s32 check_and_update();
     s32 try_activate();
     u8 unk_54C[0x1C];
+    s32 get_clamped_level();
+    int get_attack_state(void * _w1);
+    static void advance_anim_frame();
+    void handle_message(s32 msg);
+    void state_cast_technique(s32 arg1);
+    void run_idle_state(s32 arg1);
+    void handle_state(s32 arg1);
+    void damage_linked_entity();
+    void damage_linked_entity_type10();
+    s32 play_sound_variant();
+    void set_flag();
+    void set_anim_by_state();
+    void select_attack_by_range();
+    void approach_target(f32 farg0);
+    s32 face_target();
 };
 
 typedef char TObjEneBm5GibonU_size[sizeof(TObjEneBm5GibonU) == 0x568 ? 1 : -1];

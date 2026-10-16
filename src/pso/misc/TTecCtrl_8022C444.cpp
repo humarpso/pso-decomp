@@ -18,7 +18,7 @@ void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2);
 extern "C" {
 
 f32 calc_technique_boost(s32, u16);
-f32 get_battle_value__10TObjPlayerFiii(void *, s32, s16);
+f32 get_battle_value__10TObjPlayerFlil(void *, s32, s16);
 void *get_player_by_client_id(u16);
 extern const f32 lbl_805DC7D8;
 s32 calc_technique_parameters();
@@ -62,7 +62,7 @@ f32 calc_technique_boost(s32 technique, u16 actor) {
     }
     player = ((void *(*)(s32))get_player_by_client_id)(actor);
     if (player != NULL) {
-        sum += ((f32 (*)(void *, u16, s16))get_battle_value__10TObjPlayerFiii)(player, actor, technique);
+        sum += ((f32 (*)(void *, u16, s16))get_battle_value__10TObjPlayerFlil)(player, actor, technique);
     }
     return sum;
 }

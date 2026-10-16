@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyPtclObjectLeftHand.h"
 
 struct VBase_PTR18_8030A400 { char pad[0x18]; };
 struct VObj_PTR18_8030A400 : VBase_PTR18_8030A400 {
@@ -24,14 +25,13 @@ struct VObj_PTR18_8030A400 : VBase_PTR18_8030A400 {
 extern "C" {
 
 void *__dt__22TPlyPtclObjectLeftHandFv(void *arg0, s16 arg1);
-s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0);
 void *get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void __dt__22TPlyFollowParticleCtrlFv(void *, int);
 u16 get_lifetime__22TPlyFollowParticleCtrlFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
 
-s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0) {
+s32 TPlyPtclObjectLeftHand::update_attachment(s32 arg0) {
     void *temp_r3;
 
     temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv());

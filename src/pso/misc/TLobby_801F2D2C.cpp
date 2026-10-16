@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/object/TObjLuker.h"
@@ -61,7 +62,6 @@ struct Ctx_801F3124 {
 
 extern "C" {
 int bswap_32__FPUl(void*);
-void bswap_entry_words__6TLobbyFi(s32 arg0);
 s32 memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__quest_argument_stack;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__script_value_stack;
@@ -88,7 +88,6 @@ extern u32 TLobby__quest_state_object_168;
 extern u32 TLobby__quest_state_object_16c;
 extern u16 TLobby__quest_state_word_170;
 extern u16 TLobby__quest_state_word_172;
-void load_quest_globals__6TLobbyFPv(u8 *arg0);
 s32 memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__quest_argument_stack;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__script_value_stack;
@@ -115,10 +114,8 @@ extern u32 TLobby__quest_state_object_168;
 extern u32 TLobby__quest_state_object_16c;
 extern u16 TLobby__quest_state_word_170;
 extern u16 TLobby__quest_state_word_172;
-void save_quest_state_to_record__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
 s32 *TObjItemOKWindow__sub_801F3268(void);
-unsigned char read_packet_byte__6TLobbyFv(void);
 extern struct Op_801F2E64 qst_opcode_table[];
 extern s32 TLobby__quest_window_state;
 s32 dispatch_quest_opcode(void);
@@ -155,52 +152,35 @@ int TLobby__sub_801F36F8(void);
 int TLobby__sub_801F3700(void);
 int TLobby__sub_801F3708(void);
 void TMainTask__sub_801F34D0(u8 *arg0);
-void bswap_4x32__6TLobbyFPv(void* p);
 void bswap_header__6TLobbyFPv(void* p);
 void build_6x77_sync_quest_register(void* p);
-int check_flag_24576__6TLobbyFPv(void* p);
-void clear_quest_vm_flag__6TLobbyFv(void);
-void close_windows__6TLobbyFv(void);
-int copy_position__6TLobbyFPv(void* p);
-s32 dispatch_quest__6TLobbyFi(s32 arg0);
 int fn_801F3480(void* p);
 int fn_801F34A0(void* p);
 s32 fn_get_field_3ac(void* p);
-void free_luker_object__6TLobbyFv(void);
-int get_field_6CE8__6TLobbyFv(void);
 s32 get_field_d4(void* p);
-int get_lobby_count__6TLobbyFv(void);
-unsigned char read_packet_byte__6TLobbyFv(void);
-void set_flag_40000__6TLobbyFPv(void *arg0);
 int set_flag_4__6TLobbyFPv(void* p);
-void set_flag_80000__6TLobbyFi(s32 arg0);
-void set_flag_8000__6TLobbyFi(s32 arg0);
-void set_floor__6TLobbyFPvs(void* p, s16 v);
-void set_global_805D3614__6TLobbyFi(int a0);
-void set_lobby_id__6TLobbyFi(int a0);
-void sync_quest_register_and_send__6TLobbyFPv(void* p);
-int test_flag_16__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int test_action_mask__10TObjPlayerFl(void*, int);
 s32 TWindow__close(s32);
 int VecCopy__FP3VecPC3Vec(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int check_technique_flag__10TObjPlayerFPv(void*);
-int has_item_flag_4096__10TObjPlayerFPv(void*);
+int check_technique_flag__10TObjPlayerFv(void*);
+int has_item_flag_4096__10TObjPlayerFv(void*);
 s32 queue_destruction__7TObjectFv(s32);
 int set_flags__10TObjPlayerFUl(void*, int);
 
     extern unsigned char* TLobby__quest_data_base;
     extern int TLobby__quest_script_pc;
-unsigned char read_packet_byte__6TLobbyFv(void) { return TLobby__quest_data_base[TLobby__quest_script_pc++]; }
+unsigned char TLobby::read_packet_byte() { return TLobby__quest_data_base[TLobby__quest_script_pc++]; }
 
-s32 dispatch_quest__6TLobbyFi(s32 arg0) {
+s32 TLobby::dispatch_quest() {
+    s32 arg0 = (s32)this;
     s32 temp_r31;
 
-    load_quest_globals__6TLobbyFPv((u8 *)(arg0));
+    load_quest_globals();
     temp_r31 = dispatch_quest_opcode();
-    save_quest_state_to_record__6TLobbyFPv((u8 *)(arg0));
+    save_quest_state_to_record();
     return temp_r31;
 }
 
@@ -213,7 +193,7 @@ extern u32 TLobby__menu_state_object;
 extern u32 TLobby__quest_state_object_168;
 extern u32 TLobby__quest_state_object_16c;
 
-void close_windows__6TLobbyFv(void) {
+void TLobby::close_windows() {
     if ((u32) TLobby__quest_message_window != 0U) {
         TWindow__close(TLobby__quest_message_window);
         TLobby__quest_message_window = 0U;
@@ -254,13 +234,13 @@ s32 dispatch_quest_opcode(void) {
     s32 op;
     TLobby__quest_window_state = 0;
     while (TLobby__quest_window_state == 0) {
-        op = read_packet_byte__6TLobbyFv();
+        op = TLobby::read_packet_byte();
         switch (op) {
         case 0xF8:
-            op = read_packet_byte__6TLobbyFv() + 0x100;
+            op = TLobby::read_packet_byte() + 0x100;
             break;
         case 0xF9:
-            op = read_packet_byte__6TLobbyFv() + 0x200;
+            op = TLobby::read_packet_byte() + 0x200;
             break;
         }
         qst_opcode_table[op].fn(op);
@@ -268,67 +248,67 @@ s32 dispatch_quest_opcode(void) {
     return TLobby__quest_window_state;
 }
 
-void save_quest_state_to_record__6TLobbyFPv(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TLobby__quest_data_base);
-    *(s32 *)((s8 *)arg0 + 4) = (s32) TLobby__data_805D5E74;
-    *(s32 *)((s8 *)arg0 + 8) = (s32) TLobby__script_reg_array;
-    *(s32 *)((s8 *)arg0 + 0xC) = (s32) (*(s32 *)&TLobby__quest_message_window);
-    *(s32 *)((s8 *)arg0 + 0x10) = (s32) (*(s32 *)&TLobby__quest_choice_window);
-    *(u8 *)((s8 *)arg0 + 0x14) = (u8) TLobby__active_window_index;
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) TLobby__script_stack_depth;
-    *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)&TLobby__quest_script_pc);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) lbl_805D5E94;
-    *(s32 *)((s8 *)arg0 + 0x28) = (s32) lbl_805D5E9C;
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) quest_message_speaker_id;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) TLobby__quest_arg_stack_count;
-    memcpy((void *) (arg0 + 0x34), (void *) (&TLobby__quest_argument_stack.value), (int) (0x20));
-    memcpy((void *) (arg0 + 0x54), (void *) (&TLobby__script_value_stack.value), (int) (0x100));
+void TLobby::save_quest_state_to_record() {
+    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) (*(s32 *)&TLobby__quest_data_base);
+    *(s32 *)((s8 *)((u8 *)this) + 4) = (s32) TLobby__data_805D5E74;
+    *(s32 *)((s8 *)((u8 *)this) + 8) = (s32) TLobby__script_reg_array;
+    *(s32 *)((s8 *)((u8 *)this) + 0xC) = (s32) (*(s32 *)&TLobby__quest_message_window);
+    *(s32 *)((s8 *)((u8 *)this) + 0x10) = (s32) (*(s32 *)&TLobby__quest_choice_window);
+    *(u8 *)((s8 *)((u8 *)this) + 0x14) = (u8) TLobby__active_window_index;
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = (s32) TLobby__script_stack_depth;
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = (s32) (*(s32 *)&TLobby__quest_script_pc);
+    *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) lbl_805D5E94;
+    *(s32 *)((s8 *)((u8 *)this) + 0x28) = (s32) lbl_805D5E9C;
+    *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) quest_message_speaker_id;
+    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) TLobby__quest_arg_stack_count;
+    memcpy((void *) (((u8 *)this) + 0x34), (void *) (&TLobby__quest_argument_stack.value), (int) (0x20));
+    memcpy((void *) (((u8 *)this) + 0x54), (void *) (&TLobby__script_value_stack.value), (int) (0x100));
     (*(s32 *)&TLobby__quest_message_window) = 0;
     (*(s32 *)&TLobby__quest_choice_window) = 0;
-    *(u8 *)((s8 *)arg0 + 0x154) = (u8) TLobby__data_805D5EA8;
-    *(u8 *)((s8 *)arg0 + 0x155) = (u8) TLobby__data_805D5EA9;
-    *(u16 *)((s8 *)arg0 + 0x156) = (u16) TLobby__data_805D5EAA;
-    *(u16 *)((s8 *)arg0 + 0x158) = (u16) TLobby__data_805D5EAC;
-    *(s32 *)((s8 *)arg0 + 0x15C) = (s32) (*(s32 *)&TLobby__data_805D5EB0);
+    *(u8 *)((s8 *)((u8 *)this) + 0x154) = (u8) TLobby__data_805D5EA8;
+    *(u8 *)((s8 *)((u8 *)this) + 0x155) = (u8) TLobby__data_805D5EA9;
+    *(u16 *)((s8 *)((u8 *)this) + 0x156) = (u16) TLobby__data_805D5EAA;
+    *(u16 *)((s8 *)((u8 *)this) + 0x158) = (u16) TLobby__data_805D5EAC;
+    *(s32 *)((s8 *)((u8 *)this) + 0x15C) = (s32) (*(s32 *)&TLobby__data_805D5EB0);
     (*(s32 *)&TLobby__data_805D5EB0) = 0;
-    *(s32 *)((s8 *)arg0 + 0x160) = (s32) (*(s32 *)&TLobby__quest_window_object);
+    *(s32 *)((s8 *)((u8 *)this) + 0x160) = (s32) (*(s32 *)&TLobby__quest_window_object);
     (*(s32 *)&TLobby__quest_window_object) = 0;
-    *(s32 *)((s8 *)arg0 + 0x164) = (s32) (*(s32 *)&TLobby__menu_state_object);
+    *(s32 *)((s8 *)((u8 *)this) + 0x164) = (s32) (*(s32 *)&TLobby__menu_state_object);
     (*(s32 *)&TLobby__menu_state_object) = 0;
-    *(s32 *)((s8 *)arg0 + 0x168) = (s32) (*(s32 *)&TLobby__quest_state_object_168);
+    *(s32 *)((s8 *)((u8 *)this) + 0x168) = (s32) (*(s32 *)&TLobby__quest_state_object_168);
     (*(s32 *)&TLobby__quest_state_object_168) = 0;
-    *(s32 *)((s8 *)arg0 + 0x16C) = (s32) (*(s32 *)&TLobby__quest_state_object_16c);
+    *(s32 *)((s8 *)((u8 *)this) + 0x16C) = (s32) (*(s32 *)&TLobby__quest_state_object_16c);
     (*(s32 *)&TLobby__quest_state_object_16c) = 0;
-    *(u16 *)((s8 *)arg0 + 0x170) = (u16) TLobby__quest_state_word_170;
-    *(u16 *)((s8 *)arg0 + 0x172) = (u16) TLobby__quest_state_word_172;
+    *(u16 *)((s8 *)((u8 *)this) + 0x170) = (u16) TLobby__quest_state_word_170;
+    *(u16 *)((s8 *)((u8 *)this) + 0x172) = (u16) TLobby__quest_state_word_172;
 }
 
-void load_quest_globals__6TLobbyFPv(u8 *arg0) {
-    (*(s32 *)&TLobby__quest_data_base) = *(s32 *)((s8 *)arg0 + 0);
-    TLobby__data_805D5E74 = *(s32 *)((s8 *)arg0 + 4);
-    TLobby__script_reg_array = *(s32 *)((s8 *)arg0 + 8);
-    (*(s32 *)&TLobby__quest_message_window) = *(s32 *)((s8 *)arg0 + 0xC);
-    (*(s32 *)&TLobby__quest_choice_window) = *(s32 *)((s8 *)arg0 + 0x10);
-    TLobby__active_window_index = *(u8 *)((s8 *)arg0 + 0x14);
-    TLobby__script_stack_depth = *(s32 *)((s8 *)arg0 + 0x1C);
-    (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)arg0 + 0x20);
-    lbl_805D5E94 = *(s32 *)((s8 *)arg0 + 0x24);
-    lbl_805D5E9C = *(s32 *)((s8 *)arg0 + 0x28);
-    quest_message_speaker_id = *(s32 *)((s8 *)arg0 + 0x2C);
-    TLobby__quest_arg_stack_count = *(s32 *)((s8 *)arg0 + 0x30);
-    memcpy((void *) (&TLobby__quest_argument_stack.value), (void *) (arg0 + 0x34), (int) (0x20));
-    memcpy((void *) (&TLobby__script_value_stack.value), (void *) (arg0 + 0x54), (int) (0x100));
-    TLobby__data_805D5EA8 = *(u8 *)((s8 *)arg0 + 0x154);
-    TLobby__data_805D5EA9 = *(u8 *)((s8 *)arg0 + 0x155);
-    TLobby__data_805D5EAA = *(u16 *)((s8 *)arg0 + 0x156);
-    TLobby__data_805D5EAC = *(u16 *)((s8 *)arg0 + 0x158);
-    (*(s32 *)&TLobby__data_805D5EB0) = *(s32 *)((s8 *)arg0 + 0x15C);
-    (*(s32 *)&TLobby__quest_window_object) = *(s32 *)((s8 *)arg0 + 0x160);
-    (*(s32 *)&TLobby__menu_state_object) = *(s32 *)((s8 *)arg0 + 0x164);
-    (*(s32 *)&TLobby__quest_state_object_168) = *(s32 *)((s8 *)arg0 + 0x168);
-    (*(s32 *)&TLobby__quest_state_object_16c) = *(s32 *)((s8 *)arg0 + 0x16C);
-    TLobby__quest_state_word_170 = *(u16 *)((s8 *)arg0 + 0x170);
-    TLobby__quest_state_word_172 = *(u16 *)((s8 *)arg0 + 0x172);
+void TLobby::load_quest_globals() {
+    (*(s32 *)&TLobby__quest_data_base) = *(s32 *)((s8 *)((u8 *)this) + 0);
+    TLobby__data_805D5E74 = *(s32 *)((s8 *)((u8 *)this) + 4);
+    TLobby__script_reg_array = *(s32 *)((s8 *)((u8 *)this) + 8);
+    (*(s32 *)&TLobby__quest_message_window) = *(s32 *)((s8 *)((u8 *)this) + 0xC);
+    (*(s32 *)&TLobby__quest_choice_window) = *(s32 *)((s8 *)((u8 *)this) + 0x10);
+    TLobby__active_window_index = *(u8 *)((s8 *)((u8 *)this) + 0x14);
+    TLobby__script_stack_depth = *(s32 *)((s8 *)((u8 *)this) + 0x1C);
+    (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)((u8 *)this) + 0x20);
+    lbl_805D5E94 = *(s32 *)((s8 *)((u8 *)this) + 0x24);
+    lbl_805D5E9C = *(s32 *)((s8 *)((u8 *)this) + 0x28);
+    quest_message_speaker_id = *(s32 *)((s8 *)((u8 *)this) + 0x2C);
+    TLobby__quest_arg_stack_count = *(s32 *)((s8 *)((u8 *)this) + 0x30);
+    memcpy((void *) (&TLobby__quest_argument_stack.value), (void *) (((u8 *)this) + 0x34), (int) (0x20));
+    memcpy((void *) (&TLobby__script_value_stack.value), (void *) (((u8 *)this) + 0x54), (int) (0x100));
+    TLobby__data_805D5EA8 = *(u8 *)((s8 *)((u8 *)this) + 0x154);
+    TLobby__data_805D5EA9 = *(u8 *)((s8 *)((u8 *)this) + 0x155);
+    TLobby__data_805D5EAA = *(u16 *)((s8 *)((u8 *)this) + 0x156);
+    TLobby__data_805D5EAC = *(u16 *)((s8 *)((u8 *)this) + 0x158);
+    (*(s32 *)&TLobby__data_805D5EB0) = *(s32 *)((s8 *)((u8 *)this) + 0x15C);
+    (*(s32 *)&TLobby__quest_window_object) = *(s32 *)((s8 *)((u8 *)this) + 0x160);
+    (*(s32 *)&TLobby__menu_state_object) = *(s32 *)((s8 *)((u8 *)this) + 0x164);
+    (*(s32 *)&TLobby__quest_state_object_168) = *(s32 *)((s8 *)((u8 *)this) + 0x168);
+    (*(s32 *)&TLobby__quest_state_object_16c) = *(s32 *)((s8 *)((u8 *)this) + 0x16C);
+    TLobby__quest_state_word_170 = *(u16 *)((s8 *)((u8 *)this) + 0x170);
+    TLobby__quest_state_word_172 = *(u16 *)((s8 *)((u8 *)this) + 0x172);
 }
 
 typedef char RecoveredGlobal_801F3268_lbl_80512B18_size[sizeof(RecoveredGlobal_801F3268_lbl_80512B18) == 0x10 ? 1 : -1];
@@ -378,7 +358,7 @@ s32 *TObjItemOKWindow__sub_801F3268(void) {
     return &lbl_80512B18.value;
 }
 
-void clear_quest_vm_flag__6TLobbyFv(void) {
+void TLobby::clear_quest_vm_flag() {
     if ((u32) quest_mission_manager != 0U) {
         ((TQuestVmDownLoadServer *)quest_mission_manager)->clear_flag4_bit4();
     }
@@ -386,36 +366,38 @@ void clear_quest_vm_flag__6TLobbyFv(void) {
 
 extern u32 quest_mission_manager;
 
-void free_luker_object__6TLobbyFv(void) {
+void TLobby::free_luker_object() {
     if ((u32) quest_mission_manager != 0U) {
         ((TObject *)quest_mission_manager)->set_flag_4();
     }
 }
 
-void set_flag_80000__6TLobbyFi(s32 arg0) {
+void TLobby::set_flag_80000() {
+    s32 arg0 = (s32)this;
     test_action_mask__10TObjPlayerFl((void*)(arg0), 0x80000);
 }
-void set_flag_40000__6TLobbyFPv(void *arg0) {
-    test_action_mask__10TObjPlayerFl(arg0, 0x40000);
+void TLobby::set_flag_40000() {
+    test_action_mask__10TObjPlayerFl(this, 0x40000);
 }
 void TLobby__sub_801F3314(s32 arg0) {
     test_action_mask__10TObjPlayerFl((void*)(arg0), 0x10000);
 }
-void set_flag_8000__6TLobbyFi(s32 arg0) {
+void TLobby::set_flag_8000() {
+    s32 arg0 = (s32)this;
     test_action_mask__10TObjPlayerFl((void*)(arg0), 0x8000);
 }
-int check_flag_24576__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFl(p, 24576); }
+int TLobby::check_flag_24576() { return test_action_mask__10TObjPlayerFl(this, 24576); }
 int TLobby__sub_801F3384(void* p) { return test_action_mask__10TObjPlayerFl(p, 1024); }
 int TLobby__sub_801F33A8(void* p) { return test_action_mask__10TObjPlayerFl(p, 512); }
 int TLobby__sub_801F33CC(void* p) { return test_action_mask__10TObjPlayerFl(p, 256); }
 int TLobby__sub_801F33F0(void* p) { return test_action_mask__10TObjPlayerFl(p, 224); }
-int test_flag_16__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFl(p, 16); }
+int TLobby::test_flag_16() { return test_action_mask__10TObjPlayerFl(this, 16); }
 int set_flag_4__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFl(p, 4); }
 
 int TLobby__sub_801F345C(void* p) { return test_action_mask__10TObjPlayerFl(p, 2); }
 
-int fn_801F3480(void* p) { return has_item_flag_4096__10TObjPlayerFPv(p); }
-int fn_801F34A0(void* p) { return check_technique_flag__10TObjPlayerFPv(p); }
+int fn_801F3480(void* p) { return has_item_flag_4096__10TObjPlayerFv(p); }
+int fn_801F34A0(void* p) { return check_technique_flag__10TObjPlayerFv(p); }
 s32 get_field_d4(void* p) { return *(s32*)((char*)p + 0xd4); }
 s32 fn_get_field_3ac(void* p) { return *(s32*)((char*)p + 0x3ac); }
 
@@ -423,7 +405,7 @@ void TMainTask__sub_801F34D0(u8 *arg0) {
     *(u16 *)((s8 *)arg0 + 4) = (u16) (*(u16 *)((s8 *)arg0 + 4) ^ 8);
 }
 
-void set_floor__6TLobbyFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x11a) = v; }
+void TLobby::set_floor(s16 v) { *(s16*)((char*)this + 0x11a) = v; }
 
     extern unsigned char lbl_805D6CD9;
     extern short lbl_805D6CDA;
@@ -433,29 +415,29 @@ void TLobby__sub_801F34E8(int a0, int a1) { lbl_805D6CD9 = a1; lbl_805D6CDA = (a
 int TLobby__sub_801F34F8(void) {  return TLobby__data_805D6CCC; }
 
 int TLobby__sub_801F3500(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0xc0); }
-void bswap_4x32__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
+void TLobby::bswap_4x32() { bswap_32__FPUl(this); bswap_32__FPUl((char*)this + 0x4); bswap_32__FPUl((char*)this + 0x8); bswap_32__FPUl((char*)this + 0xc); }
 
     extern unsigned char camera_capture_flags;
 void TLobby__sub_801F3568(void) { camera_capture_flags = (camera_capture_flags | 0x10); }
 
-void sync_quest_register_and_send__6TLobbyFPv(void* p) { bswap_header__6TLobbyFPv((void*)((void*)((void*)(p)))); TLobby__send_and_handle_60(p); }
+void TLobby::sync_quest_register_and_send() { bswap_header__6TLobbyFPv((void*)((void*)((void*)(this)))); TLobby__send_and_handle_60(this); }
 void bswap_header__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
     extern int warning_aram_load_done_flag;
-int get_field_6CE8__6TLobbyFv(void) {  return warning_aram_load_done_flag; }
+int TLobby::get_field_6CE8() {  return warning_aram_load_done_flag; }
 
     extern int lobby_count_value;
-int get_lobby_count__6TLobbyFv(void) {  return lobby_count_value; }
+int TLobby::get_lobby_count() {  return lobby_count_value; }
 
     extern int lobby_count_value;
 void TLobby__sub_801F3614(void) { lobby_count_value = 0; }
 
-int copy_position__6TLobbyFPv(void* p) { return VecCopy__FP3VecPC3Vec(p); }
+int TLobby::copy_position() { return VecCopy__FP3VecPC3Vec(this); }
 
 #pragma push
 #pragma fp_contract on
-void bswap_entry_words__6TLobbyFi(s32 arg0) {
+void TLobby::bswap_entry_words(s32 arg0) {
     s32 var_r31;
     s32 temp_r30;
     s32 var_r29;
@@ -477,10 +459,10 @@ int TLobby__sub_801F3694(void* p) { return set_flags__10TObjPlayerFUl((char*)p +
 void TLobby__sub_801F36BC(void) { lobby_online_ready_flag = 1; }
 
     extern int current_lobby_id;
-void set_lobby_id__6TLobbyFi(int a0) { current_lobby_id = a0; }
+void TLobby::set_lobby_id(int a0) { current_lobby_id = a0; }
 
     extern int lbl_805D3614;
-void set_global_805D3614__6TLobbyFi(int a0) { lbl_805D3614 = a0; }
+void TLobby::set_global_805D3614(int a0) { lbl_805D3614 = a0; }
 
     extern int lobby_quest_progress_flag;
 void TLobby__sub_801F36D8(void) { lobby_quest_progress_flag = 1; }

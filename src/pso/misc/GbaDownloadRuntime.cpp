@@ -1,4 +1,5 @@
 #include "pso/network/GbaJoybootState.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TDLGraph.h"
 
 extern "C" {
@@ -6,18 +7,11 @@ void TLobby__sub_8032CB6C(void);
 extern s32 TLobby__data_805D6CCC;
 extern const f32 TLobby__data_805DF7A4;
 
-void destroy_singleton__6TLobbyFv(void);
-void free_buffer__6TLobbyFv(void);
-void init_graph__6TLobbyFv(void);
 u32 create__8TDLGraphFv();
 int queue_destruction__7TObjectFv(void*);
 void xfree__FPv(void*);
-void alloc_buffer__6TLobbyFv(void);
 s32 xmalloc__FUl(s32);
 int TLobby__sub_8032C91C(void* p);
-u8 get_selected_slot__6TLobbyFv(void);
-void send_data__6TLobbyFi(s32 arg0);
-void update_alloc_size__6TLobbyFv(void);
 s32 load_from_aram_sync__16TAdWarningBaseGCFi(void*);
 u32 TAdWarningBaseGC__sub_8032D020();
 s32 read_disc_file(s32, u32);
@@ -31,7 +25,7 @@ extern u32 gba_download_data_buffer;
 extern u32 gba_download_graph;
 extern u32 gba_download_data_size;
 
-void destroy_singleton__6TLobbyFv(void) {
+void TLobby::destroy_singleton() {
     if ((u32) gba_download_graph != 0U) {
         queue_destruction__7TObjectFv((void*)gba_download_graph);
         gba_download_graph = 0U;
@@ -39,7 +33,7 @@ void destroy_singleton__6TLobbyFv(void) {
     *(s8 *)((s8 *)TLobby__data_805434A8 + 7) = 0;
 }
 
-void init_graph__6TLobbyFv(void) {
+void TLobby::init_graph() {
     u32 temp_r3;
 
     if ((u32) gba_download_graph == 0U) {
@@ -51,7 +45,7 @@ void init_graph__6TLobbyFv(void) {
     }
 }
 
-void free_buffer__6TLobbyFv(void) {
+void TLobby::free_buffer() {
     if ((u32) gba_download_data_buffer != 0U) {
         xfree__FPv((void*)gba_download_data_buffer);
         gba_download_data_buffer = 0U;
@@ -59,7 +53,7 @@ void free_buffer__6TLobbyFv(void) {
     gba_download_data_size = 0;
 }
 
-void alloc_buffer__6TLobbyFv(void) {
+void TLobby::alloc_buffer() {
     gba_download_data_buffer = 0;
     gba_download_data_size = 0;
     gba_download_data_buffer = xmalloc__FUl(0x40000);
@@ -88,7 +82,7 @@ void gba_joyboot_transfer_callback(s32 arg0, s32 arg1) {
     }
 }
 
-void send_data__6TLobbyFi(s32 arg0) {
+void TLobby::send_data(s32 arg0) {
     u32 temp_r3;
 
     temp_r3 = update_lobby_scene__6TSceneFv();
@@ -104,7 +98,7 @@ void send_data__6TLobbyFi(s32 arg0) {
     gba_download_data_size = 0U;
 }
 
-void update_alloc_size__6TLobbyFv(void) {
+void TLobby::update_alloc_size() {
     u32 temp_r3;
 
     temp_r3 = TAdWarningBaseGC__sub_8032D020();
@@ -123,7 +117,7 @@ void update_alloc_size__6TLobbyFv(void) {
 
 int TLobby__sub_8032C91C(void* p) { return GBAInit(p); }
 
-u8 get_selected_slot__6TLobbyFv(void) {
+u8 TLobby::get_selected_slot() {
     u8 sp8;
 
     if (TLobby__sub_801F34F8() == 3) {

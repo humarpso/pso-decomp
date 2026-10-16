@@ -15,7 +15,9 @@ struct TObjVoloptCage : public TObjEnemyCustom {
     void update_collision_state();
     static void destroy();
     static void init_break_model();
-    virtual void render();};
+    virtual void render();
+    void update_capture();
+};
 
 typedef char TObjVoloptCage_size[sizeof(TObjVoloptCage) == 0x394 ? 1 : -1];
 #endif

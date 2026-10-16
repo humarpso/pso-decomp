@@ -16,7 +16,9 @@ struct TObjEneSlime : public TObjEnemy {
     static void free_instance();
     static void spawn_pair();
     static s32 create(s32 arg0);
-    static void spawn_child(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);};
+    static void spawn_child(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
+    void init_slots();
+};
 
 typedef char TObjEneSlime_size[sizeof(TObjEneSlime) == 0x3B8 ? 1 : -1];
 #endif

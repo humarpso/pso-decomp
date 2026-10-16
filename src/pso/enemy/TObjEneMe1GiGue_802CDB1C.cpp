@@ -74,12 +74,12 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, s32);
 s32 spawn_particle_effect(void *, s32);
-s32 enable__13TParticleCtrlFPv(void *);
+s32 enable__13TParticleCtrlFv(void *);
 VEnt_802CDB1C *find_active_entity_by_id(u16);
 f32 xyz_distance_squared(void *, void *);
 u8 *find_entity_by_id(s16);
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *, void *);
+s32 apply_hit_shake__15TObjEneMe1GiGueFUl(void *, void *);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
 extern Hit_802CDB1C lbl_804722B4[];
@@ -124,10 +124,10 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
             return;
         }
         if (self->ptcl0 != NULL) {
-            enable__13TParticleCtrlFPv(self->ptcl0);
+            enable__13TParticleCtrlFv(self->ptcl0);
         }
         if (self->ptcl1 != NULL) {
-            enable__13TParticleCtrlFPv(self->ptcl1);
+            enable__13TParticleCtrlFv(self->ptcl1);
         }
         return;
     case 1:
@@ -171,7 +171,7 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0) {
             }
             spawn_particle_effect((u8 *)tgt + 0x2FC, 0x8E);
             if (local_client_id == self->target_id) {
-                apply_hit_shake__15TObjEneMe1GiGueFPvUi(src, tgt);
+                apply_hit_shake__15TObjEneMe1GiGueFUl(src, tgt);
             }
             queue_destruction__7TObjectFv(self);
         }

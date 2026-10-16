@@ -156,7 +156,7 @@ struct VObj_802209D8 : VBase_802209D8 {
 
 extern "C" {
 s32 obj_getPtr2B0_20(int);
-s32 copy_item_data__6TLobbyFPvPv(void *, void *);
+s32 copy_item_data__6TLobbyFPv(void *, void *);
 s32 update_all__6TLobbyFi(void *);
 s32 play_cue_stream_file(void *);
 void TWindow__close(void *);
@@ -165,12 +165,11 @@ s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 extern s32 lbl_8044C1D4[];
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
-void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 u16 obj_getField1c(s32);
-s32 apply_shop_judgment__10TObjPlayerFPvi(s32, void *);
+s32 apply_shop_judgment__10TObjPlayerFi(s32, void *);
 s32 fn_80221838(void *, void *, s32);
 s32 get_appraisal_text(int);
-s32 reset_list__20TShopArmorListWindowFPv(void *);
+s32 reset_list__20TShopArmorListWindowFv(void *);
 s32 calc_list_content_extent(void *);
 void *create_item_list_window(int, int, u16);
 void *memset(void *, int, unsigned long);
@@ -272,61 +271,61 @@ void TShopJudgmentItemWindow::invoke_callback_170_and_destroy() {
     }
 }
 
-void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
+void TShopJudgmentItemWindow::handle_pay_confirm() {
     f32 temp_f31;
     s32 temp_r3;
     s32 temp_r31;
 
-    if (((TShopWindowBase *)(arg0))->vfunc_10() != 0) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x158) == 0U) {
-            temp_r31 = obj_getField1c((s32) (*(s32 *)((s8 *)arg0 + 0x24)));
-            *(s32 *)((s8 *)arg0 + 0x158) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
-            ((TWindowSubComCardList *)((void *)*(s32 *)((s8 *)arg0 + 0x158)))->set_selected_index(0);
-            temp_f31 = get_scale__15TShopWindowBaseFv((void *) (arg0));
-            ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x158)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), temp_f31);
+    if (((TShopWindowBase *)(((u8 *)this)))->vfunc_10() != 0) {
+        if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x158) == 0U) {
+            temp_r31 = obj_getField1c((s32) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
+            *(s32 *)((s8 *)((u8 *)this) + 0x158) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+            ((TWindowSubComCardList *)((void *)*(s32 *)((s8 *)((u8 *)this) + 0x158)))->set_selected_index(0);
+            temp_f31 = get_scale__15TShopWindowBaseFv((void *) (((u8 *)this)));
+            ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)((u8 *)this) + 0x158)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (((u8 *)this))), temp_f31);
         }
-        if (((u32) *(u32 *)((s8 *)arg0 + 0x158) != 0U) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
-            temp_r3 = get_selected_menu_value((s32) (*(u32 *)((s8 *)arg0 + 0x158)));
+        if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0x158) != 0U) && (((TWindowMenu *)(*(void **)((s8 *)((u8 *)this) + 0x158)))->is_visible() != 0)) {
+            temp_r3 = get_selected_menu_value((s32) (*(u32 *)((s8 *)((u8 *)this) + 0x158)));
             if (temp_r3 == 0) {
-                if ((u32) *(u32 *)((s8 *)arg0 + 0x160) != 0U) {
-                    TWindow__close(*(void **)((s8 *)arg0 + 0x160));
-                    *(u32 *)((s8 *)arg0 + 0x160) = 0U;
+                if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x160) != 0U) {
+                    TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x160));
+                    *(u32 *)((s8 *)((u8 *)this) + 0x160) = 0U;
                 }
-                if ((u32) *(u32 *)((s8 *)arg0 + 0x154) != 0U) {
-                    TWindow__close(*(void **)((s8 *)arg0 + 0x154));
-                    *(u32 *)((s8 *)arg0 + 0x154) = 0U;
+                if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x154) != 0U) {
+                    TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x154));
+                    *(u32 *)((s8 *)((u8 *)this) + 0x154) = 0U;
                 }
-                if ((u32) *(u32 *)((s8 *)arg0 + 0x15C) != 0U) {
-                    TWindow__close(*(void **)((s8 *)arg0 + 0x15C));
-                    *(u32 *)((s8 *)arg0 + 0x15C) = 0U;
+                if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x15C) != 0U) {
+                    TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x15C));
+                    *(u32 *)((s8 *)((u8 *)this) + 0x15C) = 0U;
                 }
-                if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
-                    queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50));
-                    *(u32 *)((s8 *)arg0 + 0x50) = 0U;
+                if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x50) != 0U) {
+                    queue_destruction__7TObjectFv(*(void **)((s8 *)((u8 *)this) + 0x50));
+                    *(u32 *)((s8 *)((u8 *)this) + 0x50) = 0U;
                 }
-                *(s32 *)((s8 *)arg0 + 0x14C) = 3;
-                TWindow__close(*(void **)((s8 *)arg0 + 0x158));
-                *(u32 *)((s8 *)arg0 + 0x158) = 0U;
-                try_spend_actor_meseta((s32) (*(s32 *)((s8 *)arg0 + 0x24)), (s32) (0x64));
-                ((VObj_18 *)(arg0))->m6(0xA, 1);
-                ((TShopWindowBase *)arg0)->set_field_20(5);
+                *(s32 *)((s8 *)((u8 *)this) + 0x14C) = 3;
+                TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x158));
+                *(u32 *)((s8 *)((u8 *)this) + 0x158) = 0U;
+                try_spend_actor_meseta((s32) (*(s32 *)((s8 *)((u8 *)this) + 0x24)), (s32) (0x64));
+                ((VObj_18 *)(((u8 *)this)))->m6(0xA, 1);
+                ((TShopWindowBase *)((u8 *)this))->set_field_20(5);
                 return;
             }
             if (temp_r3 == 1) {
-                TWindow__close(*(void **)((s8 *)arg0 + 0x158));
-                *(u32 *)((s8 *)arg0 + 0x158) = 0U;
-                ((VObj_18 *)(arg0))->m6(8, 1);
-                ((TShopWindowBase *)arg0)->set_field_20(4);
+                TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x158));
+                *(u32 *)((s8 *)((u8 *)this) + 0x158) = 0U;
+                ((VObj_18 *)(((u8 *)this)))->m6(8, 1);
+                ((TShopWindowBase *)((u8 *)this))->set_field_20(4);
                 return;
             }
             goto block_17;
         }
 block_17:
-        if (((u32) *(u32 *)((s8 *)arg0 + 0x158) != 0U) && (((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x158)))->get_status_flag() != 0)) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x158));
-            *(u32 *)((s8 *)arg0 + 0x158) = 0U;
-            ((VObj_18 *)(arg0))->m6(8, 1);
-            ((TShopWindowBase *)arg0)->set_field_20(4);
+        if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0x158) != 0U) && (((TWindowSubComCard *)(*(void **)((s8 *)((u8 *)this) + 0x158)))->get_status_flag() != 0)) {
+            TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x158));
+            *(u32 *)((s8 *)((u8 *)this) + 0x158) = 0U;
+            ((VObj_18 *)(((u8 *)this)))->m6(8, 1);
+            ((TShopWindowBase *)((u8 *)this))->set_field_20(4);
         }
     }
 }
@@ -560,7 +559,7 @@ void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 temp_r31 = arg0 + (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(u32 *)((s8 *)arg0 + 0x154))) * 8);
                 if (((TItem *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->copy_to_item_data((void *) (arg0 + 0x3C)) != 0) {
                     *(s32 *)((s8 *)arg0 + 0x168) = ((TObjPlayer *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->has_flag_128();
-                    copy_item_data__6TLobbyFPvPv((void *) (arg0 + 0x28), (void *) (arg0 + 0x3C));
+                    copy_item_data__6TLobbyFPv((void *) (arg0 + 0x28), (void *) (arg0 + 0x3C));
                     update_all__6TLobbyFi((void *) (arg0 + 0x28));
                     *(s32 *)((s8 *)arg0 + 0x14C) = 0x5F;
                     if (*(void **)((s8 *)arg0 + 0x154) != NULL) {
@@ -626,7 +625,7 @@ s32 TShopJudgmentItemWindow::build_item_list(void *arg0) {
     s32 j;
     s32 k;
     memset(W->ents, 0, 0xF0);
-    n = apply_shop_judgment__10TObjPlayerFPvi(*(s32 *)(W->player + 0xD00), items);
+    n = apply_shop_judgment__10TObjPlayerFi(*(s32 *)(W->player + 0xD00), items);
     W->count = 0;
     for (i = 0; i < n; i++) {
         it = items[i];
@@ -649,7 +648,7 @@ s32 TShopJudgmentItemWindow::build_item_list(void *arg0) {
         calc_list_content_extent(W->list);
         return;
     }
-    reset_list__20TShopArmorListWindowFPv(W->list);
+    reset_list__20TShopArmorListWindowFv(W->list);
     for (k = 0; k < W->count; k++) {
         ((TShopJudgmentItemWindow *)(W->list))->add_list_entry(W->ents[k].item, k);
     }
@@ -687,7 +686,7 @@ void TShopJudgmentItemWindow::vfunc_11() {
         ((TShopJudgmentItemWindow *)arg0)->update();
         return;
     case 6:
-        handle_pay_confirm__23TShopJudgmentItemWindowFPv((u8 *)(arg0));
+        ((TShopJudgmentItemWindow *)arg0)->handle_pay_confirm();
         return;
     case 7:
         ((TShopJudgmentItemWindow *)arg0)->handle_equip_prompt();

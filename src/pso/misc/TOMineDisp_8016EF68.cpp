@@ -49,7 +49,6 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DB854;
 extern const f32 lbl_805DB858;
-void draw__10TOMineDispFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -63,29 +62,29 @@ u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     return arg0;
 }
 
-void draw__10TOMineDispFPv(u8 *arg0) {
+void TOMineDisp::draw() {
     s32 temp_r31;
     s32 temp_r4;
     u16 id = TCameraCtrl::get_nth_view_player_id(get_camera_mode__11TCameraCtrlFv());
-    if (id != *(u16 *)((s8 *)arg0 + 0xA8)) {
+    if (id != *(u16 *)((s8 *)((u8 *)this) + 0xA8)) {
         return;
     }
-    if (*(s32 *)((s8 *)arg0 + 0xA4) != 2) {
+    if (*(s32 *)((s8 *)((u8 *)this) + 0xA4) != 2) {
         return;
     }
-    if (((VObj_8016EFB4 *)arg0)->m8(lbl_805DB854, lbl_805DB858) == 0) {
+    if (((VObj_8016EFB4 *)((u8 *)this))->m8(lbl_805DB854, lbl_805DB858) == 0) {
         return;
     }
     push_matrix();
-    temp_r31 = *(s32 *)((s8 *)arg0 + 0x10);
-    post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+    temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0x10);
+    post_translate_matrix(((u8 *)this) + 0x38);
+    rotate_matrix_y(0, *(s32 *)((s8 *)((u8 *)this) + 0x60));
     ((TOMine *)temp_r31)->free_parts();
     TParticleCtrl::begin_effect_render();
     temp_r4 = model_render_flags;
     lbl_805D5660 = temp_r4;
     model_render_flags = temp_r4 | 0x20;
-    set_chunk_material_color(arg0 + 0x94, temp_r4);
+    set_chunk_material_color(((u8 *)this) + 0x94, temp_r4);
     ((TOMine *)temp_r31)->free_sub_objects();
     ((s32 (*)(void *))set_chunk_material_color)(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;

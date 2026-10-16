@@ -246,13 +246,13 @@ void TObjPlayer__sub_800C4D44(void) {
 }
 
 void *mem_alloc(s32);
-void pso_load_texture__6TLobbyFPv(void *, void *);
+void pso_load_texture__6TLobbyFv(void *, void *);
 void set_texture_name(void *, void *, s32, s32);
 void TObjPlayer::create_render_texture() {
     ((TObjPlayer *)(&lbl_80500C00))->set_render_rect((s32)(player_render_texture_buffer = mem_alloc(0x800)), (s32)0x902, (s32)0x20, (s32)0x20);
     set_texture_name(&lbl_80500C24, &lbl_80500C00, 0x18696, 0x40800000);
     ((Node_800C4D88 *)lbl_80500C30)->p = &lbl_80500C24;
     ((Node_800C4D88 *)lbl_80500C30)->v = 1;
-    pso_load_texture__6TLobbyFPv(lbl_80500C30, &lbl_80500C24);
+    pso_load_texture__6TLobbyFv(lbl_80500C30, &lbl_80500C24);
 }
 }

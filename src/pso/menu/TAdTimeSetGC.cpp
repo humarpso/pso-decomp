@@ -95,36 +95,36 @@ extern "C" void advance_when_load_done__23TAdSinglePlyChrSelectGCFi();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BC8();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2BD4();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2D3C();
-extern "C" void handle_confirm_menu__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void handle_confirm_menu__23TAdSinglePlyChrSelectGCFv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F20();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2F68();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2FEC();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E3038();
-extern "C" void report_card_status__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void build_selection_summary__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void close_and_next_cancel__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void close_scene__23TAdSinglePlyChrSelectGCFi();
-extern "C" void create_backgrounds__23TAdSinglePlyChrSelectGCFi();
-extern "C" void create_result_bg__23TAdSinglePlyChrSelectGCFi();
-extern "C" void ensure_player_loaded__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void init_menu_window__23TAdSinglePlyChrSelectGCFi();
-extern "C" void init_screen__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void open_char_select__23TAdSinglePlyChrSelectGCFi();
-extern "C" void rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void report_card_status__23TAdSinglePlyChrSelectGCFv();
+extern "C" void build_selection_summary__23TAdSinglePlyChrSelectGCFv();
+extern "C" void close_and_next_cancel__23TAdSinglePlyChrSelectGCFv();
+extern "C" void close_scene__23TAdSinglePlyChrSelectGCFl();
+extern "C" void create_backgrounds__23TAdSinglePlyChrSelectGCFl();
+extern "C" void create_result_bg__23TAdSinglePlyChrSelectGCFl();
+extern "C" void ensure_player_loaded__23TAdSinglePlyChrSelectGCFv();
+extern "C" void ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFv();
+extern "C" void init_menu_window__23TAdSinglePlyChrSelectGCFv();
+extern "C" void init_screen__23TAdSinglePlyChrSelectGCFv();
+extern "C" void open_char_select__23TAdSinglePlyChrSelectGCFv();
+extern "C" void rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFv();
 extern "C" void render_shadows__7TObjectFv();
-extern "C" void reset_on_load_complete__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void reset_on_load_complete__23TAdSinglePlyChrSelectGCFv();
 extern "C" void run_task__7TObjectFv();
-extern "C" void try_setup__23TAdSinglePlyChrSelectGCFi();
-extern "C" void update_char_timer__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void update_close_on_load__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void update_close_timer__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void update_load_countdown__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void try_setup__23TAdSinglePlyChrSelectGCFv();
+extern "C" void update_char_timer__23TAdSinglePlyChrSelectGCFv();
+extern "C" void update_close_on_load__23TAdSinglePlyChrSelectGCFv();
+extern "C" void update_close_timer__23TAdSinglePlyChrSelectGCFv();
+extern "C" void update_load_countdown__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFPv();
-extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFi();
+extern "C" void update_load_state__23TAdSinglePlyChrSelectGCFv();
 extern "C" void update_state__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void update_state__23TAdSinglePlyChrSelectGCFi();
-extern "C" void update_timer__23TAdSinglePlyChrSelectGCFPv();
+extern "C" void update_timer__23TAdSinglePlyChrSelectGCFv();
 __declspec(section ".data") void *lbl_804E3040[2] = {
     (void *)0x0, (void *)0x42b40000,
 };
@@ -133,39 +133,39 @@ __declspec(section ".data") void *lbl_804E3048[2] = {
 };
 void *lbl_804E3050[149] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xffffffff,
-    (void *)&rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&report_card_status__23TAdSinglePlyChrSelectGCFPv,
+    (void *)&rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff, (void *)&report_card_status__23TAdSinglePlyChrSelectGCFv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E3038, (void *)0x0,
-    (void *)0xffffffff, (void *)&ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E2FEC, (void *)0x0, (void *)0xffffffff, (void *)&update_load_state__23TAdSinglePlyChrSelectGCFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2F68, (void *)0x0,
-    (void *)0xffffffff, (void *)&ensure_player_loaded__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&TAdSinglePlyChrSelectGC__sub_802E2F20, (void *)0x0, (void *)0xffffffff, (void *)&reset_on_load_complete__23TAdSinglePlyChrSelectGCFPv,
-    (void *)0x0, (void *)0xffffffff, (void *)&open_char_select__23TAdSinglePlyChrSelectGCFi, (void *)0x0,
-    (void *)0xffffffff, (void *)&handle_confirm_menu__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&close_and_next_cancel__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&update_load_state__23TAdSinglePlyChrSelectGCFi,
+    (void *)0xffffffff, (void *)&ensure_player_loaded__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
+    (void *)&TAdSinglePlyChrSelectGC__sub_802E2F20, (void *)0x0, (void *)0xffffffff, (void *)&reset_on_load_complete__23TAdSinglePlyChrSelectGCFv,
+    (void *)0x0, (void *)0xffffffff, (void *)&open_char_select__23TAdSinglePlyChrSelectGCFv, (void *)0x0,
+    (void *)0xffffffff, (void *)&handle_confirm_menu__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
+    (void *)&close_and_next_cancel__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff, (void *)&update_load_state__23TAdSinglePlyChrSelectGCFv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2D3C, (void *)0x0,
-    (void *)0xffffffff, (void *)&update_load_countdown__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&close_scene__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BD4,
+    (void *)0xffffffff, (void *)&update_load_countdown__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
+    (void *)&close_scene__23TAdSinglePlyChrSelectGCFl, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BD4,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BC8, (void *)0x0,
-    (void *)0xffffffff, (void *)&update_timer__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&create_backgrounds__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff, (void *)&advance_when_load_done__23TAdSinglePlyChrSelectGCFi,
+    (void *)0xffffffff, (void *)&update_timer__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
+    (void *)&create_backgrounds__23TAdSinglePlyChrSelectGCFl, (void *)0x0, (void *)0xffffffff, (void *)&advance_when_load_done__23TAdSinglePlyChrSelectGCFi,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2A7C, (void *)0x0,
-    (void *)0xffffffff, (void *)&update_char_timer__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&init_screen__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E289C,
+    (void *)0xffffffff, (void *)&update_char_timer__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
+    (void *)&init_screen__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E289C,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2848, (void *)0x0,
-    (void *)0xffffffff, (void *)&update_close_timer__23TAdSinglePlyChrSelectGCFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&update_state__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff, (void *)&try_setup__23TAdSinglePlyChrSelectGCFi,
-    (void *)0x0, (void *)0xffffffff, (void *)&update_close_on_load__23TAdSinglePlyChrSelectGCFPv, (void *)0x0,
+    (void *)0xffffffff, (void *)&update_close_timer__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
+    (void *)&update_state__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff, (void *)&try_setup__23TAdSinglePlyChrSelectGCFv,
+    (void *)0x0, (void *)0xffffffff, (void *)&update_close_on_load__23TAdSinglePlyChrSelectGCFv, (void *)0x0,
     (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2610, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E2588, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2520,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E24B8, (void *)0x0,
     (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2450, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E24B8, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E23E8,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0,
-    (void *)0xffffffff, (void *)&init_menu_window__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff,
-    (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0, (void *)0xffffffff, (void *)&build_selection_summary__23TAdSinglePlyChrSelectGCFPv,
+    (void *)0xffffffff, (void *)&init_menu_window__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
+    (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0, (void *)0xffffffff, (void *)&build_selection_summary__23TAdSinglePlyChrSelectGCFv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0,
-    (void *)0xffffffff, (void *)&create_result_bg__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&create_result_bg__23TAdSinglePlyChrSelectGCFl, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E2158, (void *)0x0, (void *)0xffffffff, (void *)&show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E1FAC, (void *)0x0,
     (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E1F8C, (void *)0x0, (void *)0xffffffff,

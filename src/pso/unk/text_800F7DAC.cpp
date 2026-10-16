@@ -66,7 +66,6 @@ void TCameraCtrl__sub_80068EF0(void);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 void step_fade_opacity_increase(u8 *arg0);
 void step_fade_opacity_decrease__13TUnk_80499970Fv(u8 *arg0);
-u8 * dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1);
 void TLobby__sub_800F838C(u8 *arg0);
 u8 * TLobby__sub_800F8428(u8 *arg0, s16 arg1);
 void * TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
@@ -81,7 +80,7 @@ s32 __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *);
 u32 TWindowCtrlMain__sub_8024CD5C(s32);
 u32 prs_decompress(int, int, int, int);
-s32 destroy_ep3_exist__6TLobbyFis(int, int);
+s32 destroy_ep3_exist__6TLobbyFls(int, int);
 u32 reset_counters__6TLobbyFv();
 void set_cached_blend_factor(s32, s32);
 
@@ -131,7 +130,7 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
   {
     var_r3 = var_r31;
     var_r4 = 1;
-    destroy_ep3_exist__6TLobbyFis((int) var_r3, (int) 1);
+    destroy_ep3_exist__6TLobbyFls((int) var_r3, (int) 1);
   }
   var_r3 = phi_r30;
   return var_r3;
@@ -266,16 +265,16 @@ s32 TLobby::get_quest_thread_state() {
     return 0;
 }
 
-u8 *dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = &lbl_80499970.value;
+u8 *TLobby::dtor_clear_singleton(s16 arg1) {
+    if (((u8 *)this) != NULL) {
+        *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_80499970.value;
         (*(s32 *)&screen_fade_controller) = 0;
-        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        __dt__7TObjectFv((void *) (((u8 *)this)), (int) (0));
         if (arg1 > 0) {
-            ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (arg0));
+            ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (((u8 *)this)));
         }
     }
-    return arg0;
+    return ((u8 *)this);
 }
 
 void *TLobby::ct_register() {

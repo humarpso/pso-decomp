@@ -7,6 +7,7 @@
 struct TObjCity_Season_XmasWreath : public TUnk_804B9870 {
     virtual ~TObjCity_Season_XmasWreath();
     virtual void render();
+    void *dt(s16 arg1);
 };
 
 typedef char TObjCity_Season_XmasWreath_size[sizeof(TObjCity_Season_XmasWreath) == 0x90 ? 1 : -1];

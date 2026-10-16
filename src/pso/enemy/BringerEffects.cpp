@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
@@ -45,7 +46,6 @@ extern s32 bringer_projectile_actor_ops_table[];
 void *TObjEneDf2Bringer__sub_8009A340(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void queue_destruction__7TObjectFv(void *);
-void update_projectile_motion__17TObjEneDf2BringerFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void *csnVector(void *, void *, s32);
 void create_timed_particle_emitter(void *, s32, s32, s32);
@@ -58,7 +58,6 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self);
 extern "C" {
 
 void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1);
-void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -120,18 +119,18 @@ void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self) {
 #pragma pop
 
 void TUnk_8048FE08::sub_8009A11C() { *(s32*)((char*)this + 0xb0) = 0; }
-void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0) {
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), arg1);
-    *(s32 *)((s8 *)arg0 + 0x60) = arg2;
-    *(f32 *)((s8 *)arg0 + 0xB8) = sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    *(f32 *)((s8 *)arg0 + 0xBC) = (f32) 0.0f;
-    *(f32 *)((s8 *)arg0 + 0xC0) = cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    *(s32 *)((s8 *)arg0 + 0xB0) = 1;
-    fill_value_array((int) (*(s32 *)((s8 *)arg0 + 0xC4)));
-    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) 0.0f;
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) 0.0f;
-    *(f32 *)((s8 *)arg0 + 0xD0) = farg0;
-    *(s32 *)((s8 *)arg0 + 0xB4) = 0x19;
+void TObjEneDf2Bringer::setup_dir_shot(const void *arg1, s32 arg2, f32 farg0) {
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x38), arg1);
+    *(s32 *)((s8 *)((u8 *)this) + 0x60) = arg2;
+    *(f32 *)((s8 *)((u8 *)this) + 0xB8) = sin_table_lookup((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+    *(f32 *)((s8 *)((u8 *)this) + 0xBC) = (f32) 0.0f;
+    *(f32 *)((s8 *)((u8 *)this) + 0xC0) = cos_table_lookup((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+    *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 1;
+    fill_value_array((int) (*(s32 *)((s8 *)((u8 *)this) + 0xC4)));
+    *(f32 *)((s8 *)((u8 *)this) + 0xC8) = (f32) 0.0f;
+    *(f32 *)((s8 *)((u8 *)this) + 0xCC) = (f32) 0.0f;
+    *(f32 *)((s8 *)((u8 *)this) + 0xD0) = farg0;
+    *(s32 *)((s8 *)((u8 *)this) + 0xB4) = 0x19;
 }
 
 extern s32 lbl_8048FE08[];
@@ -151,18 +150,18 @@ void TObjEneDf2Bringer__sub_8009A2A0(void) {  }
 
 #pragma push
 #pragma fp_contract on
-void update_projectile_motion__17TObjEneDf2BringerFPv(u8 *arg0) {
+void TObjEneDf2Bringer::update_projectile_motion() {
     f32 temp_f2;
-    *(f32 *)((s8 *)arg0 + 0x50) += 1.0f;
-    temp_f2 = 6.0f * *(f32 *)((s8 *)arg0 + 0x50);
-    if (temp_f2 >= *(f32 *)((s8 *)arg0 + 0x4C)) {
-        VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x1C), (const void *)(arg0 + 0x34));
-        queue_destruction__7TObjectFv(arg0);
+    *(f32 *)((s8 *)((u8 *)this) + 0x50) += 1.0f;
+    temp_f2 = 6.0f * *(f32 *)((s8 *)((u8 *)this) + 0x50);
+    if (temp_f2 >= *(f32 *)((s8 *)((u8 *)this) + 0x4C)) {
+        VecCopy__FP3VecPC3Vec((void *)(((u8 *)this) + 0x1C), (const void *)(((u8 *)this) + 0x34));
+        queue_destruction__7TObjectFv(((u8 *)this));
         return;
     }
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x40) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x28));
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) ((*(f32 *)((s8 *)arg0 + 0x44) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x2C));
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) ((*(f32 *)((s8 *)arg0 + 0x48) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x30));
+    *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x40) * temp_f2) + *(f32 *)((s8 *)((u8 *)this) + 0x28));
+    *(f32 *)((s8 *)((u8 *)this) + 0x20) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x44) * temp_f2) + *(f32 *)((s8 *)((u8 *)this) + 0x2C));
+    *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x48) * temp_f2) + *(f32 *)((s8 *)((u8 *)this) + 0x30));
 }
 #pragma pop
 
@@ -218,17 +217,16 @@ void rotate_matrix_y(u32, s32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void);
-void draw_trail_pair__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void draw_trail_pair__10TObjPlayerFPv(u8 *arg0) {
+void TObjPlayer::draw_trail_pair() {
     push_matrix();
-    ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x20);
-    rotate_matrix_y(0U, *(s32 *)((s8 *)arg0 + 0x34));
-    ((TObjPlayer *)(arg0 + 0x40))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)arg0 + 0x2C) < 1.0f));
-    ((TObjPlayer *)(arg0 + 0xA0))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)arg0 + 0x2C) < 1.0f));
+    ((f32 (*)(void *))post_translate_matrix)(((u8 *)this) + 0x20);
+    rotate_matrix_y(0U, *(s32 *)((s8 *)((u8 *)this) + 0x34));
+    ((TObjPlayer *)(((u8 *)this) + 0x40))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)((u8 *)this) + 0x2C) < 1.0f));
+    ((TObjPlayer *)(((u8 *)this) + 0xA0))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)((u8 *)this) + 0x2C) < 1.0f));
     pop_matrix();
 }
 

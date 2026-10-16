@@ -92,7 +92,7 @@ s32 TWindowSubSymbolChatPartsSet__ct(s32, s32, s16, s32 *, s32 *);
 s32 TWindowSubSymbolChatParts__ct(s32, s32, s32 *, s32 *);
 s32 TWindowSubSymbolChat__sub_80076FE0(s32);
 s32 __nw__7TObjectFUl(s32);
-s32 destroy_keyboard__17TWindowSubComCardFPv(s32);
+s32 destroy_keyboard__17TWindowSubComCardFv(s32);
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
 s32 select_symbol_chat_slot(s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -269,7 +269,7 @@ s32 TWindowSubSymbolChat::create_keyboard_control() {
     get_keyboard_field_6c__15TWindowMakeTeamFv(var_r31, get_keyboard_ptr__20TWindowSubSymbolChatFv(*(s32 *)((s8 *)this + 0x28)));
     ((TWindowMakeTeam *)var_r31)->set_sub_position((u8 *)(get_window_layout_position((s32)(0xBB))));
     ((TWindowMakeTeam *)var_r31)->set_keyboard_flag62_bit2();
-    destroy_keyboard__17TWindowSubComCardFPv(var_r31);
+    destroy_keyboard__17TWindowSubComCardFv(var_r31);
     return var_r31;
 }
 

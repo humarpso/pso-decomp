@@ -16,6 +16,10 @@ struct TObjEneBalClawClaw : public TObjEneBalClaw {
     void *create();
     static void spawn_child_enemy();
     u8 unk_3C0[0x68];
+    void set_claw_flags();
+    void clear_flag();
+    void enter_hit_state(s16 arg1);
+    s32 check_active();
 };
 
 typedef char TObjEneBalClawClaw_size[sizeof(TObjEneBalClawClaw) == 0x428 ? 1 : -1];

@@ -3,18 +3,17 @@
 
 extern "C" {
 
-s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
 u8 *alloc_from_heap__6TLobbyFPv(s32);
 s32 adxf_get_fsize_byte__6TLobbyFv();
 s32 TLobby__sub_803CC53C(s32);
-s32 close_adxf_handle__6TLobbyFPv(s32);
+s32 close_adxf_handle__6TLobbyFv(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
 u8 *link_into_list__6TLobbyFv();
 s32 strncpy(void *, s32, s32);
 
 struct Ent_800fa164;
 
-s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4) {
+s32 TLobby::create_file_load_entry(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4) {
     struct Ent_800fa164 *var_r31;
     s32 temp_r3;
 
@@ -26,7 +25,7 @@ s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 ar
         return -2;
     }
     if (adxf_get_fsize_byte__6TLobbyFv() > 0x40000) {
-        close_adxf_handle__6TLobbyFPv(temp_r3);
+        close_adxf_handle__6TLobbyFv(temp_r3);
         return -3;
     }
     var_r31 = (struct Ent_800fa164 *)alloc_from_heap__6TLobbyFPv(0x68);
@@ -37,7 +36,7 @@ s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 ar
     *(s32 *)((s8 *)var_r31 + 0) = 2;
     *(s32 *)((s8 *)var_r31 + 0x3C) = arg1;
     *(s32 *)((s8 *)var_r31 + 0x30) = TLobby__sub_803CC53C(temp_r3);
-    close_adxf_handle__6TLobbyFPv(temp_r3);
+    close_adxf_handle__6TLobbyFv(temp_r3);
     *(s32 *)((s8 *)var_r31 + 0x34) = 0;
     *(u32 *)((s8 *)var_r31 + 0x40) = arg2;
     if (arg2 != 0U) {

@@ -42,7 +42,7 @@ s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
 void draw_window__17TWindowDuelResultFPv(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
 s32 TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFiii(void *, s32, s32, s32);
 s32 get_window_layout_position(int);
@@ -317,7 +317,7 @@ typedef char RecoveredGlobal_8024F5B0_lbl_804CF020_size[sizeof(RecoveredGlobal_8
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
+    construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)((void *)0xC))->alloc());

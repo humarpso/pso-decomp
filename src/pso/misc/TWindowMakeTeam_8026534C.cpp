@@ -6,7 +6,7 @@ void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2);
 s32 init_status_disp__15TWindowMakeTeamFc(u8);
 s32 draw_entry_0x110__15TWindowMakeTeamFSc(u8);
 s32 create_menu__15TWindowMakeTeamFv(struct TWMT *);
-s32 set_entry_string_by_id__15TWindowMakeTeamFPvPvi(s32, s32, s32);
+s32 set_entry_string_by_id__15TWindowMakeTeamFPvl(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 
 struct TWMT;
@@ -35,9 +35,9 @@ void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2) {
     *(u8 *)((s8 *)self + 0x1F) = 0U;
     temp_r0 = *(s32 *)((s8 *)self + 0x20);
     if ((temp_r0 == 1) || (temp_r0 == 2)) {
-        set_entry_string_by_id__15TWindowMakeTeamFPvPvi(*(s32 *)((s8 *)self + 0x2C), draw_entry_0x110__15TWindowMakeTeamFSc(*(u8 *)((s8 *)self + 0x1E)), 2);
+        set_entry_string_by_id__15TWindowMakeTeamFPvl(*(s32 *)((s8 *)self + 0x2C), draw_entry_0x110__15TWindowMakeTeamFSc(*(u8 *)((s8 *)self + 0x1E)), 2);
     }
-    set_entry_string_by_id__15TWindowMakeTeamFPvPvi(*(s32 *)((s8 *)self + 0x2C), init_status_disp__15TWindowMakeTeamFc(*(u8 *)((s8 *)self + 0x1F)), 3);
+    set_entry_string_by_id__15TWindowMakeTeamFPvl(*(s32 *)((s8 *)self + 0x2C), init_status_disp__15TWindowMakeTeamFc(*(u8 *)((s8 *)self + 0x1F)), 3);
     return arg0;
 }
 

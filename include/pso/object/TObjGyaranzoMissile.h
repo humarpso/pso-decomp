@@ -20,6 +20,7 @@ struct TObjGyaranzoMissile : public TUnk_804AF8A0 {
     virtual void run_task();
     f32 scale_velocity(f32 farg0);
     u8 unk_DA[0x2];
+    void copy_from(void* q);
 };
 
 typedef char TObjGyaranzoMissile_size[sizeof(TObjGyaranzoMissile) == 0xDC ? 1 : -1];

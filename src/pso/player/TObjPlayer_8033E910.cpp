@@ -61,7 +61,6 @@ s32 post_translate_matrix(void *);
 int set_global_param__8TObjFishFl(void);
 s32 draw_ginja_object(int);
 s32 set_material_alpha_compare_reference(int);
-void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self);
 }
 
 extern "C" {
@@ -126,24 +125,24 @@ void TObjPlayer::copy_node_record(s32 arg1) {
     *(u8 *)((s8 *)arg0 + 0x23) = (u8) *(u8 *)((s8 *)arg1 + 0x23);
 }
 
-void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self) {
+void TObjPlayer::draw_ginja_item_list() {
     s32 i;
-    for (i = 0; i < self->n; i++) {
-        ((TParticleCtrl *)(self->items[i].obj))->get_object();
-        set_material_alpha_compare_reference(self->items[i].scene);
+    for (i = 0; i < ((O_8033EB4C *)this)->n; i++) {
+        ((TParticleCtrl *)(((O_8033EB4C *)this)->items[i].obj))->get_object();
+        set_material_alpha_compare_reference(((O_8033EB4C *)this)->items[i].scene);
         set_depth_buffer_settings_1__Fv();
         set_depth_buffer_settings_id__FUl(3);
         push_matrix();
-        post_translate_matrix(self->items[i].a);
-        rotate_matrix_by_node_angles(self->items[i].b, 1);
-        play_indirect_effect_recipe(self->items[i].obj, 1, 1);
-        ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(self);
-        ((void (*)(void *))setup_projection_tex_matrix__10TObjPlayerFv)(self);
-        ((void (*)(s32))set_global_param__8TObjFishFl)(self->items[i].p18);
-        draw_ginja_object(self->items[i].p1C);
+        post_translate_matrix(((O_8033EB4C *)this)->items[i].a);
+        rotate_matrix_by_node_angles(((O_8033EB4C *)this)->items[i].b, 1);
+        play_indirect_effect_recipe(((O_8033EB4C *)this)->items[i].obj, 1, 1);
+        ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(((O_8033EB4C *)this));
+        ((void (*)(void *))setup_projection_tex_matrix__10TObjPlayerFv)(((O_8033EB4C *)this));
+        ((void (*)(s32))set_global_param__8TObjFishFl)(((O_8033EB4C *)this)->items[i].p18);
+        draw_ginja_object(((O_8033EB4C *)this)->items[i].p1C);
         pop_matrix();
         TParticleCtrl::set_tev_direct(1);
-        ((void (*)(void *))reset_effects__10TObjPlayerFv)(self);
+        ((void (*)(void *))reset_effects__10TObjPlayerFv)(((O_8033EB4C *)this));
     }
 }
 

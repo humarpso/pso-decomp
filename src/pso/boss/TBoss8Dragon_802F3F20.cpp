@@ -74,7 +74,6 @@ extern s32 lbl_805D5660;
 extern u8 *TBoss8Dragon__data_805D6988;
 extern s32 model_render_flags;
 extern const f32 lbl_805DED70;
-void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -131,38 +130,38 @@ void TBoss8Dragon::sub_802F4098(u8 *arg1) {
         *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) + lbl_805DED6C);
     }
 }
-void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
     u8 *temp_r31;
-    if (!(*(f32 *)((s8 *)arg0 + 0x3C) <= lbl_805DED70)) {
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    if (!(*(f32 *)((s8 *)((u8 *)this) + 0x3C) <= lbl_805DED70)) {
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
         TObjEneDD::clear_global_flag_400();
         lbl_805D5660 = model_render_flags;
         set_material_alpha_compare_reference((int) (0));
-        if (TBoss8Dragon__sub_802F3F20(arg0) != 0) {
-            ((RenderFadeState *)(&((Obj_802F4114 *)arg0)->fades[arg2]))->fadeOut();
+        if (TBoss8Dragon__sub_802F3F20(((u8 *)this)) != 0) {
+            ((RenderFadeState *)(&((Obj_802F4114 *)((u8 *)this))->fades[arg2]))->fadeOut();
         } else {
-            ((RenderFadeState *)(&((Obj_802F4114 *)arg0)->fades[arg2]))->restore();
+            ((RenderFadeState *)(&((Obj_802F4114 *)((u8 *)this))->fades[arg2]))->restore();
         }
-        temp_r31 = (u8 *)&((Obj_802F4114 *)arg0)->fades[arg2];
+        temp_r31 = (u8 *)&((Obj_802F4114 *)((u8 *)this))->fades[arg2];
         if (isFading__15RenderFadeStateCFv((int) (temp_r31)) != 0) {
             ((VObj_14_681f8e *)(temp_r31))->m6();
         }
         push_matrix();
         post_translate_matrix((void *) (arg1));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)));
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
-        scale_current_matrix((void *) (arg0 + 0x68));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x5C)));
+        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x64)));
+        scale_current_matrix((void *) (((u8 *)this) + 0x68));
         TObjPlayer::toggle_particle_effect();
-        if (*(s32 *)((s8 *)arg0 + 0x3C0) & 0x80) {
+        if (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) & 0x80) {
             fn_801414B0((int) (3), (int) (3), (int) (3), (int) (3));
         }
         if (has_enough_enemies__12TBoss8DragonFv() != 0) {
-            *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0x18);
+            *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0x18);
         } else {
-            *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
+            *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
         }
-        ((TObjEneRe7Berura *)arg0)->draw();
+        ((TObjEneRe7Berura *)((u8 *)this))->draw();
         TObjPlayer::setup_tev_swap();
         TParticleCtrl::end_effect_render();
         TObjLight__sub_801337F8((void *) (current_scene_light));

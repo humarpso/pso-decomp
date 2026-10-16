@@ -229,7 +229,7 @@ extern "C" {
 void reset_sound_group_fade__6TLobbyFv(void);
 #define lbl_805162EC ((E_8023FF38 *)&lbl_805162EC)
 void fade_voice_channels__6TLobbyFi(s32 arg0);
-void set_entry_params__6TLobbyFiiii(void *, int, int, u32);
+void set_entry_params__6TLobbyFlll(void *, int, int, u32);
 void *adxf_open_afs__6TLobbyFii(int, int);
 void *xmalloc__FUl(u32 bytes);
 void xfree__FPv(void *allocation);
@@ -292,7 +292,7 @@ s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id) {
     }
     for (i = 0; i < 4; i++) {
         TLobby::read_checked_align((s32)(self->fC14[i]), (s32)(self->fC24[i] / 2048), (s32)(self->ents[id].h[i]));
-        set_entry_params__6TLobbyFiiii(&self->fC14[i], i, self->fC24[i] / 2048, self->ents[id].h[i]);
+        set_entry_params__6TLobbyFlll(&self->fC14[i], i, self->fC24[i] / 2048, self->ents[id].h[i]);
     }
     return 0;
 fail:
@@ -1356,7 +1356,7 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 void reset_state_805D63DC__6TLobbyFv(void*);
 void reset_state__6TLobbyFPv(void* p);
 s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
-u32 find_card_by_id__17TWindowSubComCardFUi();
+u32 find_card_by_id__17TWindowSubComCardFUl();
 int fn_80077AA4(void*);
 s32 get_com_card_list__6TLobbyFPv();
 
@@ -1373,7 +1373,7 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     ((s32 (*)(void*, void*, int))TLobby__sub_802422EC)((void *) (arg0 + 0x4C), (void *) (arg1 + 0x10), (int) (temp_r5));
     __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((void *) (arg0 + 0x58), (void *) (arg1 + 0x60));
     ((TLobby *)arg0)->get_id();
-    if (find_card_by_id__17TWindowSubComCardFUi() == 0U) {
+    if (find_card_by_id__17TWindowSubComCardFUl() == 0U) {
         strncpy((void *) (arg0 + 8), (void *) (((TWindowSubStatusDisp *)arg0)->get_sub_disp_ptr()), (int) (0x10));
     } else {
         strncpy((void *) (arg0 + 8), (void *) (get_com_card_list__6TLobbyFPv()), (int) (0x10));

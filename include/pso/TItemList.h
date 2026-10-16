@@ -18,6 +18,8 @@ public:
     void lookup_entry_by_count(s32 arg1);
     u8 get_item_count();
     void run_item_count_update();
+public:
+    u8 *ct_init_placement_ring(u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
 };
 
 #endif

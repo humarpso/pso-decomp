@@ -45,6 +45,7 @@ struct TContainerAncient01 : public TUnk_804806E8 {
     u8 unk_364[0x4];
     f32 m_368;
     u8 unk_36C[0x4];
+    static int get_table_entry(int a0);
 };
 
 typedef char TContainerAncient01_size[sizeof(TContainerAncient01) == 0x370 ? 1 : -1];

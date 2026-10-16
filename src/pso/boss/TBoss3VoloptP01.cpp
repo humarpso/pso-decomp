@@ -160,7 +160,7 @@ s32 fn_800443DC(void *, int);
 u8 *find_entity_by_id(u16);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
-s32 construct__12TTecZondeEffFPvPvPvPvf(void *, s32, void *, void *, f32);
+s32 construct__12TTecZondeEffFPUcPUcPUcf(void *, s32, void *, void *, f32);
 s32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern S_80042B34 lbl_8043663C[];
@@ -205,7 +205,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
             len = normalize_vector(&d);
             obj = __nw__7TObjectFUl(0x260);
             if (obj != NULL) {
-                construct__12TTecZondeEffFPvPvPvPvf(obj, tl_07, &pos, &d, len);
+                construct__12TTecZondeEffFPUcPUcPUcf(obj, tl_07, &pos, &d, len);
             }
             VecCopy__FP3VecPC3Vec(&pos, src);
             {
@@ -220,7 +220,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
             len = normalize_vector(&d2);
             obj = __nw__7TObjectFUl(0x260);
             if (obj != NULL) {
-                construct__12TTecZondeEffFPvPvPvPvf(obj, tl_07, &pos, &d2, len);
+                construct__12TTecZondeEffFPUcPUcPUcf(obj, tl_07, &pos, &d2, len);
             }
             if (TBoss3Volopt__sub_80040FCC(e) != 0) {
                 Pkt_80042B34 pkt;
@@ -719,7 +719,7 @@ void reset_look_state__11TCameraCtrlFv(void *);
 void set_mode__11TCameraCtrlFv(void *);
 u8 * __ct__17TObjVoloptShutterFv(void *, s32);
 u8 * create_particle_emitter(void *, s32);
-s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
+s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 void __dt__15TObjEnemyCustomFv(void *, int);
 u8 * TObjEnemyCustom__ct(void *);
 void * collect_and_count__12TBoss3VoloptFUll(s32, s32);
@@ -1466,7 +1466,7 @@ void TBoss3VoloptP01::init_breakup_effect() {
     TBoss3VoloptP01__resource_bundle = boss3_volopt_resources;
     temp_r3 = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     if (temp_r3 != 0) {
-        temp_r3 = init_from_model__11TBreakUpMdlFPvi(temp_r3, *(s32 *)((s8 *)(*(void **)((s8 *)TBoss3VoloptP01__resource_bundle + 0x42C)) + 0x118));
+        temp_r3 = init_from_model__11TBreakUpMdlFl(temp_r3, *(s32 *)((s8 *)(*(void **)((s8 *)TBoss3VoloptP01__resource_bundle + 0x42C)) + 0x118));
     }
     TBoss3VoloptP01__breakup_model = temp_r3;
     lbl_805D4CC8 = collect_and_count__12TBoss3VoloptFUll(*(s32 *)((s8 *)(*(void **)((s8 *)TBoss3VoloptP01__resource_bundle + 0x42C)) + 0x118), 0xD);

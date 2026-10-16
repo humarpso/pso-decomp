@@ -166,6 +166,7 @@ struct TWindowDD
     static void init_ws_data_tables();
     static s32 lookup_item_category(s32 arg0);
     static s32 draw_default_entry(s32 arg0);
+    u8 *construct_base(u8 *arg1, s16 arg2, u8 *arg3);
 };
 
 #include <stddef.h>

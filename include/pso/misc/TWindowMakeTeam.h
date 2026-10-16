@@ -29,7 +29,9 @@ struct TWindowMakeTeam : public TObject {
     int get_keyboard_field_6c();
     static s32 create_menu();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+    void set_entry_string_by_id(void *arg1, s32 arg2);
+};
 
 typedef char TWindowMakeTeam_size[sizeof(TWindowMakeTeam) == 0x38 ? 1 : -1];
 #endif

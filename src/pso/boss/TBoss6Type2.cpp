@@ -194,13 +194,12 @@ extern s32 TBoss6Type2__motion_table[];
 extern const s32 TBoss6Type2__data_805DE4B8;
 u8 * get_player_by_client_id(u32);
 s32 is_active__14TBoss6PlotFalzFv();
-s32 break_rocks_in_radius__10TBoss6RockFPvf(void *, f32);
+s32 break_rocks_in_radius__10TBoss6RockFf(void *, f32);
 f32 xyz_distance(void *, void *);
 extern s32 TBoss6Type2__player_hit_rock_indices[];
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
-void apply_rock_hits_to_players__11TBoss6Type2FPv(Obj_802BBAB0 *self);
 s32 clear_render_callback__8TObjFishFv(u32);
 s32 draw_model_blend_motion(s32, Prm_802BCAB8 *, f32);
 s32 draw_model_motion(s32, s32, f32);
@@ -257,7 +256,6 @@ extern const f32 TBoss6Type2__data_805DE468;
 extern const f32 lbl_805DE4C4;
 int TBoss6Type2__sub_802BB694(void);
 void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
-void send_state_action_packet__11TBoss6Type2FPv(u8 *arg0);
 extern const f32 TBoss6Type2__data_805DE410;
 extern const f32 lbl_805DE4A8;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -651,13 +649,10 @@ void TBoss6Type2__sub_802BCC54(void *, int);
 Blk_802BCFD4 * copy_block__11TBoss6Type2FPvPv(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 void TBoss6Type2__sub_802BD340(void);
 void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg3);
-void get_phase_values__11TBoss6Type2FPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0);
 void TBoss6Type2__vt61(void* p);
 void TBoss6Type2__vt60(u8 *arg0);
 void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
-void send_action_packet__11TBoss6Type2FPvc(u8 *arg0, s8 arg1);
-void build_state_packet__11TBoss6Type2FPvPv(u8 *arg0, u8 *arg1);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
 void TBoss6Type2__vt42(void);
 void TBoss6Type2__vt43(void);
@@ -1681,7 +1676,7 @@ s32 TBoss6Type2::push_players_away(void *target, f32 range) {
     return mask;
 }
 
-void apply_rock_hits_to_players__11TBoss6Type2FPv(Obj_802BBAB0 *self) {
+void TBoss6Type2::apply_rock_hits_to_players() {
     Hit_802BBAB0 a;
     f32 range;
     s32 r;
@@ -1694,28 +1689,28 @@ void apply_rock_hits_to_players__11TBoss6Type2FPv(Obj_802BBAB0 *self) {
     s32 v;
     range = TBoss6Type2__data_805DE434;
     for (i = 0; i < 6; i++) {
-        rock = &self->rock[TBoss6Type2__player_hit_rock_indices[i]];
-        break_rocks_in_radius__10TBoss6RockFPvf(rock, TBoss6Type2__data_805DE434);
-        if (!(rock->y - self->f3C > range)) {
+        rock = &((Obj_802BBAB0 *)this)->rock[TBoss6Type2__player_hit_rock_indices[i]];
+        break_rocks_in_radius__10TBoss6RockFf(rock, TBoss6Type2__data_805DE434);
+        if (!(rock->y - ((Obj_802BBAB0 *)this)->f3C > range)) {
             hit = 0;
-            if (xyz_distance(rock, &self->v680[TBoss6Type2__player_hit_rock_indices[i]]) >= TBoss6Type2__data_805DE40C) {
+            if (xyz_distance(rock, &((Obj_802BBAB0 *)this)->v680[TBoss6Type2__player_hit_rock_indices[i]]) >= TBoss6Type2__data_805DE40C) {
                 hit = 1;
             }
-            r = ((TBoss6Type2 *)self)->push_players_away(rock, TBoss6Type2__data_805DE434);
+            r = ((TBoss6Type2 *)((Obj_802BBAB0 *)this))->push_players_away(rock, TBoss6Type2__data_805DE434);
             if (hit != 0 && r != 0) {
                 for (mask = 1, j = 0; j < 4; j++, mask <<= 1) {
                     if (mask & r) {
                         p = (VObj_18_b27ba1 *)((s32 (*)(s32))get_player_by_client_id)(j);
                         if (((s32 (*)(void *))is_active__14TBoss6PlotFalzFv)(p) != 0) {
-                            v = self->f4B4;
-                            if (self->f418 != 0) {
-                                v = (s32)((f32)v * self->f4E8);
+                            v = ((Obj_802BBAB0 *)this)->f4B4;
+                            if (((Obj_802BBAB0 *)this)->f418 != 0) {
+                                v = (s32)((f32)v * ((Obj_802BBAB0 *)this)->f4E8);
                             }
                             s32 rr = TBoss6PlotFalz::rand_vary_count(v, TBoss6Type2__data_805DE430);
                             a.x = 0;
                             a.y = rr;
                             Hit_802BBAB0 h = a;
-                            p->m21(self, &h, 0, -1, -1);
+                            p->m21(((Obj_802BBAB0 *)this), &h, 0, -1, -1);
                         }
                     }
                 }
@@ -2383,7 +2378,7 @@ void TBoss6Type2::run_task() {
     ((TObjPlayer *)arg0)->update_collisions();
     submit_cursor_candidate((void *) (arg0), (int) (-1));
     add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DE4C0));
-    apply_rock_hits_to_players__11TBoss6Type2FPv((Obj_802BBAB0 *)((void *) (arg0)));
+    ((TBoss6Type2 *)arg0)->apply_rock_hits_to_players();
     ((TBoss6Type2 *)arg0)->sub_802BB498();
     ((TBoss6Type2 *)arg0)->sub_802BC124();
     ((TBoss6PlotFalz *)(arg0 + 0x768))->scroll_strips_uv((int) (8), (int) (0));
@@ -2489,12 +2484,12 @@ s32 TBoss6Type2::get_rotation_timer() { return *(s32 *)&this->m_418; }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void get_phase_values__11TBoss6Type2FPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) {
+void TBoss6Type2::get_phase_values(u16 *a, u16 *b, u16 *out) {
     s32 i;
-    *a = self->f2d6;
-    *b = self->f2d4;
+    *a = ((Obj_8004D8C8 *)this)->f2d6;
+    *b = ((Obj_8004D8C8 *)this)->f2d4;
     for (i = 0; i < 4; i++) {
-        out[i] = obj_getArrU16_FC(self, i);
+        out[i] = obj_getArrU16_FC(((Obj_8004D8C8 *)this), i);
     }
 }
 #pragma pop
@@ -2806,21 +2801,21 @@ void TBoss6Type2::update_attack_target() {
 #pragma auto_inline off
 #pragma dont_inline off
 
-void send_state_action_packet__11TBoss6Type2FPv(u8 *arg0) {
+void TBoss6Type2::send_state_action_packet() {
     s32 sp8;
     s32 var_r31;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x424) != 0) {
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x424) != 0) {
         var_r31 = 7;
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x46C) == 0) {
+        if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x46C) == 0) {
             var_r31 = 0xA;
         }
     } else {
         var_r31 = 8;
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x46C) == 0) {
+        if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x46C) == 0) {
             var_r31 = 0xB;
         }
     }
-    switch (*(s32 *)((s8 *)arg0 + 0x374)) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x374)) {
     case 6:
     case 9:
         return;
@@ -2828,11 +2823,11 @@ void send_state_action_packet__11TBoss6Type2FPv(u8 *arg0) {
     case 8:
     case 10:
     case 11:
-        *(s16 *)((s8 *)arg0 + 0x466) = ((s16 (*)(void *))TBoss6Type2__sub_802BB694)(arg0);
-        var_r31 = *(s32 *)((s8 *)arg0 + 0x374) - 1;
+        *(s16 *)((s8 *)((u8 *)this) + 0x466) = ((s16 (*)(void *))TBoss6Type2__sub_802BB694)(((u8 *)this));
+        var_r31 = *(s32 *)((s8 *)((u8 *)this) + 0x374) - 1;
     default:
-        TBoss6Type2__sub_802BD938(arg0, (u8 *) (&sp8));
-        ((TBoss6Type2 *)arg0)->send_action_packet_if_idle(var_r31, &sp8);
+        TBoss6Type2__sub_802BD938(((u8 *)this), (u8 *) (&sp8));
+        ((TBoss6Type2 *)((u8 *)this))->send_action_packet_if_idle(var_r31, &sp8);
         break;
     }
 }
@@ -2862,7 +2857,7 @@ void TBoss6Type2::send_action_packet_if_idle(s32 arg1, s32 *arg2) {
     u8 *s; s32 i;
     if (((TBoss6Type1 *)(*(s32 *)&this->m_3f8))->is_idle() != 0) {
         ((TBoss6Type2 *)(&p))->init_packet();
-        build_state_packet__11TBoss6Type2FPvPv((u8 *)this, (u8 *)&p);
+        build_state_packet((u8 *)&p);
         s = (u8 *)arg2; p.d[4] = arg1;
         for (i = 1; i < 4; i++) {
             p.d[i + 4] = *s++;
@@ -2879,13 +2874,13 @@ void TBoss6Type2::send_action_packet_if_idle(s32 arg1, s32 *arg2) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void send_action_packet__11TBoss6Type2FPvc(u8 *arg0, s8 arg1) {
+void TBoss6Type2::send_action_packet(s8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802BDDF8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802BDDF8, spC) == 0x4) ? 1 : -1];
     Stack_802BDDF8 stack;
-    if (((TBoss6Type1 *)(*(s32 *)((s8 *)arg0 + 0x3F8)))->is_idle() != 0) {
+    if (((TBoss6Type1 *)(*(s32 *)((s8 *)((u8 *)this) + 0x3F8)))->is_idle() != 0) {
         ((TBoss6Type2 *)(&stack.sp8))->init_packet();
-        build_state_packet__11TBoss6Type2FPvPv((u8 *)((void *) (arg0)), (u8 *)((void *) (&stack.sp8)));
+        build_state_packet((u8 *)((void *) (&stack.sp8)));
         stack.spC = arg1;
         ((TBoss6Type2 *)(&stack.sp8))->update_and_send();
     }
@@ -2931,17 +2926,17 @@ void TBoss6Type2::parse_action_packet(void *arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void build_state_packet__11TBoss6Type2FPvPv(u8 *arg0, u8 *arg1) {
+void TBoss6Type2::build_state_packet(u8 *arg1) {
     u16 spA;
     u16 sp8;
-    *(u16 *)((s8 *)arg1 + 2) = (u16) *(u16 *)((s8 *)arg0 + 0x1C);
+    *(u16 *)((s8 *)arg1 + 2) = (u16) *(u16 *)((s8 *)((u8 *)this) + 0x1C);
     *(s8 *)((s8 *)arg1 + 8) = (s8) (lbl_805DE4D0 * (TBoss6Type2__data_805DE468 * (f32) rand()));
-    *(s8 *)((s8 *)arg1 + 9) = ((TBoss6Type2 *)arg0)->choose_random_motion();
-    *(s8 *)((s8 *)arg1 + 0xA) = (s8) *(s32 *)((s8 *)arg0 + 0x428);
-    *(s8 *)((s8 *)arg1 + 0xB) = (s8) *(s32 *)((s8 *)arg0 + 0x430);
-    *(s8 *)((s8 *)arg1 + 0xC) = (s8) *(u16 *)((s8 *)arg0 + 0x464);
-    *(s8 *)((s8 *)arg1 + 0xD) = (s8) *(u16 *)((s8 *)arg0 + 0x466);
-    ((void (*)(void *, void *, void *))TBoss6Type2__sub_802BB5B4)(arg0, &spA, &sp8);
+    *(s8 *)((s8 *)arg1 + 9) = ((TBoss6Type2 *)((u8 *)this))->choose_random_motion();
+    *(s8 *)((s8 *)arg1 + 0xA) = (s8) *(s32 *)((s8 *)((u8 *)this) + 0x428);
+    *(s8 *)((s8 *)arg1 + 0xB) = (s8) *(s32 *)((s8 *)((u8 *)this) + 0x430);
+    *(s8 *)((s8 *)arg1 + 0xC) = (s8) *(u16 *)((s8 *)((u8 *)this) + 0x464);
+    *(s8 *)((s8 *)arg1 + 0xD) = (s8) *(u16 *)((s8 *)((u8 *)this) + 0x466);
+    ((void (*)(void *, void *, void *))TBoss6Type2__sub_802BB5B4)(((u8 *)this), &spA, &sp8);
     *(s8 *)((s8 *)arg1 + 0xE) = (s8) spA;
     *(s8 *)((s8 *)arg1 + 0xF) = (s8) sp8;
 }

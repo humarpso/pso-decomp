@@ -3,8 +3,8 @@
 
 extern "C" {
 
-int get_target_info__9TObjEneDDFPv(void*);
+int get_target_info__9TObjEneDDFv(void*);
 
-void TBoss5Gryphon::vfunc_83() { get_target_info__9TObjEneDDFPv(this); }
+void TBoss5Gryphon::vfunc_83() { get_target_info__9TObjEneDDFv(this); }
 
 }

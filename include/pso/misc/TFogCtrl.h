@@ -42,7 +42,9 @@ struct TFogCtrl : public TObject {
     static s32 update_all(s32 arg0, s32 arg1);
     static s32 apply_all(s32 arg0, s32 arg1);
     static s32 update_first_active_fog();
-    static s32 update_all(s32 arg0);};
+    static s32 update_all(s32 arg0);
+    s32 select_fog(s32 arg1, s32 arg2);
+};
 
 typedef char TFogCtrl_size[sizeof(TFogCtrl) == 0x1C8 ? 1 : -1];
 #endif

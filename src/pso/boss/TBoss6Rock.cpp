@@ -89,7 +89,7 @@ struct Obj_80353F5C
 
 extern "C" {
 void TBoss6Rock__sub_803542E8(void *, s32);
-void spawn_crush_rocks__10TBoss6RockFPvi(void *, s32);
+void spawn_crush_rocks__10TBoss6RockFl(void *, s32);
 extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
@@ -117,7 +117,6 @@ extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 extern u8 TBoss6Rock__rock_point_table[];
-s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
@@ -127,7 +126,6 @@ f32 vector_length(void *);
 void subtract_vector(void *, void *);
 extern u8 TBoss6Rock__rock_point_table[];
 extern const f32 TBoss6Rock__data_805DFF50;
-void break_rocks_in_radius__10TBoss6RockFPvf(Vec_80353B7C *arg0, f32 r);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -138,7 +136,6 @@ extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 TBoss6Rock__data_805DFF5C;
 extern const f32 lbl_805DFF60;
 extern const f32 lbl_805DFF64;
-s32 push_out_of_rocks__10TBoss6RockFPvf(Vec_80353C60 *arg0, f32 r);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -309,16 +306,16 @@ s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR) {
 }
 #pragma pop
 
-void break_rocks_in_radius__10TBoss6RockFPvf(Vec_80353B7C *arg0, f32 r) {
+void TBoss6Rock::break_rocks_in_radius(f32 r) {
     Vec_80353B7C v;
     s32 i;
     R_80353B7C *p;
     for (i = 0; i < 0x20; i++) {
         p = (R_80353B7C *)TBoss6Rock::get_rock_entry(i);
-        if (p != NULL && ((s32 (*)(s32))is_rock_state_2__10TBoss6RockFi)(i) != 0 && !(arg0->y > r + p->f8)) {
+        if (p != NULL && ((s32 (*)(s32))is_rock_state_2__10TBoss6RockFi)(i) != 0 && !(((Vec_80353B7C *)this)->y > r + p->f8)) {
             f32 lim = r + p->f4;
             VecCopy__FP3VecPC3Vec(&v, &((Vec_80353B7C *)TBoss6Rock__rock_point_table)[i]);
-            subtract_vector(&v, arg0);
+            subtract_vector(&v, ((Vec_80353B7C *)this));
             v.y = TBoss6Rock__data_805DFF50;
             if (vector_length(&v) <= lim) {
                 TBoss6Rock::clear_rock_state(i);
@@ -327,7 +324,7 @@ void break_rocks_in_radius__10TBoss6RockFPvf(Vec_80353B7C *arg0, f32 r) {
     }
 }
 
-s32 push_out_of_rocks__10TBoss6RockFPvf(Vec_80353C60 *arg0, f32 r) {
+s32 TBoss6Rock::push_out_of_rocks(f32 r) {
     Vec_80353C60 v;
     s32 hit;
     s32 i;
@@ -336,7 +333,7 @@ s32 push_out_of_rocks__10TBoss6RockFPvf(Vec_80353C60 *arg0, f32 r) {
     hit = 0;
     for (i = 0; i < 0x20; i++) {
         f32 d;
-        VecCopy__FP3VecPC3Vec(&v, arg0);
+        VecCopy__FP3VecPC3Vec(&v, ((Vec_80353C60 *)this));
         subtract_vector(&v, &((Vec_80353C60 *)TBoss6Rock__rock_point_table)[i]);
         v.y = y;
         d = vector_length(&v);
@@ -347,14 +344,14 @@ s32 push_out_of_rocks__10TBoss6RockFPvf(Vec_80353C60 *arg0, f32 r) {
             normalize_vector(&v);
             v.x *= lim;
             v.z *= lim;
-            vec3_add_to(arg0, &v);
+            vec3_add_to(((Vec_80353C60 *)this), &v);
             hit = 1;
         }
     }
     return hit;
 }
 
-s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2) {
+s32 TBoss6Rock::get_point(s32 arg0, s32 arg1, f32 *arg2) {
     s32 temp_r5;
     if (TBoss6Rock::is_rock_valid(arg0) == 0) {
         return 0;
@@ -487,7 +484,7 @@ void TBoss6Rock::break_and_release() {
         *(s32 *)&this->m_c8 = 0;
     }
     if ((s32) *(s32 *)&this->m_c8 != 2) {
-        spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, *(s32 *)&this->m_b4);
+        spawn_crush_rocks__10TBoss6RockFl(arg0 + 0xD4, *(s32 *)&this->m_b4);
         play_sound_effect(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
         release_object();
         randomize_motion();

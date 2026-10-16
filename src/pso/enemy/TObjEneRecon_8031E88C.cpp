@@ -138,7 +138,7 @@ struct Obj_8031EA70 : ObjBase_8031EA70 {
 struct Holder_8031EA70 { u8 pad[0x460]; Fade_8031EA70 arr[4]; };
 
 extern "C" {
-s32 get_target_info__9TObjEneDDFPv();
+s32 get_target_info__9TObjEneDDFv();
 s32 pack_debug_text_position(s32, s32);
 s32 debug_printf_at(s32, const char *, ...);
 s32 rotate_matrix_y(int, int);
@@ -189,7 +189,7 @@ void TObjEneRecobox::draw_with_debug_info() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
-    if (get_target_info__9TObjEneDDFPv() != 0) {
+    if (get_target_info__9TObjEneDDFv() != 0) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x3DC);
         switch (temp_r0) {
         case 0:

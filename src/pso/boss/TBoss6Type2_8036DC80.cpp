@@ -15,13 +15,12 @@ extern s8 boss6_type2_player_snapshot_table[];
 
 extern "C" {
 
-void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 u16 obj_getField1c();
 
 extern s8 boss6_type2_player_snapshot_table[];
 
-void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0) {
+void TBoss6Type2::apply_pending_effect() {
     u16 temp_r3;
     u8 *temp_r31;
 
@@ -30,14 +29,14 @@ void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0) {
         temp_r31 = (unsigned char *) (boss6_type2_player_snapshot_table + (temp_r3 * 0x2C));
         if ((s32) *(s32 *)((s8 *)temp_r31 + 0) != 0) {
             *(s32 *)((s8 *)temp_r31 + 0) = 0;
-            if (is_state_1f__14TBoss6PlotFalzFUi((void *) (arg0)) != 0) {
-                ((TBoss6Type2 *)(arg0 + 0xCF4))->copy_vec2((void *) (temp_r31 + 4));
-                ((TBoss6Type2 *)(arg0 + 0xA1C))->copy_vec2((void *) (temp_r31 + 0xC));
-                ((TBoss6Type2 *)(arg0 + 0xB88))->copy_vec2((void *) (temp_r31 + 0x14));
-                *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)temp_r31 + 0x1C);
-                *(s32 *)((s8 *)arg0 + 0x8B0) = (s32) *(s32 *)((s8 *)temp_r31 + 0x20);
-                *(s32 *)((s8 *)arg0 + 0x8AC) = (s32) *(s32 *)((s8 *)temp_r31 + 0x24);
-                *(s32 *)((s8 *)arg0 + 0x8B4) = (s32) *(s32 *)((s8 *)temp_r31 + 0x28);
+            if (is_state_1f__14TBoss6PlotFalzFUi((void *) (((u8 *)this))) != 0) {
+                ((TBoss6Type2 *)(((u8 *)this) + 0xCF4))->copy_vec2((void *) (temp_r31 + 4));
+                ((TBoss6Type2 *)(((u8 *)this) + 0xA1C))->copy_vec2((void *) (temp_r31 + 0xC));
+                ((TBoss6Type2 *)(((u8 *)this) + 0xB88))->copy_vec2((void *) (temp_r31 + 0x14));
+                *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)temp_r31 + 0x1C);
+                *(s32 *)((s8 *)((u8 *)this) + 0x8B0) = (s32) *(s32 *)((s8 *)temp_r31 + 0x20);
+                *(s32 *)((s8 *)((u8 *)this) + 0x8AC) = (s32) *(s32 *)((s8 *)temp_r31 + 0x24);
+                *(s32 *)((s8 *)((u8 *)this) + 0x8B4) = (s32) *(s32 *)((s8 *)temp_r31 + 0x28);
             }
         }
     }

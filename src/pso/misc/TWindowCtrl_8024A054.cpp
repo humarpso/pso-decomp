@@ -16,14 +16,14 @@ struct Obj054_8024A054 { char pad[0x38]; u32 field38; };
 s32 is_player_input_active(s32 arg0);
 s32 get_multiplayer_controller_active_index(s32);
 u32 get_player_by_client_id(s32);
-s32 clear_flag1e_bit8__11TWindowCtrlFPv(void*);
-s32 get_map_id__13TRaderMapCoreFPv();
+s32 clear_flag1e_bit8__11TWindowCtrlFv(void*);
+s32 get_map_id__13TRaderMapCoreFv();
 
 extern struct Obj054_8024A054 *TWindowCtrl__active_window;
 
 void TWindowCtrl::clear_flag() {
     if ((TWindowCtrl__active_window != NULL) && (TWindowCtrl__active_window->field38 != 0U)) {
-        clear_flag1e_bit8__11TWindowCtrlFPv((void*)TWindowCtrl__active_window->field38);
+        clear_flag1e_bit8__11TWindowCtrlFv((void*)TWindowCtrl__active_window->field38);
     }
 }
 
@@ -49,7 +49,7 @@ s32 is_player_input_active(s32 arg0) {
     if (get_player_by_client_id(arg0) == 0U) {
         return 0;
     }
-    return get_map_id__13TRaderMapCoreFPv();
+    return get_map_id__13TRaderMapCoreFv();
 }
 
 }

@@ -188,7 +188,7 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 u32 *copy_attack_targets(u32 *dst, u32 *src);
 void spawn_heaven_effect__10TObjPlayerFlUlUsl(s32, s32, u32, s16);
 s32 get_captured_target_collider_index(s32);
-u32 get_uid__10TObjPlayerFPv(s32);
+u32 get_uid__10TObjPlayerFv(s32);
 s32 get_captured_target_entry(void *, s32);
 s32 get_captured_target_count(void *);
 extern s32 tl_05;
@@ -231,7 +231,7 @@ void heaven_punisher_strike_locks(Pl_8012AC68 *arg0) {
         for (i = 0; i != get_captured_target_count(arg0->f1f8); i++) {
             e = get_captured_target_entry(arg0->f1f8, i);
             v = get_captured_target_collider_index(e);
-            spawn_heaven_effect__10TObjPlayerFlUlUsl(tl_05, arg0->f0, get_uid__10TObjPlayerFPv(e), v);
+            spawn_heaven_effect__10TObjPlayerFlUlUsl(tl_05, arg0->f0, get_uid__10TObjPlayerFv(e), v);
         }
     } else {
         ((TObjPlayer *)arg0)->draw_status_icon((s32)buf);

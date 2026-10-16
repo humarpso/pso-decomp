@@ -7,7 +7,9 @@
 struct TWindowStatus : public TWindowSimpleStatus {
     virtual ~TWindowStatus();
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+    void draw_background(u8 *arg1);
+};
 
 typedef char TWindowStatus_size[sizeof(TWindowStatus) == 0x78 ? 1 : -1];
 #endif

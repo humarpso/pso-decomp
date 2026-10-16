@@ -37,7 +37,6 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void debug_printf_at(s32, const char *, ...);
 extern Ctl_8006C964 controller_input_state;
-void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self);
 }
 
 extern "C" {
@@ -76,7 +75,7 @@ extern const f64 lbl_80438510;
 extern const f64 lbl_80438518;
 #pragma push
 #pragma fp_contract on
-void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
+void TCameraCtrl::update_debug_camera() {
     Vec_8006C964 target = lbl_804384F4;
     Vec_8006C964 v;
     Pad_8006C964 *pad = &controller_input_state.pad;
@@ -84,45 +83,45 @@ void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
     s16 sy = controller_input_state.pad.sy;
     f32 r;
     if (is_on_current_screen__11TCameraCtrlFv(pad, 0x100) != 0) {
-        debug_printf_at(0xC0014, lbl_80438500, (s32)(lbl_80438518 * (f64)self->x54 + lbl_80438510));
+        debug_printf_at(0xC0014, lbl_80438500, (s32)(lbl_80438518 * (f64)((Cam_8006C964 *)this)->x54 + lbl_80438510));
         if (TWindowShortListCtrl__check_controller_button(pad, 0x20000) != 0) {
-            self->x54 += 0xB6;
+            ((Cam_8006C964 *)this)->x54 += 0xB6;
         }
         if (TWindowShortListCtrl__check_controller_button(pad, 0x10000) != 0) {
-            self->x54 -= 0xB6;
+            ((Cam_8006C964 *)this)->x54 -= 0xB6;
         }
     }
     ((void (*)(void *))get_target_position__11TCameraCtrlFv)(&v);
     VecCopy__FP3VecPC3Vec(&target, &v);
-    ((TUnk_80488DA0 *)self)->set_target_pos(&target);
+    ((TUnk_80488DA0 *)((Cam_8006C964 *)this))->set_target_pos(&target);
     if (is_on_current_screen__11TCameraCtrlFv(pad, 0x200) != 0) {
         if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10) != 0) {
-            self->dist -= (2.0f);
+            ((Cam_8006C964 *)this)->dist -= (2.0f);
         }
         if (is_on_current_screen__11TCameraCtrlFv(pad, 0x20) != 0) {
-            self->dist += (2.0f);
+            ((Cam_8006C964 *)this)->dist += (2.0f);
         }
-        if (self->dist < 20.0f) {
-            self->dist = 20.0f;
+        if (((Cam_8006C964 *)this)->dist < 20.0f) {
+            ((Cam_8006C964 *)this)->dist = 20.0f;
         }
-        if (self->dist > 400.0f) {
-            self->dist = 400.0f;
+        if (((Cam_8006C964 *)this)->dist > 400.0f) {
+            ((Cam_8006C964 *)this)->dist = 400.0f;
         }
     }
     if (is_on_current_screen__11TCameraCtrlFv(pad, 0x400) != 0) {
-        self->yaw += sx * 3;
-        self->pitch += sy * 3;
+        ((Cam_8006C964 *)this)->yaw += sx * 3;
+        ((Cam_8006C964 *)this)->pitch += sy * 3;
     }
-    if (self->pitch > 0x3800) {
-        self->pitch = 0x3800;
+    if (((Cam_8006C964 *)this)->pitch > 0x3800) {
+        ((Cam_8006C964 *)this)->pitch = 0x3800;
     }
-    if (self->pitch < -0x3800) {
-        self->pitch = -0x3800;
+    if (((Cam_8006C964 *)this)->pitch < -0x3800) {
+        ((Cam_8006C964 *)this)->pitch = -0x3800;
     }
-    r = self->dist * cos_table_lookup(self->pitch);
-    self->eye.x = r * sin_table_lookup(self->yaw) + self->center.x;
-    self->eye.y = -(self->dist * sin_table_lookup(self->pitch) - self->center.y);
-    self->eye.z = r * cos_table_lookup(self->yaw) + self->center.z;
+    r = ((Cam_8006C964 *)this)->dist * cos_table_lookup(((Cam_8006C964 *)this)->pitch);
+    ((Cam_8006C964 *)this)->eye.x = r * sin_table_lookup(((Cam_8006C964 *)this)->yaw) + ((Cam_8006C964 *)this)->center.x;
+    ((Cam_8006C964 *)this)->eye.y = -(((Cam_8006C964 *)this)->dist * sin_table_lookup(((Cam_8006C964 *)this)->pitch) - ((Cam_8006C964 *)this)->center.y);
+    ((Cam_8006C964 *)this)->eye.z = r * cos_table_lookup(((Cam_8006C964 *)this)->yaw) + ((Cam_8006C964 *)this)->center.z;
 }
 #pragma pop
 

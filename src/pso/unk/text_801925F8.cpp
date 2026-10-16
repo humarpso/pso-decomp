@@ -110,7 +110,6 @@ extern "C" {
 s32 get_bml_motion(s32, s32);
 Node_80192A3C *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
-void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0);
 void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
@@ -207,7 +206,8 @@ void *TObjLazerFenceExtra__create(void *arg0) {
     }
     return o;
 }
-void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0) {
+void TObjLazerFenceNorm::select_models() {
+    Fish_80192A3C *arg0 = (Fish_80192A3C *)this;
     s32 i;
     Node_80192A3C *node;
     s32 j;
@@ -241,7 +241,7 @@ void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0) {
 struct Obj_80192B5C { u8 pad0[0x38]; u8 f38[0x24]; s32 f5C; s32 f60; u8 pad64[0x48]; s32 fAC; u8 padB0[8]; f32 fB8; s32 fBC; s32 fC0; s32 fC4; s32 fC8[4]; };
 
 extern "C" {
-void free_children__12TObjDoorJungFPvPv(s32, int);
+void free_children__12TObjDoorJungFPv(s32, int);
 void post_translate_matrix(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
@@ -252,7 +252,7 @@ extern "C" {
 void TObjLazerFenceNorm::draw_animated_beam() {
     s32 i;
     for (i = 0; i < 4; i++) {
-        free_children__12TObjDoorJungFPvPv(((Obj_80192B5C *)this)->fC8[i], lbl_80445B7C[((Obj_80192B5C *)this)->fAC]);
+        free_children__12TObjDoorJungFPv(((Obj_80192B5C *)this)->fC8[i], lbl_80445B7C[((Obj_80192B5C *)this)->fAC]);
     }
     TObjFish::set_global_param((s32)lazer_fence_norm_texture_list);
     push_matrix();

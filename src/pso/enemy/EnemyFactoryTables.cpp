@@ -45,7 +45,7 @@ void* create__14TObjEnePanarmsFl(void* placement);
 void* TObjEneMe3ShinowaMirage__sub_800E7B74(void* placement);
 void* create__12TObjEneSlimeFl(void* placement);
 void* create__18TObjEneRe4SorcererFv(void* placement);
-void* create_real__16TObjEneMe3StelthFPv(void* placement);
+void* create_real__16TObjEneMe3StelthFv(void* placement);
 void* TObjNpcAHM01__create(void* placement);
 void* TObjNpcARM00__create(void* placement);
 void* TObjNpcARW00__create(void* placement);
@@ -413,7 +413,7 @@ EnemyFactoryEntry enemy_factories_floors_19_20[9] = {
 };
 
 EnemyFactoryEntry enemy_factories_floors_23_24_25_26_27[12] = {
-    { 0x00D4, create_real__16TObjEneMe3StelthFPv, 250000.0f, 4 },
+    { 0x00D4, create_real__16TObjEneMe3StelthFv, 250000.0f, 4 },
     { 0x00D5, TObjEneMerillLia__create, 250000.0f, 0 },
     { 0x00D6, TObjEneBm9Mericarol::create, 250000.0f, 0 },
     { 0x00D7, TObjEneBm5GibonU::create, 250000.0f, 0 },

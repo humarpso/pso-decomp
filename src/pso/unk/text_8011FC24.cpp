@@ -11,7 +11,7 @@ extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);
 void clear_equip_flags__11TItemWeaponFUl(void*,u32);
-void set_status_flags__10TObjPlayerFPvUi(void*,u32);
+void set_status_flags__10TObjPlayerFUl(void*,u32);
 s32 test_flag30_bit0x100000__10TObjPlayerFv(void*);
 void register_technique_boosts__14TItemEquipBaseFPvPv(void*,void*);
 s32 obj_isState7_324(void*);
@@ -105,7 +105,7 @@ void TItemWeapon::vfunc_16() {
             clear_equip_flags__11TItemWeaponFUl(self,0x1000000);
             self->stage=stage;
         }
-        if(stage>=0) set_status_flags__10TObjPlayerFPvUi(self,0x10);
+        if(stage>=0) set_status_flags__10TObjPlayerFUl(self,0x10);
         else clear_equip_flags__11TItemWeaponFUl(self,0x10);
         if(stage>=0 || test_flag30_bit0x100000__10TObjPlayerFv(self->player)) self->update_attack();
         else self->update_idle();
@@ -172,6 +172,6 @@ void TItemWeapon::vfunc_14() {
 
 extern "C" {
 
-void TItemWeapon::vfunc_50() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)(this, 4); }
+void TItemWeapon::vfunc_50() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFUl)(this, 4); }
 
 }

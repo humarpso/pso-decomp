@@ -15,7 +15,9 @@ struct TBoss7LaserLight : public TObject {
     u8 _pad3C[0x4];
     u32 m_40;
     virtual void render();
-    virtual void run_task();};
+    virtual void run_task();
+    u8 *construct_with_params(s32 arg1, s32 arg2, s32 arg3);
+};
 
 typedef char TBoss7LaserLight_size[sizeof(TBoss7LaserLight) == 0x44 ? 1 : -1];
 #endif

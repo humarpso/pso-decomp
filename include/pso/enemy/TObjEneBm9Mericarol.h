@@ -53,6 +53,7 @@ struct TObjEneBm9Mericarol : public TObjEneDD_ST {
     void handle_event(s32 arg1);
     void handle_action(s32 arg1);
     u8 unk_494[0x1C];
+    s32 check_attack_hits();
 };
 
 typedef char TObjEneBm9Mericarol_size[sizeof(TObjEneBm9Mericarol) == 0x4B0 ? 1 : -1];

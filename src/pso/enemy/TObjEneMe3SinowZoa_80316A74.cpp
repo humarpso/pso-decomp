@@ -336,17 +336,17 @@ struct VObj_80316B20 : Base_80316B20 {
 struct Vec_80316B20 { f32 x, y, z; };
 
 extern "C" {
-void set_field_378__9TObjEneDDFPvi(void *, s32);
+void set_field_378__9TObjEneDDFl(void *, s32);
 void transition_enemy_state(void *, s16);
 void advance_animation_playback(void *);
 void set_indexed_flags(void *, s32, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1);
-void set_field_378__9TObjEneDDFPvi(void *, s32);
+void set_field_378__9TObjEneDDFl(void *, s32);
 void transition_enemy_state(void *, s16);
 void advance_animation_playback(void *);
 void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1);
-s32 get_target_info__9TObjEneDDFPv(void *);
+s32 get_target_info__9TObjEneDDFv(void *);
 s32 pack_debug_text_position(s32, s32);
 s32 sub_8031A454__18TObjEneMe3SinowZoaFv(void *);
 s32 is_outside_visible_range__18TObjEneMe3SinowZoaFv(void *);
@@ -374,7 +374,7 @@ extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
 extern const f32 lbl_805DF318;
 extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
-void set_field_378__9TObjEneDDFPvi(void *, s32);
+void set_field_378__9TObjEneDDFl(void *, s32);
 void transition_enemy_state(void *, s16);
 void advance_animation_playback(void *);
 void set_indexed_flags(void *, s32, s32);
@@ -386,8 +386,8 @@ s32 move_with_wall_slide(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
-void set_field_10__18TObjEneMe3SinowZoaFPvf(void *, f32);
-s32 advance_timer__18TObjEneMe3SinowZoaFPvf(void *, f32);
+void set_field_10__18TObjEneMe3SinowZoaFf(void *, f32);
+s32 advance_timer__18TObjEneMe3SinowZoaFf(void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 push_matrix_from(void *);
 s32 post_translate_matrix(void *);
@@ -495,7 +495,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
         break;
     case 4:
         arg0->fb8 = 0xA;
-        set_field_378__9TObjEneDDFPvi(arg0, 6);
+        set_field_378__9TObjEneDDFl(arg0, 6);
         arg0->m94();
         arg0->flags &= 0xFFEFFFF8;
         arg0->flags |= 0x10000;
@@ -518,7 +518,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
             angle = seek_80316C3C(arg0, &diff);
             if (angle < 0x100) {
                 if (arg0->f3c0 != 0) {
-                    set_field_10__18TObjEneMe3SinowZoaFPvf(&arg0->sub, TObjEneMe3SinowZoa__data_805DF30C);
+                    set_field_10__18TObjEneMe3SinowZoaFf(&arg0->sub, TObjEneMe3SinowZoa__data_805DF30C);
                     arg0->sub.m3();
                     arg0->flags |= 0x100000;
                     arg0->flags |= 0x40000;
@@ -534,7 +534,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
             break;
         case 1:
             advance_animation_playback(arg0);
-            if (advance_timer__18TObjEneMe3SinowZoaFPvf(&arg0->sub, TObjEneMe3SinowZoa__data_805DF310) != 0) {
+            if (advance_timer__18TObjEneMe3SinowZoaFf(&arg0->sub, TObjEneMe3SinowZoa__data_805DF310) != 0) {
                 arg0->state = 2;
             }
         case 2:
@@ -603,7 +603,7 @@ void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xB;
-        set_field_378__9TObjEneDDFPvi(arg0, 6);
+        set_field_378__9TObjEneDDFl(arg0, 6);
         ((VObj_18_8bca97 *)(arg0))->m94();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFEFFFFD);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 5);
@@ -636,7 +636,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xC;
-        set_field_378__9TObjEneDDFPvi(arg0, 6);
+        set_field_378__9TObjEneDDFl(arg0, 6);
         ((VObj_18_8bca97 *)(arg0))->m94();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFEFFFFD);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 5);
@@ -671,7 +671,7 @@ void TObjEneMe3SinowZoa::vfunc_115() {
     s32 flag;
     Motion_803173D0 *motion;
     f32 frame;
-    if (get_target_info__9TObjEneDDFPv(arg0) != 0) {
+    if (get_target_info__9TObjEneDDFv(arg0) != 0) {
         if (((TObjEneMe3SinowZoa *)arg0)->sub_8031A4D0() != 0) {
             debug_printf_at(pack_debug_text_position(0, 2), lbl_80475FD4);
         } else {

@@ -10,6 +10,7 @@ struct TObjCity_Season_SonicAdv2 : public TUnk_804B5E48 {
     s32 sub_80183C38();
     virtual void render();
     virtual void run_task();
+    void *dt(s16 arg1);
 };
 
 typedef char TObjCity_Season_SonicAdv2_size[sizeof(TObjCity_Season_SonicAdv2) == 0xB4 ? 1 : -1];

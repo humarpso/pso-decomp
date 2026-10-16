@@ -38,7 +38,9 @@ struct TObjEneSlimeOne : public TObjEnemy {
     void clear_child_flag();
     void set_target_flag_bit0();
     static s32 create(s32 arg0, s32 arg1, s32 arg2);
-    static s32 create(s32 arg0, s32 arg1);};
+    static s32 create(s32 arg0, s32 arg1);
+    void set_state(s32 arg1);
+};
 
 typedef char TObjEneSlimeOne_size[sizeof(TObjEneSlimeOne) == 0x3F4 ? 1 : -1];
 #endif

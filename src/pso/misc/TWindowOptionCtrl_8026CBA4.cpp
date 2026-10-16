@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -62,30 +63,30 @@ void TUnk_804CE018::sub_8026CC28() {
     }
 }
 
-void resort_window_order__15TWindowCtrlMainFPv(Node_8026CCA4 *w) {
+void TWindowCtrlMain::resort_window_order() {
     Node_8026CCA4 *n;
     Grp_8026CCA4 *g;
     Node_8026CCA4 *last;
     f32 scale;
 
-    w->f54 = lbl_805DD2CC;
-    if (TWindowCtrlMain__sub_8024CE58() != 0 && w->prev != w) {
-    g = w->grp;
-    if (g->head == w) {
-        g->head = w->next;
-        w->prev->next = NULL;
-        if (w->next != NULL) {
-            w->next->prev = w->prev;
+    ((Node_8026CCA4 *)this)->f54 = lbl_805DD2CC;
+    if (TWindowCtrlMain__sub_8024CE58() != 0 && ((Node_8026CCA4 *)this)->prev != ((Node_8026CCA4 *)this)) {
+    g = ((Node_8026CCA4 *)this)->grp;
+    if (g->head == ((Node_8026CCA4 *)this)) {
+        g->head = ((Node_8026CCA4 *)this)->next;
+        ((Node_8026CCA4 *)this)->prev->next = NULL;
+        if (((Node_8026CCA4 *)this)->next != NULL) {
+            ((Node_8026CCA4 *)this)->next->prev = ((Node_8026CCA4 *)this)->prev;
         }
     } else {
-        w->prev->next = w->next;
-        if (w->next != NULL) {
-            w->next->prev = w->prev;
+        ((Node_8026CCA4 *)this)->prev->next = ((Node_8026CCA4 *)this)->next;
+        if (((Node_8026CCA4 *)this)->next != NULL) {
+            ((Node_8026CCA4 *)this)->next->prev = ((Node_8026CCA4 *)this)->prev;
         } else {
-            g->head->prev = w->prev;
+            g->head->prev = ((Node_8026CCA4 *)this)->prev;
         }
     }
-    scale = ((TUnk_804CE018 *)w)->get_scale();
+    scale = ((TUnk_804CE018 *)((Node_8026CCA4 *)this))->get_scale();
     window_depth_order_cursor += lbl_805DD2C8;
     for (n = g->head; n != NULL; n = n->next) {
         last = n;
@@ -95,23 +96,23 @@ void resort_window_order__15TWindowCtrlMainFPv(Node_8026CCA4 *w) {
         n->f54 += lbl_805DD2C8;
     }
     if (n == NULL) {
-        g->head->prev = w;
-        last->next = w;
-        w->next = NULL;
-        w->prev = last;
+        g->head->prev = ((Node_8026CCA4 *)this);
+        last->next = ((Node_8026CCA4 *)this);
+        ((Node_8026CCA4 *)this)->next = NULL;
+        ((Node_8026CCA4 *)this)->prev = last;
         return;
     }
     if (n == g->head) {
-        g->head = w;
+        g->head = ((Node_8026CCA4 *)this);
     }
-    w->prev = n->prev;
-    w->next = n;
+    ((Node_8026CCA4 *)this)->prev = n->prev;
+    ((Node_8026CCA4 *)this)->next = n;
     if (n->prev->next != NULL) {
-        n->prev->next = w;
+        n->prev->next = ((Node_8026CCA4 *)this);
     }
-    n->prev = w;
+    n->prev = ((Node_8026CCA4 *)this);
     for (; n != NULL; n = n->next) {
-        w->f54 += lbl_805DD2C8;
+        ((Node_8026CCA4 *)this)->f54 += lbl_805DD2C8;
     }
     }
 }

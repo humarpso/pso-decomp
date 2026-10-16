@@ -12,6 +12,7 @@ struct TWindowChoiceSetting : public TUnk_804D0658 {
     void draw();
     virtual void run_task();
     u8 unk_82[0x2];
+    static s32 apply_choice(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 };
 
 typedef char TWindowChoiceSetting_size[sizeof(TWindowChoiceSetting) == 0x84 ? 1 : -1];

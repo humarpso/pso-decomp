@@ -30,6 +30,10 @@ struct TWindowSnapShot : public TUnk_804CE018 {
     static void init_default();
     static void alloc_buffer();
     u8 unk_61[0x3];
+    void free_buffer();
+    s32 open_stream(s32 arg1);
+    void set_mode(s32 v);
+    s32 get_buffer_size();
 };
 
 typedef char TWindowSnapShot_size[sizeof(TWindowSnapShot) == 0x64 ? 1 : -1];

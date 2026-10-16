@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSnapShot.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TLobby.h"
 
@@ -13,27 +14,22 @@ s32 strcpy(void *, void *);
 s32 strlen(void *);
 void fn_802A5CC4(u8 *arg0, s32 arg1);
 void mem_free(void *);
-void free_buffer__15TWindowSnapShotFPv(void *arg0);
 int fn_802A5B74(s32, s32);
 void fn_802A5B2C(s32 arg0);
 int fn_802A5BFC(s32, s32);
 s32 __dl__FPv(void *);
 extern s32 lbl_804DD098[];
 void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1);
-void free_buffer__15TWindowSnapShotFPv(void *arg0);
 extern s32 lbl_804DD098[];
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0);
 void fn_802A5C7C(void *arg0);
 void fn_802A5CB8(void* p);
 void fn_802A5CC4(u8 *arg0, s32 arg1);
 s32 init__15TWindowSnapShotFPvi(void *arg0, s32 arg1);
-s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1);
 extern s32 lbl_804DD098[];
 extern s32 lbl_804DD098[];
 extern s32 lbl_804DD098[];
-void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 extern s32 lbl_804DD098[];
-s32 get_buffer_size__15TWindowSnapShotFPv(void* p);
 extern s32 lbl_804DD098[];
 s32 TWindowSnapShot__sub_802A605C(u8 *arg0);
 s32 TWindowSnapShot__sub_802A605C(u8 *arg0);
@@ -47,7 +43,6 @@ int rlc_get_directory_offset(void *arg0);
 int fn_802A5B74(s32 _w0, s32 _w1);
 int fn_802A5B50(s32 arg0);
 s32 rlc_get_chunk_count(s32 arg0);
-void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 s32 fn_802A5C3C(u32 *arg0);
 extern s32 lbl_804DD098[];
 }
@@ -57,7 +52,6 @@ extern "C" {
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0);
 void fn_802A5C7C(void *arg0);
 void fn_802A5CB8(void* p);
-s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1);
 u32 mem_alloc();
 s32 memset(void *, int, int);
 
@@ -81,7 +75,7 @@ s32 fn_802A5C3C(u32 *arg0) {
     u32 temp_r0;
     temp_r0 = *arg0;
     if (temp_r0 == 0U) {
-        set_mode__15TWindowSnapShotFPvi((void*)((void *) (arg0)), (s32)((int) (7)));
+        ((TWindowSnapShot *)arg0)->set_mode((s32)((int) (7)));
         return -1;
     }
     return rlc_get_chunk_count((s32)((int) (temp_r0)));
@@ -101,27 +95,27 @@ void fn_802A5CC4(u8 *arg0, s32 arg1) {
     strcpy((void *) (arg0 + 0x1C), (void *) (arg1));
 }
 
-void free_buffer__15TWindowSnapShotFPv(void *arg0) {
-    if (*(void **)((s8 *)arg0 + 0x8) != NULL) {
-        mem_free(*(void **)((s8 *)arg0 + 0x8));
-        *(u32 *)((s8 *)arg0 + 0x8) = 0;
+void TWindowSnapShot::free_buffer() {
+    if (*(void **)((s8 *)this + 0x8) != NULL) {
+        mem_free(*(void **)((s8 *)this + 0x8));
+        *(u32 *)((s8 *)this + 0x8) = 0;
     }
 }
 
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
-    get_buffer_size__15TWindowSnapShotFPv((void*)(arg0));
+    ((TWindowSnapShot *)arg0)->get_buffer_size();
     *(u32 *)((s8 *)arg0 + 8) = mem_alloc();
     if ((u32) *(u32 *)((s8 *)arg0 + 8) == 0U) {
-        set_mode__15TWindowSnapShotFPvi((void*)(arg0), (s32)(4));
+        ((TWindowSnapShot *)arg0)->set_mode((s32)(4));
         return 0;
     }
     return 1;
 }
-s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
-    *(s32 *)((s8 *)arg0 + 0xC) = TGStream::read_whole_file((s32)arg1, (u8 *)(*(s32 *)((s8 *)arg0 + 8)));
-    if (TWindowSnapShot__sub_802A605C((u8 *)(arg0)) == 0) {
-        set_mode__15TWindowSnapShotFPvi((void*)(arg0), (s32)(2));
-        free_buffer__15TWindowSnapShotFPv((void *)((void*)((void*)(arg0))));
+s32 TWindowSnapShot::open_stream(s32 arg1) {
+    *(s32 *)((s8 *)this + 0xC) = TGStream::read_whole_file((s32)arg1, (u8 *)(*(s32 *)((s8 *)this + 8)));
+    if (TWindowSnapShot__sub_802A605C((u8 *)(this)) == 0) {
+        set_mode((s32)(2));
+        free_buffer();
         return 0;
     }
     return 1;
@@ -129,7 +123,7 @@ s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
 s32 init__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0xC) = ((TLobby *)arg1)->get_resource_file_size();
     if (TWindowSnapShot__sub_802A605C((u8 *)(arg0)) == 0) {
-        set_mode__15TWindowSnapShotFPvi((void*)(arg0), (s32)(1));
+        ((TWindowSnapShot *)arg0)->set_mode((s32)(1));
         return 0;
     }
     return 1;
@@ -167,10 +161,10 @@ u8 *TWindowSnapShot::init_and_reset() {
     return arg0;
 }
 
-void TWindowSnapShot::update_both() { free_buffer__15TWindowSnapShotFPv((void *)(this)); reset(); }
+void TWindowSnapShot::update_both() { free_buffer(); reset(); }
 s32 TWindowSnapShot::start_capture(s32 arg1) {
     if (arg1 == 0) {
-        set_mode__15TWindowSnapShotFPvi((void*)((void *)((void*)((void*)(this)))), (s32)((s32)((s32)(3))));
+        set_mode((s32)((s32)((s32)(3))));
         return 0;
     }
     if (init__15TWindowSnapShotFPvi((void *)(this), (s32)(arg1)) == 0) {
@@ -179,7 +173,7 @@ s32 TWindowSnapShot::start_capture(s32 arg1) {
     if (alloc_buffer__15TWindowSnapShotFPv(this) == 0) {
         return 0;
     }
-    if (open_stream__15TWindowSnapShotFPvi(this, arg1) == 0) {
+    if (open_stream(arg1) == 0) {
         return 0;
     }
     fn_802A5CB8((void*)(this));
@@ -189,8 +183,8 @@ s32 TWindowSnapShot::start_capture(s32 arg1) {
     return 1;
 }
 int TWindowSnapShot::get_width() { return 32; }
-void set_mode__15TWindowSnapShotFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x18) = v; }
-s32 get_buffer_size__15TWindowSnapShotFPv(void* p) { return *(s32*)((char*)p + 0xc); }
+void TWindowSnapShot::set_mode(s32 v) { *(s32*)((char*)this + 0x18) = v; }
+s32 TWindowSnapShot::get_buffer_size() { return *(s32*)((char*)this + 0xc); }
 s32 TWindowSnapShot__sub_802A605C(u8 *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0xC) != 0);
 }

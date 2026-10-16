@@ -1,15 +1,15 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawBody.h"
 
 extern "C" {
 
-void * create__18TObjEneBalClawBodyFPv(void *arg0);
 void *TObjControl__ct(void *, void *);
 void *TObjEneBalClawBody__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
-void * create__18TObjEneBalClawBodyFPv(void *arg0) {
+void *TObjEneBalClawBody::create(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

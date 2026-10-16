@@ -15,6 +15,7 @@ struct TObjEneBalClawBody : public TObjEneBalClaw {
     u32 m_3e4;
     u32 m_3e8;
     u8 unk_3D0[0x34];
+    static void *create(void *arg0);
 };
 
 typedef char TObjEneBalClawBody_size[sizeof(TObjEneBalClawBody) == 0x404 ? 1 : -1];

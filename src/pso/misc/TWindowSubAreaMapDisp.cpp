@@ -23,7 +23,7 @@ struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
 
 extern "C" {
 extern const f32 lbl_805DD4F0;
-s32 destroy_status_display__20TWindowSubStatusDispFis(s32, s16);
+s32 destroy_status_display__20TWindowSubStatusDispFls(s32, s16);
 s32 mem_free(void *);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
@@ -37,10 +37,10 @@ s32 append_text_space();
 s32 append_padded_number(int, int);
 s32 text_builder_append(int);
 s32 text_builder_reset();
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 s32 get_window_count_ratio_value();
-s32 construct_type1_heading__20TWindowSubStatusDispFPvii(int, int, int);
+s32 construct_type1_heading__20TWindowSubStatusDispFll(int, int, int);
 s32 get_game_play_mode();
 s32 strncpy(int, int, void *);
 extern RecoveredGlobal_80271D00_lbl_804D0FC0 TWindowSubAreaMapDisp__window_parameters;
@@ -227,7 +227,7 @@ u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1) {
             TWindowCtrl::clear_active_flag();
             TRaderMapCore::clear();
         }
-        destroy_status_display__20TWindowSubStatusDispFis(*(s32 *)((s8 *)arg0 + 0x70), 1);
+        destroy_status_display__20TWindowSubStatusDispFls(*(s32 *)((s8 *)arg0 + 0x70), 1);
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -242,7 +242,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     u8 *var_r30;
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowSubAreaMapDisp__window_parameters.value), (void *) ((s16) local_client_id), (int) (get_window_layout_position((int) (0x59))));
+    construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (&TWindowSubAreaMapDisp__window_parameters.value), (void *) ((s16) local_client_id), (int) (get_window_layout_position((int) (0x59))));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubAreaMapDisp__name;
     if (get_game_play_mode() == 1) {
@@ -260,7 +260,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii((int) (temp_r3_2), (int) (*(s32 *)((s8 *)arg0 + 0x74)), (int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
+        var_r0 = construct_type1_heading__20TWindowSubStatusDispFll((int) (temp_r3_2), (int) (*(s32 *)((s8 *)arg0 + 0x74)), (int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
     }
     *(s32 *)((s8 *)arg0 + 0x70) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x6C) = 0;

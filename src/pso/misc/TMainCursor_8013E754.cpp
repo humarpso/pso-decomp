@@ -2,14 +2,13 @@
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
-void set_target_id__11TMainCursorFPvs(void* p, s16 v);
-void set_target_id_at_60__11TMainCursorFiUc(s32 arg0, u8 arg1);
 }
 
 extern "C" {
 
-void set_target_id_at_60__11TMainCursorFiUc(s32 arg0, u8 arg1) {
-    set_target_id__11TMainCursorFPvs((void*)(arg0 + 0x60), arg1);
+void TMainCursor::set_target_id_at_60(u8 arg1) {
+    s32 arg0 = (s32)this;
+    ((TMainCursor *)(arg0 + 0x60))->set_target_id(arg1);
 }
 
 }
@@ -23,6 +22,6 @@ void set_target_id_at_60__11TMainCursorFiUc(s32 arg0, u8 arg1) {
 
 extern "C" {
 
-void set_target_id__11TMainCursorFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x6) = v; }
+void TMainCursor::set_target_id(s16 v) { *(s16*)((char*)this + 0x6) = v; }
 
 }

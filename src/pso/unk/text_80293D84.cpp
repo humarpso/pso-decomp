@@ -18,7 +18,7 @@ struct V2_80293E58 {
 };
 
 extern "C" {
-void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
+void draw_strip_swap_color__15TWindowCtrlMainFllf(void *, int, int, f32);
 u32 __cvt_fp2unsigned(f32);
 extern V2_80293D84 lbl_80464ED8[6];
 extern const f32 lbl_805DD9E0;
@@ -57,7 +57,7 @@ void fn_80293D84(void *arg0, void *arg1, u32 color, f32 scale, f32 alpha) {
     prim.start = 0;
     prim.count = 6;
     prim.pts = pts;
-    draw_strip_swap_color__15TWindowCtrlMainFPviif(&prim, 6, 6, lbl_805DD9E4);
+    draw_strip_swap_color__15TWindowCtrlMainFllf(&prim, 6, 6, lbl_805DD9E4);
 }
 #pragma pop
 

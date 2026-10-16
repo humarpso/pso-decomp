@@ -18,7 +18,10 @@ struct TWindowTimer : public TUnk_804CE018 {
     void set_time(u32 secs);
     static void draw_tab(s32 arg0, s32 arg1);
     static s32 create();
-    static s32 create_alt();};
+    static s32 create_alt();
+    static void clear_status_flags();
+    void copy_state(u8 *arg1);
+};
 
 typedef char TWindowTimer_size[sizeof(TWindowTimer) == 0x64 ? 1 : -1];
 #endif

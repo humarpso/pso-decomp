@@ -63,7 +63,10 @@ struct TItemEquipBase : public TItem {
     static void apply_equip_effect_slot(u16 arg0, u32 arg1);
     static void apply_equip_slot_effect(u16 arg0, u32 arg1);
     void set_slot(s32 arg1, s32 arg2);
-    void init_slots();};
+    void init_slots();
+    void remove_equip_stats(s32 arg1);
+    void add_equip_stats(s32 arg1);
+};
 
 typedef char TItemEquipBase_size[sizeof(TItemEquipBase) == 0x18C ? 1 : -1];
 #endif

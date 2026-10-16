@@ -13,7 +13,7 @@ struct VObj_802A4668 : Base_802A4668 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_wall_hit__12TNeedleShootFPv(void *, f32, f32);
+s32 check_wall_hit__12TNeedleShootFv(void *, f32, f32);
 }
 
 extern "C" {
@@ -36,7 +36,7 @@ void TNeedleShoot::update_position() {
     temp_f2 = this->m_9c;
     temp_f1 = *(f32 *)&this->_padAC;
     this->m_74 = (f32) ((temp_f2 * temp_f1) + this->m_74);
-    check_wall_hit__12TNeedleShootFPv((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
+    check_wall_hit__12TNeedleShootFv((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
 }
 #pragma pop
 

@@ -22,7 +22,7 @@ extern RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__da
 s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
 void *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 reset_view_state__11TCameraCtrlFv();
-s32 select_active_controller__11TCameraCtrlFc(s32);
+s32 select_active_controller__11TCameraCtrlFSc(s32);
 s32 TCameraCtrl__ct(void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 TKeyBoardControl__sub_80131F60();
@@ -69,7 +69,7 @@ void init_creation_menu_scene(void) {
     if (p != NULL) {
         TCameraCtrl__ct(p, tl_camera);
     }
-    select_active_controller__11TCameraCtrlFc(8);
+    select_active_controller__11TCameraCtrlFSc(8);
     fn_80291290();
     register_texture_f256_ad_pic_2();
     register_texture_f256_backtext();

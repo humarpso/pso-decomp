@@ -32,7 +32,7 @@ void* get_ptr_0x44__9TItemListFPv(void* p);
 void TItemList__sub_801D59DC(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 void __ct__7TObjectFP7TObject(void *);
-int copy_item_data__6TLobbyFPvPv(void*);
+int copy_item_data__6TLobbyFPv(void*);
 void disallow_rendering__7TObjectFv(void *);
 
 extern s32 __vt__9TItemList[];
@@ -51,7 +51,7 @@ void TItemList__sub_801D5804(s32 *arg0) {
     *arg0 += 1;
 }
 
-int TItemList::copy_item_data() { return copy_item_data__6TLobbyFPvPv((char*)this + 0x8); }
+int TItemList::copy_item_data() { return copy_item_data__6TLobbyFPv((char*)this + 0x8); }
 void TItemList__sub_801D5838(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 int TItemList__sub_801D5844(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
 

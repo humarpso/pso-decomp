@@ -4,7 +4,7 @@ extern "C" {
 
 s32 __dl__FPv(void *);
 s32 free_texture_if_valid(void *);
-s32 is_unloaded__12TChCrLoadAfsFPv();
+s32 is_unloaded__12TChCrLoadAfsFv();
 
 struct SubBase { char pad[0x18]; };
 struct SubObj : SubBase { virtual void m0(int); virtual void m1(int); virtual void m2(int); };
@@ -13,7 +13,7 @@ u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
     SubObj *temp_r3;
 
     if (arg0 != NULL) {
-        if (((void *) *(void **)((s8 *)arg0 + 0) != NULL) && (is_unloaded__12TChCrLoadAfsFPv() == 0)) {
+        if (((void *) *(void **)((s8 *)arg0 + 0) != NULL) && (is_unloaded__12TChCrLoadAfsFv() == 0)) {
             temp_r3 = (SubObj *) (*(void **)((s8 *)arg0 + 0));
             if (temp_r3 != NULL) {
                 temp_r3->m0(1);

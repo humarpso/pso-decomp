@@ -55,7 +55,6 @@ extern const f32 lbl_805DDDA4;
 extern const f32 lbl_805DDDA8;
 void TObjPlayer__sub_8029EE2C(void);
 int set_instance__6TSceneFi(void *f);
-int set_scene_callbacks__6TSceneFv(void);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 fabs_float(f32);
 Pl_8029EFFC *get_player_by_client_id(s32);
@@ -63,7 +62,7 @@ s32 is_boss_area();
 s32 fn_8029E7BC(Vec_8029EFFC *, Vec_8029EFFC *);
 s32 fn_8029EC3C(Vec_8029EFFC *, s32);
 void set_scene_flag__10TSceneSoraFi(s32);
-void copy_reflection_vec__10TSceneSoraFPv(Vec_8029EFFC *);
+void copy_reflection_vec__10TSceneSoraFPUc(Vec_8029EFFC *);
 void TScene__sub_8029F5D8();
 void TScene__sub_8029F5E4(f32);
 void TScene__sub_8029F5EC();
@@ -155,7 +154,7 @@ void TUnk_804DC7C4::render_shadows() {
     if (TSceneSora__instance != 0) {
         TSceneSora__sky_active_flag = 0;
     }
-    copy_reflection_vec__10TSceneSoraFPv(&v);
+    copy_reflection_vec__10TSceneSoraFPUc(&v);
     scene_sora_reflect_active = 1;
     {
         Vec_8029EFFC off = p->pos2FC;
@@ -235,7 +234,7 @@ void TUnk_804DC7C4::render_shadows() {
         if (k != vec_squared_length(&v)) {
             Vec_8029EFFC tmp;
             normalize_vector(&v);
-            copy_reflection_vec__10TSceneSoraFPv(&v);
+            copy_reflection_vec__10TSceneSoraFPUc(&v);
             push_matrix();
             push_matrix();
             VecCopy__FP3VecPC3Vec(&tmp, &p->pos2FC);
@@ -260,7 +259,7 @@ void TUnk_804DC7C4::render_shadows() {
 }
 
 void TUnk_804DC7C4::render() {  }
-int set_scene_callbacks__6TSceneFv(void) {
+int TScene::set_scene_callbacks() {
     TScene::set_id((int)((void *)TObjPlayer::setup_projection_texture));
     TScene::set_active_scene((int)((void *)TObjPlayer::clear_state_if_flag80));
     return set_instance__6TSceneFi((void *)TObjPlayer__sub_8029EE2C);

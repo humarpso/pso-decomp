@@ -29,7 +29,6 @@ void text_builder_append(const char *);
 void text_builder_reset(void);
 extern const char lbl_804421F0[];
 extern const char lbl_805DB860[4];
-s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -84,7 +83,7 @@ void TOMineTrap__vt81(s32 arg0) {
         }
     }
 }
-s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1) {
+s32 TOMineTrap::show_owner_message(s32 arg0, u32 arg1) {
     char *name;
     VO_8016F320 *p;
     if ((arg1 != 0U) && (is_technique_ready__8TTecCtrlFv() != 0)) {

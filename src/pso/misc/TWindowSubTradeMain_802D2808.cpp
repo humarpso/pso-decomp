@@ -26,10 +26,10 @@ void set_local_trade_final_confirmation(void);
 s32 is_local_trade_offer_confirmation_requested(void);
 void clear_local_trade_offer_confirmation(void);
 void set_local_trade_offer_confirmation(void);
-void transfer_trade_item_amount__6TLobbyFPvUii(void *, void *, void *);
-void move_trade_item_amount__6TLobbyFPvUii(void *, void *, void *);
-void send_modify_trade_proposal__6TLobbyFcii(int, void *, void *);
-void draw_item_slot__19TWindowSubTradeMainFPv(void *);
+void transfer_trade_item_amount__6TLobbyFUll(void *, void *, void *);
+void move_trade_item_amount__6TLobbyFUll(void *, void *, void *);
+void send_modify_trade_proposal__6TLobbyFScll(int, void *, void *);
+void draw_item_slot__19TWindowSubTradeMainFv(void *);
 
 extern u16 trade_protocol_flags;
 
@@ -83,10 +83,10 @@ void TWindowSubTradeMain__sub_802D2870(void) {
 }
 
 void TWindowSubTradeMain::draw_offer(void *arg0, void *arg1) {
-    send_modify_trade_proposal__6TLobbyFcii(2, arg0, arg1);
-    transfer_trade_item_amount__6TLobbyFPvUii(TLobby__trade_window_state, arg0, arg1);
+    send_modify_trade_proposal__6TLobbyFScll(2, arg0, arg1);
+    transfer_trade_item_amount__6TLobbyFUll(TLobby__trade_window_state, arg0, arg1);
     if (TLobby__trade_main_window != NULL) {
-        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__trade_main_window);
+        draw_item_slot__19TWindowSubTradeMainFv(TLobby__trade_main_window);
     }
 }
 
@@ -94,10 +94,10 @@ extern s32 TLobby__trade_window_state[];
 extern void *TLobby__trade_main_window;
 
 void TWindowSubTradeMain::draw_request(void *arg0, void *arg1) {
-    send_modify_trade_proposal__6TLobbyFcii(1, arg0, arg1);
-    move_trade_item_amount__6TLobbyFPvUii(TLobby__trade_window_state, arg0, arg1);
+    send_modify_trade_proposal__6TLobbyFScll(1, arg0, arg1);
+    move_trade_item_amount__6TLobbyFUll(TLobby__trade_window_state, arg0, arg1);
     if (TLobby__trade_main_window != NULL) {
-        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__trade_main_window);
+        draw_item_slot__19TWindowSubTradeMainFv(TLobby__trade_main_window);
     }
 }
 

@@ -12,7 +12,6 @@ extern "C" {
 s32 TWindowCtrlMain__sub_8024CDB0(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CE018[];
-u8 *construct_base__9TWindowDDFPvPvsPv(u8 *arg0, u8 *arg1, s16 arg2, u8 *arg3);
 }
 
 extern "C" {
@@ -43,11 +42,11 @@ void *TWindowDD::destroy_window_base(s16 arg1) {
     return this;
 }
 typedef char RecoveredGlobal_802466E0_lbl_804CE018_size[sizeof(RecoveredGlobal_802466E0_lbl_804CE018) == 0x18 ? 1 : -1];
-u8 *construct_base__9TWindowDDFPvPvsPv(u8 *arg0, u8 *arg1, s16 arg2, u8 *arg3) {
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (TWindowCtrlMain__sub_8024CDB0((s32) arg2)));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802466E0_lbl_804CE018 *)&lbl_804CE018).value;
-    ((TUnk_804CE018 *)arg0)->sub_80244F2C(arg1, arg3, arg2);
-    return arg0;
+u8 *TWindowDD::construct_base(u8 *arg1, s16 arg2, u8 *arg3) {
+    __ct__7TObjectFP7TObject((void *) (((u8 *)this)), (void *) (TWindowCtrlMain__sub_8024CDB0((s32) arg2)));
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_802466E0_lbl_804CE018 *)&lbl_804CE018).value;
+    ((TUnk_804CE018 *)((u8 *)this))->sub_80244F2C(arg1, arg3, arg2);
+    return ((u8 *)this);
 }
 
 }

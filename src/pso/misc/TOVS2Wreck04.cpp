@@ -6,7 +6,7 @@ extern "C" {
 void *TOVS2Wreck04__create(void *arg0);
 void *TOVS2Wreck04__ct(void *arg0, void *arg1);
 void *__dt__12TOVS2Wreck04Fv(void *arg0, s16 arg1);
-void init_wreck_object__11TOVS2Wall01FPvii(void *, void *, int);
+void init_wreck_object__11TOVS2Wall01Fll(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -35,7 +35,7 @@ extern s32 __vt__12TOVS2Wreck04[];
 extern void *lbl_805D31D4;
 
 void *TOVS2Wreck04__ct(void *arg0, void *arg1) {
-    init_wreck_object__11TOVS2Wall01FPvii(arg0, arg1, 3);
+    init_wreck_object__11TOVS2Wall01Fll(arg0, arg1, 3);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOVS2Wreck04;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D31D4;
     return arg0;

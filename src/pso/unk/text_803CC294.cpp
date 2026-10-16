@@ -94,7 +94,7 @@ extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
-s32 get_field_14__6TLobbyFPv(u32);
+s32 get_field_14__6TLobbyFv(u32);
 u32 TLobby__sub_803C8CDC(u32, s32, s32);
 extern s32 lbl_8047CBA4[];
 extern s32 lbl_8047CBD8[];
@@ -130,7 +130,6 @@ extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern s32 adxf_log_write_index;
 extern s32 lbl_805D75E4;
-void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s);
 }
 
 extern "C" {
@@ -392,7 +391,7 @@ void TLobby::release_used_slots() {
     for (i = 0; i < 0x10; i++) {
         p = &adxf_file_handle_pool[i];
         if (p->used == 1) {
-            close_adxf_handle__6TLobbyFPv((Slot_803CD16C *)(p));
+            ((TLobby *)p)->close_adxf_handle();
         }
     }
 }
@@ -459,7 +458,7 @@ inline s32 close_803CCE9C(Snd_803CC980 *arg0) {
     }
     return arg0->f14;
 }
-void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s) {
+void TLobby::close_adxf_handle() {
     {
         LogEnt_803CD16C *e;
         s32 i = adxf_log_write_index % 256;
@@ -470,20 +469,20 @@ void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s) {
         e->type = 3;
         e->phase = 0;
         e->seq = seq;
-        e->a = (s32)s;
+        e->a = (s32)((Slot_803CD16C *)this);
         e->b = -1;
         e->c = -1;
         adxf_log_write_index = i + 1;
     }
-    if (s != NULL) {
+    if (((Slot_803CD16C *)this) != NULL) {
         TLobby::init_once();
-        if ((s32)((Hdr_803CCE9C *)s)->f1 == 2) {
-            close_803CCE9C((Snd_803CC980 *)s);
+        if ((s32)((Hdr_803CCE9C *)((Slot_803CD16C *)this))->f1 == 2) {
+            close_803CCE9C((Snd_803CC980 *)((Slot_803CD16C *)this));
         }
-        if (s->f4 != 0) {
-            TLobby__sub_803C8B38(s->f4);
+        if (((Slot_803CD16C *)this)->f4 != 0) {
+            TLobby__sub_803C8B38(((Slot_803CD16C *)this)->f4);
         }
-        memset(s, 0, 0x138);
+        memset(((Slot_803CD16C *)this), 0, 0x138);
         TLobby::release_ref();
         {
             s32 i = adxf_log_write_index % 256;
@@ -491,7 +490,7 @@ void close_adxf_handle__6TLobbyFPv(Slot_803CD16C *s) {
             e->type = 3;
             e->phase = 1;
             e->seq = ((LogHdr_803CCE9C *)&lbl_8057B7B0)->seq;
-            e->a = (s32)s;
+            e->a = (s32)((Slot_803CD16C *)this);
             e->b = -1;
             e->c = -1;
             adxf_log_write_index = i + 1;
@@ -522,7 +521,7 @@ Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1) {
     s = alloc_803CD16C();
     if (s != NULL) {
         if (open_803CD16C(s, arg0, arg1) < 0) {
-            close_adxf_handle__6TLobbyFPv((Slot_803CD16C *)(s));
+            ((TLobby *)s)->close_adxf_handle();
             s = NULL;
         }
     }
@@ -585,7 +584,7 @@ inline s32 open_803CD3A8(Slot_803CD16C *s, u32 arg0, s32 arg1) {
         return -1;
     }
     s->f4 = h;
-    sz = get_field_14__6TLobbyFPv(h);
+    sz = get_field_14__6TLobbyFv(h);
     s->fc = (sz + 0x7FF) / 2048;
     s->f10 = sz;
     return 0;
@@ -612,7 +611,7 @@ Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1) {
     s = alloc_803CD3A8();
     if (s != NULL) {
         if (open_803CD3A8(s, arg0, arg1) < 0) {
-            close_adxf_handle__6TLobbyFPv((Slot_803CD16C *)(s));
+            ((TLobby *)s)->close_adxf_handle();
             s = NULL;
         }
     }

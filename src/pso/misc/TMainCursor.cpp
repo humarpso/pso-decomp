@@ -15,8 +15,8 @@ int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1, void* a2);
 s32 set_offset_y__11TMainCursorFs(void *, void *);
 s32 init_field_60__11TMainCursorFv(void *, void *);
 s32 TMainCursor__sub_8013E6E0(void *, void *);
-s32 set_target_id_at_60__11TMainCursorFiUc(void *, void *);
-s32 set_target_index_at_60__11TMainCursorFPvPv(void *, void *);
+s32 set_target_id_at_60__11TMainCursorFUc(void *, void *);
+s32 set_target_index_at_60__11TMainCursorFPv(void *, void *);
 s32 TMainCursor__sub_8013E800(void *);
 s32 TMainCursor__sub_8013F1F0(void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -34,13 +34,12 @@ extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0D4;
 extern const f32 lbl_805DB0D8;
 extern const f32 lbl_805DB0DC;
-void refresh_target_marker__11TMainCursorFPv(u8 *arg0);
 }
 
 extern "C" {
 
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
-void delete_this__11TMainCursorFis(void *, int);
+void delete_this__11TMainCursorFs(void *, int);
 void *find_entity_by_id();
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -62,36 +61,36 @@ void TMainCursor::update_position() {
 extern s32 __vt__11TMainCursor[];
 
 typedef char RecoveredGlobal_8013BC2C_lbl_804A7164_size[sizeof(RecoveredGlobal_8013BC2C_lbl_804A7164) == 0x60 ? 1 : -1];
-void refresh_target_marker__11TMainCursorFPv(u8 *arg0) {
+void TMainCursor::refresh_target_marker() {
     u8 temp_r31;
     s32 temp_r3;
     s32 temp_r3_2;
     temp_r3 = check_field_24__11TMainCursorFv();
     if (temp_r3 == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
         return;
     }
-    temp_r31 = (u8) ((TMainCursor *)arg0)->forward_13E338_at_60();
-    temp_r3_2 = check_visible__11TMainCursorFv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (update_sub_60__11TMainCursorFv((void *) (arg0))), (int) (temp_r31));
+    temp_r31 = (u8) ((TMainCursor *)((u8 *)this))->forward_13E338_at_60();
+    temp_r3_2 = check_visible__11TMainCursorFv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (update_sub_60__11TMainCursorFv((void *) (((u8 *)this)))), (int) (temp_r31));
     if (temp_r3_2 == -1) {
-        queue_destruction__7TObjectFv((void *) (arg0));
+        queue_destruction__7TObjectFv((void *) (((u8 *)this)));
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DB0D4;
-    *(f32 *)((s8 *)arg0 + 0x34) = *(f32 *)((s8 *)arg0 + 0x28) - TMainCursor__data_805DB0CC;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DB0D8 + *(f32 *)((s8 *)arg0 + 0x28);
-    *(f32 *)((s8 *)arg0 + 0x30) = *(f32 *)((s8 *)arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DB0DC;
-    ((TMainCursor *)arg0)->update_position();
-    if (check_can_pickup__11TMainCursorFi((void *) (arg0)) != 0) {
-        ((TMainCursor *)arg0)->check_flag_4();
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0;
+    *(f32 *)((s8 *)((u8 *)this) + 0x28) = (f32) lbl_805DB0D4;
+    *(f32 *)((s8 *)((u8 *)this) + 0x34) = *(f32 *)((s8 *)((u8 *)this) + 0x28) - TMainCursor__data_805DB0CC;
+    *(f32 *)((s8 *)((u8 *)this) + 0x38) = lbl_805DB0D8 + *(f32 *)((s8 *)((u8 *)this) + 0x28);
+    *(f32 *)((s8 *)((u8 *)this) + 0x30) = *(f32 *)((s8 *)((u8 *)this) + 0x38);
+    *(f32 *)((s8 *)((u8 *)this) + 0x3C) = lbl_805DB0DC;
+    ((TMainCursor *)((u8 *)this))->update_position();
+    if (check_can_pickup__11TMainCursorFi((void *) (((u8 *)this))) != 0) {
+        ((TMainCursor *)((u8 *)this))->check_flag_4();
     }
-    if (((TMainCursor *)arg0)->update() != 0) {
-        get_rader_map__11TMainCursorFv((void *) (arg0 + 0x4C), (void *) ((u8 *)&target_cursor_color_table.value + 0x40));
+    if (((TMainCursor *)((u8 *)this))->update() != 0) {
+        get_rader_map__11TMainCursorFv((void *) (((u8 *)this) + 0x4C), (void *) ((u8 *)&target_cursor_color_table.value + 0x40));
         return;
     }
-    get_rader_map__11TMainCursorFv((void *) (arg0 + 0x4C), (void *) ((u8 *)&target_cursor_color_table.value + (temp_r3_2 * 0x10)));
+    get_rader_map__11TMainCursorFv((void *) (((u8 *)this) + 0x4C), (void *) ((u8 *)&target_cursor_color_table.value + (temp_r3_2 * 0x10)));
 }
 
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
@@ -99,7 +98,7 @@ void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMainCursor;
         destroy__11TMainCursorFis((s8 *)arg0 + 0x60, -1);
         ((TMainCursor *)((s8 *)arg0 + 0x4C))->destroy(-1);
-        delete_this__11TMainCursorFis((s8 *)arg0 + 0x24, -1);
+        delete_this__11TMainCursorFs((s8 *)arg0 + 0x24, -1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -116,8 +115,8 @@ u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32
     TMainCursor__sub_8013F1F0((void *) (arg0 + 0x4C));
     ((TMainCursor *)(arg0 + 0x60))->reset();
     *(s32 *)((s8 *)arg0 + 0) = (s32) main_cursor_class_name;
-    set_target_index_at_60__11TMainCursorFPvPv((void *) (arg0), (void *) (arg2));
-    set_target_id_at_60__11TMainCursorFiUc((void *) (arg0), (void *) (arg3));
+    set_target_index_at_60__11TMainCursorFPv((void *) (arg0), (void *) (arg2));
+    set_target_id_at_60__11TMainCursorFUc((void *) (arg0), (void *) (arg3));
     ((TMainCursor *)arg0)->sub_8013E724((f32) (farg0));
     TMainCursor__sub_8013E6E0((void *) (arg0), (void *) ((s32) arg4));
     init_field_60__11TMainCursorFv((void *) (arg0), (void *) ((s32) arg5));

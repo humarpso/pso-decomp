@@ -22,7 +22,7 @@ extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern s32 lbl_805D2858;
 s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0);
 u32 get_character_save_record(u32);
-s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(s32 slot);
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
@@ -88,7 +88,7 @@ s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot) {
     if (w == 0) {
         return 0;
     }
-    idx = resolve_player_slot__20TWindowSubStatusDispFi(slot);
+    idx = resolve_player_slot__20TWindowSubStatusDispFl(slot);
     if (idx < 3) {
         v = w->e[idx].a;
     } else {

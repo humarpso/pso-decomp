@@ -14,6 +14,7 @@ struct TObjIllGillKage : public TUnk_804B9870 {
     int queue_destruction();
     void attack_target();
     u8 unk_9A[0x2];
+    void tick_persistent_sound();
 };
 
 typedef char TObjIllGillKage_size[sizeof(TObjIllGillKage) == 0x9C ? 1 : -1];

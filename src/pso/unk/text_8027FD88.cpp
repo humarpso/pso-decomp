@@ -79,7 +79,7 @@ extern const f32 TWindowSubStatusDisp__data_805DD708;
 void vt2__20TWindowSubStatusDispFv(u8 *arg0);
 s8 get_type__20TWindowSubStatusDispFv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
-s32 get_next_level_exp__10TObjPlayerFPv(void *);
+s32 get_next_level_exp__10TObjPlayerFv(void *);
 s32 get_player_by_client_id(s16);
 void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0);
@@ -393,7 +393,7 @@ void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0) {
             e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(8)));
             e->v = q->a;
             e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0xC)));
-            e->v = get_next_level_exp__10TObjPlayerFPv(p) - q->a;
+            e->v = get_next_level_exp__10TObjPlayerFv(p) - q->a;
         }
     }
 }

@@ -29,6 +29,8 @@ struct TWindowFukidasi
     void get_boundary_offset(s32 angle, f32 *out);
     void run_task();
     void find_balloon_overlap_for(s32 arg1);
+    void rearm_balloon(s32 arg1);
+    void draw_tail(void *view, u32 color, f32 *off, f32 depth);
 };
 
 #endif

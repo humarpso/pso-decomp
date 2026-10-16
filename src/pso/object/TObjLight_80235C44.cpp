@@ -45,7 +45,6 @@ s32 obj_getField1c(int);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CCAA8[];
-u8 *construct_actor_light__9TObjLightFPviiiiifffi(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, s32 arg_sp0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(int);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -128,22 +127,22 @@ void *TObjLight__sub_80235E44(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80235E9C_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235E9C_lbl_804CCAA8) == 0x18 ? 1 : -1];
-u8 *construct_actor_light__9TObjLightFPviiiiifffi(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, s32 arg_sp0) {
+u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1, f32 farg2, s32 arg_sp0) {
     Stack_80235E9C stack;
-    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg5));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x24), (void *) (arg1));
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x34), (void *) (arg2));
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x50) = farg0;
-    *(s32 *)((s8 *)arg0 + 0x54) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x20) = 1;
-    *(f32 *)((s8 *)arg0 + 0x58) = farg1;
-    *(f32 *)((s8 *)arg0 + 0x5C) = farg2;
-    *(u16 *)((s8 *)arg0 + 0x60) = obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x54)));
-    TObjLight::find_light_params((f32 *)(arg0 + 0x40), (f32 *)(&stack.sp8), (u32)((int) ((s32) *(u16 *)((s8 *)arg0 + 0x60))));
-    return arg0;
+    __ct__7TObjectFP7TObject((void *) (((u8 *)this)), (void *) (arg5));
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0x24), (void *) (arg1));
+    VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x34), (void *) (arg2));
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = arg3;
+    *(s32 *)((s8 *)((u8 *)this) + 0x4C) = 0;
+    *(f32 *)((s8 *)((u8 *)this) + 0x50) = farg0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x54) = arg4;
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = 1;
+    *(f32 *)((s8 *)((u8 *)this) + 0x58) = farg1;
+    *(f32 *)((s8 *)((u8 *)this) + 0x5C) = farg2;
+    *(u16 *)((s8 *)((u8 *)this) + 0x60) = obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+    TObjLight::find_light_params((f32 *)(((u8 *)this) + 0x40), (f32 *)(&stack.sp8), (u32)((int) ((s32) *(u16 *)((s8 *)((u8 *)this) + 0x60))));
+    return ((u8 *)this);
 }
 typedef char RecoveredGlobal_80235F60_lbl_804CCAA8_size[sizeof(RecoveredGlobal_80235F60_lbl_804CCAA8) == 0x18 ? 1 : -1];
 u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4, u8 *arg5, f32 farg0) {

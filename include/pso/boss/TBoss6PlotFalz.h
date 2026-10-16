@@ -63,6 +63,14 @@ struct TBoss6PlotFalz : public TObjEnemy {
     void advance_if_ready();
     static void *create(void *arg0, void *arg1);
     static u8 is_ending_or_split_screen();
-    static int is_ready();};
+    static int is_ready();
+    void finish_and_dispatch_next_phase();
+    void check_action_7();
+    void advance_timer();
+    void advance_phase_if_ready();
+    void update_cutscene_fade();
+    static u8 is_flag_set();
+    s32 get_next_point(s16 *arg1, s16 *arg2);
+};
 
 #endif

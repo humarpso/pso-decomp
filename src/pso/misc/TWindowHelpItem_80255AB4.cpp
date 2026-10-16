@@ -20,7 +20,7 @@ extern s32 TWindowHelpItem__object_vtable[];
 extern u32 lbl_805D3910;
 extern TWindowHelpItem::CallbackWords __ptmf_null;
 extern const f32 lbl_805DCE10;
-void construct_base__9TWindowDDFPvPvsPv(void *self, void *vt, s16 idx, void *pos);
+void construct_base__9TWindowDDFPUcsPUc(void *self, void *vt, s16 idx, void *pos);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void *init__21TWindowSubComCardListFiii(void *p, s32 a, s32 b, s32 c);
 void call_if_split_screen(void *self, s32 idx);
@@ -112,7 +112,7 @@ void *TWindowHelpItem::dt(s16 arg1) {
 TWindowHelpItem::TWindowHelpItem(void *pos, u16 idx) {
     TWindowHelpItem *self = this;
     void *p;
-    construct_base__9TWindowDDFPvPvsPv(self, __vt__15TWindowHelpItem, idx, pos);
+    construct_base__9TWindowDDFPUcsPUc(self, __vt__15TWindowHelpItem, idx, pos);
     self->m_vtable18 = ((s32 *)&TWindowHelpItem__object_vtable);
     self->m_00 = lbl_805D3910;
     ((TWindowSubSymbolChatPartsSet *)((u8 *)self + 0x30))->copy_vec2(pos);

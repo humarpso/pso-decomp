@@ -3,7 +3,6 @@
 
 extern "C" {
 s32 __dl__FPv(void* a0);
-s32 delete_this__11TMainCursorFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
@@ -14,7 +13,8 @@ int TMainCursor__sub_8013E6E0(void* p);
 int set_slot__20TWindowActionPaletteFUc(void*);
 int set_mode__20TWindowActionPaletteFUc(void*);
 
-s32 delete_this__11TMainCursorFis(s32 arg0, s16 arg1) {
+s32 TMainCursor::delete_this(s16 arg1) {
+    s32 arg0 = (s32)this;
     if ((arg0 != 0) && (arg1 > 0)) {
         ((s32)__dl__FPv((void*)(arg0)));
     }

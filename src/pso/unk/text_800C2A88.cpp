@@ -154,7 +154,7 @@ extern "C" {
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 fn_800C3A60(void *, int);
-s32 init_death_params__18TObjEneMe3SinowZoaFPv(void *);
+s32 init_death_params__18TObjEneMe3SinowZoaFv(void *);
 s32 TObjPlayer__sub_800D9290(void *, int);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, int, int);
@@ -236,7 +236,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
         {
           TObjPlayer::apply_effect_variant_a((s32)((void *) (&stack.sp8)), (s32)((int) 0x32));
           ((TObjPlayer *)(&stack.sp8))->request_two_effects();
-          init_death_params__18TObjEneMe3SinowZoaFPv((void *) (arg0 + 0x3F4));
+          init_death_params__18TObjEneMe3SinowZoaFv((void *) (arg0 + 0x3F4));
         }
         else
         {

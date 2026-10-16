@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowSimpleStatus.h"
@@ -29,12 +30,12 @@ void TWindowCtrl__sub_8024C72C(void* p) { *(u16*)((char*)p + 0x1c) |= 0x8; }
 void TWindowCtrl__sub_8024C73C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xfffffff7; }
 void TWindowCtrl__sub_8024C74C(void* p) { *(u16*)((char*)p + 0x1c) |= 0x10; }
 void TWindowCtrl__sub_8024C75C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffef; }
-void set_radar_dirty_flag__11TWindowCtrlFPv(void *arg0) {
-    *(u16 *)((s8 *)arg0 + 0x1C) = (u16) (*(u16 *)((s8 *)arg0 + 0x1C) | 1);
+void TWindowCtrl::set_radar_dirty_flag() {
+    *(u16 *)((s8 *)this + 0x1C) = (u16) (*(u16 *)((s8 *)this + 0x1C) | 1);
     TRaderMapCore::hide_radar();
 }
-void clear_flag_bit0__11TWindowCtrlFPv(void *arg0) {
-    *(u16 *)((s8 *)arg0 + 0x1C) = (u16) (*(u16 *)((s8 *)arg0 + 0x1C) & 0xFFFE);
+void TWindowCtrl::clear_flag_bit0() {
+    *(u16 *)((s8 *)this + 0x1C) = (u16) (*(u16 *)((s8 *)this + 0x1C) & 0xFFFE);
     TRaderMapCore::show_radar();
 }
 

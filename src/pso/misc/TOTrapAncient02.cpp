@@ -90,7 +90,7 @@ void submit_cursor_candidate(void *, s32);
 s32 get_player_by_client_id(u32);
 void play_sound_effect(s32, void *, s32, s32);
 void * __nw__7TObjectFUl(int);
-void construct_bolt_effect__9TTecZondeFPvPvPvPviiff(void *, s32, void *, void *, s32, s32, f32, f32);
+void construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(void *, s32, void *, void *, s32, s32, f32, f32);
 void rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 void subtract_vector(void *, void *);
@@ -359,7 +359,7 @@ void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
 void submit_cursor_and_notify__16TOTrapAncient02RFv(void *arg0);
 void submit_cursor_candidate(void *, s32);
-void send_code_45_1__10TObjPlayerFi(s32);
+void send_code_45_1__10TObjPlayerFl(s32);
 s32 get_player_by_client_id(u32);
 void play_persistent_sound(int, void *, void *, int, int);
 u8 is_current_floor_switch_set(u16);
@@ -727,7 +727,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                         {
                             void *t = __nw__7TObjectFUl(0x260);
                             if (t != NULL) {
-                                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(t, tl_07, lbl_8050BEE0, lbl_8050BF00, 0x14000000, 0x14, o->range, lbl_805DBA98);
+                                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(t, tl_07, lbl_8050BEE0, lbl_8050BF00, 0x14000000, 0x14, o->range, lbl_805DBA98);
                             }
                         }
                         play_sound_effect(0x4002A408, lbl_8050BEE0, 0, 0);
@@ -982,7 +982,7 @@ void TOTrapAncient02::vfunc_82() {
                 if (self->target != NULL && local_client_id == obj_getField1c(self->target)) {
                     p = ((s32 (*)(s32))get_player_by_client_id)(local_client_id);
                     if (p != 0 && check_player_flag1__6TLobbyFv() != 0) {
-                        send_code_45_1__10TObjPlayerFi(p);
+                        send_code_45_1__10TObjPlayerFl(p);
                     }
                 }
             }

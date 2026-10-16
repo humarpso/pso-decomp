@@ -17,7 +17,7 @@ struct TObjVoloptCageVObj_8004912C : TObjVoloptCageBase_8004912C {
     virtual s32 m8(f32, f32);
 };
 
-s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
+s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
@@ -41,7 +41,7 @@ void TObjVoloptCage::init_break_model() {
     volopt_cage_break_model_handle = *(s32 *)((s8 *)temp_r4 + 0x128);
     var_r0 = alloc__23TAdSinglePlyChrSelectGCFv(0x10, temp_r4);
     if (var_r0 != 0) {
-        var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, volopt_cage_break_model_handle);
+        var_r0 = init_from_model__11TBreakUpMdlFl(var_r0, volopt_cage_break_model_handle);
     }
     volopt_cage_breakup_model = var_r0;
     lbl_805D4D18 = register_boss__6TLobbyFl(0x26);

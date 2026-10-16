@@ -5,7 +5,7 @@
 extern "C" {
 
 void twinkle_star_turn_stars(void *arg0);
-s32 spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, s32, s32);
+s32 spawn_cane_effects__10TObjPlayerFP5TItemll(s32, s32, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 rotate_matrix_y(s32, s32);
 
@@ -35,7 +35,7 @@ extern s32 tl_05;
 void TUnk_804A6010::emit_marker_effects() {
     s32 arg0 = (s32)this;
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 2, 4);
+        spawn_cane_effects__10TObjPlayerFP5TItemll(tl_05, arg0, 2, 4);
     }
 }
 

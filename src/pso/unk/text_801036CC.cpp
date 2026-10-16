@@ -83,7 +83,6 @@ extern u16 *floor_item_next_sort_keys;
 extern Ent_801037A0 **floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 lbl_805D5440;
-void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src);
 void debug_print__6TLobbyFle(const char *, ...);
 void *memcpy(void *, const void *, u32);
 extern char lbl_8043E048[];
@@ -100,7 +99,6 @@ void *memcpy(void *, const void *, u32);
 extern Ent_801037A0 **floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern u16 *floor_item_next_sort_keys;
-s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e);
 void *find_item_by_id(s32);
 void spawn_dropped_item_from_msg(void *, s32);
 extern Ent_801037A0 **floor_item_row_table;
@@ -172,7 +170,7 @@ s32 TLobby::is_stat_over_limit(s32 arg0) {
     return 1;
 }
 
-void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src) {
+void TLobby::apply_sync_item_state() {
     s32 i;
     u16 b;
     s32 k;
@@ -181,22 +179,22 @@ void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src) {
     Ent_801037A0 *p;
     s32 n;
     TLobby::reset_floor_items();
-    bswap_sync_item_state_header(src);
+    bswap_sync_item_state_header(((Save_80103890 *)this));
     for (i = 0; i < 0x10; i++) {
-        floor_item_next_sort_keys[i] = src->slots[i];
+        floor_item_next_sort_keys[i] = ((Save_80103890 *)this)->slots[i];
     }
     for (b = 0; b != 0xC; b++) {
-        set_boss_buf_entry__6TLobbyFii(src->boss[b], b);
+        set_boss_buf_entry__6TLobbyFii(((Save_80103890 *)this)->boss[b], b);
     }
     for (i = 0; i < 0xF; i++) {
-        (*(s32 **)&floor_item_counts_by_floor)[i] = src->counts[i];
+        (*(s32 **)&floor_item_counts_by_floor)[i] = ((Save_80103890 *)this)->counts[i];
     }
     k = 0;
     for (j = 0; j != 0xF; j++) {
         count = (*(s32 **)&floor_item_counts_by_floor)[j];
         p = floor_item_row_table[j];
         for (n = 0; n != count; n++, p++) {
-            TLobby__sub_80104258(p, &src->items[k++]);
+            TLobby__sub_80104258(p, &((Save_80103890 *)this)->items[k++]);
             ((TLobby *)p)->bswap_item();
             TItemData__sub_8010CCB0((u8 *)p + 0x10);
         }
@@ -358,7 +356,7 @@ Ent_801037A0 *find_item_condition_entry__6TLobbyFii(s32 n, s32 val) {
     debug_print__6TLobbyFle(lbl_8043E048);
     return NULL;
 }
-s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e) {
+s32 TLobby::insert_sorted_entry() {
     s32 *counts;
     s32 idx;
     Ent_80103DD8 *list;
@@ -368,16 +366,16 @@ s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e) {
     s32 val;
     s32 hi;
     Ent_80103DD8 *p;
-    if (e != NULL) {
-        if (TLobby::is_stat_over_limit(e->n) != 0) {
-            evict_lowest_key_floor_item(e->n);
+    if (((Ent_80103DD8 *)this) != NULL) {
+        if (TLobby::is_stat_over_limit(((Ent_80103DD8 *)this)->n) != 0) {
+            evict_lowest_key_floor_item(((Ent_80103DD8 *)this)->n);
         }
-        if (e->n < 0x12 && TLobby::is_entry_valid(e->n) != 0) {
-            idx = e->n;
+        if (((Ent_80103DD8 *)this)->n < 0x12 && TLobby::is_entry_valid(((Ent_80103DD8 *)this)->n) != 0) {
+            idx = ((Ent_80103DD8 *)this)->n;
             list = (*(Ent_80103DD8 ** *)&floor_item_row_table)[idx];
             if (list != NULL) {
                 counts = *(s32 **)&floor_item_counts_by_floor;
-                val = e->val;
+                val = ((Ent_80103DD8 *)this)->val;
                 n = counts[idx];
                 hi = n - 1;
                 if (hi > -1 && val < list[hi].val) {
@@ -398,11 +396,11 @@ s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e) {
                 } else {
                     lo = n;
                 }
-                e->key = floor_item_next_sort_keys[e->n];
-                if (floor_item_next_sort_keys[e->n] != 0xFFFF) {
-                    floor_item_next_sort_keys[e->n]++;
+                ((Ent_80103DD8 *)this)->key = floor_item_next_sort_keys[((Ent_80103DD8 *)this)->n];
+                if (floor_item_next_sort_keys[((Ent_80103DD8 *)this)->n] != 0xFFFF) {
+                    floor_item_next_sort_keys[((Ent_80103DD8 *)this)->n]++;
                 }
-                TLobby__sub_80104258(&list[lo], e);
+                TLobby__sub_80104258(&list[lo], ((Ent_80103DD8 *)this));
                 counts[idx]++;
                 return 1;
             }

@@ -25,7 +25,7 @@ extern const f32 TBoss7Crawfish__data_805DF0DC;
 
 extern "C" {
 
-s32 register_attack_hits__14TBoss7CrawfishFPv(void *, void *, f32, f32);
+s32 register_attack_hits__14TBoss7CrawfishFv(void *, void *, f32, f32);
 s32 TBoss7Crawfish__sub_803087D4(void *, int);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 
@@ -38,7 +38,7 @@ void TBoss7Crawfish::update_motion_and_release() {
 
     temp_r4 = *(f32 * *)&this->m_3a0;
     this->m_c8 = (f32) (lbl_805DF0F4 * (TBoss7Crawfish__data_805DF0DC + *temp_r4));
-    register_attack_hits__14TBoss7CrawfishFPv((void *) (arg0), (void *) (temp_r4), (f32) (TBoss7Crawfish__data_805DF0DC), (f32) (lbl_805DF0F4));
+    register_attack_hits__14TBoss7CrawfishFv((void *) (arg0), (void *) (temp_r4), (f32) (TBoss7Crawfish__data_805DF0DC), (f32) (lbl_805DF0F4));
     {
         void *temp_ptr = (void *) this->m_3cc;
         if (temp_ptr != NULL) {

@@ -57,7 +57,7 @@ s32 set_bswapped_field_8__9TItemDataFs(s32 a0, int a1);
 void TItemProShield__vt16(void *arg0, void *arg1);
 int TItemEquipBase__sub_8010A82C(void*);
 s32 play_sound_effect(int, int, int, int);
-s32 ct_init__14TItemEffShieldFPvPvs(int, int, void *);
+s32 ct_init__14TItemEffShieldFPUcs(int, int, void *);
 s32 TObjPlayer__sub_8010A1D0(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 __nw__15TItemHeapObjectFUl(int);
@@ -98,11 +98,10 @@ extern const f32 lbl_805DABF0;
 
 extern "C" {
 
-void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1);
 int TItemEquipBase__sub_8010A82C(void*);
 s32 register_technique_boosts__14TItemEquipBaseFPvPv(void *, s32);
 s32 draw_ginja_object(u32);
-s32 refresh_owner_stats__5TItemFPv(void *);
+s32 refresh_owner_stats__5TItemFv(void *);
 s32 set_model_fade_alpha__10TObjPlayerFf();
 s32 TObjPlayer__sub_8036414C();
 s32 TObjPlayer__sub_80364198();
@@ -137,7 +136,7 @@ void TItemProShield::deactivate_shield_effect(s32 arg1) {
 
 void TItemProShield::vfunc_46() { update_with_player(); }
 void TItemProShield::vfunc_51() {  }
-void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1) {
+void TItemProShield::set_params(s32 arg0, void *arg1) {
     set_dfp_bonus__9TItemDataFs(arg0, *(u8 *)((s8 *)arg1 + 0x198));
     set_bswapped_field_8__9TItemDataFs(arg0, *(u8 *)((s8 *)arg1 + 0x199));
 }
@@ -156,7 +155,7 @@ void TItemProShield::vfunc_16() {
     ((VObj_80118334_801181D0 *)this)->m51();
     register_technique_boosts__14TItemEquipBaseFPvPv(this, *(s32 *)((s8 *)this + 0x194));
     if (*(s32 *)((s8 *)this + 0x19C) & 4) {
-        refresh_owner_stats__5TItemFPv(this);
+        refresh_owner_stats__5TItemFv(this);
     }
     ((TItemEquipBase *)this)->bind_loaded_resources();
 }
@@ -193,7 +192,7 @@ void TItemProShield::vfunc_44() {
             if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x174) != 0U) {
                 temp_r3_4 = __nw__7TObjectFUl((int) (0x2C));
                 if (temp_r3_4 != 0) {
-                    ct_init__14TItemEffShieldFPvPvs((int) (temp_r3_4), (int) (*(u32 *)((s8 *)((u8 *)this) + 0x174)), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))));
+                    ct_init__14TItemEffShieldFPUcs((int) (temp_r3_4), (int) (*(u32 *)((s8 *)((u8 *)this) + 0x174)), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))));
                 }
             }
             break;

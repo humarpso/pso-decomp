@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemReverseTech.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -44,11 +45,9 @@ s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 s32 noop__23TAdSinglePlyChrSelectGCFv();
-void run_frame__16TItemReverseTechFv(void);
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
-void run_cleanup_callbacks__16TItemReverseTechFv(void);
 Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 prs_decompress_alloc(int, int, int);
 int set_stream_and_load_file__6TLobbyFi(char *);
@@ -60,14 +59,12 @@ extern Name_8011A270 lbl_8043E714;
 extern int TItemReverseTech__texture_archive;
 extern int TItemReverseTech__entry_table;
 extern int TItemReverseTech__name_buffer;
-void load_textures__16TItemReverseTechFv(void);
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F91C(s32);
 void set_active_camera_pose(Vec_8011A43C *, Vec_8011A43C *);
-void select_active_controller__11TCameraCtrlFc(s32);
+void select_active_controller__11TCameraCtrlFSc(s32);
 void TCameraCtrl__ct(void *, s32);
 void clear_resource_load_tasks();
-void create__16TItemReverseTechFv(void);
 void init_map_lights(void *);
 void reset_controller_input_state();
 void set_copy_clear_color_argb(s32, s32, s32);
@@ -81,7 +78,6 @@ extern u8 default_scene_light_config[];
 extern s32 tl_camera;
 extern const float lbl_805DAC4C;
 extern const f32 lbl_805DAC50;
-void init_scene__16TItemReverseTechFv(void);
 }
 
 extern "C" {
@@ -90,7 +86,6 @@ void TItemReverseTech__sub_8011A54C(void* a0);
 int TItemReverseTech__sub_8011A55C(void);
 int TItemReverseTech__sub_8011A580(void);
 void TItemReverseTech__sub_8011A5A4(void);
-void create__16TItemReverseTechFv(void);
 void free__16TItemReverseTechFv(void);
 s32 TItemReverseTech__ct(void *, s32);
 int __dl__FPv(void*);
@@ -101,7 +96,7 @@ int set_global_flags__6TLobbyFl(void*);
 
 extern s32 tl_01;
 
-void create__16TItemReverseTechFv(void) {
+void TItemReverseTech::create() {
     void *obj = __nw__7TObjectFUl(0x28);
     if (obj != 0) {
         TItemReverseTech__ct(obj, tl_01);
@@ -119,7 +114,7 @@ typedef char RecoveredGlobal_8011A350_main_task_size[sizeof(RecoveredGlobal_8011
 
 #pragma push
 #pragma opt_propagation off
-void load_textures__16TItemReverseTechFv(void) {
+void TItemReverseTech::load_textures() {
     Name_8011A270 *name = &lbl_8043E714;
     Ent_8011A270 *e;
     s32 i;
@@ -150,7 +145,7 @@ void load_textures__16TItemReverseTechFv(void) {
 }
 #pragma pop
 
-void run_frame__16TItemReverseTechFv(void) {
+void TItemReverseTech::run_frame() {
     s32 *var_r3;
     controller_stuff__Fv();
     TKeyBoardControl::update_input_frame();
@@ -183,7 +178,7 @@ typedef struct RecoveredGlobal_8011A3D8_lbl_804A03A8 RecoveredGlobal_8011A3D8_lb
 typedef struct RecoveredGlobal_8011A3D8_main_task RecoveredGlobal_8011A3D8_main_task;
 typedef char RecoveredGlobal_8011A3D8_lbl_804A03A8_size[((sizeof(RecoveredGlobal_8011A3D8_lbl_804A03A8)) == 0x38) ? (1) : (-1)];
 typedef char RecoveredGlobal_8011A3D8_main_task_size[((sizeof(RecoveredGlobal_8011A3D8_main_task)) == 0x34) ? (1) : (-1)];
-void run_cleanup_callbacks__16TItemReverseTechFv(void) {
+void TItemReverseTech::run_cleanup_callbacks() {
   s32 (*temp_r12)();
   u8 *var_r31;
   s32 var_r30;
@@ -204,7 +199,7 @@ void run_cleanup_callbacks__16TItemReverseTechFv(void) {
   render_tick__Fv();
 }
 
-void init_scene__16TItemReverseTechFv(void) {
+void TItemReverseTech::init_scene() {
     Ent_8011A43C *e;
     u32 i;
     void (*fn)();
@@ -228,12 +223,12 @@ void init_scene__16TItemReverseTechFv(void) {
     }
     Vec_8011A43C eye = lbl_8043E68C[0];
     Vec_8011A43C at = lbl_8043E698[0];
-    select_active_controller__11TCameraCtrlFc(9);
+    select_active_controller__11TCameraCtrlFSc(9);
     set_active_camera_pose(&eye, &at);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
     TParticleCtrl::create_quad_sprites();
-    create__16TItemReverseTechFv();
+    TItemReverseTech::create();
     render_tick__Fv();
 }
 

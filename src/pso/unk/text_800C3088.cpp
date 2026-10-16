@@ -249,8 +249,8 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(int);
 u32 create_particle_emitter(void *, int);
-s32 enable__13TParticleCtrlFPv(int);
-s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 enable__13TParticleCtrlFv(int);
+s32 set_field_378__9TObjEneDDFl(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 noop__9TObjEneDDFv(void *);
 s32 fn_800C3A60(void *, int);
@@ -265,7 +265,7 @@ extern const f32 lbl_805D9FD8;
 extern const f32 lbl_805D9FDC;
 void fn_800C32DC(u8 *arg0, s32 arg1);
 s32 enemy_validate_retained_target(void *);
-s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 set_field_378__9TObjEneDDFl(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 noop__9TObjEneDDFv(void *);
 s32 fn_800C3A60(void *, int);
@@ -302,7 +302,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
       PSO_VCALL_VObj_18_880cfd_m94(arg0);
       ((TObjEneRe2Flower *)arg0)->set_child_flags();
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_3C4 = (int) (((RecoveredFields_800C3088_arg0 *) arg0)->field_3C4 & 0xFFFFFFF7);
-      set_field_378__9TObjEneDDFPvi((void *) arg0, (int) 3);
+      set_field_378__9TObjEneDDFl((void *) arg0, (int) 3);
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_410 = 0;
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_414 = 0;
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_418 = 0;
@@ -377,7 +377,7 @@ void fn_800C32DC(u8 *arg0, s32 arg1) {
         ((VObj_18_9e83f9 *)(arg0))->m94();
         ((TObjEneRe2Flower *)arg0)->set_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
-        set_field_378__9TObjEneDDFPvi((void *) (arg0), (int) (3));
+        set_field_378__9TObjEneDDFl((void *) (arg0), (int) (3));
         *(u32 *)((s8 *)arg0 + 0x428) = 0U;
         break;
     case 3:
@@ -393,7 +393,7 @@ void fn_800C32DC(u8 *arg0, s32 arg1) {
             *(u32 *)((s8 *)arg0 + 0x428) = create_particle_emitter((void *) (arg0 + 0x3E8), (int) (0xD1));
             temp_r3 = *(u32 *)((s8 *)arg0 + 0x428);
             if (temp_r3 != 0U) {
-                enable__13TParticleCtrlFPv((int) (temp_r3));
+                enable__13TParticleCtrlFv((int) (temp_r3));
             }
         }
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x428);
@@ -401,7 +401,7 @@ void fn_800C32DC(u8 *arg0, s32 arg1) {
             if (*(f32 *)((s8 *)arg0 + 0xC0) < lbl_805D9FD8) {
                 ((TNowLoading *)temp_r3_2)->copy_pos((void *) (arg0 + 0x3E8));
             } else {
-                enable__13TParticleCtrlFPv((int) (temp_r3_2));
+                enable__13TParticleCtrlFv((int) (temp_r3_2));
             }
         }
         if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9FDC)) != 0) {
@@ -600,7 +600,7 @@ f64 atan2_float(f32, f32);
 s32 enemy_set_target_id(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 u16 enemy_find_nearest_player_in_range(void *, f32);
-s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 set_field_378__9TObjEneDDFl(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 tick_period_counter(void *, void *, int);
 s32 noop__9TObjEneDDFv(void *);
@@ -630,7 +630,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         ((VObj_18 *)(arg0))->m94();
         ((TObjEneRe2Flower *)arg0)->set_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) &= ~8;
-        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        set_field_378__9TObjEneDDFl(arg0, 3);
         *(s32 *)((s8 *)arg0 + 0x414) = 0;
         *(s32 *)((s8 *)arg0 + 0x420) = 0;
         if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0) {
@@ -690,7 +690,7 @@ void handle_flower_state_change(void *arg0, s32 arg1) {
         ((V_A *) arg0)->m94();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
-        set_field_378__9TObjEneDDFPvi(arg0, 2);
+        set_field_378__9TObjEneDDFl(arg0, 2);
         enemy_clear_target__12TObjEneDD_STFUs(arg0);
         return;
     case 3:

@@ -346,12 +346,11 @@ f32 fabs_float(f32);
 void set_challenge_time_window_timer(int);
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 s32 TWindowSubStatusDisp__sub_8006F134(s32, s32);
-s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(s32);
 s32 get_character_save_record(s32);
 s32 TLobby__sub_802924B4(s32 arg0, u16 arg1);
 s32 mix_seed_checked__6TLobbyFi(s32);
 u32 get_player_by_client_id(s32);
-void store_challenge_seeds__6TLobbyFi(s32 arg0);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
 s32 TLobby__sub_802923C4(s32 idx, s32 value, s32 arg);
@@ -466,7 +465,7 @@ s32 TLobby__sub_8029204C(void) {
     return best;
 }
 
-void store_challenge_seeds__6TLobbyFi(s32 arg0) {
+void TLobby::store_challenge_seeds(s32 arg0) {
     s32 i;
     if (is_challenge_mode_active() != 0) {
         for (i = 0; i < 4; i++) {
@@ -484,7 +483,7 @@ void store_challenge_seeds__6TLobbyFi(s32 arg0) {
 void TLobby__sub_80292200(s32 arg0) {
     TLobby::is_value_out_of_range(arg0);
     fabs_float((f32) (arg0 - *(s32 *)((s8 *)(&(*(RecoveredGlobal_80292200_lbl_804DB1F0 *)&lbl_804DB1F0).value) + 0xC)));
-    store_challenge_seeds__6TLobbyFi((s32)((void *) (arg0)));
+    TLobby::store_challenge_seeds((s32)((void *) (arg0)));
 }
 
 int TLobby__sub_80292268(void) { return 1; }
@@ -581,7 +580,7 @@ s32 TLobby__sub_802924B4(s32 arg0, u16 arg1) {
   if (((TAdSinglePlyChrSelectGC *)(temp_r3 & 0xFFFFFFFFFFFFFFFFu))->register_in_free_room_slot(arg0) != 0)
   {
     temp_r30 = (((u8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + 0x14))) * 0x1C)) + 0x21C;
-    new_var2 = resolve_player_slot__20TWindowSubStatusDispFi(-1);
+    new_var2 = resolve_player_slot__20TWindowSubStatusDispFl(-1);
     temp_r3_2 = (s32 *) TWindowSubStatusDisp__sub_8006F134(temp_r3 + 0x21C4, new_var2);
     *temp_r3_2 |= *((s32 *) (((s8 *) temp_r30) + 4));
     return 1;
@@ -645,7 +644,7 @@ Tbl_80292730 *get_stage_table_entry__6TLobbyFll(s32, s32);
 void __dt__12TPlyCharDataFv(void *, int);
 void copy_player_visual_record(void *, void *);
 void __ct__12TPlyCharDataFv(void *);
-s32 get_map_id__13TRaderMapCoreFPv(void *);
+s32 get_map_id__13TRaderMapCoreFv(void *);
 #define get_player_by_client_id ((Pl_80292730 * (*)(s32))get_player_by_client_id)
 Pl_80292730 *create_player_object(s32, s32, void *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
@@ -701,7 +700,7 @@ void TLobby::rebuild_players_for_stage(s32 arg0) {
             VecCopy__FP3VecPC3Vec(&pos, (u8 *)p + 0x38);
             copy_player_visual_record(&info, (u8 *)p + 0x85C);
             ((TLobby *)(&hdr))->copy_header_struct((u8 *)p + 0xDAC);
-            map = get_map_id__13TRaderMapCoreFPv(p);
+            map = get_map_id__13TRaderMapCoreFv(p);
             if (p != NULL) {
                 p->v0(1);
             }
@@ -766,16 +765,16 @@ extern "C" {
 #define get_player_by_client_id ((u32 (*)(int))get_player_by_client_id)
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
 extern u32 challenge_retry_object;
-s32 check_player_state_flag_2__6TLobbyFPv(void *);
+s32 check_player_state_flag_2__6TLobbyFv(void *);
 void TLobby__sub_80293218(s32);
 extern u32 challenge_retry_object;
 s32 TLobby__sub_8029299C(void);
-s32 check_player_state_flag_2__6TLobbyFPv(void *);
+s32 check_player_state_flag_2__6TLobbyFv(void *);
 extern u32 challenge_retry_object;
 s32 TLobby__sub_80292A34(void);
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
-s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(s32);
 #define get_character_save_record ((u8 * (*)())get_character_save_record)
 s32 count_card_layout_entries__6TLobbyFv(void);
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
@@ -818,7 +817,7 @@ s32 TLobby__sub_8029299C(void) {
     var_r30 = 0;
     do {
         temp_r3 = (u8 *)(((s32)get_player_by_client_id((int)(var_r30))));
-        if ((temp_r3 != NULL) && (((int)check_player_state_flag_2__6TLobbyFPv((void *)(temp_r3))) != 0)) {
+        if ((temp_r3 != NULL) && (((int)check_player_state_flag_2__6TLobbyFv((void *)(temp_r3))) != 0)) {
             TLobby__sub_80293218((s32) var_r30);
             var_r31 = 1;
         }
@@ -839,7 +838,7 @@ s32 TLobby__sub_80292A34(void) {
     var_r31 = 0;
 loop_3:
     temp_r3 = (u8 *)(((u8 *)get_player_by_client_id((int)(var_r31))));
-    if ((temp_r3 != NULL) && (((int)check_player_state_flag_2__6TLobbyFPv(temp_r3)) == 0)) {
+    if ((temp_r3 != NULL) && (((int)check_player_state_flag_2__6TLobbyFv(temp_r3)) == 0)) {
         return 0;
     }
     var_r31 += 1;
@@ -927,7 +926,7 @@ s32 count_card_layout_entries__6TLobbyFv(void) {
     if (win == NULL) {
         return 0;
     }
-    id = resolve_player_slot__20TWindowSubStatusDispFi(-1);
+    id = resolve_player_slot__20TWindowSubStatusDispFl(-1);
     arr = TWindowSubStatusDisp__sub_8006F0D8(win + 0x21C4, id);
     layout = get_layout_id__20TWindowSubStatusDispFv((s32)(id));
     n = 0;
@@ -957,7 +956,7 @@ struct E_80292DA0 {
 extern "C" {
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
 #define TWindowSubStatusDisp__sub_8006F134 ((E_80292DA0 * (*)(void *, s32))TWindowSubStatusDisp__sub_8006F134)
-s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(s32);
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 mix_seed__6TLobbyFUs(s32);
 s32 TWindowSubStatusDisp__sub_80071988(u16, s32);
@@ -973,14 +972,14 @@ extern "C" {
 #define count_card_layout_entries__6TLobbyFv ((s32 (*)(s32))count_card_layout_entries__6TLobbyFv)
 u32 get_player_by_client_id(s32);
 #define get_layout_id__20TWindowSubStatusDispFv ((s32 (*)())get_layout_id__20TWindowSubStatusDispFv)
-s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(s32);
 
 s32 TLobby::calc_min_challenge_progress() {
     s32 temp_r3;
     s32 var_r31;
     s32 var_r30;
 
-    resolve_player_slot__20TWindowSubStatusDispFi(-1);
+    resolve_player_slot__20TWindowSubStatusDispFl(-1);
     var_r31 = get_layout_id__20TWindowSubStatusDispFv();
     var_r30 = 0;
     do {
@@ -1001,7 +1000,7 @@ s32 TLobby__sub_80292DA0(s32 seed, u16 card) {
     u8 *base;
     s32 next;
     E_80292DA0 *e;
-    id = ((s32)resolve_player_slot__20TWindowSubStatusDispFi((s32)(-1)));
+    id = ((s32)resolve_player_slot__20TWindowSubStatusDispFl((s32)(-1)));
     result = -4;
     TLobby__sub_80292BB8(seed, card, id);
     total = TWindowSubStatusDisp__sub_80071988(card, id);
@@ -1289,7 +1288,7 @@ s32 get_main_phase();
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(s32);
 #define get_player_by_client_id ((u32 (*)(u32))get_player_by_client_id)
 #define get_character_save_record ((u8 * (*)(s32))get_character_save_record)
 void TLobby__sub_80293218(s32 arg0);
@@ -1300,7 +1299,7 @@ extern s32 tl_07;
 s32 get_current_floor(void);
 s32 create_ch_time_win(s32);
 void TLobby__sub_802933FC(void *arg0);
-s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFl(s32);
 extern s32 tl_07;
 }
 
@@ -1370,7 +1369,7 @@ void TLobby__sub_80293218(s32 arg0) {
         Rec_80293218 *r = &(*(G_80293218 *)&lbl_804DB1F0).r[arg0];
         if (r->f0 != 0) {
             u8 *o = r->out;
-            o[0] = resolve_player_slot__20TWindowSubStatusDispFi(-1);
+            o[0] = resolve_player_slot__20TWindowSubStatusDispFl(-1);
             o[1] = (*(G_80293218 *)&lbl_804DB1F0).f0;
             o[2] = (*(G_80293218 *)&lbl_804DB1F0).f8;
             VecCopy__FP3VecPC3Vec(o + 4, p + 0x38);
@@ -1398,7 +1397,7 @@ void TLobby::spawn_player_tombstones2() {
         r = &((G_802932EC *)lbl_804DB1F0)->recs[i];
         if (r->active != 0 && get_player_by_client_id(i) != 0) {
             t = &r->tag;
-            if (t->phase == resolve_player_slot__20TWindowSubStatusDispFi(-1) &&
+            if (t->phase == resolve_player_slot__20TWindowSubStatusDispFl(-1) &&
                 t->layout == ((G_802932EC *)lbl_804DB1F0)->layout &&
                 t->slot == ((G_802932EC *)lbl_804DB1F0)->slot) {
                 TLobby::create_tombstone((void *)tl_07, (void *)i, (void *)t);

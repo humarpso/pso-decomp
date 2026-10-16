@@ -111,8 +111,8 @@ s32 obj_testFlags30(int, int);
 s32 is_inactive__10TObjPlayerFv();
 s32 is_on_current_floor__10TObjPlayerFi(int);
 s32 refresh_equipment_slot__10TObjPlayerFv(int);
-s32 activate_body_collision__10TObjPlayerFPv(int);
-s32 check_flag_40000__10TObjPlayerFPv(int);
+s32 activate_body_collision__10TObjPlayerFv(int);
+s32 check_flag_40000__10TObjPlayerFv(int);
 u8 *get_player_by_client_id(u16);
 s32 set_flag_2000000_alt__10TObjPlayerFv();
 s32 check_flag_04000000__10TObjPlayerFv(int);
@@ -126,13 +126,13 @@ struct VOff_801C5870_arg0_801C57D0 { char pad_0[0x1C]; char f_1C[1]; };
 void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
 void calc_death_sink_offset(void *arg0);
 void run_task__13TForceOperateFv(s32 arg0);
-s32 has_action_palette_entry__10TObjPlayerFPv(void *);
+s32 has_action_palette_entry__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C6DAC(s32);
 void *find_entity_by_id();
 void __ct__7TObjectFP7TObject(void *);
 void fn_8013E020(void *);
 void *get_state__11TMainCursorFv(s32);
-s32 is_target_valid__10TObjPlayerFPv();
+s32 is_target_valid__10TObjPlayerFv();
 s32 obj_getField1c(void *);
 s32 queue_destruction__7TObjectFv(s32);
 void set_field_0__13TForceOperateFs(void *, void *);
@@ -143,7 +143,7 @@ void run_task__13TForceOperateFv(s32 arg0) {
 
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) {
         temp_r31 = get_state__11TMainCursorFv(arg0 + 0x1C);
-        if ((is_target_valid__10TObjPlayerFPv() != 0) && (has_action_palette_entry__10TObjPlayerFPv(temp_r31) != 0)) {
+        if ((is_target_valid__10TObjPlayerFv() != 0) && (has_action_palette_entry__10TObjPlayerFv(temp_r31) != 0)) {
             ((TMainCursor *)(*(s32 *)((s8 *)temp_r31 + 0x424) + 0x4F8))->get_id();
             temp_r3 = find_entity_by_id();
             if (temp_r3 != NULL) {
@@ -200,7 +200,7 @@ void update_player_appear_fade(u8 *arg0) {
         default:
             break;
         case 0:
-            if ((is_inactive__10TObjPlayerFv() != 0) && (check_flag_40000__10TObjPlayerFPv((int) (temp_r3)) == 0) && (check_flag_04000000__10TObjPlayerFv((int) (temp_r3)) != 0) && (is_on_current_floor__10TObjPlayerFi((int) (temp_r3)) != 0)) {
+            if ((is_inactive__10TObjPlayerFv() != 0) && (check_flag_40000__10TObjPlayerFv((int) (temp_r3)) == 0) && (check_flag_04000000__10TObjPlayerFv((int) (temp_r3)) != 0) && (is_on_current_floor__10TObjPlayerFi((int) (temp_r3)) != 0)) {
                 if (--*(s16 *)((s8 *)arg0 + 2) < 0) {
                     if (TCameraCtrl::get_mode() != 0) {
                         *(f32 *)((s8 *)temp_r3 + 0x624) = (f32) lbl_805DC320[0];
@@ -208,7 +208,7 @@ void update_player_appear_fade(u8 *arg0) {
                         return;
                     }
                     *(s32 *)((s8 *)arg0 + 4) = 1;
-                    activate_body_collision__10TObjPlayerFPv((int) (temp_r3));
+                    activate_body_collision__10TObjPlayerFv((int) (temp_r3));
                     if (obj_testFlags30((int) (temp_r3), (int) (0x800)) == 0) {
                         TObjPlayer::spawn_appearance_effect((int) (*(u16 *)((s8 *)arg0 + 0)));
                     }
@@ -225,7 +225,7 @@ void update_player_appear_fade(u8 *arg0) {
                 var_f31 = lbl_805DC320[0];
                 *(s32 *)((s8 *)arg0 + 4) = 2;
                 set_flag_2000000_alt__10TObjPlayerFv();
-                activate_body_collision__10TObjPlayerFPv((int) (temp_r3));
+                activate_body_collision__10TObjPlayerFv((int) (temp_r3));
             }
             *(f32 *)((s8 *)temp_r3 + 0x624) = var_f31;
             break;
@@ -262,7 +262,7 @@ extern "C" {
 void reset_player_appearance_opacity(void* a0);
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_current_floor();
-s32 deactivate_body_collision__10TObjPlayerFPv(s32);
+s32 deactivate_body_collision__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801C6F90();
 int set_chunk_material_color(void*);
 int clear_flags__11TAdRicoRingFUl(void*, void*);
@@ -281,7 +281,7 @@ void TObjPlayer::enter_battle_state() {
     temp_r3 = ((s32 (*)(u16))get_player_by_client_id)(*(u16 *)((s8 *)this + 0));
     if ((temp_r3 != 0) && (fn_801C6F2C(this) == 0)) {
         *(s32 *)((s8 *)this + 4) = 0;
-        deactivate_body_collision__10TObjPlayerFPv(temp_r3);
+        deactivate_body_collision__10TObjPlayerFv(temp_r3);
         *(s16 *)((s8 *)this + 2) = 4;
     }
 }

@@ -170,11 +170,10 @@ s32 debug_print__6TLobbyFle(s32 *, ...);
 extern s32 lbl_80434D74[];
 extern s32 lbl_80434D94[];
 extern s32 lobby_download_buffer;
-s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8001EDD8(void *, s32);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);
-s32 create_file_load_entry__6TLobbyFiiUiiPv(void *, s32, void *, void *, void *);
+s32 create_file_load_entry__6TLobbyFllUllPPv(void *, s32, void *, void *, void *);
 s32 debug_print__6TLobbyFle(s32 *, ...);
 s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
@@ -228,7 +227,7 @@ s32 debug_print__6TLobbyFle(s32 *, ...);
 s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 s32 TLobby__sub_803CC4C0(u32);
 s32 TLobby__sub_803CC53C(void);
-void close_adxf_handle__6TLobbyFPv(u32);
+void close_adxf_handle__6TLobbyFv(u32);
 u32 adxf_open__6TLobbyFUii(void *, s32);
 s32 load_gvm_texture_archive(s32, s32);
 extern char lbl_80434B44[];
@@ -339,7 +338,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
     case 1:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
@@ -357,7 +356,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
     case 2:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFv(lobby_bml_file_handle);
             self->state = 9;
         } else if (self->nmodel < self->f434) {
             n = (bml_header_record_ptr->size + 0x7FF) / 2048;
@@ -379,7 +378,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
     case 3:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
@@ -406,7 +405,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
     case 4:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFv(lobby_bml_file_handle);
             self->state = 9;
         } else if (self->nmotion < self->f438) {
             n = (bml_header_record_ptr->size + 0x7FF) / 2048;
@@ -423,7 +422,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
             self->state = 5;
         } else {
             reset_read_state__6TLobbyFv();
-            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFv(lobby_bml_file_handle);
             bml_header_record_ptr = (Rec_8001F128 *) (lbl_805D4AE0 + 0x40);
             self->state = 6;
         }
@@ -431,7 +430,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
     case 5:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
@@ -494,7 +493,7 @@ s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {
     case 7:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            close_adxf_handle__6TLobbyFPv(lobby_bml_file_handle);
+            close_adxf_handle__6TLobbyFv(lobby_bml_file_handle);
             self->state = 9;
         } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
@@ -593,7 +592,7 @@ void TLobby::load_bin_model_callback() {
             params.a = self->fC;
             params.b = self->f10;
             change_file_extension__6TLobbyFPvPvPv(name, (void *)self->f0, &lbl_805D7F10);
-            r = create_file_load_entry__6TLobbyFiiUiiPv(name, *slot, (void *)increment_ref_and_set_flag__6TLobbyFPv, &params, &handle);
+            r = create_file_load_entry__6TLobbyFllUllPPv(name, *slot, (void *)increment_ref_and_set_flag__6TLobbyFPv, &params, &handle);
             if (r >= 0) {
                 TLobby__sub_8001EDD8(self->fC, handle);
                 self->fC->f43C++;
@@ -676,10 +675,10 @@ s32 TLobby::load_bin_motion(s32 arg1, s32 arg2) {
     return 1;
 }
 
-s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
+s32 TLobby::load_bin_model(s32 arg1, s32 arg2) {
     s32 size;
-    arg0->entries[arg2].motion = NULL;
-    arg0->entries[arg2].texture = NULL;
+    ((Lobby_8001FD98 *)this)->entries[arg2].motion = NULL;
+    ((Lobby_8001FD98 *)this)->entries[arg2].texture = NULL;
     size = ((TLobby *)arg1)->get_resource_file_size();
     if (size <= 0) {
         debug_print__6TLobbyFle(lbl_80434D74, arg1);
@@ -689,9 +688,9 @@ s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
         debug_print__6TLobbyFle(lbl_80434D94, size - 0x40000);
     }
     set_stream_state__6TLobbyFi(arg1, lobby_download_buffer);
-    bind_bml_model((Lobby_8001FBEC *)(arg0), (u32)(size), (s32)(arg2), (s32)(lobby_download_buffer));
-    if (arg0->entries[arg2].texture != NULL) {
-        ((TLobby *)arg0)->load_texture_sub((void *)(arg1), (s32)(arg2));
+    bind_bml_model((Lobby_8001FBEC *)(((Lobby_8001FD98 *)this)), (u32)(size), (s32)(arg2), (s32)(lobby_download_buffer));
+    if (((Lobby_8001FD98 *)this)->entries[arg2].texture != NULL) {
+        ((TLobby *)((Lobby_8001FD98 *)this))->load_texture_sub((void *)(arg1), (s32)(arg2));
     }
     return 1;
 }

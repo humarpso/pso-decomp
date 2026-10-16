@@ -54,7 +54,9 @@ struct TWindowOptionCtrl : public TObject {
     void open_confirm_dialog(s32 arg1, s32 arg2);
     void set_option_and_confirm(s32 arg1, s32 arg2);
     void handle_save_result();
-    void open();};
+    void open();
+    s32 add_label_value_line(const char *arg1, const char *arg2, u32 arg3);
+};
 
 typedef char TWindowOptionCtrl_size[sizeof(TWindowOptionCtrl) == 0x50 ? 1 : -1];
 #endif

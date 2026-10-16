@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_800D9960_lbl_80500FA4 {
@@ -44,7 +45,6 @@ extern s32 motion_trail_node_index;
 extern s32 lbl_805D523C;
 extern s32 TBoss4Type3__motion_trail_points;
 extern const f32 lbl_805DA3EC;
-void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -57,28 +57,28 @@ typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_8
 void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)(&lbl_80500FA4.value) + 0) = arg3;
     *(s32 *)((s8 *)(&lbl_80500FA4.value) + 4) = arg4;
-    draw_motion_trail__11TBoss4Type3FPviiii((Arg_800D9994 *)(arg0), (s32)(arg1), (s32)(arg2), (s32)((s32) &lbl_80500FA4.value), (s32)(0));
+    ((TBoss4Type3 *)arg0)->draw_motion_trail((s32)(arg1), (s32)(arg2), (s32)((s32) &lbl_80500FA4.value), (s32)(0));
 }
 
-void draw_motion_trail__11TBoss4Type3FPviiii(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void TBoss4Type3::draw_motion_trail(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     f32 f;
     s32 i;
     TObjPlayer::set_global_flag();
     lbl_80500F80.x = lbl_805DA3EC;
     lbl_80500F80.y = lbl_805DA3EC;
     lbl_80500F80.z = lbl_805DA3EC;
-    lbl_805D5230 = arg0->a;
-    lbl_805D5234 = arg0->b;
+    lbl_805D5230 = ((Arg_800D9994 *)this)->a;
+    lbl_805D5234 = ((Arg_800D9994 *)this)->b;
     lbl_805D523C = arg3;
     TBoss4Type3__motion_trail_points = arg4;
     push_matrix(&lbl_80500F80);
-    f = arg0->start;
-    for (i = 0; i < arg0->count; i++) {
+    f = ((Arg_800D9994 *)this)->start;
+    for (i = 0; i < ((Arg_800D9994 *)this)->count; i++) {
         motion_trail_node_index = 0;
         set_matrix_identity(0);
         bind_motion_context(arg2, f);
-        transform_motion_node_points(arg0, arg1, 0);
-        f += arg0->step;
+        transform_motion_node_points(((Arg_800D9994 *)this), arg1, 0);
+        f += ((Arg_800D9994 *)this)->step;
     }
     pop_matrix();
     TObjPlayer::clear_global_state();

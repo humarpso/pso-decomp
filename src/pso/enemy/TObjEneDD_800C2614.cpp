@@ -157,7 +157,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800C2628 *, void *);
 void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
 void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
-s32 set_field_378__9TObjEneDDFPvi(void *, s32);
+s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
 s32 fn_800C3A60(void *, s32);
@@ -179,7 +179,7 @@ s32 transition_enemy_state(void *, s32);
 s32 fn_800C3A60(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
 s32 objInBand__FP7GameObjf(f32);
-s32 set_field_378__9TObjEneDDFPvi(void *, s32);
+s32 set_field_378__9TObjEneDDFl(void *, s32);
 
 void TObjEneRe2Flower::vfunc_105() {  }
 void TObjEneDD__sub_800C2618(void* p) { *(u32*)((char*)p + 0x3c4) |= 0x2; }
@@ -196,7 +196,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         ((VObj_18_9e83f9 *)(arg0))->m94();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         F(u32, 0x3C4) &= ~8;
-        set_field_378__9TObjEneDDFPvi((void *)(arg0), (s32)(8));
+        set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(8));
         if (!(F(u32, 0x3C4) & 4)) {
             F(u32, 0x3C4) |= 4;
             F(s32, 0x410) = 0;
@@ -289,7 +289,7 @@ void TObjEneRe2Flower::handle_event(s32 arg1) {
         ((V_A_800c294c_800C2614 *) arg0)->m94();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
-        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        set_field_378__9TObjEneDDFl(arg0, 3);
         *(s32 *)((s8 *)arg0 + 0x410) = 0;
         play_sound_effect(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x200);

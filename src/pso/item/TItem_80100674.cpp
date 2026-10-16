@@ -178,10 +178,9 @@ s32 get_player_by_client_id(void *);
 void give_item_to_client(s32 arg0, s32 arg1);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
-void refresh_owner_stats__5TItemFPv(u8 *arg0);
 int is_locally_controlled__10TObjPlayerFPv(void *);
 u8 *find_item_by_id(s32);
-void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
+void dispatch_action__10TObjPlayerFll(void *, s32, s32);
 void send_unequip_held_item__10TObjPlayerFUi(u32);
 s32 get_player_by_client_id(void *);
 void give_item_to_client(s32 arg0, s32 arg1);
@@ -190,7 +189,7 @@ s32 get_id__13TItemProArmorFv(void *);
 s32 init__9TItemDataFv(void *);
 s32 TItem__sub_80115D68(u8 *, u32);
 s32 TItemProArmor__sub_801178A8(u8 *, u32);
-s32 set_params__14TItemProShieldFiPv(u8 *, u32);
+s32 set_params__14TItemProShieldFlPv(u8 *, u32);
 s32 TItem__sub_8011892C(u8 *, u32);
 void replace_item_with_new_code(void *arg0, u32 arg1);
 }
@@ -216,24 +215,24 @@ typedef struct VObj_18_94668e VObj_18_94668e;
 #define PSO_VCALL_VObj_18_94668e_m21(_self, _arg0) (((VObj_18_94668e *)(_self))->m21((_arg0)))
 #define PSO_VCALL_VObj_18_94668e_m20(_self, _arg0) (((VObj_18_94668e *)(_self))->m20((_arg0)))
 #define PSO_VCALL_VObj_18_94668e_m71(_self) (((VObj_18_94668e *)(_self))->m71())
-void refresh_owner_stats__5TItemFPv(u8 *arg0) {
+void TItem::refresh_owner_stats() {
   s16 temp_r31;
   u8 *temp_r3;
   u8 *temp_r3_2;
-  temp_r3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xF0)));
+  temp_r3 = (u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
   if (temp_r3 != 0)
   {
     s16 temp_r30;
     temp_r31 = obj_getS16_32C(temp_r3);
-    temp_r30 = obj_getS16_32E(*((u8 **) (((s8 *) arg0) + 0xF0)));
-    PSO_VCALL_VObj_18_94668e_m21(arg0, 0);
-    PSO_VCALL_VObj_18_94668e_m20(arg0, 0);
-    temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xF0)));
+    temp_r30 = obj_getS16_32E(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
+    PSO_VCALL_VObj_18_94668e_m21(((u8 *)this), 0);
+    PSO_VCALL_VObj_18_94668e_m20(((u8 *)this), 0);
+    temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
     PSO_VCALL_VObj_18_94668e_m71(temp_r3_2);
-    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->set_hp_clamped(temp_r31);
-    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->set_facing(temp_r30);
-    ((TUnk_804806E8 *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->clamp_value();
-    ((TObjPlayer *)(*((u8 **) (((s8 *) arg0) + 0xF0))))->clamp_field_32E();
+    ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->set_hp_clamped(temp_r31);
+    ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->set_facing(temp_r30);
+    ((TUnk_804806E8 *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->clamp_value();
+    ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->clamp_field_32E();
   }
 }
 
@@ -282,7 +281,7 @@ s32 consume_item_by_id(s32 arg0) {
   }
   temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(temp_r3);
   temp_r30 = ((TObjPlayer *)temp_r3)->get_field_d8();
-  dispatch_action__10TObjPlayerFPvii((void *) temp_r3_2, arg0, 1);
+  dispatch_action__10TObjPlayerFll((void *) temp_r3_2, arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {
     send_unequip_held_item__10TObjPlayerFUi((u32) temp_r3_2);
@@ -327,7 +326,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
           TItemProArmor__sub_801178A8((u8 *) (&sp8), arg1);
           break;
         case 2:
-          set_params__14TItemProShieldFiPv((u8 *) (&sp8), arg1);
+          set_params__14TItemProShieldFlPv((u8 *) (&sp8), arg1);
           break;
         case 3:
           TItem__sub_8011892C((u8 *) (&sp8), arg1);

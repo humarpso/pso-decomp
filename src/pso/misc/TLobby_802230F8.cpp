@@ -7,7 +7,7 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80223350(void *arg0, void *arg1);
 u32 TAdSinglePlyChrSelectGC__sub_8022338C(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_802232F8(void *arg0, void *arg1);
-void swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+void swap_item_data__23TAdSinglePlyChrSelectGCFPl(void *, void *);
 }
 
 extern "C" {
@@ -16,8 +16,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80223350(void *arg0, void *arg1);
 u32 TAdSinglePlyChrSelectGC__sub_8022338C(u8 *arg0, u8 *arg1);
 u32 TLobby__sub_8022318C(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_802232F8(void *arg0, void *arg1);
-void swap_item_data__6TLobbyFPvPv(s32 *arg0, s32 *arg1);
-s32 copy_item_data__6TLobbyFPvPv(s32 *, s32 *);
+s32 copy_item_data__6TLobbyFPv(s32 *, s32 *);
 
 s32 TLobby::compare_version(void *arg1) {
     u32 b, a;
@@ -64,12 +63,12 @@ u32 TLobby__sub_8022318C(u8 *arg0, u8 *arg1) {
     return (u32) (*arg1 - *arg0) >> 0x1FU;
 }
 
-void swap_item_data__6TLobbyFPvPv(s32 *arg0, s32 *arg1) {
+void TLobby::swap_item_data(s32 *arg1) {
     s32 sp8[8];
 
-    copy_item_data__6TLobbyFPvPv(sp8, arg0);
-    copy_item_data__6TLobbyFPvPv(arg0, arg1);
-    copy_item_data__6TLobbyFPvPv(arg1, sp8);
+    copy_item_data__6TLobbyFPv(sp8, ((s32 *)this));
+    copy_item_data__6TLobbyFPv(((s32 *)this), arg1);
+    copy_item_data__6TLobbyFPv(arg1, sp8);
 }
 
 void TLobby::sort_records(s32 arg1, s32 arg2) {
@@ -81,17 +80,17 @@ void TLobby::sort_records(s32 arg1, s32 arg2) {
             switch (arg2) {
             case 0:
                 if (((s32 (*)(u8 *, u8 *))TAdSinglePlyChrSelectGC__sub_8022338C)(arg0[i].b, arg0[j].b) != 0) {
-                    swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(&arg0[i], &arg0[j]);
+                    swap_item_data__23TAdSinglePlyChrSelectGCFPl(&arg0[i], &arg0[j]);
                 }
                 break;
             case 1:
                 if (TAdSinglePlyChrSelectGC__sub_80223350(&arg0[i], &arg0[j]) != 0) {
-                    swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(&arg0[i], &arg0[j]);
+                    swap_item_data__23TAdSinglePlyChrSelectGCFPl(&arg0[i], &arg0[j]);
                 }
                 break;
             case 2:
                 if (TLobby__sub_802232F8(&arg0[i], &arg0[j]) != 0) {
-                    swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(&arg0[i], &arg0[j]);
+                    swap_item_data__23TAdSinglePlyChrSelectGCFPl(&arg0[i], &arg0[j]);
                 }
                 break;
             }

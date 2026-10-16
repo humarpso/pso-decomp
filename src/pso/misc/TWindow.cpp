@@ -118,7 +118,6 @@ void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
-void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self);
 u16 obj_getField1c(void *);
 s32 get_story_flag(s16);
 s32 are_all_story_quests_complete();
@@ -199,54 +198,54 @@ block_9:
         }
     }
 }
-void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
+void TQuestListOffline::update_list_navigation() {
     s32 sel;
     s32 msg;
     s32 msg2;
     Pos_80216CF8 pos;
-    if (self->f34->m8() == 0) {
+    if (((Win_80216CF8 *)this)->f34->m8() == 0) {
         return;
     }
-    if (self->f3C != NULL && self->f40 != NULL) {
-        sel = select_cursor_entry__22TWindowSubShortCutListFv((s32)self->f3C);
-        if (sel != self->f50) {
-            msg = get_quest_list_text(0xE, self->f54[sel].f8);
-            ((TLobby *)(self->f40))->send_and_handle(msg, 0x80);
-            self->f50 = sel;
-            if (self->f44 != NULL) {
-                TWindow__close(self->f44);
-                self->f44 = NULL;
+    if (((Win_80216CF8 *)this)->f3C != NULL && ((Win_80216CF8 *)this)->f40 != NULL) {
+        sel = select_cursor_entry__22TWindowSubShortCutListFv((s32)((Win_80216CF8 *)this)->f3C);
+        if (sel != ((Win_80216CF8 *)this)->f50) {
+            msg = get_quest_list_text(0xE, ((Win_80216CF8 *)this)->f54[sel].f8);
+            ((TLobby *)(((Win_80216CF8 *)this)->f40))->send_and_handle(msg, 0x80);
+            ((Win_80216CF8 *)this)->f50 = sel;
+            if (((Win_80216CF8 *)this)->f44 != NULL) {
+                TWindow__close(((Win_80216CF8 *)this)->f44);
+                ((Win_80216CF8 *)this)->f44 = NULL;
             }
         }
     }
-    if (self->f3C != NULL && ((TLobby *)(self->f3C))->get_flag_bit2() != 0) {
-        ((TShopWindowBase *)self)->set_field_20(5);
+    if (((Win_80216CF8 *)this)->f3C != NULL && ((TLobby *)(((Win_80216CF8 *)this)->f3C))->get_flag_bit2() != 0) {
+        ((TShopWindowBase *)((Win_80216CF8 *)this))->set_field_20(5);
         return;
     }
-    if (self->f3C != NULL && ((TUnk_804D0618 *)(self->f3C))->get_status_flag() != 0) {
-        sel = select_cursor_entry__22TWindowSubShortCutListFv((s32)self->f3C);
-        if (self->f54[sel].f14 & 1) {
-            ((TShopWindowBase *)self)->set_field_20(4);
+    if (((Win_80216CF8 *)this)->f3C != NULL && ((TUnk_804D0618 *)(((Win_80216CF8 *)this)->f3C))->get_status_flag() != 0) {
+        sel = select_cursor_entry__22TWindowSubShortCutListFv((s32)((Win_80216CF8 *)this)->f3C);
+        if (((Win_80216CF8 *)this)->f54[sel].f14 & 1) {
+            ((TShopWindowBase *)((Win_80216CF8 *)this))->set_field_20(4);
             return;
         }
-        if (self->f44 == NULL) {
+        if (((Win_80216CF8 *)this)->f44 == NULL) {
             pos.a = lbl_8044BEA4[0].a;
             pos.b = lbl_8044BEA4[0].b;
-            self->f44 = create_message_window__6TLobbyFllUls(get_window_layout_position(0x2E), &pos, 1, obj_getField1c(self->f24));
-            msg2 = get_quest_list_text(0xE, self->f54[sel].fC);
-            ((TLobby *)(self->f44))->send_and_handle(msg2, 0x80);
-            ((TLobby *)(self->f44))->set_field_1c(lbl_805DC694);
+            ((Win_80216CF8 *)this)->f44 = create_message_window__6TLobbyFllUls(get_window_layout_position(0x2E), &pos, 1, obj_getField1c(((Win_80216CF8 *)this)->f24));
+            msg2 = get_quest_list_text(0xE, ((Win_80216CF8 *)this)->f54[sel].fC);
+            ((TLobby *)(((Win_80216CF8 *)this)->f44))->send_and_handle(msg2, 0x80);
+            ((TLobby *)(((Win_80216CF8 *)this)->f44))->set_field_1c(lbl_805DC694);
             if (get_camera_id__11TCameraCtrlFv() >= 2) {
-                ((TUnk_804CDFE8 *)(self->f44))->set_position_xy(lbl_805DC698, lbl_805DC698);
+                ((TUnk_804CDFE8 *)(((Win_80216CF8 *)this)->f44))->set_position_xy(lbl_805DC698, lbl_805DC698);
             }
         }
-        if (self->f38 == NULL) {
-            self->f38 = create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(self->f24), 0, 0);
-            ((TUnk_804CDFE8 *)(self->f38))->set_position_xy(get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
-            if (self->f34 != NULL) {
-                self->f34->m7(5, 1);
+        if (((Win_80216CF8 *)this)->f38 == NULL) {
+            ((Win_80216CF8 *)this)->f38 = create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(((Win_80216CF8 *)this)->f24), 0, 0);
+            ((TUnk_804CDFE8 *)(((Win_80216CF8 *)this)->f38))->set_position_xy(get_scale__15TShopWindowBaseFv(((Win_80216CF8 *)this)), get_scale__15TShopWindowBaseFv(((Win_80216CF8 *)this)));
+            if (((Win_80216CF8 *)this)->f34 != NULL) {
+                ((Win_80216CF8 *)this)->f34->m7(5, 1);
             }
-            ((TShopWindowBase *)self)->set_field_20(2);
+            ((TShopWindowBase *)((Win_80216CF8 *)this))->set_field_20(2);
         }
     }
 }

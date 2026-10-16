@@ -22,7 +22,7 @@ void TBoss6Type2__sub_80337108(void);
 void TBoss6Type2__sub_80337160(void);
 void TBoss6Type2__sub_803371B4(void* p);
 int play_sound_effect(void*, void*, void*, void*);
-s32 turn_toward_target__11TBoss6Type2FPv();
+s32 turn_toward_target__11TBoss6Type2Fv();
 s32 fly_toward_target__11TBoss6Type2Fv();
 s32 TBoss6Type2__sub_8032FB84();
 s32 set_action__9TBoss6MagFl(void * a0 = 0, s32 a1 = 0);
@@ -92,7 +92,7 @@ void TBoss6Type2::start_mag_mines_state() {
 }
 
 void TBoss6Type2::update_effect_subsystems() {
-    turn_toward_target__11TBoss6Type2FPv();
+    turn_toward_target__11TBoss6Type2Fv();
     apply_random_drift();
     push_out_from_target();
     push_out_from_points();

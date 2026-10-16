@@ -40,7 +40,7 @@ s32 creation_motion_group(u32);
 extern u32 creation_player_character;
 extern u32 creation_figure_object;
 void request_creation_motion(s32 arg0);
-s32 request_file_read__6TLobbyFiiPvPv(int, int, void *, int);
+s32 request_file_read__6TLobbyFllPlPPv(int, int, void *, int);
 extern s32 chara_select_creation_shape_rel_files[];
 extern u32 creation_player_character;
 void load_creation_shape_rel(W_80290250 *arg0);
@@ -78,7 +78,7 @@ extern u32 chara_select_head_node;
 extern s32 chara_select_preview_resource;
 extern s32 creation_resource_ready_state;
 u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1);
-void play_phase_transition_sound__10TObjPlayerFi(u32);
+void play_phase_transition_sound__10TObjPlayerFl(u32);
 void translate_matrix_vec3(int, void *);
 void rotate_matrix_y(int, u32);
 void push_matrix_from();
@@ -91,7 +91,6 @@ extern u32 creation_player_character;
 extern int char_creation_figure_draw_flag;
 extern u32 creation_figure_rotation_y;
 extern CreationTextureCacheEntry *char_select_current_entry;
-void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void map_shape_region_samples(s32 region, s32 *samples);
 extern CreationShapeBlend creation_shape_blend;
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
@@ -1106,7 +1105,6 @@ s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const 
 void map_shape_region_samples(s32 region, s32 *samples);
 s32 find_shape_triangle_region(u8 *arg0);
 s32 scan_creation_resources(void *arg0);
-void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0);
 void request_creation_motion(s32 arg0);
 void load_creation_shape_rel(W_80290250 *arg0);
@@ -1357,7 +1355,7 @@ extern "C" {
 void load_creation_shape_rel(W_80290250 *arg0) {
     s32 rc;
     arg0->bufp = ((TQuestVmDownLoadServer *)0x44000)->alloc();
-    rc = request_file_read__6TLobbyFiiPvPv(chara_select_creation_shape_rel_files[((TCharaMaking *)(*(void * *)&creation_player_character))->get_display_index()], arg0->bufp, arg0->data, 0);
+    rc = request_file_read__6TLobbyFllPlPPv(chara_select_creation_shape_rel_files[((TCharaMaking *)(*(void * *)&creation_player_character))->get_display_index()], arg0->bufp, arg0->data, 0);
     arg0->rc = rc;
     if (rc >= 0) {
         if (arg0->rc > 0x44000) {
@@ -1481,45 +1479,45 @@ void TAdSinglePlyChrSelectGC::draw_player_model() { set_motion_interpolation_fla
 extern "C" {
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0) {
     if ((s32) char_select_active_flag != 0) {
-        draw_creation_figure__23TAdSinglePlyChrSelectGCFPv((u8 *)(_w0));
+        ((TAdSinglePlyChrSelectGC *)_w0)->draw_creation_figure();
     }
 }
 }
 
 extern "C" {
-void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
+void TAdSinglePlyChrSelectGC::draw_creation_figure() {
     u32 v;
     TParticleCtrl::begin_effect_render();
-    if (scan_creation_resources((void *)(arg0)) == 0) {
+    if (scan_creation_resources((void *)(((u8 *)this))) == 0) {
         char_creation_figure_draw_flag = 0;
         return;
     }
     {
         char_creation_figure_draw_flag = 1;
         push_matrix();
-        translate_matrix_vec3(0, arg0 + 0x38);
+        translate_matrix_vec3(0, ((u8 *)this) + 0x38);
         rotate_matrix_y(0, creation_figure_rotation_y);
         TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x460));
-        ((TAdSinglePlyChrSelectGC *)arg0)->draw_player_model();
-        ((TObjMotion *)arg0)->get_item_ptr(0x3A);
+        ((TAdSinglePlyChrSelectGC *)((u8 *)this))->draw_player_model();
+        ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3A);
         push_matrix_from();
         TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x2EC));
-        play_phase_transition_sound__10TObjPlayerFi(lbl_80540928[*(s16 *)((s8 *)char_select_current_entry + 0xA)].b);
+        play_phase_transition_sound__10TObjPlayerFl(lbl_80540928[*(s16 *)((s8 *)char_select_current_entry + 0xA)].b);
         pop_matrix();
         v = lbl_805408D8[*(s16 *)((s8 *)char_select_current_entry + 0xC)].b;
         if (v != 0) {
             TCharaMaking::enable_making();
-            ((TObjMotion *)arg0)->get_item_ptr(0x3B);
+            ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3B);
             push_matrix_from();
             TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x178));
-            play_phase_transition_sound__10TObjPlayerFi(v);
+            play_phase_transition_sound__10TObjPlayerFl(v);
             pop_matrix();
             TCharaMaking::clear_flag_bit0();
         }
         v = lbl_80540888[*(s16 *)((s8 *)char_select_current_entry + 0xC)].b;
         if (v != 0) {
             TCharaMaking::enable_making();
-            ((TObjMotion *)arg0)->get_item_ptr(0x3B);
+            ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3B);
             push_matrix_from();
             TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x178));
             TCharaMaking::setup_from_data(v, creation_player_character);

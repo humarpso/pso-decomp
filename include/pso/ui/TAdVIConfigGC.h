@@ -15,7 +15,11 @@ struct TAdVIConfigGC : public TAdYesNoBaseGC {
     virtual void run_task();
     static s32 draw_with_layer(s32 arg0, s32 arg1, s32 arg2);
     void set_field_2c(s32 v);
-    static void apply_config_if_valid(s32 arg0, s32 arg1);};
+    static void apply_config_if_valid(s32 arg0, s32 arg1);
+    void open_player_names_window();
+    s32 get_field_14();
+    void update_visibility();
+};
 
 typedef char TAdVIConfigGC_size[sizeof(TAdVIConfigGC) == 0x4C ? 1 : -1];
 #endif

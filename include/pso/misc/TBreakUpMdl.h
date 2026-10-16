@@ -19,6 +19,8 @@ struct TBreakUpMdl : public TObject {
     s32 build_node_records(u8 *arg1, s32 arg2);
     void copy(void* q);
     u8 unk_3C[0x18];
+    u8 *setup_pieces(s32 arg1, s32 arg2, f32 farg0);
+    u8 *init_from_model(s32 arg1);
 };
 
 typedef char TBreakUpMdl_size[sizeof(TBreakUpMdl) == 0x54 ? 1 : -1];

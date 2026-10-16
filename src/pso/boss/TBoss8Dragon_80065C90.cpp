@@ -29,7 +29,6 @@ s32 bswap_32__FPUl(s32);
 
 extern "C" {
 
-void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 s32 *TBoss8Dragon__sub_80065F08(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
@@ -83,13 +82,13 @@ void TBoss8Dragon::fill_follow_camera_params(u8 *arg1, u8 *arg2) {
     }
 }
 
-void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
+void TBoss8Dragon::get_follow_camera_offsets(u8 *arg1) {
     if ((void *) (*(u8 * *)&boss5_gryphon_instance) == NULL) {
-        VecCopy__FP3VecPC3Vec(arg0, &boss8_dragon_follow_camera_offsets.value);
+        VecCopy__FP3VecPC3Vec(((u8 *)this), &boss8_dragon_follow_camera_offsets.value);
         VecCopy__FP3VecPC3Vec(arg1, &lbl_80487CD8.value);
         return;
     }
-    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(arg0)), (u8 *)((u8 *)(arg1)));
+    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(((u8 *)this))), (u8 *)((u8 *)(arg1)));
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 
@@ -54,7 +55,6 @@ u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void target_nearest_player__10TObjPlayerFPvf(Plr_800C6E34 *arg0, f32 radius);
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
 void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
 u8 *get_player_data__10TObjPlayerFi(int);
@@ -144,7 +144,8 @@ u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {
     return list[(s32)((f32)count * calc_boss4_scale__10TObjPlayerFi(arg0))];
 }
 
-void target_nearest_player__10TObjPlayerFPvf(Plr_800C6E34 *arg0, f32 radius) {
+void TObjPlayer::target_nearest_player(f32 radius) {
+    Plr_800C6E34 *arg0 = (Plr_800C6E34 *)this;
     s32 n;
     u16 best;
     s32 i;

@@ -69,7 +69,6 @@ extern "C" {
 struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
 s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1);
-s32 dt_follow_particle_ctrl__10TObjPlayerFis(s32 arg0, s16 arg1);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 u32 find_entity_by_id(s32);
@@ -100,7 +99,7 @@ void TObjPlayer::update_follow_particle(s32 arg1) {
 
 s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        dt_follow_particle_ctrl__10TObjPlayerFis((s32)(arg0 + 4), (s16)(-1));
+        TObjPlayer::dt_follow_particle_ctrl((s32)(arg0 + 4), (s16)(-1));
         if (arg1 > 0) {
             __dl__FPv((s32)(arg0));
         }
@@ -160,7 +159,7 @@ void TObjPlayer::create_left_hand_ptcl(void *arg1) {
     *(void **)((s8 *)this + 0x0) = o;
 }
 
-s32 dt_follow_particle_ctrl__10TObjPlayerFis(s32 arg0, s16 arg1) {
+s32 TObjPlayer::dt_follow_particle_ctrl(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__22TPlyFollowParticleCtrlFis(arg0, 0);
         if (arg1 > 0) {

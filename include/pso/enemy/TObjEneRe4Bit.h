@@ -41,6 +41,15 @@ struct TObjEneRe4Bit : public TObjEneDD_ST {
     u8 _pad3F4[0x10];
     u32 m_404;
     u8 unk_3EC[0x24];
+    s32 handle_event(s32 arg1);
+    void handle_state_message(s32 msg);
+    void reset_transform();
+    void update_homing_velocity();
+    void update_position_flag();
+    void copy_pos();
+    void create_enabled(s32 arg1, s32 arg2, s32 arg3);
+    void create_disabled(s32 arg1, s32 arg2, s32 arg3);
+    static void *create(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 };
 
 typedef char TObjEneRe4Bit_size[sizeof(TObjEneRe4Bit) == 0x410 ? 1 : -1];

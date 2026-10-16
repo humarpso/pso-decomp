@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -18,9 +19,6 @@ void turn_toward_point__12TBoss3VoloptFPvPvPvi(Obj_800C7458 *arg0, V3_800C7458 *
 
 extern "C" {
 
-void clear_flag8_all__12TBoss3VoloptFPv(u32 **arg0);
-void set_flag8_list__12TBoss3VoloptFPv(u32 **arg0);
-
 void turn_toward_point__12TBoss3VoloptFPvPvPvi(Obj_800C7458 *arg0, V3_800C7458 *arg1, void *arg2, s32 arg3) {
     V3_800C7458 v = *arg1;
     subtract_vector(&v, arg0->pos);
@@ -29,14 +27,14 @@ void turn_toward_point__12TBoss3VoloptFPvPvPvi(Obj_800C7458 *arg0, V3_800C7458 *
     angle_difference_abs(arg0->h, arg3);
 }
 
-void clear_flag8_all__12TBoss3VoloptFPv(u32 **arg0) {
+void TBoss3Volopt::clear_flag8_all(u32 **arg0) {
     while (*arg0 != 0) {
         u32 *p = *arg0++;
         *p &= ~8;
     }
 }
 
-void set_flag8_list__12TBoss3VoloptFPv(u32 **arg0) {
+void TBoss3Volopt::set_flag8_list(u32 **arg0) {
     while (*arg0 != 0) {
         u32 *p = *arg0++;
         *p |= 8;

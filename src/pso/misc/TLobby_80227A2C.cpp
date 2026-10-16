@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/item/TUnk_804CC048.h"
 
 struct RecoveredGlobal_80227AA8_lbl_80514F64 {
@@ -522,7 +523,6 @@ extern char lbl_80514F58[];
 void TLobby__sub_80228118(void);
 char *strcpy(char *dst, const char *src);
 void clear_work_buffer(u8 *arg0);
-void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s);
 extern char lbl_805DC788[4];
 u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
@@ -532,7 +532,6 @@ extern s32 floor_sound_bank_table[];
 extern s32 floor_sound_bank_volume_table[];
 void load_floor_sound_bank(s32 arg0);
 void clear_work_buffer(u8 *arg0);
-void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s);
 }
 
 extern "C" {
@@ -759,16 +758,16 @@ void TUnk_804CC048::render() {
 }
 #pragma pop
 
-void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
+void TLobby::tokenize_args(char *s) {
     char *start;
     s32 quoted;
-    clear_work_buffer((u8 *)self);
+    clear_work_buffer((u8 *)((O_80228A74 *)this));
     start = s;
     quoted = 0;
     for (;;) {
         switch (*s) {
         case 0:
-            ((TLobby *)self)->add_token(start);
+            ((TLobby *)((O_80228A74 *)this))->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -788,7 +787,7 @@ void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
             } else {
                 *s = 0;
                 s++;
-                ((TLobby *)self)->add_token(start);
+                ((TLobby *)((O_80228A74 *)this))->add_token(start);
                 start = s;
             }
             break;
@@ -799,16 +798,16 @@ void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     }
 }
 
-void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
+void TLobby::parse_csv_line(char *s) {
     char *start;
     s32 quoted;
-    clear_work_buffer((u8 *)self);
+    clear_work_buffer((u8 *)((O_80228A74 *)this));
     start = s;
     quoted = 0;
     for (;;) {
         switch (*s) {
         case 0:
-            ((TLobby *)self)->add_token(start);
+            ((TLobby *)((O_80228A74 *)this))->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -829,7 +828,7 @@ void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
             } else {
                 *s = 0;
                 s++;
-                ((TLobby *)self)->add_token(start);
+                ((TLobby *)((O_80228A74 *)this))->add_token(start);
                 start = s;
             }
             break;

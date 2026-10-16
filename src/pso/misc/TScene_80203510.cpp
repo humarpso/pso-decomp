@@ -120,7 +120,7 @@ SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 f32 fabs_float(f32);
-void free_children__12TObjDoorJungFPvPv(void*,u16);
+void free_children__12TObjDoorJungFPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
 
@@ -131,7 +131,7 @@ SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 f32 fabs_float(f32);
 void scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
-void free_children__12TObjDoorJungFPvPv(void*,u16);
+void free_children__12TObjDoorJungFPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
 
@@ -143,9 +143,9 @@ struct Lobby_8020533C { Vec_8020533C v; Ang_8020533C a; void *param; Node_802053
 
 void render_projected_shadow_receiver(void *, void *);
 void update_particle_if_active__12TObjEneReconFv(void);
-void notify_scene__12TObjEneReconFi(s32);
+void notify_scene__12TObjEneReconFl(s32);
 void draw_field_1c__6TSceneFlll(void *, s32, s32, s32);
-void release_indexed_entry__6TLobbyFi(Lobby_8020533C *);
+void release_indexed_entry__6TLobbyFl(Lobby_8020533C *);
 void vec3_add_to(void *, void *);
 void draw_ginja_object(void *);
 void set_material_alpha_compare_reference(u32);
@@ -239,7 +239,7 @@ SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 
 f32 fabs_float(f32);
-void free_children__12TObjDoorJungFPvPv(void*,u16);
+void free_children__12TObjDoorJungFPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
 
@@ -396,7 +396,7 @@ void TScene::tick_material_fmt2() {
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
                     load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(object->cycle));
-                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
+                    free_children__12TObjDoorJungFPv((void*)(node->model), (u16)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
                     }
@@ -430,7 +430,7 @@ void TScene::tick_material_fmt2() {
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
                     load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(anim->cycle));
-                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
+                    free_children__12TObjDoorJungFPv((void*)(node->model), (u16)(anim->cycle->texture));
                 }
             }
             anim->flags |= 0x20000;
@@ -493,7 +493,7 @@ void TScene::tick_material_fmt1() {
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
                     load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(object->cycle));
-                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
+                    free_children__12TObjDoorJungFPv((void*)(node->model), (u16)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
                     }
@@ -525,7 +525,7 @@ void TScene::tick_material_fmt1() {
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
                     load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(anim->cycle));
-                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
+                    free_children__12TObjDoorJungFPv((void*)(node->model), (u16)(anim->cycle->texture));
                 }
             }
             anim->flags |= 0x20000;
@@ -671,9 +671,9 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
             if (e->flags & 0x80) {
                 Model_8020533C *m = (Model_8020533C *)e->node;
                 if (m != NULL) {
-                    notify_scene__12TObjEneReconFi(m->fF);
+                    notify_scene__12TObjEneReconFl(m->fF);
                 } else {
-                    notify_scene__12TObjEneReconFi(-1);
+                    notify_scene__12TObjEneReconFl(-1);
                 }
                 TObjFish::set_global_param((s32)((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14)));
                 set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
@@ -694,7 +694,7 @@ void TScene::render_static_map_section(SceneMaterialSection *arg1, s32 arg2) {
                     l.node = node;
                     l.scene = TScene__data_805D5FCC->flags;
                     l.id = m->fF;
-                    release_indexed_entry__6TLobbyFi(&l);
+                    release_indexed_entry__6TLobbyFl(&l);
                 }
             } else {
                 Model_8020533C *m = (Model_8020533C *)e->node;

@@ -99,7 +99,6 @@ s32 obj_is_hit_receivable(u32);
 s32 reset_global_table();
 Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
 s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *, void *);
-void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o);
 }
 
 extern "C" {
@@ -124,30 +123,30 @@ s32 TBoss7Crawfish::sub_80308688() {
     return (u32) __cntlzw((u32) (lbl_805DF0C8 < *(f32 *)((s8 *)this + 0x38))) >> 5;
 }
 
-void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o) {
+void TBoss7Crawfish::register_attack_hits() {
     Msg_803086A8 msg;
     s32 i;
     Slot_803086A8 *e;
     s32 j;
     reset_global_table();
-    msg.p = (u8 *)o + 0x374;
+    msg.p = (u8 *)((Obj_803086A8 *)this) + 0x374;
     msg.one = 1;
-    VecCopy__FP3VecPC3Vec(&msg.pos, (u8 *)o + 0x38);
-    msg.id = *(s32 *)((s8 *)o + 0x60);
+    VecCopy__FP3VecPC3Vec(&msg.pos, (u8 *)((Obj_803086A8 *)this) + 0x38);
+    msg.id = *(s32 *)((s8 *)((Obj_803086A8 *)this) + 0x60);
     TObjPlayer::apply_status_effect((s32)(&msg));
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
-        if ((u32)o->count < 4) {
+        if ((u32)((Obj_803086A8 *)this)->count < 4) {
             e = get_attack_entry__16TObjOnlineEndingFi(i);
-            for (j = 0; j != o->count; j++) {
-                if (o->slots[j].a == e->a && o->slots[j].b == e->b) {
+            for (j = 0; j != ((Obj_803086A8 *)this)->count; j++) {
+                if (((Obj_803086A8 *)this)->slots[j].a == e->a && ((Obj_803086A8 *)this)->slots[j].b == e->b) {
                     break;
                 }
             }
-            if (j == o->count && obj_is_hit_receivable(e->a) != 0) {
-                o->slots[o->count].a = e->a;
-                o->slots[o->count].b = e->b;
-                o->count++;
-                apply_hit_to_target__14TBoss7CrawfishFPvPv(o, e);
+            if (j == ((Obj_803086A8 *)this)->count && obj_is_hit_receivable(e->a) != 0) {
+                ((Obj_803086A8 *)this)->slots[((Obj_803086A8 *)this)->count].a = e->a;
+                ((Obj_803086A8 *)this)->slots[((Obj_803086A8 *)this)->count].b = e->b;
+                ((Obj_803086A8 *)this)->count++;
+                apply_hit_to_target__14TBoss7CrawfishFPvPv(((Obj_803086A8 *)this), e);
             }
         }
     }

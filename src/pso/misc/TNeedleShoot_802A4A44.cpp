@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNeedleShoot.h"
 #include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
 
 struct VBase_18_174c10 { char pad[0x18]; };
@@ -37,13 +38,12 @@ int queue_destruction__7TObjectFv(void*);
 extern "C" {
 
 void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1);
-void* get_shoot_data__12TNeedleShootFPv(void* p);
 s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
 int queue_destruction__7TObjectFv(void*);
 
-void* get_shoot_data__12TNeedleShootFPv(void* p) { return (char*)p + 0x28; }
+void*TNeedleShoot::get_shoot_data() { return (char*)this + 0x28; }
 
 #include "types.h"
 extern "C" {

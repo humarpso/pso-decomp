@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Demo21_TYPE2_DEAD.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -68,7 +69,6 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_model_motion(int, int, f32);
-void draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv(void *p);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_motion(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -104,14 +104,11 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_model_motion(int, int, f32);
-void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0);
 }
 
 extern "C" {
 
 void render__23TBoss6Demo21_TYPE2_DEADFv(void* p);
-void draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(void*);
-void draw_model_13__23TBoss6Demo21_TYPE2_DEADFv(u8*);
 
 }
 extern "C" const char lbl_80478088[] = "TBoss6Demo21_TYPE2_DEAD";
@@ -139,15 +136,15 @@ extern "C" const char *TBoss6Demo21_TYPE2_DEAD__name = lbl_80478088;
 #define lbl_8047817C ((u8 *)lbl_8047817C)
 #pragma pool_data off
 extern "C" {
-void draw_model_13__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x50) >= 0x1AC) {
+void TBoss6Demo21_TYPE2_DEAD::draw_model_13() {
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x50) >= 0x1AC) {
         push_matrix();
         TObjPlayer::set_global_flag();
-        post_translate_matrix((void *) (arg0 + 0x58));
-        TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x44)));
-        ((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x9C)))->set_draw_callback_list();
-        draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 0x40)), (int) (*(s32 *)((s8 *)arg0 + 0x48)), (f32) (*(f32 *)((s8 *)arg0 + 0x4C)));
-        clear_render_callback__8TObjFishFv((int) (*(s32 *)((s8 *)arg0 + 0x9C)));
+        post_translate_matrix((void *) (((u8 *)this) + 0x58));
+        TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x44)));
+        ((TObjFish *)(*(s32 *)((s8 *)((u8 *)this) + 0x9C)))->set_draw_callback_list();
+        draw_model_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x40)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x48)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x4C)));
+        clear_render_callback__8TObjFishFv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x9C)));
         TObjPlayer::clear_global_state();
         pop_matrix();
     }
@@ -160,7 +157,7 @@ void draw_model_13__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
 #define arg0 ((u8 *) p)
 
 #define arg0 ((u8 *) p)
-void draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv(void *p) {
+void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_8(void *p) {
     f32 f;
     s32 t;
     f = 0.0f;
@@ -191,7 +188,7 @@ void draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv(void *p) {
     }
 }
 
-void draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(void *p) {
+void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_5(void *p) {
 
     f32 f;
     s32 t;
@@ -227,10 +224,10 @@ void draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(void *p) {
 }
 #undef arg0
 
-void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
+void TBoss6Demo21_TYPE2_DEAD::draw_fading_model_4() {
     f32 var_f31;
     s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x50);
+    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x50);
     if (temp_r0 < 0x101) {
         var_f31 = (1.0f);
     } else if (temp_r0 >= 0x10F) {
@@ -244,11 +241,11 @@ void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
         }
         push_matrix();
         TObjPlayer::set_global_flag();
-        post_translate_matrix(arg0 + 0x58);
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x20));
-        ((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x70)))->set_draw_callback_list();
-        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x24), *(f32 *)((s8 *)arg0 + 0x4C));
-        clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x70));
+        post_translate_matrix(((u8 *)this) + 0x58);
+        TObjFish::set_global_param(*(s32 *)((s8 *)((u8 *)this) + 0x20));
+        ((TObjFish *)(*(s32 *)((s8 *)((u8 *)this) + 0x70)))->set_draw_callback_list();
+        draw_model_motion(*(s32 *)((s8 *)((u8 *)this) + 0x1C), *(s32 *)((s8 *)((u8 *)this) + 0x24), *(f32 *)((s8 *)((u8 *)this) + 0x4C));
+        clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)((u8 *)this) + 0x70));
         TObjPlayer::clear_global_state();
         pop_matrix();
         if (var_f31 < (1.0f)) {
@@ -257,7 +254,7 @@ void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
     }
 }
 
-void render__23TBoss6Demo21_TYPE2_DEADFv(void* p) { draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv((u8 *)(p)); draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(p); draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv((void *)(p)); draw_model_13__23TBoss6Demo21_TYPE2_DEADFv((u8 *)p); }
+void render__23TBoss6Demo21_TYPE2_DEADFv(void* p) { ((TBoss6Demo21_TYPE2_DEAD *)p)->draw_fading_model_4(); TBoss6Demo21_TYPE2_DEAD::draw_fading_model_5(p); TBoss6Demo21_TYPE2_DEAD::draw_fading_model_8((void *)(p)); ((TBoss6Demo21_TYPE2_DEAD *)p)->draw_model_13(); }
 
 #pragma push
 #pragma pool_data off

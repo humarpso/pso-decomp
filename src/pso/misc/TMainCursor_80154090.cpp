@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
 
 struct E_80154098 { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
 
@@ -23,8 +24,6 @@ s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2);
 s32 test_flags_any(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 clear_flags__11TAdRicoRingFUl(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 set_flags__10TObjPlayerFUl(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-void update_cursor_pair__11TMainCursorFPv(void* p);
-void update_pair__11TMainCursorFPv(void* p);
 
 void TMainCursor__sub_80154090(void) {  }
 void TMainCursor__sub_80154094(void) {  }
@@ -62,13 +61,11 @@ void TMainCursor__sub_801540FC(E_801540FC *arr, s32 n) {
 
 extern "C" {
 
-void update_pair__11TMainCursorFPv(void* p);
-void update_cursor_pair__11TMainCursorFPv(void* p);
 void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 
-void update_pair__11TMainCursorFPv(void* p) { TMainCursor__sub_801540D8((E_801540D8 *)*(void**)((char*)p + 0xa4), (s32)*(void**)((char*)p + 0xa8)); }
-void update_cursor_pair__11TMainCursorFPv(void* p) { TMainCursor__sub_801540FC((E_801540FC *)*(void**)((char*)p + 0xa4), (s32)*(void**)((char*)p + 0xa8)); }
+void TMainCursor::update_pair() { TMainCursor__sub_801540D8((E_801540D8 *)*(void**)((char*)this + 0xa4), (s32)*(void**)((char*)this + 0xa8)); }
+void TMainCursor::update_cursor_pair() { TMainCursor__sub_801540FC((E_801540FC *)*(void**)((char*)this + 0xa4), (s32)*(void**)((char*)this + 0xa8)); }
 
 }
 
@@ -76,25 +73,23 @@ void update_cursor_pair__11TMainCursorFPv(void* p) { TMainCursor__sub_801540FC((
 
 extern "C" {
 
-void update_pair__11TMainCursorFPv(void* p);
-void update_cursor_pair__11TMainCursorFPv(void* p);
 void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 
-s32 test_button__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
+s32 TMainCursor::test_button(s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (((s32 (*)(void))TMainCursor__sub_80154288)() != 0) {
-        temp_r5 = *(s32 *)((s8 *)arg0 + 0x9C);
+        temp_r5 = *(s32 *)((s8 *)this + 0x9C);
         return test_flags_any(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
     return 0;
 }
-void set_flag_bit__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
+void TMainCursor::set_flag_bit(s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (((s32 (*)(void))TMainCursor__sub_80154288)() != 0) {
-        temp_r5 = *(s32 *)((s8 *)arg0 + 0x9C);
+        temp_r5 = *(s32 *)((s8 *)this + 0x9C);
         clear_flags__11TAdRicoRingFUl(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
 }
@@ -113,8 +108,6 @@ void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
 
 extern "C" {
 
-void update_pair__11TMainCursorFPv(void* p);
-void update_cursor_pair__11TMainCursorFPv(void* p);
 void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 

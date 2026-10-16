@@ -13,7 +13,6 @@ extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801BFF80(u8 *arg0);
 s32 TFontSmallLobby__sub_801C0228();
-u8 *copy_hold_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -54,13 +53,13 @@ void TObjPlayer__sub_801BFF80(u8 *arg0) {
 
 s32 TObjPlayer__sub_801BFFA0(void* p) { return *(s32*)((char*)p + 0x0); }
 
-u8 *copy_hold_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
+u8 *TObjPlayer::copy_hold_params(u8 *arg1) {
     TFontSmallLobby__sub_801C0228();
-    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
-    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
-    *(ByteBlock_8 *)((s32) arg0 + 8) = *(const ByteBlock_8 *)((s32) arg1 + 8);
-    *(f32 *)((s8 *)arg0 + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
-    return arg0;
+    *(s16 *)((s8 *)((u8 *)this) + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)((u8 *)this) + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
+    *(ByteBlock_8 *)((s32) ((u8 *)this) + 8) = *(const ByteBlock_8 *)((s32) arg1 + 8);
+    *(f32 *)((s8 *)((u8 *)this) + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    return ((u8 *)this);
 }
 
 s16 TBoss7Crawfish::get_floor() { return *(s16*)((char*)this + 0xb8); }

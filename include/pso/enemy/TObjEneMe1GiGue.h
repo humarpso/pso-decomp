@@ -39,6 +39,8 @@ struct TObjEneMe1GiGue : public TObjEnemyCustom {
     void update_if_active(s32 _w1);
     void set_state(s32 arg1);
     u8 unk_44C[0xC];
+    static int get_barrier_count();
+    void apply_hit_shake(u32 arg1);
 };
 
 typedef char TObjEneMe1GiGue_size[sizeof(TObjEneMe1GiGue) == 0x458 ? 1 : -1];

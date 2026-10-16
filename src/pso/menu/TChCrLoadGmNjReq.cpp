@@ -6,8 +6,8 @@ extern "C" void TLobby__sub_8001FE7C(void*, int);
 
 extern "C" {
 s32 queue_destruction__7TObjectFv();
-s32 update_model_load__6TLobbyFPv();
-s32 start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
+s32 update_model_load__6TLobbyFv();
+s32 start_character_load_task__23TAdSinglePlyChrSelectGCFv();
 }
 
 extern "C" {
@@ -36,10 +36,10 @@ void TChCrLoadGmNjReq::run_task() {
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x2C);
     switch (temp_r0_2) {
     case 0:
-        start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
+        start_character_load_task__23TAdSinglePlyChrSelectGCFv();
         return;
     case 1:
-        update_model_load__6TLobbyFPv();
+        update_model_load__6TLobbyFv();
         return;
     }
 }

@@ -10,6 +10,8 @@ public:
     void init_quest_list_window();
     virtual void vfunc_11();
     u8 unk_1C[0x3C];
+public:
+    void update_list_navigation();
 };
 typedef char TQuestListOffline_size[sizeof(TQuestListOffline) == 0x58 ? 1 : -1];
 

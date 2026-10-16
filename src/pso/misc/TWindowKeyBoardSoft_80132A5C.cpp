@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -47,13 +48,11 @@ void TLanguage__ct(s32 arg0);
 
 extern "C" {
 
-void free_instance__19TWindowKeyBoardSoftFv(void);
-void free_resources__19TWindowKeyBoardSoftFv(void);
 s32 TLobby__sub_803DA16C(void *);
 
 extern struct Outer_80132A5C *localized_alphabet_list;
 
-void free_instance__19TWindowKeyBoardSoftFv(void) {
+void TWindowKeyBoardSoft::free_instance() {
     if (localized_alphabet_list != NULL) {
         struct Inner_80132A5C *inner = localized_alphabet_list->f0;
         if (inner->f8 != 0U) {
@@ -67,7 +66,7 @@ void free_instance__19TWindowKeyBoardSoftFv(void) {
     extern int TWindowKeyBoardSoft__text_resource;
     extern int text_language_group_table;
     extern int TWindowKeyBoardSoft__language_text_resources;
-void free_resources__19TWindowKeyBoardSoftFv(void) { TLobby::free_nodes_with_id((u32)((void*)(TWindowKeyBoardSoft__text_resource))); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
+void TWindowKeyBoardSoft::free_resources() { TLobby::free_nodes_with_id((u32)((void*)(TWindowKeyBoardSoft__text_resource))); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
 
 void TLanguage__ct(s32 arg0) {
     s32 sp8;
@@ -159,8 +158,8 @@ s32 TWindowKeyBoardSoft::set_language(s8 arg0) {
     if ((s32) current_language == arg0) {
         return 0;
     }
-    free_instance__19TWindowKeyBoardSoftFv();
-    free_resources__19TWindowKeyBoardSoftFv();
+    TWindowKeyBoardSoft::free_instance();
+    TWindowKeyBoardSoft::free_resources();
     temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != NULL) {
         *(s8 *)((s8 *)temp_r3 + 7) = arg0;

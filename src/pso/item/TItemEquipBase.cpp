@@ -474,7 +474,6 @@ s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
 s32 TItemData__sub_8010B808(void *);
 s32 TItemData__sub_8010B810(int);
-void remove_equip_stats__14TItemEquipBaseFPvi(u8 *arg0, s32 arg1);
 s32 TItem__ct(void *, void *, void *);
 s32 __nw__15TItemHeapObjectFUl(int);
 s32 __ct__15TItemHeapObjectFP7TObject(int, void *);
@@ -490,17 +489,16 @@ s32 TObjPlayer__sub_800194E8(void *);
 s32 get_attack_params_atp_max(void *);
 s32 TItemData__sub_8010B808(void *);
 s32 TItemData__sub_8010B810(int);
-void add_accuracy__9TItemDataFPvi(s32, s32);
-void add_stat__9TItemDataFPvi(s32, s32);
-void add_s16__9TItemDataFPvi(s32, s32);
-s16 add_lck__10TObjPlayerFPvi(void *, int);
-s16 add_evp__10TObjPlayerFPvi(void *, int);
-s16 add_ata__10TObjPlayerFPvi(void *, int);
-s16 add_mst__10TObjPlayerFPvi(void *, int);
-s16 add_hp__10TObjPlayerFPvi(void *, int);
-s16 add_dfp__10TObjPlayerFPvi(void *, int);
-s16 add_stat__10TObjPlayerFPvi(void *, int);
-void add_equip_stats__14TItemEquipBaseFPvi(VObj_8010B224 *self, s32 arg1);
+void add_accuracy__9TItemDataFl(s32, s32);
+void add_stat__9TItemDataFl(s32, s32);
+void add_s16__9TItemDataFPsl(s32, s32);
+s16 add_lck__10TObjPlayerFl(void *, int);
+s16 add_evp__10TObjPlayerFl(void *, int);
+s16 add_ata__10TObjPlayerFl(void *, int);
+s16 add_mst__10TObjPlayerFl(void *, int);
+s16 add_hp__10TObjPlayerFl(void *, int);
+s16 add_dfp__10TObjPlayerFl(void *, int);
+s16 add_stat__10TObjPlayerFl(void *, int);
 }
 
 extern "C" {
@@ -789,30 +787,30 @@ typedef struct VObj_18_8e31a0 VObj_18_8e31a0;
 #define PSO_VCALL_VObj_18_8e31a0_m23(_self, _arg0, _arg1, _arg2) (((VObj_18_8e31a0 *)(_self))->m23((_arg0), (_arg1), (_arg2)))
 #define PSO_VCALL_VObj_18_8e31a0_m47(_self) (((VObj_18_8e31a0 *)(_self))->m47())
 #define PSO_VCALL_VObj_18_8e31a0_m71(_self) (((VObj_18_8e31a0 *)(_self))->m71())
-void remove_equip_stats__14TItemEquipBaseFPvi(u8 *arg0, s32 arg1) {
+void TItemEquipBase::remove_equip_stats(s32 arg1) {
   u8 *temp_r3;
   s32 temp_r31;
   s32 temp_r30;
   int new_var;
   u8 *temp_r3_2;
-  temp_r3 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0;
+  temp_r3 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0;
   if (temp_r3 != 0)
   {
     temp_r31 = TItemData__sub_8010B810((int) temp_r3);
-    temp_r30 = TItemData__sub_8010B808((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0);
-    new_var = ((TQuestListVM *)((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0))->get_quest_id();
-    PSO_VCALL_VObj_18_8e31a0_m23(arg0, temp_r31, temp_r30, new_var);
+    temp_r30 = TItemData__sub_8010B808((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0);
+    new_var = ((TQuestListVM *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->get_quest_id();
+    PSO_VCALL_VObj_18_8e31a0_m23(((u8 *)this), temp_r31, temp_r30, new_var);
     if (arg1 != 0)
     {
-      add_actor_hp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) arg0)->field_16C))));
-      add_actor_tp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) arg0)->field_16E))));
-      PSO_VCALL_VObj_18_8e31a0_m47(arg0);
-      temp_r3_2 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0;
+      add_actor_hp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_16C))));
+      add_actor_tp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_16E))));
+      PSO_VCALL_VObj_18_8e31a0_m47(((u8 *)this));
+      temp_r3_2 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0;
       PSO_VCALL_VObj_18_8e31a0_m71(temp_r3_2);
-      ((TUnk_804806E8 *)((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0))->clamp_value();
-      ((TObjPlayer *)((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0))->clamp_field_32E();
+      ((TUnk_804806E8 *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->clamp_value();
+      ((TObjPlayer *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->clamp_field_32E();
     }
-    ((TItemEquipBase *)arg0)->reset();
+    ((TItemEquipBase *)((u8 *)this))->reset();
   }
 }
 
@@ -830,19 +828,19 @@ void TItemEquipBase::unequip() {
     }
 }
 
-void add_equip_stats__14TItemEquipBaseFPvi(VObj_8010B224 *self, s32 arg1) {
+void TItemEquipBase::add_equip_stats(s32 arg1) {
     ItemData_8010B224 item;
     s32 t;
     u8 *p;
-    u8 *arg0 = (u8 *)self;
+    u8 *arg0 = (u8 *)((VObj_8010B224 *)this);
     if (*(void **)((s8 *)arg0 + 0xF0) != NULL) {
         ((TItem *)arg0)->copy_to_item_data(&item);
         ((TItemData *)(&item))->apply_equip_effects((s32)(*(s32 *)((s8 *)arg0 + 0xF0)), (s32)((s32)(arg0 + 0x11C)), (s32)((s32)(arg0 + 0x14C)), (s32)(arg0 + 0xF8), (s32)(arg0 + 0x16C));
         t = TItemData__sub_8010B810(*(s32 *)((s8 *)arg0 + 0xF0));
         if (t != 0) {
-            add_s16__9TItemDataFPvi(t, get_attack_params_atp_min(arg0 + 0x11C));
-            add_stat__9TItemDataFPvi(t, get_attack_params_atp_max(arg0 + 0x11C));
-            add_accuracy__9TItemDataFPvi(t, TObjPlayer__sub_800194E8(arg0 + 0x11C));
+            add_s16__9TItemDataFPsl(t, get_attack_params_atp_min(arg0 + 0x11C));
+            add_stat__9TItemDataFl(t, get_attack_params_atp_max(arg0 + 0x11C));
+            add_accuracy__9TItemDataFl(t, TObjPlayer__sub_800194E8(arg0 + 0x11C));
         }
         p = (u8 *)TItemData__sub_8010B808(*(void **)((s8 *)arg0 + 0xF0));
         if (p != NULL) {
@@ -855,19 +853,19 @@ void add_equip_stats__14TItemEquipBaseFPvi(VObj_8010B224 *self, s32 arg1) {
             *(s16 *)((s8 *)p + 0xA) += *(s16 *)((s8 *)arg0 + 0x156);
         }
         if (((TQuestListVM *)(*(void **)((s8 *)arg0 + 0xF0)))->get_quest_id() != 0U) {
-            s16 v = add_stat__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xF8));
+            s16 v = add_stat__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xF8));
             TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xF8), v);
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFA), add_mst__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFA)));
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFC), add_evp__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFC)));
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFE), add_hp__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFE)));
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x100), add_dfp__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x100)));
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x102), add_ata__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x102)));
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x104), add_lck__10TObjPlayerFPvi(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x104)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFA), add_mst__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFA)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFC), add_evp__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFC)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFE), add_hp__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFE)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x100), add_dfp__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x100)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x102), add_ata__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x102)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x104), add_lck__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x104)));
         }
         if (arg1 != 0) {
             add_actor_hp_bonus(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x16C));
             add_actor_tp_bonus(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x16E));
-            self->m46();
+            ((VObj_8010B224 *)this)->m46();
             ((VObj_8010B224 *)*(void **)((s8 *)arg0 + 0xF0))->m71();
         }
     }

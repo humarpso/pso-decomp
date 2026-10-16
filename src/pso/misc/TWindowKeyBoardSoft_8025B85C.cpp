@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardBase.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -91,7 +92,6 @@ s32 TWindowKeyBoardSoft__sub_800808FC(int, int);
 bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
 s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 extern s32 current_language;
-void insert_character__19TWindowKeyBoardBaseFPvUs(u8 *arg0, u16 arg1);
 s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 }
 
@@ -582,24 +582,24 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
 
 int TWindowKeyBoardSoft::get_field_6c() { return set_text_from_string__19TWindowKeyBoardSoftFPc((char*)this + 0x6c); }
 
-void insert_character__19TWindowKeyBoardBaseFPvUs(u8 *arg0, u16 arg1) {
+void TWindowKeyBoardBase::insert_character(u16 arg1) {
     s32 f;
     if (current_language == 0 && arg1 >= 0x80U && arg1 < 0x100U) {
         return;
     }
-    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x80) && *(u8 *)((s8 *)arg0 + 0x64) >= 1U) {
-        TWindowKeyBoardSoft__sub_8025DBDC(arg0, 1);
-        if (*(u8 *)((s8 *)arg0 + 0x64) == 2) {
-            *(u16 *)((s8 *)arg0 + 0x60) |= 0x80;
+    if (!(*(u16 *)((s8 *)((u8 *)this) + 0x60) & 0x80) && *(u8 *)((s8 *)((u8 *)this) + 0x64) >= 1U) {
+        TWindowKeyBoardSoft__sub_8025DBDC(((u8 *)this), 1);
+        if (*(u8 *)((s8 *)((u8 *)this) + 0x64) == 2) {
+            *(u16 *)((s8 *)((u8 *)this) + 0x60) |= 0x80;
         }
-        if (*(u8 *)((s8 *)arg0 + 0x64) == 3 && (*(u16 *)((s8 *)arg0 + 0x60) & 2)) {
-            ((TWindowKeyBoardSoft *)arg0)->commit_composition_text();
+        if (*(u8 *)((s8 *)((u8 *)this) + 0x64) == 3 && (*(u16 *)((s8 *)((u8 *)this) + 0x60) & 2)) {
+            ((TWindowKeyBoardSoft *)((u8 *)this))->commit_composition_text();
         }
     }
-    if ((*(u16 *)((s8 *)arg0 + 0x60) & 4) || (*(s32 *)((s8 *)arg0 + 0xB4) & 0x40)) {
-        ((TWindowKeyBoardSoft *)arg0)->commit_composition_text();
+    if ((*(u16 *)((s8 *)((u8 *)this) + 0x60) & 4) || (*(s32 *)((s8 *)((u8 *)this) + 0xB4) & 0x40)) {
+        ((TWindowKeyBoardSoft *)((u8 *)this))->commit_composition_text();
     }
-    f = *(s32 *)((s8 *)arg0 + 0xB4);
+    f = *(s32 *)((s8 *)((u8 *)this) + 0xB4);
     if ((f & 0x10) && arg1 >= 0x80U) {
         return;
     }
@@ -609,21 +609,21 @@ void insert_character__19TWindowKeyBoardBaseFPvUs(u8 *arg0, u16 arg1) {
     if ((f & 0x100) && ((s32 (*)(u16))is_alnum__19TWindowKeyBoardSoftFUs)(arg1) == 0) {
         return;
     }
-    f = *(s32 *)((s8 *)arg0 + 0xB4);
+    f = *(s32 *)((s8 *)((u8 *)this) + 0xB4);
     if ((f & 0x200) && !((s32)arg1 >= 0x30 && (s32)arg1 <= 0x39)) {
         return;
     }
     if (!(f & 1)) {
-        ((s32 (*)(int, u16))TWindowKeyBoardSoft__sub_800808FC)(*(int *)((s8 *)arg0 + 0x68), arg1);
+        ((s32 (*)(int, u16))TWindowKeyBoardSoft__sub_800808FC)(*(int *)((s8 *)((u8 *)this) + 0x68), arg1);
         return;
     }
-    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 2)) {
-        *(void **)((s8 *)arg0 + 0x68) = (void *)(arg0 + 0x84);
-        *(u16 *)((s8 *)arg0 + 0x60) |= 2;
+    if (!(*(u16 *)((s8 *)((u8 *)this) + 0x60) & 2)) {
+        *(void **)((s8 *)((u8 *)this) + 0x68) = (void *)(((u8 *)this) + 0x84);
+        *(u16 *)((s8 *)((u8 *)this) + 0x60) |= 2;
     }
-    ((s32 (*)(int, u16))TWindowKeyBoardSoft__sub_800808FC)(*(int *)((s8 *)arg0 + 0x68), arg1);
-    if (*(u8 *)((s8 *)arg0 + 0x64) == 0 && !(*(u16 *)((s8 *)arg0 + 0x60) & 0x80)) {
-        TWindowKeyBoardSoft__sub_8025DBDC(arg0, 0);
+    ((s32 (*)(int, u16))TWindowKeyBoardSoft__sub_800808FC)(*(int *)((s8 *)((u8 *)this) + 0x68), arg1);
+    if (*(u8 *)((s8 *)((u8 *)this) + 0x64) == 0 && !(*(u16 *)((s8 *)((u8 *)this) + 0x60) & 0x80)) {
+        TWindowKeyBoardSoft__sub_8025DBDC(((u8 *)this), 0);
     }
 }
 

@@ -1302,10 +1302,10 @@ void TBoss6EmptyWarp::init_warp() { place_players_in_warp_circle(); warp_nearby_
 #undef warp_nearby_players__14TBoss6PlotFalzFv
 
 extern "C" {
-s32 end_camera_pan__10TObjPlayerFPv(void *p);
+s32 end_camera_pan__10TObjPlayerFv(void *p);
 s32 release_all_players_control_lock();
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self);
-void start_freeze__10TObjPlayerFPv();
+void start_freeze__10TObjPlayerFv();
 void set_position_from__14TBoss4DarkFalzFPv();
 void set_indexed_flags(void *, int, int);
 void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1);
@@ -1320,7 +1320,7 @@ void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            end_camera_pan__10TObjPlayerFPv(p);
+            end_camera_pan__10TObjPlayerFv(p);
         }
     }
     release_all_players_control_lock();
@@ -1331,7 +1331,7 @@ void TBoss6PlotFalz::freeze_all_players() {
     TWindowCtrl::init_all_slots();
     for (i = 0; i < lbl_805D586C; i++) {
         if (get_player_data__10TObjPlayerFi(i) != 0) {
-            start_freeze__10TObjPlayerFPv();
+            start_freeze__10TObjPlayerFv();
         }
     }
 }

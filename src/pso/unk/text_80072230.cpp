@@ -44,25 +44,25 @@ struct Pkt_80072230 { u32 hdr; s32 idx; s32 val; };
 struct Pkt7C_80072230 { u32 hdr; u16 id; u8 pad6[2]; u8 recs[0x100]; };
 
 extern "C" {
-s32 send_challenge_packet__6TLobbyFPv(void *);
+s32 send_challenge_packet__6TLobbyFv(void *);
 s32 TLobby__sub_800728FC(void *);
 s32 TLobby__sub_800703D0(void *, void *);
-s32 send_6x7C_packet__6TLobbyFi(void *);
-s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
+s32 send_6x7C_packet__6TLobbyFv(void *);
+s32 init_pkt_cmd_7C__6TLobbyFv(void *);
 s32 get_character_save_record(int);
 extern s32 local_client_id;
 s32 mix_seed_checked__6TLobbyFi(void *);
-s32 send_state__6TLobbyFPv(void *);
+s32 send_state__6TLobbyFv(void *);
 s32 TLobby__sub_80072880(void *);
 extern s32 local_client_id;
 s32 is_flag_set__6TLobbyFv();
-s32 send_and_handle_60_wrapper__6TLobbyFPv(void *);
+s32 send_and_handle_60_wrapper__6TLobbyFv(void *);
 s32 TLobby__sub_800727EC(void *);
 extern s32 local_client_id;
-s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
-s32 send_6x7C_packet__6TLobbyFi(void *);
+s32 init_pkt_cmd_7C__6TLobbyFv(void *);
+s32 send_6x7C_packet__6TLobbyFv(void *);
 s32 is_flag_set__6TLobbyFv();
-s32 byteswap_challenge_packet__6TLobbyFPv(void *);
+s32 byteswap_challenge_packet__6TLobbyFv(void *);
 extern void *challenge_task;
 void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt);
 s32 is_flag_set__6TLobbyFv();
@@ -78,19 +78,19 @@ extern s32 local_client_id;
 void TLobby__sub_80072618(void);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 is_flag_set__6TLobbyFv();
-s32 bswap_6x7C_packet__6TLobbyFi(void *);
+s32 bswap_6x7C_packet__6TLobbyFv(void *);
 extern s32 challenge_mode_state[];
 extern void *challenge_task;
 extern s32 local_client_id;
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
 s32 is_flag_set__6TLobbyFv();
-s32 bswap_challenge_dead_flag__6TLobbyFPv(void *);
+s32 bswap_challenge_dead_flag__6TLobbyFv(void *);
 void *get_player_by_client_id(s32);
 extern s32 challenge_mode_state[];
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt);
 s32 mix_seed_checked__6TLobbyFi(void *);
 s32 is_flag_set__6TLobbyFv();
-s32 byteswap_challenge_time_packet__6TLobbyFPv(void *);
+s32 byteswap_challenge_time_packet__6TLobbyFv(void *);
 extern s32 challenge_mode_state[];
 void handle_6x95_set_challenge_time(Pkt_80072230 *pkt);
 }
@@ -106,7 +106,7 @@ void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt) {
     if (is_flag_set__6TLobbyFv() == 0) {
         return;
     }
-    bswap_challenge_dead_flag__6TLobbyFPv(pkt);
+    bswap_challenge_dead_flag__6TLobbyFv(pkt);
     idx = pkt->idx;
     if (idx < 0 || idx >= 4) {
         return;
@@ -138,7 +138,7 @@ void TLobby::send_challenge_retry_cmd(s32 arg0) {
         TLobby__sub_800727EC((void *) (&stack.sp8));
         stack.sp10 = arg0;
         stack.spC = local_client_id;
-        send_and_handle_60_wrapper__6TLobbyFPv((void *) (&stack.sp8));
+        send_and_handle_60_wrapper__6TLobbyFv((void *) (&stack.sp8));
     }
 }
 
@@ -162,7 +162,7 @@ void handle_6x95_set_challenge_time(Pkt_80072230 *pkt) {
     if (is_flag_set__6TLobbyFv() == 0) {
         return;
     }
-    byteswap_challenge_time_packet__6TLobbyFPv(pkt);
+    byteswap_challenge_time_packet__6TLobbyFv(pkt);
     t = pkt->val;
     idx = pkt->idx;
     r = TLobby::get_valid_slot(t);
@@ -184,14 +184,14 @@ void TLobby::send_seed_state() {
     TLobby__sub_80072880((void *) (&stack.sp8));
     stack.sp10 = mix_seed_checked__6TLobbyFi((void *) (arg0));
     stack.spC = local_client_id;
-    send_state__6TLobbyFPv((void *) (&stack.sp8));
+    send_state__6TLobbyFv((void *) (&stack.sp8));
 }
 
 void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt) {
     if (is_flag_set__6TLobbyFv() == 0) {
         return;
     }
-    byteswap_challenge_packet__6TLobbyFPv(pkt);
+    byteswap_challenge_packet__6TLobbyFv(pkt);
     if (pkt->idx < 0 || pkt->idx >= 0x11) {
         return;
     }
@@ -204,7 +204,7 @@ void TLobby::send_challenge_with_value(s32 arg0, s32 arg1) {
     Stack_800724F0 stack;
     TLobby__sub_800728FC((void *) (&stack.sp8));
     stack.spC = arg1;
-    send_challenge_packet__6TLobbyFPv((void *) (&stack.sp8));
+    send_challenge_packet__6TLobbyFv((void *) (&stack.sp8));
 }
 
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
@@ -213,7 +213,7 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
     if (is_flag_set__6TLobbyFv() == 0) {
         return;
     }
-    bswap_6x7C_packet__6TLobbyFi(pkt);
+    bswap_6x7C_packet__6TLobbyFv(pkt);
     id = pkt->id;
     if (id == local_client_id) {
         return;
@@ -235,9 +235,9 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
 
 void TLobby::send_6x7c_reset() {
     Pkt_800725E0 pkt;
-    init_pkt_cmd_7C__6TLobbyFPv(&pkt);
+    init_pkt_cmd_7C__6TLobbyFv(&pkt);
     pkt.f4 = 0xFFFF;
-    send_6x7C_packet__6TLobbyFi(&pkt);
+    send_6x7C_packet__6TLobbyFv(&pkt);
 }
 
 void TLobby__sub_80072618(void) {
@@ -255,10 +255,10 @@ void TLobby__sub_80072618(void) {
 
 void TLobby::send_challenge_records(u32 _w0) {
     G_SetChallengeRecords_V3_6x7C packet;
-    init_pkt_cmd_7C__6TLobbyFPv((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
+    init_pkt_cmd_7C__6TLobbyFv((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
     packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) local_client_id;
     TLobby__sub_800703D0((void *) (&packet.records[0]), (void *) (get_character_save_record((int) (0xFFFF)) + 0x21C4));
-    send_6x7C_packet__6TLobbyFi((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
+    send_6x7C_packet__6TLobbyFv((void *) (&packet.__base_G_SetChallengeRecordsBase_6x7C.header));
 }
 
 }

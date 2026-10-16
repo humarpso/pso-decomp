@@ -11,7 +11,7 @@ struct Stack_802B0DCC {
 extern "C" {
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
-void draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, s32, s32, f32);
+void draw_strip_swap_color__15TWindowCtrlMainFllf(void *, s32, s32, f32);
 extern s32 empty_warp_overlay_zero_vec[];
 extern s32 empty_warp_overlay_vertices[];
 extern const f32 lbl_805DE228;
@@ -31,7 +31,7 @@ void draw_empty_warp_overlay(void) {
     stack.sp14 = 4;
     stack.sp8 = (s32 *)(empty_warp_overlay_vertices);
     set_depth_buffer_settings_1__Fv();
-    draw_strip_swap_color__15TWindowCtrlMainFPviif(&stack.sp8, 4, 2, lbl_805DE228);
+    draw_strip_swap_color__15TWindowCtrlMainFllf(&stack.sp8, 4, 2, lbl_805DE228);
     restore_saved_depth_alpha_state();
 }
 

@@ -109,6 +109,16 @@ struct TWindowCtrl : public TObject {
     static void set_flag_bit0();
     static void clear_active_flag();
     u8 unk_98[0x50];
+    static void set_flag_bit2();
+    static void clear_flag_bit2();
+    static void set_field28(s16 arg0);
+    static u16 get_window_id();
+    void update_party_status_rows();
+    int is_flag_2_set();
+    void set_flag1e_bit8();
+    void clear_flag1e_bit8();
+    void set_radar_dirty_flag();
+    void clear_flag_bit0();
 };
 
 typedef char TWindowCtrl_size[sizeof(TWindowCtrl) == 0xE8 ? 1 : -1];

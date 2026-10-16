@@ -3,7 +3,6 @@
 
 extern "C" {
 int set_target_index__11TMainCursorFs(void*, void* a1);
-int set_target_index_at_60__11TMainCursorFPvPv(void* p, void* _w1);
 }
 
 extern "C" {
@@ -12,11 +11,11 @@ extern "C" {
 
 extern "C" {
 s32 init_gc_tag();
-s32 reset_target__11TMainCursorFi(void *);
+s32 reset_target__11TMainCursorFv(void *);
 
 }
 
-int set_target_index_at_60__11TMainCursorFPvPv(void* p, void* _w1) { return set_target_index__11TMainCursorFs((void*)((char*)p + 0x60), (void*)(_w1)); }
+int TMainCursor::set_target_index_at_60(void* _w1) { return set_target_index__11TMainCursorFs((void*)((char*)this + 0x60), (void*)(_w1)); }
 
 }
 
@@ -36,7 +35,7 @@ extern "C" {
 s32 TMainCursor::reset() {
     s32 arg0 = (s32)this;
     init_gc_tag();
-    reset_target__11TMainCursorFi((void *) (arg0));
+    reset_target__11TMainCursorFv((void *) (arg0));
     return arg0;
 }
 

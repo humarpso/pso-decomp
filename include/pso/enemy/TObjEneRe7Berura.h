@@ -58,6 +58,7 @@ struct TObjEneRe7Berura : public TObjEneDD_ST {
     static void set_global_state(s32 arg0);
     void draw();
     u8 unk_430[0xB4];
+    void update_death_state(s32 mode);
 };
 
 typedef char TObjEneRe7Berura_size[sizeof(TObjEneRe7Berura) == 0x4E4 ? 1 : -1];

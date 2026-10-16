@@ -30,6 +30,8 @@ struct TObjEneGyaranzo : public TObjEnemyCustom {
     u8 _pad3D4[0x18];
     void* m_3ec;
     u8 unk_3F0[0x6C];
+    static void *create(void *arg0);
+    static void free_static_instances();
 };
 
 typedef char TObjEneGyaranzo_size[sizeof(TObjEneGyaranzo) == 0x45C ? 1 : -1];

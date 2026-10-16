@@ -25,7 +25,7 @@ s32 get_symbol_chat_data__20TWindowSubSymbolChatFv();
 s8 get_type__20TWindowSubStatusDispFv(s32);
 s32 clamp_selection_to_valid_entry__20TShopArmorListWindowFv(void *);
 s32 save_cursor_selection__20TShopArmorListWindowFv();
-s32 reset_list__20TShopArmorListWindowFPv(void *);
+s32 reset_list__20TShopArmorListWindowFv(void *);
 s32 update_state__9TWindowDDFv(s32 *, s32, u16);
 extern s32 local_client_id;
 }
@@ -50,7 +50,7 @@ void TWindowSubShortCutList::refresh_entries() {
     s32 var_r30;
     s32 var_r29;
     save_cursor_selection__20TShopArmorListWindowFv();
-    reset_list__20TShopArmorListWindowFPv(this);
+    reset_list__20TShopArmorListWindowFv(this);
     var_r29 = get_type__20TWindowSubStatusDispFv(*(s32 *)&this->m_88);
     var_r30 = 0;
     var_r29 *= 4;

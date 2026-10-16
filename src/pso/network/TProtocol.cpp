@@ -208,10 +208,10 @@ void bswap__12TRecvPsoDataFv(void *);
 extern char TProtocol__send_pso_data2_log_format[];
 extern char TProtocol__send_pso_data_log_format[];
 
-void send_subcommand_to_client__9TProtocolFPviPvi(VObj_18_801DC084 *obj, s32 flag, s8 *src, s32 len) {
+void TProtocol::send_subcommand_to_client(s32 flag, s8 *src, s32 len) {
     char buf[0x80];
     sprintf(buf, TProtocol__send_pso_data2_log_format, *src, len, flag);
-    if (*(s32 *)((char *)obj + 0x1910) != 0) {
+    if (*(s32 *)((char *)((VObj_18_801DC084 *)this) + 0x1910) != 0) {
         Pkt_801DC084 pkt;
         int size;
         pkt.cmd = 0x62;
@@ -220,7 +220,7 @@ void send_subcommand_to_client__9TProtocolFPviPvi(VObj_18_801DC084 *obj, s32 fla
         size = pkt.size;
         memcpy(pkt.data, src, len);
         bswap__12TRecvPsoDataFv(&pkt);
-        obj->m8(&pkt, size);
+        ((VObj_18_801DC084 *)this)->m8(&pkt, size);
     }
 }
 
@@ -274,7 +274,7 @@ struct Text_801DC1E4 { u8 command; u8 flags; u16 size; char text[0x200]; };
 struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
 
 void TItem__sub_80101CF8(void *);
-void copy_player_record__6TLobbyFPvPv(void *, void *);
+void copy_player_record__6TLobbyFPUc(void *, void *);
 void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
@@ -293,7 +293,7 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         tmp.flags = 3;
         tmp.size = sizeof(tmp);
         copy_player_data__9TProtocolFPvPv(tmp.char_data, self->char_data);
-        copy_player_record__6TLobbyFPvPv(tmp.challenge, challenge);
+        copy_player_record__6TLobbyFPUc(tmp.challenge, challenge);
         TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
         strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
         for (int i = 0; i < blocked_senders->flags; ++i) {
@@ -344,7 +344,7 @@ struct Text_801DC34C { u8 command; u8 flags; u16 size; char text[0x200]; };
 struct Proto_801DC34C { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
 
 void TItem__sub_80101CF8(void *);
-void copy_player_record__6TLobbyFPvPv(void *, void *);
+void copy_player_record__6TLobbyFPUc(void *, void *);
 void copy_player_data__9TProtocolFPvPv(void *, void *);
 void TProtocol__sub_801DF774(void *, void *);
 void bswap_player_record_upload(void *);
@@ -363,7 +363,7 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         tmp.flags = 3;
         tmp.size = sizeof(tmp);
         copy_player_data__9TProtocolFPvPv(tmp.char_data, self->char_data);
-        copy_player_record__6TLobbyFPvPv(tmp.challenge, challenge);
+        copy_player_record__6TLobbyFPUc(tmp.challenge, challenge);
         TProtocol__sub_801DF774(tmp.choice_search_config, choice_search_config);
         strncpy(tmp.info_board, info_board, sizeof(tmp.info_board));
         for (int i = 0; i < blocked_senders->flags; ++i) {

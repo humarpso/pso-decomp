@@ -16,7 +16,10 @@ struct TObjFogCollisionPoison : public TObjFogCollisionSwitch {
     static void clear_state_array();
     u8 check_switch();
     void apply_poison_damage(s32 arg1);
-    void record_poison_hit(u16 arg1);};
+    void record_poison_hit(u16 arg1);
+    u8 *init_base(u8 *arg1, s16 arg2);
+    u8 *construct_with_index(u8 *arg1, s32 arg2);
+};
 
 typedef char TObjFogCollisionPoison_size[sizeof(TObjFogCollisionPoison) == 0x9C ? 1 : -1];
 #endif

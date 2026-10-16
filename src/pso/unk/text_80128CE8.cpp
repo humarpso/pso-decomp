@@ -66,7 +66,7 @@ void srank_punch_node_callback(Obj_80128E08 *self);
 s32 increment_burst_counter(int);
 s32 get_burst_counter(int);
 s32 TObjPlayer__sub_80128A70();
-void clear_rico_ring_flag__10TObjPlayerFUi(u32);
+void clear_rico_ring_flag__10TObjPlayerFv(u32);
 void srank_punch_marker(u8 *arg0);
 }
 
@@ -87,7 +87,7 @@ void srank_punch_marker(u8 *arg0) {
             var_r30 += 1;
         } while (var_r30 != 2);
         ((TObjPlayer *)(arg0 + 0x1FC))->set_flags((int) (2));
-        TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (clear_rico_ring_flag__10TObjPlayerFUi)), (s32)((int) (0x3C)));
+        TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (clear_rico_ring_flag__10TObjPlayerFv)), (s32)((int) (0x3C)));
         ((TObjPlayer *)(arg0 + 0x1FC))->set_flags((int) (4));
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x200, 0, 0, 1) == 1) {
             ((TAdRicoRing *)(arg0 + 0x1FC))->clear_flags((int) (4));

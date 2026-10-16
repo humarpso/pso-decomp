@@ -29,7 +29,6 @@ extern RecoveredGlobal_802A45D4_lbl_80466678 needle_shoot_color_white;
 extern const f32 lbl_805DDF68;
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(f32 *, f32 *, s32);
-void check_wall_hit__12TNeedleShootFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -39,7 +38,7 @@ typedef char RecoveredGlobal_802A45D4_lbl_80466678_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma opt_common_subs off
-void check_wall_hit__12TNeedleShootFPv(u8 *arg0) {
+void TNeedleShoot::check_wall_hit() {
     typedef char sp8_offset[(offsetof(Stack_802A4544, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802A4544, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802A4544, sp10) == 0x8) ? 1 : -1];
@@ -48,16 +47,16 @@ void check_wall_hit__12TNeedleShootFPv(u8 *arg0) {
     typedef char sp1C_offset[(offsetof(Stack_802A4544, sp1C) == 0x14) ? 1 : -1];
     Stack_802A4544 stack;
     u8 *temp_r3;
-    stack.sp8 = *(f32 *)((s8 *)arg0 + 0x28);
-    stack.spC = *(f32 *)((s8 *)arg0 + 0x2C);
-    stack.sp10 = *(f32 *)((s8 *)arg0 + 0x30);
-    stack.sp14 = *(f32 *)((s8 *)arg0 + 0x6C);
-    stack.sp18 = *(f32 *)((s8 *)arg0 + 0x70);
-    stack.sp1C = *(f32 *)((s8 *)arg0 + 0x74);
+    stack.sp8 = *(f32 *)((s8 *)((u8 *)this) + 0x28);
+    stack.spC = *(f32 *)((s8 *)((u8 *)this) + 0x2C);
+    stack.sp10 = *(f32 *)((s8 *)((u8 *)this) + 0x30);
+    stack.sp14 = *(f32 *)((s8 *)((u8 *)this) + 0x6C);
+    stack.sp18 = *(f32 *)((s8 *)((u8 *)this) + 0x70);
+    stack.sp1C = *(f32 *)((s8 *)((u8 *)this) + 0x74);
     temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x6C), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
-        ((TNeedleShoot *)(arg0))->vfunc_6();
+        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0x6C), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
+        ((TNeedleShoot *)(((u8 *)this)))->vfunc_6();
     }
 }
 #pragma pop

@@ -70,6 +70,19 @@ struct TItemData {
     s16 get_level();
     s16 get_percent();
     void update_player_field();
+    void add_accuracy(s32 arg1);
+    void add_stat(s32 arg1);
+    static void add_s16(s16 *arg0, s32 arg1);
+    void set_present_color(s32 arg1);
+    s32 get_type_nibble();
+    void add_weapon_stat_bonuses(s32 player, s16 *out, s32 unused, s16 *out2, s32 _w5);
+    void set_wrapped();
+    void set_packed_value(u16 arg1);
+    void unpack_from_item(void *arg1);
+    void pack_three_colors(u8 *in);
+    s32 calc_action_flags(s32 mask, u8 *player);
+    s32 calc_price();
+    s32 update_mag_status_gauges();
 };
 
 #include <stddef.h>

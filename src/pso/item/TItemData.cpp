@@ -102,14 +102,9 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void *calc_technique_parameters(u8, u8, s32);
 s32 is_challenge_mode_active();
 extern s32 local_client_id;
-s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player);
-void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
-void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
-void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
 f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0);
 f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player);
 void *lookup_item_pmt_record(u8 *item);
-void add_weapon_stat_bonuses__9TItemDataFv(u8 *self, s32 player, s16 *out, s32 unused, s16 *out2, s32 _w5);
 }
 
 extern "C" {
@@ -165,15 +160,12 @@ struct Bonus_8010BA9C { u8 kind; u8 pad; s16 val; };
 struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 xC; };
 
 extern "C" {
-void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1);
-s32 get_type_nibble__9TItemDataFPv(u8 *arg0);
 extern s32 lbl_8043E348;
 extern const f32 lbl_805DAB6C;
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 extern u8 lbl_805DAB68;
-void set_wrapped__9TItemDataFPv(struct Item_8010C498 *self);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
@@ -183,9 +175,6 @@ void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void fn_8010B7D8(u8 *arg0, s32 arg1);
 void fn_8010B7E8(u8 *arg0, s32 arg1);
 void subtract_s16_stat(s16 *arg0, s32 arg1);
-void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
-void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
-void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
 Bonus_8010BA9C *get_item_stat_boost_record(u8, u8, u8);
@@ -196,10 +185,6 @@ extern "C" {
 void subtract_s16_stat(s16 *arg0, s32 arg1);
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
-void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
-void set_packed_value__9TItemDataFPvUs(void *arg0, u16 arg1);
-void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
-void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
 
 extern "C" {
 u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
@@ -211,44 +196,44 @@ void subtract_s16_stat(s16 *arg0, s32 arg1) {
 s32 TItemData__sub_8010B808(void* p) { return *(s32*)((char*)p + 0x31c); }
 s32 TItemData__sub_8010B810(void* p) { return *(s32*)((char*)p + 0x318); }
 
-void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1) {
-    *(s16 *)((s8 *)arg0 + 4) = (s16) (*(s16 *)((s8 *)arg0 + 4) + arg1);
+void TItemData::add_accuracy(s32 arg1) {
+    *(s16 *)((s8 *)this + 4) = (s16) (*(s16 *)((s8 *)this + 4) + arg1);
 }
-void add_stat__9TItemDataFPvi(void *arg0, s32 arg1) {
-    *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) + arg1);
+void TItemData::add_stat(s32 arg1) {
+    *(s16 *)((s8 *)this + 2) = (s16) (*(s16 *)((s8 *)this + 2) + arg1);
 }
-void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1) {
+void TItemData::add_s16(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
 }
 
-void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1) {
+void TItemData::set_present_color(s32 arg1) {
     u8 temp_r0;
-    temp_r0 = *(u8 *)((s8 *)arg0 + 0);
+    temp_r0 = *(u8 *)((s8 *)((u8 *)this) + 0);
     switch ((s32) temp_r0) {
     case 0:
-        *(u8 *)((s8 *)arg0 + 5) = (u8) (*(u8 *)((s8 *)arg0 + 5) | (arg1 & 0xF));
+        *(u8 *)((s8 *)((u8 *)this) + 5) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 5) | (arg1 & 0xF));
         return;
     case 1:
-        *(u8 *)((s8 *)arg0 + 4) = (u8) (*(u8 *)((s8 *)arg0 + 4) | (arg1 & 0xF));
+        *(u8 *)((s8 *)((u8 *)this) + 4) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 4) | (arg1 & 0xF));
         return;
     case 3:
-        *(u8 *)((s8 *)arg0 + 3) = (u8) (*(u8 *)((s8 *)arg0 + 3) | (arg1 & 0xF));
+        *(u8 *)((s8 *)((u8 *)this) + 3) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 3) | (arg1 & 0xF));
         return;
     case 2:
         return;
     }
 }
 
-s32 get_type_nibble__9TItemDataFPv(u8 *arg0) {
+s32 TItemData::get_type_nibble() {
     u8 temp_r0;
-    temp_r0 = *(u8 *)((s8 *)arg0 + 0);
+    temp_r0 = *(u8 *)((s8 *)((u8 *)this) + 0);
     switch ((s32) temp_r0) {
     case 0:
-        return *(u8 *)((s8 *)arg0 + 5) & 0xF;
+        return *(u8 *)((s8 *)((u8 *)this) + 5) & 0xF;
     case 1:
-        return *(u8 *)((s8 *)arg0 + 4) & 0xF;
+        return *(u8 *)((s8 *)((u8 *)this) + 4) & 0xF;
     case 3:
-        return *(u8 *)((s8 *)arg0 + 3) & 0xF;
+        return *(u8 *)((s8 *)((u8 *)this) + 3) & 0xF;
     default:
     case 2:
         return 0;
@@ -265,11 +250,11 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
         if (bn != NULL && a != NULL && b != NULL && st != NULL)
         switch (bn->kind) {
         case 1:
-            add_s16__9TItemDataFPvi((s16 *)a, bn->val);
-            add_stat__9TItemDataFPvi(a, bn->val);
+            TItemData::add_s16((s16 *)a, bn->val);
+            ((TItemData *)a)->add_stat(bn->val);
             break;
         case 2:
-            add_accuracy__9TItemDataFPvi(a, (s16)(bn->val * 10));
+            ((TItemData *)a)->add_accuracy((s16)(bn->val * 10));
             break;
         case 3:
             TItemData::add_stat_ptr((s16 *)b, bn->val);
@@ -287,9 +272,9 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             st->xC += bn->val;
             break;
         case 8:
-            add_s16__9TItemDataFPvi((s16 *)a, bn->val);
-            add_stat__9TItemDataFPvi(a, bn->val);
-            add_accuracy__9TItemDataFPvi(a, (s16)(bn->val * 10));
+            TItemData::add_s16((s16 *)a, bn->val);
+            ((TItemData *)a)->add_stat(bn->val);
+            ((TItemData *)a)->add_accuracy((s16)(bn->val * 10));
             TItemData::add_stat_ptr((s16 *)b, bn->val);
             ((TItemData *)b)->add_bonus(bn->val);
             st->x2 += bn->val;
@@ -456,28 +441,28 @@ void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 un
 #pragma fp_contract on
 typedef struct Parm_8010C1E0 Parm_8010C1E0;
 typedef struct Parm_8010C320 Parm_8010C320;
-void add_weapon_stat_bonuses__9TItemDataFv(u8 *self, s32 player, s16 *out, s32 unused, s16 *out2, s32 _w5) {
+void TItemData::add_weapon_stat_bonuses(s32 player, s16 *out, s32 unused, s16 *out2, s32 _w5) {
   s16 hi;
   s32 i;
   Parm_8010C320 *parm;
-  f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(self, player);
-  f32 add = ((f32 (*)(u8 *, s32)) calc_clock_bonus__9TItemDataFPv)(self, player);
-  parm = (Parm_8010C320 *) ((Parm_8010C1E0 *)lookup_item_pmt_record((u8 *)(self)));
+  f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(((u8 *)this), player);
+  f32 add = ((f32 (*)(u8 *, s32)) calc_clock_bonus__9TItemDataFPv)(((u8 *)this), player);
+  parm = (Parm_8010C320 *) ((Parm_8010C1E0 *)lookup_item_pmt_record((u8 *)(((u8 *)this))));
   if (parm != 0)
   {
     if (out != 0)
     {
-      s16 grind = ((u8) (hi = ((s8 *) self)[3])) * 2;
+      s16 grind = ((u8) (hi = ((s8 *) ((u8 *)this))[3])) * 2;
       s16 lo = (mult * ((f32) (parm->atp_min + grind))) + add;
       hi = (mult * ((f32) (parm->atp_max + grind))) + add;
-      add_s16__9TItemDataFPvi(out, lo);
-      add_stat__9TItemDataFPvi(out, hi);
-      add_accuracy__9TItemDataFPvi(out, (s16) (parm->x19 * 10));
+      TItemData::add_s16(out, lo);
+      ((TItemData *)out)->add_stat(hi);
+      ((TItemData *)out)->add_accuracy((s16) (parm->x19 * 10));
       for (i = 0; i != 3; i++)
       {
-        if (self[6 + (i * 2)] == 5)
+        if (((u8 *)this)[6 + (i * 2)] == 5)
         {
-          add_accuracy__9TItemDataFPvi(out, (s16) (((s8) self[7 + (i * 2)]) * 10));
+          ((TItemData *)out)->add_accuracy((s16) (((s8) ((u8 *)this)[7 + (i * 2)]) * 10));
         }
       }
     }
@@ -489,19 +474,19 @@ void add_weapon_stat_bonuses__9TItemDataFv(u8 *self, s32 player, s16 *out, s32 u
 }
 #pragma pop
 
-void set_wrapped__9TItemDataFPv(struct Item_8010C498 *self) {
-    switch (self->kind) {
+void TItemData::set_wrapped() {
+    switch (((struct Item_8010C498 *)this)->kind) {
     case 0:
     case 1:
-        self->b4 |= lbl_805DAB68;
+        ((struct Item_8010C498 *)this)->b4 |= lbl_805DAB68;
         break;
     case 3:
-        if (lookup_item_def__9TItemDataFPv((void *)(self)) == 0) {
-            self->b3 |= lbl_805DAB68;
+        if (lookup_item_def__9TItemDataFPv((void *)(((struct Item_8010C498 *)this))) == 0) {
+            ((struct Item_8010C498 *)this)->b3 |= lbl_805DAB68;
         }
         break;
     case 2:
-        self->b12 |= lbl_805DAB68;
+        ((struct Item_8010C498 *)this)->b12 |= lbl_805DAB68;
         break;
     }
 }
@@ -543,10 +528,10 @@ f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
     return var_f1;
 }
 
-void set_packed_value__9TItemDataFPvUs(void *arg0, u16 arg1) {
-    *(u8 *)((s8 *)arg0 + 0xA) = (u8) (arg1 >> 8U);
-    *(u8 *)((s8 *)arg0 + 0xB) = arg1;
-    *(u8 *)((s8 *)arg0 + 0xA) = (u8) (*(u8 *)((s8 *)arg0 + 0xA) | 0x80);
+void TItemData::set_packed_value(u16 arg1) {
+    *(u8 *)((s8 *)this + 0xA) = (u8) (arg1 >> 8U);
+    *(u8 *)((s8 *)this + 0xB) = arg1;
+    *(u8 *)((s8 *)this + 0xA) = (u8) (*(u8 *)((s8 *)this + 0xA) | 0x80);
 }
 
 u16 get_packed_value__9TItemDataFPv(void *arg0) {
@@ -584,7 +569,6 @@ extern "C" {
 int TItemData__sub_8010C738(void);
 void TItemData__sub_8010C740(void);
 void bswap__9TItemDataFv(s32 arg0);
-void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1);
 s32 bswap_32__FPUl(s32);
 
 s32 is_usable__9TItemDataFPv(void *arg0) {
@@ -607,49 +591,49 @@ void bswap__9TItemDataFv(s32 arg0) {
 int TItemData__sub_8010C738(void) { return 0; }
 void TItemData__sub_8010C740(void) {  }
 
-void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
+void TItemData::unpack_from_item(void *arg1) {
     s32 sp8;
     u8 temp_r0;
     u8 temp_r0_2;
 
     if (arg1 != NULL) {
         init__9TItemDataFv();
-        *(u8 *)((s8 *)arg0 + 0) = (u8) (((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 0x18U) & 0xF);
-        *(u8 *)((s8 *)arg0 + 1) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 0x10U);
-        temp_r0 = *(u8 *)((s8 *)arg0 + 0);
+        *(u8 *)((s8 *)this + 0) = (u8) (((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 0x18U) & 0xF);
+        *(u8 *)((s8 *)this + 1) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 0x10U);
+        temp_r0 = *(u8 *)((s8 *)this + 0);
         if ((temp_r0 == 0) || (temp_r0 == 1)) {
-            *(u8 *)((s8 *)arg0 + 1) = (u8) (*(u8 *)((s8 *)arg0 + 1) + 1);
+            *(u8 *)((s8 *)this + 1) = (u8) (*(u8 *)((s8 *)this + 1) + 1);
         }
-        *(u8 *)((s8 *)arg0 + 2) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 8U);
-        temp_r0_2 = *(u8 *)((s8 *)arg0 + 0);
+        *(u8 *)((s8 *)this + 2) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 8U);
+        temp_r0_2 = *(u8 *)((s8 *)this + 0);
         switch ((s32) temp_r0_2) {
         case 0:
-            *(u8 *)((s8 *)arg0 + 6) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 8U);
-            *(s8 *)((s8 *)arg0 + 7) = (s8) *(u32 *)((s8 *)arg1 + 0x34);
-            *(s8 *)((s8 *)arg0 + 8) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 0x18U);
-            *(u8 *)((s8 *)arg0 + 9) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 0x10U);
-            *(u8 *)((s8 *)arg0 + 0xA) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 8U);
-            *(s8 *)((s8 *)arg0 + 0xB) = (s8) *(u32 *)((s8 *)arg1 + 0x38);
-            *(s8 *)((s8 *)arg0 + 3) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x18U);
-            *(u8 *)((s8 *)arg0 + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
+            *(u8 *)((s8 *)this + 6) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 8U);
+            *(s8 *)((s8 *)this + 7) = (s8) *(u32 *)((s8 *)arg1 + 0x34);
+            *(s8 *)((s8 *)this + 8) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 0x18U);
+            *(u8 *)((s8 *)this + 9) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 0x10U);
+            *(u8 *)((s8 *)this + 0xA) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 8U);
+            *(s8 *)((s8 *)this + 0xB) = (s8) *(u32 *)((s8 *)arg1 + 0x38);
+            *(s8 *)((s8 *)this + 3) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x18U);
+            *(u8 *)((s8 *)this + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
             return;
         case 3:
-            if ((u8) *(u8 *)((s8 *)arg0 + 1) == 2) {
-                *(u8 *)((s8 *)arg0 + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
+            if ((u8) *(u8 *)((s8 *)this + 1) == 2) {
+                *(u8 *)((s8 *)this + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
             }
-            ((TShopEquipmentListWindow *)arg0)->set_stack_count(1);
+            ((TShopEquipmentListWindow *)this)->set_stack_count(1);
             return;
         case 4:
-            *(s32 *)((s8 *)arg0 + 0x10) = (s32) (((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U) * 0xA);
+            *(s32 *)((s8 *)this + 0x10) = (s32) (((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U) * 0xA);
             return;
         case 1:
-            *(s8 *)((s8 *)arg0 + 5) = (s8) *(u32 *)((s8 *)arg1 + 0x30);
-            *(s8 *)((s8 *)arg0 + 3) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x18U);
-            *(u8 *)((s8 *)arg0 + 4) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U);
+            *(s8 *)((s8 *)this + 5) = (s8) *(u32 *)((s8 *)arg1 + 0x30);
+            *(s8 *)((s8 *)this + 3) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x18U);
+            *(u8 *)((s8 *)this + 4) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U);
             return;
         case 2:
             ((TItemData *)(&sp8))->initialize_mag_data();
-            serialize_mag__9TItemDataFPvPv(arg0, &sp8);
+            serialize_mag__9TItemDataFPvPv(this, &sp8);
             break;
         }
     }
@@ -684,7 +668,6 @@ extern "C" {
 s32 strncpy(s8 *, u32, s32);
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1);
-void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in);
 s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1);
 }
 
@@ -733,7 +716,7 @@ void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
         memset(sp8, 0, 0xA);
         sp8[0] = 0x41;
         strncpy(&sp8[1], arg1, 8);
-        pack_three_colors__9TItemDataFPvPv((u8 *)((void *)(arg0)), (u8 *)((s8 *)(sp8)));
+        ((TItemData *)arg0)->pack_three_colors((u8 *)((s8 *)(sp8)));
     }
 }
 
@@ -775,17 +758,17 @@ void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out) {
   }
 }
 
-void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in) {
+void TItemData::pack_three_colors(u8 *in) {
   s32 i;
   if (in != 0)
   {
     for (i = 0; i != 3; i++)
     {
-      s8 a = TItemData::char_to_letter_index(self, (s8) in[(i * 3) + 0]);
-      s8 b = TItemData::char_to_letter_index(self, (s8) in[(i * 3) + 1]);
-      s8 c = TItemData::char_to_letter_index(self, (s8) in[(i * 3) + 2]);
+      s8 a = TItemData::char_to_letter_index(((u8 *)this), (s8) in[(i * 3) + 0]);
+      s8 b = TItemData::char_to_letter_index(((u8 *)this), (s8) in[(i * 3) + 1]);
+      s8 c = TItemData::char_to_letter_index(((u8 *)this), (s8) in[(i * 3) + 2]);
       u32 v = c | (((a << 1) << 9) | (b << 5));
-      u8 *o = &self[i * 2];
+      u8 *o = &((u8 *)this)[i * 2];
       a = ((u8) (v >> 8)) | 0x80;
       o[6] = a;
       o[7] = v;
@@ -905,7 +888,7 @@ extern f32 TItemData__data_805DAB78;
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst);
 extern f32 TItemData__data_805DAB70;
 void *get_armor_pmt_record(int type, int id);
-void copy_item_data__6TLobbyFPvPv(void *, void *);
+void copy_item_data__6TLobbyFPv(void *, void *);
 u8 get_mag_total_level(const void *);
 s32 get_item_star_count(s32);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
@@ -1053,7 +1036,7 @@ s32 TItemData::has_bonus_stats() {
 typedef struct VBase_18_38db83 VBase_18_38db83;
 typedef struct VObj_18_38db83 VObj_18_38db83;
 #define PSO_VCALL_VObj_18_38db83_m37(_self) (((VObj_18_38db83 *)(_self))->m37())
-s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
+s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
   s32 result;
   u16 id;
   s32 hit;
@@ -1075,18 +1058,18 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
   {
     return 0;
   }
-  if (is_item_usable__9TItemDataFlPUc(player, item) != 0)
+  if (is_item_usable__9TItemDataFlPUc(player, ((u8 *)this)) != 0)
   {
     result |= 2;
   }
-  if (((s32 (*)(void *)) is_wrapped__9TItemDataFPv)(item) != 0)
+  if (((s32 (*)(void *)) is_wrapped__9TItemDataFPv)(((u8 *)this)) != 0)
   {
     return result & mask;
   }
-  if (item[0] != 3)
+  if (((u8 *)this)[0] != 3)
   {
     result |= 8;
-    if (check_equip_requirements(player, item, 0) == 0)
+    if (check_equip_requirements(player, ((u8 *)this), 0) == 0)
     {
       result |= 0x10000;
     }
@@ -1094,7 +1077,7 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
   else
   {
     s32 perm;
-    rec = (u8 *) lookup_item_pmt_record(item);
+    rec = (u8 *) lookup_item_pmt_record(((u8 *)this));
     perm = check_class_equip_permission(player, 0xD7);
     if (rec != 0)
     {
@@ -1124,10 +1107,10 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
         result |= 1;
       }
     }
-    switch (item[1])
+    switch (((u8 *)this)[1])
     {
       case 6:
-        switch (item[2])
+        switch (((u8 *)this)[2])
       {
         case 0:
           if (obj_getArrWord_254(player, 0) != 0xF)
@@ -1154,20 +1137,20 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
         u8 *tech;
         u8 cur;
         u8 lim;
-        lvl = item[2];
-        tech = (u8 *) calc_technique_parameters(item[4], lvl, 0xFFFF);
+        lvl = ((u8 *)this)[2];
+        tech = (u8 *) calc_technique_parameters(((u8 *)this)[4], lvl, 0xFFFF);
         if (tech != 0)
         {
           if ((*((s16 *) (get_quest_id__12TQuestListVMFv(player) + 2))) < (*((s16 *) (tech + 0x14))))
           {
             result |= 0x10001;
           }
-          cur = get_cast_technique_level(player + 0x428, (s16) item[4]);
-          if ((is_invalid_slot__10TObjPlayerFUc() == 0) && (item[2] <= cur))
+          cur = get_cast_technique_level(player + 0x428, (s16) ((u8 *)this)[4]);
+          if ((is_invalid_slot__10TObjPlayerFUc() == 0) && (((u8 *)this)[2] <= cur))
           {
             result |= 0x10001;
           }
-          lim = get_technique_learn_limit(player[0x88D], (short) item[4]);
+          lim = get_technique_learn_limit(player[0x88D], (short) ((u8 *)this)[4]);
           if ((lim == 0xFF) || (lim < lvl))
           {
             result |= 0x10001;
@@ -1199,7 +1182,7 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
         if (quest != 0)
         {
           hit = 0;
-          switch (item[2])
+          switch (((u8 *)this)[2])
           {
             case 0:
               if ((get_class_stat_entry__10TObjPlayerFPUc(player)[0 / 2] <= ((s16 *) quest)[0 / 2]) || (update_player_field__9TItemDataFv(player) != 0))
@@ -1252,7 +1235,7 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
         break;
       }
       case 12:
-        if (TItemMag::check_evolution_cond((u32)player, (s32)(item[2])) == 0)
+        if (TItemMag::check_evolution_cond((u32)player, (s32)(((u8 *)this)[2])) == 0)
       {
         result |= 1;
       }
@@ -1275,7 +1258,7 @@ s32 calc_action_flags__9TItemDataFv(u8 *item, s32 mask, u8 *player) {
       }
     }
   }
-  if (((is_quest_active() != 0) && (item[0] == 3)) && (TItemMenuCtrl::query_flag(6) == 1))
+  if (((is_quest_active() != 0) && (((u8 *)this)[0] == 3)) && (TItemMenuCtrl::query_flag(6) == 1))
   {
     result |= 0x10001;
   }
@@ -1298,7 +1281,7 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
     copy.b18 = mag->b0c;
     copy.b19 = mag->b0e;
     ((TItemData *)(&copy))->bswap_fields();
-    copy_item_data__6TLobbyFPvPv(item, &copy);
+    copy_item_data__6TLobbyFPv(item, &copy);
 }
 
 void TItemData::bswap_fields() { bswap_16__FPUs((void*)((char*)this + 0x4)); bswap_16__FPUs((void*)((char*)this + 0x6)); bswap_16__FPUs((void*)((char*)this + 0x8)); bswap_16__FPUs((void*)((char*)this + 0xa)); }
@@ -1554,7 +1537,7 @@ void TItemData::apply_equip_effects(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 
         temp_r0 = *(u8 *)((s8 *)this + 0);
         switch ((s32) temp_r0) {
         case 0:
-            add_weapon_stat_bonuses__9TItemDataFv((u8 *)(this), (s32)(arg1), (s16 *)(arg2), (s32)(arg3), (s16 *)(arg4), (s32)(arg5));
+            add_weapon_stat_bonuses((s32)(arg1), (s16 *)(arg2), (s32)(arg3), (s16 *)(arg4), (s32)(arg5));
             break;
         case 1:
             temp_r0_2 = *(u8 *)((s8 *)this + 1);
@@ -1628,8 +1611,8 @@ extern const f32 lbl_805DAB6C;
 extern const f32 lbl_805DAB80;
 extern const f32 lbl_805DAB84;
 extern const f32 lbl_805DAB88;
-s32 calc_price__9TItemDataFv(u8 *arg0) {
-  Item_8010DF9C *item = (Item_8010DF9C *) arg0;
+s32 TItemData::calc_price() {
+  Item_8010DF9C *item = (Item_8010DF9C *) ((u8 *)this);
   Pmt_8010DF9C *pmt;
   s32 price;
   f32 coef;
@@ -1647,13 +1630,13 @@ s32 calc_price__9TItemDataFv(u8 *arg0) {
       price = 8;
     }
     else
-      if (is_rare_item__9TItemDataFPv(arg0) != 0)
+      if (is_rare_item__9TItemDataFPv(((u8 *)this)) != 0)
     {
       price = 0x50;
     }
     else
     {
-      pmt = (Pmt_8010DF9C *) lookup_item_pmt_record(arg0);
+      pmt = (Pmt_8010DF9C *) lookup_item_pmt_record(((u8 *)this));
       coef = get_item_price_coefficient(item->type, (unsigned long) item->sub);
       if ((lbl_805DAB6C != coef) && (pmt != 0))
       {
@@ -1679,7 +1662,7 @@ s32 calc_price__9TItemDataFv(u8 *arg0) {
       break;
 
     case 1:
-      if (is_rare_item__9TItemDataFPv(arg0) != 0)
+      if (is_rare_item__9TItemDataFPv(((u8 *)this)) != 0)
     {
       price = 0x50;
     }
@@ -1687,11 +1670,11 @@ s32 calc_price__9TItemDataFv(u8 *arg0) {
       if (item->sub != 3)
     {
       coef = get_item_price_coefficient(item->type, item->sub);
-      pmt = (Pmt_8010DF9C *) lookup_item_pmt_record(arg0);
+      pmt = (Pmt_8010DF9C *) lookup_item_pmt_record(((u8 *)this));
       if ((lbl_805DAB6C != coef) && (pmt != 0))
       {
-        s32 a = getS16_06__9TItemDataFPv(arg0);
-        atp = (f32) (((pmt->dfp + pmt->evp) + a) + get_bswap16_field8__9TItemDataFPv(arg0));
+        s32 a = getS16_06__9TItemDataFPv(((u8 *)this));
+        atp = (f32) (((pmt->dfp + pmt->evp) + a) + get_bswap16_field8__9TItemDataFPv(((u8 *)this)));
         {
           s32 dv = (s32) ((atp * atp) / coef);
           f32 sl = lbl_805DAB88 * ((f32) (item->slots + 1));
@@ -1703,7 +1686,7 @@ s32 calc_price__9TItemDataFv(u8 *arg0) {
     else
     {
       coef = get_item_price_coefficient(item->type, item->sub);
-      stars = (f32) ((u8) ((TItemData *)arg0)->calc_display_grade());
+      stars = (f32) ((u8) ((TItemData *)((u8 *)this))->calc_display_grade());
       price = (s32) (stars * coef);
     }
       break;
@@ -1713,7 +1696,7 @@ s32 calc_price__9TItemDataFv(u8 *arg0) {
       break;
 
     case 3:
-      pmt = (Pmt_8010DF9C *) lookup_item_pmt_record(arg0);
+      pmt = (Pmt_8010DF9C *) lookup_item_pmt_record(((u8 *)this));
       if (pmt != 0)
     {
       if (item->sub != 2)

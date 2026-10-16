@@ -112,7 +112,7 @@ extern "C" {
 extern int lbl_805D6EA0;
 s32 get_player_by_client_id(s32);
 s32 obj_isState3_324();
-void send_item_pickup_request__10TObjPlayerFi(s32);
+void send_item_pickup_request__10TObjPlayerFl(s32);
 s32 get_player_by_client_id(s32);
 void quest_remove_npc_player(u16 arg0);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
@@ -121,7 +121,7 @@ s32 send_6x21_inter_level_warp(s32, s32);
 s32 obj_getField1c(s32);
 s32 obj_isState3_324();
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
-s32 notify_field1c__10TObjPlayerFi();
+s32 notify_field1c__10TObjPlayerFl();
 s32 get_player_by_client_id(s32);
 void send_6x24_teleport_player(u16, s32, s32);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
@@ -130,9 +130,9 @@ void TNpcPlayer__sub_8034EDB8(void);
 s32 get_player_by_client_id(s32);
 s32 get_player_by_client_id(s32);
 s32 get_player_by_client_id(s32);
-s32 end_camera_pan__10TObjPlayerFPv();
+s32 end_camera_pan__10TObjPlayerFv();
 s32 get_player_by_client_id(s32);
-s32 init_photon_blast__10TObjPlayerFPvi(u32, s16);
+s32 init_photon_blast__10TObjPlayerFl(u32, s16);
 void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v);
 int bswap_16__FPUs(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -179,7 +179,7 @@ s32 obj_isState3_324();
 void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s16, s32);
 s32 load_npc_player_template(s16);
-s32 notify_field1c__10TObjPlayerFi();
+s32 notify_field1c__10TObjPlayerFl();
 s32 get_player_by_client_id(s32);
 Obj_8034E814 *create_player_object(u16, s32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -203,7 +203,7 @@ s32 obj_isState3_324();
 s32 obj_testFlags30(void *, int);
 s32 obj_getField1c(s32);
 s32 get_player_by_client_id(s32);
-s32 notify_field1c__10TObjPlayerFi();
+s32 notify_field1c__10TObjPlayerFl();
 s32 get_player_by_client_id(s32);
 void build_6x69_npc_control(void* p);
 void build_6x69_npc_control(void* p);
@@ -212,7 +212,7 @@ void build_6x69_npc_control(void* p);
 extern "C" {
 
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
-s32 send_code_45_1__10TObjPlayerFi(s32);
+s32 send_code_45_1__10TObjPlayerFl(s32);
 
 s32 obj_isState2_324();
 
@@ -247,7 +247,7 @@ void TNpcPlayer::send_code_45_to_player(int arg0) {
 
     temp_r3 = get_player_by_client_id((u16) arg0);
     if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
-        send_code_45_1__10TObjPlayerFi(temp_r3);
+        send_code_45_1__10TObjPlayerFl(temp_r3);
     }
 }
 
@@ -371,7 +371,7 @@ void quest_remove_npc_player(u16 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((void *)get_player_by_client_id((s32)((void *) (arg0)))));
     if (temp_r3 != 0) {
-        send_item_pickup_request__10TObjPlayerFi(temp_r3);
+        send_item_pickup_request__10TObjPlayerFl(temp_r3);
         if ((u32) temp_r3 != 0U) {
             ((VObj_18_dac7f3 *)(temp_r3))->m0(1);
         }
@@ -453,7 +453,7 @@ void TNpcPlayer::send_inter_level_warp_all(s32 arg0) {
 
 #define SETFLAG_8034E814 ((void (*)(void *, u16))set_npc_control_flag__10TNpcPlayerFPvs)
 #define ISSTATE3_8034E814 ((s32 (*)(void *))obj_isState3_324)
-#define NOTIFY_8034E814 ((void (*)(void *))notify_field1c__10TObjPlayerFi)
+#define NOTIFY_8034E814 ((void (*)(void *))notify_field1c__10TObjPlayerFl)
 void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
     u16 client;
     Obj_8034E814 *p;
@@ -558,7 +558,7 @@ void TNpcPlayer::send_npc_control_create(s16 arg0, u16 arg1, s16 arg2, u8 *arg3,
     stack.sp12 = arg2;
 loop_1:
     if (((u32)get_player_by_client_id((s32)((int) (var_r31)))) != 0U) {
-        notify_field1c__10TObjPlayerFi();
+        notify_field1c__10TObjPlayerFl();
     } else {
         var_r31 += 1;
         if (var_r31 < 4) {
@@ -608,7 +608,7 @@ void TNpcPlayer::send_npc_control_notify_players(s16 arg0, u16 arg1, s16 arg2) {
     stack.spE = arg1;
 loop_1:
     if (((u32)get_player_by_client_id(var_r31)) != 0U) {
-        notify_field1c__10TObjPlayerFi();
+        notify_field1c__10TObjPlayerFl();
     } else {
         var_r31 += 1;
         if (var_r31 < 4) {
@@ -661,13 +661,13 @@ void TNpcPlayer::update_player_field(u16 arg0, s32 arg1) {
 }
 void TNpcPlayer::end_camera_pan_for_client(u16 arg0) {
     if (((u32)get_player_by_client_id((s32)((u32)((void *) (arg0))))) != 0U) {
-        end_camera_pan__10TObjPlayerFPv();
+        end_camera_pan__10TObjPlayerFv();
     }
 }
 void TNpcPlayer::apply_to_battle_player_slot(u16 arg0, s16 arg1) {
     u32 temp_r3;
     if ((arg1 < 0x10) && ((temp_r3 = ((u32)get_player_by_client_id((s32)(arg0)))) != 0U)) {
-        init_photon_blast__10TObjPlayerFPvi(temp_r3, arg1);
+        init_photon_blast__10TObjPlayerFl(temp_r3, arg1);
     }
 }
 s32 TNpcPlayer::get_field_67c() { return *(s32*)((char*)this + 0x67c); }

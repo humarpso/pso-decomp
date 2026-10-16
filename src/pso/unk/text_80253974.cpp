@@ -23,7 +23,6 @@ s16 TItemData__sub_801146DC(void *);
 s16 TItemData__sub_801146F8(void *);
 s32 deserialize_mag__9TItemDataFPvPv(int, void *);
 extern const f32 lbl_805DCDF0;
-s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0);
 s16 TItemData__sub_801146A4(void *);
 s16 TItemData__sub_801146C0(void *);
 s16 TItemData__sub_801146DC(void *);
@@ -43,7 +42,7 @@ void TWindowHelpItem__vt10(u8 *arg0);
 
 extern "C" {
 
-s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
+s32 TItemData::update_mag_status_gauges() {
     s32 sp8[4];
     s32 a;
     s32 b;
@@ -52,17 +51,17 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
     s32 var_r31;
     ((TItemData *)sp8)->initialize_mag_data();
     var_r31 = 0;
-    deserialize_mag__9TItemDataFPvPv((int) (*(s32 *)((s8 *)arg0 + 0x68)), (void *) (sp8));
-    a = ((TUnk_804CE018 *)arg0)->get_array_entry(0);
-    b = ((TUnk_804CE018 *)arg0)->get_array_entry(1);
-    c = ((TUnk_804CE018 *)arg0)->get_array_entry(2);
-    d = ((TUnk_804CE018 *)arg0)->get_array_entry(0xF);
+    deserialize_mag__9TItemDataFPvPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x68)), (void *) (sp8));
+    a = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(0);
+    b = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(1);
+    c = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(2);
+    d = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(0xF);
     ((TWindowSubStatusDisp *)a)->clear_visible_flag();
     ((TWindowHelpItem *)d)->set_flag0_bit2();
     ((TWindowHelpItem *)b)->set_compare_color((s32) ((TItemMag *)sp8)->get_sync());
     ((TWindowHelpItem *)c)->set_compare_color((s32) ((TItemMag *)sp8)->get_item_type());
-    b = ((TUnk_804CE018 *)arg0)->get_array_entry(4);
-    a = ((TUnk_804CE018 *)arg0)->get_array_entry(5);
+    b = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(4);
+    a = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(5);
     if ((s32) *(s32 *)((s8 *)b + 0x20) < ((TItemData *)sp8)->get_stat_percent()) {
         var_r31 = 1;
         *(f32 *)((s8 *)a + 0x24) = (f32) lbl_805DCDF0;
@@ -72,8 +71,8 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
         }
         *(f32 *)((s8 *)a + 0x24) = (f32) TItemData__sub_801146F8(sp8);
     }
-    b = ((TUnk_804CE018 *)arg0)->get_array_entry(7);
-    a = ((TUnk_804CE018 *)arg0)->get_array_entry(8);
+    b = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(7);
+    a = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(8);
     if ((s32) *(s32 *)((s8 *)b + 0x20) < ((TItemData *)sp8)->get_percent()) {
         var_r31 = 1;
         *(f32 *)((s8 *)a + 0x24) = (f32) lbl_805DCDF0;
@@ -83,8 +82,8 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
         }
         *(f32 *)((s8 *)a + 0x24) = (f32) TItemData__sub_801146DC(sp8);
     }
-    a = ((TUnk_804CE018 *)arg0)->get_array_entry(0xA);
-    b = ((TUnk_804CE018 *)arg0)->get_array_entry(0xB);
+    a = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(0xA);
+    b = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(0xB);
     if ((s32) *(s32 *)((s8 *)a + 0x20) < ((TItemData *)sp8)->get_level()) {
         var_r31 = 1;
         *(f32 *)((s8 *)b + 0x24) = (f32) lbl_805DCDF0;
@@ -94,8 +93,8 @@ s32 update_mag_status_gauges__9TItemDataFPv(u8 *arg0) {
         }
         *(f32 *)((s8 *)b + 0x24) = (f32) TItemData__sub_801146C0(sp8);
     }
-    b = ((TUnk_804CE018 *)arg0)->get_array_entry(0xD);
-    a = ((TUnk_804CE018 *)arg0)->get_array_entry(0xE);
+    b = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(0xD);
+    a = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(0xE);
     if ((s32) *(s32 *)((s8 *)b + 0x20) < ((TItemData *)sp8)->get_mag_mind_level()) {
         var_r31 = 1;
         *(f32 *)((s8 *)a + 0x24) = (f32) lbl_805DCDF0;

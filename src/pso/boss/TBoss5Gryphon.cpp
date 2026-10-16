@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss5Gryphon.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
-void cleanup__13TBoss5GryphonFv(void);
-void *create__13TBoss5GryphonFPv(void *arg0);
 s32 TBoss5GryphonSnarl__sub_80066E84();
 void *TBoss5Gryphon__ct(void *, void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
@@ -18,7 +17,7 @@ extern u32 boss5_gryphon_body_bml_resource;
 extern u32 boss5_gryphon_bml_resource;
 extern u32 boss5_gryphon_texture_list;
 
-void cleanup__13TBoss5GryphonFv(void) {
+void TBoss5Gryphon::cleanup() {
     TLobby::free_char_select_singleton();
     TBoss5GryphonSnarl__sub_80066E84();
     TBoss8Dragon__sub_80355A1C();
@@ -40,7 +39,7 @@ void cleanup__13TBoss5GryphonFv(void) {
 
 extern void *tl_04;
 
-void *create__13TBoss5GryphonFPv(void *arg0) {
+void *TBoss5Gryphon::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x77C);
     if (o != NULL) {
         o = TBoss5Gryphon__ct(o, tl_04, arg0);

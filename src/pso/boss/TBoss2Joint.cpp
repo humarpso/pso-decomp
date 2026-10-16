@@ -338,7 +338,7 @@ s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern const f32 lbl_805D8498;
 void push_trail_position__13TBoss2DeRolLeFPvPv(Obj_80037178 *self, V3_80037178 *src);
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
-void enable__13TParticleCtrlFPv(void *);
+void enable__13TParticleCtrlFv(void *);
 s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
@@ -346,7 +346,7 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TBoss2Joint_get_shell_max_hp(void);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
-void init_position_vectors__9TObjEneDDFPv(void *);
+void init_position_vectors__9TObjEneDDFv(void *);
 extern RecoveredGlobal_80036A90_lbl_80435A68 TBoss2Joint__joint_offset_vec4_table;
 extern const f32 lbl_805D846C;
 extern const f32 TBoss2Joint__data_805D8474;
@@ -545,7 +545,7 @@ s32 TBoss2Joint::init_params() {
     Param_80036EA8 *prm;
     Joint_80036EA8 *self = (Joint_80036EA8 *)this;
     prm = &TBoss2Joint__param_table;
-    init_position_vectors__9TObjEneDDFPv(self);
+    init_position_vectors__9TObjEneDDFv(self);
     self->unk34 = 0;
     self->unk24 = 0;
     init_model__9TObjEneDDFv(self, prm->unk34, 1);
@@ -596,7 +596,7 @@ void TUnk_80482C58::run_task() {
     if (self->ptcl == NULL) {
         self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);
         if (self->ptcl != NULL) {
-            enable__13TParticleCtrlFPv(self->ptcl);
+            enable__13TParticleCtrlFv(self->ptcl);
         }
     } else {
         switch (self->state) {
@@ -605,7 +605,7 @@ void TUnk_80482C58::run_task() {
                 self->state = 1;
                 self->cur = 0;
             }
-            enable__13TParticleCtrlFPv(self->ptcl);
+            enable__13TParticleCtrlFv(self->ptcl);
             break;
         case 1:
             ((TNowLoading *)(self->ptcl))->copy_pos(&self->pts[self->cur]);
@@ -618,7 +618,7 @@ void TUnk_80482C58::run_task() {
             }
             break;
         case 2:
-            enable__13TParticleCtrlFPv(self->ptcl);
+            enable__13TParticleCtrlFv(self->ptcl);
             break;
         }
     }

@@ -27,14 +27,14 @@ s32 is_active__19TWindowSoundBalanceFv();
 s32 TWindowSoundBalance__sub_8027095C(void *);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
-s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(int, int, int, int);
+s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
 State_80270DCC *get_global_state__23TAdSinglePlyChrSelectGCFv();
 u32 calc_text_width();
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 get_field_20__17TWindowSubComCardFv();
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, s32, s32);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, s32, s32);
 s32 refresh_status_display__9TWindowDDFv(u8 *);
 s32 TWindowSoundBalance__sub_80270748(void *, s32);
 s32 TWindowSoundBalance__sub_802707D4(void *, s32);
@@ -71,12 +71,12 @@ void TWindowSoundBalance::handle_lr_input() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r30;
     temp_r30 = (u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x20;
-    if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x30), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x30), (int) (6), (int) (1)) != 0)) {
+    if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r30), (int) (0x30), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x30), (int) (6), (int) (1)) != 0)) {
         play_sound_effect((s32)(0x54100), (s32)(0U), (s32)(0), (s32)(0));
-        if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+        if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+        if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
         if ((s8) this->m_61 < 0) {
@@ -140,7 +140,7 @@ void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     u8 *e;
     State_80270DCC *st;
-    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D0D68, 4, arg1);
+    construct_base__9TWindowDDFPUcsPUc(arg0, lbl_804D0D68, 4, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSoundBalance;
     *(s32 *)((s8 *)arg0 + 0) = TWindowSoundBalance__name;
     *(s8 *)((s8 *)arg0 + 0x60) = 0;

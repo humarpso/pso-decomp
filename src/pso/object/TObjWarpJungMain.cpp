@@ -28,7 +28,7 @@ struct VObj_18_8019FB8C : VBase_18_8019FB8C {
 
 extern "C" {
 s32 get_bml_model(s32, s32);
-s32 free_children__12TObjDoorJungFPvPv(s32, u16);
+s32 free_children__12TObjDoorJungFPv(s32, u16);
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
 s32 PPCSync();
 s32 rotate_matrix_y(s32, s32);
@@ -52,7 +52,7 @@ extern const f32 lbl_805DC044;
 s32 get_localized_text_entry(s32, s32);
 s32 request_active_window_close();
 s32 align_menu_entry_positions(u32);
-s32 calc_window_size__17TWindowSubComCardFPv(u32);
+s32 calc_window_size__17TWindowSubComCardFv(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 u32 create_window_menu(s32, s32, s16);
 s32 get_window_layout_position(s32);
@@ -168,14 +168,14 @@ void TObjWarpJungMain::render() {
         case 0:
             if (warp_jung_beam_entry_index >= 0) {
                 for (i = 0; i < 6; i++) {
-                    free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], warp_jung_beam_entry_index);
+                    free_children__12TObjDoorJungFPv(warp_jung_beam_models[i], warp_jung_beam_entry_index);
                 }
             }
             break;
         case 1:
             if (lbl_805D5CC0 >= 0) {
                 for (i = 0; i < 6; i++) {
-                    free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], lbl_805D5CC0);
+                    free_children__12TObjDoorJungFPv(warp_jung_beam_models[i], lbl_805D5CC0);
                 }
             }
             break;
@@ -213,7 +213,7 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
         for (var_r29 = 0; var_r29 < 3; var_r29++) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0xB0), get_localized_text_entry(9, jungle_warp_destination_text_ids[var_r29]), 0xE, var_r29);
         }
-        calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0xB0));
+        calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0xB0));
         align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0xB0));
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
         ((TLobby *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_loss_flag();

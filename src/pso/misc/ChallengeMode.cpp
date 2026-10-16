@@ -118,7 +118,7 @@ s32 TLobby__sub_800739BC(void *);
 s32 create_new_floor_windows__6TLobbyFi(s32);
 s32 TLobby__sub_8026A328();
 u32 get_player_by_client_id(s32);
-s32 check_player_state_flag_2__6TLobbyFPv();
+s32 check_player_state_flag_2__6TLobbyFv();
 s32 create_ch_time_win(s32);
 
 s32 init__23TAdSinglePlyChrSelectGCFv();
@@ -401,7 +401,7 @@ void TLobby::update_battle_cleanup_flag() {
         *(s32 *)((s8 *)this + 0x28) = 0;
         return;
     }
-    if (check_player_state_flag_2__6TLobbyFPv() != 0) {
+    if (check_player_state_flag_2__6TLobbyFv() != 0) {
         if (((s32) *(s32 *)((s8 *)this + 0x28) != 0) && ((s32) *(s32 *)((s8 *)(&challenge_mode_state) + 0x34) == 0)) {
             update_card_save_info__6TLobbyFv(this);
             TLobby__sub_800722AC(local_client_id);

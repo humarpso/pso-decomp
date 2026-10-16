@@ -5,15 +5,14 @@
 
 extern "C" {
 s32 get_card_entry__17TWindowSubComCardFi(s32);
-u8 *get_card_entry_data__17TWindowSubComCardFPv(void *self);
 }
 
 extern "C" {
 
-void set_card_text__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 s32 strncpy(void *, s32, s32);
 
-void set_card_text__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
+void TWindowSubComCard::set_card_text(s32 arg1) {
+    s32 arg0 = (s32)this;
     u8 *temp_r3;
 
     if (arg1 != 0) {
@@ -24,8 +23,8 @@ void set_card_text__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
         }
     }
 }
-u8 *get_card_entry_data__17TWindowSubComCardFPv(void *self) {
-    u8 *p = ((u8 * (*)(void *))get_card_entry__17TWindowSubComCardFi)((void *)(self));
+u8 *TWindowSubComCard::get_card_entry_data() {
+    u8 *p = ((u8 * (*)(void *))get_card_entry__17TWindowSubComCardFi)((void *)(this));
     if (p == 0) {
         return 0;
     }
@@ -41,9 +40,7 @@ extern "C" {
 
 extern "C" {
 
-s32 find_card_by_id__17TWindowSubComCardFUi(u32 arg0);
-
-s32 find_card_by_id__17TWindowSubComCardFUi(u32 arg0) {
+s32 TWindowSubComCard::find_card_by_id(u32 arg0) {
     s32 i;
     s32 acc;
 
@@ -91,10 +88,9 @@ s32 copy_card__17TWindowSubComCardFiPv(s32 arg0, u8 *arg1);
 
 extern "C" {
 
-void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 s32 reinit__17TWindowSubComCardFi(s32);
 
-void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
+void TWindowSubComCard::swap_cards(s32 arg0, s32 arg1) {
     s32 sp8[64];
     s32 *first_ptr;
     s32 *second_ptr;
@@ -199,7 +195,6 @@ extern "C" {
 s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n);
 struct O_8007B26C;
 void TWindowSubComCard__sub_8007B26C(O_8007B26C *);
-void remove_card_at__17TWindowSubComCardFi(s32 i);
 void forward_to_matching_card__17TWindowSubComCardFPvPvi(void *, u8 *, s32);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
@@ -208,8 +203,6 @@ s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, s
 
 extern "C" {
 
-void init_com_card__17TWindowSubComCardFv(void);
-s32 send_guild_card__17TWindowSubComCardFi(s32);
 u32 TWindowSubComCard__sub_8007B070(u8 *);
 int __ct__16TPlyGuildCardTagFv();
 
@@ -228,11 +221,11 @@ s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n) {
     return 0;
 }
 
-void init_com_card__17TWindowSubComCardFv(void) {
+void TWindowSubComCard::init_com_card() {
     has_inactive_card__17TWindowSubComCardFPvi((Card_8007AB84 *)(((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)((s32)(0))), (s32)(0xD2));
 }
 
-void remove_card_at__17TWindowSubComCardFi(s32 i) {
+void TWindowSubComCard::remove_card_at(s32 i) {
     Box_8007AC10 *box = ((Box_8007AC10 *)((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)((s32)(0)));
     if (i < 0xD1) {
         Card_8007AC10 *p = &box->cards[i];
@@ -266,7 +259,8 @@ s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, s
     return 0;
 }
 
-s32 send_guild_card__17TWindowSubComCardFi(s32 arg0) {
+s32 TWindowSubComCard::send_guild_card() {
+    s32 arg0 = (s32)this;
     s32 temp;
     if (((s32 (*)())TWindowSubComCard__sub_8007B070)() != 0) {
         return 0;
@@ -311,10 +305,9 @@ void handle_6x06_send_guild_card(s32 arg0);
 
 extern "C" {
 
-void start_player_data_load__17TWindowSubComCardFi(s32 arg0);
 s32 load_player_data__23TAdSinglePlyChrSelectGCFv();
 
-void start_player_data_load__17TWindowSubComCardFi(s32 arg0) {
+void TWindowSubComCard::start_player_data_load(s32 arg0) {
     u32 temp;
     if (((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)(arg0)) == 0) {
         temp = (u32) ((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)(0);
@@ -327,7 +320,7 @@ void handle_6x06_send_guild_card(s32 arg0) {
     s32 temp_r31;
     bswap_guild_card__17TWindowSubComCardFv();
     temp_r31 = arg0 + 4;
-    if ((((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)((int) (temp_r31))) == 0) && (((s32 (*)(int))send_guild_card__17TWindowSubComCardFi)((int) (temp_r31)) == 0)) {
+    if ((((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)((int) (temp_r31))) == 0) && (((TWindowSubComCard *)temp_r31)->send_guild_card() == 0)) {
         TWindowSubShortMail__sub_8007B824();
         if (((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B0D0)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), (int) (4)) == 0) {
             ((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), (int) (4));
@@ -355,19 +348,17 @@ struct Card_8007B0D0 {
 };
 
 extern "C" {
-void set_text__17TWindowSubComCardFPvPv(u8 *arg0, void *arg1);
 s32 init_card__17TWindowSubComCardFPv(s32 *, s32);
 void TWindowSubComCard__sub_8007AF10(s32 arg0);
 s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n);
 s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n);
-s32 count_active_cards__17TWindowSubComCardFv(void);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
 }
 
 extern "C" {
 
-int fill_guild_card_from_char__6TLobbyFPvi(void*, void*);
+int fill_guild_card_from_char__6TLobbyFl(void*, void*);
 int clear(void* p);
 int memset(void*, int, int);
 
@@ -394,7 +385,7 @@ s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n) {
     return i;
 }
 
-s32 count_active_cards__17TWindowSubComCardFv(void) {
+s32 TWindowSubComCard::count_active_cards() {
     Card_8007AFB8 *p = ((Card_8007AFB8 * (*)(s32))get_card_entry__17TWindowSubComCardFi)(0);
     s32 i;
     for (i = 0; i < 0xD2; i++, p++) {
@@ -471,9 +462,9 @@ void TWindowSubComCard__sub_8007B1AC(void *arg0, u8 *arg1, s32 arg2) {
     }
 }
 
-void set_text__17TWindowSubComCardFPvPv(u8 *arg0, void *arg1) {
-    ((s32 (*)(void *, void *, int))strncpy)((void *) (arg0 + 0x20), arg1, (int) (0x6B));
-    *(s8 *)((s8 *)arg0 + 0x8B) = 0;
+void TWindowSubComCard::set_text(void *arg1) {
+    ((s32 (*)(void *, void *, int))strncpy)((void *) (((u8 *)this) + 0x20), arg1, (int) (0x6B));
+    *(s8 *)((s8 *)((u8 *)this) + 0x8B) = 0;
 }
 
 void TWindowSubComCard__sub_8007B26C(O_8007B26C *self) {
@@ -496,11 +487,11 @@ s32 fn_8007B2E0(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-int fill_guild_card_from_char__6TLobbyFPvi(void*, void*);
+int fill_guild_card_from_char__6TLobbyFl(void*, void*);
 int clear(void* p);
 int memset(void*, int, int);
 
-void TWindowSubComCard::clear_and_init(void* a1) { clear(this); fill_guild_card_from_char__6TLobbyFPvi(this, a1); }
+void TWindowSubComCard::clear_and_init(void* a1) { clear(this); fill_guild_card_from_char__6TLobbyFl(this, a1); }
 s32 fn_8007B2E0(u8 *arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(find_short_mail_by_id__6TLobbyFUi(arg1));

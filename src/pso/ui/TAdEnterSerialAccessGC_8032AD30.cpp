@@ -43,7 +43,6 @@ extern s32 serial_keyboard_field_width_table[];
 extern u8 serial_keyboard_position_table[][8];
 extern s32 local_client_id;
 extern B4_8032AD30 lbl_805DF770;
-u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -56,7 +55,7 @@ s32 TAdPsoPassSaveGC__sub_8032B584();
 s32 memset(s32, s32, s32);
 s32 strncpy(s32, s32, s32);
 
-u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
+u32 TAdEnterSerialAccessGC::create_keyboard_control(s32 arg0, s32 arg1) {
     u8 *kb;
     if (arg1 < 0 || arg1 >= 4) {
         return 0;

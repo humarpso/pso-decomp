@@ -43,7 +43,9 @@ struct TShopArmorListWindow : public TShopWindowBase {
     void save_cursor_selection();
     void close_list();
     void save_and_refresh_cursor(void* a1, void* a2);
-    void save_and_close();};
+    void save_and_close();
+    void reset_list();
+};
 
 typedef char TShopArmorListWindow_size[sizeof(TShopArmorListWindow) == 0x1F8 ? 1 : -1];
 #endif

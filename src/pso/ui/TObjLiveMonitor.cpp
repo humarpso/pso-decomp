@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjLiveCamera.h"
 #include "pso/TObjLiveMonitor.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -41,7 +42,6 @@ void fn_8030B370(O_8030B370 *o) {
 extern "C" {
 s32 is_split_screen();
 s32 TObjPlayer__sub_80084500();
-void update_camera__15TObjLiveMonitorFPv(void* p);
 s32 TObjLiveMonitor__sub_8030C050();
 s32 push_matrix();
 s32 pop_matrix();
@@ -57,7 +57,7 @@ void render__15TObjLiveMonitorFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = TObjLiveCameraCtrl::get_table_entry((int) (0));
     if ((temp_r3 != 0) && (TObjLiveMonitor__sub_8030C050() != 0)) {
-        update_camera__15TObjLiveMonitorFPv((void *) (temp_r3));
+        ((TObjLiveMonitor *)temp_r3)->update_camera();
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();
     } else {
@@ -151,7 +151,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8030B658_lbl_804E76C0 bm_obj_boss8_monitor_resource_descriptor;
 extern int live_monitor_shared_resource;
-void load_static_resource__14TObjLiveCameraFv(void);
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__14TObjLiveCamera[];
 extern s32 TObjLiveCamera__class_name;
@@ -172,7 +171,7 @@ void *__nw__7TObjectFUl(int);
     extern int live_monitor_shared_resource;
 void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(live_monitor_shared_resource), (void*)1); }
 
-void load_static_resource__14TObjLiveCameraFv(void) {
+void TObjLiveCamera::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
@@ -224,7 +223,6 @@ void *TObjLiveCamera__create(void *arg0) {
 
 extern "C" {
 
-void update_camera__15TObjLiveMonitorFPv(void* p);
 void fn_8030B7B4(void);
 void fn_8030B7B8(void);
 int call_null__12TBoss8DragonFv(void);
@@ -233,7 +231,7 @@ int get_global_part_count__12TBoss8DragonFl(void*);
 
 void fn_8030B7B4(void) {  }
 void fn_8030B7B8(void) {  }
-void update_camera__15TObjLiveMonitorFPv(void* p) { void* m = *(void**)((char*)p + 0x50); if (m) update_single_screen__11TCameraCtrlFv(m); }
+void TObjLiveMonitor::update_camera() { void* m = *(void**)((char*)this + 0x50); if (m) update_single_screen__11TCameraCtrlFv(m); }
 int call_null__12TBoss8DragonFv(void) { return get_global_part_count__12TBoss8DragonFl((void*)(0)); }
 
 }

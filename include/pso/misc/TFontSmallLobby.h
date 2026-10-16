@@ -49,6 +49,8 @@ struct TFontSmallLobby
     void set_section_index(s16 arg1);
     s32 is_ready();
     void reset_targets();
+    s32 construct_pb_controller();
+    static s32 disable_stealth_suit_effect(s32 arg0, void * _w1);
 };
 
 #endif

@@ -92,7 +92,7 @@ extern void *TWindowCtrl__active_window;
 u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBE0;
 f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(s32 arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
-void rearm_balloon__15TWindowFukidasiFv(void *, s32);
+void rearm_balloon__15TWindowFukidasiFl(void *, s32);
 s32 check_card_match_enabled__15TWindowFukidasiFl(void *, void *);
 extern void *TWindowCtrl__active_window;
 void *get_player_by_client_id(s32);
@@ -427,7 +427,7 @@ void *TWindowCtrl::show_chat_balloon(s32 player, s32 flags, void *text, void *lo
             if (b != 0 && ((TObject *)b)->all_parents_unqueued_for_destruction() != 0 &&
                 (u16)player == ((TWindowCtrl *)b)->get_flags() &&
                 check_card_match_enabled__15TWindowFukidasiFl(b, text) != 0) {
-                rearm_balloon__15TWindowFukidasiFv(b, flags);
+                rearm_balloon__15TWindowFukidasiFl(b, flags);
                 return 0;
             }
         }

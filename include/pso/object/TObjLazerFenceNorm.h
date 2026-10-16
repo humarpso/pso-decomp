@@ -20,6 +20,7 @@ struct TObjLazerFenceNorm : public TUnk_804AF8A0 {
     u8 unk_B8[0x4];
     void * m_bc;
     u8 unk_C0[0x18];
+    void select_models();
 };
 
 typedef char TObjLazerFenceNorm_size[sizeof(TObjLazerFenceNorm) == 0xD8 ? 1 : -1];

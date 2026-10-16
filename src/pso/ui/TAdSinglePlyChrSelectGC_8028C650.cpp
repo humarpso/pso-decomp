@@ -4,22 +4,21 @@
 
 extern "C" {
 
-void start_character_load_task__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 TLobby__sub_8001EEF4();
 u32 TLobby__sub_8002058C(u32, s32, void *, void *, s32, s32, s32);
 
-void start_character_load_task__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
+void TAdSinglePlyChrSelectGC::start_character_load_task() {
     u32 var_r31;
 
-    if ((TLobby__sub_8001EEF4() != 0) && (((TAdSinglePlyChrSelectGC *)arg0)->try_acquire_slot() != 0)) {
+    if ((TLobby__sub_8001EEF4() != 0) && (((TAdSinglePlyChrSelectGC *)((u8 *)this))->try_acquire_slot() != 0)) {
         var_r31 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r31 != 0U) {
-            var_r31 = TLobby__sub_8002058C(var_r31, 6, arg0 + 0x60, arg0 + 0x64, 0, 0, ((TLobby *)(*(s32 *)((s8 *)arg0 + 0x24)))->start_load_default());
+            var_r31 = TLobby__sub_8002058C(var_r31, 6, ((u8 *)this) + 0x60, ((u8 *)this) + 0x64, 0, 0, ((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->start_load_default());
         }
-        *(u32 *)((s8 *)arg0 + 0x68) = var_r31;
+        *(u32 *)((s8 *)((u8 *)this) + 0x68) = var_r31;
         if (var_r31 != 0U) {
-            *(s32 *)((s8 *)arg0 + 0x74) = 0x12C;
-            *(s32 *)((s8 *)arg0 + 0x2C) = 1;
+            *(s32 *)((s8 *)((u8 *)this) + 0x74) = 0x12C;
+            *(s32 *)((s8 *)((u8 *)this) + 0x2C) = 1;
         }
     }
 }

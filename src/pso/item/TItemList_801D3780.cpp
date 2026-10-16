@@ -102,7 +102,6 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 s32 TItemList__sub_801D5884(void *, int);
 extern s32 placement_search_task_vtable[];
-u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
 Actor_801D3E20 *get_player_data__10TObjPlayerFi(s32 i);
 f32 horizontal_distance_squared(void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -115,8 +114,8 @@ void TItemList__sub_801D59A0(void *, int);
 void update_placement_search(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_item_type_or_default__9TItemListFv(void *);
-void send_code_45_1__10TObjPlayerFi(void *);
-void send_6x2A_drop_item__10TObjPlayerFv(void *, s32, void *, s32);
+void send_code_45_1__10TObjPlayerFl(void *);
+void send_6x2A_drop_item__10TObjPlayerFPvlPvl(void *, s32, void *, s32);
 void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
@@ -169,15 +168,15 @@ void run_item_drop_search_task(u8 *arg0) {
                 if (r->source == -1) {
                     ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, r->extra);
-                    send_code_45_1__10TObjPlayerFi(player);
+                    send_code_45_1__10TObjPlayerFl(player);
                 } else {
                     ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, get_item_type_or_default__9TItemListFv(r->item));
-                    send_code_45_1__10TObjPlayerFi(player);
+                    send_code_45_1__10TObjPlayerFl(player);
                 }
             } else {
-                send_6x2A_drop_item__10TObjPlayerFv(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFv(r->item));
-                send_code_45_1__10TObjPlayerFi(player);
+                send_6x2A_drop_item__10TObjPlayerFPvlPvl(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFv(r->item));
+                send_code_45_1__10TObjPlayerFl(player);
             }
         }
         break;
@@ -257,7 +256,7 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x58);
     if (o != NULL) {
-        o = ct_init_placement_ring__9TItemListFPvPviPvPvc((u8 *)(o), (u8 *)(tl_07), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), arg3);
+        o = ((TItemList *)o)->ct_init_placement_ring((u8 *)(tl_07), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), arg3);
     }
     return o;
 }
@@ -280,13 +279,13 @@ void *destroy_placement_search_task(void *arg0, s16 arg1) {
 extern s32 placement_search_base_vtable[];
 
 typedef char RecoveredGlobal_801D3BD4_lbl_804C4480_size[sizeof(RecoveredGlobal_801D3BD4_lbl_804C4480) == 0x18 ? 1 : -1];
-u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
-    construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
-    *(s32 *)((s8 *)arg0 + 0x54) = arg2;
-    TItemList__sub_801D5884((void *)(arg0), (int)(0U));
-    ((TUnk_804C4498 *)arg0)->reset_placement_search_ring();
-    return arg0;
+u8 *TItemList::ct_init_placement_ring(u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
+    construct_placement_search_base((u8 *)(((u8 *)this)), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
+    *(s32 *)((s8 *)((u8 *)this) + 0x54) = arg2;
+    TItemList__sub_801D5884((void *)(((u8 *)this)), (int)(0U));
+    ((TUnk_804C4498 *)((u8 *)this))->reset_placement_search_ring();
+    return ((u8 *)this);
 }
 
 #pragma push

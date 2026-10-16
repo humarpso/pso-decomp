@@ -42,7 +42,9 @@ struct TWindowSubCustomEquip : public TUnk_804CE018 {
     static s32 get_saved_slot_for_index(s32 arg0, s8 arg1);
     void get_cursor_pos(void *arg1);
     void remove_duplicate_bindings(void *arg1);
-    void toggle_action_binding(void *arg1);};
+    void toggle_action_binding(void *arg1);
+    void place_bank_slot_on_ring(s32 arg1, s32 arg2);
+};
 
 typedef char TWindowSubCustomEquip_size[sizeof(TWindowSubCustomEquip) == 0x70 ? 1 : -1];
 #endif

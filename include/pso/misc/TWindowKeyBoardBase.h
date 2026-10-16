@@ -30,7 +30,9 @@ struct TWindowKeyBoardBase : public TUnk_804CE018 {
     u32 m_b4;
     virtual void render();
     virtual void run_task();
-    s32 *init_text_buffer_holder();};
+    s32 *init_text_buffer_holder();
+    void insert_character(u16 arg1);
+};
 
 typedef char TWindowKeyBoardBase_size[sizeof(TWindowKeyBoardBase) == 0xB8 ? 1 : -1];
 #endif

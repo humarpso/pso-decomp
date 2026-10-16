@@ -110,8 +110,6 @@ void TJudgmentSequence__sub_80215BCC(void *arg0);
 void TJudgmentSequence__sub_80215BA0(void *arg0);
 void TJudgmentSequence__sub_80215BF8(void *arg0);
 extern void *tl_05;
-void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self);
-void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self);
 }
 
 extern "C" {
@@ -150,15 +148,15 @@ void TJudgmentSequence::handle_close_input() {
     }
 }
 
-void open_judgment_window__17TJudgmentSequenceFPv(Seq_80215CB8 *self) {
+void TJudgmentSequence::open_judgment_window() {
     Win_80215CB8 *o = (Win_80215CB8 *)__nw__7TObjectFUl(0x178);
     if (o != 0) {
-        o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct(o, (s32)tl_05, self, self->f24);
+        o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct(o, (s32)tl_05, ((Seq_80215CB8 *)this), ((Seq_80215CB8 *)this)->f24);
     }
     o->cb0 = (void *)TJudgmentSequence__sub_80215BCC;
     o->cb2 = (void *)TJudgmentSequence__sub_80215BA0;
     o->cb1 = (void *)TJudgmentSequence__sub_80215BF8;
-    ((TShopWindowBase *)self)->set_field_20((s32)((void *)5));
+    ((TShopWindowBase *)((Seq_80215CB8 *)this))->set_field_20((s32)((void *)5));
 }
 
 void TJudgmentSequence::handle_confirm() {
@@ -202,7 +200,7 @@ void TJudgmentSequence::vfunc_11() {
         ((TJudgmentSequence *)this)->handle_confirm();
         break;
     case 3:
-        open_judgment_window__17TJudgmentSequenceFPv((Seq_80215CB8 *)this);
+        open_judgment_window();
         break;
     case 4:
         ((TJudgmentSequence *)this)->handle_close_input();

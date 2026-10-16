@@ -106,30 +106,23 @@ struct Info_8034F4FC {
 };
 
 extern "C" {
-void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 int spawn_nug2000_hit_explosion(void);
 u32 find_item_by_id(void);
 int spawn_nug2000_hit_explosion(void);
-void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8034F1AC(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *create_gi_gue_bazooka__10TObjPlayerFi(s32 arg0);
 void TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFPvUi(void *, int);
+void set_status_flags__10TObjPlayerFUl(void *, int);
 extern s32 lbl_804F0A00[];
 u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2);
-void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o);
 u32 find_item_by_id(void);
-void spawn_fire_explosion_at_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 rotate_matrix_z(s32, s32);
-void rotate_by_player_list__10TObjPlayerFPv(P_8034F020 *arg0);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
@@ -142,9 +135,8 @@ extern const f32 lbl_805DFDF8;
 void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon);
 s32 spawn_particle_effect(void *, s32);
 void *find_entity_by_id(s32);
-void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
-s32 fill_status_info__10TObjPlayerFPvPv(u32, void *);
+s32 fill_status_info__10TObjPlayerFPv(u32, void *);
 s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
@@ -152,7 +144,6 @@ s32 TObjPlayer__sub_802E449C(void *);
 extern s32 tl_05;
 extern s32 tl_particle;
 extern const f32 lbl_805DFE00;
-s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1);
 }
 
 extern "C" {
@@ -162,9 +153,6 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1);
 void TObjPlayer__sub_8034F8B8(void* p);
-int apply_recoil_forward__10TObjPlayerFPv(void* p);
-void return_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p);
-void pose_gi_gue_bazooka_nodes__10TObjPlayerFPv(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 s32 spawn_particle_effect(void *, s32);
@@ -176,7 +164,7 @@ void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1);
-void set_status_flags__10TObjPlayerFPvUi(void *, int);
+void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TUnk_804F0810::emit_marker_effects() {
     u8 sp8[0x18];
@@ -185,16 +173,16 @@ void TUnk_804F0810::emit_marker_effects() {
     spawn_particle_effect(sp8, 0x1D0);
 }
 
-void rotate_by_player_list__10TObjPlayerFPv(P_8034F020 *arg0) {
+void TObjPlayer::rotate_by_player_list() {
     switch (TObjPlayer::get_player_list()) {
     case 1:
-        ((s32)rotate_matrix_z((s32)(0), (s32)(arg0->f1F8)));
+        ((s32)rotate_matrix_z((s32)(0), (s32)(((P_8034F020 *)this)->f1F8)));
         break;
     }
 }
 
 void TUnk_804F0810::reserved_53() { draw_weapon_at_joint(this, (void*)49); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); }
-int apply_recoil_forward__10TObjPlayerFPv(void* p) { return add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1f8), (void*)(1820), (void*)(13653)); }
+int TObjPlayer::apply_recoil_forward() { return add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)(1820), (void*)(13653)); }
 void TUnk_804F0810::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)(-4551), (void*)(0)); }
 
 extern s32 lbl_804F0810[];
@@ -215,7 +203,7 @@ extern s32 lbl_804F0810[];
 void *TUnk_804F0810::enter_timed_state(s32 _w1, void *_w2) {
     TItemWeapon__ct((void *)(this), (void *)(_w1));
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0810;
-    set_status_flags__10TObjPlayerFPvUi(this, 1);
+    set_status_flags__10TObjPlayerFUl(this, 1);
     *(u32 *)((s8 *)this + 0x1F8) = 13653;
     return this;
 }
@@ -235,7 +223,7 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
     }
     return NULL;
 }
-void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TObjPlayer::spawn_particle_at_entity_slot(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r5;
     void *temp_r3;
     temp_r3 = find_entity_by_id(arg2);
@@ -291,45 +279,45 @@ extern s32 lbl_804F0908[];
 void *TUnk_804F0908::construct_rappys_fan(s32 _w1, void *_w2) {
     TItemWeapon__ct((void *)(this), (void *)(_w1));
     *(s32 **)((s8 *)this + 0x18) = lbl_804F0908;
-    *(s32 **)((s8 *)this + 0x1F4) = ((s32 *)spawn_particle_at_entity_slot__10TObjPlayerFiiii);
-    set_status_flags__10TObjPlayerFPvUi(this, 2);
+    *(s32 **)((s8 *)this + 0x1F4) = ((s32 *)TObjPlayer::spawn_particle_at_entity_slot);
+    set_status_flags__10TObjPlayerFUl(this, 2);
     return this;
 }
 
-u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0) {
+u8 *TObjPlayer::create_rappys_fan() {
     u8 *temp_r3;
     u8 *var_r0;
-    if (arg0 != NULL) {
+    if (((u8 *)this) != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804F0908 *)temp_r3)->construct_rappys_fan((s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F0908 *)temp_r3)->construct_rappys_fan((s32)(tl_05), (void *)(((u8 *)this)))));
         }
         return var_r0;
     }
     return NULL;
 }
 
-void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::spawn_fire_explosion_for_item(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {
-        spawn_fire_explosion__10TObjPlayerFUii((u32)(temp_r3), (s32)(arg1));
+        TObjPlayer::spawn_fire_explosion((u32)(temp_r3), (s32)(arg1));
     }
 }
 
-void spawn_fire_explosion_at_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void TObjPlayer::spawn_fire_explosion_at_item(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
     u32 p = find_item_by_id();
     if (p != 0U) {
-        spawn_fire_explosion__10TObjPlayerFUii((u32)(p), (s32)((s32)ctx->obj->elems[ctx->idx].f1c));
+        TObjPlayer::spawn_fire_explosion((u32)(p), (s32)((s32)ctx->obj->elems[ctx->idx].f1c));
     }
 }
 
-s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
+s32 TObjPlayer::spawn_fire_explosion(u32 a0, s32 a1) {
     Info_8034F4FC info;
     void *o;
     TObjPlayer__sub_802E449C(&info);
-    fill_status_info__10TObjPlayerFPvPv(a0, &info);
+    fill_status_info__10TObjPlayerFPv(a0, &info);
     VecCopy__FP3VecPC3Vec(&info, a1);
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);
@@ -343,32 +331,32 @@ s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
 }
 
 void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o) {
-    o->f74 = (void *)spawn_fire_explosion_at_item__10TObjPlayerFii;
-    o->f70 = (void *)spawn_fire_explosion_for_item__10TObjPlayerFii;
+    o->f74 = (void *)TObjPlayer::spawn_fire_explosion_at_item;
+    o->f70 = (void *)TObjPlayer::spawn_fire_explosion_for_item;
     o->flags |= 0x80;
 }
 
-void pose_gi_gue_bazooka_nodes__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::pose_gi_gue_bazooka_nodes() {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 2:
-        rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x1F8));
+        rotate_matrix_x(0, *(s32 *)((s8 *)this + 0x1F8));
         return;
     case 3:
-        rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x1FC));
+        rotate_matrix_x(0, *(s32 *)((s8 *)this + 0x1FC));
         return;
     case 5:
-        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x200));
+        rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x200));
         return;
     case 4:
-        rotate_matrix_z(0, -*(s32 *)((s8 *)arg0 + 0x200));
+        rotate_matrix_z(0, -*(s32 *)((s8 *)this + 0x200));
         return;
     }
 }
 
-void return_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p) { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)p + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
+void TObjPlayer::return_gi_gue_bazooka_angles() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
 
 void TUnk_804F0A00::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
 
@@ -389,14 +377,14 @@ typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8
 u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8034F754_lbl_804F0A00 *)&lbl_804F0A00).value;
-    set_status_flags__10TObjPlayerFPvUi((void *)(arg0), (int)(0x8000));
+    set_status_flags__10TObjPlayerFUl((void *)(arg0), (int)(0x8000));
     *(s32 *)((s8 *)arg0 + 0x1F8) = -0x1C71;
     *(s32 *)((s8 *)arg0 + 0x1FC) = -0x1555;
     *(s32 *)((s8 *)arg0 + 0x200) = 0x238E;
     return arg0;
 }
 
-u8 *create_gi_gue_bazooka__10TObjPlayerFi(s32 arg0) {
+u8 *TObjPlayer::create_gi_gue_bazooka(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {

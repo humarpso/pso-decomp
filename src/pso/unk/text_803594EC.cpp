@@ -30,7 +30,7 @@ typedef struct Quad_803594EC
 extern "C" {
 s32 set_depth_buffer_settings_1__Fv(void);
 s32 restore_saved_depth_alpha_state();
-s32 draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
+s32 draw_strip_swap_color__15TWindowCtrlMainFllf(void *, int, int, f32);
 extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
 extern const f32 lbl_805E009C;
@@ -60,7 +60,7 @@ void TBoss4Fade::render() {
     q.b = 4;
     q.tex = TBoss4Fade__fullscreen_vertices;
     set_depth_buffer_settings_1__Fv();
-    draw_strip_swap_color__15TWindowCtrlMainFPviif(&q, 4, 6, lbl_805E009C);
+    draw_strip_swap_color__15TWindowCtrlMainFllf(&q, 4, 6, lbl_805E009C);
     restore_saved_depth_alpha_state();
   }
 }

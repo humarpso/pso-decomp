@@ -90,7 +90,6 @@ void *get_result__23TAdSinglePlyChrSelectGCFv(void *);
 void blend_creation_proportion_shapes(void *);
 u32 create_ch_cr_load_gm_nj_req(void *, Req_8028CD18 *);
 void TLobby__sub_8028D738(s32);
-void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self);
 extern s32 chr_select_preview_stride_table[];
 extern s32 chr_select_preview_base_offset_table[];
 
@@ -232,7 +231,7 @@ void TAdSinglePlyChrSelectGC::request_texture_loads() {
     }
 }
 
-void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self) {
+void TAdSinglePlyChrSelectGC::request_model_loads() {
     Req_8028CD18 r1;
     Req_8028CD18 r2;
     Req_8028CD18 r3;
@@ -240,46 +239,46 @@ void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self) {
     s32 idx;
     u32 *tbl;
     u32 d;
-    TLobby__sub_8028D738(self->f40);
-    *self->f44 = 0;
-    r1.data = self->f5C->f1C;
-    r1.dest = self->f44;
-    r1.ctx = self->f40;
+    TLobby__sub_8028D738(((Sel_8028CD18 *)this)->f40);
+    *((Sel_8028CD18 *)this)->f44 = 0;
+    r1.data = ((Sel_8028CD18 *)this)->f5C->f1C;
+    r1.dest = ((Sel_8028CD18 *)this)->f44;
+    r1.ctx = ((Sel_8028CD18 *)this)->f40;
     r1.type = 0x40;
-    r1.flags = self->f3C;
-    if (create_ch_cr_load_gm_nj_req(self, &r1) == 0) return;
-    idx = self->f38->f40;
-    self->f48[1] = 0;
-    tbl = self->f5C->f14;
+    r1.flags = ((Sel_8028CD18 *)this)->f3C;
+    if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r1) == 0) return;
+    idx = ((Sel_8028CD18 *)this)->f38->f40;
+    ((Sel_8028CD18 *)this)->f48[1] = 0;
+    tbl = ((Sel_8028CD18 *)this)->f5C->f14;
     if (tbl != 0 && (d = tbl[idx]) != 0) {
         r2.data = d;
-        r2.dest = &self->f48[1];
-        r2.ctx = self->f40;
+        r2.dest = &((Sel_8028CD18 *)this)->f48[1];
+        r2.ctx = ((Sel_8028CD18 *)this)->f40;
         r2.type = 8;
-        r2.flags = self->f3C;
-        if (create_ch_cr_load_gm_nj_req(self, &r2) == 0) return;
+        r2.flags = ((Sel_8028CD18 *)this)->f3C;
+        if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r2) == 0) return;
     } else {
-        *self->f3C &= ~8;
+        *((Sel_8028CD18 *)this)->f3C &= ~8;
     }
-    self->f48[0] = 0;
-    tbl = self->f5C->f10;
+    ((Sel_8028CD18 *)this)->f48[0] = 0;
+    tbl = ((Sel_8028CD18 *)this)->f5C->f10;
     if (tbl != 0 && (d = tbl[idx]) != 0) {
         r3.data = d;
-        r3.dest = &self->f48[0];
-        r3.ctx = self->f40;
+        r3.dest = &((Sel_8028CD18 *)this)->f48[0];
+        r3.ctx = ((Sel_8028CD18 *)this)->f40;
         r3.type = 0x10;
-        r3.flags = self->f3C;
-        if (create_ch_cr_load_gm_nj_req(self, &r3) == 0) return;
+        r3.flags = ((Sel_8028CD18 *)this)->f3C;
+        if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r3) == 0) return;
     } else {
-        *self->f3C &= ~0x10;
+        *((Sel_8028CD18 *)this)->f3C &= ~0x10;
     }
-    self->f48[2] = 0;
-    r4.data = self->f5C->f18[self->f38->f3E];
-    r4.dest = &self->f48[2];
-    r4.ctx = self->f40;
+    ((Sel_8028CD18 *)this)->f48[2] = 0;
+    r4.data = ((Sel_8028CD18 *)this)->f5C->f18[((Sel_8028CD18 *)this)->f38->f3E];
+    r4.dest = &((Sel_8028CD18 *)this)->f48[2];
+    r4.ctx = ((Sel_8028CD18 *)this)->f40;
     r4.type = 0x20;
-    r4.flags = self->f3C;
-    if (create_ch_cr_load_gm_nj_req(self, &r4) == 0) return;
+    r4.flags = ((Sel_8028CD18 *)this)->f3C;
+    if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r4) == 0) return;
 }
 
 void TChCrLoadReq::sub_8028CEEC(s32 *) {

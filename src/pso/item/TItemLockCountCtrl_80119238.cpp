@@ -23,10 +23,8 @@ void TItemLockCountCtrl__sub_80119238(int arg0);
 void TItemLockCountCtrl__sub_8011926C(int arg0);
 void TItemLockCountCtrl__sub_801192A0(int arg0);
 void TItemLockCountCtrl__sub_8011933C(int arg0);
-void apply_unit_immunity__18TItemLockCountCtrlFi(int arg0);
 void apply_battle_ctrl_effect(int arg0);
 void notify_stealth_enemies_08(int arg0);
-void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0);
 }
 
 extern "C" {
@@ -35,10 +33,8 @@ void TItemLockCountCtrl__sub_80119238(int arg0);
 void TItemLockCountCtrl__sub_8011926C(int arg0);
 void TItemLockCountCtrl__sub_801192A0(int arg0);
 void TItemLockCountCtrl__sub_8011933C(int arg0);
-void apply_unit_immunity__18TItemLockCountCtrlFi(int arg0);
 void apply_battle_ctrl_effect(int arg0);
 void notify_stealth_enemies_08(int arg0);
-void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0);
 u32 get_player_by_client_id(u16);
 s32 obj_clearFlags30(u32, s32);
 s32 obj_setFlags30(u32, s32);
@@ -85,14 +81,14 @@ void TItemLockCountCtrl__sub_8011933C(int arg0) {
     }
 }
 
-void apply_unit_immunity__18TItemLockCountCtrlFi(int arg0) {
+void TItemLockCountCtrl::apply_unit_immunity(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
         ((TObjEneDD_ST *)temp)->sub_800F5874(1);
     }
 }
 
-void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0) {
+void TItemLockCountCtrl::set_battle_ctrl_flag30(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
         obj_setFlags30(temp, 0x40);
@@ -115,8 +111,8 @@ void TItemLockCountCtrl::free_all() {
     item_effect_object_table[idx] = (VObj_801193D8 *)p;
 void TItemLockCountCtrl::init_effect_table() {
     void *p;
-    MK_80119444(0, set_battle_ctrl_flag30__18TItemLockCountCtrlFi, TItemLockCountCtrl__sub_80119238)
-    MK_80119444(1, apply_unit_immunity__18TItemLockCountCtrlFi, fn_80119204)
+    MK_80119444(0, TItemLockCountCtrl::set_battle_ctrl_flag30, TItemLockCountCtrl__sub_80119238)
+    MK_80119444(1, TItemLockCountCtrl::apply_unit_immunity, fn_80119204)
     MK_80119444(2, TItemLockCountCtrl__sub_8011933C, TItemEquipBase__sub_801191D0)
     MK_80119444(3, apply_battle_ctrl_effect, TItemEquipBase__sub_8011919C)
     MK_80119444(4, notify_stealth_enemies_08, TItemEquipBase__sub_80119168)

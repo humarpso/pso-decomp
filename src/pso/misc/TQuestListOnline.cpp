@@ -81,7 +81,7 @@ extern const f32 lbl_805DC6A8;
 s32 obj_getField1c(int);
 int set_field_20__15TShopWindowBaseFl(void*, int);
 s32 get_guild_text(int);
-s32 reset_list__20TShopArmorListWindowFPv(u32);
+s32 reset_list__20TShopArmorListWindowFv(u32);
 s32 calc_list_content_extent(u32);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, int);
@@ -347,7 +347,7 @@ void TQuestListOnline::build_list_window() {
             id = obj_getField1c(window_owner);
             list_window = create_item_list_window(get_guild_text(0), 0x40, id);
         } else {
-            reset_list__20TShopArmorListWindowFPv(list_window);
+            reset_list__20TShopArmorListWindowFv(list_window);
         }
         if (TQuestListOnline__quest_list_buffer != NULL && TQuestListOnline__quest_list_buffer[1] == 0) {
             set_field_20__15TShopWindowBaseFl(this, 0xB);

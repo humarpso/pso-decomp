@@ -92,7 +92,13 @@ struct TWindowSubSymbolChat : public TObject {
     void set_flag60_bit1();
     void set_flag60_bit2();
     void set_selection_and_refresh(s32 arg1);
-    static void update_display(s32 arg0);};
+    static void update_display(s32 arg0);
+    s32 *copy_chat_entry(s32 *arg1);
+    void init_layout_entries(s32 arg1);
+    void set_from_key(s32 arg1);
+    s32 select_symbol_chat_record(s8 *arg1, s32 *arg2);
+    void init_symbol_layout(s32 *arg1);
+};
 
 typedef char TWindowSubSymbolChat_size[sizeof(TWindowSubSymbolChat) == 0x60 ? 1 : -1];
 #endif

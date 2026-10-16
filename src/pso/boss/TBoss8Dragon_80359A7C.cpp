@@ -132,7 +132,6 @@ extern const f32 lbl_805E00B4;
 void TBoss8Dragon__sub_80359A7C(u8 *arg0);
 u8 * TBoss8Dragon__ct(void *, s32, s32);
 extern s32 boss8_dragon_attack_object_vtable[];
-u8 *ct_attack_object__12TBoss8DragonFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -233,14 +232,14 @@ void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80359DC4_lbl_804F1A78_size[sizeof(RecoveredGlobal_80359DC4_lbl_804F1A78) == 0x1B0 ? 1 : -1];
-u8 *ct_attack_object__12TBoss8DragonFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    TBoss8Dragon__ct(arg0, arg1, arg2);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80359DC4_lbl_804F1A78 *)&boss8_dragon_attack_object_vtable).value;
-    *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 0x40);
-    *(s16 *)((s8 *)arg0 + 0x67A) = -1;
-    *(s16 *)((s8 *)arg0 + 0x32C) = arg3;
-    *(s16 *)((s8 *)arg0 + 0x2B8) = arg3;
-    return arg0;
+u8 *TBoss8Dragon::ct_attack_object(s32 arg1, s32 arg2, s32 arg3) {
+    TBoss8Dragon__ct(((u8 *)this), arg1, arg2);
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80359DC4_lbl_804F1A78 *)&boss8_dragon_attack_object_vtable).value;
+    *(s32 *)((s8 *)((u8 *)this) + 0x3C0) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) | 0x40);
+    *(s16 *)((s8 *)((u8 *)this) + 0x67A) = -1;
+    *(s16 *)((s8 *)((u8 *)this) + 0x32C) = arg3;
+    *(s16 *)((s8 *)((u8 *)this) + 0x2B8) = arg3;
+    return ((u8 *)this);
 }
 
 }

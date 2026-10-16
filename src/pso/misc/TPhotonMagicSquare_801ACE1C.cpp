@@ -174,7 +174,6 @@ extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSq
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *photon_blast_shared_resource;
-u8 *construct_at_owner__18TPhotonMagicSquareFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -241,33 +240,33 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
     *(s32 *)((s8 *)arg0 + 0xCC) = 0xFFFFFF;
     return arg0;
 }
-u8 *construct_at_owner__18TPhotonMagicSquareFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
-    construct_world_actor_base((void *) (arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TPhotonMagicSquare__data_805D3508;
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x28);
-    *(u8 **)((s8 *)arg0 + 0x90) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x430)) + 0x14));
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x94) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 4) - (1.0f));
-    *(f32 *)((s8 *)arg0 + 0x98) = (f32) (0.1f);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x2C);
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x70) = (f32) (0.0f);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
+    construct_world_actor_base((void *) (((u8 *)this)));
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
+    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) TPhotonMagicSquare__data_805D3508;
+    *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x28);
+    *(u8 **)((s8 *)((u8 *)this) + 0x90) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x430)) + 0x14));
+    *(f32 *)((s8 *)((u8 *)this) + 0x9C) = (f32) (0.0f);
+    *(f32 *)((s8 *)((u8 *)this) + 0x94) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)) + 4) - (1.0f));
+    *(f32 *)((s8 *)((u8 *)this) + 0x98) = (f32) (0.1f);
+    *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x2C);
+    *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) (0.0f);
+    *(f32 *)((s8 *)((u8 *)this) + 0x6C) = (f32) (0.0f);
+    *(f32 *)((s8 *)((u8 *)this) + 0x70) = (f32) (0.0f);
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
     temp_r3 = find_entity_by_id((void *) (arg3));
     if (temp_r3 != 0) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (temp_r3 + 0x38));
+        VecCopy__FP3VecPC3Vec((void *) (((u8 *)this) + 0xB8), (void *) (temp_r3 + 0x38));
     }
-    *(f32 *)((s8 *)arg0 + 0xBC) += (2.0f);
-    *(s32 *)((s8 *)arg0 + 0xB0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xC4) = 0x37;
-    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (0.1f);
-    *(s32 *)((s8 *)arg0 + 0xCC) = 2;
+    *(f32 *)((s8 *)((u8 *)this) + 0xBC) += (2.0f);
+    *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0xB4) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0xC4) = 0x37;
+    *(f32 *)((s8 *)((u8 *)this) + 0xC8) = (f32) (0.1f);
+    *(s32 *)((s8 *)((u8 *)this) + 0xCC) = 2;
     play_sound_effect((int) (0x4002AD2E), (int) (0), (int) (0), (int) (0));
-    return arg0;
+    return ((u8 *)this);
 }
 
 }

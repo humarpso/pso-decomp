@@ -298,7 +298,6 @@ extern const f32 lbl_805D9F24;
 extern const f32 lbl_805D9F2C;
 extern const f32 lbl_805D9F4C;
 s32 play_sound_effect(s32, u32, s32, s32);
-void set_flag_and_notify__10TObjPlayerFPv(void *arg0);
 void handle_death__10TObjPlayerFPv(u8 *arg0);
 s32 get_player_by_client_id(u16);
 f32 xyz_distance_squared(void *, s32);
@@ -441,12 +440,12 @@ s32 update_action_hold__12TObjEneLappyFi(s32 arg0) {
     return 0;
 }
 
-void set_flag_and_notify__10TObjPlayerFPv(void *arg0) {
+void TObjPlayer::set_flag_and_notify() {
     s16 temp_r4;
 
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x374);
+    temp_r4 = *(s16 *)((s8 *)this + 0x374);
     if (!(temp_r4 & 0x80)) {
-        *(s16 *)((s8 *)arg0 + 0x374) = (s16) (temp_r4 | 0x80);
+        *(s16 *)((s8 *)this + 0x374) = (s16) (temp_r4 | 0x80);
         send_entity_set_flags__9TObjEnemyFv();
     }
 }
@@ -620,7 +619,7 @@ void handle_death__10TObjPlayerFPv(u8 *arg0) {
         if (!(*(s16 *)((s8 *)arg0 + 0x374) & 0x10)) {
             play_sound_effect((s32)(((s32)remap_area_sound_id((s32)(0x3AE10), (s32)(5)))), (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
             ((TObjEnemy *)arg0)->distribute_experience();
-            set_flag_and_notify__10TObjPlayerFPv(arg0);
+            ((TObjPlayer *)arg0)->set_flag_and_notify();
         }
         *(s16 *)((s8 *)arg0 + 0x380) = 0;
     }
@@ -665,7 +664,7 @@ void enter_state_4__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x2D4));
         if ((temp_r3 != 0) && !(xyz_distance_squared(arg0 + 0x38, temp_r3 + 0x38) < lbl_805D9F50)) {
             *(s16 *)((s8 *)arg0 + 0x374) = (s16) (*(s16 *)((s8 *)arg0 + 0x374) | 2);
-            set_flag_and_notify__10TObjPlayerFPv(arg0);
+            ((TObjPlayer *)arg0)->set_flag_and_notify();
         }
         play_sound_effect((s32)((void*)((s32)remap_area_sound_id((s32)(0x3B10F), (s32)(5)))), (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
     }

@@ -249,14 +249,14 @@ void vfunc_9__13TUnk_804B9870Fv();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
 void register_attack__5TItemFv();
-void try_pick_up_item__5TItemFPvi();
+void try_pick_up_item__5TItemFl();
 void TItem__sub_801005E0();
 void vfunc_17__5TItemFv();
 void set_attach_slot__14TItemEquipBaseFSc();
 void equip__14TItemEquipBaseFv();
 void unequip__14TItemEquipBaseFv();
-void add_equip_stats__14TItemEquipBaseFPvi();
-void remove_equip_stats__14TItemEquipBaseFPvi();
+void add_equip_stats__14TItemEquipBaseFl();
+void remove_equip_stats__14TItemEquipBaseFl();
 void subtract_item_stat_bonus__14TItemEquipBaseFllPs();
 void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
 void vfunc_26__5TItemFv();
@@ -295,7 +295,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
-    (void *)try_pick_up_item__5TItemFPvi,
+    (void *)try_pick_up_item__5TItemFl,
     (void *)vfunc_14__12TItemProUnitFv,
     (void *)TItem__sub_801005E0,
     (void *)vfunc_16__12TItemProUnitFv,
@@ -304,8 +304,8 @@ void *__vt__12TItemProUnit[51] = {
     (void *)set_attach_slot__14TItemEquipBaseFSc,
     (void *)equip__14TItemEquipBaseFv,
     (void *)unequip__14TItemEquipBaseFv,
-    (void *)add_equip_stats__14TItemEquipBaseFPvi,
-    (void *)remove_equip_stats__14TItemEquipBaseFPvi,
+    (void *)add_equip_stats__14TItemEquipBaseFl,
+    (void *)remove_equip_stats__14TItemEquipBaseFl,
     (void *)subtract_item_stat_bonus__14TItemEquipBaseFllPs,
     (void *)subtract_equip_stats__14TItemEquipBaseFlPUcPUc,
     (void *)vfunc_26__5TItemFv,

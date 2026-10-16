@@ -33,6 +33,7 @@ struct TObjEneBm3Fly {
     static void release_shared_data();
     void *create(void *arg1, void *arg2, void *arg3, void *arg4);
     static void load_resources();
+    void play_pitched_cue();
 };
 
 typedef char TObjEneBm3Fly_facing_angle_offset[(offsetof(TObjEneBm3Fly, facing_angle) == 0x60) ? 1 : -1];

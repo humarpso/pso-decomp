@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/misc/TWindowTimer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
@@ -319,12 +321,11 @@ extern char lbl_8044610C[];
 extern char lbl_80446124[];
 extern s32 lobby_gvm_texture_handles[];
 extern Pair_80198F14 gogo_ball_team_scores[];
-void load_lobby_textures__9TLanguageFv(void);
 }
 
 extern "C" {
 
-void load_lobby_textures__9TLanguageFv(void) {
+void TLanguage::load_lobby_textures() {
     Pair_80198F14 *p = gogo_ball_team_scores;
     Cfg_80198F14 *c = &gogo_ball_sync_state;
     void *obj;
@@ -400,12 +401,10 @@ struct Col_801994DC { f32 r, g, b, a; };
 struct Ang_801994DC { s32 x, y, z; };
 
 extern "C" {
-void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804B8E00[];
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1);
 void handle_6x79_gogo_ball(u8 *arg0);
-void clear_status_flags__12TWindowTimerFv(void);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 rotate_matrix_y(int, s32);
 s32 rotate_matrix_z(int, int);
@@ -427,7 +426,7 @@ void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804B8E00[];
 
-void clear_status_flags__12TWindowTimerFv(void) {
+void TWindowTimer::clear_status_flags() {
     (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~1;
     (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~2;
     (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~0x10;
@@ -441,7 +440,6 @@ extern "C" {
 f32 fabs_float(f32);
 u8 *TWindowTimer__sub_8019886C(void *, void *, s32, s32, s32, void *);
 u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4);
-void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
@@ -556,7 +554,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
         } else if (idx < 0) {
             idx = 0;
         }
-        copy_state__12TWindowTimerFPvPv(gogo_ball_configuration, ((E54_801990B4 *)lbl_804B8A10)[idx].b);
+        ((TWindowTimer *)gogo_ball_configuration)->copy_state(((E54_801990B4 *)lbl_804B8A10)[idx].b);
         if ((o = __nw__7TObjectFUl(0x3A4)) != NULL) {
             ((u8 *(*)(void *, void *))TWindowTimer__sub_8019A574)(o, tl_03);
         }
@@ -579,25 +577,25 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
 }
 
 extern "C" {
-void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1) {
-    *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
-    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
-    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
-    *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
-    *(f32 *)((s8 *)arg0 + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
-    *(s16 *)((s8 *)arg0 + 0x14) = (s16) *(s16 *)((s8 *)arg1 + 0x14);
-    *(u8 *)((s8 *)arg0 + 0x16) = (u8) *(u8 *)((s8 *)arg1 + 0x16);
-    *(u8 *)((s8 *)arg0 + 0x17) = (u8) *(u8 *)((s8 *)arg1 + 0x17);
-    *(u8 *)((s8 *)arg0 + 0x18) = (u8) *(u8 *)((s8 *)arg1 + 0x18);
-    *(u8 *)((s8 *)arg0 + 0x19) = (u8) *(u8 *)((s8 *)arg1 + 0x19);
-    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
-    *(ByteBlock_C *)((s32) arg0 + 0x20) = *(const ByteBlock_C *)((s32) arg1 + 0x20);
-    *(ByteBlock_C *)((s32) arg0 + 0x2C) = *(const ByteBlock_C *)((s32) arg1 + 0x2C);
-    *(ByteBlock_C *)((s32) arg0 + 0x38) = *(const ByteBlock_C *)((s32) arg1 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg1 + 0x44);
-    *(u16 *)((s8 *)arg0 + 0x48) = (u16) *(u16 *)((s8 *)arg1 + 0x48);
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg1 + 0x4C);
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)arg1 + 0x50);
+void TWindowTimer::copy_state(u8 *arg1) {
+    *(f32 *)((s8 *)((u8 *)this) + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)((u8 *)this) + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)((u8 *)this) + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(f32 *)((s8 *)((u8 *)this) + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+    *(f32 *)((s8 *)((u8 *)this) + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    *(s16 *)((s8 *)((u8 *)this) + 0x14) = (s16) *(s16 *)((s8 *)arg1 + 0x14);
+    *(u8 *)((s8 *)((u8 *)this) + 0x16) = (u8) *(u8 *)((s8 *)arg1 + 0x16);
+    *(u8 *)((s8 *)((u8 *)this) + 0x17) = (u8) *(u8 *)((s8 *)arg1 + 0x17);
+    *(u8 *)((s8 *)((u8 *)this) + 0x18) = (u8) *(u8 *)((s8 *)arg1 + 0x18);
+    *(u8 *)((s8 *)((u8 *)this) + 0x19) = (u8) *(u8 *)((s8 *)arg1 + 0x19);
+    *(f32 *)((s8 *)((u8 *)this) + 0x1C) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
+    *(ByteBlock_C *)((s32) ((u8 *)this) + 0x20) = *(const ByteBlock_C *)((s32) arg1 + 0x20);
+    *(ByteBlock_C *)((s32) ((u8 *)this) + 0x2C) = *(const ByteBlock_C *)((s32) arg1 + 0x2C);
+    *(ByteBlock_C *)((s32) ((u8 *)this) + 0x38) = *(const ByteBlock_C *)((s32) arg1 + 0x38);
+    *(f32 *)((s8 *)((u8 *)this) + 0x44) = (f32) *(f32 *)((s8 *)arg1 + 0x44);
+    *(u16 *)((s8 *)((u8 *)this) + 0x48) = (u16) *(u16 *)((s8 *)arg1 + 0x48);
+    *(f32 *)((s8 *)((u8 *)this) + 0x4C) = (f32) *(f32 *)((s8 *)arg1 + 0x4C);
+    *(f32 *)((s8 *)((u8 *)this) + 0x50) = (f32) *(f32 *)((s8 *)arg1 + 0x50);
 }
 
 void *TUnk_804B8E00::dt(s16 arg1) {

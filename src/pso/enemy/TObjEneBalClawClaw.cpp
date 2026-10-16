@@ -124,7 +124,6 @@ extern "C" {
 void obj_clearFlags30(void *, u32);
 void sub_80090798__18TObjEneBalClawClawFv(u8 *arg0);
 void obj_setFlags30(void *, u32);
-void set_claw_flags__18TObjEneBalClawClawFPv(u8 *arg0);
 int reset_active_state__18TObjEneBalClawClawFPv(void* p);
 void run_active_state__18TObjEneBalClawClawFPv(u8 *arg0);
 void apply_actor_gravity(void *, int, f32);
@@ -224,10 +223,10 @@ void TObjEneBalClawClaw::sub_80090798() {
     *(s32 *)((s8 *)((u8 *)this) + 0x374) = 0xB;
 }
 
-void set_claw_flags__18TObjEneBalClawClawFPv(u8 *arg0) {
-    obj_setFlags30(arg0, 0x04040000U);
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xDFFFFFFF);
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x10000000);
+void TObjEneBalClawClaw::set_claw_flags() {
+    obj_setFlags30(((u8 *)this), 0x04040000U);
+    *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) & 0xDFFFFFFF);
+    *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) | 0x10000000);
 }
 
 void TObjEneBalClawClaw__sub_80090824(void) {  }
@@ -353,19 +352,16 @@ struct Obj_80090A70 {
 
 extern "C" {
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
-void enter_hit_state__18TObjEneBalClawClawFPvs(u8 *arg0, s16 arg1);
 f32 update_enemy_wander_move(void *, Vec_80090A70 *, s32, Sub_80090A70 *, f32);
 void select_enemy_destination(void *, Vec_80090A70 *, s32);
 void enemy_turn_half_toward_dest(void *);
 void clear_attack_flag__14TObjEneBalClawFv(void *);
-void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
 Ent_80090A70 *get_enemy_entity(u16);
 void update_follow_parent__18TObjEneBalClawClawFPv(Obj_80090A70 *arg0);
 }
 
 extern "C" {
 
-s32 check_active__18TObjEneBalClawClawFPv(void *arg0);
 void render__18TObjEneBalClawClawFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
@@ -379,26 +375,26 @@ s32 pop_matrix();
 s32 set_global_param__8TObjFishFl(s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 
-void clear_flag__18TObjEneBalClawClawFPv(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xDFFFFFFF);
+void TObjEneBalClawClaw::clear_flag() {
+    *(s32 *)((s8 *)this + 0x388) = (s32) (*(s32 *)((s8 *)this + 0x388) & 0xDFFFFFFF);
     reset_active_state__18TObjEneBalClawClawFPv();
 }
 
-void enter_hit_state__18TObjEneBalClawClawFPvs(u8 *arg0, s16 arg1) {
-    *(s16 *)((s8 *)arg0 + 0x3C6) = arg1;
-    *(s16 *)((s8 *)arg0 + 0x338) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x20000000);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
-    *(f32 *)((s8 *)arg0 + 0x3C0) = (f32) (1e+05f);
-    update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (0xA));
-    ((TObjEnemyCustom *)(arg0))->clear_all_status_effects();
+void TObjEneBalClawClaw::enter_hit_state(s16 arg1) {
+    *(s16 *)((s8 *)((u8 *)this) + 0x3C6) = arg1;
+    *(s16 *)((s8 *)((u8 *)this) + 0x338) = arg1;
+    *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) | 0x20000000);
+    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFBFFFF);
+    *(f32 *)((s8 *)((u8 *)this) + 0x3C0) = (f32) (1e+05f);
+    update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), (int) (0xA));
+    ((TObjEnemyCustom *)(((u8 *)this)))->clear_all_status_effects();
 }
 
-s32 check_active__18TObjEneBalClawClawFPv(void *arg0) {
-    if (*(s32 *)((s8 *)arg0 + 0x30) & 0xA00) {
+s32 TObjEneBalClawClaw::check_active() {
+    if (*(s32 *)((s8 *)this + 0x30) & 0xA00) {
         return 0;
     }
-    return (u32) __cntlzw(*(s32 *)((s8 *)arg0 + 0x388) & 0x10000000) >> 5;
+    return (u32) __cntlzw(*(s32 *)((s8 *)this + 0x388) & 0x10000000) >> 5;
 }
 
 extern s32 model_render_flags;
@@ -415,7 +411,7 @@ void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
 void update_follow_parent__18TObjEneBalClawClawFPv(Obj_80090A70 *arg0) {
     Ent_80090A70 *e = get_enemy_entity(arg0->f3C6);
     if (e == NULL || (e->flags & 0x800)) {
-        clear_flag__18TObjEneBalClawClawFPv(arg0);
+        ((TObjEneBalClawClaw *)arg0)->clear_flag();
         return;
     }
     switch (arg0->state) {

@@ -112,6 +112,8 @@ struct TItemWeapon : WeaponObjectPrefix {
     s32 get_attack_stage();
     u32 get_attack_flags();
     void update_trails();
+    s32 launch_shot(u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
+    void deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
 };
 
 struct WeaponMarkerPacket { s8 kind,variant; u8 pad[2]; WeaponPlayerPrefix* player; s32 unobserved[3]; };

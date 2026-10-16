@@ -97,7 +97,6 @@ struct P_801FDFB8 { u8 pad[0x41C]; u8 a[0x39A8 - 0x41C]; B8_801FDFB8 f278C; s32 
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
-s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 __dl__FPv(s32);
 extern int card_character_save_buffer;
@@ -109,17 +108,13 @@ void init__9TItemDataFv(void *);
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void __construct_array(void *, void *, void *, int, int);
-s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
-u8 *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void __construct_array(void *, void *, void *, int, int);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
 Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
-u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1);
 void copy_player_data__9TProtocolFPvPv();
-u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1);
 void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1);
 }
 
@@ -128,11 +123,10 @@ extern "C" {
 u8 TAdSinglePlyChrSelectGC__sub_80202B30(void* p);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p);
-s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 int __ct__12TPlyCharDataFv(void*);
 s32 __dl__FPv(s32);
 s32 __dt__12TPlyCharDataFv(s32, s32);
-int copy_item_data__6TLobbyFPvPv(void*);
+int copy_item_data__6TLobbyFPv(void*);
 int init_guild_card_tag__17TWindowSubComCardFi(void*);
 
 extern s32 selected_character_data;
@@ -143,7 +137,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
 
 s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        __destroy_arr(arg0 + 4, (s32 *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39b4, 7);
+        __destroy_arr(arg0 + 4, (s32 *)TAdSinglePlyChrSelectGC::free_chardata, 0x39b4, 7);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -151,7 +145,7 @@ s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
+s32 TAdSinglePlyChrSelectGC::free_chardata(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0, -1);
         if (arg1 > 0) {
@@ -262,7 +256,7 @@ Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg
 #define arg1 ((P_801FDFB8 *)a1)
 void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1) {
     copy_player_data__9TProtocolFPvPv();
-    copy_character_data__23TAdSinglePlyChrSelectGCFPvPv((u8 *)((S_801FE010 *)arg0->a), (u8 *)((S_801FE010 *)arg1->a));
+    ((TAdSinglePlyChrSelectGC *)((S_801FE010 *)arg0->a))->copy_character_data((u8 *)((S_801FE010 *)arg1->a));
     arg0->f278C = arg1->f278C;
     arg0->f2794 = arg1->f2794;
     return a0;
@@ -270,8 +264,8 @@ void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1) {
 #undef arg0
 #undef arg1
 
-u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1) {
-    S_80202DD4 *d = (S_80202DD4 *)arg0;
+u8 *TAdSinglePlyChrSelectGC::copy_character_data(u8 *arg1) {
+    S_80202DD4 *d = (S_80202DD4 *)((u8 *)this);
     S_80202DD4 *s = (S_80202DD4 *)arg1;
     Elem_80202DD4 *p;
     Elem_80202DD4 *q;
@@ -309,14 +303,14 @@ u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1) {
     d->b12B4 = s->b12B4;
     d->b1374 = s->b1374;
     d->b1390 = s->b1390;
-    return arg0;
+    return ((u8 *)this);
 }
 
-void*TAdSinglePlyChrSelectGC::copy_item_data(void* a1) { copy_item_data__6TLobbyFPvPv(this); *(short *)&this->m_down = *(short*)((char*)a1 + 0x14); *(short*)((char*)this + 0x16) = *(short*)((char*)a1 + 0x16); return this; }
+void*TAdSinglePlyChrSelectGC::copy_item_data(void* a1) { copy_item_data__6TLobbyFPv(this); *(short *)&this->m_down = *(short*)((char*)a1 + 0x14); *(short*)((char*)this + 0x16) = *(short*)((char*)a1 + 0x16); return this; }
 
-u8 *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
-    __construct_array(arg0 + 4, (void *)TAdSinglePlyChrSelectGC__sub_80203158, (void *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39B4, 7);
-    return arg0;
+u8 *TAdSinglePlyChrSelectGC::construct_chardata_array() {
+    __construct_array(((u8 *)this) + 4, (void *)TAdSinglePlyChrSelectGC__sub_80203158, (void *)TAdSinglePlyChrSelectGC::free_chardata, 0x39B4, 7);
+    return ((u8 *)this);
 }
 
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p) { __ct__12TPlyCharDataFv(p); TAdSinglePlyChrSelectGC__sub_80203190((u8 *)((void*)((char*)p + 0x41c))); return p; }

@@ -21,7 +21,7 @@ u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 is_player_input_active(int);
-s32 complete_reveal__14TWindowMessageFPv(void *);
+s32 complete_reveal__14TWindowMessageFv(void *);
 s32 draw__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
 }
@@ -95,7 +95,7 @@ void TWindowMessagePage::run_task() {
             update_message();
             return;
         }
-        complete_reveal__14TWindowMessageFPv((void *) (arg0));
+        complete_reveal__14TWindowMessageFv((void *) (arg0));
     }
 }
 

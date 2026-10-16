@@ -7,8 +7,8 @@ extern "C" {
 
 void *TObjQuestColA__ct(void *arg0);
 s32 enable_action_input__10TObjPlayerFPv(s32);
-s32 disable_primary_action_input__10TObjPlayerFPv(s32);
-s32 is_quest_interaction_blocked__10TObjPlayerFPv(s32);
+s32 disable_primary_action_input__10TObjPlayerFv(s32);
+s32 is_quest_interaction_blocked__10TObjPlayerFv(s32);
 void TObjQuestColBase__ct(void *);
 s32 get_player_by_client_id(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
@@ -31,19 +31,19 @@ int TObjQuestColA::vfunc_15() {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
-        if (is_quest_interaction_blocked__10TObjPlayerFPv(temp_r3) != 0) {
+        if (is_quest_interaction_blocked__10TObjPlayerFv(temp_r3) != 0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
         temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)((s8 *)this + 0xAC));
         if (temp_r3_2 == 1) {
-            disable_primary_action_input__10TObjPlayerFPv(temp_r3);
+            disable_primary_action_input__10TObjPlayerFv(temp_r3);
         }
         if (temp_r3_2 == 3) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
         }
         if (temp_r3_2 == 0) {
-            disable_primary_action_input__10TObjPlayerFPv(temp_r3);
+            disable_primary_action_input__10TObjPlayerFv(temp_r3);
             if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0) {
                 return 1;
             }

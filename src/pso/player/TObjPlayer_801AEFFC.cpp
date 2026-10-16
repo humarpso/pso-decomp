@@ -5,9 +5,7 @@ extern "C" {
 int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 obj_getField1c(void *);
 s32 init_pad_binding(void *, void *, int);
-void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0);
 s32 get_character_save_record(u32);
-s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -21,16 +19,14 @@ s32 emit_idle_water_effect(s32);
 s32 has_water_ground_flag(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
-void stop_force_if_alive__10TObjPlayerFPv(void* p);
-void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 
-s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0) {
-    return *(s32 *)((s8 *)(get_character_save_record((u32) ((u16)obj_getField1c(arg0)))) + 0x244);
+s32 TObjPlayer::get_card_window_field_244() {
+    return *(s32 *)((s8 *)(get_character_save_record((u32) ((u16)obj_getField1c(((u8 *)this))))) + 0x244);
 }
 
-void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0) {
-    if (((s32)is_locally_controlled__10TObjPlayerFPv((void*)(arg0))) != 0) {
-        init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) *(s32 *)((s8 *)arg0 + 0x3D0)));
+void TObjPlayer::init_local_pad_binding() {
+    if (((s32)is_locally_controlled__10TObjPlayerFPv((void*)(((u8 *)this)))) != 0) {
+        init_pad_binding((void *) (((u8 *)this) + 0x550), (void *) (obj_getField1c((void *) (((u8 *)this)))), (int) ((s16) *(s32 *)((s8 *)((u8 *)this) + 0x3D0)));
     }
 }
 
@@ -40,8 +36,8 @@ void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0) {
 
 extern "C" {
 
-void stop_force_if_alive__10TObjPlayerFPv(void* p) { if (is_locally_controlled__10TObjPlayerFPv(p) != 0) { TObjPlayer__sub_801BEF60((char*)p + 0x550, (void*)0); } }
-void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p) { if (test_flag_2000000__10TObjPlayerFPv(p) == 0) { ((TObjPlayer *)((char*)p + 0x384))->prepare_heavy_attack_particles_default(); } }
+void TObjPlayer::stop_force_if_alive() { if (is_locally_controlled__10TObjPlayerFPv(this) != 0) { TObjPlayer__sub_801BEF60((char*)this + 0x550, (void*)0); } }
+void TObjPlayer::update_battle_control_if_unlocked() { if (test_flag_2000000__10TObjPlayerFPv(this) == 0) { ((TObjPlayer *)((char*)this + 0x384))->prepare_heavy_attack_particles_default(); } }
 
 }
 

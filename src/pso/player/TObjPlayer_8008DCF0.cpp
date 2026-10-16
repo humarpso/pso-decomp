@@ -199,7 +199,7 @@ s16 obj_getS16_32C();
 s32 obj_setFlags30(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-void enable__13TParticleCtrlFPv(u32);
+void enable__13TParticleCtrlFv(u32);
 s32 reset_enemy_state__10TObjPlayerFv();
 T_8008F1DC *find_active_entity_by_id(u16);
 f32 xz_distance_squared(void *, void *);
@@ -436,9 +436,9 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
                 FLD(s16, 0xB8) = 7;
                 o->state = 2;
                 o->p3E4 = spawn_particle_effect_with_rotation(&o->pos, &o->f3F8, 0x12B, 2);
-                enable__13TParticleCtrlFPv(o->p3E4);
+                enable__13TParticleCtrlFv(o->p3E4);
                 o->p3E8 = spawn_particle_effect_with_rotation(&o->pos, &o->f3F8, 0x12C, 2);
-                enable__13TParticleCtrlFPv(o->p3E8);
+                enable__13TParticleCtrlFv(o->p3E8);
             }
         }
         break;
@@ -456,13 +456,13 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
             ((TNowLoading *)(o->p3E4))->copy_pos(o->f3EC);
             ((TBoss4Type2 *)(o->p3E4))->copy_vec3(&o->f3F8);
         } else {
-            enable__13TParticleCtrlFPv(o->p3E4);
+            enable__13TParticleCtrlFv(o->p3E4);
         }
         if (FLD(f32, 0xC0) >= lbl_805D9660 && FLD(f32, 0xC0) < lbl_805D965C) {
             ((TNowLoading *)(o->p3E8))->copy_pos(o->f3EC);
             ((TBoss4Type2 *)(o->p3E8))->copy_vec3(&o->f3F8);
         } else {
-            enable__13TParticleCtrlFPv(o->p3E8);
+            enable__13TParticleCtrlFv(o->p3E8);
         }
         o->vel.y = lbl_805D9620;
         calc_velocity_toward_destination(o, o->pos, FLD(T_8008F1DC *, 0x2A8)->pos, lbl_805D9648);

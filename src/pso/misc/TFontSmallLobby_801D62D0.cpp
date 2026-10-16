@@ -178,7 +178,6 @@ void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
 void clear_player_sub_object_slots(Obj_801D6A18 *p);
 s32 __construct_array(void *, void *, int, int, int);
 extern s32 fn_80152EF8[];
-s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0);
 }
 
 extern "C" {
@@ -196,7 +195,8 @@ int clear_flags__11TAdRicoRingFUl(void*, int);
 int read_be16_field2__10TObjPlayerFv(void*);
 int set_flags__10TObjPlayerFUl(void*, int);
 
-s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0) {
+s32 TFontSmallLobby::construct_pb_controller() {
+    s32 arg0 = (s32)this;
     __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), (int) (0), (int) (4), (int) (0xA));
     ((TObjPlayer *)(arg0 + 0x40))->init_forward();
     ((TFontSmallLobby *)(arg0 + 0x4C))->init_reset_fields();

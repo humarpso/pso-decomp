@@ -2113,7 +2113,7 @@ void scroll_strips__11TBoss4Type2Fv(void *);
 Ply_80059ABC * get_player_by_client_id(u16);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
-void draw_motion_trail__11TBoss4Type3FPviiii(void *, s32, s32, void *, s32);
+void draw_motion_trail__11TBoss4Type3Fllll(void *, s32, s32, void *, s32);
 u8 * lookup_entry_by_value__10TObjPlayerFPvf(s32);
 s32 push_matrix();
 s32 set_matrix_identity(int);
@@ -2202,7 +2202,7 @@ void TBoss4Type3::run_task() {
         p = (void *)Type3Tick::init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lim, lim, lbl_805D8CAC);
     }
     Type3Tick::set_global_flag__10TObjPlayerFv();
-    Type3Tick::draw_motion_trail__11TBoss4Type3FPviiii(p, Type3Tick::get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
+    Type3Tick::draw_motion_trail__11TBoss4Type3Fllll(p, Type3Tick::get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
         Type3Tick::get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].motions[0]),
         boss4_type3_run_task_params, 0);
     Type3Tick::clear_global_state__10TObjPlayerFv();

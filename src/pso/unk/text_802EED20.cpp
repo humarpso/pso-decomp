@@ -29,7 +29,7 @@ typedef struct Laser_80037074 {
 
 extern "C" {
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
-void enable__13TParticleCtrlFPv(void *);
+void enable__13TParticleCtrlFv(void *);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ void TUnk_804E4788::run_task() {
     if (self->ptcl == NULL) {
         self->ptcl = spawn_continuous_particle_effect_with_flags(self->pts, self->unk118, 0x40);
         if (self->ptcl != NULL) {
-            enable__13TParticleCtrlFPv(self->ptcl);
+            enable__13TParticleCtrlFv(self->ptcl);
         }
     } else {
         switch (self->state) {
@@ -50,7 +50,7 @@ void TUnk_804E4788::run_task() {
                 self->state = 1;
                 self->cur = 0;
             }
-            enable__13TParticleCtrlFPv(self->ptcl);
+            enable__13TParticleCtrlFv(self->ptcl);
             break;
         case 1:
             ((TNowLoading *)(self->ptcl))->copy_pos(&self->pts[self->cur]);
@@ -63,7 +63,7 @@ void TUnk_804E4788::run_task() {
             }
             break;
         case 2:
-            enable__13TParticleCtrlFPv(self->ptcl);
+            enable__13TParticleCtrlFv(self->ptcl);
             break;
         }
     }

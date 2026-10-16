@@ -16,7 +16,7 @@ s32 get_com_card_list__6TLobbyFPv(void *);
 void TWindowSubStatusDisp__sub_80228F5C(int);
 void text_builder_reset();
 void refresh_status_display__9TWindowDDFv(void *);
-s32 get_kbd_ptr__14TWindowComCardFPv(void *);
+s32 get_kbd_ptr__14TWindowComCardFv(void *);
 s8 TWindowComCard__sub_80249C18(void *);
 s8 TWindowComCard__sub_80249C20(void *);
 s32 get_class_name_text(int);
@@ -76,7 +76,7 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     } else {
         t4->flags |= 2;
     }
-    set_text_entry_string(t14, (void *)get_kbd_ptr__14TWindowComCardFPv(arg1), 0x220);
+    set_text_entry_string(t14, (void *)get_kbd_ptr__14TWindowComCardFv(arg1), 0x220);
 }
 
 }

@@ -83,7 +83,7 @@ u8 get_key_state__16TKeyBoardControlFPv(s32 *);
 extern s32 TKeyBoardControl__global_key_state[];
 extern s32 current_language;
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
-u8 get_key_state_2__16TKeyBoardControlFPv(void *);
+u8 get_key_state_2__16TKeyBoardControlFv(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
 s32 TKeyBoardControl__sub_801A58B0(void);
 extern s32 TKeyBoardControl__global_key_state[];
@@ -94,7 +94,7 @@ extern "C" {
 s32 TKeyBoardControl__sub_8025CBC0(u32);
 s32 TKeyBoardControl__sub_8025CBCC(u32);
 s32 TKeyBoardControl__sub_8025CC04(u32);
-s32 insert_character__19TWindowKeyBoardBaseFPvUs(s32, u16);
+s32 insert_character__19TWindowKeyBoardBaseFUs(s32, u16);
 s32 fn_8025FF8C(void *);
 u8 get_key_state__16TKeyBoardControlFPv(s32 *);
 s32 set_input_mode__20TWindowSubStatusDispFUc(s32, s32);
@@ -123,7 +123,7 @@ s32 TKeyBoardControl::has_non_modifier_key() {
     if (TKeyBoardControl__sub_801A58B0() != 0) {
         return 0;
     }
-    n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
+    n = get_key_state_2__16TKeyBoardControlFv(TKeyBoardControl__global_key_state);
     for (i = 0; i < n; i++) {
         c = TKeyBoardControl__sub_8013239C(TKeyBoardControl__global_key_state, i);
         if (c != 0x61 && c != 0x4C && c != 0x50 && c != 0x5E && c != 0x5D && c != 0x5C && c != 0x5F) {
@@ -503,7 +503,7 @@ block_7:
             sp8 -= 0x20;
         }
         set_input_mode__20TWindowSubStatusDispFUc(*(s32 *)((s8 *)this + 0x70), temp_r31);
-        insert_character__19TWindowKeyBoardBaseFPvUs(*(s32 *)((s8 *)this + 0x70), sp8);
+        insert_character__19TWindowKeyBoardBaseFUs(*(s32 *)((s8 *)this + 0x70), sp8);
     }
 }
 
@@ -512,7 +512,7 @@ void TWindowKeyBoardHard::process_all_key_states() {
     s32 i;
     s32 n;
     if (!(c->f60 & 2)) {
-        n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
+        n = get_key_state_2__16TKeyBoardControlFv(TKeyBoardControl__global_key_state);
         for (i = 0; i < n; i++) {
             process_key_input(TKeyBoardControl__sub_8013239C(TKeyBoardControl__global_key_state, i));
         }

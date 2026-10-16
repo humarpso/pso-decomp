@@ -12,6 +12,7 @@ struct TOMineDisp : public TUnk_804B9870 {
     u32 m_a4;
     u16 m_a8;
     u8 unk_AA[0x2];
+    void draw();
 };
 
 typedef char TOMineDisp_size[sizeof(TOMineDisp) == 0xAC ? 1 : -1];

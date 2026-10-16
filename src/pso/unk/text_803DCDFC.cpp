@@ -14,6 +14,9 @@ extern "C" void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, G
 
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TMovie.h"
 
 
 
@@ -97,7 +100,6 @@ void func_803DCDFC__Fv(void);
 void fn_803DCEC8(void);
 void fn_803DCF0C(void);
 void present_frame_and_wait_vsync(void);
-void run_callback__6TMovieFv(void);
 void init_locked_cache_heap(u8 *arg0);
 void set_present_interval(s32 *arg0, s32 arg1);
 void init_gx_display(void);
@@ -163,7 +165,7 @@ void present_frame_and_wait_vsync(void) {
 #define video_current_framebuffer (*(s32 *)&video_current_framebuffer)
 #define video_initial_draw_framebuffer (*(s32 *)&video_initial_draw_framebuffer)
 #define video_initial_display_framebuffer (*(s32 *)&video_initial_display_framebuffer)
-void run_callback__6TMovieFv(void) {
+void TMovie::run_callback() {
     if (((s32 (*)()) frame_update_callback) != NULL) {
         frame_update_callback();
     }
@@ -305,16 +307,14 @@ extern s32 motion_node_draw_callback;
 extern f32 lbl_805D777C;
 extern s32 model_render_flags;
 
-void update_camera__16TKeyBoardControlFv(void);
-s32 init_projection_state__11TCameraCtrlFv();
 
 
-void update_camera__16TKeyBoardControlFv(void) {
-    init_projection_state__11TCameraCtrlFv();
+void TKeyBoardControl::update_camera() {
+    TCameraCtrl::init_projection_state();
 }
 
 
-s32 init_projection_state__11TCameraCtrlFv() {
+s32 TCameraCtrl::init_projection_state() {
     s32 i;
     Cam_803DD300 *c = &lbl_8058D4F8;
 
@@ -405,11 +405,10 @@ s32 fn_803DD3DC(Fmt_803DD3DC *arg0) {
 extern "C" {
 
 
-void set_key_state__16TKeyBoardControlFi(s32 arg0);
 
 
 
-void set_key_state__16TKeyBoardControlFi(s32 arg0) {
+void TKeyBoardControl::set_key_state(s32 arg0) {
     *(s32 *)&frame_update_callback = arg0;
 }
 

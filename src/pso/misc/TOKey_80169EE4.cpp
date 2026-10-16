@@ -58,7 +58,7 @@ void __dl__7TObjectFPv(void *);
 s32 bswap_6x05_switch_flag__5TOKeyFv();
 s32 update_object_view_visibility__13TUnk_804B9870Fff();
 void init_map_object_base(void *);
-s32 start_camera_pan__10TObjPlayerFPvs(s32, s32, s32);
+s32 start_camera_pan__10TObjPlayerFs(s32, s32, s32);
 
 extern s32 lbl_804B27D8[];
 
@@ -151,7 +151,7 @@ void TOKey::vfunc_13(s32 arg1) {
     if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1))) {
         temp_r3 = get_player_by_client_id((u16)((u16)arg1));
         if (temp_r3 != 0) {
-            start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, ((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to(arg0 + 0x38));
+            start_camera_pan__10TObjPlayerFs(temp_r3, 0xC, ((TObjPlayer *)(temp_r3 + 0x38))->calc_angle_to(arg0 + 0x38));
             *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)arg0 + 0xD8);
             *(s32 *)((s8 *)arg0 + 0xE0) = 1;
         }

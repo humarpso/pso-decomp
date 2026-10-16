@@ -8,7 +8,6 @@ struct T_802D2240 { s32 a; s32 b; };
 
 extern "C" {
 void TLobby__sub_802D22F0(void* p, void* q);
-void remove_trade_entry__6TLobbyFPvUi(E_802D2240 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -25,16 +24,16 @@ s32 TWindowSubTradeMain::get_state() {
     }
     return 0;
 }
-void remove_trade_entry__6TLobbyFPvUi(E_802D2240 *arg0, u32 arg1) {
+void TLobby::remove_trade_entry(u32 arg1) {
     E_802D2240 *p;
     s32 i;
     if ((u32)(arg1 + 0x10000) == 0xFF01) {
-        T_802D2240 *t = (T_802D2240 *)((void *)((TLobby *)arg0)->get_trade_obj_ptr());
+        T_802D2240 *t = (T_802D2240 *)((void *)((TLobby *)((E_802D2240 *)this))->get_trade_obj_ptr());
         t->b = 0;
         return;
     }
     {
-    p = arg0;
+    p = ((E_802D2240 *)this);
     for (i = 0; i < 0x1F; i++, p++) {
         if (arg1 == p->id) {
             break;

@@ -1,10 +1,11 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 
 extern void *TWindowCtrl__active_window;
 
-void set_flag_bit2__11TWindowCtrlFv(void) {
+void TWindowCtrl::set_flag_bit2() {
     if ((void *) TWindowCtrl__active_window != NULL) {
         *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) | 4);
     }
@@ -12,7 +13,7 @@ void set_flag_bit2__11TWindowCtrlFv(void) {
 
 extern void *TWindowCtrl__active_window;
 
-void clear_flag_bit2__11TWindowCtrlFv(void) {
+void TWindowCtrl::clear_flag_bit2() {
     if ((void *) TWindowCtrl__active_window != NULL) {
         *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) & 0xFFFFFFFB);
     }

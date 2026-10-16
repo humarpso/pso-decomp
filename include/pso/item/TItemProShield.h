@@ -30,7 +30,9 @@ struct TItemProShield : public TItemEquipBase {
     void deactivate_shield_effect(s32 arg1);
     u8 *create_instance();
     static void free();
-    static void load_data();};
+    static void load_data();
+    static void set_params(s32 arg0, void *arg1);
+};
 
 typedef char TItemProShield_size[sizeof(TItemProShield) == 0x1A0 ? 1 : -1];
 #endif

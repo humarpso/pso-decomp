@@ -30,7 +30,7 @@ extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
 extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
 extern u32 game_mode_scene_instance;
 void set_active_camera_pose(Vec_8023F22C *, Vec_8023F22C *);
-void select_active_controller__11TCameraCtrlFc(s32);
+void select_active_controller__11TCameraCtrlFSc(s32);
 void TCameraCtrl__ct(void *, void *);
 void reset_keyboard_state__6TLobbyFv(void);
 s32 is_area_transfer_pending(void);
@@ -120,7 +120,7 @@ void init_game_mode_select_scene(void) {
     {
         Vec_8023F22C eye = lbl_8044DCE8;
         Vec_8023F22C at = lbl_8044DCF4;
-        select_active_controller__11TCameraCtrlFc(9);
+        select_active_controller__11TCameraCtrlFSc(9);
         set_active_camera_pose(&eye, &at);
     }
     TParticleCtrl::create_quad_sprites();

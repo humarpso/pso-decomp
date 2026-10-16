@@ -23,7 +23,7 @@ struct Mag_8025373C {
 extern "C" {
 void deserialize_mag__9TItemDataFPvPv(s32, Mag_8025373C *);
 Entry_8025373C *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void update_mag_status_gauges__9TItemDataFPv(void *);
+void update_mag_status_gauges__9TItemDataFv(void *);
 s32 TWindowHelpItem__sub_80255DDC(Entry_8025373C *);
 extern const f32 TWindowHelpItem__data_805DCDE4;
 s32 fn_8025373C(u8 *self);
@@ -75,7 +75,7 @@ s32 fn_8025373C(u8 *self) {
         count++;
         ((VEntry_8025373C *)bar)->m3();
     }
-    update_mag_status_gauges__9TItemDataFPv(self);
+    update_mag_status_gauges__9TItemDataFv(self);
     if (count != TWindowHelpItem__sub_80255DDC(help)) {
         ((TWindowHelpItem *)help)->set_flag4_and_field1c(count);
         ((TWindowHelpItem *)help)->set_flag0_bit2();

@@ -45,14 +45,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0);
 
 extern "C" {
 
-void open_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-void init_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-void open_char_select__22TAdMultiPlyChrSelectGCFPv(void* p);
-void close_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-void update_card_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-void update_card_confirm__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 s32 destroy_windows__14TAdGameStartGCFPv(s32);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(void *);
@@ -72,53 +65,53 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 
-void open_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
-    destroy_windows__14TAdGameStartGCFPv(*(s32 *)((s8 *)arg0 + 0x78));
-    TAdMultiPlyChrSelectGC::set_select_mode(*(s32 *)((s8 *)arg0 + 0x5C), 1);
-    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x60)))->set_index_and_close_status(1);
-    *(s32 *)((s8 *)arg0 + 0x68) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(arg0, 2);
-    *(s32 *)((s8 *)arg0 + 0x6C) = create__16TAdChrSelBSlotGCFPv(arg0);
-    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)arg0 + 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
-    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)arg0 + 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
-    *(s32 *)((s8 *)arg0 + 0x20) = 0xC;
+void TAdMultiPlyChrSelectGC::open_windows() {
+    destroy_windows__14TAdGameStartGCFPv(*(s32 *)((s8 *)this + 0x78));
+    TAdMultiPlyChrSelectGC::set_select_mode(*(s32 *)((s8 *)this + 0x5C), 1);
+    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x60)))->set_index_and_close_status(1);
+    *(s32 *)((s8 *)this + 0x68) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(this, 2);
+    *(s32 *)((s8 *)this + 0x6C) = create__16TAdChrSelBSlotGCFPv(this);
+    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
+    set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
+    *(s32 *)((s8 *)this + 0x20) = 0xC;
 }
 
-void init_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x7C));
-        *(u32 *)((s8 *)arg0 + 0x7C) = 0U;
+void TAdMultiPlyChrSelectGC::init_windows() {
+    if ((u32) *(u32 *)((s8 *)this + 0x7C) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x7C));
+        *(u32 *)((s8 *)this + 0x7C) = 0U;
     }
-    TAdMultiPlyChrSelectGC__sub_802E006C((void*)(*(s32 *)((s8 *)arg0 + 0x5C)), (void*)(2), (void*)(2));
-    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_field_4ec((s32)((void*)(2)));
-    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state(1);
-    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x60)))->set_field_100(1);
-    *(s32 *)((s8 *)arg0 + 0x50) = 1;
-    *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    open_windows__22TAdMultiPlyChrSelectGCFPv((void *)(arg0));
+    TAdMultiPlyChrSelectGC__sub_802E006C((void*)(*(s32 *)((s8 *)this + 0x5C)), (void*)(2), (void*)(2));
+    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_field_4ec((s32)((void*)(2)));
+    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state(1);
+    ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x60)))->set_field_100(1);
+    *(s32 *)((s8 *)this + 0x50) = 1;
+    *(s32 *)((s8 *)this + 0x54) = 0;
+    open_windows();
 }
 
-void open_char_select__22TAdMultiPlyChrSelectGCFPv(void* p) { ((TAdMultiPlyChrSelectGC *)(*(void**)((char*)p + 0x5c)))->set_field_4ec((s32)((void*)((void*)2))); TAdMultiPlyChrSelectGC__sub_802E006C((void*)(*(void**)((char*)p + 0x5c)), (void*)((void*)2), (void*)((void*)2)); ((TAdMultiPlyChrSelectGC *)(*(void**)((char*)p + 0x5c)))->set_state_ready(); open_windows__22TAdMultiPlyChrSelectGCFPv((void *)(p)); }
+void TAdMultiPlyChrSelectGC::open_char_select() { ((TAdMultiPlyChrSelectGC *)(*(void**)((char*)this + 0x5c)))->set_field_4ec((s32)((void*)((void*)2))); TAdMultiPlyChrSelectGC__sub_802E006C((void*)(*(void**)((char*)this + 0x5c)), (void*)((void*)2), (void*)((void*)2)); ((TAdMultiPlyChrSelectGC *)(*(void**)((char*)this + 0x5c)))->set_state_ready(); open_windows(); }
 
-void close_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x7C));
-        *(u32 *)((s8 *)arg0 + 0x7C) = 0U;
+void TAdMultiPlyChrSelectGC::close_windows() {
+    if ((u32) *(u32 *)((s8 *)this + 0x7C) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x7C));
+        *(u32 *)((s8 *)this + 0x7C) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x8C) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x8C)))->close();
-        *(u32 *)((s8 *)arg0 + 0x8C) = 0U;
+    if ((u32) *(u32 *)((s8 *)this + 0x8C) != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x8C)))->close();
+        *(u32 *)((s8 *)this + 0x8C) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x74) != 0U) {
-        queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x74));
-        *(u32 *)((s8 *)arg0 + 0x74) = 0U;
+    if ((u32) *(u32 *)((s8 *)this + 0x74) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x74));
+        *(u32 *)((s8 *)this + 0x74) = 0U;
     }
-    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x68)))->get_player_index() == 1) {
+    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
         TAdMultiPlyChrSelectGC::reset_slot_selections();
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        *(s32 *)((s8 *)this + 0x20) = 0;
         return;
     }
-    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x68)))->get_player_index() == 1) {
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
+        *(s32 *)((s8 *)this + 0x20) = 0;
     }
 }
 
@@ -158,105 +151,105 @@ void update__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     }
 }
 
-void update_card_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
+void TAdMultiPlyChrSelectGC::update_card_select() {
     s32 temp_r3;
 
-    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x68)))->get_player_index() == 1) {
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
-            TWindow__close(*(void **)((s8 *)arg0 + 0x7C));
-            *(u32 *)((s8 *)arg0 + 0x7C) = 0U;
+    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
+        if ((u32) *(u32 *)((s8 *)this + 0x7C) != 0U) {
+            TWindow__close(*(void **)((s8 *)this + 0x7C));
+            *(u32 *)((s8 *)this + 0x7C) = 0U;
         }
         TAdMultiPlyChrSelectGC::reset_slot_selections();
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        *(s32 *)((s8 *)this + 0x20) = 0;
         return;
     }
     if (TAdMultiPlyChrSelectGC__sub_802C6848(TAdMultiPlyChrSelectGC::get_clamped_cursor()) == 0) {
-        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-        *(s32 *)((s8 *)arg0 + 0x20) = 3;
+        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+        *(s32 *)((s8 *)this + 0x20) = 3;
         return;
     }
-    if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x98)))->get_card_data() != 0) {
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x7C)))->clear_transition_flag();
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x7C)))->clear_flag_and_release();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x98) != 0U) {
-            ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x98)))->close();
-            *(u32 *)((s8 *)arg0 + 0x98) = 0U;
+    if (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x98)))->get_card_data() != 0) {
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x7C)))->clear_transition_flag();
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x7C)))->clear_flag_and_release();
+        if ((u32) *(u32 *)((s8 *)this + 0x98) != 0U) {
+            ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x98)))->close();
+            *(u32 *)((s8 *)this + 0x98) = 0U;
         }
-        *(s32 *)((s8 *)arg0 + 0x20) = 5;
+        *(s32 *)((s8 *)this + 0x20) = 5;
         return;
     }
-    if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)arg0 + 0x98)))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x98)))->get_slot_or_neg1();
+    if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)this + 0x98)))->is_child_visible() != 0) {
+        temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x98)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 1:
-            ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x7C)))->clear_transition_flag();
-            ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x7C)))->clear_flag_and_release();
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x98) != 0U) {
-                ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x98)))->close();
-                *(u32 *)((s8 *)arg0 + 0x98) = 0U;
+            ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x7C)))->clear_transition_flag();
+            ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x7C)))->clear_flag_and_release();
+            if ((u32) *(u32 *)((s8 *)this + 0x98) != 0U) {
+                ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x98)))->close();
+                *(u32 *)((s8 *)this + 0x98) = 0U;
             }
-            *(s32 *)((s8 *)arg0 + 0x20) = 5;
+            *(s32 *)((s8 *)this + 0x20) = 5;
             return;
         case 0:
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x98) != 0U) {
-                ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x98)))->close();
-                *(u32 *)((s8 *)arg0 + 0x98) = 0U;
+            if ((u32) *(u32 *)((s8 *)this + 0x98) != 0U) {
+                ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x98)))->close();
+                *(u32 *)((s8 *)this + 0x98) = 0U;
             }
-            clear_slot_body__23TAdSinglePlyChrSelectGCFi(TAdMultiPlyChrSelectGC__sub_802DFFE8((s32)(*(s32 *)((s8 *)arg0 + 0x5C))) + 4);
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x68)))->set_cursor_index(0xF);
-            *(s32 *)((s8 *)arg0 + 0x20) = 8;
+            clear_slot_body__23TAdSinglePlyChrSelectGCFi(TAdMultiPlyChrSelectGC__sub_802DFFE8((s32)(*(s32 *)((s8 *)this + 0x5C))) + 4);
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->set_cursor_index(0xF);
+            *(s32 *)((s8 *)this + 0x20) = 8;
             break;
         }
     }
 }
 
-void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
+void TAdMultiPlyChrSelectGC::update_state_option() {
     s32 temp_r3;
 
-    if (((TAdMultiPlyChrSelectGC *)(*(u32 *)((s8 *)arg0 + 0x68)))->get_player_index() == 1) {
+    if (((TAdMultiPlyChrSelectGC *)(*(u32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
         TAdMultiPlyChrSelectGC::reset_slot_selections();
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        *(s32 *)((s8 *)this + 0x20) = 0;
         return;
     }
     if (TAdMultiPlyChrSelectGC__sub_802C6848(TAdMultiPlyChrSelectGC::get_clamped_cursor()) == 0) {
-        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-        *(s32 *)((s8 *)arg0 + 0x20) = 3;
+        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+        *(s32 *)((s8 *)this + 0x20) = 3;
         return;
     }
-    if (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x7C)))->get_status_flag() != 0) {
-        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-        *(s32 *)((s8 *)arg0 + 0x20) = 3;
+    if (((TWindowSubComCard *)(*(s32 *)((s8 *)this + 0x7C)))->get_status_flag() != 0) {
+        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+        *(s32 *)((s8 *)this + 0x20) = 3;
         return;
     }
-    if (((TWindowMenu *)(*(s32 *)((s8 *)arg0 + 0x7C)))->is_visible() != 0) {
-        temp_r3 = get_selected_menu_value(*(s32 *)((s8 *)arg0 + 0x7C));
+    if (((TWindowMenu *)(*(s32 *)((s8 *)this + 0x7C)))->is_visible() != 0) {
+        temp_r3 = get_selected_menu_value(*(s32 *)((s8 *)this + 0x7C));
         switch (temp_r3) {
         case 0:
             play_sound_effect(0x52D01, 0, 0, 0);
-            TAdMultiPlyChrSelectGC__sub_802C561C(*(s32 *)((s8 *)arg0 + 0x5C));
-            TAdMultiPlyChrSelectGC__sub_802C5688(*(s32 *)((s8 *)arg0 + 0x5C));
-            *(s32 *)((s8 *)arg0 + 0x20) = 0x19;
+            TAdMultiPlyChrSelectGC__sub_802C561C(*(s32 *)((s8 *)this + 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C5688(*(s32 *)((s8 *)this + 0x5C));
+            *(s32 *)((s8 *)this + 0x20) = 0x19;
             return;
         case 1:
             play_sound_effect(0x52D01, 0, 0, 0);
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->update_field_4E8();
-            restore_selection__22TAdMultiPlyChrSelectGCFv(*(s32 *)((s8 *)arg0 + 0x5C));
-            TAdMultiPlyChrSelectGC__sub_802C5688(*(s32 *)((s8 *)arg0 + 0x5C));
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x68) != 0U) {
-                queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x68));
-                *(u32 *)((s8 *)arg0 + 0x68) = 0U;
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->update_field_4E8();
+            restore_selection__22TAdMultiPlyChrSelectGCFv(*(s32 *)((s8 *)this + 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C5688(*(s32 *)((s8 *)this + 0x5C));
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+            if ((u32) *(u32 *)((s8 *)this + 0x68) != 0U) {
+                queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x68));
+                *(u32 *)((s8 *)this + 0x68) = 0U;
             }
-            *(s32 *)((s8 *)arg0 + 0x20) = 0xA;
+            *(s32 *)((s8 *)this + 0x20) = 0xA;
             return;
         case 2:
-            ((TWindowOptionCtrl *)(*(s32 *)((s8 *)arg0 + 0x7C)))->open();
-            *(s32 *)((s8 *)arg0 + 0x98) = TAdMultiPlyChrSelectGC__sub_802DBCE8(arg0);
-            *(s32 *)((s8 *)arg0 + 0x20) = 6;
+            ((TWindowOptionCtrl *)(*(s32 *)((s8 *)this + 0x7C)))->open();
+            *(s32 *)((s8 *)this + 0x98) = TAdMultiPlyChrSelectGC__sub_802DBCE8(this);
+            *(s32 *)((s8 *)this + 0x20) = 6;
             return;
         case 3:
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-            *(s32 *)((s8 *)arg0 + 0x20) = 3;
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+            *(s32 *)((s8 *)this + 0x20) = 3;
             break;
         }
     }
@@ -264,43 +257,43 @@ void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
 
 extern s32 lbl_805D68C8;
 
-void update_card_confirm__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
+void TAdMultiPlyChrSelectGC::update_card_confirm() {
     s32 temp_r3;
 
-    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x68)))->get_player_index() == 1) {
+    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
         TAdMultiPlyChrSelectGC::reset_slot_selections();
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        *(s32 *)((s8 *)this + 0x20) = 0;
         return;
     }
     if (TAdMultiPlyChrSelectGC__sub_802C6848(TAdMultiPlyChrSelectGC::get_clamped_cursor()) == 0) {
-        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-        *(s32 *)((s8 *)arg0 + 0x20) = 3;
+        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+        *(s32 *)((s8 *)this + 0x20) = 3;
         return;
     }
-    if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x90)))->get_card_data() != 0) {
-        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-        *(s32 *)((s8 *)arg0 + 0x20) = 3;
+    if (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x90)))->get_card_data() != 0) {
+        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+        *(s32 *)((s8 *)this + 0x20) = 3;
         return;
     }
-    if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)arg0 + 0x90)))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x90)))->get_slot_or_neg1();
+    if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)this + 0x90)))->is_child_visible() != 0) {
+        temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x90)))->get_slot_or_neg1();
         switch (temp_r3) {
         case 1:
-            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
-            *(s32 *)((s8 *)arg0 + 0x20) = 3;
+            ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
+            *(s32 *)((s8 *)this + 0x20) = 3;
             return;
         case 0:
             play_sound_effect(0x52D01, 0, 0, 0);
-            TAdMultiPlyChrSelectGC__sub_802C561C(*(s32 *)((s8 *)arg0 + 0x5C));
-            TAdMultiPlyChrSelectGC__sub_802C5688(*(s32 *)((s8 *)arg0 + 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C561C(*(s32 *)((s8 *)this + 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C5688(*(s32 *)((s8 *)this + 0x5C));
             lbl_805D68C8 = 1;
-            if ((u32) *(u32 *)((s8 *)arg0 + 0x90) != 0U) {
-                ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x90)))->close();
-                *(u32 *)((s8 *)arg0 + 0x90) = 0U;
+            if ((u32) *(u32 *)((s8 *)this + 0x90) != 0U) {
+                ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x90)))->close();
+                *(u32 *)((s8 *)this + 0x90) = 0U;
             }
-            *(s32 *)((s8 *)arg0 + 0x28) = 0x1C;
-            *(s32 *)((s8 *)arg0 + 0x20) = 0x1A;
-            *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+            *(s32 *)((s8 *)this + 0x28) = 0x1C;
+            *(s32 *)((s8 *)this + 0x20) = 0x1A;
+            *(s32 *)((s8 *)this + 0x2C) = 0;
             break;
         }
     }

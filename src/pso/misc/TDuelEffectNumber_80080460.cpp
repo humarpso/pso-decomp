@@ -1,12 +1,12 @@
 #pragma push
 
 #include "types.h"
+#include "pso/TDuelEffectNumber.h"
 #pragma fp_contract on
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D9330;
-void calc_digit_transform__17TDuelEffectNumberFiPvPvi(s32 arg0, f32 *arg1, f32 *arg2, s32 arg3);
 s32 __cvt_fp2unsigned(f32);
 void begin_screen_draw(s32);
 void set_draw_texture_and_color(s32, s32);
@@ -17,8 +17,6 @@ void render__17TDuelEffectStringFv(u8 *arg0);
 
 extern "C" {
 
-void calc_digit_transform__17TDuelEffectNumberFiPvPvi(s32 arg0, f32 *arg1, f32 *arg2, s32 arg3);
-
 extern const f32 lbl_805D9310;
 extern const f32 lbl_805D9314;
 extern const f32 lbl_805D9318;
@@ -27,7 +25,7 @@ extern const f32 lbl_805D9320;
 extern const f32 lbl_805D9324;
 extern const f32 lbl_805D9328;
 
-void calc_digit_transform__17TDuelEffectNumberFiPvPvi(s32 arg0, f32 *arg1, f32 *arg2, s32 arg3) {
+void TDuelEffectNumber::calc_digit_transform(s32 arg0, f32 *arg1, f32 *arg2, s32 arg3) {
     if (arg3 < 0xA) {
         *arg1 = -(lbl_805D9314 * ((f32) arg3 / lbl_805D9318) - lbl_805D9310);
     } else {
@@ -72,7 +70,7 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
     f32 sp8;
     s32 temp_r0;
     s32 temp_r31;
-    calc_digit_transform__17TDuelEffectNumberFiPvPvi((s32)((s32) arg0), (f32 *)(&spC), (f32 *)(&sp8), (s32)(*(s32 *)((s8 *)arg0 + 0x28)));
+    TDuelEffectNumber::calc_digit_transform((s32)((s32) arg0), (f32 *)(&spC), (f32 *)(&sp8), (s32)(*(s32 *)((s8 *)arg0 + 0x28)));
     temp_r31 = __cvt_fp2unsigned(lbl_805D932C * sp8) | 0xFF0000 | 0xFFFF;
     TObjPlayer::init_xyz_limits();
     begin_screen_draw(1);

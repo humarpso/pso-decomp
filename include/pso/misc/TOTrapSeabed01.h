@@ -25,7 +25,9 @@ struct TOTrapSeabed01 : public TOTrap {
     void clamp_params_and_init();
     static void *create(void *arg0);
     static void free_static_resources();
-    static void load_resources();};
+    static void load_resources();
+    void draw();
+};
 
 typedef char TOTrapSeabed01_size[sizeof(TOTrapSeabed01) == 0x35C ? 1 : -1];
 #endif

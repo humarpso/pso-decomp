@@ -23,8 +23,7 @@ s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
 s32 set_indexed_flags(void *, int, int);
 u32 test_item_flags__10TObjPlayerFUl(void *, int);
-u32 calc_action_flags__9TItemDataFv(void *, u32, u32);
-u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind);
+u32 calc_action_flags__9TItemDataFlPUc(void *, u32, u32);
 }
 
 extern "C" {
@@ -62,18 +61,18 @@ void TItem::copy_item_data_and_process() {
     ((TShopEquipmentSellWindow *)(&sp8))->get_item_price_if_valid();
 }
 
-u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind) {
+u32 TItem::get_usable_action_flags(u32 mask, u32 kind) {
     u8 item[0x14];
     u32 r;
-    ((TItem *)p)->copy_to_item_data(item);
+    ((TItem *)((Player_8010147C *)this))->copy_to_item_data(item);
     if (kind == 0) {
-        kind = p->f_F0;
+        kind = ((Player_8010147C *)this)->f_F0;
     }
-    r = calc_action_flags__9TItemDataFv(item, mask, kind);
-    if (test_item_flags__10TObjPlayerFUl(p, 0x200) != 0) {
+    r = calc_action_flags__9TItemDataFlPUc(item, mask, kind);
+    if (test_item_flags__10TObjPlayerFUl(((Player_8010147C *)this), 0x200) != 0) {
         r |= 2;
     }
-    if (r == 0 && ((TObjPlayer *)p)->has_flag_128() != 0) {
+    if (r == 0 && ((TObjPlayer *)((Player_8010147C *)this))->has_flag_128() != 0) {
         r |= 0x10;
         r &= ~2;
     }

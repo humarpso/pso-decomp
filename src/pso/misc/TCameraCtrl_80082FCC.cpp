@@ -32,7 +32,7 @@ struct G_80082FCC { s32 value; s32 v4; f32 f8; f32 fC; };
 extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
-s32 calc_axes_from_angles__11TCameraCtrlFiii(void *, int, int);
+s32 calc_axes_from_angles__11TCameraCtrlFlll(void *, int, int);
 s32 direction_to_pitch_yaw(void *, void *, void *);
 s32 TObjPlayer__sub_80084744();
 s32 TObjPlayer__sub_80084754();
@@ -133,7 +133,7 @@ void TUnk_8048E5DC::render_shadows() {
             stack.sp18 = this->m_30 - *(f32 *)((s8 *)arg0 + 0x24);
             stack.sp1C = *(f32 *)((s8 *)arg0 + 0x34) - this->m_28;
             direction_to_pitch_yaw((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
-            calc_axes_from_angles__11TCameraCtrlFiii((void *) (camera_ctrl_instance), (int) (stack.sp10), (int) (stack.spC));
+            calc_axes_from_angles__11TCameraCtrlFlll((void *) (camera_ctrl_instance), (int) (stack.sp10), (int) (stack.spC));
         }
         TObjPlayer__sub_80084754();
         ((TMainTask *)(&(*(RecoveredGlobal_800830B0_main_task *)&main_task).value))->render_scene_passes();

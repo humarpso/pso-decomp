@@ -23,7 +23,7 @@ struct V3_8013F5E8 { s32 x, y, z; };
 struct V3_8013F6C4 { s32 x, y, z; };
 extern "C" {
 s32 TKeyBoardControl__sub_8000F90C(int);
-s32 select_active_controller__11TCameraCtrlFc(int);
+s32 select_active_controller__11TCameraCtrlFSc(int);
 s32 TCameraCtrl__ct(u32, void *);
 s32 reset_keyboard_state__6TLobbyFv();
 s32 is_area_transfer_pending();
@@ -285,7 +285,7 @@ void init_logo_scene__5TLogoFv(void) {
     }
     V3_8013F6C4 a = lbl_8043F138;
     V3_8013F6C4 b = lbl_8043F144;
-    select_active_controller__11TCameraCtrlFc(9);
+    select_active_controller__11TCameraCtrlFSc(9);
     set_active_camera_pose(&a, &b);
     TKeyBoardControl__sub_8000F90C(1);
     apply_phase_keyboard_mode();

@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 obj_getField1c(void *);
-s32 send_code_45_1__10TObjPlayerFi(void *);
+s32 send_code_45_1__10TObjPlayerFl(void *);
 u8 *get_player_by_client_id(s32);
 s32 TLobby__sub_8024AC20(u16);
 void fn_802233F8(void);
@@ -28,7 +28,7 @@ void fn_802233F8(void) {
             if (self_slot != i) {
                 p = get_player_by_client_id(i);
                 if (p != NULL && ((TLobby *)p)->check_player_flag1() != 0) {
-                    send_code_45_1__10TObjPlayerFi(p);
+                    send_code_45_1__10TObjPlayerFl(p);
                     TLobby__sub_8024AC20(obj_getField1c(p));
                 }
             }

@@ -119,7 +119,7 @@ int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 int set_mode__20TWindowActionPaletteFUc(void*);
 int set_slot__20TWindowActionPaletteFUc(void*);
-s32 try_add_item_count__10TObjPlayerFiiiUc(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 try_add_item_count__10TObjPlayerFlllUc(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 
     extern int shared_flag;
 void TObjPlayer::set_shared_flag(int a0) { shared_flag = a0; }
@@ -128,19 +128,19 @@ void TObjPlayer::set_shared_flag(int a0) { shared_flag = a0; }
 void TObjPlayer::set_shared_count(int a0) { lbl_805D5D70 = a0; }
 
 void TObjPlayer::add_item_count_kind4(s32 arg0, s32 arg1, s32 arg2) {
-    try_add_item_count__10TObjPlayerFiiiUc(arg0, arg1, 4, arg2);
+    try_add_item_count__10TObjPlayerFlllUc(arg0, arg1, 4, arg2);
 }
 void TObjPlayer::try_add_item_count_kind3(s32 arg0, s32 arg1, s32 arg2) {
-    try_add_item_count__10TObjPlayerFiiiUc(arg0, arg1, 3, arg2);
+    try_add_item_count__10TObjPlayerFlllUc(arg0, arg1, 3, arg2);
 }
 void TObjPlayer::try_add_item_count_type2(s32 arg0, s32 arg1, s32 arg2) {
-    try_add_item_count__10TObjPlayerFiiiUc(arg0, arg1, 2, arg2);
+    try_add_item_count__10TObjPlayerFlllUc(arg0, arg1, 2, arg2);
 }
 void TObjPlayer::add_item_count(s32 arg0, s32 arg1, s32 arg2) {
-    try_add_item_count__10TObjPlayerFiiiUc(arg0, arg1, 1, arg2);
+    try_add_item_count__10TObjPlayerFlllUc(arg0, arg1, 1, arg2);
 }
 void TObjPlayer::try_add_item(s32 arg0, s32 arg1, s32 arg2) {
-    try_add_item_count__10TObjPlayerFiiiUc(arg0, arg1, 0, arg2);
+    try_add_item_count__10TObjPlayerFlllUc(arg0, arg1, 0, arg2);
 }
 u8 TObjPlayer__sub_801BED70(void* p) { return *(u8*)((char*)p + 0x4); }
 u8 TObjPlayer__sub_801BED78(void* p) { return *(u8*)((char*)p + 0x3); }

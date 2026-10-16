@@ -9,7 +9,6 @@ struct ByteBlock_3C { u8 bytes[0x3C]; };
 
 extern "C" {
 s32 __copy(void *, void *, int);
-s32 *copy_chat_entry__20TWindowSubSymbolChatFPvPv(s32 *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -39,18 +38,18 @@ void TWindowSubSymbolChat::set_flag_bit1(s32 *arg0) {
 
 s32 TWindowSubSymbolChat::commit(s32 * _w1) {
     s32 arg0 = (s32)this;
-    copy_chat_entry__20TWindowSubSymbolChatFPvPv((s32 *)(arg0), (s32 *)(_w1));
+    ((TWindowSubSymbolChat *)arg0)->copy_chat_entry((s32 *)(_w1));
     return arg0;
 }
-s32 *copy_chat_entry__20TWindowSubSymbolChatFPvPv(s32 *arg0, s32 *arg1) {
+s32 *TWindowSubSymbolChat::copy_chat_entry(s32 *arg1) {
     u8 *temp_r4;
     u8 *temp_r5;
-    *(s32 *)((s8 *)arg0 + 0) = *(s32 *)((s8 *)arg1 + 0);
-    __copy((void *) ((u8 *)(arg0) + 4), (void *) ((u8 *)(arg1) + 4), (int) (0x17));
-    temp_r5 = (u8 *)(arg0) + 0x18;
+    *(s32 *)((s8 *)((s32 *)this) + 0) = *(s32 *)((s8 *)arg1 + 0);
+    __copy((void *) ((u8 *)(((s32 *)this)) + 4), (void *) ((u8 *)(arg1) + 4), (int) (0x17));
+    temp_r5 = (u8 *)(((s32 *)this)) + 0x18;
     temp_r4 = (u8 *)(arg1) + 0x18;
     *(ByteBlock_3C *)((s32) temp_r5 + 4) = *(const ByteBlock_3C *)((s32) temp_r4 + 4);
-    return arg0;
+    return ((s32 *)this);
 }
 
 }

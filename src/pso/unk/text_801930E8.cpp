@@ -21,7 +21,7 @@ struct Node_80193188 { u32 flags; void *model; u8 pad8[0x24]; Node_80193188 *chi
 struct Fence_80193188 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80193188 *fBC; Node_80193188 *fC0; s32 fC4; void *fC8[12]; };
 
 extern "C" {
-s32 free_children__12TObjDoorJungFPvPv(s32, u16);
+s32 free_children__12TObjDoorJungFPv(s32, u16);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -111,7 +111,7 @@ void TObjLazerFence4::draw_model() {
   var_r31 = 0;
   do
   {
-    free_children__12TObjDoorJungFPvPv(*((s32 *) ((arg0 + var_r31) + 0xC8)), *new_var2);
+    free_children__12TObjDoorJungFPv(*((s32 *) ((arg0 + var_r31) + 0xC8)), *new_var2);
     var_r30 += 1;
     var_r31 += 4;
   }

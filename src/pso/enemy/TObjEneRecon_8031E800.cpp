@@ -7,7 +7,7 @@ extern "C" {
 
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 post_translate_matrix(void *);
-s32 push_reflect_matrix__12TObjEneReconFPv(void *);
+s32 push_reflect_matrix__12TObjEneReconFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -15,7 +15,7 @@ s32 restore_render_scissor(int);
 
 s32 TObjEneRecobox::render_trap_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
-        if (push_reflect_matrix__12TObjEneReconFPv((void *) (((u8 *)this) + 0x3E4)) != 0) {
+        if (push_reflect_matrix__12TObjEneReconFv((void *) (((u8 *)this) + 0x3E4)) != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));

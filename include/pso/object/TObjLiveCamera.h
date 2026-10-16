@@ -8,6 +8,7 @@ struct TObjLiveCamera : public TUnk_804B9870 {
     virtual ~TObjLiveCamera();
     virtual void render();
     virtual void run_task();
+    static void load_static_resource();
 };
 
 typedef char TObjLiveCamera_size[sizeof(TObjLiveCamera) == 0x90 ? 1 : -1];

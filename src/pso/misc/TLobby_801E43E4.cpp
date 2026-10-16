@@ -12,13 +12,11 @@ extern s32 lbl_805D5E50;
 void TLobby__send_and_handle_60(u8 *arg0);
 s32 TProtocol__send_60(int, int, int);
 extern u32 TLobby__protocol_instance;
-void send_60_sized__6TLobbyFPv(u8 *arg0);
-s32 send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
+s32 send_subcommand_to_client__9TProtocolFlPScl(u32, s32, void *, s32);
 s32 dispatch_6x_subcommand(void *);
 extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
-void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1);
 void *tmp_buf_use_req__6TLobbyFPCc(char *);
 void *alloc__22TQuestVmDownLoadServerFv(void);
 void debug_print__6TLobbyFle(const char *, ...);
@@ -29,21 +27,17 @@ extern char texture_pvm_not_found_format[];
 extern char lbl_804497C4[];
 extern char texture_pvm_load_error_format[];
 extern char lbl_805DC448[4];
-s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1);
 void debug_print__6TLobbyFle(const char *, ...);
 s32 load_texture_list(s32 **);
 extern char pso_texture_load_error_format[];
-s32 pso_load_texture__6TLobbyFPv(s32 **arg0);
 }
 
 extern "C" {
 
-void bswap_switch_activate_token__6TLobbyFPv(void* p);
 void dispatch_packet__6TLobbyFPv(void *arg0);
-void send_command__6TLobbyFPvUi(void *arg0, u32 arg1);
 void update_players__6TLobbyFi(s32 arg0);
 s32 dispatch_6x_subcommand(void *);
-s32 send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
+s32 send_subcommand_to_client__9TProtocolFlPScl(u32, s32, void *, s32);
 int bswap_16__FPUs(void*);
 s32 bswap_32__FPUl(s32 *);
 s32 append_command_to_batch_buffer(void *, s32);
@@ -54,19 +48,19 @@ extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
 
-void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
+void TLobby::send_command(u32 arg1) {
     s32 sp8;
 
-    sp8 = *(s32 *)((s8 *)arg0 + 4);
+    sp8 = *(s32 *)((s8 *)this + 4);
     bswap_32__FPUl(&sp8);
     if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
-        dispatch_6x_subcommand((void *)(arg0));
+        dispatch_6x_subcommand((void *)(this));
         lbl_805D5E50 = 0;
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        send_pso_data_long2__9TProtocolFcR17long_game_commandUl((void*)TLobby__protocol_instance, arg1, arg0, sp8);
+        send_pso_data_long2__9TProtocolFcR17long_game_commandUl((void*)TLobby__protocol_instance, arg1, this, sp8);
     }
 }
 
@@ -85,7 +79,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        send_subcommand_to_client__9TProtocolFPviPvi(TLobby__protocol_instance, TLobby__designated_client_id, arg0, temp_r31);
+        send_subcommand_to_client__9TProtocolFlPScl(TLobby__protocol_instance, TLobby__designated_client_id, arg0, temp_r31);
     }
 }
 
@@ -93,24 +87,24 @@ extern s32 TLobby__join_state_flag;
 extern void *game_protocol_instance;
 extern s32 lbl_805D5E50;
 
-void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1) {
+void TLobby::send_subcommand_to_client(u32 arg1) {
     s32 size;
-    size = *(u8 *)((s8 *)arg0 + 1) * 4;
+    size = *(u8 *)((s8 *)this + 1) * 4;
     if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
-        dispatch_6x_subcommand(arg0);
+        dispatch_6x_subcommand(this);
         lbl_805D5E50 = 0;
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        send_subcommand_to_client__9TProtocolFPviPvi(TLobby__protocol_instance, arg1, arg0, size);
+        send_subcommand_to_client__9TProtocolFlPScl(TLobby__protocol_instance, arg1, this, size);
     }
 }
 
-void send_60_sized__6TLobbyFPv(u8 *arg0) {
-    int size = arg0[1] * 4;
+void TLobby::send_60_sized() {
+    int size = ((u8 *)this)[1] * 4;
     if (TLobby__protocol_instance != 0) {
-        TProtocol__send_60(TLobby__protocol_instance, (int)arg0, size);
+        TProtocol__send_60(TLobby__protocol_instance, (int)((u8 *)this), size);
     }
 }
 
@@ -152,8 +146,8 @@ void update_players__6TLobbyFi(s32 arg0) {
     lbl_805D5E50 = 0;
 }
 
-void bswap_switch_activate_token__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
+void TLobby::bswap_switch_activate_token() { ((TObjPlayer *)this)->read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); }
+s32 TLobby::load_texture_pvm_file(const char *name, s32 arg1) {
     char path[0x40];
     void *buf;
     s32 allocated;
@@ -191,19 +185,19 @@ s32 load_texture_pvm_file__6TLobbyFPvi(const char *name, s32 arg1) {
     }
     return ret;
 }
-s32 pso_load_texture__6TLobbyFPv(s32 **arg0) {
+s32 TLobby::pso_load_texture() {
     s32 r;
     s32 ret;
     TLobby::pump_frames();
     while (1) {
-        r = load_texture_list(arg0);
+        r = load_texture_list(((s32 **)this));
         if (r == 1) {
             ret = 1;
             break;
         }
         if (r == -1) {
             ret = -1;
-            debug_print__6TLobbyFle(pso_texture_load_error_format, **arg0);
+            debug_print__6TLobbyFle(pso_texture_load_error_format, **((s32 **)this));
             break;
         }
         TLobby::run_frame();

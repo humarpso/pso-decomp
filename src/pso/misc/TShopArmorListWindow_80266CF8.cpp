@@ -8,7 +8,6 @@ extern "C" {
 void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void reset__20TWindowSubStatusDispFPv(void *);
-void reset_list__20TShopArmorListWindowFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -36,12 +35,12 @@ void TShopArmorListWindow::save_cursor_selection() {
     this->m_78 = (s16) this->m_74;
     this->m_7c = select_cursor_entry__22TWindowSubShortCutListFv();
 }
-void reset_list__20TShopArmorListWindowFPv(u8 *arg0) {
+void TShopArmorListWindow::reset_list() {
     u32 i;
-    *(s16 *)((s8 *)arg0 + 0x72) = 0;
-    *(s16 *)((s8 *)arg0 + 0x74) = 0;
-    for (i = 0; i < (u32)*(s16 *)((s8 *)arg0 + 0x76); i++) {
-        reset__20TWindowSubStatusDispFPv(get_array_entry__13TUnk_804CE018Fi(arg0, i));
+    *(s16 *)((s8 *)((u8 *)this) + 0x72) = 0;
+    *(s16 *)((s8 *)((u8 *)this) + 0x74) = 0;
+    for (i = 0; i < (u32)*(s16 *)((s8 *)((u8 *)this) + 0x76); i++) {
+        reset__20TWindowSubStatusDispFPv(get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i));
     }
 }
 

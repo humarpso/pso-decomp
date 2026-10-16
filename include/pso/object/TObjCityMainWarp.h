@@ -28,6 +28,7 @@ struct TObjCityMainWarp : public TObjAreaWarp {
     void update_warp_flags_from_story();
     void init_visible_mask();
     u8 unk_138[0x1C];
+    static s32 get_floor_warp_bit(s32 floor);
 };
 
 typedef char TObjCityMainWarp_size[sizeof(TObjCityMainWarp) == 0x154 ? 1 : -1];

@@ -15,7 +15,7 @@ struct Seq_80212304 {
 extern "C" {
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
-s32 advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
+s32 advance_matching_entries__22THunterGuildSeqOfflineFll(int, int, int);
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
 f32 xz_distance_squared(void *, void *);
@@ -139,15 +139,15 @@ void TMemberCheck::update_member_proximity() {
                 temp_r3 = get_player_by_client_id((int) (var_r30));
                 if (temp_r3 != 0) {
                     if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (temp_r3 + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
-                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (1), (int) (var_r30));
+                        advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (1), (int) (var_r30));
                     } else {
-                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (0), (int) (var_r30));
+                        advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (0), (int) (var_r30));
                     }
                 } else {
-                    advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (0), (int) (var_r30));
+                    advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (0), (int) (var_r30));
                 }
             } else {
-                advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (1), (int) (var_r30));
+                advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (1), (int) (var_r30));
             }
             var_r30 += 1;
         } while (var_r30 < 4);

@@ -31,7 +31,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 Node_801A0578 *get_bml_model(void *, s32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 find_entry_by_name__12TObjDoorJungFPvPv(s32, void *);
+s32 find_entry_by_name__12TObjDoorJungFPCc(s32, void *);
 extern char lbl_80446718[];
 extern char lbl_80446728[];
 extern char lbl_80446738[];
@@ -78,9 +78,9 @@ void load_warp_beam_resources(void) {
     warp_jung_beam_models[5] = root->sibling->f4;
     warp_jung_beam_mesh_node = root->sibling->sibling->sibling->f4;
     lbl_805D5CB4 = 0;
-    warp_jung_beam_entry_index = find_entry_by_name__12TObjDoorJungFPvPv(warp_jung_model_handle, lbl_80446718);
-    lbl_805D5CC0 = find_entry_by_name__12TObjDoorJungFPvPv(warp_jung_model_handle, lbl_80446728);
-    lbl_805D5CC4 = find_entry_by_name__12TObjDoorJungFPvPv(warp_jung_model_handle, lbl_80446738);
+    warp_jung_beam_entry_index = find_entry_by_name__12TObjDoorJungFPCc(warp_jung_model_handle, lbl_80446718);
+    lbl_805D5CC0 = find_entry_by_name__12TObjDoorJungFPCc(warp_jung_model_handle, lbl_80446728);
+    lbl_805D5CC4 = find_entry_by_name__12TObjDoorJungFPCc(warp_jung_model_handle, lbl_80446738);
 }
 
 }

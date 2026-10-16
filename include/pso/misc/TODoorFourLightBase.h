@@ -18,7 +18,9 @@ struct TODoorFourLightBase : public TUnk_804B0BB8 {
     u8 unk_E0[0x18];
     u32 m_f8;
     void clamp_light_index();
-    void render_lights();};
+    void render_lights();
+    void draw_node_tree(u8 *arg1);
+};
 
 typedef char TODoorFourLightBase_size[sizeof(TODoorFourLightBase) == 0xFC ? 1 : -1];
 #endif

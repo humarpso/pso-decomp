@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Crater.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TLobby.h"
 
@@ -23,16 +24,15 @@ extern "C" {
 
 void TObjBoss1Crater__sub_8002C7B4(void);
 s32 TObjBoss1Crater__sub_8002C7E4(void* p);
-void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 void *get_instance__12TBoss1DragonFv(void);
 int is_count_below_limit__15TObjBoss1CraterFv(void *, void *);
 
-void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
+void *TObjBoss1Crater::create(void *arg1) {
     void *x1;
     void *o;
-    if (is_count_below_limit__15TObjBoss1CraterFv(arg0, arg1) == 0) {
+    if (is_count_below_limit__15TObjBoss1CraterFv(this, arg1) == 0) {
         return NULL;
     }
     x1 = get_instance__12TBoss1DragonFv();
@@ -41,7 +41,7 @@ void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
     }
     o = __nw__7TObjectFUl(0xCC);
     if (o != NULL) {
-        o = TObjBoss1Crater__ct(o, arg0, x1, arg1);
+        o = TObjBoss1Crater__ct(o, this, x1, arg1);
     }
     return o;
 }

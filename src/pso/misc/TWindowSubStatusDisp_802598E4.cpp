@@ -21,7 +21,6 @@ struct Pos_80259A84
 extern "C" {
 f32 fabs_float(f32, f32);
 s32 play_persistent_sound(int, void *, int, int, int);
-void update_pb_counter_approach__20TWindowSubStatusDispFPv(u8 *arg0);
 f32 fabs_float(f32, f32);
 extern const f32 lbl_805DCF58;
 extern const f32 lbl_805DCF5C;
@@ -273,23 +272,23 @@ void set_status_entry_target(void *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void update_pb_counter_approach__20TWindowSubStatusDispFPv(u8 *arg0) {
+void TWindowSubStatusDisp::update_pb_counter_approach() {
     f32 temp_f2;
     f32 temp_f30;
     f32 temp_f31;
-    if (*(f32 *)((s8 *)arg0 + 0x28) != *(f32 *)((s8 *)arg0 + 0x24)) {
-        if (*(u16 *)((s8 *)arg0 + 0) & 8) {
-            play_persistent_sound((int) (0x44E03), (void *) (arg0), (int) (0), (int) (0), (int) (0));
+    if (*(f32 *)((s8 *)((u8 *)this) + 0x28) != *(f32 *)((s8 *)((u8 *)this) + 0x24)) {
+        if (*(u16 *)((s8 *)((u8 *)this) + 0) & 8) {
+            play_persistent_sound((int) (0x44E03), (void *) (((u8 *)this)), (int) (0), (int) (0), (int) (0));
         }
-        temp_f2 = *(f32 *)((s8 *)arg0 + 0x28);
-        temp_f30 = temp_f2 - *(f32 *)((s8 *)arg0 + 0x24);
-        temp_f31 = fabs_float((f32) (*(f32 *)((s8 *)arg0 + 0x2C)), (f32) (temp_f2));
+        temp_f2 = *(f32 *)((s8 *)((u8 *)this) + 0x28);
+        temp_f30 = temp_f2 - *(f32 *)((s8 *)((u8 *)this) + 0x24);
+        temp_f31 = fabs_float((f32) (*(f32 *)((s8 *)((u8 *)this) + 0x2C)), (f32) (temp_f2));
         if (((f32 (*)(f32)) fabs_float)(temp_f30) < temp_f31) {
-            *(f32 *)((s8 *)arg0 + 0x24) = (f32) *(f32 *)((s8 *)arg0 + 0x28);
+            *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x28);
         } else {
-            *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + *(f32 *)((s8 *)arg0 + 0x2C));
+            *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x24) + *(f32 *)((s8 *)((u8 *)this) + 0x2C));
         }
-        *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(f32 *)((s8 *)arg0 + 0x24);
+        *(s32 *)((s8 *)((u8 *)this) + 0x20) = (s32) *(f32 *)((s8 *)((u8 *)this) + 0x24);
     }
 }
 #pragma pop

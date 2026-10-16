@@ -22,7 +22,7 @@ extern s32 TKeyBoardControl__global_key_state[];
 void TKeyBoardControl__sub_801A58D8(void);
 extern Pad_801A57D0 *controller_input_state[];
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
-u8 get_key_state_2__16TKeyBoardControlFPv(void *);
+u8 get_key_state_2__16TKeyBoardControlFv(void *);
 extern s32 TKeyBoardControl__global_key_state[];
 }
 
@@ -32,7 +32,7 @@ void init_stick_escape_detector(void *arg0, void *arg1);
 s32 OSGetResetButtonState();
 void update_state_from_input__16TKeyBoardControlFPv(void *arg0);
 s32 TKeyBoardControl__sub_801323C8(void *, void *);
-s32 check_input_ready__16TKeyBoardControlFi(s32 *);
+s32 check_input_ready__16TKeyBoardControlFl(s32 *);
 
     extern unsigned char lbl_805D5D09;
 void TKeyBoardControl::reset() { lbl_805D5D09 = 0; }
@@ -77,7 +77,7 @@ void TKeyBoardControl__sub_801A58D8(void) {
 }
 
 s32 TKeyBoardControl::check_and_read(s32 arg0) {
-    if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__global_key_state) != 0) {
+    if (check_input_ready__16TKeyBoardControlFl(TKeyBoardControl__global_key_state) != 0) {
         return TKeyBoardControl::is_key_down((s32)(arg0));
     }
     return 0;
@@ -86,7 +86,7 @@ s32 TKeyBoardControl::check_and_read(s32 arg0) {
 extern s32 TKeyBoardControl__global_key_state[];
 
 s32 TKeyBoardControl::read_input(s32 arg0) {
-    if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__global_key_state) != 0) {
+    if (check_input_ready__16TKeyBoardControlFl(TKeyBoardControl__global_key_state) != 0) {
         return ((s32 (*)(s32))update_state_from_input__16TKeyBoardControlFPv)(arg0);
     }
     return 0;
@@ -95,7 +95,7 @@ s32 TKeyBoardControl::read_input(s32 arg0) {
 s32 TKeyBoardControl::is_key_down(s32 arg0) {
     s32 i;
     s32 n;
-    n = get_key_state_2__16TKeyBoardControlFPv(((s32 *)&TKeyBoardControl__global_key_state));
+    n = get_key_state_2__16TKeyBoardControlFv(((s32 *)&TKeyBoardControl__global_key_state));
     for (i = 0; i < n; i++) {
         if ((u8)arg0 == TKeyBoardControl__sub_8013239C(((s32 *)&TKeyBoardControl__global_key_state), i)) {
             return 1;

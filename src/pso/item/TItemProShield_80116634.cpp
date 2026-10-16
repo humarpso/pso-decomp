@@ -32,7 +32,7 @@ extern "C" {
 void *TItemProShield__sub_801166B0(void *arg0, s16 arg1);
 void *TItemProShield__sub_801167E8(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F828Fv(void *arg0);
-s32 apply_transform_action__8TItemMagFPvUc(s32, s32);
+s32 apply_transform_action__8TItemMagFUc(s32, s32);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -98,7 +98,7 @@ void TUnk_8049F828::vfunc_44() {
 
     temp_r3 = ((TObjPlayer *)(*(s32 *)((s8 *)this + 0xF0)))->activate_d04_slot();
     if (temp_r3 != 0) {
-        apply_transform_action__8TItemMagFPvUc(temp_r3, get_slot_count__14TItemProShieldFv(this));
+        apply_transform_action__8TItemMagFUc(temp_r3, get_slot_count__14TItemProShieldFv(this));
     }
 }
 
@@ -475,7 +475,7 @@ void render_shadows__5TItemFv();
 void ret_8010064C();
 void vfunc_35__5TItemFv();
 void run_task__5TItemFv();
-void try_pick_up_item__5TItemFPvi();
+void try_pick_up_item__5TItemFl();
 void *item_hp_recovery_vtable[46] = {
     0,
     0,
@@ -490,7 +490,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
-    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__5TItemFv,
@@ -538,7 +538,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
-    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__5TItemFv,
@@ -586,7 +586,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
-    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__5TItemFv,
@@ -634,7 +634,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
-    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__5TItemFv,
@@ -682,7 +682,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
-    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__5TItemFv,
@@ -730,7 +730,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&TItem__sub_80100B8C,
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
-    (void *)&try_pick_up_item__5TItemFPvi,
+    (void *)&try_pick_up_item__5TItemFl,
     (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__5TItemFv,

@@ -19,11 +19,10 @@ u8 get_material_limit_for_class(s32 arg0);
 
 extern "C" {
 
-s32 try_add_item_count__10TObjPlayerFiiiUc(s32 arg0, s32 arg1, s32 arg2, u8 arg3);
 int fn_803374F0(s32, s32, u8);
 s32 fn_803374F8(s32, s32);
 
-s32 try_add_item_count__10TObjPlayerFiiiUc(s32 arg0, s32 arg1, s32 arg2, u8 arg3) {
+s32 TObjPlayer::try_add_item_count(s32 arg0, s32 arg1, s32 arg2, u8 arg3) {
     s32 temp_r31;
 
     temp_r31 = get_total_materials_used((s32)(arg0));

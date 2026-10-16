@@ -88,12 +88,12 @@ void *get_window_layout_position(s32 a);
 void *create_window_menu(void *p, s32 a, s32 b);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *p, s32 a);
 s32 get_floor_destination_name(s32 f);
-void calc_window_size__17TWindowSubComCardFPv(void *w);
+void calc_window_size__17TWindowSubComCardFv(void *w);
 void align_menu_entry_positions(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 s32 get_floor_destination_name(s32 f);
-void calc_window_size__17TWindowSubComCardFPv(void *w);
+void calc_window_size__17TWindowSubComCardFv(void *w);
 void align_menu_entry_positions(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 void hide_part__9TObjLukerFPvUs(Obj_801A0C38 *self, u16 i);
@@ -110,7 +110,7 @@ Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 s32 get_instance__11TCameraCtrlFv(void);
 f32 horizontal_distance_squared(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 get_map_id__13TRaderMapCoreFPv(void *);
+s32 get_map_id__13TRaderMapCoreFv(void *);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 extern Pad_801A0F34 controller_input_state[];
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
@@ -201,7 +201,7 @@ void TObjLuker::update_floor_name_windows() {
                 self->cur = target;
             }
             ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(TLobby::get_player_floor(target)), 2, 0, -1);
-            calc_window_size__17TWindowSubComCardFPv(self->wins[i]);
+            calc_window_size__17TWindowSubComCardFv(self->wins[i]);
             align_menu_entry_positions(self->wins[i]);
         }
     }
@@ -235,7 +235,7 @@ void TObjLuker::open_destination_windows() {
                 self->cur = target;
                 ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(TLobby::get_player_floor(target)), 2, 0, -1);
                 ((TAdChrSelASlotGC *)(self->wins[i]))->set_flag_40();
-                calc_window_size__17TWindowSubComCardFPv(self->wins[i]);
+                calc_window_size__17TWindowSubComCardFv(self->wins[i]);
                 align_menu_entry_positions(self->wins[i]);
                 ((TObject *)(self->wins[i]))->set_flag_4();
                 disallow_rendering__7TObjectFv(self->wins[i]);
@@ -284,7 +284,7 @@ s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
         for (j = 0; j < get_instance__11TCameraCtrlFv(); j++) {
             p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))get_player_by_client_id)(TCameraCtrl::get_nth_view_player_id(j));
             if (p != NULL &&
-                TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].btn, 4) != 0) {
+                TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFv(p)].btn, 4) != 0) {
                 found = 1;
                 if (arg1 != NULL) {
                     *arg1 = j;

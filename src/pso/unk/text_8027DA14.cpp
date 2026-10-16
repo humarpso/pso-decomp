@@ -18,10 +18,10 @@ struct RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect {
 extern "C" {
 u8 * get_quest_name__12TQuestThreadFv(void);
 u8 * get_window_layout_position(s32);
-s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
+s32 construct_type1_heading__20TWindowSubStatusDispFll(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 u32 calc_text_width();
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, int, int);
 s32 set_text_entry_string(int, int, int);
 s32 update_slot_display_flags__26TWindowSubQuestBoardSelectFv(void *, f32, f32);
 extern RecoveredGlobal_8027DA14_lbl_804D19A8 TWindowSubQuestBoardSelect__window_parameters;
@@ -42,12 +42,12 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r30;
     s32 var_r30;
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowSubQuestBoardSelect__window_parameters.value), (int) (4), (int) (get_window_layout_position(0x70)));
+    construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (&TWindowSubQuestBoardSelect__window_parameters.value), (int) (4), (int) (get_window_layout_position(0x70)));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubQuestBoardSelect__class_name;
     var_r30 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     if (var_r30 != 0) {
-        var_r30 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r30, get_message_10__20TWindowSubStatusDispFl((int) (0x2B)), (s32) *(s16 *)((s8 *)arg0 + 0x20));
+        var_r30 = construct_type1_heading__20TWindowSubStatusDispFll(var_r30, get_message_10__20TWindowSubStatusDispFl((int) (0x2B)), (s32) *(s16 *)((s8 *)arg0 + 0x20));
     }
     *(s32 *)((s8 *)arg0 + 0x64) = var_r30;
     *(s8 *)((s8 *)arg0 + 0x60) = 0;

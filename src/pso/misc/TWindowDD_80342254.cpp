@@ -22,7 +22,7 @@ s32 TWindowDD__sub_803484C4(void *);
 void TWindowDD__sub_80342428(u8 *arg0);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, int, void *);
 s32 reset_fields__9TWindowDDFv(void *, void *);
 extern s32 lbl_805D42E0;
 extern const f32 TWindowDD__data_805DFCA8;
@@ -91,7 +91,7 @@ s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2) {
 #define arg1 ((s32)a1)
 #define arg2 ((s32)a2)
     s32 v;
-    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804EFC7C, 4, lbl_804EFC74);
+    construct_base__9TWindowDDFPUcsPUc(arg0, lbl_804EFC7C, 4, lbl_804EFC74);
     arg0->f18 = lbl_804EFC90;
     v = lbl_805D42E0;
     arg0->f0 = v;

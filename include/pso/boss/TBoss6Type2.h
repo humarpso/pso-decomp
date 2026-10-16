@@ -258,6 +258,16 @@ struct TBoss6Type2
     void update_and_send();
     int handle_olga_action();
     void init_packet();
+    void apply_rock_hits_to_players();
+    void get_phase_values(u16 *a, u16 *b, u16 *out);
+    void send_state_action_packet();
+    void send_action_packet(s8 arg1);
+    void build_state_packet(u8 *arg1);
+    void update_charge_timer();
+    void init_attack_timers();
+    void send_state_action();
+    void turn_toward_target();
+    void apply_pending_effect();
 };
 
 typedef char TBoss6Type2_offset_position[(offsetof(TBoss6Type2, position) == 0x38) ? 1 : -1];

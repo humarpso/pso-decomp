@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 typedef struct Ent_803F4D84 {
     s16 v;
     u8 pad[0x26];
@@ -610,7 +611,6 @@ void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
-s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len);
 s32 get_network_config_mode();
 s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
@@ -732,7 +732,7 @@ extern "C" {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len) {
+s32 TLobby::copy_current_entry_name(s32 len) {
     s16 i;
     if (get_network_config_mode() == 0) {
         return -1;
@@ -751,8 +751,8 @@ s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len) {
     if (len <= 0) {
         return -2;
     }
-    memset(dst, 0, len);
-    strncpy(dst, lobby_net_config_buffer->rec[lobby_net_config_buffer->ent[lobby_net_config_buffer->cur].v].name, len - 1);
+    memset(((char *)this), 0, len);
+    strncpy(((char *)this), lobby_net_config_buffer->rec[lobby_net_config_buffer->ent[lobby_net_config_buffer->cur].v].name, len - 1);
     if ((u32)len <= strlen(lobby_net_config_buffer->rec[lobby_net_config_buffer->ent[lobby_net_config_buffer->cur].v].name)) {
         return -2;
     }

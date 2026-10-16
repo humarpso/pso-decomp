@@ -118,6 +118,15 @@ struct TAdMultiPlyChrSelectGC : public TObject {
     u32 m_94;
     u8 unk_98[0x4];
     s32 m_9c;
+    static s32 dispatch_draw_command(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+    void update_selection();
+    void open_windows();
+    void init_windows();
+    void open_char_select();
+    void close_windows();
+    void update_card_select();
+    void update_state_option();
+    void update_card_confirm();
 };
 
 typedef char TAdMultiPlyChrSelectGC_size[sizeof(TAdMultiPlyChrSelectGC) == 0xA0 ? 1 : -1];

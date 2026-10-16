@@ -11,6 +11,13 @@ struct TWindowComCard : public TUnk_804CE018 {
     u8 _pad1C[0x8];
     void* m_24;
     u8 unk_28[0x38];
+    void set_display_value(s32 arg1, s32 arg2);
+    static u8 *create_for_card(s32 arg0, s32 arg1, s32 arg2);
+    static void *create(void *arg0, void *arg1);
+    void*get_kbd_ptr();
+    void set_help_mode(s32 arg1);
+    void*get_card_name_ptr();
+    void set_selected_index(s32 arg1);
 };
 
 typedef char TWindowComCard_size[sizeof(TWindowComCard) == 0x60 ? 1 : -1];

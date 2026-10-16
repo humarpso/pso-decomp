@@ -8,19 +8,19 @@ extern s32 particle_pool_limit;
 extern Data_8008741C *particle_global_entry_table;
 extern Data_8008741C *particle_area_entry_table;
 void *__nw__7TObjectFUl(u32);
-void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
+void *initialize_with_flags__13TParticleCtrlFPCvlllllUs(void *, void *, void *, s32, s32, s32, s32, s32);
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 extern s32 particle_pool_limit;
 extern Data_8008741C *particle_global_entry_table;
 extern Data_8008741C *particle_area_entry_table;
 void *__nw__7TObjectFUl(u32);
-void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
+void *initialize_with_flags__13TParticleCtrlFPCvlllllUs(void *, void *, void *, s32, s32, s32, s32, s32);
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 extern s32 particle_pool_limit;
 extern Data_8008741C *particle_global_entry_table;
 extern Data_8008741C *particle_area_entry_table;
 void *__nw__7TObjectFUl(u32);
-void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
+void *initialize__13TParticleCtrlFPCvlllll(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
 void *spawn_particle_effect(void *pos, s32 id);
 }
 
@@ -34,7 +34,7 @@ void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags) {
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl((u32)(0x78));
         if (p != 0) {
-            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, pos, &particle_global_entry_table[idx], 1, 0, 0, 0, flags);
+            p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, pos, &particle_global_entry_table[idx], 1, 0, 0, 0, flags);
         }
         return p;
     }
@@ -42,7 +42,7 @@ void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags) {
         idx -= 0x200;
         p = __nw__7TObjectFUl((u32)(0x78));
         if (p != 0) {
-            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, pos, &particle_area_entry_table[idx], 1, 0, 0, 0, flags);
+            p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, pos, &particle_area_entry_table[idx], 1, 0, 0, 0, flags);
         }
         return p;
     }
@@ -55,7 +55,7 @@ void *spawn_particle_effect(void *pos, s32 id) {
     if (particle_pool_limit > id) {
         p = __nw__7TObjectFUl((u32)(0x78));
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPvPviiiii(p, pos, &(*(Ent_80087350 * *)&particle_global_entry_table)[id], 1, 0, 0, 0);
+            p = initialize__13TParticleCtrlFPCvlllll(p, pos, &(*(Ent_80087350 * *)&particle_global_entry_table)[id], 1, 0, 0, 0);
         }
         return p;
     }
@@ -63,7 +63,7 @@ void *spawn_particle_effect(void *pos, s32 id) {
         s32 idx = id - 0x200;
         p = __nw__7TObjectFUl((u32)(0x78));
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPvPviiiii(p, pos, &(*(Ent_80087350 * *)&particle_area_entry_table)[idx], 1, 0, 0, 0);
+            p = initialize__13TParticleCtrlFPCvlllll(p, pos, &(*(Ent_80087350 * *)&particle_area_entry_table)[idx], 1, 0, 0, 0);
         }
         return p;
     }
@@ -75,14 +75,14 @@ void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 fla
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, parent, &particle_global_entry_table[idx], 0, 0, 0, 0, flags);
+            p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, parent, &particle_global_entry_table[idx], 0, 0, 0, 0, flags);
         }
         return p;
     } else if (particle_pool_limit + 0x40 > idx) {
         s32 j = idx - 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(p, parent, &particle_area_entry_table[j], 0, 0, 0, 0, flags);
+            p = initialize_with_flags__13TParticleCtrlFPCvlllllUs(p, parent, &particle_area_entry_table[j], 0, 0, 0, 0, flags);
         }
         return p;
     } else {

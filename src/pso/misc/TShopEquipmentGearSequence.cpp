@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopEquipmentGearSequence.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -37,10 +38,6 @@ struct VObj_8021B3C0 : Base_8021B3C0 {
 
 extern "C" {
 
-void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *arg0);
-void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0);
-void open_gear_shop__26TShopEquipmentGearSequenceFPv(struct VObj_8021B288 *arg0);
-void try_close__26TShopEquipmentGearSequenceFPv(void *arg0);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -59,38 +56,38 @@ struct VObj_8021B288 : Base_8021B288 {
     virtual void m4(int, int);
 };
 
-void open_gear_shop__26TShopEquipmentGearSequenceFPv(struct VObj_8021B288 *arg0) {
-    if (arg0 != NULL) {
-        arg0->m4(0x1B, 1);
-        ((TShopWindowBase *)arg0)->set_field_20((s32)(7));
+void TShopEquipmentGearSequence::open_gear_shop() {
+    if (((struct VObj_8021B288 *)this) != NULL) {
+        ((struct VObj_8021B288 *)this)->m4(0x1B, 1);
+        ((TShopWindowBase *)((struct VObj_8021B288 *)this))->set_field_20((s32)(7));
         lbl_805D6218 = 0x1A;
         lbl_805D621C = 2;
     }
 }
 
-void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *arg0) {
-    struct VObj_8021B2E8 *o = (struct VObj_8021B2E8 *)arg0;
+void TShopEquipmentGearSequence::enter_quest_list() {
+    struct VObj_8021B2E8 *o = (struct VObj_8021B2E8 *)this;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        ((TShopWindowBase *)arg0)->set_field_20((s32)(2));
+        ((TShopWindowBase *)this)->set_field_20((s32)(2));
     }
 }
 
 extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
 
-void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0) {
-    if ((((VObj_8021B338*)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
-        ((VObj_8021B338*)arg0)->m4(lbl_805D6218, 1);
-        ((TShopWindowBase *)arg0)->set_field_20((s32)(lbl_805D621C));
+void TShopEquipmentGearSequence::handle_confirm() {
+    if ((((VObj_8021B338*)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+        ((VObj_8021B338*)this)->m4(lbl_805D6218, 1);
+        ((TShopWindowBase *)this)->set_field_20((s32)(lbl_805D621C));
     }
 }
 
-void try_close__26TShopEquipmentGearSequenceFPv(void *arg0) {
-    if ((((VObj_8021B3C0 *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
-        close_if_single_screen__13TShopSequenceFv(arg0);
-        close_window__13TShopSequenceFv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+void TShopEquipmentGearSequence::try_close() {
+    if ((((VObj_8021B3C0 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+        close_if_single_screen__13TShopSequenceFv(this);
+        close_window__13TShopSequenceFv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 

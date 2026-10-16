@@ -142,7 +142,7 @@ void free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 enable__13TParticleCtrlFPv(void *);
+s32 enable__13TParticleCtrlFv(void *);
 
 void TOMonumentAncient02::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -153,7 +153,7 @@ void TOMonumentAncient02::run_task() {
     default:
         *(s32 *)&this->m_ac = 1;
         if ((u32) this->m_e8 != 0U) {
-            enable__13TParticleCtrlFPv(*(void * *)&this->m_e8);
+            enable__13TParticleCtrlFv(*(void * *)&this->m_e8);
         }
         return;
     case 1:
@@ -161,7 +161,7 @@ void TOMonumentAncient02::run_task() {
             submit_cursor_candidate(arg0, -1);
         }
         if ((u32) this->m_e8 != 0U) {
-            enable__13TParticleCtrlFPv(*(void * *)&this->m_e8);
+            enable__13TParticleCtrlFv(*(void * *)&this->m_e8);
             return;
         }
         break;

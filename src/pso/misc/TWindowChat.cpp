@@ -47,8 +47,8 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(void *, int);
 s32 get_chat_shortcut(int);
 s32 update_selected_symbol__20TWindowSubSymbolChatFv();
-s32 is_active__16TKeyBoardControlFPv(int);
-s32 is_key_active__16TKeyBoardControlFPv(int);
+s32 is_active__16TKeyBoardControlFv(int);
+s32 is_key_active__16TKeyBoardControlFv(int);
 s32 export_keyboard_text(int, void *);
 s32 reset_input__11TWindowChatFv(int);
 s32 update_selected_symbol__20TWindowSubSymbolChatFv();
@@ -60,8 +60,8 @@ s32 end_player_keyboard_hold(s32);
 s32 reset_input__11TWindowChatFv(int);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 init_parts__10TObjPlayerFPv(s32);
-s32 set_flag60_bit200__16TKeyBoardControlFPv(s32);
-s32 clear_flag60_bit200__16TKeyBoardControlFPv(s32);
+s32 set_flag60_bit200__16TKeyBoardControlFv(s32);
+s32 clear_flag60_bit200__16TKeyBoardControlFv(s32);
 s32 fn_8002AE08(s32);
 void send_chat_shortcut(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
@@ -80,11 +80,11 @@ s32 end_player_keyboard_hold(s32);
 s32 reset_input__11TWindowChatFv(int);
 extern s32 local_client_id;
 s32 fn_8002AE08(s32);
-s32 is_key_held__16TKeyBoardControlFPv(int);
+s32 is_key_held__16TKeyBoardControlFv(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 init_parts__10TObjPlayerFPv(s32);
-s32 reset_equip_slots__10TObjPlayerFPv(int);
+s32 reset_equip_slots__10TObjPlayerFv(int);
 s32 get_player_by_client_id(s32);
 s32 begin_player_keyboard_hold(void *);
 s32 end_player_keyboard_hold(s32);
@@ -197,12 +197,12 @@ s32 TWindowChat::submit_keyboard_input() {
     if (kb == 0U) {
         return 0;
     }
-    if (is_active__16TKeyBoardControlFPv((int) kb) != 0) {
+    if (is_active__16TKeyBoardControlFv((int) kb) != 0) {
         reset_input__11TWindowChatFv((int) (*(u32 *)&this->composer));
         ((TWindowChat *)arg0)->set_input_active();
         return 1;
     }
-    if (is_key_active__16TKeyBoardControlFPv((int) (*(u32 *)&this->composer)) == 0) {
+    if (is_key_active__16TKeyBoardControlFv((int) (*(u32 *)&this->composer)) == 0) {
         return 0;
     }
     ((TWindowChat *)arg0)->set_active_flag();
@@ -236,7 +236,7 @@ void TWindowChat::update() {
         }
         reset_input__11TWindowChatFv((int)(*(s32 *)&this->composer));
         ((TWindowChat*)((void *)(this)))->close_all_children();
-        set_flag60_bit200__16TKeyBoardControlFPv(*(s32 *)&this->hardKeyboard);
+        set_flag60_bit200__16TKeyBoardControlFv(*(s32 *)&this->hardKeyboard);
     }
 }
 
@@ -249,7 +249,7 @@ void TWindowChat::open_input() {
         TWindowChat__sub_80247DFC((u8 *)(arg0));
         *(u16 *)((s8 *)arg0 + 0x1E) = (u16) (*(u16 *)((s8 *)arg0 + 0x1E) & 0xFFFE);
         *(u16 *)((s8 *)arg0 + 0x1E) = (u16) (*(u16 *)((s8 *)arg0 + 0x1E) | 2);
-        clear_flag60_bit200__16TKeyBoardControlFPv(*(s32 *)((s8 *)arg0 + 0x28));
+        clear_flag60_bit200__16TKeyBoardControlFv(*(s32 *)((s8 *)arg0 + 0x28));
         ((TWindowChat*)((u8 *)(arg0)))->open_next_input_window();
     }
 }
@@ -391,12 +391,12 @@ void TWindowChat::handle_chat_input() {
         if (is_mode_bit6() != 0)
         {
           begin_player_keyboard_hold((void *) local_client_id);
-          reset_equip_slots__10TObjPlayerFPv((int) temp_r3);
+          reset_equip_slots__10TObjPlayerFv((int) temp_r3);
         }
       }
     }
     else
-      if ((is_key_held__16TKeyBoardControlFPv((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_28) == 0) || ((((TWindowChat *)arg0)->sub_80247EC0() != 0) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)((int) 0x200)) != 0)))
+      if ((is_key_held__16TKeyBoardControlFv((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_28) == 0) || ((((TWindowChat *)arg0)->sub_80247EC0() != 0) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)((int) 0x200)) != 0)))
     {
       if ((((TWindowChat *)arg0)->sub_80247EC0() != 0) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)((int) 0x200)) != 0))
       {

@@ -4,7 +4,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void  free_children__12TObjDoorJungFPvPv(s32, s32);
+void  free_children__12TObjDoorJungFPv(s32, s32);
 void  push_matrix(void);
 void  post_translate_matrix(Vec*);
 void  rotate_matrix_by_node_angles(void*, s32);
@@ -15,7 +15,7 @@ void  pop_matrix(void);
 void TItemShootGun::render() {
     if (is_owner_alive()) {
         if (this->m_58 != NULL) {
-            free_children__12TObjDoorJungFPvPv(*(s32*)((u8*)this->m_58 + 4), this->m_70 & 0xFFFF);
+            free_children__12TObjDoorJungFPv(*(s32*)((u8*)this->m_58 + 4), this->m_70 & 0xFFFF);
             TObjPlayer::notify_fish_if_valid((u32)(this->m_5C));
             TParticleCtrl::begin_effect_render();
             push_matrix();

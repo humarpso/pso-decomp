@@ -2,7 +2,7 @@
 #include "pso/object/TObjWarpJung.h"
 
 extern "C" {
-void free_children__12TObjDoorJungFPvPv(void *, u16);
+void free_children__12TObjDoorJungFPv(void *, u16);
 extern void *warp_jung_beam_models[];
 extern s32 warp_jung_beam_entry_index;
 extern s32 lbl_805D5CC0;
@@ -29,14 +29,14 @@ s32 TObjWarpJung__sub_801A0404(s32 arg0) {
     case 0:
         if (warp_jung_beam_entry_index >= 0) {
             for (i = 0; i < 6; i++) {
-                free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], warp_jung_beam_entry_index);
+                free_children__12TObjDoorJungFPv(warp_jung_beam_models[i], warp_jung_beam_entry_index);
             }
         }
         break;
     case 1:
         if (lbl_805D5CC0 >= 0) {
             for (i = 0; i < 6; i++) {
-                free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], lbl_805D5CC0);
+                free_children__12TObjDoorJungFPv(warp_jung_beam_models[i], lbl_805D5CC0);
             }
         }
         break;

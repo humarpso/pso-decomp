@@ -5,11 +5,10 @@
 
 extern "C" {
 
-int is_unloaded__12TChCrLoadAfsFPv(void* p);
 void release_load_slot__12TChCrLoadAfsFv(void *arg0);
 s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0);
 
-int is_unloaded__12TChCrLoadAfsFPv(void* p) { return *(u32*)((char*)p + 0x4a8) == 0; }
+int TChCrLoadAfs::is_unloaded() { return *(u32*)((char*)this + 0x4a8) == 0; }
 
 extern s32 chcr_load_afs_busy_flag;
 
@@ -50,7 +49,7 @@ struct L_8028B948 { u8 pad[0x1c]; s32 f1c; u8 pad2[0xc]; s32 f2c; };
 
 extern "C" {
 s32 TLobby__sub_803CC4C0(int);
-void close_adxf_handle__6TLobbyFPv(int);
+void close_adxf_handle__6TLobbyFv(int);
 void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0);
 }
 
@@ -68,7 +67,7 @@ void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0) {
     case 2:
         return;
     case 3:
-        close_adxf_handle__6TLobbyFPv(arg0->f1c);
+        close_adxf_handle__6TLobbyFv(arg0->f1c);
         arg0->f1c = 0;
         break;
     case 1:
@@ -87,7 +86,7 @@ void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0) {
 
 #define try_begin_load__12TChCrLoadAfsFPv (*(s32 (*)())&try_begin_load__12TChCrLoadAfsFPv)
 #define release_load_slot__12TChCrLoadAfsFv (*(int (*)(void *))&release_load_slot__12TChCrLoadAfsFv)
-#define close_adxf_handle__6TLobbyFPv (*(int (*)(int))&close_adxf_handle__6TLobbyFPv)
+#define close_adxf_handle__6TLobbyFv (*(int (*)(int))&close_adxf_handle__6TLobbyFv)
 #define TLobby__sub_803CC4C0 (*(int (*)(int))&TLobby__sub_803CC4C0)
 
 #include "pso/TChCrLoadAfs.h"
@@ -207,7 +206,7 @@ TChCrLoadAfs::~TChCrLoadAfs() {
     u32 handle = load_handle;
     if (handle != 0) {
         if (TLobby__sub_803CC4C0((int)handle) == 2) ((TLobby *)load_handle)->adxf_stop();
-        close_adxf_handle__6TLobbyFPv((int)load_handle);
+        close_adxf_handle__6TLobbyFv((int)load_handle);
         load_handle = 0;
     }
     u32 buffer = buffer_address;
@@ -312,14 +311,14 @@ void TChCrLoadAfsTextureReq::update_loading(void *) {
         return;
     }
     if (retry != 0) {
-        close_adxf_handle__6TLobbyFPv(arg0->f60);
+        close_adxf_handle__6TLobbyFv(arg0->f60);
         arg0->f60 = 0;
         TAdSinglePlyChrSelectGC::safe_free(arg0->bufs[arg0->f5c]);
         arg0->bufs[arg0->f5c] = 0;
         arg0->f2c = 1;
         return;
     }
-    close_adxf_handle__6TLobbyFPv(arg0->f60);
+    close_adxf_handle__6TLobbyFv(arg0->f60);
     arg0->f60 = 0;
     if (++arg0->f5c != arg0->f58) {
         arg0->f2c = 1;
@@ -358,6 +357,6 @@ void TChCrLoadAfsTextureReq::start_read(void *) {
 }
 
 #undef TLobby__sub_803CC4C0
-#undef close_adxf_handle__6TLobbyFPv
+#undef close_adxf_handle__6TLobbyFv
 #undef release_load_slot__12TChCrLoadAfsFv
 #undef try_begin_load__12TChCrLoadAfsFPv

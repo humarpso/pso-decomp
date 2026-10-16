@@ -104,6 +104,11 @@ struct TBoss4Type2
     void update_main();
     static s32 create(s32 arg0);
     static s32 pick_weighted_random(s32 n, f32 *w, s32 *t);
+    void calc_scale_slot_indices(s32 *a, s32 *b);
+    void set_state(s32 arg1);
+    void spawn_afterimages();
+    void choose_next_action();
+    static void *create_jisin(void *arg0, void *arg1);
 };
 
 #endif

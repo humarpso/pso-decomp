@@ -45,7 +45,7 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void TFontSmallLobby__sub_801C0378(void* p);
-int send_60_sized__6TLobbyFPv(void*);
+int send_60_sized__6TLobbyFv(void*);
 extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
@@ -212,7 +212,7 @@ void TFontSmallLobby::init_packet_6x8f_battle_damage() {
     p->b = 2;
 }
 
-void TFontSmallLobby__sub_801C0378(void* p) { ((TFontSmallLobby *)p)->bswap_battle_damage_packet(); send_60_sized__6TLobbyFPv(p); }
+void TFontSmallLobby__sub_801C0378(void* p) { ((TFontSmallLobby *)p)->bswap_battle_damage_packet(); send_60_sized__6TLobbyFv(p); }
 
 void TFontSmallLobby::bswap_6x90_set_player_battle_team() { read_be16_field2__10TObjPlayerFv((void*)(this)); bswap_32__FPUl((char*)this + 0x4); }
 

@@ -16,6 +16,8 @@ struct TShopSequence : public TShopWindowBase {
     virtual void vfunc_7();
     virtual void vfunc_8();
     virtual void vfunc_9();
-    virtual int vfunc_10();};
+    virtual int vfunc_10();
+    static void close_if_single_screen();
+};
 
 #endif

@@ -54,7 +54,6 @@ extern s32 lbl_805D31C4;
 extern u32 TOVS2Wall01__bml_resource;
 extern void *tl_05;
 extern const f32 lbl_805DBAB0;
-u8 *init_wreck_object__11TOVS2Wall01FPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjFish__sub_8001EDB0(int, void *);
 u8 *get_bml_model(s32, s32);
 s32 load_resource_from_descriptor(int, int, void *, int, int, int);
@@ -125,19 +124,19 @@ void *TOVS2Wall01::destroy(s16 arg1) {
 
 typedef char RecoveredGlobal_8017C8EC_lbl_804B4ECC_size[sizeof(RecoveredGlobal_8017C8EC_lbl_804B4ECC) == 0x134 ? 1 : -1];
 typedef char RecoveredGlobal_8017C8EC_lbl_804B528C_size[sizeof(RecoveredGlobal_8017C8EC_lbl_804B528C) == 0x3C ? 1 : -1];
-u8 *init_wreck_object__11TOVS2Wall01FPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base((void *) (arg0), (int) ((*(s32 *)&tl_05)));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D31C4;
-    ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    *(u8 **)((s8 *)arg0 + 0x34) = get_bml_model((*(s32 *)&TOVS2Wall01__bml_resource), arg2);
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *) (arg2));
-    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&ovs2wall01_collision_parts.value + (arg2 * 0x2C)), (int) (1));
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0xC8) = TObjMapCsn::create((s32)((void *) (arg1)));
-    *(s32 *)((s8 *)arg0 + 0xCC) = 1;
-    return arg0;
+u8 *TOVS2Wall01::init_wreck_object(s32 arg1, s32 arg2) {
+    init_map_object_base((void *) (((u8 *)this)), (int) ((*(s32 *)&tl_05)));
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
+    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D31C4;
+    ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg1);
+    *(u8 **)((s8 *)((u8 *)this) + 0x34) = get_bml_model((*(s32 *)&TOVS2Wall01__bml_resource), arg2);
+    *(f32 *)((s8 *)((u8 *)this) + 0xC4) = (f32) (lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x34)) + 4)) + 0x14));
+    *(s32 *)((s8 *)((u8 *)this) + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *) (arg2));
+    init_collision_body_parts((void *) (((u8 *)this)), (void *) ((u8 *)&ovs2wall01_collision_parts.value + (arg2 * 0x2C)), (int) (1));
+    ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
+    *(s32 *)((s8 *)((u8 *)this) + 0xC8) = TObjMapCsn::create((s32)((void *) (arg1)));
+    *(s32 *)((s8 *)((u8 *)this) + 0xCC) = 1;
+    return ((u8 *)this);
 }
 
 int TOVS2Wall01__vt24(void) { return 1; }

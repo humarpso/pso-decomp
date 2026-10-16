@@ -22,7 +22,7 @@ void *get_bml_model(u32, int);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u32 load_gvm_texture_file(void *);
-s32 find_entry_by_name__12TObjDoorJungFPvPv(u32, s32);
+s32 find_entry_by_name__12TObjDoorJungFPCc(u32, s32);
 extern Tbl_802A6F98 seabed_suiso_texture_name_table;
 extern Tbl_802A6F98 lbl_80466C80;
 extern s32 lbl_80466CE0[];
@@ -71,7 +71,7 @@ void TObjSeabedSuisoBrakable::load_resources() {
         if ((TObjSeabedSuisoBrakable__texture_gvm_handle = load_gvm_texture_file(lbl_80466CE0)) != 0) {
             t1 = seabed_suiso_texture_name_table;
             for (i = 0; i < 5; i++) {
-                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(TObjSeabedSuisoBrakable__texture_gvm_handle, t1.w[i]);
+                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPCc(TObjSeabedSuisoBrakable__texture_gvm_handle, t1.w[i]);
             }
         }
         break;
@@ -85,7 +85,7 @@ void TObjSeabedSuisoBrakable::load_resources() {
         if ((TObjSeabedSuisoBrakable__texture_gvm_handle = load_gvm_texture_file(lbl_80466CF8)) != 0) {
             t2 = lbl_80466C80;
             for (i = 0; i < 5; i++) {
-                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(TObjSeabedSuisoBrakable__texture_gvm_handle, t2.w[i]);
+                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPCc(TObjSeabedSuisoBrakable__texture_gvm_handle, t2.w[i]);
             }
         }
         break;

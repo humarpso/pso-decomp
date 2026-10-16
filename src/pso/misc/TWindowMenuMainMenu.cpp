@@ -10,7 +10,7 @@ struct W_802AE864 { u8 pad[0x124]; void *a[8]; };
 extern "C" {
 s32 draw_frame__19TWindowMenuMainMenuFv(void *, int);
 s32 setup_content_frame__15TWindowMainMenuFPv();
-s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
+s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, int, int);
 extern s32 window_menu_main_menu_params[];
 extern s32 __vt__19TWindowMenuMainMenu[];
 extern s32 lbl_805D3E68;
@@ -72,7 +72,7 @@ void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1) {
 u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
     s32 i;
     u8 *p;
-    construct_base__9TWindowDDFPvPvsPv(arg0, window_menu_main_menu_params, arg2, arg1);
+    construct_base__9TWindowDDFPUcsPUc(arg0, window_menu_main_menu_params, arg2, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowMenuMainMenu;
     p = arg0 + 0x64;
     i = 0;

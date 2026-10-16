@@ -6,14 +6,14 @@
 extern "C" {
 
 u8 get_slot_count__14TItemProShieldFv();
-s32 spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, s32, s32);
+s32 spawn_cane_effects__10TObjPlayerFP5TItemll(s32, s32, s32, s32);
 void TItemWeapon__ct(void *);
 
 extern s32 tl_05;
 
 void TObjPlayer::spawn_cane(s32 arg0) {
     if ((get_slot_count__14TItemProShieldFv() < 4U) && (((TItemWeapon *)arg0)->get_attack_stage() == 0)) {
-        spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 1, 2);
+        spawn_cane_effects__10TObjPlayerFP5TItemll(tl_05, arg0, 1, 2);
     }
 }
 

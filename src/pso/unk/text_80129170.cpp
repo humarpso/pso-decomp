@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
-s32 is_flag_b0_4__10TObjPlayerFPv(void *);
+s32 is_flag_b0_4__10TObjPlayerFv(void *);
 extern const f32 lbl_805DAE00;
 extern const f32 lbl_805DAE04;
 extern const f32 lbl_805DAE08;
@@ -29,7 +29,7 @@ void TUnk_804A4138::update_attack() {
     f32 fhi;
     if (*(void **)((s8 *)self + 0xF0) != NULL) {
         speed = ((TUnk_804806E8 *)(*(void **)((s8 *)self + 0xF0)))->get_speed();
-        flag = is_flag_b0_4__10TObjPlayerFPv(*(void **)((s8 *)self + 0xF0));
+        flag = is_flag_b0_4__10TObjPlayerFv(*(void **)((s8 *)self + 0xF0));
         ok = 1;
         if (test_action_mask__10TObjPlayerFl(*(void **)((s8 *)self + 0xF0), 0x20) != 0) {
             flo = lbl_805DAE00;

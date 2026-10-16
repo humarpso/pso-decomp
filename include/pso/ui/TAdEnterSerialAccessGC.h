@@ -38,7 +38,10 @@ struct TAdEnterSerialAccessGC : public TAdEnterBaseGC {
     static void store_serial_access_key(s32 arg0, s32 arg1, s32 arg2);
     static char *serial_to_hex_string(int arg0);
     static int forward_input(void* p);
-    void reset_input_state();};
+    void reset_input_state();
+    static void draw_serial_chars(s32 arg0);
+    static u32 create_keyboard_control(s32 arg0, s32 arg1);
+};
 
 typedef char TAdEnterSerialAccessGC_size[sizeof(TAdEnterSerialAccessGC) == 0x68 ? 1 : -1];
 #endif

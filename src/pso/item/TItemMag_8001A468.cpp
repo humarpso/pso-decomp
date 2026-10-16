@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemMag.h"
 #include "pso/item/TUnk_80480938.h"
 
 #pragma push
@@ -14,9 +15,9 @@ typedef struct Rec_8001A4CC { s32 a; s32 n; s32 c; } Rec_8001A4CC;
 typedef struct Plr_8001A4CC { u8 pad[0x60]; s32 f60; } Plr_8001A4CC;
 
 extern "C" {
-s32 query_darkfalz_state__10TObjPlayerFPv(int, void *);
+s32 query_darkfalz_state__10TObjPlayerFv(int, void *);
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s);
-void set_animation_from_data__10TObjPlayerFii(void *, s32);
+void set_animation_from_data__10TObjPlayerFll(void *, s32);
 extern Rec_8001A4CC lbl_80434118[];
 extern Rec_8001A4CC lbl_804341A8[];
 extern Rec_8001A4CC lbl_80434238[];
@@ -30,9 +31,7 @@ void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1);
 #define P1_805D49E0 (*(Plr_8001A4CC **)&lbl_805D49E0)
 extern "C" {
 
-s32 get_type__8TItemMagFPv(void* p);
-
-s32 get_type__8TItemMagFPv(void* p) { return *(s32*)((char*)p + 0x4); }
+s32 TItemMag::get_type() { return *(s32*)((char*)this + 0x4); }
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
     d->f0 = s->f0;
     d->a = s->a;
@@ -43,21 +42,21 @@ void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
 void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1) {
     switch (arg0) {
     case 0: {
-        ((void (*)(void *, void *))query_darkfalz_state__10TObjPlayerFPv)(P1_805D49E0, &lbl_80434118[arg1]);
+        ((void (*)(void *, void *))query_darkfalz_state__10TObjPlayerFv)(P1_805D49E0, &lbl_80434118[arg1]);
         P1_805D49E0->f60 = 182.04445f * (f32)lbl_804341A8[arg1].n;
-        set_animation_from_data__10TObjPlayerFii(P1_805D49E0, arg1);
+        set_animation_from_data__10TObjPlayerFll(P1_805D49E0, arg1);
         break;
     }
     case 1: {
-        ((void (*)(void *, void *))query_darkfalz_state__10TObjPlayerFPv)(P1_805D49E0, &lbl_80434238[arg1]);
+        ((void (*)(void *, void *))query_darkfalz_state__10TObjPlayerFv)(P1_805D49E0, &lbl_80434238[arg1]);
         P1_805D49E0->f60 = 182.04445f * (f32)lbl_804342C8[arg1].n;
-        set_animation_from_data__10TObjPlayerFii(P1_805D49E0, arg1);
+        set_animation_from_data__10TObjPlayerFll(P1_805D49E0, arg1);
         break;
     }
     case 2: {
-        ((void (*)(void *, void *))query_darkfalz_state__10TObjPlayerFPv)(P1_805D49E0, &lbl_80434358[arg1]);
+        ((void (*)(void *, void *))query_darkfalz_state__10TObjPlayerFv)(P1_805D49E0, &lbl_80434358[arg1]);
         P1_805D49E0->f60 = 182.04445f * (f32)lbl_804343E8[arg1].n;
-        set_animation_from_data__10TObjPlayerFii(P1_805D49E0, arg1);
+        set_animation_from_data__10TObjPlayerFll(P1_805D49E0, arg1);
         break;
     }
     }
@@ -100,7 +99,7 @@ typedef struct Light_8001A6A8 { u8 bytes[0xC]; } Light_8001A6A8;
 
 extern "C" {
 s32 init__9TItemDataFv(void *);
-s32 create_ending_player__10TObjPlayerFPv(int);
+s32 create_ending_player__10TObjPlayerFv(int);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
@@ -210,9 +209,9 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8043455C.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 8);
-    temp_r3 = create_ending_player__10TObjPlayerFPv((int) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF))));
+    temp_r3 = create_ending_player__10TObjPlayerFv((int) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF))));
     lbl_805D49E0 = temp_r3;
-    query_darkfalz_state__10TObjPlayerFPv((int) (temp_r3), (void *) (&stack.sp8));
+    query_darkfalz_state__10TObjPlayerFv((int) (temp_r3), (void *) (&stack.sp8));
     init__9TItemDataFv((void *) (&stack.sp14));
     stack.sp14 = 2;
     stack.sp15 = 0;

@@ -128,9 +128,6 @@ extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 extern s32 lbl_805D6250;
 u8 *TShopItemTecSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 handle_select__20TShopItemTecSequenceFPv(void *arg0);
-s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0);
-s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFv(void *);
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 void TShopItemTecSequence__sub_80220560(void);
@@ -142,24 +139,21 @@ void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
 void close__20TShopItemTecSequenceFPv(void *arg0);
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
 extern void *tl_05;
-void open_sell_window__20TShopItemTecSequenceFPv(S_80220030 *self);
 s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopItemListWindow__ct(void *, s32, void *, s32);
 void close__20TShopItemTecSequenceFPv(void *arg0);
 extern void *tl_05;
-void open_item_list_window__20TShopItemTecSequenceFPv(S_802200A8 *self);
 s32 obj_getField1c(void *);
 s32 get_shop_text(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 int align_menu_entry_positions(void *);
-int calc_window_size__17TWindowSubComCardFPv(void *);
+int calc_window_size__17TWindowSubComCardFv(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3);
 int create_window_menu(void* a0, void* a1, void* a2);
 s32 get_window_layout_position(int, f32);
-void update_buy_sell_choice__20TShopItemTecSequenceFPv(Seq_80220110 *self);
 }
 
 extern "C" {
@@ -210,18 +204,18 @@ void close__20TShopItemTecSequenceFPv(void *arg0) {
 extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 
-s32 handle_select__20TShopItemTecSequenceFPv(void *arg0) {
-    if ((((VObj_8021FF30_8021FE6C*)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
-        ((VObj_8021FF30_8021FE6C*)arg0)->m4(lbl_805D6248, 1);
-        ((TShopWindowBase *)arg0)->set_field_20((s32)(lbl_805D624C));
+s32 TShopItemTecSequence::handle_select() {
+    if ((((VObj_8021FF30_8021FE6C*)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+        ((VObj_8021FF30_8021FE6C*)this)->m4(lbl_805D6248, 1);
+        ((TShopWindowBase *)this)->set_field_20((s32)(lbl_805D624C));
     }
 }
 
-s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0) {
-    if ((((VObj_8021FFB8_8021FE6C *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
-        close_if_single_screen__13TShopSequenceFv(arg0);
-        close_window__13TShopSequenceFv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+s32 TShopItemTecSequence::close_if_done() {
+    if ((((VObj_8021FFB8_8021FE6C *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+        close_if_single_screen__13TShopSequenceFv(this);
+        close_window__13TShopSequenceFv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 
@@ -230,72 +224,72 @@ typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
 
-void open_sell_window__20TShopItemTecSequenceFPv(S_80220030 *self) {
+void TShopItemTecSequence::open_sell_window() {
     W_80220030 *o = (W_80220030 *)__nw__7TObjectFUl(0x3ac);
     if (o != 0) {
-        o = (W_80220030 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, self, self->f24, 0x2d));
+        o = (W_80220030 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, ((S_80220030 *)this), ((S_80220030 *)this)->f24, 0x2d));
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     o->cb1 = (void *)select_and_advance__20TShopItemTecSequenceFPv;
     reset_controller_input_state();
-    ((TShopWindowBase *)self)->set_field_20(5);
+    ((TShopWindowBase *)((S_80220030 *)this))->set_field_20(5);
 }
 
-void open_item_list_window__20TShopItemTecSequenceFPv(S_802200A8 *self) {
+void TShopItemTecSequence::open_item_list_window() {
     W_802200A8 *o = (W_802200A8 *)__nw__7TObjectFUl(0x1c4);
     if (o != 0) {
-        o = (W_802200A8 *)(TShopItemListWindow__ct(o, (s32)tl_05, self, self->f24));
+        o = (W_802200A8 *)(TShopItemListWindow__ct(o, (s32)tl_05, ((S_802200A8 *)this), ((S_802200A8 *)this)->f24));
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     reset_controller_input_state();
-    ((TShopWindowBase *)self)->set_field_20(5);
+    ((TShopWindowBase *)((S_802200A8 *)this))->set_field_20(5);
 }
 
-void update_buy_sell_choice__20TShopItemTecSequenceFPv(Seq_80220110 *self) {
+void TShopItemTecSequence::update_buy_sell_choice() {
     s32 r;
-    if (self->win == NULL) {
-        u16 id = obj_getField1c(self->x24);
-        self->win = (void *)create_window_menu((void *)((s32 (*)(int))get_window_layout_position)(0x2B), (void *)2, (void *)id);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(4), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(6), 6, 1);
-        calc_window_size__17TWindowSubComCardFPv(self->win);
-        align_menu_entry_positions(self->win);
-        ((TCheckRoomSequence *)(self->win))->set_ready_flag();
-        ((TUnk_804CDFE8 *)(self->win))->set_position_xy(get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+    if (((Seq_80220110 *)this)->win == NULL) {
+        u16 id = obj_getField1c(((Seq_80220110 *)this)->x24);
+        ((Seq_80220110 *)this)->win = (void *)create_window_menu((void *)((s32 (*)(int))get_window_layout_position)(0x2B), (void *)2, (void *)id);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(4), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(6), 6, 1);
+        calc_window_size__17TWindowSubComCardFv(((Seq_80220110 *)this)->win);
+        align_menu_entry_positions(((Seq_80220110 *)this)->win);
+        ((TCheckRoomSequence *)(((Seq_80220110 *)this)->win))->set_ready_flag();
+        ((TUnk_804CDFE8 *)(((Seq_80220110 *)this)->win))->set_position_xy(get_scale__15TShopWindowBaseFv(((Seq_80220110 *)this)), get_scale__15TShopWindowBaseFv(((Seq_80220110 *)this)));
     }
-    if (self->win != NULL && ((TWindowMenu *)(self->win))->is_visible() != 0) {
-        r = get_selected_menu_value(self->win);
+    if (((Seq_80220110 *)this)->win != NULL && ((TWindowMenu *)(((Seq_80220110 *)this)->win))->is_visible() != 0) {
+        r = get_selected_menu_value(((Seq_80220110 *)this)->win);
         if (r == 0) {
-            self->m4(0xB, 1);
-            ((TShopWindowBase *)self)->set_field_20(3);
-            TWindow__close(self->win);
-            self->win = NULL;
+            ((Seq_80220110 *)this)->m4(0xB, 1);
+            ((TShopWindowBase *)((Seq_80220110 *)this))->set_field_20(3);
+            TWindow__close(((Seq_80220110 *)this)->win);
+            ((Seq_80220110 *)this)->win = NULL;
             return;
         }
         if (r == 1) {
-            ((TShopWindowBase *)self)->set_field_20(4);
-            TWindow__close(self->win);
-            self->win = NULL;
+            ((TShopWindowBase *)((Seq_80220110 *)this))->set_field_20(4);
+            TWindow__close(((Seq_80220110 *)this)->win);
+            ((Seq_80220110 *)this)->win = NULL;
             return;
         }
     }
-    if (self->win != NULL && ((TWindowSubComCard *)(self->win))->get_status_flag() != 0) {
-        self->m4(0x2C, 1);
-        ((TShopWindowBase *)self)->set_field_20(7);
-        TWindow__close(self->win);
-        self->win = NULL;
+    if (((Seq_80220110 *)this)->win != NULL && ((TWindowSubComCard *)(((Seq_80220110 *)this)->win))->get_status_flag() != 0) {
+        ((Seq_80220110 *)this)->m4(0x2C, 1);
+        ((TShopWindowBase *)((Seq_80220110 *)this))->set_field_20(7);
+        TWindow__close(((Seq_80220110 *)this)->win);
+        ((Seq_80220110 *)this)->win = NULL;
     }
 }
 
-s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0) {
+s32 TShopItemTecSequence::open_greeting() {
   Stack_802202BC stack;
   stack.sp8 = lbl_805DC700;
   stack.spC = lbl_805DC704;
-  ((TShopSequence *)arg0)->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC700), (s32) (&stack.sp8));
-  PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x2E, 1);
-  *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window((s32) ((((((TShopSequence *)arg0)->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
-  ((TShopWindowBase *)arg0)->set_field_20(2);
-  *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 5);
+  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC700), (s32) (&stack.sp8));
+  PSO_VCALL_VObj_18_a93f07_m4(((u8 *)this), 0x2E, 1);
+  *((s32 *) (((s8 *) ((u8 *)this)) + 0x2C)) = create_meseta_window((s32) ((((((TShopSequence *)((u8 *)this))->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
+  ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
+  *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) ((u8 *)this), (int) 5);
 }
 
 typedef char RecoveredGlobal_802203E4___vt__20TShopItemTecSequence_size[sizeof(RecoveredGlobal_802203E4___vt__20TShopItemTecSequence) == 0x38 ? 1 : -1];
@@ -311,22 +305,22 @@ void TShopItemTecSequence::vfunc_11() {
         ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (1)));
         return;
     case 1:
-        open_greeting__20TShopItemTecSequenceFPv((u8 *)((void *) (arg0)));
+        ((TShopItemTecSequence *)arg0)->open_greeting();
         return;
     case 2:
-        update_buy_sell_choice__20TShopItemTecSequenceFPv((Seq_80220110 *)((void *) (arg0)));
+        ((TShopItemTecSequence *)arg0)->update_buy_sell_choice();
         return;
     case 3:
-        open_item_list_window__20TShopItemTecSequenceFPv((S_802200A8 *)((void *) (arg0)));
+        ((TShopItemTecSequence *)arg0)->open_item_list_window();
         return;
     case 4:
-        open_sell_window__20TShopItemTecSequenceFPv((S_80220030 *)((void *) (arg0)));
+        ((TShopItemTecSequence *)arg0)->open_sell_window();
         return;
     case 7:
-        close_if_done__20TShopItemTecSequenceFPv((void *) (arg0));
+        ((TShopItemTecSequence *)arg0)->close_if_done();
         return;
     case 6:
-        handle_select__20TShopItemTecSequenceFPv((void *) (arg0));
+        ((TShopItemTecSequence *)arg0)->handle_select();
     default:
         return;
     }

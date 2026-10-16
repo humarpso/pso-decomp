@@ -21,7 +21,7 @@ struct Info_8034F4FC {
 extern "C" {
 extern s32 tl_05;
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
-s32 fill_status_info__10TObjPlayerFPvPv(u32, void *);
+s32 fill_status_info__10TObjPlayerFPv(u32, void *);
 s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
@@ -37,7 +37,7 @@ s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     Info_8034F4FC info;
     void *o;
     TObjPlayer__sub_802E449C(&info);
-    fill_status_info__10TObjPlayerFPvPv(a0, &info);
+    fill_status_info__10TObjPlayerFPv(a0, &info);
     VecCopy__FP3VecPC3Vec(&info, a1);
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);

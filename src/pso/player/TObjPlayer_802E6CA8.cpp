@@ -132,7 +132,6 @@ extern const f32 lbl_805DE9D4;
 extern const f32 lbl_805DE9D8;
 extern const f32 lbl_805DE9DC;
 extern const f32 lbl_805DE9E0;
-u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2);
 s32 TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 draw_effect__10TObjPlayerFv();
@@ -177,7 +176,7 @@ void TObjPlayer__sub_802E7088(void);
 void *TObjPlayer__sub_802E7284(void *arg0, s16 arg1);
 void TObjPlayer__sub_802E746C(void);
 void TObjPlayer__sub_802E7470(void);
-s32 *init_from_model__11TBreakUpMdlFPvi(s32 *, s32);
+s32 *init_from_model__11TBreakUpMdlFl(s32 *, s32);
 s32 TObjPlayer__sub_802E75B8(void *, s32 *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -244,22 +243,22 @@ void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
+u8 *TObjPlayer::init_breakup_pieces(void *arg1, s32 arg2) {
     Part_802E6F10 *part;
     s32 i;
-    ((TObjPlayer *)arg0)->init_zeroed_object();
-    *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&lbl_804E3BA8);
-    ((TUnk_804E3BD8 *)arg0)->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
-    *(s32 *)((s8 *)arg0 + 0x2C) = arg2;
-    part = *(Part_802E6F10 **)((s8 *)arg0 + 0x28);
+    ((TObjPlayer *)((u8 *)this))->init_zeroed_object();
+    *(u8 **)((s8 *)((u8 *)this) + 0x18) = ((u8 *)&lbl_804E3BA8);
+    ((TUnk_804E3BD8 *)((u8 *)this))->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
+    *(s32 *)((s8 *)((u8 *)this) + 0x2C) = arg2;
+    part = *(Part_802E6F10 **)((s8 *)((u8 *)this) + 0x28);
     push_matrix();
     set_matrix_identity(0);
-    TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)arg0 + 0x2C));
-    (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).z = (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).y = (*(Vec_802E6F10 *)((s8 *)arg0 + 0x30)).x = lbl_805DE9CC;
-    matrix_mult_vec(0, arg0 + 0x30, arg0 + 0x30);
-    for (i = 0; i < *(s32 *)((s8 *)arg0 + 0x24); i++) {
-        matrix_mult_vec(0, &(*(Model_802E6F10 **)((s8 *)arg0 + 0x1C))->bones[i].pos, &part->pos);
-        rotate_vector_by_matrix(0, &(*(Model_802E6F10 **)((s8 *)arg0 + 0x1C))->bones[i].rot, &part->rot);
+    TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)((u8 *)this) + 0x2C));
+    (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).z = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).y = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).x = lbl_805DE9CC;
+    matrix_mult_vec(0, ((u8 *)this) + 0x30, ((u8 *)this) + 0x30);
+    for (i = 0; i < *(s32 *)((s8 *)((u8 *)this) + 0x24); i++) {
+        matrix_mult_vec(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].pos, &part->pos);
+        rotate_vector_by_matrix(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].rot, &part->rot);
         part->rot.y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
         part->rot.z -= lerp__9TDeadSpotFff(lbl_805DE9C8, lbl_805DE9DC);
         part->f18 = 0;
@@ -270,7 +269,7 @@ u8 *init_breakup_pieces__10TObjPlayerFPvPvi(u8 *arg0, void *arg1, s32 arg2) {
         part++;
     }
     pop_matrix();
-    return arg0;
+    return ((u8 *)this);
 }
 
 void TObjPlayer__sub_802E7084(void) {  }
@@ -371,7 +370,7 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
 
     var_r0 = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (var_r0 != NULL) {
-        var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, arg1);
+        var_r0 = init_from_model__11TBreakUpMdlFl(var_r0, arg1);
     }
     *(s32 **)((s8 *)this + 0x1C) = var_r0;
     temp_r4 = *(s32 **)((s8 *)this + 0x1C);

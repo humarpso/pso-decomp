@@ -381,7 +381,6 @@ void * __dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1);
 u8 * TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2);
 void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0);
 void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1);
-s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0);
 u8 * __dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 void * TObjAreaWarp__ct(void *arg0);
 u8 * TObjMapWarpForest__ct(u8 *arg0);
@@ -402,8 +401,8 @@ void bswap_6x94_inter_level_warp(void *);
 s32 mask_action_buttons(s32, s32);
 f32 get_static_field4_as_float__12TObjWarpJungFv(f32);
 s32 TObjWarpJung__sub_801A0404(s32);
-s32 get_map_id__13TRaderMapCoreFPv(void *);
-s32 is_target_valid__10TObjPlayerFPv(void *);
+s32 get_map_id__13TRaderMapCoreFv(void *);
+s32 is_target_valid__10TObjPlayerFv(void *);
 s32 check_flag_100__10TObjPlayerFPv();
 void * get_player_by_client_id(s32);
 void send_6x21_inter_level_warp(void *, void *);
@@ -416,15 +415,15 @@ void set_area__6TLobbyFl(void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
-void free_children__12TObjDoorJungFPvPv(void *, int);
+void free_children__12TObjDoorJungFPv(void *, int);
 void TWindow__close(void *);
 s32 align_menu_entry_positions(u32);
-s32 calc_window_size__17TWindowSubComCardFPv(u32);
+s32 calc_window_size__17TWindowSubComCardFv(u32);
 u32 create_window_menu(s32, s32, s16);
 s32 get_window_layout_position(s32);
 s32 find_active_player__12TObjAreaWarpFv(void *);
-s32 get_field_14__13TAdVIConfigGCFPv(void *);
-s32 update_visibility__13TAdVIConfigGCFPv(void *);
+s32 get_field_14__13TAdVIConfigGCFv(void *);
+s32 update_visibility__13TAdVIConfigGCFv(void *);
 u8 * destroy__13TAdVIConfigGCFPvs(void *, s16);
 s32 init__13TAdVIConfigGCFf(int, void *, f32);
 s32 get_game_play_mode(int);
@@ -794,7 +793,7 @@ void TObjAreaWarpEnding::open_confirm_window(s16 arg1) {
         } else {
             ((TWindowSubTradeMain *)(this->m_cc))->add_text_entry(get_localized_text_entry(9, 0x23), 2, 0, -1);
         }
-        calc_window_size__17TWindowSubComCardFPv(this->m_cc);
+        calc_window_size__17TWindowSubComCardFv(this->m_cc);
         align_menu_entry_positions(this->m_cc);
         ((TWindowSubComCardList *)(this->m_cc))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(this->m_cc))->set_flag_40();
@@ -830,7 +829,7 @@ void TObjAreaWarpEnding::render() {
     Ids_8019BD84 ids = lbl_805DBFD0;
     for (node = arg0->fD0->child; node != 0; node = node->child) {
         if (node->model != 0) {
-            free_children__12TObjDoorJungFPvPv(node->model, ids.id[arg0->f8C]);
+            free_children__12TObjDoorJungFPv(node->model, ids.id[arg0->f8C]);
         }
     }
     root = arg0->fCC;
@@ -964,7 +963,7 @@ void TObjAreaWarpQuest::render() {
         n = self->fD4->next2C;
         while (n != NULL) {
             if (n->f4 != 0) {
-                free_children__12TObjDoorJungFPvPv((void *)(n->f4), (int)(cols.c[self->f8C]));
+                free_children__12TObjDoorJungFPv((void *)(n->f4), (int)(cols.c[self->f8C]));
             }
             n = n->next2C;
         }
@@ -1075,7 +1074,7 @@ void TObjAreaWarpForest::render() {
         n = self->fD4->next2C;
         while (n != NULL) {
             if (n->f4 != 0) {
-                free_children__12TObjDoorJungFPvPv((void *)(n->f4), (int)(cols.c[self->f8C]));
+                free_children__12TObjDoorJungFPv((void *)(n->f4), (int)(cols.c[self->f8C]));
             }
             n = n->next2C;
         }
@@ -1215,8 +1214,8 @@ void TObjAreaWarp::handle_area_selection() {
         if (is_split_screen() != 0) {
             found = 0;
             if (d->fC0 != NULL) {
-                update_visibility__13TAdVIConfigGCFPv(d->fC0);
-                if (get_field_14__13TAdVIConfigGCFPv(d->fC0) == 0) {
+                update_visibility__13TAdVIConfigGCFv(d->fC0);
+                if (get_field_14__13TAdVIConfigGCFv(d->fC0) == 0) {
                     ((VObj_8019CAB0 *)this)->m12();
                     return;
                 }
@@ -1243,7 +1242,7 @@ void TObjAreaWarp::handle_area_selection() {
             void *t2 = find_warp_player_in_range(((VObj_8019CAB0 *)this), local_client_id, d->fAC);
             if (t2 != NULL) {
                 ((VObj_8019CAB0 *)this)->m13(local_client_id);
-                if (((VObj_8019CAB0 *)this)->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
+                if (((VObj_8019CAB0 *)this)->m16(get_map_id__13TRaderMapCoreFv(t2)) != 0) {
                     ((VObj_8019CAB0 *)this)->m12();
                     ((VObj_8019CAB0 *)this)->m17(t2);
                 }
@@ -1254,7 +1253,7 @@ void TObjAreaWarp::handle_area_selection() {
     }
 }
 
-s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0) {
+s32 TObjAreaWarp::is_warp_enabled(s32 arg0) {
     s32 var_r31;
 
     if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -1284,7 +1283,7 @@ void TObjAreaWarp::open_confirm_window(u16 arg1) {
             TLobby::get_player_floor(*(s32 *)((s8 *)this + 0xBC));
             ((TWindowSubTradeMain *)(*(u32 *)((s8 *)this + 0xB0)))->add_text_entry(get_floor_destination_name(), 2, 0, -1);
         }
-        calc_window_size__17TWindowSubComCardFPv(*(u32 *)((s8 *)this + 0xB0));
+        calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)this + 0xB0));
         align_menu_entry_positions(*(u32 *)((s8 *)this + 0xB0));
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag_40();
@@ -1412,7 +1411,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
                 t = find_warp_player_in_range(self, i, d->fAC);
                 if (t != NULL) {
                     self->m13(obj_getField1c(t));
-                    if (is_target_valid__10TObjPlayerFPv(t) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t)) != 0) {
+                    if (is_target_valid__10TObjPlayerFv(t) != 0 && self->m16(get_map_id__13TRaderMapCoreFv(t)) != 0) {
                         for (j = 0; j < 4; j++) {
                             if (test_player_body_overlap_at(self, t, &d->ends[j]) == 0) {
                                 send_6x55_intra_map_warp(obj_getField1c(t), &d->ends[j], d->f84);
@@ -1441,7 +1440,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
         t2 = find_warp_player_in_range(self, local_client_id, d->fAC);
         if (t2 != NULL) {
             self->m13(local_client_id);
-            if (is_target_valid__10TObjPlayerFPv(t2) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
+            if (is_target_valid__10TObjPlayerFv(t2) != 0 && self->m16(get_map_id__13TRaderMapCoreFv(t2)) != 0) {
                 for (j2 = 0; j2 < 4; j2++) {
                     if (test_player_body_overlap_at(self, t2, &d->ends[j2]) == 0) {
                         send_6x55_intra_map_warp(obj_getField1c(t2), &d->ends[j2], d->f84);

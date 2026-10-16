@@ -26,7 +26,7 @@ s32 TWindow__close(void *);
 s32 send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *, int, int);
 u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFv();
-s32 release_attached_resource__10TObjPlayerFPv(int);
+s32 release_attached_resource__10TObjPlayerFv(int);
 s32 record_split_screen_battle_results(void *);
 s32 set_state__19TPlayerBattleCtrl4PFv(void *, int);
 s32 calculate_split_screen_battle_rankings(void *);
@@ -37,7 +37,7 @@ extern s32 local_client_id;
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(void *);
-s32 calc_window_size__17TWindowSubComCardFPv(void *);
+s32 calc_window_size__17TWindowSubComCardFv(void *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, int);
@@ -58,7 +58,7 @@ extern "C" {
 
 int TKeyBoardControl__sub_8000F950(void);
 u32 get_player_by_client_id(s32);
-s32 reset_players__19TPlayerBattleCtrl4PFPv();
+s32 reset_players__19TPlayerBattleCtrl4PFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -97,7 +97,7 @@ extern s32 TPlayerBattleCtrl4P__init_flag;
 }
 void TPlayerBattleCtrl4P::finish_battle_reload() {
     if ((s32) TPlayerBattleCtrl4P__init_flag != 0) {
-        reset_players__19TPlayerBattleCtrl4PFPv();
+        reset_players__19TPlayerBattleCtrl4PFv();
         TLobby::set_fade_params((s32)reset_ctrl_to_default__19TPlayerBattleCtrl4PFv);
         set_score((s32)((void*)(3)));
     }
@@ -227,7 +227,7 @@ void TPlayerBattleCtrl4P::update_rematch_menu() {
             ((O_80311C2C *)this)->w1 = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x54), 2);
             forward_trade_action_default__16TObjCityMainWarpFPviii(((O_80311C2C *)this)->w1, ((O_80311C2C *)this)->ids->b, 6, 1);
             forward_trade_action_default__16TObjCityMainWarpFPviii(((O_80311C2C *)this)->w1, ((O_80311C2C *)this)->ids->d, 6, 3);
-            calc_window_size__17TWindowSubComCardFPv(((O_80311C2C *)this)->w1);
+            calc_window_size__17TWindowSubComCardFv(((O_80311C2C *)this)->w1);
             align_menu_entry_positions(((O_80311C2C *)this)->w1);
             ((TCheckRoomSequence *)(((O_80311C2C *)this)->w1))->set_ready_flag();
         }
@@ -274,7 +274,7 @@ void TPlayerBattleCtrl4P::open_result_windows() {
       {
         TPlayerBattleCtrl4P::remove_player((void *) ((s32)this), (int) ((u16) var_r31), (int) 1);
       }
-      release_attached_resource__10TObjPlayerFPv((int) temp_r3);
+      release_attached_resource__10TObjPlayerFv((int) temp_r3);
     }
     var_r31 += 1;
   }

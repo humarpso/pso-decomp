@@ -202,7 +202,6 @@ f32 fabs_float(f32);
 s32 is_area_attack_target_eligible(s32, s32);
 s32 attack_target_history_add(s32, s32);
 extern const f32 lbl_805DA000;
-s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
 
 extern "C" {
@@ -544,7 +543,7 @@ void TObjPlayer__sub_800C44C4(void) {
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D5174 + 0x42C));
     TLobby::spawn_npc_enemy((s16)((int) (0x37)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)((f32) (lbl_805D9FBC)), (f32)((f32) (lbl_805D9FAC)));
 }
-s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
+s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
     s32 result;
     s32 flags;
     s32 p;
@@ -552,33 +551,33 @@ s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 ar
     s32 ok;
     result = 0;
     flags = 0;
-    if (*(u32 *)((s8 *)arg0 + 0xAC) == 0) {
+    if (*(u32 *)((s8 *)((u8 *)this) + 0xAC) == 0) {
         return 0;
     }
     TObjPlayer::init_all_slots();
     if (*(s32 *)((s8 *)arg1 + 4) & 1) {
-        ((TUnk_804928CC *)arg0)->update_body_contact_flag(farg0);
+        ((TUnk_804928CC *)((u8 *)this))->update_body_contact_flag(farg0);
         flags |= 0x80000;
     }
     if (*(s32 *)((s8 *)arg1 + 4) & 2) {
-        ((TUnk_804AF8A0 *)arg0)->mark_enemy_body_contacts();
+        ((TUnk_804AF8A0 *)((u8 *)this))->mark_enemy_body_contacts();
         flags |= 0x100000;
     }
-    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & flags) {
+    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xA4)) + 0x18) & flags) {
         for (i = 0; i < 0x10; i++) {
             p = TObjPlayer::get_battle_param(i);
             if (p == 0) {
                 break;
             }
-            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != *(u32 *)((s8 *)arg0 + 0xAC) &&
-                is_area_attack_target_eligible((s32)arg0, *(s32 *)((s8 *)p + 0x30)) != 0 &&
-                !(fabs_float(*(f32 *)((s8 *)arg0 + 0xB8) - *(f32 *)((s8 *)p + 0x300)) > lbl_805DA000)) {
+            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != *(u32 *)((s8 *)((u8 *)this) + 0xAC) &&
+                is_area_attack_target_eligible((s32)((u8 *)this), *(s32 *)((s8 *)p + 0x30)) != 0 &&
+                !(fabs_float(*(f32 *)((s8 *)((u8 *)this) + 0xB8) - *(f32 *)((s8 *)p + 0x300)) > lbl_805DA000)) {
                 ok = 1;
                 if (arg3 != 0 && attack_target_history_add((s32)arg3, p) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {
-                    ((VObj_18_0ab400 *)(arg0))->m19(p, arg1, arg2);
+                    ((VObj_18_0ab400 *)(((u8 *)this)))->m19(p, arg1, arg2);
                     result = 1;
                 }
             }

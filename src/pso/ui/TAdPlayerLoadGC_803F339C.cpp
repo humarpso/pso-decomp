@@ -245,7 +245,7 @@ s32 TAdPlayerLoadGC::take_network_info_poll_result(s32 arg0, s32 *arg1) {
     }
     return r;
 }
-s32 request_card_open__15TAdPlayerLoadGCFiPv(s32 arg0, const char *arg1) {
+s32 TAdPlayerLoadGC::request_card_open(s32 arg0, const char *arg1) {
     s32 r = 0;
     s32 n = 0;
 

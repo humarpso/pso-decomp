@@ -310,16 +310,13 @@ void TBoss4Type2__sub_80053504(u8 *arg0);
 void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0);
 void TRaderMapCore__sub_80053670(u8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
-void calc_scale_slot_indices__11TBoss4Type2FPvPvPv(S_80053B48 *o, s32 *a, s32 *b);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, V_80054224 *in);
-void set_state__11TBoss4Type2FPvi(Boss_800542B0 *arg0, s32 arg1);
 u8 * TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
 void render_and_update_effects__10TObjPlayerFPv(void* p);
 void request_state_3__11TBoss4Type2FPv(void *arg0);
 void fn_800548E4(u8 *arg0);
 S_80054938 * __dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag);
-s32 create__11TBoss4Type1Fi(s32 arg0);
 s32 TBoss4Type2__sub_80054DA8();
 void create_all_tenchu_furu__11TBoss4Type2Fi(s32 arg0);
 s32 TBoss4Type2__sub_80054FC0(void *, f32);
@@ -821,7 +818,7 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)((void *) (arg0), (int) (1));
+        ((TBoss4Type2 *)arg0)->set_state((int) (1));
     }
 }
 #pragma pop
@@ -873,7 +870,7 @@ void update_tech_charge__11TBoss4Type2FPv(u8 *arg0) {
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);
     }
     if (--*(s32 *)((s8 *)arg0 + 0x398) < 0) {
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)(arg0, 1);
+        ((TBoss4Type2 *)arg0)->set_state(1);
     }
 }
 
@@ -909,7 +906,7 @@ void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)((void *)(arg0), (int)(1));
+        ((TBoss4Type2 *)arg0)->set_state((int)(1));
     }
 }
 
@@ -934,7 +931,7 @@ void tick_countdown_set_state7__11TBoss4Type2FPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x3D0) = 5;
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)((void *)((void *)(arg0)), (int)((s32)(7)));
+        ((TBoss4Type2 *)arg0)->set_state((int)((s32)(7)));
     }
 }
 
@@ -963,7 +960,7 @@ void update_spawn_uro__14TBoss4DarkFalzFPv(Obj_80052CDC *arg0) {
     }
     if (--arg0->timer < 0) {
         arg0->f3d0 = 5;
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)(arg0, 7);
+        ((TBoss4Type2 *)arg0)->set_state(7);
     }
 }
 
@@ -986,7 +983,7 @@ void tick_state_398_timer__11TBoss4Type2FPv(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)((void *)(arg0), (int)(4));
+        ((TBoss4Type2 *)arg0)->set_state((int)(4));
     }
 }
 
@@ -1008,7 +1005,7 @@ void TBoss4Type2__sub_80052EF8(O_80052EF8 *o) {
     if (--o->f398 < 0) {
         o->f3a4 = o->f3a0;
         o->f3ac = o->f3a8;
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)(o, 1);
+        ((TBoss4Type2 *)o)->set_state(1);
     }
 }
 
@@ -1030,7 +1027,7 @@ void TBoss4Type2__sub_800530C0(Obj_800530C0 *arg0) {
     Vec_800530C0 b = boss4_type2_effect_offset_vec_b;
     ((void (*)(void *, Vec_800530C0 *, Vec_800530C0 *))set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv)(arg0, &a, &b);
     if (--arg0->timer < 0) {
-        ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)(arg0, 1);
+        ((TBoss4Type2 *)arg0)->set_state(1);
     }
 }
 
@@ -1124,7 +1121,7 @@ void fn_80053440(Obj_80053440 *arg0) {
 void TBoss4Type2__sub_80053504(u8 *arg0) {
     s32 spC;
     s32 sp8;
-    ((void (*)(void *, void *, void *))calc_scale_slot_indices__11TBoss4Type2FPvPvPv)(arg0, &spC, &sp8);
+    ((TBoss4Type2 *)arg0)->calc_scale_slot_indices(&spC, &sp8);
     ((TBoss4Type2 *)arg0)->send_darkfalz_code(2, spC, sp8);
 }
 
@@ -1275,16 +1272,16 @@ void TBoss4Type2::calc_target_position() {
 }
 #pragma pop
 
-void calc_scale_slot_indices__11TBoss4Type2FPvPvPv(S_80053B48 *o, s32 *a, s32 *b) {
+void TBoss4Type2::calc_scale_slot_indices(s32 *a, s32 *b) {
     f32 s;
     s32 v;
-    v = o->f3a0 + (s32)(lbl_805D8B64 * calc_boss4_scale__10TObjPlayerFi(o));
+    v = ((S_80053B48 *)this)->f3a0 + (s32)(lbl_805D8B64 * calc_boss4_scale__10TObjPlayerFi(((S_80053B48 *)this)));
     v += 1;
     if (v >= 4) {
         v -= 4;
     }
     *a = v;
-    s = calc_boss4_scale__10TObjPlayerFi(o);
+    s = calc_boss4_scale__10TObjPlayerFi(((S_80053B48 *)this));
     if (s <= lbl_805D8B68) {
         *b = 0;
     } else if (s <= lbl_805D8B6C) {
@@ -1310,7 +1307,7 @@ void TBoss4Type2::apply_packed_state(u32 arg1) {
     if (n < 0 || n >= 0xB) {
         return;
     }
-    ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)(this, n);
+    set_state(n);
 }
 
 void TBoss4Type2::send_darkfalz_code(s32 arg1, s32 arg2, s32 arg3) {
@@ -1451,23 +1448,23 @@ void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, 
     ((void (*)(void *, void *))vec3_add_to)(&o->pos, &v);
 }
 
-void set_state__11TBoss4Type2FPvi(Boss_800542B0 *arg0, s32 arg1) {
+void TBoss4Type2::set_state(s32 arg1) {
     s32 i;
     void **p;
 
-    arg0->state = arg1;
+    ((Boss_800542B0 *)this)->state = arg1;
     for (i = 8; i < 13; i++) {
-        p = &arg0->items[i];
+        p = &((Boss_800542B0 *)this)->items[i];
         if (*p != NULL) {
             TBoss4Type2::request_destroy((u32)(*p));
             *p = NULL;
         }
     }
-    arg0->f3d0 = 5;
-    ((TBoss4Type2 *)arg0)->set_motion_index(lbl_80485C48[arg0->state].f4);
-    Act_800542B0 f = lbl_80485C48[arg0->state].enter;
+    ((Boss_800542B0 *)this)->f3d0 = 5;
+    ((TBoss4Type2 *)((Boss_800542B0 *)this))->set_motion_index(lbl_80485C48[((Boss_800542B0 *)this)->state].f4);
+    Act_800542B0 f = lbl_80485C48[((Boss_800542B0 *)this)->state].enter;
     if (f) {
-        (arg0->*f)();
+        (((Boss_800542B0 *)this)->*f)();
     }
 }
 
@@ -1608,7 +1605,7 @@ void request_state_3__11TBoss4Type2FPv(void *arg0) {
 
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x374);
     if ((temp_r0 != 3) && (temp_r0 != 4)) {
-        ((s32 (*)(void *, s32))set_state__11TBoss4Type2FPvi)(arg0, 3);
+        ((TBoss4Type2 *)arg0)->set_state(3);
     }
 }
 
@@ -1801,13 +1798,13 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2) {
     self->f3D8 = self->f32C / 2;
     self->f3DC = lbl_805D8B20;
     self->f3E0 = lbl_805D8B18;
-    set_state__11TBoss4Type2FPvi((Boss_800542B0 *)self, 0);
+    ((TBoss4Type2 *)self)->set_state(0);
     return self;
 }
 
 #pragma pop
 
-s32 create__11TBoss4Type1Fi(s32 arg0) {
+s32 TBoss4Type1::create(s32 arg0) {
     s32 var_r31;
     s32 var_r4;
 

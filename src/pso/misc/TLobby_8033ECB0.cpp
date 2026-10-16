@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TUnk_804EFA88.h"
 
@@ -10,7 +11,6 @@ struct RecoveredGlobal_8033ED24_lbl_804EFA88
 
 extern "C" {
 extern s32 lbl_805D6DA0;
-void release_indexed_entry__6TLobbyFi(s32 arg0);
 int mem_alloc(void *);
 s32 __ct__7TObjectFP7TObject();
 s32 TLobby__sub_8033EE38(int);
@@ -68,7 +68,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0) {
   return arg0;
 }
 
-void release_indexed_entry__6TLobbyFi(s32 arg0) {
+void TLobby::release_indexed_entry(s32 arg0) {
     if (((void *) (*(u8 * *)&lbl_805D6DA0) != NULL) && ((s32) *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) < 0x10)) {
         ((TObjPlayer *)(*(u8 * *)&lbl_805D6DA0))->free_indexed_entry(arg0);
         *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) = (s32) (*(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) + 1);

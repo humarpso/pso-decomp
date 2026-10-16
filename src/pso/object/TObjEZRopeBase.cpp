@@ -2,7 +2,7 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" void TObjPlayer__sub_800FEE84();
-extern "C" void update_bone_attach_points__10TObjPlayerFPv();
+extern "C" void update_bone_attach_points__10TObjPlayerFv();
 extern "C" void __dt__21TObjHMS_EZRope_PlayerFv();
 extern "C" void render_shadows__7TObjectFv();
 f32 ezrope_chunk_material_color_table[12] = {
@@ -12,7 +12,7 @@ f32 TObjEZBoneRotPlayer__chain_gravity[3] = { 0.0f, -0.75f, 0.0f };
 #pragma push
 #pragma force_active on
 void *__vt__21TObjHMS_EZRope_Player[6] = {
-    (void *)0x0, (void *)0x0, (void *)&__dt__21TObjHMS_EZRope_PlayerFv, (void *)&update_bone_attach_points__10TObjPlayerFPv,
+    (void *)0x0, (void *)0x0, (void *)&__dt__21TObjHMS_EZRope_PlayerFv, (void *)&update_bone_attach_points__10TObjPlayerFv,
     (void *)&TObjPlayer__sub_800FEE84, (void *)&render_shadows__7TObjectFv,
 };
 #pragma pop

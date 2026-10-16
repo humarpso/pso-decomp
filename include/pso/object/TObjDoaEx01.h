@@ -15,6 +15,8 @@ struct TObjDoaEx01 : public TUnk_804B0BB8 {
     static void free_resource();
     static void load_resources();
     u8 unk_D4[0x10];
+    void try_open();
+    void draw_model();
 };
 
 typedef char TObjDoaEx01_size[sizeof(TObjDoaEx01) == 0xE4 ? 1 : -1];

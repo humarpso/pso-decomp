@@ -58,12 +58,12 @@ void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
 s32 get_window_layout_position(int);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
-int update_hp_entry__20TWindowSubStatusDispFPv(void*);
+int update_hp_entry__20TWindowSubStatusDispFv(void*);
 s32 update_lockon_window();
 int update_status_entry__20TWindowSubStatusDispFv(void*);
 s32 update_status_help_item(void *);
 
-void TWindowPartyStatus::draw() { update_hp_entry__20TWindowSubStatusDispFPv(this); update_status_entry__20TWindowSubStatusDispFv(this); }
+void TWindowPartyStatus::draw() { update_hp_entry__20TWindowSubStatusDispFv(this); update_status_entry__20TWindowSubStatusDispFv(this); }
 
 }
 extern "C" {

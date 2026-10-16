@@ -3,9 +3,9 @@
 
 extern "C" {
 
-int reset_list__20TShopArmorListWindowFPv(void*);
+int reset_list__20TShopArmorListWindowFv(void*);
 int populate_judgment_item_list(void*);
 
-void TShopArmorListWindow::save_and_close() { save_cursor_selection(); reset_list__20TShopArmorListWindowFPv(this); populate_judgment_item_list(this); clamp_selection_to_valid_entry(); }
+void TShopArmorListWindow::save_and_close() { save_cursor_selection(); reset_list__20TShopArmorListWindowFv(this); populate_judgment_item_list(this); clamp_selection_to_valid_entry(); }
 
 }

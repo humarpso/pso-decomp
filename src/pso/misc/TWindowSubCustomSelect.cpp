@@ -56,7 +56,7 @@ extern RecoveredGlobal_80277928_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD5E4;
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(int);
-s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
+s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 extern RecoveredGlobal_80277928_lbl_8050E208 controller_input_state;
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
@@ -64,7 +64,7 @@ Big_80277AEC *get_player_by_client_id(int);
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 s32 get_window_layout_position(int);
 void *reset_selection__20TWindowSubStatusDispFv(void *, Pos_80277AEC *);
-void *construct_type1_heading__20TWindowSubStatusDispFPvii(void *, s32, s32);
+void *construct_type1_heading__20TWindowSubStatusDispFll(void *, s32, s32);
 extern u8 custom_select_organic_action_table[];
 extern u8 custom_select_android_action_table[];
 extern u8 TWindowSubCustomSelect__window_settings[];
@@ -102,7 +102,7 @@ extern "C" {
 void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
-void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
+void destroy_status_display__20TWindowSubStatusDispFls(void *, int);
 
 void TWindowSubCustomSelect::handle_cancel() {
     if (is_active() == 0) {
@@ -149,18 +149,18 @@ void TWindowSubCustomSelect::handle_grid_navigation() {
     u8 temp_r5;
     u8 *temp_r30;
     temp_r30 = (u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + (is_player_input_active((int)((s32) this->m_20)) * 0x50) + 0x20;
-    if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0xF0), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
+    if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0xF0), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
         play_sound_effect((s32)(0x54100), (s32)(0U), (s32)(0), (s32)(0));
-        if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
             this->m_71 = (u8) (this->m_71 - 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
             this->m_71 = (u8) (this->m_71 + 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x80), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x80), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x80), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x80), (int) (6), (int) (1)) != 0)) {
             this->m_70 = (u8) (this->m_70 + 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x40), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x40), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x40), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&(*(RecoveredGlobal_80277408_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (0x40), (int) (6), (int) (1)) != 0)) {
             this->m_70 = (u8) (this->m_70 - 1);
         }
         temp_r3 = this->m_70;
@@ -287,7 +287,7 @@ void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubCustomSelect;
         TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)arg0 + 0x80)), (s16)1);
-        destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)arg0 + 0x7C), 1);
+        destroy_status_display__20TWindowSubStatusDispFls(*(void **)((s8 *)arg0 + 0x7C), 1);
         ((TUnk_804CDFE8 *)arg0)->destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -333,7 +333,7 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     }
     o = alloc__23TAdSinglePlyChrSelectGCFv(0x24);
     if (o != NULL) {
-        o = construct_type1_heading__20TWindowSubStatusDispFPvii(o, get_message_10__20TWindowSubStatusDispFl(0x22), *(s16 *)((s8 *)arg0 + 0x20));
+        o = construct_type1_heading__20TWindowSubStatusDispFll(o, get_message_10__20TWindowSubStatusDispFl(0x22), *(s16 *)((s8 *)arg0 + 0x20));
     }
     *(void **)((s8 *)arg0 + 0x7C) = o;
     pos.x = lbl_805DD5E8;

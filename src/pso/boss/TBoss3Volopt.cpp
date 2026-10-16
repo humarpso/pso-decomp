@@ -94,8 +94,8 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u16 fn_8003C8B4(void);
 u16 fn_8003C804(void);
 void send_random_params__12TBoss3VoloptFv(void);
-s32 count_dead_parts__12TBoss3VoloptFPv(void *);
-s16 find_facing_player__12TBoss3VoloptFPv(void *);
+s32 count_dead_parts__12TBoss3VoloptFv(void *);
+s16 find_facing_player__12TBoss3VoloptFv(void *);
 extern u16 lbl_805D2718;
 extern const f32 lbl_805D8660;
 extern const f32 lbl_805D8668;
@@ -337,12 +337,12 @@ s32 TObjPlayer__sub_80042EC0(void *);
 void TBoss3VoloptP01__sub_80042F84(void *);
 s32 set_player_view_flag__11TCameraCtrlFl();
 s32 set_flag_08000000__11TCameraCtrlFl();
-void apply_hit_reaction__12TBoss3VoloptFPvf(void *, f32);
-void copy_phase2_positions_to_global__12TBoss3VoloptFPv(void *);
-void set_action_wait__12TBoss3VoloptFPvUs(void *, u16);
-void set_motion__12TBoss3VoloptFPvs(void *, u16);
-void check_and_trigger__12TBoss3VoloptFPv(void *);
-void set_action__12TBoss3VoloptFPvs(void *, u16);
+void apply_hit_reaction__12TBoss3VoloptFf(void *, f32);
+void copy_phase2_positions_to_global__12TBoss3VoloptFv(void *);
+void set_action_wait__12TBoss3VoloptFUs(void *, u16);
+void set_motion__12TBoss3VoloptFs(void *, u16);
+void check_and_trigger__12TBoss3VoloptFv(void *);
+void set_action__12TBoss3VoloptFs(void *, u16);
 s32 TBoss3Volopt__sub_800479D0();
 void TBoss3Volopt__sub_80047A60(void);
 s32 set_active_camera_pose(void *, void *);
@@ -446,7 +446,7 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self) {
         ((TBoss3Volopt *)self)->swap_6x85_fields();
         switch (self->mode) {
         case 0:
-            copy_phase2_positions_to_global__12TBoss3VoloptFPv(self);
+            copy_phase2_positions_to_global__12TBoss3VoloptFv(self);
             break;
         }
     }
@@ -547,31 +547,31 @@ void handle_6x15_vol_opt_boss_actions(u8 *arg0) {
     case 3:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            set_action_wait__12TBoss3VoloptFPvUs(p, *(u16 *)((s8 *)arg0 + 6));
+            set_action_wait__12TBoss3VoloptFUs(p, *(u16 *)((s8 *)arg0 + 6));
         }
         break;
     case 4:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            set_action__12TBoss3VoloptFPvs(p, *(u16 *)((s8 *)arg0 + 6));
+            set_action__12TBoss3VoloptFs(p, *(u16 *)((s8 *)arg0 + 6));
         }
         break;
     case 5:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            check_and_trigger__12TBoss3VoloptFPv(p);
+            check_and_trigger__12TBoss3VoloptFv(p);
         }
         break;
     case 6:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            set_motion__12TBoss3VoloptFPvs(p, *(u16 *)((s8 *)arg0 + 6));
+            set_motion__12TBoss3VoloptFs(p, *(u16 *)((s8 *)arg0 + 6));
         }
         break;
     case 7:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            apply_hit_reaction__12TBoss3VoloptFPvf(p, *(s16 *)((s8 *)arg0 + 8));
+            apply_hit_reaction__12TBoss3VoloptFf(p, *(s16 *)((s8 *)arg0 + 8));
         }
         break;
     }
@@ -1101,7 +1101,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 3;
                 p.arg = sel;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1116,7 +1116,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 }
                 p.arg = sel;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1127,7 +1127,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.id = o->id;
                 p.cmd = 5;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1139,7 +1139,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 6;
                 p.arg = sel;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             o->f3f0 = 0;
             return;
@@ -1151,7 +1151,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 7;
                 p.arg2 = lbl_805D86A0 * calc_boss4_scale__10TObjPlayerFi(o);
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             return;
         }
@@ -1163,9 +1163,9 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
                 p.cmd = 3;
-                p.arg = find_facing_player__12TBoss3VoloptFPv(e);
+                p.arg = find_facing_player__12TBoss3VoloptFv(e);
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1182,7 +1182,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                     }
                     p.arg = t;
                     ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                    o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                    o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
                 }
             }
             o->f3f0++;
@@ -1194,7 +1194,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.id = o->id;
                 p.cmd = 5;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1208,7 +1208,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                     p.cmd = 6;
                     p.arg = t;
                     ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                    o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                    o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
                 }
             }
             o->f3f0 = 0;
@@ -1221,7 +1221,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 7;
                 p.arg2 = lbl_805D86A0 * calc_boss4_scale__10TObjPlayerFi(o);
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFPv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
             }
             return;
         }

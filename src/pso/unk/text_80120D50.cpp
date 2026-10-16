@@ -18,7 +18,7 @@ u8 get_field_ed__5TItemFv(void *);
 s32 TItemEquipBase__ct(void *, void *, u8 *);
 u8 *lookup_item_pmt_record(void *);
 u8 get_weapon_class_motion_type(u8);
-s32 set_status_flags__10TObjPlayerFPvUi(void *, int);
+s32 set_status_flags__10TObjPlayerFUl(void *, int);
 s32 set_weapon_trail_joints(void *, int, int, int);
 s32 memcpy(void *, void *, int);
 s32 memset(void *, int, int);
@@ -99,10 +99,10 @@ u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
         ((TObjPlayer *)(arg0 + 0x178))->set_flags((int) (0x20));
     }
     if (*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x27) & 2) {
-        set_status_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x40000));
+        set_status_flags__10TObjPlayerFUl((void *) (arg0), (int) (0x40000));
     }
     if (*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x27) & 4) {
-        set_status_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x80000));
+        set_status_flags__10TObjPlayerFUl((void *) (arg0), (int) (0x80000));
     }
     return arg0;
 }

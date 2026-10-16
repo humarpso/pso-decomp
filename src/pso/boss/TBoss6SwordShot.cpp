@@ -84,7 +84,7 @@ extern const f32 lbl_805E0004;
 extern const f32 lbl_805E0008;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
-s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
+s32 get_point__10TBoss6RockFllPf(s32, void *, void *);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
@@ -377,7 +377,7 @@ s32 TBoss6SwordWave::break_rocks_in_wave() {
     s32 hi;
     f32 dist;
     for (i = 0; i < 32; i++) {
-        if (get_point__10TBoss6RockFiPvPv(i, &pt, &scale) == 0) {
+        if (get_point__10TBoss6RockFllPf(i, &pt, &scale) == 0) {
             continue;
         }
         VecCopy__FP3VecPC3Vec(&d, &pt);

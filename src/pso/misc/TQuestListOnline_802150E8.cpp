@@ -121,7 +121,6 @@ extern G_802156E0 *item_appraisal_rules;
 extern s32 item_appraisal_favored_weapon;
 extern s32 item_appraisal_score;
 extern s32 lbl_805D6238;
-void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
 u8 lookup_key_value__6TLobbyFc(s8 x);
@@ -147,7 +146,7 @@ void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
-void complete_reveal__14TWindowMessageFPv(int);
+void complete_reveal__14TWindowMessageFv(int);
 int update_window_mode_from_progress__6TLobbyFPv(s32, Pair_802150E8 *);
 s32 get_window_layout_position(s32);
 char *strtok(char *, const char *);
@@ -208,7 +207,7 @@ void TQuestListOnline::begin_file_download() {
         p.b = lbl_8044BCC0[0].b;
         TQuestListOnline__download_window = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x2C), &p);
         ((TLobby *)TQuestListOnline__download_window)->send_and_handle(get_guild_text(0x14), 1);
-        complete_reveal__14TWindowMessageFPv(TQuestListOnline__download_window);
+        complete_reveal__14TWindowMessageFv(TQuestListOnline__download_window);
         ((TLobby *)TQuestListOnline__download_window)->set_field_1c(lbl_805DC664);
         some_empty_func__9TMainTaskFv(((u8 *)&main_task));
         ((TMainTask *)((u8 *)&main_task))->run_tl_camera_tasks();
@@ -424,13 +423,13 @@ void adjust_appraisal_percentages(Obj_80215720 *arg0) {
     item_appraisal_score += ((s8 (*)(s8))lookup_key_value__6TLobbyFc)(r);
 }
 
-void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item) {
+void TLobby::roll_item_grind_bonus() {
     u8 buf[0x68];
     Ent_8021587C *e;
     s32 n;
     s32 c;
     s32 r;
-    if (is_rare_item__9TItemDataFPv(item) == 0) {
+    if (is_rare_item__9TItemDataFPv(((Item_8021587C *)this)) == 0) {
         ((TLobby *)buf)->reset_counter_64();
         Tbl_8021587C *t = (*(G_8021587C **)&item_appraisal_rules)->t;
         n = t->count;
@@ -449,15 +448,15 @@ void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item) {
         shuffle_shop_pool_n_times(buf, 4);
         r = ((TLobby *)buf)->pop_byte();
         if (r != -1) {
-            s32 v = item->f3 + lbl_8044BD30[r];
+            s32 v = ((Item_8021587C *)this)->f3 + lbl_8044BD30[r];
             if (v < 0) {
                 v = 0;
             }
-            item->f3 = v;
+            ((Item_8021587C *)this)->f3 = v;
         }
-        u8 m = get_entry_field16__9TItemDataFv(item);
-        if (item->f3 > m) {
-            item->f3 = m;
+        u8 m = get_entry_field16__9TItemDataFv(((Item_8021587C *)this));
+        if (((Item_8021587C *)this)->f3 > m) {
+            ((Item_8021587C *)this)->f3 = m;
         }
         item_appraisal_score += (s8)TLobby::lookup_table_value(r);
     }

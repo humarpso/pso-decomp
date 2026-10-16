@@ -46,7 +46,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneMorfos__data_805DF870;
-int get_target_info__9TObjEneDDFPv(void*);
+int get_target_info__9TObjEneDDFv(void*);
 void update_player_state__9TObjEneDDFv(void *, V3_803323D8 *, int);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
@@ -66,7 +66,7 @@ s32 TObjEneMorfosArm__sub_803326BC(void* p);
 void TWindowSubTradeMain__sub_803323A8(void* p);
 void TWindowSubTradeMain__sub_803323B8(void* p);
 void TWindowSubTradeMain__sub_803323C8(void* p);
-int get_target_info__9TObjEneDDFPv(void*);
+int get_target_info__9TObjEneDDFv(void*);
 
 void TWindowSubTradeMain__sub_803323A8(void* p) { *(u16*)((char*)p + 0x60) |= 0x40; }
 void TWindowSubTradeMain__sub_803323B8(void* p) { *(u16*)((char*)p + 0x60) &= 0xffffffbf; }
@@ -77,7 +77,7 @@ void TObjEneMorfos::vfunc_106() {
     s32 idx;
     f32 frame;
     Anim_803323D8 *anim;
-    get_target_info__9TObjEneDDFPv((void*)(arg0));
+    get_target_info__9TObjEneDDFv((void*)(arg0));
     if (((VObj_803323D8 *)arg0)->m8(TObjEneMorfos__data_805DF86C, TObjEneMorfos__data_805DF870) != 0) {
         if (arg0->f326 != 0xB) {
             V3_803323D8 v = lbl_804775F0;
@@ -109,7 +109,7 @@ void TObjEneMorfos::vfunc_106() {
     }
 }
 
-s32 TObjEneMorfos::vfunc_83() { if (get_target_info__9TObjEneDDFPv(this) != 0) { ((TObjEneMorfos *)this)->init_target_offsets(); } }
+s32 TObjEneMorfos::vfunc_83() { if (get_target_info__9TObjEneDDFv(this) != 0) { ((TObjEneMorfos *)this)->init_target_offsets(); } }
 
 void TObjEneMorfos::update_ground_probe() {
     u8 *arg0 = (u8 *)this;

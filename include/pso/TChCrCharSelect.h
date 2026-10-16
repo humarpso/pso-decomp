@@ -18,6 +18,8 @@ public:
     static int get_selected_index();
     static int get_selected_char();
     static int get_instance();
+public:
+    void tick_and_apply_selection();
 };
 
 #endif

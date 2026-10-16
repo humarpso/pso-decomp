@@ -13,7 +13,7 @@ s32 TLobby__sub_800F8AD0();
 s32 TLobby__sub_800F8F34();
 s32 TLobby__sub_803382E4();
 s32 adxf_get_fsize_byte__6TLobbyFv();
-s32 close_adxf_handle__6TLobbyFPv(s32);
+s32 close_adxf_handle__6TLobbyFv(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 restore_saved_depth_alpha_state();
@@ -34,7 +34,7 @@ s32 TLobby::get_file_size() {
         return -1;
     }
     temp_r31 = adxf_get_fsize_byte__6TLobbyFv();
-    close_adxf_handle__6TLobbyFPv(temp_r3);
+    close_adxf_handle__6TLobbyFv(temp_r3);
     return temp_r31;
 }
 

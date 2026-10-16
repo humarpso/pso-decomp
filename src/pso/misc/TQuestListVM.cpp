@@ -213,7 +213,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
 s32 poll_download__12TQuestListVMFv(void *);
 void seed_download_rng(s32 arg0);
-void unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(u8 *, s32);
+void unshuffle_and_decrypt__22TQuestVmDownLoadServerFl(u8 *, s32);
 extern s32 TQuestListVM__decrypted_quest_buffer;
 extern s32 TQuestListVM__decompression_capacity;
 extern s32 TQuestListVM__quest_data_output_cursor;
@@ -223,7 +223,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
 s32 poll_download__12TQuestListVMFv(void *);
 void seed_download_rng(s32 arg0);
-void unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(u8 *, s32);
+void unshuffle_and_decrypt__22TQuestVmDownLoadServerFl(u8 *, s32);
 extern s32 TQuestListVM__quest_data_output_cursor;
 extern s32 TQuestListVM__quest_decrypt_result_size;
 s32 TWindow__close(void *);
@@ -231,7 +231,7 @@ s32 get_selected_menu_value(void *);
 extern s32 TQuestListVM__decrypted_quest_buffer;
 extern s32 TQuestListVM__decompression_capacity;
 int obj_getField1c(int);
-s32 reset_list__20TShopArmorListWindowFPv(void *);
+s32 reset_list__20TShopArmorListWindowFv(void *);
 s32 calc_list_content_extent(void *);
 void send_and_handle__6TLobbyFii(u32, void *, int);
 u32 set_window_mode_4__6TLobbyFPvll(int, void *, int);
@@ -412,7 +412,7 @@ void TQuestListVM::load_downloaded_quest() {
     switch (TAdPlayerLoadGC__sub_801E1538(&dl, *(s32 *)(arg0 + 0x2388))) {
     case 0:
         seed_download_rng(poll_download__12TQuestListVMFv(arg0));
-        unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(dl.data, dl.size);
+        unshuffle_and_decrypt__22TQuestVmDownLoadServerFl(dl.data, dl.size);
         if (TQuestVmDownLoadServer::verify_checksum((s32)dl.data, (s32)dl.size) == 0) {
             *(s32 *)(arg0 + 0x2398) += 2;
             ((VObj_802186E4_80218570 *)arg0)->m7(0x1A, 1);
@@ -549,7 +549,7 @@ void TQuestListVM::poll_quest_download(void *p) {
     switch (TAdPlayerLoadGC__sub_801E1538(&dl, *(s32 *)(arg0 + 0x2388))) {
     case 0:
         seed_download_rng(poll_download__12TQuestListVMFv(arg0));
-        unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(dl.data, dl.size);
+        unshuffle_and_decrypt__22TQuestVmDownLoadServerFl(dl.data, dl.size);
         if (TQuestVmDownLoadServer::verify_checksum((s32)dl.data, (s32)dl.size) == 0) {
             *(s32 *)(arg0 + 0x2398) += 2;
             ((VObj_802186E4_80218570 *)arg0)->m7(0x1A, 1);
@@ -642,7 +642,7 @@ s32 TQuestListVM::build_download_list(void *p) {
     u8 *e;
     if (((VObj_18_8021924C *)(arg0))->m8() != 0) {
         if (*(u32 *)(arg0 + 0x2374) != 0U) {
-            reset_list__20TShopArmorListWindowFPv(*(void **)(arg0 + 0x2374));
+            reset_list__20TShopArmorListWindowFv(*(void **)(arg0 + 0x2374));
         } else {
             switch (current_language) {
             case 0:
@@ -715,7 +715,7 @@ void TQuestListVM::process_download_entry() {
         switch (TAdPlayerLoadGC__sub_801E1538((Dl_80218E94 *)&dl, *(s32 *)(arg0 + 0x2388))) {
         case 0:
             seed_download_rng(poll_download__12TQuestListVMFv(arg0));
-            unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(dl.data, dl.size);
+            unshuffle_and_decrypt__22TQuestVmDownLoadServerFl(dl.data, dl.size);
             if (TQuestVmDownLoadServer::verify_checksum((s32)dl.data, (s32)dl.size) == 0) {
                 *(s32 *)(arg0 + 0x23B0) = 1;
                 *(s32 *)(arg0 + 0x2398) += 2;

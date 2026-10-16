@@ -32,7 +32,7 @@ extern s32 __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
-void enable__13TParticleCtrlFPv(void *);
+void enable__13TParticleCtrlFv(void *);
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 void TObjParticleLobby__sub_80369698(void);
 void set_flags__11TBoss4Type2FUl(void *, u16);
@@ -77,7 +77,7 @@ void TObjParticleLobby::run_task() {
             o->state = 2;
         }
         if (o->ctrl != NULL) {
-            enable__13TParticleCtrlFPv(o->ctrl);
+            enable__13TParticleCtrlFv(o->ctrl);
         }
         break;
     case 2:

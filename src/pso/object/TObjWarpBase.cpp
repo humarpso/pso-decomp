@@ -26,7 +26,7 @@ f32 xz_distance_squared(void *, void *);
 u32 get_player_by_client_id(u16);
 u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(Warp_8019DAC0 *, void *, void *);
-void *construct_field_collider__9TTecLukerFPviii(void *, void *, Warp_8019DAC0 *, s32);
+void *construct_field_collider__9TTecLukerFlll(void *, void *, Warp_8019DAC0 *, s32);
 void *__nw__7TObjectFUl(u32);
 extern s32 __vt__12TObjWarpBase[];
 extern s32 TObjWarpBase__name;
@@ -109,7 +109,7 @@ Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     self->fb0 = 0;
     o = __nw__7TObjectFUl(0xB4);
     if (o != 0) {
-        o = construct_field_collider__9TTecLukerFPviii(o, (u8 *)self + 0x38, self, 1);
+        o = construct_field_collider__9TTecLukerFlll(o, (u8 *)self + 0x38, self, 1);
     }
     self->fb4 = o;
     self->fb8 = 0xFFFF;

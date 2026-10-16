@@ -393,7 +393,6 @@ extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 lbl_805DC57C;
 extern const f32 lbl_805DC580;
 extern const f32 lbl_805DC584;
-void draw_enemy_gate_markers__13TRaderMapCoreFv(u8 *arg0);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(void *, s32);
@@ -427,7 +426,6 @@ extern s32 local_client_id;
 extern const f32 lbl_805DC560;
 extern const f32 lbl_805DC570;
 extern const f32 lbl_805DC578;
-void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self);
 extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__map_view_state;
 extern s32 TRaderMapCore__view_mode;
 extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__map_view_state;
@@ -440,7 +438,7 @@ s32 has_flag__13TRaderMapCoreFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 apply_packed_flags__13TRaderMapCoreFllll(void *, s32, s32, s32);
-s32 get_map_id__13TRaderMapCoreFPv(u32);
+s32 get_map_id__13TRaderMapCoreFv(u32);
 s32 check_flag_100__10TObjPlayerFPv(u32);
 u32 get_player_by_client_id(s32);
 extern Pad_801FAF24 controller_input_state[];
@@ -829,7 +827,7 @@ typedef char RecoveredGlobal_801FA1E0_TRaderMapCore__data_80512D08_size[sizeof(R
 typedef char RecoveredGlobal_801FA1E0_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801FA1E0_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
 #define SHOW(t) ((s32 (*)(void *))should_show_map__13TRaderMapCoreFv)(t)
-void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
+void TRaderMapCore::gather_player_markers() {
     s32 floor;
     Entry_801F9E9C *e;
     s32 team;
@@ -838,9 +836,9 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
     Entry_801F9E9C *me;
     team = 0;
     floor = get_current_floor();
-    self->unk134 = -1;
+    ((Core_801F9E9C *)this)->unk134 = -1;
     p = (Player_801F9E9C *)get_player_by_client_id(local_client_id);
-    me = &self->e[0];
+    me = &((Core_801F9E9C *)this)->e[0];
     if (p != NULL) {
         team = TLobby__sub_801C19D0(p->sub828);
         if (test_flag_2000000__10TObjPlayerFPv((u32)p) == 0) {
@@ -848,8 +846,8 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
             me->y = lbl_805DC570;
             me->unkC = p->unk60;
             me->id = local_client_id;
-            self->unk134 = 0;
-            if (SHOW(self) != 0) {
+            ((Core_801F9E9C *)this)->unk134 = 0;
+            if (SHOW(((Core_801F9E9C *)this)) != 0) {
                 if (team == 1) {
                     copy_vec4__13TRaderMapCoreFPvPv(&me->color, &radar_player_slot_color_table[0]);
                 } else if (team == 2) {
@@ -866,12 +864,12 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
     } else {
         ((TRaderMapCore *)me)->reset();
     }
-    e = &self->e[1];
+    e = &((Core_801F9E9C *)this)->e[1];
     for (i = 0; i < 4; i++) {
         if (i == local_client_id) {
             continue;
         }
-        if (SHOW(self) == 0) {
+        if (SHOW(((Core_801F9E9C *)this)) == 0) {
             p = (Player_801F9E9C *)get_player_by_client_id(i);
             if (p != NULL && floor == get_field_3e4__10TObjPlayerFv() &&
                 test_flag_2000000__10TObjPlayerFPv((u32)p) == 0) {
@@ -907,47 +905,47 @@ void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self) {
         }
         e++;
     }
-    switch (self->mode) {
+    switch (((Core_801F9E9C *)this)->mode) {
     case 0:
         for (s32 j = 0; j < 4; j++) {
-            self->e[j].unk10 = lbl_805DC560;
+            ((Core_801F9E9C *)this)->e[j].unk10 = lbl_805DC560;
         }
         break;
     case 1:
         for (s32 j = 0; j < 4; j++) {
-            self->e[j].unk10 = lbl_805DC560;
+            ((Core_801F9E9C *)this)->e[j].unk10 = lbl_805DC560;
         }
         break;
     case 2:
         for (s32 j = 0; j < 4; j++) {
-            self->e[j].unk10 = lbl_805DC578;
+            ((Core_801F9E9C *)this)->e[j].unk10 = lbl_805DC578;
         }
         break;
     }
 }
 
-void draw_enemy_gate_markers__13TRaderMapCoreFv(u8 *arg0) {
+void TRaderMapCore::draw_enemy_gate_markers() {
     Gate_801FA1E0 *g;
     s32 i;
     lbl_805D5660 = model_render_flags;
     copy_vec4__13TRaderMapCoreFPvPv(&(*(RecoveredGlobal_801FA1E0_lbl_8050BEC0 *)&saved_model_draw_color).value, &(*(RecoveredGlobal_801FA1E0_lbl_8058D4C0 *)&model_material_color).value);
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    model_render_flags |= *(s32 *)((s8 *)arg0 + 0x194);
+    model_render_flags |= *(s32 *)((s8 *)((u8 *)this) + 0x194);
     set_chunk_material_override_pair(-0xFF01, 0x100);
     for (i = 0, g = (Gate_801FA1E0 *)&TRaderMapCore__marker_buffer; i < TRaderMapCore__data_805D5F30; i++, g++) {
-        TRaderMapCore__sub_801F967C(arg0, g->color);
+        TRaderMapCore__sub_801F967C(((u8 *)this), g->color);
         push_matrix();
         translate_matrix(0, g->x, TRaderMapCore__data_805DC528, g->z);
         rotate_matrix_y(0, g->rot);
         switch (g->kind) {
         case 0:
             scale_matrix(0, lbl_805DC57C * g->scale, lbl_805DC580, lbl_805DC584 * g->scale);
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x180));
+            draw_ginja_object(*(s32 *)((s8 *)((u8 *)this) + 0x180));
             break;
         case 1:
             scale_matrix(0, lbl_805DC580 * g->scale, lbl_805DC580, lbl_805DC580 * g->scale);
-            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x17C));
+            draw_ginja_object(*(s32 *)((s8 *)((u8 *)this) + 0x17C));
             break;
         }
         pop_matrix();
@@ -1104,7 +1102,7 @@ void TRaderMapCore::render() {
             draw_backdrop__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
             begin_map_view__13TRaderMapCoreFii((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__view_mode)));
             render_region_records((void *)((void *) (TRaderMapCore__view_mode)));
-            draw_enemy_gate_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
+            ((TRaderMapCore *)arg0)->draw_enemy_gate_markers();
             draw_player_markers();
             setup_view((s32)((void *) (TRaderMapCore__view_mode)));
             draw_compass__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
@@ -1115,7 +1113,7 @@ void TRaderMapCore::render() {
             TCameraCtrl__sub_80068EF0();
             begin_map_view__13TRaderMapCoreFii((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__view_mode)));
             render_region_records((void *)((void *) (TRaderMapCore__view_mode)));
-            draw_enemy_gate_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
+            ((TRaderMapCore *)arg0)->draw_enemy_gate_markers();
             draw_player_markers();
             setup_view((s32)((void *) (TRaderMapCore__view_mode)));
             TCameraCtrl::restore_full_screen_view();
@@ -1127,7 +1125,7 @@ void TRaderMapCore::render() {
             draw_backdrop__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
             begin_map_view__13TRaderMapCoreFii((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__view_mode)));
             render_region_records((void *)((void *) (TRaderMapCore__view_mode)));
-            draw_enemy_gate_markers__13TRaderMapCoreFv((u8 *)((void *) (arg0)));
+            ((TRaderMapCore *)arg0)->draw_enemy_gate_markers();
             draw_player_markers();
             setup_view((s32)((void *) (TRaderMapCore__view_mode)));
             break;
@@ -1188,27 +1186,27 @@ void TRaderMapCore::update_pan_zoom_input() {
     if (self->f184 != 0) {
         for (j = 0; j < 4; j++) {
             p = get_player_by_client_id(j);
-            if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0) {
+            if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFv(p)].ctl, 0x200) != 0) {
                 self->f184 = 0;
                 return;
             }
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x10) != 0) {
             self->f18C += lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x20) != 0) {
             self->f18C -= lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x40) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x40) != 0) {
             self->f188 += lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x80) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x80) != 0) {
             self->f188 -= lbl_805DC598;
         }
-        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20000, 0x27, 1) != 0) {
+        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x20000, 0x27, 1) != 0) {
             self->f190 -= lbl_805DC598;
         }
-        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10000, 0x27, 1) != 0) {
+        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x10000, 0x27, 1) != 0) {
             self->f190 += lbl_805DC598;
         }
         TRaderMapCore::pan_horizontal(self->f188);
@@ -1221,8 +1219,8 @@ void TRaderMapCore::update_pan_zoom_input() {
     }
     for (k = 0; k < 4; k++) {
         p = get_player_by_client_id(k);
-        if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0 &&
-            has_flag__13TRaderMapCoreFv(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x10000) != 0) {
+        if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFv(p)].ctl, 0x200) != 0 &&
+            has_flag__13TRaderMapCoreFv(controller_input_state[get_map_id__13TRaderMapCoreFv(p)].ctl, 0x10000) != 0) {
             self->f184 = p;
             u8 *cam = (u8 *)&TRaderMapCore__map_view_state;
             *(f32 *)((s8 *)cam + 0x28) = *(f32 *)((s8 *)self->f184 + 0x38);

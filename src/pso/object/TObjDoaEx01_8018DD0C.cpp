@@ -42,7 +42,7 @@ extern s32 model_render_flags;
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 free_children__12TObjDoorJungFPvPv(s32, s32);
+s32 free_children__12TObjDoorJungFPv(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -55,14 +55,12 @@ extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
-void draw_model__11TObjDoaEx01FPv(u8 *arg0);
 }
 
 extern "C" {
 
-void try_open__11TObjDoaEx01FPv(u8 *arg0);
 s32 post_translate_matrix(void *);
-s32 free_children__12TObjDoorJungFPvPv(s32, s32);
+s32 free_children__12TObjDoorJungFPv(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
@@ -124,41 +122,41 @@ s32 TObjDoaEx01::draw_object_tree(s32 arg1) {
     }
 }
 
-void try_open__11TObjDoaEx01FPv(u8 *arg0) {
+void TObjDoaEx01::try_open() {
     s32 temp_r31;
 
     temp_r31 = get_bml_model(TObjDoaEx01__resource_bundle, 0);
-    if (((TObjDoaEx01_VObj*)arg0)->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPvPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4), 1);
-        free_children__12TObjDoorJungFPvPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4), 1);
+    if (((TObjDoaEx01_VObj*)((u8 *)this))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
+        free_children__12TObjDoorJungFPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4), 1);
+        free_children__12TObjDoorJungFPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4), 1);
         TObjFish__sub_8001EDB0(TObjDoaEx01__resource_bundle, 0);
         set_global_param__8TObjFishFl();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        ((TObjDoaEx01 *)arg0)->draw_object_tree((s32)(temp_r31));
+        post_translate_matrix(((u8 *)this) + 0x38);
+        rotate_matrix_y(0, *(s32 *)((s8 *)((u8 *)this) + 0x60));
+        ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree((s32)(temp_r31));
         pop_matrix();
     }
 }
-void draw_model__11TObjDoaEx01FPv(u8 *arg0) {
+void TObjDoaEx01::draw_model() {
     f32 temp_f31;
     s32 temp_r31;
     s32 temp_r31_2;
-    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPvPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)), (0));
-        free_children__12TObjDoorJungFPvPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)), (0));
+    if (((VObj_18_26a62c *)(((u8 *)this)))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
+        free_children__12TObjDoorJungFPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)), (0));
+        free_children__12TObjDoorJungFPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)), (0));
         temp_r31 = get_bml_model((TObjDoaEx01__resource_bundle), (0));
         TObjFish__sub_8001EDB0((TObjDoaEx01__resource_bundle), (0));
         set_global_param__8TObjFishFl();
         push_matrix();
-        post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((0), (*(s32 *)((s8 *)arg0 + 0x60)));
-        temp_f31 = *(f32 *)((s8 *)arg0 + 0xB0);
+        post_translate_matrix((void *) (((u8 *)this) + 0x38));
+        rotate_matrix_y((0), (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+        temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0xB0);
         if (temp_f31 > TObjDoaEx01__data_805DBDA0) {
             temp_r31 = get_bml_motion((TObjDoaEx01__resource_bundle), (0));
             draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__resource_bundle), (0)), temp_r31, temp_f31);
         } else {
-            ((TObjDoaEx01 *)arg0)->draw_object_tree((temp_r31));
+            ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree((temp_r31));
         }
         pop_matrix();
     }

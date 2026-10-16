@@ -6,7 +6,9 @@
 
 struct TObjNpcMoja : public TObjNpcBase {
     virtual ~TObjNpcMoja();
-    virtual void vfunc_88();};
+    virtual void vfunc_88();
+    static void *create(void *arg0);
+};
 
 typedef char TObjNpcMoja_size[sizeof(TObjNpcMoja) == 0x3B8 ? 1 : -1];
 #endif

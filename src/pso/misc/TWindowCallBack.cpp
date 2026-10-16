@@ -17,7 +17,7 @@ struct RecoveredGlobal_802ACE84___vt__15TWindowCallBack {
 };
 
 extern "C" {
-u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
+u8 * construct_base__9TWindowDDFPUcsPUc(void *, s32, s16, s32);
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
 extern RecoveredGlobal_802ACE84_lbl_804DE360 window_callback_base_params;
 extern s32 __vt__15TWindowCallBack[];
@@ -82,7 +82,7 @@ void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_802ACE84_lbl_804DE360_size[sizeof(RecoveredGlobal_802ACE84_lbl_804DE360) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_802ACE84___vt__15TWindowCallBack_size[sizeof(RecoveredGlobal_802ACE84___vt__15TWindowCallBack) == 0x1C ? 1 : -1];
 u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
-    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &window_callback_base_params.value, 4, arg1);
+    construct_base__9TWindowDDFPUcsPUc(arg0, (s32) &window_callback_base_params.value, 4, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802ACE84___vt__15TWindowCallBack *)&__vt__15TWindowCallBack).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E58;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x38))->copy_vec2(arg2);

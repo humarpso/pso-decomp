@@ -41,7 +41,6 @@ struct Tbl_802A194C { s32 v[5]; };
 
 extern "C" {
 int queue_destruction__7TObjectFv(void *);
-void reset_slots__14TAdSelectTxtGCFPvPvPv(Sel_802A16CC *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(s32);
 void *__ct__17TAdSelectTxtSubGCFv(void *, void *, void *);
 void TLobby__sub_8023E4B4(s32, s32);
@@ -69,15 +68,15 @@ s32 TAdSelectTxtGC__sub_802A16C0(void* p) { return *(s32*)((char*)p + 0x3e8); }
 
 void TAdSelectTxtGC::render() {  }
 
-void reset_slots__14TAdSelectTxtGCFPvPvPv(Sel_802A16CC *arg0, void *arg1, void *arg2) {
+void TAdSelectTxtGC::reset_slots(void *arg1, void *arg2) {
     s32 i;
     for (i = 0; i < 7; i++) {
-        if (arg0->slots[i] != 0) {
-            queue_destruction__7TObjectFv(arg0->slots[i]);
-            arg0->slots[i] = 0;
+        if (((Sel_802A16CC *)this)->slots[i] != 0) {
+            queue_destruction__7TObjectFv(((Sel_802A16CC *)this)->slots[i]);
+            ((Sel_802A16CC *)this)->slots[i] = 0;
         }
     }
-    ((TAdSelectTxtGC *)arg0)->init_slot_entries((Src_802A1838 *)(arg1), (void *)(arg2));
+    ((TAdSelectTxtGC *)((Sel_802A16CC *)this))->init_slot_entries((Src_802A1838 *)(arg1), (void *)(arg2));
 }
 
 extern s32 __vt__14TAdSelectTxtGC[];

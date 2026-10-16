@@ -57,7 +57,7 @@ struct VObj : VBase {
 extern "C" {
 
 u8 *construct_enemy_from_set_row(void *);
-u8 *resolve_matching_object__6TLobbyFPv(s32);
+u8 *resolve_matching_object__6TLobbyFv(s32);
 s32 append_wave_member(s32, void *);
 
 extern s32 TLobby__data_805D60FC;
@@ -76,7 +76,7 @@ s32 TLobby::spawn_matching_objects(s16 arg0, s16 arg1, s32 arg2) {
     if ((s32) TLobby__data_805D60FC < 0) {
         return 0;
     }
-    var_r29 = resolve_matching_object__6TLobbyFPv(TLobby__data_805D60FC);
+    var_r29 = resolve_matching_object__6TLobbyFv(TLobby__data_805D60FC);
     temp_r31 = TLobby::get_object_type(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = *(s16 *)((s8 *)var_r29 + 2);

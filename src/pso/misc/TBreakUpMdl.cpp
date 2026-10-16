@@ -116,7 +116,6 @@ s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
@@ -127,7 +126,6 @@ s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D97C8;
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
 void *mem_alloc(int);
@@ -164,7 +162,7 @@ extern s32 TBreakUpMdl__class_name;
 extern const f32 lbl_805D97D0;
 extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
-int get_target_info__9TObjEneDDFPv(void*);
+int get_target_info__9TObjEneDDFv(void*);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -179,7 +177,7 @@ void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 void mem_free(void *);
-int get_target_info__9TObjEneDDFPv(void*);
+int get_target_info__9TObjEneDDFv(void*);
 
 extern s32 __vt__11TBreakUpMdl[];
 
@@ -399,15 +397,15 @@ void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1) {
     }
 }
 
-u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
-    *(s32 **)((s8 *)arg0 + 0xC) = &(*(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
-    *(s32 *)((s8 *)arg0 + 8) = 1;
-    alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
+u8 *TBreakUpMdl::setup_pieces(s32 arg1, s32 arg2, f32 farg0) {
+    *(s32 **)((s8 *)((u8 *)this) + 0xC) = &(*(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
+    *(s32 *)((s8 *)((u8 *)this) + 8) = 1;
+    alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from((u32) &identity_matrix.value);
-    ((TBreakUpMdl *)arg0)->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)((u8 *)this))->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
-    return arg0;
+    return ((u8 *)this);
 }
 
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -423,14 +421,14 @@ u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
 
 typedef char RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8009705C_lbl_8058D490_size[sizeof(RecoveredGlobal_8009705C_lbl_8058D490) == 0x30 ? 1 : -1];
-u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1) {
-    *(s32 **)((s8 *)arg0 + 0xC) = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
-    alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
+u8 *TBreakUpMdl::init_from_model(s32 arg1) {
+    *(s32 **)((s8 *)((u8 *)this) + 0xC) = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
+    alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
     push_matrix_from((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value);
-    ((TBreakUpMdl *)arg0)->build_node_records((u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)((u8 *)this))->build_node_records((u8 *)((void *) arg1), (s32)(0));
     pop_matrix();
-    *(s32 *)((s8 *)arg0 + 8) = 0;
-    return arg0;
+    *(s32 *)((s8 *)((u8 *)this) + 8) = 0;
+    return ((u8 *)this);
 }
 
 void TBreakUpMdl::copy(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); *(f32 *)&this->m_down = *(f32*)((char*)q + 0x14); *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x18); }

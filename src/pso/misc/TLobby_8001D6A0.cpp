@@ -49,7 +49,7 @@ Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size);
 void TLobby__sub_8001D9E8(void* p);
 
 void send_disable_auto_reply__9TProtocolFv(s32);
-void send_text_packet_c7__6TLobbyFPvPv(s32, s32);
+void send_text_packet_c7__6TLobbyFPc(s32, s32);
 extern s32 auto_reply_flags;
 extern s32 TLobby__protocol_instance;
 }
@@ -59,7 +59,6 @@ extern "C" {
 void TLobby__sub_8001D9E8(void* p);
 u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1);
 
-u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 aram_read_sync__6TLobbyFllll(s32, s32);
 s32 aram_transfer_sync__6TLobbyFlUlll(s32, void *, s32);
 s32 __dl__FPv(u32 *);
@@ -169,29 +168,29 @@ u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TLobby::init_memory_pool(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
     u8 *temp_r3;
     u8 *temp_r5;
 
-    *(void **)((s8 *)arg0 + 0) = fn_803DE864(arg3, 0x10);
-    if ((void *) *(void **)((s8 *)arg0 + 0) != NULL) {
-        *(s32 *)((s8 *)arg0 + 4) = arg3;
+    *(void **)((s8 *)((u8 *)this) + 0) = fn_803DE864(arg3, 0x10);
+    if ((void *) *(void **)((s8 *)((u8 *)this) + 0) != NULL) {
+        *(s32 *)((s8 *)((u8 *)this) + 4) = arg3;
         temp_r4 = (arg2 + 0x1F) & 0xFFFFFFE0;
-        *(s32 *)((s8 *)arg0 + 8) = temp_r4;
-        temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0));
-        *(void **)((s8 *)arg0 + 0x2C) = temp_r3;
+        *(s32 *)((s8 *)((u8 *)this) + 8) = temp_r4;
+        temp_r3 = (unsigned char *) (*(void **)((s8 *)((u8 *)this) + 0));
+        *(void **)((s8 *)((u8 *)this) + 0x2C) = temp_r3;
         temp_r5 = temp_r3 + 0x10;
-        *(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 0) = temp_r5;
-        *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 4) = 0;
-        *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 8) = 0;
-        *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 0xC) = 0;
+        *(void **)((s8 *)(*(void **)((s8 *)((u8 *)this) + 0x2C)) + 0) = temp_r5;
+        *(s32 *)((s8 *)(*(void **)((s8 *)((u8 *)this) + 0x2C)) + 4) = 0;
+        *(s32 *)((s8 *)(*(void **)((s8 *)((u8 *)this) + 0x2C)) + 8) = 0;
+        *(s32 *)((s8 *)(*(void **)((s8 *)((u8 *)this) + 0x2C)) + 0xC) = 0;
         *(s32 *)((s8 *)temp_r5 + 0) = 0;
-        *(void **)((s8 *)temp_r5 + 4) = (void *) *(void **)((s8 *)arg0 + 0);
+        *(void **)((s8 *)temp_r5 + 4) = (void *) *(void **)((s8 *)((u8 *)this) + 0);
         *(s32 *)((s8 *)temp_r5 + 8) = arg1;
         *(s32 *)((s8 *)temp_r5 + 0xC) = temp_r4;
     }
-    return arg0;
+    return ((u8 *)this);
 }
 
 void TLobby__sub_8001D9DC(void) {
@@ -203,7 +202,7 @@ void TLobby__sub_8001D9E8(void* p) { *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*
 void TLobby::sync_auto_reply_state() {
     if ((auto_reply_flags & 4) || (auto_reply_flags & 1) != ((auto_reply_flags >> 1) & 1)) {
         if (((s32 (*)(void))get_flag_bit0__6TLobbyFv)() != 0) {
-            send_text_packet_c7__6TLobbyFPvPv(TLobby__protocol_instance, get_card_window_area__6TLobbyFv());
+            send_text_packet_c7__6TLobbyFPc(TLobby__protocol_instance, get_card_window_area__6TLobbyFv());
         } else {
             send_disable_auto_reply__9TProtocolFv(TLobby__protocol_instance);
         }

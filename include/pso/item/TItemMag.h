@@ -103,6 +103,11 @@ struct TItemMag
     static void add_stat_clamped(s16 *arg0, s32 arg1);
     s32 get_photon_blast_at_slot(s32 slot);
     void set_field_EE(u8 v);
+    void apply_transform_action(u8 arg1);
+    void apply_natural_evolution();
+    void select_support_action(s32 arg1);
+    s32 get_type();
+    void add_stat_level_capped(s16 arg1);
 };
 
 typedef char MagOffset_m_24[offsetof(TItemMag, m_24) == 0x24 ? 1 : -1];

@@ -88,6 +88,27 @@ struct TMainCursor : public TObject {
     void *destroy(s16 arg1);
     static void find_action_slot_for_target(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
     u8 unk_64[0x4];
+    void refresh_target_marker();
+    void update_chair();
+    void validate_target();
+    void publish_nearest_target();
+    int is_same_target(void *b);
+    s32 delete_this(s16 arg1);
+    void set_target_id_at_60(u8 arg1);
+    void set_target_id(s16 v);
+    int set_target_index_at_60(void* _w1);
+    void reset_target();
+    s32 get_body_exclude_mask();
+    s32 get_body_include_mask();
+    s32 get_actor_exclude_mask();
+    s32 get_actor_include_mask();
+    static void store_sorted_record(void* p, void* a1, void* a2);
+    void init_slot(s32 i);
+    void update_pair();
+    void update_cursor_pair();
+    s32 test_button(s32 arg1, u16 arg2);
+    void set_flag_bit(s32 arg1, u16 arg2);
+    static s32 find_action_slot(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4);
 };
 
 typedef char TMainCursor_size[sizeof(TMainCursor) == 0x68 ? 1 : -1];

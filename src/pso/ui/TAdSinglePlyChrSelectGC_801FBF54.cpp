@@ -152,7 +152,6 @@ s32 TAdSinglePlyChrSelectGC__sub_80202B1C(s32, s32);
 u8 TAdSinglePlyChrSelectGC__sub_80202B30();
 s32 TAdSinglePlyChrSelectGC__sub_80203210(s32);
 s32 fn_8020325C(s32);
-void remove_matching_entries__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 __dl__FPv(s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TAdPlayerLoadGC__sub_801E1B50(void *);
@@ -264,7 +263,7 @@ s32 TAdSinglePlyChrSelectGC::init_char_slot_record() {
     return 1;
 }
 
-void remove_matching_entries__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
+void TAdSinglePlyChrSelectGC::remove_matching_entries(s32 arg0) {
     s32 i;
     s32 n;
     s32 e;
@@ -2188,7 +2187,7 @@ s32 encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 save_character_file__23TAdSinglePlyChrSelectGCFi(int);
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
-void complete_reveal__14TWindowMessageFPv(Win_801FEE14 *);
+void complete_reveal__14TWindowMessageFv(Win_801FEE14 *);
 void TLobby__sub_80269C90(void);
 void TLobby__sub_80269CA4(s32);
 Win_801FEE14 *create_message_window__6TLobbyFllUls(V2_801FEE14 *, V2_801FEE14 *, s32, s32);
@@ -2344,7 +2343,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
             ((TLobby *)w)->send_and_handle(get_localized_text_entry(0x20, 4), 3);
             ((TWindowSubComCard *)w)->reparent_to_main_ctrl();
         }
-        complete_reveal__14TWindowMessageFPv(w);
+        complete_reveal__14TWindowMessageFv(w);
         while (1) {
             func_803DCDFC__Fv();
             controller_stuff__Fv();
@@ -2397,7 +2396,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
         }
         ((TWindowSubComCard *)w)->reparent_to_main_ctrl();
     }
-    complete_reveal__14TWindowMessageFPv(w);
+    complete_reveal__14TWindowMessageFv(w);
     if (result == 0) {
         while (1) {
             func_803DCDFC__Fv();
@@ -3039,13 +3038,13 @@ void *copy_char_slot_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 copy_save_data__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 get_ptr_4__10TObjPlayerFv();
 s32 TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
-s32 reset_action_palette__10TObjPlayerFPv(void *);
+s32 reset_action_palette__10TObjPlayerFv(void *);
 s32 init_character_stats_for_level(u8, void *, s32);
 s32 init_class_starting_inventory(void *);
 s32 memset(void *, s32, s32);
 extern s32 card_character_save_buffer;
 extern void *selected_character_data;
-void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
+void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(void *, void *, s32);
 void subtractive_rng_unshuffle(void *, s32, s32, s32);
 void subtractive_rng_make_shuffle(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
@@ -3073,7 +3072,7 @@ extern void *selected_character_data;
 extern void *active_character_save_record;
 extern s32 character_save_file_buffer;
 s32 apply_loaded_character__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
+void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(void *, void *, s32);
 void subtractive_rng_unshuffle(void *, s32, s32, s32);
 void subtractive_rng_make_shuffle(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
@@ -3086,7 +3085,7 @@ s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 extern u8 chr_select_rng_state[];
 extern RecoveredGlobal_801FFF14_lbl_80513910 chr_select_serial_seeds;
 void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
+void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(void *, void *, s32);
 void subtractive_rng_make_shuffle(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
 s32 subtractive_rng_next(void *);
@@ -3099,7 +3098,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
 extern u8 chr_select_rng_state[];
 extern RecoveredGlobal_801FFF14_lbl_80513910 chr_select_serial_seeds;
 s32 TAdSinglePlyChrSelectGC__sub_802000C8(void *arg0_, void *arg1);
-void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
+void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(void *, void *, s32);
 void subtractive_rng_make_shuffle(void *);
 s32 subtractive_rng_xor_buffer(void *, void *, s32);
 s32 subtractive_rng_next(void *);
@@ -3308,7 +3307,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FFF98(void *arg0) {
     __dl__FPv(b);
     __dl__FPv(a);
     subtractive_rng_seed(chr_select_rng_state, ((Ser_801FFF98 *)&chr_select_serial_seeds)[0].a);
-    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(chr_select_rng_state, arg0, 0xE28C);
+    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(chr_select_rng_state, arg0, 0xE28C);
     subtractive_rng_seed(chr_select_rng_state, *(s32 *)((u8 *)arg0 + 0xE288));
     return subtractive_rng_xor_buffer(chr_select_rng_state, arg0, 0xE288);
 }
@@ -3325,7 +3324,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802000C8(void *arg0_, void *arg1) {
     subtractive_rng_seed(chr_select_rng_state, *(s32 *)((u8 *)self + 0xE288));
     subtractive_rng_xor_buffer(chr_select_rng_state, self, 0xE288);
     subtractive_rng_seed(chr_select_rng_state, ((Ser_802000C8 *)&chr_select_serial_seeds)[0].a);
-    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(chr_select_rng_state, self, 0xE28C);
+    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(chr_select_rng_state, self, 0xE28C);
     a = alloc__23TAdSinglePlyChrSelectGCFv(0xE28C);
     if (a != 0) {
         a = init_windows__23TAdSinglePlyChrSelectGCFi(a);
@@ -3457,7 +3456,7 @@ void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     register_callback__23TAdSinglePlyChrSelectGCFis(b, 1);
     register_callback__23TAdSinglePlyChrSelectGCFis(a, 1);
     subtractive_rng_seed(chr_select_rng_state, ((Ser_80200560 *)&chr_select_serial_seeds)[0].a);
-    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(chr_select_rng_state, arg0, 0x1156C);
+    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(chr_select_rng_state, arg0, 0x1156C);
     subtractive_rng_seed(chr_select_rng_state, TAdSinglePlyChrSelectGC__sub_801FCCC0((u8 *)arg0));
     subtractive_rng_xor_buffer(chr_select_rng_state, arg0, 0x11568);
 }
@@ -3491,7 +3490,7 @@ s32 encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *arg0) {
     subtractive_rng_seed(chr_select_rng_state, TAdSinglePlyChrSelectGC__sub_801FCCC0((u8 *)self));
     subtractive_rng_xor_buffer(chr_select_rng_state, self, 0x11568);
     subtractive_rng_seed(chr_select_rng_state, ((Ser_80200778 *)&chr_select_serial_seeds)[0].a);
-    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(chr_select_rng_state, self, 0x1156C);
+    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(chr_select_rng_state, self, 0x1156C);
     a = alloc__23TAdSinglePlyChrSelectGCFv(0x1156C);
     if (a != 0) {
         a = init_char_slots__23TAdSinglePlyChrSelectGCFi(a);
@@ -3589,7 +3588,7 @@ void reset_character_data__23TAdSinglePlyChrSelectGCFv(void) {
         *(s8 *)((s8 *)selected_character_data + 0) = 0;
         init_class_starting_inventory(selected_character_data);
         init_character_stats_for_level(*(u8 *)((s8 *)selected_character_data + 0x3A1), selected_character_data, *(s32 *)((s8 *)selected_character_data + 0x364));
-        reset_action_palette__10TObjPlayerFPv(selected_character_data);
+        reset_action_palette__10TObjPlayerFv(selected_character_data);
         *(s32 *)((s8 *)selected_character_data + 0x36C) = 0;
     }
     if ((void *) active_character_save_record != NULL) {

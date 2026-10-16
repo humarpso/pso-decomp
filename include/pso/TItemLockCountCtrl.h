@@ -14,6 +14,9 @@ public:
     static void free_all();
     static void init_effect_table();
     static void create_instance();
+public:
+    static void apply_unit_immunity(int arg0);
+    static void set_battle_ctrl_flag30(int arg0);
 };
 
 #endif

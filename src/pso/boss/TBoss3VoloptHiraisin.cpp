@@ -757,7 +757,7 @@ extern "C" {
 
 void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1);
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
-s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
+s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 void free_collision_body_parts(void *);
 #define get_bml_model ((s32 (*)(s32, s32))get_bml_model)
 void __dl__7TObjectFPv(void *);
@@ -782,7 +782,7 @@ void TBoss3VoloptHiraisin::init_models() {
     *temp_r3 &= 0xFFFFFFFD;
     var_r31 = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     if (var_r31 != 0) {
-        var_r31 = init_from_model__11TBreakUpMdlFPvi(var_r31, get_bml_model(TBoss3VoloptHiraisin__resource_bundle, 0x10));
+        var_r31 = init_from_model__11TBreakUpMdlFl(var_r31, get_bml_model(TBoss3VoloptHiraisin__resource_bundle, 0x10));
     }
     TBoss3VoloptHiraisin__breakup_model = var_r31;
     lbl_805D4C70 = register_boss__6TLobbyFl(0x24);

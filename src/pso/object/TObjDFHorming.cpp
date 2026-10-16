@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3.h"
+#include "pso/object/TObjDFHorming.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/enemy/TObjEnemy.h"
 
@@ -10,7 +12,6 @@ s32 rand(void);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8918;
-u16 pick_random_target_player__11TBoss4Type3Fv(void);
 void play_sound_effect(s32, s32, s32, s32);
 s32 rand();
 extern const f32 lbl_805D8918;
@@ -20,16 +21,13 @@ extern const f32 lbl_805D8934;
 
 extern "C" {
 
-u8 is_active__14TBoss4DarkFalzFv(void);
-u8 is_boss_active__13TObjDFHormingFv(void);
-u8 is_state_ready__14TBoss4DarkFalzFv(void);
 u32 TBoss4DarkFalz__sub_8004C1AC();
 u32 TBoss4DarkFalz__sub_8004C1B4();
 s32 get_action_state__14TBoss4DarkFalzFv();
 s32 get_phase__14TBoss4DarkFalzFv();
 s32 get_state__14TBoss4DarkFalzFv();
 
-u8 is_boss_active__13TObjDFHormingFv(void) {
+u8 TObjDFHorming::is_boss_active() {
     int var_r31;
 
     var_r31 = 0;
@@ -45,7 +43,7 @@ u8 is_boss_active__13TObjDFHormingFv(void) {
     return (u8) var_r31;
 }
 
-u8 is_state_ready__14TBoss4DarkFalzFv(void) {
+u8 TBoss4DarkFalz::is_state_ready() {
     int var_r31;
 
     var_r31 = 0;
@@ -61,7 +59,7 @@ u8 is_state_ready__14TBoss4DarkFalzFv(void) {
     return (u8) var_r31;
 }
 
-u8 is_active__14TBoss4DarkFalzFv(void) {
+u8 TBoss4DarkFalz::is_active() {
     int var_r31;
 
     var_r31 = 0;
@@ -76,7 +74,7 @@ u8 is_active__14TBoss4DarkFalzFv(void) {
     }
     return (u8) var_r31;
 }
-u16 pick_random_target_player__11TBoss4Type3Fv(void) {
+u16 TBoss4Type3::pick_random_target_player() {
     u16 buf[4];
     s32 n;
     s32 i;
@@ -221,10 +219,10 @@ extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__da
 extern s32 lbl_805D586C;
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
-s32 end_camera_pan__10TObjPlayerFPv(void *p);
+s32 end_camera_pan__10TObjPlayerFv(void *p);
 s32 release_all_players_control_lock();
 extern s32 lbl_805D586C;
-s32 start_freeze__10TObjPlayerFPv(void *p);
+s32 start_freeze__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void spawn_particle_effect(void *, s32);
@@ -245,7 +243,6 @@ extern s32 game_difficulty_selection;
 extern const f32 lbl_805D891C;
 extern const f32 lbl_805D8920;
 extern const f32 lbl_805D8924;
-void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
 void reset_cameras_to_actor(void *, s32);
@@ -425,7 +422,7 @@ s32 TBoss4DarkFalz::is_timer_expired() {
 }
 
 #pragma fp_contract on
-void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0) {
+void TBoss4DarkFalz::spawn_zako_rings() {
     Params_8004B3BC p;
     f32 r;
     f32 dr;
@@ -434,7 +431,7 @@ void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0) {
     s32 ang;
     s32 step;
     s32 i;
-    p.owner = (s32)arg0;
+    p.owner = (s32)((u8 *)this);
     r = lbl_805D891C;
     dr = lbl_805D8920;
     TBoss4DarkFalz__sub_8004B4F0(p.a, TBoss4DarkFalz__data_804FF1E8);
@@ -448,7 +445,7 @@ void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0) {
         ang = 0;
         step = 0x10000 / n;
         for (i = 0; i < n; i++) {
-            if (TBoss4DarkFalz__sub_8004AF5C(arg0, p.a, &p.b) == 0) {
+            if (TBoss4DarkFalz__sub_8004AF5C(((u8 *)this), p.a, &p.b) == 0) {
                 return;
             }
             VecCopy__FP3VecPC3Vec(&p.pos, dark_falz_zako_ring_origin_vec);
@@ -645,7 +642,7 @@ void TBoss4DarkFalz::end_player_camera_pans(void *self) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            end_camera_pan__10TObjPlayerFPv(p);
+            end_camera_pan__10TObjPlayerFv(p);
         }
     }
     release_all_players_control_lock();
@@ -657,7 +654,7 @@ void TBoss4DarkFalz::freeze_all_players(void *self) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            start_freeze__10TObjPlayerFPv(p);
+            start_freeze__10TObjPlayerFv(p);
         }
     }
 }

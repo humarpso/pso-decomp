@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -16,7 +17,6 @@ extern const f32 lbl_805DAA74;
 extern const f32 lbl_805DAA78;
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32);
-void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ s32 TObjPlayer::interpolate_along_curve(void *arg1) {
 }
 #pragma pop
 
-void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self) {
+void TAdSinglePlyChrSelectGC::transform_vertex_list() {
     f32 v[3];
     s32 stride;
     u32 *p;
@@ -50,7 +50,7 @@ void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self) {
     s32 n;
     s32 kind;
     i = 0;
-    p = self->list;
+    p = ((Self_800FFB38 *)this)->list;
     do {
         switch ((u8)p[0]) {
         case 0x29:
@@ -73,7 +73,7 @@ void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self) {
             v[0] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[0]);
             v[1] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[1]);
             v[2] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[2]);
-            if (((TObjPlayer *)self)->interpolate_along_curve(v) != 0) {
+            if (((TObjPlayer *)((Self_800FFB38 *)this))->interpolate_along_curve(v) != 0) {
                 p[0] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[0]);
                 p[1] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[1]);
                 p[2] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[2]);

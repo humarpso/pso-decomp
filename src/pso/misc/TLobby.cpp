@@ -63,7 +63,6 @@ void TLobby::render() { { (void)(get_instance__15TAdPlayerLoadGCFv(this)); retur
 struct E_80134B58 { u8 d[0x11C]; };
 struct In_80134B58 { u32 type; u8 rest[0x118]; };
 extern E_80134B58 lobby_player_status_records[];
-void copy_player_record__6TLobbyFPvPv(u8 *, u8 *);
 void TLobby::copy_player_records(s32 arg1) {
     In_80134B58 *arg0 = (In_80134B58 *)this;
     s32 i;
@@ -71,30 +70,30 @@ void TLobby::copy_player_records(s32 arg1) {
         if (arg0[i].type > 0xC) {
             return;
         }
-        copy_player_record__6TLobbyFPvPv((u8 *)&lobby_player_status_records[arg0[i].type], (u8 *)&arg0[i]);
+        ((TLobby *)((u8 *)&lobby_player_status_records[arg0[i].type]))->copy_player_record((u8 *)&arg0[i]);
     }
 }
 
 struct ByteBlock_100 { u8 bytes[0x100]; };
-void copy_player_record__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
-    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
-    *(ByteBlock_100 *)((s32) arg0 + 4) = *(const ByteBlock_100 *)((s32) arg1 + 4);
-    *(u16 *)((s8 *)arg0 + 0x104) = (u16) *(u16 *)((s8 *)arg1 + 0x104);
-    *(u16 *)((s8 *)arg0 + 0x106) = (u16) *(u16 *)((s8 *)arg1 + 0x106);
-    *(u16 *)((s8 *)arg0 + 0x108) = (u16) *(u16 *)((s8 *)arg1 + 0x108);
-    *(u16 *)((s8 *)arg0 + 0x10A) = (u16) *(u16 *)((s8 *)arg1 + 0x10A);
-    *(u16 *)((s8 *)arg0 + 0x10C) = (u16) *(u16 *)((s8 *)arg1 + 0x10C);
-    *(u16 *)((s8 *)arg0 + 0x10E) = (u16) *(u16 *)((s8 *)arg1 + 0x10E);
-    *(u16 *)((s8 *)arg0 + 0x110) = (u16) *(u16 *)((s8 *)arg1 + 0x110);
-    *(u16 *)((s8 *)arg0 + 0x112) = (u16) *(u16 *)((s8 *)arg1 + 0x112);
-    *(s32 *)((s8 *)arg0 + 0x114) = (s32) *(s32 *)((s8 *)arg1 + 0x114);
-    *(s32 *)((s8 *)arg0 + 0x118) = (s32) *(s32 *)((s8 *)arg1 + 0x118);
+void TLobby::copy_player_record(u8 *arg1) {
+    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(ByteBlock_100 *)((s32) ((u8 *)this) + 4) = *(const ByteBlock_100 *)((s32) arg1 + 4);
+    *(u16 *)((s8 *)((u8 *)this) + 0x104) = (u16) *(u16 *)((s8 *)arg1 + 0x104);
+    *(u16 *)((s8 *)((u8 *)this) + 0x106) = (u16) *(u16 *)((s8 *)arg1 + 0x106);
+    *(u16 *)((s8 *)((u8 *)this) + 0x108) = (u16) *(u16 *)((s8 *)arg1 + 0x108);
+    *(u16 *)((s8 *)((u8 *)this) + 0x10A) = (u16) *(u16 *)((s8 *)arg1 + 0x10A);
+    *(u16 *)((s8 *)((u8 *)this) + 0x10C) = (u16) *(u16 *)((s8 *)arg1 + 0x10C);
+    *(u16 *)((s8 *)((u8 *)this) + 0x10E) = (u16) *(u16 *)((s8 *)arg1 + 0x10E);
+    *(u16 *)((s8 *)((u8 *)this) + 0x110) = (u16) *(u16 *)((s8 *)arg1 + 0x110);
+    *(u16 *)((s8 *)((u8 *)this) + 0x112) = (u16) *(u16 *)((s8 *)arg1 + 0x112);
+    *(s32 *)((s8 *)((u8 *)this) + 0x114) = (s32) *(s32 *)((s8 *)arg1 + 0x114);
+    *(s32 *)((s8 *)((u8 *)this) + 0x118) = (s32) *(s32 *)((s8 *)arg1 + 0x118);
 }
 
 struct Ent_80134C44 { u8 pad[4]; u32 key; u32 val; };
 struct Obj_80134C44 { u8 pad0; u8 count; u8 pad2[2]; Ent_80134C44 e[1]; };
 void* get_player_by_client_id(s32);
-void set_lobby_marker__10TObjPlayerFPvi(void*, int);
+void set_lobby_marker__10TObjPlayerFl(void*, int);
 void TLobby::apply_lobby_markers() {
     Obj_80134C44 *o = (Obj_80134C44 *)this;
     Ent_80134C44 *e = o->e;
@@ -104,7 +103,7 @@ void TLobby::apply_lobby_markers() {
         for (j = 0; j < 12; j++) {
             u8 *p = (u8*)get_player_by_client_id(j);
             if (p != NULL && *(u32*)(p + 0xDB0) == e->key) {
-                set_lobby_marker__10TObjPlayerFPvi(p, (u8)e->val);
+                set_lobby_marker__10TObjPlayerFl(p, (u8)e->val);
             }
         }
     }

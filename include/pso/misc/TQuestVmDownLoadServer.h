@@ -136,6 +136,10 @@ public:
     u8 *find_insert_position(s32 key, s32 n, s32 len);
     static s32 read_quest_chunk(u32 id, u8 a1, u8 a2, u8 *buf, s32 *out);
     static u32 aram_dma_read(void *h, void *dst, int size);
+public:
+    void encrypt_download_data(s32 size);
+    void unshuffle_and_decrypt(s32 size);
+    s32 find_name_index();
 };
 typedef char TQuestVmDownLoadServer_size_check[sizeof(TQuestVmDownLoadServer) == 0x2A4 ? 1 : -1];
 

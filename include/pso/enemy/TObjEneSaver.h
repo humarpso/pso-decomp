@@ -37,6 +37,7 @@ struct TObjEneSaver : public TObjEnemy {
     u32 m_3c4;
     u32 m_3c8;
     u8 unk_3B0[0x1C];
+    static void *create(void *arg0, void *arg1);
 };
 
 typedef char TObjEneSaver_size[sizeof(TObjEneSaver) == 0x3CC ? 1 : -1];

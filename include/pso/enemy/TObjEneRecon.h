@@ -72,6 +72,19 @@ struct TObjEneRecon : public TObjEneDD_ST {
     s32 has_child_in_anim_5();
     s32 is_below_child_limit(u16 arg1);
     u8 unk_47C[0x68];
+    static s32 render_player_marker(u16 arg0, s32 arg1);
+    s32 push_reflect_matrix();
+    static void update_particle_if_active();
+    static void notify_scene(s32 arg0);
+    static s32 calc_scaled_value();
+    void handle_message(s32 arg1);
+    void retarget();
+    void select_next_target();
+    void update_collide_flag();
+    void set_flag2();
+    void set_orbit_destination(s32 arg1);
+    void advance_field398();
+    void sync_height();
 };
 
 typedef char TObjEneRecon_size[sizeof(TObjEneRecon) == 0x4E4 ? 1 : -1];

@@ -92,13 +92,11 @@ s32 pop_matrix();
 s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1);
 void init_door_base(void *, void *);
 extern s32 __vt__19TODoorFourLightBase[];
 extern s32 TODoorFourLightBase__class_name;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
-void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -203,7 +201,7 @@ void TODoorFourLightBase::update_door_switch_state() {
     }
 }
 
-void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1) {
+void TODoorFourLightBase::draw_node_tree(u8 *arg1) {
     s32 temp_r31;
     u8 *temp_r4;
     u8 *var_r30;
@@ -211,9 +209,9 @@ void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1) {
     do {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         if (temp_r31 & 0x100000) {
-            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(arg0))->m20())));
+            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(((u8 *)this)))->m20())));
         } else {
-            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(arg0))->m19())));
+            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(((u8 *)this)))->m19())));
         }
         if (*(s32 *)((s8 *)var_r30 + 0) & 0x200000) {
             TParticleCtrl::begin_effect_render();
@@ -236,7 +234,7 @@ void draw_node_tree__19TODoorFourLightBaseFPvPv(u8 *arg0, u8 *arg1) {
         if (!(temp_r31 & 0x10)) {
             temp_r4 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x2C));
             if (temp_r4 != NULL) {
-                draw_node_tree__19TODoorFourLightBaseFPvPv(arg0, temp_r4);
+                draw_node_tree(temp_r4);
             }
         }
         pop_matrix();
@@ -279,7 +277,7 @@ void TODoorFourLightBase::render_lights() {
     push_matrix();
     post_translate_matrix(self->f38);
     rotate_matrix_y(0, self->f60);
-    draw_node_tree__19TODoorFourLightBaseFPvPv((u8 *)self, self->fD4);
+    ((TODoorFourLightBase *)self)->draw_node_tree(self->fD4);
     pop_matrix();
     TParticleCtrl::end_effect_render();
 }

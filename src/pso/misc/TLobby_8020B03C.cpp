@@ -1,16 +1,15 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
-void free_data_60F0__6TLobbyFv(void);
-s32 init_handle__6TLobbyFi(s32 arg0);
 u32 alloc__22TQuestVmDownLoadServerFv();
 
 extern u32 TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 
-void free_data_60F0__6TLobbyFv(void) {
+void TLobby::free_data_60F0() {
     if ((u32) TLobby__map_set_file_buffer != 0U) {
         TAdSinglePlyChrSelectGC::safe_free((u32)((void*)TLobby__map_set_file_buffer));
         TLobby__map_set_file_buffer = 0U;
@@ -21,7 +20,7 @@ void free_data_60F0__6TLobbyFv(void) {
 extern u32 TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 
-s32 init_handle__6TLobbyFi(s32 arg0) {
+s32 TLobby::init_handle(s32 arg0) {
     u32 temp_r3;
 
     temp_r3 = alloc__22TQuestVmDownLoadServerFv();
@@ -85,8 +84,6 @@ struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
 extern "C" {
 void close_gsl_archive(void);
 void open_gsl_archive(s32);
-void free_data_60F0__6TLobbyFv(void);
-s32 init_handle__6TLobbyFi(s32);
 extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
 extern RecoveredGlobal_8020B118_lbl_8044BC04 lbl_8044BC04;
 extern s32 map_set_data_handle_a;
@@ -115,11 +112,11 @@ void TLobby::load_set_gsl_files() {
     map_set_enemy_id_counter = 0;
     TLobby__map_set_file_buffer_size = 0;
     TLobby__data_805D6134 = 0;
-    if (init_handle__6TLobbyFi(0x8000) != 0) {
+    if (TLobby::init_handle(0x8000) != 0) {
         open_gsl_archive((s32) &lbl_8044BBF0.value);
         if (TLobby::load_all_floor_object_sets() == 0) {
             close_gsl_archive();
-            free_data_60F0__6TLobbyFv();
+            TLobby::free_data_60F0();
             TLobby__data_805D6134 |= 1;
             return;
         }
@@ -127,12 +124,12 @@ void TLobby::load_set_gsl_files() {
         open_gsl_archive((s32) &lbl_8044BC04.value);
         if (TLobby::load_all_floor_enemy_sets() == 0) {
             close_gsl_archive();
-            free_data_60F0__6TLobbyFv();
+            TLobby::free_data_60F0();
             TLobby__data_805D6134 |= 1;
             return;
         }
         close_gsl_archive();
-        free_data_60F0__6TLobbyFv();
+        TLobby::free_data_60F0();
         TLobby__data_805D6134 |= 1;
     }
 }

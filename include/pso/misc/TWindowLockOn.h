@@ -30,7 +30,10 @@ struct TWindowLockOn : public TUnk_804CE018 {
     static void refresh_ground_item();
     void update_photon_blast_marker();
     static void *create_for_target(s32 arg0, u16 arg1);
-    virtual void run_task();};
+    virtual void run_task();
+    void update_for_player_index(s32 arg1);
+    void refresh_enemy_statuses();
+};
 
 typedef char TWindowLockOn_size[sizeof(TWindowLockOn) == 0x7C ? 1 : -1];
 #endif

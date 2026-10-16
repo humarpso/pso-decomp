@@ -12,6 +12,7 @@ struct TCineCtrl : public TObject {
     static void reset(s32 arg0);
     void run_task();
     u8 unk_1C[0x14];
+    void update_letterbox_hide();
 };
 
 typedef char TCineCtrl_size[sizeof(TCineCtrl) == 0x30 ? 1 : -1];

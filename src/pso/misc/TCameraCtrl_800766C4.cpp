@@ -6,7 +6,7 @@ extern "C" {
 
 s32 is_quest_active();
 u32 get_player_by_client_id(s32);
-s32 check_player_state_flag_2__6TLobbyFPv();
+s32 check_player_state_flag_2__6TLobbyFv();
 s32 is_split_screen();
 
     extern short TCameraCtrl__viewport_y;
@@ -21,7 +21,7 @@ s32 TCameraCtrl::should_update() {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {
-        if ((get_player_by_client_id(local_client_id) == 0U) || (check_player_state_flag_2__6TLobbyFPv() != 0)) {
+        if ((get_player_by_client_id(local_client_id) == 0U) || (check_player_state_flag_2__6TLobbyFv() != 0)) {
             return 0;
         }
         if (is_quest_active() == 0) {

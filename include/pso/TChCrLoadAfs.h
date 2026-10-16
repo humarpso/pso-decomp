@@ -23,6 +23,8 @@ public:
 
 public:
     void *create(void *arg1, void *arg2);
+public:
+    int is_unloaded();
 };
 
 #include <stddef.h>

@@ -180,8 +180,8 @@ extern "C" {
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-void enter_hit_state__18TObjEneBalClawClawFPvs(u32, u16);
-s32 check_active__18TObjEneBalClawClawFPv(void *);
+void enter_hit_state__18TObjEneBalClawClawFs(u32, u16);
+s32 check_active__18TObjEneBalClawClawFv(void *);
 u32 find_entity_by_id(u16);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -221,10 +221,10 @@ s16 obj_getS16_32C(void *);
 void queue_destruction__7TObjectFv(u32);
 void spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
-void enable__13TParticleCtrlFPv(u32);
+void enable__13TParticleCtrlFv(u32);
 s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
-void set_claw_flags__18TObjEneBalClawClawFPv(void *);
-void clear_flag__18TObjEneBalClawClawFPv(void *);
+void set_claw_flags__18TObjEneBalClawClawFv(void *);
+void clear_flag__18TObjEneBalClawClawFv(void *);
 s32 advance_animation_playback(void *);
 u32 find_entity_by_id(u16);
 s32 play_sound_effect(int, void *, int, int);
@@ -367,7 +367,7 @@ s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self) {
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (Obj_8008E098 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && ((TWindowLockOn *)p)->get_target_id() == 0x26 &&
-            self->field28 == p->field28 && check_active__18TObjEneBalClawClawFPv(p) != 0) {
+            self->field28 == p->field28 && check_active__18TObjEneBalClawClawFv(p) != 0) {
             self->ids[self->count++] = obj_getField1c(p);
             if (self->count >= 4) {
                 break;
@@ -375,7 +375,7 @@ s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self) {
         }
     }
     for (j = 0; j < self->count; j++) {
-        enter_hit_state__18TObjEneBalClawClawFPvs(find_entity_by_id(self->ids[j]), self->field1C);
+        enter_hit_state__18TObjEneBalClawClawFs(find_entity_by_id(self->ids[j]), self->field1C);
     }
     return self->count;
 }
@@ -472,12 +472,12 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
             for (s32 i = 0; i < arg0->count; i++) {
                 E_8008E310 *e2 = (E_8008E310 *)find_entity_by_id(arg0->ids[i]);
                 if (e2 != NULL) {
-                    set_claw_flags__18TObjEneBalClawClawFPv(e2);
+                    set_claw_flags__18TObjEneBalClawClawFv(e2);
                     arg0->f32C += obj_getS16_32C(e2);
                 }
             }
             arg0->emit2 = create_particle_emitter(arg0->f2FC, 0x12A);
-            enable__13TParticleCtrlFPv(arg0->emit2);
+            enable__13TParticleCtrlFv(arg0->emit2);
             arg0->fB8 = 0xB;
             arg0->flags |= 0x04000000;
             arg0->state = 2;
@@ -488,7 +488,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, lbl_805D9620);
         if (arg0->fC0 < lbl_805D9638) {
-            enable__13TParticleCtrlFPv(arg0->emit2);
+            enable__13TParticleCtrlFv(arg0->emit2);
         } else {
             ((TParticleCtrl *)(arg0->emit2))->clear_active_flag();
             ((TNowLoading *)(arg0->emit2))->copy_pos(arg0->f2FC);
@@ -523,7 +523,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
             for (s32 i = 0; i < arg0->count; i++) {
                 e = (E_8008E310 *)find_entity_by_id(arg0->ids[i]);
                 if (e != NULL) {
-                    clear_flag__18TObjEneBalClawClawFPv(e);
+                    clear_flag__18TObjEneBalClawClawFv(e);
                 }
             }
         }

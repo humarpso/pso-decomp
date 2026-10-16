@@ -36,7 +36,6 @@ void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
 extern u8 gcrna_volume_table[];
 extern s32 gcrna_pan_table[];
 void sndStreamFrq(s32, s32);
-void set_stream_frequency__6TLobbyFPvi(Obj_803D4654 *o, s32 rate);
 }
 
 extern "C" {
@@ -105,17 +104,17 @@ void set_sound_stream_volume(Obj_803D4540 *o, s32 vol) {
 }
 #pragma pop
 
-void set_stream_frequency__6TLobbyFPvi(Obj_803D4654 *o, s32 rate) {
+void TLobby::set_stream_frequency(s32 rate) {
     s32 i;
-    if (o == 0) {
+    if (((Obj_803D4654 *)this) == 0) {
         return;
     }
-    o->rate = rate;
-    for (i = 0; i < o->nch; i++) {
-        if (o->mode == 1) {
-            sndStreamFrq(o->h[i], (o->rate * 0x464 + 0x464) / 1125);
+    ((Obj_803D4654 *)this)->rate = rate;
+    for (i = 0; i < ((Obj_803D4654 *)this)->nch; i++) {
+        if (((Obj_803D4654 *)this)->mode == 1) {
+            sndStreamFrq(((Obj_803D4654 *)this)->h[i], (((Obj_803D4654 *)this)->rate * 0x464 + 0x464) / 1125);
         } else {
-            sndStreamFrq(o->h[i], o->rate);
+            sndStreamFrq(((Obj_803D4654 *)this)->h[i], ((Obj_803D4654 *)this)->rate);
         }
     }
 }

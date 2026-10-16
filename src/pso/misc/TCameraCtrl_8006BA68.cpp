@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_80488B68.h"
 #include "pso/misc/TUnk_80488B38.h"
 
@@ -238,7 +239,6 @@ void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 extern "C" {
 
 void *TCameraCtrl__vt5(void);
-s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 int TCameraCtrl__sub_80068714(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
@@ -308,7 +308,7 @@ BOOL approach_camera_vector(Vec *current, Vec *target, f32 rate) {
     return TRUE;
 }
 
-s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
+s32 TCameraCtrl::clamp_distance(s32 arg0, s32 arg1, s32 arg2) {
     if (angle_difference_abs(arg1, arg0) < (s32) (arg2 * 0x7F)) {
         return arg1;
     }

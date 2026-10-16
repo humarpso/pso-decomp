@@ -86,7 +86,7 @@ struct VObj : VBase {
 extern "C" {
 
 u8 *construct_enemy_from_set_row(void *);
-u8 *resolve_matching_object__6TLobbyFPv();
+u8 *resolve_matching_object__6TLobbyFv();
 
 extern s32 TLobby__data_805D6144;
 
@@ -98,7 +98,7 @@ void TLobby::create_objects(s32 arg0) {
     s32 i;
     u8 *temp_r3_2;
 
-    ptr = resolve_matching_object__6TLobbyFPv();
+    ptr = resolve_matching_object__6TLobbyFv();
     count = TLobby::get_object_type(arg0);
     for (i = 0; i < count; i++, ptr += 0x48) {
         temp_r3 = *(s16 *)((s8 *)ptr + 2);

@@ -77,7 +77,7 @@ typedef struct Src_80120454 { u8 pad[0x1A4]; u8 ents[6]; u8 pad2[0x27]; u8 f1d1;
 typedef struct Dst_80120454 { u8 pad[3]; u8 f3; u8 f4; u8 pad2; u8 ents[6]; } Dst_80120454;
 
 extern "C" {
-void set_status_flags__10TObjPlayerFPvUi(void *, u32);
+void set_status_flags__10TObjPlayerFUl(void *, u32);
 extern const f32 lbl_805DAC98;
 extern const f32 lbl_805DAC9C;
 extern const f32 lbl_805DACA0;
@@ -132,7 +132,7 @@ void TItemWeapon::advance_weapon_photon_phase() {
     }
     if (lbl_805DAC9C <= *(f32 *)((s8 *)arg0 + 0x1C8)) {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC9C;
-        set_status_flags__10TObjPlayerFPvUi(arg0, 0x02000000U);
+        set_status_flags__10TObjPlayerFUl(arg0, 0x02000000U);
     }
     if (*(f32 *)((s8 *)arg0 + 0x1C8) <= lbl_805DAC98) {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC98;

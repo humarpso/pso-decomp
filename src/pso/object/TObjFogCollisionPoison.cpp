@@ -38,12 +38,10 @@ struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804AF7B0[];
-u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 extern s32 lbl_805D2E84;
-u8 *construct_with_index__22TObjFogCollisionPoisonFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__instances;
 void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
 void __dt__7TObjectFv(void *, int);
@@ -91,14 +89,14 @@ void *TObjFogCollisionPoison__sub_8015302C(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_80153084_lbl_804AF7B0_size[sizeof(RecoveredGlobal_80153084_lbl_804AF7B0) == 0x18 ? 1 : -1];
-u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80153084_lbl_804AF7B0 *)&lbl_804AF7B0).value;
-    *(s16 *)((s8 *)arg0 + 0x28) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0x96;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    return arg0;
+u8 *TObjFogCollisionPoison::init_base(u8 *arg1, s16 arg2) {
+    __ct__7TObjectFP7TObject(((u8 *)this), arg1);
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80153084_lbl_804AF7B0 *)&lbl_804AF7B0).value;
+    *(s16 *)((s8 *)((u8 *)this) + 0x28) = arg2;
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0x96;
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x24) = 0;
+    return ((u8 *)this);
 }
 
 void TObjFogCollision_Manager::run_task() {
@@ -184,17 +182,17 @@ u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *construct_with_index__22TObjFogCollisionPoisonFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804AF7C8.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E84;
-    *(s32 *)((s8 *)arg0 + 0x28) = arg2;
-    *(s32 *)((s8 *)(&TObjFogCollisionPoison__instances.value) + (*(s32 *)((s8 *)arg0 + 0x28) * 4)) = (long) (arg0);
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 1;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 1;
-    return arg0;
+u8 *TObjFogCollisionPoison::construct_with_index(u8 *arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject(((u8 *)this), arg1);
+    *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_804AF7C8.value;
+    *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D2E84;
+    *(s32 *)((s8 *)((u8 *)this) + 0x28) = arg2;
+    *(s32 *)((s8 *)(&TObjFogCollisionPoison__instances.value) + (*(s32 *)((s8 *)((u8 *)this) + 0x28) * 4)) = (long) (((u8 *)this));
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0;
+    *(s32 *)((s8 *)((u8 *)this) + 0x24) = 1;
+    *(s32 *)((s8 *)((u8 *)this) + 0x2C) = 1;
+    return ((u8 *)this);
 }
 
 void TObjFogCollisionPoison::create() {
@@ -204,14 +202,14 @@ void TObjFogCollisionPoison::create() {
     if (is_split_screen() == 0) {
         obj = __nw__7TObjectFUl(0x30);
         if (obj != NULL) {
-            construct_with_index__22TObjFogCollisionPoisonFPvPvi((u8 *)(obj), (u8 *)(tl_05), (s32)(local_client_id));
+            ((TObjFogCollisionPoison *)obj)->construct_with_index((u8 *)(tl_05), (s32)(local_client_id));
         }
     } else {
         var_r31 = 0;
         do {
             obj = __nw__7TObjectFUl(0x30);
             if (obj != NULL) {
-                construct_with_index__22TObjFogCollisionPoisonFPvPvi((u8 *)(obj), (u8 *)(tl_05), (s32)(var_r31));
+                ((TObjFogCollisionPoison *)obj)->construct_with_index((u8 *)(tl_05), (s32)(var_r31));
             }
             var_r31 += 1;
         } while (var_r31 != 4);

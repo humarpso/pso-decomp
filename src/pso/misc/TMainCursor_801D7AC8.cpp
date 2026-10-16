@@ -3,12 +3,11 @@
 
 extern "C" {
 
-s32 find_action_slot__11TMainCursorFiPvsii(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4);
 s32 matches_type_and_enabled__11TMainCursorFiUcUc(s32, u8, u8);
 s32 TObjPlayer__sub_801D84F0(s32);
 s32 TWindowActionPalette__sub_801C1C68(s32, s32);
 
-s32 find_action_slot__11TMainCursorFiPvsii(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {
+s32 TMainCursor::find_action_slot(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {
     s32 temp_r31;
     s32 var_r30;
     s32 var_r29;

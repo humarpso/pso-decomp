@@ -113,7 +113,6 @@ s32 apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
-void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
 Item_8011F760 *get_weapon_range_record(void *, s32);
 s32 is_active_in_game__11TItemWeaponFv(void*);
@@ -121,10 +120,10 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void play_weapon_owner_sounds(void*);
 u32 test_flags_1b8__11TItemWeaponFUl(void*,u32);
 s32 obj_getField1c(void *);
-void set_status_flags__10TObjPlayerFPvUi(void*,u32);
+void set_status_flags__10TObjPlayerFUl(void*,u32);
 void fire_shot_at_target__11TItemWeaponFv(void*,WeaponVector*,s32,s32);
 
-s32 refresh_owner_stats__5TItemFPv(Obj_8011F710 *arg0);
+s32 refresh_owner_stats__5TItemFv(Obj_8011F710 *arg0);
 s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1);
 }
 
@@ -136,7 +135,7 @@ s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1) {
     } else {
         arg0->cur += arg1;
     }
-    refresh_owner_stats__5TItemFPv(arg0);
+    refresh_owner_stats__5TItemFv(arg0);
     return 1;
 }
 
@@ -155,7 +154,7 @@ u32 TItemWeapon::get_attack_flags() {
     return flags;
 }
 
-void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0) {
+void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8011F7CC, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8011F7CC, sp9) == 0x1) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8011F7CC, spC) == 0x4) ? 1 : -1];
@@ -169,39 +168,39 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3,
     u8 *temp_r3;
     u8 *temp_r3_2;
     if (TObjPlayer__sub_80102C30() == 2) {
-        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0));
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
             var_f31 = get_attack_accuracy_scale((void *) (temp_r3 + 0x7CC));
-            if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(arg0))->m33() == 0)) {
+            if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(((u8 *)this)))->m33() == 0)) {
                 var_f31 *= lbl_805DAC94;
             }
             temp_r31 = arg4 * 0x2C;
-            if (((VObj_18_f8c4e0 *)(arg2))->m19(*(u8 **)((s8 *)arg0 + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31, 0, var_f31) != 0) {
+            if (((VObj_18_f8c4e0 *)(arg2))->m19(*(u8 **)((s8 *)((u8 *)this) + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31, 0, var_f31) != 0) {
                 var_f31_2 = lbl_805DAC98;
                 switch (arg3) {
                 case 0:
-                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)arg0 + 0xF0), farg0);
+                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)((u8 *)this) + 0xF0), farg0);
                     break;
                 case 1:
-                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)arg0 + 0xF0), farg0);
-                    ((VObj_18_f8c4e0 *)(arg2))->m23(*(u8 **)((s8 *)arg0 + 0xF0), lbl_805DAC94 * var_f31_2);
+                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)((u8 *)this) + 0xF0), farg0);
+                    ((VObj_18_f8c4e0 *)(arg2))->m23(*(u8 **)((s8 *)((u8 *)this) + 0xF0), lbl_805DAC94 * var_f31_2);
                     break;
                 case 2:
-                    ((VObj_18_f8c4e0 *)(arg2))->m22(*(u8 **)((s8 *)arg0 + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31);
+                    ((VObj_18_f8c4e0 *)(arg2))->m22(*(u8 **)((s8 *)((u8 *)this) + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31);
                     break;
                 }
-                if (((s32 (*)(s32, void *, s32, s32)) *(s32 (**)(s32, void *, s32, s32))((s8 *)arg0 + 0x1F4)) != NULL) {
-                    (*(s32 (**)(s32, void *, s32, s32))((s8 *)arg0 + 0x1F4))(tl_05, arg0, obj_getField1c((void *) (arg2)), arg4);
+                if (((s32 (*)(s32, void *, s32, s32)) *(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4)) != NULL) {
+                    (*(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4))(tl_05, ((u8 *)this), obj_getField1c((void *) (arg2)), arg4);
                 }
                 temp_r31_2 = (s32) var_f31_2;
-                TObjPlayer::calc_photon_blast_charge((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (temp_r31_2));
-                temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
+                TObjPlayer::calc_photon_blast_charge((void *) (*(u8 **)((s8 *)((u8 *)this) + 0xF0)), (int) (temp_r31_2));
+                temp_r3_2 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0));
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
-                apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (void *) (arg2), (int) (temp_r31_2));
+                apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 **)((s8 *)((u8 *)this) + 0xF0)), (void *) (arg2), (int) (temp_r31_2));
                 ((TObjPlayer *)(&stack.sp8))->reset_status_block();
-                stack.sp8 = ((TItem *)arg0)->get_field_ed();
-                stack.sp9 = ((TItemProShield *)arg0)->get_slot_count();
-                stack.spC = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
+                stack.sp8 = ((TItem *)((u8 *)this))->get_field_ed();
+                stack.sp9 = ((TItemProShield *)((u8 *)this))->get_slot_count();
+                stack.spC = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0));
                 stack.sp14 = (u8 *)(arg2);
                 stack.sp18 = arg4;
                 play_weapon_hit_sound((void *) (&stack.sp8));
@@ -229,7 +228,7 @@ void TItemWeapon::vfunc_30() {
             TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c((void *)(self->player)));
         }
         self->emit_marker_effects();
-        set_status_flags__10TObjPlayerFPvUi(self,0x1000000);
+        set_status_flags__10TObjPlayerFUl(self,0x1000000);
         if(!test_flags_1b8__11TItemWeaponFUl(self,2)) {
             if(test_flags_1b8__11TItemWeaponFUl(self,0x8000)) {
                 ((TObjPlayer *)self)->draw_status_icon((s32)(&gun_point));

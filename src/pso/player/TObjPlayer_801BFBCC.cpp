@@ -19,7 +19,7 @@ extern "C" {
 
 void TObjPlayer__sub_801BFD3C(void* p);
 int zero_vec3(void*);
-int init_pair__10TObjPlayerFPv(void*);
+int init_pair__10TObjPlayerFv(void*);
 int reset_stat_scale_and_ring__10TObjPlayerFi(void*);
 
 extern const f32 TObjPlayer__data_805DC278;
@@ -54,7 +54,7 @@ void*TObjPlayer::init_members() { zero_vec3(this); return this; }
 void*TObjPlayer::init_wrapper() { TObjPlayer__sub_801BFD3C((void*)(this)); return this; }
 void TObjPlayer__sub_801BFD3C(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; *(s16*)((char*)p + 0x8) = 0; }
 void*TObjPlayer::init_sub() { ((TObjPlayer *)((char*)this + 0xc))->init_forward(); reset_stat_scale_and_ring__10TObjPlayerFi(this); return this; }
-void*TObjPlayer::init_subobjects() { ((TObjPlayer *)((char*)this + 0x4))->init_forward(); init_pair__10TObjPlayerFPv((char*)this + 0x18); init_player_scale_state((void *)(this)); return this; }
+void*TObjPlayer::init_subobjects() { ((TObjPlayer *)((char*)this + 0x4))->init_forward(); init_pair__10TObjPlayerFv((char*)this + 0x18); init_player_scale_state((void *)(this)); return this; }
 int init_player_scale_state(void *arg0) {
     *(u16 *)arg0 = 0xFFFF;
     ((TObjPlayer *)((u8 *)arg0 + 4))->clear_id();

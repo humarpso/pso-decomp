@@ -5,12 +5,7 @@ extern "C" {
 
 s32 init__6gc_tagFv();
 void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1);
-void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2);
-void set_target_id__11TMainCursorFPvs(void* p, s16 v);
-s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
-s32 get_body_include_mask__11TMainCursorFPv(void* p);
-s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);
-s32 get_actor_include_mask__11TMainCursorFPv(void* p);
+void set_target_id__11TMainCursorFs(void* p, s16 v);
 int TMainCursor__sub_8013E8A0(void* p);
 int TMainCursor__sub_8013E900(void* p);
 s16 TMainCursor__sub_8013E920(void* p);
@@ -30,10 +25,11 @@ int set_mode__20TWindowActionPaletteFUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFs(void*, void* a1 = 0);
 
-void reset_target__11TMainCursorFi(s32 arg0) {
+void TMainCursor::reset_target() {
+    s32 arg0 = (s32)this;
     init__6gc_tagFv();
     set_target_index__11TMainCursorFs((void*)(arg0), (void*)(0xFFFF));
-    set_target_id__11TMainCursorFPvs((void*)(arg0), 0);
+    set_target_id__11TMainCursorFs((void*)(arg0), 0);
 }
 
 }
@@ -58,11 +54,11 @@ void TMainCursor__sub_8013E800(Obj_8013E800 *self) {
 
 extern "C" {
 
-s32 get_body_exclude_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0xc); }
-s32 get_body_include_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x8); }
-s32 get_actor_exclude_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x14); }
-s32 get_actor_include_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x10); }
-void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2) { ((int (*)(void *))copy_target_record__11TMainCursorFPvPv)(a2); }
+s32 TMainCursor::get_body_exclude_mask() { return *(s32*)((char*)this + 0xc); }
+s32 TMainCursor::get_body_include_mask() { return *(s32*)((char*)this + 0x8); }
+s32 TMainCursor::get_actor_exclude_mask() { return *(s32*)((char*)this + 0x14); }
+s32 TMainCursor::get_actor_include_mask() { return *(s32*)((char*)this + 0x10); }
+void TMainCursor::store_sorted_record(void* p, void* a1, void* a2) { ((int (*)(void *))copy_target_record__11TMainCursorFPvPv)(a2); }
 
 }
 
@@ -73,7 +69,6 @@ struct Rec_8013E870 { u8 pad[0x124]; };
 struct Obj_8013E870 { u8 pad[0x5c]; Rec_8013E870 recs[1]; };
 
 extern "C" {
-void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i);
 }
 
 extern "C" {
@@ -83,8 +78,8 @@ void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1) {
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
     *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
 }
-void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i) {
-    TMainCursor__sub_8013E8A0((void*)(&self->recs[i]));
+void TMainCursor::init_slot(s32 i) {
+    TMainCursor__sub_8013E8A0((void*)(&((Obj_8013E870 *)this)->recs[i]));
 }
 
 }

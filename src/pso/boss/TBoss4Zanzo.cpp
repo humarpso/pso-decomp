@@ -519,9 +519,7 @@ void TBoss4Type2__vt3(u8 *arg0);
 void TBoss4Type2__vt2(void *arg0);
 void TBoss4Type2__vt1(u8 *arg0);
 void TBoss4Type2__vt0(void *arg0);
-void spawn_afterimages__11TBoss4Type2FPv(Obj_8005676C *arg0);
 void TBoss4Type2__sub_80056998(u8 *arg0);
-void choose_next_action__11TBoss4Type2FPv(Obj_80056A54 *arg0);
 void TBoss4Type2__sub_80056B3C(void *arg0, s32 lo, s32 hi);
 void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
 f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0);
@@ -990,7 +988,7 @@ void TBoss4Type2__vt24(void *arg0) {
 void TBoss4Type2__vt23(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0) {
         if (((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)() < lbl_805D8BB0) {
-            ((s32 (*)(void *))choose_next_action__11TBoss4Type2FPv)(arg0);
+            ((TBoss4Type2 *)arg0)->choose_next_action();
             return;
         }
         ((s32 (*)(void *, s32, s32))TBoss4Type2__sub_80056F90)(arg0, 4, ((s32 (*)(void *))TBoss4Type2__sub_80057224)(arg0));
@@ -1338,7 +1336,7 @@ void TBoss4Type2__vt9(u8 *arg0) {
         if (!(*(s32 *)((s8 *)arg0 + 0x398) & 3)) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0x39C);
             if ((temp_f1 > lbl_805D8BDC) && (temp_f1 < lbl_805D8BE0) && ((temp_r3 <= -0x4000) || (temp_r3 >= 0x4000))) {
-                ((s32 (*)(void *))spawn_afterimages__11TBoss4Type2FPv)((void *) (arg0));
+                ((TBoss4Type2 *)arg0)->spawn_afterimages();
             }
         }
     }
@@ -1398,20 +1396,20 @@ void TBoss4Type2__vt0(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x398) = 0x3C;
 }
 
-void spawn_afterimages__11TBoss4Type2FPv(Obj_8005676C *arg0) {
+void TBoss4Type2::spawn_afterimages() {
     Zanzo_8005676C z;
     s32 i;
-    VecCopy__FP3VecPC3Vec(&z.pos, &arg0->pos);
-    z.f0c = arg0->f60;
-    z.f1c = arg0->f3d0;
+    VecCopy__FP3VecPC3Vec(&z.pos, &((Obj_8005676C *)this)->pos);
+    z.f0c = ((Obj_8005676C *)this)->f60;
+    z.f1c = ((Obj_8005676C *)this)->f3d0;
     z.f20 = lbl_805D8BB0;
     z.f24 = TBoss4Type2__data_805D8BAC;
     z.f28 = 10;
     for (i = 0; i < 2; i++) {
-        z.f10 = TObjFish__sub_8001EDB0(arg0->f390, boss4_zanzo_bml_index_table[i]);
-        z.f14 = get_bml_model(arg0->f390, boss4_zanzo_bml_index_table[i]);
-        z.f18 = get_bml_motion(arg0->f390, ((Row_8005676C *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i]);
-        TBoss4Type2::create_zanzo(arg0, &z);
+        z.f10 = TObjFish__sub_8001EDB0(((Obj_8005676C *)this)->f390, boss4_zanzo_bml_index_table[i]);
+        z.f14 = get_bml_model(((Obj_8005676C *)this)->f390, boss4_zanzo_bml_index_table[i]);
+        z.f18 = get_bml_motion(((Obj_8005676C *)this)->f390, ((Row_8005676C *)&TBoss4Type2__attack_pattern_table)[((Obj_8005676C *)this)->f3c8].c[i]);
+        TBoss4Type2::create_zanzo(((Obj_8005676C *)this), &z);
     }
 }
 
@@ -1473,16 +1471,16 @@ void TBoss4Type2__sub_80056998(u8 *arg0) {
         ((s32 (*)(void *, int, int))TBoss4Type2__sub_80056B3C)((void *) (arg0), (int) (var_r4), (int) (var_r5));
         return;
     }
-    choose_next_action__11TBoss4Type2FPv((Obj_80056A54 *)((void *) (arg0)));
+    ((TBoss4Type2 *)arg0)->choose_next_action();
 }
 
-void choose_next_action__11TBoss4Type2FPv(Obj_80056A54 *arg0) {
+void TBoss4Type2::choose_next_action() {
     u8 *tbl = (u8 *)__vt__11TBoss4Type2;
     Grid_80056A54 grid;
     s32 r;
     s32 id;
-    id = ((s32 (*)(void *))pick_random_target_player__11TBoss4Type3Fv)(arg0);
-    if (arg0->f32c <= arg0->f3ec && (u16)id != 0xFFFF) {
+    id = ((s32 (*)(void *))pick_random_target_player__11TBoss4Type3Fv)(((Obj_80056A54 *)this));
+    if (((Obj_80056A54 *)this)->f32c <= ((Obj_80056A54 *)this)->f3ec && (u16)id != 0xFFFF) {
         r = TBoss4Type2::pick_weighted_random(4, (f32 *)(tbl + 0x544), (s32 *)(tbl + 0x554));
     } else {
         r = TBoss4Type2::pick_weighted_random(3, (f32 *)(tbl + 0x564), (s32 *)(tbl + 0x570));
@@ -1490,15 +1488,15 @@ void choose_next_action__11TBoss4Type2FPv(Obj_80056A54 *arg0) {
     switch (r) {
     case 6:
     case 7:
-        find_target_pos__11TBoss4Type2FPvPv((O_80056C30 *)(arg0), (Vec_80056C30 *)(&grid));
-        ((TBoss4Type2 *)arg0)->set_grid_pos(&grid);
-        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)arg0, r);
+        find_target_pos__11TBoss4Type2FPvPv((O_80056C30 *)(((Obj_80056A54 *)this)), (Vec_80056C30 *)(&grid));
+        ((TBoss4Type2 *)((Obj_80056A54 *)this))->set_grid_pos(&grid);
+        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)((Obj_80056A54 *)this), r);
         break;
     case 13:
-        ((TBoss4Type2 *)arg0)->send_attack_code(r, id);
+        ((TBoss4Type2 *)((Obj_80056A54 *)this))->send_attack_code(r, id);
         break;
     default:
-        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)arg0, r);
+        TBoss4Type2__sub_80056FEC((Obj_80056FEC *)((Obj_80056A54 *)this), r);
         break;
     }
 }

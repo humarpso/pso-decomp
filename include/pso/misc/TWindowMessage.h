@@ -28,7 +28,10 @@ struct TWindowMessage : public TUnk_804CDFE8 {
     u8 _pad80[0x8];
     u32 m_88;
     u32 m_8c;
-    void draw();};
+    void draw();
+    void complete_reveal();
+    void update_line_timers();
+};
 
 typedef char TWindowMessage_size[sizeof(TWindowMessage) == 0x90 ? 1 : -1];
 #endif

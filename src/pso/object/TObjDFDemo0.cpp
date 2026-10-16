@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/object/TObjDFDemo0.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjDFDemo1.h"
@@ -88,11 +89,10 @@ extern const f32 lbl_805D899C;
 
 extern "C" {
 
-void *create__11TObjDFDemo0FPv(void *arg0);
 void *TObjDFDemo0__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *create__11TObjDFDemo0FPv(void *arg0) {
+void *TObjDFDemo0::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x110);
     if (o != NULL) {
         o = TObjDFDemo0__ct(o, arg0);

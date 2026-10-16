@@ -8,7 +8,6 @@ extern "C" {
 struct VOff_8013B524_arg0_8013B524 { char pad_0[0x4C]; char f_4C[1]; };
 
 void render__11TMainCursorFPv(u8 *arg0);
-void update_chair__11TMainCursorFPv(void *arg0);
 void TMainCursor__sub_8013E2DC(void);
 s32 rotate_matrix_z(s32, s32);
 void draw_chunk_object(void);
@@ -19,8 +18,8 @@ s32 pop_matrix();
 s32 offset_point_toward_camera(void *, s32 *, f32);
 s32 translate_matrix_vec3(s32, s32 *);
 
-void update_chair__11TMainCursorFPv(void *arg0) {
-    struct VOff_8013B524_arg0_8013B524 *self = (struct VOff_8013B524_arg0_8013B524 *)arg0;
+void TMainCursor::update_chair() {
+    struct VOff_8013B524_arg0_8013B524 *self = (struct VOff_8013B524_arg0_8013B524 *)this;
     TPlyPhotonChair::update_parts2(self->f_4C);
     ((TPlyPhotonChair *)(self->f_4C))->play_sound();
     TMainCursor__sub_8013E2DC();
@@ -45,19 +44,19 @@ void render__11TMainCursorFPv(u8 *arg0) {
     rotate_matrix_z(0, 0x2AAA);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
     ((TMainCursor *)arg0)->update_photon_chair();
-    update_chair__11TMainCursorFPv((void *)(arg0));
+    ((TMainCursor *)arg0)->update_chair();
     pop_matrix();
     push_matrix();
     rotate_matrix_z(0, 0x7FFF);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
     ((TMainCursor *)arg0)->update_photon_chair();
-    update_chair__11TMainCursorFPv((void *)(arg0));
+    ((TMainCursor *)arg0)->update_chair();
     pop_matrix();
     push_matrix();
     rotate_matrix_z(0, 0xD554);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
     ((TMainCursor *)arg0)->update_photon_chair();
-    update_chair__11TMainCursorFPv((void *)(arg0));
+    ((TMainCursor *)arg0)->update_chair();
     pop_matrix();
     pop_matrix();
     TParticleCtrl::end_effect_render();

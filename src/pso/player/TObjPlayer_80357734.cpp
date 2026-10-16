@@ -234,7 +234,7 @@ void TObjPlayer__sub_80357954(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(s32 *, s32);
 u32 __nw__7TObjectFUl(s32);
-s32 construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u32, s32, void *, void *, s32, s32, f32, f32);
+s32 construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(u32, s32, void *, void *, s32, s32, f32, f32);
 extern Trip_8035862C lbl_804793D8;
 extern s32 tl_07;
 extern const f32 lbl_805E0048;
@@ -249,7 +249,7 @@ extern const f32 lbl_805E008C;
 extern const f32 lbl_805E0090;
 void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 u32 __nw__7TObjectFUl(s32);
-s32 construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u32, s32, void *, void *, s32, s32, f32, f32);
+s32 construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(u32, s32, void *, void *, s32, s32, f32, f32);
 int rand(void);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
@@ -266,7 +266,7 @@ extern const f32 lbl_805E0068;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 remap_extra_attack_type(void *);
-s32 fill_status_info__10TObjPlayerFPvPv(void *, void *);
+s32 fill_status_info__10TObjPlayerFPv(void *, void *);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
 extern s32 tl_05;
@@ -321,8 +321,8 @@ void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
-void set_status_flags__10TObjPlayerFPvUi(void *, int);
-s32 update_battle_control_if_unlocked__10TObjPlayerFPv();
+void set_status_flags__10TObjPlayerFUl(void *, int);
+s32 update_battle_control_if_unlocked__10TObjPlayerFv();
 
 void *TObjPlayer::reset_field28() {
     TObjPlayer__sub_802E451C();
@@ -343,7 +343,7 @@ void TUnk_804F14A8::emit_marker_effects() {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         remap_extra_attack_type((void *) (arg0));
         ((TObjPlayer *)(&info))->reset_field28();
-        fill_status_info__10TObjPlayerFPvPv((void *) (arg0), (void *) (&info));
+        fill_status_info__10TObjPlayerFPv((void *) (arg0), (void *) (&info));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (4), (void *) (&info.v[0]));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (3), (void *) (&info.v[1]));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (6), (void *) (&info.v[2]));
@@ -409,7 +409,7 @@ extern s32 spawn_shoot_particle__10TItemShootFv[];
 void *TUnk_804F14A8::init_state_34_alt(s32 _w1, void *_w2) {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = item_equip_variant_vtable;
-    set_status_flags__10TObjPlayerFPvUi(this, 34);
+    set_status_flags__10TObjPlayerFUl(this, 34);
     *(u32 *)((s8 *)this + 0x1F8) = 0;
     *(s32 **)((s8 *)this + 0x1F0) = spawn_shoot_particle__10TItemShootFv;
     return this;
@@ -465,28 +465,28 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
     case 0:
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, lbl_805E005C);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, lbl_805E005C);
         }
         break;
     case 1:
         scale *= lbl_805E0060;
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
         }
         break;
     case 2:
         scale *= lbl_805E0064;
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
+            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
         }
         break;
     case 3:
         for (j = 0; j < 3; j++) {
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &strikes[j].pos, &strikes[j].dir, 0x14000000, 0x14, strikes[j].len, lbl_805E005C);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[j].pos, &strikes[j].dir, 0x14000000, 0x14, strikes[j].len, lbl_805E005C);
             }
         }
         break;
@@ -495,7 +495,7 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
         for (k = 0; k < 3; k++) {
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &strikes[k].pos, &strikes[k].dir, 0x14000000, 0x14, strikes[k].len, scale);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[k].pos, &strikes[k].dir, 0x14000000, 0x14, strikes[k].len, scale);
             }
         }
         break;
@@ -504,12 +504,12 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
             if (m == 0) {
                 obj = __nw__7TObjectFUl(0x260);
                 if (obj != 0) {
-                    construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E0068);
+                    construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E0068);
                 }
             } else {
                 obj = __nw__7TObjectFUl(0x260);
                 if (obj != 0) {
-                    construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E005C);
+                    construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E005C);
                 }
             }
         }
@@ -592,14 +592,14 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
 
 void TObjPlayer::update_battle_control_on_unlock(void *arg0, void *arg1, void *arg2, s32 arg3) {
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
 }
 
 void TObjPlayer::handle_exp_steal_effect(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xA8));
@@ -612,7 +612,7 @@ extern f32 lbl_805E0078;
 void TObjPlayer::handle_action(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0xA8)) != 0U)) {
         set_position_xy__10TObjPlayerFff(lbl_805E0074, lbl_805E0078);
@@ -622,7 +622,7 @@ void TObjPlayer::handle_action(s32 arg1, s32 arg2, s32 arg3) {
 void TObjPlayer::dispatch_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x10A));
@@ -631,7 +631,7 @@ void TObjPlayer::dispatch_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
 
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
         spawn_particle_effect((s32 *)(arg2), (s32)(0x1AC));
@@ -644,7 +644,7 @@ extern f32 lbl_805E0078;
 void TObjPlayer::handle_symbol_chat_action(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x67)) != 0U)) {
         set_position_xy__10TObjPlayerFff(lbl_805E0074, lbl_805E0078);
@@ -654,7 +654,7 @@ void TObjPlayer::handle_symbol_chat_action(s32 arg1, s32 arg2, s32 arg3) {
 void TObjPlayer::handle_action_by_type(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x67));
@@ -664,7 +664,7 @@ void TObjPlayer::handle_action_by_type(s32 arg1, s32 arg2, s32 arg3) {
 void TObjPlayer::handle_stage_event(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        update_battle_control_if_unlocked__10TObjPlayerFPv();
+        update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), (s32)(0x66));
@@ -772,7 +772,7 @@ void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 ar
             Trip_8035862C t = lbl_804793D8;
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0U) {
-                construct_bolt_effect__9TTecZondeFPvPvPvPviiff(obj, tl_07, &v, &t, 0x14000000, 0x14, lbl_805E0048, lbl_805E0080);
+                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &v, &t, 0x14000000, 0x14, lbl_805E0048, lbl_805E0080);
             }
         }
     }

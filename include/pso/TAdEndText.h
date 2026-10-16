@@ -11,6 +11,8 @@ public:
 public:
     static void free_resources();
     static void load_ending_font();
+public:
+    static void cleanup();
 };
 
 #endif

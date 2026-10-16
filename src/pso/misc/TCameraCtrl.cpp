@@ -181,7 +181,6 @@ extern const f32 TCameraCtrl__data_805D8FAC;
 extern const f32 TCameraCtrl__data_805D8FDC;
 extern const f32 TCameraCtrl__data_805D8FE0;
 extern u8 *camera_ctrl_instance;
-void select_active_controller__11TCameraCtrlFc(s8 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
 s32 is_split_screen();
@@ -206,7 +205,7 @@ void reset__11TCameraCtrlFv(void) {
     *(s32 *)((s8 *)TCameraCtrl__view_state + 4) = 0;
     *(s32 *)((s8 *)TCameraCtrl__view_state + 8) = 0;
 }
-void reset_view_state__11TCameraCtrlFv(void) {
+void TCameraCtrl::reset_view_state() {
     A_8006A35C *pa = (A_8006A35C *)TCameraCtrl__view_state;
     B_8006A35C *pb = (B_8006A35C *)TCameraCtrl__data_804FF634;
     C_8006A35C *pc;
@@ -331,7 +330,7 @@ typedef struct RecoveredGlobal_8006A5EC_camera_controller_registry RecoveredGlob
 typedef char RecoveredGlobal_8006A5EC_camera_controller_registry_size[((sizeof(RecoveredGlobal_8006A5EC_camera_controller_registry)) == 0x68) ? (1) : (-1)];
 typedef char RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628_size[((sizeof(RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628)) == 0xC) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_f8ef8c_m5(_self) (((VObj_18_f8ef8c *)(_self))->m5())
-void select_active_controller__11TCameraCtrlFc(s8 arg0) {
+void TCameraCtrl::select_active_controller(s8 arg0) {
   f32 temp_f0;
   f32 temp_f0_2;
   f32 temp_f0_3;
@@ -706,7 +705,6 @@ extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
 extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 identity_matrix;
-void calc_axes_from_angles__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix_from(void *);
@@ -736,13 +734,9 @@ u16 TCameraCtrl__sub_8006B358(void* p);
 int is_quest_active(void);
 int TCameraCtrl__sub_8006B370(f32);
 int TCameraCtrl__sub_8006B3B8(void* p);
-int get_camera_id__11TCameraCtrlFv(void);
-int get_instance__11TCameraCtrlFv(void);
 s32 get_mode__11TCameraCtrlFPv(void* p);
-int reset_battle_camera__11TCameraCtrlFPv(void* p);
 void render__11TCameraCtrlFv(void *arg0);
 void set_target__11TCameraCtrlFii(int a0, int a1);
-void set_target_coords__11TCameraCtrlFii(int a0, int a1);
 int reset_to_local_player__11TCameraCtrlFv(void*);
 int set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void*);
 s32 is_split_screen();
@@ -820,7 +814,7 @@ typedef char RecoveredGlobal_8006ABAC_lbl_804381B0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8006ABAC_lbl_804FF610_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF610) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006ABAC_lbl_804FF61C_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF61C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006ABAC_lbl_8058D490_size[sizeof(RecoveredGlobal_8006ABAC_lbl_8058D490) == 0x30 ? 1 : -1];
-void calc_axes_from_angles__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
+void TCameraCtrl::calc_axes_from_angles(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_8006ABAC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8006ABAC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006ABAC, sp10) == 0x8) ? 1 : -1];
@@ -1078,10 +1072,10 @@ s32 *get_character_select_request_buffer(void) {
     return &chr_select_request_buffer.value;
 }
 
-int get_instance__11TCameraCtrlFv(void) {  return camera_split_screen_selector; }
+int TCameraCtrl::get_instance() {  return camera_split_screen_selector; }
 
     extern int TCameraCtrl__camera_id;
-int get_camera_id__11TCameraCtrlFv(void) {  return TCameraCtrl__camera_id; }
+int TCameraCtrl::get_camera_id() {  return TCameraCtrl__camera_id; }
 
     extern short TCameraCtrl__viewport_size;
     extern short TCameraCtrl__viewport_height;
@@ -1089,7 +1083,7 @@ void set_target__11TCameraCtrlFii(int a0, int a1) { TCameraCtrl__viewport_size =
 
     extern short TCameraCtrl__viewport_x;
     extern short TCameraCtrl__viewport_y;
-void set_target_coords__11TCameraCtrlFii(int a0, int a1) { TCameraCtrl__viewport_x = a0; TCameraCtrl__viewport_y = a1; }
+void TCameraCtrl::set_target_coords(int a0, int a1) { TCameraCtrl__viewport_x = a0; TCameraCtrl__viewport_y = a1; }
 
 u16 TCameraCtrl__sub_8006B358(void* p) { return *(u16*)((char*)p + 0x20); }
 s32 get_mode__11TCameraCtrlFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
@@ -1102,7 +1096,7 @@ int TCameraCtrl__sub_8006B370(f32 farg0) {
     return v == 0x7F800000;
 }
 
-int reset_battle_camera__11TCameraCtrlFPv(void* p) { return reset_to_local_player__11TCameraCtrlFv(p); }
+int TCameraCtrl::reset_battle_camera() { return reset_to_local_player__11TCameraCtrlFv(this); }
 int TCameraCtrl__sub_8006B3B8(void* p) { return set_fixed_position_and_target__11TCameraCtrlFPUcPUc(p); }
 
 }

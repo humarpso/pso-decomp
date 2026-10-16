@@ -67,7 +67,7 @@ struct Self_80121CB8 : Pl_80121CB8 {
 };
 
 extern "C" {
-void launch_rare_weapon_special__10TObjPlayerFv(void *, s32, s32, f32);
+void launch_rare_weapon_special__10TObjPlayerFPvlf(void *, s32, s32, f32);
 void belra_cannon_create_extra_shot();
 void belra_cannon_create_shot();
 void belra_cannon_return_timer();
@@ -83,7 +83,7 @@ void TUnk_804A0CB8::emit_marker_effects() {
         self->fn1f0 = (void *)belra_cannon_create_extra_shot;
         self->f1f8 = 0;
         TItemAttacker::spawn_item_timer((s32)self, (s32)((void *)belra_cannon_return_timer), (s32)0x1E);
-        launch_rare_weapon_special__10TObjPlayerFv(self, 0, 1, lbl_805DACD0);
+        launch_rare_weapon_special__10TObjPlayerFPvlf(self, 0, 1, lbl_805DACD0);
     } else {
         self->fn1f0 = (void *)belra_cannon_create_shot;
         self->f1f8 = 0;

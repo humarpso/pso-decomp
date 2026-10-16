@@ -86,6 +86,34 @@ struct TObjEnePanarms : public TObjEnemy {
     static s32 create(s32 arg0);
     void init(void* a1);
     int get_state_flag();
-    void copy_target_state(void* a1);};
+    void copy_target_state(void* a1);
+    void attack_target_player(s32 arg1);
+    void draw_with_fade();
+    void update_spin();
+    void enter_down_state();
+    void update_state_effect();
+    void update_timed_action();
+    void merge_halves();
+    void update_separated_parts();
+    void update_hit_effect();
+    void update_wait_then_set_state();
+    void update_particle_emitters();
+    void set_flags_and_field_b8();
+    void update_destroy_child();
+    void update_particle_emitters_set2();
+    void set_state_flags_6();
+    void update_fall();
+    void set_hidden_flags();
+    void try_activate();
+    static s32 find_combine_position(void *p);
+    void turn_toward_target(s32 arg1);
+    u16 turn_to_nearest_player(s32 arg1, s32 arg2);
+    void snap_to_ground();
+    void set_state(s32 arg1);
+    void draw_shadow();
+    void destroy_handles();
+    static void free_data();
+    static void load_and_spawn_npc();
+};
 
 #endif

@@ -10,7 +10,7 @@ extern "C" char* const item_pmt_filename_descriptor;
 
 extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFv(int size);
 extern "C" void     __dt__9TItemLoadFPvs(void* obj, int flag);
-extern "C" void*    get_type__8TItemMagFPv(void* pmt);
+extern "C" void*    get_type__8TItemMagFv(void* pmt);
 extern "C" TObject* create_drop__9TItemDropFi(int arg);
 
 extern "C" {
@@ -34,7 +34,7 @@ void load_item_pmt() {
     }
     item_pmt = p;
     if (p != NULL) {
-        item_pmt_tbl = get_type__8TItemMagFPv(p);
+        item_pmt_tbl = get_type__8TItemMagFv(p);
     }
 }
 

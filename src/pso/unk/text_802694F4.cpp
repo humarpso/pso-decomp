@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowMessage.h"
 
@@ -62,7 +63,6 @@ u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
-void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0);
 }
 
 extern "C" {
@@ -106,37 +106,37 @@ void TWindowMessage::advance_reveal_cursor() {
     }
 }
 
-void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0) {
+void TWindowMessage::update_line_timers() {
     Ent_80269664 *e;
     u32 i;
     Meta_80269664 *m;
     s32 idx;
     f32 h;
-    for (i = 0; i < (u32)arg0->capacity; i++) {
-        if (get_field_20__17TWindowSubComCardFv(get_array_entry__13TUnk_804CE018Fi(arg0, i)) != 0) {
-            if ((arg0->meta[i].flags & 4) && arg0->meta[i].timer > 0) {
-                arg0->meta[i].timer--;
+    for (i = 0; i < (u32)((Q_80269664 *)this)->capacity; i++) {
+        if (get_field_20__17TWindowSubComCardFv(get_array_entry__13TUnk_804CE018Fi(((Q_80269664 *)this), i)) != 0) {
+            if ((((Q_80269664 *)this)->meta[i].flags & 4) && ((Q_80269664 *)this)->meta[i].timer > 0) {
+                ((Q_80269664 *)this)->meta[i].timer--;
             }
         }
     }
-    idx = arg0->oldest;
-    e = (Ent_80269664 *)get_array_entry__13TUnk_804CE018Fi(arg0, idx);
-    m = &arg0->meta[idx];
+    idx = ((Q_80269664 *)this)->oldest;
+    e = (Ent_80269664 *)get_array_entry__13TUnk_804CE018Fi(((Q_80269664 *)this), idx);
+    m = &((Q_80269664 *)this)->meta[idx];
     while (get_field_20__17TWindowSubComCardFv(e) != 0 && m->timer <= 0 && (m->flags & 4)) {
         m->flags &= ~4;
         h = (1.0f) + (e->y + e->h);
-        if (arg0->height < h) {
-            arg0->height = h;
+        if (((Q_80269664 *)this)->height < h) {
+            ((Q_80269664 *)this)->height = h;
         }
         idx++;
-        if (idx >= arg0->capacity) {
+        if (idx >= ((Q_80269664 *)this)->capacity) {
             idx = 0;
         }
-        if (idx == arg0->oldest) {
+        if (idx == ((Q_80269664 *)this)->oldest) {
             break;
         }
-        e = (Ent_80269664 *)get_array_entry__13TUnk_804CE018Fi(arg0, idx);
-        m = &arg0->meta[idx];
+        e = (Ent_80269664 *)get_array_entry__13TUnk_804CE018Fi(((Q_80269664 *)this), idx);
+        m = &((Q_80269664 *)this)->meta[idx];
     }
 }
 
@@ -203,7 +203,7 @@ s32 append_message_window_line(void *, s32, u32, s32);
 extern const f32 lbl_805DD234;
 
 #pragma readonly_strings on
-s32 add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(u8 *arg0, const char *arg1, const char *arg2, u32 arg3) {
+s32 TWindowOptionCtrl::add_label_value_line(const char *arg1, const char *arg2, u32 arg3) {
     const char *sep;
     f32 x;
     s32 r;
@@ -214,10 +214,10 @@ s32 add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(u8 *arg0, const char *arg
     text_builder_append(arg1);
     text_builder_append(sep);
     text_builder_append(arg2);
-    e = get_array_entry__13TUnk_804CE018Fi(arg0, *(s32 *)(arg0 + 0x88));
-    r = append_message_window_line(arg0, get_shared_text_buffer(), arg3 | 2, -1);
+    e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), *(s32 *)(((u8 *)this) + 0x88));
+    r = append_message_window_line(((u8 *)this), get_shared_text_buffer(), arg3 | 2, -1);
     if (r != 0) {
-        x = (0.5f) * (*(f32 *)(arg0 + 0x38) - lbl_805DD234);
+        x = (0.5f) * (*(f32 *)(((u8 *)this) + 0x38) - lbl_805DD234);
         x -= (f32)calc_text_width(arg1);
         x -= (0.5f) * (f32)calc_text_width(sep);
         *(f32 *)(e + 8) = x;

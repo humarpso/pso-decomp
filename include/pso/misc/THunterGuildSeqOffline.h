@@ -38,6 +38,7 @@ struct THunterGuildSeqOffline : public TShopSequence {
     void handle_window_input();
     void *init(void *arg1, void *arg2);
     u8 unk_20[0x1C];
+    void advance_matching_entries(s32 arg1, s32 arg2);
 };
 
 typedef char THunterGuildSeqOffline_size[sizeof(THunterGuildSeqOffline) == 0x3C ? 1 : -1];

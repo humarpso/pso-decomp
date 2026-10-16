@@ -103,7 +103,7 @@ void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
 void TItemObject__ct(void *);
 s32 get_tool_pmt_amount_byte__11TItemObjectFv(void *);
 void TItemTimerEvent__ct(void *);
-s32 refresh_owner_stats__5TItemFPv();
+s32 refresh_owner_stats__5TItemFv();
 int spawn_appearance_effect__10TObjPlayerFl(void);
 s32 add_weapon_grind(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
@@ -241,7 +241,7 @@ void vfunc_9__11TItemObjectFv();
 void TItem__sub_80100B8C();
 void classify_actor_view_detail();
 void register_attack__5TItemFv();
-void try_pick_up_item__5TItemFPvi();
+void try_pick_up_item__5TItemFl();
 void vfunc_14__11TItemObjectFv();
 void TItem__sub_801005E0();
 void vfunc_16__5TItemFv();
@@ -276,8 +276,8 @@ void vfunc_9__13TUnk_804B9870Fv();
 void set_attach_slot__14TItemEquipBaseFSc();
 void equip__14TItemEquipBaseFv();
 void unequip__14TItemEquipBaseFv();
-void add_equip_stats__14TItemEquipBaseFPvi();
-void remove_equip_stats__14TItemEquipBaseFPvi();
+void add_equip_stats__14TItemEquipBaseFl();
+void remove_equip_stats__14TItemEquipBaseFl();
 void subtract_item_stat_bonus__14TItemEquipBaseFllPs();
 void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
 void update_equip__14TItemEquipBaseFv();
@@ -306,7 +306,7 @@ void *lbl_8049FF88[46] = {
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
-    (void *)try_pick_up_item__5TItemFPvi,
+    (void *)try_pick_up_item__5TItemFl,
     (void *)vfunc_14__11TItemObjectFv,
     (void *)TItem__sub_801005E0,
     (void *)vfunc_16__5TItemFv,
@@ -355,7 +355,7 @@ void *__vt__13TItemProArmor[51] = {
     (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
-    (void *)try_pick_up_item__5TItemFPvi,
+    (void *)try_pick_up_item__5TItemFl,
     (void *)vfunc_14__13TItemProArmorFv,
     (void *)TItem__sub_801005E0,
     (void *)vfunc_16__13TItemProArmorFv,
@@ -364,8 +364,8 @@ void *__vt__13TItemProArmor[51] = {
     (void *)set_attach_slot__14TItemEquipBaseFSc,
     (void *)equip__14TItemEquipBaseFv,
     (void *)unequip__14TItemEquipBaseFv,
-    (void *)add_equip_stats__14TItemEquipBaseFPvi,
-    (void *)remove_equip_stats__14TItemEquipBaseFPvi,
+    (void *)add_equip_stats__14TItemEquipBaseFl,
+    (void *)remove_equip_stats__14TItemEquipBaseFl,
     (void *)subtract_item_stat_bonus__14TItemEquipBaseFllPs,
     (void *)subtract_equip_stats__14TItemEquipBaseFlPUcPUc,
     (void *)vfunc_26__5TItemFv,
@@ -455,7 +455,7 @@ void TItemProArmor::vfunc_44() {
 
 void TItemProArmor::vfunc_16() {
     if (*(u16 *)((s8 *)this + 0x190) & 1) {
-        refresh_owner_stats__5TItemFPv();
+        refresh_owner_stats__5TItemFv();
     }
 }
 

@@ -19,7 +19,7 @@ s32 TObjPlayer__sub_801BEC3C(void *);
 extern "C" {
 
 void TObjPlayer__sub_801BCC50(void);
-int check_technique_castable__10TObjPlayerFi(void*);
+int check_technique_castable__10TObjPlayerFl(void*);
 
 void TObjPlayer::load_char_data(u8 *arg1) {
     sub_801BEE2C((int) (*(s16 *)((s8 *)arg1 + 0x24)));
@@ -41,7 +41,7 @@ void TObjPlayer::load_char_data(u8 *arg1) {
 
 extern "C" {
 
-int TObjPlayer::can_cast_technique() { return check_technique_castable__10TObjPlayerFi(this); }
+int TObjPlayer::can_cast_technique() { return check_technique_castable__10TObjPlayerFl(this); }
 void TObjPlayer__sub_801BCC50(void) {  }
 
 }

@@ -50,14 +50,12 @@ s32 allow_rendering__7TObjectFv(u32);
 void disallow_rendering__7TObjectFv(void *);
 s32 count_members__6TLobbyFv();
 s32 update_players_in_range(void *);
-void update_visibility__13TAdVIConfigGCFPv(u8 *arg0);
 u8 *get_player_by_client_id(s32);
 s32 TWindow__close(u32);
 s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
 extern s32 local_client_id;
-void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0);
 }
 
 extern "C" {
@@ -66,7 +64,6 @@ void *TAdVIConfigGC__ct(void *arg0);
 void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
-s32 get_field_14__13TAdVIConfigGCFPv(void* p);
 int OSSetProgressiveMode(void*);
 int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__ct(void *);
@@ -82,51 +79,51 @@ int VIConfigure(void*);
 int VIFlush(void);
 s32 memset(void *, int, int);
 
-void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
+void TAdVIConfigGC::open_player_names_window() {
     s32 i;
     u8 *p;
-    if (arg0->win != 0) {
-        TWindow__close(arg0->win);
-        arg0->win = 0;
+    if (((Cfg_80307D00 *)this)->win != 0) {
+        TWindow__close(((Cfg_80307D00 *)this)->win);
+        ((Cfg_80307D00 *)this)->win = 0;
     }
-    arg0->win = TAdVIConfigGC::draw_with_layer((s32)(get_window_layout_position(0x5A)), (s32)player_names_window_pos, (s32)local_client_id);
-    if (arg0->win != 0) {
-        ((TWindowSubTradeMain *)(arg0->win))->set_visible();
-        ((TWindowSubTradeMain *)(arg0->win))->set_close_flag();
+    ((Cfg_80307D00 *)this)->win = TAdVIConfigGC::draw_with_layer((s32)(get_window_layout_position(0x5A)), (s32)player_names_window_pos, (s32)local_client_id);
+    if (((Cfg_80307D00 *)this)->win != 0) {
+        ((TWindowSubTradeMain *)(((Cfg_80307D00 *)this)->win))->set_visible();
+        ((TWindowSubTradeMain *)(((Cfg_80307D00 *)this)->win))->set_close_flag();
         for (i = 0; i < 4; i++) {
             p = get_player_by_client_id(i);
             if (p != 0) {
-                strncpy(arg0->names[i].s, (char *)(p + 0x85C), 0x17);
-                arg0->names[i].s[0x17] = 0;
-                TWindowSubStatusDisp::dispatch_without_flags((s32)(arg0->win), (s32)(arg0->names[i].s), (s32)i);
+                strncpy(((Cfg_80307D00 *)this)->names[i].s, (char *)(p + 0x85C), 0x17);
+                ((Cfg_80307D00 *)this)->names[i].s[0x17] = 0;
+                TWindowSubStatusDisp::dispatch_without_flags((s32)(((Cfg_80307D00 *)this)->win), (s32)(((Cfg_80307D00 *)this)->names[i].s), (s32)i);
             } else {
-                arg0->names[i].s[0] = 0;
-                TWindowSubStatusDisp::dispatch_without_flags((s32)(arg0->win), (s32)(arg0->names[i].s), (s32)i);
+                ((Cfg_80307D00 *)this)->names[i].s[0] = 0;
+                TWindowSubStatusDisp::dispatch_without_flags((s32)(((Cfg_80307D00 *)this)->win), (s32)(((Cfg_80307D00 *)this)->names[i].s), (s32)i);
             }
         }
     }
 }
 
-s32 get_field_14__13TAdVIConfigGCFPv(void* p) { return *(s32*)((char*)p + 0x14); }
+s32 TAdVIConfigGC::get_field_14() { return *(s32*)((char*)this + 0x14); }
 
-void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
+void TAdVIConfigGC::update_visibility() {
     s32 temp_r3;
     u8 *temp_r3_2;
     temp_r3 = count_members__6TLobbyFv();
-    if ((s32) *(s32 *)((s8 *)arg0 + 4) != temp_r3) {
-        *(s32 *)((s8 *)arg0 + 4) = temp_r3;
-        open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 4) != temp_r3) {
+        *(s32 *)((s8 *)((u8 *)this) + 4) = temp_r3;
+        open_player_names_window();
     }
-    update_players_in_range((void *) (arg0));
-    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x24));
+    update_players_in_range((void *) (((u8 *)this)));
+    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x24));
     if (temp_r3_2 != NULL) {
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x18) != 0) {
+        if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x18) != 0) {
             ((TQuestVmDownLoadServer *)temp_r3_2)->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((u32)(*(u8 **)((s8 *)arg0 + 0x24)));
+            allow_rendering__7TObjectFv((u32)(*(u8 **)((s8 *)((u8 *)this) + 0x24)));
             return;
         }
         ((TObject *)temp_r3_2)->set_flag_4();
-        disallow_rendering__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x24));
+        disallow_rendering__7TObjectFv(*(u8 **)((s8 *)((u8 *)this) + 0x24));
     }
 }
 
@@ -158,7 +155,7 @@ u8 *TAdVIConfigGC::init(f32 farg0) {
     *(s32 *)&this->m_flags = count_members__6TLobbyFv();
     *(s32 *)&this->m_down = 0;
     *(s32 *)((s8 *)arg0 + 0x18) = 0;
-    open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));
+    ((TAdVIConfigGC *)arg0)->open_player_names_window();
     *(s32 *)&this->m_1c = 0;
     return arg0;
 }

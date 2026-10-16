@@ -9,12 +9,11 @@ struct Player_801022FC { u8 pad[0xE6]; s16 fE6; };
 extern "C" {
 void vfunc_13__13TUnk_804AF8A0Fl(void *, s32);
 s16 get_current_floor();
-void send_pick_up_item_request__6TLobbyFi(void *);
+void send_pick_up_item_request__6TLobbyFv(void *);
 void TLobby__sub_801030EC(void *);
 s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 can_pickup_item_by_id__10TObjPlayerFii(s32, void *);
 s32 get_player_by_client_id(u16);
-void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id);
 }
 
 extern "C" {
@@ -22,20 +21,20 @@ extern "C" {
 s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 submit_cursor_candidate(void *, s32);
 
-void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id) {
+void TItem::try_pick_up_item(s32 id) {
     Msg_801022FC m;
     if ((u16)id != 0xFFFF) {
-        if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), p) != 0 && sub_8010319C__13TUnk_804AF8A0Fv((s32)(p)) == 0) {
-            vfunc_13__13TUnk_804AF8A0Fl(p, id);
+        if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), ((Player_801022FC *)this)) != 0 && sub_8010319C__13TUnk_804AF8A0Fv((s32)(((Player_801022FC *)this))) == 0) {
+            vfunc_13__13TUnk_804AF8A0Fl(((Player_801022FC *)this), id);
             TLobby__sub_801030EC(&m);
             m.id = id;
-            m.v = ((TObjPlayer *)p)->get_field_d8();
+            m.v = ((TObjPlayer *)((Player_801022FC *)this))->get_field_d8();
             m.w = get_current_floor();
-            send_pick_up_item_request__6TLobbyFi(&m);
-            p->fE6 = 0;
+            send_pick_up_item_request__6TLobbyFv(&m);
+            ((Player_801022FC *)this)->fE6 = 0;
         }
     } else {
-        vfunc_13__13TUnk_804AF8A0Fl(p, 0xFFFF);
+        vfunc_13__13TUnk_804AF8A0Fl(((Player_801022FC *)this), 0xFFFF);
     }
 }
 

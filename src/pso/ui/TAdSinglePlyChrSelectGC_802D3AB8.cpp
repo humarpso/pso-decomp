@@ -107,7 +107,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
 s32 align_menu_entry_positions(s32);
-s32 calc_window_size__17TWindowSubComCardFPv(s32);
+s32 calc_window_size__17TWindowSubComCardFv(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 
@@ -130,7 +130,7 @@ s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 3), 6, 2);
         forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 4), 6, 3);
     }
-    calc_window_size__17TWindowSubComCardFPv(var_r31);
+    calc_window_size__17TWindowSubComCardFv(var_r31);
     align_menu_entry_positions(var_r31);
     return var_r31;
 }

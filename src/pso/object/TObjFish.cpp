@@ -161,8 +161,7 @@ extern s32 game_difficulty_selection;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 bm_obj_jungle_mkey_resource_descriptor;
 extern u32 TOKeyJungleMain__static_model_resource;
-void load_static_resource__15TOKeyJungleMainFv(void);
-s32 dispatch_by_phase__15TOKeyJungleMainFiUs(void *, int);
+s32 dispatch_by_phase__15TOKeyJungleMainFlUs(void *, int);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 game_difficulty_selection;
 s32 init_collision_body_parts(void *, void *, int);
@@ -179,11 +178,9 @@ extern char lbl_80465A2C[];
 
 extern "C" {
 
-void *create__15TOKeyJungleMainFPv(void *arg0);
-void release_static_resource__15TOKeyJungleMainFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
-void *create__15TOKeyJungleMainFPv(void *arg0) {
+void *TOKeyJungleMain::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
         o = TOKeyJungleMain__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
@@ -193,14 +190,14 @@ void *create__15TOKeyJungleMainFPv(void *arg0) {
 
 extern u32 TOKeyJungleMain__static_model_resource;
 
-void release_static_resource__15TOKeyJungleMainFv(void) {
+void TOKeyJungleMain::release_static_resource() {
     if ((u32) TOKeyJungleMain__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOKeyJungleMain__static_model_resource, 1);
         TOKeyJungleMain__static_model_resource = 0U;
     }
 }
 
-void load_static_resource__15TOKeyJungleMainFv(void) {
+void TOKeyJungleMain::load_static_resource() {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
@@ -256,7 +253,7 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
 typedef char RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
 void TOKeyJungleMain::send_switch_on() {
     u8 *arg0 = (u8 *)this;
-    dispatch_by_phase__15TOKeyJungleMainFiUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)((s8 *)arg0 + 0xC8) * 4))));
+    dispatch_by_phase__15TOKeyJungleMainFlUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)((s8 *)arg0 + 0xC8) * 4))));
 }
 
 void TOKeyJungleMain::update_lock_state() {

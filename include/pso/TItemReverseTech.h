@@ -11,6 +11,12 @@ public:
     u32 unknown_1c;
     TObject *part_one;
     TObject *part_two;
+public:
+    static void create();
+    static void load_textures();
+    static void run_frame();
+    static void run_cleanup_callbacks();
+    static void init_scene();
 };
 
 #include <stddef.h>

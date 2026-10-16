@@ -376,7 +376,6 @@ void TObjCity_Season_FireWorkCtrl::run_task() {
 extern "C" {
 
 void *TObjCity_Season_FireWorkCtrl__create(void *arg0);
-void *dt__28TObjCity_Season_FireWorkCtrlFPvs(void *arg0, s16 arg1);
 u8 *TObjCity_Season_FireWorkCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
@@ -392,15 +391,15 @@ void *TObjCity_Season_FireWorkCtrl__create(void *arg0) {
 
 extern s32 __vt__28TObjCity_Season_FireWorkCtrl[];
 
-void *dt__28TObjCity_Season_FireWorkCtrlFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TObjCity_Season_FireWorkCtrl;
-        TParticleCtrl::destroy_particle(arg0, 0);
+void *TObjCity_Season_FireWorkCtrl::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = __vt__28TObjCity_Season_FireWorkCtrl;
+        TParticleCtrl::destroy_particle(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }
@@ -521,7 +520,6 @@ void TObjCity_Season_Board::run_task() {
 extern "C" {
 
 void *TObjCity_Season_Board__create(void *arg0);
-void *dt__21TObjCity_Season_BoardFPvs(void *arg0, s16 arg1);
 u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
@@ -537,15 +535,15 @@ void *TObjCity_Season_Board__create(void *arg0) {
 
 extern s32 __vt__21TObjCity_Season_Board[];
 
-void *dt__21TObjCity_Season_BoardFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjCity_Season_Board;
-        TParticleCtrl::destroy_particle(arg0, 0);
+void *TObjCity_Season_Board::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = __vt__21TObjCity_Season_Board;
+        TParticleCtrl::destroy_particle(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }
@@ -736,7 +734,6 @@ s32 TObjCity_Season_SonicAdv2::sub_80183C38() {
 extern "C" {
 
 void *TObjCity_Season_SonicAdv2__create(void *arg0);
-void *dt__25TObjCity_Season_SonicAdv2FPvs(void *arg0, s16 arg1);
 u8 *TObjCity_Season_SonicAdv2__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
@@ -752,15 +749,15 @@ void *TObjCity_Season_SonicAdv2__create(void *arg0) {
 
 extern s32 __vt__25TObjCity_Season_SonicAdv2[];
 
-void *dt__25TObjCity_Season_SonicAdv2FPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjCity_Season_SonicAdv2;
-        ((TUnk_804B5E48 *)arg0)->destroy_seasonal_object(0);
+void *TObjCity_Season_SonicAdv2::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = __vt__25TObjCity_Season_SonicAdv2;
+        ((TUnk_804B5E48 *)this)->destroy_seasonal_object(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }
@@ -1023,7 +1020,6 @@ void TObjCity_Season_HalloweenPumpkin::run_task() {
 extern "C" {
 
 void *TObjCity_Season_HalloweenPumpkin__create(void *arg0);
-void *dt__32TObjCity_Season_HalloweenPumpkinFPvs(void *arg0, s16 arg1);
 u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 
@@ -1039,15 +1035,15 @@ void *TObjCity_Season_HalloweenPumpkin__create(void *arg0) {
 
 extern s32 __vt__32TObjCity_Season_HalloweenPumpkin[];
 
-void *dt__32TObjCity_Season_HalloweenPumpkinFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__32TObjCity_Season_HalloweenPumpkin;
-        TParticleCtrl::destroy_particle(arg0, 0);
+void *TObjCity_Season_HalloweenPumpkin::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = __vt__32TObjCity_Season_HalloweenPumpkin;
+        TParticleCtrl::destroy_particle(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 }
@@ -1192,7 +1188,6 @@ u8 *TObjCity_Season_XmasWreath__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 
 void *TObjCity_Season_XmasWreath__create(void *arg0);
-void *dt__26TObjCity_Season_XmasWreathFPvs(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 
 s32 draw_chunk_object(s32);
@@ -1215,15 +1210,15 @@ void *TObjCity_Season_XmasWreath__create(void *arg0) {
 
 extern s32 __vt__26TObjCity_Season_XmasWreath[];
 
-void *dt__26TObjCity_Season_XmasWreathFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TObjCity_Season_XmasWreath;
-        TParticleCtrl::destroy_particle(arg0, 0);
+void *TObjCity_Season_XmasWreath::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = __vt__26TObjCity_Season_XmasWreath;
+        TParticleCtrl::destroy_particle(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 city_season_xmas_model_table[];
@@ -1303,7 +1298,6 @@ struct VObj_8018455c_80184408 : VBase_8018455c_80184408 {
 };
 
 void *TObjCity_Season_XmasTree__create(void *arg0);
-void *dt__24TObjCity_Season_XmasTreeFPvs(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 
 s32 rotate_matrix_y(s32, s32);
@@ -1325,16 +1319,16 @@ void *TObjCity_Season_XmasTree__create(void *arg0) {
 
 extern s32 __vt__24TObjCity_Season_XmasTree[];
 
-void *dt__24TObjCity_Season_XmasTreeFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__24TObjCity_Season_XmasTree;
-        if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB4)); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
-        ((TUnk_804B5E48 *)arg0)->destroy_seasonal_object(0);
+void *TObjCity_Season_XmasTree::dt(s16 arg1) {
+    if (this != NULL) {
+        *(s32 **)((s8 *)this + 0x18) = __vt__24TObjCity_Season_XmasTree;
+        if (*(void **)((s8 *)this + 0xB4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xB4)); *(s32 *)((s8 *)this + 0xB4) = 0; }
+        ((TUnk_804B5E48 *)this)->destroy_seasonal_object(0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            __dl__7TObjectFPv(this);
         }
     }
-    return arg0;
+    return this;
 }
 
 extern s32 city_season_xmas_model_table[];

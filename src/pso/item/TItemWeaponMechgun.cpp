@@ -63,7 +63,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_mechgun_weapon(u8 *arg0);
 s32 TItemWeapon__ct(void *, s32, void *);
-s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
+s32 set_status_flags__10TObjPlayerFUl(void *, s32);
 void spawn_weapon_impact_effect();
 extern s32 lbl_804A3260[];
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2);
@@ -107,7 +107,7 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
     u8 temp_r0;
     TItemWeapon__ct(arg0, parent, arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A3260;
-    set_status_flags__10TObjPlayerFPvUi(arg0, 0x203);
+    set_status_flags__10TObjPlayerFUl(arg0, 0x203);
     *(void (**)())((s8 *)arg0 + 0x1EC) = &spawn_weapon_impact_effect;
     *(s32 *)((s8 *)arg0 + 0x210) = -1;
     *(s32 *)((s8 *)arg0 + 0x214) = 0;

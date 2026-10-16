@@ -16,9 +16,9 @@ void TItem__sub_80101CEC(void);
 void TItem__sub_80101CF0(void);
 void TItem__sub_80101CF4(void);
 void TItem__sub_80101CF8(void);
-s32 set_present_color__9TItemDataFPvi(void *, s8);
-s32 set_wrapped__9TItemDataFPv(void *);
-s32 set_packed_value__9TItemDataFPvUs(void *, u16);
+s32 set_present_color__9TItemDataFl(void *, s8);
+s32 set_wrapped__9TItemDataFv(void *);
+s32 set_packed_value__9TItemDataFUs(void *, u16);
 s32 init__9TItemDataFv(void *);
 
 void TItem__sub_80101CEC(void) {  }
@@ -39,11 +39,11 @@ s32 TItem::copy_to_item_data(void *arg1) {
         *(s32 *)((s8 *)item + 0xC) = (s32) *(s32 *)((s8 *)o + 0xD8);
         o->m16(item);
         if (*(s32 *)((s8 *)o + 0xDC) & 0x100) {
-            set_packed_value__9TItemDataFPvUs(item, *(u16 *)((s8 *)o + 0xE8));
+            set_packed_value__9TItemDataFUs(item, *(u16 *)((s8 *)o + 0xE8));
         }
         if (*(s32 *)((s8 *)o + 0xDC) & 0x400) {
-            set_wrapped__9TItemDataFPv(item);
-            set_present_color__9TItemDataFPvi(item, (s8) *(u8 *)((s8 *)o + 0xEA));
+            set_wrapped__9TItemDataFv(item);
+            set_present_color__9TItemDataFl(item, (s8) *(u8 *)((s8 *)o + 0xEA));
         }
         return 1;
     }
