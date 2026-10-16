@@ -962,9 +962,6 @@ struct VObj_18_bcad77 : VBase_18_bcad77 {
 };
 
 extern "C" {
-}
-
-extern "C" {
 
 struct ED300Base_800ed300_800ED258 { char pad[0x14]; };
 struct ED300Obj_800ed300_800ED258 : ED300Base_800ed300_800ED258 {

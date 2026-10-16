@@ -68,9 +68,6 @@ struct Rec_8013E870 { u8 pad[0x124]; };
 struct Obj_8013E870 { u8 pad[0x5c]; Rec_8013E870 recs[1]; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) *(u16 *)((s8 *)arg1 + 0);

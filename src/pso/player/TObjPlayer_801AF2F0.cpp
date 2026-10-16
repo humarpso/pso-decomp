@@ -2726,9 +2726,6 @@ extern List_801BC068 *tl_06;
 extern s32 tl_07;
 
 extern "C" {
-}
-
-extern "C" {
 s32 TObjPlayer__sub_801BE2C8(void *);
 void TObjPlayer__sub_801BE2C0(void *, s32);
 extern "C" {

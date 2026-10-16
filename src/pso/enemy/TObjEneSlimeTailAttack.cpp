@@ -559,9 +559,6 @@ extern s32 tl_04;
 #pragma auto_inline off
 #pragma dont_inline off
 extern "C" {
-}
-
-extern "C" {
 void TBoss8Dragon__sub_800E92D8();
 }
 extern "C" {

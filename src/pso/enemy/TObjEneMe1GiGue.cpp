@@ -486,9 +486,6 @@ f32 TObjEneMe1GiGue::receive_physical_attack(void *, f32) {
 struct O_802CAC04 { u8 pad[0x326]; s16 v; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p);
 #define TObjEneMe1GiGue__sub_802CB03C ((int (*)(void*))TObjEneMe1GiGue__sub_802CB03C)

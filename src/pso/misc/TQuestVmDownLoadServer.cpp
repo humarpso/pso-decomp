@@ -158,8 +158,6 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 }
 extern "C" {
-}
-extern "C" {
 void set_ready__6TSceneFv(void *);
 }
 extern "C" {
@@ -327,11 +325,7 @@ extern "C" {
 void subtractive_rng_unshuffle(SubtractiveRng *, void *, void *, s32);
 }
 extern "C" {
-}
-extern "C" {
 void subtractive_rng_xor_buffer(SubtractiveRng *, u32 *, u32);
-}
-extern "C" {
 }
 extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
@@ -346,11 +340,7 @@ extern "C" {
 void subtractive_rng_make_shuffle(SubtractiveRng *);
 }
 extern "C" {
-}
-extern "C" {
 void subtractive_rng_xor_buffer(SubtractiveRng *, u32 *, u32);
-}
-extern "C" {
 }
 extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
@@ -625,10 +615,6 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 extern s32 lbl_8044BEF4[];
 }
 extern "C" {
@@ -697,8 +683,6 @@ struct Pos_801F8A40 { s32 a, b; };
 }
 extern "C" {
 u32 set_text__18TWindowMessagePageFlll(void *, void *, int);
-}
-extern "C" {
 }
 extern "C" {
 char *strtok(char *, const char *);

@@ -871,9 +871,6 @@ void TLobby::flush_checked_reads() {
 }
 
 extern "C" {
-}
-
-extern "C" {
 
 #define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
 #define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)

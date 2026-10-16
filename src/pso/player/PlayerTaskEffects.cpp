@@ -318,9 +318,6 @@ extern s32 __vt__18TPlayerLobbyMarker[];
 #undef TObjPlayer__sub_801C6FCC
 
 extern "C" {
-}
-
-extern "C" {
 void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0);
 }
 

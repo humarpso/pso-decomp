@@ -7,9 +7,6 @@
 struct Obj_80248A14 { u8 pad[0x76]; s16 count; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void THunterGuildSeqOffline::advance_matching_entries(s32 arg1, s32 arg2) {
     s32 i;

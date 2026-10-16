@@ -603,9 +603,6 @@ void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 }
 
 extern "C" {
-}
-
-extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 }
 

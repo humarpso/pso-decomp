@@ -59,9 +59,6 @@ void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0) {
 struct O_80103044 { u8 f0; u8 f1; u8 pad[2]; u16 f4; u16 f6; s32 f8; };
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 TLobby__send_and_handle_60(void *);
 s32 bswap_16__FPUs(s32);

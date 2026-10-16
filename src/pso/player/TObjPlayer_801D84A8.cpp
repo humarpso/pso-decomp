@@ -297,9 +297,6 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
 struct Obj_801D8474 { s8 a; u8 b; };
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
 s32 set_animation_default__10TObjPlayerFv(s32, s16);

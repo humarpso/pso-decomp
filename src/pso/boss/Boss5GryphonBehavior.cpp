@@ -1601,9 +1601,6 @@ extern s32 tl_01;
 #pragma push
 #pragma fp_contract on
 extern "C" {
-}
-
-extern "C" {
 extern ByteBlock_14 lbl_80437D40;
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 boss5_gryphon_attack_params;
 }

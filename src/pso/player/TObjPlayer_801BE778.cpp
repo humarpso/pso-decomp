@@ -287,9 +287,6 @@ void TObjPlayer::set_flag_02000000() {
 #include "types.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801BE784(void* p, u8 v);

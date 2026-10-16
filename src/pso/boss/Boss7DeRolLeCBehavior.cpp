@@ -4080,8 +4080,6 @@ void TBoss7DeRolLeC::vfunc_88() {
 #include "types.h"
 #include "pso/object/TObjFish.h"
 
-extern "C" {
-}
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)
 
 extern "C" {

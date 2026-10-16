@@ -2,9 +2,6 @@
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void TMainCursor::set_target_id_at_60(u8 arg1) {
     s32 arg0 = (s32)this;
