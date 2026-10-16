@@ -23,7 +23,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__8TChCrTagFv(void *, int);
 void fn_803098DC(void);
 
-int TChCrTagInformation::render() { return draw_char_info_sprites__19TChCrTagInformationFv(this); }
+void TChCrTagInformation::render() { { (void)(draw_char_info_sprites__19TChCrTagInformationFv(this)); return; } }
 
 void TChCrTagInformation::update_selected_char() {
     Tag_802A1E8C *arg0 = (Tag_802A1E8C *)this;

@@ -2,9 +2,10 @@
 #define PSO_MISC_TLOBBY_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TLobby
-{
+struct TLobby : public TObject {
+    virtual ~TLobby();
     static s32 get_filtered_event_theme();
     static void load_dimedian_resources();
     static void load_gyaranzo_resources();
@@ -40,7 +41,7 @@ struct TLobby
     static void shutdown_buffers();
     static void dispatch_by_index(s32 arg0);
     static void open_scroll_text_window(s32 arg0);
-    int render();
+    void render();
     void copy_player_records(s32 arg1);
     void apply_lobby_markers();
     static s32 get_option_state();
@@ -936,7 +937,7 @@ struct TLobby
     static s32 reset_stack_module();
     static s32 init_ucb_entries();
     static s32 cleanup_subsystems();
-    static s16 init_network_stack();
-};
+    static s16 init_network_stack();};
 
+typedef char TLobby_size[sizeof(TLobby) == 0x1C ? 1 : -1];
 #endif

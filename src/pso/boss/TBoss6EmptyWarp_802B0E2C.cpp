@@ -20,7 +20,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int draw_empty_warp_overlay(void*);
 
-int TBoss6EmptyWarp::render() { return draw_empty_warp_overlay(this); }
+void TBoss6EmptyWarp::render() { { (void)(draw_empty_warp_overlay(this)); return; } }
 
 extern s32 __vt__15TBoss6EmptyWarp[];
 

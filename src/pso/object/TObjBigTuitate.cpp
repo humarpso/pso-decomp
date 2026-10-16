@@ -131,7 +131,7 @@ void TObjBigTuitate::render() {
     set_cull_none__8TObjFishFv();
 }
 
-int TObjBigTuitate::run_task() { return update_obstruction_fade((char*)this + 0xac); }
+void TObjBigTuitate::run_task() { { (void)(update_obstruction_fade((char*)this + 0xac)); return; } }
 
 extern s32 __vt__14TObjBigTuitate[];
 

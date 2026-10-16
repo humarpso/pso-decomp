@@ -2,15 +2,14 @@
 #define PSO_OBJECT_TOBJMISTCTRL_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjMistCtrl
-{
+struct TObjMistCtrl : public TUnk_804B9870 {
+    virtual ~TObjMistCtrl();
     void sub_802AF64C();
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x54];
-    u32 m_90;
-    int run_task();
+    void run_task();
+    u8 unk_90[0x4];
 };
 
+typedef char TObjMistCtrl_size[sizeof(TObjMistCtrl) == 0x94 ? 1 : -1];
 #endif

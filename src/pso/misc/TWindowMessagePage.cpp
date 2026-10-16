@@ -81,7 +81,7 @@ void TWindowMessagePage::set_text(s32 a, s32 b, s32 c) {
     TWindowMessagePage::create((s32)(a), (s32)(b), (s32)(c), local_client_id);
 }
 
-int TWindowMessagePage::render() { return render__14TWindowMessageFv(this); }
+void TWindowMessagePage::render() { { (void)(render__14TWindowMessageFv(this)); return; } }
 
 extern s32 __vt__18TWindowMessagePage[];
 

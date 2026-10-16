@@ -2,11 +2,12 @@
 #define PSO_MISC_TWINDOWCTRLMAIN_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowCtrlMain
-{
+struct TWindowCtrlMain : public TObject {
+    virtual ~TWindowCtrlMain();
     void render();
-    int run_task();
+    void run_task();
     static void free_all_windows();
     static void reset_all(void* _w0);
     void update_child_2c();
@@ -28,7 +29,7 @@ struct TWindowCtrlMain
     static void set_depth(f32 value, s32 viewport_index);
     static void update_fade_alphas();
     static void set_value(s32 arg0, s32 arg1);
-    static void free_keyboard_soft();
-};
+    static void free_keyboard_soft();};
 
+typedef char TWindowCtrlMain_size[sizeof(TWindowCtrlMain) == 0x1C ? 1 : -1];
 #endif

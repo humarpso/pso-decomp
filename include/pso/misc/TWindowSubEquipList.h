@@ -2,14 +2,11 @@
 #define PSO_MISC_TWINDOWSUBEQUIPLIST_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
 
-struct TWindowSubEquipList
-{
-    u8 _pad1C[0x8];
-    void* m_24;
-    u8 _pad28[0x58];
-    u32 m_80;
-    int run_task();
-};
+struct TWindowSubEquipList : public TUnk_804D0618 {
+    virtual ~TWindowSubEquipList();
+    void run_task();};
 
+typedef char TWindowSubEquipList_size[sizeof(TWindowSubEquipList) == 0x88 ? 1 : -1];
 #endif

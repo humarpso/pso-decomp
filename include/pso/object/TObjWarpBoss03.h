@@ -2,12 +2,15 @@
 #define PSO_OBJECT_TOBJWARPBOSS03_H
 
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 
-struct TObjWarpBoss03
-{
+struct TObjWarpBoss03 : public TObjAreaWarp {
+    virtual ~TObjWarpBoss03();
     void sub_8019F9E4();
-    int run_task();
+    void run_task();
     static void *create(void *arg0);
+    u8 unk_AC[0x18];
 };
 
+typedef char TObjWarpBoss03_size[sizeof(TObjWarpBoss03) == 0xC4 ? 1 : -1];
 #endif

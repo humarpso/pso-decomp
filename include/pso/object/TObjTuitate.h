@@ -2,21 +2,15 @@
 #define PSO_OBJECT_TOBJTUITATE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjTuitate
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x48];
-    void* m_ac;
-    u8 _padB0[0x10];
-    u32 m_c0;
-    u8 _padC4[0x4];
+struct TObjTuitate : public TUnk_804AF8A0 {
+    virtual ~TObjTuitate();
     u32 m_c8;
     void render();
-    int run_task();
+    void run_task();
+    u8 unk_B0[0x1C];
 };
 
+typedef char TObjTuitate_size[sizeof(TObjTuitate) == 0xCC ? 1 : -1];
 #endif

@@ -53,7 +53,7 @@ void render__19TWindowSubEquipListFv(u8 *arg0) {
 }
 #pragma pop
 
-int TWindowSubEquipList::run_task() { return update_item_list_window(this); }
+void TWindowSubEquipList::run_task() { { (void)(update_item_list_window(this)); return; } }
 
 extern s32 __vt__19TWindowSubEquipList[];
 

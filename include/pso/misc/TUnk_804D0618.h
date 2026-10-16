@@ -10,7 +10,12 @@ public:
     int get_status_flag();
     u8 unk_1C[0x4];
     s16 m_20;
-    u8 unk_22[0x4E];
+    u8 unk_22[0x2A];
+    void* m_4c;
+    u8 unk_50[0x14];
+    u32 m_64;
+    u32 m_68;
+    u8 unk_6C[0x4];
     u16 m_70;
     s16 m_72;
     u8 unk_74[0x2];

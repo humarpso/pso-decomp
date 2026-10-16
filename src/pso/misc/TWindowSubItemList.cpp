@@ -63,7 +63,7 @@ void TWindowSubItemList::render() {
 }
 #pragma pop
 
-int TWindowSubItemList::run_task() { return update_item_list_window(this); }
+void TWindowSubItemList::run_task() { { (void)(update_item_list_window(this)); return; } }
 
 extern s32 __vt__18TWindowSubItemList[];
 

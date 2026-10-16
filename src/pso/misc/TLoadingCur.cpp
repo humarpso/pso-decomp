@@ -136,7 +136,7 @@ int TLoadingCur::sub_8001CCD4() {
     }
 }
 
-int TLoadingCur::render() { return sub_8001CCD4__11TLoadingCurFv((void *)(this)); }
+void TLoadingCur::render() { { (void)(sub_8001CCD4__11TLoadingCurFv((void *)(this))); return; } }
 
 extern s32 __vt__11TLoadingCur[];
 

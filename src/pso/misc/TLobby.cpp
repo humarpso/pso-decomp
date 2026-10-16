@@ -58,7 +58,7 @@ void TLobby::open_scroll_text_window(s32 arg0) {
     TLobby__data_805D5594 = 0x1A;
 }
 
-int TLobby::render() { return get_instance__15TAdPlayerLoadGCFv(this); }
+void TLobby::render() { { (void)(get_instance__15TAdPlayerLoadGCFv(this)); return; } }
 
 struct E_80134B58 { u8 d[0x11C]; };
 struct In_80134B58 { u32 type; u8 rest[0x118]; };

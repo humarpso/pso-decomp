@@ -82,7 +82,7 @@ int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
 int update_com_card__9TWindowDDFv(void*);
 
 void TWindowCtrlMain::render() { reset_transform_state__10TObjPlayerFv(this); TParticleCtrl::begin_effect_render(); TCameraCtrl::restore_full_screen_view(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); TParticleCtrl::end_effect_render(); }
-int TWindowCtrlMain::run_task() { return update_com_card__9TWindowDDFv(this); }
+void TWindowCtrlMain::run_task() { { (void)(update_com_card__9TWindowDDFv(this)); return; } }
 
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
     W_8024D3C0 *root;

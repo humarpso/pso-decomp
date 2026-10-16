@@ -2,21 +2,15 @@
 #define PSO_MISC_TWINDOWSUBITEMLIST_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
 
-struct TWindowSubItemList
-{
+struct TWindowSubItemList : public TUnk_804D0618 {
+    virtual ~TWindowSubItemList();
     void sub_8027ACF8(u8 *);
-    u8 _pad1C[0x8];
-    void* m_24;
-    u8 _pad28[0x40];
-    void* m_68;
-    u8 _pad6C[0x14];
-    u32 m_80;
-    u32 m_84;
-    u8 _pad88[0x4];
-    u32 m_8c;
     void render();
-    int run_task();
+    void run_task();
+    u8 unk_88[0x8];
 };
 
+typedef char TWindowSubItemList_size[sizeof(TWindowSubItemList) == 0x90 ? 1 : -1];
 #endif

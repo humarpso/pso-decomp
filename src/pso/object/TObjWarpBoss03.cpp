@@ -17,7 +17,7 @@ void *__nw__7TObjectFUl(int);
 int sub_8019F9E4__14TObjWarpBoss03Fv(void*);
 
 void TObjWarpBoss03__vt18(void* p) { ((TObjAreaWarp *)p)->debug_print_area_num(); sub_8019F9E4__14TObjWarpBoss03Fv(p); }
-int TObjWarpBoss03::run_task() { return handle_area_selection__12TObjAreaWarpFPv(this); }
+void TObjWarpBoss03::run_task() { { (void)(handle_area_selection__12TObjAreaWarpFPv(this)); return; } }
 
 extern s32 __vt__14TObjWarpBoss03[];
 
