@@ -68,7 +68,7 @@ extern const f32 lbl_805D93BC;
 }
 
 TEffect::~TEffect() {
-    field_1c = 0;
+    source = 0;
 }
 
 TEffect::TEffect() : TObject(tl_particle) {
@@ -83,17 +83,17 @@ TEffect::TEffect() : TObject(tl_particle) {
     scale.x = lbl_805D93BC;
     scale.y = lbl_805D93BC;
     scale.z = lbl_805D93BC;
-    field_48[0] = lbl_805D93B8;
-    field_48[1] = lbl_805D93B8;
-    field_48[2] = lbl_805D93B8;
-    field_54[0] = 0;
-    field_54[1] = 0;
-    field_54[2] = 0;
+    direction[0] = lbl_805D93B8;
+    direction[1] = lbl_805D93B8;
+    direction[2] = lbl_805D93B8;
+    angles[0] = 0;
+    angles[1] = 0;
+    angles[2] = 0;
     field_60[0] = lbl_805D93B8;
     field_60[1] = lbl_805D93B8;
     age = 0;
     field_6c = 0;
-    field_1c = 0;
+    source = 0;
 }
 
 #pragma push

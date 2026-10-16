@@ -8,12 +8,12 @@ public:
     TEffect();
     virtual ~TEffect();
 
-    u32 field_1c;
+    u32 source;
     Vec position;
     f32 field_2c[4];
     Vec scale;
-    f32 field_48[3];
-    u32 field_54[3];
+    f32 direction[3];
+    s32 angles[3];
     f32 field_60[2];
     s32 age;
     u32 field_6c;

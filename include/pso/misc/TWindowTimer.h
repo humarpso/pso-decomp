@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWTIMER_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowTimer
-{
+struct TWindowTimer : public TUnk_804CE018 {
+    virtual ~TWindowTimer();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x38];
@@ -15,7 +16,7 @@ struct TWindowTimer
     static void draw_tab(s32 arg0, s32 arg1);
     static s32 create();
     static s32 create_alt();
-    void update_input_hold();
-};
+    void update_input_hold();};
 
+typedef char TWindowTimer_size[sizeof(TWindowTimer) == 0x64 ? 1 : -1];
 #endif

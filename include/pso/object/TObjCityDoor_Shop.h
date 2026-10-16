@@ -2,9 +2,11 @@
 #define PSO_OBJECT_TOBJCITYDOOR_SHOP_H
 
 #include "types.h"
+#include "pso/object/TUnk_804B5BA8.h"
 
-struct TObjCityDoor_Shop
-{
+struct TObjCityDoor_Shop : public TUnk_804B5BA8 {
+    virtual ~TObjCityDoor_Shop();
 };
 
+typedef char TObjCityDoor_Shop_size[sizeof(TObjCityDoor_Shop) == 0xBC ? 1 : -1];
 #endif

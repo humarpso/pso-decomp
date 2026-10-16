@@ -2,27 +2,13 @@
 #define PSO_MISC_TCONTAINERANCIENT01R_H
 
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 
-struct TContainerAncient01R
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x38];
-    void* m_74;
-    u8 _pad78[0x40];
-    s16 m_b8;
-    u8 _padBA[0x1E];
-    u32 m_d8;
-    u32 m_dc;
-    u8 _padE0[0x21C];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    u16 m_326;
+struct TContainerAncient01R : public TUnk_804806E8 {
+    virtual ~TContainerAncient01R();
     static void init_table_entries();
+    u8 unk_334[0x40];
 };
 
+typedef char TContainerAncient01R_size[sizeof(TContainerAncient01R) == 0x374 ? 1 : -1];
 #endif

@@ -2,10 +2,10 @@
 #define PSO_OBJECT_TOBJFOGCOLLISIONPOISON_H
 
 #include "types.h"
+#include "pso/object/TObjFogCollisionSwitch.h"
 
-struct TObjFogCollisionPoison
-{
-    u8 _pad1C[0x7C];
+struct TObjFogCollisionPoison : public TObjFogCollisionSwitch {
+    virtual ~TObjFogCollisionPoison();
     u32 m_98;
     void update_poison_damage();
     void record_hit(s32 arg1, s32 arg2);
@@ -13,7 +13,7 @@ struct TObjFogCollisionPoison
     static void clear_state_array();
     u8 check_switch();
     void apply_poison_damage(s32 arg1);
-    void record_poison_hit(u16 arg1);
-};
+    void record_poison_hit(u16 arg1);};
 
+typedef char TObjFogCollisionPoison_size[sizeof(TObjFogCollisionPoison) == 0x9C ? 1 : -1];
 #endif

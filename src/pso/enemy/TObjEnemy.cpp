@@ -47,8 +47,8 @@ extern s32 TLobby__data_805D6144;
 TObjEnemy* TObjEnemy::initialize(void* parent) {
     TObjEnemy* self=this;
     construct_actor_base__10TObjPlayerFPvPv(self,parent);
-    self->dispatch=((u32 *)&__vt__9TObjEnemy);
-    self->typeName=TObjEnemy_class_name;
+    *(void **)((u8 *)self + 0x18) = (void *)(((u32 *)&__vt__9TObjEnemy));
+    self->m_name=(const char *)TObjEnemy_class_name;
     self->targetId=0xFFFF;
     self->variant=0;
     self->state36C=0;

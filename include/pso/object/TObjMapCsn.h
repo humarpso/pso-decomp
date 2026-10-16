@@ -2,16 +2,10 @@
 #define PSO_OBJECT_TOBJMAPCSN_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjMapCsn
-{
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x4C];
-    u32 m_88;
-    u8 _pad8C[0x20];
+struct TObjMapCsn : public TUnk_804AF8A0 {
+    virtual ~TObjMapCsn();
     u32 m_ac;
     void* m_b0;
     u8 _padB4[0xC];
@@ -31,6 +25,8 @@ struct TObjMapCsn
     static s32 get_map_count();
     void*init();
     static s32 init_and_return(s32 arg0);
+    u8 unk_1F8[0x5C];
 };
 
+typedef char TObjMapCsn_size[sizeof(TObjMapCsn) == 0x254 ? 1 : -1];
 #endif

@@ -2,19 +2,11 @@
 #define PSO_MISC_TPLYPHOTONCHAIR_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TPlyPhotonChair
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x10];
-    void* m_38;
-    u8 _pad3C[0x20];
-    void* m_5c;
-    u32 m_60;
-    u8 _pad64[0x4];
-    void* m_68;
-    u8 _pad6C[0x26];
+struct TPlyPhotonChair : public TUnk_804B9870 {
+    virtual ~TPlyPhotonChair();
+    u8 unk_90[0x2];
     u16 m_92;
     u32 m_94;
     void* m_98;
@@ -53,6 +45,8 @@ struct TPlyPhotonChair
     s32 get_id();
     void activate();
     int is_mounted();
+    u8 unk_D4[0x10];
 };
 
+typedef char TPlyPhotonChair_size[sizeof(TPlyPhotonChair) == 0xE4 ? 1 : -1];
 #endif

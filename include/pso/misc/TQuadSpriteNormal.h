@@ -2,13 +2,10 @@
 #define PSO_MISC_TQUADSPRITENORMAL_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804C57F0.h"
 
-struct TQuadSpriteNormal
-{
-    u32 m_1c;
-    u8 _pad20[0x4];
-    u32 m_24;
-    u32 m_28;
-};
+struct TQuadSpriteNormal : public TUnk_804C57F0 {
+    virtual ~TQuadSpriteNormal();};
 
+typedef char TQuadSpriteNormal_size[sizeof(TQuadSpriteNormal) == 0x2C ? 1 : -1];
 #endif

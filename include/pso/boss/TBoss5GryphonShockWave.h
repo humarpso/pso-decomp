@@ -2,9 +2,10 @@
 #define PSO_BOSS_TBOSS5GRYPHONSHOCKWAVE_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBoss5GryphonShockWave
-{
+struct TBoss5GryphonShockWave : public TObject {
+    virtual ~TBoss5GryphonShockWave();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -21,6 +22,8 @@ struct TBoss5GryphonShockWave
     void* m_60;
     static void render();
     void run_task();
+    u8 unk_64[0xC];
 };
 
+typedef char TBoss5GryphonShockWave_size[sizeof(TBoss5GryphonShockWave) == 0x70 ? 1 : -1];
 #endif

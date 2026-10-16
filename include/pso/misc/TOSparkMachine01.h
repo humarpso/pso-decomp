@@ -2,18 +2,11 @@
 #define PSO_MISC_TOSPARKMACHINE01_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TOSparkMachine01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x3C];
+struct TOSparkMachine01 : public TUnk_804B9870 {
+    virtual ~TOSparkMachine01();
+    u8 unk_90[0x10];
     u8 m_a0;
     u8 _padA1[0x1];
     u8 m_a2;
@@ -24,6 +17,8 @@ struct TOSparkMachine01
     void *create();
     static void destroy_static_instance();
     static void load_static_resource();
+    u8 unk_A4[0xC];
 };
 
+typedef char TOSparkMachine01_size[sizeof(TOSparkMachine01) == 0xB0 ? 1 : -1];
 #endif

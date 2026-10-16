@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBQUESTBOARDSELECT_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSubQuestBoardSelect
-{
+struct TWindowSubQuestBoardSelect : public TUnk_804CE018 {
+    virtual ~TWindowSubQuestBoardSelect();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -19,7 +20,7 @@ struct TWindowSubQuestBoardSelect
     void handle_decide();
     void select_next();
     s32 handle_page_input();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowSubQuestBoardSelect_size[sizeof(TWindowSubQuestBoardSelect) == 0x68 ? 1 : -1];
 #endif

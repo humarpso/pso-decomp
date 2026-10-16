@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBITEM_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubItem
-{
+struct TWindowSubItem : public TObject {
+    virtual ~TWindowSubItem();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -34,7 +35,7 @@ struct TWindowSubItem
     s32 get_selected_entry();
     void refresh();
     void clear_selected_and_update_entry();
-    s32 get_cursor_pos();
-};
+    s32 get_cursor_pos();};
 
+typedef char TWindowSubItem_size[sizeof(TWindowSubItem) == 0x44 ? 1 : -1];
 #endif

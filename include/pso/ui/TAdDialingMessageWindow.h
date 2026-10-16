@@ -2,9 +2,10 @@
 #define PSO_UI_TADDIALINGMESSAGEWINDOW_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdDialingMessageWindow
-{
+struct TAdDialingMessageWindow : public TObject {
+    virtual ~TAdDialingMessageWindow();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -13,7 +14,7 @@ struct TAdDialingMessageWindow
     void run_child_tasks();
     void render();
     void tick_countdown();
-    void *init(void *arg1, void *arg2, void *arg3);
-};
+    void *init(void *arg1, void *arg2, void *arg3);};
 
+typedef char TAdDialingMessageWindow_size[sizeof(TAdDialingMessageWindow) == 0x2C ? 1 : -1];
 #endif

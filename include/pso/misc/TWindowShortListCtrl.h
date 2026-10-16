@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSHORTLISTCTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowShortListCtrl
-{
+struct TWindowShortListCtrl : public TObject {
+    virtual ~TWindowShortListCtrl();
     u8 m_1c;
     u8 m_1d;
     s16 m_1e;
@@ -33,7 +34,7 @@ struct TWindowShortListCtrl
     s16 get_cursor_pos();
     void update_cursor_pos();
     s16 get_selected_index();
-    static void assign_shortcut(s32 arg0, s32 arg1, s32 arg2);
-};
+    static void assign_shortcut(s32 arg0, s32 arg1, s32 arg2);};
 
+typedef char TWindowShortListCtrl_size[sizeof(TWindowShortListCtrl) == 0x3C ? 1 : -1];
 #endif

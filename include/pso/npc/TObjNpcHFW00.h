@@ -2,15 +2,12 @@
 #define PSO_NPC_TOBJNPCHFW00_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A92A8.h"
 
-struct TObjNpcHFW00
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcHFW00 : public TUnk_804A92A8 {
+    virtual ~TObjNpcHFW00();
     static void free_resources();
-    static void load_resources();
-};
+    static void load_resources();};
 
+typedef char TObjNpcHFW00_size[sizeof(TObjNpcHFW00) == 0x3B8 ? 1 : -1];
 #endif

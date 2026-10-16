@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSIMPLESTATUS_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSimpleStatus
-{
+struct TWindowSimpleStatus : public TUnk_804CE018 {
+    virtual ~TWindowSimpleStatus();
     u8 _pad1C[0x4];
     u16 m_20;
     u8 _pad22[0x2];
@@ -13,6 +14,8 @@ struct TWindowSimpleStatus
     u32 m_60;
     void run_task();
     void *create(void *arg1);
+    u8 unk_64[0x14];
 };
 
+typedef char TWindowSimpleStatus_size[sizeof(TWindowSimpleStatus) == 0x78 ? 1 : -1];
 #endif

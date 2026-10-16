@@ -2,16 +2,13 @@
 #define PSO_MISC_TWINDOWPARTYSTATUS_H
 
 #include "types.h"
+#include "pso/misc/TWindowSimpleStatus.h"
 
-struct TWindowPartyStatus
-{
-    u8 _pad1C[0x4];
-    u16 m_20;
-    u8 _pad22[0x2];
-    void* m_24;
+struct TWindowPartyStatus : public TWindowSimpleStatus {
+    virtual ~TWindowPartyStatus();
     void draw();
     void draw_background(u8 *arg1);
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowPartyStatus_size[sizeof(TWindowPartyStatus) == 0x78 ? 1 : -1];
 #endif

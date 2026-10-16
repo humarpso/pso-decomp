@@ -2,12 +2,11 @@
 #define PSO_MISC_TOCONTAINERANCIENTITEMCOMMON_H
 
 #include "types.h"
+#include "pso/player/TUnk_804B08BC.h"
 
-struct TOContainerAncientItemCommon
-{
-    u8 _pad1C[0x30A];
-    u16 m_326;
-    s32 create();
-};
+struct TOContainerAncientItemCommon : public TUnk_804B08BC {
+    virtual ~TOContainerAncientItemCommon();
+    s32 create();};
 
+typedef char TOContainerAncientItemCommon_size[sizeof(TOContainerAncientItemCommon) == 0x368 ? 1 : -1];
 #endif

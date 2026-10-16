@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWEFFECTPARTY_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowEffectParty
-{
+struct TWindowEffectParty : public TObject {
+    virtual ~TWindowEffectParty();
     u8 m_1c;
     u8 m_1d;
     u8 m_1e;
@@ -19,7 +20,7 @@ struct TWindowEffectParty
     s32 step_toward_target(f32 farg0, f32 farg1);
     void calc_effect_position(void *arg1);
     static void set_slot_position(s32 arg0, s32 arg1, void *arg2);
-    static void *create(void *owner, s32 from, s32 to, u32 kind);
-};
+    static void *create(void *owner, s32 from, s32 to, u32 kind);};
 
+typedef char TWindowEffectParty_size[sizeof(TWindowEffectParty) == 0x34 ? 1 : -1];
 #endif

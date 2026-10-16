@@ -2,12 +2,11 @@
 #define PSO_MISC_TLOCKONCURSOR_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TLockOnCursor
-{
+struct TLockOnCursor : public TObject {
+    virtual ~TLockOnCursor();
     void renderSecondaryCursor(u8* body, s32 type, s32 action);
-
-    u8 _pad00[0x1C];
     u32 m_1c;
     u8 _pad20[0x4];
     void* m_24;
@@ -48,6 +47,8 @@ struct TLockOnCursor
     void*init_forward();
     void*cleanup();
     void reset_fields();
+    u8 unk_524[0x8];
 };
 
+typedef char TLockOnCursor_size[sizeof(TLockOnCursor) == 0x52C ? 1 : -1];
 #endif

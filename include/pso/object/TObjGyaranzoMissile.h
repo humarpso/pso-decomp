@@ -2,22 +2,10 @@
 #define PSO_OBJECT_TOBJGYARANZOMISSILE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjGyaranzoMissile
-{
-    u8 _pad1C[0xC];
-    u16 m_28;
-    u8 _pad2A[0xE];
-    u32 m_38;
-    u32 m_3c;
-    u32 m_40;
-    void* m_44;
-    u8 _pad48[0x14];
-    u32 m_5c;
-    u32 m_60;
-    u8 _pad64[0x40];
-    u32 m_a4;
-    u8 _padA8[0x4];
+struct TObjGyaranzoMissile : public TUnk_804AF8A0 {
+    virtual ~TObjGyaranzoMissile();
     void* m_ac;
     u8 _padB0[0x14];
     u16 m_c4;
@@ -33,6 +21,8 @@ struct TObjGyaranzoMissile
     void draw();
     void update_flight();
     f32 scale_velocity(f32 farg0);
+    u8 unk_DA[0x2];
 };
 
+typedef char TObjGyaranzoMissile_size[sizeof(TObjGyaranzoMissile) == 0xDC ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_BOSS_TOBJBOSS5PILLARCTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TObjBoss5PillarCtrl
-{
+struct TObjBoss5PillarCtrl : public TObject {
+    virtual ~TObjBoss5PillarCtrl();
     u32 m_1c;
     u32 m_20;
     static void render();
@@ -12,7 +13,7 @@ struct TObjBoss5PillarCtrl
     void *create();
     int update_pillar();
     int forward_pillar_2B710();
-    void play_sound_once();
-};
+    void play_sound_once();};
 
+typedef char TObjBoss5PillarCtrl_size[sizeof(TObjBoss5PillarCtrl) == 0x24 ? 1 : -1];
 #endif

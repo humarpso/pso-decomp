@@ -2,9 +2,10 @@
 #define PSO_UI_TADCHRSELASLOTGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdChrSelASlotGC
-{
+struct TAdChrSelASlotGC : public TObject {
+    virtual ~TAdChrSelASlotGC();
     u32 m_1c;
     u8 _pad20[0x4];
     u32 m_24;
@@ -38,6 +39,8 @@ struct TAdChrSelASlotGC
     void init(s32 arg1);
     s32 get_slot_index();
     void forward_slot_selection(void* a1, void* a2);
+    u8 unk_34[0x4C];
 };
 
+typedef char TAdChrSelASlotGC_size[sizeof(TAdChrSelASlotGC) == 0x80 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_BOSS_TBOSS7TENTACLENEEDLE_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBoss7TentacleNeedle
-{
+struct TBoss7TentacleNeedle : public TObject {
+    virtual ~TBoss7TentacleNeedle();
     void* m_1c;
     u8 _pad20[0x8];
     u32 m_28;
@@ -17,7 +18,7 @@ struct TBoss7TentacleNeedle
     u8 _pad44[0x34];
     u32 m_78;
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TBoss7TentacleNeedle_size[sizeof(TBoss7TentacleNeedle) == 0x7C ? 1 : -1];
 #endif

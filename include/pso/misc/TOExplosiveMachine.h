@@ -2,17 +2,11 @@
 #define PSO_MISC_TOEXPLOSIVEMACHINE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TOExplosiveMachine
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x38];
+struct TOExplosiveMachine : public TUnk_804B9870 {
+    virtual ~TOExplosiveMachine();
+    u8 unk_90[0xC];
     u32 m_9c;
     u32 m_a0;
     u32 m_a4;
@@ -22,7 +16,7 @@ struct TOExplosiveMachine
     static void load_shared_resource();
     s32 check_trigger();
     s32 update_trigger();
-    void update();
-};
+    void update();};
 
+typedef char TOExplosiveMachine_size[sizeof(TOExplosiveMachine) == 0xAC ? 1 : -1];
 #endif

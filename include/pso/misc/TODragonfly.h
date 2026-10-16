@@ -2,15 +2,11 @@
 #define PSO_MISC_TODRAGONFLY_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 
-struct TODragonfly
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x48];
-    u32 m_84;
-    u32 m_88;
-    u8 _pad8C[0x40];
+struct TODragonfly : public TUnk_804AFBF8 {
+    virtual ~TODragonfly();
+    u8 unk_C8[0x4];
     u32 m_cc;
     u8 _padD0[0x4];
     void* m_d4;
@@ -21,7 +17,7 @@ struct TODragonfly
     void move_toward_target();
     void update_idle();
     void draw_model();
-    void update();
-};
+    void update();};
 
+typedef char TODragonfly_size[sizeof(TODragonfly) == 0x100 ? 1 : -1];
 #endif

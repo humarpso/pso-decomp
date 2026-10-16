@@ -2,16 +2,13 @@
 #define PSO_ENEMY_TOBJENEMYCUSTOM_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TObjEnemyCustom
-{
-    u8 _pad1C[0x31E];
-    s16 m_33a;
-    u16 m_33c;
-    u8 _pad33E[0x36];
-    u32 m_374;
+struct TObjEnemyCustom : public TObjEnemy {
+    virtual ~TObjEnemyCustom();
+    u32 next_action;
     u32 m_378;
-    u32 m_37c;
+    u32 state;
     u32 m_380;
     u8 _pad384[0x4];
     u32 m_388;
@@ -25,7 +22,7 @@ struct TObjEnemyCustom
     void update_state();
     void dispatch_state();
     static void init_globals();
-    static void reset_instance();
-};
+    static void reset_instance();};
 
+typedef char TObjEnemyCustom_size[sizeof(TObjEnemyCustom) == 0x38C ? 1 : -1];
 #endif

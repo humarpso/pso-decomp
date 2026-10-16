@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/TObject.h"
 
 struct RecoveredGlobal_8033B264_lbl_804EF728 {
     s32 value;
@@ -66,7 +67,6 @@ s32 stop_audio_streams__6TLobbyFv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern void *character_select_scene_resource_callbacks[];
 #define character_select_scene_resource_callbacks (*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks)
-extern RecoveredGlobal_8033B264_main_task main_task;
 void TAdSinglePlyChrSelectGC__sub_8033B264(void);
 s32 TWindow__close(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -147,7 +147,6 @@ void noop__23TAdSinglePlyChrSelectGCFv(void);
 s32 func_803DCDFC__Fv();
 extern V3_8033B2AC lbl_80477D78[];
 extern V3_8033B2AC lbl_80477D84[];
-extern RecoveredGlobal_8033B264_main_task main_task;
 extern s32 lbl_805D6D90;
 void run_frame__23TAdSinglePlyChrSelectGCFv(void);
 s32 TKeyBoardControl__sub_8000F90C(int);
@@ -462,7 +461,7 @@ void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 ar
 }
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return request_queued_main_phase(p); }
 void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
-    delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
+    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value));
     stop_audio_streams__6TLobbyFv();
     set_and_notify__6TLobbyFi((int) (0));
     call_funcs_reverse__6TLobbyFPvUi((void *) (&character_select_scene_resource_callbacks.value), (int) (0x30));
@@ -477,10 +476,10 @@ void run_frame__23TAdSinglePlyChrSelectGCFv(void) {
     V3_8033B2AC b = lbl_80477D84[0];
     activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
-    some_empty_func__9TMainTaskFv(&main_task.value);
-    run_task__9TMainTaskFv(&main_task.value);
-    render__9TMainTaskFv(&main_task.value);
-    render_screen_overlay__9TMainTaskFv(&main_task.value);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
+    run_task__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
+    render__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value);
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();

@@ -2,9 +2,10 @@
 #define PSO_UI_TADMCSELECTGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdMcSelectGC
-{
+struct TAdMcSelectGC : public TObject {
+    virtual ~TAdMcSelectGC();
     u32 m_1c;
     u8 _pad20[0x4];
     u32 m_24;
@@ -29,7 +30,7 @@ struct TAdMcSelectGC
     void set_field_24(s32 v);
     void set_field20(f32 v);
     void set_field_20(s32 v);
-    void set_float_1c(f32 v);
-};
+    void set_float_1c(f32 v);};
 
+typedef char TAdMcSelectGC_size[sizeof(TAdMcSelectGC) == 0x34 ? 1 : -1];
 #endif

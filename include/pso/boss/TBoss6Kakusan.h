@@ -2,9 +2,10 @@
 #define PSO_BOSS_TBOSS6KAKUSAN_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBoss6Kakusan
-{
+struct TBoss6Kakusan : public TObject {
+    virtual ~TBoss6Kakusan();
     u32 m_1c;
     u16 m_20;
     u8 _pad22[0xA];
@@ -19,7 +20,7 @@ struct TBoss6Kakusan
     void check_beam_player_hits();
     s32 is_out_of_range();
     static void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TBoss6Kakusan_size[sizeof(TBoss6Kakusan) == 0x58 ? 1 : -1];
 #endif

@@ -1,0 +1,13 @@
+#ifndef PSO_PLAYER_TUNK_804ED0A8_H
+#define PSO_PLAYER_TUNK_804ED0A8_H
+#include "types.h"
+#include "pso/items/TItemWeapon.h"
+
+class TUnk_804ED0A8 : public TItemWeapon {
+public:
+    virtual ~TUnk_804ED0A8();
+    u8 unk_1F8[0x8];
+};
+typedef char TUnk_804ED0A8_size[sizeof(TUnk_804ED0A8) == 0x200 ? 1 : -1];
+
+#endif

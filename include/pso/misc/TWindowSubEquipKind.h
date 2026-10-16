@@ -2,19 +2,13 @@
 #define PSO_MISC_TWINDOWSUBEQUIPKIND_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
 
-struct TWindowSubEquipKind
-{
-    u8 _pad1C[0x8];
-    void* m_24;
-    u8 _pad28[0x40];
-    void* m_68;
-    u8 _pad6C[0x14];
-    u32 m_80;
-    u32 m_84;
+struct TWindowSubEquipKind : public TUnk_804D0618 {
+    virtual ~TWindowSubEquipKind();
     s16 m_88;
     s16 m_8a;
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowSubEquipKind_size[sizeof(TWindowSubEquipKind) == 0x8C ? 1 : -1];
 #endif

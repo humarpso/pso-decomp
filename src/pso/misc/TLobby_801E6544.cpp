@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss1Dragon.h"
 
@@ -2887,7 +2888,6 @@ extern const f32 lbl_805DC4C8;
 extern const f32 lbl_805DC4CC;
 extern const f32 lbl_805DC4D4;
 extern const f32 lbl_805DC4D8;
-extern RecoveredGlobal_8000F7FC_lbl_80515F48 main_task;
 extern s32 tl_00;
 extern int tl_01;
 extern void *tl_03;
@@ -3716,7 +3716,7 @@ void spawn_quest_col__6TLobbyFUcUc(u8 i, u8 out) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E905C(void) {
-    clear_all_flag3__9TMainTaskFv((s32 *)(&main_task.value));
+    clear_all_flag3__9TMainTaskFv((s32 *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&main_task).value));
 }
 #pragma pop
 
@@ -3725,7 +3725,7 @@ void TLobby__sub_801E905C(void) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E9084(void) {
-    update_all_task_lists__9TMainTaskFv((s32 *)(&main_task.value));
+    update_all_task_lists__9TMainTaskFv((s32 *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&main_task).value));
 }
 #pragma pop
 

@@ -717,7 +717,6 @@ s32 controller_stuff__Fv();
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
-extern RecoveredGlobal_801FCD74_main_task main_task;
 extern u8 *camera_ctrl_instance;
 void render_frame__23TAdSinglePlyChrSelectGCFv(void);
 u8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
@@ -941,7 +940,7 @@ s32 *TAdSinglePlyChrSelectGC__sub_801FCD3C(Obj_801FCD3C *self) {
 
 void render_frame__23TAdSinglePlyChrSelectGCFv(void) {
     if ((void *) camera_ctrl_instance != NULL) {
-        some_empty_func__9TMainTaskFv((void *) (&main_task.value));
+        some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801FCD74_main_task *)&main_task).value));
         if (is_split_screen() != 0) {
             TCameraCtrl::set_mode((int) (0));
             get_fog_ctrl__16TKeyBoardControlFv();
@@ -949,15 +948,15 @@ void render_frame__23TAdSinglePlyChrSelectGCFv(void) {
                 ((VObj_18_4a87b2 *)(camera_ctrl_instance))->m1();
             }
             TCameraCtrl::set_split_viewport((int) (1), (int) (0));
-            render__9TMainTaskFv((void *) (&main_task.value));
+            render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801FCD74_main_task *)&main_task).value));
             TCameraCtrl::set_mode((int) (0x64));
             TCameraCtrl::set_fullscreen_viewport();
         } else {
             controller_stuff__Fv();
-            ((TMainTask *)(&main_task.value))->run_tl_camera_tasks();
-            render__9TMainTaskFv((void *) (&main_task.value));
+            ((TMainTask *)(&(*(RecoveredGlobal_801FCD74_main_task *)&main_task).value))->run_tl_camera_tasks();
+            render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801FCD74_main_task *)&main_task).value));
         }
-        render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
+        render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801FCD74_main_task *)&main_task).value));
     }
 }
 

@@ -2,20 +2,11 @@
 #define PSO_MISC_TOHEALGENERAL_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 
-struct TOHealGeneral
-{
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x48];
-    u32 m_ac;
-    u8 _padB0[0x1C];
+struct TOHealGeneral : public TUnk_804AFBF8 {
+    virtual ~TOHealGeneral();
+    u8 unk_C8[0x4];
     u32 m_cc;
     u8 _padD0[0x4];
     void* m_d4;
@@ -38,6 +29,8 @@ struct TOHealGeneral
     void update_closing();
     void update_opening();
     void apply_heal_to_target();
+    u8 unk_F6[0x2];
 };
 
+typedef char TOHealGeneral_size[sizeof(TOHealGeneral) == 0xF8 ? 1 : -1];
 #endif

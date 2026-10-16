@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSNAPSHOT_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSnapShot
-{
+struct TWindowSnapShot : public TUnk_804CE018 {
+    virtual ~TWindowSnapShot();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x4];
@@ -25,6 +26,8 @@ struct TWindowSnapShot
     static int get_width();
     static void init_default();
     static void alloc_buffer();
+    u8 unk_61[0x3];
 };
 
+typedef char TWindowSnapShot_size[sizeof(TWindowSnapShot) == 0x64 ? 1 : -1];
 #endif

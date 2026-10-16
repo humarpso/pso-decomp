@@ -2,9 +2,10 @@
 #define PSO_MISC_TNEEDLESHOOT_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TNeedleShoot
-{
+struct TNeedleShoot : public TObject {
+    virtual ~TNeedleShoot();
     u32 m_1c;
     u8 _pad20[0x14];
     u16 m_34;
@@ -31,7 +32,7 @@ struct TNeedleShoot
     void update_position();
     int queue_destruction();
     void tick_lifetime();
-    void init_velocity();
-};
+    void init_velocity();};
 
+typedef char TNeedleShoot_size[sizeof(TNeedleShoot) == 0xBC ? 1 : -1];
 #endif

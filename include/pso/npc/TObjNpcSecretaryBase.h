@@ -2,15 +2,12 @@
 #define PSO_NPC_TOBJNPCSECRETARYBASE_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A8640.h"
 
-struct TObjNpcSecretaryBase
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcSecretaryBase : public TUnk_804A8640 {
+    virtual ~TObjNpcSecretaryBase();
     static void free_static_data();
-    static void load_static_data();
-};
+    static void load_static_data();};
 
+typedef char TObjNpcSecretaryBase_size[sizeof(TObjNpcSecretaryBase) == 0x3B8 ? 1 : -1];
 #endif

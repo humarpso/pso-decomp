@@ -2,10 +2,11 @@
 #define PSO_OBJECT_TOBJTOMBSTONE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjTombstone
-{
-    u8 _pad1C[0x214];
+struct TObjTombstone : public TUnk_804AF8A0 {
+    virtual ~TObjTombstone();
+    u8 unk_AC[0x184];
     u32 m_230;
     u32 m_234;
     void render();
@@ -36,7 +37,7 @@ struct TObjTombstone
     void *init(s32 arg1, s32 arg2, s32 arg3);
     static void destroy();
     static void load_resources();
-    static void *create(void *arg0, void *arg1, void *arg2);
-};
+    static void *create(void *arg0, void *arg1, void *arg2);};
 
+typedef char TObjTombstone_size[sizeof(TObjTombstone) == 0x238 ? 1 : -1];
 #endif

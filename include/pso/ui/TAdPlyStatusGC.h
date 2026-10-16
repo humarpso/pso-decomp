@@ -2,9 +2,10 @@
 #define PSO_UI_TADPLYSTATUSGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdPlyStatusGC
-{
+struct TAdPlyStatusGC : public TObject {
+    virtual ~TAdPlyStatusGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -32,7 +33,7 @@ struct TAdPlyStatusGC
     static void set_status_index(int a0, int a1);
     void close_window(s32 arg1);
     static u32 get_instance(s32 arg0, s32 arg1);
-    static int get_player_index();
-};
+    static int get_player_index();};
 
+typedef char TAdPlyStatusGC_size[sizeof(TAdPlyStatusGC) == 0x70 ? 1 : -1];
 #endif

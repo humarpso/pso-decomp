@@ -2,14 +2,10 @@
 #define PSO_OBJECT_TOBJGRASSWEB_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjGrassWeb
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x48];
-    u32 m_84;
-    u8 _pad88[0x8];
+struct TObjGrassWeb : public TUnk_804B9870 {
+    virtual ~TObjGrassWeb();
     u32 m_90;
     u8 _pad94[0x10];
     u16 m_a4;
@@ -17,6 +13,8 @@ struct TObjGrassWeb
     void apply_to_player();
     void run_task();
     static void render();
+    u8 unk_A6[0x2];
 };
 
+typedef char TObjGrassWeb_size[sizeof(TObjGrassWeb) == 0xA8 ? 1 : -1];
 #endif

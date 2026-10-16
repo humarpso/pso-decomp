@@ -2,31 +2,10 @@
 #define PSO_MISC_TOTRAPANCIENT01_H
 
 #include "types.h"
+#include "pso/misc/TOTrap.h"
 
-struct TOTrapAncient01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x20];
-    u32 m_84;
-    u32 m_88;
-    u32 m_8c;
-    u8 _pad90[0x14];
-    u32 m_a4;
-    u8 _padA8[0x200];
-    u32 m_2a8;
-    u8 _pad2AC[0x7A];
-    u16 m_326;
-    u8 _pad328[0x14];
-    u16 m_33c;
-    u8 _pad33E[0x2];
-    u32 m_340;
+struct TOTrapAncient01 : public TOTrap {
+    virtual ~TOTrapAncient01();
     u32 m_344;
     u32 m_348;
     u8 _pad34C[0xC];
@@ -36,6 +15,8 @@ struct TOTrapAncient01
     static void release_static_resource();
     static void load_resources();
     static s32 check_trigger_flag(s32 arg0, s32 arg1);
+    u8 unk_35C[0x6C];
 };
 
+typedef char TOTrapAncient01_size[sizeof(TOTrapAncient01) == 0x3C8 ? 1 : -1];
 #endif

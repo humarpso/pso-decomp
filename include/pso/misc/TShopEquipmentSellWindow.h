@@ -2,9 +2,10 @@
 #define PSO_MISC_TSHOPEQUIPMENTSELLWINDOW_H
 
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TShopEquipmentSellWindow
-{
+struct TShopEquipmentSellWindow : public TShopWindowBase {
+    virtual ~TShopEquipmentSellWindow();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -37,7 +38,7 @@ struct TShopEquipmentSellWindow
     s32 get_result();
     static void set_entry_count(void *arg1, void *arg2);
     int get_item_count();
-    void add_item(s32 arg1, s32 arg2, s32 arg3);
-};
+    void add_item(s32 arg1, s32 arg2, s32 arg3);};
 
+typedef char TShopEquipmentSellWindow_size[sizeof(TShopEquipmentSellWindow) == 0x3AC ? 1 : -1];
 #endif

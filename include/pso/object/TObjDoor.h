@@ -1,12 +1,9 @@
 #ifndef PSO_OBJECT_TOBJDOOR_H
 #define PSO_OBJECT_TOBJDOOR_H
 #include "types.h"
-struct TObjDoor {
-    u8 base[0x38];
-    f32 position[3];
-    u8 base44[0x24];
-    f32 cameraPosition[3];
-    u8 base74[0x38];
+#include "pso/object/TObjMotion.h"
+struct TObjDoor : public TUnk_804AF8A0 {
+    virtual ~TObjDoor();
     s32 state;
     s32 behavior;
     f32 frame;
@@ -23,7 +20,6 @@ struct TObjDoor {
     void update_state();
     static void free_resources();
     static void load_resources();
-    static void set_main_warp_id(int a0);
-};
+    static void set_main_warp_id(int a0);};
 typedef char TObjDoor_size[sizeof(TObjDoor)==0xD4?1:-1];
 #endif

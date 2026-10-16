@@ -2,11 +2,10 @@
 #define PSO_MISC_TOCONTAINERANCIENTENEMYRARE_H
 
 #include "types.h"
+#include "pso/misc/TOContainerAncientEnemy.h"
 
-struct TOContainerAncientEnemyRare
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-};
+struct TOContainerAncientEnemyRare : public TOContainerAncientEnemy {
+    virtual ~TOContainerAncientEnemyRare();};
 
+typedef char TOContainerAncientEnemyRare_size[sizeof(TOContainerAncientEnemyRare) == 0x368 ? 1 : -1];
 #endif

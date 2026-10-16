@@ -2,26 +2,14 @@
 #define PSO_MISC_TODOORANCIENT06_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 
-struct TODoorAncient06
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x48];
-    u32 m_ac;
-    u8 _padB0[0xC];
-    u32 m_bc;
-    u8 _padC0[0x10];
-    u32 m_d0;
+struct TODoorAncient06 : public TUnk_804B0BB8 {
+    virtual ~TODoorAncient06();
     void render();
     static void *create(void *arg0);
     static void destroy();
-    static void load_resources();
-};
+    static void load_resources();};
 
+typedef char TODoorAncient06_size[sizeof(TODoorAncient06) == 0xD4 ? 1 : -1];
 #endif

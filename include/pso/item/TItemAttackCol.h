@@ -2,20 +2,10 @@
 #define PSO_ITEM_TITEMATTACKCOL_H
 
 #include "types.h"
+#include "pso/item/TUnk_804E355C.h"
 
-struct TItemAttackCol
-{
-    u8 _pad1C[0x8];
-    void* m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u8 _pad34[0x74];
-    u16 m_a8;
-    u8 _padAA[0x2];
-    u32 m_ac;
-    u8 _padB0[0x8];
-    u32 m_b8;
-    u8 _padBC[0x8];
+struct TItemAttackCol : public TUnk_804E355C {
+    virtual ~TItemAttackCol();
     void* m_c4;
     u8 _padC8[0x8];
     void* m_d0;
@@ -49,7 +39,7 @@ struct TItemAttackCol
     void run_task();
     static void create(void *arg0, void *arg1);
     void copy_pos(void* q);
-    void *destroy_attack_collision(s16 arg1);
-};
+    void *destroy_attack_collision(s16 arg1);};
 
+typedef char TItemAttackCol_size[sizeof(TItemAttackCol) == 0x144 ? 1 : -1];
 #endif

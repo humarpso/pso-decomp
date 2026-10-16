@@ -2,18 +2,10 @@
 #define PSO_MISC_TOEXPLOSIVEMACHINE01_H
 
 #include "types.h"
+#include "pso/misc/TOExplosiveMachine.h"
 
-struct TOExplosiveMachine01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    u8 _pad38[0x64];
-    u32 m_9c;
-    u32 m_a0;
-    u32 m_a4;
-    u32 m_a8;
-};
+struct TOExplosiveMachine01 : public TOExplosiveMachine {
+    virtual ~TOExplosiveMachine01();};
 
+typedef char TOExplosiveMachine01_size[sizeof(TOExplosiveMachine01) == 0xAC ? 1 : -1];
 #endif

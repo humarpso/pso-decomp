@@ -2,20 +2,10 @@
 #define PSO_OBJECT_TOBJLAZERFENCE4_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjLazerFence4
-{
-    u8 _pad1C[0x2];
-    s16 m_1e;
-    u8 _pad20[0x10];
-    u32 m_30;
-    u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x48];
-    u32 m_84;
-    u8 _pad88[0x4];
-    u32 m_8c;
-    u8 _pad90[0x1C];
+struct TObjLazerFence4 : public TUnk_804AF8A0 {
+    virtual ~TObjLazerFence4();
     u32 m_ac;
     u8 _padB0[0x8];
     u16 m_b8;
@@ -27,6 +17,8 @@ struct TObjLazerFence4
     void reset_if_door_closed();
     void render();
     void *create();
+    u8 unk_BC[0x3C];
 };
 
+typedef char TObjLazerFence4_size[sizeof(TObjLazerFence4) == 0xF8 ? 1 : -1];
 #endif

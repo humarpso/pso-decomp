@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBCOMCARD_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubComCard
-{
+struct TWindowSubComCard : public TObject {
+    virtual ~TWindowSubComCard();
     u8 m_1c;
     u8 m_1d;
     u8 _pad1E[0x2];
@@ -100,7 +101,7 @@ struct TWindowSubComCard
     void open_card_info_window();
     void*init_fields(int a1, int a2);
     int is_flag_4_set();
-    static f32 trunc_float(f32 farg0);
-};
+    static f32 trunc_float(f32 farg0);};
 
+typedef char TWindowSubComCard_size[sizeof(TWindowSubComCard) == 0x88 ? 1 : -1];
 #endif

@@ -2,12 +2,10 @@
 #define PSO_ITEM_TITEMPROARMOR_H
 
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
 
-struct TItemProArmor
-{
-    u8 _pad1C[0x158];
-    u32 m_174;
-    u8 _pad178[0x14];
+struct TItemProArmor : public TItemEquipBase {
+    virtual ~TItemProArmor();
     u32 m_18c;
     u16 m_190;
     u8 m_192;
@@ -31,6 +29,8 @@ struct TItemProArmor
     void tick_lifetime();
     void *dt(s16 arg1);
     void create_armor();
+    u8 unk_197[0x1];
 };
 
+typedef char TItemProArmor_size[sizeof(TItemProArmor) == 0x198 ? 1 : -1];
 #endif

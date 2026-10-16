@@ -2,17 +2,10 @@
 #define PSO_OBJECT_TOBJSEABEDSUISOBRAKABLE_H
 
 #include "types.h"
+#include "pso/misc/TORockCaveBrakable.h"
 
-struct TObjSeabedSuisoBrakable
-{
-    u8 _pad1C[0x18];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x48];
-    u32 m_84;
-    u32 m_88;
-    u8 _pad8C[0x2C];
-    u32 m_b8;
+struct TObjSeabedSuisoBrakable : public TORockCaveBrakable {
+    virtual ~TObjSeabedSuisoBrakable();
     u32 m_bc;
     static void free_static_resources();
     static void load_resources();
@@ -28,7 +21,7 @@ struct TObjSeabedSuisoBrakable
     void update_state();
     void init_kind_params();
     static u8 *get_bml_motion_by_index(s32 arg0);
-    static void load_shared_models();
-};
+    static void load_shared_models();};
 
+typedef char TObjSeabedSuisoBrakable_size[sizeof(TObjSeabedSuisoBrakable) == 0xC0 ? 1 : -1];
 #endif

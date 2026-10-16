@@ -2,17 +2,16 @@
 #define PSO_OBJECT_TOBJENVSOUNDGLOBAL_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjEnvSoundGlobal
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x58];
+struct TObjEnvSoundGlobal : public TUnk_804B9870 {
+    virtual ~TObjEnvSoundGlobal();
+    u8 unk_90[0x4];
     u32 m_94;
     u32 m_98;
     s32 setup_sound();
     static void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TObjEnvSoundGlobal_size[sizeof(TObjEnvSoundGlobal) == 0x9C ? 1 : -1];
 #endif

@@ -2,20 +2,14 @@
 #define PSO_MISC_TOAIRCONCAVE02_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 
-struct TOAirconCave02
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
+struct TOAirconCave02 : public TUnk_804AFBF8 {
+    virtual ~TOAirconCave02();
     void render();
     static void *create(void *arg0);
     static void release_static_resource();
-    static void load_shared_resource();
-};
+    static void load_shared_resource();};
 
+typedef char TOAirconCave02_size[sizeof(TOAirconCave02) == 0xC8 ? 1 : -1];
 #endif

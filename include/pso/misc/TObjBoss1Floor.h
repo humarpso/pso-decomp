@@ -1,0 +1,13 @@
+#ifndef PSO_MISC_TOBJBOSS1FLOOR_H
+#define PSO_MISC_TOBJBOSS1FLOOR_H
+#include "types.h"
+#include "pso/TObject.h"
+
+class TObjBoss1Floor : public TObject {
+public:
+    virtual ~TObjBoss1Floor();
+    u8 unk_1C[0x1C];
+};
+typedef char TObjBoss1Floor_size[sizeof(TObjBoss1Floor) == 0x38 ? 1 : -1];
+
+#endif

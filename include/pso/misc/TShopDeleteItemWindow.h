@@ -2,9 +2,10 @@
 #define PSO_MISC_TSHOPDELETEITEMWINDOW_H
 
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TShopDeleteItemWindow
-{
+struct TShopDeleteItemWindow : public TShopWindowBase {
+    virtual ~TShopDeleteItemWindow();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -22,7 +23,7 @@ struct TShopDeleteItemWindow
     u32 m_60;
     u32 m_64;
     s32 destroy();
-    static s32 update_item_select(void *arg0);
-};
+    static s32 update_item_select(void *arg0);};
 
+typedef char TShopDeleteItemWindow_size[sizeof(TShopDeleteItemWindow) == 0x68 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_UI_TADLOADQUESTPRTTXTGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdLoadQuestPrtTxtGC
-{
+struct TAdLoadQuestPrtTxtGC : public TObject {
+    virtual ~TAdLoadQuestPrtTxtGC();
     u32 m_1c;
     void* m_20;
     u8 _pad24[0x1FC];
@@ -12,7 +13,7 @@ struct TAdLoadQuestPrtTxtGC
     u32 m_224;
     static void render();
     static void *create_particle(void *arg0, s32 arg1, s32 arg2);
-    void run_task();
-};
+    void run_task();};
 
+typedef char TAdLoadQuestPrtTxtGC_size[sizeof(TAdLoadQuestPrtTxtGC) == 0x228 ? 1 : -1];
 #endif

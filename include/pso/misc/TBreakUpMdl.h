@@ -2,9 +2,10 @@
 #define PSO_MISC_TBREAKUPMDL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBreakUpMdl
-{
+struct TBreakUpMdl : public TObject {
+    virtual ~TBreakUpMdl();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -17,6 +18,8 @@ struct TBreakUpMdl
     s32 collect_node_positions(u8 *arg1, s32 arg2);
     s32 build_node_records(u8 *arg1, s32 arg2);
     void copy(void* q);
+    u8 unk_3C[0x18];
 };
 
+typedef char TBreakUpMdl_size[sizeof(TBreakUpMdl) == 0x54 ? 1 : -1];
 #endif

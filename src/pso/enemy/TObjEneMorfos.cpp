@@ -1715,7 +1715,6 @@ extern const f32 lbl_805DF894;
 extern const f32 lbl_805DF898;
 extern const f32 lbl_805DF8A0;
 extern const f32 lbl_805DF8A4;
-extern s32 main_task[];
 extern void *tl_04;
 
 extern "C" {
@@ -2129,7 +2128,7 @@ int TObjEneMorfos::get_instance() {  return TObjEneMorfos__instance; }
 #pragma opt_common_subs off
 void TObjEneMorfos::draw_body() {
     u8 *arg0 = (u8 *)this;
-    if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_803326CC_main_task *)&main_task).value)) & 0x200) {
+    if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_803326CC_main_task *)((s32 *)&main_task)).value)) & 0x200) {
         TObjFish::set_global_param((int)((void *) (*(s32 *)((s8 *)(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__instance))->field_42C) + 0x2C))));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x498));
@@ -2150,7 +2149,7 @@ extern int fold_flush_0;
 #pragma pop
 
 s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0) {
-    if (get_mode__11TCameraCtrlFPv((void *) (main_task)) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv((void *) (((s32 *)&main_task))) & 0x20) {
         if (push_reflect_matrix__12TObjEneReconFPv((void *) (arg0 + 0x3C8)) != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();
@@ -2224,18 +2223,18 @@ void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode) {
     if (self->f3C0 & 2) {
         if (self->body.m8() != 0) {
             self->body.m6();
-            if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+            if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200) {
                 ((TObjEneRe7Berura *)self)->draw();
             }
             self->body.m7();
         }
     } else if (vis != 0) {
         part->m6();
-        if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+        if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200) {
             ((TObjEneRe7Berura *)self)->draw();
         }
         part->m7();
-    } else if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
+    } else if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {
         if (mode == 1) {
             ((TObjEneRe7Berura *)self)->draw();
         } else {

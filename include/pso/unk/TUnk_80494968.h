@@ -1,0 +1,13 @@
+#ifndef PSO_UNK_TUNK_80494968_H
+#define PSO_UNK_TUNK_80494968_H
+#include "types.h"
+#include "pso/TAttackTrace.h"
+
+class TUnk_80494968 : public TAttackTrace {
+public:
+    virtual ~TUnk_80494968();
+    u8 unk_1C[0x10C];
+};
+typedef char TUnk_80494968_size[sizeof(TUnk_80494968) == 0x128 ? 1 : -1];
+
+#endif

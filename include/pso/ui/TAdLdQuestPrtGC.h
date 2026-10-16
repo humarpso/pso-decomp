@@ -2,9 +2,10 @@
 #define PSO_UI_TADLDQUESTPRTGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdLdQuestPrtGC
-{
+struct TAdLdQuestPrtGC : public TObject {
+    virtual ~TAdLdQuestPrtGC();
     u8 _pad1C[0x40];
     u32 m_5c;
     u8 _pad60[0x4];
@@ -35,6 +36,8 @@ struct TAdLdQuestPrtGC
     u32 m_c4;
     static void render();
     int get_abs();
+    u8 unk_C8[0x90];
 };
 
+typedef char TAdLdQuestPrtGC_size[sizeof(TAdLdQuestPrtGC) == 0x158 ? 1 : -1];
 #endif

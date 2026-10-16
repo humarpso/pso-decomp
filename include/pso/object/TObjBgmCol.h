@@ -2,18 +2,16 @@
 #define PSO_OBJECT_TOBJBGMCOL_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjBgmCol
-{
-    u8 _pad1C[0x68];
-    u32 m_84;
-    u8 _pad88[0x8];
+struct TObjBgmCol : public TUnk_804B9870 {
+    virtual ~TObjBgmCol();
     u32 m_90;
     u8 _pad94[0x8];
     u32 m_9c;
     s32 check();
     void run_task();
-    s32 is_within_distance(f32 farg0);
-};
+    s32 is_within_distance(f32 farg0);};
 
+typedef char TObjBgmCol_size[sizeof(TObjBgmCol) == 0xA0 ? 1 : -1];
 #endif

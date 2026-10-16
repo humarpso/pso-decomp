@@ -2,12 +2,11 @@
 #define PSO_OBJECT_TOBJQUESTCOL_H
 
 #include "types.h"
+#include "pso/object/TObjQuestColBase.h"
 
-struct TObjQuestCol
-{
-    u8 _pad1C[0x94];
-    u32 m_b0;
-    s32 update_trigger_state(f32 farg0);
-};
+struct TObjQuestCol : public TObjQuestColBase {
+    virtual ~TObjQuestCol();
+    s32 update_trigger_state(f32 farg0);};
 
+typedef char TObjQuestCol_size[sizeof(TObjQuestCol) == 0xBC ? 1 : -1];
 #endif

@@ -2,11 +2,12 @@
 #define PSO_UI_TADSINGLEPLYCHRSELECTGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
 struct CreationTextureCacheEntry;
 
-struct TAdSinglePlyChrSelectGC
-{
+struct TAdSinglePlyChrSelectGC : public TObject {
+    virtual ~TAdSinglePlyChrSelectGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -141,6 +142,8 @@ struct TAdSinglePlyChrSelectGC
     s32 has_no_save_files();
     static void *create_check_memory_card(void *arg0, void *arg1, void *arg2);
     static void permute_save_blocks(void* stream, const u8* source, u8* destination, u32 size);
+    u8 unk_38[0x28];
 };
 
+typedef char TAdSinglePlyChrSelectGC_size[sizeof(TAdSinglePlyChrSelectGC) == 0x60 ? 1 : -1];
 #endif

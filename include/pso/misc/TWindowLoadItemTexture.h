@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWLOADITEMTEXTURE_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowLoadItemTexture
-{
+struct TWindowLoadItemTexture : public TUnk_804CE018 {
+    virtual ~TWindowLoadItemTexture();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x38];
@@ -16,7 +17,7 @@ struct TWindowLoadItemTexture
     u32 m_6c;
     u32 m_70;
     void *create(void *arg1);
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowLoadItemTexture_size[sizeof(TWindowLoadItemTexture) == 0x74 ? 1 : -1];
 #endif

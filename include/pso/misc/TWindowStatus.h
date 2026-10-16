@@ -2,13 +2,12 @@
 #define PSO_MISC_TWINDOWSTATUS_H
 
 #include "types.h"
+#include "pso/misc/TWindowSimpleStatus.h"
 
-struct TWindowStatus
-{
-    u8 _pad1C[0x8];
-    void* m_24;
+struct TWindowStatus : public TWindowSimpleStatus {
+    virtual ~TWindowStatus();
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowStatus_size[sizeof(TWindowStatus) == 0x78 ? 1 : -1];
 #endif

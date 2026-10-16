@@ -2,14 +2,10 @@
 #define PSO_ENEMY_TOBJENERE7BERURAPUNCH_H
 
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
 
-struct TObjEneRe7BeruraPunch
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x4C];
+struct TObjEneRe7BeruraPunch : public TUnk_804928CC {
+    virtual ~TObjEneRe7BeruraPunch();
     u16 m_b0;
     u8 _padB2[0x2];
     u32 m_b4;
@@ -33,6 +29,8 @@ struct TObjEneRe7BeruraPunch
     void render();
     void update_velocity_and_snap();
     void launch(s32 arg1, s32 arg2);
+    u8 unk_110[0xC];
 };
 
+typedef char TObjEneRe7BeruraPunch_size[sizeof(TObjEneRe7BeruraPunch) == 0x11C ? 1 : -1];
 #endif

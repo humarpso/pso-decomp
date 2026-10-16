@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBTRADEMAIN_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubTradeMain
-{
+struct TWindowSubTradeMain : public TObject {
+    virtual ~TWindowSubTradeMain();
     u8 m_1c;
     u8 m_1d;
     u8 _pad1E[0x2];
@@ -45,6 +46,8 @@ struct TWindowSubTradeMain
     s32 build_trade_menu();
     static void render();
     void run_task();
+    u8 unk_58[0x50];
 };
 
+typedef char TWindowSubTradeMain_size[sizeof(TWindowSubTradeMain) == 0xA8 ? 1 : -1];
 #endif

@@ -2,15 +2,12 @@
 #define PSO_NPC_TOBJNPCKENKYU2_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A9F50.h"
 
-struct TObjNpcKenkyu2
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcKenkyu2 : public TUnk_804A9F50 {
+    virtual ~TObjNpcKenkyu2();
     static void free_static_model();
-    static void load_shared_resource();
-};
+    static void load_shared_resource();};
 
+typedef char TObjNpcKenkyu2_size[sizeof(TObjNpcKenkyu2) == 0x3B8 ? 1 : -1];
 #endif

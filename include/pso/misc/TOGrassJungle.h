@@ -2,20 +2,14 @@
 #define PSO_MISC_TOGRASSJUNGLE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TOGrassJungle
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x20];
-    u32 m_84;
-    u8 _pad88[0x8];
+struct TOGrassJungle : public TUnk_804B9870 {
+    virtual ~TOGrassJungle();
     u32 m_90;
     static void release_static_instance();
     static void load_resources();
-    void render();
-};
+    void render();};
 
+typedef char TOGrassJungle_size[sizeof(TOGrassJungle) == 0x94 ? 1 : -1];
 #endif

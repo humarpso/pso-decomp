@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWMESETA_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowMeseta
-{
+struct TWindowMeseta : public TUnk_804CE018 {
+    virtual ~TWindowMeseta();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x3C];
@@ -14,6 +15,8 @@ struct TWindowMeseta
     void run_task();
     s32 get_meseta_value();
     void draw_value(s32 arg1);
+    u8 unk_70[0x4];
 };
 
+typedef char TWindowMeseta_size[sizeof(TWindowMeseta) == 0x74 ? 1 : -1];
 #endif

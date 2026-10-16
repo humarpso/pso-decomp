@@ -487,7 +487,6 @@ extern s32 TLobby__event_theme_id;
 extern Mgr_801361E8 *game_protocol_instance;
 extern s32 quest_download_active;
 extern const f32 lbl_805DB0A8;
-extern RecoveredGlobal_8013630C_main_task main_task;
 struct VBase_18_9029aa { char pad[0x18]; };
 struct VObj_18_9029aa : VBase_18_9029aa {
     virtual void m0();
@@ -548,7 +547,6 @@ char lbl_8050ADB8[0x100];
 
 extern "C" {
 extern Mgr_801361E8 *game_protocol_instance;
-extern RecoveredGlobal_8013630C_main_task main_task;
 }
 
 void TLobby::send_game_character() {
@@ -1120,7 +1118,7 @@ void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2) {
         TLobby__current_dialog_window = 0;
     }
     if (quest_download_active == 0) {
-        clear_flag3_all_tasks__9TMainTaskFv(&main_task.value);
+        clear_flag3_all_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task).value);
     }
 }
 
@@ -1129,7 +1127,7 @@ void handle_6x72_done_loading_into_game(void) {
         TWindow__close((int) (TLobby__current_dialog_window));
         TLobby__current_dialog_window = 0U;
     }
-    clear_flag3_all_tasks__9TMainTaskFv((void *) (&main_task.value));
+    clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8013630C_main_task *)&main_task).value));
 }
 
 void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -1155,22 +1153,22 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     TLobby__sub_80139894((char *)lbl_8050AD38);
     complete_reveal__14TWindowMessageFPv((void *)TLobby__current_dialog_window);
     ((TWindowSubComCard *)TLobby__current_dialog_window)->reparent_to_main_ctrl();
-    some_empty_func__9TMainTaskFv(&main_task);
-    run_tl_camera_tasks__9TMainTaskFv(&main_task);
-    render__9TMainTaskFv(&main_task);
-    render_screen_overlay__9TMainTaskFv(&main_task);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    run_tl_camera_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_tick__Fv();
-    some_empty_func__9TMainTaskFv(&main_task);
-    run_tl_camera_tasks__9TMainTaskFv(&main_task);
-    render__9TMainTaskFv(&main_task);
-    render_screen_overlay__9TMainTaskFv(&main_task);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    run_tl_camera_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_tick__Fv();
-    some_empty_func__9TMainTaskFv(&main_task);
-    run_tl_camera_tasks__9TMainTaskFv(&main_task);
-    render__9TMainTaskFv(&main_task);
-    render_screen_overlay__9TMainTaskFv(&main_task);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    run_tl_camera_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_tick__Fv();
-    run_all_lists__9TMainTaskFv(&main_task);
+    run_all_lists__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     TLobby__designated_client_id = arg1;
     p = ((Obj_801361E8 *(*)(void *))get_player_by_client_id)((void *)e.client_id);
     if (p != NULL) {

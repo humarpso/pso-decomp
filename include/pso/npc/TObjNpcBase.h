@@ -2,22 +2,12 @@
 #define PSO_NPC_TOBJNPCBASE_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TObjNpcBase
-{
+struct TObjNpcBase : public TObjEnemy {
+    virtual ~TObjNpcBase();
     void deactivateIdleMode();
-    u8 _pad00[0x18];
-    void* dispatch;
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    f32 position[3];
-    u8 _pad44[0x54];
-    void* m_98;
-    u8 _pad9C[0x28A];
-    s16 mode;
-    s16 phase;
-    u8 _pad32A[0x5E];
+    u8 unk_374[0x14];
     u32 m_388;
     u32 m_38c;
     u32 m_390;
@@ -36,8 +26,7 @@ struct TObjNpcBase
     void update_conversation();
     void update_wandering();
     void update_standing();
-    void activate_idle_mode();
-};
+    void activate_idle_mode();};
 
 typedef char NpcBaseSize[(sizeof(TObjNpcBase) == 0x3B8) ? 1 : -1];
 

@@ -48,7 +48,6 @@ s32 GXSetScissor(int, int, int, int);
 s32 set_camera_look_at(void *, void *, void *);
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 extern RecoveredGlobal_800830B0_lbl_80439348 camera_ctrl_up_vector;
-extern RecoveredGlobal_800830B0_main_task main_task;
 extern u8 *camera_ctrl_instance;
 extern u32 camera_render_target_singleton;
 extern const f32 lbl_805D93D0;
@@ -140,7 +139,7 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
             calc_axes_from_angles__11TCameraCtrlFiii((void *) (camera_ctrl_instance), (int) (stack.sp10), (int) (stack.spC));
         }
         TObjPlayer__sub_80084754();
-        render_scene_passes__9TMainTaskFv((void *) (&main_task.value));
+        render_scene_passes__9TMainTaskFv((void *) (&(*(RecoveredGlobal_800830B0_main_task *)&main_task).value));
         TObjPlayer__sub_80084744();
         if ((void *) (*(u8 * *)&camera_render_target_singleton) != NULL) {
             stack.sp8 = lbl_805E1210;

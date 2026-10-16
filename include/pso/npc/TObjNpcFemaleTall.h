@@ -2,16 +2,13 @@
 #define PSO_NPC_TOBJNPCFEMALETALL_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A8640.h"
 
-struct TObjNpcFemaleTall
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcFemaleTall : public TUnk_804A8640 {
+    virtual ~TObjNpcFemaleTall();
     static void destroy_instance();
     static void load_resource_instance();
-    void *destroy(s16 arg1);
-};
+    void *destroy(s16 arg1);};
 
+typedef char TObjNpcFemaleTall_size[sizeof(TObjNpcFemaleTall) == 0x3B8 ? 1 : -1];
 #endif

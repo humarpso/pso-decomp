@@ -2,10 +2,10 @@
 #define PSO_MISC_TPHOTONCONCENTRATE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TPhotonConcentrate
-{
-    u8 _pad1C[0x90];
+struct TPhotonConcentrate : public TUnk_804AF8A0 {
+    virtual ~TPhotonConcentrate();
     void* m_ac;
     u8 _padB0[0x8];
     u32 m_b8;
@@ -22,6 +22,8 @@ struct TPhotonConcentrate
     u8 _padF4[0x4];
     u32 m_f8;
     u32 m_fc;
+    u8 unk_100[0xC];
 };
 
+typedef char TPhotonConcentrate_size[sizeof(TPhotonConcentrate) == 0x10C ? 1 : -1];
 #endif

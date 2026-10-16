@@ -2,21 +2,10 @@
 #define PSO_ITEM_TOBJCONTAINERIDO_H
 
 #include "types.h"
+#include "pso/item/TUnk_804B97C0.h"
 
-struct TObjContainerIdo
-{
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x20];
-    u32 m_5c;
-    u32 m_60;
-    u8 _pad64[0x20];
-    u32 m_84;
-    u32 m_88;
-    u32 m_8c;
-    u8 _pad90[0x24];
+struct TObjContainerIdo : public TUnk_804B97C0 {
+    virtual ~TObjContainerIdo();
     void* m_b4;
     u8 _padB8[0x8];
     void* m_c0;
@@ -33,6 +22,8 @@ struct TObjContainerIdo
     void*init_positions();
     static void free_resources();
     static void load_resources();
+    u8 unk_108[0x4];
 };
 
+typedef char TObjContainerIdo_size[sizeof(TObjContainerIdo) == 0x10C ? 1 : -1];
 #endif

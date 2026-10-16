@@ -1119,8 +1119,6 @@ void *lbl_804E6928[103] = {
 
 extern const f32 TObjEneDolmOlm__data_805DEF6C;
 
-extern s32 main_task[];
-
 extern void *tl_04;
 
 typedef struct RecoveredFields_8030247C_arg0 RecoveredFields_8030247C_arg0;
@@ -1541,7 +1539,7 @@ void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
     }
 }
 s32 render_model_if_visible__14TObjEneDolmOlmFPv(u8 *arg0) {
-    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
         if (push_reflect_matrix__12TObjEneReconFPv((void *) (arg0 + 0x3D8)) != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();

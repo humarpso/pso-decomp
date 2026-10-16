@@ -2,17 +2,11 @@
 #define PSO_MISC_TOBOSS4TOWER_H
 
 #include "types.h"
+#include "pso/misc/TOBoss4.h"
 
-struct TOBoss4Tower
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    void render();
-};
+struct TOBoss4Tower : public TOBoss4 {
+    virtual ~TOBoss4Tower();
+    void render();};
 
+typedef char TOBoss4Tower_size[sizeof(TOBoss4Tower) == 0x98 ? 1 : -1];
 #endif

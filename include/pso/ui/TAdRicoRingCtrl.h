@@ -2,9 +2,10 @@
 #define PSO_UI_TADRICORINGCTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdRicoRingCtrl
-{
+struct TAdRicoRingCtrl : public TObject {
+    virtual ~TAdRicoRingCtrl();
     u32 m_1c;
     u32 m_20;
     void set_scale4(f32 farg0);
@@ -15,6 +16,8 @@ struct TAdRicoRingCtrl
     void run_task();
     void start_fade(f32 farg0);
     void start_anim(f32 farg0);
+    u8 unk_24[0x8];
 };
 
+typedef char TAdRicoRingCtrl_size[sizeof(TAdRicoRingCtrl) == 0x2C ? 1 : -1];
 #endif

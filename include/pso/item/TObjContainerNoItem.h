@@ -2,27 +2,11 @@
 #define PSO_ITEM_TOBJCONTAINERNOITEM_H
 
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 
-struct TObjContainerNoItem
-{
-    u16 m_1c;
-    u8 _pad1E[0x12];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x10];
-    void* m_74;
-    u8 _pad78[0x8];
-    u32 m_80;
-    u8 _pad84[0x278];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x3C];
-    u32 m_364;
-    static void *create(void *arg0);
-};
+struct TObjContainerNoItem : public TUnk_804B6C24 {
+    virtual ~TObjContainerNoItem();
+    static void *create(void *arg0);};
 
+typedef char TObjContainerNoItem_size[sizeof(TObjContainerNoItem) == 0x368 ? 1 : -1];
 #endif

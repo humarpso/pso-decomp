@@ -2,26 +2,10 @@
 #define PSO_MISC_TODRAGONFLYMACHINE01_H
 
 #include "types.h"
+#include "pso/misc/TODragonfly.h"
 
-struct TODragonflyMachine01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x20];
-    u32 m_84;
-    u32 m_88;
-    u8 _pad8C[0x20];
-    u32 m_ac;
-    u8 _padB0[0xC];
-    u32 m_bc;
-    u8 _padC0[0x38];
-    u32 m_f8;
-    u32 m_fc;
+struct TODragonflyMachine01 : public TODragonfly {
+    virtual ~TODragonflyMachine01();
     s16 m_100;
     u16 m_102;
     u32 m_104;
@@ -29,7 +13,7 @@ struct TODragonflyMachine01
     void run_task();
     static void *create(void *arg0);
     static void unload_static_data();
-    static void create_attack_effect();
-};
+    static void create_attack_effect();};
 
+typedef char TODragonflyMachine01_size[sizeof(TODragonflyMachine01) == 0x108 ? 1 : -1];
 #endif

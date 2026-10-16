@@ -2,14 +2,10 @@
 #define PSO_BOSS_TBOSS6ROCK_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TBoss6Rock
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x20];
-    void* m_5c;
-    u8 _pad60[0x4C];
+struct TBoss6Rock : public TUnk_804AF8A0 {
+    virtual ~TBoss6Rock();
     u32 m_ac;
     u32 m_b0;
     u32 m_b4;
@@ -44,7 +40,7 @@ struct TBoss6Rock
     static u8 is_active();
     static void create_rock_pool(s32 arg0);
     static void free_data();
-    static void load_resources();
-};
+    static void load_resources();};
 
+typedef char TBoss6Rock_size[sizeof(TBoss6Rock) == 0xE8 ? 1 : -1];
 #endif

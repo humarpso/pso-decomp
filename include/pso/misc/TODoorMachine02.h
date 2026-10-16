@@ -2,27 +2,17 @@
 #define PSO_MISC_TODOORMACHINE02_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 
-struct TODoorMachine02
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x48];
-    u32 m_ac;
-    u8 _padB0[0xC];
-    u32 m_bc;
-    u8 _padC0[0x10];
-    u32 m_d0;
+struct TODoorMachine02 : public TUnk_804B0BB8 {
+    virtual ~TODoorMachine02();
     void* m_d4;
     void render();
     static void *create(void *arg0);
     static void free_statics();
     static void load_resources();
+    u8 unk_D8[0xC];
 };
 
+typedef char TODoorMachine02_size[sizeof(TODoorMachine02) == 0xE4 ? 1 : -1];
 #endif

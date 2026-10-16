@@ -2,9 +2,10 @@
 #define PSO_UI_TADDIALINGGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdDialingGC
-{
+struct TAdDialingGC : public TObject {
+    virtual ~TAdDialingGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -37,7 +38,7 @@ struct TAdDialingGC
     void render_if_flag_set();
     static void create();
     static void close();
-    static void open();
-};
+    static void open();};
 
+typedef char TAdDialingGC_size[sizeof(TAdDialingGC) == 0xA8 ? 1 : -1];
 #endif

@@ -2,20 +2,10 @@
 #define PSO_ENEMY_TOBJENERECONBOMB_H
 
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 
-struct TObjEneReconBomb
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x20];
-    u32 m_5c;
-    u32 m_60;
-    u32 m_64;
-    u8 _pad68[0x1E0];
-    void* m_248;
-    u8 _pad24C[0xB0];
-    void* m_2fc;
-    u8 _pad300[0x34];
+struct TObjEneReconBomb : public TUnk_804806E8 {
+    virtual ~TObjEneReconBomb();
     u32 m_334;
     u16 m_338;
     u8 _pad33A[0x2];
@@ -25,7 +15,7 @@ struct TObjEneReconBomb
     u32 m_35c;
     u32 m_360;
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TObjEneReconBomb_size[sizeof(TObjEneReconBomb) == 0x364 ? 1 : -1];
 #endif

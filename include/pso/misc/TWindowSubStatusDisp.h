@@ -3,10 +3,10 @@
 
 #include "types.h"
 #include <stddef.h>
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSubStatusDisp
-{
-    u8 _object_header[0x1C];
+struct TWindowSubStatusDisp : public TUnk_804CE018 {
+    virtual ~TWindowSubStatusDisp();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -152,8 +152,7 @@ struct TWindowSubStatusDisp
     static void vt15();
     static void vt18();
     static void vt14();
-    static f32 round_away_from_zero(f32 farg0);
-};
+    static f32 round_away_from_zero(f32 farg0);};
 
 typedef char TWindowSubStatusDisp_offset_m_60[(offsetof(TWindowSubStatusDisp, m_60) == 0x60) ? 1 : -1];
 typedef char TWindowSubStatusDisp_offset_m_62[(offsetof(TWindowSubStatusDisp, m_62) == 0x62) ? 1 : -1];
@@ -161,4 +160,5 @@ typedef char TWindowSubStatusDisp_offset_m_68[(offsetof(TWindowSubStatusDisp, m_
 typedef char TWindowSubStatusDisp_offset_scale_x[(offsetof(TWindowSubStatusDisp, scale_x) == 0x6C) ? 1 : -1];
 typedef char TWindowSubStatusDisp_offset_scale_y[(offsetof(TWindowSubStatusDisp, scale_y) == 0x70) ? 1 : -1];
 
+typedef char TWindowSubStatusDisp_size[sizeof(TWindowSubStatusDisp) == 0x74 ? 1 : -1];
 #endif

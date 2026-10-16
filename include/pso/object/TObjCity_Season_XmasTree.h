@@ -2,9 +2,13 @@
 #define PSO_OBJECT_TOBJCITY_SEASON_XMASTREE_H
 
 #include "types.h"
+#include "pso/object/TUnk_804B5E48.h"
 
-struct TObjCity_Season_XmasTree
-{
+struct TObjCity_Season_XmasTree : public TUnk_804B5E48 {
+    virtual ~TObjCity_Season_XmasTree();
+
+    u8 unk_B4[0x4];
 };
 
+typedef char TObjCity_Season_XmasTree_size[sizeof(TObjCity_Season_XmasTree) == 0xB8 ? 1 : -1];
 #endif

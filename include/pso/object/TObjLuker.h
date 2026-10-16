@@ -2,14 +2,11 @@
 #define PSO_OBJECT_TOBJLUKER_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjLuker
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x48];
-    u32 m_84;
-    u8 _pad88[0x18];
+struct TObjLuker : public TUnk_804B9870 {
+    virtual ~TObjLuker();
+    u8 unk_90[0x10];
     u32 m_a0;
     u32 m_a4;
     u16 m_a8;
@@ -27,7 +24,7 @@ struct TObjLuker
     static void render();
     void run_task();
     void set_flag_4();
-    static int get_stat_table_entry(int a0);
-};
+    static int get_stat_table_entry(int a0);};
 
+typedef char TObjLuker_size[sizeof(TObjLuker) == 0xBC ? 1 : -1];
 #endif

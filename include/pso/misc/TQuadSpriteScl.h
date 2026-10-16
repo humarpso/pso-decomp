@@ -2,13 +2,10 @@
 #define PSO_MISC_TQUADSPRITESCL_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804C57F0.h"
 
-struct TQuadSpriteScl
-{
-    u32 m_1c;
-    u8 _pad20[0x4];
-    u32 m_24;
-    u32 m_28;
-};
+struct TQuadSpriteScl : public TUnk_804C57F0 {
+    virtual ~TQuadSpriteScl();};
 
+typedef char TQuadSpriteScl_size[sizeof(TQuadSpriteScl) == 0x2C ? 1 : -1];
 #endif

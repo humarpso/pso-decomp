@@ -3028,7 +3028,6 @@ extern const f32 lbl_805DC2C8;
 extern const f32 lbl_805DC2CC;
 extern const f32 lbl_805DC2D0;
 extern const f32 lbl_805DC2D4;
-extern s32 main_task[];
 extern s32 model_render_flags;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 start_freeze_self__10TObjPlayerFPv;
 extern u32 tl_03;
@@ -7910,7 +7909,7 @@ void render__10TObjPlayerFv(u8 *arg0) {
         sp8 = 0x43300000;
         temp_f31 = (f32) temp_r3;
         if (TObjPlayer__data_805DC278 != temp_f31) {
-            if ((get_mode__11TCameraCtrlFPv(main_task) & 0x20) && (TOKeyMachine01::is_state_active() != 0)) {
+            if ((get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) && (TOKeyMachine01::is_state_active() != 0)) {
                 if (render_player_marker__12TObjEneReconFUsi(*(u16 *)((s8 *)arg0 + 0x1C), 1) != 0) {
                     ((s32 (*)(void *, f32))render_body_pass__10TObjPlayerFPvf)(arg0, temp_f31);
                     restore_render_scissor(1);

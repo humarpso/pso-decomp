@@ -2,27 +2,14 @@
 #define PSO_ITEM_TOBJCONTAINERJUNG_H
 
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 
-struct TObjContainerJung
-{
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x10];
-    void* m_74;
-    u8 _pad78[0x284];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    s16 m_326;
-    u8 _pad328[0x3C];
-    u32 m_364;
+struct TObjContainerJung : public TUnk_804B6C24 {
+    virtual ~TObjContainerJung();
     static u8 *get_model_by_index(s32 arg0);
     static void *create(void *arg0);
     static void release();
-    static void load_resources();
-};
+    static void load_resources();};
 
+typedef char TObjContainerJung_size[sizeof(TObjContainerJung) == 0x368 ? 1 : -1];
 #endif

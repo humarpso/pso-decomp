@@ -2,14 +2,11 @@
 #define PSO_MISC_TOSWITCHATTACK_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TOSwitchAttack
-{
-    u8 _pad1C[0x1C];
-    u32 m_38;
-    u32 m_3c;
-    u32 m_40;
-    u8 _pad44[0x58];
+struct TOSwitchAttack : public TUnk_804B9870 {
+    virtual ~TOSwitchAttack();
+    u8 unk_90[0xC];
     u32 m_9c;
     u16 m_a0;
     u16 m_a2;
@@ -21,7 +18,7 @@ struct TOSwitchAttack
     void init_params();
     static void render();
     void run_task();
-    static void *create(void *arg0);
-};
+    static void *create(void *arg0);};
 
+typedef char TOSwitchAttack_size[sizeof(TOSwitchAttack) == 0xAC ? 1 : -1];
 #endif

@@ -2,17 +2,10 @@
 #define PSO_BOSS_TBOSS1DRAGONEFFTAIL_H
 
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
 
-struct TBoss1DragonEffTail
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x40];
-    u32 m_a4;
-    u8 _padA8[0x4];
-    u32 m_ac;
+struct TBoss1DragonEffTail : public TUnk_804928CC {
+    virtual ~TBoss1DragonEffTail();
     u32 m_b0;
     u32 m_b4;
     u32 m_b8;
@@ -22,6 +15,8 @@ struct TBoss1DragonEffTail
     void enable();
     void disable();
     int is_visible();
+    u8 unk_C4[0x8];
 };
 
+typedef char TBoss1DragonEffTail_size[sizeof(TBoss1DragonEffTail) == 0xCC ? 1 : -1];
 #endif

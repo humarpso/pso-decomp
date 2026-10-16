@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBSHORTMAIL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubShortMail
-{
+struct TWindowSubShortMail : public TObject {
+    virtual ~TWindowSubShortMail();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -34,7 +35,7 @@ struct TWindowSubShortMail
     void update();
     void *destroy(s16 arg1);
     void notify_warp_flag70();
-    void advance_line(s32 arg1);
-};
+    void advance_line(s32 arg1);};
 
+typedef char TWindowSubShortMail_size[sizeof(TWindowSubShortMail) == 0x60 ? 1 : -1];
 #endif

@@ -2,24 +2,10 @@
 #define PSO_BOSS_TBOSS4DARKFALZ_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TBoss4DarkFalz
-{
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    void* m_38;
-    u8 _pad3C[0x8];
-    void* m_44;
-    u8 _pad48[0x8];
-    void* m_50;
-    u8 _pad54[0x20];
-    void* m_74;
-    u8 _pad78[0x230];
-    u32 m_2a8;
-    u8 _pad2AC[0x50];
-    void* m_2fc;
-    u8 _pad300[0x74];
+struct TBoss4DarkFalz : public TObjEnemy {
+    virtual ~TBoss4DarkFalz();
     u32 m_374;
     u32 m_378;
     u32 m_37c;
@@ -87,7 +73,7 @@ struct TBoss4DarkFalz
     static int get_instance_count();
     static void push_players_out_of_zone(s32 arg0, s32 arg1);
     static void *create_demo1(void *arg0, void *arg1, void *arg2);
-    static void dispatch_by_main_phase(u16 arg0);
-};
+    static void dispatch_by_main_phase(u16 arg0);};
 
+typedef char TBoss4DarkFalz_size[sizeof(TBoss4DarkFalz) == 0x39C ? 1 : -1];
 #endif

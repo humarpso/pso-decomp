@@ -1,0 +1,13 @@
+#ifndef PSO_OBJECT_TUNK_804B5C08_H
+#define PSO_OBJECT_TUNK_804B5C08_H
+#include "types.h"
+#include "pso/object/TObjMotion.h"
+
+class TUnk_804B5C08 : public TUnk_804B9870 {
+public:
+    virtual ~TUnk_804B5C08();
+    u8 unk_90[0x10];
+};
+typedef char TUnk_804B5C08_size[sizeof(TUnk_804B5C08) == 0xA0 ? 1 : -1];
+
+#endif

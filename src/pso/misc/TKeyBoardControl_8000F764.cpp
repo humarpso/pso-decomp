@@ -176,7 +176,6 @@ s32 TObjPlayer__sub_803E492C(void *, int);
 void TKeyBoardControl__sub_8000F764(void);
 extern u8 GXNtsc480IntDf[];
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-extern u8 main_task[];
 extern int lbl_805D49A0;
 extern int lbl_805D49A4;
 extern int player_matrix_stack_buffer;
@@ -415,7 +414,7 @@ void init_game_systems(void) {
     TKeyBoardControl__sub_8000F9E4();
     reset_input__16TKeyBoardControlFi(&TKeyBoardControl__global_key_state);
     init_buffers();
-    init_main_task__9TMainTaskFv(main_task);
+    init_main_task__9TMainTaskFv(((u8 *)&main_task));
     TLobby__sub_8007EB70();
     TLobby__sub_8022780C();
     TLobby::init_download_state();

@@ -2,13 +2,10 @@
 #define PSO_MISC_TWINDOWSUBCOMCARDLIST_H
 
 #include "types.h"
+#include "pso/misc/TWindowMenu.h"
 
-struct TWindowSubComCardList
-{
-    u8 _pad1C[0x8];
-    void* m_24;
-    u8 _pad28[0x60];
-    u32 m_88;
+struct TWindowSubComCardList : public TWindowMenu {
+    virtual ~TWindowSubComCardList();
     u32 m_8c;
     u32 m_90;
     u32 m_94;
@@ -16,6 +13,8 @@ struct TWindowSubComCardList
     u8 m_9c;
     void run_task();
     void init(int a1, int a2, int a3);
+    u8 unk_9D[0x3];
 };
 
+typedef char TWindowSubComCardList_size[sizeof(TWindowSubComCardList) == 0xA0 ? 1 : -1];
 #endif

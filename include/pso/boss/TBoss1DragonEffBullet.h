@@ -2,9 +2,10 @@
 #define PSO_BOSS_TBOSS1DRAGONEFFBULLET_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBoss1DragonEffBullet
-{
+struct TBoss1DragonEffBullet : public TObject {
+    virtual ~TBoss1DragonEffBullet();
     void* m_1c;
     u8 _pad20[0x8];
     void* m_28;
@@ -15,7 +16,7 @@ struct TBoss1DragonEffBullet
     u32 m_44;
     u32 m_48;
     static void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TBoss1DragonEffBullet_size[sizeof(TBoss1DragonEffBullet) == 0x4C ? 1 : -1];
 #endif

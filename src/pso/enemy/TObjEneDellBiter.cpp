@@ -2050,7 +2050,6 @@ extern const f32 lbl_805DF02C;
 extern const f32 lbl_805DF030;
 extern const f32 lbl_805DF034;
 extern const f32 lbl_805DF03C;
-extern s32 main_task[];
 extern void *tl_04;
 
 struct VB14_80306468 { u8 pad[0x14]; };
@@ -2442,7 +2441,7 @@ u8 *TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
 }
 
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0) {
-    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
         if (push_reflect_matrix__12TObjEneReconFPv((void *) (arg0 + 0x3C8)) != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();

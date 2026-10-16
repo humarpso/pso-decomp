@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBQUESTBOARD_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubQuestBoard
-{
+struct TWindowSubQuestBoard : public TObject {
+    virtual ~TWindowSubQuestBoard();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -20,7 +21,7 @@ struct TWindowSubQuestBoard
     static void render();
     void run_task();
     u8 get_page_index();
-    int is_open();
-};
+    int is_open();};
 
+typedef char TWindowSubQuestBoard_size[sizeof(TWindowSubQuestBoard) == 0x30 ? 1 : -1];
 #endif

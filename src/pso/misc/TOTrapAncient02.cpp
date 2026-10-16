@@ -1134,19 +1134,19 @@ void TOTrapAncient02::update_hold_trigger() {
     void *p;
     f32 d;
     submit_cursor_candidate(self, -1);
-    switch (self->state) {
+    switch (self->phase) {
     case 0:
         if (self->h344 < lbl_805DBA84) {
             self->h344 += lbl_805DBA78;
         } else {
-            self->state = 1;
+            self->phase = 1;
             self->h344 = lbl_805DBA84;
         }
         break;
     case 1:
         self->h348 += lbl_805DBA78;
         if (lbl_805DBA88 <= self->h348) {
-            self->state = 2;
+            self->phase = 2;
             self->h348 = lbl_805DBA88;
         }
         break;
@@ -1154,7 +1154,7 @@ void TOTrapAncient02::update_hold_trigger() {
         self->player = find_nearest_visible_player((void *)(self), (int)(0), self->range);
         if (self->player != 0xFFFF) {
             p = (void *)get_player_by_client_id((u32)(self->player));
-            self->target = p;
+            self->target = (u8 *)p;
             if (self->target != NULL) {
                 d = horizontal_distance_squared((u8 *)self->target + 0x38, &self->position);
                 self->dist = self->range - TObjPlayer__sub_8017A1A4(p, 0);
@@ -1163,7 +1163,7 @@ void TOTrapAncient02::update_hold_trigger() {
                         send_6x2C_impose_hold(p, &self->position, self->timer, 0, self->dist);
                     }
                     self->mode = 3;
-                    self->state = 2;
+                    self->phase = 2;
                 } else {
                     self->player = 0xFFFF;
                     self->target = NULL;
@@ -1173,14 +1173,14 @@ void TOTrapAncient02::update_hold_trigger() {
             self->target = NULL;
         }
         if (self->target == NULL) {
-            self->state = 3;
+            self->phase = 3;
         }
         break;
     case 3:
         if (lbl_805DBA80 < self->h348) {
             self->h348 -= lbl_805DBA78;
         } else {
-            self->state = 4;
+            self->phase = 4;
             self->h348 = lbl_805DBA80;
         }
         break;
@@ -1189,7 +1189,7 @@ void TOTrapAncient02::update_hold_trigger() {
             self->h344 -= lbl_805DBA78;
         } else {
             self->mode = 0;
-            self->state = 0;
+            self->phase = 0;
             self->h344 = lbl_805DBA80;
             self->player = 0xFFFF;
             self->target = NULL;

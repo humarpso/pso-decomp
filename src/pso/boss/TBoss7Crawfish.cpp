@@ -100,7 +100,6 @@ s32 exchange_object_state__6TLobbyFls(void *, void *, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern RecoveredGlobal_80308840_lbl_8047559C lbl_8047559C;
-extern RecoveredGlobal_80308840_main_task main_task;
 extern const f32 lbl_805DF0CC;
 extern const f32 lbl_805DF0D0;
 extern const f32 lbl_805DF0D4;
@@ -178,7 +177,7 @@ void TBoss7Crawfish::spawn_effect(s32 arg1) {
 typedef char RecoveredGlobal_80308840_lbl_8047559C_size[sizeof(RecoveredGlobal_80308840_lbl_8047559C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80308840_main_task_size[sizeof(RecoveredGlobal_80308840_main_task) == 0x34 ? 1 : -1];
 s32 is_visible__14TBoss7CrawfishFPv(u8 *arg0) {
-    if (get_mode__11TCameraCtrlFPv(&main_task.value) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_80308840_main_task *)&main_task).value) & 0x20) {
         if (lbl_805DF0CC < horizontal_distance_squared(&lbl_8047559C.value, arg0 + 0x38)) {
             return 0;
         }

@@ -306,7 +306,7 @@ void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target) {
 
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
     if(self) {
-        self->vtable=&__vt__9TTecBarta;
+        *(void **)((u8 *)self + 0x18) = (void *)(&__vt__9TTecBarta);
         for(u32 i=0;i<TTecBarta__emitter_bands[self->band].count;++i) {
             if(self->emitters[i]) {
                 queue_destruction__7TObjectFv(self->emitters[i]);
@@ -322,13 +322,13 @@ TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting) {
 
 void TTecBarta::run_task() {
     s32 i;
-    this->source = find_entity_by_id(this->sourceId);
+    this->source = (u32)find_entity_by_id(this->sourceId);
     if (this->source == NULL) {
         queue_destruction__7TObjectFv((TechniqueParticleEmitter *)this);
         return;
     }
     for (i = 0; i < TTecBarta__emitter_bands[this->band].count; i++) {
-        Vec_8022BA98 pos = *(Vec_8022BA98 *)this->position;
+        Vec_8022BA98 pos = *(Vec_8022BA98 *)&this->position;
         if (TTecBarta__emitter_bands[this->band].rows[i].flags & 0x20) {
             pos.y -= lbl_805DC7A4;
         }
@@ -340,7 +340,7 @@ void TTecBarta::run_task() {
         }
     }
     if (this->band == 5) {
-        TechniqueParticleEmitter *e = create_timed_particle_emitter(this->position, 0x18A, 0x14, 1);
+        TechniqueParticleEmitter *e = create_timed_particle_emitter(&this->position.x, 0x18A, 0x14, 1);
         if (e != NULL) {
             attach_particle_model(e, get_bml_model(technique_effect_bml, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
         }

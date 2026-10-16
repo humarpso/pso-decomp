@@ -74,7 +74,6 @@ u8 TMainCursor__sub_8013E900(int);
 s32 get_target_id__11TMainCursorFv(s32);
 s32 TLockOnCursor__sub_8013EB6C(void *, int);
 u8 *find_entity_by_id(u16);
-extern RecoveredGlobal_8013D91C_main_task main_task;
 void render__13TLockOnCursorFv(s32 arg0);
 }
 
@@ -109,7 +108,7 @@ void render__13TLockOnCursorFv(s32 arg0) {
         if (TCameraCtrl::get_camera_no() != get_split_screen_view_index__11TCameraCtrlFUs((void *)((s32)get_target_id__11TMainCursorFv((s32)((void *)arg0))))) {
             return;
         }
-    } else if (get_mode__11TCameraCtrlFPv(&main_task.value) & 0x10) {
+    } else if (get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_8013D91C_main_task *)&main_task).value) & 0x10) {
         return;
     }
     for (i = 0; i < 4; i++) {

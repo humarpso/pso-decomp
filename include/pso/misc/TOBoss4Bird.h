@@ -2,23 +2,10 @@
 #define PSO_MISC_TOBOSS4BIRD_H
 
 #include "types.h"
+#include "pso/misc/TOBoss4.h"
 
-struct TOBoss4Bird
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x14];
-    void* m_50;
-    u8 _pad54[0xC];
-    u32 m_60;
-    u8 _pad64[0x20];
-    u32 m_84;
-    u32 m_88;
-    u32 m_8c;
-    u8 _pad90[0x8];
+struct TOBoss4Bird : public TOBoss4 {
+    virtual ~TOBoss4Bird();
     u32 m_98;
     u8 _pad9C[0x18];
     u32 m_b4;
@@ -32,7 +19,7 @@ struct TOBoss4Bird
     u32 m_e4;
     void run_task();
     void render();
-    static void *create(void *arg0);
-};
+    static void *create(void *arg0);};
 
+typedef char TOBoss4Bird_size[sizeof(TOBoss4Bird) == 0xE8 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TSHOPITEMLISTWINDOW_H
 
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TShopItemListWindow
-{
+struct TShopItemListWindow : public TShopWindowBase {
+    virtual ~TShopItemListWindow();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -26,7 +27,7 @@ struct TShopItemListWindow
     s32 update();
     static s32 handle_tool_list_select(void *p);
     s32 check_purchase_eligibility();
-    static void build_item_list(void *p);
-};
+    static void build_item_list(void *p);};
 
+typedef char TShopItemListWindow_size[sizeof(TShopItemListWindow) == 0x1C4 ? 1 : -1];
 #endif

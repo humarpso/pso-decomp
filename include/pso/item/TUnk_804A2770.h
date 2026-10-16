@@ -1,0 +1,12 @@
+#ifndef PSO_ITEM_TUNK_804A2770_H
+#define PSO_ITEM_TUNK_804A2770_H
+#include "types.h"
+#include "pso/items/TItemWeapon.h"
+
+class TUnk_804A2770 : public TItemWeapon {
+public:
+    virtual ~TUnk_804A2770();
+};
+typedef char TUnk_804A2770_size[sizeof(TUnk_804A2770) == 0x1F8 ? 1 : -1];
+
+#endif

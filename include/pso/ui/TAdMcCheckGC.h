@@ -2,9 +2,10 @@
 #define PSO_UI_TADMCCHECKGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdMcCheckGC
-{
+struct TAdMcCheckGC : public TObject {
+    virtual ~TAdMcCheckGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -15,7 +16,7 @@ struct TAdMcCheckGC
     u32 m_38;
     static void render();
     s32 create(s32 arg1);
-    void run_task();
-};
+    void run_task();};
 
+typedef char TAdMcCheckGC_size[sizeof(TAdMcCheckGC) == 0x3C ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_BOSS_TBOSS2LASERLIGHT_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBoss2LaserLight
-{
+struct TBoss2LaserLight : public TObject {
+    virtual ~TBoss2LaserLight();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -15,7 +16,7 @@ struct TBoss2LaserLight
     u32 m_40;
     void update_particle_trail();
     static void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TBoss2LaserLight_size[sizeof(TBoss2LaserLight) == 0x44 ? 1 : -1];
 #endif

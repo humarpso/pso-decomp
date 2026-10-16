@@ -2,9 +2,10 @@
 #define PSO_BOSS_TOBJBOSS2TUNNEL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TObjBoss2Tunnel
-{
+struct TObjBoss2Tunnel : public TObject {
+    virtual ~TObjBoss2Tunnel();
     u8 _pad1C[0x4];
     void* m_20;
     u32 m_24;
@@ -85,7 +86,7 @@ struct TObjBoss2Tunnel
     void update_phase_motion();
     void *destroy(s16 arg1);
     static void enable_and_trigger();
-    static void reset_player_state();
-};
+    static void reset_player_state();};
 
+typedef char TObjBoss2Tunnel_size[sizeof(TObjBoss2Tunnel) == 0xDC ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBCUSTOMSELECT_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 
-struct TWindowSubCustomSelect
-{
+struct TWindowSubCustomSelect : public TUnk_804CDFE8 {
+    virtual ~TWindowSubCustomSelect();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -33,7 +34,7 @@ struct TWindowSubCustomSelect
     void draw_cursor(u8 *arg1);
     void draw_palette_cells(int arg1);
     void run_task();
-    int is_active();
-};
+    int is_active();};
 
+typedef char TWindowSubCustomSelect_size[sizeof(TWindowSubCustomSelect) == 0x84 ? 1 : -1];
 #endif

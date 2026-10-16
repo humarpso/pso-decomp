@@ -2,16 +2,10 @@
 #define PSO_MISC_TPHOTONRAINBOW_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TPhotonRainbow
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x10];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x2C];
+struct TPhotonRainbow : public TUnk_804B9870 {
+    virtual ~TPhotonRainbow();
     u32 m_90;
     u32 m_94;
     u32 m_98;
@@ -19,7 +13,7 @@ struct TPhotonRainbow
     u8 _padA0[0x8];
     u32 m_a8;
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TPhotonRainbow_size[sizeof(TPhotonRainbow) == 0xAC ? 1 : -1];
 #endif

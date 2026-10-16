@@ -2,18 +2,10 @@
 #define PSO_MISC_TPHOTONMAGICSQUARE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TPhotonMagicSquare
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    u8 _pad38[0x28];
-    u32 m_60;
-    u8 _pad64[0x4];
-    void* m_68;
-    u8 _pad6C[0x24];
+struct TPhotonMagicSquare : public TUnk_804B9870 {
+    virtual ~TPhotonMagicSquare();
     u32 m_90;
     u8 _pad94[0xC];
     u32 m_a0;
@@ -28,7 +20,7 @@ struct TPhotonMagicSquare
     u8 _padC8[0x4];
     u32 m_cc;
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TPhotonMagicSquare_size[sizeof(TPhotonMagicSquare) == 0xD0 ? 1 : -1];
 #endif

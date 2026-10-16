@@ -1,0 +1,13 @@
+#ifndef PSO_ITEM_TUNK_8049F148_H
+#define PSO_ITEM_TUNK_8049F148_H
+#include "types.h"
+#include "pso/TObject.h"
+
+class TUnk_8049F148 : public TObject {
+public:
+    virtual ~TUnk_8049F148();
+    u8 unk_1C[0x10];
+};
+typedef char TUnk_8049F148_size[sizeof(TUnk_8049F148) == 0x2C ? 1 : -1];
+
+#endif

@@ -74,7 +74,6 @@ void normalize_vector(Vec_8029EFFC *);
 s32 push_matrix();
 s32 pop_matrix();
 extern Vec_8029EFFC sora_reflection_up_vec;
-extern u8 main_task[];
 extern s32 TSceneSora__sky_active_flag;
 extern u32 camera_ctrl_instance;
 extern s32 local_client_id;
@@ -172,7 +171,7 @@ void TSceneSora::render_reflections() {
         scene_sora_recon_active_flag = 0;
         if (is_boss_area() != 0) {
             if (p != NULL) {
-                render_object_layers__9TMainTaskFi(main_task, 2);
+                render_object_layers__9TMainTaskFi(((u8 *)&main_task), 2);
                 if (TOKeyMachine01::get_global_state() == 0x20) {
                     c3.pos.x = p->pos38.x;
                     c3.pos.y = p->pos38.y;
@@ -182,12 +181,12 @@ void TSceneSora::render_reflections() {
                     c3.scale.z = c3.scale.x;
                     push_matrix();
                     reflect_matrix_in_plane(0, &c3);
-                    render_object_layers__9TMainTaskFi(main_task, 3);
+                    render_object_layers__9TMainTaskFi(((u8 *)&main_task), 3);
                     pop_matrix();
                 }
             }
         } else if (p != NULL) {
-            render_object_layers__9TMainTaskFi(main_task, 1);
+            render_object_layers__9TMainTaskFi(((u8 *)&main_task), 1);
             c2.pos.x = o->pos24.x;
             c2.pos.y = o->pos24.y;
             c2.pos.z = o->pos24.z;
@@ -196,11 +195,11 @@ void TSceneSora::render_reflections() {
             c2.scale.z = c2.scale.x;
             push_matrix();
             reflect_matrix_in_plane(0, &c2);
-            render_object_layers__9TMainTaskFi(main_task, 4);
+            render_object_layers__9TMainTaskFi(((u8 *)&main_task), 4);
             pop_matrix();
         }
     }
-    render_task_layer_02__9TMainTaskFv(main_task);
+    render_task_layer_02__9TMainTaskFv(((u8 *)&main_task));
     if (p != NULL) {
         c1.pos.x = o->pos24.x;
         c1.pos.y = o->pos24.y;
@@ -210,7 +209,7 @@ void TSceneSora::render_reflections() {
         c1.scale.z = c1.scale.x;
         push_matrix();
         reflect_matrix_in_plane(0, &c1);
-        render_object_layers__9TMainTaskFi(main_task, 5);
+        render_object_layers__9TMainTaskFi(((u8 *)&main_task), 5);
         pop_matrix();
     }
     k = lbl_805DDD8C;
@@ -244,7 +243,7 @@ void TSceneSora::render_reflections() {
             VecCopy__FP3VecPC3Vec(&tmp, &p->pos2FC);
             r = fn_8029EC3C(&tmp, 0x4000);
             if (r == 1) {
-                render_object_layers__9TMainTaskFi(main_task, 0);
+                render_object_layers__9TMainTaskFi(((u8 *)&main_task), 0);
             }
             pop_matrix();
             pop_matrix();

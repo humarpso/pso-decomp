@@ -64,14 +64,13 @@ void TObjBoss7TunnelCol::update_collision() {
     rotate_matrix_yxz(self->f_48, *(void **)((s8 *)this + 0x28), *(void **)((s8 *)this + 0x2C), *(void **)((s8 *)this + 0x30));
 }
 
-extern s32 main_task[];
 extern f32 lbl_805DECA4;
 extern f32 lbl_805DECA8;
 
 s32 TObjBoss7TunnelCol::is_in_camera_range() {
     f32 temp_f1;
 
-    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
         temp_f1 = *(f32 *)((s8 *)this + 0x24);
         if ((temp_f1 < lbl_805DECA4) && (lbl_805DECA8 < temp_f1)) {
             return 0;

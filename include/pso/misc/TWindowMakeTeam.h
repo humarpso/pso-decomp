@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWMAKETEAM_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowMakeTeam
-{
+struct TWindowMakeTeam : public TObject {
+    virtual ~TWindowMakeTeam();
     u8 m_1c;
     u8 m_1d;
     u8 m_1e;
@@ -28,7 +29,7 @@ struct TWindowMakeTeam
     int get_keyboard_field_6c();
     static s32 create_menu();
     static void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowMakeTeam_size[sizeof(TWindowMakeTeam) == 0x38 ? 1 : -1];
 #endif

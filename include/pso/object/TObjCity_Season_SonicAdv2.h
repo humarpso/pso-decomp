@@ -2,9 +2,11 @@
 #define PSO_OBJECT_TOBJCITY_SEASON_SONICADV2_H
 
 #include "types.h"
+#include "pso/object/TUnk_804B5E48.h"
 
-struct TObjCity_Season_SonicAdv2
-{
+struct TObjCity_Season_SonicAdv2 : public TUnk_804B5E48 {
+    virtual ~TObjCity_Season_SonicAdv2();
 };
 
+typedef char TObjCity_Season_SonicAdv2_size[sizeof(TObjCity_Season_SonicAdv2) == 0xB4 ? 1 : -1];
 #endif

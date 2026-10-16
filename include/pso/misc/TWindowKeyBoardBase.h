@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWKEYBOARDBASE_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowKeyBoardBase
-{
+struct TWindowKeyBoardBase : public TUnk_804CE018 {
+    virtual ~TWindowKeyBoardBase();
     u8 _pad1C[0x46];
     u16 m_62;
     u8 _pad64[0x1];
@@ -24,7 +25,7 @@ struct TWindowKeyBoardBase
     u32 m_b4;
     void render();
     void run_task();
-    s32 *init_text_buffer_holder();
-};
+    s32 *init_text_buffer_holder();};
 
+typedef char TWindowKeyBoardBase_size[sizeof(TWindowKeyBoardBase) == 0xB8 ? 1 : -1];
 #endif

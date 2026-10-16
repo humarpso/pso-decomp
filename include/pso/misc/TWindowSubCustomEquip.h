@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBCUSTOMEQUIP_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSubCustomEquip
-{
+struct TWindowSubCustomEquip : public TUnk_804CE018 {
+    virtual ~TWindowSubCustomEquip();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -38,7 +39,7 @@ struct TWindowSubCustomEquip
     static s32 get_saved_slot_for_index(s32 arg0, s8 arg1);
     void get_cursor_pos(void *arg1);
     void remove_duplicate_bindings(void *arg1);
-    void toggle_action_binding(void *arg1);
-};
+    void toggle_action_binding(void *arg1);};
 
+typedef char TWindowSubCustomEquip_size[sizeof(TWindowSubCustomEquip) == 0x70 ? 1 : -1];
 #endif

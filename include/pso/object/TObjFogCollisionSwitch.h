@@ -2,13 +2,10 @@
 #define PSO_OBJECT_TOBJFOGCOLLISIONSWITCH_H
 
 #include "types.h"
+#include "pso/object/TObjFogCollision.h"
 
-struct TObjFogCollisionSwitch
-{
-    u8 _pad1C[0x68];
-    u32 m_84;
-    u32 m_88;
-    u32 m_8c;
-};
+struct TObjFogCollisionSwitch : public TObjFogCollision {
+    virtual ~TObjFogCollisionSwitch();};
 
+typedef char TObjFogCollisionSwitch_size[sizeof(TObjFogCollisionSwitch) == 0x98 ? 1 : -1];
 #endif

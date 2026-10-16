@@ -1,0 +1,13 @@
+#ifndef PSO_UNK_TEF_PVRWAVE_H
+#define PSO_UNK_TEF_PVRWAVE_H
+#include "types.h"
+#include "pso/TObject.h"
+
+class TEF_PvrWave : public TObject {
+public:
+    virtual ~TEF_PvrWave();
+    u8 unk_1C[0x1C];
+};
+typedef char TEF_PvrWave_size[sizeof(TEF_PvrWave) == 0x38 ? 1 : -1];
+
+#endif

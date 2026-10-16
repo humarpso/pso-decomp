@@ -2,10 +2,10 @@
 #define PSO_OBJECT_TOBJONLINEENDING_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjOnlineEnding
-{
-    u8 _pad1C[0x74];
+struct TObjOnlineEnding : public TUnk_804B9870 {
+    virtual ~TObjOnlineEnding();
     u32 m_90;
     u32 m_94;
     u32 m_98;
@@ -21,6 +21,8 @@ struct TObjOnlineEnding
     void close_window();
     void create_result_window();
     static void *create(void *arg0);
+    u8 unk_150[0x8];
 };
 
+typedef char TObjOnlineEnding_size[sizeof(TObjOnlineEnding) == 0x158 ? 1 : -1];
 #endif

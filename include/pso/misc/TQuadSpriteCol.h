@@ -2,13 +2,11 @@
 #define PSO_MISC_TQUADSPRITECOL_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804C57F0.h"
 
-struct TQuadSpriteCol
-{
-    u32 m_1c;
-    u8 _pad20[0x8];
-    u32 m_28;
-    void render();
-};
+struct TQuadSpriteCol : public TUnk_804C57F0 {
+    virtual ~TQuadSpriteCol();
+    void render();};
 
+typedef char TQuadSpriteCol_size[sizeof(TQuadSpriteCol) == 0x2C ? 1 : -1];
 #endif

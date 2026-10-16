@@ -2,29 +2,10 @@
 #define PSO_BOSS_TBOSS6MINE_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TBoss6Mine
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x8];
-    void* m_44;
-    u8 _pad48[0x8];
-    void* m_50;
-    u8 _pad54[0x20];
-    void* m_74;
-    u8 _pad78[0x230];
-    u32 m_2a8;
-    u8 _pad2AC[0x50];
-    void* m_2fc;
-    u8 _pad300[0x2C];
-    s16 m_32c;
-    u8 _pad32E[0x10];
-    u16 m_33e;
-    u8 _pad340[0x34];
+struct TBoss6Mine : public TObjEnemy {
+    virtual ~TBoss6Mine();
     u32 m_374;
     u32 m_378;
     u32 m_37c;
@@ -53,7 +34,7 @@ struct TBoss6Mine
     void update_facing_angles();
     s32 is_far_from_origin();
     static s32 create(s32 arg0);
-    static f32 next_random_float(s32 *arg0);
-};
+    static f32 next_random_float(s32 *arg0);};
 
+typedef char TBoss6Mine_size[sizeof(TBoss6Mine) == 0x3D0 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TSHOPJUDGMENTITEMWINDOW_H
 
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TShopJudgmentItemWindow
-{
+struct TShopJudgmentItemWindow : public TShopWindowBase {
+    virtual ~TShopJudgmentItemWindow();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -34,7 +35,7 @@ struct TShopJudgmentItemWindow
     static s32 build_item_list(void *arg0);
     void close();
     static void open_default(s32 a);
-    void add_list_entry(s32 arg1, s32 arg2);
-};
+    void add_list_entry(s32 arg1, s32 arg2);};
 
+typedef char TShopJudgmentItemWindow_size[sizeof(TShopJudgmentItemWindow) == 0x178 ? 1 : -1];
 #endif

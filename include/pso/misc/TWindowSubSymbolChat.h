@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBSYMBOLCHAT_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubSymbolChat
-{
+struct TWindowSubSymbolChat : public TObject {
+    virtual ~TWindowSubSymbolChat();
     u8 m_1c;
     u8 _pad1D[0x1];
     s16 m_1e;
@@ -91,7 +92,7 @@ struct TWindowSubSymbolChat
     void set_flag60_bit2();
     s32 is_open();
     void set_selection_and_refresh(s32 arg1);
-    static void update_display(s32 arg0);
-};
+    static void update_display(s32 arg0);};
 
+typedef char TWindowSubSymbolChat_size[sizeof(TWindowSubSymbolChat) == 0x60 ? 1 : -1];
 #endif

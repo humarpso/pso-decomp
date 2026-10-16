@@ -2,20 +2,10 @@
 #define PSO_MISC_TTECLUKER_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804CC148.h"
 
-struct TTecLuker
-{
-    u32 m_1c;
-    void* m_20;
-    u8 _pad24[0x8];
-    void* m_2c;
-    u8 _pad30[0xC];
-    void* m_3c;
-    u8 _pad40[0x2C];
-    u32 m_6c;
-    u8 _pad70[0x44];
-    u16 m_b4;
-    u8 _padB6[0x36];
+struct TTecLuker : public TUnk_804CC148 {
+    virtual ~TTecLuker();
     u32 m_ec;
     u32 m_f0;
     s16 m_f4;
@@ -37,7 +27,7 @@ struct TTecLuker
     void send_swapped_telepipe_packet();
     void byteswap_telepipe_packet();
     void set_state(s32 v);
-    static s32 is_parents_unqueued(u32 arg0);
-};
+    static s32 is_parents_unqueued(u32 arg0);};
 
+typedef char TTecLuker_size[sizeof(TTecLuker) == 0x110 ? 1 : -1];
 #endif

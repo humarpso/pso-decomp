@@ -20,7 +20,6 @@ s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
-extern unsigned char main_task[];
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 load_ending_font__10TAdEndTextFv();
@@ -44,27 +43,26 @@ int delete_all_task_children__9TMainTaskFv(void*);
 int free_resources__10TAdEndTextFv(void);
 int render_tick__Fv(void);
 
-    extern unsigned char main_task[];
     extern int ending_sequence_active;
-void cleanup__10TAdEndTextFv(void) { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(main_task); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); free_resources__10TAdEndTextFv(); render_tick__Fv(); }
+void cleanup__10TAdEndTextFv(void) { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); free_resources__10TAdEndTextFv(); render_tick__Fv(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
 void TKeyBoardControl::run_main_frame() {
     s32 *var_r3;
     func_803DCDFC__Fv();
     controller_stuff__Fv();
     TKeyBoardControl::update_input_frame();
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value));
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value));
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value));
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)&main_task).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value);
+    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80307A74_main_task *)((unsigned char *)&main_task)).value));
     process_async_file_reads();
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();

@@ -428,7 +428,6 @@ extern s32 identity_matrix[];
 extern const f32 lbl_805DAC8C;
 extern const f32 lbl_805DAC90;
 extern const f32 lbl_805DAC98;
-extern u8 main_task[];
 extern s32 tl_05;
 
 void set_weapon_category_flags(u8 *arg0) {
@@ -589,7 +588,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
     if (fn_80100CC8(self) != 0 && ((TObjPlayer *)self)->is_flag_400() == 0 &&
         test_action_mask__10TObjPlayerFl(self->owner, 0xE0) != 0 &&
         is_flag_b0_4__10TObjPlayerFPv(self->owner) == 0 &&
-        !(get_mode__11TCameraCtrlFPv(main_task) & 0x78)) {
+        !(get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x78)) {
         if (self->trails[slot] != NULL) {
             ((TObjPlayer *)self)->draw_icon((s32)(self->iconA[slot]), (s32)(&a));
             ((TObjPlayer *)self)->draw_icon((s32)(self->iconB[slot]), (s32)(&b));

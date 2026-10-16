@@ -2,10 +2,10 @@
 #define PSO_BOSS_TBOSS6GRAVBALL_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TBoss6GravBall
-{
-    u8 _pad1C[0x90];
+struct TBoss6GravBall : public TUnk_804AF8A0 {
+    virtual ~TBoss6GravBall();
     u32 m_ac;
     u32 m_b0;
     u32 m_b4;
@@ -21,6 +21,8 @@ struct TBoss6GravBall
     void init_parts();
     static void render();
     s32 get_state();
+    u8 unk_CC[0x2C];
 };
 
+typedef char TBoss6GravBall_size[sizeof(TBoss6GravBall) == 0xF8 ? 1 : -1];
 #endif

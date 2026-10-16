@@ -1,0 +1,13 @@
+#ifndef PSO_UNK_TUNK_804EEF80_H
+#define PSO_UNK_TUNK_804EEF80_H
+#include "types.h"
+#include "pso/TObject.h"
+
+class TUnk_804EEF80 : public TObject {
+public:
+    virtual ~TUnk_804EEF80();
+    u8 unk_1C[0x8];
+};
+typedef char TUnk_804EEF80_size[sizeof(TUnk_804EEF80) == 0x24 ? 1 : -1];
+
+#endif

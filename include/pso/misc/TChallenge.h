@@ -2,10 +2,10 @@
 #define PSO_MISC_TCHALLENGE_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TChallenge
-{
-    u8 _object[0x1C];
+struct TChallenge : public TObject {
+    virtual ~TChallenge();
     s32 state;
     s32 frame_count;
     u32 m_24;
@@ -16,7 +16,7 @@ struct TChallenge
     void update_active();
     void wait_for_quest();
     void initialize_windows();
-    static void *create();
-};
+    static void *create();};
 
+typedef char TChallenge_size[sizeof(TChallenge) == 0x30 ? 1 : -1];
 #endif

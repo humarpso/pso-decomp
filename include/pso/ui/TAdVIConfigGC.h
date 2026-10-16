@@ -2,10 +2,10 @@
 #define PSO_UI_TADVICONFIGGC_H
 
 #include "types.h"
+#include "pso/ui/TAdYesNoBaseGC.h"
 
-struct TAdVIConfigGC
-{
-    u8 _pad1C[0x2C];
+struct TAdVIConfigGC : public TAdYesNoBaseGC {
+    virtual ~TAdVIConfigGC();
     u32 m_48;
     u8 *init(f32 farg0);
     void render();
@@ -15,7 +15,7 @@ struct TAdVIConfigGC
     void run_task();
     static s32 draw_with_layer(s32 arg0, s32 arg1, s32 arg2);
     void set_field_2c(s32 v);
-    static void apply_config_if_valid(s32 arg0, s32 arg1);
-};
+    static void apply_config_if_valid(s32 arg0, s32 arg1);};
 
+typedef char TAdVIConfigGC_size[sizeof(TAdVIConfigGC) == 0x4C ? 1 : -1];
 #endif

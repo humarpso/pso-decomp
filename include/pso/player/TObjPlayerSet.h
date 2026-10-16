@@ -2,14 +2,13 @@
 #define PSO_PLAYER_TOBJPLAYERSET_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjPlayerSet
-{
-    u8 _pad1C[0x68];
-    u32 m_84;
+struct TObjPlayerSet : public TUnk_804B9870 {
+    virtual ~TObjPlayerSet();
     static void render();
     static void run_task();
-    static void *create(void *arg0);
-};
+    static void *create(void *arg0);};
 
+typedef char TObjPlayerSet_size[sizeof(TObjPlayerSet) == 0x90 ? 1 : -1];
 #endif

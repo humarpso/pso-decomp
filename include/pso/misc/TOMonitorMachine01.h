@@ -2,26 +2,17 @@
 #define PSO_MISC_TOMONITORMACHINE01_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 
-struct TOMonitorMachine01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x20];
-    u32 m_84;
-    u8 _pad88[0x24];
-    u32 m_ac;
+struct TOMonitorMachine01 : public TUnk_804AFBF8 {
+    virtual ~TOMonitorMachine01();
     void run_task();
     void render();
     void *create();
     static void reset_static_state();
     static void load_resources();
+    u8 unk_C8[0x10];
 };
 
+typedef char TOMonitorMachine01_size[sizeof(TOMonitorMachine01) == 0xD8 ? 1 : -1];
 #endif

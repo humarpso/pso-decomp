@@ -2,15 +2,12 @@
 #define PSO_NPC_TOBJNPCCONNOISSEUR_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A9F50.h"
 
-struct TObjNpcConnoisseur
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcConnoisseur : public TUnk_804A9F50 {
+    virtual ~TObjNpcConnoisseur();
     static void destroy_instance();
-    static void load_section_motion();
-};
+    static void load_section_motion();};
 
+typedef char TObjNpcConnoisseur_size[sizeof(TObjNpcConnoisseur) == 0x3B8 ? 1 : -1];
 #endif

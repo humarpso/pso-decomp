@@ -2,15 +2,12 @@
 #define PSO_NPC_TOBJNPCSOLDIERMACHO_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A9F50.h"
 
-struct TObjNpcSoldierMacho
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcSoldierMacho : public TUnk_804A9F50 {
+    virtual ~TObjNpcSoldierMacho();
     static void unload_static_data();
-    static void load_shared_resource();
-};
+    static void load_shared_resource();};
 
+typedef char TObjNpcSoldierMacho_size[sizeof(TObjNpcSoldierMacho) == 0x3B8 ? 1 : -1];
 #endif

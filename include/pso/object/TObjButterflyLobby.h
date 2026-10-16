@@ -2,17 +2,10 @@
 #define PSO_OBJECT_TOBJBUTTERFLYLOBBY_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjButterflyLobby
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x20];
-    void* m_5c;
-    u32 m_60;
-    u8 _pad64[0x4];
-    void* m_68;
-    u8 _pad6C[0x24];
+struct TObjButterflyLobby : public TUnk_804B9870 {
+    virtual ~TObjButterflyLobby();
     u32 m_90;
     u8 _pad94[0x28];
     s16 m_bc;
@@ -29,7 +22,7 @@ struct TObjButterflyLobby
     void render();
     void update_fade();
     void run_task();
-    static void destroy_instance();
-};
+    static void destroy_instance();};
 
+typedef char TObjButterflyLobby_size[sizeof(TObjButterflyLobby) == 0xCC ? 1 : -1];
 #endif

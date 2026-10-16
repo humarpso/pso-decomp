@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include <stddef.h>
 
 extern "C" {
@@ -475,7 +476,6 @@ s32 draw_node_tree_if_visible__10TObjPlayerFv(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 saved_model_draw_color;
-extern RecoveredGlobal_802E80F4_main_task main_task;
 extern RecoveredGlobal_802E80F4_lbl_805412C0 boss7_derolle_light_pool;
 extern RecoveredGlobal_802E80F4_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -529,7 +529,7 @@ typedef char RecoveredGlobal_802E80F4_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8
 void TObjPlayer__sub_802E80F4(u8 *arg0) {
     s32 *var_r30;
     s32 var_r29;
-    if (!(get_mode__11TCameraCtrlFPv((void *) (&main_task.value)) & 0x20) || !(*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805DEA1C)) {
+    if (!(get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_802E80F4_main_task *)&main_task).value)) & 0x20) || !(*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805DEA1C)) {
         var_r30 = (s32 *)((u8 *)(arg0 + 0x5F8));
         var_r29 = 0;
         do {

@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBSYMBOLCHATPARTS_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 
-struct TWindowSubSymbolChatParts
-{
+struct TWindowSubSymbolChatParts : public TUnk_804CDFE8 {
+    virtual ~TWindowSubSymbolChatParts();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0xA];
@@ -28,7 +29,7 @@ struct TWindowSubSymbolChatParts
     u32 m_8c;
     void handle_cancel();
     void add_part();
-    void handle_add();
-};
+    void handle_add();};
 
+typedef char TWindowSubSymbolChatParts_size[sizeof(TWindowSubSymbolChatParts) == 0x90 ? 1 : -1];
 #endif

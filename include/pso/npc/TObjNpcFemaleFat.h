@@ -2,15 +2,12 @@
 #define PSO_NPC_TOBJNPCFEMALEFAT_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A8640.h"
 
-struct TObjNpcFemaleFat
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcFemaleFat : public TUnk_804A8640 {
+    virtual ~TObjNpcFemaleFat();
     static void free_static_model();
-    static void load_static_resource();
-};
+    static void load_static_resource();};
 
+typedef char TObjNpcFemaleFat_size[sizeof(TObjNpcFemaleFat) == 0x3B8 ? 1 : -1];
 #endif

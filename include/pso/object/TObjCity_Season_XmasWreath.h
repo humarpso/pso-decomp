@@ -2,9 +2,11 @@
 #define PSO_OBJECT_TOBJCITY_SEASON_XMASWREATH_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjCity_Season_XmasWreath
-{
+struct TObjCity_Season_XmasWreath : public TUnk_804B9870 {
+    virtual ~TObjCity_Season_XmasWreath();
 };
 
+typedef char TObjCity_Season_XmasWreath_size[sizeof(TObjCity_Season_XmasWreath) == 0x90 ? 1 : -1];
 #endif

@@ -1,0 +1,12 @@
+#ifndef PSO_PLAYER_TUNK_804E3BC0_H
+#define PSO_PLAYER_TUNK_804E3BC0_H
+#include "types.h"
+#include "pso/player/TUnk_804E3BD8.h"
+
+class TUnk_804E3BC0 : public TUnk_804E3BD8 {
+public:
+    virtual ~TUnk_804E3BC0();
+};
+typedef char TUnk_804E3BC0_size[sizeof(TUnk_804E3BC0) == 0x2C ? 1 : -1];
+
+#endif

@@ -2,27 +2,18 @@
 #define PSO_ENEMY_TOBJENEMORFOSARM_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjEneMorfosArm
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x4C];
-    u32 m_b0;
-    u8 _padB4[0x4];
-    s16 m_b8;
-    u8 _padBA[0x42];
+struct TObjEneMorfosArm : public TObjMotion {
+    virtual ~TObjEneMorfosArm();
     u32 m_fc;
     u16 m_100;
     static void *create(void *arg0, void *arg1);
     static void init_global();
     void render();
     void run_task();
+    u8 unk_102[0x2];
 };
 
+typedef char TObjEneMorfosArm_size[sizeof(TObjEneMorfosArm) == 0x104 ? 1 : -1];
 #endif

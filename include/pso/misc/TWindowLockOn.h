@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWLOCKON_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowLockOn
-{
+struct TWindowLockOn : public TUnk_804CE018 {
+    virtual ~TWindowLockOn();
     u8 _pad1C[0x4];
     u16 m_20;
     u8 _pad22[0x2];
@@ -27,7 +28,7 @@ struct TWindowLockOn
     static void refresh_ground_item();
     void update_photon_blast_marker();
     static void *create_for_target(s32 arg0, u16 arg1);
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowLockOn_size[sizeof(TWindowLockOn) == 0x7C ? 1 : -1];
 #endif

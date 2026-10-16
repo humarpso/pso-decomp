@@ -2,49 +2,10 @@
 #define PSO_ENEMY_TOBJENEILLGILL_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TObjEneIllGill
-{
-    u16 m_1c;
-    u8 _pad1E[0x6];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x40];
-    u32 m_a4;
-    u8 _padA8[0x10];
-    s16 m_b8;
-    u8 _padBA[0x1E];
-    u32 m_d8;
-    u32 m_dc;
-    u8 _padE0[0x1B0];
-    void* m_290;
-    u8 _pad294[0x8];
-    void* m_29c;
-    u8 _pad2A0[0x8];
-    u32 m_2a8;
-    u8 _pad2AC[0x30];
-    u32 m_2dc;
-    u8 _pad2E0[0x1C];
-    void* m_2fc;
-    u8 _pad300[0x18];
-    u32 m_318;
-    u8 _pad31C[0xA];
-    s16 m_326;
-    s16 m_328;
-    u8 _pad32A[0x2];
-    s16 m_32c;
-    u8 _pad32E[0xA];
-    u16 m_338;
-    u8 _pad33A[0x4];
-    u16 m_33e;
-    u8 _pad340[0x10];
-    u32 m_350;
-    u8 _pad354[0x20];
+struct TObjEneIllGill : public TObjEnemy {
+    virtual ~TObjEneIllGill();
     void* m_374;
     u8 _pad378[0x10];
     u32 m_388;
@@ -80,7 +41,7 @@ struct TObjEneIllGill
     void run_task();
     void *create();
     static void free_effect();
-    static void load_shared_resources();
-};
+    static void load_shared_resources();};
 
+typedef char TObjEneIllGill_size[sizeof(TObjEneIllGill) == 0x420 ? 1 : -1];
 #endif

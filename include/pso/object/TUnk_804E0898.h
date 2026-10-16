@@ -1,0 +1,13 @@
+#ifndef PSO_OBJECT_TUNK_804E0898_H
+#define PSO_OBJECT_TUNK_804E0898_H
+#include "types.h"
+#include "pso/object/TObjPathObj.h"
+
+class TUnk_804E0898 : public TObjPathObj {
+public:
+    virtual ~TUnk_804E0898();
+    u8 unk_98[0x48];
+};
+typedef char TUnk_804E0898_size[sizeof(TUnk_804E0898) == 0xE0 ? 1 : -1];
+
+#endif

@@ -14,11 +14,10 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 restore_render_scissor(int);
 
-extern s32 main_task[];
 extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
 
 s32 render_model_if_visible__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
-    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
         if (push_reflect_matrix__12TObjEneReconFPv((void *) (arg0 + 0x3D4)) != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();

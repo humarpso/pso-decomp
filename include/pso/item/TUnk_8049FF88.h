@@ -1,0 +1,12 @@
+#ifndef PSO_ITEM_TUNK_8049FF88_H
+#define PSO_ITEM_TUNK_8049FF88_H
+#include "types.h"
+#include "pso/item/TItemObject.h"
+
+class TUnk_8049FF88 : public TItemObject {
+public:
+    virtual ~TUnk_8049FF88();
+};
+typedef char TUnk_8049FF88_size[sizeof(TUnk_8049FF88) == 0xF4 ? 1 : -1];
+
+#endif

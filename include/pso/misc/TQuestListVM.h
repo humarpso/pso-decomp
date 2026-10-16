@@ -2,9 +2,10 @@
 #define PSO_MISC_TQUESTLISTVM_H
 
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TQuestListVM
-{
+struct TQuestListVM : public TShopWindowBase {
+    virtual ~TQuestListVM();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -58,7 +59,7 @@ struct TQuestListVM
     u32 decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3);
     static int get_data();
     void set_selected_entry(void* a1);
-    static void poll_download();
-};
+    static void poll_download();};
 
+typedef char TQuestListVM_size[sizeof(TQuestListVM) == 0x23C4 ? 1 : -1];
 #endif

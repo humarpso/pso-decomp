@@ -829,7 +829,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 get_mode__11TCameraCtrlFPv(void *);
-extern s32 main_task[];
 extern s32 lbl_805D6FA0;
 extern const f32 lbl_805E0208;
 extern const f32 lbl_805E0214;
@@ -951,7 +950,6 @@ s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-extern s32 main_task[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -1317,7 +1315,7 @@ void TObjEneEpsilonGuard::record_camera_angle_samples() {
 void TObjEneEpsilonGuard::render_body_effect() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+    if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         translate_matrix((int) (0), (f32) (lbl_805E0208), (f32) (lbl_805E0214), (f32) (lbl_805E0208));
@@ -1351,7 +1349,7 @@ void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     update_obstruction_fade(r);
     if (((RenderFadeState *)r)->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
         r->m6();
-        if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
+        if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {
             model_render_flags = lbl_805D5660;
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -1360,13 +1358,13 @@ void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     } else if (((VObj_8036033C *)(arg0 + 0x4C0))->m8() != 0) {
         if (TObjEneMe3SinowZoa__sub_800D72A4(arg0 + 0x4C0) != 0) {
             ((VObj_8036033C *)(arg0 + 0x4C0))->m6();
-            if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
+            if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {
                 model_render_flags = lbl_805D5660;
                 chunk_polygon_flags_and_mask = lbl_805D5664;
                 chunk_polygon_flags_or_mask = lbl_805D5668;
                 return;
             }
-        } else if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+        } else if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200) {
             model_render_flags = lbl_805D5660;
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;

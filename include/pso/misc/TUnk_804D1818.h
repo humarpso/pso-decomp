@@ -1,0 +1,13 @@
+#ifndef PSO_MISC_TUNK_804D1818_H
+#define PSO_MISC_TUNK_804D1818_H
+#include "types.h"
+#include "pso/TObject.h"
+
+class TUnk_804D1818 : public TObject {
+public:
+    virtual ~TUnk_804D1818();
+    u8 unk_1C[0x14];
+};
+typedef char TUnk_804D1818_size[sizeof(TUnk_804D1818) == 0x30 ? 1 : -1];
+
+#endif

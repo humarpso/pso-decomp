@@ -2,10 +2,10 @@
 #define PSO_MISC_TWINDOWSUBTECHNIQUE_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubTechnique
-{
-    u8 _base[0x1C];
+struct TWindowSubTechnique : public TObject {
+    virtual ~TWindowSubTechnique();
     u8 m_1c;
     u8 _pad1D[0x1];
     u16 m_1e;
@@ -28,7 +28,7 @@ struct TWindowSubTechnique
     static s32 update_selection(s16 *arg0, s32 *arg1);
     int get_current_selection(void* _w1);
     static s32 lookup_technique(s32 arg0, s32 arg1);
-    s32 create_title_window();
-};
+    s32 create_title_window();};
 
+typedef char TWindowSubTechnique_size[sizeof(TWindowSubTechnique) == 0x40 ? 1 : -1];
 #endif

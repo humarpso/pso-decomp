@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBSHORTCUT_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubShortCut
-{
+struct TWindowSubShortCut : public TObject {
+    virtual ~TWindowSubShortCut();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -25,6 +26,8 @@ struct TWindowSubShortCut
     void set_flag1e_bit80();
     void close_and_clear_flag();
     void free_icon();
+    u8 unk_44[0x50];
 };
 
+typedef char TWindowSubShortCut_size[sizeof(TWindowSubShortCut) == 0x94 ? 1 : -1];
 #endif

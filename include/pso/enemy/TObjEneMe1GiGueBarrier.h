@@ -2,21 +2,10 @@
 #define PSO_ENEMY_TOBJENEME1GIGUEBARRIER_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjEneMe1GiGueBarrier
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x4C];
-    u32 m_b0;
-    u8 _padB4[0x4];
-    s16 m_b8;
-    u8 _padBA[0x42];
+struct TObjEneMe1GiGueBarrier : public TObjMotion {
+    virtual ~TObjEneMe1GiGueBarrier();
     u32 m_fc;
     u16 m_100;
     u8 _pad102[0x2];
@@ -25,7 +14,7 @@ struct TObjEneMe1GiGueBarrier
     void render();
     void run_task();
     static void *create(void *arg0, void *arg1);
-    static void init_global();
-};
+    static void init_global();};
 
+typedef char TObjEneMe1GiGueBarrier_size[sizeof(TObjEneMe1GiGueBarrier) == 0x10C ? 1 : -1];
 #endif

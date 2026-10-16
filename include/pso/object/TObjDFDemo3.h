@@ -2,10 +2,10 @@
 #define PSO_OBJECT_TOBJDFDEMO3_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjDFDemo3
-{
-    u8 _pad1C[0x74];
+struct TObjDFDemo3 : public TUnk_804B9870 {
+    virtual ~TObjDFDemo3();
     u32 m_90;
     u32 m_94;
     u32 m_98;
@@ -19,6 +19,8 @@ struct TObjDFDemo3
     u32 m_b8;
     void* m_bc;
     static void *create(void *arg0, void *arg1, void *arg2);
+    u8 unk_C0[0x8];
 };
 
+typedef char TObjDFDemo3_size[sizeof(TObjDFDemo3) == 0xC8 ? 1 : -1];
 #endif

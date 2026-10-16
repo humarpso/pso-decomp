@@ -1,8 +1,9 @@
 #ifndef PSO_BOSS_TBOSS6THANKS_H
 #define PSO_BOSS_TBOSS6THANKS_H
 #include "types.h"
-struct TBoss6Thanks {
-    u8 _object_header[0x1C];
+#include "pso/TObject.h"
+struct TBoss6Thanks : public TObject {
+    virtual ~TBoss6Thanks();
     s32 m_1c;
     s32 current_motion;
     s32 m_24;
@@ -29,5 +30,7 @@ struct TBoss6Thanks {
     static void *create();
     s32 is_ship_door_ready();
     static s32 try_dispatch_darkfalz_phase();
+    u8 unk_54[0x10];
 };
+typedef char TBoss6Thanks_size[sizeof(TBoss6Thanks) == 0x64 ? 1 : -1];
 #endif

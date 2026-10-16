@@ -2,10 +2,10 @@
 #define PSO_MISC_TPHOTONLASER_H
 
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 
-struct TPhotonLaser
-{
-    u8 _pad1C[0x318];
+struct TPhotonLaser : public TUnk_804806E8 {
+    virtual ~TPhotonLaser();
     void* m_334;
     u8 _pad338[0x8];
     void* m_340;
@@ -17,6 +17,8 @@ struct TPhotonLaser
     u32 m_36c;
     u16 m_370;
     static void render();
+    u8 unk_372[0xE];
 };
 
+typedef char TPhotonLaser_size[sizeof(TPhotonLaser) == 0x380 ? 1 : -1];
 #endif

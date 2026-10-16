@@ -2,9 +2,10 @@
 #define PSO_MISC_TCHECKMEMORYCARD_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TCheckMemoryCard
-{
+struct TCheckMemoryCard : public TObject {
+    virtual ~TCheckMemoryCard();
     u32 m_1c;
     u32 m_20;
     u8 _pad24[0x4];
@@ -18,6 +19,8 @@ struct TCheckMemoryCard
     static void render();
     void run_task();
     void *create(void *arg1, void *arg2);
+    u8 unk_50[0x200];
 };
 
+typedef char TCheckMemoryCard_size[sizeof(TCheckMemoryCard) == 0x250 ? 1 : -1];
 #endif

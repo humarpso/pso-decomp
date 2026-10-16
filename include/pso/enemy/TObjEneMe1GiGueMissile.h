@@ -2,25 +2,17 @@
 #define PSO_ENEMY_TOBJENEME1GIGUEMISSILE_H
 
 #include "types.h"
+#include "pso/misc/TNeedleShoot.h"
 
-struct TObjEneMe1GiGueMissile
-{
-    u32 m_1c;
-    u8 _pad20[0x14];
-    u16 m_34;
-    u8 _pad36[0x32];
-    u32 m_68;
-    void* m_6c;
-    u8 _pad70[0x30];
-    u32 m_a0;
-    u32 m_a4;
-    u8 _padA8[0x8];
-    u32 m_b0;
+struct TObjEneMe1GiGueMissile : public TNeedleShoot {
+    virtual ~TObjEneMe1GiGueMissile();
     void explode(void *pos);
     static void create(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
     void render();
     void run_task();
     void update_lifetime();
+    u8 unk_BC[0x8];
 };
 
+typedef char TObjEneMe1GiGueMissile_size[sizeof(TObjEneMe1GiGueMissile) == 0xC4 ? 1 : -1];
 #endif

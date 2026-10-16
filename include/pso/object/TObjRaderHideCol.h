@@ -2,15 +2,14 @@
 #define PSO_OBJECT_TOBJRADERHIDECOL_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjRaderHideCol
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x58];
+struct TObjRaderHideCol : public TUnk_804B9870 {
+    virtual ~TObjRaderHideCol();
+    u8 unk_90[0x4];
     u32 m_94;
     static void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TObjRaderHideCol_size[sizeof(TObjRaderHideCol) == 0x98 ? 1 : -1];
 #endif

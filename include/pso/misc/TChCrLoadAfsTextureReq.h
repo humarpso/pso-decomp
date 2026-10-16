@@ -2,9 +2,10 @@
 #define PSO_MISC_TCHCRLOADAFSTEXTUREREQ_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TChCrLoadAfsTextureReq
-{
+struct TChCrLoadAfsTextureReq : public TObject {
+    virtual ~TChCrLoadAfsTextureReq();
     u8 _pad1C[0xC];
     u32 m_28;
     u32 m_2c;
@@ -17,6 +18,8 @@ struct TChCrLoadAfsTextureReq
     u32 m_70;
     void update_loading(void *);
     void start_read(void *);
+    u8 unk_74[0x120];
 };
 
+typedef char TChCrLoadAfsTextureReq_size[sizeof(TChCrLoadAfsTextureReq) == 0x194 ? 1 : -1];
 #endif

@@ -2,16 +2,10 @@
 #define PSO_ENEMY_TOBJENEPANARMSATKCOLLI_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TObjEnePanarmsAtkColli
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x8];
-    void* m_44;
-    u8 _pad48[0x2C0];
-    void* m_308;
-    u8 _pad30C[0x68];
+struct TObjEnePanarmsAtkColli : public TObjEnemy {
+    virtual ~TObjEnePanarmsAtkColli();
     u32 m_374;
     u8 _pad378[0x8];
     u32 m_380;
@@ -19,6 +13,8 @@ struct TObjEnePanarmsAtkColli
     u32 m_388;
     void run_task();
     void *create(void *arg1, void *arg2, void *arg3);
+    u8 unk_38C[0x4];
 };
 
+typedef char TObjEnePanarmsAtkColli_size[sizeof(TObjEnePanarmsAtkColli) == 0x390 ? 1 : -1];
 #endif

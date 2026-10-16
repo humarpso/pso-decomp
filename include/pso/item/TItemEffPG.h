@@ -2,12 +2,11 @@
 #define PSO_ITEM_TITEMEFFPG_H
 
 #include "types.h"
+#include "pso/item/TUnk_804E355C.h"
 
-struct TItemEffPG
-{
-    u8 _pad1C[0x8C];
-    u16 m_a8;
-    u8 _padAA[0x26];
+struct TItemEffPG : public TUnk_804E355C {
+    virtual ~TItemEffPG();
+    u8 unk_C4[0xC];
     u32 m_d0;
     void *init_fields(s32 _w1, void * _w2);
     u8 *create();
@@ -16,7 +15,7 @@ struct TItemEffPG
     void *destroy(s16 arg1);
     void run_task();
     static void create(void *arg0, void *arg1);
-    void*init_params();
-};
+    void*init_params();};
 
+typedef char TItemEffPG_size[sizeof(TItemEffPG) == 0xD4 ? 1 : -1];
 #endif

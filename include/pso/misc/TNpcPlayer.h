@@ -2,9 +2,10 @@
 #define PSO_MISC_TNPCPLAYER_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TNpcPlayer
-{
+struct TNpcPlayer : public TObject {
+    virtual ~TNpcPlayer();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -109,6 +110,8 @@ struct TNpcPlayer
     void byteswap_header();
     void send_state_60();
     void update_model_load();
+    u8 unk_E0[0x8];
 };
 
+typedef char TNpcPlayer_size[sizeof(TNpcPlayer) == 0xE8 ? 1 : -1];
 #endif

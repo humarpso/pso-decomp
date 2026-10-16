@@ -2,20 +2,17 @@
 #define PSO_OBJECT_TOBJCITYMAPWARP_H
 
 #include "types.h"
+#include "pso/object/TObjMapWarp.h"
 
-struct TObjCityMapWarp
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x28];
-    u32 m_8c;
+struct TObjCityMapWarp : public TObjMapWarp {
+    virtual ~TObjCityMapWarp();
     void render();
     void run_task();
     int is_field88_zero();
     void clamp_destination_index();
     static void *create(void *arg0);
+    u8 unk_FC[0x4];
 };
 
+typedef char TObjCityMapWarp_size[sizeof(TObjCityMapWarp) == 0x100 ? 1 : -1];
 #endif

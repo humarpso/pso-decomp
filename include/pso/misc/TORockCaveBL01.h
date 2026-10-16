@@ -2,17 +2,10 @@
 #define PSO_MISC_TOROCKCAVEBL01_H
 
 #include "types.h"
+#include "pso/misc/TORockCaveBrakable.h"
 
-struct TORockCaveBL01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    u8 _pad38[0x4C];
-    u32 m_84;
-    u8 _pad88[0x30];
-    u32 m_b8;
-};
+struct TORockCaveBL01 : public TORockCaveBrakable {
+    virtual ~TORockCaveBL01();};
 
+typedef char TORockCaveBL01_size[sizeof(TORockCaveBL01) == 0xBC ? 1 : -1];
 #endif

@@ -2,10 +2,11 @@
 #define PSO_ITEM_TITEMEQUIPBASE_H
 
 #include "types.h"
+#include "pso/item/TItem.h"
 
-struct TItemEquipBase
-{
-    u8 _pad1C[0x154];
+struct TItemEquipBase : public TItem {
+    virtual ~TItemEquipBase();
+    u8 unk_F8[0x78];
     u8 m_170;
     u8 m_171;
     u16 m_172;
@@ -37,7 +38,7 @@ struct TItemEquipBase
     static void apply_equip_effect_slot(u16 arg0, u32 arg1);
     static void apply_equip_slot_effect(u16 arg0, u32 arg1);
     void set_slot(s32 arg1, s32 arg2);
-    void init_slots();
-};
+    void init_slots();};
 
+typedef char TItemEquipBase_size[sizeof(TItemEquipBase) == 0x18C ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TFOGCTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TFogCtrl
-{
+struct TFogCtrl : public TObject {
+    virtual ~TFogCtrl();
     u32 m_1c;
     u32 m_20;
     u8 _pad24[0x15C];
@@ -40,7 +41,7 @@ struct TFogCtrl
     static s32 update_all(s32 arg0, s32 arg1);
     static s32 apply_all(s32 arg0, s32 arg1);
     static s32 update_first_active_fog();
-    static s32 update_all(s32 arg0);
-};
+    static s32 update_all(s32 arg0);};
 
+typedef char TFogCtrl_size[sizeof(TFogCtrl) == 0x1C8 ? 1 : -1];
 #endif

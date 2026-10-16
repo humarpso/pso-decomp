@@ -2,19 +2,11 @@
 #define PSO_MISC_TODOORVOSHIP_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 
-struct TODoorVoShip
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x58];
-    u32 m_bc;
-    u8 _padC0[0xC];
+struct TODoorVoShip : public TUnk_804AFBF8 {
+    virtual ~TODoorVoShip();
+    u8 unk_C8[0x4];
     u32 m_cc;
     u32 m_d0;
     u32 m_d4;
@@ -25,6 +17,8 @@ struct TODoorVoShip
     static void *create(void *arg0);
     static void free_static_data();
     static void load_shared_resource();
+    u8 unk_E0[0xC];
 };
 
+typedef char TODoorVoShip_size[sizeof(TODoorVoShip) == 0xEC ? 1 : -1];
 #endif

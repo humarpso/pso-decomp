@@ -2,9 +2,11 @@
 #define PSO_MISC_TPLYPTCLOBJECTLEFTHAND_H
 
 #include "types.h"
+#include "pso/misc/TPlyFollowParticleCtrl.h"
 
-struct TPlyPtclObjectLeftHand
-{
+struct TPlyPtclObjectLeftHand : public TPlyFollowParticleCtrl {
+    virtual ~TPlyPtclObjectLeftHand();
 };
 
+typedef char TPlyPtclObjectLeftHand_size[sizeof(TPlyPtclObjectLeftHand) == 0xB0 ? 1 : -1];
 #endif

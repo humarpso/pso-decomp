@@ -2,11 +2,12 @@
 #define PSO_BOSS_TBOSS7LASERPTCL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
 struct TBoss7LaserPtclVector { f32 x, y, z; };
 
-struct TBoss7LaserPtcl {
-    u8 unknown00[0x1C];
+struct TBoss7LaserPtcl : public TObject {
+    virtual ~TBoss7LaserPtcl();
     s32 state;
     TBoss7LaserPtclVector position;
     TBoss7LaserPtclVector direction;
@@ -23,7 +24,7 @@ struct TBoss7LaserPtcl {
     void init_laser();
     void calc_position(u8 *arg1, u8 *arg2);
     void destroy_particles();
-    static void render();
-};
+    static void render();};
 
+typedef char TBoss7LaserPtcl_size[sizeof(TBoss7LaserPtcl) == 0x58 ? 1 : -1];
 #endif

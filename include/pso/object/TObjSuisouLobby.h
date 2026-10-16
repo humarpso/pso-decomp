@@ -2,17 +2,10 @@
 #define PSO_OBJECT_TOBJSUISOULOBBY_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 
-struct TObjSuisouLobby
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x64];
+struct TObjSuisouLobby : public TUnk_804AFBF8 {
+    virtual ~TObjSuisouLobby();
     u32 m_c8;
     u8 _padCC[0x8];
     u32 m_d4;
@@ -20,7 +13,7 @@ struct TObjSuisouLobby
     void update_particle();
     void *create();
     static void destroy_instance();
-    static void load_resources();
-};
+    static void load_resources();};
 
+typedef char TObjSuisouLobby_size[sizeof(TObjSuisouLobby) == 0xDC ? 1 : -1];
 #endif

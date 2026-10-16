@@ -1,0 +1,13 @@
+#ifndef PSO_PLAYER_TUNK_8048E5F4_H
+#define PSO_PLAYER_TUNK_8048E5F4_H
+#include "types.h"
+#include "pso/TObject.h"
+
+class TUnk_8048E5F4 : public TObject {
+public:
+    virtual ~TUnk_8048E5F4();
+    u8 unk_1C[0x4];
+};
+typedef char TUnk_8048E5F4_size[sizeof(TUnk_8048E5F4) == 0x20 ? 1 : -1];
+
+#endif

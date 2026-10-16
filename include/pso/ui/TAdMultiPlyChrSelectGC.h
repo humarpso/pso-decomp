@@ -2,9 +2,10 @@
 #define PSO_UI_TADMULTIPLYCHRSELECTGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdMultiPlyChrSelectGC
-{
+struct TAdMultiPlyChrSelectGC : public TObject {
+    virtual ~TAdMultiPlyChrSelectGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -93,6 +94,8 @@ struct TAdMultiPlyChrSelectGC
     s32 get_ready_state();
     void *init_player(void *arg1, void *arg2, void *arg3, void *arg4);
     static u32 get_move_effect(s32 arg0);
+    u8 unk_68[0x38];
 };
 
+typedef char TAdMultiPlyChrSelectGC_size[sizeof(TAdMultiPlyChrSelectGC) == 0xA0 ? 1 : -1];
 #endif

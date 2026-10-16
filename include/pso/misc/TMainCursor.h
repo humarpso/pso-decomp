@@ -2,9 +2,10 @@
 #define PSO_MISC_TMAINCURSOR_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TMainCursor
-{
+struct TMainCursor : public TObject {
+    virtual ~TMainCursor();
     u32 m_1c;
     void* m_20;
     void* m_24;
@@ -86,6 +87,8 @@ struct TMainCursor
     int get_rader_map();
     void *destroy(s16 arg1);
     static void find_action_slot_for_target(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+    u8 unk_64[0x4];
 };
 
+typedef char TMainCursor_size[sizeof(TMainCursor) == 0x68 ? 1 : -1];
 #endif

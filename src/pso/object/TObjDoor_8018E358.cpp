@@ -524,7 +524,7 @@ void TObjDoor::update_state() {
     case 1:
         if(this->cameraMode==1 && activate_camera_mode(9)!=0) {
             VecCopy__FP3VecPC3Vec(target,this->position);
-            VecCopy__FP3VecPC3Vec(position,this->cameraPosition);
+            VecCopy__FP3VecPC3Vec(position,(f32 *)&this->scale);
             set_active_camera_pose(position,target);this->cameraMode=2;
         }
         if(this->cameraMode==2) {

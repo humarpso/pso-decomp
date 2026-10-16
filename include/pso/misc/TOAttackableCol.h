@@ -2,12 +2,11 @@
 #define PSO_MISC_TOATTACKABLECOL_H
 
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 
-struct TOAttackableCol
-{
-    u8 _pad1C[0x30A];
-    s16 m_326;
-    u8 _pad328[0x14];
+struct TOAttackableCol : public TUnk_804806E8 {
+    virtual ~TOAttackableCol();
+    u8 unk_334[0x8];
     u32 m_33c;
     void init_params();
     int send_state_change(u16 state);
@@ -20,6 +19,8 @@ struct TOAttackableCol
     static void *create(void *arg0);
     void bswap_state();
     void broadcast_state();
+    u8 unk_340[0x10];
 };
 
+typedef char TOAttackableCol_size[sizeof(TOAttackableCol) == 0x350 ? 1 : -1];
 #endif

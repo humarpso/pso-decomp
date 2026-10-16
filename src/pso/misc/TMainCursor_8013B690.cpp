@@ -17,7 +17,6 @@ s32 get_split_screen_view_index__11TCameraCtrlFUs();
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 render__11TMainCursorFPv(void *);
 extern u8 shared_effect_texture_list[];
-extern u8 main_task[];
 s32 obj_testFlags30(s32, s32);
 s32 obj_getField1c(void *);
 s32 clear_flags__11TAdRicoRingFUl(void *, u32);
@@ -205,7 +204,7 @@ void TMainCursor::render() {
         if (no != cam) {
             return;
         }
-    } else if (get_mode__11TCameraCtrlFPv(main_task) & 0x10) {
+    } else if (get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x10) {
         return;
     }
     switch (*(s32 *)(arg0 + 0x1C)) {

@@ -3,16 +3,13 @@
 
 #include "types.h"
 #include <stddef.h>
+#include "pso/object/TObjMotion.h"
 
-struct TItem
-{
+struct TItem : public TUnk_804AF8A0 {
+    virtual ~TItem();
     void render_ground();
     void render_owned();
     void render_following_owner();
-    u8 object_header[0x1C];
-    u8 _pad1C[0x7C];
-    void* m_98;
-    u8 _pad9C[0x10];
     void* m_ac;
     u8 _padB0[0x28];
     u32 m_d8;
@@ -54,8 +51,7 @@ struct TItem
     void update_timer();
     static void push_to_player_list(void* a0);
     void update_owner_visibility();
-    void set_owner_client(u16 arg1);
-};
+    void set_owner_client(u16 arg1);};
 
 typedef char TItemModeOffset[(offsetof(TItem, render_mode) == 0xEB) ? 1 : -1];
 typedef char TItemModelOffset[(offsetof(TItem, model_index) == 0xEF) ? 1 : -1];

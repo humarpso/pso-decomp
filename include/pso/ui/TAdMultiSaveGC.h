@@ -2,9 +2,10 @@
 #define PSO_UI_TADMULTISAVEGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdMultiSaveGC
-{
+struct TAdMultiSaveGC : public TObject {
+    virtual ~TAdMultiSaveGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -14,7 +15,7 @@ struct TAdMultiSaveGC
     static void free_window();
     static void load_shared_resource();
     static void render(void *self);
-    static void queue_destruction();
-};
+    static void queue_destruction();};
 
+typedef char TAdMultiSaveGC_size[sizeof(TAdMultiSaveGC) == 0x34 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBMAG_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubMag
-{
+struct TWindowSubMag : public TObject {
+    virtual ~TWindowSubMag();
     u8 m_1c;
     u8 m_1d;
     u8 m_1e;
@@ -45,7 +46,7 @@ struct TWindowSubMag
     int get_flag_bit5();
     void set_mag_slot_state(s32 arg1);
     void init_and_setup(void* a1);
-    void start_scroll(f32 farg0);
-};
+    void start_scroll(f32 farg0);};
 
+typedef char TWindowSubMag_size[sizeof(TWindowSubMag) == 0x50 ? 1 : -1];
 #endif

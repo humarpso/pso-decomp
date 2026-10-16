@@ -2,20 +2,10 @@
 #define PSO_MISC_TOROCKJUNGLEM01_H
 
 #include "types.h"
+#include "pso/misc/TORockCaveBrakable.h"
 
-struct TORockJungleM01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x20];
-    u32 m_84;
-    u8 _pad88[0x30];
-    u32 m_b8;
+struct TORockJungleM01 : public TORockCaveBrakable {
+    virtual ~TORockJungleM01();
     void* m_bc;
     u8 _padC0[0x10];
     u32 m_d0;
@@ -23,7 +13,7 @@ struct TORockJungleM01
     u32 m_d8;
     u32 m_dc;
     void run_task();
-    static void *create(void *arg0);
-};
+    static void *create(void *arg0);};
 
+typedef char TORockJungleM01_size[sizeof(TORockJungleM01) == 0xE0 ? 1 : -1];
 #endif

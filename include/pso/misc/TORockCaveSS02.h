@@ -2,13 +2,10 @@
 #define PSO_MISC_TOROCKCAVESS02_H
 
 #include "types.h"
+#include "pso/misc/TORockCaveSimple.h"
 
-struct TORockCaveSS02
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-};
+struct TORockCaveSS02 : public TORockCaveSimple {
+    virtual ~TORockCaveSS02();};
 
+typedef char TORockCaveSS02_size[sizeof(TORockCaveSS02) == 0xB4 ? 1 : -1];
 #endif

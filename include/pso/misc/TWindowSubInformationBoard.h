@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBINFORMATIONBOARD_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubInformationBoard
-{
+struct TWindowSubInformationBoard : public TObject {
+    virtual ~TWindowSubInformationBoard();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -23,6 +24,8 @@ struct TWindowSubInformationBoard
     void set_message_index(s32 arg1);
     static s32 open_keyboard(s32 arg0);
     void show_card_a7();
+    u8 unk_44[0x8D0];
 };
 
+typedef char TWindowSubInformationBoard_size[sizeof(TWindowSubInformationBoard) == 0x914 ? 1 : -1];
 #endif

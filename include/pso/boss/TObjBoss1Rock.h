@@ -2,9 +2,10 @@
 #define PSO_BOSS_TOBJBOSS1ROCK_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TObjBoss1Rock
-{
+struct TObjBoss1Rock : public TObject {
+    virtual ~TObjBoss1Rock();
     void* m_1c;
     u8 _pad20[0x8];
     void* m_28;
@@ -17,7 +18,7 @@ struct TObjBoss1Rock
     void render();
     void run_task();
     void *construct(void *arg1, void *arg2, void *arg3, void *arg4);
-    void *construct_random(void *arg1, void *arg2, void *arg3);
-};
+    void *construct_random(void *arg1, void *arg2, void *arg3);};
 
+typedef char TObjBoss1Rock_size[sizeof(TObjBoss1Rock) == 0x54 ? 1 : -1];
 #endif

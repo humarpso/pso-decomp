@@ -2,14 +2,10 @@
 #define PSO_OBJECT_TOBJRADERICON_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjRaderIcon
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x2C];
+struct TObjRaderIcon : public TUnk_804B9870 {
+    virtual ~TObjRaderIcon();
     u32 m_90;
     u32 m_94;
     u32 m_98;
@@ -17,7 +13,7 @@ struct TObjRaderIcon
     u32 m_a0;
     static void render();
     void run_task();
-    void initialize_from_placement();
-};
+    void initialize_from_placement();};
 
+typedef char TObjRaderIcon_size[sizeof(TObjRaderIcon) == 0xA4 ? 1 : -1];
 #endif

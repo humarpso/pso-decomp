@@ -2,9 +2,10 @@
 #define PSO_ITEM_TITEMEFFARMOR_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TItemEffArmor
-{
+struct TItemEffArmor : public TObject {
+    virtual ~TItemEffArmor();
     u32 m_1c;
     u8 _pad20[0xC];
     void* m_2c;
@@ -17,7 +18,7 @@ struct TItemEffArmor
     u32 m_74;
     u32 m_78;
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TItemEffArmor_size[sizeof(TItemEffArmor) == 0x7C ? 1 : -1];
 #endif

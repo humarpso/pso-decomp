@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include <stddef.h>
+#include "pso/object/TObjMotion.h"
 
 struct RadarViewportParameters
 {
@@ -16,9 +17,8 @@ struct RadarViewportParameters
     f32 screen_height;
 };
 
-struct TRaderMapCore
-{
-    u8 unknown00[0x90];
+struct TRaderMapCore : public TUnk_804B9870 {
+    virtual ~TRaderMapCore();
     s32 m_90;
     u8 player_marker_records[0xA0];
     s32 m_134;
@@ -85,8 +85,7 @@ struct TRaderMapCore
     static void init_map_ptr();
     static s32 is_not_split_screen();
     static void clear();
-    static void apply_packed_flags(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-};
+    static void apply_packed_flags(s32 arg0, s32 arg1, s32 arg2, s32 arg3);};
 
 typedef char RadarViewportSize[(sizeof(RadarViewportParameters) == 0x30) ? 1 : -1];
 typedef char RadarViewportCenterX[(offsetof(RadarViewportParameters, center_x) == 0x8) ? 1 : -1];

@@ -2,20 +2,10 @@
 #define PSO_MISC_TODUMMYKEYCAVE01_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TODummyKeyCave01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x20];
-    u32 m_5c;
-    u32 m_60;
-    u32 m_64;
-    void* m_68;
-    u8 _pad6C[0x24];
+struct TODummyKeyCave01 : public TUnk_804B9870 {
+    virtual ~TODummyKeyCave01();
     u32 m_90;
     u32 m_94;
     u16 m_98;
@@ -33,7 +23,7 @@ struct TODummyKeyCave01
     u32 m_d0;
     void render();
     void run_task();
-    static void *create(void *arg0);
-};
+    static void *create(void *arg0);};
 
+typedef char TODummyKeyCave01_size[sizeof(TODummyKeyCave01) == 0xD4 ? 1 : -1];
 #endif

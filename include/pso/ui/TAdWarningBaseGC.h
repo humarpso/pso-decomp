@@ -2,9 +2,10 @@
 #define PSO_UI_TADWARNINGBASEGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdWarningBaseGC
-{
+struct TAdWarningBaseGC : public TObject {
+    virtual ~TAdWarningBaseGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -12,7 +13,7 @@ struct TAdWarningBaseGC
     u32 m_2c;
     int destroy();
     static void create();
-    static void init_heap();
-};
+    static void init_heap();};
 
+typedef char TAdWarningBaseGC_size[sizeof(TAdWarningBaseGC) == 0x30 ? 1 : -1];
 #endif

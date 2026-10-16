@@ -2,12 +2,10 @@
 #define PSO_MISC_TOSWITCHTIMER_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TOSwitchTimer
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x54];
+struct TOSwitchTimer : public TUnk_804B9870 {
+    virtual ~TOSwitchTimer();
     u32 m_90;
     u32 m_94;
     u32 m_98;
@@ -20,6 +18,8 @@ struct TOSwitchTimer
     void render();
     void run_task();
     static void *create(void *arg0);
+    u8 unk_B1[0x7];
 };
 
+typedef char TOSwitchTimer_size[sizeof(TOSwitchTimer) == 0xB8 ? 1 : -1];
 #endif

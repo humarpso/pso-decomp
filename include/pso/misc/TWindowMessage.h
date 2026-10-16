@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWMESSAGE_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 
-struct TWindowMessage
-{
+struct TWindowMessage : public TUnk_804CDFE8 {
+    virtual ~TWindowMessage();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x4];
@@ -19,7 +20,7 @@ struct TWindowMessage
     u8 _pad80[0x8];
     u32 m_88;
     u32 m_8c;
-    void draw();
-};
+    void draw();};
 
+typedef char TWindowMessage_size[sizeof(TWindowMessage) == 0x90 ? 1 : -1];
 #endif

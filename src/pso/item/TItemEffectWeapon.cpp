@@ -1,5 +1,6 @@
 #include "pso/item/TItemEffectWeapon.h"
 #include "pso/player/TObjPlayer.h"
+#include "pso/TObject.h"
 
 extern "C" {
 u32 get_mode__11TCameraCtrlFPv(void*);
@@ -12,7 +13,6 @@ void draw_untextured_trail_strip(TItemEffectWeapon::TrailVertex*, s32);
 void TObjPlayer__sub_803DF768(s32);
 void set_flag_9__7TObjectFv(void*);
 void* mem_alloc(size_t);
-extern u8 main_task[];
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
 
@@ -91,7 +91,7 @@ void TItemEffectWeapon::push_trail_entry(const f32* first, const f32* second) {
 }
 
 void TItemEffectWeapon::render_trail() {
-    if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+    if (get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x200) {
         if (vertex_count != 0 && vertices != NULL) {
             begin_effect_render__13TParticleCtrlFv();
             lbl_805D5660 = model_render_flags;

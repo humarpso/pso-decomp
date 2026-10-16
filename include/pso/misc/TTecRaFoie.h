@@ -2,19 +2,10 @@
 #define PSO_MISC_TTECRAFOIE_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804CC148.h"
 
-struct TTecRaFoie
-{
-    u32 m_1c;
-    u8 _pad20[0x5A];
-    s16 m_7a;
-    void* m_7c;
-    u8 _pad80[0x34];
-    u16 m_b4;
-    u8 _padB6[0x2];
-    u32 m_b8;
-    u8 _padBC[0x2C];
-    u32 m_e8;
+struct TTecRaFoie : public TUnk_804CC148 {
+    virtual ~TTecRaFoie();
     u32 m_ec;
     u16 m_f0;
     u8 _padF2[0x56];
@@ -24,7 +15,7 @@ struct TTecRaFoie
     static void render();
     void update_detonation(void *arg1);
     void create(void *arg1, void *arg2, void *arg3);
-    void create_ex(void *arg1, void *arg2, void *arg3);
-};
+    void create_ex(void *arg1, void *arg2, void *arg3);};
 
+typedef char TTecRaFoie_size[sizeof(TTecRaFoie) == 0x14C ? 1 : -1];
 #endif

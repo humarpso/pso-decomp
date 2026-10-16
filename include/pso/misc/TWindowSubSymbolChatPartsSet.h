@@ -2,18 +2,10 @@
 #define PSO_MISC_TWINDOWSUBSYMBOLCHATPARTSSET_H
 
 #include "types.h"
+#include "pso/misc/TWindowChatSymbol.h"
 
-struct TWindowSubSymbolChatPartsSet
-{
-    u8 _pad1C[0x4];
-    s16 m_20;
-    u8 _pad22[0x2];
-    void* m_24;
-    u8 _pad28[0x4];
-    u32 m_2c;
-    u8 _pad30[0x2C];
-    u32 m_5c;
-    u8 _pad60[0x8];
+struct TWindowSubSymbolChatPartsSet : public TWindowChatSymbol {
+    virtual ~TWindowSubSymbolChatPartsSet();
     u8 m_68;
     u8 _pad69[0x1];
     u16 m_6a;
@@ -32,6 +24,8 @@ struct TWindowSubSymbolChatPartsSet
     void toggle_selected_part();
     void handle_cursor_input();
     void run_task();
+    u8 unk_8C[0xC];
 };
 
+typedef char TWindowSubSymbolChatPartsSet_size[sizeof(TWindowSubSymbolChatPartsSet) == 0x98 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TEFFINDIRECTCTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TEffIndirectCtrl
-{
+struct TEffIndirectCtrl : public TObject {
+    virtual ~TEffIndirectCtrl();
     u32 m_1c;
     u32 m_20;
     u8 m_24;
@@ -23,6 +24,8 @@ struct TEffIndirectCtrl
     void copy_and_flush_texture(s32 arg1);
     static void free_all();
     void update_scroll_mode();
+    u8 unk_48[0xC];
 };
 
+typedef char TEffIndirectCtrl_size[sizeof(TEffIndirectCtrl) == 0x54 ? 1 : -1];
 #endif

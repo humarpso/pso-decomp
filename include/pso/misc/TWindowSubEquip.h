@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBEQUIP_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowSubEquip
-{
+struct TWindowSubEquip : public TObject {
+    virtual ~TWindowSubEquip();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -23,7 +24,7 @@ struct TWindowSubEquip
     static void render();
     void run_task();
     void update_window();
-    void apply_slot_selection();
-};
+    void apply_slot_selection();};
 
+typedef char TWindowSubEquip_size[sizeof(TWindowSubEquip) == 0x3C ? 1 : -1];
 #endif

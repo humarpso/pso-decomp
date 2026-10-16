@@ -2,23 +2,11 @@
 #define PSO_MISC_TPHOTONYOULLA_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 
-struct TPhotonYoulla
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x54];
-    s16 m_b8;
-    u8 _padBA[0x7E];
-    u32 m_138;
-    u8 _pad13C[0x10];
-    s16 m_14c;
-    u8 _pad14E[0x2E];
+struct TPhotonYoulla : public TUnk_804C3248 {
+    virtual ~TPhotonYoulla();
+    u8 unk_158[0x24];
     u16 m_17c;
     u8 _pad17E[0x2];
     u32 m_180;
@@ -31,7 +19,7 @@ struct TPhotonYoulla
     u32 m_1a0;
     u32 m_1a4;
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TPhotonYoulla_size[sizeof(TPhotonYoulla) == 0x1A8 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TCAMERACTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TCameraCtrl
-{
+struct TCameraCtrl : public TObject {
+    virtual ~TCameraCtrl();
     u8 m_1c;
     u8 _pad1D[0x3];
     u32 m_20;
@@ -118,6 +119,8 @@ struct TCameraCtrl
     static void set_clamped_offsets(f32 farg0, f32 farg1);
     void update_projection_params();
     static void concat_matrix(u32 arg0, u32 arg1);
+    u8 unk_1C4[0x10];
 };
 
+typedef char TCameraCtrl_size[sizeof(TCameraCtrl) == 0x1D4 ? 1 : -1];
 #endif

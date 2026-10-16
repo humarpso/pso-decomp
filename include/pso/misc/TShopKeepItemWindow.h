@@ -2,9 +2,10 @@
 #define PSO_MISC_TSHOPKEEPITEMWINDOW_H
 
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TShopKeepItemWindow
-{
+struct TShopKeepItemWindow : public TShopWindowBase {
+    virtual ~TShopKeepItemWindow();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -26,7 +27,7 @@ struct TShopKeepItemWindow
     s32 close();
     void handle_deposit_confirm();
     void update_number_input();
-    s32 rebuild_item_list();
-};
+    s32 rebuild_item_list();};
 
+typedef char TShopKeepItemWindow_size[sizeof(TShopKeepItemWindow) == 0x39C ? 1 : -1];
 #endif

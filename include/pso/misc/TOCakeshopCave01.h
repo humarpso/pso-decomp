@@ -2,23 +2,18 @@
 #define PSO_MISC_TOCAKESHOPCAVE01_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 
-struct TOCakeshopCave01
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
+struct TOCakeshopCave01 : public TUnk_804AFBF8 {
+    virtual ~TOCakeshopCave01();
     void update_blink_state(void *arg1);
     void run_task();
     void render();
     void *create();
     static void close_dialog_window();
     static void load_resource_instance();
+    u8 unk_C8[0x2C];
 };
 
+typedef char TOCakeshopCave01_size[sizeof(TOCakeshopCave01) == 0xF4 ? 1 : -1];
 #endif

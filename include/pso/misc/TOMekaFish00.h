@@ -2,25 +2,12 @@
 #define PSO_MISC_TOMEKAFISH00_H
 
 #include "types.h"
+#include "pso/misc/TODragonfly.h"
 
-struct TOMekaFish00
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    u8 _pad38[0x4C];
-    u32 m_84;
-    u32 m_88;
-    u8 _pad8C[0x20];
-    u32 m_ac;
-    u8 _padB0[0xC];
-    u32 m_bc;
-    u8 _padC0[0x38];
-    u32 m_f8;
-    u32 m_fc;
+struct TOMekaFish00 : public TODragonfly {
+    virtual ~TOMekaFish00();
     static void release_static_instance();
-    static void load_shared_resource();
-};
+    static void load_shared_resource();};
 
+typedef char TOMekaFish00_size[sizeof(TOMekaFish00) == 0x100 ? 1 : -1];
 #endif

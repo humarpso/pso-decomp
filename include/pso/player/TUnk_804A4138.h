@@ -1,0 +1,13 @@
+#ifndef PSO_PLAYER_TUNK_804A4138_H
+#define PSO_PLAYER_TUNK_804A4138_H
+#include "types.h"
+#include "pso/unk/TUnk_804A4948.h"
+
+class TUnk_804A4138 : public TUnk_804A4948 {
+public:
+    virtual ~TUnk_804A4138();
+    u8 unk_1C[0x1E4];
+};
+typedef char TUnk_804A4138_size[sizeof(TUnk_804A4138) == 0x200 ? 1 : -1];
+
+#endif

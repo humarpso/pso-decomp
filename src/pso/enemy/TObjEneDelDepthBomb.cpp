@@ -648,7 +648,6 @@ extern const f32 lbl_805DF2D0;
 extern s32 lbl_805DF2D4;
 extern const f32 lbl_805DF2D8;
 extern const f32 lbl_805DF2DC;
-extern u8 main_task[];
 
 extern "C" {
 void set_action_state__15TObjEneDelDepthFPvi(Ene_803154A8 *o, s32 i);
@@ -1572,7 +1571,7 @@ void TObjEneDelDepth__sub_80315518(void) {  }
 
 s32 TObjEneDelDepth::draw_if_visible() {
     Dep_8031551C *o = (Dep_8031551C *)this;
-    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x20) {
         if (push_reflect_matrix__12TObjEneReconFPv(o->f3E4) != 0) {
             push_matrix();
             Vec_8031551C v = o->pos;

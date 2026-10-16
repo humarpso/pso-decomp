@@ -2,23 +2,14 @@
 #define PSO_OBJECT_TOBJPARTICLE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjParticle
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x20];
-    void* m_5c;
-    u8 _pad60[0x8];
-    void* m_68;
-    u8 _pad6C[0x18];
-    u32 m_84;
-    u32 m_88;
-    u32 m_8c;
+struct TObjParticle : public TUnk_804B9870 {
+    virtual ~TObjParticle();
     u32 m_90;
     u32 m_94;
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TObjParticle_size[sizeof(TObjParticle) == 0x98 ? 1 : -1];
 #endif

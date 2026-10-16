@@ -107,7 +107,6 @@ extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
 extern f32 lbl_8048DF4C[];
 extern u8 controller_physical_port_bank[];
-extern u8 main_task[];
 extern u32 camera_ctrl_instance;
 extern s8 boss2_tunnel_confirm_loop_flag;
 extern f32 lbl_805D4EA4;
@@ -130,7 +129,6 @@ void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A68[];
 extern f32 lbl_80438A70[];
 extern f32 lbl_8048DF44[];
-extern u8 main_task[];
 extern u32 camera_ctrl_instance;
 extern s8 lbl_805D4E98;
 extern f32 lbl_805D4E9C;
@@ -187,7 +185,7 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
         if (camera_ctrl_instance != 0U) {
             setup_default_view__11TCameraCtrlFPvPv(camera_ctrl_instance, 0);
         }
-        render__9TMainTaskFv(main_task);
+        render__9TMainTaskFv(((u8 *)&main_task));
         draw_snapshot_capture_overlay();
         TLobby::wait_ready_loop();
         if (func_801A5E54__Fv() != 0) {
@@ -269,7 +267,7 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
         if (camera_ctrl_instance != 0U) {
             setup_default_view__11TCameraCtrlFPvPv(camera_ctrl_instance, 0);
         }
-        render__9TMainTaskFv(main_task);
+        render__9TMainTaskFv(((u8 *)&main_task));
         if ((f32)frames >= lbl_805D9220) {
             break;
         }

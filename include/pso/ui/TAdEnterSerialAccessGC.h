@@ -2,10 +2,11 @@
 #define PSO_UI_TADENTERSERIALACCESSGC_H
 
 #include "types.h"
+#include "pso/ui/TAdEnterBaseGC.h"
 
-struct TAdEnterSerialAccessGC
-{
-    u8 _pad1C[0x24];
+struct TAdEnterSerialAccessGC : public TAdEnterBaseGC {
+    virtual ~TAdEnterSerialAccessGC();
+    u8 unk_38[0x8];
     u32 m_40;
     u32 m_44;
     u32 m_48;
@@ -37,7 +38,7 @@ struct TAdEnterSerialAccessGC
     static void store_serial_access_key(s32 arg0, s32 arg1, s32 arg2);
     static char *serial_to_hex_string(int arg0);
     static int forward_input(void* p);
-    void reset_input_state();
-};
+    void reset_input_state();};
 
+typedef char TAdEnterSerialAccessGC_size[sizeof(TAdEnterSerialAccessGC) == 0x68 ? 1 : -1];
 #endif

@@ -2,24 +2,14 @@
 #define PSO_MISC_TOCAPSULELABO_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804B27D8.h"
 
-struct TOCapsuleLabo
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x68];
-    u32 m_cc;
-    u8 _padD0[0x10];
-    u32 m_e0;
+struct TOCapsuleLabo : public TUnk_804B27D8 {
+    virtual ~TOCapsuleLabo();
     u32 m_e4;
     static void unload_static_data();
     static void load_resources();
-    void render();
-};
+    void render();};
 
+typedef char TOCapsuleLabo_size[sizeof(TOCapsuleLabo) == 0xE8 ? 1 : -1];
 #endif

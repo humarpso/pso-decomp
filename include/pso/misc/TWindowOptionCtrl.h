@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWOPTIONCTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowOptionCtrl
-{
+struct TWindowOptionCtrl : public TObject {
+    virtual ~TWindowOptionCtrl();
     u8 m_1c;
     u8 m_1d;
     u8 _pad1E[0x2];
@@ -57,7 +58,7 @@ struct TWindowOptionCtrl
     void handle_save_result();
     void *destroy(s16 arg1);
     void *ct();
-    void open();
-};
+    void open();};
 
+typedef char TWindowOptionCtrl_size[sizeof(TWindowOptionCtrl) == 0x50 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWMENU_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 
-struct TWindowMenu
-{
+struct TWindowMenu : public TUnk_804CDFE8 {
+    virtual ~TWindowMenu();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -31,7 +32,7 @@ struct TWindowMenu
     void move_cursor_prev();
     void run_task();
     void copy_position(void* q);
-    s32 is_locked(s32 arg1);
-};
+    s32 is_locked(s32 arg1);};
 
+typedef char TWindowMenu_size[sizeof(TWindowMenu) == 0x8C ? 1 : -1];
 #endif

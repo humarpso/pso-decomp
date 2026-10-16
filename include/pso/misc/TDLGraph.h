@@ -2,9 +2,10 @@
 #define PSO_MISC_TDLGRAPH_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TDLGraph
-{
+struct TDLGraph : public TObject {
+    virtual ~TDLGraph();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -17,6 +18,8 @@ struct TDLGraph
     void set_graph_param(s32 v);
     static void update_graph(s32 arg0, s32 arg1);
     static void *create();
+    u8 unk_34[0x30];
 };
 
+typedef char TDLGraph_size[sizeof(TDLGraph) == 0x64 ? 1 : -1];
 #endif

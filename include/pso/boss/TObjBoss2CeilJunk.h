@@ -2,17 +2,10 @@
 #define PSO_BOSS_TOBJBOSS2CEILJUNK_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjBoss2CeilJunk
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x8];
-    void* m_44;
-    u8 _pad48[0x14];
-    u32 m_5c;
-    u32 m_60;
-    u8 _pad64[0x2C];
+struct TObjBoss2CeilJunk : public TUnk_804B9870 {
+    virtual ~TObjBoss2CeilJunk();
     void* m_90;
     u8 _pad94[0x8];
     void* m_9c;
@@ -23,6 +16,8 @@ struct TObjBoss2CeilJunk
     void render();
     static void *create(void *arg0);
     static void create_particle();
+    u8 unk_B4[0x4];
 };
 
+typedef char TObjBoss2CeilJunk_size[sizeof(TObjBoss2CeilJunk) == 0xB8 ? 1 : -1];
 #endif

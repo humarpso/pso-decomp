@@ -2,20 +2,10 @@
 #define PSO_ENEMY_TOBJENEDELDEPTH_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
-struct TObjEneDelDepth
-{
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    u32 m_38;
-    u32 m_3c;
-    u32 m_40;
-    u8 _pad44[0x1C];
-    u32 m_60;
-    u8 _pad64[0x298];
-    void* m_2fc;
-    u8 _pad300[0x74];
+struct TObjEneDelDepth : public TObjEnemy {
+    virtual ~TObjEneDelDepth();
     u32 m_374;
     u8 _pad378[0x4];
     u32 m_37c;
@@ -62,7 +52,7 @@ struct TObjEneDelDepth
     void update_animation_frame();
     s32 is_state_complete();
     void set_motion(s32 arg1);
-    static s32 conditional_delete(s32 arg0, s16 arg1);
-};
+    static s32 conditional_delete(s32 arg0, s16 arg1);};
 
+typedef char TObjEneDelDepth_size[sizeof(TObjEneDelDepth) == 0x3F4 ? 1 : -1];
 #endif

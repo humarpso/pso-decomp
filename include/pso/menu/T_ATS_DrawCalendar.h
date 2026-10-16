@@ -1,0 +1,13 @@
+#ifndef PSO_MENU_T_ATS_DRAWCALENDAR_H
+#define PSO_MENU_T_ATS_DRAWCALENDAR_H
+#include "types.h"
+#include "pso/TObject.h"
+
+class T_ATS_DrawCalendar : public TObject {
+public:
+    virtual ~T_ATS_DrawCalendar();
+    u8 unk_1C[0xC];
+};
+typedef char T_ATS_DrawCalendar_size[sizeof(T_ATS_DrawCalendar) == 0x28 ? 1 : -1];
+
+#endif

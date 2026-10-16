@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWCTRL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TWindowCtrl
-{
+struct TWindowCtrl : public TObject {
+    virtual ~TWindowCtrl();
     u16 m_1c;
     u16 m_1e;
     u16 m_20;
@@ -104,6 +105,8 @@ struct TWindowCtrl
     static void clear_flag_8();
     static void set_flag_bit0();
     static void clear_active_flag();
+    u8 unk_98[0x50];
 };
 
+typedef char TWindowCtrl_size[sizeof(TWindowCtrl) == 0xE8 ? 1 : -1];
 #endif

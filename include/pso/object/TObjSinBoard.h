@@ -2,15 +2,12 @@
 #define PSO_OBJECT_TOBJSINBOARD_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjSinBoard
-{
-    u8 _pad1C[0x40];
-    u32 m_5c;
-    u32 m_60;
-    u32 m_64;
+struct TObjSinBoard : public TUnk_804B9870 {
+    virtual ~TObjSinBoard();
     void render();
-    static void run_task();
-};
+    static void run_task();};
 
+typedef char TObjSinBoard_size[sizeof(TObjSinBoard) == 0x90 ? 1 : -1];
 #endif

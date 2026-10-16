@@ -2,9 +2,10 @@
 #define PSO_MISC_TMOVIE_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TMovie
-{
+struct TMovie : public TObject {
+    virtual ~TMovie();
     u32 m_1c;
     u32 m_20;
     void* m_24;
@@ -25,7 +26,7 @@ struct TMovie
     void copy(void* q);
     void free_buffer();
     static void render_until_finished();
-    s32 check_skip_input();
-};
+    s32 check_skip_input();};
 
+typedef char TMovie_size[sizeof(TMovie) == 0x4C ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_MISC_TSHOPARMORLISTWINDOW_H
 
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 
-struct TShopArmorListWindow
-{
+struct TShopArmorListWindow : public TShopWindowBase {
+    virtual ~TShopArmorListWindow();
     u8 _pad1C[0x4];
     u32 m_20;
     u32 m_24;
@@ -33,7 +34,7 @@ struct TShopArmorListWindow
     void save_cursor_selection();
     void close_list();
     void save_and_refresh_cursor(void* a1, void* a2);
-    void save_and_close();
-};
+    void save_and_close();};
 
+typedef char TShopArmorListWindow_size[sizeof(TShopArmorListWindow) == 0x1F8 ? 1 : -1];
 #endif

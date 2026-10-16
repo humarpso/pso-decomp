@@ -2,9 +2,10 @@
 #define PSO_UI_TADCHRSELBSLOTGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdChrSelBSlotGC
-{
+struct TAdChrSelBSlotGC : public TObject {
+    virtual ~TAdChrSelBSlotGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -24,6 +25,8 @@ struct TAdChrSelBSlotGC
     static void *create(void *arg0);
     static int get_global_state();
     static int get_global_slot_data();
+    u8 unk_28[0x58];
 };
 
+typedef char TAdChrSelBSlotGC_size[sizeof(TAdChrSelBSlotGC) == 0x80 ? 1 : -1];
 #endif

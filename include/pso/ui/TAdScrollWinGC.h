@@ -2,9 +2,10 @@
 #define PSO_UI_TADSCROLLWINGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdScrollWinGC
-{
+struct TAdScrollWinGC : public TObject {
+    virtual ~TAdScrollWinGC();
     u8 _pad1C[0x20];
     u32 m_3c;
     u32 m_40;
@@ -17,7 +18,7 @@ struct TAdScrollWinGC
     void advance_scroll(f32 v);
     void close();
     void close_window();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TAdScrollWinGC_size[sizeof(TAdScrollWinGC) == 0x54 ? 1 : -1];
 #endif

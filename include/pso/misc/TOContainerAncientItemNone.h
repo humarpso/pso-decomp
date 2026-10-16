@@ -2,12 +2,11 @@
 #define PSO_MISC_TOCONTAINERANCIENTITEMNONE_H
 
 #include "types.h"
+#include "pso/misc/TOContainerAncientItemRare.h"
 
-struct TOContainerAncientItemNone
-{
-    u8 _pad1C[0x30A];
-    u16 m_326;
-    static void *create(void *arg0);
-};
+struct TOContainerAncientItemNone : public TOContainerAncientItemRare {
+    virtual ~TOContainerAncientItemNone();
+    static void *create(void *arg0);};
 
+typedef char TOContainerAncientItemNone_size[sizeof(TOContainerAncientItemNone) == 0x368 ? 1 : -1];
 #endif

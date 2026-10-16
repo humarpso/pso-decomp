@@ -361,7 +361,6 @@ s32 get_instance__11TCameraCtrlFv(void);
 s32 get_mode__11TCameraCtrlFPv(void *);
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF6D0 TCameraCtrl__view_matrix;
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF700 TCameraCtrl__view_matrices;
-extern RecoveredGlobal_800691C8_main_task main_task;
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 TCameraCtrl__up_vector;
 s32 is_split_screen();
@@ -392,7 +391,6 @@ s32 get_instance__11TCameraCtrlFv(void);
 s32 get_mode__11TCameraCtrlFPv(void *);
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF6D0 TCameraCtrl__view_matrix;
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF700 TCameraCtrl__view_matrices;
-extern RecoveredGlobal_800691C8_main_task main_task;
 s32 is_split_screen();
 s32 approach_camera_vector(void *, void *, f32);
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
@@ -757,7 +755,7 @@ void transform_to_view__11TCameraCtrlFii(s32 arg0, s32 arg1) {
 
 void TCameraCtrl::apply_split_screen_view_matrix() {
     if (is_split_screen() != 0) {
-        if (get_mode__11TCameraCtrlFPv(&main_task.value) & 1) {
+        if (get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_800691C8_main_task *)&main_task).value) & 1) {
             TCameraCtrl::concat_matrix(0U, (u32) ((u8 *)&TCameraCtrl__view_matrices.value + ((get_instance__11TCameraCtrlFv() - 1) * 0x30)));
             return;
         }
@@ -772,7 +770,7 @@ typedef char RecoveredGlobal_80069258_TCameraCtrl__data_804FF700_size[sizeof(Rec
 typedef char RecoveredGlobal_80069258_main_task_size[sizeof(RecoveredGlobal_80069258_main_task) == 0x34 ? 1 : -1];
 s32 *TCameraCtrl::get_view_matrix() {
     if (is_split_screen() != 0) {
-        if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_80069258_main_task *)&main_task).value)) & 1) {
+        if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_80069258_main_task *)&(*(RecoveredGlobal_800691C8_main_task *)&main_task)).value)) & 1) {
             return (long *) ((u8 *)&(*(RecoveredGlobal_80069258_TCameraCtrl__data_804FF700 *)&TCameraCtrl__view_matrices).value + ((get_instance__11TCameraCtrlFv() - 1) * 0x30));
         }
         return (long *) ((u8 *)&(*(RecoveredGlobal_80069258_TCameraCtrl__data_804FF700 *)&TCameraCtrl__view_matrices).value + (TCameraCtrl::get_camera_no() * 0x30));

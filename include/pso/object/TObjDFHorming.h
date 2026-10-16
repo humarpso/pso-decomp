@@ -2,14 +2,10 @@
 #define PSO_OBJECT_TOBJDFHORMING_H
 
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 
-struct TObjDFHorming
-{
-    u8 _pad1C[0x28];
-    void* m_44;
-    u8 _pad48[0x2B4];
-    void* m_2fc;
-    u8 _pad300[0x34];
+struct TObjDFHorming : public TUnk_804806E8 {
+    virtual ~TObjDFHorming();
     u16 m_334;
     u8 _pad336[0x2];
     u32 m_338;
@@ -21,6 +17,8 @@ struct TObjDFHorming
     u8 _pad364[0x4];
     u32 m_368;
     void* m_36c;
+    u8 unk_370[0x10];
 };
 
+typedef char TObjDFHorming_size[sizeof(TObjDFHorming) == 0x380 ? 1 : -1];
 #endif

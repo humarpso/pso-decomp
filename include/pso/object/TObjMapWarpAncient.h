@@ -2,16 +2,11 @@
 #define PSO_OBJECT_TOBJMAPWARPANCIENT_H
 
 #include "types.h"
+#include "pso/object/TObjMapWarp.h"
 
-struct TObjMapWarpAncient
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x24];
-    u32 m_88;
-    u8 _pad8C[0x74];
+struct TObjMapWarpAncient : public TObjMapWarp {
+    virtual ~TObjMapWarpAncient();
+    u8 unk_FC[0x4];
     u32 m_100;
     u32 m_104;
     u32 m_108;
@@ -21,7 +16,7 @@ struct TObjMapWarpAncient
     u32 m_118;
     void render();
     void run_task();
-    static void free_globals();
-};
+    static void free_globals();};
 
+typedef char TObjMapWarpAncient_size[sizeof(TObjMapWarpAncient) == 0x11C ? 1 : -1];
 #endif

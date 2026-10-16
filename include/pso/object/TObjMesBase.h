@@ -2,14 +2,10 @@
 #define PSO_OBJECT_TOBJMESBASE_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjMesBase
-{
-    u8 _pad00[0x84];
-    u32 m_84;
-    u8 _pad88[0x4];
-    u32 m_8c;
-    u8 _pad90[0x1C];
+struct TObjMesBase : public TUnk_804AF8A0 {
+    virtual ~TObjMesBase();
     void* messageChild;
     s32 messagePhase;
     s32 messageLabel;
@@ -17,8 +13,7 @@ struct TObjMesBase
     void start_message();
     void debug_draw_label();
     void clear_ref_if_destroyed();
-    void dispatch_state();
-};
+    void dispatch_state();};
 typedef char TObjMesBaseSizeCheck[sizeof(TObjMesBase) == 0xBC ? 1 : -1];
 
 #endif

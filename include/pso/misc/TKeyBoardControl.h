@@ -2,9 +2,10 @@
 #define PSO_MISC_TKEYBOARDCONTROL_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TKeyBoardControl
-{
+struct TKeyBoardControl : public TObject {
+    virtual ~TKeyBoardControl();
     u16 m_1c;
     s16 m_1e;
     u32 m_20;
@@ -61,7 +62,7 @@ struct TKeyBoardControl
     static void read_key_checked(u8 arg0);
     static void update_input_frame();
     static void init_pad_state();
-    s32 poll_key_state();
-};
+    s32 poll_key_state();};
 
+typedef char TKeyBoardControl_size[sizeof(TKeyBoardControl) == 0x2C ? 1 : -1];
 #endif

@@ -2,17 +2,10 @@
 #define PSO_OBJECT_TOBJLIGHT_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjLight
-{
-    u8 _pad1C[0xC];
-    s16 m_28;
-    u8 _pad2A[0xE];
-    void* m_38;
-    u8 _pad3C[0x48];
-    u32 m_84;
-    u32 m_88;
-    u32 m_8c;
+struct TObjLight : public TUnk_804B9870 {
+    virtual ~TObjLight();
     u32 m_90;
     u32 m_94;
     u8 _pad98[0x4];
@@ -44,6 +37,8 @@ struct TObjLight
     void bswap_data();
     void *destroy(s16 arg1);
     static void assert_light_id(s32 arg0);
+    u8 unk_DC[0x24];
 };
 
+typedef char TObjLight_size[sizeof(TObjLight) == 0x100 ? 1 : -1];
 #endif

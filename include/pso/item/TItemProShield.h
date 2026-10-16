@@ -2,16 +2,10 @@
 #define PSO_ITEM_TITEMPROSHIELD_H
 
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
 
-struct TItemProShield
-{
-    u8 _pad1C[0xD4];
-    u32 m_f0;
-    u32 m_f4;
-    u8 _padF8[0x7C];
-    u32 m_174;
-    u8 _pad178[0x10];
-    u32 m_188;
+struct TItemProShield : public TItemEquipBase {
+    virtual ~TItemProShield();
     u32 m_18c;
     u32 m_190;
     u32 m_194;
@@ -29,7 +23,7 @@ struct TItemProShield
     void deactivate_shield_effect(s32 arg1);
     u8 *create_instance();
     static void free();
-    static void load_data();
-};
+    static void load_data();};
 
+typedef char TItemProShield_size[sizeof(TItemProShield) == 0x1A0 ? 1 : -1];
 #endif

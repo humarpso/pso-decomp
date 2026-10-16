@@ -2,15 +2,18 @@
 #define PSO_MISC_TWINDOWDEPOSIT_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowDeposit
-{
+struct TWindowDeposit : public TUnk_804CE018 {
+    virtual ~TWindowDeposit();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x3C];
     void* m_64;
     void render_status(s32 arg1);
     void run_task();
+    u8 unk_68[0x4];
 };
 
+typedef char TWindowDeposit_size[sizeof(TWindowDeposit) == 0x6C ? 1 : -1];
 #endif

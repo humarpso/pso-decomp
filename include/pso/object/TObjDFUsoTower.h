@@ -2,19 +2,16 @@
 #define PSO_OBJECT_TOBJDFUSOTOWER_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TObjDFUsoTower
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x54];
+struct TObjDFUsoTower : public TUnk_804B9870 {
+    virtual ~TObjDFUsoTower();
     u32 m_90;
     static void *create(void *arg0);
     void render();
     void run_task();
+    u8 unk_94[0x4];
 };
 
+typedef char TObjDFUsoTower_size[sizeof(TObjDFUsoTower) == 0x98 ? 1 : -1];
 #endif

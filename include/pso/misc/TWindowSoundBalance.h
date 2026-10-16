@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSOUNDBALANCE_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSoundBalance
-{
+struct TWindowSoundBalance : public TUnk_804CE018 {
+    virtual ~TWindowSoundBalance();
     u8 _pad1C[0x8];
     void* m_24;
     u8 _pad28[0x38];
@@ -17,6 +18,8 @@ struct TWindowSoundBalance
     void run_task();
     void apply_balance(void *arg1);
     void handle_cancel();
+    u8 unk_66[0x2];
 };
 
+typedef char TWindowSoundBalance_size[sizeof(TWindowSoundBalance) == 0x68 ? 1 : -1];
 #endif

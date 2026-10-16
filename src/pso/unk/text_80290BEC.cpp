@@ -15,7 +15,6 @@ struct RecoveredGlobal_80290C20_main_task {
 extern "C" {
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
-extern RecoveredGlobal_80290BEC_main_task main_task;
 void fn_80290BEC(void);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
@@ -32,7 +31,6 @@ s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 s32 noop__23TAdSinglePlyChrSelectGCFv();
 s32 func_803DCDFC__Fv();
-extern RecoveredGlobal_80290BEC_main_task main_task;
 void run_main_frame(void);
 }
 
@@ -42,9 +40,9 @@ typedef char RecoveredGlobal_80290BEC_main_task_size[sizeof(RecoveredGlobal_8029
 void fn_80290BEC(void) {
     s32 *var_r3;
     TLobby::stop_audio_streams();
-    var_r3 = (s32 *)(&main_task.value);
-    var_r3 = (s32 *)(&main_task.value);
-    delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value);
+    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290BEC_main_task *)&main_task).value));
     TLobby::free_all_resources();
     render_tick__Fv();
 }
@@ -54,18 +52,18 @@ void run_main_frame(void) {
     func_803DCDFC__Fv();
     controller_stuff__Fv();
     TKeyBoardControl::update_input_frame();
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value));
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value));
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value));
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value);
-    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&main_task).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value);
+    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_80290C20_main_task *)&(*(RecoveredGlobal_80290BEC_main_task *)&main_task)).value));
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();

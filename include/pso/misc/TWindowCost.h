@@ -2,12 +2,11 @@
 #define PSO_MISC_TWINDOWCOST_H
 
 #include "types.h"
+#include "pso/misc/TWindowMeseta.h"
 
-struct TWindowCost
-{
-    u8 _pad1C[0x8];
-    void* m_24;
-    void run_task();
-};
+struct TWindowCost : public TWindowMeseta {
+    virtual ~TWindowCost();
+    void run_task();};
 
+typedef char TWindowCost_size[sizeof(TWindowCost) == 0x74 ? 1 : -1];
 #endif

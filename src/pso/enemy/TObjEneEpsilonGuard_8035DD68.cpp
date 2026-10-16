@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 
 struct VBase18_8035DD68 { char pad[0x18]; };
 struct VObj18_8035DD68 : VBase18_8035DD68 {
@@ -460,7 +461,6 @@ s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl(int);
 s32 set_global_state__16TObjEneRe7BeruraFl(void *);
 void advance_camera_ctrl_step__19TObjEneEpsilonGuardFv(void);
-extern s32 main_task[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -647,14 +647,13 @@ void set_target__19TObjEneEpsilonGuardFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 a
     ((GuardVObj_8035DD68 *)arg0)->m53();
 }
 
-extern s32 main_task[];
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 
 void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f1;
 
-    if ((*(s32 *)((s8 *)arg0 + 0x46C) & 0x20) && (get_mode__11TCameraCtrlFPv((void *) (main_task)) & 0x200)) {
+    if ((*(s32 *)((s8 *)arg0 + 0x46C) & 0x20) && (get_mode__11TCameraCtrlFPv((void *) (((s32 *)&main_task))) & 0x200)) {
         set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
@@ -682,7 +681,7 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     update_obstruction_fade(r);
     if (updateFromCamera__15RenderFadeStateFPCf(r, arg0 + 0x2FC) != 0) {
         r->m6();
-        if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
+        if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {
             model_render_flags = lbl_805D5660;
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -690,13 +689,13 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
         }
     } else if (*(s16 *)((s8 *)arg0 + 0x326) == 3) {
         ((VObj_8035E018 *)(arg0 + 0x4BC))->m6();
-        if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
+        if (!(get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200)) {
             model_render_flags = lbl_805D5660;
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             return;
         }
-    } else if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+    } else if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x200) {
         model_render_flags = lbl_805D5660;
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;

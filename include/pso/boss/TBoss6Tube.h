@@ -2,9 +2,10 @@
 #define PSO_BOSS_TBOSS6TUBE_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TBoss6Tube
-{
+struct TBoss6Tube : public TObject {
+    virtual ~TBoss6Tube();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -20,7 +21,7 @@ struct TBoss6Tube
     void update_timer();
     static void *create(void *arg0);
     static void free_resources();
-    static void load_resources();
-};
+    static void load_resources();};
 
+typedef char TBoss6Tube_size[sizeof(TBoss6Tube) == 0x30 ? 1 : -1];
 #endif

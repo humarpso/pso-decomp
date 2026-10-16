@@ -2,30 +2,13 @@
 #define PSO_MISC_TOMINEICON02_H
 
 #include "types.h"
+#include "pso/misc/TOMine.h"
 
-struct TOMineIcon02
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    u8 _pad38[0x4C];
-    u32 m_84;
-    u32 m_88;
-    u32 m_8c;
-    u8 _pad90[0x26C];
-    void* m_2fc;
-    u8 _pad300[0x26];
-    u16 m_326;
-    u8 _pad328[0x2C];
-    u32 m_354;
-    u8 _pad358[0x4];
-    u16 m_35c;
-    u8 _pad35E[0x16];
+struct TOMineIcon02 : public TOMine {
+    virtual ~TOMineIcon02();
     u32 m_374;
     u32 m_378;
-    void *create();
-};
+    void *create();};
 
+typedef char TOMineIcon02_size[sizeof(TOMineIcon02) == 0x37C ? 1 : -1];
 #endif

@@ -2,15 +2,12 @@
 #define PSO_NPC_TOBJNPCHOSA_H
 
 #include "types.h"
+#include "pso/npc/TUnk_804A9F50.h"
 
-struct TObjNpcHosa
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
+struct TObjNpcHosa : public TUnk_804A9F50 {
+    virtual ~TObjNpcHosa();
     static void destroy_static_instance();
-    static void load_static_resource();
-};
+    static void load_static_resource();};
 
+typedef char TObjNpcHosa_size[sizeof(TObjNpcHosa) == 0x3B8 ? 1 : -1];
 #endif

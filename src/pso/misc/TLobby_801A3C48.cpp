@@ -131,7 +131,6 @@ s32 run_task__9TMainTaskFv(void *);
 s32 render_shadows__9TMainTaskFv(void *);
 s32 noop__23TAdSinglePlyChrSelectGCFv();
 s32 func_803DCDFC__Fv();
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__idle_timeout_active;
 extern s32 lbl_805D55C0;
 extern s16 TLobby__data_805D5CE8;
@@ -160,7 +159,6 @@ s32 run_task__9TMainTaskFv(void *);
 s32 render_shadows__9TMainTaskFv(void *);
 s32 noop__23TAdSinglePlyChrSelectGCFv();
 s32 func_803DCDFC__Fv();
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__idle_timeout_active;
 extern s32 lbl_805D55C0;
 extern s32 TLobby__online_lobby_frame_counter;
@@ -178,7 +176,6 @@ s32 PPCSync();
 extern RecoveredGlobal_801A4610_lbl_804C20E8 online_lobby_scene_callback_table;
 extern RecoveredGlobal_801A4610_lbl_804C2240 lobby_area_reload_callbacks;
 extern unsigned char lbl_80515BA0[];
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 local_client_id;
 extern s32 online_lobby_scene_handle;
 extern s32 TLobby__lobby_state_flags;
@@ -198,7 +195,6 @@ s32 run_task__9TMainTaskFv(void *);
 s32 noop__23TAdSinglePlyChrSelectGCFv();
 s32 func_803DCDFC__Fv();
 extern s32 lbl_80446930[];
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 lbl_805D5718;
 void __construct_array(void *, void *, int, int, int);
 void TLobby__sub_8013A23C(void);
@@ -246,7 +242,6 @@ s32 set_parent__7TObjectFP7TObject(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, s32);
 extern u8 TLobby__data_805011D8[];
 extern unsigned char lbl_80515BA0[];
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__designated_client_id;
 extern u32 quest_mission_manager;
 extern void *tl_03;
@@ -288,7 +283,6 @@ extern RecoveredGlobal_801A4610_lbl_804C2240 lobby_area_reload_callbacks;
 extern u8 TLobby__data_805011D8[];
 extern u8 game_variations[];
 extern unsigned char lbl_80515BA0[];
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__designated_client_id;
 extern int TLobby__new_game_setup_flags;
 extern u32 quest_area_manager;
@@ -340,7 +334,6 @@ s32 create__12TAdDialingGCFv(void *);
 s32 func_803DCDFC__Fv();
 extern RecoveredGlobal_801A4610_lbl_804C20E8 online_lobby_scene_callback_table;
 extern unsigned char lbl_80515BA0[];
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 actor_frame_tick;
 extern s16 TLobby__data_805D5CE8;
 extern int TLobby__new_game_setup_flags;
@@ -382,7 +375,6 @@ s32 __ct__7TObjectFP7TObject(void *, s32);
 s32 init_key_slots__15TOKeyJungleMainFPv();
 extern u8 TLobby__data_805011D8[];
 extern unsigned char lbl_80515BA0[];
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__designated_client_id;
 extern s32 TLobby__lobby_number;
 extern s16 TLobby__data_805D5CE8;
@@ -410,7 +402,6 @@ s32 delete_all_task_children__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 s32 set_parent__7TObjectFP7TObject(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, s32);
-extern RecoveredGlobal_801A4820_main_task main_task;
 extern void *tl_03;
 }
 
@@ -487,8 +478,8 @@ void reload_lobby_floor_scene(void) {
     render_tick__Fv();
     find_leader_section_id(TLobby__data_805011D8, TLobby__designated_client_id);
     TLobby::free_objects();
-    delete_all_task_children__9TMainTaskFv(&main_task);
-    clear_flag3_all_tasks__9TMainTaskFv(&main_task);
+    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    clear_flag3_all_tasks__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
     promote_area_floor(lbl_80515BA0);
     TLobby::reset_counter();
     reset_story_select__6TLobbyFPv();
@@ -506,9 +497,9 @@ void reload_lobby_floor_scene(void) {
     load_area_scene_and_init(lbl_80515BA0);
     load_battle_param_entry();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&main_task);
-    run_task__9TMainTaskFv(&main_task);
-    render_screen_overlay__9TMainTaskFv(&main_task);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
     TLobby__sub_801F494C(0);
     TLobby__sub_801A3E94();
     process_deferred_player_setup__6TLobbyFv();
@@ -527,19 +518,19 @@ void TLobby::blocking_vsync(void* _w0) {
     TLoadCtrl::set_field1C((int) (0));
     func_803DCDFC__Fv();
     if ((s32) lbl_805D5718 != 0) {
-        some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
-        run_tl_camera_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
-        render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
-        render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
+        some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        run_tl_camera_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
         debug_print__FPCc((void *) (lbl_80446930));
         render_tick__Fv();
     } else {
         controller_stuff__Fv();
         TKeyBoardControl::update_input_frame();
-        some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
-        run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
-        render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
-        render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
+        some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+        render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
         process_async_file_reads();
         update_sound_request_slots();
         run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -569,7 +560,7 @@ void TLobby::reload_floor_scene() {
             set_parent__7TObjectFP7TObject(p, &sp8);
         }
     }
-    delete_all_task_children__9TMainTaskFv(&main_task);
+    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
     TKeyBoardControl::update();
     TLobby::create_map_csn_ctrl();
     create_quad_sprites__13TParticleCtrlFv();
@@ -582,9 +573,9 @@ void TLobby::reload_floor_scene() {
     arrive_floor_population();
     create_tasks__6TLobbyFv();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&main_task);
-    run_task__9TMainTaskFv(&main_task);
-    render_screen_overlay__9TMainTaskFv(&main_task);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task));
     for (j = 0; j < 12; j++) {
         p = (Pl_801A40D8 *)get_player_by_client_id(j);
         if (p != NULL) {
@@ -644,7 +635,7 @@ s32 start_quest_mission(void) {
             set_parent__7TObjectFP7TObject(p, tmp);
         }
     }
-    delete_all_task_children__9TMainTaskFv(&main_task.value);
+    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
     promote_area_floor(lbl_80515BA0);
     TLobby::sync_story_select();
     set_state__16TAdStorySelectGCFl(0);
@@ -672,9 +663,9 @@ s32 start_quest_mission(void) {
     get_current_floor();
     unlock_main_warp_destination();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&main_task.value);
-    run_task__9TMainTaskFv(&main_task.value);
-    render_screen_overlay__9TMainTaskFv(&main_task.value);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
     for (j = 0; j < 12; j++) {
         p = (VObj_18_801A4268 *) get_player_by_client_id(j);
         if (p != NULL) {
@@ -710,7 +701,7 @@ s32 change_floor_reload_area(void) {
             set_parent__7TObjectFP7TObject(p, tmp);
         }
     }
-    delete_all_task_children__9TMainTaskFv(&main_task.value);
+    delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
     promote_area_floor(lbl_80515BA0);
     ((TLobby *)lbl_80515BA0)->clear_ready_flag_unless_locked();
     TKeyBoardControl::update();
@@ -731,9 +722,9 @@ s32 change_floor_reload_area(void) {
     get_current_floor();
     unlock_main_warp_destination();
     TLoadCtrl::cleanup_scene();
-    some_empty_func__9TMainTaskFv(&main_task.value);
-    run_task__9TMainTaskFv(&main_task.value);
-    render_screen_overlay__9TMainTaskFv(&main_task.value);
+    some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+    render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
     for (j = 0; j < 12; j++) {
         p = (VObj_18_801A441C *) get_player_by_client_id(j);
         if (p != NULL) {
@@ -772,12 +763,12 @@ void cleanup_online_lobby_scene(void) {
     TLobby::update_lobby_subsystems();
     send_logout__6TLobbyFv();
     TLobby::free_objects();
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
-    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value));
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
-    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
-    clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
+    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
+    var_r3 = (s32 *)(&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value);
+    clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
     var_r3 = (s32 *)((u8 *)(tl_su));
     delete_children__7TObjectFv((int) (var_r3));
     PPCSync();
@@ -814,11 +805,11 @@ void TLobby::run_lobby_frame() {
     func_803DCDFC__Fv();
     controller_stuff__Fv();
     TKeyBoardControl::update_input_frame();
-    some_empty_func__9TMainTaskFv((void *) (&main_task.value));
-    run_task__9TMainTaskFv((void *) (&main_task.value));
-    render_shadows__9TMainTaskFv((void *) (&main_task.value));
-    render__9TMainTaskFv((void *) (&main_task.value));
-    render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
+    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    render_shadows__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -863,11 +854,11 @@ void TLobby::run_main_frame() {
     func_803DCDFC__Fv();
     controller_stuff__Fv();
     TKeyBoardControl::update_input_frame();
-    some_empty_func__9TMainTaskFv((void *) (&main_task.value));
-    run_task__9TMainTaskFv((void *) (&main_task.value));
-    render_shadows__9TMainTaskFv((void *) (&main_task.value));
-    render__9TMainTaskFv((void *) (&main_task.value));
-    render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
+    some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    render_shadows__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
+    render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value));
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -957,10 +948,10 @@ void run_online_lobby_scene(void) {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
         TKeyBoardControl::update_input_frame();
-        some_empty_func__9TMainTaskFv(&main_task.value);
-        run_task__9TMainTaskFv(&main_task.value);
-        render__9TMainTaskFv(&main_task.value);
-        render_screen_overlay__9TMainTaskFv(&main_task.value);
+        some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+        run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+        render__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+        render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
         process_async_file_reads();
         update_sound_request_slots();
         run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -999,9 +990,9 @@ void run_online_lobby_scene(void) {
         load_area_scene_and_init(lbl_80515BA0);
         TLoadCtrl::cleanup_scene();
         process_deferred_player_setup__6TLobbyFv();
-        some_empty_func__9TMainTaskFv(&main_task.value);
-        run_task__9TMainTaskFv(&main_task.value);
-        render_screen_overlay__9TMainTaskFv(&main_task.value);
+        some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+        run_task__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
+        render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_801A4820_main_task *)&main_task).value);
         if (TLobby__sub_801A3E8C() != 0) {
             TLobby::start_udp_test_game();
         } else {

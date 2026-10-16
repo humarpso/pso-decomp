@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBMAGPHOTON_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSubMagPhoton
-{
+struct TWindowSubMagPhoton : public TUnk_804CE018 {
+    virtual ~TWindowSubMagPhoton();
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -23,7 +24,7 @@ struct TWindowSubMagPhoton
     s32 draw_cursor(int arg1);
     void run_task();
     void update_photon_selection();
-    void get_cursor_origin(void *xy);
-};
+    void get_cursor_origin(void *xy);};
 
+typedef char TWindowSubMagPhoton_size[sizeof(TWindowSubMagPhoton) == 0x74 ? 1 : -1];
 #endif

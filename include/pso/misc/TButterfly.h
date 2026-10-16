@@ -2,17 +2,11 @@
 #define PSO_MISC_TBUTTERFLY_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TButterfly
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x20];
-    void* m_5c;
-    u32 m_60;
-    u8 _pad64[0x4];
-    void* m_68;
-    u8 _pad6C[0x30];
+struct TButterfly : public TUnk_804B9870 {
+    virtual ~TButterfly();
+    u8 unk_90[0xC];
     void* m_9c;
     u8 _padA0[0x14];
     s16 m_b4;
@@ -25,6 +19,8 @@ struct TButterfly
     void run_task();
     static void destroy_instance();
     void draw_model();
+    u8 unk_BB[0x1];
 };
 
+typedef char TButterfly_size[sizeof(TButterfly) == 0xBC ? 1 : -1];
 #endif

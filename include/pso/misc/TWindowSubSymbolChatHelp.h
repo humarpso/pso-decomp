@@ -2,9 +2,10 @@
 #define PSO_MISC_TWINDOWSUBSYMBOLCHATHELP_H
 
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 
-struct TWindowSubSymbolChatHelp
-{
+struct TWindowSubSymbolChatHelp : public TUnk_804CE018 {
+    virtual ~TWindowSubSymbolChatHelp();
     u8 _pad1C[0x44];
     u8 m_60;
     u8 _pad61[0x3];
@@ -16,7 +17,7 @@ struct TWindowSubSymbolChatHelp
     void handle_toggle_input();
     void handle_page_input();
     void render();
-    void run_task();
-};
+    void run_task();};
 
+typedef char TWindowSubSymbolChatHelp_size[sizeof(TWindowSubSymbolChatHelp) == 0x74 ? 1 : -1];
 #endif

@@ -1,0 +1,12 @@
+#ifndef PSO_MISC_TUNK_804EF4E0_H
+#define PSO_MISC_TUNK_804EF4E0_H
+#include "types.h"
+#include "pso/misc/TUnk_804D0948.h"
+
+class TUnk_804EF4E0 : public TUnk_804D0948 {
+public:
+    virtual ~TUnk_804EF4E0();
+};
+typedef char TUnk_804EF4E0_size[sizeof(TUnk_804EF4E0) == 0x8C ? 1 : -1];
+
+#endif

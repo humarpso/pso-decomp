@@ -2,9 +2,11 @@
 #define PSO_MISC_TOVS2WRECK05_H
 
 #include "types.h"
+#include "pso/misc/TOVS2.h"
 
-struct TOVS2Wreck05
-{
+struct TOVS2Wreck05 : public TOVS2 {
+    virtual ~TOVS2Wreck05();
 };
 
+typedef char TOVS2Wreck05_size[sizeof(TOVS2Wreck05) == 0xD0 ? 1 : -1];
 #endif

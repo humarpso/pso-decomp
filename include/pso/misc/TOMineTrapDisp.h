@@ -2,16 +2,13 @@
 #define PSO_MISC_TOMINETRAPDISP_H
 
 #include "types.h"
+#include "pso/misc/TOMineDisp.h"
 
-struct TOMineTrapDisp
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x68];
-    u32 m_a4;
-    u16 m_a8;
-    u8 _padAA[0x2];
+struct TOMineTrapDisp : public TOMineDisp {
+    virtual ~TOMineTrapDisp();
     u16 m_ac;
+    u8 unk_AE[0x2];
 };
 
+typedef char TOMineTrapDisp_size[sizeof(TOMineTrapDisp) == 0xB0 ? 1 : -1];
 #endif

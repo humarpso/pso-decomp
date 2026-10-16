@@ -2,12 +2,10 @@
 #define PSO_MISC_TOCHATSENSOR_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TOChatSensor
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x54];
+struct TOChatSensor : public TUnk_804B9870 {
+    virtual ~TOChatSensor();
     u32 m_90;
     u16 m_94;
     u8 _pad96[0xA];
@@ -27,7 +25,7 @@ struct TOChatSensor
     void send_state();
     void swap_state_endian();
     void init_packet_type();
-    void send_switch_states();
-};
+    void send_switch_states();};
 
+typedef char TOChatSensor_size[sizeof(TOChatSensor) == 0xD0 ? 1 : -1];
 #endif

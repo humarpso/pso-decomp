@@ -2,19 +2,16 @@
 #define PSO_OBJECT_TOBJDOAEX01_H
 
 #include "types.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 
-struct TObjDoaEx01
-{
-    u8 _pad1C[0x1C];
-    void* m_38;
-    u8 _pad3C[0x70];
-    u32 m_ac;
-    u8 _padB0[0x20];
-    u32 m_d0;
+struct TObjDoaEx01 : public TUnk_804B0BB8 {
+    virtual ~TObjDoaEx01();
     void render();
     s32 draw_object_tree(s32 arg1);
     static void free_resource();
     static void load_resources();
+    u8 unk_D4[0x10];
 };
 
+typedef char TObjDoaEx01_size[sizeof(TObjDoaEx01) == 0xE4 ? 1 : -1];
 #endif

@@ -2,9 +2,10 @@
 #define PSO_UI_TADFLOORLOADCAMGC_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
-struct TAdFloorLoadCamGC
-{
+struct TAdFloorLoadCamGC : public TObject {
+    virtual ~TAdFloorLoadCamGC();
     u32 m_1c;
     u32 m_20;
     u32 m_24;
@@ -15,6 +16,8 @@ struct TAdFloorLoadCamGC
     void* m_40;
     static void render();
     void run_task();
+    u8 unk_44[0x8];
 };
 
+typedef char TAdFloorLoadCamGC_size[sizeof(TAdFloorLoadCamGC) == 0x4C ? 1 : -1];
 #endif

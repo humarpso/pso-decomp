@@ -2,9 +2,11 @@
 #define PSO_OBJECT_TOBJCITYDOOR_GUILD_H
 
 #include "types.h"
+#include "pso/object/TUnk_804B5BA8.h"
 
-struct TObjCityDoor_Guild
-{
+struct TObjCityDoor_Guild : public TUnk_804B5BA8 {
+    virtual ~TObjCityDoor_Guild();
 };
 
+typedef char TObjCityDoor_Guild_size[sizeof(TObjCityDoor_Guild) == 0xBC ? 1 : -1];
 #endif

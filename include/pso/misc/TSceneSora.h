@@ -2,12 +2,10 @@
 #define PSO_MISC_TSCENESORA_H
 
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
-struct TSceneSora
-{
-    u8 _pad1C[0x44];
-    u32 m_60;
-    u8 _pad64[0x2C];
+struct TSceneSora : public TUnk_804B9870 {
+    virtual ~TSceneSora();
     u32 m_90;
     u32 m_94;
     u32 m_98;
@@ -16,6 +14,8 @@ struct TSceneSora
     static void create_instance();
     static void load_sky_resources();
     void render_reflections();
+    u8 unk_9C[0x8];
 };
 
+typedef char TSceneSora_size[sizeof(TSceneSora) == 0xA4 ? 1 : -1];
 #endif
