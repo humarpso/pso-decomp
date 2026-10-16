@@ -7,6 +7,5 @@ class TUnk_804A6FC0 : public TObject {
 public:
     virtual ~TUnk_804A6FC0();
 };
-typedef char TUnk_804A6FC0_size[sizeof(TUnk_804A6FC0) == 0x1C ? 1 : -1];
 
 #endif

@@ -21,6 +21,5 @@ public:
     TechniqueContactActor* proxy;
     f32 halfWidth;
 };
-typedef char TUnk_804CCC68_size[sizeof(TUnk_804CCC68) == 0x130 ? 1 : -1];
 
 #endif

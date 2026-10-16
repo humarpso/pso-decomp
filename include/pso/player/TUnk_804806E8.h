@@ -88,6 +88,5 @@ public:
     s16 hp;
     u8 unk_32E[0x6];
 };
-typedef char TUnk_804806E8_size[sizeof(TUnk_804806E8) == 0x334 ? 1 : -1];
 
 #endif

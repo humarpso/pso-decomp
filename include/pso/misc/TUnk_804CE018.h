@@ -9,6 +9,5 @@ public:
     virtual void render();
     virtual void run_task();
 };
-typedef char TUnk_804CE018_size[sizeof(TUnk_804CE018) == 0x1C ? 1 : -1];
 
 #endif

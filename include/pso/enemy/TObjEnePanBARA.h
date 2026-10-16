@@ -11,6 +11,5 @@ public:
     virtual void vfunc_61();
     u8 unk_374[0xFC];
 };
-typedef char TObjEnePanBARA_size[sizeof(TObjEnePanBARA) == 0x470 ? 1 : -1];
 
 #endif

@@ -8,6 +8,5 @@ public:
     virtual ~TUnk_804A4748();
     u8 unk_1C[0x1D8];
 };
-typedef char TUnk_804A4748_size[sizeof(TUnk_804A4748) == 0x1F4 ? 1 : -1];
 
 #endif

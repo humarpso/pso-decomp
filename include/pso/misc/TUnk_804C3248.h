@@ -10,6 +10,5 @@ public:
     virtual void update_if_active();
     u8 unk_FC[0x5C];
 };
-typedef char TUnk_804C3248_size[sizeof(TUnk_804C3248) == 0x158 ? 1 : -1];
 
 #endif

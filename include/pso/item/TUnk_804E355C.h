@@ -9,6 +9,5 @@ public:
     virtual void vfunc_6(s32 *);
     u8 unk_1C[0xA8];
 };
-typedef char TUnk_804E355C_size[sizeof(TUnk_804E355C) == 0xC4 ? 1 : -1];
 
 #endif

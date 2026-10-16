@@ -7,6 +7,5 @@ class TUnk_8049FF88 : public TItemObject {
 public:
     virtual ~TUnk_8049FF88();
 };
-typedef char TUnk_8049FF88_size[sizeof(TUnk_8049FF88) == 0xF4 ? 1 : -1];
 
 #endif

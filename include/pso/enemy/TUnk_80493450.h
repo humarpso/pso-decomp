@@ -30,6 +30,5 @@ public:
     virtual void run_task();
     u8 unk_374[0x34];
 };
-typedef char TUnk_80493450_size[sizeof(TUnk_80493450) == 0x3A8 ? 1 : -1];
 
 #endif

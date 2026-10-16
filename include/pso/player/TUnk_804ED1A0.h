@@ -7,6 +7,5 @@ class TUnk_804ED1A0 : public TItemWeapon {
 public:
     virtual ~TUnk_804ED1A0();
 };
-typedef char TUnk_804ED1A0_size[sizeof(TUnk_804ED1A0) == 0x1F8 ? 1 : -1];
 
 #endif

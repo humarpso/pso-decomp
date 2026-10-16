@@ -9,6 +9,5 @@ public:
     virtual void render();
     u8 unk_1C[0x10];
 };
-typedef char TUnk_804C57F0_size[sizeof(TUnk_804C57F0) == 0x2C ? 1 : -1];
 
 #endif

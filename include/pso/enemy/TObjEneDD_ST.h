@@ -7,6 +7,5 @@ class TObjEneDD_ST : public TObjEneDD {
 public:
     virtual ~TObjEneDD_ST();
 };
-typedef char TObjEneDD_ST_size[sizeof(TObjEneDD_ST) == 0x1C ? 1 : -1];
 
 #endif

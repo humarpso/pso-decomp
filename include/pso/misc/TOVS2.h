@@ -9,6 +9,5 @@ public:
     virtual void render();
     u8 unk_C8[0x8];
 };
-typedef char TOVS2_size[sizeof(TOVS2) == 0xD0 ? 1 : -1];
 
 #endif

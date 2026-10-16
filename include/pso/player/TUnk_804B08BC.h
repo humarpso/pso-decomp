@@ -10,6 +10,5 @@ public:
     virtual void vfunc_80();
     virtual void vfunc_79();
 };
-typedef char TUnk_804B08BC_size[sizeof(TUnk_804B08BC) == 0x368 ? 1 : -1];
 
 #endif

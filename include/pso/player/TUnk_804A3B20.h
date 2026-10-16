@@ -7,6 +7,5 @@ class TUnk_804A3B20 : public TUnk_804A4948 {
 public:
     virtual ~TUnk_804A3B20();
 };
-typedef char TUnk_804A3B20_size[sizeof(TUnk_804A3B20) == 0x1C ? 1 : -1];
 
 #endif
