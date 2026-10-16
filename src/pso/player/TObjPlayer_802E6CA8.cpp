@@ -92,7 +92,6 @@ extern const f32 lbl_805DEA04;
 extern const f32 lbl_805DEA08;
 extern const f32 lbl_805DEA0C;
 s32 TObjPlayer__sub_802E76C8(u8 *arg0);
-s32 __dt__7TObjectFv(void *, int);
 s32 mem_free(int);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__13TUnk_804E3BD8[];

@@ -4,9 +4,6 @@
 extern "C" {
 
 void *TQuadSpriteSclColRot__ct(void *arg0);
-void *__dt__20TQuadSpriteSclColRotFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__13TUnk_804C57F0Fv(void *, int);
 void quad_sprite_base_ct(void *);
 
 extern s32 __vt__20TQuadSpriteSclColRot[];

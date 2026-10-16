@@ -5,16 +5,12 @@
 
 extern "C" {
 
-void *__ct__14TAdFloorLoadGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
-void *__ct__17TAdFloorLoadCamGCFP7TObjectPv(void *, void *, void *);
 void *TAdFloorLoadPrtGC__ct(void *, void *);
-void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
 void TAdFloorLoadGC::render() {  }
 void TAdFloorLoadGC::run_task() {  }
 
-extern s32 __vt__14TAdFloorLoadGC[];
 extern void *lbl_805D4328;
 
 TAdFloorLoadGC::~TAdFloorLoadGC() {}
@@ -28,7 +24,4 @@ TAdFloorLoadGC::TAdFloorLoadGC(TObject *arg1, void *arg2) : TObject(arg1) {
     if (o2 != NULL) {
         TAdFloorLoadPrtGC__ct(o2, this);
     }
-}
-extern "C" {
-
 }

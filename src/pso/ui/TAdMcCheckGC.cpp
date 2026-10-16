@@ -21,12 +21,10 @@ u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1);
 
 extern "C" {
 
-void *__ct__12TAdMcCheckGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void TLobby__sub_8033EE38(void* p);
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 s32 get_localized_text_entry(s32, s32);
-void __ct__7TObjectFP7TObject(void *);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
@@ -194,7 +192,4 @@ TAdMcCheckGC::TAdMcCheckGC(TObject *arg1, void *arg2) : TObject(arg1) {
     *(u32 *)((s8 *)this + 0x30) = 0;
     *(u32 *)((s8 *)this + 0x34) = 0;
     *(u32 *)((s8 *)this + 0x38) = 0;
-}
-extern "C" {
-
 }

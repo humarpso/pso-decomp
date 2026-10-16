@@ -120,12 +120,10 @@ extern u8 lbl_804F3A18[];
 extern const f32 lbl_805D7020;
 s32 all_players_loaded__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801FD770();
-void *__ct__7TObjectFP7TObject(void *, void *);
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
 extern s32 __vt__13TUnk_804F3A20[];
 extern s32 current_language;
-void *__ct__13TUnk_804F3A20FP7TObject(void *arg0, void *arg1);
 }
 
 extern "C" {

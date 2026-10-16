@@ -494,8 +494,6 @@ s32 queue_destruction__7TObjectFv(void *);
 
 extern "C" {
 
-void *__ct__7TObjectFP7TObject(void *, void *);
-extern s32 __vt__20TObjChallenge4PRetry[];
 extern s32 TObjChallenge4PRetry__class_name;
 void *__ct__20TObjChallenge4PRetryFP7TObject(void *, void *);
 

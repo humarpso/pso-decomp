@@ -22,9 +22,6 @@ s8 lbl_805D6804;
 
 extern "C" {
 
-void *__ct__9TAdFadeGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
-void __ct__7TObjectFP7TObject(void *);
-
 extern const char lbl_80471D70[] = "TAdFadeGC";
 const char *TAdFadeGC__name = lbl_80471D70;
 #define TAdFadeGC__name (*(void **)&TAdFadeGC__name)
@@ -95,8 +92,6 @@ void TAdFadeGC::draw_fade() {
 }
 
 void TAdFadeGC::render() { if (all_parents_unqueued_for_destruction() != 0) { draw_fade(); } }
-
-extern s32 __vt__9TAdFadeGC[];
 
 void TAdFadeGC::run_task() {
     f32 temp_f0;

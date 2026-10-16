@@ -95,8 +95,6 @@ s32 sub_8025CB10__19TWindowKeyBoardBaseFv(s32);
 s32 get_player_by_client_id(s32);
 s32 end_player_keyboard_hold(s32);
 s32 TWindow__close(void *);
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 void *__dt__11TWindowChatFv(void *, s16);
 extern s32 __vt__11TWindowChat[];
@@ -105,11 +103,9 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
 void *TWindowKeyBoardBase__ct(void *);
 void *TWindowKeyBoardHard__ct(void *, void *);
 void init_keyboard_text_field(void *, int, int);
-void __ct__7TObjectFP7TObject(void *);
 s32 __nw__7TObjectFUl(int);
 extern s32 __vt__11TWindowChat[];
 extern void *window_chat_type_name_pointer;
-void *__ct__11TWindowChatFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void TWindowChat__sub_80247D2C(void* p);
 s32 TWindowChat__sub_80247D50(u8 *arg0);
 int get_selected_menu_value(void*);
@@ -490,8 +486,6 @@ void TWindowChat::run_task() {
     }
 }
 
-extern "C" {
-}
 TWindowChat::~TWindowChat() {
     s32 player;
     player = get_player_by_client_id(local_client_id);
@@ -527,12 +521,6 @@ TWindowChat::~TWindowChat() {
         TWindow__close(*(void **)((s8 *)this + 0x20));
         *(u32 *)((s8 *)this + 0x20) = 0U;
     }
-}
-extern "C" {
-}
-
-extern "C" {
-
 }
 TWindowChat::TWindowChat(TObject *arg1, void *arg2) : TObject(arg1) {
     void *o;

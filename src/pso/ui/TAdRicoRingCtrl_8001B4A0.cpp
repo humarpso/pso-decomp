@@ -44,11 +44,8 @@ extern const f32 lbl_805D7E48;
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
 void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x);
-void *__dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl __vt__15TAdRicoRingCtrl;
-u8 *__dt__15TAdRicoRingCtrlFv(u8 *self, s16 flag);
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
 }

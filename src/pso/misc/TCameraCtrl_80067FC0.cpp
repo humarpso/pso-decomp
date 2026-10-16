@@ -114,7 +114,6 @@ extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F88;
 extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
-s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__13TUnk_80488A28[];
 extern const f32 TCameraCtrl__data_805D8F80;
 extern const f32 TCameraCtrl__data_805D8F84;
@@ -337,7 +336,4 @@ TUnk_80488A28::TUnk_80488A28() : TObject(0) {
     *(f32 *)((s8 *)this + 0x5C) = (f32) lbl_805D8FA0;
     *(s32 *)((s8 *)this + 0x54) = 0x36C1;
     *(u16 *)((s8 *)this + 0x20) = 0xFFFF;
-}
-extern "C" {
-
 }

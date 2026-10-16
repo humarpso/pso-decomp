@@ -190,8 +190,6 @@ void post_translate_matrix(void *);
 void set_chunk_material_override_pair(s32, s32, s32, s32);
 void draw_chunk_object(void *);
 void queue_destruction__7TObjectFv();
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(s32);
 s32 __dl__FPv(void *);
@@ -208,9 +206,7 @@ void rotate_matrix_x(int, int);
 void set_chunk_material_color(void *);
 
 s32 get_state__12TBoss8DragonFv(void);
-void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1);
 s32 is_dragon_trail_damaging(u8 *arg0);
-void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1);
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 void update_dragon_trail_uvs(Obj_8002D4C0 *self);
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0);

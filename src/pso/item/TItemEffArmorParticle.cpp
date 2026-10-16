@@ -77,14 +77,11 @@ struct V_A_80364364 : Base_A_80364364 {
 
 extern "C" {
 
-void *__ct__21TItemEffArmorParticleFP7TObjectlll(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 void *get_player_by_client_id(u16);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 get_item_system_generation();
 
-extern void* __vt__21TItemEffArmorParticle[];
 extern s32 TItemEffArmorParticle__class_name;
 
 }
@@ -106,7 +103,4 @@ TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 arg2, s32 arg3, 
     } else {
         *(u32 *)((s8 *)this + 0x20) = 0U;
     }
-}
-extern "C" {
-
 }

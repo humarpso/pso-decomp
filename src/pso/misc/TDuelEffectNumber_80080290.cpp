@@ -18,10 +18,6 @@ void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
 
 extern "C" {
 
-void *__ct__17TDuelEffectNumberFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void __ct__7TObjectFP7TObject(void *);
-
-extern s32 __vt__17TDuelEffectNumber[];
 extern void *TDuelEffectNumber__class_name;
 
 }

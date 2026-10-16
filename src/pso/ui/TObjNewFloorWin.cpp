@@ -17,10 +17,8 @@ extern "C" {
 
 void *__ct__15TObjNewFloorWinFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 int fn_800740DC(void* p);
-void __ct__7TObjectFP7TObject(void *);
 int close_active_window__11TWindowCtrlFv(void*);
 
-extern s32 __vt__15TObjNewFloorWin[];
 extern void *TObjNewFloorWin__class_name;
 
 }

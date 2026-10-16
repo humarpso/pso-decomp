@@ -42,7 +42,6 @@ block_5:
     }
 }
 
-extern s32 __vt__15TAdDrawLineCtrl[];
 extern void *TAdDrawLineCtrl__class_name;
 
 void TAdDrawLineCtrl::run_task() {
@@ -62,8 +61,6 @@ TAdDrawLineCtrl::~TAdDrawLineCtrl() {
     delete child_root;
 }
 
-extern "C" {
-}
 TAdDrawLineCtrl::TAdDrawLineCtrl(TObject *arg1, void *arg2, f32 farg0) : TObject(arg1) {
     void *o;
     *(void **)((s8 *)this + 0x0) = TAdDrawLineCtrl__class_name;

@@ -42,9 +42,7 @@ extern s32 controller_input_state[];
 
 extern "C" {
 
-void *__ct__15TWindowSubTradeFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void TLobby__sub_802D2A50(void *);
-void __ct__7TObjectFP7TObject(void *);
 
 void TWindowSubTrade::render() {  }
 
@@ -164,7 +162,4 @@ TWindowSubTrade::TWindowSubTrade(TObject *arg1, void *arg2) : TObject(arg1) {
     *(u32 *)((s8 *)this + 0x34) = 0;
     TLobby__sub_802D2A50(this);
     *(u8 *)((s8 *)this + 0x1C) = 0;
-}
-extern "C" {
-
 }

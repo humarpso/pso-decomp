@@ -38,10 +38,8 @@ extern s32 controller_input_state[];
 
 extern "C" {
 
-void *__ct__26TWindowSubInformationBoardFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
-void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -186,7 +184,4 @@ TWindowSubInformationBoard::TWindowSubInformationBoard(TObject *arg1, void *arg2
     *(u32 *)((s8 *)this + 0x38) = 0;
     *(u32 *)((s8 *)this + 0x3C) = 0;
     *(u8 *)((s8 *)this + 0x1C) = 0;
-}
-extern "C" {
-
 }

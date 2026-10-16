@@ -56,9 +56,7 @@ extern "C" {
 void TAdSelectTxtGC__sub_802A16A8(void* p);
 s32 TAdSelectTxtGC__sub_802A16C0(void* p);
 void TLobby__sub_802A1918(void);
-void *__ct__14TAdSelectTxtGCFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void TLobby__sub_803DA16C(void*);
-void __ct__7TObjectFP7TObject(void *);
 
     extern const float lbl_805DDDF8;
 void TAdSelectTxtGC::reset_state() { *(short *)&this->m_prev = 0; *(short *)&this->m_id = 0; *(short *)&this->m_flags = 0; *(short*)((char*)this + 0x2) = 0; *(short *)&this->m_name = 0; *(short*)((char*)this + 0xe) = 0; *(short *)&this->m_next = 0; *(short*)((char*)this + 0xa) = 0; *(float *)&this->m_up = lbl_805DDDF8; *(float *)&this->m_down = lbl_805DDDF8; *(int*)((char*)this + 0x20) = 0; *(int*)((char*)this + 0x1c) = 0; *(int*)((char*)this + 0x18) = 0; }
@@ -79,7 +77,6 @@ void TAdSelectTxtGC::reset_slots(void *arg1, void *arg2) {
     ((TAdSelectTxtGC *)((Sel_802A16CC *)this))->init_slot_entries((Src_802A1838 *)(arg1), (void *)(arg2));
 }
 
-extern s32 __vt__14TAdSelectTxtGC[];
 extern void *lbl_805D3D88;
 
 void TAdSelectTxtGC::run_task() {

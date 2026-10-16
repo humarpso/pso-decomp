@@ -72,11 +72,9 @@ extern "C" {
 
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *__ct__12TEffCliticalFPv(void *arg0, void *arg1);
-void __ct__7TEffectFv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern s32 __vt__12TEffClitical[];
 extern void *TEffClitical__class_name;
 extern const f32 lbl_805D93B0;
 

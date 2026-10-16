@@ -31,9 +31,6 @@ extern "C" {
 
 void TBoss7LaserLight__sub_802EF120(void* p);
 void TBoss7LaserLight__sub_802EF12C(void* p);
-void *__dt__16TBoss7LaserLightFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 u8 *TBoss7LaserLight::construct_with_params(s32 arg1, s32 arg2, s32 arg3) {
     s32 i;
@@ -112,12 +109,7 @@ void TBoss7LaserLight::run_task() {
 void TBoss7LaserLight__sub_802EF120(void* p) { *(s32*)((char*)p + 0x24) = 2; }
 void TBoss7LaserLight__sub_802EF12C(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 
-extern s32 __vt__16TBoss7LaserLight[];
-
 }
 TBoss7LaserLight::~TBoss7LaserLight() {
     if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); *(s32 *)((s8 *)this + 0x40) = 0; }
-}
-extern "C" {
-
 }

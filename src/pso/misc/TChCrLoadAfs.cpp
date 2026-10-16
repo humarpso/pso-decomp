@@ -138,7 +138,6 @@ s32 load_texture_list(void *);
 extern "C" {
 
 void *__ct__12TChCrLoadAfsFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
 void TChCrLoadAfs::start_download() {
@@ -220,7 +219,6 @@ TChCrLoadAfs::~TChCrLoadAfs() {
 
 extern "C" {
 
-extern s32 __vt__12TChCrLoadAfs[];
 extern void *lbl_805D3B48;
 
 }

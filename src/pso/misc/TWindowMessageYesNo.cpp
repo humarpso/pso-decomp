@@ -10,7 +10,6 @@
 #include "pso/ui/TAdChrSelASlotGC.h"
 
 extern "C" {
-void *__nw__7TObjectFUl(int);
 void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *, void *, void *, void *, void *);
 }
 
@@ -19,7 +18,6 @@ extern "C" {
 void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
-void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -59,7 +57,4 @@ TWindowMessageYesNo::TWindowMessageYesNo(TObject *arg1, void *arg2, void *arg3, 
     *(u32 *)((s8 *)this + 0x2C) = 0;
     *(void **)((s8 *)this + 0x20) = arg3;
     *(void **)((s8 *)this + 0x1C) = arg4;
-}
-extern "C" {
-
 }

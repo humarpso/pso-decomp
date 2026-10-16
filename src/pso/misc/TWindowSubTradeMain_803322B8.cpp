@@ -5,19 +5,14 @@
 
 extern "C" {
 
-void *__ct__19TWindowSubTradeMainFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *get_player_by_client_id(void *);
-void *__ct__11TWindowChatFP7TObjectPv(void *, void *, void *);
 void TWindowCtrl__sub_8024ADAC(void *);
 void TWindowSubTradeMain__sub_802D2870(void);
-void __ct__7TObjectFP7TObject(void *);
-void *__nw__7TObjectFUl(int);
 void fn_8024AB54(void *);
 void fn_8027B288(void *);
 void fn_8027B2A8(void *);
 void TLobby__sub_802D2A0C(void *);
 
-extern s32 __vt__19TWindowSubTradeMain[];
 extern void *TWindowSubTradeMain__name;
 
 }
@@ -51,7 +46,4 @@ TWindowSubTradeMain::TWindowSubTradeMain(TObject *arg1, void *arg2) : TObject(ar
     if (x != NULL) {
         ((TObjPlayer *)x)->start_freeze();
     }
-}
-extern "C" {
-
 }

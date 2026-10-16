@@ -5,14 +5,11 @@
 
 extern "C" {
 
-void *__ct__20TWindowSubQuestBoardFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 int TWindowSubQuestBoard__sub_8027D1DC(void* p);
 void TWindowCtrl__sub_8027D214(void);
 void *TWindowSubQuestBoardSelect__ct(void *);
-void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
-extern s32 __vt__20TWindowSubQuestBoard[];
 extern void *TWindowSubQuestBoard__class_name;
 
 }

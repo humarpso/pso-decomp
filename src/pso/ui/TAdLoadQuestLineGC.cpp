@@ -14,7 +14,6 @@ extern "C" {
 
 void *__ct__18TAdLoadQuestLineGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 
-void __ct__7TObjectFP7TObject(void *);
 s32 init_quest_line_draw_colors();
 s32 fn_80349E5C();
 
@@ -53,7 +52,6 @@ TAdLoadQuestLineGC::~TAdLoadQuestLineGC() {
 
 extern "C" {
 
-extern s32 __vt__18TAdLoadQuestLineGC[];
 extern void *lbl_805D4300;
 
 }

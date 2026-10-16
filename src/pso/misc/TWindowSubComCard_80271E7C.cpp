@@ -1809,8 +1809,6 @@ void *__dt__17TWindowSubComCardFv(void *arg0, s16 arg1) {
 
 extern "C" {
 
-void *__ct__17TWindowSubComCardFP7TObjectPv(void *arg0, void *arg1, void *arg2);
-void __ct__7TObjectFP7TObject(void *);
 void TWindowSubComCard__sub_80077980(void *);
 
 extern void *TWindowSubComCard__class_name;
@@ -1835,9 +1833,6 @@ TWindowSubComCard::TWindowSubComCard(TObject *arg1, void *arg2) : TObject(arg1) 
     *(u32 *)((s8 *)this + 0x24) = -1;
     TWindowSubComCard__sub_80077980((void *)((char *)this + 48));
     *(u8 *)((s8 *)this + 0x1C) = 0;
-}
-extern "C" {
-
 }
 
 #include "types.h"

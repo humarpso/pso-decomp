@@ -390,11 +390,9 @@ struct VObj_8027FBF0_8027E620 : VObj_8027FBF0_Base_8027fbf0_8027E620 {
     virtual void m9();
 };
 
-void *__ct__19TWindowSubShortMailFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1);
 s32 TLobby__sub_802258C8();
 s32 get_selected_menu_value(s32);
-void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 fn_8027FD94(s32, s16);

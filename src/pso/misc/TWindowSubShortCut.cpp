@@ -42,7 +42,6 @@ s32 clear_chat_shortcut();
 s32 store_chat_shortcut(int, void *);
 void *__nw__7TObjectFUl(u32);
 void TWindow__close(void *);
-void *__ct__11TWindowChatFP7TObjectPv(void *, void *, void *);
 u8 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 get_window_layout_position(s32 a0);
@@ -52,7 +51,6 @@ void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 
 extern "C" {
 
-void *__ct__18TWindowSubShortCutFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1);
 void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 u32 *get_chat_shortcut();
@@ -61,7 +59,6 @@ s32 align_menu_entry_positions(s32);
 s32 get_window_layout_position(s32 a0 = 0);
 s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
 void TWindow__close(void *);
-void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);

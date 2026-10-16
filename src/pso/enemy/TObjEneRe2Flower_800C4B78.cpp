@@ -158,7 +158,6 @@ void *__dt__26TObjEneRe2Flower_EffCurse3Fv(void *arg0, s16 arg1);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s32 is_alive__9TObjEneDDFv(s32);
 int queue_destruction__7TObjectFv(void*);
 

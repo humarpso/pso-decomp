@@ -56,11 +56,8 @@ void TDuelEffectNumber::calc_digit_transform(s32 arg0, f32 *arg1, f32 *arg2, s32
 extern "C" {
 
 f32 TBoss8Dragon__sub_8008072C(void);
-void *__ct__17TDuelEffectStringFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void __ct__7TObjectFP7TObject(void *);
 f64 pow();
 
-extern s32 __vt__17TDuelEffectString[];
 extern void *TDuelEffectString__class_name;
 
 #pragma push

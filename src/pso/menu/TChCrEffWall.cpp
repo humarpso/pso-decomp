@@ -25,9 +25,6 @@ extern const f32 lbl_805DDCB4;
 
 extern "C" {
 
-void __ct__7TObjectFP7TObject(void *);
-
-extern s32 __vt__12TChCrEffWall[];
 extern void *TChCrEffWall__name;
 
 void *lbl_804DBF58[4] = {

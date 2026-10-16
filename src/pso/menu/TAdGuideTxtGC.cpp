@@ -38,10 +38,6 @@ extern "C" {
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, int, f32);
 void __ct__7TObjectFP7TObject(void *);
 extern void *__vt__13TAdGuideTxtGC[6];
-void *__dt__13TAdGuideTxtGCFv(void *self, s16 arg1);
-void __dt__7TObjectFv(void *, s16);
-void __dl__7TObjectFPv(void *);
-void render__13TAdGuideTxtGCFv(void *);
 extern s32 lbl_805D3EA0;
 extern s32 lbl_805DE290;
 extern const f32 lbl_805DE294;

@@ -41,11 +41,9 @@ extern const f32 lbl_805DD47C;
 
 extern "C" {
 
-void *__ct__17TWindowSubAreaMapFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1);
 void *TWindowSubAreaMapDisp__ct(void *);
 void TWindow__close(void *);
-void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);

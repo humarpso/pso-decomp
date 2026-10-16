@@ -104,12 +104,7 @@ extern "C" {
 
 void TKeyBoardControl__sub_80131F5C(void);
 void TKeyBoardControl__sub_80131F60(void);
-void *__dt__16TKeyBoardControlFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-
-extern s32 __vt__16TKeyBoardControl[];
 
 void render__16TKeyBoardControlFv(void) {  }
 

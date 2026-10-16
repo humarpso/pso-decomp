@@ -25,12 +25,9 @@ extern const f32 lbl_805DDCCC;
 extern "C" {
 
 void TChCrEffTagStr__sub_8029AED0(void* p);
-void *__ct__14TChCrEffTagStrFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void __ct__7TObjectFP7TObject(void *);
 
 void TChCrEffTagStr__sub_8029AED0(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
-extern s32 __vt__14TChCrEffTagStr[];
 extern void *TChCrEffTagStr__name;
 extern const f32 lbl_805DDCCC;
 
@@ -92,7 +89,4 @@ TChCrEffTagStr::TChCrEffTagStr(TObject *arg1, void *arg2, void *arg3) : TObject(
     ((TWindowSubSymbolChatPartsSet *)((char *)this + 40))->copy_vec2(arg3);
     *(u32 *)((s8 *)this + 0x1C) = 0;
     *(f32 *)((s8 *)this + 0x24) = lbl_805DDCCC;
-}
-extern "C" {
-
 }

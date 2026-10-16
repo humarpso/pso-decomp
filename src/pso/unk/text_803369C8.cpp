@@ -26,10 +26,6 @@ extern const f32 lbl_805DF974;
 
 extern "C" {
 
-void *__dt__13TUnk_804EEF80Fv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-
 #pragma push
 #pragma fp_contract on
 void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {
@@ -64,12 +60,7 @@ void TUnk_804EEF80::run_task() {
     this->m_20 = (s32) (this->m_20 + 1);
 }
 
-extern s32 __vt__13TUnk_804EEF80[];
-
 }
 TUnk_804EEF80::~TUnk_804EEF80() {
-
-}
-extern "C" {
 
 }

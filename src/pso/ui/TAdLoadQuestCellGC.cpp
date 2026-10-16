@@ -14,7 +14,6 @@ extern "C" {
 
 void *__ct__18TAdLoadQuestCellGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 
-void __ct__7TObjectFP7TObject(void *);
 s32 draw_quest_load_panel_overlays();
 s32 draw_quest_load_letterbox_bars();
 s32 fn_80349844();
@@ -57,7 +56,6 @@ TAdLoadQuestCellGC::~TAdLoadQuestCellGC() {
 
 extern "C" {
 
-extern s32 __vt__18TAdLoadQuestCellGC[];
 extern void *lbl_805D42F8;
 
 }

@@ -16,7 +16,6 @@ extern "C" {
 int TQuestVmDownLoadServer__sub_8007EBDC(void* p);
 void *__dt__13TUnk_8048DF58Fv(void *arg0, s16 arg1);
 void *__ct__13TUnk_8048DF58Fv(void *arg0);
-void __ct__7TObjectFP7TObject(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_803DE864(void*);
@@ -48,8 +47,4 @@ extern s32 __vt__13TUnk_8048DF58[];
 TUnk_8048DF58::TUnk_8048DF58() : TObject(0) {
 
 }
-extern "C" {
-
-}
-
 __declspec(section ".ctors") static void *const __sinit_TQuestVmDownLoadServer_8007EBDC_cpp_ref = (void *)TQuestVmDownLoadServer::register_global_instance_dtor;
