@@ -35,16 +35,6 @@ extern "C" {
 
 s32 TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
-int free_buffer__15TWindowSnapShotFPv(void*);
-s32 fn_802A5C7C(void *);
-s32 fn_802A5CB8(void *);
-s32 fn_802A5CC4(void *, s32);
-void fn_802A6070(void* p, s32 v);
-void fn_802A6078(void* p, s32 v);
-s32 get_buffer_size__15TWindowSnapShotFPv(void* p);
-s32 init__15TWindowSnapShotFPvi();
-s32 open_stream__15TWindowSnapShotFPvi(void *, s32);
-void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 
 int TLobby::get_max_players() { return 8; }
 

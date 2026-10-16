@@ -182,11 +182,6 @@ Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32)
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 mem_free(void*);
 Buf_8016775C * mem_alloc(s32);
-int set_indexed_flags(void*, void*, void*);
-s32 free_collision_body_parts(void *);
-s32 init_collision_body_parts(void *, void *, int, int, f32);
-void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
-u8 * TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2);
 void * __dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1);
 u8 * TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1);
 void * __dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1);
@@ -209,28 +204,16 @@ s32 clear_current_floor_switch(int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 
-extern s32 __vt__16TOFenceAncient04[];
 extern s32 __vt__22TOHangceilingCave01Key[];
 extern s32 __vt__25TOHangceilingCave01Normal[];
 extern s32 __vt__27TOHangceilingCave01KeyQuick[];
-extern u8 lbl_804416A8[];
-extern u8 lbl_804416C0[];
-extern u8 lbl_804416D8[];
-extern u8 TOFenceAncient04_resource_descriptor[];
-extern RecoveredGlobal_80167878_lbl_804B1F80 ofence_ancient04_collision_parts;
-extern s32 TOFenceAncient04__class_name;
 extern void *TOHangceilingCave01Normal__class_name;
 extern void *TOHangceilingCave01Key__class_name;
 extern s32 TOHangceilingCave01KeyQuick__class_name;
 extern s32 game_difficulty_selection;
-extern u32 TOFenceAncient04__model_archive;
-extern void *TOFenceAncient04__resource_bundle;
 extern s32 TOHangceilingCave01__model_archive;
 extern s32 *turiten_singo_texture_lists;
 extern s32 hanging_ceiling_motion_index;
-extern const f32 lbl_805DB640;
-extern const f32 lbl_805DB644;
-extern const f32 lbl_805DB648;
 extern const f32 lbl_805DB650;
 extern const f32 lbl_805DB654;
 extern s32 lbl_805DB658;
@@ -610,7 +593,6 @@ void TUnk_804B2578::sub_80168488() {
         var_r30 += 1;
     } while (var_r30 != 0xC);
 }
-extern int fold_flush_0;
 #pragma pop
 
 }

@@ -20,9 +20,6 @@ struct TObjRainbowLobby803508_80350858 : TObjBase803508_80350858 {
 struct Obj_803506A4 { u8 pad[0xC8]; s32 state; f32 val; };
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);

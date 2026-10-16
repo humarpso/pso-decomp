@@ -265,8 +265,6 @@ struct G_800695A0 { s32 a; s32 b; u32 flags; };
 #pragma dont_inline off
 struct M_80068FCC { f32 m[3][4]; };
 
-struct V_80068FCC { f32 x, y, z; };
-
 struct W_80068FCC { f32 x, y; };
 
 struct O_80068FCC { M_80068FCC m; W_80068FCC a; W_80068FCC b; W_80068FCC c; };

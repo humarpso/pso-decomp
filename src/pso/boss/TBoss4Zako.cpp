@@ -344,40 +344,6 @@ struct V_8005CBA4 { f32 x, y, z; };
 
 struct Pl_8005CBA4 { u8 pad0[0x38]; V_8005CBA4 pos; };
 
-struct Obj_8005CBA4 {
-    u8 pad0[0x1C];
-    u16 f1c;
-    u8 pad1e[0x1A];
-    V_8005CBA4 pos;
-    u8 pad44[0x374 - 0x44];
-    s32 f374;
-    u8 pad378[0x388 - 0x378];
-    s32 f388;
-    V_8005CBA4 vel;
-    f32 f398;
-    f32 f39c;
-    u8 pad3a0[4];
-    s32 f3a4;
-};
-
-struct Vec_8005CD20 { f32 x, y, z; };
-
-struct Obj_8005CD20 {
-    u8 pad0[0x38];
-    Vec_8005CD20 pos;
-    u8 pad44[0x50 - 0x44];
-    Vec_8005CD20 tgt;
-    u8 pad5C[0x374 - 0x5C];
-    s32 f374;
-    u8 pad378[0x388 - 0x378];
-    s32 f388;
-    Vec_8005CD20 vel;
-    f32 f398;
-    f32 f39c;
-    u8 pad3A0[4];
-    s32 f3a4;
-};
-
 s32 queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
@@ -532,7 +498,6 @@ extern const f32 lbl_805D8D44;
 s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2);
 
 void update_state3__10TBoss4ZakoFPv(void* p);
-int TBoss8Dragon__sub_8005D700(void);
 s32 TObjControl__ct(s32, s32);
 s32 free_collision_body_parts(void *);
 

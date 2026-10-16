@@ -51,8 +51,6 @@ extern "C" {
 void TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
-s32 TKeyBoardControl__sub_8000F8EC();
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int update_card_display__17TWindowSubComCardFPvPvPvPv(void*, int, int, int, int);
 
 void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u32 arg4) {

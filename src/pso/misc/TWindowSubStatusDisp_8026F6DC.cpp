@@ -334,7 +334,6 @@ void TWindowSimpleStatus::apply_random_shake() {
         *(f32 *)(((u8 *)this) + 0x44) += dist * sin_table_lookup(ang);
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TWindowSubStatusDisp::update_hp_tp_level() {

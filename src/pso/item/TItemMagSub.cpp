@@ -17,10 +17,6 @@ void TItemMagSub::release_model_and_destroy() {
     *(s32 *)&this->textures = 0;
     set_flags__11TItemMagSubFUl(arg0, 0x80U);
 }
-extern "C" {
-
-}
-
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemMagSub.h"
 
@@ -84,10 +80,6 @@ void TItemMagSub::transition_motion_type(s32 type) {
     ((void(*)(void*,s32,s32))reset_oscillation__11TItemMagSubFv)(this, motion_type, type);
     motion_type = type;
     motion = (MagFollowParameters*)(item_mag_param_table + (type*0x64));
-}
-
-extern "C" {
-
 }
 
 #define TOBJECT_OUT_OF_LINE_HELPERS
@@ -235,14 +227,6 @@ typedef struct TItemMagSub_80114F0C {
 
 struct Feed_80114AB4 { u8 data[8]; };
 
-struct TItemMagSub_80114AB4 {
-    u8 pad0[0x6C];
-    s32 idx;
-    s32 ids[(0xB8 - 0x70) / 4];
-    u8 colorB8[0xCC - 0xB8];
-    Feed_80114AB4 feeds[2];
-};
-
 typedef char RecoveredGlobal_80114DB8_lbl_8043E5A8_size[sizeof(RecoveredGlobal_80114DB8_lbl_8043E5A8) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_80114DB8_lbl_8058D490_size[sizeof(RecoveredGlobal_80114DB8_lbl_8058D490) == 0x30 ? 1 : -1];
@@ -291,7 +275,6 @@ struct Sub_80115334 {
 s32 memset(void *, int, int);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
 void queue_destruction__7TObjectFv(void *);
-void disallow_rendering__7TObjectFv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TItem__sub_80100A40(f32 *, f32, f32);
 void run_with_transform_context__10TObjPlayerFii(void *, void (*)(void *));
@@ -306,10 +289,7 @@ void reset_oscillation__11TItemMagSubFv(u8 *arg0);
 void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2);
 void lerp_follow_anchor(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t);
 void mag_accumulate_drift(f32 *out, s32 *phase, f32 *amplitude, s32 *velocity, s8 *offset);
-void * __dt__11TItemMagSubFv(void *arg0, s16 arg1);
-void * __dt__15TItemHeapObjectFv(void *arg0, s16 arg1);
 void reset__11TItemMagSubFv(u8 *arg0);
-u8 * __ct__11TItemMagSubFP12MagDrawOwnerP7TObject(u8 *self, u8 *player, u8 *item);
 int mag_node_oscillation_uses_z(void* p);
 int mag_node_oscillation_uses_y(void* p);
 s32 mag_node_oscillation_angle(void *arg0);
@@ -317,9 +297,6 @@ int mag_node_oscillation_uses_x(void* p);
 int mag_node_oscillation_node_index(void* p);
 int mag_item_tests_flag_20(void* p);
 void set_shadow_material_state();
-void __dt__7TObjectFv(void *, int);
-void __dl__15TItemHeapObjectFPv(void *);
-void __ct__15TItemHeapObjectFP7TObject(void *, void *);
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);
 s32 rotate_matrix_zyx(int, int, int, int, int);
@@ -342,10 +319,8 @@ extern s32 TItemMagSub__feed_sequence_index;
 extern const f32 mag_sub_zero;
 extern const f32 mag_sub_angle_units_per_degree;
 extern const f32 mag_sub_one;
-extern s32 __vt__11TItemMagSub[];
 extern Vec_801151E0 mag_sub_special_pose_offset[];
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 mag_sub_local_origin;
-extern s32 __vt__15TItemHeapObject[];
 extern f32 model_material_color[4], saved_model_draw_color[4];
 extern RecoveredGlobal_80114DB8_lbl_8058D490 identity_matrix;
 extern f32 mag_sub_transition_frames;
@@ -366,9 +341,6 @@ void TItemMagSub::clear_optional_oscillation_flag(void* arg0) {
     if ((u32) arg0 != 0U) {
         ((TItemMagSub *)arg0)->clear_flags(2);
     }
-}
-extern "C" {
-
 }
 void TItemMagSub::reset_oscillation() {
     u8* arg0=(u8*)this;
@@ -414,9 +386,6 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
         clear_flags(0x20);
     }
 }
-extern "C" {
-
-}
 void TItemMagSub::update_node_oscillation(void* arg) {
 
     if (TItemMagSub__oscillating_instance != 0) {
@@ -438,7 +407,6 @@ void lerp_follow_anchor(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t) {
     cur->y += *t * (target->y - cur->y);
     cur->z += *t * (target->z - cur->z);
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -447,7 +415,6 @@ void mag_accumulate_drift(f32 *out, s32 *phase, f32 *amplitude, s32 *velocity, s
     *phase += *velocity;
     *out += *amplitude * sin_table_lookup(*phase + (s32)(mag_sub_angle_units_per_degree * (f32)*offset));
 }
-extern int fold_flush_1;
 #pragma pop
 
 }
@@ -468,9 +435,6 @@ s32 TItemMagSub::get_world_position(void* output) {
         return 1;
     }
     return 0;
-}
-extern "C" {
-
 }
 void TItemMagSub::apply_placement_matrix() {
     u8* arg0=(u8*)this;
@@ -550,9 +514,6 @@ void TItemMagSub::render_shadows() {
     chunk_polygon_flags_or_mask = lbl_805D5668;
     model_render_flags = lbl_805D5660;
 }
-extern "C" {
-
-}
 void TItemMagSub::render() {
     TItemMagSub* self = this;
     if (TItem__sub_80100A40(self->owner->center, mag_sub_render_distance_limit, mag_sub_screen_cull_margin) && self->model) {
@@ -581,9 +542,6 @@ void TItemMagSub::render() {
             ((TItemMagSub *)self)->clear_flags((s32)(0x20));
         }
     }
-}
-extern "C" {
-
 }
 s32 TItemMagSub::resolve_owner_heading() {
     void* arg0=this;
@@ -626,9 +584,6 @@ void TItemMagSub::update_special_pose() {
     transform_point_by_current_matrix(&in, &out);
     vec3_add_to(&self->posA0, &out);
     pop_matrix();
-}
-extern "C" {
-
 }
 void TItemMagSub::update_transition() {
     TItemMagSub_801152AC* self=(TItemMagSub_801152AC*)this;
@@ -687,7 +642,6 @@ void TItemMagSub::update_follow() {
     }
 }
 extern "C" {
-extern int fold_flush_2;
 #pragma pop
 
 }
@@ -718,17 +672,8 @@ void TItemMagSub::run_task() {
         }
     }
 }
-extern "C" {
-
-}
 TItemMagSub::~TItemMagSub() {}
-extern "C" {
-
-}
 TItemHeapObject::~TItemHeapObject() {}
-extern "C" {
-
-}
 void TItemMagSub::reset() {
     u8* arg0=(u8*)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, *(s32 *)&this->owner + 0x2FC);
@@ -777,24 +722,14 @@ TItemMagSub::TItemMagSub(MagDrawOwner* player, TObject* parent) : TItemHeapObjec
 }
 
 extern "C" {
-extern int fold_flush_3;
 #pragma pop
 
 }
 void TObject::disallow_rendering_shadows() { m_flags = (u16)(m_flags | 0x100); }
-extern "C" {
-
-}
 void TItemMagSub::clear_growth_flag() {
     void* p=this; ((TItemMagSub *)p)->clear_flags(64); }
-extern "C" {
-
-}
 void TItemMagSub::clear_flags(u32 v) {
     void* p=this; *(u32*)((char*)p + 0x64) &= ~v; }
-extern "C" {
-
-}
 int TItemMagSub::set_growth_flag() {
     void* p=this; return set_flags__11TItemMagSubFUl(p, 64); }
 extern "C" {

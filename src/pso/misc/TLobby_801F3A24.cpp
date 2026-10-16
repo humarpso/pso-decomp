@@ -35,11 +35,8 @@ void handle_msg_type1_for_idle_slots__6TLobbyFv(void);
 extern "C" {
 
 void refresh_quest_list__6TLobbyFi(s32 arg0);
-s32 TLobby__send_and_handle_60(s32);
 s32 read_disc_file(s32, s32);
 s32 alloc__22TQuestVmDownLoadServerFv();
-s32 bswap_16__FPUs(s32);
-void build_6x75_update_quest_flag_dc(void* p);
 void rebuild_all__6TLobbyFi(int a0);
 s32 update_lobby_scene__6TSceneFv();
 

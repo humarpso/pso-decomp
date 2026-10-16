@@ -34,12 +34,8 @@ void TMainCursor__sub_8013F170(void* p, s32 v);
 void TMainCursor__sub_8013F180(void* p, f32 v);
 void TMainCursor__sub_8013F22C(void* a0);
 int TMainCursor__sub_8013F244(void);
-int TLockOnCursor__sub_8013EC1C(void*);
-int reset_nearest_target_record(void*);
 s32 __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
-int fn_8004438C(void*);
-int init_gc_tag(void*);
 
 void TMainCursor__sub_8013F104(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void TMainCursor__sub_8013F10C(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }

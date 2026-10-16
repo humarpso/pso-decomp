@@ -73,26 +73,6 @@ struct VObj_8034EFDC : Base_8034EFDC {
     virtual void m63(s32, void *);
 };
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual s16 m14();
-};
-
 struct RecoveredGlobal_8034F754_lbl_804F0A00 {
     s32 value;
     u8 remaining[0xF4];
@@ -105,10 +85,6 @@ struct Elem_80125628 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
 struct Obj_80125628 { u8 pad[0xa4]; Elem_80125628 *elems; };
 
 struct Ctx_80125628 { Obj_80125628 *obj; s32 idx; };
-
-struct Self_8012573C { u8 pad[0x23c]; u32 f23c; };
-
-struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 pad54[0x70 - 0x54]; void *f70; void *f74; s32 f78; s32 f7c; };
 
 struct P_8034F020 { u8 pad0[0x1F8]; s32 f1F8; };
 

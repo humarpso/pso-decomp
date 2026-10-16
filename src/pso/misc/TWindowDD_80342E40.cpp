@@ -4,10 +4,6 @@
 #include "pso/misc/TShopEquipmentSellWindow.h"
 #include "pso/ui/TWindowInputNumber.h"
 
-struct E_80342F84 { s32 v; };
-
-struct DD_80342F84 { u8 pad[0x24]; E_80342F84 arr[1]; };
-
 struct W_80342ED0 {
     u8 pad0[0x20];
     s32 idx;

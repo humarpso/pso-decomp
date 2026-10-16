@@ -3,12 +3,8 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 TOBind__sub_80158608(void *);
-void TORainbowCave01__sub_80158604(void);
 s32 get_register__12TQuestThreadFPvi(s32, s32);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 

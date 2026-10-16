@@ -20,15 +20,6 @@ struct VObj_8029C214 : VBase_8029C214 {
 
 struct Inner_8029C214 { u8 pad[0x58]; s32 v; };
 
-struct Data_8029C214 {
-    u8 pad0[0x28];
-    Inner_8029C214 a;
-    u8 pad1[0xAC - 0x28 - 0x5C];
-    s32 vec[3];
-    u8 pad2[0xD0 - 0xB8];
-    s32 vt[20];
-};
-
 struct Copy_8029C214 { u32 w[15]; };
 
 extern "C" {

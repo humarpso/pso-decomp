@@ -54,10 +54,6 @@ void* __nw__7TObjectFUl(s32);
 extern s32 __vt__17TObjBoss2DustCtrl[];
 extern void *lbl_805D26F8;
 extern s32 tl_05;
-struct RecoveredGlobal_8003AB00_lbl_804FEA80 {
-    s32 value;
-    u8 remaining[0x3E4];
-};
 
 extern "C" {
 s32 post_translate_matrix(int);

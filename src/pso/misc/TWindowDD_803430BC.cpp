@@ -36,10 +36,6 @@ struct TWindowDD_8034330C {
     u8 fC4[4];
 };
 
-struct S_803435A0 { u8 *p; };
-
-struct W_803435A0 { u8 pad[0x24]; S_803435A0 f24[1]; };
-
 struct DD_803461CC {
     s16 count;
     s16 type;

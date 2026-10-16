@@ -2,9 +2,6 @@
 #include "pso/misc/TMovie.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 bool TMovie::is_playback_finished() {
     u8 *arg0 = (u8 *)this;

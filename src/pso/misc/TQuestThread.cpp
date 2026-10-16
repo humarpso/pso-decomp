@@ -605,7 +605,6 @@ void copy_quest_script_context(u8 *arg0, u8 *arg1) {
     *(u16 *)((s8 *)arg0 + 0x170) = (u16) *(u16 *)((s8 *)arg1 + 0x170);
     *(u16 *)((s8 *)arg0 + 0x172) = (u16) *(u16 *)((s8 *)arg1 + 0x172);
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -624,7 +623,6 @@ void destroy_children_with_tag(Node_801F57B4* arg0) {
         }
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 }
@@ -978,7 +976,6 @@ u8 *init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg
     ((s32 (*)(void))clear_thread_state__12TQuestThreadFv)();
     return arg0;
 }
-extern int fold_flush_2;
 #pragma pop
 
 u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {

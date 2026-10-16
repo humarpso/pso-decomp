@@ -243,7 +243,6 @@ void TWindowDD::init_layout_constants() {
 
 void TWindowDD::init() { initialize_subwindow(); update_fade__13TUnk_804CE018Fv(this); }
 
-extern s32 lbl_804785D8;
 extern const f32 lbl_805DFC6C;
 
 void TWindowDD::set_value_f32(s32 arg1) {

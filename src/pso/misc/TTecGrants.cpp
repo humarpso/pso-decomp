@@ -21,19 +21,8 @@ struct RecoveredGlobal_80233350___vt__10TTecGrants {
 #include "pso/misc/TTecGrants.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/player/TObjPlayer.h"
-struct Stack_802384E0 {
-    s32 sp8;
-    f32 spC;
-    u8 trailing_storage[0x4];
-};
 
 struct RecoveredGlobal_802384E0_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
-
-struct Stack_802385EC {
-    s32 sp8;
-    f32 spC;
-    u8 trailing_storage[0x4];
-};
 
 struct RecoveredGlobal_802385EC_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 

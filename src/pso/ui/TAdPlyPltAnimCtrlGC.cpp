@@ -29,17 +29,9 @@ extern u32 ply_plt_anim_time_threshold_table[];
 extern "C" {
 
 void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1);
-int test_flags_any(void*, int);
-void TObjPlayer__sub_80354F8C(void* p);
-int TObjPlayer__sub_80354FB0(void* p);
-int TObjPlayer__sub_8035501C(void* p);
-s32 TObjPlayer__sub_80355098(s32 arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
-int __dl__FPv();
 s32 __dt__7TObjectFv(void *, s32);
 u32 __nw__7TObjectFUl(s32);
-s32 get_quest_thread_id__10TObjPlayerFPv(void* p);
-void* init_and_reset_forward__10TObjPlayerFPv(void* p);
 
 u8 fn_8035510C(s32 *arg0, s32 arg1) {
     return (u8) (arg1 == (arg1 & *arg0));

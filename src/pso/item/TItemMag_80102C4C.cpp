@@ -7,10 +7,6 @@
 
 extern "C" {
 
-void bswap_32__FPUl(u32* p);
-int get_slot_value__10TObjPlayerFPvi(void*);
-s32 is_matching_id__6TLobbyFiUs(void *, u16);
-
 int TItemMag::get_flag_40() { return this->m_dc & 0x40; }
 
 void TItem::sub_80102C58() { *(u32*)((char*)this + 0xdc) |= 0x40; }

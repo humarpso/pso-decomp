@@ -245,7 +245,6 @@ void init_row_entry__15TWindowMainMenuFPvicc(u8 *arg0, s32 arg1, s8 arg2, s8 arg
     *(s8 *)((s8 *)arg0 + 0x12) = 0;
     *(u8 *)((s8 *)arg0 + 0x13) = (u8) (*(u8 *)((s8 *)arg0 + 0x13) | 1);
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TWindowMainMenu::update_item_tween() {
@@ -281,7 +280,6 @@ void TWindowMainMenu::init_color() {
   *((unsigned char *) (new_var2 + new_var)) = 0;
   *((unsigned char *) (new_var2 + 0x14)) = 0;
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -300,7 +298,6 @@ void TWindowMainMenu::pop_level() {
         }
     }
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -327,7 +324,6 @@ void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0) {
     arg0->flags |= 4;
     arg0->count++;
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -345,7 +341,6 @@ void copy_color_entry__15TWindowMainMenuFPvPv(Col_802ADA48 *arg0, Col_802ADA48 *
     arg0->b6 = arg1->b6;
     arg0->b7 = arg1->b7;
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -358,7 +353,6 @@ int TWindowMainMenu::get_selected_item_type() {
     if (p == 0) return 0x1f;
     return p->f11;
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -369,7 +363,6 @@ void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i) {
     self->idx = i;
     self->items[self->idx]->f12 = 1;
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -380,7 +373,6 @@ int TWindowMainMenu__sub_802ADB00(u8 *arg0) {
   long long new_var;
   return new_var = (s8) ((*((u8 *) (((s8 *) arg0) + 0x61))) & 0xFFFFFFFFFFFFFFFFu);
 }
-extern int fold_flush_7;
 #pragma pop
 
 #pragma push
@@ -427,7 +419,6 @@ loop_3:
     }
     goto loop_3;
 }
-extern int fold_flush_8;
 #pragma pop
 
 s32 TWindowMainMenu::find_free_slot() {

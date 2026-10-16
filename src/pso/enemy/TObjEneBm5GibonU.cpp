@@ -174,8 +174,6 @@ struct Obj_800D0F44 { u8 pad0[0x38]; Vec_800D0F44 pos; u8 pad44[0x60 - 0x44]; s3
 
 struct Spawn_800D1990 { s32 a, b, c, d; };
 
-struct Bss_800D1990 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; f32 v[3]; u8 pad2c[0xC]; };
-
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 update_player_state__9TObjEneDDFv(void *, s32, s32);
@@ -414,8 +412,6 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-}
-extern "C" {
 void vfunc_61__16TObjEneBm5GibonUFv();
 }
 extern "C" {
@@ -545,8 +541,6 @@ extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -622,8 +616,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -697,12 +689,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -5031,8 +5017,6 @@ struct VObj_18_484afe : VBase_18_484afe {
 
 struct Model_800D14AC { u8 b[0x2C]; };
 
-struct Hp_800D14AC { s32 v[2]; };
-
 struct Sub_800D14AC { u8 b[0x1C]; };
 
 struct Self_800D14AC { u8 pad[0x3F4]; Sub_800D14AC subs[4]; };
@@ -5048,14 +5032,8 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
 void TObjPlayer__sub_800D7C58(void);
-void apply_actor_gravity(void *, s32, f32);
 void move_with_wall_slide(void *);
-void calc_velocity_toward_destination(void *, Vec_800D1E4C, Vec_800D1E4C, f32);
-f32 xz_distance_squared(void *, void *);
 s32 advance_animation_playback(void *);
-extern const f32 lbl_805DA258;
-extern const f32 lbl_805DA25C;
-void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0);
 void init_object__12TObjEneDD_STFv(void *, s32, s32);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);

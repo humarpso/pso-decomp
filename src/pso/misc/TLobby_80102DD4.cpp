@@ -106,10 +106,6 @@ void init_6x59_packet__6TLobbyFPv(O_80103044 *self) {
 extern "C" {
 #include "types.h"
 
-extern "C" {
-
-}
-
 }
 
 }

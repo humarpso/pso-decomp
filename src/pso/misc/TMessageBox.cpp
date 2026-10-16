@@ -4,7 +4,6 @@
 extern "C" {
 
 void bswap__11TMessageBoxFv(s32 arg0);
-s32 __ct__16TPlyGuildCardTagFv(s32);
 s32 bswap__13packet_headerFv();
 
 void bswap__11TMessageBoxFv(s32 arg0) {
@@ -15,7 +14,3 @@ void bswap__11TMessageBoxFv(s32 arg0) {
 }
 
 TMessageBox::TMessageBox() {}
-
-extern "C" {
-
-}

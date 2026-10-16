@@ -60,12 +60,6 @@ struct VObj_18_80217C1C : VBase_18_80217C1C {
     virtual s32 m8();
 };
 
-struct Obj_80217C1C {
-    u8 pad0[0x24]; s32 f24; u8 pad28[0x38 - 0x28];
-    u32 f38; u32 f3C; u32 f40; u32 f44; s32 f48; u8 tag[0x68 - 0x4C]; s32 f68;
-    VObj_18_80217C1C *f6C;
-};
-
 struct QEnt_80217C1C { u8 type; u8 pad1[0x27]; u8 name[0x98 - 0x28]; };
 
 struct QList_80217C1C { u8 f0; u8 count; u8 pad2[2]; QEnt_80217C1C ents[1]; };
@@ -253,9 +247,6 @@ void TQuestListOnline::request_download_buffer() {
         set_field_20__15TShopWindowBaseFl((void*)(this), (int)(6));
     }
 }
-extern "C" {
-
-}
 int TQuestListOnline::begin_buffer_request() { return set_field_20__15TShopWindowBaseFl((void*)(this), (int)(5)); }
 extern "C" {
 
@@ -322,9 +313,6 @@ void TQuestListOnline::handle_list_selection() {
     if (list_window != 0 && ((TLobby *)list_window)->get_flag_bit2() != 0) {
         set_field_20__15TShopWindowBaseFl(this, 9);
     }
-}
-extern "C" {
-
 }
 void TQuestListOnline::show_info_window() {
     typedef char sp8_offset[(offsetof(Stack_80217EC4, sp8) == 0x0) ? 1 : -1];

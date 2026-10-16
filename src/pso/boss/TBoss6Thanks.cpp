@@ -25,9 +25,6 @@ struct ThanksMotionHeader
 };
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
@@ -98,7 +95,6 @@ u8 TBoss6Thanks::check_ship_door() {
 int TBoss6Thanks__sub_8035CB40(void) { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(154)); }
 int TBoss6Thanks::dispatch_darkfalz_phase() { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(152)); }
 
-extern s32 lbl_80479C08;
 extern const f32 lbl_805E01A4;
 extern const f32 lbl_805E01A8;
 extern const f32 lbl_805E01AC;

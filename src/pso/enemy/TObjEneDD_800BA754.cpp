@@ -44,9 +44,6 @@ int TObjEneDD__sub_800BA804(u16 arg0);
 
 extern "C" {
 
-int TObjEneDD__sub_800BA6B8(void* p);
-int TObjEneDD__sub_800BA6C4(void* p);
-int init_collision_body_parts(void*);
 s32 check_enemy_body_collisions(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 

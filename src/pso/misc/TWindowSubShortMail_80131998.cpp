@@ -10,7 +10,6 @@ extern "C" {
 s32 window_request_show(void * a0 = 0);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
 s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
-int set_flag62_bit2__16TKeyBoardControlFPv(void*);
 
 void TWindowSubShortMail__sub_80131998(void *arg0) {
     u16 temp_r3;

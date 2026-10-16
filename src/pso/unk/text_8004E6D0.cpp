@@ -20,18 +20,6 @@ typedef struct Obj_8004E918 {
 } Obj_8004E918;
 
 extern "C" {
-void TObjPlayer__sub_80052390(f32);
-void rotate_matrix_y(s32, s32);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_model_motion(s32, s32, f32);
-extern const f32 lbl_805D89B8;
-extern const f32 lbl_805D89BC;
-extern const f32 lbl_805D89C0;
-}
-
-extern "C" {
 
 void *TObjDFDemo1__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);

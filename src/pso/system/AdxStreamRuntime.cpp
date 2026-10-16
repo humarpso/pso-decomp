@@ -1310,12 +1310,6 @@ s32 adx_get_data_start_offset(u16 *arg0, s32 arg1, s32 *arg2) {
 
 }
 
-struct VObj0 { virtual void m0(); virtual void m1(); };
-
-struct VBase { char pad[0]; };
-
-struct VObj { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
-
 struct Ch_803CB5C4 {
     s32 used;
     s32 id;

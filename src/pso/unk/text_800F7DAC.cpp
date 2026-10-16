@@ -136,7 +136,6 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
   var_r3 = phi_r30;
   return var_r3;
 }
-extern int fold_flush_0;
 #pragma pop
 
 void render_screen_fade(Fade_800F7E28 *self) {
@@ -203,7 +202,6 @@ void TLobby::tick_fade_counter() {
         *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -220,7 +218,6 @@ void step_fade_opacity_increase(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
 }
-extern int fold_flush_2;
 #pragma pop
 
 void TLobby::init_fadeout_state(s32 arg0) {
@@ -249,7 +246,6 @@ void TUnk_80499970::step_fade_opacity_decrease() {
         *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 void TLobby::set_fade_params(s32 arg0) {
@@ -304,7 +300,6 @@ s32 TUnk_80499988::sub_800F8250(f32 farg0) {
     temp_r31 = *(u8 *)((s8 *)this + 0x2B);
     return (((((((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2C) - temp_r11)) + (f32) temp_r11) << 0x18)) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2D) - temp_r10)) + (f32) temp_r10) << 0x10) & 0xFF0000 & ~0xFF000000)) & ~0xFF00) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2E) - temp_r12)) + (f32) temp_r12) << 8) & 0xFF00)) & ~0xFF) | ((s32) ((farg0 * (f32) (*(u8 *)((s8 *)this + 0x2F) - temp_r31)) + (f32) temp_r31) & 0xFF);
 }
-extern int fold_flush_4;
 #pragma pop
 
 void TLobby__sub_800F838C(u8 *arg0) {
@@ -394,7 +389,6 @@ void TLobby__sub_800F8690(u8 *arg0) {
         ((TObject *)arg0)->set_flag_4();
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 void *TLobby__sub_800F86FC(void *arg0, s16 arg1) {
@@ -433,7 +427,6 @@ void TLobby__sub_800F87B4(u8 *arg0) {
         ((TObject *)arg0)->set_flag_4();
     }
 }
-extern int fold_flush_6;
 #pragma pop
 
 void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1) {

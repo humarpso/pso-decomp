@@ -36,7 +36,6 @@ extern "C" {
 
 u8 *get_creation_pad();
 
-extern s32 lbl_80465168;
 extern const f32 lbl_805DDC20;
 
 f32 TObjCMProportion::get_ratio() {

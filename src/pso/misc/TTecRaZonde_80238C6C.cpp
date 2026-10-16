@@ -14,15 +14,6 @@
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-struct Stack_80238388 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
-    s32 sp14;
-    f32 sp18;
-    f32 sp1C;
-    f32 sp20;
-};
 
 struct RecoveredGlobal_80238388_lbl_8044DAF0 {
     s32 value;
@@ -49,18 +40,6 @@ struct RecoveredFields_80230D9C_arg0
   f32 field_88;
   u8 unknown_8C[0x20];
   s16 field_AC;
-};
-
-struct RaFoie_802381F8 {
-    u8 pad0[0x22];
-    u16 level;
-    void *tev;
-    u8 m28[0x34 - 0x28];
-    f32 sx;
-    f32 sy;
-    f32 sz;
-    u8 pad40[0x48 - 0x40];
-    u8 m48[1];
 };
 
 #pragma fp_contract on
@@ -103,36 +82,11 @@ struct Self_80239070 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 approach_position_if_far(void *, void *, f32);
-s32 approach_alpha_clamped(void *, void *, f32);
-extern RecoveredGlobal_80238388_lbl_8044DAF0 lbl_8044DAF0;
 extern const f32 TTecRaFoie__data_805DC8CC;
-extern const f32 lbl_805DC8D8;
-extern const f32 lbl_805DC8DC;
-extern const f32 lbl_805DC8E0;
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
-void get_bml_model(void *, s32);
-void set_cull_none__8TObjFishFv(void);
-void set_cull_back__8TObjFishFv(void);
-void func_80141618__Fv(void);
-void set_depth_buffer_settings_id__FUl(s32);
-void scale_matrix(s32, f32, f32, f32);
-void rotate_matrix_y(s32, s32);
-void push_matrix(void);
-void pop_matrix(void);
-void post_translate_matrix(void *);
-void draw_ginja_object(void);
-void set_chunk_material_color(void *, s32);
-extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
-extern void *technique_effect_bml;
-extern void *lbl_805D63B0;
-extern s32 model_render_flags;
-extern const f32 lbl_805DC8D0;
-extern const f32 lbl_805DC8D4;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
@@ -169,7 +123,6 @@ extern "C" {
 
 void *__dt__10TTecRaFoieFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 }
 struct RecoveredGlobal_802384E0_lbl_804CCB28;
@@ -180,20 +133,8 @@ void *__dt__10TTecRaFoieFPvs(void *arg0, s16 arg1);
 
 }
 
-struct Stack_802384E0 {
-    s32 sp8;
-    f32 spC;
-    u8 trailing_storage[0x4];
-};
-
 struct RecoveredGlobal_802384E0_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
-
-struct Stack_802385EC {
-    s32 sp8;
-    f32 spC;
-    u8 trailing_storage[0x4];
-};
 
 struct RecoveredGlobal_802385EC_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_802385EC_lbl_804CCB28_size[sizeof(RecoveredGlobal_802385EC_lbl_804CCB28) == 0x18 ? 1 : -1];
@@ -218,59 +159,6 @@ struct RecoveredFields_80238D10_arg0
   f32 field_88;
   u8 unknown_8C[0x20];
   s16 field_AC;
-};
-
-struct RaFoie_80238828 {
-    u8 pad0[0x20];
-    u8 origin[0xC];
-    u8 pad2c[0x68 - 0x2C];
-    s32 age;
-    u8 pad6c[0x78 - 0x6C];
-    s16 level;
-    s16 band;
-    u8 target[0xC];
-};
-
-struct Damage_802386F8 { s32 kind; f32 power; };
-
-struct VBase_802386F8 { char pad[0x18]; };
-
-struct VObj_802386F8 : VBase_802386F8 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual s32 m21(s32, Damage_802386F8, s32, s32, s32, void *);
-};
-
-struct VBase_18_80238BA4 { char pad[0x18]; };
-
-struct VObj_18_80238BA4 : VBase_18_80238BA4 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-    virtual void m7();
 };
 
 typedef struct Point_80238C6C { f32 x, y, z; } Point_80238C6C;
@@ -315,8 +203,6 @@ struct Obj_80238AE8 : VObj_18_acd6eb {
     void *source;
 };
 
-struct Sub_80238AE8 { u8 pad[0xA4]; u8 *inner; };
-
 struct Elec_80238E14 { s32 type; f32 val; };
 
 struct VBase_18_9c98dd { char pad[0x18]; };
@@ -352,7 +238,6 @@ u32 find_entity_by_id(int);
 void run_task__10TTecRaFoieFv(u8 *arg0);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-extern s32 tl_particle;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -376,14 +261,12 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 u16 obj_getField1c(void *);
-void copy_technique_target_list(void *, void *);
 extern s32 __vt__10TTecRaFoie[];
 extern u32 TTecRaFoie_class_name;
 u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
 s32 mem_alloc(int);
 u16 obj_getField1c(void *);
-void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern s32 __vt__10TTecRaFoie[];
 extern u32 TTecRaFoie_class_name;
@@ -482,7 +365,6 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
-int spawn_support_tec_range_effect(void*);
 
 void TTecRaZonde::create(void *arg1, void *arg2) {
     void *o;

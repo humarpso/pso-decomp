@@ -649,7 +649,6 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
         }
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 }

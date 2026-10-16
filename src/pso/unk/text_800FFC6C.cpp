@@ -13,9 +13,6 @@ struct A_800FFC6C { u8 pad[0x34]; B_800FFC6C *b; u8 pad38[0xCFC - 0x38]; s32 bus
 struct Obj_800FFC6C { u8 pad[0x1C]; A_800FFC6C *a; void *data; s32 ready; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void TObjTailsTailsMove::sub_800FFC6C() {
     Obj_800FFC6C *self = (Obj_800FFC6C *)this;

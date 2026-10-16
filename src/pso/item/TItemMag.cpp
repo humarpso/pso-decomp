@@ -273,7 +273,6 @@ inline f32 frand_80110A18(void) {
     f32 r = lbl_805DAB9C * (f32) rand();
     return r;
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -299,7 +298,6 @@ void TItemMag::resolve_sentinel_color() {
     }
     this->m_1a6 = v;
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TItemMag::call_preserve_flag(s32 arg1) {
@@ -1428,8 +1426,6 @@ struct VObj_18 : VBase_18 {
     virtual s16 m14();
 };
 
-struct Obj_80113CA8 { u8 pad[0x70]; s32 arr[1]; };
-
 struct Base_801139F4 { s32 x0; u8 pad[0x14]; };
 
 struct Mag_801139F4 : Base_801139F4 {
@@ -1556,9 +1552,6 @@ void TItemMag__vt44(s32 arg0);
 void *__dt__8TItemMagFv(void *arg0, s16 arg1);
 void serialize_mag__9TItemDataFPvPv(void *, const void *);
 s32 request_model_load__14TItemEquipBaseFl(s32, u8);
-void TItemMag__sub_80113E3C(void* p);
-u8 TItemMag__sub_80113E74(void* p);
-f32 TItemMag__sub_80113EEC(void* p);
 void __dt__14TItemEquipBaseFv(void *, int);
 int __dt__9TItemLoadFPvs(void*, void*);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -1886,15 +1879,8 @@ extern "C" {
 
 }
 void TItemMagSub::set_node_id(s32 index, s32 id) { node_ids[index] = id; }
-extern "C" {
-
-}
 void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) copy_vec4__13TRaderMapCoreFPvPv(material_parameters, parameters); }
-extern "C" {
 
-}
-
-extern s32 lbl_8043E560;
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 TItemMag__data_805DABA8;
 
@@ -1908,9 +1894,6 @@ void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_a
         *(f32 *)((s8 *)arg0 + 0x80) = (f32) TItemMag__data_805DABA4;
         *(f32 *)((s8 *)arg0 + 0x84) = (f32) ((f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x28)) + 4) - TItemMag__data_805DABA8);
     }
-}
-extern "C" {
-
 }
 void TItemMagSub::scale_owner_height(f32 factor) { owner_height_scale *= factor; }
 extern "C" {

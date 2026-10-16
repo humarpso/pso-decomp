@@ -3300,7 +3300,6 @@ void run_task__17TObjEneDf2BringerFv(u8 *arg0) {
 
 struct Vec_80099800 { f32 x, y, z; };
 struct Slot_80099800 { u8 pad[0x1C]; };
-struct Tbl_80099800 { u8 pad0[0x1C]; u8 model[0x2C]; u8 sub[0xBC - 0x2C]; u8 padE8[0x10]; };
 
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);

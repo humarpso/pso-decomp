@@ -12,10 +12,7 @@ s32 fn_8002AE08(void *p);
 
 extern "C" {
 
-int TLobby__send_and_handle_60(void*);
 f64 floor();
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 
 int TObjEneDD::get_flag_b4() { return (*(u32*)((char*)this + 0xb0) >> 4) & 0x1; }
 

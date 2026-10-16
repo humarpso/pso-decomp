@@ -49,8 +49,6 @@ struct Passage_80226FA0 { s16 first, repeat, count, transition, next; };
 
 struct Program_80226FA0 { char archive[32]; s32 count, ntsc, pal; Passage_80226FA0 *modes[2]; };
 
-struct Buffers_80226FA0 { u8 unknown[0x80]; s32 segments[2]; s32 ticks[2]; s32 positions[2]; };
-
 extern "C" {
 int TLobby__sub_80226308(void);
     extern int lbl_805D62B0;

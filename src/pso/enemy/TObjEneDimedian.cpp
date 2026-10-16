@@ -61,7 +61,6 @@ struct VObj_18_c99286 : VBase_18_c99286 {
 };
 
 struct Anim_800A8118 { s32 motions; void *actions; s32 initial_action; s32 counts; };
-struct Ids_800A8118 { s16 v[3]; };
 struct Pair_800A8118 { s32 a; s32 b; };
 struct Bodies_800A8118 { s32 a; s32 b; s32 model; s32 textures; };
 struct Res_800A8118 { u8 pad[0x42C]; Bodies_800A8118 *bodies; Pair_800A8118 *motions; };
@@ -82,8 +81,6 @@ void draw_trail_with_colors(void *, s32, s32, s32, s32);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 s32 *mem_alloc(s32);
 void spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
-extern Ids_800A8118 lbl_8043AA8C[];
-extern Anim_800A8118 dimedian_anim_binding[];
 extern u8 lbl_8043AAA4[];
 extern s32 dimedian_resource_handles[];
 extern s32 dimedian_last_draw_tick[];

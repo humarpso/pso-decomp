@@ -644,11 +644,6 @@ struct RecoveredGlobal_8006AC70_lbl_8058D490 {
 };
 
 struct Vec_8006B0D4 { f32 x, y, z; };
-struct Reg_8006B0D4 {
-    s32 objs[13];
-    s32 (*ctors[13])(void);
-    void *vt[1];
-};
 struct Count_8006B0D4 {
     s8 flag;
     s32 count;

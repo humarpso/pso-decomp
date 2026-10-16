@@ -23,9 +23,6 @@ struct Stack_801DB554 {
 };
 
 extern "C" {
-}
-
-extern "C" {
 
 void TLobby::send_6F_burst_done() {
     u8 *arg0 = (u8 *)this;

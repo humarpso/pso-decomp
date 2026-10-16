@@ -75,22 +75,6 @@ struct RecoveredGlobal_80180BD4___vt__8TObjChip {
     u8 remaining[0x34];
 };
 
-struct VBase_18_26a62c { char pad[0x18]; };
-
-struct VObj_18_26a62c : VBase_18_26a62c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
-struct Rec16_80180D18 { s32 f0; s32 f4; s32 f8; s32 fc; };
-
 struct Vec_8018085C { f32 x, y, z; };
 
 struct Out_8018085C { f32 x, y; };
@@ -204,23 +188,10 @@ void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__8TObjChip[];
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
-s32 scroll_strip_uvs(int, s16, int);
-s32 get_city_common_model(int);
-s32 rotate_matrix_y(int, int);
-s32 rotate_matrix_z(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object();
 s32 draw_chunk_object(int, void *);
-extern s32 city_aircar_model_indices[];
-extern s32 city_air_car_model_index_table[];
-extern s32 city_traffic_car_chunk_index_table[];
-extern s32 air_car_buffer_pair_table[];
-extern u8 *city_air_car_model_resource;
-extern void **city_air_car_model_handle;
-extern void **city_common_texture_list;
-void render__18TObjCityAirCar_CarFPv(u8 *arg0);
 void matrix_mult_vec(int, Vec_8018085C *, Vec_8018085C *);
 void project_world_to_screen(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
 extern Vec_8018085C lbl_804FF610;

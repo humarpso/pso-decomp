@@ -3,9 +3,6 @@
 #include "pso/protocol.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void TProtocol::handle_cmd_90(packet &pkt) {
     s32 *arg1 = (s32 *)&pkt;

@@ -28,7 +28,6 @@ void TObjPlayer::cast_tech_gibarta() {
 }
 void TObjPlayer::notify_container_if_mode1() { if (get_player_list__10TObjPlayerFv(this) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)this + 0x1f8)); } }
 
-extern s32 lbl_8043E870;
 extern f32 lbl_805DACF0;
 extern f32 lbl_805DACF4;
 

@@ -6,11 +6,6 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
 
-struct RecoveredGlobal_80256BDC_lbl_804CF918 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
 struct Bar_80256C00 {
     u8 pad0[0x14];
     f32 scale;
@@ -34,18 +29,11 @@ struct Gauge_80256E0C { u8 p0[0x14]; f32 max; };
 
 struct Pos_80256E0C { f32 x; f32 y; };
 
-struct Quad_80256E0C { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
-
 extern "C" {
-extern s32 lbl_804CF918[];
 void sub_80256BDC__13TUnk_804CF930Fs(u8 *arg0, s16 arg1);
 void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar);
-f32 fabs_float(f32);
 extern const f32 lbl_805DCE58;
-extern const f32 lbl_805DCECC;
 void step_gauge_bar_width(Gauge_802571B4 *g);
-s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void draw_textured_quad_at_depth(void *, f32);
 void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth, f32 len);
 }
 extern "C" {
@@ -54,68 +42,12 @@ void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
 }
 
-struct Gauge_80257784 {
-    u16 flags;
-    u8 pad2[0x8 - 0x2];
-    f32 f8;
-    f32 fC;
-    f32 f10;
-    f32 f14;
-    s32 f18;
-    f32 f1C;
-    f32 f20;
-    f32 f24;
-    u8 pad28[0x60 - 0x28];
-    s32 f60;
-    s32 f64;
-};
-
-struct Parent_80257784 {
-    u8 pad0[0x10];
-    f32 f10;
-    f32 f14;
-    f32 f18;
-    u8 pad1C[0x30 - 0x1C];
-    s32 f30;
-    u8 pad34[0x38 - 0x34];
-    f32 f38;
-};
-
-struct Pos_80257784 { f32 x, y; };
-
 extern "C" {
-s32 TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
-s32 begin_screen_draw(s32, f32, f32, f32);
-s32 set_draw_texture_and_color(s32, s32);
-s32 set_constant_material_color(s32);
-extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCED8;
-extern const f32 lbl_805DCEDC;
-extern const f32 lbl_805DCEE0;
-extern const f32 lbl_805DCEE4;
-extern const f32 lbl_805DCEE8;
-extern const f32 lbl_805DCEEC;
-void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_80257784 *parent);
 }
 
 extern "C" {
-
-struct Col_802575C0 { u8 r, g, b, a; };
-
-struct Fade_802575C0 {
-    u16 flags;
-    u8 pad2[0x16];
-    Col_802575C0 col;
-    u8 pad1c[0x2C - 0x1C];
-    u32 rgb;
-    u8 pad30[4];
-    f32 tr, tg, tb;
-    u8 pad40[4];
-    f32 cr, cg, cb;
-    u8 pad50[4];
-    f32 dr, dg, db;
-};
 
 struct RecoveredGlobal_80257B4C_lbl_804CF948 {
     s32 value;
@@ -166,32 +98,16 @@ typedef char RecoveredGlobal_80257B4C_lbl_804CF948_size[sizeof(RecoveredGlobal_8
 
 typedef void *(*Ctor_80257D44)(void *, void *, s32);
 
-struct Bar_8025799C {
-    u16 flags;
-    u8 pad0[0x14 - 2];
-    f32 width_max;
-    u32 color18;
-    f32 width;
-    f32 max;
-    f32 target;
-    s16 shown;
-    s16 timer;
-};
-
 s32 __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void mem_free(void *);
 void ** mem_alloc(u32);
-s32 play_sound_effect(u32, s32, s32, s32);
 #define destroy__13TUnk_804CF930Fs ((s32 (*)(s32, s32 *))destroy__13TUnk_804CF930Fs)
 #define sub_80256BDC__13TUnk_804CF930Fs ((int (*)(void*, int))sub_80256BDC__13TUnk_804CF930Fs)
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
 #define TWindowSubStatusDisp__sub_80257298 ((s32 (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
 void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
-u32 update_text_color_transition(void);
-void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
-void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
 void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
@@ -207,7 +123,6 @@ void * init_part_direct__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
-extern s32 lbl_804CF948[];
 extern s32 lbl_804CF998[];
 extern const float lbl_805DCE58;
 extern const f32 lbl_805DCED8;

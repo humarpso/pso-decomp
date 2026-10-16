@@ -2,7 +2,6 @@
 
 #include "stdarg.h"
 typedef void (*RecoveredCallback_c88e8900640a)(s32, u8 *);
-struct P_803D0DEC { void (*fn)(s32, u8 *); s32 arg; };
 
 #include "pso/system/GcciRequests.h"
 #include "pso/misc/TLobby.h"

@@ -29,7 +29,6 @@ struct RecoveredGlobal_801BF414_lbl_804C3FA8 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_2C { u8 bytes[0x2C]; };
 
 struct RecoveredGlobal_801D2CF4_lbl_804C43CC {
     s32 value;
@@ -41,21 +40,9 @@ struct RecoveredGlobal_801D2CF4_lbl_804C43D8 {
     u8 remaining[0xC];
 };
 
-struct Ent_801D2AB0 { u8 d[4]; };
-
-struct Obj_801D2AB0 { u8 pad[0x14]; Ent_801D2AB0 arr[1]; };
-
 struct Pos_801D2964 { u8 bytes[0x8]; };
 
 struct Pkt_801D2964 { u8 hdr[4]; Pos_801D2964 pos; };
-
-struct Ent_801D32A0 { u16 a; s16 b; };
-
-struct Self_801D32A0 { u8 pad[0x20]; f32 f20; f32 f24; f32 f28; f32 f2c; s32 count; Ent_801D32A0 ents[1]; };
-
-struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x3c; u8 pad3[0x5C]; u8 lock[4]; };
-
-struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
 
 extern "C" {
 void bswap_32__FPUl(void *);
@@ -110,9 +97,6 @@ int create_attached_oneshot_emitter(void*, int, int);
 void emit_jellen_support_effect(u8 *arg0);
 s32 obj_getField1c(int);
 void emit_shifta_support_effect(u8 *arg0);
-void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_801BF414_lbl_804C3FA8 __vt__20TPlayerReadyCallback;
-u8 *__ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 int TFontSmallLobby__sub_801C0228(void*);
 }
 

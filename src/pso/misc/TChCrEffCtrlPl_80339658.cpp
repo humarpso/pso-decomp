@@ -4,21 +4,7 @@
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/ui/TWindowSubTradeMessage.h"
 
-struct VBase803398CC_803398cc_80339658 { char pad[0x18]; };
-struct VObj803398CC_803398cc_80339658 : VBase803398CC_803398cc_80339658 {
-    virtual s32 m0();
-    virtual s32 m1();
-    virtual s32 m2();
-    virtual s32 m3();
-    virtual s32 m4();
-    virtual s32 m5();
-    virtual s32 m6();
-    virtual s32 m7();
-};
-
 struct O_80339808 { s32 f0; u8 pad[0x14]; void *vt; s32 f1c; s32 f20; u8 v[8]; f32 f2c; u8 pad2[4]; s32 f34; };
-
-struct Vec2_803396C8 { f32 x, y; };
 
 struct O_803396C8 { u8 pad[0x24]; f32 x; f32 y; f32 f2c; f32 f30; s32 f34; };
 

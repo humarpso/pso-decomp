@@ -44,8 +44,6 @@ s32 get_section_id__10TObjPlayerFv(void *);
 
 extern "C" {
 
-int test_flags_any(void*, int);
-int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int TObjPlayer__sub_803131AC(void* a0 = 0);
 int TObjPlayer__sub_80313218(void* p);
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);

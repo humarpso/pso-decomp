@@ -46,11 +46,6 @@ extern const f32 lbl_805DEC7C;
 extern const f32 lbl_805DEC80;
 }
 
-struct RecoveredGlobal_802F1200_lbl_805419E0 {
-    s32 value;
-    u8 remaining[0x3E4];
-};
-
 extern "C" {
 s32 post_translate_matrix(int);
 void boss7_dust_draw_at(s32 *arg0, s32 arg1);

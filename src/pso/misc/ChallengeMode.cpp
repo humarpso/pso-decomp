@@ -68,15 +68,7 @@ struct ByteBlock_1C4 { u32 a; struct { u32 w[0x70]; } b; };
 
 struct ByteBlock_10 { u8 bytes[0x10]; };
 
-struct ByteBlock_14 { u8 bytes[0x14]; };
-
-struct ByteBlock_18 { u8 bytes[0x18]; };
-
-struct ByteBlock_50 { u8 bytes[0x50]; };
-
 struct ByteBlock_54 { u8 bytes[0x54]; };
-
-struct ByteBlock_1C0 { u8 bytes[0x1c0]; };
 
 struct ByteBlock_410 { u8 bytes[0x410]; };
 

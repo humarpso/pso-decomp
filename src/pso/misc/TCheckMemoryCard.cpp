@@ -29,11 +29,6 @@ extern "C" {
 
 void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
-s32 TKeyBoardControl__sub_8000F8EC();
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int TWindowSubComCard__sub_8033C178(void* p);
-void TWindowSubComCard__sub_8033C198(void);
-int TWindowSubComCard__sub_8033C19C(void* p);
 s32 TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
 s32 __dl__7TObjectFPv(void *);

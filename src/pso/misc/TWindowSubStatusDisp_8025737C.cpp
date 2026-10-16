@@ -6,11 +6,6 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct RecoveredGlobal_80256BDC_lbl_804CF918 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
 struct Bar_80256C00 {
     u8 pad0[0x14];
     f32 scale;
@@ -34,18 +29,11 @@ struct Gauge_80256E0C { u8 p0[0x14]; f32 max; };
 
 struct Pos_80256E0C { f32 x; f32 y; };
 
-struct Quad_80256E0C { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
-
 extern "C" {
-extern s32 lbl_804CF918[];
 void sub_80256BDC__13TUnk_804CF930Fs(u8 *arg0, s16 arg1);
 void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar);
-f32 fabs_float(f32);
 extern const f32 lbl_805DCE58;
-extern const f32 lbl_805DCECC;
 void step_gauge_bar_width(Gauge_802571B4 *g);
-s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void draw_textured_quad_at_depth(void *, f32);
 void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth, f32 len);
 }
 extern "C" {
@@ -122,46 +110,6 @@ struct RecoveredGlobal_80257B4C_lbl_804CF948 {
     u8 remaining[0x14];
 };
 
-struct Base_80257BC0 { u16 flags; u8 pad[2]; };
-
-struct Item_80257BC0 : Base_80257BC0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void draw(void *ctx);
-};
-
-struct List_80257BC0 { u32 count; Item_80257BC0 **items; };
-
-struct Base_80257C28 { u32 x0; };
-
-struct Ent_80257C28 : Base_80257C28 { virtual void m0(); virtual void m1(); };
-
-struct List_80257C28 { u32 count; Ent_80257C28 **items; };
-
-struct Win_80257C28 { u8 pad[0x2C]; u32 flags; u8 pad2[0x2C]; s32 counter; };
-
-struct B_80257CB8 { u8 pad[4]; };
-
-struct Elem_80257CB8 : B_80257CB8 {
-    virtual void dtor(s32 flag);
-};
-
-struct List_80257CB8 {
-    u32 count;
-    Elem_80257CB8 **items;
-};
-
-struct List_80257D44 {
-    u32 count;
-    void **items;
-};
-
-struct Desc_80257D44 {
-    u32 cols;
-    u32 rows;
-    u32 recs[1];
-};
-
 typedef char RecoveredGlobal_80257B4C_lbl_804CF948_size[sizeof(RecoveredGlobal_80257B4C_lbl_804CF948) == 0x18 ? 1 : -1];
 
 typedef void *(*Ctor_80257D44)(void *, void *, s32);
@@ -179,8 +127,6 @@ struct Bar_8025799C {
 };
 
 s32 __dl__FPv(void *);
-void mem_free(void *);
-void ** mem_alloc(u32);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(u32, s32, s32, s32);
 #define destroy__13TUnk_804CF930Fs ((s32 (*)(s32, s32 *))destroy__13TUnk_804CF930Fs)
@@ -193,24 +139,11 @@ u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
-void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
-void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
-void TWindowSubStatusDisp__sub_80258050(void);
-void TWindowSubStatusDisp__sub_80258054(void);
-void * init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(void *, void *, s32);
-void * TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
-void * TWindowHelpItem__sub_8025A594(void *, void *, s32);
-void * TWindowHelpItem__sub_8025A95C(void *, void *, s32);
-void * construct_text_entry(void *, void *, s32);
-void * init_part_direct__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
-void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];
-extern s32 lbl_804CF998[];
 extern const float lbl_805DCE58;
 extern const f32 lbl_805DCED8;
-extern const f32 lbl_805DCEF0;
 
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time) {
     Col_802575C0 c;

@@ -51,7 +51,6 @@ int TBoss8Dragon__sub_8002D5F8(void);
 s32 draw_ginja_model(int);
 int TObjBoss1Crater__sub_8002C7B4(void);
 int TObjBoss1Crater__sub_8002C7B8(void);
-s32 TObjBoss1Crater__sub_8002C7E4(void* p);
 int TObjBoss1Floor__sub_8002CB40(void);
 int TObjBoss1Floor__sub_8002CB78(void);
 int TObjBoss1Rock__sub_8002E3CC(void);

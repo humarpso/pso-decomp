@@ -95,8 +95,6 @@ void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0) {
 
 struct Te_8028BFA4 { s32 id; u8 pad[0xC]; };
 
-struct Ld_8028BFA4 { u8 pad0[0x20]; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; u8 pad30[8]; void *bufs[8]; u32 f5c_; };
-
 struct Cl_8028BFA4 { u8 pad0[0x20]; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; u8 pad30[8]; void *bufs[8]; s32 f58; s32 f5c; s32 f60; u8 pad64[8]; s32 f6c; s32 f70; };
 
 struct Ent_8028BE00 { u8 pad[0xC]; };
@@ -133,9 +131,6 @@ extern const f32 lbl_805DD920;
 s32 find_player_texture_name_ordinal(u8 *arg0);
 void set_texture_name(void *, void *, s32, s32);
 s32 load_texture_list(void *);
-}
-
-extern "C" {
 }
 
 #include "types.h"

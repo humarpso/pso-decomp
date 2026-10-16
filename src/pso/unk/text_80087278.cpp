@@ -1,8 +1,6 @@
 #include "types.h"
 struct Data_8008741C { u8 pad[0x98]; };
 
-struct Ent_80087278 { u8 data[0x98]; };
-
 struct Ent_80087350 { u8 data[0x98]; };
 
 extern "C" {

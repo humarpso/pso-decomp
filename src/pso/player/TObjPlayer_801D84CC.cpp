@@ -184,7 +184,6 @@ void free_shared_lobby_data__10TObjPlayerFv(void) { TLobby::free_nodes_with_id((
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_50 { u8 bytes[0x50]; };
 
 struct RecoveredGlobal_801D8ADC_lbl_8044929C {
     s32 value;

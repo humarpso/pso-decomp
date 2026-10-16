@@ -3,7 +3,6 @@
 extern "C" {
 
 s32 set_action_provider_variant__10TObjPlayerFPvs(void *, int);
-void TObjPlayer__sub_801BD314(void);
 s16 TObjPlayer__sub_801C2114();
 s32 draw__10TObjPlayerFPv(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();

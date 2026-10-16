@@ -4,11 +4,8 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_10 { u8 bytes[0x10]; };
 
 struct ByteBlock_14 { u8 bytes[0x14]; };
-
-struct ByteBlock_20 { u8 bytes[0x20]; };
 
 struct ByteBlock_24 { u8 bytes[0x24]; };
 

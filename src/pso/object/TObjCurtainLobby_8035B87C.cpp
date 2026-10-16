@@ -17,7 +17,6 @@ extern BmlResourceDescriptor lobby_curtain_resource_descriptor;
 extern const char *bm_obj_lobby_curtain_motion_names[1];
 }
 
-struct RecoveredGlobal_8035BACC_lbl_804F1D98 { s32 value; u8 remaining[0xC]; };
 struct TObjBase8035BB_8035BB24 { char pad[0x18]; };
 struct TObjCurtainLobby8035BB_8035BB24 : TObjBase8035BB_8035BB24 {
     virtual void v0(s32);

@@ -34,11 +34,9 @@ extern "C" {
 
 int transform_to_view__11TCameraCtrlFii(void*);
 int apply_split_screen_view_matrix__11TCameraCtrlFv(void*);
-int is_local_client_floor_leader(void*);
 int restore_scene_lighting(void*);
 int select_actor_lighting(void*);
 int bind_enemy_combat_stats(void*);
-s32 get_main_phase();
 int render_with_position_override__9TObjEnemyFPUcl(void*);
 int set_param__12TObjEneLappyFl(void*);
 

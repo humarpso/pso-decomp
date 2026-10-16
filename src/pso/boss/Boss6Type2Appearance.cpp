@@ -73,7 +73,6 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_model_12() {
     pop_matrix();
 }
 
-extern const f64 lbl_80478080[];
 extern const f32 lbl_805DFA70;
 extern const f32 lbl_805DFA74;
 extern const f32 lbl_805DFA7C;

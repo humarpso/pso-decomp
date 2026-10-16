@@ -111,14 +111,12 @@ extern "C" {
 int init_character_action_config(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFPv(void*);
 int set_palette_entry__20TWindowActionPaletteFlllll(void*);
 int fn_802C4748(void* p);
 s32 getDateStamp__FP9DateStamp(s32 *);
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
-s32 get_main_phase();
 
 void TObjPlayer::init_battle_selection() { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))update_battle__10TObjPlayerFi)(); }
 

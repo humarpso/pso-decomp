@@ -1850,8 +1850,6 @@ extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -1927,8 +1925,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -1980,8 +1976,6 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-}
-extern "C" {
 void render_actor_shadows_default();
 }
 extern "C" {
@@ -1995,12 +1989,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -2134,7 +2122,6 @@ void TObjEneMorfos::draw_body() {
         pop_matrix();
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 s32 TObjEneMorfos::render_model_if_visible() {
@@ -3036,7 +3023,6 @@ s32 select_target_in_view__13TObjEneMorfosFPv(O_80334588 *arg0) {
     }
     return 0;
 }
-extern int fold_flush_1;
 #pragma pop
 
 int TObjEneMorfos__sub_80334704(void) { morfos_projectile_speed = *(float*)((char*)TObjEneMorfos__param_table + 0x0); morfos_param_table_speed_copy = *(float*)((char*)TObjEneMorfos__param_table + 0x4); return TObjEneMorfos__param_table; }
@@ -3062,7 +3048,6 @@ void TObjEneMorfos::init_target_offsets() {
     *(f32 *)((s8 *)arg0 + 0x3E0) = (f32) (lbl_805DF8A4 + *(f32 *)((s8 *)arg0 + 0x35C));
     *(f32 *)((s8 *)arg0 + 0x3E4) = (f32) (lbl_805DF8A4 + *(f32 *)((s8 *)arg0 + 0x360));
 }
-extern int fold_flush_2;
 #pragma pop
 
 void TObjEneMorfos::vfunc_88() {
@@ -3319,7 +3304,6 @@ struct VObj_80334D74 : VBase_18_80334D74 {
 struct Elem_80334D74 { u8 pad[0x1C]; };
 struct Arr_80334D74 { u8 pad[0x424]; Elem_80334D74 e[4]; };
 struct Hdr_80334D74 { u8 b[0x1C]; };
-struct Tbl_80334D74 { Hdr_80334D74 hdr; u8 model[0xA4]; u8 d8[4]; };
 struct Res_80334D74 { u8 pad[0x18]; s32 f18; s32 f1C; };
 struct Mgr_80334D74 { u8 pad[0x42C]; Res_80334D74 *res; s32 f430; };
 void set_field_dc__10TObjPlayerFl(void *, s32);

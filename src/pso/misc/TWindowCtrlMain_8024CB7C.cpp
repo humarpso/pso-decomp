@@ -45,20 +45,6 @@ void begin_screen_draw(int);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern void *lbl_805D63F0;
-extern const f32 TWindowCtrlMain__data_805DCC18;
-extern const f32 TWindowCtrlMain__data_805DCC1C;
-extern const f32 TWindowCtrlMain__data_805DCC20;
-extern const f32 lbl_805DCC24;
-extern const f32 lbl_805DCC30;
-extern const f32 lbl_805DCC34;
-extern const f32 lbl_805DCC38;
-extern const f32 lbl_805DCC3C;
-extern const f32 lbl_805DCC40;
-extern const f32 lbl_805DCC44;
-extern const f32 lbl_805DCC48;
-extern const f32 lbl_805DCC4C;
-extern const f32 lbl_805DCC50;
-extern const f32 lbl_805DCC54;
 
 void TWindowCtrlMain__sub_8024CB7C() {
     TWindowCtrlMain__display_flags |= 1;

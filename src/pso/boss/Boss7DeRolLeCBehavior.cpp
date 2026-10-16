@@ -659,7 +659,6 @@ void set_swim_direction__8TObjFishFPv(void *arg0);
 #define TObjFish__sub_802ED4AC ((s32 (*)(void *, int))TObjFish__sub_802ED4AC)
 #define TObjFish__sub_802ED3E4 ((f32 (*)(void *))TObjFish__sub_802ED3E4)
 #define set_swim_direction__8TObjFishFPv ((void (*)(void *, s32))set_swim_direction__8TObjFishFPv)
-struct ByteBlock_10 { u8 bytes[0x10]; };
 
 struct ByteBlock_14 { u8 bytes[0x14]; };
 
@@ -2038,7 +2037,6 @@ void TObjFish__sub_802E9458(u8 *arg0, u32 arg1) {
         break;
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
@@ -3322,7 +3320,6 @@ void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1) {
     stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14) * farg1) - stack.sp10);
     spawn_particle_effect_with_flags((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
 }
-extern int fold_flush_1;
 #pragma pop
 
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2) {
@@ -3606,9 +3603,6 @@ void pick_random_target__8TObjFishFPv(u8 *self) {
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
 #include "types.h"
-
-extern "C" {
-}
 
 extern "C" {
 

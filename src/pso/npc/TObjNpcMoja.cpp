@@ -125,7 +125,6 @@ void TObjNpcBase__ct(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 npc_default_battle_stats[];
 extern u8 npc_movement_parameters[];
-struct Tbl_8014C780 { u8 anim[0x20]; u8 x20[0x2C]; u8 vt[0x10]; };
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void draw_debug_info__11TObjNpcBaseFv();
 extern "C" void is_target_in_attack_range__11TObjNpcBaseFv();

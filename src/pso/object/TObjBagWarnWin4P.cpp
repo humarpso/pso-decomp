@@ -14,8 +14,6 @@ extern "C" {
 
 void *__ct__16TObjBagWarnWin4PFv(void *arg0);
 u32 create_message_window__6TLobbyFllUls(s32, void *, s32, s32);
-s32 TLobby__sub_8030A770();
-s32 get_game_play_mode();
 u32 get_player_by_client_id(s32);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 has_player_active_menu__11TWindowCtrlFv(u16);

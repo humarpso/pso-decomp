@@ -21,17 +21,6 @@ struct Obj_80075CB4 { u8 pad[0xAC]; s32 fac; u8 pad_b0[0x110 - 0xB0]; char name[
 
 struct Ply_80075CB4 { u8 pad[0x85C]; char name[0x30]; };
 
-struct Date_80075A00 {
-    u32 year : 4;
-    u32 month : 4;
-    u32 pad8 : 3;
-    u32 day : 5;
-    u32 pad16 : 3;
-    u32 hour : 5;
-    u32 pad24 : 2;
-    u32 minute : 6;
-};
-
 struct Tomb_80075A00 {
     u8 pad0[0xAC];
     s32 owner;

@@ -99,7 +99,6 @@ struct RecoveredGlobal_80133B10_TObjLight__data_80506320 { s32 value; u8 remaini
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_40 { u8 bytes[0x40]; };
 
 struct ByteBlock_44 { u8 bytes[0x44]; };
 
@@ -639,14 +638,6 @@ void restore_scene_lighting(void) {
 
 typedef char RecoveredGlobal_80134724_TObjLight__data_8050637C_size[sizeof(RecoveredGlobal_80134724_TObjLight__data_8050637C) == 0x580 ? 1 : -1];
 
-struct Light_80134194 {
-    f32 dir[3];
-    f32 color[4];
-    f32 f1C;
-    f32 f20;
-    u32 flags;
-    u32 id;
-};
 struct LightData_80134194 {
     u8 pad0[0xC];
     f32 dir[3];

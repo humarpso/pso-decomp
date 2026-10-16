@@ -121,10 +121,6 @@ struct RecoveredFields_8012ABCC_arg0
   u32 field_F0;
 };
 
-struct Elem_80077A28 { u8 data[0xD4]; };
-
-struct Obj_80077A28 { s32 f0; Elem_80077A28 e[0x20]; };
-
 struct PlB_8012AC68 { char pad[0x18]; };
 
 struct Pl_8012AC68 : PlB_8012AC68 {

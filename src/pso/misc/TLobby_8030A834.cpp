@@ -13,8 +13,6 @@ void *fn_8030A83C(void *arg0);
 
 extern "C" {
 
-int TCameraCtrl__sub_8030ABF4(void);
-
     extern int lobby_online_ready_flag;
 int TLobby::get_online_ready_flag() {  return lobby_online_ready_flag; }
 

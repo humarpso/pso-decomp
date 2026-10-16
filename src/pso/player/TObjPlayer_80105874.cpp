@@ -22,7 +22,6 @@ extern "C" {
 
 void fn_801058E8(void* p);
 int TItemDrop__sub_8010F168(void*, void*);
-int initialize_mag_item_data(void*);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 
     extern int item_class_load_handle;

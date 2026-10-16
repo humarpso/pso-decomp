@@ -8,9 +8,6 @@ extern "C" {
 
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int TWindowSubComCard__sub_8033C178(void* p);
-void TWindowSubComCard__sub_8033C198(void);
-int TWindowSubComCard__sub_8033C19C(void* p);
 
 void TQuestVmDownLoadServer::init_from_keyboard_state() {
     s32 var_r31;

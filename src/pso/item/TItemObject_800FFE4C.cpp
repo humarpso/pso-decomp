@@ -31,10 +31,6 @@ extern s32 *TLobby__data_805D6140;
 
 extern "C" {
 
-int TObjTailsTailsMove__sub_800FFE04(void);
-void TObjTailsTailsMove__sub_800FFE0C(void);
-void TObjTailsTailsMove__sub_800FFE10(void);
-int TObjTailsTailsMove__sub_800FFE14(void);
 int clear_item_flags__10TObjPlayerFUl(void*, int);
 
 int TItemObject::set_flag_1024() { return clear_item_flags__10TObjPlayerFUl(this, 1024); }

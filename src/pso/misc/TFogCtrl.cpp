@@ -116,32 +116,9 @@ typedef char RecoveredGlobal_800FB8A0___vt__8TFogCtrl_size[sizeof(RecoveredGloba
 
 typedef char RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188_size[sizeof(RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188) == 0x10 ? 1 : -1];
 
-struct Stack_800FBD74 {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-    f32 sp14;
-    f32 sp18;
-    f32 sp1C;
-    f32 sp20;
-    f32 sp24;
-};
-
 struct RecoveredGlobal_800FBB68_lbl_8049C670 { s32 value; u8 remaining[0x8C]; };
 
 typedef char RecoveredGlobal_800FBB68_lbl_8049C670_size[sizeof(RecoveredGlobal_800FBB68_lbl_8049C670) == 0x90 ? 1 : -1];
-
-struct Pos_800FBEA8 {
-    f32 x;
-    f32 y;
-    u8 pad[0x18];
-};
-
-struct Pos_800FBFD8 {
-    f32 x;
-    f32 y;
-    u8 pad[0x18];
-};
 
 struct FogParam_800FBC5C {
     s32 f0;
@@ -153,10 +130,6 @@ struct FogParam_800FBC5C {
     f32 f18[8];
     u8 f38[8];
 };
-
-struct E_800FC220 { f32 w; f32 x; };
-
-struct Quad_800FC310 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
 struct Row_800FB498 {
     u32 flags;
@@ -200,8 +173,6 @@ struct O_800FB400;
 
 struct FogCtrl_800FB134;
 
-struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
-
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
@@ -219,13 +190,6 @@ void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
 void create_area_fog_ctrl(void);
 void init_scene_fog_system(void);
-void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
-void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
-int get_name_text_width(void* p);
-u32 calc_small_font_text_width(const char *s);
-s32 get_small_font_glyph_width(u8 c);
-void TWindowSubStatusDisp__sub_800FC248(void);
-void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 mem_free(void*);
 FogParam_800FBC5C * mem_alloc(s32);
 s32 TObjFogCollisionPoison__sub_801533BC();
@@ -236,9 +200,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void GXInitFogAdjTable(GXFogAdjTable_800FAE1C *, s32, void *);
 void GXSetFogRangeAdj(s32, s32, GXFogAdjTable_800FAE1C *);
 f32 sin_table_lookup(s32);
-s32 begin_screen_draw(int);
-s32 draw_textured_quad_at_depth(void *, f32);
-s32 set_draw_texture_and_color(int, void *);
 void fn_803E1FC8(u32);
 void set_scene_fog_distances(f32, f32);
 void set_scene_fog_type(s32);
@@ -254,7 +215,6 @@ extern u8 scene_projection_state[];
 extern s32 lbl_805D2B18;
 extern u32 fog_entry_array;
 extern s32 fog_update_flags;
-extern E_800FC220 *small_font_metrics_table_ptr;
 extern s32 actor_frame_tick;
 extern s32 *tl_02;
 
@@ -276,7 +236,6 @@ s32 TFogCtrl::select_fog_for_viewport(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -295,7 +254,6 @@ s32 TFogCtrl::restore_fog_for_player(s32 arg1, s32 arg0) {
     }
     return 0;
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -329,7 +287,6 @@ void copy_fog_entry(u8 *arg0, u8 *arg1) {
     var_r6 += 0x20;
     *(ByteBlock_8 *)((s32) arg0 + 0x38) = *(const ByteBlock_8 *)((s32) arg1 + 0x38);
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -352,7 +309,6 @@ void TFogCtrl::clear_split_screen_fog() {
         }
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -377,7 +333,6 @@ void TFogCtrl::update_all() {
         } while (var_r29 != 4);
     }
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -398,7 +353,6 @@ void TFogCtrl::clear_active_flag() {
         *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c & 0xFFFFFFFE);
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -430,7 +384,6 @@ s32 apply_fog_entry(void *arg0) {
     }
     TParticleCtrl::end_effect_render();
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -460,7 +413,6 @@ s32 TFogCtrl::restore_fog(s32 arg1) {
     *(s32 *)&this->m_1a4 = 0;
     return 1;
 }
-extern int fold_flush_7;
 #pragma pop
 
 #pragma push
@@ -479,7 +431,6 @@ s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     ((TFogCtrl *)arg0)->request_transition(1, arg2);
     return 1;
 }
-extern int fold_flush_8;
 #pragma pop
 
 #pragma push
@@ -522,7 +473,6 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   var_r3 = (u8 *) ((void *) 1);
   return 1;
 }
-extern int fold_flush_9;
 #pragma pop
 
 #pragma push
@@ -540,7 +490,6 @@ void TFogCtrl::request_transition(s32 arg1, s32 arg2) {
     *(s32 *)&this->m_1a0 = 2;
     *(s32 *)&this->m_1a4 = arg1;
 }
-extern int fold_flush_10;
 #pragma pop
 
 s32 TFogCtrl::get_param() { return *(s32 *)&this->m_1c0; }
@@ -568,7 +517,6 @@ void TFogCtrl::apply_slot_params(s32 idx) {
     }
     self->dirty |= 1;
 }
-extern int fold_flush_11;
 #pragma pop
 
 s32 TFogCtrl::is_controller_animated(s32 arg0, s32 arg1) {
@@ -714,7 +662,6 @@ void run_task__8TFogCtrlFv(Ctrl_800FB498 *arg0) {
         ((TFogCtrl *)arg0)->apply_slot_params(arg0->selected);
     }
 }
-extern int fold_flush_12;
 #pragma pop
 
 u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1) {
@@ -771,7 +718,6 @@ TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index
     ((TFogCtrl *)self)->apply_slot_params((s32)(0));
     return self;
 }
-extern int fold_flush_13;
 #pragma pop
 
 void TFogCtrl__sub_800FBA54(void) {  }

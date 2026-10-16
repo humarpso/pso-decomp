@@ -182,8 +182,6 @@ extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -265,8 +263,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -331,12 +327,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -2439,7 +2429,6 @@ void TObjEneMe1GiGue::load_resources() {
     TLobby::spawn_npc_enemy((s16)0x41, (s32)(((Obj_802CD62C *)TObjEneMe1GiGue__data_805D6838)->mdl->a), (s32)(((Obj_802CD62C *)TObjEneMe1GiGue__data_805D6838)->mdl->b), (s32)(&sp), (f32)(getf_802CD62C(q)), (f32)15.0f);
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 }

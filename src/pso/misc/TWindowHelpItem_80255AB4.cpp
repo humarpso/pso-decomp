@@ -11,29 +11,6 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct V3_80255CCC { f32 v[3]; };
-
-struct THelp_80255CCC {
-    u32 w0;
-    u8 pad4[0x14];
-    s32 *vt18;
-    u8 pad1c[4];
-    s16 idx20;
-    u8 pad22[0x3e];
-    u8 b60;
-    u8 pad61[3];
-    void *list64;
-    s32 w68;
-    s32 w6c;
-    s32 w70;
-    u8 pad74[0x28];
-    s32 w9c;
-    s32 wa0;
-    s32 wa4;
-    f32 fa8;
-    f32 fac;
-    V3_80255CCC vb0;
-};
 
 extern "C" {
 extern u8 *text_language_group_table;
@@ -54,7 +31,6 @@ extern "C" {
 
 void TWindowHelpItem__sub_80255B20(u8 *arg0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
-s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 handle_list_page_flip_input(s32);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);

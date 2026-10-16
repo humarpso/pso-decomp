@@ -95,7 +95,6 @@ void TOSensorGeneral01::vfunc_17() {
     *(s32 *)((s8 *)this + 0xE8) = (s32) (*(s32 *)((s8 *)this + 0xE8) + 0x28F);
 }
 
-extern s32 lbl_80442A78;
 extern const f32 lbl_805DB9B0;
 extern const f32 lbl_805DB9B4;
 extern const f32 lbl_805DB9B8;

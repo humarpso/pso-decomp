@@ -12,7 +12,6 @@ extern "C" {
 
 int TLobby__send_and_handle_60(void*);
 int bswap_word_select__9TWindowDDFv(void*);
-s32 TWindowDD__sub_80348D88(void* p);
 
 int TWindowDD::handle_word_select() { return bswap_word_select__9TWindowDDFv((char*)this + 0x4); }
 

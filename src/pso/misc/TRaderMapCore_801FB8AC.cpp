@@ -22,20 +22,6 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
     u8 remaining[0x38];
 };
 
-struct Base { char pad[0x18]; };
-
-struct VObj : Base {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
 extern "C" {
 extern u32 TRaderMapCore__frame_model_resource;
 extern u32 TRaderMapCore__data_805D5F4C;

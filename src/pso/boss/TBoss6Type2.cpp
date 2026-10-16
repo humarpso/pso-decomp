@@ -378,8 +378,6 @@ struct T1_802BBD88 { u8 pad0[0xA4]; Ent_802BBD88 *p; };
 
 struct V_802BBF54 { f32 x, y, z; };
 
-struct T2_802BBF54 { u8 pad0[0x59C]; V_802BBF54 a[19]; V_802BBF54 b[19]; };
-
 struct Ent_802BC050 { s16 f0; s16 v[5]; };
 
 struct Obj_802BC050 {
@@ -488,8 +486,6 @@ struct RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C {
 struct Blk_802BCFD4 { s32 a; s32 b; s32 rest[7]; };
 
 struct Obj_8004D8C8 { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
-
-struct Obj_8004D92C { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
 
 struct V_802BD378 { f32 x, y, z; };
 
@@ -780,7 +776,6 @@ void grid_to_world_pos__11TBoss6Type2FccPv(s8 arg0, s8 arg1, f32 *arg2) {
     arg2[1] = TBoss6Type2__data_805DE410;
     arg2[2] = (f32)((TBoss6Type2__data_805DE41C * (f32)arg1) + lbl_805DE418);
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TBoss6Type2::call_9A24_plus_1(s32 *arg1) {
@@ -854,7 +849,6 @@ void TBoss6Type2::destroy_part(s32 arg1) {
         *(u32 *)((s8 *)temp_r31 + 0x77C) = 0U;
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TBoss6Type2::spawn_particle_slot(s32 arg1) {
@@ -903,7 +897,6 @@ void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self) {
     s32 i;
     for (i = 0; i < 14; i++) self->arr[i] = 0;
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -965,7 +958,6 @@ void TBoss6Type2::update_footstep_effects() {
   }
   while (var_r28 < 2);
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -989,7 +981,6 @@ void TBoss6Type2::restore_effect_values() {
         *arg0->e[i].p = arg0->e[i].a;
     }
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -1006,7 +997,6 @@ void TBoss6Type2::sum_offsets() {
         *arg0->e[i].p = arg0->e[i].a + arg0->e[i].b;
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -1036,7 +1026,6 @@ void TBoss6Type2::aim_toward_point(void *arg1_arg) {
         arg0->e[i].a = approach_angle_limited(arg0->e[i].a, ang, 0x2AA);
     }
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -1055,7 +1044,6 @@ void TBoss6Type2::init_collected_entries() {
         arg0->e[i].b = 0;
     }
 }
-extern int fold_flush_7;
 #pragma pop
 
 #pragma push
@@ -1082,7 +1070,6 @@ void TBoss6Type2::sub_802BA078() {
         }
     }
 }
-extern int fold_flush_8;
 #pragma pop
 
 #pragma push
@@ -1097,7 +1084,6 @@ void TBoss6Type2::reset_fish_fields() {
     ((Obj_802BA158 *)this)->f594 = 0;
     ((Obj_802BA158 *)this)->f598 = 0;
 }
-extern int fold_flush_9;
 #pragma pop
 
 #pragma push
@@ -1122,7 +1108,6 @@ void TBoss6Type2::restore_target_player_state() {
         reset_fish_fields__11TBoss6Type2Fv((Obj_802BA158 *)((void *)((void *) (((u8 *)this)))));
     }
 }
-extern int fold_flush_10;
 #pragma pop
 
 void TBoss6Type2::copy_vec2(void* q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)this + 0x4) = *(u32*)((char*)q + 0x4); }
@@ -1395,7 +1380,6 @@ s32 snap_to_ground__11TBoss6Type2FPv(Obj_802BAB80 *self) {
     self->pos.y = TBoss6Type2__data_805DE410;
     return 1;
 }
-extern int fold_flush_11;
 #pragma pop
 
 void TBoss6Type2__sub_802BAD04(s32 arg0) {
@@ -2088,7 +2072,6 @@ void set_screen_pos__11TBoss6Type2FPv(void *arg0) {
     *(f32 *)((s8 *)TBoss6Type2__motion_table + 0x3C) = var_f1;
     *(f32 *)((s8 *)TBoss6Type2__motion_table + 0xEC) = var_f0;
 }
-extern int fold_flush_12;
 #pragma pop
 
 #pragma push
@@ -2168,7 +2151,6 @@ void TBoss6Type2::load_battle_params() {
         ((RecoveredFields_802BC754_arg0 *)arg0)->field_4E4 = (f32) *(f32 *)((s8 *)(&TBoss6Type2__default_battle_parameters.value) + 0x30);
     }
 }
-extern int fold_flush_13;
 #pragma pop
 
 struct Anim_802BCD2C { u8 pad[4]; u32 n; };
@@ -2336,7 +2318,6 @@ Blk_802BCFD4 *copy_block__11TBoss6Type2FPvPv(Blk_802BCFD4 *d, Blk_802BCFD4 *s) {
     *d = *s;
     return d;
 }
-extern int fold_flush_14;
 #pragma pop
 
 #pragma push
@@ -2363,7 +2344,6 @@ void TBoss6Type2::set_action_state(void *vv) {
         (((TBoss6Type2_802BD014 *)this)->*fn)();
     }
 }
-extern int fold_flush_15;
 #pragma pop
 
 #pragma push
@@ -2426,7 +2406,6 @@ void TBoss6Type2::copy_pos_620(s32 arg1) {
     s32 arg0 = (s32)this;
     ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)(arg1, arg0 + 0x620);
 }
-extern int fold_flush_16;
 #pragma pop
 
 #pragma push
@@ -2441,7 +2420,6 @@ void TBoss6Type2::get_push_points(s32 arg1, s32 arg2) {
     ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (arg1)), (s32)((void *) (arg0 + 0x5FC)));
     ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (arg2)), (s32)((void *) (arg0 + 0x5C0)));
 }
-extern int fold_flush_17;
 #pragma pop
 
 #pragma push
@@ -2455,7 +2433,6 @@ void TBoss6Type2::copy_pos_59c(s32 arg1) {
     s32 arg0 = (s32)this;
     ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)(arg1, arg0 + 0x59C);
 }
-extern int fold_flush_18;
 #pragma pop
 
 #pragma push
@@ -2480,7 +2457,6 @@ void TBoss6Type2::apply_damage(s32 arg1) {
         add_damage(arg1);
     }
 }
-extern int fold_flush_19;
 #pragma pop
 
 #pragma push
@@ -2494,7 +2470,6 @@ void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg
     ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)(arg2), (s32)(&arg0->v[arg1 + 0xE - 0]));
     *arg3 = arg0->f60;
 }
-extern int fold_flush_20;
 #pragma pop
 
 #pragma push
@@ -2522,7 +2497,6 @@ void get_phase_values__11TBoss6Type2FPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b
         out[i] = obj_getArrU16_FC(self, i);
     }
 }
-extern int fold_flush_21;
 #pragma pop
 
 #pragma push
@@ -2571,7 +2545,6 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
     ((TBoss6Type2 *)arg0)->spawn_hit_effects();
     return TBoss6Type2__data_805DE410;
 }
-extern int fold_flush_22;
 #pragma pop
 
 #pragma push
@@ -2604,7 +2577,6 @@ void TBoss6Type2__vt60(u8 *arg0) {
         ((s32 (*)(int, void *, int, int))play_sound_effect)(0x68A24, arg0 + 0x38, 0, 1);
     }
 }
-extern int fold_flush_23;
 #pragma pop
 
 #pragma push
@@ -2629,7 +2601,6 @@ s32 TBoss6Type2::count_matching_values(s32 arg1, s32 arg2) {
     }
     return cnt;
 }
-extern int fold_flush_24;
 #pragma pop
 
 #pragma push
@@ -2658,7 +2629,6 @@ void TBoss6Type2::set_target_state(s32 arg1, s32 arg2) {
         ((TBoss6Type2 *)(this->m_414))->set_target_nodes((void*)(this->m_2e4), (void*)(*(s32 *)&this->m_42c));
     }
 }
-extern int fold_flush_25;
 #pragma pop
 
 #pragma push
@@ -2677,7 +2647,6 @@ s32 TBoss6Type2::choose_next_index() {
     }
     return r;
 }
-extern int fold_flush_26;
 #pragma pop
 
 #pragma push
@@ -2705,7 +2674,6 @@ s32 TBoss6Type2::find_index_in_table(u32 v) {
     }
     return 0;
 }
-extern int fold_flush_27;
 #pragma pop
 
 #pragma push
@@ -2778,7 +2746,6 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
     *(u8 *)((s8 *)arg1 + 0) = stack.sp9;
     *(u8 *)((s8 *)arg1 + 1) = stack.sp8;
 }
-extern int fold_flush_28;
 #pragma pop
 
 #pragma push
@@ -2829,7 +2796,6 @@ void TBoss6Type2::update_attack_target() {
     TBoss6Type2__sub_802BD938((u8 *)(this), (u8 *)(&sp8));
     send_action_packet_if_idle((s32)(var_r31), (s32 *)(&sp8));
 }
-extern int fold_flush_29;
 #pragma pop
 
 #pragma push
@@ -2882,7 +2848,6 @@ void TBoss6Type2::update_action_state() {
     }
     send_action_packet_if_idle((s32)(var_r4), (s32 *)(&sp8));
 }
-extern int fold_flush_30;
 #pragma pop
 
 #pragma push
@@ -2905,7 +2870,6 @@ void TBoss6Type2::send_action_packet_if_idle(s32 arg1, s32 *arg2) {
         ((TBoss6Type2 *)(&p))->update_and_send();
     }
 }
-extern int fold_flush_31;
 #pragma pop
 
 #pragma push
@@ -2926,7 +2890,6 @@ void send_action_packet__11TBoss6Type2FPvc(u8 *arg0, s8 arg1) {
         ((TBoss6Type2 *)(&stack.sp8))->update_and_send();
     }
 }
-extern int fold_flush_32;
 #pragma pop
 
 #pragma push
@@ -2959,7 +2922,6 @@ void TBoss6Type2::parse_action_packet(void *arg1) {
     set_action_field_0x408__11TBoss6Type2Fs(*(s32 *)((s8 *)this + 0x410), this->m_468);
     set_action_field_0x408__11TBoss6Type2Fs(*(s32 *)&this->m_414, this->m_46a);
 }
-extern int fold_flush_33;
 #pragma pop
 
 #pragma push
@@ -2983,7 +2945,6 @@ void build_state_packet__11TBoss6Type2FPvPv(u8 *arg0, u8 *arg1) {
     *(s8 *)((s8 *)arg1 + 0xE) = (s8) spA;
     *(s8 *)((s8 *)arg1 + 0xF) = (s8) sp8;
 }
-extern int fold_flush_34;
 #pragma pop
 
 #pragma push
@@ -3099,7 +3060,6 @@ void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1) {
     *arg0 = *arg1;
     *(ByteBlock_C *)((s32) arg0 + 4) = *(const ByteBlock_C *)((s32) arg1 + 4);
 }
-extern int fold_flush_35;
 #pragma pop
 
 #pragma push
@@ -3123,7 +3083,6 @@ s32 TBoss6Type2::create(s32 arg0) {
     }
     return var_r31;
 }
-extern int fold_flush_36;
 #pragma pop
 
 #pragma push

@@ -47,7 +47,6 @@ extern "C" {
 
 s32 TLobby__sub_8001EEF4(void);
 int fn_8001ED90(void* p);
-s32 TLobby__sub_8001ED88(void* p);
 
 int fn_8001ED90(void* p) { return (*(u32*)((char*)p + 0x0) >> 10) & 0x1; }
 

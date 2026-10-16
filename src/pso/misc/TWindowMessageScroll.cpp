@@ -22,12 +22,8 @@ u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2);
 extern "C" {
 
 void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1);
-s32 TLobby__sub_80269C90(void);
-s32 TLobby__sub_80269CA4(s32 a0 = 0);
-s32 TLobby__sub_80269DA4(s32 a0 = 0, s32 a1 = 0);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowMessageQuestFv(void *, int);
-s32 __nw__7TObjectFUl(s32 a0 = 0);
 
 extern s32 __vt__20TWindowMessageScroll[];
 

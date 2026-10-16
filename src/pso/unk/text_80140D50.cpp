@@ -40,8 +40,6 @@ s32 fn_80140D50(void);
 
 extern "C" {
 
-struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
-
 s32 fn_80140D50(void) {
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();

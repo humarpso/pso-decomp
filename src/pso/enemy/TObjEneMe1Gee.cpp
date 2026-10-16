@@ -3874,7 +3874,6 @@ void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1) {
         return;
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TObjEneMe1Gee__sub_800C96B4(Gee_800C96B4 *o, s32 mode) {
@@ -5245,7 +5244,6 @@ void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1) {
     *(f32 *)((s8 *)arg1 + 8) = (f32) (temp_f31 * ((f32 (*)(s32, f32))cos_table_lookup)(temp_r31, temp_f1));
     vec3_add_to(arg1, arg0 + 0x38);
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TObjEneMe1Gee::vfunc_106() {
@@ -5276,7 +5274,6 @@ void TObjEneMe1Gee::sub_800CC0C4() {
         *(f32 *)((s8 *)arg0 + 0x400) = (f32) TObjEneMe1Gee__data_805DA0EC;
     }
 }
-extern int fold_flush_2;
 #pragma pop
 
 void TObjEneMe1Gee::vfunc_88() {
@@ -5583,8 +5580,6 @@ void *create__13TObjEneMe1GeeFPv(void *arg0) {
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Vec_800CC950 { f32 x, y, z; };
-
-struct G_800CC950 { s32 t[4][3]; Vec_800CC950 v; };
 
 struct Q_800CC950 { s32 a, b, c, d; };
 

@@ -56,7 +56,6 @@ void apply_context_transform_to_rect(void *, void *);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
-extern const f64 lbl_8044F690;
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD480;
 extern const f32 lbl_805DD484;

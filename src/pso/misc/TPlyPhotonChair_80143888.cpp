@@ -4,9 +4,6 @@
 #include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void *TPlyPhotonChair__sub_801438E0(void *arg0, s16 arg1);
 s32 TPlyPhotonChair__sub_80143930(void* p);

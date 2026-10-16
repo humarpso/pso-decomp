@@ -90,7 +90,6 @@ u8 TBoss4Thanks::is_door_0x97_open() {
 int TBoss4Thanks::dispatch_main_phase_153() { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(153)); }
 int TBoss4Thanks::dispatch_main_phase() { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(151)); }
 
-extern s32 lbl_80479B88;
 extern const f32 lbl_805E0188;
 extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0190;

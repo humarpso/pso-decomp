@@ -803,7 +803,6 @@ void TLobby::close_result_windows() {
 }
 
 s32 get_main_phase();
-extern s32 lbl_80434A90;
 extern f32 TLobby__data_805D7EE0;
 
 f32 TLobby::calc_result_offset() {

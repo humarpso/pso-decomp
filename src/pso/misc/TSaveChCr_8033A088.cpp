@@ -19,9 +19,6 @@ extern "C" {
 extern TSaveChCrStateActions lbl_804EF658[];
 }
 
-extern "C" {
-}
-
 #include "types.h"
 #include "pso/TChCrCharSelect.h"
 

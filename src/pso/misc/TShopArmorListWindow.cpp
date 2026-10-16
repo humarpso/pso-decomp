@@ -84,10 +84,6 @@ struct VObj_18_a93f07 : VBase_18_a93f07 {
     virtual s32 m4(s32, s32);
 };
 
-struct ByteBlock_10 { u8 bytes[0x10]; };
-
-struct ByteBlock_14 { u8 bytes[0x14]; };
-
 struct Rec_8021A43C { s32 w[5]; };
 
 struct Win_8021A43C {

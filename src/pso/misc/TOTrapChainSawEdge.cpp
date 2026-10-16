@@ -662,7 +662,6 @@ void TOTrapChainSawDamage::vfunc_27() {
     }
     ((s32 (*)(s32, void *, void *, int, int))play_persistent_sound)(((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (((u8 *)this)), (int) (0)), (void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x38), (int) (0), (int) (0));
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TOTrapChainSawDamage::vfunc_26() { *(s32*)((char*)this + 0x100) = 0; }
@@ -702,7 +701,6 @@ void TOTrapChainSawDamage__vt22(void *arg0) {
     }
     set_indexed_flags(arg0, 1, 0x100);
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -720,7 +718,6 @@ void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1) {
     ((VObj_18_62e3d5 *)(arg1))->m21(arg0, (s32 *)&q, 0, -1, -1);
     obj_setFlags30((void *) (arg1), (int) (0x400));
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -743,7 +740,6 @@ void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1) {
     arg0->fB4 = (0.0f);
     arg0->fB8 = (1.0f);
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -757,7 +753,6 @@ void TOTrapChainSawDamage::decode_params() {
     ((s32 (*)(void))decode_params__14TOTrapChainSawFv)();
     *(f32 *)((s8 *)this + 0xFC) = (f32) *(f32 *)((s8 *)this + 0x6C);
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -774,7 +769,6 @@ void *TOTrapChainSawDamage::create() {
     }
     return o;
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -796,7 +790,6 @@ void *__dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -834,7 +827,6 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     }
     return arg0;
 }
-extern int fold_flush_7;
 #pragma pop
 
 #pragma push
@@ -857,7 +849,6 @@ s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1) {
     }
     return p[arg1];
 }
-extern int fold_flush_8;
 #pragma pop
 
 f32 TOTrapChainSaw::scale_by_level(f32 farg0) {

@@ -45,11 +45,6 @@ u8 TItemMag__sub_80113E74(void* p);
 f32 TItemMag__sub_80113EEC(void* p);
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
 int test_flags_any(void*, int);
-s16 TObjPlayer__sub_80113D90(void* p);
-int get_mag_item_data(void* p);
-int get_mag_item_percent(void* p);
-int get_mag_item_stat_percent(void* p);
-int get_mag_level(void* p);
 
 int TItemMag::get_status_flag() { return this->m_18c & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }

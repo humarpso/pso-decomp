@@ -43,10 +43,6 @@ struct Cfg_80307D00 {
 
 extern "C" {
 void TAdVIConfigGC__vt5(void* p);
-extern s32 lbl_80434088;
-extern const f32 lbl_805D7D3C;
-extern s32 current_floor_index;
-extern s32 lobby_player_count;
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);

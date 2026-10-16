@@ -6,9 +6,6 @@
 
 extern "C" {
 
-s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 TWindowHelpItem__sub_80255DDC(void* p);
-
 s16 TWindowSubStatusDisp::get_item_type() { return *(s16*)((char*)this + 0x2fa); }
 s16 TWindowSubStatusDisp::get_field_2F8() { return *(s16*)((char*)this + 0x2f8); }
 s16 TWindowSubStatusDisp::get_stat() { return *(s16*)((char*)this + 0x2f2); }

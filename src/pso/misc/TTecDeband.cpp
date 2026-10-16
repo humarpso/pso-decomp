@@ -105,8 +105,6 @@ int spawn_support_tec_range_effect(void*);
 
 int TTecDeband::init_params() { return spawn_support_tec_range_effect(this); }
 
-extern const f64 lbl_8044D0B0;
-
 void TTecDeband::update_effect_params() {
     u8 *arg0 = (u8 *)this;
     s32 res;

@@ -21,7 +21,6 @@ typedef struct Vec_80313FAC { f32 x; f32 y; f32 z; } Vec_80313FAC;
 
 struct Ene_803154A8;
 typedef void (Ene_803154A8::*Fn_803154A8)(void);
-struct Ent2_80315720 { Fn_803154A8 f; Fn_803154A8 g; };
 
 struct Ene_80315720 {
     u8 pad0[0x2FC];
@@ -557,20 +556,11 @@ extern const f32 lbl_805DF2D8;
 extern const f32 lbl_805DF2DC;
 
 extern "C" {
-}
-
-extern "C" {
 extern Ent_803154A8 lbl_804E836C[];
 }
 
 extern "C" {
 s32 TObjEneDelDepth__sub_80315380(Obj_80315380 *arg0);
-}
-
-extern "C" {
-}
-
-extern "C" {
 }
 
 int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
@@ -619,7 +609,6 @@ void render__19TObjEneDelDepthBombFv(u8 *arg0) {
     draw_blob_shadow((int) (0));
     pop_matrix();
 }
-extern int fold_flush_0;
 #pragma pop
 
 void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o) {
@@ -771,7 +760,6 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
         ((TObjEneDelDepth *)o)->set_action_state((s32)1);
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TObjEneDelDepth__sub_803138F8(void* a0) { *(float*)((char*)a0 + 0x39c) = TObjEneDelDepth__data_805DF278; *(float*)((char*)a0 + 0x3a8) = TObjEneDelDepth__data_805DF258; *(float*)((char*)a0 + 0x3a4) = TObjEneDelDepth__data_805DF258; *(float*)((char*)a0 + 0x3a0) = TObjEneDelDepth__data_805DF258; *(float*)((char*)a0 + 0x398) = TObjEneDelDepth__data_805DF258; set_motion__15TObjEneDelDepthFl((void*)((void*)(*(int*)((char*)a0 + 0x37c))), (void*)((void*)6)); ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(a0), (void*)((void*)0)); }
@@ -1263,7 +1251,6 @@ void start_move_toward_player__15TObjEneDelDepthFPv(u8 *arg0) {
     ((int (*)(s32, int, f32))set_motion__15TObjEneDelDepthFl)(*(s32 *)((s8 *)arg0 + 0x37C), 7, temp_f1);
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(arg0, (void *)3);
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -1299,7 +1286,6 @@ void update_scale_pulse__15TObjEneDelDepthFPv(u8 *arg0) {
         ((TObjEneDelDepth *)arg0)->set_action_state((s32)((int)(0)));
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 void TObjEneDelDepth::init_draw_mode_and_motion() { *(float*)((char*)this + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)((void*)(this)), (void*)((int)(0))); set_motion__15TObjEneDelDepthFl((void*)((void*)(*(int*)((char*)this + 0x37c))), (void*)((void*)0x6)); }
@@ -1342,7 +1328,6 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_4;
 #pragma pop
 
 void TObjEneDelDepth::init_draw_params() {
@@ -1456,7 +1441,6 @@ s32 TObjEneDelDepth__sub_80315380(Obj_80315380 *arg0) {
     }
     return 0;
 }
-extern int fold_flush_5;
 #pragma pop
 
 void set_depth_offset__15TObjEneDelDepthFPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -1579,7 +1563,6 @@ void TObjEneDelDepth::update_target_depth() {
         *(f32 *)((s8 *)arg0 + 0x390) = (f32) TObjEneDelDepth__data_805DF258;
     }
 }
-extern int fold_flush_6;
 #pragma pop
 
 void TObjEneDelDepth::init() {

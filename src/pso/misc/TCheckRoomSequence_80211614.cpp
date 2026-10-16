@@ -7,10 +7,6 @@
 
 extern "C" {
 
-void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p);
-void TShopWindowBase__sub_802115F0(void);
-void copy_data__18TCheckRoomSequenceFPvPv(void* p, void* a1);
-
 void TCheckRoomSequence::set_position(f32 a, f32 b) { *(f32*)((char*)this + 0x74) = a; *(f32*)((char*)this + 0x78) = b; }
 
     extern int lbl_80513DA8[];

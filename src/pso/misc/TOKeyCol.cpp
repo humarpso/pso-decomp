@@ -34,9 +34,6 @@ struct VObj_18 : VBase_18 {
     virtual s32 m17();
 };
 extern "C" {
-}
-
-extern "C" {
 
 void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2);
 void TOKeyCol__vt16(void);

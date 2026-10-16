@@ -16,9 +16,6 @@ s32 find_entry_value_by_id__17TWindowSubComCardFPvi(Win_802684BC *w, s32 arg1);
 s32 is_flag_4_set__17TWindowSubComCardFv(void *);
 void mark_entry_by_id__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 void disable_entry_by_id__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
-s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 TWindowSubComCard__sub_8026906C(void);
-u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s16 a1 = 0);
 s32 get_entry_id__17TWindowSubComCardFv();
 

@@ -94,8 +94,6 @@ struct VObj_8014952C : VBase_8014952C {
     virtual s32 m85(s32, s32);
 };
 
-struct Tbl_8014952C { u8 anim[0x20]; u8 anim2[0x58]; u8 vt[4]; };
-
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);

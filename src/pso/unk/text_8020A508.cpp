@@ -7,9 +7,6 @@
 struct ByteBlock_14 { u8 bytes[0x14]; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void TLobby::copy_record_entry(s32 arg1) {
     s32 arg0 = (s32)this;

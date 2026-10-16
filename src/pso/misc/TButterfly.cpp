@@ -46,8 +46,6 @@ void __dl__7TObjectFPv(void *);
 s32 rand();
 s32 set_global_param__8TObjFishFl();
 
-extern s32 lbl_80443970;
-
 void TButterfly::init_motion() {
     u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0x38);

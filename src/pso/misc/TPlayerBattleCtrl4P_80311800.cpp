@@ -88,9 +88,6 @@ void TPlayerBattleCtrl4P::return_to_hunters_guild() {
     }
     queue_destruction__7TObjectFv(((void *)this));
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::sub_80311890() {  }
 extern "C" {
 
@@ -120,9 +117,6 @@ void TPlayerBattleCtrl4P::begin_battle_reload_fade() {
         TLobby::init_fadeout_state((s32)(TPlayerBattleCtrl4P::init));
         set_score((s32)((void*)((void *)2)));
     }
-}
-extern "C" {
-
 }
 void TPlayerBattleCtrl4P::begin_battle_reload() {
     s32 var_r31;
@@ -170,9 +164,6 @@ void TPlayerBattleCtrl4P::close_battle_results() {
         TPlayerBattleCtrl4P::remove_player(((Ctl_803119BC *)this), i, 1);
     }
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
     s32 temp_r4;
     TPlayerBattleCtrl4P::update_all_players();
@@ -189,9 +180,6 @@ void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
         }
         set_score((s32)((void*)((int) (3))));
     }
-}
-extern "C" {
-
 }
 void TPlayerBattleCtrl4P::wait_for_rematch_menu_button() {
     if ((get_player_by_client_id(local_client_id) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 6) != 0)) {
@@ -261,9 +249,6 @@ void TPlayerBattleCtrl4P::update_rematch_menu() {
         }
     }
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::wait_for_result_window_close() { if (close_windows_on_button() != 0) { close_player_windows(); update_players__19TPlayerBattleCtrl4PFv(((void*)this)); set_score((s32)((void*)((void*)5))); } }
 extern "C" {
 
@@ -297,6 +282,3 @@ void TPlayerBattleCtrl4P::open_result_windows() {
   set_score((s32)((void*)((int) 4)));
 }
 #pragma pop
-extern "C" {
-
-}

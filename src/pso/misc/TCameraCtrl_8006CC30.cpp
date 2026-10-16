@@ -2,7 +2,6 @@
 #include "pso/misc/TUnk_80488E00.h"
 #include "pso/camera/CameraArrivalReset.h"
 #include "pso/camera/FollowCameraController.h"
-struct V_8006CC7C { f32 x, y, z; };
 extern "C" __declspec(section ".rodata") FollowVector lbl_80438528 = { 0.0f, 0.0f, 45.42f };
 extern "C" __declspec(section ".rodata") FollowVector lbl_80438534 = { 0.0f, 0.0f, 45.42f };
 
@@ -91,8 +90,6 @@ struct RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-
-struct O_8006CC7C { u8 pad[0x1c]; V_8006CC7C pos; };
 
 struct Ply_8006D2B0 { u8 pad[0x60]; s32 f60; };
 
@@ -274,12 +271,6 @@ struct VObj_18_f70dca : VBase_18_f70dca {
     virtual s32 m12(s32);
 };
 
-struct Stack_8006D6DC {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-};
-
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -330,10 +321,6 @@ extern u16 TCameraCtrl__camera_override_client_id;
 extern void *local_client_id;
 s32 get_player_by_client_id(u32);
 void reset_cameras_to_actor(void *p, s32 x);
-extern O_8006CC7C *lbl_805005D0[];
-extern const V_8006CC7C lbl_804384E8;
-extern s16 demo_camera_controller_index;
-V_8006CC7C get_target_position__11TCameraCtrlFv(void);
 s32 is_split_screen();
 s32 get_player_by_client_id(u32);
 extern void *local_client_id;
@@ -433,7 +420,6 @@ extern void *local_client_id;
 
 extern "C" {
 
-void* TCameraCtrl__sub_8006CC30(void* a0);
 void TCameraCtrl__sub_8006DCC8(void* p);
 s32 TCameraCtrl__sub_8006E7FC(void* p);
 void TCameraCtrl__sub_8006E804(void* a0);
@@ -445,8 +431,6 @@ void *TKeyBoardControl__sub_803DEB74(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_split_screen();
-
-    extern unsigned char lbl_80488DA0[];
 
 typedef char RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8_size[sizeof(RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006CD78_lbl_80488DF4_size[sizeof(RecoveredGlobal_8006CD78_lbl_80488DF4) == 0xC ? 1 : -1];

@@ -257,11 +257,6 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
 
 #pragma push
 #pragma opt_common_subs off
-struct Res_8050DCE8 {
-    u32 models[2];
-    u32 motions[2];
-    u32 meshes[3];
-};
 struct Sw_801936E0 {
     u8 pad0[0x38];
     u8 pos[0x60 - 0x38];

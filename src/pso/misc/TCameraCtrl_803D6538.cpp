@@ -158,14 +158,6 @@ extern const f32 lbl_805E0E10;
 }
 
 extern "C" {
-
-}
-
-extern "C" {
-
-}
-
-extern "C" {
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
@@ -599,12 +591,6 @@ void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 }
 #pragma pop
 
-extern const f32 lbl_805E0E68;
-extern const f32 lbl_805E0E6C;
-extern const f32 lbl_805E0E70;
-extern const f32 lbl_805E0E74;
-extern const f32 lbl_805E0E78;
-extern const f32 lbl_805E0E7C;
 void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count, f32 frame, f32 *output) {
     f32 tbl[2] = { 1.0f, 1.0f };
     u32 delta;

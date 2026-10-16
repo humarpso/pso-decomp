@@ -40,10 +40,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFv(void *);
 
-extern s32 lbl_80434088;
-extern const f32 lbl_805D7D3C;
-extern s32 current_floor_index;
-extern s32 lobby_player_count;
 extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 boss8_dragon_follow_camera_offsets;
 extern RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90 lbl_80487CD8;
 extern int boss5_gryphon_instance;

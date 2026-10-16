@@ -8,7 +8,6 @@ struct Part_800BB780 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct Obj_800BB780 { u8 pad[0x30]; u32 flags; u8 pad1[0x70]; Part_800BB780 *parts; s32 count; u8 pad2[0x230]; s32 f2dc; u8 pad3[0x4c]; s16 f32c; u8 pad4[0x10]; s16 f33e; };
 
-struct Pl_800BB688 { u8 pad0[0x38]; f32 pos[3]; };
 extern "C" {
 void enemy_find_nearest_player_in_range(f32 farg0);
 s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0);

@@ -95,13 +95,6 @@ struct Sub_801465C0 {
     char name[0x124 - 0x1C];
 };
 
-struct Glob_801465C0 {
-    u8 pad0[0x1C];
-    u8 conn[0x5DC - 0x1C];
-    u8 f5DC[0xC40 - 0x5DC];
-    Sub_801465C0 sub;
-};
-
 struct Acct_80146D7C {
     char host[0x80];
     char user[0x20];

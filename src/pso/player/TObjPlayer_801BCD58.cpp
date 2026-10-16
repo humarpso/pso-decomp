@@ -4,8 +4,6 @@
 extern "C" {
 
 s32 is_locally_controlled__10TObjPlayerFPv();
-void TObjPlayer__sub_801BCD50(void);
-void TObjPlayer__sub_801BCD54(void);
 int TObjPlayer__sub_801BEF60(void*, int);
 s32 init_pad_binding(void *, void *, int);
 s32 obj_getField1c(void *);

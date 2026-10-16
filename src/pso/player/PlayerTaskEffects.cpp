@@ -17,7 +17,6 @@ u32 get_player_by_client_id(u16);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
 
 }
 extern "C" {
@@ -30,10 +29,6 @@ extern "C" {
 extern s32 __vt__20TPlayerLevelFeedback[];
 
 }
-extern "C" {
-
-}
-
 struct Vec_801C6408 { f32 x, y, z; };
 
 struct VB_801C6408 { u8 pad[0x18]; };
@@ -258,17 +253,11 @@ int clear_flags__11TAdRicoRingFUl(void*, int);
 }
 }
 namespace accessors {
-extern "C" {
-
-}
 }
 #undef get_player_by_client_id
 
 #define get_player_by_client_id ((s32 (*)(u16))get_player_by_client_id)
 namespace accessors {
-extern "C" {
-
-}
 }
 namespace accessors {
 extern "C" {
@@ -309,16 +298,10 @@ extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern s32 __vt__20TPlayerReadyCallback[];
-
 }
 extern "C" {
 
 extern s32 __vt__18TPlayerLobbyMarker[];
-
-}
-
-extern "C" {
 
 }
 

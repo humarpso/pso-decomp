@@ -14,10 +14,8 @@ void TObjPlayer__sub_801BCA0C(void);
 void TObjPlayer__sub_801BCA10(void);
 void TObjPlayer__sub_801BCAB0(void);
 void TObjPlayer__sub_801BCB28(void);
-void TObjPlayer__sub_801BCC50(void);
 int is_script_controlled__10TObjPlayerFv(void*);
 s32 apply_state_transform__10TObjPlayerFUi(s32);
-int check_technique_castable__10TObjPlayerFi(void*);
 s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 obj_isState2_324();
@@ -40,10 +38,6 @@ void init_battle__10TObjPlayerFi(s32 arg0) {
 
 extern "C" {
 extern s32 update_photon_chair__10TObjPlayerFi[];
-}
-
-extern "C" {
-
 }
 
 void reset_area_entry_state__10TObjPlayerFPv(void *arg0) {

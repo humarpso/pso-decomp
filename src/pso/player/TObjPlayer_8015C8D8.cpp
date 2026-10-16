@@ -8,9 +8,7 @@
 
 extern "C" {
 
-void TOCtrlDubchik__sub_8015C9D0(void);
 void __dl__7TObjectFPv(void *);
-s32 bswap_32__FPUl(s32);
 
 extern s32 lbl_804B6C24[];
 

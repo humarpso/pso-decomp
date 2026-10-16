@@ -95,10 +95,6 @@ struct VObj_80148274 : VBase_80148274 {
     virtual void m85(s32, s32);
 };
 
-struct Hdr_80148274 { u8 model[0x24]; };
-
-struct Res_80148274 { struct Hdr_80148274 hdr; u8 anim[0x1C]; u8 tex[0x10]; };
-
 struct Obj_80148274 { u8 pad0[0x350]; void *anim; };
 
 extern "C" {

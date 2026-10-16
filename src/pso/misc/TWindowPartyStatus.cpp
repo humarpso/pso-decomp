@@ -27,7 +27,6 @@ struct RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus {
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
-extern s32 __vt__14TWindowMessage[];
 void render__18TWindowPartyStatusFv(s32 arg0);
 s32 TWindowSubComCard__sub_802452DC(int);
 s32 TWindowSubComCard__sub_80245320(void *, void *);

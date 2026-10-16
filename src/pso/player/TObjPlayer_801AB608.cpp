@@ -119,7 +119,6 @@ u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC1A0;
 extern const f32 lbl_805DC1A4;
 extern const f32 lbl_805DC1A8;
-void run_task__12TPhotonGollaFv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
@@ -138,7 +137,6 @@ extern void *golla_photon_blast_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__12TPhotonGollaFv(Self_801ABAA0 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 find_entity_by_id(int);
 u32 __nw__7TObjectFUl(int);
@@ -181,7 +179,6 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0);
 
 extern "C" {
 
-void sub_801AB688__12TPhotonGollaFv(void* a0);
 s32 destroy_buffer_pair(void*, s32);
 
 extern u32 farlla_photon_blast_model_buffers;

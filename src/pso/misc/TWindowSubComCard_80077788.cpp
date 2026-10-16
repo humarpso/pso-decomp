@@ -51,8 +51,6 @@ extern "C" {
 
 int fn_80077788(void);
 int fn_80077790(void);
-int get_localized_text_entry(void*, void*);
-int bswap_32__FPUl(void*);
 
 int fn_80077788(void) { return 0; }
 int fn_80077790(void) { return 0; }

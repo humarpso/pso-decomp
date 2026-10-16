@@ -2,9 +2,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void TObjPlayer::update_fade_state() {
     u8 *arg0 = (u8 *)this;

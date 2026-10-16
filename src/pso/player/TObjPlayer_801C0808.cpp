@@ -13,9 +13,6 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_8 { u8 bytes[0x8]; };
-
-struct ByteBlock_2C { u8 bytes[0x2C]; };
 
 struct RecoveredGlobal_801D2CF4_lbl_804C43CC {
     s32 value;
@@ -27,21 +24,9 @@ struct RecoveredGlobal_801D2CF4_lbl_804C43D8 {
     u8 remaining[0xC];
 };
 
-struct Ent_801D2AB0 { u8 d[4]; };
-
-struct Obj_801D2AB0 { u8 pad[0x14]; Ent_801D2AB0 arr[1]; };
-
 struct Pos_801D2964 { u8 bytes[0x8]; };
 
 struct Pkt_801D2964 { u8 hdr[4]; Pos_801D2964 pos; };
-
-struct Ent_801D32A0 { u16 a; s16 b; };
-
-struct Self_801D32A0 { u8 pad[0x20]; f32 f20; f32 f24; f32 f28; f32 f2c; s32 count; Ent_801D32A0 ents[1]; };
-
-struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x3c; u8 pad3[0x5C]; u8 lock[4]; };
-
-struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
 
 extern "C" {
 s32 TFontSmallLobby__sub_801C0228(void *, void *);
@@ -296,7 +281,6 @@ struct ByteBlock_C { u8 bytes[0xc]; };
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_10 { u8 bytes[0x10]; };
 
 struct ByteBlock_14 { u8 bytes[0x14]; };
 
@@ -597,10 +581,6 @@ void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
 void send_player_floor_packet_u32x5__10TObjPlayerFPv(void* p);
 s32 send_60_sized__6TLobbyFPv(s32);
 void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
-extern s32 lbl_80434088;
-extern const f32 lbl_805D7D3C;
-extern s32 current_floor_index;
-extern s32 lobby_player_count;
 void send_player_floor_packet_u32x5__10TObjPlayerFPv(void* p);
 void bswap_set_floor_packet__10TObjPlayerFPv(void* p);
 int read_be16_field2__10TObjPlayerFv(void* p);
@@ -624,9 +604,6 @@ void* copy_warp_target__10TObjPlayerFPvPv(void* p, void* a1);
 void* handle_6x1F_set_floor__10TObjPlayerFPvPv(void* p, void* a1);
 s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
 s32 send_60_sized__6TLobbyFPv(s32);
-int test_flags_any(void*, int);
-int __dl__FPv();
-f32 fn_801C19A4(void* p);
 
 void send_player_floor_packet__10TObjPlayerFPvPv(void* p, void* a1) { bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(p); send_subcommand_to_client__6TLobbyFPvUi((s32)(p), (s32)(a1)); }
 

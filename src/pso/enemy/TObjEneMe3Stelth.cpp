@@ -4086,7 +4086,6 @@ bool TObjEneMe3Stelth__sub_800F4C10(u8 *arg0) {
     temp_f31 = (*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60))) + temp_f31_2;
     return (temp_f31 < cos_table_lookup(0x1E00)) == 0;
 }
-extern int fold_flush_0;
 #pragma pop
 
 u8 TObjEneMe3Stelth::test_body_collision(s32 arg1, f32 farg0) {
@@ -4260,7 +4259,6 @@ void TObjEneMe3StelthReal::init_common() {
     }
     ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (0x08000000));
 }
-extern int fold_flush_1;
 #pragma pop
 
 }

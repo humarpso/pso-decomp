@@ -10,7 +10,6 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_38 { u8 bytes[0x38]; };
 
 struct VBase_18_1a504b { char pad[0x18]; };
 

@@ -1,7 +1,5 @@
 #include "types.h"
 
-struct W_803429B0 { u8 pad[0x20]; s32 idx; s32 ids[1]; };
-
 extern "C" {
 s16 TWindowDD__sub_80342158(int);
 s32 apply_entry_layout__9TWindowDDFPv(void *);

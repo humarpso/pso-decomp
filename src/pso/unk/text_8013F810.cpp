@@ -57,9 +57,6 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
 
 extern "C" {
 
-int clear_session_buffers__6TLobbyFv(void);
-int update_current_floor__6TLobbyFv(void);
-
 #pragma push
 #pragma opt_propagation off
 #define EOF_8013F99C(c) (((s32 (*)(u8 *))lzss_input_exhausted)(c))

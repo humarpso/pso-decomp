@@ -18,7 +18,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int spawn_support_tec_range_effect(void*);
 
 extern s32 lbl_804CC74C[];
 

@@ -120,7 +120,6 @@ s32 enable__13TParticleCtrlFPv(u32);
 s32 TObjPlayer::get_entity_id() { return *(s32*)((char*)this + 0x24); }
 s32 TObjPlayer__sub_8010A058(void* p) { return *(s32*)((char*)p + 0xf4); }
 
-extern const f64 lbl_8043E2C0;
 extern const f32 lbl_805DAB58;
 
 struct TItemData8_8010a060 { s8 a; s8 b; u8 c; s8 pad[21]; };

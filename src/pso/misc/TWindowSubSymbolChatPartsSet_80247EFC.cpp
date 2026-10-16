@@ -306,7 +306,6 @@ void render__17TWindowChatSymbolFv(u8 *arg0) {
     *(f32 *)((s8 *)temp_r3 + 0x14) = (f32) ((lbl_805DCB7C * temp_f1) + *(f32 *)((s8 *)temp_r3 + 0x14));
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3, temp_f1, temp_f2, lbl_805DCB7C);
 }
-extern int fold_flush_0;
 #pragma pop
 
 }

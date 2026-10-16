@@ -8,13 +8,6 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_C { u8 bytes[0xc]; };
-
-struct Stack_80088844 {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-};
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -82,8 +75,6 @@ struct RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 {
     u8 remaining[0x1AC];
 };
 
-struct Vec_8008A92C { f32 x, y, z; };
-
 struct Vec_8008BAF8 { f32 x, y, z; };
 
 struct Ang_8008BAF8 { s32 x, y, z; };
@@ -91,46 +82,25 @@ struct Ang_8008BAF8 { s32 x, y, z; };
 struct Scr_8008BAF8 { f32 x, y; };
 
 extern "C" {
-void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
-void set_particle_tint_color(u8 *arg0, void *arg1);
-void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
 int mem_free(void*);
 extern s32 particle_area_entry_table;
 extern u32 TParticleCtrl__regular_bml_resource;
 extern u32 TParticleCtrl__texture_list;
-void free_all__13TParticleCtrlFv(void);
 s32 read_disc_file(s32, s32);
 s32 mem_alloc(s32);
-extern s32 TParticleCtrl__particle_entry_path;
-extern u32 particle_pool_limit;
 extern int particle_global_entry_table;
-void init_particle_buffer__13TParticleCtrlFv(void);
 extern s32 particle_area_entry_table;
 extern int particle_global_entry_table;
-s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 void *alloc_particle_memory(int);
-u8 * construct_ballistic_particle(void *, void *, void *, void *, s32, u16, s16);
-u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
-extern const f32 TParticleCtrl__data_805D94F8;
-extern const f32 TParticleCtrl__data_805D94FC;
 void TParticleCtrl__sub_8008655C(void *, int);
-extern s32 TParticleCtrl__data_8048E778[];
-void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
-u8 * init_orbit_sprite_particle(void *, void *, void *, void *, s32, u16, s16);
-u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
 void TParticleCtrl__sub_8008655C(void *, int);
-extern s32 TParticleCtrl__data_8048E790[];
-void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void *alloc_particle_memory(int);
@@ -165,22 +135,11 @@ extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
 u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 s32 read_disc_file(s32, s32);
 s32 mem_alloc(s32);
-u32 load_gvm_texture_file(void *);
-int sprintf(char *, const char *, ...);
-char *strcpy(char *, const char *);
-void *memset(void *, int, u32);
-extern char lbl_80439494[];
-extern char lbl_804394A4[];
-extern char lbl_804394BC[];
-extern char lbl_804394D4[];
-extern u8 particle_regular_bml_descriptor[];
 extern s32 particle_area_entry_table;
 extern u32 TParticleCtrl__regular_bml_resource;
 extern u32 TParticleCtrl__texture_list;
-void load_particle_entry_resources(void);
 s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
@@ -188,7 +147,6 @@ s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-f32 cos_table_lookup(s32);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
@@ -203,7 +161,6 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D9528;
-extern const f32 lbl_805D9540;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 f32 atan2_float(f32, f32);
@@ -236,38 +193,6 @@ extern const f32 lbl_805D9564;
 }
 
 extern "C" {
-
-struct ParticleVec {
-    s32 x;
-    s32 y;
-    s32 z;
-};
-
-struct ParticleCtrlData {
-    s32 descriptor;
-    u8 pad04[0x14];
-    void *vtable;
-    f32 field1C;
-    s32 field20;
-    f32 field24;
-    s32 particle_index;
-    u16 flags;
-    u16 field2E;
-    s32 field30;
-    s32 field34;
-    s32 field38;
-    s32 field3C;
-    f32 field40;
-    f32 field44;
-    s32 field48;
-    s32 field4C;
-    s32 field50;
-    s32 field54;
-    void *owner;
-    u8 pad5C[4];
-    ParticleVec position;
-    ParticleVec direction;
-};
 
 void __ct__7TObjectFP7TObject(void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -342,11 +267,7 @@ extern const f32 TParticleCtrl__data_805D94E4;
 
 extern "C" {
 
-int TParticleCtrl__sub_800884F0(void* p);
-void set_particle_draw_scale(void* p, f32 a, f32 b);
 void clear_active_flag__13TParticleCtrlFv(void* p);
-void enable__13TParticleCtrlFPv(void* p);
-void free_system__13TParticleCtrlFv(void);
 int mem_free(void*);
 
 void clear_active_flag__13TParticleCtrlFv(void* p) { *(u16*)((char*)p + 0x2c) &= 0xfffe; }

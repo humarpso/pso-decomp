@@ -6,9 +6,6 @@
 struct Obj_802B0204 { u8 pad[0xbe]; s16 fbe; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void TBoss6PlotFalz__sub_802B0228(void *arg0);
 void load_player_footstamp(void);

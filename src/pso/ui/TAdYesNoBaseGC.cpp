@@ -83,7 +83,6 @@ void TAdYesNoBaseGC::init_parts(void *arg1, void *arg2) {
     ((void (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPv)((void *)((char *)this + 56), arg2);
 }
 
-extern const f64 lbl_804772F0;
 extern s8 controller_input_state[];
 extern s8 controller_physical_port_bank[];
 extern const f32 lbl_805DF78C;

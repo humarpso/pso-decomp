@@ -14,13 +14,6 @@ const char *TParticleCtrl__class_name_descriptor[2] = {"TParticleCtrl", 0};
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_C { u8 bytes[0xc]; };
-
-struct Stack_80088844 {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-};
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -67,34 +60,11 @@ struct Stack_80088844 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-
-struct RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8 {
-    s32 value;
-    u8 remaining[0x14];
-};
 
 struct RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 {
     s32 value;
     u8 remaining[0x1AC];
 };
-
-struct RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 {
-    s32 value;
-    u8 remaining[0x1AC];
-};
-
-struct Vec_8008A92C { f32 x, y, z; };
-
-struct Vec_8008BAF8 { f32 x, y, z; };
-
-struct Ang_8008BAF8 { s32 x, y, z; };
-
-struct Scr_8008BAF8 { f32 x, y; };
 
 typedef u8 *(*Gen_8008767C)(void *, void *, u32);
 struct Vec_8008767C { f32 x, y, z; };
@@ -155,42 +125,27 @@ extern s32 particle_area_entry_table;
 extern int particle_global_entry_table;
 s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 void *alloc_particle_memory(int);
-u8 * construct_ballistic_particle(void *, void *, void *, void *, s32, u16, s16);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
-extern const f32 TParticleCtrl__data_805D94F8;
-extern const f32 TParticleCtrl__data_805D94FC;
 void TParticleCtrl__sub_8008655C(void *, int);
-extern s32 TParticleCtrl__data_8048E778[];
-void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
-u8 * init_orbit_sprite_particle(void *, void *, void *, void *, s32, u16, s16);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
 void TParticleCtrl__sub_8008655C(void *, int);
-extern s32 TParticleCtrl__data_8048E790[];
-void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void *alloc_particle_memory(int);
-void * create_random_particle(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 f32 vec_squared_length(void *);
 void TParticleCtrl__sub_8008655C(void *, int);
 extern s32 TParticleCtrl__data_8048E7A8[];
-void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void *);
-int TKeyBoardControl__sub_8000F91C(int);
-int TKeyBoardControl__sub_8000F9CC(int);
-int stop_cue_stream(void);
-void destroy_keyboard_objects(void * _w0);
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
 extern s32 TParticleCtrl__data_8048E7A8[];
@@ -199,7 +154,6 @@ extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
-u8 *init_random_particle__13TParticleCtrlFPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
 extern s32 TParticleCtrl__data_8048E7A8[];
@@ -208,7 +162,6 @@ extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
-u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 read_disc_file(s32, s32);
@@ -231,7 +184,6 @@ s32 load_projected_texture_matrix(f32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-f32 cos_table_lookup(s32);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
@@ -246,19 +198,14 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D9528;
-extern const f32 lbl_805D9540;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
-f32 atan2_float(f32, f32);
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 set_depth_buffer_settings_id__FUl(s32);
-void direction_to_rotation_xz(void *, s32 *, s32 *);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 scale_matrix(s32, f32, f32, f32);
-f32 vector_length(void *);
-void project_world_to_screen(s32, void *, void *);
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
@@ -267,14 +214,11 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
-extern const Ang_8008BAF8 radial_particle_zero_angles;
-extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D955C;
-extern const f32 lbl_805D9564;
 void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void set_particle_tint_color(u8 *arg0, void *arg1);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
@@ -294,9 +238,6 @@ extern GenEntry_8008767C particle_ctrl_generator_table[];
 extern u8 *camera_ctrl_instance;
 extern void *tl_07;
 extern void *tl_particlemodel;
-extern const f32 lbl_805D94E8;
-extern const f32 lbl_805D94EC;
-extern const f32 lbl_805D94F0;
 void run_task__13TParticleCtrlFv(Ctrl_8008767C *self);
 }
 

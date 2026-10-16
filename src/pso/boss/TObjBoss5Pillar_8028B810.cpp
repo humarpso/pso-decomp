@@ -21,8 +21,6 @@ u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 ar
 
 extern "C" {
 
-int is_unloaded__12TChCrLoadAfsFPv(void* p);
-
 u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     typedef char sp8_offset[(offsetof(Stack_8028B810, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8028B810, spC) == 0x4) ? 1 : -1];

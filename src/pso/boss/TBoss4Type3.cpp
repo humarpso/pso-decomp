@@ -57,34 +57,6 @@ struct Type3MotionView { s32 kind, flags, motions[3]; };
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_800579A0 { char pad[0x18]; };
-struct VObj_18_800579A0 : VBase_18_800579A0 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
-    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
-    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
-    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
-    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
-    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
-    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
-    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
-    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
-    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
-    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
-    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
-    virtual void m76(); virtual void m77(); virtual void m78();
-    virtual void m79(void *);
-    virtual void m80();
-};
-
-struct Arr_800579A0 { u8 pad[0x42C]; s32 f42C[8]; };
-
 struct Vec_8005A1AC { f32 x, y, z; };
 
 struct Obj_8005A1AC {
@@ -111,11 +83,6 @@ struct Vec_800597A8 { f32 x, y, z; };
 struct Vec_800584E4 { f32 x, y, z; };
 
 struct Obj_8005683C;
-struct Vec_80055F5C { f32 x, y, z; };
-
-struct Vec_80055BC0 { f32 x, y, z; };
-
-struct Obj_80055BC0 { u8 pad[0x450]; Vec_80055BC0 f450; Vec_80055BC0 f45c; };
 
 struct VBase_8005AE60 { char pad[0x18]; };
 struct VObj_8005AE60 : VBase_8005AE60 {
@@ -243,22 +210,12 @@ f32 cos_table_lookup(s32);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
-extern s32 boss4_type2_attack_pattern_table[];
 extern s32 game_difficulty_selection;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 lbl_805D8BB4;
-extern const f32 lbl_805D8BBC;
-extern const f32 lbl_805D8BC0;
-extern const f32 lbl_805D8BC4;
-extern const f32 lbl_805D8BC8;
-extern const f32 lbl_805D8BCC;
 extern const f32 lbl_805D8BD0;
-extern const f32 lbl_805D8BD4;
 extern const f32 TBoss4Type2__data_805D8BD8;
-void TBoss4Type2__vt15(u8 *arg0);
 void copy_pos__11TNowLoadingFPv(void *, void *);
-s32 TBoss4Type2__sub_80054DA8();
-s32 create_all_tenchu_furu__11TBoss4Type2Fi();
 s32 TBoss4Type2__sub_80057048(void *, int);
 u32 create_particle_emitter(void *, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
@@ -266,8 +223,6 @@ s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D8BA4;
 extern const f32 lbl_805D8BA8;
 extern const f32 lbl_805D8BB4;
-extern const f32 lbl_805D8BB8;
-void TBoss4Type2__vt21(Obj_80055BC0 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 pick_random_target_player__11TBoss4Type3Fv(void);
@@ -277,8 +232,6 @@ extern const f32 lbl_805D8C7C;
 }
 
 extern "C" {
-
-struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct Stack_80055918
 {
@@ -298,25 +251,6 @@ struct RecoveredGlobal_8005455C_lbl_80485EC8 {
     u8 remaining[0x1DC];
 };
 
-struct Obj_80056F38 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[8]; s32 f3ac; s32 f3b0; };
-
-struct Obj_80056F90 { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[8]; s32 f3ac; s32 f3b0; u8 pad3b4[0x10]; u16 f3c4; };
-
-struct Obj_80056FEC { u8 pad[0x38C]; void *target; u8 pad390[0x10]; s32 f3a0; u8 pad3a4[8]; s32 f3ac; s32 f3b0; u8 pad3b4[0x10]; u16 f3c4; };
-
-struct Obj_80057224 { u8 pad[0x3A0]; s32 f3a0; };
-
-struct S_800578E8 {
-    u8 pad0[0x18];
-    void *vt;
-    u8 pad1c[0x378 - 0x1c];
-    u8 f378[0x1c];
-    s32 f394;
-    u8 pad398[0x42c - 0x398];
-    void *ptr[8];
-    void *f44c;
-};
-
 struct S_80058224 {
     u8 pad0[0x398];
     s32 f398;
@@ -333,101 +267,12 @@ struct S_800582B4 {
     u16 f3ba;
 };
 
-struct Vec_8005676C { f32 x, y, z; };
-
-struct Zanzo_8005676C {
-    Vec_8005676C pos;
-    s32 f0c;
-    s32 f10;
-    s32 f14;
-    s32 f18;
-    f32 f1c;
-    f32 f20;
-    f32 f24;
-    s32 f28;
-};
-
-struct Row_8005676C {
-    s32 a;
-    s32 b;
-    s32 c[2];
-};
-
-struct Obj_8005676C {
-    u8 pad0[0x38];
-    Vec_8005676C pos;
-    u8 pad44[0x60 - 0x44];
-    s32 f60;
-    u8 pad64[0x390 - 0x64];
-    s32 f390;
-    u8 pad394[0x3c8 - 0x394];
-    s32 f3c8;
-    u8 pad3cc[0x3d0 - 0x3cc];
-    f32 f3d0;
-};
-
-struct Vec_8005683C { f32 x, y, z; };
-
-struct Bishi_8005683C {
-    s32 f0;
-    s16 id;
-    s16 f6;
-    s16 f8;
-    s16 id2;
-    s16 f0c;
-    u8 pad0e[6];
-    Vec_8005683C pos;
-    u8 pad2c[0x20];
-};
-
-struct Ofs_8005683C { f32 x, z; };
-
 struct Obj_8005683C {
     u8 pad0[0x38c];
     s32 f38c;
 };
 
-struct Obj_80056A54 {
-    u8 pad0[0x32c];
-    s16 f32c;
-    u8 pad32e[0x3ec - 0x32e];
-    s32 f3ec;
-};
-
-struct Grid_80056A54 {
-    f32 x, y, z;
-};
-
-struct Row_80057270 {
-    s32 a;
-    s32 b;
-    s32 c[2];
-};
-
-struct Obj_80057270 {
-    u8 pad0[0x390];
-    s32 f390;
-    u8 pad394[0x3c0 - 0x394];
-    f32 f3c0;
-    u8 pad3c4[0x3c8 - 0x3c4];
-    s32 f3c8;
-    u8 pad3cc[0x3d0 - 0x3cc];
-    f32 f3d0;
-    u8 pad3d4[0x3e4 - 0x3d4];
-    s32 f3e4;
-    u8 pad3e8[0x3f0 - 0x3e8];
-    f32 f3f0;
-    f32 f3f4;
-    u8 pad3f8[0x44c - 0x3f8];
-    s32 f44c;
-};
-
 struct Vec_80056C30 { f32 x, y, z; };
-
-struct O_80056C30 {
-    u8 pad0[0x38];
-    Vec_80056C30 pos;
-};
 
 typedef char RecoveredGlobal_80054530_lbl_80485EC8_size[sizeof(RecoveredGlobal_80054530_lbl_80485EC8) == 0x1E0 ? 1 : -1];
 
@@ -623,8 +468,6 @@ typedef char RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8_size[sizeof(Rec
 
 typedef char RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8_size[sizeof(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8) == 0xC8 ? 1 : -1];
 
-struct Obj_80056DF0 { u8 pad0[0x3AC]; s32 i3AC; s32 i3B0; f32 f3B4; f32 f3B8; f32 f3BC; };
-
 struct S_80058380 {
     u8 pad0[0x398];
     s32 f398;
@@ -662,57 +505,12 @@ s32 get_bml_model(s32, s32);
 s32 fn_80044330(void *);
 void fn_8004AA04(void *);
 s32 pick_random_target_player__11TBoss4Type3Fv(void);
-s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
-s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void create_horming__11TBoss4Type3FPvPvPv(void *, void *, u16);
-s32 create_jisin__11TBoss4Type2FPvPv(void *, int);
 s32 TObjPlayer__sub_80052390(f32);
 s32 drain_player_hp(u16, s32);
 f32 TBoss4Type3__sub_800524E8(f32);
-s32 TBoss4Type2__sub_80055300();
-void render__11TBoss4ZanzoFv(u8 *arg0);
-void run_task__11TBoss4ZanzoFv(void *arg0);
-void * __ct__11TBoss4ZanzoFv(void *arg0, void *arg1, void *arg2);
-void fn_8005586C(u8 *arg0, u8 *arg1);
-void TBoss4Type2__vt36(u8 *arg0);
-void TBoss4Type2__vt35(void);
-void TBoss4Type2__vt34(u8 *arg0);
-void TBoss4Type2__vt24(void *arg0);
-void TBoss4Type2__vt23(void *arg0);
-void TBoss4Type2__vt31(void *arg0);
-void TBoss4Type2__vt28(void *arg0);
-void TBoss4Type2__vt25(void *arg0);
-void TBoss4Type2__vt22(void *arg0);
-void TBoss4Type2__vt20(void);
-void TBoss4Type2__vt19(u8 *arg0);
-void TBoss4Type2__vt14(void);
-void TBoss4Type2__vt13(u8 *arg0);
-void TBoss4Type2__vt12(u8 *arg0);
-void TBoss4Type2__vt11(void);
-void TBoss4Type2__vt10(void *arg0);
-void TBoss4Type2__vt8(void* p);
-void TBoss4Type2__vt7(void *arg0);
-void TBoss4Type2__vt6(u8 *arg0);
-void TBoss4Type2__vt5(void);
-void TBoss4Type2__vt4(void* p);
-void TBoss4Type2__vt3(u8 *arg0);
-void TBoss4Type2__vt2(void *arg0);
-void TBoss4Type2__vt1(u8 *arg0);
-void TBoss4Type2__vt0(void *arg0);
-void spawn_afterimages__11TBoss4Type2FPv(Obj_8005676C *arg0);
-void TBoss4Type2__sub_80056998(u8 *arg0);
-void choose_next_action__11TBoss4Type2FPv(Obj_80056A54 *arg0);
-void TBoss4Type2__sub_80056B3C(void *arg0, s32 lo, s32 hi);
-void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
-f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0);
-void TBoss4Type2__sub_80056F90(Obj_80056F90 *self, s32 arg1, s32 arg2);
-void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
 s32 TBoss4Type2__sub_80057048(void *, int);
 s32 TBoss4Type2__sub_80057128(void *);
-s32 TBoss4Type2__sub_80057224(Obj_80057224 *self);
-void TBoss4Type2__sub_80057578(void* p);
-S_800578E8 * TBoss4Type2__sub_800578E8(S_800578E8 *o, s16 flag);
-u8 *TBoss4Type2__ct(u8 *, s32, s32 *);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
@@ -731,7 +529,6 @@ void init_effect__11TBoss4Type3FPv(u8 *arg0);
 S_8005AD50 * destroy__11TBoss4Type3FPvs(S_8005AD50 *o, s16 flag);
 void * __ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2);
-s32 create__11TBoss4BishiFi(void *);
 s32 request_follow_camera_offsets(void *, void *, int);
 u32 spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
@@ -772,13 +569,11 @@ s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 
-extern u8 TBoss4DarkFalz__data_804FF1E8[];
 extern const f64 TBoss4Type2__data_80437750;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 TBoss4Type2__data_805D8BD8;
 extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 TBoss4Type3__data_805D8C40;
-extern s32 __vt__11TBoss4Zanzo[];
 extern void* __vt__13TObjBs4CutAtk[];
 
 extern RecoveredGlobal_80059450_lbl_80437854 lbl_80437854;
@@ -786,18 +581,11 @@ extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
 extern RecoveredGlobal_80059450_lbl_80437878 boss4_type3_follow_camera_offsets;
 extern const f64 lbl_80437890[];
-extern Ofs_8005683C bishi_spawn_offset_table[];
-extern u8 lbl_80486924[];
-extern void *TBoss4Zanzo__name;
 
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;
-extern s32 lbl_805D586C;
-
-struct Def_804867C8 { s32 value; s32 remaining[39]; };
-void TBoss4Type2__vt9(u8 *arg0);
 
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -805,71 +593,9 @@ void init_model_node_tables(void *, void *, int);
 s32 TObjFish__sub_800E3124(void *, void *, f32);
 void bind_enemy_combat_stats(void *, int, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-extern s32 lbl_804376D0[];
-extern u8 boss4_type2_model_node_table[];
-extern s32 lbl_805D27D8;
-extern const f32 lbl_805D8C28;
-extern "C" {
-extern u8 lbl_80437644[];
-}
-extern "C" {
-extern u8 lbl_8043764C[];
-}
-extern "C" {
-extern u8 lbl_80437658[];
-}
-extern "C" {
-extern u8 lbl_80437664[];
-}
-extern "C" {
-extern u8 lbl_8043766C[];
-}
-extern "C" {
-extern u8 lbl_80437674[];
-}
-extern "C" {
-extern u8 lbl_8043767C[];
-}
-extern "C" {
-extern u8 lbl_80437684[];
-}
-extern "C" {
-extern u8 lbl_8043768C[];
-}
-extern "C" {
-extern u8 lbl_80437694[];
-}
-extern "C" {
-extern u8 lbl_804376A0[];
-}
-extern "C" {
-extern u8 lbl_804376AC[];
-}
-extern "C" {
-extern u8 lbl_804376B8[];
-}
-extern "C" {
-extern u8 lbl_804376C4[];
-}
-
-extern const f32 lbl_805D8BA0;
 extern const f32 lbl_805D8BA4;
 extern const f32 lbl_805D8BA8;
-extern f32 lbl_805D8BB0;
 extern const f32 lbl_805D8BD0;
-extern const f32 lbl_805D8BDC;
-extern const f32 lbl_805D8BE0;
-extern const f32 lbl_805D8BE4;
-extern const f32 lbl_805D8BE8;
-extern const f32 lbl_805D8BEC;
-extern const f32 lbl_805D8BF0;
-extern const f32 lbl_805D8BF4;
-extern const f32 lbl_805D8BF8;
-extern const f32 lbl_805D8BFC;
-extern const f32 lbl_805D8C00;
-extern const f32 lbl_805D8C0C;
-extern const f32 lbl_805D8C14;
-extern const f32 lbl_805D8C18;
 extern const f32 lbl_805D8C38;
 extern const f32 lbl_805D8C3C;
 extern const f32 lbl_805D8C44;
@@ -1104,16 +830,7 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-
-extern "C" {
 void reset_pose__13TUnk_804806E8Fv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -1484,7 +1201,6 @@ void TBoss4Type3::update_dark_magic() {
     }
 }
 extern "C" {
-extern int fold_flush_5;
 #pragma pop
 
 }
@@ -1860,7 +1576,6 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
     stack.sp10 = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 8);
     request_follow_camera_offsets((void *) (&stack.sp8), (void *) (&stack.sp14), (int) (0xFFFFU));
 }
-extern int fold_flush_6;
 #pragma pop
 
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0) {
@@ -2075,7 +1790,6 @@ void TBoss4Type3::interp_position_between_nodes() {
     *(f32 *)&this->m_40 *= this->m_39c;
     vec3_add_to(arg0 + 0x38, &pts[0]);
 }
-extern int fold_flush_7;
 #pragma pop
 
 }
@@ -2174,7 +1888,6 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_8;
 #pragma pop
 
 }
@@ -2353,7 +2066,6 @@ void update_phase_timer__11TBoss4Type3FPv(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x3F4) = (f32) TBoss4Type3__data_805D8C40;
     }
 }
-extern int fold_flush_9;
 #pragma pop
 
 void TBoss4Type3::draw() {

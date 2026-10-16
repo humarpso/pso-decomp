@@ -2,9 +2,6 @@
 #include "pso/item/TItemEffectWeapon.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 int decrement_packed_timer__15TObjBoss2TunnelFPUll(void*);
 

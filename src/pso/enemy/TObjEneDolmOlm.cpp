@@ -202,8 +202,6 @@ struct Ene_80302004 {
 
 struct Ene_80302A34 { u8 pad0[0x18]; void *vt; u8 pad1[0x3a8 - 0x1c]; u8 sub[0x1c]; void *obj[2]; };
 
-struct Obj_800A7BEC { u8 pad0[0x38]; u8 sub38[0x326 - 0x38]; s16 f326; s16 state; u8 pad32a[0x390 - 0x32A]; s32 f390; };
-
 typedef struct Vec_800A7A14 {
     f32 x, y, z;
 } Vec_800A7A14;
@@ -460,7 +458,6 @@ struct Res_80302784 { u8 pad[0x42C]; Ent_80302784 *x42C; Pair_80302784 *x430; };
 extern "C" {
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 extern s32 TObjEneDolmOlm__effect_render_state;
-extern const f32 lbl_805DE6F4;
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_98__14TObjEneDolmOlmFv(s32 arg0);
@@ -685,12 +682,6 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void vfunc_29__13TUnk_804806E8Fv();
 }
 extern "C" {
@@ -752,8 +743,6 @@ void apply_attack_stat_status__13TUnk_804806E8FPv();
 }
 extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
-}
-extern "C" {
 }
 extern "C" {
 void apply_knockback_from_attacker();
@@ -867,11 +856,7 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
-}
-extern "C" {
 }
 extern "C" {
 void is_target_in_attack_range__10TObjPlayerFv();
@@ -944,10 +929,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void update_movement_status__13TUnk_80493450Fv();

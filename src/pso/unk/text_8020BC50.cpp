@@ -149,10 +149,6 @@ void send_6x76_set_entity_set_flags(void *arg0, s16 arg1);
 
 extern "C" {
 
-int serialize_area_set_flags(void* p);
-int TLobby__sub_8020B47C(void*);
-int TLobby__sub_8020B5CC(void*);
-
 void send_6x76_set_entity_set_flags(void *arg0, s16 arg1) {
     Pkt_8020BF14 pkt;
     build_6x76_set_entity_set_flags(&pkt);

@@ -112,9 +112,6 @@ void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
 #include "types.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void update_pair__11TMainCursorFPv(void* p);
 void update_cursor_pair__11TMainCursorFPv(void* p);

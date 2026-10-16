@@ -65,9 +65,6 @@ void T_OWEHMS_Exp::run_task() {
         queue_destruction__7TObjectFv(this);
     }
 }
-extern "C" {
-
-}
 T_OWEHMS_Exp* T_OWEHMS_Exp::destroy(s16 should_free) {
     if (this != NULL) {
         *(void**)((u8*)this + 0x18) = __vt__12T_OWEHMS_Exp;
@@ -78,10 +75,6 @@ T_OWEHMS_Exp* T_OWEHMS_Exp::destroy(s16 should_free) {
     }
     return this;
 }
-extern "C" {
-
-}
-
 #pragma pop
 
 #undef hair_bone_rotation_descriptor
@@ -104,9 +97,6 @@ T_OWEHMS_Exp* T_OWEHMS_Exp::construct(TObjPlayer* p) {
     descriptor_index = get_move_done_result__24TObjWaitEntryHairMoveSimFPv((H_800FE32C*)player);
     return this;
 }
-extern "C" {
-
-}
 T_OWEHMS_Exp* T_OWEHMS_Exp::create(TObjPlayer* p) {
     if (((int (*)(TObjPlayer*))is_move_done__24TObjWaitEntryHairMoveSimFv)(p) == 0) {
         return NULL;
@@ -117,10 +107,6 @@ T_OWEHMS_Exp* T_OWEHMS_Exp::create(TObjPlayer* p) {
     }
     return o;
 }
-extern "C" {
-
-}
-
 #pragma pop
 
 #pragma push

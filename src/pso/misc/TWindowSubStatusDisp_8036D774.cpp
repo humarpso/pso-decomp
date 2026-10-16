@@ -8,27 +8,6 @@ struct Desc_8036D774 { f32 *pos; u32 *col; s32 a; s32 n; };
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-struct Stack_8036D88C {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-    f32 sp14;
-    f32 sp18;
-    f32 sp1C;
-    f32 sp20;
-    f32 sp24;
-};
-
-struct Stack_8036D994 {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-    f32 sp14;
-    f32 sp18;
-    f32 sp1C;
-    f32 sp20;
-    f32 sp24;
-};
 
 extern "C" {
 s32 begin_screen_draw(int);

@@ -32,8 +32,6 @@ struct Hit_8036D1B4 {
     f32 d;
 };
 
-struct Pair_8036D1B4 { s32 id; f32 v; };
-
 struct PBase_8036D1B4 { char pad[0x18]; };
 
 struct Player_8036D1B4 : PBase_8036D1B4 {

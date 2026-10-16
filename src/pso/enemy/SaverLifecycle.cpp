@@ -395,7 +395,6 @@ void TObjEneSaver::apply_lookup_entry_effect() {
     }
 }
 
-extern s32 lbl_8043A8C8;
 extern const f32 lbl_805D9A10;
 
 void TObjEneSaver::sub_800A435C() {

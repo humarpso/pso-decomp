@@ -9,8 +9,6 @@ struct Ray_80325F7C { Vec_80325F7C o; Vec_80325F7C d; };
 
 struct Ctl_80325F7C { u8 pad[0x38]; Vec_80325F7C pos; };
 
-struct Stk_80325F7C { Vec_80325F7C dir; Vec_80325F7C hit; Vec_80325F7C wing; Vec_80325F7C pos; Ray_80325F7C ray; };
-
 typedef struct Vec_80326074 { f32 x; f32 y; f32 z; } Vec_80326074;
 
 typedef struct Seg_80326074 { Vec_80326074 pos; f32 pad; } Seg_80326074;

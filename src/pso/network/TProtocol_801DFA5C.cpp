@@ -11,9 +11,6 @@ typedef char GameExitUdpOffset[(offsetof(TRecvExit<false>, disable_udp) == 6) ? 
 
 extern "C" {
 
-int __ct__16TPlyGuildCardTagFv(void*);
-int bswap_32__FPUl(void*);
-
 }
 
 template<> void TRecvExit<false>::bswap() {

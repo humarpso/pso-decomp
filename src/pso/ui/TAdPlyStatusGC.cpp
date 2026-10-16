@@ -166,12 +166,6 @@ typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 #pragma dont_inline off
 struct Vec2_8033F3D8 { f32 x, y; };
 struct Box_8033F3D8 { f32 v[8]; };
-struct Layout_8033F3D8 {
-    Box_8033F3D8 box;
-    Vec2_8033F3D8 a[3];
-    Vec2_8033F3D8 b[3];
-    u8 rest[0x48];
-};
 struct Item_8033F3D8 { s8 valid; u8 pad[0xF]; };
 struct Status_8033F3D8 { u8 pad[8]; u32 f8; };
 

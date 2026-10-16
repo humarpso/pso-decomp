@@ -139,17 +139,11 @@ typedef char RecoveredGlobal_802E0B60_lbl_804E3008_size[sizeof(RecoveredGlobal_8
 }
 
 extern "C" {
-}
-
-extern "C" {
 
 }
 
 extern "C" {
 
-extern const f32 lbl_805DE8DC;
-extern const f32 lbl_805DE8E0;
-extern const f32 lbl_805DE8E4;
 __declspec(section ".sdata2") void *const lbl_805DE8A8[1] = {
     (void *)0x3f800000,
 };

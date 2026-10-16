@@ -74,12 +74,8 @@ extern Pad_8024DCE8 controller_input_state[];
 extern "C" {
 
 void TWindowCtrl__sub_8024DAAC(void *arg0);
-int TWindowCtrlMain__sub_8024D838(void);
-void TWindowCtrlMain__sub_8024D85C(void* p);
-s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 s32 get_window_layout_position(s32);
-int spawn_action_palette_slot_light(void*);
 s32 window_request_show(u32);
 
 s32 TWindowCtrl::get_active_menu() {

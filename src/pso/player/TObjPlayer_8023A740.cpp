@@ -48,10 +48,8 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
 extern "C" {
 
 void free_collision_body_parts(void *);
-int TTecSifta__sub_8023AC88(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
-int spawn_support_tec_range_effect(void*);
 
 extern s32 lbl_804CCC68[];
 

@@ -19,11 +19,6 @@
 
 struct Vec_802D9EB4 { f32 x, y, z; };
 
-struct Stack_802D7ACC {
-    s32 sp8;
-    f32 spC;
-};
-
 struct Vec_802D7ACC { f32 x, y, z; };
 
 struct V_802DA7A4Base { u8 pad[0x14]; };
@@ -367,14 +362,6 @@ struct G_802DBC94 { u8 pad[0x42c]; E_802DBC94 *e; };
 
 struct O_802DBC94 { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
-struct VBase800A64E8_800a64e8_800A4288 { char pad[0x14]; };
-
-struct VObj800A64E8_800a64e8_800A4288 : VBase800A64E8_800a64e8_800A4288 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual s32 m8();
-};
-
 struct RecoveredGlobal_800A6BE0_lbl_804FF5E8 {
     s32 value;
     u8 remaining[0x24];
@@ -641,10 +628,6 @@ extern "C" {
 void TObjEneGibbles__sub_802D8464();
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 struct Gib_802DB920;
 Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1);
 }
@@ -701,8 +684,6 @@ void apply_attack_stat_status__13TUnk_804806E8FPv();
 }
 extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
-}
-extern "C" {
 }
 extern "C" {
 void apply_knockback_from_attacker();
@@ -780,8 +761,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -849,10 +828,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -959,9 +934,6 @@ void *lbl_804E29F0[83] = {
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define lbl_804E28B0 (*(RecoveredGlobal_802D7A2C_lbl_804E28B0 *)lbl_804E28B0)
-
-extern "C" {
-}
 
 void TObjEneGibbles::set_min_clamped_entry_value(s32 arg0, s32 arg1, f32 farg0) {
   f32 var_f1;
@@ -1746,7 +1718,6 @@ s32 TObjEneGibbles__sub_802D9A04(void *arg0) {
     }
     return ((s32 (*)(void *))TObjEneGibbles__sub_802D7BE0)(arg0);
 }
-extern int fold_flush_0;
 #pragma pop
 
 void slam_damage_players__14TObjEneGibblesFii(s32 arg0, s32 arg1) {

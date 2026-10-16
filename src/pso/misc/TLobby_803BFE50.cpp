@@ -12,11 +12,6 @@ struct RecoveredGlobal_803C0AD8_lbl_80570AC0 {
     u8 remaining[0x9BC];
 };
 
-struct RecoveredGlobal_803BD5C4_lbl_805663D8 {
-    s32 value;
-    u8 remaining[0x6DC];
-};
-
 struct Obj_803C07E8 { u8 a; s8 b; };
 
 typedef struct Vt_803C0628 {
@@ -118,29 +113,10 @@ struct AudioStreamInputState {
 
 extern "C" {
 extern s8 lbl_805D74B8;
-void hwSetTimeOffset(s8 arg0);
 extern s8 lbl_805D74B8;
-u8 hwGetTimeOffset(void);
-extern s32 lbl_805D7490;
-void hwSetMesgCallback(s32 arg0);
-extern s32 lbl_805D4638;
 extern s32 lbl_805D748C;
-void hwSetSRCType(s32 arg0, s32 arg1);
 extern s32 lbl_805D748C;
-extern s32 lbl_805D4640;
-void hwSetPolyPhaseFilter(s32 arg0, s32 arg1);
-void hwTransAddr(void);
-void hwFrameDone(void);
-extern s32 lbl_805D747C;
-void hwDisableHRTF(void);
 extern s32 lbl_805D748C;
-s32 hwGetVirtualSampleID(s32 arg0);
-extern s32 lbl_805D74CC;
-void aramRemoveData(s32 arg0, s32 arg1);
-void TLobby__sub_803BE0DC(void);
-extern s32 lbl_805D74F0;
-extern s32 lbl_805D7500;
-void dspInitCallback(void);
 void TLobby__sub_803BFE58(u8 *arg0);
 void TLobby__sub_803BFEE8(u8 *arg0);
 s32 TLobby__sub_803C3ABC(int);
@@ -163,9 +139,6 @@ void TLobby__sub_803C406C(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
-extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
-void hwSetAUXProcessingCallbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-u8 inpTranslateExCtrl(u8 arg0);
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 s32 memcmp(void *, void *, int);
 extern s32 lbl_805E0CB0;
@@ -185,10 +158,6 @@ void process_audio_stream_input(AudioStreamInputState *arg0);
 }
 
 extern "C" {
-
-void sndConvertMs(s32 *arg0);
-u32 sndConvert2Ms(u32 arg0);
-void salApplyMatrix(u8 *arg0, u8 *arg1, u8 *arg2);
 
 s32 TLobby::get_offset_58() {
     s32 arg0 = (s32)this;

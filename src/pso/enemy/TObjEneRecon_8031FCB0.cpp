@@ -577,9 +577,6 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
 #define TObjEneRecobox__static_instance (*(int *)&TObjEneRecobox__static_instance)
 
 extern "C" {
-}
-
-extern "C" {
 
 int TObjEneRecobox__sub_803201D0(void);
 
@@ -642,7 +639,6 @@ struct Spawn_80320260 { s32 a, b, c, d; };
 struct Inner_80320260 { u8 pad[0x18]; s32 f18; s32 f1C; };
 struct Box_80320260 { u8 pad[0x42C]; Inner_80320260 *f42C; s32 f430; };
 struct Sub_80320260 { u8 pad[0xC]; f32 f0C; };
-struct Area_80320260 { u8 pad[0x1C]; Sub_80320260 sub; u8 pad2[0x90 - 0x2C]; u8 f90[0xE8 - 0x90]; u8 fE8[4]; };
 
 s32 is_split_screen(void *);
 s32 dispatch_shared_handler_a__6TLobbyFl(s32);

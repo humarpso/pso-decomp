@@ -9,8 +9,6 @@ typedef struct Rec_801D35FC {
     u8 b[0x1C];
 } Rec_801D35FC;
 
-struct ByteBlock_10 { u8 bytes[0x10]; };
-
 struct ByteBlock_14 { u8 bytes[0x14]; };
 
 extern "C" {
@@ -34,7 +32,6 @@ int TItemList__sub_801D5838(void* a0 = 0);
 s32 TItemList__sub_801D5844(s32);
 s32 TItemList__sub_801D5854(s32, s32);
 int TItemList__sub_801D5868(void*, void*);
-int __dl__FPv();
 s32 copy_item_data__9TItemListFv(s32, s32);
 s32 create_node__9TItemListFPvPvPvSc(s32, s32, s32, s32);
 

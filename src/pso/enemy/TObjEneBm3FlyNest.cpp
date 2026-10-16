@@ -113,29 +113,6 @@ extern const f32 lbl_805D9D6C;
 
 extern "C" {
 
-struct Base_800B1A90_800B1978 { char pad[0x18]; };
-
-struct VObj_800B1A90_800B1978 : Base_800B1A90_800B1978 {
-    virtual void v0();
-virtual void v1();virtual void v2();virtual void v3();virtual void v4();virtual void v5();virtual void v6();virtual void v7();virtual void v8();virtual void v9();virtual void v10();
-virtual void v11();virtual void v12();virtual void v13();virtual void v14();virtual void v15();virtual void v16();virtual void v17();virtual void v18();virtual void v19();virtual void v20();
-virtual void v21();virtual void v22();virtual void v23();virtual void v24();virtual void v25();virtual void v26();virtual void v27();virtual void v28();virtual void v29();virtual void v30();
-virtual void v31();virtual void v32();virtual void v33();virtual void v34();virtual void v35();virtual void v36();virtual void v37();virtual void v38();virtual void v39();virtual void v40();
-virtual void v41();virtual void v42();virtual void v43();virtual void v44();virtual void v45();virtual void v46();virtual void v47();virtual void v48();virtual void v49();virtual void v50();
-virtual void v51();virtual void v52();virtual void v53();virtual void v54();virtual void v55();virtual void v56();virtual void v57();virtual void v58();virtual void v59();virtual void v60();
-virtual void v61();virtual void v62();virtual void v63();virtual void v64();virtual void v65();virtual void v66();virtual void v67();virtual void v68();virtual void v69();virtual void v70();
-virtual void v71();virtual void v72();virtual void v73();virtual void v74();virtual void v75();virtual void v76();virtual void v77();virtual void v78();virtual void v79();virtual void v80();
-virtual void v81();virtual void v82();virtual void v83();virtual void v84();virtual void v85();virtual void v86();virtual void v87();virtual void v88();virtual void v89();virtual void v90();
-virtual void v91();virtual void v92();virtual void v93();virtual void v94();virtual void v95();virtual void v96();virtual void v97();virtual void v98();virtual void v99();
-    virtual u32 v102();
-};
-
-struct Base_800B2214_800B1978 { char pad[0xC]; };
-
-struct VObj_800B2214_800B1978 : Base_800B2214_800B1978 {
-    virtual void m2(int);
-};
-
 struct VBase_18_6eb1ad
 {
   char pad[0x18];
@@ -246,13 +223,6 @@ struct VObj_18_6eb1ad : VBase_18_6eb1ad {
     virtual void m101();
     virtual void m102();
     virtual s32 m103();
-};
-
-struct Stack_800B22C8 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
-    s32 sp14;
 };
 
 struct RecoveredGlobal_800B22C8_lbl_8043B0FC {
@@ -1438,8 +1408,6 @@ struct Anim_800B41E8 { s32 motions, actions, initial_action, counts; };
 
 struct Vec_800B41E8 { f32 x, y, z; };
 
-struct Coll_800B41E8 { u8 pad[0xC]; f32 radius; };
-
 struct Res_800B41E8 { u8 pad[0x42C]; u8 *bodies; s32 motions; };
 
 struct Bodies_800B41E8 { u8 pad0[0xC]; s32 textures; u8 pad1[0x18 - 0x10]; s32 model; };
@@ -1449,7 +1417,6 @@ struct Vec_800B4688 { f32 x, y, z; };
 struct Vec_800B4388 { f32 x, y, z; };
 
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u16 obj_getField1c(void *);
 s32 is_split_screen();
 f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
@@ -1462,28 +1429,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_flag_b4__9TObjEneDDFv(void *);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 s32 spawn_particle_effect(void *, int);
-u8 * create_particle_emitter(void *, s32);
-s32 enable__13TParticleCtrlFPv(int);
-s32 init_from_model__11TBreakUpMdlFPvi(int, void *);
-s32 handle_message__13TObjEneBm3FlyFPvi(void *, void *);
-s32 state_death_fall__13TObjEneBm3FlyFPvi(void *, void *);
-s32 action__13TObjEneBm3FlyFPvi(void *, void *);
-s32 update_recoil_state__13TObjEneBm3FlyFv(void *, void *);
-s32 TObjEneBm3Fly__sub_800B02C8(void *, void *);
-s32 state_circle_target__13TObjEneBm3FlyFPvi(void *, void *);
-s32 execute_action__13TObjEneBm3FlyFPvi(void *, void *);
-s32 TObjEneBm3Fly__sub_800B0B20(void *, void *);
-s32 TObjEneBm3Fly__sub_800B0F70(void *, void *);
-s32 TObjEneBm3Fly__sub_800B1214(void *, void *);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *);
-void update_state_flag__13TObjEneBm3FlyFPv(void *arg0);
-void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
-void circle_destination__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
-void update_height_offset__13TObjEneBm3FlyFPv(void *arg0);
-void update__13TObjEneBm3FlyFPv(void *arg0);
-void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2);
-void * __dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
-u8 * TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6);
 void render_with_state_debug__17TObjEneBm3FlyNestFv(u8 *arg0);
 void render__17TObjEneBm3FlyNestFPv(u8 *arg0);
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
@@ -1512,8 +1458,6 @@ void * TObjEneBm3FlyNest__ct(void *, void *, void *);
 int TObjEneBm3FlyNest__sub_800B4158(void);
 void * destroy_monest_carrier(void *arg0, s16 arg1);
 u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
-u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
-void __dt__9TObjEneDDFv(void *, int);
 s32 is_main_phase_15__9TObjEneDDFv();
 void update_player_state__9TObjEneDDFv(void *, Vec_800B23A0 *, s32);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
@@ -1707,11 +1651,6 @@ void *lbl_80491EE4[106] = {
     (void *)vfunc_100__9TObjEneDDFv, (void *)vfunc_101__9TObjEneDDFPUc, (void *)vfunc_102__9TObjEneDDFv, (void *)vfunc_103__9TObjEneDDFPUc,
     (void *)TObjEneBm3FlyNest::init, (void *)render_with_state_debug__17TObjEneBm3FlyNestFv,
 };
-extern s32 TObjEneBm3Fly__attack_params;
-extern void *TObjEneBm3Fly__breakup_model;
-extern const f32 TObjEneBm3Fly__data_805D9C6C;
-extern s32 __vt__13TObjEneBm3Fly[];
-extern RecoveredGlobal_800B22C8_lbl_8043B0FC bm3_fly_resource_binding_desc;
 extern RecoveredGlobal_800B2948_lbl_8043B2A4 bm3_fly_nest_attachment_sample_table;
 extern Anim_800B41E8 bm3_flynest_anim_binding;
 extern Vec_800B39CC lbl_8043B304[];
@@ -1723,7 +1662,6 @@ extern char lbl_8043B348[];
 extern char lbl_8043B358[];
 extern char lbl_8043B368[];
 extern const f64 lbl_8043B398[];
-extern RecoveredGlobal_800B22C8_lbl_80491B4C bm3_fly_collider_params;
 extern s32 __vt__26TObjEneBm3FlyNest_CarryFly[];
 typedef struct Ctl_800B47C4 {
     f32 *pv;
@@ -1738,12 +1676,7 @@ __declspec(section ".data") s32 lbl_80500B24[2];
 Ctl_800B47C4 lbl_80500B2C;
 #define TObjEneBm3FlyNest__attachment_sample_origin (*(RecoveredGlobal_800B2948_lbl_80500B00 *)TObjEneBm3FlyNest__attachment_sample_origin)
 extern s32 debug_chunk_object;
-extern s32 TObjEneBm3Fly__name;
 extern s32 TObjEneBm3FlyNest_CarryFly__name;
-extern s32 bm3_fly_boss_stat_handle;
-extern s32 lbl_805D50E8;
-extern f32 *lbl_805D50EC;
-extern u8 *bm3_fly_nest_resources;
 extern s32 lbl_805D50F8;
 extern s32 lbl_805D50FC;
 extern s32 lbl_805D5100;
@@ -1758,10 +1691,6 @@ extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
-extern const f32 lbl_805D9CB4;
-extern const f32 lbl_805D9CE8;
-extern const f32 lbl_805D9CEC;
-extern const f32 lbl_805D9CF0;
 extern const f32 lbl_805D9D08;
 extern const f32 lbl_805D9D0C;
 extern const f32 lbl_805D9D10;
@@ -2080,7 +2009,6 @@ void state_dying__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
         break;
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
@@ -2225,7 +2153,6 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
         break;
     }
 }
-extern int fold_flush_2;
 #pragma pop
 
 void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
@@ -2416,7 +2343,6 @@ void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
         break;
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 void TObjEneBm3FlyNest::init_params() {
@@ -2592,7 +2518,6 @@ void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((VObj_18_p5 *)(arg0))->m98();
 }
-extern int fold_flush_4;
 #pragma pop
 
 Obj_800B3E40 *TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag) {
@@ -2859,7 +2784,6 @@ void update_monest_carrier(u8 *self) {
         break;
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 void *destroy_monest_carrier(void *arg0, s16 arg1) {

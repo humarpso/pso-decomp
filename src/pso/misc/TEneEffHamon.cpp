@@ -12,11 +12,6 @@ public:
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-struct RecoveredGlobal_800A4204_lbl_80490A18 {
-    s32 value;
-    u8 remaining[0x14];
-};
-
 struct RecoveredGlobal_800A38A4___vt__12TEneEffHamon {
     s32 value;
     u8 remaining[0x14];
@@ -33,43 +28,7 @@ typedef struct Hamon_800A36A8 {
     u8 color50[0x10];
 } Hamon_800A36A8;
 
-struct Vec_800A4064 { f32 x, y, z; };
-
-struct Inner_800A4064 { u8 pad0[0xC]; s32 *p; };
-
-struct Entry_800A4064 { u8 pad0[8]; Inner_800A4064 *inner; };
-
-struct Obj_800A4064 {
-    u8 pad0[0x38];
-    s32 count;
-    Vec_800A4064 base[(0x108 - 0x3C) / 12];
-    Vec_800A4064 out[(0x1D4 - 0x108) / 12];
-    Vec_800A4064 dir[22];
-    u8 pad2DC[8];
-    f32 scale[(0x328 - 0x2E4) / 4];
-    s32 timer;
-    u8 pad32C[0x330 - 0x32C];
-    s32 type;
-    u8 pad334[0x340 - 0x334];
-    s32 active;
-};
-
 typedef struct Cam_800A3D1C { u8 pad0[8]; f32 cx; f32 cy; u8 pad10[8]; f32 sw; f32 aspect; } Cam_800A3D1C;
-
-struct Vec_800A3D1C { f32 x, y, z; };
-
-struct Vtx_800A3D1C { f32 x, y, z, u, v; u32 color; };
-
-struct Obj_800A3D1C {
-    u8 pad0[0x38];
-    s32 count;
-    u8 pad3C[0x108 - 0x3C];
-    Vec_800A3D1C pts[17];
-    u8 pad1D4[0x32C - 0x1D4];
-    u32 color;
-    u8 pad330[0x10];
-    s32 active;
-};
 
 extern "C" {
 s32 queue_destruction__7TObjectFv();
@@ -78,8 +37,6 @@ void run_task__12TEneEffHamonFv(u8 *arg0);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80490A18[];
-extern s32 lbl_805D29E0;
-u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
@@ -110,34 +67,20 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
-f32 sin_table_lookup(s32);
-extern Entry_800A4064 *player_effect_task_list[];
 extern s32 TObjPlayer__effect_count;
-extern const f32 lbl_805D99F8;
-extern const f32 lbl_805D9A04;
-extern const f32 lbl_805D9A08;
-f32 newton_sqrtf(f32);
-s32 matrix_mult_vec(int, void *, void *);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern Cam_800A3D1C lbl_8058D4F8;
 extern s32 TObjPlayer__effect_count;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 lbl_805D99F0;
-extern const f32 lbl_805D99FC;
-extern const f32 lbl_805D9A00;
 }
 
 extern "C" {
 
 void TEneEffHamon__sub_800A380C(void);
-void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1);
 void init_fish_effects__12TEneEffHamonFv(void);
 int TObjFish__sub_8001EDB0(void*, void*);
 int get_bml_model(void*, void*);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     f32 s;

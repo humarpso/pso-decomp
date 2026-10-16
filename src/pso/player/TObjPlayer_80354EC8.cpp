@@ -44,7 +44,6 @@ extern "C" {
 
 int __dl__FPv();
 int fn_8035510C(void* a0 = 0, void* a1 = 0);
-int TAdPlyPltAnimCtrlGC__sub_80355168(void* a0 = 0);
 void TObjPlayer__sub_80354F8C(void* p);
 int TObjPlayer__sub_80354FB0(void* p);
 int TObjPlayer__sub_8035501C(void* p);

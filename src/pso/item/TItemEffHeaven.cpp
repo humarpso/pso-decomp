@@ -63,8 +63,6 @@ extern const f32 lbl_805DAB34;
 Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c);
 }
 
-extern "C" {
-}
 extern "C" int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 void TItemEffHeaven::run_task() {

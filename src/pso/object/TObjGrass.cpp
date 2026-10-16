@@ -656,8 +656,6 @@ extern "C" {
 extern u8 lbl_8043B760[];
 }
 extern "C" {
-}
-extern "C" {
 void render_shadows__7TObjectFv();
 }
 extern "C" {
@@ -685,8 +683,6 @@ extern void TLobby__sub_801A1FD8(); extern "C" void vfunc_12__13TUnk_804B9870Fv(
 }
 extern "C" {
 extern void __dt__12TObjGrassWebFv(); extern "C" void apply_object_set_data(); extern "C" void classify_actor_view_detail();
-}
-extern "C" {
 }
 extern "C" {
 extern void run_task__12TObjGrassWebFv(); extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();

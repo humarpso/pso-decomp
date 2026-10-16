@@ -465,7 +465,6 @@ extern "C" {
 u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 rand(s32);
 
-extern const f64 lbl_8043A460;
 extern s32 __vt__25TObjEneMe1Canadin_EffLine[];
 extern s32 TObjEneMe1Canadin_EffLine__name;
 extern const f32 canadin_line_initial_phase_range;

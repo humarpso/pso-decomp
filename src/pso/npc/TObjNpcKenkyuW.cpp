@@ -101,10 +101,6 @@ struct RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW {
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/npc/TObjNpcLappy.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-struct Stack_80236290 {
-    s32 sp8;
-    u8 trailing_storage[0x8];
-};
 
 struct RecoveredGlobal_80236290_lbl_80516150 {
     s32 value;

@@ -43,10 +43,6 @@ extern const f32 lbl_805DD9B0;
 void update_creation_camera_auto(Cam_80291784 *arg0);
 }
 
-extern "C" {
-
-}
-
 #include "types.h"
 
 #include "pso/camera/CreationCamera.h"

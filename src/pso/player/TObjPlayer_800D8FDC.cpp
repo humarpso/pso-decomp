@@ -334,7 +334,6 @@ f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
     extern const f32 lbl_805DA3DC;
 void TUnk_80494AE0::vfunc_4() { *(float*)((char*)this + 0x0) = lbl_805DA3DC; *(float*)((char*)this + 0x4) = lbl_805DA3DC; *(float*)((char*)this + 0x8) = lbl_805DA3DC; *(float*)((char*)this + 0xc) = lbl_805DA3DC; }
 
-extern const f64 lbl_8043C758;
 extern const f32 lbl_805DA3E0;
 
 void TUnk_80494AE0::set_rate_from_divisor(s32 arg1) {

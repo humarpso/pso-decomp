@@ -1,8 +1,6 @@
 #include "types.h"
 #pragma readonly_strings on
 
-struct Elt80364258_80364258 { s32 f0; };
-
 struct RecoveredGlobal_8032B904_lbl_80477278 { s32 value; u8 remaining[0xC]; };
 
 struct RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 {

@@ -5,7 +5,6 @@ extern "C" {
 
 s32 rand();
 
-extern s32 lbl_8043E980;
 extern f32 lbl_805DAE78;
 extern f32 lbl_805DAE7C;
 

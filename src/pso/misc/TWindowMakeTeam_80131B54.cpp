@@ -5,10 +5,6 @@
 
 extern "C" {
 
-s32 export_keyboard_text(s32, s32);
-s32 mem_alloc();
-int is_active__16TKeyBoardControlFPv(void*);
-int is_key_active__16TKeyBoardControlFPv(void*);
 s32 save_position__13TUnk_804CE018Fv(void *, int, int, f32);
 
 extern const f32 lbl_805DB078;

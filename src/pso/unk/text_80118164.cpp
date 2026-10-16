@@ -4,9 +4,6 @@
 #include "pso/item/TItemProShield.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void TItemProShield::vfunc_26() {
     s32 temp_r31;

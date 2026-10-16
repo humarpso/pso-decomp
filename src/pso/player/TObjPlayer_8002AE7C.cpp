@@ -16,7 +16,6 @@ extern "C" {
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-f64 floor();
 
 void TObjPlayer::set_field_dc(s32 v) { *(s32*)((char*)this + 0xdc) = v; }
 void TObjPlayer::set_field_d8(s32 v) { this->m_d8 = v; }

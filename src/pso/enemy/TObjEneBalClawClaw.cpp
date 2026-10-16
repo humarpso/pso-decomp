@@ -23,11 +23,6 @@ struct RecoveredGlobal_8009048C_lbl_80439B8C {
     u8 remaining[0x10];
 };
 
-struct RecoveredGlobal_8009048C_lbl_8048F11C {
-    s32 value;
-    u8 remaining[0x28];
-};
-
 extern "C" {
 extern RecoveredGlobal_8009048C_lbl_80439B8C lbl_80439B8C;
 extern void *TObjEneBalClawClaw__collision_body_template[11];

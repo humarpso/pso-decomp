@@ -21,7 +21,6 @@ extern "C" {
 s32 mem_alloc(s32);
 s32 collect_model_strips_by_texture(void *, s32, s32, s32);
 s32 count_model_strips_by_texture();
-int initialize_enemy_photon_effect(void* p);
 
 extern s32 plist_strip_write_ptr;
 extern s32 plist_strip_uv_write_ptr;

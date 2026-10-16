@@ -2534,8 +2534,6 @@ extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -2611,8 +2609,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -2683,12 +2679,6 @@ void run_task__23TObjEneMe3ShinowaMirageFv();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -2933,7 +2923,6 @@ void TObjEneMe3ShinowaMirage::state_break_apart(s32 arg1) {
         break;
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TObjEneMe3ShinowaMirage__sub_800E4FE8(u8 *arg0, s32 arg1) {
@@ -3613,7 +3602,6 @@ void TObjEneMe3ShinowaMirage::state_chase_target(s32 arg1) {
         break;
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TObjEneMe3ShinowaMirage__sub_800E66FC(u8 *arg0, s32 arg1) {
@@ -4010,7 +3998,6 @@ u8 can_hit_same_target__23TObjEneMe3ShinowaMirageFPv(E_800E728C *arg0) {
     }
     return (u8)ret;
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -4028,7 +4015,6 @@ void TObjEneMe3Shinowa::update_player_state_default() {
         update_player_state__9TObjEneDDFv((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -4057,7 +4043,6 @@ void TObjEneMe3Shinowa::vfunc_105() {
         ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003AD13)), (u32) (arg0 + 0x38), 0, 0);
     }
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -4072,7 +4057,6 @@ s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0) {
     f31 += *(f32 *)((s8 *)arg0 + 0x3A0) * ((f32 (*)(s32))sin_table_lookup)(*(s32 *)((s8 *)arg0 + 0x60));
     return (s32)((u32)__cntlzw(f31 < ((f32 (*)(s32))cos_table_lookup)(0x1E00)) >> 5);
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -4098,7 +4082,6 @@ u8 TObjEneMe3Shinowa::check_body_collision_at(s32 arg1, f32 farg0) {
     arg0->f60 = a;
     return res;
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -4119,7 +4102,6 @@ f32 TObjEneMe3Shinowa::get_node_world_y() {
     pop_matrix();
     return v.y;
 }
-extern int fold_flush_7;
 #pragma pop
 
 void fn_800E762C(void) {  }
@@ -4232,7 +4214,6 @@ void TObjEneMe3Shinowa::init_enemy() {
     self->f424 = 0;
     self->f428 = 0;
 }
-extern int fold_flush_8;
 #pragma pop
 
 void *TObjEneMe3Shinowa__ct(void *arg0) {

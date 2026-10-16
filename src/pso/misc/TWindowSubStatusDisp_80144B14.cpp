@@ -348,7 +348,6 @@ void TWindowSubStatusDisp::pack_status_flags(u32 arg1) {
     *(u8 *)((s8 *)this + 1) = (u8) (*(u8 *)((s8 *)this + 1) | ((arg1 * 4) & 0x30));
 }
 
-extern s32 lbl_8043F3D0;
 extern u8 lbl_805D56C0;
 extern const f32 lbl_805DB194;
 

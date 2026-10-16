@@ -13,10 +13,6 @@ extern "C" {
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 __dl__FPv(u32 *);
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
-extern s32 __vt__13TLockOnCursor[];
-extern s32 TLockOnCursor__sub_8013EFB8[];
-extern s32 __dt_deleting__13TLockOnCursorFis[];
-extern void *lock_on_cursor_class_name;
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 fn_800BC758(u8 *arg0);
 s32 attack_target_history_add(s32 arg0, s32 arg1);
@@ -32,9 +28,6 @@ s32 __dl__FPv(u32 *);
 s32 mem_alloc(s32);
 s32 fill_value_array(void *);
 s32 mem_free(u32);
-int queue_destruction__7TObjectFv(void*);
-
-struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 s32 attack_target_history_add(s32 arg0, s32 arg1) {
     if ((fn_800BC758((u8 *)(arg0)) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *) (arg0))), (void*)((void *)((void *) (arg1))))) == 0)) {

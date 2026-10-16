@@ -72,7 +72,6 @@ void TWindowCtrlMain__sub_8024D85C(void* p);
 int TCameraCtrl__sub_80068EF0(void);
 int TWindowCtrlMain__sub_8024CE24(void);
 s32 TWindowMainMenu__sub_8024E3D4(void *);
-s32 TWindowMainMenu__sub_8024E3E0(void *);
 int spawn_action_palette_slot_light(void*);
 int open_submenu__15TWindowSubEquipFll(void*);
 int render_nodes__7TObjectFv(void);

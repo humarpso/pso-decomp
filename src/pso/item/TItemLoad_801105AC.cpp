@@ -48,13 +48,7 @@ extern "C" {
 
 s32 TItemLoad__sub_80110740(void* p);
 s32 TItemLoad__sub_80110748(void* p);
-s32 TItemLoad__sub_801107DC(void* p);
-s32 TItemLoad__sub_801107E4(void* p);
-void* TItemLoad__sub_801107EC(void* p);
-int TItemLoad__sub_801107F4(void* p);
 s32 TLobby__sub_8001FE7C(s32, s32);
-int TLobby__sub_803CC4C0(void*);
-int test_flags_any(void*, int);
 s32 __ct__9TItemLoadFv(void *, s32);
 void * __nw__7TObjectFUl(s32);
 s32 mem_free(s32);

@@ -760,8 +760,6 @@ struct RecoveredGlobal_8029299C_lbl_804DB1F0 {
     u8 remaining[0x6AC];
 };
 
-struct Win_80292AB4 { u8 pad[0x21C4]; u8 sub; };
-
 struct Ent_80292AB4 { s32 id; s32 mask; u8 pad[0x14]; };
 
 extern "C" {
@@ -1263,38 +1261,6 @@ struct G_8029350C {
 struct RecoveredGlobal_80070358_lbl_8048C9D8 {
     s32 value;
     u8 remaining[0x744];
-};
-
-struct E_8007032C { u8 pad[0x104]; };
-
-struct G_8007032C { u8 pad[0x270]; E_8007032C e[4]; };
-
-struct G_80070024 { u8 pad[0x48]; s32 x48; };
-
-struct O_80070600 { u8 pad[0x1c]; s32 x1c; };
-
-struct Blk5C_800703D0 { u32 w[23]; };
-
-struct Blk50_800703D0 { u32 w[20]; };
-
-struct Blk18_800703D0 { u32 w[6]; };
-
-struct Blk14_800703D0 { u32 w[5]; };
-
-struct Pair_800703D0 { u8 bytes[8]; };
-
-struct Info_800703D0 {
-    u16 a;
-    s16 b;
-    Blk5C_800703D0 c;
-    Blk50_800703D0 d;
-    Pair_800703D0 xB0;
-    Pair_800703D0 xB8;
-    Blk18_800703D0 e;
-    Pair_800703D0 xD8;
-    s32 xE0;
-    Pair_800703D0 xE4;
-    Blk14_800703D0 f;
 };
 
 struct Tag_802932EC {

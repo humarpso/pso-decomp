@@ -46,9 +46,6 @@ void spawn_particle_effect(Vec*, int);
 extern "C" {
 void subtract_vector(Vec*, Vec*);
 }
-extern "C" {
-}
-
 void TItemEffBringer::hook() {
     Vec work = this->m_pos;
     for (int i = 0; i != this->m_particle_count; i++) {

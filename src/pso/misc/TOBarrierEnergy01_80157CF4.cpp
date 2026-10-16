@@ -11,11 +11,7 @@ void play_persistent_sound(int, void *, void *, int, int);
 extern "C" {
 
 void vfunc_20__17TOBarrierEnergy01Fv(void);
-int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
-void TOAttackableCol__sub_80157C20(void* p, s32 v);
-s32 TOAttackableCol__sub_80157C28(void* p);
-int bswap_16__FPUs(void*);
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void play_proximity_sound__17TOBarrierEnergy01Fv();

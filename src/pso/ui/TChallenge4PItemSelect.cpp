@@ -34,15 +34,11 @@ void TWindow__close(void*);
 #include "pso/ui/TChallenge4PResult.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 u32 create_window_menu(s32, s32, s32);
 s32 get_text_collection(s32);
 s32 TWindowSubComCard__sub_80265500(u32);
 s32 get_window_layout_position(s32);
-void __ct__7TObjectFP7TObject(void *);
 s32 fn_8034BE30(TChallenge4PResult *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 s32 get_instance__11TCameraCtrlFv();
@@ -90,9 +86,6 @@ void TChallenge4PItemSelect::submit_selected_item() {
         state = 2;
     }
 }
-extern "C" {
-
-}
 void TChallenge4PItemSelect::open_menu() {
     s32 temp_r0;
     u16 temp_r30;
@@ -121,7 +114,6 @@ void TChallenge4PItemSelect::open_menu() {
 }
 extern "C" {
 
-extern s32 __vt__22TChallenge4PItemSelect[];
 extern void *lbl_805D433C;
 
 }

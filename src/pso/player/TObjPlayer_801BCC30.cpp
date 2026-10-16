@@ -18,15 +18,6 @@ s32 TObjPlayer__sub_801BEC3C(void *);
 
 extern "C" {
 
-s32 obj_isState2_324();
-s32 apply_state_transform__10TObjPlayerFUi(s32);
-int queue_destruction__7TObjectFv(void*);
-int sync_current_floor__10TObjPlayerFPv(void*);
-int sync_current_area__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801BCA0C(void);
-void TObjPlayer__sub_801BCA10(void);
-void TObjPlayer__sub_801BCAB0(void);
-void TObjPlayer__sub_801BCB28(void);
 void TObjPlayer__sub_801BCC50(void);
 int check_technique_castable__10TObjPlayerFi(void*);
 

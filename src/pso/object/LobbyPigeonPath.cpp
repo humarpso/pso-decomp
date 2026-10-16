@@ -663,7 +663,6 @@ void TUnk_804E0898::vfunc_13(s32) {
               (1.5e+02f));
   }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TUnk_804E0898::update_lobby_pigeon_visibility() {
@@ -898,7 +897,6 @@ void TUnk_804E08D4::vfunc_13(s32) {
         *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32) rand()))) + (1.5e+02f));
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void *TUnk_804E08D4::dt_path_obj(s16 arg1) {
@@ -933,7 +931,6 @@ void *TObjPlayer__sub_802C19E8(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0xCC) = (s32) (((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32) rand()))) + (1.5e+02f));
     return arg0;
 }
-extern int fold_flush_2;
 #pragma pop
 
 void *create__10TObjPlayerFPv(void *arg0) {

@@ -51,51 +51,6 @@ typedef struct Obj_8002EA64 {
     Part_8002EA64 parts[19];
 } Obj_8002EA64;
 
-struct VBase_18_38992e { char pad[0x18]; };
-
-struct VObj_18_38992e : VBase_18_38992e {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
-struct Vec_8002EFE8 { s32 x, y, z; };
-
-struct Motion_8002EFE8 { s32 f0; s32 anim; s32 f8; s32 fC; };
-
-struct Model_8002EFE8 { s32 f0; u32 frames; };
-
-struct Anim_8002EFE8 { s32 f0; Model_8002EFE8 *model; };
-
-struct Self_8002EFE8 {
-    u8 pad0[0x24];
-    s32 x24;
-    u8 pad28[0x34 - 0x28];
-    s32 x34;
-    u8 pos[0xC];
-    u8 pad44[0x5C - 0x44];
-    s32 rotX;
-    s32 rotY;
-    s32 rotZ;
-    u8 pad68[0xC0 - 0x68];
-    f32 frame;
-    u8 padC4[0xD8 - 0xC4];
-    Motion_8002EFE8 *motions;
-    Anim_8002EFE8 *anims;
-    u8 padE0[0x354 - 0xE0];
-    f32 motionIdx;
-    f32 fixedFrame;
-    f32 speed;
-    u8 pad360[0x5E0 - 0x360];
-    s32 joints[10];
-};
-
 extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
@@ -149,26 +104,8 @@ extern const f32 lbl_805D8238;
 extern const f32 lbl_805D823C;
 extern const f32 lbl_805D8240;
 Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002EA64 *arg2);
-void fn_8002F5AC(void *);
-s32 TBoss2Joint__sub_8003688C(s32);
-s32 TObjLight__sub_801337F8(s32);
-s32 rotate_matrix_y(int, int);
-s32 rotate_matrix_z(int, int);
-s32 rotate_matrix_x(int, int);
 void push_matrix(void);
 void pop_matrix(void);
-s32 scale_current_matrix(void *);
-s32 post_translate_matrix(void *);
-s32 draw_model_motion(int, void *, f32);
-void TObjPlayer__sub_8002F61C(void);
-extern Vec_8002EFE8 lbl_804359E4;
-extern u8 controller_input_state[];
-extern s32 current_scene_light;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
-extern const f32 lbl_805D8278;
-extern const f32 TBoss2DeRolLe__data_805D827C;
-void render_body__13TBoss2DeRolLeFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -178,13 +115,11 @@ struct VObj8002EB88_8002eb88_8002E784 {
     virtual void m0(int);
 };
 
-int TObjLight__sub_8002F238(void* p);
 void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1);
 void TObjPlayer__sub_8002EB88(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int get_target_info__9TObjEneDDFPv(void*);
 s32 rand();
 
 extern void *lbl_805D4B8C;
@@ -313,7 +248,6 @@ void *TUnk_804820C0::init_base() {
     return this;
 }
 
-extern s32 lbl_80435620;
 extern const f32 lbl_805D8244;
 extern const f32 lbl_805D8248;
 

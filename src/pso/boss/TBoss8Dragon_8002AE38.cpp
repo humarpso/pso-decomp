@@ -7,14 +7,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-}
-
-extern "C" {
-
-int TLobby__send_and_handle_60(void*);
-f64 floor();
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 
 int TBoss8Dragon::test_card_flag_2() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)2); }
 

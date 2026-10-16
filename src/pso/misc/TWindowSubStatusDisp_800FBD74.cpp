@@ -18,30 +18,6 @@ struct RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 {
     u8 remaining[0xC];
 };
 
-struct ByteBlock_8 { u8 bytes[0x8]; };
-
-struct ByteBlock_20 { u8 bytes[0x20]; };
-
-struct Row_800FAFE0 { u8 pad[0x40]; s32 identity; };
-
-struct Ctrl_800FAFE0 {
-    u8 pad[0x174];
-    struct Row_800FAFE0 *slots[4];
-    s32 selected;
-};
-
-struct GXFogAdjTable_800FAE1C {
-    u16 r[10];
-};
-
-struct TFogCtrl_800FAE1C {
-    u8 pad[0x188];
-    u32 color;
-    f32 end;
-    f32 start;
-    f32 width;
-};
-
 typedef char RecoveredGlobal_800FAD08_TFogCtrl__data_80501188_size[sizeof(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_800FB8A0___vt__8TFogCtrl {
@@ -55,10 +31,6 @@ struct RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 {
 };
 
 struct O_800FB400 { u8 pad[0x174]; s32 arr[1]; };
-
-struct Fog_800FB424 { u8 pad[0x40]; s32 entry; f32 f44; s32 f48[3]; };
-
-struct Ctrl_800FB424 { u8 pad[0x174]; Fog_800FB424 *fogs[1]; };
 
 struct FogRow_800FB134 {
     u32 flags;
@@ -88,29 +60,6 @@ struct FogCtrl_800FB134 {
     f32 end;
     f32 start;
     f32 width;
-};
-
-struct TFogCtrl_800FB92C {
-    s32 f0;
-    u8 pad4[0x18 - 4];
-    void *vt;
-    s32 f1C;
-    s32 f20;
-    Fog_800FB424 fogs[4];
-    Fog_800FB424 *ptrs[4];
-    s32 f184;
-    u8 pad188[0x19C - 0x188];
-    s32 f19C;
-    s32 f1A0;
-    s32 f1A4;
-    s32 f1A8;
-    s32 f1AC;
-    s32 f1B0;
-    s32 f1B4;
-    f32 f1B8;
-    f32 f1BC;
-    s32 f1C0;
-    s32 index;
 };
 
 typedef char RecoveredGlobal_800FB8A0___vt__8TFogCtrl_size[sizeof(RecoveredGlobal_800FB8A0___vt__8TFogCtrl) == 0x18 ? 1 : -1];
@@ -144,58 +93,9 @@ struct Pos_800FBFD8 {
     u8 pad[0x18];
 };
 
-struct FogParam_800FBC5C {
-    s32 f0;
-    s32 f4;
-    f32 f8;
-    f32 fC;
-    f32 f10;
-    s32 f14;
-    f32 f18[8];
-    u8 f38[8];
-};
-
 struct E_800FC220 { f32 w; f32 x; };
 
 struct Quad_800FC310 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
-
-struct Row_800FB498 {
-    u32 flags;
-    u32 color;
-    f32 end;
-    f32 start;
-    f32 rate;
-    u32 f14;
-    f32 speed;
-    f32 f1C;
-    f32 endAmp;
-    f32 f24;
-    f32 startAmp;
-    f32 f2C;
-    f32 width;
-    f32 f34;
-    u8 phases[8];
-    s32 identity;
-    f32 randomPhase;
-};
-
-struct Ctrl_800FB498 {
-    u8 pad0[0x20];
-    s32 mode;
-    u8 pad24[0x150];
-    Row_800FB498 *slots[4];
-    s32 selected;
-    u8 pad188[0x14];
-    s32 reqFrom;
-    s32 reqTo;
-    s32 reqCommit;
-    s32 pad1A8;
-    s32 blendFrom;
-    s32 blendTo;
-    s32 blendCommit;
-    f32 amount;
-    f32 rate;
-};
 
 struct O_800FB400;
 
@@ -203,21 +103,6 @@ struct FogCtrl_800FB134;
 
 struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
-s32 is_split_screen();
-void read_disc_file(void *, void *);
-s32 TFogCtrl__sub_800FAC84(void* p);
-void copy_fog_entry(u8 *arg0, u8 *arg1);
-s32 apply_fog_entry(void *arg0);
-s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
-u8 * __dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
-TFogCtrl_800FB92C * TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index);
-void TFogCtrl__sub_800FBA54(void);
-void TFogCtrl__sub_800FBA58(void);
-void TFogCtrl__sub_800FBAAC(void);
-void create_area_fog_ctrl(void);
-void init_scene_fog_system(void);
 void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
 void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
 int get_name_text_width(void* p);
@@ -226,37 +111,11 @@ s32 get_small_font_glyph_width(u8 c);
 void TWindowSubStatusDisp__sub_800FC248(void);
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
-s32 mem_free(void*);
-FogParam_800FBC5C * mem_alloc(s32);
-s32 TObjFogCollisionPoison__sub_801533BC();
-void __dl__7TObjectFPv(s32);
-u32 __nw__7TObjectFUl(int);
-u8 * __dt__7TObjectFv(void *, s16);
-void __ct__7TObjectFP7TObject(void *, void *);
-void GXInitFogAdjTable(GXFogAdjTable_800FAE1C *, s32, void *);
-void GXSetFogRangeAdj(s32, s32, GXFogAdjTable_800FAE1C *);
-f32 sin_table_lookup(s32);
 s32 begin_screen_draw(int);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, void *);
-void fn_803E1FC8(u32);
-void set_scene_fog_distances(f32, f32);
-void set_scene_fog_type(s32);
-void reset_scene_fog(void);
 
-extern s32 TFogCtrl__fog_instance_table[];
-extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
-extern u8 lbl_8043DA20[];
-extern u8 lbl_8043DA30[];
-extern RecoveredGlobal_800FBB68_lbl_8049C670 area_fog_row_table;
-extern u8 fog_default_entry[];
-extern u8 scene_projection_state[];
-extern s32 lbl_805D2B18;
-extern u32 fog_entry_array;
-extern s32 fog_update_flags;
 extern E_800FC220 *small_font_metrics_table_ptr;
-extern s32 actor_frame_tick;
-extern s32 *tl_02;
 
 #pragma push
 #pragma inline_depth(1)

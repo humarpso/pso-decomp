@@ -5,12 +5,6 @@
 #include "pso/ui/TWindowInputNumber.h"
 
 extern "C" {
-}
-
-extern "C" {
-
-s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 TWindowHelpItem__sub_80255DDC(void* p);
 
 void TWindowHelpItem::set_flag60_bit4() { *(u8*)((char*)this + 0x60) |= 0x4; }
 

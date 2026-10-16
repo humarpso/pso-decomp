@@ -322,8 +322,6 @@ void TPlyPhotonChair::render(void* p, void* a1) { copy_vec4__13TRaderMapCoreFPvP
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v) { *(f32*)((char*)p + 0x14) = v; }
 void TPlyPhotonChair::set_state_ready() { *(s32*)((char*)this + 0x18) = 2; }
 
-extern const f64 lbl_80479800;
-
 void TPlyPhotonChair::sync_field10_from_child() {
     void *temp_r4;
 

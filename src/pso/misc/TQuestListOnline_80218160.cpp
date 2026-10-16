@@ -7,10 +7,6 @@ struct Obj_802181B0 { u8 pad[0x20]; u32 state; };
 
 extern "C" {
 
-}
-
-extern "C" {
-
     extern int TLobby__protocol_instance;
     extern int online_quest_bin_data;
     extern int online_quest_dat_buffer;

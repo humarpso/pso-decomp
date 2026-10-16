@@ -81,22 +81,6 @@ struct RecoveredGlobal_80202A40_lbl_8051381C {
     u8 remaining[0xE4];
 };
 
-struct Ent_80202B38 { s32 a; s32 b; s32 c[5]; };
-
-struct Obj_80202B38 { s32 hdr; Ent_80202B38 e[1]; };
-
-struct Ent_80202B1C { s32 a; s32 b; s32 c[5]; };
-
-struct Obj_80202B1C { s32 hdr; Ent_80202B1C e[1]; };
-
-struct Ent_80202B4C { s32 a; s32 b; s32 c[5]; };
-
-struct Obj_80202B4C { s32 hdr; Ent_80202B4C e[1]; };
-
-struct Obj_80202C08 { s32 a[4]; s32 b[4]; s32 n; };
-
-struct Obj_80202C3C { s32 a[4]; s32 b[4]; s32 n; };
-
 struct Hdr_801FBFD0 {
     u32 sum;
     u8 pad4[0x118 - 0x4];

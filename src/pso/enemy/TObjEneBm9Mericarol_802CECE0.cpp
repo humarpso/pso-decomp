@@ -377,12 +377,6 @@ struct VObj_18_3b55b6 : VBase_18_3b55b6 {
     virtual s32 m100(s32);
 };
 
-struct E_800AC9DC { u8 pad[8]; s32 x8; s32 xc; };
-
-struct G_800AC9DC { u8 pad[0x42c]; E_800AC9DC *tbl; };
-
-struct O_800AC9DC { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
-
 struct Sub_800ACA10 { u8 pad[0x18]; s32 level; };
 
 struct Obj_800ACA10 { u8 pad[0x2B0]; Sub_800ACA10 *sub; };

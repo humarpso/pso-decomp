@@ -109,8 +109,6 @@ int spawn_support_tec_range_effect(void*);
 
 int TTecSifta__sub_8023AC88(void* p) { return spawn_support_tec_range_effect(p); }
 
-extern const f64 lbl_8044DC18;
-
 void TTecSifta::play_sifta_cast_sound() {
     Obj_8023ACA8 *arg0 = (Obj_8023ACA8 *)this;
     s32 r;

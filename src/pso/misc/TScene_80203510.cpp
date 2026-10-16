@@ -19,8 +19,6 @@ struct Rec_8020430C { u8 pad0[4]; f32 pos[3]; u8 pad1[0x20]; u32 flags; };
 
 struct Root_8020430C { u8 pad[8]; s16 count; u8 pad2[2]; f32 radius; Rec_8020430C *recs; };
 
-struct Vec_8020430C { f32 x, y, z; };
-
 struct W_8020430C { s32 a, b, c; };
 
 struct Cam_8020430C { u8 pad[0x178]; W_8020430C pos; };

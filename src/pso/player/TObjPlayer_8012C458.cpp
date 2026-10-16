@@ -3,16 +3,13 @@
 
 extern "C" {
 
-s32 play_sound_effect(s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(int);
 s32 rotate_matrix_x(int, int);
-s32 spawn_particle_effect(u32, s32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 is_owner_alive__15TItemShootModelFv();
-s32 rocket_punch_return_timer(u32);
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"

@@ -282,35 +282,6 @@ struct V_801AF454 : B_801AF454 {
 
 struct O_801AF454 { u8 pad[0x380]; V_801AF454 *obj; };
 
-struct Player_801CD078 { u8 pad[0x32E]; s16 tp; u8 pad330[0x428 - 0x330]; u8 techs[4]; };
-
-struct Node_801CD424 { u8 pad[0x1C]; f32 pos[3]; u8 pad28[0x2C - 0x28]; };
-
-struct Obj_801CD424 { u8 pad[0xA4]; Node_801CD424 *nodes; };
-
-struct TechData_801CD424 { u16 target; s16 node; };
-
-struct Player_801CD424 {
-    u8 pad[0x60];
-    s32 f60;
-    u8 pad64[0xBA - 0x64];
-    s16 fba;
-    u8 padbc[0x326 - 0xBC];
-    s16 f326;
-    s16 f328;
-    u8 pad32a[0x33C - 0x32A];
-    s32 f33c;
-    u8 pad340[0x3F0 - 0x340];
-    s32 f3f0;
-    u8 pad3f4[0x428 - 0x3F4];
-    u8 techs[0x744 - 0x428];
-    u8 f744[4];
-};
-
-struct Sub_801CD188 { u8 pad[0x508]; u16 f508; };
-
-struct Player_801CD188 { u8 pad[0xB0]; u32 flags; u8 padb4[0x424 - 0xB4]; Sub_801CD188 *sub; };
-
 typedef struct Player_801CD72C {
     u8 pad0[0x424];
     void *cursor;
@@ -1568,8 +1539,6 @@ struct VObj_18_p72 : VBase_18 {
     virtual void m35();
     virtual void m36(s32);
 };
-
-struct Item_801B8E68 { u32 w[7]; };
 
 struct Base_B { char pad[0x18]; };
 
@@ -4752,7 +4721,6 @@ s32 build_player_class_stat_template(s32 arg0, s32 arg1) {
   set_params__10TObjPlayerFPvPvPviPv((void *) arg1, new_var, (void *) get_class_stat_entry__10TObjPlayerFPUc(new_var), (int) temp_r31, new_var2);
   return 1;
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -4763,7 +4731,6 @@ s32 build_player_equipment_requirement_stats(TObjPlayer *self, PlayerRequirement
                                        get_class_attack_template(self), get_class_defense_template());
     return 1;
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -4787,7 +4754,6 @@ void prepare_guild_return__10TObjPlayerFPv(void *player) {
     ((void (*)(void *, void *))send_6x21_inter_level_warp)(player, ((void * (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(((u8 *)&lbl_80515BA0)));
     TNpcPlayer::apply_to_players((s32)(((void * (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(((u8 *)&lbl_80515BA0))), (void *)(get_party_position()), (s32)(get_party_yaw()));
 }
-extern int fold_flush_2;
 #pragma pop
 
 int player_flag_1__6TLobbyFPv(void* p) { return set_battle_flag__10TObjPlayerFl(p, 1); }
@@ -5606,7 +5572,6 @@ s32 is_outside_movement_hold__10TObjPlayerFPvPv(u8 *self, f32 *pos) {
     dz = z - pos[2];
     return (u32)__cntlzw(TObjPlayer__sub_801BF6B0(self + 0x730, z, y, x) > (dx * dx + dz * dz)) >> 5;
 }
-extern int fold_flush_3;
 #pragma pop
 
 void handle_6x2D_release_hold(void *arg0) {
@@ -5826,7 +5791,6 @@ s32 is_action_channel_available__10TObjPlayerFii(s32 arg0, s32 arg1) {
 block_5:
     return is_action_channel_active(refresh_effect__10TObjPlayerFi(arg0), arg1);
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -5834,7 +5798,6 @@ extern int fold_flush_4;
 void is_effect_channel_active__10TObjPlayerFii(s32 arg0, s32 arg1) {
     is_action_channel_active(refresh_effect__10TObjPlayerFi(arg0), arg1);
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -5842,7 +5805,6 @@ extern int fold_flush_5;
 void refresh_party_cursors__10TObjPlayerFi(s32 arg0) {
     update_party_cursors__10TObjPlayerFii(refresh_effect__10TObjPlayerFi(arg0), arg0);
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -5850,7 +5812,6 @@ extern int fold_flush_6;
 void set_action_palette_entry__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     TWindowActionPalette::set_palette_entry((s32)((TObjPlayer*)arg0)->select_action_palette(arg1), arg2, arg3, arg4, arg5);
 }
-extern int fold_flush_7;
 #pragma pop
 
 #pragma push
@@ -5858,7 +5819,6 @@ extern int fold_flush_7;
 void TObjPlayer__sub_801B5A44(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TWindowActionPalette::set_slot_by_index((s32)((TObjPlayer*)arg0)->select_action_palette(arg1), arg2, arg3, arg4);
 }
-extern int fold_flush_8;
 #pragma pop
 
 #pragma push
@@ -5866,7 +5826,6 @@ extern int fold_flush_8;
 void select_action_palette_and_apply__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     TWindowActionPalette__sub_801C1D7C((s32)((TObjPlayer*)arg0)->select_action_palette(arg1), arg2, arg3);
 }
-extern int fold_flush_9;
 #pragma pop
 
 #pragma push
@@ -5874,7 +5833,6 @@ extern int fold_flush_9;
 s32 get_action_palette_entry__10TObjPlayerFii(s32 arg0, s32 arg1) {
     return get_entry_by_index__20TWindowActionPaletteFPll(refresh_effect__10TObjPlayerFi(arg0), arg1);
 }
-extern int fold_flush_10;
 #pragma pop
 
 #pragma push
@@ -5882,7 +5840,6 @@ extern int fold_flush_10;
 void TObjPlayer__sub_801B5AF8(s32 arg0, s32 arg1) {
     TWindowActionPalette::get_slot_type_for_index((s32 *)(refresh_effect__10TObjPlayerFi(arg0)), (s32)arg1);
 }
-extern int fold_flush_11;
 #pragma pop
 
 }
@@ -6402,7 +6359,6 @@ void calc_wall_slide_point__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *ar
     *(f32 *)((s8 *)arg2 + 4) = (f32) ((temp_f2 * *(f32 *)((s8 *)arg1 + 4)) + *(f32 *)((s8 *)arg0 + 4));
     *(f32 *)((s8 *)arg2 + 8) = (f32) ((temp_f2 * *(f32 *)((s8 *)arg1 + 8)) + *(f32 *)((s8 *)arg0 + 8));
 }
-extern int fold_flush_12;
 #pragma pop
 
 u8 *TObjPlayer__vt16(u8 *arg0, u8 *arg1) {
@@ -6750,7 +6706,6 @@ s32 try_add_sale_meseta__10TObjPlayerFv(Player_801B855C *arg0, s32 arg1, s32 arg
     ((void (*)(void *, s32, s32))send_6x29_delete_item__10TObjPlayerFPvii)(arg0, arg1, arg3);
     return 1;
 }
-extern int fold_flush_13;
 #pragma pop
 
 s32 try_buy_item(s32 arg0, void *arg1) {
@@ -7145,7 +7100,6 @@ bool TObjPlayer::is_target_in_facing_cone(void *target_arg) {
     dot = ((f32 (*)(Vec_801B92EC *, Vec_801B92EC *))vec3_dot)(&fwd, &to);
     return !(dot < cos_table_lookup(0x1555));
 }
-extern int fold_flush_14;
 #pragma pop
 
 s32 update_target_lock__10TObjPlayerFPv(void *arg0) {

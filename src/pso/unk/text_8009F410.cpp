@@ -2,12 +2,6 @@
 
 #include <stddef.h>
 
-struct Stack_803626A8 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
-};
-
 struct RecoveredGlobal_803626A8_lbl_80479FBC {
     s32 value;
     u8 remaining[0x8];
@@ -21,10 +15,6 @@ struct RecoveredGlobal_803626A8_lbl_8058D490 {
 struct RecoveredGlobal_80362B48___vt__14TObjEneEpsilon {
     s32 value;
     u8 remaining[0x1A0];
-};
-
-struct Obj_80362DE8 {
-    u8 pad0[0x40]; u32 flags; u8 pad44[8]; f32 f4C; u8 pad50[8]; s32 i58; u8 pad5C[4]; u8 v60[0x10]; void *fn70; void *fn74;
 };
 
 struct VBase_18_c22f9c
@@ -109,22 +99,6 @@ struct S_80362C80
 {
   s32 v;
 };
-
-struct Leaf_803627DC { u8 pad[4]; s32 v; };
-
-struct Node_803627DC {
-    u8 pad0[4];
-    Leaf_803627DC *leaf;
-    u8 pad8[0x2C - 8];
-    Node_803627DC *child;
-    Node_803627DC *next;
-};
-
-struct Model_803627DC { u8 pad[8]; s32 f8; s32 fC; };
-
-struct Res_803627DC { u8 pad[0x42C]; Model_803627DC *f42c; s32 f430; };
-
-struct Quad_803627DC { s32 a, b, c, d; };
 
 class V_8036274C {
 public:

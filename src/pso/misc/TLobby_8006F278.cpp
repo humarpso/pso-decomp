@@ -75,11 +75,6 @@ struct Entry_8006F38C {
     u8 pad[0x14];
 };
 
-struct Win_8006F38C {
-    u8 pad[0x21C4];
-    u8 sub[4];
-};
-
 struct Table_8006F38C {
     u8 pad[0x21C];
     Entry_8006F38C entries[3];

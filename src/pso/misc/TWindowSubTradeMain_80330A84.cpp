@@ -47,23 +47,6 @@ public:
 struct Self_80331178 { u8 pad[0x28]; s32 f28; s32 f2c; };
 
 extern "C" {
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
 u8 * open_option_dialog_thunk__19TWindowSubTradeMainFPvPv(void* p, void* _w1);
 void initialize_option_dialog(void *, s32, s32, f32);
 u8 * create__19TWindowMessageYesNoFPvPvPvPv(void *, void *, void *, void *);

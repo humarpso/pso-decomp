@@ -31,9 +31,6 @@ s32 get_next_point__14TBoss6PlotFalzFPvPvPv(void *arg0, s16 *arg1, s16 *arg2) {
 #include "pso/boss/TBoss6PlotFalz.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 get_main_phase();
 s32 is_split_screen();

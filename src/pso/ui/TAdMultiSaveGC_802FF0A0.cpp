@@ -16,7 +16,6 @@ extern u32 admultisave_shared_model_resource;
 extern "C" {
 
 void TLobby__sub_8001FE7C(void*, int);
-int queue_destruction__7TObjectFv(void);
 
 extern u32 admultisave_shared_model_resource;
 

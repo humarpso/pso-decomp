@@ -394,13 +394,10 @@ void free_obj_heap__10TObjPlayerFPv(void* a0);
 int get_item_system_generation(void);
 void advance_item_system_generation(void);
 int dispatch_item_by_type__6TLobbyFv(void*);
-void bswap_32__FPUl(u32* p);
 void mem_free(void*);
 void free_rock_objects__6TLobbyFis(void*, int);
-int get_slot_value__10TObjPlayerFPvi(void*);
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
-s32 is_matching_id__6TLobbyFiUs(void *, u16);
 
     extern int obj_heap;
 void free_obj_heap__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }

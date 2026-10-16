@@ -85,7 +85,6 @@ s32 advance_rng__6TLobbyFPv(void *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x2AC);
 }
 
-struct Slot_8023F754 { u8 pad[0x88]; s32 f88; u8 pad2[0x14]; };
 void TLobby__sub_8023F754(s32 arg0, s32 arg1);
 void TLobby__sub_8023F754(s32 arg0, s32 arg1) {
     if (arg0 < 0 || arg0 >= 0x20) {

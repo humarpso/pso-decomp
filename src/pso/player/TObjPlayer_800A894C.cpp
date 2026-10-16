@@ -393,7 +393,6 @@ void TObjPlayer__sub_800A9E9C(void *arg0_);
 
 extern "C" {
 
-s32 vfunc_40__14TObjEneDubchikFv(s32 arg0);
 s32 update_shock_clock__10TObjPlayerFPv();
 s32 update_movement_status__10TObjPlayerFv();
 

@@ -118,8 +118,6 @@ extern "C" {
 
 void __dl__5THeapFPv(void);
 void __nw__5THeapFUl(void);
-int GXSetTevSwapMode(int, int, int);
-int GXSetTevSwapModeTable(int, int, int, int, int);
 s32 xfree__FPv();
 s32 xmalloc__FUl();
 

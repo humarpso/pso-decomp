@@ -11,8 +11,6 @@ int TObjEnePanarms__sub_800DFB74(u8 *arg0);
 extern "C" {
 
 int TObjEnePanarms__sub_800DFBC4(void* p);
-int apply_animation_transition(void*, void*);
-int fn_800660B8(void*);
 
 int TObjEnePanarms__sub_800DFB74(u8 *arg0) {
     u8 var_r4;

@@ -62,8 +62,6 @@ struct Obj_802A9F48 {
     f32 f2c;
 };
 
-struct VTBlob_802AA21C_802AA12C { void *slots[8]; };
-
 struct Stack_802A9A2C {
     f32 sp8;
     f32 spC;
@@ -125,7 +123,6 @@ void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1) {
     stack.sp10 = *(f32 *)((s8 *)arg0 + 0x68) * cos_table_lookup(arg1);
     ((s32 (*)(s32, s32, f32))create__12TBGLightningFiif)((s32) arg0, (s32) &stack.sp8, *(f32 *)((s8 *)arg0 + 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TBGLightningCtrl::render() {  }
@@ -146,7 +143,6 @@ void run_task__16TBGLightningCtrlFv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x90) = (s32) (((f32) *(s32 *)((s8 *)arg0 + 0x88) * ((3.0517578e-05f) * (f32) ((int (*)(void))rand)())) + (f32) *(s32 *)((s8 *)arg0 + 0x84));
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
@@ -243,7 +239,6 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     TParticleCtrl::reset_particles();
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -277,7 +272,6 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     submit_particle_quad((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     TParticleCtrl::reset_particles();
 }
-extern int fold_flush_3;
 #pragma pop
 
 void render__12TBGLightningFv(s32 arg0) {

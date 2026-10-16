@@ -65,15 +65,9 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent);
 extern "C" {
 
 int fn_802C4748(void* p);
-s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 free_sub_ctrls__19TAdSelectGameModeGCFv();
-int TObjPlayer__sub_8011E204(void*, void*);
-int init_action_config__10TObjPlayerFPv(void*);
-int init_character_action_config(void* p);
-int TObjPlayer__sub_802C46E0(void* p);
 int enable_camera__19TAdSelectGameModeGCFv(void);
-s32 getDateStamp__FP9DateStamp(s32 *);
 s32 get_main_phase();
 int sync_char_select_state__10TObjPlayerFv(void*);
 

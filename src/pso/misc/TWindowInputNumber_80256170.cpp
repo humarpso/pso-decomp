@@ -56,8 +56,6 @@ extern const s32 number_input_decimal_place_values[];
 
 extern "C" {
 
-struct WindowNum_80256170 { char pad[0x70]; };
-
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1);
 void render__18TWindowInputNumberFv(u8 *arg0);
 s32 draw_arrows__18TWindowInputNumberFv(void *, int, int, int);

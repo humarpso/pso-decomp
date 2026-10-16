@@ -1531,8 +1531,6 @@ extern "C" {
 extern "C" {
 }
 extern "C" {
-}
-extern "C" {
 void vfunc_74__9TObjEnemyFl();
 }
 extern "C" {
@@ -1552,8 +1550,6 @@ void apply_attack_stat_status__13TUnk_804806E8FPv();
 }
 extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
-}
-extern "C" {
 }
 extern "C" {
 void apply_knockback_from_attacker();
@@ -1636,8 +1632,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -1708,12 +1702,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();

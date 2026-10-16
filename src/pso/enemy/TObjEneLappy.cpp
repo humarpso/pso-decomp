@@ -1348,7 +1348,6 @@ struct Set_800C1C4C {
     s16 f3e;
 };
 struct Lappy_800C1C4C { u8 pad[0x354]; f32 params[5]; };
-struct Tbl_800C1C4C { s32 a[2]; s32 b[2]; s32 c[2]; };
 
 typedef struct Vec_800C20D0 {
     f32 x, y, z;

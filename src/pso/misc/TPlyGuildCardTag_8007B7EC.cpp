@@ -11,8 +11,6 @@ extern "C" {
 void TWindowSubShortMail__sub_8007B824(void);
 s32 TWindowSubShortMail__sub_8007B834(void* p);
 void* fn_8007B83C(void* p);
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
 
 }
 

@@ -11,7 +11,6 @@ struct SS_80270668 { s32 f0; u8 pad4[0x14]; void *vt; s16 f1c; s16 f1e; s16 f20;
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
-extern s32 __vt__14TWindowMessage[];
 void render__19TWindowSimpleStatusFv(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);

@@ -2,9 +2,6 @@
 #include "pso/enemy/TObjEneMe1GiGue.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void TObjEneMe1GiGue::update_if_active(s32 _w1) {
     if (!(*(s32 *)&this->m_388 & 1)) {

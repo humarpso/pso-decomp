@@ -121,10 +121,6 @@ struct VObj_18_5c0ed3 : VBase_18_5c0ed3 {
     virtual s32 m63(s16, f32 *);
 };
 
-struct ByteBlock_48 { u8 bytes[0x48]; };
-
-struct ByteBlock_4C { u8 bytes[0x4c]; };
-
 struct Vec_800D2900 { f32 x, y, z; };
 
 struct Params_800D2900 {
@@ -297,15 +293,9 @@ struct VObj_18_f1aa6a : VBase_18_f1aa6a {
     virtual s32 m63(s32, void *);
 };
 
-struct ByteBlock_18 { u8 bytes[0x18]; };
-
 struct Vec_800D23D4 { f32 x, y, z; };
 
 struct Desc_800D23D4 { Vec_800D23D4 *pos; s32 a; s32 angle; f32 b; f32 c; f32 d; };
-
-struct Ids_800D23D4 { u16 v[4]; };
-
-struct Idx_800D23D4 { s32 v[4]; };
 
 extern "C" {
 f32 get_gyaranzo_missile_float_parameter(s32);
@@ -519,10 +509,6 @@ void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0) {
 #undef V
 #undef NEW
 
-extern "C" {
-
-}
-
 #include "types.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -632,15 +618,8 @@ struct VObj_800D3314 : VBase_800D3314 {
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/object/TObjFish.h"
-struct Stack_800D2CE4 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
-};
 
 struct Vec_800D2CE4 { f32 x, y, z; };
-
-struct Stack2_800D2CE4 { Vec_800D2CE4 v; };
 
 struct Vec_800D30A8 { f32 x, y, z; };
 
@@ -1020,8 +999,6 @@ extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -1103,8 +1080,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -1178,12 +1153,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -1665,7 +1634,6 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TObjEneGyaranzo::sub_800D37F4() {

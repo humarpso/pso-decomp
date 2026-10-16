@@ -5,15 +5,6 @@
 #include "pso/misc/TQuestVmDownLoadServer.h"
 
 extern "C" {
-}
-
-extern "C" {
-
-s32 TKeyBoardControl__sub_8000F8EC();
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int TWindowSubComCard__sub_8033C178(void* p);
-void TWindowSubComCard__sub_8033C198(void);
-int TWindowSubComCard__sub_8033C19C(void* p);
 
 void TWindowSubComCard::update_display_state() {
     s32 temp_r4;

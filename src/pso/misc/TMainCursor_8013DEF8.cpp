@@ -9,8 +9,6 @@ void TObjPlayer__sub_8013DEF8(u8 *arg0);
 
 extern "C" {
 
-u16 TMainCursor__sub_8013E03C(void* p);
-int __dl__FPv();
 int find_action_slot_for_target__11TMainCursorFllll(void*);
 
 void TObjPlayer__sub_8013DEF8(u8 *arg0) {

@@ -17,23 +17,9 @@
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
-struct Stack_800ABA9C {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-};
 
 struct RecoveredGlobal_800ABA9C_lbl_8058D490 { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_800ABA9C_lbl_8058D490_size[sizeof(RecoveredGlobal_800ABA9C_lbl_8058D490) == 0x30 ? 1 : -1];
-
-struct VBase_14_800ABCBC { char pad[0x14]; };
-
-struct VObj_14_800ABCBC : VBase_14_800ABCBC {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual s32 m5();
-};
-
-struct Obj_800ABCBC { u8 pad0[0x38]; u8 sub38[0x326 - 0x38]; s16 f326; s16 state; u8 pad32a[0x390 - 0x32A]; s32 f390; };
 
 struct RecoveredGlobal_800ABA9C_lbl_8058D490;
 typedef struct Vec_800AB31C {
@@ -217,12 +203,10 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0);
 f32 fabs_float(f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
-s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
 s32 play_sound_effect(void *, void *, int, int);
 s32 play_sound_effect(void *, void *, int, int);
 s32 play_sound_effect(void *, void *, int, int);
 s32 play_sound_effect(void *, void *, int, int);
-s32 TObjPlayer__sub_800D92BC(void *, int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
@@ -230,10 +214,6 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9BA0;
-extern const f32 lbl_805D9BA4;
-extern const f32 lbl_805D9BA8;
-s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 advance_animation_playback();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -247,14 +227,10 @@ extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *tl_06;
 extern const f32 lbl_805D9B64;
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 set_matrix_identity(int);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-extern s32 TObjEneShark__attack_motion_3_trail;
-extern s32 shark_attack4_trail_buffer;
-extern const f32 lbl_805D9BAC;
 void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 f32 xz_distance_squared(void *, void *);
@@ -287,31 +263,15 @@ extern void *lbl_805D5090;
 extern void *tl_06;
 
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
-s32 is_split_screen();
-s32 update_obstruction_fade(void *);
-s32 restore_scene_lighting();
-s32 select_actor_lighting(void *);
 s32 rotate_matrix_y(s32, s32);
-s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 void update_particle_by_phase__10TObjPlayerFv(void);
 extern s32 shark_render_node_index;
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
-extern s32 chunk_polygon_flags_or_mask;
-extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9BA0;
-extern const f32 lbl_805D9BB0;
-extern const f32 lbl_805D9BB4;
-extern const f32 lbl_805D9BB8;
-extern const f32 lbl_805D9BBC;
-extern const f32 lbl_805D9BC0;
-extern const f32 lbl_805D9BC4;
 }
 
 extern "C" {

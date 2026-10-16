@@ -14,10 +14,6 @@ typedef TAdWarningBaseGC TAdWarningBaseGC_8032CEB4;
 typedef void (TAdWarningBaseGC_8032CEB4::*Act_8032CEB4)();
 
 extern "C" {
-
-}
-
-extern "C" {
 u8 * get_quest_download_file_header(void);
 void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0);
 void DCInvalidateRange(void *, u32);

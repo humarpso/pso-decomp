@@ -11,7 +11,6 @@ void init_6x04_packet(u8 *arg0);
 extern "C" {
 
 int TLobby__send_and_handle_60(void*);
-int bswap_16__FPUs(void*);
 void bswap_6x05_switch_flag__5TOKeyFv(void* p);
 
 void TLobby::finalize_and_send_60() { bswap_6x05_switch_flag__5TOKeyFv(this); TLobby__send_and_handle_60(this); }

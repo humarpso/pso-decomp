@@ -105,7 +105,6 @@ extern "C" {
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1);
 void* fn_800B8B00(void* p);
 void TLobby__sub_8001FE7C(void*, int);
-s32 get_group_id__14TObjEneBm5WolfFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
 void mem_free(void *);

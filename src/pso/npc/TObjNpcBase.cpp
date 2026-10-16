@@ -51,8 +51,6 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
 
 extern s32 __vt__11TObjNpcBase[];
 

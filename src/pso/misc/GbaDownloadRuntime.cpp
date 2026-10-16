@@ -150,7 +150,6 @@ struct DateStamp_8032C9A8 { s32 days; s32 mins; s32 ticks; };
 struct Rec_8032C9A8 { u32 a; u32 b; u32 c; };
 
 extern "C" {
-s32 SIProbe(s32);
 s32 TLobby__sub_801F34F8(void);
 extern const f32 TLobby__data_805DF7A4;
 void DateToSeconds__FP9DateStampPi(DateStamp_8032C9A8 *, u32 *);

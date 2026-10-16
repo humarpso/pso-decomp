@@ -437,7 +437,6 @@ void TObjEnePanarms::spawn_npc_pair() {
   temp_r5_2 = (u8 *) (*((u8 **) (((s8 *) TObjEnePanarms__entry_params_resource) + 0x42C)));
   TLobby::spawn_npc_enemy((s16)((int) 0x25), (s32)((int) (*((s32 *) (((s8 *) temp_r5_2) + 0x28)))), (s32)((int) (*((s32 *) (((s8 *) temp_r5_2) + 0x2C)))), (s32)((void *) (&stack.sp8)), (f32)((f32) lbl_805DA520), (f32)((f32) TObjEnePanarms__data_805DA524));
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TObjEnePanarms::update_action_timer() {
@@ -620,7 +619,6 @@ void TObjEnePanarms__sub_800E0214(u8 *arg0) {
     }
     ((TObjEnePanarms *)arg0)->spawn_periodic_particle();
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TObjEnePanarms__sub_800E0344(u8 *arg0) {
@@ -851,7 +849,6 @@ void TObjEnePanarms__sub_800E0A44(u8 *arg0) {
     play_sound_effect(TObjEnePanarms__sound_ids[*(s32 *)((s8 *)arg0 + 0x380)], arg0 + 0x38, 0, 0);
     *(s32 *)((s8 *)arg0 + 0x3B4) = 0xA4;
 }
-extern int fold_flush_2;
 #pragma pop
 
 void TObjEnePanarms::apply_effect_if_flagged() {
@@ -1145,7 +1142,6 @@ void TObjEnePanarms::snap_to_parent_position() {
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA580);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -1168,7 +1164,6 @@ void TObjEnePanarms::spawn_periodic_particle() {
         ((s32 (*)(void *, int))spawn_particle_effect)((void *) (&position.x), (int) (0xF3));
     }
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -1213,7 +1208,6 @@ void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1) {
         }
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -1262,7 +1256,6 @@ s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1) {
     }
     return 0;
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -1286,7 +1279,6 @@ void TObjEnePanarms::update_offset_from_parent() {
     this->m_398 = *(s32 *)((s8 *)(*(u8 * *)&this->m_39c) + 0x60);
     this->m_398 += lbl_8043CD78[this->m_380];
 }
-extern int fold_flush_7;
 #pragma pop
 
 #pragma push
@@ -1296,7 +1288,6 @@ extern int fold_flush_7;
 void calc_default_part_position__14TObjEnePanarmsFPv(u8 *arg0) {
     calc_part_position__14TObjEnePanBARAFPUcPl(arg0, arg0 + 0x38, (s32 *)(arg0 + 0x60));
 }
-extern int fold_flush_8;
 #pragma pop
 
 #pragma push
@@ -1322,7 +1313,6 @@ void TObjEnePanBARA::calc_part_position(u8 *arg1, s32 *arg2) {
         *arg2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x39C)) + 0x60) - lbl_8043CD58[*(s32 *)((s8 *)arg0 + 0x380)];
     }
 }
-extern int fold_flush_9;
 #pragma pop
 
 #pragma push
@@ -1333,7 +1323,6 @@ void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x39C) = arg1;
     *(s32 *)((s8 *)arg0 + 0x3A0) = arg2;
 }
-extern int fold_flush_10;
 #pragma pop
 
 #pragma push
@@ -1344,7 +1333,6 @@ void TObjEnePanarms__sub_800E1D38(void *arg0) {
     struct VObj_800E1D38_800E158C *o = (struct VObj_800E1D38_800E158C *)arg0;
     o->m61();
 }
-extern int fold_flush_11;
 #pragma pop
 
 #pragma push
@@ -1356,7 +1344,6 @@ void TObjEnePanarms::reset_split() {
         ((int (*)(void*, int))TObjEnePanarms__sub_800E1C98)((void*)(this), 0);
     }
 }
-extern int fold_flush_12;
 #pragma pop
 
 #pragma push
@@ -1382,7 +1369,6 @@ void TObjEnePanarms::init_state() {
     update_offset_from_parent();
     ((int (*)(void*, int))TObjEnePanarms__sub_800E1C98)((void*)(arg0), 3);
 }
-extern int fold_flush_13;
 #pragma pop
 
 void TObjEnePanarms__sub_800E1E14(u8 *arg0) {
@@ -1431,7 +1417,6 @@ void TObjEnePanBARA::vfunc_63() {
         break;
     }
 }
-extern int fold_flush_14;
 #pragma pop
 
 void TObjEnePanarms::update_linked_effect() {

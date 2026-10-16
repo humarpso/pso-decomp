@@ -53,15 +53,10 @@ extern "C" {
 
 u16 TObjPlayer__sub_80100474(void* p);
 s32 PPCSync();
-s32 play_sound_effect(s32, s32, s32, s32);
 s32 is_wrapped__9TItemDataFPv(s32);
-void TItem__sub_801005D8(void);
-void TItem__sub_801005E0(void);
-int TItem__sub_801005E4(void);
 s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 post_translate_matrix(void *);
-s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 draw_ginja_object(u32);
 s8 TObjPlayer__sub_80102C30();
 s32 rotate_matrix_y(s32, s32);
@@ -71,7 +66,6 @@ s32 func_80141618__Fv();
 s16 get_packed_value__9TItemDataFPv(s32);
 s32 is_usable__9TItemDataFPv(s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
-s32 test_flag_2000000__10TObjPlayerFPv(u32);
 
 void TItem::apply_item_flags(s32 arg1) {
     if (is_usable__9TItemDataFPv(arg1) != 0) {

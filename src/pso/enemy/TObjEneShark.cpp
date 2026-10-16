@@ -88,45 +88,12 @@ typedef struct Pair_800AB0EC {
     f32 b;
 } Pair_800AB0EC;
 
-struct VBase_800AB0EC { char pad[0x18]; };
-
-struct VObj_800AB0EC : VBase_800AB0EC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual s32 m21(s32, Pair_800AB0EC *, s32, s32, s32);
-};
-
 typedef struct Obj_800AB0EC {
     u8 pad0[0x1C];
     u8 pos[0x64 - 0x1C];
     s32 f64;
     s32 f68;
 } Obj_800AB0EC;
-
-struct Vec_800AB4F4 { f32 x, y, z; };
-
-struct Vec_800AB7A0 { f32 x, y, z; };
-
-struct Arr_800AB7A0 { u8 pad[0x3D4]; Vec_800AB7A0 arr[4]; };
 
 struct VBase_14_800ABDD8
 {
@@ -189,17 +156,12 @@ struct Vec_800ABDD8
 };
 
 extern "C" {
-void obj_setFlags30(void *, u32);
-void obj_clearFlags30(void *, u32);
 s32 post_translate_matrix(void *);
-s32 scale_matrix(s32, f32, f32, f32);
 s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-extern s32 lbl_805D5094;
 extern s32 model_render_flags;
-extern const f32 lbl_805D9B68;
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
@@ -208,15 +170,10 @@ extern s32 shark_render_node_index;
 void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 csnVector(void *, void *, int);
-s32 get_player_by_client_id(int);
 s32 vec3_add_to(void *, void *);
-extern const f32 lbl_805D9B5C;
-extern const f32 lbl_805D9B60;
 void TObjPlayer__sub_800AB1C8(u8 *arg0);
 f32 fabs_float(f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-extern const f32 lbl_805D9B10;
 s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
@@ -245,17 +202,13 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback();
 void vfunc_83__12TObjEneSharkFv(Obj_800ABCBC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-void __ct__7TObjectFP7TObject(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern Vec_800AB31C lbl_8043ACE0[];
 extern s32 lbl_80491460[];
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *tl_06;
-extern const f32 lbl_805D9B64;
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
@@ -268,44 +221,24 @@ extern u32 shark_attack4_trail_buffer;
 extern const f32 lbl_805D9BAC;
 void vfunc_93__12TObjEneSharkFv(Obj_800ABB38 *o);
 void queue_destruction__7TObjectFv(void *);
-s32 spawn_particle_effect(void *, int);
 f32 xz_distance_squared(void *, void *);
-extern Pair_800AB0EC lbl_8043ACEC[];
-extern const f32 lbl_805D9B58;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
-f32 newton_sqrtf();
 f32 xz_distance_squared(void *, void *);
-s32 project_actor_to_ground(void *, Vec_800AB4F4 *, int);
-s32 subtract_vector(void *, void *);
-extern const f32 lbl_805D9B6C;
-extern const f32 lbl_805D9B70;
-extern const f32 lbl_805D9B74;
-extern const f32 lbl_805D9B78;
 extern const f32 lbl_805D9B7C;
-extern const f32 lbl_805D9B80;
-extern const f32 lbl_805D9B84;
-extern const f32 lbl_805D9B88;
 void TObjPlayer__sub_800AB4F4(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s16 obj_getField1c(void *);
-u8 *csnLookAt(void *, Vec_800AB7A0 *);
-u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
 void *__nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern s32 player_sub_800ab7a0_id_table[];
 extern s32 lbl_80491478[];
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *lbl_805D5090;
 extern void *tl_06;
 extern const f32 lbl_805D9B7C;
-extern const f32 lbl_805D9B8C;
-extern const f32 lbl_805D9B90;
-extern const f32 lbl_805D9B94;
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -340,11 +273,9 @@ extern "C" {
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v);
 void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern void *lbl_805D5090;
-extern s32 lbl_805D5098;
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v);
 

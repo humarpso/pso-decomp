@@ -57,14 +57,9 @@ void TItem__sub_801005D8(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
 void TItem__sub_80100648(void);
-s32 PPCSync();
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 find_item_by_id();
-s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
-u16 TObjPlayer__sub_80100474(void* p);
-s8 TObjPlayer__sub_80102C30();
 s32 get_id__13TItemProArmorFv(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 

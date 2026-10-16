@@ -57,7 +57,6 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *fn_80157CA8(void *arg0);
 void TOAttackableCol__sub_80157310(void * = 0);
-extern s32 __vt__11TOVS2Wall01[];
 u8 is_current_floor_switch_set(int);
 void *__nw__7TObjectFUl(int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
@@ -89,7 +88,6 @@ void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
-int TLobby__sub_80156BA8(void*);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);

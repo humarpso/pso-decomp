@@ -14,7 +14,6 @@ void TOSwitchAttack::create_sub(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg
     }
 }
 
-extern const f64 lbl_80442C78;
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805DBA00;
 

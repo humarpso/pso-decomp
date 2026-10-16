@@ -33,7 +33,6 @@ Ctl_80323134 *get_player_by_client_id(int);
 extern "C" {
 
 void fn_80323134(Obj_80323134 *arg0);
-int TAdEndText__sub_803997FC(void*);
 
 void fn_80323134(Obj_80323134 *arg0) {
     s32 i;

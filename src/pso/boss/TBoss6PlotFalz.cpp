@@ -1090,23 +1090,11 @@ int TBoss6PlotFalz::get_phase() {  return plot_falz_phase; }
 
 struct Obj_8004AA04 { s32 count; u8 pad[0xC]; void **items; };
 
-struct Stack_8004B084 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
-};
-
 union MemberActionStorage_8004B084 { s32 words[3]; void (TBoss4DarkFalz::*action)(); };
 
 struct RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 {
     s32 value;
     u8 remaining[0x33C];
-};
-
-struct Stack_8004B0F8 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
 };
 
 union MemberActionStorage_8004B0F8 { s32 words[3]; void (TBoss4DarkFalz::*action)(); };
@@ -1115,14 +1103,6 @@ struct RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108 {
     s32 value;
     u8 remaining[0x33C];
 };
-
-struct Obj_8004B16C { u8 pad[0x1C]; u16 id; };
-
-struct Msg_8004B16C { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 padc[4]; };
-
-struct Obj_8004B1BC { u8 pad[0x1C]; u16 id; };
-
-struct Msg_8004B1BC { u8 code; u8 size; u16 id; s16 a; u8 pad6[2]; s32 b; u8 padc[4]; };
 
 struct Obj_802AC1D8 { s32 count; s32 pad4; s32 x; s32 y; u32 *list; };
 

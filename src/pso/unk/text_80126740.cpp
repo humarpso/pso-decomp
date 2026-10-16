@@ -4,12 +4,7 @@
 extern "C" {
 extern const f32 lbl_805DAD80;
 void fist_reset_attack_rate(u8 *arg0);
-extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
-extern s32 __vt__14TObjEneEpsilon[];
-extern s32 TObjPlayer__sub_800D7C58[];
-extern s32 init_and_activate__10TObjPlayerFv[];
-extern void *TObjEneEpsilon__class_name;
 extern s32 lbl_804F26E0[];
 void s_rank_knuckle_equip(u8 *arg0);
 extern s32 lbl_804F26E0[];

@@ -110,12 +110,10 @@ struct VObj0_8016ab58_8016A8D0 : Base0_8016ab58_8016A8D0 { virtual void m0(); vi
 
 void *TOKey__ct(void *arg0);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
-int TLobby__send_and_handle_60(void*);
 u8 is_current_floor_switch_set(u16);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
-int init_6x04_packet(void* a0 = 0);
 void init_map_object_base(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
 

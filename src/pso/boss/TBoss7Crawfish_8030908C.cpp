@@ -136,7 +136,6 @@ s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__9TObjEnemyFv(void *, s32);
-int fn_80269078(void*);
 s32 obj_testFlags30(void *, int);
 
 extern const f32 lbl_805DF0FC;

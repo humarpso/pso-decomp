@@ -59,8 +59,6 @@ struct Ctrl_80364B6C : Base_80364B6C {
 
 struct P_80364B6C { s32 a; f32 b; };
 
-struct Q_80364B6C { s32 a; s32 b; };
-
 struct Obj_80364B6C { u8 pad0[0x1C]; f32 f1C; u16 h20; };
 
 struct Obj_803648B8 {

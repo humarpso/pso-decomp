@@ -21,7 +21,6 @@ struct Ctl_8024E2A8 {
 extern "C" {
 
 void *__dt__17TWindowCtrlPlayerFv(void *arg0, s16 arg1);
-int TWindowCtrl__sub_8024DAAC(void*);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

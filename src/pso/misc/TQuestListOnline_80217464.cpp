@@ -169,9 +169,6 @@ void TQuestListOnline::invoke_callback_2c_and_queue_destruction() {
     }
     queue_destruction__7TObjectFv(this);
 }
-extern "C" {
-
-}
 void TQuestListOnline::invoke_callback_34_and_queue_destruction() {
     s32 (*temp_r12)();
 
@@ -180,9 +177,6 @@ void TQuestListOnline::invoke_callback_34_and_queue_destruction() {
         temp_r12();
     }
     queue_destruction__7TObjectFv(this);
-}
-extern "C" {
-
 }
 void TQuestListOnline::invoke_callback_28_and_queue_destruction() {
     s32 (*temp_r12)();

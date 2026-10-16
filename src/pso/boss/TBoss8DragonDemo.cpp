@@ -23,8 +23,6 @@ struct RecoveredGlobal_802F2CC4_lbl_804E4A44 {
     u8 remaining[0x8C];
 };
 
-struct O_8002B108 { u8 pad[0x1c]; s32 arr[1]; };
-
 struct Obj_8002B118 { u8 pad[0x1c]; void *colli[3]; };
 
 extern "C" {

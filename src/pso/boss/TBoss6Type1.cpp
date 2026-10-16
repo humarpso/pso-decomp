@@ -336,9 +336,6 @@ extern const f32 TBoss6Type1__data_805DE310;
 extern const f32 TBoss6Type1__data_805DE338;
 extern const float TBoss6Type1__data_805DE344;
 extern const f32 lbl_805DE330;
-extern const f32 lbl_805DE334;
-extern const f32 lbl_805DE33C;
-extern const f32 lbl_805DE340;
 s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
 s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
 s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
@@ -2261,7 +2258,6 @@ void TBoss6Type1::load_params(void *arg1) {
     this->m_41c = (u8) *(u8 *)((s8 *)arg1 + 0xA);
 }
 
-extern s32 TBoss6Type1__data_80471040;
 extern const f32 TBoss6Type1__data_805DE304;
 extern f32 lbl_805DE3EC;
 

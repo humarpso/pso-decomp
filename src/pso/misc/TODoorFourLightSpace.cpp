@@ -598,7 +598,6 @@ u8 *fn_8028A714(s32);
 s32 fn_8028A750(int);
 s32 fn_8028A78C(int);
 extern Tbl_8028A5C4 door_four_light_ruins_index_table;
-extern s32 lbl_80450C48[];
 extern s32 TODoorFourLight__collision_body_params[];
 extern s32 __vt__20TODoorFourLightRuins[];
 extern s32 lbl_805D3B18;

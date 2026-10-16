@@ -15,10 +15,6 @@ extern V3_8022BEAC TTecLuker__render_scale_vec;
 extern const f32 lbl_805DC7B0;
 }
 
-extern "C" {
-
-}
-
 #pragma pop
 
 #pragma push
@@ -45,8 +41,6 @@ extern "C" {
 
 s32 approach_vector_fixed_distance(int, void *, int, f32);
 s32 queue_destruction__7TObjectFv(void *);
-
-extern const f64 lbl_8044CDF0;
 
 void TTecReverser::sub_8022BE64(u8 *arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;

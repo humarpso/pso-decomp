@@ -44,7 +44,6 @@ void TObjPlayer::cast_foie_effect() {
 
 void TObjPlayer::release_container_if_active() { if (get_player_list__10TObjPlayerFv(this) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)this + 0x1f8)); } }
 
-extern s32 lbl_8043E868;
 extern f32 lbl_805DACC8;
 extern f32 lbl_805DACCC;
 

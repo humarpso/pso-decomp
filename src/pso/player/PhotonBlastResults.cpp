@@ -48,16 +48,7 @@ extern const f32 lbl_805DC124;
 extern const f32 lbl_805DC128;
 extern const f32 lbl_805DC12C;
 
-u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
-void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
-void render__18TPhotonConcentrateFv(void);
-s32 create_particle_emitter(void *, s32);
 s32 find_entity_by_id(s32, f32);
-u8 *VecCopy__FP3VecPC3Vec(void *, void *);
-void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
-extern s32 __vt__18TPhotonConcentrate[];
-extern s32 lbl_805D34D0;
 
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFv(void *);

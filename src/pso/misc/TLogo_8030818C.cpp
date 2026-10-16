@@ -6,9 +6,7 @@
 extern "C" {
 
 u32 OSGetProgressiveMode();
-u32 find_item_by_id(void);
 s32 disable_progressive_mode__13TAdVIConfigGCFPv();
-s32 spawn_fire_explosion_at(u32 a0 = 0, s32 a1 = 0);
 u32 VIGetDTVStatus();
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 

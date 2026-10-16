@@ -161,8 +161,6 @@ u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
 
 }
 
-struct Vec_802EF74C { f32 x, y, z; };
-
 struct Ent_802EF74C { s32 a; s32 b; s32 c; f32 d; };
 
 typedef struct Pad_802EF604 {

@@ -6,14 +6,6 @@
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/player/TObjPlayer.h"
 
-struct E_802CDAEC { s32 a; s32 b; s32 c; s32 d; };
-
-struct G_802CDAEC { u8 pad[0x42c]; E_802CDAEC *e; };
-
-struct O_802CDAEC { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
-
-struct G_802CDAC4 { u8 pad[0x18]; s32 v[1]; };
-
 struct Vec_802CDEB4 { f32 x, y, z; };
 
 struct Ang_802CDEB4 { s32 x; s32 y; s32 z; };
@@ -55,10 +47,7 @@ struct Shot_802CDB1C {
 
 extern "C" {
 extern s32 TObjEneMe1GiGue__param_table;
-f32 get_gigue_float_parameter(s32 arg0, s32 arg1);
-extern G_802CDAEC *TObjEneMe1GiGue__data_805D6838;
 extern s32 TObjEneMe1GiGue__param_table;
-s32 get_gigue_int_parameter(void *self, s32 i);
 f64 atan2_float(f32, f32);
 s32 spawn_particle_effect_with_rotation(Vec_802CDEB4 *, Ang_802CDEB4 *, int, int);
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_802CDEB4 *, Vec_802CDEB4 *);
@@ -103,14 +92,8 @@ void TObjPlayer__sub_802CDB1C(u8 *arg0);
 
 extern "C" {
 
-void TObjEneMe1GiGue__sub_802CDAE8(void);
 void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1);
-void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1);
-void free_collision_body_parts(void *);
-void TObjPlayer__sub_800D7C58(void *, int);
 void __dl__7TObjectFPv(void *);
-void __dt__15TObjEnemyCustomFv(void *, int);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 #pragma push

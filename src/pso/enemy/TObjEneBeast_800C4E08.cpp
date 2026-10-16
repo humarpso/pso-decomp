@@ -1008,28 +1008,11 @@ s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 update_action_hold_status__10TObjPlayerFv(void *);
-extern void *player_render_texture_buffer;
-void TLobby__sub_803DA16C(void *);
-void mem_free(void *);
-void TObjPlayer__sub_800C4D44(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
-f32 sin_table_lookup(int);
-f32 cos_table_lookup(int);
-extern const Vec_800C4A5C lbl_8043BC10[];
-extern s32 lbl_804933D8[];
-extern s32 lbl_805D2A50;
-extern const f32 lbl_805DA014;
-extern const f32 lbl_805DA018;
-extern const f32 lbl_805DA01C;
-Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5C *start, s32 angle);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 s32 subtract_vector(void *, void *);
-extern u8 *camera_ctrl_instance;
-extern const f32 lbl_805DA020;
-extern const f32 lbl_805DA024;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
@@ -1093,10 +1076,7 @@ extern const f32 lbl_805DA034;
 
 extern "C" {
 
-s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 int queue_destruction__7TObjectFv(void*);
 
 void TObjPlayer__sub_800C4E08(u8 *arg0) {

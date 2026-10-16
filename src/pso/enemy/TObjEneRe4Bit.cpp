@@ -423,10 +423,6 @@ extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 
 extern "C" {
-
-}
-
-extern "C" {
 void vfunc_28__13TObjEneRe4BitFv(void);
 void apply_poison_status__13TObjEneRe4BitFv(void);
 void apply_paralysis__13TObjEneRe4BitFv(void);
@@ -1565,7 +1561,6 @@ int reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 int initialize_enemy_state__9TObjEneDDFv(void *, int);
 int init_model__9TObjEneDDFv(void *, void *, int);
 int init_position_vectors__9TObjEneDDFPv(void *);
-struct Tbl_800ED7FC { s32 a[2]; s32 b[2]; s32 c[2]; };
 extern s32 TObjEneRe4Bit__model;
 extern s32 re4_bit_texture_list;
 extern const f32 TObjEneRe4Bit__data_805DA770;
@@ -1628,8 +1623,6 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
 struct Inner_800EDAB4 { u8 pad0[0xC]; s32 fC; u8 pad10[8]; s32 f18; };
 
 struct Obj_800EDAB4 { u8 pad0[0x42C]; Inner_800EDAB4 *f42C; };
-
-struct Dst_800EDAB4 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; };
 
 extern "C" {
 s32 register_boss__6TLobbyFl(s32);

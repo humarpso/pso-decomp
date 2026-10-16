@@ -2,7 +2,6 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct In_801E0198 { s32 w[16]; };
 
 struct Big_801E0198 { s32 w[17]; };
 

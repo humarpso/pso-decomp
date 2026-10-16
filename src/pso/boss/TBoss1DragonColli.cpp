@@ -103,8 +103,6 @@ void render__19TBoss1DragonColli_CFv(void);
 void TBoss1DragonColli__sub_8002B35C(void* p);
 void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1);
 void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2);
-void TBoss1DragonDemo__sub_8002B68C(void);
-void TBoss1DragonDemo__sub_8002B690(void);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
 s32 free_collision_body_parts(void *);

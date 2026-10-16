@@ -9,13 +9,7 @@
 
 extern "C" {
 
-s32 get_selected_menu_value(s32);
-s32 set_status_flag_80__12TQuestThreadFPv(s32);
-s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 create_window_menu(s32, s32, s32);
 int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
-int queue_destruction__7TObjectFv(void*);
 
 void TAdChrSelASlotGC::forward_slot_selection(void* a1, void* a2) { open_yes_no_prompt(this, (void*)0, a1, a2); }
 

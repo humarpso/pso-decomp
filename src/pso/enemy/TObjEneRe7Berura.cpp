@@ -880,7 +880,6 @@ void TObjEneRe7Berura::play_band_sound() {
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003BC1F)), (u32) (arg0 + 0x38), 0, 0);
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TObjEneRe7Berura::reload_stats_from_tables() {
@@ -907,7 +906,6 @@ void TObjEneRe7Berura__sub_80094D98(u8 *arg0) {
     temp_r3 = (u8 *)(arg0 + (*(s32 *)((s8 *)arg0 + 0x3F4) * 4));
     *(s32 *)((s8 *)temp_r3 + 0x418) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x418) & 0xFFFFFFFD);
 }
-extern int fold_flush_1;
 #pragma pop
 
 #undef PADV
@@ -1103,7 +1101,6 @@ s32 acquire_target_in_view__16TObjEneRe7BeruraFPv(Berura_800951AC *self) {
     }
     return 0;
 }
-extern int fold_flush_2;
 #pragma pop
 
 #undef V

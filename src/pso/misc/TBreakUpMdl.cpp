@@ -98,43 +98,6 @@ struct BreakUp_80096AD8 {
     f32 f50;
 };
 
-struct VBase_18_26a62c { char pad[0x18]; };
-
-struct VObj_18_26a62c : VBase_18_26a62c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
-struct Vec_80097100 { f32 x, y, z; };
-
-struct Motion_80097100 { u8 pad0[4]; u32 count; };
-
-struct MotRef_80097100 { u8 pad0[4]; Motion_80097100 *mot; };
-
-struct Anim_80097100 { u8 pad0[4]; s32 idx; u8 pad8[8]; };
-
-struct Bringer_80097100 : VObj_18_26a62c {
-    u8 pad1C[0x24 - 0x1C];
-    void *texlist;
-    u8 pad28[0x34 - 0x28];
-    s32 f34;
-    u8 pos[0x60 - 0x38];
-    s32 f60;
-    u8 pad64[0xD8 - 0x64];
-    Anim_80097100 *anims;
-    MotRef_80097100 *mots;
-    u8 padE0[0x354 - 0xE0];
-    f32 animIdx;
-    f32 frame;
-};
-
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 compose_motion_node_matrix(int);
@@ -206,18 +169,12 @@ void rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_model_motion(s32, void *, f32);
-extern Vec_80097100 lbl_8043A0E0;
-extern const f32 lbl_805D97D8;
-extern const f32 lbl_805D97DC;
-extern const f32 TObjEneDf2Bringer__data_805D97E0;
 }
 
 extern "C" {
 
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
-int TObjEneDf2Bringer__sub_800994F8(void*);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);

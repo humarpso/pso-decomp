@@ -16,14 +16,6 @@ struct W_80290250 { u8 pad[0xfc]; s32 bufp; s32 rc; u8 data[4]; };
 struct Pair_802907E4 { u32 a; u32 b; };
 
 struct Opaque_80290088;
-struct Sel_80290088 {
-    u8 pad[0x34];
-    void *model;
-    u8 pad2[0xFC - 0x38];
-    s32 fc;
-    s32 f100;
-    s32 f104;
-};
 
 extern "C" {
 extern const f32 lbl_805DD944;
@@ -72,7 +64,6 @@ extern u32 creation_player_character;
 extern u32 chara_select_hair_node_a;
 extern u32 chara_select_hair_node_b;
 extern u32 chara_select_head_node;
-void update_chara_preview__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TLobby__sub_8001FE7C(void *, int);
 s32 __dt__10TObjMotionFv(void *, int);
 s32 mem_free(int);
@@ -124,7 +115,6 @@ extern u32 chara_select_hair_node_b;
 extern u32 chara_select_head_node;
 extern void ***char_creation_data_block;
 extern s32 chara_select_preview_resource;
-void apply_character_appearance__23TAdSinglePlyChrSelectGCFPv(Sel_80290088 *arg0);
 }
 
 extern "C" {
@@ -139,8 +129,6 @@ s32 TLobby__sub_803DA16C(void *);
 int set_motion_interpolation_flag__10TObjMotionFv(void*);
 int draw_model_with_callback__10TObjPlayerFv(void*);
 
-extern "C" {
-}
 extern "C" {
 void run_task__12TCMCharacterFv();
 }

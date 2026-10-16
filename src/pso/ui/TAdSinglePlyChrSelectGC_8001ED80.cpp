@@ -4,7 +4,6 @@
 extern "C" {
 
 s32 TLobby__sub_8001ED88(void* p);
-int fn_8001ED90(void* p);
 
 extern s32 system_save_payload;
 

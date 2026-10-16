@@ -128,19 +128,6 @@ typedef struct Rabarta_80237494
   void **emitters;
 } Rabarta_80237494;
 
-struct Params_802377FC { u8 pad[0x14]; s16 base; s16 per_level; };
-
-struct Scale_802377FC { u8 pad[0x28]; f32 boost; };
-
-struct RaBarta_802377FC {
-    u8 pad[0x78];
-    s16 level;
-    u8 pad7a[0x88 - 0x7a];
-    f32 amount;
-    u8 pad8c[0xac - 0x8c];
-    s16 per_level;
-};
-
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 approach_vector_in_place(void *, void *, f32);
@@ -158,28 +145,11 @@ extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void *get_bml_motion(void *, int);
-void *get_bml_model(void *, int);
-void attach_particle_model(void *, void *, void *, void *, int, f32);
-void *spawn_particle_effect(void *, int);
-void *create_particle_emitter(void *, int);
-void **mem_alloc(int);
-extern Profile_80237494 rabarta_band_emitter_table[];
-extern Emitter_80237494 lbl_8044DA28;
-extern void *technique_effect_bml;
-extern void *lbl_805D63B0;
-extern const f32 lbl_805DC8C0;
-extern const f32 lbl_805DC8C4;
-s32 is_technique_ready__8TTecCtrlFv();
-s32 calc_technique_parameters(s32, s32, s32);
-extern Params_802377FC tech_high_level_linear_power_table;
-extern Scale_802377FC lbl_804CC55C;
 }
 
 extern "C" {
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
-s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);

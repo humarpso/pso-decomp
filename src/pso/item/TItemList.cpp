@@ -28,17 +28,10 @@ void TItemList__sub_801D5A64(void* p);
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
 void *__dt__9TItemListFPvs(void *arg0, s16 arg1);
 void* reset_position__9TItemListFPv(void* a0);
-void TItemList__sub_801D5838(void* p);
-int TItemList__sub_801D5844(void* p);
-void TItemList__sub_801D5884(void* p, u8 v);
-void TItemList__sub_801D58C8(void* p);
-u16 TItemList__sub_801D58DC(void* p);
 int TObjPlayer__sub_801C2098(void);
-int VecCopy__FP3VecPC3Vec(void*);
 void __construct_array(void *, void *, int, int, int);
 s32 __dl__FPv(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(s32, s32);
-int copy_item_data__6TLobbyFPvPv(void*);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
 void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)((void*)(a1))); }

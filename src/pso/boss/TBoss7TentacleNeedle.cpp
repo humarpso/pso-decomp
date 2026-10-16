@@ -429,7 +429,6 @@ void TBoss7Tentacle::update_extend_amount() {
         }
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TBoss7Tentacle::switch_state() {

@@ -252,7 +252,6 @@ void TUnk_804A05C8::vfunc_6() {
     }
 }
 
-extern const f64 lbl_8043E820;
 extern const f32 lbl_805DAC78;
 
 void TUnk_804A05E8::vfunc_6() {

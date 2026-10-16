@@ -27,13 +27,6 @@ struct Entry_8013634C {
     u8 char_data[0x41C];
 };
 
-struct Tag_8013634C {
-    u8 tag[8];
-    u32 ip_addr;
-    s32 client_id;
-    char name[16];
-};
-
 struct Ent_80136FA0 { u8 pad[0xA]; char name[0x12]; };
 
 struct Pkt_8013566C
@@ -155,11 +148,7 @@ struct VObj_18_80135208 : VBase_18_80135208 {
     u8 pad1c[0x4];
 };
 
-struct Pkt_80135208 : VObj_18_80135208 {};
-
 struct Row_80135208 { u8 pad[8]; union { u32 ip; u32 ip_addr; }; s32 client_id; char name[16]; };
-
-struct Fld_80135208 { u8 pad6[6]; s16 a; };
 
 struct Pkt_8013574C { u8 pad[4]; s32 len; u8 data[1]; };
 
@@ -507,13 +496,6 @@ struct VObj_18_9029aa : VBase_18_9029aa {
 };
 
 struct LEntry_801352C0 { u8 hdr[0x20]; u8 body[0x41C]; };
-struct LobbyData_801352C0 {
-    u8 pad0[0xC];
-    LEntry_801352C0 ents[4];
-    u8 pad[0x4088 - 0xC - 4 * 0x43C];
-    char names[12][16];
-    s32 pending[4];
-};
 
 extern char lbl_8043EE68[];
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(int);
@@ -758,7 +740,6 @@ void handle_6x6F_set_quest_flags_v2(s32 arg0) {
         memcpy((void *) (&(*(RecoveredGlobal_8013561C_lbl_805127F8 *)&quest_story_flags_by_difficulty).value), (void *) (arg0 + 4), (int) (0x200));
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 typedef struct Hdr_8013566C Hdr_8013566C;
@@ -1257,7 +1238,6 @@ void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client
     activate_keyboard();
     *(u8 **)(TLobby__protocol_instance + 0xBBF8) = TLobby__sub_801371B0;
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TLobby::make_players() {
@@ -3455,8 +3435,6 @@ void send_logout__6TLobbyFv(void) {
     }
 }
 
-extern "C" {
-}
 namespace C_801399B8 {
 
 extern "C" {

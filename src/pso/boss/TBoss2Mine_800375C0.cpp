@@ -962,9 +962,6 @@ typedef struct Mine_80038760 {
 } Mine_80038760;
 
 extern "C" {
-}
-
-extern "C" {
 
 struct Base_80038948_80038610 {
     char pad[0x18];
@@ -1327,9 +1324,6 @@ struct VObj_18 : VBase_18 {
     virtual void m106();
     virtual s32 m107();
 };
-extern "C" {
-}
-
 extern "C" {
 
 void TBoss2Mine::vfunc_62() { clear_attack_receipts(); }

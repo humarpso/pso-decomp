@@ -16,11 +16,6 @@ struct RecoveredGlobal_803DCBD8_lbl_8058D380 {
     u8 remaining[0xEC];
 };
 
-struct MotionCtx_803DC894 {
-    u8 pad[0xC];
-    void (*fn)(void);
-};
-
 struct Mtx_803DC994 { f32 m[3][4]; };
 struct ChunkNode_803E2F78 {
     u32 flags;

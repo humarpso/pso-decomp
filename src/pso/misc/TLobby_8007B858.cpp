@@ -239,9 +239,6 @@ void reset_and_invoke__6TLobbyFv(void) { reset_keyboard_state__6TLobbyFv(); invo
 struct L_8007BC5C { u8 pad0; u8 count; u8 pad2[2]; s32 ids[30]; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void TLobby__sub_8007BBEC(void);
 void TLobby__sub_8007BBF8(void);

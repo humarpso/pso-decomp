@@ -34,7 +34,6 @@ void init_status_disp__15TWindowMakeTeamFc(s8 arg0);
 s32 mark_entry_by_id__17TWindowSubComCardFPvi(s32, s32);
 s32 disable_entry_by_id__17TWindowSubComCardFPvi(s32, s32);
 s8 get_mode__6TLobbyFv();
-int test_keyboard_card_flag4(void* p);
 
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0) {
     TWindowSubStatusDisp::get_message_10(arg0 + 0x113);

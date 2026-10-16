@@ -24,8 +24,6 @@ struct Obj_8001B4A0 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
 
 struct Obj_8001B824 { u8 pad[0x1c]; u32 slot[2]; };
 
-struct Vt_8001B824 { s32 value; u8 remaining[0x14]; };
-
 struct Obj_8001B534 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
 
 extern "C" {

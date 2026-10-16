@@ -20,23 +20,11 @@ typedef struct Slot_803F3478 {
 typedef Slot_803F3478 Slot_803F1CC4, Slot_803F1E90, Slot_803F2058;
 
 extern "C" {
-s32 OSFreeToHeap(int, void *);
-s32 get_network_config_mode();
-s32 get_or_set_network_config_mode(int);
-s32 get_or_set_network_config_backup_mode(int);
-s32 set_network_config_card_channel(int);
-extern s32 __OSCurrHeap;
-extern s32 lbl_805D79B0;
-extern u32 lobby_net_config_buffer;
 extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
-s32 CARDUnmount(s32 chan);
 s32 memset(void *, int, int);
 s32 CARDClose(void *);
 s32 memset(void *, int, int);
-s32 CARDProbe(s32 chan);
-char *strcpy(char *, const char *);
-u32 strlen(const char *);
 s32 memset(void *, int, int);
 }
 

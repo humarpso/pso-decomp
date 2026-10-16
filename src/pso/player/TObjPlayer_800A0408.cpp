@@ -80,7 +80,6 @@ void TObjPlayer__sub_800A0554(Obj_800A0554 *self);
 
 extern "C" {
 
-extern const f64 lbl_8043A468;
 extern const f32 lbl_805D995C;
 
 void TUnk_80490470::set_rate_from_divisor(s32 arg1) {

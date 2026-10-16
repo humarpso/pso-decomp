@@ -14,8 +14,6 @@ s32 queue_destruction__7TObjectFv(void *);
 u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-extern const f32 lbl_805D89D0;
-extern const f32 lbl_805D89DC;
 void run_task__11TObjDFDemo3Fv(u8 *arg0);
 s32 TObjPlayer__sub_80052390(f32);
 s32 clear_render_callback__8TObjFishFv(s32);
@@ -27,20 +25,6 @@ s32 func_803e11e8__FUl(u32);
 s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
 void render__11TObjDFDemo3Fv(u8 *arg0);
-struct Ent_8004EB78 { s32 a; s32 b; s32 c; };
-struct Obj_8004EB78 {
-    s32 vt0;
-    u8 pad4[0x18 - 0x4];
-    void *vt18;
-    u8 pad1c[0x90 - 0x1C];
-    Ent_8004EB78 ent[2];
-    void *a8;
-    u8 pos[0xC];
-    void *b8;
-    s32 bc;
-    f32 c0;
-};
-struct Pose_8004EB78 { s32 a; s32 b; s32 c; };
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -48,17 +32,11 @@ s32 get_bml_model(s32, s32);
 s32 activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 construct_world_actor_base(void *, void *);
-extern Pose_8004EB78 lbl_80437384;
-extern s32 boss4_zanzo_bml_index_table[];
-extern s32 TObjDFDemo2__name;
-extern const f32 lbl_805D89CC;
 }
 
 struct Vec_8004F030 { f32 x, y, z; };
 
 struct IVec_8004F030 { s32 x, y, z; };
-
-struct D_8004F030 { u8 head[0x20]; };
 
 struct S_EF94 {
     u8 pad0[0x18];

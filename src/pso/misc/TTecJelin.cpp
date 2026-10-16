@@ -6,19 +6,8 @@
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/player/TObjPlayer.h"
-struct Stack_802384E0 {
-    s32 sp8;
-    f32 spC;
-    u8 trailing_storage[0x4];
-};
 
 struct RecoveredGlobal_802384E0_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
-
-struct Stack_802385EC {
-    s32 sp8;
-    f32 spC;
-    u8 trailing_storage[0x4];
-};
 
 struct RecoveredGlobal_802385EC_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 
@@ -175,8 +164,6 @@ void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
-
-extern const f64 lbl_8044D658;
 
 void TTecJelin::init_tech_params() {
     u8 *arg0 = (u8 *)this;

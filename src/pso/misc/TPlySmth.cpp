@@ -33,7 +33,3 @@ void __ct__8TPlySmthFv(void*) {
 #pragma dont_inline on
 TCreateGame::TCreateGame() {}
 #pragma pop
-
-extern "C" {
-
-}

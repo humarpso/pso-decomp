@@ -67,8 +67,6 @@ struct RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 {
     u8 remaining[0xEC];
 };
 
-struct ArrivalOverrides { u8 bytes[0xF0]; };
-
 struct Vec_801C5F84 { f32 x, y, z; };
 struct Arrival_801C5F84 {
     s32 active;
@@ -94,7 +92,6 @@ extern "C" {
 s16 TObjPlayer__sub_800194E8(s32, s16);
 s32 get_attack_params_atp_max(s32);
 
-extern s32 lbl_80447120;
 extern const f32 lbl_805DC330;
 
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4) {

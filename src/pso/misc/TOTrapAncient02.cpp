@@ -626,7 +626,6 @@ void TOTrapAncient02R::calc_trap_count() {
         *(s32 *)&this->m_360 = 0xE;
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TOTrapAncient02R::vfunc_82() {
@@ -808,7 +807,6 @@ void TOTrapAncient02R::find_target_player() {
         }
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -834,7 +832,6 @@ f32 TOTrapAncient02R::receive_physical_attack(void *, f32) {
     }
     return lbl_805DBA80;
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -846,7 +843,6 @@ void *TOTrapAncient02R::create(void *arg0) {
     }
     return o;
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -861,7 +857,6 @@ void *__dt__16TOTrapAncient02RFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -901,7 +896,6 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
     }
     return arg0;
 }
-extern int fold_flush_5;
 #pragma pop
 
 void TOTrapAncient02::vfunc_86() {  }
@@ -1301,7 +1295,6 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
     }
     return ((Trap_8017B6D8 *)arg0);
 }
-extern int fold_flush_6;
 #pragma pop
 
 void TOTrapAncient02R::submit_cursor_and_notify() {

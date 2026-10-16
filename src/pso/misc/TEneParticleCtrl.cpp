@@ -37,7 +37,6 @@ extern "C" {
 
 void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-int TWindowSubStatusDisp__sub_80338B88(void* p);
 void __dl__7TObjectFPv(void *);
 int enable__13TParticleCtrlFPv(void*);
 int set_param_ptr__11TBoss4Type2Fl(void*);

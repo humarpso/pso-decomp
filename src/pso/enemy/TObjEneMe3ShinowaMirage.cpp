@@ -570,7 +570,6 @@ void TObjEneMe3ShinowaMirage::set_flag_0x100() {
 
 int TObjEneMe3ShinowaMirage::init_mirage() { return transition_enemy_state((void*)(this), (int)(15)); }
 
-extern const f64 lbl_8043CFA0;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 
 void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {

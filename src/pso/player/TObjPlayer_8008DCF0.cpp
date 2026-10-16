@@ -27,34 +27,6 @@ struct P_8008F730 { u8 pad[0x3C4]; s32 ids[5]; s16 n; };
 struct Vec_8008FAD0 { f32 x, y, z; };
 
 struct P_8008EDE8;
-struct VBase_18_a01d39 { char pad[0x18]; };
-
-struct VObj_18_a01d39 : VBase_18_a01d39 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual s32 m18(void *, f32);
-    virtual void m19();
-    virtual s32 m20(void *, f32);
-    virtual s32 m21(void *, s32 *, s32, s32, s32);
-    virtual void m22();
-    virtual s32 m23(void *, f32);
-};
 
 struct Pair_8008EDE8 { s32 a, b; };
 

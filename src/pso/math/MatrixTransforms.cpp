@@ -3,7 +3,6 @@
 #include "pso/player/TObjPlayer.h"
 
 struct Matrix34 { f32 elements[3][4]; };
-struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
 
 extern "C" {
 s32 matrix_apply_translation(int, f32, f32, f32);
@@ -17,18 +16,10 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
 extern u32 current_matrix;
-void rotate_matrix_y(Matrix34* matrix, s32 angle);
 
-f64 acos(f32);
-void scale_matrix(u32, f32, f32, f32);
-
-void rotate_matrix_x(u32, s32);
-extern const f32 lbl_805E0F00;
 __declspec(section ".sdata2") extern const f64 lbl_805E0F08;
 __declspec(section ".sdata2") extern const f64 lbl_805E0F10;
 __declspec(section ".sdata2") extern const f64 lbl_805E0F18;
-extern const f32 lbl_805E0F20;
-extern const f32 lbl_805E0F24;
 
 }
 

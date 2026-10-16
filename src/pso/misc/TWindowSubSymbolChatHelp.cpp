@@ -43,7 +43,6 @@ struct Win_802845EC { u8 pad[0x10]; f32 x; f32 y; u8 pad2[0x38 - 0x18]; f32 scal
 extern "C" {
 s32 draw_window_frame(void *, int);
 s32 draw_default_entry__9TWindowDDFl();
-extern s32 __vt__19TWindowMenuMainMenu[];
 u8 * get_window_layout_position(s32);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 extern RecoveredGlobal_80284B84_lbl_804D2D10 lbl_804D2D10;

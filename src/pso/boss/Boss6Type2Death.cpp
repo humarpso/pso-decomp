@@ -111,9 +111,6 @@ extern "C" {
 
 void render__23TBoss6Demo21_TYPE2_DEADFv(void* p);
 void draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(void*);
-int get_shared_capture_texture_list(void);
-int load_list_texture(int, int, int, int);
-void init_particle_effect__10TObjPlayerFv(void);
 void draw_model_13__23TBoss6Demo21_TYPE2_DEADFv(u8*);
 
 }

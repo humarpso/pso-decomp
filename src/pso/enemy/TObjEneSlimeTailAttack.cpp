@@ -49,12 +49,6 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 
 struct Vec_800EAEE8 { f32 x, y, z; };
 
-struct Stack_800EAEE8 {
-    s32 sp8;
-    f32 spC;
-    s32 sp10;
-};
-
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
@@ -571,9 +565,6 @@ void set_state__15TObjEneSlimeOneFPvi(TSlime_800EAE78 *arg0, s32 arg1);
 }
 
 extern "C" {
-}
-
-extern "C" {
 void TBoss8Dragon__sub_800E92D8();
 }
 extern "C" {
@@ -641,8 +632,6 @@ void apply_attack_stat_status__13TUnk_804806E8FPv();
 }
 extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
-}
-extern "C" {
 }
 extern "C" {
 void apply_hit_message_flags__9TObjEnemyFPv();
@@ -730,8 +719,6 @@ void vfunc_12__9TObjEnemyFv();
 }
 extern "C" {
 void get_pos__13TUnk_804806E8Fl();
-}
-extern "C" {
 }
 extern "C" {
 void is_actor_cadence_frame();
@@ -831,12 +818,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -1014,7 +995,6 @@ void *__vt__22TObjEneSlimeTailAttack[83] = {
 void TObjPlayer__sub_800E80C0(u8 *arg0) {
     TObjPlayer__sub_800E80E8((S_800E80E8 *)(arg0), (S_800E80E8 *)(&(*(RecoveredGlobal_800E80C0_lbl_80501010 *)&lbl_80501010).value));
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -1026,7 +1006,6 @@ S_800E80E8 *TObjPlayer__sub_800E80E8(S_800E80E8 *dst, S_800E80E8 *src) {
     dst->d = src->d;
     return dst;
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -1042,7 +1021,6 @@ void TObjPlayer__sub_800E8128(void) {
     }
     (*(s32 *)&lbl_805D52B4) += 1;
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -1078,7 +1056,6 @@ void draw_blob_shadows__10TObjPlayerFPv(Obj_800E81B4 *arg0) {
         }
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -1117,7 +1094,6 @@ void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, 
     TObjPlayer::init_render_globals();
     pop_matrix();
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -1149,7 +1125,6 @@ void TObjPlayer__sub_800E841C(u8 *arg0) {
     }
     pop_matrix();
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -1180,7 +1155,6 @@ void TObjPlayer__sub_800E84F8(u8 *arg0) {
     draw_blob_shadows__10TObjPlayerFPv((Obj_800E81B4 *)((void *) arg0));
   }
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -1211,7 +1185,6 @@ void TObjPlayer__sub_800E87FC(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_7;
 #pragma pop
 
 void *create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -1333,7 +1306,6 @@ void TObjEneSlimeWaterBomb::render() {
     draw_blob_shadow(0);
     ((int (*)(void))pop_matrix)();
 }
-extern int fold_flush_8;
 #pragma pop
 
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
@@ -1423,7 +1395,6 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0x394) = 0;
     return arg0;
 }
-extern int fold_flush_9;
 #pragma pop
 
 void TObjEneSlimeOne::sub_800E9090() {
@@ -1512,7 +1483,6 @@ void update_effect_fade_lifetime(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-extern int fold_flush_10;
 #pragma pop
 
 void fn_800E95F4(u8 *arg0) {
@@ -1629,7 +1599,6 @@ void start_tail_attack__15TObjEneSlimeOneFPv(Self_800E984C *self) {
     ((void (*)(void *, void *, s32, void *))create__22TObjEneSlimeTailAttackFiiii)(self, &self->dest, self->f60, self);
     ((int (*)(void*, void*))set_display_mode__15TObjEneSlimeOneFPvi)((void*)(self), (void*)((void *)2));
 }
-extern int fold_flush_11;
 #pragma pop
 
 void update_water_bomb_timer__15TObjEneSlimeOneFPv(u8 *arg0) {
@@ -1771,7 +1740,6 @@ void TObjPlayer__sub_800E9EFC(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_12;
 #pragma pop
 
 void TObjPlayer__sub_800EA120(u8 *arg0) {
@@ -1887,7 +1855,6 @@ void TObjPlayer__sub_800EA364(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_13;
 #pragma pop
 
 #pragma push
@@ -1915,7 +1882,6 @@ void TObjPlayer__sub_800EA56C(u8 *arg0) {
     ((TObjEneSlimeOne *)((void *) *(s32 *)((s8 *)arg0 + 0x388)))->set_motion_state((s32)((void *) 8));
     ((int (*)(void*, int))set_display_mode__15TObjEneSlimeOneFPvi)((void *) (arg0), (int) (1));
 }
-extern int fold_flush_14;
 #pragma pop
 
 #pragma push
@@ -1951,7 +1917,6 @@ void TObjPlayer__sub_800EA678(u8 *arg0) {
         ((s32 (*)(void *, s32))set_state__15TObjEneSlimeOneFPvi)((void *)(arg0), (s32)(0));
     }
 }
-extern int fold_flush_15;
 #pragma pop
 
 void init_slime_display__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x398) = lbl_805DA67C; *(float*)((char*)a0 + 0x3a4) = lbl_805DA6B4; ((int (*)(void*, int))set_display_mode__15TObjEneSlimeOneFPvi)((void*)(a0), (int)(0)); ((TObjEneSlimeOne *)(*(int*)((char*)a0 + 0x388)))->set_motion_state((s32)((void*)((void*)7))); }
@@ -1993,7 +1958,6 @@ void TObjPlayer__sub_800EA820(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_16;
 #pragma pop
 
 void reset_display__15TObjEneSlimeOneFPv(void* a0) { set_display_mode__15TObjEneSlimeOneFPvi((void *)((void*)(a0)), (s32)((void*)(0))); *(int*)((char*)a0 + 0x30) = (*(int*)((char*)a0 + 0x30) & 0xfffbffff); *(float*)((char*)a0 + 0x398) = lbl_805DA6B4; *(float*)((char*)a0 + 0x3a4) = lbl_805DA708; }

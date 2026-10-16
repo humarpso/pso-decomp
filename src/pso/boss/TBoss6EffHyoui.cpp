@@ -16,9 +16,6 @@ extern const f32 lbl_805E0380;
 void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
-extern "C" {
-}
-
 #include "types.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"

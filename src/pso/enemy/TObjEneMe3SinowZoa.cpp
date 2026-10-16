@@ -803,41 +803,6 @@ struct VObj8031A5E0 : VObj8031A5E0_Base {
     virtual void m6();
 };
 
-struct VBase_18_c44252 { char pad[0x18]; };
-
-struct VObj_18_c44252 : VBase_18_c44252 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual s32 m18(void *, f32);
-    virtual void m19();
-    virtual s32 m20(void *, f32);
-    virtual void m21();
-    virtual void m22();
-    virtual s32 m23(void *, f32);
-};
-
-struct Stack_800E7324 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
-};
-
 struct RecoveredGlobal_800E7324_lbl_8043CF94 {
     s32 value;
     u8 remaining[0x8];
@@ -1392,8 +1357,6 @@ extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -1469,8 +1432,6 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-}
-extern "C" {
 void is_actor_cadence_frame();
 }
 extern "C" {
@@ -1541,12 +1502,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -2074,7 +2029,6 @@ void TObjEneMe3SinowZoa__sub_80317F90(u8 *arg0, s32 arg1) {
         break;
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 struct VBase_18_803182F8 { char pad[0x18]; };
@@ -3377,7 +3331,6 @@ void TObjEneMe3SinowZoa::state_chase_target(s32 arg1) {
         break;
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1) {
@@ -4150,7 +4103,6 @@ block_4:
     temp_f31 = (*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60))) + temp_f31_2;
     return (temp_f31 < cos_table_lookup(0x1E00)) == 0;
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -4176,7 +4128,6 @@ u8 TObjEneMe3SinowZoa::check_body_collision_at(s32 arg1, f32 farg0) {
     ((Obj_800E750C *)this)->f60 = a;
     return res;
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -4197,7 +4148,6 @@ f32 TObjEneMe3SinowZoa::get_node_height() {
     pop_matrix();
     return v.y;
 }
-extern int fold_flush_4;
 #pragma pop
 
 void TObjEneMe3SinowZoa::setup_move_bounds() {
@@ -4380,7 +4330,6 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
         ((TObjPlayer *)((u8 *)this))->clear_player_status_flag((int) (0), (int) (0x08000000));
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 }

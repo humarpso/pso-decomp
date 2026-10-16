@@ -8,10 +8,7 @@ extern "C" {
 
 s32 TLobby__sub_8030A770();
 s32 get_game_play_mode();
-u32 get_player_by_client_id(s32);
 int check_flag__10TObjPlayerFl(void*, int);
-u32 get_character_save_record(s32);
-s32 obj_getField1c();
 
 extern void *TWindowCtrl__active_window;
 

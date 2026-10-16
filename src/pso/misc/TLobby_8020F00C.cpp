@@ -5,7 +5,6 @@
 extern "C" {
 
 void push_shop_pool_entry(u8 *arg0, s8 arg1);
-s32 get_game_play_mode();
 
 void push_shop_pool_entry(u8 *arg0, s8 arg1) {
     s32 temp_r5;

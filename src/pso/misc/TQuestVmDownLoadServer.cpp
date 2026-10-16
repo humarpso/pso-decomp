@@ -34,21 +34,15 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 }
 extern "C" {
-}
-extern "C" {
 struct RecoveredGlobal_801F6C74_lbl_8050E208;
 }
 extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
-extern "C" {
-}
 
 #include "types.h"
 extern "C" {
 void TQuestVmDownLoadServer__sub_801F6B98(void);
-}
-extern "C" {
 }
 extern "C" {
 extern s32 TQuestVmDownLoadServer__instance;
@@ -89,16 +83,10 @@ s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 extern "C" {
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
 extern "C" {
 extern s32 quest_download_in_progress;
-}
-extern "C" {
 }
 extern "C" {
 s32 return_to_main_menu__6TLobbyFv();
@@ -110,25 +98,14 @@ extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
 extern "C" {
-}
-extern "C" {
 s32 get_localized_text_entry(int, int);
 }
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
-extern "C" {
-}
-
 extern "C" {
 }
 extern "C" {
@@ -153,8 +130,6 @@ typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 #include "types.h"
 
 struct Pair_801F6E08 { s32 a; s32 b; };extern "C" {
-}
-extern "C" {
 s32 create_window__24TMessageWindowControllerFll(void*, s32, void*);
 }
 extern "C" {
@@ -165,21 +140,8 @@ extern s32 lbl_8044A668[];
 }
 extern "C" {
 }
-
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-}
-extern "C" {
 }
 extern "C" {
 s32 get_localized_text_entry(int, int);
@@ -188,15 +150,7 @@ extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 }
 extern "C" {
-}
-extern "C" {
 void allow_rendering__7TObjectFv(void *);
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
@@ -205,13 +159,7 @@ extern "C" {
 s32 reset_quest_id__23TAdSinglePlyChrSelectGCFv();
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void set_ready__6TSceneFv(void *);
-}
-extern "C" {
 }
 extern "C" {
 extern s32 lbl_805D55C0;
@@ -278,13 +226,6 @@ struct Req_801F7478 {
     s32 w5C;
 };
 
-struct Src_801F7478 {
-    u8 pad0[0x10];
-    char title[0x24];
-    s32 f34;
-    s32 f38;
-};
-
 struct Req_801F770C {
     char name[0x12];
     char title[0x22];
@@ -297,13 +238,6 @@ struct Req_801F770C {
     s16 h54;
     s32 w58;
     s32 w5C;
-};
-
-struct Src_801F770C {
-    u8 pad0[0x10];
-    char title[0x24];
-    s32 f34;
-    s32 f38;
 };
 
 struct Req_801F718C {
@@ -329,13 +263,7 @@ struct Src_801F718C {
 
 struct QVm_801F7890;
 struct QVm_801F6D24;extern "C" {
-}
-extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
@@ -344,13 +272,7 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
-}
-extern "C" {
 }
 extern "C" {
 extern RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
@@ -392,13 +314,7 @@ extern "C" {
 extern const s32 lbl_805DC6B4;
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
-}
-extern "C" {
 }
 extern "C" {
 void subtractive_rng_seed(SubtractiveRng *, u32);
@@ -419,11 +335,7 @@ extern "C" {
 void unshuffle_and_decrypt__22TQuestVmDownLoadServerFPvi(u32 *data, s32 size);
 }
 extern "C" {
-}
-extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
-}
-extern "C" {
 }
 extern "C" {
 u32 subtractive_rng_next(SubtractiveRng *);
@@ -435,8 +347,6 @@ extern "C" {
 void subtractive_rng_make_shuffle(SubtractiveRng *);
 }
 extern "C" {
-}
-extern "C" {
 void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(SubtractiveRng *, u32 *, u32);
 }
 extern "C" {
@@ -446,8 +356,6 @@ extern "C" {
 void encrypt_download_data__22TQuestVmDownLoadServerFPvi(u32 *data, s32 size);
 }
 extern "C" {
-}
-extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
 }
 extern "C" {
@@ -484,10 +392,6 @@ extern "C" {
 extern char TQuestVmDownLoadServer__data_805DC5BC[];
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
 }
 extern "C" {
@@ -522,18 +426,12 @@ extern char TQuestVmDownLoadServer__data_805DC5B8[];
 }
 extern "C" {
 extern char TQuestVmDownLoadServer__data_805DC5BC[];
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
 }
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
-}
-extern "C" {
 }
 extern "C" {
 void TAdPlayerLoadGC__sub_801E14E4(void *);
@@ -575,58 +473,6 @@ extern "C" {
 extern u8 TQuestVmDownLoadServer__download_kind;
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 extern s32 lbl_805D55C0;
 }
 extern "C" {
@@ -637,8 +483,6 @@ struct Slot_801F8D30 { u8 pad[0x34]; s32 f34; void *f38; };
 }
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1518(void *, s32, u32);
-}
-extern "C" {
 }
 extern "C" {
 void TWindow__close(void*);
@@ -700,18 +544,10 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 u32 create__13TAdMcSelectGCFPv(s32);
 }
 extern "C" {
 s32 get_localized_text_entry(int, int);
-}
-extern "C" {
 }
 extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
@@ -723,11 +559,7 @@ extern "C" {
 extern s32 tl_03;
 }
 extern "C" {
-}
-extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
-}
-extern "C" {
 }
 extern "C" {
 s32 get_localized_text_entry(int, int);
@@ -736,11 +568,7 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 }
 extern "C" {
-}
-extern "C" {
 s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
-}
-extern "C" {
 }
 extern "C" {
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, int);
@@ -761,37 +589,15 @@ extern "C" {
 s32 get_window_layout_position(s32);
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void TQuestVmDownLoadServer__sub_801F6B98(void);
 }
 extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
 extern "C" {
-}
-extern "C" {
 s32 TQuestVmDownLoadServer__sub_801F8538(void *data, s32 size);
 }
 
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
 extern "C" {
 }
 extern "C" {
@@ -804,16 +610,10 @@ extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 }
 extern "C" {
-}
-extern "C" {
 s32 get_selected_menu_value(u32);
 }
 extern "C" {
 void TWindow__close(void*);
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 u32 create__13TAdMcSelectGCFPv(s32);
@@ -825,23 +625,13 @@ extern "C" {
 s32 draw_window_bg__23TAdSinglePlyChrSelectGCFllll(s32, void *, s32, s32);
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void queue_destruction__7TObjectFv(void *);
-}
-extern "C" {
 }
 extern "C" {
 s32 reset_quest_id__23TAdSinglePlyChrSelectGCFv();
 }
 extern "C" {
-}
-extern "C" {
 s32 set_quest_download_server__23TAdSinglePlyChrSelectGCFi(s32);
-}
-extern "C" {
 }
 extern "C" {
 extern s32 lbl_8044BEF4[];
@@ -898,16 +688,10 @@ struct Src_801F87CC {
 };
 }
 extern "C" {
-}
-extern "C" {
 s32 get_serial_access__22TQuestVmDownLoadServerFv();
 }
 extern "C" {
 s32 poll_serial_access__22TQuestVmDownLoadServerFv();
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 int strncmp(const char *, const char *, u32);
@@ -918,8 +702,6 @@ struct Pos_801F8A40 { s32 a, b; };
 }
 extern "C" {
 u32 set_text__18TWindowMessagePageFlll(void *, void *, int);
-}
-extern "C" {
 }
 extern "C" {
 void complete_reveal__14TWindowMessageFPv(u32);

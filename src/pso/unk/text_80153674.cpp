@@ -47,7 +47,6 @@ void __dt__22TObjFogCollisionSwitchFv(void *, int);
 void *__nw__7TObjectFUl(int);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 
-extern const f64 lbl_80440088;
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805DB250;
 extern const f32 lbl_805DB254;

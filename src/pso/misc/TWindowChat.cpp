@@ -254,10 +254,6 @@ void TWindowChat::open_input() {
     }
 }
 
-extern "C" {
-
-}
-
 void TWindowChat::handle_dpad_shortcuts() {
     Win_802473C8 *arg0 = (Win_802473C8*)this;
     void *pad;
@@ -301,10 +297,6 @@ void TWindowChat::handle_dpad_shortcuts() {
             send_chat_shortcut(6);
         }
     }
-}
-
-extern "C" {
-
 }
 
 void TWindowChat::close_all_children() {
@@ -491,15 +483,7 @@ void TWindowChat::open_next_input_window() {
     }
 }
 
-extern "C" {
-
-}
-
 void TWindowChat::render() {  }
-
-extern "C" {
-
-}
 
 void TWindowChat::run_task() {
     u8 *arg0 = (u8*)this;
@@ -512,10 +496,6 @@ void TWindowChat::run_task() {
         }
         flags = (u16) (flags & 0xFFFFFFFB);
     }
-}
-
-extern "C" {
-
 }
 
 extern "C" {

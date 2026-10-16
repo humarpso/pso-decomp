@@ -589,8 +589,6 @@ void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
 #pragma auto_inline off
 #pragma dont_inline off
 
-struct ByteBlock_48 { u8 bytes[0x48]; };
-
 struct Vec_80159A10 { f32 x, y, z; };
 
 struct VecTbl_80159A10 { Vec_80159A10 v[6]; };

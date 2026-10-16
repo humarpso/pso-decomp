@@ -6,7 +6,6 @@ extern "C" {
 
 void TObjFish__sub_8033FF64(void* p);
 
-extern s32 lbl_80478560;
 extern const f32 lbl_805DFB08;
 extern const f32 lbl_805DFB0C;
 

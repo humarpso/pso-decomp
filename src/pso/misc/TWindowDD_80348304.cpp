@@ -27,7 +27,6 @@ s32 is_flag_set__6TLobbyFv();
 extern "C" {
 
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1);
-int play_sound_effect(void*, void*, void*, void*);
 s32 TWindowDD__sub_8034435C();
 s32 TWindowDD__sub_80344568();
 s32 TWindowDD__sub_80344774();

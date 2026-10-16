@@ -83,15 +83,7 @@ struct VObj_80218D40 : VBase_18_80218D40 {
 
 struct Pair_80218D40 { s32 a; s32 b; };
 
-struct Rec_80218E94 { u8 pad[0xB4]; s32 slot; s32 type; };
-
-struct QL_80218E94 { u8 pad[0x28]; Rec_80218E94 recs[48]; };
-
 struct Dl_80218E94 { u8 pad[0x58]; u8 *data; s32 size; };
-
-struct Rec_80218918 { u8 pad[0xB4]; s32 slot; s32 type; };
-
-struct QL_80218918 { u8 pad[0x28]; Rec_80218918 recs[48]; };
 
 struct VBase_80218BBC { char pad[0x18]; };
 
@@ -141,10 +133,6 @@ struct VObj_18_80219748 : VBase_18_80219748 {
 };
 
 struct Rec_80219748 { char name[0xB0]; s32 num; s32 slot; u8 rest[0xBC - 0xB8]; };
-
-struct Rec2_80219748 { s32 num; s32 slot; u8 rest[0xBC - 8]; };
-
-struct QL2_80219748 { u8 pad[0xD8]; Rec2_80219748 recs[1]; };
 
 struct QL_80219748 {
     u8 pad0[0x28];

@@ -19,7 +19,6 @@ extern "C" {
 
 void calc_digit_transform__17TDuelEffectNumberFiPvPvi(s32 arg0, f32 *arg1, f32 *arg2, s32 arg3);
 
-extern const f64 lbl_80438E20;
 extern const f32 lbl_805D9310;
 extern const f32 lbl_805D9314;
 extern const f32 lbl_805D9318;

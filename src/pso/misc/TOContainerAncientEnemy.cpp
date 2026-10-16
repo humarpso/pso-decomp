@@ -20,24 +20,7 @@ struct RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy {
 
 struct Obj_8015BCC0 { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364; };
 
-struct Obj_80188884 { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]; s16 state; };
-
 struct Obj_80188814 { u8 pad0[0x38]; u8 pos[0x4c]; s32 id; };
-
-struct Obj_801884A0 {
-    s32 unk0;
-    u8 pad4[0x18 - 0x4];
-    void *vtbl;
-    u8 pad1C[0x30 - 0x1C];
-    u32 flags30;
-    u8 pad34[0x88 - 0x34];
-    s32 selector;
-    u8 pad8C[0x98 - 0x8C];
-    u8 aux98[0xBC - 0x98];
-    void *model;
-    f32 unkC0;
-    s32 unkC4;
-};
 
 struct Spawn_8015B94C {
     u8 pad0[0xC];

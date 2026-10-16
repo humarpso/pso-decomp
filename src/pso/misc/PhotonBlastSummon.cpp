@@ -51,8 +51,6 @@ void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate);
 const f32 *get_photon_blast_entry__10TObjPlayerFi(s32);
 extern u32 lbl_805D5D18;
 
-    extern const float lbl_805DC0C0;
-
 void clear_deferred_photon_blast_hits(void) {
     s32 i;
     deferred_photon_blast_hit_count = 0;
@@ -315,8 +313,6 @@ struct PhotonDrawOwner_801A7638 {
     u8 unknown104[0x44];
     PhotonAttachment_801A7638 *bindings;
 };
-
-struct PhotonDrawContext_801A7638 { PhotonAttachment_801A7638 *bindings; s32 binding_count; };
 
 typedef struct Vec_801A7680 { f32 x, y, z; } Vec_801A7680;
 

@@ -10,11 +10,6 @@
 #include "pso/misc/TTecLuker.h"
 #include "pso/misc/TTecPlayerInfluence.h"
 #include "pso/player/TObjPlayer.h"
-struct Stack_80237194 {
-    s32 sp8;
-    s32 spC;
-    s32 sp10;
-};
 
 struct RecoveredGlobal_80237194_lbl_8044D8EC {
     s32 value;
@@ -148,26 +143,13 @@ struct RaBarta_802377FC {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
-s32 approach_vector_in_place(void *, void *, f32);
-s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
-extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
-extern const f32 lbl_805DC8A0;
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 
 u16 obj_getField1c(void *);
-void __ct__7TEffectFv(void *);
-void init_collision_body_parts(void *, f32 *, s32);
 void *__nw__7TObjectFUl(u32);
 extern s32 __vt__19TTecPlayerInfluence[];
-extern s32 lbl_805D37F0;
-extern const f32 lbl_805DC8A4;
-extern const f32 lbl_805DC8A8;
-extern const f32 lbl_805DC8AC;
-extern const f32 lbl_805DC8B0;
-extern const f32 lbl_805DC8B4;
-extern const f32 lbl_805DC8B8;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
@@ -191,9 +173,7 @@ extern "C" {
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
-void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void __dt__7TEffectFv(void *, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
@@ -373,17 +353,6 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
 struct Vec_80237DAC { f32 x, y, z; };
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_80237DAC *, const Vec_80237DAC *))VecCopy__FP3VecPC3Vec)
 
-struct RafoieBurst_80237DAC { s32 entry; s32 flags; f32 scale; };
-
-struct RafoieBursts_80237DAC { RafoieBurst_80237DAC *entries; u32 count; };
-
-struct Obj_80237DAC {
-    u8 pad0[0x20];
-    u16 band;
-    u8 pad22[0x28 - 0x22];
-    Vec_80237DAC position;
-};
-
 typedef struct Ids_80237CCC { u8 pad[0xF8]; u16 ids[32]; } Ids_80237CCC;
 
 typedef struct Vec_80237FB8 { f32 x, y, z; } Vec_80237FB8;
@@ -446,20 +415,15 @@ s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 apply_technique_to_area_targets__13TUnk_804CC148Fv(void *, int);
 
-void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
-extern RafoieBursts_80237DAC rafoie_burst_table[];
-extern const f32 lbl_805DC8C8;
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 
 extern s32 __vt__11TTecRaBarta[];
-s32 is_split_screen();
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, int, int, f32);
 u32 find_entity_by_id(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
-extern const f32 TTecRaFoie__data_805DC8CC;
 struct Profile_80237A94 { void *entries; u32 count; };
 struct Self_80237A94 {
     u8 pad0[0x18];

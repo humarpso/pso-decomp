@@ -25,8 +25,6 @@ struct Ent_802AF8BC { f32 x, y, z; u32 a; u32 b; u32 f14; };
 
 struct Vec_802AF8BC { f32 x, y, z; };
 
-struct Rec_802AF8BC { u8 pad[0x88]; Vec_802AF8BC d; };
-
 struct TPlayerFootStamp_802AF8BC {
     u8 pad0[0x1C];
     Ent_802AF8BC ent[4];

@@ -19,21 +19,11 @@ typedef struct Slot_803F3478 {
 struct S_803F3690 { s16 f0; s16 pad2; s32 state; u8 card[0x80]; };
 
 extern "C" {
-s32 OSFreeToHeap(int, void *);
-s32 get_network_config_mode();
-s32 get_or_set_network_config_mode(int);
-s32 get_or_set_network_config_backup_mode(int);
-s32 set_network_config_card_channel(int);
-extern s32 __OSCurrHeap;
-extern s32 lbl_805D79B0;
-extern u32 lobby_net_config_buffer;
 extern s32 lbl_805D7940;
-s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
 s32 memset(void *, int, int);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 extern S_803F3328 lbl_805A29B0[];
-s32 CARDClose(void *);
 s32 memset(void *, int, int);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
@@ -50,8 +40,6 @@ extern S_803F3328 lbl_805A29B0[];
 }
 
 extern "C" {
-
-extern s32 lbl_805D4700;
 
 extern s32 lbl_805D7940;
 

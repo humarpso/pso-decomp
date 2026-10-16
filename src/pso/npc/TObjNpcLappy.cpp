@@ -100,8 +100,6 @@ void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjNpcBaseFv(void *, int);
 
-s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 get_bml_model(void *, s32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void TObjNpcBase__ct(void *, void *);
 void init_collision_body_parts(void *, void *, s32);

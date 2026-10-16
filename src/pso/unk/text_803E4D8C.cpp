@@ -9,17 +9,6 @@ struct Ctx_803E53BC { s32 f0; s32 f4; s32 f8; s32 fc; s32 f10; s32 f14; s32 f18;
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
-struct Stack_803D6DDC {
-    u8 * sp8;
-    u8 * spC;
-    f32 sp10;
-};
-
-struct Stack_803D6E8C {
-    u8 * sp8;
-    u8 * spC;
-    f32 sp10;
-};
 
 struct RecoveredGlobal_803D662C_lbl_8058D4D0 {
     s32 value;
@@ -50,14 +39,6 @@ struct RecoveredGlobal_803D78A8_lbl_8058CAB8 {
     s32 value;
     u8 remaining[0x7C];
 };
-
-struct St_803D7784 { s32 a0, a4, a8, ac, b0, b4, b8, x1c; };
-
-struct Vec_803D7CA4 { f32 x, y, z; };
-
-struct Angles_803D7CA4 { s32 x, y, z; };
-
-struct Quat_803D7CA4 { f32 x, y, z, w; };
 
 struct Node_803E4E20 {
     u32 flags;

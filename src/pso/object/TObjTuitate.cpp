@@ -49,8 +49,6 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual s32 m5(s32);
 };
 
-struct ByteBlock_38 { u8 bytes[0x38]; };
-
 struct ByteBlock_3C { u8 bytes[0x3c]; };
 
 extern "C" {

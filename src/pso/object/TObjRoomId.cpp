@@ -91,11 +91,8 @@ void set_player_room_control_flag(void *arg0);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
-void TLobby__sub_801A1FD8(void);
-u16 TLobby__sub_801A20C8(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-u16 fn_801A210C(s32);
 s32 is_split_screen();
 
 extern s32 __vt__10TObjRoomId[];

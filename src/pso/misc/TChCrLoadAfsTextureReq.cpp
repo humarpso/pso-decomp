@@ -51,10 +51,6 @@ public:
 };
 
 extern "C" {
-
-}
-
-extern "C" {
 s32 queue_destruction__7TObjectFv(void *, int, int);
 s32 TLobby__sub_8001ED88(int);
 s32 fn_8001ED90(int);

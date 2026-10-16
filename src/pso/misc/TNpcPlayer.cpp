@@ -243,8 +243,6 @@ struct Npc_801510F8 {
     u8 dst[0xC];
 };
 
-struct RecoveredGlobal_801520B8___vt__10TNpcPlayer { s32 value; u8 remaining[0x14]; };
-
 struct Own_80152168 { u8 pad[0x94]; u8 *obj; };
 
 struct Npc_80152168 {
@@ -1877,7 +1875,6 @@ s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out) {
     }
     return 0;
 }
-extern int fold_flush_0;
 #pragma pop
 
 void calc_box_escape_axis__10TNpcPlayerFv(void *self, Vec_8014E3B0 *a, Vec_8014E3B0 *b, Vec_8014E3B0 *c,
@@ -2116,7 +2113,6 @@ void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *
         out->z = TNpcPlayer__data_805DB204 * dir.z + from->z;
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -2176,7 +2172,6 @@ s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E
     out2->y = TNpcPlayer__data_805DB1F0;
     return 1;
 }
-extern int fold_flush_2;
 #pragma pop
 
 s32 partner_find_wall_segment(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -2380,7 +2375,6 @@ s32 refresh_npc_view_actor_lost(void *arg0) {
     }
     return (u32) __cntlzw(((TObject *)v)->all_parents_unqueued_for_destruction()) >> 5;
 }
-extern int fold_flush_3;
 #pragma pop
 
 Npc_8014F844 *init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id) {
@@ -2595,7 +2589,6 @@ s32 TNpcPlayer::check_movement_progress() {
     }
     return 1;
 }
-extern int fold_flush_4;
 #pragma pop
 
 void TNpcPlayer::render() {  }
@@ -2633,7 +2626,6 @@ s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2) {
     *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFFEFF);
     return 0;
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -2770,7 +2762,6 @@ void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self) {
     self->flags &= ~1;
     self->s90 = 0;
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push
@@ -2831,7 +2822,6 @@ void partner_observe_surroundings(u8 *arg0) {
         *(u8 *)((s8 *)arg0 + 0x8D) = 0U;
     }
 }
-extern int fold_flush_7;
 #pragma pop
 
 void TNpcPlayer::update_condition_flags() {
@@ -3160,7 +3150,6 @@ s32 TNpcPlayer::calc_follow_goal() {
     }
     return 1;
 }
-extern int fold_flush_8;
 #pragma pop
 
 s32 TNpcPlayer::choose_attack_target() {

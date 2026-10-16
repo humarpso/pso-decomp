@@ -596,7 +596,6 @@ void TObjEneRecon::init_state() {
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
 }
-extern int fold_flush_0;
 #pragma pop
 
 }

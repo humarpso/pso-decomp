@@ -39,7 +39,6 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
 extern "C" {
 
 int TWindowSubCustomEquip__sub_80275DA8(void* p);
-int fn_80275D90(void* p);
 
 int TWindowSubCustomEquip::is_selected() { return this->m_60 & 0x1; }
 int TWindowSubCustomEquip__sub_80275DA8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }

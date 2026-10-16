@@ -238,8 +238,6 @@ struct Node_803EB328 { u8 flags; char name[5]; u8 x6; u8 pad[9]; Node_803EB328 *
 
 struct Node_803EBA98 { u8 flags; u8 data[5]; u8 len; u8 pad[9]; Node_803EBA98 *next; };
 
-struct Ent_803EE718 { u8 pad0[0xC]; Node_803EB794 *node; u8 pad10[0xC]; };
-
 struct Info_803F0138 {
     s16 id;
     s16 off;
@@ -372,7 +370,6 @@ s32 TQuestVmDownLoadServer__sub_803F0BE0(void *, void *);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
 extern s32 lbl_805D78F8;
 extern s32 lbl_805D7904;
-s32 TAdSinglePlyChrSelectGC__sub_8039DCE0(void *, void *);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 quest_vm_download_server_file_info;
 s32 TQuestVmDownLoadServer__sub_803E8788(int, void *, int);
 extern RecoveredGlobal_803E9764_lbl_80591EC8 lbl_80591EC8;

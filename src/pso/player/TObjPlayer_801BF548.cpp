@@ -20,8 +20,6 @@ s32 TObjPlayer__sub_801BF560(s16 *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_801BF47C(void* p);
-
 u8 is_timer_running(u8 *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 4) != -1);
 }

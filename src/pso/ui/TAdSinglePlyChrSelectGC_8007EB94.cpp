@@ -4,8 +4,6 @@
 
 extern "C" {
 
-int TQuestVmDownLoadServer__sub_8007EBDC(void* p);
-int fn_803DE864(void*);
 int xmalloc__FUl(void*);
 s32 xfree__FPv();
 

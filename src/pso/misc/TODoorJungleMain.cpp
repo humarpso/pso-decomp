@@ -28,8 +28,6 @@ s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1) {
     return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
 
-extern const f64 lbl_80465410;
-
 void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
     if ((arg1 != NULL) && ((s16) *arg1 == 1)) {
         *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
@@ -152,8 +150,6 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m4();
     virtual s32 m5(s32);
 };
-
-struct ByteBlock_38 { u8 bytes[0x38]; };
 
 struct ByteBlock_3C { u8 bytes[0x3c]; };
 

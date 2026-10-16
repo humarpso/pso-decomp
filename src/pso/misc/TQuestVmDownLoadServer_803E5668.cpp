@@ -34,7 +34,6 @@ extern RecoveredGlobal_803E5EFC_lbl_8058DD88 lbl_8058DD88;
 extern s32 quest_download_initialized;
 extern s32 lbl_805D7834;
 u8 * TQuestVmDownLoadServer__sub_803EE828(void);
-s32 TAdSinglePlyChrSelectGC__sub_8039DCE0(int, int);
 s32 TQuestVmDownLoadServer__sub_803EE2F4(int, void *);
 extern s32 lbl_805D7834;
 extern s32 lbl_805D78C0;

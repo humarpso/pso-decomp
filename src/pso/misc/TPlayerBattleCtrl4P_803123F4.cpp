@@ -86,9 +86,6 @@ void TPlayerBattleCtrl4P::run_task() {
     static BattleAction tbl[6] = { &TPlayerBattleCtrl4P::initialize_battle, &TPlayerBattleCtrl4P::update_intro_phase, &TPlayerBattleCtrl4P::update_battle_phase, &TPlayerBattleCtrl4P::update_results_phase, &TPlayerBattleCtrl4P::update_return_phase, &TPlayerBattleCtrl4P::update_reload_phase };
     (this->*tbl[phase])();
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::initialize_battle() { init_battle__19TPlayerBattleCtrl4PFPv(((void*)this)); set_split_screen_battle_phase((s32)((void*)1)); }
 extern "C" {
 
@@ -194,7 +191,4 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
     TPlayerBattleCtrl4P__instance = (s32)((void *)this);
     *(s32 *)((s8 *)((void *)this) + 0x1C) = 0;
     return this;
-}
-extern "C" {
-
 }

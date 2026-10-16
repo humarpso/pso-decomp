@@ -10,7 +10,6 @@ extern "C" {
 void *get_player_by_client_id(u16);
 void *__ct__13TPlyOnCreatedFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 queue_destruction__7TObjectFv(void *);
 
 void *TPlyOnCreated::create(void *arg0, void *arg1) {
     void *o;
@@ -31,7 +30,4 @@ void TPlayerReadyCallback::run_task() {
         }
         queue_destruction();
     }
-}
-extern "C" {
-
 }

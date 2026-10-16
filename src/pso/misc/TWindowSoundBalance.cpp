@@ -44,15 +44,7 @@ extern s32 TWindowSoundBalance__name;
 extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
-s16 obj_getS16_2BA(void *);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
-u8 *get_player_by_client_id();
-s32 draw_right_aligned_number(void *);
-s32 set_status_entry_target(void *, s32);
-s32 update_hp_entry__20TWindowSubStatusDispFPv(void *);
-extern const f32 lbl_805DD430;
-void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0);
 }
 
 extern "C" {

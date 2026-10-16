@@ -348,10 +348,6 @@ TChallenge4PResult::~TChallenge4PResult() {
     TChallenge4PResult__slot_entries[slot_index] = 0;
 }
 
-extern "C" {
-
-}
-
 extern "C" { extern const char *lbl_805D4338; void init__9TItemDataFv(TItemData *); }
 TChallenge4PResult::TChallenge4PResult(TObject *parent, u16 slot, s32 resultCode) : TObject(parent) {
     m_name = lbl_805D4338;

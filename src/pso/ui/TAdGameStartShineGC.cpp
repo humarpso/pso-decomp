@@ -5,8 +5,6 @@
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/player/TObjPlayer.h"
 
-struct V2_8034AB4C { f32 x, y; };
-
 struct Shine_8034AB4C {
     s32 name;
     u8 pad4[0x18 - 4];

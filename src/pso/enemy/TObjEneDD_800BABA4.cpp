@@ -252,8 +252,6 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
 
 extern "C" {
 
-int init_collision_body_parts(void*);
-
 int TObjEneDD::has_move_failures(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     u8 var_r5;

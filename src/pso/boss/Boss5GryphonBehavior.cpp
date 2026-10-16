@@ -1334,106 +1334,6 @@ struct Obj_80063570 {
     s32 flags;
 };
 
-struct VBase_18_444bc5 { char pad[0x18]; };
-
-struct VObj_18_444bc5 : VBase_18_444bc5 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual s32 m94();
-};
-
 struct VBase_80062E94 { char pad[0x18]; };
 
 struct VObj_80062E94 : VBase_80062E94 {
@@ -1454,109 +1354,6 @@ virtual void m20();virtual void m21();virtual void m22();virtual void m23();virt
 virtual void m40();virtual void m41();virtual void m42();virtual void m43();virtual void m44();virtual void m45();virtual void m46();virtual void m47();virtual void m48();virtual void m49();virtual void m50();virtual void m51();virtual void m52();virtual void m53();virtual void m54();virtual void m55();virtual void m56();virtual void m57();virtual void m58();virtual void m59();
 virtual void m60();virtual void m61();virtual void m62();virtual void m63();virtual void m64();virtual void m65();virtual void m66();virtual void m67();virtual void m68();virtual void m69();virtual void m70();virtual void m71();virtual void m72();virtual void m73();virtual void m74();virtual void m75();virtual void m76();virtual void m77();virtual void m78();virtual void m79();
 virtual void m80();virtual void m81();virtual void m82();virtual void m83();virtual void m84();virtual void m85();virtual void m86();virtual void m87();virtual void m88();virtual void m89();virtual void m90();virtual void m91();virtual void m92();virtual void m93();virtual void m94();
-};
-
-struct Base_80098E4C_80098DB0 { char pad[0x18]; };
-
-struct VObj_80098E4C_80098DB0 : Base_80098E4C_80098DB0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual int m97();
 };
 
 typedef char RecoveredGlobal_800646F0_lbl_80437944_size[sizeof(RecoveredGlobal_800646F0_lbl_80437944) == 0x14 ? 1 : -1];
@@ -1589,8 +1386,6 @@ struct Obj_8005D880 {
 struct Vec_8005D9BC { f32 x, y, z; };
 
 struct Ent_8005E868 { s32 a; s32 b; s32 f8[]; };
-
-struct Ent2_8005E868 { s32 a; s32 b; s32 f8; };
 
 struct Seg_80063CDC { f32 x, y, z, w; };
 
@@ -2084,8 +1879,6 @@ extern "C" {
 void apply_attack_stat_status__13TUnk_804806E8FPv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -2144,8 +1937,6 @@ void vfunc_12__9TObjEnemyFv();
 }
 extern "C" {
 void get_pos__13TUnk_804806E8Fl();
-}
-extern "C" {
 }
 extern "C" {
 void is_actor_cadence_frame();
@@ -2286,12 +2077,6 @@ extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
 }
 extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
 }
 extern "C" {
@@ -2328,8 +2113,6 @@ extern void *lbl_80487848[4];
 extern void *lbl_80487858[14];
 extern void *lbl_80487A88[5];
 extern void *lbl_80487A9C[140];
-extern "C" {
-}
 void *lbl_80487848[4] = {
     (void *)&lbl_804378C8, (void *)&lbl_804378D8, (void *)&lbl_804378F0, (void *)0x0,
 };
@@ -2609,7 +2392,6 @@ s32 get_player_pos_in_arc__13TBoss5GryphonFPviiPvPv(Obj_8005D880 *arg0, s32 arg1
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(out, &p->pos);
     return 1;
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -2653,7 +2435,6 @@ void TBoss8Dragon__sub_8005D9BC(u8 *arg0, s32 arg1, s32 arg2) {
     mid.z = lbl_805D8D74 * (pos.z + out.z);
     spawn_lightning_wing__12TBoss8DragonFiiiiii(arg0, &pos, &mid, &out, 0x14, 0x11);
 }
-extern int fold_flush_1;
 #pragma pop
 
 void render_nodes_with_flag__13TBoss5GryphonFi(s32 arg0) {
@@ -2823,7 +2604,6 @@ s32 TBoss8Dragon__sub_8005E1E8(f32 farg0) {
     }
     return 0;
 }
-extern int fold_flush_2;
 #pragma pop
 
 void free_parts__13TBoss5GryphonFPv(void *arg0) {
@@ -2887,7 +2667,6 @@ void TBoss8Dragon__sub_8005E39C(Obj_8005E39C *self) {
         ((TBoss4Type2 *)(self->eff[2]))->copy_vec3(&rot);
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 void destroy_parts__13TBoss5GryphonFPv(Obj_8005E4D4 *self) {
@@ -3001,7 +2780,6 @@ s32 calc_product__12TBoss8DragonFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 s32 rand_scaled_offset__12TBoss8DragonFiii(s32 arg0, s32 arg1, s32 arg2) {
     return (s32) (((f32) arg2 * (lbl_805D8D98 * (f32) rand())) + (f32) arg1);
 }
-extern int fold_flush_4;
 #pragma pop
 
 s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i) {
@@ -3019,7 +2797,6 @@ s32 random_in_table_range__12TBoss8DragonFiii(s32 self, s32 arg1, s32 arg2) {
 f32 random_in_range__12TBoss8DragonFff(f32 farg0, f32 farg1) {
     return (farg1 * (lbl_805D8D98 * (f32) rand())) + farg0;
 }
-extern int fold_flush_5;
 #pragma pop
 
 #pragma push
@@ -3029,7 +2806,6 @@ f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2) {
   temp_r4 = (u8 *)arg1 + (arg2 * 8);
   return ((f32 (*)(int, f32, f32))random_in_range__12TBoss8DragonFff)((int)arg0, (f32) (*((f32 *) (((s8 *) temp_r4) + 0x28))), (f32) (*((f32 *) (((s8 *) temp_r4) + 0x2C))));
 }
-extern int fold_flush_6;
 #pragma pop
 
 void TBoss8Dragon::set_random_param(u8 *arg0, u8 *arg1) {
@@ -3078,7 +2854,6 @@ void calc_product_and_ratio__12TBoss8DragonFiPvi(s32 arg0, u8 *arg1, s32 arg2) {
     *(s32 *)((s8 *)arg1 + 4) = calc_product__12TBoss8DragonFiiii(arg0, arg2, 0, 1);
     *(f32 *)((s8 *)arg1 + 8) = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (0));
 }
-extern int fold_flush_7;
 #pragma pop
 
 void TBoss8Dragon::copy_angle_state(void *arg0, void *dst, void *src) {
@@ -3306,7 +3081,6 @@ void move_along_angle__13TBoss5GryphonFPvif(void *arg0, s32 arg1, f32 farg0) {
     *(f32 *)((s8 *)arg0 + 0x474) = (f32) ((farg0 * sin_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x474));
     *(f32 *)((s8 *)arg0 + 0x47C) = (f32) ((farg0 * cos_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x47C));
 }
-extern int fold_flush_8;
 #pragma pop
 
 s32 TBoss8Dragon__sub_8005FAE0(u8 *arg0) {
@@ -4088,7 +3862,6 @@ void TBoss8Dragon__sub_80062E94(u8 *arg0, u32 arg1) {
     case 11: return;
     }
 }
-extern int fold_flush_9;
 #pragma pop
 
 #pragma push
@@ -4264,7 +4037,6 @@ void TBoss8Dragon__sub_80063320(u8 *arg0, u32 arg1) {
     case 11: return;
     }
 }
-extern int fold_flush_10;
 #pragma pop
 
 #pragma push
@@ -4326,7 +4098,6 @@ void TBoss8Dragon__sub_80063570(Obj_80063570 *arg0, s32 arg1) {
     case 11: return;
     }
 }
-extern int fold_flush_11;
 #pragma pop
 
 #pragma push
@@ -4368,7 +4139,6 @@ void TBoss8Dragon__sub_8006369C(Obj_8006369C *self, u32 arg1) {
     case 11: return;
     }
 }
-extern int fold_flush_12;
 #pragma pop
 
 #pragma push
@@ -4414,7 +4184,6 @@ void TBoss8Dragon::spawn_switch_attack() {
         attach_particle_model(temp_r3, get_bml_model(boss5_gryphon_bml_resource, 2), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
     }
 }
-extern int fold_flush_13;
 #pragma pop
 
 #pragma push
@@ -4441,7 +4210,6 @@ void TBoss8Dragon::spawn_attack_effect() {
         attach_particle_model(temp_r3, get_bml_model(boss5_gryphon_bml_resource, 1), boss5_gryphon_texture_list, 0, 0, lbl_805D8D88);
     }
 }
-extern int fold_flush_14;
 #pragma pop
 
 #pragma push
@@ -4476,7 +4244,6 @@ void spawn_lightning_effect__13TBoss5GryphonFPv(u8 *arg0) {
     }
     TBoss5GryphonLightningEff__sub_80325064(o);
 }
-extern int fold_flush_15;
 #pragma pop
 
 #pragma push
@@ -4500,7 +4267,6 @@ void TBoss8Dragon__sub_80063EF4(s32 arg0) {
         spawn_ground_splash__13TBoss5GryphonFPv((u8 *)((void *) (arg0)));
     }
 }
-extern int fold_flush_16;
 #pragma pop
 
 #pragma push
@@ -4534,7 +4300,6 @@ void spawn_ground_splash__13TBoss5GryphonFPv(u8 *arg0) {
         }
     }
 }
-extern int fold_flush_17;
 #pragma pop
 
 #pragma push
@@ -4585,7 +4350,6 @@ void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1) {
     TBoss8Dragon__sub_80067074((void *)(arg1), (void *)((s32) (copy_storage_80064114.bytes)));
     TObjEneDD::setup_instance(arg0, arg1, (copy_storage_80064114.bytes), 0);
 }
-extern int fold_flush_18;
 #pragma pop
 
 #pragma push
@@ -4619,7 +4383,6 @@ void TBoss8Dragon__sub_800641A8(u8 *arg0) {
         reset_hp__9TObjEneDDFv((void *) (arg0), (int) (0), (int) (*(s32 *)((s8 *)(&boss5_gryphon_attack_params.value) + 0)), (int) (0));
     }
 }
-extern int fold_flush_19;
 #pragma pop
 
 #pragma push
@@ -4674,7 +4437,6 @@ void TBoss8Dragon__sub_8006435C(u8 *arg0) {
     emit_enemy_effect__9TObjEneDDFllPUcl((void *) (arg0), (int) (temp_r31_2), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)arg0 + 0x578)));
     reset_hp__9TObjEneDDFv((void *) (arg0), (int) (0), (int) (*(s32 *)((s8 *)(&boss5_gryphon_attack_params.value) + 0)), (int) (0));
 }
-extern int fold_flush_20;
 #pragma pop
 
 #pragma push
@@ -4745,7 +4507,6 @@ void update_collider_from_table__13TBoss5GryphonFi(s32 arg0) {
     *(ByteBlock_14 *)(copy_storage_80064694.bytes) = *(const ByteBlock_14 *)((s32) temp_r5 + 4);
     TBoss8Dragon__sub_800670E0((int)((void *) (arg0 + 0x3C0)), (void *)((void *) ((copy_storage_80064694.bytes))));
 }
-extern int fold_flush_21;
 #pragma pop
 
 #pragma push
@@ -4775,7 +4536,6 @@ void TBoss8Dragon__sub_800646F0(s32 arg0) {
     ((TObjEneDD *)arg0)->emit_effect_at_position((void *) (&stack.sp8));
     reload_stats_for_type__13TBoss5GryphonFi((s32)((void *) (arg0)));
 }
-extern int fold_flush_22;
 #pragma pop
 
 #pragma push
@@ -4906,7 +4666,6 @@ void TBoss8Dragon__sub_80064828(u8 *arg0) {
         ((TBoss8Dragon *)arg0)->update_state_3();
     }
 }
-extern int fold_flush_23;
 #pragma pop
 
 #pragma push
@@ -4942,7 +4701,6 @@ void TBoss8Dragon__sub_800648C8(u8 *arg0) {
         ((TBoss8Dragon *)arg0)->update_state_3();
     }
 }
-extern int fold_flush_24;
 #pragma pop
 
 #pragma push
@@ -4974,7 +4732,6 @@ int emit_part_attack_effect__13TBoss5GryphonFPvi(void *arg0, int arg1) {
     spawn_particle_effect_with_flags(p, ((Obj_80064968 *)arg0)->f5f0->f8, 0x40);
     ((TBoss8Dragon *)p)->spawn_attack_effect();
 }
-extern int fold_flush_25;
 #pragma pop
 
 #pragma push
@@ -5021,7 +4778,6 @@ void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self) {
     p.z = self->z;
     ((TBoss8Dragon *)(&p))->send_boss_actions();
 }
-extern int fold_flush_26;
 #pragma pop
 
 #pragma push
@@ -5053,7 +4809,6 @@ void apply_remote_action__13TBoss5GryphonFPvPv(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x4C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C0) | 2);
 }
-extern int fold_flush_27;
 #pragma pop
 
 #pragma push
@@ -5078,7 +4833,6 @@ void TBoss8Dragon::copy_action_state(u8 *arg1) {
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
     *(ByteBlock_10 *)((s32) arg0 + 4) = *(const ByteBlock_10 *)((s32) arg1 + 4);
 }
-extern int fold_flush_28;
 #pragma pop
 
 #pragma push
@@ -5105,7 +4859,6 @@ void handle_6xA0_gal_gryphon_boss_actions(void *arg0) {
         apply_remote_action__13TBoss5GryphonFPvPv((u8 *)(x), (u8 *)(arg0));
     }
 }
-extern int fold_flush_29;
 #pragma pop
 
 #pragma push
@@ -5129,7 +4882,6 @@ void set_target_from_action__13TBoss5GryphonFPvPv(void *arg0, void *arg1) {
     *(f32 *)((s8 *)arg0 + 0x394) = (f32) *(f32 *)((s8 *)arg1 + 8);
     *(f32 *)((s8 *)arg0 + 0x39C) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
 }
-extern int fold_flush_30;
 #pragma pop
 
 #pragma push
@@ -5156,7 +4908,6 @@ void handle_6x9F_gal_gryphon_boss_actions(void *arg0) {
         set_target_from_action__13TBoss5GryphonFPvPv((void *)(x), (void *)(arg0));
     }
 }
-extern int fold_flush_31;
 #pragma pop
 
 #pragma push
@@ -5183,7 +4934,6 @@ s32 reload_stats_for_phase__13TBoss5GryphonFPvPv(void *arg0, void *) {
 void reload_stats_for_type__13TBoss5GryphonFi(s32 arg0) {
     reload_stats_keep_hp_tp__9TObjEneDDFv((void *) (arg0), (int) (*(s32 *)((s8 *)(&boss5_gryphon_base_params) + (*(s32 *)((s8 *)(&lbl_80487848.value) + 0x48) * 4))), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80064CFC_lbl_804FF5A0 *)&boss5_gryphon_attack_params).value) + (*(s32 *)((s8 *)(&lbl_80487848.value) + 0x54) * 4))), (int) (*(s32 *)((s8 *)(&boss5_gryphon_resistance_params) + (*(s32 *)((s8 *)(&lbl_80487848.value) + 0x60) * 4))));
 }
-extern int fold_flush_32;
 #pragma pop
 
 #pragma push
@@ -5359,7 +5109,6 @@ void TBoss8Dragon__sub_80064DB8(u8 *arg0) {
         play_se__13TBoss5GryphonFii((s32) arg0, 0x40032D08);
     }
 }
-extern int fold_flush_33;
 #pragma pop
 
 #pragma push
@@ -5383,7 +5132,6 @@ void TBoss8Dragon__sub_80064E3C(u8 *arg0) {
         play_se__13TBoss5GryphonFii((s32) arg0, 0x40032D08);
     }
 }
-extern int fold_flush_34;
 #pragma pop
 
 #pragma push
@@ -5405,7 +5153,6 @@ extern int fold_flush_34;
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
     play_persistent_sound(arg1, arg0, arg0 + 0x560, 0, 0);
 }
-extern int fold_flush_35;
 #pragma pop
 
 #pragma push
@@ -5427,7 +5174,6 @@ extern int fold_flush_35;
 void play_se__13TBoss5GryphonFii(s32 arg0, s32 arg1) {
     ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(arg1, arg0 + 0x560, 0, 0);
 }
-extern int fold_flush_36;
 #pragma pop
 
 #pragma push
@@ -5449,7 +5195,6 @@ extern int fold_flush_36;
 void TBoss8Dragon::update_epsilon_position() {
     update_linked_position__12TObjEneDD_STFf(lbl_805D8EC8);
 }
-extern int fold_flush_37;
 #pragma pop
 
 #pragma push
@@ -5537,7 +5282,6 @@ void shift_position_history__13TBoss5GryphonFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec((void*)(arg0 + 0x2FC), (void*)(arg0 + 0x3C0));
     VecCopy__FP3VecPC3Vec((void*)(arg0 + 0x74), (void*)(arg0 + 0x2FC));
 }
-extern int fold_flush_38;
 #pragma pop
 
 #pragma push
@@ -5640,7 +5384,6 @@ void TBoss8Dragon::update_animation_by_state() {
         obj->vcall(*(s16 *)((s8 *)obj + 0x326), 9);
     }
 }
-extern int fold_flush_39;
 #pragma pop
 
 #pragma push
@@ -5764,7 +5507,6 @@ Obj_80065658 *__dt__13TBoss5GryphonFv(Obj_80065658 *o, s16 flag) {
     }
     return o;
 }
-extern int fold_flush_40;
 #pragma pop
 
 }

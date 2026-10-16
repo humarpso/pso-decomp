@@ -17,11 +17,6 @@ s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 
 extern "C" {
 
-s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
-s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
-int set_flag62_bit2__16TKeyBoardControlFPv(void*);
-s32 window_request_show(void * a0 = 0);
-
 void TLobby::debug_print(s32 arg0, ...) {}
 
 s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {

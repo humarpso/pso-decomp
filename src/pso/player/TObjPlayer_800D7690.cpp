@@ -17,9 +17,6 @@ typedef struct Trail_800D76E8 {
 } Trail_800D76E8;
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 

@@ -38,8 +38,6 @@ struct Q_800782B8 { s32 len; s32 v; u8 pad[0xc]; };
 
 struct Q2_800782B8 { s32 len; s32 v; u8 pad[0xc]; };
 
-struct P_800782B8 { u16 a; u16 b; };
-
 struct Sock_80078264 { u8 pad[0x28]; s16 x28; };
 
 extern "C" {

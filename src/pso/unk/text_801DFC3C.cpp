@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
-struct W_801DFC3C { u32 w[30]; };
 
 struct Obj_801DFC3C { u8 pad[0x600]; u32 w[30]; };
 

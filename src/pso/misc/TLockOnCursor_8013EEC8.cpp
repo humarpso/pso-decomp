@@ -26,11 +26,6 @@ int reset_nearest_target_record(void*);
 void TMainCursor__sub_8013F104(void* p, s32 v);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F114(void* p);
-f32 TMainCursor__sub_8013F14C(void* p);
-s32 TMainCursor__sub_8013F168(void* p);
-void TMainCursor__sub_8013F170(void* p, s32 v);
-void TMainCursor__sub_8013F180(void* p, f32 v);
-int copy_vec4__13TRaderMapCoreFPvPv(void*);
 int fn_8004438C(void*);
 int init_gc_tag(void*);
 

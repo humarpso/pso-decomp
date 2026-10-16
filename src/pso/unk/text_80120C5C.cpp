@@ -59,8 +59,6 @@ struct Pl_80120C5C : PlB_80120C5C {
     virtual u8 m41();
 };
 
-struct B12_80120C5C { s32 a; s32 b; s32 c; };
-
 struct T_80120C5C { s32 a; s32 b; s32 c; u16 d; u8 e; };
 
 extern "C" {

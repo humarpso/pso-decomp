@@ -5,24 +5,7 @@
 #include "pso/object/TObjCityMainWarp.h"
 
 extern "C" {
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
 int get_selection__19TWindowSubTechniqueFPsPll(void*, void* a1);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
 u32 get_player_by_client_id(s32);
 s32 is_palette_entry_displayable__10TObjPlayerFv(s32, s32, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();

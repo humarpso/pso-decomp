@@ -6,8 +6,6 @@ struct Obj_80323D20 {
     s32 f0; u8 pad[0xAC - 4]; s32 fAC; s32 fB0; s32 fB4; u8 padB8[4]; f32 fBC; s32 fC0; s32 fC4; f32 pos[3];
 };
 
-struct Vt_80323D20 { u8 pad[0x18]; void *vt; };
-
 class TBoss6GravBall_80323BBC {
 public:
     u8 pad[0xB0];

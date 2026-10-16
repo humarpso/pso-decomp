@@ -50,12 +50,10 @@ extern void *farlla_photon_blast_model_buffers;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__13TPhotonFarllaFv(Self_801AAF00 *self);
 }
 
 extern "C" {
 
-void sub_801AAE6C__13TPhotonFarllaFv(void* a0);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 destroy_buffer_pair(void*, s32);
 u32 obj_getField1c();

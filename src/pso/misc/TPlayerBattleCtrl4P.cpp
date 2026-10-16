@@ -77,9 +77,6 @@ void TPlayerBattleCtrl4P::wait_before_recording_results() {
         set_score((s32)((void*)(8)));
     }
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::wait_after_battle_end() {
     s32 temp_r0;
 
@@ -118,9 +115,6 @@ void TPlayerBattleCtrl4P::begin_battle_results() {
     ((s32 (*)(void *))update_all_players__19TPlayerBattleCtrl4PFv)(((void *)this));
     set_score((s32)((void *)1));
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::update_battle_time_and_rankings() {
     s32 secs;
     s32 r;
@@ -146,13 +140,7 @@ void TPlayerBattleCtrl4P::update_battle_time_and_rankings() {
     }
     calculate_split_screen_battle_rankings(((Ctl_80311FA0 *)this));
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::start_battle() { start_duel__19TPlayerBattleCtrl4PFPv(((void*)this)); set_score((s32)((void*)((void*)((void*)1)))); }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::close_intro_and_start_battle() {
     void *temp_r3 = *(void **)((s8 *)((void *)this) + 0x20);
     if ((u32) temp_r3 != 0U) {
@@ -160,9 +148,6 @@ void TPlayerBattleCtrl4P::close_intro_and_start_battle() {
         *(u32 *)((s8 *)((void *)this) + 0x20) = 0U;
     }
     set_split_screen_battle_phase(2);
-}
-extern "C" {
-
 }
 void TPlayerBattleCtrl4P::wait_for_start_countdown() {
     s32 temp_r0;
@@ -172,9 +157,6 @@ void TPlayerBattleCtrl4P::wait_for_start_countdown() {
     if (temp_r0 <= 0) {
         set_score((s32)((void*)((void*)(8))));
     }
-}
-extern "C" {
-
 }
 void TPlayerBattleCtrl4P::update_ready_wait() {
     ready_timer = (s32) (ready_timer - 1);
@@ -199,9 +181,6 @@ extern "C" {
 void TPlayerBattleCtrl4P::begin_ready_wait() {
     ready_timer = 0x384;
     set_score((s32)((void*)(6)));
-}
-extern "C" {
-
 }
 void TPlayerBattleCtrl4P::wait_for_team_matchup() {
     s32 temp_r0;
@@ -241,9 +220,6 @@ void TPlayerBattleCtrl4P::show_team_matchup() {
     ((O_8031224C *)this)->timer = 0xF0;
     set_score((s32)((void *)4));
 }
-extern "C" {
-
-}
 void TPlayerBattleCtrl4P::wait_for_intro_text() {
     s32 temp_r0;
 
@@ -256,7 +232,4 @@ void TPlayerBattleCtrl4P::wait_for_intro_text() {
         }
         set_score((s32)((void*)(5)));
     }
-}
-extern "C" {
-
 }

@@ -17,7 +17,6 @@ extern "C" {
 void *TORevlightCave01__ct(void *arg0, s32 arg1, s32 arg2);
 s32 init_map_object_base();
 
-extern const s32 lbl_80442498[];
 extern const s32 __vt__16TORevlightCave01[];
 extern s32 TORevlightCave01__name;
 extern void *TORevlightCave01__static_model_resource;

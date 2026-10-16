@@ -35,8 +35,6 @@ struct Seg_80325070 { Vtx_80325070 a; Vtx_80325070 b; };
 
 struct Obj_80325070 { u8 pad[0x34]; f32 len; s32 n; u8 pad2[0x25C - 0x3C]; s16 flags; };
 
-struct L3_80325070 { s32 *p; };
-
 struct L2_80325070 { u8 pad[0xC]; s32 *p; };
 
 struct L1_80325070 { u8 pad[8]; L2_80325070 *a; u8 pad2[8]; L2_80325070 *b; };

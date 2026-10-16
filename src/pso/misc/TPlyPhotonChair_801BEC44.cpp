@@ -14,58 +14,6 @@ void TObjPlayer__sub_801BEC78(O_801BEC78 *p);
 
 extern "C" {
 
-int TFontSmallLobby__sub_801C0228(void*);
-int TObjPlayer__sub_8011E204(void*, int);
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
-int TObjPlayer__sub_801BED70(void*);
-int TObjPlayer__sub_801BED78(void*);
-int TObjPlayer__sub_801BED80(void*);
-int TObjPlayer__sub_801BED88(void*);
-int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
-int check_flag_48__10TObjPlayerFPv(void* p);
-s32 clamp_index_to_max__10TObjPlayerFi(s32);
-int end_camera_pan__10TObjPlayerFPv(void*);
-u8 get_battle_mode__10TObjPlayerFPv(void* p);
-u8 get_byte_339__10TObjPlayerFPv(void* p);
-int get_equip_flags__10TObjPlayerFPv(void* p);
-int get_field_374__10TObjPlayerFPv(void* p);
-int get_field_374_state__10TObjPlayerFPv(void* p);
-int get_inventory_state__10TObjPlayerFPv(void* p);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-int is_action_active__10TObjPlayerFPv(void* p);
-int is_status_flag_200__10TObjPlayerFPv(void* p);
-int is_status_locked__10TObjPlayerFPv(void* p);
-void set_action_flag_2__10TObjPlayerFPv(void* p);
-void set_flag_02000000__10TObjPlayerFPv(void *arg0);
-void set_flag_2000000__10TObjPlayerFPv(void *arg0);
-void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
-int start_freeze__10TObjPlayerFPv(void*);
-int start_freeze_self__10TObjPlayerFPv(void* p);
-
 int TPlyPhotonChair::is_mounted() { return (*(u32*)((char*)this + 0x334) >> 26) & 0x1; }
 
 void TObjPlayer::init_vec_record() {

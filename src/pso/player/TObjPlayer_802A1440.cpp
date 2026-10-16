@@ -6,9 +6,6 @@
 struct P_802A1544 { u8 pad0[0x408]; s8 v[0x14]; };
 
 extern "C" {
-}
-
-extern "C" {
 
 void TObjPlayer__sub_802A1588(void* p);
 int TAdSelectTxtGC__sub_802A16A8(void*);

@@ -97,17 +97,6 @@ struct Node_80192A3C { u32 flags; void *model; u8 pad8[0x24]; Node_80192A3C *chi
 
 struct Fish_80192A3C { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80192A3C *fBC; Node_80192A3C *fC0; s32 fC4; void *fC8[4]; };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct VBase_80192874 { char pad[0x18]; };
 
 struct VObj_80192874 : VBase_80192874 {

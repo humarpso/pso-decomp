@@ -89,7 +89,6 @@ void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str) {

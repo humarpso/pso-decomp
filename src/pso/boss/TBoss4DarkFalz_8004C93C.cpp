@@ -32,7 +32,6 @@ struct RecoveredGlobal_8004C5E8_TBoss4DarkFalz__data_804FF1E8 {
 
 extern "C" {
 int VecCopy__FP3VecPC3Vec(void*, void* a1);
-extern f32 lbl_805D9AA0;
 int freeze_all_players__14TBoss4DarkFalzFPv(void*);
 s32 queue_destruction__7TObjectFv(void *);
 s32 obj_setArrS16_FC(void *, s32, u16);
@@ -115,14 +114,6 @@ void TBoss4DarkFalz::save_position() {
     VecCopy__FP3VecPC3Vec((void*)((void*)(arg0 + 0x44)), (void*)((void*)(arg0 + 0x38)));
 }
 
-struct A7B00Base_800a7b00_800A7764 { char pad[0x14]; };
-struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
 int TBoss4DarkFalz::set_position_from(void* _w1) { return VecCopy__FP3VecPC3Vec((void*)((char*)this + 0x38), (void*)(_w1)); }
 
 void TBoss4DarkFalz::swap_and_send() { swap_bytes(); TLobby__send_and_handle_60(this); }

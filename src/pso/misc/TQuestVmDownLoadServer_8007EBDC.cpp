@@ -19,7 +19,6 @@ void __ct__7TObjectFP7TObject(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_803DE864(void*);
-s32 xfree__FPv();
 int xmalloc__FUl(void*);
 
 int TQuestVmDownLoadServer__sub_8007EBDC(void* p) { return fn_803DE864(p); }

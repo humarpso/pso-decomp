@@ -4,11 +4,8 @@
 extern "C" {
 
 void TWindowSubSymbolChat__sub_80077704(void* p);
-int get_localized_text_entry(void*, void*);
 int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
-int fn_80077788(void);
-int fn_80077790(void);
 int read_be16_field2__10TObjPlayerFv(void*);
 int update_players__6TLobbyFi(void*);
 

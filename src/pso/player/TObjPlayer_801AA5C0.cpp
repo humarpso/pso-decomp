@@ -13,9 +13,6 @@ extern "C" {
 
 extern "C" {
 s32 __construct_array(void *, void *, void *, int, int);
-s32 __destroy_arr(s32, s32 *, s32, s32);
-int TObjPlayer__sub_801AA6E4(void* a0 = 0, void* a1 = 0);
-void* TObjPlayer__sub_801AA66C(void* p, void* a1);
 void TObjPlayer__sub_801AA64C(O_801AA64C *p);
 void* TObjPlayer__sub_801AA61C(void* p);
 
@@ -59,9 +56,6 @@ void* TObjPlayer__sub_801AA61C(void* p) { TObjPlayer__sub_801AA64C((O_801AA64C *
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
-
-extern "C" {
-}
 
 extern "C" {
 

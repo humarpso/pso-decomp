@@ -31,7 +31,6 @@ void TChCrEffFade::render() {
     TCameraCtrl__sub_80068EF0();
 }
 
-extern s32 lbl_80464F20;
 extern const f32 lbl_805DD9F8;
 
 void TChCrEffFade::update_fade() {

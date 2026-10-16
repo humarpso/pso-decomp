@@ -19,7 +19,6 @@ struct RecoveredGlobal_80287FBC___vt__12TWindowTimer {
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
-extern s32 __vt__14TWindowMessage[];
 void render__12TWindowTimerFv(s32 arg0);
 s16 get_timer_value__12TWindowTimerFi(int);
 void run_task__12TWindowTimerFv(u8 *arg0);

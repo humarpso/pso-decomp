@@ -2,9 +2,6 @@
 #include "pso/misc/TWindowSubCustomEquip.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 TWindowSubCustomEquip::is_type_valid() {
     u8 temp_r0;

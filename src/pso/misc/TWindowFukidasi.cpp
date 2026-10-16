@@ -399,7 +399,6 @@ void rearm_balloon__15TWindowFukidasiFv(u8 *arg0, s32 arg1) {
         break;
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 s32 TWindowFukidasi::check_card_match_enabled(s32 arg1) {
@@ -488,7 +487,6 @@ void TWindowFukidasi::place_rect_at_head_or_slot() {
         b->rect[1] = p[1] - TWindowFukidasi__data_805DCD0C * b->anchor[1];
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -691,7 +689,6 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
         }
     }
 }
-extern int fold_flush_2;
 #pragma pop
 
 s32 TWindowFukidasi::project_anchor(f32 *pos, f32 *out) {
@@ -787,7 +784,6 @@ s32 TWindowFukidasi::is_speaker_far_or_offscreen() {
     ((TUnk_804CF0B8 *)arg0)->sub_80252C68();
     return ((TUnk_804CF0B8 *)arg0)->get_flag_bit1() != 0 ? 1 : 0;
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -833,7 +829,6 @@ void TWindowFukidasi::follow_anchor() {
     b->center[1] = TWindowFukidasi__data_805DCD0C * b->size[1] + b->pos[1];
     project_anchor(NULL, b->head);
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -874,7 +869,6 @@ void TWindowFukidasi::get_boundary_offset(s32 angle, f32 *out) {
     out[0] += ax * kx;
     out[1] += ay * ky;
 }
-extern int fold_flush_5;
 #pragma pop
 
 void set_color__15TWindowFukidasiFPvUs(void *arg0, u16 arg1) {
@@ -916,7 +910,6 @@ s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0) {
     }
     return var_r31;
 }
-extern int fold_flush_6;
 #pragma pop
 
 void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
@@ -1002,7 +995,6 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     *((u8 *) (((s8 *) arg0) + 0x70)) = 5U;
   }
 }
-extern int fold_flush_7;
 #pragma pop
 
 void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
@@ -1089,7 +1081,6 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
         ((TObjCMHairMenu *)(&prim))->draw_tri_fan_2d(3, 2, lbl_805DCD90 + b->f54);
     }
 }
-extern int fold_flush_8;
 #pragma pop
 
 #pragma push
@@ -1128,7 +1119,6 @@ void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx
         DVDConvertEntrynumToPath(s);
     }
 }
-extern int fold_flush_9;
 #pragma pop
 
 #pragma push
@@ -1177,7 +1167,6 @@ void draw_body__15TWindowFukidasiFPvPvUiPvf(struct Fukidasi_80252558 *b, struct 
     }
     TWindowSubStatusDisp::get_player();
 }
-extern int fold_flush_10;
 #pragma pop
 
 #pragma push
@@ -1225,7 +1214,6 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
         draw_name_plate__15TWindowFukidasiFv(b, v, b->color);
     }
 }
-extern int fold_flush_11;
 #pragma pop
 
 void TWindowFukidasi::run_task() {

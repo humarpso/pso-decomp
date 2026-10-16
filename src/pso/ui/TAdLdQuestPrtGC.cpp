@@ -54,8 +54,6 @@ Obj_80322E90 *__dt__15TAdLdQuestPrtGCFv(Obj_80322E90 *arg0, s16 arg1);
 
 extern "C" {
 
-int TAdEndText__sub_803997FC(void*);
-
 void TAdLdQuestPrtGC::render() {  }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 

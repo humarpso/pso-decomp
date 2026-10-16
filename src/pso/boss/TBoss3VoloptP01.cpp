@@ -688,10 +688,6 @@ struct VObj_80044038 : VBase_80044038 {
     virtual void m80();
 };
 
-struct A_80044038 { u8 x[0x60]; };
-
-struct Data_80044038 { A_80044038 a; u8 b[0x1C]; u8 c[4]; };
-
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_status_effect_row(void *);
 s32 obj_clearFlags30(void *, int);
@@ -897,7 +893,6 @@ s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0) {
     }
     return 0;
 }
-extern int fold_flush_0;
 #pragma pop
 
 #undef TObjPlayer__sub_80042ED0
@@ -1204,7 +1199,6 @@ void TBoss3VoloptP01::run_state_machine() {
     submit_cursor_candidate((void *)((void *) (arg0)), (s32)((int) (-1)));
     minimap_render_dot((void *)((void *) (arg0 + 0x38)), (s32)((int) (-0x5DB4)), (s32)((int) (1)), (s32)((int) (0)));
 }
-extern int fold_flush_1;
 #pragma pop
 
 #undef TObjPlayer__sub_80042ED0
@@ -1561,7 +1555,6 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     *(s32 *)((s8 *)arg0 + 0x3B8) = var_r0;
     return arg0;
 }
-extern int fold_flush_2;
 #pragma pop
 
 u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, s32 arg1, s32 arg2) {

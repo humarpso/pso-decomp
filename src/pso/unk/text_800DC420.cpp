@@ -57,23 +57,6 @@ struct Vec_800DC83C { f32 x, y, z; };
 
 struct Ang_800DC83C { s32 x, y, z; };
 
-struct Vec_800DC9EC { f32 x, y, z; };
-
-struct Me_800DC9EC {
-    u8 pad0[0xAC];
-    Vec_800DC9EC pos;
-    Vec_800DC9EC prev;
-    Vec_800DC9EC vel;
-    u8 padD0[0xEC - 0xD0];
-    s32 timer;
-    void *target;
-    f32 speed;
-    void *effect;
-    s32 state;
-    u16 owner;
-    u16 attacker;
-};
-
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
@@ -124,18 +107,12 @@ s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 s32 spawn_particle_effect(void *, int);
-void enable__13TParticleCtrlFPv(void *);
-Obj_800DC4B4 *find_active_entity_by_id(u16);
 void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *, void *);
 void set_flag_20000__10TObjPlayerFPv(void *);
 f32 xyz_distance_squared(void *, void *);
 void *find_entity_by_id(u16);
-s32 play_sound_effect(int, void *, int, int);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
-extern const f32 lbl_805D5260;
-extern const f32 lbl_805D5268;
-extern s32 lbl_805D5270;
 extern s32 local_client_id;
 }
 

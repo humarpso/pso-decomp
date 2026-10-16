@@ -4,9 +4,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 TObjPlayer__sub_80082300(void* p);
 

@@ -12,7 +12,6 @@ struct O_800AAF98 { u8 pad[0x368]; s32 x368; };
 
 extern "C" {
 extern RecoveredGlobal_800AAF78_lbl_805009B8 lbl_805009B8;
-f32 sub_800AAF78__14TObjEneDubchikFl(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_800AAF78_lbl_805009B8 lbl_805009B8;
 s32 TObjPlayer__sub_800AAF98(O_800AAF98 *self, s32 i);
 }

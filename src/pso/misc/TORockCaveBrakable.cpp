@@ -12,12 +12,6 @@ struct Init_80174CFC { u8 b[0x4C]; };
 
 struct Offs_80174CFC { Vec_80174CFC v[6]; };
 
-struct Stack_80174CFC {
-    Vec_80174CFC v;
-    Init_80174CFC init;
-    Offs_80174CFC offs;
-};
-
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);

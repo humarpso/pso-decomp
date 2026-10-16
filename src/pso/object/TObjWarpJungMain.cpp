@@ -62,20 +62,6 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1);
 
 extern "C" {
 
-struct VObjBase_801A0070 { char pad[0x18]; };
-
-struct VObj_801A0070 : VObjBase_801A0070 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
 struct RecoveredGlobal_8019FCFC_lbl_804B9658 {
     s32 value;
     u8 remaining[0x8];

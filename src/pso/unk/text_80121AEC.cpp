@@ -2,9 +2,6 @@
 #include "pso/item/TUnk_804A0BC0.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 void TUnk_804A0BC0::update_weapon() {
     u8 *arg0 = (u8 *)this;

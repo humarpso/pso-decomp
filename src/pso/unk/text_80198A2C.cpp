@@ -438,13 +438,6 @@ void clear_status_flags__12TWindowTimerFv(void) {
 
 extern "C" {
 
-struct Tbl_801990B4 {
-    struct { u8 e[10][0x54]; } s;
-    u8 pad348[0x384 - 0x348];
-    u8 f384[0xC];
-    u8 f390[0xC];
-};
-
 f32 fabs_float(f32);
 u8 *TWindowTimer__sub_8019886C(void *, void *, s32, s32, s32, void *);
 u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4);

@@ -93,11 +93,7 @@ struct Anim_80143504 {
 
 struct A_80142B3C { u32 a0; u32 idx; u32 a8; u32 aC; };
 
-struct D_80142B3C { u32 d0; u32 d4; };
-
 struct R_80142B3C { u32 r0; u32 val; };
-
-struct P_80142B3C { D_80142B3C *d0; s32 pad; };
 
 struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r; } *tab2; };
 

@@ -121,7 +121,6 @@ extern const f32 lbl_805DCAE4;
 extern const f32 lbl_805DCAE8;
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 extern const f32 lbl_805DCB48;
-extern const f32 lbl_805DCB30;
 extern const f32 lbl_805DCB28;
 extern const f32 lbl_805DCB2C;
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -145,19 +144,6 @@ extern const f32 lbl_805DCB2C;
 }
 
 extern "C" {
-
-struct Base_8010B054_8010A710_card_0 { char pad[0x18]; };
-
-struct VObj_8010B054_8010A710_card_0 : Base_8010B054_8010A710_card_0 {
-    virtual void m0();
-    virtual void m1();  virtual void m2();  virtual void m3();
-    virtual void m4();  virtual void m5();  virtual void m6();
-    virtual void m7();  virtual void m8();  virtual void m9();
-    virtual void m10(); virtual void m11(); virtual void m12();
-    virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18();
-    virtual void m19();
-};
 
 struct VOff_8024491C_arg0_card_1 { char pad_0[0x38]; char f_38[1]; };
 

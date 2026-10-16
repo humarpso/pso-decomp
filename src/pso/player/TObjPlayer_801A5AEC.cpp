@@ -76,8 +76,6 @@ extern s32 lbl_805D49B4;
 extern u8 lbl_805D5D09;
 s32 func_801A5E54__Fv(void);
 s32 PADRecalibrate(u32);
-extern Masks_801A5C4C pad_recalibration_bit_masks;
-extern const f64 lbl_804469E8[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 extern u32 pad_recalibration_counters[];
 extern u8 lbl_805D5D09;
@@ -92,7 +90,6 @@ void bind_controller_devices(void);
 void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 s32 update_button_hold_counters(int);
-extern const f64 lbl_80446A00[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 extern u8 controller_physical_port_bank[];
 extern s32 lbl_805D34C8;
@@ -668,9 +665,6 @@ s32 TKeyBoardControl::poll_key_state() {
 #undef lbl_805D5D09
 #undef TKeyBoardControl__global_key_state
 #pragma pop
-
-extern "C" {
-}
 
 extern "C" {
 

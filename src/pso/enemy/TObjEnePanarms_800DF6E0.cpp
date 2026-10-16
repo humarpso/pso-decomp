@@ -12,7 +12,6 @@ extern "C" {
 
 s32 TObjControl__ct(s32, s32);
 s32 TObjEnePanarms__ct(s32, s32, s32);
-int TObjEnePanarms__sub_800DFBC4(void* p);
 int apply_animation_transition(void*, void*);
 s32 __nw__7TObjectFUl(s32);
 int fn_800660B8(void*);

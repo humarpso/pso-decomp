@@ -141,8 +141,6 @@ extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFEC;
 
 struct Vec_803561C4 { f32 x, y, z; };
-union Val_803561C4 { f32 f; s32 i; };
-struct Prm_803561C4 { s32 a; Val_803561C4 b; s32 c; Val_803561C4 d; };
 
 void damage_players_in_radius(u8 *arg0) {
     Vec_803561C4 v;

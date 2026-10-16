@@ -216,8 +216,6 @@ struct Obj_80054738 {
 
 typedef void (Obj_80054738::*Act_80054738)();
 
-struct Ent_80054738 { u8 pad[0x14]; Act_80054738 a; Act_80054738 b; };
-
 typedef char RecoveredGlobal_80054530_lbl_80485EC8_size[sizeof(RecoveredGlobal_80054530_lbl_80485EC8) == 0x1E0 ? 1 : -1];
 
 typedef char RecoveredGlobal_8005455C_lbl_80485EC8_size[sizeof(RecoveredGlobal_8005455C_lbl_80485EC8) == 0x1E0 ? 1 : -1];
@@ -826,7 +824,6 @@ void TBoss4Type2__sub_800525AC(u8 *arg0) {
         ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)((void *) (arg0), (int) (1));
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void TBoss4Type2__sub_800528B8(void *arg0) {
@@ -1261,7 +1258,6 @@ void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *
     out->y = lbl_805D8B20;
     out->z = s * cos_table_lookup(ang);
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TRaderMapCore::set_map_position(void *arg1) {
@@ -1277,7 +1273,6 @@ void TBoss4Type2::calc_target_position() {
     arg0->f3BC = lbl_805D8B20;
     arg0->f3C0 = lbl_805D8B5C * (lbl_805D8B60 + (f32)arg0->i3B4) - lbl_805D8B58;
 }
-extern int fold_flush_2;
 #pragma pop
 
 void calc_scale_slot_indices__11TBoss4Type2FPvPvPv(S_80053B48 *o, s32 *a, s32 *b) {
@@ -1355,7 +1350,6 @@ void TBoss4Type1::sub_80053D4C() {
         VecCopy__FP3VecPC3Vec(q, &v);
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 void TBoss4Type1::push_players_out_of_colliders() {
@@ -1517,7 +1511,6 @@ void TBoss4Type1::draw_parts() {
     TObjPlayer::clear_global_state();
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
 }
-extern int fold_flush_4;
 #pragma pop
 
 void TBoss4Type2::set_motion_index(s32 arg1) {
@@ -1566,7 +1559,6 @@ void TBoss4Type1::update_boss4_phase_timer() {
         *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) lbl_805D8B20;
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 void TBoss4Type1::render_effects() { toggle_particle_effect__10TObjPlayerFv(this); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x60)); ((TBoss4Type1 *)this)->draw_parts(); pop_matrix(); TParticleCtrl::end_effect_render(); }
@@ -1609,7 +1601,6 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
     }
     self->x3e0 = (f32)self->x32c / (f32)self->x33e;
 }
-extern int fold_flush_6;
 #pragma pop
 
 void request_state_3__11TBoss4Type2FPv(void *arg0) {

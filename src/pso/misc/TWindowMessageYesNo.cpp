@@ -16,17 +16,10 @@ extern "C" {
 
 void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
-s32 create_window_menu(s32, s32, s32);
-s32 get_selected_menu_value(s32);
-s32 calc_layout_height__17TWindowSubComCardFPvf(s32, f32);
-int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-int queue_destruction__7TObjectFv(void*);
-s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 void TWindowMessageYesNo::render() {  }
 

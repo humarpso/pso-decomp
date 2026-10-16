@@ -118,13 +118,10 @@ extern u32 TOKeyAncient01__texture_lists;
 extern "C" {
 
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1);
-int TLobby__send_and_handle_60(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-int bswap_16__FPUs(void*);
-int init_6x04_packet(void* a0 = 0);
 
 void TOKeyAncient01::set_type() { *(s32*)((char*)this + 0x0) = 3; }
 

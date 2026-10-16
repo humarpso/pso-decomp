@@ -147,9 +147,6 @@ s32 set_field_1c__6TLobbyFf(void *);
 
 extern "C" const char lbl_805DD648[] = "";
 
-extern "C" {
-}
-
 void TWindowSubMag::update_mag_help() {
     s32 temp_r3;
 

@@ -153,8 +153,6 @@ struct RecoveredGlobal_8005101C___vt__11TObjDFJisin {
 
 typedef char RecoveredGlobal_8005101C___vt__11TObjDFJisin_size[sizeof(RecoveredGlobal_8005101C___vt__11TObjDFJisin) == 0x18 ? 1 : -1];
 
-struct RecoveredGlobal_80051430___vt__13TObjDFRecBall { s32 value; u8 remaining[0x14]; };
-
 struct Vec_8005123C { f32 x, y, z; };
 
 struct Ball_8005123C {
@@ -375,7 +373,6 @@ u8 *TObjDFHorming__ct(u8 *arg0, s32 arg1, s32 arg2, u16 arg3) {
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
     return arg0;
 }
-extern int fold_flush_0;
 #pragma pop
 
 void * create_horming__11TBoss4Type3FPvPvPv(void *arg0, void *arg1, void *arg2) {
@@ -448,7 +445,6 @@ void TObjDFJisin::run_task() {
     }
     ((Obj_80050EB4 *)this)->radius += lbl_805D8AA4;
 }
-extern int fold_flush_1;
 #pragma pop
 
 TObjDFJisin::~TObjDFJisin() {}
@@ -545,7 +541,6 @@ void TObjDFRecBall::run_task() {
         queue_destruction__7TObjectFv(o);
     }
 }
-extern int fold_flush_2;
 #pragma pop
 
 }
@@ -937,9 +932,6 @@ extern RecoveredGlobal_80051AD0_lbl_804858B4 dark_falz_jisin_zero_vec;
 extern RecoveredGlobal_80051AD0_lbl_804FF228 lbl_804FF228;
 extern RecoveredGlobal_80051AD0_lbl_804FF234 lbl_804FF234;
 extern int TObjDFTenchuFuru__matrix_node_index;
-}
-
-extern "C" {
 }
 
 #include "types.h"

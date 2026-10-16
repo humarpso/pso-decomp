@@ -275,7 +275,6 @@ void *TCameraCtrl__vt9(void) {
     return o;
 }
 
-extern const f64 lbl_804383C8;
 extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D9000;
 

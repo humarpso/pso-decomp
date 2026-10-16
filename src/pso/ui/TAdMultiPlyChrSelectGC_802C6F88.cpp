@@ -29,7 +29,6 @@ void TAdMultiPlyChrSelectGC::update_transition_anim_if_active() {
     }
 }
 
-extern s32 lbl_80471D08;
 extern const f32 lbl_805DE5A8;
 extern const f32 lbl_805DE5AC;
 extern const f32 lbl_805DE5B0;

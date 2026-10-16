@@ -137,7 +137,6 @@ void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 void set_ginja_draw_end_callback(void *);
 void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_801416AC(void);
-struct Cfg_801416AC { u32 a; u8 b; u8 c; u8 pad6[2]; u32 d; u8 e; u8 f; u8 pad_e[2]; u32 g; };
 #define depth_buffer_settings (*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)
 #define saved_depth_alpha_scene_state (*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state)
 void copy_config__10TObjPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u8*)((char*)p + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); *(u8*)((char*)p + 0xc) = *(u8*)((char*)q + 0xc); *(u8*)((char*)p + 0xd) = *(u8*)((char*)q + 0xd); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); }

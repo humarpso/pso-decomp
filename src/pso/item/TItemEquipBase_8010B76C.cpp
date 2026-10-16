@@ -8,12 +8,6 @@ void fn_8010B7E8(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void subtract_s16_stat(s16 *arg0, s32 arg1);
-s32 TItemData__sub_8010B808(void* p);
-s32 TItemData__sub_8010B810(void* p);
-void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
-void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
-void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 

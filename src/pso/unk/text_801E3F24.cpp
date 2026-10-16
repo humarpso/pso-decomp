@@ -32,10 +32,6 @@ void handle_6x03(void);
 void handle_6x04_legacy_activate_switch_by_token(void *arg0);
 void handle_6x9E_player_camera_shutter_sound(void);
 s32 TObjDoorKey__sub_8018FAEC(u16, u16);
-void TObjEneRe4Sorcerer__sub_801E3F14(void);
-void TObjEneRe4Sorcerer__sub_801E3F18(void);
-void TObjEneRe4Sorcerer__sub_801E3F1C(void);
-void TObjEneRe4Sorcerer__sub_801E3F20(void);
 s32 bswap_switch_activate_token__6TLobbyFPv();
 
 void TObjPlayer__sub_801E3F24(s32 arg0) {

@@ -18,84 +18,7 @@ typedef char RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00_size[sizeof(Rec
 struct RecoveredGlobal_80096FD8_lbl_8058D490 { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_80096FD8_lbl_8058D490_size[sizeof(RecoveredGlobal_80096FD8_lbl_8058D490) == 0x30 ? 1 : -1];
 
-struct RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 {
-    s32 value;
-    u8 remaining[0xC];
-};
-
-struct RecoveredGlobal_8009705C_lbl_8058D490 {
-    s32 value;
-    u8 remaining[0x2C];
-};
-
-struct Seg_80096EBC { s32 a; f32 x; f32 y; f32 z; u8 pad[12]; };
-
-struct Brk_80096EBC { s32 count; Seg_80096EBC *segs; };
-
-struct Color_8009680C { f32 a; f32 r; f32 g; f32 b; };
-
-struct Part_8009680C { u8 pos[0x18]; u8 rot[0x10]; };
-
-struct Chunk_8009680C { s32 model; u8 pad[0x18]; };
-
-struct Model_8009680C { u8 pad0[4]; Chunk_8009680C *chunks; s32 is_chunk; };
-
-struct BreakUp_8009680C {
-    u8 pad0[0x1C];
-    s32 count;
-    Model_8009680C *model;
-    void *texlist;
-    f32 alpha;
-    u8 pad2C[0x34 - 0x2C];
-    Part_8009680C *parts;
-};
-
-struct Part_8009693C {
-    f32 x, y, z;
-    f32 vx, vy, vz;
-    s32 rx, ry, rz;
-    s32 spin;
-};
-
-struct BreakUp_8009693C {
-    u8 pad0[0x1C];
-    s32 count;
-    u8 pad20[0x28 - 0x20];
-    f32 alpha;
-    u8 pad2C[0x30 - 0x2C];
-    f32 speed;
-    Part_8009693C *parts;
-    u8 pad38[0x3C - 0x38];
-    f32 fade;
-    u8 pad40[0x44 - 0x40];
-    f32 damping;
-    f32 gravity;
-};
-
 struct RecoveredGlobal_80096F54_lbl_8058D490;
-struct Part_80096AD8 { f32 pos[3]; f32 vel[3]; s32 f18; s32 f1c; s32 f20; s32 f24; };
-
-struct Seg_80096AD8 { s32 f0; f32 a[3]; f32 b[3]; };
-
-struct Model_80096AD8 { s32 count; Seg_80096AD8 *segs; };
-
-struct BreakUp_80096AD8 {
-    s32 f0;
-    u8 pad4[0x18 - 0x4];
-    s32 *vtable;
-    s32 count;
-    Model_80096AD8 *model;
-    s32 f24;
-    u8 pad28[0x30 - 0x28];
-    f32 f30;
-    Part_80096AD8 *parts;
-    s32 f38;
-    f32 f3C;
-    f32 f40;
-    u8 pad44[0x4C - 0x44];
-    f32 f4C;
-    f32 f50;
-};
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -136,7 +59,6 @@ struct Bringer_80097100 : VObj_18_26a62c {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -145,61 +67,38 @@ s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-u8 *setup_pieces__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-u8 *init_from_model__11TBreakUpMdlFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805D97C8;
-s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
 void *mem_alloc(int);
 extern const f32 lbl_805D97CC;
-void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1);
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void draw_ginja_model(s32);
-void set_chunk_material_override_pair(u32, u32);
-void set_chunk_material_color(Color_8009680C *);
-void draw_chunk_model(s32);
-extern Color_8009680C breakup_default_color;
-extern u32 lbl_805D5660;
-extern u32 model_render_flags;
 extern const f32 lbl_805D97C8;
-void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D97CC;
-f32 rand_signed_unit(void);
 void *mem_alloc(int);
-void __ct__7TObjectFP7TObject(void *, void *);
-s32 rand(void);
 s32 matrix_mult_vec(int, int, int);
-void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix_from(u32);
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-extern u8 breakup_default_param_row[];
 extern s32 __vt__11TBreakUpMdl[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-extern s32 TBreakUpMdl__class_name;
-extern const f32 lbl_805D97D0;
-extern const f32 lbl_805D97D4;
-u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
 int get_target_info__9TObjEneDDFPv(void*);
 void rotate_matrix_y(s32, s32);
@@ -215,13 +114,7 @@ extern const f32 TObjEneDf2Bringer__data_805D97E0;
 
 extern "C" {
 
-void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
-void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
 int TObjEneDf2Bringer__sub_800994F8(void*);
-void __dl__7TObjectFPv(void *);
-s32 __dl__FPv(void *);
-void __dt__7TObjectFv(void *, int);
-void mem_free(void *);
 int get_target_info__9TObjEneDDFPv(void*);
 
 extern s32 __vt__11TBreakUpMdl[];

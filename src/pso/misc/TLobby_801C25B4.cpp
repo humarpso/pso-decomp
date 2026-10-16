@@ -19,8 +19,6 @@ typedef struct Lobby_801C2898 {
     s32 state;
 } Lobby_801C2898;
 
-struct Pair_801C271C { s32 v[2]; };
-
 struct Ent_801C26A8 { u16 id; s16 active; u8 pad[4]; };
 
 extern "C" {

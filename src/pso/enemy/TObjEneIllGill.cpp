@@ -582,8 +582,6 @@ extern "C" {
 extern u8 lbl_8047A2F4[];
 }
 extern "C" {
-}
-extern "C" {
 void render_shadows__7TObjectFv();
 }
 extern "C" {

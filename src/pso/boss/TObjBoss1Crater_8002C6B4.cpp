@@ -24,15 +24,8 @@ extern "C" {
 void TObjBoss1Crater__sub_8002C7B4(void);
 s32 TObjBoss1Crater__sub_8002C7E4(void* p);
 void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1);
-int TBoss8Dragon__sub_8002D5F8(void);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);
-int TObjBoss1Floor__sub_8002CB40(void);
-int TObjBoss1Floor__sub_8002CB78(void);
-int TObjBoss1Rock__sub_8002E3CC(void);
-int TObjBoss1Rock__sub_8002E3D0(void);
 void *__nw__7TObjectFUl(int);
-int create_instance__14TObjBoss1FloorFv(void*);
-int load_dragon_ground_assets(void);
 void *get_instance__12TBoss1DragonFv(void);
 int is_count_below_limit__15TObjBoss1CraterFv(void *, void *);
 

@@ -37,7 +37,6 @@ extern const f32 lbl_805DC174;
 extern const f32 lbl_805DC178;
 extern const f32 lbl_805DC17C;
 extern const f32 lbl_805DC180;
-void run_task__13TPhotonFarllaFv(u8 *arg0);
 }
 
 extern "C" {

@@ -131,7 +131,6 @@ void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self);
 
 extern "C" {
 
-extern const f64 lbl_8043C6F8;
 extern const f32 lbl_805DA34C;
 
 void TUnk_80494938::set_rate_from_divisor(s32 arg1) {

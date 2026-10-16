@@ -4,48 +4,7 @@
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 
-struct Slot_801A8868 { u8 pad[0x18]; };
-struct Counts_801A8868 { s32 v[4]; };
-struct Rec_801A8868 { u8 pad[0x20]; s32 f20; };
-
-struct Hit_801A86E0 { s32 kind; f32 value; };
-struct VBase_18_b27ba1 { char pad[0x18]; };
-struct VObj_18_b27ba1 : VBase_18_b27ba1 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21(void *, struct Hit_801A86E0 *, s32, s32, s32);
-};
-
 extern "C" {
-
-s16 TObjPlayer__sub_80113D90(void *);
-extern const f32 lbl_805DC110;
-extern const f32 lbl_805DC114;
-extern const f32 lbl_805DC118;
-extern const f32 lbl_805DC11C;
-extern const f32 lbl_805DC120;
-extern const f32 lbl_805DC124;
-extern const f32 lbl_805DC128;
-extern const f32 lbl_805DC12C;
 
 u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
@@ -58,29 +17,6 @@ void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
-
-s32 get_current_floor();
-s32 get_photon_blast_chain(void *, s32);
-void *get_player_by_client_id(u32);
-
-extern s32 photon_blast_donation_flags[];
-void clear_photon_blast_donations(void);
-s32 is_split_screen();
-extern s32 local_client_id;
-s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
-u16 obj_getField1c(void *);
-s32 TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
-s32 TObjPlayer__sub_801AA528(void *, int);
-s32 init_arrays__10TObjPlayerFi(void *);
-void *TObjPlayer__sub_801AA66C(void *, void *);
-void *__nw__7TObjectFUl(int);
-s16 TObjPlayer__sub_80313114(void *);
-extern Counts_801A8868 photon_blast_result_counts_init;
-extern Rec_801A8868 photon_blast_sequence_table[];
-void admit_photon_blast_sequence(u8 *players, void *self);
-
-int get_player_data__10TObjPlayerFi(int);
-void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
 void render__18TPhotonConcentrateFv(void) { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
 

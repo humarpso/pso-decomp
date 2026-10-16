@@ -4,9 +4,6 @@
 #include "pso/misc/TWindowKeyBoardSoft.h"
 
 extern "C" {
-}
-
-extern "C" {
 
 bool TWindowKeyBoardBase::sub_8025CB10() {
     u8 *arg0 = (u8 *)this;

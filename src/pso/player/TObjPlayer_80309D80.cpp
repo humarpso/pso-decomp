@@ -45,7 +45,6 @@ void *TPlyPtclObjectLeftHand__ct(void *, void *);
 void *get_player_by_client_id(u16);
 u16 get_lifetime__22TPlyFollowParticleCtrlFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
-extern s32 __vt__22TPlyPtclObjectLeftHand[];
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
 s32 create_oneshot_particle_emitter(s32, s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);

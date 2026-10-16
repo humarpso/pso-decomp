@@ -89,8 +89,6 @@ struct Crater_8002C288 : VBase_8002C288 {
     s32 fC8;
 };
 
-struct V3_8002C288 { f32 x, y, z; };
-
 extern "C" {
 s32 TBoss1Dragon__sub_8002AB6C(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);

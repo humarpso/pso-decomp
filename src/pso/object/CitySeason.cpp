@@ -57,8 +57,6 @@ struct RecoveredGlobal_801830BC_lbl_804B5C08 {
 
 extern "C" {
 s32 construct_world_actor_base(void *, void *);
-extern RecoveredGlobal_801830BC_lbl_804B5C08 city_vertical_model_vtable;
-extern const f32 lbl_805DBC00;
 }
 
 extern "C" {
@@ -168,10 +166,6 @@ void TObjCity_Season_FireWork::run_task() {
     }
 }
 
-extern "C" {
-
-}
-
 struct Obj_8018355C;
 extern "C" void sub_8018355C__28TObjCity_Season_FireWorkCtrlFv(struct Obj_8018355C *arg0);
 
@@ -182,7 +176,6 @@ struct RecoveredGlobal_8018343C_lbl_804B5C40 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__24TObjCity_Season_FireWork[];
 extern s32 TObjCity_Season_FireWork__name;
 
@@ -196,9 +189,7 @@ extern const char lbl_80444248[];
 
 extern "C" {
 
-void *__dt__24TObjCity_Season_FireWorkFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern s32 __vt__24TObjCity_Season_FireWork[];
@@ -605,9 +596,6 @@ __declspec(section ".sdata2") extern const f32 lbl_805DBC7C[1] = { 25.0f };
 #define lbl_805DBC74 (*(const f32 *)&lbl_805DBC74)
 #define lbl_805DBC78 (*(const f32 *)&lbl_805DBC78)
 #define lbl_805DBC7C (*(const f32 *)&lbl_805DBC7C)
-extern "C" {
-}
-
 struct VBase_18_1a504b { char pad[0x18]; };
 
 struct VObj_18_1a504b : VBase_18_1a504b {
@@ -724,9 +712,6 @@ void TObjCity_Season_SonicAdv2::render() {
 #undef __vt__21TObjCity_Season_Board
 #pragma push
 #include "types.h"
-
-extern "C" {
-}
 
 extern "C" {
 
@@ -1672,7 +1657,6 @@ void *TUnk_804B5E48::destroy_seasonal_object(s16 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_28 { u8 bytes[0x28]; };
 
 struct VBase_18_1a504b { char pad[0x18]; };
 

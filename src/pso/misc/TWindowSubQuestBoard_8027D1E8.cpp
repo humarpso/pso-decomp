@@ -11,7 +11,6 @@ extern "C" {
 
 void TWindowCtrl__sub_8027D1F8(void);
 void TWindowCtrl__sub_8027D214(void);
-int TWindowSubQuestBoard__sub_8027D1DC(void* p);
 
 extern void *TWindowCtrl__active_window;
 

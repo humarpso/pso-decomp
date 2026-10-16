@@ -4,7 +4,6 @@
 extern "C" {
 s32 draw_visible_window_entries(void *, void *, int);
 void draw_window_frame(void *arg0, s32 arg1);
-extern s32 __vt__15TWindowQuantity[];
 void fn_80246CE8(s32 arg0);
 }
 

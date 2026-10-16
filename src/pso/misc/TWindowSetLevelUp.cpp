@@ -292,7 +292,6 @@ void run_task__17TWindowSetLevelUpFv(u8 *arg0) {
         ((s32 (*)(void))update_stat_messages__17TWindowSetLevelUpFv)();
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 #pragma push
@@ -327,7 +326,6 @@ void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3
     *(u8 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
-extern int fold_flush_1;
 #pragma pop
 
 #pragma push
@@ -340,7 +338,6 @@ void TWindowSetLevelUp::copy_stat_block(s32 arg1) {
     *(s16 *)((s8 *)arg0 + 0x16) = (s16) *(s16 *)((s8 *)arg1 + 0x16);
     *(s16 *)((s8 *)arg0 + 0x18) = (s16) *(s16 *)((s8 *)arg1 + 0x18);
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push

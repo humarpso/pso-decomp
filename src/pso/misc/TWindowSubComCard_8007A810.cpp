@@ -80,7 +80,6 @@ s32 get_card_entry__17TWindowSubComCardFi(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_68 { u8 bytes[0x68]; };
 
 struct ByteBlock_6C { u8 bytes[0x6C]; };
 

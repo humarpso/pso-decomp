@@ -11,11 +11,6 @@ struct RecoveredGlobal_800A4204_lbl_80490A18 {
     u8 remaining[0x14];
 };
 
-struct RecoveredGlobal_800A38A4___vt__12TEneEffHamon {
-    s32 value;
-    u8 remaining[0x14];
-};
-
 typedef struct Hamon_800A36A8 {
     u8 pad0[0x1C];
     u8 mtx1C[0x34 - 0x1C];
@@ -66,9 +61,6 @@ struct Obj_800A3D1C {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv();
-extern const f32 lbl_805D99E0;
-void run_task__12TEneEffHamonFv(u8 *arg0);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80490A18[];
@@ -76,33 +68,10 @@ extern s32 lbl_805D29E0;
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
-extern s32 TEneEffHamon__name;
-extern const f32 lbl_805D99E4;
-extern const f32 lbl_805D99E8;
-extern const f32 lbl_805D99EC;
-extern s32 tl_06;
-u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 scale_matrix(int, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 set_chunk_material_override_pair(u32, u32);
 s32 set_chunk_material_color(void *);
-s32 draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern u8 saved_model_draw_color[];
-extern u8 model_material_color[];
-extern int TEneEffHamon__fish_model;
-extern int TEneEffHamon__fish_effect_param;
 extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
-extern s32 chunk_polygon_flags_or_mask;
-extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *player_effect_task_list[];
@@ -125,11 +94,7 @@ extern const f32 lbl_805D9A00;
 
 extern "C" {
 
-void TEneEffHamon__sub_800A380C(void);
 void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1);
-void init_fish_effects__12TEneEffHamonFv(void);
-int TObjFish__sub_8001EDB0(void*, void*);
-int get_bml_model(void*, void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

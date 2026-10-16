@@ -16,8 +16,6 @@ struct Obj_803D4540 {
     s32 x70;
 };
 
-struct Tbl_803D4540 { u8 pad[0x3C]; s32 v[1]; };
-
 struct Obj_803D4654 {
     u8 pad[0xC];
     s32 nch;

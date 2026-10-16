@@ -52,7 +52,6 @@ extern void *pilla_photon_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__12TPhotonPillaFv(Self_801ADDDC *self);
 void TPhotonLaser__ct(void *, void *, void *, u16);
 s32 __nw__7TObjectFUl(s32);
 void vec3_add_to(void *, void *);
@@ -67,7 +66,6 @@ extern "C" {
 void TObjPlayer__sub_801ADC6C(void);
 void TObjPlayer__sub_801ADC78(void);
 void TObjPlayer__sub_801ADC7C(void* a0);
-void run_task__12TPhotonPillaFv(void *arg0);
 s32 advance_animation_playback(void *);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
@@ -103,7 +101,6 @@ void TObjPlayer::apply_photon_blast_effects() {
     }
 }
 
-extern const f64 lbl_80446ED8;
 extern const f32 lbl_805DC230;
 extern const f32 lbl_805DC234;
 extern const f32 lbl_805DC238;

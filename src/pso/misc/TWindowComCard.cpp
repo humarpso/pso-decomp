@@ -18,7 +18,6 @@ extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-extern s32 __vt__14TWindowMessage[];
 void render__14TWindowComCardFv(s32 arg0);
 extern u8 *text_language_group_table;
 s32 get_class_name_text(s32 arg0);

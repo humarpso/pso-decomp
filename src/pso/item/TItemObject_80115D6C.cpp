@@ -78,7 +78,6 @@ struct VObj_80115D94_80115D6C : Base_80115D94_80115D6C {
 
 void vfunc_14__11TItemObjectFv(void *arg0);
 u8 *vfunc_9__11TItemObjectFv(u8 *arg0);
-void TItem__sub_80115D68(void);
 s32 copy_and_register_item_data__11TItemObjectFv(void *);
 
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);

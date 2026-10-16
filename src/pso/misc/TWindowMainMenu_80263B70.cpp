@@ -73,9 +73,6 @@ struct E_80263DBC { s16 a; s32 b; };
 struct Obj_80263DBC { u8 pad[0x28]; E_80263DBC arr[4]; u8 pad2[0x50 - 0x48]; s16 f50; s16 f52; u8 pad3[0x5c - 0x54]; u32 f5c; };
 
 extern "C" {
-}
-
-extern "C" {
 
 s32 get_player_by_client_id(s32);
 s32 populate_menu__15TWindowMainMenuFPvPv(void *, s32);

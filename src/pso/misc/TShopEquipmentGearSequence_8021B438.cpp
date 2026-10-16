@@ -8,44 +8,6 @@
 #include "pso/misc/TQuestListVM.h"
 #include "pso/misc/TWindowSubComCard.h"
 
-struct Base_8021D584_8021D524 { char pad[0x18]; };
-
-struct VObj_8021D584_8021D524 : Base_8021D584_8021D524 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4(int, int);
-};
-
-struct Base_8021D5D4_8021D524 { char pad[0x18]; };
-
-struct VObj_8021D5D4_8021D524 : Base_8021D5D4_8021D524 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4(s32, s32);
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s32  m8();
-};
-
-struct Base_8021D660_8021D524 { char pad[0x18]; };
-
-struct VObj_8021D660_8021D524 : Base_8021D660_8021D524 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int m8();
-};
-
 struct VBase_18_a93f07
 {
   char pad[0x18];
@@ -63,16 +25,6 @@ struct Stack_8021D948
 {
   f32 sp8;
   f32 spC;
-};
-
-struct Base_8021D524 { char pad[0x18]; };
-
-struct VObj_8021D524 : Base_8021D524 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4(int, int);
 };
 
 struct RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence {

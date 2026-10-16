@@ -71,17 +71,10 @@ struct VObj_18_405891 : VBase_18_405891 {
 };
 
 struct Pair_8030895C { s32 id; f32 v; };
-struct Stack_8030895C {
-    s32 sp8;
-    f32 spC;
-    s32 sp10;
-    f32 sp14;
-};
 
 extern "C" {
 s32 obj_isState2_324(int);
 int rand(void);
-extern s32 lbl_804755A8;
 extern s32 game_difficulty_selection;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF0E0;

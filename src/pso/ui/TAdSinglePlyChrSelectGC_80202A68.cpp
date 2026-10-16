@@ -1,11 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct RecoveredGlobal_80202A40_lbl_8051381C {
-    s32 value;
-    u8 remaining[0xE4];
-};
-
 struct Ent_80202B38 { s32 a; s32 b; s32 c[5]; };
 
 struct Obj_80202B38 { s32 hdr; Ent_80202B38 e[1]; };
@@ -105,15 +100,12 @@ int fn_8020325C(void *arg0);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 __dl__FPv(s32);
-extern s32 chr_select_game_name_buffer;
 extern int card_character_save_buffer;
 extern s32 selected_character_data;
 extern s32 *active_character_save_record;
 extern int TAdSinglePlyChrSelectGC__selection_index;
 s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
-s32 __ct__14SubtractiveRngFv(s32);
-extern RecoveredGlobal_80202A40_lbl_8051381C chr_select_rng_state;
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void __construct_array(void *, void *, void *, int, int);
@@ -137,14 +129,11 @@ u8 TAdSinglePlyChrSelectGC__sub_80202B30(void* p);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 int __ct__12TPlyCharDataFv(void*);
 s32 __dl__FPv(s32);
 s32 __dt__12TPlyCharDataFv(s32, s32);
 int copy_item_data__6TLobbyFPvPv(void*);
-s32 get_char_table_entry__23TAdSinglePlyChrSelectGCFi(u32);
 int init_guild_card_tag__17TWindowSubComCardFi(void*);
-s32 is_split_screen();
 
 extern s32 selected_character_data;
 

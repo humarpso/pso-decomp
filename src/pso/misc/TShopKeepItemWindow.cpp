@@ -104,8 +104,6 @@ u32 create_yes_no_window(s32, s32, s32, s32);
 s32 get_window_layout_position(s32);
 s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 void memset(void *, int, int);
-int sprintf(char *, const char *, ...);
-extern char message_number_format[4];
 s32 get_item_record__23TShopJudgmentItemWindowFPv(s32, s32, s32);
 s32 store_item_in_bank(void *, s32, s32);
 s32 copy_bank_to_card_window(s32);
@@ -377,8 +375,5 @@ void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     memset((void *)((char *)arg0 + 40), 0, 840);
     return arg0;
 }
-
-extern s32 message_tag_error[];
-extern s32 local_client_id;
 
 }

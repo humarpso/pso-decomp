@@ -269,7 +269,6 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__9TObjEnemyFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
-extern const f64 TOCtrlDubchik__data_80440990;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
 

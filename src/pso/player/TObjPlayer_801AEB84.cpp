@@ -9,34 +9,15 @@ void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-s32 get_game_play_mode();
 s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
-int is_locally_controlled__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801AEB80(void);
-void stop_force_if_alive__10TObjPlayerFPv(void* p);
-s32 TObjPlayer__sub_801AF868(s32);
 s32 get_class_index__10TObjPlayerFPv(void *);
-int TObjPlayer__sub_801BEF60(void*, void*);
-s32 emit_idle_water_effect(s32);
-s32 has_water_ground_flag(s32);
-s32 TObjPlayer__sub_80354C7C(s32);
-s32 TObjPlayer__sub_80354E3C();
-s32 get_player_by_client_id(u16);
 s32 add_dfp__10TObjPlayerFPvi(void *, int);
 s32 add_evp__10TObjPlayerFPvi(void *, int);
 s32 add_lck__10TObjPlayerFPvi(void *, int);
 s32 add_mst__10TObjPlayerFPvi(void *, int);
 s32 add_stat__10TObjPlayerFPvi(void *, int);
-s32 check_flag_100__10TObjPlayerFPv(s32);
-s32 check_flag_800000__10TObjPlayerFPv(s32);
-s32 get_main_phase();
 s32 is_camera_mode_active__10TObjPlayerFv();
-s32 is_technique_ready__8TTecCtrlFv();
-s32 reset_volopt_state__10TObjPlayerFv(s32);
-int test_flag_2000000__10TObjPlayerFPv(void*);
-void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
-s32 update_movement_by_screen__10TObjPlayerFv(s32);
 
 #include "types.h"
 extern "C" {

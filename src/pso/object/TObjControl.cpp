@@ -832,7 +832,6 @@ void TObjEnemy::update_prev_position() {
         *(f32 *)((s8 *)arg0 + 0x300) = (f32) ((lbl_805DA8DC * *(f32 *)((s8 *)temp_r3 + 0x10)) + *(f32 *)((s8 *)arg0 + 0x300));
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2) {

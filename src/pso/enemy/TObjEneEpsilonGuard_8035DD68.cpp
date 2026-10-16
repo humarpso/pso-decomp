@@ -1059,7 +1059,6 @@ s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
 void vfunc_88__19TObjEneEpsilonGuardFv(void *);
 int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
-    extern int lbl_805D5108;
 }
 
 extern "C" {

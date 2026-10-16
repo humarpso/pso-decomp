@@ -29,7 +29,6 @@ struct VObj18_8035346c : VBase18_8035346c {
     virtual s32 m8(f32, f32);
 };
 
-struct RecoveredGlobal_80353684_lbl_804F11E8 { s32 value; u8 remaining[0xC]; };
 struct TObjBase803537_803536DC { char pad[0x18]; };
 struct TObjKabochaLobby803537_803536DC : TObjBase803537_803536DC {
     virtual void v0(s32);
@@ -44,9 +43,6 @@ struct Kabocha_80353520 {
     s32 state;
     f32 scale;
 };
-
-extern "C" {
-}
 
 extern "C" {
 

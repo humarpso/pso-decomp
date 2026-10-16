@@ -42,16 +42,12 @@ void render__11TObjDFDemo2Fv(Obj_8004E918 *arg0);
 void run_task__11TObjDFDemo2Fv(Obj_8004EA2C *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 u32 spawn_particle_effect(void *, s32);
-u32 create_particle_emitter(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 TObjPlayer__sub_80052390(f32);
-s32 clear_render_callback__8TObjFishFv(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 func_803e11e8__FUl(u32);
-s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
 struct Ent_8004EB78 { s32 a; s32 b; s32 c; };
 struct Obj_8004EB78 {

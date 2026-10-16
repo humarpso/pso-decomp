@@ -11,24 +11,7 @@ struct RecoveredGlobal_8013BC2C_lbl_804A7164 {
 };
 
 extern "C" {
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1, void* a2);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
 s32 set_offset_y__11TMainCursorFs(void *, void *);
 s32 init_field_60__11TMainCursorFv(void *, void *);
 s32 TMainCursor__sub_8013E6E0(void *, void *);

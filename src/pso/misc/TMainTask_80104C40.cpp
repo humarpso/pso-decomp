@@ -11,7 +11,6 @@ extern "C" {
 void cleanup_game_objects__9TMainTaskFv(void);
 s32 TEnding__sub_8008C9F8();
 s32 get_current_floor();
-u32 __nw__7TObjectFUl(s32);
 s32 get_game_play_mode();
 
 s32 get_main_phase();

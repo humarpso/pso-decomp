@@ -429,13 +429,7 @@ void open_proportion_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_hair_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0);
-void TObjCMMainMenu__vt7(void);
 void TObjCMMainMenu__sub_80298310(void);
-void TObjCMMainMenu__vt6(void *arg0);
-void TObjCMMainMenu__vt5(void *arg0);
-void TObjCMMainMenu__vt2(void *arg0);
-void TObjCMMainMenu__vt1(void);
-void TObjCMMainMenu__handle_creation_input(u8 *arg0);
 void * TObjCMMainMenu__ct(void *arg0, void *parent);
 void TObjCMMainMenu__sub_80298DA0(int a0);
 u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void);
@@ -710,7 +704,6 @@ void TObjCMProportion::run_task() {
         }
     }
 }
-extern int fold_flush_0;
 #pragma pop
 
 extern "C" {
@@ -1008,7 +1001,6 @@ void TObjCMHairMenu::run_task() {
         }
     }
 }
-extern int fold_flush_1;
 #pragma pop
 
 void *TObjCMHairMenu::create() {
@@ -1072,7 +1064,6 @@ void TObjCMAssignMenu::draw_assign_icons() {
         }
     }
 }
-extern int fold_flush_2;
 #pragma pop
 
 #pragma push
@@ -1105,7 +1096,6 @@ void TObjCMAssignMenu::sub_80296648() {
         }
     }
 }
-extern int fold_flush_3;
 #pragma pop
 
 #pragma push
@@ -1152,7 +1142,6 @@ void TObjCMAssignMenu::render_assign_slots() {
         draw_ui_sprite_scaled(i + 0x14, &pos, lbl_80465058, lbl_805DDB70, a);
     }
 }
-extern int fold_flush_4;
 #pragma pop
 
 #pragma push
@@ -1256,7 +1245,6 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
         break;
     }
 }
-extern int fold_flush_5;
 #pragma pop
 
 void TObjCMAssignMenu::calc_grid_layout() {
@@ -1677,7 +1665,6 @@ void TObjCMMainMenu::draw_root_menu() {
         }
     }
 }
-extern int fold_flush_6;
 #pragma pop
 
 #pragma push

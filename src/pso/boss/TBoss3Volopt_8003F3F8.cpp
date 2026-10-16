@@ -22,7 +22,6 @@ extern "C" {
 
 u8 TBoss3Volopt__sub_8003F458(void *arg0);
 u8 fn_8003F3F8(void *arg0);
-int is_photon_blast_active__11TCameraCtrlFPv(void* p);
 
 u8 fn_8003F3F8(void *arg0) {
     return (u8) (*(s16 *)((s8 *)arg0 + 0x326) == 0);

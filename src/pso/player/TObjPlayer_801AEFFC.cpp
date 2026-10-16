@@ -12,13 +12,6 @@ s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0);
 
 extern "C" {
 
-s32 get_game_play_mode();
-s32 get_main_phase();
-s32 reset_volopt_state__10TObjPlayerFv(s32);
-s32 check_flag_100__10TObjPlayerFPv(s32);
-s32 get_player_by_client_id(u16);
-s32 TObjPlayer__sub_80354C7C(s32);
-s32 TObjPlayer__sub_80354E3C();
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
@@ -30,7 +23,6 @@ int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
 void stop_force_if_alive__10TObjPlayerFPv(void* p);
 void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801AEB80(void);
 
 s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0) {
     return *(s32 *)((s8 *)(get_character_save_record((u32) ((u16)obj_getField1c(arg0)))) + 0x244);

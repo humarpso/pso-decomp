@@ -11,12 +11,6 @@ extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/player/TObjPlayer.h"
 
 struct Ent_8009241C { u8 pad0[0xC]; f32 radius; u8 pad10[0x2C - 0x10]; };
-struct Res_8009241C {
-    u8 pad0[0x44];
-    u8 desc[0x10];
-    s32 parts[(0x168 - 0x54) / 4];
-    Ent_8009241C ents[3];
-};
 struct Mdl_8009241C { u8 pad0[8]; s32 f8; s32 fC; };
 struct Mot_8009241C { u8 pad0[4]; s32 f4; };
 struct Data_8009241C { u8 pad0[0x42C]; Mdl_8009241C *f42c; Mot_8009241C *f430; };
@@ -431,13 +425,6 @@ void __construct_array(void *, void *, void *, int, int);
 extern u8 init_and_activate__10TObjPlayerFv[];
 struct Rec2C_800927DC { u8 b[0x2C]; };
 struct Rec1C_800927DC { u8 b[0x1C]; };
-struct Tbl_800927DC {
-    u8 pad0[0x54];
-    u8 x54[0x114 - 0x54];
-    Rec1C_800927DC x114[3];
-    Rec2C_800927DC x168[3];
-    u8 x1EC[4];
-};
 struct Elem_800927DC { u8 b[0x1C]; };
 struct Obj_800927DC { u8 pad[0x3B0]; Elem_800927DC arr[4]; };
 extern s32 lbl_805D2980;

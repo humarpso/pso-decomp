@@ -3,26 +3,6 @@
 #include "pso/player/TUnk_804E70A8.h"
 #include "pso/player/TUnk_804E71A0.h"
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual s16 m14();
-};
-
 struct RecoveredGlobal_80307784_lbl_804E70A8 {
     s32 value;
     u8 remaining[0xF4];

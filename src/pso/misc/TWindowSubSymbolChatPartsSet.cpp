@@ -157,7 +157,6 @@ void TWindowSubSymbolChatPartsSet::handle_decide() {
     ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->set_entry_state(2);
 }
 
-extern s32 lbl_8044FC38;
 extern const f32 lbl_805DD820;
 
 void TWindowSubSymbolChatPartsSet::sub_8028625C() {

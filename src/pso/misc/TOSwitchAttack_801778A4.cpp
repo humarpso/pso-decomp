@@ -29,8 +29,6 @@ struct Self_80177CF4 { u8 pad[0xC8]; s32 switchId; u8 padcc[0xEC - 0xCC]; s32 on
 
 struct Vec_801778A8 { f32 x, y, z; };
 
-struct Dmg_801778A8 { f32 v; };
-
 struct Atk_801778A8 {
     s32 a;
     f32 v;

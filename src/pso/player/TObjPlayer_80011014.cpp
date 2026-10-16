@@ -293,8 +293,6 @@ struct Obj_80019038 : VBase_80019038 {
     virtual void v4(); virtual void v5(); virtual void v6();
 };
 
-struct Pair_80019038 { u8 a; u8 b; };
-
 struct Elem_80019038 { u8 pad[0xC]; };
 
 struct Layout_80019038 {

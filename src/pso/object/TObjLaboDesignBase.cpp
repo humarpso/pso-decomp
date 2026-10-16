@@ -3,17 +3,9 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
-struct LazerFence4Base_801930E8 { char pad[0x18]; };
-struct LazerFence4VObj_801930E8 : LazerFence4Base_801930E8 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct ByteBlock_38 { u8 bytes[0x38]; };
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -52,9 +44,6 @@ f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 extern s32 camera_ctrl_instance;
-extern void *lazer_fence_norm_texture_list;
-extern const f32 lbl_805DBE70;
-extern const f32 lbl_805DBE74;
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();

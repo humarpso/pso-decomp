@@ -1,26 +1,6 @@
 #include "types.h"
 #include "pso/object/TUnk_804A6DC0.h"
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual s16 m14();
-};
-
 struct Obj_80131334 { u8 pad[0x1f8]; s32 state; };
 
 struct Ent_80131488 { void *p; s32 a; s32 b; };

@@ -208,44 +208,6 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
     u8 remaining[0xB];
 };
 
-struct Stack_80069318 {
-    s32 sp8;
-    u8 pad_C[0x4];
-    f32 sp10;
-    f32 sp14;
-    u8 pad_18[0x8];
-    f32 sp20;
-    u8 pad_24[0xC];
-    f32 sp30;
-    f32 sp34;
-    f32 sp38;
-    f32 sp3C;
-    f32 sp40;
-    f32 sp44;
-};
-
-struct RecoveredGlobal_80069318_lbl_804FF5E8 { s32 value; u8 remaining[0x24]; };
-
-struct Stack_800693F4 {
-    s32 sp8;
-    u8 pad_C[0x4];
-    f32 sp10;
-    f32 sp14;
-    u8 pad_18[0x8];
-    f32 sp20;
-    u8 pad_24[0xC];
-    f32 sp30;
-    f32 sp34;
-    f32 sp38;
-    f32 sp3C;
-    f32 sp40;
-    f32 sp44;
-    f32 sp48;
-    f32 sp4C;
-};
-
-struct RecoveredGlobal_800693F4_TCameraCtrl__data_804FF634 { s32 value; u8 remaining[0x44]; };
-
 extern "C" {
 s32 set_clamped_field27c__6TLobbyFPvf(s32 *);
 void apply_clamped_field_27c__6TLobbyFv(void);

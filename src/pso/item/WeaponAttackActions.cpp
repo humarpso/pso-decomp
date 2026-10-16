@@ -329,8 +329,6 @@ struct ShotPayload { s32 reserved,kind,weapon; s16 source,target,collider,pad; f
 
 struct Rec_8011F108 { u8 pad0[0xC]; f32 c; u8 pad1[0xC]; ShotVector pos; u8 pad2[4]; };
 
-struct ShotStack { ShotVector rayOrigin,fallback,endpoint; ShotPayload hit; };
-
 struct Obj_8011F474;
 
 struct Vec_8011EDFC { f32 x; f32 y; f32 z; };

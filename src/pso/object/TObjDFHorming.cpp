@@ -206,7 +206,6 @@ s32 send_6x0A_enemy_state(void *, void *);
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
 s32 rand();
-extern const f64 lbl_804371D8;
 extern const f32 lbl_805D8918;
 extern const f32 lbl_805D8930;
 extern const f32 lbl_805D8934;

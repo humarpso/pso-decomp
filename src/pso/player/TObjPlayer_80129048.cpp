@@ -49,13 +49,6 @@ s32 TObjPlayer__sub_801290D0(u8 *arg0) {
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-}
-
-extern "C" {
-
-}
-
 void TItemShootModel::sub_80129118(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x58) = arg1;

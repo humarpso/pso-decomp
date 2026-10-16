@@ -165,7 +165,6 @@ void fn_80284C04(u8 *arg0) {
     stack.spC = (lbl_805DD7D4 * (f32) (s8) (u8) *(s8 *)((s8 *)arg0 + 0x74)) + lbl_805DD7D0;
     ((TWindowMenu *)(*(u8 **)((s8 *)arg0 + 0x8C)))->copy_position(&stack.sp8);
 }
-extern int fold_flush_0;
 #pragma pop
 
 void select_symbol_chat_slot(void) {
@@ -212,7 +211,6 @@ void TWindowSubSymbolChat::select_index_and_scroll(s32 arg1) {
     v.y = arg0->height - lbl_805DD7E8 - lbl_805DD7D8;
     clamp_list_scroll_offset(arg0->card, &arg0->pos, &v);
 }
-extern int fold_flush_1;
 #pragma pop
 
 void TWindowSubSymbolChatParts::handle_cancel() {

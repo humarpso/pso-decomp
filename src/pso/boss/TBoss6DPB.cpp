@@ -49,8 +49,6 @@ struct Pl_8035D924 : PBase_8035D924 {
 
 struct Vec_8035D924 { f32 x, y, z; };
 
-struct F_8035D924 { f32 v; };
-
 struct Dmg_8035D924 { s32 a; s32 b; s32 c; f32 d; };
 
 struct Shower_8035D924 {

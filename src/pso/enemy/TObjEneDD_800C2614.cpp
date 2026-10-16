@@ -149,10 +149,6 @@ struct VObj_18_9e83f9 : VBase_18_9e83f9 {
     virtual s32 m100();
 };
 
-struct ByteBlock_10 { u8 bytes[0x10]; };
-
-struct ByteBlock_14 { u8 bytes[0x14]; };
-
 struct Vec_800C2628 { f32 x, y, z; };
 
 struct Prm_800C2628 { f32 a, b, c, d, e; };
