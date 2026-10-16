@@ -7,7 +7,6 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1);
 void clear_faust_reload_timer(void* p);
 s32 draw_ginja_object(void *);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1);
 
@@ -57,7 +56,7 @@ void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A2564;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

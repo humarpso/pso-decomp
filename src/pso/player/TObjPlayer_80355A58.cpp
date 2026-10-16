@@ -12,7 +12,6 @@ struct RecoveredGlobal_80355BA0_lbl_804F1320 {
 
 extern "C" {
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern s32 lbl_804F1320[];
 extern const f32 lbl_805DFFC0;
 extern const f32 lbl_805DFFC4;
@@ -25,7 +24,6 @@ void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1);
 s32 get_current_floor();
 s8 TObjPlayer__sub_80102C30(void *);
 s32 spawn_pg_effect__10TObjPlayerFPvPvif(void *, s32, s32, f32);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -66,7 +64,7 @@ void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F1320;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -74,10 +72,10 @@ void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1) {
 u8 *photon_field_weapon_ct(u8 *arg0, u8 *arg1) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80355BA0_lbl_804F1320 *)&lbl_804F1320).value;
-    set_status_flags__10TObjPlayerFUl(arg0, 0x22);
+    ((TObjPlayer *)arg0)->set_status_flags(0x22);
     if (((TItem *)arg0)->get_field_ed() == 0x3D) {
         *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DFFC0;
-        set_status_flags__10TObjPlayerFUl(arg0, 0x100000);
+        ((TObjPlayer *)arg0)->set_status_flags(0x100000);
     } else {
         *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DFFC4;
     }

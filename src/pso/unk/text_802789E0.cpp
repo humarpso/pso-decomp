@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" {
-u32 get_usable_action_flags__5TItemFUlUl(void *, s32, s32);
 void *find_item_by_id(u32);
 u8 *get_player_by_client_id(s16);
 void calc_list_content_extent(void *);
@@ -23,7 +23,7 @@ void fn_802789E0(u8 *arg0) {
         n = ((TObjPlayer *)(*(void **)(pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {
             item = find_item_by_id(ids[i]);
-            if (item != NULL && get_usable_action_flags__5TItemFUlUl(item, 2, 0) != 0 && get_usable_action_flags__5TItemFUlUl(item, 1, 0) == 0) {
+            if (item != NULL && ((TItem *)item)->get_usable_action_flags(2, 0) != 0 && ((TItem *)item)->get_usable_action_flags(1, 0) == 0) {
                 ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)item, (s32)(ids[i]));
             }
         }

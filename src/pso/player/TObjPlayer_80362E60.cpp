@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TUnk_804F27E0.h"
 
@@ -104,8 +105,6 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
 s32 get_attack_stage__11TItemWeaponFv();
 void construct_srank_weapon(void *);
-s32 create_item_eff_cane__10TObjPlayerFP5TItemll(s32, s32, s32, s32);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
@@ -122,7 +121,7 @@ extern s32 tl_05;
 
 void TObjPlayer::create_cane_if_ready(s32 arg0, void *position) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        create_item_eff_cane__10TObjPlayerFP5TItemll(tl_05, arg0, -1, 0x1BD);
+        ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)arg0, (s32)(-1), (s32)0x1BD);
     }
 }
 
@@ -204,7 +203,7 @@ void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F27E0;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

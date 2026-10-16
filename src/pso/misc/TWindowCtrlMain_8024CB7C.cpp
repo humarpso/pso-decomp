@@ -39,7 +39,6 @@ struct Poly_8024CE68 {
 };
 struct Quad_8024CE68 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
-void draw_strip_swap_color__15TWindowCtrlMainFllf(void *, int, int, f32);
 void draw_color_lines(void *, int, int, f32);
 void begin_screen_draw(int);
 void draw_textured_quad_at_depth(void *, f32);
@@ -178,7 +177,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = 480.0f;
     verts[3].x = 0.0f;
     verts[3].y = 480.0f;
-    draw_strip_swap_color__15TWindowCtrlMainFllf(&poly, 4, 22, -10.0f);
+    ((TWindowCtrlMain *)(&poly))->draw_strip_swap_color(4, 22, -10.0f);
 
     verts[0].x = 0.5f * s->field0C;
     verts[0].y = 480.0f - 0.5f * (480.0f - s->field18);
@@ -188,7 +187,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = 480.0f;
     verts[3].x = 0.5f * s->field0C;
     verts[3].y = 480.0f;
-    draw_strip_swap_color__15TWindowCtrlMainFllf(&poly, 4, 22, -10.0f);
+    ((TWindowCtrlMain *)(&poly))->draw_strip_swap_color(4, 22, -10.0f);
 
     colors[2] = 0;
     colors[3] = 0;
@@ -200,7 +199,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = 480.0f - 0.5f * (480.0f - s->field18);
     verts[3].x = s->field0C;
     verts[3].y = 0.0f;
-    draw_strip_swap_color__15TWindowCtrlMainFllf(&poly, 4, 22, -10.0f);
+    ((TWindowCtrlMain *)(&poly))->draw_strip_swap_color(4, 22, -10.0f);
 
     verts[0].x = 0.5f * s->field0C;
     verts[0].y = 480.0f - 0.5f * (480.0f - s->field18);
@@ -210,7 +209,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     verts[2].y = s->field18;
     verts[3].x = 0.5f * s->field0C;
     verts[3].y = s->field18;
-    draw_strip_swap_color__15TWindowCtrlMainFllf(&poly, 4, 22, -10.0f);
+    ((TWindowCtrlMain *)(&poly))->draw_strip_swap_color(4, 22, -10.0f);
 
     begin_screen_draw(1);
     TObjFish::set_global_param((s32)lbl_805D63F0);

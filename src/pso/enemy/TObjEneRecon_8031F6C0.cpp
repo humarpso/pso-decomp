@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 
@@ -77,7 +78,6 @@ struct V_Sub_8031f748 : Base_Sub_8031f748 {
 extern "C" {
 
 s32 advance_animation_playback();
-s32 set_field_378__9TObjEneDDFl(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 
@@ -90,7 +90,7 @@ void TObjEneRecobox::sub_8031F6C0(s32 arg1) {
         *(s32 *)((s8 *)this + 0x40C) = temp_r4;
         *(s16 *)((s8 *)this + 0xB8) = 0;
         ((VObj_8031F6C0 *)this)->m93(temp_r4);
-        set_field_378__9TObjEneDDFl((void *)(this), (int)(0));
+        set_field_378((int)(0));
         return;
     case 3:
         transition_enemy_state((void *)(this), (int)(1));
@@ -110,7 +110,7 @@ void TObjEneRecon::handle_state(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((V_En_8031f748 *) arg0)->m93();
-        set_field_378__9TObjEneDDFl((void *)(arg0), (int)(0));
+        ((TObjEneDD *)arg0)->set_field_378((int)(0));
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3C0);
         return;
     case 3:

@@ -117,7 +117,6 @@ extern G_80225550 shop_weapon_stock_buffers;
 extern u32 lobby_weapon_random_tables_ptr;
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 void send_simple_mail__9TProtocolFR12TChatMessage(void *, void *);
-s32 init_guild_card_tag__6TLobbyFv(void *);
 void* get_com_card_list__6TLobbyFPv(void* p);
 s32 strncpy(void *, void *, int);
 extern u8 *TLobby__protocol_instance;
@@ -198,7 +197,7 @@ typedef char RecoveredGlobal_802258C8_lbl_80513F70_size[((sizeof(RecoveredGlobal
 void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1) {
     Tag_80225828 t;
     s32 mode;
-    init_guild_card_tag__6TLobbyFv(&t);
+    ((TLobby *)(&t))->init_guild_card_tag();
     if (TLobby__protocol_instance != 0) {
         mode = TWindowSubComCard::get_keyboard_mode();
         __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(&t.b[4], TLobby__protocol_instance + 0x1900);

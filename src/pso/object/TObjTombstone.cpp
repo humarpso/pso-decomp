@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjTombstone.h"
 
 struct E_80075D68 { u8 f0; u8 pad[0x2f]; };
@@ -66,7 +67,6 @@ char *strncpy(char *, const char *, unsigned long);
 
 extern "C" {
 
-s32 resolve_player_slot__20TWindowSubStatusDispFl(s32);
 s32 check_height_ready__13TObjTombstoneFv();
 
 void TObjTombstone::render() {
@@ -75,7 +75,7 @@ void TObjTombstone::render() {
 
     if (check_height_ready__13TObjTombstoneFv() != 0) {
         ((TObjTombstone *)arg0)->update_render_flags();
-        temp_r3 = resolve_player_slot__20TWindowSubStatusDispFl(-1);
+        temp_r3 = TWindowSubStatusDisp::resolve_player_slot(-1);
         switch (temp_r3) {
         case 2:
         case 3:

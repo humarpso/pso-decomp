@@ -19,7 +19,6 @@ s32 reset_cameras_to_actor(u32, s32);
 s32 is_quest_active();
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
-s32 refresh_equipment_slot__10TObjPlayerFv(u32);
 u32 get_player_by_client_id(s32);
 extern Sel_8006A13C TCameraCtrl__view_state;
 extern Big_8006A13C controller_input_state;
@@ -117,7 +116,7 @@ void TCameraCtrl::cycle_spectate_target() {
                 for (i = 0; i < 4; i++) {
                     u32 p = get_player_by_client_id(i);
                     if (p != 0) {
-                        refresh_equipment_slot__10TObjPlayerFv(p);
+                        ((TObjPlayer *)p)->refresh_equipment_slot();
                     }
                 }
                 return;

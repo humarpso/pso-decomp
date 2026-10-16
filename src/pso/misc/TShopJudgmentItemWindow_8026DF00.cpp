@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 
 extern "C" {
-s32 get_camera_id__11TCameraCtrlFv();
 u8 *__nw__7TObjectFUl(int);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *construct_item_list__20TWindowSubStatusDispFlls(u8 *, s32, s32, s32);
@@ -17,7 +17,7 @@ extern s32 local_client_id;
 u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     u8 *var_r0;
-    temp_r3 = get_camera_id__11TCameraCtrlFv();
+    temp_r3 = TCameraCtrl::get_camera_id();
     switch (temp_r3) {
     case 1:
         TShopJudgmentItemWindow__sub_80267F9C((void *) (TShopJudgmentItemWindow__item_list_rect_table), arg1);

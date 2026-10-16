@@ -39,8 +39,6 @@ struct O_8031224C { u8 pad[0x20]; s32 w0; u8 pad2[0x240 - 0x24]; s32 timer; u8 p
 extern "C" {
 s64 OSGetTime(void);
 s32 is_battle_decided__19TPlayerBattleCtrl4PFv(void *);
-void update_timed_events__19TPlayerBattleCtrl4PFl(void *, s32);
-void update_player_alive_flags__19TPlayerBattleCtrl4PFv(void *);
 void calculate_split_screen_battle_rankings(void *);
 VObj_18_26c590 *get_player_by_client_id(s32);
 s32 send_and_handle__6TLobbyFii(s32, void *, int);
@@ -59,7 +57,6 @@ s32 update_all_players__19TPlayerBattleCtrl4PFv();
 extern "C" {
 
 s32 __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, s32);
-int start_duel__19TPlayerBattleCtrl4PFv(void*);
 s32 TWindow__close(void *);
 void *__nw__7TObjectFUl(s32);
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void *);
@@ -133,14 +130,14 @@ void TPlayerBattleCtrl4P::update_battle_time_and_rankings() {
     } else {
         result_confirm_timer = 300;
     }
-    update_timed_events__19TPlayerBattleCtrl4PFl(((Ctl_80311FA0 *)this), secs);
+    update_timed_events(secs);
     if (--player_refresh_timer <= 0) {
-        update_player_alive_flags__19TPlayerBattleCtrl4PFv(((Ctl_80311FA0 *)this));
+        update_player_alive_flags();
         player_refresh_timer = 0x5A;
     }
     calculate_split_screen_battle_rankings(((Ctl_80311FA0 *)this));
 }
-void TPlayerBattleCtrl4P::start_battle() { start_duel__19TPlayerBattleCtrl4PFv(((void*)this)); set_score((s32)((void*)((void*)((void*)1)))); }
+void TPlayerBattleCtrl4P::start_battle() { start_duel(); set_score((s32)((void*)((void*)((void*)1)))); }
 void TPlayerBattleCtrl4P::close_intro_and_start_battle() {
     void *temp_r3 = *(void **)((s8 *)((void *)this) + 0x20);
     if ((u32) temp_r3 != 0U) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowComCard.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowSimpleStatus.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -22,9 +23,7 @@ int obj_getArrWord_254(void *p, int i);
 void * get_player_by_client_id();
 void *__nw__7TObjectFUl(int);
 void TWindow__close(void *);
-void *get_card_name_ptr__14TWindowComCardFv(void *p);
 s32 get_status_effect_icon_index(u32 arg0);
-void set_selected_index__14TWindowComCardFl(void *arg0, s32 arg1);
 void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
 void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
 extern const f32 lbl_805DD38C;
@@ -274,7 +273,7 @@ void TWindowSimpleStatus::update_status_icons(void *arg1) {
                 break;
             }
         }
-        name = (s32)get_card_name_ptr__14TWindowComCardFv((void *)i);
+        name = (s32)((TWindowComCard *)i)->get_card_name_ptr();
         w = ((Disp_8026F9F4 *)this)->windows[j];
         if (w == NULL) {
             w = __nw__7TObjectFUl(0x74);
@@ -285,7 +284,7 @@ void TWindowSimpleStatus::update_status_icons(void *arg1) {
             ((TLobby *)(((Disp_8026F9F4 *)this)->windows[j]))->set_field_1c(lbl_805DD38C + ((TUnk_804CE018 *)((Disp_8026F9F4 *)this))->get_scale());
         } else {
             TWindowComCard__sub_80249D7C((u8 *)w, 0);
-            set_selected_index__14TWindowComCardFl(((Disp_8026F9F4 *)this)->windows[j], name);
+            ((TWindowComCard *)(((Disp_8026F9F4 *)this)->windows[j]))->set_selected_index(name);
         }
         count = 1;
     } else if (((Disp_8026F9F4 *)this)->windows[j] != NULL) {
@@ -312,7 +311,7 @@ void TWindowSimpleStatus::update_status_icons(void *arg1) {
                 ((TLobby *)(((Disp_8026F9F4 *)this)->windows[j]))->set_field_1c(lbl_805DD398 + ((f32)k + ((TUnk_804CE018 *)((Disp_8026F9F4 *)this))->get_scale()));
             } else {
                 TWindowComCard__sub_80249D7C((u8 *)w, count);
-                set_selected_index__14TWindowComCardFl(((Disp_8026F9F4 *)this)->windows[j], name);
+                ((TWindowComCard *)(((Disp_8026F9F4 *)this)->windows[j]))->set_selected_index(name);
             }
             count++;
         }

@@ -859,9 +859,6 @@ struct Glob_80199A44 { u8 pad[0x1C]; f32 scale; u8 pad20[0x28]; u16 kind; };
 
 s32 get_bml_model(void *, s32);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 set_cull_none__8TObjFishFv();
-s32 set_cull_mode_front__8TObjFishFv();
-s32 set_cull_back__8TObjFishFv();
 void direction_to_rotation_yx(void *, void *, void *);
 s32 approach_angle_limited(int, int, int);
 s32 matrix_mult_vec(int, void *, void *);
@@ -942,43 +939,43 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
         switch (gogo_ball_configuration.kind) {
         case 0:
             TObjFish::set_global_param(lobby_gvm_texture_handles[0]);
-            set_cull_back__8TObjFishFv();
+            TObjFish::set_cull_back();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 3));
-            set_cull_mode_front__8TObjFishFv();
+            TObjFish::set_cull_mode_front();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 3));
-            set_cull_none__8TObjFishFv();
+            TObjFish::set_cull_none();
             break;
         case 1:
             TObjFish::set_global_param(lobby_gvm_texture_handles[1]);
-            set_cull_back__8TObjFishFv();
+            TObjFish::set_cull_back();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
-            set_cull_mode_front__8TObjFishFv();
+            TObjFish::set_cull_mode_front();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
-            set_cull_none__8TObjFishFv();
+            TObjFish::set_cull_none();
             break;
         case 2:
             TObjFish::set_global_param(lobby_gvm_texture_handles[2]);
-            set_cull_back__8TObjFishFv();
+            TObjFish::set_cull_back();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
-            set_cull_mode_front__8TObjFishFv();
+            TObjFish::set_cull_mode_front();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
-            set_cull_none__8TObjFishFv();
+            TObjFish::set_cull_none();
             break;
         case 3:
             TObjFish::set_global_param(lobby_gvm_texture_handles[3]);
-            set_cull_back__8TObjFishFv();
+            TObjFish::set_cull_back();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
-            set_cull_mode_front__8TObjFishFv();
+            TObjFish::set_cull_mode_front();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
-            set_cull_none__8TObjFishFv();
+            TObjFish::set_cull_none();
             break;
         case 6:
             TObjFish::set_global_param(lobby_gvm_texture_handles[6]);
-            set_cull_back__8TObjFishFv();
+            TObjFish::set_cull_back();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 2));
-            set_cull_mode_front__8TObjFishFv();
+            TObjFish::set_cull_mode_front();
             draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 2));
-            set_cull_none__8TObjFishFv();
+            TObjFish::set_cull_none();
             break;
         }
     }

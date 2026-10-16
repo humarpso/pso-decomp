@@ -59,7 +59,6 @@ void get_help_text_string(s32);
 void toggle_help_window_on_button(s32, s32);
 extern s32 current_language;
 s32 get_card_entry__17TWindowSubComCardFi(s32);
-s32 count_active_cards__17TWindowSubComCardFv(void);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void TWindowMenu__ct(void *, s32, s32, void *);
 void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
@@ -153,7 +152,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     TWindowMenu__ct(arg0, 7, 4, arg1);
     *(s32 **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = TWindowSubComCardList__class_name;
-    n = TWindowSubStatusDisp::round_away_from_zero((f32)count_active_cards__17TWindowSubComCardFv() / lbl_805DD540);
+    n = TWindowSubStatusDisp::round_away_from_zero((f32)TWindowSubComCard::count_active_cards() / lbl_805DD540);
     if (n <= 0) {
         n = 1;
     }

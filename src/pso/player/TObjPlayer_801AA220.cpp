@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonMagicSquare.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCameraCtrl.h"
 
@@ -6,7 +7,6 @@ extern "C" {
 
 s32 spawn_particle_effect(s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
-s32 construct_at_owner__18TPhotonMagicSquareFlll(void *, s32, s32, s32);
 s32 get_player_by_client_id(u16);
 u32 __nw__7TObjectFUl(s32);
 s32 play_effect_default__10TObjPlayerFii(s32, s16);
@@ -30,42 +30,42 @@ void TObjPlayer::start_photon_blast(s32 arg0, u16 arg1) {
         case 2:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                construct_at_owner__18TPhotonMagicSquareFlll(temp_nw, tl_07, 2, arg1);
+                ((TPhotonMagicSquare *)temp_nw)->construct_at_owner(tl_07, 2, arg1);
                 return;
             }
             break;
         case 3:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                construct_at_owner__18TPhotonMagicSquareFlll(temp_nw, tl_07, 3, arg1);
+                ((TPhotonMagicSquare *)temp_nw)->construct_at_owner(tl_07, 3, arg1);
                 return;
             }
             break;
         case 4:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                construct_at_owner__18TPhotonMagicSquareFlll(temp_nw, tl_07, 4, arg1);
+                ((TPhotonMagicSquare *)temp_nw)->construct_at_owner(tl_07, 4, arg1);
                 return;
             }
             break;
         case 0:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                construct_at_owner__18TPhotonMagicSquareFlll(temp_nw, tl_07, 0, arg1);
+                ((TPhotonMagicSquare *)temp_nw)->construct_at_owner(tl_07, 0, arg1);
                 return;
             }
             break;
         case 1:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                construct_at_owner__18TPhotonMagicSquareFlll(temp_nw, tl_07, 1, arg1);
+                ((TPhotonMagicSquare *)temp_nw)->construct_at_owner(tl_07, 1, arg1);
                 return;
             }
             break;
         case 5:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);
             if (temp_nw != NULL) {
-                construct_at_owner__18TPhotonMagicSquareFlll(temp_nw, tl_07, 5, arg1);
+                ((TPhotonMagicSquare *)temp_nw)->construct_at_owner(tl_07, 5, arg1);
             }
             break;
         }

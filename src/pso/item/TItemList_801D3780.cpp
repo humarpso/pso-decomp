@@ -114,8 +114,6 @@ void TItemList__sub_801D59A0(void *, int);
 void update_placement_search(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_item_type_or_default__9TItemListFv(void *);
-void send_code_45_1__10TObjPlayerFl(void *);
-void send_6x2A_drop_item__10TObjPlayerFPvlPvl(void *, s32, void *, s32);
 void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
@@ -168,15 +166,15 @@ void run_item_drop_search_task(u8 *arg0) {
                 if (r->source == -1) {
                     ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, r->extra);
-                    send_code_45_1__10TObjPlayerFl(player);
+                    TObjPlayer::send_code_45_1((s32)player);
                 } else {
                     ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(arg0)), (s32)(get_ptr_0x44__9TItemListFPv(arg0)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, get_item_type_or_default__9TItemListFv(r->item));
-                    send_code_45_1__10TObjPlayerFl(player);
+                    TObjPlayer::send_code_45_1((s32)player);
                 }
             } else {
-                send_6x2A_drop_item__10TObjPlayerFPvlPvl(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFv(r->item));
-                send_code_45_1__10TObjPlayerFl(player);
+                TObjPlayer::send_6x2A_drop_item(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFv(r->item));
+                TObjPlayer::send_code_45_1((s32)player);
             }
         }
         break;

@@ -5,7 +5,6 @@ extern "C" {
 
 s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
 s32 TLobby__sub_803CC53C(int);
-s32 close_adxf_handle__6TLobbyFv(int);
 s32 adxf_open__6TLobbyFUii(void *, int);
 u8 *alloc_from_heap__6TLobbyFPv(s32);
 u8 *link_into_list__6TLobbyFv();
@@ -31,7 +30,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, 
     *(s32 *)((s8 *)var_r31 + 0x28) = arg1;
     *(s32 *)((s8 *)var_r31 + 0x2C) = ((TLobby *)temp_r3)->adxf_get_fsize_byte();
     *(s32 *)((s8 *)var_r31 + 0x30) = TLobby__sub_803CC53C((int) (temp_r3));
-    close_adxf_handle__6TLobbyFv((int) (temp_r3));
+    ((TLobby *)temp_r3)->close_adxf_handle();
     *(s32 *)((s8 *)var_r31 + 0x34) = 0;
     *(u32 *)((s8 *)var_r31 + 0x40) = arg2;
     if (arg2 != 0U) {

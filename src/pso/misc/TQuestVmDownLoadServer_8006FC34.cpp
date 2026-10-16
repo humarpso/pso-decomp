@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/object/TObjTombstone.h"
@@ -51,13 +52,11 @@ struct Card_8006FC7C {
 struct Unit_8006FC7C { u8 pad[0x370]; s32 f370; };
 
 extern "C" {
-s32 resolve_player_slot__20TWindowSubStatusDispFl(int);
 void *get_player_by_client_id(s32);
 extern Table_8006FE7C challenge_mode_state;
 extern void *tl_07;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor();
-s32 resolve_player_slot__20TWindowSubStatusDispFl(int);
 char *get_unit_list__6TLobbyFv(void);
 char *TLobby__sub_80070ACC(u8, u8, s32);
 Unit_8006FC7C *find_entity_by_id(void);
@@ -106,7 +105,7 @@ void TLobby::update_card_save_info() {
     if (ply == NULL) {
         return;
     }
-    card->f2224 = resolve_player_slot__20TWindowSubStatusDispFl(-1);
+    card->f2224 = TWindowSubStatusDisp::resolve_player_slot(-1);
     card->f2225 = challenge_mode_state.v0;
     card->f2226 = get_current_floor();
     if (card->f2228 < 0) {
@@ -174,7 +173,7 @@ void TLobby::spawn_player_tombstones() {
         rec = &challenge_mode_state.recs[i];
         if (rec->active != 0 && get_player_by_client_id(i) != NULL) {
             info = &rec->info;
-            if (info->d > 0 && info->a == resolve_player_slot__20TWindowSubStatusDispFl(-1)
+            if (info->d > 0 && info->a == TWindowSubStatusDisp::resolve_player_slot(-1)
                 && info->b == challenge_mode_state.v0 && info->c == challenge_mode_state.v8) {
                 TObjTombstone::create(tl_07, (void *)i, info);
             }

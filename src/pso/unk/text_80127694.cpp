@@ -53,10 +53,8 @@ void spawn_particle_effect(void *, int);
 void draw_icon__10TObjPlayerFll(void *, int, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(void *);
-s16 get_uid__10TObjPlayerFv(void *);
 void *get_captured_target_entry(void *, int);
 s32 get_captured_target_count(void *);
-void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
 }
 
 extern "C" {
@@ -77,9 +75,9 @@ void TUnk_804A3358::emit_marker_effects() {
                 void *e = get_captured_target_entry(st, 0);
                 ((TObjPlayer *)(&rec))->construct_target_cursor_records();
                 rec.kind = 1;
-                rec.uid = get_uid__10TObjPlayerFv(e);
+                rec.uid = ((TObjPlayer *)e)->get_uid();
                 rec.sub = get_captured_target_collider_index(e);
-                create_tec_zonde__10TObjPlayerFPvPvPvPv(*(void **)(((u8 *)this) + 0xF0), pos, &rec, 3);
+                TObjPlayer::create_tec_zonde((void *)(*(void **)(((u8 *)this) + 0xF0)), (void *)pos, (void *)(&rec), (void *)3);
             }
         }
     } else {

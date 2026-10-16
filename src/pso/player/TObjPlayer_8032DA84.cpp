@@ -54,11 +54,9 @@ s32 get_attack_stage__11TItemWeaponFv(void *);
 void TItemWeapon__ct(void *);
 s16 get_validated_attack_stage(s32);
 void __dl__7TObjectFPv(void *);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
-s32 spawn_cane_effect__10TObjPlayerFP5TIteml(s32, void *, s32);
 
 extern s32 tl_05;
 
@@ -74,7 +72,7 @@ void TObjPlayer::launch_guardianna_colliders() {
         fire_shot_at_target__11TItemWeaponFv(this, &sp8, *(s32 *)&this->m_f4, 0);
     }
     if (get_attack_stage__11TItemWeaponFv(this) == 0) {
-        spawn_cane_effect__10TObjPlayerFP5TIteml(tl_05, this, 4);
+        ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)this, (s32)4);
     }
 }
 
@@ -110,7 +108,7 @@ void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EDC28;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

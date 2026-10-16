@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessage.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -86,7 +87,6 @@ s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void);
 int align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, void *a1, int a2, int a3);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
-int complete_reveal__14TWindowMessageFv(void *);
 int send_and_handle__6TLobbyFii(void *, void *, int);
 void *update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80472930[];
@@ -337,7 +337,7 @@ void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 arg2, void *ar
     if (arg1 != NULL) {
         send_and_handle__6TLobbyFii(((Self_802E1A8C *)this)->x50, arg1, 3);
     }
-    complete_reveal__14TWindowMessageFv(((Self_802E1A8C *)this)->x50);
+    ((TWindowMessage *)(((Self_802E1A8C *)this)->x50))->complete_reveal();
     if (arg2 == -1) {
         return;
     }

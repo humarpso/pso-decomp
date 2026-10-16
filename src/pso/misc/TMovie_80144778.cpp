@@ -42,7 +42,6 @@ u8 *__nw__7TObjectFUl(s32);
 s32 set_camera_look_at(void *, void *, void *);
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 s32 func_803DCDFC__Fv();
-s32 run_callback__6TMovieFv();
 extern Vec_80144778 lbl_8043F2E8;
 extern Vec_80144778 lbl_8043F2F4;
 extern Vec_80144778 lbl_8043F300;
@@ -84,7 +83,7 @@ void run_task__6TMovieFv(u8 *arg0) {
         ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->decode_frame();
         if (*(s32 *)((s8 *)arg0 + 0x48) != 0) {
             ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->update_stop();
-            run_callback__6TMovieFv();
+            TMovie::run_callback();
         } else {
             Vec_80144778 eye = lbl_8043F2E8;
             Vec_80144778 at = lbl_8043F2F4;

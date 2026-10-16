@@ -1,4 +1,5 @@
 #include "pso/ui/TAdLoadQuestGC.h"
+#include "pso/misc/TCameraCtrl.h"
 
 #include "types.h"
 
@@ -8,13 +9,12 @@ s32 create_cost_window(s32 arg0);
 s32 TWindowCost__ct(s32, s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 __nw__7TObjectFUl(s32);
-s32 get_camera_id__11TCameraCtrlFv();
 s32 get_window_layout_position(s32);
 
 s32 create_cost_window(s32 arg0) {
     s32 var_r30;
 
-    if (get_camera_id__11TCameraCtrlFv() <= 2) {
+    if (TCameraCtrl::get_camera_id() <= 2) {
         return 0;
     }
     var_r30 = __nw__7TObjectFUl(0x74);

@@ -5,7 +5,6 @@ extern "C" {
 
 s32 init__6gc_tagFv();
 void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1);
-void set_target_id__11TMainCursorFs(void* p, s16 v);
 int TMainCursor__sub_8013E8A0(void* p);
 int TMainCursor__sub_8013E900(void* p);
 s16 TMainCursor__sub_8013E920(void* p);
@@ -29,7 +28,7 @@ void TMainCursor::reset_target() {
     s32 arg0 = (s32)this;
     init__6gc_tagFv();
     set_target_index__11TMainCursorFs((void*)(arg0), (void*)(0xFFFF));
-    set_target_id__11TMainCursorFs((void*)(arg0), 0);
+    ((TMainCursor *)arg0)->set_target_id(0);
 }
 
 }

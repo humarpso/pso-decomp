@@ -21,7 +21,6 @@ s32 take_network_info_request_result(s32 *, s32 *);
 s32 request_network_info_exists(s32);
 s32 take_network_info_exists_result(s32 *, s32 *);
 u32 get_network_info_file_size();
-s32 copy_current_entry_name__6TLobbyFl(void *, int);
 s32 TLobby__sub_803F53A0(int, void *, int);
 s32 TLobby__sub_8042EE4C(u32 *);
 s32 memset(void *, int, int);
@@ -176,7 +175,7 @@ s32 TLobby__sub_80145A94(void) {
             return 1;
         }
         memset(&buf, 0, 0x270);
-        copy_current_entry_name__6TLobbyFl(buf.name, 0x80);
+        ((TLobby *)(buf.name))->copy_current_entry_name(0x80);
         TLobby__sub_803F53A0(0, buf.x, 0x40);
         if (buf.name[0] == 0 || buf.x[0] == 0) {
             return 0;

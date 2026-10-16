@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TObjPlayer.h"
@@ -12,7 +13,6 @@ s32 get_game_play_mode(void);
 extern "C" {
 
 s32 TLobby__sub_8030A770(void);
-s32 get_instance__11TCameraCtrlFv();
 s32 is_quest_active();
 
 extern s32 game_difficulty_selection;
@@ -29,7 +29,7 @@ s32 TLobby::is_online_ready() {
 
 s32 TLobby::is_camera_ctrl_active() {
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        return get_instance__11TCameraCtrlFv();
+        return TCameraCtrl::get_instance();
     }
     return 1;
 }

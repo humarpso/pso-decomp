@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowMainMenu.h"
@@ -23,9 +24,7 @@ extern "C" {
 
 s32 get_player_by_client_id(s32);
 struct Obj_80263D7C; struct Obj_80263DBC;
-s32 open_menu_with_entry__15TWindowMainMenuFs(void *, s16);
 void destroy_submenu__15TWindowMainMenuFv(void* p);
-s32 reset_equip_slots__10TObjPlayerFv(s32);
 
 void TWindowMainMenu::try_open_battle_menu(s16 arg1) {
     s32 spC;
@@ -37,9 +36,9 @@ void TWindowMainMenu::try_open_battle_menu(s16 arg1) {
     if ((temp_r3 != 0) && !(*(s32 *)((s8 *)this + 0x4C) & 1) && (filter_menu_entry(&sp8, &spC) != 0) && (spC != 0)) {
         *(s32 *)((s8 *)this + 0x4C) = (s32) (*(s32 *)((s8 *)this + 0x4C) | 1);
         *(s32 *)((s8 *)this + 0x5C) = 0;
-        open_menu_with_entry__15TWindowMainMenuFs(this, sp8);
+        open_menu_with_entry(sp8);
         ((TWindowMainMenu *)this)->create_submenu(sp8);
-        reset_equip_slots__10TObjPlayerFv(temp_r3);
+        ((TObjPlayer *)temp_r3)->reset_equip_slots();
         ((V_A_80263b70 *) this)->m5();
     }
 }
@@ -77,7 +76,6 @@ s32 populate_menu__15TWindowMainMenuFPvPv(void *, s32);
 void close_child_window__15TWindowMainMenuFv(void* p);
 
 s32 init_parts__10TObjPlayerFv();
-s32 reset_equip_slots__10TObjPlayerFv(s32);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *arg0);
 
 void TWindowMainMenu::close_and_clear_flags() {
@@ -105,7 +103,7 @@ void TWindowMainMenu::open(s32 arg1) {
         *(s16 *)((s8 *)this + 0x50) = 0;
         ((s32 (*)(void *, s32))update_keyboard_card_state__15TWindowMainMenuFv)(this, temp_r4);
         populate_menu__15TWindowMainMenuFPvPv(this, *(s32 *)((s8 *)this + 0x5C));
-        reset_equip_slots__10TObjPlayerFv(temp_r3);
+        ((TObjPlayer *)temp_r3)->reset_equip_slots();
     }
 }
 

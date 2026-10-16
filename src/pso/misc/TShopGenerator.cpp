@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 
 struct Base_8021E068_8021E010 { char pad[0x18]; };
 struct VObj_8021E068_8021E010 : Base_8021E068_8021E010 {
@@ -80,7 +81,6 @@ extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 s32 obj_getField1c(s32);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 get_map_id__13TRaderMapCoreFv(s32);
 s32 is_flag_400_set__10TObjPlayerFPv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
@@ -186,7 +186,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
             if (check_flag_100__10TObjPlayerFPv(p) == 1) continue;
             fn = e->f10;
             if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(p))) == 1) continue;
-            if (TWindowShortListCtrl__check_controller_button(controller_input_state + get_map_id__13TRaderMapCoreFv(p) * 0x50 + 0x20, 4) == 0) continue;
+            if (TWindowShortListCtrl__check_controller_button(controller_input_state + ((TRaderMapCore *)p)->get_map_id() * 0x50 + 0x20, 4) == 0) continue;
             e->fc(p);
         }
     } else {
@@ -202,7 +202,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
         fn2 = e->f10;
         if (fn2(TShopGenerator__sub_80222DAC(obj_getField1c(q))) == 1) return;
         if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPUcf)(self, (u8 *)q, lbl_805DC6EC) == 0) return;
-        if (TWindowShortListCtrl__check_controller_button(controller_input_state + get_map_id__13TRaderMapCoreFv(q) * 0x50 + 0x20, 4) == 0) return;
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + ((TRaderMapCore *)q)->get_map_id() * 0x50 + 0x20, 4) == 0) return;
         e->fc(q);
     }
 }

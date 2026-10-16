@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -29,13 +30,10 @@ struct W_8024DCE8 : WBase_8024DCE8 {
 extern "C" {
 u32 get_player_by_client_id(int);
 s32 window_request_show(u32);
-s32 is_flag_2_set__11TWindowCtrlFv(void *);
 s32 is_split_screen();
 u32 get_player_by_client_id(int);
 s32 window_request_show(u32);
-s32 is_flag_2_set__11TWindowCtrlFv(void *);
 s32 TWindowCtrl__sub_8024C7F8(void *);
-s32 get_battle_ctrl_id__10TObjPlayerFUs(int);
 s32 TWindow__close(void *);
 s32 TWindowCtrl__sub_8024A314();
 s32 TWindowCtrl__sub_8024C7C4(void *);
@@ -55,7 +53,6 @@ u32 get_player_by_client_id(int);
 u16 get_current_target_id__10TObjPlayerFv();
 void *__nw__7TObjectFUl(int);
 s32 is_player_input_active(s32);
-s32 is_flag_2_set__11TWindowCtrlFv(void *);
 s32 TWindowCtrl__sub_8024C7D4(void *);
 void *TWindowShortListCtrl__ct(void *, void *, int);
 extern Pad_8024DCE8 controller_input_state[];
@@ -67,7 +64,6 @@ s32 is_player_input_active(s32);
 s32 TWindowCtrl__sub_8024C7D4(void *);
 s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
 s32 TWindowMainMenu__sub_8024E3F4(void *);
-s32 try_open_battle_menu__15TWindowMainMenuFs(void *, s16);
 extern Pad_8024DCE8 controller_input_state[];
 }
 
@@ -137,7 +133,7 @@ void TWindowCtrl::update_short_list_request() {
     if (*(void **)((s8 *)this + 0x3C) != NULL && ((TObject *)(*(void **)((s8 *)this + 0x3C)))->all_parents_unqueued_for_destruction() == 0) {
         *(void **)((s8 *)this + 0x3C) = NULL;
     }
-    if (*(void **)((s8 *)this + 0x34) != NULL && is_flag_2_set__11TWindowCtrlFv(*(void **)((s8 *)this + 0x34)) == 0) {
+    if (*(void **)((s8 *)this + 0x34) != NULL && ((TWindowCtrl *)(*(void **)((s8 *)this + 0x34)))->is_flag_2_set() == 0) {
         if (get_player_by_client_id(*(s32 *)((s8 *)this + 0x24)) == 0) {
             if (*(void **)((s8 *)this + 0x3C) != NULL) {
                 queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x3C));
@@ -228,7 +224,7 @@ void TWindowCtrl::update_main_menu_request() {
         (*(W_8024DCE8 **)((s8 *)this + 0x28))->m4();
         return;
     }
-    try_open_battle_menu__15TWindowMainMenuFs(*(void **)((s8 *)this + 0x28), key);
+    ((TWindowMainMenu *)(*(void **)((s8 *)this + 0x28)))->try_open_battle_menu(key);
 }
 
 #pragma push
@@ -244,7 +240,7 @@ void TWindowCtrl::update_target_info_window() {
             *(u32 *)((s8 *)arg0 + 0x38) = 0U;
         }
     } else {
-        s32 id = get_battle_ctrl_id__10TObjPlayerFUs((int) ((u16) *(s32 *)((s8 *)arg0 + 0x24)));
+        s32 id = TObjPlayer::get_battle_ctrl_id((int) ((u16) *(s32 *)((s8 *)arg0 + 0x24)));
         if ((u16) id != 0xFFFF) {
             void *w = *(void **)((s8 *)arg0 + 0x38);
             if (w == NULL) {
@@ -260,7 +256,7 @@ void TWindowCtrl::update_target_info_window() {
 void TWindowCtrl::update_child_window_visibility() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r31;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) && (is_flag_2_set__11TWindowCtrlFv((void *) *(u32 *)((s8 *)arg0 + 0x34)) == 0)) {
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) && (((TWindowCtrl *)((void *) *(u32 *)((s8 *)arg0 + 0x34)))->is_flag_2_set() == 0)) {
         temp_r31 = get_player_by_client_id((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         if ((get_active_menu() != 0) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (((TWindowCtrl *)arg0)->is_enabled() != 0) || (temp_r31 == 0U)) {
             ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x34)))->request_close();
@@ -272,7 +268,7 @@ void TWindowCtrl::update_child_window_visibility() {
 
 void TWindowCtrl::update_trade_window_visibility() {
     u8 *arg0 = (u8 *)this;
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (is_flag_2_set__11TWindowCtrlFv((void *) *(u32 *)((s8 *)arg0 + 0x30)) == 0)) {
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (((TWindowCtrl *)((void *) *(u32 *)((s8 *)arg0 + 0x30)))->is_flag_2_set() == 0)) {
         if ((get_player_by_client_id((int) (*(s32 *)((s8 *)arg0 + 0x24))) == 0U) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu() != 0))) {
             ((TWindowLockOn *)(*(u32 *)((s8 *)arg0 + 0x30)))->request_close();
             return;

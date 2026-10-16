@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubComCardList.h"
 
 struct Base_8019D4E4 { char pad[0x18]; };
@@ -70,7 +71,6 @@ s32 get_localized_text_entry(s32, s32);
 s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
 s32 align_menu_entry_positions(int);
-s32 calc_window_size__17TWindowSubComCardFv(int);
 void *TObjWarpBase__ct(void *, void *, void *);
 int push_matrix_from(void *);
 void post_translate_matrix(void *);
@@ -141,7 +141,7 @@ void TObjMapWarp::open_player_warp_window(s32 arg1) {
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, 0x25), 2, 0, -1);
-        calc_window_size__17TWindowSubComCardFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();

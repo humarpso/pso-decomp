@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TLobby.h"
@@ -36,7 +37,6 @@ struct Chal_800738F4 { u8 pad[0x4C]; void *window; u8 rest[0x748 - 0x50]; };
 extern "C" {
 extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 void TLobby__sub_800739BC(void);
-s32 get_camera_id__11TCameraCtrlFv();
 char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 fn_80071A9C(void *, void *, void *);
@@ -74,7 +74,6 @@ extern char challenge_progress_text_buffer[];
 extern char lbl_805D9128[2];
 extern char lbl_805D912C[2];
 extern char lbl_805D9130[2];
-s32 get_camera_id__11TCameraCtrlFv();
 void send_and_handle__6TLobbyFii(void *, char *, s32);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
 void *get_window_layout_position(s32);
@@ -167,7 +166,7 @@ void TLobby::open_challenge_window(s32 arg0, s32 arg1) {
         return;
     }
     ((TLobby *)win)->set_field_1c(lbl_805D9134);
-    if (get_camera_id__11TCameraCtrlFv() >= 2) {
+    if (TCameraCtrl::get_camera_id() >= 2) {
         ((TUnk_804CDFE8 *)((*(Chal_8007369C *)&challenge_mode_state).window))->set_position_xy(lbl_805D9138, lbl_805D9138);
     }
     TAdSinglePlyChrSelectGC::format_challenge_stage_times((s32)(arg0), (s32)(arg1));
@@ -186,7 +185,7 @@ void TLobby::open_challenge_progress_window(void *arg1) {
         return;
     }
     ((TLobby *)win)->set_field_1c(lbl_805D9134);
-    if (get_camera_id__11TCameraCtrlFv() >= 2) {
+    if (TCameraCtrl::get_camera_id() >= 2) {
         ((TUnk_804CDFE8 *)(CHAL->window))->set_position_xy(lbl_805D9138, lbl_805D9138);
     }
     sprintf(challenge_progress_text_buffer, lbl_80438628, TQuestVmDownLoadServer__sub_8006EF6C(0x4F));

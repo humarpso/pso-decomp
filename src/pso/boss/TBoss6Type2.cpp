@@ -194,7 +194,6 @@ extern s32 TBoss6Type2__motion_table[];
 extern const s32 TBoss6Type2__data_805DE4B8;
 u8 * get_player_by_client_id(u32);
 s32 is_active__14TBoss6PlotFalzFv();
-s32 break_rocks_in_radius__10TBoss6RockFf(void *, f32);
 f32 xyz_distance(void *, void *);
 extern s32 TBoss6Type2__player_hit_rock_indices[];
 extern const f32 TBoss6Type2__data_805DE40C;
@@ -1690,7 +1689,7 @@ void TBoss6Type2::apply_rock_hits_to_players() {
     range = TBoss6Type2__data_805DE434;
     for (i = 0; i < 6; i++) {
         rock = &((Obj_802BBAB0 *)this)->rock[TBoss6Type2__player_hit_rock_indices[i]];
-        break_rocks_in_radius__10TBoss6RockFf(rock, TBoss6Type2__data_805DE434);
+        ((TBoss6Rock *)rock)->break_rocks_in_radius(TBoss6Type2__data_805DE434);
         if (!(rock->y - ((Obj_802BBAB0 *)this)->f3C > range)) {
             hit = 0;
             if (xyz_distance(rock, &((Obj_802BBAB0 *)this)->v680[TBoss6Type2__player_hit_rock_indices[i]]) >= TBoss6Type2__data_805DE40C) {

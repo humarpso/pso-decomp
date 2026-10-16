@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-u32 get_usable_action_flags__5TItemFUlUl(s32, s32, s32);
 s32 find_item_by_id(s32);
 s32 calc_list_content_extent(void *);
 u8 get_field_ec__5TItemFv();
@@ -29,7 +29,7 @@ void TObjPlayer::build_shop_item_list() {
         temp_r30 = ((TObjPlayer *)(*(s32 *)((s8 *)temp_r3 + 0xD00)))->run_and_get_result((int)spC);
         for (i = 0; i < temp_r30; i++) {
             temp_r3_2 = find_item_by_id(spC[i]);
-            if ((temp_r3_2 != 0) && (get_field_ec__5TItemFv() == 0) && (get_item_info__10TObjPlayerFllPs(temp_r3_2, temp_r3, &sp8) != 0) && (((TObjPlayer *)temp_r3_2)->test_item_flags(8) == 0U) && (get_usable_action_flags__5TItemFUlUl(temp_r3_2, 8, 0) != 0U)) {
+            if ((temp_r3_2 != 0) && (get_field_ec__5TItemFv() == 0) && (get_item_info__10TObjPlayerFllPs(temp_r3_2, temp_r3, &sp8) != 0) && (((TObjPlayer *)temp_r3_2)->test_item_flags(8) == 0U) && (((TItem *)temp_r3_2)->get_usable_action_flags(8, 0) != 0U)) {
                 ((TShopJudgmentItemWindow *)((u8 *)this))->add_list_entry(temp_r3_2, spC[i]);
             }
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpBossMulti.h"
 #include "pso/player/TObjPlayer.h"
 struct Tag_801D7D4C { u8 d[4]; };
 
@@ -19,11 +20,9 @@ extern "C" {
 void init__6gc_tagFv(void *);
 s32 obj_testFlags30(void *, u32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 get_camera_field__10TObjPlayerFv(void *);
 u8 get_cast_technique_level(void *, int);
 Tec_801D7DA4 *calc_technique_parameters(s32, s32, s32);
 s32 get_game_play_mode();
-s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TObjPlayer__sub_801C1F50(void *);
 
@@ -64,7 +63,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
     case 1:
         return 1;
     case 2:
-        if (obj_testFlags30(arg0, 0x20006) != 0 || reset_key_machine_state__10TObjPlayerFv() == 0 || get_camera_field__10TObjPlayerFv(arg0) == 0) {
+        if (obj_testFlags30(arg0, 0x20006) != 0 || reset_key_machine_state__10TObjPlayerFv() == 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
             return 0;
         }
         if ((u8)sub == 2) {
@@ -78,7 +77,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         }
         return 1;
     case 3:
-        if (((TObjPlayer *)(arg0 + 0x428))->test_bit1_at_10() != 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFv(arg0) == 0) {
+        if (((TObjPlayer *)(arg0 + 0x428))->test_bit1_at_10() != 0 || obj_testFlags30(arg0, 0x20006) != 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
             return 0;
         }
         if (*(s16 *)(arg0 + 0x32E) - calc_technique_parameters(tec = sub, get_cast_technique_level(arg0 + 0x428, sub), ((s32 (*)(void *))obj_getField1c)(arg0))->cost < 0) {
@@ -91,7 +90,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
             }
             break;
         case 0xE:
-            if (is_flag_clear__17TObjWarpBossMultiFPv(arg0) == 0) {
+            if (TObjWarpBossMulti::is_flag_clear(arg0) == 0) {
                 return 0;
             }
             if (is_technique_ready__8TTecCtrlFv() != 0 || get_game_play_mode() == 1) {
@@ -101,7 +100,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         }
         return 1;
     case 4:
-        if (get_camera_field__10TObjPlayerFv(arg0) == 0) {
+        if (((TObjPlayer *)arg0)->get_camera_field() == 0) {
             return 0;
         }
         switch ((u8)sub) {
@@ -113,7 +112,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         case 10:
             break;
         case 11:
-            if (is_flag_clear__17TObjWarpBossMultiFPv(arg0) == 0) {
+            if (TObjWarpBossMulti::is_flag_clear(arg0) == 0) {
                 return 0;
             }
             if (is_technique_ready__8TTecCtrlFv() != 0) {
@@ -123,7 +122,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         }
         return 1;
     case 5:
-        if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) == 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFv(arg0) == 0) {
+        if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) == 0 || obj_testFlags30(arg0, 0x20006) != 0 || ((TObjPlayer *)arg0)->get_camera_field() == 0) {
             return 0;
         }
         return 1;

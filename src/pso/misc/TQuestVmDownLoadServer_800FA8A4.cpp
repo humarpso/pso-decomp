@@ -18,7 +18,6 @@ void *__nw__7TObjectFUl(int);
 extern u32 fog_ctrl_instance;
 s32 request_fog__8TFogCtrlFPvii(u32, s32, s32);
 extern s32 TFogCtrl__fog_instance_table[];
-s32 select_fog__8TFogCtrlFll(u32, s32, s32);
 extern s32 TFogCtrl__fog_instance_table[];
 extern s32 TFogCtrl__fog_instance_table[];
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -102,7 +101,7 @@ s32 TFogCtrl::apply_all(s32 arg0, s32 arg1) {
     do {
         u32 v = (u32)var_r30[var_r31];
         if (v != 0U) {
-            select_fog__8TFogCtrlFll(v, arg0, arg1);
+            ((TFogCtrl *)v)->select_fog(arg0, arg1);
         }
         var_r29 += 1;
         var_r31 += 1;

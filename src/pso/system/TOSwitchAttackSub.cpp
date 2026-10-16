@@ -3,7 +3,6 @@
 
 extern "C" {
 void queue_destruction__7TObjectFv(void*);
-void enable__13TParticleCtrlFv(void*);
 f32 horizontal_distance_squared(const f32*, const f32*);
 u8* get_player_by_client_id(void*);
 u8 is_current_floor_switch_set(int);
@@ -26,7 +25,7 @@ void TOSwitchAttackSub::run_task() {
     if (particle != 0 && (player = get_player_by_client_id(local_client_id)) != 0 && camera_ctrl_instance != 0) {
         playerDistance = horizontal_distance_squared((const f32*)(player + 0x38), (const f32*)(camera_ctrl_instance + 0x178));
         if (lbl_805DBA00 * horizontal_distance_squared(position, (const f32*)(camera_ctrl_instance + 0x178)) < playerDistance) {
-            enable__13TParticleCtrlFv(particle);
+            ((TParticleCtrl *)particle)->enable();
             return;
         }
         ((TParticleCtrl *)particle)->clear_active_flag();

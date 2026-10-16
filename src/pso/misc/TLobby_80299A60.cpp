@@ -1,4 +1,6 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss6EmptyWarp.h"
 #include "pso/misc/TLobby.h"
@@ -14,8 +16,6 @@ extern "C" {
 s32 get_main_phase();
 s32 is_split_screen();
 s32 is_quest_active();
-s32 create_tasks__6TLobbyFv();
-s32 check_disconnect_conditions__6TLobbyFv();
 s32 init_area_lights();
 void init_music_sequencer(s32);
 s32 play_area_music(s32 *);
@@ -29,26 +29,22 @@ extern "C" {
 
 s32 init_scene_delo2(void);
 s32 load_dragon2_scene(void);
-int clear_session_buffers__6TLobbyFv(void);
 s32 TLobby__sub_801403B4(s32);
 int stop_cue_stream(void);
 s32 load_floor_sound_bank();
 s32 play_area_music(s32 *);
 s32 init_area_lights();
 u32 __nw__7TObjectFUl(s32);
-s32 check_disconnect_conditions__6TLobbyFv();
 s32 create_boss8_demo_objects();
 s32 create_instance__10TSceneSoraFPv(void*, s32);
-s32 create_tasks__6TLobbyFv();
 int fn_802F105C(void);
 s32 fn_802F1084();
 int fn_802FE9E0(void);
 s32 fn_802FEA0C();
 s32 init_scene_boss2_tunnel();
 s32 is_split_screen();
-int update_current_floor__6TLobbyFv(void);
 
-void TLobby::refresh_lobby_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void TLobby::refresh_lobby_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
 extern s32 tl_particlemodel;
 
@@ -56,11 +52,11 @@ s32 TLobby::init_particle_model() {
     void* obj;
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();
-    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+    if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
     init_area_lights();
-    create_tasks__6TLobbyFv();
+    TLobby::create_tasks();
     if ((is_split_screen() == 0) && ((obj = (void*)__nw__7TObjectFUl(0x3C)) != 0)) {
         create_instance__10TSceneSoraFPv((void*)(obj), (s32)(tl_particlemodel));
     }
@@ -68,25 +64,25 @@ s32 TLobby::init_particle_model() {
     return 1;
 }
 
-void TLobby::update_field_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); fn_802FE9E0(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void TLobby::update_field_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); fn_802FE9E0(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
 extern s32 lbl_804651A0[];
 
 s32 load_dragon2_scene(void) {
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();
-    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+    if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
     fn_802FEA0C();
     init_area_lights();
-    create_tasks__6TLobbyFv();
+    TLobby::create_tasks();
     create_boss8_demo_objects();
     play_area_music(lbl_804651A0);
     return 1;
 }
 
-void TLobby::update_subsystems() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); fn_802F105C(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void TLobby::update_subsystems() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); fn_802F105C(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
 extern s32 lbl_804651B0[];
 extern s32 tl_particlemodel;
@@ -95,12 +91,12 @@ s32 init_scene_delo2(void) {
     void *obj;
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();
-    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+    if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
     init_scene_boss2_tunnel();
     init_area_lights();
-    create_tasks__6TLobbyFv();
+    TLobby::create_tasks();
     fn_802F1084();
     TLobby__sub_801403B4(0);
     play_area_music(lbl_804651B0);
@@ -110,16 +106,16 @@ s32 init_scene_delo2(void) {
     return 1;
 }
 
-void TLobby::update_floor_state_deferred() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void TLobby::update_floor_state_deferred() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
 s32 TLobby__sub_80299C7C(void) {
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();
-    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+    if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
     init_area_lights();
-    create_tasks__6TLobbyFv();
+    TLobby::create_tasks();
     if ((get_main_phase() != 0xE) || (is_quest_active() == 0)) {
         switch (((s32)TOKeyMachine01::get_global_state())) {
         case 0x17:
@@ -138,7 +134,7 @@ s32 TLobby__sub_80299C7C(void) {
     return 1;
 }
 
-void TLobby::update_scene_alt() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void TLobby::update_scene_alt() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
 }
 
@@ -149,8 +145,6 @@ extern "C" {
 s32 get_main_phase();
 s32 is_split_screen();
 s32 is_quest_active();
-s32 create_tasks__6TLobbyFv();
-s32 check_disconnect_conditions__6TLobbyFv();
 s32 init_area_lights();
 s32 TLobby__sub_801403B4(s32);
 
@@ -167,7 +161,7 @@ s32 initialize_boss_scene(void) {
 
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();
-    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+    if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
     init_area_lights();
@@ -177,7 +171,7 @@ s32 initialize_boss_scene(void) {
             CIS(temp_new, tl_particlemodel);
         }
     }
-    create_tasks__6TLobbyFv();
+    TLobby::create_tasks();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
         play_area_music(lbl_804651C8);
@@ -217,12 +211,10 @@ s32 TLobby__sub_80292F5C();
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 s32 get_player_by_client_id(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 calc_window_size__17TWindowSubComCardFv(u32);
 s32 get_window_layout_position(s32);
 int TWindow__close(void*);
 int TObjPlayer__sub_8024ABDC(void*);
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
-s32 send_code_45_1__10TObjPlayerFl(int);
 
 s32 TLobby::is_multi_ready() {
     if ((TLobby::get_challenge_mode_flag() != 0) || (TLobby__sub_80292F5C() <= 1)) {
@@ -261,7 +253,7 @@ void TLobby::open_giveup_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x2C) != 0U) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
-        calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)this + 0x2C));
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x2C)))->calc_window_size();
         ((TLobby *)(*(u32 *)((s8 *)this + 0x2C)))->set_loss_flag();
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0x2C)))->set_selected_index(0);
     }
@@ -275,7 +267,7 @@ void send_giveup_to_all_players__6TLobbyFv(void) {
     do {
         temp_r3 = get_player_by_client_id((int)(var_r31));
         if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
-            send_code_45_1__10TObjPlayerFl(temp_r3);
+            TObjPlayer::send_code_45_1(temp_r3);
         }
         ((TWindowCtrl *)var_r31)->unsuppress_slot();
         TLobby__sub_8024AC20(var_r31);

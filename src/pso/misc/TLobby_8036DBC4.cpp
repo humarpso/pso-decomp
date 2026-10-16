@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-s32 get_camera_id__11TCameraCtrlFv();
 s32 load_gvm_texture_file(void *);
 void set_global_param__8TObjFishFl();
 extern u8 lbl_8047AD08[];
@@ -30,7 +30,7 @@ void TLobby::free_singleton_805D7018() {
 }
 void TBGMulti__ct(void) {
     s32 sp8[4];
-    if (get_camera_id__11TCameraCtrlFv() == 3) {
+    if (TCameraCtrl::get_camera_id() == 3) {
         sp8[0] = TLobby::tmp_buf_use_req((const char *)lbl_8047AD08);
         TLanguage::draw_string(lbl_8047AD14, sp8, 0x4D);
         ((TLobby *)lbl_8047AD08)->tmp_buf_release();

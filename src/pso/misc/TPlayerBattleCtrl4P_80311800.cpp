@@ -1,4 +1,5 @@
 #include "pso/misc/TPlayerBattleCtrl4P.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowMenu.h"
 
 #include "types.h"
@@ -26,7 +27,6 @@ s32 TWindow__close(void *);
 s32 send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *, int, int);
 u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFv();
-s32 release_attached_resource__10TObjPlayerFv(int);
 s32 record_split_screen_battle_results(void *);
 s32 set_state__19TPlayerBattleCtrl4PFv(void *, int);
 s32 calculate_split_screen_battle_rankings(void *);
@@ -37,7 +37,6 @@ extern s32 local_client_id;
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(void *);
-s32 calc_window_size__17TWindowSubComCardFv(void *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, int);
@@ -227,7 +226,7 @@ void TPlayerBattleCtrl4P::update_rematch_menu() {
             ((O_80311C2C *)this)->w1 = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x54), 2);
             forward_trade_action_default__16TObjCityMainWarpFPviii(((O_80311C2C *)this)->w1, ((O_80311C2C *)this)->ids->b, 6, 1);
             forward_trade_action_default__16TObjCityMainWarpFPviii(((O_80311C2C *)this)->w1, ((O_80311C2C *)this)->ids->d, 6, 3);
-            calc_window_size__17TWindowSubComCardFv(((O_80311C2C *)this)->w1);
+            ((TWindowSubComCard *)(((O_80311C2C *)this)->w1))->calc_window_size();
             align_menu_entry_positions(((O_80311C2C *)this)->w1);
             ((TCheckRoomSequence *)(((O_80311C2C *)this)->w1))->set_ready_flag();
         }
@@ -274,7 +273,7 @@ void TPlayerBattleCtrl4P::open_result_windows() {
       {
         TPlayerBattleCtrl4P::remove_player((void *) ((s32)this), (int) ((u16) var_r31), (int) 1);
       }
-      release_attached_resource__10TObjPlayerFv((int) temp_r3);
+      ((TObjPlayer *)temp_r3)->release_attached_resource();
     }
     var_r31 += 1;
   }

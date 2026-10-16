@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TFontSmallLobby.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 TFontSmallLobby__sub_801C0164(void *);
-s32 construct_pb_controller__15TFontSmallLobbyFv(void *);
 s32 construct_actor_base__10TObjPlayerFPvPv();
 s32 init_player_substructs__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BC8F0(void *);
@@ -48,7 +48,7 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 arg3, u8 *arg4
     TObjPlayer__sub_80309E9C((void *) (((u8 *)this) + 0x384));
     ((TObjPlayer *)(((u8 *)this) + 0x41C))->init_forward();
     TFontSmallLobby__sub_801C0164((void *) (((u8 *)this) + 0x428));
-    construct_pb_controller__15TFontSmallLobbyFv((void *) (((u8 *)this) + 0x4AC));
+    ((TFontSmallLobby *)(((u8 *)this) + 0x4AC))->construct_pb_controller();
     __ct__14TPlyDispConfigFv((void *) (((u8 *)this) + 0x500));
     TObjPlayer__sub_80351974((void *) (((u8 *)this) + 0x550));
     ((TObjPlayer *)(((u8 *)this) + 0x5B0))->init_subobjects();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneSlime.h"
 #include "pso/TParticleCtrl.h"
@@ -104,9 +105,6 @@ void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 set_cull_none__8TObjFishFv();
-s32 set_cull_mode_front__8TObjFishFv();
-s32 set_cull_back__8TObjFishFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 push_matrix();
@@ -179,13 +177,13 @@ void TObjEneSlime::render() {
             model_render_flags &= 0xFFBFFFFF;
         } else {
             func_803e11e8__FUl((int) (2));
-            set_cull_back__8TObjFishFv();
+            TObjFish::set_cull_back();
             get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
-            set_cull_mode_front__8TObjFishFv();
+            TObjFish::set_cull_mode_front();
             get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
-            set_cull_none__8TObjFishFv();
+            TObjFish::set_cull_none();
             func_803e11f0__Fv();
         }
         pop_matrix();

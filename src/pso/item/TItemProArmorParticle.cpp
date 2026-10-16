@@ -34,7 +34,6 @@ s32 is_item_area_enabled();
 void __dt__13TItemProArmorFv(void *, int);
 u32 __nw__7TObjectFUl(s32);
 s32 __nw__15TItemHeapObjectFUl(s32);
-void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_id__13TItemProArmorFv(void *);
 
 void TItemProArmorParticle::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -119,7 +118,7 @@ void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TItemProArmorParticle;
         __dt__13TItemProArmorFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

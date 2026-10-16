@@ -37,7 +37,6 @@ s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestPrtTxtGC__ct(int, void *, void *);
 extern RecoveredGlobal_8034A5D0_lbl_804EFF80 quest_load_prt_txt_by_slot;
 s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
-void enable__13TParticleCtrlFv(void *);
 extern const f32 lbl_805DFD20;
 extern const f32 lbl_805DFD24;
 s32 __dt__7TObjectFv(void *, int);
@@ -70,7 +69,7 @@ void TAdLoadQuestPrtTxtGC::run_task() {
                 }
             } else {
                 if (self->particles[i] != NULL) {
-                    enable__13TParticleCtrlFv(self->particles[i]);
+                    ((TParticleCtrl *)(self->particles[i]))->enable();
                     self->pos[i].x = lbl_805DFD24;
                     ((TNowLoading *)(self->particles[i]))->copy_pos(&self->pos[i]);
                 }

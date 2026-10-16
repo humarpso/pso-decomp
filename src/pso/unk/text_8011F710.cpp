@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/item/TItem.h"
 
@@ -120,10 +121,8 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void play_weapon_owner_sounds(void*);
 u32 test_flags_1b8__11TItemWeaponFUl(void*,u32);
 s32 obj_getField1c(void *);
-void set_status_flags__10TObjPlayerFUl(void*,u32);
 void fire_shot_at_target__11TItemWeaponFv(void*,WeaponVector*,s32,s32);
 
-s32 refresh_owner_stats__5TItemFv(Obj_8011F710 *arg0);
 s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1);
 }
 
@@ -135,7 +134,7 @@ s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1) {
     } else {
         arg0->cur += arg1;
     }
-    refresh_owner_stats__5TItemFv(arg0);
+    ((TItem *)arg0)->refresh_owner_stats();
     return 1;
 }
 
@@ -228,7 +227,7 @@ void TItemWeapon::vfunc_30() {
             TBoss4Type3::spawn_effect(0x80, 5, (s16)obj_getField1c((void *)(self->player)));
         }
         self->emit_marker_effects();
-        set_status_flags__10TObjPlayerFUl(self,0x1000000);
+        ((TObjPlayer *)self)->set_status_flags(0x1000000);
         if(!test_flags_1b8__11TItemWeaponFUl(self,2)) {
             if(test_flags_1b8__11TItemWeaponFUl(self,0x8000)) {
                 ((TObjPlayer *)self)->draw_status_icon((s32)(&gun_point));

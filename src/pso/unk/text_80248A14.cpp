@@ -7,8 +7,6 @@
 struct Obj_80248A14 { u8 pad[0x76]; s16 count; };
 
 extern "C" {
-void advance_state__20TWindowSubStatusDispFv(s32);
-void finalize_state__20TWindowSubStatusDispFv(s32);
 }
 
 extern "C" {
@@ -20,9 +18,9 @@ void THunterGuildSeqOffline::advance_matching_entries(s32 arg1, s32 arg2) {
         e = ((TUnk_804CE018 *)((Obj_80248A14 *)this))->get_array_entry(i);
         if (e != 0 && ((TWindowSubStatusDisp *)e)->is_flag_4_set() != 0 && arg2 == ((TWindowSubItem *)e)->get_cursor_pos()) {
             if (arg1 != 0) {
-                finalize_state__20TWindowSubStatusDispFv(e);
+                ((TWindowSubStatusDisp *)e)->finalize_state();
             } else {
-                advance_state__20TWindowSubStatusDispFv(e);
+                ((TWindowSubStatusDisp *)e)->advance_state();
             }
         }
     }

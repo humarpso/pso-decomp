@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/TItemReverseTech.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -44,7 +45,6 @@ s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
-s32 noop__23TAdSinglePlyChrSelectGCFv();
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
@@ -62,7 +62,6 @@ extern int TItemReverseTech__name_buffer;
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F91C(s32);
 void set_active_camera_pose(Vec_8011A43C *, Vec_8011A43C *);
-void select_active_controller__11TCameraCtrlFSc(s32);
 void TCameraCtrl__ct(void *, s32);
 void clear_resource_load_tasks();
 void init_map_lights(void *);
@@ -163,7 +162,7 @@ void TItemReverseTech::run_frame() {
     render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A350_main_task *)&main_task).value));
     process_async_file_reads();
     update_sound_request_slots();
-    noop__23TAdSinglePlyChrSelectGCFv();
+    TAdSinglePlyChrSelectGC::noop();
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }
@@ -223,7 +222,7 @@ void TItemReverseTech::init_scene() {
     }
     Vec_8011A43C eye = lbl_8043E68C[0];
     Vec_8011A43C at = lbl_8043E698[0];
-    select_active_controller__11TCameraCtrlFSc(9);
+    TCameraCtrl::select_active_controller(9);
     set_active_camera_pose(&eye, &at);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);

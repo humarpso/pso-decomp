@@ -150,7 +150,6 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 int align_menu_entry_positions(void *);
-int calc_window_size__17TWindowSubComCardFv(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3);
 int create_window_menu(void* a0, void* a1, void* a2);
 s32 get_window_layout_position(int, f32);
@@ -252,7 +251,7 @@ void TShopItemTecSequence::update_buy_sell_choice() {
         ((Seq_80220110 *)this)->win = (void *)create_window_menu((void *)((s32 (*)(int))get_window_layout_position)(0x2B), (void *)2, (void *)id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(6), 6, 1);
-        calc_window_size__17TWindowSubComCardFv(((Seq_80220110 *)this)->win);
+        ((TWindowSubComCard *)(((Seq_80220110 *)this)->win))->calc_window_size();
         align_menu_entry_positions(((Seq_80220110 *)this)->win);
         ((TCheckRoomSequence *)(((Seq_80220110 *)this)->win))->set_ready_flag();
         ((TUnk_804CDFE8 *)(((Seq_80220110 *)this)->win))->set_position_xy(get_scale__15TShopWindowBaseFv(((Seq_80220110 *)this)), get_scale__15TShopWindowBaseFv(((Seq_80220110 *)this)));

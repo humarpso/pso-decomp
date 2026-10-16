@@ -1,4 +1,5 @@
 #include "pso/ui/TChallenge4PItemSelect.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
@@ -41,7 +42,6 @@ s32 TWindowSubComCard__sub_80265500(u32);
 s32 get_window_layout_position(s32);
 s32 fn_8034BE30(TChallenge4PResult *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
-s32 get_instance__11TCameraCtrlFv();
 void queue_destruction__7TObjectFv(void *);
 
 }
@@ -105,7 +105,7 @@ void TChallenge4PItemSelect::open_menu() {
             ((TWindowSubComCardList *)((u32 &)menu_window))->set_scroll_target(lbl_805DFD98, lbl_805DFD9C);
             TWindowSubComCard__sub_80265500((u32 &)menu_window);
             ((TLobby *)((u32 &)menu_window))->set_field_1c(lbl_805DFDA0);
-            if (get_instance__11TCameraCtrlFv() > 2) {
+            if (TCameraCtrl::get_instance() > 2) {
                 ((TUnk_804CDFE8 *)((u32 &)menu_window))->set_position_xy(lbl_805DFDA4, lbl_805DFDA4);
             }
             state = 1;

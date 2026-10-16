@@ -108,7 +108,6 @@ int spawn_appearance_effect__10TObjPlayerFl(void);
 s32 add_weapon_grind(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 void __dt__14TItemEquipBaseFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_item_field_6__10TObjPlayerFPv(s32);
 int obj_getField1c(void*);
 
@@ -151,7 +150,7 @@ void *TItemProArmor__sub_80117730(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_8049FF88;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -540,7 +539,7 @@ void *__dt__13TItemProArmorFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__13TItemProArmor;
         __dt__14TItemEquipBaseFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

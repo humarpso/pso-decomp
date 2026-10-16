@@ -463,7 +463,6 @@ s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 create__11TTecRaBartaFPvPvPvPv(s32, void *, void *, s32);
-s32 push_reflect_matrix__12TObjEneReconFv(void *);
 s32 restore_render_scissor(int);
 int TObjEneDelDepthBomb__sub_80313268(void);
 void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o);
@@ -1458,7 +1457,7 @@ void TObjEneDelDepth__sub_80315518(void) {  }
 s32 TObjEneDelDepth::draw_if_visible() {
     Dep_8031551C *o = (Dep_8031551C *)this;
     if (get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x20) {
-        if (push_reflect_matrix__12TObjEneReconFv(o->f3E4) != 0) {
+        if (((TObjEneRecon *)(o->f3E4))->push_reflect_matrix() != 0) {
             push_matrix();
             Vec_8031551C v = o->pos;
             v.y += o->f39C;

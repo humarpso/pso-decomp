@@ -10,7 +10,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_agito_weapon(u8 *arg0);
 void TItemWeapon__ct(void *, s32, void *);
-void set_status_flags__10TObjPlayerFUl(void *, u32);
 void create_lavis_shot(void);
 extern void *lbl_804A3070[];
 extern const f32 lbl_805DADB8;
@@ -22,9 +21,9 @@ u8 *TUnk_804A3070::construct_agito(s32 a, void *b) {
     Self_8012712C *self = (Self_8012712C *)this;
     TItemWeapon__ct(self, a, b);
     self->vt = lbl_804A3070;
-    set_status_flags__10TObjPlayerFUl(self, 2);
+    ((TObjPlayer *)self)->set_status_flags(2);
     if (((TItemProShield *)self)->get_slot_count() == 0) {
-        set_status_flags__10TObjPlayerFUl(self, 0x20);
+        ((TObjPlayer *)self)->set_status_flags(0x20);
         self->f1f0 = (void *)create_lavis_shot;
         self->f1e4 = lbl_805DADB8;
     }

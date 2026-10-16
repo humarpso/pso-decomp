@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowComCard.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/item/TItem.h"
 #include <stddef.h>
@@ -130,13 +132,11 @@ extern "C" {
 u32 obj_getArrWord_254(Ent_80262E90 *, s32);
 s16 obj_getS16_2BA(Ent_80262E90 *);
 s32 find_entity_by_id(u16);
-void set_help_mode__14TWindowComCardFl(s32, s32);
 s32 get_status_effect_icon_index(u32);
 u16 obj_getField1c(void *);
 void refresh_status_display__9TWindowDDFv(void *);
 void init_window_layout_entries(void *, void *, int);
 f32 get_target_distance__13TWindowLockOnFv(s32);
-void update_for_player_index__13TWindowLockOnFl(void *, s32);
 extern Cb_802634E8 lockon_photon_blast_marker_callback;
 extern const f32 TWindowLockOn__data_805DD110;
 extern const f32 lbl_805DD124;
@@ -165,7 +165,6 @@ s32 obj_isState3_324(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void TWindow__close(void *);
 void init_window_layout_entries(void *, void *, int);
-void init_item_row__20TWindowSubStatusDispFPvl(void *, void *, s32);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 calc_display_grade__5TItemFv(void *);
 f32 get_item_star_row_width(void *);
@@ -176,7 +175,6 @@ void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 u8 *TWindowLockOn__ct(u8 *, s16, s32);
-s32 get_camera_id__11TCameraCtrlFv(void);
 s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_804D0268[];
@@ -271,7 +269,7 @@ void TWindowLockOn::refresh_enemy_statuses() {
     i = 0;
     do {
         mode = get_status_effect_icon_index(obj_getArrWord_254(ent, i));
-        set_help_mode__14TWindowComCardFl(((TUnk_804CE018 *)((u8 *)this))->get_array_entry(i + 3), mode);
+        ((TWindowComCard *)(((TUnk_804CE018 *)((u8 *)this))->get_array_entry(i + 3)))->set_help_mode(mode);
         i++;
     } while (i < 4);
     {
@@ -412,7 +410,7 @@ s32 TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     init_window_layout_entries(arg0->sub, lockon_window_layout_entries, arg0->player);
     arg0->cb = lbl_804D0288;
     e = (Ent_80263370 *)((TUnk_804CE018 *)arg0)->get_array_entry(0);
-    init_item_row__20TWindowSubStatusDispFPvl(e, item, 0);
+    ((TWindowSubStatusDisp *)e)->init_item_row(item, 0);
     calc_row_width__20TWindowSubStatusDispFv(e);
     e->y = lbl_805DD114;
     if (e->kind != 0x33) {
@@ -451,7 +449,7 @@ s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
     arg0->cb = lockon_photon_blast_marker_callback;
     w = (Ent_802634E8 *)((TUnk_804CE018 *)arg0)->get_array_entry(1);
     id = obj_getField1c(arg1);
-    update_for_player_index__13TWindowLockOnFl(w, id);
+    ((TWindowLockOn *)w)->update_for_player_index(id);
     ((TWindowHelpItem *)w)->reset_float_field();
     refresh_status_display__9TWindowDDFv(w);
     arg0->w = lbl_805DD124 + w->w;
@@ -563,7 +561,7 @@ u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
     construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (lbl_804D0268), (void *) (arg1), (int) (get_window_layout_position((int) (0x1E))));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowLockOn;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3948;
-    if (get_camera_id__11TCameraCtrlFv() > 2) {
+    if (TCameraCtrl::get_camera_id() > 2) {
         *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DD130;
         *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DD130;
     } else {

@@ -1,11 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 extern s32 text_language_group_table;
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
-int free_instance__19TWindowKeyBoardSoftFv(void);
-int free_resources__19TWindowKeyBoardSoftFv(void);
 int TLanguage__ct(void*);
 int select_language_text_resources(void*);
 extern s32 current_language;
@@ -34,7 +33,7 @@ void TLobby::update_menu_cursor() {
 s32 get_localized_text_entry(s32 arg0, s32 arg1) {
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)(text_language_group_table + (arg0 * 4)) + 0) + (arg1 * 4)) + 0);
 }
-void TLobby::free_keyboard_soft_resources() { free_instance__19TWindowKeyBoardSoftFv(); free_resources__19TWindowKeyBoardSoftFv(); }
+void TLobby::free_keyboard_soft_resources() { TWindowKeyBoardSoft::free_instance(); TWindowKeyBoardSoft::free_resources(); }
 void TLobby::update_keyboard_menu() { TLobby::update_menu_cursor(); select_language_text_resources((void*)((*(int *)&current_language))); TLanguage__ct((void*)((*(int *)&current_language))); }
 
 }

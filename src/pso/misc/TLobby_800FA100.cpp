@@ -3,9 +3,7 @@
 
 extern "C" {
 
-int close_adxf_handle__6TLobbyFv(void*);
-
     extern int lobby_download_state_ptr;
-void TLobby::destroy_instance() { close_adxf_handle__6TLobbyFv((void*)(lobby_download_state_ptr)); lobby_download_state_ptr = 0; }
+void TLobby::destroy_instance() { ((TLobby *)lobby_download_state_ptr)->close_adxf_handle(); lobby_download_state_ptr = 0; }
 
 }

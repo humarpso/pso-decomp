@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TBreakUpMdl.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -187,7 +189,6 @@ void TObjPlayer__sub_8032E648();
 extern const f32 lbl_805E0260;
 void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *arg1);
 s32 spawn_particle_effect(void *, s32);
-s32 has_valid_handle__10TObjPlayerFv(void *);
 s16 get_validated_attack_stage(void *);
 extern s32 knuckle_marker_joint_table[];
 void s_rank_knuckle_marker(T_80362C80 *arg0);
@@ -198,7 +199,6 @@ s32 register_boss__6TLobbyFl(int);
 Node_803627DC *get_bml_model(void *, int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
-u8 *init_from_model__11TBreakUpMdlFl(void *, void *);
 s32 TObjPlayer__sub_800F0928(void *);
 extern Quad_803627DC lbl_80479FAC;
 extern f32 lbl_80543A18[3];
@@ -229,7 +229,6 @@ void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 void *TObjEneEpsilon__ct(void *arg0);
 void construct_srank_weapon(void *);
 void __construct_array(void *, void *, void *, int, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 
@@ -287,12 +286,12 @@ void TObjEneEpsilonGuard::load_assets() {
     lbl_805D6FA0 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
-        p = init_from_model__11TBreakUpMdlFl(p, get_bml_model(lbl_805D6FA0, 5));
+        p = ((TBreakUpMdl *)p)->init_from_model((s32)(get_bml_model(lbl_805D6FA0, 5)));
     }
     lbl_805D6FA4 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
-        p = init_from_model__11TBreakUpMdlFl(p, get_bml_model(lbl_805D6FA0, 6));
+        p = ((TBreakUpMdl *)p)->init_from_model((s32)(get_bml_model(lbl_805D6FA0, 6)));
     }
     lbl_805D6FA8 = p;
     lbl_805D6F80 = register_boss__6TLobbyFl(0x23);
@@ -359,7 +358,7 @@ typedef struct VObj_18_c22f9c VObj_18_c22f9c;
 void s_rank_knuckle_marker(T_80362C80 *arg0) {
   u8 sp8[0x10];
   s32 n;
-  arg0->obj->m63(knuckle_marker_joint_table[(has_valid_handle__10TObjPlayerFv(arg0->obj) * 3) + get_validated_attack_stage(((u8 *) arg0->obj) + 0x7CC)], sp8);
+  arg0->obj->m63(knuckle_marker_joint_table[(((TObjPlayer *)(arg0->obj))->has_valid_handle() * 3) + get_validated_attack_stage(((u8 *) arg0->obj) + 0x7CC)], sp8);
   spawn_particle_effect(sp8, 0x1D0);
 }
 
@@ -389,7 +388,7 @@ void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F26E0;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

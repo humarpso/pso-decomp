@@ -430,11 +430,9 @@ extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 lbl_805E01E0;
 extern const f32 lbl_805E01E4;
 void render__19TObjEneEpsilonGuardFv(u8 *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 advance_animation_playback(void *);
 void TObjEneEpsilonGuard__sub_8035E578(u8 *, s32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 advance_animation_playback(void *);
 void play_sound_effect(int, void *, int, int);
 extern u8 epsilon_guard_breakup_params[];
@@ -461,7 +459,6 @@ extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
 s32 move_with_wall_slide_commit__9TObjEneDDFfff(void *, void *, f32, f32, f32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 advance_animation_playback(void *);
 extern void *TObjEneEpsilonGuard__movement_params;
 void TObjEneEpsilonGuard__sub_8035E8C0(void *, s32);
@@ -540,7 +537,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 
 int TObjEneEpsilonGuard__sub_8035DD68(void* p) { return (*(u32*)((char*)p + 0x46c) >> 7) & 0x1; }
 
@@ -769,7 +765,7 @@ void TObjEneEpsilonGuard::handle_break_state(s32 arg1) {
     switch (arg1) {
     case 4:
         ((G_8035E430 *)this)->xB8 = 0;
-        set_field_378__9TObjEneDDFl(((G_8035E430 *)this), 4);
+        set_field_378(4);
         ((G_8035E430 *)this)->flags |= 0x40;
         ((G_8035E430 *)this)->flags &= ~0x14;
         ((VO_8035E430 *)((G_8035E430 *)this))->m94();
@@ -804,7 +800,7 @@ void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((RecoveredFields_8035E578_arg0 *)arg0)->field_B8 = 0;
-        set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(3));
+        ((TObjEneDD *)arg0)->set_field_378((s32)(3));
         ((VObj_14_87d649 *)((u8 *)(arg0) + (1212)))->m1(0x14);
         ((VObj_14_87d649 *)((u8 *)(arg0) + (1212)))->m2();
         temp_r4 = ((RecoveredFields_8035E578_arg0 *)arg0)->field_46C;
@@ -835,7 +831,7 @@ void TObjEneEpsilonGuard::state_orbit(s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)this + 0xB8) = 0;
-        set_field_378__9TObjEneDDFl(this, 2);
+        set_field_378(2);
         *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) | 4);
         *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) & 0xFFFFFFE7);
         ((VObj18_8035DD68 *) this)->vf180();
@@ -896,7 +892,7 @@ void TObjEneEpsilonGuard__sub_8035E8C0(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        set_field_378__9TObjEneDDFl(arg0, 1);
+        ((TObjEneDD *)arg0)->set_field_378(1);
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x46C);
         *(s32 *)((s8 *)arg0 + 0x46C) = (s32) (temp_r4 & ~0x216);
         ((V_A *) arg0)->m94(temp_r4);
@@ -929,7 +925,7 @@ void TObjEneEpsilonGuard::handle_event(s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)this + 0xB8) = 0;
-        set_field_378__9TObjEneDDFl(this, 0);
+        set_field_378(0);
         ((EG_8035DD68 *) this)->slot93();
         *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) | 0x10);
         *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) & ~5);
@@ -1365,7 +1361,6 @@ s32 get_bml_model(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
-s32 init_position_vectors__9TObjEneDDFv(void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 set_indexed_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
@@ -1640,7 +1635,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
 
     void *o;
 
-    init_position_vectors__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(lbl_805D6FA0, 2);
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(lbl_805D6FA0, 0);
     init_model__9TObjEneDDFv(arg0, TObjEneEpsilonGuard__model_desc, 1);

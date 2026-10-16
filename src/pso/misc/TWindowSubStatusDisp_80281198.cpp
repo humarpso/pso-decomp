@@ -1,4 +1,5 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowDD.h"
 #include "pso/misc/TUnk_804CE018.h"
 extern "C" {
 s8 get_type__20TWindowSubStatusDispFv(s32);
@@ -265,7 +266,6 @@ s32 handle_list_page_flip_input(int);
 extern s32 lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, s32);
 void *init__21TWindowSubComCardListFiii(void *, int, int, s32);
 s32 get_window_layout_position(int);
 
@@ -390,7 +390,7 @@ void *TWindowSubStatusDisp::dt(s16 arg1) {
 }
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     void *w;
-    construct_base__9TWindowDDFPUcsPUc(arg0, TWindowSubStatusDisp__window_layout, arg1, get_window_layout_position(0x19));
+    ((TWindowDD *)arg0)->construct_base((u8 *)TWindowSubStatusDisp__window_layout, (s16)arg1, (u8 *)(get_window_layout_position(0x19)));
     arg0->vt = ((u8 *)&__vt__20TWindowSubStatusDisp);
     arg0->f0 = TWindowSubStatusDisp__class_name;
     arg0->f20 = arg1;

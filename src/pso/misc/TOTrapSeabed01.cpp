@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoorJung.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOTrapAncient02.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -661,7 +662,6 @@ s32 get_bml_model(int, int);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u32 load_gvm_texture_file(void *);
-s32 find_entry_by_name__12TObjDoorJungFPCc(u32, void *);
 extern u8 lbl_804720E8[];
 extern u8 lbl_80472100[];
 extern SeabedTrapResourceDescriptor seabed_trap_resource_descriptor;
@@ -782,7 +782,7 @@ void TOTrapSeabed01::load_resources() {
     lbl_805D681C = 0;
     seabed01_ginja_mesh_index = -1;
     if (t != 0U) {
-        seabed01_ginja_mesh_index = find_entry_by_name__12TObjDoorJungFPCc(t, lbl_80472100);
+        seabed01_ginja_mesh_index = ((TObjDoorJung *)t)->find_entry_by_name((const char *)lbl_80472100);
     }
 }
 

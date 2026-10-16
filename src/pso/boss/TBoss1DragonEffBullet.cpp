@@ -49,7 +49,6 @@ extern s32 TBoss1DragonEffBullet__name;
 extern const f32 lbl_805D8144;
 u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
-s32 apply_fireball_impact_damage__12TBoss1DragonFl(int, void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
@@ -122,7 +121,7 @@ void TBoss1DragonEffBullet::run_task() {
                 arg0->field_44 = NULL;
             }
             play_sound_effect(0x4003AD0C, &arg0->field_1C, 0, 0);
-            apply_fireball_impact_damage__12TBoss1DragonFl(TBoss1Dragon::get_instance(), &arg0->field_1C);
+            ((TBoss1Dragon *)(TBoss1Dragon::get_instance()))->apply_fireball_impact_damage((s32)(&arg0->field_1C));
         }
         if ((s32) arg0->field_34 <= 2) {
             spawn_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)(*(u8 * *)&dragon_fireball_particle_ids) + 8), 0x40);

@@ -1,4 +1,5 @@
 #include "pso/misc/TMedicalCenterMes.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TShopSequence.h"
@@ -15,9 +16,6 @@ s32 obj_getField1c(s32);
 void *get_player_by_client_id(s32);
 void THunterGuildSeqOffline__sub_8021E180(s32);
 s32 get_window_layout_position(int, f32);
-void init_effect_5f0__10TObjPlayerFv(void *);
-void clear_lobby_flag__10TObjPlayerFPv(void *);
-s32 get_map_id__13TRaderMapCoreFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 void TMedicalCenterMes__sub_80216260(void);
@@ -193,21 +191,16 @@ extern "C" {
 
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 try_spend_actor_meseta(s32, s32);
-s32 are_traps_full__10TObjPlayerFv(s32);
-s32 refill_traps__10TObjPlayerFv(s32);
-u32 get_recovery_need_flags__10TObjPlayerFv(s32);
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(u32);
 s32 close_window__13TShopSequenceFv(void *);
-s32 is_alive_and_ready__10TObjPlayerFv(s32);
 s32 obj_getPtr2B0_20(s32);
 s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFv(void*);
 s32 send_code50_packet__10TObjPlayerFi(s32);
 s32 send_code_49_1__10TObjPlayerFi(s32);
-s32 send_field_state__10TObjPlayerFv(s32);
 
 void TMedicalCenterSequence::clear_window_slots() {
     s32 i;
@@ -326,7 +319,7 @@ s32 TMedicalCenterSequence::open_greeting_window() {
 void TMedicalCenterSequence::handle_confirm() {
     struct VObj_80216784_802163AC *o = (struct VObj_80216784_802163AC *)this;
     if ((o->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)(this)) != 0) || (sub_802239EC__13TShopSequenceFv((void *)(this)) != 0))) {
-        if ((get_recovery_need_flags__10TObjPlayerFv(*(s32 *)((s8 *)this + 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFv(*(s32 *)((s8 *)this + 0x24)) != 0) && (are_traps_full__10TObjPlayerFv(*(s32 *)((s8 *)this + 0x24)) == 0))) {
+        if ((((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->get_recovery_need_flags() != 0U) || ((((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->is_alive_and_ready() != 0) && (((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->are_traps_full() == 0))) {
             set_field_20((s32)((void*)(7)));
             return;
         }
@@ -370,10 +363,10 @@ void TMedicalCenterSequence::exec_heal() {
     play_sound_effect(0x42D08, 0, 0, 0);
     send_code_49_1__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24));
     send_code50_packet__10TObjPlayerFi(*(s32 *)((s8 *)this + 0x24));
-    if (is_alive_and_ready__10TObjPlayerFv(*(s32 *)((s8 *)this + 0x24)) != 0) {
-        refill_traps__10TObjPlayerFv(*(s32 *)((s8 *)this + 0x24));
+    if (((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->is_alive_and_ready() != 0) {
+        ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->refill_traps();
     }
-    send_field_state__10TObjPlayerFv(*(s32 *)((s8 *)this + 0x24));
+    ((TObjPlayer *)(*(s32 *)((s8 *)this + 0x24)))->send_field_state();
     try_spend_actor_meseta(*(s32 *)((s8 *)this + 0x24), 0xA);
     ((VObj_802165D8_802163AC *)this)->m4(0x22, 1);
     set_field_20((s32)((void*)(0xA)));
@@ -460,21 +453,21 @@ void TMedicalCenterMes::run_task() {
         create_message_window(((s32 (*)(int))get_window_layout_position)(0x2C), (s32)&pos, id);
         format_shop_message(0x25, 1);
         if (player != NULL) {
-            init_effect_5f0__10TObjPlayerFv(player);
+            ((TObjPlayer *)player)->init_effect_5f0();
         }
         state = 1;
         break;
     }
     case 1:
         if (is_ready() != 0 && player != NULL) {
-            if (TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFv(player)].buttons, 4) != 0) {
+            if (TWindowShortListCtrl__check_controller_button(controller_input_state[((TRaderMapCore *)player)->get_map_id()].buttons, 4) != 0) {
                 state = 2;
             }
         }
         break;
     case 2:
         if (player != NULL) {
-            clear_lobby_flag__10TObjPlayerFPv(player);
+            TObjPlayer::clear_lobby_flag(player);
         }
         close();
         if (player != NULL) {

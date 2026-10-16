@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/player/TUnk_804928CC.h"
 extern "C" void render__15TBoss7PhotonPadFv();
 #include "pso/TBoss7PhotonPad.h"
@@ -56,7 +57,6 @@ extern s32 lbl_805D3FD4;
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void queue_destruction__7TObjectFv(void *);
 s32 project_actor_to_ground(void *, void *, void *);
-f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
 extern V2_802EF2AC lbl_80474038[];
 extern s32 lbl_80474040[];
 extern const f32 lbl_805DEA00;
@@ -112,7 +112,7 @@ void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0) {
     }
     if (arg0->pos[0] <= lbl_805DEA00 && arg0->pos[0] >= lbl_805DEA04) {
         V2_802EF2AC v = lbl_80474038[0];
-        v.y = get_target_pos_y__18TBoss7PhotonBulletFv();
+        v.y = TBoss7PhotonBullet::get_target_pos_y();
         if (((VObj_18_39be15 *)(arg0))->m14(lbl_80474040, &v) != 0) {
             queue_destruction__7TObjectFv(arg0);
             return;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TTecZondeEff.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss3VoloptP01.h"
@@ -160,7 +161,6 @@ s32 fn_800443DC(void *, int);
 u8 *find_entity_by_id(u16);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
-s32 construct__12TTecZondeEffFPUcPUcPUcf(void *, s32, void *, void *, f32);
 s32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern S_80042B34 lbl_8043663C[];
@@ -205,7 +205,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
             len = normalize_vector(&d);
             obj = __nw__7TObjectFUl(0x260);
             if (obj != NULL) {
-                construct__12TTecZondeEffFPUcPUcPUcf(obj, tl_07, &pos, &d, len);
+                ((TTecZondeEff *)obj)->construct((u8 *)tl_07, (u8 *)(&pos), (u8 *)(&d), (f32)len);
             }
             VecCopy__FP3VecPC3Vec(&pos, src);
             {
@@ -220,7 +220,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
             len = normalize_vector(&d2);
             obj = __nw__7TObjectFUl(0x260);
             if (obj != NULL) {
-                construct__12TTecZondeEffFPUcPUcPUcf(obj, tl_07, &pos, &d2, len);
+                ((TTecZondeEff *)obj)->construct((u8 *)tl_07, (u8 *)(&pos), (u8 *)(&d2), (f32)len);
             }
             if (TBoss3Volopt__sub_80040FCC(e) != 0) {
                 Pkt_80042B34 pkt;

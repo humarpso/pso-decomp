@@ -1,4 +1,5 @@
 #include "pso/TWindowEffectLight.h"
+#include "pso/misc/TCameraCtrl.h"
 
 TWindowEffectLight::~TWindowEffectLight() {}
 
@@ -39,7 +40,6 @@ s32 __ct__7TObjectFP7TObject(void *, int);
 extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
-s32 get_camera_id__11TCameraCtrlFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern const f32 TWindowEffectLight__data_805DE0E4;
@@ -61,7 +61,7 @@ void TWindowEffectLight::draw_outline_quad(s32 color) {
     f32 h;
     color |= ((TWindowEffectLight *)((Light_802AD1CC *)this))->calc_alpha();
     s = ((TWindowEffectLight *)((Light_802AD1CC *)this))->calc_scale();
-    if (get_camera_id__11TCameraCtrlFv() <= 2 && get_camera_id__11TCameraCtrlFv() == 2) {
+    if (TCameraCtrl::get_camera_id() <= 2 && TCameraCtrl::get_camera_id() == 2) {
         s *= lbl_805DE10C;
     }
     set_draw_texture_and_color(2, color);

@@ -191,7 +191,6 @@ void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 extern s32 shark_render_node_index;
-void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
@@ -268,7 +267,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
-void update_particle_by_phase__10TObjPlayerFv(void);
 extern s32 shark_render_node_index;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9BA0;
@@ -556,7 +554,6 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     return arg0;
 }
 
-void update_particle_by_phase__10TObjPlayerFv(void);
 typedef struct Fade_800ABDD8 Fade_800ABDD8;
 typedef struct Owner_800ABDD8 Owner_800ABDD8;
 typedef struct VBase_14_800ABDD8 VBase_14_800ABDD8;

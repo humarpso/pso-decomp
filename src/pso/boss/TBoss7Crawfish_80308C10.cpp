@@ -3,7 +3,6 @@
 
 extern "C" {
 
-s32 register_attack_hits__14TBoss7CrawfishFv(s32);
 s32 objInBand__FP7GameObjf(s32, f32);
 s32 queue_destruction__7TObjectFv(s32);
 
@@ -15,7 +14,7 @@ void TBoss7Crawfish::update(s32 arg0) {
         ((TBoss7Crawfish *)arg0)->spawn_ground_effects();
         ((TBoss7Crawfish *)arg0)->spawn_effect(0x39E0D);
     }
-    register_attack_hits__14TBoss7CrawfishFv(arg0);
+    ((TBoss7Crawfish *)arg0)->register_attack_hits();
     if (TBoss7Crawfish__data_805DF0D8 == ((TBoss7Crawfish *)arg0)->get_health()) {
         queue_destruction__7TObjectFv(arg0);
     }

@@ -67,9 +67,6 @@ extern s8 slime_one_animation_end_initialized;
 extern f32 slime_one_animation_end_frame;
 extern f32 lbl_805DA760;
 s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 set_cull_none__8TObjFishFv();
-s32 set_cull_mode_front__8TObjFishFv();
-s32 set_cull_back__8TObjFishFv();
 s32 func_803e11e8__FUl(u32);
 s32 func_803e11f0__Fv();
 s32 draw_model_motion(s32, s32, f32);
@@ -148,12 +145,12 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
             model_render_flags &= ~0x400000;
             return;
         }
-        set_cull_back__8TObjFishFv();
+        TObjFish::set_cull_back();
         func_803e11e8__FUl(2);
         ((TObjEneRe7Berura *)(*(void * *)&this->m_name))->draw();
-        set_cull_mode_front__8TObjFishFv();
+        TObjFish::set_cull_mode_front();
         ((TObjEneRe7Berura *)(*(void * *)&this->m_name))->draw();
-        set_cull_none__8TObjFishFv();
+        TObjFish::set_cull_none();
         func_803e11f0__Fv();
         return;
     }
@@ -168,11 +165,11 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
             return;
         }
         func_803e11e8__FUl(2);
-        set_cull_back__8TObjFishFv();
+        TObjFish::set_cull_back();
         TObjEneSlimeOne__sub_803E4B54(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(s32 *)&this->m_down, *(f32 *)&this->actorFlags);
-        set_cull_mode_front__8TObjFishFv();
+        TObjFish::set_cull_mode_front();
         TObjEneSlimeOne__sub_803E4B54(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(s32 *)&this->m_down, *(f32 *)&this->actorFlags);
-        set_cull_none__8TObjFishFv();
+        TObjFish::set_cull_none();
         func_803e11f0__Fv();
         return;
     }
@@ -188,16 +185,16 @@ void TObjEneSlimeOne::draw_part(s32 arg1) {
         model_render_flags &= ~0x400000;
     } else {
         func_803e11e8__FUl(2);
-        set_cull_back__8TObjFishFv();
+        TObjFish::set_cull_back();
         draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
-        set_cull_mode_front__8TObjFishFv();
+        TObjFish::set_cull_mode_front();
         draw_model_motion(*(s32 *)&this->m_prev, *(s32 *)&this->m_up, *(f32 *)&this->actorFlags);
         TObjFish::set_global_param(*(s32 *)&this->m_1c);
-        set_cull_back__8TObjFishFv();
+        TObjFish::set_cull_back();
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)&this->m_20, *(f32 *)&this->actorFlags);
-        set_cull_mode_front__8TObjFishFv();
+        TObjFish::set_cull_mode_front();
         draw_model_motion(*(s32 *)((s8 *)arg0 + 0x18), *(s32 *)&this->m_20, *(f32 *)&this->actorFlags);
-        set_cull_none__8TObjFishFv();
+        TObjFish::set_cull_none();
         func_803e11f0__Fv();
     }
     TObjPlayer::clear_global_state();

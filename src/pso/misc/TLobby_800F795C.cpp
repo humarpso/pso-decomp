@@ -1,4 +1,8 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/boss/TBoss5Gryphon.h"
+#include "pso/enemy/TObjEneGyaranzo.h"
+#include "pso/enemy/TObjEneMe3Stelth.h"
+#include "pso/enemy/TObjEnePanarms.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -192,7 +196,6 @@ void TBoss1DragonDemo__sub_8002B68C();
 void TBoss1DragonDemo__sub_8002B690();
 void reset_parts__13TBoss2DeRolLeFv();
 void load_resources__13TBoss2DeRolLeFv();
-void cleanup__13TBoss5GryphonFv();
 void TBoss8Dragon__sub_80065C90();
 void TObjEneBalClaw__sub_8008D924();
 void TObjEneBalClawClaw__sub_8008DC14();
@@ -207,18 +210,11 @@ void TObjPlayer__sub_800A2DCC();
 void initialize_saver_resources();
 void TObjPlayer__sub_800AA82C();
 void load_resources__11TObjEneMojaFv();
-void release_resource__9TObjEneDDFv();
 void TObjPlayer__sub_800C44C4();
-void free_globals__13TObjEneMe1GeeFv();
-void free_static_instances__15TObjEneGyaranzoFv();
 void TObjEneMerillLia__sub_800D6D64();
 void load_corpse_mark_resource();
 void TLobby__sub_800DC028();
-void free_data__14TObjEnePanarmsFv();
-void load_and_spawn_npc__14TObjEnePanarmsFv();
 void TObjEneMe3ShinowaMirage__sub_800E7B94();
-void free_shared_resources__16TObjEneMe3StelthFv();
-void load_shared_resources__16TObjEneMe3StelthFv();
 void load_ply_motion_npc_town();
 void TObjNpcFemaleBase__sub_80149C64();
 void TObjNpcFemaleBase__sub_80149C7C();
@@ -285,7 +281,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_00[43] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_01[8] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjEneBeast::load_resources, free_boss4_rock_pool },
     { TObjEneLappy::load_resources, TLobby::cleanup_handles },
     { TObjEneBm3FlyNest::load_resources, TObjEneBm3FlyNest::free_fly },
@@ -296,7 +292,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_01[8] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_02[10] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
     { TObjEneLappy::load_resources, TLobby::cleanup_handles },
     { TObjEneBm3FlyNest::load_resources, TObjEneBm3FlyNest::free_fly },
@@ -309,20 +305,20 @@ FloorResourceCallbacks floor_resource_callbacks_selector_02[10] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_03[10] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjGrass::load_resources, TObjGrass::destroy_all },
     { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
     { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
     { TLobby__sub_800DC028, TLobby::free_global_window },
     { TLobby::load_shark_resources, TObjEneShark::free_resources },
-    { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
+    { TObjEnePanarms::load_and_spawn_npc, TObjEnePanarms::free_data },
     { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_04[10] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjGrass::load_resources, TObjGrass::destroy_all },
     { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
     { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
@@ -335,12 +331,12 @@ FloorResourceCallbacks floor_resource_callbacks_selector_04[10] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_05[12] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjPlayer__sub_800C44C4, TObjEneRe2Flower::destroy_instance },
     { TLobby__sub_800DC028, TLobby::free_global_window },
     { TLobby::load_shark_resources, TObjEneShark::free_resources },
     { TObjEneSlime::spawn_pair, TObjEneSlime::free_instance },
-    { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
+    { TObjEnePanarms::load_and_spawn_npc, TObjEnePanarms::free_data },
     { load_ply_motion_npc_town, TObjNpcBase::free_static },
     { TObjNpcFemaleBase__sub_80149C7C, TObjNpcFemaleBase__sub_80149C64 },
     { TObjNpcCloakroomBase::load_shared_resource, TObjNpcCloakroomBase::destroy_static_instance },
@@ -350,9 +346,9 @@ FloorResourceCallbacks floor_resource_callbacks_selector_05[12] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_06_07[9] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjPlayer__sub_800AA82C, TObjPlayer::free_effect_resources },
-    { TLobby::load_gyaranzo_resources, free_static_instances__15TObjEneGyaranzoFv },
+    { TLobby::load_gyaranzo_resources, TObjEneGyaranzo::free_static_instances },
     { TObjEneMe3ShinowaMirage__sub_800E7B94, TObjEneMe3ShinowaMirage::free_shared_resources },
     { fn_8009F554, fn_8009F410 },
     { TOCtrlDubchik::load_shared_resource, TOCtrlDubchik::destroy_instance },
@@ -362,7 +358,7 @@ FloorResourceCallbacks floor_resource_callbacks_selectors_06_07[9] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_08[11] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { initialize_saver_resources, TObjPlayer::free_resources },
     { TObjEneRe4Sorcerer::load_resources, TObjEneRe4Sorcerer::free_bits },
     { TObjEneRe7Berura::load_static_resources, TObjEneRe7Berura::destroy_children },
@@ -376,7 +372,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_08[11] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_09[10] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { initialize_saver_resources, TObjPlayer::free_resources },
     { TObjPlayer__sub_800A2DCC, TObjPlayer::cleanup_effects },
     { TObjEneDarkGunCenter__sub_800A0E80, TObjEneDarkGunCenter__sub_800A0E7C },
@@ -389,7 +385,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_09[10] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_10[11] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjEneRe4Sorcerer::load_resources, TObjEneRe4Sorcerer::free_bits },
     { TObjPlayer__sub_800A2DCC, TObjPlayer::cleanup_effects },
     { TObjEneDarkGunCenter__sub_800A0E80, TObjEneDarkGunCenter__sub_800A0E7C },
@@ -403,7 +399,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_10[11] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_11[6] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TBoss1DragonDemo__sub_8002B690, TBoss1DragonDemo__sub_8002B68C },
     { load_resources__12TBoss1DragonFv, TBoss1Dragon::free_resources },
     { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
@@ -412,7 +408,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_11[6] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_12[5] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { load_resources__13TBoss2DeRolLeFv, reset_parts__13TBoss2DeRolLeFv },
     { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
@@ -437,7 +433,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_31[2] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_32[5] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjPlayer__sub_802EE574, TBoss7DeRolLeC::run_exit_callbacks },
     { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
     { 0, 0 },
@@ -445,7 +441,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_32[5] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_33[6] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { clear_boss8_dragon_leader_part, TBoss8Dragon__sub_802F3C74 },
     { TBoss8Dragon__sub_802FDA78, TBoss8Dragon::free_static },
     { TObjEnemyCustom::reset_instance, TObjEnemyCustom::update_camera_if_active },
@@ -458,7 +454,7 @@ __declspec(section ".data") FloorResourceCallbacks floor_resource_callbacks_sele
 
 FloorResourceCallbacks floor_resource_callbacks_selector_16[10] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
     { TObjGrass::load_resources, TObjGrass::destroy_all },
     { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
@@ -471,7 +467,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_16[10] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_17[10] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
     { TObjGrass::load_resources, TObjGrass::destroy_all },
     { TObjCGrass::load_resources, TObjCGrass::release_global_805D5130 },
@@ -516,23 +512,23 @@ FloorResourceCallbacks floor_resource_callbacks_selector_18[29] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_21[9] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjPlayer__sub_800AA82C, TObjPlayer::free_effect_resources },
     { TOCtrlDubchik::load_shared_resource, TOCtrlDubchik::destroy_instance },
-    { TLobby::load_gyaranzo_resources, free_static_instances__15TObjEneGyaranzoFv },
+    { TLobby::load_gyaranzo_resources, TObjEneGyaranzo::free_static_instances },
     { TObjEneBm5Wolf::load_resources, TObjEneBm5Wolf::release_global_805D5120 },
-    { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
+    { TObjEnePanarms::load_and_spawn_npc, TObjEnePanarms::free_data },
     { initialize_saver_resources, TObjPlayer::free_resources },
     { 0, 0 },
 };
 
 FloorResourceCallbacks floor_resource_callbacks_selector_22[9] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjPlayer__sub_800AA82C, TObjPlayer::free_effect_resources },
     { TOCtrlDubchik::load_shared_resource, TOCtrlDubchik::destroy_instance },
     { TObjEneBm5Wolf::load_resources, TObjEneBm5Wolf::release_global_805D5120 },
-    { load_and_spawn_npc__14TObjEnePanarmsFv, free_data__14TObjEnePanarmsFv },
+    { TObjEnePanarms::load_and_spawn_npc, TObjEnePanarms::free_data },
     { initialize_saver_resources, TObjPlayer::free_resources },
     { TObjEneRe4Sorcerer::load_resources, TObjEneRe4Sorcerer::free_bits },
     { 0, 0 },
@@ -540,7 +536,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_22[9] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_19_20[11] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjEneLappy::load_resources, TLobby::cleanup_handles },
     { load_resources__11TObjEneMojaFv, TObjEneMoja::free_resources },
     { TObjGrass::load_resources, TObjGrass::destroy_all },
@@ -554,13 +550,13 @@ FloorResourceCallbacks floor_resource_callbacks_selectors_19_20[11] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_23_24_25_26_27[16] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
-    { load_shared_resources__16TObjEneMe3StelthFv, free_shared_resources__16TObjEneMe3StelthFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
+    { TObjEneMe3Stelth::load_shared_resources, TObjEneMe3Stelth::free_shared_resources },
     { TObjEneMerillLia__sub_800D6D64, TObjEneMerillLia::destroy_rocks },
     { TBoss4Type3__sub_802D1130, TObjEneBm9Mericarol::free_shared_instances },
     { TObjEneBm5GibonU::load_resources, TObjEneBm5GibonU::release_static_resource },
     { TObjEneGibbles::load_resources, TObjEneGibbles::free_static },
-    { TObjEneMe1Gee::load_resources, free_globals__13TObjEneMe1GeeFv },
+    { TObjEneMe1Gee::load_resources, TObjEneMe1Gee::free_globals },
     { TObjEneMe1GiGue::load_resources, TObjEneMe1GiGue::delete_barrier },
     { TObjEneLappy::load_resources, TLobby::cleanup_handles },
     { load_ply_motion_npc_town, TObjNpcBase::free_static },
@@ -573,12 +569,12 @@ FloorResourceCallbacks floor_resource_callbacks_selectors_23_24_25_26_27[16] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_34[15] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjEneDolmOlm::load_shared_resources, TObjEneDolmOlm::free_shared_resources },
     { TObjEneRecobox::load_resources, TObjEneRecobox::release_static_instance },
     { TObjEneMerillLia__sub_800D6D64, TObjEneMerillLia::destroy_rocks },
     { TObjEneBm5GibonU::load_resources, TObjEneBm5GibonU::release_static_resource },
-    { TObjEneMe1Gee::load_resources, free_globals__13TObjEneMe1GeeFv },
+    { TObjEneMe1Gee::load_resources, TObjEneMe1Gee::free_globals },
     { fn_8035B788, fn_8035B750 },
     { TObjEneLappy::load_resources, TLobby::cleanup_handles },
     { load_ply_motion_npc_town, TObjNpcBase::free_static },
@@ -591,7 +587,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_34[15] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_35[16] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TBoss4Type3__sub_802D1130, TObjEneBm9Mericarol::free_shared_instances },
     { TObjEneGibbles::load_resources, TObjEneGibbles::free_static },
     { TObjEneMe1GiGue::load_resources, TObjEneMe1GiGue::delete_barrier },
@@ -610,7 +606,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_35[16] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selectors_28_29[14] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
     { TObjEneDolmOlm::load_shared_resources, TObjEneDolmOlm::free_shared_resources },
     { TObjEneMorfos__sub_803350AC, TObjEneMorfos::unload_static_data },
     { TObjEneRecobox::load_resources, TObjEneRecobox::release_static_instance },
@@ -627,8 +623,8 @@ FloorResourceCallbacks floor_resource_callbacks_selectors_28_29[14] = {
 
 FloorResourceCallbacks floor_resource_callbacks_selector_30[4] = {
     { load_corpse_mark_resource, TObjPlayer::destroy_static_lobby },
-    { TObjEneDD::create_instance, release_resource__9TObjEneDDFv },
-    { TBoss8Dragon__sub_80065C90, cleanup__13TBoss5GryphonFv },
+    { TObjEneDD::create_instance, TObjEneDD::release_resource },
+    { TBoss8Dragon__sub_80065C90, TBoss5Gryphon::cleanup },
     { 0, 0 },
 };
 

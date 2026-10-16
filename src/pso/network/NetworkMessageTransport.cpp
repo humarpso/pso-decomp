@@ -253,7 +253,6 @@ s32 OSRestoreInterrupts(s32);
 s32 OSSleepThread(void *);
 extern s32 network_thread_queue;
 extern u32 lbl_805D7BA8;
-void clear_message_entry__6TLobbyFl(s32 a);
 void NetUnregisterTimer(void *);
 extern s16 network_link_status_cache;
 extern s32 lbl_805D7BB0;
@@ -288,8 +287,6 @@ void TLobby__sub_80424CA8(void);
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-
-void clear_message_entry__6TLobbyFl(s32 a);
 
 #pragma pop
 
@@ -363,7 +360,7 @@ void TLobby::message_thread_loop() {
             OSReceiveMessage(lbl_805CF380, &sp8, 1);
             network_message_pending_count -= 1;
         }
-        clear_message_entry__6TLobbyFl((s32)(id));
+        TLobby::clear_message_entry((s32)(id));
     }
 }
 
@@ -559,7 +556,7 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
 }
 
 void TLobby::clear_message_entry_wrapper(s32 arg0) {
-    clear_message_entry__6TLobbyFl((s32)(arg0));
+    TLobby::clear_message_entry((s32)(arg0));
 }
 
 u16 TLobby::recv_pppoe_message(s32 *arg0, u16 *arg1) {

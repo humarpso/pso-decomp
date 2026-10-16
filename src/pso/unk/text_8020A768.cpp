@@ -94,8 +94,6 @@ s32 advance_enemy_id_counter(u16);
 s32 advance_object_id_counter(u16);
 s32 load_enemy_set_file(s32, s32);
 s32 load_object_set_file(s32, s32);
-s32 free_data_60F0__6TLobbyFv();
-s32 init_handle__6TLobbyFl(s32);
 extern s32 map_set_data_handle_a;
 extern s32 map_set_data_handle_b;
 extern s32 map_set_object_id_counter;
@@ -117,14 +115,14 @@ void load_map_set_data(s32 arg0, s32 arg1) {
     map_set_enemy_id_counter = 0;
     copy_name(&lbl_805DC620);
     TLobby__data_805D6134 = 0;
-    if (init_handle__6TLobbyFl(0x8000) != 0) {
+    if (TLobby::init_handle(0x8000) != 0) {
         load_object_set_file(arg0, arg1);
         load_enemy_set_file(arg0, arg1);
         advance_object_id_counter((u16) map_object_id_counter);
         TLobby__data_805D6148 = map_set_object_id_counter;
         advance_enemy_id_counter((u16) map_set_enemy_id_counter);
         TLobby__data_805D614C = TLobby__next_enemy_set_actor_id;
-        free_data_60F0__6TLobbyFv();
+        TLobby::free_data_60F0();
         TLobby__data_805D6134 |= 1;
     }
     copy_name(&lbl_805DC624);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowOptionCtrl.h"
@@ -26,7 +27,6 @@ struct Grp_8026CCA4 { u8 p0[0x14]; Node_8026CCA4 *head; };
 
 extern const f32 lbl_805DD2CC;
 s32 is_split_screen(void);
-s32 get_camera_id__11TCameraCtrlFv(void);
 extern V2_8026CBB8 window_layout_position_table[];
 extern V2_8026CBB8 lbl_80477890[];
 extern unsigned char window_layout_rect_table[];
@@ -42,7 +42,7 @@ extern "C" {
 void*TWindowOptionCtrl::get_option_entry(int a0) {  return (char*)window_layout_rect_table + a0 * 8; }
 V2_8026CBB8 *get_window_layout_position(s32 idx) {
     if (is_split_screen() != 0) {
-        return (get_camera_id__11TCameraCtrlFv() == 2) ? &lbl_80477890[idx] : &window_layout_position_table[idx];
+        return (TCameraCtrl::get_camera_id() == 2) ? &lbl_80477890[idx] : &window_layout_position_table[idx];
     }
     return (V2_8026CBB8 *)((char *)window_layout_rect_table + idx * 8);
 }

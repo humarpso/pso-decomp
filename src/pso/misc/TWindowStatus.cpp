@@ -35,7 +35,6 @@ u8 *get_player_by_client_id();
 s32 get_width__19TWindowSimpleStatusFv();
 s32 draw_right_aligned_number(void *);
 s32 set_status_entry_target(void *, s32);
-s32 update_hp_entry__20TWindowSubStatusDispFv(void *);
 extern const f32 lbl_805DD430;
 void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0);
 
@@ -72,7 +71,7 @@ void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
         d = get_array_entry__13TUnk_804CE018Fi(arg0, 8);
         *(s32 *)((s8 *)b + 0x20) = ((TItemProShield *)pl)->get_field_2b8();
         *(s32 *)((s8 *)a + 0x20) = *(s16 *)((s8 *)pl + 0x32C);
-        v = update_hp_entry__20TWindowSubStatusDispFv(arg0);
+        v = ((TWindowSubStatusDisp *)arg0)->update_hp_entry();
         *(s32 *)((s8 *)a + 0x1C) = v;
         *(s32 *)((s8 *)c + 0x24) = v;
         *(s32 *)((s8 *)b + 0x1C) = v;

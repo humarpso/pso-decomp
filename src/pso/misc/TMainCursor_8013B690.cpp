@@ -26,7 +26,6 @@ s32 set_target_index__11TMainCursorFs(void *, s32);
 s32 TMainCursor__sub_8013E310(void *);
 u8 TMainCursor__sub_8013E338(void *);
 u8 TMainCursor__sub_8013E358(void *);
-s32 is_same_target__11TMainCursorFPv(void *, void *);
 s8 TMainCursor__sub_8013F244(void);
 s8 fn_8013F24C(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
@@ -109,7 +108,7 @@ void TMainCursor::validate_target() {
         ((TMainCursor *)((u8 *)this))->update_target_sub();
         return;
     }
-    if (is_same_target__11TMainCursorFPv(((u8 *)this) + 0x60, ((TMainCursor *)(t->f424 + 0x4EC))->get_list()) == 0) {
+    if (((TMainCursor *)(((u8 *)this) + 0x60))->is_same_target(((TMainCursor *)(t->f424 + 0x4EC))->get_list()) == 0) {
         ((TMainCursor *)((u8 *)this))->update_target_sub();
         return;
     }

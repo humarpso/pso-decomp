@@ -1,4 +1,5 @@
 #include "pso/misc/TEnding.h"
+#include "pso/misc/TCameraCtrl.h"
 
 #include "types.h"
 #include "pso/TParticleCtrl.h"
@@ -8,7 +9,6 @@ extern "C" {
 void TKeyBoardControl__sub_8000F90C(int);
 void TKeyBoardControl__sub_8000F91C(int);
 void set_active_camera_pose(void *, void *);
-void select_active_controller__11TCameraCtrlFSc(s8 arg0);
 void TCameraCtrl__ct(void *, void *);
 void __ct__7TEndingFv(void *);
 void clear_resource_load_tasks(void);
@@ -50,7 +50,7 @@ int TEnding::start_ending_scene() {
     }
     Vec_8008C5E8 a = lbl_80439570;
     Vec_8008C5E8 b = lbl_8043957C;
-    select_active_controller__11TCameraCtrlFSc(9);
+    TCameraCtrl::select_active_controller(9);
     set_active_camera_pose(&a, &b);
     clear_resource_load_tasks();
     run_load_callback_table(ending_scene_callbacks, 0x68);

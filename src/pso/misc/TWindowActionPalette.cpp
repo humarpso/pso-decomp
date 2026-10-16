@@ -1,4 +1,7 @@
 #include "pso/misc/TWindowActionPalette.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowDD.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include <stddef.h>
 
@@ -52,7 +55,6 @@ s32 is_split_screen();
 s32 fn_8002AE08(s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 u16 select_action_palette_and_apply__10TObjPlayerFlll(int, int, int, int);
-s32 refresh_effect__10TObjPlayerFv(int);
 s32 get_player_by_client_id(int);
 u16 get_entry_by_index__20TWindowActionPaletteFPll(int, int);
 s32 get_slot_type_for_index__20TWindowActionPaletteFPll(int, int);
@@ -68,8 +70,6 @@ s32 is_player_input_active(int);
 s32 TObjPlayer__sub_80354D5C(int);
 extern u8 controller_input_state[];
 void run_task__20TWindowActionPaletteFv(u8 *arg0);
-s32 get_camera_id__11TCameraCtrlFv(void);
-void construct_base__9TWindowDDFPUcsPUc(void *, void *, s32, s32);
 s32 get_window_layout_position(s32);
 void *__construct_array(void *, void *, void *, u32, u32);
 void free_if_valid__14TPlyDispConfigFis(void *, s16);
@@ -265,7 +265,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     u8 cnt;
     u8 *help;
     player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
-    if (player == 0 || (effect = refresh_effect__10TObjPlayerFv(player)) == 0) {
+    if (player == 0 || (effect = ((TObjPlayer *)player)->refresh_effect()) == 0) {
         return;
     }
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
@@ -332,14 +332,14 @@ extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {
 }
 Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot) {
     u32 i;
-    construct_base__9TWindowDDFPUcsPUc(self, twindow_action_palette_layout, slot, get_window_layout_position(0x1F));
+    ((TWindowDD *)self)->construct_base((u8 *)twindow_action_palette_layout, (s16)slot, (u8 *)(get_window_layout_position(0x1F)));
     self->vt = __vt__20TWindowActionPalette;
     __construct_array(self->arr, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFis, 4, 3);
     self->f0 = lbl_805D3870;
-    if (get_camera_id__11TCameraCtrlFv() > 2) {
+    if (TCameraCtrl::get_camera_id() > 2) {
         self->f70 = lbl_805DCA2C;
         self->f74 = lbl_805DCA2C;
-    } else if (get_camera_id__11TCameraCtrlFv() == 2) {
+    } else if (TCameraCtrl::get_camera_id() == 2) {
         self->f70 = lbl_805DCAA0;
         self->f74 = lbl_805DCAA0;
     } else {

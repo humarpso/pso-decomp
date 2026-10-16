@@ -1,4 +1,6 @@
 #include "pso/object/TObjResultWin.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
 #include "pso/misc/TLobby.h"
@@ -11,7 +13,6 @@
 struct ControllerInputStateResultWin { s32 value; u8 remaining[0x1AC]; };
 extern "C" {
 char* TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 resolve_player_slot__20TWindowSubStatusDispFl(int);
 int sprintf(char*, const char*, ...);
 int strncmp(const char*, const char*, unsigned long);
 char* strncat(char*, const char*, unsigned long);
@@ -20,7 +21,6 @@ s32 TWindowShortListCtrl__check_controller_button(void*, int);
 s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
 s32 get_window_layout_position(s32);
-s32 get_camera_id__11TCameraCtrlFv();
 s32 send_and_handle__6TLobbyFii(u32, void*, s32);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void*, s32);
 extern ControllerInputStateResultWin controller_input_state;
@@ -98,7 +98,7 @@ void TObjResultWin::build_result_text() {
         strncat(m_text, tmp, 0x30);
     }
     strncat(m_text, challenge_result_newline, 2);
-    if (resolve_player_slot__20TWindowSubStatusDispFl(-1) == 0) {
+    if (TWindowSubStatusDisp::resolve_player_slot(-1) == 0) {
         n = TQuestVmDownLoadServer__sub_8006EF6C(0x57);
         if (m_result.previous.award_name[0] == 0 || strncmp(m_result.previous.award_name, m_result.current.award_name, 0xC) == 0) {
             sprintf(tmp, challenge_result_value_format, n, m_result.current.award_name);
@@ -143,7 +143,7 @@ void TObjResultWin::run_task() {
 void TObjResultWin::create_window() {
     m_window = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x41), challenge_result_window_extent, 1);
     if ((u32) m_window != 0U) {
-        if (get_camera_id__11TCameraCtrlFv() == 4) {
+        if (TCameraCtrl::get_camera_id() == 4) {
             ((TUnk_804CDFE8 *)m_window)->set_position_xy(challenge_result_split_screen_position, challenge_result_split_screen_position);
         }
         send_and_handle__6TLobbyFii(m_window, m_text, 0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrLoadAfs.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjLuker.h"
@@ -172,7 +173,6 @@ struct Status_8033F3D8 { u8 pad[8]; u32 f8; };
 void draw_window_frame(void *);
 void draw_window_text(Vec2_8033F3D8 *, void *, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
-s32 is_unloaded__12TChCrLoadAfsFv(s32);
 Status_8033F3D8 **get_status_sub__14TAdPlyStatusGCFv(s32);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(Box_8033F3D8 *, f32);
@@ -188,7 +188,7 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     s32 i;
 
     draw_window_frame(arg0);
-    if ((u32)ply_status_chcr_load_afs != 0 && is_unloaded__12TChCrLoadAfsFv(ply_status_chcr_load_afs) != 0 && TAdPlyStatusGC__is_shown != 0 &&
+    if ((u32)ply_status_chcr_load_afs != 0 && ((TChCrLoadAfs *)ply_status_chcr_load_afs)->is_unloaded() != 0 && TAdPlyStatusGC__is_shown != 0 &&
         (*get_status_sub__14TAdPlyStatusGCFv(ply_status_chcr_load_afs))->f8 != 0) {
         box = TAdPlyStatusGC__status_window_box;
         box.v[0] = TAdPlyStatusGC__status_window_box.v[0] + OFF_8033F3D8.x;

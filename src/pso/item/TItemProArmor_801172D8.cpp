@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProArmor.h"
 
 extern "C" {
@@ -8,7 +9,6 @@ s32 add_actor_tp(s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 s32 calc_armor_value__13TItemProArmorFv(void *);
 s32 calc_scaled_offset__13TItemProArmorFv(void *);
-void free_obj_heap__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFv();
 
 void TItemProArmor::apply_armor_stat() {
@@ -38,7 +38,7 @@ void *TItemProArmor__sub_80117368(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FE00;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

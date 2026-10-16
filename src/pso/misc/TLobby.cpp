@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 
@@ -93,7 +94,6 @@ void TLobby::copy_player_record(u8 *arg1) {
 struct Ent_80134C44 { u8 pad[4]; u32 key; u32 val; };
 struct Obj_80134C44 { u8 pad0; u8 count; u8 pad2[2]; Ent_80134C44 e[1]; };
 void* get_player_by_client_id(s32);
-void set_lobby_marker__10TObjPlayerFl(void*, int);
 void TLobby::apply_lobby_markers() {
     Obj_80134C44 *o = (Obj_80134C44 *)this;
     Ent_80134C44 *e = o->e;
@@ -103,7 +103,7 @@ void TLobby::apply_lobby_markers() {
         for (j = 0; j < 12; j++) {
             u8 *p = (u8*)get_player_by_client_id(j);
             if (p != NULL && *(u32*)(p + 0xDB0) == e->key) {
-                set_lobby_marker__10TObjPlayerFl(p, (u8)e->val);
+                ((TObjPlayer *)p)->set_lobby_marker((u8)e->val);
             }
         }
     }

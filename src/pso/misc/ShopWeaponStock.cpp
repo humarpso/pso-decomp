@@ -171,7 +171,6 @@ extern s32 shop_weapon_bonus_table[];
 void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
 void sort_shop_items(s32, s32, s32);
 extern u32 lobby_tool_random_rel;
-void copy_item_data__6TLobbyFPv(void *, void *);
 void init__9TItemDataFv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
@@ -693,7 +692,7 @@ void generate_shop_weapon_stock(s32 tbl) {
       item.b13 = 0;
       if (is_duplicate_shop_weapon((C14_80224B7C *)(&item), (s32)(tbl)) == 1)
       {
-        copy_item_data__6TLobbyFPv(buf + ((((s32 *)shop_weapon_stock_counts)[tbl]++) * 0x14), &item);
+        ((TLobby *)(buf + ((((s32 *)shop_weapon_stock_counts)[tbl]++) * 0x14)))->copy_item_data(&item);
       }
     }
     sort_shop_items((s32)(buf), (s32)(((s32 *)shop_weapon_stock_counts)[tbl]), (s32)(2));

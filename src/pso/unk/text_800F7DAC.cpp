@@ -80,7 +80,6 @@ s32 __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *);
 u32 TWindowCtrlMain__sub_8024CD5C(s32);
 u32 prs_decompress(int, int, int, int);
-s32 destroy_ep3_exist__6TLobbyFls(int, int);
 u32 reset_counters__6TLobbyFv();
 void set_cached_blend_factor(s32, s32);
 
@@ -130,7 +129,7 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
   {
     var_r3 = var_r31;
     var_r4 = 1;
-    destroy_ep3_exist__6TLobbyFls((int) var_r3, (int) 1);
+    TLobby::destroy_ep3_exist((int) var_r3, (int) 1);
   }
   var_r3 = phi_r30;
   return var_r3;

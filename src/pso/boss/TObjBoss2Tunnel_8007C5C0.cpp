@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessage.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -100,7 +101,6 @@ void controller_stuff__Fv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
-void complete_reveal__14TWindowMessageFv(void *);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
@@ -122,7 +122,6 @@ s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
-void complete_reveal__14TWindowMessageFv(void *);
 void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A68[];
 extern f32 lbl_80438A70[];
@@ -166,7 +165,7 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
         ((TLobby *)win)->send_and_handle(get_localized_text_entry(0x24, 0xB), 3);
         ((TLobby *)win)->set_field_1c(lbl_805D921C);
     }
-    complete_reveal__14TWindowMessageFv(win);
+    ((TWindowMessage *)win)->complete_reveal();
     graph = create__8TDLGraphFv();
     if (graph != NULL) {
         ((TDLGraph *)graph)->set_graph_param(2);
@@ -252,7 +251,7 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
             break;
         }
         ((TLobby *)win)->set_field_1c(lbl_805D921C);
-        complete_reveal__14TWindowMessageFv(win);
+        ((TWindowMessage *)win)->complete_reveal();
     }
     if (get_main_phase() == 0xF) {
         reset_state_flags__6TLobbyFv();

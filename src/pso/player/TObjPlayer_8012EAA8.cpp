@@ -14,7 +14,6 @@ int add_angle_clamped__10TObjPlayerFPlll(void*, int, int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 int roll_technique__11TItemWeaponFv(void*);
 void TItemWeapon__ct(void *);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 int get_player_list__10TObjPlayerFv(void*);
 
 void TObjPlayer::cast_shifta_deband() {
@@ -45,7 +44,7 @@ void *TObjPlayer::init_variant_a() {
     TItemWeapon__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A5F18;
     *(u32 *)((s8 *)this + 0x1F8) = 10922;
-    set_status_flags__10TObjPlayerFUl(this, 1570);
+    set_status_flags(1570);
     set_effect_state(2);
     return this;
 }

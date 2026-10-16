@@ -22,7 +22,6 @@ void *TOVS2Wreck01__create(void *arg0);
 void *TOVS2Wreck01__ct(void *arg0, void *arg1);
 void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void init_wreck_object__11TOVS2Wall01Fll(void *, void *, int);
 s32 draw_ginja_object(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -55,7 +54,7 @@ extern s32 __vt__12TOVS2Wreck01[];
 extern void *lbl_805D31C8;
 
 void *TOVS2Wreck01__ct(void *arg0, void *arg1) {
-    init_wreck_object__11TOVS2Wall01Fll(arg0, arg1, 0);
+    ((TOVS2Wall01 *)arg0)->init_wreck_object((s32)arg1, (s32)0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOVS2Wreck01;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D31C8;
     return arg0;

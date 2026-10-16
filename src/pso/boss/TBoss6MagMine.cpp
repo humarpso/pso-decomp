@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TUnk_804F322C.h"
@@ -215,7 +216,6 @@ void subtract_vector(Vec_80368C14 *, void *);
 s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
-s32 get_next_point__14TBoss6PlotFalzFPsPs(u32, void *, void *);
 s32 get_phase__8TObjFishFv();
 s32 get_mag_mine_ptr__11TBoss6Type1Fv(u32);
 s32 create__13TBoss6MagMineFi(s32 arg0);
@@ -616,7 +616,7 @@ void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1) {
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.b, arg1);
     p.f8 = 1;
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.pos, &p.a);
-    if (get_next_point__14TBoss6PlotFalzFPsPs(boss, &p, &p.f6) != 0) {
+    if (((TBoss6PlotFalz *)boss)->get_next_point((s16 *)(&p), (s16 *)(&p.f6)) != 0) {
         create__13TBoss6MagMineFi((s32)&p);
     }
 }

@@ -16,7 +16,6 @@ void draw_ginja_box_tree(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void render_tick__Fv();
 void render_frame__23TAdSinglePlyChrSelectGCFv();
-void apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(void *, void *, s32);
 void subtractive_rng_unshuffle(void *, void *, void *, s32);
 void subtractive_rng_make_shuffle(void *);
 void subtractive_rng_xor_buffer(void *, void *, s32);
@@ -25,7 +24,6 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(void *);
 void destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(void *, s32);
 void copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-void *construct_chardata_array__23TAdSinglePlyChrSelectGCFv(void *);
 extern u8 chr_select_rng_state[];
 extern s32 chr_select_serial_seeds[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
@@ -125,11 +123,11 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     void *b;
     a = alloc__23TAdSinglePlyChrSelectGCFv(0x194B0);
     if (a != 0) {
-        a = construct_chardata_array__23TAdSinglePlyChrSelectGCFv(a);
+        a = ((TAdSinglePlyChrSelectGC *)a)->construct_chardata_array();
     }
     b = alloc__23TAdSinglePlyChrSelectGCFv(0x194B0);
     if (b != 0) {
-        b = construct_chardata_array__23TAdSinglePlyChrSelectGCFv(b);
+        b = ((TAdSinglePlyChrSelectGC *)b)->construct_chardata_array();
     }
     copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(a, arg0);
     subtractive_rng_seed(chr_select_rng_state, chr_select_serial_seeds[1]);
@@ -139,7 +137,7 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(b, 1);
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(a, 1);
     subtractive_rng_seed(chr_select_rng_state, chr_select_serial_seeds[0]);
-    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPUll(chr_select_rng_state, arg0, 0x194B0);
+    ((TAdSinglePlyChrSelectGC *)chr_select_rng_state)->apply_rng_cipher((u32 *)arg0, (s32)0x194B0);
     subtractive_rng_seed(chr_select_rng_state, TAdSinglePlyChrSelectGC__sub_80202A68(arg0));
     subtractive_rng_xor_buffer(chr_select_rng_state, arg0, 0x194AC);
 }

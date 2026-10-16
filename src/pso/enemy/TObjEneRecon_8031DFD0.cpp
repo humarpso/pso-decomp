@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/object/TObjMotion.h"
@@ -222,20 +223,17 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void obj_setFlags30(void *, u32);
 void queue_destruction__7TObjectFv(void *);
 u8 * create_particle_emitter(void *, s32);
-void enable__13TParticleCtrlFv(void *);
 void __dt__9TObjEneDDFv(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, void *, int, void *);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
-s32 init_position_vectors__9TObjEneDDFv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 find_entity_by_id(int);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 handle_message__12TObjEneReconFl(void *, void *);
 s32 TObjEneRecon__sub_8031C364(void *, void *);
 s32 TObjEneRecon__sub_8031C624(void *, void *);
 s32 run_task__12TObjEneReconFPvi(void *, void *);
@@ -436,7 +434,7 @@ void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2) {
         run_task__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 8:
-        handle_message__12TObjEneReconFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRecon *)arg0)->handle_message((s32)((void *) (arg2)));
     default:
         return;
     }
@@ -475,12 +473,12 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
             *(u8 **)((s8 *)arg0 + 0x478) = create_particle_emitter(arg0 + 0x2FC, 0x217);
             temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x478));
             if (temp_r3_3 != NULL) {
-                enable__13TParticleCtrlFv(temp_r3_3);
+                ((TParticleCtrl *)temp_r3_3)->enable();
             }
         } else {
             temp_r0_2 = *(s16 *)((s8 *)arg0 + 0x326);
             if ((temp_r0_2 == 8) || (temp_r0_2 == 7)) {
-                enable__13TParticleCtrlFv(temp_r3_2);
+                ((TParticleCtrl *)temp_r3_2)->enable();
             } else {
                 if ((s32) *(s32 *)((s8 *)arg0 + 0x47C) == 0) {
                     var_f30 = lbl_805DF400;
@@ -502,7 +500,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
     } else {
         temp_r3_4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x478));
         if (temp_r3_4 != NULL) {
-            enable__13TParticleCtrlFv(temp_r3_4);
+            ((TParticleCtrl *)temp_r3_4)->enable();
         }
     }
     ((TObjEneRecon *)arg0)->update_position_from_offsets();
@@ -534,7 +532,7 @@ void TObjEneRecon::init_state() {
     s32 temp_r5;
     u8 *temp_r6;
 
-    init_position_vectors__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecon__recobox_static_instance + 0x42C)) + 8);
     temp_r6 = (u8 *)(*(u8 **)((s8 *)TObjEneRecon__recobox_static_instance + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)temp_r6 + 0xC);

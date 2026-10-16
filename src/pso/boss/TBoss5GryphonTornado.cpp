@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss5GryphonTornado.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/TNowLoading.h"
@@ -44,7 +45,6 @@ void TBoss8Dragon__sub_800640A4(s32, Vec_80355570 *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 Res_80355570 *csnVecterUnder(Vec_80355570 *, s32);
 void *spawn_continuous_particle_effect_with_flags(Vec_80355570 *, s32, s32);
-void enable__13TParticleCtrlFv(void *);
 void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
 extern s32 boss5_gryphon_bml_resource;
@@ -135,13 +135,13 @@ void TBoss5GryphonTornado::run_task() {
         break;
     case 2:
         if (o->p50 != NULL) {
-            enable__13TParticleCtrlFv(o->p50);
+            ((TParticleCtrl *)(o->p50))->enable();
         }
         if (o->p54 != NULL) {
-            enable__13TParticleCtrlFv(o->p54);
+            ((TParticleCtrl *)(o->p54))->enable();
         }
         if (o->p58 != NULL) {
-            enable__13TParticleCtrlFv(o->p58);
+            ((TParticleCtrl *)(o->p58))->enable();
         }
         if (o->timer > 0x3C) {
             queue_destruction__7TObjectFv(o);

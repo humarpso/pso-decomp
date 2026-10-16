@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubLog.h"
 
 extern "C" {
 
 void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1);
-s32 check_flags_and_proceed__6TLobbyFv();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024ADF0(s32);
 s32 TWindowSubComCard__sub_8024AB98(s32);
@@ -22,7 +22,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__19TWindowSubTradeMain;
         TLobby__sub_802D29E8(arg0);
-        check_flags_and_proceed__6TLobbyFv();
+        TLobby::check_flags_and_proceed();
         if (get_player_by_client_id(*(s32 *)((s8 *)arg0 + 0x28)) != 0U) {
             end_camera_pan__10TObjPlayerFv();
         }

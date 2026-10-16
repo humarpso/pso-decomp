@@ -505,7 +505,6 @@ s32 get_bml_model(s32, s32);
 s32 fn_80044330(void *);
 void fn_8004AA04(void *);
 s32 pick_random_target_player__11TBoss4Type3Fv(void);
-void create_horming__11TBoss4Type3FPvPvPv(void *, void *, u16);
 s32 TObjPlayer__sub_80052390(f32);
 s32 drain_player_hp(u16, s32);
 f32 TBoss4Type3__sub_800524E8(f32);
@@ -1315,8 +1314,8 @@ void TBoss4Type3::update_homing() {
     v = 0x75;
     for (i = 0; i < n; i++) {
         if (o->f398 == v) {
-            create_horming__11TBoss4Type3FPvPvPv(o, a, o->f3b8);
-            create_horming__11TBoss4Type3FPvPvPv(o, b, o->f3b8);
+            TBoss4Type3::create_horming((void *)o, (void *)a, (void *)(o->f3b8));
+            TBoss4Type3::create_horming((void *)o, (void *)b, (void *)(o->f3b8));
             play_sound_effect(0x4003B229, o->f38, 0, 1);
             break;
         }

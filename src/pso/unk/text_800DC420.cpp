@@ -69,8 +69,6 @@ extern D_800DC448 *nano_drago_entry_params_resource;
 u16 obj_getField1c(void *);
 s32 is_split_screen();
 s32 spawn_particle_effect(void *, int);
-void trigger_hit_camera_shake__10TObjPlayerFUl(void *, void *);
-void set_flag_20000__10TObjPlayerFv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern const f32 lbl_805D525C;
 extern s32 lbl_805D526C;
@@ -107,8 +105,6 @@ s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 s32 spawn_particle_effect(void *, int);
-void trigger_hit_camera_shake__10TObjPlayerFUl(void *, void *);
-void set_flag_20000__10TObjPlayerFv(void *);
 f32 xyz_distance_squared(void *, void *);
 void *find_entity_by_id(u16);
 s32 vec3_add_to(void *, void *);
@@ -170,10 +166,10 @@ void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 
     obj->v21(attacker, parm, 0, -1, -1);
     if (attacker != NULL) {
         if (obj->flags & 0x800) {
-            set_flag_20000__10TObjPlayerFv(attacker);
+            ((TObjPlayer *)attacker)->set_flag_20000();
         }
         if (is_split_screen() == 0 && local_client_id == obj_getField1c(obj)) {
-            trigger_hit_camera_shake__10TObjPlayerFUl(attacker, obj);
+            ((TObjPlayer *)attacker)->trigger_hit_camera_shake((u32)obj);
         }
     }
     spawn_particle_effect(obj->pos, 0xFB);

@@ -1,4 +1,5 @@
 #include "pso/TShopWindowBase.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TShopSequence.h"
 
 #include "types.h"
@@ -18,10 +19,8 @@ extern "C" {
 s32 obj_getField1c(void *);
 s32 TShopGenerator__sub_80222DAC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
-s32 get_map_id__13TRaderMapCoreFv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
-s32 get_map_id__13TRaderMapCoreFv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
 }
 
@@ -31,7 +30,6 @@ void vfunc_11__15TShopWindowBaseFv(void);
 void *__ct__15TShopWindowBaseFv(void *arg0);
 void run_task__15TShopWindowBaseFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-s32 get_instance__11TCameraCtrlFv();
 s32 obj_getField1c(void *);
 
 void TShopWindowBase::vfunc_11() {  }
@@ -40,7 +38,7 @@ extern f32 lbl_805DC728;
 extern f32 lbl_805DC72C;
 
 f32 TShopWindowBase::get_scale() {
-    if ((TRaderMapCore::is_not_split_screen() == 1) && (get_instance__11TCameraCtrlFv() > 2)) {
+    if ((TRaderMapCore::is_not_split_screen() == 1) && (TCameraCtrl::get_instance() > 2)) {
         return lbl_805DC728;
     }
     return lbl_805DC72C;
@@ -68,7 +66,7 @@ extern s32 lbl_805D55C0;
 
 typedef char RecoveredGlobal_802239EC_lbl_8050E208_size[sizeof(RecoveredGlobal_802239EC_lbl_8050E208) == 0x1B0 ? 1 : -1];
 bool TShopSequence::sub_802239EC() {
-    if (*(s32 *)((s8 *)((u8 *)&controller_input_state.value + (get_map_id__13TRaderMapCoreFv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24))) * 0x50)) + 0x28) & 2) {
+    if (*(s32 *)((s8 *)((u8 *)&controller_input_state.value + (((TRaderMapCore *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->get_map_id() * 0x50)) + 0x28) & 2) {
         return 1;
     }
     return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0;
@@ -77,7 +75,7 @@ bool TShopSequence::sub_802239EC() {
 typedef char RecoveredGlobal_80223A48_lbl_8050E208_size[sizeof(RecoveredGlobal_80223A48_lbl_8050E208) == 0x1B0 ? 1 : -1];
 bool TShopWindowBase::sub_80223A48() {
     u8 *arg0 = (u8 *)this;
-    if (*(s32 *)((s8 *)((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + (get_map_id__13TRaderMapCoreFv((int) (*(s32 *)((s8 *)arg0 + 0x24))) * 0x50)) + 0x28) & 4) {
+    if (*(s32 *)((s8 *)((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + (((TRaderMapCore *)(*(s32 *)((s8 *)arg0 + 0x24)))->get_map_id() * 0x50)) + 0x28) & 4) {
         return 1;
     }
     return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0;

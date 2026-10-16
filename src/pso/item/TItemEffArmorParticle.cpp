@@ -14,7 +14,6 @@ typedef char armor_size_check[(sizeof(TItemEffArmorParticle) == 0x2C) ? 1 : -1];
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 obj_testFlags30(int, int);
-s32 enable__13TParticleCtrlFv(int);
 u32 find_item_by_id(int);
 s32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
@@ -44,7 +43,7 @@ void TItemEffArmorParticle::run_task() {
                         }
                     } else {
                     enable_particle:
-                        enable__13TParticleCtrlFv((int)m_20);
+                        ((TParticleCtrl *)m_20)->enable();
                     }
                     active = 1;
                     ((TNowLoading *)m_20)->copy_pos((void *)(player + 0x2FC));

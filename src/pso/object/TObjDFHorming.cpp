@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/object/TObjDFHorming.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -217,12 +218,9 @@ void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
 extern s32 lbl_805D586C;
-void refresh_equipment_slot__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
-s32 end_camera_pan__10TObjPlayerFv(void *p);
 s32 release_all_players_control_lock();
 extern s32 lbl_805D586C;
-s32 start_freeze__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void spawn_particle_effect(void *, s32);
@@ -246,7 +244,6 @@ extern const f32 lbl_805D8924;
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
 void reset_cameras_to_actor(void *, s32);
-void refresh_equipment_slot__10TObjPlayerFv(void *p);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Vec_8004B7DC dark_falz_player_ring_center;
@@ -256,7 +253,6 @@ void TBoss4DarkFalz__sub_8004B7DC(void *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
 void reset_cameras_to_actor(void *, s32);
-void refresh_equipment_slot__10TObjPlayerFv(void *p);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Vec_8004B8F8 lbl_804371BC;
@@ -575,7 +571,7 @@ void TBoss4DarkFalz::refresh_player_equipment(void *self) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
             if (((TBoss3Volopt *)p)->get_field_3e0() == 0xE) {
-                refresh_equipment_slot__10TObjPlayerFv(p);
+                ((TObjPlayer *)p)->refresh_equipment_slot();
             }
         }
     }
@@ -599,7 +595,7 @@ void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
             ((TBoss4DarkFalz *)p)->set_position_from(&v);
             ((TBoss4DarkFalz *)p)->save_position();
             get_hit_data__14TBoss4DarkFalzFv(p)->f4 = ang + 0x8000;
-            refresh_equipment_slot__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->refresh_equipment_slot();
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
                 reset_cameras_to_actor(p, 0);
             }
@@ -626,7 +622,7 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0) {
             ((TBoss4DarkFalz *)p)->set_position_from((Vec_8004B7DC *)(&v));
             ((TBoss4DarkFalz *)p)->save_position();
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFv(p))->f4 = 0x8000;
-            refresh_equipment_slot__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->refresh_equipment_slot();
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
                 reset_cameras_to_actor(p, 0);
             }
@@ -642,7 +638,7 @@ void TBoss4DarkFalz::end_player_camera_pans(void *self) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            end_camera_pan__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->end_camera_pan();
         }
     }
     release_all_players_control_lock();
@@ -654,7 +650,7 @@ void TBoss4DarkFalz::freeze_all_players(void *self) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            start_freeze__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->start_freeze();
         }
     }
 }

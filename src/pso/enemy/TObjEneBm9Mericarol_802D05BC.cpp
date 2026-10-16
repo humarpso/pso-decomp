@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 #include "pso/boss/TBoss3Volopt.h"
 
@@ -141,7 +142,6 @@ s32 TObjEneBm9Mericarol__sub_802D093C(void *);
 s32 transition_enemy_state(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
     switch (arg1) {
@@ -151,7 +151,7 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
         TObjEneBm9Mericarol__sub_802D093C(arg0);
         *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) | 0x28);
         *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) & 0xFFFFFFEF);
-        set_field_378__9TObjEneDDFl(arg0, 2);
+        ((TObjEneDD *)arg0)->set_field_378(2);
         enemy_clear_target__12TObjEneDD_STFUs(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x46C);
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_sound_effect();

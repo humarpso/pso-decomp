@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemObject.h"
 #include "pso/item/TUnk_8049FD48.h"
 #include "pso/unk/TUnk_8049FBC0.h"
@@ -28,7 +29,6 @@ void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte__11TItemObjectFv();
 s32 launch_technique__10TObjPlayerFv(s32, s32, s32);
 void __dt__11TItemObjectFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 int obj_getS16_2BA(void*);
 
 extern s32 lbl_8049FBC0[];
@@ -68,7 +68,7 @@ void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FC90;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -104,7 +104,7 @@ void *TItemProArmor__sub_80117160(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FD48;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

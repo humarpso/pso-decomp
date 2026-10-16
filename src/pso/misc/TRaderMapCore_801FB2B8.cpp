@@ -39,7 +39,6 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 get_player_by_client_id(int);
 s32 update_radar_auto_discovery(void *, int, void *);
-s32 gather_player_markers__13TRaderMapCoreFv(void *);
 s32 update_follow_projection__13TRaderMapCoreFv(void *, void *);
 s32 update_pan_zoom_input__13TRaderMapCoreFv();
 extern u32 TRaderMapCore__floor_map_resource;
@@ -106,7 +105,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
             update_pan_zoom_input__13TRaderMapCoreFv();
             break;
         }
-        gather_player_markers__13TRaderMapCoreFv((void *) (arg0));
+        ((TRaderMapCore *)arg0)->gather_player_markers();
         if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
             *(s32 *)((s8 *)arg0 + 0x134) = (s32) obj_getField1c(*(void **)((s8 *)arg0 + 0x184));
         }

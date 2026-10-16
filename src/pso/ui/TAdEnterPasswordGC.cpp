@@ -81,7 +81,6 @@ extern u8 *password_entry_keyboard_control;
 extern s32 password_entry_dispatch_state;
 extern const f32 lbl_805DF780;
 void close_window_and_destroy__18TAdEnterPasswordGCFPv(u8 *arg0);
-u32 create_keyboard_control__22TAdEnterSerialAccessGCFll(s32, s32);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
 extern u8 *password_entry_keyboard_control;
@@ -261,7 +260,7 @@ void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
         ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x2C)))->add_item_rect((void *) (&enter_password_item_rect_table.value));
         ((TAdEnterSerialAccessGC *)(*(u32 *)((s8 *)arg0 + 0x2C)))->set_active();
     }
-    (*(u32 *)&password_entry_keyboard_control) = create_keyboard_control__22TAdEnterSerialAccessGCFll(arg0, 2);
+    (*(u32 *)&password_entry_keyboard_control) = TAdEnterSerialAccessGC::create_keyboard_control(arg0, 2);
     password_entry_dispatch_state = 1;
 }
 

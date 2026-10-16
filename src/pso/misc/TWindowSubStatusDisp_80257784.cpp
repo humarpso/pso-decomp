@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -156,7 +157,6 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
 s32 is_wrapped__9TItemDataFPv(s32);
 s32 TItemData__sub_8010C738(s32);
 s32 is_custom_name_srank__9TItemDataFPv(s32);
-u32 calc_action_flags__9TItemDataFlPUc(s32, s32, s32);
 s32 is_rare_item__9TItemDataFPv(s32);
 s32 TItem__sub_801013E8(void *);
 s32 get_usable_action_flags__5TItemFUlUl(void *, s32, s32);
@@ -294,7 +294,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF61E853;
                 return;
             }
-            if (calc_action_flags__9TItemDataFlPUc(arg1, 0x10000, temp_r3) != 0U) {
+            if (((TItemData *)arg1)->calc_action_flags((s32)0x10000, (u8 *)temp_r3) != 0U) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF909090;
                 return;
             }
@@ -566,7 +566,6 @@ extern const f32 lbl_805DCF08;
 
 extern "C" {
 
-s32 get_camera_id__11TCameraCtrlFv();
 s32 get_shared_text_buffer();
 s32 get_field_ec__5TItemFv(void *);
 s32 get_field_ed__5TItemFv(void *);
@@ -605,7 +604,7 @@ void TWindowSubStatusDisp::update_from_player(void *arg1, s32 arg2, s32 arg3) {
     temp_r29 = lookup_item_data__20TWindowSubStatusDispFv(arg1);
     select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r29, get_field_ec__5TItemFv(arg1), get_field_ed__5TItemFv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
     *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, ((TItem *)arg1)->vfunc_12(), *(s32 *)((s8 *)this + 0x20), 8, 1);
-    if (get_camera_id__11TCameraCtrlFv() <= 2) {
+    if (TCameraCtrl::get_camera_id() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(arg2);
         *(s32 *)((s8 *)this + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, get_shared_text_buffer(), *(s32 *)((s8 *)this + 0x24), 0x10, 1);
@@ -724,7 +723,6 @@ s32 TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_reset();
 #define select_item_icon__20TWindowSubStatusDispFPviUcUci ((s32 (*)(void *, s32, u8, u8, s32))select_item_icon__20TWindowSubStatusDispFPviUcUci)
 #define forward_message__6TLobbyFlUl ((s32 (*)(s32, void *))forward_message__6TLobbyFlUl)
-s32 get_camera_id__11TCameraCtrlFv();
 #define get_item_data__6TLobbyFUl ((s32 (*)(void *))get_item_data__6TLobbyFUl)
 #define update_item_colors__20TWindowSubStatusDispFPvi ((s32 (*)(void *, void *))update_item_colors__20TWindowSubStatusDispFPvi)
 
@@ -739,7 +737,7 @@ void TWindowSubStatusDisp::set_ground_item(void *arg1, s32 arg2) {
     select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r31, *(u8 *)((s8 *)arg1 + 0), *(u8 *)((s8 *)arg1 + 1), is_wrapped__9TItemDataFPv(arg1));
     forward_message__6TLobbyFlUl(get_shared_text_buffer(), arg1);
     *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(get_shared_text_buffer()), (s32)(*(s32 *)((s8 *)this + 0x20)), (s32)(8), (s32)(1));
-    if (get_camera_id__11TCameraCtrlFv() <= 2) {
+    if (TCameraCtrl::get_camera_id() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(*(s32 *)((s8 *)arg1 + 0x10));
         *(s32 *)((s8 *)this + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(get_shared_text_buffer()), (s32)(*(s32 *)((s8 *)this + 0x24)), (s32)(0x10), (s32)(1));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TBreakUpMdl.h"
 #include "pso/player/TUnk_804820C0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -55,11 +56,9 @@ extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
 void TObjPlayer__sub_8002EF80(void);
-u8 * init_from_model__11TBreakUpMdlFl(void *, s32);
 extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
-u8 * init_from_model__11TBreakUpMdlFl(void *, s32);
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern u8 *lbl_805D4BA4;
 s32 queue_destruction__7TObjectFv(void *);
@@ -139,7 +138,7 @@ void TObjPlayer__sub_8002E7C8(void) {
     temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x10))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (init_from_model__11TBreakUpMdlFl((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x58)));
+        var_r0 = (long) (((TBreakUpMdl *)temp_r3)->init_from_model(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x58)));
     }
     (*(u8 * *)&lbl_805D4B8C) = (unsigned char *) ((void *) var_r0);
     TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((void *) var_r0), (s32)(0x1C));
@@ -221,7 +220,7 @@ void TObjPlayer::create_breakup_model() {
     temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x10))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (init_from_model__11TBreakUpMdlFl((void *) temp_r3, *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x68)));
+        var_r0 = (long) (((TBreakUpMdl *)temp_r3)->init_from_model(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x68)));
     }
     (*(u8 * *)&shared_breakup_model) = (unsigned char *) ((void *) var_r0);
     TObjPlayer__sub_8002ED48((Obj_8002ED48 *)((void *) var_r0), (s32)(0x13));

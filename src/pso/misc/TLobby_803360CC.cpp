@@ -91,7 +91,6 @@ extern const f32 lbl_805DF908;
 void TKeyBoardControl__sub_8000F90C(int);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 queue_destruction__7TObjectFv(void*);
-s32 has_any_key_pressed__16TKeyBoardControlFv(void *);
 s32 TWindowOptionCtrl__sub_802273B4(int);
 s32 set_opening_movie_purpose(int);
 void TLobby__sub_803362A4(void *);
@@ -195,7 +194,7 @@ void update_title_idle_transition(Obj_80336340 *arg0) {
         return;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x34) < (s32) *(s32 *)((s8 *)arg0 + 0x38)) {
-        if ((has_any_key_pressed__16TKeyBoardControlFv((void *) (&TKeyBoardControl__global_key_state.value)) != 0) || (TKeyBoardControl::any_pad_input_active() != 0)) {
+        if ((((TKeyBoardControl *)(&TKeyBoardControl__global_key_state.value))->has_any_key_pressed() != 0) || (TKeyBoardControl::any_pad_input_active() != 0)) {
             *(s32 *)((s8 *)arg0 + 0x34) = 0;
         }
         TLobby__sub_803362A4((void *) (arg0));

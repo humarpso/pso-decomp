@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -100,7 +101,6 @@ s32 post_translate_matrix(void *);
 extern s32 __vt__11TBreakUpMdl[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
-int get_target_info__9TObjEneDDFv(void*);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -115,7 +115,6 @@ extern const f32 TObjEneDf2Bringer__data_805D97E0;
 extern "C" {
 
 int TObjEneDf2Bringer__sub_800994F8(void*);
-int get_target_info__9TObjEneDDFv(void*);
 
 extern s32 __vt__11TBreakUpMdl[];
 void TObjEneDf2Bringer::vfunc_105() {
@@ -123,7 +122,7 @@ void TObjEneDf2Bringer::vfunc_105() {
     f32 frame;
     s32 i;
     Motion_80097100 *mot;
-    get_target_info__9TObjEneDDFv((void*)(self));
+    ((TObjEneDD *)self)->get_target_info();
     if (self->m8(lbl_805D97D8, lbl_805D97DC) != 0) {
         Vec_80097100 v = lbl_8043A0E0;
         update_player_state__9TObjEneDDFv(self, &v, 0);
@@ -153,6 +152,6 @@ void TObjEneDf2Bringer::vfunc_105() {
     }
 }
 
-void TObjEneDf2Bringer::vfunc_83() { if (get_target_info__9TObjEneDDFv(this) != 0) { TObjEneDf2Bringer__sub_800994F8(this); } }
+void TObjEneDf2Bringer::vfunc_83() { if (get_target_info() != 0) { TObjEneDf2Bringer__sub_800994F8(this); } }
 
 }

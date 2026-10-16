@@ -41,7 +41,6 @@ void push_shop_pool_entry(Ctr_8020E934 *, u8);
 void shuffle_shop_pool_n_times(Ctr_8020E934 *, s32);
 void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
-void copy_item_data__6TLobbyFPv(Item_8020E934 *, Item_8020E934 *);
 void generate_shop_shield_pool(s32 arg0);
 extern s32 lbl_80513D68[];
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
@@ -127,7 +126,7 @@ void generate_shop_shield_pool(s32 arg0) {
             item.b[2] = b;
         }
         if (is_duplicate_shop_shield_or_unit(&item, arg0) == 1) {
-            copy_item_data__6TLobbyFPv(&dst[counts[arg0]++], &item);
+            ((TLobby *)(&dst[counts[arg0]++]))->copy_item_data(&item);
             j++;
         }
     }

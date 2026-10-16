@@ -19,7 +19,6 @@ extern "C" void TWindowDD__sub_80340A78();
 extern "C" void init__9TWindowDDFv();
 extern "C" void render_shadows__7TObjectFv();
 struct W_80340F00 { s32 f0; u8 pad4[0x14]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; u8 pad60[4]; f32 f64; f32 f68; f32 f6c; };
-void *construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
 extern s32 lbl_805D42D0;
 extern const f32 lbl_805DFC50;
 extern const f32 lbl_805DFC70;
@@ -53,7 +52,7 @@ void *TWindowDD_WS_ScrollBar::dt(s16 arg1) {
 }
 
 W_80340F00 *construct_variant_b__9TWindowDDFPv(W_80340F00 *arg0) {
-    construct_base__9TWindowDDFPUcsPUc(arg0, lbl_804EFBD0, 4, lbl_804EFBC8);
+    ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804EFBD0, (s16)4, (u8 *)lbl_804EFBC8);
     arg0->p18 = lbl_804EFBE4;
     arg0->f0 = lbl_805D42D0;
     arg0->f64 = lbl_805DFC70;

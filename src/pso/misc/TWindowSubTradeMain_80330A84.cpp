@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -450,7 +451,6 @@ void set_local_trade_final_confirmation();
 s32 is_local_trade_offer_confirmation_requested();
 void clear_local_trade_offer_confirmation();
 void set_local_trade_offer_confirmation();
-void clear_flag400__6TLobbyFv();
 void reset__6TLobbyFv();
 void open_status_window__19TWindowSubTradeMainFi(s32 arg0);
 void update_from_lobby__19TWindowSubTradeMainFi(s32 arg0);
@@ -887,7 +887,7 @@ void TWindowSubTradeMain::run_task() {
                    (TWindowShortListCtrl__check_controller_button(controller_input_state[player].btn, 2) != 0 ||
                     test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state[4].btn, 2) != 0)) {
             play_sound_effect(0x52F16, 0, 0, 0);
-            clear_flag400__6TLobbyFv();
+            TLobby::clear_flag400();
             o->timer = 900;
             o->state = 0x20;
         }

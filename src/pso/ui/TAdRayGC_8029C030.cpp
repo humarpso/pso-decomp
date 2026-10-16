@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 #include "pso/misc/TORockJungleL01.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/misc/RenderFadeState.h"
@@ -40,7 +41,6 @@ struct Rd_8029C094 {
 
 extern "C" {
 s32 isFading__15RenderFadeStateCFv(void *);
-void set_cull_back__8TObjFishFv();
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
 }
@@ -48,7 +48,6 @@ extern const f32 lbl_805DDD18;
 extern "C" {
 
 int update_obstruction_fade(void*);
-s32 set_cull_none__8TObjFishFv();
 
 void TORockJungleL01::run_task() { update_obstruction_fade((char*)this + 0xb4); }
 
@@ -57,12 +56,12 @@ void TORockJungleL01::vfunc_15() {
     if ((s32) this->m_d0 != 0) {
         ((VObj_8029c054_8029C030*)(arg0 + 0xB4))->m7();
     }
-    set_cull_none__8TObjFishFv();
+    TObjFish::set_cull_none();
 }
 void TORockJungleL01::vfunc_14() {
     Rd_8029C094 *arg0 = (Rd_8029C094 *)this;
     Vec_8029C094 v;
-    set_cull_back__8TObjFishFv();
+    TObjFish::set_cull_back();
     matrix_mult_vec(0, arg0->pos, &v);
     if (-v.z < lbl_805DDD18) {
         ((RenderFadeState *)(&arg0->fade))->fadeOut();

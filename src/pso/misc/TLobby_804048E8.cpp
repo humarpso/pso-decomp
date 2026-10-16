@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/protocol/NetworkRuntime.h"
 
 struct Self_803FD85C;
@@ -564,7 +565,6 @@ void TLobby__sub_803FF384(u8 *arg0);
 void TLobby__sub_803F97E8(int);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 s32 wait_for_connection__6TLobbyFPv(Conn_804004DC *c);
-void save_timer_state__6TLobbyFv(u8 *arg0);
 void NetMemcpy(void * _w0, void * _w1, int _w2);
 s32 TLobby__sub_80403168(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);
@@ -602,7 +602,6 @@ u32 TLobby__sub_80402AFC(u8 *p);
 extern s16 lbl_805D7A7A;
 extern u8 lcp_read_value_buffer[4];
 extern u8 lobby_read_byte_buffer[1];
-s16 parse_lcp_option__6TLobbyFlPUcPUcPUcs(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 void TLobby__sub_8040098C(Self_8040098C *self);
 s16 TLobby__sub_80401BCC(void *, void *, int);
@@ -881,13 +880,10 @@ void TLobby__sub_80400B98(u8 *arg0);
 
 typedef char RecoveredGlobal_80401A68_lbl_805C04A8_size[sizeof(RecoveredGlobal_80401A68_lbl_805C04A8) == 0x30 ? 1 : -1];
 
-void save_timer_state__6TLobbyFv(u8 *arg0);
-
 #define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 2) != 2 ? -1 : read_network_u16_be(lcp_read_value_buffer))
 #define rd32_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 4) != 4 ? 0 : TLobby__sub_80402AFC(lcp_read_value_buffer))
 #define rd8_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0])
 #define F(t, o) (*(t *)((s8 *)(arg2) + (o)))
-s16 parse_lcp_option__6TLobbyFlPUcPUcPUcs(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4);
 
 typedef char RecoveredGlobal_80401A90_lbl_805C04A8_size[sizeof(RecoveredGlobal_80401A90_lbl_805C04A8) == 0x30 ? 1 : -1];
 

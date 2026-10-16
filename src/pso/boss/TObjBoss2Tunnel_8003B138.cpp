@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/TObject.h"
 #include "pso/misc/TFogCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -16,16 +17,14 @@ extern "C" {
 
 struct Obj_8003B250;
 void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0);
-void *initialize_with_flags__13TParticleCtrlFPCvlllllUs(void *, s32, s32, s32, s32, s32, s32, s32);
 void *__nw__7TObjectFUl(s32);
-s32 get_particle_by_index__13TParticleCtrlFl(s32);
 
 void TObjBoss2Tunnel::create_particle_effect(s32 arg0, s32 arg1, f32 farg0) {
     void *var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x78);
     if (var_r31 != NULL) {
-        var_r31 = initialize_with_flags__13TParticleCtrlFPCvlllllUs(var_r31, arg0, get_particle_by_index__13TParticleCtrlFl(arg1), 1, 0, 0, 1, 0x40);
+        var_r31 = ((TParticleCtrl *)var_r31)->initialize_with_flags((const void *)arg0, (s32)(TParticleCtrl::get_particle_by_index(arg1)), (s32)1, (s32)0, (s32)0, (s32)1, (u16)0x40);
     }
 #define release_children__15TObjBoss2TunnelFPvf ((s32 (*)(void *, f32))release_children__15TObjBoss2TunnelFPvf)
     if (var_r31 != NULL) {
@@ -160,7 +159,6 @@ typedef struct Vec_8003B6E8 {
 
 extern "C" {
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvll(void *, s32, s32);
-void enable__13TParticleCtrlFv(void *);
 extern Rec_8003C108 boss2_tunnel_particle_pos_table[];
 extern const f32 lbl_805D85B0;
 s32 get_state_flag__9TMainTaskFv();
@@ -629,7 +627,7 @@ void TObjBoss2Tunnel::update_particles() {
         if (p == 0) {
             r = create_particle__20TAdLoadQuestPrtTxtGCFPvll(&boss2_tunnel_particle_pos_table[i], 0x171, 1);
             if (r != 0) {
-                enable__13TParticleCtrlFv((void *)r);
+                ((TParticleCtrl *)r)->enable();
                 ((S_8003C108 *)this)->ptr[i] = r;
             }
         } else {

@@ -11,7 +11,6 @@ extern "C" {
 
 extern "C" {
 s32 init_gc_tag();
-s32 reset_target__11TMainCursorFv(void *);
 
 }
 
@@ -35,7 +34,7 @@ extern "C" {
 s32 TMainCursor::reset() {
     s32 arg0 = (s32)this;
     init_gc_tag();
-    reset_target__11TMainCursorFv((void *) (arg0));
+    ((TMainCursor *)arg0)->reset_target();
     return arg0;
 }
 

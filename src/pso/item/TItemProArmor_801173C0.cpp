@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_8049FED0.h"
 #include "pso/item/TUnk_8049FE00.h"
 #include "pso/item/TUnk_8049FEB8.h"
@@ -29,7 +30,6 @@ s32 __dl__7TObjectFPv(void *);
 void __dt__11TItemObjectFv(void *, int);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(s32);
-void free_obj_heap__10TObjPlayerFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_8049FE00[];
@@ -114,7 +114,7 @@ void *TItemProArmor__sub_801175F8(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FED0;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/player/TUnk_80494E48.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNowLoading.h"
@@ -48,15 +49,12 @@ Obj_800DC4B4 *find_active_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 play_sound_effect(int, void *, int, int);
-void enable__13TParticleCtrlFv(void *);
 s32 subtract_vector(void *, void *);
 s32 vec3_add_to(void *, void *);
 u32 csnVector(void *, void *, int);
 f32 xyz_distance_squared(void *, void *);
-void set_flag_20000__10TObjPlayerFv(void *);
 void spawn_particle_effect(void *, int);
 s32 is_split_screen();
-void trigger_hit_camera_shake__10TObjPlayerFUl(void *, void *);
 extern const f32 lbl_805D5260;
 extern const f32 lbl_805D5268;
 extern s32 lbl_805D5270;
@@ -83,7 +81,7 @@ void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
             return;
         }
         if (arg0->effect != NULL) {
-            enable__13TParticleCtrlFv(arg0->effect);
+            ((TParticleCtrl *)(arg0->effect))->enable();
         }
         return;
     case 1:
@@ -120,12 +118,12 @@ void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
             parm.b = lbl_805D5270;
             obj->v21(att, parm, 0, -1, -1);
             if (obj->flags & 0x800) {
-                set_flag_20000__10TObjPlayerFv(att);
+                ((TObjPlayer *)att)->set_flag_20000();
             }
             spawn_particle_effect(obj->pos, 0xFB);
             spawn_particle_effect(obj->pos, 0xFC);
             if (is_split_screen() == 0 && local_client_id == arg0->owner) {
-                trigger_hit_camera_shake__10TObjPlayerFUl(att, obj);
+                ((TObjPlayer *)att)->trigger_hit_camera_shake((u32)obj);
             }
             queue_destruction__7TObjectFv(arg0);
         }

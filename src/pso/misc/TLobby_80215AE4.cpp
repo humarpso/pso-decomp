@@ -12,7 +12,6 @@ extern "C" {
 
 void update_all__6TLobbyFi(s32 arg0);
 s32 adjust_appraisal_percentages(s32);
-s32 roll_item_grind_bonus__6TLobbyFv(s32);
 s32 adjust_appraisal_special(s32);
 s32 is_slot_match__6TLobbyFv();
 
@@ -25,7 +24,7 @@ void update_all__6TLobbyFi(s32 arg0) {
         item_appraisal_score = 0;
         item_appraisal_favored_weapon = is_slot_match__6TLobbyFv();
         adjust_appraisal_special(arg0);
-        roll_item_grind_bonus__6TLobbyFv(arg0);
+        ((TLobby *)arg0)->roll_item_grind_bonus();
         adjust_appraisal_percentages(arg0);
     }
 }

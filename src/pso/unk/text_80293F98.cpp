@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 #include <stddef.h>
 #include "pso/TChCrEffFade.h"
@@ -19,7 +20,6 @@ struct RecoveredGlobal_80293F98_lbl_804DB900 {
 };
 
 extern "C" {
-s32 draw_strip_swap_color__15TWindowCtrlMainFllf(void *, int, int, f32);
 s32 __cvt_fp2unsigned(f32);
 extern RecoveredGlobal_80293F98_lbl_804DB900 lbl_804DB900;
 extern const f32 lbl_805DD9E0;
@@ -49,7 +49,7 @@ void TChCrEffFade::draw_fade_strip(f32 farg0) {
     stack.sp10 = 0;
     stack.sp14 = 4;
     stack.sp8 = (s32 *)(&lbl_804DB900.value);
-    draw_strip_swap_color__15TWindowCtrlMainFllf((void *) (&stack.sp8), (int) (4), (int) (6), (f32) (lbl_805DD9E4));
+    ((TWindowCtrlMain *)(&stack.sp8))->draw_strip_swap_color((int) (4), (int) (6), (f32) (lbl_805DD9E4));
 }
 
 }

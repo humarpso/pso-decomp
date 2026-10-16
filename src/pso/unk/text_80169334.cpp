@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TOHangerMachine01.h"
@@ -75,10 +76,7 @@ s16 obj_getS16_32C(void *);
 s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32E(void *);
 u32 get_recovery_need_flags__10TObjPlayerFv(void *);
-s32 is_alive_and_ready__10TObjPlayerFv(void *);
-s32 are_traps_full__10TObjPlayerFv(void *);
 void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
-void refill_traps__10TObjPlayerFv(void *);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 lbl_805D586C;
@@ -114,15 +112,15 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
         if (obj_getS16_32C(actor) < ((TItemProShield *)actor)->get_field_2b8() ||
             obj_getS16_32E(actor) < obj_getS16_2BA(actor) ||
             get_recovery_need_flags__10TObjPlayerFv(actor) != 0 ||
-            (is_alive_and_ready__10TObjPlayerFv(actor) != 0 && are_traps_full__10TObjPlayerFv(actor) == 0)) {
+            (((TObjPlayer *)actor)->is_alive_and_ready() != 0 && ((TObjPlayer *)actor)->are_traps_full() == 0)) {
             void *e;
             self->fAC = 1;
             if (TOHangerMachine01::is_valid_slot((int)self, (u16)(self->fF4)) != 0) {
                 send_6x2C_impose_hold(actor, self->pos, 0x3C, 0, r);
                 actor->m48();
             }
-            if (is_alive_and_ready__10TObjPlayerFv(actor) != 0) {
-                refill_traps__10TObjPlayerFv(actor);
+            if (((TObjPlayer *)actor)->is_alive_and_ready() != 0) {
+                ((TObjPlayer *)actor)->refill_traps();
             }
             e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F6, 0x10);
             if (e != 0) {

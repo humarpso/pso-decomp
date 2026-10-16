@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -9,7 +10,6 @@ void TWindowCtrl__sub_8024ADAC(void *);
 void TWindowSubTradeMain__sub_802D2870(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void start_freeze__10TObjPlayerFv(void *);
 void fn_8024AB54(void *);
 void fn_8027B288(void *);
 void fn_8027B2A8(void *);
@@ -51,7 +51,7 @@ void *TWindowSubTradeMain__ct(void *arg0, void *arg1, void *arg2) {
     fn_8027B2A8(*(void **)((s8 *)arg0 + 0x50));
     x = get_player_by_client_id(*(void **)((s8 *)arg0 + 0x28));
     if (x != NULL) {
-        start_freeze__10TObjPlayerFv(x);
+        ((TObjPlayer *)x)->start_freeze();
     }
     return arg0;
 }

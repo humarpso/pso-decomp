@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/ui/TAdLoadQuestPrtTxtGC.h"
 struct Rec_80086E28 { u8 pad[0x98]; };
 
 struct Rec_80086EF8 { u8 pad[0x98]; };
 
 extern "C" {
-void *initialize__13TParticleCtrlFPCvlllll(void *, void *, void *, s32, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 extern s32 particle_pool_limit;
 extern Rec_80086E28 *particle_global_entry_table;
@@ -25,7 +25,7 @@ void *TAdLoadQuestPrtTxtGC::create_particle(void *arg0, s32 arg1, s32 arg2) {
     if (particle_pool_limit > arg1) {
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = initialize__13TParticleCtrlFPCvlllll(o, arg0, &particle_global_entry_table[arg1], 0, 0, 0, arg2);
+            o = ((TParticleCtrl *)o)->initialize((const void *)arg0, (s32)(&particle_global_entry_table[arg1]), (s32)0, (s32)0, (s32)0, (s32)arg2);
         }
         return o;
     }
@@ -33,7 +33,7 @@ void *TAdLoadQuestPrtTxtGC::create_particle(void *arg0, s32 arg1, s32 arg2) {
         s32 idx = arg1 - 0x200;
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = initialize__13TParticleCtrlFPCvlllll(o, arg0, &particle_area_entry_table[idx], 0, 0, 0, arg2);
+            o = ((TParticleCtrl *)o)->initialize((const void *)arg0, (s32)(&particle_area_entry_table[idx]), (s32)0, (s32)0, (s32)0, (s32)arg2);
         }
         return o;
     }

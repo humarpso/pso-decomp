@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowChoiceSetting.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
@@ -49,8 +51,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DF8B0;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(int, int, int, int);
-s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_80335A58_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80335A58_lbl_8050E3B8 controller_physical_port_bank;
@@ -101,14 +101,14 @@ void TAdTrialAgreementGC::handle_cursor_input() {
     u8 *temp_r30;
     temp_r30 = (u8 *)&controller_physical_port_bank.value + 0x20;
     *(f32 *)&this->m_28 = (f32) lbl_805DF8B4;
-    if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
         *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 - 1);
         if ((s32) *(s32 *)&this->_pad20 < 0) {
             *(s32 *)&this->_pad20 = 3;
         }
         play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
     }
-    if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
         *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 + 1);
         if ((s32) *(s32 *)&this->_pad20 >= 4) {
             *(s32 *)&this->_pad20 = 0;

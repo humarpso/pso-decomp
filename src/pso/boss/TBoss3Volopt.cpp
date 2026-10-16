@@ -93,9 +93,6 @@ s32 TBoss3Volopt__sub_8003F408(void *);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 u16 fn_8003C8B4(void);
 u16 fn_8003C804(void);
-void send_random_params__12TBoss3VoloptFv(void);
-s32 count_dead_parts__12TBoss3VoloptFv(void *);
-s16 find_facing_player__12TBoss3VoloptFv(void *);
 extern u16 lbl_805D2718;
 extern const f32 lbl_805D8660;
 extern const f32 lbl_805D8668;
@@ -337,11 +334,7 @@ s32 TObjPlayer__sub_80042EC0(void *);
 void TBoss3VoloptP01__sub_80042F84(void *);
 s32 set_player_view_flag__11TCameraCtrlFl();
 s32 set_flag_08000000__11TCameraCtrlFl();
-void apply_hit_reaction__12TBoss3VoloptFf(void *, f32);
-void copy_phase2_positions_to_global__12TBoss3VoloptFv(void *);
-void set_action_wait__12TBoss3VoloptFUs(void *, u16);
 void set_motion__12TBoss3VoloptFs(void *, u16);
-void check_and_trigger__12TBoss3VoloptFv(void *);
 void set_action__12TBoss3VoloptFs(void *, u16);
 s32 TBoss3Volopt__sub_800479D0();
 void TBoss3Volopt__sub_80047A60(void);
@@ -359,7 +352,6 @@ s32 TObjEnemyCustom__ct(void *, int);
 int reset_photon_effect__10TObjPlayerFv(void*);
 void * find_entity_by_id(u16);
 s32 TObjPlayer__sub_801BA42C();
-s32 freeze_all_players__10TObjPlayerFv();
 int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
 int TLobby__send_and_handle_60(void*);
@@ -446,7 +438,7 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self) {
         ((TBoss3Volopt *)self)->swap_6x85_fields();
         switch (self->mode) {
         case 0:
-            copy_phase2_positions_to_global__12TBoss3VoloptFv(self);
+            ((TBoss3Volopt *)self)->copy_phase2_positions_to_global();
             break;
         }
     }
@@ -547,7 +539,7 @@ void handle_6x15_vol_opt_boss_actions(u8 *arg0) {
     case 3:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            set_action_wait__12TBoss3VoloptFUs(p, *(u16 *)((s8 *)arg0 + 6));
+            ((TBoss3Volopt *)p)->set_action_wait(*(u16 *)((s8 *)arg0 + 6));
         }
         break;
     case 4:
@@ -559,7 +551,7 @@ void handle_6x15_vol_opt_boss_actions(u8 *arg0) {
     case 5:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            check_and_trigger__12TBoss3VoloptFv(p);
+            ((TBoss3Volopt *)p)->check_and_trigger();
         }
         break;
     case 6:
@@ -571,7 +563,7 @@ void handle_6x15_vol_opt_boss_actions(u8 *arg0) {
     case 7:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            apply_hit_reaction__12TBoss3VoloptFf(p, *(s16 *)((s8 *)arg0 + 8));
+            ((TBoss3Volopt *)p)->apply_hit_reaction(*(s16 *)((s8 *)arg0 + 8));
         }
         break;
     }
@@ -800,7 +792,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         ((TBoss3Volopt *)arg0)->start_phase2();
         activate_camera_mode((int) (9));
         set_active_camera_pose((void *) (&boss3_volopt_intro_camera_poses.value), (void *) ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
-        freeze_all_players__10TObjPlayerFv();
+        TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
         if (((u32)find_entity_by_id((u16)((void *) (lbl_805D2718)))) != 0U) {
             set_flag_08000000__11TCameraCtrlFl();
@@ -933,7 +925,7 @@ void TBoss3Volopt::update_intro_cutscene() {
     switch (*(s32 *)&this->state) {
     case 0:
         reset_vol_opt_state((void*)(arg0));
-        freeze_all_players__10TObjPlayerFv();
+        TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
         if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A) != NULL) {
             set_flag_08000000__12TBoss3VoloptFv();
@@ -1101,7 +1093,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 3;
                 p.arg = sel;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1112,11 +1104,11 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.id = o->id;
                 p.cmd = 4;
                 if (TBoss3Volopt__sub_8003F398() != 0) {
-                    send_random_params__12TBoss3VoloptFv();
+                    TBoss3Volopt::send_random_params();
                 }
                 p.arg = sel;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1127,7 +1119,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.id = o->id;
                 p.cmd = 5;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1139,7 +1131,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 6;
                 p.arg = sel;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             o->f3f0 = 0;
             return;
@@ -1151,7 +1143,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 7;
                 p.arg2 = lbl_805D86A0 * calc_boss4_scale__10TObjPlayerFi(o);
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             return;
         }
@@ -1163,9 +1155,9 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 ((TBoss3Volopt *)(&p))->set_type();
                 p.id = o->id;
                 p.cmd = 3;
-                p.arg = find_facing_player__12TBoss3VoloptFv(e);
+                p.arg = ((TBoss3Volopt *)e)->find_facing_player();
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1178,11 +1170,11 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                     p.id = o->id;
                     p.cmd = 4;
                     if (TBoss3Volopt__sub_8003F398() != 0) {
-                        send_random_params__12TBoss3VoloptFv();
+                        TBoss3Volopt::send_random_params();
                     }
                     p.arg = t;
                     ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                    o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                    o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
                 }
             }
             o->f3f0++;
@@ -1194,7 +1186,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.id = o->id;
                 p.cmd = 5;
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             o->f3f0++;
             return;
@@ -1208,7 +1200,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                     p.cmd = 6;
                     p.arg = t;
                     ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                    o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                    o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
                 }
             }
             o->f3f0 = 0;
@@ -1221,7 +1213,7 @@ void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
                 p.cmd = 7;
                 p.arg2 = lbl_805D86A0 * calc_boss4_scale__10TObjPlayerFi(o);
                 ((TBoss3Volopt *)(&p))->finalize_and_send_60();
-                o->f3f2 = 30.0f * (f32)count_dead_parts__12TBoss3VoloptFv(e) + 30.0f;
+                o->f3f2 = 30.0f * (f32)((TBoss3Volopt *)e)->count_dead_parts() + 30.0f;
             }
             return;
         }

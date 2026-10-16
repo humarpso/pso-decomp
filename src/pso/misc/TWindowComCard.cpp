@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowComCard.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
@@ -27,7 +28,6 @@ void *__nw__7TObjectFUl(int);
 extern s32 local_client_id;
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
-u8 * construct_base__9TWindowDDFPUcsPUc(void *, s32, s16, s32);
 s32 update_com_card_display(s32, s32);
 extern s32 lbl_805D38C0;
 u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -203,7 +203,7 @@ void *__dt__14TWindowComCardFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80249BA8_lbl_804CE8D0_size[sizeof(RecoveredGlobal_80249BA8_lbl_804CE8D0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80249BA8___vt__14TWindowComCard_size[sizeof(RecoveredGlobal_80249BA8___vt__14TWindowComCard) == 0x1C ? 1 : -1];
 u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_base__9TWindowDDFPUcsPUc(arg0, (s32) &TWindowComCard__window_desc.value, 4, arg1);
+    ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &TWindowComCard__window_desc.value), (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__14TWindowComCard;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38C0;
     update_com_card_display((s32)(arg0 + 0x24), (s32)(arg2));
@@ -359,7 +359,6 @@ void request_active_window_close(void);
 void render__13TUnk_804CE964Fv(s32 arg0);
 void __dl__7TObjectFPv(void *);
 s32 draw_default_entry__9TWindowDDFl();
-s32 set_flag1e_bit8__11TWindowCtrlFv(void*);
 
 void TUnk_804CE964::render() {
     s32 arg0 = (s32)this;
@@ -394,7 +393,7 @@ void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *parent, Vec2_80249ED8 *ofs, s32 col, s32 mode, s32 arg5) {
-    ((void (*)(void *, void *, s16, s32))construct_base__9TWindowDDFPUcsPUc)(o, TWindowComCard__window_desc_b, arg5, get_zero_vec2());
+    ((TWindowDD *)o)->construct_base((u8 *)TWindowComCard__window_desc_b, (s16)arg5, (u8 *)(get_zero_vec2()));
     o->vtbl = (s32 *)lbl_804CE964;
     o->parent = parent;
     o->ofs.x = ofs->x;
@@ -425,7 +424,7 @@ void TWindowTradeRequest::close_request_window() {
 
 void request_active_window_close(void) {
     if ((TWindowCtrl__active_window != NULL) && (TWindowCtrl__active_window->field38 != 0U)) {
-        set_flag1e_bit8__11TWindowCtrlFv((void*)TWindowCtrl__active_window->field38);
+        ((TWindowCtrl *)((void*)TWindowCtrl__active_window->field38))->set_flag1e_bit8();
     }
 }
 

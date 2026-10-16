@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/enemy/TObjEneRe7BeruraPunch.h"
@@ -40,7 +41,6 @@ extern s32 lbl_805D2990;
 u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(void *, int);
-void enable__13TParticleCtrlFv(void *);
 u32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 sin_table_lookup(s32);
@@ -152,7 +152,7 @@ void TObjEneRe7BeruraPunch::run_task() {
             *(void * *)&this->m_d0 = create_particle_emitter(arg0 + 0x38, 0xDD);
             if (*(void * *)&this->m_d0 != NULL) {
                 ((TBoss4Type2 *)(*(void * *)&this->m_d0))->set_flags(2);
-                enable__13TParticleCtrlFv(*(void * *)&this->m_d0);
+                ((TParticleCtrl *)(*(void * *)&this->m_d0))->enable();
             }
         } else {
             v.x = lbl_805D97BC * s;
@@ -166,7 +166,7 @@ void TObjEneRe7BeruraPunch::run_task() {
             *(void * *)&this->m_d4 = create_particle_emitter(arg0 + 0x38, 0x150);
             if (*(void * *)&this->m_d4 != NULL) {
                 ((TBoss4Type2 *)(*(void * *)&this->m_d4))->set_flags(2);
-                enable__13TParticleCtrlFv(*(void * *)&this->m_d4);
+                ((TParticleCtrl *)(*(void * *)&this->m_d4))->enable();
             }
         } else {
             v.x = lbl_805D97C0 * s;
@@ -178,10 +178,10 @@ void TObjEneRe7BeruraPunch::run_task() {
         }
     } else {
         if (*(void * *)&this->m_d0 != NULL) {
-            enable__13TParticleCtrlFv(*(void * *)&this->m_d0);
+            ((TParticleCtrl *)(*(void * *)&this->m_d0))->enable();
         }
         if (*(void * *)&this->m_d4 != NULL) {
-            enable__13TParticleCtrlFv(*(void * *)&this->m_d4);
+            ((TParticleCtrl *)(*(void * *)&this->m_d4))->enable();
         }
     }
 }

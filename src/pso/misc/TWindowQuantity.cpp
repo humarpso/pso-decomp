@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowQuantity.h"
 #include "pso/misc/TWindowDD.h"
@@ -19,11 +20,9 @@ struct Quantity_8026D000 {
 extern "C" {
 s32 draw_visible_window_entries(void *, void *, int);
 void render__15TWindowQuantityFv(s32 arg0);
-s32 get_camera_id__11TCameraCtrlFv(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 calc_text_width(void);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_window_layout_position(s32);
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
@@ -79,7 +78,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     u8 *e0;
     s32 id;
     f32 n;
-    construct_base__9TWindowDDFPUcsPUc(arg0, lbl_804D0870, (s16)(s32)arg1, get_window_layout_position(0x2A));
+    ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804D0870, (s16)((s16)(s32)arg1), (u8 *)(get_window_layout_position(0x2A)));
     self->vt = ((void * *)&__vt__15TWindowQuantity);
     self->f0 = lbl_805D39B0;
     id = TQuestVmDownLoadServer__sub_8006EF6C(1);
@@ -91,7 +90,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     *(f32 *)(e1 + 8) = lbl_805DD2D0 + (lbl_805DD2D4 + (lbl_805DD2D8 + n));
     self->f38 = TWindowSubStatusDisp::get_base_y(self->f60);
     ((TUnk_804CE018 *)arg0)->save_position();
-    if (get_camera_id__11TCameraCtrlFv() > 2) {
+    if (TCameraCtrl::get_camera_id() > 2) {
         self->f64 = lbl_805DD2DC;
         self->f68 = lbl_805DD2DC;
     } else {

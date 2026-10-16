@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TFontSmallLobby.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCharaMaking.h"
@@ -28,7 +29,6 @@ void TObjPlayer__sub_801BC504(void *);
 void TObjPlayer__sub_801BBC64(void *);
 void TObjPlayer__sub_801BBB94(void *);
 void TObjPlayer__sub_801BB8AC(void *);
-void unregister__10TObjPlayerFv(void *);
 void destroy__10TObjPlayerFis(void *, int);
 void TObjPlayer__sub_801BFAD4(void *, int);
 void dt__10TObjPlayerFls(void *, int);
@@ -56,7 +56,7 @@ void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
         TObjPlayer__sub_801BBC64(arg0);
         TObjPlayer__sub_801BBB94(arg0);
         TObjPlayer__sub_801BB8AC(arg0);
-        unregister__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->unregister();
         TObjPlayer::free_owned_buffer_b((s32)((s8 *)arg0 + 0x7CC), (s16)(-1));
         destroy__10TObjPlayerFis((s8 *)arg0 + 0x754, -1);
         TObjPlayer__sub_801BFAD4((s8 *)arg0 + 0x644, -1);
@@ -79,7 +79,6 @@ void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
 void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2);
 void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TFontSmallLobby__sub_801C0164(void *);
-void construct_pb_controller__15TFontSmallLobbyFv(void *);
 void TObjPlayer__sub_801BB85C(void *, void *);
 void sub_801BBC2C__10TObjPlayerFv(void *, void *);
 void init_battle__10TObjPlayerFv(void *, void *);
@@ -112,7 +111,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_80309E9C((void *)((char *)arg0 + 900));
     ((TObjPlayer *)((char *)arg0 + 1052))->init_forward();
     TFontSmallLobby__sub_801C0164((void *)((char *)arg0 + 1064));
-    construct_pb_controller__15TFontSmallLobbyFv((void *)((char *)arg0 + 1196));
+    ((TFontSmallLobby *)((char *)arg0 + 1196))->construct_pb_controller();
     __ct__14TPlyDispConfigFv((void *)((char *)arg0 + 1280));
     TObjPlayer__sub_80351974((void *)((char *)arg0 + 1360));
     ((TObjPlayer *)((char *)arg0 + 1456))->init_subobjects();
@@ -160,7 +159,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_80309E9C((void *)((char *)arg0 + 900));
     ((TObjPlayer *)((char *)arg0 + 1052))->init_forward();
     TFontSmallLobby__sub_801C0164((void *)((char *)arg0 + 1064));
-    construct_pb_controller__15TFontSmallLobbyFv((void *)((char *)arg0 + 1196));
+    ((TFontSmallLobby *)((char *)arg0 + 1196))->construct_pb_controller();
     __ct__14TPlyDispConfigFv((void *)((char *)arg0 + 1280));
     TObjPlayer__sub_80351974((void *)((char *)arg0 + 1360));
     ((TObjPlayer *)((char *)arg0 + 1456))->init_subobjects();

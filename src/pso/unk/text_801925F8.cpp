@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoorJung.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjMotion.h"
@@ -241,7 +242,6 @@ void TObjLazerFenceNorm::select_models() {
 struct Obj_80192B5C { u8 pad0[0x38]; u8 f38[0x24]; s32 f5C; s32 f60; u8 pad64[0x48]; s32 fAC; u8 padB0[8]; f32 fB8; s32 fBC; s32 fC0; s32 fC4; s32 fC8[4]; };
 
 extern "C" {
-void free_children__12TObjDoorJungFPv(s32, int);
 void post_translate_matrix(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
@@ -252,7 +252,7 @@ extern "C" {
 void TObjLazerFenceNorm::draw_animated_beam() {
     s32 i;
     for (i = 0; i < 4; i++) {
-        free_children__12TObjDoorJungFPv(((Obj_80192B5C *)this)->fC8[i], lbl_80445B7C[((Obj_80192B5C *)this)->fAC]);
+        ((TObjDoorJung *)(((Obj_80192B5C *)this)->fC8[i]))->free_children((void *)(lbl_80445B7C[((Obj_80192B5C *)this)->fAC]));
     }
     TObjFish::set_global_param((s32)lazer_fence_norm_texture_list);
     push_matrix();

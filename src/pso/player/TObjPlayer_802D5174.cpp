@@ -23,7 +23,6 @@ void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1);
 int spawn_particle_effect(void*, int);
 void TItemWeapon__ct(void *);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1);
@@ -59,7 +58,7 @@ void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1BB0;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -72,7 +71,7 @@ void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1CA8;
         item_equip_variant_deleting_dtor_802D62F0(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -742,7 +741,6 @@ s32 get_attack_stage__11TItemWeaponFv();
 s32 get_weapon_color__11TItemWeaponFPv(s32 *, void *);
 int TItemWeapon__ct(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, s32 *);
-s32 create_item_eff_cane__10TObjPlayerFP5TItemll(s32, void *, s32, s32);
 int set_status_flags__10TObjPlayerFUl(void*, void*);
 
 void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
@@ -769,7 +767,7 @@ extern s32 tl_05;
 
 void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        create_item_eff_cane__10TObjPlayerFP5TItemll(tl_05, arg0, -1, *(s32 *)((s8 *)arg0 + 0x1FC));
+        ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)arg0, (s32)(-1), (s32)(*(s32 *)((s8 *)arg0 + 0x1FC)));
     }
 }
 

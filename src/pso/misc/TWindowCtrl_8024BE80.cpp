@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TNpcPlayer.h"
@@ -18,13 +19,11 @@ typedef struct Ctrl_8024BE80 {
 extern "C" {
 s32 obj_isState3_324(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
-s32 get_field_828__10TObjPlayerFv(void *);
 void *get_player_by_client_id(s32);
 void window_request_show(void *);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 TWindowCtrl__sub_8024B048(void *);
 s32 is_slot_visible__11TWindowCtrlFv(s32);
-s32 is_flag_2_set__11TWindowCtrlFv(void *);
 s32 get_width__19TWindowSimpleStatusFv(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 extern s32 local_client_id;
@@ -41,13 +40,13 @@ void TWindowCtrl::update_party_status_rows() {
     y = get_target_distance__13TWindowLockOnFv(0xAB);
     for (i = 0; i < 3; i++) {
         w = ((Ctrl_8024BE80 *)this)->slots[i];
-        if (w != NULL && is_flag_2_set__11TWindowCtrlFv(w) == 0) {
+        if (w != NULL && ((TWindowCtrl *)w)->is_flag_2_set() == 0) {
             pl = get_player_by_client_id(get_width__19TWindowSimpleStatusFv(w));
             if (pl == NULL || has_player_active_menu__11TWindowCtrlFv(local_client_id) != 0 ||
                 is_slot_visible__11TWindowCtrlFv(local_client_id) != 0 || TWindowCtrl__sub_8024B048(((Ctrl_8024BE80 *)this)) != 0 ||
                 is_script_controlled__10TObjPlayerFv(pl) != 0 ||
                 (obj_isState3_324(pl) != 0 &&
-                 (get_field_828__10TObjPlayerFv(pl) != 0 || ((TNpcPlayer *)pl)->get_action_flags() == 0xFFFF))) {
+                 (((TObjPlayer *)pl)->get_field_828() != 0 || ((TNpcPlayer *)pl)->get_action_flags() == 0xFFFF))) {
                 ((TWindowLockOn *)w)->request_close();
             } else {
                 window_request_show(w);

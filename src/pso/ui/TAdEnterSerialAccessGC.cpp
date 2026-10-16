@@ -703,7 +703,6 @@ struct TAdEnterSerialAccessGC_80321F60 {
 };
 u32 calc_text_width(void *);
 void *__ct__10TAdTitleGCFv(void *, void *, s32);
-u32 create_keyboard_control__22TAdEnterSerialAccessGCFll(void *, s32);
 void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self) {
     void *p;
     f32 w;
@@ -730,7 +729,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
             ((TLevelSelect *)((int)self->field_54))->add_item_rect(&TAdEnterSerialAccessGC__selection_positions);
             ((TAdEnterSerialAccessGC *)((int)self->field_54))->set_active();
         }
-        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFll(self, 0);
+        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)self, (s32)0);
         TAdEnterSerialAccessGC__input_state = 2;
         break;
     case 2:
@@ -750,7 +749,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         self->field_50 = p;
         self->field_58 = TAdEnterSerialAccessGC::open_message_window(self, (void *)1);
         self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
-        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFll(self, 1);
+        TAdEnterSerialAccessGC__keyboard_control = TAdEnterSerialAccessGC::create_keyboard_control((s32)self, (s32)1);
         TAdEnterSerialAccessGC__input_state = 4;
         break;
     case 4:

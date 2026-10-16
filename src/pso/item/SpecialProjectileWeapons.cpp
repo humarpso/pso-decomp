@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemShootParticle.h"
 #include "pso/item/TUnk_804A204C.h"
 #include "pso/item/TUnk_804A2164.h"
 #include "pso/item/TUnk_804A2148.h"
@@ -50,10 +51,8 @@ s32 draw_ginja_object(void *);
 void drill_launcher_node_callback(void *arg0);
 void update_weapon__13TUnk_804A2164Fv(void *arg0);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 
 void* drill_launcher_ct(void* a0, s32, void *);
@@ -116,7 +115,6 @@ s32 rotate_matrix_x(int, int);
 
 void hook__13TUnk_804A2148Fv(void);
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
-s32 spawn_slot_emitter__18TItemShootParticleFll(s32, s32, s32);
 u32 spawn_shoot_particle__10TObjPlayerFUlllf(s32, s32, s32, f32);
 typedef u8 *(*Fn_80124694_3)(void *, s32, void *);
 typedef s32 (*Fn_80124810_5)(s32, s32, s32, s32, f32);
@@ -400,7 +398,7 @@ void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -410,7 +408,7 @@ void *TObjPlayer__sub_80124694(void *arg0) {
     TItemWeapon__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
     ((TObjPlayer *)((char *)arg0 + 376))->set_flags(32);
-    set_status_flags__10TObjPlayerFUl(arg0, 35);
+    ((TObjPlayer *)arg0)->set_status_flags(35);
     ((TObjPlayer *)arg0)->set_effect_state(12);
     *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
     *(u32 *)((s8 *)arg0 + 0x200) = 0;
@@ -479,7 +477,7 @@ s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     }
     var_r0 = spawn_shoot_particle__10TObjPlayerFUlllf(arg0, arg1, arg2, farg0);
     if (var_r0 != 0U) {
-        spawn_slot_emitter__18TItemShootParticleFll(var_r0, 0x1BB, 0);
+        ((TItemShootParticle *)var_r0)->spawn_slot_emitter(0x1BB, 0);
     }
     return var_r31;
 }
@@ -562,12 +560,12 @@ void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = recoiling_projectile_weapon_vtable;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
 }
-void* drill_launcher_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; set_status_flags__10TObjPlayerFUl((void *)(a0), (int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
+void* drill_launcher_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; ((TObjPlayer *)a0)->set_status_flags((int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
 u8 *create_drill_launcher(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

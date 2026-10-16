@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMessageYesNo.h"
@@ -54,7 +55,6 @@ s32 TLobby__sub_8022598C(s32);
 u32 get_lobby_id__6TLobbyFPv();
 s32 get_short_mail_ctrl__6TLobbyFv();
 s32 clear_lobby_flag__6TLobbyFv();
-s32 reset_list__20TShopArmorListWindowFv(void *);
 s32 add_status_entry__20TWindowSubStatusDispFScll(void *, s32, s32, u32);
 void *set_window_mode_4__6TLobbyFPvll(s32, void *, s32);
 extern s32 lbl_8044FACC[];
@@ -77,7 +77,6 @@ s32 TWindowSubComCard__sub_80225E80(s32, s32);
 s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
 s32 __nw__7TObjectFUl(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
-s32 destroy_keyboard__17TWindowSubComCardFv(s32);
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
 s32 fn_80267F38(s32, s32 *, s32, s16);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
@@ -220,7 +219,7 @@ s32 create_keyboard__19TWindowSubShortMailFv(void) {
     update_chat_window(var_r31);
     ((TWindowMakeTeam *)var_r31)->set_sub_position((u8 *)(get_window_layout_position((s32)(0xBB))));
     ((TWindowMakeTeam *)var_r31)->set_keyboard_flag62_bit2();
-    destroy_keyboard__17TWindowSubComCardFv(var_r31);
+    ((TWindowSubComCard *)var_r31)->destroy_keyboard();
     return var_r31;
 }
 
@@ -285,7 +284,7 @@ s32 TWindowSubShortMail::refresh_mail_list(void *arg1) {
     sel = -1;
     clear_lobby_flag__6TLobbyFv();
     ((TShopArmorListWindow *)arg1)->save_cursor_selection();
-    reset_list__20TShopArmorListWindowFv(arg1);
+    ((TShopArmorListWindow *)arg1)->reset_list();
     n = get_short_mail_ctrl__6TLobbyFv();
     i = n - 1;
     while (i >= 0) {
@@ -358,7 +357,6 @@ struct ShortMail_8027EF98 {
 };
 
 extern "C" {
-s32 get_camera_id__11TCameraCtrlFv();
 s32 create_window_menu(int, int, int);
 s32 create_titled_window_menu(int, int, int, int);
 extern const f32 lbl_805DD6D8;
@@ -746,7 +744,7 @@ s32 TUnk_804D1AD0::create_status_category_menu() {
     u8 *arg0 = (u8 *)this;
   s32 temp_r31;
   s32 var_r31;
-  if (get_camera_id__11TCameraCtrlFv() > 2)
+  if (TCameraCtrl::get_camera_id() > 2)
   {
     temp_r31 = ((s32 (*)(int)) get_window_layout_position)((int) 0x18);
     var_r31 = create_window_menu((int) temp_r31, (int) 3, (int) (*((s32 *) (((s8 *) arg0) + 0x1C))));

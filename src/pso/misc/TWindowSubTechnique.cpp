@@ -65,7 +65,6 @@ void *create_message_window__6TLobbyFllUls(s32, void *, s32, s32);
 s32 get_window_layout_position(s32);
 s32 update_selection__19TWindowSubTechniqueFPsPl(void *, void *, s32);
 void get_current_selection__19TWindowSubTechniqueFPv(void *, void *, s32);
-s32 is_technique_available__19TWindowSubTechniqueFll(s32, s32);
 void rebuildTechniqueList__19TWindowSubTechniqueFll(void *, void *, s16);
 void *create_title_window__19TWindowSubTechniqueFv(void *, s16);
 extern u8 lbl_8044FC54[];
@@ -212,7 +211,7 @@ void TWindowSubTechnique::run_task() {
         break;
     case 5:
         ((TObjPlayer *)ply)->update_cursor(get_selected_menu_value(self->sel));
-        if (is_technique_available__19TWindowSubTechniqueFll(get_selected_menu_value(self->sel), self->player) == 0 ||
+        if (TWindowSubTechnique::is_technique_available(get_selected_menu_value(self->sel), self->player) == 0 ||
             TWindowShortListCtrl__check_controller_button(controller_input_state[port].m20, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFv(controller_input_state[4].m20, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);

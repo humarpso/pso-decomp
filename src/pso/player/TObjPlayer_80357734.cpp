@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TTecZonde.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TUnk_804F14A8.h"
 #include "pso/player/TUnk_804F166C.h"
@@ -234,7 +236,6 @@ void TObjPlayer__sub_80357954(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(s32 *, s32);
 u32 __nw__7TObjectFUl(s32);
-s32 construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(u32, s32, void *, void *, s32, s32, f32, f32);
 extern Trip_8035862C lbl_804793D8;
 extern s32 tl_07;
 extern const f32 lbl_805E0048;
@@ -249,7 +250,6 @@ extern const f32 lbl_805E008C;
 extern const f32 lbl_805E0090;
 void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 u32 __nw__7TObjectFUl(s32);
-s32 construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(u32, s32, void *, void *, s32, s32, f32, f32);
 int rand(void);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
@@ -266,7 +266,6 @@ extern const f32 lbl_805E0068;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 remap_extra_attack_type(void *);
-s32 fill_status_info__10TObjPlayerFPv(void *, void *);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
 extern s32 tl_05;
@@ -316,7 +315,6 @@ s32 TObjPlayer__sub_802E451C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 __nw__7TObjectFUl(s32);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
@@ -343,7 +341,7 @@ void TUnk_804F14A8::emit_marker_effects() {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         remap_extra_attack_type((void *) (arg0));
         ((TObjPlayer *)(&info))->reset_field28();
-        fill_status_info__10TObjPlayerFPv((void *) (arg0), (void *) (&info));
+        ((TObjPlayer *)arg0)->fill_status_info((void *) (&info));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (4), (void *) (&info.v[0]));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (3), (void *) (&info.v[1]));
         draw_icon__10TObjPlayerFll((void *) (arg0), (int) (6), (void *) (&info.v[2]));
@@ -397,7 +395,7 @@ void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = item_equip_variant_vtable;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -465,28 +463,28 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
     case 0:
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, lbl_805E005C);
+            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[0].len), (f32)lbl_805E005C);
         }
         break;
     case 1:
         scale *= lbl_805E0060;
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
+            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[0].len), (f32)scale);
         }
         break;
     case 2:
         scale *= lbl_805E0064;
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[0].pos, &strikes[0].dir, 0x14000000, 0x14, strikes[0].len, scale);
+            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[0].len), (f32)scale);
         }
         break;
     case 3:
         for (j = 0; j < 3; j++) {
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[j].pos, &strikes[j].dir, 0x14000000, 0x14, strikes[j].len, lbl_805E005C);
+                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[j].pos), (u8 *)(&strikes[j].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[j].len), (f32)lbl_805E005C);
             }
         }
         break;
@@ -495,7 +493,7 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
         for (k = 0; k < 3; k++) {
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[k].pos, &strikes[k].dir, 0x14000000, 0x14, strikes[k].len, scale);
+                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[k].pos), (u8 *)(&strikes[k].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[k].len), (f32)scale);
             }
         }
         break;
@@ -504,12 +502,12 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
             if (m == 0) {
                 obj = __nw__7TObjectFUl(0x260);
                 if (obj != 0) {
-                    construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E0068);
+                    ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[m].pos), (u8 *)(&strikes[m].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[m].len), (f32)lbl_805E0068);
                 }
             } else {
                 obj = __nw__7TObjectFUl(0x260);
                 if (obj != 0) {
-                    construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &strikes[m].pos, &strikes[m].dir, 0x14000000, 0x14, strikes[m].len, lbl_805E005C);
+                    ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[m].pos), (u8 *)(&strikes[m].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[m].len), (f32)lbl_805E005C);
                 }
             }
         }
@@ -772,7 +770,7 @@ void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 ar
             Trip_8035862C t = lbl_804793D8;
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0U) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &v, &t, 0x14000000, 0x14, lbl_805E0048, lbl_805E0080);
+                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&v), (u8 *)(&t), (s32)0x14000000, (s32)0x14, (f32)lbl_805E0048, (f32)lbl_805E0080);
             }
         }
     }

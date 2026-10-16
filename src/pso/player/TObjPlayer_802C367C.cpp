@@ -25,8 +25,6 @@ struct Char_802C38B4 {
 extern "C" {
 s8 *get_action_data__10TObjPlayerFv(void *);
 void apply_class_level_growth(void *, s32, Stats_802C38B4 *);
-void copy_stats__10TObjPlayerFPv(Stats_802C38B4 *, void *);
-s32 clamp_index_to_max__10TObjPlayerFl(s32);
 s32 get_current_state_field__10TObjPlayerFScl(void *, s32);
 void *get_class_base_stats(void *);
 extern const f32 lbl_805DE530;
@@ -86,8 +84,8 @@ void TObjPlayer::setup_effect_slots(s32 arg0, s32 arg1) {
 
 void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level) {
     Stats_802C38B4 st;
-    level = clamp_index_to_max__10TObjPlayerFl(level);
-    copy_stats__10TObjPlayerFPv(&st, get_class_base_stats(cls));
+    level = TObjPlayer::clamp_index_to_max(level);
+    ((TObjPlayer *)(&st))->copy_stats(get_class_base_stats(cls));
     if (level != 0) {
         apply_class_level_growth(cls, level, &st);
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessageLog.h"
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
@@ -11,7 +12,6 @@ s32 append_text_space();
 s32 text_builder_append(s32 *);
 s32 text_builder_reset();
 s32 *get_active_photon_object__17TWindowMessageLogFv(u16);
-s32 append_line__17TWindowMessageLogFl(u32, s32);
 s32 cache_last_chat_line(s32 *);
 s32 chat_log_add_line();
 extern s32 local_client_id;
@@ -41,7 +41,7 @@ void post_chat_log_message(u16 arg0, s32 *arg1) {
     {
         u32 tmp_ad = TWindowCtrl::get_field44();
         if (tmp_ad != 0U) {
-            append_line__17TWindowMessageLogFl(tmp_ad, (s32) arg1);
+            ((TWindowMessageLog *)tmp_ad)->append_line((s32) arg1);
         }
     }
 }

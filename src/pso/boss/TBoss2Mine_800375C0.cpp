@@ -1470,7 +1470,6 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
-s32 init_position_vectors__9TObjEneDDFv(void *);
 extern u8 *lbl_805D4BA4;
 void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1);
 }
@@ -1518,7 +1517,7 @@ void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r29;
     s32 temp_r30;
     u8 *temp_r6;
-    init_position_vectors__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x38);
     temp_r6 = *(u8 **)((s8 *)lbl_805D4BA4 + 0x42C);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)temp_r6 + 0x2C);

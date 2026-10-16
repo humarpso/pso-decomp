@@ -66,9 +66,7 @@ void *TObjQuestColALock2__create(void *arg0);
 void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 enable_action_input__10TObjPlayerFPv(s32);
-s32 disable_primary_action_input__10TObjPlayerFv(s32);
 s32 submit_cursor_candidate(void *, s32);
-s32 is_quest_interaction_blocked__10TObjPlayerFv(s32);
 s32 get_player_by_client_id(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 __dl__7TObjectFPv(void *);
@@ -131,20 +129,20 @@ int TObjQuestColALock2::vfunc_15() {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
-        if (is_quest_interaction_blocked__10TObjPlayerFv(temp_r3) != 0) {
+        if (((TObjPlayer *)temp_r3)->is_quest_interaction_blocked() != 0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
         submit_cursor_candidate(this, -1);
         temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)((s8 *)this + 0xAC));
         if (temp_r3_2 == 1) {
-            disable_primary_action_input__10TObjPlayerFv(temp_r3);
+            ((TObjPlayer *)temp_r3)->disable_primary_action_input();
         }
         if (temp_r3_2 == 3) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
         }
         if (temp_r3_2 == 0) {
-            disable_primary_action_input__10TObjPlayerFv(temp_r3);
+            ((TObjPlayer *)temp_r3)->disable_primary_action_input();
             if (TWindowShortListCtrl__check_controller_button((void *)((s8 *)controller_input_state + 0x20), 4) != 0) {
                 return 1;
             }

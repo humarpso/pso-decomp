@@ -6,7 +6,6 @@
 extern "C" {
 
 s32 get_attack_stage__11TItemWeaponFv();
-s32 spawn_cane_effects__10TObjPlayerFP5TItemll(void *, void *, int, int);
 
 extern s32 tl_05;
 
@@ -16,7 +15,7 @@ void TUnk_804A63F0::emit_marker_effects() {
     u8 *temp_r3;
 
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        spawn_cane_effects__10TObjPlayerFP5TItemll((void *) (tl_05), (void *) (arg0), (int) (3), (int) (2));
+        ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)arg0, (s32)((int) (3)), (s32)((int) (2)));
     }
     ((TObjPlayer *)arg0)->draw_icon((s32)((int) (0)), (s32)((void *) (&sp8)));
     if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {

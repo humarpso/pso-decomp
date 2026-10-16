@@ -236,7 +236,6 @@ s32 sub_80246948__13TUnk_804CE018Fv(void *);
 s32 refresh_status_display__9TWindowDDFv(int);
 void TWindowSubSymbolChat__sub_802483F0(void *, f32 *);
 s32 set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
-s32 init_layout_entries__20TWindowSubSymbolChatFl(void *, s16);
 s32 draw_resolved_window__15TWindowFukidasiFllll(Fuki_80250F70 *, f32 *, f32 *, s32);
 f32 * get_message_by_type__11TWindowCtrlFScl(u8, int);
 void complete_speech_balloon(u8 *arg0);
@@ -920,7 +919,7 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     if ((u8) *(u8 *)((s8 *)arg0 + 0x72) != 1) {
         *(u8 *)((s8 *)arg0 + 0x72) = 1U;
         ((TWindowSubStatusDisp *)(arg0 + 0x24))->destroy_all_items();
-        init_layout_entries__20TWindowSubSymbolChatFl(arg0 + 0x24, *(s16 *)((s8 *)arg0 + 0x20));
+        ((TWindowSubSymbolChat *)(arg0 + 0x24))->init_layout_entries(*(s16 *)((s8 *)arg0 + 0x20));
         if ((u8) *(u8 *)((s8 *)arg0 + 0x70) != 0) {
             var_r31 = 1;
         }

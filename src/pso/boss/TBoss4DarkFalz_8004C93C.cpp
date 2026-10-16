@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type1.h"
+#include "pso/object/TObjDFDemo0.h"
 
 #include <stddef.h>
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -330,7 +332,6 @@ typedef struct Obj_8004C940 {
 
 extern "C" {
 extern RecoveredGlobal_8004CBC0_lbl_80485448 lbl_80485448;
-s32 create__11TBoss4Type1Fl(void *params);
 void *create__11TBoss4Type2Fl(void *);
 void normalize_vector(Vec_8004C940 *);
 extern s32 game_difficulty_selection;
@@ -348,7 +349,6 @@ void TBoss4DarkFalz__sub_8004CE90(void);
 void update_parts__14TBoss4DarkFalzFi(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
-s32 spawn_zako_rings__14TBoss4DarkFalzFv(s32);
 s32 play_persistent_sound(s32, s32, s32, s32, s32);
 s32 is_timer_expired__14TBoss4DarkFalzFv();
 
@@ -456,13 +456,12 @@ void TBoss4DarkFalz::spawn_type1() {
     params.sub.f8 = 1;
     params.sub.x = self->f2c + 0x200;
     params.sub.id = self->id + 0x200;
-    TBoss4DarkFalz__type1_instance = create__11TBoss4Type1Fl(&params);
+    TBoss4DarkFalz__type1_instance = TBoss4Type1::create((s32)(&params));
     self->f380 = 0;
     TBoss4DarkFalz::end_player_camera_pans((void*)(self));
     TBoss4DarkFalz::refresh_player_equipment((void*)(self));
 }
 
-s32 create__11TObjDFDemo0FPv(void *);
 extern s32 lbl_804372A4[];
 extern const f32 lbl_805D8950;
 
@@ -478,7 +477,7 @@ void TBoss4DarkFalz::update_intro_demo() {
         if ((u32) this->m_394 != 0U) {
             ((s32 (*)(s32, s32))TBoss4DarkFalz__sub_8004D9A0)(this->m_394, 1);
         }
-        create__11TObjDFDemo0FPv(this);
+        TObjDFDemo0::create(this);
     }
     if ((s32) *(s32 *)((s8 *)this + 0x380) == 0xB9) {
         if ((u32) this->m_394 != 0U) {
@@ -518,7 +517,7 @@ void update_parts__14TBoss4DarkFalzFi(s32 arg0) {
     play_sound_effect(0x4003AD0C, 0, 0, 0);
     TBoss4DarkFalz::end_player_camera_pans((void*)(arg0));
     TBoss4DarkFalz::refresh_player_equipment((void*)(arg0));
-    spawn_zako_rings__14TBoss4DarkFalzFv(arg0);
+    ((TBoss4DarkFalz *)arg0)->spawn_zako_rings();
 }
 
 extern const f32 lbl_805D8954;

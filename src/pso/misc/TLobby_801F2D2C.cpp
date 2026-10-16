@@ -165,8 +165,6 @@ s32 TWindow__close(s32);
 int VecCopy__FP3VecPC3Vec(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int check_technique_flag__10TObjPlayerFv(void*);
-int has_item_flag_4096__10TObjPlayerFv(void*);
 s32 queue_destruction__7TObjectFv(s32);
 int set_flags__10TObjPlayerFUl(void*, int);
 
@@ -396,8 +394,8 @@ int set_flag_4__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFl(p,
 
 int TLobby__sub_801F345C(void* p) { return test_action_mask__10TObjPlayerFl(p, 2); }
 
-int fn_801F3480(void* p) { return has_item_flag_4096__10TObjPlayerFv(p); }
-int fn_801F34A0(void* p) { return check_technique_flag__10TObjPlayerFv(p); }
+int fn_801F3480(void* p) { return ((TObjPlayer *)p)->has_item_flag_4096(); }
+int fn_801F34A0(void* p) { return ((TObjPlayer *)p)->check_technique_flag(); }
 s32 get_field_d4(void* p) { return *(s32*)((char*)p + 0xd4); }
 s32 fn_get_field_3ac(void* p) { return *(s32*)((char*)p + 0x3ac); }
 

@@ -28,7 +28,6 @@ extern "C" {
 void *TChCrLoadReq__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
 void * create_ch_cr_load_req(void *arg0, void *arg1);
-s32 request_model_loads__23TAdSinglePlyChrSelectGCFv(void *);
 void sub_8028CEEC__12TChCrLoadReqFPl(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C();
 void __dl__7TObjectFPv(void *);
@@ -47,7 +46,7 @@ void TChCrLoadReq::update_load_progress() {
     } else {
 block_3:
         if (((TAdSinglePlyChrSelectGC *)arg0)->try_claim_load_slot() != 0) {
-            request_model_loads__23TAdSinglePlyChrSelectGCFv(arg0);
+            ((TAdSinglePlyChrSelectGC *)arg0)->request_model_loads();
             ((TAdSinglePlyChrSelectGC *)arg0)->request_texture_loads();
             *(s32 *)((s8 *)arg0 + 0x60) = 1;
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TCMCharacter.h"
 #include "pso/misc/CharacterShape.h"
@@ -40,7 +41,6 @@ s32 creation_motion_group(u32);
 extern u32 creation_player_character;
 extern u32 creation_figure_object;
 void request_creation_motion(s32 arg0);
-s32 request_file_read__6TLobbyFllPlPPv(int, int, void *, int);
 extern s32 chara_select_creation_shape_rel_files[];
 extern u32 creation_player_character;
 void load_creation_shape_rel(W_80290250 *arg0);
@@ -78,7 +78,6 @@ extern u32 chara_select_head_node;
 extern s32 chara_select_preview_resource;
 extern s32 creation_resource_ready_state;
 u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1);
-void play_phase_transition_sound__10TObjPlayerFl(u32);
 void translate_matrix_vec3(int, void *);
 void rotate_matrix_y(int, u32);
 void push_matrix_from();
@@ -1355,7 +1354,7 @@ extern "C" {
 void load_creation_shape_rel(W_80290250 *arg0) {
     s32 rc;
     arg0->bufp = ((TQuestVmDownLoadServer *)0x44000)->alloc();
-    rc = request_file_read__6TLobbyFllPlPPv(chara_select_creation_shape_rel_files[((TCharaMaking *)(*(void * *)&creation_player_character))->get_display_index()], arg0->bufp, arg0->data, 0);
+    rc = TLobby::request_file_read((s32)(chara_select_creation_shape_rel_files[((TCharaMaking *)(*(void * *)&creation_player_character))->get_display_index()]), (s32)(arg0->bufp), (s32 *)(arg0->data), (void **)0);
     arg0->rc = rc;
     if (rc >= 0) {
         if (arg0->rc > 0x44000) {
@@ -1502,7 +1501,7 @@ void TAdSinglePlyChrSelectGC::draw_creation_figure() {
         ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3A);
         push_matrix_from();
         TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x2EC));
-        play_phase_transition_sound__10TObjPlayerFl(lbl_80540928[*(s16 *)((s8 *)char_select_current_entry + 0xA)].b);
+        TObjPlayer::play_phase_transition_sound(lbl_80540928[*(s16 *)((s8 *)char_select_current_entry + 0xA)].b);
         pop_matrix();
         v = lbl_805408D8[*(s16 *)((s8 *)char_select_current_entry + 0xC)].b;
         if (v != 0) {
@@ -1510,7 +1509,7 @@ void TAdSinglePlyChrSelectGC::draw_creation_figure() {
             ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3B);
             push_matrix_from();
             TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x178));
-            play_phase_transition_sound__10TObjPlayerFl(v);
+            TObjPlayer::play_phase_transition_sound(v);
             pop_matrix();
             TCharaMaking::clear_flag_bit0();
         }

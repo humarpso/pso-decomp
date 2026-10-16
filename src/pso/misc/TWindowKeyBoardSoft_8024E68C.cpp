@@ -46,7 +46,6 @@ void apply_context_transform_to_rect(Ctx_8024E6D8 *c, f32 *q);
 s32 is_split_screen();
 f32 TCameraCtrl__sub_80068A04(s32);
 Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32);
-s32 get_camera_id__11TCameraCtrlFv();
 Vec2_8024EC34 *get_zero_vec2();
 extern Vec2_8024EC34 keyboard_soft_viewport_offset_table[];
 extern Vec2_8024EC34 lbl_8044EC80[];
@@ -261,7 +260,7 @@ void TWindowKeyBoardSoft::adjust_pos_for_split_screen(s32 arg1) {
 }
 
 Vec2_8024EC34 *get_viewport_offset__19TWindowKeyBoardSoftFi(s32 i) {
-    switch (get_camera_id__11TCameraCtrlFv()) {
+    switch (TCameraCtrl::get_camera_id()) {
     case 1:
         break;
     case 2:

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/object/TObjMotion.h"
@@ -286,7 +287,6 @@ extern u8 TTecLuker__visit_counts[4];
 extern const f32 lbl_805DC858;
 void run_task__9TTecLukerFv(u8 *arg0);
 s32 is_split_screen();
-s32 enable__13TParticleCtrlFv(u32);
 f32 horizontal_distance_squared(void *, void *);
 u32 get_player_by_client_id(s32);
 void TTecLuker__sub_8023503C(void* p);
@@ -621,7 +621,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
       {
         if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
         {
-          enable__13TParticleCtrlFv(self->kids[i]);
+          ((TParticleCtrl *)(self->kids[i]))->enable();
           if (self->f28 != 0)
           {
             TTecLuker__sub_80235048((void*)(self->f28));
@@ -649,7 +649,7 @@ void update_telepipe_visual(Obj_802342A4 *self) {
     {
       if (TTecLuker::is_parents_unqueued(self->kids[i]) != 0)
       {
-        enable__13TParticleCtrlFv(self->kids[i]);
+        ((TParticleCtrl *)(self->kids[i]))->enable();
         if (self->f28 != 0)
         {
           TTecLuker__sub_80235048((void*)(self->f28));

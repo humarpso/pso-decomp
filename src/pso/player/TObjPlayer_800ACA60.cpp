@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneGibbles.h"
+#include "pso/misc/TTecZonde.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -599,7 +601,6 @@ s16 get_attack_params_atp_min(s32);
 s32 is_split_screen();
 f32 newton_sqrtf(f32);
 
-f32 get_pos_x__14TObjEneGibblesFv(s32);
 extern s32 local_client_id;
 extern s32 lbl_805D5868;
 extern const f32 lbl_805D9BF8;
@@ -710,7 +711,6 @@ s32 rotate_matrix_y(int, int);
 void pop_matrices(s32);
 
 void *__nw__7TObjectFUl(u32);
-void construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(void *, s32, void *, void *, s32, s32, f32, f32);
 f32 newton_sqrtf(f32);
 f32 atan2_float(f32, f32);
 void spawn_directional_particle(void *, void *, s32);
@@ -865,7 +865,7 @@ void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
                 }
                 if (((s32 (*)(void *))obj_is_hit_receivable)(p) != 0) {
                     d = horizontal_distance_squared((s32)(p + 0x2FC), &arg0->f2FC);
-                    if (d <= get_pos_x__14TObjEneGibblesFv(arg0->f318) * get_pos_x__14TObjEneGibblesFv(arg0->f318)) {
+                    if (d <= ((TObjEneGibbles *)(arg0->f318))->get_pos_x() * ((TObjEneGibbles *)(arg0->f318))->get_pos_x()) {
                         Hit_800ACFE8 hit;
                         hit.a = 0;
                         hit.b = get_attack_params_atp_min(arg0->f318);
@@ -1009,8 +1009,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                     }
                     obj = __nw__7TObjectFUl(0x260);
                     if (obj != NULL) {
-                        construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(obj, tl_07, &pos, &dir, 0x14000000, 20,
-                                                ((TObjPlayer *)(self->f318))->get_pos_x(), lbl_805D9C24);
+                        ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&pos), (u8 *)(&dir), (s32)0x14000000, (s32)20, (f32)(((TObjPlayer *)(self->f318))->get_pos_x()), (f32)lbl_805D9C24);
                     }
                     ((s32 (*)(void *, void *, int, int))play_sound_effect)((void *) 0x4002A408, &pos, 0, 0);
                     break;

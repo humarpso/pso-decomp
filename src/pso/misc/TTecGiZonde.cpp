@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecZonde.h"
 #include "pso/misc/TTecGiZonde.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -76,7 +77,6 @@ s32 is_parents_unqueued__9TTecLukerFUl();
 f32 vector_length(Vec_80231C58 *);
 void normalize_vector(Vec_80231C58 *);
 void *__nw__7TObjectFUl(int);
-void construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(void *, s32, void *, void *, s32, s32, f32, f32);
 void construct_helper_effect__11TTecGiZondeFPvPvPvPvi(void *, void *, void *, s32, s32);
 extern s32 tl_07;
 extern const f32 lbl_805DC828;
@@ -122,7 +122,7 @@ s32 TTecGiZonde::find_chain_targets() {
     case 0:
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)lbl_805DC828);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -133,7 +133,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC830;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -144,7 +144,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC834;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -155,7 +155,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC830;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -170,7 +170,7 @@ s32 TTecGiZonde::find_chain_targets() {
         scale *= lbl_805DC834;
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, scale);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)scale);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -184,15 +184,15 @@ s32 TTecGiZonde::find_chain_targets() {
     case 5:
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC838);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)lbl_805DC838);
         }
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)lbl_805DC828);
         }
         p = __nw__7TObjectFUl(0x260);
         if (p != NULL) {
-            construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &self->pos, &d, 0x14000000, 20, len, lbl_805DC828);
+            ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&self->pos), (u8 *)(&d), (s32)0x14000000, (s32)20, (f32)len, (f32)lbl_805DC828);
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
@@ -228,49 +228,49 @@ s32 TTecGiZonde::find_chain_targets() {
         case 0:
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)lbl_805DC828);
             }
             break;
         case 1:
             scale *= lbl_805DC830;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)scale);
             }
             break;
         case 2:
             scale *= lbl_805DC834;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)scale);
             }
             break;
         case 3:
             scale *= lbl_805DC830;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)scale);
             }
             break;
         case 4:
             scale *= lbl_805DC834;
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, scale);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)scale);
             }
             break;
         case 5:
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC838);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)lbl_805DC838);
             }
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)lbl_805DC828);
             }
             p = __nw__7TObjectFUl(0x260);
             if (p != NULL) {
-                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(p, tl_07, &a->parts[self->targets[i].part].pos, &d2, 0x14000000, 20, len2, lbl_805DC828);
+                ((TTecZonde *)p)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&a->parts[self->targets[i].part].pos), (u8 *)(&d2), (s32)0x14000000, (s32)20, (f32)len2, (f32)lbl_805DC828);
             }
             break;
         }

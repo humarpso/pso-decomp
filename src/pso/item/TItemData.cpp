@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpBossMulti.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TShopEquipmentListWindow.h"
@@ -92,7 +93,6 @@ s32 check_class_equip_permission(void *, int);
 void *lookup_item_pmt_record(u8 *item);
 s32 update_player_field__9TItemDataFv(void *);
 u8 get_technique_learn_limit(u8, u8);
-s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
 s32 get_player_by_client_id(s32);
 s16 *get_class_stat_entry__10TObjPlayerFPUc(void *);
 u8 get_cast_technique_level(void *, int);
@@ -888,7 +888,6 @@ extern f32 TItemData__data_805DAB78;
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst);
 extern f32 TItemData__data_805DAB70;
 void *get_armor_pmt_record(int type, int id);
-void copy_item_data__6TLobbyFPv(void *, void *);
 u8 get_mag_total_level(const void *);
 s32 get_item_star_count(s32);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
@@ -1127,7 +1126,7 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
       }
         break;
       case 7:
-        if (is_flag_clear__17TObjWarpBossMultiFPv(player) == 0)
+        if (TObjWarpBossMulti::is_flag_clear(player) == 0)
       {
         result |= 1;
       }
@@ -1281,7 +1280,7 @@ void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag
     copy.b18 = mag->b0c;
     copy.b19 = mag->b0e;
     ((TItemData *)(&copy))->bswap_fields();
-    copy_item_data__6TLobbyFPv(item, &copy);
+    ((TLobby *)item)->copy_item_data(&copy);
 }
 
 void TItemData::bswap_fields() { bswap_16__FPUs((void*)((char*)this + 0x4)); bswap_16__FPUs((void*)((char*)this + 0x6)); bswap_16__FPUs((void*)((char*)this + 0x8)); bswap_16__FPUs((void*)((char*)this + 0xa)); }

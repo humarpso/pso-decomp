@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss7LaserPtcl.h"
+#include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/boss/TUnk_804F1C88.h"
 #include <stddef.h>
 #include "pso/misc/TNowLoading.h"
@@ -62,7 +63,6 @@ extern const f32 lbl_805E0118;
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
 void reset_global_table(void);
-void emit_hit_effect__18TBoss7PhotonBulletFPv(void *, void *);
 extern const f32 lbl_805E0110;
 extern const f32 lbl_805E0114;
 }
@@ -167,7 +167,7 @@ void TUnk_804F1C88::run_task() {
     TObjPlayer::apply_status_effect((s32)(o->x1c));
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         u8 **e = (u8 **)TObjOnlineEnding::get_attack_entry(i);
-        emit_hit_effect__18TBoss7PhotonBulletFPv(o->x10, *e + 0x38);
+        ((TBoss7PhotonBullet *)(o->x10))->emit_hit_effect(*e + 0x38);
     }
     reset_global_table();
     if (lbl_805E0114 < o->x40) {

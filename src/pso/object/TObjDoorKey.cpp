@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjDoorKey.h"
@@ -80,7 +81,6 @@ extern u32 door_key_resource_handle;
 extern s32 TObjDoorKey__texture_handle;
 extern s16 door_key_id_counter;
 extern s32 TObjDoorKey__data_805D5C04;
-void free_children__12TObjDoorJungFPv(void *, int);
 void scroll_ginja_mesh_uvs(void *, int, int, int, int);
 void PPCSync();
 void rotate_matrix_y(int, int);
@@ -97,7 +97,6 @@ extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__texture_handle;
 extern s32 TObjDoorKey__data_805D5C04;
 extern s32 model_render_flags;
-void free_children__12TObjDoorJungFPv(void *, int);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
@@ -138,7 +137,6 @@ int submit_cursor_candidate(void*, int);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__5TOKeyFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 enable__13TParticleCtrlFv(void *);
 void *fn_8018FA6C();
 int is_not_split_screen__13TRaderMapCoreFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
@@ -160,7 +158,7 @@ void TObjDoorKey::render() {
 
     if (((TObjDoorKeyVObj_8018FAEC*)this)->m8(lbl_805DBE00, lbl_805DBE04) == 0) {
         if ((u32) *(u32 *)((s8 *)this + 0xF8) != 0U) {
-            enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0xF8));
+            ((TParticleCtrl *)(*(void **)((s8 *)this + 0xF8)))->enable();
         }
     } else {
         if ((u32) *(u32 *)((s8 *)this + 0xF8) != 0U) {
@@ -197,7 +195,7 @@ s32 TObjDoorKey::draw_active_beam() {
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[1]);
     rotate_matrix_y(0, arg0->fF0);
     s32 *g = TObjDoorKey__ginja_model_table;
-    free_children__12TObjDoorJungFPv(((Node_8018FBB8 *)g[2])->f4, (u16)arg0->f8C);
+    ((TObjDoorJung *)(((Node_8018FBB8 *)g[2])->f4))->free_children((void *)((u16)arg0->f8C));
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
@@ -217,7 +215,7 @@ s32 TObjDoorKey::draw_inactive_badge() {
     model_render_flags |= 0x10;
     set_chunk_material_color(door_key_beam_color_table[arg0->f8C]);
     s32 *g = TObjDoorKey__ginja_model_table;
-    free_children__12TObjDoorJungFPv(((Node_8018FCD8 *)g[2])->f4, (u16)arg0->f8C);
+    ((TObjDoorJung *)(((Node_8018FCD8 *)g[2])->f4))->free_children((void *)((u16)arg0->f8C));
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;

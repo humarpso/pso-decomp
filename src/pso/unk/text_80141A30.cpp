@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80141A30_lbl_8050C000 {
     s32 value;
@@ -11,7 +12,6 @@ struct RecoveredGlobal_80141A30_lbl_8050C028 {
 };
 
 extern "C" {
-s32 copy_config__10TObjPlayerFPv(void *, void *);
 s32 GXSetAlphaCompare(int, int, int, int, int);
 s32 GXSetZMode(int, int, int);
 s32 GXSetZCompLoc(int);
@@ -27,7 +27,7 @@ extern "C" {
 typedef char RecoveredGlobal_80141A30_lbl_8050C000_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141A30_lbl_8050C028_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C028) == 0x18 ? 1 : -1];
 void restore_saved_depth_alpha_state(void) {
-    copy_config__10TObjPlayerFPv((void *) (&depth_buffer_settings.value), (void *) (&saved_depth_alpha_scene_state.value));
+    ((TObjPlayer *)(&depth_buffer_settings.value))->copy_config((void *) (&saved_depth_alpha_scene_state.value));
     GXSetAlphaCompare((int) (*(s32 *)((s8 *)(&depth_buffer_settings.value) + 0)), (int) (0), (int) (0), (int) (7), (int) (0));
     GXSetZCompLoc((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 4)));
     GXSetZMode((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 5)), (int) (*(s32 *)((s8 *)(&depth_buffer_settings.value) + 8)), (int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xC)));

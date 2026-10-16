@@ -22,16 +22,11 @@ struct Msg_80101FEC {
 struct Pos_80101FEC { f32 x; f32 y; f32 z; };
 
 extern "C" {
-s32 copy_item_data__6TLobbyFPv(void *, void *);
-s32 bswap_6x5D__6TLobbyFv(void *);
 s32 spawn_dropped_item_from_msg(void *, int);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 void handle_6x5D_drop_stacked_item(u8 *arg0);
 s16 get_current_floor();
-s32 copy_item_data__6TLobbyFPv(void *, void *);
-void send_6x5D__6TLobbyFv(void *);
-void init_fields__6TLobbyFv(void *);
 void normalize__9TItemDataFv(void *);
 s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;
@@ -42,14 +37,14 @@ extern "C" {
 
 void handle_6x5D_drop_stacked_item(u8 *arg0) {
     FloorItem drop;
-    bswap_6x5D__6TLobbyFv((void *) (arg0));
+    ((TLobby *)arg0)->bswap_6x5D();
     if (TLobby::get_player_floor((int) ((s32) *(s16 *)((s8 *)arg0 + 4))) != 0xF) {
         ((TLobby *)(&drop.floor))->drop_stacked_item_passthrough();
         drop.floor = (s8) *(s16 *)((s8 *)arg0 + 4);
         drop.pos.x = *(f32 *)((s8 *)arg0 + 8);
         drop.pos.z = *(f32 *)((s8 *)arg0 + 0xC);
         drop.room_id = *(s16 *)((s8 *)arg0 + 6);
-        copy_item_data__6TLobbyFPv((void *) (&drop.item), (void *) (arg0 + 0x10));
+        ((TLobby *)(&drop.item))->copy_item_data((void *) (arg0 + 0x10));
         if ((u32) (*(u8 *)((s8 *)arg0 + 1) * 4) == 0x24) {
             TItemData__sub_8010C740((void *) (arg0 + 0x10), (int) (0));
         } else {
@@ -62,7 +57,7 @@ void handle_6x5D_drop_stacked_item(u8 *arg0) {
 void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {
     Msg_80101FEC m;
     s32 h;
-    init_fields__6TLobbyFv(&m);
+    ((TLobby *)(&m))->init_fields();
     h = get_player_by_client_id(id);
     if (h == 0) {
         lbl_805D5450 = 1;
@@ -73,9 +68,9 @@ void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {
     m.b = ((TUnk_804B9870 *)h)->get_stat_by_key_state();
     m.x = pos->x;
     m.z = pos->z;
-    copy_item_data__6TLobbyFPv(m.item, item);
+    ((TLobby *)(m.item))->copy_item_data(item);
     normalize__9TItemDataFv(m.item);
-    send_6x5D__6TLobbyFv(&m);
+    ((TLobby *)(&m))->send_6x5D();
 }
 
 }

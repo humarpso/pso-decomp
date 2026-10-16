@@ -121,7 +121,6 @@ struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0;
 extern "C" {
 s32 memset(void *, int, int);
 void clear_quest_floor_designations(void);
-s32 add_player__6TLobbyFlll(s32, s32, s32);
 s32 bswap_32__FPUl(void *);
 extern s32 TLobby__data_805D5EE0;
 bool load_quest_encounter_section(s32 arg0);
@@ -135,8 +134,6 @@ s32 get_floor_map_selection(s32, Sel_801F3E1C *);
 void load_area_event_set(s32, s32, s32, s32);
 void load_area_enemy_set(s32, s32, s32, s32);
 void load_area_object_set(s32, s32, s32, s32);
-void free_data_60F0__6TLobbyFv(void);
-void init_handle__6TLobbyFl(s32);
 int init_sub_state__6TLobbyFv(void);
 int rebuild_entry__6TLobbyFv(void);
 void populate_quest_floor_sets(void);
@@ -207,7 +204,7 @@ void clear_quest_floor_designations(void) {
 void populate_quest_floor_sets(void) {
     s32 i;
     Sel_801F3E1C sel;
-    init_handle__6TLobbyFl(0x8000);
+    TLobby::init_handle(0x8000);
     for (i = 0; i < 18; i++) {
         switch (((s16 *)&quest_floor_designations)[i]) {
         case 0:
@@ -235,7 +232,7 @@ void populate_quest_floor_sets(void) {
     }
     init_sub_state__6TLobbyFv();
     rebuild_entry__6TLobbyFv();
-    free_data_60F0__6TLobbyFv();
+    TLobby::free_data_60F0();
 }
 
 bool load_quest_encounter_section(s32 arg0) {
@@ -256,7 +253,7 @@ loop_1:
         bswap_32__FPUl((void *) (&spC));
         bswap_32__FPUl((void *) (&sp8));
         if ((sp14 == 3) && (spC == arg0)) {
-            return add_player__6TLobbyFlll(spC, (s32) (var_r31 + 0x10), sp8) != 0;
+            return TLobby::add_player(spC, (s32) (var_r31 + 0x10), sp8) != 0;
         }
         if (sp14 != 0) {
             var_r31 += sp10;
@@ -275,7 +272,6 @@ block_6:
 extern "C" {
 
 s32 reserve_enemy_set_actor_ids(void *, u32, s32);
-s32 init_floor_enemy_count__6TLobbyFlPUcUl(s32, void *, s32);
 
 s32 TLobby::handle_msg_type2(s32 arg0) {
     s32 sp14;
@@ -299,7 +295,7 @@ loop_1:
             temp_r31 = var_r31 + 0x10;
             ((TLobby *)temp_r31)->bswap_enemy_set_rows(sp8);
             reserve_enemy_set_actor_ids(temp_r31, (u32) sp8 / 72U, TLobby::get_player_floor(spC));
-            init_floor_enemy_count__6TLobbyFlPUcUl(spC, temp_r31, sp8);
+            TLobby::init_floor_enemy_count(spC, temp_r31, sp8);
             return 1;
         }
         if (sp14 != 0) {
@@ -321,9 +317,7 @@ extern "C" {
 s32 advance_enemy_id_counter(u16);
 s32 advance_object_id_counter(u16);
 void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
-s32 assign_object_ids__6TLobbyFlPv(void *, u32, s32);
 s32 TLobby__sub_8020B308(s32);
-s32 load_object_set_entries__6TLobbyFlPUcUl(s32, void *, s32);
 s32 fn_801F43A8();
 void open_session__6TLobbyFi(s32 arg0);
 void rebuild_all__6TLobbyFi(int a0);
@@ -351,8 +345,8 @@ loop_1:
         if ((sp14 == 1) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
             convert_quest_object_rows((struct QuestObjRow_801F3AD8 *)temp_r31, sp8);
-            assign_object_ids__6TLobbyFlPv(temp_r31, (u32) sp8 / 68U, TLobby::get_player_floor(spC));
-            load_object_set_entries__6TLobbyFlPUcUl(spC, temp_r31, sp8);
+            ((TLobby *)temp_r31)->assign_object_ids((s32)((u32) sp8 / 68U), (void *)(TLobby::get_player_floor(spC)));
+            TLobby::load_object_set_entries(spC, temp_r31, sp8);
             return 1;
         }
         if (sp14 != 0) {

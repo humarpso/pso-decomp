@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_80488A28.h"
 
 struct Cam_80069F20 {
@@ -329,7 +330,6 @@ s32 is_split_screen();
 s32 approach_camera_vector(void *, void *, f32);
 extern int TCameraCtrl__pose_snap_flags;
 s32 set_target__11TCameraCtrlFii(int, int);
-s32 set_target_coords__11TCameraCtrlFii(int, int);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 GXSetScissorBoxOffset(int, int);
@@ -356,7 +356,6 @@ extern const f32 TCameraCtrl__data_805D8FC0;
 extern const f32 TCameraCtrl__data_805D8FC4;
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 s32 is_split_screen();
-s32 get_instance__11TCameraCtrlFv(void);
 s32 get_mode__11TCameraCtrlFPv(void *);
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF6D0 TCameraCtrl__view_matrix;
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF700 TCameraCtrl__view_matrices;
@@ -386,7 +385,6 @@ extern RecoveredGlobal_80069024_TCameraCtrl__data_804FF634 TCameraCtrl__data_804
 extern RecoveredGlobal_8006961C_lbl_8058CA60 scene_projection_state;
 extern f32 TCameraCtrl__data_805D8FAC;
 s32 is_split_screen();
-s32 get_instance__11TCameraCtrlFv(void);
 s32 get_mode__11TCameraCtrlFPv(void *);
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF6D0 TCameraCtrl__view_matrix;
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF700 TCameraCtrl__view_matrices;
@@ -395,7 +393,6 @@ s32 approach_camera_vector(void *, void *, f32);
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 s32 set_target__11TCameraCtrlFii(int, int);
-s32 set_target_coords__11TCameraCtrlFii(int, int);
 s32 camera_renderer_setup_nop(void *, int);
 s32 fn_803D64F8(void *);
 extern RecoveredGlobal_80069318_lbl_804FF5E8 lbl_804FF5E8;
@@ -414,7 +411,6 @@ extern const f32 TCameraCtrl__data_805D8FD4;
 extern const f32 TCameraCtrl__data_805D8FD8;
 extern const f32 lbl_805D8FE4;
 s32 set_target__11TCameraCtrlFii(int, int);
-s32 set_target_coords__11TCameraCtrlFii(int, int);
 extern RecoveredGlobal_80069024_TCameraCtrl__data_804FF634 TCameraCtrl__data_804FF634;
 extern f32 camera_default_view_value;
 extern f32 camera_default_view_value_b;
@@ -477,7 +473,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 is_split_screen();
 u8 *csnVector(void *, void *, u32);
 s32 set_target__11TCameraCtrlFii(int, int);
-s32 set_target_coords__11TCameraCtrlFii(int, int);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 GXSetScissorBoxOffset(int, int);
@@ -493,7 +488,6 @@ void TCameraCtrl__sub_800689E8(void);
 f32 TCameraCtrl__sub_80068A04(void);
 s32 TCameraCtrl__ct(void *, s32);
 void * __nw__7TObjectFUl(s32);
-s32 get_camera_id__11TCameraCtrlFv();
 s32 is_split_screen();
 
 void TUnk_80488A28::run_task() {  }
@@ -593,7 +587,7 @@ extern f32 lbl_805D8FB0;
 extern f32 lbl_805D8FB4;
 
 f32 TCameraCtrl::get_split_offset(s32 arg0) {
-    if ((is_split_screen() != 0) && (get_camera_id__11TCameraCtrlFv() == 2)) {
+    if ((is_split_screen() != 0) && (TCameraCtrl::get_camera_id() == 2)) {
         if (arg0 == 0) {
             return lbl_805D8FB0;
         }
@@ -606,7 +600,7 @@ extern f32 TCameraCtrl__data_805D8FAC;
 extern f32 lbl_805D8FC8;
 
 void TCameraCtrl::set_fullscreen_viewport() {
-    set_target_coords__11TCameraCtrlFii((int) (0), (int) (0));
+    TCameraCtrl::set_target_coords((int) (0), (int) (0));
     set_target__11TCameraCtrlFii((int) (0x280), (int) (0x1E0));
     GXSetViewport((f32) TCameraCtrl__viewport_x, (f32) TCameraCtrl__viewport_y, (f32) TCameraCtrl__viewport_size, (f32) TCameraCtrl__viewport_height, (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FAC)));
     GXSetScissor((int) ((s32) TCameraCtrl__viewport_x), (int) ((s32) TCameraCtrl__viewport_y), (int) ((s32) TCameraCtrl__viewport_size), (int) ((s32) TCameraCtrl__viewport_height));
@@ -617,7 +611,7 @@ void TCameraCtrl::set_fullscreen_viewport() {
 #pragma dont_inline off
 #pragma inline_depth(4)
 inline void quad_80068B34(s32 i) {
-    set_target_coords__11TCameraCtrlFii((s32)(320.0f * (f32)(i % 2)), (s32)(240.0f * (f32)(i / 2)));
+    TCameraCtrl::set_target_coords((s32)(320.0f * (f32)(i % 2)), (s32)(240.0f * (f32)(i / 2)));
     set_target__11TCameraCtrlFii(0x140, 0xF0);
 }
 inline void viewport_80068B34(void) {
@@ -630,7 +624,7 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 arg1) {
         TCameraCtrl::set_fullscreen_viewport();
         break;
     case 2:
-        set_target_coords__11TCameraCtrlFii(0, 0);
+        TCameraCtrl::set_target_coords(0, 0);
         set_target__11TCameraCtrlFii(0x280, 0xF0);
         GXSetViewport(0.0f, 0.0f, 640.0f, 480.0f, 0.0f, 1.0f);
         if (arg1 == 0) {
@@ -645,7 +639,7 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 arg1) {
         if (arg1 != 2) {
             quad_80068B34(arg1);
         } else {
-            set_target_coords__11TCameraCtrlFii(0xA0, 0xF0);
+            TCameraCtrl::set_target_coords(0xA0, 0xF0);
             set_target__11TCameraCtrlFii(0x140, 0xF0);
         }
         viewport_80068B34();
@@ -663,7 +657,7 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 arg1) {
 
 f32 TCameraCtrl::get_fov() {
     if (is_split_screen() != 0) {
-        if (get_camera_id__11TCameraCtrlFv() == 2) {
+        if (TCameraCtrl::get_camera_id() == 2) {
             return TCameraCtrl__data_805D8FAC;
         }
         return lbl_805D8FC8;
@@ -676,7 +670,7 @@ extern f32 lbl_805D8FC8;
 
 f32 TCameraCtrl::get_view_scale() {
     if (is_split_screen() != 0) {
-        if (get_camera_id__11TCameraCtrlFv() == 2) {
+        if (TCameraCtrl::get_camera_id() == 2) {
             return TCameraCtrl__data_805D8FAC;
         }
         return lbl_805D8FC8;
@@ -754,7 +748,7 @@ void transform_to_view__11TCameraCtrlFii(s32 arg0, s32 arg1) {
 void TCameraCtrl::apply_split_screen_view_matrix() {
     if (is_split_screen() != 0) {
         if (get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_800691C8_main_task *)&main_task).value) & 1) {
-            TCameraCtrl::concat_matrix(0U, (u32) ((u8 *)&TCameraCtrl__view_matrices.value + ((get_instance__11TCameraCtrlFv() - 1) * 0x30)));
+            TCameraCtrl::concat_matrix(0U, (u32) ((u8 *)&TCameraCtrl__view_matrices.value + ((TCameraCtrl::get_instance() - 1) * 0x30)));
             return;
         }
         TCameraCtrl::concat_matrix(0U, (u32) ((u8 *)&TCameraCtrl__view_matrices.value + (TCameraCtrl::get_camera_no() * 0x30)));
@@ -769,7 +763,7 @@ typedef char RecoveredGlobal_80069258_main_task_size[sizeof(RecoveredGlobal_8006
 s32 *TCameraCtrl::get_view_matrix() {
     if (is_split_screen() != 0) {
         if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_80069258_main_task *)&(*(RecoveredGlobal_800691C8_main_task *)&main_task)).value)) & 1) {
-            return (long *) ((u8 *)&(*(RecoveredGlobal_80069258_TCameraCtrl__data_804FF700 *)&TCameraCtrl__view_matrices).value + ((get_instance__11TCameraCtrlFv() - 1) * 0x30));
+            return (long *) ((u8 *)&(*(RecoveredGlobal_80069258_TCameraCtrl__data_804FF700 *)&TCameraCtrl__view_matrices).value + ((TCameraCtrl::get_instance() - 1) * 0x30));
         }
         return (long *) ((u8 *)&(*(RecoveredGlobal_80069258_TCameraCtrl__data_804FF700 *)&TCameraCtrl__view_matrices).value + (TCameraCtrl::get_camera_no() * 0x30));
     }
@@ -803,7 +797,7 @@ void TCameraCtrl::reset_default_view() {
     typedef char sp44_offset[(offsetof(Stack_80069318, sp44) == 0x3C) ? 1 : -1];
     Stack_80069318 stack;
     TCameraCtrl__camera_mode = 0;
-    set_target_coords__11TCameraCtrlFii((int) (0), (int) (0));
+    TCameraCtrl::set_target_coords((int) (0), (int) (0));
     set_target__11TCameraCtrlFii((int) (0x280), (int) (0x1E0));
     TCameraCtrl::set_fullscreen_viewport();
     TCameraCtrl::reset_viewport_scissor();
@@ -840,7 +834,7 @@ void TCameraCtrl::init_default_view() {
     typedef char sp4C_offset[(offsetof(Stack_800693F4, sp4C) == 0x44) ? 1 : -1];
     Stack_800693F4 stack;
     TCameraCtrl__camera_mode = 0;
-    set_target_coords__11TCameraCtrlFii((int) (0), (int) (0));
+    TCameraCtrl::set_target_coords((int) (0), (int) (0));
     set_target__11TCameraCtrlFii((int) (0x280), (int) (0x1E0));
     stack.sp10 = TCameraCtrl__data_805D8FC0;
     stack.sp14 = TCameraCtrl__data_805D8FC4;

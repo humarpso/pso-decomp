@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa.h"
+#include "pso/misc/TBreakUpMdl.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -47,7 +49,6 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 get_flag_b4__9TObjEneDDFv(void *);
-s32 advance_timer__18TObjEneMe3SinowZoaFf(void *, f32);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -125,7 +126,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 }
                 break;
             case 1:
-                if (advance_timer__18TObjEneMe3SinowZoaFf(arg0 + 0x404, 0.2f) != 0) {
+                if (((TObjEneMe3SinowZoa *)(arg0 + 0x404))->advance_timer(0.2f) != 0) {
                     *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF7);
                     *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
                     *(s32 *)((s8 *)arg0 + 0x424) = 2;
@@ -3598,7 +3599,6 @@ void TObjEneDD__sub_800BA438(void *, void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 #define clear_attack_receipts__9TObjEneDDFv ((void (*)(void *))clear_attack_receipts__9TObjEneDDFv)
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
-s32 init_position_vectors__9TObjEneDDFv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void TObjEneMe3Stelth__sub_800F1098(void *, s32);
 void TObjEneMe3Stelth__sub_800F1440(void *, s32);
@@ -3652,7 +3652,6 @@ s32 update_enemy_collision_flags__10TObjPlayerFv(void *);
 s32 check_enemy_body_collisions(void *);
 s32 check_object_collisions__10TObjPlayerFv(void *);
 void free_collision_body_parts(void *);
-void get_hand_joint_position__10TObjPlayerFl(void *, void *);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *, s32);
 #define play_sound_effect ((void (*)(s32, void *, s32, s32))play_sound_effect)
 void __dl__7TObjectFPv(void *);
@@ -4054,7 +4053,7 @@ void attack_and_unequip__16TObjEneMe3StelthFPv(Stelth_800F4A90 *self) {
                 VObj_800F4A90 *t = self->target;
                 if (is_locally_controlled__10TObjPlayerFPv(t) != 0 && get_item_field_6__10TObjPlayerFPv(t) != 0) {
                     send_6x26_unequip_item__10TObjPlayerFPvPv(t, get_field_d8__10TObjPlayerFv());
-                    get_hand_joint_position__10TObjPlayerFl(t, self->f3F8);
+                    ((TObjPlayer *)t)->get_hand_joint_position((s32)(self->f3F8));
                     spawn_particle_effect(self->f3F8, 0x1D0);
                 }
             } else if (near != 0 && calc_boss4_scale__10TObjPlayerFi(self) <= lbl_805DA8A0) {
@@ -4212,7 +4211,7 @@ void TObjEneMe3StelthReal::init_common() {
     s32 temp_r0;
     u8 *temp_r6;
 
-    init_position_vectors__9TObjEneDDFv((void *) (arg0));
+    ((TObjEneDD *)arg0)->init_position_vectors();
     ((s32 (*)(void *))sub_800F4758__16TObjEneMe3StelthFv)((void *) (arg0));
     temp_r6 = (u8 *)(*(u8 **)((s8 *)TObjEneMe3Stelth__bml_resource + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)temp_r6 + 8);
@@ -4398,7 +4397,6 @@ s32 register_object__6TLobbyFl(s32);
 s32 dispatch_shared_handler_b__6TLobbyFl(s32);
 s32 register_boss__6TLobbyFl(s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-void *setup_pieces__11TBreakUpMdlFllf(void *, s32, s32, f32);
 void *init__11TBreakUpMdlFPviif(void *, s32, s32, f32);
 void TObjEneMe3ShinowaMirage__sub_800D98D8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, u8 *arg4, u8 *arg5);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
@@ -4510,7 +4508,7 @@ void TObjEneMe3Stelth::load_shared_resources() {
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
         if (p != NULL) {
-            p = setup_pieces__11TBreakUpMdlFllf(p, *(s32 *)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 8), (s32)ent, (f32)(*(u32 *)(ent + 4) - 1));
+            p = ((TBreakUpMdl *)p)->setup_pieces(*(s32 *)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 8), (s32)ent, (f32)(*(u32 *)(ent + 4) - 1));
         }
         TObjEneMe3Stelth__breakup_model = (s32)p;
     }

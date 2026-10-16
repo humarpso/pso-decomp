@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 
 struct RecoveredGlobal_80126334_lbl_804A2960 {
@@ -16,7 +17,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *frozen_shooter_create(s32 arg0);
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern RecoveredGlobal_80126334_lbl_804A2960 lbl_804A2960;
 u8 *frozen_shooter_ct(u8 *arg0, u8 *arg1, s32 _w2);
 u8 * TItemTimerEvent__ct(void *, s16, s32);
@@ -30,7 +30,7 @@ typedef char RecoveredGlobal_80126334_lbl_804A2960_size[sizeof(RecoveredGlobal_8
 u8 *frozen_shooter_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2960.value;
-    set_status_flags__10TObjPlayerFUl(arg0, 0x22);
+    ((TObjPlayer *)arg0)->set_status_flags(0x22);
     if (((TItemProShield *)arg0)->get_slot_count() == 1) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 0xA;
         *(s32 *)((s8 *)arg0 + 0x200) = 0x1F5;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoorJung.h"
 #include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -273,7 +274,6 @@ struct Sw_801936E0 {
     f32 f110;
     u32 f114;
 };
-void free_children__12TObjDoorJungFPv(u32, u16);
 void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
 void PPCSync(void);
 void push_matrix(void);
@@ -292,7 +292,7 @@ void TLazerFenceSw::draw_laser_beam() {
     s32 i;
 
     for (i = 0; i < 3; i++) {
-        free_children__12TObjDoorJungFPv(lazer_fence_beam_node_table[i], self->fE8);
+        ((TObjDoorJung *)(lazer_fence_beam_node_table[i]))->free_children((void *)(self->fE8));
     }
     TObjFish::set_global_param(TLazerFenceSw__texture_list);
     if (actor_frame_tick != self->f114 && self->f110 >= lbl_805DBE78) {

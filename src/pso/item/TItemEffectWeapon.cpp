@@ -24,7 +24,6 @@ void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 void decrement_timer__17TItemEffectWeaponFv(void *, s32);
 void *__dt__15TItemHeapObjectFv(void *, s32);
 int mem_free(void*);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void  __dl__15TItemHeapObjectFPv(void *);
 void  __ct__15TItemHeapObjectFP7TObject(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
@@ -37,7 +36,7 @@ void *TItemEffectWeapon__sub_803633B4(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F28E0;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

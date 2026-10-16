@@ -1,4 +1,6 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/misc/TNpcPlayer.h"
 #include "pso/TSetManager.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -31,7 +33,6 @@ struct RecoveredGlobal_8007BA20_lbl_8048D5A8 {
 };
 
 extern "C" {
-void load_lobby_textures__9TLanguageFv(void);
 void TLobby__sub_802A5154(void);
 void load_obj_lobby_main(void);
 s32 run_load_callback_table(void *, int);
@@ -49,7 +50,6 @@ extern "C" {
 s32 TCineCtrl__ct(u32, s32);
 s32 create_area_fog_ctrl();
 s32 THunterGuildSeqOnlineTask__ct(u32, s32);
-s32 is_scene_ready__6TLobbyFv();
 s32 activate_triggered_floor_events();
 s32 cleanup_game_objects__9TMainTaskFv();
 s32 restore_floor_telepipes();
@@ -62,7 +62,6 @@ s32 ct_register__6TLobbyFv(u32, s32);
 s32 TWindowTimer__sub_80198D98();
 s32 TLobby__sub_8032BDC4(u32, s32);
 s32 TLobby__sub_8033ED24(u32, s32);
-s32 construct_party_area__10TNpcPlayerFPv(u32, s32);
 s32 TLobby__sub_80351F3C();
 s32 get_main_phase();
 s32 is_split_screen();
@@ -120,7 +119,7 @@ void TLobby::create_tasks() {
     restore_floor_telepipes();
     tmp = __nw__7TObjectFUl(0x20);
     if (tmp != 0U) {
-        construct_party_area__10TNpcPlayerFPv(tmp, tl_06);
+        ((TNpcPlayer *)tmp)->construct_party_area((void *)tl_06);
     }
     tmp = __nw__7TObjectFUl(0x28);
     if (tmp != 0U) {
@@ -130,7 +129,7 @@ void TLobby::create_tasks() {
     if (TOKeyMachine01::get_global_state() == 0xF) {
         TLobby__sub_80351F3C();
     }
-    if ((TOKeyMachine01::get_global_state() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
+    if ((TOKeyMachine01::get_global_state() == 0xF) && (TLobby::is_scene_ready() != 0)) {
         TWindowTimer__sub_80198D98();
     }
     if ((get_main_phase() == 0xF) && ((TOKeyMachine01::get_global_state() == 0) || (TOKeyMachine01::get_global_state() == 0x12))) {
@@ -176,7 +175,7 @@ s32 TLobby::run_lobby_load_tables() {
     }
     if (TOKeyMachine01::get_global_state() == 0xF) {
         load_obj_lobby_main();
-        load_lobby_textures__9TLanguageFv();
+        TLanguage::load_lobby_textures();
         TLobby__sub_802A5154();
     }
     return 1;
@@ -193,9 +192,6 @@ s32 apply_phase_keyboard_mode();
 s32 load_area_gsl();
 s32 close_gsl_archive();
 s32 update_key_machine__6TLobbyFv();
-int reset_keyboard_state__6TLobbyFv(void);
-int clear_callback_and_reset_keyboard__6TLobbyFv(void);
-int invoke_callback__6TLobbyFv(void);
 
 s32 TLobby::check_disconnect_conditions() {
     apply_phase_keyboard_mode();
@@ -219,10 +215,10 @@ s32 TLobby::check_disconnect_conditions() {
         TLobby::reset_and_invoke();
         return 1;
     }
-    clear_callback_and_reset_keyboard__6TLobbyFv();
+    TLobby::clear_callback_and_reset_keyboard();
     return 0;
 }
-void TLobby::reset_and_invoke() { reset_keyboard_state__6TLobbyFv(); invoke_callback__6TLobbyFv(); clear_callback_and_reset_keyboard__6TLobbyFv(); }
+void TLobby::reset_and_invoke() { TLobby::reset_keyboard_state(); TLobby::invoke_callback(); TLobby::clear_callback_and_reset_keyboard(); }
 
 }
 

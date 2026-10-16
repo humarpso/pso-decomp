@@ -7,7 +7,6 @@ extern "C" {
 void *TObjPlayer__sub_80122BE4(void *arg0);
 s32 spawn_particle_effect(s32 *, s32);
 void TItemWeapon__ct(void *);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TObjPlayer::cast_foie() {
     s32 sp8;
@@ -28,7 +27,7 @@ extern s32 lbl_804A1380[];
 void *TObjPlayer__sub_80122BE4(void *arg0) {
     TItemWeapon__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A1380;
-    set_status_flags__10TObjPlayerFUl(arg0, 34);
+    ((TObjPlayer *)arg0)->set_status_flags(34);
     return arg0;
 }
 

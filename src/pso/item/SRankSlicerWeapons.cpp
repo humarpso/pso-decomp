@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecSlicer.h"
 #include "pso/TItemAttacker.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A4338.h"
@@ -36,7 +37,6 @@ void TObjPlayer__sub_80128A70(void);
 void init_slicer_launch_state(void *);
 s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
-void *create__10TTecSlicerFPUs(void *);
 void enlarge_s_rank_j_cutter_blade(void *);
 extern const f32 lbl_805DAE18;
 extern const f32 lbl_805DAE1C;
@@ -66,7 +66,7 @@ void TUnk_804A4238::emit_marker_effects() {
     tec.f28 = self->owner->f60;
     ((TObjPlayer *)self)->draw_icon((s32)3, (s32)(&tec.pos));
     ((TObjPlayer *)self)->draw_icon((s32)2, (s32)(&tec.dir));
-    TItemAttacker::spawn_item_timer((s32)(create__10TTecSlicerFPUs(&tec)), (s32)enlarge_s_rank_j_cutter_blade, (s32)3);
+    TItemAttacker::spawn_item_timer((s32)(TTecSlicer::create((u16*)(&tec))), (s32)enlarge_s_rank_j_cutter_blade, (s32)3);
 }
 
 }
@@ -77,14 +77,13 @@ extern "C" {
 
 void *destroy_s_rank_j_cutter_weapon(void *arg0, s16 arg1);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 
 void *destroy_s_rank_j_cutter_weapon(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 0x18) = s_rank_j_cutter_weapon_vtable;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -97,13 +96,12 @@ void *destroy_s_rank_j_cutter_weapon(void *arg0, s16 arg1) {
 extern "C" {
 
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 void construct_srank_weapon(void *);
 
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
     construct_srank_weapon(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = s_rank_j_cutter_weapon_vtable;
-    set_status_flags__10TObjPlayerFUl(arg0, 2);
+    ((TObjPlayer *)arg0)->set_status_flags(2);
     return arg0;
 }
 
@@ -207,7 +205,6 @@ void TObjPlayer__sub_80128A70(void);
 void init_slicer_launch_state(void *);
 s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
-void *create__10TTecSlicerFPUs(void *);
 extern const f32 lbl_805DAE30;
 extern const f32 lbl_805DAE34;
 extern const f32 lbl_805DAE38;
@@ -251,7 +248,7 @@ void TUnk_804A4338::emit_marker_effects() {
     tec.f28 = self->owner->f60;
     ((TObjPlayer *)self)->draw_icon((s32)1, (s32)(&tec.pos));
     ((TObjPlayer *)self)->draw_icon((s32)2, (s32)(&tec.dir));
-    create__10TTecSlicerFPUs(&tec);
+    TTecSlicer::create((u16*)(&tec));
 }
 
 }
@@ -261,13 +258,12 @@ void TUnk_804A4338::emit_marker_effects() {
 extern "C" {
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 void construct_srank_weapon(void *);
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner) {
     construct_srank_weapon(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = s_rank_slicer_weapon_vtable;
-    set_status_flags__10TObjPlayerFUl(arg0, 2);
+    ((TObjPlayer *)arg0)->set_status_flags(2);
     return arg0;
 }
 
@@ -308,14 +304,13 @@ extern "C" {
 
 void *destroy_s_rank_slicer_weapon(void *arg0, s16 arg1);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 
 void *destroy_s_rank_slicer_weapon(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void ***)((s8 *)arg0 + 0x18) = s_rank_slicer_weapon_vtable;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

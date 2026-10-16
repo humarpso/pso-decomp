@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 #include "pso/misc/TTecRaBarta.h"
 #include "pso/misc/TTecRaZonde.h"
 #include "pso/player/TObjPlayer.h"
@@ -332,8 +333,6 @@ s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 void get_bml_model(void *, s32);
-void set_cull_none__8TObjFishFv(void);
-void set_cull_back__8TObjFishFv(void);
 void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(s32);
 void scale_matrix(s32, f32, f32, f32);
@@ -417,12 +416,12 @@ void TUnk_804CCB28::render() {
     scale_matrix(0, x, y, z);
     rotate_matrix_y(0, *(s32 *)(camera_ctrl_instance + 0x194));
     TObjFish::set_global_param((s32)lbl_805D63B0);
-    set_cull_back__8TObjFishFv();
+    TObjFish::set_cull_back();
     set_depth_buffer_settings_id__FUl(3);
     get_bml_model(technique_effect_bml, 0xB);
     draw_ginja_object();
     func_80141618__Fv();
-    set_cull_none__8TObjFishFv();
+    TObjFish::set_cull_none();
     pop_matrix();
     model_render_flags = lbl_805D5660;
     if (o->tev != 0) {

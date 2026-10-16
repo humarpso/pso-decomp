@@ -20,7 +20,6 @@ struct State_8013AF50 {
 extern "C" {
 s32 publish_target_list__11TMainCursorFPvi(Cur_8013AF50 *, s32);
 State_8013AF50 *get_state__11TMainCursorFv(s32);
-s32 publish_nearest_target__11TMainCursorFv(void *);
 s32 TObjPlayer__sub_801C6DAC(s32);
 }
 
@@ -44,7 +43,7 @@ void TLOC_End::run_task() {
         TMainCursor::sort_list((s32)(get_state__11TMainCursorFv(arg0 + 0x1C)->cur), (s32)i);
         publish_target_list__11TMainCursorFPvi(get_state__11TMainCursorFv(arg0 + 0x1C)->cur, i);
     }
-    publish_nearest_target__11TMainCursorFv(get_state__11TMainCursorFv(arg0 + 0x1C)->cur->sub);
+    ((TMainCursor *)(get_state__11TMainCursorFv(arg0 + 0x1C)->cur->sub))->publish_nearest_target();
     for (i = 0; i < 4; i++) {
         ((TMainCursor *)(&get_state__11TMainCursorFv(arg0 + 0x1C)->cur->parts[i]))->reset_cursor_parts();
     }

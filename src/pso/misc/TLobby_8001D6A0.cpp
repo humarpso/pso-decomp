@@ -49,7 +49,6 @@ Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size);
 void TLobby__sub_8001D9E8(void* p);
 
 void send_disable_auto_reply__9TProtocolFv(s32);
-void send_text_packet_c7__6TLobbyFPc(s32, s32);
 extern s32 auto_reply_flags;
 extern s32 TLobby__protocol_instance;
 }
@@ -202,7 +201,7 @@ void TLobby__sub_8001D9E8(void* p) { *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*
 void TLobby::sync_auto_reply_state() {
     if ((auto_reply_flags & 4) || (auto_reply_flags & 1) != ((auto_reply_flags >> 1) & 1)) {
         if (((s32 (*)(void))get_flag_bit0__6TLobbyFv)() != 0) {
-            send_text_packet_c7__6TLobbyFPc(TLobby__protocol_instance, get_card_window_area__6TLobbyFv());
+            ((TLobby *)TLobby__protocol_instance)->send_text_packet_c7((char *)(get_card_window_area__6TLobbyFv()));
         } else {
             send_disable_auto_reply__9TProtocolFv(TLobby__protocol_instance);
         }

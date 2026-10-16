@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/player/TObjPlayer.h"
 class TAdPlayerLoadGC : public TObject {
 public:
     virtual void vtable_key_TAdPlayerLoadGC();
@@ -54,7 +55,6 @@ int get_player_load_state(void);
 void set_character_select_b_slot_state(int a0);
 void render__15TAdPlayerLoadGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void set_state__15TAdPlayerLoadGCFi(int);
 
@@ -65,7 +65,7 @@ void *TAdPlayerLoadGC__sub_802D655C(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E24F0;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

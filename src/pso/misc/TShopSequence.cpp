@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -35,10 +36,8 @@ s32 deactivate_body_collision__10TObjPlayerFv();
 u32 get_player_by_client_id(s32);
 s32 suppress_slot__11TWindowCtrlFv(u16);
 s32 unsuppress_slot__11TWindowCtrlFv(u16);
-s32 clear_lobby_flag__10TObjPlayerFPv(u32);
 int display_message__24TMessageWindowControllerFPCcl(void*);
 int format_guild_message__24TMessageWindowControllerFll(void*);
-s32 init_effect_5f0__10TObjPlayerFv(void *);
 s32 is_split_screen();
 s32 obj_getField1c(u32);
 int send_message__24TMessageWindowControllerFll(void*);
@@ -102,14 +101,14 @@ void TShopSequence::close_window() {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        clear_lobby_flag__10TObjPlayerFPv(*(u32 *)((s8 *)this + 0x24));
+        TObjPlayer::clear_lobby_flag((void *)(*(u32 *)((s8 *)this + 0x24)));
     }
 }
 void TShopSequence::restore_player_state() {
     s32 var_r31;
 
     if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
-        init_effect_5f0__10TObjPlayerFv(*(void **)((s8 *)this + 0x24));
+        ((TObjPlayer *)(*(void **)((s8 *)this + 0x24)))->init_effect_5f0();
         if (TRaderMapCore::is_not_split_screen() != 1) {
             var_r31 = 0;
             do {

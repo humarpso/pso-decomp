@@ -173,7 +173,6 @@ void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
 s32 obj_isState7_324(s32);
-s32 set_status_flags__10TObjPlayerFUl(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -212,7 +211,7 @@ void TItemWeapon::vfunc_44() {
         }
         ((TItemWeapon *)arg0)->clear_equip_flags(0x100);
         if (((TItemMag *)arg0)->get_flag_40() != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
-            set_status_flags__10TObjPlayerFUl(arg0, 8);
+            ((TObjPlayer *)arg0)->set_status_flags(8);
         } else {
             TItemAttacker::spawn_item_timer((s32)arg0, (s32)((void *)&set_flag_8_if_check_passes__10TObjPlayerFv), (s32)0x14);
             TItemEffEquip::create((void *)tl_05, (void *)(obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x30, (void *)0x9D, (void *)0x9E);
@@ -223,8 +222,8 @@ void TItemWeapon::vfunc_44() {
         }
     } else {
         set_action_provider_variant__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), 0);
-        set_status_flags__10TObjPlayerFUl(arg0, 0x100);
-        set_status_flags__10TObjPlayerFUl(arg0, 8);
+        ((TObjPlayer *)arg0)->set_status_flags(0x100);
+        ((TObjPlayer *)arg0)->set_status_flags(8);
     }
     arg0->v55();
     ((TItemWeapon *)arg0)->clear_equip_flags(0x03000000);

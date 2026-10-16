@@ -34,8 +34,6 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
 }
 
 extern "C" {
-u8 get_battle_mode__10TObjPlayerFv(void *);
-u8 get_byte_339__10TObjPlayerFv(void *);
 u8 get_mag_level__10TObjPlayerFPv(void *);
 }
 
@@ -49,12 +47,12 @@ void TObjPlayer::begin_action_from_char_select() { get_char_index__23TAdSinglePl
 
 void TObjPlayer::copy_battle_mode(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
-    ((TObjPlayer *)arg1)->set_field_1ab(get_battle_mode__10TObjPlayerFv(arg0));
+    ((TObjPlayer *)arg1)->set_field_1ab(((TObjPlayer *)arg0)->get_battle_mode());
 }
 
 void TObjPlayer::copy_byte_339_to_record(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
-    ((TObjPlayer *)arg1)->set_field_18f(get_byte_339__10TObjPlayerFv(arg0));
+    ((TObjPlayer *)arg1)->set_field_18f(((TObjPlayer *)arg0)->get_byte_339());
 }
 
 void TObjPlayer::copy_mag_level_to_record(u8 *arg1) {

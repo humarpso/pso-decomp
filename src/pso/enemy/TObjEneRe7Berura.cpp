@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type3.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
@@ -480,7 +481,6 @@ s32 register_boss__6TLobbyFl(s32);
 void TLobby__sub_8001FE7C(void*, int);
 u32 csnLookAt(void *, void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 update_death_state__16TObjEneRe7BeruraFl(void *, void *);
 s32 TObjEneRe7Berura__sub_80093470(void *, void *);
 s32 state_patrol__16TObjEneRe7BeruraFPvi(void *, void *);
 s32 TObjEneRe7Berura__sub_80093888(void *, void *);
@@ -524,9 +524,7 @@ Res_800959F8 * load_enemy_bml_resource_named(void *, void *);
 Res_800959F8 * load_enemy_bml_resource(void *);
 s32 set_field_378__9TObjEneDDFl(void *, s32, s32);
 int transition_enemy_state(void*, void*);
-void init_position_vectors__9TObjEneDDFv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-void draw_motion_trail__11TBoss4Type3Fllll(void *, s32, u8 *, s32 *, V3_800959F8 *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void * init_trail_buffer__11TBoss4Type3FPvifff(void *arg0, s32 segs, f32 start, f32 end, f32 step);
 void destroy_buffer_pair(void*, int);
@@ -857,7 +855,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe7Berura__sub_80093470((void *) (arg0), (void *) (arg2));
         return;
     case 11:
-        update_death_state__16TObjEneRe7BeruraFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRe7Berura *)arg0)->update_death_state((s32)((void *) (arg2)));
     default:
         return;
     }
@@ -1183,7 +1181,7 @@ void TObjEneRe7Berura::init_enemy() {
     Self_800955E0 *S = (Self_800955E0 *)arg0;
     s32 i;
     s32 j;
-    init_position_vectors__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneRe7Berura__shared_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneRe7Berura__shared_resource) + 0x42C)) + 0xC);
     init_model__9TObjEneDDFv(arg0, lbl_8048F66C, 1);
@@ -1371,7 +1369,7 @@ void TObjEneRe7Berura::load_static_resources() {
     }
     vecs[0].x = TObjEneRe7Berura__data_805D9730;
     vecs[2].x = TObjEneRe7Berura__data_805D9730;
-    draw_motion_trail__11TBoss4Type3Fllll(p, *(s32 *)(RES->f42C + 8), (RES->f430 + TObjEneRe7Berura__animation_definitions[2].f4)->f4, pair, vecs);
+    ((TBoss4Type3 *)p)->draw_motion_trail((s32)(*(s32 *)(RES->f42C + 8)), (s32)((RES->f430 + TObjEneRe7Berura__animation_definitions[2].f4)->f4), (s32)pair, (s32)vecs);
     for (i = 0; i < 1; i++) {
         TObjEneRe7Berura__stat_handle_table[i] = register_boss__6TLobbyFl(lbl_805D9718[i]);
     }

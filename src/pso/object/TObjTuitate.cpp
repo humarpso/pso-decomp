@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjTuitate.h"
 #include "pso/misc/RenderFadeState.h"
@@ -55,8 +56,6 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 isFading__15RenderFadeStateCFv(void *);
-void set_cull_none__8TObjFishFv(void);
-void set_cull_back__8TObjFishFv(void);
 s32 matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix(void);
@@ -106,7 +105,7 @@ void TObjTuitate::render() {
     } else {
         ((RenderFadeState *)(arg0 + 0xAC))->restore();
     }
-    set_cull_back__8TObjFishFv();
+    TObjFish::set_cull_back();
     if (TRaderMapCore::is_not_split_screen() == 1) {
         fading = 0;
     } else {
@@ -126,7 +125,7 @@ void TObjTuitate::render() {
     if (fading != 0) {
         ((Fade_8019ADA0 *)(arg0 + 0xAC))->end();
     }
-    set_cull_none__8TObjFishFv();
+    TObjFish::set_cull_none();
 }
 
 void TObjTuitate::run_task() { { (void)(update_obstruction_fade((char*)this + 0xac)); return; } }

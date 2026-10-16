@@ -1,4 +1,7 @@
 #include "pso/object/ObjectFactoryTables.h"
+#include "pso/item/TObjContainerIdo.h"
+#include "pso/misc/TOKeyJungleMain.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TObjContainerEnemy.h"
 #include "pso/item/TObjContainerItem.h"
 #include "pso/item/TObjContainerJung.h"
@@ -162,7 +165,6 @@ void* TObjGbAdvance__create(void* placement);
 void* create__12TObjComputerFv(void* placement);
 void* TObjContainerBase__create(void* placement);
 void* TContainerAncient01R__create(void* placement);
-void* create__16TObjContainerIdoFPv(void* placement);
 void* TObjDoaEx01__create(void* placement);
 void* TObjDoor__create(void* placement);
 void* TObjDoorJung__create(void* placement);
@@ -223,7 +225,6 @@ void* TShopGenerator__create(void* placement);
 void* TODoorJungleMain__create(void* placement);
 void* TORockJungleL01__create(void* placement);
 void* TOGrassJungle__create(void* placement);
-void* create__15TOKeyJungleMainFPv(void* placement);
 void* TObjFish__create(void* placement);
 void* TBGLightningCtrl__create(void* placement);
 void* TOBiwaMushi__create(void* placement);
@@ -231,9 +232,7 @@ void* TOMekaFish01__create(void* placement);
 void* TOMekaFish00__create(void* placement);
 void* TOCapsuleLabo__create(void* placement);
 void* create_lobby_pigeon(void* placement);
-void* create_child_object__10TObjPlayerFPv(void* placement);
 void* create__10TObjPlayerFPv(void* placement);
-void* create_path_obj__10TObjPlayerFPv(void* placement);
 void* TObjPlayer__sub_802C28B4(void* placement);
 void* TObjTradeCollision__create(void* placement);
 void* create__17TOTrapChainSawKeyFv(void* placement);
@@ -344,7 +343,7 @@ ObjectFactoryEntry object_factories_floor_01[63] = {
     { 0x0093, TObjContainerAbeEnemy__create, 250000.0f, 0 },
     { 0x0089, TObjTank__create, 250000.0f, 0 },
     { 0x008B, create__12TObjComputerFv, 250000.0f, 0 },
-    { 0x008C, create__16TObjContainerIdoFPv, 250000.0f, 0 },
+    { 0x008C, TObjContainerIdo::create, 250000.0f, 0 },
     { 0x0002, TObjAreaWarpForest__create, 250000.0f, 0 },
     { 0x0003, TObjMapWarpForest__create, 250000.0f, 0 },
     { 0x001B, TObjAreaWarpQuest__create, 250000.0f, 0 },
@@ -409,7 +408,7 @@ ObjectFactoryEntry object_factories_floor_02[64] = {
     { 0x0093, TObjContainerAbeEnemy__create, 250000.0f, 0 },
     { 0x0089, TObjTank__create, 250000.0f, 0 },
     { 0x008B, create__12TObjComputerFv, 250000.0f, 0 },
-    { 0x008C, create__16TObjContainerIdoFPv, 250000.0f, 0 },
+    { 0x008C, TObjContainerIdo::create, 250000.0f, 0 },
     { 0x0002, TObjAreaWarpForest__create, 250000.0f, 0 },
     { 0x0003, TObjMapWarpForest__create, 250000.0f, 0 },
     { 0x001B, TObjAreaWarpQuest__create, 250000.0f, 0 },
@@ -488,7 +487,7 @@ ObjectFactoryEntry object_factories_floor_03[59] = {
     { 0x0021, TOSymbolchatColli::create, 250000.0f, 0 },
     { 0x0022, TOKeyCol::create, 250000.0f, 0 },
     { 0x0023, TOAttackableCol::create, 250000.0f, 0 },
-    { 0x008C, create__16TObjContainerIdoFPv, 250000.0f, 0 },
+    { 0x008C, TObjContainerIdo::create, 250000.0f, 0 },
     { 0x00DE, TODummyKeyCave01::create, 250000.0f, 0 },
     { 0x0024, TOSwitchAttack::create, 250000.0f, 0 },
     { 0x00DF, TORockCaveBL01__create, 250000.0f, 0 },
@@ -1431,7 +1430,7 @@ ObjectFactoryEntry object_factories_floor_23[65] = {
     { 0x00C0, TOKeyCave01::create, 250000.0f, 0 },
     { 0x0203, TObjContainerJungEx::create, 250000.0f, 0 },
     { 0x0204, TODoorJungleMain__create, 250000.0f, 0 },
-    { 0x0205, create__15TOKeyJungleMainFPv, 250000.0f, 0 },
+    { 0x0205, TOKeyJungleMain::create, 250000.0f, 0 },
     { 0x0206, TORockJungleS01::create, 250000.0f, 0 },
     { 0x0207, TORockJungleM01::create, 250000.0f, 0 },
     { 0x0208, TORockJungleL01__create, 250000.0f, 0 },
@@ -1450,7 +1449,7 @@ ObjectFactoryEntry object_factories_floor_23[65] = {
     { 0x020F, create__20TOTrapChainSawDamageFv, 250000.0f, 0 },
     { 0x0210, create__17TOTrapChainSawKeyFv, 250000.0f, 0 },
     { 0x0211, TOBiwaMushi__create, 250000.0f, 0 },
-    { 0x0212, create_child_object__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x0212, TObjPlayer::create_child_object, 250000.0f, 0 },
     { 0x0023, TOAttackableCol::create, 250000.0f, 0 },
     { 0x0027, TObjRaderIcon__create, 250000.0f, 0 },
     { 0x0024, TOSwitchAttack::create, 250000.0f, 0 },
@@ -1498,7 +1497,7 @@ ObjectFactoryEntry object_factories_floor_24[67] = {
     { 0x0090, TOKeyGenericSw::create, 250000.0f, 0 },
     { 0x00C0, TOKeyCave01::create, 250000.0f, 0 },
     { 0x0203, TObjContainerJungEx::create, 250000.0f, 0 },
-    { 0x0205, create__15TOKeyJungleMainFPv, 250000.0f, 0 },
+    { 0x0205, TOKeyJungleMain::create, 250000.0f, 0 },
     { 0x0206, TORockJungleS01::create, 250000.0f, 0 },
     { 0x0207, TORockJungleM01::create, 250000.0f, 0 },
     { 0x0208, TORockJungleL01__create, 250000.0f, 0 },
@@ -1507,7 +1506,7 @@ ObjectFactoryEntry object_factories_floor_24[67] = {
     { 0x0152, TContainerAncient01::create, 250000.0f, 0 },
     { 0x02B0, TContainerAncient01R__create, 250000.0f, 0 },
     { 0x0220, TObjFish__create, 250000.0f, 0 },
-    { 0x020C, create_path_obj__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x020C, TObjPlayer::create_path_obj, 250000.0f, 0 },
     { 0x020D, create__10TObjPlayerFPv, 250000.0f, 0 },
     { 0x0229, TOCapsuleLabo__create, 250000.0f, 0 },
     { 0x0228, TOTrapSeabed01::create, 250000.0f, 0 },
@@ -1519,7 +1518,7 @@ ObjectFactoryEntry object_factories_floor_24[67] = {
     { 0x020F, create__20TOTrapChainSawDamageFv, 250000.0f, 0 },
     { 0x0210, create__17TOTrapChainSawKeyFv, 250000.0f, 0 },
     { 0x0211, TOBiwaMushi__create, 250000.0f, 0 },
-    { 0x0212, create_child_object__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x0212, TObjPlayer::create_child_object, 250000.0f, 0 },
     { 0x0213, TOJungleDesign__create, 250000.0f, 0 },
     { 0x0023, TOAttackableCol::create, 250000.0f, 0 },
     { 0x0027, TObjRaderIcon__create, 250000.0f, 0 },
@@ -1568,7 +1567,7 @@ ObjectFactoryEntry object_factories_floor_25[66] = {
     { 0x0090, TOKeyGenericSw::create, 250000.0f, 0 },
     { 0x00C0, TOKeyCave01::create, 250000.0f, 0 },
     { 0x0203, TObjContainerJungEx::create, 250000.0f, 0 },
-    { 0x0205, create__15TOKeyJungleMainFPv, 250000.0f, 0 },
+    { 0x0205, TOKeyJungleMain::create, 250000.0f, 0 },
     { 0x0206, TORockJungleS01::create, 250000.0f, 0 },
     { 0x0207, TORockJungleM01::create, 250000.0f, 0 },
     { 0x0208, TORockJungleL01__create, 250000.0f, 0 },
@@ -1576,7 +1575,7 @@ ObjectFactoryEntry object_factories_floor_25[66] = {
     { 0x020A, TObjWarpJungMain__create, 250000.0f, 0 },
     { 0x0152, TContainerAncient01::create, 250000.0f, 0 },
     { 0x02B0, TContainerAncient01R__create, 250000.0f, 0 },
-    { 0x020C, create_path_obj__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x020C, TObjPlayer::create_path_obj, 250000.0f, 0 },
     { 0x020D, create__10TObjPlayerFPv, 250000.0f, 0 },
     { 0x0229, TOCapsuleLabo__create, 250000.0f, 0 },
     { 0x0228, TOTrapSeabed01::create, 250000.0f, 0 },
@@ -1588,7 +1587,7 @@ ObjectFactoryEntry object_factories_floor_25[66] = {
     { 0x020F, create__20TOTrapChainSawDamageFv, 250000.0f, 0 },
     { 0x0210, create__17TOTrapChainSawKeyFv, 250000.0f, 0 },
     { 0x0211, TOBiwaMushi__create, 250000.0f, 0 },
-    { 0x0212, create_child_object__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x0212, TObjPlayer::create_child_object, 250000.0f, 0 },
     { 0x0213, TOJungleDesign__create, 250000.0f, 0 },
     { 0x0023, TOAttackableCol::create, 250000.0f, 0 },
     { 0x0027, TObjRaderIcon__create, 250000.0f, 0 },
@@ -1637,7 +1636,7 @@ ObjectFactoryEntry object_factories_floor_26[63] = {
     { 0x0090, TOKeyGenericSw::create, 250000.0f, 0 },
     { 0x00C0, TOKeyCave01::create, 250000.0f, 0 },
     { 0x0203, TObjContainerJungEx::create, 250000.0f, 0 },
-    { 0x0205, create__15TOKeyJungleMainFPv, 250000.0f, 0 },
+    { 0x0205, TOKeyJungleMain::create, 250000.0f, 0 },
     { 0x0206, TORockJungleS01::create, 250000.0f, 0 },
     { 0x0207, TORockJungleM01::create, 250000.0f, 0 },
     { 0x0208, TORockJungleL01__create, 250000.0f, 0 },
@@ -1654,7 +1653,7 @@ ObjectFactoryEntry object_factories_floor_26[63] = {
     { 0x02B9, TObjMapForceWarp__create, 250000.0f, 0 },
     { 0x020F, create__20TOTrapChainSawDamageFv, 250000.0f, 0 },
     { 0x0210, create__17TOTrapChainSawKeyFv, 250000.0f, 0 },
-    { 0x0212, create_child_object__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x0212, TObjPlayer::create_child_object, 250000.0f, 0 },
     { 0x0213, TOJungleDesign__create, 250000.0f, 0 },
     { 0x0023, TOAttackableCol::create, 250000.0f, 0 },
     { 0x0027, TObjRaderIcon__create, 250000.0f, 0 },
@@ -1703,7 +1702,7 @@ ObjectFactoryEntry object_factories_floor_27[66] = {
     { 0x0090, TOKeyGenericSw::create, 250000.0f, 0 },
     { 0x00C0, TOKeyCave01::create, 250000.0f, 0 },
     { 0x0203, TObjContainerJungEx::create, 250000.0f, 0 },
-    { 0x0205, create__15TOKeyJungleMainFPv, 250000.0f, 0 },
+    { 0x0205, TOKeyJungleMain::create, 250000.0f, 0 },
     { 0x0206, TORockJungleS01::create, 250000.0f, 0 },
     { 0x0207, TORockJungleM01::create, 250000.0f, 0 },
     { 0x0208, TORockJungleL01__create, 250000.0f, 0 },
@@ -1712,7 +1711,7 @@ ObjectFactoryEntry object_factories_floor_27[66] = {
     { 0x0152, TContainerAncient01::create, 250000.0f, 0 },
     { 0x02B0, TContainerAncient01R__create, 250000.0f, 0 },
     { 0x0220, TObjFish__create, 250000.0f, 0 },
-    { 0x020C, create_path_obj__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x020C, TObjPlayer::create_path_obj, 250000.0f, 0 },
     { 0x020D, create__10TObjPlayerFPv, 250000.0f, 0 },
     { 0x0229, TOCapsuleLabo__create, 250000.0f, 0 },
     { 0x0228, TOTrapSeabed01::create, 250000.0f, 0 },
@@ -1723,7 +1722,7 @@ ObjectFactoryEntry object_factories_floor_27[66] = {
     { 0x02B9, TObjMapForceWarp__create, 250000.0f, 0 },
     { 0x020F, create__20TOTrapChainSawDamageFv, 250000.0f, 0 },
     { 0x0210, create__17TOTrapChainSawKeyFv, 250000.0f, 0 },
-    { 0x0212, create_child_object__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x0212, TObjPlayer::create_child_object, 250000.0f, 0 },
     { 0x0213, TOJungleDesign__create, 250000.0f, 0 },
     { 0x0023, TOAttackableCol::create, 250000.0f, 0 },
     { 0x0027, TObjRaderIcon__create, 250000.0f, 0 },
@@ -1769,7 +1768,7 @@ ObjectFactoryEntry object_factories_floor_34[61] = {
     { 0x0090, TOKeyGenericSw::create, 250000.0f, 0 },
     { 0x00C0, TOKeyCave01::create, 250000.0f, 0 },
     { 0x0203, TObjContainerJungEx::create, 250000.0f, 0 },
-    { 0x0205, create__15TOKeyJungleMainFPv, 250000.0f, 0 },
+    { 0x0205, TOKeyJungleMain::create, 250000.0f, 0 },
     { 0x0206, TORockJungleS01::create, 250000.0f, 0 },
     { 0x0207, TORockJungleM01::create, 250000.0f, 0 },
     { 0x0208, TORockJungleL01__create, 250000.0f, 0 },
@@ -1777,7 +1776,7 @@ ObjectFactoryEntry object_factories_floor_34[61] = {
     { 0x020A, TObjWarpJungMain__create, 250000.0f, 0 },
     { 0x02B0, TContainerAncient01R__create, 250000.0f, 0 },
     { 0x0220, TObjFish__create, 250000.0f, 0 },
-    { 0x020C, create_path_obj__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x020C, TObjPlayer::create_path_obj, 250000.0f, 0 },
     { 0x0229, TOCapsuleLabo__create, 250000.0f, 0 },
     { 0x0228, TOTrapSeabed01::create, 250000.0f, 0 },
     { 0x020E, TObjContainerJungEnemy::create, 250000.0f, 0 },
@@ -1833,10 +1832,10 @@ ObjectFactoryEntry object_factories_floor_35[64] = {
     { 0x0090, TOKeyGenericSw::create, 250000.0f, 0 },
     { 0x00C0, TOKeyCave01::create, 250000.0f, 0 },
     { 0x0203, TObjContainerJungEx::create, 250000.0f, 0 },
-    { 0x0205, create__15TOKeyJungleMainFPv, 250000.0f, 0 },
+    { 0x0205, TOKeyJungleMain::create, 250000.0f, 0 },
     { 0x020A, TObjWarpJungMain__create, 250000.0f, 0 },
     { 0x02B0, TContainerAncient01R__create, 250000.0f, 0 },
-    { 0x020C, create_path_obj__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x020C, TObjPlayer::create_path_obj, 250000.0f, 0 },
     { 0x020D, create__10TObjPlayerFPv, 250000.0f, 0 },
     { 0x0229, TOCapsuleLabo__create, 250000.0f, 0 },
     { 0x0228, TOTrapSeabed01::create, 250000.0f, 0 },
@@ -1847,7 +1846,7 @@ ObjectFactoryEntry object_factories_floor_35[64] = {
     { 0x0019, TObjWarpBossMulti__create, 250000.0f, 0 },
     { 0x020F, create__20TOTrapChainSawDamageFv, 250000.0f, 0 },
     { 0x0210, create__17TOTrapChainSawKeyFv, 250000.0f, 0 },
-    { 0x0212, create_child_object__10TObjPlayerFPv, 250000.0f, 0 },
+    { 0x0212, TObjPlayer::create_child_object, 250000.0f, 0 },
     { 0x0023, TOAttackableCol::create, 250000.0f, 0 },
     { 0x0027, TObjRaderIcon__create, 250000.0f, 0 },
     { 0x0024, TOSwitchAttack::create, 250000.0f, 0 },

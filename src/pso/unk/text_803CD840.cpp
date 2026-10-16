@@ -89,7 +89,6 @@ extern "C" {
 char *strncpy(char *, const char *, u32);
 void *memset(void *, s32, u32);
 s32 TLobby__sub_803CCB98(void *, int, int);
-void close_adxf_handle__6TLobbyFv(void *);
 void *adxf_open__6TLobbyFUii(const char *, s32);
 extern char lbl_8047C818[];
 extern Ent_803CD840 *afs_archive_toc_table[256];
@@ -155,7 +154,7 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
     lbl_805D75EC = aligned;
     r = TLobby__sub_803CCB98(lobby_adxf_open_file_handle, 1, aligned);
     if (r < 0) {
-        close_adxf_handle__6TLobbyFv(lobby_adxf_open_file_handle);
+        ((TLobby *)lobby_adxf_open_file_handle)->close_adxf_handle();
         return r;
     }
     e->f8 = 0;

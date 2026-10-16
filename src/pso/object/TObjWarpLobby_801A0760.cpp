@@ -27,7 +27,6 @@ struct VO_801A0894 : VB_801A0894 {
 extern "C" {
 s32 request_active_window_close();
 s32 align_menu_entry_positions(s32);
-s32 calc_window_size__17TWindowSubComCardFv(s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(f32 *, s32, f32);
 extern s32 warp_lobby_directory_label_table[];
@@ -71,7 +70,7 @@ void TObjWarpLobby::open_lobby_menu() {
     for (i = 0; i < 0xF; i++) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(s32 *)&this->m_cc, warp_lobby_directory_label_table[i], 6, i);
     }
-    calc_window_size__17TWindowSubComCardFv(*(s32 *)&this->m_cc);
+    ((TWindowSubComCard *)(*(s32 *)&this->m_cc))->calc_window_size();
     align_menu_entry_positions(*(s32 *)&this->m_cc);
     ((TWindowSubComCardList *)(*(s32 *)&this->m_cc))->set_flag70_bit10();
     request_active_window_close();

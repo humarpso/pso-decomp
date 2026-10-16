@@ -112,7 +112,6 @@ extern "C" {
 extern int lbl_805D6EA0;
 s32 get_player_by_client_id(s32);
 s32 obj_isState3_324();
-void send_item_pickup_request__10TObjPlayerFl(s32);
 s32 get_player_by_client_id(s32);
 void quest_remove_npc_player(u16 arg0);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
@@ -212,7 +211,6 @@ void build_6x69_npc_control(void* p);
 extern "C" {
 
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
-s32 send_code_45_1__10TObjPlayerFl(s32);
 
 s32 obj_isState2_324();
 
@@ -247,7 +245,7 @@ void TNpcPlayer::send_code_45_to_player(int arg0) {
 
     temp_r3 = get_player_by_client_id((u16) arg0);
     if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
-        send_code_45_1__10TObjPlayerFl(temp_r3);
+        TObjPlayer::send_code_45_1(temp_r3);
     }
 }
 
@@ -371,7 +369,7 @@ void quest_remove_npc_player(u16 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((void *)get_player_by_client_id((s32)((void *) (arg0)))));
     if (temp_r3 != 0) {
-        send_item_pickup_request__10TObjPlayerFl(temp_r3);
+        TObjPlayer::send_item_pickup_request(temp_r3);
         if ((u32) temp_r3 != 0U) {
             ((VObj_18_dac7f3 *)(temp_r3))->m0(1);
         }

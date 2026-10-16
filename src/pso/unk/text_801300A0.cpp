@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A68C8.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/items/TItemWeapon.h"
 
 extern "C" {
-s32 create_item_eff_cane__10TObjPlayerFP5TItemll(void *, void *, int, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAFF8;
 extern const f32 lbl_805DAFFC;
@@ -23,12 +23,12 @@ void TUnk_804A68C8::update_attack() {
             break;
         case 4:
             if (((TItemWeapon *)arg0)->get_attack_stage() == 0) {
-                create_item_eff_cane__10TObjPlayerFP5TItemll((void *) (tl_05), (void *) (arg0), (int) (1), (int) (0x1AE));
+                ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)arg0, (s32)((int) (1)), (s32)((int) (0x1AE)));
             }
             break;
         case 6:
             if (((TItemWeapon *)arg0)->get_attack_stage() == 0) {
-                create_item_eff_cane__10TObjPlayerFP5TItemll((void *) (tl_05), (void *) (arg0), (int) (2), (int) (0x101));
+                ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)arg0, (s32)((int) (2)), (s32)((int) (0x101)));
             }
             break;
         }

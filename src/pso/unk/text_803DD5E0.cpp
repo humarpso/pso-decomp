@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -103,7 +104,6 @@ s32 DVDClose(FileInfo_803DD784 *);
 s32 Dolphin_DVDReadPrio(FileInfo_803DD784 *, void *, s32, s32, s32);
 u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPcPc(char *, Info_803DDA68 *, void *);
 s32 TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 extern S_803DA7E0 lbl_8058D470;
@@ -172,7 +172,7 @@ s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx) {
     if (r != 0) {
         return r;
     }
-    append_extension_if_missing__23TAdSinglePlyChrSelectGCFPcPc(name, obj->ents[idx].info, lbl_805D46D8);
+    ((TAdSinglePlyChrSelectGC *)name)->append_extension_if_missing((char *)(obj->ents[idx].info), (char *)lbl_805D46D8);
     pfi = &fi;
     if (DVDOpen(name, pfi) == 0) {
         lbl_8058D470.c = 2;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 extern "C" void render__8TTecCtrlFv();
 extern "C" void run_task__8TTecCtrlFv();
 #include "pso/player/TObjPlayer.h"
@@ -75,7 +76,6 @@ Target_8022D27C *get_technique_data__10TObjPlayerFPv(void *);
 u8 get_cast_technique_level(void *, int);
 void create__10TTecDebandFllll(void *, void *, void *, int);
 void create__9TTecRestaFPvPvPvPv(void *, void *, void *, int);
-void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
 void matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix_from(void *);
@@ -431,7 +431,7 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
         if (n == 0) {
             return;
         }
-        create_tec_zonde__10TObjPlayerFPvPvPvPv(pl, &hand, &list, get_cast_technique_level(td, 6));
+        TObjPlayer::create_tec_zonde((void *)pl, (void *)(&hand), (void *)(&list), (void *)(get_cast_technique_level(td, 6)));
         break;
     case 7:
         COLLECT_8022D27C()

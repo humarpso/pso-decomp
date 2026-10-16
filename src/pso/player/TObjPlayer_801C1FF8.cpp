@@ -57,7 +57,6 @@ int test_flags_any(void*, int);
 void TObjPlayer__sub_8012AF00(void *);
 int __ct__12TPlyCharDataFv(void*);
 int fn_8035B00C(void*);
-void reset_movement_state__10TObjPlayerFv(void *);
 
 extern const f32 TObjPlayer__data_805DC294;
 
@@ -65,7 +64,7 @@ void *TObjPlayer::init() {
     ((TObjPlayer *)((char *)this + 12))->init_forward();
     TObjPlayer__sub_8012AF00((void *)((char *)this + 48));
     *(f32 *)((s8 *)this + 0x8) = TObjPlayer__data_805DC294;
-    reset_movement_state__10TObjPlayerFv(this);
+    reset_movement_state();
     return this;
 }
 

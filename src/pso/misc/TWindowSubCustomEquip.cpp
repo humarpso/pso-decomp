@@ -73,7 +73,6 @@ extern "C" {
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
-void destroy_status_display__20TWindowSubStatusDispFls(void *, int);
 
 extern const f32 lbl_805DD568;
 extern const f32 lbl_805DD56C;
@@ -325,7 +324,7 @@ void TWindowSubCustomEquip::run_task() {
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TWindowSubCustomEquip;
-        destroy_status_display__20TWindowSubStatusDispFls(*(void **)((s8 *)arg0 + 0x6C), 1);
+        TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)arg0 + 0x6C)), (s16)1);
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish.h"
 #include "pso/misc/TORockCaveBrakable.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockJungleM01.h"
@@ -110,7 +111,6 @@ extern s32 lbl_805D3D40;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1);
 s32 isFading__15RenderFadeStateCFv(void *);
-void set_cull_back__8TObjFishFv();
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -139,7 +139,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
-s32 set_cull_none__8TObjFishFv();
 
 void TORockJungleM01::run_task() { update_obstruction_fade((char*)this + 0xbc); update_break_state(); }
 
@@ -238,12 +237,12 @@ void TORockJungleM01::vfunc_15() {
     if ((s32) *(s32 *)&this->m_d8 != 0) {
         ((VObj_8029C320*)(arg0 + 0xBC))->m7();
     }
-    set_cull_none__8TObjFishFv();
+    TObjFish::set_cull_none();
 }
 void TORockJungleM01::vfunc_14() {
     Rd_8029C6FC *arg0 = (Rd_8029C6FC *)this;
     Vec_8029C6FC v;
-    set_cull_back__8TObjFishFv();
+    TObjFish::set_cull_back();
     matrix_mult_vec(0, arg0->pos, &v);
     if (-v.z < lbl_805DDD18) {
         ((RenderFadeState *)(&arg0->fade))->fadeOut();

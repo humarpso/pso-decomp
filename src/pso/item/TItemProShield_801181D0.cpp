@@ -72,7 +72,6 @@ s32 fn_800F955C(s32);
 extern s32 lbl_805D2C3C;
 extern int TItemProShield__shield_table;
 void __dt__14TItemEquipBaseFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 extern s32 __vt__14TItemProShield[];
 void *__dt__14TItemProShieldFv(void *arg0, s16 arg1);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -101,7 +100,6 @@ extern "C" {
 int TItemEquipBase__sub_8010A82C(void*);
 s32 register_technique_boosts__14TItemEquipBaseFPvPv(void *, s32);
 s32 draw_ginja_object(u32);
-s32 refresh_owner_stats__5TItemFv(void *);
 s32 set_model_fade_alpha__10TObjPlayerFf();
 s32 TObjPlayer__sub_8036414C();
 s32 TObjPlayer__sub_80364198();
@@ -155,7 +153,7 @@ void TItemProShield::vfunc_16() {
     ((VObj_80118334_801181D0 *)this)->m51();
     register_technique_boosts__14TItemEquipBaseFPvPv(this, *(s32 *)((s8 *)this + 0x194));
     if (*(s32 *)((s8 *)this + 0x19C) & 4) {
-        refresh_owner_stats__5TItemFv(this);
+        refresh_owner_stats();
     }
     ((TItemEquipBase *)this)->bind_loaded_resources();
 }
@@ -297,7 +295,7 @@ void *__dt__14TItemProShieldFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TItemProShield;
         __dt__14TItemEquipBaseFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

@@ -9,7 +9,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_psycho_wand(s32 arg0);
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern RecoveredGlobal_8012BCD4_lbl_804A4F60 psycho_wand_weapon_vtable;
 extern const f32 lbl_805DAEC8;
 u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2);
@@ -21,7 +20,7 @@ u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &psycho_wand_weapon_vtable.value;
     ((TObjPlayer *)(arg0 + 0x208))->construct_target_cursor_records();
-    set_status_flags__10TObjPlayerFUl(arg0, 0x22);
+    ((TObjPlayer *)arg0)->set_status_flags(0x22);
     *(s32 *)((s8 *)arg0 + 0x278) = 0;
     *(f32 *)((s8 *)arg0 + 0x274) = (f32) lbl_805DAEC8;
     *(s16 *)((s8 *)arg0 + 0x1F8) = -1;

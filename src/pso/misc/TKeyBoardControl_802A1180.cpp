@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TUnk_804DCB64.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -22,7 +23,6 @@ s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
-s32 noop__23TAdSinglePlyChrSelectGCFv();
 extern s8 movie_finished_flag;
 void update_movie_phase(void);
 extern s8 movie_finished_flag;
@@ -66,7 +66,7 @@ void update_movie_phase(void) {
     render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_802A1180_main_task *)&main_task).value));
     process_async_file_reads();
     update_sound_request_slots();
-    noop__23TAdSinglePlyChrSelectGCFv();
+    TAdSinglePlyChrSelectGC::noop();
     if ((s32) (*(u8 *)&movie_finished_flag) == 1) {
         request_queued_main_phase();
     }

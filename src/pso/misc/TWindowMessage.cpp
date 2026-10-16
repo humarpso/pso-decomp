@@ -23,7 +23,6 @@ extern "C" {
 
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-s32 update_line_timers__14TWindowMessageFv(void *);
 void mem_free(void *);
 
 void render__14TWindowMessageFv(s32 arg0) {
@@ -40,7 +39,7 @@ void TWindowMessage::draw() {
     }
     ((TWindowMessage *)arg0)->update_scroll();
     ((TWindowMessage *)arg0)->retire_scrolled_lines();
-    update_line_timers__14TWindowMessageFv(arg0);
+    ((TWindowMessage *)arg0)->update_line_timers();
     ((TWindowMessage *)arg0)->advance_reveal_cursor();
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();

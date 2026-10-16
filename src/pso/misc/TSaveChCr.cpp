@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessage.h"
 #include "pso/TSaveChCr.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
@@ -16,7 +17,6 @@ struct RecoveredGlobal_80339F98_lbl_80477CBC {
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_80339F98_lbl_80477CBC TSaveChCr__message_text_ids;
-s32 complete_reveal__14TWindowMessageFv(u32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
 extern s32 lbl_80477CAC[];
 extern s32 lbl_80477CB4[];
@@ -86,7 +86,7 @@ void TSaveChCr::open_message_window(u32 arg1) {
             if (arg1 != 0U) {
                 ((TLobby *)(*(u32 *)&this->owned_window))->send_and_handle(arg1, 3);
             }
-            complete_reveal__14TWindowMessageFv(*(u32 *)&this->owned_window);
+            ((TWindowMessage *)(*(u32 *)&this->owned_window))->complete_reveal();
         }
     }
 }

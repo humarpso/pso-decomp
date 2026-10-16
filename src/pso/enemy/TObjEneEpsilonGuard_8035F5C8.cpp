@@ -875,7 +875,6 @@ extern const f32 lbl_805E0224;
 void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0);
 u32 find_entity_by_id(s32);
 s32 is_state_flag_set__19TObjEneEpsilonGuardFv();
-void clear_and_flag_state__19TObjEneEpsilonGuardFv(s32);
 void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1);
 extern T_8035F8A8 lbl_80479E7C[];
 s16 TObjEneEpsilonGuard__sub_8035F8A8(W_8035F8A8 *arg0);
@@ -920,7 +919,6 @@ void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void handle_guard_action_state__19TObjEneEpsilonGuardFPvi(W_80361508 *self, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 u32 create_particle_emitter(void *, int);
-void enable__13TParticleCtrlFv(void *);
 s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 advance_animation_playback(void *);
@@ -1091,7 +1089,7 @@ void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1) {
     }
     r = find_entity_by_id(arg0->h[arg1]);
     if (r != 0 && is_state_flag_set__19TObjEneEpsilonGuardFv() == 1) {
-        clear_and_flag_state__19TObjEneEpsilonGuardFv(r);
+        ((TObjEneEpsilonGuard *)r)->clear_and_flag_state();
     }
 }
 
@@ -1725,7 +1723,7 @@ void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1) {
         F_8036(0x4E8, s32) = 0xF;
         F_8036(0x434, u32) = create_particle_emitter(arg0 + 0x38, 0x225);
         if (F_8036(0x434, u32) != 0) {
-            enable__13TParticleCtrlFv(F_8036(0x434, void *));
+            ((TParticleCtrl *)(F_8036(0x434, void *)))->enable();
         }
         play_sound_effect(0x4003A64B, arg0 + 0x38, 0, 0);
         break;
@@ -1750,7 +1748,7 @@ void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1) {
                 F_8036(0x4E4, s32) = 4;
             }
             if (F_8036(0x434, u32) != 0) {
-                enable__13TParticleCtrlFv(F_8036(0x434, void *));
+                ((TParticleCtrl *)(F_8036(0x434, void *)))->enable();
             }
             break;
         case 1:
@@ -1760,7 +1758,7 @@ void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1) {
                 F_8036(0x4E8, s32) = 8;
             }
             if (F_8036(0x434, u32) != 0) {
-                enable__13TParticleCtrlFv(F_8036(0x434, void *));
+                ((TParticleCtrl *)(F_8036(0x434, void *)))->enable();
             }
             break;
         case 2:

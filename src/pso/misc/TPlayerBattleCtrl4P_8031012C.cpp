@@ -173,7 +173,6 @@ s32 rand();
 extern const f32 lbl_805DF240;
 extern const f32 lbl_805DF244;
 
-s32 apply_battle_rules_to_players__6TLobbyFv();
 void *get_player_by_client_id(s32);
 s32 fn_801C19D8(void *, int);
 s32 fn_801D6D8C(void *, u8, int);
@@ -747,7 +746,7 @@ void TPlayerBattleCtrl4P::apply_rule_configuration(s32 arg1) {
   {
     if (((u32)get_player_by_client_id((s32)(j))) != 0)
     {
-      apply_battle_rules_to_players__6TLobbyFv();
+      TLobby::apply_battle_rules_to_players();
     }
   }
 }

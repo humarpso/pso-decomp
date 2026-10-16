@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
@@ -30,13 +31,9 @@ extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
 extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
 extern u32 game_mode_scene_instance;
 void set_active_camera_pose(Vec_8023F22C *, Vec_8023F22C *);
-void select_active_controller__11TCameraCtrlFSc(s32);
 void TCameraCtrl__ct(void *, void *);
-void reset_keyboard_state__6TLobbyFv(void);
 s32 is_area_transfer_pending(void);
-void clear_callback_and_reset_keyboard__6TLobbyFv(void);
 void apply_phase_keyboard_mode(void);
-void invoke_callback__6TLobbyFv(void);
 s32 clear_resource_load_tasks();
 void run_load_callback_table(void *, s32);
 void init_menu_scene_lights(void *, s32);
@@ -90,23 +87,23 @@ void init_game_mode_select_scene(void) {
     }
     reset_controller_input_state();
     clear_resource_load_tasks();
-    reset_keyboard_state__6TLobbyFv();
+    TLobby::reset_keyboard_state();
     apply_phase_keyboard_mode();
     run_load_callback_table(&lbl_804CCDA8.value, 0xb8);
     if (is_area_transfer_pending() != 0) {
-        invoke_callback__6TLobbyFv();
-        clear_callback_and_reset_keyboard__6TLobbyFv();
-        reset_keyboard_state__6TLobbyFv();
+        TLobby::invoke_callback();
+        TLobby::clear_callback_and_reset_keyboard();
+        TLobby::reset_keyboard_state();
         return;
     }
     run_load_callback_table(&lobby_scene_release_callback_table.value, 0x38);
     if (is_area_transfer_pending() != 0) {
-        invoke_callback__6TLobbyFv();
-        clear_callback_and_reset_keyboard__6TLobbyFv();
-        reset_keyboard_state__6TLobbyFv();
+        TLobby::invoke_callback();
+        TLobby::clear_callback_and_reset_keyboard();
+        TLobby::reset_keyboard_state();
         return;
     }
-    clear_callback_and_reset_keyboard__6TLobbyFv();
+    TLobby::clear_callback_and_reset_keyboard();
     TParticleCtrl::init_heap((void *)0x100000);
     init_menu_scene_lights(default_scene_light_config, 4);
     TObjLight__scene_light_state.y = lbl_805DC9BC * sin_table_lookup(0x1555);
@@ -120,7 +117,7 @@ void init_game_mode_select_scene(void) {
     {
         Vec_8023F22C eye = lbl_8044DCE8;
         Vec_8023F22C at = lbl_8044DCF4;
-        select_active_controller__11TCameraCtrlFSc(9);
+        TCameraCtrl::select_active_controller(9);
         set_active_camera_pose(&eye, &at);
     }
     TParticleCtrl::create_quad_sprites();

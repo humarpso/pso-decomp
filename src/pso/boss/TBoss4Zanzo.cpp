@@ -483,8 +483,6 @@ void fn_8004AA04(void *);
 s32 pick_random_target_player__11TBoss4Type3Fv(void);
 s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
-void create_horming__11TBoss4Type3FPvPvPv(void *, void *, u16);
-s32 create_jisin__11TBoss4Type2FPvPv(void *, int);
 s32 TObjPlayer__sub_80052390(f32);
 s32 drain_player_hp(u16, s32);
 f32 TBoss4Type3__sub_800524E8(f32);
@@ -1299,7 +1297,7 @@ void TBoss4Type2__vt12(u8 *arg0) {
     s32 temp_r0;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0x1E) {
         TCameraCtrl::set_shake_preset((int) (1));
-        create_jisin__11TBoss4Type2FPvPv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x3A0)));
+        TBoss4Type2::create_jisin((void *)arg0, (void *)(*(s32 *)((s8 *)arg0 + 0x3A0)));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) <= 0x1E) {
         play_persistent_sound((int) (0x4003AD16), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));

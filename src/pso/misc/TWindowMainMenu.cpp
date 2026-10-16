@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowMenuMainMenu.h"
 #include "pso/misc/TWindowMainMenu4P.h"
@@ -66,17 +67,13 @@ s32 TWindowMainMenu__sub_802ADADC(int, int);
 s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 u8 * __dt__7TObjectFv(void *, s16);
-void init_parts__10TObjPlayerFv(s32);
 s32 get_player_by_client_id(u32);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
 u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 void sub_80263D7C__15TWindowMainMenuFv(void *, int);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *, int);
-void update_description_text__15TWindowMainMenuFl(void *, int);
 s16 TWindowMainMenu__sub_802ADB00(u32);
-s32 filter_menu_entry__15TWindowMainMenuFPsPl(void *, s16 *, s32 *);
-void update_description_text__15TWindowMainMenuFl(void *, int);
 s32 get_window_layout_position(int);
 s32 TWindowMainMenu__sub_802ADADC(int, int);
 s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
@@ -139,7 +136,7 @@ void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1) {
         if (id == 0x1F) {
             break;
         }
-        if (filter_menu_entry__15TWindowMainMenuFPsPl(arg0, &id, &flag) != 0) {
+        if (((TWindowMainMenu *)arg0)->filter_menu_entry(&id, &flag) != 0) {
             if (flag != 0) {
                 append_child_rows__15TWindowMainMenuFPvi(w, (void *)(s32)id);
             } else {
@@ -150,7 +147,7 @@ void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1) {
     ((TWindowMainMenu *)w)->update_scaled_position();
     TWindowMainMenu__sub_802ADADC(w, *(s16 *)(arg0 + 0x52));
     d = ((TWindowMainMenu *)w)->get_selected_item_type();
-    update_description_text__15TWindowMainMenuFl(arg0, d);
+    ((TWindowMainMenu *)arg0)->update_description_text(d);
 }
 
 void TWindowMainMenu::handle_menu_selection() {
@@ -160,7 +157,7 @@ void TWindowMainMenu::handle_menu_selection() {
     if ((((Menu_802647CC *)this)->flags & 1) && !(((Menu_802647CC *)this)->flags & 4) && (node = ((Menu_802647CC *)this)->node) != 0) {
         ((Menu_802647CC *)this)->sel = TWindowMainMenu__sub_802ADB00(node);
         id = ((TWindowMainMenu *)node)->get_selected_item_type();
-        update_description_text__15TWindowMainMenuFl(((Menu_802647CC *)this), id);
+        update_description_text(id);
         if (((TWindowMenuMainMenu *)node)->get_menu_flag() != 0) {
             add_menu_entry(id);
             e = ((Menu_802647CC *)this)->ents[((Menu_802647CC *)this)->sel].next;
@@ -198,7 +195,7 @@ u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1) {
         if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
             temp_r3 = get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54));
             if (temp_r3 != 0U) {
-                init_parts__10TObjPlayerFv((s32) temp_r3);
+                ((TObjPlayer *)temp_r3)->init_parts();
             }
         }
         ((TWindowMainMenu *)arg0)->close_child_window();

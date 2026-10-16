@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
@@ -107,7 +108,6 @@ struct Win_80216F50 {
 
 extern "C" {
 u16 obj_getField1c(void *);
-s32 get_camera_id__11TCameraCtrlFv();
 s32 get_quest_list_text(s32, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TWindow__close(void *);
@@ -235,7 +235,7 @@ void TQuestListOffline::update_list_navigation() {
             msg2 = get_quest_list_text(0xE, ((Win_80216CF8 *)this)->f54[sel].fC);
             ((TLobby *)(((Win_80216CF8 *)this)->f44))->send_and_handle(msg2, 0x80);
             ((TLobby *)(((Win_80216CF8 *)this)->f44))->set_field_1c(lbl_805DC694);
-            if (get_camera_id__11TCameraCtrlFv() >= 2) {
+            if (TCameraCtrl::get_camera_id() >= 2) {
                 ((TUnk_804CDFE8 *)(((Win_80216CF8 *)this)->f44))->set_position_xy(lbl_805DC698, lbl_805DC698);
             }
         }

@@ -35,7 +35,6 @@ void vfunc_44__13TUnk_8049F828Fv(void *arg0);
 s32 apply_transform_action__8TItemMagFUc(s32, s32);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_slot_count__14TItemProShieldFv(void *);
 
 extern void *item_hp_recovery_vtable[];
@@ -65,7 +64,7 @@ void *TItemProShield__sub_801166B0(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_hp_recovery_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -109,7 +108,7 @@ void *TItemProShield__sub_801167E8(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_mag_transform_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -155,7 +154,6 @@ void *TItemProShield__sub_80116970(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F998Fv(void *arg0);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 
 extern void *item_mag_transform_vtable[];
 
@@ -210,7 +208,7 @@ void *TItemProShield__sub_80116970(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_moon_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -332,7 +330,6 @@ void *TItemProShield__sub_80116D54(void *arg0);
 void TItemObject__ct(void *);
 int send_star_atomizer_targets(void*);
 void __dt__11TItemObjectFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 
 extern void *item_status_cure_vtable[];
 
@@ -341,7 +338,7 @@ void *TItemProShield__sub_80116AD0(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_status_cure_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -381,7 +378,7 @@ void *item_object_variant_deleting_dtor_80116BEC(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_sol_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -418,7 +415,7 @@ void *item_object_variant_deleting_dtor_80116CFC(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_star_atomizer_vtable;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

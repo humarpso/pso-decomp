@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
 #include "pso/item/TItemProArmor.h"
 #include "pso/object/TObjMotion.h"
@@ -393,7 +394,6 @@ int get_item_system_generation(void);
 void advance_item_system_generation(void);
 int dispatch_item_by_type__6TLobbyFv(void*);
 void mem_free(void*);
-void free_rock_objects__6TLobbyFls(void*, int);
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
 
@@ -423,7 +423,7 @@ void TObjPlayer::free_globals() {
     TObjPlayer::free_static_buffer();
     TObjPlayer::free_global_805D6FB8();
     if ((u32) player_rock_objects_handle != 0U) {
-        free_rock_objects__6TLobbyFls((void*)player_rock_objects_handle, 1);
+        TLobby::free_rock_objects((s32)((void*)player_rock_objects_handle), (s16)1);
         player_rock_objects_handle = 0U;
     }
     if ((u32) item_registry_sorted_entries != 0U) {

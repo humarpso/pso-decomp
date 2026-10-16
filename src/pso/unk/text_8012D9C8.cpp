@@ -31,7 +31,6 @@ extern const f32 lbl_805DAF44;
 extern const f32 lbl_805DAF48;
 extern const f32 lbl_805DAF4C;
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
 extern const f32 lbl_805DAF38;
 extern const f32 lbl_805DAF3C;
@@ -121,7 +120,7 @@ u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 temp_r0;
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A5B20.value;
-    set_status_flags__10TObjPlayerFUl(arg0, 2);
+    ((TObjPlayer *)arg0)->set_status_flags(2);
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     temp_r0 = *(u8 *)((s8 *)arg2 + 2);
     switch ((s32) temp_r0) {

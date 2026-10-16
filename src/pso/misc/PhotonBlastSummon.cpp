@@ -32,7 +32,6 @@ struct Ent_801A70C8 { s32 a; f32 b; s32 c; };
 struct Ent_801A710C { u32 a; f32 b; s32 c; };
 
 extern "C" {
-s32 select_active_controller__11TCameraCtrlFSc(int);
 s32 set_scripted_camera_pose(int, int, void *);
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 extern struct Ent_801A70C8 deferred_photon_blast_hit_queue[32];
@@ -142,7 +141,7 @@ void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
     stack.spC = 0.0f;
     stack.sp10 = 1.0f;
     if ((*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 4) || (*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 8)) {
-        select_active_controller__11TCameraCtrlFSc((int) (5));
+        TCameraCtrl::select_active_controller((int) (5));
     }
     ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x4222));
     temp_r3 = (long) (arg0 + 0x38);

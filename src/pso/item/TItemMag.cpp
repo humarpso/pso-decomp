@@ -150,7 +150,6 @@ s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 spawn_particle_effect(void *, int);
 s32 get_field_d8__10TObjPlayerFv(int);
 s32 apply_switch_attack__5TItemFl(void *, s32);
-s32 refresh_owner_stats__5TItemFv(void *);
 int fn_80100D9C(s32, s32);
 s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s32 get_item_info__10TObjPlayerFllPs(int, int, int);
@@ -183,7 +182,6 @@ void TItemMag__sub_80113EDC(s32, s16, s8);
 u32 test_flags__8TItemMagFUl(void *, s32);
 s32 mag_feed_add_mind(void *, int);
 s32 TItemMag__sub_80114198(void *, int);
-s32 add_stat_level_capped__8TItemMagFs(void *, int);
 s32 mag_feed_add_def(void *, int);
 s16 get_mag_total_level(void *);
 u8 * get_mag_feed_result(s32, s32);
@@ -1243,14 +1241,14 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     if (arg1 != NULL) {
         mag_feed_add_def((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 4)));
-        add_stat_level_capped__8TItemMagFs((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 6)));
+        ((TItemMag *)(arg0 + 0x198))->add_stat_level_capped((int) (*(s16 *)((s8 *)arg1 + 6)));
         mag_feed_add_mind((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 0xA)));
         TItemMag__sub_80114198((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 8)));
         TItemMag::add_stat_clamped((s16 *)(arg0 + 0x198), (s32)((int) (*(s16 *)((s8 *)arg1 + 0))));
         ((TItemMag *)(arg0 + 0x198))->add_clamped_stat((int) (*(s16 *)((s8 *)arg1 + 2)));
         ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)((void *) (arg0 + 0x198)))));
         if (TObjPlayer__sub_80102C30((void *) (arg0)) == 2) {
-            refresh_owner_stats__5TItemFv((void *) (arg0));
+            ((TItem *)arg0)->refresh_owner_stats();
             if (obj_isState2_324((int) (*(s32 *)&this->m_f0)) == 0) {
                 arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (*(s32 *)&this->m_f0));
                 if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int) (arg1), (int) (*(s32 *)&this->m_f0), (int) (0)) == 0)) {
@@ -1553,7 +1551,6 @@ void __dt__14TItemEquipBaseFv(void *, int);
 int __dt__9TItemLoadFPvs(void*, void*);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 int fn_800F953C(void*);
-void free_obj_heap__10TObjPlayerFPv(void *);
 s32 obj_testFlags30(void *, s32);
 
 extern const f32 TItemMag__data_805DABA4;
@@ -1767,7 +1764,7 @@ void *__dt__8TItemMagFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TItemMag;
         __dt__14TItemEquipBaseFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

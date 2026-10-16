@@ -450,7 +450,6 @@ extern "C" {
 
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 void __dt__5TItemFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 
 s32 (*TLobby__sub_8010440C())(s32);
 
@@ -467,7 +466,7 @@ void *__dt__11TItemObjectFv(void *arg0, s16 arg1) {
         *(void ***)((s8 *)arg0 + 0x18) = __vt__11TItemObject;
         __dt__5TItemFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

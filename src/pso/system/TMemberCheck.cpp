@@ -1,7 +1,7 @@
 #include "pso/TMemberCheck.h"
+#include "pso/misc/TLobby.h"
 
 extern "C" {
-s32 count_members__6TLobbyFv(void);
 void TWindow__close(s32);
 void* memset(void*, int, unsigned long);
 extern const char* member_check_name_ptr;
@@ -9,7 +9,7 @@ extern s32 TMemberCheck__previous_member_count;
 }
 
 void TMemberCheck::run_task() {
-    s32 n = count_members__6TLobbyFv();
+    s32 n = TLobby::count_members();
     if (TMemberCheck__previous_member_count != n) {
         TMemberCheck__previous_member_count = n;
         open_member_name_window();
@@ -27,6 +27,6 @@ TMemberCheck::TMemberCheck(TObject* parent) : TObject(parent) {
     m_name = member_check_name_ptr;
     m_1C = 0;
     memset(m_20, 0, 0x60);
-    TMemberCheck__previous_member_count = count_members__6TLobbyFv();
+    TMemberCheck__previous_member_count = TLobby::count_members();
     open_member_name_window();
 }

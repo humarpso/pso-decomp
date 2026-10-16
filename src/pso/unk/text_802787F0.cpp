@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
@@ -10,7 +11,6 @@ struct Wn_802787F0 { u8 pad0[0x20]; s16 f20; u8 pad22[0x50]; s16 f72; };
 struct Ent_802787F0 { u32 id; s32 count; };
 
 extern "C" {
-u32 get_usable_action_flags__5TItemFUlUl(void *, int, int);
 u8 *find_item_by_id(int);
 u8 *get_player_by_client_id(s16);
 void calc_list_content_extent(void *);
@@ -67,7 +67,7 @@ void build_usable_item_list(Wn_802788A8 *arg0) {
         count = ((TObjPlayer *)(*(s32 *)(p + 0xD00)))->run_and_get_result((int)list);
         for (i = 0; i < count; i++) {
             id = find_item_by_id(list[i]);
-            if (id != NULL && get_usable_action_flags__5TItemFUlUl(id, 4, 0) != 0) {
+            if (id != NULL && ((TItem *)id)->get_usable_action_flags(4, 0) != 0) {
                 ((TShopJudgmentItemWindow *)arg0)->add_list_entry((s32)id, (s32)(list[i]));
             }
         }

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_80488E00.h"
 #include "pso/camera/CameraArrivalReset.h"
@@ -351,7 +354,6 @@ s32 is_split_screen();
 extern Pads_8006D1A4 controller_input_state;
 s32 is_split_screen();
 int get_camera_mode__11TCameraCtrlFv();
-s32 get_camera_id__11TCameraCtrlFv();
 f32 horizontal_distance_squared(void *, void *);
 extern FollowView *camera_ctrl_instance;
 u8 * csnVector(void *, void *, u32);
@@ -388,14 +390,11 @@ void pop_matrices(s32);
 extern u8 identity_matrix[];
 s32 is_split_screen();
 void get_dragon_follow_camera_offsets(Vec_8006D9F0 *, Vec_8006D9F0 *);
-void get_follow_camera_offsets__12TBoss8DragonFPUc(Vec_8006D9F0 *, Vec_8006D9F0 *);
-s32 get_camera_id__11TCameraCtrlFv();
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 void get_camera_offsets__12TBoss8DragonFPvPv(Vec_8006D9F0 *, Vec_8006D9F0 *);
 extern Vec_8006D9F0 follow_camera_offset_default;
 FollowVector *get_position_ptr__10TObjPlayerFv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFv(void *);
-s32 clamp_distance__11TCameraCtrlFlll(int, void *, int);
 s32 TCameraCtrl__sub_8006E7FC(void* p);
 f32 vec_squared_length(FollowVector *);
 s32 is_split_screen();
@@ -409,8 +408,6 @@ s32 fn_8006E82C(s32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
-s32 get_map_id__13TRaderMapCoreFv(void *);
-void refresh_equipment_slot__10TObjPlayerFv(void *);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
 extern Pads_8006D1A4 controller_input_state;
@@ -780,7 +777,7 @@ void TCameraCtrl::update_follow_motion_state() {
             if (temp_r3_3 & 1) {
                 if (temp_r3_3 & 0x10) {
                     *(f32 *)((s8 *)((u8 *)this) + 0x58) = (f32) (0.05f);
-                    *(s32 *)((s8 *)((u8 *)this) + 0x30) = clamp_distance__11TCameraCtrlFlll((int) (*(s32 *)((s8 *)((u8 *)this) + 0x30)), (void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this))))), (int) (0x16C));
+                    *(s32 *)((s8 *)((u8 *)this) + 0x30) = TCameraCtrl::clamp_distance((s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x30))), (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this)))))), (s32)((int) (0x16C)));
                 } else {
                     *(f32 *)((s8 *)((u8 *)this) + 0x58) = (f32) (0.67f);
                     ((VObj_18_f70dca *)(((u8 *)this)))->m12(*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x60) + 0x8000);
@@ -794,7 +791,7 @@ void TCameraCtrl::update_follow_motion_state() {
                     var_r4_2 = 1;
                 }
                 if (var_r4_2 == 0) {
-                    *(s32 *)((s8 *)((u8 *)this) + 0x30) = clamp_distance__11TCameraCtrlFlll((int) (*(s32 *)((s8 *)((u8 *)this) + 0x30)), (void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this))))), (int) (var_r4));
+                    *(s32 *)((s8 *)((u8 *)this) + 0x30) = TCameraCtrl::clamp_distance((s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x30))), (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this)))))), (s32)((int) (var_r4)));
                 }
             }
             if (var_r31 == 0) {
@@ -804,7 +801,7 @@ void TCameraCtrl::update_follow_motion_state() {
             break;
         case 2:
             ((VObj_18_f70dca *)(((u8 *)this)))->m12(*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x60) + 0x8000);
-            *(s32 *)((s8 *)((u8 *)this) + 0x30) = clamp_distance__11TCameraCtrlFlll((int) (*(s32 *)((s8 *)((u8 *)this) + 0x30)), (void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this))))), (int) (3));
+            *(s32 *)((s8 *)((u8 *)this) + 0x30) = TCameraCtrl::clamp_distance((s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x30))), (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this)))))), (s32)((int) (3)));
             if (var_r31 != 0) {
                 *(s32 *)((s8 *)((u8 *)this) + 0xF8) = 1;
                 *(s32 *)((s8 *)((u8 *)this) + 0xF4) = 0;
@@ -841,7 +838,7 @@ void TUnk_80488E00::select_follow_camera_offsets() {
     } else if (state == 30) {
         Vec_8006D9F0 b;
         Vec_8006D9F0 a;
-        get_follow_camera_offsets__12TBoss8DragonFPUc(&a, &b);
+        ((TBoss8Dragon *)(&a))->get_follow_camera_offsets((u8 *)(&b));
         request_follow_camera_offsets(&a, &b, 0xFFFF);
     } else if (state == 33) {
         Vec_8006D9F0 b;
@@ -857,7 +854,7 @@ void TUnk_80488E00::select_follow_camera_offsets() {
             arg0->pos.x = follow_camera_offset_default.x;
             arg0->pos.y = follow_camera_offset_default.y;
             arg0->pos.z = follow_camera_offset_default.z;
-            if (is_split_screen() != 0 && get_camera_id__11TCameraCtrlFv() == 2) {
+            if (is_split_screen() != 0 && TCameraCtrl::get_camera_id() == 2) {
                 arg0->pos.z *= (1.4f);
                 arg0->pos.y *= (0.9f);
             }
@@ -870,7 +867,7 @@ void TUnk_80488E00::update_follow_flags() {
     Cam_8006DB68 *arg0 = (Cam_8006DB68 *)this;
     FollowVector *src;
     arg0->state = 5;
-    if (get_camera_id__11TCameraCtrlFv() == 2) {
+    if (TCameraCtrl::get_camera_id() == 2) {
         arg0->f58 = (0.56f);
     } else {
         arg0->f58 = (0.67f);
@@ -1083,7 +1080,7 @@ void TCameraCtrl::update_follow_camera() {
                 for (i = 0; i < 4; i++) {
                     p = (u8 *)get_player_by_client_id(i);
                     if (p != NULL) {
-                        refresh_equipment_slot__10TObjPlayerFv(p);
+                        ((TObjPlayer *)p)->refresh_equipment_slot();
                     }
                 }
                 return;
@@ -1093,7 +1090,7 @@ void TCameraCtrl::update_follow_camera() {
                 for (i = 0; i < 4; i++) {
                     p = (u8 *)get_player_by_client_id(i);
                     if (p != NULL) {
-                        refresh_equipment_slot__10TObjPlayerFv(p);
+                        ((TObjPlayer *)p)->refresh_equipment_slot();
                     }
                 }
             }
@@ -1131,7 +1128,7 @@ void TCameraCtrl::update_follow_camera() {
         player = (u8 *)get_player_by_client_id(i);
         if ((player != NULL && check_flag_100__10TObjPlayerFPv(player) == 0) || TWindowCtrl::get_flag_bit3() == 1) {
             i = fn_8006E82C(i);
-            if ((TWindowShortListCtrl__check_controller_button(&((Rec_8006E310 *)&controller_input_state)[get_map_id__13TRaderMapCoreFv(player)].pad20, i) != 0 && *(s32 *)((s8 *)arg0 + 0x100) == 0) || this->m_104 != 0) {
+            if ((TWindowShortListCtrl__check_controller_button(&((Rec_8006E310 *)&controller_input_state)[((TRaderMapCore *)player)->get_map_id()].pad20, i) != 0 && *(s32 *)((s8 *)arg0 + 0x100) == 0) || this->m_104 != 0) {
                 this->m_104 = 0;
                 this->m_30 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x60) + 0x8000;
             }

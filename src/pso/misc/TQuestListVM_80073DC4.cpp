@@ -12,7 +12,6 @@ extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 fn_800740DC();
 s32 TObjNewFloorWin__sub_8007410C();
-s32 calc_window_size__17TWindowSubComCardFv(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, void *, s32, s32);
 u32 create_window_menu(s32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32);
@@ -74,7 +73,7 @@ void TObjNewFloorWin::open_window() {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
         sprintf(arg0 + 0x2C, lbl_80438660, TQuestVmDownLoadServer__sub_8006EF6C(0x67), TObjNewFloorWin__sub_8007410C());
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0x20), arg0 + 0x2C, 0, 0);
-        calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)arg0 + 0x20));
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x20)))->calc_window_size();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_flag_40();
         fn_800740DC();
         TWindowCtrl::close_active_window();

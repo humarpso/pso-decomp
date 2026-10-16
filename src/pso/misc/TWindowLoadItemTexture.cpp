@@ -1,4 +1,5 @@
 #include "pso/item/TItemTexLoad.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 
 #include "types.h"
@@ -6,10 +7,8 @@
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {
-s32 get_camera_id__11TCameraCtrlFv(void);
 
 void get_array_entry__13TUnk_804CE018Fi(void *, int);
-s32 construct_base__9TWindowDDFPUcsPUc(void *, s32 *, s16, void *);
 extern s32 lbl_804D0058[];
 extern s32 __vt__22TWindowLoadItemTexture[];
 extern s32 lbl_805D3940;
@@ -87,10 +86,10 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
 
 void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *e;
-    construct_base__9TWindowDDFPUcsPUc(arg0, lbl_804D0058, (s16)(s32)arg3, arg1);
+    ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804D0058, (s16)((s16)(s32)arg3), (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowLoadItemTexture;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3940;
-    switch (get_camera_id__11TCameraCtrlFv()) {
+    switch (TCameraCtrl::get_camera_id()) {
     case 1:
         *(f32 *)((s8 *)arg0 + 0x68) = *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DD0F0;
         break;

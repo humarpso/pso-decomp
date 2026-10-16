@@ -92,8 +92,6 @@ extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
 extern s32 lbl_805D6220;
 u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 handle_confirm__26TShopEquipmentGearSequenceFv(void *);
-s32 try_close__26TShopEquipmentGearSequenceFv(void *);
 s32 restore_player_state__13TShopSequenceFv(void *);
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
@@ -114,7 +112,6 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(void *);
-s32 calc_window_size__17TWindowSubComCardFv(void *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *create_window_menu(s32, s32, u16);
 s32 get_window_layout_position(int, f32);
@@ -157,7 +154,7 @@ void TShopEquipmentGearSequence::update_buy_sell_choice(void *self) {
         arg0->win = create_window_menu(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(6), 6, 1);
-        calc_window_size__17TWindowSubComCardFv(arg0->win);
+        ((TWindowSubComCard *)(arg0->win))->calc_window_size();
         align_menu_entry_positions(arg0->win);
         ((TCheckRoomSequence *)(arg0->win))->set_ready_flag();
         ((TUnk_804CDFE8 *)(arg0->win))->set_position_xy(get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
@@ -221,10 +218,10 @@ void TShopEquipmentGearSequence::vfunc_11() {
         ((TShopEquipmentGearSequence *)arg0)->open_sell_window();
         return;
     case 6:
-        try_close__26TShopEquipmentGearSequenceFv((void *) (arg0));
+        ((TShopEquipmentGearSequence *)arg0)->try_close();
         return;
     case 7:
-        handle_confirm__26TShopEquipmentGearSequenceFv((void *) (arg0));
+        ((TShopEquipmentGearSequence *)arg0)->handle_confirm();
     default:
         return;
     }

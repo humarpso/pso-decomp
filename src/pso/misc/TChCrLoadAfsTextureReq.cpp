@@ -66,7 +66,6 @@ void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
 void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 s32 TLobby__sub_803CC4C0(s32);
-void close_adxf_handle__6TLobbyFv(s32);
 extern s32 __vt__22TChCrLoadAfsTextureReq[];
 Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
 }
@@ -150,7 +149,7 @@ Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
             if (TLobby__sub_803CC4C0(arg0->handle) == 2) {
                 ((TLobby *)(arg0->handle))->adxf_stop();
             }
-            close_adxf_handle__6TLobbyFv(arg0->handle);
+            ((TLobby *)(arg0->handle))->close_adxf_handle();
             arg0->handle = 0;
         }
         finish_request__22TChCrLoadAfsTextureReqFPv(arg0);

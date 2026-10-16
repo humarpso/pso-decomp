@@ -1,4 +1,5 @@
 #include "pso/TBoss3VoloptCtrl.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/boss/TUnk_80483B88.h"
 
 #include "types.h"
@@ -22,7 +23,6 @@ s32 unhide_room_set_objects(s32, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003EA2C(int);
 s32 TObjPlayer__sub_801BA42C();
-s32 freeze_all_players__10TObjPlayerFv();
 s32 play_area_music(void *);
 u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
@@ -124,7 +124,7 @@ void TBoss3VoloptCtrl::run_task() {
             if ((s32) volopt_resources_loaded == 0) {
                 TBoss3Volopt__sub_8003EA2C((int) (1));
                 activate_camera_mode(9);
-                freeze_all_players__10TObjPlayerFv();
+                TObjPlayer::freeze_all_players();
                 play_area_music((void *) (&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
                     if (TRaderMapCore::is_not_split_screen() == 1) {

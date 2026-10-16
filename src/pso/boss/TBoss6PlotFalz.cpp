@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -1129,7 +1130,6 @@ struct Obj_802AC3E8 { u8 pad[0x38]; Vec_802AC3E8 pos; u8 pad2[0xA4 - 0x44]; Sub_
 extern "C" {
 void destroy_buffer_pair(void *p, s32 flag);
 int mem_free(void *p);
-void refresh_equipment_slot__10TObjPlayerFv(void *p);
 void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self);
 void scroll_strip_uvs(u32, s16, s16);
 s32 get_bml_model(s32, s32);
@@ -1244,7 +1244,7 @@ void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
             if (get_field_3e0__12TBoss3VoloptFv(p) == 0x1f) {
-                refresh_equipment_slot__10TObjPlayerFv(p);
+                ((TObjPlayer *)p)->refresh_equipment_slot();
             }
         }
     }
@@ -1279,7 +1279,7 @@ void place_players_in_warp_circle(void) {
             ((void (*)(void *, void *))set_position_from__14TBoss4DarkFalzFPv)(p, &pos);
             ((TBoss4DarkFalz *)p)->save_position();
             *(s32 *)(get_hit_data__14TBoss4DarkFalzFv(p) + 4) = ang + 0x8000;
-            refresh_equipment_slot__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->refresh_equipment_slot();
             if (is_locally_controlled__10TObjPlayerFPv((s32)p) != 0) {
                 reset_cameras_to_actor(p, 0);
             }
@@ -1302,7 +1302,6 @@ void TBoss6EmptyWarp::init_warp() { place_players_in_warp_circle(); warp_nearby_
 #undef warp_nearby_players__14TBoss6PlotFalzFv
 
 extern "C" {
-s32 end_camera_pan__10TObjPlayerFv(void *p);
 s32 release_all_players_control_lock();
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self);
 void start_freeze__10TObjPlayerFv();
@@ -1320,7 +1319,7 @@ void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self) {
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
-            end_camera_pan__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->end_camera_pan();
         }
     }
     release_all_players_control_lock();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowDD.h"
@@ -14,7 +15,6 @@ struct RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard {
 };
 
 extern "C" {
-s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, int, int);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_80260304_lbl_804CFAD0 lbl_804CFAD0;
 extern s32 __vt__19TWindowKeyBoardHard[];
@@ -25,7 +25,6 @@ u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1);
 extern "C" {
 
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1);
-s32 is_key_active__16TKeyBoardControlFv(void *);
 s32 is_key_active__19TWindowKeyBoardHardFv();
 void __dl__7TObjectFPv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
@@ -39,7 +38,7 @@ void TWindowKeyBoardHard::run_task() {
     void *temp_r3;
 
     if ((void *) *(void * *)&this->m_70 != NULL) {
-        if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (is_key_active__16TKeyBoardControlFv(*(void * *)&this->m_70) == 0)) {
+        if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (((TKeyBoardControl *)(*(void * *)&this->m_70))->is_key_active() == 0)) {
             if (has_non_modifier_key__16TKeyBoardControlFv(this) != 0) {
                 if ((s32) current_language == 0) {
                     *(s32 *)&this->m_68 = 0x3C;
@@ -78,7 +77,7 @@ void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80260304_lbl_804CFAD0_size[sizeof(RecoveredGlobal_80260304_lbl_804CFAD0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard_size[sizeof(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard) == 0x1C ? 1 : -1];
 u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
-    construct_base__9TWindowDDFPUcsPUc((void *) (arg0), (void *) (&lbl_804CFAD0.value), (int) (4), (int) (get_window_layout_position((int) (0xB9))));
+    ((TWindowDD *)arg0)->construct_base((u8 *)(&lbl_804CFAD0.value), (s16)((int) (4)), (u8 *)(get_window_layout_position((int) (0xB9))));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard *)&__vt__19TWindowKeyBoardHard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowKeyBoardHard__name;
     *(s32 *)((s8 *)arg0 + 0x60) = 0;

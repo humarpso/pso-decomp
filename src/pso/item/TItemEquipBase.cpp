@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemData.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemEquipBase.h"
@@ -489,9 +491,6 @@ s32 TObjPlayer__sub_800194E8(void *);
 s32 get_attack_params_atp_max(void *);
 s32 TItemData__sub_8010B808(void *);
 s32 TItemData__sub_8010B810(int);
-void add_accuracy__9TItemDataFl(s32, s32);
-void add_stat__9TItemDataFl(s32, s32);
-void add_s16__9TItemDataFPsl(s32, s32);
 s16 add_lck__10TObjPlayerFl(void *, int);
 s16 add_evp__10TObjPlayerFl(void *, int);
 s16 add_ata__10TObjPlayerFl(void *, int);
@@ -524,7 +523,6 @@ void __dt__5TItemFv(void *, int);
 s32 destroy__5TItemFv(void *);
 s32 fn_8010B7D8(void *, void *);
 s32 fn_8010B7E8(void *, void *);
-void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_field_ed__5TItemFv(void*);
 s32 get_attack_params_atp_min(void *);
 s32 get_attack_params_atp_max(void *);
@@ -838,9 +836,9 @@ void TItemEquipBase::add_equip_stats(s32 arg1) {
         ((TItemData *)(&item))->apply_equip_effects((s32)(*(s32 *)((s8 *)arg0 + 0xF0)), (s32)((s32)(arg0 + 0x11C)), (s32)((s32)(arg0 + 0x14C)), (s32)(arg0 + 0xF8), (s32)(arg0 + 0x16C));
         t = TItemData__sub_8010B810(*(s32 *)((s8 *)arg0 + 0xF0));
         if (t != 0) {
-            add_s16__9TItemDataFPsl(t, get_attack_params_atp_min(arg0 + 0x11C));
-            add_stat__9TItemDataFl(t, get_attack_params_atp_max(arg0 + 0x11C));
-            add_accuracy__9TItemDataFl(t, TObjPlayer__sub_800194E8(arg0 + 0x11C));
+            TItemData::add_s16((s16 *)t, (s32)(get_attack_params_atp_min(arg0 + 0x11C)));
+            ((TItemData *)t)->add_stat(get_attack_params_atp_max(arg0 + 0x11C));
+            ((TItemData *)t)->add_accuracy(TObjPlayer__sub_800194E8(arg0 + 0x11C));
         }
         p = (u8 *)TItemData__sub_8010B808(*(void **)((s8 *)arg0 + 0xF0));
         if (p != NULL) {
@@ -924,7 +922,7 @@ void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1) {
         ((TItemEquipBase *)arg0)->remove_equip_effects();
         __dt__5TItemFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

@@ -31,7 +31,6 @@ extern s32 TObjSuisouLobby__lobby_type;
 void TObjSuisouLobby__sub_80369B5C(void);
 void run_task__15TObjSuisouLobbyFv(Suisou_80369BF4 *self);
 u32 create_particle_emitter(void *, int);
-s32 enable__13TParticleCtrlFv(void *);
 s32 init_map_object_base(void *, void *);
 s32 is_lobby_event_active(void);
 void TObjSuisouLobby__sub_80369D68(void);
@@ -61,7 +60,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 enable__13TParticleCtrlFv(void *);
 void queue_destruction__7TObjectFv(void *);
 
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
@@ -152,10 +150,10 @@ void TObjSuisouLobby::update_particle() {
         }
     } else {
         if ((u32) this->m_d4 != 0U) {
-            enable__13TParticleCtrlFv(*(void * *)&this->m_d4);
+            ((TParticleCtrl *)(*(void * *)&this->m_d4))->enable();
         }
         if ((u32) this->m_d8 != 0U) {
-            enable__13TParticleCtrlFv(*(void * *)&this->m_d8);
+            ((TParticleCtrl *)(*(void * *)&this->m_d8))->enable();
         }
     }
 }
@@ -222,7 +220,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
         self->p1 = (void *)create_particle_emitter(&v, 0x222);
         pop_matrix();
         if (self->p1 != NULL) {
-            enable__13TParticleCtrlFv(self->p1);
+            ((TParticleCtrl *)(self->p1))->enable();
         }
     }
     {
@@ -235,7 +233,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
         self->p2 = (void *)create_particle_emitter(&v, 0x222);
         pop_matrix();
         if (self->p2 != NULL) {
-            enable__13TParticleCtrlFv(self->p2);
+            ((TParticleCtrl *)(self->p2))->enable();
         }
     }
     if (is_lobby_event_active() != 0) {

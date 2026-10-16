@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjDoor.h"
 #include "pso/TParticleCtrl.h"
@@ -72,7 +73,6 @@ struct Door_8018F15C {
 };
 
 extern "C" {
-void free_children__12TObjDoorJungFPv(void *, int);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
@@ -101,7 +101,6 @@ void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void *TObjDoorJung__create(void *arg0);
 void update_opening_glow__8TObjDoorFPv(u8 *arg0);
-void free_children__12TObjDoorJungFPv(void *, int);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
@@ -115,7 +114,6 @@ extern s32 lbl_805D5660;
 extern s32 TObjDoor__resource_param;
 extern s32 model_render_flags;
 void render__8TObjDoorFPv(Door_8018E40C *arg0);
-void free_children__12TObjDoorJungFPv(void *, int);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
@@ -135,7 +133,6 @@ extern u32 door_resource_handle;
 extern s32 TObjDoor__resource_param;
 extern Glob_8018E358 TObjDoor__model_resource_ptrs[];
 extern DoorMotionHeader* TObjDoor__motion_table[];
-void free_children__12TObjDoorJungFPv(void *, int);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
@@ -296,9 +293,9 @@ void draw_model__8TObjDoorFPv(Door_8018E358 *arg0) {
     draw_ginja_model_with_motion(TObjDoor__model_resource_ptrs->f0, (int)TObjDoor__motion_table[0], TObjDoor__model_resource_ptrs, arg0->fB4);
     TParticleCtrl::begin_effect_render();
     Glob_8018E358 *g1 = TObjDoor__model_resource_ptrs;
-    free_children__12TObjDoorJungFPv(g1->a->f4, 0xA);
+    ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xA);
     Glob_8018E358 *g2 = TObjDoor__model_resource_ptrs;
-    free_children__12TObjDoorJungFPv(g2->b->f4, 0xA);
+    ((TObjDoorJung *)(g2->b->f4))->free_children((void *)0xA);
     draw_ginja_object(g1->a);
     draw_ginja_object(g2->b);
     TParticleCtrl::end_effect_render();
@@ -318,13 +315,13 @@ void render__8TObjDoorFPv(Door_8018E40C *arg0) {
     color.a = arg0->fC4;
     set_chunk_material_color(&color);
     Glob_8018E40C *g0 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g0->c->f4, (u16)arg0->fD0);
+    ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
     model_render_flags = lbl_805D5660;
     Glob_8018E40C *g1 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g1->a->f4, 0xA);
+    ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xA);
     Glob_8018E40C *g2 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g2->b->f4, 0xA);
+    ((TObjDoorJung *)(g2->b->f4))->free_children((void *)0xA);
     draw_ginja_object(g1->a);
     draw_ginja_object(g2->b);
     TParticleCtrl::end_effect_render();
@@ -339,9 +336,9 @@ void draw_closing__8TObjDoorFPv(Door_8018E358 *arg0) {
     draw_ginja_model_with_motion(TObjDoor__model_resource_ptrs->f0, (int)TObjDoor__motion_table[0], TObjDoor__model_resource_ptrs, arg0->fB4);
     TParticleCtrl::begin_effect_render();
     Glob_8018E358 *g1 = TObjDoor__model_resource_ptrs;
-    free_children__12TObjDoorJungFPv(g1->a->f4, 0xA);
+    ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xA);
     Glob_8018E358 *g2 = TObjDoor__model_resource_ptrs;
-    free_children__12TObjDoorJungFPv(g2->b->f4, 0xA);
+    ((TObjDoorJung *)(g2->b->f4))->free_children((void *)0xA);
     draw_ginja_object(g1->a);
     draw_ginja_object(g2->b);
     TParticleCtrl::end_effect_render();
@@ -361,13 +358,13 @@ s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
     color.a = arg0->fC4;
     set_chunk_material_color((Color_8018E40C *)(&color));
     Glob_8018E5F4 *g0 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g0->c->f4, (u16)arg0->fD0);
+    ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
     model_render_flags = lbl_805D5660;
     Glob_8018E5F4 *g1 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g1->a->f4, 0xA);
+    ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xA);
     Glob_8018E5F4 *g2 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g2->b->f4, 0xA);
+    ((TObjDoorJung *)(g2->b->f4))->free_children((void *)0xA);
     draw_ginja_object(g1->a);
     draw_ginja_object(g2->b);
     TParticleCtrl::end_effect_render();
@@ -396,13 +393,13 @@ s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
     color.a = arg0->fC4;
     set_chunk_material_color((Color_8018E40C *)(&color));
     Glob_8018E74C *g0 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g0->c->f4, (u16)arg0->fD0);
+    ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
     model_render_flags = lbl_805D5660;
     Glob_8018E74C *g1 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g1->a->f4, 0xB);
+    ((TObjDoorJung *)(g1->a->f4))->free_children((void *)0xB);
     Glob_8018E74C *g2 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
-    free_children__12TObjDoorJungFPv(g2->b->f4, 0xB);
+    ((TObjDoorJung *)(g2->b->f4))->free_children((void *)0xB);
     draw_ginja_object(g1->a);
     draw_ginja_object(g2->b);
     TParticleCtrl::end_effect_render();

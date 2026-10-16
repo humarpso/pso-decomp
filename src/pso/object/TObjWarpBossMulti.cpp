@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TLobby.h"
 #include "pso/object/TObjAreaWarp.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/TObject.h"
@@ -213,7 +215,6 @@ s32 check_player_flag1__6TLobbyFv(void);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 get_player_by_client_id(s32);
 s32 fn_80248994(void *, u32, int);
-s32 advance_matching_entries__22THunterGuildSeqOfflineFll(void *, u8, int);
 void *refresh_with_default_list__20TWindowSubStatusDispFll(s32, void *);
 s32 request_active_window_close();
 s32 begin_player_keyboard_hold(s32);
@@ -951,18 +952,13 @@ s32 check_flag_100__10TObjPlayerFPv(void *);
 s32 disallow_rendering__7TObjectFv(u32);
 f32 xz_distance_squared(s32, void *);
 s32 get_current_floor();
-s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
-s32 has_item_flag_4096__10TObjPlayerFv(void *);
-s32 check_technique_flag__10TObjPlayerFv(void *);
 u8 is_current_floor_switch_set(int);
 s32 get_main_phase();
 void *find_entity_by_id(u16);
 s32 end_player_keyboard_hold(s32);
 s32 bswap_6x6A_packet__19TWindowSubTradeMainFv();
 s32 TWindow__close(void *);
-s32 get_state__6TLobbyFv();
 s32 align_menu_entry_positions(u32);
-s32 calc_window_size__17TWindowSubComCardFv(u32);
 s32 get_window_layout_position(s32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 begin_player_keyboard_hold(s32);
@@ -1000,7 +996,6 @@ void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void vfunc_14__12TObjWarpBaseFv();
 void open_confirm_window__12TObjAreaWarpFUs();
-void is_warp_enabled__12TObjAreaWarpFl();
 void TObjWarpBase__vt14();
 void TObjWarpBase__vt15();
 void confirm_area_transfer__12TObjAreaWarpFPvi();
@@ -1057,7 +1052,7 @@ s32 __vt__17TObjWarpBossMulti[21] = {
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&vfunc_14__12TObjWarpBaseFv,
     (s32)&open_confirm_window__12TObjAreaWarpFUs,
-    (s32)&is_warp_enabled__12TObjAreaWarpFl,
+    (s32)&TObjAreaWarp::is_warp_enabled,
     (s32)&TObjWarpBase__vt14,
     (s32)&TObjWarpBase__vt15,
     (s32)&confirm_area_transfer__12TObjAreaWarpFPvi,
@@ -1146,14 +1141,14 @@ void run_task__17TObjWarpBossMultiFv(Obj_8019DFE8 *self) {
         if (pl != 0U && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
             if (((TObjPlayer *)pl)->get_field_3e4() == get_current_floor()) {
                 if (xz_distance_squared(pl + 0x38, self->f38) <= (r = lbl_805DC014 + self->fAC) * r) {
-                    if (((s32 (*)(u32))is_flag_clear__17TObjWarpBossMultiFPv)(pl) != 0) {
+                    if (TObjWarpBossMulti::is_flag_clear((void*)pl) != 0) {
                         self->fC4[i] = 1;
-                        ((void (*)(u32))check_technique_flag__10TObjPlayerFv)(pl);
+                        ((TObjPlayer *)pl)->check_technique_flag();
                     }
-                } else if (((s32 (*)(u32))is_flag_clear__17TObjWarpBossMultiFPv)(pl) == 0) {
+                } else if (TObjWarpBossMulti::is_flag_clear((void*)pl) == 0) {
                     if (self->fC4[i] != 0) {
                         self->fC4[i] = 0;
-                        ((void (*)(u32))has_item_flag_4096__10TObjPlayerFv)(pl);
+                        ((TObjPlayer *)pl)->has_item_flag_4096();
                     }
                 }
             }
@@ -1275,7 +1270,7 @@ s32 TObjWarpBoss::sub_8019E418() {
 }
 
 s32 TObjWarpBossMulti::is_lobby_active() {
-    return get_state__6TLobbyFv() ? 1 : 0;
+    return TLobby::get_state() ? 1 : 0;
 }
 
 s32 TObjWarpBossMulti::get_boss_warp_flag() {
@@ -1410,7 +1405,7 @@ void TObjWarpBoss::warp_boss_handle_window() {
                 if ((u32) *(u32 *)((s8 *)this + 0xB0) != 0U) {
                     ((TWindowSubTradeMain *)(*(u32 *)((s8 *)this + 0xB0)))->add_text_entry(get_message_10__20TWindowSubStatusDispFl(0x40), 0, 0, -1);
                     ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)this + 0xB0)))->set_flag_40();
-                    calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)this + 0xB0));
+                    ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0xB0)))->calc_window_size();
                     align_menu_entry_positions(*(u32 *)((s8 *)this + 0xB0));
                 }
                 begin_player_keyboard_hold(local_client_id);
@@ -1650,13 +1645,13 @@ void TObjWarpBoss::update_warp_occupants() {
     pl2 = ((Player_8019EE14 *(*)(s32))get_player_by_client_id)(local_client_id);
     if (pl2 != NULL && ((TObjPlayer *)pl2)->get_field_3e4() == get_current_floor()) {
         if (((f32 (*)(void *, void *))xz_distance_squared)(pl2->pos, self->pos) <= (lbl_805DC014 + self->radius) * (lbl_805DC014 + self->radius)) {
-            if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) != 0) {
+            if (TObjWarpBossMulti::is_flag_clear((void*)pl2) != 0) {
                 self->warping = 1;
-                check_technique_flag__10TObjPlayerFv(pl2);
+                ((TObjPlayer *)pl2)->check_technique_flag();
             }
-        } else if (is_flag_clear__17TObjWarpBossMultiFPv(pl2) == 0 && self->warping != 0) {
+        } else if (TObjWarpBossMulti::is_flag_clear((void*)pl2) == 0 && self->warping != 0) {
             self->warping = 0;
-            has_item_flag_4096__10TObjPlayerFv(pl2);
+            ((TObjPlayer *)pl2)->has_item_flag_4096();
         }
     }
 }
@@ -1719,7 +1714,7 @@ s32 TObjWarpBoss::update_warp_dialogs() {
   {
     for (j = 0; j < self->count; j++)
     {
-            advance_matching_entries__22THunterGuildSeqOfflineFll(self->list, self->inside[j] != 0, j);
+            ((THunterGuildSeqOffline *)(self->list))->advance_matching_entries(self->inside[j] != 0, j);
       color = 0xF0F0F0FF;
       if (((self->mode == 1) && (((u32)get_player_by_client_id((s32)(j))) != 0)) && (check_player_flag1__6TLobbyFv() != 0))
       {

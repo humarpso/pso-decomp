@@ -10,7 +10,6 @@ struct VObj_801BC688 : Base_801BC688 { virtual void m0(); virtual void m1(int); 
 
 extern "C" {
 s32 set_flag_400000__10TObjPlayerFi(void *);
-s32 set_floor_index__10TObjPlayerFl(void *, int);
 s32 fn_801C19F4(void *);
 u8 *heap_alloc__10TObjPlayerFPv(s32);
 extern const f32 TObjPlayer__data_805DC278;
@@ -73,7 +72,7 @@ void TObjPlayer::init_action_provider() {
     this->m_424 = 0;
     this->m_e0 = 0;
     *(s32 *)((s8 *)arg0 + 0xDB4) = 0;
-    set_floor_index__10TObjPlayerFl((void *) (arg0), (int) (0xF));
+    ((TObjPlayer *)arg0)->set_floor_index((int) (0xF));
     ((TObjPlayer *)arg0)->set_floor((int) (0xF));
     this->m_54c = 0;
     *(s32 *)((s8 *)arg0 + 0x3B8) = 0;

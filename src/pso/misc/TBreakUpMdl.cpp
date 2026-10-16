@@ -162,7 +162,6 @@ extern s32 TBreakUpMdl__class_name;
 extern const f32 lbl_805D97D0;
 extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
-int get_target_info__9TObjEneDDFv(void*);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -177,7 +176,6 @@ void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 void mem_free(void *);
-int get_target_info__9TObjEneDDFv(void*);
 
 extern s32 __vt__11TBreakUpMdl[];
 

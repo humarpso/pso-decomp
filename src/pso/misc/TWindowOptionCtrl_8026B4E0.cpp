@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 
@@ -11,8 +12,6 @@ s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(int, void *, int, f32);
 extern const f32 lbl_805DD268;
 s32 get_localized_text_entry(s32, s32);
 void *TAdEnterPasswordGC__sub_8013ADE4();
-s32 complete_reveal__14TWindowMessageFv(s32);
-s32 add_label_value_line__17TWindowOptionCtrlFPCcPCcUl(s32, s32, s32, s32);
 s32 set_window_mode_4__6TLobbyFPvll(void *, s32 *, s32);
 s32 warn_if_empty__17TWindowOptionCtrlFPUc(void *);
 void *get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv();
@@ -29,17 +28,17 @@ s32 TWindowOptionCtrl::create_serial_info_window(s32 arg1) {
     w = set_window_mode_4__6TLobbyFPvll(this, lbl_8044F4A4, 3);
     switch (arg1) {
     case 0:
-        add_label_value_line__17TWindowOptionCtrlFPCcPCcUl(w, get_localized_text_entry(0xF, 0x16), warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC__sub_80321874()), 0);
-        add_label_value_line__17TWindowOptionCtrlFPCcPCcUl(w, get_localized_text_entry(0xF, 0x17), warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC__sub_803217B8()), 0);
-        add_label_value_line__17TWindowOptionCtrlFPCcPCcUl(w, get_localized_text_entry(0xF, 0x18), warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterPasswordGC__sub_8013ADE4()), 0);
+        ((TWindowOptionCtrl *)w)->add_label_value_line((const char *)(get_localized_text_entry(0xF, 0x16)), (const char *)(warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC__sub_80321874())), (u32)0);
+        ((TWindowOptionCtrl *)w)->add_label_value_line((const char *)(get_localized_text_entry(0xF, 0x17)), (const char *)(warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC__sub_803217B8())), (u32)0);
+        ((TWindowOptionCtrl *)w)->add_label_value_line((const char *)(get_localized_text_entry(0xF, 0x18)), (const char *)(warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterPasswordGC__sub_8013ADE4())), (u32)0);
         break;
     case 1:
-        add_label_value_line__17TWindowOptionCtrlFPCcPCcUl(w, get_localized_text_entry(0xF, 0x16), warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC__sub_80321738()), 0);
-        add_label_value_line__17TWindowOptionCtrlFPCcPCcUl(w, get_localized_text_entry(0xF, 0x17), warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC::get_formatted_serial()), 0);
-        add_label_value_line__17TWindowOptionCtrlFPCcPCcUl(w, get_localized_text_entry(0xF, 0x18), warn_if_empty__17TWindowOptionCtrlFPUc(get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv()), 0);
+        ((TWindowOptionCtrl *)w)->add_label_value_line((const char *)(get_localized_text_entry(0xF, 0x16)), (const char *)(warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC__sub_80321738())), (u32)0);
+        ((TWindowOptionCtrl *)w)->add_label_value_line((const char *)(get_localized_text_entry(0xF, 0x17)), (const char *)(warn_if_empty__17TWindowOptionCtrlFPUc(TAdEnterSerialAccessGC::get_formatted_serial())), (u32)0);
+        ((TWindowOptionCtrl *)w)->add_label_value_line((const char *)(get_localized_text_entry(0xF, 0x18)), (const char *)(warn_if_empty__17TWindowOptionCtrlFPUc(get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv())), (u32)0);
         break;
     }
-    complete_reveal__14TWindowMessageFv(w);
+    ((TWindowMessage *)w)->complete_reveal();
     return w;
 }
 

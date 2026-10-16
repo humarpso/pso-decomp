@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8035D49C_lbl_804F1EC8 {
     s32 value;
@@ -10,7 +11,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *alloc_and_init_obj_effect(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern RecoveredGlobal_8035D49C_lbl_804F1EC8 ruby_bullet_weapon_vtable;
 u8 *fn_8035D49C(u8 *arg0, u8 *arg1, s32 _w2);
 }
@@ -21,7 +21,7 @@ typedef char RecoveredGlobal_8035D49C_lbl_804F1EC8_size[sizeof(RecoveredGlobal_8
 u8 *fn_8035D49C(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &ruby_bullet_weapon_vtable.value;
-    set_status_flags__10TObjPlayerFUl(arg0, 0x8000);
+    ((TObjPlayer *)arg0)->set_status_flags(0x8000);
     return arg0;
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TProtocol.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -12,7 +13,6 @@ extern s32 lbl_805D5E50;
 void TLobby__send_and_handle_60(u8 *arg0);
 s32 TProtocol__send_60(int, int, int);
 extern u32 TLobby__protocol_instance;
-s32 send_subcommand_to_client__9TProtocolFlPScl(u32, s32, void *, s32);
 s32 dispatch_6x_subcommand(void *);
 extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
@@ -37,7 +37,6 @@ extern "C" {
 void dispatch_packet__6TLobbyFPv(void *arg0);
 void update_players__6TLobbyFi(s32 arg0);
 s32 dispatch_6x_subcommand(void *);
-s32 send_subcommand_to_client__9TProtocolFlPScl(u32, s32, void *, s32);
 int bswap_16__FPUs(void*);
 s32 bswap_32__FPUl(s32 *);
 s32 append_command_to_batch_buffer(void *, s32);
@@ -79,7 +78,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        send_subcommand_to_client__9TProtocolFlPScl(TLobby__protocol_instance, TLobby__designated_client_id, arg0, temp_r31);
+        ((TProtocol *)TLobby__protocol_instance)->send_subcommand_to_client((s32)TLobby__designated_client_id, (s8 *)arg0, (s32)temp_r31);
     }
 }
 
@@ -97,7 +96,7 @@ void TLobby::send_subcommand_to_client(u32 arg1) {
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        send_subcommand_to_client__9TProtocolFlPScl(TLobby__protocol_instance, arg1, this, size);
+        ((TProtocol *)TLobby__protocol_instance)->send_subcommand_to_client((s32)arg1, (s8 *)this, (s32)size);
     }
 }
 

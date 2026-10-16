@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 
 struct RecoveredGlobal_8012B524_lbl_804A4D70 { s32 value; u8 remaining[0xF4]; };
@@ -9,7 +10,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_partisan_weapon(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern RecoveredGlobal_8012B524_lbl_804A4D70 partisan_weapon_vtable;
 extern const f32 lbl_805DAE88;
 extern const f32 lbl_805DAEA4;
@@ -31,9 +31,9 @@ u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     *(f32 *)((s8 *)arg0 + 0x214) = (f32) lbl_805DAE88;
     *(f32 *)((s8 *)arg0 + 0x218) = (f32) lbl_805DAE88;
     *(f32 *)((s8 *)arg0 + 0x21C) = (f32) lbl_805DAE88;
-    set_status_flags__10TObjPlayerFUl(arg0, 2);
+    ((TObjPlayer *)arg0)->set_status_flags(2);
     if (((TItemProShield *)arg0)->get_slot_count() == 6) {
-        set_status_flags__10TObjPlayerFUl(arg0, 0x20);
+        ((TObjPlayer *)arg0)->set_status_flags(0x20);
     }
     return arg0;
 }

@@ -97,7 +97,6 @@ extern G_800845F8 shared_capture_texture_list;
 void **TObjPlayer__sub_80084694(void);
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
-s32 set_cull_none__8TObjFishFv();
 u8 TObjBoss2Tunnel__sub_8036EF44();
 s32 GXPixModeSync();
 s32 GXSetTexCopySrc(int, int, int, int);
@@ -230,7 +229,7 @@ void func_80083a00__Fv(void) {
         pop_matrix();
         GXColor_80083B8C c = lbl_805E120C;
         Dolphin_GXSetCopyFilter((int) (0U), (void *) (NULL), (int) (0U), (void *) (NULL));
-        set_cull_none__8TObjFishFv();
+        TObjFish::set_cull_none();
         GXSetCopyClear(c, 0xFFFFFF);
         GXSetTexCopySrc((int) (0), (int) (0), (int) (0x100), (int) (0x100));
         GXSetTexCopyDst((int) (0x100), (int) (0x100), (int) (2), (int) (0));

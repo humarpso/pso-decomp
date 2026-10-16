@@ -1,6 +1,8 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/enemy/TObjEneRecon.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TUnk_80493450.h"
@@ -589,7 +591,6 @@ s32 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 play_effect__10TObjPlayerFlll(void *, s32, s32);
 s32 minimap_render_dot(void *, int, int, int);
 void subtract_vector(void *, void *);
 extern const f64 lbl_804750C8[];
@@ -654,7 +655,6 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 void *TObjControl__ct(void *, void *);
 u8 *TObjEneDolmOlm__ct(u8 *, s32, s32);
-s32 push_reflect_matrix__12TObjEneReconFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -1455,7 +1455,7 @@ void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
 }
 s32 TObjEneDolmOlm::render_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv(((s32 *)&main_task)) & 0x20) {
-        if (push_reflect_matrix__12TObjEneReconFv((void *) (((u8 *)this) + 0x3D8)) != 0) {
+        if (((TObjEneRecon *)(((u8 *)this) + 0x3D8))->push_reflect_matrix() != 0) {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
@@ -1676,7 +1676,7 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
                     if (pl != 0 && is_locally_controlled__10TObjPlayerFPv(pl) != 0 &&
                         ((TObject *)pl)->all_parents_unqueued_for_destruction() != 0 &&
                         obj_testFlags30(pl, 0x800) == 0 && ((TLobby *)pl)->check_player_flag1() == 0) {
-                        play_effect__10TObjPlayerFlll(pl, (s32)(lbl_805DEF70 * (f32)(*(Param_8030177C ** *)&TObjEneDolmOlm__behavior_params_by_variant)[arg0->kind]->power), 2);
+                        TObjPlayer::play_effect((s32)pl, (s32)((s32)(lbl_805DEF70 * (f32)(*(Param_8030177C ** *)&TObjEneDolmOlm__behavior_params_by_variant)[arg0->kind]->power)), (s32)2);
                     }
                 }
             }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804D0658.h"
@@ -221,8 +222,6 @@ struct RecoveredGlobal_80268D08_lbl_8050E208 {
 extern "C" {
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(int, int, int, int);
-s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 extern RecoveredGlobal_80268D08_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD1F8;
 }
@@ -235,7 +234,6 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_status_display__20TWindowSubStatusDispFls(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 void TWindowSubStatusDisp__sub_80268C80(u8 *arg0) {
@@ -266,18 +264,18 @@ void TWindowSubStatusDisp::handle_choice_input() {
     if ((((TUnk_804D0658 *)arg0)->is_selected() == 0) && (((s32 (*)(void *))is_open__13TUnk_804D0658Fv)((void *) (arg0)) == 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r30 = (u8 *)&controller_input_state.value + 0x20;
-            if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
                 ((TUnk_804D0658 *)arg0)->move_cursor_prev();
             }
-            if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
                 ((TUnk_804D0658 *)arg0)->move_next_choice();
             }
         } else {
             temp_r30_2 = (u8 *)&controller_input_state.value + 0x20;
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r30_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
                 ((TUnk_804D0658 *)arg0)->move_cursor_prev();
             }
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll((int) (temp_r30_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
                 ((TUnk_804D0658 *)arg0)->move_next_choice();
             }
         }
@@ -310,7 +308,7 @@ void *TUnk_804D0658::destroy_children(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = choice_setting_popup_vtable;
         TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)this + 0x7C)), (s16)1);
-        destroy_status_display__20TWindowSubStatusDispFls(*(void **)((s8 *)this + 0x78), 1);
+        TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)this + 0x78)), (s16)1);
         destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

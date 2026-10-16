@@ -123,7 +123,6 @@ extern NetworkPacketBufferStorage network_packet_buffer_storage;
 extern s32 lbl_805D7A00;
 void TLobby__sub_803F95E4(u32);
 void TLobby__sub_803F97E8(s32);
-s16 pppoe_recv_packet__6TLobbyFUsPUs(void *, u16, void *);
 s32 TLobby__sub_80428094(s16);
 void TAdSinglePlyChrSelectGC__sub_8042D604(void);
 extern s16 net_slot_id;
@@ -163,7 +162,6 @@ void subtract_network_queue_timeout(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
 extern s32 lobby_map_state_code;
 void set_lobby_map_state_code(s32 arg0);
-s16 pppoe_recv_packet__6TLobbyFUsPUs(void *, u16, void *);
 extern s16 net_slot_id;
 extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F8090(void);
@@ -206,7 +204,6 @@ extern u8 lobby_net_config_block[];
 extern T_803F86C0 lbl_805D7A50;
 s32 TAdSinglePlyChrSelectGC__sub_8042D49C(int);
 s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p);
-s16 pppoe_recv_packet__6TLobbyFUsPUs(void *, u16, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042D7E0(void *);
 extern s16 net_slot_id;
 extern s16 network_pppoe_transport_enabled;
@@ -684,7 +681,7 @@ s32 TLobby__sub_803F8090(void) {
         if (net_slot_id < 0) {
             return 0;
         }
-        pppoe_recv_packet__6TLobbyFUsPUs(NULL, 0, NULL);
+        ((TLobby *)NULL)->pppoe_recv_packet(0, NULL);
         if (TLobby::get_slot_id(net_slot_id) == 4) {
             return 1;
         }
@@ -707,7 +704,7 @@ s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
             return 6;
         }
         {
-            s16 v = pppoe_recv_packet__6TLobbyFUsPUs(arg1, arg0, arg2);
+            s16 v = ((TLobby *)arg1)->pppoe_recv_packet(arg0, arg2);
             if (v != net_slot_id) {
                 return 6;
             }
@@ -748,7 +745,7 @@ void TLobby__sub_803F8238(void) {
             var_r31 = 0;
 loop_3:
             TLobby__sub_803F97E8(0xA);
-            if ((pppoe_recv_packet__6TLobbyFUsPUs(NULL, 0U, NULL) >= 0) && (TLobby::get_slot_id(net_slot_id) != -1)) {
+            if ((((TLobby *)NULL)->pppoe_recv_packet(0U, NULL) >= 0) && (TLobby::get_slot_id(net_slot_id) != -1)) {
                 var_r31 += 1;
                 if (var_r31 < 0x12C) {
                     goto loop_3;

@@ -136,7 +136,6 @@ void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon);
 s32 spawn_particle_effect(void *, s32);
 void *find_entity_by_id(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
-s32 fill_status_info__10TObjPlayerFPv(u32, void *);
 s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
@@ -159,7 +158,6 @@ s32 spawn_particle_effect(void *, s32);
 int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
-void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
@@ -192,7 +190,7 @@ void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0810;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -268,7 +266,7 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0908;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -317,7 +315,7 @@ s32 TObjPlayer::spawn_fire_explosion(u32 a0, s32 a1) {
     Info_8034F4FC info;
     void *o;
     TObjPlayer__sub_802E449C(&info);
-    fill_status_info__10TObjPlayerFPv(a0, &info);
+    ((TObjPlayer *)a0)->fill_status_info(&info);
     VecCopy__FP3VecPC3Vec(&info, a1);
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);
@@ -367,7 +365,7 @@ void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0A00;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;
@@ -429,7 +427,7 @@ void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0AF8;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

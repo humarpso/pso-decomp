@@ -115,7 +115,6 @@ s32 get_current_floor();
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 get_field_ed__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 enable__13TParticleCtrlFv(u32);
 
 s32 TObjPlayer::get_entity_id() { return *(s32*)((char*)this + 0x24); }
 s32 TObjPlayer__sub_8010A058(void* p) { return *(s32*)((char*)p + 0xf4); }
@@ -210,7 +209,7 @@ void TUnk_8049F148::run_task() {
             if (var_r30 != 0) {
                 ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x1C)))->clear_active_flag();
             } else {
-                enable__13TParticleCtrlFv(*(u32 *)((s8 *)this + 0x1C));
+                ((TParticleCtrl *)(*(u32 *)((s8 *)this + 0x1C)))->enable();
             }
             ((TNowLoading *)(*(u32 *)((s8 *)this + 0x1C)))->copy_pos(sp8);
         }

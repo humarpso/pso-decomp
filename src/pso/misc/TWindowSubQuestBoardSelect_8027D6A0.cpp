@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
 #include "pso/misc/TWindowDD.h"
@@ -26,7 +27,6 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD6B4;
-s32 apply_choice__20TWindowChoiceSettingFllll(void *, s32, s32, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, u8);
 s32 is_shortcut_active__26TWindowSubQuestBoardSelectFv();
@@ -41,16 +41,16 @@ s32 TWindowSubQuestBoardSelect::handle_page_input() {
     void *p;
     s8 d;
     if (is_shortcut_active__26TWindowSubQuestBoardSelectFv() == 0 &&
-        (apply_choice__20TWindowChoiceSettingFllll(p = TBL_8027D6A0[0].f20, 0xC0, 6, 1) != 0 ||
-        apply_choice__20TWindowChoiceSettingFllll(TBL_8027D6A0[4].f20, 0xC0, 6, 1) != 0)) {
+        (TWindowChoiceSetting::apply_choice((s32)(p = TBL_8027D6A0[0].f20), (s32)0xC0, (s32)6, (s32)1) != 0 ||
+        TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), (s32)0xC0, (s32)6, (s32)1) != 0)) {
         play_sound_effect(0x54100, 0, 0, 0);
         d = 0;
-        if (apply_choice__20TWindowChoiceSettingFllll(p, 0x80, 6, 1) != 0 ||
-            apply_choice__20TWindowChoiceSettingFllll(TBL_8027D6A0[4].f20, 0x80, 6, 1) != 0) {
+        if (TWindowChoiceSetting::apply_choice((s32)p, (s32)0x80, (s32)6, (s32)1) != 0 ||
+            TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), (s32)0x80, (s32)6, (s32)1) != 0) {
             d = 1;
         }
-        if (apply_choice__20TWindowChoiceSettingFllll(p, 0x40, 6, 1) != 0 ||
-            apply_choice__20TWindowChoiceSettingFllll(TBL_8027D6A0[4].f20, 0x40, 6, 1) != 0) {
+        if (TWindowChoiceSetting::apply_choice((s32)p, (s32)0x40, (s32)6, (s32)1) != 0 ||
+            TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), (s32)0x40, (s32)6, (s32)1) != 0) {
             d--;
         }
         if (d != 0) {

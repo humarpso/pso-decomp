@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/item/TItemData.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
 #include "pso/item/TItem.h"
 
 extern "C" {
-s32 calc_price__9TItemDataFv(s32 *);
 s32 is_valid_drop_floor(s32 arg0);
 s32 TObjPlayer__sub_80104840(s32 arg0);
 }
@@ -15,14 +15,14 @@ s32 TShopEquipmentSellWindow::get_item_data_value(u32 arg0) {
 
     if (arg0 != 0U) {
         ((TItem *)arg0)->copy_to_item_data(sp8);
-        return calc_price__9TItemDataFv((s32 *)(sp8));
+        return ((TItemData *)sp8)->calc_price();
     }
     return 0;
 }
 s32 TShopEquipmentSellWindow::get_item_price_if_valid() {
     u32 arg0 = (u32)this;
     if (arg0 != 0U) {
-        return calc_price__9TItemDataFv((s32 *)(arg0));
+        return ((TItemData *)arg0)->calc_price();
     }
     return 0;
 }

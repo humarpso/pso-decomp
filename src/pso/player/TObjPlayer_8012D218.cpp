@@ -5,7 +5,6 @@ extern "C" {
 
 s32 get_id__13TItemProArmorFv(void *);
 u8 get_slot_count__14TItemProShieldFv();
-s32 create_item_eff_cane__10TObjPlayerFP5TItemll(s32, void *, s32, s32);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 create_ex__9TTecMegidFllll(void *, s32 *, s32, s32);
 s32 ct__13TUnk_804A0688Fv(s32, u32, s32, s32);
@@ -37,7 +36,7 @@ void TObjPlayer::trigger_megid_special() {
     void *temp_r3;
 
     if (get_slot_count__14TItemProShieldFv() == 1) {
-        create_item_eff_cane__10TObjPlayerFP5TItemll(tl_05, this, 2, 0x101);
+        ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)this, (s32)2, (s32)0x101);
         if (is_mode_two_and_ready() != 0) {
             if (draw_icon((s32)2, (s32)(&sp8)) != 0) {
                 temp_r3 = *(void **)((s8 *)this + 0xF0);

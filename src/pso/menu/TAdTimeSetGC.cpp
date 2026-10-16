@@ -1,4 +1,5 @@
 #include "pso/TAdTimeSetGC.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 extern "C" {
 s32 poll_load_status__12TAdTimeSetGCFv();
 }
@@ -103,9 +104,6 @@ extern "C" void TAdSinglePlyChrSelectGC__sub_802E3038();
 extern "C" void report_card_status__23TAdSinglePlyChrSelectGCFv();
 extern "C" void build_selection_summary__23TAdSinglePlyChrSelectGCFv();
 extern "C" void close_and_next_cancel__23TAdSinglePlyChrSelectGCFv();
-extern "C" void close_scene__23TAdSinglePlyChrSelectGCFl();
-extern "C" void create_backgrounds__23TAdSinglePlyChrSelectGCFl();
-extern "C" void create_result_bg__23TAdSinglePlyChrSelectGCFl();
 extern "C" void ensure_player_loaded__23TAdSinglePlyChrSelectGCFv();
 extern "C" void ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFv();
 extern "C" void init_menu_window__23TAdSinglePlyChrSelectGCFv();
@@ -145,10 +143,10 @@ void *lbl_804E3050[149] = {
     (void *)&close_and_next_cancel__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff, (void *)&update_load_state__23TAdSinglePlyChrSelectGCFv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2D3C, (void *)0x0,
     (void *)0xffffffff, (void *)&update_load_countdown__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
-    (void *)&close_scene__23TAdSinglePlyChrSelectGCFl, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BD4,
+    (void *)&TAdSinglePlyChrSelectGC::close_scene, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BD4,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2BC8, (void *)0x0,
     (void *)0xffffffff, (void *)&update_timer__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
-    (void *)&create_backgrounds__23TAdSinglePlyChrSelectGCFl, (void *)0x0, (void *)0xffffffff, (void *)&advance_when_load_done__23TAdSinglePlyChrSelectGCFi,
+    (void *)&TAdSinglePlyChrSelectGC::create_backgrounds, (void *)0x0, (void *)0xffffffff, (void *)&advance_when_load_done__23TAdSinglePlyChrSelectGCFi,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E2A7C, (void *)0x0,
     (void *)0xffffffff, (void *)&update_char_timer__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
     (void *)&init_screen__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E289C,
@@ -165,7 +163,7 @@ void *lbl_804E3050[149] = {
     (void *)0xffffffff, (void *)&init_menu_window__23TAdSinglePlyChrSelectGCFv, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0, (void *)0xffffffff, (void *)&build_selection_summary__23TAdSinglePlyChrSelectGCFv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0,
-    (void *)0xffffffff, (void *)&create_result_bg__23TAdSinglePlyChrSelectGCFl, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC::create_result_bg, (void *)0x0, (void *)0xffffffff,
     (void *)&TAdSinglePlyChrSelectGC__sub_802E2158, (void *)0x0, (void *)0xffffffff, (void *)&show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E1FAC, (void *)0x0,
     (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E1F8C, (void *)0x0, (void *)0xffffffff,

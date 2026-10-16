@@ -38,11 +38,10 @@ extern "C" {
 void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-int enable__13TParticleCtrlFv(void*);
 int set_param_ptr__11TBoss4Type2Fl(void*);
 
 void TEneParticleCtrl::set_param() { void* m = *(void* *)&this->m_c0; if (m) set_param_ptr__11TBoss4Type2Fl(m); }
-void TEneParticleCtrl::free_particle_ctrl() { void* m = *(void* *)&this->m_c0; if (m) enable__13TParticleCtrlFv(m); }
+void TEneParticleCtrl::free_particle_ctrl() { void* m = *(void* *)&this->m_c0; if (m) ((TParticleCtrl *)m)->enable(); }
 
 extern s32 __vt__16TEneParticleCtrl[];
 

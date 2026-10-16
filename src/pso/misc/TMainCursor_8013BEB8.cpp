@@ -38,10 +38,6 @@ s32 obj_getField1c(void *);
 s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
 void init_target_vector__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 get_body_exclude_mask__11TMainCursorFv(void *);
-s32 get_body_include_mask__11TMainCursorFv(void *);
-s32 get_actor_exclude_mask__11TMainCursorFv(void *);
-s32 get_actor_include_mask__11TMainCursorFv(void *);
 s32 set_cursor_id__11TMainCursorFs(s32, int);
 s32 set_size__11TMainCursorFf(f32);
 s32 TMainCursor__sub_8013F13C(void *);
@@ -59,11 +55,9 @@ extern "C" {
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 struct Ent_8013C678 { u32 id; f32 key; };
 s32 fn_8004438C(void *);
-s32 store_sorted_record__11TMainCursorFPvPvPv(s32, Ent_8013C678 *, Ent_8013C678 *);
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
 s32 is_channel_active__11TMainCursorFv();
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1 = 0, void* a2 = 0);
-int init_slot__11TMainCursorFl(void*, void*);
 u8 TMainCursor__sub_8013E900(s32);
 s32 get_record_at__11TMainCursorFPvi(void *, int);
 s32 TMainCursor__sub_8013F170(void *, int);
@@ -197,8 +191,8 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
     if (player == NULL || ((TObject *)player)->all_parents_unqueued_for_destruction() == 0) {
         return 0;
     }
-    if (obj_testFlags30(player, get_actor_include_mask__11TMainCursorFv(cursor)) == 0 ||
-        obj_testFlags30(player, get_actor_exclude_mask__11TMainCursorFv(cursor)) != 0) {
+    if (obj_testFlags30(player, ((TMainCursor *)cursor)->get_actor_include_mask()) == 0 ||
+        obj_testFlags30(player, ((TMainCursor *)cursor)->get_actor_exclude_mask()) != 0) {
         return 0;
     }
     yaw = *(s32 *)(target + 0x60);
@@ -212,10 +206,10 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
         if (!(c->flags & 1)) {
             continue;
         }
-        if (!(c->flags & get_body_include_mask__11TMainCursorFv(cursor))) {
+        if (!(c->flags & ((TMainCursor *)cursor)->get_body_include_mask())) {
             continue;
         }
-        if (c->flags & get_body_exclude_mask__11TMainCursorFv(cursor)) {
+        if (c->flags & ((TMainCursor *)cursor)->get_body_exclude_mask()) {
             continue;
         }
         dist = horizontal_distance_squared(cursor + 0x1C, c->pos);
@@ -298,13 +292,13 @@ s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo,
         if (i >= j) {
             break;
         }
-        store_sorted_record__11TMainCursorFPvPvPv(self, &a[i], &tmp);
-        store_sorted_record__11TMainCursorFPvPvPv(self, &a[j], &a[i]);
-        store_sorted_record__11TMainCursorFPvPvPv(self, &tmp, &a[j]);
+        TMainCursor::store_sorted_record((void*)self, (void*)(&a[i]), (void*)(&tmp));
+        TMainCursor::store_sorted_record((void*)self, (void*)(&a[j]), (void*)(&a[i]));
+        TMainCursor::store_sorted_record((void*)self, (void*)(&tmp), (void*)(&a[j]));
     }
-    store_sorted_record__11TMainCursorFPvPvPv(self, &a[i], &tmp);
-    store_sorted_record__11TMainCursorFPvPvPv(self, &a[hi], &a[i]);
-    store_sorted_record__11TMainCursorFPvPvPv(self, &tmp, &a[hi]);
+    TMainCursor::store_sorted_record((void*)self, (void*)(&a[i]), (void*)(&tmp));
+    TMainCursor::store_sorted_record((void*)self, (void*)(&a[hi]), (void*)(&a[i]));
+    TMainCursor::store_sorted_record((void*)self, (void*)(&tmp), (void*)(&a[hi]));
     return i;
 }
 
@@ -333,7 +327,7 @@ void TMainCursor::reset_slots() {
     } while (i < 4);
 }
 
-void TMainCursor::init_slots() { { int i; for (i = 0; i < 4; i++) { init_slot__11TMainCursorFl(this, (void*)i); } } }
+void TMainCursor::init_slots() { { int i; for (i = 0; i < 4; i++) { init_slot((s32)((void*)i)); } } }
 
 s32 TMainCursor::find_by_pos(s16 arg1, s16 arg2) {
     s32 arg0 = (s32)this;

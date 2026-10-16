@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -31,8 +32,6 @@ typedef struct Glyph_80145804 {
 } Glyph_80145804;
 
 extern "C" {
-void release_menu_font__6TLobbyFv(void);
-void load_font_texture__6TLobbyFv(void);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 void *TNECFontEORFunction__ct(void *);
 void *mem_alloc(u32);
@@ -76,9 +75,9 @@ void load_menu_font(void) {
     u32 k;
     u32 u;
     u32 v;
-    load_font_texture__6TLobbyFv();
+    TLobby::load_font_texture();
     menu_font_glyph_data = set_stream_and_load_file__6TLobbyFi(lbl_8043F3D8);
-    release_menu_font__6TLobbyFv();
+    TLobby::release_menu_font();
     for (i = 0; i < 2; i++) {
         ((TObjPlayer *)(lbl_8050C048 + i))->set_render_rect(0, 0x208, 0x100, 0x100);
         set_texture_name(lbl_8050C090 + i, lbl_8050C048 + i, i + 0xDCF28, 0x08800000);

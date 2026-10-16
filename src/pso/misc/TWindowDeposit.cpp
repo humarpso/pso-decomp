@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDeposit.h"
@@ -21,7 +22,6 @@ extern "C" {
 s32 draw_visible_window_entries(void *, void *, int);
 void render__14TWindowDepositFv(s32 arg0);
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
-s32 get_camera_id__11TCameraCtrlFv();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 u32 calc_text_width(int);
 s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
@@ -98,7 +98,7 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) (lbl_805DCC60 + (lbl_805DCC64 + (lbl_805DCC68 + temp_f31)));
   *((f32 *) (((s8 *) arg0) + 0x38)) = TWindowSubStatusDisp::get_base_y(*((f32 *) (((s8 *) arg0) + 0x60)));
   ((TUnk_804CE018 *)arg0)->save_position();
-  if (get_camera_id__11TCameraCtrlFv() > 2)
+  if (TCameraCtrl::get_camera_id() > 2)
   {
     *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) lbl_805DCC6C;
     *((f32 *) (((s8 *) arg0) + 0x68)) = (f32) lbl_805DCC6C;

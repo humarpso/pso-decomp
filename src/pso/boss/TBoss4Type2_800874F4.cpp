@@ -12,7 +12,6 @@ extern s32 particle_pool_limit;
 extern s32 particle_global_entry_table;
 extern s32 particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
-void *initialize__13TParticleCtrlFPCvlllll(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
 void *create_particle_emitter(void *pos, s32 id);
 }
 
@@ -28,7 +27,7 @@ void *create_particle_emitter(void *pos, s32 id) {
     if (particle_pool_limit > id) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPCvlllll(p, pos, &(*(Ent_800874F4 * *)&particle_global_entry_table)[id], 0, 0, 0, 0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_800874F4 * *)&particle_global_entry_table)[id]), (s32)0, (s32)0, (s32)0, (s32)0);
         }
         return p;
     }
@@ -36,7 +35,7 @@ void *create_particle_emitter(void *pos, s32 id) {
         s32 idx = id - 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPCvlllll(p, pos, &(*(Ent_800874F4 * *)&particle_area_entry_table)[idx], 0, 0, 0, 0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_800874F4 * *)&particle_area_entry_table)[idx]), (s32)0, (s32)0, (s32)0, (s32)0);
         }
         return p;
     }

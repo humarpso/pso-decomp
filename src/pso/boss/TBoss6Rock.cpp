@@ -89,7 +89,6 @@ struct Obj_80353F5C
 
 extern "C" {
 void TBoss6Rock__sub_803542E8(void *, s32);
-void spawn_crush_rocks__10TBoss6RockFl(void *, s32);
 extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
@@ -484,7 +483,7 @@ void TBoss6Rock::break_and_release() {
         *(s32 *)&this->m_c8 = 0;
     }
     if ((s32) *(s32 *)&this->m_c8 != 2) {
-        spawn_crush_rocks__10TBoss6RockFl(arg0 + 0xD4, *(s32 *)&this->m_b4);
+        ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(*(s32 *)&this->m_b4);
         play_sound_effect(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
         release_object();
         randomize_motion();

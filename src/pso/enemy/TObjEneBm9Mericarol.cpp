@@ -484,7 +484,6 @@ typedef void (*VFn2_802D0D3C)(void *, s32, s32);
 void init_object__12TObjEneDD_STFv(void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
-void init_position_vectors__9TObjEneDDFv(void *);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
@@ -771,7 +770,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     if (calc_boss4_scale__10TObjPlayerFi((s32)self) <= lbl_805DE750) {
         self->f438 |= 0x400;
     }
-    init_position_vectors__9TObjEneDDFv(self);
+    ((TObjEneDD *)self)->init_position_vectors();
     self->f34 = ((Res_802D0D3C *)lbl_805D6868)->f42C[2];
     self->f24 = ((Res_802D0D3C *)lbl_805D6868)->f42C[3];
     init_model__9TObjEneDDFv(self, lbl_804E1564, 1);

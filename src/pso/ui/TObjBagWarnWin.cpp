@@ -1,4 +1,5 @@
 #include "pso/TObjBagWarnWin.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 
 #include "types.h"
@@ -30,7 +31,6 @@ extern const f32 lbl_805D90B8;
 extern const f32 lbl_805D90BC;
 extern const f32 lbl_805D90C0;
 extern const f32 lbl_805D90C4;
-s32 get_camera_id__11TCameraCtrlFv();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFii(u32, void *, s32);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, s32);
@@ -103,7 +103,7 @@ void TObjBagWarnWin::open_message_window() {
     *(u32 *)((s8 *)arg0 + 0x1C) = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x38), TObjBagWarnWin__message_window_size, 1);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
         ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_field_1c(lbl_805D90C8);
-        if (get_camera_id__11TCameraCtrlFv() == 4) {
+        if (TCameraCtrl::get_camera_id() == 4) {
             ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_position_xy(lbl_805D90CC, lbl_805D90CC);
         }
         strncpy(arg0 + 0x20, TQuestVmDownLoadServer__sub_8006EF6C(0x59), 0x7F);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDD.h"
@@ -41,7 +42,6 @@ s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
 void draw_window__17TWindowDuelResultFPv(u8 *arg0);
-s32 get_camera_id__11TCameraCtrlFv();
 s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, int);
 s32 TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFiii(void *, s32, s32, s32);
@@ -326,10 +326,10 @@ u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
         var_r0 = (u8 *)(init__21TWindowSubComCardListFiii(temp_r3, 0, 2, (s32) *(s16 *)((s8 *)arg0 + 0x20)));
     }
     *(u8 **)((s8 *)arg0 + 0x68) = var_r0;
-    if (get_camera_id__11TCameraCtrlFv() > 2) {
+    if (TCameraCtrl::get_camera_id() > 2) {
         *(f32 *)((s8 *)arg0 + 0x60) = (f32) (0.8f);
         *(f32 *)((s8 *)arg0 + 0x64) = (f32) (0.8f);
-    } else if (get_camera_id__11TCameraCtrlFv() == 2) {
+    } else if (TCameraCtrl::get_camera_id() == 2) {
         *(f32 *)((s8 *)arg0 + 0x60) = (f32) (1.0f);
         *(f32 *)((s8 *)arg0 + 0x64) = (f32) (1.0f);
     } else {

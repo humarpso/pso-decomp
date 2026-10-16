@@ -9,7 +9,6 @@ extern "C" {
 s32 is_split_screen();
 s32 TObjPlayer__sub_80084500();
 s32 free_children__12TObjDoorJungFPv(void *, u16);
-s32 update_camera__15TObjLiveMonitorFv(int);
 s32 TObjLiveMonitor__sub_8030C050(s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -71,7 +70,7 @@ int TObjLiveMonitor::render_live_monitor_screen() {
     case 0:
         e = TObjLiveCameraCtrl::get_table_entry(*(s32 *)((s8 *)this + 0x24));
         if (e != 0 && TObjLiveMonitor__sub_8030C050(e) != 0) {
-            update_camera__15TObjLiveMonitorFv(e);
+            ((TObjLiveMonitor *)e)->update_camera();
         } else if (is_split_screen() == 0) {
             TObjPlayer__sub_80084500();
         } else {

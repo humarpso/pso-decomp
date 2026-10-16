@@ -181,8 +181,6 @@ s32 mem_free(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 void * get_player_by_client_id(s32);
-s32 dispatch_quest__6TLobbyFv(void *);
-void close_windows__6TLobbyFv(void);
 s32 init_quest_script_context(s32, void *);
 s32 bswap_header__6TLobbyFPv();
 s32 tick_com_card__12TQuestThreadFv(void *);
@@ -229,7 +227,6 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 __ct__7TObjectFP7TObject();
 void TWindow__close(void*);
 void TLobby__sub_8024AC20(s32);
-void clear_flag_bit2__11TWindowCtrlFv(void);
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 get_window_id__11TWindowCtrlFv(void);
 void complete_actor_speech_balloons(s32);
@@ -410,7 +407,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     switch (o->state) {
     case 0:
     case 1:
-        o->state = dispatch_quest__6TLobbyFv(o->sub1C);
+        o->state = ((TLobby *)(o->sub1C))->dispatch_quest();
         break;
     case 2:
         ((void (*)(void *))queue_destruction__7TObjectFv)(o);
@@ -440,7 +437,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) {
             TWindowCtrl::clear_flag();
             TWindowCtrl::clear_flag_2();
-            close_windows__6TLobbyFv();
+            TLobby::close_windows();
             ((void (*)(void *))queue_destruction__7TObjectFv)(o);
         }
         break;
@@ -468,7 +465,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             }
             TWindowCtrl::clear_flag();
             TWindowCtrl::clear_flag_2();
-            close_windows__6TLobbyFv();
+            TLobby::close_windows();
             ((void (*)(void *))queue_destruction__7TObjectFv)(o);
         }
         break;
@@ -515,7 +512,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             o->win188 = NULL;
             o->state = 0;
             TLobby__sub_8024AC20(local_client_id);
-            clear_flag_bit2__11TWindowCtrlFv();
+            TWindowCtrl::clear_flag_bit2();
         }
         break;
     }
@@ -532,7 +529,7 @@ TQuestThreadBoard::~TQuestThreadBoard() {
         TWindow__close(m_2c);
         m_2c = nullptr;
     }
-    close_windows__6TLobbyFv();
+    TLobby::close_windows();
     quest_thread_board = 0;
 }
 
@@ -633,7 +630,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
     switch (t->state) {
     case 0:
     case 1:
-        t->state = ((u32 (*)(void *))dispatch_quest__6TLobbyFv)(t->m1C);
+        t->state = ((TLobby *)(t->m1C))->dispatch_quest();
         break;
     case 2:
         ((s32 (*)(void *))queue_destruction__7TObjectFv)(t);
@@ -659,7 +656,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
                 t->state = 0;
             }
             if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(pad, 8) != 0) {
-                close_windows__6TLobbyFv();
+                TLobby::close_windows();
                 ((s32 (*)(void *))queue_destruction__7TObjectFv)(t);
             }
         }
@@ -719,7 +716,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
             t->help = 0;
             t->state = 0;
             ((void (*)(void *))TLobby__sub_8024AC20)((*(void * *)&local_client_id));
-            clear_flag_bit2__11TWindowCtrlFv();
+            TWindowCtrl::clear_flag_bit2();
             TWindowCtrl::clear_flag();
             TWindowCtrl::clear_flag_2();
         }

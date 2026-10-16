@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/TMemberCheck.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -15,7 +16,6 @@ struct Seq_80212304 {
 extern "C" {
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
-s32 advance_matching_entries__22THunterGuildSeqOfflineFll(int, int, int);
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
 f32 xz_distance_squared(void *, void *);
@@ -26,7 +26,6 @@ extern f32 THunterGuildSeqOffline__data_805DC648;
 s32 THunterGuildSeqOffline__sub_80212074(void);
 s32 is_flag_set__6TLobbyFv();
 f32 xz_distance_squared(void *, void *);
-s32 count_members__6TLobbyFv();
 s32 get_player_by_client_id(int);
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
@@ -94,10 +93,10 @@ s32 THunterGuildSeqOffline::check_party_gathered() {
     s32 me;
     f32 lim;
     s32 p;
-    if (TObjPlayer::get_player_count() != 0 && count_members__6TLobbyFv() == 1) {
+    if (TObjPlayer::get_player_count() != 0 && TLobby::count_members() == 1) {
         return 2;
     }
-    if (is_flag_set__6TLobbyFv() != 0 && count_members__6TLobbyFv() == 1) {
+    if (is_flag_set__6TLobbyFv() != 0 && TLobby::count_members() == 1) {
         return 2;
     }
     for (i = 0; i < 4; i++) {
@@ -139,15 +138,15 @@ void TMemberCheck::update_member_proximity() {
                 temp_r3 = get_player_by_client_id((int) (var_r30));
                 if (temp_r3 != 0) {
                     if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (temp_r3 + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
-                        advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (1), (int) (var_r30));
+                        ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (1), (int) (var_r30));
                     } else {
-                        advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (0), (int) (var_r30));
+                        ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (0), (int) (var_r30));
                     }
                 } else {
-                    advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (0), (int) (var_r30));
+                    ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (0), (int) (var_r30));
                 }
             } else {
-                advance_matching_entries__22THunterGuildSeqOfflineFll((int) ((*(u32 *)((u8 *)this + 0x1C))), (int) (1), (int) (var_r30));
+                ((THunterGuildSeqOffline *)(*(u32 *)((u8 *)this + 0x1C)))->advance_matching_entries((int) (1), (int) (var_r30));
             }
             var_r30 += 1;
         } while (var_r30 < 4);

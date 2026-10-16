@@ -176,7 +176,6 @@ void * TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2);
 void unlock_main_warp_destination(s32 id);
 void clear_enabled_main_warps(void);
 s32 get_floor_warp_bit__16TObjCityMainWarpFl();
-s32 is_warp_enabled__12TObjAreaWarpFl(s32);
 void __dt__12TObjAreaWarpFv(void *, int);
 void TObjAreaWarp__ct(void *);
 s32 process_player_warps__11TObjMapWarpFPv(void *);
@@ -188,7 +187,6 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(int);
-s32 calc_window_size__17TWindowSubComCardFv(int);
 s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
 void * init__13TAdVIConfigGCFf(void *, void *, f32);
@@ -319,7 +317,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
-        calc_window_size__17TWindowSubComCardFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
     }
 }
@@ -445,7 +443,7 @@ void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1) {
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
-        calc_window_size__17TWindowSubComCardFv((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
         align_menu_entry_positions((int) (*(u32 *)((s8 *)temp_r31 + 0xEC)));
     }
 }
@@ -522,7 +520,7 @@ void TObjCityAreaWarp__vt13(void *arg0, s16 arg1) {
         ((TWindowSubTradeMain *)(*(u32 *)((s8 *)arg0 + 0xB0)))->add_text_entry(get_localized_text_entry(9, 0x24), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag_40();
-        ((s32 (*)(u32))calc_window_size__17TWindowSubComCardFv)(*(u32 *)((s8 *)arg0 + 0xB0));
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0xB0)))->calc_window_size();
         ((s32 (*)(u32))align_menu_entry_positions)(*(u32 *)((s8 *)arg0 + 0xB0));
         *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
     }
@@ -601,7 +599,7 @@ s32 TObjCityMainWarp__vt14(s32 arg0) {
     if ((get_game_play_mode() == 1) && (is_quest_active() == 0)) {
         return 0;
     }
-    return is_warp_enabled__12TObjAreaWarpFl(arg0);
+    return TObjAreaWarp::is_warp_enabled(arg0);
 }
 
 void TObjCityMainWarp::vfunc_18(s32) {

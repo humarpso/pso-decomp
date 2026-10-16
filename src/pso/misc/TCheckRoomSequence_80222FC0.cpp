@@ -6,7 +6,6 @@ typedef struct Item_80222FF0 { u8 d[0x14]; } Item_80222FF0;
 
 extern "C" {
 s32 TLobby__sub_8022318C(Item_80222FF0 *, Item_80222FF0 *);
-s32 swap_item_data__6TLobbyFPl(Item_80222FF0 *, Item_80222FF0 *);
 void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode);
 }
 
@@ -28,17 +27,17 @@ void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode) {
             switch (mode) {
             case 0:
                 if (TLobby__sub_8022318C(&items[i], &items[j]) != 0) {
-                    swap_item_data__6TLobbyFPl(&items[i], &items[j]);
+                    ((TLobby *)(&items[i]))->swap_item_data((s32 *)(&items[j]));
                 }
                 break;
             case 1:
                 if (((TLobby *)(&items[i]))->compare_greater(&items[j]) != 0) {
-                    swap_item_data__6TLobbyFPl(&items[i], &items[j]);
+                    ((TLobby *)(&items[i]))->swap_item_data((s32 *)(&items[j]));
                 }
                 break;
             case 2:
                 if (((TLobby *)(&items[i]))->compare_version(&items[j]) != 0) {
-                    swap_item_data__6TLobbyFPl(&items[i], &items[j]);
+                    ((TLobby *)(&items[i]))->swap_item_data((s32 *)(&items[j]));
                 }
                 break;
             }

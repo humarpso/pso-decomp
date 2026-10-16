@@ -293,7 +293,6 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 clear_attack_receipts__9TObjEneDDFv(void *);
 s32 transition_enemy_state(void *, s32);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 extern const f32 lbl_805DA76C;
 extern const f32 lbl_805DA778;
@@ -302,7 +301,6 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 extern const f32 TObjEneRe4Bit__data_805DA770;
 extern const f32 lbl_805DA778;
@@ -332,7 +330,6 @@ extern "C" {
 
 s32 transition_enemy_state(void *, s32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void vfunc_103__9TObjEneDDFPUc();
@@ -607,7 +604,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
 void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(3));
+        ((TObjEneDD *)arg0)->set_field_378((s32)(3));
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFEFFF);
         *(s32 *)((s8 *)arg0 + 0x3D0) = 3;
         break;
@@ -639,7 +636,7 @@ void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
     s32 temp_r4;
     switch (arg1) {
     case 4:
-        set_field_378__9TObjEneDDFl(arg0, 3);
+        ((TObjEneDD *)arg0)->set_field_378(3);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x1000);
         *(s32 *)((s8 *)arg0 + 0x408) = 0;
         *(s32 *)((s8 *)arg0 + 0x404) = 1;
@@ -682,7 +679,7 @@ s32 TObjEneRe4Bit::handle_event(s32 arg1) {
 
     switch (arg1) {
     case 4:
-        set_field_378__9TObjEneDDFl(this, 1);
+        set_field_378(1);
         *(s32 *)((s8 *)this + 0x3CC) = (s32) (*(s32 *)((s8 *)this + 0x3CC) & 0xFFFFEFFF);
         break;
     case 3:
@@ -1545,7 +1542,6 @@ void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1) {
 int reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 int initialize_enemy_state__9TObjEneDDFv(void *, int);
 int init_model__9TObjEneDDFv(void *, void *, int);
-int init_position_vectors__9TObjEneDDFv(void *);
 extern s32 TObjEneRe4Bit__model;
 extern s32 re4_bit_texture_list;
 extern const f32 TObjEneRe4Bit__data_805DA770;
@@ -1554,7 +1550,7 @@ extern const f32 lbl_805DA784;
 void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     s32 i;
 
-    init_position_vectors__9TObjEneDDFv(self);
+    ((TObjEneDD *)self)->init_position_vectors();
     self->x34 = TObjEneRe4Bit__model;
     self->x24 = re4_bit_texture_list;
     init_model__9TObjEneDDFv(self, re4_bit_model_node_desc, 1);

@@ -52,7 +52,6 @@ extern "C" {
 
 s32 init_struct(u8 *arg0);
 s32 init_work(s32 arg0, u8 *arg1);
-s32 copy_current_entry_name__6TLobbyFl(void *, int);
 s32 TLobby__sub_803F4EBC(void *, int);
 s32 TLobby__sub_803F4FF4(void *);
 s32 TLobby__sub_803F50B8(void *);
@@ -96,7 +95,7 @@ s32 init_struct(u8 *arg0) {
     TLobby__sub_803F6138((void *)(arg0 + 0x204), (int)(0x20));
     TLobby__sub_803F6138((void *)(arg0 + 0x204), (int)(0x20));
     TLobby__sub_803F6270(arg0 + 0x244);
-    copy_current_entry_name__6TLobbyFl((void *)(arg0 + 8), (int)(0x80));
+    ((TLobby *)(arg0 + 8))->copy_current_entry_name((int)(0x80));
     TLobby__sub_803F4EBC((void *)(arg0 + 0x88), (int)(0x20));
     TLobby__sub_803F4FF4(arg0 + 0xB4);
     TLobby__sub_803F50B8(arg0 + 0xB8);
@@ -113,7 +112,7 @@ s32 init_work(s32 arg0, u8 *arg1) {
     if (!(lbl_805D56CC & 1)) {
         return 0;
     }
-    copy_current_entry_name__6TLobbyFl((void *)(arg1 + 0x4), (int)(0x80));
+    ((TLobby *)(arg1 + 0x4))->copy_current_entry_name((int)(0x80));
     TLobby__sub_803F4EBC((void *)(arg1 + 0x84), (int)(0x20));
     TLobby__sub_803F4FF4(arg1 + 0x164);
     TLobby__sub_803F50B8(arg1 + 0x168);

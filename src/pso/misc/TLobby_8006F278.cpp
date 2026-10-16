@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8006F5B0_lbl_8048C9D8 { s32 value; u8 remaining[0x744]; };
@@ -83,7 +84,6 @@ struct Table_8006F38C {
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(int);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
-s32 resolve_player_slot__20TWindowSubStatusDispFl(int);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 mix_seed_checked__6TLobbyFi(s32);
 u32 get_character_save_record(int);
@@ -93,7 +93,6 @@ s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F848_lbl_804FF800 lobby_name_string_buffer;
 s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
-s32 resolve_player_slot__20TWindowSubStatusDispFl(int);
 s16 TLobby__sub_80071640(int);
 u32 get_character_save_record(int);
 s32 strncmp(void *, void *, int);
@@ -169,7 +168,7 @@ void TLobby__sub_8006F48C(void) {
     s32 i;
     Entry_8006F48C *e;
     win = (Win_8006F48C *)get_character_save_record(0xFFFF);
-    if (resolve_player_slot__20TWindowSubStatusDispFl(-1) != 0) {
+    if (TWindowSubStatusDisp::resolve_player_slot(-1) != 0) {
         return;
     }
     if (TBL_8006F48C.defaultName[0] == 0) {
@@ -211,7 +210,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     temp_r30 = challenge_mode_state.value * 4;
     temp_r3_3 = *(s32 *)((s8 *)temp_r3_2 + temp_r30);
     if (temp_r3_3 == 0) {
-        if (resolve_player_slot__20TWindowSubStatusDispFl((int) (-1)) == 0) {
+        if (TWindowSubStatusDisp::resolve_player_slot((int) (-1)) == 0) {
             TLobby__sub_8006F48C();
         }
         var_r28 = 1;

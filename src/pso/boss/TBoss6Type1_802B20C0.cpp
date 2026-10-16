@@ -113,7 +113,6 @@ s32 is_field4b0_delta_reached__11TBoss6Type1Fv();
 s32 TBoss6Type1__sub_802B6060(void *);
 int TBoss6Type1__sub_802B626C(void*);
 int TBoss6Type1__sub_802B6504(void*);
-void spawn_grav_ball__11TBoss6Type1Fv(void *);
 s32 TBoss6Type1__sub_802B6944(void *);
 s32 damage_players_in_range__11TBoss6Type1Fv();
 s32 TBoss6Type1__sub_802B6C30(void *);
@@ -455,7 +454,7 @@ void TBoss6Type1__sub_802B2A94(u8 *arg0) {
 }
 
 void TBoss6Type1::init_params() {
-    spawn_grav_ball__11TBoss6Type1Fv(this);
+    spawn_grav_ball();
     *(u32 *)((s8 *)this + 0x40C) = 300;
     *(u32 *)((s8 *)this + 0x410) = 300;
     VecCopy__FP3VecPC3Vec((void *)((void *)((char *)this + 1056)), (void *)(lbl_80470C8C));

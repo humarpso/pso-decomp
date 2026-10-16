@@ -236,7 +236,6 @@ extern const f32 lbl_805DBD30;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DBD38;
 s32 TContainerAncient01__sub_8018BE90(void);
-int get_table_entry__19TContainerAncient01Fi(int a0);
 
 int spawn_particle_effect(void*, void*);
 void advance_animation_playback(void *);
@@ -710,8 +709,8 @@ void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__bml_resour
 
 void TContainerAncient01R::init_table_entries() {
     TContainerAncient01R__bml_resource = TContainerAncient01__sub_8018BE90();
-    TContainerAncient01__open_effect_table[0] = get_table_entry__19TContainerAncient01Fi(0);
-    TContainerAncient01__open_effect_table[1] = get_table_entry__19TContainerAncient01Fi(1);
+    TContainerAncient01__open_effect_table[0] = TContainerAncient01::get_table_entry(0);
+    TContainerAncient01__open_effect_table[1] = TContainerAncient01::get_table_entry(1);
 }
 
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {

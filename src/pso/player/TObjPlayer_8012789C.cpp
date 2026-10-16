@@ -6,7 +6,6 @@
 extern "C" {
 
 void TObjPlayer__sub_8012789C(void* p);
-s32 spawn_cane_effects__10TObjPlayerFP5TItemll(s32, void *, s32, s32);
 int roll_technique__11TItemWeaponFv(void*);
 s32 get_attack_stage__11TItemWeaponFv();
 
@@ -21,7 +20,7 @@ void TObjPlayer::cast_jellen_zalure() {
     s32 temp_r4_2;
 
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        spawn_cane_effects__10TObjPlayerFP5TItemll(tl_05, this, 2, 1);
+        ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)this, (s32)2, (s32)1);
     }
     if (is_mode_two_and_ready() != 0) {
         if (get_tp() == 0) {

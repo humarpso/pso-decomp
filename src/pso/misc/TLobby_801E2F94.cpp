@@ -561,7 +561,6 @@ s32 TLobby__sub_803382E4();
 s32 read_afs_toc__6TLobbyFl(void *);
 s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
-s32 reset_state_byte__6TLobbyFv();
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_global_sound_frame();
 s32 read_afs_toc__6TLobbyFl(void *);
@@ -585,7 +584,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 fn_803DCEC8();
 s32 fn_803DCF0C();
-s32 set_cull_none__8TObjFishFv();
 
 void TObjPlayer::render_tree(void *arg0) {
     void *var_r31;
@@ -612,11 +610,11 @@ void render_tick__Fv(void) {
     TParticleCtrl::begin_effect_render();
     GXSetZMode(1, 7, 0);
     TCameraCtrl::restore_full_screen_view();
-    set_cull_none__8TObjFishFv();
+    TObjFish::set_cull_none();
     render_debug_text(lbl_805D3584);
     GXSetZMode(1, 3, 1);
     GXSetViewport((0.0f), (0.0f), (6.4e+02f), (4.8e+02f), (0.0f), (1.0f));
-    set_cull_none__8TObjFishFv();
+    TObjFish::set_cull_none();
     TParticleCtrl::end_effect_render();
     fn_803DCEC8();
     fn_803DCF0C();
@@ -634,7 +632,7 @@ loop_2:
             update_global_sound_frame();
             TKeyBoardControl::read_pads();
             disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__global_key_state.value));
-            reset_state_byte__6TLobbyFv();
+            TLobby::reset_state_byte();
             goto loop_2;
         }
     }

@@ -3704,7 +3704,6 @@ s32 reset_hp__9TObjEneDDFv(void *, int, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 s32 invoke_initialization_hook__9TObjEneDDFv(void *, void *);
-s32 init_position_vectors__9TObjEneDDFv(void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
@@ -3815,7 +3814,7 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A20;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     select_subtype__14TObjEneBm5WolfFv(arg0);
-    init_position_vectors__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_position_vectors();
     init_model__9TObjEneDDFv(arg0, (void *)TObjEneBm5Wolf__collider_params, 1);
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *)wolf_action_table));
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneBm5Wolf__bml_resource + 0x430));

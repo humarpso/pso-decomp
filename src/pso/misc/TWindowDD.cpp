@@ -211,11 +211,10 @@ void *TWindowDD__sub_8034094C(void *arg0, s16 arg1) {
 }
 
 struct W_803409A4 { u8 pad0[0x18]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; s32 f60; s32 f64; s32 f68; };
-void *construct_base__9TWindowDDFPUcsPUc(void *, void *, int, void *);
 
 #define arg0 ((W_803409A4 *)arg0v)
 void *TWindowDD::construct_variant_a(void *arg0v) {
-    construct_base__9TWindowDDFPUcsPUc(arg0, TWindowDD__layout_constants, 4, TWindowDD__layout_constant_pair);
+    ((TWindowDD *)arg0)->construct_base((u8 *)TWindowDD__layout_constants, (s16)4, (u8 *)TWindowDD__layout_constant_pair);
     arg0->p18 = lbl_804EFBAC;
     arg0->f60 = 1;
     arg0->f64 = 2;

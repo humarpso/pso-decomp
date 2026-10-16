@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TUnk_80484AFC.h"
 #include "pso/player/TUnk_80484A94.h"
 #include "pso/player/TObjPlayer.h"
@@ -94,7 +95,6 @@ void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0);
 s32 obj_is_hit_receivable(void *);
 s16 obj_getField1c(void *);
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
-void create_cage__12TBoss3VoloptFUs(void *, u16);
 extern Dmg_80049A1C lbl_80436704[];
 }
 
@@ -132,7 +132,7 @@ s32 TUnk_80484A94::sub_800495F8() {
                 p->m21(*(s32 *)((s8 *)this + 0x10), &t, 0, -1, -1);
                 cage = *(void **)((s8 *)this + 0x10);
                 if (cage != NULL) {
-                    create_cage__12TBoss3VoloptFUs(cage, ((u16 (*)(void *))obj_getField1c)(p));
+                    ((TBoss3Volopt *)cage)->create_cage(((u16 (*)(void *))obj_getField1c)(p));
                 }
                 return 1;
             }

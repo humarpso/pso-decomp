@@ -964,7 +964,6 @@ void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
 void *create_particle_controller_with_angles(void *, void *, s32, s32, s32);
-void enable__13TParticleCtrlFv(void *);
 void fn_802EC52C(s32 arg0, s32 arg1);
 extern s32 lbl_804E3E3C[];
 extern f32 lbl_804E3E48[];
@@ -1000,7 +999,6 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(void *, int);
-void enable__13TParticleCtrlFv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 u32 __nw__7TObjectFUl(int);
@@ -2420,7 +2418,7 @@ void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2) {
             if (p_ == NULL) {
                 self->ptcl = create_particle_emitter(&self->x, 0x161);
                 if (self->ptcl != NULL) {
-                    enable__13TParticleCtrlFv(self->ptcl);
+                    ((TParticleCtrl *)(self->ptcl))->enable();
                 }
             } else if (self->frame >= lbl_805DEAC0 && self->frame <= lbl_805DEA5C) {
                 s32 r;
@@ -2431,10 +2429,10 @@ void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2) {
                 } else if (r == 2) {
                     ((TNowLoading *)(self->ptcl))->copy_pos(&self->p44C);
                 } else {
-                    enable__13TParticleCtrlFv(self->ptcl);
+                    ((TParticleCtrl *)(self->ptcl))->enable();
                 }
             } else {
-                enable__13TParticleCtrlFv(p_);
+                ((TParticleCtrl *)p_)->enable();
             }
         }
         switch (self->state) {
@@ -3338,10 +3336,10 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
             if (r != 0) {
                 o->objs[i] = r;
                 ((TBoss4Type2 *)(o->objs[i]))->set_flags(2);
-                enable__13TParticleCtrlFv(o->objs[i]);
+                ((TParticleCtrl *)(o->objs[i]))->enable();
             } else {
                 for (ok = 0; ok < i; ok++) {
-                    enable__13TParticleCtrlFv(o->objs[ok]);
+                    ((TParticleCtrl *)(o->objs[ok]))->enable();
                 }
                 ok = 0;
                 break;
@@ -3363,8 +3361,8 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
                     v.x -= lbl_805DEA44 * w;
                     ((TNowLoading *)(o->objs[k * 2 + 1]))->copy_pos(&v);
                 } else {
-                    enable__13TParticleCtrlFv(o->objs[k * 2]);
-                    enable__13TParticleCtrlFv(o->objs[k * 2 + 1]);
+                    ((TParticleCtrl *)(o->objs[k * 2]))->enable();
+                    ((TParticleCtrl *)(o->objs[k * 2 + 1]))->enable();
                 }
             }
         } else {
@@ -3375,7 +3373,7 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
             v.x -= lbl_805DEABC;
             ((TNowLoading *)(o->objs[1]))->copy_pos(&v);
             for (j = 2; j < 6; j++) {
-                enable__13TParticleCtrlFv(o->objs[j]);
+                ((TParticleCtrl *)(o->objs[j]))->enable();
             }
             o->idx = 0;
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -9,7 +10,6 @@ struct Player_801022FC { u8 pad[0xE6]; s16 fE6; };
 extern "C" {
 void vfunc_13__13TUnk_804AF8A0Fl(void *, s32);
 s16 get_current_floor();
-void send_pick_up_item_request__6TLobbyFv(void *);
 void TLobby__sub_801030EC(void *);
 s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 can_pickup_item_by_id__10TObjPlayerFii(s32, void *);
@@ -30,7 +30,7 @@ void TItem::try_pick_up_item(s32 id) {
             m.id = id;
             m.v = ((TObjPlayer *)((Player_801022FC *)this))->get_field_d8();
             m.w = get_current_floor();
-            send_pick_up_item_request__6TLobbyFv(&m);
+            ((TLobby *)(&m))->send_pick_up_item_request();
             ((Player_801022FC *)this)->fE6 = 0;
         }
     } else {

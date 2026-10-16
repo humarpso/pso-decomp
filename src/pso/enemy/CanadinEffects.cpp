@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TTecZondeEff.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" {
@@ -273,7 +274,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 fn_8009E1D4(s32, void *);
 u32 __nw__7TObjectFUl(s32);
-s32 construct__12TTecZondeEffFPUcPUcPUcf(void *, s32, void *, void *, f32);
 void subtract_vector(void *, void *);
 extern s32 tl_05;
 extern const f32 canadin_discharge_motion_scale;
@@ -308,7 +308,7 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     temp_f31 = ((TObjBoss2Tunnel *)(&sp8))->update_scale();
     s32 nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
-        construct__12TTecZondeEffFPUcPUcPUcf((void *)nw_ret, tl_05, arg0 + 0x38, &sp8, temp_f31);
+        ((TTecZondeEff *)nw_ret)->construct((u8 *)tl_05, (u8 *)(arg0 + 0x38), (u8 *)(&sp8), (f32)temp_f31);
     }
     VC_B(arg0 + 0x38, arg0 + 0x50);
     if (var_r31 != 0) {

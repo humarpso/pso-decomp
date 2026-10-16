@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSaver.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -417,7 +418,6 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void obj_setFlags30(void *, u32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void init_enemy_base__13TUnk_80493450Fv(void *, void *);
-void *create__12TObjEneSaverFPvPv(void *, void *);
 void bind_enemy_combat_stats(void *, u32, u32, u32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
@@ -472,8 +472,8 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(1);
     obj_setFlags30(arg0, 0x40000);
     F(arg0, f32, 0x380) = lbl_805D96D8;
-    F(arg0, void *, 0x3A8) = create__12TObjEneSaverFPvPv((void *)0xA0303030, (void *)0xFF303030);
-    F(arg0, void *, 0x3AC) = create__12TObjEneSaverFPvPv((void *)0xA0303030, (void *)0xFF303030);
+    F(arg0, void *, 0x3A8) = TObjEneSaver::create((void *)0xA0303030, (void *)0xFF303030);
+    F(arg0, void *, 0x3AC) = TObjEneSaver::create((void *)0xA0303030, (void *)0xFF303030);
     F(arg0, f32, 0x398) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][0];
     F(arg0, f32, 0x3A0) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][1];
     F(arg0, f32, 0x39C) = ((f32 **)boss4_rock_shared_handler_ids)[F(arg0, s32, 0x334)][2];

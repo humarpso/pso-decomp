@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/TProtocol.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TLobby.h"
@@ -289,20 +290,16 @@ struct Ent_802D3134 { u32 id; s32 count; };
 struct Trade_802D3134 { u8 pad[4]; s16 who; u16 count; Item_802D3134 items[1]; };
 
 extern "C" {
-s32 prepare_and_send_trade_packet__6TLobbyFPv(void *, void *);
 s32 build_6xA6_modify_trade_proposal(void *);
 void send_trade_busy_reply(s32 arg0);
-s32 prepare_and_send_trade_packet__6TLobbyFPv(void *, void *);
 s32 build_6xA6_modify_trade_proposal(void *);
 #define TLobby__trade_partner_client_id (*(s8 *)&TLobby__trade_partner_client_id)
-s32 prepare_and_send_trade_packet__6TLobbyFPv(void *, void *);
 s32 build_6xA6_modify_trade_proposal(void *);
 
 u8 *get_quest_id__12TQuestListVMFv(u32);
 u32 get_player_by_client_id(void *);
 s32 TLobby__sub_8024AAA0(s32, s32);
 void send_trade_busy_reply(s32 arg0);
-s32 prepare_and_send_trade_packet__6TLobbyFPv(void *, void *);
 s32 build_6xA6_modify_trade_proposal(void *);
 extern s32 local_client_id;
 
@@ -316,12 +313,10 @@ void reset__6TLobbyFi(s32 arg0);
 void handle_trade_member_out_of_range(O_802D3384 *self);
 
 void reset__6TLobbyFi(s32 arg0);
-s32 prepare_and_send_trade_packet__6TLobbyFPv(void *, void *);
 s32 build_6xA6_modify_trade_proposal(void *);
 
 void cancel_trade_for_member_out_of_range(s32 arg0);
 
-s32 copy_item_data__6TLobbyFPv(void *, void *);
 s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, u8);
 Ent_802D3134 *get_trade_window_state(s32);
 
@@ -372,7 +367,7 @@ void cancel_trade_for_member_out_of_range(s32 arg0) {
     packet.what = 7;
     packet.result = 0;
     packet.unknown_a1 = arg0;
-    prepare_and_send_trade_packet__6TLobbyFPv(&packet.header, (void *)((s32) new_var));
+    ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *)((s32) new_var));
     if (TLobby__trade_proposal_state == 2) {
         TWindowTradeRequest::close_request_window();
         ((s32 (*)())reset__6TLobbyFv)();
@@ -386,7 +381,7 @@ void send_trade_busy_reply(s32 arg0) {
     build_6xA6_modify_trade_proposal((void *) (&packet.header));
     packet.what = 6;
     packet.result = 0;
-    prepare_and_send_trade_packet__6TLobbyFPv((void *) (&packet.header), (void *) (arg0));
+    ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *) (arg0));
 }
 
 void TLobby::build_trade_item_list() {
@@ -410,12 +405,12 @@ void TLobby::build_trade_item_list() {
             if (n > 0) {
                 if (id == 0xFFFFFF01) {
                     ((TObjPlayer *)(&item))->init_item_data(n);
-                    copy_item_data__6TLobbyFPv(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++], &item);
+                    ((TLobby *)(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++]))->copy_item_data(&item);
                 } else if ((p = ((void *(*)(u32))find_item_by_id)(id)) != NULL) {
                     ((TItem *)p)->copy_to_item_data(&item);
                     item.d = -1;
                     set_stack_count__24TShopEquipmentListWindowFSc(&item, n);
-                    copy_item_data__6TLobbyFPv(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++], &item);
+                    ((TLobby *)(&((Trade_802D3134 *)this)->items[((Trade_802D3134 *)this)->count++]))->copy_item_data(&item);
                 }
             }
         }
@@ -432,7 +427,7 @@ char TLobby::send_modify_trade_proposal(s8 arg0, s32 arg1, s32 arg2) {
   if (((!(*(u8 *)&TLobby__trade_partner_client_id)) && (!(*(u8 *)&TLobby__trade_partner_client_id))) && (!(*(u8 *)&TLobby__trade_partner_client_id)))
   {
   }
-  prepare_and_send_trade_packet__6TLobbyFPv((void *)((s32) (&stack.sp8)), (void *)((s32) ((s8) (*(u8 *)&TLobby__trade_partner_client_id))));
+  ((TLobby *)(&stack.sp8))->prepare_and_send_trade_packet((void *)((s32) ((s8) (*(u8 *)&TLobby__trade_partner_client_id))));
 }
 
 void TLobby::send_trade_proposal_result(s8 arg0, s8 arg1) {
@@ -444,7 +439,7 @@ void TLobby::send_trade_proposal_result(s8 arg0, s8 arg1) {
   new_var = (s8) ((*(u8 *)&TLobby__trade_partner_client_id) & 0xFFFFFFFFFFFFFFFFu);
   packet.what = arg0;
   packet.result = arg1;
-  prepare_and_send_trade_packet__6TLobbyFPv((void *)((s32) (&packet.header)), (void *)((s32) new_var));
+  ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *)((s32) new_var));
 }
 
 void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
@@ -468,7 +463,7 @@ block_6:
         packet.what = 0;
         packet.result = 0;
         packet.amount = *(s32 *)((s8 *)temp_r3_2 + 0x20);
-        prepare_and_send_trade_packet__6TLobbyFPv((void *) (&packet.header), (void *) (arg0));
+        ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *) (arg0));
         (*(u8 *)&TLobby__trade_partner_client_id) = (u8) arg0;
         TLobby__trade_proposal_state = 1;
     }
@@ -564,13 +559,11 @@ void handle_trade_request_state_a__6TLobbyFPv(O_802D361C *self);
 void reset__6TLobbyFv(void);
 void handle_trade_request_state_b__6TLobbyFPv(O_802D3654 *self);
 void move_trade_item_amount__6TLobbyFUll(void *, s32, s32, void *);
-void update_trade_window__19TWindowSubTradeMainFv(u32);
 extern u8 TLobby__trade_window_state[];
 
 extern u32 TLobby__trade_main_window;
 void handle_trade_item_move__6TLobbyFPv(S_802D35B0 *arg0);
 void transfer_trade_item_amount__6TLobbyFUll(void *, s32, s32, void *);
-void update_trade_window__19TWindowSubTradeMainFv(u32);
 extern u8 TLobby__trade_window_state[];
 
 extern u32 TLobby__trade_main_window;
@@ -592,7 +585,6 @@ extern "C" {
 
 void handle_trade_final_confirmation(void *arg0);
 void handle_trade_offer_confirmation(void *arg0);
-s32 notify_child_if_present__19TWindowSubTradeMainFl(u32, s32);
 
 extern u16 trade_protocol_flags;
 extern u32 TLobby__trade_main_window;
@@ -605,13 +597,13 @@ void handle_trade_final_confirmation(void *arg0) {
     case 0:
         trade_protocol_flags |= 0x200;
         if (TLobby__trade_main_window != 0U) {
-            notify_child_if_present__19TWindowSubTradeMainFl(TLobby__trade_main_window, 2);
+            ((TWindowSubTradeMain *)TLobby__trade_main_window)->notify_child_if_present(2);
         }
         break;
     case 4:
         trade_protocol_flags &= 0xFFFFFDFF;
         if (TLobby__trade_main_window != 0U) {
-            notify_child_if_present__19TWindowSubTradeMainFl(TLobby__trade_main_window, 1);
+            ((TWindowSubTradeMain *)TLobby__trade_main_window)->notify_child_if_present(1);
         }
         break;
     }
@@ -628,13 +620,13 @@ void handle_trade_offer_confirmation(void *arg0) {
     case 0:
         trade_protocol_flags |= 0x40;
         if (TLobby__trade_main_window != 0U) {
-            notify_child_if_present__19TWindowSubTradeMainFl(TLobby__trade_main_window, 1);
+            ((TWindowSubTradeMain *)TLobby__trade_main_window)->notify_child_if_present(1);
         }
         break;
     case 4:
         trade_protocol_flags &= 0xFFFFFFBF;
         if (TLobby__trade_main_window != 0U) {
-            notify_child_if_present__19TWindowSubTradeMainFl(TLobby__trade_main_window, 0);
+            ((TWindowSubTradeMain *)TLobby__trade_main_window)->notify_child_if_present(0);
         }
         break;
     }
@@ -647,7 +639,7 @@ void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0) {
         if (arg0->f2 == TLobby__trade_partner_client_id) {
             transfer_trade_item_amount__6TLobbyFUll(TLobby__trade_window_state + 0x1F0, arg0->f8, arg0->fC, TLobby__trade_window_state);
             if (TLobby__trade_main_window != 0) {
-                update_trade_window__19TWindowSubTradeMainFv(TLobby__trade_main_window);
+                ((TWindowSubTradeMain *)TLobby__trade_main_window)->update_trade_window();
             }
         }
         break;
@@ -664,7 +656,7 @@ void handle_trade_item_move__6TLobbyFPv(S_802D35B0 *arg0) {
         if (arg0->f2 == TLobby__trade_partner_client_id) {
             move_trade_item_amount__6TLobbyFUll(TLobby__trade_window_state + 0x1F0, arg0->f8, arg0->fC, TLobby__trade_window_state);
             if (TLobby__trade_main_window != 0) {
-                update_trade_window__19TWindowSubTradeMainFv(TLobby__trade_main_window);
+                ((TWindowSubTradeMain *)TLobby__trade_main_window)->update_trade_window();
             }
         }
         break;

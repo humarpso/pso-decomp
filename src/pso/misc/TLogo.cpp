@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 class TLogo : public TObject {
 public:
@@ -23,13 +24,9 @@ struct V3_8013F5E8 { s32 x, y, z; };
 struct V3_8013F6C4 { s32 x, y, z; };
 extern "C" {
 s32 TKeyBoardControl__sub_8000F90C(int);
-s32 select_active_controller__11TCameraCtrlFSc(int);
 s32 TCameraCtrl__ct(u32, void *);
-s32 reset_keyboard_state__6TLobbyFv();
 s32 is_area_transfer_pending();
-s32 clear_callback_and_reset_keyboard__6TLobbyFv();
 s32 apply_phase_keyboard_mode();
-s32 invoke_callback__6TLobbyFv();
 s32 run_load_callback_table(void *, int);
 s32 init_menu_scene_lights(void *, int);
 s32 reset_controller_input_state();
@@ -285,18 +282,18 @@ void init_logo_scene__5TLogoFv(void) {
     }
     V3_8013F6C4 a = lbl_8043F138;
     V3_8013F6C4 b = lbl_8043F144;
-    select_active_controller__11TCameraCtrlFSc(9);
+    TCameraCtrl::select_active_controller(9);
     set_active_camera_pose(&a, &b);
     TKeyBoardControl__sub_8000F90C(1);
     apply_phase_keyboard_mode();
     run_load_callback_table(logo_load_callback_table, sizeof(logo_load_callback_table));
     if (is_area_transfer_pending() != 0) {
-        invoke_callback__6TLobbyFv();
-        clear_callback_and_reset_keyboard__6TLobbyFv();
-        reset_keyboard_state__6TLobbyFv();
+        TLobby::invoke_callback();
+        TLobby::clear_callback_and_reset_keyboard();
+        TLobby::reset_keyboard_state();
         return;
     }
-    clear_callback_and_reset_keyboard__6TLobbyFv();
+    TLobby::clear_callback_and_reset_keyboard();
     TParticleCtrl::create_quad_sprites();
     p = __nw__7TObjectFUl(0x38);
     if (p != 0) {

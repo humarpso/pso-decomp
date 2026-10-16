@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TSceneSora.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/misc/TOKeyMachine01.h"
 
@@ -39,7 +40,6 @@ s32 push_matrix();
 s32 pop_matrix();
 u32 get_player_by_client_id(u32);
 s32 fn_8029E7BC(s32, s32 *);
-u32 get_state__10TSceneSoraFv(void*);
 s32 reset_ind_tev_stages__13TParticleCtrlFPv();
 
 extern u16 scene_sora_reflect_active;
@@ -131,7 +131,7 @@ s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1) {
 }
 
 void TObjEneRecon::update_particle_if_active() {
-    if (((u32) scene_sora_instance != 0U) && (get_state__10TSceneSoraFv((void*)scene_sora_instance) != 0U)) {
+    if (((u32) scene_sora_instance != 0U) && (((TSceneSora *)scene_sora_instance)->get_state() != 0U)) {
         reset_ind_tev_stages__13TParticleCtrlFPv();
     }
 }
@@ -149,7 +149,7 @@ extern u32 scene_sora_instance;
 void TObjEneRecon::notify_scene(s32 arg0) {
     u32 temp_r31;
     if ((u32) scene_sora_instance != 0U) {
-        temp_r31 = get_state__10TSceneSoraFv((void*)scene_sora_instance);
+        temp_r31 = ((TSceneSora *)scene_sora_instance)->get_state();
         if (temp_r31 != 0U) {
             play_particle__13TParticleCtrlFls(temp_r31, 0, arg0);
         }

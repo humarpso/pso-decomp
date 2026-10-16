@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
@@ -104,7 +105,6 @@ struct QLC_80288DA4 {
 extern "C" {
 
 s32 obj_getField1c(s32);
-s32 get_camera_id__11TCameraCtrlFv();
 s32 get_quest_list_text(int, int, int);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TWindow__close(void *);
@@ -320,7 +320,7 @@ void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
         text2 = SUB_80222C28(self->f50, self->entries[sel].f8);
         ((TLobby *)(self->f40))->send_and_handle(text2, 0x80);
         ((TLobby *)(self->f40))->set_field_1c(37000.0f);
-        if (get_camera_id__11TCameraCtrlFv() >= 2) {
+        if (TCameraCtrl::get_camera_id() >= 2) {
             ((TUnk_804CDFE8 *)(self->f40))->set_position_xy(0.75f, 0.75f);
         }
     }

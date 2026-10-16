@@ -88,7 +88,6 @@ void TWindow__close(void *);
 u32 create_yes_no_window(s32, u16, s32, s32);
 s32 get_window_layout_position(s32);
 s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, int);
-s32 can_inventory_accept_item__10TObjPlayerFPUc(int, void *);
 s32 compact_items__18TCheckRoomSequenceFi(int);
 s32 remove_bank_item_amount__18TCheckRoomSequenceFiii(int, int, int);
 s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
@@ -119,7 +118,6 @@ s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 get_shop_text(s32);
 void *__nw__7TObjectFUl(u32);
 u32 __ct__15TWindowHelpItemFPvUs(void *, s32, u16);
-void reset_list__20TShopArmorListWindowFv(u32);
 void calc_list_content_extent(u32);
 void add_item_info_entry__20TWindowSubStatusDispFlll(u32, void *, s32, s32);
 s32 get_window_layout_position(s32);
@@ -174,7 +172,7 @@ void TShopGetItemWindow::handle_withdraw_confirm() {
         {
           set_stack_count__24TShopEquipmentListWindowFSc((void *) (&stack.sp8), (int) ((s32) ((u8) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_54)));
         }
-        if (can_inventory_accept_item__10TObjPlayerFPUc((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_24, (void *) (&stack.sp8)) == 0)
+        if (((TObjPlayer *)((int) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_24))->can_inventory_accept_item((u8 *)(&stack.sp8)) == 0)
         {
           PSO_VCALL_VObj_18_a93f07_m4(((u8 *)this), 0x4B, 1);
           ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((int) 6));
@@ -299,7 +297,7 @@ void TShopGetItemWindow::rebuild_item_list() {
         arg0->m4(0x3E, 1);
         ((TShopWindowBase *)arg0)->set_field_20(6);
         if (arg0->f28 != 0U) {
-            reset_list__20TShopArmorListWindowFv(arg0->f28);
+            ((TShopArmorListWindow *)(arg0->f28))->reset_list();
         }
     } else {
     if (arg0->f28 == 0U) {
@@ -323,7 +321,7 @@ void TShopGetItemWindow::rebuild_item_list() {
         s32 count;
         s32 j;
         ((TShopArmorListWindow *)(arg0->f28))->save_cursor_selection();
-        reset_list__20TShopArmorListWindowFv(arg0->f28);
+        ((TShopArmorListWindow *)(arg0->f28))->reset_list();
         for (j = 0; j < 0xC8; j++) {
             if (copy_bank_item_with_stack_limit(j, (u8 *)&item, &count, x) != 0) {
                 if (count > 1) {

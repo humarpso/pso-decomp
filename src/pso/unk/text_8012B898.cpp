@@ -22,7 +22,6 @@ struct Self_8012B9B4 {
 extern "C" {
 s32 get_current_floor();
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
 u8 * init_vtable_and_clear_field1f8__13TUnk_804A4E68Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -30,7 +29,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s32 get_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(s32);
-s16 get_uid__10TObjPlayerFv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 s32 rand(void);
@@ -69,7 +67,7 @@ void TUnk_804A4F60::set_technique_roll(s32 arg1) {
         switch (arg1)
         {
           case 0:
-            create_tec_zonde__10TObjPlayerFPvPvPvPv((int) (*((u32 *) (((s8 *) arg0) + 0xF0))), (void *) (arg0 + 0x1FC), (void *) (arg0 + 0x208), (int) 0xA);
+            TObjPlayer::create_tec_zonde((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(arg0 + 0x208), (void *)((int) 0xA));
             return;
           case 1:
             TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(*((s32 *) (((s8 *) arg0) + 0x264))), (void *)((int) 0xA));
@@ -90,7 +88,7 @@ void TUnk_804A4F60::psycho_wand_roll_extra() {
     item = get_captured_target_entry(ext, 0);
     if (get_captured_target_count(ext) != 0) {
         ((Self_8012B9B4 *)this)->f208 = 1;
-        ((Self_8012B9B4 *)this)->f20C = get_uid__10TObjPlayerFv(item);
+        ((Self_8012B9B4 *)this)->f20C = ((TObjPlayer *)item)->get_uid();
         ((Self_8012B9B4 *)this)->f20E = get_captured_target_collider_index(item);
     } else {
         ((Self_8012B9B4 *)this)->f208 = 0;

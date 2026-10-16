@@ -27,7 +27,6 @@ struct RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm {
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-s32 select_models__18TObjLazerFenceNormFv(void *);
 extern RecoveredGlobal_80192E70_lbl_804B7FB0 laser_fence_collision_body_parts;
 extern s32 __vt__18TObjLazerFenceNorm[];
 extern s32 obj_lazer_fence_norm_class_name;
@@ -97,7 +96,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, s32 arg1, s32 arg2) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
     }
     *(s16 *)((s8 *)arg0 + 0xB0) = (s16) *(s32 *)((s8 *)arg0 + 0x84);
-    select_models__18TObjLazerFenceNormFv((void *) (arg0));
+    ((TObjLazerFenceNorm *)arg0)->select_models();
     temp_r4 = *(u32 *)((s8 *)arg0 + 0x8C);
     temp_r6 = temp_r4 >> 0x1FU;
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&laser_fence_collision_body_parts.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), (int) (3));

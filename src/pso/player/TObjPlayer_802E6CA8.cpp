@@ -102,7 +102,6 @@ f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
 extern const f64 lbl_80473FA8[];
 s32 TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
-s32 draw_effect__10TObjPlayerFv();
 s32 rotate_matrix_z(int, s32);
 s32 translate_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, s32);
@@ -134,7 +133,6 @@ extern const f32 lbl_805DE9DC;
 extern const f32 lbl_805DE9E0;
 s32 TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
-s32 draw_effect__10TObjPlayerFv();
 s32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -198,7 +196,7 @@ void TUnk_804E3BA8::render() {
     Col_802E6CB0 c = lbl_80472C9C;
     node = *(Node_802E6CB0 **)((s8 *)fx + 0x2C);
     part = *(Part_802E6CB0 * *)&this->unk_28;
-    draw_effect__10TObjPlayerFv();
+    TObjPlayer::draw_effect();
     push_matrix();
     for (i = 0; i < this->m_24; i++) {
         push_matrix();
@@ -287,7 +285,7 @@ void TUnk_804E3BC0::render() {
     Vec_802E708C s = lbl_80472C90;
     s.z = s.y = s.x = lbl_805DE9F8;
     part = *(Part_802E708C * *)&this->unk_28;
-    draw_effect__10TObjPlayerFv();
+    TObjPlayer::draw_effect();
     for (node = node->child; node != NULL; node = node->next) {
         push_matrix();
         post_translate_matrix(part);

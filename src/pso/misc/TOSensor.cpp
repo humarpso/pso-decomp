@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TORockCave.h"
@@ -66,7 +67,6 @@ extern const f32 lbl_805DB980;
 s32 obj_testFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
-u16 get_window_id__11TWindowCtrlFv();
 extern s32 local_client_id;
 }
 
@@ -192,7 +192,7 @@ s32 TOSensor::is_confirm_pressed() {
             }
             break;
         case 2:
-            if (local_client_id == get_window_id__11TWindowCtrlFv() && pl != NULL) {
+            if (local_client_id == TWindowCtrl::get_window_id() && pl != NULL) {
                 if (horizontal_distance_squared(pl->pos, self->pos) < self->range * self->range) {
                     self->state = 1;
                 }

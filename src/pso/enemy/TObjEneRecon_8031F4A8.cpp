@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRecon.h"
 
 struct Base_8031F4A8 { char pad[0x18]; };
@@ -130,7 +131,6 @@ struct VObj_8031F550 : Base_8031F550 {
 extern "C" {
 
 s32 advance_animation_playback();
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 get_flag_b4__9TObjEneDDFv();
 s32 is_out_of_range__12TObjEneReconFv();
@@ -144,7 +144,7 @@ void TObjEneRecon::handle_action_state(s32 arg1) {
         *(s32 *)((s8 *)this + 0x40C) = temp_r4;
         *(s16 *)((s8 *)this + 0xB8) = 2;
         ((VObj_8031F4A8 *)this)->m94();
-        set_field_378__9TObjEneDDFl(this, 2);
+        set_field_378(2);
         return;
     case 3:
         if (is_out_of_range__12TObjEneReconFv() != 0) {
@@ -165,7 +165,7 @@ void TObjEneRecon::update_state(s32 arg1) {
         *(s32 *)((s8 *)this + 0x40C) = *(s32 *)((s8 *)this + 0x40C) & 0xFFFFFFFE;
         *(s16 *)((s8 *)this + 0xB8) = 1;
         ((VObj_8031F550 *)this)->m94();
-        set_field_378__9TObjEneDDFl(this, 3);
+        set_field_378(3);
         return;
     case 3:
         if (get_flag_b4__9TObjEneDDFv() != 0) {

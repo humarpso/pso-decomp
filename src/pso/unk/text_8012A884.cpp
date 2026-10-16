@@ -11,7 +11,6 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void TItemWeapon__ct(void *);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
 }
 
@@ -102,7 +101,7 @@ u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
     Inc_8012A884 *p;
     TItemWeapon__ct(self);
     self->vt = s_rank_weapon_vtable;
-    set_status_flags__10TObjPlayerFUl(self, 2);
+    ((TObjPlayer *)self)->set_status_flags(2);
     self->kind = ((TItemProShield *)self)->get_slot_count();
     p = (Inc_8012A884 *)arg0;
     switch (self->kind) {
@@ -112,7 +111,7 @@ u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
         break;
     case 1:
     case 2:
-        set_status_flags__10TObjPlayerFUl(p, 0x400000);
+        ((TObjPlayer *)p)->set_status_flags(0x400000);
         ((TUnk_804A4948 *)self)->set_special_selector(0x1A);
         break;
     case 5:

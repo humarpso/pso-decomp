@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 struct Data_8008741C { u8 pad[0x98]; };
 
 struct Ent_80087350 { u8 data[0x98]; };
@@ -20,7 +21,6 @@ extern s32 particle_pool_limit;
 extern Data_8008741C *particle_global_entry_table;
 extern Data_8008741C *particle_area_entry_table;
 void *__nw__7TObjectFUl(u32);
-void *initialize__13TParticleCtrlFPCvlllll(void *self, void *owner, void *entry, s32 a, s32 b, s32 c, s32 d);
 void *spawn_particle_effect(void *pos, s32 id);
 }
 
@@ -55,7 +55,7 @@ void *spawn_particle_effect(void *pos, s32 id) {
     if (particle_pool_limit > id) {
         p = __nw__7TObjectFUl((u32)(0x78));
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPCvlllll(p, pos, &(*(Ent_80087350 * *)&particle_global_entry_table)[id], 1, 0, 0, 0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_80087350 * *)&particle_global_entry_table)[id]), (s32)1, (s32)0, (s32)0, (s32)0);
         }
         return p;
     }
@@ -63,7 +63,7 @@ void *spawn_particle_effect(void *pos, s32 id) {
         s32 idx = id - 0x200;
         p = __nw__7TObjectFUl((u32)(0x78));
         if (p != 0) {
-            p = initialize__13TParticleCtrlFPCvlllll(p, pos, &(*(Ent_80087350 * *)&particle_area_entry_table)[idx], 1, 0, 0, 0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)pos, (s32)(&(*(Ent_80087350 * *)&particle_area_entry_table)[idx]), (s32)1, (s32)0, (s32)0, (s32)0);
         }
         return p;
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSaver.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -1106,7 +1107,6 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 
 void init_enemy_base__13TUnk_80493450Fv(void *);
-void *create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_photon_effect(void *);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
@@ -1185,8 +1185,8 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     }
     self->f3A8.m3();
     self->f390 = 1;
-    self->f3C4 = create__12TObjEneSaverFPvPv(0xA0303030, color);
-    self->f3C8 = create__12TObjEneSaverFPvPv(0xA0303030, color);
+    self->f3C4 = TObjEneSaver::create((void *)0xA0303030, (void *)color);
+    self->f3C8 = TObjEneSaver::create((void *)0xA0303030, (void *)color);
     self->f398 = (*(f32 **)(shark_resource_buffer + self->f334 * 4))[0];
     self->f3A0 = (*(f32 **)(shark_resource_buffer + self->f334 * 4))[1];
     self->f39C = (*(f32 **)(shark_resource_buffer + self->f334 * 4))[2];

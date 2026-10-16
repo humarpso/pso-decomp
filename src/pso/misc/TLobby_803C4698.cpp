@@ -41,17 +41,12 @@ extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 void TLobby__sub_803C4698(void);
-void clear_buffer_a00__6TLobbyFv(void);
 void flush_update__6TLobbyFv(void *, int);
 void TLobby__sub_803CC114(void);
 void sj_memory_buffer_init(void);
 void sj_ring_buffer_init(void);
 void TLobby__sub_803D2ED4(void);
 s32 memset(void *, int, int);
-void ar_alloc__6TLobbyFv(void);
-void get_state_zero__6TLobbyFv(void);
-void process_connection_state__6TLobbyFv(void);
-void forward_notify_error__6TLobbyFll(void);
 extern u8 adx_stream_player_pool[];
 extern s32 lbl_805D4658;
 extern s32 TLobby_init_ref_count;
@@ -79,7 +74,6 @@ void sj_memory_buffer_shutdown(void);
 s32 sj_ring_buffer_shutdown();
 s32 TLobby__sub_803D3194();
 s32 set_callback_params__6TLobbyFll();
-s32 si_get_type_async__6TLobbyFv();
 
 extern s32 TLobby__init_ref_count;
 
@@ -358,7 +352,7 @@ void TLobby::dec_ref_and_shutdown() {
     if (temp_r0 == 0) {
         TLobby::shutdown_cleanup();
         TLobby::dec_ref_and_reset_tables();
-        si_get_type_async__6TLobbyFv();
+        TLobby::si_get_type_async();
         lsc_shutdown();
         TLobby::init_once();
         TLobby::SVM_DelCbSvr((s32)((int) (2)), (s32)((void *) (1)));
@@ -384,17 +378,17 @@ void TLobby::init_and_add_ref() {
         sj_ring_buffer_init();
         sj_memory_buffer_init();
         TLobby::clear_error_callback_state();
-        clear_buffer_a00__6TLobbyFv();
+        TLobby::clear_buffer_a00();
         TLobby::reset_sound_buffers();
         TLobby::init_afs_adxf_state();
         TLobby__sub_803CC114();
-        flush_update__6TLobbyFv((void *)forward_notify_error__6TLobbyFll, 0);
+        flush_update__6TLobbyFv((void *)TLobby::forward_notify_error, 0);
         memset(adx_stream_player_pool, 0, 0xA80);
         lsc_init();
         if (lbl_805D4658 == 1) {
-            TLobby::SVM_SetCbSvrId((s32)2, (s32)1, (s32)((void *)get_state_zero__6TLobbyFv), (s32)0);
-            TLobby::SVM_SetCbSvrId((s32)2, (s32)3, (s32)((void *)ar_alloc__6TLobbyFv), (s32)0);
-            TLobby__svm_cb_svr_handle = TLobby::svm_set_cb_svr((s32)4, (s32)((void *)process_connection_state__6TLobbyFv), (s32)0);
+            TLobby::SVM_SetCbSvrId((s32)2, (s32)1, (s32)((void *)TLobby::get_state_zero), (s32)0);
+            TLobby::SVM_SetCbSvrId((s32)2, (s32)3, (s32)((void *)TLobby::ar_alloc), (s32)0);
+            TLobby__svm_cb_svr_handle = TLobby::svm_set_cb_svr((s32)4, (s32)((void *)TLobby::process_connection_state), (s32)0);
         }
         lbl_805D7540 = 0;
         TLobby::release_ref();

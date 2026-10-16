@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdMcCheckGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
@@ -24,7 +25,6 @@ void TLobby__sub_8033EE38(void* p);
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 s32 get_localized_text_entry(s32, s32);
-s32 calc_layout_height__17TWindowSubComCardFf(s32, f32);
 void __ct__7TObjectFP7TObject(void *);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -49,7 +49,7 @@ s32 TAdMcCheckGC::create(s32 arg1) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0x16, arg1), 0x20, 0);
     ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
     set_status_flag_80__12TQuestThreadFPv(temp_r31);
-    calc_layout_height__17TWindowSubComCardFf(temp_r31, lbl_805DFAD8);
+    ((TWindowSubComCard *)temp_r31)->calc_layout_height(lbl_805DFAD8);
     return temp_r31;
 }
 

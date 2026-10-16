@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowMessagePage.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -55,7 +56,6 @@ void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
-void complete_reveal__14TWindowMessageFv(void *);
 extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
 extern s32 local_client_id;
@@ -100,7 +100,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             self->state = 2;
         }
         if (TWindowShortListCtrl__check_controller_button(controller_input_state[0].m20, 4) != 0) {
-            complete_reveal__14TWindowMessageFv(self->fmt);
+            ((TWindowMessage *)(self->fmt))->complete_reveal();
             self->state = 2;
         }
         break;

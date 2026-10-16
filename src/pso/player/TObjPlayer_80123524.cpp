@@ -8,7 +8,6 @@ extern "C" {
 s32 get_flag_40__8TItemMagFv();
 s32 post_translate_matrix(Sp8Type_80123524 *);
 s32 draw_ginja_object(void *);
-s32 spawn_cane_effect__10TObjPlayerFP5TIteml(s32, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv();
 s32 draw_icon__10TObjPlayerFll(void *, s32, Sp8Type_80123524 *, s32);
 s32 draw_weapon_at_joint(void *, s32, void *);
@@ -75,7 +74,7 @@ extern s32 tl_05;
 
 void TObjPlayer::try_spawn_cane_effect(s32 arg0) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        spawn_cane_effect__10TObjPlayerFP5TIteml(tl_05, arg0, 4);
+        ((TObjPlayer *)tl_05)->spawn_cane_effect((TItem*)arg0, (s32)4);
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TShopSequence.h"
@@ -144,8 +145,6 @@ struct Win_8021C968 : VObj_8021C968 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-int count_matching_items__10TObjPlayerFi(void *a0, u32 *a1);
-int reset_list__20TShopArmorListWindowFv(void *);
 s32 get_shop_text(s32);
 void *create_item_list_window(s32, s32, u16);
 void calc_list_content_extent(void *);
@@ -173,7 +172,6 @@ void *__nw__7TObjectFUl(u32);
 void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
 void *__ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
 s32 align_menu_entry_positions(u32);
-s32 calc_window_size__17TWindowSubComCardFv(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 u32 create_window_menu(s32, s32, u16);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
@@ -181,7 +179,6 @@ s32 get_window_layout_position(s32);
 void get_item_count__24TShopEquipmentSellWindowFv(void *, s32);
 s32 obj_getField1c(s32);
 extern const f32 lbl_805DC6D8;
-s32 try_add_sale_meseta__10TObjPlayerFlll(s32, s32, s32, s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
@@ -196,7 +193,6 @@ s32 get_shop_text(s32);
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 align_menu_entry_positions(u32);
-s32 calc_window_size__17TWindowSubComCardFv(u32);
 s32 get_window_layout_position(s32);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
@@ -236,7 +232,7 @@ void TShopEquipmentSellWindow::handle_sell_confirm() {
         r = get_selected_menu_value(w->card);
         if (r == 0) {
             s32 i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
-            if (try_add_sale_meseta__10TObjPlayerFlll(w->player, ((TObjPlayer *)(w->recs[i].item))->get_field_d8(), w->recs[i].price * w->count, w->count) != 0) {
+            if (((TObjPlayer *)(w->player))->try_add_sale_meseta(((TObjPlayer *)(w->recs[i].item))->get_field_d8(), w->recs[i].price * w->count, w->count) != 0) {
                 TWindow__close(w->card);
                 w->card = NULL;
                 w->sel = i;
@@ -273,7 +269,7 @@ void TShopEquipmentSellWindow::handle_input_window_result() {
             *(u32 *)((s8 *)this + 0x390) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x390), get_shop_text(6), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x390), get_shop_text(7), 6, 1);
-            calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)this + 0x390));
+            ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x390)))->calc_window_size();
             align_menu_entry_positions(*(u32 *)((s8 *)this + 0x390));
             ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x390)))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
@@ -350,7 +346,7 @@ void TShopEquipmentSellWindow::handle_selection() {
             w->menu_win = create_window_menu(get_window_layout_position(0x2B), 2, obj_getField1c((s32)w->owner));
             forward_trade_action_default__16TObjCityMainWarpFPviii(w->menu_win, get_shop_text(6), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(w->menu_win, get_shop_text(7), 6, 1);
-            calc_window_size__17TWindowSubComCardFv(w->menu_win);
+            ((TWindowSubComCard *)(w->menu_win))->calc_window_size();
             align_menu_entry_positions(w->menu_win);
             ((TCheckRoomSequence *)(w->menu_win))->set_ready_flag();
             ((TUnk_804CDFE8 *)(w->menu_win))->set_position_xy(get_scale__15TShopWindowBaseFv(w), get_scale__15TShopWindowBaseFv(w));
@@ -367,7 +363,7 @@ void TShopEquipmentSellWindow::build_sell_list() {
     s32 v;
     void *p;
     u32 r;
-    n = count_matching_items__10TObjPlayerFi(self->owner->inventory, ids);
+    n = ((TObjPlayer *)(self->owner->inventory))->count_matching_items((int)ids);
     self->count = 0;
     for (i = 0; i < n; i++) {
         if (ids[i] != 0) {
@@ -383,7 +379,7 @@ void TShopEquipmentSellWindow::build_sell_list() {
     if (self->count == 0) {
         ((TShopWindowBase *)self)->set_field_20(7);
         if (self->list_win != NULL) {
-            reset_list__20TShopArmorListWindowFv(self->list_win);
+            ((TShopArmorListWindow *)(self->list_win))->reset_list();
         }
         return;
     }
@@ -396,7 +392,7 @@ void TShopEquipmentSellWindow::build_sell_list() {
         }
         calc_list_content_extent(self->list_win);
     } else {
-        reset_list__20TShopArmorListWindowFv(self->list_win);
+        ((TShopArmorListWindow *)(self->list_win))->reset_list();
         for (i = 0; i < self->count; i++) {
             ((TShopEquipmentSellWindow *)(self->list_win))->add_item(self->entries[i].id, self->entries[i].price, i);
         }

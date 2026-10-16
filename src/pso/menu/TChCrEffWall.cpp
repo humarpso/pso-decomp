@@ -1,4 +1,5 @@
 #include "pso/TChCrEffWall.h"
+#include "pso/misc/TWindowCtrlMain.h"
 
 #include "types.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -15,7 +16,6 @@ void * fn_8029AE88(void *arg0);
 void TCameraCtrl__sub_80068EF0(void);
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
-void draw_strip_swap_color__15TWindowCtrlMainFllf(Args_8029ACF8 *, s32, s32, f32);
 void draw_default_sprite__12TChCrEffWallFv(s32, Ent_8029ACF8 *, f32);
 extern Ent_8029ACF8 creation_effwall_sprite_position_table[6];
 extern Ent_8029ACF8 creation_effwall_sprite_size_table[2];
@@ -59,10 +59,10 @@ void TChCrEffWall::render() {
     args.c = 0;
     args.d = 4;
     args.a = lbl_804DBF68;
-    draw_strip_swap_color__15TWindowCtrlMainFllf(&args, 4, 6, lbl_805DDCB4);
+    ((TWindowCtrlMain *)(&args))->draw_strip_swap_color(4, 6, lbl_805DDCB4);
     args.b = lbl_804DBFA8;
     args.a = lbl_804DBF88;
-    draw_strip_swap_color__15TWindowCtrlMainFllf(&args, 4, 6, lbl_805DDCB4);
+    ((TWindowCtrlMain *)(&args))->draw_strip_swap_color(4, 6, lbl_805DDCB4);
     TCameraCtrl__sub_80068EF0();
     restore_saved_depth_alpha_state();
 }

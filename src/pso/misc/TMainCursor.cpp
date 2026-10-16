@@ -16,7 +16,6 @@ s32 set_offset_y__11TMainCursorFs(void *, void *);
 s32 init_field_60__11TMainCursorFv(void *, void *);
 s32 TMainCursor__sub_8013E6E0(void *, void *);
 s32 set_target_id_at_60__11TMainCursorFUc(void *, void *);
-s32 set_target_index_at_60__11TMainCursorFPv(void *, void *);
 s32 TMainCursor__sub_8013E800(void *);
 s32 TMainCursor__sub_8013F1F0(void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -39,7 +38,6 @@ extern const f32 lbl_805DB0DC;
 extern "C" {
 
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
-void delete_this__11TMainCursorFs(void *, int);
 void *find_entity_by_id();
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -98,7 +96,7 @@ void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMainCursor;
         destroy__11TMainCursorFis((s8 *)arg0 + 0x60, -1);
         ((TMainCursor *)((s8 *)arg0 + 0x4C))->destroy(-1);
-        delete_this__11TMainCursorFs((s8 *)arg0 + 0x24, -1);
+        ((TMainCursor *)((s8 *)arg0 + 0x24))->delete_this(-1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -115,7 +113,7 @@ u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32
     TMainCursor__sub_8013F1F0((void *) (arg0 + 0x4C));
     ((TMainCursor *)(arg0 + 0x60))->reset();
     *(s32 *)((s8 *)arg0 + 0) = (s32) main_cursor_class_name;
-    set_target_index_at_60__11TMainCursorFPv((void *) (arg0), (void *) (arg2));
+    ((TMainCursor *)arg0)->set_target_index_at_60((void *) (arg2));
     set_target_id_at_60__11TMainCursorFUc((void *) (arg0), (void *) (arg3));
     ((TMainCursor *)arg0)->sub_8013E724((f32) (farg0));
     TMainCursor__sub_8013E6E0((void *) (arg0), (void *) ((s32) arg4));

@@ -271,12 +271,10 @@ struct Table_800712D8 {
 struct Tbl_80070DCC { u8 pad[0x680]; s32 f680[4]; };
 
 extern "C" {
-int check_player_state_flag_2__6TLobbyFv(void *);
 s32 get_player_by_client_id(u32);
 extern s32 challenge_mode_state[];
 extern u32 challenge_task;
 s32 TLobby__sub_80070F4C(void);
-int check_player_state_flag_2__6TLobbyFv(void *);
 s32 get_player_by_client_id(u32);
 extern s32 challenge_mode_state[];
 extern u32 challenge_task;
@@ -318,13 +316,12 @@ extern s8 challenge_time_limit_initialized;
 
 extern "C" {
 
-s32 is_ready_to_draw__6TLobbyFv();
 s32 fn_800733C4(void*);
 
 extern u32 challenge_task;
 
 void TLobby::update_dead_list_win() {
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) challenge_task != 0U)) {
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (TLobby::is_ready_to_draw() != 0) && ((u32) challenge_task != 0U)) {
         TObjDeadListWin::create((TObject*)challenge_task);
     }
 }
@@ -332,7 +329,7 @@ void TLobby::update_dead_list_win() {
 extern u32 challenge_task;
 
 void TLobby::draw_if_ready() {
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) challenge_task != 0U)) {
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (TLobby::is_ready_to_draw() != 0) && ((u32) challenge_task != 0U)) {
         fn_800733C4((void*)challenge_task);
     }
 }
@@ -415,7 +412,7 @@ s32 TLobby__sub_80070F4C(void) {
     var_r31 = 0;
 loop_4:
     temp_r3 = (u8 *)(get_player_by_client_id(var_r31));
-    if ((temp_r3 != NULL) && (check_player_state_flag_2__6TLobbyFv(temp_r3) != 0)) {
+    if ((temp_r3 != NULL) && (((TLobby *)temp_r3)->check_player_state_flag_2() != 0)) {
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070F4C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x20) = 1;
         return 1;
     }
@@ -435,7 +432,7 @@ s32 TLobby__sub_80070FD8(void) {
     var_r31 = 0;
 loop_4:
     temp_r3 = (u8 *)(get_player_by_client_id(var_r31));
-    if ((temp_r3 != NULL) && (check_player_state_flag_2__6TLobbyFv(temp_r3) == 0)) {
+    if ((temp_r3 != NULL) && (((TLobby *)temp_r3)->check_player_state_flag_2() == 0)) {
         return 0;
     }
     var_r31 += 1;

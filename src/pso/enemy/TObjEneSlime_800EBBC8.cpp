@@ -10,7 +10,6 @@ struct RecoveredGlobal_800EBC28___vt__12TObjEneSlime {
 
 extern "C" {
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
-s32 init_slots__12TObjEneSlimeFv(void *);
 s32 initialize__9TObjEnemyFPv(void *);
 extern s32 __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
@@ -60,7 +59,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
         *(s32 *)((s8 *)arg0 + 0x3B4) = 4;
     }
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
-    init_slots__12TObjEneSlimeFv((void *) (arg0));
+    ((TObjEneSlime *)arg0)->init_slots();
     return arg0;
 }
 

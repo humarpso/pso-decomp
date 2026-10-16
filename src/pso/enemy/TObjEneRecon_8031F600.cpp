@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 
 struct Base_8031F600 { char pad[0x18]; };
 struct VObj_8031F600 : Base_8031F600 {
@@ -34,7 +35,6 @@ struct VObj_8031F600 : Base_8031F600 {
 extern "C" {
 
 void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 advance_animation_playback();
 s32 TObjEneRecon__sub_8031FACC(void *);
@@ -50,7 +50,7 @@ void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((VObj_8031F600 *)arg0)->m94(temp_r4);
-        set_field_378__9TObjEneDDFl(arg0, 2);
+        ((TObjEneDD *)arg0)->set_field_378(2);
         return;
     case 3:
         if ((((VObj_8031F600 *)arg0)->m102(TObjEneRecon__data_805DF438) != 0) && (TObjEneRecon__sub_8031FACC(arg0) != 0)) {

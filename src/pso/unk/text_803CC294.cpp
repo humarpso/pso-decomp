@@ -94,7 +94,6 @@ extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
-s32 get_field_14__6TLobbyFv(u32);
 u32 TLobby__sub_803C8CDC(u32, s32, s32);
 extern s32 lbl_8047CBA4[];
 extern s32 lbl_8047CBD8[];
@@ -584,7 +583,7 @@ inline s32 open_803CD3A8(Slot_803CD16C *s, u32 arg0, s32 arg1) {
         return -1;
     }
     s->f4 = h;
-    sz = get_field_14__6TLobbyFv(h);
+    sz = ((TLobby *)h)->get_field_14();
     s->fc = (sz + 0x7FF) / 2048;
     s->f10 = sz;
     return 0;

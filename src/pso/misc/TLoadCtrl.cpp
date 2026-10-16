@@ -42,7 +42,6 @@ extern u32 TLoadCtrl__instance;
 bool TLoadCtrl__sub_8001C60C(void);
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
 s32 TNowLoading__sub_8001D4D4();
-s32 reset_view_state__11TCameraCtrlFv();
 s32 TCameraCtrl__ct(u8 *, s32);
 s32 TLoadCtrl__sub_80226DA0(int);
 s32 select_area_entrance(void *);
@@ -73,7 +72,6 @@ extern s32 TLoadCtrl__fade_task;
 extern "C" {
 
 s32 TAdLoadQuestGC__sub_8030984C();
-s32 reset_view_state__11TCameraCtrlFv();
 s32 TNowLoading__sub_8001D4D0();
 s32 fn_8034AD28();
 s32 queue_destruction__7TObjectFv(u32);
@@ -209,7 +207,7 @@ void TLoadCtrl::cleanup_scene() {
         }
         camera_ctrl_instance = NULL;
     }
-    reset_view_state__11TCameraCtrlFv();
+    TCameraCtrl::reset_view_state();
     TCameraCtrl::init_default_view();
     TCameraCtrl::create();
 }
@@ -220,7 +218,7 @@ void TLoadCtrl::start_loading(u32 arg0) {
     u8 *temp_cam;
     u32 var_r31;
     var_r31 = arg0;
-    reset_view_state__11TCameraCtrlFv();
+    TCameraCtrl::reset_view_state();
     TCameraCtrl::init_default_view();
     if (var_r31 == 2U) {
         temp_r3 = select_area_entrance((void *) (lbl_80515BA0));

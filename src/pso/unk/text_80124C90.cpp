@@ -24,7 +24,6 @@ void create_lavis_shot(void *, void *, void *, f32);
 f32 *get_weapon_range_record(void *, s32);
 f32 query_extended_state__10TObjPlayerFv(void *);
 s16 get_captured_target_collider_index(void *);
-u16 get_uid__10TObjPlayerFv(void *);
 void *get_captured_target_entry(void *, s32);
 s32 get_captured_target_count(void *);
 Tgt_80124C90 *resolve_hittable_target(u16, s16);
@@ -60,7 +59,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
     Vec_80124C90 dst = *pos;
     if (get_captured_target_count(ext) != 0) {
         e = get_captured_target_entry(ext, get_captured_target_count(ext) - 1);
-        t = resolve_hittable_target(get_uid__10TObjPlayerFv(e), get_captured_target_collider_index(e));
+        t = resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
         if (t != NULL) {
             Part_80124C90 *pp = &t->parts[get_captured_target_collider_index(e)];
             VecCopy__FP3VecPC3Vec(&dst, &pp->v);
@@ -86,7 +85,7 @@ void TObjPlayer__sub_80124C90(u8 *arg0) {
     }
     for (i = 0; i != get_captured_target_count(ext); i++) {
         e = get_captured_target_entry(ext, i);
-        t = resolve_hittable_target(get_uid__10TObjPlayerFv(e), get_captured_target_collider_index(e));
+        t = resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
         if (t != NULL) {
             Part_80124C90 *part = &t->parts[get_captured_target_collider_index(e)];
             void *e2 = get_captured_target_entry(ext, i);

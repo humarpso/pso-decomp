@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneGibbles.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneBm3FlyNest.h"
@@ -2428,7 +2429,6 @@ s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 u8 * create_particle_emitter(void *, s32);
-s32 enable__13TParticleCtrlFv(int);
 s32 init_from_model__11TBreakUpMdlFl(int, void *);
 void TObjEneBm3Fly__sub_800B0B20(u8 *arg0, s32 arg1);
 void vfunc_61__13TObjEneBm3FlyFv(void);
@@ -2794,7 +2794,7 @@ void TObjEneBm3Fly::run_task() {
       temp_r3_3 = (u8 *) (particle_effect);
       if (temp_r3_3 != 0)
       {
-        enable__13TParticleCtrlFv((int) temp_r3_3);
+        ((TParticleCtrl *)temp_r3_3)->enable();
       }
     }
     else
@@ -2802,7 +2802,7 @@ void TObjEneBm3Fly::run_task() {
       ;
       if ((((animation_id) == 9) || ((animation_id) == 8)) || ((animation_id) == 7))
       {
-        enable__13TParticleCtrlFv((int) temp_r3_2);
+        ((TParticleCtrl *)temp_r3_2)->enable();
       }
       else
       {
@@ -2833,7 +2833,7 @@ void TObjEneBm3Fly::run_task() {
     temp_r3_4 = (u8 *) (particle_effect);
     if (temp_r3_4 != 0)
     {
-      enable__13TParticleCtrlFv((int) temp_r3_4);
+      ((TParticleCtrl *)temp_r3_4)->enable();
     }
   }
   ((TObjEneBm3Fly *)arg0)->store_position();

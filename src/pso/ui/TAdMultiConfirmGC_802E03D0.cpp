@@ -1,5 +1,6 @@
 #pragma defer_codegen on
 #include "types.h"
+#include "pso/TChCrLoadAfs.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/player/TObjPlayer.h"
@@ -102,7 +103,6 @@ u8 *get_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void *init_appearance_load_request__10TNpcPlayerFPvPvii(void *, void *, void *, int);
-s32 is_unloaded__12TChCrLoadAfsFv(void *);
 void set_load_state__14TAdPlyStatusGCFPvi(void *, int);
 }
 
@@ -386,7 +386,7 @@ void TNpcPlayer::update_model_load() {
             }
             F(0xFC, s32) = F(0x100, s32) - 1;
             F(0x100, s32) = 0;
-        } else if (is_unloaded__12TChCrLoadAfsFv(F(0x170, void *)) != 0) {
+        } else if (((TChCrLoadAfs *)(F(0x170, void *)))->is_unloaded() != 0) {
             F(0xFC, s32) = 3;
             F(0x118, s32) = 0;
         }

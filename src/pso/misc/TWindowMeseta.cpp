@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowMeseta.h"
 #include "pso/misc/TWindowDD.h"
@@ -23,8 +24,6 @@ struct Meseta_80269244 {
 };
 
 extern "C" {
-s32 get_camera_id__11TCameraCtrlFv();
-void construct_base__9TWindowDDFPUcsPUc(void *, s32 *, s16, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFv();
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
@@ -75,7 +74,7 @@ void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {
 void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     Sub_80269244 *a;
     Sub_80269244 *b;
-    construct_base__9TWindowDDFPUcsPUc(arg0, TWindowMeseta__window_descriptor, arg2, arg1);
+    ((TWindowDD *)arg0)->construct_base((u8 *)TWindowMeseta__window_descriptor, (s16)arg2, (u8 *)arg1);
     self->vt = __vt__13TWindowMeseta;
     self->name = TWindowMeseta__class_name;
     self->x64 = arg2;
@@ -87,7 +86,7 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     self->x38 = lbl_805DD204 + b->x8;
     ((TUnk_804CE018 *)arg0)->save_position();
     self->x60 = TWindowSubStatusDisp__sub_802877A4(self->x48 - lbl_805DD208);
-    if (get_camera_id__11TCameraCtrlFv() > 2) {
+    if (TCameraCtrl::get_camera_id() > 2) {
         self->x6c = lbl_805DD20C;
         self->x70 = lbl_805DD20C;
     } else {

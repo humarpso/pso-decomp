@@ -3,6 +3,8 @@
 #pragma dont_inline off
 
 #include "types.h"
+#include "pso/misc/TShopArmorListWindow.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TShopKeepItemWindow.h"
 #include "pso/misc/TUnk_804CDFE8.h"
@@ -113,10 +115,8 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 u32 obj_getField1c(s32);
-s32 count_matching_items__10TObjPlayerFi(s32, u32 *);
 s32 get_shop_text(s32);
 void TWindowHelpItem__set_displayed_item_by_id(u32, s32);
-void reset_list__20TShopArmorListWindowFv(u32);
 void calc_list_content_extent(u32);
 s32 get_window_layout_position(s32);
 u32 create_item_list_window(s32, s32, u16);
@@ -260,7 +260,7 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
     s32 i;
     s32 cur;
     self->f378 = 1;
-    count = count_matching_items__10TObjPlayerFi(*(s32 *)((s8 *)self->f24 + 0xD00), buf);
+    count = ((TObjPlayer *)(*(s32 *)((s8 *)self->f24 + 0xD00)))->count_matching_items((int)buf);
     self->f374 = 0;
     for (i = 0; i < count; i++) {
         if (buf[i] != 0 && ((TItem *)(buf[i]))->copy_to_item_data(self->ents[self->f374].item) != 0) {
@@ -285,7 +285,7 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
         cur = ((TShopGetItemWindow *)(self->f384))->get_cursor_index();
     } else {
         ((TShopArmorListWindow *)(self->f384))->save_cursor_selection();
-        reset_list__20TShopArmorListWindowFv(self->f384);
+        ((TShopArmorListWindow *)(self->f384))->reset_list();
         for (s32 j = 0; j < self->f374; j++) {
             ((TShopJudgmentItemWindow *)(self->f384))->add_list_entry(self->ents[j].f0, j);
         }

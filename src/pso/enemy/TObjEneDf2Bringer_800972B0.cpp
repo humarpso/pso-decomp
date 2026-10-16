@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss4Type3.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TUnk_8048FE08.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
@@ -1244,11 +1247,9 @@ void TObjEneDf2Bringer__sub_8009813C(u8 *arg0, s32 arg1);
 f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
 u32 create_particle_emitter(void *, s32);
-s32 enable__13TParticleCtrlFv(void *);
 #define TObjEneDf2Bringer__sub_80098EB4 ((s32 (*)(void *))TObjEneDf2Bringer__sub_80098EB4)
 #define attack_visible_players__17TObjEneDf2BringerFPv ((s32 (*)(void *))attack_visible_players__17TObjEneDf2BringerFPv)
 #define TObjEneDf2Bringer__sub_80098FF4 ((s32 (*)(void *))TObjEneDf2Bringer__sub_80098FF4)
-s32 setup_dir_shot__17TObjEneDf2BringerFPCvlf(void *, void *, int, f32);
 s32 construct_bringer_tp_absorb_ring(void *, void *, void *, f32);
 s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
@@ -1313,7 +1314,6 @@ u32 create_particle_emitter(void *, s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
-s32 enable__13TParticleCtrlFv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -1646,10 +1646,10 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
                 if ((e = F_8009(0x4C4, void *)) == 0) {
                     F_8009(0x4C4, u32) = create_particle_emitter(arg0 + 0x474, 0xEB);
                     if (F_8009(0x4C4, u32) != 0) {
-                        enable__13TParticleCtrlFv(F_8009(0x4C4, void *));
+                        ((TParticleCtrl *)(F_8009(0x4C4, void *)))->enable();
                     }
                 } else if (F_8009(0xC0, f32) < TObjEneDf2Bringer__data_805D97F4 || F_8009(0xC0, f32) > lbl_805D97F8) {
-                    enable__13TParticleCtrlFv(e);
+                    ((TParticleCtrl *)e)->enable();
                 } else {
                     ((TNowLoading *)e)->copy_pos(arg0 + 0x474);
                 }
@@ -1703,7 +1703,7 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
                 } else if (F_8009(0x4B4, s32) > 70) {
                     spd *= lbl_805D9804;
                 }
-                setup_dir_shot__17TObjEneDf2BringerFPCvlf(F_8009(0x4A0, void *), arg0 + 0x468, F_8009(0x4B8, s32), spd);
+                ((TObjEneDf2Bringer *)(F_8009(0x4A0, void *)))->setup_dir_shot(arg0 + 0x468, F_8009(0x4B8, s32), spd);
             }
             if ((e = F_8009(0x4C4, void *)) == 0) {
                 F_8009(0x4C4, u32) = create_particle_emitter(arg0 + 0x38, 0xED);
@@ -1714,10 +1714,10 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
                     ang[2] = -0x4000;
                     ((TBoss4Type2 *)(F_8009(0x4C4, void *)))->set_flags(2);
                     ((TBoss4Type2 *)(F_8009(0x4C4, void *)))->copy_vec3(ang);
-                    enable__13TParticleCtrlFv(F_8009(0x4C4, void *));
+                    ((TParticleCtrl *)(F_8009(0x4C4, void *)))->enable();
                 }
             } else if (F_8009(0xC0, f32) < TObjEneDf2Bringer__data_805D9808 || F_8009(0xC0, f32) > lbl_805D97FC) {
-                enable__13TParticleCtrlFv(e);
+                ((TParticleCtrl *)e)->enable();
             } else {
                 ((TNowLoading *)e)->copy_pos(arg0 + 0x468);
             }
@@ -1762,7 +1762,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x4C4) == 0U) {
             *(u32 *)((s8 *)arg0 + 0x4C4) = create_particle_emitter(arg0 + 0x450, 0x100);
             if ((u32) *(u32 *)((s8 *)arg0 + 0x4C4) != 0U) {
-                enable__13TParticleCtrlFv(*(void **)((s8 *)arg0 + 0x4C4));
+                ((TParticleCtrl *)(*(void **)((s8 *)arg0 + 0x4C4)))->enable();
             }
         } else if (*(s32 *)((s8 *)arg0 + 0x484) & 1) {
             ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x4C4)))->copy_pos(arg0 + 0x450);
@@ -3306,7 +3306,6 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
-void init_position_vectors__9TObjEneDDFv(void *);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
@@ -3356,7 +3355,7 @@ void TObjEneDf2Bringer::init_enemy() {
     s32 i;
     void *p;
 
-    init_position_vectors__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneDf2Bringer__resource_bundle + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneDf2Bringer__resource_bundle + 0x42C)) + 0xC);
     init_model__9TObjEneDDFv(arg0, lbl_8048FA2C, 1);
@@ -3515,7 +3514,6 @@ s32 register_boss__6TLobbyFl(int);
 s32 init_bringer_effect_tables();
 u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
-s32 draw_motion_trail__11TBoss4Type3Fllll(void *, s32, s32, s32 *, Vec_80099BD4 *);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 extern Sp_80099BD4 lbl_8043A0BC[];
 extern u8 lbl_8043A108[];
@@ -3580,7 +3578,7 @@ void TObjEneDf2Bringer::load_resources() {
       offs[i].z = TObjEneDf2Bringer__data_805D97E0;
     }
 
-    draw_motion_trail__11TBoss4Type3Fllll(o, *((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x42C))) + 8)), (*((Ent_80099BD4 **) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x430)))[*((s32 *) (((u8 *) (&lbl_8048FAF8)) + 0x44))].v, ids, offs);
+    ((TBoss4Type3 *)o)->draw_motion_trail((s32)(*((s32 *) ((*((u8 **) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x42C))) + 8))), (s32)((*((Ent_80099BD4 **) (((u8 *) TObjEneDf2Bringer__resource_bundle) + 0x430)))[*((s32 *) (((u8 *) (&lbl_8048FAF8)) + 0x44))].v), (s32)ids, (s32)offs);
   }
   k1 = lbl_805D9848;
   n = ((Path_80099BD4 *) TObjEneDf2Bringer__trail_buffer)->n;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/object/TObjMotion.h"
@@ -225,7 +226,6 @@ int queue_destruction__7TObjectFv(void *);
 Hit_800C4754 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
 void *spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 enable__13TParticleCtrlFv(void *);
 s32 TObjEneDD__sub_800C2618(void *);
 void *find_entity_by_id(int);
 s32 vec3_add_to(void *, void *);
@@ -340,7 +340,7 @@ void TObjEneRe2Flower_Bomb::run_task() {
         rot.z = 0;
         o->fFC = spawn_particle_effect_with_rotation(&o->start, &rot, 0xD0, 0x40);
         if (o->fFC != NULL) {
-            enable__13TParticleCtrlFv(o->fFC);
+            ((TParticleCtrl *)(o->fFC))->enable();
         }
     } else {
         ((TNowLoading *)((int)o->fFC))->copy_pos(&o->start);

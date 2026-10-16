@@ -62,7 +62,6 @@ void TItemDrop__sub_80105D10(void);
 u8 can_drop__9TItemDropFv(void);
 u8 is_enabled__9TItemDropFv(void);
 u8 is_not_special__9TItemDropFv(void);
-int set_packed_value__9TItemDataFUs(void*, void*);
 s8 select_weighted_byte__9TItemDropFiiiii(s32, s32, s32, s32, s32);
 s32 get_game_play_mode();
 int is_unsealable_item(void*);
@@ -73,7 +72,7 @@ void unload_item_drop_globals(void) {  }
     extern int lbl_805D5450;
 void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
 
-void TItemDrop::clear_item_if_player_picked_up(void* p, void* a1) { if (is_unsealable_item(a1) == 1) { set_packed_value__9TItemDataFUs(a1, (void*)0); } }
+void TItemDrop::clear_item_if_player_picked_up(void* p, void* a1) { if (is_unsealable_item(a1) == 1) { ((TItemData *)a1)->set_packed_value((u16)((void*)0)); } }
 
 extern s32 game_difficulty_selection;
 

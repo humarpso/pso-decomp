@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Rock.h"
 #include "pso/boss/TBoss6Type2.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss6Mag.h"
@@ -371,7 +372,6 @@ f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 f32 subtract_vector(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void push_out_of_rocks__10TBoss6RockFf(void *, f32);
 void send_6xAD_grid_positions__11TBoss6Type2FUcll(s32, void *, s32);
 s32 rand(void);
 f32 sin_table_lookup(void *);
@@ -808,7 +808,7 @@ void TBoss6Mag::spawn_falling_rocks() {
         p->x = r * ((f32 (*)(s32))sin_table_lookup)(ang) + p->x;
         p->y = (0.0f);
         p->z = r * ((f32 (*)(s32))cos_table_lookup)(ang) + p->z;
-        push_out_of_rocks__10TBoss6RockFf(p, (1e+01f));
+        ((TBoss6Rock *)p)->push_out_of_rocks((1e+01f));
     }
     send_6xAD_grid_positions__11TBoss6Type2FUcll(*(s32 *)((s8 *)arg0 + 0x384), pts, 3);
 }
@@ -1256,7 +1256,6 @@ s32 post_translate_matrix(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-s32 break_rocks_in_radius__10TBoss6RockFf(void *, f32);
 void render__9TBoss6MagFv(void* p);
 s32 play_persistent_sound(int, void *, void *, int, int);
 
@@ -1333,7 +1332,7 @@ void TBoss6Mag::run_task() {
             ((TObjPlayer *)arg0)->update_collisions();
             submit_cursor_candidate((void *) (arg0), (int) (-1));
         }
-        break_rocks_in_radius__10TBoss6RockFf((void *) (arg0 + 0x38), (f32) (1e+01f));
+        ((TBoss6Rock *)(arg0 + 0x38))->break_rocks_in_radius((f32) (1e+01f));
         var_r4 = 0xFF7F5126;
         if ((s32) *(s32 *)((s8 *)arg0 + 0x388) != 0) {
             var_r4 = -0x5DB4;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecZonde.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -201,7 +202,6 @@ void render_debug__16TObjEneBm5GibonUFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 enemy_validate_retained_target(void *);
 s32 TObjEneDD__sub_800BA378(void *, void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
 s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int);
@@ -2040,10 +2040,8 @@ struct Vec_800CD5F4 { f32 x, y, z; };
 
 extern "C" {
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -2053,13 +2051,11 @@ void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
 s32 objInBand__FP7GameObjf(void *, f32);
 void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
 s32 enemy_validate_retained_target(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, s32, s32);
 void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transform_relative_position__9TObjEneDDFPv(void *, int);
 extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 void queue_destruction__7TObjectFv(void *self);
@@ -2073,7 +2069,6 @@ s32 fn_800D88E4(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 play_sound_effect(void *, void *, s32, s32);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
@@ -2085,7 +2080,6 @@ void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFA48(u8 *arg0, s32 arg1);
 void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 s32 enemy_validate_retained_target(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
@@ -2099,7 +2093,6 @@ s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, s32, s32);
 void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -2127,14 +2120,12 @@ extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
 u32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(void *, f32, f32, f32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
 s32 approach_angle_limited(s32, s32, s32);
 s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1);
 s32 is_vec_xz_cross_negative(void *, void *);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
 s32 approach_angle_limited(s32, s32, s32);
 s32 advance_animation_playback(void *);
@@ -2149,7 +2140,6 @@ s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, s32, s32);
 s32 vec3_add_to(void *, void *);
 void TObjEneBm5GibonU__sub_800CE060(u8 *arg0, s32 arg1);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
 s32 approach_angle_limited(s32, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -2159,7 +2149,6 @@ Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
 s32 advance_animation_playback(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 play_sound_effect(void *, void *, s32, s32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 u32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(void *, f32, f32, f32);
@@ -2178,11 +2167,9 @@ f32 newton_sqrtf(f32);
 void fn_80044330(void *);
 void spawn_directional_particle(void *, void *, s32);
 void *spawn_particle_effect(void *, s32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, s32, s32);
-void construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(void *, s32, void *, void *, s32, s32, f32, f32);
 s32 vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(s32, void *, void *);
 s32 rotate_matrix_y(s32, s32);
@@ -2195,7 +2182,6 @@ extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern s32 tl_07;
 void enemy_turn_and_move_on_ground(void *, s32, f32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
@@ -2212,7 +2198,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 get_target_info__9TObjEneDDFv();
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
 
 s32 TObjEneBm5GibonU::get_clamped_level() {
     Sub_800CCB24 *p = ((Obj_800CCB24 *)this)->f2b0;
@@ -2552,7 +2537,7 @@ void TObjEneBm5GibonU::state_cast_technique(s32 arg1) {
     switch (arg1) {
     case 4:
         F(s16, 0xB8) = 0;
-        set_field_378__9TObjEneDDFl(arg0, 14);
+        ((TObjEneDD *)arg0)->set_field_378(14);
         VO->m94();
         F(s32, 0x4AC) &= ~2;
         ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
@@ -2637,7 +2622,7 @@ void TObjEneBm5GibonU::state_cast_technique(s32 arg1) {
                             pop_matrix();
                             e = __nw__7TObjectFUl(0x260);
                             if (e != 0) {
-                                construct_bolt_effect__9TTecZondeFPUcPUcPUcllff(e, tl_07, &p, &v, 0x14000000, 20, ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x(), lbl_805DA1A0);
+                                ((TTecZonde *)e)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&p), (u8 *)(&v), (s32)0x14000000, (s32)20, (f32)(((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()), (f32)lbl_805DA1A0);
                             }
                         }
                         play_sound_effect((void *)0x4002A408, &p, 0, 0);
@@ -2684,7 +2669,7 @@ void TObjEneBm5GibonU__sub_800CDB98(Obj_800CDB98 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         arg0->fb8 = 0xC;
-        set_field_378__9TObjEneDDFl(arg0, 0xE);
+        ((TObjEneDD *)arg0)->set_field_378(0xE);
         arg0->m94();
         arg0->f4ac &= ~2;
         arg0->f518 = 0;
@@ -2940,7 +2925,7 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj_CE_800CCC4C *)arg0)->m95();
-        set_field_378__9TObjEneDDFl(arg0, 8);
+        ((TObjEneDD *)arg0)->set_field_378(8);
         *(s16 *)((s8 *)arg0 + 0xB8) = 9;
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
         find_enemy_by_id__16TObjEneBm5GibonUFi(*(s32 *)((s8 *)arg0 + 0x46C));
@@ -2977,7 +2962,7 @@ void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        set_field_378__9TObjEneDDFl(arg0, 0xE);
+        ((TObjEneDD *)arg0)->set_field_378(0xE);
         ((VObj_800CE694 *)arg0)->m94();
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
         *(s32 *)((s8 *)arg0 + 0x528) = 0;
@@ -3061,7 +3046,7 @@ void TObjEneBm5GibonU__sub_800CE978(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-        set_field_378__9TObjEneDDFl(arg0, 0xD);
+        ((TObjEneDD *)arg0)->set_field_378(0xD);
         ((VObj_18_4225ac *)(arg0))->m94();
         *(f32 *)((s8 *)arg0 + 0x494) = lbl_805DA1C4;
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
@@ -3178,7 +3163,7 @@ void TObjEneBm5GibonU__sub_800CEBD8(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xA;
-        set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(0xE));
+        ((TObjEneDD *)arg0)->set_field_378((s32)(0xE));
         ((VObj_18_a3e1a1 *)(arg0))->m94();
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x4AC) & 0xFFFFFFFD;
         *(s32 *)((s8 *)arg0 + 0x4AC) = temp_r4;
@@ -3530,7 +3515,7 @@ void TObjEneBm5GibonU::run_idle_state(s32 arg1) {
   {
     case 4:
       ((Ene_800CEEE8 *) ((u8 *)this))->fB8 = 1;
-      set_field_378__9TObjEneDDFl((Ene_800CEEE8 *) ((u8 *)this), 0xB);
+      set_field_378(0xB);
       ((Ene_800CEEE8 *) ((u8 *)this))->m94();
       ((Ene_800CEEE8 *) ((u8 *)this))->f494 = lbl_805DA1E0;
       ((Ene_800CEEE8 *) ((u8 *)this))->f518 = 0;
@@ -3770,7 +3755,7 @@ void TObjEneBm5GibonU__sub_800CF4BC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 3;
-        set_field_378__9TObjEneDDFl(arg0, 0xA);
+        ((TObjEneDD *)arg0)->set_field_378(0xA);
         ((VObj_800CF4BC *)arg0)->m94();
         *(f32 *)((s8 *)arg0 + 0x494) = TObjEneBm5GibonU__data_805DA188;
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
@@ -3852,7 +3837,7 @@ void TObjEneBm5GibonU__sub_800CF7CC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 2;
-        set_field_378__9TObjEneDDFl(arg0, 9);
+        ((TObjEneDD *)arg0)->set_field_378(9);
         ((VObj_18_4225ac *)(arg0))->m94();
         *(f32 *)((s8 *)arg0 + 0x494) = (f32) lbl_805DA1C4;
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
@@ -3932,7 +3917,7 @@ void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xE;
-        set_field_378__9TObjEneDDFl(arg0, 8);
+        ((TObjEneDD *)arg0)->set_field_378(8);
         ((VObj_18_7b3d65 *)(arg0))->m93();
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
         break;
@@ -3976,7 +3961,7 @@ void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 5;
-      set_field_378__9TObjEneDDFl((void *)((void *) arg0), (s32)((int) 8));
+      ((TObjEneDD *)arg0)->set_field_378((s32)((int) 8));
       PSO_VCALL_VObj_18_7b3d65_m93(arg0);
       *((s32 *) (((s8 *) arg0) + 0x518)) = 0;
       return;
@@ -4016,7 +4001,7 @@ void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) - -0xB8)) = 4;
-      set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(5));
+      ((TObjEneDD *)arg0)->set_field_378((s32)(5));
       PSO_VCALL_VObj_18_7b3d65_m93(arg0);
       *((s32 *) (((s8 *) arg0) + 0x518)) = (s32) (((s32) (lbl_805DA1A8 * calc_boss4_scale__10TObjPlayerFi((s32) arg0))) + 0xA);
       return;
@@ -4045,7 +4030,7 @@ void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 4;
-      set_field_378__9TObjEneDDFl((void *)(arg0), (s32)(3));
+      ((TObjEneDD *)arg0)->set_field_378((s32)(3));
       PSO_VCALL_VObj_18_9e83f9_m94(arg0);
       enemy_clear_target__12TObjEneDD_STFUs(arg0);
       *((s32 *) (((s8 *) arg0) + 0x478)) = 0;
@@ -4090,7 +4075,7 @@ void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1) {
     switch (arg1) {
     case 4:
         g->fB8 = 0;
-        set_field_378__9TObjEneDDFl((void *)(g), (s32)(8));
+        ((TObjEneDD *)g)->set_field_378((s32)(8));
         ((Ene_800D02F8 *)g)->m93();
         g->f4AC &= ~3;
         enemy_clear_target__12TObjEneDD_STFUs(g);
@@ -4125,7 +4110,7 @@ void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xF;
-        set_field_378__9TObjEneDDFl(arg0, 8);
+        ((TObjEneDD *)arg0)->set_field_378(8);
         ((VObj_18_7b3d65 *)(arg0))->m93();
         *(s32 *)((s8 *)arg0 + 0x4AC) = (s32) (*(s32 *)((s8 *)arg0 + 0x4AC) & 0xFFFFFFFC);
         enemy_clear_target__12TObjEneDD_STFUs((void *) (arg0));
@@ -4175,7 +4160,7 @@ void TObjEneBm5GibonU::handle_state(s32 arg1) {
   {
     case 4:
       *((s32 *) (((s8 *) ((u8 *)this)) + 0x51C)) = 0;
-      set_field_378__9TObjEneDDFl((void *)((void *) ((u8 *)this)), (s32)((int) 0));
+      set_field_378((s32)((int) 0));
       PSO_VCALL_VObj_18_599a64_m93(((u8 *)this));
       *((s32 *) (((s8 *) ((u8 *)this)) + 0x4AC)) = (s32) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x4AC))) | 2);
       return;
@@ -5004,7 +4989,6 @@ void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
-void init_position_vectors__9TObjEneDDFv(void *);
 void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
@@ -5138,7 +5122,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A70;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     TObjEneBm5GibonU__sub_800D10A0(arg0);
-    init_position_vectors__9TObjEneDDFv(arg0);
+    ((TObjEneDD *)arg0)->init_position_vectors();
     if (*(s32 *)((s8 *)arg0 + 0x464) == 1) {
         init_model__9TObjEneDDFv(arg0, &gibon_collision_body_templates[1], 1);
     } else {

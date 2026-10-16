@@ -1,4 +1,7 @@
 #include "pso/ui/TChallenge4PResult.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMessagePage.h"
 
@@ -40,7 +43,6 @@ extern u8 controller_input_state[];
 extern s32 TChallenge4PResult__slot_entries[];
 s32 TLobby__sub_80292270(int, int);
 
-s32 get_instance__11TCameraCtrlFv();
 s32 get_window_layout_position(int, int, void *);
 extern s32 lbl_80478BCC[];
 extern const f32 lbl_805DFDA4;
@@ -53,9 +55,7 @@ void fn_8034BE48(TObjPlayer *);
 u32 obj_getField1c(TObjPlayer *);
 void TObjPlayer__sub_8024ABDC(u16);
 void request_active_window_close();
-void send_code_45_1__10TObjPlayerFl(TObjPlayer *);
 void obj_clear_flag30_20000(TObjPlayer *);
-void get_player_rank__18TChallenge4PResultFv(TObjPlayer *);
 void fn_8034BE38(TObjPlayer *);
 void TLobby__sub_8024AC20(u16);
 s32 update_challenge_result_player_locks();
@@ -68,7 +68,6 @@ void resume_challenge_result_processing(void *arg0);
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 s32 get_localized_text_entry(s32, s32);
 s32 __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
-void copy_item_data__6TLobbyFPv(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 int TWindow__close(void*);
 u32 __nw__7TObjectFUl(s32);
@@ -124,9 +123,9 @@ s32 update_challenge_result_player_locks() {
         for (s32 i = 0; i < 4; ++i) {
             TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id((int)(i)));
             if (player && ((TLobby *)player)->check_player_flag1() != 0) {
-                send_code_45_1__10TObjPlayerFl(player);
+                TObjPlayer::send_code_45_1((s32)player);
                 obj_clear_flag30_20000(player);
-                get_player_rank__18TChallenge4PResultFv(player);
+                ((TChallenge4PResult *)player)->get_player_rank();
                 if (((TObjPlayer *)player)->check_flag_0x40000000()) fn_8034BE38(player);
                 TLobby__sub_8024AC20(obj_getField1c(player));
                 TWindowCtrl::clear_flag();
@@ -157,7 +156,7 @@ void TChallenge4PResult::clear_slot_entries() {
 
 void TChallenge4PResult::set_entry_item(void *arg1, s32 arg2) {
     W_8034B694 *arg0 = (W_8034B694 *)this;
-    copy_item_data__6TLobbyFPv(&arg0->e[arg2], arg1);
+    ((TLobby *)(&arg0->e[arg2]))->copy_item_data(arg1);
     arg0->f[arg2].v = 1;
 }
 
@@ -176,7 +175,7 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     }
     if (message_window != NULL) {
         ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);
-        if (get_instance__11TCameraCtrlFv() > 2) {
+        if (TCameraCtrl::get_instance() > 2) {
             ((TUnk_804CDFE8 *)message_window)->set_position_xy((f32) (lbl_805DFDA4), (f32) (lbl_805DFDA4));
         }
     }

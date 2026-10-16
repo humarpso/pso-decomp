@@ -208,7 +208,6 @@ struct Obj_80178E10 { u8 pad0[0x2A8]; u8 *target; u8 pad1[0x7A]; s16 state; u8 p
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
-s32 send_code_45_1__10TObjPlayerFl(s32);
 s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
 s32 submit_cursor_candidate(void *, s32);
@@ -253,7 +252,6 @@ s32 get_player_by_client_id(u32);
 s32 calc_attach_pos__10TObjPlayerFv();
 s32 obj_getField1c(u32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 send_code_45_1__10TObjPlayerFl(s32);
 
 f32 TOTrap::scale_by_table_value(f32 farg0) {
     u32 v[4];
@@ -296,7 +294,7 @@ void TOTrap::vfunc_82() {
             if (v < 0x1000U) {
                 temp_r31 = get_player_by_client_id(v);
                 if ((is_locally_controlled__10TObjPlayerFPv(temp_r31) != 0) && (((TLobby *)temp_r31)->check_player_flag1() != 0)) {
-                    send_code_45_1__10TObjPlayerFl(temp_r31);
+                    TObjPlayer::send_code_45_1(temp_r31);
                 }
             }
         }
@@ -386,7 +384,7 @@ f32 TOTrap::receive_physical_attack(void *arg1, f32) {
         temp_r3_2 = get_player_by_client_id((u32)((int) ((s32) temp_r3)));
         if (((temp_r3_2 != 0) && (is_locally_controlled__10TObjPlayerFPv((int)((int) temp_r3_2)) != 0)) && (((TLobby *)((long long) temp_r3_2))->check_player_flag1() != 0))
         {
-          send_code_45_1__10TObjPlayerFl((s32)((int) temp_r3_2));
+          TObjPlayer::send_code_45_1((s32)((int) temp_r3_2));
         }
       }
     }

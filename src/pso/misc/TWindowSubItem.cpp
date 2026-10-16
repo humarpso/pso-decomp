@@ -122,7 +122,6 @@ s32 get_player_by_client_id(s32);
 s32 TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-u32 get_usable_action_flags__5TItemFUlUl(int, int, int);
 s32 get_item_info__10TObjPlayerFllPs(int, int, void *);
 void *find_item_by_id(s32);
 s32 get_player_by_client_id(s32);
@@ -151,10 +150,6 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1);
 void *find_item_by_id(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_usable__14TWindowSubItemFl(s32);
-void send_trap_packet__10TObjPlayerFi(s32, s32);
-void request_meseta_drop__10TObjPlayerFl(s32, s32);
-void request_item_drop__10TObjPlayerFll(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 u32 is_action_active__10TObjPlayerFv(s32);
 void decrement_clamped(void *, s32);
@@ -340,9 +335,9 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
   temp_r3 = ((s32)find_item_by_id((s32)((void *) arg2)));
   if (temp_r3 != 0)
   {
-    if (get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 2, (int) 0) != 0U)
+    if (((TItem *)temp_r3)->get_usable_action_flags((int) 2, (int) 0) != 0U)
     {
-      if ((get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 1, (int) 0) != 0U) || (TOKeyMachine01::get_global_state() == 0xF))
+      if ((((TItem *)temp_r3)->get_usable_action_flags((int) 1, (int) 0) != 0U) || (TOKeyMachine01::get_global_state() == 0xF))
       {
         TWindowSubComCard::draw_text_gray((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0x60))), (s32)((int) 6), (s32)((int) 0));
       }
@@ -352,7 +347,7 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
       }
     }
     ((TItem *)(0, (int) (temp_r3 & 0xFFFFFFFFu)))->get_field_ec();
-    if (get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 8, (int) 0) != 0U)
+    if (((TItem *)temp_r3)->get_usable_action_flags((int) 8, (int) 0) != 0U)
     {
       if (((TObjPlayer *)temp_r3)->test_item_flags((int) 8) != 0U)
       {
@@ -381,7 +376,7 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
         }
       }
     }
-    if ((TOKeyMachine01::get_global_state() == 0xF) || (get_usable_action_flags__5TItemFUlUl((int) temp_r3, (int) 0x10, (int) 0) != 0U))
+    if ((TOKeyMachine01::get_global_state() == 0xF) || (((TItem *)temp_r3)->get_usable_action_flags((int) 0x10, (int) 0) != 0U))
     {
       TWindowSubComCard::draw_text_gray((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0x5F))), (s32)((int) 6), (s32)((int) 3));
     }
@@ -559,7 +554,7 @@ void TWindowSubItem::run_task() {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 F(u8, 0x1C) = 3;
             }
-            if (is_usable__14TWindowSubItemFl(p) != 0) {
+            if (TWindowSubItem::is_usable(p) != 0) {
                 exec_item_command(select_cursor_entry__22TWindowSubShortCutListFv(LIST), get_selected_menu_value(F(u32, 0x34)));
                 return;
             }
@@ -646,8 +641,8 @@ void TWindowSubItem::run_task() {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 F(u8, 0x1C) = 3;
             }
-            if (is_usable__14TWindowSubItemFl(p) != 0) {
-                request_item_drop__10TObjPlayerFll(p, select_cursor_entry__22TWindowSubShortCutListFv(LIST), F(s32, 0x28));
+            if (TWindowSubItem::is_usable(p) != 0) {
+                ((TObjPlayer *)p)->request_item_drop(select_cursor_entry__22TWindowSubShortCutListFv(LIST), F(s32, 0x28));
                 F(u8, 0x1C) = 0x16;
                 return;
             }
@@ -660,8 +655,8 @@ void TWindowSubItem::run_task() {
                 F(u8, 0x1C) = 1;
             }
             p = get_player_by_client_id(F(s32, 0x24));
-            if (p != 0 && is_usable__14TWindowSubItemFl(p) != 0 && TWindowCtrl__sub_8024A228(F(s32, 0x24)) != 0) {
-                send_trap_packet__10TObjPlayerFi(p, select_cursor_entry__22TWindowSubShortCutListFv(LIST) & 0xF);
+            if (p != 0 && TWindowSubItem::is_usable(p) != 0 && TWindowCtrl__sub_8024A228(F(s32, 0x24)) != 0) {
+                ((TObjPlayer *)p)->send_trap_packet(select_cursor_entry__22TWindowSubShortCutListFv(LIST) & 0xF);
                 F(u8, 0x1C) = 1;
                 return;
             }
@@ -674,7 +669,7 @@ void TWindowSubItem::run_task() {
                 F(u8, 0x1C) = 1;
             }
             p = get_player_by_client_id(F(s32, 0x24));
-            if (p != 0 && is_usable__14TWindowSubItemFl(p) != 0 && TAdSinglePlyChrSelectGC::create_if_key_pressed() != 0) {
+            if (p != 0 && TWindowSubItem::is_usable(p) != 0 && TAdSinglePlyChrSelectGC::create_if_key_pressed() != 0) {
                 decrement_clamped((void *) (p + 0x7C8), 1);
                 F(u8, 0x1C) = 1;
                 return;
@@ -719,8 +714,8 @@ void TWindowSubItem::run_task() {
                 play_sound_effect(0x52F16, 0, 0, 0);
                 F(u8, 0x1C) = 3;
             }
-            if (is_usable__14TWindowSubItemFl(p) != 0) {
-                request_meseta_drop__10TObjPlayerFl(p, F(s32, 0x28));
+            if (TWindowSubItem::is_usable(p) != 0) {
+                ((TObjPlayer *)p)->request_meseta_drop(F(s32, 0x28));
                 F(u8, 0x1C) = 0x16;
                 return;
             }

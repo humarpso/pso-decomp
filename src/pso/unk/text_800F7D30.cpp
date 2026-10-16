@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 u32 prs_decompress(int, int, int, int);
-s32 destroy_ep3_exist__6TLobbyFls(int, int);
 u32 reset_counters__6TLobbyFv();
 u32 prs_decompress_alloc(s32 arg0, s32 arg1);
 }
@@ -46,7 +46,7 @@ u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
   {
     var_r3 = var_r31;
     var_r4 = 1;
-    destroy_ep3_exist__6TLobbyFls((int) var_r3, (int) 1);
+    TLobby::destroy_ep3_exist((int) var_r3, (int) 1);
   }
   var_r3 = phi_r30;
   return var_r3;

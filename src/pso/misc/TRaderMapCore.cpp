@@ -438,7 +438,6 @@ s32 has_flag__13TRaderMapCoreFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 apply_packed_flags__13TRaderMapCoreFllll(void *, s32, s32, s32);
-s32 get_map_id__13TRaderMapCoreFv(u32);
 s32 check_flag_100__10TObjPlayerFPv(u32);
 u32 get_player_by_client_id(s32);
 extern Pad_801FAF24 controller_input_state[];
@@ -1186,27 +1185,27 @@ void TRaderMapCore::update_pan_zoom_input() {
     if (self->f184 != 0) {
         for (j = 0; j < 4; j++) {
             p = get_player_by_client_id(j);
-            if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFv(p)].ctl, 0x200) != 0) {
+            if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[((TRaderMapCore *)p)->get_map_id()].ctl, 0x200) != 0) {
                 self->f184 = 0;
                 return;
             }
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x10) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[((TRaderMapCore *)(self->f184))->get_map_id()].ctl, 0x10) != 0) {
             self->f18C += lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x20) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[((TRaderMapCore *)(self->f184))->get_map_id()].ctl, 0x20) != 0) {
             self->f18C -= lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x40) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[((TRaderMapCore *)(self->f184))->get_map_id()].ctl, 0x40) != 0) {
             self->f188 += lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x80) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFv(controller_input_state[((TRaderMapCore *)(self->f184))->get_map_id()].ctl, 0x80) != 0) {
             self->f188 -= lbl_805DC598;
         }
-        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x20000, 0x27, 1) != 0) {
+        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[((TRaderMapCore *)(self->f184))->get_map_id()].ctl, 0x20000, 0x27, 1) != 0) {
             self->f190 -= lbl_805DC598;
         }
-        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[get_map_id__13TRaderMapCoreFv(self->f184)].ctl, 0x10000, 0x27, 1) != 0) {
+        if (apply_packed_flags__13TRaderMapCoreFllll(controller_input_state[((TRaderMapCore *)(self->f184))->get_map_id()].ctl, 0x10000, 0x27, 1) != 0) {
             self->f190 += lbl_805DC598;
         }
         TRaderMapCore::pan_horizontal(self->f188);
@@ -1219,8 +1218,8 @@ void TRaderMapCore::update_pan_zoom_input() {
     }
     for (k = 0; k < 4; k++) {
         p = get_player_by_client_id(k);
-        if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFv(p)].ctl, 0x200) != 0 &&
-            has_flag__13TRaderMapCoreFv(controller_input_state[get_map_id__13TRaderMapCoreFv(p)].ctl, 0x10000) != 0) {
+        if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[((TRaderMapCore *)p)->get_map_id()].ctl, 0x200) != 0 &&
+            has_flag__13TRaderMapCoreFv(controller_input_state[((TRaderMapCore *)p)->get_map_id()].ctl, 0x10000) != 0) {
             self->f184 = p;
             u8 *cam = (u8 *)&TRaderMapCore__map_view_state;
             *(f32 *)((s8 *)cam + 0x28) = *(f32 *)((s8 *)self->f184 + 0x38);

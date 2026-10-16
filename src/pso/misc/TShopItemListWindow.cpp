@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TShopItemListWindow.h"
 #include "pso/TShopWindowBase.h"
@@ -118,24 +119,19 @@ u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 s32 handle_amount_confirm__19TShopItemListWindowFv(void *);
 s32 prepare_tool_purchase__19TShopItemListWindowFv(void *);
-s32 count_items_by_id__10TObjPlayerFl(s32, void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(int, int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 s32 obj_getPtr2B0_20(s32);
-s32 can_inventory_accept_item__10TObjPlayerFPUc(s32, void *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 obj_getField1c(void *);
-s32 copy_item_data__6TLobbyFPv(void *, void *);
-s32 count_items_by_id__10TObjPlayerFl(s32, void *);
 s32 TShopItemTecSequence__sub_8021FE6C();
 s32 get_shop_text(int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
-s32 reset_list__20TShopArmorListWindowFv(void *);
 s32 calc_list_content_extent(void *);
 s32 get_window_layout_position(int);
 void *create_window_quantity(u16);
@@ -203,7 +199,7 @@ s32 TShopItemListWindow::handle_tool_list_select(void *p) {
             ((TWindowHelpItem *)(W->help))->set_displayed_item_colored((u32)(&W->recs[i]));
         }
         if (W->status != NULL && i != W->cur) {
-            n = count_items_by_id__10TObjPlayerFl(*(s32 *)(W->player + 0xD00), &W->recs[i]);
+            n = ((TObjPlayer *)(*(s32 *)(W->player + 0xD00)))->count_items_by_id((s32)(&W->recs[i]));
             ((TWindowSubStatusDisp *)(W->status))->set_entry1_field20(n);
         }
         if (W->sell != NULL && i != W->cur && (e = (u8 *)W + i * 0x14, *(s32 *)(e + 0x68) > 0)) {
@@ -249,7 +245,7 @@ s32 TShopItemListWindow::check_purchase_eligibility() {
     if (self->recs[sel].qty > meseta) {
         return 0;
     }
-    if (can_inventory_accept_item__10TObjPlayerFPUc(self->player, &self->recs[sel]) == 0) {
+    if (((TObjPlayer *)(self->player))->can_inventory_accept_item((u8 *)(&self->recs[sel])) == 0) {
         return 1;
     }
     return 3;
@@ -271,7 +267,7 @@ void TShopItemListWindow::build_item_list(void *p) {
     W->count = TShopItemTecSequence__sub_8021FE6C();
     for (i = 0; i < W->count; i++) {
         ((TLobby *)(&tmp))->copy_shop_item_entry(i, sub_8022397C__15TShopWindowBaseFv(W));
-        copy_item_data__6TLobbyFPv(&W->recs[i], &tmp);
+        ((TLobby *)(&W->recs[i]))->copy_item_data(&tmp);
     }
     r = W->recs;
     for (j = 0; j < W->count; j++, r++) {
@@ -282,7 +278,7 @@ void TShopItemListWindow::build_item_list(void *p) {
     if (W->list == NULL) {
         W->list = create_item_list_window(get_shop_text(0x2D), W->count, obj_getField1c(W->player));
     } else {
-        reset_list__20TShopArmorListWindowFv(W->list);
+        ((TShopArmorListWindow *)(W->list))->reset_list();
     }
     if (W->list != NULL) {
         for (i = 0; i < W->count; i++) {
@@ -308,7 +304,7 @@ void TShopItemListWindow::build_item_list(void *p) {
     }
     if (W->status == NULL) {
         W->status = create_window_quantity(((TShopSequence *)W)->get_child_field1c());
-        n = count_items_by_id__10TObjPlayerFl(*(s32 *)(W->player + 0xD00), W->recs);
+        n = ((TObjPlayer *)(*(s32 *)(W->player + 0xD00)))->count_items_by_id((s32)(W->recs));
         ((TWindowSubStatusDisp *)(W->status))->set_entry1_field20(n);
     }
     if (W->cost == NULL) {

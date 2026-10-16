@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0618.h"
@@ -68,7 +70,6 @@ struct T_80217B30 { u8 pad[0x38]; s32 f38; };
 
 extern "C" {
 s32 obj_getField1c(int);
-s32 get_camera_id__11TCameraCtrlFv();
 int set_field_20__15TShopWindowBaseFl(void*, int);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 u32 create_message_window__6TLobbyFllUls(int, void *, int, int);
@@ -81,7 +82,6 @@ extern const f32 lbl_805DC6A8;
 s32 obj_getField1c(int);
 int set_field_20__15TShopWindowBaseFl(void*, int);
 s32 get_guild_text(int);
-s32 reset_list__20TShopArmorListWindowFv(u32);
 s32 calc_list_content_extent(u32);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, int);
@@ -325,7 +325,7 @@ void TQuestListOnline::show_info_window() {
         temp_r31 = obj_getField1c((int) (window_owner));
         info_window = create_message_window__6TLobbyFllUls((int) (get_window_layout_position((int) (0x2E))), (void *) (&stack.sp8), (int) (1), (int) ((s32) temp_r31));
         ((TLobby *)info_window)->set_field_1c((f32) (lbl_805DC6A4));
-        if (get_camera_id__11TCameraCtrlFv() >= 2) {
+        if (TCameraCtrl::get_camera_id() >= 2) {
             ((TUnk_804CDFE8 *)info_window)->set_position_xy((f32) (lbl_805DC6A8), (f32) (lbl_805DC6A8));
         }
     }
@@ -347,7 +347,7 @@ void TQuestListOnline::build_list_window() {
             id = obj_getField1c(window_owner);
             list_window = create_item_list_window(get_guild_text(0), 0x40, id);
         } else {
-            reset_list__20TShopArmorListWindowFv(list_window);
+            ((TShopArmorListWindow *)list_window)->reset_list();
         }
         if (TQuestListOnline__quest_list_buffer != NULL && TQuestListOnline__quest_list_buffer[1] == 0) {
             set_field_20__15TShopWindowBaseFl(this, 0xB);

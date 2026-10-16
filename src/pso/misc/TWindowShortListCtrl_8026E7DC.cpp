@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubItem.h"
+#include "pso/misc/TWindowSubTechnique.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/item/TItem.h"
@@ -82,9 +84,7 @@ s32 TWindow__close(void *);
 s32 queue_destruction__7TObjectFv(void *);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
-s32 is_usable__14TWindowSubItemFl(u8 *);
 void try_send_6x27_use_item(u8 *, s32);
-void send_trap_packet__10TObjPlayerFi(u8 *, s32);
 void decrement_clamped(void *, int);
 s32 try_equip_item__10TObjPlayerFii(u8 *, s32);
 void play_sound_effect(int, int, int, int);
@@ -97,7 +97,6 @@ s32 get_window_layout_position(int);
 void *create_equip_kind_window(s32, u8 *, s32);
 s32 update_selection__19TWindowSubTechniqueFPsPl(void *, void *, s32);
 void get_current_selection__19TWindowSubTechniqueFPv(void *, void *, s32);
-s32 is_technique_available__19TWindowSubTechniqueFll(s32, s32);
 extern u8 lbl_8044F5A0[];
 void run_task__20TWindowShortListCtrlFv(u8 *arg0);
 extern const Buf_8026E884 lbl_8044F5A8;
@@ -116,7 +115,6 @@ s32 TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 init_parts__10TObjPlayerFv(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag70_bit10__21TWindowSubComCardListFv();
@@ -367,7 +365,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (is_usable__14TWindowSubItemFl(player) == 0) {
+        if (TWindowSubItem::is_usable((s32)player) == 0) {
             break;
         }
         TWindowShortListCtrl::assign_shortcut(6, select_cursor_entry__22TWindowSubShortCutListFv(self->list_win), self->player_id);
@@ -398,7 +396,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (is_usable__14TWindowSubItemFl(player) == 0) {
+        if (TWindowSubItem::is_usable((s32)player) == 0) {
             break;
         }
         sel = select_cursor_entry__22TWindowSubShortCutListFv(self->list_win);
@@ -432,7 +430,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (is_usable__14TWindowSubItemFl(player) == 0) {
+        if (TWindowSubItem::is_usable((s32)player) == 0) {
             return;
         }
         sel = select_cursor_entry__22TWindowSubShortCutListFv(self->list_win);
@@ -447,7 +445,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         if (TWindowCtrl__sub_8024A228(self->player_id) == 0) {
             return;
         }
-        send_trap_packet__10TObjPlayerFi(player, sel & 0xF);
+        ((TObjPlayer *)player)->send_trap_packet(sel & 0xF);
         queue_destruction__7TObjectFv(self);
         return;
     case 9:
@@ -490,7 +488,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             queue_destruction__7TObjectFv(self);
             return;
         }
-        if (is_technique_available__19TWindowSubTechniqueFll(get_selected_menu_value(self->tech_win), self->player_id) == 0) {
+        if (TWindowSubTechnique::is_technique_available(get_selected_menu_value(self->tech_win), self->player_id) == 0) {
             ((TWindowShortListCtrl *)self)->refresh_technique_rows((s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             self->state = 9;
             return;
@@ -510,7 +508,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__20TWindowShortListCtrl;
         temp_r3 = get_player_by_client_id((s32)(*(s32 *)((s8 *)arg0 + 0x24)));
         if ((temp_r3 != 0) && (has_player_active_menu__11TWindowCtrlFv(*(s32 *)((s8 *)arg0 + 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
-            init_parts__10TObjPlayerFv(temp_r3);
+            ((TObjPlayer *)temp_r3)->init_parts();
         }
         end_player_keyboard_hold(*(s32 *)((s8 *)arg0 + 0x24));
         TWindowCtrl::clear_flag_8();

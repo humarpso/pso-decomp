@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -38,7 +39,6 @@ s32 TLobby__sub_8006FBE4();
 int TWindow__close(void*);
 int TWindow__close(void*);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 calc_window_size__17TWindowSubComCardFv(u32);
 s32 get_window_layout_position(s32);
 int TWindow__close(void*);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
@@ -46,7 +46,6 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 s32 TLobby__sub_8024AC20(s32);
 s32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFv();
-s32 send_code_45_1__10TObjPlayerFl(s32);
 extern s32 local_client_id;
 extern s32 local_client_id;
 int TObjPlayer__sub_8024ABDC(void*);
@@ -245,7 +244,7 @@ void TObjChallengeRetry::open_loss_menu() {
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5D), 5, 2);
-        calc_window_size__17TWindowSubComCardFv(*(u32 *)((s8 *)this + 0x2C));
+        ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x2C)))->calc_window_size();
         ((TLobby *)(*(u32 *)((s8 *)this + 0x2C)))->set_loss_flag();
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0x2C)))->set_selected_index(2);
     }
@@ -254,7 +253,7 @@ void TLobby::send_45_and_close_windows(void * _w0) {
     s32 temp_r3;
     temp_r3 = get_player_by_client_id(local_client_id);
     if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
-        send_code_45_1__10TObjPlayerFl(temp_r3);
+        TObjPlayer::send_code_45_1(temp_r3);
     }
     ((TWindowCtrl *)local_client_id)->unsuppress_slot();
     TLobby__sub_8024AC20(local_client_id);

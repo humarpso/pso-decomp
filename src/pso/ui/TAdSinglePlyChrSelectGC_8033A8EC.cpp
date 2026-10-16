@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -119,7 +120,6 @@ extern V3_8033B2AC lbl_80477D84[];
 extern s32 lbl_805D6D90;
 s32 TKeyBoardControl__sub_8000F90C(int);
 s32 set_active_camera_pose(void *, void *);
-s32 select_active_controller__11TCameraCtrlFSc(int);
 s32 TCameraCtrl__ct(u32, s32);
 s32 run_load_callback_table(void *, int);
 s32 init_menu_scene_lights(void *, int);
@@ -464,7 +464,7 @@ void init_single_player_char_select_scene(void) {
     }
     V3_8033B39C a = lbl_80477D60[0];
     V3_8033B39C b = lbl_80477D6C[0];
-    select_active_controller__11TCameraCtrlFSc(9);
+    TCameraCtrl::select_active_controller(9);
     set_active_camera_pose(&a, &b);
     p = __nw__7TObjectFUl(0x1C);
     if (p != 0) {
@@ -591,13 +591,12 @@ extern "C" {
 }
 extern "C" {
 
-extern "C" void reset_view_state__11TCameraCtrlFv();
 extern "C" void TWindowCtrlMain__sub_8024D838();
 extern "C" void register_texture_f256_ad_pic_2();
 extern "C" void register_texture_f256_backtext();
 extern "C" void reset__11TCameraCtrlFv();
 void *character_select_scene_resource_callbacks[12] = {
-    (void *)&reset_view_state__11TCameraCtrlFv, (void *)&reset__11TCameraCtrlFv, (void *)&TCameraCtrl::init_default_view, (void *)&TCameraCtrl::reset_default_view,
+    (void *)&TCameraCtrl::reset_view_state, (void *)&reset__11TCameraCtrlFv, (void *)&TCameraCtrl::init_default_view, (void *)&TCameraCtrl::reset_default_view,
     (void *)&register_texture_f256_ad_pic_2, (void *)&TAdSinglePlyChrSelectGC::free_global, (void *)&register_texture_f256_backtext, (void *)&TAdSinglePlyChrSelectGC::free_singleton_805D65C0,
     (void *)&TWindowCtrlMain__sub_8024D838, (void *)&TWindowCtrlMain::free_all_windows, (void *)&TLobby::update_keyboard_menu, (void *)&TLobby::free_keyboard_soft_resources,
 };

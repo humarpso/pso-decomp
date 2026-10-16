@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/TShopWindowBase.h"
@@ -156,7 +157,6 @@ struct VObj_802209D8 : VBase_802209D8 {
 
 extern "C" {
 s32 obj_getPtr2B0_20(int);
-s32 copy_item_data__6TLobbyFPv(void *, void *);
 s32 update_all__6TLobbyFi(void *);
 s32 play_cue_stream_file(void *);
 void TWindow__close(void *);
@@ -166,10 +166,8 @@ extern s32 lbl_8044C1D4[];
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 u16 obj_getField1c(s32);
-s32 apply_shop_judgment__10TObjPlayerFi(s32, void *);
 s32 fn_80221838(void *, void *, s32);
 s32 get_appraisal_text(int);
-s32 reset_list__20TShopArmorListWindowFv(void *);
 s32 calc_list_content_extent(void *);
 void *create_item_list_window(int, int, u16);
 void *memset(void *, int, unsigned long);
@@ -559,7 +557,7 @@ void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 temp_r31 = arg0 + (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(u32 *)((s8 *)arg0 + 0x154))) * 8);
                 if (((TItem *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->copy_to_item_data((void *) (arg0 + 0x3C)) != 0) {
                     *(s32 *)((s8 *)arg0 + 0x168) = ((TObjPlayer *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->has_flag_128();
-                    copy_item_data__6TLobbyFPv((void *) (arg0 + 0x28), (void *) (arg0 + 0x3C));
+                    ((TLobby *)(arg0 + 0x28))->copy_item_data((void *) (arg0 + 0x3C));
                     update_all__6TLobbyFi((void *) (arg0 + 0x28));
                     *(s32 *)((s8 *)arg0 + 0x14C) = 0x5F;
                     if (*(void **)((s8 *)arg0 + 0x154) != NULL) {
@@ -625,7 +623,7 @@ s32 TShopJudgmentItemWindow::build_item_list(void *arg0) {
     s32 j;
     s32 k;
     memset(W->ents, 0, 0xF0);
-    n = apply_shop_judgment__10TObjPlayerFi(*(s32 *)(W->player + 0xD00), items);
+    n = ((TObjPlayer *)(*(s32 *)(W->player + 0xD00)))->apply_shop_judgment((int)items);
     W->count = 0;
     for (i = 0; i < n; i++) {
         it = items[i];
@@ -648,7 +646,7 @@ s32 TShopJudgmentItemWindow::build_item_list(void *arg0) {
         calc_list_content_extent(W->list);
         return;
     }
-    reset_list__20TShopArmorListWindowFv(W->list);
+    ((TShopArmorListWindow *)(W->list))->reset_list();
     for (k = 0; k < W->count; k++) {
         ((TShopJudgmentItemWindow *)(W->list))->add_list_entry(W->ents[k].item, k);
     }

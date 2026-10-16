@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void render__10TNpcPlayerFv();
@@ -481,11 +482,8 @@ s32 free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
 void * construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
-void send_item_pickup_request__10TObjPlayerFl(s32);
-s32 find_inventory_item_id__10TObjPlayerFScSc(s32, s32, s32);
 s32 try_send_6x27_use_item(s32, s32, void *);
 u32 get_player_by_client_id(u16);
-s32 try_camera_action__10TObjPlayerFll(void *, s32);
 s8 get_cast_technique_level(void *, s16);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -1770,7 +1768,7 @@ void TNpcPlayer::handle_action(s32 arg1) {
 
     switch (arg1) {
     case 0:
-        temp_r3 = find_inventory_item_id__10TObjPlayerFScSc(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94), 3, 0);
+        temp_r3 = ((TObjPlayer *)(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94)))->find_inventory_item_id(3, 0);
         if (temp_r3 != -1) {
             temp_r5 = *(void **)((s8 *)this + 0x78);
             try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5 + 0x94), temp_r3, temp_r5);
@@ -1778,7 +1776,7 @@ void TNpcPlayer::handle_action(s32 arg1) {
         }
         break;
     case 1:
-        temp_r3_2 = find_inventory_item_id__10TObjPlayerFScSc(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94), 3, 1);
+        temp_r3_2 = ((TObjPlayer *)(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94)))->find_inventory_item_id(3, 1);
         if (temp_r3_2 != -1) {
             temp_r5_2 = *(void **)((s8 *)this + 0x78);
             try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5_2 + 0x94), temp_r3_2, temp_r5_2);
@@ -1786,7 +1784,7 @@ void TNpcPlayer::handle_action(s32 arg1) {
         }
         break;
     case 2:
-        temp_r3_3 = find_inventory_item_id__10TObjPlayerFScSc(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94), 3, 6);
+        temp_r3_3 = ((TObjPlayer *)(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94)))->find_inventory_item_id(3, 6);
         if (temp_r3_3 != -1) {
             temp_r5_3 = *(void **)((s8 *)this + 0x78);
             try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5_3 + 0x94), temp_r3_3, temp_r5_3);
@@ -2509,31 +2507,31 @@ s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0) {
 s32 TNpcPlayer::try_attack(s32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        if ((arg2 != 0) && (find_inventory_item_id__10TObjPlayerFScSc(*(s32 *)((s8 *)this + 0x94), 3, 0) != -1)) {
+        if ((arg2 != 0) && (((TObjPlayer *)(*(s32 *)((s8 *)this + 0x94)))->find_inventory_item_id(3, 0) != -1)) {
             *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
-        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFll)(*(s32 *)((s8 *)this + 0x94), 0xF) != 0) {
+        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), (s32)0xF) != 0) {
             return 1;
         }
         break;
     case 1:
-        if (find_inventory_item_id__10TObjPlayerFScSc(*(s32 *)((s8 *)this + 0x94), 3, 1) != -1) {
+        if (((TObjPlayer *)(*(s32 *)((s8 *)this + 0x94)))->find_inventory_item_id(3, 1) != -1) {
             *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
         break;
     case 2:
-        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFll)(*(s32 *)((s8 *)this + 0x94), 0x10) != 0) {
+        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), (s32)0x10) != 0) {
             return 1;
         }
         break;
     case 3:
-        if (find_inventory_item_id__10TObjPlayerFScSc(*(s32 *)((s8 *)this + 0x94), 3, 6) != -1) {
+        if (((TObjPlayer *)(*(s32 *)((s8 *)this + 0x94)))->find_inventory_item_id(3, 6) != -1) {
             *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
-        if (((s32 (*)(s32, s32))try_camera_action__10TObjPlayerFll)(*(s32 *)((s8 *)this + 0x94), 0x11) != 0) {
+        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), (s32)0x11) != 0) {
             return 1;
         }
         break;
@@ -2876,7 +2874,7 @@ void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind) {
     } else {
         ((TNpcPlayer *)self)->request_chatter(2);
     }
-    if (try_camera_action__10TObjPlayerFll(actor, kind) != 0) {
+    if (TObjPlayer::try_camera_action((s32)actor, (s32)kind) != 0) {
         m.type = get_npc_type__10TNpcPlayerFPv(self->p78);
         m.kind = kind;
         m.one = 1;
@@ -2943,7 +2941,7 @@ void TNpcPlayer::update_combat_action() {
             ((TNpcPlayer *)((Npc_80150B90 *)this))->request_chatter(3);
         }
         ((Npc_80150B90 *)this)->f80 &= ~0x2000;
-        if (try_camera_action__10TObjPlayerFll(((Npc_80150B90 *)this)->f78->obj, id) != 0) {
+        if (TObjPlayer::try_camera_action((s32)(((Npc_80150B90 *)this)->f78->obj), (s32)id) != 0) {
             TNpcPlayer__sub_8014DC3C(((Npc_80150B90 *)this), id);
             return;
         }
@@ -3434,7 +3432,7 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
         if (temp_r3_2 != NULL) {
             temp_r3_3 = ((u32 (*)(int))get_player_by_client_id)((int) (get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
             if (temp_r3_3 != 0U) {
-                send_item_pickup_request__10TObjPlayerFl((s32) temp_r3_3);
+                TObjPlayer::send_item_pickup_request((s32) temp_r3_3);
             }
             ((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->dt(1);
             *(u8 **)((s8 *)arg0 + 0x78) = NULL;

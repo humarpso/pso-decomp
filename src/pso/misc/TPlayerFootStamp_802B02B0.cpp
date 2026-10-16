@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss6Thanks.h"
@@ -8,7 +9,6 @@ extern "C" {
 
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 end_cutscene_camera__14TBoss6PlotFalzFPv();
-s32 get_phase_values__11TBoss6Type2FPUsPUsPUs(void *, void *, void *, void *);
 s32 destroy_static_instance__14TBoss6PlotFalzFv(void *);
 s32 create_boss6_type2_death(void *, void *);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
@@ -42,7 +42,7 @@ void TBoss6PlotFalz::finish_and_dispatch_next_phase() {
     s32 var_r29;
 
     if ((u32) TBoss6PlotFalz__type2_instance != 0U) {
-        get_phase_values__11TBoss6Type2FPUsPUsPUs((void *) (TBoss6PlotFalz__type2_instance), (void *) (((u8 *)this) + 0x2D6), (void *) (((u8 *)this) + 0x2D4), (void *) (sp8));
+        ((TBoss6Type2 *)TBoss6PlotFalz__type2_instance)->get_phase_values((u16 *)(((u8 *)this) + 0x2D6), (u16 *)(((u8 *)this) + 0x2D4), (u16 *)sp8);
         var_r29 = 0;
         do {
             obj_setArrS16_FC((void *) (((u8 *)this)), (int) (var_r29), (void *) (sp8[var_r29]));

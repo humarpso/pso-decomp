@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -617,18 +618,15 @@ s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
 extern u8 *TBoss3Volopt__data_805D4D00;
 extern const f32 TBoss3Volopt__data_805D87E4;
-void set_flag8_list__12TBoss3VoloptFPPUl(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__breakup_model_ids;
 extern RecoveredGlobal_80045628_lbl_804FF14C volopt_breakup_flag_list;
-void set_flag8_list__12TBoss3VoloptFPPUl(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__breakup_model_ids;
 extern RecoveredGlobal_800456E4_lbl_804FF10C lbl_804FF10C;
 void TBoss3Volopt__sub_800456E4(u8 *arg0);
-void set_flag8_list__12TBoss3VoloptFPPUl(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__breakup_model_ids;
@@ -644,7 +642,6 @@ extern const f32 TBoss3Volopt__data_805D87E8;
 extern const f32 lbl_805D87F4;
 extern const f32 lbl_805D87F8;
 extern const f32 lbl_805D87FC;
-void set_flag8_list__12TBoss3VoloptFPPUl(void *);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__breakup_model_ids;
 extern RecoveredGlobal_8004585C_lbl_804FF04C TBoss3Volopt__breakup_flag_list;
@@ -720,7 +717,6 @@ s32 set_scripted_camera_pose(void *, void *, void *);
 u8 *get_scripted_camera_playback(s16);
 void advance_animation_playback(void *);
 s32 TObjPlayer__sub_801BA42C();
-s32 freeze_all_players__10TObjPlayerFv();
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern u8 volopt_death_breakup_params[];
@@ -1109,7 +1105,7 @@ void TBoss3Volopt::trigger_breakup() {
         ((TObjEneGyaranzo *)((u8 *)this))->render_anim_model_at_pos();
         ((VObj_18_f1aa6a *)(((u8 *)this)))->m63(0x29, &sp8);
         TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&TBoss3Volopt__breakup_model_ids.value) + 0x10), (s32) &TBoss3Volopt__data_804845E8.value, *(s32 *)((s8 *)((u8 *)this) + 0x24), (s32) (((u8 *)this) + 0x2FC), *(s32 *)((s8 *)((u8 *)this) + 0x60));
-        set_flag8_list__12TBoss3VoloptFPPUl(&volopt_breakup_flag_list.value);
+        TBoss3Volopt::set_flag8_list((u32 **)(&volopt_breakup_flag_list.value));
         play_sound_effect(0x4003A80F, (u32) (((u8 *)this) + 0x38), 0, 1);
     }
 }
@@ -1129,7 +1125,7 @@ void TBoss3Volopt__sub_800456E4(u8 *arg0) {
         ((TObjEneGyaranzo *)arg0)->render_anim_model_at_pos();
         ((VObj_18_f1aa6a *)(arg0))->m63(0x22, &sp8);
         TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0xC), (s32) &(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, *(s32 *)((s8 *)arg0 + 0x24), (s32) &sp8, *(s32 *)((s8 *)arg0 + 0x60));
-        set_flag8_list__12TBoss3VoloptFPPUl(&lbl_804FF10C.value);
+        TBoss3Volopt::set_flag8_list((u32 **)(&lbl_804FF10C.value));
         play_sound_effect(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
     }
 }
@@ -1149,7 +1145,7 @@ void TBoss3Volopt__sub_800457A0(u8 *arg0) {
         ((TObjEneGyaranzo *)arg0)->render_anim_model_at_pos();
         ((VObj_18_f1aa6a *)(arg0))->m63(0x32, &sp8);
         TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 8), (s32) &(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, *(s32 *)((s8 *)arg0 + 0x24), (s32) &sp8, *(s32 *)((s8 *)arg0 + 0x60));
-        set_flag8_list__12TBoss3VoloptFPPUl(&lbl_804FF0CC.value);
+        TBoss3Volopt::set_flag8_list((u32 **)(&lbl_804FF0CC.value));
         play_sound_effect(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
     }
 }
@@ -1172,7 +1168,7 @@ void TBoss3Volopt::spawn_breakup_models() {
         TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24))), (s32)((void *) (&sp8)), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60))));
         ((VObj_18_f1aa6a *)(((u8 *)this)))->m63(0x12, &sp8);
         TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 4))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24))), (s32)((void *) (&sp8)), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60))));
-        set_flag8_list__12TBoss3VoloptFPPUl((void *) (&TBoss3Volopt__breakup_flag_list.value));
+        TBoss3Volopt::set_flag8_list((u32 **)(&TBoss3Volopt__breakup_flag_list.value));
     }
 }
 #pragma pop
@@ -1243,7 +1239,7 @@ void TBoss3Volopt::update_death_sequence() {
         ((TCameraCtrl *)(&cam))->cache_target_and_forward(0x160A);
         *(s32 *)((s8 *)arg0 + 0x60) = 0;
         set_scripted_camera_pose(boss3_volopt_spawn_pos, boss3_volopt_spawn_pos, arg0 + 0x5C);
-        freeze_all_players__10TObjPlayerFv();
+        TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
         *(s32 *)((s8 *)arg0 + 0x37C) = 2;
         break;

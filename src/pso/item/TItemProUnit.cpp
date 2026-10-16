@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A0608.h"
 #include "pso/item/TItemProUnit.h"
 
@@ -16,7 +17,6 @@ f32 TItemProUnit__sub_8011901C(void* p);
 void *__dt__12TItemProUnitFv(void *arg0, s16 arg1);
 void TItemTimerEvent__ct(void *);
 void __dt__14TItemEquipBaseFv(void *, int);
-void free_obj_heap__10TObjPlayerFPv(void *);
 
 u8 *TItemProUnit::create(u8 *arg0) {
     u8 *temp_r3;
@@ -42,7 +42,7 @@ void *__dt__12TItemProUnitFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TItemProUnit;
         __dt__14TItemEquipBaseFv(arg0, 0);
         if (arg1 > 0) {
-            free_obj_heap__10TObjPlayerFPv(arg0);
+            TObjPlayer::free_obj_heap(arg0);
         }
     }
     return arg0;

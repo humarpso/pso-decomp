@@ -1,6 +1,8 @@
 #ifndef PSO_TADSELECTCURGC_H
 #define PSO_TADSELECTCURGC_H
 #include "pso/TObject.h"
+#include "pso/misc/TWindowChoiceSetting.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "types.h"
 class TAdSelectCurGC : public TObject {
 public:
@@ -54,8 +56,6 @@ extern u32 menu_selection_cursor_texture_list;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_0x48__14TAdSelectCurGCFv(void *, int);
-s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(void *, int, int, int);
-s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 void play_sound_effect(int, int, int, int);
 void fn_802AEAA4(void *, s32);
 extern u8 controller_input_state[];
@@ -96,13 +96,13 @@ void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
             ok = 1;
         }
         if (ok != 0) {
-            if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(controller_input_state + 0x20, 0x10, 6, 1) != 0 ||
-                apply_choice__20TWindowChoiceSettingFllll(controller_input_state + 0x160, 0x10, 6, 1) != 0) {
+            if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_input_state + 0x20), (s32)0x10, (s32)6, (s32)1) != 0 ||
+                TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x10, (s32)6, (s32)1) != 0) {
                 play_sound_effect(0x54100, 0, 0, 0);
                 o->fA4--;
             }
-            if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(controller_input_state + 0x20, 0x20, 6, 1) != 0 ||
-                apply_choice__20TWindowChoiceSettingFllll(controller_input_state + 0x160, 0x20, 6, 1) != 0) {
+            if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_input_state + 0x20), (s32)0x20, (s32)6, (s32)1) != 0 ||
+                TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x20, (s32)6, (s32)1) != 0) {
                 play_sound_effect(0x54100, 0, 0, 0);
                 o->fA4++;
             }

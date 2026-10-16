@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 
@@ -23,12 +24,10 @@ struct Win_80246DCC {
 };
 
 s32 get_shared_text_buffer(void);
-s32 get_camera_id__11TCameraCtrlFv(void);
 Entry_80246DCC *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void append_padded_number(s32, s32);
 void text_builder_append(const char *);
 void text_builder_reset(void);
-void construct_base__9TWindowDDFPUcsPUc(void *, void *, s32, s32);
 void refresh_status_display__9TWindowDDFv(Entry_80246DCC *);
 void draw_right_aligned_number(void);
 void set_text_entry_string(void *, s32, s32);
@@ -94,7 +93,7 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
     Entry_80246DCC *e;
     s32 m;
 
-    construct_base__9TWindowDDFPUcsPUc(self, lbl_804CE298, 4, get_window_layout_position(0x3F));
+    ((TWindowDD *)self)->construct_base((u8 *)lbl_804CE298, (s16)4, (u8 *)(get_window_layout_position(0x3F)));
     self->vt = lbl_804CE2B8;
     self->f0 = lbl_805D3898;
     for (i = 0; i < 3; i++) {
@@ -124,7 +123,7 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
     e->f20 = arg3;
     draw_right_aligned_number();
     e->f8 = lbl_805DCB60 + e->f10;
-    if (get_camera_id__11TCameraCtrlFv() == 4) {
+    if (TCameraCtrl::get_camera_id() == 4) {
         self->f60 = lbl_805DCB68;
         self->f64 = lbl_805DCB68;
     } else {

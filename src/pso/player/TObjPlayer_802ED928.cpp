@@ -131,9 +131,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 u32 __nw__7TObjectFUl(int);
-s32 init_breakup_pieces__10TObjPlayerFPvl(void *, void *, int);
 s32 fn_802E79B0(void *);
-s32 update_projectile_spawns__8TObjFishFv(void *);
 s32 TParticleCtrl__sub_802EC550(void *);
 s32 sub_802ECB10__14TBoss7DeRolLeCFv();
 void TObjPlayer__sub_802ED984(void);
@@ -181,7 +179,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         {
             void *p = (void *) __nw__7TObjectFUl((int) (0x3C));
             if (p != NULL) {
-                init_breakup_pieces__10TObjPlayerFPvl(p, (void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6D4)));
+                ((TObjPlayer *)p)->init_breakup_pieces((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6D4)));
             }
         }
     }
@@ -238,7 +236,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
             }
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         }
-        update_projectile_spawns__8TObjFishFv((void *) (arg0));
+        ((TObjFish *)arg0)->update_projectile_spawns();
     }
     ((TObjEneDD *)arg0)->sub_800BBA0C();
     ((VObj_18 *)(arg0))->m86();

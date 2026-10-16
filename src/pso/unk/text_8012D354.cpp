@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 
 struct RecoveredGlobal_8012D354_lbl_804A5838 {
@@ -11,7 +12,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_soul_eater_weapon(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern RecoveredGlobal_8012D354_lbl_804A5838 lbl_804A5838;
 u8 *construct_soul_eater_weapon(u8 *arg0, u8 *arg1, s32 _w2);
 }
@@ -24,7 +24,7 @@ u8 *construct_soul_eater_weapon(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A5838.value;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     if (((TItemProShield *)arg0)->get_slot_count() == 1) {
-        set_status_flags__10TObjPlayerFUl(arg0, 0x22);
+        ((TObjPlayer *)arg0)->set_status_flags(0x22);
     }
     return arg0;
 }

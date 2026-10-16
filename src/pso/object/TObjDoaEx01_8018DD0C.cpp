@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjDoaEx01.h"
 #include "pso/TParticleCtrl.h"
 
@@ -42,7 +43,6 @@ extern s32 model_render_flags;
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 free_children__12TObjDoorJungFPv(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -60,7 +60,6 @@ extern const f32 lbl_805DBDB8;
 extern "C" {
 
 s32 post_translate_matrix(void *);
-s32 free_children__12TObjDoorJungFPv(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
@@ -127,8 +126,8 @@ void TObjDoaEx01::try_open() {
 
     temp_r31 = get_bml_model(TObjDoaEx01__resource_bundle, 0);
     if (((TObjDoaEx01_VObj*)((u8 *)this))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4), 1);
-        free_children__12TObjDoorJungFPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4), 1);
+        ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)))->free_children((void *)1);
+        ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)))->free_children((void *)1);
         TObjFish__sub_8001EDB0(TObjDoaEx01__resource_bundle, 0);
         set_global_param__8TObjFishFl();
         push_matrix();
@@ -143,8 +142,8 @@ void TObjDoaEx01::draw_model() {
     s32 temp_r31;
     s32 temp_r31_2;
     if (((VObj_18_26a62c *)(((u8 *)this)))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)), (0));
-        free_children__12TObjDoorJungFPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)), (0));
+        ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)))->free_children((void *)0);
+        ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)))->free_children((void *)0);
         temp_r31 = get_bml_model((TObjDoaEx01__resource_bundle), (0));
         TObjFish__sub_8001EDB0((TObjDoaEx01__resource_bundle), (0));
         set_global_param__8TObjFishFl();

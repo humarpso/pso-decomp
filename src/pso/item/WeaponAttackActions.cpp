@@ -383,12 +383,10 @@ u32 pack_weapon_trail_color(void *arg0);
 s32 is_active_in_game__11TItemWeaponFv(void *);
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void set_status_flags__10TObjPlayerFUl(void *, u32);
-s32 set_flag_8__10TObjPlayerFv(int);
 s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 void query_extended_state__10TObjPlayerFv(void *);
 s32 set_action_type__10TObjPlayerFs(int, int);
 f32 get_attack_accuracy_scale(s32);
-s32 is_flag_b0_4__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_80121228(void *, s32);
 s16 get_captured_target_collider_index(void *);
 u16 get_uid__10TObjPlayerFv(void *);
@@ -516,7 +514,7 @@ void TObjPlayer::set_flag_8_if_check_passes() {
         var_r31 = (u8 *)(((u8 *)this));
         if (TObjPlayer__sub_80102C30(((u8 *)this)) != 0) {
             var_r3 = (u8 *)(var_r31);
-            set_flag_8__10TObjPlayerFv((int) (var_r3));
+            ((TObjPlayer *)var_r3)->set_flag_8();
         }
     }
 }
@@ -574,7 +572,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
     Vec_8011E87C b;
     if (fn_80100CC8(self) != 0 && ((TItemWeapon *)self)->is_flag_400() == 0 &&
         test_action_mask__10TObjPlayerFl(self->owner, 0xE0) != 0 &&
-        is_flag_b0_4__10TObjPlayerFv(self->owner) == 0 &&
+        ((TObjPlayer *)(self->owner))->is_flag_b0_4() == 0 &&
         !(get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x78)) {
         if (self->trails[slot] != NULL) {
             ((TObjPlayer *)self)->draw_icon((s32)(self->iconA[slot]), (s32)(&a));

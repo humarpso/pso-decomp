@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowChoiceSetting.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/ui/TAdMcSelectCursorGC.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -32,8 +34,6 @@ extern s32 lbl_805D41D0;
 extern const f32 lbl_805DF740;
 extern const f32 lbl_805DF744;
 Obj_8032A574 *TAdMcSelectCursorGC__ct(Obj_8032A574 *arg0);
-s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(void *, s32, s32, s32);
-s32 apply_choice__20TWindowChoiceSettingFllll(void *, s32, s32, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 TAdMcSelectCursorGC__sub_8032A6D8(u32);
 extern u8 controller_input_state[];
@@ -100,16 +100,16 @@ void TAdMcSelectCursorGC::run_task() {
     s32 i;
     if (self->f1C == 0) {
         t = TAdMcSelectCursorGC::get_cursor_type(1 - self->f20);
-        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(controller_physical_port_bank + 0x20, 0x80, 6, 1) != 0 ||
-            apply_choice__20TWindowChoiceSettingFllll(controller_input_state + 0x160, 0x80, 6, 1) != 0) {
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), (s32)0x80, (s32)6, (s32)1) != 0 ||
+            TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x80, (s32)6, (s32)1) != 0) {
             if (TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
                 self->f20++;
                 if (self->f20 > 1) {
                     self->f20 = 1;
                 }
             }
-        } else if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFllll(controller_physical_port_bank + 0x20, 0x40, 6, 1) != 0 ||
-                    apply_choice__20TWindowChoiceSettingFllll(controller_input_state + 0x160, 0x40, 6, 1) != 0) &&
+        } else if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), (s32)0x40, (s32)6, (s32)1) != 0 ||
+                    TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x40, (s32)6, (s32)1) != 0) &&
                    TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
             self->f20--;
             if (self->f20 < 0) {

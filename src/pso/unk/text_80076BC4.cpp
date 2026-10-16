@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
@@ -12,7 +13,6 @@ s32 get_main_phase();
 void *obj_getField1c(void *);
 void *get_player_by_client_id(s32);
 void send_chat__9TProtocolFR16TPlyGuildCardTagPc(void *, TPlyGuildCardTag *, u8 *);
-void capture_chat_sensor__6TLobbyFv(u8 *);
 extern s32 local_client_id;
 extern void *TLobby__protocol_instance;
 void submit_chat_text(u8 *arg0);
@@ -27,7 +27,7 @@ void submit_chat_text(u8 *arg0) {
     void *player;
     player = get_player_by_client_id(local_client_id);
     if (player != NULL && (s8) *arg0 != 0) {
-        capture_chat_sensor__6TLobbyFv(arg0);
+        ((TLobby *)arg0)->capture_chat_sensor();
         if (get_main_phase() == 0xF) {
             Tag_80076BC8 tmp = *(Tag_80076BC8 *)&TPlyGuildCardTag(0, 0);
             send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__protocol_instance, (TPlyGuildCardTag *)&tmp, arg0);

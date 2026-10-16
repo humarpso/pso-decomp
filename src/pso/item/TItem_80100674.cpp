@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemProShield.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemMag.h"
@@ -180,7 +181,6 @@ s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
 int is_locally_controlled__10TObjPlayerFPv(void *);
 u8 *find_item_by_id(s32);
-void dispatch_action__10TObjPlayerFll(void *, s32, s32);
 void send_unequip_held_item__10TObjPlayerFUi(u32);
 s32 get_player_by_client_id(void *);
 void give_item_to_client(s32 arg0, s32 arg1);
@@ -189,7 +189,6 @@ s32 get_id__13TItemProArmorFv(void *);
 s32 init__9TItemDataFv(void *);
 s32 TItem__sub_80115D68(u8 *, u32);
 s32 TItemProArmor__sub_801178A8(u8 *, u32);
-s32 set_params__14TItemProShieldFlPv(u8 *, u32);
 s32 TItem__sub_8011892C(u8 *, u32);
 void replace_item_with_new_code(void *arg0, u32 arg1);
 }
@@ -281,7 +280,7 @@ s32 consume_item_by_id(s32 arg0) {
   }
   temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(temp_r3);
   temp_r30 = ((TObjPlayer *)temp_r3)->get_field_d8();
-  dispatch_action__10TObjPlayerFll((void *) temp_r3_2, arg0, 1);
+  ((TObjPlayer *)temp_r3_2)->dispatch_action(arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {
     send_unequip_held_item__10TObjPlayerFUi((u32) temp_r3_2);
@@ -326,7 +325,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
           TItemProArmor__sub_801178A8((u8 *) (&sp8), arg1);
           break;
         case 2:
-          set_params__14TItemProShieldFlPv((u8 *) (&sp8), arg1);
+          TItemProShield::set_params((s32)((u8 *) (&sp8)), (void *)arg1);
           break;
         case 3:
           TItem__sub_8011892C((u8 *) (&sp8), arg1);

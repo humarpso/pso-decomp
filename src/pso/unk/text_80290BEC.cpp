@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
@@ -29,7 +30,6 @@ s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
-s32 noop__23TAdSinglePlyChrSelectGCFv();
 s32 func_803DCDFC__Fv();
 void run_main_frame(void);
 }
@@ -67,7 +67,7 @@ void run_main_frame(void) {
     process_async_file_reads();
     update_sound_request_slots();
     run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
-    noop__23TAdSinglePlyChrSelectGCFv();
+    TAdSinglePlyChrSelectGC::noop();
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }

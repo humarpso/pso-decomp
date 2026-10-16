@@ -10,7 +10,6 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 * TItemWeapon__ct(void *, void *);
-void set_status_flags__10TObjPlayerFUl(void *, s32);
 extern RecoveredGlobal_801250F8_lbl_804A2260 lbl_804A2260;
 extern const f32 lbl_805DAD40;
 u8 *TObjPlayer__sub_801250F8(u8 *arg0, u8 *arg1, s32 _w2);
@@ -22,7 +21,7 @@ typedef char RecoveredGlobal_801250F8_lbl_804A2260_size[sizeof(RecoveredGlobal_8
 u8 *TObjPlayer__sub_801250F8(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2260.value;
-    set_status_flags__10TObjPlayerFUl(arg0, 0x100022);
+    ((TObjPlayer *)arg0)->set_status_flags(0x100022);
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD40;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     return arg0;

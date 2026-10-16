@@ -20,7 +20,6 @@ s32 lbl_805D6AB0;
 
 extern "C" {
 
-int init_battle__19TPlayerBattleCtrl4PFv(void*);
 void send_and_handle__6TLobbyFii(void *, void *, int);
 void *destroy__19TPlayerBattleCtrl4PFs(void *arg0, s16 arg1);
 s32 TWindow__close(void *);
@@ -86,7 +85,7 @@ void TPlayerBattleCtrl4P::run_task() {
     static BattleAction tbl[6] = { &TPlayerBattleCtrl4P::initialize_battle, &TPlayerBattleCtrl4P::update_intro_phase, &TPlayerBattleCtrl4P::update_battle_phase, &TPlayerBattleCtrl4P::update_results_phase, &TPlayerBattleCtrl4P::update_return_phase, &TPlayerBattleCtrl4P::update_reload_phase };
     (this->*tbl[phase])();
 }
-void TPlayerBattleCtrl4P::initialize_battle() { init_battle__19TPlayerBattleCtrl4PFv(((void*)this)); set_split_screen_battle_phase((s32)((void*)1)); }
+void TPlayerBattleCtrl4P::initialize_battle() { init_battle(); set_split_screen_battle_phase((s32)((void*)1)); }
 extern "C" {
 
 }

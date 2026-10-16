@@ -42,13 +42,11 @@ extern s32 password_entry_dispatch_state;
 extern const f32 lbl_805DF9E8;
 void close_windows_and_advance__17TAdEnterPPPPassGCFPv(u8 *arg0);
 s32 TLobby__sub_8014618C(void);
-void set_ppp_password__6TLobbyFl(s32);
 void strncpy(s32, s32, s32);
 s32 memset(void *, int, int);
 void fn_8032B318(void *, void *);
 extern u8 password_screen_status_line_position[];
 void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
-s32 create_keyboard_control__22TAdEnterSerialAccessGCFll(void *, int);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 extern RecoveredGlobal_803392F4_lbl_80477C20 TAdEnterPPPPassGC__selection_positions;
 extern u8 *password_entry_keyboard_control;
@@ -204,7 +202,7 @@ void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0) {
         ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x2C)))->add_item_rect((void *) ((u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10));
         ((TAdEnterSerialAccessGC *)(*(u32 *)((s8 *)arg0 + 0x2C)))->set_active();
     }
-    (*(s32 *)&password_entry_keyboard_control) = create_keyboard_control__22TAdEnterSerialAccessGCFll((void *) (arg0), (int) (3));
+    (*(s32 *)&password_entry_keyboard_control) = TAdEnterSerialAccessGC::create_keyboard_control((s32)((void *) (arg0)), (s32)((int) (3)));
     password_entry_dispatch_state = 1;
 }
 
@@ -231,7 +229,7 @@ void run_task__17TAdEnterPPPPassGCFv(TAdEnterPPPPassGC_80339378 *self) {
 
 void set_password__17TAdEnterPPPPassGCFi(s32 arg0) {
     if ((TLobby__sub_8014618C() != 0) && (TLobby::is_state_active() != 0)) {
-        set_ppp_password__6TLobbyFl(arg0);
+        TLobby::set_ppp_password(arg0);
         return;
     }
     memset((void *) (ppp_password_buffer), (int) (0), (int) (0x20));

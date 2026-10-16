@@ -4,8 +4,6 @@
 extern "C" {
 
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-int sync_current_floor__10TObjPlayerFv(void*);
-int sync_current_area__10TObjPlayerFv(void*);
 void for_each_player_slot__10TObjPlayerFv(void *);
 void TObjPlayer__sub_801BC8F0(s32 arg0);
 void TObjPlayer__sub_801BCA0C(void);
@@ -13,7 +11,6 @@ void TObjPlayer__sub_801BCA10(void);
 void TObjPlayer__sub_801BCAB0(void);
 void TObjPlayer__sub_801BCB28(void);
 int is_script_controlled__10TObjPlayerFv(void*);
-s32 apply_state_transform__10TObjPlayerFv(s32);
 s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 obj_isState2_324();
@@ -154,14 +151,14 @@ void TObjPlayer::update_state() {
     if (obj_isState2_324() != 0) {
         ((TObjPlayer *)arg0)->set_flag_400000();
     } else {
-        sync_current_area__10TObjPlayerFv((void*)(arg0));
-        sync_current_floor__10TObjPlayerFv((void*)(arg0));
+        ((TObjPlayer *)arg0)->sync_current_area();
+        ((TObjPlayer *)arg0)->sync_current_floor();
     }
     if ((is_final_phase__10TObjPlayerFv() != 0) && (sub_801A1DDC__10TObjPlayerFv(arg0) != 0)) {
-        apply_state_transform__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->apply_state_transform();
     }
 }
 void TObjPlayer__sub_801BCB28(void) {  }
-void TObjPlayer::update_if_active() { if (is_script_controlled__10TObjPlayerFv(this) != 0) { sync_current_area__10TObjPlayerFv(this); sync_current_floor__10TObjPlayerFv(this); } }
+void TObjPlayer::update_if_active() { if (is_script_controlled__10TObjPlayerFv(this) != 0) { sync_current_area(); sync_current_floor(); } }
 
 }

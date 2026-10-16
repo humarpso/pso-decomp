@@ -27,8 +27,6 @@ void remove_value_from_id_list(s32 arg0, u32 arg1);
 s32 get_main_phase();
 s32 is_split_screen();
 s32 is_quest_active();
-void create_tasks__6TLobbyFv();
-s32 check_disconnect_conditions__6TLobbyFv();
 void init_area_lights();
 void TLobby__sub_801403B4(int);
 void init_music_sequencer(int);
@@ -43,11 +41,11 @@ extern "C" {
 s32 fn_80140D50(void) {
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();
-    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+    if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
     init_area_lights();
-    create_tasks__6TLobbyFv();
+    TLobby::create_tasks();
     if (get_main_phase() != 0xE || is_quest_active() == 0) {
         switch (TOKeyMachine01::get_global_state()) {
         case 0x14:

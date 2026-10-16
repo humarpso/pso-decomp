@@ -31,7 +31,6 @@ extern RecoveredGlobal_80354948_TBoss6Rock__data_805437F8 TBoss6Rock__rock_point
 extern s32 lbl_805D438C;
 u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(s32);
-void spawn_crush_rocks__10TBoss6RockFl(void *, s32);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
 extern RecoveredGlobal_803548B4_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1);
@@ -55,7 +54,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803548B4___vt__10TBoss6Rock *)&__vt__10TBoss6Rock).value;
         if ((s32) *(s32 *)((s8 *)arg0 + 0xC4) != 0) {
-            spawn_crush_rocks__10TBoss6RockFl(arg0 + 0xD4, *(s32 *)((s8 *)arg0 + 0xB4));
+            ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(*(s32 *)((s8 *)arg0 + 0xB4));
         }
         ((TBoss6Rock *)arg0)->release_object();
         *(s32 *)((s8 *)(&TBoss6Rock__instance_table.value) + (*(s32 *)((s8 *)arg0 + 0xAC) * 4)) = 0;

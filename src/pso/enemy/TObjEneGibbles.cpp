@@ -463,7 +463,6 @@ u8 * csnVecterUnder(void *, s32);
 s32 rotate_xz_pair_by_angle(f32 *, f32 *, s32, f32);
 s32 test_action_mask__10TObjPlayerFl(void *, int);
 s32 spawn_particle_effect(void *, int);
-f32 get_pos_x__14TObjEneGibblesFv(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 TObjEneGibbles__sub_800D8988(void *);
 s32 TObjPlayer__sub_800D93C4(f32 *, s32);
@@ -1701,7 +1700,7 @@ s32 TObjEneGibbles__sub_802D9A04(void *arg0) {
         pl = ((VObj_802D9A04 * (*)(s32))get_player_data__10TObjPlayerFi)(i);
         if (is_valid_and_active__10TObjPlayerFUl() != 0 && obj_getField1c(pl) < 0x1000U) {
             f32 dist = horizontal_distance_squared((int) ((u8 *) pl + 0x2FC), (void *) ((s32) arg0 + 0x38));
-            if (dist <= get_pos_x__14TObjEneGibblesFv(*(void **)((s8 *)gibbles_combat_stat_entries + 4)) * get_pos_x__14TObjEneGibblesFv(*(void **)((s8 *)gibbles_combat_stat_entries + 4))) {
+            if (dist <= ((TObjEneGibbles *)(*(void **)((s8 *)gibbles_combat_stat_entries + 4)))->get_pos_x() * ((TObjEneGibbles *)(*(void **)((s8 *)gibbles_combat_stat_entries + 4)))->get_pos_x()) {
                 Arg_802D9A04 tmp;
                 tmp.a = 0;
                 tmp.b = get_attack_params_atp_min(*(void **)((s8 *)gibbles_combat_stat_entries + 4));
@@ -1742,7 +1741,7 @@ void slam_damage_players__14TObjEneGibblesFii(s32 arg0, s32 arg1) {
             p = get_player_data__10TObjPlayerFi(i);
             if (((s32 (*)(void *))is_valid_and_active__10TObjPlayerFUl)(p) != 0 && obj_getField1c(p) < 0x1000) {
                 d = horizontal_distance_squared((int)(p + 0x2FC), &v);
-                if (d <= get_pos_x__14TObjEneGibblesFv(*(void **)gibbles_combat_stat_entries) * get_pos_x__14TObjEneGibblesFv(*(void **)gibbles_combat_stat_entries)) {
+                if (d <= ((TObjEneGibbles *)(*(void **)gibbles_combat_stat_entries))->get_pos_x() * ((TObjEneGibbles *)(*(void **)gibbles_combat_stat_entries))->get_pos_x()) {
                     a.x = 0;
                     a.y = get_attack_params_atp_min(*(void **)gibbles_combat_stat_entries);
                     Hit_802D9B80 h = a;

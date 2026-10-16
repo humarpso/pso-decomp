@@ -16,7 +16,6 @@ void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);
 extern u8 __vt__19TWindowSimpleStatus[];
 u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1);
-void *construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
 extern u8 __vt__19TWindowSimpleStatus[];
 extern s32 TWindowSimpleStatus__name;
 extern const f32 lbl_805DD3EC;
@@ -74,7 +73,7 @@ u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1) {
 
 SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, void *arg3) {
     s32 i;
-    construct_base__9TWindowDDFPUcsPUc(arg0, arg3, arg2, arg1);
+    ((TWindowDD *)arg0)->construct_base((u8 *)arg3, (s16)arg2, (u8 *)arg1);
     arg0->vt = __vt__19TWindowSimpleStatus;
     arg0->f0 = TWindowSimpleStatus__name;
     arg0->f20 = arg2;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowSubTrade.h"
@@ -24,7 +25,6 @@ extern "C" {
 void __dl__7TObjectFPv(s32);
 void TWindow__close(void *);
 s32 TLobby__sub_802D2A2C(u32);
-void check_flags_and_proceed__6TLobbyFv(void);
 s32 __dt__7TObjectFv(void *, int);
 extern s32 __vt__15TWindowSubTrade[];
 u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1);
@@ -35,7 +35,6 @@ void TWindow__close(void *);
 s32 is_player_input_active(int);
 s32 get_selected_menu_value(int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
-s32 cancel_trade__6TLobbyFv();
 s32 send_modify_trade_proposal__6TLobbyFi(int);
 extern s32 controller_input_state[];
 }
@@ -113,7 +112,7 @@ void TWindowSubTrade::run_task() {
         temp_r5 = temp_r30 * 0x50;
         if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(((u8 *)(controller_input_state) + temp_r5)) + 0x20), (int) (2), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (2)) != 0)) {
             play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
-            cancel_trade__6TLobbyFv();
+            TLobby::cancel_trade();
             this->m_1c = 1U;
         }
         break;
@@ -129,7 +128,7 @@ u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802B1F98___vt__15TWindowSubTrade *)&__vt__15TWindowSubTrade).value;
         TLobby__sub_802D2A2C((u32) arg0);
-        check_flags_and_proceed__6TLobbyFv();
+        TLobby::check_flags_and_proceed();
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
         if (temp_r3 != NULL) {
             ((TWindowSubComCard *)temp_r3)->close();

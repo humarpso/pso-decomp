@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -34,7 +35,6 @@ s32 queue_destruction__7TObjectFv(void *);
 Hit_802D14F4 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 enable__13TParticleCtrlFv(void *);
 void *find_entity_by_id(int);
 s32 TObjEneBm9Mericarol__sub_802CED40(void *);
 s32 vec3_add_to(void *, void *);
@@ -109,7 +109,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             r1.z = 0;
             *(u32 *)&this->m_110 = spawn_particle_effect_with_rotation(arg0 + 0xB4, &r1, 0x207, 0x40);
             if (this->m_110 != NULL) {
-                enable__13TParticleCtrlFv(this->m_110);
+                ((TParticleCtrl *)(this->m_110))->enable();
             }
         } else {
             ((TNowLoading *)(this->m_110))->copy_pos(arg0 + 0xB4);
@@ -120,7 +120,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             r2.z = 0;
             *(u32 *)&this->unk_114 = spawn_particle_effect_with_rotation(arg0 + 0xB4, &r2, *(s32 *)((s8 *)arg0 + 0x104), 0x40);
             if (*(void * *)&this->unk_114 != NULL) {
-                enable__13TParticleCtrlFv(*(void * *)&this->unk_114);
+                ((TParticleCtrl *)(*(void * *)&this->unk_114))->enable();
             }
         } else {
             ((TNowLoading *)(*(void * *)&this->unk_114))->copy_pos(arg0 + 0xB4);

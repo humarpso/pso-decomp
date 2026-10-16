@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 init_status_entry__20TWindowSubStatusDispFPvcUii(void *, u8, s32, s32);
-s32 init_item_row__20TWindowSubStatusDispFPvl(void *, u32, s32);
 void *get_array_entry__13TUnk_804CE018Fi(void *, s16);
 
 extern const f32 lbl_805DD620;
@@ -18,7 +18,7 @@ void TObjPlayer::add_status_line(u8 arg1, u32 arg2, s32 arg3) {
         *(f32 *)((s8 *)temp_r31 + 8) = (f32) (*(f32 *)((s8 *)temp_r31 + 8) + lbl_805DD620);
         *(s32 *)((s8 *)temp_r31 + 0x2C) = 0xFFAAAAAA;
     } else {
-        init_item_row__20TWindowSubStatusDispFPvl(temp_r31, arg2, arg3);
+        ((TWindowSubStatusDisp *)temp_r31)->init_item_row((void *)arg2, (s32)arg3);
     }
     if (arg1 == 4) {
         *(f32 *)((s8 *)temp_r31 + 8) = (f32) (*(f32 *)((s8 *)temp_r31 + 8) + lbl_805DD620);

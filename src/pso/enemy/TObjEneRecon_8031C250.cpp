@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneGibbles.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -57,7 +58,6 @@ s16 get_attack_params_atp_min(s32);
 u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 void spawn_particle_effect(void *, int);
-f32 get_pos_x__14TObjEneGibblesFv(s32);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -66,8 +66,6 @@ void play_sound_effect(s32, void *, s32, s32);
 s32 is_valid_and_active__10TObjPlayerFUl();
 s32 TObjEneRecon__sub_8031DA90(void *);
 f32 approach_value__12TObjEneReconFff(void *, f32, f32);
-void update_collide_flag__12TObjEneReconFv(void *);
-void advance_field398__12TObjEneReconFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 lbl_805D5868;
@@ -351,7 +349,6 @@ extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFv(void *, s32);
 void clear_attack_receipts__9TObjEneDDFv(void);
 void noop__12TBoss8DragonFv(void *);
-void set_field_378__9TObjEneDDFl(void *, s32);
 void transition_enemy_state(void *, s32);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
@@ -466,7 +463,7 @@ void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1) {
         ((VObj_18_414afc *)(arg0))->m94();
         *(s32 *)((s8 *)arg0 + 0x444) &= ~1;
         *(s32 *)((s8 *)arg0 + 0x444) |= 2;
-        set_field_378__9TObjEneDDFl(arg0, *(s16 *)((s8 *)arg0 + 0x326));
+        ((TObjEneDD *)arg0)->set_field_378(*(s16 *)((s8 *)arg0 + 0x326));
         noop__12TBoss8DragonFv(arg0);
         play_sound_effect(TObjEneRecobox::remap_area_sound_id(0x4003E425), arg0 + 0x38, 0, 0);
         *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
@@ -935,7 +932,6 @@ struct Prm_8031C920 { f32 f0; f32 f4; };
 
 extern "C" {
 void advance_animation_playback(void *);
-void sync_height__12TObjEneReconFv(void *);
 extern const f32 TObjEneRecon__data_805DF3E4;
 void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1);
 f64 atan2_float(f32, f32);
@@ -962,10 +958,8 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 void advance_animation_playback(void *);
-void retarget__12TObjEneReconFv(void *);
 f32 approach_value__12TObjEneReconFff(void *, f32, f32);
 void set_flag2__12TObjEneReconFv(void *, f32, f32, f32);
-void set_orbit_destination__12TObjEneReconFl(void *, s32);
 f32 sin_table_lookup(s32);
 extern const f64 TObjEneRecon__data_80476110;
 extern const f32 TObjEneRecon__data_805DF3C4;
@@ -1014,7 +1008,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
         } else if (F(s32, 0x46C) > 0x8000 || F(s32, 0x46C) < -0x8000) {
             ((void (*)(void *)) select_next_target__12TObjEneReconFv)(arg0);
         } else if (F(s32, 0x470) > 0x5000 || F(s32, 0x470) < -0x5000) {
-            retarget__12TObjEneReconFv(arg0);
+            ((TObjEneRecon *)arg0)->retarget();
         }
         break;
     case 1:
@@ -1026,7 +1020,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
         if (((TObjEneEpsilon *)arg0)->update_death_check() != 0 || ((VObj_18_2afebf *)(arg0))->m102(TObjEneRecon__data_805DF3E4) != 0) {
             switch (F(s32, 0x3C0)) {
             case 0:
-                set_orbit_destination__12TObjEneReconFl(arg0, F(s32, 0x3D0));
+                ((TObjEneRecon *)arg0)->set_orbit_destination(F(s32, 0x3D0));
                 ((TObjEneDD *)arg0)->update_velocity();
                 k = lbl_805DF3E8 * F(f32, 0x468);
                 r = F(Prm_8031C920 *, 0x350)->f4;
@@ -1044,7 +1038,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
                 F(s32, 0x3D0) += F(s32, 0x3D4) / 2;
                 F(s32, 0x46C) += F(s32, 0x3D4) / 2;
                 F(s32, 0x470) += F(s32, 0x3D4) / 2;
-                set_orbit_destination__12TObjEneReconFl(arg0, F(s32, 0x3D0));
+                ((TObjEneRecon *)arg0)->set_orbit_destination(F(s32, 0x3D0));
                 ((TObjEneDD *)arg0)->update_velocity();
                 r = F(Prm_8031C920 *, 0x350)->f4;
                 h = TObjEneRecon__data_805DF3C4;
@@ -1056,7 +1050,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
                 F(s32, 0x3D0) += F(s32, 0x3D4);
                 F(s32, 0x46C) += F(s32, 0x3D4);
                 F(s32, 0x470) += F(s32, 0x3D4);
-                set_orbit_destination__12TObjEneReconFl(arg0, F(s32, 0x3D0));
+                ((TObjEneRecon *)arg0)->set_orbit_destination(F(s32, 0x3D0));
                 ((TObjEneDD *)arg0)->update_velocity();
                 r = F(Prm_8031C920 *, 0x350)->f4;
                 h = lbl_805DF3F8 * sin_table_lookup(F(s32, 0x3D8));
@@ -1184,12 +1178,12 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
         switch (F(s32, 0x3C0)) {
         case 0:
             if (F(u32, 0x390) != 0) {
-                advance_field398__12TObjEneReconFv(arg0);
+                ((TObjEneRecon *)arg0)->advance_field398();
             }
             ((TObjEneDD *)arg0)->update_velocity();
             F(f32, 0x44C) = sin_table_lookup(F(s32, 0x60));
             F(f32, 0x454) = cos_table_lookup(F(s32, 0x60));
-            update_collide_flag__12TObjEneReconFv(arg0);
+            ((TObjEneRecon *)arg0)->update_collide_flag();
             F(f32, 0x448) = approach_value__12TObjEneReconFff(arg0, F(f32, 0x448), F(f32, 0x398));
             ((TObjEneRecon *)arg0)->clamp_min_height();
             if (TObjEneRecon__sub_8031DA90(arg0) != 0) {
@@ -1222,7 +1216,7 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
                     p = get_player_data__10TObjPlayerFi(i);
                     if (is_valid_and_active__10TObjPlayerFUl() != 0 && p != NULL && obj_getField1c(p) < 0x1000 && ((VB_8031CF30 *)p)->m31() == 0) {
                         d = horizontal_distance_squared(p + 0x2FC, arg0 + 0x40C);
-                        if (d <= get_pos_x__14TObjEneGibblesFv(F(s32, 0x318)) * get_pos_x__14TObjEneGibblesFv(F(s32, 0x318))) {
+                        if (d <= ((TObjEneGibbles *)(F(s32, 0x318)))->get_pos_x() * ((TObjEneGibbles *)(F(s32, 0x318)))->get_pos_x()) {
                             Pair_8031CF30 t;
                             t.a = 0;
                             t.b = (f32)get_attack_params_atp_min(F(s32, 0x318));
@@ -1278,7 +1272,7 @@ void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1) {
     {
       *((s32 *) (((s8 *) arg0) + 0x3B0)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x3B0))) + 1);
     }
-      sync_height__12TObjEneReconFv(arg0);
+      ((TObjEneRecon *)arg0)->sync_height();
       ((TObjEneDD *)arg0)->update_velocity();
       temp_r4 = *((s32 *) (((s8 *) arg0) + 0x60));
       *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) ((u16) (temp_r4 + 0x400));

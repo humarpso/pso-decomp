@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TWindowMessage.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TUnk_804CDFE8.h"
@@ -146,7 +148,6 @@ void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
-void complete_reveal__14TWindowMessageFv(int);
 int update_window_mode_from_progress__6TLobbyFPv(s32, Pair_802150E8 *);
 s32 get_window_layout_position(s32);
 char *strtok(char *, const char *);
@@ -168,7 +169,6 @@ extern char lbl_805DC668[4];
 extern char lbl_805DC66C[4];
 extern char lbl_805DC670[4];
 extern char lbl_805DC674[4];
-s32 get_camera_id__11TCameraCtrlFv();
 void TQuestListOnline__sub_8013ACF4(s32);
 s32 THunterGuildSeqOffline__sub_80212074();
 s32 TWindow__close(int);
@@ -207,7 +207,7 @@ void TQuestListOnline::begin_file_download() {
         p.b = lbl_8044BCC0[0].b;
         TQuestListOnline__download_window = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x2C), &p);
         ((TLobby *)TQuestListOnline__download_window)->send_and_handle(get_guild_text(0x14), 1);
-        complete_reveal__14TWindowMessageFv(TQuestListOnline__download_window);
+        ((TWindowMessage *)TQuestListOnline__download_window)->complete_reveal();
         ((TLobby *)TQuestListOnline__download_window)->set_field_1c(lbl_805DC664);
         some_empty_func__9TMainTaskFv(((u8 *)&main_task));
         ((TMainTask *)((u8 *)&main_task))->run_tl_camera_tasks();
@@ -281,7 +281,7 @@ void TQuestListOnline::receive_quest_info(void *arg0) {
             TQuestListOnline__quest_info_window = create_message_window__6TLobbyFllUls(get_window_layout_position(0x2E), &p, 1, local_client_id);
             ((TLobby *)TQuestListOnline__quest_info_window)->set_field_1c(lbl_805DC664);
             ((TLobby *)TQuestListOnline__quest_info_window)->send_and_handle(TQuestListOnline__selected_quest_info + 4, 0x80);
-            if (get_camera_id__11TCameraCtrlFv() >= 2) {
+            if (TCameraCtrl::get_camera_id() >= 2) {
                 ((TUnk_804CDFE8 *)TQuestListOnline__quest_info_window)->set_position_xy(lbl_805DC678, lbl_805DC678);
             }
         }

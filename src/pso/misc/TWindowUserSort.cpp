@@ -41,7 +41,6 @@ s32 draw_visible_window_entries(void *, void *, int);
 s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_80288490_lbl_804D0460 lbl_804D0460;
 extern RecoveredGlobal_80288490_lbl_804D04A0 lbl_804D04A0;
-u8 * construct_base__9TWindowDDFPUcsPUc(void *, s32, s16, s32);
 extern RecoveredGlobal_80288380_lbl_804D304C lbl_804D304C;
 extern s32 __vt__15TWindowUserSort[];
 extern s32 TWindowUserSort__name;
@@ -81,7 +80,7 @@ void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80288380_lbl_804D304C_size[sizeof(RecoveredGlobal_80288380_lbl_804D304C) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80288380___vt__15TWindowUserSort_size[sizeof(RecoveredGlobal_80288380___vt__15TWindowUserSort) == 0x18 ? 1 : -1];
 u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_base__9TWindowDDFPUcsPUc(arg0, (s32) &lbl_804D304C.value, 4, arg1);
+    ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &lbl_804D304C.value), (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80288380___vt__15TWindowUserSort *)&__vt__15TWindowUserSort).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowUserSort__name;
     *(s32 *)((s8 *)arg0 + 0x60) = arg2;

@@ -1451,7 +1451,6 @@ u8 * csnVecterUnder(s32 *, s32);
 int check_demo_mode__10TObjPlayerFv(void*);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
 void * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-void enable__13TParticleCtrlFv(void *);
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
 s32 enemy_validate_retained_target(void *);
 s32 copy_position__14TObjEneEpsilonFPv(void *, s32 *);
@@ -2591,15 +2590,15 @@ void TBoss5Gryphon::free_parts() {
 void TBoss5Gryphon::update_particle_positions() {
     if (*(void **)((s8 *)this + 0x724) != NULL) {
         ((TNowLoading *)(*(void **)((s8 *)this + 0x724)))->copy_pos(gryphon_particle_position_vec);
-        enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0x724));
+        ((TParticleCtrl *)(*(void **)((s8 *)this + 0x724)))->enable();
     }
     if (*(void **)((s8 *)this + 0x728) != NULL) {
         ((TNowLoading *)(*(void **)((s8 *)this + 0x728)))->copy_pos(gryphon_particle_position_vec);
-        enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0x728));
+        ((TParticleCtrl *)(*(void **)((s8 *)this + 0x728)))->enable();
     }
     if (*(void **)((s8 *)this + 0x72C) != NULL) {
         ((TNowLoading *)(*(void **)((s8 *)this + 0x72C)))->copy_pos(gryphon_particle_position_vec);
-        enable__13TParticleCtrlFv(*(void **)((s8 *)this + 0x72C));
+        ((TParticleCtrl *)(*(void **)((s8 *)this + 0x72C)))->enable();
     }
 }
 
@@ -2651,7 +2650,7 @@ void TBoss5Gryphon::enable_particles() {
     for (i = 0; i < 16; i++) {
         if (((Obj_8005E52C *)this)->parts[i] != 0) {
             ((TNowLoading *)(((Obj_8005E52C *)this)->parts[i]))->copy_pos(gryphon_particle_enable_pos);
-            enable__13TParticleCtrlFv(((Obj_8005E52C *)this)->parts[i]);
+            ((TParticleCtrl *)(((Obj_8005E52C *)this)->parts[i]))->enable();
         }
     }
 }

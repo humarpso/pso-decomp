@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -48,7 +49,6 @@ void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);
 s32 allow_rendering__7TObjectFv(u32);
 void disallow_rendering__7TObjectFv(void *);
-s32 count_members__6TLobbyFv();
 s32 update_players_in_range(void *);
 u8 *get_player_by_client_id(s32);
 s32 TWindow__close(u32);
@@ -68,7 +68,6 @@ int OSSetProgressiveMode(void*);
 int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__ct(void *);
 void TAdYesNoBaseGC__vt0(void *, int);
-s32 count_members__6TLobbyFv();
 s32 TWindow__close(u32);
 s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
@@ -109,7 +108,7 @@ s32 TAdVIConfigGC::get_field_14() { return *(s32*)((char*)this + 0x14); }
 void TAdVIConfigGC::update_visibility() {
     s32 temp_r3;
     u8 *temp_r3_2;
-    temp_r3 = count_members__6TLobbyFv();
+    temp_r3 = TLobby::count_members();
     if ((s32) *(s32 *)((s8 *)((u8 *)this) + 4) != temp_r3) {
         *(s32 *)((s8 *)((u8 *)this) + 4) = temp_r3;
         open_player_names_window();
@@ -152,7 +151,7 @@ u8 *TAdVIConfigGC::init(f32 farg0) {
     *(f32 *)&this->m_name = (f32) (farg0 * farg0);
     *(s32 *)&this->m_24 = 0;
     memset((void *) (arg0 + 0x28), (int) (0), (int) (0x60));
-    *(s32 *)&this->m_flags = count_members__6TLobbyFv();
+    *(s32 *)&this->m_flags = TLobby::count_members();
     *(s32 *)&this->m_down = 0;
     *(s32 *)((s8 *)arg0 + 0x18) = 0;
     ((TAdVIConfigGC *)arg0)->open_player_names_window();

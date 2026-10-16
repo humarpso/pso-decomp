@@ -403,7 +403,6 @@ extern u16 battle_mode_data_table[];
 extern s32 tl_05;
 void finish_chr_select_scene_init__6TLobbyFv(void);
 s32 build_6x7D_set_battle_mode_data(void *);
-s32 send_60_sized__6TLobbyFv(void *);
 s32 rand();
 void send_6x7D_set_battle_mode_data(void);
 s32 obj_set_flag_20000();
@@ -522,7 +521,7 @@ void send_6x7D_set_battle_mode_data(void) {
         }
     }
     ((TLobby *)(&msg))->send_6x7D_set_battle_mode_data();
-    send_60_sized__6TLobbyFv(&msg);
+    ((TLobby *)(&msg))->send_60_sized();
 }
 
 void init__6TLobbyFPv(void *arg0) {
@@ -842,7 +841,6 @@ s64 OSGetTime();
 s32 check_battle_end__6TLobbyFv(Lobby_801C484C *);
 void send_battle_mode_state__6TLobbyFPv(Lobby_801C484C *);
 void update_timed_wait__6TLobbyFPv(Lobby_801C484C *self);
-s32 apply_battle_rules_to_players__6TLobbyFv();
 u32 get_player_by_client_id(u16);
 s32 update_battle_controller__10TObjPlayerFv();
 s32 fn_801C19D8(void *, int);
@@ -881,7 +879,6 @@ void apply_game_settings__6TLobbyFii(s32 arg0, s32 arg1);
 void obj_clear_flag30_20000(void *arg0);
 s32 __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-s32 release_attached_resource__10TObjPlayerFv(void *);
 u32 get_player_by_client_id(u16);
 s32 update_battle_controller__10TObjPlayerFv();
 s32 clear_counter__6TLobbyFPv(void *);
@@ -900,7 +897,6 @@ s32 has_player_active_menu__11TWindowCtrlFv(s32);
 u32 TWindowDuelResult__ct(void *, s32);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(void *);
-s32 calc_window_size__17TWindowSubComCardFv(void *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
@@ -1441,7 +1437,7 @@ void apply_game_settings__6TLobbyFii(s32 arg0, s32 arg1) {
         set_section_id__6TLobbyFPvUc((void *) (lobby_rule_settings), 1);
     }
     if (((u32 (*)(void))update_battle_controller__10TObjPlayerFv)() != 0U) {
-        apply_battle_rules_to_players__6TLobbyFv();
+        TLobby::apply_battle_rules_to_players();
     }
 }
 
@@ -1510,13 +1506,13 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x20) = 1;
         p = (void *)update_battle_controller__10TObjPlayerFv();
         if (p != NULL) {
-            release_attached_resource__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->release_attached_resource();
         }
         break;
     case 1:
         p = (void *)update_battle_controller__10TObjPlayerFv();
         if (p != NULL) {
-            release_attached_resource__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->release_attached_resource();
         }
         if (--*(s32 *)((s8 *)arg0 + 0x2C) <= 0) {
             send_battle_mode_state__6TLobbyFPv((Lobby_801C484C *)arg0);
@@ -1527,7 +1523,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
     case 2:
         p = (void *)update_battle_controller__10TObjPlayerFv();
         if (p != NULL) {
-            release_attached_resource__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->release_attached_resource();
         }
         if (--*(s32 *)((s8 *)arg0 + 0x2C) <= 0) {
             *(s32 *)((s8 *)arg0 + 0x44) = 0x1C2;
@@ -1537,7 +1533,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
     case 3:
         p = (void *)update_battle_controller__10TObjPlayerFv();
         if (p != NULL) {
-            release_attached_resource__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->release_attached_resource();
         }
         if (check_timeout__6TLobbyFPv(arg0, (*(s32 *)((s8 *)arg0 + 0x44))--) != 0 || *(s32 *)((s8 *)arg0 + 0x44) <= 0) {
             clear_counter__6TLobbyFPv(arg0);
@@ -1565,7 +1561,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
             if (((TLobby *)q)->check_player_flag1() == 0) {
                 close_and_play_effect__6TLobbyFii((u16)local_client_id, 1);
             }
-            release_attached_resource__10TObjPlayerFv(q);
+            ((TObjPlayer *)q)->release_attached_resource();
         }
         *(s32 *)((s8 *)arg0 + 0x20) = 5;
         break;
@@ -1598,7 +1594,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
                     forward_trade_action_default__16TObjCityMainWarpFPviii(*(void **)((s8 *)arg0 + 0x50), *(s32 *)((s8 *)(*(s32 **)((s8 *)arg0 + 0x40)) + 4), 6, 1);
                     forward_trade_action_default__16TObjCityMainWarpFPviii(*(void **)((s8 *)arg0 + 0x50), *(s32 *)((s8 *)(*(s32 **)((s8 *)arg0 + 0x40)) + 8), 6, 2);
                     forward_trade_action_default__16TObjCityMainWarpFPviii(*(void **)((s8 *)arg0 + 0x50), *(s32 *)((s8 *)(*(s32 **)((s8 *)arg0 + 0x40)) + 0xC), 6, 3);
-                    calc_window_size__17TWindowSubComCardFv(*(void **)((s8 *)arg0 + 0x50));
+                    ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x50)))->calc_window_size();
                     align_menu_entry_positions(*(void **)((s8 *)arg0 + 0x50));
                     ((TCheckRoomSequence *)(*(void **)((s8 *)arg0 + 0x50)))->set_ready_flag();
                 }

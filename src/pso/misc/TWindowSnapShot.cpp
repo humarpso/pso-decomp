@@ -50,7 +50,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802A7FB0_lbl_8050E208 controller_input_state;
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 s32 get_localized_text_entry(s32, s32);
-u8 * construct_base__9TWindowDDFPUcsPUc(void *, s32, s16, s32);
 extern RecoveredGlobal_802A80A0_lbl_804DDEB4 window_snapshot_layout;
 extern s32 __vt__15TWindowSnapShot[];
 extern s32 TWindowSnapShot__name;
@@ -154,7 +153,7 @@ typedef char RecoveredGlobal_802A80A0_lbl_804DDEB4_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802A80A0___vt__15TWindowSnapShot_size[sizeof(RecoveredGlobal_802A80A0___vt__15TWindowSnapShot) == 0x18 ? 1 : -1];
 u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1) {
     s32 temp_r31;
-    construct_base__9TWindowDDFPUcsPUc(arg0, (s32) &window_snapshot_layout.value, 4, arg1);
+    ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &window_snapshot_layout.value), (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A80A0___vt__15TWindowSnapShot *)&__vt__15TWindowSnapShot).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSnapShot__name;
     *(u8 *)((s8 *)arg0 + 0x60) = 0U;

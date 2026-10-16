@@ -176,7 +176,6 @@ s32 queue_destruction__7TObjectFv(s32);
 extern s32 __vt__10TTecSlicer[];
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-int has_valid_handle__10TObjPlayerFv(void *);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
@@ -307,7 +306,7 @@ void TTecSlicer::init_launch_angles(s32 *arg0, s32 *arg1, s32 arg2) {
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_5C = -0x4000;
   var_r31 = (s32) ((TTecSlicer *)var_r3)->get_remain_count();
   var_r3 = (s32 *) var_r30;
-  temp_r0 = has_valid_handle__10TObjPlayerFv(var_r3) * 3;
+  temp_r0 = ((TObjPlayer *)var_r3)->has_valid_handle() * 3;
   var_r3 = (s32 *) (&TTecSlicer__launch_angle_table.value);
   var_r3 = (s32 *) (&TTecSlicer__launch_angle_table.value);
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_64 = (s32) (*((s32 *) (((s8 *) (&TTecSlicer__launch_angle_table.value)) + ((var_r31 + temp_r0) * 4))));

@@ -32,7 +32,6 @@ extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessage
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1);
 s32 alloc__23TAdSinglePlyChrSelectGCFv(int, f32, f32);
 s32 TWindowMessage__ct(void *, void *, int, void *);
-s32 load_chat_history__17TWindowMessageLogFv(void *);
 s32 TWindowCtrl__sub_8026AD78(void *);
 s32 reset_selection__20TWindowSubStatusDispFv(int, void *);
 extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
@@ -101,7 +100,7 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x90) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 0x80);
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805DD240;
-    load_chat_history__17TWindowMessageLogFv((void *) (arg0));
+    ((TWindowMessageLog *)arg0)->load_chat_history();
     return arg0;
 }
 

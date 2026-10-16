@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TUnk_804D1AD0.h"
 
@@ -8,7 +9,6 @@ struct RecoveredGlobal_8027FCE4_lbl_804D1AD0 {
 };
 
 extern "C" {
-s32 get_camera_id__11TCameraCtrlFv();
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 fn_8027FD88(int, f32, f32);
@@ -35,7 +35,7 @@ u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2) {
         var_r0 = TWindowSubStatusDisp__ct((int) (temp_r3), (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
     }
     *(s32 *)((s8 *)arg0 + 0x28) = var_r0;
-    if (get_camera_id__11TCameraCtrlFv() > 2) {
+    if (TCameraCtrl::get_camera_id() > 2) {
         ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x24)))->set_position_xy((f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
         fn_8027FD88((int) (*(s32 *)((s8 *)arg0 + 0x28)), (f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
     }

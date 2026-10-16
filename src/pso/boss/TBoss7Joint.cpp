@@ -218,7 +218,6 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 fn_8002B630(void *, void *);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
-s32 init_position_vectors__9TObjEneDDFv();
 s32 TBoss7Joint_get_shell_max_hp();
 extern s32 lbl_80473FB8[];
 extern s32 lbl_804E45C8[];
@@ -300,7 +299,7 @@ typedef char RecoveredGlobal_802EEC60___vt__11TBoss7Joint_size[sizeof(RecoveredG
 
 #pragma opt_common_subs off
 s32 TBoss7Joint::init_params() {
-    ((s32 (*)(void *))init_position_vectors__9TObjEneDDFv)(this);
+    init_position_vectors();
     fn_8002B630(&((J_802EEB88 *)this)->sub, lbl_80473FB8);
     initialize_linked_object_reference(&((J_802EEB88 *)this)->sub);
     transform_part_positions();
