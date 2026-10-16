@@ -281,7 +281,7 @@ struct V_802D577C { f32 x, y, z; };
 
 extern "C" {
 s32 send_6x61_activate_mag_effect(void *, s16);
-void tick_mag_effect_counter__10TObjPlayerFPv(void *arg0);
+void update_weapon__13TUnk_804E21F8Fv(void *arg0);
 s32 spawn_item__10TObjPlayerFi(void *);
 void spawn_item_from_arg__10TObjPlayerFii(s32 arg0, s32 arg1);
 void set_technique_roll__13TUnk_804E21F8Fl(O_802D576C *self, s32 x);
@@ -423,21 +423,21 @@ void TUnk_804E21F8::sub_802D577C() {
     }
 }
 
-void tick_mag_effect_counter__10TObjPlayerFPv(void *arg0) {
+void TUnk_804E21F8::update_weapon() {
     s16 temp_r4;
     s16 temp_r4_2;
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x248);
+    temp_r4 = *(s16 *)((s8 *)this + 0x248);
     temp_r4 += 1;
-    *(s16 *)((s8 *)arg0 + 0x248) = temp_r4;
+    *(s16 *)((s8 *)this + 0x248) = temp_r4;
     if ((s16) temp_r4 == 0x96) {
-        temp_r4_2 = *(s16 *)((s8 *)arg0 + 0x24A);
+        temp_r4_2 = *(s16 *)((s8 *)this + 0x24A);
         if (temp_r4_2 < 5) {
-            *(s16 *)((s8 *)arg0 + 0x24A) = (s16) (temp_r4_2 + 1);
-            send_6x61_activate_mag_effect((void *)(arg0), *(s16 *)((s8 *)arg0 + 0x24A));
+            *(s16 *)((s8 *)this + 0x24A) = (s16) (temp_r4_2 + 1);
+            send_6x61_activate_mag_effect((void *)(this), *(s16 *)((s8 *)this + 0x24A));
         }
-        *(s16 *)((s8 *)arg0 + 0x248) = 0;
+        *(s16 *)((s8 *)this + 0x248) = 0;
     }
-    sub_802D577C__13TUnk_804E21F8Fv((void *)(arg0));
+    sub_802D577C__13TUnk_804E21F8Fv((void *)(this));
 }
 
 }

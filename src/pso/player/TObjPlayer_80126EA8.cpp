@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2F78.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 
@@ -21,7 +22,7 @@ void TObjPlayer::update_orga_flow_shot() {
 extern const f32 lbl_805DADA8;
 extern const f32 lbl_805DADAC;
 
-void TObjPlayer::approach_value_field200() {
+void TUnk_804A2F78::update_attack() {
     s32 arg0 = (s32)this;
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x200), (f32)lbl_805DADA8, (f32)lbl_805DADAC);
 }

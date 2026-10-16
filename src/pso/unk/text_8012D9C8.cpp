@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A5B20.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/misc/TTecSlicer.h"
@@ -93,7 +94,7 @@ void TObjPlayer::update_slicer_hinge_idle() {
   }
 }
 
-void TObjPlayer::update_slicer_hinge_active() {
+void TUnk_804A5B20::update_attack() {
     u8 *arg0 = (u8 *)this;
   u8 temp_r3;
   temp_r3 = get_slot_count__14TItemProShieldFv();

@@ -1104,7 +1104,7 @@ int queue_destruction__7TObjectFv(void*);
 extern "C" {
 void TLobby__sub_801A1FD8();
 void vfunc_13__13TUnk_804AF8A0Fl();
-void TObjPlayer__sub_800BC220();
+void vfunc_16__13TUnk_804928CCFPvPv();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjComputer.h"
+#include "pso/object/TObjGbAdvance.h"
 #include "pso/misc/TOKeyAncient01.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/object/TObjMesBase.h"
@@ -26,12 +28,12 @@ void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444B48[];
 extern u32 TObjComputer__model_archive;
 extern s16 TObjComputer__data_805DBCD8[2];
-void TObjComputer__vt14(void *arg0);
+void debug_draw_label__12TObjComputerFv(void *arg0);
 }
 
 extern "C" {
 
-void TObjGbAdvance__vt12(void *arg0);
+void vfunc_14__13TObjGbAdvanceFv(void *arg0);
 void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
@@ -40,10 +42,10 @@ s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__11TObjMesBaseFv(void *, s32);
 
-void TObjGbAdvance__vt12(void *arg0) {
+void TObjGbAdvance::vfunc_14() {
     vfunc_14__11TObjMesBaseFv();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) != 0) {
-        submit_cursor_candidate(arg0, -1);
+    if ((s32) *(s32 *)((s8 *)this + 0xB4) != 0) {
+        submit_cursor_candidate(this, -1);
     }
 }
 
@@ -73,10 +75,10 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
     ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
     return arg0;
 }
-void TObjComputer__vt14(void *arg0) {
-    ((TObjMesBase *)arg0)->TObjMesBase::debug_draw_label();
-    *(s32 *)((s8 *)arg0 + 0x88) = *(s32 *)((s8 *)arg0 + 0x88) % 2;
-    *(s32 *)((s8 *)arg0 + 0xBC) = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)((s8 *)arg0 + 0x88)]);
+void TObjComputer::debug_draw_label() {
+    ((TObjMesBase *)this)->TObjMesBase::debug_draw_label();
+    *(s32 *)((s8 *)this + 0x88) = *(s32 *)((s8 *)this + 0x88) % 2;
+    *(s32 *)((s8 *)this + 0xBC) = get_bml_model((void *)TObjComputer__model_archive, TObjComputer__data_805DBCD8[*(s32 *)((s8 *)this + 0x88)]);
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130021, lbl_80444B48);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);

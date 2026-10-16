@@ -67,7 +67,7 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TOCapsuleAncient01__vt13(void *arg0);
+void vfunc_15__18TOCapsuleAncient01Fv(void *arg0);
 void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
@@ -180,8 +180,8 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TOCapsuleAncient01__vt13(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0xE4) = (s32) (*(s32 *)((s8 *)arg0 + 0xE4) + 0x222);
+void TOCapsuleAncient01::vfunc_15() {
+    *(s32 *)((s8 *)this + 0xE4) = (s32) (*(s32 *)((s8 *)this + 0xE4) + 0x222);
 }
 
 }

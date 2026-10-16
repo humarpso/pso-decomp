@@ -70,7 +70,7 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-void TMotorcycle__vt12(void);
+void vfunc_14__11TMotorcycleFv(void);
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -97,7 +97,7 @@ void TMotorcycle::render() {
     }
 }
 
-void TMotorcycle__vt12(void) {  }
+void TMotorcycle::vfunc_14() {  }
 
 extern void *tl_05;
 

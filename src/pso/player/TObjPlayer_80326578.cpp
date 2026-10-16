@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804ED488.h"
 #include "pso/player/TUnk_804ED390.h"
 #include "pso/player/TUnk_804ED298.h"
 #include "pso/player/TUnk_804ED0A8.h"
@@ -62,7 +63,7 @@ void apply_container_item__10TObjPlayerFPv(void *arg0);
 void approach_target_angle__10TObjPlayerFPv(u8 *arg0);
 void reserved_53__13TUnk_804ED1A0Fv(void* p);
 void dark_bridge_start_timers(void *arg0);
-void step_angles__10TObjPlayerFPv(u8 *arg0);
+void update_attack__13TUnk_804ED0A8Fv(u8 *arg0);
 void update_weapon__13TUnk_804ECFB0Fv(void *arg0);
 s32 rotate_matrix_x(s32, s32);
 s32 add_actor_tp(s32, s16);
@@ -256,7 +257,8 @@ void approach_target_angle__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void step_angles__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804ED0A8::update_attack() {
+    u8 *arg0 = (u8 *)this;
     add_angle_clamped__10TObjPlayerFPlll(arg0 + 0x1FC, -0xAAA, 0);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) == 0) {
         add_angle_clamped__10TObjPlayerFPlll(arg0 + 0x1F8, -0xAAA, 0);
@@ -363,7 +365,7 @@ void TObjPlayer__sub_80326D54(Obj_80326D54 *arg0) {
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80326EA0(void *arg0, s16 arg1);
-void approach_positions__10TObjPlayerFi(s32 arg0);
+void update_attack__13TUnk_804ED298Fv(s32 arg0);
 void update_orga_flow_params__10TObjPlayerFi(s32 arg0);
 s32 approach_value__20TItemEffOrgaFlowShotFPfff(void *, f32, f32);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -384,7 +386,8 @@ extern const f32 lbl_805DF660;
 extern const f32 lbl_805DF670;
 extern const f32 lbl_805DF674;
 
-void approach_positions__10TObjPlayerFi(s32 arg0) {
+void TUnk_804ED298::update_attack() {
+    s32 arg0 = (s32)this;
     approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x1F8), (f32) (lbl_805DF670), (f32) (lbl_805DF660));
     approach_value__20TItemEffOrgaFlowShotFPfff((void *) (arg0 + 0x1FC), (f32) (lbl_805DF674), (f32) (lbl_805DF660));
 }
@@ -424,7 +427,7 @@ extern "C" {
 
 void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1);
 void approach_orgaflow_shot__10TObjPlayerFi(s32 arg0);
-void approach_position_x__10TObjPlayerFi(s32 arg0);
+void update_attack__13TUnk_804ED390Fv(s32 arg0);
 
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -472,7 +475,8 @@ void approach_orgaflow_shot__10TObjPlayerFi(s32 arg0) {
 extern const f32 lbl_805DF680;
 extern const f32 lbl_805DF68C;
 
-void approach_position_x__10TObjPlayerFi(s32 arg0) {
+void TUnk_804ED390::update_attack() {
+    s32 arg0 = (s32)this;
     ((s32 (*)(s32, f32, f32))approach_value__20TItemEffOrgaFlowShotFPfff)(arg0 + 0x1F8, lbl_805DF68C, lbl_805DF680);
 }
 
@@ -506,7 +510,7 @@ u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0);
 extern "C" {
 
 void config_dark_flow_attack_collider(int a0, void* a1);
-void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0);
+void emit_marker_effects__13TUnk_804ED488Fv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32, s32, s32);
 
@@ -537,24 +541,24 @@ u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0) {
 
 void config_dark_flow_attack_collider(int a0, void* a1) { *(float*)((char*)a1 + 0x3c) = lbl_805DF690; *(int*)((char*)a1 + 0x78) = 474; }
 
-void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0) {
+void TUnk_804ED488::emit_marker_effects() {
     s32 temp_r31;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        temp_r31 = (s16) get_field_2b8__14TItemProShieldFv(*(s32 *)((s8 *)arg0 + 0xF0));
-        if ((s32) ((s16) obj_getS16_32C(*(s32 *)((s8 *)arg0 + 0xF0)) * 8) < temp_r31) {
-            fire_shot_at_target__11TItemWeaponFv(arg0, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, -0x238E);
-            fire_shot_at_target__11TItemWeaponFv(arg0, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, -0x11C7);
-            fire_shot_at_target__11TItemWeaponFv(arg0, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0);
-            fire_shot_at_target__11TItemWeaponFv(arg0, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0x11C7);
-            fire_shot_at_target__11TItemWeaponFv(arg0, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0x238E);
-            play_sound_effect(0x4001A642, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0);
+        temp_r31 = (s16) get_field_2b8__14TItemProShieldFv(*(s32 *)((s8 *)this + 0xF0));
+        if ((s32) ((s16) obj_getS16_32C(*(s32 *)((s8 *)this + 0xF0)) * 8) < temp_r31) {
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, -0x238E);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, -0x11C7);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0x11C7);
+            fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0x238E);
+            play_sound_effect(0x4001A642, *(s32 *)((s8 *)this + 0xF0) + 0x38, 0, 0);
             return;
         }
-        update_active_game_effect__10TObjPlayerFv(arg0);
+        update_active_game_effect__10TObjPlayerFv(this);
         return;
     }
-    update_active_game_effect__10TObjPlayerFv(arg0);
+    update_active_game_effect__10TObjPlayerFv(this);
 }
 
 }

@@ -6,6 +6,8 @@
 
 struct TMotorcycle : public TObjMesBase {
     virtual ~TMotorcycle();
+    virtual void vfunc_14();
+    virtual void debug_draw_label();
     u32 m_bc;
     virtual void render();
     void *create();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804E71F8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdVIConfigGC.h"
 
@@ -21,7 +22,7 @@ void config_nug2000_attack_collider__10TObjPlayerFPvPv(void *self, T_80308328 *p
     p->flags |= 0x80;
 }
 
-void TObjPlayer::fire_nug2000_from_joint() {
+void TUnk_804E71F8::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     ((TObjPlayer *)arg0)->draw_icon(1, (s32) &sp8);

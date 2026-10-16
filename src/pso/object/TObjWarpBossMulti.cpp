@@ -1004,7 +1004,7 @@ void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_13__13TUnk_804AF8A0Fl();
-void TObjWarpBase__vt12();
+void vfunc_14__12TObjWarpBaseFv();
 void open_confirm_window__12TObjAreaWarpFUs();
 void is_warp_enabled__12TObjAreaWarpFi();
 void TObjWarpBase__vt14();
@@ -1061,7 +1061,7 @@ s32 __vt__17TObjWarpBossMulti[21] = {
     (s32)&classify_actor_view_detail,
     (s32)&vfunc_12__13TUnk_804B9870Fv,
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
-    (s32)&TObjWarpBase__vt12,
+    (s32)&vfunc_14__12TObjWarpBaseFv,
     (s32)&open_confirm_window__12TObjAreaWarpFUs,
     (s32)&is_warp_enabled__12TObjAreaWarpFi,
     (s32)&TObjWarpBase__vt14,

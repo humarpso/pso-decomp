@@ -91,16 +91,16 @@ extern const f32 lbl_805DB718;
 extern const f32 lbl_805DB71C;
 extern const f32 lbl_805DB720;
 extern const f32 lbl_805DB724;
-void TOKeyAncient03__vt15(u8 *arg0);
+void vfunc_17__14TOKeyAncient03Fv(u8 *arg0);
 extern const f32 lbl_805DB738;
 extern const f32 lbl_805DB73C;
 extern const f32 lbl_805DB740;
 extern const f32 lbl_805DB744;
-void TOKeyCave01__vt15(u8 *arg0);
+void vfunc_17__11TOKeyCave01Fv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
-void TOKeyCave01__vt17(s32 arg0);
+void vfunc_19__11TOKeyCave01Fv(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
@@ -126,7 +126,7 @@ extern const f32 lbl_805DB730;
 u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB728;
 extern const f32 lbl_805DB724;
-void TOKeyAncient03__vt14(Obj_8016B9A4 *self);
+void vfunc_16__14TOKeyAncient03Fv(Obj_8016B9A4 *self);
 s32 get_current_floor();
 extern s32 local_client_id;
 s32 rotate_matrix_y(int, int);
@@ -144,8 +144,8 @@ extern s32 model_render_flags;
 extern "C" {
 
 void TOKeyAncient03__vt16(s32 arg0);
-void TOKeyAncient03__vt17(s32 arg0);
-void TOKeyCave01__vt23(void);
+void vfunc_19__14TOKeyAncient03Fv(s32 arg0);
+void vfunc_25__11TOKeyCave01Fv(void);
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -154,7 +154,8 @@ void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
-void TOKeyAncient03__vt17(s32 arg0) {
+void TOKeyAncient03::vfunc_19() {
+    s32 arg0 = (s32)this;
     play_sound_effect(0x4004B20D, arg0 + 0x38, 0, 0);
 }
 
@@ -164,7 +165,8 @@ void TOKeyAncient03__vt16(s32 arg0) {
 
 extern void *tl_05;
 
-void TOKeyAncient03__vt15(u8 *arg0) {
+void TOKeyAncient03::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xF8) == 1) {
         *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) + lbl_805DB718);
@@ -183,7 +185,8 @@ void TOKeyAncient03__vt15(u8 *arg0) {
     }
 }
 
-void TOKeyAncient03__vt14(Obj_8016B9A4 *self) {
+void TOKeyAncient03::vfunc_16() {
+    Obj_8016B9A4 *self = (Obj_8016B9A4 *)this;
     if (lbl_805DB728 < self->f) {
         self->f += lbl_805DB724;
     }
@@ -345,7 +348,7 @@ block_5:
     return arg0;
 }
 
-void TOKeyCave01__vt23(void) {  }
+void TOKeyCave01::vfunc_25() {  }
 s32 TOKeyCave01__vt13(u8 *arg0) {
     s32 temp_r0;
     s32 var_r31;
@@ -384,7 +387,8 @@ void TOKeyCave01::send_switch_changed(s32 flags) {
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 
-void TOKeyCave01__vt17(s32 arg0) {
+void TOKeyCave01::vfunc_19() {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
     s32 temp_r3_2;
     if (((s32) enable_v2_features == 1) && ((TOKeyMachine01::get_global_state() == 0x10) || (TOKeyMachine01::get_global_state() == 0x11))) {
@@ -417,7 +421,8 @@ void TOKeyCave01__vt16(s32 arg0) {
     }
 }
 
-void TOKeyCave01__vt15(u8 *arg0) {
+void TOKeyCave01::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     s32 temp_r4;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xF8) == 1) {

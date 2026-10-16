@@ -107,9 +107,9 @@ extern s32 *TOKeyGenericSw__texture_lists;
 
 extern "C" {
 
-void TOKeyGenericSw__vt14(void *arg0);
-void TOKeyGenericSw__vt15(void *arg0);
-void TOKeyGenericSw__vt23(void);
+void vfunc_16__14TOKeyGenericSwFv(void *arg0);
+void vfunc_17__14TOKeyGenericSwFv(void *arg0);
+void vfunc_25__14TOKeyGenericSwFv(void);
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1);
 void *TOKeyGenericSw__ct(void *, void *, void *);
 void free_collision_body_parts(void *);
@@ -119,7 +119,7 @@ void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 update_anim_phase__13TUnk_804AFBF8Fv();
 
-void TOKeyGenericSw__vt23(void) {  }
+void TOKeyGenericSw::vfunc_25() {  }
 
 void TOKeyGenericSw::render() {
     Obj_8016CA64 *self = (Obj_8016CA64 *)this;
@@ -151,22 +151,22 @@ void TOKeyGenericSw::render() {
     TParticleCtrl::end_effect_render();
 }
 
-void TOKeyGenericSw__vt15(void *arg0) {
+void TOKeyGenericSw::vfunc_17() {
     update_anim_phase__13TUnk_804AFBF8Fv();
-    ((VObj_8016CB88_8016CA60*)arg0)->m18();
-    *(s32 *)((s8 *)arg0 + 0xF4) = 1;
-    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF8) = (s32) *(s32 *)((s8 *)arg0 + 0xF4);
+    ((VObj_8016CB88_8016CA60*)this)->m18();
+    *(s32 *)((s8 *)this + 0xF4) = 1;
+    *(s32 *)((s8 *)this + 0xEC) = 0;
+    *(s32 *)((s8 *)this + 0xF0) = 0;
+    *(s32 *)((s8 *)this + 0xF8) = (s32) *(s32 *)((s8 *)this + 0xF4);
 }
 
-void TOKeyGenericSw__vt14(void *arg0) {
+void TOKeyGenericSw::vfunc_16() {
     update_anim_phase__13TUnk_804AFBF8Fv();
-    ((VObj_8016CBE4_8016CA60*)arg0)->m18();
-    *(s32 *)((s8 *)arg0 + 0xEC) = 1;
-    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) *(s32 *)((s8 *)arg0 + 0xEC);
+    ((VObj_8016CBE4_8016CA60*)this)->m18();
+    *(s32 *)((s8 *)this + 0xEC) = 1;
+    *(s32 *)((s8 *)this + 0xF4) = 0;
+    *(s32 *)((s8 *)this + 0xF8) = 0;
+    *(s32 *)((s8 *)this + 0xF0) = (s32) *(s32 *)((s8 *)this + 0xEC);
 }
 
 extern void *tl_05;

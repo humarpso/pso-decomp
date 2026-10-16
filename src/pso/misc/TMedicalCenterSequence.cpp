@@ -198,7 +198,7 @@ int set_field_20__12TQuestListVMFl(void*, void*);
 extern "C" {
 
 void restore_player_state__22TMedicalCenterSequenceFv(void* p);
-void TMedicalCenterSequence__vt11(void *arg0);
+void close_window__22TMedicalCenterSequenceFv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 try_spend_actor_meseta(s32, s32);
 s32 are_traps_full__10TObjPlayerFPv(s32);
@@ -208,7 +208,7 @@ int TShopWindowBase__sub_802239EC(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(u32);
-s32 close_window__13TShopSequenceFPv(void *);
+s32 close_window__13TShopSequenceFv(void *);
 s32 is_alive_and_ready__10TObjPlayerFi(s32);
 s32 obj_getPtr2B0_20(s32);
 s32 queue_destruction__7TObjectFv(void *);
@@ -417,10 +417,10 @@ s32 TMedicalCenterSequence::handle_window_input() {
     }
 }
 
-void TMedicalCenterSequence__vt11(void *arg0) {
-    if ((((VObj_802163AC *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)((void *)(arg0))) != 0) || (TShopWindowBase__sub_802239EC((void *)((void *)(arg0))) != 0))) {
-        close_window__13TShopSequenceFPv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+void TMedicalCenterSequence::close_window() {
+    if ((((VObj_802163AC *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)((void *)(this))) != 0) || (TShopWindowBase__sub_802239EC((void *)((void *)(this))) != 0))) {
+        close_window__13TShopSequenceFv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 }

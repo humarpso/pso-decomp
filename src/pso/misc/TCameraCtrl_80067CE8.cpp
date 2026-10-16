@@ -59,7 +59,7 @@ f32 cos_table_lookup(s32);
 
 extern "C" {
 
-void TCameraCtrl__sub_80067CE0(void* p, s32 v);
+void vfunc_14__13TUnk_80488E00Fl(void* p, s32 v);
 
 void * TCameraCtrl__vt7(void) {
     void *o;

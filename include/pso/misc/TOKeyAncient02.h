@@ -6,6 +6,9 @@
 
 struct TOKeyAncient02 : public TOKey {
     virtual ~TOKeyAncient02();
+    virtual void vfunc_16();
+    virtual void vfunc_17();
+    virtual void vfunc_25();
     void render();
     static void *create(void *arg0);
     static void free_static();

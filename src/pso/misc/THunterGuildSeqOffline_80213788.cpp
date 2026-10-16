@@ -580,7 +580,7 @@ void *obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 s32 is_quest_active();
 void THunterGuildSeqOffline__sub_8021E180(void *);
-void close_window__13TShopSequenceFPv(void *);
+void close_window__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
@@ -606,21 +606,21 @@ void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self) {
         if (is_quest_active() == 0) {
             ((TProtocol *)TLobby__protocol_instance)->send_quest_menu_closed();
         }
-        close_window__13TShopSequenceFPv(self);
+        close_window__13TShopSequenceFv(self);
         queue_destruction__7TObjectFv(self);
         break;
     case 1:
         mem = __nw__7TObjectFUl(0x28);
         if (mem != NULL) ((THunterGuildSeqOffline *)mem)->init((void *)tl_00, (void *)reset_random_enemies_mode);
         THunterGuildSeqOffline__sub_8021E180(obj_getField1c(self->player));
-        close_window__13TShopSequenceFPv(self);
+        close_window__13TShopSequenceFv(self);
         queue_destruction__7TObjectFv(self);
         break;
     case 2:
         mem = __nw__7TObjectFUl(0x28);
         if (mem != NULL) ((THunterGuildSeqOffline *)mem)->init((void *)tl_00, (void *)set_random_enemies_mode);
         THunterGuildSeqOffline__sub_8021E180(obj_getField1c(self->player));
-        close_window__13TShopSequenceFPv(self);
+        close_window__13TShopSequenceFv(self);
         queue_destruction__7TObjectFv(self);
         break;
     }

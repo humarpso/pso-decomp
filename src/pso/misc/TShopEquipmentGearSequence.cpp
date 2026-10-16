@@ -43,7 +43,7 @@ void try_close__26TShopEquipmentGearSequenceFPv(void *arg0);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
-s32 close_window__13TShopSequenceFPv(void *);
+s32 close_window__13TShopSequenceFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_805D6218;
@@ -88,7 +88,7 @@ void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0) {
 void try_close__26TShopEquipmentGearSequenceFPv(void *arg0) {
     if ((((VObj_8021B3C0 *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         close_if_single_screen__13TShopSequenceFv(arg0);
-        close_window__13TShopSequenceFPv(arg0);
+        close_window__13TShopSequenceFv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

@@ -54,7 +54,7 @@ s32 feed_item_to_mag(u8 *arg0, u32 arg1);
 extern "C" {
 
 void TItem__sub_801005D8(void);
-void TItem__sub_801005DC(void);
+void vfunc_16__5TItemFv(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
 void TItem__sub_80100648(void);
@@ -86,7 +86,7 @@ void TItem::apply_switch_attack(s32 arg1) {
 }
 void TItem__sub_801005D8(void) {  }
 
-void TItem__sub_801005DC(void) {  }
+void TItem::vfunc_16() {  }
 void TItem__sub_801005E0(void) {  }
 int TItem__sub_801005E4(void) { return 0; }
 

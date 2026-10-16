@@ -6,6 +6,8 @@
 
 struct TObjQuestColApcIN : public TObjQuestColBase {
     virtual ~TObjQuestColApcIN();
+    virtual int vfunc_15();
+    virtual int vfunc_16();
     u8 unk_BC[0x4];
 };
 

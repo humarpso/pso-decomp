@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMotorcycle.h"
 #include "pso/object/TObjMesBase.h"
 #include "pso/object/TObjMotion.h"
 
@@ -33,7 +34,7 @@ f32 fabs_float(f32);
 void debug_printf_at(int, void *, ...);
 extern s32 lbl_80445DF4[];
 extern u8 lbl_80445E08[];
-void TMotorcycle__vt14(Mc_80194EC4 *arg0);
+void debug_draw_label__11TMotorcycleFv(Mc_80194EC4 *arg0);
 void debug_printf_at(int, void *, ...);
 extern Pair_80194AEC lbl_80445D94[];
 extern u8 lbl_80445D9C[];
@@ -90,7 +91,7 @@ void TObjMesBase::debug_draw_label() {
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
-void TObjMesBase::start_message() {
+void TObjMesBase::vfunc_13(s32) {
     s32 label = messageLabel;
     if (label != 0) {
         void* root = 0;
@@ -177,7 +178,8 @@ s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1) {
     }
     return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
-void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
+void TMotorcycle::debug_draw_label() {
+    Mc_80194EC4 *arg0 = (Mc_80194EC4 *)this;
     ((TObjMesBase *)arg0)->TObjMesBase::debug_draw_label();
     arg0->fBC = (s32)fabs_float(arg0->f68);
     arg0->fBC = arg0->fBC % 2;

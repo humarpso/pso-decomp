@@ -213,7 +213,7 @@ extern const f32 TContainerAncient01__data_805DBD34;
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
-f32 save_and_send_state__19TContainerAncient01FPv(u8 *arg0);
+f32 vfunc_22__20TContainerAncient01RFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD3C;
@@ -283,8 +283,8 @@ void sub_8018B284__19TContainerAncient01Fv(Obj_8018B284 *self);
 
 extern "C" {
 
-int TContainerAncient01__sub_8018ACC0(void);
-f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2);
+int vfunc_21__20TContainerAncient01RFPvPvPvf(void);
+f32 vfunc_23__20TContainerAncient01RFPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
 void render__20TContainerAncient01RFv(u8 *arg0);
 void vfunc_6__20TContainerAncient01RFPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 scale_current_matrix(void *);
@@ -311,20 +311,20 @@ extern "C" void vfunc_24__20TContainerAncient01RFPvPv();
 extern "C" void vfunc_25__20TContainerAncient01RFPUc();
 extern "C" void vfunc_26__20TContainerAncient01RFll();
 extern "C" void vfunc_27__20TContainerAncient01RFPvlf();
-extern "C" void TObjPlayer__sub_8000FF3C();
-extern "C" void TObjPlayer__sub_80010A78();
-extern "C" void TObjPlayer__sub_80010A80();
-extern "C" void TObjPlayer__sub_80011010();
+extern "C" void vfunc_29__13TUnk_804806E8Fv();
+extern "C" void vfunc_74__13TUnk_804806E8Fl();
+extern "C" void vfunc_73__13TUnk_804806E8Fv();
+extern "C" void vfunc_28__13TUnk_804806E8Fv();
 extern "C" void consume_timer_field__10TObjPlayerFPvi();
-extern "C" void TObjPlayer__sub_80014830();
-extern "C" void TObjPlayer__sub_80014838();
-extern "C" void TObjPlayer__sub_80014840();
-extern "C" void TObjPlayer__sub_80014884();
-extern "C" void TObjPlayer__sub_80014888();
-extern "C" void TObjPlayer__sub_8001488C();
-extern "C" void TObjPlayer__sub_80014890();
-extern "C" void TObjPlayer__sub_80014894();
-extern "C" void TObjPlayer__sub_80014898();
+extern "C" void vfunc_67__13TUnk_804806E8Fv();
+extern "C" void vfunc_66__13TUnk_804806E8Fv();
+extern "C" void vfunc_65__13TUnk_804806E8Fll();
+extern "C" void vfunc_63__13TUnk_804806E8Fv();
+extern "C" void vfunc_62__13TUnk_804806E8Fv();
+extern "C" void vfunc_61__13TUnk_804806E8Fv();
+extern "C" void vfunc_60__13TUnk_804806E8Fv();
+extern "C" void vfunc_59__13TUnk_804806E8Fv();
+extern "C" void vfunc_58__13TUnk_804806E8Fv();
 extern "C" void apply_slow_status__10TObjPlayerFPv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
@@ -349,10 +349,10 @@ extern "C" void cure_paralysis__10TObjPlayerFv();
 extern "C" void cure_poison_ailment();
 extern "C" void enemy_spawn_jellen_effect();
 extern "C" void enemy_spawn_zalure_effect();
-extern "C" void fn_80010EBC();
-extern "C" void fn_80010EC0();
-extern "C" void fn_80010EC4();
-extern "C" void fn_80010EC8();
+extern "C" void vfunc_78__13TUnk_804806E8Fl();
+extern "C" void vfunc_77__13TUnk_804806E8Fv();
+extern "C" void vfunc_76__13TUnk_804806E8Fv();
+extern "C" void vfunc_75__13TUnk_804806E8Ff();
 extern "C" void vfunc_9__13TUnk_804806E8Fv();
 extern "C" void get_actor_level_index();
 extern "C" void get_pos__10TObjPlayerFii();
@@ -419,21 +419,21 @@ void *__vt__20TContainerAncient01R[79] = {
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
-    (void *)&is_within_range__19TContainerAncient01Fii, (void *)&TContainerAncient01__sub_8018ACC0, (void *)&save_and_send_state__19TContainerAncient01FPv, (void *)&check_item_type_range__19TContainerAncient01FPviPv,
+    (void *)&is_within_range__19TContainerAncient01Fii, (void *)&vfunc_21__20TContainerAncient01RFPvPvPvf, (void *)&vfunc_22__20TContainerAncient01RFPvf, (void *)&vfunc_23__20TContainerAncient01RFPvPvPvll,
     (void *)&vfunc_24__20TContainerAncient01RFPvPv, (void *)&vfunc_25__20TContainerAncient01RFPUc, (void *)&vfunc_26__20TContainerAncient01RFll, (void *)&vfunc_27__20TContainerAncient01RFPvlf,
-    (void *)&TObjPlayer__sub_80011010, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
+    (void *)&vfunc_28__13TUnk_804806E8Fv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
-    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
-    (void *)&TObjPlayer__sub_80014890, (void *)&TObjPlayer__sub_8001488C, (void *)&TObjPlayer__sub_80014888, (void *)&TObjPlayer__sub_80014884,
-    (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__13TUnk_804806E8Fv, (void *)&vfunc_59__13TUnk_804806E8Fv,
+    (void *)&vfunc_60__13TUnk_804806E8Fv, (void *)&vfunc_61__13TUnk_804806E8Fv, (void *)&vfunc_62__13TUnk_804806E8Fv, (void *)&vfunc_63__13TUnk_804806E8Fv,
+    (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_80010A78, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC,
+    (void *)&enemy_spawn_zalure_effect, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__13TUnk_804806E8Fl, (void *)&vfunc_75__13TUnk_804806E8Ff,
+    (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl,
 };
 #define TContainerAncient01__collision_body_parts (*(RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 *)TContainerAncient01__collision_body_parts)
 #define __vt__20TContainerAncient01R ((s32 *)__vt__20TContainerAncient01R)
@@ -605,7 +605,8 @@ void TContainerAncient01R::open_container() {
     }
 }
 
-f32 save_and_send_state__19TContainerAncient01FPv(u8 *arg0) {
+f32 TContainerAncient01R::vfunc_22(void *, f32) {
+    u8 *arg0 = (u8 *)this;
     s16 sp8;
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
         *(s16 *)((s8 *)arg0 + 0x338) = (s16) (*(s16 *)((s8 *)arg0 + 0x338) + 1);
@@ -618,9 +619,10 @@ f32 save_and_send_state__19TContainerAncient01FPv(u8 *arg0) {
     return (*(const f32 *)&TContainerAncient01__data_805DBD14);
 }
 
-f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2) {
+f32 TContainerAncient01R::vfunc_23(void *arg1, void *arg2_arg, void *, s32, s32) {
+    s32 *arg2 = (s32 *)arg2_arg;
     s32 temp_r4;
-    struct VObj_8018AC68_8018A584 *o = (struct VObj_8018AC68_8018A584 *)arg0;
+    struct VObj_8018AC68_8018A584 *o = (struct VObj_8018AC68_8018A584 *)this;
 
     temp_r4 = *arg2;
     if ((temp_r4 == 0) || ((u32) (temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
@@ -629,7 +631,7 @@ f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32
     return TContainerAncient01__data_805DBD14;
 }
 
-int TContainerAncient01__sub_8018ACC0(void) { return 1; }
+int TContainerAncient01R::vfunc_21(void *, void *, void *, float) { return 1; }
 
 extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;

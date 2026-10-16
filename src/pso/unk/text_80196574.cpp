@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColALock.h"
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -32,14 +33,15 @@ extern RecoveredGlobal_80196574_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-void TObjQuestColALock__vt12(u8 *arg0);
+void update_room_id_check__17TObjQuestColALockFv(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80196574_lbl_804A7428_size[sizeof(RecoveredGlobal_80196574_lbl_804A7428) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80196574_lbl_804A7438_size[sizeof(RecoveredGlobal_80196574_lbl_804A7438) == 0x10 ? 1 : -1];
-void TObjQuestColALock__vt12(u8 *arg0) {
+void TObjQuestColALock::update_room_id_check() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r5;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)((s8 *)arg0 + 0xAC)));

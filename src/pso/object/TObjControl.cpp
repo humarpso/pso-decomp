@@ -724,7 +724,7 @@ void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673
     }
 }
 
-void TObjPlayer::call_vt78() {
+void TObjEnemy::vfunc_79() {
     struct VObj_800F6960 *o = (struct VObj_800F6960 *)this;
     o->m78();
 }

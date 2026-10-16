@@ -6,6 +6,7 @@
 
 struct TObjWarpLobby : public TObjAreaWarp {
     virtual ~TObjWarpLobby();
+    virtual void debug_print_area_num();
     void run_task();
     u8 unk_AC[0x4];
     u32 m_cc;

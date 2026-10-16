@@ -6,6 +6,7 @@
 
 struct TOMonumentAncient02 : public TUnk_804AFBF8 {
     virtual ~TOMonumentAncient02();
+    virtual void vfunc_6(s16 *, s32);
     u32 m_c8;
     u32 m_cc;
     u32 m_d0;

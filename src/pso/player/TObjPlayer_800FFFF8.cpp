@@ -57,7 +57,7 @@ s32 PPCSync();
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 is_wrapped__9TItemDataFPv(s32);
 void TItem__sub_801005D8(void);
-void TItem__sub_801005DC(void);
+void vfunc_16__5TItemFv(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
 s32 find_item_by_id();

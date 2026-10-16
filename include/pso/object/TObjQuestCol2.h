@@ -6,6 +6,7 @@
 
 struct TObjQuestCol2 : public TObjQuestColBase {
     virtual ~TObjQuestCol2();
+    virtual int vfunc_15();
     u8 unk_BC[0x8];
 };
 

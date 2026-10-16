@@ -381,7 +381,7 @@ extern const f32 lbl_805DC8EC;
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-void TTecRaFoie__vt4(u8 *self, u8 *target);
+void vfunc_6__10TTecRaFoieFPv(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__10TTecRaFoie[];
@@ -410,7 +410,7 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
 
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 
-void TTecRaFoie__vt4(u8 *self, u8 *target);
+void vfunc_6__10TTecRaFoieFPv(u8 *self, u8 *target);
 
 void run_task__10TTecRaFoieFv(u8 *arg0);
 

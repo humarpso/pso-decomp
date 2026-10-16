@@ -8,10 +8,10 @@ void TOTrapChainSawDamage__sub_802C9C00(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TOTrapChainSaw__vt14(void);
+void vfunc_16__14TOTrapChainSawFv(void);
 void vfunc_25__14TOTrapChainSawFv(void);
-void TOTrapChainSawEdge__vt15(void);
-void TOTrapChainSaw__sub_802C9BE4(void);
+void check_player_contact__18TOTrapChainSawEdgeFv(void);
+void vfunc_18__14TOTrapChainSawFv(void);
 void vfunc_26__14TOTrapChainSawFv(void);
 void vfunc_27__14TOTrapChainSawFv(void);
 void vfunc_28__14TOTrapChainSawFv(void);
@@ -24,6 +24,6 @@ void TOTrapChainSawDamage__sub_802C9C00(u8 *arg0, s32 arg1) {
 }
 
 void TOTrapChainSaw::vfunc_25() {  }
-void TOTrapChainSaw__vt14(void) {  }
+void TOTrapChainSaw::vfunc_16() {  }
 
 }

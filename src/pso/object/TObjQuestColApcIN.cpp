@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColApcIN.h"
 
 struct Pl_801962B4 { u8 pad0[0x38]; f32 pos[3]; };
 
@@ -8,23 +9,24 @@ extern "C" {
 f32 xyz_distance_squared(void *, void *);
 Pl_801962B4 *get_player_by_client_id(s32);
 extern s32 local_client_id;
-s32 TObjQuestColApcIN__vt13(Col_801962B4 *arg0);
+s32 vfunc_15__17TObjQuestColApcINFv(Col_801962B4 *arg0);
 }
 
 extern "C" {
 
 void *TObjQuestColApcIN__ct(void *arg0);
-void TObjQuestColApcIN__vt14(void* p);
+void vfunc_16__17TObjQuestColApcINFv(void* p);
 void TObjQuestColBase__ct(void *);
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-void TObjQuestColApcIN__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
+int TObjQuestColApcIN::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void**)((char*)this + 0xb0)); }
 
 extern s32 __vt__17TObjQuestColApcIN[];
 extern void *lbl_805D33FC;
 
-s32 TObjQuestColApcIN__vt13(Col_801962B4 *arg0) {
+int TObjQuestColApcIN::vfunc_15() {
+    Col_801962B4 *arg0 = (Col_801962B4 *)this;
     Pl_801962B4 *p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (xyz_distance_squared(p->pos, arg0->pos) < arg0->fAC * arg0->fAC) {

@@ -12,7 +12,7 @@ extern "C" u8 * TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TODoorJungleMain__vt4(void *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__16TODoorJungleMainFPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
@@ -30,15 +30,15 @@ s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1) {
 
 extern const f64 lbl_80465410;
 
-void TODoorJungleMain__vt4(void *arg0, s16 *arg1, s32 arg2) {
+void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
     if ((arg1 != NULL) && ((s16) *arg1 == 1)) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 1);
+        *(s32 *)((s8 *)this + 0xD0) = (s32) (*(s32 *)((s8 *)this + 0xD0) | 1);
         if (arg2 == 0) {
-            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) (*(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xBC)) + 4) - 1);
-            set_indexed_flags((s32)arg0, 0, 8);
-            if ((u32) *(u32 *)((s8 *)arg0 + 0xDC) != 0U) {
-                queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC));
-                *(u32 *)((s8 *)arg0 + 0xDC) = 0U;
+            *(f32 *)((s8 *)this + 0xB4) = (f32) (*(u32 *)((s8 *)(*(void **)((s8 *)this + 0xBC)) + 4) - 1);
+            set_indexed_flags((s32)this, 0, 8);
+            if ((u32) *(u32 *)((s8 *)this + 0xDC) != 0U) {
+                queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0xDC));
+                *(u32 *)((s8 *)this + 0xDC) = 0U;
             }
         }
     }

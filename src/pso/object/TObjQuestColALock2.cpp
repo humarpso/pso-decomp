@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColALock2.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/TObject.h"
 #include "pso/TQuestThreadBoard.h"
@@ -57,13 +58,13 @@ extern RecoveredGlobal_801959A0_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-void TObjQuestColALock2__vt12(u8 *arg0);
+void update_room_id_check__18TObjQuestColALock2Fv(u8 *arg0);
 }
 
 extern "C" {
 
 void *TObjQuestColALock2__create(void *arg0);
-s32 TObjQuestColALock2__vt13(void *arg0);
+s32 vfunc_15__18TObjQuestColALock2Fv(void *arg0);
 void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
@@ -93,7 +94,8 @@ extern s32 local_client_id;
 
 typedef char RecoveredGlobal_801959A0_lbl_804A7428_size[sizeof(RecoveredGlobal_801959A0_lbl_804A7428) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801959A0_lbl_804A7438_size[sizeof(RecoveredGlobal_801959A0_lbl_804A7438) == 0x10 ? 1 : -1];
-void TObjQuestColALock2__vt12(u8 *arg0) {
+void TObjQuestColALock2::update_room_id_check() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r5;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)((s8 *)arg0 + 0xAC)));
@@ -122,7 +124,7 @@ u8 *TObjQuestColALock2__vt14(u8 *arg0) {
     return var_r31;
 }
 
-s32 TObjQuestColALock2__vt13(void *arg0) {
+int TObjQuestColALock2::vfunc_15() {
     s32 temp_r3;
     s32 temp_r3_2;
 
@@ -136,8 +138,8 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
-        submit_cursor_candidate(arg0, -1);
-        temp_r3_2 = ((TObjQuestColBase *)arg0)->update_trigger_state(*(f32 *)((s8 *)arg0 + 0xAC));
+        submit_cursor_candidate(this, -1);
+        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)((s8 *)this + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }

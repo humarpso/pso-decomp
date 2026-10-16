@@ -6,6 +6,7 @@
 
 struct TTecFoie : public TUnk_804CCC68 {
     virtual ~TTecFoie();
+    virtual void vfunc_6();
     void play_foie_cast_sound();
     void run_task();
     void render();

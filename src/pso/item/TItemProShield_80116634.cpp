@@ -521,20 +521,20 @@ void *TItemProShield__sub_80116D54(void *arg0) {
 }
 
 extern "C" {
-void TItemObject__vt12();
+void vfunc_14__11TItemObjectFv();
 void TItemObject__vt16();
 void vfunc_31__11TItemObjectFv();
 void TItemObject__vt35();
 void TItemObject__vt36();
 void vfunc_9__11TItemObjectFv();
 void TItem__sub_801005D8();
-void TItem__sub_801005DC();
+void vfunc_16__5TItemFv();
 void TItem__sub_801005E0();
 void TItem__sub_801005E4();
 void TItem__sub_80100648();
 void vfunc_34__5TItemFv();
 void vfunc_17__5TItemFv();
-void TItem__sub_8010067C();
+void vfunc_19__5TItemFv();
 void vfunc_32__5TItemFv();
 void vfunc_28__5TItemFv();
 void vfunc_27__5TItemFv();
@@ -577,12 +577,12 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
-    (void *)&TItemObject__vt12,
+    (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
-    (void *)&TItem__sub_801005DC,
+    (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
-    (void *)&TItem__sub_8010067C,
+    (void *)&vfunc_19__5TItemFv,
     (void *)&vfunc_20__5TItemFv,
     (void *)&vfunc_21__5TItemFPUclll,
     (void *)&vfunc_22__5TItemFv,
@@ -625,12 +625,12 @@ void *item_mag_transform_vtable[46] = {
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
-    (void *)&TItemObject__vt12,
+    (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
-    (void *)&TItem__sub_801005DC,
+    (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
-    (void *)&TItem__sub_8010067C,
+    (void *)&vfunc_19__5TItemFv,
     (void *)&vfunc_20__5TItemFv,
     (void *)&vfunc_21__5TItemFPUclll,
     (void *)&vfunc_22__5TItemFv,
@@ -673,12 +673,12 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
-    (void *)&TItemObject__vt12,
+    (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
-    (void *)&TItem__sub_801005DC,
+    (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
-    (void *)&TItem__sub_8010067C,
+    (void *)&vfunc_19__5TItemFv,
     (void *)&vfunc_20__5TItemFv,
     (void *)&vfunc_21__5TItemFPUclll,
     (void *)&vfunc_22__5TItemFv,
@@ -721,12 +721,12 @@ void *item_status_cure_vtable[46] = {
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
-    (void *)&TItemObject__vt12,
+    (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
-    (void *)&TItem__sub_801005DC,
+    (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
-    (void *)&TItem__sub_8010067C,
+    (void *)&vfunc_19__5TItemFv,
     (void *)&vfunc_20__5TItemFv,
     (void *)&vfunc_21__5TItemFPUclll,
     (void *)&vfunc_22__5TItemFv,
@@ -769,12 +769,12 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
-    (void *)&TItemObject__vt12,
+    (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
-    (void *)&TItem__sub_801005DC,
+    (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
-    (void *)&TItem__sub_8010067C,
+    (void *)&vfunc_19__5TItemFv,
     (void *)&vfunc_20__5TItemFv,
     (void *)&vfunc_21__5TItemFPUclll,
     (void *)&vfunc_22__5TItemFv,
@@ -817,12 +817,12 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFv,
     (void *)&try_pick_up_item__5TItemFPvi,
-    (void *)&TItemObject__vt12,
+    (void *)&vfunc_14__11TItemObjectFv,
     (void *)&TItem__sub_801005E0,
-    (void *)&TItem__sub_801005DC,
+    (void *)&vfunc_16__5TItemFv,
     (void *)&vfunc_17__5TItemFv,
     (void *)&TItemObject__vt16,
-    (void *)&TItem__sub_8010067C,
+    (void *)&vfunc_19__5TItemFv,
     (void *)&vfunc_20__5TItemFv,
     (void *)&vfunc_21__5TItemFPUclll,
     (void *)&vfunc_22__5TItemFv,

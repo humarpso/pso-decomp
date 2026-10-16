@@ -78,7 +78,7 @@ struct VObj_80115D94_80115D6C : Base_80115D94_80115D6C {
 };
 
 u8 sub_80115D7C__11TItemObjectFv(void* p);
-void TItemObject__vt12(void *arg0);
+void vfunc_14__11TItemObjectFv(void *arg0);
 u8 *vfunc_9__11TItemObjectFv(u8 *arg0);
 void TItem__sub_80115D68(void);
 s32 copy_and_register_item_data__11TItemObjectFv(void *);
@@ -93,8 +93,8 @@ s32 vfunc_36__11TItemObjectFv(void);
 void run_task__5TItemFv(); void dispatch_state__5TItemFv(); void render_shadows__5TItemFv();
 void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
 void TItem__sub_80100B8C(); void classify_actor_view_detail(); void register_attack__5TItemFv();
-void try_pick_up_item__5TItemFPvi(); void TItem__sub_801005E0(); void TItem__sub_801005DC();
-void vfunc_17__5TItemFv(); void TItem__sub_8010067C(); void vfunc_20__5TItemFv();
+void try_pick_up_item__5TItemFPvi(); void TItem__sub_801005E0(); void vfunc_16__5TItemFv();
+void vfunc_17__5TItemFv(); void vfunc_19__5TItemFv(); void vfunc_20__5TItemFv();
 void vfunc_21__5TItemFPUclll(); void vfunc_22__5TItemFv(); void vfunc_23__5TItemFv();
 void vfunc_24__5TItemFv(); void vfunc_25__5TItemFv(); void vfunc_26__5TItemFv();
 void vfunc_27__5TItemFv(); void vfunc_28__5TItemFv(); void destroy__5TItemFv();
@@ -107,8 +107,8 @@ void *__vt__11TItemObject[] = {
     (void *)render_shadows__5TItemFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
     (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFPvi,
-    (void *)TItemObject__vt12, (void *)TItem__sub_801005E0, (void *)TItem__sub_801005DC,
-    (void *)vfunc_17__5TItemFv, (void *)TItemObject__vt16, (void *)TItem__sub_8010067C,
+    (void *)vfunc_14__11TItemObjectFv, (void *)TItem__sub_801005E0, (void *)vfunc_16__5TItemFv,
+    (void *)vfunc_17__5TItemFv, (void *)TItemObject__vt16, (void *)vfunc_19__5TItemFv,
     (void *)vfunc_20__5TItemFv, (void *)vfunc_21__5TItemFPUclll, (void *)vfunc_22__5TItemFv,
     (void *)vfunc_23__5TItemFv, (void *)vfunc_24__5TItemFv, (void *)vfunc_25__5TItemFv,
     (void *)vfunc_26__5TItemFv, (void *)vfunc_27__5TItemFv, (void *)vfunc_28__5TItemFv,
@@ -127,12 +127,12 @@ u8 TItemObject::get_tool_pmt_amount_byte() {
     return (u8) *(u16 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 8);
 }
 
-void TItemObject__vt12(void *arg0) {
+void TItemObject::vfunc_14() {
     s32 temp_r31;
 
     temp_r31 = ((s32 (*)())copy_and_register_item_data__11TItemObjectFv)();
-    if (((VObj_80115D94_80115D6C *)arg0)->m34() > temp_r31) {
-        ((TItem *)arg0)->refresh_if_current_player();
+    if (((VObj_80115D94_80115D6C *)this)->m34() > temp_r31) {
+        ((TItem *)this)->refresh_if_current_player();
     }
 }
 

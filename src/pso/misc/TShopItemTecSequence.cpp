@@ -183,7 +183,7 @@ u32 find_item_by_id(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
-s32 close_window__13TShopSequenceFPv(void *);
+s32 close_window__13TShopSequenceFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
     extern int shop_tool_stock_counts[];
@@ -222,7 +222,7 @@ s32 handle_select__20TShopItemTecSequenceFPv(void *arg0) {
 s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0) {
     if ((((VObj_8021FFB8_8021FE6C *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         close_if_single_screen__13TShopSequenceFv(arg0);
-        close_window__13TShopSequenceFPv(arg0);
+        close_window__13TShopSequenceFv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

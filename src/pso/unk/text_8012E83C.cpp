@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A5E20.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18_8622c5 { char pad[0x18]; };
@@ -69,7 +70,7 @@ extern RecoveredGlobal_8012E83C_lbl_8043E9C0 five_joint_shot_angle_table;
 extern "C" {
 
 typedef char RecoveredGlobal_8012E83C_lbl_8043E9C0_size[sizeof(RecoveredGlobal_8012E83C_lbl_8043E9C0) == 0x18 ? 1 : -1];
-void TObjPlayer::fire_five_joint_shots() {
+void TUnk_804A5E20::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     draw_icon__10TObjPlayerFll((void *) (arg0), (int) (1), (void *) (&sp8));

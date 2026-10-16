@@ -6,6 +6,9 @@
 
 struct TContainerAncient01R : public TUnk_804806E8 {
     virtual ~TContainerAncient01R();
+    virtual int vfunc_21(void *, void *, void *, float);
+    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
+    virtual f32 vfunc_22(void *, f32);
     void open_container();
     void check_open_trigger();
     void update_spawning();

@@ -124,7 +124,7 @@ void TJudgmentSequence__sub_80215BCC(void *arg0);
 void restore_player_state__17TJudgmentSequenceFv(void* p);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
-s32 close_window__13TShopSequenceFPv(void *);
+s32 close_window__13TShopSequenceFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFv(void*);
 int set_field_20__12TQuestListVMFl(void*, void*);
@@ -151,7 +151,7 @@ void TJudgmentSequence__sub_80215BF8(void *arg0) {
 
 void TJudgmentSequence::handle_close_input() {
     if ((((VObj_80215C48_80215BA0 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
-        close_window__13TShopSequenceFPv(this);
+        close_window__13TShopSequenceFv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

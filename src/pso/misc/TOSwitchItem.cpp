@@ -92,7 +92,7 @@ extern "C" {
 
 void TOSwitchItem__sub_80178080(void);
 void TOSwitchItem__sub_80178084(void);
-void TOSwitchItem__vt24(void);
+void debug_draw_key_id__12TOSwitchItemFv(void);
 void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
@@ -125,7 +125,7 @@ void TOSwitchItem::render() {
     }
 }
 
-void TOSwitchItem__vt24(void) {  }
+void TOSwitchItem::debug_draw_key_id() {  }
 
 extern void *tl_05;
 

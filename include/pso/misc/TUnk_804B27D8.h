@@ -6,6 +6,7 @@
 class TUnk_804B27D8 : public TUnk_804AFBF8 {
 public:
     virtual ~TUnk_804B27D8();
+    virtual void vfunc_6(s16 *, s32);
     virtual s32 update_active_state();
     virtual void vfunc_15();
     virtual void vfunc_16();

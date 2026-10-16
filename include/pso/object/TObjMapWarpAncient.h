@@ -6,6 +6,7 @@
 
 struct TObjMapWarpAncient : public TObjMapWarp {
     virtual ~TObjMapWarpAncient();
+    virtual void slot4C();
     u8 unk_FC[0x4];
     u32 m_100;
     u32 m_104;

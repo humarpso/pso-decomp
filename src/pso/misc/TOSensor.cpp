@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSensorAncient01.h"
 #include "pso/misc/TOSensor.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
@@ -49,7 +50,7 @@ struct Obj_801756C4 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0xCC - 0x44]; f32 range
 struct Player_801756C4 { u8 pad[0x38]; f32 pos[3]; };
 
 extern "C" {
-void TOSensorAncient01__vt14(u8 *arg0);
+void vfunc_16__17TOSensorAncient01Fv(u8 *arg0);
 void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
@@ -71,16 +72,16 @@ f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
 u16 get_window_id__11TWindowCtrlFv();
 extern s32 local_client_id;
-s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self);
+s32 is_confirm_pressed__8TOSensorFv(Obj_801756C4 *self);
 }
 
 extern "C" {
 
-void TOSensorAncient01__vt15(void *arg0);
-void TOSensorAncient01__vt23(void);
+void vfunc_17__17TOSensorAncient01Fv(void *arg0);
+void vfunc_25__17TOSensorAncient01Fv(void);
 void *TOSensor__ct(void *arg0);
 void vfunc_25__8TOSensorFv(void);
-void TOSensor__vt14(void);
+void vfunc_16__8TOSensorFv(void);
 void vfunc_17__8TOSensorFv(void);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
@@ -189,7 +190,8 @@ void TOSensor::update_armed_switch() {
     }
 }
 
-s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self) {
+s32 TOSensor::is_confirm_pressed() {
+    Obj_801756C4 *self = (Obj_801756C4 *)this;
     Player_801756C4 *pl;
     if (self->state != 1) {
         pl = get_player_by_client_id(local_client_id);
@@ -235,11 +237,11 @@ void *TOSensor__ct(void *arg0) {
     return arg0;
 }
 
-void TOSensor__vt14(void) {  }
+void TOSensor::vfunc_16() {  }
 void TOSensor::vfunc_17() {  }
 void render__8TOSensorFv(void) {  }
 
-void TOSensorAncient01__vt23(void) {  }
+void TOSensorAncient01::vfunc_25() {  }
 
 #pragma push
 #pragma opt_common_subs off
@@ -260,14 +262,15 @@ void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0) {
 }
 #pragma pop
 
-void TOSensorAncient01__vt15(void *arg0) {
+void TOSensorAncient01::vfunc_17() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0xEC);
-    *(s32 *)((s8 *)arg0 + 0xEC) = (s32) (temp_r4 + 0x28F);
-    update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32) arg0));
+    temp_r4 = *(s32 *)((s8 *)this + 0xEC);
+    *(s32 *)((s8 *)this + 0xEC) = (s32) (temp_r4 + 0x28F);
+    update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32) this));
 }
-void TOSensorAncient01__vt14(u8 *arg0) {
+void TOSensorAncient01::vfunc_16() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     *(s32 *)((s8 *)arg0 + 0xEC) += (1.31e+03f);
     update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32)(arg0)));

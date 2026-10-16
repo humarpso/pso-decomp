@@ -3,7 +3,7 @@
 
 extern "C" {
 
-int ret_8017B878(void) { return 0; }
+s32 TOTrapAncient02R::is_any_player_matching_stat() { return 0; }
 s32 TOTrapAncient02R::vfunc_26(s32, s32) { return 1; }
 s32 TOTrapAncient02R::vfunc_27(void *, s32, f32) { return 1; }
 s32 TOTrapAncient02R::vfunc_20(void *, f32) { return 1; }

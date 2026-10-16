@@ -6,6 +6,7 @@
 
 struct TOTrapChainSawEdge : public TOTrapChainSaw {
     virtual ~TOTrapChainSawEdge();
+    virtual int check_player_contact();
     u8 unk_F8[0x10];
 };
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A3F20.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -78,7 +79,7 @@ u8 *TObjPlayer::create_shot_state(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer::apply_m49_state_a() {
+void TUnk_804A3F20::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer__sub_80128A70();
     if (((VObj_18 *)(arg0))->m49(arg0 + 0x1FC, 0, 0, 1) != 0) {
@@ -87,7 +88,7 @@ void TObjPlayer::apply_m49_state_a() {
     }
     ((VObj_18 *)(arg0))->m49(arg0 + 0x208, 0, 0, 1);
 }
-void TObjPlayer::draw_status_icon_set() {
+void TUnk_804A3F20::reserved_53() {
     u8 *arg0 = (u8 *)this;
     ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1FC, arg0 + 0x208);
 }

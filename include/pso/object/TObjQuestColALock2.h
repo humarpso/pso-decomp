@@ -6,6 +6,8 @@
 
 struct TObjQuestColALock2 : public TObjQuestColBase {
     virtual ~TObjQuestColALock2();
+    virtual int vfunc_15();
+    virtual void update_room_id_check();
     u8 unk_BC[0x8];
 };
 

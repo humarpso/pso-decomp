@@ -6,6 +6,7 @@
 
 struct TMedicalCenterSequence : public TShopSequence {
     virtual ~TMedicalCenterSequence();
+    virtual void close_window();
     virtual void restore_player_state();
     void vfunc_11();
     static void clear_window_slots();

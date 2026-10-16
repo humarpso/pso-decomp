@@ -45,7 +45,7 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 };
 
 void *TObjWarpBase__vt0(void *arg0, s16 arg1);
-void TObjWarpBase__vt12(void *arg0);
+void vfunc_14__12TObjWarpBaseFv(void *arg0);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 u32 get_player_by_client_id(u16);
@@ -53,18 +53,18 @@ s32 TWindow__close(u32);
 s32 __dl__7TObjectFPv(void *);
 s32 fn_8019DD24(s32, s32);
 
-void TObjWarpBase__vt12(void *arg0) {
+void TObjWarpBase::vfunc_14() {
     u32 temp_r3;
 
-    temp_r3 = (u32) *(u32 *)((s8 *)arg0 + 0xB0);
+    temp_r3 = (u32) *(u32 *)((s8 *)this + 0xB0);
     if (temp_r3 != 0U) {
         TWindow__close(temp_r3);
-        *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
-        temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xB8));
+        *(u32 *)((s8 *)this + 0xB0) = 0U;
+        temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)this + 0xB8));
         if (temp_r3 != 0U) {
             fn_8019DD24(temp_r3 + 0x550, 4);
         }
-        *(u16 *)((s8 *)arg0 + 0xB8) = 0xFFFFU;
+        *(u16 *)((s8 *)this + 0xB8) = 0xFFFFU;
     }
 }
 

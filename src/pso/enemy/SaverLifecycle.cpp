@@ -71,10 +71,10 @@ struct VObj_800A749C : VBase_800A749C {
 extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
 s32 obj_clearFlags30(void *, int);
-s32 update_landing_recovery__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_39__12TObjEneSaverFv(u8 *arg0);
 s32 update_action_hold_status__10TObjPlayerFv();
 s32 obj_clearFlags30(void *, int);
-s32 update_action_hold_recovery__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_36__12TObjEneSaverFv(u8 *arg0);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
@@ -192,7 +192,7 @@ struct VDisp_800a42c4_800A4288 { char pad[0x18]; virtual void m0(); virtual void
 void TObjPlayer__sub_800A42C0(void);
 void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0);
 void calc_move_state__10TObjPlayerFPv(void *arg0);
-void start_boss4_pose__10TObjPlayerFPv(void *arg0);
+void vfunc_63__12TObjEneSaverFv(void *arg0);
 void update_entry_motion__10TObjPlayerFPv(u8 *arg0);
 s32 advance_animation_playback();
 s32 post_translate_matrix(void *);
@@ -217,11 +217,11 @@ struct Obj_800A5A68;
 struct Obj_800A677C;
 extern "C" {
 void TLobby__sub_801A1FD8();
-void TObjPlayer__sub_8000FF3C();
-void TObjPlayer__sub_80010A80();
-void TObjPlayer__sub_80014830();
-void TObjPlayer__sub_80014838();
-void TObjPlayer__sub_80014840();
+void vfunc_29__13TUnk_804806E8Fv();
+void vfunc_73__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_66__13TUnk_804806E8Fv();
+void vfunc_65__13TUnk_804806E8Fll();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void vfunc_13__13TUnk_804AF8A0Fl();
@@ -248,7 +248,7 @@ void apply_shock_status__10TObjPlayerFv();
 void apply_slow_status__10TObjPlayerFPv();
 void apply_switch_attack__10TObjPlayerFi();
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
-void call_vt78__10TObjPlayerFv();
+void vfunc_79__9TObjEnemyFv();
 void classify_actor_view_detail();
 void clear_all_status_effects();
 void clear_harmful_statuses__10TObjPlayerFv();
@@ -258,18 +258,18 @@ void cure_paralysis__10TObjPlayerFv();
 void cure_poison_ailment();
 void enemy_spawn_jellen_effect();
 void enemy_spawn_zalure_effect();
-void enter_state_7__10TObjPlayerFPv(void *arg0);
-s32 find_facing_partner__10TObjPlayerFPv(Obj_800A4C4C *self);
+void vfunc_61__12TObjEneSaverFv(void *arg0);
+s32 test_flag_256__12TObjEneSaverFv(Obj_800A4C4C *self);
 void find_nearest_target__10TObjPlayerFPv(Obj_800A677C *self);
-void fn_80010EBC();
-void fn_80010EC0();
-void fn_80010EC4();
-void fn_80010EC8();
+void vfunc_78__13TUnk_804806E8Fl();
+void vfunc_77__13TUnk_804806E8Fv();
+void vfunc_76__13TUnk_804806E8Fv();
+void vfunc_75__13TUnk_804806E8Ff();
 void get_actor_level_index();
 void vfunc_12__9TObjEnemyFv();
 void get_pos__10TObjPlayerFii();
 void is_actor_cadence_frame();
-s32 is_target_in_attack_arc__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_30__12TObjEneSaverFv(u8 *arg0);
 extern u8 lbl_8043A738[];
 extern u8 lbl_8043A74C[];
 extern u8 lbl_8043A768[];
@@ -291,16 +291,16 @@ void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void roll_physical_accuracy__10TObjPlayerFv();
 void select_melee_contact_body__10TObjPlayerFv();
-void start_boss4_pose__10TObjPlayerFPv(void *arg0);
+void vfunc_63__12TObjEneSaverFv(void *arg0);
 void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__10TObjPlayerFPvii();
-s32 update_action_hold_recovery__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_36__12TObjEneSaverFv(u8 *arg0);
 void update_action_timer__10TObjPlayerFPv();
 void update_actor_ground_y();
 void update_attack_stat_status();
 void update_defense_stat_status();
 void update_flag30_timer__10TObjPlayerFPv();
-s32 update_landing_recovery__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_39__12TObjEneSaverFv(u8 *arg0);
 void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
 void update_shock_clock__10TObjPlayerFPv();
@@ -347,19 +347,19 @@ void *TObjEneSaver__vtable[83] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&find_nearest_target__10TObjPlayerFPv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_arc__10TObjPlayerFPv, (void *)&find_facing_partner__10TObjPlayerFPv,
+    (void *)&find_nearest_target__10TObjPlayerFPv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&vfunc_30__12TObjEneSaverFv, (void *)&test_flag_256__12TObjEneSaverFv,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&update_action_hold_recovery__10TObjPlayerFPv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_landing_recovery__10TObjPlayerFPv,
+    (void *)&vfunc_36__12TObjEneSaverFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&vfunc_39__12TObjEneSaverFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&apply_slow_status__10TObjPlayerFPv, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__12TObjEneSaverFv, (void *)&vfunc_59__12TObjEneSaverFv,
-    (void *)&vfunc_60__12TObjEneSaverFv, (void *)&enter_state_7__10TObjPlayerFPv, (void *)&vfunc_62__12TObjEneSaverFv, (void *)&start_boss4_pose__10TObjPlayerFPv,
-    (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
+    (void *)&vfunc_60__12TObjEneSaverFv, (void *)&vfunc_61__12TObjEneSaverFv, (void *)&vfunc_62__12TObjEneSaverFv, (void *)&vfunc_63__12TObjEneSaverFv,
+    (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
+    (void *)&enemy_spawn_zalure_effect, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&update_and_send_enemy_hit_state, (void *)&vfunc_75__13TUnk_804806E8Ff,
+    (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 }
@@ -482,23 +482,23 @@ void update_collapse_and_destroy__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void start_boss4_pose__10TObjPlayerFPv(void *arg0) {
+void TObjEneSaver::vfunc_63() {
     void *temp_r4;
     s16 temp_s16;
 
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xA) {
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 0xA) {
         temp_s16 = 0xA;
-        *(s16 *)((s8 *)arg0 + 0x326) = temp_s16;
-        *(s16 *)((s8 *)arg0 + 0x328) = 0;
-        if (calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805D9A10) {
-            *(s16 *)((s8 *)arg0 + 0xB8) = 9;
+        *(s16 *)((s8 *)this + 0x326) = temp_s16;
+        *(s16 *)((s8 *)this + 0x328) = 0;
+        if (calc_boss4_scale__10TObjPlayerFi(this) < lbl_805D9A10) {
+            *(s16 *)((s8 *)this + 0xB8) = 9;
         } else {
-            *(s16 *)((s8 *)arg0 + 0xB8) = 0xA;
+            *(s16 *)((s8 *)this + 0xB8) = 0xA;
         }
-        temp_r4 = *(void **)((s8 *)arg0 + 0xA4);
+        temp_r4 = *(void **)((s8 *)this + 0xA4);
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
-        refresh_lobby_state__10TObjPlayerFv(arg0, temp_r4);
-        send_entity_set_flags__6TLobbyFPv(arg0);
+        refresh_lobby_state__10TObjPlayerFv(this, temp_r4);
+        send_entity_set_flags__6TLobbyFPv(this);
     }
 }
 
@@ -778,7 +778,7 @@ s32 subtract_vector(void *, void *);
 extern const f64 lbl_8043A8D0[];
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D9A24;
-s32 find_facing_partner__10TObjPlayerFPv(Obj_800A4C4C *self);
+s32 test_flag_256__12TObjEneSaverFv(Obj_800A4C4C *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 
 s32 TObjPlayer__sub_800A7798(void *, f32);
@@ -795,7 +795,7 @@ extern const f64 lbl_8043A8D0[];
 extern s32 *player_object_ptr_array;
 extern const f32 lbl_805D9A70;
 extern const f32 lbl_805D9A74;
-s32 is_target_in_attack_arc__10TObjPlayerFPv(u8 *arg0);
+s32 vfunc_30__12TObjEneSaverFv(u8 *arg0);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_move_toward(void *, s32, Vec_800A5DC4 *, int, f32 *, f32);
 s32 select_enemy_destination(void *, Vec_800A5DC4 *, int);
@@ -873,27 +873,28 @@ void TObjPlayer__sub_800A5960(void *arg0);
 extern "C" {
 
 void advance_motion_state__10TObjPlayerFPv(u8 *arg0);
-void enter_state_7__10TObjPlayerFPv(void *arg0);
+void vfunc_61__12TObjEneSaverFv(void *arg0);
 s32 apply_actor_gravity(void *, int, f32);
 f32 horizontal_distance_squared(int, void *);
 
-void enter_state_7__10TObjPlayerFPv(void *arg0) {
+void TObjEneSaver::vfunc_61() {
     void *temp_r5;
 
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 7) {
-        *(s16 *)((s8 *)arg0 + 0x326) = 7;
-        *(s16 *)((s8 *)arg0 + 0x328) = 0;
-        *(s16 *)((s8 *)arg0 + 0xB8) = 5;
+    if ((s16) *(s16 *)((s8 *)this + 0x326) != 7) {
+        *(s16 *)((s8 *)this + 0x326) = 7;
+        *(s16 *)((s8 *)this + 0x328) = 0;
+        *(s16 *)((s8 *)this + 0xB8) = 5;
     }
-    temp_r5 = *(void **)((s8 *)arg0 + 0xA4);
+    temp_r5 = *(void **)((s8 *)this + 0xA4);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xF99BFFFF);
+    *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xF99BFFFF);
 }
 
 extern const f32 lbl_805D9A14;
 extern const f32 lbl_805D9A7C;
 
-s32 find_facing_partner__10TObjPlayerFPv(Obj_800A4C4C *self) {
+int TObjEneSaver::test_flag_256() {
+    Obj_800A4C4C *self = (Obj_800A4C4C *)this;
     Vec_800A4C4C v;
     Obj_800A4C4C *p;
     s32 i;
@@ -1353,7 +1354,8 @@ void TObjEneSaver::vfunc_60() {
     self->f30 |= 0x200000;
 }
 
-s32 is_target_in_attack_arc__10TObjPlayerFPv(u8 *arg0) {
+s32 TObjEneSaver::vfunc_30() {
+    u8 *arg0 = (u8 *)this;
     Vec_800A5BBC v;
     f32 var_f29;
     f32 r;
@@ -1858,7 +1860,8 @@ void TObjEneSaver::vfunc_58() {
 
 #define P_800A677C(p) ((Obj_800A677C *)(p))
 
-s32 update_landing_recovery__10TObjPlayerFPv(u8 *arg0) {
+s32 TObjEneSaver::vfunc_39() {
+    u8 *arg0 = (u8 *)this;
     if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 0:
@@ -1880,7 +1883,8 @@ s32 update_landing_recovery__10TObjPlayerFPv(u8 *arg0) {
     return 0;
 }
 
-s32 update_action_hold_recovery__10TObjPlayerFPv(u8 *arg0) {
+s32 TObjEneSaver::vfunc_36() {
+    u8 *arg0 = (u8 *)this;
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 0:

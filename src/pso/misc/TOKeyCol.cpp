@@ -39,20 +39,20 @@ extern "C" {
 extern "C" {
 
 void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2);
-void TOKeyCol__vt14(void);
-void TOKeyCol__vt15(void);
+void vfunc_16__8TOKeyColFv(void);
+void vfunc_17__8TOKeyColFv(void);
 void TOKeyCol__vt16(void);
-void TOKeyCol__vt17(void);
+void vfunc_19__8TOKeyColFv(void);
 void *__dt__8TOKeyColFv(void *arg0, s16 arg1);
 s32 TOKey__ct();
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 
-void TOKeyCol__vt17(void) {  }
+void TOKeyCol::vfunc_19() {  }
 void TOKeyCol__vt16(void) {  }
-void TOKeyCol__vt15(void) {  }
-void TOKeyCol__vt14(void) {  }
+void TOKeyCol::vfunc_17() {  }
+void TOKeyCol::vfunc_16() {  }
 
 void TOKeyCol::run_task() {
     u8 *arg0 = (u8 *)this;

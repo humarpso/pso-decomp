@@ -54,7 +54,7 @@ int TLobby__sub_802A7B8C(void);
 int vfunc_4__13TUnk_804DDD28Fv(void);
 int vfunc_8__13TUnk_804DDD28Fv(void);
 int vfunc_9__13TUnk_804DDD28Fv(void);
-void TLobby__sub_802A7BAC(void);
+void vfunc_14__13TUnk_804DDD28Fv(void);
 int vfunc_75__13TUnk_804DDD28Fv(void);
 void TLobby__sub_802A7BC8(void* p);
 s32 mem_free(s32);
@@ -189,7 +189,7 @@ int TLobby__sub_802A7B8C(void) { return 0; }
 int TUnk_804DDD28::vfunc_4() { return 0; }
 int TUnk_804DDD28::vfunc_8() { return 0; }
 int TUnk_804DDD28::vfunc_9() { return 0; }
-void TLobby__sub_802A7BAC(void) {  }
+void TUnk_804DDD28::vfunc_14() {  }
 int TUnk_804DDD28::vfunc_75() { return 0; }
 s32 TLobby::get_param() { return *(s32*)((char*)this + 0x0); }
 s32 TLobby::get_field_04() { return *(s32*)((char*)this + 0x4); }

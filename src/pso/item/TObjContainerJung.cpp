@@ -81,7 +81,7 @@ s32 draw_ginja_object();
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
 extern const f32 lbl_805DBD9C;
-void TObjContainerJung__vt79(u8 *arg0);
+void vfunc_81__17TObjContainerJungFv(u8 *arg0);
 u8 * get_bml_model(void *, int);
 void spawn_particle_effect_with_flags(void *, int, int);
 void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
@@ -98,7 +98,7 @@ void TObjContainerJung__vt77(const Obj_8018D4DC *self);
 extern "C" {
 
 s32 TObjContainerJung__sub_8018D3B8(void);
-void TObjContainerJung__vt78(void *arg0);
+void vfunc_80__17TObjContainerJungFv(void *arg0);
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 free_collision_body_parts(void *);
@@ -216,7 +216,8 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
     }
 }
 
-void TObjContainerJung__vt79(u8 *arg0) {
+void TObjContainerJung::vfunc_81() {
+    u8 *arg0 = (u8 *)this;
     if ((void *)(*(u8 **)&TObjContainerJung__bml_model_resource) != NULL) {
         switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 0:
@@ -239,14 +240,14 @@ void TObjContainerJung__vt79(u8 *arg0) {
     }
 }
 
-void TObjContainerJung__vt78(void *arg0) {
+void TObjContainerJung::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
-            submit_cursor_candidate(arg0, -1);
+        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+            submit_cursor_candidate(this, -1);
         }
     case 1:
         return;

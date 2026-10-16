@@ -166,7 +166,7 @@ extern "C" {
 
 s32 get_cell_address__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 void check_valid_state__6TLobbyFi(s32 arg0);
-void set_player_handle_valid__6TLobbyFPv(void *arg0);
+void vfunc_76__13TUnk_804ED7D0Fv(void *arg0);
 s32 is_handle_valid__10TObjPlayerFv();
 
 extern s32 lbl_805D6C80;
@@ -195,8 +195,8 @@ void check_valid_state__6TLobbyFi(s32 arg0) {
     is_valid_state__6TLobbyFPvi((void *)((void *)(arg0)), (s32)((s32)(is_handle_valid__10TObjPlayerFv())));
 }
 
-void set_player_handle_valid__6TLobbyFPv(void *arg0) {
-    struct VObj_80329044 *o = (struct VObj_80329044 *)arg0;
+int TUnk_804ED7D0::vfunc_76() {
+    struct VObj_80329044 *o = (struct VObj_80329044 *)this;
     o->m75(is_handle_valid__10TObjPlayerFv());
 }
 typedef char RecoveredGlobal_80329088_lbl_805430E8_size[sizeof(RecoveredGlobal_80329088_lbl_805430E8) == 0x1C0 ? 1 : -1];
@@ -251,9 +251,9 @@ typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 
-int TLobby__sub_803291C8(void);
+int vfunc_6__13TUnk_804ED7D0Fv(void);
 void free_singleton_805D6C80__6TLobbyFv(void);
-s32 update_state_6c84__6TLobbyFi(s32 arg0);
+s32 vfunc_5__13TUnk_804ED7D0Fv(s32 arg0);
 s32 load_action_motion_pairs(s32, s32, s32, s32);
 s32 apply_player_flag_2__6TLobbyFv();
 s32 apply_state_6c84__6TLobbyFv();
@@ -261,8 +261,9 @@ void mem_free(void*);
 s32 init_object_flag__6TLobbyFv();
 s32 set_flag_1_at_6c84__6TLobbyFv();
 
-int TLobby__sub_803291C8(void) { return 1; }
-s32 update_state_6c84__6TLobbyFi(s32 arg0) {
+int TUnk_804ED7D0::vfunc_6() { return 1; }
+int TUnk_804ED7D0::vfunc_5() {
+    s32 arg0 = (s32)this;
     if (set_flag_1_at_6c84__6TLobbyFv() == 0) {
         init_object_flag__6TLobbyFv();
         load_action_motion_pairs(arg0, 0, 0, 0);
@@ -383,15 +384,15 @@ int vfunc_4__13TUnk_804ED7D0Fv(void);
 #define IVS ((int (*)(void*))is_valid_state__6TLobbyFPvi)
 #define CVS ((int (*)(void*))check_valid_state__6TLobbyFi)
 
-int TLobby::is_invalid_state() { return (IVS(this)) == 0; }
+int TUnk_804ED7D0::vfunc_11() { return (IVS(this)) == 0; }
 int TUnk_804ED7D0::vfunc_10() { return (CVS((void*)(this))) == 0; }
 
-int TLobby::is_state_valid_flag() {
+int TUnk_804ED7D0::vfunc_13() {
     s32 arg0 = (s32)this;
     return (u8) (((s32)IVS((void*)(arg0))) == 1);
 }
 
-int TLobby::is_check_state_valid() {
+int TUnk_804ED7D0::vfunc_12() {
     return (u8) (((s32)CVS(this)) == 1);
 }
 

@@ -7082,7 +7082,7 @@ int TUnk_804DDD28::vfunc_25() { return -1; }
 
 int TUnk_804DDD28::vfunc_22() { return -1; }
 
-int ret_801D280C(void) { return -1; }
+int TUnk_804DDD28::vfunc_15() { return -1; }
 
 int TUnk_804DDD28::vfunc_23() { return -1; }
 

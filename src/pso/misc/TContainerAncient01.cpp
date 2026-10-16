@@ -1,4 +1,6 @@
 #include "pso/misc/RenderFadeState.h"
+#include "pso/item/TObjContainerJungEnemy.h"
+#include "pso/item/TObjContainerIdo.h"
 #include "pso/item/TUnk_804B97C0.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TContainerAncient01R.h"
@@ -92,7 +94,7 @@ extern Vec_8018BEE4 lbl_804FF610;
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DBD60;
 extern const f32 lbl_805DBD68;
-s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1);
+s32 update_object_view_visibility__16TObjContainerIdoFff(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -186,7 +188,8 @@ s32 TContainerAncient01::vfunc_26(s32, s32) { return 1; }
 s32 TContainerAncient01::vfunc_27(void *, s32, f32) { return 1; }
 #pragma push
 #pragma fp_contract on
-s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1) {
+s16 TObjContainerIdo::update_object_view_visibility(f32 farg0, f32 farg1) {
+    u8 *arg0 = (u8 *)this;
     Vec_8018BEE4 p;
     f32 out[2];
     matrix_mult_vec(0, arg0 + 0xC0, &p);
@@ -507,7 +510,7 @@ struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__13TUnk_804AF8A0Fv(void *);
-void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void vfunc_6__22TObjContainerJungEnemyFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 extern u32 TObjContainerIdo__model_resource;
 extern u32 container_ido_texture_gvm_handle;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -517,7 +520,7 @@ extern RecoveredGlobal_8019A9B8_lbl_804B8F60 container_ido_resource_descriptor;
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80445430[];
 extern char lbl_8044543C[];
-void TObjContainerJungEnemy__vt80(Obj_8018CBF0 *self);
+void debug_print_item_box_info__22TObjContainerJungEnemyFv(Obj_8018CBF0 *self);
 s32 get_current_floor();
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
@@ -534,7 +537,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TObjContainerJungEnemy__vt79(u8 *arg0);
+void vfunc_81__22TObjContainerJungEnemyFv(u8 *arg0);
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -626,7 +629,8 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+void TObjContainerJungEnemy::vfunc_6(s16 *arg1, s32 arg2) {
+    u8 *arg0 = (u8 *)this;
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((TObjContainerJungEnemy *)arg0)->vfunc_79();
@@ -737,7 +741,8 @@ f32 TObjContainerJungEnemy::vfunc_22(void *, f32) {
     return lbl_805DBD98;
 }
 
-void TObjContainerJungEnemy__vt80(Obj_8018CBF0 *self) {
+void TObjContainerJungEnemy::debug_print_item_box_info() {
+    Obj_8018CBF0 *self = (Obj_8018CBF0 *)this;
     ((TObjContainerJungEnemy *)self)->load_models();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130020, lbl_80445430, self->id);
@@ -745,7 +750,8 @@ void TObjContainerJungEnemy__vt80(Obj_8018CBF0 *self) {
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
-void TObjContainerJungEnemy__vt79(u8 *arg0) {
+void TObjContainerJungEnemy::vfunc_81() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);

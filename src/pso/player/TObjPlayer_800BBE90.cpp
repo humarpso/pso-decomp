@@ -193,7 +193,7 @@ struct VObj_800bbe90 : Base_800bbe90 {
     virtual void m20(s32, f32);
 };
 
-void TObjPlayer__sub_800BC220(void *arg0, void *arg1, void *arg2);
+void vfunc_16__13TUnk_804928CCFPvPv(void *arg0, void *arg1, void *arg2);
 s32 obj_isState2_324(void *);
 
 extern const f32 lbl_805D9EB0;
@@ -234,7 +234,7 @@ void TUnk_804928CC::area_attack_apply_recoil(void *b_arg, f32 s) {
 }
 #pragma pop
 
-void TObjPlayer::dispatch_vt15(void *arg1) {
+void TUnk_804928CC::vfunc_19(void *arg1) {
     ((VObj800BC050_800bc050_800BBE90*)this)->m15(arg1, 0);
 }
 
@@ -292,8 +292,8 @@ void TObjPlayer::call_vt16_with_default() {
 }
 #pragma pop
 
-void TObjPlayer__sub_800BC220(void *arg0, void *arg1, void *arg2) {
-    ((VObj800BC220_800bc220_800BBE90*)arg0)->m12(arg1, arg2, 0);
+void TUnk_804928CC::vfunc_16(void *arg1, void *arg2) {
+    ((VObj800BC220_800bc220_800BBE90*)this)->m12(arg1, arg2, 0);
 }
 
 s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0) {

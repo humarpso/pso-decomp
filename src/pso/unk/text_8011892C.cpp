@@ -55,7 +55,7 @@ struct Unit_80118AD4 { u8 pad0[0xF0]; Owner_80118AD4 *owner; u8 padF4[0x190 - 0x
 struct PU_801189AC { u8 pad[0x192]; s16 arr[0x13]; };
 
 extern "C" {
-void TItemProUnit__vt12(u8 *arg0);
+void vfunc_14__12TItemProUnitFv(u8 *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 construct_timer_event__13TUnk_804A0628Fv(int, int, void *, int);
 s32 init_item_timer_event__13TUnk_804A0648Fv(int, int, void *, int);
@@ -113,7 +113,8 @@ s32 memset(void *, s32, s32);
 
 void TItem__sub_8011892C(void) {  }
 
-void TItemProUnit__vt12(u8 *arg0) {
+void TItemProUnit::vfunc_14() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     s16 temp_r4;
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x1BE);
@@ -295,7 +296,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
     (void *)try_pick_up_item__5TItemFPvi,
-    (void *)TItemProUnit__vt12,
+    (void *)vfunc_14__12TItemProUnitFv,
     (void *)TItem__sub_801005E0,
     (void *)vfunc_16__12TItemProUnitFv,
     (void *)vfunc_17__5TItemFv,

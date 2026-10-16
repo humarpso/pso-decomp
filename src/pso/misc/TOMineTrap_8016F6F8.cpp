@@ -104,16 +104,16 @@ struct Pair_80170DD8 { s32 a; s32 b; };
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
-void TOMineTrap__vt84(u8 *arg0);
-int TOMineTrap__sub_80170340(void);
-int TOMineTrap__sub_80170348(void);
-void TOMineTrap__sub_80170350(void);
-void TOMineTrap__sub_80170354(void);
+void vfunc_86__10TOMineTrapFv(u8 *arg0);
+int vfunc_27__6TOMineFPvlf(void);
+int vfunc_26__6TOMineFll(void);
+void vfunc_25__6TOMineFPUc(void);
+void vfunc_79__6TOMineFv(void);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 apply_object_set_data();
-void TOMineTrap__sub_80170570(void);
+void vfunc_85__6TOMineFv(void);
 int get_localized_text_entry(void*, void*);
 s32 get_main_phase();
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -136,7 +136,7 @@ s32 access_object_saved_state(void*, s16 *, s32);
 s32 send_object_state_update(void *, s16 *);
 void set_indexed_flags(void *, s32, s32);
 int refresh_collision_body_centers(void*);
-void TOMineTrap__sub_80170A5C(u8 *arg0);
+void vfunc_86__6TOMineFv(u8 *arg0);
 void TOMineTrap__sub_80170CD4(void* p);
 int refresh_collision_body_centers(void*);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -255,7 +255,8 @@ void TOMineTrap::set_triggered() {
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
 }
 
-void TOMineTrap__vt84(u8 *arg0) {
+void TOMineTrap::vfunc_86() {
+    u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 0x326) = 2;
     set_indexed_flags(arg0, 0, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
@@ -324,10 +325,10 @@ s32 TOMineTrap::is_target_in_list(void *obj) {
     return 0;
 }
 
-int TOMineTrap__sub_80170340(void) { return 1; }
-int TOMineTrap__sub_80170348(void) { return 1; }
-void TOMineTrap__sub_80170350(void) {  }
-void TOMineTrap__sub_80170354(void) {  }
+s32 TOMine::vfunc_27(void *, s32, f32) { return 1; }
+s32 TOMine::vfunc_26(s32, s32) { return 1; }
+void TOMine::vfunc_25(u8 *) {  }
+void TOMine::vfunc_79() {  }
 s32 TOMineTrap::check_trigger(u32 arg1) {
     if (is_target_in_list((void *)(arg1)) == 1) {
         return 0;
@@ -379,14 +380,14 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
     }
 }
 
-void TOMineTrap::init_object_set_pos() {
+void TOMine::vfunc_7(void *) {
     u8 *arg0 = (u8 *)this;
     apply_object_set_data();
     this->vfunc_83();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
 }
-void TOMineTrap__sub_80170570(void) {  }
-void TOMineTrap::init_trap() { get_localized_text_entry((void*)16, (void*)16); }
+void TOMine::vfunc_85() {  }
+int TOMine::vfunc_12() { get_localized_text_entry((void*)16, (void*)16); }
 void TOMineTrap::update_state() {
     s32 temp_r0;
     *(s32 *)((s8 *)this + 0x348) = (s32) *(f32 *)((s8 *)this + 0x70);
@@ -458,7 +459,7 @@ void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-f32 TOMineTrap::trigger_explosion() {
+f32 TOMine::vfunc_22(void *, f32) {
     s16 sp8;
     if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
         this->mode = 5;
@@ -531,7 +532,8 @@ void TOMineTrap::update_trigger() {
         send_object_state_update(this, &sp8);
     }
 }
-void TOMineTrap__sub_80170A5C(u8 *arg0) {
+void TOMine::vfunc_86() {
+    u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 0x326) = 2;
     set_indexed_flags(arg0, 0, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);

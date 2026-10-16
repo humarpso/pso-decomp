@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void vfunc_12__6TOMineFv();
 #include "pso/misc/TOMineIcon04.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOMineTrap.h"
@@ -79,31 +80,31 @@ void TOMineIcon04::vfunc_82() { spawn_particle_effect((char*)this + 0x2fc, 140);
 
 extern void *tl_05;
 
-void TOMineTrap__sub_80170340();
-void TOMineTrap__sub_80170348();
-void TOMineTrap__sub_80170350();
-void TOMineTrap__sub_80170354();
+void vfunc_27__6TOMineFPvlf();
+void vfunc_26__6TOMineFll();
+void vfunc_25__6TOMineFPUc();
+void vfunc_79__6TOMineFv();
 void spawn_disp_objects__10TOMineTrapFPv();
-void init_object_set_pos__10TOMineTrapFv();
-void TOMineTrap__sub_80170570();
+void vfunc_7__6TOMineFPv();
+void vfunc_85__6TOMineFv();
 void TOMineTrap__sub_80170768();
 void TOMineTrap__sub_80170924();
-void TOMineTrap__sub_80170A5C();
+void vfunc_86__6TOMineFv();
 void render__6TOMineFv();
-void TObjPlayer__sub_8000FF3C();
-void TObjPlayer__sub_80010A78();
-void TObjPlayer__sub_80010A80();
-void TObjPlayer__sub_80011010();
+void vfunc_29__13TUnk_804806E8Fv();
+void vfunc_74__13TUnk_804806E8Fl();
+void vfunc_73__13TUnk_804806E8Fv();
+void vfunc_28__13TUnk_804806E8Fv();
 void consume_timer_field__10TObjPlayerFPvi();
-void TObjPlayer__sub_80014830();
-void TObjPlayer__sub_80014838();
-void TObjPlayer__sub_80014840();
-void TObjPlayer__sub_80014884();
-void TObjPlayer__sub_80014888();
-void TObjPlayer__sub_8001488C();
-void TObjPlayer__sub_80014890();
-void TObjPlayer__sub_80014894();
-void TObjPlayer__sub_80014898();
+void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_66__13TUnk_804806E8Fv();
+void vfunc_65__13TUnk_804806E8Fll();
+void vfunc_63__13TUnk_804806E8Fv();
+void vfunc_62__13TUnk_804806E8Fv();
+void vfunc_61__13TUnk_804806E8Fv();
+void vfunc_60__13TUnk_804806E8Fv();
+void vfunc_59__13TUnk_804806E8Fv();
+void vfunc_58__13TUnk_804806E8Fv();
 void apply_slow_status__10TObjPlayerFPv();
 void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
@@ -129,10 +130,10 @@ void cure_paralysis__10TObjPlayerFv();
 void cure_poison_ailment();
 void enemy_spawn_jellen_effect();
 void enemy_spawn_zalure_effect();
-void fn_80010EBC();
-void fn_80010EC0();
-void fn_80010EC4();
-void fn_80010EC8();
+void vfunc_78__13TUnk_804806E8Fl();
+void vfunc_77__13TUnk_804806E8Fv();
+void vfunc_76__13TUnk_804806E8Fv();
+void vfunc_75__13TUnk_804806E8Ff();
 void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
@@ -143,7 +144,7 @@ void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
 void run_task__6TOMineFv();
 void spawn_effect__10TOMineTrapFv();
-void trigger_explosion__10TOMineTrapFv();
+void vfunc_22__6TOMineFPvf();
 void trigger_switch_attack__10TObjPlayerFi();
 void update_action_hold_status__10TObjPlayerFv();
 void update_action_timer__10TObjPlayerFPv();
@@ -163,12 +164,12 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)render__6TOMineFv,
     (void *)render_shadows__7TObjectFv,
     (void *)TOMineTrap__sub_80170768,
-    (void *)init_object_set_pos__10TOMineTrapFv,
+    (void *)vfunc_7__6TOMineFPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail,
-    (void *)TOMineTrap::init_trap,
+    (void *)&vfunc_12__6TOMineFv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
     (void *)add_actor_exp,
     (void *)consume_timer_field__10TObjPlayerFPvi,
@@ -178,14 +179,14 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)is_actor_cadence_frame,
     (void *)can_trigger__10TOMineTrapFUl,
     (void *)check_trigger__10TOMineTrapFUl,
-    (void *)trigger_explosion__10TOMineTrapFv,
+    (void *)vfunc_22__6TOMineFPvf,
     (void *)TOMineTrap__sub_80170924,
     (void *)calc_trigger_range__10TOMineTrapFl,
-    (void *)TOMineTrap__sub_80170350,
-    (void *)TOMineTrap__sub_80170348,
-    (void *)TOMineTrap__sub_80170340,
-    (void *)TObjPlayer__sub_80011010,
-    (void *)TObjPlayer__sub_8000FF3C,
+    (void *)vfunc_25__6TOMineFPUc,
+    (void *)vfunc_26__6TOMineFll,
+    (void *)vfunc_27__6TOMineFPvlf,
+    (void *)vfunc_28__13TUnk_804806E8Fv,
+    (void *)vfunc_29__13TUnk_804806E8Fv,
     (void *)is_target_in_attack_range__10TObjPlayerFv,
     (void *)TObjPlayer::test_flag_256,
     (void *)TObjPlayer::test_flag30_512,
@@ -214,35 +215,35 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)clear_all_status_effects,
     (void *)apply_action_hold_status,
     (void *)apply_anti_technique__10TObjPlayerFv,
-    (void *)TObjPlayer__sub_80014898,
-    (void *)TObjPlayer__sub_80014894,
-    (void *)TObjPlayer__sub_80014890,
-    (void *)TObjPlayer__sub_8001488C,
-    (void *)TObjPlayer__sub_80014888,
-    (void *)TObjPlayer__sub_80014884,
+    (void *)vfunc_58__13TUnk_804806E8Fv,
+    (void *)vfunc_59__13TUnk_804806E8Fv,
+    (void *)vfunc_60__13TUnk_804806E8Fv,
+    (void *)vfunc_61__13TUnk_804806E8Fv,
+    (void *)vfunc_62__13TUnk_804806E8Fv,
+    (void *)vfunc_63__13TUnk_804806E8Fv,
     (void *)reset_pose__10TObjPlayerFPv,
-    (void *)TObjPlayer__sub_80014840,
-    (void *)TObjPlayer__sub_80014838,
-    (void *)TObjPlayer__sub_80014830,
+    (void *)vfunc_65__13TUnk_804806E8Fll,
+    (void *)vfunc_66__13TUnk_804806E8Fv,
+    (void *)vfunc_67__13TUnk_804806E8Fv,
     (void *)get_pos__10TObjPlayerFii,
     (void *)apply_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_jellen_effect,
     (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect,
-    (void *)TObjPlayer__sub_80010A80,
-    (void *)TObjPlayer__sub_80010A78,
-    (void *)fn_80010EC8,
-    (void *)fn_80010EC4,
-    (void *)fn_80010EC0,
-    (void *)fn_80010EBC,
-    (void *)TOMineTrap__sub_80170354,
+    (void *)vfunc_73__13TUnk_804806E8Fv,
+    (void *)vfunc_74__13TUnk_804806E8Fl,
+    (void *)vfunc_75__13TUnk_804806E8Ff,
+    (void *)vfunc_76__13TUnk_804806E8Fv,
+    (void *)vfunc_77__13TUnk_804806E8Fv,
+    (void *)vfunc_78__13TUnk_804806E8Fl,
+    (void *)vfunc_79__6TOMineFv,
     (void *)vfunc_80__12TOMineIcon04Fv,
     (void *)spawn_effect__10TOMineTrapFv,
     (void *)vfunc_82__12TOMineIcon04Fv,
     (void *)spawn_disp_objects__10TOMineTrapFPv,
     (void *)vfunc_84__12TOMineIcon04Fv,
-    (void *)TOMineTrap__sub_80170570,
-    (void *)TOMineTrap__sub_80170A5C,
+    (void *)vfunc_85__6TOMineFv,
+    (void *)vfunc_86__6TOMineFv,
 };
 
 void TOMineIcon04::vfunc_80() {

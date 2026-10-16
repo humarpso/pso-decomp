@@ -21,7 +21,7 @@ extern "C" {
 
 s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 submit_cursor_candidate(void *, s32);
-void TItem__sub_80102420(void);
+void vfunc_14__5TItemFv(void);
 
 void try_pick_up_item__5TItemFPvi(Player_801022FC *p, s32 id) {
     Msg_801022FC m;
@@ -46,7 +46,7 @@ extern "C" {
 
 s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 submit_cursor_candidate(void *, s32);
-void TItem__sub_80102420(void);
+void vfunc_14__5TItemFv(void);
 
 void TItem::update_timer() {
     s16 temp_r3;
@@ -65,6 +65,6 @@ void TItem::update_timer() {
     }
     submit_cursor_candidate(this, -1);
 }
-void TItem__sub_80102420(void) {  }
+void TItem::vfunc_14() {  }
 
 }

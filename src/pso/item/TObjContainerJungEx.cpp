@@ -55,8 +55,8 @@ void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self);
 
 extern "C" {
 
-void TObjContainerJungEx__vt78(void *arg0);
-void TObjContainerJungEx__vt79(u8 *arg0);
+void vfunc_80__19TObjContainerJungExFv(void *arg0);
+void vfunc_81__19TObjContainerJungExFv(u8 *arg0);
 void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
@@ -145,7 +145,8 @@ void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
     }
 }
 
-void TObjContainerJungEx__vt79(u8 *arg0) {
+void TObjContainerJungEx::vfunc_81() {
+    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
@@ -169,14 +170,14 @@ void TObjContainerJungEx__vt79(u8 *arg0) {
     }
 }
 
-void TObjContainerJungEx__vt78(void *arg0) {
+void TObjContainerJungEx::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+    temp_r0 = *(s16 *)((s8 *)this + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
-            submit_cursor_candidate(arg0, -1);
+        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+            submit_cursor_candidate(this, -1);
         }
     case 1:
         return;

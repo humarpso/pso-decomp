@@ -82,13 +82,13 @@ void TObjPlayer__sub_800A0554(Obj_800A0554 *self);
 
 extern "C" {
 
-void set_field10_reciprocal__10TObjPlayerFPvi(void *arg0, s32 arg1);
+void set_rate_from_divisor__13TUnk_80490470Fl(void *arg0, s32 arg1);
 
 extern const f64 lbl_8043A468;
 extern const f32 lbl_805D995C;
 
-void set_field10_reciprocal__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    *(f32 *)((s8 *)arg0 + 0x10) = (f32) (lbl_805D995C / (f32) arg1);
+void TUnk_80490470::set_rate_from_divisor(s32 arg1) {
+    *(f32 *)((s8 *)this + 0x10) = (f32) (lbl_805D995C / (f32) arg1);
 }
 #pragma push
 #pragma fp_contract on

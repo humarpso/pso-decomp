@@ -6,6 +6,7 @@
 
 struct TObjWarpBoss03 : public TObjAreaWarp {
     virtual ~TObjWarpBoss03();
+    virtual void debug_print_area_num();
     void sub_8019F9E4();
     void run_task();
     static void *create(void *arg0);

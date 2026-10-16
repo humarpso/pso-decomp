@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B27D8.h"
 
 struct RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare {
     s32 value;
@@ -21,12 +22,12 @@ u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void TOContainerAncientEnemyRare__sub_8015B710(void);
+void vfunc_15__13TUnk_804B27D8Fv(void);
 void *__dt__27TOContainerAncientEnemyRareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__23TOContainerAncientEnemyFv(void *, int);
 
-void TOContainerAncientEnemyRare__sub_8015B710(void) {  }
+void TUnk_804B27D8::vfunc_15() {  }
 
 extern s32 __vt__27TOContainerAncientEnemyRare[];
 

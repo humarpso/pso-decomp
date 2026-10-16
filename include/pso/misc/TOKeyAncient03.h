@@ -6,6 +6,10 @@
 
 struct TOKeyAncient03 : public TOKey {
     virtual ~TOKeyAncient03();
+    virtual void vfunc_16();
+    virtual void vfunc_17();
+    virtual void vfunc_19();
+    virtual void vfunc_25();
     u8 unk_D8[0x4];
     u32 m_dc;
     void send_switch_changed(s32 flags);

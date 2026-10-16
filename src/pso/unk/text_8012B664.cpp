@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A4E68.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -17,7 +18,7 @@ extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer::update_swing_angle() {
+void TUnk_804A4E68::update_attack() {
     u8 *self = (u8 *)this;
     s32 flag;
     s32 ok;

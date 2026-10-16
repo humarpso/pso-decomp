@@ -169,7 +169,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
     }
 }
 
-void TObjPlayer::draw_weapon_model_if_not_hidden() {
+void TUnk_804F27E0::reserved_53() {
     u8 *arg0 = (u8 *)this;
     if (((TObjPlayer *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
         draw_weapon_model((void *) (arg0));

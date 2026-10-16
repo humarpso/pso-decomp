@@ -198,7 +198,7 @@ extern "C" {
 
 void vfunc_34__5TItemFv(void);
 void vfunc_17__5TItemFv(void);
-void TItem__sub_8010067C(void);
+void vfunc_19__5TItemFv(void);
 int vfunc_32__5TItemFv(void);
 void vfunc_28__5TItemFv(void);
 void vfunc_27__5TItemFv(void);
@@ -216,7 +216,7 @@ s32 check_flag_400__20TWindowSubStatusDispFv();
 
 void TItem::vfunc_34() {  }
 void TItem::vfunc_17() {  }
-void TItem__sub_8010067C(void) {  }
+void TItem::vfunc_19() {  }
 int TItem::vfunc_32() { return 0; }
 void TItem::vfunc_28() {  }
 void TItem::vfunc_27() {  }

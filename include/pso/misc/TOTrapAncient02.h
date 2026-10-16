@@ -6,6 +6,11 @@
 
 struct TOTrapAncient02 : public TOTrap {
     virtual ~TOTrapAncient02();
+    virtual void vfunc_81();
+    virtual void vfunc_82();
+    virtual void vfunc_84();
+    virtual void vfunc_88();
+    virtual void vfunc_86();
     virtual void render();
     f32 h344;
     f32 h348;
@@ -14,7 +19,6 @@ struct TOTrapAncient02 : public TOTrap {
     s32 timer;
     u32 m_358;
 
-    void update_hold_trigger();
     void render_particle_chain();
     void draw_effect_chain();
     static void *create(void *arg0);

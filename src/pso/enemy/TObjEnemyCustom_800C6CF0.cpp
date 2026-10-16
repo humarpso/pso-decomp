@@ -99,13 +99,13 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 extern "C" {
 
 void vfunc_79__15TObjEnemyCustomFv(void *arg0);
-s32 call_vt78__10TObjPlayerFv();
+s32 vfunc_79__9TObjEnemyFv();
 
 void TObjEnemyCustom::vfunc_79() {
     s16 temp_r31;
 
     temp_r31 = this->mode;
-    call_vt78__10TObjPlayerFv();
+    vfunc_79__9TObjEnemyFv();
     this->mode = temp_r31;
 }
 

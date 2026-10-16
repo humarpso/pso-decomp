@@ -142,7 +142,7 @@ struct Armor_80117954 {
 
 extern "C" {
 void vfunc_40__13TItemProArmorFv(u8 *arg0);
-void clamp_slot_counts__13TItemProArmorFPv(u8 *arg0);
+void vfunc_14__13TItemProArmorFv(u8 *arg0);
 void * TItemProArmor__sub_80117650(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -179,7 +179,7 @@ void TItemProArmor__sub_801178A8(void* p, void* q);
 u8 vfunc_39__13TItemProArmorFv(void* p);
 void TItemProArmor__sub_80117D00(void);
 void TItemProArmor__sub_80117D04(void);
-void TItemProArmor__vt14(void *arg0);
+void vfunc_16__13TItemProArmorFv(void *arg0);
 void *__dt__13TItemProArmorFv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049FF88Fv(void *arg0);
 void *ct__13TUnk_804A0688Fv(void *arg0);
@@ -299,7 +299,8 @@ void TItemProArmor::vfunc_40() {
 
 int TItemProArmor::vfunc_39() { return *(u8*)((char*)this + 0x192); }
 
-void clamp_slot_counts__13TItemProArmorFPv(u8 *arg0) {
+void TItemProArmor::vfunc_14() {
+    u8 *arg0 = (u8 *)this;
     if ((u8) *(u8 *)((s8 *)arg0 + 0x195) < (u8) *(u8 *)((s8 *)arg0 + 0x193)) {
         *(u8 *)((s8 *)arg0 + 0x193) = 0U;
     }
@@ -327,12 +328,12 @@ void TItem__sub_80100B8C();
 void classify_actor_view_detail();
 void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFPvi();
-void TItemObject__vt12();
+void vfunc_14__11TItemObjectFv();
 void TItem__sub_801005E0();
-void TItem__sub_801005DC();
+void vfunc_16__5TItemFv();
 void vfunc_17__5TItemFv();
 void TItemObject__vt16();
-void TItem__sub_8010067C();
+void vfunc_19__5TItemFv();
 void vfunc_20__5TItemFv();
 void vfunc_21__5TItemFPUclll();
 void vfunc_22__5TItemFv();
@@ -392,12 +393,12 @@ void *lbl_8049FF88[46] = {
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
     (void *)try_pick_up_item__5TItemFPvi,
-    (void *)TItemObject__vt12,
+    (void *)vfunc_14__11TItemObjectFv,
     (void *)TItem__sub_801005E0,
-    (void *)TItem__sub_801005DC,
+    (void *)vfunc_16__5TItemFv,
     (void *)vfunc_17__5TItemFv,
     (void *)TItemObject__vt16,
-    (void *)TItem__sub_8010067C,
+    (void *)vfunc_19__5TItemFv,
     (void *)vfunc_20__5TItemFv,
     (void *)vfunc_21__5TItemFPUclll,
     (void *)vfunc_22__5TItemFv,
@@ -441,9 +442,9 @@ void *__vt__13TItemProArmor[51] = {
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFv,
     (void *)try_pick_up_item__5TItemFPvi,
-    (void *)clamp_slot_counts__13TItemProArmorFPv,
+    (void *)vfunc_14__13TItemProArmorFv,
     (void *)TItem__sub_801005E0,
-    (void *)TItemProArmor__vt14,
+    (void *)vfunc_16__13TItemProArmorFv,
     (void *)vfunc_17__5TItemFv,
     (void *)write_item_data__13TItemProArmorFPvPv,
     (void *)set_attach_slot__14TItemEquipBaseFSc,
@@ -538,8 +539,8 @@ void TItemProArmor::vfunc_44() {
     }
 }
 
-void TItemProArmor__vt14(void *arg0) {
-    if (*(u16 *)((s8 *)arg0 + 0x190) & 1) {
+void TItemProArmor::vfunc_16() {
+    if (*(u16 *)((s8 *)this + 0x190) & 1) {
         refresh_owner_stats__5TItemFPv();
     }
 }

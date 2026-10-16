@@ -73,9 +73,9 @@ extern u32 TOFenceAncient03__texture_lists;
 
 extern "C" {
 
-void TOFenceAncient03__vt12(void* p);
-void TOFenceAncient03__vt13(void* p);
-void TOFenceAncient03__vt14(void);
+void vfunc_14__16TOFenceAncient03Fv(void* p);
+void vfunc_15__16TOFenceAncient03Fv(void* p);
+void vfunc_16__16TOFenceAncient03Fv(void);
 void *__dt__16TOFenceAncient03Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
@@ -83,9 +83,9 @@ s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int set_indexed_flags(void*, void*, void*);
 
-void TOFenceAncient03__vt14(void) {  }
-void TOFenceAncient03__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; { int i; for (i = 0; i < 4; i++) { ((TObjPlayer *)p)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
-void TOFenceAncient03__vt12(void* p) { *(int*)((char*)p + 0xac) = 1; *(int*)((char*)p + 0xd0) = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(p, (void*)i, (void*)8); } } }
+void TOFenceAncient03::vfunc_16() {  }
+void TOFenceAncient03::vfunc_15() { *(int*)((char*)this + 0xac) = 0; *(int*)((char*)this + 0xd0) = 0; { int i; for (i = 0; i < 4; i++) { ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
+void TOFenceAncient03::vfunc_14() { *(int*)((char*)this + 0xac) = 1; *(int*)((char*)this + 0xd0) = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(this, (void*)i, (void*)8); } } }
 
 extern void *tl_05;
 

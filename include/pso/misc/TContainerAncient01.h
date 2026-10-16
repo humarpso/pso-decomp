@@ -6,6 +6,9 @@
 
 struct TContainerAncient01 : public TUnk_804806E8 {
     virtual ~TContainerAncient01();
+    virtual int vfunc_21(void *, void *, void *, float);
+    virtual f32 vfunc_23(void *, void *, void *, s32, s32);
+    virtual f32 vfunc_22(void *, f32);
     void sub_8018B700();
     void sub_8018B48C();
     void sub_8018B284();

@@ -162,20 +162,20 @@ void run_task__15TObjLaboMapWarpFv(u8 *arg0);
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
 void * __dt__15TObjLaboMapWarpFv(void *arg0, s16 arg1);
 void * TObjLaboMapWarp__ct(void *arg0);
-void TObjCityMapWarp__vt17(Obj_80185664 *self);
+void slot4C__15TObjCityMapWarpFv(Obj_80185664 *self);
 void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1);
 void * __dt__15TObjCityMapWarpFv(void *arg0, s16 arg1);
 void * TObjCityMapWarp__ct(void *arg0);
-void TObjCityAreaWarp__vt17(void);
-void TObjCityAreaWarp__vt18(void* p);
+void confirm_area_transfer__16TObjCityAreaWarpFl(void);
+void debug_print_area_num__16TObjCityAreaWarpFv(void* p);
 void TObjCityAreaWarp__vt13(void *arg0, s16 arg1);
 void * __dt__16TObjCityAreaWarpFv(void *arg0, s16 arg1);
 void * TObjCityAreaWarp__ct(void *arg0);
 void debug_print_area_num__16TObjCityMainWarpFv(Obj_80185E14 *arg0);
 s32 TObjCityMainWarp__vt14(s32 arg0);
-void TObjCityMainWarp__vt16(void *arg0);
+void vfunc_18__16TObjCityMainWarpFl(void *arg0);
 s32 TObjCityMainWarp__vt15(u8 *arg0);
-void TObjCityMainWarp__vt12(void* p);
+void vfunc_14__16TObjCityMainWarpFv(void* p);
 void * __dt__16TObjCityMainWarpFv(void *arg0, s16 arg1);
 void * TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2);
 void unlock_main_warp_destination(s32 id);
@@ -188,7 +188,7 @@ void TObjAreaWarp__ct(void *);
 s32 process_player_warps__11TObjMapWarpFPv(void *);
 void __dt__11TObjMapWarpFv(void *, int);
 void TObjMapWarp__ct(void *);
-int TObjWarpBase__vt12(void*);
+int vfunc_14__12TObjWarpBaseFv(void*);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
@@ -379,7 +379,8 @@ void *TObjLaboMapWarp__ct(void *arg0) {
     return arg0;
 }
 
-void TObjCityMapWarp__vt17(Obj_80185664 *self) {
+void TObjCityMapWarp::slot4C() {
+    Obj_80185664 *self = (Obj_80185664 *)this;
     ((TObjCityMapWarp *)self)->clamp_destination_index();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x13001C, lbl_804449C0);
@@ -486,12 +487,12 @@ void *TObjCityMapWarp__ct(void *arg0) {
     return arg0;
 }
 
-void TObjCityAreaWarp__vt17(void) {
+void TObjCityAreaWarp::confirm_area_transfer(s32) {
     play_sound_effect(0x40003205, 0, 0, 0);
     TLobby__data_805D5CE8 = 1;
 }
 
-void TObjCityAreaWarp__vt18(void* p) { ((TObjCityAreaWarp *)p)->do_warp(); }
+void TObjCityAreaWarp::debug_print_area_num() { ((TObjCityAreaWarp *)this)->do_warp(); }
 
 void TObjCityAreaWarp::render() { if (is_main_phase_15__9TObjEneDDFv(this) != 0) { do_warp(); } }
 
@@ -610,8 +611,8 @@ s32 TObjCityMainWarp__vt14(s32 arg0) {
     return is_warp_enabled__12TObjAreaWarpFi(arg0);
 }
 
-void TObjCityMainWarp__vt16(void *arg0) {
-    struct VObj_80186030_80185EC8 *o = (struct VObj_80186030_80185EC8 *)arg0;
+void TObjCityMainWarp::vfunc_18(s32) {
+    struct VObj_80186030_80185EC8 *o = (struct VObj_80186030_80185EC8 *)this;
     o->m15();
 }
 
@@ -649,7 +650,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
     return 0;
 }
 
-void TObjCityMainWarp__vt12(void* p) { if (*(unsigned int*)((char*)p + 0xb0) != 0) { TObjWarpBase__vt12(p); TWindowCtrl::clear_flag(); } }
+void TObjCityMainWarp::vfunc_14() { if (*(unsigned int*)((char*)this + 0xb0) != 0) { vfunc_14__12TObjWarpBaseFv(this); TWindowCtrl::clear_flag(); } }
 
 #pragma push
 #pragma opt_lifetimes off

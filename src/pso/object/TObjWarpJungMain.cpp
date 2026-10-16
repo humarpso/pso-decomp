@@ -132,10 +132,10 @@ int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
 void handle_area_selection__12TObjAreaWarpFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 void TObjAreaWarp__ct(void *);
-int TObjWarpBase__vt12(void*);
+int vfunc_14__12TObjWarpBaseFv(void*);
 s32 TObjWarpJungMain__vt16(u8 *arg0);
 int confirm_area_transfer__16TObjWarpJungMainFl(void* p);
-void TObjWarpJungMain__vt12(void* p);
+void vfunc_14__16TObjWarpJungMainFv(void* p);
 void * __dt__16TObjWarpJungMainFv(void *arg0, s16 arg1);
 void * TObjWarpJung__create(void *arg0);
 int confirm_area_transfer__12TObjWarpJungFl(void* p);
@@ -221,7 +221,7 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
 
 void TObjWarpJungMain::confirm_area_transfer(s32) { confirm_area_transfer__12TObjAreaWarpFPvi(this); }
 
-void TObjWarpJungMain__vt12(void* p) { TObjWarpBase__vt12(p); TWindowCtrl::clear_flag(); }
+void TObjWarpJungMain::vfunc_14() { vfunc_14__12TObjWarpBaseFv(this); TWindowCtrl::clear_flag(); }
 
 void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
     s32 var_r29;

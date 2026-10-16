@@ -1228,7 +1228,7 @@ void TObjPlayer::enter_state7() {
     obj_clearFlags30(this, 0x240000);
 }
 void TUnk_80493450::vfunc_89() {  }
-int TObjPlayer::clear_flag_0x100() { return obj_clearFlags30(this, 256); }
+void TUnk_80493450::vfunc_61() { obj_clearFlags30(this, 256); }
 
 void beast_update_attack(Self_800C53DC *arg0) {
     Tgt_800C53DC *p;

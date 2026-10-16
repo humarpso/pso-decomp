@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A63F0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecBarta.h"
 
@@ -9,7 +10,7 @@ s32 spawn_cane_effects__10TObjPlayerFiUiii(void *, void *, int, int);
 
 extern s32 tl_05;
 
-void TObjPlayer::update_cane_effect() {
+void TUnk_804A63F0::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     u8 *temp_r3;

@@ -6,6 +6,10 @@
 
 struct TOKeyCave01 : public TOKey {
     virtual ~TOKeyCave01();
+    virtual void vfunc_16();
+    virtual void vfunc_17();
+    virtual void vfunc_19();
+    virtual void vfunc_25();
     u8 unk_D8[0x4];
     u32 m_dc;
     u32 m_e0;

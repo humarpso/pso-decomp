@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMonumentAncient02.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TOMonumentAncient01.h"
 #include "pso/misc/TOHealGeneral.h"
@@ -53,7 +54,7 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 access_object_saved_state(void *, void *, int);
 s32 get_story_flag(s32);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
-void TOMonumentAncient02__vt4(void *arg0, s16 *arg1);
+void vfunc_6__19TOMonumentAncient02FPsl(void *arg0, s16 *arg1);
 }
 
 extern "C" {
@@ -128,24 +129,24 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TOMonumentAncient02__vt4(void *arg0, s16 *arg1) {
-    *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *arg1;
-    switch (*(s32 *)((s8 *)arg0 + 0xAC)) {
+void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
+    *(s32 *)((s8 *)this + 0xAC) = (s32) *arg1;
+    switch (*(s32 *)((s8 *)this + 0xAC)) {
     case 2:
-        dispatch_by_main_phase__14TBoss4DarkFalzFUs(*(s32 *)((s8 *)arg0 + 0xD0));
-        *(s32 *)((s8 *)arg0 + 0xC8) = 1;
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs(*(s32 *)((s8 *)this + 0xD0));
+        *(s32 *)((s8 *)this + 0xC8) = 1;
         break;
     default:
-        if (get_story_flag(*(s32 *)((s8 *)arg0 + 0xD0)) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xAC) = 2;
-            *(s32 *)((s8 *)arg0 + 0xC8) = 1;
+        if (get_story_flag(*(s32 *)((s8 *)this + 0xD0)) != 0) {
+            *(s32 *)((s8 *)this + 0xAC) = 2;
+            *(s32 *)((s8 *)this + 0xC8) = 1;
         }
         break;
     }
     if ((get_story_flag(0x2C) != 0) && (get_story_flag(0x2D) != 0) && (get_story_flag(0x2E) != 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x2F);
     }
-    access_object_saved_state(arg0, arg1, 0);
+    access_object_saved_state(this, arg1, 0);
 }
 
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {

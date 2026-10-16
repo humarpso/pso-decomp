@@ -1,4 +1,5 @@
 #include "pso/item/TItemData.h"
+#include "pso/item/TUnk_804A5930.h"
 #include "types.h"
 
 #include <stddef.h>
@@ -10,7 +11,7 @@ s32 replace_item_with_new_code(void *, void *);
 
 extern "C" {
 
-void TObjPlayer::replace_item_if_value_exceeds() {
+void TUnk_804A5930::reserved_29() {
     s32 arg0 = (s32)this;
     TItemData item_data;
     if (TObjPlayer__sub_80100474((void *) (arg0)) >= 0x59D8U) {

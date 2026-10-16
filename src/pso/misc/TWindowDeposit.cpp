@@ -47,7 +47,7 @@ void TWindowMainMenu__sub_8024E3D0(void);
 int TWindowMainMenu__sub_8024E3D4(void* p);
 int TWindowMainMenu__sub_8024E3E0(void* p);
 int TWindowMainMenu__sub_8024E3F4(void* p);
-void TWindowMainMenu__vt4(void);
+void vfunc_6__15TWindowMainMenuFv(void);
 void vfunc_8__15TWindowMainMenuFv(void);
 int update_window_entry_list(void*, void*);
 s32 draw_window_tab(s32, s32, s32, f32);

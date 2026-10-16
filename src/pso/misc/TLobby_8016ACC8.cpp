@@ -10,8 +10,8 @@ void init_6x04_packet(u8 *arg0);
 extern "C" {
 
 int TLobby__send_and_handle_60(void*);
-void TOKeyAncient01__vt23(void);
-void TOKey__sub_8016AC88(void);
+void vfunc_25__14TOKeyAncient01Fv(void);
+void vfunc_16__5TOKeyFv(void);
 void vfunc_17__5TOKeyFv(void);
 void vfunc_25__5TOKeyFv(void);
 int bswap_16__FPUs(void*);

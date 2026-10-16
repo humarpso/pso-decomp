@@ -6,6 +6,8 @@
 
 struct TOSensorGeneral01 : public TOSensor {
     virtual ~TOSensorGeneral01();
+    virtual void vfunc_16();
+    virtual void vfunc_17();
     void render();
     void *create();
     static void free_rocks();

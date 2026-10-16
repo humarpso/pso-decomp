@@ -25,7 +25,7 @@ s32 get_player_by_client_id(u32);
 void open__15TWindowMainMenuFPvi(void *, s32);
 extern RecoveredGlobal_802889A8_lbl_804D04F8 lbl_804D04F8;
 extern RecoveredGlobal_802889A8_lbl_804D0530 lbl_804D0530;
-void TWindowMainMenu4P__vt4(u8 *arg0);
+void vfunc_6__17TWindowMainMenu4PFv(u8 *arg0);
 }
 
 extern "C" {
@@ -50,7 +50,8 @@ void TWindowMainMenu4P::vfunc_8() {
     }
 }
 
-void TWindowMainMenu4P__vt4(u8 *arg0) {
+void TWindowMainMenu4P::vfunc_6() {
+    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if (!(*(s32 *)((s8 *)arg0 + 0x4C) & 1)) {
         temp_r3 = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));

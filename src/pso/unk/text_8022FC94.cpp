@@ -115,7 +115,7 @@ extern const f32 lbl_805DC7F8;
 
 extern "C" {
 
-void TTecFoie__vt4(s32 arg0);
+void vfunc_6__8TTecFoieFv(s32 arg0);
 s32 spawn_particle_effect(s32, s32);
 void *TTecFoie__ct(void *, void *, void *, void *, void *);
 void *construct_aimed__8TTecFoieFlPUcPUcs(void *, void *, void *, void *, void *);
@@ -194,7 +194,8 @@ void TTecFoie::init_projectile_params() {
   ((RecoveredFields_8022FE84_arg0 *) arg0)->field_70 = (f32) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_D4;
 }
 
-void TTecFoie__vt4(s32 arg0) {
+void TTecFoie::vfunc_6() {
+    s32 arg0 = (s32)this;
     spawn_particle_effect(arg0 + 0x20, 0x1DC);
     spawn_particle_effect(arg0 + 0x20, 0x1DD);
 }

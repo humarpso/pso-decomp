@@ -4,11 +4,11 @@
 
 extern "C" {
 
-int ret_802A7798(void) { return 0; }
-int ret_802A77A0(void) { return 1; }
+int TUnk_804DDBF0::vfunc_15() { return 0; }
+int TUnk_804DDBF0::vfunc_16() { return 1; }
 int TUnk_804DDBF0::vfunc_17() { return 2; }
-int ret_802A77B0(void) { return 3; }
-int ret_802A77B8(void) { return 4; }
+int TUnk_804DDBF0::vfunc_18() { return 3; }
+int TUnk_804DDBF0::vfunc_19() { return 4; }
 int TUnk_804DDBF0::vfunc_20() { return 5; }
 int TUnk_804DDBF0::vfunc_21() { return 6; }
 int TUnk_804DDBF0::vfunc_22() { return 7; }

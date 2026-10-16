@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOMineTrap.h"
 
 struct RecoveredGlobal_8016F1C0___vt__10TOMineDisp {
     s32 value;
@@ -154,7 +155,7 @@ extern const f32 lbl_805DB85C;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
 u32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DB864;
-void TOMineTrap__vt80(Obj_8016F64C *arg0);
+void vfunc_82__10TOMineTrapFv(Obj_8016F64C *arg0);
 VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
 s16 TOMineTrap__sub_80171340(void *);
@@ -266,7 +267,8 @@ f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1) {
     }
     return lbl_805DB85C;
 }
-void TOMineTrap__vt80(Obj_8016F64C *arg0) {
+void TOMineTrap::vfunc_82() {
+    Obj_8016F64C *arg0 = (Obj_8016F64C *)this;
     u32 r;
     switch (arg0->state) {
     default:

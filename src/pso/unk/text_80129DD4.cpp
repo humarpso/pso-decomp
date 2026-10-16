@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A4648.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18_8622c5 { char pad[0x18]; };
@@ -70,7 +71,7 @@ extern RecoveredGlobal_80129DD4_lbl_8043E968 lbl_8043E968;
 extern "C" {
 
 typedef char RecoveredGlobal_80129DD4_lbl_8043E968_size[sizeof(RecoveredGlobal_80129DD4_lbl_8043E968) == 0x18 ? 1 : -1];
-void TObjPlayer::draw_icon_slots() {
+void TUnk_804A4648::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     TObjPlayer__sub_80128A70();

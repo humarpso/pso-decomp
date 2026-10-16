@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 
 struct RecoveredGlobal_8022B6FC_lbl_804CC510
 {
@@ -160,7 +161,7 @@ void apply_technique_to_area_targets(Tec_8022BD74 *self);
 
 extern "C" {
 
-void TObjPlayer__sub_8022BD70(void);
+void vfunc_6__13TUnk_804CCC68Fv(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -391,7 +392,7 @@ u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, voi
     return arg0;
 }
 
-void TObjPlayer__sub_8022BD70(void) {  }
+void TUnk_804CCC68::vfunc_6() {  }
 struct TechniqueParticleEmitter;
 void apply_technique_to_area_targets(Tec_8022BD74 *self) {
     List_8022BD74 *list;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColALock.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/object/TObjQuestCol.h"
 #include "pso/player/TObjPlayer.h"
@@ -26,8 +27,8 @@ u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-s32 TObjQuestColALock__vt13(void *arg0);
-void TObjQuestColALock__vt14(void* p);
+s32 vfunc_15__17TObjQuestColALockFv(void *arg0);
+void vfunc_16__17TObjQuestColALockFv(void* p);
 void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
@@ -43,12 +44,12 @@ s32 check_flag_100__10TObjPlayerFPv();
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-void TObjQuestColALock__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
+int TObjQuestColALock::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void**)((char*)this + 0xb0)); }
 
 extern s32 controller_input_state[];
 extern s32 local_client_id;
 
-s32 TObjQuestColALock__vt13(void *arg0) {
+int TObjQuestColALock::vfunc_15() {
     s32 temp_r3;
     s32 temp_r3_2;
 
@@ -62,8 +63,8 @@ s32 TObjQuestColALock__vt13(void *arg0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
-        submit_cursor_candidate(arg0, -1);
-        temp_r3_2 = ((TObjQuestColBase *)arg0)->update_trigger_state(*(f32 *)((s8 *)arg0 + 0xAC));
+        submit_cursor_candidate(this, -1);
+        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)((s8 *)this + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }

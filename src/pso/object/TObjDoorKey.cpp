@@ -65,13 +65,13 @@ struct Key_8018FCD8 { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x28]; s32 
 struct Vec_80190020 { f32 x, y, z; };
 
 extern "C" {
-void TObjDoorKey__vt14(u8 *arg0);
+void vfunc_16__11TObjDoorKeyFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void debug_draw_key_id__5TOKeyFv();
 void debug_printf_at(int, void *, ...);
 extern u8 lbl_804456C8[];
 extern const f32 lbl_805DBE08;
-void TObjDoorKey__vt24(Key_8018FD9C *arg0);
+void debug_draw_key_id__11TObjDoorKeyFv(Key_8018FD9C *arg0);
 s32 get_bml_model(s32, int);
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 load_gvm_texture_file(void *);
@@ -129,9 +129,9 @@ extern "C" {
 
 void *TObjDoorKey__create(void *arg0);
 void TObjDoorKey__sub_8018FAEC(void);
-int TObjDoorKey__vt15(void* p);
-void TObjDoorKey__vt17(void);
-int TObjDoorKey__vt22(void* p);
+int vfunc_17__11TObjDoorKeyFv(void* p);
+void vfunc_19__11TObjDoorKeyFv(void);
+int update_armed_switch__11TObjDoorKeyFv(void* p);
 void * TObjEnvSoundGlobal__create(void *arg0);
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -230,7 +230,8 @@ s32 TObjDoorKey::draw_inactive_badge() {
     pop_matrix();
 }
 
-void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
+void TObjDoorKey::debug_draw_key_id() {
+    Key_8018FD9C *arg0 = (Key_8018FD9C *)this;
     debug_draw_key_id__5TOKeyFv();
     VecCopy__FP3VecPC3Vec(&arg0->f74, arg0->f38);
     arg0->f78 = arg0->f78 + lbl_805DBE08;
@@ -245,7 +246,7 @@ void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
     }
 }
 
-void TObjDoorKey__vt17(void) {  }
+void TObjDoorKey::vfunc_19() {  }
 
 void TObjDoorKey__vt16(u8 *arg0) {
     switch (TOKeyMachine01::get_global_state()) {
@@ -269,13 +270,14 @@ void TObjDoorKey__vt16(u8 *arg0) {
     *(s32 *)(arg0 + 0xE8) = 1;
 }
 
-void TObjDoorKey__vt14(u8 *arg0) {
+void TObjDoorKey::vfunc_16() {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) + 0x14);
     *(s32 *)((s8 *)arg0 + 0xF0) = (s32) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x200);
 }
 
-int TObjDoorKey__vt15(void* p) { return submit_cursor_candidate(p, -1); }
-int TObjDoorKey__vt22(void* p) { return update_armed_switch__5TOKeyFv(p); }
+void TObjDoorKey::vfunc_17() { submit_cursor_candidate(this, -1); }
+void TObjDoorKey::update_armed_switch() { update_armed_switch__5TOKeyFv(this); }
 
 void TObjDoorKey::run_task() {
     struct VObj_8018FF74_8018FAEC *o = (struct VObj_8018FF74_8018FAEC *)this;

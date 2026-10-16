@@ -1,6 +1,8 @@
 #pragma push
 
 #include "types.h"
+#include "pso/object/TObjMapWarpAncient.h"
+#include "pso/object/TObjGoalWarpAncient.h"
 
 struct VBase8017CB60_8017CB60_more_8017cca4_0 { char pad[0x18]; };
 struct VObj8017CB60_8017CB60_more_8017cca4_0 : VBase8017CB60_8017CB60_more_8017cca4_0 {
@@ -57,13 +59,13 @@ void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80443288[];
 extern char lbl_804432A4[];
-void TObjGoalWarpAncient__vt18(void *arg0);
+void debug_print_area_num__19TObjGoalWarpAncientFv(void *arg0);
 s32 draw_debug_destinations__11TObjMapWarpFv();
 void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_804432C8[];
 extern char lbl_804432E8[];
-void TObjMapWarpAncient__vt17(void *arg0);
+void slot4C__18TObjMapWarpAncientFv(void *arg0);
 }
 
 extern "C" {
@@ -109,14 +111,14 @@ typedef char RecoveredFields_8017CCA4_arg0_C8_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_8017CCA4_arg0_E4_offset[offsetof(RecoveredFields_8017CCA4_arg0, field_E4) == 0xE4 ? 1 : -1];
 typedef char RecoveredFields_8017CCA4_arg0_E8_offset[offsetof(RecoveredFields_8017CCA4_arg0, field_E8) == 0xE8 ? 1 : -1];
 
-void TObjGoalWarpAncient__vt18(void *arg0) {
+void TObjGoalWarpAncient::debug_print_area_num() {
     debug_print_area_num__12TObjAreaWarpFv();
     set_global_count__12TObjNpcEnemyFl(0xFF00FF);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
-        *(s32 *)((s8 *)arg0 + 0xD8) = get_instance__19TObjGoalWarpAncientFv();
+    if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
+        *(s32 *)((s8 *)this + 0xD8) = get_instance__19TObjGoalWarpAncientFv();
         debug_printf_at(0x130022, lbl_80443288);
     } else {
-        *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int)(1));
+        *(s32 *)((s8 *)this + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int)(1));
         debug_printf_at(0x130022, lbl_804432A4);
     }
     set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
@@ -259,8 +261,8 @@ void TObjMapWarpAncient::render() {
     }
 }
 
-void TObjMapWarpAncient__vt17(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
+void TObjMapWarpAncient::slot4C() {
+    if ((s32) *(s32 *)((s8 *)this + 0x88) < 0) {
         set_global_count__12TObjNpcEnemyFl(0xFF00FF);
         debug_printf_at(0x130021, lbl_804432C8);
         set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);

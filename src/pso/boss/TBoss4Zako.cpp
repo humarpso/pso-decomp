@@ -1441,18 +1441,18 @@ extern "C" const f32 TBoss4Zako_movement_speed_step = 0.033333335f;
 extern "C" const f32 TBoss4Zako_one_third = 0.33333334f;
 
 extern "C" {
-void TObjPlayer__sub_8000FF3C();
+void vfunc_29__13TUnk_804806E8Fv();
 void apply_anti_technique__10TObjPlayerFv();
-void TObjPlayer__sub_80010A80();
+void vfunc_73__13TUnk_804806E8Fv();
 void enemy_spawn_zalure_effect();
 void trigger_switch_attack__10TObjPlayerFi();
 void enemy_spawn_jellen_effect();
 void apply_switch_attack__10TObjPlayerFi();
-void fn_80010EBC();
-void fn_80010EC0();
-void fn_80010EC4();
-void fn_80010EC8();
-void TObjPlayer__sub_80011010();
+void vfunc_78__13TUnk_804806E8Fl();
+void vfunc_77__13TUnk_804806E8Fv();
+void vfunc_76__13TUnk_804806E8Fv();
+void vfunc_75__13TUnk_804806E8Ff();
+void vfunc_28__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void consume_timer_field__10TObjPlayerFPvi();
 void add_actor_exp();
@@ -1461,15 +1461,15 @@ void receive_weapon_special_attack__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
 void apply_knockback_from_attacker();
 void receive_physical_attack__10TObjPlayerFv();
-void TObjPlayer__sub_80014830();
-void TObjPlayer__sub_80014838();
-void TObjPlayer__sub_80014840();
+void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_66__13TUnk_804806E8Fv();
+void vfunc_65__13TUnk_804806E8Fll();
 void reset_pose__10TObjPlayerFPv();
-void TObjPlayer__sub_80014888();
-void TObjPlayer__sub_8001488C();
-void TObjPlayer__sub_80014890();
-void TObjPlayer__sub_80014894();
-void TObjPlayer__sub_80014898();
+void vfunc_62__13TUnk_804806E8Fv();
+void vfunc_61__13TUnk_804806E8Fv();
+void vfunc_60__13TUnk_804806E8Fv();
+void vfunc_59__13TUnk_804806E8Fv();
+void vfunc_58__13TUnk_804806E8Fv();
 void apply_action_hold_status();
 void clear_all_status_effects();
 void cure_paralysis__10TObjPlayerFv();
@@ -1508,7 +1508,7 @@ void render_actor_shadows_default();
 void vfunc_12__9TObjEnemyFv();
 void update_and_send_enemy_hit_state();
 void apply_hit_message_flags__10TObjPlayerFPvPv();
-void call_vt78__10TObjPlayerFv();
+void vfunc_79__9TObjEnemyFv();
 void apply_set_data__9TObjEnemyFPv();
 void apply_object_set_data();
 void TLobby__sub_801A1FD8();
@@ -1543,8 +1543,8 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)apply_knockback_from_attacker,
     (s32)try_start_action__10TObjPlayerFPvii,
     (s32)roll_physical_accuracy__10TObjPlayerFv,
-    (s32)TObjPlayer__sub_80011010,
-    (s32)TObjPlayer__sub_8000FF3C,
+    (s32)vfunc_28__13TUnk_804806E8Fv,
+    (s32)vfunc_29__13TUnk_804806E8Fv,
     (s32)is_target_in_attack_range__10TObjPlayerFv,
     (s32)TObjPlayer::test_flag_256,
     (s32)TObjPlayer::test_flag30_512,
@@ -1573,28 +1573,28 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)clear_all_status_effects,
     (s32)apply_action_hold_status,
     (s32)apply_anti_technique__10TObjPlayerFv,
-    (s32)TObjPlayer__sub_80014898,
-    (s32)TObjPlayer__sub_80014894,
-    (s32)TObjPlayer__sub_80014890,
-    (s32)TObjPlayer__sub_8001488C,
-    (s32)TObjPlayer__sub_80014888,
+    (s32)vfunc_58__13TUnk_804806E8Fv,
+    (s32)vfunc_59__13TUnk_804806E8Fv,
+    (s32)vfunc_60__13TUnk_804806E8Fv,
+    (s32)vfunc_61__13TUnk_804806E8Fv,
+    (s32)vfunc_62__13TUnk_804806E8Fv,
     (s32)try_enter_state_3__11TBoss4BishiFPv,
     (s32)reset_pose__10TObjPlayerFPv,
-    (s32)TObjPlayer__sub_80014840,
-    (s32)TObjPlayer__sub_80014838,
-    (s32)TObjPlayer__sub_80014830,
+    (s32)vfunc_65__13TUnk_804806E8Fll,
+    (s32)vfunc_66__13TUnk_804806E8Fv,
+    (s32)vfunc_67__13TUnk_804806E8Fv,
     (s32)get_pos__10TObjPlayerFii,
     (s32)apply_switch_attack__10TObjPlayerFi,
     (s32)enemy_spawn_jellen_effect,
     (s32)trigger_switch_attack__10TObjPlayerFi,
     (s32)enemy_spawn_zalure_effect,
-    (s32)TObjPlayer__sub_80010A80,
+    (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)update_and_send_enemy_hit_state,
-    (s32)fn_80010EC8,
-    (s32)fn_80010EC4,
-    (s32)fn_80010EC0,
-    (s32)fn_80010EBC,
-    (s32)call_vt78__10TObjPlayerFv,
+    (s32)vfunc_75__13TUnk_804806E8Ff,
+    (s32)vfunc_76__13TUnk_804806E8Fv,
+    (s32)vfunc_77__13TUnk_804806E8Fv,
+    (s32)vfunc_78__13TUnk_804806E8Fl,
+    (s32)vfunc_79__9TObjEnemyFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
     (s32)apply_set_data__9TObjEnemyFPv,
     (s32)clear_lobby_object_state__9TObjEnemyFv,
@@ -1628,8 +1628,8 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)apply_knockback_from_attacker,
     (s32)try_start_action__10TObjPlayerFPvii,
     (s32)roll_physical_accuracy__10TObjPlayerFv,
-    (s32)TObjPlayer__sub_80011010,
-    (s32)TObjPlayer__sub_8000FF3C,
+    (s32)vfunc_28__13TUnk_804806E8Fv,
+    (s32)vfunc_29__13TUnk_804806E8Fv,
     (s32)is_target_in_attack_range__10TObjPlayerFv,
     (s32)TObjPlayer::test_flag_256,
     (s32)TObjPlayer::test_flag30_512,
@@ -1658,28 +1658,28 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)clear_all_status_effects,
     (s32)apply_action_hold_status,
     (s32)apply_anti_technique__10TObjPlayerFv,
-    (s32)TObjPlayer__sub_80014898,
-    (s32)TObjPlayer__sub_80014894,
-    (s32)TObjPlayer__sub_80014890,
-    (s32)TObjPlayer__sub_8001488C,
-    (s32)TObjPlayer__sub_80014888,
+    (s32)vfunc_58__13TUnk_804806E8Fv,
+    (s32)vfunc_59__13TUnk_804806E8Fv,
+    (s32)vfunc_60__13TUnk_804806E8Fv,
+    (s32)vfunc_61__13TUnk_804806E8Fv,
+    (s32)vfunc_62__13TUnk_804806E8Fv,
     (s32)TBoss4Uro__vt61,
     (s32)reset_pose__10TObjPlayerFPv,
-    (s32)TObjPlayer__sub_80014840,
-    (s32)TObjPlayer__sub_80014838,
-    (s32)TObjPlayer__sub_80014830,
+    (s32)vfunc_65__13TUnk_804806E8Fll,
+    (s32)vfunc_66__13TUnk_804806E8Fv,
+    (s32)vfunc_67__13TUnk_804806E8Fv,
     (s32)get_pos__10TObjPlayerFii,
     (s32)apply_switch_attack__10TObjPlayerFi,
     (s32)enemy_spawn_jellen_effect,
     (s32)trigger_switch_attack__10TObjPlayerFi,
     (s32)enemy_spawn_zalure_effect,
-    (s32)TObjPlayer__sub_80010A80,
+    (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)update_and_send_enemy_hit_state,
-    (s32)fn_80010EC8,
-    (s32)fn_80010EC4,
-    (s32)fn_80010EC0,
-    (s32)fn_80010EBC,
-    (s32)call_vt78__10TObjPlayerFv,
+    (s32)vfunc_75__13TUnk_804806E8Ff,
+    (s32)vfunc_76__13TUnk_804806E8Fv,
+    (s32)vfunc_77__13TUnk_804806E8Fv,
+    (s32)vfunc_78__13TUnk_804806E8Fl,
+    (s32)vfunc_79__9TObjEnemyFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
     (s32)apply_set_data__9TObjEnemyFPv,
     (s32)clear_lobby_object_state__9TObjEnemyFv,
@@ -1713,8 +1713,8 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)apply_knockback_from_attacker,
     (s32)try_start_action__10TObjPlayerFPvii,
     (s32)roll_physical_accuracy__10TObjPlayerFv,
-    (s32)TObjPlayer__sub_80011010,
-    (s32)TObjPlayer__sub_8000FF3C,
+    (s32)vfunc_28__13TUnk_804806E8Fv,
+    (s32)vfunc_29__13TUnk_804806E8Fv,
     (s32)is_target_in_attack_range__10TObjPlayerFv,
     (s32)TObjPlayer::test_flag_256,
     (s32)TObjPlayer::test_flag30_512,
@@ -1743,28 +1743,28 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)clear_all_status_effects,
     (s32)apply_action_hold_status,
     (s32)apply_anti_technique__10TObjPlayerFv,
-    (s32)TObjPlayer__sub_80014898,
-    (s32)TObjPlayer__sub_80014894,
-    (s32)TObjPlayer__sub_80014890,
-    (s32)TObjPlayer__sub_8001488C,
-    (s32)TObjPlayer__sub_80014888,
+    (s32)vfunc_58__13TUnk_804806E8Fv,
+    (s32)vfunc_59__13TUnk_804806E8Fv,
+    (s32)vfunc_60__13TUnk_804806E8Fv,
+    (s32)vfunc_61__13TUnk_804806E8Fv,
+    (s32)vfunc_62__13TUnk_804806E8Fv,
     (s32)update_state3__10TBoss4ZakoFPv,
     (s32)reset_pose__10TObjPlayerFPv,
-    (s32)TObjPlayer__sub_80014840,
-    (s32)TObjPlayer__sub_80014838,
-    (s32)TObjPlayer__sub_80014830,
+    (s32)vfunc_65__13TUnk_804806E8Fll,
+    (s32)vfunc_66__13TUnk_804806E8Fv,
+    (s32)vfunc_67__13TUnk_804806E8Fv,
     (s32)get_pos__10TObjPlayerFii,
     (s32)apply_switch_attack__10TObjPlayerFi,
     (s32)enemy_spawn_jellen_effect,
     (s32)trigger_switch_attack__10TObjPlayerFi,
     (s32)enemy_spawn_zalure_effect,
-    (s32)TObjPlayer__sub_80010A80,
+    (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)update_and_send_enemy_hit_state,
-    (s32)fn_80010EC8,
-    (s32)fn_80010EC4,
-    (s32)fn_80010EC0,
-    (s32)fn_80010EBC,
-    (s32)call_vt78__10TObjPlayerFv,
+    (s32)vfunc_75__13TUnk_804806E8Ff,
+    (s32)vfunc_76__13TUnk_804806E8Fv,
+    (s32)vfunc_77__13TUnk_804806E8Fv,
+    (s32)vfunc_78__13TUnk_804806E8Fl,
+    (s32)vfunc_79__9TObjEnemyFv,
     (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
     (s32)apply_set_data__9TObjEnemyFPv,
     (s32)clear_lobby_object_state__9TObjEnemyFv,

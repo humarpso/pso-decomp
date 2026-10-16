@@ -96,13 +96,13 @@ void draw_ginja_box_tree(void);
 s32 pop_matrix();
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
-void TObjContainerAbeEnemy__vt79(Obj_80188884 *self);
+void vfunc_81__21TObjContainerAbeEnemyFv(Obj_80188884 *self);
 void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80444EF4[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
-void TObjContainerAbeEnemy__vt80(Obj_80188814 *self);
+void debug_print_item_box_info__21TObjContainerAbeEnemyFv(Obj_80188814 *self);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, void *, s32);
@@ -158,8 +158,8 @@ void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self);
 
 extern "C" {
 
-void TObjComputer__vt12(void *arg0);
-void TObjComputer__vt13(void *arg0);
+void vfunc_14__12TObjComputerFv(void *arg0);
+void clear_ref_if_destroyed__12TObjComputerFv(void *arg0);
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -216,19 +216,19 @@ void TObjComputer::render() {
 
 extern f32 lbl_805DBCE8;
 
-void TObjComputer__vt13(void *arg0) {
+void TObjComputer::clear_ref_if_destroyed() {
     clear_ref_if_destroyed__11TObjMesBaseFv();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)((s8 *)arg0 + 0xC0) + lbl_805DBCE8);
+    *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)((s8 *)this + 0xC0) + lbl_805DBCE8);
 }
 
 extern f32 lbl_805DBCE8;
 
-void TObjComputer__vt12(void *arg0) {
+void TObjComputer::vfunc_14() {
     vfunc_14__11TObjMesBaseFv();
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) != 0) {
-        submit_cursor_candidate(arg0, -1);
+    if ((s32) *(s32 *)((s8 *)this + 0xB4) != 0) {
+        submit_cursor_candidate(this, -1);
     }
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)((s8 *)arg0 + 0xC0) + lbl_805DBCE8);
+    *(f32 *)((s8 *)this + 0xC0) = (f32) (*(f32 *)((s8 *)this + 0xC0) + lbl_805DBCE8);
 }
 
 extern void *tl_05;
@@ -401,14 +401,16 @@ f32 TObjContainerAbeEnemy::vfunc_22(void *, f32) {
     return lbl_805DBCF4;
 }
 
-void TObjContainerAbeEnemy__vt80(Obj_80188814 *self) {
+void TObjContainerAbeEnemy::debug_print_item_box_info() {
+    Obj_80188814 *self = (Obj_80188814 *)this;
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130020, lbl_80444EF4, self->id);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }
 
-void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
+void TObjContainerAbeEnemy::vfunc_81() {
+    Obj_80188884 *self = (Obj_80188884 *)this;
     if (container_breakup_model_archive != 0) {
         switch (self->state) {
         case 0:

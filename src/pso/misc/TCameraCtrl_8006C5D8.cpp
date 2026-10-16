@@ -35,7 +35,7 @@ extern "C" {
 void *TCameraCtrl__vt10(void);
 void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void* sub_8006C5D8__13TUnk_80488B68Fv(void* a0);
-void update__11TCameraCtrlFPv(void *arg0);
+void vfunc_6__13TUnk_80488D70Fv(void *arg0);
 void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
 void *get_player_by_client_id(s32);
@@ -99,7 +99,7 @@ void *TCameraCtrl__vt10(void) {
 extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D9038;
 
-void update__11TCameraCtrlFPv(void *arg0) {
+void TUnk_80488D70::vfunc_6() {
     void *temp_r31;
     void *temp_r3;
 
@@ -107,13 +107,13 @@ void update__11TCameraCtrlFPv(void *arg0) {
         temp_r31 = ((TCameraCtrl *)camera_ctrl_instance)->get_params();
         temp_r3 = get_player_by_client_id(0);
         if (temp_r3 != NULL) {
-            *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
-            *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (lbl_805D9038 + *(f32 *)((s8 *)temp_r3 + 0x3C));
-            *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
-            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
-            *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
-            *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
-            *(f32 *)((s8 *)arg0 + 0x58) = (f32) *(f32 *)((s8 *)temp_r31 + 0x10);
+            *(f32 *)((s8 *)this + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
+            *(f32 *)((s8 *)this + 0x4C) = (f32) (lbl_805D9038 + *(f32 *)((s8 *)temp_r3 + 0x3C));
+            *(f32 *)((s8 *)this + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
+            *(f32 *)((s8 *)this + 0x3C) = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
+            *(f32 *)((s8 *)this + 0x40) = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
+            *(f32 *)((s8 *)this + 0x44) = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
+            *(f32 *)((s8 *)this + 0x58) = (f32) *(f32 *)((s8 *)temp_r31 + 0x10);
         }
     }
 }

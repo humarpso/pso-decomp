@@ -89,12 +89,12 @@ void obj_getField1c(s32);
 void queue_destruction__7TObjectFv(void *);
 void THunterGuildSeqOffline__sub_8021E180();
 void fn_802233F8(void *);
-void close_window__13TShopSequenceFPv(void *);
+void close_window__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 extern void *tl_00;
-void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0);
+void close_window__22THunterGuildSeqOfflineFv(Seq_802129FC *arg0);
 }
 
 extern "C" {
@@ -170,7 +170,8 @@ block_8:
     }
 }
 
-void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
+void THunterGuildSeqOffline::close_window() {
+    Seq_802129FC *arg0 = (Seq_802129FC *)this;
     void *o;
     if (arg0->f34 != NULL) {
         if (((TObject *)(arg0->f34))->all_parents_unqueued_for_destruction() == 1) {
@@ -220,7 +221,7 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
         THunterGuildSeqOffline__sub_8021E180();
         break;
     }
-    close_window__13TShopSequenceFPv(arg0);
+    close_window__13TShopSequenceFv(arg0);
     fn_802233F8(arg0);
     THunterGuildWarning::queue_destruction();
     queue_destruction__7TObjectFv(arg0);

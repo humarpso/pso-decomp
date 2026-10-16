@@ -118,8 +118,8 @@ extern s32 model_render_flags;
 
 extern "C" {
 
-void TOKeyCave01__vt14(void *arg0);
-void TOKeyCol__vt23(void);
+void vfunc_16__11TOKeyCave01Fv(void *arg0);
+void vfunc_25__8TOKeyColFv(void);
 void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -130,15 +130,15 @@ s32 mem_free(void*);
 extern f32 lbl_805DB744;
 extern f32 lbl_805DB748;
 
-void TOKeyCave01__vt14(void *arg0) {
+void TOKeyCave01::vfunc_16() {
     s32 temp_r4;
 
-    if (lbl_805DB748 < *(f32 *)((s8 *)arg0 + 0x6C)) {
-        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (*(f32 *)((s8 *)arg0 + 0x6C) + lbl_805DB744);
+    if (lbl_805DB748 < *(f32 *)((s8 *)this + 0x6C)) {
+        *(f32 *)((s8 *)this + 0x6C) = (f32) (*(f32 *)((s8 *)this + 0x6C) + lbl_805DB744);
     }
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0xFC);
+    temp_r4 = *(s32 *)((s8 *)this + 0xFC);
     if (temp_r4 < 0x2000) {
-        *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (temp_r4 + 0x333);
+        *(s32 *)((s8 *)this + 0xFC) = (s32) (temp_r4 + 0x333);
     }
 }
 
@@ -322,7 +322,7 @@ block_5:
     return arg0;
 }
 
-void TOKeyCol__vt23(void) {  }
+void TOKeyCol::vfunc_25() {  }
 s32 TOKeyCol__vt13(u8 *arg0) {
     s32 temp_r0;
     s32 var_r31;

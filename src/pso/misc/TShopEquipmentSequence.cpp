@@ -176,7 +176,7 @@ void init_window__22TShopEquipmentSequenceFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
-s32 close_window__13TShopSequenceFPv(void *);
+s32 close_window__13TShopSequenceFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_20__12TQuestListVMFl(void *, s32);
 
@@ -215,7 +215,7 @@ s32 TShopEquipmentSequence__sub_8021D65C(void) {  }
 s32 TShopEquipmentSequence::close_if_done() {
     if ((((VObj_8021D660_8021D524 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (TShopWindowBase__sub_802239EC(this) != 0))) {
         close_if_single_screen__13TShopSequenceFv(this);
-        close_window__13TShopSequenceFPv(this);
+        close_window__13TShopSequenceFv(this);
         queue_destruction__7TObjectFv(this);
     }
 }

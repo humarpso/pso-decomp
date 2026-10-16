@@ -1,11 +1,12 @@
 #include "types.h"
+#include "pso/object/TObjQuestColBase.h"
 
 extern "C" {
 
-int TObjQuestColBase__vt13(void);
-int TObjQuestColBase__vt14(void);
+int vfunc_15__16TObjQuestColBaseFv(void);
+int vfunc_16__16TObjQuestColBaseFv(void);
 
-int TObjQuestColBase__vt14(void) { return 0; }
-int TObjQuestColBase__vt13(void) { return 0; }
+int TObjQuestColBase::vfunc_16() { return 0; }
+int TObjQuestColBase::vfunc_15() { return 0; }
 
 }

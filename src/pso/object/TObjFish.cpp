@@ -152,7 +152,7 @@ s32 get_bml_motion(s32, s32);
 extern u32 TOKeyJungleMain__static_model_resource;
 extern const f32 lbl_805DDD38;
 extern const f32 lbl_805DDD3C;
-void TOKeyJungleMain__vt14(u8 *arg0);
+void vfunc_16__15TOKeyJungleMainFv(u8 *arg0);
 s32 get_difficulty_flag_bit__12TLevelSelectFll(s32, s32);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 game_difficulty_selection;
@@ -279,7 +279,8 @@ void TOKeyJungleMain__vt12(u8 *arg0) {
     }
 }
 
-void TOKeyJungleMain__vt14(u8 *arg0) {
+void TOKeyJungleMain::vfunc_16() {
+    u8 *arg0 = (u8 *)this;
   unsigned int new_var;
   s32 temp_r3;
   s32 temp_r3_3;

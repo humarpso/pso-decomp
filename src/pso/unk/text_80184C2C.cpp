@@ -19,7 +19,7 @@ extern const char lbl_804449F0[];
 extern const char lbl_80444A00[];
 extern const char lbl_80444A10[];
 extern const char *lbl_804B6028[];
-void TObjLaboMapWarp__vt17(Obj_80185160 *self);
+void slot4C__15TObjLaboMapWarpFv(Obj_80185160 *self);
 void TLobby__sub_8001FE7C(void *, s32);
 void destroy_buffer_pair(void *, s32);
 extern int city_season_easter_egg_model_table[];
@@ -100,7 +100,8 @@ void TLobby::free_buffers() {
     }
 }
 
-void TObjLaboMapWarp__vt17(Obj_80185160 *self) {
+void TObjLaboMapWarp::slot4C() {
+    Obj_80185160 *self = (Obj_80185160 *)this;
     ((TObjLaboMapWarp *)self)->clamp_index();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x13001C, lbl_804449C0);

@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient02R.h"
 
 extern "C" {
 
-void TOTrapAncient02R__vt86(void);
+void vfunc_88__16TOTrapAncient02RFv(void);
 
-void TOTrapAncient02R__vt86(void) {  }
+void TOTrapAncient02R::vfunc_88() {  }
 
 }

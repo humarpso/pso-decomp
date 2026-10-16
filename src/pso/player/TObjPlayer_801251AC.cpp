@@ -26,7 +26,7 @@ void TUnk_804A2358::emit_marker_effects() {
         ((TObjPlayer *)this)->update_active_game_effect();
     }
 }
-void TObjPlayer::draw_dragons_claw() { draw_weapon_at_joint(this, (void*)49); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); update_trail_slot__11TItemWeaponFPvi(this, (void*)2); }
+void TUnk_804A2358::reserved_53() { draw_weapon_at_joint(this, (void*)49); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); update_trail_slot__11TItemWeaponFPvi(this, (void*)2); }
 void TObjPlayer::apply_11e618_twice() { roll_technique__11TItemWeaponFv(this); roll_technique__11TItemWeaponFv(this); }
 
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A5248.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
 
@@ -28,7 +29,7 @@ void TObjPlayer::approach_shield_effect() {
 extern f32 lbl_805DAEE0;
 extern f32 lbl_805DAEEC;
 
-void TObjPlayer::approach_shield_value() {
+void TUnk_804A5248::update_attack() {
     s32 arg0 = (s32)this;
     if (get_slot_count__14TItemProShieldFv() == 5) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DAEEC, (f32)lbl_805DAEE0);

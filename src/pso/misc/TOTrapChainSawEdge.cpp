@@ -1085,13 +1085,13 @@ void update_object_view_visibility__13TUnk_804B9870Fff();
 void classify_actor_view_detail();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_13__13TUnk_804AF8A0Fl();
-void TOTrapChainSawEdge__vt15();
-void TOTrapChainSaw__sub_802C9BE4();
+void check_player_contact__18TOTrapChainSawEdgeFv();
+void vfunc_18__14TOTrapChainSawFv();
 void vfunc_26__14TOTrapChainSawFv();
 void vfunc_27__14TOTrapChainSawFv();
 void vfunc_28__14TOTrapChainSawFv();
 void vfunc_29__14TOTrapChainSawFv();
-void TOTrapChainSaw__vt14();
+void vfunc_16__14TOTrapChainSawFv();
 void vfunc_25__14TOTrapChainSawFv();
 s32 __vt__18TOTrapChainSawEdge[31] = {
     0,
@@ -1111,8 +1111,8 @@ s32 __vt__18TOTrapChainSawEdge[31] = {
     (s32)&TOTrapChainSaw__sub_802C9090,
     (s32)&decode_params__14TOTrapChainSawFPv,
     (s32)&TOTrapChainSawEdge__vt14,
-    (s32)&TOTrapChainSawEdge__vt15,
-    (s32)&TOTrapChainSaw__sub_802C9BE4,
+    (s32)&check_player_contact__18TOTrapChainSawEdgeFv,
+    (s32)&vfunc_18__14TOTrapChainSawFv,
     (s32)&consume_counter__14TOTrapChainSawFPvPv,
     (s32)&set_hit_cooldown_for_player__14TOTrapChainSawFPvPv,
     (s32)&clear_field_d8__14TOTrapChainSawFPv,
@@ -1209,9 +1209,9 @@ s32 __vt__14TOTrapChainSaw[31] = {
     (s32)&vfunc_13__13TUnk_804AF8A0Fl,
     (s32)&TOTrapChainSaw__sub_802C9090,
     (s32)&decode_params__14TOTrapChainSawFPv,
-    (s32)&TOTrapChainSaw__vt14,
+    (s32)&vfunc_16__14TOTrapChainSawFv,
     (s32)&check_player_contact__14TOTrapChainSawFPv,
-    (s32)&TOTrapChainSaw__sub_802C9BE4,
+    (s32)&vfunc_18__14TOTrapChainSawFv,
     (s32)&consume_counter__14TOTrapChainSawFPvPv,
     (s32)&set_hit_cooldown_for_player__14TOTrapChainSawFPvPv,
     (s32)&clear_field_d8__14TOTrapChainSawFPv,

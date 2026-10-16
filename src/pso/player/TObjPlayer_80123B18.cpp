@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A1D30.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -9,7 +10,7 @@ int get_player_list__10TObjPlayerFv(void*);
 extern const f32 lbl_805DAD14;
 extern const f32 lbl_805DAD18;
 
-void TObjPlayer::approach_field200_cap() {
+void TUnk_804A1D30::update_attack() {
     f32 temp_f2;
 
     temp_f2 = *(f32 *)((s8 *)this + 0x200);

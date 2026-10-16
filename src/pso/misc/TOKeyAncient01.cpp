@@ -78,7 +78,7 @@ struct Buf_8016AF84 { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
 s32 update_anim_phase__13TUnk_804AFBF8Fv();
-void TOKeyAncient01__vt15(u8 *arg0);
+void vfunc_17__14TOKeyAncient01Fv(u8 *arg0);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_z(int, void *);
 s32 rotate_matrix_x(int, void *);
@@ -118,11 +118,11 @@ extern u32 TOKeyAncient01__texture_lists;
 
 extern "C" {
 
-void TOKeyAncient01__vt14(void *arg0);
-void TOKeyAncient01__vt23(void);
+void vfunc_16__14TOKeyAncient01Fv(void *arg0);
+void vfunc_25__14TOKeyAncient01Fv(void);
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
-void TOKey__sub_8016AC88(void);
+void vfunc_16__5TOKeyFv(void);
 void vfunc_17__5TOKeyFv(void);
 void vfunc_25__5TOKeyFv(void);
 void free_collision_body_parts(void *);
@@ -135,7 +135,7 @@ int init_6x04_packet(void* a0 = 0);
 
 void TOKeyAncient01::set_type() { *(s32*)((char*)this + 0x0) = 3; }
 
-void TOKeyAncient01__vt23(void) {  }
+void TOKeyAncient01::vfunc_25() {  }
 
 void TOKeyAncient01::render() {
     u8 *arg0 = (u8 *)this;
@@ -159,13 +159,14 @@ void TOKeyAncient01::render() {
     }
 }
 
-void TOKeyAncient01__vt15(u8 *arg0) {
+void TOKeyAncient01::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     update_anim_phase__13TUnk_804AFBF8Fv();
     ((VObj_18 *)(arg0))->m18();
 }
 
-void TOKeyAncient01__vt14(void *arg0) {
-    struct VObj_8016AE84_8016AD58 *o = (struct VObj_8016AE84_8016AD58 *)arg0;
+void TOKeyAncient01::vfunc_16() {
+    struct VObj_8016AE84_8016AD58 *o = (struct VObj_8016AE84_8016AD58 *)this;
     o->m18();
 }
 

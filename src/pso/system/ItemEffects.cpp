@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2678.h"
 #include "pso/system/TUnk_804A2660.h"
 
 #include "dolphin/mtx.h"
@@ -134,7 +135,7 @@ void TObjPlayer::create_pro_armor() {
     roll_technique__11TItemWeaponFv(this);
     roll_technique__11TItemWeaponFv(this);
 }
-void TObjPlayer::update_twin_blaze_flames() {
+void TUnk_804A2678::update_weapon() {
     s32 temp_r3;
     temp_r3 = TOKeyMachine01::get_global_state();
     if ((temp_r3 != (s32) *(s32 *)((s8 *)this + 0x1F8)) && (item_model_is_shown(this) != 0)) {

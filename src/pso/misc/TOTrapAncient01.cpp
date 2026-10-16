@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient02R.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/misc/TOTrapAncient01.h"
 #include "pso/TParticleCtrl.h"
@@ -376,10 +377,10 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self);
 extern "C" {
 
 void vfunc_6__15TOTrapAncient01FPsl(void *arg0, s16 *arg1, s32 arg2);
-void TOTrapAncient01__vt82(void);
-void TOTrapAncient01__vt84(void);
-void TOTrapAncient01__vt86(void);
-void TOTrapAncient02R__vt84(void *arg0);
+void vfunc_84__15TOTrapAncient01Fv(void);
+void vfunc_86__15TOTrapAncient01Fv(void);
+void vfunc_88__15TOTrapAncient01Fv(void);
+void vfunc_86__16TOTrapAncient02RFv(void *arg0);
 void vfunc_25__6TOTrapFPUc(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
@@ -390,8 +391,8 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOTrap::vfunc_25(u8 *) {  }
-void TOTrapAncient01__vt84(void) {  }
-void TOTrapAncient01__vt86(void) {  }
+void TOTrapAncient01::vfunc_86() {  }
+void TOTrapAncient01::vfunc_88() {  }
 
 void TOTrapAncient01::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 4) {
@@ -434,7 +435,7 @@ f32 TOTrapAncient01::vfunc_22(void *arg1, f32 farg0) {
     set_triggered_state__6TOTrapFPvUi(this, arg1, farg0);
 }
 
-void TOTrapAncient01__vt82(void) {  }
+void TOTrapAncient01::vfunc_84() {  }
 
 extern void *tl_05;
 
@@ -688,12 +689,12 @@ f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i) {
     return self->arr[i].f;
 }
 
-void TOTrapAncient02R__vt84(void *arg0) {
+void TOTrapAncient02R::vfunc_86() {
     s32 x;
-    x = is_current_room(arg0);
+    x = is_current_room(this);
     if (x == 1) {
-        TOTrapAncient02R__sub_80141CF0((void *)((char *)arg0 + 80), lbl_8050BEE0, trap_ancient_light_color);
-        TOTrapAncient02R__sub_80154D78(arg0);
+        TOTrapAncient02R__sub_80141CF0((void *)((char *)this + 80), lbl_8050BEE0, trap_ancient_light_color);
+        TOTrapAncient02R__sub_80154D78(this);
     }
 }
 

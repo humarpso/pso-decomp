@@ -101,18 +101,18 @@ extern const f32 lbl_805DB700;
 extern const f32 lbl_805DB704;
 extern const f32 lbl_805DB708;
 extern const f32 TOKeyAncient02__data_805DB70C;
-void TOKeyAncient02__vt15(u8 *arg0);
+void vfunc_17__14TOKeyAncient02Fv(u8 *arg0);
 extern const f32 lbl_805DB700;
 extern const f32 lbl_805DB704;
 extern const f32 lbl_805DB708;
 extern const f32 TOKeyAncient02__data_805DB70C;
-void TOKeyAncient02__vt14(u8 *arg0);
+void vfunc_16__14TOKeyAncient02Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void TOKeyAncient02__vt23(void);
-void TOKeyAncient03__vt23(void);
+void vfunc_25__14TOKeyAncient02Fv(void);
+void vfunc_25__14TOKeyAncient03Fv(void);
 void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
@@ -122,7 +122,7 @@ void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
-void TOKeyAncient02__vt23(void) {  }
+void TOKeyAncient02::vfunc_25() {  }
 
 extern void *tl_05;
 
@@ -174,7 +174,8 @@ void TOKeyAncient02::render() {
     }
 }
 
-void TOKeyAncient02__vt15(u8 *arg0) {
+void TOKeyAncient02::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)(arg0 + 0xE8) & 1) {
         *(f32 *)(arg0 + 0x6C) += lbl_805DB700;
         *(f32 *)(arg0 + 0x68) += lbl_805DB704;
@@ -194,7 +195,8 @@ void TOKeyAncient02__vt15(u8 *arg0) {
     ((VObj_8016B33C *)arg0)->m18();
 }
 
-void TOKeyAncient02__vt14(u8 *arg0) {
+void TOKeyAncient02::vfunc_16() {
+    u8 *arg0 = (u8 *)this;
     if (*(s32 *)(arg0 + 0xE8) & 1) {
         *(f32 *)(arg0 + 0x6C) += lbl_805DB700;
         *(f32 *)(arg0 + 0x68) += lbl_805DB704;
@@ -299,7 +301,7 @@ u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TOKeyAncient03__vt23(void) {  }
+void TOKeyAncient03::vfunc_25() {  }
 s32 TOKeyAncient03__vt13(u8 *arg0) {
     s32 temp_r0;
     s32 var_r31;

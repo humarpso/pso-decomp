@@ -230,7 +230,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
-s32 close_window__13TShopSequenceFPv(void *);
+s32 close_window__13TShopSequenceFv(void *);
 int sub_8022397C__15TShopWindowBaseFv(void*);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -862,7 +862,7 @@ void TCheckRoomSequence__vt11(u8 *arg0) {
     if ((((VObj_18_8d1630 *)(arg0))->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *) (arg0)) != 0) || (TShopWindowBase__sub_802239EC((void *) (arg0)) != 0)) && (TAdPlayerLoadGC__sub_801E1B50((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) == 0)) {
         copy_bank_to_card_window((s32)(sub_8022397C__15TShopWindowBaseFv((void*)((void *) (arg0)))));
         close_if_single_screen__13TShopSequenceFv((void *) (arg0));
-        close_window__13TShopSequenceFPv((void *) (arg0));
+        close_window__13TShopSequenceFv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

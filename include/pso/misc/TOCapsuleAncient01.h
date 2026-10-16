@@ -6,6 +6,7 @@
 
 struct TOCapsuleAncient01 : public TUnk_804B27D8 {
     virtual ~TOCapsuleAncient01();
+    virtual void vfunc_15();
     u32 m_e4;
     virtual void render();
     static void *create(void *arg0);

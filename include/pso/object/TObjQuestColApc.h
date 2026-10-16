@@ -5,7 +5,9 @@
 #include "pso/object/TObjQuestColBase.h"
 
 struct TObjQuestColApc : public TObjQuestColBase {
-    virtual ~TObjQuestColApc();};
+    virtual ~TObjQuestColApc();
+    virtual int vfunc_15();
+    virtual int vfunc_16();};
 
 typedef char TObjQuestColApc_size[sizeof(TObjQuestColApc) == 0xBC ? 1 : -1];
 #endif

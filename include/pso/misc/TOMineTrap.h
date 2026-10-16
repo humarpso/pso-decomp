@@ -6,6 +6,8 @@
 
 struct TOMineTrap : public TOMine {
     virtual ~TOMineTrap();
+    virtual void vfunc_86();
+    virtual void vfunc_82();
     void sub_80171348(s16);
     virtual int vfunc_12();
     virtual void run_task();
@@ -29,13 +31,10 @@ struct TOMineTrap : public TOMine {
     s32 is_target_in_list(void *obj);
     s32 check_trigger(u32 arg1);
     s32 can_trigger(u32 arg1);
-    void init_object_set_pos();
-    static void init_trap();
     void update_state();
     void spawn_effect();
     void attach_to_keymachine();
     void detonate_if_triggered();
-    f32 trigger_explosion();
     f32 calc_trigger_range(s32 arg1);
     void update_trigger();
     void follow_target();

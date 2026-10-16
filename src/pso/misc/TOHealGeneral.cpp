@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOHealGeneral.h"
 #include "pso/TObject.h"
@@ -76,7 +77,7 @@ struct Heal_80169858 {
 };
 
 extern "C" {
-void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
+void vfunc_6__13TUnk_804B27D8FPsl(u8 *arg0, s16 *arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80169710_lbl_804B2748 bm_fe_obj_kaifuku_moto_resource_descriptor;
 extern RecoveredGlobal_80169710_lbl_804B2760 fe_obj_kaifuku_moto_2_resource_descriptor;
@@ -109,8 +110,8 @@ extern s32 local_client_id;
 
 extern "C" {
 
-void TOHealGeneral__sub_801699F4(void);
-void* TOHealGeneral__vt7(void* p);
+void vfunc_16__13TUnk_804B27D8Fv(void);
+void* vfunc_9__13TOHealGeneralFv(void* p);
 void TLobby__sub_8001FE7C(void*, int);
 u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(f32);
@@ -294,13 +295,14 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     return self;
 }
 
-void* TOHealGeneral__vt7(void* p) { return (char*)p + 0xe0; }
+void*TOHealGeneral::vfunc_9() { return (char*)this + 0xe0; }
 
-void TOHealGeneral__sub_801699F4(void) {  }
+void TUnk_804B27D8::vfunc_16() {  }
 
 extern f32 lbl_805DB6D8;
 
-void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1) {
+void TUnk_804B27D8::vfunc_6(s16 *arg1, s32) {
+    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *arg1;
 }
 

@@ -6,6 +6,7 @@
 
 struct TAdLicAgreementGC : public TAdAgreementBaseGC {
     virtual ~TAdLicAgreementGC();
+    virtual void vfunc_6();
     virtual void vfunc_7();
     virtual void vfunc_8();
     virtual void vfunc_9();

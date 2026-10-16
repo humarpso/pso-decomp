@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapSeabed01.h"
 extern "C" {
 __declspec(section ".sdata2") extern const f32 lbl_805DE640[1] = { 1.0f };
 __declspec(section ".sdata2") extern const f32 TOTrapSeabed01__data_805DE644[1] = { 0.0f };
@@ -157,7 +158,7 @@ void set_indexed_flags(void *, s32, s32);
 void init_all_slots__10TObjPlayerFv(void);
 void check_object_collisions__10TObjPlayerFv(void *);
 s32 submit_cursor_candidate(void *, int);
-void TOTrapSeabed01__vt80(u8 *arg0);
+void vfunc_82__14TOTrapSeabed01Fv(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_8017A1A4(int, int);
@@ -172,7 +173,7 @@ void obj_clearFlags30(void *, u32);
 void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 void set_indexed_flags(void *, s32, s32);
 void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
-void TOTrapSeabed01__vt79(u8 *arg0);
+void vfunc_81__14TOTrapSeabed01Fv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
@@ -291,7 +292,8 @@ void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0) {
 }
 #pragma pop
 
-void TOTrapSeabed01__vt80(u8 *arg0) {
+void TOTrapSeabed01::vfunc_82() {
+    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x348) - 1;
     *(s32 *)((s8 *)arg0 + 0x348) = temp_r0;
@@ -306,7 +308,8 @@ void TOTrapSeabed01__vt80(u8 *arg0) {
     submit_cursor_candidate((void *) (arg0), (int) (-1));
 }
 
-void TOTrapSeabed01__vt79(u8 *arg0) {
+void TOTrapSeabed01::vfunc_81() {
+    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8));
     temp_r0 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF8)) + 4) - 1;
@@ -378,7 +381,7 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(int, int, int, void *, int);
 s32 post_translate_matrix(void *);
-void TOTrapSeabed01__vt82(void);
+void vfunc_84__14TOTrapSeabed01Fv(void);
 s32 draw_ginja_model_with_motion(int, int, f32);
 
 s32 push_matrix();
@@ -690,7 +693,7 @@ extern s32 trap_seabed01_param_index_table[];
 extern "C" {
 
 void vfunc_6__14TOTrapSeabed01FPsl(void *arg0, s16 *arg1, s32 arg2);
-void TOTrapSeabed01__vt82(void);
+void vfunc_84__14TOTrapSeabed01Fv(void);
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 stop_sound_request(s32);
@@ -704,7 +707,7 @@ void *__nw__7TObjectFUl(int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
-void TOTrapSeabed01__vt82(void) {  }
+void TOTrapSeabed01::vfunc_84() {  }
 
 extern void *tl_05;
 
@@ -871,18 +874,18 @@ void TOTrap__sub_801792CC();
 void TOTrap__sub_801792E4();
 void TOTrap__sub_801792FC();
 void vfunc_25__6TOTrapFPUc();
-void TObjPlayer__sub_8000FF3C();
-void TObjPlayer__sub_80010A78();
-void TObjPlayer__sub_80010A80();
-void TObjPlayer__sub_80011010();
-void TObjPlayer__sub_80014838();
-void TObjPlayer__sub_80014840();
-void TObjPlayer__sub_80014884();
-void TObjPlayer__sub_80014888();
-void TObjPlayer__sub_8001488C();
-void TObjPlayer__sub_80014890();
-void TObjPlayer__sub_80014894();
-void TObjPlayer__sub_80014898();
+void vfunc_29__13TUnk_804806E8Fv();
+void vfunc_74__13TUnk_804806E8Fl();
+void vfunc_73__13TUnk_804806E8Fv();
+void vfunc_28__13TUnk_804806E8Fv();
+void vfunc_66__13TUnk_804806E8Fv();
+void vfunc_65__13TUnk_804806E8Fll();
+void vfunc_63__13TUnk_804806E8Fv();
+void vfunc_62__13TUnk_804806E8Fv();
+void vfunc_61__13TUnk_804806E8Fv();
+void vfunc_60__13TUnk_804806E8Fv();
+void vfunc_59__13TUnk_804806E8Fv();
+void vfunc_58__13TUnk_804806E8Fv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void vfunc_13__13TUnk_804AF8A0Fl();
@@ -909,10 +912,10 @@ void cure_poison_ailment();
 void enemy_spawn_jellen_effect();
 void enemy_spawn_zalure_effect();
 void find_target_player__6TOTrapFv();
-void fn_80010EBC();
-void fn_80010EC0();
-void fn_80010EC4();
-void fn_80010EC8();
+void vfunc_78__13TUnk_804806E8Fl();
+void vfunc_77__13TUnk_804806E8Fv();
+void vfunc_76__13TUnk_804806E8Fv();
+void vfunc_75__13TUnk_804806E8Ff();
 void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
@@ -982,8 +985,8 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&vfunc_25__6TOTrapFPUc,
     (void *)&vfunc_26__6TOTrapFll,
     (void *)&TOTrap__sub_801792CC,
-    (void *)&TObjPlayer__sub_80011010,
-    (void *)&TObjPlayer__sub_8000FF3C,
+    (void *)&vfunc_28__13TUnk_804806E8Fv,
+    (void *)&vfunc_29__13TUnk_804806E8Fv,
     (void *)&is_target_in_attack_range__10TObjPlayerFv,
     (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512,
@@ -1012,33 +1015,33 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status,
     (void *)&apply_anti_technique__10TObjPlayerFv,
-    (void *)&TObjPlayer__sub_80014898,
-    (void *)&TObjPlayer__sub_80014894,
-    (void *)&TObjPlayer__sub_80014890,
-    (void *)&TObjPlayer__sub_8001488C,
-    (void *)&TObjPlayer__sub_80014888,
-    (void *)&TObjPlayer__sub_80014884,
+    (void *)&vfunc_58__13TUnk_804806E8Fv,
+    (void *)&vfunc_59__13TUnk_804806E8Fv,
+    (void *)&vfunc_60__13TUnk_804806E8Fv,
+    (void *)&vfunc_61__13TUnk_804806E8Fv,
+    (void *)&vfunc_62__13TUnk_804806E8Fv,
+    (void *)&vfunc_63__13TUnk_804806E8Fv,
     (void *)&reset_pose__10TObjPlayerFPv,
-    (void *)&TObjPlayer__sub_80014840,
-    (void *)&TObjPlayer__sub_80014838,
+    (void *)&vfunc_65__13TUnk_804806E8Fll,
+    (void *)&vfunc_66__13TUnk_804806E8Fv,
     (void *)&TOTrapSeabed01__vt65,
     (void *)&get_pos__10TObjPlayerFii,
     (void *)&apply_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_jellen_effect,
     (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect,
-    (void *)&TObjPlayer__sub_80010A80,
-    (void *)&TObjPlayer__sub_80010A78,
-    (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4,
-    (void *)&fn_80010EC0,
-    (void *)&fn_80010EBC,
+    (void *)&vfunc_73__13TUnk_804806E8Fv,
+    (void *)&vfunc_74__13TUnk_804806E8Fl,
+    (void *)&vfunc_75__13TUnk_804806E8Ff,
+    (void *)&vfunc_76__13TUnk_804806E8Fv,
+    (void *)&vfunc_77__13TUnk_804806E8Fv,
+    (void *)&vfunc_78__13TUnk_804806E8Fl,
     (void *)&find_target_player__6TOTrapFv,
     (void *)&submit_cursor_and_notify__6TOTrapFv,
-    (void *)&TOTrapSeabed01__vt79,
-    (void *)&TOTrapSeabed01__vt80,
+    (void *)&vfunc_81__14TOTrapSeabed01Fv,
+    (void *)&vfunc_82__14TOTrapSeabed01Fv,
     (void *)&is_any_player_matching_stat__6TOTrapFv,
-    (void *)&TOTrapSeabed01__vt82,
+    (void *)&vfunc_84__14TOTrapSeabed01Fv,
     (void *)&TOTrapSeabed01__vt83,
     (void *)&vfunc_86__6TOTrapFv,
     (void *)&TOTrap::scale_by_table_value,

@@ -6,6 +6,7 @@
 class TUnk_804E0988 : public TObjPathObj {
 public:
     virtual ~TUnk_804E0988();
+    virtual void vfunc_13(s32);
     virtual void vfunc_14();
     u8 unk_98[0x4];
     s32 m_9c;

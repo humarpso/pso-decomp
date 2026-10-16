@@ -6,6 +6,10 @@
 
 struct TOKeyCol : public TOKey {
     virtual ~TOKeyCol();
+    virtual void vfunc_16();
+    virtual void vfunc_17();
+    virtual void vfunc_19();
+    virtual void vfunc_25();
     void send_switch_changed(s32 flags);
     void run_task();
     void render();

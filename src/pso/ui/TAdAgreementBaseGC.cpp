@@ -69,7 +69,7 @@ extern const f32 lbl_805DF70C;
 extern "C" {
 
 void vfunc_9__18TAdAgreementBaseGCFv(void* p);
-void TAdAgreementBaseGC__vt4(void);
+void vfunc_6__18TAdAgreementBaseGCFv(void);
 void vfunc_7__18TAdAgreementBaseGCFv(void);
 void vfunc_8__18TAdAgreementBaseGCFv(void);
 void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
@@ -209,7 +209,7 @@ Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1) {
     return arg0;
 }
 
-void TAdAgreementBaseGC__vt4(void) {  }
+void TAdAgreementBaseGC::vfunc_6() {  }
 void TAdAgreementBaseGC::vfunc_7() {  }
 void TAdAgreementBaseGC::vfunc_8() {  }
 void fn_80329BAC(void* p) { *(s32*)((char*)p + 0xb8) = 1; }

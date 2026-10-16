@@ -376,7 +376,7 @@ void invoke_initialization_hook__9TObjEneDDFPv(void *arg0);
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 s32 subtractive_rng_seed(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 call_vt78__10TObjPlayerFv();
+s32 vfunc_79__9TObjEnemyFv();
 int fn_800FD8A0(void*);
 s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 
@@ -421,7 +421,7 @@ void TObjEneDD::vfunc_79() {
     s16 temp_r31;
 
     temp_r31 = *(s16 *)((s8 *)this + 0x326);
-    call_vt78__10TObjPlayerFv();
+    vfunc_79__9TObjEnemyFv();
     *(s16 *)((s8 *)this + 0x326) = temp_r31;
 }
 

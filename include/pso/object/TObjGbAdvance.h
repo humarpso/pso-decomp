@@ -6,6 +6,7 @@
 
 struct TObjGbAdvance : public TObjMesBase {
     virtual ~TObjGbAdvance();
+    virtual void vfunc_14();
     static void free_shared_data();
     static void load_resource_instance();
     virtual void render();};

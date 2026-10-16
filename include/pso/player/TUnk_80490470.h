@@ -6,6 +6,7 @@
 class TUnk_80490470 : public TUnk_80494AE0 {
 public:
     virtual ~TUnk_80490470();
+    virtual void set_rate_from_divisor(s32);
     virtual void vfunc_4();
     virtual void reset_obstruction_fade();
     virtual s32 advance_toward_max();

@@ -449,9 +449,6 @@ struct TLobby : public TObject {
     static s32 is_ready();
     static int get_online_ready_flag();
     static void free_char_select_singleton();
-    int is_invalid_state();
-    int is_state_valid_flag();
-    int is_check_state_valid();
     static void apply_state_6c84();
     static void apply_player_flag_2();
     static void init_object_flag();

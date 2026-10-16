@@ -33,10 +33,10 @@ extern "C" {
 void vfunc_8__13TShopSequenceFv(void* p);
 void close_if_single_screen__13TShopSequenceFv(void);
 void close_message_window__13TShopSequenceFPv(void *arg0);
-void close_window__13TShopSequenceFPv(void *arg0);
+void close_window__13TShopSequenceFv(void *arg0);
 void vfunc_9__13TShopSequenceFv(void* p);
 void vfunc_7__13TShopSequenceFv(void* p);
-void free_member__13TShopSequenceFPv(void* p);
+void vfunc_6__13TShopSequenceFv(void* p);
 void restore_player_state__13TShopSequenceFv(void *arg0);
 s32 vfunc_10__13TShopSequenceFv(void *arg0);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32);
@@ -92,17 +92,17 @@ u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 void TShopSequence::vfunc_9() { void* m = *(void**)((char*)this + 0x28); if (m) format_guild_message__24TMessageWindowControllerFll(m); }
 void TShopSequence::vfunc_8() { void* m = *(void**)((char*)this + 0x28); if (m) send_message__24TMessageWindowControllerFll(m); }
 void TShopSequence::vfunc_7() { void* m = *(void**)((char*)this + 0x28); if (m) display_message__24TMessageWindowControllerFPCcl(m); }
-void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_shop_message__24TMessageWindowControllerFll(m); }
+void TShopSequence::vfunc_6() { void* m = *(void**)((char*)this + 0x28); if (m) format_shop_message__24TMessageWindowControllerFll(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {
     if ((TAdSinglePlyChrSelectGC::get_game_mode() != 0) && (is_split_screen() == 0)) {
         load_character_from_card__23TAdSinglePlyChrSelectGCFi(0);
     }
 }
-void close_window__13TShopSequenceFPv(void *arg0) {
+void TShopSequence::close_window() {
     s32 var_r31;
 
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-        unsuppress_slot__11TWindowCtrlFv(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
+    if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
+        unsuppress_slot__11TWindowCtrlFv(obj_getField1c(*(u32 *)((s8 *)this + 0x24)));
         if (TRaderMapCore::is_not_split_screen() != 1) {
             var_r31 = 0;
             do {
@@ -112,7 +112,7 @@ void close_window__13TShopSequenceFPv(void *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        clear_lobby_flag__10TObjPlayerFPv(*(u32 *)((s8 *)arg0 + 0x24));
+        clear_lobby_flag__10TObjPlayerFPv(*(u32 *)((s8 *)this + 0x24));
     }
 }
 void TShopSequence::restore_player_state() {

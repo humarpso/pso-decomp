@@ -6,6 +6,7 @@
 
 struct TOCapsuleLabo : public TUnk_804B27D8 {
     virtual ~TOCapsuleLabo();
+    virtual void vfunc_15();
     u32 m_e4;
     static void unload_static_data();
     static void load_resources();

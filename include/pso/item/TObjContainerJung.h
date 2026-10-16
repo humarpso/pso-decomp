@@ -6,6 +6,8 @@
 
 struct TObjContainerJung : public TUnk_804B6C24 {
     virtual ~TObjContainerJung();
+    virtual void vfunc_80();
+    virtual void vfunc_81();
     virtual void vfunc_6(s16 *, s32);
     static u8 *get_model_by_index(s32 arg0);
     static void *create(void *arg0);

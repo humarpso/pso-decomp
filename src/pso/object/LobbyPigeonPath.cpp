@@ -885,7 +885,8 @@ void TUnk_804E08D4::vfunc_14() {
 
 #pragma push
 #pragma fp_contract on
-void update_path_motion__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804E08D4::vfunc_13(s32) {
+    u8 *arg0 = (u8 *)this;
     Mtx_802C17FC m;
     s32 temp_r0;
 
@@ -1081,7 +1082,8 @@ void TUnk_804E0910::vfunc_14() {
     pop_matrix();
 }
 
-void advance_path_step__10TObjPlayerFPv(Pl_802C1FD0 *arg0) {
+void TUnk_804E0910::vfunc_13(s32) {
+    Pl_802C1FD0 *arg0 = (Pl_802C1FD0 *)this;
     u8 *t = (u8 *)lobby_pigeon_path_parameters;
     t = t + arg0->idx * 0x14;
     Ent_802C1FD0 *e = (Ent_802C1FD0 *)t;
@@ -1293,7 +1295,8 @@ void TUnk_804E094C::vfunc_14() {
     pop_matrix();
 }
 
-void advance_path_follow__10TObjPlayerFPv(Pl_802C26E4 *arg0) {
+void TUnk_804E094C::vfunc_13(s32) {
+    Pl_802C26E4 *arg0 = (Pl_802C26E4 *)this;
     Ent_802C26E4 *e = (Ent_802C26E4 *)jungle_ebi_path_profiles;
     e += arg0->idx;
     f32 ox = arg0->x;
@@ -1481,7 +1484,8 @@ void TUnk_804E0988::vfunc_14() {
     pop_matrix();
 }
 
-void advance_path_follow_b__10TObjPlayerFPv(Pl_802C2DEC *arg0) {
+void TUnk_804E0988::vfunc_13(s32) {
+    Pl_802C2DEC *arg0 = (Pl_802C2DEC *)this;
     Entry_802C2C48 *e = seabed_dolphin_path_profiles;
     f32 ox;
     e += arg0->idx;

@@ -289,9 +289,9 @@ s32 access_object_saved_state(void *, int);
 s32 init_fields__13TUnk_804B1B80Fv();
 s32 sub_80166E64__13TUnk_804B1B80Fv(void *);
 s32 sub_80166EA8__13TUnk_804B1B80Fi(void *, int);
-void TOFenceAncient04__vt14(void);
-void TOFenceAncient04__vt13(void* p);
-void TOFenceAncient04__vt12(void* p);
+void vfunc_16__16TOFenceAncient04Fv(void);
+void vfunc_15__16TOFenceAncient04Fv(void* p);
+void vfunc_14__16TOFenceAncient04Fv(void* p);
 void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
 u8 * TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2);
 void vfunc_80__27TOHangceilingCave01KeyQuickFv(u8 *arg0);
@@ -368,11 +368,11 @@ __declspec(section ".rodata") extern const char lbl_804416A8[];
 __declspec(section ".rodata") extern const char lbl_804416C0[];
 __declspec(section ".rodata") extern const char lbl_804416D8[];
 
-void TOFenceAncient04__vt14(void) {  }
+void TOFenceAncient04::vfunc_16() {  }
 
-void TOFenceAncient04__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; { int i; for (i = 0; i < 4; i++) { ((TObjPlayer *)p)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
+void TOFenceAncient04::vfunc_15() { *(int*)((char*)this + 0xac) = 0; *(int*)((char*)this + 0xd0) = 0; { int i; for (i = 0; i < 4; i++) { ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
 
-void TOFenceAncient04__vt12(void* p) { *(int*)((char*)p + 0xac) = 1; *(int*)((char*)p + 0xd0) = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(p, (void*)i, (void*)8); } } }
+void TOFenceAncient04::vfunc_14() { *(int*)((char*)this + 0xac) = 1; *(int*)((char*)this + 0xd0) = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(this, (void*)i, (void*)8); } } }
 
 void *TOFenceAncient04::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);

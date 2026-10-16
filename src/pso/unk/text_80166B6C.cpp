@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOFenceAncient02.h"
 #include "pso/player/TUnk_804B1B80.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TOFenceAncient01.h"
@@ -73,9 +74,9 @@ extern u32 TOFenceAncient01__resource_pointer_array;
 
 extern "C" {
 
-void TOFenceAncient02__vt12(void* p);
-void TOFenceAncient02__vt13(void* p);
-void TOFenceAncient02__vt14(void);
+void vfunc_14__16TOFenceAncient02Fv(void* p);
+void vfunc_15__16TOFenceAncient02Fv(void* p);
+void vfunc_16__16TOFenceAncient02Fv(void);
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 unregister_object_by_id(s32 *);
@@ -205,9 +206,9 @@ s32 TUnk_804B1B80::sub_80166EA8(int _w1) {
     return *(s32 *)((s8 *)arg0 + 0xD4);
 }
 
-void TOFenceAncient02__vt14(void) {  }
-void TOFenceAncient02__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; ((TObjPlayer *)p)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
-void TOFenceAncient02__vt12(void* p) { *(int*)((char*)p + 0xac) = 1; *(int*)((char*)p + 0xd0) = 1; set_indexed_flags(p, (void*)0, (void*)8); }
+void TOFenceAncient02::vfunc_16() {  }
+void TOFenceAncient02::vfunc_15() { *(int*)((char*)this + 0xac) = 0; *(int*)((char*)this + 0xd0) = 0; ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
+void TOFenceAncient02::vfunc_14() { *(int*)((char*)this + 0xac) = 1; *(int*)((char*)this + 0xd0) = 1; set_indexed_flags(this, (void*)0, (void*)8); }
 
 }
 

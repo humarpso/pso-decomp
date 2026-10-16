@@ -83,8 +83,8 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-void TOSensorGeneral01__vt14(void *arg0);
-void TOSensorGeneral01__vt15(void *arg0);
+void vfunc_16__17TOSensorGeneral01Fv(void *arg0);
+void vfunc_17__17TOSensorGeneral01Fv(void *arg0);
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -92,9 +92,9 @@ void __dt__8TOSensorFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
-void TOSensorGeneral01__vt15(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x147);
-    *(s32 *)((s8 *)arg0 + 0xE8) = (s32) (*(s32 *)((s8 *)arg0 + 0xE8) + 0x28F);
+void TOSensorGeneral01::vfunc_17() {
+    *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
+    *(s32 *)((s8 *)this + 0xE8) = (s32) (*(s32 *)((s8 *)this + 0xE8) + 0x28F);
 }
 
 extern s32 lbl_80442A78;
@@ -103,32 +103,32 @@ extern const f32 lbl_805DB9B4;
 extern const f32 lbl_805DB9B8;
 extern const f32 lbl_805DB9BC;
 
-void TOSensorGeneral01__vt14(void *arg0) {
+void TOSensorGeneral01::vfunc_16() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)arg0 + 0xE8) = (s32) (*(s32 *)((s8 *)arg0 + 0xE8) + 0x28F);
-    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) (*(s32 *)((s8 *)arg0 + 0xF0) - 1);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xF0);
+    *(s32 *)((s8 *)this + 0xE8) = (s32) (*(s32 *)((s8 *)this + 0xE8) + 0x28F);
+    *(s32 *)((s8 *)this + 0xF0) = (s32) (*(s32 *)((s8 *)this + 0xF0) - 1);
+    temp_r0 = *(s32 *)((s8 *)this + 0xF0);
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0xF0) = 0;
-        *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0xCCC);
-        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DB9B0);
+        *(s32 *)((s8 *)this + 0xF0) = 0;
+        *(s32 *)((s8 *)this + 0xEC) = 0;
+        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0xCCC);
+        *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DB9B0);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B4) {
-        *(s32 *)((s8 *)arg0 + 0xEC) = 1;
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x147);
+        *(s32 *)((s8 *)this + 0xEC) = 1;
+        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B8) {
-        *(s32 *)((s8 *)arg0 + 0xEC) = 2;
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x147);
+        *(s32 *)((s8 *)this + 0xEC) = 2;
+        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9BC) {
-        *(s32 *)((s8 *)arg0 + 0xEC) = 3;
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x147);
+        *(s32 *)((s8 *)this + 0xEC) = 3;
+        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
     }
 }
 

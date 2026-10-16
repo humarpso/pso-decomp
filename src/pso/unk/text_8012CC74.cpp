@@ -80,7 +80,7 @@ u8 *create_saber_weapon(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer::toggle_slot_states() {
+void TUnk_804A5648::emit_marker_effects() {
     Pl_8012CCCC *arg0 = (Pl_8012CCCC *)this;
     if (arg0->m49((u8 *)arg0 + 0x1F8, 0, 0, 1) != 0) {
         arg0->m49((u8 *)arg0 + 0x204, 0, 0, 0);

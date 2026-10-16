@@ -182,7 +182,7 @@ void vfunc_11__22THunterGuildSeqOfflineFv(Guild_8021317C *self);
 u16 obj_getField1c(s32);
 s32 queue_destruction__7TObjectFv(int);
 void THunterGuildSeqOffline__sub_8021E180(void);
-void close_window__13TShopSequenceFPv(void *);
+void close_window__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
@@ -415,7 +415,7 @@ void THunterGuildSeqOffline__sub_80213474(void *arg0) {
         case 2:
             break;
         }
-        close_window__13TShopSequenceFPv(arg0);
+        close_window__13TShopSequenceFv(arg0);
         queue_destruction__7TObjectFv((int)arg0);
     }
 }

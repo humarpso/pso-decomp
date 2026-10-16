@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestColApcINW.h"
 #include "pso/object/TObjQuestColBase.h"
 #include "pso/object/TObjQuestCol.h"
 
@@ -13,24 +14,25 @@ Pl_801960F8 *get_player_by_client_id(s32);
 extern u8 quest_col_apc_warp_target_pos[];
 extern s32 local_client_id;
 extern s32 quest_collision_warp_pending;
-s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0);
+s32 vfunc_15__18TObjQuestColApcINWFv(Col_801960F8 *arg0);
 }
 
 extern "C" {
 
 void *TObjQuestColApcINW__ct(void *arg0);
-void TObjQuestColApcINW__vt14(void* p);
+void vfunc_16__18TObjQuestColApcINWFv(void* p);
 void TObjQuestColBase__ct(void *);
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-void TObjQuestColApcINW__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
+int TObjQuestColApcINW::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(*(void**)((char*)this + 0xb0)); }
 
 extern const f32 lbl_805DBF04;
 extern s32 __vt__18TObjQuestColApcINW[];
 extern void *lbl_805D3400;
 
-s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0) {
+int TObjQuestColApcINW::vfunc_15() {
+    Col_801960F8 *arg0 = (Col_801960F8 *)this;
     if (((TObjQuestColBase *)arg0)->update_trigger_state(arg0->fAC) == 1) {
         Pl_801960F8 *p = get_player_by_client_id(local_client_id);
         if (p == 0) {

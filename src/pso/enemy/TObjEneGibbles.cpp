@@ -656,22 +656,22 @@ struct Gib_802DB920;
 Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1);
 }
 extern "C" {
-void TObjPlayer__sub_8000FF3C();
+void vfunc_29__13TUnk_804806E8Fv();
 }
 extern "C" {
-void TObjPlayer__sub_80010A80();
+void vfunc_73__13TUnk_804806E8Fv();
 }
 extern "C" {
 void consume_timer_field__10TObjPlayerFPvi();
 }
 extern "C" {
-void TObjPlayer__sub_80014830();
+void vfunc_67__13TUnk_804806E8Fv();
 }
 extern "C" {
-void TObjPlayer__sub_80014838();
+void vfunc_66__13TUnk_804806E8Fv();
 }
 extern "C" {
-void TObjPlayer__sub_80014840();
+void vfunc_65__13TUnk_804806E8Fll();
 }
 extern "C" {
 void apply_slow_status__10TObjPlayerFPv();
@@ -739,7 +739,7 @@ extern "C" {
 void calc_distance_accuracy_penalty__10TObjPlayerFv();
 }
 extern "C" {
-void call_vt78__10TObjPlayerFv();
+void vfunc_79__9TObjEnemyFv();
 }
 extern "C" {
 void classify_actor_view_detail();
@@ -763,16 +763,16 @@ extern "C" {
 void enemy_spawn_zalure_effect();
 }
 extern "C" {
-void fn_80010EBC();
+void vfunc_78__13TUnk_804806E8Fl();
 }
 extern "C" {
-void fn_80010EC0();
+void vfunc_77__13TUnk_804806E8Fv();
 }
 extern "C" {
-void fn_80010EC4();
+void vfunc_76__13TUnk_804806E8Fv();
 }
 extern "C" {
-void fn_80010EC8();
+void vfunc_75__13TUnk_804806E8Ff();
 }
 extern "C" {
 void clear_lobby_object_state__9TObjEnemyFv();
@@ -950,7 +950,7 @@ void *lbl_804E29F0[83] = {
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
-    (void *)&update_target__14TObjEneGibblesFPv, (void *)&TObjPlayer__sub_8000FF3C, (void *)&vfunc_30__14TObjEneGibblesFv, (void *)&test_flag_256__14TObjEneGibblesFv,
+    (void *)&update_target__14TObjEneGibblesFPv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&vfunc_30__14TObjEneGibblesFv, (void *)&test_flag_256__14TObjEneGibblesFv,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&vfunc_36__14TObjEneGibblesFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&vfunc_39__14TObjEneGibblesFv,
     (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
@@ -959,10 +959,10 @@ void *lbl_804E29F0[83] = {
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
     (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&vfunc_58__14TObjEneGibblesFv, (void *)&vfunc_59__14TObjEneGibblesFv,
     (void *)&vfunc_60__14TObjEneGibblesFv, (void *)&vfunc_61__14TObjEneGibblesFv, (void *)&TObjEneGibbles__sub_802D8464, (void *)&vfunc_63__14TObjEneGibblesFv,
-    (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
+    (void *)&reset_pose__10TObjPlayerFPv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
-    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFv,
+    (void *)&enemy_spawn_zalure_effect, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&update_and_send_enemy_hit_state, (void *)&vfunc_75__13TUnk_804806E8Ff,
+    (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define lbl_804E28B0 (*(RecoveredGlobal_802D7A2C_lbl_804E28B0 *)lbl_804E28B0)

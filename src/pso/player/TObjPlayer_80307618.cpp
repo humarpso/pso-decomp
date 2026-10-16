@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804E70A8.h"
 #include "pso/player/TUnk_804E71A0.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -51,7 +52,7 @@ void render__13TUnk_804E71A0Fv(void);
 void run_task__13TUnk_804E71A0Fv(void);
 void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1);
 void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0);
-void update_invincible_blink__10TObjPlayerFPv(void *arg0);
+void update_weapon__13TUnk_804E70A8Fv(void *arg0);
 f32 sin_table_lookup(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
@@ -77,17 +78,17 @@ void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0) {
 
 extern f32 lbl_805DF0A8;
 
-void update_invincible_blink__10TObjPlayerFPv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) > 0) {
-        if (get_slot_count__14TItemProShieldFv((void *)(arg0)) == 1) {
-            *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (*(s32 *)((s8 *)arg0 + 0x1F8) - 1);
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0) {
-                set_status_flags__10TObjPlayerFPvUi(arg0, 0x800);
+void TUnk_804E70A8::update_weapon() {
+    if ((s32) *(s32 *)((s8 *)this + 0x1F8) > 0) {
+        if (get_slot_count__14TItemProShieldFv((void *)(this)) == 1) {
+            *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) - 1);
+            if ((s32) *(s32 *)((s8 *)this + 0x1F8) == 0) {
+                set_status_flags__10TObjPlayerFPvUi(this, 0x800);
             }
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (*(s32 *)((s8 *)arg0 + 0x200) + 0xB6);
-        *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (lbl_805DF0A8 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x200)));
+        *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) + 0xB6);
+        *(s32 *)((s8 *)this + 0x1FC) = (s32) (lbl_805DF0A8 * sin_table_lookup(*(s32 *)((s8 *)this + 0x200)));
     }
 }
 

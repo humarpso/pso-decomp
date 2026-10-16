@@ -112,7 +112,7 @@ extern s32 player_action_motion_buffer;
 int vfunc_4__13TUnk_804DDBF0Fv(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
-void player_motion_provider1_set_attack_interpolation(u8 *arg0);
+void vfunc_14__13TUnk_804DDBF0Fv(u8 *arg0);
 s32 load_action_motion_pairs(void *, s32, s32, s32);
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 }
@@ -146,7 +146,8 @@ s32 TLobby::calc_cell_offset(s32 arg1, s32 arg2) {
 }
 typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
 
-void player_motion_provider1_set_attack_interpolation(u8 *arg0) {
+void TUnk_804DDBF0::vfunc_14() {
+    u8 *arg0 = (u8 *)this;
     VObj_802A7378 *o = (VObj_802A7378 *)arg0;
     o->slots[o->m15()].node->flags |= 0x80;
     o->slots[o->m16()].node->flags |= 0x80;

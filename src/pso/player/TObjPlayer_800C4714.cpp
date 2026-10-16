@@ -1178,7 +1178,7 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void call_vt16_with_default__10TObjPlayerFv();
-void TObjPlayer__sub_800BC220();
+void vfunc_16__13TUnk_804928CCFPvPv();
 void call_vt13_with_default__10TObjPlayerFv();
 void vfunc_12__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
@@ -1188,7 +1188,7 @@ void area_attack_apply_recoil__13TUnk_804928CCFPvf();
 void area_attack_deliver_physical();
 void area_attack_receive_direct();
 void classify_actor_view_detail();
-void dispatch_vt15__10TObjPlayerFPv();
+void vfunc_19__13TUnk_804928CCFPv();
 void hit_area_targets__10TObjPlayerFPvPviUif();
 void release_member_90__10TObjPlayerFv();
 void render_shadows__7TObjectFv();
@@ -1206,7 +1206,7 @@ void *lbl_804933D8[24] = {
     (void *)&render__21TObjEneRe2Flower_BombFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&vfunc_9__13TUnk_804B9870Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&call_vt13_with_default__10TObjPlayerFv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
-    (void *)&TObjPlayer__sub_800BC220, (void *)&call_vt16_with_default__10TObjPlayerFv, (void *)&area_attack_deliver_physical, (void *)&dispatch_vt15__10TObjPlayerFPv,
+    (void *)&vfunc_16__13TUnk_804928CCFPvPv, (void *)&call_vt16_with_default__10TObjPlayerFv, (void *)&area_attack_deliver_physical, (void *)&vfunc_19__13TUnk_804928CCFPv,
     (void *)&area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__10TObjPlayerFPvPf, (void *)0x0,
 };
 }

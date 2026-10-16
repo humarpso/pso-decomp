@@ -6,6 +6,9 @@
 
 struct TOFenceAncient02 : public TUnk_804B1B80 {
     virtual ~TOFenceAncient02();
+    virtual void vfunc_14();
+    virtual void vfunc_15();
+    virtual void vfunc_16();
     static void *create(void *arg0);
     static void free_resources();
     static void load_assets();};

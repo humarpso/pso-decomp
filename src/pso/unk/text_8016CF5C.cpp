@@ -38,18 +38,18 @@ extern const f32 lbl_805DB780;
 extern const f32 lbl_805DB784;
 extern const f32 lbl_805DB788;
 extern const f32 lbl_805DB78C;
-void TOKeyMachine01__vt15(u8 *arg0);
+void vfunc_17__14TOKeyMachine01Fv(u8 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
-void TOKeyMachine01__vt17(s32 arg0);
+void vfunc_19__14TOKeyMachine01Fv(s32 arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
 void TOKeyMachine01__vt16(s32 arg0);
 extern const f32 lbl_805DB790;
 extern const f32 lbl_805DB78C;
-void TOKeyMachine01__vt14(Obj_8016D428 *self);
+void vfunc_16__14TOKeyMachine01Fv(Obj_8016D428 *self);
 s32 get_current_floor();
 extern s32 local_client_id;
 s32 refresh_collision_body_centers(void *);
@@ -70,7 +70,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source);
 
 extern "C" {
 
-void TOKeyMachine01__vt23(void);
+void vfunc_25__14TOKeyMachine01Fv(void);
 
 void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
@@ -101,7 +101,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     return arg0;
 }
 
-void TOKeyMachine01__vt23(void) {  }
+void TOKeyMachine01::vfunc_25() {  }
 s32 TOKeyMachine01__vt13(u8 *arg0) {
     s32 temp_r0;
     s32 var_r31;
@@ -140,7 +140,8 @@ void TOKeyMachine01::send_switch_changed(s32 flags) {
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 
-void TOKeyMachine01__vt17(s32 arg0) {
+void TOKeyMachine01::vfunc_19() {
+    s32 arg0 = (s32)this;
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;
@@ -185,7 +186,8 @@ void TOKeyMachine01__vt16(s32 arg0) {
     }
 }
 
-void TOKeyMachine01__vt15(u8 *arg0) {
+void TOKeyMachine01::vfunc_17() {
+    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xF8) == 1) {
         *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) + lbl_805DB780);
@@ -203,7 +205,8 @@ void TOKeyMachine01__vt15(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (temp_f1 - lbl_805DB78C);
     }
 }
-void TOKeyMachine01__vt14(Obj_8016D428 *self) {
+void TOKeyMachine01::vfunc_16() {
+    Obj_8016D428 *self = (Obj_8016D428 *)this;
     if (lbl_805DB790 < self->f) {
         self->f += lbl_805DB78C;
     }

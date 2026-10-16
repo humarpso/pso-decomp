@@ -6,6 +6,7 @@
 
 struct TOKeyJungleMain : public TOKey {
     virtual ~TOKeyJungleMain();
+    virtual void vfunc_16();
     virtual void vfunc_17();
     virtual void send_switch_on();
     virtual void debug_draw_key_id();

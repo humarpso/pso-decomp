@@ -240,7 +240,7 @@ s32 TUnk_80494AE0::vfunc_10() {
     return *arg0 > lbl_805DA3D8;
 }
 
-void TObjPlayer::clear_flag_and_notify() {
+void TUnk_80494AE0::clear_flag_and_notify() {
     model_render_flags &= 0xFFFF77DF;
     set_chunk_material_override_pair(0xFF00, 0);
     set_chunk_blend(0x2500);
@@ -264,7 +264,7 @@ void TObjPlayer::set_flags_and_apply_damage_color() {
 
 extern const f32 lbl_805DA3DC;
 
-s32 TObjPlayer::advance_toward_max() {
+s32 TUnk_80494AE0::advance_toward_max() {
     f32 temp_f1;
     s32 var_r0;
 
@@ -285,7 +285,7 @@ extern "C" {
 
 extern const f32 lbl_805DA3D8;
 
-s32 TObjPlayer::decay_value_toward_floor() {
+s32 TUnk_80494AE0::decay_value_toward_floor() {
     f32 temp_f1;
     s32 var_r0;
 
@@ -306,7 +306,7 @@ extern "C" {
 
     extern const f32 lbl_805DA3D8;
     extern const f32 lbl_805DA3DC;
-void TObjPlayer::reset_obstruction_fade() { *(float*)((char*)this + 0x0) = lbl_805DA3D8; *(float*)((char*)this + 0x4) = lbl_805DA3DC; *(float*)((char*)this + 0x8) = lbl_805DA3DC; *(float*)((char*)this + 0xc) = lbl_805DA3DC; }
+void TUnk_80494AE0::reset_obstruction_fade() { *(float*)((char*)this + 0x0) = lbl_805DA3D8; *(float*)((char*)this + 0x4) = lbl_805DA3DC; *(float*)((char*)this + 0x8) = lbl_805DA3DC; *(float*)((char*)this + 0xc) = lbl_805DA3DC; }
 
 }
 
@@ -339,7 +339,7 @@ void TUnk_80494AE0::vfunc_4() { *(float*)((char*)this + 0x0) = lbl_805DA3DC; *(f
 extern const f64 lbl_8043C758;
 extern const f32 lbl_805DA3E0;
 
-void TObjPlayer::set_rate_from_divisor(s32 arg1) {
+void TUnk_80494AE0::set_rate_from_divisor(s32 arg1) {
     *(f32 *)((s8 *)this + 0x10) = (f32) (lbl_805DA3E0 / (f32) arg1);
 }
 

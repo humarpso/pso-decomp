@@ -112,7 +112,7 @@ void set_indexed_flags(void *, s32, s32);
 void submit_cursor_candidate(void *, s32);
 extern const f32 lbl_805DBA78;
 extern const f32 lbl_805DBA80;
-void TOTrapAncient02R__vt80(void *arg0);
+void vfunc_82__16TOTrapAncient02RFv(void *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_8017A1A4(void *, s32);
@@ -353,18 +353,18 @@ void init_collision_body_parts(void *, void *, s32);
 s32 access_object_saved_state(void *, void *, int);
 s32 __dt__6TOTrapFv(void *, s32);
 void * TOTrap__ct(void *, void *, void *);
-void TOTrapAncient02R__vt77(Obj_8017A8B0 *self);
+void find_target_player__16TOTrapAncient02RFv(Obj_8017A8B0 *self);
 f32 vfunc_22__16TOTrapAncient02RFPvf(Obj_8017A988 *self);
 void * __dt__16TOTrapAncient02RFv(void *arg0, s16 arg1);
 void * TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2);
-void TOTrapAncient02__vt84(void);
-void TOTrapAncient02__vt86(void);
-void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
-void TOTrapAncient02__vt80(Trap_8017ADC4 *self);
+void vfunc_86__15TOTrapAncient02Fv(void);
+void vfunc_88__15TOTrapAncient02Fv(void);
+void vfunc_84__15TOTrapAncient02Fv(Obj_8017ACA0 *self);
+void vfunc_82__15TOTrapAncient02Fv(Trap_8017ADC4 *self);
 void render__15TOTrapAncient02Fv(void *arg0);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
-void TOTrapAncient02R__vt78(void *arg0);
+void submit_cursor_and_notify__16TOTrapAncient02RFv(void *arg0);
 s32 init_trap_param_clamped(void *);
 s32 clamp_trap_level_param(void *);
 s32 init_trap_object_id(void *);
@@ -407,23 +407,23 @@ extern void *tl_05;
 #pragma fp_contract on
 void vfunc_23__16TOTrapAncient02RFPvPvPvll();
 void vfunc_24__16TOTrapAncient02RFPvPv();
-void TOTrapAncient02R__vt84();
-void TOTrapAncient02R__vt86();
+void vfunc_86__16TOTrapAncient02RFv();
+void vfunc_88__16TOTrapAncient02RFv();
 void vfunc_89__6TOTrapFv();
 void vfunc_25__6TOTrapFPUc();
-void TObjPlayer__sub_8000FF3C();
-void TObjPlayer__sub_80010A78();
-void TObjPlayer__sub_80010A80();
-void TObjPlayer__sub_80011010();
-void TObjPlayer__sub_80014830();
-void TObjPlayer__sub_80014838();
-void TObjPlayer__sub_80014840();
-void TObjPlayer__sub_80014884();
-void TObjPlayer__sub_80014888();
-void TObjPlayer__sub_8001488C();
-void TObjPlayer__sub_80014890();
-void TObjPlayer__sub_80014894();
-void TObjPlayer__sub_80014898();
+void vfunc_29__13TUnk_804806E8Fv();
+void vfunc_74__13TUnk_804806E8Fl();
+void vfunc_73__13TUnk_804806E8Fv();
+void vfunc_28__13TUnk_804806E8Fv();
+void vfunc_67__13TUnk_804806E8Fv();
+void vfunc_66__13TUnk_804806E8Fv();
+void vfunc_65__13TUnk_804806E8Fll();
+void vfunc_63__13TUnk_804806E8Fv();
+void vfunc_62__13TUnk_804806E8Fv();
+void vfunc_61__13TUnk_804806E8Fv();
+void vfunc_60__13TUnk_804806E8Fv();
+void vfunc_59__13TUnk_804806E8Fv();
+void vfunc_58__13TUnk_804806E8Fv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void vfunc_13__13TUnk_804AF8A0Fl();
@@ -448,10 +448,10 @@ void cure_paralysis__10TObjPlayerFv();
 void cure_poison_ailment();
 void enemy_spawn_jellen_effect();
 void enemy_spawn_zalure_effect();
-void fn_80010EBC();
-void fn_80010EC0();
-void fn_80010EC4();
-void fn_80010EC8();
+void vfunc_78__13TUnk_804806E8Fl();
+void vfunc_77__13TUnk_804806E8Fv();
+void vfunc_76__13TUnk_804806E8Fv();
+void vfunc_75__13TUnk_804806E8Ff();
 void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__10TObjPlayerFii();
@@ -461,7 +461,7 @@ void play_sounds__6TOTrapFv();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__10TObjPlayerFPv();
-void ret_8017B878();
+void is_any_player_matching_stat__16TOTrapAncient02RFv();
 void vfunc_26__16TOTrapAncient02RFll();
 void vfunc_27__16TOTrapAncient02RFPvlf();
 void vfunc_20__16TOTrapAncient02RFPvf();
@@ -555,8 +555,8 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&vfunc_25__6TOTrapFPUc,
     (s32)&vfunc_26__16TOTrapAncient02RFll,
     (s32)&vfunc_27__16TOTrapAncient02RFPvlf,
-    (s32)&TObjPlayer__sub_80011010,
-    (s32)&TObjPlayer__sub_8000FF3C,
+    (s32)&vfunc_28__13TUnk_804806E8Fv,
+    (s32)&vfunc_29__13TUnk_804806E8Fv,
     (s32)&is_target_in_attack_range__10TObjPlayerFv,
     (s32)&TObjPlayer::test_flag_256,
     (s32)&TObjPlayer::test_flag30_512,
@@ -585,37 +585,37 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&clear_all_status_effects,
     (s32)&apply_action_hold_status,
     (s32)&apply_anti_technique__10TObjPlayerFv,
-    (s32)&TObjPlayer__sub_80014898,
-    (s32)&TObjPlayer__sub_80014894,
-    (s32)&TObjPlayer__sub_80014890,
-    (s32)&TObjPlayer__sub_8001488C,
-    (s32)&TObjPlayer__sub_80014888,
-    (s32)&TObjPlayer__sub_80014884,
+    (s32)&vfunc_58__13TUnk_804806E8Fv,
+    (s32)&vfunc_59__13TUnk_804806E8Fv,
+    (s32)&vfunc_60__13TUnk_804806E8Fv,
+    (s32)&vfunc_61__13TUnk_804806E8Fv,
+    (s32)&vfunc_62__13TUnk_804806E8Fv,
+    (s32)&vfunc_63__13TUnk_804806E8Fv,
     (s32)&reset_pose__10TObjPlayerFPv,
-    (s32)&TObjPlayer__sub_80014840,
-    (s32)&TObjPlayer__sub_80014838,
-    (s32)&TObjPlayer__sub_80014830,
+    (s32)&vfunc_65__13TUnk_804806E8Fll,
+    (s32)&vfunc_66__13TUnk_804806E8Fv,
+    (s32)&vfunc_67__13TUnk_804806E8Fv,
     (s32)&get_pos__10TObjPlayerFii,
     (s32)&apply_switch_attack__10TObjPlayerFi,
     (s32)&enemy_spawn_jellen_effect,
     (s32)&trigger_switch_attack__10TObjPlayerFi,
     (s32)&enemy_spawn_zalure_effect,
-    (s32)&TObjPlayer__sub_80010A80,
-    (s32)&TObjPlayer__sub_80010A78,
-    (s32)&fn_80010EC8,
-    (s32)&fn_80010EC4,
-    (s32)&fn_80010EC0,
-    (s32)&fn_80010EBC,
-    (s32)&TOTrapAncient02R__vt77,
-    (s32)&TOTrapAncient02R__vt78,
+    (s32)&vfunc_73__13TUnk_804806E8Fv,
+    (s32)&vfunc_74__13TUnk_804806E8Fl,
+    (s32)&vfunc_75__13TUnk_804806E8Ff,
+    (s32)&vfunc_76__13TUnk_804806E8Fv,
+    (s32)&vfunc_77__13TUnk_804806E8Fv,
+    (s32)&vfunc_78__13TUnk_804806E8Fl,
+    (s32)&find_target_player__16TOTrapAncient02RFv,
+    (s32)&submit_cursor_and_notify__16TOTrapAncient02RFv,
     (s32)&TOTrapAncient02R__vt79,
-    (s32)&TOTrapAncient02R__vt80,
-    (s32)&ret_8017B878,
-    (s32)&TOTrapAncient02__sub_8017ACA0,
+    (s32)&vfunc_82__16TOTrapAncient02RFv,
+    (s32)&is_any_player_matching_stat__16TOTrapAncient02RFv,
+    (s32)&vfunc_84__15TOTrapAncient02Fv,
     (s32)&play_sounds__6TOTrapFv,
-    (s32)&TOTrapAncient02R__vt84,
+    (s32)&vfunc_86__16TOTrapAncient02RFv,
     (s32)&TOTrap::scale_by_table_value,
-    (s32)&TOTrapAncient02R__vt86,
+    (s32)&vfunc_88__16TOTrapAncient02RFv,
     (s32)&vfunc_89__6TOTrapFv
 };
 
@@ -639,42 +639,42 @@ void TOTrapAncient02R::calc_trap_count() {
 extern int fold_flush_0;
 #pragma pop
 
-void TOTrapAncient02R__vt80(void *arg0) {
+void TOTrapAncient02R::vfunc_82() {
     f32 temp_f1;
     f32 temp_f1_2;
     s16 temp_r0;
-    set_indexed_flags(arg0, 0, 1);
-    submit_cursor_candidate(arg0, -1);
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
+    set_indexed_flags(this, 0, 1);
+    submit_cursor_candidate(this, -1);
+    temp_r0 = *(s16 *)((s8 *)this + 0x328);
     switch (temp_r0) {
     case 0:
     case 1:
-        *(s16 *)((s8 *)arg0 + 0x328) = 2;
+        *(s16 *)((s8 *)this + 0x328) = 2;
     case 2:
-        *(s32 *)((s8 *)arg0 + 0x354) = (s32) (*(s32 *)((s8 *)arg0 + 0x354) - 1);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x354) < 0) {
-            *(s16 *)((s8 *)arg0 + 0x328) = 3;
-            *(s32 *)((s8 *)arg0 + 0x354) = (s32) *(s32 *)((s8 *)arg0 + 0x350);
+        *(s32 *)((s8 *)this + 0x354) = (s32) (*(s32 *)((s8 *)this + 0x354) - 1);
+        if ((s32) *(s32 *)((s8 *)this + 0x354) < 0) {
+            *(s16 *)((s8 *)this + 0x328) = 3;
+            *(s32 *)((s8 *)this + 0x354) = (s32) *(s32 *)((s8 *)this + 0x350);
         }
         break;
     case 3:
-        if (lbl_805DBA80 < *(f32 *)((s8 *)arg0 + 0x348)) {
-            *(f32 *)((s8 *)arg0 + 0x348) -= lbl_805DBA78;
+        if (lbl_805DBA80 < *(f32 *)((s8 *)this + 0x348)) {
+            *(f32 *)((s8 *)this + 0x348) -= lbl_805DBA78;
             return;
         }
-        *(s16 *)((s8 *)arg0 + 0x328) = 4;
-        *(f32 *)((s8 *)arg0 + 0x348) = (f32) lbl_805DBA80;
+        *(s16 *)((s8 *)this + 0x328) = 4;
+        *(f32 *)((s8 *)this + 0x348) = (f32) lbl_805DBA80;
         return;
     case 4:
-        if (lbl_805DBA80 < *(f32 *)((s8 *)arg0 + 0x344)) {
-            *(f32 *)((s8 *)arg0 + 0x344) -= lbl_805DBA78;
+        if (lbl_805DBA80 < *(f32 *)((s8 *)this + 0x344)) {
+            *(f32 *)((s8 *)this + 0x344) -= lbl_805DBA78;
             return;
         }
-        *(s16 *)((s8 *)arg0 + 0x326) = 0;
-        *(s16 *)((s8 *)arg0 + 0x328) = 0;
-        *(f32 *)((s8 *)arg0 + 0x344) = (f32) lbl_805DBA80;
-        *(u16 *)((s8 *)arg0 + 0x33C) = 0xFFFF;
-        *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
+        *(s16 *)((s8 *)this + 0x326) = 0;
+        *(s16 *)((s8 *)this + 0x328) = 0;
+        *(f32 *)((s8 *)this + 0x344) = (f32) lbl_805DBA80;
+        *(u16 *)((s8 *)this + 0x33C) = 0xFFFF;
+        *(s32 *)((s8 *)this + 0x2A8) = 0;
         break;
     }
 }
@@ -797,7 +797,8 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
 
 #pragma push
 #pragma fp_contract on
-void TOTrapAncient02R__vt77(Obj_8017A8B0 *self) {
+void TOTrapAncient02R::find_target_player() {
+    Obj_8017A8B0 *self = (Obj_8017A8B0 *)this;
     ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
     ((TObjPlayer *)self)->calc_attach_pos();
     if (self->switchId == -1 || is_current_floor_switch_set(self->switchId) == 1) {
@@ -913,11 +914,12 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
 extern int fold_flush_5;
 #pragma pop
 
-void TOTrapAncient02__vt84(void) {  }
+void TOTrapAncient02::vfunc_86() {  }
 
-void TOTrapAncient02__vt86(void) {  }
+void TOTrapAncient02::vfunc_88() {  }
 
-void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
+void TOTrapAncient02::vfunc_84() {
+    Obj_8017ACA0 *self = (Obj_8017ACA0 *)this;
     if (lbl_805D5ADC != actor_frame_tick && lbl_805D5AE0 != 0) {
         lbl_805D5ADC = actor_frame_tick;
         scroll_ginja_mesh_uvs(lbl_805D5AE0, 0, 0xE, lbl_805D5AE4, 1);
@@ -976,7 +978,8 @@ void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
     }
 }
 
-void TOTrapAncient02__vt80(Trap_8017ADC4 *self) {
+void TOTrapAncient02::vfunc_82() {
+    Trap_8017ADC4 *self = (Trap_8017ADC4 *)this;
     s32 p;
     submit_cursor_candidate(self, -1);
     switch (self->state) {
@@ -1028,7 +1031,7 @@ void TOTrapAncient02__vt80(Trap_8017ADC4 *self) {
 
 }
 
-void TOTrapAncient02::update_hold_trigger() {
+void TOTrapAncient02::vfunc_81() {
     TOTrapAncient02 *self = this;
     void *p;
     f32 d;
@@ -1311,8 +1314,8 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
 extern int fold_flush_6;
 #pragma pop
 
-void TOTrapAncient02R__vt78(void *arg0) {
-    struct VObj_8017B84C_8017AC98 *o = (struct VObj_8017B84C_8017AC98 *)arg0;
+void TOTrapAncient02R::submit_cursor_and_notify() {
+    struct VObj_8017B84C_8017AC98 *o = (struct VObj_8017B84C_8017AC98 *)this;
     o->m77();
 }
 

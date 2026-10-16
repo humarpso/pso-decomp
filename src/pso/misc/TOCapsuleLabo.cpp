@@ -80,7 +80,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void TOCapsuleLabo__vt13(void *arg0);
+void vfunc_15__13TOCapsuleLaboFv(void *arg0);
 void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
@@ -157,8 +157,8 @@ void TOCapsuleLabo::render() {
     }
 }
 
-void TOCapsuleLabo__vt13(void *arg0) {
-    *(s32 *)((s8 *)arg0 + 0xE4) = (s32) (*(s32 *)((s8 *)arg0 + 0xE4) + 0x222);
+void TOCapsuleLabo::vfunc_15() {
+    *(s32 *)((s8 *)this + 0xE4) = (s32) (*(s32 *)((s8 *)this + 0xE4) + 0x222);
 }
 
 extern s32 __vt__13TOCapsuleLabo[];

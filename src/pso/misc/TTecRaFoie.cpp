@@ -669,7 +669,7 @@ extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-void TTecRaFoie__vt4(u8 *self, u8 *target);
+void vfunc_6__10TTecRaFoieFPv(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__10TTecRaFoie[];
@@ -765,7 +765,9 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     return arg0;
 }
 
-void TTecRaFoie__vt4(u8 *self, u8 *target) {
+void TTecRaFoie::vfunc_6(void *target_arg) {
+    u8 *self = (u8 *)this;
+    u8 *target = (u8 *)target_arg;
     Damage_802386F8 d;
     d.kind = 1;
     d.power = *(f32 *)(self + 0x88);
