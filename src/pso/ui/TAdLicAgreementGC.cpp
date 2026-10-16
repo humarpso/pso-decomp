@@ -33,10 +33,6 @@ struct VObj_80329C84_80329BB8 : Base_80329C84_80329BB8 {
 extern "C" {
 
 void *TAdLicAgreementGC__ct(void *arg0);
-void vfunc_6__17TAdLicAgreementGCFv(void* p);
-int vfunc_7__17TAdLicAgreementGCFv(void* p);
-int vfunc_8__17TAdLicAgreementGCFv(void* p);
-int vfunc_9__17TAdLicAgreementGCFv(void* p);
 void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1);
 void TAdAgreementBaseGC__ct(void *);
 void *TAdScrollWinGC__ct(void *, void *, int, int);

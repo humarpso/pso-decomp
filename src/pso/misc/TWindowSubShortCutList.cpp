@@ -12,7 +12,6 @@ void TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_8044FAA8[];
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void set_cursor_index__22TWindowSubShortCutListFs(void *, s16);
 void fn_802683F4(void *, void *, s32, s16);
 void *init__21TWindowSubComCardListFiii(void *, s8, s32, s32);
 extern s32 __vt__22TWindowSubShortCutList[];
@@ -43,9 +42,7 @@ s32 update_item_list_window();
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
-s32 draw_selected_list_entry__13TUnk_804D0618Fl(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
-s32 get_status_flag__13TUnk_804D0618Fv(void *);
 
 void TWindowSubShortCutList::refresh_entries() {
     s32 *temp_r3;
@@ -101,7 +98,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    draw_selected_list_entry__13TUnk_804D0618Fl(arg0, temp_r3);
+    ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)arg0 + 0x80), temp_r3);
     }
@@ -112,7 +109,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 
 void TWindowSubShortCutList::run_task() {
     update_item_list_window();
-    if ((get_status_flag__13TUnk_804D0618Fv(this) == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_88) != 0)) {
+    if ((get_status_flag() == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_88) != 0)) {
         refresh_entries();
     }
 }
@@ -147,7 +144,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     ((Obj_8027E558 *)arg0)->list = p;
     ((TWindowSubShortCutList *)arg0)->set_flag70_bit10();
     ((TWindowSubShortCutList *)arg0)->refresh_entries();
-    set_cursor_index__22TWindowSubShortCutListFs(arg0, col);
+    ((TWindowSubShortCutList *)arg0)->set_cursor_index(col);
     return arg0;
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CC148.h"
 #include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TUnk_804CCC28.h"
 #include "pso/enemy/TObjEneBm5GibonU.h"
@@ -64,7 +65,6 @@ void run_task__12TTecReverserFv(u8 *arg0);
 s32 obj_getField1c(int);
 s32 play_sound_effect(int, void *, int, int);
 s32 copy_technique_target_list(void *, void *);
-s32 sub_8022BE64__12TTecReverserFPUcl(void *, void *, void *);
 s32 init_technique_effect_base(void *, void *, void *, void *);
 extern RecoveredGlobal_8023A094_lbl_804CC1CC technique_param_table;
 extern s32 __vt__12TTecReverser[];
@@ -87,15 +87,9 @@ extern char lbl_8044DBEC[];
 s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
 s32 queue_destruction__7TObjectFv(void *);
-u8 *query_technique_enemy_contacts__13TUnk_804CCC68Fl(void *, s32);
-u8 *query_technique_player_contacts__13TUnk_804CCC68Fl(void *, s32);
-void dispatch_technique_contact__13TUnk_804CCC68Fv(u8 *arg0);
 s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
 s32 queue_destruction__7TObjectFv(void *);
-u8 *query_technique_enemy_contacts__13TUnk_804CCC68Fl(void *, s32);
-u8 *query_technique_player_contacts__13TUnk_804CCC68Fl(void *, s32);
-void dispatch_all_technique_contacts__13TUnk_804CCC68Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -106,7 +100,6 @@ s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804CCC28[];
@@ -185,7 +178,7 @@ extern s32 __vt__12TTecReverser[];
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TTecReverser;
-        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
+        ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -199,7 +192,7 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3818;
     ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)((u8 *)&technique_param_table.value + 0x2EC));
-    sub_8022BE64__12TTecReverserFPUcl((void *) (arg0), (void *) (arg0 + 0x88), (void *) (arg4));
+    ((TTecReverser *)arg0)->sub_8022BE64((u8 *)(arg0 + 0x88), (s32)((void *) (arg4)));
     copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
     play_sound_effect((int) (0x4002A812), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
@@ -217,12 +210,12 @@ void TUnk_804CCC68::dispatch_technique_contact() {
     }
     if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C))) < 4U) {
         if (get_type__10TObjPlayerFPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C) + 0x828)) != 0) {
-            var_r31 = query_technique_player_contacts__13TUnk_804CCC68Fl(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x1C));
+            var_r31 = query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
         } else {
-            var_r31 = query_technique_enemy_contacts__13TUnk_804CCC68Fl(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x1C));
+            var_r31 = query_technique_enemy_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
         }
     } else {
-        var_r31 = query_technique_player_contacts__13TUnk_804CCC68Fl(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x1C));
+        var_r31 = query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
     }
     if (var_r31 == NULL) {
         ((VObj_8023A148*)((u8 *)this))->m4();
@@ -247,12 +240,12 @@ void TUnk_804CCC68::dispatch_all_technique_contacts() {
     }
     if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C))) < 4U) {
         if (get_type__10TObjPlayerFPv((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C) + 0x828)) != 0) {
-            list = (List_8023A244 *) query_technique_player_contacts__13TUnk_804CCC68Fl(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x1C));
+            list = (List_8023A244 *) query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
         } else {
-            list = (List_8023A244 *) query_technique_enemy_contacts__13TUnk_804CCC68Fl(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x1C));
+            list = (List_8023A244 *) query_technique_enemy_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
         }
     } else {
-        list = (List_8023A244 *) query_technique_player_contacts__13TUnk_804CCC68Fl(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x1C));
+        list = (List_8023A244 *) query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
     }
     if (list == NULL) {
         ((VObj_8023A244 *) ((u8 *)this))->m4();

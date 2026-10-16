@@ -4,10 +4,7 @@
 extern "C" {
 
 void s_rank_windmill_turn_blade(void* p);
-void reserved_53__13TUnk_804A4848Fv(void *arg0);
 void s_rank_windmill_slow_down(void *arg0);
-void update_attack__13TUnk_804A4848Fv(void *arg0);
-void update_weapon__13TUnk_804A4848Fv(u8 *arg0);
 int rotate_matrix_x(void*, void*);
 s32 advance_angle_wrap(void *, s32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, s32);

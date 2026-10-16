@@ -46,7 +46,6 @@ extern const f32 lbl_805DE88C;
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
 s32 get_localized_text_entry(int, int);
 s32 align_menu_entry_positions(int);
-s32 update_layout_height__21TWindowSubComCardListFf(int, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_window_menu(void *, int, int);
 extern s32 lbl_80472890[];
@@ -70,7 +69,6 @@ s32 TAdMultiPlyChrSelectGC__sub_802C658C(u32);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(int, int, void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
-void sub_802DC118__22TAdMultiPlyChrSelectGCFl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -137,7 +135,7 @@ s32 TAdMultiPlyChrSelectGC::create_choice_menu() {
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (5))), (int) (6), (int) (3));
-    update_layout_height__21TWindowSubComCardListFf((int) (temp_r31), (f32) (lbl_805DE894));
+    ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) (lbl_805DE894));
     ((TWindowSubComCardList *)temp_r31)->set_selected_index((int) (0));
     align_menu_entry_positions((int) (temp_r31));
     return temp_r31;

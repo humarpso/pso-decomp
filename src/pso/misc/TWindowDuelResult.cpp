@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -36,7 +37,6 @@ struct TWindowDuelResult {
     void sub_8024EF3C();
 };
 extern "C" {
-s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
@@ -82,7 +82,6 @@ void update__17TWindowDuelResultFPv(u8 *arg0);
 s32 TWindowDuelResult__sub_8024F330(void *);
 s32 TWindowDuelResult__sub_8024F3CC(void *);
 s32 handle_list_page_flip_input(s32);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 
@@ -277,7 +276,7 @@ s32 TWindowDuelResult__sub_8024F330(void *arg0_) {
 
 void draw_window__17TWindowDuelResultFPv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = setup_window_draw_context__13TUnk_804CE018Fl(arg0, (void *) (arg0 + 0x60));
+    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((void *) (arg0 + 0x60)));
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     draw_list_page_indicator((int) (*(s32 *)((s8 *)arg0 + 0x68)), (int) (temp_r3));
@@ -292,7 +291,7 @@ void update__17TWindowDuelResultFPv(u8 *arg0) {
     }
     TWindowDuelResult__sub_8024F330(arg0);
     ((TWindowDD *)arg0)->initialize_subwindow();
-    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
 
 extern "C" void render_shadows__7TObjectFv();

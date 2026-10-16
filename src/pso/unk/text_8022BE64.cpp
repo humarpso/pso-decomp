@@ -9,12 +9,10 @@ struct V3_8022BEAC { s32 x; s32 y; s32 z; };
 struct T_8022BEAC { u8 pad[0x20]; u8 f20[0xC]; u8 f2c[0x10]; f32 f3c; u8 pad2[0x2c]; s32 state; };
 
 extern "C" {
-void sub_8022BE64__12TTecReverserFPUcl(u8 *arg0, u8 *arg1, s32 arg2);
 void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern V3_8022BEAC TTecLuker__render_scale_vec;
 extern const f32 lbl_805DC7B0;
-void render__13TUnk_804CC148Fv(T_8022BEAC *self);
 }
 
 extern "C" {
@@ -45,7 +43,6 @@ f32 vector_length(void *, f32);
 
 extern "C" {
 
-void tick_lifetime__13TUnk_804CC148Fv(void *arg0);
 s32 approach_vector_fixed_distance(int, void *, int, f32);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -112,8 +109,6 @@ void TUnk_804CC148::sub_8022C008() {
 
 extern "C" {
 
-void *destroy_technique_base__13TUnk_804CC148Fs(void *arg0, s16 arg1);
-void run_task__13TUnk_804CC148Fv(void *arg0);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);

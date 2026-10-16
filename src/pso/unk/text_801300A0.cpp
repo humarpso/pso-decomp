@@ -9,7 +9,6 @@ s32 create_item_eff_cane__10TObjPlayerFiUiii(void *, void *, int, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAFF8;
 extern const f32 lbl_805DAFFC;
-void update_attack__13TUnk_804A68C8Fv(u8 *arg0);
 }
 
 extern "C" {

@@ -14,7 +14,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 copy_position__16TBoss8DragonDemoFv(int, void *);
 f32 TBoss8DragonDemo__sub_802F2CB4(int);
 f32 TBoss8DragonDemo__sub_802F2CBC(int);
-void run_task__13TUnk_804E4B24Fv(u8 *arg0);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(int);
 s32 draw_ginja_object(int);

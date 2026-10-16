@@ -16,7 +16,6 @@ s32 rand(void);
 void TBoss6Tube__sub_802B129C(u8 *arg0);
 extern s32 TBoss6Tube__previous_scroll_phase;
 extern f32 TBoss6Tube__scroll_delta;
-void sub_802B1218__10TBoss6TubeFv(u8 *arg0);
 s32 rand(void);
 extern s32 TBoss6Tube__previous_scroll_phase;
 extern f32 TBoss6Tube__scroll_delta;

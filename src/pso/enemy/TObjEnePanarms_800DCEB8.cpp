@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
 #include <dolphin/mtx.h>
 #include <stddef.h>
@@ -160,7 +161,6 @@ s32 TObjEnePanarms__sub_800DFB44(s32);
 s32 TObjEnePanarms__sub_800DFB74(void *);
 s32 TObjEnePanarms__sub_800DFB9C(void *);
 s32 TObjEnePanarms__sub_800DFBB0(void *);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 extern const f32 lbl_805DA498;
 void update_separated_parts__14TObjEnePanarmsFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -184,9 +184,7 @@ extern const f64 TObjEnePanarms__data_8043CD20;
 void TObjEnePanarms__sub_800DE124(Obj_800DE124 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void vfunc_62__14TObjEnePanarmsFv(Obj_800DE2D0 *arg0);
 s32 TObjEnePanarms__sub_800DFB44(s32);
-s32 sub_800DE390__14TObjEnePanarmsFv(Obj_800DE390 *arg0);
 f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 extern const f64 TObjEnePanarms__data_8043CD20;
@@ -223,7 +221,6 @@ s32 TObjEnePanarms__sub_800DFB44(s32);
 s32 TObjEnePanarms__sub_800E1D38(s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 refresh_lobby_state__10TObjPlayerFv();
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 play_sound_effect(s32, void *, s32, s32);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -316,11 +313,9 @@ u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1);
 extern "C" {
 
 void TObjEnePanarms__sub_800DE2B0(void* p);
-void vfunc_61__14TObjEnePanarmsFv(void* p);
 void TObjEnePanarms__sub_800DEEF8(void* p);
 void free_data__14TObjEnePanarmsFv(void);
 void init_state__14TObjEnePanarmsFPv(u8 *arg0);
-void vfunc_63__14TObjEnePanarmsFv(void* p);
 void try_activate__14TObjEnePanarmsFPv(void* p);
 void update_spin__14TObjEnePanarmsFPv(void *arg0);
 void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0);
@@ -440,7 +435,7 @@ void update_separated_parts__14TObjEnePanarmsFPv(u8 *arg0) {
     temp_r4 = *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x3E4)) + 0x32C);
     *(s16 *)((s8 *)arg0 + 0x32C) = (s16) (temp_r4 + *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x3E8)) + 0x32C));
     if ((TObjEnePanarms__sub_800DFBB0((void *) (*(u8 **)((s8 *)arg0 + 0x3E4))) != 0) && (TObjEnePanarms__sub_800DFBB0((void *) (*(u8 **)((s8 *)arg0 + 0x3E8))) != 0)) {
-        send_entity_set_flags__9TObjEnemyFv((void *) (arg0));
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
@@ -701,7 +696,7 @@ void TObjEnePanarms__sub_800DDAD8(u8 *arg0) {
     Vec_800DDAD8 v;
     *(s32 *)((s8 *)arg0 + 0x388) = 0xA4;
     refresh_lobby_state__10TObjPlayerFv();
-    send_entity_set_flags__9TObjEnemyFv(arg0);
+    ((TObjEnemy *)arg0)->send_entity_set_flags();
     st = 5;
     if (find_nearest_visible_player(arg0, &v.x, lbl_805DA4B4) != 0xFFFF) {
         if (v.x * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60)) + v.z * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60)) < TObjEnePanarms__data_805DA4A0) {

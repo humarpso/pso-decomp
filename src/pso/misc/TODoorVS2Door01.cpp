@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorVS2Door01.h"
 #include "pso/TParticleCtrl.h"
@@ -80,7 +81,6 @@ struct Door_80163FB4 : VObj_80163FB4 {
 };
 
 extern "C" {
-void vfunc_16__15TODoorVS2Door01Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
@@ -88,7 +88,6 @@ extern RecoveredGlobal_80176308_lbl_80442A80 lbl_804410E0;
 extern RecoveredGlobal_80176308_lbl_804B4278 fs_obj_o_vs2door01l_resource_descriptor;
 extern u32 door_vs2_shared_bml_archive;
 extern s32 *TODoorVS2Door01__texture_lists;
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80164340_lbl_804B17F0 todoor_vs2_door01_collision_parts;
@@ -97,7 +96,6 @@ extern s32 TODoorVS2Door01__class_name;
 extern u32 door_vs2_shared_bml_archive;
 extern s32 *TODoorVS2Door01__texture_lists;
 u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void vfunc_18__15TODoorVS2Door01Fv(u8 *arg0);
 u8 is_open__15TODoorVS2Door01Fv(void *arg0);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
@@ -110,16 +108,12 @@ extern s32 *TODoorVS2Door01__texture_lists;
 
 extern "C" {
 
-void play_proximity_sound__15TODoorVS2Door01Fv(u8 *arg0);
-void vfunc_17__15TODoorVS2Door01Fv(u8 *arg0);
-void vfunc_20__15TODoorVS2Door01Fv(void);
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1);
 u8 is_open__15TODoorVS2Door01Fv(void *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_in_view_depth__13TUnk_804AFBF8Ff();
@@ -295,7 +289,7 @@ void TODoorVS2Door01::load_resources() {
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorVS2Door01;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -317,7 +311,7 @@ u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) ((19.0f) / *(f32 *)((s8 *)arg0 + 0xB4));
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
     init_collision_body_parts((void *) (arg0), (void *) (&todoor_vs2_door01_collision_parts.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorVS2Door01 *)(arg0))->init_door_switch_binding();
     return arg0;

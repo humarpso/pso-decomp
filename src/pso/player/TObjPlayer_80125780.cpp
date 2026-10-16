@@ -5,8 +5,6 @@
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1);
-void emit_marker_effects__13TUnk_804A2564Fv(void* p);
-void update_weapon__13TUnk_804A2564Fv(u8 *arg0);
 void clear_faust_reload_timer(void* p);
 s32 draw_ginja_object(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);

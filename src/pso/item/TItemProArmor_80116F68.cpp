@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemObject.h"
 #include "pso/item/TUnk_8049FD48.h"
 #include "pso/unk/TUnk_8049FBC0.h"
 #include "pso/item/TItemProArmor.h"
@@ -102,14 +103,12 @@ extern s32 tl_05;
 u8 *create_telepipe_item(u8 *arg0);
 s32 set_item_owner_technique_level(void *, void *, int);
 s32 get_slot_count__14TItemProShieldFv(void *);
-s32 sub_80115D7C__11TItemObjectFv(void *);
 void technique_disk_apply_use(s32 arg0);
 }
 
 extern "C" {
 
 void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1);
-void vfunc_44__13TUnk_8049FD48Fv(void *arg0);
 void *TItemProArmor__sub_80117160(void *arg0, s16 arg1);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte__11TItemObjectFv();
@@ -147,7 +146,7 @@ u8 *create_material_item(u8 *arg0) {
 void technique_disk_apply_use(s32 arg0) {
   u8 temp_r31;
   temp_r31 = get_slot_count__14TItemProShieldFv((void *) arg0);
-  set_item_owner_technique_level((void *) arg0, (void *) ((s16) (sub_80115D7C__11TItemObjectFv((void *) arg0) & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
+  set_item_owner_technique_level((void *) arg0, (void *) ((s16) (((TItemObject *)arg0)->sub_80115D7C() & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }
 
 void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {

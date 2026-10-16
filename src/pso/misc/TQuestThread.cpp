@@ -208,7 +208,6 @@ void handle_6x77_sync_quest_register(u8 *arg0);
 char * get_quest_name__12TQuestThreadFv(void);
 void clear_thread_state__12TQuestThreadFv(void);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
-void run_task__13TUnk_804C8678Fv(void);
 void * destroy__12TQuestThreadFPvs(void *arg0, s16 arg1);
 void destroy_quest_obj__12TQuestThreadFv(void);
 s32 create_by_mode__12TQuestThreadFv(void);

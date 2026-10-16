@@ -114,7 +114,6 @@ extern char lbl_8043F484[];
 
 extern "C" {
 
-void play_voice__12TObjNpcARM00Fv(s32 arg0);
 void * TObjNpcARW00__create(void *arg0);
 void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);

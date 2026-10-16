@@ -50,7 +50,6 @@ extern V3_802531A4 TWindowHelpItem__description_update_callback;
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void init_window_layout_entries(void *, const void *, s16);
 s32 set_text_entry_string(void *, void *, s32);
-void init_text__15TWindowHelpItemFPv(u8 *arg0, void *arg1);
 extern u8 window_help_item_layout_entries[];
 extern V3_802534B0 item_help_description_idle_callback;
 s32 get_shared_text_buffer();
@@ -58,7 +57,6 @@ u8 calc_display_grade__9TItemDataFv(void *);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void init_window_layout_entries(void *, const void *, s16);
 s32 set_text_entry_string(void *, void *, s32);
-void sub_802534B0__15TWindowHelpItemFv(u8 *arg0);
 s32 get_shared_text_buffer();
 void check_equip_requirements(int, void *, void *);
 void format_item_description(void *);
@@ -76,7 +74,6 @@ extern s32 current_language;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
 extern const f32 lbl_805DCDEC;
-void update_tech_disk_details__15TWindowHelpItemFv(u8 *arg0);
 }
 
 extern "C" {
@@ -98,7 +95,7 @@ void TWindowHelpItem::init_text(void *arg1) {
 void TWindowHelpItem::update_displayed_item() {
     s32 arg0 = (s32)this;
     ((TWindowHelpItem *)arg0)->format_description_with_price();
-    init_text__15TWindowHelpItemFPv((u8 *)(arg0), (void *)(get_shared_text_buffer()));
+    ((TWindowHelpItem *)arg0)->init_text((void *)(get_shared_text_buffer()));
 }
 void TWindowHelpItem__sub_80253268(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80253268, sp8) == 0x0) ? 1 : -1];

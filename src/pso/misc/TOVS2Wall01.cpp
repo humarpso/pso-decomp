@@ -25,7 +25,6 @@ extern s32 tl_05;
 
 extern "C" {
 
-void vfunc_6__11TOVS2Wall01FPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 init__11TOVS2Wall01Fi();
 
 void TOVS2Wall01::vfunc_6(s16 *arg1, s32 arg2) {

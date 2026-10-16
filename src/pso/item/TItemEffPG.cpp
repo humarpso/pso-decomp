@@ -17,7 +17,6 @@ void disallow_rendering__7TObjectFv(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
-void run_task__13TUnk_804F0BF0Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void VecCopy__FP3VecPC3Vec(void *, void *);

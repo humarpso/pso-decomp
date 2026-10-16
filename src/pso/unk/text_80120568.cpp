@@ -169,14 +169,11 @@ struct Player_8012065C : VBase_8012065C {
 
 extern "C" {
 void TItemEquipBase__sub_8010A82C(void *);
-void clear_equip_flags__11TItemWeaponFUl(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
-void vfunc_45__11TItemWeaponFv(Pl_80120568 *arg0);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
 s32 obj_isState7_324(s32);
 s32 set_status_flags__10TObjPlayerFPvUi(void *, u32);
-void clear_equip_flags__11TItemWeaponFUl(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -194,7 +191,7 @@ void TItemWeapon::vfunc_45() {
     }
     arg0->m56();
     TItemEquipBase__sub_8010A82C(arg0);
-    clear_equip_flags__11TItemWeaponFUl(arg0, 0x03000000);
+    ((TItemWeapon *)arg0)->clear_equip_flags(0x03000000);
 }
 
 void TItemWeapon::vfunc_48() {
@@ -213,7 +210,7 @@ void TItemWeapon::vfunc_44() {
         if (!(((TItem *)arg0)->get_item_flags() & 0x20) && reset_key_machine_state__10TObjPlayerFv() != 0) {
             set_action_provider_variant__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), arg0->v41());
         }
-        clear_equip_flags__11TItemWeaponFUl(arg0, 0x100);
+        ((TItemWeapon *)arg0)->clear_equip_flags(0x100);
         if (((TItemMag *)arg0)->get_flag_40() != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
             set_status_flags__10TObjPlayerFPvUi(arg0, 8);
         } else {
@@ -230,7 +227,7 @@ void TItemWeapon::vfunc_44() {
         set_status_flags__10TObjPlayerFPvUi(arg0, 8);
     }
     arg0->v55();
-    clear_equip_flags__11TItemWeaponFUl(arg0, 0x03000000);
+    ((TItemWeapon *)arg0)->clear_equip_flags(0x03000000);
 }
 
 }

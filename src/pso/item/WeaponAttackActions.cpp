@@ -375,29 +375,21 @@ s32 spawn_land_hit_effect(int, void *, void *, void *, int);
 s32 init__9TItemDataFv(s32 *);
 s32 get_weapon_special_type_amount(s32, s16 *, s16 *);
 f32 * get_weapon_range_record(void *, s16);
-void set_weapon_category_flags__11TItemWeaponFv(u8 *arg0);
 void remap_extra_attack_type(u8 *arg0);
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
 void TItemWeapon__sub_8011E5C0(void);
 void TItemWeapon__sub_8011E5C4(void);
 void TItemWeapon__sub_8011E5C8(void);
 void TItemWeapon__sub_8011E5CC(void);
-void update_weapon__11TItemWeaponFv(void);
-void reserved_53__11TItemWeaponFv(void);
 void TItemWeapon__sub_8011E5D8(void);
-void update_attack__11TItemWeaponFv(void);
-void emit_marker_effects__11TItemWeaponFv(void);
 void set_flag_8_if_check_passes__10TObjPlayerFPv(u8 *arg0);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
-void create_weapon_trail_effects__11TItemWeaponFv(Pl_8011E950 *arg0);
 u32 pack_weapon_trail_color(void *arg0);
 void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-void for_each_target_in_range__13TUnk_804A69DCFf(PlSelf_8011F474 *self, f32 range);
 s32 is_active_in_game__11TItemWeaponFv(void *);
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
-s32 clear_equip_flags__11TItemWeaponFUl(void *, int);
 s32 set_flag_8__10TObjPlayerFPv(int);
 s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 void query_extended_state__10TObjPlayerFv(void *);
@@ -469,7 +461,7 @@ void TItemWeapon::restore_action_type() {
     u8 *arg0 = (u8 *)this;
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x04000000) != 0U) {
         set_action_type__10TObjPlayerFs((int) (*(s32 *)&this->player + 0x7CC), (int) (2));
-        clear_equip_flags__11TItemWeaponFUl((void *) (arg0), (int) (0x04000000));
+        ((TItemWeapon *)arg0)->clear_equip_flags((int) (0x04000000));
     }
 }
 

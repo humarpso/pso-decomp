@@ -40,13 +40,10 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 fe_obj_hako02_resource_descriptor;
 extern u32 TObjContainerJungEx__resource_bundle;
 extern const f32 TObjDoaEx01__data_805DBDA0;
-void vfunc_18__11TObjDoaEx01Fv(u8 *arg0);
 extern const f32 TObjDoaEx01__data_805DBDA8;
-void vfunc_16__11TObjDoaEx01Fv(O_8018DB94 *self);
 s32 is_any_player_within_radius_xz(void *, f32);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
-void vfunc_17__11TObjDoaEx01Fv(Obj_8018DA54 *self);
 void set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(void *, f32);
 void play_sound_effect(s32, void *, s32, s32);
@@ -54,7 +51,6 @@ extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
 extern const f32 lbl_805DBDAC;
 extern const f32 lbl_805DBDB0;
-void play_proximity_sound__11TObjDoaEx01Fv(Obj_8018DBCC *self);
 }
 
 extern "C" {

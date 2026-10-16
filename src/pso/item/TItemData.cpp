@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/item/TItemData.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TShopEquipmentListWindow.h"
 #include "pso/item/TItem.h"
 
 struct Parm_8010C1E0;
@@ -164,38 +167,25 @@ struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 
 extern "C" {
 void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1);
 s32 get_type_nibble__9TItemDataFPv(u8 *arg0);
-s32 get_internet_beat__6TLobbyFv(void);
 extern s32 lbl_8043E348;
 extern const f32 lbl_805DAB6C;
-void add_stat_ptr__9TItemDataFPsl(s16 *arg0, s32 arg1);
-void add_bonus__9TItemDataFs(void *arg0, s16 arg1);
-void adjust_count__9TItemDataFl(void *arg0, s32 arg1);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
-void add_quantity__9TItemDataFl(void *arg0, s32 arg1);
 extern u8 lbl_805DAB68;
 void set_wrapped__9TItemDataFPv(struct Item_8010C498 *self);
-void add_stat_ptr__9TItemDataFPsl(s16 *arg0, s32 arg1);
-void add_bonus__9TItemDataFs(void *arg0, s16 arg1);
-void adjust_count__9TItemDataFl(void *arg0, s32 arg1);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
-void add_quantity__9TItemDataFl(void *arg0, s32 arg1);
-void adjust_count__9TItemDataFl(void *arg0, s32 arg1);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
-void add_quantity__9TItemDataFl(void *arg0, s32 arg1);
 void fn_8010B7D8(u8 *arg0, s32 arg1);
 void fn_8010B7E8(u8 *arg0, s32 arg1);
 void subtract_s16_stat(s16 *arg0, s32 arg1);
 void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
-void add_stat_ptr__9TItemDataFPsl(s16 *arg0, s32 arg1);
-void add_bonus__9TItemDataFs(void *arg0, s16 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
 Bonus_8010BA9C *get_item_stat_boost_record(u8, u8, u8);
@@ -282,10 +272,10 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             add_accuracy__9TItemDataFPvi(a, (s16)(bn->val * 10));
             break;
         case 3:
-            add_stat_ptr__9TItemDataFPsl((s16 *)b, bn->val);
+            TItemData::add_stat_ptr((s16 *)b, bn->val);
             break;
         case 4:
-            add_bonus__9TItemDataFs(b, bn->val);
+            ((TItemData *)b)->add_bonus(bn->val);
             break;
         case 5:
             st->x2 += bn->val;
@@ -300,8 +290,8 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             add_s16__9TItemDataFPvi((s16 *)a, bn->val);
             add_stat__9TItemDataFPvi(a, bn->val);
             add_accuracy__9TItemDataFPvi(a, (s16)(bn->val * 10));
-            add_stat_ptr__9TItemDataFPsl((s16 *)b, bn->val);
-            add_bonus__9TItemDataFs(b, bn->val);
+            TItemData::add_stat_ptr((s16 *)b, bn->val);
+            ((TItemData *)b)->add_bonus(bn->val);
             st->x2 += bn->val;
             st->xC += bn->val;
             break;
@@ -387,7 +377,7 @@ void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2
         st->sC += amount;
         break;
     case 9:
-        adjust_count__9TItemDataFl(res, amount);
+        ((TItemData *)res)->adjust_count(amount);
         break;
     case 10:
         TItemData__sub_8010EDD8(res, amount);
@@ -399,14 +389,14 @@ void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2
         TItemData__sub_8010EDA8(res, amount);
         break;
     case 13:
-        add_quantity__9TItemDataFl(res, amount);
+        ((TItemData *)res)->add_quantity(amount);
         break;
     case 14:
-        adjust_count__9TItemDataFl(res, amount);
+        ((TItemData *)res)->adjust_count(amount);
         TItemData__sub_8010EDD8(res, amount);
         TItemData__sub_8010EDC8(res, amount);
         TItemData__sub_8010EDA8(res, amount);
-        add_quantity__9TItemDataFl(res, amount);
+        ((TItemData *)res)->add_quantity(amount);
         break;
     }
     }
@@ -425,13 +415,13 @@ void add_shield_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 u
         s32 b08 = ((s32 (*)(void *))get_bswap16_field8__9TItemDataFPv)(self);
         s32 v = (s32)(parm->xa * mult + add);
         if (out != 0) {
-            add_stat_ptr__9TItemDataFPsl(out, (s16)(v + b08));
-            add_bonus__9TItemDataFs(out, parm->x8 + b06);
-            adjust_count__9TItemDataFl(out, parm->x11);
+            TItemData::add_stat_ptr(out, (s16)(v + b08));
+            ((TItemData *)out)->add_bonus(parm->x8 + b06);
+            ((TItemData *)out)->adjust_count(parm->x11);
             TItemData__sub_8010EDD8(out, parm->x13);
             TItemData__sub_8010EDC8(out, parm->x12);
             TItemData__sub_8010EDA8(out, parm->x15);
-            add_quantity__9TItemDataFl(out, parm->x14);
+            ((TItemData *)out)->add_quantity(parm->x14);
         }
     }
 }
@@ -450,13 +440,13 @@ void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 un
         s16 evpBonus = get_bswap16_field8__9TItemDataFPv(self);
         s32 dfp = (s32)(parm->dfp * mult + add);
         if (out != 0) {
-            add_stat_ptr__9TItemDataFPsl(out, (s16)(parm->evp + evpBonus));
-            add_bonus__9TItemDataFs(out, dfp + dfpBonus);
-            adjust_count__9TItemDataFl(out, parm->x11);
+            TItemData::add_stat_ptr(out, (s16)(parm->evp + evpBonus));
+            ((TItemData *)out)->add_bonus(dfp + dfpBonus);
+            ((TItemData *)out)->adjust_count(parm->x11);
             TItemData__sub_8010EDD8(out, parm->x13);
             TItemData__sub_8010EDC8(out, parm->x12);
             TItemData__sub_8010EDA8(out, parm->x15);
-            add_quantity__9TItemDataFl(out, parm->x14);
+            ((TItemData *)out)->add_quantity(parm->x14);
         }
     }
 }
@@ -543,7 +533,7 @@ f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
     if ((s32) *(u8 *)((s8 *)arg0 + 1) != 0x94) {
         return var_f1;
     }
-    temp_r3 = get_internet_beat__6TLobbyFv();
+    temp_r3 = TLobby::get_internet_beat();
     var_r3 = temp_r3 >> 2;
     var_r3 = temp_r3 / 4;
     var_r4 = (s32 *)(&lbl_8043E348);
@@ -596,8 +586,6 @@ void TItemData__sub_8010C740(void);
 void bswap__9TItemDataFv(s32 arg0);
 void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1);
 s32 bswap_32__FPUl(s32);
-s32 initialize_mag_data__9TItemDataFv(s32 *);
-s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, s32);
 
 s32 is_usable__9TItemDataFPv(void *arg0) {
     u8 temp_r0;
@@ -649,7 +637,7 @@ void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
             if ((u8) *(u8 *)((s8 *)arg0 + 1) == 2) {
                 *(u8 *)((s8 *)arg0 + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
             }
-            set_stack_count__24TShopEquipmentListWindowFSc(arg0, 1);
+            ((TShopEquipmentListWindow *)arg0)->set_stack_count(1);
             return;
         case 4:
             *(s32 *)((s8 *)arg0 + 0x10) = (s32) (((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U) * 0xA);
@@ -660,7 +648,7 @@ void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
             *(u8 *)((s8 *)arg0 + 4) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U);
             return;
         case 2:
-            initialize_mag_data__9TItemDataFv(&sp8);
+            ((TItemData *)(&sp8))->initialize_mag_data();
             serialize_mag__9TItemDataFPvPv(arg0, &sp8);
             break;
         }

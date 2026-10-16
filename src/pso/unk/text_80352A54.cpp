@@ -15,7 +15,6 @@ struct Stack_80352A54 {
 extern "C" {
 u16 TObjPlayer__sub_80100474(void *);
 s32 replace_item_with_new_code(void *, void *);
-void vfunc_44__13TUnk_804F0FF0Fv(s32 arg0);
 }
 
 extern "C" {

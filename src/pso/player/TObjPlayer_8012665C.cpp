@@ -3,8 +3,6 @@
 
 extern "C" {
 
-void update_weapon__13TUnk_804A2A58Fv(void *arg0);
-
 void TUnk_804A2A58::update_weapon() {
     s32 temp_r4;
 

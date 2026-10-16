@@ -32,7 +32,6 @@ struct Pair_802A4AEC { s32 a; f32 b; };
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-void vfunc_9__20TObjEneMe1Gee_NEEDLEFPv(u8 *arg0, VObj_18_174c10 *arg1);
 }
 
 extern "C" {

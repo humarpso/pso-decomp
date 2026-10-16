@@ -4,7 +4,6 @@
 
 extern "C" {
 s32 play_sound_effect(s32, void *, s32, s32);
-void play_door_sound__13TUnk_804B0BB8Fv(u8 *arg0);
 }
 
 extern "C" {

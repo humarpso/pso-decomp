@@ -135,7 +135,6 @@ s32 TObjVoloptPillar__sub_80048118(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
-void sub_80049000__14TObjVoloptCageFv(u8 *arg0);
 s32 check_object_collisions__10TObjPlayerFv(void *, int);
 }
 

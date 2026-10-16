@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjSeabedSuisoBrakable.h"
 #include "pso/misc/TUnk_804DDBF0.h"
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TLobby.h"
@@ -109,20 +110,16 @@ extern s32 lbl_804DDBF0[];
 void* TLobby__sub_802A7780(void* p);
 void* TLobby__sub_802A7788(void* p);
 extern s32 player_action_motion_buffer;
-int vfunc_4__13TUnk_804DDBF0Fv(void);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
-void vfunc_14__13TUnk_804DDBF0Fv(u8 *arg0);
 s32 load_action_motion_pairs__13TUnk_804DDD28Flll(void *, s32, s32, s32);
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void sub_802A7318__13TUnk_804DDD28Fv(void* p);
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
-void vfunc_19__23TObjSeabedSuisoBrakableFv(void);
 
 s32 TLobby::get_valid_child() {
     if (is_valid_player_motion_variant((void*)(*(s32 *)((s8 *)this + 4))) != 0) {

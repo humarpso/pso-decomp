@@ -46,7 +46,6 @@ s32 free_member__17TWindowSubComCardFv(int, int);
 s32 open_yes_no_prompt(int, int, int, int, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern const f32 lbl_805DE298;
-s32 open_trade_confirm_prompt__15TWindowSubTradeFl(u8 *arg0, s32 arg1);
 s32 get_shared_text_buffer();
 u8 *get_player_by_client_id(s32);
 s32 text_builder_append();
@@ -54,7 +53,6 @@ s32 text_builder_reset();
 s32 create_message_window__6TLobbyFllUls(s32, void *, int, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_80470AA8[];
-s32 open_player_message_window__15TWindowSubTradeFll(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {

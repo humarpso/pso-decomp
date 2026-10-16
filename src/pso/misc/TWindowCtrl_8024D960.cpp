@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/TObject.h"
@@ -35,7 +36,6 @@ s32 window_request_show(u32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
 s32 TWindowCtrl__sub_8024C7F8(void *);
 s32 get_battle_ctrl_id__10TObjPlayerFUs(int);
-s32 sub_80244994__13TUnk_804CE018Fv(int);
 s32 TWindow__close(void *);
 s32 TWindowCtrl__sub_8024A314();
 s32 TWindowCtrl__sub_8024C7C4(void *);
@@ -43,7 +43,6 @@ s32 TWindowCtrl__sub_8024C7E0(void *);
 s32 bind_target__13TWindowLockOnFv(void *, s32);
 u32 create_for_target__13TWindowLockOnFlUs(int, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-void sub_8024E0F0__17TWindowCtrlPlayerFv(u8 *arg0);
 s32 is_split_screen();
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
@@ -240,7 +239,7 @@ void TWindowCtrl::update_main_menu_request() {
 #pragma fp_contract on
 void TWindowCtrl::update_target_info_window() {
     u8 *arg0 = (u8 *)this;
-    if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && ((((TObject *)(*(void **)((s8 *)arg0 + 0x38)))->all_parents_unqueued_for_destruction() == 0) || (sub_80244994__13TUnk_804CE018Fv((int) (*(u32 *)((s8 *)arg0 + 0x38))) == 0))) {
+    if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && ((((TObject *)(*(void **)((s8 *)arg0 + 0x38)))->all_parents_unqueued_for_destruction() == 0) || (((TUnk_804CE018 *)(*(u32 *)((s8 *)arg0 + 0x38)))->sub_80244994() == 0))) {
         *(u32 *)((s8 *)arg0 + 0x38) = 0U;
     }
     if ((TWindowCtrl__sub_8024C7E0((void *) (arg0)) != 0) || (get_active_menu() != 0) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7C4((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024A314() != 0)) {

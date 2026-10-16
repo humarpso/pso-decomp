@@ -112,8 +112,6 @@ u8 *TObjNpcCloakroomBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-f32 receive_direct_attack__20TObjNpcCloakroomBaseFPvPvPvll(void);
-void play_voice__20TObjNpcCloakroomBaseFv(s32 arg0);
 void * TObjNpcConnoisseur__create(void *arg0);
 void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);

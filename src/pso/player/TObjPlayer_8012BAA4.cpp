@@ -4,14 +4,11 @@
 
 extern "C" {
 
-void update_weapon__13TUnk_804A4F60Fv(void *arg0);
-void emit_marker_effects__13TUnk_804A4F60Fv(s32 arg0);
 void psycho_wand_node_callback(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 add_actor_tp(s32, s16);
 s32 spawn_cane_effect__10TObjPlayerFiUii(s32, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv();
-s32 psycho_wand_roll_extra__13TUnk_804A4F60Fv(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 translate_matrix(s32, f32, f32, f32);
 s32 TObjectV8047c128_subtract_hp(s32, s16);
@@ -42,7 +39,7 @@ void TUnk_804A4F60::emit_marker_effects() {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
     if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
-        psycho_wand_roll_extra__13TUnk_804A4F60Fv(arg0);
+        ((TUnk_804A4F60 *)arg0)->psycho_wand_roll_extra();
         return;
     }
     ((TObjPlayer *)arg0)->update_active_game_effect();

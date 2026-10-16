@@ -18,8 +18,6 @@ extern "C" {
 s32 clamp_list_scroll_offset(int, void *, void *, f32);
 extern const f32 lbl_805DD240;
 extern const f32 lbl_805DD244;
-void clamp_scroll_offset__17TWindowMessageLogFv(u8 *arg0);
-void clamp_scroll_offset__17TWindowMessageLogFv(u8 *arg0);
 extern const f32 lbl_805DD248;
 extern const f32 lbl_805DD24C;
 void update_scroll_position__17TWindowMessageLogFPv(u8 *arg0);
@@ -75,7 +73,7 @@ void update_scroll_position__17TWindowMessageLogFPv(u8 *arg0) {
     stack.sp8 = (*(f32 *)((s8 *)arg0 + 0x48) - lbl_805DD248) - lbl_805DD24C;
     stack.spC = (*(f32 *)((s8 *)temp_r3 + 0xC) + *(f32 *)((s8 *)temp_r3 + 0x14)) - *(f32 *)((s8 *)temp_r31 + 0xC);
     ((TWindowMenu *)(*(u8 **)((s8 *)arg0 + 0x90)))->copy_position(&stack.sp8);
-    clamp_scroll_offset__17TWindowMessageLogFv((u8 *)((void *) (arg0)));
+    ((TWindowMessageLog *)arg0)->clamp_scroll_offset();
 }
 
 }

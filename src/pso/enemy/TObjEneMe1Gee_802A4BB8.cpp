@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNeedleShoot.h"
 #include "pso/misc/TObjEneMe1Gee_NEEDLE.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
 #include "pso/TParticleCtrl.h"
@@ -12,7 +13,6 @@ extern "C" {
 s32 TObjPlayer__sub_802A445C(void *, s32);
 u32 find_entity_by_id(u16);
 s32 TNeedleShoot__sub_802A4668(void *);
-s32 update_position__12TNeedleShootFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 update_lifetime__22TObjEneMe1GiGueMissileFv(void *);
 u16 obj_getField1c(void *);
@@ -64,7 +64,7 @@ void TObjEneMe1Gee_NEEDLE::run_task() {
         return;
     }
     if ((s32) *(s32 *)&this->m_b8 == 1) {
-        update_position__12TNeedleShootFv(this);
+        update_position();
         update_lifetime__22TObjEneMe1GiGueMissileFv(this);
         TObjPlayer__sub_802A445C(this, 1);
         return;

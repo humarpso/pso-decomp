@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
@@ -21,7 +22,6 @@ u16 obj_getField1c(void *);
 s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
 s32 set_indexed_flags(void *, int, int);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 u32 test_item_flags__10TObjPlayerFUl(void *, int);
 u32 calc_action_flags__9TItemDataFv(void *, u32, u32);
 u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind);
@@ -87,7 +87,7 @@ void TItem::unregister_from_world() {
     if ((!arg0) && (!arg0))
     {
     }
-    unregister_object_by_id__13TUnk_804AF8A0Fv((void *) arg0);
+    ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
     obj_getField1c((void *)((void *) arg0));
     TLobby__sub_80103B04();
     set_item_count__13TUnk_804B9870Fs((s32)((void *) arg0), (s32)((int) 0xFFFF));

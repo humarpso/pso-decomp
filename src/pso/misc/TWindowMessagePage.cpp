@@ -21,7 +21,6 @@ u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 is_player_input_active(int);
-s32 is_message_window_ready__18TWindowMessagePageFv(void *);
 s32 complete_reveal__14TWindowMessageFPv(void *);
 s32 draw__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
@@ -42,7 +41,7 @@ s32 TWindowMessagePage::is_ready() {
     if ((u32) *(u32 *)((s8 *)this + 0x94) != 0U) {
         return 0;
     }
-    return is_message_window_ready__18TWindowMessagePageFv((void *)(this)) != 0 ? 1 : 0;
+    return is_message_window_ready() != 0 ? 1 : 0;
 }
 
 void TWindowMessagePage::update_message() {
@@ -92,7 +91,7 @@ void TWindowMessagePage::run_task() {
     draw__14TWindowMessageFv();
     temp_r5 = is_player_input_active((int) (*(s16 *)((s8 *)arg0 + 0x20))) * 0x50;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
-        if (is_message_window_ready__18TWindowMessagePageFv((void *)((void *) (arg0))) != 0) {
+        if (((TWindowMessagePage *)arg0)->is_message_window_ready() != 0) {
             update_message();
             return;
         }

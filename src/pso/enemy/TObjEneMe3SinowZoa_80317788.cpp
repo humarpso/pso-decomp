@@ -5,7 +5,6 @@
 
 extern "C" {
 
-s32 render_model_if_visible__18TObjEneMe3SinowZoaFv(u8 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 post_translate_matrix(void *);
 s32 push_reflect_matrix__12TObjEneReconFPv(void *);

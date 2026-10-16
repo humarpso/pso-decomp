@@ -20,14 +20,12 @@ struct RecoveredGlobal_8032DC94_lbl_8058D4C0
 };
 
 extern "C" {
-void start_card_effect_trail__13TUnk_804EDD20Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_guardianna(u8 *arg0);
 extern const f32 lbl_805DF7D8;
 extern const f32 lbl_805DF7DC;
 extern const f32 lbl_805DF7E0;
-void vfunc_8__13TUnk_804EDD20Fv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 *query_game_join_id__10TObjPlayerFv(s32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -51,7 +49,6 @@ extern "C" {
 
 void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1);
-void start_card_effect_flash__13TUnk_804EDD20Fv(void* p);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32 *, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv(void *);
 void TItemWeapon__ct(void *);
@@ -287,7 +284,6 @@ u32 create_particle_emitter(void *, int);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DF7E8;
-void start_card_effect_flash__13TUnk_804EDD44Fv(u8 *arg0);
 u8 *find_entity_by_id(u16);
 void anchor_card_effect(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -299,8 +295,6 @@ void run_card_effect(u8 *arg0);
 }
 
 extern "C" {
-
-void vfunc_8__13TUnk_804EDD44Fv(void);
 
 void anchor_card_effect(u8 *arg0) {
   u16 temp_r3;

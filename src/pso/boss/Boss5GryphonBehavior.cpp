@@ -584,11 +584,8 @@ int check_demo_mode__10TObjPlayerFv(void*);
 s32 project_sound_origin_from_camera(void *, void *, f32);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 clear_attack_receipts__9TObjEneDDFv(void *);
-s32 sub_800BBA0C__9TObjEneDDFv(void *);
 s32 update_obstruction_fade(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8DAC;
 void update_main__13TBoss5GryphonFPv(u8 *arg0);
@@ -1705,7 +1702,6 @@ s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
 s32 emit_enemy_effect__9TObjEneDDFllPUcl(void *, int, void *, int);
-u8 * try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(u8 *arg0, u8 *arg1);
 s32 transition_enemy_state(void *, s16);
 void delete_buffer__12TBoss8DragonFis(u32, int);
 s32 isFading__15RenderFadeStateCFv(int);
@@ -3365,7 +3361,7 @@ void apply_velocity__13TBoss5GryphonFPv(Obj_8005FBC4 *arg0) {
         v.z = arg0->vel.z;
         len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
         ((TBoss5Gryphon *)arg0)->calc_shot_position((u8 *)(&shot), (f32)v.x, (f32)v.z, (f32)len);
-        try_move_actor_xz_on_ground__13TBoss5GryphonFPUc((u8 *)arg0, (u8 *)&shot);
+        ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&shot);
     } else {
         arg0->pos.x += arg0->vel.x;
         arg0->pos.y += arg0->vel.y;
@@ -5677,7 +5673,7 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
         return;
     }
     if (*(s32 *)((s8 *)arg0 + 0x4C0) & 1) {
-        send_entity_set_flags__9TObjEnemyFv((void *) (arg0));
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
@@ -5703,7 +5699,7 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4E0) != 1) {
             if (((VObj_18 *)(arg0))->m30() != 0) {
-                clear_attack_receipts__9TObjEneDDFv((void *) (arg0));
+                ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
             ((TBoss8Dragon *)arg0)->update_animation_by_state();
             ((TBoss8Dragon *)arg0)->flush_pending_effect();
@@ -5711,12 +5707,12 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         } else {
             if (((VObj_18 *)(arg0))->m30() != 0) {
-                clear_attack_receipts__9TObjEneDDFv((void *) (arg0));
+                ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         }
     }
-    sub_800BBA0C__9TObjEneDDFv((void *) (arg0));
+    ((TObjEneDD *)arg0)->sub_800BBA0C();
     apply_velocity__13TBoss5GryphonFPv((Obj_8005FBC4 *) (arg0));
     TBoss8Dragon__sub_8005FB90(arg0);
     advance_motion_timer__13TBoss5GryphonFPv((void *) (arg0));

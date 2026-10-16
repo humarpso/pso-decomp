@@ -99,7 +99,6 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 
 extern "C" {
 
-void vfunc_79__15TObjEnemyCustomFv(void *arg0);
 s32 vfunc_79__9TObjEnemyFv();
 
 void TObjEnemyCustom::vfunc_79() {
@@ -301,7 +300,6 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805DA080;
-void sub_800C73F4__18TObjEneBalClawBodyFv(u8 *arg0);
 }
 
 extern "C" {

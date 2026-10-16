@@ -304,12 +304,9 @@ s32 TObjEnePanarms__sub_800E1C98(void *, s32);
 void TObjEnePanarms__sub_800E1D38(void *arg0);
 int TObjEnePanarms__sub_800E1D94(void* p);
 void TObjEnePanarms__sub_800E1E14(u8 *arg0);
-void vfunc_61__14TObjEnePanBARAFv(void* p);
-void vfunc_63__14TObjEnePanBARAFv(u8 *arg0);
 void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0);
 Obj_800E24A4 * fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1);
 s32 TObjEnePanBARA__ct(s32, s32, s32, s32);
-void sub_800E2DE4__10TObjMotionFl(void *arg0, s32 arg1);
 u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0);
 u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
@@ -1133,7 +1130,7 @@ void TObjEnePanarms::init_split() {
     this->hp = (s16) ((s32) (temp_r5 + 1) / 2);
     this->m_3bc = (s32) this->hp;
     *(s32 *)((s8 *)this + 0x3C0) = 0;
-    ((s32 (*)(void *, s32))sub_800E2DE4__10TObjMotionFl)(this, 0x10);
+    sub_800E2DE4(0x10);
     *(s32 *)&this->animationFlags = (s32) (*(s32 *)&this->animationFlags | 1);
     set_field_b8__10TObjMotionFs((void*)(this), (int)(9));
 }

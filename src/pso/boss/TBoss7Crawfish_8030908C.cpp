@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/boss/TBoss7Crawfish.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -112,9 +114,6 @@ s32 fn_8002B630(void *, void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv();
 s32 set_animation__10TObjPlayerFPvs(void *, int);
-s32 initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, void *);
-s32 get_or_assign_actor_id__13TUnk_804806E8Fl(void *, int);
-s32 sub_80308AA8__14TBoss7CrawfishFv(void *);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 extern s32 crawfish_collision_body_desc[];
 extern s32 lbl_804E7380[];
@@ -129,25 +128,14 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void apply_poison_status__14TBoss7CrawfishFv(void);
-void apply_paralysis__14TBoss7CrawfishFv(void);
-void apply_slow_status__14TBoss7CrawfishFv(void);
-void apply_confusion_status__14TBoss7CrawfishFv(void);
-void apply_movement_ailment__14TBoss7CrawfishFl(void);
-void apply_shock_status__14TBoss7CrawfishFv(void);
-void clear_harmful_statuses__14TBoss7CrawfishFv(void);
 void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
 s32 TBoss7Crawfish__sub_80308BEC(void *);
 void TLobby__sub_8001FE7C(void*, int);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__9TObjEnemyFv(void *, s32);
-s32 clear_obj_links__13TUnk_804AF8A0Fv(void *);
 int fn_80269078(void*);
 s32 obj_testFlags30(void *, int);
 
@@ -181,7 +169,7 @@ void TBoss7Crawfish::run_task() {
         ((TBoss7Crawfish *)arg0)->check_band_and_destroy();
         break;
     }
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     if (!(*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x02000000)) {
         submit_cursor_candidate((void *) (arg0), (int) (-1));
     }
@@ -194,8 +182,8 @@ extern s32 __vt__14TBoss7Crawfish[];
 void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss7Crawfish;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
-        clear_obj_links__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
+        ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
         ((TBoss7Crawfish *)arg0)->free_child();
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -214,7 +202,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7Crawfish__class_name;
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__shared_resource), (int) (0));
     fn_8002B630((void *) (arg0 + 0x374), (void *) (crawfish_collision_body_desc));
-    initialize_linked_object_reference__13TUnk_804AF8A0FPv((void *) (arg0), (void *) (arg0 + 0x374));
+    ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference((void *) (arg0 + 0x374));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (lbl_804E7380)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
     ((TBoss7Crawfish *)arg0)->set_anim_timer((int) (2));
@@ -222,7 +210,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     set_field_b8__10TObjMotionFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     ((TUnk_804806E8 *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    if (sub_80308AA8__14TBoss7CrawfishFv((void *) (arg0)) != 0) {
+    if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
         ((TObjEneLappy *)arg0)->set_param((int) (0x4A));
         bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFl(8), dispatch_shared_handler_b__6TLobbyFl(8), register_object__6TLobbyFl(8));
         *(s32 *)((s8 *)arg0 + 0x3A0) = dispatch_shared_handler_a__6TLobbyFl((int) (8));
@@ -233,7 +221,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
         *(s32 *)((s8 *)arg0 + 0x3A0) = dispatch_shared_handler_a__6TLobbyFl((int) (9));
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), (int) (1));
     }
-    get_or_assign_actor_id__13TUnk_804806E8Fl((void *) (arg0), (int) (0));
+    ((TUnk_804806E8 *)arg0)->get_or_assign_actor_id((int) (0));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TBoss7Crawfish *)arg0)->clear_object_state_exchange();
     ((TBoss7Crawfish *)arg0)->change_state((int) (0));
@@ -241,7 +229,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     v.y = TBoss7Crawfish__data_805DF0D8;
     v.x = TBoss7Crawfish__data_805DF0D8;
     TBoss7Crawfish__sub_80308ED8((void *) (arg0), (void *) (&v));
-    if (sub_80308AA8__14TBoss7CrawfishFv((void *) (arg0)) != 0) {
+    if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
         *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DF100;
         *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DF100;
         *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DF100;

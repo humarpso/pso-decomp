@@ -1276,7 +1276,6 @@ s32 reset_cameras_to_actor(void *, int);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 TObjPlayer__sub_80082300(void *);
 s32 is_inactive__10TObjPlayerFv();
-s32 sub_800A7798__9TObjEnemyFf(void *, f32);
 int sub_800E2DE4__10TObjMotionFl(void*, void*);
 s32 init_entry_fields__6TLobbyFiii(int, int, void *, void *);
 u32 activate_d04_slot__10TObjPlayerFv(s32);
@@ -1404,7 +1403,6 @@ s32 set_flag_400000__10TObjPlayerFi(void *);
 s32 check_flag_48__10TObjPlayerFPv(void *);
 s32 is_status_locked__10TObjPlayerFPv();
 s32 is_status_flag_200__10TObjPlayerFPv(void);
-void set_floor__10TObjPlayerFl(void *, s32);
 void set_floor_index__10TObjPlayerFPvi(void *, s32);
 s32 TObjPlayer__sub_801BEEE0(void *, void *);
 s32 __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(s32, s32, s32, void (*)(int));
@@ -1516,7 +1514,6 @@ void run_guard_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void remove_photon_blast_participant(s32 arg0);
 u8 * get_photon_blast_element__10TObjPlayerFi(s32 arg0);
 void update_active_instance__10TObjPlayerFi(s32 arg0);
-void vfunc_75__10TObjPlayerFf(s32 arg0, f32 farg0);
 void release_all_players_control_lock(void);
 void release_photon_blast_player_holds(u16 *p);
 void freeze_players_for_photon_blast(s16 arg0, u16 *arg1);
@@ -5664,7 +5661,7 @@ void start_action__10TObjPlayerFPv(u8 *arg0) {
     ((s32 (*)(void *, s32, s16))set_action_state__10TObjPlayerFPvss)(arg0, 4, temp_r3);
     temp_f31 = TObjPlayer__sub_801D2858(arg0 + 0x5E0);
     temp_f1 = ((f32 (*)(void *))get_action_rate_entry)(arg0);
-    sub_800A7798__9TObjEnemyFf(arg0, temp_f1 * temp_f31);
+    ((TObjEnemy *)arg0)->sub_800A7798(temp_f1 * temp_f31);
 }
 
 void handle_6x42_move_to_position(void *pkt) {
@@ -5940,7 +5937,7 @@ void set_attack_state__10TObjPlayerFPv(u8 *arg0) {
     ((s32 (*)(void *, s32, s16))set_action_state__10TObjPlayerFPvss)(arg0, 2, temp_r3);
     temp_f31 = TObjPlayer__sub_801D2858(arg0 + 0x5E0);
     temp_f1 = ((f32 (*)(void *))get_action_rate_entry)(arg0);
-    sub_800A7798__9TObjEnemyFf(arg0, temp_f1 * temp_f31);
+    ((TObjEnemy *)arg0)->sub_800A7798(temp_f1 * temp_f31);
 }
 
 void handle_6x40_walk_to_position(void *pkt) {
@@ -6122,7 +6119,7 @@ void handle_6x3F_set_position(void *arg0) {
             ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
             ((void (*)(void *))set_flag_400000__10TObjPlayerFi)(p);
             if (m.floor >= 0) {
-                set_floor__10TObjPlayerFl(p, m.floor);
+                ((TObjPlayer *)p)->set_floor(m.floor);
                 set_floor_index__10TObjPlayerFPvi(p, TLobby::get_player_floor(m.floor));
             }
             if (m.room >= 0) {
@@ -6154,7 +6151,7 @@ void handle_6x3E_stop_at_position(void *arg0) {
     }
     ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
     if (m.floor >= 0) {
-        set_floor__10TObjPlayerFl(p, m.floor);
+        ((TObjPlayer *)p)->set_floor(m.floor);
         set_floor_index__10TObjPlayerFPvi(p, TLobby::get_player_floor(m.floor));
     }
     p->ang = m.ang;

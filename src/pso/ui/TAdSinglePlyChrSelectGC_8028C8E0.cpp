@@ -99,7 +99,6 @@ extern s32 chr_select_preview_base_offset_table[];
 extern "C" {
 
 s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
-void sub_8028CEEC__12TChCrLoadReqFPl(void *arg0, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void);
 void close_and_destroy__12TChCrLoadReqFv(void *arg0);
 s32 queue_destruction__7TObjectFv(void *);
@@ -335,7 +334,7 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
         ((TAdSinglePlyChrSelectGC *)arg0)->load_preview_models();
         temp_r4 = *(s32 **)((s8 *)arg0 + 0x3C);
         *temp_r4 &= 0xFFFFFF7F;
-        sub_8028CEEC__12TChCrLoadReqFPl((void *)(arg0), (s32 *)(temp_r4));
+        ((TChCrLoadReq *)arg0)->sub_8028CEEC((s32 *)(temp_r4));
         queue_destruction__7TObjectFv(arg0);
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TObjContainerAbeEnemy.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerBase.h"
@@ -33,8 +34,6 @@ struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
-void vfunc_6__17TObjContainerBaseFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -50,7 +49,6 @@ void draw_ginja_box_tree(void);
 s32 pop_matrix();
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
-void vfunc_81__17TObjContainerBaseFv(Obj_80188C8C *self);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 s32 play_container_break_sound(void *);
@@ -65,12 +63,10 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self);
 
 extern "C" {
 
-void vfunc_80__21TObjContainerAbeEnemyFv(void *arg0);
 void *TObjContainerBase__create(void *arg0);
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void *TObjContainerBase__ct(void *, void *, void *);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -94,7 +90,7 @@ extern s32 __vt__21TObjContainerAbeEnemy[];
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjContainerAbeEnemy;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
@@ -135,12 +131,12 @@ void TObjContainerBase::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
             ((TUnk_804B6C24 *)arg0)->spawn_item((s32)((void *) (arg0)));
-            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+            ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }

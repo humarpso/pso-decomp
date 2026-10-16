@@ -29,7 +29,6 @@ struct Vt_8001B824 { s32 value; u8 remaining[0x14]; };
 struct Obj_8001B534 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
 
 extern "C" {
-s32 sub_8001B424__15TAdRicoRingCtrlFl(void *, void *);
 u32 create__15TAdRicoRingCtrlFPv(int);
 s32 TAdRicoRingCtrl__sub_8001BED0(int, f32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -152,7 +151,7 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8043481C.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 8);
-    sub_8001B424__15TAdRicoRingCtrlFl((void *) (arg0), (void *) (&stack.sp8));
+    ((TAdRicoRingCtrl *)arg0)->sub_8001B424((s32)((void *) (&stack.sp8)));
     return arg0;
 }
 

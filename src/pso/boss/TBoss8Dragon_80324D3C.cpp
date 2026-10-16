@@ -5,7 +5,6 @@
 
 extern "C" {
 
-void update_wing_segments__26TBoss5GryphonLightningWingFv(u8 *arg0);
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, int, int, void *, f32);
 int VecCopy__FP3VecPC3Vec(s32, s32, s32);
 

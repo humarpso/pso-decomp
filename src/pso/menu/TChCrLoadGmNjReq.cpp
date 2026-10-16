@@ -1,6 +1,5 @@
 #include "pso/TChCrLoadGmNjReq.h"
 
-extern "C" void sub_8028C8A8__16TChCrLoadGmNjReqFv(void*);
 extern "C" void TLobby__sub_8001FE7C(void*, int);
 
 #include "types.h"
@@ -46,7 +45,7 @@ void TChCrLoadGmNjReq::run_task() {
 }
 
 TChCrLoadGmNjReq::~TChCrLoadGmNjReq() {
-    sub_8028C8A8__16TChCrLoadGmNjReqFv(this);
+    sub_8028C8A8();
     if (m_68 != nullptr) {
         TLobby__sub_8001FE7C(m_68, 1);
     }

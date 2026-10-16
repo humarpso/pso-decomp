@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void update_weapon__13TUnk_804A0CB8Fv(void *arg0);
 u32 belra_cannon_create_extra_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 spawn_slot_emitter__18TItemShootParticleFPvii(u32, s32, s32);
 u32 spawn_shoot_particle__10TObjPlayerFUlllf(void *, s32, s32, f32);

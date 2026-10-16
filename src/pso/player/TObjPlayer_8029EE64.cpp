@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TScene.h"
 #include "pso/misc/TUnk_804DC7C4.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/player/TObjPlayer.h"
@@ -52,16 +54,12 @@ extern const f32 lbl_805DDDA0;
 extern const f32 lbl_805DDDA4;
 extern const f32 lbl_805DDDA8;
 void TObjPlayer__sub_8029EE2C(void);
-void set_id__6TSceneFi(void *f);
-void set_active_scene__6TSceneFi(void *f);
 int set_instance__6TSceneFi(void *f);
 int set_scene_callbacks__6TSceneFv(void);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 fabs_float(f32);
 Pl_8029EFFC *get_player_by_client_id(s32);
 s32 is_boss_area();
-void render_task_layer_02__9TMainTaskFv(void *);
-void render_object_layers__9TMainTaskFi(void *, s32);
 s32 fn_8029E7BC(Vec_8029EFFC *, Vec_8029EFFC *);
 s32 fn_8029EC3C(Vec_8029EFFC *, s32);
 void set_scene_flag__10TSceneSoraFi(s32);
@@ -89,7 +87,6 @@ extern const f32 lbl_805DDDB0;
 
 extern "C" {
 
-void render__13TUnk_804DC7C4Fv(void);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 
@@ -172,7 +169,7 @@ void TUnk_804DC7C4::render_shadows() {
         scene_sora_recon_active_flag = 0;
         if (is_boss_area() != 0) {
             if (p != NULL) {
-                render_object_layers__9TMainTaskFi(((u8 *)&main_task), 2);
+                ((TMainTask *)((u8 *)&main_task))->render_object_layers(2);
                 if (TOKeyMachine01::get_global_state() == 0x20) {
                     c3.pos.x = p->pos38.x;
                     c3.pos.y = p->pos38.y;
@@ -182,12 +179,12 @@ void TUnk_804DC7C4::render_shadows() {
                     c3.scale.z = c3.scale.x;
                     push_matrix();
                     reflect_matrix_in_plane(0, &c3);
-                    render_object_layers__9TMainTaskFi(((u8 *)&main_task), 3);
+                    ((TMainTask *)((u8 *)&main_task))->render_object_layers(3);
                     pop_matrix();
                 }
             }
         } else if (p != NULL) {
-            render_object_layers__9TMainTaskFi(((u8 *)&main_task), 1);
+            ((TMainTask *)((u8 *)&main_task))->render_object_layers(1);
             c2.pos.x = o->pos24.x;
             c2.pos.y = o->pos24.y;
             c2.pos.z = o->pos24.z;
@@ -196,11 +193,11 @@ void TUnk_804DC7C4::render_shadows() {
             c2.scale.z = c2.scale.x;
             push_matrix();
             reflect_matrix_in_plane(0, &c2);
-            render_object_layers__9TMainTaskFi(((u8 *)&main_task), 4);
+            ((TMainTask *)((u8 *)&main_task))->render_object_layers(4);
             pop_matrix();
         }
     }
-    render_task_layer_02__9TMainTaskFv(((u8 *)&main_task));
+    ((TMainTask *)((u8 *)&main_task))->render_task_layer_02();
     if (p != NULL) {
         c1.pos.x = o->pos24.x;
         c1.pos.y = o->pos24.y;
@@ -210,7 +207,7 @@ void TUnk_804DC7C4::render_shadows() {
         c1.scale.z = c1.scale.x;
         push_matrix();
         reflect_matrix_in_plane(0, &c1);
-        render_object_layers__9TMainTaskFi(((u8 *)&main_task), 5);
+        ((TMainTask *)((u8 *)&main_task))->render_object_layers(5);
         pop_matrix();
     }
     k = lbl_805DDD8C;
@@ -244,7 +241,7 @@ void TUnk_804DC7C4::render_shadows() {
             VecCopy__FP3VecPC3Vec(&tmp, &p->pos2FC);
             r = fn_8029EC3C(&tmp, 0x4000);
             if (r == 1) {
-                render_object_layers__9TMainTaskFi(((u8 *)&main_task), 0);
+                ((TMainTask *)((u8 *)&main_task))->render_object_layers(0);
             }
             pop_matrix();
             pop_matrix();
@@ -264,8 +261,8 @@ void TUnk_804DC7C4::render_shadows() {
 
 void TUnk_804DC7C4::render() {  }
 int set_scene_callbacks__6TSceneFv(void) {
-    set_id__6TSceneFi((void *)TObjPlayer::setup_projection_texture);
-    set_active_scene__6TSceneFi((void *)TObjPlayer::clear_state_if_flag80);
+    TScene::set_id((int)((void *)TObjPlayer::setup_projection_texture));
+    TScene::set_active_scene((int)((void *)TObjPlayer::clear_state_if_flag80));
     return set_instance__6TSceneFi((void *)TObjPlayer__sub_8029EE2C);
 }
 

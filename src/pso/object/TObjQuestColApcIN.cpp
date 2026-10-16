@@ -9,13 +9,11 @@ extern "C" {
 f32 xyz_distance_squared(void *, void *);
 Pl_801962B4 *get_player_by_client_id(s32);
 extern s32 local_client_id;
-s32 vfunc_15__17TObjQuestColApcINFv(Col_801962B4 *arg0);
 }
 
 extern "C" {
 
 void *TObjQuestColApcIN__ct(void *arg0);
-void vfunc_16__17TObjQuestColApcINFv(void* p);
 void TObjQuestColBase__ct(void *);
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);

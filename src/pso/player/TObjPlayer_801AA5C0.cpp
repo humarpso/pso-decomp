@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 struct O_801AA64C { u16 a; u16 b; };
 
 extern "C" {
@@ -11,8 +12,6 @@ extern "C" {
 #include "types.h"
 
 extern "C" {
-s32 init_forward__10TObjPlayerFv(void *);
-s32 reset_id_entry__10TObjPlayerFv(void *);
 s32 __construct_array(void *, void *, void *, int, int);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 int TObjPlayer__sub_801AA6E4(void* a0 = 0, void* a1 = 0);
@@ -40,9 +39,9 @@ extern "C" {
 extern "C" {
 
 s32 init_arrays__10TObjPlayerFi(s32 arg0) {
-    init_forward__10TObjPlayerFv((void *) (arg0 + 4));
+    ((TObjPlayer *)(arg0 + 4))->init_forward();
     __construct_array((void *) (arg0 + 8), (void *) (&TObjPlayer__sub_801AA61C), (void *) (&TObjPlayer__sub_801AA584), (int) (4), (int) (4));
-    reset_id_entry__10TObjPlayerFv((void *) (arg0));
+    ((TObjPlayer *)arg0)->reset_id_entry();
     return arg0;
 }
 

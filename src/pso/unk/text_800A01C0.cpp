@@ -11,7 +11,6 @@ struct Stack_800A01C0 {
 
 extern "C" {
 s32 draw_line_list(void *, int, int);
-void render__29TObjEneMe1Canadin_EffLineFadeFv(s32 arg0);
 }
 
 extern "C" {

@@ -4,7 +4,6 @@
 extern "C" {
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DFFA8;
-void sub_803554F0__20TBoss5GryphonTornadoFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {

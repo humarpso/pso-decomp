@@ -5,7 +5,6 @@
 extern "C" {
 
 void increment_model_node_counter(void);
-void sub_80121208__11TItemWeaponFl(void* p, s32 v);
 void reset_model_node_counter(void);
 
     extern int model_node_counter;

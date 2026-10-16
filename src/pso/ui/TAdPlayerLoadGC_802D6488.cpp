@@ -4,8 +4,6 @@
 
 extern "C" {
 
-void update_attack__13TUnk_804E24F0Fv(s32 arg0);
-
 extern const f32 lbl_805DE7A8;
 extern const f32 lbl_805DE7B8;
 

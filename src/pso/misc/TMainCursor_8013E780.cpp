@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
 
 extern "C" {
 int set_target_index__11TMainCursorFs(void*, void* a1);
@@ -25,7 +26,6 @@ u16 TMainCursor__sub_8013E4A0(void* p);
 s16 TMainCursor__sub_8013E570(void* p);
 void TMainCursor__sub_8013E694(void* p, s16 v);
 int TMainCursor__sub_8013E6E0(void* p);
-void sub_8013E724__11TMainCursorFf(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
 s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
 s32 get_body_include_mask__11TMainCursorFPv(void* p);

@@ -255,7 +255,6 @@ typedef struct Laser_80037074 {
 extern "C" {
 void *spawn_continuous_particle_effect_with_flags(Vec_80037074 *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
-void run_task__13TUnk_804E4788Fv(Laser_80037074 *self);
 }
 
 extern "C" {

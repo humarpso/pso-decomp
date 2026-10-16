@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD.h"
 #include "pso/boss/TBoss2Mine.h"
 
 extern "C" {
@@ -6,20 +7,10 @@ extern "C" {
 void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4);
 void TBoss2Mine__sub_80038D84(void);
 int TBoss2Mine__sub_80038D88(void* p);
-void apply_poison_status__10TBoss2MineFv(void);
-void apply_paralysis__10TBoss2MineFv(void);
-void apply_slow_status__10TBoss2MineFv(void);
-void apply_confusion_status__10TBoss2MineFv(void);
-void apply_movement_ailment__10TBoss2MineFl(void);
-void apply_shock_status__10TBoss2MineFv(void);
-void clear_harmful_statuses__10TBoss2MineFv(void);
-void apply_attack_stat_status__10TBoss2MineFPv(void);
-void apply_defense_stat_status__10TBoss2MineFPv(void);
 s32 init__10TBoss2MineFPvi(void *, s32);
 s32 TObjEneDD__ct(void *, s32);
 int TObjPlayer__sub_800F0928(void*);
 s32 get_instance__13TBoss2DeRolLeFv(void);
-s32 init_common_from__9TObjEneDDFPUc(void *, s32);
 
 extern void *__vt__10TBoss2Mine[];
 extern s32 TBoss2Mine__name;
@@ -32,7 +23,7 @@ void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss2Mine__name;
     temp_r3 = get_instance__13TBoss2DeRolLeFv();
     if (temp_r3 != 0) {
-        init_common_from__9TObjEneDDFPUc(arg0, temp_r3);
+        ((TObjEneDD *)arg0)->init_common_from((u8 *)temp_r3);
     }
     *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;

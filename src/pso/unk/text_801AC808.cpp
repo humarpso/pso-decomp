@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -32,7 +33,6 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
 s32 spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
@@ -101,7 +101,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     F_801AC808(self, f32, 0x150) = pkt->f20;
     if (F_801AC808(self, s32, 0x194) == 0) {
         ((TObjMotion *)self)->set_field_b8(0);
-        begin_photon_summon_camera__13TUnk_804C3248FSc(self, 2);
+        ((TUnk_804C3248 *)self)->begin_photon_summon_camera(2);
         F_801AC808(self, s32, 0x194) = 1;
         F_801AC808(self, s16, 0x190) = 0;
         F_801AC808(self, s32, 0x19C) = 1;

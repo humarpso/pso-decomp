@@ -1,4 +1,5 @@
 #include "pso/network/GbaJoybootState.h"
+#include "pso/misc/TDLGraph.h"
 
 extern "C" {
 void TLobby__sub_8032CB6C(void);
@@ -10,7 +11,6 @@ void free_buffer__6TLobbyFv(void);
 void init_graph__6TLobbyFv(void);
 u32 create__8TDLGraphFv();
 int queue_destruction__7TObjectFv(void*);
-s32 set_graph_param__8TDLGraphFl(s32, s32);
 void xfree__FPv(void*);
 void alloc_buffer__6TLobbyFv(void);
 s32 xmalloc__FUl(s32);
@@ -20,7 +20,6 @@ void send_data__6TLobbyFi(s32 arg0);
 void update_alloc_size__6TLobbyFv(void);
 s32 load_from_aram_sync__16TAdWarningBaseGCFi(void*);
 u32 TAdWarningBaseGC__sub_8032D020();
-s32 update_graph__8TDLGraphFll(s32, s32);
 s32 read_disc_file(s32, u32);
 s32 TLobby__sub_801F34F8();
 int GBAInit(void*);
@@ -47,7 +46,7 @@ void init_graph__6TLobbyFv(void) {
         temp_r3 = create__8TDLGraphFv();
         gba_download_graph = temp_r3;
         if (temp_r3 != 0U) {
-            set_graph_param__8TDLGraphFl(temp_r3, 2);
+            ((TDLGraph *)temp_r3)->set_graph_param(2);
         }
     }
 }
@@ -132,7 +131,7 @@ u8 get_selected_slot__6TLobbyFv(void) {
             return 0U;
         }
         if ((u32) gba_download_graph != 0U) {
-            update_graph__8TDLGraphFll(sp8 + 1, 0x65);
+            TDLGraph::update_graph(sp8 + 1, 0x65);
         }
         return sp8;
     }

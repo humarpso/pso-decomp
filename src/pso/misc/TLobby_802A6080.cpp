@@ -29,13 +29,10 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_ginja_object(s32);
-void vfunc_12__13TObjSuisoChipFv(O_802A60CC *arg0);
 }
 
 extern "C" {
 
-void vfunc_8__13TObjSuisoChipFv(void);
-void vfunc_10__13TObjSuisoChipFv(void* p);
 s32 TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
 int free_buffer__15TWindowSnapShotFPv(void*);

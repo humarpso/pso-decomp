@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerJungEx.h"
 #include "pso/TParticleCtrl.h"
@@ -32,8 +33,6 @@ struct Obj_8018CFD4 { u8 pad[0x38]; Vec_8018CFD4 pos; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
-void vfunc_6__19TObjContainerJungExFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -55,8 +54,6 @@ void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self);
 
 extern "C" {
 
-void vfunc_80__19TObjContainerJungExFv(void *arg0);
-void vfunc_81__19TObjContainerJungExFv(u8 *arg0);
 void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
@@ -64,7 +61,6 @@ s32 draw_ginja_object();
 s32 TObjContainerJungEx__sub_8018D900(s32);
 s32 get_model__19TObjContainerJungExFl(s32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -134,12 +130,12 @@ void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
             ((TUnk_804B6C24 *)arg0)->spawn_item((s32)((void *) (arg0)));
-            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+            ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }
@@ -189,7 +185,7 @@ extern s32 __vt__19TObjContainerJungEx[];
 void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjContainerJungEx;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {

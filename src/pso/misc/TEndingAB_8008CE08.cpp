@@ -173,11 +173,9 @@ extern s32 game_difficulty_selection;
 
 extern "C" {
 
-int run_task__9TEndingABFv(void* p);
 void TLobby__sub_803DA16C(void*);
-int advance_fade_sequence__9TEndingABFv(void*);
 
-void TEndingAB::run_task() { advance_fade_sequence__9TEndingABFv(this); }
+void TEndingAB::run_task() { advance_fade_sequence(); }
 
 extern u32 ending_ab_wall_texture_list;
 

@@ -5,7 +5,6 @@
 
 extern "C" {
 
-s32 update_anim_phase__13TUnk_804AFBF8Fv(void *);
 s32 TORainbowCave01__sub_80158604(void *);
 
 void TUnk_804AFBF8::run_task() {
@@ -14,7 +13,7 @@ void TUnk_804AFBF8::run_task() {
         return;
     }
     if ((u32) *(u32 *)&this->m_bc != 0U) {
-        update_anim_phase__13TUnk_804AFBF8Fv(this);
+        update_anim_phase();
     }
 }
 

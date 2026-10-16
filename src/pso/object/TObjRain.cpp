@@ -16,13 +16,8 @@ u8 *__ct__8TObjRainFv(u8 *arg0, s32 arg1, u32 arg2);
 
 extern "C" {
 
-int render__8TObjRainFv(void* p);
-int run_task__8TObjRainFv(void* p);
-int draw_streaks__8TObjRainFv(void*);
-int update_drops__8TObjRainFv(void*);
-
-void TObjRain::render() { draw_streaks__8TObjRainFv(this); }
-void TObjRain::run_task() { update_drops__8TObjRainFv(this); }
+void TObjRain::render() { draw_streaks(); }
+void TObjRain::run_task() { update_drops(); }
 typedef char RecoveredGlobal_80197C84___vt__8TObjRain_size[sizeof(RecoveredGlobal_80197C84___vt__8TObjRain) == 0x18 ? 1 : -1];
 TObjRain::~TObjRain() {}
 u8 *__ct__8TObjRainFv(u8 *arg0, s32 arg1, u32 arg2) {

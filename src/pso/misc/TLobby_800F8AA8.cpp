@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/object/TObjFish.h"
 
 extern "C" {
 s32 *lobby_checked_read_ptr_table[4] = { 0, 0, 0, 0 };
@@ -10,7 +14,6 @@ u32 lbl_80499A30[4] = { 0, 0, 0, 0 };
 extern "C" {
 
 void reset_keyboard_state__6TLobbyFv(void);
-int reset__16TKeyBoardControlFv(void);
 
     extern unsigned char area_transfer_pending_flag;
 extern "C" u8 lbl_8043D7A8[];
@@ -743,7 +746,7 @@ __declspec(section ".data") void *lbl_8049C61C[2] = {
 #define lobby_font_texture_prs_data ((u8 *)lobby_font_texture_prs_data)
 #define lbl_8049C61C ((u8 *)lbl_8049C61C)
 
-void reset_keyboard_state__6TLobbyFv(void) { area_transfer_pending_flag = 0; reset__16TKeyBoardControlFv(); }
+void reset_keyboard_state__6TLobbyFv(void) { area_transfer_pending_flag = 0; TKeyBoardControl::reset(); }
 
 }
 
@@ -757,7 +760,6 @@ void TLobby__sub_800F8AD0(void);
 void clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int TKeyBoardControl__sub_8000F92C(void);
 void TLobby__sub_800F8BD8(void);
-int reset__16TKeyBoardControlFv(void);
 void set_keyboard_mode__6TLobbyFi(int);
 
 extern u32 main_phase_deferred_callback;
@@ -773,7 +775,7 @@ bool is_area_transfer_pending(void) {
     return (*(u8 *)&area_transfer_pending_flag) != 0;
 }
 
-void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TLobbyFi(0); reset__16TKeyBoardControlFv(); }
+void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TLobbyFi(0); TKeyBoardControl::reset(); }
 
 }
 
@@ -784,10 +786,6 @@ s32 get_main_phase();
 s32 is_quest_active();
 void set_keyboard_mode__6TLobbyFi(int);
 void TLobby__sub_800F8BD8(void);
-void reset_keyboard_input__6TLobbyFv();
-void shutdown_keyboard_control__6TLobbyFv();
-void init_chr_select__6TLobbyFv();
-void reset_to_chr_select__6TLobbyFv();
 void apply_phase_keyboard_mode(void);
 }
 
@@ -798,23 +796,22 @@ void invoke_callback__6TLobbyFv(void);
 #define main_phase_deferred_callback (*(s32 (**)())&main_phase_deferred_callback)
 int TKeyBoardControl__sub_8000F92C(void);
 void clear_callback_and_reset_keyboard__6TLobbyFv(void);
-int reset__16TKeyBoardControlFv(void);
 void set_keyboard_mode__6TLobbyFi(int);
 
 void apply_phase_keyboard_mode(void) {
     switch (get_main_phase()) {
     case 15:
         if (is_quest_active() != 0) {
-            set_keyboard_mode__6TLobbyFi((int)(init_chr_select__6TLobbyFv));
+            set_keyboard_mode__6TLobbyFi((int)(TLobby::init_chr_select));
         } else {
-            set_keyboard_mode__6TLobbyFi((int)(reset_to_chr_select__6TLobbyFv));
+            set_keyboard_mode__6TLobbyFi((int)(TLobby::reset_to_chr_select));
         }
         break;
     case 14:
         if (is_quest_active() != 0) {
-            set_keyboard_mode__6TLobbyFi((int)(shutdown_keyboard_control__6TLobbyFv));
+            set_keyboard_mode__6TLobbyFi((int)(TLobby::shutdown_keyboard_control));
         } else {
-            set_keyboard_mode__6TLobbyFi((int)(reset_keyboard_input__6TLobbyFv));
+            set_keyboard_mode__6TLobbyFi((int)(TLobby::reset_keyboard_input));
         }
         break;
     case 1:
@@ -827,7 +824,7 @@ void apply_phase_keyboard_mode(void) {
     }
 }
 
-void TLobby__sub_800F8BD8(void) { reset__16TKeyBoardControlFv(); TKeyBoardControl__sub_8000F92C(); }
+void TLobby__sub_800F8BD8(void) { TKeyBoardControl::reset(); TKeyBoardControl__sub_8000F92C(); }
 
 void invoke_callback__6TLobbyFv(void) {
     if (((s32 (*)()) main_phase_deferred_callback) != NULL) {
@@ -849,7 +846,6 @@ void set_keyboard_mode__6TLobbyFi(int a0) { main_phase_deferred_callback = a0; }
 extern "C" {
 
 void flush_checked_reads__6TLobbyFv();
-s32 read_checked_align__6TLobbyFlll(s32, s32, u32);
 extern s32 *pending_file_read_handle_ref;
 extern s32 pending_file_read_sector_count;
 extern u32 pending_file_read_destination;
@@ -864,7 +860,7 @@ void flush_pending__6TLobbyFv(void) {
         if ((temp_r5 != 0U)) {
             temp_r4 = pending_file_read_sector_count;
             if (temp_r4 != 0) {
-                read_checked_align__6TLobbyFlll(*pending_file_read_handle_ref, temp_r4, temp_r5);
+                TLobby::read_checked_align(*pending_file_read_handle_ref, temp_r4, temp_r5);
             }
         }
         flush_checked_reads__6TLobbyFv();
@@ -876,7 +872,7 @@ void flush_checked_reads__6TLobbyFv() {
 
     for (i = 0; i < 4; i++) {
         if (lobby_checked_read_ptr_table[i] != NULL && lbl_80499A10[i] != 0 && lbl_80499A20[i] != 0) {
-            read_checked_align__6TLobbyFlll(*lobby_checked_read_ptr_table[i], lbl_80499A10[i], lbl_80499A20[i]);
+            TLobby::read_checked_align(*lobby_checked_read_ptr_table[i], lbl_80499A10[i], lbl_80499A20[i]);
         }
     }
 }
@@ -934,11 +930,8 @@ extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPCc(const char *);
 s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
-void tmp_buf_release__6TLobbyFv(const char *s);
 void load_font_texture__6TLobbyFv(void);
-void set_global_param__8TObjFishFl(void *);
 void begin_screen_draw(int);
-void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(void *, int);
 void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0);
@@ -971,11 +964,11 @@ void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
     v[3] = 432.0f;
     v[5] = v[4] = 0.0f;
     v[7] = v[6] = 1.0f;
-    set_global_param__8TObjFishFl(lbl_8049C61C);
+    TObjFish::set_global_param((s32)lbl_8049C61C);
     begin_screen_draw(0);
     set_draw_texture_and_color(arg0, -1);
     draw_textured_quad_at_depth(v, (0.5f));
-    get_player__20TWindowSubStatusDispFv();
+    TWindowSubStatusDisp::get_player();
 }
 
 void release_menu_font__6TLobbyFv(void) {
@@ -991,7 +984,7 @@ void load_font_texture__6TLobbyFv(void) {
         s32 r;
         prs_decompress_buffer(lobby_font_texture_prs_data, file);
         r = load_gvm_texture_archive(file, lbl_8049C61C);
-        tmp_buf_release__6TLobbyFv(lbl_8043D9F4);
+        ((TLobby *)lbl_8043D9F4)->tmp_buf_release();
         lobby_font_texture_loaded = 1;
         if (r == -1) {
             lobby_font_texture_loaded = 0;

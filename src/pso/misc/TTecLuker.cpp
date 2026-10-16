@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/unk/TUnk_804CC148.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804CC9D4.h"
 
@@ -315,7 +317,6 @@ extern const f32 lbl_805DC870;
 extern const f32 lbl_805DC874;
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res);
 extern const f32 lbl_805DC858;
-void vfunc_6__9TTecLukerFPv(G_802346F8 *self, VObj_802346F8 *o);
 }
 
 extern "C" {
@@ -328,7 +329,6 @@ s32 TLobby__send_and_handle_60(s32);
 void stop_sound_request(void *);
 s32 free_collision_body_parts(void *);
 s32 are_players_gathered_near(void *, s32, f32);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, s32);
 u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
@@ -336,7 +336,6 @@ void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-s32 destroy_technique_base__13TUnk_804CC148Fs(void *, s32);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -397,7 +396,7 @@ extern s32 telepipe_field_collider_vtable[];
 void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = telepipe_field_collider_vtable;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0xB0) = 0;
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
@@ -986,7 +985,7 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0xF0) = 0U;
         }
         *(u32 *)((s8 *)arg0 + 0xF0) = 0U;
-        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
+        ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
         }

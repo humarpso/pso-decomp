@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F42C.h"
 #include "pso/TItemLoad.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -10,7 +11,6 @@ struct RecoveredGlobal_8010FCB4_lbl_8049F42C {
 extern "C" {
 s32 test_flags_any(void *, int);
 s32 __dl__FPv(void *);
-s32 sub_80110010__13TUnk_8049F42CFs(void *, int);
 extern RecoveredGlobal_8010FCB4_lbl_8049F42C lbl_8049F42C;
 extern s32 item_load_work_buffer_busy;
 u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1);
@@ -48,7 +48,7 @@ u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1) {
         if (test_flags_any((void *) (arg0 + 0x1C), (int) (4)) != 0) {
             item_load_work_buffer_busy = 0;
         }
-        sub_80110010__13TUnk_8049F42CFs((void *) (arg0), (int) (0));
+        ((TUnk_8049F42C *)arg0)->sub_80110010((int) (0));
         if (arg1 > 0) {
             __dl__FPv((void *) (arg0));
         }

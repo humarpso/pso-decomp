@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804F0A00.h"
 #include "pso/player/TUnk_804F0AF8.h"
 #include "pso/player/TUnk_804F0908.h"
@@ -134,11 +135,9 @@ int spawn_nug2000_hit_explosion(void);
 u32 find_item_by_id(void);
 int spawn_nug2000_hit_explosion(void);
 void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-void * enter_timed_state__13TUnk_804F0810FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8034F1AC(u8 *arg0);
-void * construct_rappys_fan__13TUnk_804F0908FlPv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0);
@@ -153,18 +152,15 @@ void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o);
 u32 find_item_by_id(void);
 void spawn_fire_explosion_at_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 get_player_list__10TObjPlayerFv();
 s32 rotate_matrix_z(s32, s32);
 void rotate_by_player_list__10TObjPlayerFPv(P_8034F020 *arg0);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
-u32 get_field_d8__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 s16 get_validated_attack_stage(void *);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
-void draw_icon__10TObjPlayerFll(void *, int, f32 *);
 u8 *create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 extern const f32 lbl_805DFDF8;
 void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon);
@@ -190,14 +186,9 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1);
 void TObjPlayer__sub_8034F8B8(void* p);
-void update_attack__13TUnk_804F0AF8Fv(void* p);
 int apply_recoil_forward__10TObjPlayerFPv(void* p);
 void return_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p);
 void pose_gi_gue_bazooka_nodes__10TObjPlayerFPv(void *arg0);
-void update_attack__13TUnk_804F0A00Fv(void* p);
-void reserved_53__13TUnk_804F0810Fv(void* p);
-int update_attack__13TUnk_804F0810Fv(void* p);
-void emit_marker_effects__13TUnk_804F0810Fv(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 s32 spawn_particle_effect(void *, s32);
@@ -205,7 +196,6 @@ int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
-s32 get_player_list__10TObjPlayerFv();
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
@@ -220,7 +210,7 @@ void TUnk_804F0810::emit_marker_effects() {
 }
 
 void rotate_by_player_list__10TObjPlayerFPv(P_8034F020 *arg0) {
-    switch (get_player_list__10TObjPlayerFv()) {
+    switch (TObjPlayer::get_player_list()) {
     case 1:
         ((s32)rotate_matrix_z((s32)(0), (s32)(arg0->f1F8)));
         break;
@@ -263,7 +253,7 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)enter_timed_state__13TUnk_804F0810FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F0810 *)temp_r3)->enter_timed_state((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -287,7 +277,7 @@ void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon) {
     u8 *t;
     init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(*(u8 **)((s8 *)weapon + 0xF0));
-    launch.weapon = get_field_d8__10TObjPlayerFv(weapon);
+    launch.weapon = ((TObjPlayer *)weapon)->get_field_d8();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
     launch.kind = TObjPlayer__sub_801D2F4C(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
@@ -297,8 +287,8 @@ void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon) {
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 **)((s8 *)weapon + 0xF0)) + 0x60);
     launch.spin = 0;
-    draw_icon__10TObjPlayerFll(weapon, 3, launch.first);
-    draw_icon__10TObjPlayerFll(weapon, 2, launch.second);
+    ((TObjPlayer *)weapon)->draw_icon((s32)3, (s32)launch.first);
+    ((TObjPlayer *)weapon)->draw_icon((s32)2, (s32)launch.second);
     t = create__10TTecSlicerFPUs(&launch);
     if (t != NULL) {
         *(s32 *)((s8 *)t + 0x5C) += 0x4000;
@@ -337,7 +327,7 @@ u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)construct_rappys_fan__13TUnk_804F0908FlPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804F0908 *)temp_r3)->construct_rappys_fan((s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -385,7 +375,7 @@ void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o) {
 void pose_gi_gue_bazooka_nodes__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 2:
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x1F8));
@@ -451,7 +441,7 @@ u8 *create_gi_gue_bazooka__10TObjPlayerFi(s32 arg0) {
 void TObjPlayer::dispatch_by_state() {
     s32 temp_r3;
 
-    temp_r3 = get_player_list__10TObjPlayerFv();
+    temp_r3 = TObjPlayer::get_player_list();
     switch (temp_r3) {
     case 2:
         rotate_matrix_z(0, *(s32 *)((s8 *)this + 0x1F8));

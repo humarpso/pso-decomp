@@ -22,12 +22,8 @@ u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
 extern "C" {
 
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 void __dl__7TObjectFPv(void *);
-s32 advance_reveal_cursor__14TWindowMessageFv(void *);
 s32 update_line_timers__14TWindowMessageFPv(void *);
-s32 retire_scrolled_lines__14TWindowMessageFv(void *);
-s32 update_scroll__14TWindowMessageFv(void *);
 void mem_free(void *);
 
 void render__14TWindowMessageFv(s32 arg0) {
@@ -42,13 +38,13 @@ void TWindowMessage::draw() {
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
-    update_scroll__14TWindowMessageFv(arg0);
-    retire_scrolled_lines__14TWindowMessageFv(arg0);
+    ((TWindowMessage *)arg0)->update_scroll();
+    ((TWindowMessage *)arg0)->retire_scrolled_lines();
     update_line_timers__14TWindowMessageFPv(arg0);
-    advance_reveal_cursor__14TWindowMessageFv(arg0);
+    ((TWindowMessage *)arg0)->advance_reveal_cursor();
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
 
 extern s32 __vt__14TWindowMessage[];

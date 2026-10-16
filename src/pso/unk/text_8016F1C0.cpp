@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TOMineTrap.h"
 
 struct RecoveredGlobal_8016F1C0___vt__10TOMineDisp {
@@ -26,7 +27,6 @@ s32 is_technique_ready__8TTecCtrlFv(void);
 VO_8016F320 *get_player_by_client_id(u16);
 void text_builder_append(const char *);
 void text_builder_reset(void);
-void init_all__11TWindowCtrlFPvPv(void *, s32);
 extern const char lbl_804421F0[];
 extern const char lbl_805DB860[4];
 s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1);
@@ -96,7 +96,7 @@ s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1) {
                 text_builder_append(lbl_805DB860);
                 text_builder_append(name);
                 text_builder_append(lbl_804421F0);
-                init_all__11TWindowCtrlFPvPv(get_shared_text_buffer(), 0x200);
+                TWindowCtrl::init_all((void*)(get_shared_text_buffer()), (void*)0x200);
                 return 1;
             }
         }
@@ -155,7 +155,6 @@ extern const f32 lbl_805DB85C;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
 u32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DB864;
-void vfunc_82__10TOMineTrapFv(Obj_8016F64C *arg0);
 VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
 s16 TOMineTrap__sub_80171340(void *);
@@ -168,8 +167,6 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0);
 }
 
 extern "C" {
-
-s32 vfunc_12__10TOMineTrapFv(void);
 
 struct VObj8016F3C4Base { char pad[0x18]; };
 struct VObj8016F3C4 : VObj8016F3C4Base { virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3(); virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7(); virtual s32 m8(); virtual s32 m9(); virtual s32 m10(); virtual s32 m11(); };

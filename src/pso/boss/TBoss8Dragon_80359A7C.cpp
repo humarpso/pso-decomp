@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/TObject.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -122,9 +123,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 project_sound_origin_from_camera(void *, void *, f32);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 sub_800BBA0C__9TObjEneDDFv(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 release_grabbed_player__12TBoss8DragonFPv(void *);
 extern s32 local_client_id;
 extern s32 TBoss8Dragon__data_805D69B8;
@@ -154,7 +153,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
         return;
     }
     if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
-        send_entity_set_flags__9TObjEnemyFv((void *) (arg0));
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
@@ -212,7 +211,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
             }
         }
     }
-    sub_800BBA0C__9TObjEneDDFv((void *) (arg0));
+    ((TObjEneDD *)arg0)->sub_800BBA0C();
     ((VObj_18 *)(arg0))->m86();
     ((TBoss8Dragon *)arg0)->store_position();
     ((TBoss8Dragon *)arg0)->set_player_state_default();

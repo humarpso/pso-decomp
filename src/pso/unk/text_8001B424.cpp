@@ -4,7 +4,6 @@
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D7E48;
-void sub_8001B424__15TAdRicoRingCtrlFl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {

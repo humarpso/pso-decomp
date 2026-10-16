@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
@@ -15,7 +16,6 @@ void queue_destruction__7TObjectFv(void *);
 s32 is_item_light_interaction_blocked();
 f32 xz_distance_squared(void *, void *);
 Ply_80191F90 *get_player_by_client_id(s32);
-void set_event_source_flag__13TUnk_804B9870Fl(void *, s32);
 void run_task__13TObjItemLightFv(Light_80191F90 *arg0);
 }
 
@@ -54,7 +54,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
         if (p != 0 && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor()
             && is_locally_controlled__10TObjPlayerFPv(p) != 0
             && xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
-            set_event_source_flag__13TUnk_804B9870Fl(arg0, 8);
+            ((TUnk_804B9870 *)arg0)->set_event_source_flag(8);
             queue_destruction__7TObjectFv(arg0);
             return;
         }

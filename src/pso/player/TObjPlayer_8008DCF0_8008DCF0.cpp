@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -237,7 +238,6 @@ extern const f32 lbl_805D9620;
 void TObjPlayer__sub_8008E254(void *arg0);
 s32 TObjEneBalClawClaw__sub_8008DC90(void *);
 void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
-void sub_80090418__18TObjEneBalClawClawFl(void *self, s32 i);
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
 void *create__18TObjEneBalClawClawFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 u8 *get_enemy_entity(u16);
@@ -622,14 +622,14 @@ void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1) {
         *(u32 *)((s8 *)arg0 + 0x388) |= 0x01000000;
         ((TObjEneLappy *)arg0)->set_param(0x28);
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        sub_80090418__18TObjEneBalClawClawFl(arg0, 1);
+        ((TObjEneBalClawClaw *)arg0)->sub_80090418(1);
         *(s16 *)((s8 *)arg0 + 0x3DA) = 0;
         ((VObj_18_4841bb *)(arg0))->m53();
     } else {
         *(u32 *)((s8 *)arg0 + 0x388) &= ~0x01000000;
         ((TObjEneLappy *)arg0)->set_param(0x27);
         *(s16 *)((s8 *)arg0 + 0xB8) = 5;
-        sub_80090418__18TObjEneBalClawClawFl(arg0, 0);
+        ((TObjEneBalClawClaw *)arg0)->sub_80090418(0);
         ((VObj_18_4841bb *)(arg0))->m53();
         if (!(*(u32 *)((s8 *)arg0 + 0x388) & 0x40000)) {
             *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x32C) / (*(s16 *)((s8 *)arg0 + 0x3D8) + 1);

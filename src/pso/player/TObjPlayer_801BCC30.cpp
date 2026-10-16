@@ -14,18 +14,13 @@ s32 get_quest_status__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BEC10(void *);
 s32 get_field_0x374__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BEC3C(void *);
-s32 sub_801BEE24__10TObjPlayerFs(void *, int);
-s32 sub_801BEE2C__10TObjPlayerFs(void *, int);
-void load_char_data__10TObjPlayerFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
 s32 obj_isState2_324();
-s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 apply_state_transform__10TObjPlayerFUi(s32);
 int queue_destruction__7TObjectFv(void*);
-void destroy_owned_object__10TObjPlayerFv(void* p);
 int sync_current_floor__10TObjPlayerFPv(void*);
 int sync_current_area__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_801BCA0C(void);
@@ -36,8 +31,8 @@ void TObjPlayer__sub_801BCC50(void);
 int check_technique_castable__10TObjPlayerFi(void*);
 
 void TObjPlayer::load_char_data(u8 *arg1) {
-    sub_801BEE2C__10TObjPlayerFs((void *) (((u8 *)this)), (int) (*(s16 *)((s8 *)arg1 + 0x24)));
-    sub_801BEE24__10TObjPlayerFs((void *) (((u8 *)this)), (int) (*(s16 *)((s8 *)arg1 + 0x26)));
+    sub_801BEE2C((int) (*(s16 *)((s8 *)arg1 + 0x24)));
+    sub_801BEE24((int) (*(s16 *)((s8 *)arg1 + 0x26)));
     get_field_0x374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEC3C((void *) (arg1))));
     get_quest_status__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEC10((void *) (arg1))));
     query_flags_374__10TObjPlayerFv((void *) (((u8 *)this)), (void *) (TObjPlayer__sub_801BEBE4((void *) (arg1))));

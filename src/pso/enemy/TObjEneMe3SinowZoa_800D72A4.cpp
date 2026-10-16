@@ -1,22 +1,19 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TUnk_80494938.h"
 
 struct O_800D72A4 { u8 pad[0x18]; f32 f18; };
 
 extern "C" {
 extern const float lbl_805DA348;
-s32 vfunc_10__13TUnk_80494938Fv(u8 *arg0);
 s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0);
 extern const f32 lbl_805DA34C;
-s32 advance_toward_max__13TUnk_80494938Fv(u8 *arg0);
 extern const float lbl_805DA348;
-s32 decay_value_toward_floor__13TUnk_80494938Fv(u8 *arg0);
 extern const float lbl_805DA348;
 extern const f32 lbl_805DA34C;
 extern const float lbl_805DA350;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA358;
-void sub_800D741C__13TUnk_80494938Fv(u8 *arg0);
 extern const float lbl_805DA348;
 extern const f32 lbl_805DA34C;
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
@@ -24,11 +21,8 @@ s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
 
 extern "C" {
 
-void reset_obstruction_fade__13TUnk_80494938Fv(void* a0);
-void set_flags_and_apply_damage_color__13TUnk_80494938Fv(void);
 void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q);
 int set_chunk_blend(int);
-int set_flags_and_apply_damage_color__10TObjPlayerFv(void);
 
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
     return self->f18 > (*(const f32 *)&lbl_805DA348) && self->f18 < lbl_805DA34C;
@@ -39,11 +33,11 @@ s32 TUnk_80494938::vfunc_10() {
     return *(f32 *)((s8 *)arg0 + 0x18) > (*(const f32 *)&lbl_805DA348);
 }
 
-void TUnk_80494938::set_flags_and_apply_damage_color() { set_flags_and_apply_damage_color__10TObjPlayerFv(); set_chunk_blend(8448); }
+void TUnk_80494938::set_flags_and_apply_damage_color() { TObjPlayer::set_flags_and_apply_damage_color(); set_chunk_blend(8448); }
 
 s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0) {
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (*(f32 *)((s8 *)arg0 + 0x18) + *(f32 *)((s8 *)arg0 + 0x10));
-    sub_800D741C__13TUnk_80494938Fv((u8 *)(arg0));
+    ((TUnk_80494938 *)arg0)->sub_800D741C();
     return *(f32 *)((s8 *)arg0 + 0x18) >= farg0;
 }
 
@@ -52,7 +46,7 @@ s32 TUnk_80494938::advance_toward_max() {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x10));
-    sub_800D741C__13TUnk_80494938Fv((u8 *)(arg0));
+    ((TUnk_80494938 *)arg0)->sub_800D741C();
     return *(f32 *)((s8 *)arg0 + 0x18) >= lbl_805DA34C;
 }
 
@@ -61,7 +55,7 @@ s32 TUnk_80494938::decay_value_toward_floor() {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));
-    sub_800D741C__13TUnk_80494938Fv((u8 *)(arg0));
+    ((TUnk_80494938 *)arg0)->sub_800D741C();
     return *(f32 *)((s8 *)arg0 + 0x18) <= (*(const f32 *)&lbl_805DA348);
 }
 
@@ -95,7 +89,6 @@ void TUnk_80494938::reset_obstruction_fade() { *(float*)((char*)this + 0x18) = l
 
 extern "C" {
 
-void vfunc_4__13TUnk_80494938Fv(void* a0);
 void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v);
 
     extern const float lbl_805DA348;
@@ -137,8 +130,6 @@ void init_death_params__18TObjEneMe3SinowZoaFPv(V_800D7524 *self);
 }
 
 extern "C" {
-
-void set_rate_from_divisor__13TUnk_80494938Fl(void *arg0, s32 arg1);
 
 extern const f64 lbl_8043C6F8;
 extern const f32 lbl_805DA34C;

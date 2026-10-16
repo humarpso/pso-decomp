@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 #include "pso/misc/TPhotonEstlla.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
@@ -12,7 +13,6 @@ u8 *photon_base_ct(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 sub_801AA6F8__13TPhotonEstllaFv(void *, int);
@@ -82,7 +82,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x194) == 0) {
         ((TObjMotion *)arg0)->set_field_b8(0);
-        begin_photon_summon_camera__13TUnk_804C3248FSc(arg0, 0);
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera(0);
         *(s32 *)((s8 *)arg0 + 0x194) = 1;
         *(s16 *)((s8 *)arg0 + 0x190) = 0;
         *(s32 *)((s8 *)arg0 + 0x19C) = 1;

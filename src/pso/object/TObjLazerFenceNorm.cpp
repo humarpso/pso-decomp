@@ -26,7 +26,6 @@ struct RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm {
 };
 
 extern "C" {
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 select_models__18TObjLazerFenceNormFPv(void *);
 extern RecoveredGlobal_80192E70_lbl_804B7FB0 laser_fence_collision_body_parts;
@@ -44,7 +43,6 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 free_collision_body_parts(void *);
 s32 update_closed__18TObjLazerFenceNormFv();
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 reset_by_door__18TObjLazerFenceNormFv();
@@ -68,7 +66,7 @@ extern s32 __vt__18TObjLazerFenceNorm[];
 void *__dt__18TObjLazerFenceNormFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjLazerFenceNorm;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
@@ -105,7 +103,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&laser_fence_collision_body_parts.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), (int) (3));
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     return arg0;
 }
 

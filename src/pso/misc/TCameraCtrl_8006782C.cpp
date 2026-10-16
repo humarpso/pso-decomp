@@ -30,7 +30,6 @@ extern const f32 lbl_805D8F50;
 extern const f32 lbl_805D8F54;
 extern const f32 lbl_805D8F58;
 extern const f32 lbl_805D8F5C;
-void update_follow_flags__13TUnk_804887F8Fv(u8 *arg0);
 u8 *TCameraCtrl__sub_8003CFF4();
 f32 vector_length(void *);
 void normalize_vector(void *);

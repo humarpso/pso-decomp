@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -96,7 +97,6 @@ struct VObj_8014952C : VBase_8014952C {
 struct Tbl_8014952C { u8 anim[0x20]; u8 anim2[0x58]; u8 vt[4]; };
 
 extern "C" {
-void set_motion_params__13TUnk_804806E8FPv(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -247,7 +247,7 @@ u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2) {
     *(s32 *)(self + 0x24) = TObjFish__sub_8001EDB0(TObjEneDf2Bringer__resource_bundle, 0);
     ((TObjPlayer *)self)->init_npc_animation((void*)npc_bringer_animation_table, (void*)(*(s32 *)(TObjEneDf2Bringer__resource_bundle + 0x430)), (void*)(*(s16 *)(self + 0xB8)));
     *(u8 **)(self + 0x350) = npc_movement_parameters;
-    set_motion_params__13TUnk_804806E8FPv(self, npc_default_battle_stats);
+    ((TUnk_804806E8 *)self)->set_motion_params(npc_default_battle_stats);
     init_collision_body_parts(self, lbl_804A7EC0, 2);
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TObjEnemy *)self)->update_prev_position();

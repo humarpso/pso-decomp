@@ -18,9 +18,7 @@ extern "C" {
 f32 fabs_float(f32);
 s32 csnVector(void *, void *, int);
 extern const f32 lbl_805D9EA4;
-s32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *csnVectorUnder(f32 *, void *, s32);
-u8 *vfunc_103__9TObjEneDDFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -32,7 +30,7 @@ void TBoss5Gryphon::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2
     s32 temp_r5;
 
     f32 temp_f3 = farg2 + *(f32 *)((s8 *)arg0 + 0x37C);
-    if (enemy_probe_wall_ahead__13TBoss5GryphonFfff((u8 *)(arg0), farg0, farg1, temp_f3) == 0U) {
+    if (((TBoss5Gryphon *)arg0)->enemy_probe_wall_ahead(farg0, farg1, temp_f3) == 0U) {
         *(f32 *)((s8 *)arg1 + 0) = (f32) ((farg0 * farg2) + *(f32 *)((s8 *)arg0 + 0x38));
         *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(f32 *)((s8 *)arg1 + 8) = (f32) ((farg1 * farg2) + *(f32 *)((s8 *)arg0 + 0x40));

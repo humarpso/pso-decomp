@@ -46,7 +46,6 @@ s32 post_translate_matrix(void *);
 s32 draw_chunk_model(s32);
 s32 draw_chunk_object(void *);
 s32 draw_model_motion(void *, void *, f32);
-void render__13TUnk_804B27D8Fv(u8 *arg0);
 s32 submit_cursor_candidate(void *, int);
 s32 check_player_flag1__6TLobbyFv();
 s32 end_conversation_camera();
@@ -62,7 +61,6 @@ extern u32 quest_area_manager;
 extern s32 tl_00;
 extern const f32 lbl_805DB6D8;
 extern const f32 lbl_805DB6DC;
-void run_task__13TUnk_804B27D8Fv(u8 *arg0);
 }
 
 extern "C" {

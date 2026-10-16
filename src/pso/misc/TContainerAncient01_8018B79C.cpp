@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -38,8 +39,6 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
-s32 sub_8018B284__19TContainerAncient01Fv(void *);
-s32 sub_8018B48C__19TContainerAncient01Fv(void *);
 s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__bml_resource;
@@ -55,15 +54,10 @@ s32 TContainerAncient01__vt18(s32 arg0, s32 arg1);
 
 extern "C" {
 
-int calc_distance_accuracy_penalty__19TContainerAncient01FPvPvPvf(void);
-f32 receive_physical_attack__19TContainerAncient01FPvf(void *arg0);
-f32 receive_direct_attack__19TContainerAncient01FPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
 s32 scale_current_matrix(void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, s16 *, s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, s16 *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -76,10 +70,10 @@ f32 TContainerAncient01::receive_physical_attack(void *, f32) {
 
     if ((u16) *(u16 *)((s8 *)this + 0x1C) >= 0x1000U) {
         reset_state__19TContainerAncient01Fv();
-        if (((u32) *(u32 *)((s8 *)this + 0x80) != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs(this, &sp8, 1) != 0)) {
+        if (((u32) *(u32 *)((s8 *)this + 0x80) != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
             sp8 = 1;
-            access_object_saved_state__13TUnk_804AF8A0FPvs(this, &sp8, 0);
-            send_object_state_update__13TUnk_804AF8A0FPv(this, &sp8);
+            access_object_saved_state(&sp8, 0);
+            send_object_state_update(&sp8);
         }
     }
     return TContainerAncient01__data_805DBD14;
@@ -140,10 +134,10 @@ void TContainerAncient01::run_task() {
                 ((TContainerAncient01 *)arg0)->update_wait_for_player();
                 break;
             case 1:
-                sub_8018B48C__19TContainerAncient01Fv((void *) (arg0));
+                ((TContainerAncient01 *)arg0)->sub_8018B48C();
                 break;
             case 2:
-                sub_8018B284__19TContainerAncient01Fv((void *) (arg0));
+                ((TContainerAncient01 *)arg0)->sub_8018B284();
                 break;
             default:
                 this->mode = 0;

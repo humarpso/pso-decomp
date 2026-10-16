@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMcSelectCursorGC.h"
 #include "pso/ui/TAdMcSelectGC.h"
 #include "pso/TMainTask.h"
 
@@ -23,7 +24,6 @@ void *__ct__12TAdBackTxtGCFv(void *, void *);
 void *__ct__10TAdTitleGCFv(void *, void *, s32);
 void *__ct__15TAdChrSelSlotGCFv(void *, void *);
 void TAdMcSelectGC__sub_8032A180(void *, s32);
-void *get_instance__19TAdMcSelectCursorGCFl(void *);
 void *__ct__15TAdMcSelectMcGCFv(void *, void *, s32);
 void fn_8033F314(void *, s32);
 extern u8 lbl_804770F8[];
@@ -149,7 +149,7 @@ Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent) {
         }
         ((TAdMcSelectGC *)p)->set_field_0x1c(0);
     }
-    ((TAdMcSelectGC *)(get_instance__19TAdMcSelectCursorGCFl(self)))->set_field_13c(0);
+    ((TAdMcSelectGC *)(TAdMcSelectCursorGC::get_instance((s32)self)))->set_field_13c(0);
     for (j = 0; j < 2; j++) {
         fn_8033F314(self, j);
     }

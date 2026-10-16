@@ -64,7 +64,6 @@ u32 get_player_by_client_id(int);
 extern Base_80235C44 TObjLight__scene_light_state;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC894;
-void run_task__13TUnk_804CCAA8Fv(Light_80235C44 *arg0);
 }
 
 extern "C" {

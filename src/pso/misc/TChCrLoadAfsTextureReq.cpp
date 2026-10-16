@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrLoadGmNjReq.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -60,7 +61,6 @@ s32 fn_8001ED90(int);
 u32 get_bml_model(int, int);
 s32 TLobby__sub_8001FE7C(int, int);
 u32 TLobby__sub_8002058C(int, int, void *, void *, int, int, int);
-s32 sub_8028C8A8__16TChCrLoadGmNjReqFv(void *);
 void update_model_load__6TLobbyFPv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__22TChCrLoadAfsTextureReq[];
@@ -272,7 +272,7 @@ void update_model_load__6TLobbyFPv(u8 *arg0) {
             ((TLobby *)(*(s32 *)((s8 *)arg0 + 0x24)))->alloc_load_buffer((int) (TLobby__sub_8001ED88((int) (*(u32 *)((s8 *)arg0 + 0x68)))));
             TLobby__sub_8001FE7C((int) (*(u32 *)((s8 *)arg0 + 0x68)), (int) (1));
             *(u32 *)((s8 *)arg0 + 0x68) = 0U;
-            sub_8028C8A8__16TChCrLoadGmNjReqFv((void *) (arg0));
+            ((TChCrLoadGmNjReq *)arg0)->sub_8028C8A8();
             temp_r5 = *(s32 **)((s8 *)arg0 + 0x28);
             temp_r4 = *temp_r5;
             *temp_r5 = temp_r4 & ~*(s32 *)((s8 *)arg0 + 0x20);

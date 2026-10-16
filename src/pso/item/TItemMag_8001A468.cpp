@@ -122,8 +122,6 @@ extern s8 player_light_index;
 
 extern "C" {
 
-void render__13TUnk_80480938Fv(void);
-void run_task__13TUnk_80480938Fv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 get_ending_scene_active();

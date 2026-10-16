@@ -20,13 +20,11 @@ extern "C" {
 extern const f32 lbl_805DB024;
 extern const f32 lbl_805DB028;
 extern const f32 lbl_805DB02C;
-void update_weapon__13TUnk_804A6BD0Fv(Obj_80130CD8 *arg0);
 s32 spawn_particle_effect(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DB020;
-void emit_marker_effects__13TUnk_804A6BD0Fv(struct Pl_80130C2C *arg0);
 }
 
 extern "C" {

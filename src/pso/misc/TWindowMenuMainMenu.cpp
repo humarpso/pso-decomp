@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMenuMainMenu.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowMainMenu.h"
@@ -9,7 +10,6 @@ struct W_802AE864 { u8 pad[0x124]; void *a[8]; };
 extern "C" {
 s32 draw_frame__19TWindowMenuMainMenuFv(void *, int);
 s32 setup_content_frame__15TWindowMainMenuFPv();
-s32 save_position__13TUnk_804CE018Fv(void *);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 extern s32 window_menu_main_menu_params[];
 extern s32 __vt__19TWindowMenuMainMenu[];
@@ -21,7 +21,6 @@ extern "C" {
 
 void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
-s32 handle_navigation_input__19TWindowMenuMainMenuFv(void *);
 void __dl__7TObjectFPv(void *);
 
 void render__19TWindowMenuMainMenuFv(s32 arg0) {
@@ -48,7 +47,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
         var_r31 += 1;
         var_r30 += 0x18;
     } while (var_r31 < 8);
-    handle_navigation_input__19TWindowMenuMainMenuFv(arg0);
+    ((TWindowMenuMainMenu *)arg0)->handle_navigation_input();
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TWindowMainMenu *)arg0)->update_slide_position();
     ((TUnk_804CE018 *)arg0)->update_fade();
@@ -91,7 +90,7 @@ u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
         ((W_802AE864 *)arg0)->a[i] = 0;
     }
     ((TWindowMainMenu *)arg0)->update_scaled_position();
-    save_position__13TUnk_804CE018Fv(arg0);
+    ((TUnk_804CE018 *)arg0)->save_position();
     return arg0;
 }
 

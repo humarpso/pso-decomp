@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TLobby.h"
@@ -279,7 +281,6 @@ s32 set_ready_flag__18TCheckRoomSequenceFv(int);
 s32 check_room_ready__18TCheckRoomSequenceFv(void);
 s32 get_shop_text(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy__13TUnk_804CDFE8Fff(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
 s32 get_selected_menu_value(int);
 s32 align_menu_entry_positions(int);
@@ -305,7 +306,6 @@ int set_field_20__15TShopWindowBaseFl(void*, void*);
 s32 set_ready_flag__18TCheckRoomSequenceFv(int);
 s32 get_shop_text(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy__13TUnk_804CDFE8Fff(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
 s32 get_selected_menu_value(int);
 s32 align_menu_entry_positions(int);
@@ -319,7 +319,6 @@ int set_field_20__15TShopWindowBaseFl(void*, void*);
 s32 set_ready_flag__18TCheckRoomSequenceFv(int);
 s32 get_shop_text(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy__13TUnk_804CDFE8Fff(int, f32, f32);
 void TWindow__close(TWin_8020F070 *);
 s32 get_selected_menu_value(int);
 s32 align_menu_entry_positions(int);
@@ -331,7 +330,6 @@ void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0);
 int set_field_20__15TShopWindowBaseFl(void*, void*);
 s32 get_room_data__18TCheckRoomSequenceFi(int);
 s32 set_service_counter_camera(void *, int);
-s32 create_message_window__13TShopSequenceFll(void *, s32, Vec2_80210198 *);
 int sub_8022397C__15TShopWindowBaseFv(void*);
 s16 get_child_field1c__13TShopSequenceFv(void *);
 void *__nw__7TObjectFUl(u32);
@@ -354,7 +352,6 @@ s32 get_item_def__18TCheckRoomSequenceFUl(void *);
 void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 slot);
 s32 queue_destruction__7TObjectFv(void *);
 void close_window__18TCheckRoomSequenceFPv(TCheckRoomSequence_8020F070 *self);
-s32 close_message_window__13TShopSequenceFv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
 int sub_8022397C__15TShopWindowBaseFv(void*);
 s32 __dl__7TObjectFPv(void *);
@@ -679,7 +676,7 @@ void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
             align_menu_entry_positions((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
             set_ready_flag__18TCheckRoomSequenceFv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
-            set_position_xy__13TUnk_804CDFE8Fff((int) (*(u32 *)((s8 *)arg0 + 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
+            ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)arg0 + 0x3C)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
         }
         ((VObj_18_a93f07 *)(arg0))->m4(0x32, 1);
         *(s32 *)((s8 *)arg0 + 0x2C) = 1;
@@ -726,7 +723,7 @@ void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
             align_menu_entry_positions((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
             set_ready_flag__18TCheckRoomSequenceFv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
-            set_position_xy__13TUnk_804CDFE8Fff((int) (*(u32 *)((s8 *)arg0 + 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
+            ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)arg0 + 0x3C)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
         }
         ((VObj_18_a93f07 *)(arg0))->m4(0x33, 1);
         *(s32 *)((s8 *)arg0 + 0x2C) = 1;
@@ -781,7 +778,7 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
                 calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 align_menu_entry_positions((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 set_ready_flag__18TCheckRoomSequenceFv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
-                set_position_xy__13TUnk_804CDFE8Fff((int) (*(u32 *)((s8 *)arg0 + 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
+                ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)arg0 + 0x3C)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
             }
             *(s32 *)((s8 *)arg0 + 0x2C) = 1;
             return;
@@ -821,7 +818,7 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
                 calc_window_size__17TWindowSubComCardFPv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 align_menu_entry_positions((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
                 set_ready_flag__18TCheckRoomSequenceFv((int) (*(u32 *)((s8 *)arg0 + 0x3C)));
-                set_position_xy__13TUnk_804CDFE8Fff((int) (*(u32 *)((s8 *)arg0 + 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
+                ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)arg0 + 0x3C)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
             }
             *(s32 *)((s8 *)arg0 + 0x2C) = 1;
             return;
@@ -875,7 +872,7 @@ void open_bank__18TCheckRoomSequenceFv(u8 *arg0) {
     Vec2_80210198 v;
     v.x = lbl_805DC634;
     v.y = lbl_805DC638;
-    create_message_window__13TShopSequenceFll(arg0, get_window_layout_position(0x2C), &v);
+    ((TShopSequence *)arg0)->create_message_window((s32)(get_window_layout_position(0x2C)), (s32)(&v));
     ((VObj_18_a93f07 *)(arg0))->m4(0x31, 1);
     *(s32 *)((s8 *)arg0 + 0x38) = create_meseta_window(get_child_field1c__13TShopSequenceFv(arg0));
     w = __nw__7TObjectFUl(0x6C);
@@ -931,7 +928,7 @@ u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48));
             *(void **)((s8 *)arg0 + 0x48) = NULL;
         }
-        close_message_window__13TShopSequenceFv(arg0);
+        ((TShopSequence *)arg0)->close_message_window();
         if (*(TWin_8020F070 **)((s8 *)arg0 + 0x34) != NULL) {
             TWindow__close(*(TWin_8020F070 **)((s8 *)arg0 + 0x34));
             *(TWin_8020F070 **)((s8 *)arg0 + 0x34) = NULL;

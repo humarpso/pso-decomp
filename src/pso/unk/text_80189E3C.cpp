@@ -19,7 +19,6 @@ extern const char lbl_80444F00[];
 extern const char lbl_80444F10[];
 extern const char lbl_80444F20[];
 extern const f32 lbl_805DBCF4;
-void debug_print_item_box_info__13TUnk_804B6C24Fv(Obj_80189E3C *self);
 }
 
 extern "C" {

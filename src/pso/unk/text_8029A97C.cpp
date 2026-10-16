@@ -21,7 +21,6 @@ extern const f32 lbl_805DDC80;
 extern const f32 lbl_805DDC84;
 extern const f32 lbl_805DDC88;
 extern const f32 lbl_805DDC8C;
-void draw_chcr_tag_frame__11TChCrEffTagFv(A_8029A9B8 *arg0);
 }
 
 extern "C" {

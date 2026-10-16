@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 #include "pso/misc/TLobby.h"
@@ -15,7 +16,6 @@ struct Win_80077544 { u8 pad[0x15A0]; struct Ent_80077544 e[12]; };
 
 extern "C" {
 int get_symbol_chat_preset(s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 set_stream_and_load_file__6TLobbyFi(char *);
 extern char symbol_chat_default_data_filename[];
 }
@@ -60,7 +60,7 @@ void TWindowSubSymbolChat::load_symbol_chat_data() {
     for (i = 0; i < 6; i++) {
         ((TWindowSubSymbolChat *)(&e[i]))->bswap_entry();
         t = get_symbol_chat_preset(i);
-        ((TWindowSubSymbolChat *)t)->set_entry_name((void *)(get_message_10__20TWindowSubStatusDispFl(i + 0xC6)));
+        ((TWindowSubSymbolChat *)t)->set_entry_name((void *)(TWindowSubStatusDisp::get_message_10(i + 0xC6)));
     }
     for (; i < 12; i++) {
         ((TWindowSubSymbolChat *)(&e[i]))->bswap_entry();

@@ -6,9 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void sub_800C7860__15TObjEnemyCustomFv(u8 *arg0);
-void vfunc_63__15TObjEnemyCustomFv(u8 *arg0);
-void vfunc_62__15TObjEnemyCustomFv(u8 *arg0);
 s32 apply_actor_gravity(void *, s32, f32, f32);
 s32 move_with_wall_slide(void *);
 s32 advance_animation_playback(void *);

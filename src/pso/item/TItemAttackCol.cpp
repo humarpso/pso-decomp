@@ -159,7 +159,6 @@ s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
-s32 resolve_attack_col_hit__13TUnk_804E355CFPUc(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DE914;
 extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
@@ -204,7 +203,7 @@ void TItemAttackCol::shift_collision_bounds() {
 void TItemAttackCol::vfunc_6(s32 *a) {
     Obj_802E3C4C *o = (Obj_802E3C4C *)this;
     if (!(o->fE4 & 0x80)) {
-        if (resolve_attack_col_hit__13TUnk_804E355CFPUc((u8 *)o, (u8 *)a) != 0) {
+        if (((TUnk_804E355C *)o)->resolve_attack_col_hit((u8 *)a) != 0) {
             if (o->cb != NULL) {
                 o->cb(o->fAC, a, o->fD0);
             }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct Ent_8020A768 { s16 a; s16 b; u8 pad[0x48 - 4]; };
 
 struct Name_8020A768 { char s[0x20]; };
@@ -10,7 +11,6 @@ struct Name_8020A834 { char s[0x20]; };
 extern "C" {
 s32 read_disc_file(Name_8020A768 *, void *);
 void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
-s32 get_player_floor__6TLobbyFl(s32);
 void bswap_enemy_set_row(Ent_8020A768 *);
 void reserve_enemy_set_actor_ids(struct SpawnRecord_8020A9C4 *, s32, s32);
 void init_floor_enemy_count__6TLobbyFiPvUi(s32, Ent_8020A768 *, s32);
@@ -20,7 +20,6 @@ extern s32 TLobby__map_set_file_buffer_size;
 s32 load_enemy_set_file(s32 arg0, s32 arg1);
 s32 read_disc_file(Name_8020A768 *, void *);
 void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
-s32 get_player_floor__6TLobbyFl(s32);
 void swap_object_row_endian(Ent_8020A834 *);
 void assign_object_ids__6TLobbyFPviPv(struct Rec_8020AA94 *, s32, void *);
 void load_object_set_entries__6TLobbyFiPvUi(s32, Ent_8020A834 *, s32);
@@ -53,7 +52,7 @@ s32 load_enemy_set_file(s32 arg0, s32 arg1) {
         bswap_enemy_set_row(p);
         p->b = 0;
     }
-    floor = get_player_floor__6TLobbyFl(arg0);
+    floor = TLobby::get_player_floor(arg0);
     reserve_enemy_set_actor_ids((struct SpawnRecord_8020A9C4 *)TLobby__map_set_file_buffer, n, floor);
     init_floor_enemy_count__6TLobbyFiPvUi(arg0, TLobby__map_set_file_buffer, size);
     return 1;
@@ -79,7 +78,7 @@ s32 load_object_set_file(s32 arg0, s32 arg1) {
         swap_object_row_endian(p);
         p->b = 0;
     }
-    floor = get_player_floor__6TLobbyFl(arg0);
+    floor = TLobby::get_player_floor(arg0);
     assign_object_ids__6TLobbyFPviPv((struct Rec_8020AA94 *)(*(Ent_8020A834 * *)&TLobby__map_set_file_buffer), n, (void *)floor);
     load_object_set_entries__6TLobbyFiPvUi(arg0, (*(Ent_8020A834 * *)&TLobby__map_set_file_buffer), size);
     return 1;

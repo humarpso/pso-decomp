@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488E00.h"
 #include "pso/misc/TUnk_80488838.h"
 
 struct Stack_80067EE0 {
@@ -58,8 +59,6 @@ f32 cos_table_lookup(s32);
 }
 
 extern "C" {
-
-void vfunc_14__13TUnk_80488E00Fl(void* p, s32 v);
 
 void * TCameraCtrl__vt7(void) {
     void *o;

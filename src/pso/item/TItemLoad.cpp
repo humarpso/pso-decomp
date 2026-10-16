@@ -13,7 +13,6 @@ s32 TItemLoad__sub_80110750(O_80110750 *self, s32 i);
 
 extern "C" {
 
-void vfunc_3__13TUnk_8049F42CFv(void);
 s32 TItemLoad__sub_801107DC(void* p);
 s32 TItemLoad__sub_801107E4(void* p);
 void* TItemLoad__sub_801107EC(void* p);

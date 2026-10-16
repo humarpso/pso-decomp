@@ -107,7 +107,6 @@ struct Obj_800E46D4 : Base_800E46D4 {
 extern "C" {
 s32 sub_800E7250__21TObjEneMe3ShinowaRealFv();
 void transition_enemy_state(void *, s16);
-void vfunc_107__21TObjEneMe3ShinowaRealFv(u8 *arg0);
 s32 create__23TObjEneMe3ShinowaMirageFPvPv(void *, s32, s32, s32);
 s32 find_entity_by_id(s32);
 u16 obj_getField1c();
@@ -122,9 +121,6 @@ Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *ar
 extern "C" {
 
 u16 TObjEneMe3ShinowaReal__sub_800E45CC(void* p);
-void vfunc_111__21TObjEneMe3ShinowaRealFv(void* p);
-void vfunc_62__21TObjEneMe3ShinowaRealFv(void* p);
-void vfunc_63__21TObjEneMe3ShinowaRealFv(void* p);
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1);
 int vfunc_62__17TObjEneMe3ShinowaFv(void*);
 int vfunc_63__17TObjEneMe3ShinowaFv(void*);

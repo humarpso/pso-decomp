@@ -1,8 +1,8 @@
 #include "pso/TItemEffEquip.h"
+#include "pso/boss/TBoss4Type2.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_8049F038.h"
 
-extern "C" void request_destroy__11TBoss4Type2FUl(void*);
 extern "C" void queue_destruction__7TObjectFv(TObject*);
 
 struct Equip_Self { u8 pad0[0x18]; void *vt; void *m_1c; void *m_20; };
@@ -20,7 +20,7 @@ void run_task__13TItemEffEquipFv(Equip_Self *self) {
 void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
     if (self != NULL) {
         self->vt = __vt__13TItemEffEquip;
-        request_destroy__11TBoss4Type2FUl(self->m_20);
+        TBoss4Type2::request_destroy((u32)(self->m_20));
         __dt__7TObjectFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -38,10 +38,8 @@ void run_task__13TUnk_8049F038Fv(u8 *arg0);
 u8 *vfunc_9__13TUnk_8049F038Fv(u8 *arg0);
 s32 set_item_count__13TUnk_804B9870Fs(void *, s32);
 s32 TLobby__sub_80103B04();
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 u8 *get_player_by_client_id(u16);
 s32 __dl__7TObjectFPv(void *);
-s32 clear_obj_links__13TUnk_804AF8A0Fv(void *);
 s32 obj_getField1c(void *);
 struct Obj_80108C90 {
     u8 pad0[0x18];
@@ -55,7 +53,6 @@ struct Obj_80108C90 {
 void disallow_rendering__7TObjectFv(void *);
 void fn_8002B630(void *, void *);
 s32 pop_free_id__6TLobbyFv();
-void initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, void *);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
@@ -72,7 +69,6 @@ void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
 s32 spawn_particle_effect(s32, s32);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
-s32 spawn_equip_particle_effect__13TItemEffEquipFl(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 retire_equipment_effect[];
 extern s32 TItemEffEquip__sub_801088F8[];
@@ -95,7 +91,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     self->x20 = 0;
     self->x24 = arg5;
     if (self->src != NULL) {
-        spawn_equip_particle_effect__13TItemEffEquipFl(arg0, arg4);
+        ((TItemEffEquip *)arg0)->spawn_equip_particle_effect((s32)arg4);
         TItemAttacker::spawn_item_timer((s32)arg0, (s32)TItemEffEquip__sub_801088F8, (s32)0xA);
         TItemAttacker::spawn_item_timer((s32)arg0, (s32)retire_equipment_effect, (s32)0x14);
     } else {
@@ -275,8 +271,8 @@ void *TUnk_8049F038::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = (s32 *)lbl_8049F038;
         if ((u32) *(u32 *)((s8 *)this + 0xA4) != 0U) {
-            unregister_object_by_id__13TUnk_804AF8A0Fv(this);
-            clear_obj_links__13TUnk_804AF8A0Fv(this);
+            unregister_object_by_id();
+            clear_obj_links();
             obj_getField1c(this);
             TLobby__sub_80103B04();
             set_item_count__13TUnk_804B9870Fs(this, 0xFFFF);
@@ -298,7 +294,7 @@ Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 
     if ((u16)obj_getField1c(self) == 0xFFFF) {
         set_item_count__13TUnk_804B9870Fs(self, pop_free_id__6TLobbyFv());
     }
-    initialize_linked_object_reference__13TUnk_804AF8A0FPv(self, self->sub);
+    ((TUnk_804AF8A0 *)self)->initialize_linked_object_reference(self->sub);
     ((TObjPlayer *)self)->reset_photon_effect();
     disallow_rendering__7TObjectFv(self);
     return self;

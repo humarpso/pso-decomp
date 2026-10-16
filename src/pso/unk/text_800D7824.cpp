@@ -25,8 +25,6 @@ struct Obj_800D7824 : B_800D7824 {
 
 extern "C" {
 s32 TAdDrawLineTask__sub_80019A8C(void *, void *);
-void shift_line_buffer_down__13TUnk_80494968Fv(Obj_800D78CC *arg0);
-void vfunc_6__13TUnk_80494968FPvPv(Obj_800D7824 *self, Vec_800D7824 *p0, Vec_800D7824 *p1);
 }
 
 extern "C" {

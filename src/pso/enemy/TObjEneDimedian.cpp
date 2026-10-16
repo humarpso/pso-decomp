@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDimedian.h"
+#include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_80490470.h"
@@ -91,8 +93,6 @@ extern const f32 lbl_805D9AC0;
 extern const f32 lbl_805D9AC4;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
-void sub_800A7B54__15TObjEneDimedianFv(void *);
-void load_dimedian_param_entry__15TObjEneDimedianFl(void *, s32);
 void init_enemy_base__13TUnk_80493450Fv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_photon_effect(void *);
@@ -110,7 +110,6 @@ extern const f32 lbl_805D9AD0;
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -445,7 +444,7 @@ O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
+        ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
         TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x3A8, -1);
@@ -475,8 +474,8 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     ((VObj_18_c99286 *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x334) = *(s32 *)((s8 *)arg0 + 0x368);
-    sub_800A7B54__15TObjEneDimedianFv(arg0);
-    load_dimedian_param_entry__15TObjEneDimedianFl(arg0, *(s32 *)((s8 *)arg0 + 0x368));
+    ((TObjEneDimedian *)arg0)->sub_800A7B54();
+    ((TObjEneDimedian *)arg0)->load_dimedian_param_entry(*(s32 *)((s8 *)arg0 + 0x368));
     *(u8 **)((s8 *)arg0 + 0xD8) = dimedian_action_table;
     ((TObjPlayer *)arg0)->set_field_d8((s32)(*(u8 **)((s8 *)arg0 + 0xD8)));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)dimedian_resource_ptr + 0x430);

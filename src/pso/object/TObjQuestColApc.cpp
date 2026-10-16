@@ -7,13 +7,11 @@ extern "C" {
 Obj_80196448 *get_player_by_client_id(s32);
 s32 obj_isState3_324(void *);
 f32 xyz_distance_squared(f32 *a, f32 *b);
-s32 vfunc_15__15TObjQuestColApcFv(Obj_80196448 *self);
 }
 
 extern "C" {
 
 void *TObjQuestColApc__ct(void *arg0);
-void vfunc_16__15TObjQuestColApcFv(void* p);
 void TObjQuestColBase__ct(void *);
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);

@@ -64,7 +64,6 @@ extern "C" {
 
 u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
-void sub_8033C7C8__25TBoss6Demo10_TYPE1_APPEARFv(void *arg0);
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 restore_player_cameras();
@@ -93,7 +92,7 @@ void TBoss6Demo10_TYPE1_APPEAR::sub_8033C7C8() {
     pop_matrix();
 }
 
-void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { sub_8033C7C8__25TBoss6Demo10_TYPE1_APPEARFv((void *)((void *)(p))); }
+void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { ((TBoss6Demo10_TYPE1_APPEAR *)p)->sub_8033C7C8(); }
 
 extern const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 

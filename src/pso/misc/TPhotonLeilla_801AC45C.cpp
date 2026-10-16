@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
@@ -41,10 +42,7 @@ s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 advance_animation_playback(void *);
 s32 queue_photon_blast_hit(int, int, int, f32);
-s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
-s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, int);
-s32 update_state__13TUnk_804C3248Fv(void *);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern const f64 lbl_80446DE8;
 extern const f32 lbl_805DC1C4;
@@ -55,7 +53,6 @@ extern const f32 lbl_805DC1D4;
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 set_photon_blast_joint_callback__13TUnk_804C3248Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -92,7 +89,7 @@ void TPhotonLeilla::render() {
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
-        set_photon_blast_joint_callback__13TUnk_804C3248Fv(self);
+        ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
         clear_render_context__10TObjPlayerFv(self);
@@ -131,15 +128,15 @@ void TPhotonLeilla::run_task() {
         }
     }
     if ((lbl_805DC1C8 == (f32) *(s32 *)&this->m_1ac) && ((s16) this->m_b8 == 1)) {
-        begin_photon_summon_camera__13TUnk_804C3248FSc((void *) (arg0), (int) (2));
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera((int) (2));
         *(s32 *)&this->m_1ac = 0;
         ((TObjMotion *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (4));
     }
     *(s16 *)&this->m_190 = (s16) this->m_b8;
-    update_state__13TUnk_804C3248Fv((void *) (arg0));
+    ((TUnk_804C3248 *)arg0)->update_state();
     advance_animation_playback((void *) (arg0));
-    update_photon_blast_attachments__13TUnk_804C3248Fv((void *) (arg0));
+    ((TUnk_804C3248 *)arg0)->update_photon_blast_attachments();
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if (lbl_805DC1CC == (f32) *(s32 *)&this->m_1ac) {

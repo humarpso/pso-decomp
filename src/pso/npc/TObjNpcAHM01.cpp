@@ -99,7 +99,6 @@ struct RecoveredGlobal_80147C18___vt__12TObjNpcAHM01 {
 
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
-void play_voice__12TObjNpcAHM01Fv(s32 arg0);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__12TObjNpcAHM01[];
 extern s32 TObjNpcAHM01__name;
@@ -117,7 +116,6 @@ extern char lbl_8043F44C[];
 extern "C" {
 
 void * TObjNpcARM00__create(void *arg0);
-int is_target_in_attack_range__11TObjNpcBaseFv(void);
 void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);

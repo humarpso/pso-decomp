@@ -7,12 +7,9 @@ extern "C" {
 s32 debug_print_area_num__12TObjAreaWarpFv();
 s32 debug_printf_at(s32, s32 *, ...);
 extern s32 lbl_80446854[];
-void debug_print_area_num__13TObjWarpLobbyFv(void *arg0);
 }
 
 extern "C" {
-
-void debug_print_area_num__16TObjWarpJungMainFv(void);
 
 void TObjWarpJungMain::debug_print_area_num() {  }
 void TObjWarpLobby::debug_print_area_num() {

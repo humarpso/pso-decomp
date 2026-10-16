@@ -17,9 +17,6 @@ void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2);
 
 extern "C" {
 
-void vfunc_6__13TUnk_804CC148FPv(void);
-void vfunc_8__13TUnk_804CC148FPv(void);
-void vfunc_9__13TUnk_804CC148Fv(void);
 f32 calc_technique_boost(s32, u16);
 f32 get_battle_value__10TObjPlayerFiii(void *, s32, s16);
 void *get_player_by_client_id(u16);

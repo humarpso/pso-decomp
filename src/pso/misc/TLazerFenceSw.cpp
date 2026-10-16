@@ -5,9 +5,6 @@
 extern "C" {
 
 void TLazerFenceSw__sub_8018A554(void* p, f32 v);
-void vfunc_81__13TUnk_804B6C24Fv(void);
-void vfunc_80__13TUnk_804B6C24Fv(void);
-void vfunc_79__13TUnk_804B6C24Fv(void);
 
 int spawn_particle_effect(void*, void*);
 

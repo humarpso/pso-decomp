@@ -23,7 +23,6 @@ f32 fabs_float(f32);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A58;
 extern const f32 lbl_805D8A5C;
-void sub_8005076C__13TObjDFHormingFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 f32 vector_length(Vec_8005063C *);

@@ -30,7 +30,6 @@ s32 TLobby__sub_8001EEF4();
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
 extern s32 item_load_tmp_buffer;
-void vfunc_3__13TUnk_8049F40CFv(Load_8010F68C *self);
 }
 
 extern "C" {

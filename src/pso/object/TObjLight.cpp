@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjLight.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -92,7 +93,6 @@ extern "C" {
 
 void *__dt__9TObjLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void mask_object_set_row_flags__13TUnk_804B9870Fl(void *, int);
 
 void TObjLight::render() {  }
 
@@ -205,7 +205,7 @@ void TObjLight::run_task() {
 void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjLight;
-        mask_object_set_row_flags__13TUnk_804B9870Fl(arg0, -3);
+        ((TUnk_804B9870 *)arg0)->mask_object_set_row_flags(-3);
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -70,7 +70,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
-void update_ground_fall__13TUnk_8049442CFPlf(u8 *arg0, s32 *arg1, f32 farg0);
 extern s32 gyaranzo_missile_param_table;
 f32 get_gyaranzo_missile_float_parameter(s32 arg0);
 extern s32 gyaranzo_missile_param_table;
@@ -88,7 +87,6 @@ extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void update_ground_fall__13TUnk_8049442CFPlf(u8 *arg0, s32 *arg1, f32 farg0);
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 s32 spawn_particle_effect(void *, int);
 s32 rotate_matrix_y(s32, s32);
@@ -105,10 +103,6 @@ extern const f32 lbl_805DA2B0;
 
 extern "C" {
 
-void vfunc_61__15TObjEneGyaranzoFv(void);
-void vfunc_59__15TObjEneGyaranzoFv(void);
-int is_target_in_attack_range__15TObjEneGyaranzoFv(void);
-void vfunc_58__15TObjEneGyaranzoFv(void);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 s32 draw_chunk_object(s32);
@@ -209,7 +203,7 @@ void TUnk_8049442C::run_task() {
         }
         self->pos.x += self->vel.x;
         self->pos.z += self->vel.z;
-        update_ground_fall__13TUnk_8049442CFPlf((u8 *)self, NULL, lbl_805DA2A4);
+        ((TUnk_8049442C *)self)->update_ground_fall(NULL, lbl_805DA2A4);
         if (self->flags & 0x800000) {
             push_matrix_from(identity_matrix);
             self->vel.x = lbl_805DA2A4;
@@ -234,7 +228,7 @@ void TUnk_8049442C::run_task() {
         } else {
             self->state = 2;
         }
-        update_ground_fall__13TUnk_8049442CFPlf((u8 *)self, NULL, lbl_805DA2A4);
+        ((TUnk_8049442C *)self)->update_ground_fall(NULL, lbl_805DA2A4);
         if (self->fEC > 0) {
             self->fEC--;
         } else {
@@ -251,7 +245,7 @@ void TUnk_8049442C::run_task() {
         break;
     }
     case 2:
-        update_ground_fall__13TUnk_8049442CFPlf((u8 *)self, NULL, lbl_805DA2A4);
+        ((TUnk_8049442C *)self)->update_ground_fall(NULL, lbl_805DA2A4);
         break;
     }
     VecCopy__FP3VecPC3Vec(&self->fE0, &self->pos);

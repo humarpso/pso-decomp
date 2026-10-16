@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void vfunc_17__17TOBarrierEnergy01Fv(void *arg0);
 s32 update_anim_phase__13TUnk_804AFBF8Fv();
 
 extern s32 *TOBarrierEnergy01__texture_lists;

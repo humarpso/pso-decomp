@@ -165,7 +165,6 @@ s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_particle;
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-s32 is_particle_sprite_additive__13TUnk_8048E728Fv(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1);
@@ -182,7 +181,6 @@ extern const f32 lbl_805D9478;
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 s32 set_color_blend_mode(int, int, int, int);
 s32 set_chunk_material_color(void *);
-void apply_particle_model_fade_color__13TUnk_8048E728Fl(Ctrl_80086418 *self, s32 mode);
 s32 find_particle_texture_index(s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
@@ -205,7 +203,6 @@ s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D94D8;
-void draw_particle_refraction_quad__13TUnk_8048E728Fv(Ctrl_80086248 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_80141EB4();
 s32 setSpriteInverseColorBlend();
@@ -236,7 +233,6 @@ extern const f32 lbl_805D9488;
 extern const f32 lbl_805D94AC;
 extern const f32 lbl_805D94B4;
 extern const f32 lbl_805D94B8;
-void run_task__13TUnk_8048E6DCFv(Ctrl_80085CB0 *self);
 }
 
 extern "C" {

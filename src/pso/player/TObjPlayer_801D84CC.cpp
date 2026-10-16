@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/player/PlayerClassStats.h"
 
 #include <stddef.h>
@@ -19,7 +22,6 @@ void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
 void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2);
 s32 copy_data__6TLobbyFPvPv(void *, void *);
 s32 copy_player_visual_record(void *, void *);
-s32 get_ptr_4__10TObjPlayerFv(void *);
 s32 fn_801D40D4(void *, void *, void *);
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src);
 void* init_inventory__10TObjPlayerFPv(void* p);
@@ -101,19 +103,14 @@ s32 obj_testFlags30(void *, s32);
 s32 draw_model_with_callback__10TObjPlayerFllf(void *, s32, s32, f32);
 void push_matrix(void);
 void pop_matrix(void);
-s32 set_global_param__8TObjFishFl(s32);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 draw_model_with_callback__10TObjPlayerFv(void *);
 s32 apply_material_color_override__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801BAC48(void *);
 s32 draw_head_attachments__10TObjPlayerFPv(void *);
-s32 write_ids__10TObjPlayerFv(void *);
 s32 save_render_material_state(void *);
 s32 translate_matrix_vec3(int, void *);
 s32 rotate_matrix_y(int, int);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 void TObjPlayer__sub_801D877C(u8 *arg0);
 }
 
@@ -124,8 +121,6 @@ void free_shared_lobby_data__10TObjPlayerFv(void);
 int query_darkfalz_state__10TObjPlayerFPv(void* p);
 int set_animation_default__10TObjPlayerFPv(void* p);
 int set_position_from__14TBoss4DarkFalzFPv(void*);
-int free_nodes_with_id__6TLobbyFUl(void*);
-int free_shared_data__10TObjPlayerFv(void);
 int set_animation__10TObjPlayerFPvs(void*);
 
 int query_darkfalz_state__10TObjPlayerFPv(void* p) { return set_position_from__14TBoss4DarkFalzFPv(p); }
@@ -139,7 +134,7 @@ s32 create_ending_player__10TObjPlayerFPv(u8 *arg0) {
     init_inventory__10TObjPlayerFPv((void*)((void *) (&sp8)));
     copy_player_visual_record((void *) (&sp8), (void *) (arg0 + 0x370));
     copy_data__6TLobbyFPvPv((void *) (sp8.c), (void *) (arg0 + 0x34C));
-    fn_801D40D4((void *) (*arg0), (void *) (get_ptr_4__10TObjPlayerFv((void *) (arg0))), (void *) (sp8.b));
+    fn_801D40D4((void *) (*arg0), (void *) (((TObjPlayer *)arg0)->get_ptr_4()), (void *) (sp8.b));
     var_r0 = __nw__7TObjectFUl((int) (0xDB8));
     if (var_r0 != 0) {
         var_r0 = (s32)create_ending_sequence_player((Player_801D88C8 *)var_r0, (void *) (tl_03), (Src_801D88C8 *) (&sp8));
@@ -155,11 +150,11 @@ void TObjPlayer__sub_801D877C(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
         save_render_material_state((void *) (arg0 + 0x608));
         apply_material_color_override__10TObjPlayerFi((void *) (arg0));
-        set_global_param__8TObjFishFl((s32) (arg0 + 0xCF4));
-        set_global_flag__10TObjPlayerFv();
-        draw_model_with_callback__10TObjPlayerFv((void *) (arg0));
-        clear_global_state__10TObjPlayerFv();
-        write_ids__10TObjPlayerFv((void *) (arg0 + 0x608));
+        TObjFish::set_global_param((s32) (arg0 + 0xCF4));
+        TObjPlayer::set_global_flag();
+        ((TObjPlayer *)arg0)->draw_model_with_callback();
+        TObjPlayer::clear_global_state();
+        ((TObjPlayer *)(arg0 + 0x608))->write_ids();
         draw_head_attachments__10TObjPlayerFPv((void *) (arg0));
         pop_matrix();
         TObjPlayer__sub_801BAC48((void *) (arg0));
@@ -176,7 +171,7 @@ void TObjPlayer__sub_801D877C(u8 *arg0) {
 void TObjPlayer__sub_801D8864(void) {  }
 
     extern int player_ending_motion_object;
-void free_shared_lobby_data__10TObjPlayerFv(void) { free_nodes_with_id__6TLobbyFUl((void*)(player_ending_motion_object)); player_ending_motion_object = 0; free_shared_data__10TObjPlayerFv(); }
+void free_shared_lobby_data__10TObjPlayerFv(void) { TLobby::free_nodes_with_id((u32)((void*)(player_ending_motion_object))); player_ending_motion_object = 0; TObjPlayer::free_shared_data(); }
 
 }
 
@@ -415,7 +410,6 @@ void TObjPlayer__sub_801D92A4(void);
 void create_player_ending_motion(void);
 void* init_inventory__10TObjPlayerFPv(void* p);
 void load_ply_level_tbl(void);
-int free_nodes_with_id__6TLobbyFUl(void*);
 int TObjPlayer__sub_801BFF80(void*);
 int get_contact_surface_type(void*);
 void __dl__7TObjectFPv(void *);
@@ -710,7 +704,7 @@ s32 get_ply_level_table_row(s8 arg0, s32 arg1) {
   return (*((s32 *) (((s8 *) temp_r30) + (TObjPlayer__sub_801AFDBC(arg0) * 4)))) + (clamp_index_to_max__10TObjPlayerFi(arg1) * 0xC);
 }
 
-void TObjPlayer__sub_801D92A4(void) { free_nodes_with_id__6TLobbyFUl((void*)(ply_level_table)); }
+void TObjPlayer__sub_801D92A4(void) { TLobby::free_nodes_with_id((u32)((void*)(ply_level_table))); }
 
     extern unsigned char lbl_804492E8[];
     extern int ply_level_table;

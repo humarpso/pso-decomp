@@ -3,7 +3,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void sub_8015860C__6TOBindFv(u8 *arg0);
 }
 
 extern "C" {
@@ -37,7 +36,7 @@ void TOBind::run_task() {
             *(s32 *)&this->m_b0 = 1;
             clear_player_status_flag__10TObjPlayerFlUl(this, 0, 1);
         }
-        sub_8015860C__6TOBindFv((u8 *)((void *)(this)));
+        sub_8015860C();
     }
 }
 

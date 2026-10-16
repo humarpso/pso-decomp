@@ -5,7 +5,6 @@ struct Tec_8022FB70 { u8 pad[0x20]; f32 pos[3]; u8 pad2c[0xC6 - 0x2C]; s16 band;
 extern "C" {
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
-void play_foie_cast_sound__8TTecFoieFv(Tec_8022FB70 *self);
 }
 
 extern "C" {

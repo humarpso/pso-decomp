@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
@@ -155,7 +156,6 @@ struct VObj_802209D8 : VBase_802209D8 {
 
 extern "C" {
 s32 obj_getPtr2B0_20(int);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 update_all__6TLobbyFi(void *);
 s32 play_cue_stream_file(void *);
@@ -166,9 +166,7 @@ extern s32 lbl_8044C1D4[];
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
-void vfunc_11__23TShopJudgmentItemWindowFv(u8 *arg0);
 u16 obj_getField1c(s32);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 apply_shop_judgment__10TObjPlayerFPvi(s32, void *);
 s32 fn_80221838(void *, void *, s32);
 s32 get_appraisal_text(int);
@@ -178,13 +176,11 @@ void *create_item_list_window(int, int, u16);
 void *memset(void *, int, unsigned long);
 s32 try_spend_actor_meseta(int, int);
 u16 obj_getField1c(s32);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 check_equip_requirements(int, void *, int);
 s32 get_item_record__23TShopJudgmentItemWindowFPv(int, int, int);
 s32 set_judgment_target_flag(void *, void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 play_cue_stream_file(void *);
-s32 set_position_xy__13TUnk_804CDFE8Fff(s32, f32, f32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(int);
 s32 create_yes_no_window(s32, u16, s32, s32);
@@ -196,7 +192,6 @@ u32 get_equip_field_d04__10TObjPlayerFv(int, s32);
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
 s32 send_6x25_equip_item(int, int, int);
 u16 obj_getField1c(s32);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 TItemData__clear_unidentified_flag(void *);
 s32 advance_item_id_counter(void *);
 u32 __nw__7TObjectFUl(int);
@@ -215,8 +210,6 @@ extern const f32 lbl_805DC708;
 extern "C" {
 
 void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void vfunc_7__23TShopJudgmentItemWindowFv(void *arg0);
-void vfunc_8__23TShopJudgmentItemWindowFv(void *arg0);
 void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 create_yes_no_window(s32, u16, s32, s32);
@@ -230,8 +223,6 @@ void __dt__15TShopWindowBaseFv(void *, int);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
 int queue_destruction__7TObjectFv(void*);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
-s32 set_position_xy__13TUnk_804CDFE8Fff(s32, f32, f32);
 
 void TShopJudgmentItemWindow::vfunc_7() {
     struct VObj_802205E4 *temp_r3;
@@ -292,7 +283,7 @@ void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
             *(s32 *)((s8 *)arg0 + 0x158) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
             ((TWindowSubComCardList *)((void *)*(s32 *)((s8 *)arg0 + 0x158)))->set_selected_index(0);
             temp_f31 = get_scale__15TShopWindowBaseFv((void *) (arg0));
-            set_position_xy__13TUnk_804CDFE8Fff(*(s32 *)((s8 *)arg0 + 0x158), get_scale__15TShopWindowBaseFv((void *) (arg0)), temp_f31);
+            ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x158)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), temp_f31);
         }
         if (((u32) *(u32 *)((s8 *)arg0 + 0x158) != 0U) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
             temp_r3 = get_selected_menu_value((s32) (*(u32 *)((s8 *)arg0 + 0x158)));
@@ -318,14 +309,14 @@ void handle_pay_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                 try_spend_actor_meseta((s32) (*(s32 *)((s8 *)arg0 + 0x24)), (s32) (0x64));
                 ((VObj_18 *)(arg0))->m6(0xA, 1);
-                set_field_20__15TShopWindowBaseFl((void *) (arg0), 5);
+                ((TShopWindowBase *)arg0)->set_field_20(5);
                 return;
             }
             if (temp_r3 == 1) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                 *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                 ((VObj_18 *)(arg0))->m6(8, 1);
-                set_field_20__15TShopWindowBaseFl((void *) (arg0), 4);
+                ((TShopWindowBase *)arg0)->set_field_20(4);
                 return;
             }
             goto block_17;
@@ -335,7 +326,7 @@ block_17:
             TWindow__close(*(void **)((s8 *)arg0 + 0x158));
             *(u32 *)((s8 *)arg0 + 0x158) = 0U;
             ((VObj_18 *)(arg0))->m6(8, 1);
-            set_field_20__15TShopWindowBaseFl((void *) (arg0), 4);
+            ((TShopWindowBase *)arg0)->set_field_20(4);
         }
     }
 }
@@ -346,7 +337,7 @@ void TShopJudgmentItemWindow::update() {
     *(s32 *)&this->_pad14C = c;
     if (c <= 0 && o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m6(0xB, 1);
-        set_field_20__15TShopWindowBaseFl((void *)(this), (s32)(0));
+        set_field_20((s32)(0));
     }
 }
 
@@ -366,7 +357,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
             F(0x158, s32) = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
             ((TWindowSubComCardList *)(F(0x158, void *)))->set_selected_index(0);
             y = get_scale__15TShopWindowBaseFv(arg0);
-            set_position_xy__13TUnk_804CDFE8Fff(F(0x158, s32), get_scale__15TShopWindowBaseFv(arg0), y);
+            ((TUnk_804CDFE8 *)(F(0x158, s32)))->set_position_xy(get_scale__15TShopWindowBaseFv(arg0), y);
         }
         if (F(0x158, void *) != NULL && ((TWindowMenu *)(F(0x158, void *)))->is_visible() != 0) {
             sel = get_selected_menu_value(F(0x158, s32));
@@ -398,7 +389,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
                 if (TLobby::get_shop_value() > 0) {
                     play_cue_stream_file(lbl_8044C1B0);
                 }
-                set_field_20__15TShopWindowBaseFl(arg0, 0);
+                ((TShopWindowBase *)arg0)->set_field_20(0);
             }
             if (sel == 1) {
                 TWindow__close(F(0x158, void *));
@@ -411,7 +402,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
                 if (TLobby::get_shop_value() > 0) {
                     play_cue_stream_file(lbl_8044C1B0);
                 }
-                set_field_20__15TShopWindowBaseFl(arg0, 0);
+                ((TShopWindowBase *)arg0)->set_field_20(0);
             }
         }
         if (F(0x158, void *) != NULL && ((TWindowSubComCard *)(F(0x158, void *)))->get_status_flag() != 0) {
@@ -425,7 +416,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
             if (TLobby::get_shop_value() > 0) {
                 play_cue_stream_file(lbl_8044C1B0);
             }
-            set_field_20__15TShopWindowBaseFl(arg0, 0);
+            ((TShopWindowBase *)arg0)->set_field_20(0);
         }
     }
 }
@@ -440,7 +431,7 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
             temp_r31 = obj_getField1c((s32) (*(s32 *)((s8 *)arg0 + 0x24)));
             *(s32 *)((s8 *)arg0 + 0x158) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
             temp_f31 = get_scale__15TShopWindowBaseFv((void *) (arg0));
-            set_position_xy__13TUnk_804CDFE8Fff(*(s32 *)((s8 *)arg0 + 0x158), get_scale__15TShopWindowBaseFv((void *) (arg0)), temp_f31);
+            ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x158)))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (arg0)), temp_f31);
         }
         if (((u32) *(u32 *)((s8 *)arg0 + 0x158) != 0U) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
             temp_r3 = get_selected_menu_value((s32) (*(u32 *)((s8 *)arg0 + 0x158)));
@@ -462,7 +453,7 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                     ((VObj_18 *)(arg0))->m6(0xC, 1);
                     TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                     *(u32 *)((s8 *)arg0 + 0x158) = 0U;
-                    set_field_20__15TShopWindowBaseFl((void *) (arg0), (s32) (7));
+                    ((TShopWindowBase *)arg0)->set_field_20((s32) (7));
                     return;
                 }
                 get_item_record__23TShopJudgmentItemWindowFPv((s32) (*(s32 *)((s8 *)arg0 + 0x24)), (s32) (*(s32 *)((s8 *)arg0 + 0x48)), (s32) (1));
@@ -475,14 +466,14 @@ void update_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 if (TLobby::get_shop_value() > 0) {
                     play_cue_stream_file(lbl_8044C1B0);
                 }
-                set_field_20__15TShopWindowBaseFl((void *) (arg0), (s32) (0));
+                ((TShopWindowBase *)arg0)->set_field_20((s32) (0));
                 return;
             }
             if (temp_r3 == 1) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                 *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                 ((VObj_18 *)(arg0))->m6(9, 1);
-                set_field_20__15TShopWindowBaseFl((void *) (arg0), (s32) (6));
+                ((TShopWindowBase *)arg0)->set_field_20((s32) (6));
                 return;
             }
             goto block_19;
@@ -492,7 +483,7 @@ block_19:
             TWindow__close(*(void **)((s8 *)arg0 + 0x158));
             *(u32 *)((s8 *)arg0 + 0x158) = 0U;
             ((VObj_18 *)(arg0))->m6(9, 1);
-            set_field_20__15TShopWindowBaseFl((void *) (arg0), (s32) (6));
+            ((TShopWindowBase *)arg0)->set_field_20((s32) (6));
         }
     }
 }
@@ -546,7 +537,7 @@ void TShopJudgmentItemWindow::create_result_windows() {
             ((TWindowHelpItem *)(this->m_15c))->set_displayed_item_colored((u32)((void *) (arg0 + 0x28)));
         }
         ((VObj_18 *)(arg0))->m6(8, 1);
-        set_field_20__15TShopWindowBaseFl((void *) (arg0), (int) (4));
+        ((TShopWindowBase *)arg0)->set_field_20((int) (4));
     }
 }
 
@@ -563,7 +554,7 @@ void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                     TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                     *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                     ((VObj_18 *) arg0)->m6(5, 1);
-                    set_field_20__15TShopWindowBaseFl((void *)((void *) (arg0)), (s32)((int) (0xB)));
+                    ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (0xB)));
                     return;
                 }
                 temp_r31 = arg0 + (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(u32 *)((s8 *)arg0 + 0x154))) * 8);
@@ -581,14 +572,14 @@ void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                 *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                 ((VObj_18 *) arg0)->m6(6, 1);
-                set_field_20__15TShopWindowBaseFl((void *)((void *) (arg0)), (s32)((int) (3)));
+                ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (3)));
                 return;
             }
             if (temp_r3 == 1) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x158));
                 *(u32 *)((s8 *)arg0 + 0x158) = 0U;
                 ((VObj_18 *) arg0)->m6(4, 1);
-                set_field_20__15TShopWindowBaseFl((void *)((void *) (arg0)), (s32)((int) (1)));
+                ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (1)));
                 ((TWindowSubItem *)(*(u32 *)((s8 *)arg0 + 0x154)))->clear_selected_and_update_entry();
                 return;
             }
@@ -599,7 +590,7 @@ block_14:
             TWindow__close(*(void **)((s8 *)arg0 + 0x158));
             *(u32 *)((s8 *)arg0 + 0x158) = 0U;
             ((VObj_18 *) arg0)->m6(4, 1);
-            set_field_20__15TShopWindowBaseFl((void *)((void *) (arg0)), (s32)((int) (1)));
+            ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (1)));
             ((TWindowSubItem *)(*(u32 *)((s8 *)arg0 + 0x154)))->clear_selected_and_update_entry();
         }
     }
@@ -611,7 +602,7 @@ void TShopJudgmentItemWindow::handle_input() {
     u16 temp_r31;
 
     if (sub_802239EC__13TShopSequenceFv(this) != 0) {
-        set_field_20__15TShopWindowBaseFl((void *)(this), (s32)(0xA));
+        set_field_20((s32)(0xA));
         play_sound_effect(0x52D01, 0, 0, 0);
         return;
     }
@@ -619,9 +610,9 @@ void TShopJudgmentItemWindow::handle_input() {
         temp_r31 = (u16)obj_getField1c(*(s32 *)&this->m_24);
         *(s32 *)&this->m_158 = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
         temp_f31 = get_scale__15TShopWindowBaseFv(this);
-        set_position_xy__13TUnk_804CDFE8Fff(*(s32 *)&this->m_158, get_scale__15TShopWindowBaseFv(this), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)&this->m_158))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
         ((VObj_80221344_802205E4 *)this)->m6(3, 1);
-        set_field_20__15TShopWindowBaseFl((void *)(this), (s32)(2));
+        set_field_20((s32)(2));
         play_sound_effect(0x52D01, 0, 0, 0);
     }
 }
@@ -644,10 +635,10 @@ s32 TShopJudgmentItemWindow::build_item_list(void *arg0) {
         }
     }
     if (W->count != 0) {
-        set_field_20__15TShopWindowBaseFl(W, 1);
+        ((TShopWindowBase *)W)->set_field_20(1);
     } else {
         W->base.m6(2, 1);
-        set_field_20__15TShopWindowBaseFl(W, 0xB);
+        ((TShopWindowBase *)W)->set_field_20(0xB);
         return;
     }
     if (W->list == NULL) {

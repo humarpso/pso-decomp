@@ -90,7 +90,6 @@ struct Obj_802FE494 : VB_802FE494 {
 
 extern "C" {
 extern const f32 lbl_805DEF18;
-void apply_hit_if_active__19TBoss8DragonEffTailFPvPf(u8 *arg0, u8 *arg1);
 void fn_8002B630(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);

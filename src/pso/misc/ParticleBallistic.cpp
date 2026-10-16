@@ -1,4 +1,6 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/misc/TUnk_8048E790.h"
+#include "pso/misc/TUnk_8048E7A8.h"
 #include "pso/misc/TUnk_8048E728.h"
 #include "pso/misc/TUnk_8048E778.h"
 
@@ -179,7 +181,6 @@ int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
-void retire_ballistic_particle_if_done__13TUnk_8048E778Fv(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 extern s32 TParticleCtrl__data_8048E778[];
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
@@ -187,12 +188,9 @@ void *alloc_particle_memory(int);
 u8 * init_orbit_sprite_particle(void *, void *, void *, void *, s32, u16, s16);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void *init_random_particle__13TUnk_8048E790FPvPvPvPv(void *, void *, void *, void *, void *);
-void *init_random_particle__13TUnk_8048E790FPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
-void retire_orbit_particle__13TUnk_8048E790Fv(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 extern s32 TParticleCtrl__data_8048E790[];
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
@@ -204,7 +202,6 @@ int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 f32 vec_squared_length(void *);
-void check_radial_particle_retire__13TUnk_8048E7A8Fv(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 extern s32 TParticleCtrl__data_8048E7A8[];
 void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1);
@@ -251,8 +248,6 @@ s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
-s32 draw_particle_refraction_quad__13TUnk_8048E728Fv(void *);
-s32 apply_particle_model_fade_color__13TUnk_8048E728Fl(void *, s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -272,15 +267,12 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D9528;
 extern const f32 lbl_805D9540;
-void render__13TUnk_8048E790Fv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 f64 atan2_float(f32, f32);
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
-s32 draw_particle_refraction_quad__13TUnk_8048E728Fv(void *);
-s32 apply_particle_model_fade_color__13TUnk_8048E728Fl(void *, s32);
 s32 set_depth_buffer_settings_id__FUl(s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -302,7 +294,6 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9564;
-void render__13TUnk_8048E7A8Fv(u8 *arg0);
 void rotate_vec_xz(void *, void *, s32);
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
@@ -321,8 +312,6 @@ f64 atan2_float(f32, f32);
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
-s32 draw_particle_refraction_quad__13TUnk_8048E728Fv(void *);
-s32 apply_particle_model_fade_color__13TUnk_8048E728Fl(void *, s32);
 void func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(s32);
 void set_depth_buffer_settings_2__Fv();
@@ -355,7 +344,6 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D951C;
-void render__13TUnk_8048E778Fv(Part_800890F4 *p);
 }
 
 extern "C" {
@@ -625,9 +613,9 @@ void TUnk_8048E778::render() {
             lbl_805D5660 = st;
             model_render_flags = st | 0x8021;
             if (is_particle_sprite_additive__13TUnk_8048E728Fv(p, st) != 0) {
-                apply_particle_model_fade_color__13TUnk_8048E728Fl(p, 1);
+                ((TUnk_8048E728 *)p)->apply_particle_model_fade_color(1);
             } else {
-                apply_particle_model_fade_color__13TUnk_8048E728Fl(p, 0);
+                ((TUnk_8048E728 *)p)->apply_particle_model_fade_color(0);
             }
         }
         TObjFish::set_global_param(p->texlist);
@@ -646,7 +634,7 @@ void TUnk_8048E778::render() {
         TParticleCtrl::end_effect_render();
         pop_matrix();
     } else if (flags & 0x2000) {
-        draw_particle_refraction_quad__13TUnk_8048E728Fv(p);
+        ((TUnk_8048E728 *)p)->draw_particle_refraction_quad();
     } else if (flags & 0x800) {
         if (p->def->flags & 0x20) {
             id = p->tex + 0x36;

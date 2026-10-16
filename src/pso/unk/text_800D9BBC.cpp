@@ -5,7 +5,6 @@
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, s32);
-void sub_800D9BBC__16TObjEneNanoDragoFv(u8 *arg0);
 }
 
 extern "C" {

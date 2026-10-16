@@ -20,9 +20,6 @@ struct VObj_80335648 : Base_80335648 {
 
 extern "C" {
 
-void vfunc_6__19TAdTrialAgreementGCFv(void* p);
-int vfunc_7__19TAdTrialAgreementGCFv(void* p);
-void vfunc_8__19TAdTrialAgreementGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 render_tick__Fv();

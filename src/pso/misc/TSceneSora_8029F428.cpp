@@ -170,7 +170,6 @@ void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0);
 extern "C" {
 
 void *create_instance__10TSceneSoraFPv(void *arg0);
-void *destroy__13TUnk_804DC7C4Fs(void *arg0, s16 arg1);
 s32 __ct__7TObjectFP7TObject();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);

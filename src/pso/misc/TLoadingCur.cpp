@@ -63,7 +63,6 @@ extern const f32 TLoadingCur__data_805D7E9C;
 u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
-void update_camera_facing_offset__11TLoadingCurFv(void *);
 void calc_loading_cursor_pos(void *, void *);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
 s32 play_persistent_sound(int, void *, void *, int, int);
@@ -79,7 +78,6 @@ void pop_matrix(void);
 extern const f32 TLoadingCur__data_805D7E9C;
 extern const f32 lbl_805D7EA8;
 extern const f32 lbl_805D7EAC;
-int sub_8001CCD4__11TLoadingCurFv(void *arg0);
 }
 
 extern "C" {
@@ -136,7 +134,7 @@ int TLoadingCur::sub_8001CCD4() {
     }
 }
 
-void TLoadingCur::render() { { (void)(sub_8001CCD4__11TLoadingCurFv((void *)(this))); return; } }
+void TLoadingCur::render() { { (void)(sub_8001CCD4()); return; } }
 
 extern s32 __vt__11TLoadingCur[];
 
@@ -193,7 +191,7 @@ void TLoadingCur::run_task() {
     self->f40 *= lbl_805D7EBC;
     calc_loading_cursor_pos(sp8, this);
     VecCopy__FP3VecPC3Vec(self->f44, sp8);
-    update_camera_facing_offset__11TLoadingCurFv(this);
+    update_camera_facing_offset();
     if (TLoadingCur__data_805D7E9C != x || TLoadingCur__data_805D7E9C != y) {
         if (is_split_screen() != 0) {
             play_persistent_sound(0x53C10, this, (u8 *)this + 0x2C, 0, 1);

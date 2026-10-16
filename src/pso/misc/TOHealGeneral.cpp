@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOHealGeneral.h"
@@ -77,12 +78,10 @@ struct Heal_80169858 {
 };
 
 extern "C" {
-void vfunc_6__13TUnk_804B27D8FPsl(u8 *arg0, s16 *arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80169710_lbl_804B2748 bm_fe_obj_kaifuku_moto_resource_descriptor;
 extern RecoveredGlobal_80169710_lbl_804B2760 fe_obj_kaifuku_moto_2_resource_descriptor;
 extern u32 TOHealGeneral__model_archive;
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
@@ -90,7 +89,6 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 u32 create_particle_emitter(void *, s32);
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
 extern u8 lbl_804B2770[];
@@ -110,8 +108,6 @@ extern s32 local_client_id;
 
 extern "C" {
 
-void vfunc_16__13TUnk_804B27D8Fv(void);
-void* vfunc_9__13TOHealGeneralFv(void* p);
 void TLobby__sub_8001FE7C(void*, int);
 u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(f32);
@@ -248,7 +244,7 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
                 TBoss4Type2::request_destroy(self->handles[i]);
             }
         }
-        unregister_object_by_id__13TUnk_804AF8A0Fv(self);
+        ((TUnk_804AF8A0 *)self)->unregister_object_by_id();
         free_collision_body_parts(self);
         ((TUnk_804AFBF8 *)self)->destroy_key_base(0);
         if (flag > 0) {
@@ -271,7 +267,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->f24 = *(s32 *)((s8 *)model + 0xC);
     self->fC4 = lbl_805DB6CC;
     init_collision_body_parts(self, lbl_804B2770, 1, model);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
+    ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
     self->fCC = 0;

@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
+#include "pso/misc/TShopSequence.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TWindowMenu.h"
@@ -140,13 +143,10 @@ struct V_A_80213474 : Base_A_80213474 {
 
 extern "C" {
 s32 get_window_layout_position(s32);
-int set_field_20__15TShopWindowBaseFl(void*, void*);
 s32 set_service_counter_camera(void *, int);
-s32 create_message_window__13TShopSequenceFll(void *, int, void *);
 extern const f32 lbl_805DC650;
 extern const f32 lbl_805DC654;
 s32 queue_destruction__7TObjectFv(int);
-s32 close_message_window__13TShopSequenceFv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -156,7 +156,6 @@ extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGui
 extern s32 THunterGuildSeqOffline__active_instance;
 u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1);
 s32 is_quest_active(void);
-int set_field_20__15TShopWindowBaseFl(void*, void*);
 s32 create_quest_thread(s32);
 s32 get_register__12TQuestThreadFPvi(void *, s32);
 s32 sub_802239EC__13TShopSequenceFv(void *);
@@ -170,7 +169,6 @@ extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGui
 extern s32 lbl_805D3658;
 extern s32 THunterGuildSeqOffline__active_instance;
 u8 *THunterGuildSeqOffline__ct(u8 *arg0, s32 arg1, s32 arg2);
-int set_field_20__15TShopWindowBaseFl(void*, void*);
 s32 create_quest_thread(s32);
 s32 TWindow__close(int);
 s32 get_selected_menu_value(void *);
@@ -179,7 +177,6 @@ extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGui
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
 void THunterGuildSeqOffline__sub_8021339C(void);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
-void vfunc_11__22THunterGuildSeqOfflineFv(Guild_8021317C *self);
 u16 obj_getField1c(s32);
 s32 queue_destruction__7TObjectFv(int);
 void THunterGuildSeqOffline__sub_8021E180(void);
@@ -196,7 +193,6 @@ extern "C" {
 
 void THunterGuildSeqOffline__sub_80213410(void* p);
 s32 THunterGuildSeqOffline__sub_80213458(void);
-void restore_player_state__22THunterGuildSeqOfflineFv(void* p);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -206,8 +202,6 @@ int fn_80223480(void*);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
 int restore_player_state__13TShopSequenceFv(void*);
-int set_field_20__15TShopWindowBaseFl(void*, void*);
-s32 set_position_xy__13TUnk_804CDFE8Fff(s32, f32, f32);
 
 void THunterGuildSeqOffline::handle_select() {
     void *p = *(void **)((s8 *)this + 0x34);
@@ -221,7 +215,7 @@ block_3:
         if ((((V_A_80212D9C *) this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
             ((V_A_80212D9C *) this)->m7(0xC, 1);
             *(s32 *)((s8 *)this + 0x38) = 1;
-            set_field_20__15TShopWindowBaseFl((void*)(this), (void*)(5));
+            set_field_20((s32)((void*)(5)));
         }
     }
 }
@@ -236,9 +230,9 @@ void THunterGuildSeqOffline::open_judgment_window() {
         *(s32 *)((s8 *)this + 0x2C) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)((s8 *)this + 0x2C)))->set_selected_index(1);
         temp_f31 = get_scale__15TShopWindowBaseFv(this);
-        set_position_xy__13TUnk_804CDFE8Fff(*(s32 *)((s8 *)this + 0x2C), get_scale__15TShopWindowBaseFv(this), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)this + 0x2C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
         ((VObj_802136A4_80212e50_80212D9C *)this)->m9(8, 1);
-        set_field_20__15TShopWindowBaseFl((void*)(this), (void*)(6));
+        set_field_20((s32)((void*)(6)));
     }
 }
 
@@ -251,7 +245,7 @@ void THunterGuildSeqOffline::resolve_active_quest_result() {
                 if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 4) != -1) {
                     *(s32 *)((s8 *)arg0 + 0x34) = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 4));
                 }
-                set_field_20__15TShopWindowBaseFl((void*)(arg0), (void*)(7));
+                ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(7)));
                 return;
             }
             if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFD) == 1) {
@@ -259,15 +253,15 @@ void THunterGuildSeqOffline::resolve_active_quest_result() {
                 if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 0) != -1) {
                     *(s32 *)((s8 *)arg0 + 0x34) = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 0));
                 }
-                set_field_20__15TShopWindowBaseFl((void*)(arg0), (void*)(8));
+                ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(8)));
                 return;
             }
             ((VObj_18_b54460 *)(arg0))->m7(2, 1);
-            set_field_20__15TShopWindowBaseFl((void*)(arg0), (void*)(3));
+            ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(3)));
             return;
         }
         ((VObj_18_b54460 *)(arg0))->m7(4, 1);
-        set_field_20__15TShopWindowBaseFl((void*)(arg0), (void*)(4));
+        ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(4)));
     }
 }
 
@@ -278,13 +272,13 @@ void THunterGuildSeqOffline::open_greeting() {
     Stack_802130AC stack;
     stack.sp8 = lbl_805DC650;
     stack.spC = lbl_805DC654;
-    create_message_window__13TShopSequenceFll((void *) (arg0), (int) (((u8 *)get_window_layout_position(0x2C))), (void *) (&stack.sp8));
+    ((TShopSequence *)arg0)->create_message_window((s32)((int) (((u8 *)get_window_layout_position(0x2C)))), (s32)((void *) (&stack.sp8)));
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = set_service_counter_camera((void *) (arg0), (int) (1));
-    set_field_20__15TShopWindowBaseFl((void*)((void *) (arg0)), (void*)((int) (2)));
+    ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)((int) (2))));
 }
 
-void THunterGuildSeqOffline::restore_player_state() { restore_player_state__13TShopSequenceFv(this); fn_80223480(this); THunterGuildWarning::create_instance((s32)((void*)2)); set_field_20__15TShopWindowBaseFl((void*)(this), (void*)((void*)1)); }
+void THunterGuildSeqOffline::restore_player_state() { restore_player_state__13TShopSequenceFv(this); fn_80223480(this); THunterGuildWarning::create_instance((s32)((void*)2)); set_field_20((s32)((void*)((void*)1))); }
 
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 
@@ -316,7 +310,7 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv((int) (temp_r3));
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
-        close_message_window__13TShopSequenceFv((void *) (arg0));
+        ((TShopSequence *)arg0)->close_message_window();
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x2C);
         if (temp_r3_2 != 0U) {
             TWindow__close((int) (temp_r3_2));
@@ -438,14 +432,14 @@ void THunterGuildSeqOffline::handle_confirm_window() {
             if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 8) != -1) {
                 *(s32 *)((s8 *)arg0 + 0x38) = create_quest_thread(*(s32 *)((s8 *)(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value) + 8));
             }
-            set_field_20__15TShopWindowBaseFl((void*)(arg0), (void*)(0xC));
+            ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0xC)));
             break;
         case 1:
             TWindow__close((int)(*(u8 **)((s8 *)arg0 + 0x3C)));
             *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
             *(s32 *)((s8 *)arg0 + 0x34) = 0;
-            set_field_20__15TShopWindowBaseFl((void*)(arg0), (void*)(0xC));
+            ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0xC)));
             break;
         }
     }
@@ -455,7 +449,7 @@ void THunterGuildSeqOffline::handle_confirm_window() {
         *(u8 **)((s8 *)arg0 + 0x3C) = NULL;
         ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
         *(s32 *)((s8 *)arg0 + 0x34) = 0;
-        set_field_20__15TShopWindowBaseFl((void*)(arg0), (void*)(0xC));
+        ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0xC)));
     }
 }
 
@@ -469,9 +463,9 @@ void THunterGuildSeqOffline::open_judgment_item_window() {
         *(s32 *)((s8 *)this + 0x3C) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)((s8 *)this + 0x3C)))->set_selected_index(1);
         temp_f31 = get_scale__15TShopWindowBaseFv(this);
-        set_position_xy__13TUnk_804CDFE8Fff(*(s32 *)((s8 *)this + 0x3C), get_scale__15TShopWindowBaseFv(this), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)this + 0x3C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
         ((VObj_802136A4_80212D9C *)this)->m9(8, 1);
-        set_field_20__15TShopWindowBaseFl((void*)(this), (void*)(7));
+        set_field_20((s32)((void*)(7)));
     }
 }
 

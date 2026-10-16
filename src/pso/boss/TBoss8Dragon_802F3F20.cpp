@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -42,7 +43,6 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TBoss8Dragon__sub_802FCCBC(void *);
 extern const f32 lbl_805DED68;
 extern const f32 lbl_805DED6C;
-void sub_802F4098__12TBoss8DragonFPUc(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
@@ -58,7 +58,6 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
 s32 isFading__15RenderFadeStateCFv(int);
 s32 TObjLight__sub_801337F8(void *);
 s32 fn_801414B0(int, int, int, int);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 has_enough_enemies__12TBoss8DragonFv();
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
 s32 rotate_matrix_y(int, int);
@@ -165,7 +164,7 @@ void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         }
         ((TObjEneRe7Berura *)arg0)->draw();
         TObjPlayer::setup_tev_swap();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         TObjLight__sub_801337F8((void *) (current_scene_light));
         pop_matrix();
         set_chunk_material_override_pair((int) (0xFF00), (int) (0));

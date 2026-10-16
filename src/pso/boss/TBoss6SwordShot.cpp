@@ -1,4 +1,7 @@
 #include "pso/TBoss6SwordShot.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 
 #include "types.h"
 
@@ -96,9 +99,7 @@ extern s32 lbl_805E000C;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 VObj_8035663C *get_player_data__10TObjPlayerFi(s32);
 f64 atan2_float(f32, f32);
-s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFv();
-s32 rand_vary_count__14TBoss6PlotFalzFlf(s32, f32);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 vector_length(void *);
@@ -149,7 +150,7 @@ void damage_players_in_radius(u8 *arg0) {
     s32 i;
     u8 *pl;
 
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         pl = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (((s32 (*)(void *))is_active__14TBoss6PlotFalzFv)(pl) != 0) {
@@ -157,7 +158,7 @@ void damage_players_in_radius(u8 *arg0) {
             subtract_vector(&v, arg0 + 0x20);
             v.y = lbl_805DFFE8;
             if (!(vector_length(&v) > *(f32 *)((s8 *)arg0 + 0x2C))) {
-                s32 r = rand_vary_count__14TBoss6PlotFalzFlf(*(s32 *)((s8 *)arg0 + 0x34), lbl_805DFFEC);
+                s32 r = TBoss6PlotFalz::rand_vary_count(*(s32 *)((s8 *)arg0 + 0x34), lbl_805DFFEC);
                 Pair_803561C4 pr;
                 pr.a = 0;
                 pr.b = (f32)r;
@@ -218,7 +219,6 @@ struct Shot_80356374 {
 extern "C" {
 u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 extern s32 lbl_805D43AC;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFF0;
@@ -253,10 +253,10 @@ u8 *TBoss6SwordShot__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
             scale = self->speed / lbl_805DFFF4;
         }
         if ((p = spawn_particle_effect_with_flags(&self->pos, 0x212, 0x40)) != NULL) {
-            set_position_xy__10TObjPlayerFff(p, scale, lbl_805DFFF0);
+            ((TObjPlayer *)p)->set_position_xy(scale, lbl_805DFFF0);
         }
         if ((p = spawn_particle_effect_with_flags(&self->pos, 0x213, 0x40)) != NULL) {
-            set_position_xy__10TObjPlayerFff(p, scale, lbl_805DFFF0);
+            ((TObjPlayer *)p)->set_position_xy(scale, lbl_805DFFF0);
         }
     }
     return (u8 *)arg0;
@@ -334,7 +334,7 @@ s32 TBoss6SwordWave::check_player_hits() {
     s32 v;
     f32 d;
     Vec_8035663C dir;
-    n = get_game_mode__6TLobbyFv();
+    n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
         pl = get_player_data__10TObjPlayerFi(i);
         if (is_active__14TBoss6PlotFalzFv() != 0) {
@@ -355,7 +355,7 @@ s32 TBoss6SwordWave::check_player_hits() {
                 v = (s32)((f32)v * *(f32 *)((s8 *)arg0 + 0x60));
             }
             Pair_8035663C pr;
-            s32 r = rand_vary_count__14TBoss6PlotFalzFlf(v, lbl_805DFFEC);
+            s32 r = TBoss6PlotFalz::rand_vary_count(v, lbl_805DFFEC);
             pr.a = 0;
             pr.b = (f32)r;
             pl->m21(*(s32 *)((s8 *)arg0 + 0x1C), pr, 0, -1, -1);

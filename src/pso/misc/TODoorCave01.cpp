@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -38,7 +39,6 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 
 extern u8 *TODoorCave01__texture_lists;
 extern const f32 lbl_805DB4A4;
@@ -80,7 +80,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
     u8 *var_r30;
     s32 var_r29;
 
-    if ((((VObj_801618fc *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff((void *) (arg0), (f32) (lbl_805DB4A4)) != 0)) {
+    if ((((VObj_801618fc *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth((f32) (lbl_805DB4A4)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));

@@ -7,7 +7,6 @@
 extern "C" {
 
 int s_red_blade_unfold(void* p);
-int update_attack__13TUnk_804A5F18Fv(void* p);
 void s_red_blade_equip_rolls(void* p);
 void s_red_blade_turn_node(void* p);
 int rotate_matrix_x(void*, void*);

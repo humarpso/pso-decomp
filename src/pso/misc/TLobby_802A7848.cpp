@@ -49,13 +49,7 @@ struct Pair_802A7994 { s32 a; s32 b; };
 extern "C" {
 s32 mem_alloc(s32);
 s32 mem_free(s32);
-void copy_motion_pair__13TUnk_804DDD28FPv(void* p, void* q);
 int TLobby__sub_802A7B8C(void);
-int vfunc_4__13TUnk_804DDD28Fv(void);
-int vfunc_8__13TUnk_804DDD28Fv(void);
-int vfunc_9__13TUnk_804DDD28Fv(void);
-void vfunc_14__13TUnk_804DDD28Fv(void);
-int vfunc_75__13TUnk_804DDD28Fv(void);
 void TLobby__sub_802A7BC8(void* p);
 s32 mem_free(s32);
 extern u32 snapshot_image_buffer;
@@ -80,15 +74,11 @@ extern u32 snapshot_image_buffer;
 extern s32 snapshot_buffer_size;
 s32 free__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
-u8 *vfunc_3__13TUnk_804DDD28Fs(u8 *arg0, s16 arg1);
-s32 sub_802A7318__13TUnk_804DDD28Fv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
 s32 *TItemDrop__sub_800F9448(s32, s32);
-void copy_motion_pair__13TUnk_804DDD28FPv(void* p, void* q);
 void TLobby__sub_802A7BC8(void* p);
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
-s32 load_action_motion_pairs__13TUnk_804DDD28Flll(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -158,7 +148,7 @@ s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
         if (pkt != 0) {
             drop = TItemDrop__sub_800F9448(((VObj_802A7994 *)this)->m0(arg1, i), pkt);
         }
-        copy_motion_pair__13TUnk_804DDD28FPv(dst, *(void **)drop);
+        ((TUnk_804DDD28 *)dst)->copy_motion_pair(*(void **)drop);
         slots++;
         dst += 8;
     }
@@ -181,7 +171,7 @@ u8 *TUnk_804DDD28::vfunc_3(s16 arg1) {
 typedef char RecoveredGlobal_802A7B50_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7B50_lbl_804DDD28) == 0x138 ? 1 : -1];
 u8 *TLobby__sub_802A7B50(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 8) = &(*(RecoveredGlobal_802A7B50_lbl_804DDD28 *)&lbl_804DDD28).value;
-    sub_802A7318__13TUnk_804DDD28Fv((void *) (arg0));
+    ((TUnk_804DDD28 *)arg0)->sub_802A7318();
     return arg0;
 }
 

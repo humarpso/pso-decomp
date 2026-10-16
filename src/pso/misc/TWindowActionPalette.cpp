@@ -65,7 +65,6 @@ extern const u8 lbl_805DCA10[4];
 extern const u8 lbl_805DCA14[4];
 extern const u8 lbl_805DCA18[4];
 s32 is_player_input_active(int);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 TObjPlayer__sub_80354D5C(int);
 extern u8 controller_input_state[];
 void run_task__20TWindowActionPaletteFv(u8 *arg0);
@@ -316,7 +315,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
 
 extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {

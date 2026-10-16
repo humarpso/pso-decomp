@@ -13,7 +13,6 @@ extern "C" {
 s32 approach_angle_limited(int, int, int);
 extern const f32 lbl_805DB7A0;
 extern const f32 lbl_805DB7A4;
-void sub_8016D8F8__8TOKurageFv(u8 *arg0);
 }
 
 extern "C" {

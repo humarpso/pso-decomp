@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowSubCustomSelect.h"
 #include "pso/misc/TWindowAddition.h"
@@ -51,7 +52,6 @@ extern const f32 lbl_805DD5D0;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_player_input_active(int);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 extern RecoveredGlobal_80277928_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD5E4;
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -279,7 +279,7 @@ void TWindowSubCustomSelect::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_80))->increment_counter();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
     *(s32 *)&this->m_74 = (s32) (*(s32 *)&this->m_74 + 1);
 }
 

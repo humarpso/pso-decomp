@@ -11,8 +11,6 @@ struct RecoveredGlobal_8035D694___vt__20TWindowMessageScroll {
 };
 
 extern "C" {
-s32 sub_80244994__13TUnk_804CE018Fv(void *);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 retire_scrolled_lines__14TWindowMessageFv(f32);
 s32 TWindowMessageQuest__ct(void *, void *);
 extern s32 __vt__20TWindowMessageScroll[];
@@ -41,8 +39,8 @@ void TWindowMessageScroll::run_task() {
     retire_scrolled_lines__14TWindowMessageFv((f32) (temp_f1));
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
-    if ((sub_80244994__13TUnk_804CE018Fv((void *) (arg0)) != 0) && (*(f32 *)((s8 *)arg0 + 0x80) <= *(f32 *)((s8 *)arg0 + 0x6C))) {
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
+    if ((((TUnk_804CE018 *)arg0)->sub_80244994() != 0) && (*(f32 *)((s8 *)arg0 + 0x80) <= *(f32 *)((s8 *)arg0 + 0x6C))) {
         **(s32 **)((s8 *)arg0 + 0x98) = 1;
     }
 }

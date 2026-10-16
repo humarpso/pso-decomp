@@ -105,7 +105,6 @@ u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void render__16TObjQuestColBaseFv(void);
 u32 get_player_by_client_id(s32);
 f32 xyz_distance_squared(s32, s32);
 

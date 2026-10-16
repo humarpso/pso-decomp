@@ -85,7 +85,6 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self);
 s32 obj_getField1c(int);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
-void vfunc_7__10TTecDebandFPv(Obj_8022F588 *arg0, VObj_18_b27ba1 *arg1);
 s32 obj_getField1c(int);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 void copy_technique_target_list(void *, void *, s32);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorVoShip.h"
 #include "pso/TParticleCtrl.h"
@@ -41,7 +42,6 @@ s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_map_object_base(void *);
 s32 get_story_flag(s32);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
 extern s32 __vt__12TODoorVoShip[];
 extern s32 TODoorVoShip__class_name;
@@ -73,7 +73,6 @@ extern "C" {
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -199,7 +198,7 @@ void TODoorVoShip::load_shared_resource() {
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TODoorVoShip;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
@@ -222,7 +221,7 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xD4) = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     *(s32 *)((s8 *)arg0 + 0xD8) = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     init_collision_body_parts(arg0, (s32) &lbl_804B1770.value, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB540;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB544;

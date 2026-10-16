@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void init_from_source__10TObjPlayerFPUc(u8 *arg0, u8 *arg1);
 s32 TObjPlayer__sub_801C2114();
 s32 set_action_provider_variant__10TObjPlayerFPvs(void *, s16);
 s32 bind_saved_inventory_equipment__10TObjPlayerFPvPvi(void *, void *, s32);

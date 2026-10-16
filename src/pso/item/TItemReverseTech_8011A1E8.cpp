@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -32,7 +34,6 @@ struct Ent_8011A43C { void (*fn)(); s32 arg; };
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
 s32 controller_stuff__Fv();
@@ -71,7 +72,6 @@ void init_map_lights(void *);
 void reset_controller_input_state();
 void set_copy_clear_color_argb(s32, s32, s32);
 s32 render_tick__Fv();
-void create_quad_sprites__13TParticleCtrlFv();
 void * __nw__7TObjectFUl(s32);
 void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
@@ -172,7 +172,7 @@ void run_frame__16TItemReverseTechFv(void) {
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
@@ -232,7 +232,7 @@ void init_scene__16TItemReverseTechFv(void) {
     set_active_camera_pose(&eye, &at);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
-    create_quad_sprites__13TParticleCtrlFv();
+    TParticleCtrl::create_quad_sprites();
     create__16TItemReverseTechFv();
     render_tick__Fv();
 }

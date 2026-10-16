@@ -7,7 +7,6 @@ struct O_801582C4 { u8 pad[0x38]; V3_801582C4 pos; u8 pad44[0xA4 - 0x44]; u32 f;
 extern "C" {
 f32 get_collision_body_radius(void *, int);
 s32 matrix_mult_vec(int, void *, void *);
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(O_801582C4 *arg0, f32 lim);
 }
 
 extern "C" {

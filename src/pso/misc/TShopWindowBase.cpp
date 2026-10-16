@@ -17,15 +17,12 @@ struct RecoveredGlobal_80223A48_lbl_8050E208 {
 extern "C" {
 s32 obj_getField1c(void *);
 s32 TShopGenerator__sub_80222DAC(int);
-u16 sub_8022397C__15TShopWindowBaseFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
-bool sub_802239EC__13TShopSequenceFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
-bool sub_80223A48__15TShopWindowBaseFv(u8 *arg0);
 }
 
 extern "C" {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
@@ -119,13 +121,11 @@ struct V_80213980 : Base_80213980 {
 struct Obj_80213980 : V_80213980 { char pad1c[0x14]; s32 state; s32 f34; s32 thread; };
 
 extern "C" {
-u32 create_message_window__13TShopSequenceFll(void *, s32, s32);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
 void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
 s32 queue_destruction__7TObjectFv(int);
-s32 close_message_window__13TShopSequenceFv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -254,7 +254,7 @@ void THunterGuildSeqOffline__sub_80213B18(u8 *arg0) {
     Stack_80213B18 stack;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    create_message_window__13TShopSequenceFll(arg0, get_window_layout_position((int) (0x2C), (f32) (lbl_805DC658)), (s32) &stack.sp8);
+    ((TShopSequence *)arg0)->create_message_window((s32)(get_window_layout_position((int) (0x2C), (f32) (lbl_805DC658))), (s32)((s32) &stack.sp8));
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     ((TShopWindowBase *)arg0)->set_field_20((s32)((s32)(2)));
@@ -305,7 +305,7 @@ u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv((int) (temp_r3));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
-        close_message_window__13TShopSequenceFv((void *) (arg0));
+        ((TShopSequence *)arg0)->close_message_window();
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x3C);
         if (temp_r3_2 != 0U) {
             TWindow__close((int) (temp_r3_2));
@@ -773,7 +773,6 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 is_quest_active();
 s32 __ct__12TMemberCheckFP7TObject(int, void *);
-s32 create_message_window__13TShopSequenceFll(void *, int, void *);
 u32 __nw__7TObjectFUl(int);
 s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC658;
@@ -803,7 +802,6 @@ s32 get_window_layout_position(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
 s32 restore_player_state__13TShopSequenceFv();
-s32 set_position_xy__13TUnk_804CDFE8Fff(s32, f32, f32);
 
 void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
     f32 temp_f31;
@@ -815,7 +813,7 @@ void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x38) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)((s8 *)arg0 + 0x38)))->set_selected_index(1);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
-        set_position_xy__13TUnk_804CDFE8Fff(*(s32 *)((s8 *)arg0 + 0x38), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x38)))->set_position_xy(get_scale__15TShopWindowBaseFv(arg0), temp_f31);
         vobj->m7(8, 1);
         ((TShopWindowBase *)arg0)->set_field_20((s32)((s32)(7)));
     }
@@ -935,7 +933,7 @@ void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     u32 temp_r3;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    create_message_window__13TShopSequenceFll((void *) (arg0), (int) (get_window_layout_position((s32)((int) (0x2C)))), (void *) (&stack.sp8));
+    ((TShopSequence *)arg0)->create_message_window((s32)((int) (get_window_layout_position((s32)((int) (0x2C))))), (s32)((void *) (&stack.sp8)));
     if (is_quest_active() == 0) {
         temp_r3 = __nw__7TObjectFUl((int) (0x80));
         if (temp_r3 != 0U) {
@@ -993,7 +991,6 @@ struct Seq_80214978 : VObj_80214978 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(int);
-s32 close_message_window__13TShopSequenceFv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -1068,7 +1065,7 @@ u8 *THunterGuildSeqOffline__sub_80214A84(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv((int) (temp_r3));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
-        close_message_window__13TShopSequenceFv((void *) (arg0));
+        ((TShopSequence *)arg0)->close_message_window();
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x38);
         if (temp_r3_2 != 0U) {
             TWindow__close((int) (temp_r3_2));

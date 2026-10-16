@@ -47,7 +47,6 @@ extern const f32 lbl_805DE01C;
 void render__15TWindowSnapShotFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 extern RecoveredGlobal_802A7FB0_lbl_8050E208 controller_input_state;
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 s32 get_localized_text_entry(s32, s32);
@@ -138,7 +137,7 @@ void TWindowSnapShot::run_task() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 
 void *__dt__15TWindowSnapShotFv(void *arg0, s16 arg1) {

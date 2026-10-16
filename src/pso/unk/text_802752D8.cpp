@@ -7,7 +7,6 @@ extern "C" {
 void draw_selection_bar(void *, void *, s32);
 volatile char get_type__20TWindowSubStatusDispFv(void *);
 extern s32 actor_frame_tick;
-void draw_card_list_selection__21TWindowSubComCardListFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {

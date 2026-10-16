@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void init_control_mode__10TObjPlayerFl(u8 *arg0, s32 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
 void TObjPlayer__sub_801BCD50(void);
 void TObjPlayer__sub_801BCD54(void);

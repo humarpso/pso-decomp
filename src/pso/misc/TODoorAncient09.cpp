@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorAncient09.h"
 #include "pso/TParticleCtrl.h"
@@ -72,10 +74,7 @@ struct Door_80160BA8 {
 };
 
 extern "C" {
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
-s32 door_ancient09_sync_state__15TODoorAncient09FPv(void *, void *);
 u8 is_current_floor_switch_set(int);
-void update_door_switch_state__15TODoorAncient09Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
@@ -88,13 +87,11 @@ s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern void *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB488;
-void vfunc_17__15TODoorAncient09Fv(u8 *arg0);
 s32 set_indexed_flags(void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern void *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB48C;
-void play_proximity_sound__15TODoorAncient09Fv(u8 *arg0);
 u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -113,22 +110,17 @@ struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
     virtual s32 m8(f32, f32);
 };
 
-s32 init_door_switch_binding__15TODoorAncient09Fv(void *arg0);
-void vfunc_20__15TODoorAncient09Fv(void);
-void vfunc_6__15TODoorAncient09FPsl(void *arg0, s16 *arg1);
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TODoorAncient09__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 mem_free(void*);
 s32 get_main_phase();
 s32 is_split_screen();
@@ -218,10 +210,10 @@ void TODoorAncient09::update_door_switch_state() {
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1)) {
             ((TODoorAncient09 *)arg0)->sub_80160968();
             this->m_d0 = (s32) (this->m_d0 | 1);
-            if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+            if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
-                door_ancient09_sync_state__15TODoorAncient09FPv((void *) (arg0), (void *) (&sp8));
-                access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
+                ((TODoorAncient09 *)arg0)->door_ancient09_sync_state((void *) (&sp8));
+                ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
             }
         }
         return;
@@ -288,7 +280,7 @@ void TODoorAncient09::render() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
 
-    if ((VCALL_m8(arg0) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB480) != 0)) {
+    if ((VCALL_m8(arg0) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB480) != 0)) {
         temp_r0 = *(s32 *)&this->m_ac;
         switch (temp_r0) {
         case 1:
@@ -435,7 +427,7 @@ typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorAncient09;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {

@@ -12,10 +12,8 @@ s32 check_player_flag1__6TLobbyFv();
 s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
-void sub_802C9D38__14TOTrapSeabed01Fv(u8 *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern Sounds_802C9C18 lbl_804720B8;
-void sub_802C9C18__14TOTrapSeabed01Fl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TPhotonFarlla.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -33,7 +35,6 @@ void create_estlla_photon_blast_model(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 set_photon_blast_joint_callback__13TUnk_804C3248Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -55,7 +56,6 @@ void render__13TPhotonFarllaFv(Self_801AAF00 *self);
 extern "C" {
 
 void sub_801AAE6C__13TPhotonFarllaFv(void* a0);
-s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 destroy_buffer_pair(void*, s32);
 u32 obj_getField1c();
@@ -88,7 +88,7 @@ void TPhotonFarlla::update_all_slots() {
     s32 var_r31;
 
     TObjPlayer::init_all_slots();
-    mark_enemy_body_contacts__13TUnk_804AF8A0Fv(this);
+    mark_enemy_body_contacts();
     if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x100000) {
         var_r31 = 0;
         do {
@@ -108,7 +108,7 @@ void TPhotonFarlla::render() {
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
-        set_photon_blast_joint_callback__13TUnk_804C3248Fv(self);
+        ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;

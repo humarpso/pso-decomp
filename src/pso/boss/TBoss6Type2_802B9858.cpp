@@ -6,7 +6,6 @@
 
 extern "C" {
 
-void render_body_effects__11TBoss6Type2Fv(u8 *arg0);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 sum_offsets__11TBoss6Type2Fv();
 s32 post_translate_matrix(void *);

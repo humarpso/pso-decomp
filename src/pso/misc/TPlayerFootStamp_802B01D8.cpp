@@ -6,7 +6,6 @@
 struct Obj_802B0204 { u8 pad[0xbe]; s16 fbe; };
 
 extern "C" {
-void sub_802B0204__16TPlayerFootStampFl(Obj_802B0204 *self, s32 v);
 }
 
 extern "C" {

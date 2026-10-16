@@ -37,7 +37,6 @@ E_8006BAB4 *TCameraCtrl__sub_8006BAB4(O_8006BAB4 *self, s32 i);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Pad_8006BB1C controller_input_state;
-void run_task__13TUnk_80488B38Fv(Obj_8006BB1C *arg0);
 }
 
 extern "C" {
@@ -50,7 +49,6 @@ void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void *init_defaults__13TUnk_80488B38Fv(void *);
 
     extern unsigned char lbl_80488B08[];
     extern int TCameraCtrl__fixed_npc_camera_active;
@@ -71,7 +69,7 @@ unsigned char TCameraCtrl__sub_8006BADC(void) {  return TCameraCtrl__override_fl
 void *TCameraCtrl__vt4(void) {
     void *o = __nw__7TObjectFUl(0x70);
     if (o != NULL) {
-        o = init_defaults__13TUnk_80488B38Fv(o);
+        o = ((TUnk_80488B38 *)o)->init_defaults();
     }
     return o;
 }
@@ -241,12 +239,10 @@ extern "C" {
 
 void *TCameraCtrl__vt5(void);
 s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
-void* init_defaults__13TUnk_80488B38Fv(void* a0);
 int TCameraCtrl__sub_80068714(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void *__nw__7TObjectFUl(int);
-void *sub_8006C5D8__13TUnk_80488B68Fv(void *);
 
 void*TUnk_80488B38::init_defaults() { TCameraCtrl__sub_80068714(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float*)((char*)this + 0x6c) = 10.0f; *(int*)((char*)this + 0x38) = 0; return this; }
 
@@ -423,7 +419,7 @@ CameraPlayback* get_scripted_camera_playback() {
 void *TCameraCtrl__vt5(void) {
     void *o = __nw__7TObjectFUl(0xA4);
     if (o != NULL) {
-        o = sub_8006C5D8__13TUnk_80488B68Fv(o);
+        o = ((TUnk_80488B68 *)o)->sub_8006C5D8();
     }
     return o;
 }

@@ -4,7 +4,6 @@
 #include "types.h"
 extern "C" {
 void* TObjPlayer__vt10(void* p);
-s8 get_actor_section_id__15TPlyPhotonChairFv(u8 *arg0);
 }
 
 extern "C" {

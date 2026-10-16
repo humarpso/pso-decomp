@@ -120,7 +120,6 @@ extern u32 lbl_805D67F0;
 extern const f32 lbl_805DE5C8;
 s32 get_main_phase();
 extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
-void run_task__13TUnk_804E0B28Fv(CharacterSelectTransitionState* self);
 s32 __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
 void* __nw__7TObjectFUl(u32 size);
 StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
@@ -133,7 +132,6 @@ CharacterSelectTransitionState* construct_character_select_transition(CharacterS
 
 extern "C" {
 
-void render__13TUnk_804E0B28Fv(void);
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
 void *destroy_character_select_transition(void *arg0, s16 arg1);

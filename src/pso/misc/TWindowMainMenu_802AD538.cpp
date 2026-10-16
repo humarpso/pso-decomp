@@ -137,7 +137,6 @@ void get_row_position__15TWindowMainMenuFiPvi(s32 arg0, void *arg1, s32 arg2);
 s32 is_not_split_screen__15TWindowMainMenuFv(void);
 s32 append_child_rows__15TWindowMainMenuFPvi(Menu_802ADD38 *arg0, s32 arg1);
 Rect_802AE2B0 * setup_content_frame__15TWindowMainMenuFPv(u8 *arg0);
-void handle_navigation_input__19TWindowMenuMainMenuFv(u8 *arg0);
 void begin_screen_draw(int);
 void draw_textured_quad_at_depth(Rect_802AD538 *, f32);
 void set_draw_texture_and_color(int, u32);

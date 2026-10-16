@@ -57,14 +57,12 @@ extern const V3_803323D8 lbl_804775F0;
 extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF870;
 extern const f32 TObjEneMorfos__data_805DF874;
-void vfunc_106__13TObjEneMorfosFv(O_803323D8 *arg0);
 }
 
 extern "C" {
 
 void* TObjEneMorfosArm__sub_803326B4(void* p);
 s32 TObjEneMorfosArm__sub_803326BC(void* p);
-void vfunc_83__13TObjEneMorfosFv(void* p);
 void TWindowSubTradeMain__sub_803323A8(void* p);
 void TWindowSubTradeMain__sub_803323B8(void* p);
 void TWindowSubTradeMain__sub_803323C8(void* p);

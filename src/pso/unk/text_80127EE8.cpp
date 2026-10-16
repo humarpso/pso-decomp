@@ -9,7 +9,6 @@ struct RecoveredGlobal_80127F40_lbl_804A0588 {
 extern "C" {
 s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
 s32 draw_weapon_at_joint(void *, int);
-void reserved_53__13TUnk_804A3830Fv(u8 *arg0);
 u8 * init_vtable_804A3738__13TUnk_804A3738Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;

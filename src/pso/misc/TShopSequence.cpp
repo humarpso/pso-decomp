@@ -18,7 +18,6 @@ extern "C" {
 s32 obj_getField1c(u32);
 u32 create_message_window__24TMessageWindowControllerFlll(void *, s32, s32, s32);
 u32 create_window__24TMessageWindowControllerFll(void *, s32, s32);
-u32 create_message_window__13TShopSequenceFll(u8 *arg0, s32 arg1, s32 arg2);
 u8 * __ct__24TMessageWindowControllerFv(void *);
 u8 * __ct__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
@@ -30,15 +29,7 @@ s32 __dl__7TObjectFPv(void *);
 
 extern "C" {
 
-void vfunc_8__13TShopSequenceFv(void* p);
 void close_if_single_screen__13TShopSequenceFv(void);
-void close_message_window__13TShopSequenceFv(void *arg0);
-void close_window__13TShopSequenceFv(void *arg0);
-void vfunc_9__13TShopSequenceFv(void* p);
-void vfunc_7__13TShopSequenceFv(void* p);
-void vfunc_6__13TShopSequenceFv(void* p);
-void restore_player_state__13TShopSequenceFv(void *arg0);
-s32 vfunc_10__13TShopSequenceFv(void *arg0);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32);
 s32 activate_body_collision__10TObjPlayerFPv();
 s32 deactivate_body_collision__10TObjPlayerFPv();

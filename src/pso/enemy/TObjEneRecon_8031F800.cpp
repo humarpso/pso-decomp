@@ -28,7 +28,6 @@ struct Recon_8031F8C4 {
 
 extern "C" {
 extern const f32 lbl_805DF44C;
-void sub_8031F800__14TObjEneRecoboxFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_8031F8C4 *, Vec_8031F8C4 *);
 void play_sound_effect(s32, void *, s32, s32);
 u32 create__12TObjEneReconFPvPvPvPvPv(void *, u16, s32, Vec_8031F8C4 *, Vec_8031F8C4 *);

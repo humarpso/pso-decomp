@@ -161,7 +161,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800C2628 *, void *);
 void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
 void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
-void clear_attack_receipts__9TObjEneDDFv(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 s32 transition_enemy_state(void *, s32);
 s32 noop__9TObjEneDDFv(void *, s32);
@@ -177,7 +176,6 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void vfunc_105__16TObjEneRe2FlowerFv(void);
 void TObjEneDD__sub_800C2618(void* p);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -239,7 +237,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         if (F(s32, 0x3D4) > 0) {
             F(s32, 0x3D4)--;
             if (F(s32, 0x3D4) == 0) {
-                clear_attack_receipts__9TObjEneDDFv(arg0);
+                ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
         }
         if (TObjEneDD::check_v2_mode() != 0) {

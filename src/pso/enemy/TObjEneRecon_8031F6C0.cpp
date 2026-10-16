@@ -76,7 +76,6 @@ struct V_Sub_8031f748 : Base_Sub_8031f748 {
 
 extern "C" {
 
-void sub_8031F6C0__14TObjEneRecoboxFl(void *arg0, s32 arg1);
 s32 advance_animation_playback();
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);

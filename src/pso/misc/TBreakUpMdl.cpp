@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -210,12 +211,10 @@ extern Vec_80097100 lbl_8043A0E0;
 extern const f32 lbl_805D97D8;
 extern const f32 lbl_805D97DC;
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
-void vfunc_105__17TObjEneDf2BringerFv(Bringer_80097100 *self);
 }
 
 extern "C" {
 
-void vfunc_83__17TObjEneDf2BringerFv(void* p);
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
 int TObjEneDf2Bringer__sub_800994F8(void*);

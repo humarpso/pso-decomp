@@ -7,7 +7,6 @@ extern "C" {
 extern const f32 lbl_805DE9F0;
 extern const f32 lbl_805DEBA8;
 extern const f32 lbl_805DEBAC;
-void vfunc_88__11TBoss7JointFv(u8 *arg0);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
@@ -15,21 +14,12 @@ s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 s32 play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(int);
 s32 TObjPlayer__sub_802E72DC(void *, void *, void *, int);
-void init_boss_stats__11TBoss7JointFv(u8 *arg0);
 }
 
 extern "C" {
 
-void apply_poison_status__14TBoss7DeRolLeCFv(void);
-void apply_paralysis__14TBoss7DeRolLeCFv(void);
-void apply_slow_status__14TBoss7DeRolLeCFv(void);
-void apply_confusion_status__14TBoss7DeRolLeCFv(void);
-void apply_movement_ailment__14TBoss7DeRolLeCFl(void);
-void apply_shock_status__14TBoss7DeRolLeCFv(void);
-void clear_harmful_statuses__14TBoss7DeRolLeCFv(void);
 void TBoss7Joint__sub_802EE7B8(void* p);
 void TBoss7Joint__sub_802EE800(void* p);
-void vfunc_93__11TBoss7JointFv(void *arg0);
 int TLobby__send_and_handle_60(void*);
 s32 vfunc_93__9TObjEneDDFv(void *);
 s32 vfunc_94__9TObjEneDDFv(void *);

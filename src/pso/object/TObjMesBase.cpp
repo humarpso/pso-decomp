@@ -34,7 +34,6 @@ f32 fabs_float(f32);
 void debug_printf_at(int, void *, ...);
 extern s32 lbl_80445DF4[];
 extern u8 lbl_80445E08[];
-void debug_draw_label__11TMotorcycleFv(Mc_80194EC4 *arg0);
 void debug_printf_at(int, void *, ...);
 extern Pair_80194AEC lbl_80445D94[];
 extern u8 lbl_80445D9C[];
@@ -63,7 +62,6 @@ struct VObj_80194CE8_80194C98 : Base_80194CE8_80194C98 {
 
 s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1);
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
-void vfunc_14__11TObjMesBaseFv(void);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 void __dl__7TObjectFPv(void *);

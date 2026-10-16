@@ -88,7 +88,6 @@ extern "C" {
 s32 draw_weapon_model(void *);
 s16 get_validated_attack_stage(void *);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
-void emit_marker_effects__13TUnk_804F27E0Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_803630F0(u8 *arg0);

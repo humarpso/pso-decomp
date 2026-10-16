@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLanguage.h"
+#include "pso/misc/TLobby.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Inner_80132A5C { char pad8[0x8]; u32 f8; };
 struct Outer_80132A5C { struct Inner_80132A5C *f0; };
@@ -15,13 +18,8 @@ extern int TWindowKeyBoardSoft__text_resource;
 extern int text_language_group_table;
 extern int TWindowKeyBoardSoft__language_text_resources;
 void select_language_text_resources(s32 arg0);
-s32 tmp_buf_release__6TLobbyFv(void *);
-s32 tmp_buf_use_req__6TLobbyFPCc(void *);
 s32 begin_render__20TWindowSubStatusDispFl();
-s32 decode_font_data__9TLanguageFPvPvll(void *, void *, int, int);
-s32 draw_string__9TLanguageFPvPvl(void *, void *, int);
 struct Outer_80132A5C *load_gvm_texture_file(void *);
-s32 set_entry_index__9TLanguageFll(int, int);
 extern s32 lbl_8043EAE8[];
 extern s32 lbl_8043EAF4[];
 extern s32 lbl_8043EB08[];
@@ -51,9 +49,7 @@ extern "C" {
 
 void free_instance__19TWindowKeyBoardSoftFv(void);
 void free_resources__19TWindowKeyBoardSoftFv(void);
-int free_nodes_with_id__6TLobbyFUl(void*);
 s32 TLobby__sub_803DA16C(void *);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(void *);
 
 extern struct Outer_80132A5C *localized_alphabet_list;
 
@@ -63,7 +59,7 @@ void free_instance__19TWindowKeyBoardSoftFv(void) {
         if (inner->f8 != 0U) {
             TLobby__sub_803DA16C(localized_alphabet_list);
         }
-        safe_free__23TAdSinglePlyChrSelectGCFUl(localized_alphabet_list);
+        TAdSinglePlyChrSelectGC::safe_free((u32)localized_alphabet_list);
         localized_alphabet_list = NULL;
     }
 }
@@ -71,56 +67,56 @@ void free_instance__19TWindowKeyBoardSoftFv(void) {
     extern int TWindowKeyBoardSoft__text_resource;
     extern int text_language_group_table;
     extern int TWindowKeyBoardSoft__language_text_resources;
-void free_resources__19TWindowKeyBoardSoftFv(void) { free_nodes_with_id__6TLobbyFUl((void*)(TWindowKeyBoardSoft__text_resource)); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
+void free_resources__19TWindowKeyBoardSoftFv(void) { TLobby::free_nodes_with_id((u32)((void*)(TWindowKeyBoardSoft__text_resource))); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
 
 void TLanguage__ct(s32 arg0) {
     s32 sp8;
-    sp8 = tmp_buf_use_req__6TLobbyFPCc((void *) (lbl_8043EAE8));
-    draw_string__9TLanguageFPvPvl((void *) (lbl_8043EAF4), (void *) (&sp8), (int) (0x48));
-    tmp_buf_release__6TLobbyFv((void *) (lbl_8043EAE8));
+    sp8 = TLobby::tmp_buf_use_req((const char *)lbl_8043EAE8);
+    TLanguage::draw_string((void *) (lbl_8043EAF4), (void *) (&sp8), (int) (0x48));
+    ((TLobby *)lbl_8043EAE8)->tmp_buf_release();
     switch (arg0) {
     case 0:
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB08), (void *) (&sp8), (int) (0x49));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB24), (void *) (&sp8), (int) (2));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB34), (void *) (&sp8), (int) (3));
-        decode_font_data__9TLanguageFPvPvll((void *) (lbl_8043EB50), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
+        TLanguage::draw_string((void *) (lbl_8043EB08), (void *) (&sp8), (int) (0x49));
+        TLanguage::draw_string((void *) (lbl_8043EB24), (void *) (&sp8), (int) (2));
+        TLanguage::draw_string((void *) (lbl_8043EB34), (void *) (&sp8), (int) (3));
+        TLanguage::decode_font_data((void *) (lbl_8043EB50), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
         localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EB68));
         break;
     case 2:
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB7C), (void *) (&sp8), (int) (0x49));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EBA8), (void *) (&sp8), (int) (3));
-        decode_font_data__9TLanguageFPvPvll((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
+        TLanguage::draw_string((void *) (lbl_8043EB7C), (void *) (&sp8), (int) (0x49));
+        TLanguage::draw_string((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
+        TLanguage::draw_string((void *) (lbl_8043EBA8), (void *) (&sp8), (int) (3));
+        TLanguage::decode_font_data((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
         localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EBDC));
         break;
     case 3:
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EBF0), (void *) (&sp8), (int) (0x49));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EC0C), (void *) (&sp8), (int) (3));
-        decode_font_data__9TLanguageFPvPvll((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
+        TLanguage::draw_string((void *) (lbl_8043EBF0), (void *) (&sp8), (int) (0x49));
+        TLanguage::draw_string((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
+        TLanguage::draw_string((void *) (lbl_8043EC0C), (void *) (&sp8), (int) (3));
+        TLanguage::decode_font_data((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
         localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EC28));
         break;
     case 4:
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EC3C), (void *) (&sp8), (int) (0x49));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EC58), (void *) (&sp8), (int) (3));
-        decode_font_data__9TLanguageFPvPvll((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
+        TLanguage::draw_string((void *) (lbl_8043EC3C), (void *) (&sp8), (int) (0x49));
+        TLanguage::draw_string((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
+        TLanguage::draw_string((void *) (lbl_8043EC58), (void *) (&sp8), (int) (3));
+        TLanguage::decode_font_data((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
         localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043EC74));
         break;
     default:
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EC88), (void *) (&sp8), (int) (0x49));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
-        draw_string__9TLanguageFPvPvl((void *) (lbl_8043ECA4), (void *) (&sp8), (int) (3));
-        decode_font_data__9TLanguageFPvPvll((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
+        TLanguage::draw_string((void *) (lbl_8043EC88), (void *) (&sp8), (int) (0x49));
+        TLanguage::draw_string((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
+        TLanguage::draw_string((void *) (lbl_8043ECA4), (void *) (&sp8), (int) (3));
+        TLanguage::decode_font_data((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
         localized_alphabet_list = load_gvm_texture_file((void *) (lbl_8043ECC0));
         break;
     }
     begin_render__20TWindowSubStatusDispFl();
-    set_entry_index__9TLanguageFll((int) (0), (int) (0x48));
-    set_entry_index__9TLanguageFll((int) (2), (int) (0x4B));
-    set_entry_index__9TLanguageFll((int) (1), (int) (0x49));
-    set_entry_index__9TLanguageFll((int) (3), (int) (2));
-    set_entry_index__9TLanguageFll((int) (4), (int) (3));
+    TLanguage::set_entry_index((int) (0), (int) (0x48));
+    TLanguage::set_entry_index((int) (2), (int) (0x4B));
+    TLanguage::set_entry_index((int) (1), (int) (0x49));
+    TLanguage::set_entry_index((int) (3), (int) (2));
+    TLanguage::set_entry_index((int) (4), (int) (3));
 }
 
 void select_language_text_resources(s32 arg0) {

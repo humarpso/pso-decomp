@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TFogCtrl.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TScene.h"
 #include "pso/misc/TUnk_804C3248.h"
 extern "C" { void setup_photon_blast_camera__13TUnk_804C3248Fv(u8 *); }
 #pragma push
@@ -26,10 +32,7 @@ struct Ent_801A710C { u32 a; f32 b; s32 c; };
 extern "C" {
 s32 select_active_controller__11TCameraCtrlFc(int);
 s32 set_scripted_camera_pose(int, int, void *);
-s32 cache_target_and_forward__11TCameraCtrlFl(void *, int);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
-void begin_photon_summon_camera__13TUnk_804C3248FSc(u8 *arg0, s8 arg1);
 extern struct Ent_801A70C8 deferred_photon_blast_hit_queue[32];
 extern s32 deferred_photon_blast_hit_count;
 void clear_deferred_photon_blast_hits(void);
@@ -134,14 +137,14 @@ void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
     Stack_801A7310 stack;
     s32 temp_r3;
     stack.sp9 = arg1;
-    stack.sp8 = get_global_state__14TOKeyMachine01Fv() == 0xE;
+    stack.sp8 = TOKeyMachine01::get_global_state() == 0xE;
     stack.spA = 0;
     stack.spC = 0.0f;
     stack.sp10 = 1.0f;
     if ((*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 4) || (*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 8)) {
         select_active_controller__11TCameraCtrlFc((int) (5));
     }
-    cache_target_and_forward__11TCameraCtrlFl((void *) (&stack.sp8), (int) (0x4222));
+    ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x4222));
     temp_r3 = (long) (arg0 + 0x38);
     set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
     *(s32 *)((s8 *)arg0 + 0xFC) = 1;
@@ -338,19 +341,13 @@ extern s32 photon_blast_joint_index;
 
 void publish_photon_blast_joint_origins();
 int set_global_state__16TObjEneRe7BeruraFl(void*);
-void set_photon_blast_joint_callback__13TUnk_804C3248Fv(PhotonDrawOwner_801A7638 *self);
-void copy_pos__11TNowLoadingFPv(void *, void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void update_photon_blast_attachments__13TUnk_804C3248Fv(struct Self_801A7680 *self);
 }
 
 extern "C" {
 
 void apply_all_default__8TFogCtrlFv(void);
 int clear_render_context__10TObjPlayerFv(void);
-void free_photon__13TUnk_804C3248Fv(void* p);
 int update_all_default__8TFogCtrlFv(void);
-int apply_all__8TFogCtrlFll(void*, void*);
 int mem_free(void*);
 int set_global_state__16TObjEneRe7BeruraFl(void*);
 int update_all__8TFogCtrlFl(void*);
@@ -370,15 +367,15 @@ void TUnk_804C3248::update_photon_blast_attachments() {
     u32 i;
     struct Eff_801A7680 *e;
     for (i = 0; i < self->count; i++) {
-        if (all_parents_unqueued_for_destruction__7TObjectFv(self->effects[i].obj) == 0) {
+        if (((TObject *)(self->effects[i].obj))->all_parents_unqueued_for_destruction() == 0) {
             self->effects[i].obj = NULL;
         }
         e = &self->effects[i];
         if (e->obj != NULL) {
             if (e->flag >= 0) {
-                copy_pos__11TNowLoadingFPv(e->obj, &e->pos);
+                ((TNowLoading *)(e->obj))->copy_pos(&e->pos);
             } else {
-                copy_pos__11TNowLoadingFPv(e->obj, &self->pos);
+                ((TNowLoading *)(e->obj))->copy_pos(&self->pos);
             }
         }
     }
@@ -387,7 +384,7 @@ void TUnk_804C3248::update_photon_blast_attachments() {
 void TUnk_804C3248::free_photon() { void* m = *(void**)((char*)this + 0x148); if (m) mem_free(m); }
 
 int update_all_default__8TFogCtrlFv(void) { return update_all__8TFogCtrlFl((void*)(0)); }
-void apply_all_default__8TFogCtrlFv(void) { apply_all__8TFogCtrlFll((void*)63, (void*)0); }
+void apply_all_default__8TFogCtrlFv(void) { TFogCtrl::apply_all((s32)((void*)63), (s32)((void*)0)); }
 
 }
 
@@ -397,11 +394,9 @@ void apply_all_default__8TFogCtrlFv(void) { apply_all__8TFogCtrlFll((void*)63, (
 #include "types.h"
 
 extern "C" {
-s32 set_ready__6TSceneFv();
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__instance;
 void update__10TSceneSoraFv(s32 _w0);
-s32 reset_counter__6TSceneFv();
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__instance;
 void reset_state__10TSceneSoraFv(s32 _w0);
@@ -409,13 +404,9 @@ u16 TCameraCtrl__sub_8006A5DC();
 void *get_scripted_camera_playback();
 
 s32 queue_destruction__7TObjectFv(void *);
-void update_state__13TUnk_804C3248Fv(void *arg0);
 }
 
 extern "C" {
-
-void enter_scene__13TUnk_804C3248Fv(s32 arg0);
-void update_if_active__13TUnk_804C3248Fv(void *arg0);
 
 s32 TObjPlayer__sub_800D8A60();
 s32 TObjPlayer__sub_800D8A6C();
@@ -451,13 +442,13 @@ void TUnk_804C3248::enter_scene() {
     }
 }
 void update__10TSceneSoraFv(s32 _w0) {
-    set_ready__6TSceneFv();
+    TScene::set_ready();
     if ((u32) TSceneSora__instance != 0U) {
         TSceneSora__sky_active_flag = 1;
     }
 }
 void reset_state__10TSceneSoraFv(s32 _w0) {
-    reset_counter__6TSceneFv();
+    TScene::reset_counter();
     if ((u32) TSceneSora__instance != 0U) {
         TSceneSora__sky_active_flag = 0;
     }

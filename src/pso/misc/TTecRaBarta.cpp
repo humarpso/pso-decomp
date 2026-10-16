@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TTecRaFoie.h"
+#include "pso/misc/TUnk_804CCB28.h"
+#include "pso/unk/TUnk_804CC148.h"
 #pragma readonly_strings on
 
 #include <stddef.h>
@@ -143,7 +146,6 @@ struct RaBarta_802377FC {
 };
 
 extern "C" {
-void sub_80237258__19TTecPlayerInfluenceFv(void* p);
 s32 queue_destruction__7TObjectFv(void *);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 s32 approach_vector_in_place(void *, void *, f32);
@@ -177,7 +179,6 @@ void *create_particle_emitter(void *, int);
 void **mem_alloc(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
-void vfunc_8__11TTecRaBartaFPv(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC tech_high_level_linear_power_table;
@@ -188,8 +189,6 @@ void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 
 extern "C" {
 
-void vfunc_7__19TTecPlayerInfluenceFPv(void);
-void vfunc_9__11TTecRaBartaFv(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
@@ -199,8 +198,6 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
 
-void sub_80237258__19TTecPlayerInfluenceFv(void* p);
-
 extern s32 __vt__19TTecPlayerInfluence[];
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
@@ -208,8 +205,6 @@ void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 typedef struct Obj_80237310 Obj_80237310;
 typedef struct Owner_80237310 Owner_80237310;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
-
-void vfunc_7__19TTecPlayerInfluenceFPv(void);
 
 extern "C" {
 extern const Emitter_80237494 lbl_8044D920[3] = {{473, 0, 0.0f}, {475, 0, 0.0f}, {479, 0x20060, 1.0f}};
@@ -454,7 +449,6 @@ s32 apply_technique_to_area_targets__13TUnk_804CC148Fv(void *, int);
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 extern RafoieBursts_80237DAC rafoie_burst_table[];
 extern const f32 lbl_805DC8C8;
-void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 
@@ -466,7 +460,6 @@ u32 find_entity_by_id(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 TTecRaFoie__data_805DC8CC;
-void vfunc_8__10TTecRaFoieFPv(TTecRaFoie_80237FB8 *self);
 struct Profile_80237A94 { void *entries; u32 count; };
 struct Self_80237A94 {
     u8 pad0[0x18];
@@ -481,7 +474,6 @@ struct Self_80237A94 {
 
 s32 mem_free(void *);
 s32 stop_sound_request(void *);
-s32 destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
@@ -492,7 +484,6 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 
 extern "C" {
 
-void vfunc_9__10TTecRaFoieFv(u8 *arg0);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -527,7 +518,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
         }
         stop_sound_request(self->emitters);
         mem_free(self->objs);
-        destroy_technique_base__13TUnk_804CC148Fs((void *) (self), (int) (0));
+        ((TUnk_804CC148 *)self)->destroy_technique_base((int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (self));
         }
@@ -609,11 +600,6 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
     }
     return this;
 }
-
-void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
-
-void vfunc_9__10TTecRaFoieFv(u8 *arg0);
-void vfunc_8__10TTecRaFoieFPv(TTecRaFoie_80237FB8 *self);
 
 }
 #undef VecCopy__FP3VecPC3Vec

@@ -86,21 +86,17 @@ struct VObj_18_8016BABC : VBase_18_8016BABC {
 
 extern "C" {
 s32 is_split_screen();
-s32 is_confirm_pressed__11TOKeyCave01Fv(u8 *arg0);
 extern const f32 lbl_805DB718;
 extern const f32 lbl_805DB71C;
 extern const f32 lbl_805DB720;
 extern const f32 lbl_805DB724;
-void vfunc_17__14TOKeyAncient03Fv(u8 *arg0);
 extern const f32 lbl_805DB738;
 extern const f32 lbl_805DB73C;
 extern const f32 lbl_805DB740;
 extern const f32 lbl_805DB744;
-void vfunc_17__11TOKeyCave01Fv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
-void vfunc_19__11TOKeyCave01Fv(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
@@ -126,7 +122,6 @@ extern const f32 lbl_805DB730;
 u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB728;
 extern const f32 lbl_805DB724;
-void vfunc_16__14TOKeyAncient03Fv(Obj_8016B9A4 *self);
 s32 get_current_floor();
 extern s32 local_client_id;
 s32 rotate_matrix_y(int, int);
@@ -144,8 +139,6 @@ extern s32 model_render_flags;
 extern "C" {
 
 void TOKeyAncient03__vt16(s32 arg0);
-void vfunc_19__14TOKeyAncient03Fv(s32 arg0);
-void vfunc_25__11TOKeyCave01Fv(void);
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);

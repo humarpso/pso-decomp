@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void sub_8013EEC0__13TLockOnCursorFs(void* p, s16 v);
 s32 __dl__FPv(void *);
 s32 free_if_valid__14TPlyDispConfigFis(void *, s16);
 

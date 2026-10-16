@@ -5,7 +5,6 @@
 
 extern "C" {
 
-s32 render_model_if_visible__12TObjEneReconFv(u8 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 push_reflect_matrix__12TObjEneReconFPv(void *);
 s32 rotate_matrix_y(int, int);

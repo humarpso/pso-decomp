@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/enemy/TObjEneDD.h"
 
 struct Base_800BB8E0_800BB804 { char pad[0x18]; };
@@ -350,40 +352,29 @@ struct Obj_800BB88C {
 extern "C" {
 void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
-void sub_800BBA0C__9TObjEneDDFv(u8 *arg0);
-void vfunc_85__9TObjEneDDFv(void *arg0);
-s32 vfunc_83__9TObjEneDDFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 load_enemy_bml_resource(u8 *arg0);
 void transition_enemy_state(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
-void reset_state_fields__9TObjEneDDFv(Obj_800BB88C *self);
 }
 
 extern "C" {
 
 s32 pack_debug_text_position(s32 arg0, s32 arg1);
 void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
-void sub_800BBA0C__9TObjEneDDFv(u8 *arg0);
-void vfunc_79__9TObjEneDDFv(void *arg0);
-u8 vfunc_86__9TObjEneDDFv(void *arg0);
 int get_target_info__9TObjEneDDFPv(void* p);
-void init_common_from__9TObjEneDDFPUc(u8 *arg0, u8 *arg1);
 void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
-void invoke_initialization_hook__9TObjEneDDFv(void *arg0);
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 s32 subtractive_rng_seed(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vfunc_79__9TObjEnemyFv();
 int fn_800FD8A0(void*);
-s32 reset_photon_effect__12TBoss3VoloptFv(void *);
 
 extern s32 area_random_seed;
 
 void TObjEneDD::init_common_from(u8 *arg1) {
-    reset_state_fields__9TObjEneDDFv((Obj_800BB88C *)(((u8 *)this)));
+    reset_state_fields();
     *(s16 *)((s8 *)((u8 *)this) + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)((u8 *)this) + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
     subtractive_rng_seed((void *) (((u8 *)this) + 0x160), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x1C) + area_random_seed));
@@ -443,7 +434,7 @@ void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
 s32 load_enemy_bml_resource(u8 *arg0) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, arg0, 0, 0, 0));
@@ -474,7 +465,7 @@ void TObjEneDD::vfunc_85() {
         ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 3);
     }
     ((VObj_18 *)(this))->m85(*(s16 *)((s8 *)this + 0x326), 0);
-    sub_800BBA0C__9TObjEneDDFv((u8 *)(this));
+    sub_800BBA0C();
 }
 
 s32 TObjEneDD__vt82(V_800BBB18 *self) {
@@ -507,7 +498,7 @@ void init_position_vectors__9TObjEneDDFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
-    reset_photon_effect__12TBoss3VoloptFv(arg0);
+    ((TBoss3Volopt *)arg0)->reset_photon_effect();
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDD__data_805D9E8C;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDD__data_805D9E8C;

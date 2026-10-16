@@ -7,7 +7,6 @@ extern "C" {
 extern char lbl_8047B8C4[];
 extern char lbl_8047B8CC[];
 void draw_message_window__11TAdEp3ExistFl(void);
-void vfunc_6__11TAdEp3ExistFv(void);
 }
 
 extern "C" {

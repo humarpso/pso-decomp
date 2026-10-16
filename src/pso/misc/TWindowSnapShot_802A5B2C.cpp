@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TGStream.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_802A5F24_lbl_804DD098 {
     s32 value;
@@ -56,8 +58,6 @@ s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0);
 void fn_802A5C7C(void *arg0);
 void fn_802A5CB8(void* p);
 s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1);
-s32 read_whole_file__8TGStreamFlPUc(s32, s32);
-s32 get_resource_file_size__6TLobbyFv(s32);
 u32 mem_alloc();
 s32 memset(void *, int, int);
 
@@ -118,7 +118,7 @@ s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
     return 1;
 }
 s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
-    *(s32 *)((s8 *)arg0 + 0xC) = read_whole_file__8TGStreamFlPUc(arg1, *(s32 *)((s8 *)arg0 + 8));
+    *(s32 *)((s8 *)arg0 + 0xC) = TGStream::read_whole_file((s32)arg1, (u8 *)(*(s32 *)((s8 *)arg0 + 8)));
     if (TWindowSnapShot__sub_802A605C((u8 *)(arg0)) == 0) {
         set_mode__15TWindowSnapShotFPvi((void*)(arg0), (s32)(2));
         free_buffer__15TWindowSnapShotFPv((void *)((void*)((void*)(arg0))));
@@ -127,7 +127,7 @@ s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     return 1;
 }
 s32 init__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
-    *(s32 *)((s8 *)arg0 + 0xC) = get_resource_file_size__6TLobbyFv(arg1);
+    *(s32 *)((s8 *)arg0 + 0xC) = ((TLobby *)arg1)->get_resource_file_size();
     if (TWindowSnapShot__sub_802A605C((u8 *)(arg0)) == 0) {
         set_mode__15TWindowSnapShotFPvi((void*)(arg0), (s32)(1));
         return 0;

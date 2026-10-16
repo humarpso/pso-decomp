@@ -25,7 +25,6 @@ int TWindowCtrl__sub_8024DAAC(void*);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int sub_8024E0F0__17TWindowCtrlPlayerFv(void* a0 = 0);
 void queue_destruction__7TObjectFv(void *);
 void run_all_updates__11TWindowCtrlFv(void* p);
 
@@ -42,7 +41,7 @@ extern u8 lbl_8044EC4C[];
 extern s32 TWindowCtrlPlayer__name;
 
 void TWindowCtrlPlayer::render() {  }
-void TWindowCtrlPlayer::run_task() { sub_8024E0F0__17TWindowCtrlPlayerFv(this); run_all_updates__11TWindowCtrlFv(this); }
+void TWindowCtrlPlayer::run_task() { sub_8024E0F0(); run_all_updates__11TWindowCtrlFv(this); }
 
 extern s32 __vt__17TWindowCtrlPlayer[];
 

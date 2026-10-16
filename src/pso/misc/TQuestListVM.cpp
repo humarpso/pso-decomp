@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0618.h"
@@ -199,22 +200,18 @@ extern s32 quest_list_vm_instance;
 u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 TQuestListVM__sub_8021884C(void *);
-s32 quest_vm_load__12TQuestListVMFv(void *arg0);
-void vfunc_11__12TQuestListVMFv(u8 *arg0);
 int memset(void*, void*, void*);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
 int sprintf(char *, const char *, ...);
 extern char lbl_8044BEE8[];
 extern char lbl_8044BF50[];
-void load_selected_slot__12TQuestListVMFv(u8 *arg0);
 s32 strcmp(const char *, const char *);
 extern s32 current_language;
 s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 *e);
 int obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
 f32 get_scale__15TShopWindowBaseFv(void *);
-void set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 u32 create_yes_no_window(int, u16, int, int);
 void send_and_handle__6TLobbyFii(u32, void *, int);
 u32 create_message_window__6TLobbyFllUls(int, Pair_80218D40 *, int, u16);
@@ -223,7 +220,6 @@ extern Pair_80218D40 lbl_8044BF48[];
 extern s32 TQuestListVM__decrypted_quest_buffer;
 extern const f32 lbl_805DC6B8;
 extern const f32 lbl_805DC6BC;
-void open_confirm_window__12TQuestListVMFv(u8 *arg0);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
@@ -259,7 +255,6 @@ extern Pair_80218D40 lbl_8044BF40[];
 extern s32 current_language;
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
-void sub_80219064__12TQuestListVMFv(u8 *arg0);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 int sprintf(char *, const char *, ...);
@@ -537,7 +532,7 @@ void TQuestListVM::open_confirm_window() {
         send_and_handle__6TLobbyFii(*(u32 *)(((u8 *)this) + 0x2380), (void *)(TQuestListVM__decrypted_quest_buffer + 0xB4), 1);
         ((TLobby *)(*(u32 *)(((u8 *)this) + 0x2380)))->set_field_1c(lbl_805DC6B8);
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
-            set_position_xy__13TUnk_804CDFE8Fff(*(u32 *)(((u8 *)this) + 0x2380), lbl_805DC6BC, lbl_805DC6BC);
+            ((TUnk_804CDFE8 *)(*(u32 *)(((u8 *)this) + 0x2380)))->set_position_xy(lbl_805DC6BC, lbl_805DC6BC);
         }
     }
     if (*(u32 *)(((u8 *)this) + 0x2380) != 0U) {
@@ -549,7 +544,7 @@ void TQuestListVM::open_confirm_window() {
             u16 id = obj_getField1c(*(s32 *)(((u8 *)this) + 0x24));
             *(u32 *)(((u8 *)this) + 0x2378) = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
         }
-        set_position_xy__13TUnk_804CDFE8Fff(*(u32 *)(((u8 *)this) + 0x2378), get_scale__15TShopWindowBaseFv(((u8 *)this)), get_scale__15TShopWindowBaseFv(((u8 *)this)));
+        ((TUnk_804CDFE8 *)(*(u32 *)(((u8 *)this) + 0x2378)))->set_position_xy(get_scale__15TShopWindowBaseFv(((u8 *)this)), get_scale__15TShopWindowBaseFv(((u8 *)this)));
         ((VObj_80218D40 *)(((u8 *)this)))->m7(5, 1);
         ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)*(s32 *)(((u8 *)this) + 0x2370)));
     }
@@ -925,22 +920,22 @@ void TQuestListVM::vfunc_11() {
         TQuestListVM::update_lobby_selection((void *) (arg0));
         return;
     case 7:
-        quest_vm_load__12TQuestListVMFv((void *) (arg0));
+        ((TQuestListVM *)arg0)->quest_vm_load();
         return;
     case 8:
-        sub_80219064__12TQuestListVMFv((u8 *)((void *) (arg0)));
+        ((TQuestListVM *)arg0)->sub_80219064();
         return;
     case 9:
         TQuestListVM::poll_quest_download((void *)((void *) (arg0)));
         return;
     case 15:
-        open_confirm_window__12TQuestListVMFv((u8 *)((void *) (arg0)));
+        ((TQuestListVM *)arg0)->open_confirm_window();
         return;
     case 10:
         ((TQuestListVM *)arg0)->handle_confirm_window();
         return;
     case 11:
-        load_selected_slot__12TQuestListVMFv((u8 *)((void *) (arg0)));
+        ((TQuestListVM *)arg0)->load_selected_slot();
         return;
     case 12:
         ((TQuestListVM *)arg0)->load_downloaded_quest();

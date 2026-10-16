@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804B27D8.h"
 #include "pso/misc/TOComputerMachine01.h"
 #include "pso/TParticleCtrl.h"
@@ -66,7 +67,6 @@ s32 draw_ginja_model(void *);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 actor_frame_tick;
 extern s32 TOComputerMachine01__last_render_frame_tick;
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init__13TUnk_804B27D8Fv(void *, int);
 extern RecoveredGlobal_8015B644_lbl_804AFFF8 lbl_804AFFF8;
@@ -92,7 +92,6 @@ extern "C" {
 
 void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -173,7 +172,7 @@ void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOComputerMachine01;
         free_collision_body_parts(arg0);
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         ((TUnk_804B27D8 *)arg0)->destroy_key_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -194,7 +193,7 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB394;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFFF8.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     return arg0;

@@ -24,12 +24,10 @@ s32 forward_render__20TWindowSubStatusDispFv(int, int);
 void render__26TWindowSubQuestBoardSelectFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD6B4;
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
 void play_sound_effect(s32, s32, s32, s32);
-void sub_8027D230__26TWindowSubQuestBoardSelectFv(void *);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, u8);
 s32 is_shortcut_active__26TWindowSubQuestBoardSelectFv();
 extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;
@@ -65,7 +63,7 @@ s32 TWindowSubQuestBoardSelect::handle_page_input() {
                     self->f61 -= 6;
                 }
             } while (get_slot_flag__26TWindowSubQuestBoardSelectFic(self, self->f61) == 0);
-            sub_8027D230__26TWindowSubQuestBoardSelectFv(self);
+            ((TWindowSubQuestBoardSelect *)self)->sub_8027D230();
         }
     }
 }
@@ -99,7 +97,7 @@ void TWindowSubQuestBoardSelect::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_64))->update_subwindow();
     }
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 
 }

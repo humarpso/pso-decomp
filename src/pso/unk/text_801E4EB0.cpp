@@ -13,7 +13,6 @@ struct Obj_801E4EB0 {
 };
 
 extern "C" {
-void quad_sprite_reset_entries__13TUnk_804C57F0Fv(Obj_801E4EB0 *o);
 }
 
 extern "C" {

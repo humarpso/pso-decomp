@@ -491,7 +491,6 @@ extern s16 TCameraCtrl__viewport_y;
 
 extern "C" {
 
-void run_task__13TUnk_80488A28Fv(void);
 void TCameraCtrl__sub_800689E8(void);
 f32 TCameraCtrl__sub_80068A04(void);
 s32 TCameraCtrl__ct(void *, s32);

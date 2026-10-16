@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TMainTask.h"
+#include "pso/misc/TWindowMessagePage.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0618.h"
@@ -68,7 +70,6 @@ void TLobby__sub_8013AA64(void *, void *);
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 void TLobby__sub_80139894(char *);
 void some_empty_func__9TMainTaskFv(void *);
-void run_tl_camera_tasks__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 void render_screen_overlay__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
@@ -1157,17 +1158,17 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     complete_reveal__14TWindowMessageFPv((void *)TLobby__current_dialog_window);
     ((TWindowSubComCard *)TLobby__current_dialog_window)->reparent_to_main_ctrl();
     some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
-    run_tl_camera_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_tick__Fv();
     some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
-    run_tl_camera_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_tick__Fv();
     some_empty_func__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
-    run_tl_camera_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_tl_camera_tasks();
     render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_tick__Fv();
@@ -2684,7 +2685,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 TWindow__close(u32);
 s32 reset_controller_input_state();
 s32 send_message_box_closed__9TProtocolFv(s32);
-s32 is_message_window_ready__18TWindowMessagePageFv(u32);
 s32 complete_reveal__14TWindowMessageFPv(u32);
 
 extern s8 controller_input_state[];
@@ -2713,7 +2713,7 @@ void handle_short_list_input__6TLobbyFv(void) {
     if ((u32) TLobby__join_entry_window_obj != 0U) {
         temp_r31 = controller_input_state + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
-            if (is_message_window_ready__18TWindowMessagePageFv(TLobby__join_entry_window_obj) == 0) {
+            if (((TWindowMessagePage *)TLobby__join_entry_window_obj)->is_message_window_ready() == 0) {
                 complete_reveal__14TWindowMessageFPv(TLobby__join_entry_window_obj);
             } else {
                 TWindow__close(TLobby__join_entry_window_obj);
@@ -2740,7 +2740,7 @@ void update_short_list__6TLobbyFv(void) {
     if ((u32) TLobby__download_list_window != 0U) {
         temp_r31 = controller_input_state + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
-            if (is_message_window_ready__18TWindowMessagePageFv(TLobby__download_list_window) == 0) {
+            if (((TWindowMessagePage *)TLobby__download_list_window)->is_message_window_ready() == 0) {
                 complete_reveal__14TWindowMessageFPv(TLobby__download_list_window);
             } else {
                 TWindow__close(TLobby__download_list_window);
@@ -2968,7 +2968,6 @@ s32 TLobby__sub_8013AD5C(u32);
 s8 TLobby__sub_8013AD6C(u32);
 s32 TLobby__sub_8013AD74(u32);
 s32 complete_reveal__14TWindowMessageFPv(u32);
-s32 is_message_window_ready__18TWindowMessagePageFv(u32);
 s32 TWindowMakeTeam__sub_80264B24(u32);
 s32 TWindowMakeTeam__sub_80264B38(u32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
@@ -3017,7 +3016,7 @@ extern u32 TLobby__join_entry_window_obj;
 void update__6TLobbyFv(void) {
     if ((u32) TLobby__join_entry_window_obj != 0U) {
         if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 8) != 0) {
-            if (is_message_window_ready__18TWindowMessagePageFv(TLobby__join_entry_window_obj) == 0) {
+            if (((TWindowMessagePage *)TLobby__join_entry_window_obj)->is_message_window_ready() == 0) {
                 complete_reveal__14TWindowMessageFPv(TLobby__join_entry_window_obj);
             } else {
                 TWindow__close(TLobby__join_entry_window_obj);

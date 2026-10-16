@@ -4,7 +4,6 @@
 extern "C" {
 
 void create__10TItemEffPGFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *initialize__13TUnk_804F0C08FPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void TItemEffPG__ct(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -21,7 +20,7 @@ void create__10TItemEffPGFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        initialize__13TUnk_804F0C08FPvPvPv((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
+        ((TUnk_804F0C08 *)o)->initialize((void *)(arg0), (void *)(arg1), (void *)(arg2));
     }
 }
 

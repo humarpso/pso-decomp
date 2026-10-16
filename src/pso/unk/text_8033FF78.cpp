@@ -36,7 +36,6 @@ f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
 extern const f32 lbl_805DFB10;
-void check_any_player_near__23TBoss6Demo15_TYPE2_WAITFv(O_8033FF78 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create__10TObjMapCsnFl(void *);
 extern E_8034009C lbl_8047843C[];

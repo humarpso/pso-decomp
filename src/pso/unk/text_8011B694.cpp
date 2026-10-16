@@ -5,7 +5,6 @@
 struct TItemShootParticle_8011B694 { u8 pad[0x1c]; f32 pos[3]; u8 pad28[0x58 - 0x28]; void *parts[2]; };
 
 extern "C" {
-void hook__18TItemShootParticleFv(TItemShootParticle_8011B694 *self);
 }
 
 extern "C" {

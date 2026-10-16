@@ -1,4 +1,6 @@
 #include "pso/TItemEffHeaven.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/misc/TNowLoading.h"
 
 #include "types.h"
 struct Obj_801092A8 {
@@ -47,7 +49,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 VObj_8010900C *resolve_hittable_target(u16, s16);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DAB28;
@@ -63,7 +64,6 @@ Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b,
 }
 
 extern "C" {
-void request_destroy__11TBoss4Type2FUl(void*);
 }
 extern "C" int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
@@ -92,7 +92,7 @@ void TItemEffHeaven::run_task() {
     }
     if (self->f28 == 0x19) {
         for (i = 0; i != 2; i++) {
-            request_destroy__11TBoss4Type2FUl(self->arr[i]);
+            TBoss4Type2::request_destroy((u32)(self->arr[i]));
             self->arr[i] = 0;
         }
         u32 id = self->f3C;
@@ -111,14 +111,14 @@ void TItemEffHeaven::run_task() {
         self->arr[2] = spawn_continuous_particle_effect_with_flags(&self->pos, 0x139, 0x40);
     }
     if (self->f28 == 0x28) {
-        request_destroy__11TBoss4Type2FUl(self->arr[2]);
+        TBoss4Type2::request_destroy((u32)(self->arr[2]));
         self->arr[2] = 0;
         queue_destruction__7TObjectFv(self);
         return;
     }
     for (j = 0; j != 3; j++) {
         if (self->arr[j] != 0) {
-            copy_pos__11TNowLoadingFPv(self->arr[j], &self->pos);
+            ((TNowLoading *)(self->arr[j]))->copy_pos(&self->pos);
         }
     }
     self->f20 = NULL;
@@ -127,7 +127,7 @@ void TItemEffHeaven::run_task() {
 
 TItemEffHeaven::~TItemEffHeaven() {
     for (int i = 0; i != 3; i++) {
-        request_destroy__11TBoss4Type2FUl(m_arr[i]);
+        TBoss4Type2::request_destroy((u32)(m_arr[i]));
     }
 }
 

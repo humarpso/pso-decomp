@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorCave02.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -12,7 +13,6 @@ extern const f32 lbl_805DB4B4;
 extern const f32 lbl_805DB4B8;
 extern const f32 lbl_805DB4BC;
 extern const f32 lbl_805DB4C0;
-void play_proximity_sound__12TODoorCave02Fv(u8 *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -38,8 +38,6 @@ struct VObj_80161D38 : Base_80161D38 {
     virtual s32 m8(f32, f32);
 };
 
-void vfunc_17__12TODoorCave02Fv(u8 *arg0);
-void vfunc_20__12TODoorCave02Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
 s32 post_translate_matrix(void *);
@@ -47,7 +45,6 @@ s32 draw_ginja_model_with_motion(void *, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 
 void TODoorCave02::vfunc_20() {  }
 
@@ -126,7 +123,7 @@ s32 TODoorCave02::draw_parts(void *arg1_) {
 
 void TODoorCave02::render() {
     u8 *arg0 = (u8 *)this;
-    if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB4C4) != 0)) {
+    if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB4C4) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

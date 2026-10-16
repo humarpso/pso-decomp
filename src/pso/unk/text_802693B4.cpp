@@ -16,7 +16,6 @@ void complete_reveal__14TWindowMessageFPv(Win_80269454 *self);
 Entry_80269454 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void *get_field_20__17TWindowSubComCardFv(void *);
 s32 is_window_reveal_complete__13TUnk_804CE018Fv();
-s32 is_message_window_ready__18TWindowMessagePageFv(struct Win_802693B4 *arg0);
 }
 
 extern "C" {

@@ -552,7 +552,6 @@ struct VObj_80040894 : VBase_80040894 {
     virtual void m80();
 };
 
-s32 recalc_combat_stats__13TUnk_804806E8FPvPvPvff(void *, s32, s32, s32, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_status_effect_row(void *);
 s32 obj_testFlags30(void *, s32);
@@ -1531,7 +1530,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     init_collision_body_parts(arg0, lbl_804839E4, 1);
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
     *(void **)((s8 *)arg0 + 0x350) = lbl_804839C8;
-    recalc_combat_stats__13TUnk_804806E8FPvPvPvff(arg0, (*(s32 *)&lbl_805D4C50), (*(s32 *)&lbl_805D4C54), (*(s32 *)&lbl_805D4C58), lbl_805D86B0, lbl_805D86B0);
+    ((TUnk_804806E8 *)arg0)->recalc_combat_stats((void *)(*(s32 *)&lbl_805D4C50), (void *)(*(s32 *)&lbl_805D4C54), (void *)(*(s32 *)&lbl_805D4C58), (f32)lbl_805D86B0, (f32)lbl_805D86B0);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));

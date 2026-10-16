@@ -1,4 +1,6 @@
 #include "pso/ui/TChallenge4PResult.h"
+#include "pso/misc/TUnk_804CDFE8.h"
+#include "pso/misc/TWindowMessagePage.h"
 
 #include "types.h"
 extern "C" { s32 TChallenge4PResult__slot_entries[4]; }
@@ -27,13 +29,9 @@ struct Stack_8034B720 {
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
 s32 TLobby__sub_802924B4(void *, int);
-void sub_8034B8BC__18TChallenge4PResultFv(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
 s32 TLobby__sub_802924B4(void *, int);
-void sub_8034B918__18TChallenge4PResultFv(u8 *arg0);
-void sub_8034BA2C__18TChallenge4PResultFv(u8 *arg0);
 s32 is_active__11TBoss4Type2Fv();
-void sub_8034BA2C__18TChallenge4PResultFv(u8 *arg0);
 
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
@@ -41,12 +39,8 @@ u32 get_player_by_client_id(int);
 extern u8 controller_input_state[];
 extern s32 TChallenge4PResult__slot_entries[];
 s32 TLobby__sub_80292270(int, int);
-void sub_8034B8B0__18TChallenge4PResultFv(void* p);
-void sub_8034B8BC__18TChallenge4PResultFv(u8 *arg0);
-void sub_8034B918__18TChallenge4PResultFv(u8 *arg0);
 
 s32 get_instance__11TCameraCtrlFv();
-s32 set_position_xy__13TUnk_804CDFE8Fff(int, f32, f32);
 s32 get_window_layout_position(int, int, void *);
 extern s32 lbl_80478BCC[];
 extern const f32 lbl_805DFDA4;
@@ -70,13 +64,11 @@ s32 update_challenge_result_player_locks();
 extern "C" {
 
 void resume_challenge_result_processing(void *arg0);
-void sub_8034B8B0__18TChallenge4PResultFv(void* p);
 
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 s32 get_localized_text_entry(s32, s32);
 s32 __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
-s32 is_message_window_ready__18TWindowMessagePageFv(u32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 int TWindow__close(void*);
 u32 __nw__7TObjectFUl(s32);
@@ -185,7 +177,7 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     if (message_window != NULL) {
         ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);
         if (get_instance__11TCameraCtrlFv() > 2) {
-            set_position_xy__13TUnk_804CDFE8Fff((int) (message_window), (f32) (lbl_805DFDA4), (f32) (lbl_805DFDA4));
+            ((TUnk_804CDFE8 *)message_window)->set_position_xy((f32) (lbl_805DFDA4), (f32) (lbl_805DFDA4));
         }
     }
 }
@@ -275,13 +267,13 @@ void TChallenge4PResult::handle_result_code() {
         ((TChallenge4PResult *)arg0)->handle_third_reward();
         return;
     case 1:
-        sub_8034B918__18TChallenge4PResultFv(arg0);
+        ((TChallenge4PResult *)arg0)->sub_8034B918();
         return;
     case 0:
-        sub_8034B8BC__18TChallenge4PResultFv(arg0);
+        ((TChallenge4PResult *)arg0)->sub_8034B8BC();
         return;
     case -1:
-        sub_8034B8B0__18TChallenge4PResultFv((void *) (arg0));
+        ((TChallenge4PResult *)arg0)->sub_8034B8B0();
         return;
     case -2:
         init();
@@ -308,7 +300,7 @@ void TChallenge4PResult::update_input() {
         ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
     }
     p = *(u32 *)&this->message_window;
-    if ((p != 0U) && (is_message_window_ready__18TWindowMessagePageFv(p) != 0)) {
+    if ((p != 0U) && (((TWindowMessagePage *)p)->is_message_window_ready() != 0)) {
         temp_r3 = this->wait_frames;
         if (temp_r3 > 0) {
             this->wait_frames = (s32) (temp_r3 - 1);
@@ -345,7 +337,7 @@ void TChallenge4PResult::run_task() {
             queue_destruction();
             return;
         case 5:
-            sub_8034BA2C__18TChallenge4PResultFv((u8 *)((void *) (this)));
+            sub_8034BA2C();
             break;
         }
     }

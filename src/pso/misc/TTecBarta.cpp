@@ -135,8 +135,6 @@ s32 get_bml_model(s32, s32);
 void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 TechniqueParticleEmitter *create_timed_particle_emitter(f32 *, s32, s32, s32);
 TechniqueHitRecipient *find_entity_by_id(u16);
-void dispatch_all_technique_contacts__13TUnk_804CCC68Fv(TTecBarta *);
-void advance_lifetime_or_destroy__13TUnk_804CCC68Fv(TTecBarta *);
 void move_ground_technique_projectile(TTecBarta *);
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
@@ -157,12 +155,10 @@ u16 obj_getField1c(void *);
 s32 get_type__10TObjPlayerFPv(void *);
 List_8022BD74 *find_area_contact__13TUnk_804CC148Fl(Tec_8022BD74 *, void *);
 List_8022BD74 *collect_body_contacts_for_target__10TObjPlayerFl(Tec_8022BD74 *, void *);
-void apply_technique_to_area_targets__13TUnk_804CC148Fv(Tec_8022BD74 *self);
 }
 
 extern "C" {
 
-void vfunc_6__13TUnk_804CCC68Fv(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -348,8 +344,8 @@ void TTecBarta::run_task() {
         }
     }
     move_ground_technique_projectile(this);
-    advance_lifetime_or_destroy__13TUnk_804CCC68Fv(this);
-    dispatch_all_technique_contacts__13TUnk_804CCC68Fv(this);
+    advance_lifetime_or_destroy();
+    dispatch_all_technique_contacts();
 }
 
 void TTecBarta::render() {  }

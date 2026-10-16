@@ -24,11 +24,9 @@ s32 anchor_card_effect(int);
 s32 normalize_vector(int, int);
 extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
-void sub_8032E294__13TUnk_804EDD44Fv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void sub_8032E294__13TUnk_804EDD44Fv(u8 *arg0);
 extern const f64 lbl_804773A8[];
 extern void *lbl_804EDD44[];
 Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
@@ -93,7 +91,7 @@ Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f
     VecCopy__FP3VecPC3Vec(self->f64, arg2);
     self->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
     self->f50 = arg4;
-    sub_8032E294__13TUnk_804EDD44Fv((u8 *)self);
+    ((TUnk_804EDD44 *)self)->sub_8032E294();
     return self;
 }
 

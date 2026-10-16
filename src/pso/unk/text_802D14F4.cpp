@@ -42,7 +42,6 @@ extern const f32 lbl_805DE75C;
 extern const f32 lbl_805DE760;
 extern const f32 lbl_805DE764;
 extern const f32 lbl_805DE768;
-void run_task__24TObjEneBm9Mericarol_BombFv(u8 *arg0);
 }
 
 extern "C" {

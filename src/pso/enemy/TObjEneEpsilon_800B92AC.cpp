@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/enemy/TObjEneEpsilon.h"
@@ -123,16 +124,11 @@ struct VObj_18_807e53 : VBase_18_807e53 {
 };
 
 extern "C" {
-void enemy_init_validate_period__12TObjEneDD_STFl(u8 *arg0, s32 arg1);
 int copy_position__14TObjEneEpsilonFPv(void *, void *);
-void enemy_copy_target_destination__12TObjEneDD_STFv(u8 *arg0);
-u8 * try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(void *, void *);
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
-u8 * try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(void *, void *);
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
-s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 s32 tick_period_counter(s32, void *, s32);
 s32 transform_relative_position__9TObjEneDDFPv(void *, int);
 s32 enemy_validate_retained_target(u8 *arg0);
@@ -194,13 +190,13 @@ void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0) {
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0) {
     s32 sp8;
     ((TObjEneEpsilon *)arg0)->fire_attack_b((s32) &sp8, arg1, farg0);
-    try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(arg0, &sp8);
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
 }
 
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0) {
     s32 sp8;
     ((TObjEneEpsilon *)arg0)->fire_attack_c((s32) &sp8, arg1, farg0);
-    try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(arg0, &sp8);
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
 }
 
 void TObjEneEpsilon::fire_attack_a(s32 arg1, s32 arg2, f32 farg0) {
@@ -254,7 +250,7 @@ s32 enemy_validate_retained_target(u8 *arg0) {
         }
         goto block_5;
     }
-    if (enemy_has_live_target__12TObjEneDD_STFv(arg0) != 0) {
+    if (((TObjEneDD_ST *)arg0)->enemy_has_live_target() != 0) {
         return 1;
     }
 block_5:
@@ -393,7 +389,6 @@ struct VObj_18_8e9c4f : VBase_18_8e9c4f {
 };
 
 extern "C" {
-s32 enemy_has_live_target__12TObjEneDD_STFv(void *);
 s32 enemy_tick_target_acquisition__12TObjEneDD_STFPllf(u8 *arg0, s32 *counter, s32 limit, f32 scale);
 }
 
@@ -410,7 +405,7 @@ s32 TObjEneDD_ST::enemy_tick_target_acquisition(s32 *counter, s32 limit, f32 sca
     if (tick_period_counter(((u8 *)this), counter, limit) != 0) {
         var_r31 = ((VObj_18_8e9c4f *)(((u8 *)this)))->m102(scale);
     } else {
-        var_r31 = enemy_has_live_target__12TObjEneDD_STFv(((u8 *)this));
+        var_r31 = enemy_has_live_target();
         if (var_r31 == 0) {
             enemy_clear_target__12TObjEneDD_STFUs((void *) (((u8 *)this)));
         }
@@ -480,7 +475,6 @@ struct Obj_800B9958 { u8 pad[0x38c]; u16 id; u8 pad2[2]; s32 ptr; };
 struct Obj_800B98D8 { u8 pad[0x38c]; u16 target_id; u8 pad2[2]; void *target; };
 
 extern "C" {
-void enemy_init_acquire_period__12TObjEneDD_STFl(u8 *arg0, s32 arg1);
 s32 enemy_bind_or_clear_target(void *self, u16 x);
 void enemy_clear_target__12TObjEneDD_STFUs(O_800B98C0 *self, u16 _w1);
 s32 find_active_entity_by_id(u16);

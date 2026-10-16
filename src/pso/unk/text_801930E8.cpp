@@ -32,7 +32,6 @@ extern void *lazer_fence_norm_texture_list;
 u8 is_current_floor_switch_set(int);
 extern const f32 lbl_805DBE68;
 extern const f32 lbl_805DBE6C;
-void sub_801933C8__15TObjLazerFence4Fv(Obj_801933C8 *arg0);
 s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
@@ -40,7 +39,6 @@ extern s32 lazer_fence_norm_bml_resource;
 
 extern "C" {
 
-s16 update_object_view_visibility__15TObjLazerFence4Fff(u8 *arg0, f32 farg0, f32 farg1);
 void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);

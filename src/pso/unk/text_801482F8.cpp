@@ -333,8 +333,6 @@ extern const f64 lbl_8043F550[];
 extern s32 local_client_id;
 extern u32 quest_mission_manager;
 extern u32 quest_area_manager;
-void sub_80149358__11TObjNpcBaseFl(void *, s32);
-void sub_80149360__11TObjNpcBaseFl(void *, s32);
 extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
 extern const f32 lbl_805DB1C0;
@@ -346,7 +344,6 @@ extern char lbl_8043F544[];
 
 extern "C" {
 
-void vfunc_83__11TObjNpcBaseFv(void);
 u32 get_player_by_client_id();
 s32 play_effect_default__10TObjPlayerFii(u32, s32);
 
@@ -406,8 +403,8 @@ void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
     } else {
         *(s32 *)&this->m_3a4 = (s32) *(f32 *)((s8 *)arg0 + 0x35C);
     }
-    sub_80149360__11TObjNpcBaseFl(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x364));
-    sub_80149358__11TObjNpcBaseFl(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x360));
+    ((TObjNpcBase *)arg0)->sub_80149360((s32) *(f32 *)((s8 *)arg0 + 0x364));
+    ((TObjNpcBase *)arg0)->sub_80149358((s32) *(f32 *)((s8 *)arg0 + 0x360));
     this->m_384 = (s32) this->rotation_y;
     if ((s32) *(s32 *)&this->m_3ac > 0) {
         *(f32 *)&this->unk_398 = (f32) lbl_805DB1BC;

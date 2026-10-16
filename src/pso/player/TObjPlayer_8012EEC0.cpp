@@ -4,7 +4,6 @@
 
 extern "C" {
 
-int update_weapon__13TUnk_804A6108Fv(void* p);
 s32 rotate_matrix_z(s32, s32);
 int advance_angle_wrap(void*, int);
 void TItemWeapon__ct(void *);

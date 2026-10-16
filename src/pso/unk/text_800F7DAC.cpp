@@ -67,7 +67,6 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 void step_fade_opacity_increase(u8 *arg0);
 void step_fade_opacity_decrease__13TUnk_80499970Fv(u8 *arg0);
 u8 * dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1);
-s32 sub_800F8250__13TUnk_80499988Ff(void *arg0, f32 farg0);
 void TLobby__sub_800F838C(u8 *arg0);
 u8 * TLobby__sub_800F8428(u8 *arg0, s16 arg1);
 void * TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
@@ -310,7 +309,7 @@ extern int fold_flush_4;
 
 void TLobby__sub_800F838C(u8 *arg0) {
     s32 temp_r3;
-    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(sub_800F8250__13TUnk_80499988Ff(arg0, (f32) *(s32 *)((s8 *)arg0 + 0x20) / (f32) *(s32 *)((s8 *)arg0 + 0x24))));
+    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(((TUnk_80499988 *)arg0)->sub_800F8250((f32) *(s32 *)((s8 *)arg0 + 0x20) / (f32) *(s32 *)((s8 *)arg0 + 0x24))));
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x20) + 1;
     *(s32 *)((s8 *)arg0 + 0x20) = temp_r3;
     if (temp_r3 > (s32) *(s32 *)((s8 *)arg0 + 0x24)) {
@@ -321,7 +320,7 @@ void TLobby__sub_800F838C(u8 *arg0) {
 u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &lbl_80499988.value;
-        TWindowCtrlMain::set_value((s32)local_client_id, (s32)(sub_800F8250__13TUnk_80499988Ff(arg0, (1.0f))));
+        TWindowCtrlMain::set_value((s32)local_client_id, (s32)(((TUnk_80499988 *)arg0)->sub_800F8250((1.0f))));
         ((u8 * (*)(void *, s16))__dt__7TObjectFv)(arg0, 0);
         if (arg1 > 0) {
             ((void (*)(s32))__dl__7TObjectFPv)((s32) arg0);

@@ -88,7 +88,6 @@ struct Self_8012FB08 : VObj_8012FB08 {
 };
 
 extern "C" {
-void reserved_53__13TUnk_804A66D8Fv(u8 *arg0);
 u8 * initialize_effect_object__10TObjPlayerFv(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -99,7 +98,6 @@ void spawn_weapon_impact_effect(void);
 void create_shoot_model_rot_z(void);
 void create_gun_shot(void);
 extern const f32 lbl_805DAFC8;
-void emit_marker_effects__13TUnk_804A66D8Fv(Self_8012FB08 *self);
 }
 
 extern "C" {

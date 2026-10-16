@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/misc/TLobby.h"
 
 struct Boss_802B057C { u8 pad[0x3CC]; s32 f3CC; };
 
@@ -8,7 +10,6 @@ int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 void apply_fade_alpha__14TBoss6PlotFalzFlf(void *, f32, s32);
-s32 set_state__14TBoss6PlotFalzFl(void *, s32);
 void TBoss6PlotFalz__sub_802B06D0(void *arg0);
 }
 
@@ -20,14 +21,8 @@ void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p);
 void advance_timer__14TBoss6PlotFalzFPv(void *arg0);
 void check_action_7__14TBoss6PlotFalzFi(s32 arg0);
 void stop_adx_audio(void *arg0);
-s32 set_state__14TBoss6PlotFalzFl(void *, s32);
-s32 is_boss_active__14TBoss6PlotFalzFv();
-int spawn_type2__14TBoss6PlotFalzFv(void*);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
-s32 freeze_all_players__14TBoss6PlotFalzFv();
-int send_6xA3_action__14TBoss6PlotFalzFSc(void*, void*);
-s32 stop_audio_streams__6TLobbyFv();
 s32 play_area_music(s32 *);
 s32 create_boss6_type2_appearance(void *);
 int is_ready__14TBoss6PlotFalzFv(void*);
@@ -35,11 +30,11 @@ s32 queue_destruction__7TObjectFv(void *);
 
 void TBoss6PlotFalz__sub_802B03F4(void) {  }
 void check_action_7__14TBoss6PlotFalzFi(s32 arg0) {
-    if ((is_boss_active__14TBoss6PlotFalzFv() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
-        send_6xA3_action__14TBoss6PlotFalzFSc((void*)(arg0), (void*)(7));
+    if ((TBoss6PlotFalz::is_boss_active() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
+        ((TBoss6PlotFalz *)arg0)->send_6xA3_action((s8)((void*)(7)));
     }
 }
-void TBoss6PlotFalz__sub_802B0448(void* p) { end_cutscene_camera__14TBoss6PlotFalzFPv(p); refresh_players_equipment__14TBoss6PlotFalzFPv(); *(int*)((char*)p + 0x3d0) = 0; *(int*)((char*)p + 0x3cc) = 0; spawn_type2__14TBoss6PlotFalzFv(p); }
+void TBoss6PlotFalz__sub_802B0448(void* p) { end_cutscene_camera__14TBoss6PlotFalzFPv(p); refresh_players_equipment__14TBoss6PlotFalzFPv(); *(int*)((char*)p + 0x3d0) = 0; *(int*)((char*)p + 0x3cc) = 0; ((TBoss6PlotFalz *)p)->spawn_type2(); }
 void advance_timer__14TBoss6PlotFalzFPv(void *arg0) {
     s32 temp_r0;
 
@@ -47,10 +42,10 @@ void advance_timer__14TBoss6PlotFalzFPv(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3CC) + 1;
     *(s32 *)((s8 *)arg0 + 0x3CC) = temp_r0;
     if (temp_r0 > 0x198) {
-        set_state__14TBoss6PlotFalzFl(arg0, 6);
+        ((TBoss6PlotFalz *)arg0)->set_state(6);
     }
 }
-void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p) { if (is_ready__14TBoss6PlotFalzFv(p) != 0) { send_6xA3_action__14TBoss6PlotFalzFSc(p, (void*)6); } }
+void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p) { if (is_ready__14TBoss6PlotFalzFv(p) != 0) { ((TBoss6PlotFalz *)p)->send_6xA3_action((s8)((void*)6)); } }
 
 extern s32 lbl_80470990[];
 
@@ -59,8 +54,8 @@ void stop_adx_audio(void *arg0) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3DC));
     }
     *(u32 *)((s8 *)arg0 + 0x3DC) = 0U;
-    freeze_all_players__14TBoss6PlotFalzFv();
-    stop_audio_streams__6TLobbyFv();
+    TBoss6PlotFalz::freeze_all_players();
+    TLobby::stop_audio_streams();
     play_area_music(lbl_80470990);
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
     create_boss6_type2_appearance(arg0);
@@ -93,7 +88,7 @@ s32 alloc__8TObjFishFPv(void *);
 void TBoss6PlotFalz::check_and_advance_state() {
     void *temp_r3 = *(void **)((s8 *)this + 0x3DC);
     if ((temp_r3 != NULL) && ((((TObjPlayer *)temp_r3)->get_plot_state() != 0) || (is_ready__14TBoss6PlotFalzFv(this) != 0))) {
-        send_6xA3_action__14TBoss6PlotFalzFSc(this, (void *)5);
+        send_6xA3_action((s8)((void *)5));
     }
 }
 
@@ -118,7 +113,7 @@ void TBoss6PlotFalz__sub_802B06D0(void *arg0) {
         apply_fade_alpha__14TBoss6PlotFalzFlf(arg0, f, 0);
     }
     if (++*(s32 *)((s8 *)arg0 + 0x3CC) > 0x101) {
-        set_state__14TBoss6PlotFalzFl(arg0, 4);
+        ((TBoss6PlotFalz *)arg0)->set_state(4);
     }
 }
 

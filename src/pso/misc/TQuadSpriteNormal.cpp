@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804C57F0.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
@@ -47,7 +48,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
-void quad_sprite_reset_entries__13TUnk_804C57F0Fv(void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 begin_screen_draw(int);
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -155,7 +155,7 @@ void render__17TQuadSpriteNormalFv(Self_801E5598 *self) {
     }
     TWindowSubStatusDisp::get_player();
     TParticleCtrl::end_effect_render();
-    quad_sprite_reset_entries__13TUnk_804C57F0Fv(self);
+    ((TUnk_804C57F0 *)self)->quad_sprite_reset_entries();
     TObjPlayer::reset_transform_state();
 }
 #pragma pop

@@ -1,4 +1,6 @@
 #include "pso/boss/TBoss2Fin.h"
+#include "pso/TObjEZRopeBase.h"
+#include "pso/object/TObjFish.h"
 #include "types.h"
 #include <stddef.h>
 
@@ -18,7 +20,6 @@ struct Ang_800363B4 { s32 yaw; u8 pad4[0xC]; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D8458;
-s32 sub_800FF788__14TObjEZRopeBaseFPv(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
@@ -33,7 +34,6 @@ s32 rotate_matrix_x(int, int);
 s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_object(void *);
 extern const f64 lbl_80435A50[];
 extern G_800367C4 *lbl_805D4BA4;
@@ -52,7 +52,7 @@ void TBoss2Fin::render() {
     s32 j;
     s32 yaw;
     Vec_800363B4 v;
-    set_global_param__8TObjFishFl(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x2C));
+    TObjFish::set_global_param(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x2C));
     seg = *(Seg_800363B4 * *)&this->m_20;
     ang = *(Ang_800363B4 **)((s8 *)arg0 + 0x24);
     pt = *(Vec_800363B4 * *)&this->m_2c;
@@ -103,7 +103,7 @@ void TBoss2Fin::run_task() {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_80435A44.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 8);
-    sub_800FF788__14TObjEZRopeBaseFPv((void *) (arg0), (void *) (&stack.sp8));
+    ((TObjEZRopeBase *)arg0)->sub_800FF788((void *) (&stack.sp8));
 }
 
 extern "C" {
@@ -150,7 +150,6 @@ extern E_800367C4 lbl_804FE590[];
 extern G_800367C4 *lbl_805D4BA4;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8460;
-void sub_800FF8CC__14TObjEZRopeBaseFPvPvl(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 __vt__9TBoss2Fin[];
 extern E_800367C4 lbl_804FE590[];
@@ -182,7 +181,7 @@ Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg
     }
     p->a = lbl_805D8454;
     ((TBoss2Fin *)self)->init_link_points();
-    sub_800FF8CC__14TObjEZRopeBaseFPvPvl(self, ((u8 *)&lbl_804FE590), self->f30, self->recs);
+    ((TObjEZRopeBase *)self)->sub_800FF8CC((void *)((u8 *)&lbl_804FE590), (void *)(self->f30), (s32)(self->recs));
     return self;
 }
 

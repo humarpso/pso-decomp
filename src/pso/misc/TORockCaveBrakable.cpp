@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockCaveBrakable.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -38,8 +39,6 @@ extern s32 tl_05;
 extern "C" {
 
 void *TORockCaveBrakable__ct(void *arg0);
-void vfunc_19__18TORockCaveBrakableFv(void);
-void vfunc_18__18TORockCaveBrakableFv(void* p);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 int play_sound_effect(void*, void*, void*, void*);
 u8 is_current_floor_switch_set(u16);
@@ -48,7 +47,6 @@ s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TORockCaveBrakable::vfunc_19() {  }
 void TORockCaveBrakable::vfunc_18() { play_sound_effect((void*)277521, (char*)this + 0x38, (void*)0, (void*)0); }
@@ -111,7 +109,7 @@ void TORockCaveBrakable::update_break_state() {
         }
         break;
     case 1:
-        set_flag8__13TUnk_804AF8A0Fv(this);
+        set_flag8();
         queue_destruction__7TObjectFv(this);
         break;
     }

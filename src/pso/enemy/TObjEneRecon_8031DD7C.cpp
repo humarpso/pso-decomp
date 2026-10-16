@@ -23,7 +23,6 @@ extern "C" {
 
 void update_collide_flag__12TObjEneReconFPv(void *arg0);
 void set_flag2__12TObjEneReconFPv(void *arg0);
-void update_flag_0x444__12TObjEneReconFv(void *arg0);
 u32 move_with_wall_slide_commit__9TObjEneDDFfff();
 u32 TObjEneEpsilon__sub_800B92F8(void *, s32, void *, f32);
 
@@ -70,9 +69,6 @@ void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void vfunc_62__12TObjEneReconFv(void* p);
-void vfunc_61__12TObjEneReconFv(void);
-void vfunc_28__12TObjEneReconFv(void);
 
 #pragma push
 #pragma fp_contract on
@@ -91,9 +87,6 @@ void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void vfunc_62__12TObjEneReconFv(void* p);
-void vfunc_61__12TObjEneReconFv(void);
-void vfunc_28__12TObjEneReconFv(void);
 
 void advance_field398__12TObjEneReconFPv(void *arg0) {
     ((s32 (*)())enemy_copy_target_destination__12TObjEneDD_STFv)();
@@ -112,15 +105,11 @@ void TObjEneRecon::vfunc_62() { if (*(short*)((char*)this + 0x326) != 6) { trans
 
 extern "C" {
 int transition_enemy_state(void*, void*);
-void vfunc_63__12TObjEneReconFv(u8 *arg0);
 }
 
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void vfunc_62__12TObjEneReconFv(void* p);
-void vfunc_61__12TObjEneReconFv(void);
-void vfunc_28__12TObjEneReconFv(void);
 
 void TObjEneRecon::vfunc_63() {
     u8 *arg0 = (u8 *)this;
@@ -138,9 +127,6 @@ void TObjEneRecon::vfunc_63() {
 extern "C" {
 
 int transition_enemy_state(void*, void*);
-void vfunc_62__12TObjEneReconFv(void* p);
-void vfunc_61__12TObjEneReconFv(void);
-void vfunc_28__12TObjEneReconFv(void);
 
 void TObjEneRecon::vfunc_28() {  }
 

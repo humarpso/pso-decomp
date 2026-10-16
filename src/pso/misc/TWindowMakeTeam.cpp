@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
@@ -30,8 +31,6 @@ extern u8 lbl_8044F308[];
 extern "C" {
 
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0);
-void vfunc_7__15TWindowMainMenuFv(void);
-void vfunc_9__15TWindowMainMenuFv(void);
 s32 mark_entry_by_id__17TWindowSubComCardFPvi(s32, s32);
 s32 disable_entry_by_id__17TWindowSubComCardFPvi(s32, s32);
 s8 get_mode__6TLobbyFv();

@@ -21,11 +21,8 @@ void update_palette_item_count_label(u8 *, u8 *, s32, s32, s32);
 void draw_action_palette_icon(u8 *, s32, s32);
 extern u8 lbl_8044F738[];
 extern u8 lbl_8044F740[];
-void update_palette_slot__21TWindowSubCustomEquipFlll(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 extern u8 lbl_8044F738[];
-void sub_80275F08__21TWindowSubCustomEquipFPv(u8 *arg0, void *arg1);
-void sub_80275F08__21TWindowSubCustomEquipFPv(u8 *arg0, void *arg1);
 extern const f32 lbl_805DD564;
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void begin_screen_draw(int);
@@ -97,7 +94,7 @@ void TWindowSubCustomEquip::sub_80275F08(void *arg1) {
 void TWindowSubCustomEquip::draw_cursor(u8 *arg1) {
     Win_80275F90 *arg0 = (Win_80275F90 *)this;
     Vec2_80275DE8 pos;
-    sub_80275F08__21TWindowSubCustomEquipFPv((u8 *)arg0, &pos);
+    ((TWindowSubCustomEquip *)arg0)->sub_80275F08(&pos);
     ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD564, arg1, &pos, arg0->f66);
 }
 

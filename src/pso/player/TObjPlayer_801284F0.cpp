@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void reserved_53__13TUnk_804A3C20Fv(void* p);
 void *TObjPlayer__sub_80128538(void *arg0);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);

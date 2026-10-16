@@ -47,8 +47,6 @@ struct Stack_801012DC {
 };
 
 extern "C" {
-s32 sub_80102C58__5TItemFv(void *);
-s32 sub_80102C68__5TItemFv(void *);
 s32 is_flag_20000_set__10TObjPlayerFv(int);
 s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -81,7 +79,6 @@ u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_stat__10TObjPlayerFv(s32);
 s32 obj_isState2_324(int);
 s32 TObjPlayer__sub_80102D84(void *);
-void send_6x61_activate_mag_effect__14TItemEquipBaseFl(u8 *arg0, s32 arg1);
 struct VObj_80101350_80100E00 *find_item_by_id(s32);
 void handle_6x61_activate_mag_effect(void *arg0);
 }
@@ -112,13 +109,13 @@ void TItem::update_owner_visibility() {
     temp_r0 = this->m_f0;
     if (temp_r0 != 0U) {
         if ((test_flag_2000000__10TObjPlayerFPv((int) (temp_r0)) == 0) && (reset_key_machine_state__10TObjPlayerFv() == 1) && (is_flag_20000_set__10TObjPlayerFv((int) (this->m_f0)) == 0)) {
-            sub_80102C68__5TItemFv((void *) (arg0));
+            ((TItem *)arg0)->sub_80102C68();
             return;
         }
-        sub_80102C58__5TItemFv((void *) (arg0));
+        ((TItem *)arg0)->sub_80102C58();
         return;
     }
-    sub_80102C58__5TItemFv((void *) (arg0));
+    ((TItem *)arg0)->sub_80102C58();
 }
 
 void TObjPlayer::load_projection_tex(s32 arg0, s32 arg1) {

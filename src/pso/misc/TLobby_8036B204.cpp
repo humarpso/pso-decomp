@@ -22,7 +22,6 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 mem_free(s32);
 extern s32 lbl_804F3640[];
 extern u32 slot_entity_dispatcher_instance;
-void *destroy_boss4_rock__13TUnk_804F3640Fs(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 extern u32 slot_entity_dispatcher_instance;
 void create_singleton__6TLobbyFPv(void *arg0);
@@ -43,7 +42,6 @@ void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1);
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
 s32 TLobby__sub_8036B1AC(s32);
 void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2);
-void run_task__13TUnk_804F3640Fv(Obj_8036B340 *arg0);
 
 extern u32 slot_entity_dispatcher_instance;
 

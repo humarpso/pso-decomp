@@ -64,7 +64,6 @@ extern "C" {
 s32 spawn_particle_effect(void *, int);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 extern s32 basic_shot_angle_table[];
-void emit_marker_effects__13TUnk_804A5C18Fv(u8 *self);
 }
 
 extern "C" {

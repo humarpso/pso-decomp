@@ -14,7 +14,6 @@ struct VObj800AFB60_8031bd64 : VBase800AFB60_8031bd64 {
 
 extern "C" {
 
-void vfunc_106__12TObjEneReconFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);

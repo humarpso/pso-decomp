@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOTrapAncient02R.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/misc/TOTrapAncient01.h"
@@ -297,7 +299,6 @@ struct Trap_80179B8C : VObj_80179B8C {
 
 extern "C" {
 void receive_physical_attack__6TOTrapFPvf(void *, void *, f32);
-void receive_physical_attack__15TOTrapAncient01FPvf(void *arg0, void *arg1, f32 farg0);
 u16 obj_getField1c(void *);
 s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFv();
@@ -312,7 +313,6 @@ extern u32 TOTrapAncient01__bml_resource;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA5C;
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 free_collision_body_parts(void *);
 s32 __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
@@ -323,10 +323,8 @@ Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
 s32 get_main_phase();
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
-s32 get_or_assign_actor_id__13TUnk_804806E8Fl(void *, int);
 void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
 void init_and_activate__10TObjPlayerFv(void *);
@@ -348,7 +346,6 @@ extern s32 lbl_805D3530;
 extern const f32 lbl_805DBA48;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA54;
-void vfunc_82__15TOTrapAncient01Fv(Trap_801797D4 *self);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 void update_obstruction_fade(void *);
@@ -376,19 +373,12 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self);
 
 extern "C" {
 
-void vfunc_6__15TOTrapAncient01FPsl(void *arg0, s16 *arg1, s32 arg2);
-void vfunc_84__15TOTrapAncient01Fv(void);
-void vfunc_86__15TOTrapAncient01Fv(void);
-void vfunc_88__15TOTrapAncient01Fv(void);
-void vfunc_86__16TOTrapAncient02RFv(void *arg0);
-void apply_knockback_from_attacker__6TOTrapFPUc(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_current_room(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOTrap::apply_knockback_from_attacker(u8 *) {  }
 void TOTrapAncient01::vfunc_86() {  }
@@ -400,7 +390,7 @@ void TOTrapAncient01::vfunc_6(s16 *arg1, s32 arg2) {
             ((VObj_801793A8_8017939C *)this)->m83();
         }
         ((TOTrapAncient01 *)this)->release_trapped_player();
-        set_flag8__13TUnk_804AF8A0Fv(this);
+        set_flag8();
         queue_destruction__7TObjectFv(this);
     }
 }
@@ -618,7 +608,7 @@ void TOTrapAncient01::load_resources() {
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
     if (self != 0) {
         self->vt = __vt__15TOTrapAncient01;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(self);
+        ((TUnk_804AF8A0 *)self)->unregister_object_by_id();
         free_collision_body_parts(self);
         __destroy_arr(self->arr, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__6TOTrapFv(self, 0);
@@ -673,9 +663,9 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)self + 0x338) = lbl_805DBA54;
     *(u16 *)((s8 *)self + 0x33C) = 0xFFFF;
     init_collision_body_parts(arg0, lbl_804B4844, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     *(u32 *)((s8 *)self + 0x30) |= 0x60040000;
-    get_or_assign_actor_id__13TUnk_804806E8Fl(arg0, 0);
+    ((TUnk_804806E8 *)arg0)->get_or_assign_actor_id(0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(((Self_80179F40 *)arg0)->arr[i]))->activate_and_dispatch();

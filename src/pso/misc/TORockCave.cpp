@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOSensor.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TORockCave.h"
@@ -109,11 +110,8 @@ extern u32 rock_cave_model_resource;
 extern "C" {
 
 void *TORockCave__ct(void *arg0);
-void vfunc_14__10TORockCaveFv(void);
-void vfunc_15__10TORockCaveFv(void);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void vfunc_25__8TOSensorFv(void);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void __dl__7TObjectFPv(void *);
 

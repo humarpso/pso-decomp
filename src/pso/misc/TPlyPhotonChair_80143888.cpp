@@ -4,8 +4,6 @@
 #include "pso/misc/TPlyPhotonChair.h"
 
 extern "C" {
-u8 sub_80143960__10TObjMotionFl(u8 *arg0, s32 arg1);
-void set_motion_interpolation_flag__10TObjMotionFv(u8 *arg0);
 }
 
 extern "C" {

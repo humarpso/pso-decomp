@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerEnemy.h"
 #include "pso/item/TObjContainerNoItem.h"
@@ -155,8 +156,6 @@ struct CE_80189614 { u8 pad[0x34]; s32 f34; u8 f38[0x28]; s32 f60; u8 pad2[0x326
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
-void vfunc_6__18TObjContainerEnemyFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, void *, void *);
@@ -170,13 +169,9 @@ void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80444EF4[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
-void debug_print_item_box_info__18TObjContainerEnemyFv(Obj_801895A4 *self);
 s32 get_current_floor();
-void send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
-f32 receive_physical_attack__18TObjContainerEnemyFPvf(Obj_801894F8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_container_param(int);
 extern s32 lbl_805D5B7C;
@@ -187,7 +182,6 @@ void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
-void vfunc_79__18TObjContainerEnemyFv(Obj_8018990C *self);
 void draw_ginja_box_tree(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
@@ -197,15 +191,12 @@ void post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-void vfunc_81__18TObjContainerEnemyFv(CE_80189614 *self);
 }
 
 extern "C" {
 
-void vfunc_80__19TObjContainerNoItemFv(void *arg0);
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -239,7 +230,7 @@ extern s32 __vt__19TObjContainerNoItem[];
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjContainerNoItem;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
@@ -272,13 +263,13 @@ void TObjContainerEnemy::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+            ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }
@@ -318,10 +309,10 @@ f32 TObjContainerEnemy::receive_physical_attack(void *, f32) {
     Obj_801894F8 *arg0 = (Obj_801894F8 *)this;
     s16 sp8;
     Pkt_801894F8 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) != 0)) {
+    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = 1;
-        access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
-        send_object_state_update__13TUnk_804AF8A0FPv(arg0, &sp8);
+        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
+        ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
         ((TLobby *)(&pkt))->init_packet_67_04();
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -10,7 +11,6 @@ struct RecoveredGlobal_800A887C_lbl_80491260
 };
 
 extern "C" {
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 s32 obj_setFlags30(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
@@ -40,7 +40,7 @@ void TObjPlayer__sub_800A887C(u8 *arg0) {
     }
     TBoss3Volopt::create_breakup_mdl((s32)((void *) breakup_model_ptr), (s32)((void *) (&lbl_80491260.value)), (s32)((int) (*((s32 *) (((s8 *) arg0) + 0x24)))), (s32)((void *) (arg0 + 0x2FC)), (s32)((int) (*((s32 *) (((s8 *) arg0) + 0x60)))));
     ((TObjPlayer *)arg0)->refresh_lobby_state();
-    send_entity_set_flags__9TObjEnemyFv(arg0);
+    ((TObjEnemy *)arg0)->send_entity_set_flags();
     ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();
     obj_setFlags30((void *) arg0, (int) 0x800);
     queue_destruction__7TObjectFv((void *) arg0);

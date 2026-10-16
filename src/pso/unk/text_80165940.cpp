@@ -32,7 +32,6 @@ extern void *TOKeyCave01__resource_bundle;
 extern Pair_80165940 *TOKeyCave01__texture_lists;
 extern void *key_machine_model_archive;
 extern Pair_80165940 *TOKeyMachine01__texture_lists;
-void sub_80165940__16TODummyKeyCave01Fv(Key_80165940 *self);
 }
 
 extern "C" {

@@ -5,7 +5,6 @@
 extern "C" {
 
 int TObjPlayer__sub_8012CE9C(void* p);
-int update_attack__13TUnk_804A5740Fv(void* p);
 int rotate_matrix_x(void*, void*);
 int add_angle_clamped__10TObjPlayerFPlll(void*, int, int);
 void TItemWeapon__ct(void *);

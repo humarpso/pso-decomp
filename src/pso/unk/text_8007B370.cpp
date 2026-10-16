@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyPhotonChair.h"
 
 struct VBase_18_26c590
 {
@@ -20,7 +21,6 @@ struct VObj_18_26c590 : VBase_18_26c590 {
 };
 
 extern "C" {
-s8 get_actor_section_id__15TPlyPhotonChairFv(void *);
 s32 TObjPlayer__sub_801AFD8C(void *);
 s32 get_player_by_client_id(u32);
 s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *);
@@ -46,7 +46,7 @@ s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   strncpy((void *) (arg0 + 8), (void *) PSO_VCALL_VObj_18_26c590_m10(temp_r3), (int) 0x17);
   *((s8 *) (((s8 *) arg0) + 0x1F)) = 0;
   *((u8 *) (((s8 *) arg0) + 0x8F)) = (u8) (*((u8 *) (((s8 *) temp_r3) + 0x88D)));
-  *((s8 *) (((s8 *) arg0) + 0x8E)) = get_actor_section_id__15TPlyPhotonChairFv((void *) temp_r3);
+  *((s8 *) (((s8 *) arg0) + 0x8E)) = ((TPlyPhotonChair *)temp_r3)->get_actor_section_id();
   new_var = TObjPlayer__sub_801AFD8C((void *) temp_r3);
   temp_r4 = (u8 *) (temp_r3 + 0xDAC);
   *((s8 *) (((s8 *) arg0) + 0x8D)) = new_var;

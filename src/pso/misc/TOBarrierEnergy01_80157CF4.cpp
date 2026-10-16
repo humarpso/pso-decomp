@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOAttackableCol.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -14,7 +15,6 @@ int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
-void apply_knockback_from_attacker__15TOAttackableColFPUc(void);
 int bswap_16__FPUs(void*);
 
 extern "C" void TLobby__sub_801A1FD8();

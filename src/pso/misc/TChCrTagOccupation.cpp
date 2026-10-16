@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrCharSelect.h"
 #include "pso/TChCrTagOccupation.h"
 #include "pso/TChCrTagOccHeader.h"
 
@@ -19,9 +20,7 @@ struct Hdr_802A2C30 {
 };
 
 extern "C" {
-s32 get_selected_index__15TChCrCharSelectFv();
 s32 get_selected_char__15TChCrCharSelectFv();
-s32 get_instance__15TChCrCharSelectFv();
 s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0);
 }
 
@@ -36,14 +35,14 @@ void TChCrTagOccHeader::run_task() {
     *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C) + 1);
 }
 s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0) {
-    switch (get_selected_index__15TChCrCharSelectFv()) {
+    switch (TChCrCharSelect::get_selected_index()) {
     case 0:
         if (arg0->f20 < 3 && arg0->f20 == get_selected_char__15TChCrCharSelectFv()) {
             return 1;
         }
         break;
     default:
-        if (arg0->f20 >= 3 && arg0->f20 - 3 == get_instance__15TChCrCharSelectFv()) {
+        if (arg0->f20 >= 3 && arg0->f20 - 3 == TChCrCharSelect::get_instance()) {
             return 1;
         }
         break;
@@ -208,7 +207,7 @@ void TChCrTagOccupation::sub_802A2DF4() {
     } else {
         return;
     }
-    switch (get_selected_index__15TChCrCharSelectFv()) {
+    switch (TChCrCharSelect::get_selected_index()) {
     case 0:
         s = lbl_805DDEDC * ((Tag_802A2DF4 *)this)->f30 + lbl_805DDED8;
         break;

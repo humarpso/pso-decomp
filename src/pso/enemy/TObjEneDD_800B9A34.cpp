@@ -7,9 +7,7 @@ extern "C" {
 void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void TObjEneDD__ct(void *);
 void TObjEneDD__vt0(void *, int);
-void enemy_init_validate_period__12TObjEneDD_STFl(void *, int);
 void __dl__7TObjectFPv(void *);
-void enemy_init_acquire_period__12TObjEneDD_STFl(void *, int);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
 
 extern s32 lbl_80492558[];
@@ -34,8 +32,8 @@ void *TObjEneDD_ST::init_object() {
     *(void **)((s8 *)this + 0x0) = lbl_805D2A34;
     enemy_clear_target__12TObjEneDD_STFUs(this);
     init_float_params();
-    enemy_init_acquire_period__12TObjEneDD_STFl(this, 30);
-    enemy_init_validate_period__12TObjEneDD_STFl(this, 30);
+    enemy_init_acquire_period(30);
+    enemy_init_validate_period(30);
     return this;
 }
 

@@ -14,7 +14,6 @@ extern RecoveredGlobal_8033FE30_lbl_80478554 lbl_80478554;
 extern const f32 lbl_805DFAFC;
 extern const f32 lbl_805DFB00;
 extern const f32 lbl_805DFB04;
-void sub_8033FE30__23TBoss6Demo15_TYPE2_WAITFv(u8 *arg0);
 }
 
 extern "C" {

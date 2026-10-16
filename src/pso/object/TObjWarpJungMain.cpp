@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjAreaWarp.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/object/TObjWarpJung.h"
@@ -129,16 +130,12 @@ void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, s32);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
-void handle_area_selection__12TObjAreaWarpFv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 void TObjAreaWarp__ct(void *);
 int vfunc_14__12TObjWarpBaseFv(void*);
 s32 TObjWarpJungMain__vt16(u8 *arg0);
-int confirm_area_transfer__16TObjWarpJungMainFl(void* p);
-void vfunc_14__16TObjWarpJungMainFv(void* p);
 void * __dt__16TObjWarpJungMainFv(void *arg0, s16 arg1);
 void * TObjWarpJung__create(void *arg0);
-int confirm_area_transfer__12TObjWarpJungFl(void* p);
 void * __dt__12TObjWarpJungFv(void *arg0, s16 arg1);
 Obj_801A0224 * TObjWarpJung__ct(Obj_801A0224 *self);
 s32 TObjWarpJung__sub_801A0404(s32);
@@ -246,7 +243,7 @@ void TObjWarpJungMain::run_task() {
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
-  handle_area_selection__12TObjAreaWarpFv(arg0);
+  ((TObjAreaWarp *)arg0)->handle_area_selection();
 }
 
 void *__dt__16TObjWarpJungMainFv(void *arg0, s16 arg1) {
@@ -329,7 +326,7 @@ void TObjWarpJung::run_task() {
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
-  handle_area_selection__12TObjAreaWarpFv(arg0);
+  ((TObjAreaWarp *)arg0)->handle_area_selection();
 }
 
 void *__dt__12TObjWarpJungFv(void *arg0, s16 arg1) {

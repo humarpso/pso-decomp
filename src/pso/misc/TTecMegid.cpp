@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 #include "pso/unk/TUnk_804CCA78.h"
 #include "pso/misc/TTecMegid.h"
 #include "pso/misc/TNowLoading.h"
@@ -275,7 +276,6 @@ void rotate_matrix_y(s32, s32);
 void matrix_mult_vec(s32, Vec_80235740 *, Vec_80235740 *);
 void pop_matrices(s32);
 void move_technique_projectile(Obj_80235740 *);
-void advance_lifetime_or_destroy__13TUnk_804CCC68Fv(Obj_80235740 *);
 void dispatch_technique_contact__13TUnk_804CCC68Fv(Obj_80235740 *, s32);
 extern Vec_80235740 tec_megid_offset_vec;
 extern u8 identity_matrix[];
@@ -293,7 +293,6 @@ extern const f32 lbl_805DC880;
 
 extern "C" {
 
-void run_task__13TUnk_804CCA78Fv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -506,7 +505,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
         }
     }
     move_technique_projectile(self);
-    advance_lifetime_or_destroy__13TUnk_804CCC68Fv(self);
+    ((TUnk_804CCC68 *)self)->advance_lifetime_or_destroy();
     dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }
 

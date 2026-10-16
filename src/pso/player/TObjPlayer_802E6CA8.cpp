@@ -117,7 +117,6 @@ extern Col_802E6CB0 lbl_80472C9C;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void render__13TUnk_804E3BA8Fv(u8 *arg0);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);

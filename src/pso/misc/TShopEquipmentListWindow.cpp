@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TShopEquipmentListWindow.h"
 #include "pso/misc/TCheckRoomSequence.h"
@@ -195,7 +196,6 @@ extern s32 TShopEquipmentListWindow__class_name;
 u8 *TShopEquipmentListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__15TShopWindowBaseFl(void*, int);
-void vfunc_11__24TShopEquipmentListWindowFv(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
 s32 check_equip_requirements(void *, Rec_8021C33C *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021C33C *);
@@ -235,7 +235,6 @@ void try_buy_item(void *, void *);
 s32 is_single_purchase_shop_item(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
-s32 set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 u32 create_yes_no_window(int, u16, int, int);
@@ -252,8 +251,6 @@ s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 extern "C" {
 
 int TShopEquipmentListWindow__sub_8021C85C(int a0);
-void vfunc_6__24TShopEquipmentListWindowFv(void *arg0);
-void vfunc_7__24TShopEquipmentListWindowFv(void *arg0);
 void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1);
 u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
@@ -270,7 +267,6 @@ s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 obj_getField1c(s32);
 int set_field_20__15TShopWindowBaseFl(void*, int);
-s32 set_position_xy__13TUnk_804CDFE8Fff(u32, f32, f32);
 
 void TShopEquipmentListWindow::vfunc_7() {
     struct VObj_8021B974 *o = (struct VObj_8021B974 *)*(void **)((s8 *)this + 0x28);
@@ -309,7 +305,7 @@ void TShopEquipmentListWindow::handle_equip_offer() {
                 TWindow__close(w->win);
                 w->win = (void *)create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(w->player), 0, 0);
                 sc = get_scale__15TShopWindowBaseFv(w);
-                set_position_xy__13TUnk_804CDFE8Fff((u32)w->win, get_scale__15TShopWindowBaseFv(w), sc);
+                ((TUnk_804CDFE8 *)((u32)w->win))->set_position_xy(get_scale__15TShopWindowBaseFv(w), sc);
                 set_field_20__15TShopWindowBaseFl(w, 9);
             } else {
                 Rec_8021BA1C c;
@@ -419,7 +415,7 @@ s32 TShopEquipmentListWindow::open_menu_window() {
         align_menu_entry_positions(*(u32 *)((s8 *)this + 0x2C));
         ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x2C)))->set_ready_flag();
         temp_f31 = get_scale__15TShopWindowBaseFv(this);
-        set_position_xy__13TUnk_804CDFE8Fff(*(u32 *)((s8 *)this + 0x2C), get_scale__15TShopWindowBaseFv(this), temp_f31);
+        ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x2C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
     }
     set_field_20__15TShopWindowBaseFl((void*)((void*)(this)), (int)(2));
 }

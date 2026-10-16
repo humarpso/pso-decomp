@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl.h"
+#include "pso/misc/TMainCursor.h"
+#include "pso/player/TObjPlayer.h"
 extern "C" {
 __declspec(section ".sdata2") extern const f32 lbl_805DC320[1] = { 1.0f };
 __declspec(section ".sdata2") extern const f32 lbl_805DC324[1] = { 3.0f };
@@ -106,8 +109,6 @@ extern "C" {
 void calc_death_pose_height_offset(Out_801C58CC *arg0, Actor_801C58CC *arg1);
 s32 obj_testFlags30(int, int);
 s32 is_inactive__10TObjPlayerFv();
-s32 spawn_appearance_effect__10TObjPlayerFl(int);
-s32 get_mode__11TCameraCtrlFv();
 s32 is_on_current_floor__10TObjPlayerFi(int);
 s32 refresh_equipment_slot__10TObjPlayerFv(int);
 s32 activate_body_collision__10TObjPlayerFPv(int);
@@ -130,7 +131,6 @@ s32 TObjPlayer__sub_801C6DAC(s32);
 void *find_entity_by_id();
 void __ct__7TObjectFP7TObject(void *);
 void fn_8013E020(void *);
-s32 get_id__11TMainCursorFv(s32);
 void *get_state__11TMainCursorFv(s32);
 s32 is_target_valid__10TObjPlayerFPv();
 s32 obj_getField1c(void *);
@@ -144,7 +144,7 @@ void run_task__13TForceOperateFv(s32 arg0) {
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) {
         temp_r31 = get_state__11TMainCursorFv(arg0 + 0x1C);
         if ((is_target_valid__10TObjPlayerFPv() != 0) && (has_action_palette_entry__10TObjPlayerFPv(temp_r31) != 0)) {
-            get_id__11TMainCursorFv(*(s32 *)((s8 *)temp_r31 + 0x424) + 0x4F8);
+            ((TMainCursor *)(*(s32 *)((s8 *)temp_r31 + 0x424) + 0x4F8))->get_id();
             temp_r3 = find_entity_by_id();
             if (temp_r3 != NULL) {
                 ((VObj_801C57D0 *)temp_r3)->m11(obj_getField1c(temp_r31));
@@ -202,7 +202,7 @@ void update_player_appear_fade(u8 *arg0) {
         case 0:
             if ((is_inactive__10TObjPlayerFv() != 0) && (check_flag_40000__10TObjPlayerFPv((int) (temp_r3)) == 0) && (check_flag_04000000__10TObjPlayerFv((int) (temp_r3)) != 0) && (is_on_current_floor__10TObjPlayerFi((int) (temp_r3)) != 0)) {
                 if (--*(s16 *)((s8 *)arg0 + 2) < 0) {
-                    if (get_mode__11TCameraCtrlFv() != 0) {
+                    if (TCameraCtrl::get_mode() != 0) {
                         *(f32 *)((s8 *)temp_r3 + 0x624) = (f32) lbl_805DC320[0];
                         *(s32 *)((s8 *)arg0 + 4) = 2;
                         return;
@@ -210,7 +210,7 @@ void update_player_appear_fade(u8 *arg0) {
                     *(s32 *)((s8 *)arg0 + 4) = 1;
                     activate_body_collision__10TObjPlayerFPv((int) (temp_r3));
                     if (obj_testFlags30((int) (temp_r3), (int) (0x800)) == 0) {
-                        spawn_appearance_effect__10TObjPlayerFl((int) (*(u16 *)((s8 *)arg0 + 0)));
+                        TObjPlayer::spawn_appearance_effect((int) (*(u16 *)((s8 *)arg0 + 0)));
                     }
                     *(f32 *)((s8 *)temp_r3 + 0x624) = (f32) lbl_805DC32C[0];
                     refresh_equipment_slot__10TObjPlayerFv((int) (temp_r3));

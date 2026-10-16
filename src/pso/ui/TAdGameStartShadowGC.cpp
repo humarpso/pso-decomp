@@ -30,10 +30,9 @@ Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *par
 
 extern "C" {
 
-int sub_80320B38__20TAdGameStartShadowGCFv(void*);
 int get_state_flag__9TMainTaskFv(void*);
 
-void TAdGameStartShadowGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { sub_80320B38__20TAdGameStartShadowGCFv(this); } }
+void TAdGameStartShadowGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { sub_80320B38(); } }
 
 void TAdGameStartShadowGC::run_task() {
     s32 temp_r0;

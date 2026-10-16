@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804D0658.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TWindowDD.h"
@@ -23,9 +25,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
-s32 step_window_tween__13TUnk_804CDFE8Fv(void *);
 s32 fn_80249078(void *);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 extern RecoveredGlobal_802492C8_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DCBC0;
 }
@@ -101,10 +101,10 @@ void TWindowChoiceSetting::run_task() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     fn_80249078((void *) (arg0));
-    step_window_tween__13TUnk_804CDFE8Fv((void *) (arg0));
+    ((TUnk_804CDFE8 *)arg0)->step_window_tween();
     ((TUnk_804D0658 *)arg0)->update_scroll_offset();
     ((TUnk_804D0658 *)arg0)->clamp_scroll();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {

@@ -5,7 +5,6 @@ extern "C" {
 
 void *TDLGraph__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void init_dl_graph_entries__8TDLGraphFv(void *);
 
 extern const f32 lbl_805D9298;
 extern s32 __vt__8TDLGraph[];
@@ -22,7 +21,7 @@ void *TDLGraph__ct(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0x2C) = -1;
     *(u32 *)((s8 *)arg0 + 0x30) = -1;
     ((TDLGraph *)arg0)->sub_8007F644();
-    init_dl_graph_entries__8TDLGraphFv(arg0);
+    ((TDLGraph *)arg0)->init_dl_graph_entries();
     *(u32 *)((s8 *)arg0 + 0x20) = 3;
     TDLGraph__graph_object = arg0;
     return arg0;

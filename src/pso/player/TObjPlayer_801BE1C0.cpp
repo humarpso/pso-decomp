@@ -74,9 +74,6 @@ extern "C" {
 void TObjPlayer__sub_801BE2C0(void* p, s32 v);
 s32 TObjPlayer__sub_801BE2C8(void* p);
 int TObjPlayer__sub_801BE2D0(void* p);
-void vfunc_68__10TObjPlayerFl(void *arg0, s32 arg1);
-int vfunc_76__10TObjPlayerFv(void* p);
-int vfunc_77__10TObjPlayerFv(void* p);
 int TObjPlayer__vt77(void);
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
 s32 is_quest_active();

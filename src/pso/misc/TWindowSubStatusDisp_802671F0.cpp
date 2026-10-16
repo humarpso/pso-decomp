@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804CE7E8.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include <stddef.h>
@@ -129,7 +131,6 @@ s32 set_ground_item__20TWindowSubStatusDispFPvPvi(s32, s32, s32);
 s32 set_item_info__20TWindowSubStatusDispFPvPviPv(s32, s32, s32, s32);
 s32 init_display__20TWindowSubStatusDispFPvii(s32, s32, s32);
 u32 reset_selection__20TWindowSubStatusDispFv(int, void *);
-s32 sub_80266B18__13TUnk_804CDFE8Fl(void *, s32);
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 get_status_flag__13TUnk_804D0618Fv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
@@ -140,10 +141,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
-s32 step_window_tween__13TUnk_804CDFE8Fv(void *);
-s32 sub_80244994__13TUnk_804CE018Fv(void *);
 s32 is_player_input_active(int);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -157,13 +155,7 @@ void calc_list_content_extent(struct List_80266E34 *s);
 void advance_status_disp_entry(void *arg0, s32 arg1);
 void push_status_disp_entry(void *arg0, s32 arg1, s32 arg2);
 void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void advance_all_entries__13TUnk_804CE7E8Fl(u8 *arg0, s32 arg1);
 void TAdVIConfigGC__sub_80267704(s32 arg0);
-void set_cursor_index__22TWindowSubShortCutListFs(Win_80267AA8 *w, s16 v);
-void create_menu_scroll_bar__13TUnk_804D0618Fv(u8 *arg0);
-void center_list_selection__13TUnk_804D0618Fv(u8 *arg0);
-void clamp_item_list_scroll__13TUnk_804D0618Fv(u8 *arg0);
-void draw_selected_list_entry__13TUnk_804D0618Fl(void *arg0, s32 arg1);
 void TWindowMenuIconLine__ct(u8 *arg0, u32 arg1, s32 arg2);
 u8 *fn_80267F38(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
 void TShopJudgmentItemWindow__sub_80267F9C(V_80267F9C v, s32 x);
@@ -515,7 +507,7 @@ loop_1:
     } else {
 block_4:
         if (var_r31 != (s16) *(s16 *)((s8 *)this + 0x74)) {
-            if (sub_80266B18__13TUnk_804CDFE8Fl(this, var_r31) != 0) {
+            if (sub_80266B18(var_r31) != 0) {
                 *(s16 *)((s8 *)this + 0x74) = var_r31;
             } else {
                 goto loop_1;
@@ -539,7 +531,7 @@ loop_1:
     } else {
 block_4:
         if (var_r31 != (s16) *(s16 *)((s8 *)this + 0x74)) {
-            if (sub_80266B18__13TUnk_804CDFE8Fl(this, var_r31) != 0) {
+            if (sub_80266B18(var_r31) != 0) {
                 *(s16 *)((s8 *)this + 0x74) = var_r31;
             } else {
                 goto loop_1;
@@ -553,7 +545,7 @@ void TWindowSubShortCutList::set_cursor_index(s16 v) {
         if (v >= ((Win_80267AA8 *)this)->f76) {
             return;
         }
-        while (sub_80266B18__13TUnk_804CDFE8Fl(((Win_80267AA8 *)this), v) == 0) {
+        while (sub_80266B18(v) == 0) {
             if (v > 0) {
                 v -= 1;
                 continue;
@@ -735,7 +727,7 @@ void render_card_and_list__20TWindowSubStatusDispFPv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    draw_selected_list_entry__13TUnk_804D0618Fl(arg0, temp_r3);
+    ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)arg0 + 0x80), temp_r3);
     }
@@ -753,7 +745,7 @@ void update_item_list_window(u8 *arg0) {
     u8 *temp_r29_2;
     u8 *temp_r29_3;
     temp_r31 = is_player_input_active((int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
-    if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (get_status_flag__13TUnk_804D0618Fv((void *) (arg0)) == 0) && (sub_80244994__13TUnk_804CE018Fv((void *) (arg0)) != 0)) {
+    if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (get_status_flag__13TUnk_804D0618Fv((void *) (arg0)) == 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
@@ -791,10 +783,10 @@ void update_item_list_window(u8 *arg0) {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804D0618 *)arg0)->update_scroll_offset();
-    step_window_tween__13TUnk_804CDFE8Fv((void *) (arg0));
-    ((s32 (*)(void *))center_list_selection__13TUnk_804D0618Fv)((void *) (arg0));
-    ((s32 (*)(void *))clamp_item_list_scroll__13TUnk_804D0618Fv)((void *) (arg0));
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CDFE8 *)arg0)->step_window_tween();
+    ((TUnk_804D0618 *)arg0)->center_list_selection();
+    ((TUnk_804D0618 *)arg0)->clamp_item_list_scroll();
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 
 void *TWindowSubStatusDisp::destroy_item_list_resources(s16 arg1) {

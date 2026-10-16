@@ -17,12 +17,10 @@ typedef struct Trail_800D76E8 {
 } Trail_800D76E8;
 
 extern "C" {
-void run_task__13TUnk_80494968Fv(Trail_800D76E8 *arg0);
 }
 
 extern "C" {
 
-void sub_800D7818__13TUnk_80494968Fll(void *arg0, s32 arg1, s32 arg2);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TUnk_80494968::render() {

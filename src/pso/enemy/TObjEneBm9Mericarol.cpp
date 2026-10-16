@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
@@ -297,8 +300,6 @@ s32 obj_is_hit_receivable(u32);
 f32 fabs_float(f32);
 s32 is_area_attack_target_eligible(void *, u32);
 s32 attack_target_history_add(s32, s32);
-s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
-s32 update_body_contact_flag__13TUnk_804928CCFf(void *, f32);
 extern const f32 lbl_805DE758;
 s32 apply_area_attack_hits__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
@@ -309,7 +310,6 @@ void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
 void vfunc_61__19TObjEneBm9MericarolFv(void);
 void vfunc_28__19TObjEneBm9MericarolFv(void);
-void render__24TObjEneBm9Mericarol_BombFv(u8 *arg0);
 void vfunc_63__19TObjEneBm9MericarolFv(void *arg0);
 void vfunc_62__19TObjEneBm9MericarolFv(void *arg0);
 void vfunc_88__19TObjEneBm9MericarolFv(void *arg0);
@@ -491,13 +491,10 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-void enemy_init_acquire_period__12TObjEneDD_STFl(void *, s32);
-void enemy_init_validate_period__12TObjEneDD_STFl(void *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
-void sub_8002AE64__9TObjEnemyFv(void *);
 void init_and_activate__10TObjPlayerFv(void *);
 extern const s32 lbl_80472318[];
 extern s32 lbl_805D3F28;
@@ -802,8 +799,8 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
         break;
     }
     self->f37C = lbl_805DE6EC;
-    enemy_init_acquire_period__12TObjEneDD_STFl(self, 0x1E);
-    enemy_init_validate_period__12TObjEneDD_STFl(self, 0x1E);
+    ((TObjEneDD_ST *)self)->enemy_init_acquire_period(0x1E);
+    ((TObjEneDD_ST *)self)->enemy_init_validate_period(0x1E);
     self->f43C = lbl_805DE70C;
     self->f44C = 0;
     self->f450 = 0;
@@ -833,7 +830,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     ((TObjEneDD *)self)->transform_part_positions();
     self->f326 = 0;
     ((VObj18_802D0D3C *)self)->m85(self->f326, 4);
-    sub_8002AE64__9TObjEnemyFv(self);
+    ((TObjEnemy *)self)->sub_8002AE64();
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(self->a3C8[i]))->activate_and_dispatch();
     }
@@ -915,11 +912,11 @@ s32 apply_area_attack_hits__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, 
     }
     TObjPlayer::init_all_slots();
     if (*(s32 *)((s8 *)arg1 + 4) & 1) {
-        update_body_contact_flag__13TUnk_804928CCFf(arg0, farg0);
+        ((TUnk_804928CC *)arg0)->update_body_contact_flag(farg0);
         mask |= 0x80000;
     }
     if (*(s32 *)((s8 *)arg1 + 4) & 2) {
-        mark_enemy_body_contacts__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
     if (*(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & mask) {

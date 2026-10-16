@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TODragonfly.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/TODummyKeyCave01Sound.h"
 #include "pso/misc/TODragonflyMachine01.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
@@ -56,20 +58,14 @@ extern const f32 lbl_805DB5B4;
 extern "C" {
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1);
-void play_cave01_key_sound__21TODummyKeyCave01SoundFv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonflyMachine01__sub_80164F50(void *);
-s32 move_toward_target__11TODragonflyFv(void *);
-s32 sub_80164990__11TODragonflyFv(void *);
-s32 sub_80164A90__11TODragonflyFv(void *);
-s32 update_idle__11TODragonflyFv(void *);
 s32 rotate_matrix_y(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 update_anim_phase__13TUnk_804AFBF8Fv(void *);
 
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
@@ -90,22 +86,22 @@ void TODragonflyMachine01::run_task() {
         this->vfunc_14();
         return;
     }
-    update_anim_phase__13TUnk_804AFBF8Fv(this);
+    update_anim_phase();
     temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
         TODragonflyMachine01__sub_80164F50(this);
-        update_idle__11TODragonflyFv(this);
+        update_idle();
         return;
     case 1:
-        sub_80164A90__11TODragonflyFv(this);
+        sub_80164A90();
         return;
     case 2:
         TODragonflyMachine01__sub_80164F50(this);
-        sub_80164990__11TODragonflyFv(this);
+        sub_80164990();
         return;
     case 3:
-        move_toward_target__11TODragonflyFv(this);
+        move_toward_target();
         return;
     }
 }

@@ -5,7 +5,6 @@ extern "C" {
 
 s32 query_teammate_state__9TObjEneDDFv();
 s32 TBoss6EmptyWarp__sub_802B1018();
-s32 sub_802B1218__10TBoss6TubeFv(void *);
 
 void TBoss6Tube::run_task() {
     s32 temp_r0;
@@ -18,7 +17,7 @@ void TBoss6Tube::run_task() {
             return;
         case 1:
             spawn_trap();
-            sub_802B1218__10TBoss6TubeFv(this);
+            sub_802B1218();
             return;
         case 2:
             update_wobble();

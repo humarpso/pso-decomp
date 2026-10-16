@@ -204,7 +204,6 @@ void spawn_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0)
 
 extern "C" {
 extern const f32 lbl_805DA3D8;
-s32 vfunc_10__13TUnk_80494AE0Fv(f32 *arg0);
 extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -328,7 +327,6 @@ V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self);
 
 extern "C" {
 
-void vfunc_4__13TUnk_80494AE0Fv(void* a0);
 void *TObjPlayer__sub_800D96D0(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);

@@ -16,7 +16,6 @@ T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);
 extern const f32 lbl_805DFE28;
 extern const f32 lbl_805DFE2C;
-void vfunc_44__13TUnk_804F0C48Fv(void *arg0);
 }
 
 extern "C" {

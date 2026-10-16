@@ -1,4 +1,12 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/boss/TBoss3Volopt.h"
+#include "pso/enemy/TObjEneDD.h"
+#include "pso/enemy/TObjEneLappy.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/enemy/TObjEneShark.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TUnk_80494938.h"
@@ -189,7 +197,6 @@ s32 draw_chunk_object(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(s32);
 extern s32 lbl_805D5094;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9B68;
@@ -197,10 +204,6 @@ void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 void vfunc_101__12TObjEneSharkFv(void);
-void set_param__12TObjEneLappyFl(void *, s32);
-void apply_clamped_mode_param__12TObjEneSharkFv(u8 *arg0);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
 extern s32 shark_render_node_index;
 void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
@@ -219,18 +222,14 @@ s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_96__12TObjEneSharkFv(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_effect_if_v2__10TObjPlayerFl(int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_98__12TObjEneSharkFv(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_effect_if_v2__10TObjPlayerFl(int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_97__12TObjEneSharkFv(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_effect_if_v2__10TObjPlayerFl(int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_95__12TObjEneSharkFv(s32 arg0);
-s32 spawn_ground_effect__10TObjPlayerFl(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -242,7 +241,6 @@ extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BA4;
 extern const f32 lbl_805D9BA8;
 void vfunc_94__12TObjEneSharkFv(u8 *arg0);
-s32 play_area_sound_effect__12TBoss3VoloptFv(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback();
 void vfunc_83__12TObjEneSharkFv(Obj_800ABCBC *arg0);
@@ -259,7 +257,6 @@ extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *tl_06;
 extern const f32 lbl_805D9B64;
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(s32, s32);
@@ -310,27 +307,18 @@ extern const f32 lbl_805D9B8C;
 extern const f32 lbl_805D9B90;
 extern const f32 lbl_805D9B94;
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
-s32 render_with_position_override__9TObjEnemyFPUcl(void *, void *, int);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-s32 check_demo_mode__10TObjPlayerFv();
-s32 check_v2_mode__9TObjEneDDFv();
 s32 update_obstruction_fade(void *);
-s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 render_world_model__10TObjPlayerFv(void *);
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_chunk_object(s32);
-s32 set_global_state__16TObjEneRe7BeruraFl(void *);
 void update_particle_by_phase__10TObjPlayerFv(void);
 extern s32 shark_render_node_index;
 extern s32 lbl_805D5660;
@@ -380,13 +368,13 @@ void TObjEneShark::vfunc_101() {  }
 void TObjEneShark::vfunc_98() {
     s32 arg0 = (s32)this;
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003A60C))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-    play_effect_if_v2__10TObjPlayerFl((int) (-0x300));
+    TObjPlayer::play_effect_if_v2((int) (-0x300));
 }
 
 void TObjEneShark::vfunc_97() {
     s32 arg0 = (s32)this;
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003A60B))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-    play_effect_if_v2__10TObjPlayerFl((int) (-0x300));
+    TObjPlayer::play_effect_if_v2((int) (-0x300));
 }
 
 void TObjEneShark::vfunc_96() {
@@ -397,7 +385,7 @@ void TObjEneShark::vfunc_96() {
 void TObjEneShark::vfunc_95() {
     s32 arg0 = (s32)this;
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003A60B))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-    play_effect_if_v2__10TObjPlayerFl((int) (-0x300));
+    TObjPlayer::play_effect_if_v2((int) (-0x300));
 }
 
 void TObjEneShark::vfunc_94() {
@@ -414,7 +402,7 @@ void TObjEneShark::vfunc_94() {
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-    spawn_ground_effect__10TObjPlayerFl((void *) (&stack.sp8), (int) (0x23));
+    ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect((int) (0x23));
     TObjPlayer__sub_800D92BC((void *) (&stack.sp8), (int) (0xF));
 }
 
@@ -430,11 +418,11 @@ void TObjEneShark::vfunc_93() {
     }
     switch (o->fB8) {
     case 3:
-        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)TObjEneShark__attack_motion_3_trail, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)TObjEneShark__attack_motion_3_trail, o->fC0);
         idx = 0;
         break;
     case 4:
-        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)shark_attack4_trail_buffer, o->fC0);
+        e = TObjPlayer::lookup_entry_by_value((void *)shark_attack4_trail_buffer, o->fC0);
         idx = 1;
         break;
     default:
@@ -470,15 +458,15 @@ void TObjEneShark::apply_clamped_mode_param() {
     switch (temp_r0_2) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x368) = 1;
-        set_param__12TObjEneLappyFl(arg0, 0x12);
+        ((TObjEneLappy *)arg0)->set_param(0x12);
         return;
     case 1:
         *(s32 *)((s8 *)arg0 + 0x368) = 0;
-        set_param__12TObjEneLappyFl(arg0, 0x11);
+        ((TObjEneLappy *)arg0)->set_param(0x11);
         return;
     default:
         *(s32 *)((s8 *)arg0 + 0x368) = 2;
-        set_param__12TObjEneLappyFl(arg0, 0x10);
+        ((TObjEneLappy *)arg0)->set_param(0x10);
         return;
     }
 }
@@ -491,7 +479,7 @@ void TObjEneShark::vfunc_83() {
     default:
         if (arg0->f390 != 0) {
             TObjEneMe3SinowZoa__sub_800D758C((u8 *)arg0 + 0x3A8);
-            play_area_sound_effect__12TBoss3VoloptFv(arg0->sub38);
+            ((TBoss3Volopt *)(arg0->sub38))->play_area_sound_effect();
             arg0->state = 1;
         } else {
             arg0->state = 2;
@@ -515,10 +503,10 @@ void update_particle_by_phase__10TObjPlayerFv(void) {
     case 0x10:
     case 0x1A:
     case 0x20:
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         break;
     default:
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         break;
     }
     shark_render_node_index += 1;
@@ -556,7 +544,7 @@ void TObjEneShark::render() {
     return;
   }
   fade = 0;
-  if (check_v2_mode__9TObjEneDDFv() != 0)
+  if (TObjEneDD::check_v2_mode() != 0)
   {
     u8 *f = (u8 *) (&((Owner_800ABDD8 *) arg0)->fades[mode]);
     update_obstruction_fade(f);
@@ -564,12 +552,12 @@ void TObjEneShark::render() {
   }
   select_actor_lighting(arg0);
   model_render_flags |= 1;
-  set_global_param__8TObjFishFl(*((s32 *) (((s8 *) arg0) + 0x24)));
+  TObjFish::set_global_param(*((s32 *) (((s8 *) arg0) + 0x24)));
   push_matrix();
   translate_matrix(0, lbl_805D9BA0, *((f32 *) (((s8 *) arg0) + 0x380)), lbl_805D9BA0);
   post_translate_matrix(arg0 + 0x38);
   rotate_matrix_y(0, *((s32 *) (((s8 *) arg0) + 0x60)));
-  if (check_demo_mode__10TObjPlayerFv() == 1)
+  if (TObjPlayer::check_demo_mode() == 1)
   {
     draw_chunk_object(*((s32 *) (((s8 *) arg0) + 0x34)));
   }
@@ -601,9 +589,9 @@ void TObjEneShark::render() {
       v27 = b;
       *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 6)) = -1;
     }
-    toggle_particle_effect__10TObjPlayerFv();
+    TObjPlayer::toggle_particle_effect();
     shark_render_node_index = 0;
-    set_global_state__16TObjEneRe7BeruraFl((void *) update_particle_by_phase__10TObjPlayerFv);
+    TObjEneRe7Berura::set_global_state((s32)((void *) update_particle_by_phase__10TObjPlayerFv));
     if ((*((s32 *) (((s8 *) arg0) + 0x390))) == 1)
     {
       if (((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m8() != 0)
@@ -615,7 +603,7 @@ void TObjEneShark::render() {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0)
         {
           model_render_flags |= 1;
-          draw__16TObjEneRe7BeruraFv(arg0);
+          ((TObjEneRe7Berura *)arg0)->draw();
           model_render_flags &= ~1;
         }
         ((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m7();
@@ -636,30 +624,30 @@ void TObjEneShark::render() {
         {
           if (res == 1)
           {
-            draw__16TObjEneRe7BeruraFv(arg0);
+            ((TObjEneRe7Berura *)arg0)->draw();
           }
           else
           {
-            render_world_model__10TObjPlayerFv(arg0);
+            ((TObjPlayer *)arg0)->render_world_model();
           }
         }
       }
       else
         if (res == 1)
       {
-        draw__16TObjEneRe7BeruraFv(arg0);
+        ((TObjEneRe7Berura *)arg0)->draw();
       }
       else
       {
-        render_world_model__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->render_world_model();
       }
       if (fade != 0)
       {
         ((Owner_800ABDD8 *) arg0)->fades[mode].m7();
       }
     }
-    set_global_state__16TObjEneRe7BeruraFl(0);
-    end_effect_render__13TParticleCtrlFv();
+    TObjEneRe7Berura::set_global_state((s32)0);
+    TParticleCtrl::end_effect_render();
     if ((*((s32 *) (((s8 *) arg0) + 0x378))) == 0)
     {
       *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 4)) = v26;
@@ -691,7 +679,7 @@ void TObjEneShark::render() {
       v.x = lbl_805D9BBC;
       v.y = lbl_805D9BC0;
       v.z = lbl_805D9BC4;
-      render_with_position_override__9TObjEnemyFPUcl(arg0, &v, 0);
+      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&v), (s32)0);
     }
   }
 }
@@ -740,11 +728,9 @@ struct Act_800AC318 { s32 a; s32 idx; f32 c; s32 d; };
 
 extern "C" {
 extern u32 shark_bml_resource;
-void sub_800AC9DC__12TObjEneSharkFl(O_800AC9DC *self, s32 i);
 extern s32 game_difficulty_selection;
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -755,7 +741,6 @@ s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(void *, void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
@@ -1037,7 +1022,7 @@ void TObjEneShark::free_resources() {
 void TLobby::load_shark_resources() {
     void *p;
     s32 i;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         G_B8 = load_enemy_bml_resource_named(bm_ene_bm1_shark_resource_descriptor, lbl_8043AEDC);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
@@ -1097,7 +1082,7 @@ O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
+        ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3A8, -1);
@@ -1217,8 +1202,8 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->m79(arg2);
     ((TObjPlayer *)self)->init_position_vectors();
     self->f334 = self->f368;
-    apply_clamped_mode_param__12TObjEneSharkFv((u8 *)self);
-    sub_800AC9DC__12TObjEneSharkFl((O_800AC9DC *)self, self->f368);
+    ((TObjEneShark *)self)->apply_clamped_mode_param();
+    ((TObjEneShark *)self)->sub_800AC9DC(self->f368);
     self->fD8 = TObjEneShark__action_table;
     ((TObjPlayer *)self)->set_field_d8((s32)(self->fD8));
     self->fDC = *(s32 *)(shark_bml_resource + 0x430);
@@ -1243,7 +1228,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f37C = 0;
     ((TUnk_804806E8 *)self)->add_flags_2e4(2);
     self->f30 |= 0x40000;
-    if (check_v2_mode__9TObjEneDDFv() != 0) {
+    if (TObjEneDD::check_v2_mode() != 0) {
         switch (self->f334) {
         case 0:
         default:

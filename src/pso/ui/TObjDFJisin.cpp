@@ -1,4 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss4Type3.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/object/TObjDFHorming.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "dolphin/mtx.h"
 #include <stddef.h>
 #include "pso/TObject.h"
@@ -62,12 +69,8 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 is_boss_active__13TObjDFHormingFv();
 s32 TBoss4DarkFalz__sub_8004C1AC();
-s32 check_attack_trigger__13TObjDFHormingFv(void *);
 s32 steer_homing_direction(void *);
-s32 sub_8005076C__13TObjDFHormingFv(void *);
 int queue_destruction__13TObjDFHormingFPv(void* p);
-s32 copy_vec3__11TBoss4Type2FPv(void *, void *);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 direction_to_rotation_xz(void *, void *, void *);
 u8 * get_player_by_client_id(u16);
@@ -166,7 +169,6 @@ struct Ball_8005123C {
 
 struct Obj_80050AF8 { u8 pad[0x358]; u32 objs[2]; };
 
-void destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, s32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Player_80050D74 * get_player_data__10TObjPlayerFi(s32);
@@ -174,8 +176,6 @@ s16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 void queue_destruction__7TObjectFv(void *);
-u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
-s32 get_game_mode__6TLobbyFv();
 s32 is_state_ready__14TBoss4DarkFalzFv();
 s32 TBoss4DarkFalz__sub_8004C1B4();
 int queue_destruction__13TObjDFHormingFPv(void* p);
@@ -191,11 +191,8 @@ void * create__16TObjDFBeamCursorFPvPv(void *arg0, void *arg1);
 u8 * TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void * create__13TObjDFRecBallFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 TBoss4Type3__sub_8005254C(s16);
-void request_destroy__11TBoss4Type2FUl(void *);
 u32 spawn_particle_effect(void *, int);
 s32 create_particle_emitter(s32, s32);
-s32 set_flags__11TBoss4Type2FUl(int, int);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 u8 * get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
@@ -270,13 +267,13 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x2FC);
     switch (*(s32 *)((s8 *)arg0 + 0x368)) {
     case 0:
-        sub_8005076C__13TObjDFHormingFv(arg0);
+        ((TObjDFHorming *)arg0)->sub_8005076C();
         break;
     case 1:
         steer_homing_direction(arg0);
         break;
     case 2:
-        check_attack_trigger__13TObjDFHormingFv(arg0);
+        ((TObjDFHorming *)arg0)->check_attack_trigger();
         break;
     }
     normalize_vector(arg0 + 0x348);
@@ -306,9 +303,9 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
                 subtract_vector(&d, arg0 + 0x44);
                 direction_to_rotation_xz(&d, &rot.x, &rot.z);
                 rot.y = 0;
-                copy_vec3__11TBoss4Type2FPv((void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358), &rot);
+                ((TBoss4Type2 *)((void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358)))->copy_vec3(&rot);
             }
-            copy_pos__11TNowLoadingFPv((void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358), arg0 + 0x2FC);
+            ((TNowLoading *)((void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358)))->copy_pos(arg0 + 0x2FC);
         }
     }
     minimap_render_dot(arg0 + 0x2FC, -0x5DB4, 1, 0);
@@ -323,11 +320,11 @@ S_80050A68 *__dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag) {
         o->vt = __vt__13TObjDFHorming;
         for (i = 0; i < 2; i++) {
             if (o->ptr[i] != 0) {
-                request_destroy__11TBoss4Type2FUl(o->ptr[i]);
+                TBoss4Type2::request_destroy((u32)(o->ptr[i]));
                 o->ptr[i] = 0;
             }
         }
-        destroy_motion_object__13TUnk_804806E8Fs(o, 0);
+        ((TUnk_804806E8 *)o)->destroy_motion_object(0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }
@@ -364,15 +361,15 @@ u8 *TObjDFHorming__ct(u8 *arg0, s32 arg1, s32 arg2, u16 arg3) {
     *(f32 *)((s8 *)arg0 + 0x350) = lbl_805D8A78 * cos_table_lookup(ang) / scale;
     *(f32 *)((s8 *)arg0 + 0x34C) = lbl_805D8A7C / scale;
     *(f32 *)((s8 *)arg0 + 0x354) = lbl_805D8A80;
-    *(s32 *)((s8 *)arg0 + 0x360) = *(s32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x38)) + 0x28);
-    *(f32 *)((s8 *)arg0 + 0x364) = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFl(0x38)) + 0);
+    *(s32 *)((s8 *)arg0 + 0x360) = *(s32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x38)) + 0x28);
+    *(f32 *)((s8 *)arg0 + 0x364) = *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x38)) + 0);
     if (*(f32 *)((s8 *)arg0 + 0x364) < lbl_805D8A30 || *(f32 *)((s8 *)arg0 + 0x364) > lbl_805D8A34) {
         *(f32 *)((s8 *)arg0 + 0x364) = lbl_805D8A70;
     }
     *(f32 *)((s8 *)arg0 + 0x378) = lbl_805D8A88 * *(f32 *)((s8 *)arg0 + 0x364) + lbl_805D8A84;
     for (i = 0; i < 2; i++) {
         if ((((Obj_80050AF8 *)arg0)->objs[i] = ((u32 (*)(void *, s32))create_particle_emitter)(arg0 + 0x2FC, TObjDFJisin__particle_emitter_id_table[i])) != 0) {
-            ((s32 (*)(u32, u32))set_flags__11TBoss4Type2FUl)(((Obj_80050AF8 *)arg0)->objs[i], 0x40);
+            ((TBoss4Type2 *)(((Obj_80050AF8 *)arg0)->objs[i]))->set_flags(0x40);
         }
     }
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
@@ -400,7 +397,7 @@ void damage_players_near_point(s32 arg0, Vec_80050D74 *arg1) {
     }
     hit.type = 0x11;
     hit.value = lbl_805D8A30;
-    for (i = 0; i < get_game_mode__6TLobbyFv(); i++) {
+    for (i = 0; i < TLobby::get_game_mode(); i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && TBoss4Type3__sub_8005254C(obj_getField1c(p)) != 0 &&
             !(p->flags890 & 0x10) &&
@@ -418,7 +415,7 @@ void fn_spawn_particle_f3_with_flags(s32 arg0, s32 arg1) {
     position.y += lbl_805D8A90;
     temp_r3 = spawn_particle_effect((void *) (&position.x), (int) (0xF3));
     if (temp_r3 != 0U) {
-        set_flags__11TBoss4Type2FUl((int) (temp_r3), (int) (0x40));
+        ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
     }
 }
 
@@ -543,7 +540,7 @@ void TObjDFRecBall::run_task() {
     o->vel.y = o->speed * (lbl_805D8AB4 * o->vel.y + lbl_805D8AB8 * d.y);
     o->vel.z = o->speed * (lbl_805D8AB4 * o->vel.z + lbl_805D8AB8 * d.z);
     vec3_add_to(&o->pos, &o->vel);
-    copy_pos__11TNowLoadingFPv(o->model, &o->pos);
+    ((TNowLoading *)(o->model))->copy_pos(&o->pos);
     if (((f32 (*)(void *, void *))xyz_distance)(&o->pos, &o->target) <= o->speed) {
         queue_destruction__7TObjectFv(o);
     }
@@ -553,7 +550,7 @@ extern int fold_flush_2;
 
 }
 TObjDFRecBall::~TObjDFRecBall() {
-    if (m_44 != nullptr) request_destroy__11TBoss4Type2FUl(m_44);
+    if (m_44 != nullptr) TBoss4Type2::request_destroy((u32)m_44);
 }
 
 extern "C" {
@@ -574,7 +571,7 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0xAF));
     *(u8 **)((s8 *)arg0 + 0x44) = temp_r3;
     if (temp_r3 != NULL) {
-        ((void (*)(void *, s32))set_flags__11TBoss4Type2FUl)(*(u8 **)((s8 *)arg0 + 0x44), 0x40);
+        ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x44)))->set_flags(0x40);
     }
     return arg0;
 }
@@ -620,7 +617,6 @@ void apply_action_hold_status();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
 void apply_confusion_status__13TUnk_804806E8Fv();
-void apply_defense_stat_status__10TObjPlayerFlPv();
 void apply_knockback_from_attacker();
 void apply_movement_ailment__13TUnk_804806E8Fl();
 void apply_object_set_data();
@@ -643,7 +639,6 @@ void vfunc_75__13TUnk_804806E8Ff();
 void vfunc_9__13TUnk_804806E8Fv();
 void get_actor_level_index();
 void get_pos__13TUnk_804806E8Fl();
-void has_flag_0x800__10TObjPlayerFPv();
 void is_actor_cadence_frame();
 void is_target_in_attack_range__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
@@ -657,9 +652,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void run_task__11TObjDFJisinFv();
 void run_task__13TObjDFRecBallFv();
 void select_melee_contact_body__10TObjPlayerFv();
-void test_flag30_512__10TObjPlayerFPv();
-void test_flag_1000__10TObjPlayerFPv();
-void test_flag_256__10TObjPlayerFPv();
 void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__10TObjPlayerFv();
@@ -703,10 +695,10 @@ void *__vt__13TObjDFHorming[] = {
     (void *)vfunc_28__13TUnk_804806E8Fv,
     (void *)vfunc_29__13TUnk_804806E8Fv,
     (void *)is_target_in_attack_range__10TObjPlayerFv,
-    (void *)test_flag_256__10TObjPlayerFPv,
-    (void *)test_flag30_512__10TObjPlayerFPv,
-    (void *)has_flag_0x800__10TObjPlayerFPv,
-    (void *)test_flag_1000__10TObjPlayerFPv,
+    (void *)TObjPlayer::test_flag_256,
+    (void *)TObjPlayer::test_flag30_512,
+    (void *)TObjPlayer::has_flag_0x800,
+    (void *)TObjPlayer::test_flag_1000,
     (void *)update_poison_status__10TObjPlayerFv,
     (void *)update_action_hold_status__10TObjPlayerFv,
     (void *)update_action_timer__10TObjPlayerFPv,
@@ -724,7 +716,7 @@ void *__vt__13TObjDFHorming[] = {
     (void *)apply_shock_status__13TUnk_804806E8Fv,
     (void *)clear_harmful_statuses__13TUnk_804806E8Fv,
     (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
-    (void *)apply_defense_stat_status__10TObjPlayerFlPv,
+    (void *)TObjPlayer::apply_defense_stat_status,
     (void *)cure_poison_ailment,
     (void *)cure_paralysis__13TUnk_804806E8Fv,
     (void *)clear_all_status_effects,
@@ -796,10 +788,7 @@ void *__vt__13TObjDFRecover[] = {
 
 extern "C" {
 s32 is_state_ready__14TBoss4DarkFalzFv();
-void request_destroy__11TBoss4Type2FUl(void *);
-s32 set_flags__11TBoss4Type2FUl(int, int);
 s32 play_sound_effect(int, int, int, int);
-s32 spawn_effect__11TBoss4Type3Fsss(int, int, int);
 }
 
 #pragma push
@@ -831,17 +820,17 @@ void TObjDFRecover::run_task() {
                 ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
                 return;
             }
-            set_flags__11TBoss4Type2FUl((int) (effect), 0x40);
+            ((TBoss4Type2 *)effect)->set_flags(0x40);
             countdown = 0xA;
             phase = 1;
         }
         break;
     case 1:
-        ((s32 (*)(int, void *))copy_pos__11TNowLoadingFPv)((int) (effect), position);
+        ((TNowLoading *)effect)->copy_pos(position);
         if (countdown <= 0) {
-            request_destroy__11TBoss4Type2FUl(effect);
+            TBoss4Type2::request_destroy((u32)effect);
             effect = NULL;
-            spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (int) ((s16) target_id));
+            TBoss4Type3::spawn_effect(0xC0, 0xF, (int) ((s16) target_id));
             countdown = 0xB;
             phase = 2;
             return;
@@ -864,7 +853,7 @@ extern "C" {
 void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__13TObjDFRecover;
-        if (*(void **)((s8 *)arg0 + 0x2C) != 0) request_destroy__11TBoss4Type2FUl(*(void **)((s8 *)arg0 + 0x2C));
+        if (*(void **)((s8 *)arg0 + 0x2C) != 0) TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x2C)));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -974,7 +963,7 @@ void TObjDFTenchuFuru::run_task() {
     s32 temp_r0;
     this->m_20 = (f32) (this->m_20 + lbl_805D8AC0);
     if ((u32) *(u32 *)&this->m_2c != 0U) {
-        ((s32 (*)(void *, void *))copy_pos__11TNowLoadingFPv)(*(void * *)&this->m_2c, (void *) (arg0 + 0x1C));
+        ((TNowLoading *)(*(void * *)&this->m_2c))->copy_pos((void *) (arg0 + 0x1C));
     }
     temp_r0 = this->m_28 - 1;
     this->m_28 = temp_r0;
@@ -986,7 +975,7 @@ void TObjDFTenchuFuru::run_task() {
 
 typedef char RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru_size[sizeof(RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru) == 0x18 ? 1 : -1];
 TObjDFTenchuFuru::~TObjDFTenchuFuru() {
-    if (m_2c != nullptr) ((void (*)(void*))request_destroy__11TBoss4Type2FUl)(m_2c);
+    if (m_2c != nullptr) TBoss4Type2::request_destroy((u32)m_2c);
 }
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
@@ -999,7 +988,7 @@ u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
     *(u8 **)((s8 *)arg0 + 0x2C) = temp_r3;
     if (temp_r3 != NULL) {
-        ((void (*)(void *, s32))set_flags__11TBoss4Type2FUl)(*(u8 **)((s8 *)arg0 + 0x2C), 0x40);
+        ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x2C)))->set_flags(0x40);
     }
     return arg0;
 }

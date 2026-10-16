@@ -137,7 +137,6 @@ u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0);
-void emit_marker_effects__13TUnk_804A4948Fv(u8 *arg0);
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
 s32 get_extended_state__10TObjPlayerFv(void *);
@@ -146,7 +145,6 @@ u16 get_uid__10TObjPlayerFPv(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 s32 resolve_hittable_target(s32, s32);
-void send_srank_stat_extra_to_locks__13TUnk_804A4948Fv(Pl_8012A470 *arg0);
 }
 
 extern "C" {
@@ -267,7 +265,7 @@ void TUnk_804A4948::emit_marker_effects() {
       }
       if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0)
       {
-        send_srank_stat_extra_to_locks__13TUnk_804A4948Fv((Pl_8012A470 *)((void *) arg0));
+        ((TUnk_804A4948 *)arg0)->send_srank_stat_extra_to_locks();
         return;
       }
       ((TObjPlayer *)arg0)->update_active_game_effect();

@@ -20,7 +20,6 @@ extern RecoveredGlobal_8032B390_lbl_80477198 lbl_80477198;
 extern RecoveredGlobal_8032B390_lbl_804771B8 lbl_804771B8;
 extern s32 tl_clipout;
 extern int TAdEnterBaseGC__entry_mode;
-void create_parts__14TAdEnterBaseGCFv(u8 *arg0);
 }
 
 extern "C" {

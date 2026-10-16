@@ -1,4 +1,5 @@
 #include "pso/TBoss6DPB.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneEpsilonGuard.h"
 
 #include "types.h"
@@ -67,15 +68,10 @@ void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 void create_TDPBShower(int, void *);
 extern s32 tl_02;
-void sub_8035D8B0__9TBoss6DPBFv(W_8035D8B0 *arg0);
 extern const f32 lbl_805E01C8;
 u8 *__nw__7TObjectFUl(s32);
-s32 try_apply_damage__13TUnk_804806E8FUll(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
-f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPv(s32 arg0);
-s32 try_apply_damage__13TUnk_804806E8FUll(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
-f32 receive_physical_attack__19TObjEneEpsilonGuardFPvf(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -85,7 +81,6 @@ extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D4;
 u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Msg_8035DD18, void *, s32, s32);
-s32 try_apply_damage__13TUnk_804806E8FUll(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -96,7 +91,6 @@ void subtract_vector(void *, void *);
 extern s32 tl_02;
 extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D0;
-void apply_shower_damage_to_players__9TBoss6DPBFv(Shower_8035D924 *arg0);
 }
 
 extern "C" {
@@ -151,9 +145,9 @@ void TBoss6DPB::run_task() {
     if (((TObjEneDD *)arg0)->query_teammate_state() == 0) {
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) + 1);
         if ((f32) *(s32 *)((s8 *)arg0 + 0x30) > lbl_805E01C8) {
-            apply_shower_damage_to_players__9TBoss6DPBFv((Shower_8035D924 *)(arg0));
+            ((TBoss6DPB *)arg0)->apply_shower_damage_to_players();
             play_sound_effect(0x40069411, (u32) (arg0 + 0x20), 0, 0);
-            sub_8035D8B0__9TBoss6DPBFv((W_8035D8B0 *)arg0);
+            ((TBoss6DPB *)arg0)->sub_8035D8B0();
             queue_destruction__7TObjectFv(arg0);
         }
     }
@@ -205,19 +199,19 @@ u8 *TBoss6Type2::create_dpb(s32 arg0, s32 arg1, f32 farg0) {
 
 f32 TObjEneEpsilonGuard::receive_weapon_special_attack(void *, void *) {
     s32 arg0 = (s32)this;
-    try_apply_damage__13TUnk_804806E8FUll((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
+    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
     return TObjEneEpsilonGuard__data_805E01D8;
 }
 f32 TObjEneEpsilonGuard::receive_physical_attack(void *, f32) {
     s32 arg0 = (s32)this;
-    try_apply_damage__13TUnk_804806E8FUll((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
+    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
     return TObjEneEpsilonGuard__data_805E01D8;
 }
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5) {
     if (msg->type == 0x14) {
         return receive_direct_attack__10TObjPlayerFv((void *)arg0, arg1, *msg, arg3, arg4, arg5);
     }
-    try_apply_damage__13TUnk_804806E8FUll((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
+    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
     return TObjEneEpsilonGuard__data_805E01D8;
 }
 

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/item/TItemEffectWeapon.h"
+#include "pso/item/TItemEquipBase.h"
+#include "pso/item/TItemMag.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 
 struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
@@ -6,14 +10,11 @@ struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
 extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);
-void bind_loaded_resources__14TItemEquipBaseFv(void*);
 void clear_equip_flags__11TItemWeaponFUl(void*,u32);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
 s32 test_flag30_bit0x100000__10TObjPlayerFv(void*);
 void register_technique_boosts__14TItemEquipBaseFPvPv(void*,void*);
 s32 obj_isState7_324(void*);
-void advance_weapon_photon_phase__11TItemWeaponFv(void*);
-s32 get_flag_40__8TItemMagFv(void*);
 void TItemEffectWeapon__sub_8036340C(void*);
 void TItemEffectWeapon__sub_80363410(void*);
 extern const f32 lbl_805DAC9C;
@@ -28,9 +29,6 @@ s32 draw_weapon_model(void *);
 s32 draw_weapon_at_joint(void *, int);
 s32 get_field_d8__10TObjPlayerFv(void *);
 u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
-void render_trail__17TItemEffectWeaponFv(void *);
-void push_id_to_list__10TObjPlayerFl(s32);
-void vfunc_26__11TItemWeaponFv(u8 *arg0);
 }
 
 extern "C" {
@@ -76,7 +74,7 @@ void TItemWeapon::vfunc_26() {
     s32 count;
     if (((u32) *(u32 *)((s8 *)((u8 *)this) + 0xF0) != 0U) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x80U) == 0U)) {
         if (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x800U) != 0U) {
-            push_id_to_list__10TObjPlayerFl(get_field_d8__10TObjPlayerFv(((u8 *)this)));
+            TObjPlayer::push_id_to_list(get_field_d8__10TObjPlayerFv(((u8 *)this)));
             return;
         }
         ((TItemWeapon *)(((u8 *)this)))->reserved_53();
@@ -85,7 +83,7 @@ void TItemWeapon::vfunc_26() {
         do {
             void *trail = ((Trails_8011FE04 *)((u8 *)this))->trails[count];
             if (trail) {
-                render_trail__17TItemEffectWeaponFv(trail);
+                ((TItemEffectWeapon *)trail)->render_trail();
             }
             count++;
         } while (count != 4);
@@ -101,7 +99,7 @@ void TItemWeapon::vfunc_16() {
     s32 idle_count;
     if(test_flags_1b8__11TItemWeaponFUl(self,0x100)==0) {
         if(test_flags_1b8__11TItemWeaponFUl(self,0x4000)!=0) TObjPlayer__sub_80100F34(self);
-        bind_loaded_resources__14TItemEquipBaseFv(self);
+        ((TItemEquipBase *)self)->bind_loaded_resources();
         stage=((TItemWeapon *)self)->get_attack_stage();
         if(stage!=self->stage) {
             clear_equip_flags__11TItemWeaponFUl(self,0x1000000);
@@ -118,8 +116,8 @@ void TItemWeapon::vfunc_16() {
         }
         register_technique_boosts__14TItemEquipBaseFPvPv(self,self->material);
         self->update_weapon();
-        if(!obj_isState7_324(self->player)) advance_weapon_photon_phase__11TItemWeaponFv(self);
-        if(get_flag_40__8TItemMagFv(self)) {
+        if(!obj_isState7_324(self->player)) ((TItemWeapon *)self)->advance_weapon_photon_phase();
+        if(((TItemMag *)self)->get_flag_40()) {
             count=0;
             do {
                 void* trail=self->trails[count];
@@ -146,12 +144,9 @@ struct Data_801200C0 { u8 pad[0x16]; u8 max; u8 pad17[0x27 - 0x17]; u8 flags; };
 struct Self_801200C0 { u8 pad[0x1a4]; Pair_801200C0 pairs[3]; u8 pad1aa[0x1d1 - 0x1aa]; u8 cur; u8 pad1d2[0x1dc - 0x1d2]; Data_801200C0 *data; };
 
 extern "C" {
-void vfunc_14__11TItemWeaponFv(Self_801200C0 *self);
 }
 
 extern "C" {
-
-int vfunc_50__11TItemWeaponFv(void* p);
 
 void TItemWeapon::vfunc_14() {
     Self_801200C0 *self = (Self_801200C0 *)this;
@@ -179,8 +174,6 @@ void TItemWeapon::vfunc_14() {
 #include "types.h"
 
 extern "C" {
-
-int vfunc_50__11TItemWeaponFv(void* p);
 
 void TItemWeapon::vfunc_50() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)(this, 4); }
 

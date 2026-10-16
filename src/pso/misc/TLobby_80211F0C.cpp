@@ -1,23 +1,23 @@
 #include "types.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TQuestListOnline.h"
 
 extern "C" {
 
 s32 get_main_phase();
 s32 THunterGuildWarning__sub_80211700();
-s32 clear_instance_table__22THunterGuildSeqOfflineFv();
 s32 clear_slots__22THunterGuildSeqOfflineFv();
 s32 clear_slot_flags__22THunterGuildSeqOfflineFv();
-s32 release_resources__16TQuestListOnlineFv();
 
 void update_hunter_guild_phase(void) {
     if (get_main_phase() == 0xE) {
         THunterGuildWarning__sub_80211700();
-        clear_instance_table__22THunterGuildSeqOfflineFv();
+        THunterGuildSeqOffline::clear_instance_table();
     }
     if (get_main_phase() == 0xF) {
         clear_slots__22THunterGuildSeqOfflineFv();
         clear_slot_flags__22THunterGuildSeqOfflineFv();
-        release_resources__16TQuestListOnlineFv();
+        TQuestListOnline::release_resources();
     }
 }
 
@@ -30,7 +30,6 @@ extern "C" {
 void update_guild_or_quest_phase__6TLobbyFv(void);
 s32 THunterGuildSeqOffline__sub_8021339C();
 s32 THunterGuildWarning__sub_8021170C();
-s32 init_download_buffers__16TQuestListOnlineFv();
 s32 THunterGuildSeqOffline__sub_80213CA4();
 s32 zero_four_slots__22THunterGuildSeqOfflineFv();
 s32 get_main_phase();
@@ -41,7 +40,7 @@ void update_guild_or_quest_phase__6TLobbyFv(void) {
         THunterGuildWarning__sub_8021170C();
     }
     if (get_main_phase() == 0xF) {
-        init_download_buffers__16TQuestListOnlineFv();
+        TQuestListOnline::init_download_buffers();
         zero_four_slots__22THunterGuildSeqOfflineFv();
         THunterGuildSeqOffline__sub_80213CA4();
     }

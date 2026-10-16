@@ -43,7 +43,6 @@ struct VObj_8029CD90 : Base_8029CD90 {
     virtual s32 m8(f32, f32);
 };
 
-void play_activate_sound__15TOKeyJungleMainFv(s32 arg0);
 void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 post_translate_matrix(void *);

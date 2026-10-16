@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TAdEndText.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
 
@@ -10,7 +12,6 @@ struct RecoveredGlobal_80307A74_main_task {
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
 s32 controller_stuff__Fv();
@@ -22,7 +23,6 @@ s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
-s32 load_ending_font__10TAdEndTextFv();
 s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(s32, s32, s32);
 int render_tick__Fv(void);
@@ -40,11 +40,10 @@ extern "C" {
 void cleanup__10TAdEndTextFv(void);
 int TLobby__sub_800FC3CC(void);
 int delete_all_task_children__9TMainTaskFv(void*);
-int free_resources__10TAdEndTextFv(void);
 int render_tick__Fv(void);
 
     extern int ending_sequence_active;
-void cleanup__10TAdEndTextFv(void) { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); free_resources__10TAdEndTextFv(); render_tick__Fv(); }
+void cleanup__10TAdEndTextFv(void) { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick__Fv(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
 void TKeyBoardControl::run_main_frame() {
     s32 *var_r3;
@@ -67,7 +66,7 @@ void TKeyBoardControl::run_main_frame() {
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
@@ -80,7 +79,7 @@ void start_ending_sequence(void) {
     reset_controller_input_state();
     TKeyBoardControl__sub_8000F91C(2);
     TKeyBoardControl__sub_8000F90C(2);
-    load_ending_font__10TAdEndTextFv();
+    TAdEndText::load_ending_font();
     TLobby::update_keyboard_menu();
     TLobby::set_ending_callback();
     if (__nw__7TObjectFUl(0x1C) != 0U) {

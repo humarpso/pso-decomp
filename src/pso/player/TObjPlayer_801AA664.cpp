@@ -6,7 +6,6 @@ extern "C" {
 
 void* TObjPlayer__sub_801AA66C(void* p, void* a1);
 void TObjPlayer__sub_801AA6E4(u8 *arg0, u8 *arg1);
-void sub_801AA6F8__13TPhotonEstllaFv(void* a0);
 s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1);
 void* TObjPlayer__sub_801AA61C(void* p);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);

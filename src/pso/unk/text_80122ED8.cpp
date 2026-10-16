@@ -3,7 +3,6 @@
 extern "C" {
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
 void draw_weapon_at_joint(s32, s8);
-void reserved_53__13TUnk_804A1570Fv(u8 *arg0);
 }
 
 extern "C" {

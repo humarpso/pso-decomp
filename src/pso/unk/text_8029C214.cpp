@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TORockJungleS01.h"
 #include "pso/object/TObjMapCsn.h"
 #include "pso/player/TObjPlayer.h"
@@ -32,7 +33,6 @@ struct Copy_8029C214 { u32 w[15]; };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCave__ct(void *);
 s32 get_jungle_rock_texture_resource(s32 a);
@@ -105,7 +105,7 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x24) = get_jungle_rock_texture_resource(4);
     *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
     ((s32 (*)(void *, void *, int, f32))init_collision_body_parts)(arg0, &rock_jungle_collision_body_parts.v, 1, lbl_805DDD1C);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     {
         Copy_8029C214 c = *(Copy_8029C214 *)arg1;

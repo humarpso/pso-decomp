@@ -1,4 +1,30 @@
 #include "types.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/TAdStorySelectGC.h"
+#include "pso/TItemMenuCtrl.h"
+#include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/item/TItem.h"
+#include "pso/item/TItemData.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/menu/TQuestBgmCtrl.h"
+#include "pso/misc/TCheckRoomSequence.h"
+#include "pso/misc/THunterGuildSeqOffline.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TNpcPlayer.h"
+#include "pso/misc/TOChatSensor.h"
+#include "pso/misc/TOSymbolchatColli.h"
+#include "pso/misc/TPlayerBattleCtrl4P.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TTecLuker.h"
+#include "pso/misc/TWindowCtrl.h"
+#include "pso/object/TObjAreaWarpQuest.h"
+#include "pso/object/TObjCityMainWarp.h"
+#include "pso/object/TObjDoor.h"
+#include "pso/system/TOChatSensorCapture.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
+#include "pso/ui/TChallenge4PResult.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
@@ -107,7 +133,6 @@ void append_card_window_text__6TLobbyFv(void);
 void capture_chat_sensor__6TLobbyFi(s32 arg0);
 s32 parse_f_index(s32 a0);
 int sscanf(s32, s32 *, ...);
-s32 capture_message__19TOChatSensorCaptureFUsPCc(u16, s32);
 s32 dispatch_chat_message_to_children__12TOChatSensorFl();
 namespace pf2_p0 { extern "C" { u32 get_character_save_record(int); } }
 #define get_character_save_record pf2_p0::get_character_save_record
@@ -116,7 +141,7 @@ extern s32 local_client_id;
 
 void capture_chat_sensor__6TLobbyFi(s32 arg0) {
     dispatch_chat_message_to_children__12TOChatSensorFl();
-    capture_message__19TOChatSensorCaptureFUsPCc((u16) local_client_id, arg0);
+    TOChatSensorCapture::capture_message((u16)((u16) local_client_id), (const char *)arg0);
 }
 
 extern s32 lbl_80449C6C[];
@@ -487,7 +512,6 @@ struct RecoveredGlobal_801E6E20_TLobby__data_80512220 {
 struct Tbl_801E6CA4 { u32 w[18]; };
 
 extern "C" {
-s32 is_phase_reached__14TBoss6PlotFalzFv();
 namespace pf2_p3 { extern "C" { extern s32 TLobby__script_reg_array; } }
 #define TLobby__script_reg_array pf2_p3::TLobby__script_reg_array
 void TLobby__sub_801E6C4C(s32 arg0);
@@ -507,7 +531,6 @@ void TLobby__sub_801E6CA4(void);
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
 void *memcpy(void *, const void *, u32);
 void copy_slot_entity_data__6TLobbyFv(void);
-s32 check_keyword__19TOChatSensorCaptureFUsPCc(u16 arg0, const char *arg1);
 void quest_check_chat_keyword(void);
 }
 
@@ -526,7 +549,7 @@ void TLobby__sub_801E6C40(int a0, int a1) { TLobby__quest_script_read_ptr = a0; 
     extern int tl_01;
 
 void TLobby__sub_801E6C4C(s32 arg0) {
-    if (is_phase_reached__14TBoss6PlotFalzFv() != 0) {
+    if (TBoss6PlotFalz::is_phase_reached() != 0) {
         *(s32 *)((s8 *)TLobby__script_reg_array + ((arg0 * 4) & 0x3FC)) = 1;
         return;
     }
@@ -581,8 +604,7 @@ void TLobby__sub_801E6E20(void) {
 void quest_check_chat_keyword(void) {
     u8 idx;
     idx = (u8) TLobby__quest_argument_stack.value;
-    if (check_keyword__19TOChatSensorCaptureFUsPCc((u16) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4),
-                                          (const char *) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 8)) != 0) {
+    if (TOChatSensorCapture::check_keyword((u16) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 4), (const char *) *(s32 *)((s8 *)(&TLobby__quest_argument_stack.value) + 8)) != 0) {
         *(s32 *) (TLobby__script_reg_array + ((idx * 4) & 0x3FC)) = 1;
         return;
     }
@@ -657,10 +679,9 @@ extern "C" {
 
 void qst_op_arg_pushs(int a0);
 void create_chat_sensor_capture__6TLobbyFv(void);
-int create_instance__19TOChatSensorCaptureFPv(void*);
 
     extern int tl_01;
-void create_chat_sensor_capture__6TLobbyFv(void) { create_instance__19TOChatSensorCaptureFPv((void*)(tl_01)); }
+void create_chat_sensor_capture__6TLobbyFv(void) { TOChatSensorCapture::create_instance((void*)(tl_01)); }
 
     extern int TLobby__quest_arg_stack_count;
 
@@ -753,7 +774,6 @@ struct Glob_801E8614
 extern "C" {
 u32 get_player_by_client_id(s32);
 s16 obj_getS16_32C(u8 *);
-s16 get_field_2b8__14TItemProShieldFv(u8 *);
 extern int* TLobby__script_reg_array;
 extern const f32 lbl_805DC4C4;
 extern const f32 lbl_805DC4D0;
@@ -2010,18 +2030,11 @@ u16 obj_getField1c(void *);
 s32 is_split_screen();
 s32 get_current_floor();
 f64 atan2_float(void *, f32, f32);
-void broadcast__6TLobbyFPv(void *);
 void TLobby__sub_8001DE30(void *);
-void copy_all_entries__6TLobbyFPv(void *);
-s32 copy_data__6TLobbyFPv(void *);
 s32 TLobby__sub_8001DEA8(int);
-void swap_endian__6TLobbyFv(void *);
-void byteswap_packet__6TLobbyFv(void *);
 s32 bswap__12player_statsFv(void *);
 Ctx_801EA5FC * get_global_state__23TAdSinglePlyChrSelectGCFv();
 s32 setControlOverride__12TBoss1DragonFs(int, void *);
-s32 get_game_mode__6TLobbyFv(void);
-s32 is_boss_phase_reached__6TLobbyFv();
 f32 * get_position_ptr__10TObjPlayerFv();
 int set_camera_capture_overlay_alpha(void*);
 int set_shake_preset__11TCameraCtrlFl(void*);
@@ -2037,7 +2050,6 @@ int set_active_camera_flag__11TCameraCtrlFv(void*);
 int end_conversation_camera(void*);
 int begin_conversation_camera(void*);
 u32 get_layout_id__20TWindowSubStatusDispFv(s32);
-s32 set_name_string__6TLobbyFv(s32);
 s32 get_unit_list__6TLobbyFv();
 s32 TLobby__sub_80070ACC();
 s32 set_split_screen_flag__6TLobbyFv();
@@ -2058,10 +2070,7 @@ s32 TLobby__sub_8007119C(s32);
 void add_entry__6TLobbyFiii(void *, void *, s32);
 void set_player_name_and_color__6TLobbyFPvi(void *, s32);
 s32 set_selected_layout__6TLobbyFi(u32);
-void try_set_value__6TLobbyFf(f32);
-s32 set_split_screen_flag__6TLobbyFl(s32);
 s32 copy_player_visual_record(void *, int);
-s16 get_field_2b8__14TItemProShieldFv(u8 *);
 s32 fn_80077788(void);
 s32 fn_80077790(void);
 s32 __ct__16TPlyGuildCardTagFv(s32);
@@ -2071,24 +2080,13 @@ int count_active_cards__17TWindowSubComCardFv(void);
 void * get_state__23TAdSinglePlyChrSelectGCFv();
 volatile unsigned long get_actor_section_id__15TPlyPhotonChairFv(int);
 u32 create_timed_particle_emitter(void* v, s32 a, s32 b, s32 c);
-void set_flags__11TBoss4Type2FUl(void*, s32);
 s32 clear_flag_3__7TObjectFv(void *);
 u32 prs_decompress_buffer(s32, s32);
-int init_fadeout_state__6TLobbyFl(void*);
-int set_fade_params__6TLobbyFl(void*);
 void TLobby__sub_800F8498(u32, s32, s32, s32, u8, u8, u8, u8);
-s32 init__22THunterGuildSeqOfflineFPvPv(void *, s32, s32 *);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
 u32 poll_serial_access__22TQuestVmDownLoadServerFv();
-void clear_flag_2__11TWindowCtrlFv(void);
-s32 set_close_flag__11TWindowCtrlFv();
 void * find_item_by_id(s32);
-void copy_to_item_data__5TItemFPv(void *, Item_801EE77C *);
 s32 TLobby__sub_801036CC();
-s32 get_lobby_flag__6TLobbyFv(void);
-s32 get_drop_flag__6TLobbyFv(void);
-s32 forward_to_player__6TLobbyFiPv(int, void *);
-s32 handle_player_event__6TLobbyFll(int, int);
 s32 is_script_controlled__10TObjPlayerFv();
 s32 activate_d04_slot__10TObjPlayerFv();
 s32 create_instance__12TItemDropSubFl(int, void *);
@@ -2097,33 +2095,22 @@ s16 get_mag_item_data(s32);
 s16 get_mag_level(s32);
 s16 get_mag_item_percent(s32);
 s16 get_mag_item_stat_percent();
-s32 open_menu__13TItemMenuCtrlFUl(int);
 s32 advance_item_id_counter(u16);
 f32 xz_distance_squared(Vec3_801E79BC *, Vec3_801E79BC *);
 f32 xyz_distance_squared(void *, void *);
 s32 select_download_type__6TLobbyFl(int);
-void set_ready_flag__18TCheckRoomSequenceFv(s32 win);
 void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 int TLobby__sub_80142944(void *);
 int TNpcPlayer__sub_8014DC30(void*);
-void sync_from_lobby__10TNpcPlayerFv(WalkCmd_801F09EC *);
 void init_6x40_walk_packet(WalkCmd_801F09EC *);
 u8 * find_entity_by_id(u16);
-void set_trigger_text__12TOChatSensorFPv(void *, s32);
 void * TOChatSensor__create(Spawn_801EA508 *);
-void byteswap_and_send__6TLobbyFv(s32 arg0);
-void init_packet_67_04__6TLobbyFv(void* p);
-void finalize_and_send_60__6TLobbyFv(void* p);
-void* init_6x05_switch_changed__6TLobbyFv(void* p);
 void TOMineTrap__sub_80171368(f32);
 int set_instance__10TOMineTrapFi(void*);
 int set_trap_count__10TOMineTrapFi(void*);
-void * create__17TOSymbolchatColliFPv(void *arg0);
 int clear_enabled_main_warps(void*);
 s32 clear_active_bit__16TObjCityMainWarpFv(int);
-s32 set_active_bit__16TObjCityMainWarpFl(int);
 s32 TLobby__sub_80190FD0(int);
-void * create_npc__6TLobbyFPv(NpcSet_801EF3B4 *);
 int TObjHashiVersus2__sub_801912A4(void*);
 int TObjHashiVersus2__sub_801912B0(void*);
 s32 delete_by_param__13TQuestColCtrlFl(int, void *);
@@ -2137,14 +2124,10 @@ void * create_quest_col(Spawn_801E8F54 *, s32 *);
 int load_memcard_file(void);
 int TLobby__sub_80197F74(void);
 s32 fn_80197FD0(void *, int);
-s32 get_dest_area__17TObjAreaWarpQuestFv(void *);
 s32 sub_801A1DDC__10TObjPlayerFv();
-int clear_counter__6TLobbyFv(void);
 int clear_quest_state__6TLobbyFv(void*);
 int reset_quest_counter__6TLobbyFv(void*);
 int set_cleanup_flag__6TLobbyFv(void*);
-int reset_instance__8TObjDoorFv(void);
-int reset_door_state__6TLobbyFv(void);
 s32 get_card_window_field_244__10TObjPlayerFPv();
 s32 init_local_pad_binding__10TObjPlayerFPv();
 s32 stop_force_if_alive__10TObjPlayerFPv();
@@ -2187,8 +2170,6 @@ void * get_owner_if_alive__10TObjPlayerFv(void *);
 s32 fn_801DA140(int, int, int);
 s32 DateToSeconds__FP9DateStampPi(void *, void *);
 s32 getDateStamp__FP9DateStamp(void *);
-s32 force_bgm__13TQuestBgmCtrlFi(int);
-s32 defer_bgm__13TQuestBgmCtrlFi(int);
 void* __ct__13TQuestBgmCtrlFP7TObject(void*, s32);
 void request_1c38_1_7__6TLobbyFv(void);
 void reset_and_set_mode__6TLobbyFv(void);
@@ -2649,7 +2630,6 @@ int set_quest_success_callback(void*);
 int THunterGuildSeqOffline__sub_801F3748(void*);
 int TObjDoor__sub_801F3754(void);
 int TObjDoor__sub_801F3760(void);
-s32 set_main_warp_id__8TObjDoorFi(int);
 void set_quest_floor_designation_ex(s16, s32, s32, s32, s32);
 void set_quest_floor_designation(s16, s32, s32, s32);
 s32 get_story_flag(void *);
@@ -2662,22 +2642,14 @@ s32 destroy_children_with_tag(s32);
 s32 clear_floor_handler(int);
 s32 set_floor_handler(int, int);
 s32 clear_buffer__12TQuestThreadFPv(u32);
-int hide_radar__13TRaderMapCoreFv(void);
-int show_radar__13TRaderMapCoreFv(void);
-s32 free_map_data__13TRaderMapCoreFv();
-s32 find_entry__23TAdSinglePlyChrSelectGCFl(s32, ItemData_801E7810 *);
 s32 get_character_save_record(u32);
 s32 get_floor_map_terrain(int);
 s32 request_story_select_state(int);
-s32 set_state__16TAdStorySelectGCFl(s32);
 void TLobby__sub_80207F30(Spawn_801EA508 *);
 s32 clear_floor_event_flags();
-s32 init_sub_objects__6TLobbyFv();
-int count_quest_enemies_flag8__6TLobbyFv(void);
 s32 is_room_enemy_set_cleared(int, int, void *);
 s32 unhide_enemies_at__6TLobbyFiii(s32, s32, s32, s32);
 void unhide_room_set_objects(s32 a, s16 b, s16 c, s32 d);
-s32 reset_id_tables__6TLobbyFv();
 s32 TCheckRoomSequence__sub_80210D44(Item_801EE0BC *, s32);
 s32 handle_main_phase__6TLobbyFl();
 void try_close__6TLobbyFPv(Tag_801EB10C *);
@@ -2689,7 +2661,6 @@ void set_area__6TLobbyFl(void *, int, int);
 void tokenize_args__6TLobbyFPvPv(Card_801EB10C *, char *);
 void parse_csv_line__6TLobbyFPvPv(void *, void *);
 Card_801EB10C * construct__13TUnk_804CC048FPvPvPv(void *, void *, void *, void *);
-void trim_whitespace__6TLobbyFv(char *);
 u8 is_floor_switch_set(int, int);
 u8 is_current_floor_switch_set(int);
 s32 clear_current_floor_switch(int);
@@ -2698,13 +2669,9 @@ s32 init_switch_table();
 s32 update_all_task_lists__9TMainTaskFv(s32 *);
 s32 clear_all_flag3__9TMainTaskFv(s32 *);
 void * __nw__7TObjectFUl(u32);
-s32 apply_all_players__9TTecLukerFv();
-void create_for_player__9TTecLukerFil(int, Vec_801F0034 *);
 s32 create_quest_telepipe_for_client(int);
 s32 TWindow__close(void*);
-void set_field_1c__6TLobbyFf(s32 win, f32 v);
 s32 request_active_window_close();
-void clear_flag__11TWindowCtrlFv(void);
 s32 set_timer_window_time__11TWindowCtrlFv(int, void *);
 int close_timer_window__11TWindowCtrlFv(void*);
 int create_alt_timer__11TWindowCtrlFv(void*);
@@ -2713,20 +2680,15 @@ int TObjPlayer__sub_8024ABDC(void*);
 s32 TLobby__sub_8024AC20(void *);
 int set_flag_bit2__11TWindowCtrlFv(void);
 void clear_flag_bit2__11TWindowCtrlFv(void);
-int suppress_slot__11TWindowCtrlFv(void*);
-int unsuppress_slot__11TWindowCtrlFv(void*);
 void set_field28__11TWindowCtrlFs(u16);
 s32 close_windows_by_flags__11TWindowCtrlFUs(int, void *);
-void open__11TWindowCtrlFlll(s32, s32, s32);
 void open_default__11TWindowCtrlFi(u16, s32);
 s32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 void align_menu_entry_positions(s32 win);
 void calc_window_size__17TWindowSubComCardFPv(s32 win);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32 win, char *name, s32 kind, s32 i);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 a, s32 b);
-void send_and_handle__6TLobbyFii(void*, s32, s32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32, Pair_801F1838 *);
-void set_field_90__6TLobbyFl(void *, s32);
 s32 dispatch_message_window_text(int, int, int);
 void * create_quest_message_window_at(Vec2_801E74D0 *, Vec2_801E74D0 *);
 u32 create_quest_message_window();
@@ -2737,49 +2699,31 @@ s32 create_equip_kind_window(s32, s32 *, s32);
 s32 update_screen__6TLobbyFv();
 s32 set_challenge_split_flag__6TLobbyFv();
 s32 TLobby__sub_80291DF8(int);
-s32 get_normalized_mode__6TLobbyFv();
 s32 TLobby__sub_80291EAC(s32);
-s32 draw_if_ready2__6TLobbyFv();
-s32 check_ready_status__6TLobbyFv();
-s32 reset_menu_state_globals__6TLobbyFv();
 s32 TLobby__sub_8029204C();
 s32 TLobby__sub_80292200(int);
 void TLobby__sub_80292268(void *, void *, s32);
 s32 TLobby__sub_80292270(s32, s32);
 s32 TLobby__sub_802924B4(Item_801EBF30 *, u16);
-void set_encoded_name_and_color__6TLobbyFPUcl(void *, s32);
-s32 update_challenge_timer__6TLobbyFl(int);
-void set_camera_height_if_valid__6TLobbyFf(f32);
-s32 try_set_split_screen__6TLobbyFl(s32);
-s32 rebuild_players_for_stage__6TLobbyFl(s32);
-s32 clamp_and_store_layout_index__6TLobbyFl(u32);
 s32 TLobby__sub_8029299C();
 s32 TLobby__sub_80292A34();
-s32 is_not_split_screen__13TRaderMapCoreFv(void);
-void init_instance_with_text__19TPlayerBattleCtrl4PFll(s32, s32);
 int destroy_singleton__6TLobbyFv(void*);
 int init_graph__6TLobbyFv(void*);
 s32 send_data__6TLobbyFi(s32);
 int update_alloc_size__6TLobbyFv(void*);
 int get_selected_slot__6TLobbyFv(void*);
 void update_gba_joyboot_transfer();
-s32 set_send_buffer__6TLobbyFPUcl(s32, s32);
 s32 TLobby__sub_8032CDEC();
 void update_entries__18TChallenge4PResultFii(ItemData_801E72B4 *, s32);
 s32 update_challenge_result_player_locks();
-s32 create__18TChallenge4PResultFil(int, int);
-s32 clear_slot_entries__18TChallenge4PResultFv();
 s32 fn_8034D3D0(u8 *, f32, s32, s32, s32, Vec3_801E915C *, s32);
 s32 fn_8034D790(u8 *, f32, s32, s32, s32, Vec3_801E9274 *);
 s32 set_partner_dialogue_override(u32, int, int);
 s32 TLobby__sub_8034DAA0(int, int, void *);
-void copy_entry_by_index__10TNpcPlayerFl(Npc_801F1450 *, s32);
 int notify_all_battle_players__10TObjPlayerFv(void*);
 int update_4p_battle_ctrls__10TObjPlayerFv(void*);
 s32 set_partner_common_remark(int, int);
 int clear_partner_dialogue_flags(void*);
-void send_code_45_to_player__10TNpcPlayerFi(u16);
-void play_effect__10TNpcPlayerFi(u16);
 void quest_player_face_actor(u16, u16);
 void quest_player_look_at_partner(u16);
 void send_stop_at_position__10TNpcPlayerFUsPvs(u16, Vec_801F0458 *, s32);
@@ -2790,7 +2734,6 @@ void send_inter_level_warp_all__10TNpcPlayerFl();
 s32 send_npc_control_6x69__10TNpcPlayerFs(int);
 s32 send_npc_stop_6x69__10TNpcPlayerFs(int);
 void send_npc_control_create__10TNpcPlayerFsUssPUcl(u16, u16, s32, Vec_801F12F0 *, s32);
-void create_companion__10TNpcPlayerFUsUslPfl(u16 leader, u16 slot, int appearance, f32* pos, int heading);
 void create_default_companion__10TNpcPlayerFssPUcl(u16 leader, int appearance, f32* pos, int heading);
 s32 send_npc_control_notify_players__10TNpcPlayerFsUss(s32, s32, s32);
 s32 send_npc_create__10TNpcPlayerFss(int, int);
@@ -2802,7 +2745,6 @@ s32 TObjPlayer__sub_80354CCC(int);
 s32 TObjPlayer__sub_80354D14(int);
 s32 TObjPlayer__sub_80354DAC(int);
 s32 TObjPlayer__sub_80354DF4(int);
-void set_timer__6TLobbyFf(void *, f32);
 void * open_message_scroll_window__6TLobbyFlll(Vec2_801E717C *, Vec2_801E717C *, void *);
 void fn_80364C40(void *, s32, s32, f32);
 s32 rand(void);
@@ -2811,7 +2753,6 @@ s32 strcmp(void *, void *);
 s32 strncpy(void *, int, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-s32 move_data__6TLobbyFPCvUl(void *, void *, int);
 int TLobby__sub_803DF1CC(void);
 
 extern E_801EB484 TLobby__duel_result_table[];
@@ -2930,9 +2871,9 @@ void open_scroll_message_window__6TLobbyFv(void) {
     size.x = lbl_805DC4B8 + (f32)(cols * 0x12);
     size.y = (lbl_805DC4BC + (f32)(rows * 0x14)) - lbl_805DC4C0;
     win = open_message_scroll_window__6TLobbyFlll(&pos, &size, (void *)((*(s32 *)&TLobby__script_reg_array) + msg * 4));
-    set_field_90__6TLobbyFl(win, field90);
+    ((TLobby *)win)->set_field_90(field90);
     ((void (*)(void *, s32, s32))dispatch_message_window_text)(win, arg, 0x13);
-    set_timer__6TLobbyFf(win, timer);
+    ((TLobby *)win)->set_timer(timer);
     (*(void * *)&TLobby__quest_message_window) = win;
 }
 
@@ -2987,8 +2928,8 @@ void TLobby__sub_801E7408(void) {
         set_field28__11TWindowCtrlFs(id);
         return;
     }
-    start = get_game_mode__6TLobbyFv();
-    end = start + get_lobby_flag__6TLobbyFv();
+    start = TLobby::get_game_mode();
+    end = start + TLobby::get_lobby_flag();
     for (i = start; i < end; i++) {
         player = get_player_data__10TObjPlayerFi(i);
         if (player != NULL) {
@@ -3025,13 +2966,13 @@ void open_quest_message_window__6TLobbyFv(void) {
     size.x = lbl_805DC4B8 + (f32)(cols * 0x12);
     size.y = (lbl_805DC4BC + (f32)(rows * 0x14)) - lbl_805DC4C0;
     (*(void * *)&TLobby__quest_message_window) = create_quest_message_window_at(&pos, &size);
-    set_field_90__6TLobbyFl((*(void * *)&TLobby__quest_message_window), field90);
+    ((TLobby *)(*(void * *)&TLobby__quest_message_window))->set_field_90(field90);
     ((void (*)(void *, s32, s32))dispatch_message_window_text)((*(void * *)&TLobby__quest_message_window), arg, 3);
     (*(s32 *)&TLobby__quest_window_state) = 4;
     ((void (*)(void))set_flag_bit2__11TWindowCtrlFv)();
     ((void (*)(s32))close_window_if_active)(local_client_id);
     ((void (*)(void))request_active_window_close)();
-    ((void (*)(void))set_close_flag__11TWindowCtrlFv)();
+    TWindowCtrl::set_close_flag();
 }
 
 void spawn_lobby_object__6TLobbyFv(void) {
@@ -3046,7 +2987,7 @@ void spawn_lobby_object__6TLobbyFv(void) {
     }
 }
 
-void close_active_window__6TLobbyFi(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = -1; TLobby__active_window_index = a0; TLobby__quest_window_state = 12; set_flag_bit2__11TWindowCtrlFv(); ((int (*)(void*))close_window_if_active)((void*)((*(int *)&local_client_id))); ((int (*)(void))request_active_window_close)(); ((int (*)(void))set_close_flag__11TWindowCtrlFv)(); }
+void close_active_window__6TLobbyFi(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = -1; TLobby__active_window_index = a0; TLobby__quest_window_state = 12; set_flag_bit2__11TWindowCtrlFv(); ((int (*)(void*))close_window_if_active)((void*)((*(int *)&local_client_id))); ((int (*)(void))request_active_window_close)(); TWindowCtrl::set_close_flag(); }
 
 void op_play_sound_from_reg__6TLobbyFi(s32 arg0) {
     if ((u32) TLobby__quest_state_object_16c != 0U) {
@@ -3072,7 +3013,7 @@ void send_data__6TLobbyFv(void) {
     temp_r31 = (*(struct Glob_80512220 *)&TLobby__quest_argument_stack).field0;
     free_luker_object__6TLobbyFv();
     send_data__6TLobbyFi(temp_r31);
-    set_send_buffer__6TLobbyFPUcl(gba_download_data_buffer, gba_download_data_size);
+    TLobby::set_send_buffer((u8 *)gba_download_data_buffer, (s32)gba_download_data_size);
     clear_quest_vm_flag__6TLobbyFv();
 }
 
@@ -3098,7 +3039,7 @@ void TLobby__sub_801E7810(u8 i, u8 out) {
         item.data1[1] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
         item.data1[2] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++];
         item.data1[4] = ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i];
-        if (find_entry__23TAdSinglePlyChrSelectGCFl(card, &item) != 0) {
+        if (((TAdSinglePlyChrSelectGC *)card)->find_entry((s32)(&item)) != 0) {
             ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 1;
         } else {
             ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] = 0;
@@ -3176,7 +3117,7 @@ void TLobby__sub_801E7B64(void) {
     u8 *player = ((u8 * (*)(s32))get_player_by_client_id)((*(struct Glob_80512220 *)&TLobby__quest_argument_stack).field0);
     u8 i = *(s32 *)&(*(struct Glob_80512220 *)&TLobby__quest_argument_stack).pad[0];
     if (player != NULL) {
-        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = get_field_2b8__14TItemProShieldFv(player);
+        ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = ((TItemProShield *)player)->get_field_2b8();
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = obj_getS16_32C(player);
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i++] = obj_getS16_2BA(player);
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[i] = obj_getS16_32E(player);
@@ -3260,7 +3201,7 @@ void wrap_item_as_present__6TLobbyFv(void) {
     n = ((s32 *)&TLobby__quest_argument_stack)[1];
     obj = find_item_by_id(id);
     if (obj != NULL) {
-        copy_to_item_data__5TItemFPv(obj, &item);
+        ((TItem *)obj)->copy_to_item_data(&item);
     } else {
         return;
     }
@@ -3284,7 +3225,7 @@ void wrap_pending_item__6TLobbyFv(void) {
     id = ((s32 *)&TLobby__quest_argument_stack)[0];
     obj = find_item_by_id(id);
     if (obj != NULL) {
-        copy_to_item_data__5TItemFPv(obj, &item);
+        ((TItem *)obj)->copy_to_item_data(&item);
     } else {
         return;
     }
@@ -3305,7 +3246,7 @@ void copy_item_data_to_quest_buffer__6TLobbyFv(void) {
     r = ((s32 *)&TLobby__quest_argument_stack)[1];
     item = find_item_by_id(((s32 *)&TLobby__quest_argument_stack)[0]);
     if (item != NULL) {
-        ((void (*)(void *, ItemData_801E8000 *))copy_to_item_data__5TItemFPv)(item, &d);
+        ((TItem *)item)->copy_to_item_data(&d);
         TLobby__script_reg_array[r++] = d.b0;
         TLobby__script_reg_array[r++] = d.b1;
         TLobby__script_reg_array[r++] = d.b2;
@@ -3901,7 +3842,6 @@ void set_fixed_camera_from_table__6TLobbyFv(void) {
 #pragma pop
 
 struct Vec3_801E94CC { f32 x, y, z; };
-void set_position_from__14TBoss4DarkFalzFPv(u32, Vec3_801E94CC *);
 u32 find_by_id__13TQuestColCtrlFUs(u16);
 void set_quest_object_position__6TLobbyFii(s32 i, s32 k) {
     Vec3_801E94CC v;
@@ -3910,7 +3850,7 @@ void set_quest_object_position__6TLobbyFii(s32 i, s32 k) {
     v.z = TLobby__script_reg_array[(u8)k];
     u32 r = find_by_id__13TQuestColCtrlFUs((u16)TLobby__script_reg_array[(u8)i]);
     if (r != 0) {
-        set_position_from__14TBoss4DarkFalzFPv(r, &v);
+        ((TBoss4DarkFalz *)r)->set_position_from(&v);
     }
 }
 
@@ -4070,8 +4010,6 @@ struct Move_801E989C {
     f32 z;
     u8 pad[4];
 };
-void reset_model__10TNpcPlayerFv(Move_801E989C *);
-void reset_move_state__10TNpcPlayerFv(Move_801E989C *);
 void TLobby__sub_801E989C(u8 arg0) {
     Move_801E989C m;
     f32 x;
@@ -4085,11 +4023,11 @@ void TLobby__sub_801E989C(u8 arg0) {
     z = TLobby__script_reg_array[i++];
     id = TLobby__script_reg_array[i];
     if (get_player_by_client_id(id) != 0) {
-        reset_move_state__10TNpcPlayerFv(&m);
+        ((TNpcPlayer *)(&m))->reset_move_state();
         m.id = id;
         m.x = x;
         m.z = z;
-        reset_model__10TNpcPlayerFv(&m);
+        ((TNpcPlayer *)(&m))->reset_model();
     }
 }
 
@@ -4115,7 +4053,7 @@ void TLobby__sub_801E99A0(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void reset_random_enemies_mode__6TLobbyFv(void) { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
+void reset_random_enemies_mode__6TLobbyFv(void) { TLobby::clear_counter(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
 #pragma pop
 
 #pragma push
@@ -4125,7 +4063,7 @@ void reset_random_enemies_mode__6TLobbyFv(void) { clear_counter__6TLobbyFv(); ev
 void create_hunter_guild_seq__6TLobbyFv(void) {
     void *temp_r3;
     if ((is_quest_active() == 1) && ((temp_r3 = (void*)((u32 (*)(s32))__nw__7TObjectFUl)(0x28)) != 0U)) {
-        init__22THunterGuildSeqOfflineFPvPv(temp_r3, tl_00, (s32 *)reset_random_enemies_mode__6TLobbyFv);
+        ((THunterGuildSeqOffline *)temp_r3)->init((void *)tl_00, (void *)reset_random_enemies_mode__6TLobbyFv);
     }
 }
 #pragma pop
@@ -4149,10 +4087,10 @@ void TLobby__sub_801E9A50(s32 arg0) {
 #pragma dont_inline off
 void create_challenge_4p_results__6TLobbyFUc(u8 arg0) {
     s32 i;
-    clear_slot_entries__18TChallenge4PResultFv();
+    TChallenge4PResult::clear_slot_entries();
     i = 0;
     do {
-        create__18TChallenge4PResultFil((u16)i, (*(s32 * *)&TLobby__script_reg_array)[arg0]);
+        TChallenge4PResult::create((u16)i, (*(s32 * *)&TLobby__script_reg_array)[arg0]);
         i += 1;
     } while (i < 4);
 }
@@ -4180,7 +4118,7 @@ void TLobby__sub_801E9AF8(s32 idx) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void update_and_apply_alloc__6TLobbyFv(void) { update_alloc_size__6TLobbyFv((void*)0); ((int (*)(void*, void*))set_send_buffer__6TLobbyFPUcl)((void*)((*(int *)&gba_download_data_buffer)), (void*)((*(int *)&gba_download_data_size))); }
+void update_and_apply_alloc__6TLobbyFv(void) { update_alloc_size__6TLobbyFv((void*)0); TLobby::set_send_buffer((u8 *)(*(int *)&gba_download_data_buffer), (s32)((void*)((*(int *)&gba_download_data_size)))); }
 #pragma pop
 
 #pragma push
@@ -4218,13 +4156,13 @@ void TLobby__sub_801E9C40(void) {
 void set_story_select__6TLobbyFi(s32 arg0) {
     switch (arg0) {
     case 0:
-        set_state__16TAdStorySelectGCFl(0);
+        TAdStorySelectGC::set_state(0);
         return;
     case 1:
-        set_state__16TAdStorySelectGCFl(1);
+        TAdStorySelectGC::set_state(1);
         return;
     default:
-        set_state__16TAdStorySelectGCFl(0);
+        TAdStorySelectGC::set_state(0);
         return;
     }
 }
@@ -4315,7 +4253,7 @@ void TLobby__sub_801E9DEC(u8 out) {
     if (fn_80077788() == 1) {
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] |= 4;
     }
-    if (get_drop_flag__6TLobbyFv() == 1) {
+    if (TLobby::get_drop_flag() == 1) {
         ((s32 *)(*(s32 *)&TLobby__script_reg_array))[out] |= 8;
     }
     player = ((u8 *)((u32 (*)(int))get_player_by_client_id)((int)(local_client_id)));
@@ -4418,7 +4356,7 @@ void set_unit_name_flag__6TLobbyFi(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void set_handler__6TLobbyFi(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = ((int (*)(void))get_game_mode__6TLobbyFv)(); }
+void set_handler__6TLobbyFi(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::get_game_mode(); }
 #pragma pop
 
 u8 *TWindowSubStatusDisp__sub_8006F134(s32, s32);
@@ -4579,7 +4517,7 @@ void spawn_symbolchat_colli__6TLobbyFUc(u8 i) {
     symbolchat_colli_param_table[0] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)TLobby__script_reg_array[i++]);
     symbolchat_colli_param_table[1] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)TLobby__script_reg_array[i++]);
     symbolchat_colli_param_table[2] = ((int (*)(int))get_indexed_offset__6TLobbyFi)((u16)TLobby__script_reg_array[i]);
-    create__17TOSymbolchatColliFPv(&s);
+    TOSymbolchatColli::create(&s);
     symbolchat_colli_param_table[1] = 0;
     symbolchat_colli_param_table[0] = 0;
     symbolchat_colli_param_table[2] = 0;
@@ -4630,7 +4568,7 @@ void TLobby__sub_801EA5FC(u8 arg0) {
     s32 idx = (*(int * *)&TLobby__script_reg_array)[arg0];
     Ctx_801EA5FC *w = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (w != NULL && idx >= 0 && idx < 0xFD) {
-        move_data__6TLobbyFPCvUl(&w->buf[idx], &TLobby__data_805D5EC4, 4);
+        ((TLobby *)(&w->buf[idx]))->move_data(&TLobby__data_805D5EC4, 4);
     }
 }
 #pragma pop
@@ -4674,7 +4612,7 @@ void get_or_create_handle__6TLobbyFv(void) {
 #pragma dont_inline off
 void TLobby__sub_801EA690(s32 arg0) {
     if (is_split_screen() == 1) {
-        if (get_normalized_mode__6TLobbyFv() != 0) {
+        if (TLobby::get_normalized_mode() != 0) {
             *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
             return;
         }
@@ -4792,7 +4730,7 @@ void load_setting_13_from_table__6TLobbyFv(void) {
 #pragma dont_inline off
 void draw_or_send__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
-        draw_if_ready2__6TLobbyFv();
+        TLobby::draw_if_ready2();
         return;
     }
     draw_if_ready__6TLobbyFv();
@@ -4815,7 +4753,7 @@ void draw_or_send__6TLobbyFv(void) {
 void TLobby__sub_801EA84C(s32 arg0) {
     s32 var_r3;
     if (is_split_screen() == 1) {
-        var_r3 = check_ready_status__6TLobbyFv();
+        var_r3 = TLobby::check_ready_status();
     } else {
         var_r3 = check_ready_state__6TLobbyFv();
     }
@@ -4852,13 +4790,13 @@ void TLobby__sub_801EA8E8(void) {
         clear_buffer__12TQuestThreadFPv(quest_mission_manager);
     }
     destroy_children_with_tag(tl_00);
-    init_sub_objects__6TLobbyFv();
-    reset_id_tables__6TLobbyFv();
+    TLobby::init_sub_objects();
+    TLobby::reset_id_tables();
     clear_floor_event_flags();
     init_switch_table();
-    free_map_data__13TRaderMapCoreFv();
+    TRaderMapCore::free_map_data();
     if (is_split_screen() == 1) {
-        reset_menu_state_globals__6TLobbyFv();
+        TLobby::reset_menu_state_globals();
         return;
     }
     TLobby__sub_80070C50();
@@ -5007,7 +4945,7 @@ void broadcast_entry__6TLobbyFi(s32 arg0) {
     if (temp_r3 != 0U) {
         sp8 = *(const ByteBlock_30 *)(temp_r3 - 4 + 4);
         bswap_entry_words__6TLobbyFi((s32) &sp8);
-        broadcast__6TLobbyFPv(&sp8);
+        TLobby::broadcast(&sp8);
     }
 }
 #pragma pop
@@ -5031,7 +4969,7 @@ void TLobby__sub_801EAB90(s32 arg0) {
     temp_r3 = ((int (*)(int))get_indexed_offset__6TLobbyFi)(arg0);
     if (temp_r3 != 0U) {
         sp8 = *(const ByteBlock_20 *)(temp_r3 - 4 + 4);
-        swap_endian__6TLobbyFv(&sp8);
+        ((TLobby *)(&sp8))->swap_endian();
         TLobby__sub_8001DE30(&sp8);
     }
 }
@@ -5056,8 +4994,8 @@ void TLobby__sub_801EABEC(s32 arg0) {
     temp_r3 = ((int (*)(int))get_indexed_offset__6TLobbyFi)(arg0);
     if (temp_r3 != 0U) {
         sp8 = *(const ByteBlock_30 *)(temp_r3 - 4 + 4);
-        byteswap_packet__6TLobbyFv(&sp8);
-        copy_all_entries__6TLobbyFPv(&sp8);
+        ((TLobby *)(&sp8))->byteswap_packet();
+        TLobby::copy_all_entries(&sp8);
     }
 }
 #pragma pop
@@ -5085,7 +5023,7 @@ void TLobby__sub_801EAC48(int _w0) {
         temp_r4 = temp_r3 - 4;
         *(ByteBlock_24 *)(copy_storage_801EAC48.bytes) = *(const ByteBlock_24 *)(temp_r4 + 4);
         bswap__12player_statsFv((void *) ((copy_storage_801EAC48.bytes)));
-        copy_data__6TLobbyFPv((void *) ((copy_storage_801EAC48.bytes)));
+        TLobby::copy_data((void *) ((copy_storage_801EAC48.bytes)));
     }
 }
 #pragma pop
@@ -5134,7 +5072,7 @@ void spawn_chat_sensor__6TLobbyFv(void) {
     s.c = (*(int * *)&TLobby__script_reg_array)[i];
     sensor = TOChatSensor__create((Spawn_801EA508 *)(&s));
     if (sensor != NULL) {
-        set_trigger_text__12TOChatSensorFPv(sensor, arg);
+        ((TOChatSensor *)sensor)->set_trigger_text((void *)arg);
     }
 }
 #pragma pop
@@ -5226,7 +5164,7 @@ void TLobby__sub_801EB10C(void) {
         card = construct__13TUnk_804CC048FPvPvPv(card, 0, 0, 0);
     }
     strncpy(buf, (int)src, 0x3FF);
-    trim_whitespace__6TLobbyFv(buf);
+    ((TLobby *)buf)->trim_whitespace();
     tokenize_args__6TLobbyFPvPv(card, buf);
     if (*(s32 *)((u8 *)card + 0x109C) > 2) {
         if (card != NULL) {
@@ -5425,7 +5363,7 @@ void write_state_s32_to_buffer__6TLobbyFv(void) {
     s32 v = (*(Glob_801EB508 *)&TLobby__quest_argument_stack).f4;
     Ctx_801EB508 *w = ((Ctx_801EB508 *)((s32 (*)(void))get_global_state__23TAdSinglePlyChrSelectGCFv)());
     if (w != NULL && i < 0xFD) {
-        move_data__6TLobbyFPCvUl(&w->buf[i], &v, 4);
+        ((TLobby *)(&w->buf[i]))->move_data(&v, 4);
     }
 }
 #pragma pop
@@ -5543,7 +5481,7 @@ void write_state_s16_to_buffer__6TLobbyFv(void) {
     s16 v = (*(Glob_801EB658 *)&TLobby__quest_argument_stack).f4;
     Ctx_801EB658 *w = ((Ctx_801EB658 *)((s32 (*)(void))get_global_state__23TAdSinglePlyChrSelectGCFv)());
     if (w != NULL && i < 0xFF) {
-        move_data__6TLobbyFPCvUl(&w->buf[i], &v, 2);
+        ((TLobby *)(&w->buf[i]))->move_data(&v, 2);
     }
 }
 #pragma pop
@@ -5910,7 +5848,7 @@ void TLobby__sub_801EBD40(void) {
         card = ((Card_801EBD40 *)construct__13TUnk_804CC048FPvPvPv(card, 0, 0, 0));
     }
     strncpy(buf, (int)src, 0x1FF);
-    trim_whitespace__6TLobbyFv(buf);
+    ((TLobby *)buf)->trim_whitespace();
     tokenize_args__6TLobbyFPvPv((Card_801EB10C *)(card), (char *)(buf));
     if (*(s32 *)((u8 *)card + 0x109C) == 2) {
         if (is_split_screen() == 1) {
@@ -5939,7 +5877,7 @@ void TLobby__sub_801EBD40(void) {
 #pragma auto_inline off
 #pragma dont_inline off
 void store_boss_phase_flag__6TLobbyFi(s32 arg0) {
-    if (is_boss_phase_reached__6TLobbyFv() != 0) {
+    if (TLobby::is_boss_phase_reached() != 0) {
         *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 1;
         return;
     }
@@ -6232,7 +6170,7 @@ void TLobby__sub_801EC43C(void) {
     temp_r31 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC43C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0);
     temp_r30 = (u8 *)(*(u8 **)((s8 *)(&(*(RecoveredGlobal_801EC43C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4));
     if (is_split_screen() == 1) {
-        set_encoded_name_and_color__6TLobbyFPUcl(temp_r30, temp_r31);
+        TLobby::set_encoded_name_and_color(temp_r30, temp_r31);
         return;
     }
     set_player_name_and_color__6TLobbyFPvi(temp_r30, temp_r31);
@@ -6266,7 +6204,6 @@ void write_mag_stats__6TLobbyFi(s32 i) {
 }
 #pragma pop
 
-s32 isValidGroundDrop__9TItemDataFv(void *);
 void TItemData__sub_8010CA08(Item_801EBF30 *, s32, s32);
 void give_pending_item_to_local_player__6TLobbyFv(void) {
     Item_801EBF30 item;
@@ -6277,7 +6214,7 @@ void give_pending_item_to_local_player__6TLobbyFv(void) {
         void *player = (void *)get_player_by_client_id(id);
         if (player != NULL) {
             TItemData__sub_8010CA08(&item, a, (u8)TLobby__script_reg_array[r]);
-            if (isValidGroundDrop__9TItemDataFv(&item) == 1 && can_inventory_accept_item__10TObjPlayerFPvPv(player, (Item_801EEE68 *)&item) > 0) {
+            if (((TItemData *)(&item))->isValidGroundDrop() == 1 && can_inventory_accept_item__10TObjPlayerFPvPv(player, (Item_801EEE68 *)&item) > 0) {
                 ((TObjPlayer *)player)->request_inventory_item((TItemData*)((Item_801EEE68 *)&item));
             }
         }
@@ -6382,7 +6319,7 @@ void load_setting_17_from_table__6TLobbyFv(void) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801EC694(void) {
-    open_menu__13TItemMenuCtrlFUl((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
+    TItemMenuCtrl::open_menu((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
 #pragma pop
 
@@ -6420,7 +6357,7 @@ void update_main_phase__6TLobbyFv(int _w0, int _w1) {
 #pragma auto_inline off
 #pragma dont_inline off
 void handle_player_event_from_data__6TLobbyFv(void) {
-    handle_player_event__6TLobbyFll((int) ((u16) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)));
+    TLobby::handle_player_event((int) ((u16) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_801EC6F0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4)));
 }
 #pragma pop
 
@@ -6444,7 +6381,7 @@ void forward_item_to_player__6TLobbyFUc(u8 i) {
     item.a = (*(int * *)&TLobby__script_reg_array)[i++];
     item.b = (*(int * *)&TLobby__script_reg_array)[i++];
     item.c = (*(int * *)&TLobby__script_reg_array)[i++];
-    forward_to_player__6TLobbyFiPv(id, &item);
+    TLobby::forward_to_player(id, &item);
 }
 #pragma pop
 
@@ -6498,10 +6435,10 @@ void dispatch_first_player__6TLobbyFv(void) {
 
     temp_r31 = ((s32 *)&TLobby__quest_argument_stack)[0];
     if (is_split_screen() == 1) {
-        set_name_string__6TLobbyFv(temp_r31);
+        ((TLobby *)temp_r31)->set_name_string();
         return;
     }
-    set_name_string__6TLobbyFv(temp_r31);
+    ((TLobby *)temp_r31)->set_name_string();
 }
 #pragma pop
 
@@ -6920,7 +6857,7 @@ void TLobby__sub_801ECEA8(s32 a) {
 #pragma dont_inline off
 void TLobby__sub_801ECF2C(s32 arg0) {
     if (is_split_screen() == 1) {
-        update_challenge_timer__6TLobbyFl((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
+        TLobby::update_challenge_timer((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
         return;
     }
     TLobby__sub_80071064((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
@@ -7136,13 +7073,13 @@ void send_6x05_switch_changed_off__6TLobbyFv(void) {
     Pkt_801ED300 pkt;
     s32 x = ((s32 *)&TLobby__quest_argument_stack)[0];
     s32 y = ((s32 *)&TLobby__quest_argument_stack)[1];
-    init_6x05_switch_changed__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->init_6x05_switch_changed();
     pkt.a = 0xFFFF;
     pkt.b = 0;
     pkt.c = y;
     pkt.d = x;
     pkt.e = 0;
-    finalize_and_send_60__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 #pragma pop
 
@@ -7163,13 +7100,13 @@ void send_6x05_switch_changed_on__6TLobbyFv(void) {
     Pkt_801ED360 pkt;
     s32 x = ((s32 *)&TLobby__quest_argument_stack)[0];
     s32 y = ((s32 *)&TLobby__quest_argument_stack)[1];
-    init_6x05_switch_changed__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->init_6x05_switch_changed();
     pkt.a = 0xFFFF;
     pkt.b = 0;
     pkt.c = y;
     pkt.d = x;
     pkt.e = 1;
-    finalize_and_send_60__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 #pragma pop
 
@@ -7237,9 +7174,9 @@ void warp_player_to_area__6TLobbyFii(s32 a, s32 b) {
     if (r != 0 && local_client_id == (*(s32 * *)&TLobby__script_reg_array)[(u8)a]) {
         set_area__6TLobbyFl(lbl_80515BA0, (*(s32 * *)&TLobby__script_reg_array)[(u8)b], get_floor_map_terrain((*(s32 * *)&TLobby__script_reg_array)[(u8)b]));
         mark_area_change_pending();
-        get_dest_area__17TObjAreaWarpQuestFv(lbl_80515BA0);
+        ((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area();
         send_inter_level_warp_all__10TNpcPlayerFl();
-        send_6x21_inter_level_warp(r, (void *)get_dest_area__17TObjAreaWarpQuestFv(lbl_80515BA0));
+        send_6x21_inter_level_warp(r, (void *)((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area());
     }
 }
 #pragma pop
@@ -7340,10 +7277,10 @@ void TLobby__sub_801ED60C(s32 a) {
     f32 v = (f32)TLobby__script_reg_array[(u8)a];
     v += (f32)TLobby__script_reg_array[(u8)b] / (f32)TLobby__script_reg_array[(u8)++b];
     if (is_split_screen() == 1) {
-        set_camera_height_if_valid__6TLobbyFf(v);
+        TLobby::set_camera_height_if_valid(v);
         return;
     }
-    try_set_value__6TLobbyFf(v);
+    TLobby::try_set_value(v);
 }
 #pragma pop
 
@@ -7352,10 +7289,10 @@ void dispatch_split_screen__6TLobbyFv(void) {
 
     temp_r31 = ((s32 *)&TLobby__quest_argument_stack)[0];
     if (is_split_screen() == 1) {
-        try_set_split_screen__6TLobbyFl(temp_r31);
+        TLobby::try_set_split_screen(temp_r31);
         return;
     }
-    set_split_screen_flag__6TLobbyFl(temp_r31);
+    TLobby::set_split_screen_flag(temp_r31);
 }
 
 void update_split_screen_camera__6TLobbyFv(void) {
@@ -7363,7 +7300,7 @@ void update_split_screen_camera__6TLobbyFv(void) {
 
     temp_r31 = (*(struct Glob_80512220 *)&TLobby__quest_argument_stack).field0;
     if (is_split_screen() == 1) {
-        rebuild_players_for_stage__6TLobbyFl(temp_r31);
+        TLobby::rebuild_players_for_stage(temp_r31);
         return;
     }
     TObjPlayer::rebuild_players_for_stage(temp_r31);
@@ -7414,10 +7351,10 @@ void apply_player_count__6TLobbyFv(void) {
     temp_r31 = get_layout_id__20TWindowSubStatusDispFv(-1);
     if (is_split_screen() == 1) {
         if (temp_r30 < temp_r31) {
-            clamp_and_store_layout_index__6TLobbyFl(temp_r30);
+            TLobby::clamp_and_store_layout_index(temp_r30);
             return;
         }
-        clamp_and_store_layout_index__6TLobbyFl(0U);
+        TLobby::clamp_and_store_layout_index(0U);
         return;
     }
     if (temp_r30 < temp_r31) {
@@ -7435,8 +7372,8 @@ void apply_player_count__6TLobbyFv(void) {
 void TLobby__sub_801ED938(void) {
     s32 temp_r31;
     temp_r31 = (*(RecoveredGlobal_801ED938_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        init_instance_with_text__19TPlayerBattleCtrl4PFll((s32) &(*(RecoveredGlobal_801ED938_TLobby__data_80512360 *)&TLobby__data_80512360).value, temp_r31);
+    if (TRaderMapCore::is_not_split_screen() == 1) {
+        TPlayerBattleCtrl4P::init_instance_with_text((s32) &(*(RecoveredGlobal_801ED938_TLobby__data_80512360 *)&TLobby__data_80512360).value, temp_r31);
         return;
     }
     init_battle_ctrl__6TLobbyFii((s32) &(*(RecoveredGlobal_801ED938_TLobby__data_80512360 *)&TLobby__data_80512360).value, temp_r31);
@@ -7696,13 +7633,13 @@ void create_quest_bgm_ctrl__6TLobbyFv(void) {
 
 void send_switch_changed_from_args__6TLobbyFi(s32 arg0) {
     Pkt_801EDF64 pkt;
-    init_6x05_switch_changed__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->init_6x05_switch_changed();
     pkt.b = 0;
     pkt.a = 0xFFFF;
     pkt.c = (*(s32* *)&TLobby__script_reg_array)[(u8)arg0++];
     pkt.d = (*(s32* *)&TLobby__script_reg_array)[(u8)arg0++];
     pkt.e = (*(s32* *)&TLobby__script_reg_array)[(u8)arg0];
-    finalize_and_send_60__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 
 void quest_vm_get_designated_client_id(u8 reg) {
@@ -7721,12 +7658,12 @@ void send_packet_67_04__6TLobbyFv(void) {
     Pkt_801EE048 pkt;
     s32 x = ((s32 *)&TLobby__quest_argument_stack)[0];
     s32 y = ((s32 *)&TLobby__quest_argument_stack)[1];
-    init_packet_67_04__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->init_packet_67_04();
     pkt.b = x;
     pkt.a = 0;
     pkt.c = y;
     pkt.d = 0;
-    byteswap_and_send__6TLobbyFv((s32)&pkt);
+    ((TLobby *)((s32)&pkt))->byteswap_and_send();
 }
 
 void TLobby__sub_801EE09C(void* p) { TBoss1Dragon::requestActionRefresh(); }
@@ -7854,12 +7791,12 @@ void qst_op_get_difficulty_level_v1__6TLobbyFi(s32 arg0) {
 void TLobby__sub_801EE54C(void) {
     Pkt_801EE54C pkt;
     s32 x = ((s32 *)&TLobby__quest_argument_stack)[0];
-    init_packet_67_04__6TLobbyFv(&pkt);
+    ((TLobby *)(&pkt))->init_packet_67_04();
     pkt.a = 0;
     pkt.b = get_current_floor();
     pkt.c = x;
     pkt.d = 0;
-    byteswap_and_send__6TLobbyFv((s32)&pkt);
+    ((TLobby *)((s32)&pkt))->byteswap_and_send();
 }
 
 void qst_op_clear_quest_board_handler(void) {
@@ -7889,7 +7826,7 @@ int qst_op_winend_time(void* p) { return close_timer_window__11TWindowCtrlFv(p);
 
 int create_alt_timer__6TLobbyFPv(void* p) { return create_alt_timer__11TWindowCtrlFv(p); }
 
-void open_door__6TLobbyFv(void) { reset_door_state__6TLobbyFv(); reset_instance__8TObjDoorFv(); }
+void open_door__6TLobbyFv(void) { TLobby::reset_door_state(); TObjDoor::reset_instance(); }
 
 void update_doors__6TLobbyFv(void) { TObjDoor__sub_801F3760(); TObjDoor__sub_801F3754(); }
 
@@ -7974,7 +7911,7 @@ void qst_op_item_delete2(u32 src, u32 dst) {
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
-                copy_to_item_data__5TItemFPv(owner, &item);
+                ((TItem *)owner)->copy_to_item_data(&item);
                 TLobby__script_reg_array[(u8)dst++] = item.data[0];
                 TLobby__script_reg_array[(u8)dst++] = item.data[1];
                 TLobby__script_reg_array[(u8)dst++] = item.data[2];
@@ -8013,7 +7950,7 @@ void qst_op_item_delete(u32 src, u32 dst) {
         if (slot != 0) {
             owner = get_owner_if_alive__10TObjPlayerFv(slot);
             if (owner != 0) {
-                copy_to_item_data__5TItemFPv(owner, &item);
+                ((TItem *)owner)->copy_to_item_data(&item);
                 TLobby__script_reg_array[(u8)dst++] = item.data[0];
                 TLobby__script_reg_array[(u8)dst++] = item.data[1];
                 TLobby__script_reg_array[(u8)dst++] = item.data[2];
@@ -8163,16 +8100,16 @@ void clear_active_bit_from_data__6TLobbyFv(void) {
 void qst_op_set_mainwarp(void) {
     s32 temp_r31;
     temp_r31 = (*(RecoveredGlobal_801EF298_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
-    set_active_bit__16TObjCityMainWarpFl((int) ((*(RecoveredGlobal_801EF298_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value));
-    set_main_warp_id__8TObjDoorFi((int) (temp_r31));
+    TObjCityMainWarp::set_active_bit((int) ((*(RecoveredGlobal_801EF298_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value));
+    TObjDoor::set_main_warp_id((int) (temp_r31));
 }
 
 void qst_op_force_bgm__6TLobbyFv(void) {
-    force_bgm__13TQuestBgmCtrlFi((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
+    TQuestBgmCtrl::force_bgm((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
 
 void qst_op_playbgm_epi(void) {
-    defer_bgm__13TQuestBgmCtrlFi((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
+    TQuestBgmCtrl::defer_bgm((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
 
 void qst_op_switch_off(void) {
@@ -8201,7 +8138,7 @@ void qst_op_npc_talk_pl(u8 arg0) {
     set.f30 = (*(s32 * *)&TLobby__script_reg_array)[i++];
     set.f34 = (*(s32 * *)&TLobby__script_reg_array)[i++];
     set.f38 = (*(s32 * *)&TLobby__script_reg_array)[i];
-    create_npc__6TLobbyFPv(&set);
+    TLobby::create_npc(&set);
 }
 
 void qst_op_p_talk_guild(void) {
@@ -8237,7 +8174,7 @@ void qst_op_nop_A0_debug(void) {
     }
     buf[0x1FF] = 0;
     ((void (*)(void *, void *, int))strncpy)(buf, s, 0x1FF);
-    ((void (*)(void *))trim_whitespace__6TLobbyFv)(buf);
+    ((TLobby *)buf)->trim_whitespace();
     parse_csv_line__6TLobbyFPvPv(o, buf);
     if (o->f109c != 2) {
         while (1) {}
@@ -8251,9 +8188,9 @@ int qst_op_cine_disable(void) { return reset_state__9TCineCtrlFl((void*)(0)); }
 
 int qst_op_cine_enable(void) { return reset__9TCineCtrlFl((void*)(0)); }
 
-void qst_op_hud_show(void) { unsuppress_slot__11TWindowCtrlFv((void*)((*(int *)&local_client_id))); show_radar__13TRaderMapCoreFv(); }
+void qst_op_hud_show(void) { ((TWindowCtrl *)(*(int *)&local_client_id))->unsuppress_slot(); TRaderMapCore::show_radar(); }
 
-void qst_op_hud_hide(void) { suppress_slot__11TWindowCtrlFv((void*)((*(int *)&local_client_id))); hide_radar__13TRaderMapCoreFv(); }
+void qst_op_hud_hide(void) { ((TWindowCtrl *)(*(int *)&local_client_id))->suppress_slot(); TRaderMapCore::hide_radar(); }
 
 int TLobby__sub_801EF748(void* p) { return notify_all_battle_players__10TObjPlayerFv(p); }
 
@@ -8378,7 +8315,7 @@ void qst_op_unhide_obj(s32 arg0) {
     unhide_room_set_objects(v0, (s16)v1, (s16)v2, arg0);
 }
 
-void qst_op_chk_ene_num(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = count_quest_enemies_flag8__6TLobbyFv(); }
+void qst_op_chk_ene_num(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::count_quest_enemies_flag8(); }
 
 void qst_op_if_zone_clear(s32 arg0, s32 arg1) {
     if (is_room_enemy_set_cleared((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC))), (int) ((s16) *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + (((arg1 + 1) * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array))) != 0) {
@@ -8415,7 +8352,7 @@ void qst_op_pos_pipe(u8 arg0) {
     point.x = (f32)TLobby__script_reg_array[i++];
     point.y = (f32)TLobby__script_reg_array[i++];
     point.z = (f32)TLobby__script_reg_array[i++];
-    create_for_player__9TTecLukerFil((u16)TLobby__script_reg_array[i], &point);
+    TTecLuker::create_for_player((int)((u16)TLobby__script_reg_array[i]), (s32)(&point));
 }
 
 void qst_op_create_pipe(void) {
@@ -8447,7 +8384,7 @@ void qst_op_p_enablewarp(void) {
 }
 
 void qst_op_p_disablewarp(void) {
-    apply_all_players__9TTecLukerFv();
+    TTecLuker::apply_all_players();
     foreach_player__10TObjPlayerFv((s32 *)((void *) fn_801F34A0));
 }
 
@@ -8497,7 +8434,7 @@ void qst_op_p_hpstat(void) {
     obj = (void *)((s32)get_player_by_client_id(player));
     if (obj != NULL) {
         hp = obj_getS16_32C((u8 *)(obj));
-        if (hp / get_field_2b8__14TItemProShieldFv((u8 *)(obj)) < limit) {
+        if (hp / ((TItemProShield *)obj)->get_field_2b8() < limit) {
             (*(int * *)&TLobby__script_reg_array)[reg] = 1;
             return;
         }
@@ -8545,22 +8482,20 @@ void spawn_particle_at_entity__6TLobbyFUc(u8 arg0) {
         v.y += dy;
         r = create_timed_particle_emitter(&v, kind, 0, extra);
         if (r != 0) {
-            set_flags__11TBoss4Type2FUl((void *)r, 0x40);
+            ((TBoss4Type2 *)r)->set_flags(0x40);
         }
     }
 }
 
-s32 get_load_result__15TAdPlayerLoadGCFPv(s32);
-s32 probe_card_slot__15TAdPlayerLoadGCFv(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, const char *);
 extern const char lbl_80449CC8[];
 void probe_character_save__6TLobbyFv(void) {
     u8 reg = ((s32 *)&TLobby__quest_argument_stack)[0];
     s32 ok = 0;
-    if (probe_card_slot__15TAdPlayerLoadGCFv(0) != 0 && find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_80449CC8) == 0 && get_load_result__15TAdPlayerLoadGCFPv(0) == 0) {
+    if (((TAdPlayerLoadGC *)0)->probe_card_slot() != 0 && find_card_file__15TAdPlayerLoadGCFiPv(0, lbl_80449CC8) == 0 && TAdPlayerLoadGC::get_load_result((void *)0) == 0) {
         ok = 1;
     }
-    if (ok == 0 && probe_card_slot__15TAdPlayerLoadGCFv(1) != 0 && find_card_file__15TAdPlayerLoadGCFiPv(1, lbl_80449CC8) == 0 && get_load_result__15TAdPlayerLoadGCFPv(1) == 0) {
+    if (ok == 0 && ((TAdPlayerLoadGC *)1)->probe_card_slot() != 0 && find_card_file__15TAdPlayerLoadGCFiPv(1, lbl_80449CC8) == 0 && TAdPlayerLoadGC::get_load_result((void *)1) == 0) {
         ok = 1;
     }
     TLobby__script_reg_array[reg] = ok;
@@ -8602,7 +8537,7 @@ void TLobby__sub_801F07D8(u8 arg0) {
     v.z = z;
     r = create_timed_particle_emitter(&v, kind, 0, extra);
     if (r != 0) {
-        set_flags__11TBoss4Type2FUl((void *)r, 0x40);
+        ((TBoss4Type2 *)r)->set_flags(0x40);
     }
 }
 
@@ -8635,7 +8570,7 @@ void spawn_flagged_particle_emitter__6TLobbyFv(void) {
     v.z = p[2];
     u32 r = create_timed_particle_emitter(&v, (*(Cfg_801F0970 *)&TLobby__quest_argument_stack).b, 0, (s32)(*(Cfg_801F0970 *)&TLobby__quest_argument_stack).c);
     if (r != 0) {
-        set_flags__11TBoss4Type2FUl((void*)r, 0x40);
+        ((TBoss4Type2 *)r)->set_flags(0x40);
     }
 }
 
@@ -8662,7 +8597,7 @@ void qst_op_pl_walk(u8 arg0) {
         if (obj->f30 & 0x100000) {
             cmd.flags |= 8;
         }
-        sync_from_lobby__10TNpcPlayerFv(&cmd);
+        ((TNpcPlayer *)(&cmd))->sync_from_lobby();
     }
 }
 
@@ -8675,11 +8610,11 @@ int qst_op_p_col(void* p) { return TObjHashiVersus2__sub_801912A4(p); }
 int qst_op_p_noncol(void* p) { return TObjHashiVersus2__sub_801912B0(p); }
 
 void qst_op_enable_movement1(void) {
-    send_code_45_to_player__10TNpcPlayerFi((u16) (*(RecoveredGlobal_801F0B48_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value);
+    TNpcPlayer::send_code_45_to_player((u16) (*(RecoveredGlobal_801F0B48_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value);
 }
 
 void qst_op_disable_movement1(void) {
-    play_effect__10TNpcPlayerFi((u16) (*(RecoveredGlobal_801F0B74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value);
+    TNpcPlayer::play_effect((u16) (*(RecoveredGlobal_801F0B74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value);
 }
 
 int qst_op_npc_talk(void* p) { return enable_partner_chatter__10TNpcPlayerFv(p); }
@@ -8726,7 +8661,7 @@ void qst_op_npc_crp_id(u8 first) {
     slot = TLobby__script_reg_array[i++];
     appearance = TLobby__script_reg_array[i++];
     free_luker_object__6TLobbyFv();
-    create_companion__10TNpcPlayerFUsUslPfl(leader, slot, appearance, pos, heading);
+    TNpcPlayer::create_companion(leader, slot, appearance, pos, heading);
     clear_quest_vm_flag__6TLobbyFv();
 }
 
@@ -8823,7 +8758,7 @@ void handle_spawn_npc_packet__6TLobbyFv(void) {
     s.b22 = TLobby__script_reg_array[i++];
     s.b23 = TLobby__script_reg_array[i++];
     s.f24 = TLobby__script_reg_array[i];
-    copy_entry_by_index__10TNpcPlayerFl(&s, arg);
+    ((TNpcPlayer *)(&s))->copy_entry_by_index(arg);
 }
 
 void qst_op_npc_crt(void) {
@@ -8845,8 +8780,8 @@ void qst_op_winend(void) {
     }
     clear_flag_bit2__11TWindowCtrlFv();
     TLobby__sub_8024AC20((void *) (local_client_id));
-    clear_flag__11TWindowCtrlFv();
-    clear_flag_2__11TWindowCtrlFv();
+    TWindowCtrl::clear_flag();
+    TWindowCtrl::clear_flag_2();
 }
 
 void qst_op_mesend(void) {
@@ -8858,15 +8793,15 @@ void qst_op_mesend(void) {
     s32 f;
     s32 v;
     TLobby__sub_8024AC20((void *)local_client_id);
-    clear_flag__11TWindowCtrlFv();
-    clear_flag_2__11TWindowCtrlFv();
+    TWindowCtrl::clear_flag();
+    TWindowCtrl::clear_flag_2();
     id = quest_message_speaker_id;
     if (id < 100) {
         ((void (*)(u16))close_windows_by_flags__11TWindowCtrlFUs)(id);
         return;
     }
-    start = get_game_mode__6TLobbyFv();
-    end = start + get_lobby_flag__6TLobbyFv();
+    start = TLobby::get_game_mode();
+    end = start + TLobby::get_lobby_flag();
     for (i = start; i < end; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL) {
@@ -8892,7 +8827,7 @@ void qst_op_add_msg(void) {
         return;
     }
     if (TLobby__quest_secondary_window != 0) {
-        send_and_handle__6TLobbyFii((void*)TLobby__quest_secondary_window, x, 3);
+        ((TLobby *)TLobby__quest_secondary_window)->send_and_handle(x, 3);
         TLobby__quest_window_state = 5;
         return;
     }
@@ -8916,8 +8851,8 @@ void quest_cmd_winend(void) {
         TLobby__quest_secondary_window = 0;
     }
     TLobby__quest_secondary_window = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x71), &pr);
-    send_and_handle__6TLobbyFii((void*)((void *)TLobby__quest_secondary_window), (s32)(t), (s32)(3));
-    set_field_1c__6TLobbyFf(TLobby__quest_secondary_window, lbl_805DC4D4);
+    ((TLobby *)TLobby__quest_secondary_window)->send_and_handle((s32)(t), (s32)(3));
+    ((TLobby *)TLobby__quest_secondary_window)->set_field_1c(lbl_805DC4D4);
     TLobby__quest_window_state = 5;
 }
 
@@ -8935,7 +8870,7 @@ void qst_op_window_msg(void) {
     ((s32 (*)(void))set_flag_bit2__11TWindowCtrlFv)();
     close_window_if_active((void *) (local_client_id));
     request_active_window_close();
-    set_close_flag__11TWindowCtrlFv();
+    TWindowCtrl::set_close_flag();
 }
 
 void qst_op_bgm(void) {
@@ -8946,9 +8881,9 @@ void qst_op_se(void) {
     play_sound_effect((int) (*(s32 *)((s8 *)((u8 *)(&quest_sound_effect_ids.value) + ((*(RecoveredGlobal_801F196C_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value * 4)) + 0)), (int) (0), (int) (0), (int) (0));
 }
 
-void qst_op_fadeout(void) { init_fadeout_state__6TLobbyFl((void*)0); TLobby__quest_window_state = 8; }
+void qst_op_fadeout(void) { TLobby::init_fadeout_state((s32)((void*)0)); TLobby__quest_window_state = 8; }
 
-void qst_op_fadein(void) { set_fade_params__6TLobbyFl((void*)0); TLobby__quest_window_state = 8; }
+void qst_op_fadein(void) { TLobby::set_fade_params((s32)((void*)0)); TLobby__quest_window_state = 8; }
 
 void qst_op_list(void) {
     char *text;
@@ -8963,7 +8898,7 @@ void qst_op_list(void) {
         list = (List_801F1A0C *)((void * (*)(void *, void *, void *, void *))construct__13TUnk_804CC048FPvPvPv)(list, 0, 0, 0);
     }
     ((char * (*)(char *, const char *, u32))strncpy)(buf, text, 0x1FF);
-    trim_whitespace__6TLobbyFv(buf);
+    ((TLobby *)buf)->trim_whitespace();
     ((void (*)(void *, char *))tokenize_args__6TLobbyFPvPv)(list, buf);
     TLobby__quest_choice_window = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x37), list->count);
     for (i = 0; i < list->count; i++) {
@@ -8971,14 +8906,14 @@ void qst_op_list(void) {
     }
     calc_window_size__17TWindowSubComCardFPv(TLobby__quest_choice_window);
     align_menu_entry_positions(TLobby__quest_choice_window);
-    set_ready_flag__18TCheckRoomSequenceFv(TLobby__quest_choice_window);
-    set_field_1c__6TLobbyFf(TLobby__quest_choice_window, lbl_805DC4D8);
+    ((TCheckRoomSequence *)TLobby__quest_choice_window)->set_ready_flag();
+    ((TLobby *)TLobby__quest_choice_window)->set_field_1c(lbl_805DC4D8);
     (*(int * *)&TLobby__script_reg_array)[idx] = 0;
     TLobby__active_window_index = idx;
     TLobby__quest_window_state = 7;
     close_window_if_active((void *)local_client_id);
     request_active_window_close();
-    set_close_flag__11TWindowCtrlFv();
+    TWindowCtrl::set_close_flag();
     delete list;
 }
 
@@ -8991,15 +8926,15 @@ void qst_op_message(void) {
     s32 i;
     close_window_if_active((void *)local_client_id);
     request_active_window_close();
-    set_close_flag__11TWindowCtrlFv();
+    TWindowCtrl::set_close_flag();
     quest_message_speaker_id = speaker;
     if (speaker < 100) {
-        open__11TWindowCtrlFlll(speaker & 0xFFFF, text, 0x2D);
+        TWindowCtrl::open(speaker & 0xFFFF, text, 0x2D);
         ((void (*)(s32))set_field28__11TWindowCtrlFs)((u16)speaker);
         TLobby__quest_window_state = 4;
     } else {
-        first = get_game_mode__6TLobbyFv();
-        end = first + get_lobby_flag__6TLobbyFv();
+        first = TLobby::get_game_mode();
+        end = first + TLobby::get_lobby_flag();
         for (i = first; i < end; i++) {
             actor = get_player_data__10TObjPlayerFi(i);
             if (actor != NULL) {
@@ -9011,7 +8946,7 @@ void qst_op_message(void) {
                     entity = get_field_d4(actor);
                 }
                 if (entity == speaker) {
-                    open__11TWindowCtrlFlll(identity, text, 0x2D);
+                    TWindowCtrl::open(identity, text, 0x2D);
                     ((void (*)(s32))set_field28__11TWindowCtrlFs)(identity);
                     TLobby__quest_window_state = 4;
                     break;

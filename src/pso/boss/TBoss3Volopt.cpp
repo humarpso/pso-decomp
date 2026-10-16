@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_804848A0.h"
 #include "pso/boss/TUnk_804848B8.h"
 #include <stddef.h>
@@ -103,7 +105,6 @@ extern const f32 lbl_805D8698;
 extern const f32 lbl_805D869C;
 extern const f32 lbl_805D86A0;
 void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_);
-void sub_8003D340__12TBoss3VoloptFv(u8 *arg0);
 void fn_8003F468(void *, u16, s32);
 void TBoss3VoloptHiraisin__ct(void *, void *, u16, s32);
 void init_with_slot__19TBoss3VoloptMonitorFPvPviiii(void *, void *, u16, s32, s32, s32);
@@ -357,14 +358,12 @@ void __dt__15TObjEnemyCustomFv(void *, s32);
 s32 TObjEnemyCustom__ct(void *, int);
 int reset_photon_effect__10TObjPlayerFv(void*);
 void * find_entity_by_id(u16);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 TObjPlayer__sub_801BA42C();
 s32 freeze_all_players__10TObjPlayerFv();
 int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
 int TLobby__send_and_handle_60(void*);
 s32 get_story_flag(s32);
-void send_entity_set_flags__9TObjEnemyFv(void *);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 int play_area_music(void*);
 void __dl__7TObjectFPv(void *);
@@ -493,7 +492,7 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec(temp_r3 + 0x38, arg0 + 4);
         *(s32 *)((s8 *)temp_r3 + 0x60) = (s32) *(s32 *)((s8 *)arg0 + 0x10);
-        refresh_collision_body_centers__13TUnk_804AF8A0Fv(temp_r3);
+        ((TUnk_804AF8A0 *)temp_r3)->refresh_collision_body_centers();
         if ((s32) *(u16 *)((s8 *)arg0 + 2) == (s32) local_client_id) {
             reset_cameras_to_actor(temp_r3, 0);
         }
@@ -1237,7 +1236,7 @@ void TBoss3Volopt::update_camera_seq() {
     u8 *p;
     switch (*(s16 *)(arg0 + 0x326)) {
     case 0:
-        sub_8003D340__12TBoss3VoloptFv(arg0);
+        ((TBoss3Volopt *)arg0)->sub_8003D340();
         break;
     case 1:
         update_intro_cutscene();
@@ -1519,7 +1518,7 @@ S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag) {
     if (o != 0) {
         o->vt = ((u8 *)&__vt__12TBoss3Volopt);
         if (((s32 (*)(void))is_volopt_death_active)() != 0) {
-            send_entity_set_flags__9TObjEnemyFv(o);
+            ((TObjEnemy *)o)->send_entity_set_flags();
         }
         (*(s32 *)&vol_opt_active_hit_zone) = 0xFFFF;
         TBoss3Volopt__cage_entity_id = 0xFFFF;

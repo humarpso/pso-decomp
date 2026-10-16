@@ -11,9 +11,8 @@ extern "C" {
 
 int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
-int render_status_value__14TAdScrollWinGCFv(void*);
 
-void TAdScrollWinGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status_value__14TAdScrollWinGCFv(this); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
+void TAdScrollWinGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status_value(); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 s32 TAdScrollWinGC::get_scroll_delay_for_mode() {
     O_8032745C *arg0 = (O_8032745C *)this;
     s32 r = 0;

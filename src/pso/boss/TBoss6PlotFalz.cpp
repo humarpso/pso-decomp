@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss6PlotFalz.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
@@ -622,21 +624,19 @@ struct Msg_802AB490 { s32 a, b, c; };
 extern "C" {
 s32 is_split_screen();
 void send_6x0A_enemy_state(void *, void *);
-void distribute_experience__9TObjEnemyFv(void *);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 extern s32 local_client_id;
 
 void TBoss6PlotFalz::award_exp_and_destroy() {
     u8 *arg0 = (u8 *)this;
     TBoss6PlotFalz::spawn_player_hit_effects();
     if (is_split_screen() != 0) {
-        distribute_experience__9TObjEnemyFv(arg0);
+        ((TObjEnemy *)arg0)->distribute_experience();
     } else {
         u8 *pl = ((u8 *(*)(s32))get_player_by_client_id)(local_client_id);
         if (pl != NULL) {
             V3_802AB490 saved = *(V3_802AB490 *)(arg0 + 0x2FC);
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, pl + 0x2FC);
-            distribute_experience__9TObjEnemyFv(arg0);
+            ((TObjEnemy *)arg0)->distribute_experience();
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &saved);
         }
     }
@@ -645,7 +645,7 @@ void TBoss6PlotFalz::award_exp_and_destroy() {
     send_6x0A_enemy_state(arg0, &m);
     ((TObjEnemy *)arg0)->exchange_object_state((s32)(&m), (s16)0);
     ((VObj_802AB490 *)arg0)->m77(&m);
-    send_entity_set_flags__9TObjEnemyFv(arg0);
+    ((TObjEnemy *)arg0)->send_entity_set_flags();
     queue_destruction__7TObjectFv(arg0);
 }
 
@@ -1156,7 +1156,6 @@ s32 get_bml_model(s32, s32);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32);
 s32 *mem_alloc(s32);
 void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 extern u8 lbl_804705B4[];
 extern s32 lbl_805D5868;
 extern s32 lbl_805D5870;
@@ -1253,7 +1252,7 @@ void warp_nearby_players__14TBoss6PlotFalzFv(void) {
             vec3_add_to(&v, lbl_8047059C);
             v.y = 7.5f;
             VecCopy__FP3VecPC3Vec(&p->pos, &v);
-            refresh_collision_body_centers__13TUnk_804AF8A0Fv(p);
+            ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers();
         }
     }
 }
@@ -1333,8 +1332,6 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
-
-void vfunc_63__14TBoss6PlotFalzFv(void);
 
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self) {
     s32 i;
@@ -1514,7 +1511,6 @@ s32 TLobby__sub_8036DDE8();
 extern int obj_fish_count;
 s32 restore_player_cameras();
 void __dt__9TObjEnemyFv(void *, int);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 play_area_music(void *);
 volatile int __dl__7TObjectFPv(void *);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
@@ -1531,14 +1527,12 @@ s32 register_boss__6TLobbyFl(int);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv();
 s32 register_entity_by_id(void *);
-s32 sub_802AAC98__14TBoss6PlotFalzFv(void *);
 s32 create_boss4_fade();
 extern s32 lbl_805D3E50;
 }
 
 extern "C" {
 
-void vfunc_63__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 int TItemEffOrgaFlowShot__sub_80357204(void);
 int TLobby__sub_8001FE7C(void*, void*);
@@ -1621,7 +1615,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
       }
       else
       {
-        send_entity_set_flags__9TObjEnemyFv((void *) arg0);
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
       }
     }
     if (is_ending_or_split_screen__14TBoss6PlotFalzFv((void *) arg0) == 0)
@@ -1666,7 +1660,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     initialize__9TObjEnemyFPv();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TBoss6PlotFalz.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E50;
-    sub_802AAC98__14TBoss6PlotFalzFv((void *) (arg0));
+    ((TBoss6PlotFalz *)arg0)->sub_802AAC98();
     TBoss6PlotFalz__instance = self;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x388), (void *) (arg2));

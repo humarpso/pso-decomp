@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/item/TItemProArmor.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
 
 struct VBase_18 { char pad[0x18]; };
@@ -118,19 +122,13 @@ struct TItem_80102424 : VObj_18_441505 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_field_d8__10TObjPlayerFv(void *);
-u16 get_id__13TItemProArmorFv(void *);
 u32 get_player_by_client_id(void *);
 s32 push_to_player_list__5TItemFPv();
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 clear_shadow_flag__13TUnk_804AF8A0Fv(void *);
-s32 set_shadow_flag__13TUnk_804AF8A0Fv(void *);
 s8 TObjPlayer__sub_80102C30(u8 *);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(int);
-s32 reset_transform_state__10TObjPlayerFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern RecoveredGlobal_8010255C_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8010255C_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -143,10 +141,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
 void spawn_particle_effect(void *, s32);
 void snap_to_ground__5TItemFv(void *, f32);
-s32 is_active_battle_player__10TObjPlayerFv(void);
 void TLobby__sub_8011AED8(s16, s16, void *, f32, f32);
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
-void set_parent__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern void *tl_05;
 extern s32 item_ground_placement_enabled;
@@ -154,7 +149,6 @@ extern const f32 lbl_805DAA9C;
 extern const f32 lbl_805DAAA0;
 void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet);
 s8 TObjPlayer__sub_80102C30(u8 *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 }
 
 extern "C" {
@@ -165,7 +159,7 @@ typedef char RecoveredGlobal_8010255C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8
 void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet) {
     ItemData_80102424 data;
     f32 r;
-    set_parent__7TObjectFP7TObject(self, tl_05);
+    ((TObject *)self)->set_parent((TObject *)tl_05);
     ((TItem *)self)->set_mode(0);
     VecCopy__FP3VecPC3Vec(&self->x, pos);
     self->fE4 = 0xFFFF;
@@ -173,7 +167,7 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
         ((TItem *)self)->copy_to_item_data(&data);
         ((void (*)(f32, f32, s16, s16, void *))TLobby__sub_8011AED8)(self->x, self->z, client, self->area, &data);
     }
-    if (is_active_battle_player__10TObjPlayerFv() == 1 || client != get_current_floor()) {
+    if (TObjPlayer::is_active_battle_player() == 1 || client != get_current_floor()) {
         self->m27();
         return;
     }
@@ -182,7 +176,7 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
     r = lbl_805DAAA0 * (f32)rand();
     self->f60 = (s32)(lbl_805DAA9C * r);
     snap_to_ground__5TItemFv(self, r);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
+    ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     if (item_ground_placement_enabled != 0) {
         spawn_particle_effect(&self->x, 0x9B);
     }
@@ -190,8 +184,8 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
 
 void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
-    if (all_parents_unqueued_for_destruction__7TObjectFv((void *) (arg0)) != 0) {
-        set_shadow_flag__13TUnk_804AF8A0Fv((void *) (arg0));
+    if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
+        ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
         if ((TObjPlayer__sub_80102C30((u8 *)((void *) (arg0))) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             set_depth_buffer_settings_id__FUl((int) (1));
             lbl_805D5660 = model_render_flags;
@@ -203,10 +197,10 @@ void TItem::render_shadows() {
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
-            reset_transform_state__10TObjPlayerFv();
+            TObjPlayer::reset_transform_state();
             func_80141618__Fv();
         }
-        clear_shadow_flag__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TUnk_804AF8A0 *)arg0)->clear_shadow_flag();
     }
 }
 
@@ -230,7 +224,7 @@ int item_system_generation;
 
 void TItem::dispatch_state() {
     void (TItem::*fn)();
-    if (all_parents_unqueued_for_destruction__7TObjectFv(this) != 0) {
+    if (all_parents_unqueued_for_destruction() != 0) {
         static void (TItem::*tbl[4])() = {
             &TItem::render_ground,
             &TItem::render_owned,
@@ -256,7 +250,7 @@ void TItem::run_task() {
         ((TItem *)arg0)->update_timer();
         return;
     case 1:
-        this->m_f0 = get_player_by_client_id((void *) (get_id__13TItemProArmorFv((void *) (arg0))));
+        this->m_f0 = get_player_by_client_id((void *) (((TItemProArmor *)arg0)->get_id()));
         if ((u32) this->m_f0 != 0U) {
             ((TItem *)arg0)->update_owner_visibility();
             ((VObj_18 *)(arg0))->m12();
@@ -264,14 +258,14 @@ void TItem::run_task() {
         }
         break;
     case 2:
-        this->m_f0 = get_player_by_client_id((void *) (get_id__13TItemProArmorFv((void *) (arg0))));
+        this->m_f0 = get_player_by_client_id((void *) (((TItemProArmor *)arg0)->get_id()));
         temp_r4 = this->m_f0;
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
             ((TItem *)arg0)->update_owner_visibility();
             ((VObj_18 *)(arg0))->m12();
             ((VObj_18 *)(arg0))->m14();
-            get_field_d8__10TObjPlayerFv((void *) (arg0));
+            ((TObjPlayer *)arg0)->get_field_d8();
             push_to_player_list__5TItemFPv();
         }
         break;
@@ -287,8 +281,6 @@ extern "C" {
 
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 void free_obj_heap__10TObjPlayerFPv(void *);
-s32 clear_obj_links__13TUnk_804AF8A0Fv(void *);
-s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
 
 extern void *__vt__5TItem[];
 
@@ -296,9 +288,9 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__5TItem;
         ((TItem *)arg0)->set_mode(3);
-        clear_obj_links__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
         ((TItem *)arg0)->unregister_item();
-        destroy_particle_controller__13TUnk_804AF8A0Fs(arg0, 0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
         }
@@ -324,16 +316,11 @@ struct TItem_801028D8 : VBase_18_801028D8 {
 extern "C" {
 void obj_setFlags30(void *, u32);
 void fn_8002B630(void *, void *);
-void assign_item_id__5TItemFv(void *);
-void apply_item_flags__5TItemFl(void *, void *);
 void sub_8010043C__5TItemFUc(void *, s32);
-u8 get_field_ec__5TItemFv(void *);
 void set_item_count__13TUnk_804B9870Fs(void *, s32);
 void TItem__sub_801031C0(void *);
 s8 get_type_nibble__9TItemDataFPv(void *);
 s32 is_rare_item__9TItemDataFPv(void *);
-s32 clamp_s32__10TObjPlayerFlll(s32, s32, s32);
-void initialize_linked_object_reference__13TUnk_804AF8A0FPv(void *, void *);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];
@@ -352,7 +339,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     obj_setFlags30(self, 0x80000000);
     fn_8002B630(self + 0xAC, item_collider_body);
     TItem__sub_801031C0(self + 0x98);
-    initialize_linked_object_reference__13TUnk_804AF8A0FPv(self, self + 0xAC);
+    ((TUnk_804AF8A0 *)self)->initialize_linked_object_reference(self + 0xAC);
     *(u16 *)((s8 *)self + 0xE4) = 0xFFFF;
     *(s32 *)((s8 *)self + 0xD8) = *(s32 *)((s8 *)item + 0xC);
     *(s32 *)((s8 *)self + 0xDC) = 0;
@@ -364,12 +351,12 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     *(s32 *)((s8 *)self + 0xF0) = 0;
     *(s32 *)((s8 *)self + 0xF4) = 0;
     *(s16 *)((s8 *)self + 0xE8) = 0;
-    apply_item_flags__5TItemFl(self, item);
+    ((TItem *)self)->apply_item_flags((s32)item);
     *(s8 *)((s8 *)self + 0xEA) = get_type_nibble__9TItemDataFPv(item);
     if (is_rare_item__9TItemDataFPv(item) != 0) {
         sub_8010043C__5TItemFUc(self, 4);
     } else {
-        sub_8010043C__5TItemFUc(self, lbl_8043DF94[clamp_s32__10TObjPlayerFlll(get_field_ec__5TItemFv(self), 0, 4)]);
+        sub_8010043C__5TItemFUc(self, lbl_8043DF94[TObjPlayer::clamp_s32(((TItem *)self)->get_field_ec(), 0, 4)]);
     }
     if (lbl_805D5438 != 0) {
         ((TItem_801028D8 *)self)->m5(lbl_805D5438);
@@ -378,7 +365,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     } else {
         ((TItem *)self)->set_mode(3);
     }
-    assign_item_id__5TItemFv(self);
+    ((TItem *)self)->assign_item_id();
     ((TItem *)self)->insert_sorted_by_id();
     return self;
 }
@@ -402,20 +389,14 @@ extern u32 player_rock_objects_handle;
 
 extern "C" {
 
-int vfunc_33__5TItemFv(void);
-int vfunc_43__5TItemFv(void);
 s8 TObjPlayer__sub_80102C30(u8 *arg0);
 void free_obj_heap__10TObjPlayerFPv(void* a0);
 int get_item_system_generation(void);
 void advance_item_system_generation(void);
 int dispatch_item_by_type__6TLobbyFv(void*);
-void sub_80102C58__5TItemFv(void* p);
-void sub_80102C68__5TItemFv(void* p);
 void bswap_32__FPUl(u32* p);
 void mem_free(void*);
 void free_rock_objects__6TLobbyFis(void*, int);
-u8 get_field_ec__5TItemFv(void* p);
-u16 get_id__13TItemProArmorFv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*);
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);

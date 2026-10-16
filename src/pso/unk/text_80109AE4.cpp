@@ -3,7 +3,6 @@
 
 extern "C" {
 
-s32 vfunc_6__14TItemEffNeedleFv(u8 *arg0);
 u8 *find_entity_by_id(u16);
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);

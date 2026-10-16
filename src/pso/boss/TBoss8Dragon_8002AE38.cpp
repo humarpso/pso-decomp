@@ -7,7 +7,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void sub_8002AE64__9TObjEnemyFv(u8 *arg0);
 }
 
 extern "C" {

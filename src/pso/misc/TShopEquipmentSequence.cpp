@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TShopSequence.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TShopEquipmentSequence.h"
 #include "pso/misc/TCheckRoomSequence.h"
@@ -98,7 +100,6 @@ struct Seq_8021D7B8 { u8 pad[0x24]; void *f24; u8 pad28[4]; void *win; };
 
 extern "C" {
 s32 set_field_20__15TShopWindowBaseFl(void *, s32);
-u32 create_message_window__13TShopSequenceFll(void *, s32, s32);
 unsigned short get_child_field1c__13TShopSequenceFv(void *);
 s32 create_meseta_window(s32);
 s32 set_service_counter_camera(void *, int);
@@ -106,7 +107,6 @@ s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC6E0;
 extern const f32 lbl_805DC6E4;
 s32 queue_destruction__7TObjectFv(void *);
-s32 close_message_window__13TShopSequenceFv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -126,7 +126,6 @@ u8 *TShopEquipmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 TShopEquipmentSequence__sub_8021D65C(void);
 s32 restore_player_state__13TShopSequenceFv(void *);
-void vfunc_11__22TShopEquipmentSequenceFv(u8 *arg0);
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
 void TShopEquipmentSequence__sub_8021DC08(void);
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
@@ -150,7 +149,6 @@ u16 obj_getField1c(void *);
 s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 get_shop_text(s32 arg0);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 void align_menu_entry_positions(void *w);
@@ -256,7 +254,7 @@ void TShopEquipmentSequence::update_buy_sell_choice() {
         calc_window_size__17TWindowSubComCardFPv(self->win);
         align_menu_entry_positions(self->win);
         ((TCheckRoomSequence *)(self->win))->set_ready_flag();
-        set_position_xy__13TUnk_804CDFE8Fff(self->win, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+        ((TUnk_804CDFE8 *)(self->win))->set_position_xy(get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
     }
     if (self->win != NULL && ((TWindowMenu *)(self->win))->is_visible() != 0) {
         r = get_selected_menu_value(self->win);
@@ -286,7 +284,7 @@ s32 TShopEquipmentSequence::open_greeting() {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6E0;
   stack.spC = lbl_805DC6E4;
-  create_message_window__13TShopSequenceFll(arg0, get_window_layout_position((int) 0x2C, (f32) lbl_805DC6E0), (s32) (&stack.sp8));
+  ((TShopSequence *)arg0)->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC6E0), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x27, 1);
   *((s32 *) (((s8 *) arg0) + 0x30)) = create_meseta_window((s32) get_child_field1c__13TShopSequenceFv(arg0));
   set_field_20__15TShopWindowBaseFl(arg0, 2);
@@ -342,7 +340,7 @@ u8 *__dt__22TShopEquipmentSequenceFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
         }
-        close_message_window__13TShopSequenceFv((void *) (arg0));
+        ((TShopSequence *)arg0)->close_message_window();
         if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;

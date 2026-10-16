@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_80146CB8_lbl_8050CCE8 {
     s32 value;
@@ -41,7 +42,6 @@ s32 TLobby__sub_803FAFDC();
 s32 TLobby__sub_803FB184(void *);
 s32 TLobby__sub_803FB1A4(void *);
 s32 TLobby__sub_80407358();
-s32 flush_flags_step__6TLobbyFv();
 s32 TLobby__sub_8041509C();
 s32 TLobby__sub_80423064(void *, int);
 s32 TLobby__sub_80424CA8();
@@ -52,10 +52,8 @@ void call_146CA0_with_5708__6TLobbyFv(void);
 void* TLobby__sub_80146D68(int a0);
 void TLobby__sub_8014715C(void* p, void* q);
 s32 TLobby__sub_8040A3C0();
-s32 clear_all_used_records__6TLobbyFv();
 extern s32 lbl_805D570C;
 void teardown_boss2__6TLobbyFv(void);
-s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 void strncpy(s32, s32, s32);
 s32 memset(int, int, int);
@@ -66,14 +64,12 @@ extern s32 lobby_dns_server_addr;
 extern s32 lbl_805D56E0;
 extern s32 lobby_connect_battle_flag;
 s32 TLobby__sub_80146588(s32 *arg0);
-s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 u8 *TLobby__sub_80146D14(void);
 u8 *TLobby__sub_80146CA0(s32 arg0);
 s32 *TLobby__sub_80146D44(void);
 u8 *TLobby__sub_80146D50(s32 arg0);
 s32 TLobby__sub_801466F4(u32 arg0);
-s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_80145EE4(void);
 s32 poll_connect__6TLobbyFv(void);
 void set_battle_flag__6TLobbyFi(s32 arg0);
@@ -86,7 +82,6 @@ void TLobby__sub_804073B8(void);
 s16 run_connect_step__6TLobbyFv(void);
 s16 TLobby__sub_804150EC(void);
 s16 TLobby__sub_8042315C(s16, void *);
-void set_connect_mode__6TLobbyFl(s32);
 extern s32 lbl_805D2D00;
 extern s32 lbl_805D56D8;
 extern s32 lobby_connect_battle_flag;
@@ -191,12 +186,9 @@ int TLobby__sub_80145A94(void);
 int TLobby__sub_80145DB4(void*);
 s32 TLobby__sub_80147284();
 int get_network_config_buffer_size(void*);
-s32 cleanup_subsystems__6TLobbyFv();
 s32 TLobby__sub_804219D0(s32, s32, s32);
 s32 TLobby__sub_80421A50(s32, s32, s32);
-s16 query_link_status__6TLobbyFv();
 s8 func_801A5E54__Fv();
-s32 get_task_count__6TLobbyFv();
 s32 send_and_handle__6TLobbyFv();
 void xfree__FPv(void*);
 int xmalloc__FUl(void);
@@ -234,7 +226,7 @@ loop_1:
     if (func_801A5E54__Fv() != 0) {
         return 1;
     }
-    if (query_link_status__6TLobbyFv() == 1) {
+    if (TLobby::query_link_status() == 1) {
         return 2;
     }
     goto loop_1;
@@ -327,7 +319,7 @@ extern s32 lobby_connect_active_flag;
 
 s32 query_task_active__6TLobbyFv(void) {
     if ((s32) lobby_connect_active_flag != 0) {
-        return get_task_count__6TLobbyFv();
+        return TLobby::get_task_count();
     }
     return 0;
 }
@@ -346,7 +338,7 @@ void cleanup__6TLobbyFv(void* _w0) {
         TLobby__sub_80147284();
     }
     if (TLobby__connect_pending_flags & 8) {
-        cleanup_subsystems__6TLobbyFv();
+        TLobby::cleanup_subsystems();
         TLobby__connect_pending_flags &= 0xFFFFFFF7;
     }
     if ((u32) lbl_805D5700 != 0U) {
@@ -367,7 +359,7 @@ void flush_pending_flags__6TLobbyFv(void) {
             TLobby__connect_pending_flags &= 0xFFFFFFEF;
             TLobby__sub_80424CA8();
         }
-    } else if (is_state_active__6TLobbyFv() != 0) {
+    } else if (TLobby::is_state_active() != 0) {
         if ((s32) lbl_805D2D00 != -1) {
             TLobby__sub_80423064((void *) ((s16) lbl_805D2D00), (int) (0));
             sp8 = 0;
@@ -388,7 +380,7 @@ void flush_pending_flags__6TLobbyFv(void) {
         TLobby__connect_pending_flags &= 0xFFFFFFDF;
     }
     if (TLobby__connect_pending_flags & 0x40) {
-        flush_flags_step__6TLobbyFv();
+        TLobby::flush_flags_step();
         TLobby__connect_pending_flags &= 0xFFFFFFBF;
     }
     if (TLobby__connect_pending_flags & 0x80) {
@@ -417,7 +409,7 @@ s32 run_connect_sequence__6TLobbyFv(void) {
             return 0x11;
         }
         TLobby__connect_pending_flags |= 1;
-        set_connect_mode__6TLobbyFl(4);
+        TLobby::set_connect_mode(4);
         ok = TLobby__sub_804150EC();
         TLobby__connect_pending_flags |= 0x20;
         lobby_connect_active_flag = 0;
@@ -427,7 +419,7 @@ s32 run_connect_sequence__6TLobbyFv(void) {
         if (TLobby__sub_80145EE4() != 0) {
             lbl_805D2D00 = id;
             r = TLobby__sub_801465C0(&sp8);
-        } else if (is_state_active__6TLobbyFv() != 0) {
+        } else if (TLobby::is_state_active() != 0) {
             r = TLobby__sub_80146314(&sp8);
         } else {
             lbl_805D2D00 = id;
@@ -463,7 +455,7 @@ u8 *TLobby__sub_80146CA0(s32 arg0) {
 void set_ppp_password__6TLobbyFi(s32 arg0) {
     u8 *temp_r31;
     TLobby__sub_8014618C();
-    is_state_active__6TLobbyFv();
+    TLobby::is_state_active();
     temp_r31 = (u8 *)&lbl_8050CCE8.value + 0xFC;
     memset((int) (temp_r31), (int) (0), (int) (0x20));
     strncpy((s32) temp_r31, arg0, 0x1F);
@@ -472,7 +464,7 @@ void set_ppp_password__6TLobbyFi(s32 arg0) {
 typedef char RecoveredGlobal_80146D14_lbl_8050CCE8_size[sizeof(RecoveredGlobal_80146D14_lbl_8050CCE8) == 0x12C ? 1 : -1];
 u8 *TLobby__sub_80146D14(void) {
     TLobby__sub_8014618C();
-    is_state_active__6TLobbyFv();
+    TLobby::is_state_active();
     return (u8 *)&(*(RecoveredGlobal_80146D14_lbl_8050CCE8 *)&lbl_8050CCE8).value + 0xFC;
 }
 
@@ -567,7 +559,7 @@ void load_network_configs__6TLobbyFv(void) {
 void TLobby__sub_8014715C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 void teardown_boss2__6TLobbyFv(void) {
     if ((s32) lbl_805D570C != 0) {
-        clear_all_used_records__6TLobbyFv();
+        TLobby::clear_all_used_records();
         TLobby__sub_8040A3C0();
         lbl_805D570C = 0;
     }

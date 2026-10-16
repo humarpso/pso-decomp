@@ -110,7 +110,6 @@ extern s32 TObjPlayer__effect_count;
 extern const f32 lbl_805D99F8;
 extern const f32 lbl_805D9A04;
 extern const f32 lbl_805D9A08;
-void run_task__21TeneFakeTecThunderEffFv(Obj_800A4064 *self);
 f32 newton_sqrtf(f32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_chunk_material_color(void *);
@@ -122,7 +121,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805D99F0;
 extern const f32 lbl_805D99FC;
 extern const f32 lbl_805D9A00;
-void render__21TeneFakeTecThunderEffFv(Obj_800A3D1C *o);
 }
 
 extern "C" {

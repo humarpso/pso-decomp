@@ -116,11 +116,8 @@ extern s32 __vt__19TShopItemListWindow[];
 extern s32 TShopItemListWindow__class_name;
 u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 handle_amount_confirm__19TShopItemListWindowFv(void *);
 s32 prepare_tool_purchase__19TShopItemListWindowFv(void *);
-void vfunc_11__19TShopItemListWindowFv(u8 *arg0);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -150,15 +147,12 @@ extern const f32 lbl_805DC6F8;
 
 extern "C" {
 
-void vfunc_6__19TShopItemListWindowFv(void *arg0);
-void vfunc_7__19TShopItemListWindowFv(void *arg0);
 void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 
 void TShopItemListWindow::vfunc_7() {
     struct VObj_8021F134 *temp_r3;
@@ -183,7 +177,7 @@ s32 TShopItemListWindow::handle_confirm() {
     if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x28)))->clear_selected_and_update_entry();
-        set_field_20__15TShopWindowBaseFl(this, 1);
+        set_field_20(1);
     }
 }
 
@@ -192,7 +186,7 @@ s32 TShopItemListWindow::update() {
     if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x28)))->clear_selected_and_update_entry();
-        set_field_20__15TShopWindowBaseFl(this, 1);
+        set_field_20(1);
     }
 }
 
@@ -227,16 +221,16 @@ s32 TShopItemListWindow::handle_tool_list_select(void *p) {
         switch (((TShopItemListWindow *)W)->check_purchase_eligibility()) {
         case 0:
             W->base.m4(0xF, 1);
-            set_field_20__15TShopWindowBaseFl(W, 5);
+            ((TShopWindowBase *)W)->set_field_20(5);
             break;
         case 1:
             W->base.m4(0x19, 1);
-            set_field_20__15TShopWindowBaseFl(W, 6);
+            ((TShopWindowBase *)W)->set_field_20(6);
             break;
         case 2:
             break;
         case 3:
-            set_field_20__15TShopWindowBaseFl(W, 7);
+            ((TShopWindowBase *)W)->set_field_20(7);
             break;
         }
     }
@@ -335,7 +329,7 @@ void TShopItemListWindow::vfunc_11() {
     switch (temp_r0) {
     case 0:
         TShopItemListWindow::build_item_list((void *)((void *) (arg0)));
-        set_field_20__15TShopWindowBaseFl((void *)((void *) (arg0)), (s32)((int) (1)));
+        ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (1)));
         return;
     case 1:
         TShopItemListWindow::handle_tool_list_select((void *)((void *) (arg0)));

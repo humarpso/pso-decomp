@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/TBoss5GryphonLightning.h"
 #include "pso/TBoss5GryphonLightningWing.h"
 
 #include "types.h"
@@ -45,8 +46,6 @@ extern const f32 lbl_805D8D48;
 s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(int, void *, int, int);
-s32 update_wing_segments__26TBoss5GryphonLightningWingFv(void *);
-s32 spawn_gryphon_lightning__22TBoss5GryphonLightningFv(void *);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 extern const f32 lbl_805DFED4;
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
@@ -93,13 +92,13 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0x8C) > lbl_805DFED4) {
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DFED4;
     }
-    update_wing_segments__26TBoss5GryphonLightningWingFv((void *) (arg0));
+    ((TBoss5GryphonLightningWing *)arg0)->update_wing_segments();
     apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)((void *) (arg0)));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
         ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)((s32 *)((void *) (&stack.sp8))));
         play_sound_effect((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
     }
-    spawn_gryphon_lightning__22TBoss5GryphonLightningFv((void *) (arg0));
+    ((TBoss5GryphonLightning *)arg0)->spawn_gryphon_lightning();
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) >= (s32) *(s32 *)((s8 *)arg0 + 0x9C)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }

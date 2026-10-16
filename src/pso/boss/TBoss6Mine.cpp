@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Mine.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 
@@ -218,7 +219,6 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void vfunc_62__10TBoss6MineFv(void* a0);
 void TBoss6Mine__vt1(void *arg0);
 void TBoss6Mine__vt4(u8 *arg0);
 void TBoss6Mine__vt6(s32 arg0);

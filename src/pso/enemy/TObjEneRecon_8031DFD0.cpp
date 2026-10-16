@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecon.h"
@@ -222,8 +223,6 @@ void obj_setFlags30(void *, u32);
 void queue_destruction__7TObjectFv(void *);
 u8 * create_particle_emitter(void *, s32);
 void enable__13TParticleCtrlFPv(void *);
-s32 enemy_init_validate_period__12TObjEneDD_STFl(void *, int);
-s32 enemy_init_acquire_period__12TObjEneDD_STFl(void *, int);
 void __dt__9TObjEneDDFv(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, void *, int, void *);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -234,7 +233,6 @@ void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 find_entity_by_id(int);
 void free_collision_body_parts(void *);
-void send_entity_set_flags__9TObjEnemyFv(void *);
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 handle_message__12TObjEneReconFPvi(void *, void *);
@@ -245,7 +243,6 @@ s32 TObjEneRecon__sub_8031C920(void *, void *);
 s32 TObjEneRecon__sub_8031CCFC(void *, void *);
 s32 TObjEneRecon__sub_8031CF30(void *, void *);
 s32 TObjEneRecon__sub_8031D380(void *, void *);
-s32 sub_8031D4B0__12TObjEneReconFl(void *, void *);
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2);
 void run_task__12TObjEneReconFv(u8 *arg0);
 void * __dt__12TObjEneReconFv(void *arg0, s16 arg1);
@@ -415,7 +412,7 @@ void *__vt__12TObjEneRecon[107] = {
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        sub_8031D4B0__12TObjEneReconFl((void *) (arg0), (void *) (arg2));
+        ((TObjEneRecon *)arg0)->sub_8031D4B0((s32)((void *) (arg2)));
         return;
     case 1:
         TObjEneRecon__sub_8031D380((void *) (arg0), (void *) (arg2));
@@ -517,7 +514,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
 void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEneRecon;
-        send_entity_set_flags__9TObjEnemyFv(arg0);
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
         free_collision_body_parts(arg0);
         if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); *(s32 *)((s8 *)arg0 + 0x478) = 0; }
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x480, -1);
@@ -552,8 +549,8 @@ void TObjEneRecon::init_state() {
     *(void **)((s8 *)arg0 + 0x350) = (void *) TObjEneRecon__ai_parameters;
     initialize_enemy_state__9TObjEneDDFv((void *) (arg0), (int) (0x44));
     *(f32 *)((s8 *)arg0 + 0x37C) = (f32) TObjEneRecon__data_805DF3D4;
-    enemy_init_acquire_period__12TObjEneDD_STFl((void *) (arg0), (int) (0xA));
-    enemy_init_validate_period__12TObjEneDD_STFl((void *) (arg0), (int) (0xA));
+    ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period((int) (0xA));
+    ((TObjEneDD_ST *)arg0)->enemy_init_validate_period((int) (0xA));
     ((TObjEneDD_ST *)arg0)->set_active();
     temp_r5 = *(s32 *)((s8 *)arg0 + 0x30) | 0x01000000;
     *(s32 *)((s8 *)arg0 + 0x30) = temp_r5;

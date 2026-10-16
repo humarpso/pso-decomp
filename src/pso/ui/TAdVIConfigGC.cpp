@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TWindowSubTradeMain.h"
+#include "pso/ui/TAdVIConfigGC.h"
 
 struct Base_80307F6C_80307DEC { char pad[0x18]; };
 struct VObj_80307F6C_80307DEC : Base_80307F6C_80307DEC {
@@ -45,19 +50,13 @@ extern s32 lobby_player_count;
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);
-void set_flag_4__7TObjectFv(void *);
 s32 allow_rendering__7TObjectFv(u32);
 void disallow_rendering__7TObjectFv(void *);
-s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void *);
 s32 count_members__6TLobbyFv();
 s32 update_players_in_range(void *);
 void update_visibility__13TAdVIConfigGCFPv(u8 *arg0);
-void set_close_flag__19TWindowSubTradeMainFv(u32);
-void set_visible__19TWindowSubTradeMainFv(u32);
 u8 *get_player_by_client_id(s32);
 s32 TWindow__close(u32);
-void dispatch_without_flags__20TWindowSubStatusDispFlll(u32, char *, s32);
-u32 draw_with_layer__13TAdVIConfigGCFlll(s32, void *, s32);
 s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
@@ -82,7 +81,6 @@ s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
 s32 allow_rendering__7TObjectFv(u32);
-s32 clear_flag4_bit4__22TQuestVmDownLoadServerFv(void *);
 int VIWaitForRetrace(void);
 int VIConfigure(void*);
 int VIFlush(void);
@@ -95,19 +93,19 @@ void open_player_names_window__13TAdVIConfigGCFPv(Cfg_80307D00 *arg0) {
         TWindow__close(arg0->win);
         arg0->win = 0;
     }
-    arg0->win = draw_with_layer__13TAdVIConfigGCFlll(get_window_layout_position(0x5A), player_names_window_pos, local_client_id);
+    arg0->win = TAdVIConfigGC::draw_with_layer((s32)(get_window_layout_position(0x5A)), (s32)player_names_window_pos, (s32)local_client_id);
     if (arg0->win != 0) {
-        set_visible__19TWindowSubTradeMainFv(arg0->win);
-        set_close_flag__19TWindowSubTradeMainFv(arg0->win);
+        ((TWindowSubTradeMain *)(arg0->win))->set_visible();
+        ((TWindowSubTradeMain *)(arg0->win))->set_close_flag();
         for (i = 0; i < 4; i++) {
             p = get_player_by_client_id(i);
             if (p != 0) {
                 strncpy(arg0->names[i].s, (char *)(p + 0x85C), 0x17);
                 arg0->names[i].s[0x17] = 0;
-                dispatch_without_flags__20TWindowSubStatusDispFlll(arg0->win, arg0->names[i].s, i);
+                TWindowSubStatusDisp::dispatch_without_flags((s32)(arg0->win), (s32)(arg0->names[i].s), (s32)i);
             } else {
                 arg0->names[i].s[0] = 0;
-                dispatch_without_flags__20TWindowSubStatusDispFlll(arg0->win, arg0->names[i].s, i);
+                TWindowSubStatusDisp::dispatch_without_flags((s32)(arg0->win), (s32)(arg0->names[i].s), (s32)i);
             }
         }
     }
@@ -127,11 +125,11 @@ void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x24));
     if (temp_r3_2 != NULL) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x18) != 0) {
-            clear_flag4_bit4__22TQuestVmDownLoadServerFv(temp_r3_2);
+            ((TQuestVmDownLoadServer *)temp_r3_2)->clear_flag4_bit4();
             allow_rendering__7TObjectFv((u32)(*(u8 **)((s8 *)arg0 + 0x24)));
             return;
         }
-        set_flag_4__7TObjectFv(temp_r3_2);
+        ((TObject *)temp_r3_2)->set_flag_4();
         disallow_rendering__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x24));
     }
 }
@@ -139,7 +137,7 @@ void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
-            clear_flag4_bit4__22TQuestVmDownLoadServerFv(*(void **)((s8 *)arg0 + 0x24));
+            ((TQuestVmDownLoadServer *)(*(void **)((s8 *)arg0 + 0x24)))->clear_flag4_bit4();
             allow_rendering__7TObjectFv(*(u32 *)((s8 *)arg0 + 0x24));
             TWindow__close(*(u32 *)((s8 *)arg0 + 0x24));
             *(u32 *)((s8 *)arg0 + 0x24) = 0U;

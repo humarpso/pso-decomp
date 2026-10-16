@@ -42,7 +42,6 @@ s32 pop_matrices(int);
 extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 identity_matrix;
-void update_camera_facing_offset__11TLoadingCurFv(u8 *arg0);
 extern u32 camera_ctrl_instance;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern const f32 lbl_805D7E90;

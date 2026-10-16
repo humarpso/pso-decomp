@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowMessage.h"
 
 struct RecoveredFields_802698C4_arg0 {
@@ -52,19 +53,13 @@ struct Q_80269664 {
 struct Ent_80269664 { u8 pad0[0xC]; f32 y; u8 pad10[4]; f32 h; };
 
 extern "C" {
-void update_scroll__14TWindowMessageFv(struct RecoveredFields_802698C4_arg0 *arg0);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void set_default_status__17TWindowDuelResultFPvi(void *, s32);
 extern const f32 lbl_805DD218;
 extern const f32 lbl_805DD21C;
-void scroll_up_line__14TWindowMessageFPUc(u8 *arg0, u8 *arg1);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
-void advance_reveal_cursor__14TWindowMessageFv(Msg_802695A8 *arg0);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
-void scroll_up_line__14TWindowMessageFPUc(u8 *arg0, u8 *arg1);
-void retire_scrolled_lines__14TWindowMessageFv(Q_802697B4 *w);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
 void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0);
@@ -87,7 +82,7 @@ void TWindowMessage::scroll_up_line(u8 *arg1) {
     }
     *(f32 *)(arg1 + 0xC) = lbl_805DD21C;
     *(f32 *)(arg1 + 0x14) = lbl_805DD21C;
-    set_default_status__17TWindowDuelResultFPvi(arg1, 0);
+    TWindowDuelResult::set_default_status(arg1, 0);
 }
 
 void TWindowMessage::advance_reveal_cursor() {
@@ -152,7 +147,7 @@ void TWindowMessage::retire_scrolled_lines() {
     e = get_array_entry__13TUnk_804CE018Fi(w, w->oldest);
     m = &w->meta[w->oldest];
     while (get_field_20__17TWindowSubComCardFv(e) != 0 && *(f32 *)(e + 0xC) + *(f32 *)(e + 0x14) < w->scroll) {
-        scroll_up_line__14TWindowMessageFPUc((u8 *)w, e);
+        ((TWindowMessage *)w)->scroll_up_line(e);
         m->flags = 0;
         m->timer = 0;
         if (w->reveal == w->oldest) {

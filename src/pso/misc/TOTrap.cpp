@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -207,17 +208,13 @@ struct Obj_80178E10 { u8 pad0[0x2A8]; u8 *target; u8 pad1[0x7A]; s16 state; u8 p
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 s32 send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
-f32 receive_physical_attack__6TOTrapFPvf(u8 *arg0, u32 arg1);
 s32 submit_cursor_candidate(void *, s32);
 extern u32 trap_scale_factor_table[];
 extern s32 game_difficulty_selection;
 s32 fn_80171314(void *);
-s32 get_stat_by_key_state__13TUnk_804B9870Fv(void *);
 s32 get_player_by_client_id(u32);
 u16 find_nearest_visible_player(void *, int, f32);
 s32 calc_attach_pos__10TObjPlayerFv();
@@ -250,17 +247,13 @@ struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 #undef VM
 };
 
-void vfunc_89__6TOTrapFv(void);
-void vfunc_82__6TOTrapFv(void *arg0);
 s32 spawn_particle_effect(s32, s32);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 get_player_by_client_id(u32);
 s32 calc_attach_pos__10TObjPlayerFv();
 s32 obj_getField1c(u32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_code_45_1__10TObjPlayerFi(s32);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 f32 TOTrap::scale_by_table_value(f32 farg0) {
     u32 v[4];
@@ -281,7 +274,7 @@ s32 TOTrap::is_any_player_matching_stat() {
     for (i = 0; i < 4; i++) {
         p = ((void *)get_player_by_client_id((u32)(i)));
         if (p != 0) {
-            if (((s16)get_stat_by_key_state__13TUnk_804B9870Fv(p) == (s16)get_stat_by_key_state__13TUnk_804B9870Fv(this)) && (fn_80171314(p) != 0)) {
+            if (((s16)((TUnk_804B9870 *)p)->get_stat_by_key_state() == (s16)get_stat_by_key_state()) && (fn_80171314(p) != 0)) {
                 return 1;
             }
         }
@@ -293,7 +286,7 @@ void TOTrap::vfunc_82() {
     s32 temp_r31;
 
     calc_attach_pos__10TObjPlayerFv();
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(this);
+    refresh_collision_body_centers();
     if ((s32) *(s32 *)((s8 *)this + 0x84) < 0) {
         u32 p;
         ((V_A_80178BC0 *)this)->m20(*(u32 *)((s8 *)this + 0x2A8), TOTrap__data_805DBA38);
@@ -370,7 +363,7 @@ void TOTrap::vfunc_6(s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             ((VObj_80178EF8_80178BC0 *)this)->m83();
         }
-        set_flag8__13TUnk_804AF8A0Fv(this);
+        set_flag8();
         queue_destruction__7TObjectFv(this);
     }
 }
@@ -379,12 +372,12 @@ f32 TOTrap::receive_physical_attack(void *arg1, f32) {
   s16 sp8;
   s32 temp_r3_2;
   u16 temp_r3;
-  if (((((u16) (*((u16 *) (((s8 *) ((u8 *)this)) + 0x1C)))) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) ((u8 *)this)) + 0x80)))) != 0U)) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) ((u8 *)this), (void *) (&sp8), (int) 1) != 0))
+  if (((((u16) (*((u16 *) (((s8 *) ((u8 *)this)) + 0x1C)))) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) ((u8 *)this)) + 0x80)))) != 0U)) && (access_object_saved_state((void *) (&sp8), (int) 1) != 0))
   {
     *((s16 *) (((s8 *) ((u8 *)this)) + 0x326)) = 4;
     sp8 = *((s16 *) (((s8 *) ((u8 *)this)) + 0x326));
-    access_object_saved_state__13TUnk_804AF8A0FPvs((void *) ((u8 *)this), (void *) (&sp8), (int) 0);
-    send_object_state_update__13TUnk_804AF8A0FPv((void *) ((u8 *)this), (void *) (&sp8));
+    access_object_saved_state((void *) (&sp8), (int) 0);
+    send_object_state_update((void *) (&sp8));
     if (arg1 != 0U)
     {
       temp_r3 = obj_getField1c((u32)((void *) arg1));

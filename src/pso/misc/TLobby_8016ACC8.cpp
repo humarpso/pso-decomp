@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKey.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyAncient01.h"
 #include "pso/player/TObjPlayer.h"
@@ -10,10 +11,6 @@ void init_6x04_packet(u8 *arg0);
 extern "C" {
 
 int TLobby__send_and_handle_60(void*);
-void vfunc_25__14TOKeyAncient01Fv(void);
-void vfunc_16__5TOKeyFv(void);
-void vfunc_17__5TOKeyFv(void);
-void vfunc_25__5TOKeyFv(void);
 int bswap_16__FPUs(void*);
 void bswap_6x05_switch_flag__5TOKeyFv(void* p);
 

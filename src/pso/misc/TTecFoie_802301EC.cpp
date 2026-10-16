@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TTecFoie.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -14,11 +15,9 @@ struct Foie_802301EC { u8 pad[0x1C]; u32 owner; u8 pos[0xA6]; s16 band; u16 owne
 
 extern "C" {
 u16 obj_getField1c(void *);
-void play_foie_cast_sound__8TTecFoieFv(void *);
 u8 * construct_aimed_technique_projectile(void *, s32, void *, void *, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 u16 obj_getField1c(void *);
-void play_foie_cast_sound__8TTecFoieFv(void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 extern s32 TTecFoie__name;
@@ -27,7 +26,6 @@ extern Band_802301EC TTecFoie__emitter_profile_table[];
 u32 find_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
 void move_technique_projectile(u8 *arg0);
-void advance_lifetime_or_destroy__13TUnk_804CCC68Fv(void *arg0);
 void dispatch_technique_contact__13TUnk_804CCC68Fv(void *, s32);
 void run_task__8TTecFoieFv(Foie_802301EC *self);
 }
@@ -47,7 +45,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
         }
     }
     move_technique_projectile((u8 *)self);
-    advance_lifetime_or_destroy__13TUnk_804CCC68Fv(self);
+    ((TUnk_804CCC68 *)self)->advance_lifetime_or_destroy();
     dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }
 
@@ -62,7 +60,7 @@ u8 *TTecFoie::construct_aimed(s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     }
     ((TTecFoie *)arg0)->init_projectile_params();
     ((TTecFoie *)arg0)->create_particle_emitters();
-    play_foie_cast_sound__8TTecFoieFv(arg0);
+    ((TTecFoie *)arg0)->play_foie_cast_sound();
     return arg0;
 }
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
@@ -76,7 +74,7 @@ u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     }
     ((TTecFoie *)arg0)->init_projectile_params();
     ((TTecFoie *)arg0)->create_particle_emitters();
-    play_foie_cast_sound__8TTecFoieFv(arg0);
+    ((TTecFoie *)arg0)->play_foie_cast_sound();
     return arg0;
 }
 

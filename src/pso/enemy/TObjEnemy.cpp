@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 
 #include "pso/enemy/TObjEnemy.h"
@@ -16,7 +17,6 @@ void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 s32 __dl__7TObjectFPv(void *);
 s32 copy_header__6TLobbyFPv(s32);
-s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 
 extern s32 __vt__9TObjEnemy[];
 
@@ -33,7 +33,7 @@ void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
                 *(u32 *)((s8 *)arg0 + 0x80) = 0U;
             }
         }
-        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
+        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

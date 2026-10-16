@@ -6,7 +6,6 @@
 extern "C" {
 void draw_selection_bar(void *, void *, s32);
 extern s32 actor_frame_tick;
-void sub_8027ACF8__18TWindowSubItemListFPUc(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {

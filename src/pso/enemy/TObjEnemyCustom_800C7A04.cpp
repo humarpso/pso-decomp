@@ -42,7 +42,6 @@ extern const f32 lbl_805DA070;
 
 extern "C" {
 
-void vfunc_61__15TObjEnemyCustomFv(void);
 s32 advance_animation_playback(void *);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 s32 apply_actor_gravity(void *, s32, f32);

@@ -19,7 +19,6 @@ void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
 extern Vec_8017F6C0 lbl_804FF610;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB5C;
-s32 update_object_view_visibility__10TObjCameraFff(Obj_8017F6C0 *o, f32 r, f32 d);
 }
 
 extern "C" {

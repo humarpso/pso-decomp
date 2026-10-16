@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/TAdPlayerLoadGC.h"
+#include "pso/TMainTask.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
@@ -82,7 +86,6 @@ s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_pad_rumble();
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void TKeyBoardControl__sub_8000F764(void);
-s32 run_tasks__7TObjectFv(s32 *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
 void TKeyBoardControl__sub_8000F7FC(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
@@ -139,14 +142,12 @@ s32 TObjPlayer__sub_801416AC();
 s32 load_menu_font();
 s32 init_keyboard_buffer__6TLobbyFv();
 s32 load_ply_level_tbl();
-s32 load_banner_files__15TAdPlayerLoadGCFv();
 s32 init_particle_sprite_atlas();
 s32 init_char_select_globals__23TAdSinglePlyChrSelectGCFv();
 s32 reset_story_select__6TLobbyFv();
 s32 TLobby__sub_8020E3C0();
 s32 TLobby__sub_80226BA4();
 s32 TLobby__sub_8022780C();
-s32 init_main_task__9TMainTaskFv(void *);
 s32 init_buffers();
 s32 TAdSinglePlyChrSelectGC__sub_802431D0();
 s32 TCharaMaking__sub_8028E6B4();
@@ -206,7 +207,6 @@ s32 TObjPlayer__sub_80083FB0();
 int init_default_config__10TObjPlayerFv(void);
 int TObjPlayer__sub_801D92A4(void);
 int TObjTailsTailsMove__sub_800FFE0C(void);
-int reset_emitter_table__13TParticleCtrlFv(void);
 int TWindowSnapShot__sub_802A7DA0(void);
 int TWindowSubStatusDisp__sub_803386F0(void);
 int fn_80082A6C(void);
@@ -214,7 +214,6 @@ int VIWaitForRetrace(void);
 int VIFlush(void);
 int VISetBlack(void*);
 int free_system__13TParticleCtrlFv(void);
-s32 run_tasks__7TObjectFv(s32 *);
 int xfree__FPv(void*);
 
 extern s32 keyboard_task_object[];
@@ -235,14 +234,14 @@ void TKeyBoardControl::run_tasks() {
     if ((s32) lbl_805D62B0 != 0) {
         update_music_sequencer();
     }
-    run_tasks__7TObjectFv(keyboard_task_object);
+    ((TObject *)keyboard_task_object)->run_tasks();
 }
 
 int TKeyBoardControl::get_fog_ctrl() { return clear_split_screen_fog__8TFogCtrlFv(this); }
 
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TKeyBoardControl__sub_8000F7FC(void) {
-    run_tasks__7TObjectFv((s32 *)(&lbl_80515F48.value));
+    ((TObject *)(&lbl_80515F48.value))->run_tasks();
 }
 
 void TKeyBoardControl::update() {  }
@@ -254,7 +253,7 @@ int TKeyBoardControl__sub_8000F828(void) { return 0; }
     extern int resource_decompress_buffer;
     extern int anim_model_matrix_array;
     extern int lbl_805D5680;
-void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); init_default_config__10TObjPlayerFv(); TObjEneMe3Stelth::destroy_resources(); TAdPlayerLoadGC__sub_801E1350(); free_system__13TParticleCtrlFv(); reset_emitter_table__13TParticleCtrlFv(); fn_80082A6C(); TAdSinglePlyChrSelectGC::free_resources(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); TLobby::destroy_game_heap(); TLobby__sub_8022809C(); TLobby::shutdown_buffers(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(resource_decompress_buffer)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(anim_model_matrix_array)); xfree__FPv((void*)(player_matrix_stack_buffer)); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
+void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); init_default_config__10TObjPlayerFv(); TObjEneMe3Stelth::destroy_resources(); TAdPlayerLoadGC__sub_801E1350(); free_system__13TParticleCtrlFv(); TParticleCtrl::reset_emitter_table(); fn_80082A6C(); TAdSinglePlyChrSelectGC::free_resources(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); TLobby::destroy_game_heap(); TLobby__sub_8022809C(); TLobby::shutdown_buffers(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(resource_decompress_buffer)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(anim_model_matrix_array)); xfree__FPv((void*)(player_matrix_stack_buffer)); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
 
 extern s32 lbl_805D49C0;
 
@@ -414,7 +413,7 @@ void init_game_systems(void) {
     TKeyBoardControl__sub_8000F9E4();
     reset_input__16TKeyBoardControlFi(&TKeyBoardControl__global_key_state);
     init_buffers();
-    init_main_task__9TMainTaskFv(((u8 *)&main_task));
+    ((TMainTask *)((u8 *)&main_task))->init_main_task();
     TLobby__sub_8007EB70();
     TLobby__sub_8022780C();
     TLobby::init_download_state();
@@ -436,7 +435,7 @@ void init_game_systems(void) {
     GXSetPixelFmt((int) (1), (int) (0));
     init_disc_error_messages();
     init_keyboard_buffer__6TLobbyFv();
-    load_banner_files__15TAdPlayerLoadGCFv();
+    TAdPlayerLoadGC::load_banner_files();
     TLobby::load_player_data();
     TLobby::init_account_entries();
     load_ha_u032_kage();

@@ -135,11 +135,9 @@ extern "C" {
 u16 obj_getField1c(void *);
 void select_class_action_provider__10TObjPlayerFPv(void *, s32);
 extern s32 TObjPlayer__shared_model_buffer;
-void sub_801BD240__10TObjPlayerFv(P_801BD240 *arg0);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s32 get_idle_animation__10TObjPlayerFPv();
-void set_motion_interpolation_flag__10TObjMotionFv(void *);
 Anim_801BD0C0 *get_anim_entry__10TObjMotionFi(void *, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
@@ -160,7 +158,7 @@ void TObjPlayer::apply_motion_entry() {
     self->fb0 &= ~4;
     self->fb4 = a->flags;
     if (self->fb4 & 0x20000000) {
-        set_motion_interpolation_flag__10TObjMotionFv(self);
+        ((TObjMotion *)self)->set_motion_interpolation_flag();
     }
     if (self->frame >= self->end) {
         self->frame = TObjPlayer__data_805DC278;

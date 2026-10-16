@@ -3,9 +3,6 @@
 
 extern "C" {
 
-int sub_8026042C__19TWindowKeyBoardHardFv(void* p);
-int sub_80260438__19TWindowKeyBoardHardFv(void* p);
-
 void TWindowKeyBoardHard::set_bits_shift7(s32 arg0, s32 arg1) {
     TWindowKeyBoardHard::set_card_window_flags((void *)arg0, (s32)(arg1 << 7), (s32)(-0x81));
 }

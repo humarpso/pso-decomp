@@ -2,7 +2,6 @@
 #include "pso/item/TUnk_804A0BC0.h"
 
 extern "C" {
-void update_weapon__13TUnk_804A0BC0Fv(u8 *arg0);
 }
 
 extern "C" {

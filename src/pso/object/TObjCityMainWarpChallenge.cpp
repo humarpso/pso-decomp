@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCityMainWarpChallenge.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -33,7 +34,6 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444A44[];
 extern char lbl_80444A58[];
-void debug_print_area_num__25TObjCityMainWarpChallengeFv(void *arg0);
 }
 
 extern "C" {
@@ -45,7 +45,6 @@ s32 update_floor_switch_state__16TObjCityMainWarpFv();
 s32 update_warp_sequence__16TObjCityMainWarpFv();
 s32 update_challenge_state__25TObjCityMainWarpChallengeFv();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -148,7 +147,7 @@ void TObjCityMainWarpChallenge::run_task() {
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjCityMainWarpChallenge;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         ((TObjCityMainWarp *)arg0)->close_windows();
         __dt__12TObjAreaWarpFv(arg0, 0);
         if (arg1 > 0) {

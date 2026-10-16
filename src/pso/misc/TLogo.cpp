@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/misc/TLobby.h"
 class TLogo : public TObject {
 public:
     virtual void render();
@@ -94,7 +95,6 @@ extern void *TLogo__class_name;
 
 extern "C" {
 void reset_view_state__11TCameraCtrlFv(); void reset__11TCameraCtrlFv(); void TCameraCtrl::init_default_view(); void TCameraCtrl::reset_default_view();
-void update_keyboard_menu__6TLobbyFv(); void TLobby::free_keyboard_soft_resources();
 void register_texture_f256_ad_pic_2(); void TAdSinglePlyChrSelectGC::free_global();
 void register_texture_f256_backtext(); void TAdSinglePlyChrSelectGC::free_singleton_805D65C0();
 void register_texture_logo_e(); void free_held_object__5TLogoFv(); void TLogo__sub_8001C364(); void TLogo__sub_8001C360();
@@ -103,7 +103,7 @@ void __dt__5TLogoFv(); void render_shadows__7TObjectFv();
 void *logo_load_callback_table[18] = {
     (void *)reset_view_state__11TCameraCtrlFv, (void *)reset__11TCameraCtrlFv,
     (void *)TCameraCtrl::init_default_view, (void *)TCameraCtrl::reset_default_view,
-    (void *)update_keyboard_menu__6TLobbyFv, (void *)TLobby::free_keyboard_soft_resources,
+    (void *)TLobby::update_keyboard_menu, (void *)TLobby::free_keyboard_soft_resources,
     (void *)register_texture_f256_ad_pic_2, (void *)TAdSinglePlyChrSelectGC::free_global,
     (void *)register_texture_f256_backtext, (void *)TAdSinglePlyChrSelectGC::free_singleton_805D65C0,
     (void *)register_texture_logo_e, (void *)free_held_object__5TLogoFv,

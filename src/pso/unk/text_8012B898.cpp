@@ -23,7 +23,6 @@ extern "C" {
 s32 get_current_floor();
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
-void set_technique_roll__13TUnk_804A4F60Fl(u8 *arg0, s32 arg1);
 u8 * init_vtable_and_clear_field1f8__13TUnk_804A4E68Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -37,7 +36,6 @@ s32 get_captured_target_count(s32);
 s32 rand(void);
 extern const f32 lbl_805DAEC0;
 extern const f32 lbl_805DAEC4;
-void psycho_wand_roll_extra__13TUnk_804A4F60Fv(Self_8012B9B4 *self);
 }
 
 extern "C" {

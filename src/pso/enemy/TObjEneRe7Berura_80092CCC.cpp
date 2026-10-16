@@ -348,7 +348,6 @@ struct Berura_80092CCC {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void clear_attack_receipts__9TObjEneDDFv(void *);
 s32 transition_enemy_state(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -667,7 +666,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         self->vel.z *= TObjEneRe7Berura__data_805D9738;
         break;
     case 5:
-        clear_attack_receipts__9TObjEneDDFv(self);
+        ((TObjEneDD *)self)->clear_attack_receipts();
         ((TObjEneDD *)self)->clear_field_388();
         break;
     }

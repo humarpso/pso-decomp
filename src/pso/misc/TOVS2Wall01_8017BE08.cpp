@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOVS2Wall01.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -68,15 +70,12 @@ extern "C" {
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void TObjPlayer__sub_800D7C58(void *, int);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 int submit_cursor_candidate(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 int queue_destruction__7TObjectFv(void*);
-int set_flag8__13TUnk_804AF8A0Fv(void*);
 
-void TOVS2Wall01::release() { set_flag8__13TUnk_804AF8A0Fv(this); queue_destruction__7TObjectFv(this); }
+void TOVS2Wall01::release() { set_flag8(); queue_destruction__7TObjectFv(this); }
 int TOVS2Wall01::interact_player_neg1() { return submit_cursor_candidate(this, -1); }
 
 void TOVS2Wall01::run_task() {
@@ -144,10 +143,10 @@ extern s32 __vt__11TOVS2Wall01[];
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x340, -1);
-        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
+        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

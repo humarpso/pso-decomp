@@ -19,7 +19,6 @@ struct Body_80090178 {
 
 extern "C" {
 extern G_80090418 *lbl_805D4F20;
-void sub_80090418__18TObjEneBalClawClawFl(O_80090418 *self, s32 i);
 void queue_destruction__7TObjectFv(void *);
 void __dt__14TObjEneBalClawFv(void *, int);
 void *find_entity_by_id(u16);

@@ -3,8 +3,6 @@
 
 extern "C" {
 
-void calc_recoil_offsets__13TUnk_80490470Fv(void *arg0);
-
 extern const f32 lbl_805D9958;
 extern const f32 lbl_805D995C;
 extern const f32 lbl_805D9960;
@@ -81,8 +79,6 @@ void TObjPlayer__sub_800A0554(Obj_800A0554 *self);
 }
 
 extern "C" {
-
-void set_rate_from_divisor__13TUnk_80490470Fl(void *arg0, s32 arg1);
 
 extern const f64 lbl_8043A468;
 extern const f32 lbl_805D995C;

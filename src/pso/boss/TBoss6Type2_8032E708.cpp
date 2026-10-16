@@ -317,7 +317,6 @@ s32 get_bml_motion(int, int);
 extern Ent_8032FFC0 boss6_type2_motion_table[];
 void update_all_parts__11TBoss6Type2FPv(s32 arg0);
 extern Ent_8033053C boss6_type2_action_table[];
-void set_action__9TBoss6MagFl(u8 *arg0, s32 arg1);
 void TBoss6Type2__sub_8032EA10(T_8032EA10 *self);
 int copy_vec3__11TBoss6Type2Fii(s32 _w0, s32 _w1);
 extern void *TBoss6Type2__instance_slots[];
@@ -327,7 +326,6 @@ u32 create_particle_emitter(void *, s32);
 
 void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *, void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void set_action__9TBoss6MagFl(u8 *arg0, s32 arg1);
 void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss6Type2__sub_802BD378(void *, s32, void *, void *);
@@ -346,7 +344,6 @@ f32 normalize_vector(void *);
 s32 calc_dir_angles__11TBoss6Type2FPvPvPvPv(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3);
 void spawn_particle_effect_with_flags(void *, s32, s32);
 s32 is_active__11TBoss6Type2Fv(int);
-void sub_8032E8DC__9TBoss6MagFv(Obj_8032E8DC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
 f32 subtract_vector(void *, int);
@@ -783,7 +780,7 @@ void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s
         VecCopy__FP3VecPC3Vec(&arg0->v[i], &arg1[i]);
     }
     arg0->n = n;
-    set_action__9TBoss6MagFl((u8 *)arg0, 3);
+    ((TBoss6Mag *)arg0)->set_action(3);
 }
 
 void TBoss6Type2::set_path_points_by_index(s32 i, void *pts, s32 n) {
@@ -1234,7 +1231,7 @@ void TBoss6Mag::vfunc_63() {
     default:
         TBoss6Type2__sub_802BD340((int) (*(s32 *)((s8 *)arg0 + 0x378)));
         *(f32 *)((s8 *)arg0 + 0x3F8) = (f32) (1.0f);
-        set_action__9TBoss6MagFl((u8 *) (arg0), (int) (4));
+        ((TBoss6Mag *)arg0)->set_action((int) (4));
         play_sound_effect((int) (0x69E17), (void *) (arg0 + 0x38), (int) (0), (int) (0));
         break;
     }
@@ -1256,13 +1253,11 @@ s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
-void sub_8033040C__9TBoss6MagFv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 break_rocks_in_radius__10TBoss6RockFPvf(void *, f32);
 void render__9TBoss6MagFv(void* p);
-void spawn_trap_by_stat__9TBoss6MagFv(u8 *arg0);
 s32 play_persistent_sound(int, void *, void *, int, int);
 
 void TObjPlayer::save_position() {
@@ -1312,7 +1307,7 @@ void TBoss6Mag::spawn_trap_by_stat() {
     play_persistent_sound(var_r3, ((u8 *)this), ((u8 *)this) + 0x38, 0, 0);
 }
 
-void TBoss6Mag::render() { sub_8033040C__9TBoss6MagFv((u8 *)(this)); }
+void TBoss6Mag::render() { sub_8033040C(); }
 
 void TBoss6Mag::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -1346,8 +1341,8 @@ void TBoss6Mag::run_task() {
         add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (var_r4), (int) (1), (int) (1), (f32) (2.0f));
         ((TBoss6Mag *)arg0)->decay_glow_and_calc_hp_ratio();
         ((TBoss6Mag *)arg0)->sync_hp_apply_damage();
-        spawn_trap_by_stat__9TBoss6MagFv(arg0);
-        sub_8032E8DC__9TBoss6MagFv((Obj_8032E8DC *) (arg0));
+        ((TBoss6Mag *)arg0)->spawn_trap_by_stat();
+        ((TBoss6Mag *)arg0)->sub_8032E8DC();
         ((TBoss6Mag *)arg0)->update_effect_positions();
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) + 1);
     }
@@ -1527,7 +1522,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x400) = 0.0f;
     ((TBoss6Mag *)arg0)->sync_hp();
     TBoss6Type2__sub_8032EA10((T_8032EA10 *)arg0);
-    set_action__9TBoss6MagFl(arg0, 0);
+    ((TBoss6Mag *)arg0)->set_action(0);
     return arg0;
 }
 

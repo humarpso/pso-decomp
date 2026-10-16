@@ -6,8 +6,6 @@
 extern "C" {
 
 void *TObjQuestColA__ct(void *arg0);
-s32 vfunc_15__13TObjQuestColAFv(void *arg0);
-void vfunc_16__13TObjQuestColAFv(void* p);
 s32 enable_action_input__10TObjPlayerFPv(s32);
 s32 disable_primary_action_input__10TObjPlayerFPv(s32);
 s32 is_quest_interaction_blocked__10TObjPlayerFPv(s32);

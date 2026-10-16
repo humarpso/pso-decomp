@@ -34,8 +34,6 @@ void check_wall_hit__12TNeedleShootFPv(u8 *arg0);
 
 extern "C" {
 
-void vfunc_8__12TNeedleShootFv(void);
-
 void TNeedleShoot::vfunc_8() {  }
 typedef char RecoveredGlobal_802A45D4_lbl_80466678_size[sizeof(RecoveredGlobal_802A45D4_lbl_80466678) == 0x10 ? 1 : -1];
 

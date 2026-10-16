@@ -76,7 +76,6 @@ extern u8 gogo_ball_configuration[];
 extern void *tl_05;
 extern s32 tl_06;
 extern const f32 lbl_805DBF40;
-void update_effects__13TUnk_804B8DD0Fv(void *self);
 }
 
 extern "C" {
@@ -200,7 +199,7 @@ void TUnk_804B8DD0::run_task() {
     if (this->m_28 != 0) {
         if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x10 : 1)) {
             *(s32 *)((s8 *)this + 0x3C) = 1;
-            update_effects__13TUnk_804B8DD0Fv((void *)(this));
+            update_effects();
         } else {
             *(s32 *)((s8 *)this + 0x3C) = 0;
             this->m_30 = 0;
@@ -208,7 +207,7 @@ void TUnk_804B8DD0::run_task() {
     } else {
         if (*(s16 *)((s8 *)gogo_ball_sync_state + 0x10) & (this->m_40 != 0 ? 0x20 : 2)) {
             *(s32 *)((s8 *)this + 0x3C) = 1;
-            update_effects__13TUnk_804B8DD0Fv((void *)(this));
+            update_effects();
         } else {
             *(s32 *)((s8 *)this + 0x3C) = 0;
             this->m_30 = 0;

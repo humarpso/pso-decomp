@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TODoorCave03.h"
@@ -85,27 +87,22 @@ struct Model_801625AC {
 
 extern "C" {
 extern const f32 lbl_805DB4D8;
-void vfunc_17__12TODoorCave03Fv(u8 *arg0);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
-void vfunc_18__12TODoorCave03Fv(u8 *arg0);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4DC;
-void vfunc_16__12TODoorCave03Fv(u8 *arg0);
 s32 set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(void *, f32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4E0;
 extern const f32 lbl_805DB4E4;
-void play_proximity_sound__12TODoorCave03Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 
 extern s32 enable_v2_features;
 extern u32 TODoorCave03__model_resource;
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80162848_lbl_804B1548 lbl_804B1548;
@@ -114,7 +111,6 @@ extern s32 TODoorCave03__class_name;
 extern u32 TODoorCave03__model_resource;
 extern const f32 TODoorCave03__data_805DB4D4;
 u8 *TODoorCave03__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
@@ -130,11 +126,9 @@ void render__12TODoorCave03Fv(u8 *arg0);
 
 extern "C" {
 
-void vfunc_20__12TODoorCave03Fv(void);
 void *__dt__12TODoorCave03Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -213,7 +207,7 @@ void TODoorCave03::play_proximity_sound() {
 void render__12TODoorCave03Fv(u8 *arg0) {
     Model_801625AC *m;
     if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0 &&
-        is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB4E8) != 0) {
+        ((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB4E8) != 0) {
         TObjFish::set_global_param(*(s32 *)(arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
@@ -286,7 +280,7 @@ void TODoorCave03::load_resources() {
 void *__dt__12TODoorCave03Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TODoorCave03;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -305,7 +299,7 @@ u8 *TODoorCave03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorCave03__model_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorCave03__model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1548.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorCave03 *)(arg0))->init_door_switch_binding();
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) TODoorCave03__data_805DB4D4;

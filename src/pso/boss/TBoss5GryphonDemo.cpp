@@ -68,19 +68,16 @@ Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 
 
 extern "C" {
 
-void render__20TBoss5GryphonColli_CFv(void);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 int set_matrix_identity(void*);
 int rotate_matrix_y(void*, s32);
 int push_matrix(void*);
 int pop_matrix(void);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_particle_controller__13TUnk_804AF8A0Fs(void *, s32);
 
 void TBoss5GryphonColli_C::render() {  }
 void TBoss5GryphonDemo__sub_8006626C(void* p) { ((TBoss5GryphonColli_C *)p)->clear_entry_flags(); }
@@ -107,9 +104,9 @@ void TBoss5GryphonDemo::set_all_entry_flags() {
 void *TBoss5GryphonColli_C::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804886AC;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(this);
+        unregister_object_by_id();
         free_collision_body_parts(this);
-        destroy_particle_controller__13TUnk_804AF8A0Fs(this, 0);
+        destroy_particle_controller(0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

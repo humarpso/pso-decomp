@@ -12,9 +12,6 @@ s32 sub_80244994__13TUnk_804CE018Fv();
 s32 update_fade__13TUnk_804CE018Fv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 is_player_input_active(s16);
-s32 sub_80260808__19TWindowKeyBoardSoftFl(void *, s32);
-s32 update_keyboard_child_input_from_controller__19TWindowKeyBoardSoftFl(void *, s32);
-s32 handle_page_cycle_input__19TWindowKeyBoardSoftFl(void *, s32);
 
 extern const f32 lbl_805DD0D4;
 
@@ -25,11 +22,11 @@ void TWindowKeyBoardSoft::run_task() {
     if ((u32) *(u32 *)((s8 *)this + 0x6C) != 0U) {
         if ((sub_80244994__13TUnk_804CE018Fv() != 0) && (is_key_active__16TKeyBoardControlFPv(*(u32 *)((s8 *)this + 0x6C)) == 0)) {
             temp_r3 = is_player_input_active(*(s16 *)((s8 *)this + 0x20));
-            handle_page_cycle_input__19TWindowKeyBoardSoftFl(this, temp_r3);
+            handle_page_cycle_input(temp_r3);
             TWindowKeyBoardSoft__sub_80260E30(this, temp_r3);
             TWindowKeyBoardSoft__sub_80260904(this, temp_r3);
-            update_keyboard_child_input_from_controller__19TWindowKeyBoardSoftFl(this, temp_r3);
-            sub_80260808__19TWindowKeyBoardSoftFl(this, temp_r3);
+            update_keyboard_child_input_from_controller(temp_r3);
+            sub_80260808(temp_r3);
         }
         initialize_subwindow__9TWindowDDFv(this);
         update_fade__13TUnk_804CE018Fv(this);

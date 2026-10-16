@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804B97C0.h"
 #include "pso/item/TObjContainerIdo.h"
 
@@ -11,7 +12,6 @@ extern s32 lbl_804B97C0[];
 
 extern "C" {
 
-void destroy_particle_controller__13TUnk_804AF8A0Fs(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern s32 lbl_804B97C0[];
@@ -19,7 +19,7 @@ extern s32 lbl_804B97C0[];
 void *TUnk_804B97C0::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804B97C0;
-        destroy_particle_controller__13TUnk_804AF8A0Fs(this, 0);
+        destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

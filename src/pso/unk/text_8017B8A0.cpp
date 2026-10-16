@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOTrapAncient02R.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOVS2Wall01.h"
@@ -47,18 +48,11 @@ struct VObj_8017B9B0 : VBase_8017B9B0 {
 };
 
 extern "C" {
-void init_trap_param_clamped__16TOTrapAncient02RFv(u8 *arg0);
-void clamp_trap_level_param__16TOTrapAncient02RFv(u8 *arg0);
-void init_trap_object_id__16TOTrapAncient02RFv(u8 *arg0);
 extern const f32 lbl_805DBA78;
-void receive_direct_attack__16TOTrapAncient02RFPvPvPvll(Obj_8017B8A0 *self);
 extern const f32 lbl_805DBA78;
-void receive_weapon_special_attack__16TOTrapAncient02RFPvPv(V_8017B8D4 *self);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
 VObj_8017B9B0 *find_entity_by_id();
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 void init__11TOVS2Wall01Fi(void *);
 void TOVS2Wall01__sub_8017CA48(void *, s32);
 s32 TOVS2Wall01__sub_8017CA50(void *);
@@ -158,9 +152,9 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
             init__11TOVS2Wall01Fi(o);
             break;
         }
-        access_object_saved_state__13TUnk_804AF8A0FPvs(o, &spC, 1);
+        ((TUnk_804AF8A0 *)o)->access_object_saved_state(&spC, 1);
         spC.a = o->state;
-        access_object_saved_state__13TUnk_804AF8A0FPvs(o, &spC, 0);
+        ((TUnk_804AF8A0 *)o)->access_object_saved_state(&spC, 0);
         o->m4(&spC, 0);
     } else {
         *(s32 *)&sp8 = *(s32 *)&TLobby__data_805D6140[arg0->d];
@@ -179,9 +173,9 @@ void save_and_send_state__11TOVS2Wall01FPvUs(Obj_8017BAFC *arg0, u16 arg1) {
     if (arg1 == 1) {
         v = 1;
     }
-    if ((arg0->sub != NULL) && (access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) != 0)) {
+    if ((arg0->sub != NULL) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = v;
-        access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
+        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
         sub = arg0->sub;
         ((TOVS2Wall01 *)(&pkt))->init();
         pkt.b = arg0->f1C;

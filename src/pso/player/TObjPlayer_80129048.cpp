@@ -1,18 +1,17 @@
 #include "types.h"
+#include "pso/TAdRicoRing.h"
 #include "pso/TItemShootModel.h"
 
 extern "C" {
 
 void *TObjPlayer__sub_80129048(void *arg0, s16 arg1);
 s32 TObjPlayer__sub_801290D0(u8 *arg0);
-void sub_80129118__15TItemShootModelFll(u8 *arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_80129124(void* p);
 void clear_rico_ring_flag__10TObjPlayerFUi(u32 arg0);
 int rotate_matrix_z(void*, void*);
 s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
-s32 clear_flags__11TAdRicoRingFUl(s32, s32);
 int get_player_list__10TObjPlayerFv(void*);
 
 extern s32 lbl_804A4020[];
@@ -30,7 +29,7 @@ void *TObjPlayer__sub_80129048(void *arg0, s16 arg1) {
 
 void clear_rico_ring_flag__10TObjPlayerFUi(u32 arg0) {
     if (arg0 != 0U) {
-        clear_flags__11TAdRicoRingFUl(arg0 + 0x1FC, 2);
+        ((TAdRicoRing *)(arg0 + 0x1FC))->clear_flags(2);
     }
 }
 

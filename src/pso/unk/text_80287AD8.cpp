@@ -18,7 +18,6 @@ struct Wn_80287AD8 { u8 pad[0x60]; u32 f60; };
 
 extern "C" {
 extern const f32 lbl_805DD880;
-void ease_window_timer_position__12TWindowTimerFv(Obj_80287BE8 *o);
 u32 calc_text_width(char *);
 TimerChild_80287B60 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 extern char lbl_8044FCD8[];

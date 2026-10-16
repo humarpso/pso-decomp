@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TUnk_8049442C.h"
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/player/TObjPlayer.h"
@@ -145,10 +146,8 @@ void check_enemy_body_collisions(void *);
 s32 play_sound_effect(void *, void *, int, int);
 extern Parm_800D47B4 lbl_8043C464[];
 extern const f32 lbl_805DA2C0;
-void sub_800D47B4__19TObjGyaranzoMissileFv(Missile_800D47B4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
-void sub_800D47B4__19TObjGyaranzoMissileFv(Missile_800D47B4 *arg0);
 Target_800D4990 *find_active_entity_by_id(u16);
 int direction_to_rotation_xy(void *, void *, void *);
 void check_enemy_body_collisions(void *);
@@ -172,13 +171,11 @@ void free_collision_body_parts(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 draw_chunk_object();
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__13TUnk_804AF8A0Fs(void *, int);
 s32 set_global_param__8TObjFishFl();
 
 extern s32 lbl_8049442C[];
@@ -186,9 +183,9 @@ extern s32 lbl_8049442C[];
 void *TUnk_8049442C::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049442C;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(this);
+        unregister_object_by_id();
         free_collision_body_parts(this);
-        destroy_particle_controller__13TUnk_804AF8A0Fs(this, 0);
+        destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -302,7 +299,7 @@ void TObjGyaranzoMissile::run_task() {
     self->xCC += self->xD0;
     if (self->timer >= 10) {
         if (csnVector(&self->prev, &self->pos, -1) != 0) {
-            sub_800D47B4__19TObjGyaranzoMissileFv((Missile_800D47B4 *)self);
+            ((TObjGyaranzoMissile *)self)->sub_800D47B4();
             return;
         }
         Vec_800D4990 p = self->pos;
@@ -313,7 +310,7 @@ void TObjGyaranzoMissile::run_task() {
                 ((TObjPlayer *)self)->check_object_collisions();
                 check_enemy_body_collisions(self);
                 if (self->col->flags & 0x180000) {
-                    sub_800D47B4__19TObjGyaranzoMissileFv((Missile_800D47B4 *)self);
+                    ((TObjGyaranzoMissile *)self)->sub_800D47B4();
                     return;
                 }
             } else {
@@ -324,7 +321,7 @@ void TObjGyaranzoMissile::run_task() {
     }
     self->timer++;
     if (self->timer > gyaranzo_missile_volley_end_time) {
-        sub_800D47B4__19TObjGyaranzoMissileFv((Missile_800D47B4 *)self);
+        ((TObjGyaranzoMissile *)self)->sub_800D47B4();
     }
 }
 
@@ -332,7 +329,7 @@ void *__dt__19TObjGyaranzoMissileFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjGyaranzoMissile;
         free_collision_body_parts(arg0);
-        destroy_particle_controller__13TUnk_804AF8A0Fs(arg0, 0);
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

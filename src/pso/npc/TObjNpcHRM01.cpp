@@ -115,7 +115,6 @@ extern char TObjNpcHRM01__body_texture_filename[];
 extern "C" {
 
 void * TObjNpcLappy__create(void *arg0);
-void vfunc_88__12TObjNpcLappyFv(void *arg0);
 void *__dt__12TObjNpcHRM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);

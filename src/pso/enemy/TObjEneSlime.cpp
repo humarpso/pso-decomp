@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneSlime.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -126,12 +127,9 @@ extern u32 model_render_flags;
 extern "C" {
 
 void TObjEneSlime__sub_800EB9F0(void* p, void* q);
-void vfunc_63__12TObjEneSlimeFv(void* p);
-s32 exchange_object_state__9TObjEnemyFls(void *, s32 *, s32);
 s32 send_6x0A_enemy_state(void *, s32 *);
 s32 has_no_active_slot(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 
 void TObjEneSlime::release_split_slimes() {
     Obj_800EB910 *self = (Obj_800EB910 *)this;
@@ -202,9 +200,9 @@ void TObjEneSlime::run_task() {
     if ((TObjPlayer::check_demo_mode() == 0) && (has_no_active_slot(this) != 0)) {
         sp8 = 0x800;
         send_6x0A_enemy_state(this, &sp8);
-        exchange_object_state__9TObjEnemyFls(this, &sp8, 0);
+        exchange_object_state((s32)(&sp8), (s16)0);
         ((VObj_800EBB18_800EB9F0 *)this)->m77(&sp8);
-        send_entity_set_flags__9TObjEnemyFv(this);
+        send_entity_set_flags();
         queue_destruction__7TObjectFv(this);
     }
 }

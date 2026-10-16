@@ -8,10 +8,6 @@
 extern "C" {
 
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
-int vfunc_33__5TItemFv(void);
-int vfunc_43__5TItemFv(void);
-void sub_80102C58__5TItemFv(void* p);
-void sub_80102C68__5TItemFv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*);
 
 u8 TItem::get_field_ec() { return *(u8*)((char*)this + 0xec); }

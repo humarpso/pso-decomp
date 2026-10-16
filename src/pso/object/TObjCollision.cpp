@@ -21,7 +21,6 @@ extern "C" {
 
 void *__dt__13TObjCollisionFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -44,7 +43,7 @@ void *__dt__13TObjCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjCollision;
         free_collision_body_parts(arg0);
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

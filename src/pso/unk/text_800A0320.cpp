@@ -4,10 +4,8 @@
 
 extern "C" {
 extern const f32 lbl_805D9958;
-s32 vfunc_10__13TUnk_80490470Fv(u8 *arg0);
 s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
 extern const f32 lbl_805D995C;
-s32 advance_toward_max__13TUnk_80490470Fv(u8 *arg0);
 s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
 extern const f32 lbl_805D9958;
 }

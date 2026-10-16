@@ -454,7 +454,6 @@ s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 apply_equip_slot_effect__14TItemEquipBaseFUsUl(s32, int);
 s32 start_event_by_index__15TItemTimerEventFUs();
-void sub_8010A948__14TItemEquipBaseFv(u8 *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 TItemEquipBase__sub_8010B73C(void *);
 s32 TItemEquipBase__sub_8022C680(void *, void *, void *);
@@ -466,13 +465,11 @@ s32 spawn_particle_effect(void *, int);
 u8 *resolve_hittable_target(s32, s32);
 void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 test_flags_any(void *, void *);
-void sub_8010A948__14TItemEquipBaseFv(u8 *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 apply_equip_effect_slot__14TItemEquipBaseFUsUl(void *, int);
 s32 clear_timer_slot__15TItemTimerEventFUs(void *);
 s32 init__9TItemDataFv(void *);
 s32 request_item_model_load(void *);
-void request_model_load__14TItemEquipBaseFl(u8 *arg0, s32 arg1);
 s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
 s32 TItemData__sub_8010B808(void *);
@@ -520,13 +517,7 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
     virtual void m19();
 };
 
-void vfunc_50__14TItemEquipBaseFv(void);
 void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *row);
-void vfunc_49__14TItemEquipBaseFv(void);
-void vfunc_48__14TItemEquipBaseFv(void);
-void vfunc_45__14TItemEquipBaseFv(void);
-void vfunc_46__14TItemEquipBaseFv(void);
-void vfunc_44__14TItemEquipBaseFv(void);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 subtract_s16_stat(void *, void *);
 s32 TObjPlayer__sub_800194E8(void *);
@@ -893,7 +884,7 @@ void TItemEquipBase::equip() {
             ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)((void *)((int) (1))));
             ((VObj_18_df954d *)(arg0))->m44();
         }
-        sub_8010A948__14TItemEquipBaseFv((u8 *)((void *) (arg0)));
+        ((TItemEquipBase *)arg0)->sub_8010A948();
         ((VObj_18_df954d *)(arg0))->m42();
     }
 }
@@ -923,7 +914,7 @@ void TItemEquipBase::request_model_load(s32 arg1) {
 
 void TItemEquipBase::update_with_player() {
     s32 object = (s32)this;
-    request_model_load__14TItemEquipBaseFl((u8*)object, get_field_ed__5TItemFv((void*)object));
+    ((TItemEquipBase *)object)->request_model_load(get_field_ed__5TItemFv((void*)object));
 }
 void TItemEquipBase::vfunc_46() {  }
 

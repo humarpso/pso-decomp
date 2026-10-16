@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowSubComCard.h"
 struct Entry_80269A0C {
     u16 flags;
@@ -38,7 +39,6 @@ extern "C" {
 Entry_80269A0C *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void measure_message_text_width(void *, f32);
 void set_text_entry_string(void *, s32, s32);
-void scroll_up_line__14TWindowMessageFPUc(void *, void *);
 extern const f32 lbl_805DD218;
 extern const f32 lbl_805DD21C;
 extern const f32 lbl_805DD234;
@@ -60,7 +60,7 @@ s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3
     e = get_array_entry__13TUnk_804CE018Fi(self, self->idx);
     rec = &self->recs[self->idx];
     if (((TWindowSubComCard *)e)->get_field_20() != 0U) {
-        scroll_up_line__14TWindowMessageFPUc(self, e);
+        ((TWindowMessage *)self)->scroll_up_line((u8 *)e);
     }
     if (flags & 0x80) {
         self->f80 = self->f6C;

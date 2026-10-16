@@ -28,7 +28,6 @@ void queue_destruction__7TObjectFv(void *);
 void set_active_camera_pose(void *, void *);
 void activate_camera_mode(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-void sub_801A4CA4__13TUnk_804C2298Fv(void *);
 s32 TWindowShortListCtrl__sub_801A513C(void *);
 int TWindowShortListCtrl__sub_801A5144(void *);
 s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv(void);
@@ -41,7 +40,6 @@ extern Vec_801A4D30 lbl_8044694C;
 extern Pair_801A4D30 lbl_80446958[];
 extern Pair_801A4D30 lbl_80446960[];
 extern const f32 lbl_805DC0A8;
-void run_task__13TUnk_804C2298Fv(Obj_801A4D30 *self);
 }
 
 extern "C" {
@@ -115,7 +113,7 @@ void TUnk_804C2298::run_task() {
     case 8:
         self->timer++;
         if ((f32)self->timer > lbl_805DC0A8) {
-            sub_801A4CA4__13TUnk_804C2298Fv(self);
+            ((TUnk_804C2298 *)self)->sub_801A4CA4();
             self->state = 9;
             TAdMultiChgGameModeGC::request_scene_change();
         }

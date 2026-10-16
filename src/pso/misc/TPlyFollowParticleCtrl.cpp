@@ -3,7 +3,6 @@
 
 extern "C" {
 
-int vfunc_9__22TPlyFollowParticleCtrlFv(void);
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 arg0, s16 arg1);
 void TPlyFollowParticleCtrl__sub_8030A694(void);
 

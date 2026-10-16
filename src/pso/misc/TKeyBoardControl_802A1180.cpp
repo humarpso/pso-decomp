@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TUnk_804DCB64.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
@@ -12,7 +13,6 @@ extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 request_queued_main_phase();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
 s32 controller_stuff__Fv();
@@ -35,8 +35,6 @@ void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1);
 
 extern "C" {
 
-void render__13TUnk_804DCB64Fv(void);
-void run_task__13TUnk_804DCB64Fv(void);
 s32 init_fresh_character_card();
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
@@ -75,7 +73,7 @@ void update_movie_phase(void) {
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }

@@ -161,7 +161,6 @@ public:
 
 extern "C" {
 extern const f32 lbl_805E0258;
-void vfunc_62__13TUnk_804F26E0Fv(u8 *arg0);
 extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
 void * init_s_rank_knuckle(void *, s32, void *);
@@ -176,7 +175,6 @@ f32 post_translate_matrix(void *);
 extern RecoveredGlobal_803626A8_lbl_80479FBC lbl_80479FBC;
 extern RecoveredGlobal_803626A8_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
-void sub_803626A8__19TObjEneEpsilonGuardFll(u8 *arg0, s32 arg1, s32 arg2);
 u8 * __dt__9TObjEneDDFv(void *, s16);
 s32 __dl__7TObjectFPv(void *);
 s32 __destroy_arr(void *, void *, int, int);

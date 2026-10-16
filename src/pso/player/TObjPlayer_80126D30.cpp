@@ -4,7 +4,6 @@
 extern "C" {
 
 void harisen_battle_fan_scale_node(void* p);
-void emit_marker_effects__13TUnk_804A2E80Fv(void* a0);
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

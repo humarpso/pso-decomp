@@ -118,7 +118,6 @@ s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 s32 fn_8025DE10(void *, void *);
 s32 TWindowSubStatusDisp__sub_8025E148(void *, void *, void *, int, int);
 s32 TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, int, int, int);
-void sub_8025E6DC__19TWindowKeyBoardBaseFPUc(u8 *arg0, u8 *arg1);
 s32 strncpy(s32 *, u8 *, s32);
 void draw_textured_quad_at_depth(void *, f32);
 s32 dispatch_request_0x27__19TWindowKeyBoardSoftFll(void *, s32 *);

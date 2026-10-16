@@ -38,7 +38,6 @@ void get_player_state__6TOMineFv(void *, u16);
 s32 fn_80171314(void *);
 u8 *get_player_by_client_id(u16);
 extern const f32 lbl_805DB850;
-void run_task__10TOMineDispFv(u8 *arg0);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();

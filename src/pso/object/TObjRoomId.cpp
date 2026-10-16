@@ -88,10 +88,8 @@ extern const f32 lbl_805DC090;
 extern "C" {
 
 void set_player_room_control_flag(void *arg0);
-int vfunc_12__13TUnk_804B9870Fv(void);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
-u8 sub_801A1DDC__10TObjPlayerFv(void *arg0);
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
 void TLobby__sub_801A1FD8(void);
 u16 TLobby__sub_801A20C8(s32);

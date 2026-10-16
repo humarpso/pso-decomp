@@ -1,9 +1,9 @@
 #include "pso/TItemShootModelRotZ.h"
+#include "pso/TItemShootModel.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32   is_owner_alive__15TItemShootModelFv(TItemShootModelRotZ*);
 void  push_matrix(void);
 void  post_translate_matrix(Vec*);
 void  rotate_matrix_by_node_angles(void*, s32);
@@ -13,7 +13,7 @@ extern const char* item_shoot_model_rot_z_class_name;
 }
 
 void TItemShootModelRotZ::render() {
-    if (is_owner_alive__15TItemShootModelFv(this)) {
+    if (is_owner_alive()) {
         if (this->m_58 != NULL) {
             TObjPlayer::notify_fish_if_valid((u32)(this->m_5C));
             TParticleCtrl::begin_effect_render();

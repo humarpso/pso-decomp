@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TORockCave.h"
 #include "pso/misc/TOSensorAncient01.h"
 #include "pso/misc/TOSensor.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -50,44 +53,29 @@ struct Obj_801756C4 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0xCC - 0x44]; f32 range
 struct Player_801756C4 { u8 pad[0x38]; f32 pos[3]; };
 
 extern "C" {
-void vfunc_16__17TOSensorAncient01Fv(u8 *arg0);
-void update_pulse_value__17TOSensorAncient01Fv(u8 *arg0);
-u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_8017546C(u8 *arg0);
-u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_80175514(u8 *arg0);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
-void finalize_and_send_60__6TLobbyFv(void *);
-void init_6x05_switch_changed__6TLobbyFv(void *);
 void TOSensor__sub_8017546C(u8 *arg0);
 void TOSensor__sub_80175514(u8 *arg0);
 extern s32 local_client_id;
 extern const f32 lbl_805DB980;
-void update_armed_switch__8TOSensorFv(Obj_801755BC *self);
 s32 obj_testFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
 u16 get_window_id__11TWindowCtrlFv();
 extern s32 local_client_id;
-s32 is_confirm_pressed__8TOSensorFv(Obj_801756C4 *self);
 }
 
 extern "C" {
 
-void vfunc_17__17TOSensorAncient01Fv(void *arg0);
-void vfunc_25__17TOSensorAncient01Fv(void);
 void *TOSensor__ct(void *arg0);
-void vfunc_25__8TOSensorFv(void);
-void vfunc_16__8TOSensorFv(void);
-void vfunc_17__8TOSensorFv(void);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
 void TOKey__ct(void *);
-void vfunc_14__10TORockCaveFv(void);
-void vfunc_15__10TORockCaveFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
@@ -97,7 +85,7 @@ void TOSensor::vfunc_25() {  }
 extern s32 __vt__8TOSensor[];
 
 void TOSensor__sub_8017546C(u8 *arg0) {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 3:
     case 4:
     case 5:
@@ -131,7 +119,7 @@ void TOSensor__sub_8017546C(u8 *arg0) {
 }
 
 void TOSensor__sub_80175514(u8 *arg0) {
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     case 3:
     case 4:
     case 5:
@@ -173,13 +161,13 @@ void TOSensor::update_armed_switch() {
         if (self->m13() == 1) {
             Pkt_801755BC pkt;
             self->m16();
-            init_6x05_switch_changed__6TLobbyFv(&pkt);
+            ((TLobby *)(&pkt))->init_6x05_switch_changed();
             pkt.object = self->id;
             pkt.zero = local_client_id;
             pkt.switchId = self->switchId;
             pkt.area = get_current_floor();
             pkt.flags = 1;
-            finalize_and_send_60__6TLobbyFv(&pkt);
+            ((TLobby *)(&pkt))->finalize_and_send_60();
         }
     } else {
         self->m14();
@@ -267,13 +255,13 @@ void TOSensorAncient01::vfunc_17() {
 
     temp_r4 = *(s32 *)((s8 *)this + 0xEC);
     *(s32 *)((s8 *)this + 0xEC) = (s32) (temp_r4 + 0x28F);
-    update_pulse_value__17TOSensorAncient01Fv((u8 *)((s32) this));
+    update_pulse_value();
 }
 void TOSensorAncient01::vfunc_16() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     *(s32 *)((s8 *)arg0 + 0xEC) += (1.31e+03f);
-    update_pulse_value__17TOSensorAncient01Fv((u8 *)((s32)(arg0)));
+    ((TOSensorAncient01 *)arg0)->update_pulse_value();
     temp_r3 = *(s32 *)((s8 *)arg0 + 0xE8);
     if (temp_r3 > 0) {
         *(s32 *)((s8 *)arg0 + 0xE8) = (s32) (temp_r3 - 1);

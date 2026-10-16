@@ -53,8 +53,6 @@ extern int lobby_game_mode_state;
 extern int lobby_game_mode_state;
 void TLobby__sub_8033633C(void);
 s32 queue_destruction__7TObjectFv(void*);
-void sub_8033645C__13TUnk_804EEF64Fv(void* p);
-void sub_8033645C__13TUnk_804EEF64Fv(void* p);
 s32 TCameraCtrl__sub_800694A8();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
@@ -222,7 +220,7 @@ void *TUnk_804EEF64::destroy(s16 arg1) {
         if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
             queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)this + 0x20)));
         }
-        sub_8033645C__13TUnk_804EEF64Fv((void*)(this));
+        sub_8033645C();
         TCameraCtrl__sub_800694A8();
         TLobby::stop_audio_streams();
         __dt__7TObjectFv(this, 0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TOCakeshopCave01.h"
 #include "pso/TParticleCtrl.h"
@@ -66,7 +67,6 @@ extern const f32 lbl_805DB358;
 extern const f32 lbl_805DB35C;
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB364;
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, s32);
 extern s32 lbl_804AFE08[];
@@ -93,7 +93,6 @@ extern "C" {
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -189,7 +188,7 @@ void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOCakeshopCave01;
         free_collision_body_parts(arg0);
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -210,7 +209,7 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB370;
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     init_collision_body_parts(arg0, lbl_804AFE08, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     for (i = 0; i < 8; i++) {
         ((TOCakeshopCave01_8015A1C0 *)arg0)->val[i] = TOCakeshopCave01__data_805DB360;

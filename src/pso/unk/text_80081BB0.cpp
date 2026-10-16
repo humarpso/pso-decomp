@@ -29,10 +29,8 @@ struct VObj_80081EA4 : VBase_80081EA4 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 update_freeze_shell_timer__13TUnk_8048E1A4Fv(void *);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-void run_task__13TUnk_8048E1A4Fv(void *arg0);
 s32 create_timed_particle_emitter(void *, int, int, int);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -43,7 +41,6 @@ extern RecoveredGlobal_80081CD0_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
 extern const f32 lbl_805D938C;
-void freeze_shell_grow__13TUnk_8048E1A4Fv(u8 *arg0);
 s32 obj_testFlags30(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -56,7 +53,6 @@ extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9384;
-s32 freeze_shell_hold__13TUnk_8048E1A4Fv(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -75,7 +71,6 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9390;
 extern const f32 lbl_805D9394;
-void render__13TUnk_8048E1A4Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -156,13 +151,13 @@ void TUnk_8048E1A4::run_task() {
     temp_r0 = *(s32 *)((s8 *)this + 0x334);
     switch (temp_r0) {
     case 0:
-        freeze_shell_grow__13TUnk_8048E1A4Fv((u8 *)(this));
+        freeze_shell_grow();
         return;
     case 1:
-        freeze_shell_hold__13TUnk_8048E1A4Fv((void *)(this));
+        freeze_shell_hold();
         return;
     case 2:
-        update_freeze_shell_timer__13TUnk_8048E1A4Fv(this);
+        update_freeze_shell_timer();
         return;
     case 3:
         ((TObjPlayer *)this)->queue_destruction();

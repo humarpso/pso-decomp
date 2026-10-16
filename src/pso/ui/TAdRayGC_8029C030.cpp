@@ -47,8 +47,6 @@ extern const f32 lbl_805DDD18;
 
 extern "C" {
 
-void vfunc_15__15TORockJungleL01Fv(u8 *arg0);
-int run_task__15TORockJungleL01Fv(void* p);
 int update_obstruction_fade(void*);
 s32 set_cull_none__8TObjFishFv();
 

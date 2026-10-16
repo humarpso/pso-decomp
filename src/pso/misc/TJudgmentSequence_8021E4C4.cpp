@@ -23,8 +23,6 @@ struct VObj_8021E55C_8021E4C4 : Base_8021E55C_8021E4C4 {
 extern "C" {
 
 int get_judgment_shop_slot_flags(int a0);
-void vfunc_6__18TShopGetItemWindowFv(void *arg0);
-void vfunc_7__18TShopGetItemWindowFv(void *arg0);
 void *TJudgmentSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

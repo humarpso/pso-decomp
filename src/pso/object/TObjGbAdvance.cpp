@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjComputer.h"
 #include "pso/object/TObjGbAdvance.h"
 #include "pso/misc/TOKeyAncient01.h"
@@ -28,16 +29,13 @@ void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444B48[];
 extern u32 TObjComputer__model_archive;
 extern s16 TObjComputer__data_805DBCD8[2];
-void debug_draw_label__12TObjComputerFv(void *arg0);
 }
 
 extern "C" {
 
-void vfunc_14__13TObjGbAdvanceFv(void *arg0);
 void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__11TObjMesBaseFv(void *, s32);
@@ -54,7 +52,7 @@ extern s32 __vt__13TObjGbAdvance[];
 void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjGbAdvance;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__11TObjMesBaseFv(arg0, 0);
         if (arg1 > 0) {

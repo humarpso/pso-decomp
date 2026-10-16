@@ -13,12 +13,9 @@ bool TOMineTrap__vt19(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void vfunc_84__12TOMineIcon01Fv(void);
 s16 TOMineTrap__sub_80171340(void* p);
-void sub_80171348__10TOMineTrapFs(void* p, s16 v);
 int TOMineTrap__sub_80171350(void);
 u16 TOMineTrap__sub_80171358(void* p);
-void vfunc_84__6TOMineFv(void);
 void TOMineTrap__sub_8017141C(void* p);
 void fn_80171314(void* p);
 int TLobby__send_and_handle_60(void*);

@@ -99,7 +99,6 @@ struct Entry_80341FFC {
 extern "C" {
 s16 TWindowDD__sub_8034214C(u8 *arg0);
 s32 TWindowDD__sub_8034217C(u8 *arg0);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 apply_both_choices__9TWindowDDFll(void *, int);
 s32 sub_80342268__17TWindowDD_WS_WordFv();
 extern const f32 TWindowDD__data_805DFB20;
@@ -218,7 +217,7 @@ void TWindowDD::handle_scroll_input() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 #pragma pop
 

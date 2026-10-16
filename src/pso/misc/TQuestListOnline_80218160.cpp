@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/TProtocol.h"
 
@@ -6,12 +7,9 @@ struct Obj_802181B0 { u8 pad[0x20]; u32 state; };
 
 extern "C" {
 
-void vfunc_11__16TQuestListOnlineFv(Obj_802181B0 *arg0);
 }
 
 extern "C" {
-
-int set_field_20__15TShopWindowBaseFl(void*, void*);
 
     extern int TLobby__protocol_instance;
     extern int online_quest_bin_data;
@@ -19,7 +17,7 @@ int set_field_20__15TShopWindowBaseFl(void*, void*);
     extern int quest_bin_decompressed_size;
     extern int online_quest_list_decompressed_size;
 }
-void TQuestListOnline::request_menu() { ((TProtocol *)TLobby__protocol_instance)->send_quest_menu_request(); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; online_quest_list_decompressed_size = 0; set_field_20__15TShopWindowBaseFl(this, (void*)12); }
+void TQuestListOnline::request_menu() { ((TProtocol *)TLobby__protocol_instance)->send_quest_menu_request(); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; online_quest_list_decompressed_size = 0; set_field_20((s32)((void*)12)); }
 extern "C" {
 
 void TQuestListOnline::vfunc_11() {

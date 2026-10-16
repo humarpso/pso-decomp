@@ -5,13 +5,6 @@
 
 extern "C" {
 
-void vfunc_14__16TOFenceAncient01Fv(void* p);
-void vfunc_15__16TOFenceAncient01Fv(void* p);
-void vfunc_16__16TOFenceAncient01Fv(void);
-void vfunc_14__13TUnk_804B1B80Fv(void);
-void vfunc_15__13TUnk_804B1B80Fv(void);
-void vfunc_16__13TUnk_804B1B80Fv(void);
-
 int set_indexed_flags(void*, void*, void*);
 
 void TUnk_804B1B80::vfunc_14() {  }

@@ -17,7 +17,6 @@ struct RecoveredGlobal_802ACE84___vt__15TWindowCallBack {
 };
 
 extern "C" {
-void save_position__13TUnk_804CE018Fv(void *);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
 extern RecoveredGlobal_802ACE84_lbl_804DE360 window_callback_base_params;
@@ -87,7 +86,7 @@ u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802ACE84___vt__15TWindowCallBack *)&__vt__15TWindowCallBack).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E58;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x38))->copy_vec2(arg2);
-    save_position__13TUnk_804CE018Fv(arg0);
+    ((TUnk_804CE018 *)arg0)->save_position();
     set_field_60__15TWindowCallBackFPvi((void*)(arg0), (s32)(arg3));
     return arg0;
 }

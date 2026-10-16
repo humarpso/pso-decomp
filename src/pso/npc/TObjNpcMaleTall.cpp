@@ -113,7 +113,6 @@ u8 *TObjNpcMaleTall__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void vfunc_88__11TObjNpcMojaFv(void *arg0);
 void *__dt__15TObjNpcMaleTallFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);

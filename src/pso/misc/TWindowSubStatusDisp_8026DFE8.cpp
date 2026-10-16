@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TUnk_804D0948.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -17,10 +18,8 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_item_list_capacity(void *, int, int, int);
-s32 draw_selected_list_entry__13TUnk_804D0618Fl(void *, int);
 s32 draw_window_scrollbar(void *, int, void *);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
-void render__13TUnk_804D0948Fv(u8 *arg0);
 u8 * fn_80268384(void *, s32, s32, s16, s32);
 s32 sub_8026DE94__13TUnk_804D0948Fv(void *, void *);
 extern s32 item_list_window_vtable[];
@@ -35,7 +34,6 @@ u8 *construct_item_list__20TWindowSubStatusDispFPviis(u8 *arg0, s32 arg1, s32 ar
 
 extern "C" {
 
-int run_task__13TUnk_804D0948Fv(void* p);
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
 
@@ -50,7 +48,7 @@ void TUnk_804D0948::render() {
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     if (!(this->m_70 & 0x80)) {
-        draw_selected_list_entry__13TUnk_804D0618Fl((void *) (arg0), (int) (temp_r3));
+        ((TUnk_804D0618 *)arg0)->draw_selected_list_entry((int) (temp_r3));
     }
     n = *(s32 *)&this->unk_88;
     if (n > 0) {

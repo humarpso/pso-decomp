@@ -24,17 +24,14 @@ extern int lbl_805D5668;
 extern int chunk_polygon_flags_or_mask;
 extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
-void set_flags_and_apply_damage_color__13TUnk_804AF8D8Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void clear_flag_and_notify__13TUnk_804AF8D8Fv(void);
 s32 TObjPlayer__sub_800D96D0(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 s32 __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
-void sub_80156CEC__13TUnk_804AF8D8Fv(void *);
 
     extern unsigned char saved_model_draw_color[];
     extern unsigned char model_material_color[];
@@ -77,7 +74,7 @@ extern s32 lbl_804AF8D8[];
 void *TUnk_804AF8D8::init_vtable_804AF8D8() {
     TObjPlayer__sub_800D9718(this);
     *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_804AF8D8;
-    sub_80156CEC__13TUnk_804AF8D8Fv(this);
+    sub_80156CEC();
     return this;
 }
 

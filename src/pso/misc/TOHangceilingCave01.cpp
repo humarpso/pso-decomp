@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804B1B80.h"
 #include "pso/misc/TOHangceilingCave01KeyQuick.h"
 #include "pso/misc/TOHangceilingCave01Key.h"
 #include "pso/misc/TOHangceilingCave01Normal.h"
@@ -181,37 +183,21 @@ void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 mem_free(void*);
 Buf_8016775C * mem_alloc(s32);
 int set_indexed_flags(void*, void*, void*);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
-u32 check_actor_body_contact__13TUnk_804AF8A0FPvf(void *, void *, f32);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, int);
-s32 sub_80166E64__13TUnk_804B1B80Fv(void *);
-s32 sub_80166EA8__13TUnk_804B1B80Fi(void *, int);
-void vfunc_16__16TOFenceAncient04Fv(void);
-void vfunc_15__16TOFenceAncient04Fv(void* p);
-void vfunc_14__16TOFenceAncient04Fv(void* p);
 void * __dt__16TOFenceAncient04Fv(void *arg0, s16 arg1);
 u8 * TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2);
-void vfunc_80__27TOHangceilingCave01KeyQuickFv(u8 *arg0);
 void * __dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1);
 u8 * TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1);
-void vfunc_80__22TOHangceilingCave01KeyFv(u8 *arg0);
 void * __dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Key__ct(void *arg0);
-void vfunc_79__25TOHangceilingCave01NormalFv(void *arg0);
-void vfunc_80__25TOHangceilingCave01NormalFv(Obj_80168010 *arg0);
 void * __dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Normal__ct(void *arg0);
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0);
 void advance_wrap_offset__13TUnk_804B2578Fv(void *arg0);
-s32 sub_80168244__13TUnk_804B2578FUl(Obj_80168244 *self, u32 v);
 void fn_80168280(Obj_80168280 *self, u32 v);
 void reset_state(u8 *arg0);
 void sub_801682E4__13TUnk_804B2578Fl(Obj_801682E4 *o, s32 arg1);
-void sub_80168398__13TUnk_804B2578Fv(u8 *arg0);
-void sub_80168488__13TUnk_804B2578Fv(VO_80168488 *arg0);
 void destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *, int);
 void init_base__27TOHangceilingCave01KeyQuickFPvii(void *);
 void set_scale__13TUnk_804B2578Ff(void *, f32);
@@ -308,7 +294,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
         return;
     case 1:
         ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
-        ((s32 (*)(void *))sub_80168488__13TUnk_804B2578Fv)((void *) (arg0));
+        ((TUnk_804B2578 *)arg0)->sub_80168488();
         if (lbl_805DB65C < *(f32 *)((s8 *)arg0 + 0xC0)) {
             temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF7);
@@ -393,7 +379,7 @@ void TOHangceilingCave01Key::vfunc_80() {
         break;
     case 1:
         ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)(arg0);
-        ((s32 (*)(void *))sub_80168488__13TUnk_804B2578Fv)(arg0);
+        ((TUnk_804B2578 *)arg0)->sub_80168488();
         if (lbl_805DB65C == *(f32 *)(arg0 + 0xC0)) {
             *(s32 *)(*(u8 **)(arg0 + 0xA4) + 0x18) &= ~8;
         } else if (lbl_805DB660 == *(f32 *)(arg0 + 0xC0)) {
@@ -461,7 +447,7 @@ void TOHangceilingCave01Normal::vfunc_80() {
         return;
     case 1:
         ((s32 (*)(void))advance_wrap_offset__13TUnk_804B2578Fv)();
-        ((s32 (*)(void *))sub_80168488__13TUnk_804B2578Fv)(arg0);
+        ((TUnk_804B2578 *)arg0)->sub_80168488();
         if (lbl_805DB65C == arg0->fC0) {
             *(s32 *)((s8 *)arg0->fA4 + 0x18) &= ~8;
             return;
@@ -539,7 +525,7 @@ void TUnk_804B2578::sub_801682E4(s32 arg1) {
     s16 sp8;
     if (arg1 != ((Obj_801682E4 *)this)->mode) {
         ((Obj_801682E4 *)this)->mode = arg1;
-        if (((s32 (*)(void *, void *, int))access_object_saved_state__13TUnk_804AF8A0FPvs)(((Obj_801682E4 *)this), &sp8, 1) != 0) {
+        if (access_object_saved_state(&sp8, 1) != 0) {
             sp8 = ((Obj_801682E4 *)this)->mode;
         }
         switch (((Obj_801682E4 *)this)->mode) {
@@ -611,8 +597,8 @@ void TUnk_804B2578::sub_80168488() {
     var_r30 = 0;
     do {
         temp_r3 = (VO_80168488 *)get_player_by_client_id(var_r30);
-        if ((temp_r3 != NULL) && (((s32 (*)(void *, void *))sub_80168244__13TUnk_804B2578FUl)(((VO_80168488 *)this), temp_r3) == 0)) {
-            if ((((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor()) && (check_actor_body_contact__13TUnk_804AF8A0FPvf(((VO_80168488 *)this), temp_r3, lbl_805DB688) != 0U)) {
+        if ((temp_r3 != NULL) && (sub_80168244((u32)temp_r3) == 0)) {
+            if ((((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor()) && (check_actor_body_contact(temp_r3, lbl_805DB688) != 0U)) {
                 Pair_80168488 t;
                 t.a = 0;
                 t.b = ((VO_80168488 *)this)->m79(*(f32 *)((s8 *)((VO_80168488 *)this) + 0x338));
@@ -677,11 +663,6 @@ struct VObj_18_26a62c : VBase_18_26a62c {
     virtual s32 m8(f32, f32);
 };
 
-int calc_distance_accuracy_penalty__13TUnk_804B2578FPvPvPvf(void);
-f32 receive_weapon_special_attack__13TUnk_804B2578FPvPv(void);
-f32 receive_direct_attack__13TUnk_804B2578FPvPvPvll(void);
-void vfunc_80__13TUnk_804B2578Fv(void);
-void vfunc_79__13TUnk_804B2578Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 bool TOHangceilingCave01__sub_801688C0(u8 *);
 s32 spawn_particle_effect(void *, s32);
@@ -791,7 +772,7 @@ void TUnk_804B2578::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() == 0) {
         this->vfunc_80();
-        sub_80168398__13TUnk_804B2578Fv(arg0);
+        ((TUnk_804B2578 *)arg0)->sub_80168398();
         if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
             spawn_particle_effect(arg0 + 0x38, 0x64);
         }

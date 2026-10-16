@@ -96,7 +96,6 @@ s32 vec3_add_to(void *, void *);
 extern const f64 lbl_80443B90;
 extern const f32 lbl_805DBBC0;
 extern const f32 lbl_805DBBC4;
-s32 update_path_motion__18TObjCityAirCar_CarFv(Car_80181074 *self);
 }
 
 extern "C" {
@@ -143,7 +142,7 @@ void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
     f32 t;
     t = self->frame;
     self->frame = t + self->speed;
-    if (update_path_motion__18TObjCityAirCar_CarFv((Car_80181074 *)((Car_80181074 *)self)) == 0) {
+    if (((TObjCityAirCar_Car *)self)->update_path_motion() == 0) {
         queue_destruction__7TObjectFv(self);
     }
     if ((self->path == 1 && self->frame >= lbl_805DBBA8 && self->frame <= lbl_805DBBAC) ||

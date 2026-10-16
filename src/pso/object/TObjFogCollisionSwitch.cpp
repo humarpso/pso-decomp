@@ -3,8 +3,6 @@
 
 extern "C" {
 
-void vfunc_13__22TObjFogCollisionSwitchFl(void *arg0);
-
 s32 vfunc_13__16TObjFogCollisionFl();
 
 void TObjFogCollisionSwitch::vfunc_13(s32) {

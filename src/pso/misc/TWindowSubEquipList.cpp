@@ -10,9 +10,7 @@ extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-s32 draw_selected_list_entry__13TUnk_804D0618Fl(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
-void render__19TWindowSubEquipListFv(u8 *arg0);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2);
@@ -47,7 +45,7 @@ void TWindowSubEquipList::render() {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (((u8 *)this)), (int) (temp_r3));
     draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), (int) (temp_r3));
-    draw_selected_list_entry__13TUnk_804D0618Fl((void *) (((u8 *)this)), (int) (temp_r3));
+    draw_selected_list_entry((int) (temp_r3));
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)((u8 *)this) + 0x80), (int) (temp_r3));
     }

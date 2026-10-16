@@ -45,7 +45,6 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 };
 
 void *TObjWarpBase__vt0(void *arg0, s16 arg1);
-void vfunc_14__12TObjWarpBaseFv(void *arg0);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 u32 get_player_by_client_id(u16);

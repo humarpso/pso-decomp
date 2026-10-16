@@ -187,10 +187,8 @@ struct Pl_8012AC68 : PlB_8012AC68 {
 extern "C" {
 s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-void emit_marker_effects__13TUnk_804A4B80Fv(u8 *arg0);
 s32 get_current_floor();
 s32 reset_key_machine_state__10TObjPlayerFv();
-void set_technique_roll__13TUnk_804A4B80Fl(u8 *arg0, s32 arg1);
 u32 *copy_attack_targets(u32 *dst, u32 *src);
 void spawn_heaven_effect__10TObjPlayerFlUlUsl(s32, s32, u32, s16);
 s32 get_captured_target_collider_index(s32);

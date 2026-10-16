@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804C4480.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TUnk_804C4498.h"
 #include "pso/TItemList.h"
@@ -109,10 +110,8 @@ void *refresh_actor_body_spheres(Body_801D3E20, Body_801D3E20);
 extern const f32 lbl_805DC3D0;
 void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
-s32 reset_placement_search_ring__13TUnk_804C4498Fv(void *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 void TItemList__sub_801D59A0(void *, int);
-void sub_801D5A70__13TUnk_804C4480Fv(void *);
 void update_placement_search(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_item_type_or_default__9TItemListFv(void *);
@@ -131,7 +130,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 Ground_801D3C38 *csnVecterUnder(Vec_801D3E20 *, s32);
 void *find_placement_obstruction(void *self, Body_801D3E20 *s);
-s32 reset_placement_search_ring__13TUnk_804C4498Fv(void *arg0);
 s32 check_player_action_allowed(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 f32 sin_table_lookup(s32);
@@ -140,7 +138,6 @@ extern Shape_801D3C38 placement_search_collision_body;
 extern Body_801D3E20 placement_search_collision_probe;
 extern const f32 lbl_805DC3C8;
 extern const f32 lbl_805DC3CC;
-s32 step_placement_search__13TUnk_804C4498Fv(Search_801D3C38 *s);
 }
 
 extern "C" {
@@ -159,7 +156,7 @@ extern void *tl_07;
 void run_item_drop_search_task(u8 *arg0) {
     Req_801D3780 *r;
     void *player;
-    switch (step_placement_search__13TUnk_804C4498Fv((Search_801D3C38 *)(arg0))) {
+    switch (((TUnk_804C4498 *)arg0)->step_placement_search()) {
     case 0:
         return;
     case 1:
@@ -224,7 +221,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&item_drop_search_task_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x54) = arg2;
     TItemList__sub_801D5884((void *) (arg0), (int) (1));
-    reset_placement_search_ring__13TUnk_804C4498Fv((void *)((void *) (arg0)));
+    ((TUnk_804C4498 *)arg0)->reset_placement_search_ring();
     if (check_player_action_allowed() != 0) {
         temp_r3 = (u8 *)(run_item_count_update__9TItemListFv(arg0));
         if (fn_801D4270(*(s32 *)((s8 *)temp_r3 + 4)) != 0) {
@@ -242,12 +239,12 @@ block_5:
 }
 
 void update_placement_search(u8 *arg0) {
-    switch (step_placement_search__13TUnk_804C4498Fv((Search_801D3C38 *)(arg0))) {
+    switch (((TUnk_804C4498 *)arg0)->step_placement_search()) {
     case 0:
         return;
     case 1:
         TItemList__sub_801D59A0(arg0, *(s32 *)((s8 *)arg0 + 0x54));
-        sub_801D5A70__13TUnk_804C4480Fv(arg0);
+        ((TUnk_804C4480 *)arg0)->sub_801D5A70();
         break;
     case 2:
         ((TItemList *)arg0)->lookup_entry_by_count(*(s32 *)((s8 *)arg0 + 0x54));
@@ -288,7 +285,7 @@ u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, 
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x54) = arg2;
     TItemList__sub_801D5884((void *)(arg0), (int)(0U));
-    reset_placement_search_ring__13TUnk_804C4498Fv((void *)(arg0));
+    ((TUnk_804C4498 *)arg0)->reset_placement_search_ring();
     return arg0;
 }
 
@@ -305,12 +302,12 @@ s32 TUnk_804C4498::step_placement_search() {
     }
     if (s->ring > 5) {
         s->ring = 1;
-        reset_placement_search_ring__13TUnk_804C4498Fv(s);
+        ((TUnk_804C4498 *)s)->reset_placement_search_ring();
         return 2;
     }
     if (s->sample >= s->count) {
         s->ring++;
-        reset_placement_search_ring__13TUnk_804C4498Fv(s);
+        ((TUnk_804C4498 *)s)->reset_placement_search_ring();
     }
     s->candidate.x = s->radius * sin_table_lookup(s->angle) + s->origin.x;
     s->candidate.y = s->origin.y;

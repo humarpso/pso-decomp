@@ -23,8 +23,6 @@ s32 create_particle_emitter(void *, s32);
 
 extern "C" {
 
-s32 sub_80308AA8__14TBoss7CrawfishFv(void *);
-s16 get_floor__14TBoss7CrawfishFv(void *);
 s32 register_attack_hits__14TBoss7CrawfishFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 
@@ -40,12 +38,12 @@ void TBoss7Crawfish::update_attack_state() {
     if (temp_r0 < 0) {
         change_state((s32)(1));
     }
-    if ((get_floor__14TBoss7CrawfishFv(this) == 2) && (objInBand__FP7GameObjf(this, lbl_805DF0F8) != 0)) {
+    if ((get_floor() == 2) && (objInBand__FP7GameObjf(this, lbl_805DF0F8) != 0)) {
         temp_r4 = this->m_a4;
         if (*(s32 *)((s8 *)temp_r4 + 0x18) & 0x02000000) {
             *(s32 *)((s8 *)temp_r4 + 0x18) &= ~0x02000000;
         }
-        if (sub_80308AA8__14TBoss7CrawfishFv(this) != 0) {
+        if (sub_80308AA8() != 0) {
             spawn_effect(0x3A80A);
         } else {
             spawn_effect(0x3A80B);

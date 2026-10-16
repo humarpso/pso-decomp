@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOCtrlDubchik.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -196,7 +197,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 bm_fs_obj_zombie_con_resource_descriptor;
 extern u32 TOCtrlDubchik__shared_resource;
@@ -206,15 +206,11 @@ extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
-void sub_8015CCF4__13TOCtrlDubchikFv(u8 *arg0);
 s32 try_start_action__13TUnk_804806E8Fll(void *, void *, void *);
-s32 try_start_action__13TOCtrlDubchikFll(u8 *arg0, s32 arg1, s32 arg2);
 s32 roll_physical_accuracy__13TUnk_804806E8FPvlf(void *, void *, void *, f32);
-s32 roll_physical_accuracy__13TOCtrlDubchikFPvlf(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 initialize__9TObjEnemyFPv(void *);
 void set_indexed_flags(void *, s32, s32);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
 extern s32 __vt__13TOCtrlDubchik[];
@@ -230,7 +226,6 @@ extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
-void update_bobbing__13TOCtrlDubchikFv(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
@@ -246,15 +241,9 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 lbl_805DB3BC;
-void sub_8015CE80__13TOCtrlDubchikFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, s32);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void TOCtrlDubchik__sub_8015C9D0(u8 *);
-void update_spin__13TOCtrlDubchikFv(u8 *arg0);
-void sub_8015CCF4__13TOCtrlDubchikFv(u8 *arg0);
-void update_bobbing__13TOCtrlDubchikFv(u8 *arg0);
-void sub_8015CE80__13TOCtrlDubchikFv(u8 *arg0);
 void submit_cursor_candidate(void *, s32);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
@@ -264,7 +253,6 @@ s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 lbl_805D29F8;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void sub_8015CA74__13TOCtrlDubchikFv(void *arg0_);
 f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Pair_8015D518, void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *arg3);
@@ -272,15 +260,11 @@ f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *
 
 extern "C" {
 
-s32 select_melee_contact_body__13TOCtrlDubchikFPvf(void *arg0);
-void apply_knockback_from_attacker__13TOCtrlDubchikFPUc(void);
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
-void update_spin__13TOCtrlDubchikFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 apply_actor_gravity(void *, void *, f32);
 s32 select_melee_contact_body__10TObjPlayerFv();
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__9TObjEnemyFv(void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -317,8 +301,8 @@ void TOCtrlDubchik::complete_and_destroy() {
         send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
         exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), (int) (0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
-        sub_8015CA74__13TOCtrlDubchikFv((void *)((void *) (arg0)));
-        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TOCtrlDubchik *)arg0)->sub_8015CA74();
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -430,22 +414,22 @@ void TOCtrlDubchik::run_task() {
     if (obj_testFlags30(arg0, 0x800) != 0) {
         *(s16 *)(arg0 + 0x326) = 6;
     } else if (this->update_movement_status() != 0) {
-        refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
         submit_cursor_candidate(arg0, -1);
         return;
     }
     switch (*(s16 *)(arg0 + 0x326)) {
     case 0:
-        sub_8015CE80__13TOCtrlDubchikFv(arg0);
+        ((TOCtrlDubchik *)arg0)->sub_8015CE80();
         break;
     case 1:
-        update_bobbing__13TOCtrlDubchikFv(arg0);
+        ((TOCtrlDubchik *)arg0)->update_bobbing();
         break;
     case 2:
-        sub_8015CCF4__13TOCtrlDubchikFv(arg0);
+        ((TOCtrlDubchik *)arg0)->sub_8015CCF4();
         break;
     case 3:
-        update_spin__13TOCtrlDubchikFv(arg0);
+        ((TOCtrlDubchik *)arg0)->update_spin();
         break;
     case 4:
         decay_timer_and_finish();
@@ -458,7 +442,7 @@ void TOCtrlDubchik::run_task() {
         break;
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     submit_cursor_candidate(arg0, -1);
 }
 
@@ -495,7 +479,7 @@ void TOCtrlDubchik::load_shared_resource() {
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TOCtrlDubchik;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -516,7 +500,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
     init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
     *(s16 *)((s8 *)arg0 + 0x326) = 0;

@@ -4,7 +4,6 @@
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9FF8;
-void sub_800C3DC4__16TObjEneRe2FlowerFv(u8 *arg0);
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 }
 

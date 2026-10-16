@@ -142,7 +142,6 @@ extern const f32 lbl_805DCAFC;
 extern const f32 lbl_805DCB10;
 extern const f32 lbl_805DCB28;
 extern const f32 lbl_805DCB2C;
-void draw_quest_message_frame__13TUnk_804CE018FPv(struct QFrameWindow_80245808 *w, struct QFrameCtx_80245808 *c);
 }
 
 extern "C" {
@@ -181,16 +180,12 @@ void save_position__13TUnk_804CE018Fv(void* p);
 void TWindowSubTradeMain__sub_802448E4(void *arg0);
 void fn_8024491C(void *arg0);
 void fn_80244958(void *arg0);
-s32 sub_80244994__13TUnk_804CE018Fv(void *arg0);
 void fn_802449E0(u8 *arg0);
 void TWindow__close(u8 *arg0);
-s32 is_window_reveal_complete__13TUnk_804CE018Fv(u8 *arg0);
 void window_request_refresh(u8 *arg0);
 void window_request_show(void *arg0);
-s32 setup_window_draw_context__13TUnk_804CE018Fl(u8 *arg0, s32 arg1);
 bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2);
 Win_80244DFC * find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
-void sub_80244F2C__13TUnk_804CE018FPUcPUcs(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
 void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 s32 sub_80246948__13TUnk_804CE018Fv();
 s32 TWindowFukidasi__sub_8024695C(void *);
@@ -392,7 +387,7 @@ s32 TUnk_804CE018::setup_window_draw_context(s32 arg1) {
 }
 
 s32 TWindowDD::draw_default_entry(s32 arg0) {
-    return ((int (*)(s32, s32))setup_window_draw_context__13TUnk_804CE018Fl)(arg0, fn_8026CB68());
+    return ((TUnk_804CE018 *)arg0)->setup_window_draw_context(fn_8026CB68());
 }
 
 void TLobby::set_field_1c(f32 farg0) {
@@ -427,12 +422,12 @@ Win_80244DFC *find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC 
     if (((TWindowFukidasi *)self)->is_bit10_set() != 0) {
         return 0;
     }
-    if (sub_80244994__13TUnk_804CE018Fv(self) == 0) {
+    if (((TUnk_804CE018 *)self)->sub_80244994() == 0) {
         return 0;
     }
     for (; p != 0; p = p->next) {
         if (TWindowFukidasi__sub_8024695C(p) != 0 && ((TWindowFukidasi *)p)->is_bit10_set() == 0 &&
-            sub_80244994__13TUnk_804CE018Fv(p) != 0 && p != self &&
+            ((TUnk_804CE018 *)p)->sub_80244994() != 0 && p != self &&
             (((TWindowFukidasi *)self)->get_visible_flag() == 0 || ((TWindowFukidasi *)p)->get_visible_flag() == 0) &&
             ((s32 (*)(void *, void *, void *))is_balloon_overlapping)(p, a, b) != 0) {
             return p;

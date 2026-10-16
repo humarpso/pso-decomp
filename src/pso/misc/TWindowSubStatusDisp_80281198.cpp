@@ -1,4 +1,5 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
+#include "pso/misc/TUnk_804CE018.h"
 extern "C" {
 s8 get_type__20TWindowSubStatusDispFv(s32);
 extern "C" u8 lbl_805DD6E0[];
@@ -259,7 +260,6 @@ void *TWindowSubStatusDisp__window_layout[5] = {
 struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 pad22[0x3E]; s16 f60; s16 f62; u8 pad64[4]; void *f68; f32 f6c; f32 f70; };
 
 extern "C" {
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 fn_8026C7AC(int, int);
 s32 handle_list_page_flip_input(int);
 extern s32 lbl_805DD6F4;
@@ -279,7 +279,6 @@ extern "C" {
 
 void update_status__20TWindowSubStatusDispFPv(u8 *arg0);
 u32 get_player_by_client_id(s16);
-s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 s32 draw_window_frame(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_list_page_indicator(s32, s32);
@@ -348,7 +347,7 @@ void update_status__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r3;
 
     if (get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20)) != 0U) {
-        temp_r3 = setup_window_draw_context__13TUnk_804CE018Fl(arg0, arg0 + 0x6C);
+        temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x6C));
         draw_window_frame(arg0, temp_r3);
         draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
         draw_list_page_indicator(*(s32 *)((s8 *)arg0 + 0x68), temp_r3);
@@ -376,7 +375,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
   }
   ((TWindowSubStatusDisp *)arg0)->dispatch_page_update();
   ((TWindowDD *)arg0)->initialize_subwindow();
-  update_window_entry_list__13TUnk_804CE018FPv((void *) arg0, (void *) (((u8 *) arg0) + 0x24));
+  ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (((u8 *) arg0) + 0x24));
 }
 
 void *TWindowSubStatusDisp::dt(s16 arg1) {

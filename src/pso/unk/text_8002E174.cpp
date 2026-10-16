@@ -10,7 +10,6 @@ extern s32 lbl_805D26A0;
 extern const f32 lbl_805D8200;
 extern const f32 lbl_805D821C;
 extern const f32 lbl_805D8220;
-void sub_8002E1CC__13TObjBoss1RockFPUcPUcl(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -122,7 +121,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_8002EDCC(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
-void run_task__13TUnk_80482090Fv(u8 *arg0);
 s32 TObjLight__sub_801337F8(s32);
 s32 rotate_matrix_z(int, int);
 s32 translate_matrix(int, f32, f32, f32);
@@ -170,7 +168,7 @@ extern s32 __vt__13TObjBoss1Rock[];
 void *TObjBoss1Rock::construct(void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = __vt__13TObjBoss1Rock;
-    sub_8002E1CC__13TObjBoss1RockFPUcPUcl((u8 *)this, (u8 *)arg2, (u8 *)arg3, (s32)arg4);
+    sub_8002E1CC((u8 *)arg2, (u8 *)arg3, (s32)arg4);
     return this;
 }
 
@@ -186,7 +184,7 @@ void *TObjBoss1Rock::construct_random(void *arg1, void *arg2, void *arg3) {
     } else {
         flag = 1;
     }
-    sub_8002E1CC__13TObjBoss1RockFPUcPUcl((u8 *)this, (u8 *)arg2, (u8 *)arg3, (s32)flag);
+    sub_8002E1CC((u8 *)arg2, (u8 *)arg3, (s32)flag);
     return this;
 }
 

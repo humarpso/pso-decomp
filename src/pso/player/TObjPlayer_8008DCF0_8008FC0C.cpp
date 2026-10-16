@@ -40,8 +40,6 @@ s32 TObjPlayer__sub_8008F1DC();
 s32 run_death_sequence__10TObjPlayerFv();
 s32 TObjPlayer__sub_8008F910();
 s32 TObjPlayer__sub_8008FAD0();
-void sub_8008FF50__18TObjEneBalClawBodyFv(u8 *arg0);
-s32 sub_800C73F4__18TObjEneBalClawBodyFv(void *);
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805D9644;
 extern const f32 lbl_805D9670;
@@ -85,7 +83,7 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
                 ((TObjEneMe1GiGue *)arg0)->update_if_active(1);
                 F(s32, 0x38C) = 2;
             } else {
-                sub_800C73F4__18TObjEneBalClawBodyFv(arg0);
+                ((TObjEneBalClawBody *)arg0)->sub_800C73F4();
             }
             break;
         case 1:
@@ -154,7 +152,7 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
             if (F(u32, 0x2A8) != 0) {
                 ((TObjEneMe1GiGue *)arg0)->update_if_active(0xC);
             } else {
-                sub_800C73F4__18TObjEneBalClawBodyFv(arg0);
+                ((TObjEneBalClawBody *)arg0)->sub_800C73F4();
             }
             break;
         case 1:

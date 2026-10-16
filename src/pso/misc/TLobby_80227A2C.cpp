@@ -565,7 +565,6 @@ extern char lbl_805DC788[4];
 u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
 s32 debug_printf_at(u32, void *, ...);
-void render__13TUnk_804CC048Fv(L_8022884C *self);
 s32 TLobby__sub_80226B64(int);
 extern s32 floor_sound_bank_table[];
 extern s32 floor_sound_bank_volume_table[];

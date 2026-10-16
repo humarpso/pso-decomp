@@ -5,7 +5,6 @@
 extern "C" {
 
 void belra_cannon_return_timer(void *arg0);
-void emit_marker_effects__13TUnk_804A0DB0Fv(void* a0);
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 

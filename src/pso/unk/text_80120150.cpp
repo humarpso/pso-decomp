@@ -78,11 +78,9 @@ typedef struct Dst_80120454 { u8 pad[3]; u8 f3; u8 f4; u8 pad2; u8 ents[6]; } Ds
 
 extern "C" {
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
-void clear_equip_flags__11TItemWeaponFUl(void *, u32);
 extern const f32 lbl_805DAC98;
 extern const f32 lbl_805DAC9C;
 extern const f32 lbl_805DACA0;
-void advance_weapon_photon_phase__11TItemWeaponFv(u8 *arg0);
 extern s16 weapon_node_material_index;
 extern s16 TObjPlayer__weapon_node_ids[];
 extern u8* weapon_render_callback_object;
@@ -138,7 +136,7 @@ void TItemWeapon::advance_weapon_photon_phase() {
     }
     if (*(f32 *)((s8 *)arg0 + 0x1C8) <= lbl_805DAC98) {
         *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC98;
-        clear_equip_flags__11TItemWeaponFUl(arg0, 0x02000000U);
+        ((TItemWeapon *)arg0)->clear_equip_flags(0x02000000U);
     }
 }
 #pragma pop

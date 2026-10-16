@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void update_weapon__13TUnk_804A2260Fv(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 TObjPlayer__sub_80124C90(void *);

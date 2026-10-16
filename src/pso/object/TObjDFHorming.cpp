@@ -26,7 +26,6 @@ u8 is_state_ready__14TBoss4DarkFalzFv(void);
 u32 TBoss4DarkFalz__sub_8004C1AC();
 u32 TBoss4DarkFalz__sub_8004C1B4();
 s32 get_action_state__14TBoss4DarkFalzFv();
-u32 get_instance__14TBoss4DarkFalzFv();
 s32 get_phase__14TBoss4DarkFalzFv();
 s32 get_state__14TBoss4DarkFalzFv();
 
@@ -66,10 +65,10 @@ u8 is_active__14TBoss4DarkFalzFv(void) {
     int var_r31;
 
     var_r31 = 0;
-    if (get_instance__14TBoss4DarkFalzFv() != 0U) {
-        get_instance__14TBoss4DarkFalzFv();
+    if (TBoss4DarkFalz::get_instance() != 0U) {
+        TBoss4DarkFalz::get_instance();
         if (get_state__14TBoss4DarkFalzFv() != 3) {
-            get_instance__14TBoss4DarkFalzFv();
+            TBoss4DarkFalz::get_instance();
             if (get_state__14TBoss4DarkFalzFv() != 4) {
                 var_r31 = 1;
             }
@@ -204,9 +203,7 @@ extern "C" {
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 send_6x0A_enemy_state(void *, void *);
-s32 distribute_experience__9TObjEnemyFv(void *);
 s32 get_player_by_client_id(void *);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 extern s32 local_client_id;
 s32 rand();
 extern const f64 lbl_804371D8;
@@ -221,9 +218,7 @@ extern const f32 lbl_805D8908;
 extern const f32 lbl_805D8910;
 void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
-void sub_8004B084__14TBoss4DarkFalzFv(u8 *arg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
-void sub_8004B0F8__14TBoss4DarkFalzFv(u8 *arg0);
 extern s32 lbl_805D586C;
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
@@ -276,7 +271,6 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0);
 
 extern "C" {
 
-void sub_8004AFB8__14TBoss4DarkFalzFv(void* p);
 int TBoss4DarkFalz__sub_8004B07C(void);
 s32 is_local_client_floor_leader();
 s32 get_main_phase();
@@ -548,13 +542,13 @@ void TBoss4DarkFalz::handle_defeat() {
 
     TBoss4DarkFalz__sub_8004B5A0();
     if (is_split_screen() != 0) {
-        distribute_experience__9TObjEnemyFv((void *) (arg0));
+        ((TObjEnemy *)arg0)->distribute_experience();
     } else {
         p = get_player_by_client_id((void *) ((u16) local_client_id));
         if (p != 0) {
             save = *(struct V3_8004B654 *)(arg0 + 0x2FC);
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, (void *)(p + 0x2FC));
-            distribute_experience__9TObjEnemyFv((void *) (arg0));
+            ((TObjEnemy *)arg0)->distribute_experience();
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &save);
         }
     }
@@ -562,7 +556,7 @@ void TBoss4DarkFalz::handle_defeat() {
     send_6x0A_enemy_state((void *) (arg0), (void *) (flags));
     ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (flags)), (s16)0);
     ((VObj_18_8004B654 *)(arg0))->m77(flags);
-    send_entity_set_flags__9TObjEnemyFv((void *) (arg0));
+    ((TObjEnemy *)arg0)->send_entity_set_flags();
     queue_destruction__7TObjectFv((void *) (arg0));
 }
 

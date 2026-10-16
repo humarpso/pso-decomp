@@ -8,7 +8,6 @@ extern "C" {
 struct Base1_8017262C { char pad[0x18]; };
 struct VObj1_8017262C : Base1_8017262C { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
 
-void vfunc_16__19TOMonumentAncient01Fv(void);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 get_bml_model(s32, s32);

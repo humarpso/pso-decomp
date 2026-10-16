@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjHashi.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -37,7 +38,6 @@ void *TObjHashi__create(void *arg0);
 void *__dt__9TObjHashiFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__13TObjHashiBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -77,7 +77,7 @@ void TObjHashi::load_shared_resource() {
 void *__dt__9TObjHashiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjHashi;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__13TObjHashiBaseFv(arg0, 0);
         if (arg1 > 0) {

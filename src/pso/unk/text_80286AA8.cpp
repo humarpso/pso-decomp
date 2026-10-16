@@ -3,7 +3,6 @@
 
 extern "C" {
 s32 get_selected_menu_value(int);
-s32 sub_80286AA8__19TWindowSubTechniqueFv(u8 *arg0);
 }
 
 extern "C" {

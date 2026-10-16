@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/TItemLockCountCtrl.h"
 
 struct Base_801193D8 { char pad[0x18]; };
@@ -38,7 +39,6 @@ void apply_unit_immunity__18TItemLockCountCtrlFi(int arg0);
 void apply_battle_ctrl_effect(int arg0);
 void notify_stealth_enemies_08(int arg0);
 void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0);
-s32 sub_800F5874__12TObjEneDD_STFl(u32, s32);
 u32 get_player_by_client_id(u16);
 s32 obj_clearFlags30(u32, s32);
 s32 obj_setFlags30(u32, s32);
@@ -53,42 +53,42 @@ void TItemLockCountCtrl__sub_80119238(int arg0) {
 void TItemLockCountCtrl__sub_8011926C(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5874__12TObjEneDD_STFl(temp, 0x20);
+        ((TObjEneDD_ST *)temp)->sub_800F5874(0x20);
     }
 }
 
 void TItemLockCountCtrl__sub_801192A0(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5874__12TObjEneDD_STFl(temp, 0x10);
+        ((TObjEneDD_ST *)temp)->sub_800F5874(0x10);
     }
 }
 
 void notify_stealth_enemies_08(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5874__12TObjEneDD_STFl(temp, 8);
+        ((TObjEneDD_ST *)temp)->sub_800F5874(8);
     }
 }
 
 void apply_battle_ctrl_effect(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5874__12TObjEneDD_STFl(temp, 4);
+        ((TObjEneDD_ST *)temp)->sub_800F5874(4);
     }
 }
 
 void TItemLockCountCtrl__sub_8011933C(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5874__12TObjEneDD_STFl(temp, 2);
+        ((TObjEneDD_ST *)temp)->sub_800F5874(2);
     }
 }
 
 void apply_unit_immunity__18TItemLockCountCtrlFi(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5874__12TObjEneDD_STFl(temp, 1);
+        ((TObjEneDD_ST *)temp)->sub_800F5874(1);
     }
 }
 

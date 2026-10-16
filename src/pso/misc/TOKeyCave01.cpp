@@ -78,7 +78,6 @@ struct VObj_8016C280 : VBase_8016C280 {
 
 extern "C" {
 s32 is_split_screen();
-s32 is_confirm_pressed__8TOKeyColFv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 u8 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
@@ -118,8 +117,6 @@ extern s32 model_render_flags;
 
 extern "C" {
 
-void vfunc_16__11TOKeyCave01Fv(void *arg0);
-void vfunc_25__8TOKeyColFv(void);
 void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);

@@ -1,4 +1,5 @@
 #include "pso/TItemReverseTechPart1.h"
+#include "pso/ui/TAdRicoRingCtrl.h"
 
 #include "types.h"
 
@@ -16,7 +17,6 @@ struct Self_80119DA0 {
 
 void queue_destruction__7TObjectFv(void *);
 void TAdRicoRingCtrl__sub_8001B4A0(void *, f32);
-void start_fade_all__15TAdRicoRingCtrlFf(void *, f32);
 void *TAdRicoRingCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -35,7 +35,7 @@ void TItemReverseTechPart1::run_task() {
             }
             self->ring = p;
             if (self->ring != NULL) {
-                start_fade_all__15TAdRicoRingCtrlFf(self->ring, self->t1);
+                ((TAdRicoRingCtrl *)(self->ring))->start_fade_all(self->t1);
             }
         }
         if (self->timer == self->t1) {

@@ -19,7 +19,6 @@ void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1);
 extern "C" {
 
 void s_rank_launcher_slide_node(void *arg0);
-void emit_marker_effects__13TUnk_804F28E0Fv(s32 arg0);
 s32 spawn_particle_effect(s32 *, s32);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);

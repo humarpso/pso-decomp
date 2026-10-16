@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubShortCutList.h"
@@ -45,10 +46,7 @@ void render__19TWindowSubMagPhotonFv(s32 arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_player_input_active(int);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
-s32 get_active_flag__19TWindowSubMagPhotonFv(void *);
 extern RecoveredGlobal_8027C56C_lbl_8050E208 controller_input_state;
-s32 save_position__13TUnk_804CE018Fv(void *);
 s32 init_photon_blast_entries__19TWindowSubMagPhotonFv(void *, int);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, void *);
 extern RecoveredGlobal_8027C6B4_lbl_804D17E8 TWindowSubMagPhoton__layout_descriptor;
@@ -69,18 +67,14 @@ s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 test_keyboard_card_flag4(int);
 s32 get_window_layout_position(s32);
 extern u8 lbl_8044FA28[];
-s32 sub_8027C884__13TUnk_804D1818Fl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1);
-s32 create_option_menu_window__13TUnk_804D1818Fv(void *arg0);
-void update_quest_board_card_flags__13TUnk_804D1818Fv(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
-s32 update_layout_height__21TWindowSubComCardListFf(s32, f32);
 s32 get_window_layout_position(s32);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 TWindowSubQuestBoard__sub_8027CF50(s32, s32);
@@ -93,7 +87,7 @@ s32 set_field_1c__6TLobbyFf(s32);
 s32 update_selected_item__17TWindowOptionCtrlFv(s32);
 
 void TWindowSubMagPhoton::handle_cancel() {
-    if (get_active_flag__19TWindowSubMagPhotonFv((void *)(this)) == 0) {
+    if (get_active_flag() == 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
         this->m_60 = (u8) (this->m_60 | 2);
     }
@@ -158,7 +152,7 @@ void TWindowSubMagPhoton::run_task() {
     s32 temp_r31;
     u8 *temp_r31_2;
     temp_r31 = is_player_input_active((int) ((s32) this->m_20));
-    if (get_active_flag__19TWindowSubMagPhotonFv((void *)((void *) (arg0))) == 0) {
+    if (((TWindowSubMagPhoton *)arg0)->get_active_flag() == 0) {
         update_selection_input();
         temp_r31_2 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
@@ -169,7 +163,7 @@ void TWindowSubMagPhoton::run_task() {
         }
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
     this->m_62 = (s16) (this->m_62 + 1);
 }
 
@@ -192,7 +186,7 @@ u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton *)&__vt__19TWindowSubMagPhoton).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubMagPhoton__class_name;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void *) (arg1));
-    save_position__13TUnk_804CE018Fv((void *) (arg0));
+    ((TUnk_804CE018 *)arg0)->save_position();
     *(s16 *)((s8 *)arg0 + 0x20) = arg3;
     *(s32 *)((s8 *)arg0 + 0x70) = arg2;
     *(s8 *)((s8 *)arg0 + 0x60) = 0;
@@ -319,7 +313,7 @@ s32 TUnk_804D1818::create_option_menu_window() {
         forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x6E), 6, 5);
     }
     ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-    update_layout_height__21TWindowSubComCardListFf(temp_r31, lbl_805DD688);
+    ((TWindowSubComCardList *)temp_r31)->update_layout_height(lbl_805DD688);
     align_menu_entry_positions(temp_r31);
     TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)this + 0x24), 0);
     set_field_1c__6TLobbyFf(temp_r31);

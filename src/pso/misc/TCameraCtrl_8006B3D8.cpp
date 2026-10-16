@@ -78,7 +78,6 @@ s32 approach_camera_vector(void *, void *, f32);
 extern RecoveredGlobal_8006B4A0_lbl_804381E0 fixed_npc_camera_destination_table;
 extern s32 TCameraCtrl__fixed_npc_camera_active;
 extern const f32 lbl_805D8FF8;
-void run_task__13TUnk_80488AD8Fv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
 void set_active_camera_pose(void *, void *);
@@ -102,13 +101,11 @@ void queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006BADC(void);
 void approach_vector_fixed_distance(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
 extern u32 camera_ctrl_instance;
-void run_task__13TUnk_80488AF0Fv(Cam_8006B6A8 *arg0);
 }
 
 extern "C" {
 
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1);
-void run_task__13TUnk_80488B08Fv(void);
 void *TCameraCtrl__vt9(void);
 s32 restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);

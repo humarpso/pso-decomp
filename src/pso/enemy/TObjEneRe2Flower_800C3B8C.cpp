@@ -4,7 +4,6 @@
 struct O_800C3B8C { u8 pad[0x3c4]; u32 flags; };
 
 extern "C" {
-bool sub_800C3B8C__16TObjEneRe2FlowerFv(O_800C3B8C *self);
 }
 
 extern "C" {

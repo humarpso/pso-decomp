@@ -8,7 +8,6 @@ extern "C" {
 
 extern "C" {
 
-void apply_knockback_from_attacker__13TUnk_8048E1A4FPUc(void);
 s32 TObjPlayer__sub_80082300(void* p);
 
 void TUnk_8048E1A4::apply_knockback_from_attacker(u8 *) {  }

@@ -15,7 +15,6 @@ struct Obj_800B9E84 {
 
 extern "C" {
 s32 minimap_render_dot(void *, int, int, int);
-void vfunc_100__9TObjEneDDFv(u8 *arg0);
 s32 draw_blob_shadow(int);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 rotate_matrix_y(int, void *);

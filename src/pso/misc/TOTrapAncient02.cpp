@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOTrapAncient02.h"
 #include "pso/misc/TOTrapAncient02R.h"
 #include "pso/TParticleCtrl.h"
@@ -336,38 +338,26 @@ s32 get_state_flag__9TMainTaskFv();
 void * get_bml_model(void *, int);
 void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, int, char *, int, int, int);
-void sub_8002AE64__9TObjEnemyFv(void *);
 s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 setup_particle_tev(int);
 s32 spawn_particle_effect(void *, int);
-void sub_800A7798__9TObjEnemyFf(void *, f32);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(s32);
 f32 horizontal_distance_squared(void *, void *);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 s32 __dt__6TOTrapFv(void *, s32);
 void * TOTrap__ct(void *, void *, void *);
 void find_target_player__16TOTrapAncient02RFv(Obj_8017A8B0 *self);
 f32 receive_physical_attack__16TOTrapAncient02RFPvf(Obj_8017A988 *self);
 void * __dt__16TOTrapAncient02RFv(void *arg0, s16 arg1);
 void * TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2);
-void vfunc_86__15TOTrapAncient02Fv(void);
-void vfunc_88__15TOTrapAncient02Fv(void);
 void vfunc_84__15TOTrapAncient02Fv(Obj_8017ACA0 *self);
-void vfunc_82__15TOTrapAncient02Fv(Trap_8017ADC4 *self);
 void render__15TOTrapAncient02Fv(void *arg0);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
 void submit_cursor_and_notify__16TOTrapAncient02RFv(void *arg0);
-s32 init_trap_param_clamped__16TOTrapAncient02RFv(void *);
-s32 clamp_trap_level_param__16TOTrapAncient02RFv(void *);
-s32 init_trap_object_id__16TOTrapAncient02RFv(void *);
 void submit_cursor_candidate(void *, s32);
 void send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
@@ -833,11 +823,11 @@ f32 TOTrapAncient02R::receive_physical_attack(void *, f32) {
         spawn_particle_effect(&v, 1);
         if (--self->timer <= 0) {
             self->timer = 0;
-            if (access_object_saved_state__13TUnk_804AF8A0FPvs(self, &msg, 1) != 0) {
+            if (((TUnk_804AF8A0 *)self)->access_object_saved_state(&msg, 1) != 0) {
                 self->state = 4;
                 msg = self->state;
-                send_object_state_update__13TUnk_804AF8A0FPv(self, &msg);
-                access_object_saved_state__13TUnk_804AF8A0FPvs(self, &msg, 0);
+                ((TUnk_804AF8A0 *)self)->send_object_state_update(&msg);
+                ((TUnk_804AF8A0 *)self)->access_object_saved_state(&msg, 0);
                 self->m4(&msg, 1);
             }
         }
@@ -895,10 +885,10 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
         *(s32 *)((s8 *)arg0 + 0x350) = 0;
     }
     *(s32 *)((s8 *)arg0 + 0x354) = *(s32 *)((s8 *)arg0 + 0x350);
-    init_trap_object_id__16TOTrapAncient02RFv(arg0);
-    clamp_trap_level_param__16TOTrapAncient02RFv(arg0);
+    ((TOTrapAncient02R *)arg0)->init_trap_object_id();
+    ((TOTrapAncient02R *)arg0)->clamp_trap_level_param();
     ((TOTrapAncient02R *)arg0)->calc_trap_count();
-    init_trap_param_clamped__16TOTrapAncient02RFv(arg0);
+    ((TOTrapAncient02R *)arg0)->init_trap_param_clamped();
     *(u16 *)((s8 *)arg0 + 0x33C) = 0xFFFF;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
     *(f32 *)((s8 *)arg0 + 0x348) = lbl_805DBA80;
@@ -989,8 +979,8 @@ void TOTrapAncient02::vfunc_82() {
     case 2:
         if (self->target != NULL) {
             obj_setFlags30(self->target, 0x200);
-            sub_8002AE64__9TObjEnemyFv(self->target);
-            sub_800A7798__9TObjEnemyFf(self->target, lbl_805DBA78);
+            ((TObjEnemy *)(self->target))->sub_8002AE64();
+            ((TObjEnemy *)(self->target))->sub_800A7798(lbl_805DBA78);
             self->timer--;
             if (self->timer < 0) {
                 self->state = 3;
@@ -1266,7 +1256,7 @@ void TOTrapAncient02::load_resources() {
 void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TOTrapAncient02;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__6TOTrapFv(arg0, 0);
         if (arg1 > 0) {
@@ -1298,7 +1288,7 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
     ((Trap_8017B6D8 *)arg0)->timer = ((Trap_8017B6D8 *)arg0)->reset;
     ((Trap_8017B6D8 *)arg0)->player = 0xFFFF;
     init_collision_body_parts(((Trap_8017B6D8 *)arg0), (void *)&trap_ancient02_collision_body, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(((Trap_8017B6D8 *)arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((Trap_8017B6D8 *)arg0)->flags |= 0x60000000;
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((Trap_8017B6D8 *)arg0)->h348 = lbl_805DBA80;

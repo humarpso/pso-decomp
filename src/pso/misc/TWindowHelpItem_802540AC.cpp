@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TWindowDuelResult.h"
@@ -213,9 +214,6 @@ extern "C" {
 s32 is_wrapped__9TItemDataFPv(void *);
 s32 get_localized_text_entry(int, int);
 s8 get_type__20TWindowSubStatusDispFv(s32);
-void init_text__15TWindowHelpItemFPv(void *, s32);
-void update_tech_disk_details__15TWindowHelpItemFv(void *);
-void sub_80255E24__15TWindowHelpItemFv(void *);
 extern s8 lbl_805D6448;
 extern s8 lbl_805D6449;
 extern s8 lbl_805D644A;
@@ -270,9 +268,7 @@ void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self);
 s32 get_player_by_client_id(s16);
 u32 get_quest_id__12TQuestListVMFv();
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
-s16 get_actor_attack_params_atp_min__13TUnk_804806E8Fv(s32);
 s16 TObjPlayer__sub_800A776C(s32);
-s16 get_ata__10TObjPlayerFv(s32);
 void set_flag4_and_field1c__15TWindowHelpItemFl(s32, s32);
 void preview_unequip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, s32);
 void preview_equip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, u32);
@@ -756,8 +752,8 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     e4 = get_array_entry__13TUnk_804CE018Fi((void *)(self), (s32)(4));
     e2 = get_array_entry__13TUnk_804CE018Fi((void *)(self), (s32)(2));
     e5 = get_array_entry__13TUnk_804CE018Fi((void *)(self), (s32)(5));
-    set_flag4_and_field1c__15TWindowHelpItemFl(e0, ((TObjPlayer *)pl)->get_field_2c8() + get_actor_attack_params_atp_min__13TUnk_804806E8Fv(pl) + TObjPlayer__sub_800A776C(pl));
-    set_flag4_and_field1c__15TWindowHelpItemFl(e3, get_ata__10TObjPlayerFv(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFl(e0, ((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min() + TObjPlayer__sub_800A776C(pl));
+    set_flag4_and_field1c__15TWindowHelpItemFl(e3, ((TObjPlayer *)pl)->get_ata());
     set_flag4_and_field1c__15TWindowHelpItemFl(e1, ((TWindowSubStatusDisp *)pl)->get_value());
     set_flag4_and_field1c__15TWindowHelpItemFl(e4, ((TObjPlayer *)pl)->get_hp());
     set_flag4_and_field1c__15TWindowHelpItemFl(e2, q->f2);
@@ -1070,16 +1066,16 @@ void TWindowHelpItem::dispatch_item_help() {
     }
     type = get_type__20TWindowSubStatusDispFv(self->entry);
     self->flags |= 2;
-    sub_80255E24__15TWindowHelpItemFv(self);
+    ((TWindowHelpItem *)self)->sub_80255E24();
     if (self->item == NULL) {
         if (self->techId == -0xFF) {
             self->flags &= ~2;
             ((TWindowHelpItem *)self)->set_flag60_bit4();
-            init_text__15TWindowHelpItemFPv(self, get_message_10__20TWindowSubStatusDispFl(0x10D));
+            ((TWindowHelpItem *)self)->init_text((void *)(get_message_10__20TWindowSubStatusDispFl(0x10D)));
         } else {
             self->flags &= ~2;
             ((TWindowHelpItem *)self)->set_flag60_bit4();
-            init_text__15TWindowHelpItemFPv(self, get_localized_text_entry(0x10, (self->techId & 0xF) + 0x18));
+            ((TWindowHelpItem *)self)->init_text((void *)(get_localized_text_entry(0x10, (self->techId & 0xF) + 0x18)));
         }
     } else if (is_wrapped__9TItemDataFPv(self->item) != 0) {
         self->flags &= ~2;
@@ -1109,7 +1105,7 @@ void TWindowHelpItem::dispatch_item_help() {
             self->flags &= ~2;
             ((TWindowHelpItem *)self)->set_flag60_bit4();
             if (sub == 2) {
-                update_tech_disk_details__15TWindowHelpItemFv(self);
+                ((TWindowHelpItem *)self)->update_tech_disk_details();
             } else {
                 ((TWindowHelpItem *)self)->update_displayed_item();
             }

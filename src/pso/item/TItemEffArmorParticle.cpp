@@ -1,4 +1,7 @@
 #include "pso/TItemEffArmorParticle.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/item/TItemMag.h"
+#include "pso/misc/TNowLoading.h"
 
 #include <stddef.h>
 
@@ -11,13 +14,10 @@ typedef char armor_size_check[(sizeof(TItemEffArmorParticle) == 0x2C) ? 1 : -1];
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 obj_testFlags30(int, int);
-s32 copy_pos__11TNowLoadingFPv(int, void *);
-s32 clear_active_flag__13TParticleCtrlFv(int);
 s32 enable__13TParticleCtrlFPv(int);
 u32 find_item_by_id(int);
 s32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
-s32 get_flag_40__8TItemMagFv(int);
 void *get_player_by_client_id(u16);
 }
 
@@ -37,8 +37,8 @@ void TItemEffArmorParticle::run_task() {
             if (item != 0U) {
                 if (TObjPlayer__sub_80102C30() == 2) {
                     if (obj_testFlags30((int)player, 0x800) == 0) {
-                        if (get_flag_40__8TItemMagFv((int)item) == 0) {
-                            clear_active_flag__13TParticleCtrlFv((int)m_20);
+                        if (((TItemMag *)item)->get_flag_40() == 0) {
+                            ((TParticleCtrl *)m_20)->clear_active_flag();
                         } else {
                             goto enable_particle;
                         }
@@ -47,7 +47,7 @@ void TItemEffArmorParticle::run_task() {
                         enable__13TParticleCtrlFPv((int)m_20);
                     }
                     active = 1;
-                    copy_pos__11TNowLoadingFPv((int)m_20, (void *)(player + 0x2FC));
+                    ((TNowLoading *)m_20)->copy_pos((void *)(player + 0x2FC));
                 }
             }
         }

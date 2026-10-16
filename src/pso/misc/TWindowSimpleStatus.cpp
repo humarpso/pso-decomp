@@ -10,7 +10,6 @@ struct SS_80270668 { s32 f0; u8 pad4[0x14]; void *vt; s16 f1c; s16 f1e; s16 f20;
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFl();
-s32 draw_background__19TWindowSimpleStatusFPUc(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 extern s32 __vt__14TWindowMessage[];
 void render__19TWindowSimpleStatusFv(s32 arg0);
@@ -27,11 +26,8 @@ SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, vo
 
 extern "C" {
 
-s32 update_status_icons__19TWindowSimpleStatusFPv(s32, s32);
 s32 get_window_layout_position(s32);
-s32 update_window_entry_list__13TUnk_804CE018FPv(s32, s32);
 void *__nw__7TObjectFUl(int);
-s32 apply_random_shake__19TWindowSimpleStatusFv(s32);
 s32 update_hp_tp_level__20TWindowSubStatusDispFv();
 s32 update_lockon_window(s32);
 s32 update_status_help_item(s32);
@@ -41,7 +37,7 @@ extern "C" {
 void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
-    draw_background__19TWindowSimpleStatusFPUc((void *) (arg0), (int) (temp_r3));
+    ((TWindowSimpleStatus *)arg0)->draw_background((u8 *)temp_r3);
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
@@ -50,11 +46,11 @@ void TWindowSimpleStatus::run_task() {
     update_hp_tp_level__20TWindowSubStatusDispFv();
     update_lockon_window(arg0);
     update_status_help_item(arg0);
-    update_status_icons__19TWindowSimpleStatusFPv(arg0, get_window_layout_position(0x1D));
+    ((TWindowSimpleStatus *)arg0)->update_status_icons((void *)(get_window_layout_position(0x1D)));
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
-    apply_random_shake__19TWindowSimpleStatusFv(arg0);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *)(arg0 + 0x24));
+    ((TWindowSimpleStatus *)arg0)->apply_random_shake();
 }
 
 extern unsigned char lbl_804D0CB0[];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 
 struct Ctx_80244364 { u8 pad[0x10]; f32 x; f32 y; };
@@ -25,12 +26,9 @@ s32 set_position_xy__13TUnk_804CDFE8Fff(f32, f32);
 extern s32 lbl_805D3878;
 extern const f32 lbl_805DCAAC;
 extern const f32 lbl_805DCAB0;
-void sub_802443B4__13TUnk_804CDFE8Fv(u8 *arg0);
 Ctx_80244364 *setup_window_draw_context__13TUnk_804CE018Fl(Obj_80244364 *self, f32 *p);
 Ctx_80244364 *get_draw_context__11TWindowBaseFPv(Obj_80244364 *self);
-void save_position__13TUnk_804CE018Fv(void *p);
 extern const f32 lbl_805DCAA8;
-void step_window_tween__13TUnk_804CDFE8Fv(Disp_80244238 *o);
 }
 
 extern "C" {
@@ -43,7 +41,7 @@ void TUnk_804CDFE8::step_window_tween() {
     u32 n = o->n;
     if (n == 0) {
         d = o->tz - o->z;
-        save_position__13TUnk_804CE018Fv(o);
+        ((TUnk_804CE018 *)o)->save_position();
     } else {
         d = (o->tw - o->w) / n;
         o->x += (o->tx - o->x) / n;

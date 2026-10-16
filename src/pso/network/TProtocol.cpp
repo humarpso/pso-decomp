@@ -1,4 +1,5 @@
 #include <global_types.h>
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include <string.h>
 #include <stdio.h>
 #include <stddef.h>
@@ -144,13 +145,11 @@ void TProtocol::send_room_change(int idx) {
 	}
 }
 
-extern "C" void *alloc__23TAdSinglePlyChrSelectGCFv(size_t);
-
 void TProtocol::send_pso_data_long2(char flags, long_game_command &packet, size_t size) {
 	const int header_size = sizeof(packet_header);
 	const int command_size = sizeof(long_game_command);
 	if (m_connected) {
-		TRecvPsoDataLong *tmp = (TRecvPsoDataLong *)alloc__23TAdSinglePlyChrSelectGCFv(sizeof(TRecvPsoDataLong));
+		TRecvPsoDataLong *tmp = (TRecvPsoDataLong *)((TAdSinglePlyChrSelectGC *)(sizeof(TRecvPsoDataLong)))->alloc();
 		u8 *pkt = as(u8 *, tmp);
 		int packet_size;
 		int cmd_count;

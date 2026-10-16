@@ -4,7 +4,6 @@
 extern "C" {
 extern const f32 lbl_805DAD98;
 extern const f32 lbl_805DAD9C;
-void update_weapon__13TUnk_804A2E80Fv(u8 *arg0);
 }
 
 extern "C" {

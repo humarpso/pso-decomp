@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
 void free_data_60F0__6TLobbyFv(void);
 s32 init_handle__6TLobbyFi(s32 arg0);
-void safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 u32 alloc__22TQuestVmDownLoadServerFv();
 
 extern u32 TLobby__map_set_file_buffer;
@@ -12,7 +12,7 @@ extern s32 TLobby__map_set_file_buffer_size;
 
 void free_data_60F0__6TLobbyFv(void) {
     if ((u32) TLobby__map_set_file_buffer != 0U) {
-        safe_free__23TAdSinglePlyChrSelectGCFUl((void*)TLobby__map_set_file_buffer);
+        TAdSinglePlyChrSelectGC::safe_free((u32)((void*)TLobby__map_set_file_buffer));
         TLobby__map_set_file_buffer = 0U;
         TLobby__map_set_file_buffer_size = 0;
     }

@@ -12,7 +12,6 @@ extern const f32 lbl_805DAE08;
 extern const f32 lbl_805DAE0C;
 extern const f32 lbl_805DAE10;
 extern const f32 lbl_805DAE14;
-void update_attack__13TUnk_804A4138Fv(u8 *self);
 }
 
 extern "C" {

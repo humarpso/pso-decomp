@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowMainMenu.h"
 
 struct Base_A_80263b70 { char pad[0x18]; };
@@ -19,16 +21,11 @@ struct VObj_80263C24_80263B70 : Base_80263C24_80263B70 {
 
 extern "C" {
 
-s32 close_active_submenu__15TWindowMainMenuFv(void *arg0);
 void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1);
 s32 get_player_by_client_id(s32);
 struct Obj_80263D7C; struct Obj_80263DBC;
-void sub_80263D7C__15TWindowMainMenuFv(Obj_80263D7C *o);
-void update_selection_value__15TWindowMainMenuFv(Obj_80263DBC *o);
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2);
 s32 open_menu_with_entry__15TWindowMainMenuFPvs(void *, s16);
-void create_submenu__15TWindowMainMenuFUl(u8 *arg0, u32 arg1);
-s32 close_submenu__15TWindowMainMenuFPv(void *, u32);
 void destroy_submenu__15TWindowMainMenuFv(void* p);
 s32 reset_equip_slots__10TObjPlayerFPv(s32);
 
@@ -43,7 +40,7 @@ void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1) {
         *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C) | 1);
         *(s32 *)((s8 *)arg0 + 0x5C) = 0;
         open_menu_with_entry__15TWindowMainMenuFPvs(arg0, sp8);
-        create_submenu__15TWindowMainMenuFUl((u8 *)arg0, sp8);
+        ((TWindowMainMenu *)arg0)->create_submenu(sp8);
         reset_equip_slots__10TObjPlayerFPv(temp_r3);
         ((V_A_80263b70 *) arg0)->m5();
     }
@@ -57,9 +54,9 @@ s32 TWindowMainMenu::close_active_submenu() {
         return 0;
     }
     *(s32 *)((s8 *)this + 0x48) = 0x1F;
-    sub_80263D7C__15TWindowMainMenuFv((Obj_80263D7C *)this);
-    update_selection_value__15TWindowMainMenuFv((Obj_80263DBC *)this);
-    close_submenu__15TWindowMainMenuFPv(this, *(u32 *)((s8 *)this + 0x5C));
+    sub_80263D7C();
+    update_selection_value();
+    close_submenu((void*)(*(u32 *)((s8 *)this + 0x5C)));
     return 1;
 }
 
@@ -76,18 +73,12 @@ struct E_80263DBC { s16 a; s32 b; };
 struct Obj_80263DBC { u8 pad[0x28]; E_80263DBC arr[4]; u8 pad2[0x50 - 0x48]; s16 f50; s16 f52; u8 pad3[0x5c - 0x54]; u32 f5c; };
 
 extern "C" {
-void sub_80263D7C__15TWindowMainMenuFv(Obj_80263D7C *o);
-void update_selection_value__15TWindowMainMenuFv(Obj_80263DBC *o);
 }
 
 extern "C" {
 
-void add_menu_entry__15TWindowMainMenuFs(u8 *arg0, s16 arg1);
-void close_and_clear_flags__15TWindowMainMenuFv(void *arg0);
-void open__15TWindowMainMenuFl(void *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
 s32 populate_menu__15TWindowMainMenuFPvPv(void *, s32);
-s32 close__15TWindowMainMenuFv(void *);
 void close_child_window__15TWindowMainMenuFv(void* p);
 
 s32 init_parts__10TObjPlayerFPv();
@@ -101,7 +92,7 @@ void TWindowMainMenu::close_and_clear_flags() {
     *(s32 *)((s8 *)this + 0x4C) = (s32) (temp_r4 & ~5);
     ((s32 (*)(void *, s32))close_child_window__15TWindowMainMenuFv)(this, temp_r4);
     destroy_submenu__15TWindowMainMenuFv(this);
-    close__15TWindowMainMenuFv(this);
+    close();
     if (get_player_by_client_id((s32)(*(s32 *)((s8 *)this + 0x54))) != 0U) {
         init_parts__10TObjPlayerFPv();
     }
@@ -152,7 +143,6 @@ extern "C" {
 s32 get_main_phase();
 s32 is_quest_active();
 
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_short_mail_ctrl__6TLobbyFv();
 s32 is_trade_range_bit_set(s32);
 extern s32 local_client_id;
@@ -161,7 +151,6 @@ s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2);
 
 extern "C" {
 
-void sub_80263FE0__15TWindowMainMenuFv(void *arg0);
 void close_child_window__15TWindowMainMenuFv(void* p);
 void destroy_submenu__15TWindowMainMenuFv(void* p);
 void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
@@ -174,8 +163,6 @@ s32 call_if_split_screen(u32, s32);
 s32 toggle_help_window_on_button(s32, s32);
 int queue_destruction__7TObjectFv(void*);
 s32 select_main_menu_item_10(s32);
-s32 send_and_handle__6TLobbyFii(u32, s32, s32);
-s32 set_field_1c__6TLobbyFf(u32, f32);
 s32 test_keyboard_card_flag4(s32);
 
 void TWindowMainMenu::update_keyboard_card_state() {
@@ -183,7 +170,7 @@ void TWindowMainMenu::update_keyboard_card_state() {
         *(s16 *)((s8 *)this + 0x52) = 0;
         return;
     }
-    update_selection_value__15TWindowMainMenuFv((Obj_80263DBC *)this);
+    update_selection_value();
 }
 
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) {
@@ -199,7 +186,7 @@ s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) 
         return 0;
     }
     *arg2 = 1;
-    st = get_global_state__14TOKeyMachine01Fv();
+    st = TOKeyMachine01::get_global_state();
     switch (*arg1) {
     case 0:
     case 9:
@@ -266,10 +253,10 @@ void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x24) == 0U) {
             u32 tmp = get_window_layout_position(0x1B);
             *(u32 *)((s8 *)arg0 + 0x24) = create_message_window__6TLobbyFllUls(tmp, lbl_8044F2E0, 1, *(s32 *)((s8 *)arg0 + 0x54));
-            set_field_1c__6TLobbyFf(*(u32 *)((s8 *)arg0 + 0x24), lbl_805DD13C);
+            ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x24)))->set_field_1c(lbl_805DD13C);
             call_if_split_screen(*(u32 *)((s8 *)arg0 + 0x24), *(s32 *)((s8 *)arg0 + 0x54));
         }
-        send_and_handle__6TLobbyFii(*(u32 *)((s8 *)arg0 + 0x24), select_main_menu_item_10(arg1), 0x80);
+        ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x24)))->send_and_handle(select_main_menu_item_10(arg1), 0x80);
     }
 }
 
@@ -282,7 +269,6 @@ void TWindowMainMenu::destroy_submenu() { if (*(unsigned int*)((char*)this + 0x2
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void set_scale_f__15TWindowMainMenuFv(void *);
 void destroy_submenu__15TWindowMainMenuFv(void *);
 s32 TWindowSubAreaMap__ct(int, void *, int);
 s32 TWindowSubComCard__ct(int, void *, int);
@@ -303,20 +289,18 @@ s32 TWindowSubTrade__ct(int, void *, int);
 s32 TWindowSubTradeMain__ct(int, void *, int);
 s32 __ct__22TWindowSubTradeMessageFP7TObjectl(int, void *, int);
 s32 TWindowSubInformationBoard__ct(int, void *, int);
-void create_submenu__15TWindowMainMenuFUl(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
-void set_scale_f__15TWindowMainMenuFv(void *);
 void destroy_submenu__15TWindowMainMenuFv(void *);
 void *construct_character_select_transition(void *, void *, void *);
 
 void TWindowMainMenu1P::create_char_select_slot() {
     void *o;
     destroy_submenu__15TWindowMainMenuFv(this);
-    set_scale_f__15TWindowMainMenuFv(this);
+    set_scale_f();
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
         o = construct_character_select_transition(o, this, *(void **)((s8 *)this + 0x54));
@@ -364,7 +348,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
     s32 var_r0_9;
     *(s32 *)((s8 *)((u8 *)this) + 0x4C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x4C) | 4);
     destroy_submenu__15TWindowMainMenuFv((void *) (((u8 *)this)));
-    set_scale_f__15TWindowMainMenuFv((void *) (((u8 *)this)));
+    set_scale_f();
     switch (arg1) {
     case 25:
         temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x2C)));

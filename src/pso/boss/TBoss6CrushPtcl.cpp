@@ -1,4 +1,5 @@
 #include "pso/TBoss6CrushPtcl.h"
+#include "pso/boss/TBoss4Type2.h"
 
 #include "types.h"
 
@@ -13,7 +14,6 @@ u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2);
 }
 
 extern "C" {
-void request_destroy__11TBoss4Type2FUl(u32);
 void queue_destruction__7TObjectFv(void*);
 }
 
@@ -21,11 +21,11 @@ void TBoss6CrushPtcl::run_task() {
     m_1C++;
     if (m_1C >= 6) {
         if (m_20 != 0) {
-            request_destroy__11TBoss4Type2FUl(m_20);
+            TBoss4Type2::request_destroy(m_20);
             m_20 = 0;
         }
         if (m_24 != 0) {
-            request_destroy__11TBoss4Type2FUl(m_24);
+            TBoss4Type2::request_destroy(m_24);
             m_24 = 0;
         }
         queue_destruction__7TObjectFv(this);

@@ -37,7 +37,6 @@ struct RecoveredFields_8026088C_arg0 {
 
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-void update_keyboard_child_input_from_controller__19TWindowKeyBoardSoftFl(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -84,14 +83,11 @@ s32 TKeyBoardControl__sub_8025CC04(void *);
 s32 TKeyBoardControl__sub_8025CC3C(u32);
 int update_keyboard_close_mode(void*);
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
-s32 sub_802605DC__19TWindowKeyBoardSoftFv(Win_802605DC *w);
 f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
 f32 TWindowKeyBoardSoft__sub_802606E0(void);
 s32 TWindowKeyBoardSoft__sub_80260760(void *, int, void *, int);
-void sub_80260808__19TWindowKeyBoardSoftFl(u8 *arg0, s32 arg1);
 s32 TWindowKeyBoardSoft__sub_80261134(void *);
-void handle_page_cycle_input__19TWindowKeyBoardSoftFl(u8 *arg0, s32 arg1);
 void TKeyBoardControl__sub_802613A4(void *arg0);
 f32 TWindowKeyBoardSoft__sub_802614DC(u8 *, u8 *, f32, f32, f32, f32);
 s32 TWindowKeyBoardSoft__sub_802616BC(void *, int);

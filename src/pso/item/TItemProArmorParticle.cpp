@@ -25,9 +25,6 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
 
 extern "C" {
 
-void vfunc_16__21TItemProArmorParticleFv(void *arg0);
-void vfunc_44__21TItemProArmorParticleFv(void *arg0);
-void vfunc_45__21TItemProArmorParticleFv(void *arg0);
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
 s32 TItemEffArmorParticle__ct(u32, s32, s32, s32, s32);
 s32 vfunc_45__14TItemEquipBaseFv();

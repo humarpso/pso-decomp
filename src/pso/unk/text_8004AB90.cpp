@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 
 struct Vec_8004AB90 { f32 x, y, z; };
@@ -8,7 +9,6 @@ struct E_8004AB90 { Vec_8004AB90 pos; f32 r; Vec_8004AB90 v; f32 s; };
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
@@ -70,7 +70,7 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
             v.y = lbl_805D8914;
             vec3_add_to(&v, ev);
             VecCopy__FP3VecPC3Vec(p + 0x38, &v);
-            refresh_collision_body_centers__13TUnk_804AF8A0Fv(p);
+            ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers();
         }
     }
 }

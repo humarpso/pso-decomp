@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneDD.h"
 
 struct Base_800BA138 { char pad[0x18]; };
@@ -84,10 +85,6 @@ void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
 void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
-void vfunc_93__9TObjEneDDFv(O_800BA1C8 *self);
-void vfunc_94__9TObjEneDDFv(O_800BA190 *self);
-void vfunc_92__9TObjEneDDFv(Obj_800BA200 *self);
-void vfunc_91__9TObjEneDDFv(Obj_800BA244 *self);
 }
 
 extern "C" {
@@ -133,11 +130,9 @@ struct EneDDObj_800BA138 : EneDDBase_800BA138 {
 void TObjEneDD__sub_800BA5A4(void* p, void* a1);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
-void vfunc_95__9TObjEneDDFv(void *arg0);
 int is_target_unobstructed__9TObjEneDDFl(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int add_flags_2e4__13TUnk_804806E8FUl(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 sub_800BC3E8__13TUnk_804928CCFPUc(void *, s32);
 s32 get_position__12TBoss1DragonFv(void *, s32);
 
 void TObjEneDD::vfunc_95() {
@@ -231,7 +226,7 @@ extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
 void TObjEneDD::emit_enemy_effect(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
-    sub_800BC3E8__13TUnk_804928CCFPUc(obj_ene_dd_instance, arg0);
+    ((TUnk_804928CC *)obj_ene_dd_instance)->sub_800BC3E8((u8 *)arg0);
     get_position__12TBoss1DragonFv(obj_ene_dd_instance, arg1);
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
@@ -250,7 +245,7 @@ extern u8 *obj_ene_dd_instance;
 extern const f32 lbl_805D9EA0;
 
 void TObjEneDD::setup_instance(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
-    sub_800BC3E8__13TUnk_804928CCFPUc(obj_ene_dd_instance, arg0);
+    ((TUnk_804928CC *)obj_ene_dd_instance)->sub_800BC3E8((u8 *)arg0);
     get_position__12TBoss1DragonFv(obj_ene_dd_instance, arg1);
     *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
     *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;

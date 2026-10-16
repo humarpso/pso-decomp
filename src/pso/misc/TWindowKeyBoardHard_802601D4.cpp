@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowDD.h"
 
@@ -27,12 +28,9 @@ void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1);
 s32 is_key_active__16TKeyBoardControlFPv(void *);
 s32 is_key_active__19TWindowKeyBoardHardFv();
 void __dl__7TObjectFPv(void *);
-s32 update_fade__13TUnk_804CE018Fv(void *);
 s32 initialize_subwindow__9TWindowDDFv(void *);
 s32 TWindowKeyBoardHard__sub_8025CC48(void *);
 s32 has_non_modifier_key__16TKeyBoardControlFv(void *);
-s32 process_all_key_states__19TWindowKeyBoardHardFv(void *);
-s32 update_modifier_flags__19TWindowKeyBoardHardFv(void *);
 
 extern s32 current_language;
 
@@ -53,15 +51,15 @@ void TWindowKeyBoardHard::run_task() {
                     TWindowKeyBoardHard__sub_8025CC48(*(void * *)&this->m_70);
                 }
             }
-            update_modifier_flags__19TWindowKeyBoardHardFv(this);
-            process_all_key_states__19TWindowKeyBoardHardFv(this);
+            update_modifier_flags();
+            process_all_key_states();
         }
         temp_r3_2 = *(s32 *)&this->m_68;
         if (temp_r3_2 > 0) {
             *(s32 *)&this->m_68 = (s32) (temp_r3_2 - 1);
         }
         initialize_subwindow__9TWindowDDFv(this);
-        update_fade__13TUnk_804CE018Fv(this);
+        update_fade();
     }
 }
 

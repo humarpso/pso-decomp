@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TUnk_8048E1A4.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
@@ -70,7 +72,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFv(void *);
 s32 create_particle_emitter(void *, int);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 extern s32 lbl_8048E1A4[];
 extern u32 freeze_shell_bml_resource;
 extern s32 tl_05;
@@ -84,13 +85,8 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 extern "C" {
 
 void *destroy_freeze_shell(void *arg0, s16 arg1);
-int select_melee_contact_body__13TUnk_8048E1A4FPvf(void);
-int calc_distance_accuracy_penalty__13TUnk_8048E1A4FPvPvPvf(void);
-f32 receive_direct_attack__13TUnk_8048E1A4FPvPvPvll(void);
-f32 receive_weapon_special_attack__13TUnk_8048E1A4FPvPv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 
 extern u32 freeze_shell_bml_resource;
 
@@ -118,7 +114,7 @@ void *destroy_freeze_shell(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E1A4;
         if (*(void **)((s8 *)arg0 + 0x350) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x350))); }
-        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
+        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -160,7 +156,7 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0x1C));
             ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D9398 * ((RecoveredFields_8008213C_arg2 *)arg2)->field_C);
         } else if ((void *) ((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 != NULL) {
-            refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg1));
+            ((TUnk_804AF8A0 *)arg1)->refresh_collision_body_centers();
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 + 0x1C));
             ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D9398 * *(f32 *)((s8 *)(((RecoveredFields_8008213C_arg1 *)arg1)->field_A4) + 0xC));
         } else {

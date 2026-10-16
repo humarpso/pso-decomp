@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void hook__13TUnk_804A69C0Fv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 rotate_matrix_x(s32, s32);

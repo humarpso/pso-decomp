@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/TAdSelectGameModeGC.h"
+#include "pso/TAdStorySelectGC.h"
+#include "pso/TObject.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
+#include "pso/misc/TScene.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TKeyBoardControl.h"
@@ -102,13 +108,11 @@ extern "C" {
 s32 is_split_screen(void);
 s32 clear_resource_load_tasks();
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 enable_camera__19TAdSelectGameModeGCFv();
 s32 TLobby__sub_801A3B98();
 s32 render_tick__Fv();
 s32 run_area_scene_cleanup(void *);
 s32 clear_flag3_all_tasks__9TMainTaskFv(void *);
 s32 delete_all_task_children__9TMainTaskFv(void *);
-s32 delete_children__7TObjectFv(int);
 extern RecoveredGlobal_801A3540_lbl_804C1F68 offline_game_scene_callbacks;
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
 extern s32 tl_su;
@@ -126,7 +130,6 @@ void find_leader_section_id(void *, s32);
 void unlock_main_warp_destination(s32);
 void reset_controller_input_state();
 s32 render_tick__Fv();
-void create_quad_sprites__13TParticleCtrlFv();
 void create_floor_quest_thread();
 void __ct__12TQuestThreadFv(void *, u32, int);
 void load_area_scene_and_init(void *);
@@ -136,7 +139,6 @@ s32 some_empty_func__9TMainTaskFv(void *);
 s32 delete_all_task_children__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 void *__nw__7TObjectFUl(u32);
-void set_parent__7TObjectFP7TObject(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 TLobby__data_805011D8[];
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
@@ -159,7 +161,6 @@ void reset_controller_input_state();
 s32 for_each_player_slot__10TObjPlayerFv(void *);
 s32 rebuild_player_inventory(void *);
 s32 render_tick__Fv();
-void create_quad_sprites__13TParticleCtrlFv();
 s32 TLobby__sub_80207E48();
 s32 get_team_state__6TLobbyFPv();
 s32 TLobby__sub_8020DC78();
@@ -169,7 +170,6 @@ s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 delete_all_task_children__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
-void set_parent__7TObjectFP7TObject(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_game_play_mode();
 extern u8 fn_801B309C[];
@@ -185,7 +185,6 @@ void create_floor_quest_thread();
 void __ct__12TQuestThreadFv(void *, u32, int);
 s32 clear_all_floor_handlers();
 s32 create_by_mode__12TQuestThreadFv();
-s32 set_state__16TAdStorySelectGCFl(int);
 void *__nw__7TObjectFUl(u32);
 s32 setup_split_screen();
 extern u32 quest_mission_manager;
@@ -193,7 +192,6 @@ void reset_controller_input_state();
 s32 for_each_player_slot__10TObjPlayerFv(void *);
 s32 rebuild_player_inventory(void *);
 s32 render_tick__Fv();
-void create_quad_sprites__13TParticleCtrlFv();
 s32 get_team_state__6TLobbyFPv();
 s32 TLobby__sub_8020DC78();
 void load_area_scene_and_init(void *);
@@ -202,7 +200,6 @@ s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 delete_all_task_children__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
-void set_parent__7TObjectFP7TObject(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_game_play_mode();
 extern u8 fn_801B309C[];
@@ -214,7 +211,6 @@ s32 TKeyBoardControl__sub_8000F9CC(s32);
 s32 is_split_screen(void);
 s32 TObjBoss2Tunnel__sub_8007D1D0();
 void TLobby__sub_8007EB20(const char *, ...);
-s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 void run_offline_area_transfer(void);
 void run_single_view_frame(void);
@@ -236,7 +232,6 @@ s32 is_split_screen(void);
 s32 TLobby__sub_8006EF90();
 s32 TObjBoss2Tunnel__sub_8007D1D0();
 void TLobby__sub_8007EB20(const char *, ...);
-s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 void run_offline_area_transfer(void);
 void run_single_view_frame(void);
@@ -281,13 +276,11 @@ s32 run_load_callback_table(void *, s32);
 s32 TLobby__sub_801A2DF4();
 s32 TLobby__sub_801A2DF8();
 s32 TLobby__sub_801A2DFC();
-s32 set_scene__6TSceneFi(s32);
 void reset_controller_input_state();
 s32 TObjPlayer__sub_801B1BA4();
 s32 TObjPlayer__sub_801B1C8C();
 s32 set_copy_clear_color_argb(s32, s32, s32);
 s32 render_tick__Fv();
-void create_quad_sprites__13TParticleCtrlFv();
 s32 TLobby__sub_801F3774();
 void __ct__12TQuestThreadFv(void *, u32, int);
 s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv();
@@ -332,7 +325,7 @@ void TLobby::reload_offline_area() {
     for (i = 0; i < TLobby::get_game_mode(); i++) {
         void *q = get_player_data__10TObjPlayerFi(i);
         if (q != NULL) {
-            set_parent__7TObjectFP7TObject(q, &holder);
+            ((TObject *)q)->set_parent((TObject *)(&holder));
         }
     }
     if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -355,7 +348,7 @@ void TLobby::reload_offline_area() {
     TLobby__sub_8020DC78();
     TLobby__sub_80207E48();
     TLobby::create_map_csn_ctrl();
-    create_quad_sprites__13TParticleCtrlFv();
+    TParticleCtrl::create_quad_sprites();
     apply_phase_keyboard_mode();
     TLoadCtrl::start_loading(1);
     TLobby::init_limits();
@@ -376,7 +369,7 @@ void TLobby::reload_offline_area() {
     for (j = 0; j < TLobby::get_game_mode(); j++) {
         p = get_player_data__10TObjPlayerFi(j);
         if (p != NULL) {
-            set_parent__7TObjectFP7TObject(p, tl_03);
+            ((TObject *)p)->set_parent((TObject *)tl_03);
             ((VObj_801A3014 *)p)->m6();
             rebuild_player_inventory(p);
             for_each_player_slot__10TObjPlayerFv(fn_801B309C);
@@ -402,20 +395,20 @@ void TLobby::rebuild_area_keep_players() {
     for (i = 0; i < TLobby::get_game_mode(); i++) {
         void *q = get_player_data__10TObjPlayerFi(i);
         if (q != NULL) {
-            set_parent__7TObjectFP7TObject(q, &holder);
+            ((TObject *)q)->set_parent((TObject *)(&holder));
         }
     }
     delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A3540_main_task *)&main_task));
     promote_area_floor(&lbl_80515BA0);
     TLobby::sync_story_select();
-    set_state__16TAdStorySelectGCFl(0);
+    TAdStorySelectGC::set_state(0);
     TKeyBoardControl::update();
     TLobby::reset_quest_state();
     get_team_state__6TLobbyFPv();
     TLobby__sub_8020DC78();
     clear_all_floor_handlers();
     TLobby::create_map_csn_ctrl();
-    create_quad_sprites__13TParticleCtrlFv();
+    TParticleCtrl::create_quad_sprites();
     if (TRaderMapCore::is_not_split_screen() == 1) {
         switch (get_game_play_mode()) {
         case 0:
@@ -454,7 +447,7 @@ void TLobby::rebuild_area_keep_players() {
     for (j = 0; j < TLobby::get_game_mode(); j++) {
         p = get_player_data__10TObjPlayerFi(j);
         if (p != NULL) {
-            set_parent__7TObjectFP7TObject(p, tl_03);
+            ((TObject *)p)->set_parent((TObject *)tl_03);
             ((VObj_801A31D8 *)p)->m6();
             rebuild_player_inventory(p);
             for_each_player_slot__10TObjPlayerFv(fn_801B309C);
@@ -477,14 +470,14 @@ void run_offline_area_transfer(void) {
     for (i = 0; i < TLobby::get_game_mode(); i++) {
         void *q = get_player_data__10TObjPlayerFi(i);
         if (q != NULL) {
-            set_parent__7TObjectFP7TObject(q, &holder);
+            ((TObject *)q)->set_parent((TObject *)(&holder));
         }
     }
     delete_all_task_children__9TMainTaskFv(&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value);
     promote_area_floor(&lbl_80515BA0.value);
     TKeyBoardControl::update();
     TLobby::create_map_csn_ctrl();
-    create_quad_sprites__13TParticleCtrlFv();
+    TParticleCtrl::create_quad_sprites();
     TLoadCtrl::start_loading(2);
     find_leader_section_id(TLobby__data_805011D8, TLobby__designated_client_id);
     load_area_scene_and_init(&lbl_80515BA0.value);
@@ -496,7 +489,7 @@ void run_offline_area_transfer(void) {
     for (j = 0; j < TLobby::get_game_mode(); j++) {
         p = get_player_data__10TObjPlayerFi(j);
         if (p != NULL) {
-            set_parent__7TObjectFP7TObject(p, tl_03);
+            ((TObject *)p)->set_parent((TObject *)tl_03);
             ((VObj_801A33DC *)p)->m6();
         }
     }
@@ -515,13 +508,13 @@ void TLobby::teardown_scene() {
         TCameraCtrl::set_fullscreen_viewport();
     }
     TLobby__sub_801A3B98();
-    enable_camera__19TAdSelectGameModeGCFv();
+    TAdSelectGameModeGC::enable_camera();
     TLobby::stop_audio_streams();
     TLobby::update_lobby_subsystems();
     TLobby::reset_quest_state();
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value));
     clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value));
-    delete_children__7TObjectFv((int) (tl_su));
+    ((TObject *)tl_su)->delete_children();
     run_area_scene_cleanup((void *) (&lbl_80515BA0.value));
     call_funcs_reverse__6TLobbyFPvUi((void *) (&offline_game_scene_callbacks.value), (int) (0x180));
     clear_resource_load_tasks();
@@ -549,7 +542,7 @@ void run_offline_game_frame(void) {
     if (func_801A5E54__Fv() != 0) {
         TLobby::shutdown_keyboard_control();
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         TKeyBoardControl__sub_8000F9CC(0);
     }
     if (TKeyBoardControl::get_key_state() != 0) {
@@ -583,7 +576,7 @@ void run_offline_transfer_frame(void) {
     if (func_801A5E54__Fv() != 0) {
         TLobby::reset_keyboard_input();
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         TKeyBoardControl__sub_8000F9CC(0);
     }
     if (TKeyBoardControl::get_input() != 0) {
@@ -674,11 +667,11 @@ void init_offline_game_scene(void) {
     clear_keyboard_key_state();
     clear_resource_load_tasks();
     TLobby::create_map_csn_ctrl();
-    create_quad_sprites__13TParticleCtrlFv();
+    TParticleCtrl::create_quad_sprites();
     TLoadCtrl::poll_default();
     TObjPlayer__sub_801B1C8C();
     set_current_floor_area(0);
-    set_scene__6TSceneFi(0);
+    TScene::set_scene(0);
     ((TLobby *)(&lbl_80515BA0))->init_range(0);
     reset_keyboard_state__6TLobbyFv();
     apply_phase_keyboard_mode();

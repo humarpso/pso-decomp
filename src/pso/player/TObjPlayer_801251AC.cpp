@@ -5,7 +5,6 @@
 
 extern "C" {
 
-void emit_marker_effects__13TUnk_804A2358Fv(void *arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 int roll_technique__11TItemWeaponFv(void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);

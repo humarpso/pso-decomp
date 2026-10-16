@@ -62,8 +62,6 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
 
 extern "C" {
 
-int vfunc_6__12TNeedleShootFv(void* p);
-void vfunc_9__12TNeedleShootFPv(void);
 void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);

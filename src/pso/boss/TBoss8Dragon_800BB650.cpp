@@ -18,7 +18,6 @@ u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 void enemy_find_nearest_player_in_range(f32 farg0);
-void clear_attack_receipts__9TObjEneDDFv(Obj_800BB780 *self);
 }
 
 extern "C" {

@@ -44,7 +44,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DC840;
 extern const f32 lbl_805DC844;
 extern const f32 lbl_805DC848;
-void render__13TUnk_804CC870Fv(Obj_80232934 *arg0);
 }
 
 extern "C" {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorAncient09.h"
 #include "pso/misc/TODoorCave01.h"
 #include "pso/misc/TLobby.h"
@@ -59,7 +61,6 @@ struct Door_801615C4 {
 };
 
 extern "C" {
-void vfunc_6__12TODoorCave01FPsl(u8 *arg0, s16 *arg1);
 s32 set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -67,8 +68,6 @@ extern const f32 lbl_805DB494;
 extern const f32 lbl_805DB498;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A0;
-void play_proximity_sound__12TODoorCave01Fv(u8 *arg0);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_801611CC_lbl_804B1248 TODoorAncient09__collision_body_template;
@@ -79,18 +78,12 @@ extern s32 *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB480;
 extern const f32 lbl_805DB484;
 u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(u8 *arg0, s32 arg1, s16 arg2);
 void update_and_send_60__6TLobbyFPv(void *);
-void send_state__12TODoorCave01FPv(Self_80161320 *self, State_80161320 *src);
-void play_door_sound__13TUnk_804B0BB8Fv(u8 *arg0);
 u8 is_current_floor_switch_set(u16);
 }
 
 extern "C" {
 
-void vfunc_17__12TODoorCave01Fv(u8 *arg0);
-s32 init_door_switch_binding__12TODoorCave01Fv(void *arg0);
-void vfunc_20__12TODoorCave01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(f32);
 s32 get_main_phase();
@@ -109,7 +102,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB484);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB480);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient09__collision_body_template.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {
@@ -136,7 +129,7 @@ void TODoorCave01::send_state(void *src_arg) {
     if (src != 0) {
         ((TLobby *)(&st))->copy_short_fields(src);
     } else {
-        access_object_saved_state__13TUnk_804AF8A0FPvs((u8 *)self, (s32)&st, 1);
+        ((TUnk_804AF8A0 *)self)->access_object_saved_state((void *)((s32)&st), (s16)1);
     }
     obj = self->obj;
     if (obj != 0) {
@@ -215,7 +208,7 @@ void TODoorCave01::update_door_switch_state() {
 
     switch (d->state) {
     case 1:
-        play_door_sound__13TUnk_804B0BB8Fv(arg0);
+        ((TUnk_804B0BB8 *)arg0)->play_door_sound();
         d->flags |= 0xF0001;
         d->count = 4;
         break;
@@ -231,7 +224,7 @@ void TODoorCave01::update_door_switch_state() {
             d->flags |= 1 << (i + 0x10);
         }
         if (d->count == 4) {
-            play_door_sound__13TUnk_804B0BB8Fv(arg0);
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             d->flags |= 1;
         } else {
             d->flags &= ~1;
@@ -253,12 +246,12 @@ void TODoorCave01::update_door_switch_state() {
             d->flags |= 1 << (i + 0x10);
         }
         if (d->count == 4) {
-            play_door_sound__13TUnk_804B0BB8Fv(arg0);
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             d->flags |= 1;
-            if (d->obj != NULL && ((s32 (*)(u8 *, void *, s16))access_object_saved_state__13TUnk_804AF8A0FPvs)(arg0, &st, 1) != 0) {
+            if (d->obj != NULL && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *)(&st), (s16)1) != 0) {
                 st.a = 1;
-                send_state__12TODoorCave01FPv((Self_80161320 *)arg0, &st);
-                ((s32 (*)(u8 *, void *, s16))access_object_saved_state__13TUnk_804AF8A0FPvs)(arg0, &st, 0);
+                ((TODoorCave01 *)arg0)->send_state(&st);
+                ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *)(&st), (s16)0);
             }
         }
         break;

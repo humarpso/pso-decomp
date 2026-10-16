@@ -185,7 +185,6 @@ void enemy_set_heading_velocity(void *, s32, f32);
 void enemy_turn_toward_dest(void *, s32);
 s32 move_with_wall_slide(void *);
 f32 horizontal_distance_squared(void *, void *);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 minimap_render_dot(void *, int, int, int);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 u32 create_particle_emitter(void *, int);
@@ -210,7 +209,6 @@ extern const f32 lbl_805E02D0;
 extern const f32 lbl_805E02D4;
 s32 apply_actor_gravity(void *, int, f32);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void sub_8002AE64__9TObjEnemyFv(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 void initialize__9TObjEnemyFPv(void *, s32, void *);
@@ -366,10 +364,7 @@ struct Obj_80367B00 {
 
 extern "C" {
 int obj_clearFlags30(void*, int);
-void vfunc_59__14TObjEneIllGillFv(u8 *arg0);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 spawn_particle_effect(void *, int);
-void vfunc_63__14TObjEneIllGillFv(u8 *arg0);
 int obj_clearFlags30(void*, int);
 s32 apply_actor_gravity(void *, int, f32);
 s32 advance_animation_playback(void *);
@@ -402,14 +397,11 @@ extern const f32 TObjEneIllGill__data_805E02BC;
 void sub_80367DC8__14TObjEneIllGillFl(u8 *arg0, s32 arg1);
 s32 update_movement_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
-s32 update_movement_status__14TObjEneIllGillFv(u8 *arg0);
 s32 update_action_hold_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
-s32 update_action_hold_status__14TObjEneIllGillFv(u8 *arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 extern const f32 TObjEneIllGill__data_805E02BC;
-void vfunc_60__14TObjEneIllGillFv(Gill_803671A4 *o);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 void submit_cursor_candidate(void *, int);
 void TObjEneIllGill__sub_803669B0(u8 *arg0);
@@ -457,7 +449,6 @@ void subtract_vector(void *, void *);
 extern Vec_80367FDC lbl_8047A328;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void vfunc_28__14TObjEneIllGillFv(Gill_80367FDC *self);
 void subtract_vector(void *, void *);
 s32 apply_actor_gravity(void *, int, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
@@ -514,8 +505,6 @@ extern const f32 TObjEneIllGill__data_805E02DC;
 
 extern "C" {
 
-int vfunc_61__14TObjEneIllGillFv(void* p);
-void vfunc_62__14TObjEneIllGillFv(void *arg0);
 void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1);
 int TLobby__sub_8001FE7C(void*, void*);
 void *TObjControl__ct(void *, void *);
@@ -524,7 +513,6 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_wander_home(void *, int, f32, f32, f32);
 f32 horizontal_distance_squared(void *, void *);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void __dt__9TObjEnemyFv(void *, int);
@@ -863,7 +851,7 @@ void TObjEneIllGill::update_ai() {
         }
         break;
     }
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(o);
+    ((TUnk_804AF8A0 *)o)->refresh_collision_body_centers();
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
 }
 #pragma pop
@@ -1069,7 +1057,7 @@ void TObjEneIllGill::vfunc_63() {
         ((TObjEneIllGill *)arg0)->free_resources();
         spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0xF2));
         ((TObjPlayer *)arg0)->refresh_lobby_state();
-        send_entity_set_flags__9TObjEnemyFv(arg0);
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
     }
 }
 
@@ -1591,7 +1579,7 @@ void TObjEneIllGill::run_attack_phase() {
             temp_r4 = (unsigned char *) (*(void * *)&this->movementParameters);
             enemy_wander_home((void *) (arg0), (int) (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805E02C4), (f32) (lbl_805E02FC));
         }
-        refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
         break;
     default:
         this->m_b8 = 0;
@@ -1949,7 +1937,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     FIG_8036858C(s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(self, FIG_8036858C(s16, 0xB8));
     ((TObjMotion *)self)->set_field_b8(FIG_8036858C(s16, 0xB8));
-    sub_8002AE64__9TObjEnemyFv(self);
+    ((TObjEnemy *)self)->sub_8002AE64();
     FIG_8036858C(f32, 0x68) = lbl_805E0308;
     FIG_8036858C(f32, 0x6C) = lbl_805E0308;
     FIG_8036858C(f32, 0x70) = lbl_805E0308;

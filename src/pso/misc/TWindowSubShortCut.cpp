@@ -56,7 +56,6 @@ void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 u32 *get_chat_shortcut();
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 s32 align_menu_entry_positions(s32);
-s32 update_layout_height__21TWindowSubComCardListFf(s32, f32);
 s32 get_window_layout_position(s32 a0 = 0);
 s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
 void TWindow__close(void *);
@@ -108,7 +107,7 @@ s32 TWindowSubShortCut::open_menu() {
         TWindowSubComCard::draw_text_gray(temp_r31, get_message_10__20TWindowSubStatusDispFl(0x5A), 6, 9);
     }
     ((TWindowSubComCardList *)temp_r31)->set_flag70_bit10();
-    update_layout_height__21TWindowSubComCardListFf(temp_r31, lbl_805DD6C0);
+    ((TWindowSubComCardList *)temp_r31)->update_layout_height(lbl_805DD6C0);
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }

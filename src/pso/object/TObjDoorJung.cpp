@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/TParticleCtrl.h"
@@ -50,17 +51,14 @@ struct VObj_8018F644 : VBase_8018F644 {
 struct Jung_8018F808 { u8 pad0[0xC8]; s32 fC8; u8 padCC[4]; u32 fD0; s32 fD4; };
 
 extern "C" {
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
-void clamp_state__12TObjDoorJungFv(void *arg0);
 extern RecoveredGlobal_8018F9CC_lbl_804B788C TObjDoorJung__collision_desc;
 extern s32 __vt__12TObjDoorJung[];
 extern s32 TObjDoorJung__class_name;
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_indexed_flags(void *, int, int);
 u8 is_current_floor_switch_set(int);
-void update_door_switch_state__12TObjDoorJungFv(Jung_8018F808 *arg0);
 struct Node_8018F4AC;
 Node_8018F4AC *get_bml_model(void *, int);
 void free_children__12TObjDoorJungFPvPv(s32, u16);
@@ -106,12 +104,9 @@ struct VObj_8018F458 : Base_8018F458 {
 };
 
 void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1);
-void clamp_state__12TObjDoorJungFv(void *arg0);
 void free_buffers__12TObjDoorJungFv(void);
-void run_task__12TObjDoorJungFv(u8 *arg0);
 s32 TLobby__sub_8001FE7C(void *, s16);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 minimap_render_gate(void *, s32, u16, s32, s32);
 s32 __dl__7TObjectFPv(void *);
 
@@ -224,7 +219,7 @@ extern s32 __vt__12TObjDoorJung[];
 void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjDoorJung;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -241,10 +236,10 @@ u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDoorJung__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoorJung__collision_desc.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((VObj_18_4a4f5b *)(arg0))->m17();
-    clamp_state__12TObjDoorJungFv((void *) (arg0));
+    ((TObjDoorJung *)arg0)->clamp_state();
     return arg0;
 }
 

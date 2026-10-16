@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/player/TObjPlayer.h"
@@ -138,8 +139,6 @@ struct Obj_80189F24 : VBase_80189F24 {
 extern "C" {
 s32 step_laser_fence_fade(void *);
 f32 xyz_distance_squared(void *, void *);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern f32 lbl_805DBCF4;
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
@@ -178,10 +177,10 @@ void TUnk_804B6C24::run_task() {
 f32 TUnk_804B6C24::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
-        access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
-        send_object_state_update__13TUnk_804AF8A0FPv((void *) (arg0), (void *) (&sp8));
+        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
+        ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
     }
     return (*(const f32 *)&lbl_805DBCF4);
 }

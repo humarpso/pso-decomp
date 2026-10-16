@@ -42,7 +42,6 @@ extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
 extern "C" {
-void sub_801F6B00__22TQuestVmDownLoadServerFv(u8* arg0);
 }
 
 #include "types.h"
@@ -100,7 +99,6 @@ extern "C" {
 extern s32 quest_download_in_progress;
 }
 extern "C" {
-void sub_801F6C74__22TQuestVmDownLoadServerFv(u8 *arg0);
 }
 extern "C" {
 s32 return_to_main_menu__6TLobbyFv();
@@ -129,7 +127,6 @@ extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
 extern "C" {
-void sub_801F6D24__22TQuestVmDownLoadServerFv(QVm_801F6D24 *self);
 }
 
 extern "C" {
@@ -354,7 +351,6 @@ extern "C" {
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 }
 extern "C" {
-void handle_confirm_input__22TQuestVmDownLoadServerFv(u8 *arg0);
 }
 extern "C" {
 extern RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
@@ -528,7 +524,6 @@ extern "C" {
 extern char TQuestVmDownLoadServer__data_805DC5BC[];
 }
 extern "C" {
-void sub_801F770C__22TQuestVmDownLoadServerFv(u8 *arg0);
 }
 extern "C" {
 }
@@ -580,30 +575,6 @@ extern "C" {
 extern u8 TQuestVmDownLoadServer__download_kind;
 }
 extern "C" {
-void sub_801F718C__22TQuestVmDownLoadServerFv(u8 *arg0);
-}
-extern "C" {
-}
-extern "C" {
-void sub_801F7FEC__22TQuestVmDownLoadServerFv(u8 *arg0);
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-void handle_confirm_input__22TQuestVmDownLoadServerFv(u8 *arg0);
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
-void sub_801F770C__22TQuestVmDownLoadServerFv(u8 *arg0);
 }
 extern "C" {
 }
@@ -616,28 +587,44 @@ extern "C" {
 extern "C" {
 }
 extern "C" {
-void sub_801F718C__22TQuestVmDownLoadServerFv(u8 *arg0);
 }
 extern "C" {
 }
 extern "C" {
 }
 extern "C" {
-void sub_801F6C74__22TQuestVmDownLoadServerFv(u8 *arg0);
 }
 extern "C" {
 }
 extern "C" {
 }
 extern "C" {
-void sub_801F6D24__22TQuestVmDownLoadServerFv(QVm_801F6D24 *self);
 }
 extern "C" {
 }
 extern "C" {
 }
 extern "C" {
-void sub_801F6B00__22TQuestVmDownLoadServerFv(u8 *arg0);
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
+}
+extern "C" {
 }
 extern "C" {
 extern s32 lbl_805D55C0;
@@ -1358,7 +1345,7 @@ void TQuestVmDownLoadServer::run_task() {
     ((TQuestVmDownLoadServer *)arg0)->check_client_connections();
     switch (state) {
     case 0:
-        sub_801F7FEC__22TQuestVmDownLoadServerFv(arg0);
+        ((TQuestVmDownLoadServer *)arg0)->sub_801F7FEC();
         break;
     case 1:
         ((TQuestVmDownLoadServer *)arg0)->close_window();
@@ -1384,7 +1371,7 @@ void TQuestVmDownLoadServer::run_task() {
             if (m_29c != NULL) {
                 ((TQuestVmDownLoadServer *)m_29c)->clear_flag4_bit4();
             }
-            handle_confirm_input__22TQuestVmDownLoadServerFv(arg0);
+            ((TQuestVmDownLoadServer *)arg0)->handle_confirm_input();
         }
         break;
     case 5:
@@ -1397,7 +1384,7 @@ void TQuestVmDownLoadServer::run_task() {
         ((TQuestVmDownLoadServer *)arg0)->find_free_file_names();
         break;
     case 8:
-        sub_801F770C__22TQuestVmDownLoadServerFv(arg0);
+        ((TQuestVmDownLoadServer *)arg0)->sub_801F770C();
         break;
     case 9:
         ((TQuestVmDownLoadServer *)arg0)->load_quest_data();
@@ -1415,7 +1402,7 @@ void TQuestVmDownLoadServer::run_task() {
         ((TQuestVmDownLoadServer *)arg0)->finish_download();
         break;
     case 14:
-        sub_801F718C__22TQuestVmDownLoadServerFv(arg0);
+        ((TQuestVmDownLoadServer *)arg0)->sub_801F718C();
         break;
     case 15:
         ((TQuestVmDownLoadServer *)arg0)->write_quest_data();
@@ -1424,7 +1411,7 @@ void TQuestVmDownLoadServer::run_task() {
         ((TQuestVmDownLoadServer *)arg0)->close_download();
         break;
     case 19:
-        sub_801F6C74__22TQuestVmDownLoadServerFv(arg0);
+        ((TQuestVmDownLoadServer *)arg0)->sub_801F6C74();
         break;
     case 20:
         ((TQuestVmDownLoadServer *)arg0)->check_cancel_input();
@@ -1433,7 +1420,7 @@ void TQuestVmDownLoadServer::run_task() {
         ((TQuestVmDownLoadServer *)arg0)->close();
         break;
     case 18:
-        sub_801F6D24__22TQuestVmDownLoadServerFv((QVm_801F6D24 *)arg0);
+        ((TQuestVmDownLoadServer *)arg0)->sub_801F6D24();
         break;
     case 21:
         ((TQuestVmDownLoadServer *)arg0)->destroy();
@@ -1442,7 +1429,7 @@ void TQuestVmDownLoadServer::run_task() {
         ((TQuestVmDownLoadServer *)arg0)->close_message();
         break;
     case 23:
-        sub_801F6B00__22TQuestVmDownLoadServerFv(arg0);
+        ((TQuestVmDownLoadServer *)arg0)->sub_801F6B00();
         break;
     }
 }

@@ -14,7 +14,6 @@ struct Stack_800F5D80 {
 
 extern "C" {
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
-void clear_lobby_object_state__9TObjEnemyFv(s32 arg0);
 }
 
 extern "C" {

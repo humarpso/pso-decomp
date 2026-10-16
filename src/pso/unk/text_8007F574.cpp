@@ -13,9 +13,7 @@ extern const f32 lbl_805D929C;
 extern const f32 lbl_805D92C0;
 extern const f32 lbl_805D92C4;
 extern const f32 lbl_805D92C8;
-void sub_8007F5A4__8TDLGraphFv(u8 *arg0);
 extern const f32 lbl_805D92B8;
-void init_dl_graph_entries__8TDLGraphFv(O_8007F574 *self);
 }
 
 extern "C" {

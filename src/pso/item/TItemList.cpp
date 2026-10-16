@@ -14,7 +14,6 @@ void clear_placement_search_slot(u8 *arg0, s32 arg1);
 void* get_ptr_0x44__9TItemListFPv(void* p);
 void copy_position__9TItemListFPv(void *, s32);
 void *TItemList__sub_801D598C(int, int);
-void sub_801D5A70__13TUnk_804C4480Fv(u8 *arg0);
 void __construct_array(void *, void *, int, int, int);
 int TObjPlayer__sub_801C2098(void);
 extern s32 lbl_804C4444[];

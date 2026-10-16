@@ -57,7 +57,6 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 item_model_is_shown(void *, int);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
-void emit_marker_effects__13TUnk_804A2A58Fv(u8 *arg0);
 }
 
 extern "C" {

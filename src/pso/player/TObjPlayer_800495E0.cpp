@@ -60,7 +60,6 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *, int);
 extern const f32 lbl_805D8890;
-void run_task__13TUnk_80484A94Fv(u8 *arg0);
 extern s32 lbl_805D4D1C;
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -97,14 +96,11 @@ s16 obj_getField1c(void *);
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 void create_cage__12TBoss3VoloptFPvUs(void *, u16);
 extern Dmg_80049A1C lbl_80436704[];
-s32 sub_800495F8__13TUnk_80484A94Fv(void *arg0);
 }
 
 extern "C" {
 
-void render__13TUnk_80484A94Fv(void);
 void TObjPlayer__sub_80049A0C(void* p);
-void render__13TUnk_80484AFCFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 void free_collision_body_parts(void *);
@@ -193,7 +189,7 @@ void TUnk_80484A94::run_task() {
     queue_destruction__7TObjectFv(arg0);
     return;
   }
-  if (((*((f32 *) (((s8 *) arg0) + 0x3C))) < lbl_805D8890) && (sub_800495F8__13TUnk_80484A94Fv((void *)((void *) arg0)) != 0))
+  if (((*((f32 *) (((s8 *) arg0) + 0x3C))) < lbl_805D8890) && (((TUnk_80484A94 *)arg0)->sub_800495F8() != 0))
   {
     queue_destruction__7TObjectFv(arg0);
   }

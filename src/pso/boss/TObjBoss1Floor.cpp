@@ -7,7 +7,6 @@ extern "C" {
 void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
 void create_instance__14TObjBoss1FloorFv(void);
-void render__22TObjBoss1MokoHill_SoloFv(u8 *arg0);
 s32 update_dragon_trail_uvs(void *);
 s32 TObjBoss1Floor__ct(void*, s32);
 s32 draw_chunk_object(void *);

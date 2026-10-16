@@ -5,7 +5,6 @@
 extern "C" {
 
 void s_rank_shot_open_spread(u8 *arg0);
-void update_attack__13TUnk_804A444CFv(u8 *arg0);
 void* init_s_rank_shot(void* a0);
 int set_status_flags__10TObjPlayerFPvUi(void*, void*);
 int construct_srank_weapon(void);

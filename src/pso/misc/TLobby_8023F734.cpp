@@ -1,4 +1,6 @@
 #include "pso/audio/SoundBankTables.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubStatusDisp.h"
 struct SoundRequestVoice;
 struct Voice_80241FD8;
 #pragma push
@@ -229,7 +231,6 @@ void reset_sound_group_fade__6TLobbyFv(void);
 #define lbl_805162EC ((E_8023FF38 *)&lbl_805162EC)
 void fade_voice_channels__6TLobbyFi(s32 arg0);
 void set_entry_params__6TLobbyFiiii(void *, int, int, u32);
-void read_checked_align__6TLobbyFlll(void *, int, u32);
 void *adxf_open_afs__6TLobbyFii(int, int);
 void *xmalloc__FUl(u32 bytes);
 void xfree__FPv(void *allocation);
@@ -291,7 +292,7 @@ s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id) {
         }
     }
     for (i = 0; i < 4; i++) {
-        read_checked_align__6TLobbyFlll(self->fC14[i], self->fC24[i] / 2048, self->ents[id].h[i]);
+        TLobby::read_checked_align((s32)(self->fC14[i]), (s32)(self->fC24[i] / 2048), (s32)(self->ents[id].h[i]));
         set_entry_params__6TLobbyFiiii(&self->fC14[i], i, self->fC24[i] / 2048, self->ents[id].h[i]);
     }
     return 0;
@@ -1142,7 +1143,6 @@ extern u32 TLobby__protocol_instance;
 void TLobby__sub_8024259C(s32 arg0);
 char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
 char *get_shared_text_buffer();
-void append_comma__20TWindowSubStatusDispFv();
 void text_builder_append(char *);
 void text_builder_reset();
 char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
@@ -1290,7 +1290,7 @@ char *build_text_from_comma_list__6TLobbyFPv(char *list) {
         }
     }
     for (i = 0; i < count; i++) {
-        append_comma__20TWindowSubStatusDispFv();
+        TWindowSubStatusDisp::append_comma();
         s = skip_to_comma_field__6TLobbyFPvii(list, i, count);
         d = buf;
         while (*s != '\0' && *s != ',') {

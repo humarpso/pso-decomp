@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorAncient06.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -13,7 +14,6 @@ struct VObj1 : Base1 {
 };
 
 extern "C" {
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
@@ -30,12 +30,10 @@ s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient06__texture_lists;
 extern const f32 lbl_805DB444;
-void play_proximity_sound__15TODoorAncient06Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void vfunc_17__15TODoorAncient06Fv(u8 *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 void *TODoorAncient06__ct(void *, void *, void *);
 s32 is_any_player_within_radius_xz(void *, f32);
@@ -47,7 +45,7 @@ extern const f32 lbl_805DB440;
 void TODoorAncient06::render() {
     u8 *arg0 = (u8 *)this;
     VObj1 *self = (VObj1 *)arg0;
-    if ((self->m8(lbl_805DB430, lbl_805DB434) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DB438) != 0)) {
+    if ((self->m8(lbl_805DB430, lbl_805DB434) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB438) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);

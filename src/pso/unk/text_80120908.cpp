@@ -25,7 +25,6 @@ s32 get_attach_joint__11TItemWeaponFv(void *);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 s32 TObjPlayer__sub_80101088();
 s32 get_attach_joint__11TItemWeaponFv(void *);
-s32 sub_80121208__11TItemWeaponFl(void *, void *);
 s32 reset_model_node_counter();
 s32 set_shadow_material_state();
 s32 set_model_fade_alpha__10TObjPlayerFf();
@@ -73,7 +72,7 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer__weapon_node_ids[1] = (s16) *(u8 *)((s8 *)temp_r4 + 0x22);
             TObjPlayer__weapon_node_ids[2] = (s16) *(u8 *)((s8 *)temp_r4 + 0x23);
             if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                sub_80121208__11TItemWeaponFl((void *) (arg0), (void *) (apply_weapon_node_material));
+                ((TItemWeapon *)arg0)->sub_80121208((s32)((void *) (apply_weapon_node_material)));
             } else {
                 TObjEneRe7Berura::set_global_state((s32)((void *) (apply_weapon_node_material)));
             }
@@ -117,7 +116,7 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer::warn_if_gauge_low();
             TObjPlayer__sub_8036414C();
             if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                sub_80121208__11TItemWeaponFl((void *) (arg0), (void *) (NULL));
+                ((TItemWeapon *)arg0)->sub_80121208((s32)((void *) (NULL)));
             } else {
                 TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
             }

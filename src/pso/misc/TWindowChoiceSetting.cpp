@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804D0658.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -25,7 +27,6 @@ extern "C" {
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 s32 TWindowSubComCard__sub_8026906C(void);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 sub_80266B18__13TUnk_804CDFE8Fl(void *, s32);
 s32 is_open__13TUnk_804D0658Fv();
 s32 get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s16 a1 = 0);
 
@@ -60,7 +61,7 @@ loop_1:
     } else {
 block_4:
         if (var_r31 != (s16) this->m_74) {
-            if (sub_80266B18__13TUnk_804CDFE8Fl(this, var_r31) != 0) {
+            if (sub_80266B18(var_r31) != 0) {
                 this->m_74 = var_r31;
             } else {
                 goto loop_1;
@@ -83,7 +84,7 @@ loop_1:
     } else {
 block_4:
         if (var_r31 != (s16) this->m_74) {
-            if (sub_80266B18__13TUnk_804CDFE8Fl(this, var_r31) != 0) {
+            if (sub_80266B18(var_r31) != 0) {
                 this->m_74 = var_r31;
             } else {
                 goto loop_1;
@@ -222,8 +223,6 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
-s32 step_window_tween__13TUnk_804CDFE8Fv(void *);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 extern RecoveredGlobal_80268D08_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD1F8;
 }
@@ -237,7 +236,6 @@ s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
-void destroy_window__13TUnk_804CDFE8Fs(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 void TWindowSubStatusDisp__sub_80268C80(u8 *arg0) {
@@ -302,10 +300,10 @@ void TWindowSubStatusDisp::handle_choice_input() {
         }
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    step_window_tween__13TUnk_804CDFE8Fv((void *) (arg0));
+    ((TUnk_804CDFE8 *)arg0)->step_window_tween();
     ((TUnk_804D0658 *)arg0)->update_scroll_offset();
     ((TUnk_804D0658 *)arg0)->clamp_scroll();
-    update_window_entry_list__13TUnk_804CE018FPv((void *) (arg0), (void *) (arg0 + 0x24));
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 
 void *TUnk_804D0658::destroy_children(s16 arg1) {
@@ -313,7 +311,7 @@ void *TUnk_804D0658::destroy_children(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = choice_setting_popup_vtable;
         TWindowSubStatusDisp::destroy_allocation((s32)(*(void **)((s8 *)this + 0x7C)), (s16)1);
         destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)this + 0x78), 1);
-        destroy_window__13TUnk_804CDFE8Fs(this, 0);
+        destroy_window(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

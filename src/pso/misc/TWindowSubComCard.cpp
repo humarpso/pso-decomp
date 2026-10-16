@@ -47,11 +47,6 @@ struct VObj_80218538_802183B4 : Base_80218538_802183B4 {
 
 extern "C" {
 
-void vfunc_6__12TQuestListVMFv(void *arg0);
-void vfunc_7__12TQuestListVMFv(void *arg0);
-void vfunc_9__12TQuestListVMFv(void *arg0);
-s32 vfunc_10__12TQuestListVMFv(void *arg0);
-
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
 s32 poll_serial_access__22TQuestVmDownLoadServerFv();

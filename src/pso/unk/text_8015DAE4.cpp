@@ -3,12 +3,9 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 play_door_sound__13TUnk_804B0BB8Fv(void *);
 u8 is_current_floor_switch_set(int);
-void update_door_switch_state__13TUnk_804B0BB8Fv(u8 *arg0);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
 extern s32 switch_doors_force_closed;
-void run_task__13TUnk_804B0BB8Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -19,12 +16,12 @@ void TUnk_804B0BB8::update_door_switch_state() {
     temp_r0 = this->m_cc;
     switch (temp_r0) {
     case 1:
-        play_door_sound__13TUnk_804B0BB8Fv((void *) (arg0));
+        ((TUnk_804B0BB8 *)arg0)->play_door_sound();
         this->m_d0 = (s32) (this->m_d0 | 1);
         return;
     case 2:
         if (is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) {
-            play_door_sound__13TUnk_804B0BB8Fv((void *) (arg0));
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 = (s32) (this->m_d0 | 1);
             return;
         }
@@ -32,7 +29,7 @@ void TUnk_804B0BB8::update_door_switch_state() {
         return;
     case 3:
         if (is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) {
-            play_door_sound__13TUnk_804B0BB8Fv((void *) (arg0));
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 = (s32) (this->m_d0 | 1);
         }
         break;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TPlyGuildCardTag.h"
 
 struct RecoveredFields_801DF394_arg0
@@ -112,7 +113,6 @@ void fn_801DF874(void* p);
 void fn_801DF740(void* p);
 s32 bswap_16__FPUs(s32);
 void fn_801DF740(void* p);
-u8 sub_8010319C__13TUnk_804AF8A0Fv(u8 *arg0);
 void TLobby__sub_801030EC(u8 *arg0);
 void fn_801DF4B8(s32 arg0);
 s32 bswap_16__FPUs(s32);

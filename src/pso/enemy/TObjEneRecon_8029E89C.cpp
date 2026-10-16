@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyMachine01.h"
 
 struct Vec_8029EA4C { f32 x, y, z; };
 
@@ -41,7 +42,6 @@ s32 pop_matrix();
 u32 get_player_by_client_id(u32);
 s32 fn_8029E7BC(s32, s32 *);
 u32 get_state__10TSceneSoraFPv(void*);
-s32 is_state_active__14TOKeyMachine01Fv();
 s32 reset_ind_tev_stages__13TParticleCtrlFPv();
 
 extern u16 scene_sora_reflect_active;
@@ -51,7 +51,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     s32 var_r3;
     u32 temp_r3;
 
-    if (is_state_active__14TOKeyMachine01Fv() == 0) {
+    if (TOKeyMachine01::is_state_active() == 0) {
         return 0;
     }
     if ((u16) scene_sora_reflect_active == 0) {
@@ -170,14 +170,13 @@ extern "C" {
 
 void __dl__FPv(void*);
 s32 init_render_target__10TObjPlayerFv();
-s32 is_state_active__14TOKeyMachine01Fv();
 
 extern u32 scene_sora_instance;
 extern u32 scene_sora_recon_object;
 
 void TObjEneRecon::destroy_instance() {
     scene_sora_instance = 0;
-    if (is_state_active__14TOKeyMachine01Fv() != 0) {
+    if (TOKeyMachine01::is_state_active() != 0) {
         if ((u32) scene_sora_recon_object != 0U) {
             ((TObjPlayer *)scene_sora_recon_object)->reset_lobby_subobject();
         }
@@ -195,7 +194,7 @@ extern u32 scene_sora_recon_object;
 void TObjEneRecon::alloc_if_valid_state() {
     u32 temp_r3;
 
-    if (is_state_active__14TOKeyMachine01Fv() != 0) {
+    if (TOKeyMachine01::is_state_active() != 0) {
         scene_sora_instance = 0;
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x28)->alloc();
         scene_sora_recon_object = temp_r3;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOContainerAncientItemRare.h"
 
 struct Base_8015BF38 { char pad[0x18]; };
@@ -18,11 +20,8 @@ struct VObj_8015BF38 : Base_8015BF38 {
 extern "C" {
 
 void *TOContainerAncientItemNone__ct(void *arg0);
-void vfunc_6__26TOContainerAncientItemRareFPsl(u8 *arg0, s16 *arg1, s32 arg2);
-s32 request_box_item_drop__13TUnk_804806E8FPvs(void *, void *, s32);
 void TOContainerAncientItemRare__ct(void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 extern s32 __vt__26TOContainerAncientItemNone[];
 extern void *lbl_805D2F04;
@@ -39,10 +38,10 @@ void TOContainerAncientItemRare::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015BF38*)arg0)->m77();
-            request_box_item_drop__13TUnk_804806E8FPvs(arg0, arg0 + 0x38, 1);
+            ((TUnk_804806E8 *)arg0)->request_box_item_drop(arg0 + 0x38, 1);
         }
         this->mode = 1;
-        set_flag8__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv(arg0);
     }
 }

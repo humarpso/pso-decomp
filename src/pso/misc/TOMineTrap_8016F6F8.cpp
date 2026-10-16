@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/TObject.h"
@@ -104,16 +105,10 @@ struct Pair_80170DD8 { s32 a; s32 b; };
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
-void vfunc_86__10TOMineTrapFv(u8 *arg0);
-int roll_physical_accuracy__6TOMineFPvlf(void);
-int try_start_action__6TOMineFll(void);
-void apply_knockback_from_attacker__6TOMineFPUc(void);
-void vfunc_79__6TOMineFv(void);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 apply_object_set_data();
-void vfunc_85__6TOMineFv(void);
 int get_localized_text_entry(void*, void*);
 s32 get_main_phase();
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -124,34 +119,23 @@ u32 spawn_particle_effect(s32, s32);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
 extern f32 lbl_805DB864;
 u32 spawn_particle_effect(s32, s32);
-void sub_8017070C__6TOMineFv(u8 *arg0);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void*, s16 *, s32);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, s16 *);
 extern f32 lbl_805DB85C;
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
-s16 obj_getS16_116__10TObjPlayerFv(s32);
 extern f32 lbl_805DB85C;
 extern const f32 TOMineTrap__data_805DB868;
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void*, s16 *, s32);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, s16 *);
 void set_indexed_flags(void *, s32, s32);
-int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
-void vfunc_86__6TOMineFv(u8 *arg0);
 void TOMineTrap__sub_80170CD4(void* p);
-int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 u16 obj_getField1c(void *);
 extern f32 lbl_805DB85C;
 extern const f32 TOMineTrap__data_805DB868;
-f32 receive_direct_attack__6TOMineFPvPvPvll(u8 *arg0, s32 arg1, s32 *arg2);
 f32 sin_table_lookup(s32);
 extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
 f32 atan2_float(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 f32 vec3_add_to(void *, void *);
 f32 vec_squared_length(void *);
 f32 subtract_vector(void *, void *);
@@ -162,11 +146,6 @@ extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
 s32 queue_destruction__7TObjectFv(void *);
 void set_indexed_flags(void *, s32, s32);
-int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void*, s16 *, s32);
-void sub_8017070C__6TOMineFv(u8 *arg0);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
-void vfunc_6__6TOMineFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 u16 obj_getField1c(void *);
 void *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
@@ -183,13 +162,11 @@ extern s32 TOMineIcon03__name;
 extern s32 TOMineIcon04__name;
 extern s32 lbl_805D5868;
 extern s32 lbl_805D5870;
-void sub_80170BEC__6TOMineFv(u8 *arg0);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 void set_indexed_flags(void *, s32, s32);
 void check_enemy_body_collisions(void *);
 extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB874;
-void detonate__6TOMineFv(u8 *arg0);
 }
 
 extern "C" {
@@ -197,7 +174,6 @@ extern "C" {
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0 = 0);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__6TOMineFv(void *, s32);
 
@@ -299,7 +275,7 @@ extern s32 __vt__10TOMineTrap[];
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TOMineTrap;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__6TOMineFv(arg0, 0);
         if (arg1 > 0) {
@@ -440,11 +416,11 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
     temp_r0 = *(s16 *)((s8 *)arg1 + 0);
     if (temp_r0 == 5) {
         if (arg2 == 1) {
-            sub_8017070C__6TOMineFv((u8 *)((void *) (((u8 *)this))));
+            sub_8017070C();
         }
-        set_flag8__13TUnk_804AF8A0Fv((void *) (((u8 *)this)));
+        set_flag8();
         queue_destruction__7TObjectFv((void *) (((u8 *)this)));
-        access_object_saved_state__13TUnk_804AF8A0FPvs((void*)((void *) (((u8 *)this))), (s16 *)((void *) (arg1)), (s32)((int) (0)));
+        access_object_saved_state((s16 *)((void *) (arg1)), (s32)((int) (0)));
         return;
     }
     if (temp_r0 == 3) {
@@ -452,19 +428,19 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
         set_indexed_flags((void *)((void *) (((u8 *)this))), (s32)((int) (0)), (s32)((int) (1)));
         *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFBFFFF);
         ((TObjPlayer *)((u8 *)this))->calc_attach_pos();
-        refresh_collision_body_centers__13TUnk_804AF8A0Fv((void*)((void *) (((u8 *)this))));
+        refresh_collision_body_centers();
         ((TOMine *)(((u8 *)this)))->vfunc_81();
-        access_object_saved_state__13TUnk_804AF8A0FPvs((void*)((void *) (((u8 *)this))), (s16 *)((void *) (arg1)), (s32)((int) (0)));
+        access_object_saved_state((s16 *)((void *) (arg1)), (s32)((int) (0)));
         ((TObject *)((u8 *)this))->queue_destruction_for_each_node();
     }
 }
 
 f32 TOMine::receive_physical_attack(void *, f32) {
     s16 sp8;
-    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((s16 *)(&sp8), (s32)(1)) != 0)) {
         this->mode = 5;
         sp8 = this->mode;
-        send_object_state_update__13TUnk_804AF8A0FPv(this, &sp8);
+        send_object_state_update(&sp8);
     }
     return lbl_805DB85C;
 }
@@ -472,7 +448,7 @@ f32 TOMineTrap::calc_trigger_range(s32 arg1) {
     if (is_target_in_list((void *)(arg1)) == 1) {
         return lbl_805DB85C;
     }
-    if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (obj_getS16_116__10TObjPlayerFv(arg1) != 0)) {
+    if ((is_locally_controlled__10TObjPlayerFPv((u32)(arg1)) != 0) && (((TObjPlayer *)arg1)->obj_getS16_116() != 0)) {
         this->receive_physical_attack(0, TOMineTrap__data_805DB868);
     }
     return lbl_805DB85C;
@@ -527,10 +503,10 @@ f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) 
 
 void TOMine::update_trigger() {
     s16 sp8;
-    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void*)(this), (s16 *)(&sp8), (s32)(1)) != 0)) {
+    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((s16 *)(&sp8), (s32)(1)) != 0)) {
         this->mode = 3;
         sp8 = this->mode;
-        send_object_state_update__13TUnk_804AF8A0FPv(this, &sp8);
+        send_object_state_update(&sp8);
     }
 }
 void TOMine::vfunc_86() {
@@ -539,7 +515,7 @@ void TOMine::vfunc_86() {
     set_indexed_flags(arg0, 0, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
     ((TObjPlayer *)arg0)->calc_attach_pos();
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void*)((void *) (arg0)));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TOMine *)(arg0))->vfunc_81();
 }
 
@@ -572,7 +548,7 @@ void TOMine::follow_target() {
   *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) + 0x3C)))) - temp_f2)) + temp_f2);
   ((TObjPlayer *)arg0)->calc_attach_pos();
   *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
-  refresh_collision_body_centers__13TUnk_804AF8A0Fv((void*)((void *) arg0));
+  ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
 }
 
 void TOMine::sub_80170BEC() {
@@ -620,7 +596,7 @@ void TOMine::update_float_height() {
 }
 #pragma pop
 
-void TOMineTrap::sync_position() { VecCopy__FP3VecPC3Vec((void *)((char*)this + 0x38), (void *)((char*)this + 0x334)); refresh_collision_body_centers__13TUnk_804AF8A0Fv(this); }
+void TOMineTrap::sync_position() { VecCopy__FP3VecPC3Vec((void *)((char*)this + 0x38), (void *)((char*)this + 0x334)); refresh_collision_body_centers(); }
 void TOMine::detonate() {
     s32 i;
     u8 *obj;

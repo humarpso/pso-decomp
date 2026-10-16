@@ -1,15 +1,14 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOContainerAncientItemNone.h"
 
 extern "C" {
 
-void vfunc_6__26TOContainerAncientItemNoneFPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__26TOContainerAncientItemNoneFv(void *arg0, s16 arg1);
 void *TOContainerAncientItemNone__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__26TOContainerAncientItemRareFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
@@ -18,7 +17,7 @@ void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
             this->vfunc_79();
         }
         this->mode = 1;
-        set_flag8__13TUnk_804AF8A0Fv(this);
+        set_flag8();
         queue_destruction__7TObjectFv(this);
     }
 }

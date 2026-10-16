@@ -29,7 +29,6 @@ struct VObj_8031DCCC : Base_8031DCCC {
 
 extern "C" {
 
-void vfunc_89__12TObjEneReconFv(void *arg0);
 s32 vfunc_89__9TObjEneDDFv(void *);
 
 void TObjEneRecon::vfunc_89() {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl.h"
+#include "pso/misc/TMovie.h"
 
 struct TMovie_80144910 {
     s32 name;
@@ -34,11 +36,6 @@ TMovie_80144910 *TMovie__ct(TMovie_80144910 *self, void *parent, s8 *name, s32 a
 s32 queue_destruction__7TObjectFv(void *);
 u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();
-s32 calc_frame_buffer_size__6TMovieFll(void *, void *);
-s32 update_stop__6TMovieFv(int);
-s32 decode_frame__6TMovieFv(int);
-s32 check_skip_input__6TMovieFv(void *);
-s32 update_input_frame__16TKeyBoardControlFv();
 s32 controller_stuff__Fv();
 s32 render_tick__Fv();
 u8 *__nw__7TObjectFUl(s32);
@@ -68,7 +65,7 @@ void run_task__6TMovieFv(u8 *arg0) {
     }
     render_tick__Fv();
     render_tick__Fv();
-    calc_frame_buffer_size__6TMovieFll((void *)video_initial_display_framebuffer, (void *)video_initial_draw_framebuffer);
+    TMovie::calc_frame_buffer_size((s32)((void *)video_initial_display_framebuffer), (s32)((void *)video_initial_draw_framebuffer));
     txt = NULL;
     if (TAdEndText__sub_8001B41C() != 0) {
         p = __nw__7TObjectFUl(0x197C);
@@ -78,15 +75,15 @@ void run_task__6TMovieFv(u8 *arg0) {
         txt = (VObj_18_a28850 *)p;
     }
     for (;;) {
-        if (check_skip_input__6TMovieFv(arg0) != 0) {
+        if (((TMovie *)arg0)->check_skip_input() != 0) {
             break;
         }
         func_803DCDFC__Fv();
         controller_stuff__Fv();
-        update_input_frame__16TKeyBoardControlFv();
-        decode_frame__6TMovieFv(*(u32 *)((s8 *)arg0 + 0x20));
+        TKeyBoardControl::update_input_frame();
+        ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->decode_frame();
         if (*(s32 *)((s8 *)arg0 + 0x48) != 0) {
-            update_stop__6TMovieFv(*(u32 *)((s8 *)arg0 + 0x20));
+            ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->update_stop();
             run_callback__6TMovieFv();
         } else {
             Vec_80144778 eye = lbl_8043F2E8;
@@ -94,7 +91,7 @@ void run_task__6TMovieFv(u8 *arg0) {
             Vec_80144778 up = lbl_8043F300;
             set_perspective_projection_from_fov(0x4B, lbl_805DB180, lbl_805DB184, lbl_805DB188);
             set_camera_look_at(&eye, &at, &up);
-            update_stop__6TMovieFv(*(u32 *)((s8 *)arg0 + 0x20));
+            ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->update_stop();
             if (txt != NULL) {
                 txt->m1();
                 txt->m2();

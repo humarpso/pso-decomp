@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -27,7 +28,6 @@ struct O_80092724 { u8 pad0[0x18]; void *vptr; u8 pad1c[0x38c]; void *objs[2]; }
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -382,7 +382,7 @@ O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
+        ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3B0, TObjPlayer__sub_800D7C58, 0x1C, 4);
         TObjPlayer__sub_800C68FC(arg0, 0);

@@ -51,7 +51,6 @@ extern "C" {
 void TOSwitchTimer__sub_80178584(void);
 void TOSwitchTimer__sub_80178588(void);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 send_switch_states__13TOSwitchTimerFv(void *);
 u8 is_current_floor_switch_set(u16);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
@@ -101,7 +100,7 @@ void TOSwitchTimer::run_task() {
         temp_r3_2 = *(s32 *)&this->m_94;
         *(s32 *)&this->m_94 = (s32) (temp_r3_2 + 1);
         if (temp_r3_2 == (s32) *(s32 *)&this->m_a0) {
-            send_switch_states__13TOSwitchTimerFv(this);
+            send_switch_states();
             *(s32 *)&this->m_90 = 0;
         }
         break;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TMainTask.h"
 #include "pso/misc/TUnk_8048E5DC.h"
 
 #include <stddef.h>
@@ -32,12 +33,9 @@ extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
 s32 calc_axes_from_angles__11TCameraCtrlFiii(void *, int, int);
-s32 calc_rotated_axes__11TCameraCtrlFv(void *);
-s32 setup_default_view__11TCameraCtrlFPv(void *, int);
 s32 direction_to_pitch_yaw(void *, void *, void *);
 s32 TObjPlayer__sub_80084744();
 s32 TObjPlayer__sub_80084754();
-s32 render_scene_passes__9TMainTaskFv(void *);
 s32 GXPixModeSync();
 s32 GXSetTexCopySrc(int, int, int, int);
 s32 GXSetTexCopyDst(int, int, int, int);
@@ -58,7 +56,6 @@ extern const f32 lbl_805D9408;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9410;
 extern s32 lbl_805E1210;
-void render_shadows__13TUnk_8048E5DCFv(u8 *arg0);
 extern G_80082FCC TCameraCtrl__data_804FF634;
 extern const f32 lbl_805D93EC;
 extern const f32 lbl_805D93F0;
@@ -71,8 +68,6 @@ void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
 
 extern "C" {
 
-void render__13TUnk_8048E5DCFv(void);
-void run_task__13TUnk_8048E5DCFv(void);
 s32 load_list_texture(s32, s32, s32, s32);
 void VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
@@ -141,7 +136,7 @@ void TUnk_8048E5DC::render_shadows() {
             calc_axes_from_angles__11TCameraCtrlFiii((void *) (camera_ctrl_instance), (int) (stack.sp10), (int) (stack.spC));
         }
         TObjPlayer__sub_80084754();
-        render_scene_passes__9TMainTaskFv((void *) (&(*(RecoveredGlobal_800830B0_main_task *)&main_task).value));
+        ((TMainTask *)(&(*(RecoveredGlobal_800830B0_main_task *)&main_task).value))->render_scene_passes();
         TObjPlayer__sub_80084744();
         if ((void *) (*(u8 * *)&camera_render_target_singleton) != NULL) {
             stack.sp8 = lbl_805E1210;
@@ -155,8 +150,8 @@ void TUnk_8048E5DC::render_shadows() {
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
         TCameraCtrl__sub_80068EF0();
-        calc_rotated_axes__11TCameraCtrlFv((void *) (camera_ctrl_instance));
-        setup_default_view__11TCameraCtrlFPv((void *) (camera_ctrl_instance), (int) (0));
+        ((TCameraCtrl *)camera_ctrl_instance)->calc_rotated_axes();
+        ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view((int) (0));
     }
 }
 #pragma pop

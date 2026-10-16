@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemObject.h"
 #include "pso/item/TUnk_8049FB08.h"
 #include "pso/item/TUnk_8049FA50.h"
 #include "pso/item/TUnk_8049F998.h"
@@ -108,7 +109,6 @@ extern s32 tl_05;
 u8 *TItemProShield__sub_80116744(u8 *arg0);
 void add_actor_hp(s32, s16);
 s32 get_slot_count__14TItemProShieldFv(void *);
-u8 get_tool_pmt_amount_byte__11TItemObjectFv(void *);
 extern s32 game_difficulty_selection;
 void vfunc_44__13TUnk_8049F770Fv(Obj_80116634 *arg0);
 }
@@ -135,7 +135,7 @@ void TUnk_8049F770::vfunc_44() {
   if (new_var2(arg0) != 2)
   {
     int new_var;
-    t = get_tool_pmt_amount_byte__11TItemObjectFv(arg0);
+    t = ((TItemObject *)arg0)->get_tool_pmt_amount_byte();
     new_var = game_difficulty_selection;
     new_var = t + (new_var * (t / 2));
     add_actor_hp(arg0->f0, new_var);

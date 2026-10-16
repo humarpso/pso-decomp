@@ -44,7 +44,6 @@ extern u32 lbl_805D3910;
 extern TWindowHelpItem::CallbackWords __ptmf_null;
 extern const f32 lbl_805DCE10;
 void construct_base__9TWindowDDFPvPvsPv(void *self, void *vt, s16 idx, void *pos);
-void save_position__13TUnk_804CE018Fv(void *self);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void *init__21TWindowSubComCardListFiii(void *p, s32 a, s32 b, s32 c);
 void call_if_split_screen(void *self, s32 idx);
@@ -57,15 +56,12 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 handle_list_page_flip_input(s32);
-s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-s32 update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFs(void *, int);
-s32 sub_80244994__13TUnk_804CE018Fv(void *);
 s32 toggle_help_window_on_button(void *, s16);
 s32 decay_page_arrow_offset(s32);
 
@@ -90,7 +86,7 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     s32 temp_r3;
     u8 temp_r3_2;
 
-    temp_r3 = setup_window_draw_context__13TUnk_804CE018Fl((void *) (arg0), (void *) (arg0 + 0xA8));
+    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)((void *) (arg0 + 0xA8)));
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     temp_r3_2 = *(u8 *)((s8 *)arg0 + 0x60);
@@ -104,7 +100,7 @@ void TWindowHelpItem::update_display() {
     if (!(this->m_2c & 2)) {
         this->m_5c = 0x01000000;
     }
-    if ((this->m_60 & 1) && (sub_80244994__13TUnk_804CE018Fv(arg0) != 0) && !(this->m_2c & 4)) {
+    if ((this->m_60 & 1) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0) && !(this->m_2c & 4)) {
         if (!(this->m_60 & 4)) {
             if (handle_list_page_flip_input(*(s32 *)&this->m_64) != 0) {
                 ((TWindowHelpItem *)arg0)->dispatch_item_help();
@@ -116,7 +112,7 @@ void TWindowHelpItem::update_display() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv(arg0, arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
     if (!(this->m_60 & 8)) {
         toggle_help_window_on_button(arg0, this->m_20);
     }
@@ -144,7 +140,7 @@ TWindowHelpItem::TWindowHelpItem(void *pos, u16 idx) {
     self->m_vtable18 = ((s32 *)&TWindowHelpItem__object_vtable);
     self->m_00 = lbl_805D3910;
     ((TWindowSubSymbolChatPartsSet *)((u8 *)self + 0x30))->copy_vec2(pos);
-    save_position__13TUnk_804CE018Fv(self);
+    ((TUnk_804CE018 *)self)->save_position();
     self->m_60 = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0xc);
     if (p != 0) {

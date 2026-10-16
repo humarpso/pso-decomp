@@ -14,7 +14,6 @@ void set_text_entry_string(void *, u32, s32);
 extern RecoveredGlobal_8027D230_lbl_805129F8 quest_board_handlers;
 extern const f32 lbl_805DD690;
 extern const f32 lbl_805DD694;
-void sub_8027D230__26TWindowSubQuestBoardSelectFv(u8 *arg0);
 }
 
 extern "C" {

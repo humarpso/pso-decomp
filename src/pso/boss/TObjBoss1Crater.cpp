@@ -93,7 +93,6 @@ struct V3_8002C288 { f32 x, y, z; };
 
 extern "C" {
 s32 TBoss1Dragon__sub_8002AB6C(void *);
-void area_attack_receive_direct__15TObjBoss1CraterFPvPfPv(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
@@ -113,14 +112,12 @@ f32 TBoss1Dragon__sub_80027634(u32);
 s32 TObjBoss1Crater__sub_8002C7E4(void *);
 void attack_target_list_remove(void *, s32);
 extern const V3_8002C544 lbl_80435560;
-void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self);
 }
 
 extern "C" {
 
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
 s32 is_count_below_limit__15TObjBoss1CraterFv(void);
-void render__15TObjBoss1CraterFv(u8 *arg0);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(void *);

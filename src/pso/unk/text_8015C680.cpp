@@ -69,10 +69,6 @@ extern u32 *ancient_container_fragment_texture_lists;
 
 extern "C" {
 
-void apply_knockback_from_attacker__13TUnk_804B6C24FPUc(void);
-int try_start_action__13TUnk_804B6C24Fll(void);
-int calc_distance_accuracy_penalty__13TUnk_804B6C24FPvPvPvf(void);
-
 void TLanguage::load_container_fragment_textures() {
     u8 *tbl = (u8 *)&bm_o_container_ancient_resource_bundle;
     s32 state = TOKeyMachine01::get_global_state();

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemProShield.h"
+#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -27,8 +29,6 @@ u8 * guld_milla_ct(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_guld_milla(s32 arg0);
-u8 get_slot_count__14TItemProShieldFv(void *);
-s32 get_player_list__10TObjPlayerFv();
 void scale_matrix(s32, f32, f32, f32);
 extern const f32 lbl_805DACE0;
 void apply_blade_dance_model_scale(Self_801223E0 *self);
@@ -50,8 +50,8 @@ u8 *create_guld_milla(s32 arg0) {
     return NULL;
 }
 void apply_blade_dance_model_scale(Self_801223E0 *self) {
-    if (get_slot_count__14TItemProShieldFv(self) == 5) {
-        s32 n = get_player_list__10TObjPlayerFv();
+    if (((TItemProShield *)self)->get_slot_count() == 5) {
+        s32 n = TObjPlayer::get_player_list();
         switch (n) {
         case 3:
         case 4:

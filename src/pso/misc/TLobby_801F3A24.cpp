@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestListOnline.h"
+#include "pso/misc/TQuestListVM.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct QuestObjRow_801F3AD8 {
     u8 pad0[2];
@@ -37,7 +41,6 @@ s32 alloc__22TQuestVmDownLoadServerFv();
 s32 bswap_16__FPUs(s32);
 void build_6x75_update_quest_flag_dc(void* p);
 void rebuild_all__6TLobbyFi(int a0);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 s32 update_lobby_scene__6TSceneFv();
 
 void refresh_quest_list__6TLobbyFi(s32 arg0) {
@@ -48,7 +51,7 @@ void refresh_quest_list__6TLobbyFi(s32 arg0) {
         if (temp_r3 != 0) {
             read_disc_file(arg0, temp_r3);
             rebuild_all__6TLobbyFi(temp_r3);
-            safe_free__23TAdSinglePlyChrSelectGCFUl(temp_r3);
+            TAdSinglePlyChrSelectGC::safe_free(temp_r3);
         }
     }
 }
@@ -159,14 +162,13 @@ void rebuild_all__6TLobbyFi(int a0);
 void init_floor_encounter_sections__6TLobbyFv(void);
 void handle_msg_type1_for_idle_slots__6TLobbyFv(void);
 void init_id_tables__6TLobbyFv(void);
-int free_boss4rock__6TLobbyFv(void);
 int TLobby__sub_8020A2AC(void);
 int rebuild_entry__6TLobbyFv(void);
 int init_sub_state__6TLobbyFv(void);
 
     extern s32 TLobby__data_805D5EE0;
     extern short TLobby__data_805D6134;
-void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; handle_msg_type1_for_idle_slots__6TLobbyFv(); init_sub_state__6TLobbyFv(); TLobby__sub_8020A2AC(); init_floor_encounter_sections__6TLobbyFv(); free_boss4rock__6TLobbyFv(); rebuild_entry__6TLobbyFv(); init_id_tables__6TLobbyFv(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
+void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; handle_msg_type1_for_idle_slots__6TLobbyFv(); init_sub_state__6TLobbyFv(); TLobby__sub_8020A2AC(); init_floor_encounter_sections__6TLobbyFv(); TLobby::free_boss4rock(); rebuild_entry__6TLobbyFv(); init_id_tables__6TLobbyFv(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
 typedef char RecoveredGlobal_801F3DEC_TLobby__data_805127D0_size[sizeof(RecoveredGlobal_801F3DEC_TLobby__data_805127D0) == 0x28 ? 1 : -1];
 
 void set_quest_floor_designation_ex(s16 mode, s32 floor, s32 area, s32 layout, s32 entities) {
@@ -287,7 +289,6 @@ extern "C" {
 
 s32 handle_msg_type2__6TLobbyFi(s32 arg0);
 void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1);
-s32 get_player_floor__6TLobbyFl(s32);
 s32 reserve_enemy_set_actor_ids(void *, u32, s32);
 s32 init_floor_enemy_count__6TLobbyFiPvUi(s32, void *, s32);
 
@@ -312,7 +313,7 @@ loop_1:
         if ((sp14 == 2) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
             bswap_enemy_set_rows__6TLobbyFPvUi(temp_r31, sp8);
-            reserve_enemy_set_actor_ids(temp_r31, (u32) sp8 / 72U, get_player_floor__6TLobbyFl(spC));
+            reserve_enemy_set_actor_ids(temp_r31, (u32) sp8 / 72U, TLobby::get_player_floor(spC));
             init_floor_enemy_count__6TLobbyFiPvUi(spC, temp_r31, sp8);
             return 1;
         }
@@ -338,13 +339,9 @@ s32 advance_enemy_id_counter(u16);
 s32 advance_object_id_counter(u16);
 void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
 s32 assign_object_ids__6TLobbyFPviPv(void *, u32, s32);
-s32 sum_floor_enemy_counts__6TLobbyFv();
 s32 TLobby__sub_8020B308(s32);
 s32 load_object_set_entries__6TLobbyFiPvUi(s32, void *, s32);
 s32 fn_801F43A8();
-s32 get_data__12TQuestListVMFv();
-s32 get_player_floor__6TLobbyFl(s32);
-s32 get_quest_list_flag__16TQuestListOnlineFv();
 void open_session__6TLobbyFi(s32 arg0);
 void rebuild_all__6TLobbyFi(int a0);
 void refresh_quest_list__6TLobbyFi(s32 arg0);
@@ -371,7 +368,7 @@ loop_1:
         if ((sp14 == 1) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
             convert_quest_object_rows((struct QuestObjRow_801F3AD8 *)temp_r31, sp8);
-            assign_object_ids__6TLobbyFPviPv(temp_r31, (u32) sp8 / 68U, get_player_floor__6TLobbyFl(spC));
+            assign_object_ids__6TLobbyFPviPv(temp_r31, (u32) sp8 / 68U, TLobby::get_player_floor(spC));
             load_object_set_entries__6TLobbyFiPvUi(spC, temp_r31, sp8);
             return 1;
         }
@@ -404,15 +401,15 @@ void setup_quest_list__6TLobbyFv(void) {
         ((void (*)())open_session__6TLobbyFi)();
         break;
     case 2:
-        get_quest_list_flag__16TQuestListOnlineFv();
+        TQuestListOnline::get_quest_list_flag();
         ((void (*)())update_and_reset__6TLobbyFi)();
         break;
     case 3:
-        get_data__12TQuestListVMFv();
+        TQuestListVM::get_data();
         ((void (*)())update_and_reset__6TLobbyFi)();
         break;
     case 4:
-        get_quest_list_flag__16TQuestListOnlineFv();
+        TQuestListOnline::get_quest_list_flag();
         ((void (*)())rebuild_all__6TLobbyFi)();
         break;
     case 5:
@@ -425,7 +422,7 @@ void setup_quest_list__6TLobbyFv(void) {
     TLobby__data_805D6148 = map_set_object_id_counter;
     TLobby__data_805D614C = TLobby__next_enemy_set_actor_id;
     TLobby__sub_8020B308(map_set_object_id_counter);
-    sum_floor_enemy_counts__6TLobbyFv();
+    TLobby::sum_floor_enemy_counts();
 }
 
 }
@@ -461,7 +458,6 @@ extern "C" {
 
 void open_session__6TLobbyFi(s32 arg0);
 void populate_quest_floor_sets(void);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(s32);
 s32 alloc__22TQuestVmDownLoadServerFv();
 s32 update_lobby_scene__6TSceneFv();
 s32 read_disc_file(s32, s32);
@@ -479,7 +475,7 @@ void open_session__6TLobbyFi(s32 arg0) {
             populate_quest_floor_sets();
             init_id_tables__6TLobbyFv();
             TLobby__data_805D6134 = 1;
-            safe_free__23TAdSinglePlyChrSelectGCFUl(TLobby__data_805D5EE0);
+            TAdSinglePlyChrSelectGC::safe_free(TLobby__data_805D5EE0);
             TLobby__data_805D5EE0 = 0;
         }
     }

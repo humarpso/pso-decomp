@@ -33,7 +33,6 @@ extern RecoveredGlobal_80196574_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-void update_room_id_check__17TObjQuestColALockFv(u8 *arg0);
 }
 
 extern "C" {

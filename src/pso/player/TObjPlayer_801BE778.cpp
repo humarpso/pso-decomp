@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -25,15 +25,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -47,8 +44,6 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -95,7 +90,6 @@ Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0);
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -117,15 +111,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -139,8 +130,6 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -169,7 +158,6 @@ Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0) {
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -191,15 +179,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -213,8 +198,6 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -245,7 +228,6 @@ u8 TObjPlayer__sub_801BE8F4(O_801BE8F4 *self, s32 i, u32 mask);
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -267,15 +249,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -289,8 +268,6 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -314,7 +291,6 @@ u8 TObjPlayer__sub_801BE8F4(O_801BE8F4 *self, s32 i, u32 mask) {
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -336,15 +312,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -358,8 +331,6 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -380,8 +351,8 @@ s32 clamp_index_to_max__10TObjPlayerFi(s32 arg0) {
     var_r31 = arg0;
     if (var_r31 < 0) {
         var_r31 = 0;
-    } else if (var_r31 > get_max_level__10TObjPlayerFv()) {
-        var_r31 = get_max_level__10TObjPlayerFv();
+    } else if (var_r31 > TObjPlayer::get_max_level()) {
+        var_r31 = TObjPlayer::get_max_level();
     }
     return var_r31;
 }
@@ -392,7 +363,7 @@ void TObjPlayer__sub_801BE9A8(s32 arg0) {
     TObjPlayer__sub_8011E204((void*)(arg0), 0x20000);
 }
 void set_flag_20000__10TObjPlayerFi(s32 arg0) {
-    set_state_flags__10TObjPlayerFUl((void*)(arg0), 0x20000);
+    ((TObjPlayer *)arg0)->set_state_flags(0x20000);
 }
 void set_flag_2000000__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8011E204(arg0, 0x02000000);
@@ -411,7 +382,6 @@ void set_position_history_entry__10TObjPlayerFiiff(s32 arg0, s32 arg1, f32 farg0
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -433,15 +403,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -455,8 +422,6 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -485,7 +450,6 @@ void set_position_history_entry__10TObjPlayerFiiff(s32 arg0, s32 arg1, f32 farg0
 
 extern "C" {
 
-s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
@@ -507,15 +471,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -529,8 +490,6 @@ u8 TObjPlayer__sub_801BEC10(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -546,7 +505,7 @@ int TObjPlayer__sub_801BEDB8(void*);
 
 void set_action_flag_2__10TObjPlayerFPv(void* p) { *(u32*)((char*)p + 0x334) |= 0x2; }
 void set_flag_400000__10TObjPlayerFi(s32 arg0) {
-    set_state_flags__10TObjPlayerFUl((void*)(arg0), 0x400000);
+    ((TObjPlayer *)arg0)->set_state_flags(0x400000);
 }
 int check_flag_48__10TObjPlayerFPv(void* p) { return check_flag__10TObjPlayerFl(p, 48); }
 int is_status_locked__10TObjPlayerFPv(void* p) { return *(u32*)((char*)p + 0x30) & 0x10000; }

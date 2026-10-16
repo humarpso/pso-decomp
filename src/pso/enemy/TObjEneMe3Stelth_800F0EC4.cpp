@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
@@ -352,7 +353,6 @@ s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 enemy_turn_toward_dest(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 enemy_copy_target_destination__12TObjEneDD_STFv(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
 s32 transition_enemy_state(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -443,7 +443,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
         ((VObj_18_444bc5 *)(arg0))->m94();
         F(s32, 0x3CC) &= 0xFFFFFFF8;
         F(s32, 0x3CC) |= 0x10000;
-        enemy_copy_target_destination__12TObjEneDD_STFv(arg0);
+        ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         F(s32, 0x424) = 0;
         break;
     case 3:

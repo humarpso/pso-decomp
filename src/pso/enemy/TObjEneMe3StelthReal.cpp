@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/enemy/TObjEneMe3StelthReal.h"
 
 struct VBase_18_be4a70 { char pad[0x18]; };
@@ -99,8 +100,6 @@ struct RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal {
 
 extern "C" {
 s32 invoke_initialization_hook__9TObjEneDDFv(void *, void *);
-s32 setup_move_bounds__16TObjEneMe3StelthFv(void *);
-s32 init_common__20TObjEneMe3StelthRealFv(void *);
 s32 TObjEneMe3Stelth__ct();
 extern s32 __vt__20TObjEneMe3StelthReal[];
 extern s32 lbl_805D2AFC;
@@ -111,10 +110,6 @@ extern "C" {
 
 typedef struct EneStelth_800F0CE8 EneStelth_800F0CE8;
 
-void vfunc_107__20TObjEneMe3StelthRealFv(void *arg0);
-void vfunc_111__20TObjEneMe3StelthRealFv(void);
-int vfunc_62__20TObjEneMe3StelthRealFv(void* p);
-int vfunc_63__20TObjEneMe3StelthRealFv(void* p);
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
 s32 transition_enemy_state(void *, s32);
 int vfunc_62__16TObjEneMe3StelthFv(void*);
@@ -162,8 +157,8 @@ u8 *TObjEneMe3StelthReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal *)&__vt__20TObjEneMe3StelthReal).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AFC;
     invoke_initialization_hook__9TObjEneDDFv((void *) (arg0), (void *) (arg2));
-    setup_move_bounds__16TObjEneMe3StelthFv((void *) (arg0));
-    init_common__20TObjEneMe3StelthRealFv((void *) (arg0));
+    ((TObjEneMe3Stelth *)arg0)->setup_move_bounds();
+    ((TObjEneMe3StelthReal *)arg0)->init_common();
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
     return arg0;

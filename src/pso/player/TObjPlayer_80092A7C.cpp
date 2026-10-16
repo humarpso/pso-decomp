@@ -5,7 +5,6 @@
 
 extern "C" {
 
-void vfunc_100__13TUnk_80493450Fv(void);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 
 void TUnk_80493450::vfunc_100() {  }

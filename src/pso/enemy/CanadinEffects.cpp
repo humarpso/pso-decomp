@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel.h"
+#include "pso/player/TObjPlayer.h"
 extern "C" {
 extern const char TObjEneMe1Canadin_EffLine__class_name[];
 extern const char TObjEneMe1Canadin_EffDischarge__class_name[];
@@ -29,8 +31,6 @@ struct Trail_8009F7AC {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void init_xyz_limits__10TObjPlayerFv(void);
-void draw_trail_strip__10TObjPlayerFPvl(void *, s32, s32);
 extern Vec_8009F7AC camera_pitch_rotated_up_vector;
 extern const f32 canadin_effect_negative_one;
 void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o);
@@ -107,8 +107,8 @@ void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o) {
             v++;
         }
     }
-    init_xyz_limits__10TObjPlayerFv();
-    draw_trail_strip__10TObjPlayerFPvl(o->verts, n * 2, 1);
+    TObjPlayer::init_xyz_limits();
+    ((TObjPlayer *)(o->verts))->draw_trail_strip((void *)(n * 2), (s32)1);
 }
 #pragma pop
 
@@ -271,7 +271,6 @@ extern "C" {
 
 #define VC_B ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 s32 queue_destruction__7TObjectFv(void *);
-f32 update_scale__15TObjBoss2TunnelFv(void *);
 s32 fn_8009E1D4(s32, void *);
 u32 __nw__7TObjectFUl(s32);
 s32 construct__12TTecZondeEffFPvPvPvPvf(void *, s32, void *, void *, f32);
@@ -306,7 +305,7 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     }
     VC_B(&sp8, arg0 + 0x50);
     subtract_vector(&sp8, arg0 + 0x38);
-    temp_f31 = update_scale__15TObjBoss2TunnelFv(&sp8);
+    temp_f31 = ((TObjBoss2Tunnel *)(&sp8))->update_scale();
     s32 nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
         construct__12TTecZondeEffFPvPvPvPvf((void *)nw_ret, tl_05, arg0 + 0x38, &sp8, temp_f31);
@@ -349,11 +348,9 @@ struct Obj_8009FEB8 {
 };
 
 extern "C" {
-void init_xyz_limits__10TObjPlayerFv(void);
 s32 draw_line_list(void *, int, int);
 void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0);
 #define VC_C ((void (*)(void *, const void *))VecCopy__FP3VecPC3Vec)
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void subtract_vector(void *, void *);
 extern s32 __vt__30TObjEneMe1Canadin_EffDischarge[];
@@ -392,7 +389,7 @@ Obj_8009FEB8 *TObjEneMe1Canadin_EffDischarge__ct(Obj_8009FEB8 *self, void *paren
     VC_C(&self->dir, &self->end);
     subtract_vector(&self->dir, &self->start);
     self->dir.y = canadin_effect_zero;
-    self->dist = clamp_velocity__15TObjBoss2TunnelFv(&self->dir);
+    self->dist = ((TObjBoss2Tunnel *)(&self->dir))->clamp_velocity();
     if (self->dist > canadin_discharge_motion_scale) {
         self->duration = canadin_discharge_motion_scale;
         self->remain = self->dist - self->duration;
@@ -415,7 +412,7 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
     stack.spC = arg0 + 0x40;
     stack.sp10 = 0;
     stack.sp14 = 2;
-    init_xyz_limits__10TObjPlayerFv();
+    TObjPlayer::init_xyz_limits();
     draw_line_list((void *) (&stack.sp8), (int) (1), (int) (5));
 }
 

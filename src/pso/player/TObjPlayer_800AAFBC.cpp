@@ -204,8 +204,6 @@ extern s32 model_render_flags;
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
-void vfunc_101__12TObjEneSharkFv(void);
-void apply_clamped_mode_param__12TObjEneSharkFv(u8 *arg0);
 extern s32 shark_render_node_index;
 void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
@@ -221,13 +219,9 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
 s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
 s32 play_sound_effect(void *, void *, int, int);
-void vfunc_96__12TObjEneSharkFv(s32 arg0);
 s32 play_sound_effect(void *, void *, int, int);
-void vfunc_98__12TObjEneSharkFv(s32 arg0);
 s32 play_sound_effect(void *, void *, int, int);
-void vfunc_97__12TObjEneSharkFv(s32 arg0);
 s32 play_sound_effect(void *, void *, int, int);
-void vfunc_95__12TObjEneSharkFv(s32 arg0);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -238,10 +232,8 @@ extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BA4;
 extern const f32 lbl_805D9BA8;
-void vfunc_94__12TObjEneSharkFv(u8 *arg0);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback();
-void vfunc_83__12TObjEneSharkFv(Obj_800ABCBC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -263,7 +255,6 @@ s32 post_translate_matrix(void *);
 extern s32 TObjEneShark__attack_motion_3_trail;
 extern s32 shark_attack4_trail_buffer;
 extern const f32 lbl_805D9BAC;
-void vfunc_93__12TObjEneSharkFv(Obj_800ABB38 *o);
 void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 f32 xz_distance_squared(void *, void *);
@@ -604,24 +595,6 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     }
     return arg0;
 }
-
-void vfunc_101__12TObjEneSharkFv(void);
-
-void vfunc_98__12TObjEneSharkFv(s32 arg0);
-
-void vfunc_97__12TObjEneSharkFv(s32 arg0);
-
-void vfunc_96__12TObjEneSharkFv(s32 arg0);
-
-void vfunc_95__12TObjEneSharkFv(s32 arg0);
-
-void vfunc_94__12TObjEneSharkFv(u8 *arg0);
-
-void vfunc_93__12TObjEneSharkFv(Obj_800ABB38 *o);
-
-void apply_clamped_mode_param__12TObjEneSharkFv(u8 *arg0);
-
-void vfunc_83__12TObjEneSharkFv(Obj_800ABCBC *arg0);
 
 void update_particle_by_phase__10TObjPlayerFv(void);
 typedef struct Fade_800ABDD8 Fade_800ABDD8;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/player/TUnk_804B08BC.h"
 #include "pso/misc/TOContainerAncientItemCommon.h"
@@ -120,9 +121,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-void vfunc_81__13TUnk_804B08BCFv(u8 *arg0);
 extern s32 __vt__23TOContainerAncientEnemy[];
-void vfunc_81__13TUnk_804B08BCFv(u8 *arg0);
 s32 is_quest_active();
 void * TOContainerAncientItemCommon__ct(void *, void *);
 s32 __nw__7TObjectFUl(int);
@@ -169,12 +168,10 @@ struct VObj_8015C098 : Base_8015C098 {
     virtual void m77();
 };
 
-void vfunc_6__28TOContainerAncientItemCommonFPsl(void *arg0, s16 *arg1, s32 arg2);
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void init_ancient_container(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
 
 void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
@@ -183,7 +180,7 @@ void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
             ((TUnk_804B6C24 *)this)->spawn_item((s32)this);
         }
         this->mode = 1;
-        set_flag8__13TUnk_804AF8A0Fv(this);
+        set_flag8();
         queue_destruction__7TObjectFv(this);
     }
 }

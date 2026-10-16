@@ -47,7 +47,6 @@ void enter_request_state__16TAdWarningBaseGCFv(void* p);
 int TAdWarningBaseGC__sub_8032D020(void);
 void *TAdWarningBaseGC__sub_8032D0B8(void *arg0, s16 arg1);
 int get_alloc_size__16TAdWarningBaseGCFv(void);
-void *init_vtable__13TUnk_804EDBD0Fv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

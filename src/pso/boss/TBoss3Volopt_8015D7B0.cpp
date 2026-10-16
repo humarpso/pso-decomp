@@ -9,7 +9,6 @@ s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D4;
-void vfunc_17__13TUnk_804B0BB8Fv(u8 *arg0);
 void set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);

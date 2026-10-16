@@ -13,14 +13,12 @@ extern "C" {
 s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805D8A20;
 extern const f32 lbl_805D8A24;
-void run_task__11TObjDFDemoFFv(u8 *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
 s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
 extern RecoveredGlobal_80050050_lbl_80485864 three_part_model_translate_offset;
-void render__11TObjDFDemoFFv(u8 *arg0);
 }
 
 extern "C" {

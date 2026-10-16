@@ -5,7 +5,6 @@ extern "C" {
 
 void TObjPlayer__sub_801AE724(void);
 void TObjPlayer__sub_801AE728(void);
-void sub_801AE72C__13TPhotonYoullaFv(void* a0);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 s32 construct_world_actor_base();
 s32 VecCopy__FP3VecPC3Vec(void *, s32);

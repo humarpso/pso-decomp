@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjMotion.h"
 
 extern "C" {
@@ -13,7 +14,6 @@ u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1);
 void send_6x5D__6TLobbyFPv(void* p);
 void send_item_and_handle_60__6TLobbyFPv(void* p);
 s32 TLobby__send_and_handle_60(void *);
-int bswap_pkt_u32x2__10TObjPlayerFv(void*);
 s32 bswap_16__FPUs(s32);
 int bswap__9TItemDataFv(void*);
 s32 read_be16_field2__10TObjPlayerFv();
@@ -35,7 +35,7 @@ void bswap_shop_item__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__1
 void send_item_and_handle_60__6TLobbyFPv(void* p) { bswap_shop_item__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void copy_item_data__6TLobbyFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)p + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)p + 0x3) = *(u8*)((char*)q + 0x3); *(u8*)((char*)p + 0x4) = *(u8*)((char*)q + 0x4); *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x5); *(u32*)((char*)p + 0x6) = *(u32*)((char*)q + 0x6); *(u16*)((char*)p + 0xa) = *(u16*)((char*)q + 0xa); *(u32*)((char*)p + 0xc) = *(u32*)((char*)q + 0xc); *(u32*)((char*)p + 0x10) = *(u32*)((char*)q + 0x10); }
 void init_6x5E_buy_item_header(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
-void bswap_6x5D__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(p); bswap_16__FPUs((s32)((char*)p + 0x4)); bswap_16__FPUs((s32)((char*)p + 0x6)); bswap_pkt_u32x2__10TObjPlayerFv((char*)p + 0x8); bswap__9TItemDataFv((char*)p + 0x10); }
+void bswap_6x5D__6TLobbyFPv(void* p) { ((int (*)(void*))read_be16_field2__10TObjPlayerFv)(p); bswap_16__FPUs((s32)((char*)p + 0x4)); bswap_16__FPUs((s32)((char*)p + 0x6)); ((TObjPlayer *)((char*)p + 0x8))->bswap_pkt_u32x2(); bswap__9TItemDataFv((char*)p + 0x10); }
 void send_6x5D__6TLobbyFPv(void* p) { bswap_6x5D__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void* init_fields__6TLobbyFPv(void* p) { init_default_fields__6TLobbyFPv((void*)((void*)(p))); *(unsigned char*)((char*)p + 0x24) = 2; *(unsigned char*)((char*)p + 0x25) = 0; *(unsigned char*)((char*)p + 0x26) = 0; *(unsigned char*)((char*)p + 0x27) = 0; *(unsigned char*)((char*)p + 0x1) = 10; return p; }
 
@@ -217,7 +217,6 @@ struct Rec_801031CC { u8 d[0x2c]; };
 struct Tbl_801031CC { u8 pad[0x1c]; Rec_801031CC r[1]; };
 
 extern "C" {
-u8 sub_8010319C__13TUnk_804AF8A0Fv(u8 *arg0);
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
 s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);

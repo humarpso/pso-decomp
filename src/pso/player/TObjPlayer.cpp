@@ -58,10 +58,6 @@ struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x
 struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
 
 extern "C" {
-void sub_801BEE24__10TObjPlayerFs(void* p, s16 v);
-void sub_801BEE24__10TObjPlayerFs(void* p, s16 v);
-void sub_801BEE2C__10TObjPlayerFs(void* p, s16 v);
-void sub_801BEE2C__10TObjPlayerFs(void* p, s16 v);
 void bswap_32__FPUl(void *);
 void TObjPlayer__sub_801BEEE0(void* p, void* q);
 void TObjPlayer__sub_801BEEE0(void* p, void* q);

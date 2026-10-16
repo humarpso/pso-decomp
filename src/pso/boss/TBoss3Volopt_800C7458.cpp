@@ -98,13 +98,11 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_800C7698_lbl_8058D490 identity_matrix;
-void render_anim_model_at_pos__15TObjEneGyaranzoFv(u8 *arg0);
 s32 matrix_mult_vec(int, void *, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_800C762C_lbl_8043BCA0 lbl_8043BCA0;
 extern s32 anim_model_matrix_array;
-void vfunc_65__15TObjEnemyCustomFll(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {

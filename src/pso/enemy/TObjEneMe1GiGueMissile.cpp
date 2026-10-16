@@ -38,8 +38,6 @@ extern const f32 lbl_805DE6E0;
 
 extern "C" {
 
-void vfunc_6__22TObjEneMe1GiGueMissileFv(void* p);
-void vfunc_9__22TObjEneMe1GiGueMissileFPv(void* p, void* a1);
 void TObjEneMe1GiGue__sub_802CE4E8(void);
 void TObjEneMe1GiGue__sub_802CE4EC(void);
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1);

@@ -72,7 +72,6 @@ void belra_cannon_create_extra_shot();
 void belra_cannon_create_shot();
 void belra_cannon_return_timer();
 extern const f32 lbl_805DACD0;
-void emit_marker_effects__13TUnk_804A0CB8Fv(Self_80121CB8 *self);
 }
 
 extern "C" {

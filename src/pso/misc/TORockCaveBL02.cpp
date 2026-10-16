@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 
 extern "C" {
 
@@ -8,7 +9,6 @@ void *TORockCaveBL02__ct(void *, void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__18TORockCaveBrakableFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 free_collision_body_parts(void *);
 
 void *TORockCaveBL02__create(void *arg0) {
@@ -24,7 +24,7 @@ extern s32 __vt__14TORockCaveBL02[];
 void *__dt__14TORockCaveBL02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TORockCaveBL02;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__18TORockCaveBrakableFv(arg0, 0);
         if (arg1 > 0) {

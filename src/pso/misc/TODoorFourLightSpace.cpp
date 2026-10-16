@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorFourLightRuins.h"
 #include "pso/misc/TODoorFourLightSpace.h"
@@ -57,7 +59,6 @@ struct Door_8028A28C {
 };
 
 extern "C" {
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base();
 u8 *fn_8028A714(s32);
@@ -70,11 +71,7 @@ extern s32 lbl_805D3B1C;
 extern const f32 lbl_805DD8F4;
 extern const f32 lbl_805DD8F8;
 u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2);
-void send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, s32);
-void play_door_sound__13TUnk_804B0BB8Fv(void *);
 u8 is_current_floor_switch_set(u16);
-void update_door_switch_state__20TODoorFourLightSpaceFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -106,8 +103,6 @@ struct VObj_802898E8 : Base_802898E8 {
     virtual s32 m8(f32, f32);
 };
 
-s32 init_door_switch_binding__20TODoorFourLightSpaceFv(void *arg0);
-void vfunc_6__20TODoorFourLightSpaceFPsl(void *arg0, s16 *arg1);
 void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1);
 void fn_802898E8(void);
 void fn_802898EC(void);
@@ -115,12 +110,10 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void free_collision_body_parts(void *);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 get_main_phase();
 s32 set_global_param__8TObjFishFl();
 
@@ -161,7 +154,7 @@ void TODoorFourLightSpace::update_door_switch_state() {
     s32 i;
     switch (this->m_cc) {
     case 1:
-        play_door_sound__13TUnk_804B0BB8Fv(arg0);
+        ((TUnk_804B0BB8 *)arg0)->play_door_sound();
         this->m_d0 |= 1;
         break;
     case 2:
@@ -174,7 +167,7 @@ void TODoorFourLightSpace::update_door_switch_state() {
         if (fail != 0) {
             this->m_d0 &= ~1;
         } else {
-            play_door_sound__13TUnk_804B0BB8Fv(arg0);
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 |= 1;
         }
         break;
@@ -189,16 +182,16 @@ void TODoorFourLightSpace::update_door_switch_state() {
                 }
             }
             if (bad == 0) {
-                play_door_sound__13TUnk_804B0BB8Fv(arg0);
+                ((TUnk_804B0BB8 *)arg0)->play_door_sound();
                 this->m_d0 |= 1;
             } else {
                 this->m_d0 &= ~1;
             }
             if (bad == 0 && *(u32 *)&this->m_80 != 0 &&
-                access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) == 1) {
+                ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) == 1) {
                 sp8 = 1;
-                send_object_state_update__13TUnk_804AF8A0FPv(arg0, &sp8);
-                access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
+                ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
+                ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
             }
         }
         break;
@@ -278,7 +271,7 @@ void TODoorFourLightSpace::render() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DD8F0) == 1)) {
+    if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DD8F0) == 1)) {
         temp_r0 = *(s32 *)&this->m_ac;
         switch (temp_r0) {
         case 1:
@@ -323,7 +316,7 @@ extern s32 __vt__20TODoorFourLightSpace[];
 void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODoorFourLightSpace;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -340,7 +333,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((TODoorFourLightSpace *)(arg0))->init_door_switch_binding();
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0xD4) = fn_8028A78C((int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = fn_8028A750((int) (0));
@@ -360,7 +353,6 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 extern "C" {
 u8 is_current_floor_switch_set(u16);
-void update_door_switch_state__20TODoorFourLightRuinsFv(u8 *arg0);
 }
 
 extern "C" {
@@ -378,19 +370,15 @@ struct VObj_8028A030 : Base_8028A030 {
     virtual s32 m8(f32, f32);
 };
 
-s32 init_door_switch_binding__20TODoorFourLightRuinsFv(void *arg0);
-void vfunc_6__20TODoorFourLightRuinsFPsl(void *arg0, s16 *arg1);
 void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void free_collision_body_parts(void *);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 get_main_phase();
 s32 set_global_param__8TObjFishFl();
 
@@ -432,7 +420,7 @@ void TODoorFourLightRuins::update_door_switch_state() {
     s32 j;
     switch (this->m_cc) {
     case 1:
-        ((s32 (*)(void *))play_door_sound__13TUnk_804B0BB8Fv)(arg0);
+        ((TUnk_804B0BB8 *)arg0)->play_door_sound();
         this->m_d0 |= 1;
         break;
     case 2:
@@ -445,7 +433,7 @@ void TODoorFourLightRuins::update_door_switch_state() {
         if (off != 0) {
             this->m_d0 &= ~1;
         } else {
-            ((s32 (*)(void *))play_door_sound__13TUnk_804B0BB8Fv)(arg0);
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 |= 1;
         }
         break;
@@ -462,13 +450,13 @@ void TODoorFourLightRuins::update_door_switch_state() {
         if (off2 != 0) {
             this->m_d0 &= ~1;
         } else {
-            ((s32 (*)(void *))play_door_sound__13TUnk_804B0BB8Fv)(arg0);
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 |= 1;
         }
-        if (off2 == 0 && *(u32 *)&this->m_80 != 0 && ((s32 (*)(void *, void *, int))access_object_saved_state__13TUnk_804AF8A0FPvs)(arg0, &sp8, 1) == 1) {
+        if (off2 == 0 && *(u32 *)&this->m_80 != 0 && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) == 1) {
             sp8 = 1;
-            ((s32 (*)(void *, void *))send_object_state_update__13TUnk_804AF8A0FPv)(arg0, &sp8);
-            ((s32 (*)(void *, void *, int))access_object_saved_state__13TUnk_804AF8A0FPvs)(arg0, &sp8, 0);
+            ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
+            ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
         }
         break;
     default:
@@ -539,7 +527,7 @@ void TODoorFourLightRuins::render() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (is_in_view_depth__13TUnk_804AFBF8Ff(arg0, lbl_805DD8F0) == 1)) {
+    if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DD8F0) == 1)) {
         temp_r0 = *(s32 *)&this->m_ac;
         switch (temp_r0) {
         case 1:
@@ -584,7 +572,7 @@ extern s32 __vt__20TODoorFourLightRuins[];
 void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODoorFourLightRuins;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -604,7 +592,6 @@ struct Tbl_8028A5C4 { s32 v[8]; };
 struct Door_8028A5C4 { u8 pad[0xD8]; s32 sw[8]; };
 extern "C" {
 
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base();
 u8 *fn_8028A714(s32);
@@ -627,7 +614,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((TODoorFourLightRuins *)(arg0))->init_door_switch_binding();
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0xD4) = fn_8028A78C((int) (0));
     *(s32 *)((s8 *)arg0 + 0x24) = fn_8028A750((int) (0));

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TDLGraph.h"
 #include "pso/misc/TLobby.h"
@@ -88,7 +90,6 @@ extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 *boss2_tunnel_snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
 s32 get_main_phase(void);
-void setup_default_view__11TCameraCtrlFPv(u32, s32);
 void draw_snapshot_capture_overlay(void);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
 s32 get_localized_text_entry(s32, s32);
@@ -97,8 +98,6 @@ void reset_state_flags__6TLobbyFv(void);
 s8 func_801A5E54__Fv(void);
 void controller_stuff__Fv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-void begin_effect_render__13TParticleCtrlFv(void);
-void end_effect_render__13TParticleCtrlFv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
@@ -116,7 +115,6 @@ extern const f32 lbl_805D9214;
 extern const f32 lbl_805D9218;
 extern const f32 lbl_805D921C;
 s32 get_main_phase(void);
-void setup_default_view__11TCameraCtrlFPv(u32, s32);
 s32 get_localized_text_entry(s32, s32);
 void process_deferred_player_setup__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
@@ -183,7 +181,7 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
         if (camera_ctrl_instance != 0U) {
-            setup_default_view__11TCameraCtrlFPv(camera_ctrl_instance, 0);
+            ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
         }
         render__9TMainTaskFv(((u8 *)&main_task));
         draw_snapshot_capture_overlay();
@@ -191,14 +189,14 @@ s32 TObjBoss2Tunnel::run_confirm_message_loop() {
         if (func_801A5E54__Fv() != 0) {
             break;
         }
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         if (graph != NULL) {
             TDLGraph::update_graph(frames, 0x78);
             graph->m1();
             graph->m2();
         }
         win->m2();
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         if (frames >= 6.0) {
             if (TWindowShortListCtrl__check_controller_button(pad, 2) != 0 || frames >= 0x78) {
                 result = 0;
@@ -265,7 +263,7 @@ void TObjBoss2Tunnel::show_message_and_wait(s32 arg0) {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
         if (camera_ctrl_instance != 0U) {
-            setup_default_view__11TCameraCtrlFPv(camera_ctrl_instance, 0);
+            ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
         }
         render__9TMainTaskFv(((u8 *)&main_task));
         if ((f32)frames >= lbl_805D9220) {

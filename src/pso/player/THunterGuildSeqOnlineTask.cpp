@@ -1,4 +1,5 @@
 #include "pso/THunterGuildSeqOnlineTask.h"
+#include "pso/misc/TWindowCtrl.h"
 
 #include "types.h"
 #include "pso/TObject.h"
@@ -40,7 +41,6 @@ void TQuestListOnline__sub_802176DC(void *, s32);
 void decompress_quest_buffer__16TQuestListOnlineFl(void *, s32);
 void clear_flag3_all_tasks__9TMainTaskFv(TMainTask *);
 s32 TWindow__close(int);
-s32 unsuppress_slot__11TWindowCtrlFv(void *);
 extern unsigned char TQuestListOnline__dat_download_state[];
 extern unsigned char TQuestListOnline__bin_download_state[];
 extern s32 local_client_id;
@@ -74,7 +74,6 @@ extern const f32 lbl_805DC660;
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 TWindow__close(int);
-s32 unsuppress_slot__11TWindowCtrlFv(void *);
 extern s32 controller_input_state[];
 extern s32 local_client_id;
 extern u32 TQuestListOnline__quest_info_window;
@@ -88,7 +87,7 @@ void THunterGuildSeqOnlineTask::run_task() {
             TWindowShortListCtrl__check_controller_button((int)p, 2) != 0) {
             TWindow__close((int)TQuestListOnline__quest_info_window);
             TQuestListOnline__quest_info_window = 0;
-            unsuppress_slot__11TWindowCtrlFv((void *)local_client_id);
+            ((TWindowCtrl *)local_client_id)->unsuppress_slot();
         }
     }
 }
@@ -185,7 +184,7 @@ void TQuestListOnline::handle_quest_ready() {
         }
         evt2_random_enemies_mode = m;
         TKeyBoardControl__sub_8000F950();
-        unsuppress_slot__11TWindowCtrlFv((void *)local_client_id);
+        ((TWindowCtrl *)local_client_id)->unsuppress_slot();
     } else {
         TLobby::clear_counter();
         evt2_random_enemies_mode = 0;
@@ -225,7 +224,7 @@ void TQuestListOnline::handle_quest_ready() {
             activate_body_collision__10TObjPlayerFPv(p);
         }
     }
-    unsuppress_slot__11TWindowCtrlFv((void *)local_client_id);
+    ((TWindowCtrl *)local_client_id)->unsuppress_slot();
 }
 void TLobby::handle_quest_download_chunk() {
     Pkt_80214F80 *p = (Pkt_80214F80 *)this;

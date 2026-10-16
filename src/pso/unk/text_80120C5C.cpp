@@ -4,11 +4,9 @@
 extern "C" {
 
 int release__14TItemEquipBaseFv(void*);
-int clear_equip_flags__11TItemWeaponFUl(void*, void*);
 int memset(void*, void*, void*);
-void release__11TItemWeaponFv(void* p);
 
-void TItemWeapon::release() { memset((char*)this + 0x18c, (void*)0, (void*)16); clear_equip_flags__11TItemWeaponFUl(this, (void*)12); release__14TItemEquipBaseFv(this); }
+void TItemWeapon::release() { memset((char*)this + 0x18c, (void*)0, (void*)16); clear_equip_flags((u32)((void*)12)); release__14TItemEquipBaseFv(this); }
 
 }
 
@@ -68,7 +66,6 @@ struct T_80120C5C { s32 a; s32 b; s32 c; u16 d; u8 e; };
 extern "C" {
 u8 get_field_ed__5TItemFv();
 void request_model_load__14TItemEquipBaseFl(void *, u8);
-void create_weapon_trail_effects__11TItemWeaponFv(void *);
 extern T_80120C5C lbl_8043E828[];
 }
 
@@ -87,7 +84,7 @@ void TItemWeapon::vfunc_46() {
         v = ((u8 *)&t)[arg0->m41()];
     }
     request_model_load__14TItemEquipBaseFl(arg0, v);
-    create_weapon_trail_effects__11TItemWeaponFv(arg0);
+    ((TItemWeapon *)arg0)->create_weapon_trail_effects();
 }
 
 }

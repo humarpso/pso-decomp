@@ -209,7 +209,6 @@ struct Info_80357784 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805E006C;
-void run_task__13TUnk_804F166CFv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u16 obj_getField1c(void *);
@@ -230,7 +229,6 @@ extern const f32 lbl_805E0070;
 u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
-void update_inward_orbit_point__13TUnk_804F166CFv(u8 *arg0);
 s32 rotate_matrix_z(int, int);
 void TObjPlayer__sub_80357954(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -272,7 +270,6 @@ s32 fill_status_info__10TObjPlayerFPvPv(void *, void *);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
 extern s32 tl_05;
-void emit_marker_effects__13TUnk_804F14A8Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -300,8 +297,6 @@ struct VObj_80358984_80357734 : Base_80358984_80357734 {
 
 void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
-int update_attack__13TUnk_804F14A8Fv(void* p);
-void render__13TUnk_804F166CFv(void);
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -543,7 +538,7 @@ void TUnk_804F166C::run_task() {
     u8 *temp_r3;
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) - 0x1999);
     this->m_40 = (f32) (this->m_40 - lbl_805E006C);
-    update_inward_orbit_point__13TUnk_804F166CFv((u8 *)((void *)(arg0)));
+    ((TUnk_804F166C *)arg0)->update_inward_orbit_point();
     temp_r3 = (u8 *)(*(u8 * *)&this->unk_4C);
     if (temp_r3 != NULL) {
         ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x34);
@@ -586,7 +581,7 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805E0070;
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (arg3 - 0x4000);
     *(s32 *)((s8 *)arg0 + 0x48) = 0xA;
-    update_inward_orbit_point__13TUnk_804F166CFv((u8 *)((void *) (arg0)));
+    ((TUnk_804F166C *)arg0)->update_inward_orbit_point();
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804793E4.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 8);

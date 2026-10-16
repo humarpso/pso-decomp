@@ -51,7 +51,6 @@ extern const f32 lbl_805D8D50;
 extern const f32 lbl_805D8D54;
 extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8D5C;
-void vfunc_105__13TBoss5GryphonFv(void *p);
 }
 
 extern "C" {

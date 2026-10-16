@@ -60,7 +60,6 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 };
 
 extern "C" {
-void run_task__13TUnk_804EE470Fv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804EE470[];

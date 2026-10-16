@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TTecGrants.h"
+#include "pso/unk/TUnk_804CC148.h"
 
 struct VBase_18_4560ce { char pad[0x18]; };
 
@@ -99,7 +101,6 @@ s32 init_technique_effect_base(void *, void *, void *, void *);
 extern s32 __vt__10TTecGrants[];
 extern s32 lbl_805D37D0;
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void vfunc_6__10TTecGrantsFPv(u8 *self, u8 *target);
 }
 
 extern "C" {
@@ -107,7 +108,6 @@ extern "C" {
 void *__dt__10TTecGrantsFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 void TTecGrants::render() {  }
 
@@ -168,7 +168,7 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
 void *__dt__10TTecGrantsFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecGrants;
-        destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
+        ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -6,7 +6,6 @@
 extern "C" {
 
 void psycho_wand_idle(u8 *arg0);
-void update_attack__13TUnk_804A4F60Fv(u8 *arg0);
 
 extern const f32 lbl_805DAED0;
 extern const f32 lbl_805DAED4;

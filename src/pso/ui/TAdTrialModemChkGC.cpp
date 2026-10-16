@@ -29,8 +29,6 @@ extern "C" {
 void *TAdTrialModemChkGC__ct(void *arg0);
 void TAdTrialModemChkGC__sub_803354A4(void);
 int TAdTrialModemChkGC__sub_803354E8(void* p);
-int vfunc_6__18TAdTrialModemChkGCFv(void);
-void vfunc_7__18TAdTrialModemChkGCFv(void);
 void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1);
 int get_localized_text_entry(void*, void*);
 s32 TAdTrialModemChkGC__sub_8007FA24(s32);

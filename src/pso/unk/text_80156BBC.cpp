@@ -19,7 +19,6 @@ struct Laser_80156CA0 {
 };
 
 extern "C" {
-void sub_80156CEC__13TUnk_804AF8D8Fv(u8 *arg0);
 s32 fn_80156C88(f32 *arg0);
 f32 xz_distance_squared(void *, void *);
 s32 fn_80156C88(f32 *arg0);

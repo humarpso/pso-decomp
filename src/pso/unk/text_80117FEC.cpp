@@ -5,7 +5,6 @@
 
 extern "C" {
 u8 get_slot_count__14TItemProShieldFv();
-void sub_80117FEC__14TItemProShieldFv(u8 *arg0);
 }
 
 extern "C" {

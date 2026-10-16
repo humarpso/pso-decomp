@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/item/TObjContainerNoItem.h"
@@ -53,12 +54,7 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
-void vfunc_6__19TObjContainerNoItemFPsl(u8 *arg0, s16 *arg1, s32 arg2);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern const f32 lbl_805DBCF4;
-f32 receive_physical_attack__19TObjContainerNoItemFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
@@ -77,7 +73,6 @@ void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
-void vfunc_79__19TObjContainerNoItemFv(Obj_8018990C *self);
 s32 draw_ginja_box_tree(s32);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
@@ -87,15 +82,12 @@ s32 post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-void vfunc_81__19TObjContainerNoItemFv(u8 *arg0);
 }
 
 extern "C" {
 
-void vfunc_80__17TObjContainerBaseFv(void *arg0);
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 
@@ -118,7 +110,7 @@ extern s32 __vt__17TObjContainerBase[];
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjContainerBase;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {
@@ -150,13 +142,13 @@ void TObjContainerNoItem::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+            ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((void *) (arg0));
             *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
         *(s16 *)((s8 *)arg0 + 0x326) = 1;
     }
@@ -195,10 +187,10 @@ void TObjContainerNoItem::vfunc_79() {
 f32 TObjContainerNoItem::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
-        access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
-        send_object_state_update__13TUnk_804AF8A0FPv((void *) (arg0), (void *) (&sp8));
+        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
+        ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
     }
     return lbl_805DBCF4;
 }

@@ -24,7 +24,6 @@ u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void render__13TUnk_804CE7D0Fv(void);
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1);
 s32 get_selected_menu_value(s32);
 void TWindow__close(void *);

@@ -1,4 +1,10 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/enemy/TObjEneBalClaw.h"
+#include "pso/enemy/TObjEneBeast.h"
+#include "pso/enemy/TObjEneRe7Berura.h"
+#include "pso/misc/TLobby.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/enemy/TObjEnemyCustom.h"
@@ -23,7 +29,6 @@ struct RecoveredGlobal_8009048C_lbl_8048F11C {
 };
 
 extern "C" {
-s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern RecoveredGlobal_8009048C_lbl_80439B8C lbl_80439B8C;
 extern void *TObjEneBalClawClaw__collision_body_template[11];
 extern u8 *lbl_805D4F20;
@@ -47,7 +52,7 @@ void spawn_lobby_npc_enemy(void) {
     stack.sp14 = *(s32 *)((s8 *)(&lbl_80439B8C.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)lbl_805D4F20 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D4F20 + 0x42C));
-    spawn_npc_enemy__6TLobbyFslllff((int) (0x14), (int) (*(s32 *)((s8 *)temp_r5 + 0x28)), (int) (*(s32 *)((s8 *)temp_r5 + 0x2C)), (void *) (&stack.sp8), (f32) (*(f32 *)((s8 *)((s32 *)TObjEneBalClawClaw__collision_body_template) + 0xC)), (f32) ((15.0f)));
+    TLobby::spawn_npc_enemy((s16)((int) (0x14)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x28))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x2C))), (s32)((void *) (&stack.sp8)), (f32)((f32) (*(f32 *)((s8 *)((s32 *)TObjEneBalClawClaw__collision_body_template) + 0xC))), (f32)((f32) ((15.0f))));
 }
 
 }
@@ -360,7 +365,6 @@ void enemy_turn_half_toward_dest(void *);
 void clear_attack_flag__14TObjEneBalClawFv(void *);
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
 Ent_80090A70 *get_enemy_entity(u16);
-void check_object_collisions__10TObjPlayerFv(void *);
 void update_follow_parent__18TObjEneBalClawClawFPv(Obj_80090A70 *arg0);
 }
 
@@ -370,7 +374,6 @@ s32 check_active__18TObjEneBalClawClawFPv(void *arg0);
 void render__18TObjEneBalClawClawFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
-s32 render_scaled__14TObjEneBalClawFl(void *, s32);
 s32 draw_chunk_object(s32);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
@@ -378,13 +381,8 @@ s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 check_demo_mode__10TObjPlayerFv();
-s32 draw__16TObjEneRe7BeruraFv(void *);
-s32 end_effect_render__13TParticleCtrlFv();
-s32 render_world_model__10TObjPlayerFv(void *);
 s32 set_global_param__8TObjFishFl(s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 toggle_particle_effect__10TObjPlayerFv();
 
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xDFFFFFFF);
@@ -440,7 +438,7 @@ void update_follow_parent__18TObjEneBalClawClawFPv(Obj_80090A70 *arg0) {
         enemy_turn_half_toward_dest(arg0);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, (0.0f));
-        check_object_collisions__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->check_object_collisions();
         break;
     }
     }
@@ -457,10 +455,10 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
             var_r30 = 1;
             set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
             select_actor_lighting(arg0);
-            toggle_particle_effect__10TObjPlayerFv();
+            TObjPlayer::toggle_particle_effect();
             push_matrix();
             model_render_flags &= 0xFFFFFBFF;
-            if (check_demo_mode__10TObjPlayerFv() == 1) {
+            if (TObjPlayer::check_demo_mode() == 1) {
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
                 rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -479,9 +477,9 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                         }
                         if (var_r29 != 0) {
                             if (temp_r3 == 1) {
-                                draw__16TObjEneRe7BeruraFv(arg0);
+                                ((TObjEneRe7Berura *)arg0)->draw();
                             } else {
-                                render_world_model__10TObjPlayerFv(arg0);
+                                ((TObjPlayer *)arg0)->render_world_model();
                             }
                         }
                         ((VB_80090950 *)(arg0 + 0x390))->m7();
@@ -489,15 +487,15 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                         var_r30 = 0;
                     }
                 } else if (temp_r3 == 1) {
-                    draw__16TObjEneRe7BeruraFv(arg0);
+                    ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    render_world_model__10TObjPlayerFv(arg0);
+                    ((TObjPlayer *)arg0)->render_world_model();
                 }
             }
             pop_matrix();
             restore_scene_lighting();
-            end_effect_render__13TParticleCtrlFv();
-            render_scaled__14TObjEneBalClawFl(arg0, var_r30);
+            TParticleCtrl::end_effect_render();
+            ((TObjEneBalClaw *)arg0)->render_scaled(var_r30);
         }
     }
 }
@@ -669,20 +667,13 @@ struct Claw_80090ECC {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800A04F0(void *);
-void request_two_effects__10TObjPlayerFv(void *);
-void apply_effect_variant_a__10TObjPlayerFll(void *, int);
-void refresh_lobby_state__10TObjPlayerFv(void *);
-void send_entity_set_flags__9TObjEnemyFv(void *);
 void play_sound_effect(int, void *, int, int);
 void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self);
 s32 check_path_obstructed(void *, void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self);
-s32 sub_8004292C__15TObjEnemyCustomFv(void *);
-s32 find_target_in_range__15TObjEnemyCustomFf(void *, f32);
 Claw_80091354 *find_active_entity_by_id(u16);
 void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self);
-f32 get_pos_x__10TObjPlayerFv(s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self);
 }
@@ -761,7 +752,7 @@ void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
         Vec_80090ECC v = ((Claw_80090ECC *)self->target)->pos;
         SEEK_80090ECC(self, &v, (0.7f));
         update_angle__10TObjPlayerFlPv(self, self->info->f8, self->f308);
-        if (self->f3C0 <= get_pos_x__10TObjPlayerFv(self->f318) * get_pos_x__10TObjPlayerFv(self->f318)) {
+        if (self->f3C0 <= ((TObjPlayer *)(self->f318))->get_pos_x() * ((TObjPlayer *)(self->f318))->get_pos_x()) {
             self->state = self->fB8 = 2;
         }
         break;
@@ -803,17 +794,17 @@ void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
 void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self) {
     switch (self->state) {
     case 0:
-        refresh_lobby_state__10TObjPlayerFv(self);
+        ((TObjPlayer *)self)->refresh_lobby_state();
         self->fieldB8 = 4;
         TObjPlayer__sub_800A04F0(&self->motion);
-        request_two_effects__10TObjPlayerFv(self->effects);
+        ((TObjPlayer *)(self->effects))->request_two_effects();
         play_sound_effect(0x4003AD37, self->pos, 0, 0);
         self->state = 1;
     case 1:
         ((s32)advance_animation_playback(self));
         if (self->motion.m4() == 1) {
-            apply_effect_variant_a__10TObjPlayerFll(self->pos, 0);
-            send_entity_set_flags__9TObjEnemyFv(self);
+            TObjPlayer::apply_effect_variant_a((s32)(self->pos), (s32)0);
+            ((TObjEnemy *)self)->send_entity_set_flags();
             queue_destruction__7TObjectFv(self);
         }
         break;
@@ -860,10 +851,10 @@ void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self) {
 void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self) {
     switch (self->state) {
     case 0:
-        find_target_in_range__15TObjEnemyCustomFf(self, (2.5e+02f));
+        ((TObjEnemyCustom *)self)->find_target_in_range((2.5e+02f));
         if (self->targetId != 0xFFFF) {
             self->f30 &= 0xFBFFFEFF;
-            sub_8004292C__15TObjEnemyCustomFv(self);
+            ((TObjEnemyCustom *)self)->sub_8004292C();
             self->state = self->fB8 = 1;
         } else {
             RESET(self);
@@ -1088,7 +1079,6 @@ struct VObj_18_b31a3c : VBase_18_b31a3c {
     virtual s32 m80();
 };
 extern "C" {
-s32 sub_80090418__18TObjEneBalClawClawFl(void *, int);
 s32 bind_enemy_combat_stats(void *, s32, s32, s32);
 s32 set_animation__10TObjPlayerFPvs(void *, s16);
 s32 init_collision_body_parts(void *, void *, int);
@@ -1107,7 +1097,6 @@ extern const f32 lbl_805D96E0;
 u8 * TObjEneBalClaw__ct(void *);
 s32 TObjEneBalClawClaw__ct(void *arg0);
 u8 *TObjEneBalClawClaw__sub_80091B98(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, s32 arg6, s32 _w7);
-s32 sub_800C7860__15TObjEnemyCustomFv(void *);
 u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, s32 arg1, u8 *arg2);
 void mult_vec_array__10TObjPlayerFUll(int, u32, void *, int);
 void set_matrix_identity(void *);
@@ -1128,7 +1117,6 @@ extern const f32 lbl_805D96F8;
 extern const f32 lbl_805D96FC;
 
 s32 TObjEneBalClaw__sub_8008D68C();
-void update_attack_distance_state__18TObjEneBalClawClawFv(u8 *arg0);
 s32 find_entity_by_id(int);
 s32 submit_cursor_candidate(void *, int, int, f32, f32);
 s32 minimap_render_dot(void *, int, int, int);
@@ -1168,7 +1156,6 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0);
 
 extern "C" {
 
-void vfunc_99__12TObjEneBeastFv(s32 arg0);
 void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void free_collision_body_parts(void *);
@@ -1300,7 +1287,7 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
     u32 temp_r3;
 
     if (((TObjEneBalClawClaw *)((u8 *)this))->vfunc_19(0x1E) != 0) {
-        find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) ((2.5e+02f)));
+        find_target_in_range((f32) ((2.5e+02f)));
     }
     temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
     switch (temp_r0) {
@@ -1426,7 +1413,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
     s32 temp_r3_3;
     u8 *temp_r5;
     TObjEneBalClaw__sub_8008D68C();
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         TObjEneBalClawClaw__sub_80090824((void *) (arg0));
         TObjEneBalClawClaw__sub_800914A4((void *) (arg0));
         return;
@@ -1437,7 +1424,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
     } else if (temp_r3 & 0x10000000) {
         update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (9));
     } else {
-        update_attack_distance_state__18TObjEneBalClawClawFv(arg0);
+        ((TObjEneBalClawClaw *)arg0)->update_attack_distance_state();
     }
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) != -1) {
@@ -1539,7 +1526,7 @@ s32 TObjEneBalClawClaw__ct(void *arg0) {
     VecCopy__FP3VecPC3Vec(self + 0x2FC, self + 0x38);
     *(f32 *)((s8 *)self + 0x300) += (5.0f);
     ((TBoss3Volopt *)self)->reset_photon_effect();
-    sub_80090418__18TObjEneBalClawClawFl(self, 2);
+    ((TObjEneBalClawClaw *)self)->sub_80090418(2);
     *(s32 *)((s8 *)self + 0x3B8) = 0;
     *(f32 *)((s8 *)self + 0x3BC) = (0.0f);
     *(f32 *)((s8 *)self + 0x3AC) = (15.0f);
@@ -1579,7 +1566,7 @@ u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneBalClawClaw *)(arg0))->apply_set_data(arg2);
     TObjEneBalClawClaw__ct((void *) (arg0));
     if (*(s16 *)((s8 *)arg2 + 0xA) != 0) {
-        sub_800C7860__15TObjEnemyCustomFv((void *) (arg0));
+        ((TObjEnemyCustom *)arg0)->sub_800C7860();
     }
     return arg0;
 }
@@ -1749,10 +1736,10 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
     translate_matrix(0, lbl_805D96D8, o->f380, lbl_805D96D8);
     post_translate_matrix(o->f38);
     rotate_matrix_y(0, o->f60);
-    if (check_demo_mode__10TObjPlayerFv() == 1) {
+    if (TObjPlayer::check_demo_mode() == 1) {
         draw_chunk_object(o->f34);
     } else {
-        toggle_particle_effect__10TObjPlayerFv();
+        TObjPlayer::toggle_particle_effect();
         doDraw = 1;
         if (fade != 0) {
             o->fades[cam].m6();
@@ -1762,12 +1749,12 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         }
         if (doDraw != 0) {
             if (drawMode == 1) {
-                draw__16TObjEneRe7BeruraFv(o);
+                ((TObjEneRe7Berura *)o)->draw();
             } else {
-                render_world_model__10TObjPlayerFv(o);
+                ((TObjPlayer *)o)->render_world_model();
             }
         }
-        end_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::end_effect_render();
         if (fade != 0) {
             o->fades[cam].m7();
         }

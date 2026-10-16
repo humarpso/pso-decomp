@@ -116,7 +116,6 @@ extern const f32 lbl_805DDBA0;
 extern const f32 lbl_805DDBA4;
 extern const f32 lbl_805DDBA8;
 extern const f32 lbl_805DDBAC;
-void sub_80297B18__14TObjCMMainMenuFv(Menu_80297B18 *m);
 s32 request_creation_motion(int);
 s32 TAdSinglePlyChrSelectGC__sub_802905B8();
 s32 rand();
@@ -418,7 +417,6 @@ void * create__16TObjCMAutoMkDataFPv(void *arg0);
 void * __dt__16TObjCMAutoMkDataFv(void *arg0, s16 arg1);
 u8 * TObjCMAutoMkData__ct(u8 *arg0);
 Hair_802964B0 * __ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1);
-void sub_80296648__16TObjCMAssignMenuFv(Menu_80296648 *self);
 void render__16TObjCMAssignMenuFv(Menu_80296928 *self);
 void * create__16TObjCMAssignMenuFPvPv(void *arg0, void *arg1);
 void * __ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind);
@@ -1247,11 +1245,11 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
     }
     switch (self->state) {
     case 0:
-        sub_80296648__16TObjCMAssignMenuFv((Menu_80296648 *)(self));
+        ((TObjCMAssignMenu *)self)->sub_80296648();
         break;
     case 1:
         if (self->owner->flags & 0x10) {
-            sub_80296648__16TObjCMAssignMenuFv((Menu_80296648 *)(self));
+            ((TObjCMAssignMenu *)self)->sub_80296648();
         } else {
             ((TObjCMAssignMenu *)self)->draw_assign_icons();
         }
@@ -2067,7 +2065,7 @@ void TObjCMMainMenu__sub_80298310(void) {  }
 void TObjCMMainMenu::render() {
     set_depth_buffer_settings_1__Fv();
     draw_footer_divider();
-    sub_80297B18__14TObjCMMainMenuFv((Menu_80297B18*)this);
+    sub_80297B18();
     TObjCMMainMenu__sub_802979BC(this);
     render_nodes__7TObjectFv(nodes);
     draw_root_menu();

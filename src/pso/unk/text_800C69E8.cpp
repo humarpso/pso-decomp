@@ -35,14 +35,6 @@ u8 is_local_client_floor_leader(void);
 
 extern "C" {
 
-void vfunc_83__13TUnk_80493450Fv(void* p);
-void vfunc_93__13TUnk_80493450Fv(void);
-void vfunc_94__13TUnk_80493450Fv(void);
-void vfunc_95__13TUnk_80493450Fv(void);
-void vfunc_96__13TUnk_80493450Fv(void);
-void vfunc_97__13TUnk_80493450Fv(void);
-void vfunc_98__13TUnk_80493450Fv(void);
-void vfunc_101__13TUnk_80493450Fv(void);
 u16 get_enemy_target_id(void* p);
 
 void TUnk_80493450::vfunc_83() { this->mode = 1; }

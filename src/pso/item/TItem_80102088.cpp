@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
 
 extern "C" {
@@ -12,7 +13,6 @@ s32 spawn_particle_effect(s32, s32);
 s32 get_field_d8__10TObjPlayerFv();
 s32 TLobby__sub_8011AA44(s32, s32);
 s32 advance_item_id_counter(s32);
-s32 set_flag8__13TUnk_804AF8A0Fv(s32);
 
 void TItem::assign_id_and_init(s32 arg1, s32 arg2) {
     if ((s32) *(s32 *)&this->m_next == -1) {
@@ -33,7 +33,7 @@ void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2) {
     TLobby__sub_8011AA44(arg1, get_field_d8__10TObjPlayerFv());
     if ((arg2 != 0U) && (pickup_item__10TObjPlayerFv(arg2, arg0) != 0U)) {
         ((TItem *)arg0)->set_mode(1);
-        set_flag8__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
     }
 }
 

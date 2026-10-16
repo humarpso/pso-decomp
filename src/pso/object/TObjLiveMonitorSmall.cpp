@@ -19,8 +19,6 @@ s32 draw_ginja_model(void *);
 extern "C" {
 
 void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2);
-int render__20TObjLiveMonitorSmallFv(void* p);
-int run_task__20TObjLiveMonitorSmallFv(void* p);
 s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0);
 void *get_bml_model(s32, s32);
 void __ct__15TObjLiveMonitorFv(void *);

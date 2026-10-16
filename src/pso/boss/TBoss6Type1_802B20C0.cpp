@@ -126,7 +126,6 @@ s32 TBoss6Type1__sub_802B6C30(void *);
 s32 TBoss6Type1__sub_802B715C();
 s32 TBoss6Type1__sub_802B73AC();
 s32 update_beam_attack__11TBoss6Type1FPv();
-s32 set_action_state__11TBoss6Type1Fl(void *, int);
 s32 TBoss6Type1__sub_802B8A70(void *);
 s32 TBoss6Type1__sub_802B8BB4(void *);
 int TBoss6Type1__sub_802B8E1C(void*);
@@ -190,7 +189,7 @@ void TBoss6Type1::update_attack_countdown() {
     if (temp_r0_2 < 0) {
         latch_phase_counter();
         *(s32 *)((s8 *)this + 0x414) = 0;
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(1));
+        set_action_state((int)(1));
     }
 }
 
@@ -211,7 +210,7 @@ void TBoss6Type1::update_countdown_state() {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(0x27));
+        ((TBoss6Type1 *)arg0)->set_action_state((int)(0x27));
     }
 }
 
@@ -230,7 +229,7 @@ void TBoss6Type1::update_countdown() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(0x27));
+        set_action_state((int)(0x27));
     }
 }
 
@@ -263,7 +262,7 @@ void TBoss6Type1__sub_802B245C(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(0x14 - (*(u8 *)((s8 *)arg0 + 0x41C) & 1)));
+        ((TBoss6Type1 *)arg0)->set_action_state((int)(0x14 - (*(u8 *)((s8 *)arg0 + 0x41C) & 1)));
     }
 }
 
@@ -294,7 +293,7 @@ void TBoss6Type1::update_attack_timer() {
     temp_r0_2 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(0x23));
+        set_action_state((int)(0x23));
     }
 }
 
@@ -324,7 +323,7 @@ void TBoss6Type1::tick_attack_sequence() {
     if (temp_r0_2 < 0) {
         latch_phase_counter();
         *(s32 *)((s8 *)this + 0x414) = 0;
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(1));
+        set_action_state((int)(1));
     }
 }
 
@@ -357,7 +356,7 @@ void TBoss6Type1__sub_802B2724(u8 *arg0) {
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(0x27));
+        ((TBoss6Type1 *)arg0)->set_action_state((int)(0x27));
     }
 }
 
@@ -384,7 +383,7 @@ void TBoss6Type1::tick_state_410_timer() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(0x20));
+        set_action_state((int)(0x20));
     }
 }
 
@@ -457,7 +456,7 @@ void TBoss6Type1__sub_802B2A94(u8 *arg0) {
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(0x1E));
+        ((TBoss6Type1 *)arg0)->set_action_state((int)(0x1E));
     }
 }
 
@@ -477,7 +476,7 @@ void TBoss6Type1::update_phase() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if ((temp_r0 < 0) && (is_normal_difficulty() == 0)) {
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(0x1D));
+        set_action_state((int)(0x1D));
     }
 }
 
@@ -502,7 +501,7 @@ void TBoss6Type1::tick_flee_countdown() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(0xF - (*(u8 *)((s8 *)this + 0x41C) & 1)));
+        set_action_state((int)(0xF - (*(u8 *)((s8 *)this + 0x41C) & 1)));
     }
 }
 
@@ -521,7 +520,7 @@ void TBoss6Type1::update_timer_transition() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)((void *)(this)), (int)((int)(0x1B)));
+        set_action_state((int)((int)(0x1B)));
     }
 }
 
@@ -542,7 +541,7 @@ void tick_trap_countdown__11TBoss6Type1FPv(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)((void *)(arg0)), (int)((int)(0x27)));
+        ((TBoss6Type1 *)arg0)->set_action_state((int)((int)(0x27)));
     }
 }
 
@@ -571,7 +570,7 @@ void TBoss6Type1::update_charge() {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(0x27));
+        ((TBoss6Type1 *)arg0)->set_action_state((int)(0x27));
     }
 }
 
@@ -595,7 +594,7 @@ void TBoss6Type1::update_timer() {
     if (temp_r0_2 < 0) {
         latch_phase_counter();
         *(s32 *)((s8 *)this + 0x414) = 1;
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(1));
+        set_action_state((int)(1));
     }
 }
 
@@ -646,7 +645,7 @@ void TBoss6Type1__sub_802B31E4(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
         ((TBoss6Type1 *)arg0)->reset_param();
-        set_action_state__11TBoss6Type1Fl((void *) (arg0), (int) (1));
+        ((TBoss6Type1 *)arg0)->set_action_state((int) (1));
     }
 }
 
@@ -658,7 +657,7 @@ void TBoss6Type1::update_attack_timer2() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        set_action_state__11TBoss6Type1Fl((void *)(this), (int)(1));
+        set_action_state((int)(1));
     }
 }
 
@@ -676,13 +675,13 @@ void TBoss6Type1__sub_802B343C(void *arg0) {
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x374);
         switch (temp_r4) {
         case 11:
-            set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(0x1C));
+            ((TBoss6Type1 *)arg0)->set_action_state((int)(0x1C));
             return;
         case 16:
-            set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(0x24));
+            ((TBoss6Type1 *)arg0)->set_action_state((int)(0x24));
             return;
         default:
-            set_action_state__11TBoss6Type1Fl((void *)(arg0), (int)(temp_r4 - 1));
+            ((TBoss6Type1 *)arg0)->set_action_state((int)(temp_r4 - 1));
             break;
         }
     }
@@ -715,10 +714,10 @@ void TBoss6Type1__sub_802B3564(void *arg0) {
     if (temp_r0 < 0) {
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x374);
         if (temp_r4 == 8) {
-            ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(arg0, 1);
+            ((TBoss6Type1 *)arg0)->set_action_state(1);
             return;
         }
-        ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(arg0, temp_r4 - 1);
+        ((TBoss6Type1 *)arg0)->set_action_state(temp_r4 - 1);
     }
 }
 
@@ -745,10 +744,10 @@ void TBoss6Type1::update_timer_state() {
     if (temp_r0 < 0) {
         temp_r4 = *(s32 *)((s8 *)this + 0x374);
         if (temp_r4 == 5) {
-            ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(this, 1);
+            set_action_state(1);
             return;
         }
-        ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(this, temp_r4 - 1);
+        set_action_state(temp_r4 - 1);
     }
 }
 
@@ -782,7 +781,7 @@ void TBoss6Type1::update_action_timer() {
     temp_r0_2 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(this, 1);
+        set_action_state(1);
     }
 }
 
@@ -797,7 +796,7 @@ void TBoss6Type1__sub_802B381C(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(arg0, 1);
+        ((TBoss6Type1 *)arg0)->set_action_state(1);
     }
 }
 
@@ -810,7 +809,7 @@ void TBoss6Type1::update_attack_countdown_reset() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(this, 1);
+        set_action_state(1);
     }
 }
 
@@ -838,7 +837,7 @@ void TBoss6Type1::tick_countdown() {
     temp_r0 = *(s32 *)((s8 *)this + 0x410) - 1;
     *(s32 *)((s8 *)this + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(this, 0x27);
+        set_action_state(0x27);
     }
 }
 
@@ -900,7 +899,7 @@ void TBoss6Type1__sub_802B3B94(void *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
-        ((s32 (*)(void *, s32))set_action_state__11TBoss6Type1Fl)(arg0, 1);
+        ((TBoss6Type1 *)arg0)->set_action_state(1);
     }
 }
 

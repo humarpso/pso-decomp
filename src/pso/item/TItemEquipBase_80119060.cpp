@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/item/TItemEquipBase.h"
 
 struct RecoveredGlobal_80119060_lbl_80506228 {
@@ -26,7 +27,6 @@ void TItemEquipBase__sub_8011919C(int arg0);
 void TItemEquipBase__sub_801191D0(int arg0);
 void fn_80119204(int arg0);
 void notify_stealth_enemies_10(int arg0);
-s32 sub_800F5864__12TObjEneDD_STFl(u32, s32);
 u32 get_player_by_client_id(u16);
 
 typedef char RecoveredGlobal_80119060_lbl_80506228_size[sizeof(RecoveredGlobal_80119060_lbl_80506228) == 0x20 ? 1 : -1];
@@ -54,42 +54,42 @@ void TItemEquipBase::apply_equip_slot_effect(u16 arg0, u32 arg1) {
 void TItemEquipBase__sub_80119100(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5864__12TObjEneDD_STFl(temp, 0x20);
+        ((TObjEneDD_ST *)temp)->sub_800F5864(0x20);
     }
 }
 
 void notify_stealth_enemies_10(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5864__12TObjEneDD_STFl(temp, 0x10);
+        ((TObjEneDD_ST *)temp)->sub_800F5864(0x10);
     }
 }
 
 void TItemEquipBase__sub_80119168(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5864__12TObjEneDD_STFl(temp, 8);
+        ((TObjEneDD_ST *)temp)->sub_800F5864(8);
     }
 }
 
 void TItemEquipBase__sub_8011919C(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5864__12TObjEneDD_STFl(temp, 4);
+        ((TObjEneDD_ST *)temp)->sub_800F5864(4);
     }
 }
 
 void TItemEquipBase__sub_801191D0(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5864__12TObjEneDD_STFl(temp, 2);
+        ((TObjEneDD_ST *)temp)->sub_800F5864(2);
     }
 }
 
 void fn_80119204(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        sub_800F5864__12TObjEneDD_STFl(temp, 1);
+        ((TObjEneDD_ST *)temp)->sub_800F5864(1);
     }
 }
 

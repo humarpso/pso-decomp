@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TObjLiveMonitor.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TObjLiveCameraCtrl.h"
 
 struct O_8030B370 { u8 pad[0x24]; u32 a; s32 t; };
@@ -38,9 +41,7 @@ void fn_8030B370(O_8030B370 *o) {
 extern "C" {
 s32 is_split_screen();
 s32 TObjPlayer__sub_80084500();
-s32 render_live_monitor_screen__15TObjLiveMonitorFv(void *);
 void update_camera__15TObjLiveMonitorFPv(void* p);
-s32 get_table_entry__18TObjLiveCameraCtrlFl(int);
 s32 TObjLiveMonitor__sub_8030C050();
 s32 push_matrix();
 s32 pop_matrix();
@@ -54,13 +55,13 @@ int run_task__15TObjLiveMonitorFv(void* p);
 
 void render__15TObjLiveMonitorFv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = get_table_entry__18TObjLiveCameraCtrlFl((int) (0));
+    temp_r3 = TObjLiveCameraCtrl::get_table_entry((int) (0));
     if ((temp_r3 != 0) && (TObjLiveMonitor__sub_8030C050() != 0)) {
         update_camera__15TObjLiveMonitorFPv((void *) (temp_r3));
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();
     } else {
-        render_live_monitor_screen__15TObjLiveMonitorFv((void *) (arg0));
+        ((TObjLiveMonitor *)arg0)->render_live_monitor_screen();
     }
     push_matrix();
     draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x1C)));
@@ -148,7 +149,6 @@ struct RecoveredGlobal_8030B708___vt__14TObjLiveCamera {
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern RecoveredGlobal_8030B658_lbl_804E76C0 bm_obj_boss8_monitor_resource_descriptor;
 extern int live_monitor_shared_resource;
 void load_static_resource__14TObjLiveCameraFv(void);
@@ -168,7 +168,6 @@ void run_task__14TObjLiveCameraFv(void);
 int TLobby__sub_8001FE7C(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
     extern int live_monitor_shared_resource;
 void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(live_monitor_shared_resource), (void*)1); }
@@ -176,7 +175,7 @@ void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(live_moni
 void load_static_resource__14TObjLiveCameraFv(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_boss8_monitor_resource_descriptor.value, 0, 0, 0));
@@ -192,7 +191,7 @@ extern s32 __vt__14TObjLiveCamera[];
 void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjLiveCamera;
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -249,7 +248,6 @@ u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
 u32 TBoss8Dragon__sub_802F3348(int);
 s32 TBoss8Dragon__sub_802FCCBC(int);
-void sub_8030B818__18TObjLiveCameraCtrlFi(u8 *arg0, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern const f32 lbl_805DF1A8;
@@ -410,7 +408,7 @@ void TBoss8Dragon::update_live_camera() {
             this->m_40 = (f32) ((lbl_805DF1C4 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x38));
             *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1C8 + *(f32 *)((s8 *)temp_r3_2 + 0x3C));
             this->m_48 = (f32) ((lbl_805DF1C4 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_2 + 0x40));
-            sub_8030B818__18TObjLiveCameraCtrlFi((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_2 + 0x60) - 0x8000)));
+            ((TObjLiveCameraCtrl *)arg0)->sub_8030B818((int)((int) (*(s32 *)((s8 *)temp_r3_2 + 0x60) - 0x8000)));
             return;
         }
         break;
@@ -423,7 +421,7 @@ void TBoss8Dragon::update_live_camera() {
             this->m_40 = (f32) ((lbl_805DF1D0 * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x38));
             *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805DF1D4 + *(f32 *)((s8 *)temp_r3_3 + 0x3C));
             this->m_48 = (f32) ((lbl_805DF1D0 * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x28)))) + *(f32 *)((s8 *)temp_r3_3 + 0x40));
-            sub_8030B818__18TObjLiveCameraCtrlFi((u8 *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)temp_r3_3 + 0x60) - 0x8000)));
+            ((TObjLiveCameraCtrl *)arg0)->sub_8030B818((int)((int) (*(s32 *)((s8 *)temp_r3_3 + 0x60) - 0x8000)));
             return;
         }
         break;

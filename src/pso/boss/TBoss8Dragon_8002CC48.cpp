@@ -205,11 +205,8 @@ void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void set_chunk_material_color(void *);
 
-void run_task__22TObjBoss1MokoHill_SoloFv(Trail_8002CC48 *self);
 s32 get_state__12TBoss8DragonFv(void);
 void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1);
-void render__23TObjBoss1MokoHill_SoloMFv(Obj_8002CE78 *arg0);
-void run_task__23TObjBoss1MokoHill_SoloMFv(Trail_8002CFB8 *self);
 s32 is_dragon_trail_damaging(u8 *arg0);
 void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1);
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);

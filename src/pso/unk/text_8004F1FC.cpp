@@ -10,7 +10,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_model_motion(int, int, f32);
-void sub_8004F1FC__11TObjDFDemo4Fv(u8 *arg0);
 }
 
 extern "C" {

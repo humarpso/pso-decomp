@@ -33,7 +33,6 @@ void TWindow__close(void *);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 u32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 align_menu_entry_positions(u32);
-s32 update_layout_height__21TWindowSubComCardListFf(u32, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, s32, s32);
 u32 create_window_menu(s32 *, s32, s32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 *, s32);
@@ -102,7 +101,7 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 arg2, u32 arg3, u3
         }
         forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x34), msg, 5, 1);
     }
-    update_layout_height__21TWindowSubComCardListFf(*(u32 *)((s8 *)this + 0x34), lbl_805D6D98);
+    ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0x34)))->update_layout_height(lbl_805D6D98);
     align_menu_entry_positions(*(u32 *)((s8 *)this + 0x34));
     if (arg2 != -2) {
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0x34)))->set_selected_index(arg2);

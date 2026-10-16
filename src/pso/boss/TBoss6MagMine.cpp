@@ -183,7 +183,6 @@ s32 check_demo_mode__10TObjPlayerFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
 void submit_cursor_candidate(void *, int);
 void add_radar_scaled_marker(void *, int, int, int, f32);
-void vfunc_62__13TUnk_804F322CFv(u8 *arg0);
 void vt2__13TBoss6MagMineFv(u8 *arg0);
 void vt1__13TBoss6MagMineFv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -225,7 +224,6 @@ void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1);
 
 extern "C" {
 
-void vfunc_63__13TUnk_804F322CFv(void *arg0);
 void vt3__13TBoss6MagMineFv(s32 arg0);
 void vt4__13TBoss6MagMineFv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
@@ -233,8 +231,6 @@ void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1);
 void copy_pos__13TBoss6MagMineFi(s32 arg0);
 s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
-void render__13TUnk_804F322CFv(void* p);
-void update_linked_state__13TUnk_804F322CFv(void *arg0);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
@@ -285,7 +281,7 @@ void TUnk_804F322C::update_linked_state() {
     TObjPlayer::clear_global_state();
 }
 
-void TUnk_804F322C::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x3ac)); update_linked_state__13TUnk_804F322CFv((void *)(this)); pop_matrix(); }
+void TUnk_804F322C::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x3ac)); update_linked_state(); pop_matrix(); }
 
 void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_80368AB8, sp8) == 0x0) ? 1 : -1];

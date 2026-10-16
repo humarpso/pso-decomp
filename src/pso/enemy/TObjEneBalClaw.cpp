@@ -19,7 +19,6 @@ struct O_8008D700 { u8 pad0[0x30]; u32 flags; u8 pad34[0x378]; f32 f3ac; f32 f3b
 struct Obj_8008D79C { u8 pad0[0x388]; s32 flags; u8 pad38C[0x3B8 - 0x38C]; s32 f3B8; f32 f3BC; };
 
 extern "C" {
-void vfunc_62__14TObjEneBalClawFv(u8 *arg0);
 u8 * TObjEnemyCustom__ct(void *);
 extern s32 __vt__14TObjEneBalClaw[];
 extern s32 lbl_805D2968;
@@ -40,9 +39,6 @@ extern const f32 lbl_805D9608;
 extern "C" {
 
 void TObjEneBalClawClaw__sub_8008DC14(void);
-int is_target_in_attack_range__14TObjEneBalClawFv(void);
-void vfunc_59__14TObjEneBalClawFv(void);
-void vfunc_61__14TObjEneBalClawFv(void);
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TObjPlayer__sub_800A05B8(void *, int);

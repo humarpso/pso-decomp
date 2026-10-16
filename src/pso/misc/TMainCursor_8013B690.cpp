@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdRicoRing.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -19,7 +20,6 @@ s32 render__11TMainCursorFPv(void *);
 extern u8 shared_effect_texture_list[];
 s32 obj_testFlags30(s32, s32);
 s32 obj_getField1c(void *);
-s32 clear_flags__11TAdRicoRingFUl(void *, u32);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 check_visible__11TMainCursorFv(void *, void *, s32, s32);
 s32 set_target_index__11TMainCursorFs(void *, s32);
@@ -100,7 +100,7 @@ extern const f32 lbl_805DB0D0;
 #pragma opt_common_subs off
 void validate_target__11TMainCursorFPv(u8 *self) {
     Target_8013B70C *t;
-    clear_flags__11TAdRicoRingFUl(self + 0x20, 0xB);
+    ((TAdRicoRing *)(self + 0x20))->clear_flags(0xB);
     t = (Target_8013B70C *)((TMainCursor *)self)->check_field_24();
     if (t == NULL) {
         ((TMainCursor *)self)->update_target_sub();

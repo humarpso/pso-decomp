@@ -7,7 +7,6 @@ s32 sub_801AF454__10TObjPlayerFl(void *, u16);
 s32 draw__10TObjPlayerFPv(void *);
 s32 select_class_action_provider__10TObjPlayerFPv(void *, int);
 extern s32 TObjPlayer__shared_model_buffer;
-void sub_801BD318__10TObjPlayerFv(u8 *arg0);
 }
 
 extern "C" {

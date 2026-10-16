@@ -53,7 +53,6 @@ s32 post_translate_matrix(void *);
 s32 draw_ginja_object(int);
 s32 rotate_matrix_yxz(int, int, int, int);
 void free_collision_body_parts(void *);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
@@ -78,7 +77,7 @@ extern s32 __vt__14TOJungleDesign[];
 void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOJungleDesign;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {

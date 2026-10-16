@@ -20,9 +20,6 @@ extern "C" {
 
 void TObjPlayer__sub_801BFED4(void* p);
 s32 TObjPlayer__sub_801BFFA0(void* p);
-int vfunc_77__13TUnk_804DDD28Fv(void);
-int vfunc_10__13TUnk_804DDD28Fv(void);
-int vfunc_5__13TUnk_804DDD28Fv(void);
 int clear_id__10TObjPlayerFv(void*);
 int get_valid_child__6TLobbyFv(void*);
 s32 init_forward__10TObjPlayerFv();

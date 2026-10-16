@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOVS2Wall01.h"
 #include "pso/misc/TMotorcycle.h"
 #include "pso/object/TObjMapCsn.h"
@@ -73,7 +74,6 @@ int TLobby__send_and_handle_60(void*);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 void *TObjGoalWarpAncient__ct(void *, void *, void *);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int bswap_16__FPUs(void*);
@@ -113,7 +113,7 @@ void *TOVS2Wall01::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804B528C;
         if (*(void * *)&this->m_c8 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_c8); *(s32 *)&this->m_c8 = 0; }
-        unregister_object_by_id__13TUnk_804AF8A0Fv(this);
+        unregister_object_by_id();
         free_collision_body_parts(this);
         destroy_key_base__13TUnk_804AFBF8Fs(this, 0);
         if (arg1 > 0) {

@@ -318,7 +318,6 @@ typedef struct Param_80036EA8 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 TBoss2Joint__sub_80036940(void *);
-s32 sub_800BBA0C__9TObjEneDDFv(void *);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
 s32 vfunc_94__9TObjEneDDFv(void *);
@@ -326,10 +325,8 @@ s32 vfunc_93__9TObjEneDDFv(void *);
 extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
-void vfunc_88__11TBoss2JointFv(u8 *arg0);
 void TBoss2Joint__sub_8003688C(u8 *arg0);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-void init_common_from__9TObjEneDDFPUc(void *, void *);
 u8 * TObjEneDD__ct(void *);
 extern s32 __vt__11TBoss2Joint[];
 extern s32 TBoss2Joint__name;
@@ -358,22 +355,9 @@ extern const f32 lbl_805D8490;
 
 extern "C" {
 
-void vfunc_28__11TBoss2JointFv(void);
-void apply_poison_status__11TBoss2JointFv(void);
-void apply_paralysis__11TBoss2JointFv(void);
-void apply_slow_status__11TBoss2JointFv(void);
-void apply_confusion_status__11TBoss2JointFv(void);
-void apply_movement_ailment__11TBoss2JointFl(void);
-void apply_shock_status__11TBoss2JointFv(void);
-void clear_harmful_statuses__11TBoss2JointFv(void);
-void vfunc_61__11TBoss2JointFv(void);
-void vfunc_62__11TBoss2JointFv(u8 *arg0);
-void vfunc_63__11TBoss2JointFv(void* p);
-void vfunc_93__11TBoss2JointFv(void *arg0);
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
 s32 spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
 s32 apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
-s32 clear_attack_receipts__9TObjEneDDFv(void *);
 void TObjEneDD__vt0(void *, int);
 void free_collision_body_parts(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
@@ -513,7 +497,7 @@ void TBoss2Joint::vfunc_62() {
         apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(*(s32 *)((s8 *)self + 0x10), temp_r31, *(u16 *)((s8 *)self + 0x2D4));
     }
     *(s16 *)((s8 *)self + 0x32C) = (s16) *(s16 *)((s8 *)self + 0x2B8);
-    clear_attack_receipts__9TObjEneDDFv(((u8 *)this));
+    clear_attack_receipts();
 }
 
 void TBoss2Joint::vfunc_63() { *(u32*)((char*)this + 0x30) &= 0xfffff7ff; }
@@ -530,7 +514,7 @@ void TBoss2Joint::run_task() {
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
         }
         ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
-        sub_800BBA0C__9TObjEneDDFv((void *) (arg0));
+        ((TObjEneDD *)arg0)->sub_800BBA0C();
         TBoss2Joint__sub_80036940((void *) (arg0));
         update_position_history();
         ((VObj_18 *)(arg0))->m86();
@@ -588,7 +572,7 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
     TObjEneDD__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80036FC8___vt__11TBoss2Joint *)&__vt__11TBoss2Joint).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss2Joint__name;
-    init_common_from__9TObjEneDDFPUc(arg0, arg1);
+    ((TObjEneDD *)arg0)->init_common_from(arg1);
     *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x390) = arg4;

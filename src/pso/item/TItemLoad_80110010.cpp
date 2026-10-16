@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F3F4.h"
 #include "pso/item/TUnk_8049F42C.h"
 #include "pso/TItemLoad.h"
 #include "pso/TObject.h"
@@ -30,7 +31,6 @@ s32 TItemLoad__sub_801107E4(void *p);
 void *TItemLoad__sub_801107EC(void *p);
 extern u32 TItemLoad__completed_model_load_task_root;
 Parm_8011029C *lookup_item_pmt_record(void *);
-void init__13TUnk_8049F3F4FPvPvPvPv(void *, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
 extern s16 lbl_8043E4C0[];
 extern s16 lbl_8043E4C8[];
@@ -49,7 +49,6 @@ Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 
 
 extern "C" {
 
-void *sub_80110010__13TUnk_8049F42CFs(void *arg0, s16 arg1);
 s32 TItemLoad__sub_801107F4(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -153,7 +152,7 @@ s32 request_item_model_load(u8 *item) {
                             TItemLoad__model_slot_in_use[i] = 1;
                             obj = __nw__7TObjectFUl(0x44);
                             if (obj != NULL) {
-                                init__13TUnk_8049F3F4FPvPvPvPv(obj, TItemLoad__model_load_task_root, i, a, b);
+                                ((TUnk_8049F3F4 *)obj)->init((void *)TItemLoad__model_load_task_root, (void *)i, (void *)a, (void *)b);
                             }
                             return i;
                         }

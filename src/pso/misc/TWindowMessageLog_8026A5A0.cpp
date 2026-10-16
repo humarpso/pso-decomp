@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void update_scroll_animation__17TWindowMessageLogFv(void *arg0);
 s32 clamp_scroll_offset__17TWindowMessageLogFv(f32);
 
 extern const f32 lbl_805DD240;

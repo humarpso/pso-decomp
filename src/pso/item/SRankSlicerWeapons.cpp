@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TItemAttacker.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A4338.h"
 #include "pso/item/TUnk_804A4238.h"
 extern "C" { extern void *s_rank_j_cutter_weapon_vtable[64]; extern void *s_rank_slicer_weapon_vtable[64]; }
@@ -29,9 +31,6 @@ struct Tec_801293FC {
 
 extern "C" {
 s16 obj_getField1c(void *);
-s32 get_field_d8__10TObjPlayerFv(void *);
-void spawn_item_timer__13TItemAttackerFlll(void *, void *, s32);
-s32 draw_icon__10TObjPlayerFll(void *, s32, void *);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void TObjPlayer__sub_80128A70(void);
 void init_slicer_launch_state(void *);
@@ -54,7 +53,7 @@ void TUnk_804A4238::emit_marker_effects() {
     TObjPlayer__sub_80128A70();
     init_slicer_launch_state(&tec);
     tec.id = obj_getField1c(self->owner);
-    tec.fC = get_field_d8__10TObjPlayerFv(self);
+    tec.fC = ((TObjPlayer *)self)->get_field_d8();
     tec.f4 = self->f24;
     tec.f8 = self->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
@@ -65,9 +64,9 @@ void TUnk_804A4238::emit_marker_effects() {
     tec.f20 = lbl_805DAE20;
     tec.f24 = lbl_805DAE24;
     tec.f28 = self->owner->f60;
-    draw_icon__10TObjPlayerFll(self, 3, &tec.pos);
-    draw_icon__10TObjPlayerFll(self, 2, &tec.dir);
-    spawn_item_timer__13TItemAttackerFlll(create__10TTecSlicerFPUs(&tec), enlarge_s_rank_j_cutter_blade, 3);
+    ((TObjPlayer *)self)->draw_icon((s32)3, (s32)(&tec.pos));
+    ((TObjPlayer *)self)->draw_icon((s32)2, (s32)(&tec.dir));
+    TItemAttacker::spawn_item_timer((s32)(create__10TTecSlicerFPUs(&tec)), (s32)enlarge_s_rank_j_cutter_blade, (s32)3);
 }
 
 }
@@ -203,8 +202,6 @@ extern const f32 lbl_805DAE18;
 extern const f32 lbl_805DAE2C;
 void init_slicer_launch_state(void *);
 s16 obj_getField1c(void *);
-s32 get_field_d8__10TObjPlayerFv(void *);
-s32 draw_icon__10TObjPlayerFll(void *, s32, void *);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void TObjPlayer__sub_80128A70(void);
 void init_slicer_launch_state(void *);
@@ -241,7 +238,7 @@ void TUnk_804A4338::emit_marker_effects() {
     TObjPlayer__sub_80128A70();
     init_slicer_launch_state((struct SlicerState_801295FC *)((SlicerState_801295FC *)&tec));
     tec.id = obj_getField1c(self->owner);
-    tec.fC = get_field_d8__10TObjPlayerFv(self);
+    tec.fC = ((TObjPlayer *)self)->get_field_d8();
     tec.f4 = self->f24;
     tec.f8 = self->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
@@ -252,8 +249,8 @@ void TUnk_804A4338::emit_marker_effects() {
     tec.f20 = lbl_805DAE38;
     tec.f24 = lbl_805DAE3C;
     tec.f28 = self->owner->f60;
-    draw_icon__10TObjPlayerFll(self, 1, &tec.pos);
-    draw_icon__10TObjPlayerFll(self, 2, &tec.dir);
+    ((TObjPlayer *)self)->draw_icon((s32)1, (s32)(&tec.pos));
+    ((TObjPlayer *)self)->draw_icon((s32)2, (s32)(&tec.dir));
     create__10TTecSlicerFPUs(&tec);
 }
 

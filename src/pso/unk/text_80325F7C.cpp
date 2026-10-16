@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TBoss5GryphonLightningWing.h"
 #include "pso/TBoss5GryphonLightningHorn.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -39,7 +40,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80326074 *csnVecterUnder(void *, s32);
 void get_wing_position__26TBoss5GryphonLightningWingFl(void *, void *);
 void copy_position__12TBoss8DragonFl(void *, void *);
-void update_wing_segments__26TBoss5GryphonLightningWingFv(void *);
 s32 rand(void);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
@@ -49,7 +49,6 @@ extern const f32 lbl_805DF640;
 extern const f32 lbl_805DF644;
 extern const f32 lbl_805DF648;
 extern const f32 lbl_805DF64C;
-void rebuild_lightning_segments__26TBoss5GryphonLightningHornFv(Wing_80326074 *self);
 }
 
 extern "C" {
@@ -131,7 +130,7 @@ void TBoss5GryphonLightningHorn::rebuild_lightning_segments() {
     for (i = 1; i < self->n - 1; i++) {
         self->segs[i].pos.y += r;
     }
-    update_wing_segments__26TBoss5GryphonLightningWingFv(self);
+    ((TBoss5GryphonLightningWing *)self)->update_wing_segments();
 }
 #pragma pop
 

@@ -14,21 +14,17 @@ struct V_8032D214 : B_8032D214 {
 };
 
 extern "C" {
-void vfunc_9__16TAdWarningBaseGCFv(void *self);
 void send_and_handle__6TLobbyFii(s32, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477334[];
 extern u8 lbl_8047733C[];
-s32 sub_8032D214__16TAdWarningBaseGCFv(V_8032D214 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
-s32 sub_8032D214__16TAdWarningBaseGCFv(V_8032D214 *arg0);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF7B0;
-void vfunc_8__16TAdWarningBaseGCFv(u8 *arg0);
 }
 
 extern "C" {
@@ -68,7 +64,7 @@ void TAdWarningBaseGC::vfunc_8() {
     *(s32 *)&this->m_20 = *(s32 *)&this->m_1c;
     switch (*(s32 *)&this->m_1c) {
     case 0:
-        *(s32 *)&this->m_2c = sub_8032D214__16TAdWarningBaseGCFv((V_8032D214 *)arg0);
+        *(s32 *)&this->m_2c = ((TAdWarningBaseGC *)arg0)->sub_8032D214();
         *(s32 *)&this->m_1c = 1;
         break;
     case 1:

@@ -15,7 +15,6 @@ s32 draw_text_gray__17TWindowSubComCardFllll(void *, void *, int, int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, int, int);
 void *draw_card_icon__17TWindowSubComCardFll(s32, int, void *);
 s32 get_window_layout_position(s32);
-s16 get_field_72__21TWindowSubComCardListFv(void *);
 extern const f32 lbl_805DFDD8;
 extern const f32 lbl_805DFDDC;
 void *TWindowSubComCard__sub_8034CDE0(void);
@@ -52,7 +51,7 @@ void *TWindowSubComCard__sub_8034CDE0(void) {
             draw_text_gray__17TWindowSubComCardFllll(w, it, 0x16, i);
         }
     }
-    if (get_field_72__21TWindowSubComCardListFv(w) <= 0) {
+    if (((TWindowSubComCardList *)w)->get_field_72() <= 0) {
         draw_text_gray__17TWindowSubComCardFllll(w, TWindowSubStatusDisp::get_message_10(0xD2), 6, -1);
     }
     ((TWindowSubComCardList *)w)->set_flag70_bit10();

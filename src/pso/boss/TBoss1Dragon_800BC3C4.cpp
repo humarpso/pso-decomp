@@ -3,7 +3,6 @@
 #include "pso/boss/TBoss1Dragon.h"
 
 extern "C" {
-void sub_800BC3E8__13TUnk_804928CCFPUc(u8 *arg0, u8 *arg1);
 u8 is_area_attack_target_eligible(void *arg0, u32 arg1);
 }
 

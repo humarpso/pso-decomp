@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdYesNoBaseGC.h"
 #include "pso/ui/TAdVIConfigGC.h"
 
 struct Elem_80125628 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
@@ -19,8 +20,6 @@ void spawn_nug2000_hit_explosion(s32 arg0, s32 arg1);
 
 extern "C" {
 
-void vfunc_8__14TAdYesNoBaseGCFv(void);
-void vfunc_9__14TAdYesNoBaseGCFv(void);
 u32 find_item_by_id(void);
 s32 spawn_fire_explosion_at(u32 a0 = 0, s32 a1 = 0);
 

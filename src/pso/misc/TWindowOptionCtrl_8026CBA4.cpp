@@ -33,7 +33,6 @@ V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DD2C8;
-void sub_8026CC28__13TUnk_804CE018Fv(Win_8026CC28 *w);
 }
 
 extern "C" {

@@ -68,10 +68,6 @@ extern const f32 lbl_805DF70C;
 
 extern "C" {
 
-void vfunc_9__18TAdAgreementBaseGCFv(void* p);
-void vfunc_6__18TAdAgreementBaseGCFv(void);
-void vfunc_7__18TAdAgreementBaseGCFv(void);
-void vfunc_8__18TAdAgreementBaseGCFv(void);
 void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 void fn_80329BAC(void* p);
 void __dl__7TObjectFPv(void *);

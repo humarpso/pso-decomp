@@ -20,7 +20,6 @@ s32 lbl_805D6AB0;
 
 extern "C" {
 
-int set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(void*, void*);
 int init_battle__19TPlayerBattleCtrl4PFPv(void*);
 void send_and_handle__6TLobbyFii(void *, void *, int);
 void *destroy__19TPlayerBattleCtrl4PFs(void *arg0, s16 arg1);
@@ -90,7 +89,7 @@ void TPlayerBattleCtrl4P::run_task() {
 extern "C" {
 
 }
-void TPlayerBattleCtrl4P::initialize_battle() { init_battle__19TPlayerBattleCtrl4PFPv(((void*)this)); set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(((void*)this), (void*)1); }
+void TPlayerBattleCtrl4P::initialize_battle() { init_battle__19TPlayerBattleCtrl4PFPv(((void*)this)); set_split_screen_battle_phase((s32)((void*)1)); }
 extern "C" {
 
 }
@@ -177,7 +176,7 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
     __ct__7TObjectFP7TObject(((void *)this), parent);
     *(void **)((s8 *)((void *)this) + 0x18) = __vt__19TPlayerBattleCtrl4P;
     *(s32 *)((s8 *)((void *)this) + 0) = TPlayerBattleCtrl4P__name;
-    set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(((void *)this), 0);
+    set_split_screen_battle_phase((s32)0);
     *(s32 *)((s8 *)((void *)this) + 0x20) = 0;
     *(s32 *)((s8 *)((void *)this) + 0x24) = 0;
     clear_split_screen_battle_window_slots(((void *)this));

@@ -44,7 +44,6 @@ int queue_destruction__7TObjectFv(void *);
 void reset_slots__14TAdSelectTxtGCFPvPvPv(Sel_802A16CC *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(s32);
 void *__ct__17TAdSelectTxtSubGCFv(void *, void *, void *);
-void init_slot_entries__14TAdSelectTxtGCFPvPv(Sel_802A1838 *arg0, Src_802A1838 *arg1, void *arg2);
 void TLobby__sub_8023E4B4(s32, s32);
 extern Tbl_802A194C select_gamen_resource_name_table;
 extern Tbl_802A194C select_gamen_resource_name_table_b;
@@ -78,7 +77,7 @@ void reset_slots__14TAdSelectTxtGCFPvPvPv(Sel_802A16CC *arg0, void *arg1, void *
             arg0->slots[i] = 0;
         }
     }
-    init_slot_entries__14TAdSelectTxtGCFPvPv((Sel_802A1838 *)(arg0), (Src_802A1838 *)(arg1), (void *)(arg2));
+    ((TAdSelectTxtGC *)arg0)->init_slot_entries((Src_802A1838 *)(arg1), (void *)(arg2));
 }
 
 extern s32 __vt__14TAdSelectTxtGC[];
@@ -118,7 +117,7 @@ void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdSelectTxtGC;
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D3D88;
-    init_slot_entries__14TAdSelectTxtGCFPvPv((Sel_802A1838 *)(arg0), (Src_802A1838 *)(arg2), (void *)(arg3));
+    ((TAdSelectTxtGC *)arg0)->init_slot_entries((Src_802A1838 *)(arg2), (void *)(arg3));
     return arg0;
 }
 

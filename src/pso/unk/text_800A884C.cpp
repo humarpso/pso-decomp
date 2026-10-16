@@ -8,7 +8,6 @@ struct O_800A884C { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
 
 extern "C" {
 extern G_800A884C *dimedian_resource_ptr;
-void load_dimedian_param_entry__15TObjEneDimedianFl(O_800A884C *self, s32 i);
 }
 
 extern "C" {

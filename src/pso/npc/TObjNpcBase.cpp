@@ -45,10 +45,7 @@ void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-void sub_80149358__11TObjNpcBaseFl(void* p, s32 v);
-void sub_80149360__11TObjNpcBaseFl(void* p, s32 v);
 void TObjNpcBase__sub_80149368(void* p);
-void vfunc_88__11TObjNpcBaseFv(void);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);

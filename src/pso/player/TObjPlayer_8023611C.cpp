@@ -138,7 +138,6 @@ void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
 f32 vector_length(void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-u8 *query_technique_enemy_contacts__13TUnk_804CCC68Fl(void *self, s32 arg);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC890;
 extern const f64 lbl_8044D8D0[];
@@ -151,7 +150,6 @@ void resetTechniqueContactQuery();
 u16 obj_getField1c(void *);
 f32 vector_length(void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-u8 *query_technique_player_contacts__13TUnk_804CCC68Fl(void *self, s32 arg);
 }
 
 extern "C" {

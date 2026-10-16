@@ -36,7 +36,6 @@ struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
 };
 
 extern "C" {
-void run_task__24TObjFogCollision_ManagerFv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804AF7B0[];
 u8 *init_base__22TObjFogCollisionPoisonFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
@@ -56,7 +55,6 @@ extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCol
 void vfunc_14__22TObjFogCollisionSwitchFv(void *self);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80440078[];
-void vfunc_14__22TObjFogCollisionPoisonFv(void *self);
 s16 obj_getS16_32C(s32);
 s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFv(s32);

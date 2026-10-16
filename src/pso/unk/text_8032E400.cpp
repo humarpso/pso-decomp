@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804EDD44.h"
 #include "pso/item/TItemAttackCol.h"
 struct Vec_8032E400 { f32 x, y, z; };
 
@@ -15,7 +16,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void sub_8032E294__13TUnk_804EDD44Fv(void *);
 extern const f64 lbl_804773A8[];
 extern u8 lbl_804EDD44[];
 Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5);
@@ -33,7 +33,7 @@ Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Re
     VecCopy__FP3VecPC3Vec(&arg0->rpos, &arg2->owner->recs[arg2->idx].pos);
     arg0->f58 = lbl_804773A8[0] * atan2_float(arg3->x, arg3->z);
     arg0->f50 = arg4;
-    sub_8032E294__13TUnk_804EDD44Fv(arg0);
+    ((TUnk_804EDD44 *)arg0)->sub_8032E294();
     return arg0;
 }
 

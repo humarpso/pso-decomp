@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TObjCityAirCar_Car.h"
 
 struct RecoveredGlobal_80181278_lbl_804B5908 {
     s32 value;
@@ -6,7 +7,6 @@ struct RecoveredGlobal_80181278_lbl_804B5908 {
 };
 
 extern "C" {
-s32 update_path_motion__18TObjCityAirCar_CarFv(void *);
 u8 * construct_world_actor_base(void *);
 extern RecoveredGlobal_80181278_lbl_804B5908 __vt__18TObjCityAirCar_Car;
 extern s32 TObjCityAirCar_Car__name;
@@ -28,7 +28,7 @@ u8 *construct_city_air_car(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     *(s32 *)((s8 *)arg0 + 0xA4) = 0;
     *(s32 *)((s8 *)arg0 + 0xA8) = 0;
-    update_path_motion__18TObjCityAirCar_CarFv(arg0);
+    ((TObjCityAirCar_Car *)arg0)->update_path_motion();
     *(s32 *)((s8 *)arg0 + 0x64) = 0;
     return arg0;
 }

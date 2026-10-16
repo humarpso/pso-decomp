@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/object/TObjDoorKey.h"
 #include "pso/TParticleCtrl.h"
@@ -65,13 +66,11 @@ struct Key_8018FCD8 { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x28]; s32 
 struct Vec_80190020 { f32 x, y, z; };
 
 extern "C" {
-void vfunc_16__11TObjDoorKeyFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void debug_draw_key_id__5TOKeyFv();
 void debug_printf_at(int, void *, ...);
 extern u8 lbl_804456C8[];
 extern const f32 lbl_805DBE08;
-void debug_draw_key_id__11TObjDoorKeyFv(Key_8018FD9C *arg0);
 s32 get_bml_model(s32, int);
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 load_gvm_texture_file(void *);
@@ -129,16 +128,12 @@ extern "C" {
 
 void *TObjDoorKey__create(void *arg0);
 void TObjDoorKey__sub_8018FAEC(void);
-int vfunc_17__11TObjDoorKeyFv(void* p);
-void vfunc_19__11TObjDoorKeyFv(void);
-int update_armed_switch__11TObjDoorKeyFv(void* p);
 void * TObjEnvSoundGlobal__create(void *arg0);
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 int update_armed_switch__5TOKeyFv(void*);
 s32 free_collision_body_parts(void *);
 void *TObjEnvSoundGlobal__ct(void *, void *, void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 int submit_cursor_candidate(void*, int);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__5TOKeyFv(void *, s32);
@@ -289,7 +284,7 @@ extern s32 __vt__11TObjDoorKey[];
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjDoorKey;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8));

@@ -19,8 +19,6 @@ struct VObj_80092B10 : VBase_80092B10 {
 
 extern "C" {
 
-void vfunc_83__16TObjEneRe7BeruraFv(void* p);
-
 int TObjEneRe7Berura__sub_80095328(void*);
 int get_target_info__9TObjEneDDFPv(void*);
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubEquipKind.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -8,7 +9,6 @@ struct RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind {
 };
 
 extern "C" {
-s32 create_menu_scroll_bar__13TUnk_804D0618Fv(void *);
 s32 fn_802683F4(void *, void *, int, void *);
 extern s32 __vt__19TWindowSubEquipKind[];
 extern s32 TWindowSubEquipKind__class_name;
@@ -26,7 +26,6 @@ s32 update_item_list_window();
 s32 draw_window_scrollbar(s32, s32, void *);
 s32 draw_tab_label__20TWindowSubStatusDispFPvPv(void *, s32);
 void __dl__7TObjectFPv(void *);
-s32 draw_selected_list_entry__13TUnk_804D0618Fl(void *, s32);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 void render__19TWindowSubEquipKindFv(u8 *arg0) {
@@ -35,7 +34,7 @@ void render__19TWindowSubEquipKindFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    draw_selected_list_entry__13TUnk_804D0618Fl(arg0, temp_r3);
+    ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
     if ((s16) *(s16 *)((s8 *)arg0 + 0x88) != 4) {
         draw_tab_label__20TWindowSubStatusDispFPvPv(arg0, temp_r3);
     }
@@ -74,7 +73,7 @@ u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (0x1F), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind *)&__vt__19TWindowSubEquipKind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipKind__class_name;
-    create_menu_scroll_bar__13TUnk_804D0618Fv((void *) (arg0));
+    ((TUnk_804D0618 *)arg0)->create_menu_scroll_bar();
     *(s16 *)((s8 *)arg0 + 0x88) = 4;
     *(s16 *)((s8 *)arg0 + 0x8A) = 0;
     return arg0;

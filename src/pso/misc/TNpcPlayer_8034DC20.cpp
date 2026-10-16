@@ -68,8 +68,6 @@ u8 *construct_party_area__10TNpcPlayerFPvPv(u8 *self, void *parent);
 
 extern "C" {
 
-void run_task__13TUnk_804F07C8Fv(void);
-
 void TUnk_804F07C8::run_task() {  }
 typedef char RecoveredGlobal_8034DE10_lbl_80478C70_size[sizeof(RecoveredGlobal_8034DE10_lbl_80478C70) == 0x18 ? 1 : -1];
 

@@ -10,7 +10,6 @@ extern "C" {
 s32 play_persistent_sound(int, void *, void *, int, int);
 void tick_persistent_sound__15TObjIllGillKageFPv(u8 *arg0);
 void tick_persistent_sound__15TObjIllGillKageFPv(u8 *arg0);
-void run_task__15TObjIllGillKageFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 int queue_destruction__7TObjectFv(void*);

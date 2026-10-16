@@ -95,7 +95,6 @@ s32 TKeyBoardControl__sub_8000F9CC(int);
 void queue_destruction__7TObjectFv(void *);
 u32 __nw__7TObjectFUl(int);
 s32 __ct__10TAdTitleGCFv(int, void *, int);
-s32 create_parts__14TAdEnterBaseGCFv(void *);
 s32 TAdEnterBaseGC__ct(void *);
 void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 extern s32 __vt__18TAdEnterPasswordGC[];
@@ -315,7 +314,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }
-    create_parts__14TAdEnterBaseGCFv((void *) (arg0));
+    ((TAdEnterBaseGC *)arg0)->create_parts();
     temp_r3 = __nw__7TObjectFUl((int) (0x138));
     if (temp_r3 != 0U) {
         __ct__10TAdTitleGCFv((int) (temp_r3), (void *) (arg0), (int) (0xC));

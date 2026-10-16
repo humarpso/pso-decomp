@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TPhotonLine.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -55,7 +57,6 @@ extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
 void *find_entity_by_id(u16);
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 lbl_804C37D8[];
 extern s32 __vt__11TPhotonLine[];
@@ -67,7 +68,6 @@ u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 s32 spawn_particle_effect(void *, s32);
-void mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 void queue_photon_blast_hit(s32, s32, s32, f32);
 void vec3_add_to(Vec_801ACD14 *, Vec_801ACD14 *);
 extern const f32 lbl_805DC1D8;
@@ -78,9 +78,7 @@ extern "C" {
 
 void *__dt__11TPhotonLineFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
-s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 
 void TPhotonLine::render() { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
 
@@ -100,7 +98,7 @@ void run_task__11TPhotonLineFv(Line_801ACB14 *self) {
         return;
     }
     TObjPlayer::init_all_slots();
-    mark_enemy_body_contacts__13TUnk_804AF8A0Fv(self);
+    ((TUnk_804AF8A0 *)self)->mark_enemy_body_contacts();
     if (self->fA4->f18 & 0x100000) {
         for (i = 0; i < 16; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
@@ -130,9 +128,9 @@ void run_task__11TPhotonLineFv(Line_801ACB14 *self) {
 void *__dt__11TPhotonLineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TPhotonLine;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
+        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -152,7 +150,7 @@ Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *pa
     self->f344 = p->f1C;
     self->f350 = find_entity_by_id(arg3);
     init_collision_body_parts(self, lbl_804C37D8, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
+    ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     ((TObjPlayer *)self)->reset_photon_effect();
     for (i = 0; i < 10; i++) {
         self->f354[i] = 0xFFFF;

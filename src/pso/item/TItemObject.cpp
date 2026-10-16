@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TItemObject.h"
 #include "pso/item/TItemData.h"
 
@@ -7,13 +8,12 @@ extern "C" {
 s32 is_item_stackable(s32 arg0, s32 arg1);
 int get_sorted_item_registry_entry(int a0);
 int get_item_registry_count(void);
-void copy_to_item_data__5TItemFPv(void *, void *);
 u8 *find_item_by_id(s32 id);
 
 void TItemObject::copy_and_register_item_data() {
     s32 sp8[4];
 
-    copy_to_item_data__5TItemFPv(this, &sp8);
+    copy_to_item_data(&sp8);
     ((TItemData *)(&sp8))->get_item_use_result();
 }
 

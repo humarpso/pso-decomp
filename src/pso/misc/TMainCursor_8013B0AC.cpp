@@ -25,7 +25,6 @@ s32 test_flag_2000000__10TObjPlayerFPv(Pl_8013B0F0 *);
 s32 submit_cursor_candidate(Pl_8013B0F0 *, int);
 Pl_8013B0F0 *get_player_by_client_id(u16);
 extern Pl_8013B0F0 *player_slot_table[12];
-void run_task__10TLOC_StartFv(s32 arg0);
 }
 
 extern "C" {

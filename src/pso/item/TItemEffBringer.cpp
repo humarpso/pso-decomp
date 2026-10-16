@@ -1,4 +1,5 @@
 #include "pso/TItemEffBringer.h"
+#include "pso/boss/TBoss4Type2.h"
 
 #include "types.h"
 #include "dolphin/mtx.h"
@@ -46,7 +47,6 @@ extern "C" {
 void subtract_vector(Vec*, Vec*);
 }
 extern "C" {
-void request_destroy__11TBoss4Type2FUl(s32);
 }
 
 void TItemEffBringer::hook() {
@@ -59,7 +59,7 @@ void TItemEffBringer::hook() {
 
 TItemEffBringer::~TItemEffBringer() {
     for (int i = 0; i != this->m_particle_count; i++) {
-        request_destroy__11TBoss4Type2FUl(this->m_particles[i]);
+        TBoss4Type2::request_destroy(this->m_particles[i]);
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm3Fly.h"
 #include <stddef.h>
@@ -1475,17 +1476,11 @@ s32 TObjEneBm3Fly__sub_800B0B20(void *, void *);
 s32 TObjEneBm3Fly__sub_800B0F70(void *, void *);
 s32 TObjEneBm3Fly__sub_800B1214(void *, void *);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *);
-void clamp_flight_height__13TObjEneBm3FlyFv(u8 *arg0);
 void update_state_flag__13TObjEneBm3FlyFPv(void *arg0);
 void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
-void update_collide_flag__13TObjEneBm3FlyFv(void *arg0);
 void circle_destination__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
 void update_height_offset__13TObjEneBm3FlyFPv(void *arg0);
 void update__13TObjEneBm3FlyFPv(void *arg0);
-void vfunc_61__13TObjEneBm3FlyFv(void);
-void vfunc_62__13TObjEneBm3FlyFv(void* p);
-void vfunc_63__13TObjEneBm3FlyFv(u8 *arg0);
-void vfunc_28__13TObjEneBm3FlyFv(void);
 void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2);
 void * __dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
 u8 * TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6);
@@ -1502,7 +1497,6 @@ void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1);
 void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
-void state_initial_emit__17TObjEneBm3FlyNestFl(u8 *arg0, s32 arg1);
 void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 void init_params__17TObjEneBm3FlyNestFv(void *arg0);
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
@@ -1519,7 +1513,6 @@ int TObjEneBm3FlyNest__sub_800B4158(void);
 void * destroy_monest_carrier(void *arg0, s16 arg1);
 u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
-s32 enemy_copy_target_destination__12TObjEneDD_STFv();
 void __dt__9TObjEneDDFv(void *, int);
 s32 is_main_phase_15__9TObjEneDDFv();
 void update_player_state__9TObjEneDDFv(void *, Vec_800B23A0 *, s32);
@@ -1530,7 +1523,6 @@ int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 s32 clear_attack_receipts__9TObjEneDDFv();
 s32 noop__12TBoss8DragonFv(void *);
 s32 TBoss8Dragon__sub_800BB7D4(void *, s32);
-s32 init_common_from__9TObjEneDDFPUc(void *, void *);
 s32 get_target_info__9TObjEneDDFPv(void *);
 s32 pack_debug_text_position(s32, s32);
 u32 load_enemy_bml_resource_named(void *, void *);
@@ -2550,7 +2542,7 @@ void TObjEneBm3FlyNest::vfunc_28() {  }
 void dispatch_state__17TObjEneBm3FlyNestFiUii(s32 arg0, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 1:
-        ((s32 (*)(void *, void *))state_initial_emit__17TObjEneBm3FlyNestFl)((void *) (arg0), (void *) (arg2));
+        ((TObjEneBm3FlyNest *)arg0)->state_initial_emit((s32)((void *) (arg2)));
         return;
     case 0:
         ((s32 (*)(void *, void *))handle_appear__17TObjEneBm3FlyNestFPvi)((void *) (arg0), (void *) (arg2));

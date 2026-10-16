@@ -22,8 +22,6 @@ s32 TWindowDD__sub_803484C4(void *);
 void TWindowDD__sub_80342428(u8 *arg0);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
-u8 sub_80342268__17TWindowDD_WS_WordFv(O_80342268 *self);
-u8 sub_80342254__17TWindowDD_WS_WordFv(O_80342254 *self);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 s32 reset_fields__9TWindowDDFv(void *, void *);
 extern s32 lbl_805D42E0;

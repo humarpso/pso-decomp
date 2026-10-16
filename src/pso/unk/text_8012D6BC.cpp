@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecSlicer.h"
 #include "pso/item/TUnk_804A5A28.h"
 #include "pso/TItemAttacker.h"
 #include "pso/player/TObjPlayer.h"
@@ -40,7 +41,6 @@ struct SlicerState_801295FC;
 void init_slicer_launch_state(SlicerState_801295FC *s);
 s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
-void *create__10TTecSlicerFPUs(void *);
 void enlarge_flight_cutter_slicer(void);
 extern const f32 lbl_805DAF28;
 extern const f32 lbl_805DAF2C;
@@ -75,7 +75,7 @@ void TUnk_804A5A28::emit_marker_effects() {
     tec.f28 = ((Self_8012D708 *)this)->owner->f60;
     ((TObjPlayer *)((Self_8012D708 *)this))->draw_icon((s32)3, (s32)(&tec.pos));
     ((TObjPlayer *)((Self_8012D708 *)this))->draw_icon((s32)2, (s32)(&tec.dir));
-    TItemAttacker::spawn_item_timer((s32)(create__10TTecSlicerFPUs(&tec)), (s32)enlarge_flight_cutter_slicer, (s32)3);
+    TItemAttacker::spawn_item_timer((s32)(TTecSlicer::create((u16*)(&tec))), (s32)enlarge_flight_cutter_slicer, (s32)3);
 }
 
 }

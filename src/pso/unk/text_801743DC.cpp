@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -25,7 +26,6 @@ struct RecoveredGlobal_801743DC___vt__14TORockCaveSS02 {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TORockCaveSimple__ct();
 extern RecoveredGlobal_801743DC_lbl_804B3BA8 cave_rock_collision_body_templates;
@@ -49,7 +49,7 @@ u8 *TORockCaveSS02__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) (cave_rock_resource_bundle), (int) (5));
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805DB970;
     init_collision_body_parts((void *) (arg0), (void *) (&cave_rock_collision_body_templates.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

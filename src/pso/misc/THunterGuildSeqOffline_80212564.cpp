@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 
 struct Base_802125BC_80212564 { char pad[0x18]; };
@@ -30,7 +31,6 @@ struct VObj_80212564 : Base_80212564 {
 
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
-int set_field_20__15TShopWindowBaseFl(void *, int);
 
 extern struct VObj_80212564 *THunterGuildSeqOffline__active_instance;
 
@@ -38,7 +38,7 @@ void THunterGuildSeqOffline::set_state_4() {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(6, 1);
         *(s32 *)((s8 *)THunterGuildSeqOffline__active_instance + 0x38) = 4;
-        set_field_20__15TShopWindowBaseFl((void *)(THunterGuildSeqOffline__active_instance), (int)(5));
+        ((TShopWindowBase *)THunterGuildSeqOffline__active_instance)->set_field_20((int)(5));
     }
 }
 
@@ -46,7 +46,7 @@ void THunterGuildSeqOffline::handle_click() {
     VObj_802125BC_80212564 *o = (VObj_802125BC_80212564 *)this;
     if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m7(0x19, 1);
-        set_field_20__15TShopWindowBaseFl((void *)(this), (int)(4));
+        set_field_20((int)(4));
     }
 }
 

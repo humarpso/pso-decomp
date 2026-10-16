@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorJungleMain.h"
 #include "pso/misc/TOKeyJungleMain.h"
@@ -12,7 +13,6 @@ extern "C" u8 * TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void vfunc_6__16TODoorJungleMainFPsl(void *arg0, s16 *arg1, s32 arg2);
 s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
@@ -208,7 +208,6 @@ u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80465418;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_o_jungle_doormain_resource_descriptor;
 s32 get_bml_motion(void *, s32);
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_door_base(void *);
 extern RecoveredGlobal_8029B924_lbl_804DC014 TODoorJungleMain_collision_body_parts;
@@ -254,8 +253,6 @@ struct Vec_8029B640 { s32 x, y, z; };
 struct Mtx_8029B640 { f32 m[12]; };
 
 extern "C" {
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 TOKeyJungleMain__data_804653C8[3];
 extern s32 game_difficulty_selection;
@@ -275,7 +272,6 @@ void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 
 extern u32 TODoorJungleMain__bml_resource;
@@ -355,9 +351,9 @@ void TODoorJungleMain::update_door_switch_state() {
         } else {
             self->flags &= ~1;
         }
-        if ((self->flags & 1) && access_object_saved_state__13TUnk_804AF8A0FPvs(self, &sp8, 1) == 1) {
+        if ((self->flags & 1) && ((TUnk_804AF8A0 *)self)->access_object_saved_state(&sp8, 1) == 1) {
             sp8 = 1;
-            send_object_state_update__13TUnk_804AF8A0FPv(self, &sp8);
+            ((TUnk_804AF8A0 *)self)->send_object_state_update(&sp8);
         }
     }
 }
@@ -413,7 +409,7 @@ void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TODoorJungleMain;
         if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -436,7 +432,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DDCD8;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DDCDC;
     init_collision_body_parts(arg0, (s32) &TODoorJungleMain_collision_body_parts.value, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DDCE0;
     temp_r4 = arg2 - 4;

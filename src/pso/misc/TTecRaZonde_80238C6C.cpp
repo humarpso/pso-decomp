@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCB28.h"
+#include "pso/unk/TUnk_804CC148.h"
 #pragma readonly_strings on
 
 #include <stddef.h>
@@ -108,7 +110,6 @@ extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8D8;
 extern const f32 lbl_805DC8DC;
 extern const f32 lbl_805DC8E0;
-void run_task__13TUnk_804CCB28Fv(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -132,7 +133,6 @@ extern void *lbl_805D63B0;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC8D0;
 extern const f32 lbl_805DC8D4;
-void render__13TUnk_804CCB28Fv(RaFoie_802381F8 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
@@ -161,9 +161,6 @@ typedef struct RecoveredGlobal_80230D9C_lbl_804CC55C RecoveredGlobal_80230D9C_lb
 typedef char RecoveredGlobal_80230D9C_lbl_804CC510_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 
-void render__13TUnk_804CCB28Fv(RaFoie_802381F8 *o);
-
-void run_task__13TUnk_804CCB28Fv(u8 *arg0);
 #pragma pop
 
 }
@@ -355,12 +352,10 @@ u32 find_entity_by_id(int);
 void run_task__10TTecRaFoieFv(u8 *arg0);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 extern s32 tl_particle;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(void *);
 s32 fn_802A8210(int, int, void *);
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 extern const f32 TTecRaFoie__data_805DC8CC;
@@ -371,7 +366,6 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(void *);
 s32 fn_802A8210(int, int, void *);
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 extern const f32 TTecRaFoie__data_805DC8CC;
@@ -381,7 +375,6 @@ extern const f32 lbl_805DC8EC;
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-void vfunc_6__10TTecRaFoieFPv(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__10TTecRaFoie[];
@@ -389,14 +382,12 @@ extern u32 TTecRaFoie_class_name;
 u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
 s32 mem_alloc(int);
-void vfunc_8__11TTecRaZondeFPv(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern s32 __vt__10TTecRaFoie[];
 extern u32 TTecRaFoie_class_name;
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
-void vfunc_6__11TTecRaZondeFPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -404,13 +395,10 @@ extern "C" {
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 
 u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
 
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
-
-void vfunc_6__10TTecRaFoieFPv(u8 *self, u8 *target);
 
 void run_task__10TTecRaFoieFv(u8 *arg0);
 
@@ -488,7 +476,6 @@ s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
-void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 }
 
@@ -529,7 +516,7 @@ Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
             }
         }
         mem_free(self->objs);
-        destroy_technique_base__13TUnk_804CC148Fs(self, 0);
+        ((TUnk_804CC148 *)self)->destroy_technique_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
         }
@@ -559,7 +546,7 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
             }
         }
     }
-    apply_technique_to_area_targets__13TUnk_804CC148Fv(self);
+    ((TUnk_804CC148 *)self)->apply_technique_to_area_targets();
     ((void (*)(void *))queue_destruction__7TObjectFv)(self);
 }
 

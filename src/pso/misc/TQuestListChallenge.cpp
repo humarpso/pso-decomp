@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D0618.h"
@@ -106,7 +107,6 @@ s32 obj_getField1c(s32);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 get_quest_list_text(int, int, int);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 s32 TWindow__close(void *);
 void *create_yes_no_window(s32, u16, s32, s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
@@ -321,13 +321,13 @@ void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
         ((TLobby *)(self->f40))->send_and_handle(text2, 0x80);
         ((TLobby *)(self->f40))->set_field_1c(37000.0f);
         if (get_camera_id__11TCameraCtrlFv() >= 2) {
-            set_position_xy__13TUnk_804CDFE8Fff(self->f40, 0.75f, 0.75f);
+            ((TUnk_804CDFE8 *)(self->f40))->set_position_xy(0.75f, 0.75f);
         }
     }
     if (self->f34 == NULL) {
         id = (u16)obj_getField1c(self->f24);
         self->f34 = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
-        set_position_xy__13TUnk_804CDFE8Fff(self->f34, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+        ((TUnk_804CDFE8 *)(self->f34))->set_position_xy(get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
         if (self->obj != NULL) {
             self->obj->m7(5, 0x80);
         }

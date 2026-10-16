@@ -11,7 +11,6 @@ struct RecoveredGlobal_801C241C_lbl_804C3E60 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DC2E0;
-void run_task__13TUnk_804C3E60Fv(u8 *arg0);
 u8 *__nw__7TObjectFUl(s32);
 extern u8 *duel_result_window;
 extern s32 tl_00;

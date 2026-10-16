@@ -1,6 +1,11 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/object/TObjFish.h"
+#include "pso/object/TObjPathObj.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/object/TUnk_804E0988.h"
 #include "pso/object/TUnk_804E094C.h"
 #include "pso/object/TUnk_804E0910.h"
@@ -148,7 +153,6 @@ s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self) {
 
 extern "C" {
 
-void select_lobby_pigeon_model__13TUnk_804E0898Fv(void *arg0);
 s32 filter_lobby_pigeon_theme(void *);
 
 void TUnk_804E0898::select_lobby_pigeon_model() {
@@ -218,11 +222,8 @@ extern s32 lobby_pigeon_vtable[];
 extern void* lobby_pigeon_bml_archive;
 LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void* source);
 
-void update_lobby_pigeon_visibility__13TUnk_804E0898Fv(LobbyPigeon *self);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 get_state_flag__9TMainTaskFv();
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 set_global_param__8TObjFishFl(s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -231,7 +232,6 @@ s32 rotate_matrix_z(s32, s32);
 void scale_matrix(void *, f32, f32, f32);
 s32 draw_model_motion(s32, s32, f32);
 extern void *lobby_pigeon_lobby_type;
-void vfunc_14__13TUnk_804E0898Fv(LobbyPigeon *self);
 }
 
 extern "C" {
@@ -521,8 +521,6 @@ s32 get_bml_model(void *, s32);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
-s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjMapWarp__sub_80141CB0(s32 *, s32 *, s32, s32);
 s32 angle_diff_s16(s32, s32);
 
@@ -538,22 +536,17 @@ void destroy_instance__10TObjPlayerFv(void);
 void load_kamome_resources__10TObjPlayerFv(void);
 s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self);
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
-void vfunc_14__13TUnk_804E08D4Fv(u8 *arg0);
-void * dt_path_obj__13TUnk_804E08D4Fs(void *arg0, s16 arg1);
 void * TObjPlayer__sub_802C19E8(void *arg0);
 void * create__10TObjPlayerFPv(void *arg0);
 void free_statics__10TObjPlayerFv(void);
 void load_jungle_bird_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
-void vfunc_14__13TUnk_804E0910Fv(u8 *arg0);
-void * deleting_dtor_pathobj__13TUnk_804E0910Fs(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
 void * create_path_obj__10TObjPlayerFPv(void *arg0);
 void free_chr_select__10TObjPlayerFv(void);
 void load_jungle_ebi_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
-void vfunc_14__13TUnk_804E094CFv(u8 *arg0);
 void * TObjPlayer__sub_802C27A4(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2);
 void * TObjPlayer__sub_802C28B4(void *arg0);
@@ -561,13 +554,11 @@ void TObjPlayer__sub_802C2900(void);
 void load_seabed_dolphin__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
 s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
-void vfunc_14__13TUnk_804E0988Fv(u8 *arg0);
 void * TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
-void spawn_npc_enemy__6TLobbyFslllff(s32, s32, s32, void *, f32, f32);
 s32 rand();
 f32 bind_motion_context(void *, f32);
 s32 sample_motion_node_transform(s32, s32, s32 *, s32 *, s32 *);
@@ -581,10 +572,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 TLobby__sub_803DA16C(void*);
-s32 set_global_param__8TObjFishFl(s32);
 s32 draw_model_motion(s32, s32, f32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 
 extern Entry_802C2C48 seabed_dolphin_path_profiles[];
 extern u8 seabed_dolphin_anim_binding[];
@@ -623,7 +611,6 @@ extern void *tl_05;
 extern "C" {
 
 extern Entry_802C2548 jungle_ebi_path_profiles[];
-s32 update_path_follow_rotation__13TUnk_804E094CFPvf(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
 }
 
 extern "C" {
@@ -632,13 +619,13 @@ extern Ent_802C0F3C lobby_pigeon_path_profiles[];
 
 void TUnk_804E0898::vfunc_14() {
     LobbyPigeon *self = (LobbyPigeon *)this;
-  if (check_demo_mode__10TObjPlayerFv() == 1 &&
+  if (TObjPlayer::check_demo_mode() == 1 &&
       get_state_flag__9TMainTaskFv() == 0)
     draw_line_strip__10TObjPlayerFPviif((u8 *)(self), (s32)(self->model),
                                         (s32)(self->path), (1.0f));
   if (self->phase == 0 || lobby_pigeon_lobby_type == 0)
     return;
-  set_global_param__8TObjFishFl((s32)(lobby_pigeon_lobby_type));
+  TObjFish::set_global_param((s32)(lobby_pigeon_lobby_type));
   push_matrix();
   post_translate_matrix((void *)(self->position));
   rotate_matrix_y((s32)(0), (s32)(self->facing));
@@ -654,7 +641,7 @@ void TUnk_804E0898::vfunc_14() {
 
 void TUnk_804E0898::vfunc_13(s32) {
     Obj_802C0F3C *self = (Obj_802C0F3C *)this;
-  update_lobby_pigeon_visibility__13TUnk_804E0898Fv((LobbyPigeon *)(self));
+  ((TUnk_804E0898 *)self)->update_lobby_pigeon_visibility();
   self->b4 += lobby_pigeon_path_profiles[self->d8].pa;
   if (((s32 (*)(void *))advance_lobby_pigeon_path)(self) == 0) {
     self->b4 = (0.0f);
@@ -728,7 +715,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     s32 selector;
     ((u8 * (*)(LobbyPigeon*, void*, const void*))TObjPathObj__ct)((LobbyPigeon*)(self), (void*)(parent), (const void*)(source));
     self->vtable = ((void* *)&lobby_pigeon_vtable);
-    ((void (*)(LobbyPigeon *))select_lobby_pigeon_model__13TUnk_804E0898Fv)(self);
+    ((TUnk_804E0898 *)self)->select_lobby_pigeon_model();
     self->scale = (1.0f);
     self->model = ((void*)get_bml_model((void *)(lobby_pigeon_bml_archive), (s32)(self->modelIndex)));
     self->animation = ((void*)get_bml_motion((void *)(lobby_pigeon_bml_archive), (s32)(0)));
@@ -761,7 +748,7 @@ void *create_child_object__10TObjPlayerFPv(void *arg0) {
 void destroy_instance__10TObjPlayerFv(void) {
     if ((u32) lobby_kamome_texture_gvm_handle != 0U) {
         TLobby__sub_803DA16C((void*)lobby_kamome_texture_gvm_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(lobby_kamome_texture_gvm_handle);
+        TAdSinglePlyChrSelectGC::safe_free(lobby_kamome_texture_gvm_handle);
         lobby_kamome_texture_gvm_handle = 0U;
     }
     if ((u32) lobby_kamome_model_resource != 0U) {
@@ -869,10 +856,10 @@ s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
 
 void TUnk_804E08D4::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFl((*(s32 *)&lobby_kamome_texture_gvm_handle));
+    TObjFish::set_global_param((*(s32 *)&lobby_kamome_texture_gvm_handle));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
@@ -960,7 +947,7 @@ void *create__10TObjPlayerFPv(void *arg0) {
 void free_statics__10TObjPlayerFv(void) {
     if ((u32) lobby_pigeon_texture_gvm != 0U) {
         TLobby__sub_803DA16C((void*)lobby_pigeon_texture_gvm);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(lobby_pigeon_texture_gvm);
+        TAdSinglePlyChrSelectGC::safe_free(lobby_pigeon_texture_gvm);
         lobby_pigeon_texture_gvm = 0U;
     }
     if ((u32) jungle_bird_bml_resource != 0U) {
@@ -1068,10 +1055,10 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
 
 void TUnk_804E0910::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFl((*(s32 *)&lobby_pigeon_texture_gvm));
+    TObjFish::set_global_param((*(s32 *)&lobby_pigeon_texture_gvm));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
@@ -1148,7 +1135,7 @@ void *create_path_obj__10TObjPlayerFPv(void *arg0) {
 void free_chr_select__10TObjPlayerFv(void) {
     if ((u32) jungle_ebi_texture_gvm_handle != 0U) {
         TLobby__sub_803DA16C((void*)jungle_ebi_texture_gvm_handle);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(jungle_ebi_texture_gvm_handle);
+        TAdSinglePlyChrSelectGC::safe_free(jungle_ebi_texture_gvm_handle);
         jungle_ebi_texture_gvm_handle = 0U;
     }
     if ((u32) jungle_ebi_model_resource != 0U) {
@@ -1281,10 +1268,10 @@ s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
 
 void TUnk_804E094C::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFl((*(s32 *)&jungle_ebi_texture_gvm_handle));
+    TObjFish::set_global_param((*(s32 *)&jungle_ebi_texture_gvm_handle));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
@@ -1301,7 +1288,7 @@ void TUnk_804E094C::vfunc_13(s32) {
     e += arg0->idx;
     f32 ox = arg0->x;
     arg0->x = ox + e->b;
-    if (update_path_follow_rotation__13TUnk_804E094CFPvf((Pl_802C26E4 *)(arg0), (Ent_802C26E4 *)(e), ox) == 0) {
+    if (((TUnk_804E094C *)arg0)->update_path_follow_rotation((Ent_802C26E4 *)(e), ox) == 0) {
         arg0->x = (0.0f);
     }
     arg0->y = arg0->y + jungle_ebi_path_profiles[arg0->idx].c;
@@ -1360,7 +1347,7 @@ void *TObjPlayer__sub_802C28B4(void *arg0) {
 void TObjPlayer__sub_802C2900(void) {
     if ((u32) (*(u32 *)&seabed_dolphin_texture_handle) != 0U) {
         TLobby__sub_803DA16C((void*)(*(u32 *)&seabed_dolphin_texture_handle));
-        safe_free__23TAdSinglePlyChrSelectGCFUl((*(u32 *)&seabed_dolphin_texture_handle));
+        TAdSinglePlyChrSelectGC::safe_free((*(u32 *)&seabed_dolphin_texture_handle));
         (*(u32 *)&seabed_dolphin_texture_handle) = 0U;
     }
     if ((u32) seabed_dolphin_bml_archive != 0U) {
@@ -1378,7 +1365,7 @@ void load_seabed_dolphin__10TObjPlayerFv(void) {
     seabed_dolphin_texture_handle = ((s32 (*)(void *))load_gvm_texture_file)(lbl_804719B8);
     Q_802C2958 q = *(Q_802C2958 *)seabed_dolphin_anim_binding;
     q.a = (*(Obj_802C2958 * *)&seabed_dolphin_bml_archive)->f430;
-    spawn_npc_enemy__6TLobbyFslllff(0x40, ((s32 (*)(void *, s32, s32, s32, s32, void *))get_bml_model)((*(Obj_802C2958 * *)&seabed_dolphin_bml_archive), 0, ((Q_802C2958 *)seabed_dolphin_anim_binding)->c, ((Q_802C2958 *)seabed_dolphin_anim_binding)->b, ((Q_802C2958 *)seabed_dolphin_anim_binding)->a, seabed_dolphin_anim_binding), seabed_dolphin_texture_handle, &q, (16.0f), (1e+01f));
+    TLobby::spawn_npc_enemy((s16)0x40, (s32)(((s32 (*)(void *, s32, s32, s32, s32, void *))get_bml_model)((*(Obj_802C2958 * *)&seabed_dolphin_bml_archive), 0, ((Q_802C2958 *)seabed_dolphin_anim_binding)->c, ((Q_802C2958 *)seabed_dolphin_anim_binding)->b, ((Q_802C2958 *)seabed_dolphin_anim_binding)->a, seabed_dolphin_anim_binding)), (s32)seabed_dolphin_texture_handle, (s32)(&q), (f32)((16.0f)), (f32)((1e+01f)));
 }
 
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
@@ -1468,19 +1455,19 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
 
 void TUnk_804E0988::vfunc_14() {
     u8 *arg0 = (u8 *)this;
-    if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
+    if ((TObjPlayer::check_demo_mode() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((s32 (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, *(s32 *)((s8 *)arg0 + 0x98), *(s32 *)((s8 *)arg0 + 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFl(seabed_dolphin_texture_handle);
+    TObjFish::set_global_param(seabed_dolphin_texture_handle);
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
     post_translate_matrix(arg0 + 0xAC);
     rotate_matrix_y(0, this->m_b8);
     rotate_matrix_z(0, this->m_c0);
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     draw_model_motion(*(s32 *)((s8 *)arg0 + 0x98), this->m_9c, this->m_a8);
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     pop_matrix();
 }
 
@@ -1650,8 +1637,6 @@ u8 *TObjPathObj__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void vfunc_13__11TObjPathObjFl(void);
-void vfunc_14__11TObjPathObjFv(void);
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 

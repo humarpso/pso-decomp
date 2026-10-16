@@ -95,26 +95,18 @@ struct Player_800A7CA4 : VBase18_800A7CA4 {
 };
 
 extern "C" {
-void sub_800A7798__9TObjEnemyFf(u8 *arg0, f32 farg0);
-void sub_800A7B54__15TObjEneDimedianFv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-void vfunc_94__15TObjEneDimedianFv(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void vfunc_99__15TObjEneDimedianFv(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void vfunc_98__15TObjEneDimedianFv(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void vfunc_97__15TObjEneDimedianFv(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void vfunc_96__15TObjEneDimedianFv(s32 arg0);
 s32 TObjPlayer__sub_800A0554(void *);
 s32 advance_animation_playback();
-void vfunc_83__15TObjEneDimedianFv(Obj_800A7BEC *arg0);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
@@ -124,7 +116,6 @@ s32 post_translate_matrix(void *);
 extern s32 dimedian_type3_object;
 extern s32 lbl_805D5088;
 extern const f32 lbl_805D9AA4;
-void vfunc_93__15TObjEneDimedianFv(Obj_800A7A14 *o);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *);
@@ -168,7 +159,6 @@ struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
 
 s16 TObjPlayer__sub_800A776C(void* p);
 int TObjPlayer__sub_800A7774(void* p);
-void vfunc_101__15TObjEneDimedianFv(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
 f32 calc_boss4_scale__10TObjPlayerFi();

@@ -1,7 +1,6 @@
 #include "pso/TAdTimeSetGC.h"
 extern "C" {
 s32 poll_load_status__12TAdTimeSetGCFv();
-void change_state__12TAdTimeSetGCFl(void *, int);
 }
 extern "C" {
 extern void *lbl_804E32A4[];
@@ -18,7 +17,7 @@ void TAdTimeSetGC::run_task() {
   load_status = poll_load_status__12TAdTimeSetGCFv();
   if (load_status & 1)
   {
-    change_state__12TAdTimeSetGCFl(this, 0);
+    change_state(0);
   }
   TAdTimeSetGCStateAction action = *(entry_action = &((TAdTimeSetGCStateActions *)lbl_804E32A4)[state_index].task);
   if (action != 0)

@@ -31,7 +31,6 @@ extern s32 TObjEvtCollision__class_name;
 u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 s32 queue_destruction__7TObjectFv(void *);
-s32 set_event_source_flag__13TUnk_804B9870Fl(void *, s32);
 extern s32 local_client_id;
 }
 
@@ -95,7 +94,7 @@ void TObjEvtCollision::run_task() {
             pkt.x10 = arg0->x84;
             pkt.x14 = local_client_id;
             ((TLobby *)(&pkt))->byteswap_and_send();
-            set_event_source_flag__13TUnk_804B9870Fl(arg0, 8);
+            ((TUnk_804B9870 *)arg0)->set_event_source_flag(8);
             queue_destruction__7TObjectFv(arg0);
         }
     }

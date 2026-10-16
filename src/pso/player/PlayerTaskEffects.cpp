@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/TPlyOnCountOver.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/TPlyOnCreated.h"
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/player/TPlayerSoul.h"
@@ -70,7 +71,6 @@ s32 is_script_controlled__10TObjPlayerFv(s32);
 s32 check_flag_0x8000__10TObjPlayerFv();
 s32 obj_getField1c(s32);
 s32 obj_isState3_324(s32);
-s32 set_flag_0x8000__10TObjPlayerFv(s32);
 
 extern s32 tl_06;
 
@@ -146,26 +146,19 @@ extern const f32 lbl_805DC340;
 extern "C" {
 TObjPlayer* get_player_by_client_id(int);
 int obj_isState2_324(TObjPlayer*);
-void init_shrink_effect__10TObjPlayerFv(PlayerShrinkPacket*);
-void update_and_send_60__10TObjPlayerFv(PlayerShrinkPacket*);
 extern s32 local_client_id;
 void request_player_shrink(PlayerScaleState* state);
 TObjPlayer* get_player_by_client_id(int);
 int obj_isState2_324(TObjPlayer*);
-void init_6x88_packet__10TObjPlayerFv(PlayerRestoreSizePacket*);
-void send_font_update_60__10TObjPlayerFv(PlayerRestoreSizePacket*);
 void request_player_size_restore(PlayerScaleState* state);
 TObjPlayer* get_player_by_client_id(int);
 int check_camera_mode__10TObjPlayerFv();
-void init_shrink_effect__10TObjPlayerFv(PlayerShrinkPacket*);
 void TObjPlayer__sub_801C7360(PlayerShrinkPacket*, const PlayerShrinkPacket*);
-void bswap_shrink__10TObjPlayerFv(PlayerShrinkPacket*);
 int validate_6x87_shrink_player(PlayerShrinkPacket*);
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
 void handle_6x87_shrink_player(const PlayerShrinkPacket* input);
 TObjPlayer* get_player_by_client_id(int);
 int check_camera_mode__10TObjPlayerFv();
-void init_6x88_packet__10TObjPlayerFv(PlayerRestoreSizePacket*);
 void restore_shrunken_font__10TObjPlayerFv(PlayerRestoreSizePacket*, const PlayerRestoreSizePacket*);
 void TFontSmallLobby__sub_801C01BC(PlayerRestoreSizePacket*);
 int validate_6x88_restore_shrunken_player(PlayerRestoreSizePacket*);
@@ -183,7 +176,6 @@ int clear_shrink_flag__10TObjPlayerFPv(void* p);
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
 void reset_stat_scale_and_ring__10TObjPlayerFi(s32 arg0);
 int clear_flags__11TAdRicoRingFUl(void*, int);
-s32 set_flags__10TObjPlayerFUl(void *, int);
 
 extern const f32 lbl_805DC320;
 
@@ -773,10 +765,10 @@ void request_player_shrink(PlayerScaleState* state) {
         if (local_client_id == ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state))
             update_player_scale_camera((PlayerScaleState *)(state));
         PlayerShrinkPacket packet;
-        init_shrink_effect__10TObjPlayerFv(&packet);
+        ((TObjPlayer *)(&packet))->init_shrink_effect();
         packet.actor_id = ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state);
         packet.scalar = state->scalar;
-        update_and_send_60__10TObjPlayerFv(&packet);
+        ((TObjPlayer *)(&packet))->update_and_send_60();
     }
 }
 
@@ -786,7 +778,7 @@ void request_player_shrink(PlayerScaleState* state) {
 namespace accessors {
 extern "C" {
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
-    set_flags__10TObjPlayerFUl(arg0 + 4, 1);
+    ((TObjPlayer *)(arg0 + 4))->set_flags(1);
     *(f32 *)((s8 *)arg0 + 8) = farg0;
 }
 
@@ -797,9 +789,9 @@ namespace accessors {
 extern "C" {
 void handle_6x87_shrink_player(const PlayerShrinkPacket* input) {
     PlayerShrinkPacket packet;
-    init_shrink_effect__10TObjPlayerFv(&packet);
+    ((TObjPlayer *)(&packet))->init_shrink_effect();
     TObjPlayer__sub_801C7360(&packet, input);
-    bswap_shrink__10TObjPlayerFv(&packet);
+    ((TObjPlayer *)(&packet))->bswap_shrink();
     if (validate_6x87_shrink_player(&packet)) {
         TObjPlayer* player = get_player_by_client_id(packet.actor_id);
         if (player && check_camera_mode__10TObjPlayerFv())
@@ -816,9 +808,9 @@ void request_player_size_restore(PlayerScaleState* state) {
     TObjPlayer* player = get_player_by_client_id(((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state));
     if (!player || !obj_isState2_324(player)) {
         PlayerRestoreSizePacket packet;
-        init_6x88_packet__10TObjPlayerFv(&packet);
+        ((TObjPlayer *)(&packet))->init_6x88_packet();
         packet.actor_id = ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state);
-        send_font_update_60__10TObjPlayerFv(&packet);
+        ((TObjPlayer *)(&packet))->send_font_update_60();
     }
 }
 
@@ -836,7 +828,7 @@ namespace accessors {
 extern "C" {
 void handle_6x88_restore_shrunken_player(const PlayerRestoreSizePacket* input) {
     PlayerRestoreSizePacket packet;
-    init_6x88_packet__10TObjPlayerFv(&packet);
+    ((TObjPlayer *)(&packet))->init_6x88_packet();
     restore_shrunken_font__10TObjPlayerFv(&packet, input);
     TFontSmallLobby__sub_801C01BC(&packet);
     if (validate_6x88_restore_shrunken_player(&packet)) {
@@ -955,7 +947,7 @@ void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
     if ((check_flag_0x8000__10TObjPlayerFv() != 0) || (obj_isState3_324(arg0) != 0) || (is_script_controlled__10TObjPlayerFv(arg0) != 0)) {
-        set_flag_0x8000__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->set_flag_0x8000();
         return;
     }
     temp_r3 = ((s32 (*)(s32)) __nw__7TObjectFUl)(0x24);

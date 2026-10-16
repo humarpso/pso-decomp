@@ -134,13 +134,11 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 u32 get_player_by_client_id(int);
 s32 is_mounted__15TPlyPhotonChairFv();
-u16 sub_8035B530__15TPlyPhotonChairFv(void* p);
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
 extern const f32 lbl_805E0128;
 extern const float lbl_805E012C;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TPlyPhotonChair__shared_model_resource;
-void sub_8035B66C__13TUnk_804A7488Fv(void* p);
 extern RecoveredGlobal_8035B630_lbl_804A7488 lbl_804A7488;
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(int, int);
@@ -159,7 +157,6 @@ extern u32 TPlyPhotonChair__shared_model_resource;
 extern const f32 lbl_805E0130;
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2);
 u32 get_player_by_client_id(int);
-u16 sub_8035B530__15TPlyPhotonChairFv(void* p);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
@@ -172,8 +169,6 @@ extern "C" {
 
 int TPlyPhotonChair__sub_8035B520(void* p);
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
-void sub_8035B610__13TUnk_804A7478Fv(void* a0);
-void sub_8035B66C__13TUnk_804A7488Fv(void* p);
 void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -187,7 +182,7 @@ void TPlyPhotonChair::render() {
     Quat_8035B058 q;
     Quat_8035B058 q2;
     Player_8035B058 *pl;
-    pl = (Player_8035B058 *)get_player_by_client_id(sub_8035B530__15TPlyPhotonChairFv(self));
+    pl = (Player_8035B058 *)get_player_by_client_id(((TPlyPhotonChair *)self)->sub_8035B530());
     if (pl != NULL) {
         TPlyPhotonChair::render(self->parts, &q);
         {
@@ -224,7 +219,7 @@ void TPlyPhotonChair::render() {
 void TPlyPhotonChair::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
-    if (get_player_by_client_id((int) (sub_8035B530__15TPlyPhotonChairFv((void*)(arg0)))) == 0U) {
+    if (get_player_by_client_id((int) (((TPlyPhotonChair *)arg0)->sub_8035B530())) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
@@ -346,7 +341,7 @@ extern s32 lbl_804A7478[];
 void *TUnk_804A7478::init() {
     init_parts();
     *(s32 * *)&(*(u16 *)((u8 *)this + 0x4)) = lbl_804A7478;
-    sub_8035B610__13TUnk_804A7478Fv((void*)(this));
+    sub_8035B610();
     return this;
 }
 
@@ -357,7 +352,7 @@ typedef char RecoveredGlobal_8035B630_lbl_804A7488_size[sizeof(RecoveredGlobal_8
 u8 *TUnk_804A7488::init_parts() {
     u8 *arg0 = (u8 *)this;
     *(s32 * *)&(*(u16 *)((u8 *)this + 0x4)) = &lbl_804A7488.value;
-    sub_8035B66C__13TUnk_804A7488Fv((void*)((void *) (arg0)));
+    ((TUnk_804A7488 *)arg0)->sub_8035B66C();
     return arg0;
 }
 

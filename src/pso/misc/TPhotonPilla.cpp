@@ -1,14 +1,14 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TPhotonPilla.h"
 
 extern "C" {
 
 void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 destroy_photon_motion_object(void *, s32);
-s32 free_photon__13TUnk_804C3248Fv(void *);
 
 extern s32 lbl_804C3ACC[];
 
@@ -16,8 +16,8 @@ void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3ACC;
         ((TPhotonPilla *)arg0)->update_if_active();
-        free_photon__13TUnk_804C3248Fv(arg0);
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804C3248 *)arg0)->free_photon();
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         destroy_photon_motion_object(arg0, 0);
         if (arg1 > 0) {

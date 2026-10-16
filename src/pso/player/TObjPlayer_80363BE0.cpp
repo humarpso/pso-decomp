@@ -141,7 +141,6 @@ extern u8 *lbl_805D6FB8;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__13TUnk_804F2A10Fv(void);
 }
 
 extern "C" {

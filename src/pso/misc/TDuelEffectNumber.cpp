@@ -33,7 +33,6 @@ f32 get_scale__15TWindowCtrlMainFv(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32);
-void sub_8007FFF4__17TDuelEffectNumberFl(Obj_8007FF28 *self, s32 arg1);
 extern s32 lbl_805D63F0;
 
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2) {
@@ -111,7 +110,7 @@ void TDuelEffectNumber::render() {
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(6, -1);
-    ((s32 (*)(void *, s32 *))sub_8007FFF4__17TDuelEffectNumberFl)(this, (s32 *)&sp8);
+    sub_8007FFF4((s32)((s32 *)&sp8));
     ((s32 (*)(void *, s32 *))fn_8007FF28)(this, (s32 *)&sp8);
     TWindowSubStatusDisp::get_player();
     TObjPlayer::reset_transform_state();

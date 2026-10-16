@@ -197,20 +197,6 @@ void replace_item_with_new_code(void *arg0, u32 arg1);
 
 extern "C" {
 
-void vfunc_34__5TItemFv(void);
-void vfunc_17__5TItemFv(void);
-void vfunc_19__5TItemFv(void);
-int vfunc_32__5TItemFv(void);
-void vfunc_28__5TItemFv(void);
-void vfunc_27__5TItemFv(void);
-void vfunc_26__5TItemFv(void);
-void vfunc_25__5TItemFv(void);
-void vfunc_24__5TItemFv(void);
-void vfunc_23__5TItemFv(void);
-void vfunc_22__5TItemFv(void);
-void vfunc_30__5TItemFv(void);
-void vfunc_21__5TItemFPUclll(void);
-void vfunc_20__5TItemFv(void);
 int TItem__sub_80100B8C(void* p);
 int TItem__sub_80100A40(void*);
 s32 check_flag_400__20TWindowSubStatusDispFv();

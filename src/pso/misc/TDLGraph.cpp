@@ -18,9 +18,6 @@ extern s32 TDLGraph__graph_object;
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
 void TCameraCtrl__sub_80068EF0(void);
 void fn_8007F27C(TDLGraph_8007F66C *self, void *a, void *b);
-void draw_countdown_timer__8TDLGraphFff(TDLGraph_8007F66C *self, f32 x, f32 y);
-void draw_percent_text__8TDLGraphFff(void *arg0, f32 farg0, f32 farg1);
-s32 sub_8007F5A4__8TDLGraphFv(TDLGraph_8007F66C *self);
 extern u8 lbl_80438AA4[];
 extern u8 lbl_80438AAC[];
 extern const f32 lbl_805D92CC;
@@ -35,7 +32,7 @@ extern "C" {
 
 void TDLGraph::sub_8007F644() {
     this->m_3c = 0;
-    sub_8007F5A4__8TDLGraphFv((TDLGraph_8007F66C *)(this));
+    sub_8007F5A4();
 }
 
 void TDLGraph::render() {
@@ -43,10 +40,10 @@ void TDLGraph::render() {
     TObjPlayer::reset_transform_state();
     TCameraCtrl::restore_full_screen_view();
     fn_8007F27C(self, lbl_80438AA4, lbl_80438AAC);
-    draw_countdown_timer__8TDLGraphFff(self, lbl_805D92CC, lbl_805D92D0);
-    draw_percent_text__8TDLGraphFff(self, lbl_805D92D4, lbl_805D92D0);
+    ((TDLGraph *)self)->draw_countdown_timer(lbl_805D92CC, lbl_805D92D0);
+    ((TDLGraph *)self)->draw_percent_text(lbl_805D92D4, lbl_805D92D0);
     TCameraCtrl__sub_80068EF0();
-    sub_8007F5A4__8TDLGraphFv((TDLGraph_8007F66C *)(self));
+    ((TDLGraph *)self)->sub_8007F5A4();
     self->frame++;
 }
 

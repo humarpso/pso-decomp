@@ -48,7 +48,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
-void quad_sprite_reset_entries__13TUnk_804C57F0Fv(void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 begin_screen_draw(int);
 s32 draw_textured_quad_at_depth(void *, f32);
@@ -62,7 +61,6 @@ extern const f32 lbl_805DC454;
 extern "C" {
 
 void *TQuadSpriteCol__ct(void *arg0);
-void render__13TUnk_804C57F0Fv(void);
 void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_quad_sprite_base(void *, int);
@@ -157,7 +155,7 @@ void TQuadSpriteCol::render() {
         TWindowSubStatusDisp::get_player();
     }
     TParticleCtrl::end_effect_render();
-    quad_sprite_reset_entries__13TUnk_804C57F0Fv(self);
+    ((TUnk_804C57F0 *)self)->quad_sprite_reset_entries();
     TObjPlayer::reset_transform_state();
 }
 #pragma pop

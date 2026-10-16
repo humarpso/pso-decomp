@@ -136,7 +136,6 @@ struct Anti_8022AEF8 {
 
 extern "C" {
 s32 obj_getField1c(int);
-void play_anti_cast_sound__8TTecAntiFv(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
@@ -167,7 +166,6 @@ void *__nw__7TObjectFUl(int);
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int construct_delayed_point_sound(void *, void *, int, int, void *);
 extern void *tl_07;
-void vfunc_7__8TTecAntiFPv(Anti_8022AEF8 *self, Player_8022AEF8 *pl);
 }
 
 extern "C" {
@@ -333,7 +331,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int) (temp_r3_2));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) != 0) {
-        play_anti_cast_sound__8TTecAntiFv((void *) (arg0));
+        ((TTecAnti *)arg0)->play_anti_cast_sound();
         TTecAnti__sub_8022AD74((void*)((void *) (arg0)));
     }
     return arg0;

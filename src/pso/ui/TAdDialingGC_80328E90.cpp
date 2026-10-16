@@ -5,11 +5,8 @@
 
 extern "C" {
 s32 is_handle_valid__10TObjPlayerFv();
-s32 vfunc_23__13TUnk_804ED7D0Fv(void);
 s32 is_handle_valid__10TObjPlayerFv();
-s32 vfunc_30__13TUnk_804ED7D0Fv(void);
 s32 is_handle_valid__10TObjPlayerFv();
-s32 vfunc_22__13TUnk_804ED7D0Fv(void);
 }
 
 extern "C" {

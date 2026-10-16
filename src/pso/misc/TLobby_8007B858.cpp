@@ -1,4 +1,12 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/TSetManager.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TOKeyMachine01.h"
+#include "pso/misc/TQuestColCtrl.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/misc/TScene.h"
+#include "pso/misc/TSceneSora.h"
+#include "pso/player/TUnk_8048E5F4.h"
 
 #include "types.h"
 
@@ -24,7 +32,6 @@ struct RecoveredGlobal_8007BA20_lbl_8048D5A8 {
 
 extern "C" {
 void load_lobby_textures__9TLanguageFv(void);
-s32 get_global_state__14TOKeyMachine01Fv();
 void TLobby__sub_802A5154(void);
 void load_obj_lobby_main(void);
 s32 run_load_callback_table(void *, int);
@@ -33,8 +40,6 @@ extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
 s32 run_lobby_load_tables__6TLobbyFv(void);
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 void fn_80198E84(void);
-s32 get_global_state__14TOKeyMachine01Fv();
-void free_dialing_gc__6TLobbyFv(void);
 void TLobby__sub_8035202C(void);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
@@ -50,27 +55,19 @@ s32 THunterGuildSeqOnlineTask__ct(u32, s32);
 s32 is_scene_ready__6TLobbyFv();
 s32 activate_triggered_floor_events();
 s32 cleanup_game_objects__9TMainTaskFv();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 restore_floor_telepipes();
 s32 TWindowCtrlMain__ct();
 s32 TWindowCtrl__ct(u32, s32);
 s32 __ct__7TSwitchFv(u32, s32);
 s32 __ct__8TTecCtrlFv(u32, s32);
 u32 __nw__7TObjectFUl(s32);
-s32 create__13TRaderMapCoreFv();
-s32 create__6TSceneFv();
-s32 create_instance__10TSceneSoraFv();
-s32 init_subobject__13TUnk_8048E5F4FPvPv(u32, s32, s32);
-s32 set_fade_params__6TLobbyFl(s32);
 s32 ct_register__6TLobbyFv(u32, s32);
 s32 TWindowTimer__sub_80198D98();
-s32 create__11TSetManagerFv();
 s32 TLobby__sub_8032BDC4(u32, s32);
 s32 TLobby__sub_8033ED24(u32, s32);
 s32 construct_party_area__10TNpcPlayerFPvPv(u32, s32);
 s32 TLobby__sub_80351F3C();
 s32 get_main_phase();
-s32 init__13TQuestColCtrlFv();
 s32 is_split_screen();
 
 extern s32 tl_00;
@@ -85,11 +82,11 @@ void create_tasks__6TLobbyFv(void) {
     if (is_split_screen() == 0) {
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            init_subobject__13TUnk_8048E5F4FPvPv(tmp, tl_particlemodel, 1);
+            ((TUnk_8048E5F4 *)tmp)->init_subobject((void *)tl_particlemodel, (void *)1);
         }
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            init_subobject__13TUnk_8048E5F4FPvPv(tmp, tl_particlemodel, 0);
+            ((TUnk_8048E5F4 *)tmp)->init_subobject((void *)tl_particlemodel, (void *)0);
         }
         tmp = __nw__7TObjectFUl(0x84);
         if (tmp != 0U) {
@@ -101,9 +98,9 @@ void create_tasks__6TLobbyFv(void) {
         }
     }
     cleanup_game_objects__9TMainTaskFv();
-    create__6TSceneFv();
-    create_instance__10TSceneSoraFv();
-    create__11TSetManagerFv();
+    TScene::create();
+    TSceneSora::create_instance();
+    TSetManager::create();
     activate_triggered_floor_events();
     tmp = __nw__7TObjectFUl(0x1C);
     if (tmp != 0U) {
@@ -117,12 +114,12 @@ void create_tasks__6TLobbyFv(void) {
     if (tmp != 0U) {
         ct_register__6TLobbyFv(tmp, tl_fade);
     }
-    set_fade_params__6TLobbyFl(0);
+    TLobby::set_fade_params(0);
     tmp = __nw__7TObjectFUl(0x30);
     if (tmp != 0U) {
         TCineCtrl__ct(tmp, tl_00);
     }
-    create__13TRaderMapCoreFv();
+    TRaderMapCore::create();
     restore_floor_telepipes();
     tmp = __nw__7TObjectFUl(0x20);
     if (tmp != 0U) {
@@ -132,14 +129,14 @@ void create_tasks__6TLobbyFv(void) {
     if (tmp != 0U) {
         __ct__7TSwitchFv(tmp, tl_00);
     }
-    init__13TQuestColCtrlFv();
-    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+    TQuestColCtrl::init();
+    if (TOKeyMachine01::get_global_state() == 0xF) {
         TLobby__sub_80351F3C();
     }
-    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
+    if ((TOKeyMachine01::get_global_state() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
         TWindowTimer__sub_80198D98();
     }
-    if ((get_main_phase() == 0xF) && ((get_global_state__14TOKeyMachine01Fv() == 0) || (get_global_state__14TOKeyMachine01Fv() == 0x12))) {
+    if ((get_main_phase() == 0xF) && ((TOKeyMachine01::get_global_state() == 0) || (TOKeyMachine01::get_global_state() == 0x12))) {
         tmp = __nw__7TObjectFUl(0x1C);
         if (tmp != 0U) {
             THunterGuildSeqOnlineTask__ct(tmp, tl_01);
@@ -156,12 +153,12 @@ typedef char RecoveredGlobal_8007BA98_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8007BA20_lbl_8048D4C0_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D4C0) == 0xE8 ? 1 : -1];
 typedef char RecoveredGlobal_8007BA20_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D5A8) == 0x20 ? 1 : -1];
 void clear_session_buffers__6TLobbyFv(void) {
-    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
-        free_dialing_gc__6TLobbyFv();
+    if (TOKeyMachine01::get_global_state() == 0xF) {
+        TLobby::free_dialing_gc();
         fn_80198E84();
         TLobby__sub_8035202C();
     }
-    if ((get_global_state__14TOKeyMachine01Fv() != 0) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (get_global_state__14TOKeyMachine01Fv() != 0x12)) {
+    if ((TOKeyMachine01::get_global_state() != 0) && (TOKeyMachine01::get_global_state() != 0xF) && (TOKeyMachine01::get_global_state() != 0x12)) {
         call_funcs_reverse__6TLobbyFPvUi((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D5A8 *)&lbl_8048D5A8).value, 0x20U);
     }
     call_funcs_reverse__6TLobbyFPvUi((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D4C0 *)&lbl_8048D4C0).value, 0xE8U);
@@ -174,13 +171,13 @@ s32 run_lobby_load_tables__6TLobbyFv(void) {
     if (temp_r3_2 == 0) {
         return temp_r3_2;
     }
-    if ((get_global_state__14TOKeyMachine01Fv() != 0) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (get_global_state__14TOKeyMachine01Fv() != 0x12)) {
+    if ((TOKeyMachine01::get_global_state() != 0) && (TOKeyMachine01::get_global_state() != 0xF) && (TOKeyMachine01::get_global_state() != 0x12)) {
         temp_r3 = run_load_callback_table((void *) (&lbl_8048D5A8.value), (int) (0x20));
         if (temp_r3 == 0) {
             return temp_r3;
         }
     }
-    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+    if (TOKeyMachine01::get_global_state() == 0xF) {
         load_obj_lobby_main();
         load_lobby_textures__9TLanguageFv();
         TLobby__sub_802A5154();

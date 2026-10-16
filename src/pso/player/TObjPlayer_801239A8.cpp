@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void reserved_53__13TUnk_804A1C38Fv(void* p);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void TItemWeapon__ct(void *);

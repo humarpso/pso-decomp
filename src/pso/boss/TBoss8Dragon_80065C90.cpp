@@ -31,13 +31,6 @@ extern "C" {
 
 void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 s32 *TBoss8Dragon__sub_80065F08(void);
-void apply_poison_status__13TBoss5GryphonFv(void);
-void apply_paralysis__13TBoss5GryphonFv(void);
-void apply_slow_status__13TBoss5GryphonFv(void);
-void apply_confusion_status__13TBoss5GryphonFv(void);
-void apply_movement_ailment__13TBoss5GryphonFl(void);
-void apply_shock_status__13TBoss5GryphonFv(void);
-void clear_harmful_statuses__13TBoss5GryphonFv(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);

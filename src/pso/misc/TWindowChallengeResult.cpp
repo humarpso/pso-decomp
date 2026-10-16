@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 
 extern "C" {
@@ -41,7 +42,6 @@ extern const f32 lbl_805DCB6C;
 
 void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1);
 void init_subwindow__22TWindowChallengeResultFPv(void* p);
-int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 void __dl__7TObjectFPv(void *);
 
 extern "C" void fn_80246CE8();
@@ -76,7 +76,7 @@ void *lbl_804CE2B8[6] = {
 };
 #define lbl_804CE2B8 ((s32 *)lbl_804CE2B8)
 
-void init_subwindow__22TWindowChallengeResultFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); update_window_entry_list__13TUnk_804CE018FPv(p, (char*)p + 0x24); }
+void init_subwindow__22TWindowChallengeResultFPv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); ((TUnk_804CE018 *)p)->update_window_entry_list((char*)p + 0x24); }
 
 void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

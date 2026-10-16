@@ -115,7 +115,6 @@ extern const f32 lbl_805DC7F8;
 
 extern "C" {
 
-void vfunc_6__8TTecFoieFv(s32 arg0);
 s32 spawn_particle_effect(s32, s32);
 void *TTecFoie__ct(void *, void *, void *, void *, void *);
 void *construct_aimed__8TTecFoieFlPUcPUcs(void *, void *, void *, void *, void *);

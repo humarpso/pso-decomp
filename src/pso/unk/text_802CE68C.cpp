@@ -119,7 +119,6 @@ s32 draw_chunk_object(s32);
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
 extern const f32 lbl_805DE704;
-void draw_color_variant__19TObjEneBm9MericarolFv(u8 *arg0);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();

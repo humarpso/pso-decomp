@@ -10,7 +10,6 @@ extern "C" {
 void *fn_8001A3BC(void *a, Ent_80019B78 *e, Obj_80019B78 *self);
 void fn_80019EB8(void *n, f32 v);
 extern const f32 lbl_805D7DDC;
-void sub_80019B78__15TAdDrawLineCtrlFl(Obj_80019B78 *self, s32 idx);
 }
 
 extern "C" {

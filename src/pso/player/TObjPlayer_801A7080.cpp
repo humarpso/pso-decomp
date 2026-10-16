@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
@@ -27,7 +28,6 @@ s32 set_scripted_camera_pose(int, int, void *);
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 extern const f32 lbl_805DC0D0;
 extern const f32 lbl_805DC0D4;
-void begin_photon_summon_camera__13TUnk_804C3248FSc(u8 *arg0, s8 arg1);
 extern struct Ent_801A70C8 deferred_photon_blast_hit_queue[32];
 extern s32 deferred_photon_blast_hit_count;
 extern const f32 lbl_805DC0D0;

@@ -40,14 +40,10 @@ extern s32 __vt__20TWindowSubQuestBoard[];
 extern void *TWindowSubTradeMessage__name;
 void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 create_option_menu_window__13TUnk_804D1818Fv(void *);
 extern s32 __vt__19TWindowSubQuestBoard[];
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2);
 void TWindow__close(void *);
 s32 get_selected_menu_value(s32);
-s32 update_quest_board_card_flags__13TUnk_804D1818Fv(void *);
-u32 sub_8027C884__13TUnk_804D1818Fl(void *, s32);
-void run_task__13TUnk_804D1818Fv(void *arg0);
 s32 create_instance__17TQuestThreadBoardFi(s32);
 s8 get_page_index__20TWindowSubQuestBoardFv(s32);
 s32 TWindowSubQuestBoard__sub_8027D1DC(s32);
@@ -57,7 +53,6 @@ extern Ent_8027CFC8 quest_board_handlers[];
 
 extern "C" {
 
-void render__13TUnk_804D1818Fv(void);
 void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
@@ -91,11 +86,11 @@ void TUnk_804D1818::run_task() {
         break;
     case 3:
         t = get_selected_menu_value(*(s32 *)((s8 *)this + 0x28));
-        this->m_2c = sub_8027C884__13TUnk_804D1818Fl(this, t);
+        this->m_2c = sub_8027C884(t);
         *(u8 *)((s8 *)this + 0x1C) = 4;
     case 4:
         ((TUnk_804D1818 *)this)->update_photon_selection();
-        update_quest_board_card_flags__13TUnk_804D1818Fv(this);
+        update_quest_board_card_flags();
         if (((TLobby *)(this->m_2c))->get_flag_bit2() != 0) {
             *(u8 *)((s8 *)this + 0x1C) = 1;
         }
@@ -122,7 +117,7 @@ u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027CE74_lbl_804D1818 *)&__vt__19TWindowSubQuestBoard).value;
     *(u8 **)((s8 *)arg0 + 0x24) = arg1;
     *(s32 *)((s8 *)arg0 + 0x20) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x28) = create_option_menu_window__13TUnk_804D1818Fv(arg0);
+    *(s32 *)((s8 *)arg0 + 0x28) = ((TUnk_804D1818 *)arg0)->create_option_menu_window();
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s8 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;

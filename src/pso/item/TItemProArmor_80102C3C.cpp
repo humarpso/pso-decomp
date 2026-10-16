@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TItemProArmor.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TOSwitchItem.h"
@@ -7,10 +8,6 @@
 extern "C" {
 
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
-int vfunc_33__5TItemFv(void);
-int vfunc_43__5TItemFv(void);
-void sub_80102C58__5TItemFv(void* p);
-void sub_80102C68__5TItemFv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*);
 
 u16 TItemProArmor::get_id() { return this->m_e4; }

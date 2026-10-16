@@ -57,10 +57,8 @@ struct WeaponDispatch : WeaponDispatchPrefix {
 };
 
 extern "C" {
-void reserved_53__13TUnk_804A3260Fv(u8 *arg0);
 extern const f32 lbl_805DADD0;
 extern const f32 lbl_805DADD4;
-void update_weapon__13TUnk_804A3260Fv(void *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_mechgun_weapon(u8 *arg0);

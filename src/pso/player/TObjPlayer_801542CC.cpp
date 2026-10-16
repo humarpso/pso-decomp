@@ -175,7 +175,6 @@ extern const f32 lbl_805DB290;
 extern const f32 lbl_805DB294;
 s32 resolve_player_box_contact(u8 *arg0, u8 *arg1, u8 *arg2);
 void *find_entity_by_id(u16 id);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(u8 *arg0, void *arg1, s16 arg2);
 extern s32 TLobby__data_805D6140;
 void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet);
 }
@@ -204,8 +203,6 @@ extern const f32 TObjPlayer__data_805DB298;
 s32 get_player_data__10TObjPlayerFi(s32);
 extern s32 lbl_805D586C;
 extern const f32 TObjPlayer__data_805DB298;
-void clear_obj_links__13TUnk_804AF8A0Fv(void* p);
-void* initialize_linked_object_reference__13TUnk_804AF8A0FPv(void* p, void* a1);
 void TObjPlayer__sub_80156934(void);
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
@@ -213,10 +210,8 @@ extern s32 lbl_805D5870;
 extern s32 registered_entity_count;
 void __dl__7TObjectFPv(void *);
 extern s32 lbl_804AF8A0[];
-void sub_80156A68__13TUnk_804AF8A0Fv(void* p);
 void TObjPlayer__sub_80156A74(void* p);
 extern s32 TLobby__data_805D6140;
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(u8 *arg0, void *arg1, s16 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
@@ -253,9 +248,7 @@ void *get_player_by_client_id(u32 id);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
 void *find_entity_by_id(u16 id);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(u8 *arg0, void *arg1, s16 arg2);
 void TLobby__sub_80156BA8(Pkt_80154954 *pkt);
-void send_object_state_update__13TUnk_804AF8A0FPv(Player_80154954 *self, State_80154954 *src);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 TObjPlayer__data_805DB298;
@@ -264,12 +257,9 @@ void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
 void check_enemy_body_collisions(void *arg0);
 s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2);
 s32 respond_to_body_contact(u8 *arg0, u32 arg1, u8 *arg2);
-u32 check_actor_body_contact__13TUnk_804AF8A0FPvf(Obj_80156268 *, Obj_80156268 *, f32);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D586C;
-void update_body_contact_flag__13TUnk_804928CCFf(TObjPlayer_801561C4 *self, f32 range);
 void init_forward__10TObjPlayerFv(void *);
-void sub_80156A68__13TUnk_804AF8A0Fv(void* p);
 void TObjPlayer__sub_80156A74(void* p);
 void construct_world_actor_base(void);
 extern s32 lbl_804AF8A0[];
@@ -278,11 +268,9 @@ extern int player_unique_pair_entry_count;
 void mem_free(s32);
 void free_collision_body_parts(G_80156720 *arg0);
 u16 obj_getField1c(int);
-u32 check_actor_body_contact__13TUnk_804AF8A0FPvf(Obj_80156268 *, Obj_80156268 *, f32);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
 extern const f32 lbl_805DB29C;
-void mark_enemy_body_contacts__13TUnk_804AF8A0Fv(P_8015610C *arg0);
 u16 obj_getField1c(int);
 void *memcpy(void *, const void *, u32);
 extern s32 TObjPlayer__data_8050D460[];
@@ -290,7 +278,6 @@ extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 registered_entity_count;
-u16 unregister_object_by_id__13TUnk_804AF8A0Fv(Obj_80154A00 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80156844 *csnVectorUnder(Vec_80156844 *, void *, s32);
 Hit_80156844 *csnVecterUnder(Vec_80156844 *, s32);
@@ -421,9 +408,9 @@ void handle_6x0B_update_object_state(G_UpdateObjectState_6x0B *packet) {
     TLobby::bswap_60_header(packet);
     object = ((StateObject_801548A8 *)find_entity_by_id(packet->header.entity_id));
     if (object != 0) {
-        access_object_saved_state__13TUnk_804AF8A0FPvs((u8 *)(object), &state, (s16)(1));
+        ((TUnk_804AF8A0 *)object)->access_object_saved_state(&state, (s16)(1));
         state.halves.flags = packet->flags;
-        access_object_saved_state__13TUnk_804AF8A0FPvs((u8 *)(object), &state, (s16)(0));
+        ((TUnk_804AF8A0 *)object)->access_object_saved_state(&state, (s16)(0));
         object->m4(&state, 1);
     } else {
         fallback.word = (*(ObjectSavedState_801548A8 * *)&TLobby__data_805D6140)[packet->object_index].word;
@@ -439,7 +426,7 @@ void TUnk_804AF8A0::send_object_state_update(void *src_arg) {
     if (src != 0) {
         ((TLobby *)(&st))->copy_short_fields(src);
     } else {
-        access_object_saved_state__13TUnk_804AF8A0FPvs((u8 *)((Player_80154954 *)this), &st, 1);
+        access_object_saved_state(&st, 1);
     }
     obj = ((Player_80154954 *)this)->obj;
     if (obj != 0) {
@@ -1068,7 +1055,7 @@ void TUnk_804AF8A0::mark_enemy_body_contacts() {
                 break;
             }
             u16 t = obj_getField1c(obj);
-            if (t >= 0x1000U && t < 0x4000U && check_actor_body_contact__13TUnk_804AF8A0FPvf((Obj_80156268 *)((P_8015610C *)this), (Obj_80156268 *)obj, lbl_805DB29C) != 0U) {
+            if (t >= 0x1000U && t < 0x4000U && check_actor_body_contact((Obj_80156268 *)obj, lbl_805DB29C) != 0U) {
                 ((P_8015610C *)this)->f->flags = ((P_8015610C *)this)->f->flags | 0x100000;
             }
         }
@@ -1081,7 +1068,7 @@ void TUnk_804928CC::update_body_contact_flag(f32 range) {
         hit->flags &= ~0x80000;
         for (s32 i = 0; i < lbl_805D586C; i++) {
             void *entry = ((void * *)&TObjPlayer__data_8050D460)[i];
-            if (entry && check_actor_body_contact__13TUnk_804AF8A0FPvf((Obj_80156268 *)((TObjPlayer_801561C4 *)this), (Obj_80156268 *)entry, range)) {
+            if (entry && check_actor_body_contact((Obj_80156268 *)entry, range)) {
                 ((TObjPlayer_801561C4 *)this)->hit->flags |= 0x80000;
             }
         }
@@ -1288,7 +1275,7 @@ u8 *TUnk_804AF8A0::construct_collider_proxy() {
     *(s32 *) (arg0 + 0xA4) = 0;
     *(u16 *) (arg0 + 0x94) = 0xFFFF;
     *(s32 *) (arg0 + 0x9C) = 0;
-    sub_80156A68__13TUnk_804AF8A0Fv((void*)(arg0));
+    ((TUnk_804AF8A0 *)arg0)->sub_80156A68();
     return arg0;
 }
 

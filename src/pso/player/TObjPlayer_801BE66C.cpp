@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
@@ -25,15 +26,12 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
-void set_move_mode__10TObjPlayerFl(void* p, s32 v);
-void set_input_mode__10TObjPlayerFl(void* p, s32 v);
 void set_action_flag_2__10TObjPlayerFPv(void* p);
 int check_flag_48__10TObjPlayerFPv(void* p);
 int is_status_locked__10TObjPlayerFPv(void* p);
 int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
-void set_floor__10TObjPlayerFl(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 u8 TObjPlayer__sub_801BEB3C(void* p);
@@ -48,7 +46,6 @@ u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int set_state_flags__10TObjPlayerFUl(void*, int);
-int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);

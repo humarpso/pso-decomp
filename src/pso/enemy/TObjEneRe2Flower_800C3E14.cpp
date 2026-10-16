@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/animation/ActorAnimationState.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
@@ -186,7 +188,6 @@ extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FBC;
 void TObjPlayer__sub_800C44C4(void);
 s32 transition_enemy_state(void * a0, s32 a1);
-s32 sub_800C3DC4__16TObjEneRe2FlowerFv(void *);
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
 s32 TObjEneDD__sub_800C2628(void *, void *);
 s32 fn_800C2A88(void *, void *);
@@ -200,8 +201,6 @@ s32 obj_is_hit_receivable(void *);
 f32 fabs_float(f32);
 s32 is_area_attack_target_eligible(s32, s32);
 s32 attack_target_history_add(s32, s32);
-s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
-s32 update_body_contact_flag__13TUnk_804928CCFf(void *, f32);
 extern const f32 lbl_805DA000;
 s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
@@ -213,7 +212,6 @@ void vfunc_28__16TObjEneRe2FlowerFv(void);
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1);
 void vfunc_63__16TObjEneRe2FlowerFv(void *arg0);
 void vfunc_62__16TObjEneRe2FlowerFv(void *arg0);
-s32 clear_attack_receipts__9TObjEneDDFv(void * a0 = 0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 void free_collision_body_parts(void *);
@@ -409,7 +407,7 @@ void TObjEneRe2Flower::vfunc_62() {
     if (temp_r0 != 9) {
         if (temp_r0 == 8) {
             begin_state_242__16TObjEneRe2FlowerFv();
-            clear_attack_receipts__9TObjEneDDFv(this);
+            clear_attack_receipts();
             return;
         }
         transition_enemy_state(this, 9);
@@ -482,7 +480,7 @@ void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
             transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (2)));
         }
     }
-    sub_800C3DC4__16TObjEneRe2FlowerFv((void *) (arg0));
+    ((TObjEneRe2Flower *)arg0)->sub_800C3DC4();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((VObj_18_6eb1ad *)(arg0))->m98();
 }
@@ -559,11 +557,11 @@ s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 ar
     }
     TObjPlayer::init_all_slots();
     if (*(s32 *)((s8 *)arg1 + 4) & 1) {
-        update_body_contact_flag__13TUnk_804928CCFf(arg0, farg0);
+        ((TUnk_804928CC *)arg0)->update_body_contact_flag(farg0);
         flags |= 0x80000;
     }
     if (*(s32 *)((s8 *)arg1 + 4) & 2) {
-        mark_enemy_body_contacts__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->mark_enemy_body_contacts();
         flags |= 0x100000;
     }
     if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & flags) {

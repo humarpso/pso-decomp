@@ -57,9 +57,7 @@ extern const f32 lbl_805DB050;
 extern const float lbl_805DB054;
 extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
-void update_weapon__13TUnk_804A6DC0Fv(u8 *arg0);
 void spawn_particle_effect(void *buf, s32 n);
-void emit_marker_effects__13TUnk_804A6DC0Fv(Obj_80131334 *self);
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
 }

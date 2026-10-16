@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecRaBarta.h"
 
 #include <stddef.h>
 #include "pso/misc/TTecPlayerInfluence.h"
@@ -141,7 +142,6 @@ struct RaBarta_802377FC {
 };
 
 extern "C" {
-void sub_80237258__19TTecPlayerInfluenceFv(void* p);
 void queue_destruction__7TObjectFv(void *);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
@@ -170,18 +170,14 @@ extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern const f32 lbl_805DC8C0;
 extern const f32 lbl_805DC8C4;
-void vfunc_8__11TTecRaBartaFPv(Rabarta_80237494 *self, void *pos);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 calc_technique_parameters(s32, s32, s32);
 extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
-void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 }
 
 extern "C" {
 
-void vfunc_7__19TTecPlayerInfluenceFPv(void);
-void vfunc_9__11TTecRaBartaFv(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
@@ -215,7 +211,7 @@ void TTecPlayerInfluence::sub_80237258() { *(f32*)((char*)this + 0xbc) = *(f32*)
 extern s32 __vt__19TTecPlayerInfluence[];
 
 void TTecPlayerInfluence::run_task() {
-    sub_80237258__19TTecPlayerInfluenceFv((void*)(this));
+    sub_80237258();
     this->tick_lifetime();
 }
 
@@ -296,11 +292,6 @@ typedef struct Emitter_80237494 Emitter_80237494;
 typedef struct Profile_80237494 Profile_80237494;
 typedef struct Rabarta_80237494 Rabarta_80237494;
 typedef struct Vec_80237494 Vec_80237494;
-void vfunc_8__11TTecRaBartaFPv(Rabarta_80237494 *self, void *pos);
-
-void vfunc_9__11TTecRaBartaFv(void *arg0);
-
-void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 

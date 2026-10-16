@@ -109,13 +109,9 @@ struct Base0_8016ab58_8016A8D0 { char pad[0x18]; };
 struct VObj0_8016ab58_8016A8D0 : Base0_8016ab58_8016A8D0 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); };
 
 void *TOKey__ct(void *arg0);
-void vfunc_16__5TOKeyFv(void);
-void vfunc_17__5TOKeyFv(void);
-void vfunc_25__5TOKeyFv(void);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 int TLobby__send_and_handle_60(void*);
 u8 is_current_floor_switch_set(u16);
-void vfunc_25__14TOKeyAncient01Fv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);

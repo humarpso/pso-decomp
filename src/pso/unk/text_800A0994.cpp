@@ -36,7 +36,6 @@ Ene_800A0994 *get_enemy_entity(u16);
 extern s32 dark_gunner_class_name_ptr;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void sub_800A0994__20TObjEneDarkGunCenterFv(Gunner_800A0994 *self);
 }
 
 extern "C" {

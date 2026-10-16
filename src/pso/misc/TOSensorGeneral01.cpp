@@ -83,8 +83,6 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-void vfunc_16__17TOSensorGeneral01Fv(void *arg0);
-void vfunc_17__17TOSensorGeneral01Fv(void *arg0);
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);

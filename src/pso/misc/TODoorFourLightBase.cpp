@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/misc/TODoorFourLightBase.h"
 #include "pso/TParticleCtrl.h"
@@ -102,11 +103,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
-s32 play_door_sound__13TUnk_804B0BB8Fv(void *);
 u8 is_current_floor_switch_set(int);
-void update_door_switch_state__19TODoorFourLightBaseFv(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -118,8 +115,6 @@ void render__19TODoorFourLightBaseFv(u8 *arg0);
 
 extern "C" {
 
-s32 init_door_switch_binding__19TODoorFourLightBaseFv(void *arg0);
-void vfunc_6__19TODoorFourLightBaseFPsl(void *arg0, s16 *arg1);
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 get_main_phase();
@@ -158,7 +153,7 @@ void TODoorFourLightBase::update_door_switch_state() {
     s16 sp8;
     switch (this->m_cc) {
     case 1:
-        play_door_sound__13TUnk_804B0BB8Fv(arg0);
+        ((TUnk_804B0BB8 *)arg0)->play_door_sound();
         this->m_d0 |= 1;
         break;
     case 2: {
@@ -172,7 +167,7 @@ void TODoorFourLightBase::update_door_switch_state() {
         if (found != 0) {
             this->m_d0 &= ~1;
         } else {
-            play_door_sound__13TUnk_804B0BB8Fv(arg0);
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 |= 1;
         }
         break;
@@ -192,13 +187,13 @@ void TODoorFourLightBase::update_door_switch_state() {
         if (found != 0) {
             this->m_d0 &= ~1;
         } else {
-            play_door_sound__13TUnk_804B0BB8Fv(arg0);
+            ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 |= 1;
         }
-        if (found == 0 && this->m_80 != NULL && access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 1) == 1) {
+        if (found == 0 && this->m_80 != NULL && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) == 1) {
             sp8 = 1;
-            send_object_state_update__13TUnk_804AF8A0FPv(arg0, &sp8);
-            access_object_saved_state__13TUnk_804AF8A0FPvs(arg0, &sp8, 0);
+            ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
+            ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
         }
         break;
     }

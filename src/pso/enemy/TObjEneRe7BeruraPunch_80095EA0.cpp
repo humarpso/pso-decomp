@@ -44,14 +44,12 @@ s32 TObjEneRe7Berura__sub_80094D98();
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
-void update_flight__21TObjEneRe7BeruraPunchFv(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094C68(u8 *);
 u8 *find_entity_by_id(u16);
 s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *, void *, f32, f32);
 extern Pair_80096150 lbl_80439F28[];
 extern const f32 lbl_805D97AC;
 extern const f32 lbl_805D97B0;
-s32 sub_80096150__21TObjEneRe7BeruraPunchFv(void *arg0);
 }
 
 extern "C" {
@@ -163,7 +161,7 @@ void TObjEneRe7BeruraPunch::update_flight() {
         *(f32 *)((s8 *)((u8 *)this) + 0xE4) = stack.sp10;
     }
     ((TObjEneRe7BeruraPunch *)((u8 *)this))->snap_to_ground();
-    if ((var_r31 != 0) || (sub_80096150__21TObjEneRe7BeruraPunchFv((void *)(((u8 *)this))) != 0) || (*(f32 *)((s8 *)((u8 *)this) + 0x114) > *(f32 *)((s8 *)((u8 *)this) + 0xC8))) {
+    if ((var_r31 != 0) || (sub_80096150() != 0) || (*(f32 *)((s8 *)((u8 *)this) + 0x114) > *(f32 *)((s8 *)((u8 *)this) + 0xC8))) {
         *(s32 *)((s8 *)((u8 *)this) + 0xB4) = 2;
         if (find_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0xB0)) != NULL) {
             TObjEneRe7Berura__sub_80094D98();

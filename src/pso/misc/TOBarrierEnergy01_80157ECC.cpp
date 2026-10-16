@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void play_proximity_sound__17TOBarrierEnergy01Fv(void *arg0);
 s32 set_indexed_flags(void *, s32, s32);
 s32 update_anim_phase__13TUnk_804AFBF8Fv();
 

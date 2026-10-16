@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -73,7 +74,6 @@ struct TWindowSubMag_8027B62C {
 };
 u8 *find_item_by_id(s32);
 s32 align_menu_entry_positions(void *);
-s32 update_layout_height__21TWindowSubComCardListFf(void *, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *create_titled_window_menu(s32, s32, s32, s32);
 s32 get_shared_text_buffer();
@@ -84,7 +84,6 @@ s32 calc_text_width();
 s32 append_text_space();
 s32 text_builder_append();
 s32 text_builder_reset();
-s32 set_position_xy__13TUnk_804CDFE8Fff(void *, f32, f32);
 s32 set_field_1c__6TLobbyFf(void *);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 send_and_handle__6TLobbyFii(s32, s32 *, s32);
@@ -100,7 +99,6 @@ void *__ct__15TWindowHelpItemFPvUs(void *, s32, s32);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 set_field_1c__6TLobbyFf(void *);
 void *fn_802628C0(s32, void *, s32);
-s32 sub_80255E24__15TWindowHelpItemFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 window_request_show(void *);
 s32 call_if_split_screen(void *, s32);
@@ -247,7 +245,7 @@ void *TWindowSubMag::create_learned_blast_toast() {
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 6);
     set_field_1c__6TLobbyFf(win);
     send_and_handle__6TLobbyFii((s32)win, (s32 *)get_shared_text_buffer(), 2);
-    set_position_xy__13TUnk_804CDFE8Fff(win, scale, scale);
+    ((TUnk_804CDFE8 *)win)->set_position_xy(scale, scale);
     return win;
 }
 #pragma pop
@@ -289,7 +287,7 @@ void *TWindowSubMag::create_action_menu(s32 id) {
         TWindowSubComCard::draw_text_gray((s32)window, (s32)(get_message_10__20TWindowSubStatusDispFl(0x64)), (s32)6, (s32)0);
     }
     ((TWindowSubComCardList *)window)->set_flag70_bit10();
-    update_layout_height__21TWindowSubComCardListFf(window, (172.0f));
+    ((TWindowSubComCardList *)window)->update_layout_height((172.0f));
     align_menu_entry_positions(window);
     return window;
 }
@@ -358,7 +356,7 @@ void TWindowSubMag::run_task(void *arg0) {
         if (self->slotwin == NULL) {
             self->slotwin = fn_802628C0(get_window_layout_position(0xC), lbl_8044F9E8, self->client_id);
         }
-        sub_80255E24__15TWindowHelpItemFv(self->help);
+        ((TWindowHelpItem *)(self->help))->sub_80255E24();
         ((TWindowSubMag *)((s32)self->list))->init_and_setup((void*)2);
         ((TWindowSubItem *)(self->list))->clear_selected_and_update_entry();
         ((TWindowSubMag *)(self->list))->start_scroll((188.0f));
@@ -389,7 +387,7 @@ void TWindowSubMag::run_task(void *arg0) {
         }
         if (self->help != NULL) {
             window_request_show(self->help);
-            sub_80255E24__15TWindowHelpItemFv(self->help);
+            ((TWindowHelpItem *)(self->help))->sub_80255E24();
             ((TWindowSubMag *)(self->help))->clear_flag60_bit8();
             call_if_split_screen(self->help, self->client_id);
         }

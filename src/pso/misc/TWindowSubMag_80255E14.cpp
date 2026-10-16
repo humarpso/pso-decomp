@@ -5,7 +5,6 @@
 #include "pso/ui/TWindowInputNumber.h"
 
 extern "C" {
-void sub_80255E24__15TWindowHelpItemFv(u8 *arg0);
 }
 
 extern "C" {

@@ -50,7 +50,6 @@ void set_draw_texture_and_color(s32, s32);
 extern s32 player_prate_texture_list_ptr;
 extern const f32 lbl_805DFFC8;
 extern const f32 lbl_805DFFCC;
-void render__15TAdPlyPltAnimGCFv(u8 *arg0);
 extern const V2_80355D5C lbl_80479350[];
 extern const f32 lbl_805DFFD0;
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p);

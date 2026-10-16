@@ -1,4 +1,5 @@
 #include "pso/object/T_OWEHMS_Exp.h"
+#include "pso/TObjEZBoneRotPlayer.h"
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 extern void* __vt__12T_OWEHMS_Exp[6];
@@ -20,7 +21,6 @@ struct H_800FE32C { u8 pad[0x878]; u8 state; u8 pad879[0x88E - 0x879]; s8 flags;
 extern "C" {
 s32 get_move_done_result__24TObjWaitEntryHairMoveSimFPv(H_800FE32C *h);
 s32 queue_destruction__7TObjectFv(void *);
-s32 create__19TObjEZBoneRotPlayerFPvPvPv(s32, s32, s32);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(int);
 extern void *hair_bone_rotation_descriptor[];
 #define hair_bone_rotation_descriptor (*(RecoveredGlobal_800FE364_lbl_8049DC78 *)&hair_bone_rotation_descriptor)
@@ -52,8 +52,7 @@ typedef char RecoveredGlobal_800FE364_lbl_8049DC78_size[sizeof(RecoveredGlobal_8
 void T_OWEHMS_Exp::start_bone_rotation() {
     s32 bone = (s32)player->m_8ac;
     TObjWaitEntryHairMoveSim__sub_800FE3BC(bone);
-    create__19TObjEZBoneRotPlayerFPvPvPv((s32)player, bone,
-        (s32)((u8*)&hair_bone_rotation_descriptor.value + descriptor_index * 0x14));
+    TObjEZBoneRotPlayer::create((void *)player, (void *)bone, (void *)((u8*)&hair_bone_rotation_descriptor.value + descriptor_index * 0x14));
 }
 extern "C" {
 
@@ -778,7 +777,7 @@ void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
             }
             ((void (*)(s32))TObjWaitEntryHairMoveSim__sub_800FE3BC)(v);
             if (e->p4 != NULL) {
-                ((void (*)(void *, s32, void *))create__19TObjEZBoneRotPlayerFPvPvPv)(self->pl, v, e->p4);
+                TObjEZBoneRotPlayer::create((void *)(self->pl), (void *)v, (void *)(e->p4));
             } else if (e->p8 != NULL) {
                 ((TObjPlayer *)(self->pl))->create_hairmove((void *)(e->p8), (void *)(e->pc));
             }

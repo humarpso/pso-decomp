@@ -4,7 +4,6 @@
 extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void calc_spherical_camera_position__13TUnk_804DAB08Fv(u8 *arg0);
 }
 
 extern "C" {

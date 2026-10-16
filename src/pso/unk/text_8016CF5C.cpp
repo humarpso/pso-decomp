@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKey.h"
@@ -33,26 +34,21 @@ struct VObj_8016CF5C : VBase_8016CF5C {
 
 extern "C" {
 s32 is_split_screen();
-s32 is_confirm_pressed__14TOKeyMachine01Fv(u8 *arg0);
 extern const f32 lbl_805DB780;
 extern const f32 lbl_805DB784;
 extern const f32 lbl_805DB788;
 extern const f32 lbl_805DB78C;
-void vfunc_17__14TOKeyMachine01Fv(u8 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
-void vfunc_19__14TOKeyMachine01Fv(s32 arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
 void TOKeyMachine01__vt16(s32 arg0);
 extern const f32 lbl_805DB790;
 extern const f32 lbl_805DB78C;
-void vfunc_16__14TOKeyMachine01Fv(Obj_8016D428 *self);
 s32 get_current_floor();
 extern s32 local_client_id;
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, s32);
 void *TOKey__ct(void *, void *);
 extern void *__vt__14TOKeyGenericSw[];
@@ -70,8 +66,6 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source);
 
 extern "C" {
 
-void vfunc_25__14TOKeyMachine01Fv(void);
-
 void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
@@ -84,7 +78,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DB76C;
     *(u32 *)((s8 *)arg0 + 0x24) = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(arg0, lbl_804B2D30, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB770;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;

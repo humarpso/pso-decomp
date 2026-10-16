@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4020.h"
 
 struct Elem_80128A74 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
 
@@ -17,7 +18,6 @@ s32 spawn_particle_effect(u32, s32);
 s32 clear_rico_ring_flag__10TObjPlayerFUi(u32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_80128A70(void);
-void hook__13TUnk_804A4020Fv(void);
 
 void TObjPlayer__sub_80128A74(s32 a, u32 b, s32 c, s32 d) {
     Obj_80128A74 *o;
@@ -39,7 +39,6 @@ s32 spawn_particle_effect(u32, s32);
 s32 clear_rico_ring_flag__10TObjPlayerFUi(u32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_80128A70(void);
-void hook__13TUnk_804A4020Fv(void);
 
 void TObjPlayer::notify_hit_target(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
     if ((arg1 != 0U) && (arg3 != 0U)) {

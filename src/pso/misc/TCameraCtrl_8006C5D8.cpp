@@ -34,8 +34,6 @@ extern "C" {
 
 void *TCameraCtrl__vt10(void);
 void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1);
-void* sub_8006C5D8__13TUnk_80488B68Fv(void* a0);
-void vfunc_6__13TUnk_80488D70Fv(void *arg0);
 void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
 void *get_player_by_client_id(s32);

@@ -52,7 +52,6 @@ void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
 
 extern "C" {
 
-void vfunc_88__9TObjEneDDFv(void);
 int init_collision_body_parts(void*);
 
 void TObjEneDD::transform_part_positions() {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TPhotonGolla.h"
 
@@ -111,10 +112,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
-s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
-s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, int);
-s32 update_state__13TUnk_804C3248Fv(void *);
 s32 TPhotonMagicSquare__ct(int, void *, int, void *, int, f32);
 s32 play_persistent_sound(int, void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
@@ -125,7 +123,6 @@ void run_task__12TPhotonGollaFv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 set_photon_blast_joint_callback__13TUnk_804C3248Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -165,7 +162,6 @@ extern const f32 lbl_805DC198;
 s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0);
 s32 find_entity_by_id(int);
 s32 rotate_matrix_y(int, int);
-void mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 void subtract_vector(void *, void *);
 f32 vec_squared_length(void *);
@@ -275,7 +271,7 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
     s32 i;
     Target_801AB868 *candidate;
     TObjPlayer::init_all_slots();
-    mark_enemy_body_contacts__13TUnk_804AF8A0Fv(self);
+    ((TUnk_804AF8A0 *)self)->mark_enemy_body_contacts();
     if (self->fa4->flags & 0x100000) {
         for (i = 0; i < 16; i++) {
             candidate = get_battle_param__10TObjPlayerFi(i);
@@ -343,7 +339,7 @@ void TPhotonGolla::render() {
         push_matrix();
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
-        set_photon_blast_joint_callback__13TUnk_804C3248Fv(self);
+        ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -387,15 +383,15 @@ void TPhotonGolla::run_task() {
         }
     }
     if ((lbl_805DC1A8 == (f32) *(s32 *)&this->unk_1C8) && ((s16) this->m_b8 == 1)) {
-        begin_photon_summon_camera__13TUnk_804C3248FSc((void *) (arg0), (int) (5));
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera((int) (5));
         *(s32 *)&this->unk_1C8 = 0;
         ((TObjMotion *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (2));
     }
     this->m_1b8 = (s16) this->m_b8;
-    update_state__13TUnk_804C3248Fv((void *) (arg0));
+    ((TUnk_804C3248 *)arg0)->update_state();
     advance_animation_playback((void *) (arg0));
-    update_photon_blast_attachments__13TUnk_804C3248Fv((void *) (arg0));
+    ((TUnk_804C3248 *)arg0)->update_photon_blast_attachments();
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if ((s32) *(s32 *)&this->unk_1C8 == 0x50) {

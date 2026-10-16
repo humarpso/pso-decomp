@@ -1,4 +1,5 @@
 #include "pso/ui/TMessageWindowController.h"
+#include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -22,7 +23,6 @@ const char *get_appraisal_text(s32);
 TWindowMessagePage *create__18TWindowMessagePageFllll(s32, s32, s32, s32);
 TWindowMessagePage *set_text__18TWindowMessagePageFlll(s32, s32, s32);
 void TWindow__close(TWindowMessagePage *);
-void set_position_xy__13TUnk_804CDFE8Fff(TWindowMessagePage *, f32, f32);
 __declspec(section ".rodata") extern const char message_tag_error[];
 }
 struct MessageTagCommand {
@@ -195,7 +195,7 @@ TWindowMessagePage *TMessageWindowController::create_message_window(s32 x, s32 y
     else scale = 1.0f;
     if (window == NULL) {
         window = create__18TWindowMessagePageFllll(x, y, 1, flags);
-        set_position_xy__13TUnk_804CDFE8Fff(window, scale, scale);
+        ((TUnk_804CDFE8 *)window)->set_position_xy(scale, scale);
         return window;
     }
     return NULL;
@@ -206,7 +206,7 @@ TWindowMessagePage *TMessageWindowController::create_window(s32 x, s32 y) {
     else scale = 1.0f;
     if (window == NULL) {
         window = set_text__18TWindowMessagePageFlll(x, y, 1);
-        set_position_xy__13TUnk_804CDFE8Fff(window, scale, scale);
+        ((TUnk_804CDFE8 *)window)->set_position_xy(scale, scale);
         return window;
     }
     return NULL;

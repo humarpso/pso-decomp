@@ -76,7 +76,6 @@ extern "C" {
 
 void TObjPlayer__sub_8023A70C(void* p);
 void move_ground_technique_projectile(void* p);
-void advance_lifetime_or_destroy__13TUnk_804CCC68Fv(void *arg0);
 
 void TTecGiZonde::render() {  }
 void TUnk_804CCC68::advance_lifetime_or_destroy() {
@@ -178,6 +177,6 @@ void move_technique_projectile(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)((void*)(p))); advance_lifetime_or_destroy__13TUnk_804CCC68Fv((void *)(p)); }
+void TObjPlayer__sub_8023A70C(void* p) { move_technique_projectile((u8 *)((void*)(p))); ((TUnk_804CCC68 *)p)->advance_lifetime_or_destroy(); }
 
 }

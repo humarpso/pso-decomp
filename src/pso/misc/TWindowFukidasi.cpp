@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowFukidasi.h"
 #include "pso/TObjCMHairMenu.h"
@@ -230,7 +231,6 @@ s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 play_sound_effect(int, int, int, int);
 View_80252764 * get_draw_context__11TWindowBaseFPv(void *);
 s32 get_field_20__17TWindowSubComCardFv();
-s32 save_position__13TUnk_804CE018Fv(void *);
 s32 set_field_1c__6TLobbyFf(f32);
 s32 sub_80246948__13TUnk_804CE018Fv(void *);
 s32 refresh_status_display__9TWindowDDFv(int);
@@ -239,7 +239,6 @@ s32 set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
 s32 init_layout_entries__20TWindowSubSymbolChatFii(void *, s16);
 s32 draw_resolved_window__15TWindowFukidasiFllll(Fuki_80250F70 *, f32 *, f32 *, s32);
 f32 * get_message_by_type__11TWindowCtrlFScl(u8, int);
-u8 alloc_nearest_free_slot__13TUnk_804CF0B8Fv(Fuki_802504C0 *);
 void complete_speech_balloon(u8 *arg0);
 s32 is_speech_balloon_ready(u8 *arg0);
 void clamp_text_size__15TWindowFukidasiFPvPv(Fuki_80250314 *b, f32 *out);
@@ -261,12 +260,9 @@ void draw_body_row__15TWindowFukidasiFv(Fuki_802523CC *b, Slice_802523CC *s, Ctx
 void draw_body__15TWindowFukidasiFPvPvUiPvf(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
 void render__15TWindowFukidasiFPv(Fuki_80252764 *b);
 s32 TWindowFukidasi__sub_80252C38(void *);
-void sub_80252C68__13TUnk_804CF0B8Fv(Fuki_802504C0 *);
 void clear_flag_20__13TUnk_804CF0B8Fv();
-s32 is_balloon_visible__13TUnk_804CF0B8Fv(void *);
 s32 fn_80252CBC(void);
 void draw_visible_window_entries(void *, void *, View_80252764 *);
-void update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 s32 init_window_layout_entries(void *, void *, int);
 s32 reset_float_field__15TWindowHelpItemFv();
 s32 measure_message_text_width(int, f32);
@@ -351,7 +347,7 @@ void complete_speech_balloon(u8 *arg0) {
     ((s32 (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(arg0);
     TWindowFukidasi__sub_80252C38(arg0);
     ((TUnk_804CF0B8 *)arg0)->set_flag2c_bit100();
-    save_position__13TUnk_804CE018Fv(arg0);
+    ((TUnk_804CE018 *)arg0)->save_position();
     *(f32 *)(arg0 + 0x80) = TWindowFukidasi__data_805DCCE8;
     ((TWindowFukidasi *)arg0)->sync_display_pos();
     *(s32 *)(arg0 + 0x5C) = 0x186A0;
@@ -474,7 +470,7 @@ void TWindowFukidasi::place_rect_at_head_or_slot() {
         if ((s8)b->slot == -1) {
             ((TUnk_804CF0B8 *)b)->set_flag();
             ((TUnk_804CF0B8 *)b)->set_flag2c_bit200();
-            b->slot = alloc_nearest_free_slot__13TUnk_804CF0B8Fv(b);
+            b->slot = ((TUnk_804CF0B8 *)b)->alloc_nearest_free_slot();
         }
         m = get_message_by_type__11TWindowCtrlFScl(b->slot, b->viewport);
         b->rect[0] = m[0] - TWindowFukidasi__data_805DCD0C * b->anchor[0];
@@ -649,7 +645,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
         if ((s8)b->slot == -1) {
             ((TUnk_804CF0B8 *)b)->set_flag();
             ((TUnk_804CF0B8 *)b)->set_flag2c_bit200();
-            b->slot = alloc_nearest_free_slot__13TUnk_804CF0B8Fv((Fuki_802504C0 *)b);
+            b->slot = ((TUnk_804CF0B8 *)b)->alloc_nearest_free_slot();
         }
         m = get_message_by_type__11TWindowCtrlFScl(b->slot, b->viewport);
         b->rect[0] = m[0] - TWindowFukidasi__data_805DCD0C * b->anchor[0];
@@ -788,7 +784,7 @@ s32 TWindowFukidasi::is_speaker_far_or_offscreen() {
     if (zz + (xx + yy) > lbl_805DCD44 * m + lbl_805DCD40) {
         return 1;
     }
-    sub_80252C68__13TUnk_804CF0B8Fv(arg0);
+    ((TUnk_804CF0B8 *)arg0)->sub_80252C68();
     return ((TUnk_804CF0B8 *)arg0)->get_flag_bit1() != 0 ? 1 : 0;
 }
 extern int fold_flush_3;
@@ -1071,7 +1067,7 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
     f32 s;
     f32 y0;
     s32 angle;
-    if (is_balloon_visible__13TUnk_804CF0B8Fv(b) != 0) {
+    if (((TUnk_804CF0B8 *)b)->is_balloon_visible() != 0) {
         ((TWindowFukidasi *)b)->project_anchor(pos, scr);
         cx = b->center[0];
         cy = b->center[1];
@@ -1300,7 +1296,7 @@ void TWindowFukidasi::run_task() {
   TWindowFukidasi__sub_80251790(arg0);
   if (((TUnk_804CF0B8 *)arg0)->is_active() != 0)
   {
-    update_window_entry_list__13TUnk_804CE018FPv(arg0, ((u8 *) arg0) + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list(((u8 *) arg0) + 0x24);
   }
 }
 

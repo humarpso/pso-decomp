@@ -12,7 +12,6 @@ s32 get_main_phase(void);
 s32 get_current_floor(void);
 s32 get_player_by_client_id(u32);
 f32 xz_distance_squared(void *, void *);
-bool is_player_outside_trade_radius__18TObjTradeCollisionFUl(u8 *arg0, u32 arg1);
 s32 queue_destruction__7TObjectFv(void *);
 s32 draw_color_lines(void *, int, int, f32);
 s32 draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, int, int, f32, f32, f32);

@@ -3,8 +3,6 @@
 
 extern "C" {
 
-void vfunc_83__12TObjEneDD_STFv(void *arg0);
-
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 is_player_entity_id(u16);
 s32 vfunc_83__9TObjEneDDFv(void *);

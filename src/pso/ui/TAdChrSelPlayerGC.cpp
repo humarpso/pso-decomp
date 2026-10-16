@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void sub_802E0F58__13TUnk_804E3008Fl(void *arg0, s32 arg1);
 s32 mem_alloc(s32);
 s32 fn_802E0CB0(void *, s32);
 

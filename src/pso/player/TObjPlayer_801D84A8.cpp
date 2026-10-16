@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 struct Tag_801D7D4C { u8 d[4]; };
 
 struct Obj_801D7D4C { s32 n; Tag_801D7D4C x[4]; Tag_801D7D4C y[4]; };
@@ -19,7 +20,6 @@ void init__6gc_tagFv(void *);
 s32 obj_testFlags30(void *, u32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 get_camera_field__10TObjPlayerFPv(void *);
-s32 test_bit1_at_10__10TObjPlayerFv(void *);
 u8 get_cast_technique_level(void *, int);
 Tec_801D7DA4 *calc_technique_parameters(s32, s32, s32);
 s32 get_game_play_mode();
@@ -33,7 +33,6 @@ s32 weapon_has_extra_attack(u32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, s32);
 void init__9TItemDataFv(void *);
-s32 is_ready__10TObjPlayerFv(void *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, TItemData_801D8044 *);
 s32 is_boss_area(void);
 s32 TObjPlayer__sub_801AF694(void *, s32);
@@ -80,7 +79,7 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
         }
         return 1;
     case 3:
-        if (test_bit1_at_10__10TObjPlayerFv(arg0 + 0x428) != 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFPv(arg0) == 0) {
+        if (((TObjPlayer *)(arg0 + 0x428))->test_bit1_at_10() != 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFPv(arg0) == 0) {
             return 0;
         }
         if (*(s16 *)(arg0 + 0x32E) - calc_technique_parameters(tec = sub, get_cast_technique_level(arg0 + 0x428, sub), ((s32 (*)(void *))obj_getField1c)(arg0))->cost < 0) {
@@ -182,35 +181,35 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
             item.sub = 2;
             break;
         case 3:
-            if (is_ready__10TObjPlayerFv(self) != 0) {
+            if (((TObjPlayer *)self)->is_ready() != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 0;
             break;
         case 4:
-            if (is_ready__10TObjPlayerFv(self) != 0) {
+            if (((TObjPlayer *)self)->is_ready() != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 1;
             break;
         case 5:
-            if (is_ready__10TObjPlayerFv(self) != 0) {
+            if (((TObjPlayer *)self)->is_ready() != 0) {
                 return 0;
             }
             item.type = 1;
             item.sub = 2;
             break;
         case 6:
-            if (is_ready__10TObjPlayerFv(self) != 0) {
+            if (((TObjPlayer *)self)->is_ready() != 0) {
                 return 0;
             }
             item.type = 6;
             item.sub = 0;
             break;
         case 7:
-            if (is_ready__10TObjPlayerFv(self) != 0) {
+            if (((TObjPlayer *)self)->is_ready() != 0) {
                 return 0;
             }
             item.type = 6;
@@ -229,7 +228,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
             item.type = 7;
             break;
         case 12:
-            if (is_ready__10TObjPlayerFv(self) != 0) {
+            if (((TObjPlayer *)self)->is_ready() != 0) {
                 return 0;
             }
             item.type = 8;

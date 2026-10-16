@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
@@ -129,18 +130,12 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 sub_800BBA0C__9TObjEneDDFv(void *);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 u32 __nw__7TObjectFUl(int);
 s32 init_breakup_pieces__10TObjPlayerFPvPvi(void *, void *, int);
 s32 fn_802E79B0(void *);
-s32 sub_802E8234__14TBoss7DeRolLeCFv(void *);
 s32 update_projectile_spawns__8TObjFishFPv(void *);
 s32 TParticleCtrl__sub_802EC550(void *);
-s32 advance_action_sequence__14TBoss7DeRolLeCFv(void *);
-s32 sub_802ECAA4__14TBoss7DeRolLeCFv(void *);
 s32 sub_802ECB10__14TBoss7DeRolLeCFv();
-s32 flee_if_disturbed__14TBoss7DeRolLeCFv(void *);
 void TObjPlayer__sub_802ED984(void);
 s32 apply_with_callback__10TObjPlayerFlf(int, int);
 s32 set_matrix_identity(int);
@@ -156,12 +151,11 @@ void TObjPlayer__sub_802ED988(u8 *arg0);
 extern "C" {
 
 void TObjPlayer__sub_802ED984(void);
-s32 sub_802ECAA4__14TBoss7DeRolLeCFv(void *);
 s32 sub_802ECB10__14TBoss7DeRolLeCFv();
 
 void TBoss7DeRolLeC::update_or_dispatch() {
     if (sub_802ECB10__14TBoss7DeRolLeCFv() != 0) {
-        sub_802ECAA4__14TBoss7DeRolLeCFv(this);
+        sub_802ECAA4();
         return;
     }
     ((VObj_802ED928*)this)->m85((*(s16 *)((u8 *)this + 0x326)), 9);
@@ -177,7 +171,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     TObjPlayer__sub_802ED984();
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x628);
     if (temp_r3 & 0x8000) {
-        send_entity_set_flags__9TObjEnemyFv((void *) (arg0));
+        ((TObjEnemy *)arg0)->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
@@ -203,7 +197,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         switch (temp_r0) {
         case 1:
             *(s32 *)((s8 *)arg0 + 0x6B8) = 0;
-            advance_action_sequence__14TBoss7DeRolLeCFv((void *) (arg0));
+            ((TBoss7DeRolLeC *)arg0)->advance_action_sequence();
             break;
         case 0:
             *(s32 *)((s8 *)arg0 + 0x6B8) = 2;
@@ -226,7 +220,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         if (temp_r0_3 != 1) {
             if (temp_r0_3 == 2) {
                 if (((s32 (*)(void *))sub_802ECB10__14TBoss7DeRolLeCFv)((void *) (arg0)) != 0) {
-                    sub_802ECAA4__14TBoss7DeRolLeCFv((void *) (arg0));
+                    ((TBoss7DeRolLeC *)arg0)->sub_802ECAA4();
                 } else {
                     ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 2);
                 }
@@ -246,10 +240,10 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         }
         update_projectile_spawns__8TObjFishFPv((void *) (arg0));
     }
-    sub_800BBA0C__9TObjEneDDFv((void *) (arg0));
+    ((TObjEneDD *)arg0)->sub_800BBA0C();
     ((VObj_18 *)(arg0))->m86();
     ((TObjFish *)arg0)->sync_position_vectors();
-    flee_if_disturbed__14TBoss7DeRolLeCFv((void *) (arg0));
+    ((TBoss7DeRolLeC *)arg0)->flee_if_disturbed();
     TParticleCtrl__sub_802EC550((void *) (arg0));
     if (temp_r30 == 0) {
         ((TObject *)(arg0 + 0x690))->run_tasks();
@@ -262,7 +256,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         post_translate_matrix((void *) (arg0 + 0x6EC));
         rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), (int) (1));
         scale_current_matrix((void *) (lbl_804E3BF0));
-        sub_802E8234__14TBoss7DeRolLeCFv((void *) (arg0));
+        ((TBoss7DeRolLeC *)arg0)->sub_802E8234();
         ((TUnk_804806E8 *)arg0)->get_speed();
         apply_with_callback__10TObjPlayerFlf((int) (*(u32 *)((s8 *)arg0 + 0x7AC)), (int) (*(s32 *)((s8 *)arg0 + 0xF8)));
         pop_matrix();

@@ -241,19 +241,11 @@ struct Ene_800BB000 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-u8 *vfunc_102__9TObjEneDDFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-u8 *vfunc_101__9TObjEneDDFPUc(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-u8 *try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(u8 *arg0, u8 *arg1);
-u8 *try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(u8 *arg0, u8 *arg1);
-u8 *try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(u8 *arg0, u8 *arg1);
-u8 *try_move_actor_xz_on_ground__13TBoss5GryphonFPUc(u8 *arg0, u8 *arg1);
 f32 newton_sqrtf(f32);
-s32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 extern const f32 TObjEneDD__data_805D9E8C;
 void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 }
@@ -261,7 +253,6 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
 extern "C" {
 
 int init_collision_body_parts(void*);
-void vfunc_88__9TObjEneDDFv(void);
 
 int TObjEneDD::has_move_failures(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -298,21 +289,21 @@ void TObjEneDD::move_clamped_on_ground(f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
-    try_move_actor_xz_on_ground__13TBoss5GryphonFPUc((u8 *)(arg0), (u8 *)(&sp8));
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
 }
 
 void TObjEneDD::move_with_wall_slide_on_ground(f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
-    try_move_actor_xz_on_ground__13TBoss5GryphonFPUc((u8 *)(arg0), (u8 *)(&sp8));
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
 }
 
 void TObjEneDD::move_to_shot_position(f32 farg0, f32 farg1, f32 farg2) {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     ((TBoss5Gryphon *)arg0)->calc_shot_position((u8 *)(&sp8), (f32)farg0, (f32)farg1, (f32)farg2);
-    try_move_actor_xz_on_ground__13TBoss5GryphonFPUc((u8 *)(arg0), (u8 *)(&sp8));
+    ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)(&sp8));
 }
 
 u8 *TObjEneDD::vfunc_102() {
@@ -370,7 +361,7 @@ u8 *TBoss5Gryphon::try_move_actor_xz_on_ground(u8 *arg1) {
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
     Ene_800BAF1C *e = (Ene_800BAF1C *)arg0;
     Vec_800BAF1C *out = (Vec_800BAF1C *)arg1;
-    Node_800BAF1C *n = (Node_800BAF1C *)enemy_probe_wall_ahead__13TBoss5GryphonFfff((u8 *)e, dx, dz, dist + e->reach);
+    Node_800BAF1C *n = (Node_800BAF1C *)((TBoss5Gryphon *)e)->enemy_probe_wall_ahead(dx, dz, dist + e->reach);
     if (n == NULL) {
         e->count = 0;
     } else {
@@ -398,7 +389,7 @@ void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 d
 void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist) {
     Node_800BB000 *n;
     Vec_800BB000 v;
-    n = (Node_800BB000 *)enemy_probe_wall_ahead__13TBoss5GryphonFfff((u8 *)e, dx, dz, dist + e->reach);
+    n = (Node_800BB000 *)((TBoss5Gryphon *)e)->enemy_probe_wall_ahead(dx, dz, dist + e->reach);
     if (n == NULL) {
         out->x = dx * dist + e->pos.x;
         out->y = e->pos.y;
@@ -417,7 +408,7 @@ void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dis
         dx = -v.x;
         dz = -v.z;
     }
-    if ((Node_800BB000 *)enemy_probe_wall_ahead__13TBoss5GryphonFfff((u8 *)e, dx, dz, dist + e->reach) == NULL) {
+    if ((Node_800BB000 *)((TBoss5Gryphon *)e)->enemy_probe_wall_ahead(dx, dz, dist + e->reach) == NULL) {
         out->x = dx * dist + e->pos.x;
         out->y = e->pos.y;
         out->z = dz * dist + e->pos.z;

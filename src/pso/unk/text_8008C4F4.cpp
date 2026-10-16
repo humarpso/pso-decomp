@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TLobby.h"
 
@@ -20,7 +21,6 @@ struct RecoveredGlobal_8008C4F4_main_task {
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-s32 is_ready__22TQuestVmDownLoadServerFv();
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
 s32 controller_stuff__Fv();
@@ -83,7 +83,7 @@ void run_game_frame(void) {
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }
-    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+    if (TQuestVmDownLoadServer::is_ready() != 0) {
         var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }

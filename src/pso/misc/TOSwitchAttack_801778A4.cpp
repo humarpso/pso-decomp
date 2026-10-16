@@ -77,7 +77,6 @@ extern s32 lbl_805D3178;
 u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 u16 obj_getField1c(void *);
-void send_switch_on__12TOSwitchItemFv(Self_80177CF4 *self);
 s32 get_current_floor();
 void spawn_particle_effect_with_flags(void *, s32, s32);
 f32 horizontal_distance_squared(void *, void *);

@@ -22,7 +22,6 @@ u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void vfunc_15__13TUnk_804B27D8Fv(void);
 void *__dt__27TOContainerAncientEnemyRareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__23TOContainerAncientEnemyFv(void *, int);

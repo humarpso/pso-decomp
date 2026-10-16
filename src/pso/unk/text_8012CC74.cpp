@@ -58,7 +58,6 @@ struct Pl_8012CCCC : PlB_8012CCCC {
 };
 
 extern "C" {
-void reserved_53__13TUnk_804A5648Fv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_saber_weapon(u8 *arg0);

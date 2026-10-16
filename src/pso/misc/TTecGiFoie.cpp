@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CC148.h"
 #include "pso/misc/TTecGiFoie.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/misc/TTecLuker.h"
@@ -169,8 +170,6 @@ void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
-u8 * destroy_technique_base__13TUnk_804CC148Fs(void *, s16);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 s32 calc_technique_parameters(int, int, int);
 u8 * gifoie_orbit_dtor(Task_80231224 *task, s16 flag);
@@ -340,7 +339,7 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
       var_r31 += 4;
     }
     while (var_r29 < 3);
-    destroy_technique_base__13TUnk_804CC148Fs(arg0, 0);
+    ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
     if (arg1 > 0)
     {
       ((s32 (*)(void *))__dl__7TObjectFPv)((void *) arg0);
@@ -370,7 +369,7 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         if (*(u8 **)((s8 *)self + 0xE8) != NULL) {
             *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)self + 0xE8)) + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + distance;
         }
-        apply_technique_to_area_targets__13TUnk_804CC148Fv(self);
+        ((TUnk_804CC148 *)self)->apply_technique_to_area_targets();
         if (distance >= *(f32 *)((s8 *)self + 0x90)) {
             queue_destruction__7TObjectFv((int) self);
         }

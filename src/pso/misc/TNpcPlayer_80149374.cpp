@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcBase.h"
 
 extern "C" {
 s32 read_be16_field2__10TObjPlayerFv();
@@ -12,10 +13,7 @@ extern "C" {
 
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TLobby__send_and_handle_60(void *);
-void sub_80149358__11TObjNpcBaseFl(void* p, s32 v);
-void sub_80149360__11TObjNpcBaseFl(void* p, s32 v);
 void TObjNpcBase__sub_80149368(void* p);
-void vfunc_88__11TObjNpcBaseFv(void);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFv();

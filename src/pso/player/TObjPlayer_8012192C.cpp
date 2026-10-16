@@ -6,7 +6,6 @@
 extern "C" {
 
 void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1);
-void update_attack__13TUnk_804A0BC0Fv(void *arg0);
 s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();

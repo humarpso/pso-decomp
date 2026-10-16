@@ -64,14 +64,10 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern s32 tl_05;
 extern const f32 lbl_805DB014;
-void yasminkov_9000m_eject_casing__13TUnk_804A6AD8Fll(u8 *arg0, s32 arg1, s32 arg2);
-void yasminkov_9000m_eject_casing__13TUnk_804A6AD8Fll(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB008;
 extern const f32 lbl_805DB00C;
 extern const f32 lbl_805DB010;
-void update_weapon__13TUnk_804A6AD8Fv(u8 *arg0);
 void spawn_particle_effect(void *, s32);
-void emit_marker_effects__13TUnk_804A6AD8Fv(Pl2_80130974 *arg0);
 }
 
 extern "C" {
@@ -101,8 +97,8 @@ void TUnk_804A6AD8::update_weapon() {
         break;
     case 3:
         *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
-        yasminkov_9000m_eject_casing__13TUnk_804A6AD8Fll((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x220)), (s32)(0x4000));
-        yasminkov_9000m_eject_casing__13TUnk_804A6AD8Fll((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x22C)), (s32)(-0x4000));
+        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x220)), (s32)(0x4000));
+        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x22C)), (s32)(-0x4000));
         break;
     }
 }

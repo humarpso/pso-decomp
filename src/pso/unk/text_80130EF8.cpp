@@ -8,7 +8,6 @@ extern "C" {
 extern const f32 lbl_805DB038;
 void yasminkov_2000h_idle(u8 *arg0);
 extern const f32 lbl_805DB03C;
-void update_attack__13TUnk_804A6CC8Fv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
@@ -16,9 +15,7 @@ extern const f32 lbl_805DB03C;
 extern const f32 lbl_805DB040;
 extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
-void update_weapon__13TUnk_804A6CC8Fv(u8 *arg0);
 void spawn_particle_effect(void *buf, s32 n);
-void emit_marker_effects__13TUnk_804A6CC8Fv(Obj_80131070 *self);
 }
 
 extern "C" {

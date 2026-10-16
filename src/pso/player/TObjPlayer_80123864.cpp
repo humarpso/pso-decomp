@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void reserved_53__13TUnk_804A1B40Fv(u8 *arg0);
 s32 draw_weapon_model();
 s32 draw_weapon_at_joint(void *, int);
 

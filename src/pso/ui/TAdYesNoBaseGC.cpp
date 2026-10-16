@@ -24,7 +24,6 @@ struct O_8032C118 { u8 pad[0x2C]; s32 sel; };
 extern "C" {
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 sub_8032C0B4__14TAdYesNoBaseGCFv(u8 *arg0);
 void align_menu_entry_positions(s32);
 void update_layout_height__21TWindowSubComCardListFf(f32);
 s32 init_shop_judgment_window(void *);
@@ -48,7 +47,6 @@ struct VtObj8032C1C8_8032C188 : VtBase8032C1C8_8032C188 {
 
 void *TAdYesNoBaseGC__ct(void *arg0);
 void *TAdYesNoBaseGC__vt0(void *arg0, s16 arg1);
-void vfunc_11__14TAdYesNoBaseGCFv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
 s32 TWindow__close(void *);
@@ -99,7 +97,7 @@ void TAdYesNoBaseGC::vfunc_11() {
     temp_r0 = *(s32 *)((s8 *)this + 0x1C);
     switch (temp_r0) {
     case 0:
-        *(u32 *)((s8 *)this + 0x40) = sub_8032C0B4__14TAdYesNoBaseGCFv((u8 *)(this));
+        *(u32 *)((s8 *)this + 0x40) = sub_8032C0B4();
         *(u32 *)((s8 *)this + 0x44) = ((TAdYesNoBaseGC *)this)->create_menu_window();
         *(s32 *)((s8 *)this + 0x1C) = 1;
         break;

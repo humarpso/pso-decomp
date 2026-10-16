@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TObject.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
 
 struct RecoveredGlobal_801FA964_lbl_804C8784 {
@@ -270,7 +272,6 @@ extern void *TRaderMapCore__instance;
 void allow_rendering__7TObjectFv(void *);
 extern void *TRaderMapCore__instance;
 extern s32 TRaderMapCore__view_mode;
-s32 setup_default_view__11TCameraCtrlFPv(void *, int);
 s32 TCameraCtrl__sub_801E32D8(f32, f32);
 s32 GXSetScissorBoxOffset(int, int);
 extern RecoveredGlobal_801FA964_lbl_804C8784 radar_map_view_scissor_table;
@@ -312,7 +313,6 @@ s32 TCameraCtrl__sub_80069304();
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 s32 check_flag_100__10TObjPlayerFPv(u32);
 u32 get_player_by_client_id(s32);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern u8 TCameraCtrl__view_state[];
 extern s32 TRaderMapCore__view_mode;
 extern s32 TRaderMapCore__render_mode;
@@ -1003,7 +1003,7 @@ void TRaderMapCore::setup_view(s32 arg1) {
     s32 arg0 = (s32)this;
     GXSetScissorBoxOffset((int) (0), (int) (0));
     TCameraCtrl__sub_801E32D8((f32) (radar_screen_center_x_f32), (f32) (radar_screen_center_y_f32));
-    setup_default_view__11TCameraCtrlFPv((void *) (camera_ctrl_instance), (int) (0));
+    ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view((int) (0));
     TRaderMapCore::set_view_scissor((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&radar_map_view_scissor_table.value + (arg1 * 0x10))));
     TObjLight::apply_distant_light();
     TParticleCtrl::end_effect_render();
@@ -1169,7 +1169,7 @@ s32 TRaderMapCore::is_render_admitted(void *arg1) {
             return 0;
         }
     }
-    return all_parents_unqueued_for_destruction__7TObjectFv(this) != 0 ? 1 : 0;
+    return all_parents_unqueued_for_destruction() != 0 ? 1 : 0;
 }
 
 void TRaderMapCore::update_pan_zoom_input() {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 #include "pso/unk/TPhotonGolla.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
@@ -13,8 +14,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 s32 init_collision_body_parts(void *, void *, int);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
-s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
 s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 void sub_801AB688__12TPhotonGollaFv(void *);
@@ -77,7 +76,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
     *(u16 *)((s8 *)arg0 + 0x158) = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(arg0, (u8 *)lbl_804C35C8, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(arg0);
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x1A8) = 0;
     *(u8 **)((s8 *)arg0 + 0x1A4) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
@@ -125,7 +124,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
     if (*(s32 *)((s8 *)arg0 + 0x1BC) == 0) {
         ((TObjMotion *)arg0)->set_field_b8(0);
-        begin_photon_summon_camera__13TUnk_804C3248FSc(arg0, 5);
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera(5);
         *(s32 *)((s8 *)arg0 + 0x1BC) = 1;
         *(s16 *)((s8 *)arg0 + 0x1B8) = 0;
         *(s32 *)((s8 *)arg0 + 0x1C4) = 1;

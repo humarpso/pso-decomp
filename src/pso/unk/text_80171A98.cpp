@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
 #include "pso/misc/TOMineTrap.h"
 #include "pso/player/TObjPlayer.h"
@@ -43,7 +44,6 @@ struct Icon_80171A98 {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void init_collision_body_parts(void *, void *, s32);
 void TOMine__ct(void *, void *, void *);
 extern u8 mine_collision_body_parts[];
@@ -98,7 +98,7 @@ void *TOMineIcon03__ct(void *arg0, void *arg1, void *arg2) {
     self->f35C = 0xFFFF;
     self->f30 |= 0x60000000;
     init_collision_body_parts(self, mine_collision_body_parts, 1);
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(self);
+    ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     ((TObjPlayer *)self)->reset_photon_effect();
     return self;
 #undef self

@@ -3,8 +3,6 @@
 
 extern "C" {
 
-s32 vfunc_15__12TObjQuestColFv(void *arg0);
-void vfunc_16__12TObjQuestColFv(void* p);
 s32 update_trigger_state__16TObjQuestColBaseFf(f32);
 int destroy_board__17TQuestThreadBoardFv(void*);
 int create__12TQuestThreadFi(void*);

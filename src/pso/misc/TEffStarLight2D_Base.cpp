@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TEffStarLight2D.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/misc/TUnk_8048E640.h"
 
 #include <stddef.h>
@@ -66,7 +68,6 @@ extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
 extern RecoveredGlobal_80084C10_lbl_804393AC star_light_2d_base_color;
 extern const f32 lbl_805D9450;
-void render__13TUnk_8048E640Fv(s32 arg0);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
 u8 * construct_world_actor_base(void *);
 void * __nw__7TObjectFUl(s32, s32);
@@ -74,8 +75,6 @@ extern s32 lbl_8048E640[];
 extern void *tl_particle;
 u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
 int copy_position__15TEffStarLight2DFPv(void* p);
-void copy_from_subobject__15TEffStarLight2DFPv(void *, void *);
-void run_task__13TUnk_8048E640Fv(Eff_80084C64 *self);
 }
 
 extern "C" {
@@ -83,7 +82,6 @@ extern "C" {
 void *TEffStarLight2D_Base__create(void *arg0, s32 _w1);
 void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern void *tl_particle;
@@ -127,14 +125,14 @@ void TUnk_8048E640::run_task() {
     s.g = (f32)self->g;
     s.b = (f32)self->b;
     s.flags = 0;
-    copy_from_subobject__15TEffStarLight2DFPv(self->sub, &s);
+    ((TEffStarLight2D *)(self->sub))->copy_from_subobject(&s);
 }
 
 void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E640;
         if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x90)); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

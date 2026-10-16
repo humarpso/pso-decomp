@@ -1,4 +1,5 @@
 #include "pso/enemy/TEnemyTaskList.h"
+#include "pso/misc/TLobby.h"
 #include "pso/system/EventShuffleTable.h"
 
 #include "pso/system/TSetEvtDestroy.h"
@@ -29,7 +30,6 @@ extern "C" {
 
 s32 run_wave_event_actions();
 void TLobby__sub_80208884(void*);
-s32 spawn_matching_objects__6TLobbyFssl(s32, s32, void*);
 void notify_partner_room_cleared(s32);
 }
 
@@ -40,7 +40,7 @@ void TSetEvtDestroy::run_task() {
             m_phase = 2;
         }
         if (--m_countdown < 0) {
-            if (spawn_matching_objects__6TLobbyFssl(m_event_record->spawn_arg0, m_event_record->spawn_arg1, m_enemy_tasks) != 0) {
+            if (TLobby::spawn_matching_objects((s16)(m_event_record->spawn_arg0), (s16)(m_event_record->spawn_arg1), (s32)m_enemy_tasks) != 0) {
                 m_phase = 1;
             } else {
                 m_phase = 2;

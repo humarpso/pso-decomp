@@ -17,7 +17,6 @@ struct RecoveredGlobal_8011DC90___vt__15TItemTimerEvent {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 u32 get_player_by_client_id(u16);
-void run_task__15TItemTimerEventFv(void *arg0);
 void fn_8011085C(void *, s32);
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 void fn_801108C8(void *, s32);
@@ -31,7 +30,6 @@ u8 *TItemTimerEvent__ct(u8 *arg0, s32 arg1, s16 arg2, s32 arg3);
 
 extern "C" {
 
-void vfunc_7__13TUnk_804A0668Fv(void *arg0);
 void *TItemTimerEvent__sub_8011DCF8(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011DD50(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011DDA8(void *arg0, s16 arg1);
@@ -43,7 +41,6 @@ void *TItemTimerEvent__sub_8011DF60(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011DFB8(void *arg0, s16 arg1);
 void *TItemTimerEvent__sub_8011E010(void *arg0, s16 arg1);
 void *TItemTimerEvent__vt0(void *arg0, s16 arg1);
-void vfunc_7__15TItemTimerEventFv(void *arg0);
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 is_item_area_enabled();
 s32 TObjectV8047c128_subtract_hp(s32, s32);

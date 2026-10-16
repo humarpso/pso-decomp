@@ -32,9 +32,6 @@ struct VObj_8017E184_8017E154 : Base_8017E184_8017E154 {
 
 extern "C" {
 
-void vfunc_14__13TUnk_804B97C0Fv(void);
-void vfunc_15__13TUnk_804B97C0Fv(void);
-
 void TUnk_804B97C0::vfunc_14() {  }
 
 void TUnk_804B97C0::run_task() {

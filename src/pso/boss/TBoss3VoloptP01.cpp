@@ -692,7 +692,6 @@ struct A_80044038 { u8 x[0x60]; };
 
 struct Data_80044038 { A_80044038 a; u8 b[0x1C]; u8 c[4]; };
 
-void recalc_combat_stats__13TUnk_804806E8FPvPvPvff(void *, s32, s32, s32, f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_status_effect_row(void *);
 s32 obj_clearFlags30(void *, int);
@@ -706,7 +705,6 @@ s32 register_boss__6TLobbyFl(s32);
 s32 TBoss3Volopt__sub_8003F398();
 s32 link_photon__10TObjPlayerFUs(u16, s32);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *, int, f32, f32);
-void sub_8004292C__15TObjEnemyCustomFv(void *);
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
 s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
 void reset_state__15TBoss3VoloptP01FPv(void *arg0);
@@ -717,12 +715,10 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0);
 void TBoss3VoloptP01__sub_80043CA8(void * _w0);
 void run_task__15TBoss3VoloptP01Fv(u8 *arg0);
 void * __dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1);
-void init_params__15TBoss3VoloptP01Fv(VObj_80044038 *arg0);
 u8 * TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4);
 u8 * TBoss3VoloptP01__sub_800442A0(u8 *arg0, s32 arg1, s32 arg2);
 void fn_80044330(void* p);
 void* fn_8004438C(void* p);
-void load_volopt_param_entry__15TBoss3VoloptP01Fl(void *, s32);
 void reset_look_state__11TCameraCtrlFv(void *);
 void set_mode__11TCameraCtrlFv(void *);
 u8 * __ct__17TObjVoloptShutterFv(void *, s32);
@@ -975,7 +971,7 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
     u8 *arg0 = (u8 *)arg0_;
     s32 s;
 
-    sub_8004292C__15TObjEnemyCustomFv(arg0);
+    ((TObjEnemyCustom *)arg0)->sub_8004292C();
     switch (F430D0(s32, 0x37C)) {
     case 0:
         F430D0(u8 *, 0x3AC) = NULL;
@@ -1141,7 +1137,7 @@ void TBoss3VoloptP01::run_state_machine() {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
-    sub_8004292C__15TObjEnemyCustomFv(arg0);
+    ((TObjEnemyCustom *)arg0)->sub_8004292C();
     temp_r0 = *(s32 *)&this->state;
     switch (temp_r0) {
     case 0:
@@ -1515,7 +1511,7 @@ void TBoss3VoloptP01::init_params() {
     init_collision_body_parts(((VObj_80044038 *)this), (void *) lbl_804841EC, 1);
     F(((VObj_80044038 *)this), s32, 0x368) = 0;
     F(((VObj_80044038 *)this), s32, 0x350) = (s32) lbl_804841D0;
-    recalc_combat_stats__13TUnk_804806E8FPvPvPvff(((VObj_80044038 *)this), volopt_p01_boss_stat_handle_a, volopt_p01_shared_handler_b, volopt_p01_object_handle, (1.0f), (1.0f));
+    recalc_combat_stats((void *)volopt_p01_boss_stat_handle_a, (void *)volopt_p01_shared_handler_b, (void *)volopt_p01_object_handle, (f32)((1.0f)), (f32)((1.0f)));
     F(((VObj_80044038 *)this), s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(((VObj_80044038 *)this), F(((VObj_80044038 *)this), s16, 0xB8));
     ((TObjMotion *)((VObj_80044038 *)this))->set_field_b8(F(((VObj_80044038 *)this), s16, 0xB8));
@@ -1525,7 +1521,7 @@ void TBoss3VoloptP01::init_params() {
     ((TObjEneLappy *)((VObj_80044038 *)this))->set_param(0x2E);
     ((TObjEnemy *)((VObj_80044038 *)this))->update_prev_position();
     ((TBoss3Volopt *)((VObj_80044038 *)this))->reset_photon_effect();
-    load_volopt_param_entry__15TBoss3VoloptP01Fl(((VObj_80044038 *)this), 0x11);
+    load_volopt_param_entry(0x11);
     reset_state__15TBoss3VoloptP01FPv(((VObj_80044038 *)this));
     p = F(((VObj_80044038 *)this), void *, 0xA4);
     F(p, u32, 0x18) &= ~1;
@@ -1551,7 +1547,7 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     *(s32 *)((s8 *)arg0 + 0x80) = 0;
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    ((s32 (*)(void *))init_params__15TBoss3VoloptP01Fv)((void *) (arg0));
+    ((TBoss3VoloptP01 *)arg0)->init_params();
     temp_r29 = (s32) ((182.04445f) * (f32) (arg2 * 0x3C));
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) (((76.0f) * cos_table_lookup((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 0));
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 8));
@@ -1576,7 +1572,7 @@ u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)(arg0 + 0x3BC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss3VoloptP01_class_name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    ((s32 (*)(void *))init_params__15TBoss3VoloptP01Fv)((void *) (arg0));
+    ((TBoss3VoloptP01 *)arg0)->init_params();
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x34))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {

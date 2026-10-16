@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/enemy/TUnk_80493450.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TObjEneRe2Flower_Bomb.h"
+#include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
@@ -956,7 +960,6 @@ f64 atan2_float(f32, f32);
 s32 link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(int, int, int);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 project_actor_to_ground(void *, void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 s32 vec3_add_to(void *, void *);
@@ -980,13 +983,9 @@ extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA038;
 extern const f32 lbl_805DA03C;
 extern const f32 lbl_805DA040;
-void beast_update_dead__13TUnk_80493450Fv(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
-int unlink_enemy_group_relations__13TUnk_80493450Fv(void*);
-int send_entity_set_flags__9TObjEnemyFv(void*);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
-void vfunc_89__13TUnk_80493450Fv(void);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
 s32 set_indexed_flags(void *, s32, s32);
@@ -1002,7 +1001,6 @@ extern const f32 lbl_805DA034;
     extern const float lbl_805DA064;
 s32 update_movement_status__10TObjPlayerFv(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
-s32 update_movement_status__13TUnk_80493450Fv(u8 *arg0);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;
@@ -1028,7 +1026,6 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
 extern const f32 lbl_805DA03C;
-void vfunc_60__13TUnk_80493450Fv(Obj_800C55E0 *o);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_move_toward(void *, s32, void *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -1037,12 +1034,10 @@ void TObjPlayer__sub_800C4E08(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback();
-s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
 s32 minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA044;
 extern const f32 lbl_805DA054;
-void beast_update_approach__13TUnk_80493450Fv(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
@@ -1070,10 +1065,8 @@ f32 enemy_backstep_from_point(void *, void *, f32);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 advance_animation_playback();
 s32 minimap_render_dot(void *, int, int, int);
-void beast_update_group_chase__13TUnk_80493450Fv(Self_800C57F0 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void * a0, s32 a1);
-void vfunc_59__13TUnk_80493450Fv(u8 *arg0);
 s32 apply_actor_gravity(void *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
@@ -1089,10 +1082,7 @@ extern const f32 lbl_805DA034;
 
 extern "C" {
 
-int beast_retire_corpse__13TUnk_80493450Fv(void* p);
-void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
-void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -1103,22 +1093,14 @@ int queue_destruction__7TObjectFv(void*);
 }
 extern "C" {
 void TLobby__sub_801A1FD8();
-void vfunc_13__13TUnk_804AF8A0Fl();
-void vfunc_16__13TUnk_804928CCFPvPv();
-void vfunc_12__13TUnk_804B9870Fv();
-void vfunc_9__13TUnk_804B9870Fv();
 void apply_object_set_data();
-void area_attack_apply_recoil__13TUnk_804928CCFPvf();
 void area_attack_deliver_physical();
 void area_attack_receive_direct();
 void classify_actor_view_detail();
 void hit_area_targets__10TObjPlayerFPvPviUif();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void update_object_view_visibility__13TUnk_804B9870Fff();
-void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__26TObjEneRe2Flower_EffCurse3Fs(void *arg0, s16 arg1);
-void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 void run_task__26TObjEneRe2Flower_EffCurse3Fv(struct Obj_800C4B78 *o);
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
 s32 lbl_805D2A58 = (s32)lbl_8043BC48;

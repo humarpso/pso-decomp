@@ -17,7 +17,6 @@ s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 s32 get_extended_state__10TObjPlayerFv(s32);
 Item_80127BE0 *get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
-void emit_marker_effects__13TUnk_804A3640Fv(Self_80127BE0 *self);
 }
 
 extern "C" {

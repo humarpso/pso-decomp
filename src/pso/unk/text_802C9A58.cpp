@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapChainSaw.h"
 #include "pso/misc/TOTrapChainSawEdge.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
 #include "pso/misc/TOTrapChainSawDamage.h"
@@ -14,15 +15,6 @@ extern void *lbl_805D6808;
 }
 
 extern "C" {
-
-void check_player_contact__18TOTrapChainSawEdgeFv(void);
-void vfunc_18__14TOTrapChainSawFv(void);
-void vfunc_26__14TOTrapChainSawFv(void);
-void vfunc_27__14TOTrapChainSawFv(void);
-void vfunc_28__14TOTrapChainSawFv(void);
-void vfunc_29__14TOTrapChainSawFv(void);
-void vfunc_25__14TOTrapChainSawFv(void);
-void vfunc_16__14TOTrapChainSawFv(void);
 
 void TObjSeabedSuisoBrakable::load_shared_models() {
     void *p;

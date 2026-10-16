@@ -5,7 +5,6 @@
 
 extern "C" {
 
-void hook__13TUnk_804A0AA8Fv(void *arg0);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 is_owner_alive__15TItemShootModelFv();

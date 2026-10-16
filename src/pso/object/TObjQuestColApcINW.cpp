@@ -14,13 +14,11 @@ Pl_801960F8 *get_player_by_client_id(s32);
 extern u8 quest_col_apc_warp_target_pos[];
 extern s32 local_client_id;
 extern s32 quest_collision_warp_pending;
-s32 vfunc_15__18TObjQuestColApcINWFv(Col_801960F8 *arg0);
 }
 
 extern "C" {
 
 void *TObjQuestColApcINW__ct(void *arg0);
-void vfunc_16__18TObjQuestColApcINWFv(void* p);
 void TObjQuestColBase__ct(void *);
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);

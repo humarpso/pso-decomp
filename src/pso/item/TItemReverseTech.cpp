@@ -1,6 +1,6 @@
 #include "pso/TItemReverseTech.h"
+#include "pso/misc/TLobby.h"
 
-extern "C" void stop_audio_streams__6TLobbyFv(void);
 extern "C" void request_queued_main_phase(void);
 
 #pragma opt_common_subs off
@@ -79,7 +79,7 @@ void TItemReverseTech::run_task() {
 #pragma opt_common_subs reset
 
 TItemReverseTech::~TItemReverseTech() {
-    stop_audio_streams__6TLobbyFv();
+    TLobby::stop_audio_streams();
     request_queued_main_phase();
 }
 

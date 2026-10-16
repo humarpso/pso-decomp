@@ -88,7 +88,6 @@ extern "C" {
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 s32 get_localized_text_entry(s32, s32);
 void align_menu_entry_positions(s32);
-void update_layout_height__21TWindowSubComCardListFf(s32, f32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, u32);
 extern Pos3_803001B4 multi_sel_game_mode_position;
@@ -140,7 +139,7 @@ s32 TAdMultiSelGameModeGC::build_mode_menu(s32 arg1) {
         } else {
             TWindowSubComCard::draw_text_gray(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
         }
-        update_layout_height__21TWindowSubComCardListFf(r, lbl_805DEF40);
+        ((TWindowSubComCardList *)r)->update_layout_height(lbl_805DEF40);
         ((TWindowSubComCardList *)r)->set_selected_index(a.v[arg1]);
         align_menu_entry_positions(r);
     }

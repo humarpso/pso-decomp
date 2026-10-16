@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804AFBF8.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/misc/TODoorAncient04.h"
@@ -75,7 +77,6 @@ struct RecoveredGlobal_8015EAE0___vt__15TODoorAncient04 {
 };
 
 extern "C" {
-s32 is_in_view_depth__13TUnk_804AFBF8Ff(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -90,7 +91,6 @@ s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440ADC;
 extern u32 TODoorAncient04__bml_resource;
 extern void *TODoorAncient04__texture_lists;
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_8015EAE0_lbl_804B0EA8 TODoorAncient04__collision_body;
@@ -105,15 +105,11 @@ u8 *TODoorAncient04__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void play_proximity_sound__15TODoorAncient04Fv(u8 *arg0);
-void vfunc_17__15TODoorAncient04Fv(u8 *arg0);
-void vfunc_20__15TODoorAncient04Fv(void);
 void *__dt__15TODoorAncient04Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
@@ -151,7 +147,7 @@ void TODoorAncient04::render() {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
-    if ((((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (is_in_view_depth__13TUnk_804AFBF8Ff((void *) (arg0), (f32) (lbl_805DB408)) != 0)) {
+    if ((((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth((f32) (lbl_805DB408)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
@@ -234,7 +230,7 @@ typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8
 void *__dt__15TODoorAncient04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TODoorAncient04;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
         if (arg1 > 0) {
@@ -256,7 +252,7 @@ u8 *TODoorAncient04__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB40C);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB408);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient04__collision_body.value), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorAncient04 *)(arg0))->init_door_switch_binding();
     return arg0;

@@ -146,7 +146,6 @@ void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 extern s32 tl_07;
-void vfunc_7__9TTecRestaFPv(Obj_8023985C *arg0, VObj_8023985C *arg1);
 s32 obj_getField1c(int);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 copy_technique_target_list(void *, void *);
@@ -157,7 +156,6 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 extern s32 tl_07;
-void vfunc_6__12TTecReverserFPv(Obj_80239CF4 *arg0, VObj_18_9c98dd *arg1);
 }
 
 extern "C" {

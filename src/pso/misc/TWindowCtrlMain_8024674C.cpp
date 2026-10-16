@@ -16,7 +16,6 @@ s32 is_trade_active();
 s32 is_com_card_active();
 s32 is_guild_card_receive_active();
 void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0);
-u8 sub_80246948__13TUnk_804CE018Fv(Obj_80246948 *self);
 s32 TLobby__sub_8023E554(void *, void *);
 extern s32 lbl_8044E658[];
 extern s32 lbl_8044E688[];

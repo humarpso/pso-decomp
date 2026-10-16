@@ -14,10 +14,8 @@ struct Sub_80019AB0 { u8 pad[0x14]; Node_80019AB0 *head; };
 struct Obj_80019AB0 { u8 pad[0x20]; Sub_80019AB0 *sub; f32 f24; };
 
 extern "C" {
-void sub_80019B78__15TAdDrawLineCtrlFl(Obj_80019B08 *self, s32 idx);
 void fn_80019B08(Obj_80019B08 *self, s32 key);
 void fn_80019EB8(Node_80019AB0 *n, f32 v);
-void set_draw_line_param_all_nodes__15TAdDrawLineCtrlFf(Obj_80019AB0 *self, f32 v);
 }
 
 extern "C" {
@@ -59,7 +57,7 @@ void fn_80019B08(Obj_80019B08 *self, s32 key) {
     for (i = 0; i != self->tbl->count; i++) {
         Ent_80019B08 *e = &self->tbl->ents[i];
         if (e->key == key) {
-            sub_80019B78__15TAdDrawLineCtrlFl(self, e->val);
+            ((TAdDrawLineCtrl *)self)->sub_80019B78(e->val);
         }
     }
 }

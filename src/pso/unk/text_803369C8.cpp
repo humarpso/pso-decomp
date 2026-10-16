@@ -21,12 +21,10 @@ extern const f32 lbl_805DF968;
 extern const f32 lbl_805DF96C;
 extern const f32 lbl_805DF970;
 extern const f32 lbl_805DF974;
-void render__13TUnk_804EEF80Fv(u8 *arg0);
 }
 
 extern "C" {
 
-void run_task__13TUnk_804EEF80Fv(void *arg0);
 void *TLobby__sub_80336DA8(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

@@ -4,7 +4,6 @@
 extern "C" {
 
 void *TObjQuestCol2__ct(void *arg0);
-s32 vfunc_15__13TObjQuestCol2Fv(void *arg0);
 s32 TObjQuestColBase__ct();
 s32 update_trigger_state__16TObjQuestColBaseFf(f32);
 

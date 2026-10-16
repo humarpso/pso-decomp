@@ -70,7 +70,6 @@ extern u32 TObjTuitate__bml_resource;
 extern const f32 lbl_805DBFA8;
 extern const f32 lbl_805DBFAC;
 extern const f32 lbl_805DBFC0;
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern s32 TObjTuitate__collision_parts[];
@@ -91,7 +90,6 @@ void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
 int update_obstruction_fade(void*);
 void TObjPlayer__sub_800D7C58(void *, int);
-void unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
@@ -141,7 +139,7 @@ void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjTuitate;
         if (*(void **)((s8 *)arg0 + 0xC8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xC8)); *(s32 *)((s8 *)arg0 + 0xC8) = 0; }
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xAC, -1);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
@@ -166,7 +164,7 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTuitate__class_name;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg2);
     init_collision_body_parts((void *) (arg0), (void *) (TObjTuitate__collision_parts), (int) (1));
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r4 = (s32)arg2 - 4;
     *(ByteBlock_3C *)(copy_storage_8019AF6C.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);

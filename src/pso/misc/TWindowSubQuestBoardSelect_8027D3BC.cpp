@@ -60,7 +60,6 @@ void TWindowSubQuestBoardSelect::update_slot_display_flags() {
 
 extern "C" {
 
-s32 sub_8027D230__26TWindowSubQuestBoardSelectFv(void *);
 s32 is_shortcut_active__26TWindowSubQuestBoardSelectFv();
 
 void TWindowSubQuestBoardSelect::select_next() {
@@ -74,7 +73,7 @@ void TWindowSubQuestBoardSelect::select_next() {
                 this->m_61 = (u8) (temp_r3 - 6);
             }
         } while (((s32 (*)(void *, u8))get_slot_flag__26TWindowSubQuestBoardSelectFic)(this, this->m_61) == 0);
-        sub_8027D230__26TWindowSubQuestBoardSelectFv(this);
+        sub_8027D230();
     }
 }
 

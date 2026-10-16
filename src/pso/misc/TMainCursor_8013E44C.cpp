@@ -1,10 +1,8 @@
 #include "types.h"
+#include "pso/misc/TMainCursor.h"
 
 extern "C" {
-u16 get_id__11TMainCursorFv(void* p);
 int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1);
-int get_enabled__11TMainCursorFv(void*);
-int get_type__11TMainCursorFv(void*);
 int is_same_target__11TMainCursorFPvPv(void *a, void *b);
 }
 
@@ -22,7 +20,6 @@ u16 TMainCursor__sub_8013E4A0(void* p);
 s16 TMainCursor__sub_8013E570(void* p);
 void TMainCursor__sub_8013E694(void* p, s16 v);
 int TMainCursor__sub_8013E6E0(void* p);
-void sub_8013E724__11TMainCursorFf(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
 int set_target_index_at_60__11TMainCursorFPvPv(void* p);
 s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
@@ -47,9 +44,9 @@ int TMainCursor__sub_8013DFC4(void*);
 
 int is_same_target__11TMainCursorFPvPv(void *a, void *b) {
     u8 result = 0;
-    if (TMainCursor__sub_8013E40C((u8 *)a, get_id__11TMainCursorFv((void*)(b))) != 0) {
-        if (((u8)get_type__11TMainCursorFv((void*)(a))) == ((u8)get_type__11TMainCursorFv((void*)(b)))) {
-            if (((u8)get_enabled__11TMainCursorFv((void*)(a))) == ((u8)get_enabled__11TMainCursorFv((void*)(b)))) {
+    if (TMainCursor__sub_8013E40C((u8 *)a, ((TMainCursor *)b)->get_id()) != 0) {
+        if (((u8)((TMainCursor *)a)->get_type()) == ((u8)((TMainCursor *)b)->get_type())) {
+            if (((u8)((TMainCursor *)a)->get_enabled()) == ((u8)((TMainCursor *)b)->get_enabled())) {
                 result = 1;
             }
         }
@@ -58,7 +55,7 @@ int is_same_target__11TMainCursorFPvPv(void *a, void *b) {
 }
 
 int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1) {
-    return (u8) (arg1 == get_id__11TMainCursorFv((void*)(arg0)));
+    return (u8) (arg1 == ((TMainCursor *)arg0)->get_id());
 }
 
 }

@@ -103,7 +103,6 @@ struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r
 
 int set_field_d8__10TObjPlayerFl(void*);
 f32 get_speed__13TUnk_804806E8Fv();
-void sub_800E2DE4__10TObjMotionFl(void *, int);
 s32 restore_actor_draw_lighting(s32);
 s32 setup_actor_draw_lighting();
 s32 get_anim_entry_value__10TObjMotionFs(Obj_80142BB4 *self, s16 i);
@@ -113,7 +112,6 @@ void draw_motion_model_saving_joints(u8 *arg0);
 void apply_animation_transition(void *, s16);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void advance_animation_playback(Anim_80143504 *a);
-void set_motion_interpolation_flag__10TObjMotionFv(void *);
 s32 sub_80143960__10TObjMotionFl(void *, int);
 s32 draw_ginja_model_tree__10TObjPlayerFPv(s32, void *, f32);
 s32 draw_ginja_model__10TObjPlayerFl(s32, s32, f32);
@@ -406,7 +404,7 @@ void apply_animation_transition(void *arg0, s16 idx) {
         self->flags &= ~4;
         ((TObjMotion *)self)->update_animation_frame(idx);
         if (sub_80143960__10TObjMotionFl(self, 0x100) != 0) {
-            sub_800E2DE4__10TObjMotionFl(self, 0x100);
+            ((TObjMotion *)self)->sub_800E2DE4(0x100);
             self->speed = self->overrideSpeed;
         } else {
             self->speed = e->speed;
@@ -414,7 +412,7 @@ void apply_animation_transition(void *arg0, s16 idx) {
         self->mode = e->mode;
         self->frameCount = self->motion->frameCount;
         if (self->actionFlags & 0x20000000) {
-            set_motion_interpolation_flag__10TObjMotionFv(self);
+            ((TObjMotion *)self)->set_motion_interpolation_flag();
         }
         if (self->flags & 0x80) {
             self->flags &= ~0x80;
@@ -445,13 +443,13 @@ void apply_animation_transition(void *arg0, s16 idx) {
         self->frame = lbl_805DB168;
         self->frameCount = self->motion->frameCount;
         if (sub_80143960__10TObjMotionFl(self, 0x200) != 0) {
-            sub_800E2DE4__10TObjMotionFl(self, 0x200);
+            ((TObjMotion *)self)->sub_800E2DE4(0x200);
             self->speed = self->overrideBlendSpeed;
         } else {
             self->speed = self->blendSpeed;
         }
         if (self->actionFlags & 0x20000000) {
-            set_motion_interpolation_flag__10TObjMotionFv(self);
+            ((TObjMotion *)self)->set_motion_interpolation_flag();
         }
     }
     self->currentAction = idx;
@@ -482,7 +480,7 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB168;
     *(s16 *)((s8 *)arg0 + 0xBC) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
     if (*(s32 *)((s8 *)arg0 + 0xB4) & 0x20000000) {
-        set_motion_interpolation_flag__10TObjMotionFv(arg0);
+        ((TObjMotion *)arg0)->set_motion_interpolation_flag();
     }
 }
 
@@ -532,7 +530,7 @@ void advance_animation_playback(Anim_80143504 *a) {
         if (a->frame >= lbl_805DB16C) {
             a->frame = lbl_805DB168;
             if (sub_80143960__10TObjMotionFl(a, 0x100) != 0) {
-                sub_800E2DE4__10TObjMotionFl(a, 0x100);
+                ((TObjMotion *)a)->sub_800E2DE4(0x100);
                 a->speed = a->xD0;
             } else {
                 a->speed = a->tbl[a->cur].speed;

@@ -47,7 +47,6 @@ s32 activate__15TPlyPhotonChairFv();
 s32 activate__15TPlyPhotonChairFv();
 extern const f32 lbl_805DB16C;
 int draw_chunk_object(void);
-void vfunc_3__13TUnk_804A7488Fv(void * _w0);
 int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;

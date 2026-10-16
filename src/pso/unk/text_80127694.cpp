@@ -57,7 +57,6 @@ s16 get_uid__10TObjPlayerFPv(void *);
 void *get_captured_target_entry(void *, int);
 s32 get_captured_target_count(void *);
 void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
-void emit_marker_effects__13TUnk_804A3358Fv(u8 *arg0);
 }
 
 extern "C" {

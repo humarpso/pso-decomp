@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804DDD28.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -11,9 +12,7 @@ int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void vfunc_19__23TObjSeabedSuisoBrakableFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void sub_802A7318__13TUnk_804DDD28Fv(void* p);
 s32 TLobby__sub_803DA16C(void*);
 
 struct Tbl_802A6F98 { s32 w[5]; };

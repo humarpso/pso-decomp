@@ -19,8 +19,6 @@ s32 TObjPlayer__sub_800847A8();
 s32 TObjPlayer__sub_800847CC();
 extern u8 camera_capture_overlay_alpha;
 extern f32 lbl_805D93D0;
-void render_shadows__13TUnk_8048E5F4Fv(void* p);
-void run_task__13TUnk_8048E5F4Fv(void);
 void *TObjPlayer__sub_800834B4(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TPhotonFarlla.h"
 
@@ -22,10 +23,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
-s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, int);
-s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, int);
-s32 update_state__13TUnk_804C3248Fv(void *);
 s32 construct_photon_magic_square_normal(int, void *, int, void *, int);
 s32 play_persistent_sound(int, void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
@@ -75,15 +73,15 @@ void TPhotonFarlla::run_task() {
         }
     }
     if (((s32) *(s32 *)&this->unk_1A4 == 0x64) && ((s16) this->m_b8 == 1)) {
-        begin_photon_summon_camera__13TUnk_804C3248FSc((void *) (arg0), (int) (1));
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera((int) (1));
         *(s32 *)&this->unk_1A4 = 0;
         ((TObjMotion *)arg0)->set_field_b8((int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (0));
     }
     this->m_194 = (s16) this->m_b8;
-    update_state__13TUnk_804C3248Fv((void *) (arg0));
+    ((TUnk_804C3248 *)arg0)->update_state();
     advance_animation_playback((void *) (arg0));
-    update_photon_blast_attachments__13TUnk_804C3248Fv((void *) (arg0));
+    ((TUnk_804C3248 *)arg0)->update_photon_blast_attachments();
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if (lbl_805DC160 == (f32) *(s32 *)&this->unk_1A4) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TPhotonPilla.h"
 #include "pso/player/TObjPlayer.h"
@@ -36,7 +37,6 @@ extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 set_photon_blast_joint_callback__13TUnk_804C3248Fv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
@@ -69,18 +69,15 @@ void TObjPlayer__sub_801ADC78(void);
 void TObjPlayer__sub_801ADC7C(void* a0);
 void run_task__12TPhotonPillaFv(void *arg0);
 s32 advance_animation_playback(void *);
-s32 begin_photon_summon_camera__13TUnk_804C3248FSc(void *, s32);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
 s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
-s32 update_photon_blast_attachments__13TUnk_804C3248Fv(void *);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 TPhotonMagicSquare__ct(s32, void *, s32, Vec3 *, s32, f32);
 s32 find_entity_by_id(u16);
 s32 VecCopy__FP3VecPC3Vec(Vec3 *, s32);
 s32 __nw__7TObjectFUl(s32);
 u32 obj_getField1c();
-s32 update_state__13TUnk_804C3248Fv(void *);
 
     extern int lbl_805D5D50;
 void TObjPlayer__sub_801ADC6C(void) { lbl_805D5D50 = 0; }
@@ -145,7 +142,7 @@ void TPhotonPilla::render() {
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
-        set_photon_blast_joint_callback__13TUnk_804C3248Fv(self);
+        ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -186,15 +183,15 @@ void TPhotonPilla::run_task() {
         }
     }
     if ((lbl_805DC238 == (f32) *(s32 *)((s8 *)this + 0x1A8)) && ((s16) *(s16 *)((s8 *)this + 0xB8) == 1) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 1)) {
-        begin_photon_summon_camera__13TUnk_804C3248FSc(this, 4);
+        begin_photon_summon_camera(4);
         *(s32 *)((s8 *)this + 0x1A8) = 0;
         ((TObjMotion *)this)->set_field_b8(0);
         spawn_photon_blast_attachment_effects(this, 3);
     }
     *(s16 *)((s8 *)this + 0x198) = (s16) *(s16 *)((s8 *)this + 0xB8);
-    update_state__13TUnk_804C3248Fv(this);
+    update_state();
     advance_animation_playback(this);
-    update_photon_blast_attachments__13TUnk_804C3248Fv(this);
+    update_photon_blast_attachments();
     *(s16 *)((s8 *)this + 0x14C) = (s16) (*(s16 *)((s8 *)this + 0x14C) + 0xF);
     *(s16 *)((s8 *)this + 0x14C) = (s16) (u8) *(s16 *)((s8 *)this + 0x14C);
     temp_r3_2 = *(s32 *)((s8 *)this + 0x1A8);

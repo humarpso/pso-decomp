@@ -25,7 +25,6 @@ extern s32 lbl_80477CB4[];
 extern "C" {
 
 s32 TSaveChCr__sub_80339F30(void);
-s32 poll_memcard_status__9TSaveChCrFv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void *);
 s32 TObjCMProportion__sub_8029916C(s32);

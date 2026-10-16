@@ -5,7 +5,6 @@
 
 extern "C" {
 
-void update_attack__13TUnk_804A0FA0Fv(s32 arg0);
 u8 get_slot_count__14TItemProShieldFv();
 
 extern f32 lbl_805DACE4;

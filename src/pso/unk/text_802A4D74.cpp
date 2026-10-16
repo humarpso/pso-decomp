@@ -5,7 +5,6 @@
 extern "C" {
 extern const f32 lbl_805DDF80;
 extern const f32 lbl_805DDF84;
-void sub_802A4D74__13TAdTitleTexGCFlPUcPUc(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3);
 }
 
 extern "C" {

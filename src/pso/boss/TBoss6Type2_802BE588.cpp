@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/TBoss6EffHyoui.h"
+#include "pso/misc/TCameraCtrl.h"
 #include "pso/boss/TBoss6Type2.h"
 
 struct T2_802BE6D4 { u8 pad0[0x45C]; s32 f45C; s32 f460; };
@@ -39,20 +41,17 @@ s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DE4E0;
 extern const f32 lbl_805DE4E4;
 void TBoss6Type2__sub_802BEC28(u8 *arg0);
-s32 set_shake_preset__11TCameraCtrlFl(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 u32 get_player_by_client_id(int);
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BB768(void *);
 s32 spawn_flow_soul__11TBoss6Type2Fiii(void *, void *, int, f32);
-s32 create__14TBoss6EffHyouiFPvPv(int, int, int);
 extern const f32 lbl_805DE404;
 extern const f32 lbl_805DE4E8;
 extern const f32 lbl_805DE4EC;
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BB768(void *);
-s32 create__14TBoss6EffHyouiFPvPv(int, int, int);
 extern s32 lbl_805D6780;
 extern u8 lbl_805D6784;
 extern const f32 lbl_805DE400;
@@ -60,12 +59,10 @@ extern const f32 lbl_805DE4E8;
 void TBoss6Type2__sub_802BEB78(u8 *arg0);
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BB768(void *);
-s32 create__14TBoss6EffHyouiFPvPv(int, int, int);
 extern s32 lbl_805D6778;
 extern u8 lbl_805D677C;
 extern const f32 lbl_805DE400;
 extern const f32 lbl_805DE4E8;
-s32 set_shake_preset__11TCameraCtrlFl(s32);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BA598(void *, s32, s32);
@@ -100,7 +97,6 @@ s32 spawn_particle_effect(void *, int);
 u32 get_player_by_client_id(int);
 s32 get_phase__11TBoss6Type2Fv();
 u16 is_falz_ready__11TBoss6Type2Fv(void *);
-s32 set_shake_preset__11TCameraCtrlFl(s32);
 
 void TBoss6Type2::select_action() {
     if (*(s32 *)((s8 *)this + 0x30) & 0x800) {
@@ -149,7 +145,7 @@ void TBoss6Type2::update_rock_spawn_state() {
     s32 d = arg0->f45C - arg0->f460;
     if (arg0->f460 >= 0x1E && d % 30 == 0) {
         ((TBoss6Type2 *)arg0)->spawn_rocks_around_players();
-        set_shake_preset__11TCameraCtrlFl((s32)(1));
+        TCameraCtrl::set_shake_preset((s32)(1));
     }
     select_next_state();
 }
@@ -256,7 +252,7 @@ void TBoss6Type2::start_flow_soul_effect() {
             ((s32 (*)(void *, void *, int))spawn_flow_soul__11TBoss6Type2Fiii)(arg0, &v, arg0->t45C);
             spawn_particle_effect((void *)(pl + 0x38), 0x36);
         }
-        create__14TBoss6EffHyouiFPvPv(arg0->client, 1, arg0->t45C);
+        ((TBoss6EffHyoui *)(arg0->client))->create((void *)1, (void *)(arg0->t45C));
         if (((TBoss6Type2 *)arg0)->is_target_valid() == 0) {
             play_sound_effect(0x40069E13, &arg0->pos, 0, 1);
         }
@@ -297,7 +293,7 @@ void TBoss6Type2__sub_802BEB78(u8 *arg0) {
     TBoss6Type2__sub_802BB768(arg0);
     if (*(u16 *)((s8 *)arg0 + 0x464) != 0xFFFF) {
         TBoss6Type2::create_flow_soul((void *)arg0, (void *)(arg0 + 0x620), (void *)(*(u16 *)((s8 *)arg0 + 0x464)), (void *)(*(s32 *)((s8 *)arg0 + 0x45C)));
-        create__14TBoss6EffHyouiFPvPv(*(u16 *)((s8 *)arg0 + 0x464), 0, *(s32 *)((s8 *)arg0 + 0x45C));
+        ((TBoss6EffHyoui *)(*(u16 *)((s8 *)arg0 + 0x464)))->create((void *)0, (void *)(*(s32 *)((s8 *)arg0 + 0x45C)));
     }
 }
 
@@ -353,7 +349,7 @@ void TBoss6Type2::spawn_death_soul() {
     TBoss6Type2__sub_802BB768(arg0);
     if (*(u16 *)((s8 *)arg0 + 0x464) != 0xFFFF) {
         TBoss6Type2::create_flow_soul((void *)arg0, (void *)(arg0 + 0x620), (void *)(*(u16 *)((s8 *)arg0 + 0x464)), (void *)(*(s32 *)((s8 *)arg0 + 0x45C)));
-        create__14TBoss6EffHyouiFPvPv(*(u16 *)((s8 *)arg0 + 0x464), 0, *(s32 *)((s8 *)arg0 + 0x45C));
+        ((TBoss6EffHyoui *)(*(u16 *)((s8 *)arg0 + 0x464)))->create((void *)0, (void *)(*(s32 *)((s8 *)arg0 + 0x45C)));
     }
 }
 
@@ -409,7 +405,7 @@ void TBoss6Type2::update_attack_sequence() {
         break;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x460) == 0x36) {
-        set_shake_preset__11TCameraCtrlFl(1);
+        TCameraCtrl::set_shake_preset(1);
     }
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
     *(s32 *)((s8 *)arg0 + 0x460) = temp_r0_2;
@@ -458,7 +454,7 @@ void update_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
         break;
     }
     if (*(s32 *)((s8 *)arg0 + 0x460) == 0x41) {
-        set_shake_preset__11TCameraCtrlFl(1);
+        TCameraCtrl::set_shake_preset(1);
     }
     t = *(s32 *)((s8 *)arg0 + 0x460) - 1;
     *(s32 *)((s8 *)arg0 + 0x460) = t;

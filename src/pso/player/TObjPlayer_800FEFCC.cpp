@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjEZRopeBase.h"
 #include "pso/object/TObjHMS_EZRope_Player.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -61,7 +62,6 @@ void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1);
 void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
 void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
-void sub_800FF8CC__14TObjEZRopeBaseFPvPvl(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 ezrope_chunk_material_color_table[];
 extern s32 TObjHMS_EZRope_Player__name;
@@ -94,7 +94,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DAA58;
 extern const f32 lbl_805DAA5C;
 extern const f32 lbl_805DAA60;
-void sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(Obj_800FF2D0 *arg0);
 }
 
 extern "C" {
@@ -171,7 +170,7 @@ void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3) 
         }
         TObjPlayer__sub_800FF1FC((f32 *)e4, (f32 *)(base + 0x20));
     }
-    sub_800FF8CC__14TObjEZRopeBaseFPvPvl(arg0, SELF->a, SELF->b, SELF->c);
+    ((TObjEZRopeBase *)arg0)->sub_800FF8CC((void *)(SELF->a), (void *)(SELF->b), (s32)(SELF->c));
     return arg0;
 }
 

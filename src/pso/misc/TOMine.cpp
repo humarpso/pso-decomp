@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOMine.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOMineTrap.h"
@@ -63,15 +64,12 @@ extern "C" {
 
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-s32 sub_80170BEC__6TOMineFv(void *);
 s32 TOMineTrap__sub_80170CD4(void *);
-s32 detonate__6TOMineFv(void *);
 int draw_ginja_object(void*);
 s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-void destroy_motion_object__13TUnk_804806E8Fs(void *, int);
 
 int TOMine::get_player_state() { return submit_target_to_player_cursor(this); }
 
@@ -120,7 +118,7 @@ void TOMine::run_task() {
                 TOMineTrap__sub_80170CD4((void *) (arg0));
                 break;
             case 1:
-                sub_80170BEC__6TOMineFv((void *) (arg0));
+                ((TOMine *)arg0)->sub_80170BEC();
                 break;
             case 2:
                 ((TOMine *)arg0)->follow_target();
@@ -129,7 +127,7 @@ void TOMine::run_task() {
             submit_cursor_candidate((void *) (arg0), (int) (-1));
             return;
         case 4:
-            detonate__6TOMineFv((void *) (arg0));
+            ((TOMine *)arg0)->detonate();
             break;
         }
     }
@@ -185,7 +183,7 @@ void TOMine::load_static_resource() {
 void *__dt__6TOMineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__6TOMine;
-        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
+        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

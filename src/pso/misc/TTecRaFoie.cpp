@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TTecRaBarta.h"
+#include "pso/misc/TTecRaZonde.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TUnk_804CCB28.h"
 #pragma readonly_strings on
@@ -65,14 +68,12 @@ void apply_technique_to_area_targets__13TUnk_804CC148Fv(void *);
 #define apply_technique_to_area_targets__13TUnk_804CC148Fv ((s32 (*)(void *, int))apply_technique_to_area_targets__13TUnk_804CC148Fv)
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_80237DAC *, const Vec_80237DAC *))VecCopy__FP3VecPC3Vec)
-void set_position_xy__10TObjPlayerFff(void *, f32, f32);
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 #define construct_area_technique_base ((void (*)(void *, void *, void *, void *, void *))construct_area_technique_base)
-void calc_parameters__11TTecRaBartaFv(void *);
 extern s32 __vt__11TTecRaBarta[];
 extern u32 TTecRaBarta_class_name;
 s32 is_split_screen();
@@ -87,7 +88,6 @@ s32 is_valid_and_active__10TObjPlayerFUl(int);
 #define is_valid_and_active__10TObjPlayerFUl ((s32 (*)(TObjPlayer_80237FB8 *))is_valid_and_active__10TObjPlayerFUl)
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
-void vfunc_8__10TTecRaFoieFPv(TTecRaFoie_80237FB8 *self);
 struct Profile_80237A94 { void *entries; u32 count; };
 struct Self_80237A94 {
     u8 pad0[0x18];
@@ -109,7 +109,6 @@ void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 #define destroy_technique_base__13TUnk_804CC148Fs ((s32 (*)(void *, int))destroy_technique_base__13TUnk_804CC148Fs)
 extern struct Profile_80237A94 rabarta_band_emitter_table[];
 u16 obj_getField1c(void *);
-void calc_parameters__11TTecRaBartaFv(void *);
 extern s32 __vt__11TTecRaBarta[];
 extern u32 TTecRaBarta_class_name;
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
@@ -117,7 +116,6 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 
 extern "C" {
 
-void vfunc_9__10TTecRaFoieFv(u8 *arg0);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 #define play_sound_effect ((s32 (*)(s32, s32, s32, s32))play_sound_effect)
 void *__nw__7TObjectFUl(int);
@@ -171,7 +169,7 @@ void TUnk_804CCB28::spawn_rafoie_explosion_bursts() {
             p = spawn_particle_effect_with_flags(&higher, row->entry, mode);
         }
         if (p != NULL) {
-            set_position_xy__10TObjPlayerFff(p, rafoie_burst_table[self->band].entries[i].scale, rafoie_burst_table[self->band].entries[i].scale);
+            ((TObjPlayer *)p)->set_position_xy(rafoie_burst_table[self->band].entries[i].scale, rafoie_burst_table[self->band].entries[i].scale);
         }
     }
 }
@@ -344,7 +342,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 approach_position_if_far(void *, void *, f32);
 s32 approach_alpha_clamped(void *, void *, f32);
-void run_task__13TUnk_804CCB28Fv(u8 *arg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -366,7 +363,6 @@ extern s32 lbl_805D5660;
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 extern s32 model_render_flags;
-void render__13TUnk_804CCB28Fv(RaFoie_802381F8 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
@@ -669,7 +665,6 @@ extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
-void vfunc_6__10TTecRaFoieFPv(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__10TTecRaFoie[];
@@ -677,13 +672,11 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
 s32 create_particle_emitter(void *, int);
 s32 mem_alloc(int);
 extern struct Profile_80238C6C TTecRaZonde__band_profile_table[];
-void vfunc_8__11TTecRaZondeFPv(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 extern s32 __vt__10TTecRaFoie[];
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
-void vfunc_6__11TTecRaZondeFPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -927,10 +920,6 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     ((TTecRaFoie *)self)->vfunc_9();
     return self;
 }
-
-void vfunc_8__11TTecRaZondeFPv(struct Self_80238C6C *self);
-
-void vfunc_6__11TTecRaZondeFPv(u8 *arg0, u8 *arg1);
 
 }
 

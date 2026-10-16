@@ -426,7 +426,6 @@ s32 water_bomb_hit_nearby(u8 *arg0);
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
 void * __dt__21TObjEneSlimeWaterBombFv(void *arg0, s16 arg1);
 void * TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2);
-void sub_800E9090__15TObjEneSlimeOneFv(Bomb_800E9090 *self);
 void fn_800E9238(s32 arg0);
 void fn_800E9538(u8 *arg0);
 void update_effect_fade_lifetime(u8 *arg0);
@@ -455,9 +454,6 @@ void TObjPlayer__sub_800EA820(u8 *arg0);
 void reset_display__15TObjEneSlimeOneFPv(void* a0);
 void update_wait_search__15TObjEneSlimeOneFPv(void *arg0);
 void init_state__15TObjEneSlimeOneFPv(void* a0);
-void vfunc_61__15TObjEneSlimeOneFv(u8 *arg0);
-void vfunc_62__15TObjEneSlimeOneFv(u8 *arg0);
-void vfunc_63__15TObjEneSlimeOneFv(void* p);
 void set_display_mode__15TObjEneSlimeOneFPvi(void *arg0, s32 arg1);
 void set_random_timer__15TObjEneSlimeOneFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_state__15TObjEneSlimeOneFPvi(TSlime_800EAE78 *arg0, s32 arg1);
@@ -575,7 +571,6 @@ void set_state__15TObjEneSlimeOneFPvi(TSlime_800EAE78 *arg0, s32 arg1);
 }
 
 extern "C" {
-void sub_800E9090__15TObjEneSlimeOneFv(Bomb_800E9090 *self);
 }
 
 extern "C" {
@@ -2137,7 +2132,7 @@ void render__15TObjEneSlimeOneFv(u8 *arg0) {
         if (*(f32 *)((s8 *)arg0 + 0x3A0) < lbl_805DA67C) {
             TObjPlayer::init_render_globals();
         }
-        sub_800E9090__15TObjEneSlimeOneFv((Bomb_800E9090 *) (arg0));
+        ((TObjEneSlimeOne *)arg0)->sub_800E9090();
     }
 }
 

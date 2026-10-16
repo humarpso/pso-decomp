@@ -1,18 +1,17 @@
 #include "pso/TObjTagChallenge.h"
+#include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
 s32 TWindowCtrlMain__sub_8024CE58(void);
-void close_active_window__11TWindowCtrlFv(void);
 void fn_800740DC(void);
-void open_status_111__11TWindowCtrlFv(void);
 void queue_destruction__7TObjectFv(void *);
 }
 
 void TObjTagChallenge::run_task() {
     if (TWindowCtrlMain__sub_8024CE58() != 0) {
-        close_active_window__11TWindowCtrlFv();
+        TWindowCtrl::close_active_window();
         fn_800740DC();
-        open_status_111__11TWindowCtrlFv();
+        TWindowCtrl::open_status_111();
         queue_destruction__7TObjectFv(this);
     }
 }

@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void emit_marker_effects__13TUnk_804A08B8Fv(s32 arg0);
 void marina_bag_start_regen(void *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 spawn_particle_effect(s32 *, s32);

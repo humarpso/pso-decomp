@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CE018.h"
+#include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TWindowUserSort.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowMainMenu1P.h"
@@ -37,10 +39,8 @@ s32 draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 get_player_by_client_id(u32);
-void open__15TWindowMainMenuFl(void *, s32);
 extern RecoveredGlobal_80288490_lbl_804D0460 lbl_804D0460;
 extern RecoveredGlobal_80288490_lbl_804D04A0 lbl_804D04A0;
-void vfunc_6__17TWindowMainMenu1PFv(u8 *arg0);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 extern RecoveredGlobal_80288380_lbl_804D304C lbl_804D304C;
 extern s32 __vt__15TWindowUserSort[];
@@ -50,17 +50,11 @@ u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
-void vfunc_7__17TWindowMainMenu1PFv(u8 *arg0);
-void vfunc_8__17TWindowMainMenu1PFv(void *arg0);
-void vfunc_9__17TWindowMainMenu1PFv(void* p);
 void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1);
 s32 TCameraCtrl__sub_800695A0(void *);
-int update_window_entry_list__13TUnk_804CE018FPv(void*, void*);
 void __dl__7TObjectFPv(void *);
-int close_active_submenu__15TWindowMainMenuFv(void*);
 s32 close_and_clear_flags__15TWindowMainMenuFv();
 int initialize_subwindow__9TWindowDDFv(void*);
-int update_fade__13TUnk_804CE018Fv(void*);
 
 void render__15TWindowUserSortFv(s32 arg0) {
     s32 temp_r3;
@@ -69,7 +63,7 @@ void render__15TWindowUserSortFv(s32 arg0) {
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
-void TWindowUserSort::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade__13TUnk_804CE018Fv(this); update_window_entry_list__13TUnk_804CE018FPv(this, (char*)this + 0x24); }
+void TWindowUserSort::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade(); update_window_entry_list((char*)this + 0x24); }
 
 extern s32 __vt__15TWindowUserSort[];
 
@@ -95,7 +89,7 @@ u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TWindowMainMenu1P::vfunc_9() { if (close_active_submenu__15TWindowMainMenuFv(this) != 0) { ((TWindowMainMenu1P *)this)->create_char_select_slot(); } }
+void TWindowMainMenu1P::vfunc_9() { if (close_active_submenu() != 0) { ((TWindowMainMenu1P *)this)->create_char_select_slot(); } }
 
 void TWindowMainMenu1P::vfunc_7() {
     u8 *arg0 = (u8 *)this;
@@ -120,9 +114,9 @@ void TWindowMainMenu1P::vfunc_6() {
         temp_r3 = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));
         if (temp_r3 != NULL) {
             if (((TObjPlayer *)temp_r3)->is_ready() != 0) {
-                open__15TWindowMainMenuFl(arg0, (s32) &lbl_804D04A0.value);
+                ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D04A0.value);
             } else {
-                open__15TWindowMainMenuFl(arg0, (s32) &lbl_804D0460.value);
+                ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D0460.value);
             }
             ((TWindowMainMenu1P *)arg0)->create_char_select_slot();
             ((VObj_18_f8ef8c *)(arg0))->m5();

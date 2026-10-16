@@ -47,7 +47,6 @@ void *spawn_continuous_particle_effect_with_flags(Vec_80355570 *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
 void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
-void sub_803554F0__20TBoss5GryphonTornadoFPUc(void *, Vec_80355570 *);
 extern s32 boss5_gryphon_bml_resource;
 extern s32 boss5_gryphon_texture_list;
 extern s32 *gryphon_tornado_particle_id_table;
@@ -123,7 +122,7 @@ void TBoss5GryphonTornado::run_task() {
             o->timer = 0;
         }
         TBoss8Dragon__sub_800640A4(TBoss8Dragon::get_instance_count(), &o->pos);
-        sub_803554F0__20TBoss5GryphonTornadoFPUc(o, &v);
+        ((TBoss5GryphonTornado *)o)->sub_803554F0((u8 *)(&v));
         o->f34 = lbl_805DFFB0 * v.x + o->f34;
         o->f3C = lbl_805DFFB0 * v.z + o->f3C;
         o->f34 *= lbl_805DFFB4;

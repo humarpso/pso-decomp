@@ -37,7 +37,6 @@ extern const f32 lbl_805DC310;
 extern const f32 lbl_805DC314;
 extern const f32 lbl_805DC318;
 extern const f32 lbl_805DC31C;
-void run_task__13TUnk_804C3F48Fv(Self_801C51D4 *self);
 }
 
 extern "C" {

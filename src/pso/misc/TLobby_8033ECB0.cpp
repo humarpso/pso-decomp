@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TUnk_804EFA88.h"
 
 struct RecoveredGlobal_8033ED24_lbl_804EFA88
@@ -8,7 +9,6 @@ struct RecoveredGlobal_8033ED24_lbl_804EFA88
 };
 
 extern "C" {
-void free_indexed_entry__10TObjPlayerFl(void *, s32);
 extern s32 lbl_805D6DA0;
 void release_indexed_entry__6TLobbyFi(s32 arg0);
 int mem_alloc(void *);
@@ -21,7 +21,6 @@ u8 *TLobby__sub_8033ED24(u8 *arg0);
 
 extern "C" {
 
-void *destroy_object__13TUnk_804EFA88Fs(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 mem_free(void *);
@@ -71,7 +70,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0) {
 
 void release_indexed_entry__6TLobbyFi(s32 arg0) {
     if (((void *) (*(u8 * *)&lbl_805D6DA0) != NULL) && ((s32) *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) < 0x10)) {
-        free_indexed_entry__10TObjPlayerFl((*(u8 * *)&lbl_805D6DA0), arg0);
+        ((TObjPlayer *)(*(u8 * *)&lbl_805D6DA0))->free_indexed_entry(arg0);
         *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) = (s32) (*(s32 *)((s8 *)(*(u8 * *)&lbl_805D6DA0) + 0x20) + 1);
     }
 }

@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 int bswap_16__FPUs(void*);
-int read_be16_field2__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
 void build_6x76_set_entity_set_flags(void* p);
 
-void bswap_player_fields__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void bswap_player_fields__6TLobbyFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void send_player_update__6TLobbyFPv(void* p) { bswap_player_fields__6TLobbyFPv(p); TLobby__send_and_handle_60(p); }
 
 }
@@ -25,7 +25,6 @@ void append_wave_member(Obj_8020E484 *o, Item_8020E484 *item);
 extern "C" {
 
 int bswap_16__FPUs(void*);
-int read_be16_field2__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
 void build_6x76_set_entity_set_flags(void* p);
 
@@ -48,7 +47,6 @@ s32 get_shop_unit_count(s32 arg0);
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
 void build_6x76_set_entity_set_flags(void* p);
-int read_be16_field2__10TObjPlayerFv(void*);
 
 s32 TLobby::get_lobby_group(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {

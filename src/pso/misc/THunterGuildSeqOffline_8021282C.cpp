@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/THunterGuildWarning.h"
@@ -74,12 +75,10 @@ struct Seq_802129FC : Base_802129FC {
 };
 
 extern "C" {
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 s32 create_quest_thread(s32);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
 void *__nw__7TObjectFUl(u32);
 List_80212B88 *TQuestListChallenge__ct(void *, s32, Seq_80212B88 *, s32);
@@ -94,7 +93,6 @@ s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 extern void *tl_00;
-void close_window__22THunterGuildSeqOfflineFv(Seq_802129FC *arg0);
 }
 
 extern "C" {
@@ -114,7 +112,6 @@ struct VObj_80212858_8021282C : Base_80212858_8021282C {
 int TKeyBoardControl__sub_8000F950(void);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
-s32 set_field_20__15TShopWindowBaseFl(void *, s32);
 
     extern int evt2_random_enemies_mode;
 void THunterGuildSeqOffline::set_enemy_mode_0() { TLobby::clear_counter(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
@@ -125,7 +122,7 @@ void THunterGuildSeqOffline::request_close() {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(6, 1);
         *(s32 *)((s8 *)THunterGuildSeqOffline__active_instance + 0x38) = 2;
-        set_field_20__15TShopWindowBaseFl(THunterGuildSeqOffline__active_instance, 5);
+        ((TShopWindowBase *)THunterGuildSeqOffline__active_instance)->set_field_20(5);
     }
 }
 
@@ -146,7 +143,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
                 if ((s32) *(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8) != -1) {
                     *(s32 *)((s8 *)arg0 + 0x34) = create_quest_thread(*(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8));
                 }
-                set_field_20__15TShopWindowBaseFl((void *)(arg0), (s32)(5));
+                ((TShopWindowBase *)arg0)->set_field_20((s32)(5));
                 return;
             }
             if (temp_r3_2 == 1) {
@@ -154,7 +151,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
                 *(u8 **)((s8 *)arg0 + 0x2C) = NULL;
                 ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
                 *(s32 *)((s8 *)arg0 + 0x38) = 0;
-                set_field_20__15TShopWindowBaseFl((void *)(arg0), (s32)(5));
+                ((TShopWindowBase *)arg0)->set_field_20((s32)(5));
                 return;
             }
             goto block_8;
@@ -165,7 +162,7 @@ block_8:
             *(u8 **)((s8 *)arg0 + 0x2C) = NULL;
             ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
             *(s32 *)((s8 *)arg0 + 0x38) = 0;
-            set_field_20__15TShopWindowBaseFl((void *)(arg0), (s32)(5));
+            ((TShopWindowBase *)arg0)->set_field_20((s32)(5));
         }
     }
 }
@@ -238,7 +235,7 @@ void THunterGuildSeqOffline::open_quest_list() {
         if (list != NULL) {
             list->accepted = THunterGuildSeqOffline::request_close;
             list->cancelled = THunterGuildSeqOffline::set_state_close2;
-            set_field_20__15TShopWindowBaseFl(self, 10);
+            ((TShopWindowBase *)self)->set_field_20(10);
         }
         break;
     case 1:
@@ -247,7 +244,7 @@ void THunterGuildSeqOffline::open_quest_list() {
         if (list != NULL) {
             list->accepted = THunterGuildSeqOffline::set_state_4;
             list->cancelled = THunterGuildSeqOffline::set_state_close;
-            set_field_20__15TShopWindowBaseFl(self, 10);
+            ((TShopWindowBase *)self)->set_field_20(10);
         }
         break;
     case 0:
@@ -258,7 +255,7 @@ void THunterGuildSeqOffline::open_quest_list() {
             list->accepted = THunterGuildSeqOffline::request_close;
             list->cancelled = THunterGuildSeqOffline::set_state_close2;
             list->download = THunterGuildSeqOffline::create_quest_list_vm;
-            set_field_20__15TShopWindowBaseFl(self, 10);
+            ((TShopWindowBase *)self)->set_field_20(10);
         }
         break;
     }
@@ -277,7 +274,7 @@ block_3:
         if ((((V_A_8021282C *) this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
             ((V_A_8021282C *) this)->m7(0xC, 1);
             *(s32 *)((s8 *)this + 0x38) = 1;
-            set_field_20__15TShopWindowBaseFl(this, 5);
+            set_field_20(5);
         }
     }
 }

@@ -6,7 +6,6 @@
 extern "C" {
 
 void TWindowFukidasi__sub_80252C38(void* p);
-void sub_80252C68__13TUnk_804CF0B8Fv(void* p);
 void TWindowFukidasi__sub_80252C84(void* p);
 int fn_80252CB0(void* p);
 int fn_80252CBC(void* p);

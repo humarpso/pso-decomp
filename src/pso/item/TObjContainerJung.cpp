@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TUnk_804B6C24.h"
 #include "pso/item/TObjContainerJung.h"
 #include "pso/TParticleCtrl.h"
@@ -54,9 +56,6 @@ struct Obj_8018D4DC {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 request_box_item_drop__13TUnk_804806E8FPvs(void *, void *, int);
-s32 set_flag8__13TUnk_804AF8A0Fv(void *);
-void vfunc_6__17TObjContainerJungFPsl(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__bml_model_resource;
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -81,7 +80,6 @@ s32 draw_ginja_object();
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
 extern const f32 lbl_805DBD9C;
-void vfunc_81__17TObjContainerJungFv(u8 *arg0);
 u8 * get_bml_model(void *, int);
 void spawn_particle_effect_with_flags(void *, int, int);
 void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
@@ -98,11 +96,9 @@ void TObjContainerJung__vt77(const Obj_8018D4DC *self);
 extern "C" {
 
 s32 TObjContainerJung__sub_8018D3B8(void);
-void vfunc_80__17TObjContainerJungFv(void *arg0);
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -202,15 +198,15 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
-            request_box_item_drop__13TUnk_804806E8FPvs((void *) (arg0), (void *) (arg0 + 0x38), (int) (1));
+            ((TUnk_804806E8 *)arg0)->request_box_item_drop((void *) (arg0 + 0x38), (int) (1));
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-            set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+            ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((void *) (arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
-        set_flag8__13TUnk_804AF8A0Fv((void *) (arg0));
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
         this->mode = 1;
     }
@@ -259,7 +255,7 @@ extern s32 __vt__17TObjContainerJung[];
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjContainerJung;
-        unregister_object_by_id__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {

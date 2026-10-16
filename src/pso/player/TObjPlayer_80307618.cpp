@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804E70A8.h"
 #include "pso/player/TUnk_804E71A0.h"
 
@@ -31,9 +32,6 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80307800(s32 arg0);
-s32 load_projection_tex__10TObjPlayerFll(void *, int);
-s32 setup_particle_once__10TObjPlayerFv(void *);
-s32 get_player_list__10TObjPlayerFv();
 extern const f32 lbl_805DF0AC;
 void TObjPlayer__sub_803076F8(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFv(void *);
@@ -48,11 +46,7 @@ char *get_shared_capture_texture_list(void);
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
-void render__13TUnk_804E71A0Fv(void);
-void run_task__13TUnk_804E71A0Fv(void);
 void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1);
-void reserved_53__13TUnk_804E70A8Fv(u8 *arg0);
-void update_weapon__13TUnk_804E70A8Fv(void *arg0);
 f32 sin_table_lookup(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
@@ -97,9 +91,9 @@ extern s32 lbl_804E70A8[];
 void TObjPlayer__sub_803076F8(u8 *arg0) {
     s32 temp_r31;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0) {
-        temp_r31 = get_player_list__10TObjPlayerFv();
-        setup_particle_once__10TObjPlayerFv((void *) (arg0));
-        load_projection_tex__10TObjPlayerFll((void *) (arg0), (int) ((s32) (lbl_805DF0AC * (f32) (*(s32 *)((s8 *)arg0 + 0x1FC) + (temp_r31 * 3)))));
+        temp_r31 = TObjPlayer::get_player_list();
+        ((TObjPlayer *)arg0)->setup_particle_once();
+        TObjPlayer::load_projection_tex((s32)((void *) (arg0)), (s32)((int) ((s32) (lbl_805DF0AC * (f32) (*(s32 *)((s8 *)arg0 + 0x1FC) + (temp_r31 * 3))))));
     }
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/object/TObjLuker.h"
@@ -98,8 +99,6 @@ s32 set_text_entry_string(void *, s32, s32);
 extern s32 TWindowSubStatusDisp__summary_page_layout[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
 void vt0__20TWindowSubStatusDispFv(u8 *arg0);
-s16 get_actor_attack_params_atp_min__13TUnk_804806E8Fv(int);
-s16 get_ata__10TObjPlayerFv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
 s16 TObjPlayer__sub_800A776C(int);
 s32 build_player_class_stat_template(int, void *);
@@ -328,11 +327,11 @@ void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
     pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != 0) {
         e2 = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(2));
-        e2->value = TObjPlayer__sub_800A776C(pl) + (((TObjPlayer *)pl)->get_field_2c8() + get_actor_attack_params_atp_min__13TUnk_804806E8Fv(pl));
+        e2->value = TObjPlayer__sub_800A776C(pl) + (((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min());
         e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(8));
         e->value = ((TWindowSubStatusDisp *)pl)->get_value();
         e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0x14));
-        e->value = get_ata__10TObjPlayerFv(pl);
+        e->value = ((TObjPlayer *)pl)->get_ata();
         e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0x1A));
         e->value = ((TObjPlayer *)pl)->get_hp();
         q = ((u8 *(*)(s32))get_quest_id__12TQuestListVMFv)(pl);

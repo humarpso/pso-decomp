@@ -6,8 +6,6 @@ extern "C" {
 
 void TAdDialingGC__sub_801A4C90(void);
 s32 TAdDialingGC__sub_801A4C9C(void);
-void sub_801A4CA4__13TUnk_804C2298Fv(void *arg0);
-void render__13TUnk_804C2298Fv(void);
 
     extern int player_action_provider_selector;
 void TAdDialingGC__sub_801A4C90(void) { player_action_provider_selector = 1; }

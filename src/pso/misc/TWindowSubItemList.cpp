@@ -12,14 +12,11 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_item_list_capacity(void *, int, int, int);
-s32 draw_selected_list_entry__13TUnk_804D0618Fl(void *, int);
 s32 draw_window_scrollbar(void *, int, void *);
-s32 sub_8027ACF8__18TWindowSubItemListFPUc(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2);
-s32 create_menu_scroll_bar__13TUnk_804D0618Fv(void *);
 s32 fn_802683F4(void *, void *, int, void *);
 extern s32 __vt__18TWindowSubItemList[];
 extern s32 TWindowSubItemList__class_name;
@@ -52,8 +49,8 @@ void TWindowSubItemList::render() {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    draw_selected_list_entry__13TUnk_804D0618Fl((void *) (arg0), (int) (temp_r3));
-    sub_8027ACF8__18TWindowSubItemListFPUc((void *) (arg0), (int) (temp_r3));
+    ((TUnk_804D0618 *)arg0)->draw_selected_list_entry((int) (temp_r3));
+    ((TWindowSubItemList *)arg0)->sub_8027ACF8((u8 *)temp_r3);
     draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0x1E));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(void **)((s8 *)arg0 + 0x80), (int) (temp_r3));
@@ -83,7 +80,7 @@ u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList *)&__vt__18TWindowSubItemList).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubItemList__class_name;
     ((TUnk_804D0618 *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
-    create_menu_scroll_bar__13TUnk_804D0618Fv((void *) (arg0));
+    ((TUnk_804D0618 *)arg0)->create_menu_scroll_bar();
     ((TWindowSubItem *)arg0)->reset_selected();
     *(s32 *)((s8 *)arg0 + 0x8C) = 0;
     return arg0;

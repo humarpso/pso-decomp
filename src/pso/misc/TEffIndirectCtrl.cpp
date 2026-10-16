@@ -18,7 +18,6 @@ extern "C" {
 
 void TEffIndirectCtrl__sub_802A9548(void* p);
 u8 TEffIndirectCtrl__sub_802A9554(void* p);
-void sub_802A955C__16TEffIndirectCtrlFv(void* p);
 void xfree__FPv(void*);
 
 extern u32 indirect_recipe_buffer;

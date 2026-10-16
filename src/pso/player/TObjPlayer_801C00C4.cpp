@@ -14,8 +14,6 @@ u8 TObjPlayer__sub_801C0124(O_801C0124 *self, s16 i);
 
 extern "C" {
 
-int vfunc_7__13TUnk_804DDD28Fv(void);
-int vfunc_76__13TUnk_804DDD28Fv(void);
 int TObjPlayer__sub_801C210C(void*);
 
 int TObjPlayer::forward_801C210C() { return TObjPlayer__sub_801C210C(this); }

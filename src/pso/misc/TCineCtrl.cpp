@@ -27,12 +27,10 @@ extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
-void update_letterbox_show__9TCineCtrlFv(u8 *arg0);
 extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
 void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
-void update_letterbox_show__9TCineCtrlFv(u8 *arg0);
 void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
 void TCameraCtrl__sub_80068EF0(void);
 void set_cached_blend_factor(s32, s32);
@@ -176,7 +174,7 @@ void TCineCtrl::run_task() {
     case 0:
         break;
     case 1:
-        update_letterbox_show__9TCineCtrlFv((u8 *)self);
+        ((TCineCtrl *)self)->update_letterbox_show();
         break;
     case 2:
         update_letterbox_hide__9TCineCtrlFPv((u8 *)self);

@@ -4,7 +4,6 @@
 #include "pso/misc/TWindowKeyBoardSoft.h"
 
 extern "C" {
-bool sub_8025CB10__19TWindowKeyBoardBaseFv(u8 *arg0);
 }
 
 extern "C" {

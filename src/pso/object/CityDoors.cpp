@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/object/TObjFish.h"
+#include "pso/object/TUnk_804B5C08.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/object/TUnk_804B5BA8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/TObjCityDoor_Shop.h"
@@ -163,7 +168,6 @@ extern "C" {
 extern u8 *city_common_model_archive;
 extern s32 city_common_texture_list;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 u8 * load_gvm_texture_file(s32);
 extern const char city_common_texture_filename[];
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_city_common_resource_descriptor;
@@ -173,14 +177,12 @@ void render__18TObjCityDoor_LobbyFv(void* p);
 s32 get_city_common_model(s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
-s32 set_global_param__8TObjFishFl(s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 extern s32 city_common_texture_list;
 extern const f32 lbl_805DBBE0;
 extern const f32 lbl_805DBBE4;
-void process_lobby_action_14__18TObjCityDoor_LobbyFv(u8 *arg0);
 }
 
 extern "C" {
@@ -188,7 +190,6 @@ extern "C" {
 void free_map_resources__6TLobbyFv(void);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
-s32 safe_free__23TAdSinglePlyChrSelectGCFUl(u32);
 
 extern u8 *city_common_model_archive;
 extern s32 city_common_texture_list;
@@ -196,7 +197,7 @@ extern s32 city_common_texture_list;
 void free_map_resources__6TLobbyFv(void) {
     if ((u32) city_common_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)city_common_texture_list);
-        safe_free__23TAdSinglePlyChrSelectGCFUl(city_common_texture_list);
+        TAdSinglePlyChrSelectGC::safe_free(city_common_texture_list);
         city_common_texture_list = 0U;
     }
     TLobby__sub_8001FE7C((s32)city_common_model_archive, 1);
@@ -208,7 +209,7 @@ typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8
 void load_city_common_resources(void) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((void *)0x440);
+    temp_r3 = ((TAdSinglePlyChrSelectGC *)((void *)0x440))->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_city_common_resource_descriptor.value, 0, 0, 0));
@@ -216,11 +217,11 @@ void load_city_common_resources(void) {
     (*(s32 *)&city_common_model_archive) = var_r0;
     (*(u8 * *)&city_common_texture_list) = load_gvm_texture_file((s32)city_common_texture_filename);
 }
-void TObjCityDoor_Lobby::render() { if (is_phase_e__9TObjEneDDFPv(this) != 0) { process_lobby_action_14__18TObjCityDoor_LobbyFv((u8 *)((u8 *)(this))); } }
+void TObjCityDoor_Lobby::render() { if (is_phase_e__9TObjEneDDFPv(this) != 0) { process_lobby_action_14(); } }
 void TObjCityDoor_Lobby::process_lobby_action_14() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_80181AE8 *)arg0)->m8(lbl_805DBBE0, lbl_805DBBE4) != 0) {
-        set_global_param__8TObjFishFl((*(s32 *)&city_common_texture_list));
+        TObjFish::set_global_param((*(s32 *)&city_common_texture_list));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
@@ -238,18 +239,16 @@ extern "C" {
 
 void run_task__18TObjCityDoor_LobbyFv(void);
 void dispatch_lobby_action__18TObjCityDoor_LobbyFv(s32 arg0);
-void process_lobby_action_14__18TObjCityDoor_LobbyFv(u8 *);
-s32 build_door_collision_triangles__18TObjCityDoor_LobbyFv(s32);
 int is_phase_e__9TObjEneDDFPv(void *);
 
 void TObjCityDoor_Lobby::run_task() {  }
 void TObjCityDoor_Lobby::dispatch_lobby_action() {
     s32 arg0 = (s32)this;
     if (is_phase_e__9TObjEneDDFPv((void *)arg0) != 0) {
-        build_door_collision_triangles__18TObjCityDoor_LobbyFv(arg0);
+        ((TObjCityDoor_Lobby *)arg0)->build_door_collision_triangles();
         return;
     }
-    process_lobby_action_14__18TObjCityDoor_LobbyFv((u8 *)arg0);
+    ((TObjCityDoor_Lobby *)arg0)->process_lobby_action_14();
 }
 
 #pragma push
@@ -398,7 +397,6 @@ u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1);
 u32 get_map_count__10TObjMapCsnFv();
 void __dl__7TObjectFPv(void *);
 s32 remove_value_from_id_list(u32, void *);
-s32 destroy_particle__13TParticleCtrlFPvs(void *, s32);
 
 extern s32 __vt__18TObjCityDoor_Lobby[];
 
@@ -408,7 +406,7 @@ u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
         if (((s32) *(s32 *)((s8 *)arg0 + 0x250) != 0) && (get_map_count__10TObjMapCsnFv() != 0U)) {
             remove_value_from_id_list(get_map_count__10TObjMapCsnFv(), arg0 + 0x90);
         }
-        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -450,7 +448,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 get_map_count__10TObjMapCsnFv();
 void register_slot(u32, void *);
-s32 build_door_collision_triangles__18TObjCityDoor_LobbyFv(s32);
 int is_phase_e__9TObjEneDDFPv(void *);
 void construct_world_actor_base(void *, void *);
 extern s32 __vt__18TObjCityDoor_Lobby[];
@@ -477,7 +474,7 @@ Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2) {
     self->xac = self->buf1d8;
     self->x250 = 0;
     if (is_phase_e__9TObjEneDDFPv(self) != 0) {
-        build_door_collision_triangles__18TObjCityDoor_LobbyFv((s32)self);
+        ((TObjCityDoor_Lobby *)self)->build_door_collision_triangles();
         if (get_map_count__10TObjMapCsnFv() != 0) {
             register_slot(get_map_count__10TObjMapCsnFv(), &self->x90);
             self->x250 = 1;
@@ -552,7 +549,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern s32 city_common_texture_list;
 extern const f32 lbl_805DBBF4;
@@ -560,7 +556,7 @@ extern const f32 lbl_805DBBF4;
 void TObjCityDoor_Med::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_80181ff4 *)arg0)->m20() != 0) {
-        set_global_param__8TObjFishFl(city_common_texture_list);
+        TObjFish::set_global_param(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
@@ -592,7 +588,6 @@ s32 get_city_common_motion(s32);
 void *TObjPlayer__sub_80182D24(void *, s16);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern void *tl_05;
 
@@ -628,7 +623,7 @@ void *TObjCityDoor_Med__ct(void *o, void *parent, void *set) {
 s32 is_rader_map_active(void) {
     s32 temp_r3;
 
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+    if (TRaderMapCore::is_not_split_screen() == 1) {
         if (get_game_play_mode() == 1) {
             return 0;
         }
@@ -701,11 +696,10 @@ void render__17TObjCityDoor_WarpFv(void* o);
 extern "C" {
 
 s32 get_city_common_motion(s32);s32 get_city_common_model(s32);
-s32 set_global_param__8TObjFishFl(s32);s32 push_matrix();s32 pop_matrix();
 s32 post_translate_matrix(void *);s32 rotate_matrix_y(s32, s32);
 void TObjCityDoor_Warp::render() {
  if(((CityDoorProbe*)this)->visible()!=0) {
-  set_global_param__8TObjFishFl(city_common_texture_list);push_matrix();
+  TObjFish::set_global_param(city_common_texture_list);push_matrix();
   post_translate_matrix((u8*)this+0x38);rotate_matrix_y(0,F(this,s32,0x60));
   draw_ginja_model_with_motion(get_city_common_model(9),get_city_common_motion(8),F(this,f32,0xB4));
   draw_ginja_model_with_motion(get_city_common_model(10),get_city_common_motion(9),F(this,f32,0xB4));
@@ -847,7 +841,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 set_global_param__8TObjFishFl(s32);
 
 extern void *tl_05;
 
@@ -886,7 +879,7 @@ void TObjCityDoor_Guild::render() {
     u8 *arg0 = (u8 *)this;
 
     if (((VObj_8018257c_8018245C *)arg0)->m20() != 0) {
-        set_global_param__8TObjFishFl(city_common_texture_list);
+        TObjFish::set_global_param(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
@@ -950,7 +943,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 set_global_param__8TObjFishFl(s32);
 
 extern void *tl_05;
 
@@ -989,7 +981,7 @@ extern s32 city_common_texture_list;
 void TObjCityDoor_Shop::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_8018274C_8018262C *)arg0)->m20() != 0) {
-        set_global_param__8TObjFishFl(city_common_texture_list);
+        TObjFish::set_global_param(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
@@ -1163,14 +1155,12 @@ struct CityDoorFields {
 extern "C" {
 s32 check_player_in_range__13TUnk_804B5BA8Flf(void *arg0, s32 _w1, f32 _w2);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 void __dl__7TObjectFPv(void *);
 extern s32 city_door_base_vtable[];
 void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1);
 extern void *challenge_task;
 s32 TLobby__sub_80182E60(void);
     extern const float lbl_805DBC00;
-void vfunc_13__13TUnk_804B5C08Fl(void* a0);
 s32 init_collision_body_parts(void *, void *, int, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 extern RecoveredGlobal_80182D8C_lbl_80443F20 city_door_init_params;
@@ -1326,7 +1316,7 @@ s32 TUnk_804B5BA8::check_player_in_range(s32 _w1, f32 _w2) { return TObjPlayer::
 void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = city_door_base_vtable;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {

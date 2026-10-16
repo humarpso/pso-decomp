@@ -200,7 +200,6 @@ void try_enter_state_3__11TBoss4BishiFPv(void* p);
 
 void vec3_add_to(void *, void *);
 s32 TObjControl__ct(s32, s32);
-int distribute_experience__9TObjEnemyFv(void*);
 
 s32 __nw__7TObjectFUl(s32);
 
@@ -272,7 +271,6 @@ void *__dt__9TBoss4UroFv(void *arg0, s16 arg1);
 s32 create__9TBoss4UroFi(s32 arg0);
 
 s32 TObjControl__ct(s32, s32);
-int distribute_experience__9TObjEnemyFv(void*);
 
 s32 __nw__7TObjectFUl(s32);
 
@@ -1012,7 +1010,7 @@ void *__dt__9TBoss4UroFv(void *arg0, s16 arg1) {
 
 extern "C" {
 #pragma push
-void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience__9TObjEnemyFv(p); TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
+void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { ((TObjEnemy *)p)->distribute_experience(); TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 #pragma pop
 }
 
@@ -1290,7 +1288,7 @@ void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
 
 extern "C" {
 #pragma push
-void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { distribute_experience__9TObjEnemyFv(p); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
+void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { ((TObjEnemy *)p)->distribute_experience(); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
 #pragma pop
 }
 

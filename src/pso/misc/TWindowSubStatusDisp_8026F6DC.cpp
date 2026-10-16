@@ -20,7 +20,6 @@ extern "C" {
 int obj_getArrWord_254(void *p, int i);
 void * get_player_by_client_id();
 void *__nw__7TObjectFUl(int);
-s32 sub_80244994__13TUnk_804CE018Fv(void *);
 void TWindow__close(void *);
 void *get_card_name_ptr__14TWindowComCardFPv(void *p);
 s32 get_status_effect_icon_index(u32 arg0);
@@ -29,7 +28,6 @@ void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
 void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
 extern const f32 lbl_805DD38C;
 extern const f32 lbl_805DD398;
-void update_status_icons__19TWindowSimpleStatusFPv(Disp_8026F9F4 *arg0, void *arg1);
 s32 draw_photon_blast_fan(s32, Vec2_80270244 *, Params_80270244 *, u32, s32, s32, f32, f32);
 extern u32 photon_blast_gauge_ring_color_table[];
 extern const f32 lbl_805DD388;
@@ -259,7 +257,7 @@ void TWindowSimpleStatus::update_status_icons(void *arg1) {
     void *w;
     void *player;
     player = ((void *(*)(s32))get_player_by_client_id)(((Disp_8026F9F4 *)this)->id);
-    if (player == NULL || sub_80244994__13TUnk_804CE018Fv(((Disp_8026F9F4 *)this)) == 0) {
+    if (player == NULL || sub_80244994() == 0) {
         for (i = 0; i < 5; i++) {
             if (((Disp_8026F9F4 *)this)->windows[i] != NULL) {
                 TWindow__close(((Disp_8026F9F4 *)this)->windows[i]);

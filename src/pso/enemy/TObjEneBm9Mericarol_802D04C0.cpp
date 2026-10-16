@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 
 #define CAT2(a,b) a##b
@@ -44,7 +45,6 @@ struct V_A : Base_A {
 
 extern "C" {
 
-s32 update_linked_position__12TObjEneDD_STFf(void *, f32);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, s32, s32);
 s32 transition_enemy_state(void *, s32);
@@ -67,7 +67,7 @@ void TObjEneBm9Mericarol::handle_event(s32 arg1) {
         enemy_clear_target__12TObjEneDD_STFUs(this);
         return;
     case 3:
-        if ((try_set_mode8_if_flag2__19TObjEneBm9MericarolFv() == 0) && (update_linked_position__12TObjEneDD_STFf(this, lbl_805DE73C) != 0)) {
+        if ((try_set_mode8_if_flag2__19TObjEneBm9MericarolFv() == 0) && (update_linked_position(lbl_805DE73C) != 0)) {
             transition_enemy_state(this, 3);
         }
     case 5:

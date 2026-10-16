@@ -3,7 +3,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32   is_owner_alive__15TItemShootModelFv(TItemShootModel*);
 void* get_entity_id__10TObjPlayerFv(void*);
 f32   newton_sqrtf(f32);
 f64   atan2_float(f32, f32);
@@ -18,7 +17,7 @@ extern const f64   lbl_8043E7A0[];
 }
 
 void TItemShootModel::render() {
-    if (is_owner_alive__15TItemShootModelFv(this)) {
+    if (is_owner_alive()) {
         if (this->m_58 != NULL) {
             TObjPlayer::notify_fish_if_valid((u32)(this->m_5C));
             TParticleCtrl::begin_effect_render();

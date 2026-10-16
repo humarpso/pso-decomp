@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCMProportion.h"
 struct CreationCameraVTable { void* reserved[2]; void (*methods[10])(); };
 #include "pso/misc/CharacterAppearance.h"
 
@@ -51,7 +52,7 @@ extern "C" {
 #include "pso/camera/CreationCamera.h"
 
 extern "C" {
-f32 get_ratio__16TObjCMProportionFv(void),get_right_trigger_ratio__16TObjCMProportionFv(void);
+f32 TObjCMProportion::get_ratio(void),TObjCMProportion::get_right_trigger_ratio(void);
 void get_creation_pad_stick(void*,void*);
 s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
@@ -273,8 +274,8 @@ void CreationCamera::advance_manual(){
   {
     this->yaw = (s32) (this->yaw - 0x444);
   }
-  this->distance = (f32) (this->distance + get_right_trigger_ratio__16TObjCMProportionFv());
-  this->distance = (f32) (this->distance - get_ratio__16TObjCMProportionFv());
+  this->distance = (f32) (this->distance + TObjCMProportion::get_right_trigger_ratio());
+  this->distance = (f32) (this->distance - TObjCMProportion::get_ratio());
   temp_f1_3 = this->distance;
   if (temp_f1_3 > lbl_805DD9C0)
   {

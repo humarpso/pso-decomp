@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList.h"
 #include "pso/TObject.h"
 #include "pso/object/TObjLuker.h"
 #include "pso/TParticleCtrl.h"
@@ -91,7 +92,6 @@ void calc_window_size__17TWindowSubComCardFPv(void *w);
 void align_menu_entry_positions(void *w);
 void disallow_rendering__7TObjectFv(void *w);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
-void reset_entries__21TWindowSubComCardListFv(void *w);
 s32 get_floor_destination_name(s32 f);
 void calc_window_size__17TWindowSubComCardFPv(void *w);
 void align_menu_entry_positions(void *w);
@@ -196,7 +196,7 @@ void TObjLuker::update_floor_name_windows() {
             if (self->cur != target) {
                 s32 j;
                 for (j = 0; j < 4; j++) {
-                    reset_entries__21TWindowSubComCardListFv(self->wins[j]);
+                    ((TWindowSubComCardList *)(self->wins[j]))->reset_entries();
                 }
                 self->cur = target;
             }

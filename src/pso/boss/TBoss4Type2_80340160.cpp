@@ -9,14 +9,10 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
-s32 sub_8033FE30__23TBoss6Demo15_TYPE2_WAITFv(void *);
-s32 check_any_player_near__23TBoss6Demo15_TYPE2_WAITFv(void *);
-void run_task__23TBoss6Demo15_TYPE2_WAITFv(u8 *arg0);
 }
 
 extern "C" {
 
-int render__23TBoss6Demo15_TYPE2_WAITFv(void* p);
 void *TObjFish__sub_8034029C(void *, void *);
 int TObjPlayer__sub_8033FDB0(void*);
 void __dl__7TObjectFPv(void *);
@@ -34,12 +30,12 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
     if (((TObjEneDD *)arg0)->query_teammate_state() == 0) {
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->advance_offset();
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x4C), (void *) (arg0 + 0x40));
-        sub_8033FE30__23TBoss6Demo15_TYPE2_WAITFv((void *) (arg0));
+        ((TBoss6Demo15_TYPE2_WAIT *)arg0)->sub_8033FE30();
         temp_r3 = (u8 *)(this->m_20);
         if (temp_r3 != NULL) {
             ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x40);
         }
-        check_any_player_near__23TBoss6Demo15_TYPE2_WAITFv((void *) (arg0));
+        ((TBoss6Demo15_TYPE2_WAIT *)arg0)->check_any_player_near();
         play_persistent_sound((int) (0x4003A126), (void *) (arg0), (void *) (arg0 + 0x40), (int) (0), (int) (0));
         if (((TObjFish *)(*(u8 **)((s8 *)arg0 + 0x1C)))->get_phase() != 4) {
             queue_destruction__7TObjectFv(arg0);

@@ -39,10 +39,7 @@ extern "C" {
 extern "C" {
 
 void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2);
-void vfunc_16__8TOKeyColFv(void);
-void vfunc_17__8TOKeyColFv(void);
 void TOKeyCol__vt16(void);
-void vfunc_19__8TOKeyColFv(void);
 void *__dt__8TOKeyColFv(void *arg0, s16 arg1);
 s32 TOKey__ct();
 void __dl__7TObjectFPv(void *);

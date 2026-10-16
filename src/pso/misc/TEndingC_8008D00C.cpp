@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/enemy/TObjEneBalClaw.h"
 #include "types.h"
 
 class TEndingC : public TObject {
@@ -398,8 +399,6 @@ extern "C" {
 
 extern "C" {
 
-s32 update_action_hold_status__14TObjEneBalClawFv(s32 arg0);
-s32 update_movement_status__14TObjEneBalClawFv(s32 arg0);
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/misc/TContainerAncient01R.h"
@@ -193,7 +194,6 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
-s32 sub_8018A688__20TContainerAncient01RFv(void *);
 s32 submit_cursor_candidate(void *, int, f32);
 s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01R__bml_resource;
@@ -210,8 +210,6 @@ void advance_animation_playback(void *);
 unsigned int __cvt_fp2unsigned(f32);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
-s32 send_object_state_update__13TUnk_804AF8A0FPv(void *, void *);
-s32 access_object_saved_state__13TUnk_804AF8A0FPvs(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
 f32 receive_physical_attack__20TContainerAncient01RFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -220,8 +218,6 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
 extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
-void request_box_item_drop__13TUnk_804806E8FPvs(void *, void *, int);
-void set_flag8__13TUnk_804AF8A0Fv(void *);
 extern s32 TContainerAncient01__open_effect_table[];
 s32 obj_testFlags30(void *, s32);
 s32 get_current_floor();
@@ -246,7 +242,6 @@ int spawn_particle_effect(void*, void*);
 void advance_animation_playback(void *);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
-void sub_8018B48C__19TContainerAncient01Fv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD3C;
@@ -258,10 +253,7 @@ void advance_animation_playback(void *);
 u8 *get_player_by_client_id(int);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD38;
-void request_box_item_drop__13TUnk_804806E8FPvs(void *, void *, int);
-void set_flag8__13TUnk_804AF8A0Fv(void *);
 extern s32 TContainerAncient01__effect_id_table[];
-void sub_8018B700__19TContainerAncient01Fv(Obj_8018B700 *arg0);
 s32 obj_testFlags30(void *, s32);
 s32 get_current_floor();
 f32 horizontal_distance_squared(void *, void *);
@@ -277,7 +269,6 @@ extern const f32 lbl_805DBD28;
 extern const f32 lbl_805DBD2C;
 extern const f32 lbl_805DBD30;
 extern const f32 TContainerAncient01__data_805DBD34;
-void sub_8018B284__19TContainerAncient01Fv(Obj_8018B284 *self);
 
 }
 
@@ -300,10 +291,8 @@ void TContainerAncient01R__sub_8018AF74(void);
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1);
 void *TContainerAncient01R__ct(Obj_8018B030 *, void *, void *);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 destroy_motion_object__13TUnk_804806E8Fs(void *, s32);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
@@ -599,9 +588,9 @@ void TContainerAncient01R::open_container() {
         TContainerAncient01::trigger_spawn((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[0]));
         TContainerAncient01::trigger_spawn((void *)(arg0), (void *)(arg0->pos), (void *)(TContainerAncient01__open_effect_table[1]));
         if (TContainerAncient01::is_global_state_in_table() == 0) {
-            request_box_item_drop__13TUnk_804806E8FPvs(arg0, arg0->pos, 1);
+            ((TUnk_804806E8 *)arg0)->request_box_item_drop(arg0->pos, 1);
         }
-        set_flag8__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
     }
 }
 
@@ -610,10 +599,10 @@ f32 TContainerAncient01R::receive_physical_attack(void *, f32) {
     s16 sp8;
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
         *(s16 *)((s8 *)arg0 + 0x338) = (s16) (*(s16 *)((s8 *)arg0 + 0x338) + 1);
-        if (((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+        if (((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
             sp8 = *(s16 *)((s8 *)arg0 + 0x338);
-            access_object_saved_state__13TUnk_804AF8A0FPvs((void *) (arg0), (void *) (&sp8), (int) (0));
-            send_object_state_update__13TUnk_804AF8A0FPv((void *) (arg0), (void *) (&sp8));
+            ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
+            ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
         }
     }
     return (*(const f32 *)&TContainerAncient01__data_805DBD14);
@@ -674,7 +663,7 @@ void TContainerAncient01R::run_task() {
                 ((TContainerAncient01R *)arg0)->update_spawning();
                 break;
             case 2:
-                sub_8018A688__20TContainerAncient01RFv((void *) (arg0));
+                ((TContainerAncient01R *)arg0)->sub_8018A688();
                 break;
             default:
                 this->mode = 0;
@@ -728,9 +717,9 @@ void TContainerAncient01R::init_table_entries() {
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TContainerAncient01R;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        destroy_motion_object__13TUnk_804806E8Fs(arg0, 0);
+        ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -767,8 +756,6 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
     return self;
 }
 #pragma pop
-
-void vfunc_6__19TContainerAncient01FPsl(void *arg0, s16 *arg1, s32 arg2);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
@@ -906,7 +893,7 @@ void TContainerAncient01::init_state_vectors() {
 void TContainerAncient01::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
-            sub_8018B700__19TContainerAncient01Fv((Obj_8018B700 *)(this));
+            sub_8018B700();
             *(s32 *)&this->m_35c = 1;
         }
     } else if ((s16) *arg1 == 1) {
@@ -921,9 +908,9 @@ void TContainerAncient01::sub_8018B700() {
         TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[0]));
         TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0->pos), (void*)(TContainerAncient01__effect_id_table[1]));
         if (TContainerAncient01::is_global_state_in_table() == 0) {
-            request_box_item_drop__13TUnk_804806E8FPvs(arg0, arg0->pos, 1);
+            ((TUnk_804806E8 *)arg0)->request_box_item_drop(arg0->pos, 1);
         }
-        set_flag8__13TUnk_804AF8A0Fv(arg0);
+        ((TUnk_804AF8A0 *)arg0)->set_flag8();
     }
 }
 

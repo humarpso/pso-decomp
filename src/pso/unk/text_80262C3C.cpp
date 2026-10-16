@@ -165,14 +165,12 @@ void update_photon_blast_player_marker(s32, u32);
 s32 obj_isState3_324(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void TWindow__close(void *);
-void update_window_entry_list__13TUnk_804CE018FPv(void *, void *);
 void init_window_layout_entries(void *, void *, int);
 void init_item_row__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 calc_display_grade__5TItemFv(void *);
 f32 get_item_star_row_width(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
-s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 void __dl__7TObjectFPv(void *);
@@ -526,7 +524,7 @@ void *TWindowLockOn::create_for_target(s32 arg0, u16 arg1) {
 void render__13TWindowLockOnFv(u8 *arg0) {
     s32 temp_r3;
 
-    temp_r3 = setup_window_draw_context__13TUnk_804CE018Fl(arg0, arg0 + 0x68);
+    temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x68));
     draw_window_frame(arg0, temp_r3);
     if ((*(f32 *)((s8 *)arg0 + 0x30) == *(f32 *)((s8 *)arg0 + 0x40)) && (*(f32 *)((s8 *)arg0 + 0x34) == *(f32 *)((s8 *)arg0 + 0x44)) && (*(f32 *)((s8 *)arg0 + 0x38) == *(f32 *)((s8 *)arg0 + 0x48)) && (*(f32 *)((s8 *)arg0 + 0x3C) == *(f32 *)((s8 *)arg0 + 0x4C))) {
         draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
@@ -543,7 +541,7 @@ void TWindowLockOn::run_task() {
     validate_target();
     ((TWindowDD *)w)->initialize_subwindow();
     ((TUnk_804CE018 *)w)->update_fade();
-    update_window_entry_list__13TUnk_804CE018FPv(w, w->m24);
+    ((TUnk_804CE018 *)w)->update_window_entry_list(w->m24);
     old = w->retention;
     w->retention = old - 1;
     if (old < 0) {

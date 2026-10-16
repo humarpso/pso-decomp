@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TWindowSubComCard.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 s32 get_card_entry__17TWindowSubComCardFi(s32);
@@ -34,13 +37,11 @@ u8 *get_card_entry_data__17TWindowSubComCardFPv(void *self) {
 #include "types.h"
 
 extern "C" {
-s32 get_state__23TAdSinglePlyChrSelectGCFv(void);
 }
 
 extern "C" {
 
 s32 find_card_by_id__17TWindowSubComCardFUi(u32 arg0);
-u32 get_card_id__17TWindowSubComCardFv(s32);
 
 s32 find_card_by_id__17TWindowSubComCardFUi(u32 arg0) {
     s32 i;
@@ -48,7 +49,7 @@ s32 find_card_by_id__17TWindowSubComCardFUi(u32 arg0) {
 
     acc = get_card_entry__17TWindowSubComCardFi((s32)(0));
     for (i = 0; i < 0xD2; i++) {
-        if (arg0 == get_card_id__17TWindowSubComCardFv(acc)) {
+        if (arg0 == ((TWindowSubComCard *)acc)->get_card_id()) {
             return acc;
         }
         acc += 0x100;
@@ -67,7 +68,7 @@ s32 get_card_entry__17TWindowSubComCardFi(s32 arg0) {
         var_r3 = 0;
         return 0;
     }
-    var_r3 = get_state__23TAdSinglePlyChrSelectGCFv() + 0xC4;
+    var_r3 = TAdSinglePlyChrSelectGC::get_state() + 0xC4;
     var_r3 += var_r31 << 8;
     return var_r3;
 }
@@ -196,15 +197,11 @@ struct Card_8007AC7C {
 };
 
 extern "C" {
-s32 is_active__17TWindowSubComCardFv(void *);
 s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n);
-void move_words__6TLobbyFPUll(u32 *dst, u32 *src, s32 n);
 struct O_8007B26C;
 void TWindowSubComCard__sub_8007B26C(O_8007B26C *);
 void remove_card_at__17TWindowSubComCardFi(s32 i);
-s32 is_active__17TWindowSubComCardFv(void *);
 void forward_to_matching_card__17TWindowSubComCardFPvPvi(void *, u8 *, s32);
-s32 is_active__17TWindowSubComCardFv(void *);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
 s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, s32 count);
@@ -225,7 +222,7 @@ s32 init_guild_card_tag__17TWindowSubComCardFi(s32 arg0) {
 s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n) {
     s32 i;
     for (i = 0; i < n; i++, cards++) {
-        if (is_active__17TWindowSubComCardFv(cards) == 0) {
+        if (((TWindowSubComCard *)cards)->is_active() == 0) {
             return 1;
         }
     }
@@ -240,7 +237,7 @@ void remove_card_at__17TWindowSubComCardFi(s32 i) {
     Box_8007AC10 *box = ((Box_8007AC10 *)((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)((s32)(0)));
     if (i < 0xD1) {
         Card_8007AC10 *p = &box->cards[i];
-        move_words__6TLobbyFPUll((u32 *)p, (u32 *)(p + 1), (0xD1 - i) * sizeof(Card_8007AC10) / 4);
+        ((TLobby *)p)->move_words((u32 *)(p + 1), (0xD1 - i) * sizeof(Card_8007AC10) / 4);
     }
     ((void (*)(Card_8007AC10 *))TWindowSubComCard__sub_8007B26C)(&box->cards[0xD1]);
     box->cards[0xD1].used = 0;
@@ -249,12 +246,12 @@ void remove_card_at__17TWindowSubComCardFi(s32 i) {
 s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, s32 count) {
     u32 id;
     s32 i;
-    id = ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(self);
+    id = ((TWindowSubComCard *)self)->get_card_id();
     for (i = 0; i < count; i++, cards++) {
-        if (is_active__17TWindowSubComCardFv(cards) == 0) {
+        if (((TWindowSubComCard *)cards)->is_active() == 0) {
             return 0;
         }
-        if (id == ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(cards)) {
+        if (id == ((TWindowSubComCard *)cards)->get_card_id()) {
             if (TWindowSubComCard__sub_8007B6F4(self) != 0) {
                 ((s32 (*)(void *, void *))forward_return_arg__17TWindowSubComCardFi)(cards, self);
             } else if (TWindowSubComCard__sub_8007B6F4(cards) == 0) {
@@ -280,12 +277,12 @@ s32 send_guild_card__17TWindowSubComCardFi(s32 arg0) {
 }
 void forward_to_matching_card__17TWindowSubComCardFPvPvi(void *arg0, u8 *arg1, s32 arg2) {
     s32 i;
-    u32 id = ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(arg0);
+    u32 id = ((TWindowSubComCard *)arg0)->get_card_id();
     for (i = 0; i < arg2; i++, arg1 += 0x100) {
-        if (is_active__17TWindowSubComCardFv(arg1) == 0) {
+        if (((TWindowSubComCard *)arg1)->is_active() == 0) {
             break;
         }
-        if (id == ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(arg1)) {
+        if (id == ((TWindowSubComCard *)arg1)->get_card_id()) {
             break;
         }
     }
@@ -361,17 +358,10 @@ struct Card_8007B0D0 {
 extern "C" {
 void set_text__17TWindowSubComCardFPvPv(u8 *arg0, void *arg1);
 s32 init_card__17TWindowSubComCardFPv(s32 *, s32);
-s32 get_keyboard_mode__17TWindowSubComCardFv();
-s32 init_guild_card__17TWindowSubComCardFv(s32 *);
 void TWindowSubComCard__sub_8007AF10(s32 arg0);
-s32 is_active__17TWindowSubComCardFv(void *);
 s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n);
-s32 is_active__17TWindowSubComCardFv(void *);
 s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n);
-s32 is_active__17TWindowSubComCardFv(void *);
 s32 count_active_cards__17TWindowSubComCardFv(void);
-s32 is_active__17TWindowSubComCardFv(void *);
-s32 is_active__17TWindowSubComCardFv(void *);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
 }
@@ -388,8 +378,8 @@ void TWindowSubComCard__sub_8007AF10(s32 arg0) {
     Big spC;
     s32 sp8;
     s32 temp;
-    init_guild_card__17TWindowSubComCardFv(&sp8);
-    temp = get_keyboard_mode__17TWindowSubComCardFv();
+    ((TWindowSubComCard *)(&sp8))->init_guild_card();
+    temp = TWindowSubComCard::get_keyboard_mode();
     ((s32 (*)(Big *, s32))copy_struct__17TWindowSubComCardFPvPv)(&spC, temp);
     init_card__17TWindowSubComCardFPv(&sp8, arg0);
 }
@@ -398,7 +388,7 @@ void TWindowSubComCard__sub_8007AF10(s32 arg0) {
 s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n) {
     s32 i;
     for (i = 0; i < n; i++, p++) {
-        if (is_active__17TWindowSubComCardFv(p) == 0) {
+        if (((TWindowSubComCard *)p)->is_active() == 0) {
             break;
         }
     }
@@ -409,7 +399,7 @@ s32 count_active_cards__17TWindowSubComCardFv(void) {
     Card_8007AFB8 *p = ((Card_8007AFB8 * (*)(s32))get_card_entry__17TWindowSubComCardFi)(0);
     s32 i;
     for (i = 0; i < 0xD2; i++, p++) {
-        if (is_active__17TWindowSubComCardFv(p) == 0) {
+        if (((TWindowSubComCard *)p)->is_active() == 0) {
             break;
         }
     }
@@ -419,7 +409,7 @@ s32 count_active_cards__17TWindowSubComCardFv(void) {
 s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n) {
     s32 i;
     for (i = 0; i < n; i++, p++) {
-        if (is_active__17TWindowSubComCardFv(p) == 0) {
+        if (((TWindowSubComCard *)p)->is_active() == 0) {
             return 1;
         }
     }
@@ -445,12 +435,12 @@ u32 TWindowSubComCard__sub_8007B070(u8 *arg0) {
 s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *self, Card_8007B0D0 *cards, s32 count) {
     u32 id;
     s32 i;
-    id = ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(self);
+    id = ((TWindowSubComCard *)self)->get_card_id();
     for (i = 0; i < count; i++, cards++) {
-        if (is_active__17TWindowSubComCardFv(cards) == 0) {
+        if (((TWindowSubComCard *)cards)->is_active() == 0) {
             return 0;
         }
-        if (id == ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(cards)) {
+        if (id == ((TWindowSubComCard *)cards)->get_card_id()) {
             if (TWindowSubComCard__sub_8007B6F4(self) != 0) {
                 ((s32 (*)(void *, void *))forward_return_arg__17TWindowSubComCardFi)(cards, self);
             } else if (TWindowSubComCard__sub_8007B6F4(cards) == 0) {
@@ -468,12 +458,12 @@ s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *self, Card_8007B0D0 *cards, s
 
 void TWindowSubComCard__sub_8007B1AC(void *arg0, u8 *arg1, s32 arg2) {
     s32 i;
-    u32 id = ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(arg0);
+    u32 id = ((TWindowSubComCard *)arg0)->get_card_id();
     for (i = 0; i < arg2; i++, arg1 += 0x90) {
-        if (is_active__17TWindowSubComCardFv(arg1) == 0) {
+        if (((TWindowSubComCard *)arg1)->is_active() == 0) {
             break;
         }
-        if (id == ((u32 (*)(void *))get_card_id__17TWindowSubComCardFv)(arg1)) {
+        if (id == ((TWindowSubComCard *)arg1)->get_card_id()) {
             break;
         }
     }

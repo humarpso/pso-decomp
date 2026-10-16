@@ -3,8 +3,6 @@
 
 extern "C" {
 
-void render__19TObjCityAirCar_CtrlFv(void);
-
 void TObjCityAirCar_Ctrl::render() {  }
 
 }

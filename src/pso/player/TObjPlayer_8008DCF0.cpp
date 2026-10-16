@@ -186,7 +186,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_800A04F0(void *);
 s32 advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
-s32 send_entity_set_flags__9TObjEnemyFv(void *);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9664;
@@ -194,7 +193,6 @@ extern const f32 lbl_805D9668;
 s32 apply_actor_gravity(void *, s32, f32);
 s32 update_enemy_wander_move(void *, Vec_8008FAD0 *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 sub_8004292C__15TObjEnemyCustomFv(void *);
 s32 reset_enemy_state__10TObjPlayerFv();
 s32 advance_animation_playback(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
@@ -553,7 +551,7 @@ void TObjPlayer::run_death_sequence() {
             for (i = 0; i < ((P_8008F730 *)arg0)->n; i++) {
                 p = find_entity_by_id(((P_8008F730 *)arg0)->ids[i]);
                 if (p != NULL) {
-                    send_entity_set_flags__9TObjEnemyFv(p);
+                    ((TObjEnemy *)p)->send_entity_set_flags();
                     queue_destruction__7TObjectFv(p);
                 }
             }
@@ -589,7 +587,7 @@ void TObjPlayer::run_death_sequence() {
         advance_animation_playback(arg0);
         if (((VObj_14_c1c33b *)(arg0 + 0x390))->m4() == 1) {
             TObjPlayer::apply_effect_variant_a((s32)(arg0 + 0x38), (s32)0);
-            send_entity_set_flags__9TObjEnemyFv(arg0);
+            ((TObjEnemy *)arg0)->send_entity_set_flags();
             queue_destruction__7TObjectFv(arg0);
         }
         break;
@@ -650,7 +648,7 @@ void TObjPlayer__sub_8008FAD0(u8 *arg0) {
     switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x30) &= 0xFBFFFEFF;
-        sub_8004292C__15TObjEnemyCustomFv(arg0);
+        ((TObjEnemyCustom *)arg0)->sub_8004292C();
         v = 6;
         if (*(s32 *)((s8 *)arg0 + 0x388) & 0x01000000) {
             v = 1;

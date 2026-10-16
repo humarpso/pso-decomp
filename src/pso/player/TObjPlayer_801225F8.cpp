@@ -5,7 +5,6 @@
 
 extern "C" {
 
-void update_attack__13TUnk_804A1098Fv(void *arg0);
 s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFv();

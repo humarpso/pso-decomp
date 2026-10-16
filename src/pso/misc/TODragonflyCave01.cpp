@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TODragonfly.h"
+#include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODragonflyCave01.h"
 #include "pso/system/BmlResourceDescriptor.h"
@@ -70,12 +72,11 @@ void release_static_instance__17TODragonflyCave01Fv(void) {
 
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 get_global_state__14TOKeyMachine01Fv();
 
 void load_resources__17TODragonflyCave01Fv(void) {
     void *o;
 
-    switch (get_global_state__14TOKeyMachine01Fv()) {
+    switch (TOKeyMachine01::get_global_state()) {
     default:
         o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
@@ -161,7 +162,6 @@ extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
-void sub_80164990__11TODragonflyFv(u8 *arg0);
 s32 is_any_player_within_radius_xz(s32, f32);
 s32 rand(void);
 extern const f32 lbl_805DB560;
@@ -211,7 +211,6 @@ f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB584;
 extern const f32 lbl_805DB590;
-void sub_80164A90__11TODragonflyFv(O_80164A90 *arg0);
 }
 
 extern "C" {
@@ -229,7 +228,6 @@ struct VObj_80164c34_80164760 : Base_80164c34_80164760 {
     virtual s32 m8(f32, f32);
 };
 
-void vfunc_14__11TODragonflyFv(void);
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
 s32 post_translate_matrix(void *);
@@ -239,7 +237,6 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-s32 update_anim_phase__13TUnk_804AFBF8Fv(void *);
 
 #pragma push
 #pragma fp_contract on
@@ -391,17 +388,17 @@ void TODragonfly::run_task() {
         this->vfunc_14();
         return;
     }
-    update_anim_phase__13TUnk_804AFBF8Fv(this);
+    update_anim_phase();
     temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
         update_idle();
         return;
     case 1:
-        sub_80164A90__11TODragonflyFv((O_80164A90 *)(this));
+        sub_80164A90();
         return;
     case 2:
-        sub_80164990__11TODragonflyFv((u8 *)(this));
+        sub_80164990();
         return;
     case 3:
         move_toward_target();

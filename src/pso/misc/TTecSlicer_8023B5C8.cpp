@@ -185,7 +185,6 @@ u32 __nw__7TObjectFUl(s32);
 void destroy_if_set__10TTecSlicerFv(u32);
 
 extern const f32 lbl_805DC954;
-void set_launch_midpoint__10TTecSlicerFPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 f32 horizontal_distance_squared(s32, s32);
 s32 resolve_hittable_target(int, int);
 u32 query_game_join_id__10TObjPlayerFv(s32);
@@ -218,7 +217,6 @@ s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 void construct_world_actor_base(void *, s32);
 void fn_8023B590(void *, s32, s32);
-void set_launch_midpoint__10TTecSlicerFPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
@@ -469,7 +467,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     self->f10c = (s32)arg2;
     self->f108 = find_item_by_id(self->f118);
     TTecSlicer::init_launch_angles((s32 *)self, (s32 *)self->f10c, init->f28);
-    set_launch_midpoint__10TTecSlicerFPvPvPv((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
+    ((TTecSlicer *)self)->set_launch_midpoint((void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);
     self->fb4 = lbl_805DC964;
     VecCopy__FP3VecPC3Vec((s32)self + 0x9C, (s32)self + 0x38);

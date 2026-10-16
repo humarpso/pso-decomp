@@ -22,7 +22,6 @@ s32 play_cue_stream_file(void *);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
 f32 duel_start_countdown_effect_pos[3] = { 320.0f, 221.0f, 0.5f };
-void update_duel_start_countdown__15TDuelEffectCtrlFv(Obj_8007FB14 *self);
 }
 
 extern "C" {
@@ -110,7 +109,7 @@ void TDuelEffectCtrl::render() {}
 void TDuelEffectCtrl::run_task() {
     switch (m_state) {
     case 0:
-        update_duel_start_countdown__15TDuelEffectCtrlFv((Obj_8007FB14 *)this);
+        update_duel_start_countdown();
         break;
     case 1:
         update_duel_end_effect((Obj_8007FA94 *)this);

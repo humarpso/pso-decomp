@@ -4,7 +4,6 @@
 extern "C" {
 extern const f32 lbl_805D937C;
 extern const f32 lbl_805D9380;
-void update_freeze_shell_timer__13TUnk_8048E1A4Fv(u8 *arg0);
 }
 
 extern "C" {

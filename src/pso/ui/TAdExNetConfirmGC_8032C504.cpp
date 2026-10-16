@@ -42,7 +42,6 @@ u8 *TAdExNetConfirmGC__ct(u8 *arg0);
 
 extern "C" {
 
-int vfunc_6__17TAdExNetConfirmGCFv(void* p);
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
 void TAdWarningBaseGC__vt0(void *, int);
 void __dl__7TObjectFPv(void *);

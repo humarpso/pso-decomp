@@ -34,8 +34,6 @@ s32 play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 is_player_input_active(int);
 s32 get_selected_menu_value(int);
-u32 open_trade_confirm_prompt__15TWindowSubTradeFl(void *, int);
-u32 open_player_message_window__15TWindowSubTradeFll(void *, int, int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
 s32 cancel_trade__6TLobbyFv();
 s32 send_modify_trade_proposal__6TLobbyFi(int);
@@ -87,7 +85,7 @@ void TWindowSubTrade::run_task() {
             *(s32 *)&this->m_24 = get_selected_menu_value(*(s32 *)&this->m_2c);
         }
         if ((u32) this->m_34 == 0U) {
-            this->m_34 = open_trade_confirm_prompt__15TWindowSubTradeFl((void *) (arg0), (int) (*(s32 *)&this->m_24));
+            this->m_34 = ((TWindowSubTrade *)arg0)->open_trade_confirm_prompt((int) (*(s32 *)&this->m_24));
         }
         this->m_1c = 4U;
     case 4:
@@ -107,7 +105,7 @@ void TWindowSubTrade::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 == 0U) {
-            this->m_30 = open_player_message_window__15TWindowSubTradeFll((void *) (arg0), (int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
+            this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window((int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
         }
         send_modify_trade_proposal__6TLobbyFi((int) (*(s32 *)&this->m_24));
         this->m_1c = 6U;

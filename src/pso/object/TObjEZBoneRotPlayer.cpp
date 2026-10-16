@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjEZRopeBase.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -59,7 +60,6 @@ struct Self_800FEEA4 {
 };
 
 extern "C" {
-void sub_800FF788__14TObjEZRopeBaseFPv(void *, void *);
 void matrix_mult_vec(s32, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
@@ -108,7 +108,7 @@ void update_bone_attach_points__10TObjPlayerFPv(Self_800FEEA4 *self) {
         pd++;
     }
     pop_matrix();
-    sub_800FF788__14TObjEZRopeBaseFPv(self, TObjEZBoneRotPlayer__chain_gravity);
+    ((TObjEZRopeBase *)self)->sub_800FF788(TObjEZBoneRotPlayer__chain_gravity);
 }
 
 }

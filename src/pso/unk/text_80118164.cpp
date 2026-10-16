@@ -4,7 +4,6 @@
 #include "pso/item/TItemProShield.h"
 
 extern "C" {
-void vfunc_26__14TItemProShieldFv(u8 *arg0);
 }
 
 extern "C" {

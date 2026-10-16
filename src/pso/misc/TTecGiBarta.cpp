@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 #include "pso/misc/TTecGiBarta.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/player/TObjPlayer.h"
@@ -166,10 +167,8 @@ extern s32 tec_gibarta_class_name_ptr;
 extern "C" {
 
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 dispatch_all_technique_contacts__13TUnk_804CCC68Fv(void *);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
-s32 advance_lifetime_or_destroy__13TUnk_804CCC68Fv(void *);
 s32 move_technique_projectile(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -380,8 +379,8 @@ void TTecGiBarta::run_task() {
         return;
     }
     move_technique_projectile(this);
-    advance_lifetime_or_destroy__13TUnk_804CCC68Fv(this);
-    dispatch_all_technique_contacts__13TUnk_804CCC68Fv(this);
+    advance_lifetime_or_destroy();
+    dispatch_all_technique_contacts();
 }
 
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4) {

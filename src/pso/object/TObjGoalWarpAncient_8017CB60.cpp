@@ -1,6 +1,10 @@
 #pragma push
 
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/npc/TObjNpcEnemy.h"
+#include "pso/object/TObjAreaWarp.h"
+#include "pso/object/TObjFish.h"
 #include "pso/object/TObjMapWarpAncient.h"
 #include "pso/object/TObjGoalWarpAncient.h"
 
@@ -33,7 +37,6 @@ struct RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient {
 };
 
 extern "C" {
-void handle_area_selection__12TObjAreaWarpFv(void *);
 extern const f32 lbl_805DBAC0;
 extern const f32 lbl_805DBAC4;
 extern const f32 lbl_805DBAC8;
@@ -41,7 +44,6 @@ void run_task__19TObjGoalWarpAncientFv(u8 *arg0);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
-s32 get_instance__19TObjGoalWarpAncientFv();
 s32 register_warp__19TObjGoalWarpAncientFPv(int);
 s32 TObjGoalWarpAncient__sub_8017D2D4(int);
 s32 TObjAreaWarp__ct(void *, void *, void *);
@@ -53,19 +55,14 @@ extern const f32 lbl_805DBABC;
 extern const f32 lbl_805DBAC4;
 u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
-s32 get_instance__19TObjGoalWarpAncientFv();
 s32 debug_print_area_num__12TObjAreaWarpFv();
-void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80443288[];
 extern char lbl_804432A4[];
-void debug_print_area_num__19TObjGoalWarpAncientFv(void *arg0);
 s32 draw_debug_destinations__11TObjMapWarpFv();
-void set_global_count__12TObjNpcEnemyFl(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_804432C8[];
 extern char lbl_804432E8[];
-void slot4C__18TObjMapWarpAncientFv(void *arg0);
 }
 
 extern "C" {
@@ -80,9 +77,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern const f32 lbl_805DBAB8;
 extern const f32 lbl_805DBABC;
@@ -92,13 +86,13 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xD8));
+        TParticleCtrl::begin_effect_render();
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xD8));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xCC), *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xE0));
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xE0));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xE8), *(f32 *)((s8 *)arg0 + 0xC8));
-        end_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0xDC));
+        TParticleCtrl::end_effect_render();
+        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xDC));
         draw_ginja_object(*(s32 *)((s8 *)arg0 + 0xD0));
         pop_matrix();
     }
@@ -113,15 +107,15 @@ typedef char RecoveredFields_8017CCA4_arg0_E8_offset[offsetof(RecoveredFields_80
 
 void TObjGoalWarpAncient::debug_print_area_num() {
     debug_print_area_num__12TObjAreaWarpFv();
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     if ((s32) *(s32 *)((s8 *)this + 0x8C) < 0) {
-        *(s32 *)((s8 *)this + 0xD8) = get_instance__19TObjGoalWarpAncientFv();
+        *(s32 *)((s8 *)this + 0xD8) = TObjGoalWarpAncient::get_instance();
         debug_printf_at(0x130022, lbl_80443288);
     } else {
         *(s32 *)((s8 *)this + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int)(1));
         debug_printf_at(0x130022, lbl_804432A4);
     }
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
 void run_task__19TObjGoalWarpAncientFv(u8 *arg0) {
@@ -133,7 +127,7 @@ void run_task__19TObjGoalWarpAncientFv(u8 *arg0) {
     if ((f32) (*(u32 *)((s8 *)(((RecoveredFields_8017CCA4_arg0 *)arg0)->field_E8) + 4) - 1) < ((RecoveredFields_8017CCA4_arg0 *)arg0)->field_C8) {
         ((RecoveredFields_8017CCA4_arg0 *)arg0)->field_C8 = (f32) lbl_805DBAC4;
     }
-    handle_area_selection__12TObjAreaWarpFv(arg0);
+    ((TObjAreaWarp *)arg0)->handle_area_selection();
 }
 
 void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1) {
@@ -187,9 +181,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
-s32 begin_effect_render__13TParticleCtrlFv();
-s32 end_effect_render__13TParticleCtrlFv();
-s32 set_global_param__8TObjFishFl(s32);
 
 extern void *tl_05;
 
@@ -206,7 +197,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xD0) = TObjGoalWarpAncient__sub_8017D2D4((int) (3));
     *(s32 *)((s8 *)arg0 + 0xD4) = TObjGoalWarpAncient__sub_8017D2D4((int) (5));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
-        *(s32 *)((s8 *)arg0 + 0xD8) = get_instance__19TObjGoalWarpAncientFv();
+        *(s32 *)((s8 *)arg0 + 0xD8) = TObjGoalWarpAncient::get_instance();
     } else {
         *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int) (1));
     }
@@ -247,15 +238,15 @@ void TObjMapWarpAncient::render() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->sourceYaw);
-        begin_effect_render__13TParticleCtrlFv();
+        TParticleCtrl::begin_effect_render();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x88) >= 0) {
-            set_global_param__8TObjFishFl(*(s32 *)&this->m_10c);
+            TObjFish::set_global_param(*(s32 *)&this->m_10c);
             draw_ginja_model_with_motion(*(s32 *)&this->m_100, *(s32 *)&this->m_118, *(f32 *)&this->unk_FC);
         }
-        set_global_param__8TObjFishFl(*(s32 *)&this->m_110);
+        TObjFish::set_global_param(*(s32 *)&this->m_110);
         draw_ginja_object(*(s32 *)&this->m_104);
-        end_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFl(*(s32 *)&this->m_114);
+        TParticleCtrl::end_effect_render();
+        TObjFish::set_global_param(*(s32 *)&this->m_114);
         draw_ginja_object(*(s32 *)&this->m_108);
         pop_matrix();
     }
@@ -263,15 +254,15 @@ void TObjMapWarpAncient::render() {
 
 void TObjMapWarpAncient::slot4C() {
     if ((s32) *(s32 *)((s8 *)this + 0x88) < 0) {
-        set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+        TObjNpcEnemy::set_global_count(0xFF00FF);
         debug_printf_at(0x130021, lbl_804432C8);
-        set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+        TObjNpcEnemy::set_global_count(0xF0F0F0FF);
         return;
     }
     draw_debug_destinations__11TObjMapWarpFv();
-    set_global_count__12TObjNpcEnemyFl(0xFF00FF);
+    TObjNpcEnemy::set_global_count(0xFF00FF);
     debug_printf_at(0x130021, lbl_804432E8);
-    set_global_count__12TObjNpcEnemyFl(0xF0F0F0FF);
+    TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
 void TObjMapWarpAncient::run_task() {

@@ -13,7 +13,6 @@ typedef struct SA9_801a9bac {
     s32 arr60[4];
 } SA9_801a9bac;
 
-void update_and_destroy__13TUnk_804C349CFv(u8 *arg0);
 s32 deliver_photon_blast_results_delayed(void *);
 s32 step_photon_blast_sequence(void *);
 s32 get_player_by_client_id(u16);
@@ -53,7 +52,7 @@ void TUnk_804C349C::run_task() {
         step_photon_blast_sequence(this);
         return;
     }
-    update_and_destroy__13TUnk_804C349CFv((u8 *)(this));
+    update_and_destroy();
 }
 
 }

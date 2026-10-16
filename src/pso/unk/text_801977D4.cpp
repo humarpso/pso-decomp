@@ -34,7 +34,6 @@ struct Rain_801977D4 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void vec3_add_to(void *, void *);
-void update_drops__8TObjRainFv(struct Rain_80197904 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 void draw_line_list(void *, int, int);

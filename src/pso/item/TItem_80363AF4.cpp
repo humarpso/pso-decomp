@@ -43,7 +43,6 @@ extern u32 model_render_flags, chunk_polygon_flags_and_mask, chunk_polygon_flags
 extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;
 extern Color saved_model_draw_color, model_material_color;
 extern EquippedItemDrawQueue *player_item_id_list;
-void render__13TUnk_804F29F8Fv();
 }
 
 extern "C" {

@@ -66,7 +66,6 @@ s32 spawn_particle_effect(void *, int);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 TObjPlayer__sub_80128A70();
 extern RecoveredGlobal_80129878_lbl_804A4438 s_rank_shot_marker_offsets;
-void emit_marker_effects__13TUnk_804A444CFv(u8 *arg0);
 }
 
 extern "C" {

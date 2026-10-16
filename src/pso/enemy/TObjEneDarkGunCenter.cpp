@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDarkGunCenter.h"
+#include "pso/enemy/TObjEnemy.h"
 extern "C" void render__20TObjEneDarkGunCenterFv();
 #include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/player/TObjPlayer.h"
@@ -47,11 +49,9 @@ void TObjPlayer__sub_800A0654(void *);
 s32 TObjPlayer__sub_800A06B4(void *);
 void fn_800A0798(void *);
 void fn_800A0884(void *);
-void sub_800A0994__20TObjEneDarkGunCenterFv(void *);
 void TObjEneDarkGunCenter__sub_800A0B18(void);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
-void send_entity_set_flags__9TObjEnemyFv(void *);
 extern const f64 lbl_8043A488[];
 extern const f32 lbl_805D9970;
 extern const f32 lbl_805D9974;
@@ -247,7 +247,7 @@ void TObjEneDarkGunCenter::run_task() {
         ((void (*)(void *))TObjEneDarkGunCenter__sub_800A0B18)(self);
         return;
     }
-    sub_800A0994__20TObjEneDarkGunCenterFv(self);
+    ((TObjEneDarkGunCenter *)self)->sub_800A0994();
     switch (self->state) {
     case 0:
         if (self->m17(0x1e) != 0) {
@@ -324,7 +324,7 @@ void TObjEneDarkGunCenter::run_task() {
         if (self->count > 0) {
             self->f3a4 = 0x5a;
         } else if ((self->f3a4 = t - 1) <= 0) {
-            send_entity_set_flags__9TObjEnemyFv(self);
+            ((TObjEnemy *)self)->send_entity_set_flags();
             queue_destruction__7TObjectFv(self);
         }
     }

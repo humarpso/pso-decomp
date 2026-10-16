@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TUnk_80482EC0.h"
 #include "pso/boss/TUnk_80482D04.h"
@@ -140,7 +141,6 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void vfunc_88__13TUnk_80482D04Fv(void *arg0);
 s32 vec3_add_to(void *, void *);
 s32 is_alive__9TObjEneDDFv(s32);
 
@@ -714,7 +714,6 @@ s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void TObjEneDD__sub_800BA5A4(s32, s32);
 extern RecoveredGlobal_800384C8_lbl_80435AB0 boss2_mine_collision_desc;
-void vfunc_107__10TBoss2MineFl(u8 *arg0, s32 arg1);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
@@ -733,13 +732,7 @@ extern s32 model_render_flags;
 
 extern "C" {
 
-void vfunc_88__13TUnk_80482EC0Fv(void *arg0);
 void *TBoss2Mine__sub_800381B8(void *arg0, s32 arg1, s16 arg2, s16 arg3);
-void vfunc_105__10TBoss2MineFv(void);
-void vfunc_106__10TBoss2MineFv(void);
-void vfunc_108__10TBoss2MineFl(void *arg0, s32 arg1);
-void vfunc_109__10TBoss2MineFv(void);
-void vfunc_110__10TBoss2MineFv(void);
 void __dl__7TObjectFPv(void *);
 
 void TUnk_80482EC0::vfunc_88() {
@@ -1081,10 +1074,7 @@ struct VObj_80038948_80038610 : Base_80038948_80038610 {
 };
 
 void TBoss2Mine__vt102(void *arg0, s32 arg1);
-void vfunc_61__10TBoss2MineFv(void);
 void TBoss2Mine__vt85(void *arg0, s32 arg1, s32 arg2);
-void vfunc_28__10TBoss2MineFv(void);
-void vfunc_63__10TBoss2MineFv(void* p);
 
 void TBoss2Mine__vt102(void *arg0, s32 arg1) {
     s32 temp_r4;
@@ -1338,19 +1328,11 @@ struct VObj_18 : VBase_18 {
     virtual s32 m107();
 };
 extern "C" {
-int vfunc_62__10TBoss2MineFv(void* p);
-int clear_attack_receipts__9TObjEneDDFv(void*);
-s32 sub_800BBA0C__9TObjEneDDFv(void *);
-s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 }
 
 extern "C" {
 
-void vfunc_28__10TBoss2MineFv(void);
-void vfunc_63__10TBoss2MineFv(void* p);
-void vfunc_61__10TBoss2MineFv(void);
-
-void TBoss2Mine::vfunc_62() { clear_attack_receipts__9TObjEneDDFv(this); }
+void TBoss2Mine::vfunc_62() { clear_attack_receipts(); }
 
 void TBoss2Mine::vfunc_63() { if (*(short*)((char*)this + 0x326) != 4) { transition_enemy_state(this, (void*)4); } }
 void TBoss2Mine::vfunc_28() {  }
@@ -1365,14 +1347,14 @@ void TBoss2Mine::run_task() {
         ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
     }
     ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
-    sub_800BBA0C__9TObjEneDDFv((void *) (arg0));
+    ((TObjEneDD *)arg0)->sub_800BBA0C();
     if (!(*(s32 *)((s8 *)arg0 + 0x38C) & 1)) {
         save_position();
         ((VObj_18 *)(arg0))->m86();
         ((TBoss8Dragon *)arg0)->set_player_state_default();
         ((VObj_18 *)(arg0))->m98();
     }
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv((void *) (arg0));
+    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
 }
 
 }

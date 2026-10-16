@@ -51,17 +51,12 @@ struct VObj_80179358_801792AC : Base_80179358_801792AC {
 };
 
 extern "C" {
-u8 try_start_action__6TOTrapFll(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
-
-void vfunc_86__6TOTrapFv(void);
-void vfunc_88__6TOTrapFv(void);
-void vfunc_84__6TOTrapFv(void);
 
 void TOTrap::vfunc_86() {  }
 void TOTrap::vfunc_88() {  }

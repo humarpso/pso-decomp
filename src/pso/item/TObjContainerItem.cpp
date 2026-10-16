@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TObjContainerItem.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 extern "C" void roll_physical_accuracy__13TUnk_804B6C24FPvlf();
 #include "pso/item/TObjContainerItem.h"
@@ -194,11 +196,9 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
 
 extern "C" {
 
-void vfunc_80__17TObjContainerItemFv(void *arg0);
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1);
 s32 request_box_item_drop__13TUnk_804806E8FPvs(s32, void *, s32, void *);
 s32 free_collision_body_parts(void *);
-s32 unregister_object_by_id__13TUnk_804AF8A0Fv(s32 *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -232,7 +232,7 @@ extern s32 __vt__17TObjContainerItem[];
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjContainerItem;
-        unregister_object_by_id__13TUnk_804AF8A0Fv((s32 *)arg0);
+        ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B6C24 *)arg0)->destroy_container_object(0);
         if (arg1 > 0) {

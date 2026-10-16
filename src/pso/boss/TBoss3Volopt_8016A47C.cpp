@@ -34,7 +34,6 @@ s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
 s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
-void vfunc_23__5TOKeyFv(s32 arg0);
 }
 
 extern "C" {

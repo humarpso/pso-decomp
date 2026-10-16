@@ -20,7 +20,6 @@ void *create_particle_emitter(void *, int);
 s32 play_persistent_sound(int, void *, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 extern Range_8033CDF8 fish_spawn_entry_table[];
-void run_task__23TBoss6Demo11_TYPE1_DEADFv(u8 *arg0);
 int clear_render_callback__8TObjFishFv(void);
 s32 push_matrix(void);
 s32 pop_matrix(void);
@@ -33,7 +32,6 @@ extern const f32 lbl_805DFA60;
 
 extern "C" {
 
-void render__23TBoss6Demo11_TYPE1_DEADFv(void* p);
 void restore_player_cameras();
 void *TObjFish__sub_8033D1AC(void *, void *, void *);
 void __dl__7TObjectFPv(void *);

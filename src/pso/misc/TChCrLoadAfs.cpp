@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
+#include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/TChCrLoadAfs.h"
 
 extern "C" {
@@ -57,9 +59,7 @@ extern "C" {
 void sub_8028B940__12TChCrLoadAfsFv(void);
 void sub_8028B944__12TChCrLoadAfsFv(void);
 s32 TLobby__sub_803CC53C(u32);
-s32 read_checked_align__6TLobbyFlll(u32, s32, u32);
 u32 adxf_open_afs__6TLobbyFii(s32, s32);
-u32 alloc__22TQuestVmDownLoadServerFv(s32);
 
 void sub_8028B940__12TChCrLoadAfsFv(void) {  }
 void sub_8028B944__12TChCrLoadAfsFv(void) {  }
@@ -159,13 +159,13 @@ void TChCrLoadAfs::start_download() {
             return;
         }
         temp_r3_2 = TLobby__sub_803CC53C(*(u32 *)((s8 *)this + 0x1C));
-        temp_r3_3 = alloc__22TQuestVmDownLoadServerFv(temp_r3_2 << 0xB);
+        temp_r3_3 = ((TQuestVmDownLoadServer *)(temp_r3_2 << 0xB))->alloc();
         *(u32 *)((s8 *)this + 0x28) = temp_r3_3;
         if (temp_r3_3 == 0U) {
             *(s32 *)((s8 *)this + 0x2C) = 3;
             return;
         }
-        read_checked_align__6TLobbyFlll(*(u32 *)((s8 *)this + 0x1C), temp_r3_2, *(u32 *)((s8 *)this + 0x28));
+        TLobby::read_checked_align(*(u32 *)((s8 *)this + 0x1C), temp_r3_2, *(u32 *)((s8 *)this + 0x28));
         *(s32 *)((s8 *)this + 0x2C) = 1;
     }
 }
@@ -351,10 +351,10 @@ void TChCrLoadAfsTextureReq::start_read(void *) {
         arg0->f20 = 0;
         arg0->f24 = 0;
         n = TLobby__sub_803CC53C((u32)(arg0->f60));
-        buf = ((void *)alloc__22TQuestVmDownLoadServerFv((s32)(n << 11)));
+        buf = ((void *)((TQuestVmDownLoadServer *)(n << 11))->alloc());
         arg0->bufs[arg0->f5c] = buf;
         if (buf != NULL) {
-            read_checked_align__6TLobbyFlll((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
+            TLobby::read_checked_align((u32)(arg0->f60), (s32)(n), (u32)(arg0->bufs[arg0->f5c]));
             arg0->f2c = 2;
         }
     }

@@ -1,11 +1,10 @@
 #include "pso/item/TItemEffectWeapon.h"
+#include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
 
 extern "C" {
 u32 get_mode__11TCameraCtrlFPv(void*);
-void begin_effect_render__13TParticleCtrlFv();
-void end_effect_render__13TParticleCtrlFv();
 void set_depth_buffer_settings_1__Fv();
 void restore_saved_depth_alpha_state();
 void reset_player_transform();
@@ -93,7 +92,7 @@ void TItemEffectWeapon::push_trail_entry(const f32* first, const f32* second) {
 void TItemEffectWeapon::render_trail() {
     if (get_mode__11TCameraCtrlFPv(((u8 *)&main_task)) & 0x200) {
         if (vertex_count != 0 && vertices != NULL) {
-            begin_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::begin_effect_render();
             lbl_805D5660 = model_render_flags;
             set_depth_buffer_settings_1__Fv();
             model_render_flags |= 0x8000;
@@ -106,7 +105,7 @@ void TItemEffectWeapon::render_trail() {
             TObjPlayer::reset_transform_state();
             model_render_flags = lbl_805D5660;
             restore_saved_depth_alpha_state();
-            end_effect_render__13TParticleCtrlFv();
+            TParticleCtrl::end_effect_render();
         }
     } else {
         set_flag_9__7TObjectFv(this);

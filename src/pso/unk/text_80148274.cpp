@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/player/TObjPlayer.h"
@@ -101,7 +102,6 @@ struct Res_80148274 { struct Hdr_80148274 hdr; u8 anim[0x1C]; u8 tex[0x10]; };
 struct Obj_80148274 { u8 pad0[0x350]; void *anim; };
 
 extern "C" {
-void set_motion_params__13TUnk_804806E8FPv(void *, void *);
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 u32 init_collision_body_parts(void *, void *, s32);
 }
@@ -124,7 +124,7 @@ void *npc_base_collision_body_desc[11] = {
 };
 void TObjNpcBase::setup_common() {
     Obj_80148274 *self = (Obj_80148274 *)this;
-    set_motion_params__13TUnk_804806E8FPv(self, npc_default_battle_stats);
+    ((TUnk_804806E8 *)self)->set_motion_params(npc_default_battle_stats);
     self->anim = npc_movement_parameters;
     init_collision_body_parts(self, npc_base_collision_body_desc, 1);
     ((TObjPlayer *)self)->reset_photon_effect();

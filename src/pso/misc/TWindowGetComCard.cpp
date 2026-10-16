@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMessagePage.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TUnk_804CF0B8.h"
@@ -54,7 +55,6 @@ void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
-s32 is_message_window_ready__18TWindowMessagePageFv(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
 extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
@@ -65,9 +65,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 extern "C" {
 
 void TWindowFukidasi__sub_80252C38(void* p);
-void sub_80252C68__13TUnk_804CF0B8Fv(void* p);
 void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1);
-int is_balloon_visible__13TUnk_804CF0B8Fv(void* p);
 int fn_80252CBC(void* p);
 s32 TLobby__sub_8024AC20(s32);
 u32 get_player_by_client_id(s32);
@@ -98,7 +96,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
     switch (self->state) {
     case 0:
     case 1:
-        if (is_message_window_ready__18TWindowMessagePageFv(self->fmt) != 0) {
+        if (((TWindowMessagePage *)(self->fmt))->is_message_window_ready() != 0) {
             self->state = 2;
         }
         if (TWindowShortListCtrl__check_controller_button(controller_input_state[0].m20, 4) != 0) {

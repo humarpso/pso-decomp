@@ -5,7 +5,6 @@
 
 extern "C" {
 
-s32 render_trap_model_if_visible__14TObjEneRecoboxFv(u8 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 post_translate_matrix(void *);
 s32 push_reflect_matrix__12TObjEneReconFPv(void *);

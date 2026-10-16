@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMerillLia.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TUnk_80493450.h"
@@ -501,7 +502,6 @@ extern u32 TObjEneMerillLia__entry_params_resource;
 extern s32 game_difficulty_selection;
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback(void *);
-void sub_800D5570__16TObjEneMerillLiaFv(Obj_800D5570 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void *, s32);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
@@ -601,7 +601,6 @@ f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 advance_animation_playback(void *);
 s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 minimap_render_dot(void *, int, int, int);
 f32 vec3_add_to(void *, void *);
@@ -630,7 +629,6 @@ void *TObjControl__ct(void *, void *);
 void free_collision_body_parts(void *);
 void *TObjEneMerillLia__ct(void *, void *, void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void unlink_enemy_group_relations__13TUnk_80493450Fv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -1336,7 +1334,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
     if (obj_testFlags30(o, 0x800000) == 0) {
         apply_actor_gravity(o, 0, TObjEneMerillLia__data_805DA300);
     }
-    refresh_collision_body_centers__13TUnk_804AF8A0Fv(o);
+    ((TUnk_804AF8A0 *)o)->refresh_collision_body_centers();
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
     obj_clearFlags30(o, 0x04240000);
     clear_player_status_flag__10TObjPlayerFlUl(o, 0, 0x0A000000);
@@ -1682,7 +1680,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
         TObjEneMerillLia::search_target((void *) arg0);
         break;
       case 13:
-        sub_800D5570__16TObjEneMerillLiaFv((Obj_800D5570 *)((void *) arg0));
+        ((TObjEneMerillLia *)arg0)->sub_800D5570();
         break;
     }
   }
@@ -1738,7 +1736,7 @@ void TObjEneMerillLia::destroy_rocks() {
 void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494728;
-        unlink_enemy_group_relations__13TUnk_80493450Fv(arg0);
+        ((TUnk_80493450 *)arg0)->unlink_enemy_group_relations();
         free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3A8, -1);
         TObjPlayer__sub_800C68FC(arg0, 0);

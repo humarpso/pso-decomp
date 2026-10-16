@@ -5,7 +5,6 @@
 
 extern "C" {
 
-void vfunc_14__13TUnk_80488E00Fl(void* p, s32 v);
 int construct_view_controller__11TCameraCtrlFPv(void);
 
     extern unsigned char lbl_804887F8[];

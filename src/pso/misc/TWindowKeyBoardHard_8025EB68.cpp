@@ -4,8 +4,6 @@
 
 extern "C" {
 
-int sub_8025EB68__19TWindowKeyBoardBaseFv(void* p);
-
 int TWindowKeyBoardBase::sub_8025EB68() { return (*(u16*)((char*)this + 0x60) >> 3) & 0x1; }
 
 int TWindowKeyBoardHard::test_card_flag_0x80() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)128); }

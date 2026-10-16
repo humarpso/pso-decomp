@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/TParticleCtrl.h"
+#include "pso/player/TObjPlayer.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 
 struct Slot_801A8868 { u8 pad[0x18]; };
@@ -34,8 +37,6 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 extern "C" {
 
-s16 get_actor_attack_params_atp_min__13TUnk_804806E8Fv(void *);
-s16 get_ata__10TObjPlayerFv(void *);
 s16 TObjPlayer__sub_80113D90(void *);
 extern const f32 lbl_805DC110;
 extern const f32 lbl_805DC114;
@@ -54,8 +55,6 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-int begin_effect_render__13TParticleCtrlFv(void);
-int end_effect_render__13TParticleCtrlFv(void);
 void queue_destruction__7TObjectFv(void *);
 extern s32 __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
@@ -83,7 +82,7 @@ void admit_photon_blast_sequence(u8 *players, void *self);
 int get_player_data__10TObjPlayerFi(int);
 void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
-void render__18TPhotonConcentrateFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
+void render__18TPhotonConcentrateFv(void) { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
 
 #include "types.h"
 #include "pso/enemy/TObjEneDD.h"

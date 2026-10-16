@@ -4,8 +4,6 @@
 
 extern "C" {
 
-void vfunc_20__13TUnk_804B0BB8Fv(void);
-void vfunc_20__15TODoorAncient01Fv(void);
 void* init_door_base(void* a0);
 int init_map_object_base(void);
 

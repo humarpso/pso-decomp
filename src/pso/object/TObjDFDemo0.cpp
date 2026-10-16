@@ -1,6 +1,8 @@
 #pragma push
 
 #include "types.h"
+#include "pso/object/TObjFish.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjDFDemo1.h"
 
 typedef struct Rec_8004E2C8 {
@@ -57,21 +59,15 @@ struct Self_8004E068
 };
 
 extern "C" {
-void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
-void set_global_flag__10TObjPlayerFv();
-void clear_global_state__10TObjPlayerFv();
 extern const f32 lbl_805D8988;
 extern const f32 lbl_805D898C;
 extern const f32 lbl_805D89A0;
-void draw_fading_model__11TObjDFDemo1Fv(Obj_8004E2C8 *arg0);
-void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 Outer_8004E068 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
@@ -79,10 +75,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-void set_global_param__8TObjFishFl(s32);
 void draw_model_motion(s32, s32, f32);
-void set_global_flag__10TObjPlayerFv();
-void clear_global_state__10TObjPlayerFv();
 extern Tbl_8004E068 lbl_8048561C[];
 extern s32 model_render_flags;
 extern const f32 lbl_805D8988;
@@ -91,12 +84,10 @@ extern const f32 lbl_805D8990;
 extern const f32 lbl_805D8994;
 extern const f32 lbl_805D8998;
 extern const f32 lbl_805D899C;
-void sub_8004E068__11TObjDFDemo1Fv(Self_8004E068 *self);
 }
 
 extern "C" {
 
-void render__11TObjDFDemo1Fv(void* p);
 void *create__11TObjDFDemo0FPv(void *arg0);
 void *TObjDFDemo0__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -177,20 +168,20 @@ void TObjDFDemo1::sub_8004E068() {
   model_render_flags |= 0x20000;
   TObjEneRe4Sorcerer__sub_801E3F1C(lbl_805D8990, self->f118);
   push_matrix();
-  set_global_flag__10TObjPlayerFv();
+  TObjPlayer::set_global_flag();
   post_translate_matrix(self->f100);
   rotate_matrix_y(0, self->f10C);
   for (j = 0; j < 2; j++)
   {
-    set_global_param__8TObjFishFl(self->recs[j].b);
+    TObjFish::set_global_param(self->recs[j].b);
     draw_model_motion((*(&self->recs[j])).a, self->recs[j].c, self->f114);
   }
-  clear_global_state__10TObjPlayerFv();
+  TObjPlayer::clear_global_state();
   pop_matrix();
   model_render_flags &= ~0x20000;
   if (alpha < lbl_805D8988)
   {
-    sync_player_globals__10TObjPlayerFv();
+    TObjPlayer::sync_player_globals();
   }
 }
 
@@ -211,12 +202,12 @@ void TObjDFDemo1::draw_fading_model() {
         TObjPlayer__sub_80052390(alpha);
     }
     push_matrix();
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     post_translate_matrix(arg0->f100);
     rotate_matrix_y(0, arg0->f10c);
     max = lbl_805D89A0;
     for (i = 0; i < 6; i++) {
-        set_global_param__8TObjFishFl(arg0->recs[i].b);
+        TObjFish::set_global_param(arg0->recs[i].b);
         f = arg0->f114;
         switch (i) {
         case 0:
@@ -228,14 +219,14 @@ void TObjDFDemo1::draw_fading_model() {
         }
         draw_model_motion(arg0->recs[i].a, arg0->recs[i].c, f);
     }
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     pop_matrix();
     if (alpha < 1.0f) {
-        sync_player_globals__10TObjPlayerFv();
+        TObjPlayer::sync_player_globals();
     }
 }
 
-void TObjDFDemo1::render() { draw_fading_model__11TObjDFDemo1Fv((Obj_8004E2C8 *)(this)); sub_8004E068__11TObjDFDemo1Fv((Self_8004E068 *)(this)); }
+void TObjDFDemo1::render() { draw_fading_model(); sub_8004E068(); }
 
 }
 

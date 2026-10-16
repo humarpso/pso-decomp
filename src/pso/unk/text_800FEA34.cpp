@@ -3,11 +3,7 @@
 #include "pso/TObjEZBoneRotPlayer.h"
 
 extern "C" {
-void sub_800FED0C__17TObjEZBoneRotBaseFv(u8 *arg0);
-void start_bone_rotation_sequence__19TObjEZBoneRotPlayerFl(u8 *arg0, s32 arg1);
-void sub_800FEC40__17TObjEZBoneRotBaseFPUc(u8 *arg0, u8 *arg1);
 f32 sin_table_lookup(s32);
-void calc_bone_offsets_recursive__19TObjEZBoneRotPlayerFPvll(void *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -33,7 +29,7 @@ void TObjEZBoneRotPlayer::calc_bone_offsets_recursive(void *arg1, s32 arg2, s32 
         }
         *(s32 *)((s8 *)this + 0x88) = *(s32 *)((s8 *)this + 0x88) + 1;
         if (*(void **)((s8 *)arg1 + 0x2C) != NULL) {
-            calc_bone_offsets_recursive__19TObjEZBoneRotPlayerFPvll(this, *(void **)((s8 *)arg1 + 0x2C), arg2 + *(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0x20)) + 8), (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)this + 0x20)) + 0xC) * (f32) arg3));
+            calc_bone_offsets_recursive(*(void **)((s8 *)arg1 + 0x2C), arg2 + *(s32 *)((s8 *)(*(u8 **)((s8 *)this + 0x20)) + 8), (s32) (*(f32 *)((s8 *)(*(u8 **)((s8 *)this + 0x20)) + 0xC) * (f32) arg3));
         }
         arg1 = *(void **)((s8 *)arg1 + 0x30);
     } while (arg1 != NULL);
@@ -43,7 +39,7 @@ void TObjEZBoneRotPlayer::start_bone_rotation_sequence(s32 arg1) {
     *(s32 *)((s8 *)((u8 *)this) + 0x88) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x8C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x20)) + 0x10);
     *(s32 *)((s8 *)((u8 *)this) + 0x90) = (s32) (((u8 *)this) + 0x24);
-    calc_bone_offsets_recursive__19TObjEZBoneRotPlayerFPvll((void *)(((u8 *)this)), (void *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)), (s32)(arg1), (s32)((s32) ((f32) *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x20)) + 0) * *(f32 *)((s8 *)((u8 *)this) + 0x94))));
+    calc_bone_offsets_recursive((void *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)), (s32)(arg1), (s32)((s32) ((f32) *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x20)) + 0) * *(f32 *)((s8 *)((u8 *)this) + 0x94))));
 }
 
 void TObjEZBoneRotBase::sub_800FEC40(u8 *arg1) {
@@ -69,7 +65,7 @@ block_4:
             *(s32 *)((s8 *)((u8 *)this) + 0x88) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x88) + 1);
             temp_r4 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x2C));
             if (temp_r4 != NULL) {
-                sub_800FEC40__17TObjEZBoneRotBaseFPUc(((u8 *)this), temp_r4);
+                sub_800FEC40(temp_r4);
             }
             var_r31 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x30));
             if (var_r31 != NULL) {
@@ -83,7 +79,7 @@ void TObjEZBoneRotBase::sub_800FED0C() {
     *(s32 *)((s8 *)((u8 *)this) + 0x88) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x8C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x20)) + 0x10);
     *(s32 *)((s8 *)((u8 *)this) + 0x90) = (s32) (((u8 *)this) + 0x24);
-    sub_800FEC40__17TObjEZBoneRotBaseFPUc((u8 *)(((u8 *)this)), (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)));
+    sub_800FEC40((u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)));
 }
 
 }

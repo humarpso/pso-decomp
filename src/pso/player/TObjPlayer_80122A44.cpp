@@ -3,7 +3,6 @@
 
 extern "C" {
 
-void emit_marker_effects__13TUnk_804A1288Fv(s32 arg0);
 s32 spawn_cane_effect__10TObjPlayerFiUii(s32, s32, s32);
 s32 get_attack_stage__11TItemWeaponFv();
 
