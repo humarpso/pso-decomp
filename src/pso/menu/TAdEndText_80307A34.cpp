@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/menu/TAdEndText_80307A34.h"
 #include "pso/system/main_loop.h"
 #include "pso/TAdEndText.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -30,7 +31,6 @@ void set_screen_size(f32 farg0, f32 farg1);
 extern int ending_sequence_active;
 extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
-void start_ending_sequence(void);
 int TLobby__sub_800FC3CC(void);
 int delete_all_task_children__9TMainTaskFv(void*);
 

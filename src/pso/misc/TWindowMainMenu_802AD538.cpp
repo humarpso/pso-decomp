@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu_802AD538.h"
 struct TWindowSubComCard;
 #include "pso/misc/TWindowMenuMainMenu.h"
 #include "pso/misc/TWindowMainMenu.h"
@@ -120,17 +121,10 @@ s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1);
 Rect_802AE2B0 * open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, s32, f32, s32);
 s32 fn_8026CB68();
 void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w);
-void TWindowMainMenu__sub_802AD74C(void* p);
-void init_row_entry__15TWindowMainMenuFPvicc(u8 *arg0, s32 arg1, s8 arg2, s8 arg3);
 void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0);
 void copy_color_entry__15TWindowMainMenuFPvPv(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
 void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i);
-int TWindowMainMenu__sub_802ADB00(u8 *arg0);
-u8 * find_active_item_by_id__15TWindowMainMenuFii(s32 arg0, s32 arg1);
 int find_free_item_slot__15TWindowMainMenuFPv(Obj_802ADC04 *self);
-s32 count_active_items__15TWindowMainMenuFi(s32 arg0);
-void get_row_position__15TWindowMainMenuFiPvi(s32 arg0, void *arg1, s32 arg2);
-s32 is_not_split_screen__15TWindowMainMenuFv(void);
 s32 append_child_rows__15TWindowMainMenuFPvi(Menu_802ADD38 *arg0, s32 arg1);
 Rect_802AE2B0 * setup_content_frame__15TWindowMainMenuFPv(u8 *arg0);
 void begin_screen_draw(s32 arg0);

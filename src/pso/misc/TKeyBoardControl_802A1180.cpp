@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_802A1180.h"
 #include "pso/system/main_loop.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -23,12 +24,9 @@ s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 extern s8 movie_finished_flag;
-void update_movie_phase(void);
-void set_movie_finished_flag(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804DCB64[];
-void *__dt__13TUnk_804DCB64Fv(void *arg0, s16 arg1);
 s32 init_fresh_character_card();
 void TKeyBoardControl__sub_8000F90C(s32 arg0);
 void TKeyBoardControl__sub_8000F91C(s32 arg0);

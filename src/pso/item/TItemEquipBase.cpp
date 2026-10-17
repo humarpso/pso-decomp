@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemLoad_80110010.h"
 #include "pso/system/vector.h"
 #include "pso/item/TItemData.h"
 #include "pso/player/TObjPlayer.h"
@@ -260,7 +261,6 @@ void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 apply_equip_effect_slot__14TItemEquipBaseFUsUl(void *, int);
 s32 clear_timer_slot__15TItemTimerEventFUs(void *);
 s32 init__9TItemDataFv(void *);
-s32 request_item_model_load(u8 *item);
 s32 add_actor_tp_bonus(void *, int);
 s32 add_actor_hp_bonus(void *, int);
 s32 TItemData__sub_8010B808(void *);

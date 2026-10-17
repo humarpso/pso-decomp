@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer_803E5668.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 
 struct RecoveredGlobal_803E5EFC_lbl_8058DD88 {
@@ -35,23 +36,19 @@ u8 * TQuestVmDownLoadServer__sub_803EE828(void);
 s32 TQuestVmDownLoadServer__sub_803EE2F4(int, void *);
 extern s32 lbl_805D78C0;
 s32 strcpy(int, int);
-s32 TQuestVmDownLoadServer__sub_803E60CC(s32 *arg0);
 s32 TQuestVmDownLoadServer__sub_803EBC88(int);
 s32 TQuestVmDownLoadServer__sub_803EC284(int, int);
 s32 TQuestVmDownLoadServer__sub_803EE718(void *, void *);
 extern Ent_803E5670 quest_download_slot_chain_table[];
 extern s32 lbl_805D78EC;
 extern s32 lbl_805D78F0;
-s32 TQuestVmDownLoadServer__sub_803E5670(s32 *arg0);
 s32 TQuestVmDownLoadServer__sub_803EB0D8(s32 arg0, s32 arg1);
 s32 TQuestVmDownLoadServer__sub_803EB208(int, int);
 extern s32 lbl_805D789C;
-s32 TQuestVmDownLoadServer__sub_803E6134(s32 *arg0);
 extern s32 lbl_805D7898;
 s32 TQuestVmDownLoadServer__sub_803E9F54(s32 arg0);
 s32 TQuestVmDownLoadServer__sub_803EA9E8(int, int, int, int);
 s32 TQuestVmDownLoadServer__sub_803EDC20(u32);
-s32 OSFillFPUContext(s32 *arg0);
 s32 TQuestVmDownLoadServer__sub_803EDF64(s16 *, s32, u16 *, s32 *);
 extern s16 quest_download_text_buffer[0x200];
 s32 TQuestVmDownLoadServer__sub_803EE870(void *, int);
@@ -84,7 +81,6 @@ extern s32 lbl_805D78FC;
 extern s32 lbl_805D7900;
 extern s32 lbl_805D7904;
 extern s32 lbl_805E10C0;
-s32 TQuestVmDownLoadServer__sub_803E5B94(s32 *arg0);
 s32 TQuestVmDownLoadServer__sub_803EC69C(s32);
 u8 TQuestVmDownLoadServer__sub_803EC8D8();
 s32 TQuestVmDownLoadServer__sub_803ECC7C(u32 arg0);
@@ -92,8 +88,6 @@ s32 TQuestVmDownLoadServer__sub_803EF208(Req_803E5D20 *);
 s32 TQuestVmDownLoadServer__sub_803EF538(Req_803E5D20 *);
 extern u8 quest_download_code_remap_table[];
 extern u8 lbl_8058DD38[];
-s32 TQuestVmDownLoadServer__sub_803E5D20(s32 *arg0);
-s32 TQuestVmDownLoadServer__sub_803E5668(void);
 
 s32 TQuestVmDownLoadServer__sub_803E5668(void) {
     return -1;

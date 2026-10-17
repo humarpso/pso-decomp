@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/ui/TAdGameStartGC.h"
 #include "pso/system/byteswap.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 class TAdGameStartGC : public TObject {
@@ -49,20 +50,13 @@ u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1);
 u32 __ct__20TAdGameStartShadowGCFv(int, void *);
 u32 __ct__18TAdGameStartLineGCFv(int, void *);
 u32 __ct__19TAdGameStartShineGCFv(int, void *);
-void create_effects__14TAdGameStartGCFPv(u8 *arg0);
 s32 __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__14TAdGameStartGC[];
 extern void *ad_game_start_name_ptr[2];
 Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
 extern u8 controller_physical_port_bank[];
-void run_task__14TAdGameStartGCFv(u8 *arg0);
-void TAdGameStartGC__sub_802E6368(void* p);
-void bswap_6x92__14TAdGameStartGCFPv(void* p);
-void render__14TAdGameStartGCFv(void);
-void send_6x92__14TAdGameStartGCFPv(void* p);
 void TLobby__send_and_handle_60(u8 *arg0);
 
 void bswap_6x92__14TAdGameStartGCFPv(void* p) { ((TObjPlayer *)p)->read_be16_field2(); bswap_32((u32 *)((char*)p + 0x4)); bswap_32((u32 *)((char*)p + 0x8)); }
@@ -224,7 +218,6 @@ Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0) {
     return arg0;
 }
 
-void destroy_instance__17TAdGameStartSubGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
 extern int multiplay_texture_f512_handle;
@@ -264,10 +257,8 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
 }
 #pragma pop
 
-void run_task__17TAdGameStartSubGCFv(u8 *arg0);
 extern s32 __vt__17TAdGameStartSubGC[];
 extern void *lbl_805D3FB0[2];
-void render__17TAdGameStartSubGCFv(void* p);
 void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 

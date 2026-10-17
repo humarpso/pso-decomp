@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8026CB5C.h"
 #include "pso/misc/TWindowLockOn.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TLobby.h"
@@ -163,7 +164,6 @@ void apply_window_closing_stretch(u8 *arg0, int arg1);
 s32 animate_scale__19TWindowKeyBoardSoftFv();
 s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32);
 s32 init_window_layout_entries(void *, int, int);
-char *fn_8026CB68(void);
 s32 sub_8026CC28__13TUnk_804CE018Fv();
 s32 resort_window_order__15TWindowCtrlMainFv(void *);
 

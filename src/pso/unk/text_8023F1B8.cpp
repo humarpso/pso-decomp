@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8023F1B8.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/TParticleCtrl.h"
@@ -51,7 +52,6 @@ extern Vec_8023F22C TObjLight__scene_light_state;
 extern void *tl_camera;
 extern const f32 lbl_805DC9B8;
 extern const f32 lbl_805DC9BC;
-void init_game_mode_select_scene(void);
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCDA8_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCDA8) == 0xB8 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCE60) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_main_task_size[sizeof(RecoveredGlobal_8023F1B8_main_task) == 0x34 ? 1 : -1];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8025737C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -129,7 +130,6 @@ s32 play_sound_effect(u32, s32, s32, s32);
 void* init_from__13TUnk_804CF930FPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
-void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];

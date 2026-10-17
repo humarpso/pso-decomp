@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_80287570.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
@@ -41,11 +42,7 @@ typedef struct UV_80287580 {
 extern "C" {
 s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
 s32 set_text_draw_params(void *, int, int, f32, f32, f32, f32, f32, f32);
-void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1);
-f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 u32 calc_text_width(char *s);
-u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
-u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
 void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
@@ -53,8 +50,6 @@ void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const UV_80287580 window_tab_uv_table[];
 extern s32 lbl_805D63F0;
 void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width);
-f32 TWindowSubStatusDisp__sub_80287570(void *arg0);
-void TWindowSubStatusDisp__sub_802879B0(void *arg0);
 void __dl__FPv(void);
 
 f32 TWindowSubStatusDisp__sub_80287570(void *arg0) {

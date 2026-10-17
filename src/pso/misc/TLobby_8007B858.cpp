@@ -1,4 +1,5 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/misc/TLobby_8007B858.h"
 #include "pso/misc/TLanguage.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/TSetManager.h"
@@ -216,9 +217,6 @@ void TLobby::reset_and_invoke() { TLobby::reset_keyboard_state(); TLobby::invoke
 struct L_8007BC5C { u8 pad0; u8 count; u8 pad2[2]; s32 ids[30]; };
 
 extern "C" {
-
-void TLobby__sub_8007BBEC(void);
-void TLobby__sub_8007BBF8(void);
 
     extern short quest_collision_next_id;
 void TLobby__sub_8007BBEC(void) { quest_collision_next_id = 0; }

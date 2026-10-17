@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlScreen_8024CA5C.h"
 #include "pso/misc/TWindowCtrlScreen.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
@@ -22,7 +23,6 @@ u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8024CAD0___vt__17TWindowCtrlScreen __vt__17TWindowCtrlScreen;
 extern s32 TWindowCtrlMain__screen_controller;
-u8 *__dt__17TWindowCtrlScreenFv(u8 *arg0, s16 arg1);
 void TWindowCtrlScreen::render() {
     u16 temp_r31;
     if (is_window_display_enabled() != 0) {

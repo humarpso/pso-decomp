@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain_800FC91C.h"
+#include "pso/ui/TFontSmallTask.h"
+#include "pso/unk/text_800FCC78.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TUnk_8049CA54.h"
 #include "pso/TFontSmallHelp.h"
@@ -42,14 +45,10 @@ extern char *status_text_label_table[];
 extern Ent_800FC968 lobby_player_status_records[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
-void fn_800FCCC8(s32 arg0, s32 arg1);
 
-void *__dt__13TUnk_8049CA54Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__14TFontSmallHelpFv(void *, int);
 void *__nw__7TObjectFUl(int);
-u8 *fn_800FCC78(u8 *arg0, s32 arg1);
-s32 fn_800FCCF4(void *p);
 s32 get_status_index_or_default__20TWindowSubStatusDispFPUs(void *, s32);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 run_task__14TFontSmallHelpFv(void *);

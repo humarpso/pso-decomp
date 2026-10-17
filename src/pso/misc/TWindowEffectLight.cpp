@@ -1,4 +1,5 @@
 #include "pso/TWindowEffectLight.h"
+#include "pso/misc/TWindowEffectLight.h"
 #include "pso/misc/TCameraCtrl.h"
 
 TWindowEffectLight::~TWindowEffectLight() {}
@@ -32,7 +33,6 @@ extern const f32 lbl_805DE0F4;
 extern const f32 lbl_805DE128;
 extern const f32 lbl_805DE12C;
 extern const f32 lbl_805DE130;
-void render__18TWindowEffectLightFv(u8 *arg0);
 s32 __ct__7TObjectFP7TObject(void *, int);
 extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
@@ -81,8 +81,6 @@ u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 id) {
     return self;
 }
 
-void run_task__18TWindowEffectLightFv(void *arg0);
-u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3);
 void *__nw__7TObjectFUl(int);
 s32 queue_destruction__7TObjectFv();
 

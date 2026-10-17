@@ -1,4 +1,6 @@
 #include "pso/TObjBoss7Dust.h"
+#include "pso/boss/TObjBoss7Dust.h"
+#include "pso/unk/text_802F0E24.h"
 #include "pso/system/vector.h"
 
 #include "types.h"
@@ -14,16 +16,10 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TObjBoss7DustCtrl__sub_802F125C();
 extern RecoveredGlobal_802F119C___vt__13TObjBoss7Dust __vt__13TObjBoss7Dust;
 extern s32 lbl_805D3FE4;
-u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2);
-void fn_802F105C(void);
-void fn_802F1084(void);
-void init_scene_boss2_tunnel(void);
 void TObjBoss2Tunnel__sub_802F2C4C(void);
 void TObjBoss2Tunnel__sub_802F2C50(void);
 void TObjBoss2Tunnel__sub_802F2C84(void);
 void TObjBoss7DustCtrl__sub_802F1450(void);
-void fn_802F0E24(void);
-void load_boss7_common_resources(void);
 void boss7_dust_draw_at(s32 *arg0, s32 arg1);
 void fn_802F1454(void);
 void fn_802F19C0(void);

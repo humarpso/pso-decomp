@@ -1,22 +1,21 @@
 #include "pso/misc/TEnding.h"
+#include "pso/item/TItemMag_8001A468.h"
+#include "pso/misc/ParticleRadial.h"
+#include "pso/misc/TEndingAB_8008CE08.h"
+#include "pso/misc/TEndingC_8008D00C.h"
+#include "pso/misc/TMainTask_80104C40.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdRicoRingCtrl.h"
 
 extern "C" {
-void TEnding__sub_8008C9F8();
-u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
 void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
 s32 get_end_text_font_loaded_flag();
 u32 __cvt_fp2unsigned(f32);
-void destroy_keyboard_objects(void *_w0);
-void cleanup_game_objects__9TMainTaskFv();
 void set_current_floor_area(s32);
 int TKeyBoardControl__sub_8000F828(void);
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
-u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
-u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1);
 u8 *TAdRicoRingCtrl__ct(TAdRicoRingCtrl *arg0, s32 arg1);
 void __ct__10TAdEndTextFv(void *, TObject *);
 extern u32 ending_frame_counter;

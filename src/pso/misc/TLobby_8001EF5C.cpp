@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001EF5C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TGStream.h"
@@ -139,11 +140,8 @@ extern s8 TLobby__tmp_buf_name[];
 extern s32 lobby_download_buffer;
 extern s32 tmp_buf_in_use_flag;
 extern u32 bml_load_buffer;
-void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
-s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 debug_print__6TLobbyFle(s32 *, ...);
 extern s32 lbl_80434C48[];
-void load_bin_motion_callback(void *arg0);
 extern s32 lbl_805D4AD0;
 extern char lbl_80434C38[];
 void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);

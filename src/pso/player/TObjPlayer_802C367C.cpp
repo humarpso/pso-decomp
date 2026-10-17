@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_802C367C.h"
+#include "pso/unk/text_802C3AC0.h"
 #include "pso/player/TObjPlayer.h"
 
 typedef struct S_802C3720 {
@@ -29,10 +31,6 @@ s32 get_current_state_field__10TObjPlayerFScl(void *, s32);
 void *get_class_base_stats(void *);
 extern const f32 lbl_805DE530;
 void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level);
-void init_technique_levels(s32 flags, s8 *counts);
-int init_new_character_data(void* p);
-void init_new_character_stats(void *arg0);
-void init_class_starting_inventory(void *arg0);
 int TObjPlayer__sub_802C456C(void*, void*, void*);
 int init_character_action_config(void*);
 s32 TObjPlayer__sub_802C46E0(s32, s32, s32, s32, s32);

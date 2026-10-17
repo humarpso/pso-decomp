@@ -1,4 +1,7 @@
 #include "pso/render/DebugFont.h"
+#include "pso/enemy/TObjEneRe4Sorcerer_801E3F14.h"
+#include "pso/unk/text_801E3F24.h"
+#include "pso/unk/text_803E20B0.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TWindowCtrlMain.h"
@@ -178,21 +181,15 @@ struct Tris_801E3784 {
 };
 
 extern "C" {
-void TObjEneRe4Sorcerer__sub_801E3F20(void);
-void TObjPlayer__sub_801E3F24(s32 arg0);
-void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
-void load_camera_view_matrix(void);
 extern int current_line_width;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
 void setup_blended_textured_draw(void);
-void TObjCMHairMenu__sub_801E3F54(void *, void *);
-void fn_801E3F44(f32, f32);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
 void set_line_width(int a0);

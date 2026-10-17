@@ -1,4 +1,5 @@
 #include "pso/TAdRayGC.h"
+#include "pso/ui/TAdRayGC.h"
 
 #include "types.h"
 #include "pso/TMainTask.h"
@@ -16,7 +17,6 @@ s32 set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 TAdRayGC_ray_quad_table[];
 extern s32 TAdRayGC__ray_texture_list;
 extern const f32 lbl_805DDD10;
-void *__ct__8TAdRayGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void set_cached_blend_factor(s32 arg0, s32 arg1);
 s32 queue_destruction__7TObjectFv();

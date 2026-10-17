@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802E0064.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowOptionCtrl.h"
@@ -48,7 +49,6 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0);
 s32 get_selected_menu_value(s32);
 s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
 void clear_slot_body__23TAdSinglePlyChrSelectGCFi(s32 i);
-void TAdMultiPlyChrSelectGC__sub_802E006C(u8 *arg0, s32 arg1, s32 arg2);
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 create__16TAdChrSelBSlotGCFPv(void *);
 

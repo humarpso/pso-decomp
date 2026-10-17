@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMainCursor_8013BEB8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/TObject.h"
@@ -17,7 +18,6 @@ struct Best_8013C288 { s32 index; u8 pad4[2]; u16 id; u8 pad8[4]; f32 dist; };
 
 extern "C" {
 u8 * csnVector(s32, s32, s32);
-void init_target_vector__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vec3_dot(void *, void *);
@@ -39,7 +39,6 @@ f32 horizontal_distance_squared(void *, void *);
 s32 set_flag_bit__11TMainCursorFlUs(void *, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best);
-s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 struct Ent_8013C678 { u32 id; f32 key; };
 void *fn_8004438C(void *p);
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);

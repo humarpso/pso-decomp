@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012D4C0.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void sealed_j_sword_start_timers(void *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 u16 TObjPlayer__sub_80100474(void *);
 s32 TObjPlayer__sub_8010047C(void *, u16);

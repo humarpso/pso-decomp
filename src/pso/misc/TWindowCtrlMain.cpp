@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain_8024EEF8.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -40,7 +41,6 @@ s32 __dt__7TObjectFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
 void load_hud_palette_textures(void);
-void TWindowCtrlMain__sub_8024EF30(void);
 extern void *TWindowCtrlMain__display_flags;
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DCC58;
