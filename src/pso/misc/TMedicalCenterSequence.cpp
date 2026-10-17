@@ -36,18 +36,6 @@ extern "C" TMedicalCenterMesInput controller_input_state[];
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
 
-struct Base_802163AC { char pad[0x18]; };
-struct VObj_802163AC : Base_802163AC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int m8();
-};
 struct Base_8021641C_802163AC { char pad[0x18]; };
 struct VObj_8021641C_802163AC : Base_8021641C_802163AC {
     virtual int m0();
@@ -115,23 +103,6 @@ struct RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence {
 struct RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 {
     s32 value;
     u8 remaining[0xC];
-};
-
-struct VBase_18_0e2b36 { char pad[0x18]; };
-
-struct VObj_18_0e2b36 : VBase_18_0e2b36 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual s32 m10();
-    virtual s32 m11();
 };
 
 struct Base_802164A4 { char pad[0x18]; };
@@ -265,7 +236,7 @@ void TMedicalCenterSequence::vfunc_11() {
     temp_r0 = this->m_20;
     switch (temp_r0) {
     case 0:
-        ((VObj_18_0e2b36 *)(arg0))->m10();
+        this->restore_player_state();
         return;
     case 1:
         ((TMedicalCenterSequence *)arg0)->open_greeting_window();
@@ -292,7 +263,7 @@ void TMedicalCenterSequence::vfunc_11() {
         ((TMedicalCenterSequence *)arg0)->handle_window_input();
         return;
     case 10:
-        ((VObj_18_0e2b36 *)(arg0))->m11();
+        this->close_window();
     default:
         return;
     }
@@ -303,14 +274,13 @@ void TMedicalCenterSequence::restore_player_state() { restore_player_state__13TS
 typedef struct Stack_80216830 Stack_80216830;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
-#define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
 s32 TMedicalCenterSequence::open_greeting_window() {
     u8 *arg0 = (u8 *)this;
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
   ((TShopSequence *)arg0)->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
-  PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x1F, 1);
+  (((VObj_18_a93f07 *)(arg0))->m4((0x1F), (1)));
   *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window((s32) ((TShopSequence *)arg0)->get_child_field1c());
   ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(2)));
   *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0);
@@ -402,7 +372,7 @@ s32 TMedicalCenterSequence::handle_window_input() {
 }
 
 void TMedicalCenterSequence::close_window() {
-    if ((((VObj_802163AC *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)((void *)(this))) != 0) || (sub_802239EC__13TShopSequenceFv((void *)((void *)(this))) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *)((void *)(this))) != 0) || (sub_802239EC__13TShopSequenceFv((void *)((void *)(this))) != 0))) {
         close_window__13TShopSequenceFv(this);
         queue_destruction__7TObjectFv(this);
     }

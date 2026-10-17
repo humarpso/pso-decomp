@@ -969,17 +969,6 @@ struct Obj_802CB8F0 {
     f32 f3E4;
 };
 
-struct VBase_802CB6D4 { char pad[0x18]; };
-
-struct VObj_802CB6D4 : VBase_802CB6D4 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
-
 struct Obj_802CB8F0;
 struct Vec_802CB8F0;
 
@@ -1100,7 +1089,7 @@ void TObjEneMe1GiGue::init_move() {
 void TObjEneMe1GiGue::sub_802CB6D4() {
     switch (this->mode) {
     case 0:
-        if (((VObj_802CB6D4 *) ((u8 *)this))->m17(0x1E) != 0) {
+        if (this->vfunc_19(0x1E) != 0) {
             if (find_nearest_visible_player(((u8 *)this), 0, **(f32 * *)&this->movementParameters) != 0xFFFF) {
                 find_target_in_range__15TObjEnemyCustomFf(((u8 *)this), **(f32 * *)&this->movementParameters);
                 if (*(s32 *)&this->m_388 & 0x40000) {

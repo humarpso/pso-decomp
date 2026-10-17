@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 #include "pso/enemy/TObjEnePanarmsAtkColli.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -548,8 +549,6 @@ typedef struct VBase_18_beae68 VBase_18_beae68;
 typedef struct VBase_18_f56c51 VBase_18_f56c51;
 typedef struct VObj_18_beae68 VObj_18_beae68;
 typedef struct VObj_18_f56c51 VObj_18_f56c51;
-#define PSO_VCALL_VObj_18_beae68_m92(_self) (((VObj_18_beae68 *)(_self))->m92())
-#define PSO_VCALL_VObj_18_f56c51_m100(_self, _arg0) (((VObj_18_f56c51 *)(_self))->m100((_arg0)))
 
 #define self arg0
 extern const f32 lbl_805DA5A8 = 10.0f;
@@ -603,7 +602,7 @@ void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1) {
     case 4:
       ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 = (s32) (((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 & 0xFFFFFFFC);
       ((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 = (s32) (((RecoveredFields_800E3970_arg0 *) arg0)->field_3C4 | 0x200);
-      PSO_VCALL_VObj_18_beae68_m92(arg0);
+      (((TObjEneMe3ShinowaMirage *)(arg0))->vfunc_94());
       ((RecoveredFields_800E3970_arg0 *) arg0)->field_430 = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
       return;
     case 3:
@@ -622,7 +621,7 @@ void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1) {
     case 0:
       temp_f1 = ((RecoveredFields_800E3970_arg0 *) arg0)->field_430;
       ((RecoveredFields_800E3970_arg0 *) arg0)->field_430 = (f32) (temp_f1 - TObjEneMe3ShinowaMirage__data_805DA5C4);
-      PSO_VCALL_VObj_18_f56c51_m100(arg0, temp_f1);
+      (((VObj_18_f56c51 *)(arg0))->m100((temp_f1)));
       break;
   }
   return;

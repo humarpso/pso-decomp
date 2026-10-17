@@ -13,31 +13,6 @@ struct VObj_80215BF8_80215BA0 : Base_80215BF8_80215BA0 {
     virtual void m5();
     virtual void m6(int a, int b);
 };
-struct Base_80215C48_80215BA0 { char pad[0x18]; };
-struct VObj_80215C48_80215BA0 : Base_80215C48_80215BA0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int m8();
-};
-struct Base_80215D34_80215BA0 { char pad[0x18]; };
-struct VObj_80215D34_80215BA0 : Base_80215D34_80215BA0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int m8();
-};
-
 struct VBase_18_4a2792
 {
   char pad[0x18];
@@ -72,22 +47,6 @@ struct RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 {
 struct Win_80215CB8 { u8 pad[0x16c]; void *cb0; void *cb1; void *cb2; };
 
 struct Seq_80215CB8 { u8 pad[0x24]; s32 f24; };
-
-struct VtBase80215E74 { char pad[0x18]; };
-
-struct VtObj80215E74 : VtBase80215E74 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-};
 
 extern "C" {
 s32 create_meseta_window(s32);
@@ -142,7 +101,7 @@ void TJudgmentSequence__sub_80215BF8(void *arg0) {
 }
 
 void TJudgmentSequence::handle_close_input() {
-    if ((((VObj_80215C48_80215BA0 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         close_window__13TShopSequenceFv(this);
         queue_destruction__7TObjectFv(this);
     }
@@ -160,7 +119,7 @@ void TJudgmentSequence::open_judgment_window() {
 }
 
 void TJudgmentSequence::handle_confirm() {
-    if ((((VObj_80215D34_80215BA0 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         set_field_20((s32)((void*)(3)));
     }
 }
@@ -168,7 +127,6 @@ void TJudgmentSequence::handle_confirm() {
 typedef struct Stack_80215DA0 Stack_80215DA0;
 typedef struct VBase_18_4a2792 VBase_18_4a2792;
 typedef struct VObj_18_4a2792 VObj_18_4a2792;
-#define PSO_VCALL_VObj_18_4a2792_m6(_self, _arg0, _arg1) (((VObj_18_4a2792 *)(_self))->m6((_arg0), (_arg1)))
 void TJudgmentSequence::setup_counter_camera() {
     u8 *arg0 = (u8 *)this;
   Stack_80215DA0 stack;
@@ -177,7 +135,7 @@ void TJudgmentSequence::setup_counter_camera() {
   stack.spC = lbl_805DC684;
   new_var = (f32) lbl_805DC680;
   ((TShopSequence *)arg0)->create_message_window(get_window_layout_position((int) 0x2C, new_var), (s32) (&stack.sp8));
-  PSO_VCALL_VObj_18_4a2792_m6(arg0, 1, 1);
+  (((VObj_18_4a2792 *)(arg0))->m6((1), (1)));
   *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window(((s32) ((TShopSequence *)arg0)->get_child_field1c()) & 0xFFFF);
   ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(2)));
   *((s32 *) (((s8 *) arg0) + 0x30)) = set_service_counter_camera((void *) arg0, (int) 2);
@@ -191,7 +149,7 @@ struct Seq_80215CB8;
 void TJudgmentSequence::vfunc_11() {
     switch (this->m_20) {
     case 0:
-        ((VtObj80215E74*)this)->m10();
+        this->restore_player_state();
         break;
     case 1:
         ((TJudgmentSequence *)this)->setup_counter_camera();

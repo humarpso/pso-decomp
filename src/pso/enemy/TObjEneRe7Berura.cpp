@@ -19,49 +19,6 @@
 
 extern "C" {
 
-struct Base_En_80094994 { char pad[0x18]; };
-
-struct V_En_80094994 : Base_En_80094994 {
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV
-    PADV
-    virtual void m86();
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual void m93();
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual void m100();
-};
-
 struct Base_Sub_80094994 { char pad[0x14]; };
 
 struct V_Sub_80094994 : Base_Sub_80094994 {
@@ -785,7 +742,7 @@ void TObjEneRe7Berura::state_attack(s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        ((V_En_80094994 *) arg0)->m93();
+        this->vfunc_95();
         temp_r5 = *(s32 *)((s8 *)arg0 + 0x3C0);
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (temp_r5 & ~5);
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 2);
@@ -800,8 +757,8 @@ void TObjEneRe7Berura::state_attack(s32 arg1) {
         }
         return;
     case 0:
-        ((V_En_80094994 *) arg0)->m100();
-        ((V_En_80094994 *) arg0)->m86();
+        this->vfunc_102();
+        this->vfunc_88();
         return;
     case 5:
         *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFFD);
@@ -1136,17 +1093,17 @@ void TObjEneRe7Berura::vfunc_28() {  }
 
 void run_task__16TObjEneRe7BeruraFv(u8 *arg0) {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18 *)(arg0))->m103();
+        ((TObjEneRe7Berura *)(arg0))->vfunc_83();
         return;
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
-        ((VObj_18 *)(arg0))->m83();
+        ((TObjEneRe7Berura *)(arg0))->vfunc_85();
         *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3D0) + *(s32 *)((s8 *)arg0 + 0x3CC));
         *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) (u8) *(s32 *)((s8 *)arg0 + 0x3D0);
     }
     ((TObjEneRe7Berura *)arg0)->update_collision_center();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((VObj_18 *)(arg0))->m98();
+    ((TObjEneRe7Berura *)(arg0))->vfunc_100();
 }
 
 Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {
@@ -1233,7 +1190,7 @@ void TObjEneRe7Berura::init_enemy() {
     *(f32 *)((s8 *)arg0 + 0x4D8) = TObjEneRe7Berura__data_805D972C;
     *(f32 *)((s8 *)arg0 + 0x4DC) = TObjEneRe7Berura__data_805D972C;
     *(f32 *)((s8 *)arg0 + 0x4E0) = TObjEneRe7Berura__data_805D972C;
-    ((VObj_18_b345b0 *)arg0)->m93();
+    this->vfunc_95();
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     ((VObj_18_b345b0 *)arg0)->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
 }

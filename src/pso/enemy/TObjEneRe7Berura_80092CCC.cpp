@@ -604,7 +604,7 @@ void TObjEneRe7Berura::update_death_state(s32 mode) {
     switch (mode) {
     case 4:
         self->fB8 = 7;
-        ((VObj_18_444bc5 *)this)->m94();
+        this->vfunc_96();
         self->f3C0 &= ~7;
         advance_animation_playback(self);
         ((TBoss8Dragon *)self)->refresh_and_send_entity_flags();

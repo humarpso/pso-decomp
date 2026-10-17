@@ -4,15 +4,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
-struct Base_8016A004_80169EE4 { char pad[0x18]; };
-struct VObj_8016A004_80169EE4 : Base_8016A004_80169EE4 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16();
-    virtual void m17();
-};
 struct Base_8016A0E0_80169EE4 { char pad[0x18]; };
 struct VObj_8016A0E0_80169EE4 : Base_8016A0E0_80169EE4 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -113,11 +104,11 @@ void TOKey::handle_switch_trigger(void *arg1) {
     temp_r0 = *(s32 *)&this->m_d4;
     switch (temp_r0) {
     case 0:
-        ((VObj_8016A004_80169EE4 *)this)->m16();
+        this->trigger_activate_sound();
         *(s32 *)&this->m_d4 = 1;
         return;
     case 1:
-        ((VObj_8016A004_80169EE4 *)this)->m17();
+        this->vfunc_19();
         *(s32 *)&this->m_d4 = 0;
         return;
     }

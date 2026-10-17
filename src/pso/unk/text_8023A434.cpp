@@ -1,16 +1,7 @@
 #include "types.h"
+#include "pso/player/TUnk_804CCC68.h"
 
 #include <stddef.h>
-struct VBase_18_df5984 { char pad[0x18]; };
-
-struct VObj_18_df5984 : VBase_18_df5984 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4();
-};
-
 struct Stack_8023A434 {
     f32 sp8;
     f32 spC;
@@ -49,7 +40,7 @@ void check_technique_projectile_wall_hit(u8 *arg0) {
     temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (int) (*(s32 *)((s8 *)temp_r3 + 4)));
-        ((VObj_18_df5984 *)(arg0))->m4();
+        ((TUnk_804CCC68 *)(arg0))->vfunc_6();
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

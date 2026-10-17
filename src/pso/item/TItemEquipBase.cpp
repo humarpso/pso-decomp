@@ -58,60 +58,6 @@ struct VObj_18_546d8d : VBase_18_546d8d {
     virtual s32 m43();
 };
 
-struct VBase_18_5e04d5 { char pad[0x18]; };
-
-struct VObj_18_5e04d5 : VBase_18_5e04d5 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual s32 m48();
-};
-
 #include <stddef.h>
 struct Stack_8010A710 {
     s32 sp8;
@@ -167,57 +113,6 @@ struct VObj_18_df954d : VBase_18_df954d {
     virtual s32 m42();
     virtual void m43();
     virtual s32 m44();
-};
-
-struct VBase_18_24abda { char pad[0x18]; };
-
-struct VObj_18_24abda : VBase_18_24abda {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual s32 m45();
 };
 
 #include "pso/item/TItemData.h"
@@ -569,7 +464,7 @@ void TItemEquipBase::bind_loaded_resources() {
                 *(s32 *)&this->m_17c = (s32) *(s32 *)((s8 *)temp_r3_2 + 0x14);
                 *(s32 *)&this->m_180 = (s32) *(s32 *)((s8 *)temp_r3_2 + 8);
                 *(s32 *)&this->m_184 = (s32) *(s32 *)((s8 *)temp_r3_2 + 0xC);
-                ((VObj_18_5e04d5 *)(arg0))->m48();
+                this->vfunc_50();
             }
         }
     }
@@ -658,7 +553,7 @@ void TItemEquipBase::remove_equip_effects() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     if (apply_ad_rico_ring((s32)((int) (1))) != 0) {
-        ((VObj_18_24abda *)(arg0))->m45();
+        this->release();
     }
     if (apply_ad_rico_ring((s32)((int) (4))) != 0) {
         clear_timer_slot__15TItemTimerEventFUs((void *) (((s32)get_id__13TItemProArmorFv((void *) (arg0)))));
@@ -782,9 +677,6 @@ void TItemEquipBase::update_equip() {
 typedef struct RecoveredFields_8010B0A8_arg0 RecoveredFields_8010B0A8_arg0;
 typedef struct VBase_18_8e31a0 VBase_18_8e31a0;
 typedef struct VObj_18_8e31a0 VObj_18_8e31a0;
-#define PSO_VCALL_VObj_18_8e31a0_m23(_self, _arg0, _arg1, _arg2) (((VObj_18_8e31a0 *)(_self))->m23((_arg0), (_arg1), (_arg2)))
-#define PSO_VCALL_VObj_18_8e31a0_m47(_self) (((VObj_18_8e31a0 *)(_self))->m47())
-#define PSO_VCALL_VObj_18_8e31a0_m71(_self) (((VObj_18_8e31a0 *)(_self))->m71())
 void TItemEquipBase::remove_equip_stats(s32 arg1) {
   u8 *temp_r3;
   s32 temp_r31;
@@ -797,14 +689,14 @@ void TItemEquipBase::remove_equip_stats(s32 arg1) {
     temp_r31 = TItemData__sub_8010B810((int) temp_r3);
     temp_r30 = TItemData__sub_8010B808((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0);
     new_var = ((TQuestListVM *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->get_quest_id();
-    PSO_VCALL_VObj_18_8e31a0_m23(((u8 *)this), temp_r31, temp_r30, new_var);
+    (((VObj_18_8e31a0 *)(((u8 *)this)))->m23((temp_r31), (temp_r30), (new_var)));
     if (arg1 != 0)
     {
       add_actor_hp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_16C))));
       add_actor_tp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_16E))));
-      PSO_VCALL_VObj_18_8e31a0_m47(((u8 *)this));
+      (this->vfunc_49());
       temp_r3_2 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0;
-      PSO_VCALL_VObj_18_8e31a0_m71(temp_r3_2);
+      (((VObj_18_8e31a0 *)(temp_r3_2))->m71());
       ((TUnk_804806E8 *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->clamp_value();
       ((TObjPlayer *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->clamp_field_32E();
     }
@@ -819,7 +711,7 @@ void TItemEquipBase::unequip() {
         ((TObjPlayer *)arg0)->clear_item_flags((int) (0x28));
         ((VObj_18_546d8d *)(arg0))->m21(1);
         remove_equip_effects();
-        ((VObj_18_546d8d *)(arg0))->m43();
+        this->vfunc_45();
         if ((u32) this->m_174 != 0U) {
             ((TObject *)(*(void * *)&this->m_174))->delete_children();
         }
@@ -863,7 +755,7 @@ void TItemEquipBase::add_equip_stats(s32 arg1) {
         if (arg1 != 0) {
             add_actor_hp_bonus(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x16C));
             add_actor_tp_bonus(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x16E));
-            ((VObj_8010B224 *)this)->m46();
+            this->vfunc_48();
             ((VObj_8010B224 *)*(void **)((s8 *)arg0 + 0xF0))->m71();
         }
     }
@@ -878,10 +770,10 @@ void TItemEquipBase::equip() {
         ((VObj_18_df954d *)(arg0))->m20(1);
         if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)((int) (1))) == 0)) {
             ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)((void *)((int) (1))));
-            ((VObj_18_df954d *)(arg0))->m44();
+            this->vfunc_46();
         }
         ((TItemEquipBase *)arg0)->sub_8010A948();
-        ((VObj_18_df954d *)(arg0))->m42();
+        this->vfunc_44();
     }
 }
 

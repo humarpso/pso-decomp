@@ -225,13 +225,13 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
       (((TObjNpcBase *)(arg0))->vfunc_83());
       break;
     case 1:
-      (((VObj_18_3eea3b *)(arg0))->m82());
+      (((TObjNpcBase *)(arg0))->update_standing());
       break;
     case 2:
-      (((VObj_18_3eea3b *)(arg0))->m83());
+      (((TObjNpcBase *)(arg0))->update_wandering());
       break;
     case 3:
-      (((VObj_18_3eea3b *)(arg0))->m84());
+      (((TObjNpcBase *)(arg0))->update_conversation());
       break;
   }
   advance_animation_playback((void *) arg0);

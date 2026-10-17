@@ -139,7 +139,7 @@ void TAdAgreementBaseGC::update_state() {
             TWindow__close(*(void * *)&this->m_2c);
             this->m_2c = 0U;
         }
-        ((VObj_18_fbe024 *)(arg0))->m4();
+        this->vfunc_6();
         temp_r4 = *(s32 *)&this->m_28 + 1;
         *(s32 *)&this->m_28 = temp_r4;
         if ((f32) temp_r4 > lbl_805DF710) {
@@ -147,13 +147,13 @@ void TAdAgreementBaseGC::update_state() {
         }
         break;
     case 3:
-        ((VObj_18_fbe024 *)(arg0))->m5();
+        this->vfunc_7();
         break;
     case 4:
-        ((VObj_18_fbe024 *)(arg0))->m6();
+        this->vfunc_8();
         break;
     case 5:
-        ((VObj_18_fbe024 *)(arg0))->m7();
+        this->vfunc_9();
         break;
     }
     if ((s32) *(s32 *)&this->_pad20 != (s32) *(s32 *)&this->m_1c) {

@@ -212,7 +212,7 @@ void THunterGuildSeqOffline::handle_select() {
         }
     } else {
 block_3:
-        if ((((V_A_80212D9C *) this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+        if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
             ((V_A_80212D9C *) this)->m7(0xC, 1);
             *(s32 *)&this->unk_38 = 1;
             set_field_20((s32)((void*)(5)));
@@ -224,7 +224,7 @@ void THunterGuildSeqOffline::open_judgment_window() {
     f32 temp_f31;
     u16 temp_r31;
 
-    if ((((VObj_802136A4_80212e50_80212D9C *)this)->m10() != 0)
+    if ((this->vfunc_10() != 0)
         && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         temp_r31 = (u16)obj_getField1c(this->m_24);
         *(s32 *)&this->m_2c = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
@@ -238,7 +238,7 @@ void THunterGuildSeqOffline::open_judgment_window() {
 
 void THunterGuildSeqOffline::resolve_active_quest_result() {
     u8 *arg0 = (u8 *)this;
-    if ((((VObj_18_b54460 *)(arg0))->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
         if (is_quest_active() == 1) {
             if (get_register__12TQuestThreadFPvi(quest_mission_manager, 0xFF) == 1) {
                 ((VObj_18_b54460 *)(arg0))->m7(0xB, 1);
@@ -457,7 +457,7 @@ void THunterGuildSeqOffline::open_judgment_item_window() {
     f32 temp_f31;
     u16 temp_r31;
 
-    if ((((VObj_802136A4_80212D9C *)this)->m10() != 0)
+    if ((this->vfunc_10() != 0)
         && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         temp_r31 = (u16)obj_getField1c(this->m_24);
         *(s32 *)((s8 *)this + 0x3C) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);

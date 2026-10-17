@@ -137,7 +137,7 @@ void TObjQuestColBase::run_task() {
     if ((temp_r3 != NULL) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0)) {
         *(u8 * *)&this->m_b8 = NULL;
     }
-    if (((void *) *(u8 * *)&this->m_b8 == NULL) && (((VObj_18_551843 *)(arg0))->m13() != 0)) {
+    if (((void *) *(u8 * *)&this->m_b8 == NULL) && (this->vfunc_15() != 0)) {
         *(u8 * *)&this->m_b8 = ((VObj_18_551843 *)(arg0))->m14();
     }
 }
@@ -157,13 +157,12 @@ typedef struct RecoveredGlobal_80196DB4___vt__16TObjQuestColBase RecoveredGlobal
 typedef struct VBase_18_1a504b VBase_18_1a504b;
 typedef struct VObj_18_1a504b VObj_18_1a504b;
 typedef char RecoveredGlobal_80196DB4___vt__16TObjQuestColBase_size[((sizeof(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase)) == 0x48) ? (1) : (-1)];
-#define PSO_VCALL_VObj_18_1a504b_m5(_self, _arg0) (((VObj_18_1a504b *)(_self))->m5((_arg0)))
 u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
   u16 temp_r6;
   ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_0 = quest_col_base_class_name;
-  PSO_VCALL_VObj_18_1a504b_m5(arg0, arg2);
+  (((VObj_18_1a504b *)(arg0))->m5((arg2)));
   temp_r6 = -1;
   if (((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C == temp_r6)
   {

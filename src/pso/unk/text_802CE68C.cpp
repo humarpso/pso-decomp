@@ -225,7 +225,7 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     s32 s2;
     Node_802CE8CC *n;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((Obj_802CE8CC *)arg0)->m104();
+        ((TObjEneBm9Mericarol *)arg0)->draw_color_variant();
         return;
     }
     cam = 0;

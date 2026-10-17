@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TShopWindowBase.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
@@ -456,7 +457,7 @@ void TCheckRoomSequence__sub_8020F1DC(void) {  }
 #pragma push
 #pragma optimization_level 1
 void handle_error_ack__18TCheckRoomSequenceFPv(u8 *arg0) {
-    if ((((VObj_18_f96e2e *)(arg0))->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *) (arg0)) != 0) || (sub_802239EC__13TShopSequenceFv((void *) (arg0)) != 0))) {
+    if ((((TShopWindowBase *)(arg0))->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv((void *) (arg0)) != 0) || (sub_802239EC__13TShopSequenceFv((void *) (arg0)) != 0))) {
         ((VObj_18_f96e2e *)(arg0))->m4(TCheckRoomSequence__error_return_text_id, 1);
         set_field_20__15TShopWindowBaseFl((void*)((void *) (arg0)), (void*)((int) (TCheckRoomSequence__error_return_state)));
     }

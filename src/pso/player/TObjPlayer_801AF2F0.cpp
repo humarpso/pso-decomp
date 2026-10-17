@@ -6748,7 +6748,7 @@ void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1) {
     if (get_field_ec__5TItemFv(arg1) == 4) {
         ((TObjPlayer *)arg0)->add_meseta((s32)((void *)copy_item_data_and_process__5TItemFv(arg1)));
         ((s32 (*)(void *, void *))TObjPlayer__sub_801B0124)(arg0, (void *)copy_item_data_and_process__5TItemFv(arg1));
-        ((VObj_18_p72 *)arg1)->m27();
+        ((TItem *)arg1)->destroy();
         ((s32 (*)(void *, int))send_field_state_if_active__10TObjPlayerFii)(arg0, 0x52802);
         return 0;
     }
@@ -6779,7 +6779,7 @@ void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1) {
                 list = o;
                 break;
             }
-            n = ((VObj_18_p72 *)arg1)->m34();
+            n = ((TItem *)arg1)->vfunc_36();
             if (n == 0) {
                 n = 1;
             }
@@ -6787,7 +6787,7 @@ void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1) {
             if (owner != NULL) {
                 owner->m36(n);
             }
-            ((VObj_18_p72 *)arg1)->m27();
+            ((TItem *)arg1)->destroy();
             return 0;
         }
         o = ((void * (*)(u32))__nw__7TObjectFUl)(0x20);

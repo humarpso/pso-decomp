@@ -241,7 +241,7 @@ void render__12TObjEneReconFPv(u8 *arg0) {
     s32 var_r28;
     s32 var_r27;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((Obj_8031EA70 *)arg0)->m104();
+        ((TObjEneRecobox *)arg0)->draw_with_debug_info();
         return;
     }
     var_r29 = 0;

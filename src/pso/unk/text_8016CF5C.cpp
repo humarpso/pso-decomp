@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOKeyGenericSw.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TLobby.h"
@@ -20,17 +21,6 @@ struct Obj_8016D428 { u8 pad[0x6c]; f32 f; };
 struct Pkt_8016D148 { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
 
 struct Self_8016D148 { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
-
-struct VBase_8016CF5C { u8 pad[0x18]; };
-
-struct VObj_8016CF5C : VBase_8016CF5C {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(void *source);
-};
 
 extern "C" {
 s32 is_split_screen();
@@ -70,7 +60,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
     *(s32 *)((s8 *)arg0 + 0) = TOKeyGenericSw__name;
-    ((VObj_8016CF5C *)arg0)->m5(source);
+    ((TOKeyGenericSw *)arg0)->vfunc_7(source);
     ((TOKey *)arg0)->init_switch_id();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);

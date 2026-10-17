@@ -18,26 +18,6 @@ struct VObj : Base {
     virtual s32 m8(f32, f32);
 };
 
-struct VBase_18_ac8580 { char pad[0x18]; };
-
-struct VObj_18_ac8580 : VBase_18_ac8580 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-    virtual s32 m13();
-    virtual s32 m14();
-};
-
 extern "C" {
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -79,13 +59,13 @@ void TUnk_804B27D8::run_task() {
     u32 var_r0;
     u32 var_r0_2;
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((VObj_18_ac8580 *)(arg0))->m14();
+        this->vfunc_16();
         return;
     }
     temp_r0 = *(s32 *)&this->m_ac;
     switch (temp_r0) {
     case 0:
-        if ((((VObj_18_ac8580 *)(arg0))->m12() != 0) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
+        if ((this->update_active_state() != 0) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
             *(s32 *)&this->m_ac = 1;
         }
         break;
@@ -146,7 +126,7 @@ void TUnk_804B27D8::run_task() {
     if (temp_f1 < temp_f0) {
         this->m_b0 = (f32) (temp_f0 - temp_f1);
     }
-    ((VObj_18_ac8580 *)(arg0))->m13();
+    this->vfunc_15();
 }
 
 #pragma push

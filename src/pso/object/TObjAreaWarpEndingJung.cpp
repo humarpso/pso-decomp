@@ -228,24 +228,6 @@ struct RecoveredGlobal_8019CA24_lbl_80515BA0 {
     u8 remaining[0x24];
 };
 
-struct VBase_18_26c409 { char pad[0x18]; };
-
-struct VObj_18_26c409 : VBase_18_26c409 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-};
-
 struct RecoveredGlobal_8019CE40___vt__12TObjAreaWarp {
     s32 value;
     u8 remaining[0x50];
@@ -1214,7 +1196,7 @@ void TObjAreaWarp::handle_area_selection() {
             if (d->fC0 != NULL) {
                 ((TAdVIConfigGC *)(d->fC0))->update_visibility();
                 if (((TAdVIConfigGC *)(d->fC0))->get_field_14() == 0) {
-                    ((VObj_8019CAB0 *)this)->m12();
+                    this->vfunc_14();
                     return;
                 }
             }
@@ -1228,24 +1210,24 @@ void TObjAreaWarp::handle_area_selection() {
                         ((VObj_8019CAB0 *)this)->m13(obj_getField1c(t));
                     }
                     if (((VObj_8019CAB0 *)this)->m16(i) != 0) {
-                        ((VObj_8019CAB0 *)this)->m12();
+                        this->vfunc_14();
                         ((VObj_8019CAB0 *)this)->m17(t);
                     }
                 }
             }
             if (found == 0) {
-                ((VObj_8019CAB0 *)this)->m12();
+                this->vfunc_14();
             }
         } else {
             void *t2 = find_warp_player_in_range(((VObj_8019CAB0 *)this), local_client_id, d->fAC);
             if (t2 != NULL) {
                 ((VObj_8019CAB0 *)this)->m13(local_client_id);
                 if (((VObj_8019CAB0 *)this)->m16(((TRaderMapCore *)t2)->get_map_id()) != 0) {
-                    ((VObj_8019CAB0 *)this)->m12();
+                    this->vfunc_14();
                     ((VObj_8019CAB0 *)this)->m17(t2);
                 }
             } else {
-                ((VObj_8019CAB0 *)this)->m12();
+                this->vfunc_14();
             }
         }
     }
@@ -1302,7 +1284,7 @@ u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1) {
             destroy__13TAdVIConfigGCFPvs(temp_r3, 1);
             *(u8 **)((s8 *)arg0 + 0xC0) = NULL;
         }
-        ((VObj_18_26c409 *)(arg0))->m12();
+        ((TObjAreaWarp *)(arg0))->vfunc_14();
         __dt__12TObjWarpBaseFv(arg0, 0);
         if (arg1 > 0) {
             ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (arg0));

@@ -581,7 +581,7 @@ void TObjNpcBase::update_wandering() {
         enemy_set_heading_velocity(arg0, this->rotation_y, *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4));
         move_with_wall_slide(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805DB1C8) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DB1D8) != 0) {
-            ((VObj18_801489B8 *) arg0)->vf168();
+            this->play_voice();
         }
         {
             f32 dist = horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x2FC);

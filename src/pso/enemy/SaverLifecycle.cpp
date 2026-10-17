@@ -43,33 +43,6 @@ struct G_800A7734 { u8 pad[0x42c]; E_800A7734 *tbl; };
 
 struct O_800A7734 { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
 
-struct VBase_800A749C { char pad[0x18]; };
-
-struct VObj_800A749C : VBase_800A749C {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
-    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
-    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
-    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
-    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
-    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
-    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
-    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
-    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
-    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
-    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
-    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
-    virtual void m76(); virtual void m77(); virtual void m78();
-    virtual void m79(void *);
-    virtual void m80();
-};
-
 extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
 s32 obj_clearFlags30(void *, int);
@@ -2333,7 +2306,7 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)TObjEneSaver__vtable;
     ((TUnk_80490470 *)(arg0 + 0x3A4))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = TObjEneSaver__class_name;
-    ((VObj_800A749C *)arg0)->m79(arg2);
+    ((TObjEneSaver *)arg0)->apply_set_data(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(f32 *)((s8 *)arg0 + 0x70) = 1.0f;
     *(f32 *)((s8 *)arg0 + 0x6C) = 1.0f;
@@ -2385,7 +2358,7 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0x3C0) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     *(s32 *)((s8 *)arg0 + 0x3C4) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     *(s32 *)((s8 *)arg0 + 0x3C8) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFF303030);
-    ((VObj_800A749C *)arg0)->m80();
+    ((TObjEneSaver *)arg0)->clear_lobby_object_state();
     return arg0;
 }
 

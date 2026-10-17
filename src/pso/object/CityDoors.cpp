@@ -623,29 +623,6 @@ block_6:
 
 #include "types.h"
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual s32 m19();
-};
 #define F(o,t,p) (*(t*)((u8*)(o)+(p)))
 struct CityDoorProbeBase {char pad[0x18];};
 
@@ -695,7 +672,7 @@ void TObjCityDoor_Warp::run_task() {
     if (((s32 (*)(void *))is_rader_map_active)((void *) (arg0)) == 0) {
         *(s32 *)((s8 *)arg0 + 0xAC) = 0;
     }
-    ((VObj_18 *)(arg0))->m19();
+    this->dispatch_state();
     if (((s32 (*)(void *))is_rader_map_active)((void *) (arg0)) == 0) {
         temp_r3 = *(u8 * *)&this->m_a4;
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 1);
@@ -1048,17 +1025,6 @@ u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2) {
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
 
-struct Base_80182954_8018291C { char pad[0x18]; };
-struct VObj_80182954_8018291C : Base_80182954_8018291C {
-    virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
-    virtual void m4();  virtual void m5();  virtual void m6();  virtual void m7();
-    virtual void m8();  virtual void m9();  virtual void m10(); virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-};
 struct Base_80182A58_8018291C { char pad[0x18]; };
 struct VObj_80182A58_8018291C : Base_80182A58_8018291C {
     virtual void m0();
@@ -1199,16 +1165,16 @@ void TUnk_804B5BA8::dispatch_state() {
     temp_r0 = *(s32 *)((s8 *)this + 0xAC);
     switch (temp_r0) {
     case 0:
-        ((VObj_80182954_8018291C *)this)->m13();
+        this->begin_state_1();
         return;
     case 1:
-        ((VObj_80182954_8018291C *)this)->m15();
+        this->city_door_tick_opening();
         return;
     case 2:
-        ((VObj_80182954_8018291C *)this)->m16();
+        this->check_ground_or_fall();
         return;
     case 3:
-        ((VObj_80182954_8018291C *)this)->m14();
+        this->city_door_tick_closing();
         return;
     }
 }
@@ -1228,7 +1194,7 @@ void TUnk_804B5BA8::check_ground_or_fall() {
     temp_r4 = *(void * *)&this->unk_B8;
     if (((VObj_80182A58_8018291C *)this)->m12(*(f32 *)((s8 *)temp_r4 + 8)) == 0) {
         *(s32 *)((s8 *)this + 0xAC) = 3;
-        ((VObj_80182A58_8018291C *)this)->m17();
+        this->vfunc_19();
     }
 }
 
@@ -1238,7 +1204,7 @@ void city_door_tick_closing(void* o) {
  CityDoorFields* door = (CityDoorFields*)o;
  if (((CityDoorProbe3*)o)->m12(door->parameters->openingDistanceSquared) != 0) {
   door->phase = 1;
-  ((CityDoorProbe3*)o)->m18();
+  ((TUnk_804B5BA8 *)o)->city_door_play_open_sound();
  } else {
   door->frame -= door->parameters->speed;
   if (door->frame <= lbl_805DBBE8[0]) {
@@ -1253,7 +1219,7 @@ void city_door_tick_closing(void* o) {
 void TUnk_804B5BA8::city_door_tick_opening() {
 void* params=F(this,void*,0xB8);
 if(((CityDoorProbe3*)this)->m12(F(params,f32,8))==0) {
- F(this,s32,0xAC)=3;((CityDoorProbe3*)this)->m17();return;
+ F(this,s32,0xAC)=3;this->vfunc_19();return;
 }
 F(this,f32,0xB4)=F(this,f32,0xB4)+F(F(this,void*,0xB8),f32,0);
 f32 last=F(this,f32,0xB0);

@@ -86,23 +86,6 @@ extern const f32 lbl_805DBDFC;
 
 extern "C" {
 
-struct Base_8018F458 { char pad[0x18]; };
-struct VObj_8018F458 : Base_8018F458 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-};
-
 void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(void *, s16);
 s32 free_collision_body_parts(void *);
@@ -204,7 +187,7 @@ void TObjDoorJung::run_task() {
         this->m_d0 = (s32) (this->m_d0 & 0xFFFFFFFE);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
     } else {
-        ((VObj_8018F458 *)arg0)->m12();
+        this->update_door_switch_state();
     }
     if (this->m_d0 & 1) {
         minimap_render_gate(arg0 + 0x38, 0xFF00FF00, (u16) this->rotation_y, 0, 0);
@@ -237,7 +220,7 @@ u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoorJung__collision_desc.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((VObj_18_4a4f5b *)(arg0))->m17();
+    ((TObjDoorJung *)(arg0))->init_door_switch_binding();
     ((TObjDoorJung *)arg0)->clamp_state();
     return arg0;
 }

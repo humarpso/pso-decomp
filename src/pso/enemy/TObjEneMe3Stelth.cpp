@@ -59,30 +59,6 @@ extern const f32 lbl_805DA828;
 
 extern const f32 lbl_805DA838;
 
-struct VB18 { char pad[0x18]; };
-struct VO18 : VB18 {
-    virtual void m0();virtual void m1();virtual void m2();virtual void m3();virtual void m4();
-    virtual void m5();virtual void m6();virtual void m7();virtual void m8();virtual void m9();
-    virtual void m10();virtual void m11();virtual void m12();virtual void m13();virtual void m14();
-    virtual void m15();virtual void m16();virtual void m17();virtual void m18();virtual void m19();
-    virtual void m20();virtual void m21();virtual void m22();virtual void m23();virtual void m24();
-    virtual void m25();virtual void m26();virtual void m27();virtual void m28();virtual void m29();
-    virtual void m30();virtual void m31();virtual void m32();virtual void m33();virtual void m34();
-    virtual void m35();virtual void m36();virtual void m37();virtual void m38();virtual void m39();
-    virtual void m40();virtual void m41();virtual void m42();virtual void m43();virtual void m44();
-    virtual void m45();virtual void m46();virtual void m47();virtual void m48();virtual void m49();
-    virtual void m50();virtual void m51();virtual void m52();virtual void m53();virtual void m54();
-    virtual void m55();virtual void m56();virtual void m57();virtual void m58();virtual void m59();
-    virtual void m60();virtual void m61();virtual void m62();virtual void m63();virtual void m64();
-    virtual void m65();virtual void m66();virtual void m67();virtual void m68();virtual void m69();
-    virtual void m70();virtual void m71();virtual void m72();virtual void m73();virtual void m74();
-    virtual void m75();virtual void m76();virtual void m77();virtual void m78();virtual void m79();
-    virtual void m80();virtual void m81();virtual void m82();virtual void m83();virtual void m84();
-    virtual void m85();virtual void m86();virtual void m87();virtual void m88();virtual void m89();
-    virtual void m90();virtual void m91();virtual void m92();virtual void m93();virtual void m94();
-    virtual void m95();virtual void m96();virtual void m97();virtual void m98();virtual void m99();
-    virtual void m100();
-};
 struct VB414 { char pad[0x14]; };
 struct VO414 : VB414 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -96,7 +72,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xC;
         set_field_378__9TObjEneDDFl(arg0, 6);
-        ((VO18*)arg0)->m94();
+        ((TObjEneDD *)arg0)->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF1);
         temp_r7 = *(s32 *)((s8 *)arg0 + 0x3CC) | 1;
         *(s32 *)((s8 *)arg0 + 0x3CC) = temp_r7;
@@ -139,8 +115,8 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         } else if (objInBand__FP7GameObjf(arg0, lbl_805DA838) != 0) {
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF7);
         }
-        ((VO18*)arg0)->m100();
-        ((VO18*)arg0)->m87();
+        ((TObjEneDD *)arg0)->vfunc_102();
+        ((TObjEneDD *)arg0)->vfunc_89();
         return;
     case 5:
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF7);
@@ -679,99 +655,6 @@ void TObjEneMe3Stelth::add_instance() { ((TOTrapAncient02 *)stelth_projection_te
 #include "types.h"
 
 typedef struct { f32 x, y, z; } Vec_800F290C;
-struct VBase_18_fd6cbb { char pad[0x18]; };
-
-struct VObj_18_fd6cbb : VBase_18_fd6cbb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-};
-
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -1162,7 +1045,7 @@ void handle_breakup_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         F(s16, 0xB8) = 5;
         ((TBoss8Dragon *)arg0)->refresh_and_send_entity_flags();
-        ((VObj_18 *)(arg0))->m92();
+        ((TObjEneDD *)(arg0))->vfunc_94();
         F(s32, 0x3CC) &= ~0xF;
         F(s32, 0x424) = 0;
         break;
@@ -1202,7 +1085,7 @@ void handle_breakup_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 ((TObjPlayer *)(&v))->trigger_dell_biter_events();
                 play_sound_effect(0x3AD3A, arg0 + 0x38, 0, 0);
             }
-            ((VObj_18 *)(arg0))->m100();
+            ((TObjEneDD *)(arg0))->vfunc_102();
             break;
         case 2:
             queue_destruction__7TObjectFv(arg0);
@@ -1242,7 +1125,7 @@ void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1) {
         ((TObjEneDD *)arg0)->move_clamped_on_ground(v.x, v.z, c);
         *(f32 *)((s8 *)arg0 + 0x308) *= lbl_805DA858;
         *(f32 *)((s8 *)arg0 + 0x310) *= lbl_805DA858;
-        ((VObj_18_fd6cbb *) arg0)->m87();
+        ((TObjEneDD *)arg0)->vfunc_89();
         break;
     case 5:
         clear_attack_receipts__9TObjEneDDFv(arg0);
@@ -1267,111 +1150,6 @@ s32 transition_enemy_state(void *, s32);
 s32 get_flag_b4__9TObjEneDDFv(void *);
 s32 advance_animation_playback();
 
-struct TBase { char pad[0x18]; };
-struct TObj : TBase {
-    virtual void v0();
-    virtual void v1();
-    virtual void v2();
-    virtual void v3();
-    virtual void v4();
-    virtual void v5();
-    virtual void v6();
-    virtual void v7();
-    virtual void v8();
-    virtual void v9();
-    virtual void v10();
-    virtual void v11();
-    virtual void v12();
-    virtual void v13();
-    virtual void v14();
-    virtual void v15();
-    virtual void v16();
-    virtual void v17();
-    virtual void v18();
-    virtual void v19();
-    virtual void v20();
-    virtual void v21();
-    virtual void v22();
-    virtual void v23();
-    virtual void v24();
-    virtual void v25();
-    virtual void v26();
-    virtual void v27();
-    virtual void v28();
-    virtual void v29();
-    virtual void v30();
-    virtual void v31();
-    virtual void v32();
-    virtual void v33();
-    virtual void v34();
-    virtual void v35();
-    virtual void v36();
-    virtual void v37();
-    virtual void v38();
-    virtual void v39();
-    virtual void v40();
-    virtual void v41();
-    virtual void v42();
-    virtual void v43();
-    virtual void v44();
-    virtual void v45();
-    virtual void v46();
-    virtual void v47();
-    virtual void v48();
-    virtual void v49();
-    virtual void v50();
-    virtual void v51();
-    virtual void v52();
-    virtual void v53();
-    virtual void v54();
-    virtual void v55();
-    virtual void v56();
-    virtual void v57();
-    virtual void v58();
-    virtual void v59();
-    virtual void v60();
-    virtual void v61();
-    virtual void v62();
-    virtual void v63();
-    virtual void v64();
-    virtual void v65();
-    virtual void v66();
-    virtual void v67();
-    virtual void v68();
-    virtual void v69();
-    virtual void v70();
-    virtual void v71();
-    virtual void v72();
-    virtual void v73();
-    virtual void v74();
-    virtual void v75();
-    virtual void v76();
-    virtual void v77();
-    virtual void v78();
-    virtual void v79();
-    virtual void v80();
-    virtual void v81();
-    virtual void v82();
-    virtual void v83();
-    virtual void v84();
-    virtual void v85();
-    virtual void v86();
-    virtual void v87();
-    virtual void v88();
-    virtual void v89();
-    virtual void v90();
-    virtual void v91();
-    virtual void v92();
-    virtual void v93();
-    virtual void v94();
-    virtual void v95();
-    virtual void v96();
-    virtual void v97();
-    virtual void v98();
-    virtual void v99();
-    virtual void v100();
-};
-
 struct SubBase { char pad[0x14]; };
 struct SubObj : SubBase {
     virtual void v0();
@@ -1388,7 +1166,7 @@ void action__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 8;
         set_field_378__9TObjEneDDFl(arg0, 6);
-        ((TObj *)arg0)->v93();
+        ((TObjEneDD *)arg0)->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFFC);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 4);
         ((SubObj *)(arg0 + 0x404))->v2();
@@ -1414,7 +1192,7 @@ void action__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             }
             break;
         }
-        ((TObj *)arg0)->v100();
+        ((TObjEneDD *)arg0)->vfunc_102();
         return;
     case 5:
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFFB);
@@ -1702,105 +1480,6 @@ struct VObj_14_948132 : VBase_14_948132 {
     virtual s32 m5();
 };
 
-struct VBase_18_599a64 { char pad[0x18]; };
-
-struct VObj_18_599a64 : VBase_18_599a64 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual s32 m93();
-};
-
 struct Stack_800F3FE4 {
     s32 sp8;
     f32 spC;
@@ -1817,13 +1496,6 @@ struct VSub_800F42B8 : VBase_14_800F42B8 {
     virtual void m3();
     virtual void m4();
     virtual s32 m5();
-};
-
-struct VBase_18_800F42B8 { char pad[0x18]; };
-
-struct VObj_800F42B8 : VBase_18_800F42B8 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19(); virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39(); virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59(); virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75(); virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79(); virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83(); virtual void m84(); virtual void m85(); virtual void m86(); virtual void m87(); virtual void m88(); virtual void m89(); virtual void m90(); virtual void m91(); virtual void m92(); virtual void m93(); virtual void m94(); virtual void m95(); virtual void m96(); virtual void m97(); virtual void m98(); virtual void m99();
-    virtual void m100();
 };
 
 struct VBase_18_e66632 { char pad[0x18]; };
@@ -2379,7 +2051,7 @@ void update_state_resta_cast__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 8;
         set_field_378__9TObjEneDDFl(arg0, 0xB);
-        ((VObj_18_4f5f2e *)(arg0))->m94();
+        ((TObjEneDD *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF9);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 1);
         *(s32 *)((s8 *)arg0 + 0x424) = 0;
@@ -2419,7 +2091,7 @@ void update_state_resta_cast__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             }
             break;
         }
-        ((VObj_18_4f5f2e *)(arg0))->m100();
+        ((TObjEneDD *)(arg0))->vfunc_102();
         break;
     }
 }
@@ -2431,7 +2103,7 @@ void run_walk_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 3;
         set_field_378__9TObjEneDDFl((void *) (arg0), (int) (6));
-        ((VObj_18_347dfc *)(arg0))->m94();
+        ((TObjEneMe3Stelth *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) &= ~7;
         *(s32 *)((s8 *)arg0 + 0x3EC) = 0;
         *(s32 *)((s8 *)arg0 + 0x424) = 3;
@@ -2481,16 +2153,16 @@ void run_walk_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x42C)), (int) (0x31C7));
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= TObjEneMe3Stelth__data_805DA808) {
                 *(s32 *)((s8 *)arg0 + 0x424) = 1;
-                ((VObj_18_347dfc *)(arg0))->m89();
+                ((TObjEneMe3Stelth *)(arg0))->vfunc_91();
                 play_sound_effect((int) (0x3A835), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             }
-            ((VObj_18_347dfc *)(arg0))->m100();
-            ((VObj_18_347dfc *)(arg0))->m87();
+            ((TObjEneMe3Stelth *)(arg0))->vfunc_102();
+            ((TObjEneMe3Stelth *)(arg0))->vfunc_89();
             return;
         case 1:
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= lbl_805DA868) {
                 *(s32 *)((s8 *)arg0 + 0x424) = 2;
-                ((VObj_18_347dfc *)(arg0))->m90();
+                ((TObjEneMe3Stelth *)(arg0))->vfunc_92();
                 ((TObjEneMe3Stelth *)arg0)->play_hit_effect();
             }
             ((TObjEneDD *)arg0)->move_clamped_on_ground((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), (f32) (*(f32 *)((s8 *)arg0 + 0x430)));
@@ -2499,13 +2171,13 @@ void run_walk_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             if (((s32 (*)(void *))get_flag_b4__9TObjEneDDFv)((void *) (arg0)) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x424) = 3;
             }
-            ((VObj_18_347dfc *)(arg0))->m100();
-            ((VObj_18_347dfc *)(arg0))->m87();
+            ((TObjEneMe3Stelth *)(arg0))->vfunc_102();
+            ((TObjEneMe3Stelth *)(arg0))->vfunc_89();
             return;
         }
         break;
     case 5:
-        ((VObj_18_347dfc *)(arg0))->m90();
+        ((TObjEneMe3Stelth *)(arg0))->vfunc_92();
         ((TObjEneDD *)arg0)->clear_field_388();
         break;
     }
@@ -2716,7 +2388,7 @@ void state_chase_target__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xA;
         set_field_378__9TObjEneDDFl(arg0, 6);
-        ((VObj_18_e66632 *)(arg0))->m94();
+        ((TObjEneDD *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF8);
         *(f32 *)((s8 *)arg0 + 0x3AC) = (f32) lbl_805DA878;
         *(f32 *)((s8 *)arg0 + 0x430) = (f32) *TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)arg0 + 0x3C8)];
@@ -2747,11 +2419,11 @@ void state_chase_target__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x434) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + temp_f31);
             if (*(f32 *)((s8 *)arg0 + 0x434) < cos_table_lookup((int) (0x1000))) {
                 ((TObjEneEpsilon *)arg0)->update_angle((int) (0x500));
-                ((VObj_18_e66632 *)(arg0))->m100();
+                ((TObjEneDD *)(arg0))->vfunc_102();
             } else {
                 enemy_turn_and_move_on_ground((void *) (arg0), (int) (0x500), (f32) (*(f32 *)((s8 *)arg0 + 0x430)));
             }
-            ((VObj_18_e66632 *)(arg0))->m87();
+            ((TObjEneDD *)(arg0))->vfunc_89();
         }
         break;
     }
@@ -2772,7 +2444,7 @@ void update_state_drop__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         set_field_378__9TObjEneDDFl(arg0, 0xD);
-        ((VObj_18_4f5f2e *)(arg0))->m94();
+        ((TObjEneMe3Stelth *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF9);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 1);
         *(s32 *)((s8 *)arg0 + 0x424) = 0;
@@ -2827,9 +2499,9 @@ void update_state_drop__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             advance_animation_playback(arg0);
             break;
         }
-        ((VObj_18_4f5f2e *)(arg0))->m100();
+        ((TObjEneMe3Stelth *)(arg0))->vfunc_102();
         ((TObjEneMe3Stelth *)arg0)->update_distance_state();
-        ((VObj_18_4f5f2e *)(arg0))->m87();
+        ((TObjEneMe3Stelth *)(arg0))->vfunc_89();
         *(f32 *)((s8 *)arg0 + 0x3D4) = (f32) (*(f32 *)((s8 *)arg0 + 0x3D0) - *(f32 *)((s8 *)arg0 + 0x3C));
         break;
     case 5:
@@ -2847,7 +2519,7 @@ void update_state_fade_in__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         set_field_378__9TObjEneDDFl(arg0, 5);
-        ((VObj_18_4f5f2e *)(arg0))->m93();
+        ((TObjEneDD *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF8);
         *(s32 *)((s8 *)arg0 + 0x424) = 0;
         *(s32 *)((s8 *)arg0 + 0x428) = 0;
@@ -2879,9 +2551,9 @@ void update_state_fade_in__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x3E8) = 0;
             }
         }
-        ((VObj_18_4f5f2e *)(arg0))->m100();
+        ((TObjEneDD *)(arg0))->vfunc_102();
         ((TObjEneMe3Stelth *)arg0)->update_distance_state();
-        ((VObj_18_4f5f2e *)(arg0))->m87();
+        ((TObjEneDD *)(arg0))->vfunc_89();
         *(f32 *)((s8 *)arg0 + 0x3D4) = *(f32 *)((s8 *)arg0 + 0x3D0) - *(f32 *)((s8 *)arg0 + 0x3C);
         break;
     case 5:
@@ -2900,7 +2572,7 @@ void TObjEneMe3Stelth__sub_800F3FE4(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         set_field_378__9TObjEneDDFl((void *)(arg0), (int)(0));
-        ((VObj_18_599a64 *)(arg0))->m93();
+        ((TObjEneDD *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 7);
         TObjEneMe3SinowZoa__sub_800D758C((void *) ((u8 *)(arg0) + 0x404));
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((u8 *)(arg0) + 0x38));
@@ -2930,7 +2602,7 @@ void state_chase__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 9;
         set_field_378__9TObjEneDDFl((void *) (arg0), (int) (0xD));
-        ((VObj_18_bb4b7f *)(arg0))->m94();
+        ((TObjEneDD *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF8);
         *(s32 *)((s8 *)arg0 + 0x424) = 0;
         *(s32 *)((s8 *)arg0 + 0x428) = 0;
@@ -2970,10 +2642,10 @@ void state_chase__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x434) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + temp_f31);
             if (*(f32 *)((s8 *)arg0 + 0x434) < cos_table_lookup((int) (0x1000))) {
                 ((TObjEneEpsilon *)arg0)->update_angle((int) (0x500));
-                ((VObj_18_bb4b7f *)(arg0))->m100();
+                ((TObjEneDD *)(arg0))->vfunc_102();
             }
         }
-        ((VObj_18_bb4b7f *)(arg0))->m87();
+        ((TObjEneDD *)(arg0))->vfunc_89();
         break;
     }
 }
@@ -2987,7 +2659,7 @@ void TObjEneMe3Stelth::sub_800F42B8(s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 2;
         set_field_378__9TObjEneDDFl(arg0, 0);
-        ((VObj_800F42B8 *)arg0)->m93();
+        this->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) &= ~2;
         *(s32 *)((s8 *)arg0 + 0x3CC) |= 5;
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x404);
@@ -3013,7 +2685,7 @@ void TObjEneMe3Stelth::sub_800F42B8(s32 arg1) {
         if (*TBoss3Volopt__sub_800F059C(arg0 + 0x404) >= lbl_805DA890) {
             advance_animation_playback(arg0);
         }
-        ((VObj_800F42B8 *)arg0)->m100();
+        this->vfunc_102();
         break;
     case 5:
         *(s32 *)((s8 *)arg0 + 0x3CC) &= ~4;
@@ -3044,36 +2716,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 
 }
 
-struct Base18F { char pad[0x18]; };
-struct VObj18F : Base18F {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
-    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
-    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
-    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
-    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
-    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
-    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
-    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
-    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
-    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
-    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
-    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
-    virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
-    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83();
-    virtual void m84(); virtual void m85(); virtual void m86(); virtual void m87();
-    virtual void m88(); virtual void m89(); virtual void m90(); virtual void m91();
-    virtual void m92(); virtual void m93(); virtual void m94(); virtual void m95();
-    virtual void m96(); virtual void m97(); virtual void m98(); virtual void m99();
-    virtual void m100();
-};
-
 extern "C" {
 
 void TObjEneMe3Stelth::vfunc_113(s32 arg1) {
@@ -3087,7 +2729,7 @@ void TObjEneMe3Stelth::vfunc_113(s32 arg1) {
             *(s16 *)((s8 *)arg0 + 0xB8) = 0;
             set_field_378__9TObjEneDDFl(arg0, 3);
         }
-        ((VObj18F *)arg0)->m93();
+        this->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 2);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFFE);
         if (TObjEneDD::check_v2_mode() != 0) {
@@ -3115,7 +2757,7 @@ void TObjEneMe3Stelth::vfunc_113(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x424) = (s32) (*(s32 *)((s8 *)arg0 + 0x424) + 1);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x424) == 1) {
             *(f32 *)((s8 *)arg0 + 0x3D0) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
-            ((VObj18F *)arg0)->m100();
+            this->vfunc_102();
             *(f32 *)((s8 *)arg0 + 0x3D4) = (f32) (*(f32 *)((s8 *)arg0 + 0x3D0) - *(f32 *)((s8 *)arg0 + 0x3C));
         }
         break;
@@ -4172,14 +3814,14 @@ void TObjEneMe3Stelth::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18 *)(arg0))->m112();
+        this->setup_move();
         return;
     }
-    if (((VObj_18 *)(arg0))->m81() != 4) {
-        ((VObj_18 *)(arg0))->m83();
+    if (this->vfunc_83() != 4) {
+        this->vfunc_85();
     }
     ((TObjEneMe3Stelth *)arg0)->copy_pos_with_height_offset();
-    ((VObj_18 *)(arg0))->m86();
+    this->vfunc_88();
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x3CC);
     if (temp_r3 & 0x40000) {
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r3 & 0xFFFBFFFF);

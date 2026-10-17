@@ -29,26 +29,6 @@ void vfunc_16__17TOTrapChainSawKeyFv(u8 *arg0);
 
 extern "C" {
 
-struct VBase_18_373ea7 { char pad[0x18]; };
-
-struct VObj_18_373ea7 : VBase_18_373ea7 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual s32 m13();
-    virtual s32 m14();
-};
-
 typedef struct S_802C86D4 { u8 pad0[0xE8]; s32 fE8; } S_802C86D4;
 
 typedef struct P_802C86D4 {
@@ -107,26 +87,6 @@ struct P_802C8BD0 { s32 a; f32 b; };
 
 struct T_802C8F68 { s32 r[3][3]; };
 
-struct VBase_802C8E24 { char pad[0x18]; };
-
-struct VObj_802C8E24 : VBase_802C8E24 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-};
-
 struct Copy_802C8E24 { u32 a; struct { u32 w[14]; } b; };
 
 struct Ent_802C8E24 { u8 b[0x58]; };
@@ -148,37 +108,6 @@ struct Obj_802C8C60 {
     s32 fF8;
 };
 
-struct Base_802C9564_802C9040 { char pad[0x18]; };
-
-struct VObj_802C9564_802C9040 : Base_802C9564_802C9040 {
-virtual void f15();
-virtual void f16();
-virtual void f17();
-virtual void f18();
-virtual void f19();
-virtual void f20();
-virtual void f21();
-virtual void f22();
-virtual void f23();
-virtual void f24();
-virtual void f25();
-virtual void f26();
-virtual void f27();
-virtual void f28();
-virtual void f29();
-virtual void f30();
-virtual void f31();
-virtual void f32();
-virtual void f33();
-virtual void f34();
-virtual void f35();
-virtual void f36();
-virtual void f37();
-virtual void f38();
-    virtual void m24();
-    virtual void m25();
-};
-
 struct Base_802C9600 { char pad[0x18]; };
 struct VObj_802C9600 : Base_802C9600 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -189,20 +118,6 @@ struct VObj_802C9600 : Base_802C9600 {
     virtual void m20(); virtual void m21();
 };
 typedef void (VObj_802C9600::*Act_802C9600)();
-
-struct Base_802C96EC_802C9040 { char pad[0x18]; };
-
-struct VObj_802C96EC_802C9040 : Base_802C96EC_802C9040 {
-    virtual void m0();
-    virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8();
-    virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12();
-    virtual void m13(); virtual void m14(); virtual void m15(); virtual void m16();
-    virtual void m17();
-    virtual void m18(); virtual void m19(); virtual void m20(); virtual void m21();
-    virtual void m22(); virtual void m23();
-    virtual void m24();
-};
 
 struct VBase_18_52534d { char pad[0x18]; };
 
@@ -509,8 +424,8 @@ u8 *TOTrapChainSawEdge__ct(u8 *arg0) {
     ((s32 (*)(void))TOTrapChainSaw__ct)();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOTrapChainSawEdge;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapChainSawEdge_class_name;
-    ((VObj_18_373ea7 *)(arg0))->m13();
-    ((VObj_18_373ea7 *)(arg0))->m14();
+    ((TOTrapChainSawEdge *)(arg0))->decode_params();
+    ((TOTrapChainSawEdge *)(arg0))->vfunc_16();
     *(s32 *)((s8 *)arg0 + 0x100) = 0;
     *(s32 *)((s8 *)arg0 + 0x104) = 0;
     return arg0;
@@ -632,8 +547,8 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     ((s32 (*)(void))TOTrapChainSaw__ct)();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOTrapChainSawKey;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F08;
-    ((VObj_18_373ea7 *)(arg0))->m13();
-    ((VObj_18_373ea7 *)(arg0))->m14();
+    ((TOTrapChainSawKey *)(arg0))->decode_params();
+    ((TOTrapChainSawKey *)(arg0))->vfunc_16();
     init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)chain_saw_collision_body_part_table)->value) + (*(s32 *)((s8 *)arg0 + 0xF8) * 0x58)), (int) (2));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
@@ -804,8 +719,8 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     ((void * (*)(void *, void *, void *))TOTrapChainSaw__ct)(arg0, arg1, arg2);
     *(s32 **)(((u8 *)arg0) + 0x18) = __vt__20TOTrapChainSawDamage;
     *(s32 *)(((u8 *)arg0) + 0) = (s32) TOTrapChainSawDamage_class_name;
-    ((VObj_802C8E24 *)arg0)->m13();
-    ((VObj_802C8E24 *)arg0)->m14();
+    ((TOTrapChainSawDamage *)arg0)->decode_params();
+    ((TOTrapChainSawDamage *)arg0)->vfunc_16();
     ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)lbl_804E0C10)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
@@ -872,7 +787,7 @@ void TOTrapChainSaw::vfunc_14() {  }
 void TOTrapChainSaw::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_52534d *)(arg0))->m8((4e+02f), (5e+01f)) == 1) {
-        ((VObj_18_52534d *)(arg0))->m23();
+        this->vfunc_25();
         ((TOTrapChainSaw *)arg0)->update_demo();
     }
 }
@@ -970,9 +885,9 @@ void TOTrapChainSaw::update_extension() {
 void TOTrapChainSaw::update_sweep() {
     if ((s32) *(s32 *)((s8 *)this + 0xF0) == 0) {
         if ((s32) *(s32 *)((s8 *)this + 0xD4) == 0) {
-            ((VObj_802C9564_802C9040 *)this)->m24();
+            this->vfunc_26();
         }
-        ((VObj_802C9564_802C9040 *)this)->m25();
+        this->vfunc_27();
         *(s32 *)((s8 *)this + 0xD4) = (s32) (*(s32 *)((s8 *)this + 0xD4) + *(s32 *)((s8 *)this + 0xD0));
         return;
     }
@@ -998,8 +913,8 @@ void update_state__14TOTrapChainSawFPv(u8 *arg0) {
 #pragma pop
 
 void TOTrapChainSaw::run_task() {
-    ((VObj_802C96EC_802C9040 *) this)->m22();
-    ((VObj_802C96EC_802C9040 *) this)->m15();
+    this->update_state();
+    this->check_player_contact();
     if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)this + 0xE8)) == 1) {
         *(s32 *)((s8 *)this + 0xF0) = 1;
         return;
@@ -1060,7 +975,7 @@ u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw *)&__vt__14TOTrapChainSaw).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapChainSaw__name;
     ((VObj_18_fd30ee *)(arg0))->m5(arg2);
-    ((VObj_18_fd30ee *)(arg0))->m19();
+    ((TOTrapChainSaw *)(arg0))->clear_field_d8();
     *(s32 *)((s8 *)arg0 + 0xD4) = 0;
     *(s32 *)((s8 *)arg0 + 0xCC) = 0;
     *(s32 *)((s8 *)arg0 + 0xD0) = 0;

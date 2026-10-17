@@ -75,30 +75,6 @@ struct VObj_8029CF68 : Base_8029CF68 {
 
 struct VBase_18_076902 { char pad[0x18]; };
 
-struct VObj_18_076902 : VBase_18_076902 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual s32 m20();
-};
-
 struct RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 { s32 value; u8 remaining[0x8]; };
 typedef char RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
 
@@ -266,7 +242,7 @@ void TOKeyJungleMain::update_lock_state() {
             *(s32 *)&this->m_d4 = 0;
         }
         if (temp_r31 != (s32) *(s32 *)&this->m_d4) {
-            ((VObj_18_076902 *)(((u8 *)this)))->m20();
+            this->play_activate_sound();
         }
     }
 }

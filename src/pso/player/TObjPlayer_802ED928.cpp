@@ -239,7 +239,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         ((TObjFish *)arg0)->update_projectile_spawns();
     }
     ((TObjEneDD *)arg0)->sub_800BBA0C();
-    ((VObj_18 *)(arg0))->m86();
+    ((TBoss7DeRolLeC *)(arg0))->vfunc_88();
     ((TObjFish *)arg0)->sync_position_vectors();
     ((TBoss7DeRolLeC *)arg0)->flee_if_disturbed();
     TParticleCtrl__sub_802EC550((void *) (arg0));

@@ -14,35 +14,6 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/TObject.h"
 
-struct VBase18_8035DD68 { char pad[0x18]; };
-struct VObj18_8035DD68 : VBase18_8035DD68 {
-    virtual void vpad0(); virtual void vpad1(); virtual void vpad2(); virtual void vpad3();
-    virtual void vpad4(); virtual void vpad5(); virtual void vpad6(); virtual void vpad7();
-    virtual void vpad8(); virtual void vpad9(); virtual void vpad10(); virtual void vpad11();
-    virtual void vpad12(); virtual void vpad13(); virtual void vpad14(); virtual void vpad15();
-    virtual void vpad16(); virtual void vpad17(); virtual void vpad18(); virtual void vpad19();
-    virtual void vpad20(); virtual void vpad21(); virtual void vpad22(); virtual void vpad23();
-    virtual void vpad24(); virtual void vpad25(); virtual void vpad26(); virtual void vpad27();
-    virtual void vpad28(); virtual void vpad29(); virtual void vpad30(); virtual void vpad31();
-    virtual void vpad32(); virtual void vpad33(); virtual void vpad34(); virtual void vpad35();
-    virtual void vpad36(); virtual void vpad37(); virtual void vpad38(); virtual void vpad39();
-    virtual void vpad40(); virtual void vpad41(); virtual void vpad42(); virtual void vpad43();
-    virtual void vpad44(); virtual void vpad45(); virtual void vpad46(); virtual void vpad47();
-    virtual void vpad48(); virtual void vpad49(); virtual void vpad50(); virtual void vpad51();
-    virtual void vpad52(); virtual void vpad53(); virtual void vpad54(); virtual void vpad55();
-    virtual void vpad56(); virtual void vpad57(); virtual void vpad58(); virtual void vpad59();
-    virtual void vpad60(); virtual void vpad61(); virtual void vpad62(); virtual void vpad63();
-    virtual void vpad64(); virtual void vpad65(); virtual void vpad66(); virtual void vpad67();
-    virtual void vpad68(); virtual void vpad69(); virtual void vpad70(); virtual void vpad71();
-    virtual void vpad72(); virtual void vpad73(); virtual void vpad74(); virtual void vpad75();
-    virtual void vpad76(); virtual void vpad77(); virtual void vpad78(); virtual void vpad79();
-    virtual void vpad80(); virtual void vpad81(); virtual void vpad82(); virtual void vpad83();
-    virtual void vpad84(); virtual void vpad85(); virtual void vpad86();
-    virtual void vf164();
-    virtual void vpad88(); virtual void vpad89(); virtual void vpad90(); virtual void vpad91();
-    virtual void vpad92(); virtual void vpad93();
-    virtual void vf180();
-};
 struct EGPad_8035DD68 { char pad[0x18]; };
 #define V1(n) virtual void vpad##n();
 #define V10(n) V1(n##0) V1(n##1) V1(n##2) V1(n##3) V1(n##4) V1(n##5) V1(n##6) V1(n##7) V1(n##8) V1(n##9)
@@ -479,23 +450,6 @@ extern const f32 lbl_805E0200;
 
 extern "C" {
 
-struct GuardBase_8035DD68 { char pad[0x18]; };
-struct GuardVObj_8035DD68 : GuardBase_8035DD68 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
-    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
-    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
-    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
-    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
-    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
-    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
-    virtual void m52(); virtual void m53();
-};
 struct Base_8035E3B8_8035DD68 { char pad[0x18]; };
 struct VObj_8035E3B8_8035DD68 : Base_8035E3B8_8035DD68 {
     virtual void m0();
@@ -586,12 +540,12 @@ s32 TObjEneEpsilonGuard::is_guard_ready() {
 void TObjEneEpsilonGuard::clear_and_flag_state() {
     *(s32 *)((s8 *)((u8 *)this) + 0x44C) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x46C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x46C) | 0x20);
-    ((VObj_18 *)(((u8 *)this)))->m53();
+    this->clear_all_status_effects();
 }
 
 void TObjEneEpsilonGuard::set_flag_8_and_notify() {
     *(s32 *)((s8 *)((u8 *)this) + 0x46C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x46C) | 8);
-    ((VObj_18 *)(((u8 *)this)))->m53();
+    this->clear_all_status_effects();
 }
 
 void TObjEneEpsilonGuard__sub_8035DEC0(u8 *arg0) {
@@ -609,7 +563,7 @@ void TObjEneEpsilonGuard::set_target(s32 arg1, s32 arg2, s32 arg3) {
         *(s32 *)((s8 *)((u8 *)this) + 0x46C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0xFFFFFEFF);
     }
     *(s32 *)((s8 *)((u8 *)this) + 0x46C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x46C) | 1);
-    ((GuardVObj_8035DD68 *)((u8 *)this))->m53();
+    this->clear_all_status_effects();
 }
 
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
@@ -811,14 +765,14 @@ void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1) {
         if (((VObj_14_87d649 *)((u8 *)(arg0) + (1212)))->m4() != 0) {
             transition_enemy_state((void *)(arg0), (s32)(0));
             ((RecoveredFields_8035E578_arg0 *)arg0)->field_46C = (s32) (((RecoveredFields_8035E578_arg0 *)arg0)->field_46C | 0x10);
-            ((VObj_18_7f4864 *)(arg0))->m93();
+            ((TObjEneDD *)(arg0))->vfunc_95();
             break;
         }
     case 5:
         break;
     case 0:
         advance_animation_playback((void *)(arg0));
-        ((VObj_18_7f4864 *)(arg0))->m87();
+        ((TObjEneDD *)(arg0))->vfunc_89();
         break;
     }
 }
@@ -834,7 +788,7 @@ void TObjEneEpsilonGuard::state_orbit(s32 arg1) {
         set_field_378(2);
         *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) | 4);
         *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) & 0xFFFFFFE7);
-        ((VObj18_8035DD68 *) this)->vf180();
+        this->vfunc_96();
         *(s32 *)((s8 *)this + 0x430) = 0;
         *(s32 *)((s8 *)this + 0x438) = (s32) *(s32 *)((s8 *)this + 0x60);
         *(s32 *)((s8 *)this + 0x43C) = 0;
@@ -882,7 +836,7 @@ block_23:
             break;
         }
         *(s32 *)((s8 *)this + 0x60) = calc_angle_to_target();
-        ((VObj18_8035DD68 *) this)->vf164();
+        this->vfunc_89();
         break;
     }
 }
@@ -916,7 +870,7 @@ void TObjEneEpsilonGuard__sub_8035E8C0(void *arg0, s32 arg1) {
             }
         }
         *(s32 *)((s8 *)arg0 + 0x60) = ((TObjEneEpsilonGuard *)arg0)->calc_angle_to_target();
-        ((V_A *) arg0)->m87();
+        ((TObjEneDD *)arg0)->vfunc_89();
         break;
     }
 }
@@ -1111,209 +1065,6 @@ void TObjEneEpsilonGuard::vfunc_88() { set_part_local_pos__9TObjEneDDFPvPvi(this
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/player/TObjPlayer.h"
-
-struct VBase_18_8035EF78 { char pad[0x18]; };
-
-struct VObj_18_8035EF78 : VBase_18_8035EF78 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual s32 m81();
-    virtual void m82();
-    virtual s32 m83();
-    virtual void m84();
-    virtual void m85();
-    virtual s32 m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual s32 m98();
-};
-
-struct VBase_18_599a64 { char pad[0x18]; };
-
-struct VObj_18_599a64 : VBase_18_599a64 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual s32 m93();
-};
 
 struct Rec_8035F4B4 { u8 b[0x1C]; };
 
@@ -1576,14 +1327,14 @@ void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 msg) {
 #pragma fp_contract on
 void run_task__19TObjEneEpsilonGuardFv(u8 *arg0) {
     s32 temp_r3;
-    if (((VObj_18_8035EF78 *)(arg0))->m81() != 4) {
+    if (((TObjEneEpsilonGuard *)(arg0))->vfunc_83() != 4) {
         ((TObjEneEpsilonGuard *)arg0)->update_guard_state();
-        ((VObj_18_8035EF78 *)(arg0))->m83();
+        ((TObjEneEpsilonGuard *)(arg0))->vfunc_85();
         if (!(*(s32 *)((s8 *)arg0 + 0x46C) & 0x10)) {
-            ((VObj_18_8035EF78 *)(arg0))->m86();
+            ((TObjEneEpsilonGuard *)(arg0))->vfunc_88();
             ((TObjEneEpsilonGuard *)arg0)->update_center_position();
             ((TBoss8Dragon *)arg0)->set_player_state_default();
-            ((VObj_18_8035EF78 *)(arg0))->m98();
+            ((TObjEneEpsilonGuard *)(arg0))->vfunc_100();
             return;
         }
         temp_r3 = ((s32 (*)(int))find_entity_by_id)((int) (*(u16 *)((s8 *)arg0 + 0x470)));
@@ -1692,7 +1443,7 @@ void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, vo
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;
     *(s32 *)((s8 *)arg0 + 0x60) = (s32)arg6;
     ((TObjEneEpsilonGuard *)arg0)->init_model_and_state();
-    ((VObj_18_599a64 *)(arg0))->m93();
+    ((TObjEneEpsilonGuard *)(arg0))->vfunc_95();
     *(s32 *)((s8 *)arg0 + 0x46C) = (s32) (*(s32 *)((s8 *)arg0 + 0x46C) | 0x10);
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&((Self_8035F4B4 *)arg0)->recs[i]))->activate_and_dispatch();

@@ -14,115 +14,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual s32 m81();
-    virtual void m82();
-    virtual s32 m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual s32 m98();
-    virtual void m99();
-    virtual void m100();
-    virtual void m101();
-    virtual void m102();
-    virtual s32 m103();
-};
-
 struct SubBase { char pad[0x14]; };
 
 struct VSub : SubBase { virtual void m0(); virtual void m1(); virtual void m2(); };
@@ -728,7 +619,7 @@ void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0) {
     s16 temp_r3_2;
     s32 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18 *)(arg0))->m103();
+        ((TObjEneBm9Mericarol *)(arg0))->vfunc_105();
         return;
     }
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x438);
@@ -739,8 +630,8 @@ void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0) {
     } else if ((u32) *(u32 *)((s8 *)arg0 + 0x390) != 0U) {
         *(s32 *)((s8 *)arg0 + 0x438) = (s32) (temp_r3 | 0x10);
     }
-    if (((VObj_18 *)(arg0))->m81() != 4) {
-        ((VObj_18 *)(arg0))->m83();
+    if (((TObjEneBm9Mericarol *)(arg0))->vfunc_83() != 4) {
+        ((TObjEneBm9Mericarol *)(arg0))->vfunc_85();
     } else {
         temp_r3_2 = *(s16 *)((s8 *)arg0 + 0x326);
         if ((temp_r3_2 == 0) || (temp_r3_2 == 1)) {
@@ -750,7 +641,7 @@ void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0) {
     }
     ((TObjEneBm9Mericarol *)arg0)->sync_center_position();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((VObj_18 *)(arg0))->m98();
+    ((TObjEneBm9Mericarol *)(arg0))->vfunc_100();
 }
 #pragma pop
 
@@ -824,7 +715,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     self->f4A4 = lbl_805DE70C;
     self->f4AC = 0;
     ((TObjEneBm9Mericarol *)self)->sync_center_position();
-    ((VObj18_802D0D3C *)self)->m86();
+    ((TObjEneBm9Mericarol *)self)->vfunc_88();
     ((TObjEneDD *)self)->transform_part_positions();
     self->f326 = 0;
     ((VObj18_802D0D3C *)self)->m85(self->f326, 4);

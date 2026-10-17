@@ -157,23 +157,6 @@ struct Obj_8006D1A4 {
     s32 f30;
 };
 
-struct VBase_8006DB68 { char pad[0x18]; };
-
-struct VObj_8006DB68 : VBase_8006DB68 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-};
-
 struct Cam_8006DB68 {
     u8 pad0[0x1C];
     u8 *actor;
@@ -898,7 +881,7 @@ void TUnk_80488E00::update_follow_flags() {
         arg0->flags &= ~1;
         arg0->flags &= ~0x10;
     }
-    ((VObj_8006DB68 *)arg0)->m11();
+    this->select_follow_camera_offsets();
 }
 
 void TCameraCtrl__sub_8006DCC8(void* p) { *(s32*)((char*)p + 0xfc) = 0; }

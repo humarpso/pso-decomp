@@ -34,40 +34,6 @@ struct VObj_8031F6C0 : Base_8031F6C0 {
 #define CAT(a, b) CAT2(a, b)
 #define PADV virtual void CAT(pv, __LINE__)();
 #define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
-struct Base_En_8031f748 { char pad[0x18]; };
-struct V_En_8031f748 : Base_En_8031f748 {
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual void m93();
-};
 struct Base_Sub_8031f748 { char pad[0x14]; };
 struct V_Sub_8031f748 : Base_Sub_8031f748 {
     PADV4
@@ -109,7 +75,7 @@ void TObjEneRecon::handle_state(s32 arg1) {
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
         *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        ((V_En_8031f748 *) arg0)->m93();
+        this->vfunc_95();
         ((TObjEneDD *)arg0)->set_field_378((int)(0));
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3C0);
         return;

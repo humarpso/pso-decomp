@@ -135,7 +135,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     s32 var_r29;
     u32 temp_r0;
     u8 *temp_r27;
-    ((VObj_18_1753c2 *)(arg0))->m22();
+    ((TOSwitchItem *)(arg0))->update_armed_switch();
     var_r30 = 0;
     temp_r31 = get_item_registry_count();
     var_r29 = 0;
@@ -189,11 +189,11 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xF4) <= var_r30) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 0) {
             *(s32 *)((s8 *)arg0 + 0xEC) = 1;
-            ((VObj_18_1753c2 *)(arg0))->m19();
+            ((TOSwitchItem *)(arg0))->send_switch_on();
         }
     } else if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) != 0) {
         *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-        ((VObj_18_1753c2 *)(arg0))->m19();
+        ((TOSwitchItem *)(arg0))->send_switch_on();
     }
 }
 

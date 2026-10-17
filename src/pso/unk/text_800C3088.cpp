@@ -8,112 +8,6 @@
 #include "pso/enemy/TObjEneDD_ST.h"
 
 #include <stddef.h>
-struct VBase_18_9e83f9 { char pad[0x18]; };
-
-struct VObj_18_9e83f9 : VBase_18_9e83f9 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual s32 m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual s32 m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual void m98();
-    virtual void m99();
-    virtual s32 m100();
-};
-
 struct Stack_800C32DC {
     f32 sp8;
     f32 spC;
@@ -282,12 +176,6 @@ extern "C" {
 typedef struct RecoveredFields_800C3088_arg0 RecoveredFields_800C3088_arg0;
 typedef struct VBase_18_880cfd VBase_18_880cfd;
 typedef struct VObj_18_880cfd VObj_18_880cfd;
-#define PSO_VCALL_VObj_18_880cfd_m94(_self) (((VObj_18_880cfd *)(_self))->m94())
-#define PSO_VCALL_VObj_18_880cfd_m18(_self, _arg0, _arg1) (((VObj_18_880cfd *)(_self))->m18((_arg0), (_arg1)))
-#define PSO_VCALL_VObj_18_880cfd_m20(_self, _arg0, _arg1) (((VObj_18_880cfd *)(_self))->m20((_arg0), (_arg1)))
-#define PSO_VCALL_VObj_18_880cfd_m23(_self, _arg0, _arg1) (((VObj_18_880cfd *)(_self))->m23((_arg0), (_arg1)))
-#define PSO_VCALL_VObj_18_880cfd_m100(_self) (((VObj_18_880cfd *)(_self))->m100())
-#define PSO_VCALL_VObj_18_880cfd_m86(_self) (((VObj_18_880cfd *)(_self))->m86())
 void fn_800C3088(u8 *arg0, int arg1) {
   int temp_r0;
   u8 *temp_r3;
@@ -297,7 +185,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
   {
     case 4:
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_B8 = 7;
-      PSO_VCALL_VObj_18_880cfd_m94(arg0);
+      (((TObjEneDD *)(arg0))->vfunc_96());
       ((TObjEneRe2Flower *)arg0)->set_child_flags();
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_3C4 = (int) (((RecoveredFields_800C3088_arg0 *) arg0)->field_3C4 & 0xFFFFFFF7);
       ((TObjEneDD *)arg0)->set_field_378((int) 3);
@@ -335,12 +223,12 @@ void fn_800C3088(u8 *arg0, int arg1) {
         if (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0)
         {
           temp_r3 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
-          if (PSO_VCALL_VObj_18_880cfd_m18(temp_r3, arg0, lbl_805D9FC0) != 0)
+          if ((((VObj_18_880cfd *)(temp_r3))->m18((arg0), (lbl_805D9FC0))) != 0)
           {
             temp_r3_2 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
-            PSO_VCALL_VObj_18_880cfd_m20(temp_r3_2, arg0, lbl_805D9FC0);
+            (((VObj_18_880cfd *)(temp_r3_2))->m20((arg0), (lbl_805D9FC0)));
             temp_r3_3 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
-            PSO_VCALL_VObj_18_880cfd_m23(temp_r3_3, arg0, lbl_805D9FD4);
+            (((VObj_18_880cfd *)(temp_r3_3))->m23((arg0), (lbl_805D9FD4)));
           }
         }
         play_sound_effect((void *) fn_800C3A60((void *) arg0, (int) 0x4003A814), (void *) (arg0 + 0x38), (int) 0, (int) 0);
@@ -351,8 +239,8 @@ void fn_800C3088(u8 *arg0, int arg1) {
         ((RecoveredFields_800C3088_arg0 *) arg0)->field_410 = (int) (((RecoveredFields_800C3088_arg0 *) arg0)->field_410 + 1);
         break;
     }
-      PSO_VCALL_VObj_18_880cfd_m100(arg0);
-      PSO_VCALL_VObj_18_880cfd_m86(arg0);
+      (((TObjEneDD *)(arg0))->vfunc_102());
+      (((TObjEneDD *)(arg0))->vfunc_88());
       noop__9TObjEneDDFv((void *) arg0);
       return;
     case 5:
@@ -372,7 +260,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)owner + 0xB8) = 0;
-        ((VObj_18_9e83f9 *)(owner))->m94();
+        ((TObjEneDD *)(owner))->vfunc_96();
         ((TObjEneRe2Flower *)owner)->set_child_flags();
         *(s32 *)((s8 *)owner + 0x3C4) = (s32) (*(s32 *)((s8 *)owner + 0x3C4) & 0xFFFFFFF7);
         ((TObjEneDD *)owner)->set_field_378((int) (3));
@@ -415,8 +303,8 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
             }
             play_sound_effect((void *) (fn_800C3A60((void *) (owner), (int) (0x4003A10E))), (void *) (owner + 0x3DC), (int) (0), (int) (0));
         }
-        ((VObj_18_9e83f9 *)(owner))->m100();
-        ((VObj_18_9e83f9 *)(owner))->m86();
+        ((TObjEneDD *)(owner))->vfunc_102();
+        ((TObjEneDD *)(owner))->vfunc_88();
         noop__9TObjEneDDFv((void *) (owner));
         break;
     case 5:
@@ -436,53 +324,6 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/player/TObjPlayer.h"
-
-#define CAT2(a, b) a##b
-#define CAT(a, b) CAT2(a, b)
-#define PADV virtual void CAT(pv, __LINE__)();
-#define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
-
-struct Base_A { char pad[0x18]; };
-struct V_A : Base_A {
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV4
-    PADV
-    PADV
-    virtual void m86();
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual void m94();
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual void m100();
-};
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -624,7 +465,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         } else {
             this->m_b8 = 2;
         }
-        ((VObj_18 *)(arg0))->m94();
+        this->vfunc_96();
         ((TObjEneRe2Flower *)arg0)->set_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) &= ~8;
         ((TObjEneDD *)arg0)->set_field_378(3);
@@ -673,8 +514,8 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x420) = (s32)(lbl_8043BBD8 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8)));
         this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x420), *(void **)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
         this->rotation_y = (s16)this->rotation_y;
-        ((VObj_18 *)(arg0))->m100();
-        ((VObj_18 *)(arg0))->m86();
+        this->vfunc_102();
+        this->vfunc_88();
         noop__9TObjEneDDFv(arg0);
         break;
     }
@@ -684,7 +525,7 @@ void handle_flower_state_change(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-        ((V_A *) arg0)->m94();
+        ((TObjEneDD *)arg0)->vfunc_96();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
         ((TObjEneDD *)arg0)->set_field_378(2);
@@ -699,8 +540,8 @@ void handle_flower_state_change(void *arg0, s32 arg1) {
         return;
     case 0:
         ((s32 (*)())advance_animation_playback)();
-        ((V_A *) arg0)->m100();
-        ((V_A *) arg0)->m86();
+        ((TObjEneDD *)arg0)->vfunc_102();
+        ((TObjEneDD *)arg0)->vfunc_88();
         break;
     }
 }

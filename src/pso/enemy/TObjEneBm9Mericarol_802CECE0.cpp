@@ -10,39 +10,6 @@
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/player/TObjPlayer.h"
 
-struct Base_A_802cf040_802CECE0 { char pad[0x18]; };
-struct V_A_802cf040_802CECE0 : Base_A_802cf040_802CECE0 {
-    virtual void p0(); virtual void p1(); virtual void p2(); virtual void p3();
-    virtual void p4(); virtual void p5(); virtual void p6(); virtual void p7();
-    virtual void p8(); virtual void p9(); virtual void p10(); virtual void p11();
-    virtual void p12(); virtual void p13(); virtual void p14(); virtual void p15();
-    virtual void p16(); virtual void p17(); virtual void p18(); virtual void p19();
-    virtual void p20(); virtual void p21(); virtual void p22(); virtual void p23();
-    virtual void p24(); virtual void p25(); virtual void p26(); virtual void p27();
-    virtual void p28(); virtual void p29(); virtual void p30(); virtual void p31();
-    virtual void p32(); virtual void p33(); virtual void p34(); virtual void p35();
-    virtual void p36(); virtual void p37(); virtual void p38(); virtual void p39();
-    virtual void p40(); virtual void p41(); virtual void p42(); virtual void p43();
-    virtual void p44(); virtual void p45(); virtual void p46(); virtual void p47();
-    virtual void p48(); virtual void p49(); virtual void p50(); virtual void p51();
-    virtual void p52(); virtual void p53(); virtual void p54(); virtual void p55();
-    virtual void p56(); virtual void p57(); virtual void p58(); virtual void p59();
-    virtual void p60(); virtual void p61(); virtual void p62(); virtual void p63();
-    virtual void p64(); virtual void p65(); virtual void p66(); virtual void p67();
-    virtual void p68(); virtual void p69(); virtual void p70(); virtual void p71();
-    virtual void p72(); virtual void p73(); virtual void p74(); virtual void p75();
-    virtual void p76(); virtual void p77(); virtual void p78(); virtual void p79();
-    virtual void p80(); virtual void p81(); virtual void p82(); virtual void p83();
-    virtual void p84(); virtual void p85();
-    virtual void m86();
-    virtual void p87(); virtual void p88(); virtual void p89(); virtual void p90();
-    virtual void p91(); virtual void p92(); virtual void p93();
-    virtual void m94();
-    virtual void p95(); virtual void p96(); virtual void p97(); virtual void p98();
-    virtual void p99();
-    virtual void m100();
-};
-
 struct VBase_18_9c7b63
 {
   char pad[0x18];
@@ -380,99 +347,6 @@ struct VObj_18_3b55b6 : VBase_18_3b55b6 {
 struct Sub_800ACA10 { u8 pad[0x18]; s32 level; };
 
 struct Obj_800ACA10 { u8 pad[0x2B0]; Sub_800ACA10 *sub; };
-
-struct VBase_18_313dd8 { char pad[0x18]; };
-
-struct VObj_18_313dd8 : VBase_18_313dd8 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual s32 m87();
-};
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -959,7 +833,7 @@ void TObjEneBm9Mericarol__sub_802CEDA0(u8 *arg0, s32 arg1) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
                 ((TObjEneDD *)arg0)->update_velocity();
             }
-            ((VObj_18_313dd8 *)(arg0))->m87();
+            ((TObjEneDD *)(arg0))->vfunc_89();
             if (*(s32 *)((s8 *)arg0 + 0x494) % 14 == 0) {
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3A809), arg0 + 0x38, 0, 0);
             }
@@ -992,7 +866,7 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
     switch (arg1) {
     case 4:
         this->m_b8 = 7;
-        ((V_A_802cf040_802CECE0 *) arg0)->m94();
+        this->vfunc_96();
         TObjEneBm9Mericarol__sub_802D093C(arg0);
         temp_r5 = *(s32 *)&this->m_454;
         *(s32 *)&this->m_454 = (s32) (temp_r5 & ~0x28);
@@ -1004,8 +878,8 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
         if (objInBand__FP7GameObjf(*(f32 *)&this->unk_C4 - lbl_805DE6F4) != 0) {
             transition_enemy_state(arg0, 3);
         }
-        ((V_A_802cf040_802CECE0 *) arg0)->m100();
-        ((V_A_802cf040_802CECE0 *) arg0)->m86();
+        this->vfunc_102();
+        this->vfunc_88();
         return;
     case 0:
         advance_animation_playback((void *)((void *)(arg0)));
@@ -1022,8 +896,6 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
 typedef struct Stack_802CF1B4 Stack_802CF1B4;
 typedef struct VBase_18_9c7b63 VBase_18_9c7b63;
 typedef struct VObj_18_9c7b63 VObj_18_9c7b63;
-#define PSO_VCALL_VObj_18_9c7b63_m94(_self) (((VObj_18_9c7b63 *)(_self))->m94())
-#define PSO_VCALL_VObj_18_9c7b63_m100(_self) (((VObj_18_9c7b63 *)(_self))->m100())
 
 void TObjEneBm9Mericarol::handle_state_message(s32 msg) {
     switch (msg) {
@@ -1044,7 +916,7 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 6;
-      PSO_VCALL_VObj_18_9c7b63_m94(arg0);
+      (this->vfunc_96());
       TObjEneBm9Mericarol__sub_802D093C((void *) arg0);
       *((s32 *) (((s8 *) arg0) + 0x438)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x438))) & (~0x28));
       ((TBoss8Dragon *)arg0)->refresh_and_send_entity_flags();
@@ -1078,7 +950,7 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
         TObjPlayer::spawn_dead_spot_here((s32)((void *) (&stack.sp8)), (s32)((int) 0x32));
         ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect((int) 0x46);
       }
-        PSO_VCALL_VObj_18_9c7b63_m100(arg0);
+        (this->vfunc_102());
         return;
       case 1:
         *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x3C))) - lbl_805DE714);
@@ -1094,9 +966,6 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
 }
 typedef struct VBase_18_9e83f9 VBase_18_9e83f9;
 typedef struct VObj_18_9e83f9 VObj_18_9e83f9;
-#define PSO_VCALL_VObj_18_9e83f9_m94(_self) (((VObj_18_9e83f9 *)(_self))->m94())
-#define PSO_VCALL_VObj_18_9e83f9_m100(_self) (((VObj_18_9e83f9 *)(_self))->m100())
-#define PSO_VCALL_VObj_18_9e83f9_m86(_self) (((VObj_18_9e83f9 *)(_self))->m86())
 void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
   s16 temp_r3;
   s16 temp_r4;
@@ -1105,7 +974,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) actor) + 0xB8)) = 5;
-      PSO_VCALL_VObj_18_9e83f9_m94(actor);
+      (((VObj_18_9e83f9 *)(actor))->m94());
       TObjEneBm9Mericarol__sub_802D093C((void *) actor);
       temp_r5 = *((s32 *) (((s8 *) actor) + 0x438));
       *((s32 *) (((s8 *) actor) + 0x438)) = (s32) (temp_r5 & (~0x28));
@@ -1133,8 +1002,8 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
     return;
     case 0:
       advance_animation_playback((void *)(actor));
-      PSO_VCALL_VObj_18_9e83f9_m100(actor);
-      PSO_VCALL_VObj_18_9e83f9_m86(actor);
+      (((VObj_18_9e83f9 *)(actor))->m100());
+      (((VObj_18_9e83f9 *)(actor))->m86());
       TObjEneBm9Mericarol__sub_802D073C((void *)((void *)((void *) actor)));
       return;
     case 5:
@@ -1146,10 +1015,6 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
 }
 typedef struct VBase_18_3b55b6 VBase_18_3b55b6;
 typedef struct VObj_18_3b55b6 VObj_18_3b55b6;
-#define PSO_VCALL_VObj_18_3b55b6_m94(_self) (((VObj_18_3b55b6 *)(_self))->m94())
-#define PSO_VCALL_VObj_18_3b55b6_m89(_self) (((VObj_18_3b55b6 *)(_self))->m89())
-#define PSO_VCALL_VObj_18_3b55b6_m100(_self, _arg0) (((VObj_18_3b55b6 *)(_self))->m100((_arg0)))
-#define PSO_VCALL_VObj_18_3b55b6_m86(_self) (((VObj_18_3b55b6 *)(_self))->m86())
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
   s32 temp_r0;
   s32 temp_r3;
@@ -1159,8 +1024,8 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 2;
-      PSO_VCALL_VObj_18_3b55b6_m94(arg0);
-      PSO_VCALL_VObj_18_3b55b6_m89(arg0);
+      (((VObj_18_3b55b6 *)(arg0))->m94());
+      (((VObj_18_3b55b6 *)(arg0))->m89());
       TObjEneBm9Mericarol__sub_802D093C((void *) arg0);
       *((s32 *) (((s8 *) arg0) + 0x438)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x438))) & 0xFFFFFFF7);
       *((s32 *) (((s8 *) arg0) + 0x438)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x438))) | 0x20);
@@ -1199,8 +1064,8 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
     }
       temp_r4 = *((s32 *) (((s8 *) arg0) + 0x490));
       *((s32 *) (((s8 *) arg0) + 0x490)) = (s32) (temp_r4 + 1);
-      PSO_VCALL_VObj_18_3b55b6_m100(arg0, temp_r4);
-      PSO_VCALL_VObj_18_3b55b6_m86(arg0);
+      (((VObj_18_3b55b6 *)(arg0))->m100((temp_r4)));
+      (((VObj_18_3b55b6 *)(arg0))->m86());
       TObjEneBm9Mericarol__sub_802D073C((void *)((void *) arg0));
       return;
     case 5:
@@ -1300,7 +1165,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
             }
             *(s32 *)((s8 *)arg0 + 0x4A0) = (s32) (lbl_804724B8 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8))));
             *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x4A0)), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8)));
-            ((VObj_18_313dd8 *)(arg0))->m87();
+            ((TObjEneDD *)(arg0))->vfunc_89();
             return;
         case 1:
             fn_802CE510((void *) (arg0));
@@ -1337,7 +1202,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 3;
                 *(s32 *)((s8 *)arg0 + 0x490) = 3;
             }
-            ((VObj_18_313dd8 *)(arg0))->m87();
+            ((TObjEneDD *)(arg0))->vfunc_89();
             ((TObjEneDD *)arg0)->move_clamped_on_ground((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), (f32) (*(f32 *)((s8 *)arg0 + 0x4A4)));
             return;
         }
@@ -1363,7 +1228,7 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 8;
-        ((VObj_18 *)(arg0))->m94();
+        ((TObjEneDD *)(arg0))->vfunc_96();
         TObjEneBm9Mericarol__sub_802D0940(arg0);
         *(s32 *)((s8 *)arg0 + 0x438) &= ~8;
         *(s32 *)((s8 *)arg0 + 0x438) |= 0x20;
@@ -1440,8 +1305,8 @@ void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x4A0) = (s32)(lbl_804724B8 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8)));
         *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x4A0), (void *)*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
         *(s32 *)((s8 *)arg0 + 0x60) = (s16)*(s32 *)((s8 *)arg0 + 0x60);
-        ((VObj_18 *)(arg0))->m100();
-        ((VObj_18 *)(arg0))->m86();
+        ((TObjEneDD *)(arg0))->vfunc_102();
+        ((TObjEneDD *)(arg0))->vfunc_88();
         TObjEneBm9Mericarol__sub_802D073C(arg0);
         break;
     case 5:
@@ -1458,7 +1323,7 @@ void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        ((VObj_18_9e83f9 *)(arg0))->m94();
+        ((TObjEneDD *)(arg0))->vfunc_96();
         TObjEneBm9Mericarol__sub_802D0940(arg0);
         *(s32 *)((s8 *)arg0 + 0x438) &= ~8;
         *(s32 *)((s8 *)arg0 + 0x438) |= 0x20;
@@ -1489,8 +1354,8 @@ void handle_shot_state__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x4A0) = (s32)(lbl_804724B8 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8)));
         *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x4A0), (void *)*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
         *(s32 *)((s8 *)arg0 + 0x60) = (s16)*(s32 *)((s8 *)arg0 + 0x60);
-        ((VObj_18_9e83f9 *)(arg0))->m100();
-        ((VObj_18_9e83f9 *)(arg0))->m86();
+        ((TObjEneDD *)(arg0))->vfunc_102();
+        ((TObjEneDD *)(arg0))->vfunc_88();
         TObjEneBm9Mericarol__sub_802D073C(arg0);
         break;
     case 5:
@@ -1514,7 +1379,7 @@ void TObjEneBm9Mericarol__sub_802D01D8(u8 *actor, s32 arg1) {
         } else {
             *(s16 *)((s8 *)actor + 0xB8) = 3;
         }
-        ((VObj_18_9aa5d1 *)(actor))->m94();
+        ((TObjEneDD *)(actor))->vfunc_96();
         TObjEneBm9Mericarol__sub_802D0940((void *) (actor));
         temp_r5 = *(s32 *)((s8 *)actor + 0x438);
         *(s32 *)((s8 *)actor + 0x438) = (s32) (temp_r5 & ~0x28);
@@ -1569,8 +1434,8 @@ void TObjEneBm9Mericarol__sub_802D01D8(u8 *actor, s32 arg1) {
         *(s32 *)((s8 *)actor + 0x4A0) = (s32) (lbl_804724B8 * atan2_float(*(f32 *)((s8 *)actor + 0x3A0), *(f32 *)((s8 *)actor + 0x3A8)));
         *(s32 *)((s8 *)actor + 0x60) = approach_angle_limited(*(s32 *)((s8 *)actor + 0x60), *(s32 *)((s8 *)actor + 0x4A0), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x350)) + 8)));
         *(s32 *)((s8 *)actor + 0x60) = (s32) (s16) *(s32 *)((s8 *)actor + 0x60);
-        ((VObj_18_9aa5d1 *)(actor))->m100();
-        ((VObj_18_9aa5d1 *)(actor))->m86();
+        ((TObjEneDD *)(actor))->vfunc_102();
+        ((TObjEneDD *)(actor))->vfunc_88();
         TObjEneBm9Mericarol__sub_802D073C((void *) (actor));
         break;
     }

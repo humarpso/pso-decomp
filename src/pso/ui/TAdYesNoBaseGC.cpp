@@ -105,12 +105,12 @@ void TAdYesNoBaseGC::vfunc_11() {
             selected_menu_value = get_selected_menu_value(this->m_44);
             switch (selected_menu_value) {
             case 0:
-                ((VtObj8032C1C8_8032C188*)this)->m6();
+                this->vfunc_8();
                 *(s32 *)&this->m_1c = 2;
                 *(s32 *)&this->m_24 = 3;
                 break;
             case 1:
-                ((VtObj8032C1C8_8032C188*)this)->m7();
+                this->vfunc_9();
                 *(s32 *)&this->m_1c = 2;
                 *(s32 *)&this->m_24 = 4;
                 break;

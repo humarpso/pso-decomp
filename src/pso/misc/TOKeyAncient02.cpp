@@ -42,26 +42,6 @@ struct Pkt_8016B84C { u8 code, words; u16 object, zero, reserved, switchId; u8 a
 
 struct Self_8016B84C { u8 pad[0x1C]; u16 id; u8 pad1e[0xC8 - 0x1E]; s32 switchId; };
 
-struct VBase_8016B33C { u8 pad0[0x18]; };
-
-struct VObj_8016B33C : VBase_8016B33C {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18();
-};
-
-struct VBase_8016B414 { u8 pad0[0x18]; };
-
-struct VObj_8016B414 : VBase_8016B414 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18();
-};
-
 extern "C" {
 s32 is_split_screen();
 s32 scale_matrix_vec3(int, void *);
@@ -186,7 +166,7 @@ void TOKeyAncient02::vfunc_17() {
         }
     }
     *(s32 *)(arg0 + 0xEC) += 0x222;
-    ((VObj_8016B33C *)arg0)->m18();
+    this->submit_cursor_target();
 }
 
 void TOKeyAncient02::vfunc_16() {
@@ -207,7 +187,7 @@ void TOKeyAncient02::vfunc_16() {
         }
     }
     *(s32 *)(arg0 + 0xEC) += 0x444;
-    ((VObj_8016B414 *)arg0)->m18();
+    this->submit_cursor_target();
 }
 
 void *TOKeyAncient02::create(void *arg0) {

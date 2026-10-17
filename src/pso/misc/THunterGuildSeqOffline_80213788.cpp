@@ -184,7 +184,7 @@ void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0) {
         }
     } else {
 block_3:
-        if ((((V_A_80213788 *) arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
+        if ((((TShopWindowBase *)arg0)->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
             ((V_A_80213788 *) arg0)->m7(0xC, 1);
             *(s32 *)((s8 *)arg0 + 0x34) = 1;
             ((TShopWindowBase *)arg0)->set_field_20((s32)0xC);
@@ -201,7 +201,7 @@ void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0) {
         }
     } else {
 block_3:
-        if ((((V_A_8021383c_80213788 *) arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
+        if ((((TShopWindowBase *)arg0)->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
             ((V_A_8021383c_80213788 *) arg0)->m7(0xC, 1);
             *(s32 *)((s8 *)arg0 + 0x34) = 1;
             ((TShopWindowBase *)arg0)->set_field_20((s32)0xC);
@@ -210,7 +210,7 @@ block_3:
 }
 
 void handle_close__22THunterGuildSeqOfflineFPv(void *arg0) {
-    if ((((VObj_802138F0_80213788 *)arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
+    if ((((TShopWindowBase *)arg0)->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
         ((VObj_802138F0_80213788 *)arg0)->m7(0xC, 1);
         *(s32 *)((s8 *)arg0 + 0x34) = 0;
         ((TShopWindowBase *)arg0)->set_field_20((s32)0xC);
@@ -828,7 +828,7 @@ void update__15TShopWindowBaseFPv(void *arg0) {
         }
     } else {
 block_3:
-        if ((((V_A_80214490_802143AC *) arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
+        if ((((TShopWindowBase *)arg0)->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
             ((V_A_80214490_802143AC *) arg0)->m7(0xC, 1);
             *(s32 *)((s8 *)arg0 + 0x34) = 1;
             ((TShopWindowBase *)arg0)->set_field_20((s32)((s32)(0xC)));
@@ -845,7 +845,7 @@ void update_confirm_input__15TShopWindowBaseFPv(void *arg0) {
         }
     } else {
 block_3:
-        if ((((V_A_80214544_802143AC *) arg0)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
+        if ((((TShopWindowBase *)arg0)->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
             ((V_A_80214544_802143AC *) arg0)->m7(0xC, 1);
             *(s32 *)((s8 *)arg0 + 0x34) = 1;
             ((TShopWindowBase *)arg0)->set_field_20((s32)((s32)(0xC)));
@@ -856,7 +856,7 @@ block_3:
 void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
-    if (((VObj_18 *)(arg0))->m8() != 0) {
+    if (((TShopWindowBase *)(arg0))->vfunc_10() != 0) {
         if (sub_80223A48__15TShopWindowBaseFv((void *) (arg0)) != 0) {
             *(s32 *)((s8 *)arg0 + 0x40) = 0;
         }

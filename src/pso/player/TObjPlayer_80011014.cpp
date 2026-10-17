@@ -3989,7 +3989,7 @@ s32 update_poison_status__10TObjPlayerFv(u8 *arg0) {
 
 s32 TUnk_804806E8::vfunc_43() {
     if (((s32 (*)(void *, s32))obj_testFlags30)(((Player_800172CC *)this), 0x40) != 0) {
-        ((Player_800172CC *)this)->m48();
+        this->clear_harmful_statuses();
         return 1;
     }
     if (((s32 (*)(void *))obj_isState2_324)(((Player_800172CC *)this)) != 0) {

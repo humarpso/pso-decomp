@@ -6,57 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-    virtual s32 m13();
-    virtual s32 m14();
-};
-
-struct VBase_18_f23361 { char pad[0x18]; };
-
-struct VObj_18_f23361 : VBase_18_f23361 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual s32 m25();
-};
-
 struct RecoveredGlobal_8010255C_lbl_8050BEC0 {
     s32 value;
     u8 remaining[0x1C];
@@ -193,7 +142,7 @@ void TItem::render_shadows() {
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
             copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
-            ((VObj_18_f23361 *)(arg0))->m25();
+            this->vfunc_27();
             copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -254,8 +203,8 @@ void TItem::run_task() {
         this->m_f0 = get_player_by_client_id((void *) (((TItemProArmor *)arg0)->get_id()));
         if ((u32) this->m_f0 != 0U) {
             ((TItem *)arg0)->update_owner_visibility();
-            ((VObj_18 *)(arg0))->m12();
-            ((VObj_18 *)(arg0))->m13();
+            this->vfunc_14();
+            this->vfunc_15();
         }
         break;
     case 2:
@@ -264,8 +213,8 @@ void TItem::run_task() {
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
             ((TItem *)arg0)->update_owner_visibility();
-            ((VObj_18 *)(arg0))->m12();
-            ((VObj_18 *)(arg0))->m14();
+            this->vfunc_14();
+            this->vfunc_16();
             ((TObjPlayer *)arg0)->get_field_d8();
             push_to_player_list__5TItemFPv();
         }

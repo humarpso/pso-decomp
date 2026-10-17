@@ -72,15 +72,6 @@ struct VObj_802A7378 : PBase_802A7378 {
     Slot_802A7378 slots[1];
 };
 
-struct Base_802A75C8 { char pad[0x8]; };
-
-struct VObj_802A75C8 : Base_802A75C8 {
-    virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
-    virtual void m4();   virtual void m5();   virtual void m6();   virtual void m7();
-    virtual void m8();   virtual void m9();   virtual void m10();  virtual void m11();
-    virtual void m12();
-};
-
 extern "C" {
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
@@ -193,7 +184,7 @@ s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
     s32 b = ((TObjPlayer *)arg0)->sub_802a7290_fwd();
     s32 r = load_action_motion_pairs__13TUnk_804DDD28Flll(arg0, arg1, a, b);
     if (r != 0) {
-        ((VObj_802A75C8 *)arg0)->m12();
+        ((TUnk_804DDBF0 *)arg0)->vfunc_14();
     }
     return r;
 }

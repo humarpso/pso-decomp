@@ -2,47 +2,6 @@
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneBm9Mericarol.h"
 
-#define CAT2(a,b) a##b
-#define CAT(a,b) CAT2(a,b)
-#define V8 virtual void CAT(f,__LINE__)(); virtual void CAT(g,__LINE__)(); \
-    virtual void CAT(h,__LINE__)(); virtual void CAT(i,__LINE__)(); \
-    virtual void CAT(j,__LINE__)(); virtual void CAT(k,__LINE__)(); \
-    virtual void CAT(l,__LINE__)(); virtual void CAT(n,__LINE__)();
-struct Base_A { char pad[0x18]; };
-struct V_A : Base_A {
-    V8
-    V8
-    V8
-    V8
-    V8
-    V8
-    V8
-    V8
-    V8
-    V8
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void m86();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void m94();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void CAT(f,__LINE__)();
-    virtual void m100();
-};
-
 extern "C" {
 
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
@@ -59,7 +18,7 @@ void TObjEneBm9Mericarol::handle_event(s32 arg1) {
     switch (arg1) {
     case 4:
         this->m_b8 = 2;
-        ((V_A *) this)->m94();
+        this->vfunc_96();
         TObjEneBm9Mericarol__sub_802D093C(this);
         temp_r5 = *(s32 *)&this->m_454;
         *(s32 *)&this->m_454 = (s32) (temp_r5 & ~0x28);
@@ -75,8 +34,8 @@ void TObjEneBm9Mericarol::handle_event(s32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        ((V_A *) this)->m100();
-        ((V_A *) this)->m86();
+        this->vfunc_102();
+        this->vfunc_88();
         break;
     }
 }

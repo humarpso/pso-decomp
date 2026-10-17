@@ -218,7 +218,7 @@ void TUnk_804CCC68::dispatch_technique_contact() {
         var_r31 = query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
     }
     if (var_r31 == NULL) {
-        ((VObj_8023A148*)((u8 *)this))->m4();
+        this->vfunc_6();
         queue_destruction__7TObjectFv((void *) (((u8 *)this)));
         return;
     }
@@ -248,7 +248,7 @@ void TUnk_804CCC68::dispatch_all_technique_contacts() {
         list = (List_8023A244 *) query_technique_player_contacts(*(s32 *)((s8 *)((u8 *)this) + 0x1C));
     }
     if (list == NULL) {
-        ((VObj_8023A244 *) ((u8 *)this))->m4();
+        this->vfunc_6();
         queue_destruction__7TObjectFv((void *) (((u8 *)this)));
         return;
     }

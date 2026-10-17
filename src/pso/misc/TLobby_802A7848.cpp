@@ -132,7 +132,7 @@ s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
     s32 pkt;
     u8 *dst;
     s32 *drop;
-    if (((VObj_802A7994 *)this)->m2() == 0U) {
+    if (this->vfunc_4() == 0U) {
         return 0;
     }
     slots = ((VObj_802A7994 *)this)->m6(arg2, arg3);
@@ -141,7 +141,7 @@ s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
     }
     TLobby__sub_802A7BC8(&sp8);
     dst = ((VObj_802A7994 *)this)->m75(arg2);
-    for (i = 0; i < ((VObj_802A7994 *)this)->m73(); i++) {
+    for (i = 0; i < this->vfunc_75(); i++) {
         ((void (*)(s32, void *))set_slot_position__6TLobbyFii)(*slots, &sp8);
         f4 = ((TLobby *)(&sp8))->get_field_04();
         pkt = ((TLobby *)((VObj_802A7994 *)this))->send_packet(arg1, i, f4, ((TLobby *)(&sp8))->get_param());

@@ -493,14 +493,14 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
   {
     if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != 5)
     {
-      if ((((VObj_18_6fcf4f *)(arg0))->m31()) != 0)
+      if ((((TBoss3VoloptHiraisin *)(arg0))->has_flag_0x800()) != 0)
       {
-        (((VObj_18_6fcf4f *)(arg0))->m61());
+        (((TBoss3VoloptHiraisin *)(arg0))->vfunc_63());
       }
       else
-        if ((((VObj_18_6fcf4f *)(arg0))->m30()) != 0)
+        if ((((TBoss3VoloptHiraisin *)(arg0))->test_flag30_512()) != 0)
       {
-        (((VObj_18_6fcf4f *)(arg0))->m60());
+        (((TBoss3VoloptHiraisin *)(arg0))->vfunc_62());
       }
     }
     if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != ((s32) (*((s32 *) (((s8 *) arg0) + 0x374)))))
@@ -840,7 +840,7 @@ void TBoss3VoloptHiraisin::init_params() {
     sub_800C7860__15TObjEnemyCustomFv(((Hira_800418C8 *)this));
     ((TUnk_804806E8 *)((Hira_800418C8 *)this))->add_flags_2e4(4);
     obj_setFlags30(((Hira_800418C8 *)this), 0x8000);
-    ((Hira_800418C8 *)this)->m80();
+    this->clear_lobby_object_state();
 }
 
 S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 b) {

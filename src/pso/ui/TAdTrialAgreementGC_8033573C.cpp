@@ -17,17 +17,6 @@ struct VObj_803357EC_8033573C : Base_803357EC_8033573C {
     virtual void m9();
 };
 
-struct VBase_18_f8ef8c { char pad[0x18]; };
-
-struct VObj_18_f8ef8c : VBase_18_f8ef8c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5();
-};
-
 struct RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC {
     s32 value;
     u8 remaining[0x34];
@@ -102,7 +91,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdTrialAgreementGC__name;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     if (TAdTrialAgreementGC::check_card_file((s32)((void *) (arg0))) != 0) {
-        ((VObj_18_f8ef8c *)(arg0))->m5();
+        ((TAdTrialAgreementGC *)(arg0))->vfunc_7();
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }

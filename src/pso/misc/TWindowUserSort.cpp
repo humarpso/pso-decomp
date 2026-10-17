@@ -7,17 +7,6 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_f8ef8c { char pad[0x18]; };
-
-struct VObj_18_f8ef8c : VBase_18_f8ef8c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5();
-};
-
 struct RecoveredGlobal_80288490_lbl_804D0460 { s32 value; u8 remaining[0x3C]; };
 typedef char RecoveredGlobal_80288490_lbl_804D0460_size[sizeof(RecoveredGlobal_80288490_lbl_804D0460) == 0x40 ? 1 : -1];
 
@@ -118,7 +107,7 @@ void TWindowMainMenu1P::vfunc_6() {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D0460.value);
             }
             ((TWindowMainMenu1P *)arg0)->create_char_select_slot();
-            ((VObj_18_f8ef8c *)(arg0))->m5();
+            this->vfunc_7();
         }
     }
 }

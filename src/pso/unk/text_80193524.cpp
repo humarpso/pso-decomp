@@ -59,30 +59,6 @@ struct VObj_14_aa9368 : VBase_14_aa9368 {
     virtual s32 m7();
 };
 
-struct VBase_18_582a4f { char pad[0x18]; };
-
-struct VObj_18_582a4f : VBase_18_582a4f {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual s32 m18();
-};
-
 struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
     u8 * value;
     u8 remaining[0x14];
@@ -400,7 +376,7 @@ void TLazerFenceSw__vt15(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0xB0) > (f32) (u32) (*(s32 *)((s8 *)((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value) + 4) - 1)) {
         *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TLazerFenceSw__data_805DBE84;
     }
-    ((VObj_18_582a4f *)(arg0))->m18();
+    ((TLazerFenceSw *)(arg0))->submit_cursor_target();
 }
 
 void TLazerFenceSw::run_task() {

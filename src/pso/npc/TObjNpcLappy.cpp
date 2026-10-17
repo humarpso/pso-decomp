@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcLappy.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcMaleBase.h"
@@ -254,7 +255,7 @@ u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
     *(s32 *)(self + 0) = TObjNpcLappy__name;
     ((VObj_8014B704 *)self)->m79(arg2);
     ((TObjPlayer *)self)->init_position_vectors();
-    ((VObj_8014B704 *)self)->m85(0, 1);
+    ((TObjNpcLappy *)self)->apply_set_params(0, 1);
     *(s32 *)(self + 0x34) = *(s32 *)(*(u8 **)(rappy_bml_resource + 0x42C) + 8);
     *(s32 *)(self + 0x24) = *(s32 *)(*(u8 **)(rappy_bml_resource + 0x42C) + 0xC);
     ((TObjPlayer *)self)->init_npc_animation((void*)npc_lappy_animation_table, (void*)(*(s32 *)(rappy_bml_resource + 0x430)), (void*)(*(s16 *)(self + 0xB8)));

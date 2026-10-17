@@ -30,28 +30,6 @@ struct VObj_8016AE84_8016AD58 : Base_8016AE84_8016AD58 {
     virtual void m18();
 };
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual s32 m18();
-};
 struct VBase18 { char pad[0x18]; };
 
 struct VObj18 : VBase18 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
@@ -152,7 +130,7 @@ void TOKeyAncient01::render() {
 void TOKeyAncient01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     update_anim_phase__13TUnk_804AFBF8Fv();
-    ((VObj_18 *)(arg0))->m18();
+    this->submit_cursor_target();
 }
 
 void TOKeyAncient01::vfunc_16() {

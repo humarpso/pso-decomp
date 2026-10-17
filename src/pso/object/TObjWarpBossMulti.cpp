@@ -115,15 +115,6 @@ struct Pkt_8019E6C0 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
 
 struct Obj_8019E6C0 { u8 pad[0x1c]; u16 id; };
 
-struct Base_A_8019e97c { char pad[0x18]; };
-struct V_A_8019e97c : Base_A_8019e97c {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(s32);
-};
-
 struct Warp_8019EE14 {
     u8 pad0[0x38];
     f32 pos[3];
@@ -1456,7 +1447,7 @@ void TObjWarpBoss::update_state() {
             temp_r3 = ((s32 (*)(void *, f32))TObjWarpBossMulti__sub_8019E570)(this, *(f32 *)((s8 *)this + 0xAC));
             if (temp_r3 != 0) {
                 TObjWarpBossMulti::notify_player(this, local_client_id);
-                ((V_A_8019e97c *)this)->m17(temp_r3);
+                this->confirm_area_transfer(temp_r3);
                 *(s16 *)((s8 *)this + 0xE0) = 2;
             }
         }

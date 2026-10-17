@@ -7,30 +7,6 @@
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 
-#define CAT2(a,b) a##b
-#define CAT(a,b) CAT2(a,b)
-struct F_A_80186f84 { char pad[0x18]; };
-struct F_V_80186f84 : F_A_80186f84 {
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void CAT(pv, __LINE__)();
-    virtual void m17(s32);
-};
-
 struct Warp_80187438 {
     u8 pad0[0x38];
     f32 pos[3];
@@ -108,7 +84,7 @@ void TObjCityMainWarp::update_state() {
             if (temp_r3 != 0) {
                 TObjCityMainWarp::notify_player_warp(this, local_client_id);
                 *(s32 *)((s8 *)this + 0xBC) = (s32) city_main_warp_destination_id;
-                ((F_V_80186f84 *) this)->m17(temp_r3);
+                this->confirm_area_transfer(temp_r3);
                 *(s16 *)((s8 *)this + 0xE0) = 2;
             }
         }

@@ -30,19 +30,6 @@ struct VObj_8021FF30_8021FE6C : Base_8021FF30_8021FE6C {
     virtual void m7();
     virtual s32  m8();
 };
-struct Base_8021FFB8_8021FE6C { char pad[0x18]; };
-struct VObj_8021FFB8_8021FE6C : Base_8021FFB8_8021FE6C {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int m8();
-};
-
 struct VBase_18_a93f07
 {
   char pad[0x18];
@@ -204,14 +191,14 @@ extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 
 s32 TShopItemTecSequence::handle_select() {
-    if ((((VObj_8021FF30_8021FE6C*)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         ((VObj_8021FF30_8021FE6C*)this)->m4(lbl_805D6248, 1);
         ((TShopWindowBase *)this)->set_field_20((s32)(lbl_805D624C));
     }
 }
 
 s32 TShopItemTecSequence::close_if_done() {
-    if ((((VObj_8021FFB8_8021FE6C *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         close_if_single_screen__13TShopSequenceFv(this);
         close_window__13TShopSequenceFv(this);
         queue_destruction__7TObjectFv(this);
@@ -221,7 +208,6 @@ s32 TShopItemTecSequence::close_if_done() {
 typedef struct Stack_802202BC Stack_802202BC;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
-#define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
 
 void TShopItemTecSequence::open_sell_window() {
     W_80220030 *o = (W_80220030 *)__nw__7TObjectFUl(0x3ac);
@@ -285,7 +271,7 @@ s32 TShopItemTecSequence::open_greeting() {
   stack.sp8 = lbl_805DC700;
   stack.spC = lbl_805DC704;
   ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC700), (s32) (&stack.sp8));
-  PSO_VCALL_VObj_18_a93f07_m4(((u8 *)this), 0x2E, 1);
+  (((VObj_18_a93f07 *)(((u8 *)this)))->m4((0x2E), (1)));
   *((s32 *) (((s8 *) ((u8 *)this)) + 0x2C)) = create_meseta_window((s32) ((((((TShopSequence *)((u8 *)this))->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
   ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
   *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) ((u8 *)this), (int) 5);

@@ -3,17 +3,6 @@
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_f8ef8c { char pad[0x18]; };
-
-struct VObj_18_f8ef8c : VBase_18_f8ef8c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5();
-};
-
 struct RecoveredGlobal_802889A8_lbl_804D04F8 { s32 value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_802889A8_lbl_804D04F8_size[sizeof(RecoveredGlobal_802889A8_lbl_804D04F8) == 0x38 ? 1 : -1];
 
@@ -54,7 +43,7 @@ void TWindowMainMenu4P::vfunc_6() {
             } else {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D04F8.value);
             }
-            ((VObj_18_f8ef8c *)(arg0))->m5();
+            this->vfunc_7();
         }
     }
 }

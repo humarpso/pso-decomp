@@ -510,29 +510,6 @@ void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0) {
 
 #include "types.h"
 
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
-
 struct Vec_800D3314 { f32 x, y, z; };
 
 struct VBase_800D3314 { char pad[0x18]; };
@@ -752,92 +729,6 @@ struct Res_800D3C04 { u8 pad0[0x38]; s32 r38; s32 r3C; u8 pad40[8]; s32 r48; };
 struct Area_800D3C04 { u8 pad0[0x42C]; Res_800D3C04 *res; s32 f430; };
 
 struct Obj_800D3E54 { u8 pad0[0x18]; void *vt; };
-
-struct VBase_18_fe72f9 { char pad[0x18]; };
-
-struct VObj_18_fe72f9 : VBase_18_fe72f9 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual s32 m79(void *);
-    virtual s32 m80();
-};
 
 struct E_800D3ED8 { u8 pad[0x1C]; };
 
@@ -1532,7 +1423,7 @@ void TObjPlayer__sub_800D3314(u8 *arg0) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x390, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
             VecCopy__FP3VecPC3Vec(arg0 + 0x29C, *(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);
         } else {
-            ((VObj_800D3314 *)arg0)->m56();
+            ((TObjEnemyCustom *)arg0)->vfunc_58();
             return;
         }
         enemy_turn_toward_dest(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
@@ -1638,7 +1529,7 @@ void TObjEneGyaranzo::sub_800D37F4() {
     switch (this->mode) {
     case 0:
     case 8:
-        if (((VObj_18 *)(((u8 *)this)))->m17(0x1E) != 0) {
+        if (this->vfunc_19(0x1E) != 0) {
             select_targets__19TObjGyaranzoMissileFPv(((u8 *)this));
             if (*(s32 *)&this->unk_3CC > 0) {
                 switch (*(s32 *)&this->m_3a8) {
@@ -1670,14 +1561,14 @@ void TObjEneGyaranzo::sub_800D37F4() {
                     }
                     break;
                 }
-            } else if (((VObj_18 *)(((u8 *)this)))->m17(0x1E) != 0 &&
+            } else if (this->vfunc_19(0x1E) != 0 &&
                        xz_distance_squared(((u8 *)this) + 0x38, ((u8 *)this) + 0x50) > lbl_805DA25C) {
                 update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 8);
             }
         }
         break;
     case 1:
-        if (((VObj_18 *)(((u8 *)this)))->m17(0x1E) != 0) {
+        if (this->vfunc_19(0x1E) != 0) {
             f32 *p = *(f32 * *)&this->movementParameters;
             r = find_nearest_visible_player(((u8 *)this), 0, (int)p, lbl_805DA290 + *p);
             if (this->targetId == 0xFFFF) {
@@ -1848,7 +1739,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TUnk_80494938 *)((u8 *)(arg0) + 0x3D0))->init_common();
     __construct_array((void *) ((u8 *)(arg0) + 0x3EC), (void *) (&init_and_activate__10TObjPlayerFv), (void *) (&__dt__13TUnk_804949A8Fv), (int) (0x1C), (int) (4));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A78;
-    ((VObj_18_fe72f9 *)(arg0))->m79(arg2);
+    ((TObjEneGyaranzo *)(arg0))->apply_set_data(arg2);
     VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x290, VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x29C, (u8 *)(arg0) + 0x38));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x430);
     *(u8 **)((s8 *)arg0 + 0xD8) = (u8 *) gyaranzo_action_table;
@@ -1885,7 +1776,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&((Gy_800D3ED8 *) arg0)->e3EC[i]))->activate_and_dispatch();
     }
-    ((VObj_18_fe72f9 *)(arg0))->m80();
+    ((TObjEneGyaranzo *)(arg0))->clear_lobby_object_state();
     return arg0;
 }
 

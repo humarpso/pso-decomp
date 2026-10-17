@@ -23,19 +23,6 @@ struct VObj_8021B338 : Base_8021B338 {
     virtual void m7();
     virtual s32  m8();
 };
-struct Base_8021B3C0 { char pad[0x18]; };
-struct VObj_8021B3C0 : Base_8021B3C0 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int m8();
-};
-
 extern "C" {
 
 s32 close_if_single_screen__13TShopSequenceFv(void *);
@@ -77,14 +64,14 @@ extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
 
 void TShopEquipmentGearSequence::handle_confirm() {
-    if ((((VObj_8021B338*)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         ((VObj_8021B338*)this)->m4(lbl_805D6218, 1);
         ((TShopWindowBase *)this)->set_field_20((s32)(lbl_805D621C));
     }
 }
 
 void TShopEquipmentGearSequence::try_close() {
-    if ((((VObj_8021B3C0 *)this)->m8() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
+    if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         close_if_single_screen__13TShopSequenceFv(this);
         close_window__13TShopSequenceFv(this);
         queue_destruction__7TObjectFv(this);

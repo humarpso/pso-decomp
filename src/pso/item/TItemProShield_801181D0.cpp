@@ -6,24 +6,6 @@
 #include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer.h"
 
-struct Base_80118334_801181D0 { char pad[0x18]; };
-struct VObj_80118334_801181D0 : Base_80118334_801181D0 {
-    virtual void m0();
-    virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
-    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8();
-    virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12();
-    virtual void m13(); virtual void m14(); virtual void m15(); virtual void m16();
-    virtual void m17(); virtual void m18(); virtual void m19(); virtual void m20();
-    virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
-    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28();
-    virtual void m29(); virtual void m30(); virtual void m31(); virtual void m32();
-    virtual void m33(); virtual void m34(); virtual void m35(); virtual void m36();
-    virtual void m37(); virtual void m38(); virtual void m39(); virtual void m40();
-    virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
-    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48();
-    virtual void m51();
-};
-
 struct VBase_18_1a8f71 { char pad[0x18]; };
 
 struct VObj_18_1a8f71 : VBase_18_1a8f71 {
@@ -150,7 +132,7 @@ void TItemProShield::vfunc_14() {
 }
 
 void TItemProShield::vfunc_16() {
-    ((VObj_80118334_801181D0 *)this)->m51();
+    this->vfunc_51();
     register_technique_boosts__14TItemEquipBaseFPvPv(this, *(s32 *)&this->m_194);
     if (*(s32 *)&this->m_19c & 4) {
         refresh_owner_stats();

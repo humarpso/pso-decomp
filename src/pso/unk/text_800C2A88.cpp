@@ -178,9 +178,6 @@ typedef struct VBase_14_00f1d1 VBase_14_00f1d1;
 typedef struct VBase_18_9c7b63 VBase_18_9c7b63;
 typedef struct VObj_14_00f1d1 VObj_14_00f1d1;
 typedef struct VObj_18_9c7b63 VObj_18_9c7b63;
-#define PSO_VCALL_VObj_18_9c7b63_m94(_self) (((VObj_18_9c7b63 *)(_self))->m94())
-#define PSO_VCALL_VObj_18_9c7b63_m100(_self) (((VObj_18_9c7b63 *)(_self))->m100())
-#define PSO_VCALL_VObj_14_00f1d1_m4(_self) (((VObj_14_00f1d1 *)(_self))->m4())
 
 void fn_800C2A88(void *self, s32 msg) {
     switch (msg) {
@@ -201,7 +198,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
     return;
     case 4:
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_B8 = 5;
-      PSO_VCALL_VObj_18_9c7b63_m94(arg0);
+      (((TObjEneDD *)(arg0))->vfunc_96());
       ((TObjEneRe2Flower *)arg0)->clear_child_flags();
       ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_3C4 = (int) (((RecoveredFields_800C2AC4_arg0 *) arg0)->field_3C4 & 0xFFFFFFF7);
       ((TBoss8Dragon *)arg0)->refresh_and_send_entity_flags();
@@ -244,12 +241,12 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
           ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect((int) 0x46);
         }
       }
-        PSO_VCALL_VObj_18_9c7b63_m100(arg0);
+        (((TObjEneDD *)(arg0))->vfunc_102());
         return;
       case 1:
         if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0)
       {
-        if (PSO_VCALL_VObj_14_00f1d1_m4(((u8 *) arg0) + 1012) != 0)
+        if ((((VObj_14_00f1d1 *)(((u8 *) arg0) + 1012))->m4()) != 0)
         {
           ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 2;
           return;

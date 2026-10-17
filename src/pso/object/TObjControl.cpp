@@ -687,16 +687,16 @@ void TObjEnemy::apply_hit_message_flags(void *arg1_arg) {
     } else {
         flags = arg1->flags;
         if ((flags & 2) && obj_testFlags30(((VObj_800F673C *)this), 2) == 0) {
-            ((VObj_800F673C *)this)->m43();
+            this->apply_paralysis();
         }
         if ((flags & 4) && obj_testFlags30(((VObj_800F673C *)this), 4) == 0) {
-            ((VObj_800F673C *)this)->m47();
+            this->apply_shock_status();
         }
         if ((flags & 0x10) && obj_testFlags30(((VObj_800F673C *)this), 0x10) == 0) {
-            ((VObj_800F673C *)this)->m45();
+            this->apply_confusion_status();
         }
         if ((flags & 0x20) && obj_testFlags30(((VObj_800F673C *)this), 0x20) == 0) {
-            ((VObj_800F673C *)this)->m46(0);
+            this->apply_movement_ailment(0);
         }
     }
     obj_setFlags30(((VObj_800F673C *)this), flags);

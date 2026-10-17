@@ -2,14 +2,6 @@
 #include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/misc/TRaderMapCore.h"
 
-struct VBase_14 { char pad[0x14]; };
-struct VObj_14 : VBase_14 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual s32 m3();
-};
-
 struct O_80156BBC { u8 pad0[0x18]; s32 f18; f32 f1c; };
 
 struct Laser_80156CA0 {
@@ -69,7 +61,7 @@ void TUnk_804AF8D8::sub_80156CEC() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x18) = 1;
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (3e+02f);
-    ((VObj_14 *)(arg0))->m3();
+    this->reset_obstruction_fade();
 }
 
 }

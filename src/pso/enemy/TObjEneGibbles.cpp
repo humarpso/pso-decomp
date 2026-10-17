@@ -2727,7 +2727,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     for (i = 0; i < 4; i++) {
         ((TObjPlayer *)(&((G_802DBA18 *)arg0)->parts[i]))->activate_and_dispatch();
     }
-    ((VObj_18_802DBA18 *)arg0)->m80();
+    ((TObjEneGibbles *)arg0)->clear_lobby_object_state();
     return arg0;
 }
 

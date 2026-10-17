@@ -4,22 +4,6 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowMainMenu.h"
 
-struct Base_A_80263b70 { char pad[0x18]; };
-struct V_A_80263b70 : Base_A_80263b70 {
-    virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
-    virtual void m4();   virtual s32 m5();
-};
-struct Base_80263C24_80263B70 { char pad[0x18]; };
-struct VObj_80263C24_80263B70 : Base_80263C24_80263B70 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-};
-
 extern "C" {
 
 s32 get_player_by_client_id(s32);
@@ -39,7 +23,7 @@ void TWindowMainMenu::try_open_battle_menu(s16 arg1) {
         open_menu_with_entry(sp8);
         ((TWindowMainMenu *)this)->create_submenu(sp8);
         ((TObjPlayer *)temp_r3)->reset_equip_slots();
-        ((V_A_80263b70 *) this)->m5();
+        this->vfunc_7();
     }
 }
 
@@ -47,7 +31,7 @@ s32 TWindowMainMenu::close_active_submenu() {
     *(s32 *)((s8 *)this + 0x4C) = (s32) (*(s32 *)((s8 *)this + 0x4C) & 0xFFFFFFFB);
     ((s32 (*)())destroy_submenu__15TWindowMainMenuFv)();
     if ((u32) *(u32 *)((s8 *)this + 0x5C) == 0U) {
-        ((VObj_80263C24_80263B70 *)this)->m6();
+        this->vfunc_8();
         return 0;
     }
     *(s32 *)((s8 *)this + 0x48) = 0x1F;

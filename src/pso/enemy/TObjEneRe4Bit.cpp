@@ -571,7 +571,6 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1) {
 
 typedef struct VBase_18_f9c8ca VBase_18_f9c8ca;
 typedef struct VObj_18_f9c8ca VObj_18_f9c8ca;
-#define PSO_VCALL_VObj_18_f9c8ca_m100(_self) (((VObj_18_f9c8ca *)(_self))->m100())
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
   switch (arg1)
   {
@@ -590,7 +589,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
       *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) + (*((f32 *) (((s8 *) arg0) + 0x3D8))));
       *((f32 *) (((s8 *) arg0) + 0x2FC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2FC))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
       *((f32 *) (((s8 *) arg0) + 0x304)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x304))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
-      PSO_VCALL_VObj_18_f9c8ca_m100(arg0);
+      (((VObj_18_f9c8ca *)(arg0))->m100());
       return;
     case 5:
       clear_attack_receipts__9TObjEneDDFv((void *) arg0);
@@ -768,101 +767,6 @@ void TObjEneRe4Bit::reset_transform() {
 
 #include "types.h"
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual s32 m90();
-    virtual s32 m91();
-};
 struct VBase_18_bcad77 { char pad[0x18]; };
 
 struct VObj_18_bcad77 : VBase_18_bcad77 {
@@ -977,13 +881,13 @@ void TObjEneRe4Sorcerer::set_flag3cc_bit2000() { *(u32*)((char*)this + 0x3cc) |=
 
 void TObjEneRe4Bit::call_vt_90_91() {
     u8 *arg0 = (u8 *)this;
-    ((VObj_18 *)(arg0))->m90();
-    ((VObj_18 *)(arg0))->m91();
+    this->vfunc_92();
+    this->vfunc_93();
 }
 
 void TObjEneRe4Sorcerer::invoke_state_callbacks() {
-    ((VObj_18_bcad77 *)(((u8 *)this)))->m89();
-    ((VObj_18_bcad77 *)(((u8 *)this)))->m92();
+    this->vfunc_91();
+    this->vfunc_94();
 }
 
 void set_state_flags__18TObjEneRe4SorcererFPv(u8 *arg0) {
@@ -1176,114 +1080,6 @@ struct VObjV_800ed578 : BaseV_800ed578 {
     virtual s32 m97();
     virtual s32 m98();
     virtual s32 m99(s32 *);
-};
-
-struct VBase_18_p4 { char pad[0x18]; };
-struct VObj_18_p4 : VBase_18_p4 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual s32 m81();
-    virtual void m82();
-    virtual s32 m83();
-    virtual void m84();
-    virtual void m85();
-    virtual s32 m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual void m98();
-    virtual void m99();
-    virtual void m100();
-    virtual void m101();
-    virtual void m102();
-    virtual s32 m103();
 };
 
 struct LBase_800ED7FC { char pad[0x14]; };
@@ -1509,17 +1305,17 @@ void TObjEneRe4Bit::vfunc_28() {  }
 void run_task__13TObjEneRe4BitFv(u8 *arg0) {
     s32 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18_p4 *)(arg0))->m103();
+        ((TObjEneRe4Bit *)(arg0))->vfunc_106();
         return;
     }
-    if ((((VObj_18_p4 *)(arg0))->m81() == 1) || (temp_r3 = *(s32 *)((s8 *)arg0 + 0x3CC), (((temp_r3 & 0x2000) == 0) != 0))) {
-        ((VObj_18_p4 *)(arg0))->m83();
+    if ((((TObjEneRe4Bit *)(arg0))->vfunc_83() == 1) || (temp_r3 = *(s32 *)((s8 *)arg0 + 0x3CC), (((temp_r3 & 0x2000) == 0) != 0))) {
+        ((TObjEneRe4Bit *)(arg0))->vfunc_85();
         ((TObjEneRe4Bit *)arg0)->clear_state_flags_when_done();
     } else {
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r3 & 0xFFFFDFFF);
     }
     ((TObjEneRe4Bit *)arg0)->copy_pos();
-    ((VObj_18_p4 *)(arg0))->m86();
+    ((TObjEneRe4Bit *)(arg0))->vfunc_88();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
 }
 

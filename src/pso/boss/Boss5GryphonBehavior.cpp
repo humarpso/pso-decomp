@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/boss/TBoss5Gryphon.h"
@@ -3745,7 +3746,7 @@ void TBoss8Dragon__sub_80062BA0(u8 *arg0, u32 arg1) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, &tmp);
         ((TObjEnemy *)arg0)->update_prev_position();
         F(s32, 0x30) = 0x12008;
-        ((VObj_18_81e212 *)(arg0))->m72(0);
+        ((TUnk_804806E8 *)(arg0))->vfunc_74(0);
         TWindowCtrl::init_all_slots2();
         restore_player_cameras();
         break;
@@ -5380,7 +5381,7 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
     s32 var_r30;
     s32 i;
     if (((int (*)())check_demo_mode__10TObjPlayerFv)() != 0) {
-        ((VObj_18 *)(arg0))->m103();
+        ((TBoss5Gryphon *)(arg0))->vfunc_83();
         return;
     }
     if (*(s32 *)((s8 *)arg0 + 0x4C0) & 1) {
@@ -5400,8 +5401,8 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
         }
     }
     temp_r31_2 = query_teammate_state__9TObjEneDDFv();
-    ((VObj_18 *)(arg0))->m39();
-    ((VObj_18 *)(arg0))->m40();
+    ((TBoss5Gryphon *)(arg0))->vfunc_41();
+    ((TBoss5Gryphon *)(arg0))->vfunc_42();
     if (temp_r31_2 == 0) {
         if (((s32 (*)(void *))get_flag_bit6__12TBoss8DragonFv)((void *) (arg0)) != 0) {
             *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
@@ -5409,7 +5410,7 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
             *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF);
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4E0) != 1) {
-            if (((VObj_18 *)(arg0))->m30() != 0) {
+            if (((TBoss5Gryphon *)(arg0))->test_flag30_512() != 0) {
                 ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
             ((TBoss8Dragon *)arg0)->update_animation_by_state();
@@ -5417,7 +5418,7 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         } else {
-            if (((VObj_18 *)(arg0))->m30() != 0) {
+            if (((TBoss5Gryphon *)(arg0))->test_flag30_512() != 0) {
                 ((TObjEneDD *)arg0)->clear_attack_receipts();
             }
             ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
@@ -5427,7 +5428,7 @@ void update_main__13TBoss5GryphonFPv(u8 *arg0) {
     ((TBoss5Gryphon *)arg0)->apply_velocity();
     TBoss8Dragon__sub_8005FB90(arg0);
     ((TBoss5Gryphon *)arg0)->advance_motion_timer();
-    ((VObj_18 *)(arg0))->m86();
+    ((TBoss5Gryphon *)(arg0))->vfunc_88();
     ((TBoss5Gryphon *)arg0)->shift_position_history();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805D8D58));

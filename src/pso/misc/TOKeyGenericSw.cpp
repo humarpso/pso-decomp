@@ -38,25 +38,6 @@ extern const char *fs_obj_hanyousu_body1_motion_names[1];
 extern const char *fs_obj_hanyousu_body1_j_motion_names[1];
 }
 
-struct Base_8016CB88_8016CA60 { char pad[0x18]; };
-struct VObj_8016CB88_8016CA60 : Base_8016CB88_8016CA60 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17();
-    virtual void m18();
-};
-struct Base_8016CBE4_8016CA60 { char pad[0x18]; };
-struct VObj_8016CBE4_8016CA60 : Base_8016CBE4_8016CA60 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17();
-    virtual void m18();
-};
-
 struct Base_8016CA64 { char pad[0x18]; };
 
 struct Obj_8016CA64 : Base_8016CA64 {
@@ -150,7 +131,7 @@ void TOKeyGenericSw::render() {
 
 void TOKeyGenericSw::vfunc_17() {
     update_anim_phase__13TUnk_804AFBF8Fv();
-    ((VObj_8016CB88_8016CA60*)this)->m18();
+    this->submit_cursor_target();
     this->m_f4 = 1;
     this->m_ec = 0;
     *(s32 *)((s8 *)this + 0xF0) = 0;
@@ -159,7 +140,7 @@ void TOKeyGenericSw::vfunc_17() {
 
 void TOKeyGenericSw::vfunc_16() {
     update_anim_phase__13TUnk_804AFBF8Fv();
-    ((VObj_8016CBE4_8016CA60*)this)->m18();
+    this->submit_cursor_target();
     this->m_ec = 1;
     this->m_f4 = 0;
     *(s32 *)&this->unk_F8 = 0;

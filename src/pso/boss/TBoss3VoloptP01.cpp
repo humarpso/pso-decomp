@@ -1523,7 +1523,7 @@ void TBoss3VoloptP01::init_params() {
     F(((VObj_80044038 *)this), s32, 0x3B0) = 0;
     ((TUnk_804806E8 *)((VObj_80044038 *)this))->add_flags_2e4(4);
     obj_setFlags30(((VObj_80044038 *)this), 0x8000);
-    ((VObj_80044038 *)this)->m80();
+    this->clear_lobby_object_state();
 }
 
 #pragma push

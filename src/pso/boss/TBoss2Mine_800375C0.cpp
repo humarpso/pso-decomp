@@ -28,106 +28,6 @@ extern s32 lbl_80482D04[];
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
 #define update_pulse_state__10TBoss2MineFv ((s32 (*)(void *))update_pulse_state__10TBoss2MineFv)
 
-struct VBase_18_4225ac { char pad[0x18]; };
-
-struct VObj_18_4225ac : VBase_18_4225ac {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual s32 m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual s32 m94();
-};
-
 struct Vec_800375C0 { f32 x, y, z; };
 struct Mine_800377E8 { u8 pad[0x404]; Vec_800375C0 vel; };
 
@@ -151,7 +51,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
     f32 s;
     switch (arg1) {
     case 4:
-        ((VObj_18_4225ac *)(arg0))->m94();
+        ((TUnk_80482D04 *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x38C) &= ~5;
         *(s32 *)((s8 *)arg0 + 0x38C) |= 2;
         *(s32 *)((s8 *)arg0 + 0x5C) = 0;
@@ -194,7 +94,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
         update_pulse_state__10TBoss2MineFv(arg0);
         *(f32 *)((s8 *)arg0 + 0x38) = *(f32 *)((s8 *)arg0 + 0x2FC);
         *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0x304);
-        ((VObj_18_4225ac *)(arg0))->m87();
+        ((TUnk_80482D04 *)(arg0))->vfunc_89();
         *(f32 *)((s8 *)arg0 + 0x2FC) = *(f32 *)((s8 *)arg0 + 0x38);
         *(f32 *)((s8 *)arg0 + 0x304) = *(f32 *)((s8 *)arg0 + 0x40);
         ((TBoss2Mine *)arg0)->update_move_flag();
@@ -212,7 +112,7 @@ void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1) {
     f32 t;
     switch (arg1) {
     case 4:
-        ((VObj_18_4225ac *)(arg0))->m93();
+        ((TUnk_80482D04 *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x38C) &= ~7;
         *(s32 *)((s8 *)arg0 + 0x3A8) = 0;
         *(s32 *)((s8 *)arg0 + 0x5C) = 0x4000;
@@ -854,7 +754,7 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
   switch (arg1)
   {
     case 4:
-      (((VObj_18_444bc5 *)(arg0))->m94());
+      (this->vfunc_96());
       *((s32 *) (((s8 *) arg0) + 0x38C)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x38C))) & 0xFFFFFFF8);
       *((s32 *) (((s8 *) arg0) + 0x3B0)) = 0;
       *((s32 *) (((s8 *) arg0) + 0x3C8)) = 0;
@@ -895,33 +795,6 @@ void TBoss2Mine::vfunc_105() {  }
 #undef set_node_offsets__10TBoss2MineFv
 #define transition_enemy_state ((int (*)(void *, void *))transition_enemy_state)
 
-struct Base_80038610 { char pad[0x18]; };
-struct VObj_80038610 : Base_80038610 {
-    virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
-    virtual void m4();  virtual void m5();  virtual void m6();  virtual void m7();
-    virtual void m8();  virtual void m9();  virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
-    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
-    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
-    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
-    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
-    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
-    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
-    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
-    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
-    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
-    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
-    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
-    virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
-    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83();
-    virtual void m84(); virtual void m85(); virtual void m86(); virtual void m87();
-    virtual void m88(); virtual void m89(); virtual void m90(); virtual void m91();
-    virtual void m92(); virtual void m93();
-};
 #define VM(n) virtual void m##n();
 struct Base_800386A4_80038610 { char pad[0x18]; };
 struct VObj_800386A4_80038610 : Base_800386A4_80038610 {
@@ -1078,7 +951,7 @@ void TBoss2Mine__vt102(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        ((VObj_80038610 *)arg0)->m93();
+        ((TBoss2Mine *)arg0)->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) | 1);
         *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) & 0xFFFFFFF9);
         return;
@@ -1333,7 +1206,7 @@ void TBoss2Mine::vfunc_28() {  }
 void TBoss2Mine::run_task() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18 *)(arg0))->m107();
+        this->vfunc_109();
         return;
     }
     this->vfunc_83();
@@ -1344,9 +1217,9 @@ void TBoss2Mine::run_task() {
     ((TObjEneDD *)arg0)->sub_800BBA0C();
     if (!(*(s32 *)((s8 *)arg0 + 0x38C) & 1)) {
         save_position();
-        ((VObj_18 *)(arg0))->m86();
+        this->vfunc_88();
         ((TBoss8Dragon *)arg0)->set_player_state_default();
-        ((VObj_18 *)(arg0))->m98();
+        this->vfunc_100();
     }
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
 }
@@ -1528,7 +1401,7 @@ void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1) {
     ((TObjEneDD *)arg0)->check_state_flag_2();
     *(Rec_80038BA0 **)((s8 *)arg0 + 0x350) = &((Rec_80038BA0 *)lbl_80482CA0)[arg1];
     *(f32 *)((s8 *)arg0 + 0x37C) = (3.0f);
-    ((VObj_18_72b3e0 *)(arg0))->m93();
+    ((TBoss2Mine *)(arg0))->vfunc_95();
     *(s32 *)((s8 *)arg0 + 0x38C) = 0;
     *(f32 *)((s8 *)arg0 + 0x390) = (0.0f);
     *(f32 *)((s8 *)arg0 + 0x394) = (0.0f);

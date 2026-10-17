@@ -6,28 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12();
-    virtual s32 m13();
-    virtual s32 m14();
-    virtual s32 m15();
-    virtual s32 m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_8016D714_lbl_80441E24 { char value[0x1A]; };
 typedef char RecoveredGlobal_8016D714_lbl_80441E24_size[sizeof(RecoveredGlobal_8016D714_lbl_80441E24) == 0x1A ? 1 : -1];
 
@@ -96,19 +74,19 @@ extern void *tl_05;
 
 void TOKeyMachine01::run_task() {
     u8 *arg0 = (u8 *)this;
-    ((VObj_18 *)(arg0))->m12();
+    this->update_lock_state();
     if ((s32) *(s32 *)&this->m_d4 != 1) {
-        ((VObj_18 *)(arg0))->m15();
-        if (((VObj_18 *)(arg0))->m13() == 1) {
+        this->vfunc_17();
+        if (this->is_confirm_pressed() == 1) {
             ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (1));
-            ((VObj_18 *)(arg0))->m16();
+            this->trigger_activate_sound();
             *(s32 *)&this->m_d4 = 1;
         }
     } else {
-        ((VObj_18 *)(arg0))->m14();
-        if (((VObj_18 *)(arg0))->m13() != 1) {
+        this->vfunc_16();
+        if (this->is_confirm_pressed() != 1) {
             ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (0));
-            ((VObj_18 *)(arg0))->m17();
+            this->vfunc_19();
             *(s32 *)&this->m_d4 = 0;
         }
     }
