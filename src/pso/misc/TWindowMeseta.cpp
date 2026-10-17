@@ -45,9 +45,9 @@ void TWindowMeseta::run_task() {
     s32 temp_r3;
 
     temp_r3 = get_meseta_value__13TWindowMesetaFv();
-    if (temp_r3 != (s32) *(s32 *)&this->m_68) {
-        *(s32 *)&this->m_68 = temp_r3;
-        ((TWindowSubStatusDisp *)(((TUnk_804CE018 *)arg0)->get_array_entry(1)))->set_animated_target(*(s32 *)&this->m_68, lbl_805DD200);
+    if (temp_r3 != (s32) this->m_68) {
+        this->m_68 = temp_r3;
+        ((TWindowSubStatusDisp *)(((TUnk_804CE018 *)arg0)->get_array_entry(1)))->set_animated_target(this->m_68, lbl_805DD200);
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);

@@ -131,36 +131,36 @@ void *lbl_8049FBC0[45] = {
 void TUnk_8049FBC0::vfunc_44() {
     switch (get_slot_count__14TItemProShieldFv()) {
     case 0:
-        add_stat_and_item__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), 2);
+        add_stat_and_item__10TObjPlayerFiUc((s32)(this->m_f0), 2);
         break;
     case 1:
-        if (check_class_equip_permission((void *) (*(u8 * *)&this->m_f0), 0xD7) == 0) {
-            add_mst_and_item__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), 2);
+        if (check_class_equip_permission((void *) (this->m_f0), 0xD7) == 0) {
+            add_mst_and_item__10TObjPlayerFiUc((s32)(this->m_f0), 2);
         }
         break;
     case 2:
-        add_evp_material__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), 2);
+        add_evp_material__10TObjPlayerFiUc((s32)(this->m_f0), 2);
         break;
     case 3:
-        obj_getField1c((void *) (*(u8 * *)&this->m_f0));
+        obj_getField1c((void *) (this->m_f0));
         if (calc_equip_bonus__10TObjPlayerFUs() < 0xFA) {
-            apply_speed_with_camera_scale__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (u8)(2));
+            apply_speed_with_camera_scale__10TObjPlayerFiUc((s32)(this->m_f0), (u8)(2));
         }
         break;
     case 4:
-        obj_getField1c((void *) (*(u8 * *)&this->m_f0));
-        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (*(u8 * *)&this->m_f0), 0xD7) == 0)) {
-            set_speed_scaled_by_camera__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (u8)(2));
+        obj_getField1c((void *) (this->m_f0));
+        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (this->m_f0), 0xD7) == 0)) {
+            set_speed_scaled_by_camera__10TObjPlayerFiUc((s32)(this->m_f0), (u8)(2));
         }
         break;
     case 5:
-        add_dfp_material__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), 2);
+        add_dfp_material__10TObjPlayerFiUc((s32)(this->m_f0), 2);
         break;
     case 6:
-        apply_luck_reward__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), 2);
+        apply_luck_reward__10TObjPlayerFiUc((s32)(this->m_f0), 2);
         break;
     }
-    ((VObj_18_ddf499 *)((u8 *)(*(u8 * *)&this->m_f0)))->m71();
+    ((VObj_18_ddf499 *)((u8 *)(this->m_f0)))->m71();
 }
 void *__dt__13TUnk_8049FBC0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

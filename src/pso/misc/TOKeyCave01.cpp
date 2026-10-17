@@ -103,19 +103,19 @@ extern void *tl_05;
 void TOKeyCave01::run_task() {
     u8 *arg0 = (u8 *)this;
     this->update_lock_state();
-    if ((s32) *(s32 *)&this->m_d4 != 1) {
+    if ((s32) this->m_d4 != 1) {
         this->vfunc_17();
         if (this->is_confirm_pressed() == 1) {
             ((TOKeyCave01 *)arg0)->send_switch_changed(1);
             this->trigger_activate_sound();
-            *(s32 *)&this->m_d4 = 1;
+            this->m_d4 = 1;
         }
     } else {
         this->vfunc_16();
         if (this->is_confirm_pressed() != 1) {
             ((TOKeyCave01 *)arg0)->send_switch_changed(0);
             this->vfunc_19();
-            *(s32 *)&this->m_d4 = 0;
+            this->m_d4 = 0;
         }
     }
 }
@@ -250,15 +250,15 @@ u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
         }
     } else {
 block_2:
-        if ((s32) *(s32 *)&((TOKeyCave01 *)arg0)->m_d0 != 2) {
+        if ((s32) ((TOKeyCave01 *)arg0)->m_d0 != 2) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-                *(s32 *)&((TOKeyCave01 *)arg0)->m_d0 = 1;
+                ((TOKeyCave01 *)arg0)->m_d0 = 1;
             } else {
                 goto block_5;
             }
         } else {
 block_5:
-            *(s32 *)&((TOKeyCave01 *)arg0)->m_d0 = 0;
+            ((TOKeyCave01 *)arg0)->m_d0 = 0;
         }
     }
     ((TOKeyCave01 *)arg0)->m_e8 = (f32) lbl_805DB73C;
@@ -279,7 +279,7 @@ s32 TOKeyCol::is_confirm_pressed() {
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)&this->m_d0;
+    temp_r0 = this->m_d0;
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
@@ -287,7 +287,7 @@ s32 TOKeyCol::is_confirm_pressed() {
         } else {
             var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)&this->m_d4 == 1) || (var_r3 == 1)) {
+        if (((s32) this->m_d4 == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;

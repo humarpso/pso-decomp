@@ -110,7 +110,7 @@ void TOHealGeneral::run_task() {
         TOHangerMachine01__sub_80169168(this);
         return;
     }
-    switch (*(s32 *)&this->m_ac) {
+    switch (this->m_ac) {
     case 0:
         find_heal_target__13TOHealGeneralFPv(this);
         return;
@@ -277,7 +277,7 @@ void TUnk_804B27D8::vfunc_16() {  }
 extern f32 lbl_805DB6D8;
 
 void TUnk_804B27D8::vfunc_6(s16 *arg1, s32) {
-    *(s32 *)&this->m_ac = (s32) *arg1;
+    this->m_ac = (s32) *arg1;
 }
 
 void TOHealGeneral::accept_player(u16 arg1) {
@@ -350,8 +350,8 @@ s32 TOHealGeneral::update_heal_gauge_state() {
     } else {
         *(s32 *)&this->unk_C8 = 2;
     }
-    set_script_entry((s32)((s32)(*(s32 *)&this->m_88)));
-    set_enable_count((s32)(*(s32 *)&this->m_8c));
+    set_script_entry((s32)((s32)(this->m_88)));
+    set_enable_count((s32)(this->m_8c));
     return *(s32 *)&this->_padD0;
 }
 

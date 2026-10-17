@@ -279,7 +279,7 @@ void TObjLazerFenceNorm::draw_model() {
 void TObjLazerFenceNorm::render() {
 
     if (((LazerFenceNormVObj_80192C00*)this)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) {
-        switch (*(s32 *)&this->m_b4) {
+        switch (this->m_b4) {
         case 0:
             draw_animated_beam();
             return;

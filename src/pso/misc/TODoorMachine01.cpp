@@ -131,7 +131,7 @@ extern const f32 lbl_805DB4F0;
 void TODoorMachine01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB4F0) != 1)) {
-        *(s32 *)&this->m_ac = 3;
+        this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
     }
@@ -142,7 +142,7 @@ extern void *tl_05;
 void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB4F4) == 1)) {
-        *(s32 *)&this->m_ac = 1;
+        this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
         play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
     }
@@ -378,8 +378,8 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 4) {
         *(s32 *)((s8 *)arg0 + 0x88) = 4;
     }
-    *(s32 *)&((TODoorMachine01 *)arg0)->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    *(s32 *)&((TODoorMachine01 *)arg0)->m_d8 = (s32) (4 - *(s32 *)&((TODoorMachine01 *)arg0)->m_d4);
+    ((TODoorMachine01 *)arg0)->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    ((TODoorMachine01 *)arg0)->m_d8 = (s32) (4 - ((TODoorMachine01 *)arg0)->m_d4);
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB4FC;
     ((TODoorMachine01 *)arg0)->m_e0 = (f32) lbl_805DB4FC;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB4FC;

@@ -18,7 +18,7 @@ void TWindowSubComCard::begin_scroll(f32 farg0) {
     if (temp_r4 & 1) {
         *(u16 *)((s8 *)this + 0x80) = (u16) (temp_r4 & 0xFFFE);
         *(f32 *)&this->unk_3C = farg0;
-        *(s32 *)&this->m_50 = 3;
+        this->m_50 = 3;
     }
 }
 

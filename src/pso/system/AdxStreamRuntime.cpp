@@ -747,8 +747,8 @@ s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0) {
 
 void TLobby::set_field_10_and_notify(s32 up) {
     *(s32 *)&this->m_up = up;
-    ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_seek((int) (*(s32 *)&this->m_up), 0);
-    ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_tell();
+    ((TLobby *)(this->m_prev))->cv_fs_seek((int) (this->m_up), 0);
+    ((TLobby *)(this->m_prev))->cv_fs_tell();
 }
 
 void TLobby__sub_803C8514(u8 *arg0, s32 arg1) {
@@ -954,7 +954,7 @@ s32 TLobby::init_stream_position() {
 
 s32 TLobby::get_file_offset_relative() {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(*(u8 * *)&this->m_prev);
+    temp_r3 = (u8 *)(this->m_prev);
     if (temp_r3 != NULL) {
         return ((TLobby *)temp_r3)->cv_fs_tell() - *(s32 *)&this->m_up;
     }
@@ -1686,7 +1686,7 @@ s16 TLobby__sub_803C96B0(u8 *arg0) {
 
 void TLobby::set_field_40_and_notify(s16 arg1) {
     *(s16 *)((s8 *)((u8 *)this) + 0x40) = arg1;
-    trigger_sub_task__6TLobbyFv((int) (*(s32 *)&this->m_next));
+    trigger_sub_task__6TLobbyFv((int) (this->m_next));
 }
 
 s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i) {
@@ -2424,11 +2424,11 @@ void TLobby::update_receive_check() {
     u32 temp_r0;
     u32 temp_r3;
 
-    if ((s32) *(s32 *)&this->m_next == 1) {
+    if ((s32) this->m_next == 1) {
         *(s32 *)&this->m_next = 2;
     }
-    if ((s32) *(s32 *)&this->m_next == 2) {
-        if ((s32) *(s32 *)&this->m_down == 1) {
+    if ((s32) this->m_next == 2) {
+        if ((s32) this->m_down == 1) {
             *(u32 *)&this->m_up = decode_adx_mono_blocks((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), arg0 + 0x28, (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
         } else {
             *(u32 *)&this->m_up = dispatch_receive_update__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), arg0 + 0x28, (int) (*(s32 *)((s8 *)arg0 + 0x24)), arg0 + 0x2C, (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
@@ -2447,14 +2447,14 @@ s32 TLobby::get_size() {
 }
 
 void TLobby::reset_field_0C() {
-    if ((s32) *(s32 *)&this->m_next == 3) {
-        *(s32 *)&this->m_next = 0;
+    if ((s32) this->m_next == 3) {
+        this->m_next = 0;
     }
 }
 
 void TLobby::reset_client_state() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)&this->m_next = 0;
+    this->m_next = 0;
     memset(arg0 + 0x28, 0, 8);
 }
 
@@ -2467,7 +2467,7 @@ void TLobby__sub_803CB4A4(u8 *arg0) {
 
 s32 TLobby::post_request(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)&this->m_next == 0) {
+    if ((s32) this->m_next == 0) {
         *(s32 *)&this->m_down = 2;
         *(s32 *)((s8 *)arg0 + 0x18) = arg1;
         *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
@@ -2480,7 +2480,7 @@ s32 TLobby::post_request(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 
 s32 TLobby::try_post_command(s32 arg1, s32 arg2, s32 arg3) {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)&this->m_next == 0) {
+    if ((s32) this->m_next == 0) {
         *(s32 *)&this->m_down = 1;
         *(s32 *)((s8 *)arg0 + 0x18) = arg1;
         *(s32 *)((s8 *)arg0 + 0x1C) = arg2;

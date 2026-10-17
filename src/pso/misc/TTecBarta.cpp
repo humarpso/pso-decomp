@@ -364,7 +364,7 @@ u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, voi
     ((TTecBarta *)arg0)->create_particle_emitters();
     ((TTecBarta *)arg0)->update_technique_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        *(s16 *)&((TTecBarta *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        ((TTecBarta *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }

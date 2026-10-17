@@ -9,7 +9,7 @@ int init_map_object_base(void);
 
     extern unsigned char lbl_804B0BB8[];
     extern const float lbl_805DB3DC;
-void* init_door_base(void* a0) { init_map_object_base(); *(int*)((char*)a0 + 0x18) = (int)lbl_804B0BB8; *(int*)((char*)a0 + 0xc8) = -1; *(int *)&((TUnk_804B0BB8 *)a0)->m_cc = 0; *(int *)&((TUnk_804B0BB8 *)a0)->m_d0 = 0; *(int *)&((TUnk_804B0BB8 *)a0)->m_ac = 0; *(float *)&((TUnk_804B0BB8 *)a0)->m_b8 = lbl_805DB3DC; return a0; }
+void* init_door_base(void* a0) { init_map_object_base(); *(int*)((char*)a0 + 0x18) = (int)lbl_804B0BB8; *(int*)((char*)a0 + 0xc8) = -1; ((TUnk_804B0BB8 *)a0)->m_cc = 0; ((TUnk_804B0BB8 *)a0)->m_d0 = 0; ((TUnk_804B0BB8 *)a0)->m_ac = 0; ((TUnk_804B0BB8 *)a0)->m_b8 = lbl_805DB3DC; return a0; }
 
 void TUnk_804B0BB8::vfunc_20() {  }
 void TODoorAncient01::vfunc_20() {  }

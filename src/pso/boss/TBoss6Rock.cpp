@@ -427,15 +427,15 @@ u8 *TBoss6Rock::get_rock_entry(s32 arg0) {
 void TBoss6Rock::break_and_release() {
     u8 *arg0 = (u8 *)this;
     TBoss6Rock__sub_803542E8(arg0, 0);
-    if ((s32) *(s32 *)&this->m_bc == 1) {
-        *(s32 *)&this->m_c8 = 0;
+    if ((s32) this->m_bc == 1) {
+        this->m_c8 = 0;
     }
-    if ((s32) *(s32 *)&this->m_c8 != 2) {
-        ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(*(s32 *)&this->m_b4);
+    if ((s32) this->m_c8 != 2) {
+        ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(this->m_b4);
         play_sound_effect(0x4006AB1F, (u32)(arg0 + 0x38), 0, 0);
         release_object();
         randomize_motion();
-        *(s32 *)&this->m_c4 = 0;
+        this->m_c4 = 0;
     }
 }
 #pragma fp_contract on
@@ -450,7 +450,7 @@ void TBoss6Rock::update_fall() {
     var_f1 = lbl_805DFF94;
     var_f2 = lbl_805DFF98;
     this->rotation_y = (s32) (this->rotation_y + this->m_d0);
-    if ((s32) *(s32 *)&this->m_bc == 1) {
+    if ((s32) this->m_bc == 1) {
         var_f1 = lbl_805DFF9C;
         var_f2 = lbl_805DFFA0;
     }
@@ -468,25 +468,25 @@ void TBoss6Rock::update_fall() {
         spawn_particle_effect(((u8 *)&this->position), 0x220);
         spawn_particle_effect(((u8 *)&this->position), 0x222);
         TBoss6PlotFalz::apply_radial_effect_to_players(arg0 + 0x38, 0xC0, 0xF, lbl_805DFF54);
-        *(s32 *)&this->m_c4 = 2;
+        this->m_c4 = 2;
     }
 }
 #pragma pop
 
 void TBoss6Rock::init_spin_params() {
   s32 temp_r4;
-  if (((s32) (*(s32 *)&this->m_c8)) != 0)
+  if (((s32) (this->m_c8)) != 0)
   {
     f32 k = TBoss6Rock__data_805DFF4C;
     f32 s = lbl_805DFF98;
     if ((TBoss6Rock__data_805DFF4C && TBoss6Rock__data_805DFF4C) && TBoss6Rock__data_805DFF4C)
     {
     }
-    temp_r4 = *(s32 *)&this->m_ac;
+    temp_r4 = this->m_ac;
     *((f32 *) (((s8 *) this) + 0xCC)) = (f32) (s * ((k * (((f32) (temp_r4 & 3)) / TBoss6Rock__data_805DFF48)) + (k * (((f32) temp_r4) * lbl_805DFFA4))));
-    *(s32 *)&this->m_c4 = 1;
-    *(s32 *)&this->m_b4 = (s32) (*(s32 *)&this->m_b8);
-    *(s32 *)&this->m_bc = (s32) (*(s32 *)&this->m_c0);
+    this->m_c4 = 1;
+    this->m_b4 = (s32) (this->m_b8);
+    this->m_bc = (s32) (this->m_c0);
   }
 }
 void TBoss6Rock::draw_model() {

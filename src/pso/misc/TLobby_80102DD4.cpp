@@ -191,7 +191,7 @@ void TLobby__sub_801030EC(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
-void TUnk_804B9870::set_item_count(s16 v) { *(s16 *)&this->m_1c = v; }
+void TUnk_804B9870::set_item_count(s16 v) { this->m_1c = v; }
 s32 TLobby::drop_stacked_item_passthrough() {
     s32 arg0 = (s32)this;
     init_floor_item_entry();

@@ -42,7 +42,7 @@ void TDLGraph::render() {
 }
 
 void TDLGraph::run_task() {  }
-void TDLGraph::set_graph_param(s32 v) { *(s32 *)&this->m_20 = v; }
+void TDLGraph::set_graph_param(s32 v) { this->m_20 = v; }
 typedef char RecoveredGlobal_8007F77C___vt__8TDLGraph_size[sizeof(RecoveredGlobal_8007F77C___vt__8TDLGraph) == 0x18 ? 1 : -1];
 
 #define G ((u32) TDLGraph__graph_object)

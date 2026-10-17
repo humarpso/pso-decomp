@@ -29,10 +29,10 @@ u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1) {
     ((TOWreckAncientBrakable05 *)(arg0))->apply_object_set_data((void *)arg1);
     init_collision_body_parts(arg0, (void *) ((u8 *)&TOWreckAncient__collision_body_templates.value + 0x84), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8 = (s32) ((TOWreckAncientBrakable05 *)arg0)->m_84;
-    temp_r0 = *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8;
+    ((TOWreckAncientBrakable05 *)arg0)->m_b8 = (s32) ((TOWreckAncientBrakable05 *)arg0)->m_84;
+    temp_r0 = ((TOWreckAncientBrakable05 *)arg0)->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8 = -1;
+        ((TOWreckAncientBrakable05 *)arg0)->m_b8 = -1;
     }
     return arg0;
 }

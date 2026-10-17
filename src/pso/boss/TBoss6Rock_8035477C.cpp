@@ -47,11 +47,11 @@ typedef char RecoveredGlobal_803548B4_TBoss6Rock__data_80543778_size[sizeof(Reco
 u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803548B4___vt__10TBoss6Rock *)&__vt__10TBoss6Rock).value;
-        if ((s32) *(s32 *)&((TBoss6Rock *)arg0)->m_c4 != 0) {
-            ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(*(s32 *)&((TBoss6Rock *)arg0)->m_b4);
+        if ((s32) ((TBoss6Rock *)arg0)->m_c4 != 0) {
+            ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(((TBoss6Rock *)arg0)->m_b4);
         }
         ((TBoss6Rock *)arg0)->release_object();
-        *(s32 *)((s8 *)&TBoss6Rock__instance_table.value + (*(s32 *)&((TBoss6Rock *)arg0)->m_ac* 4)) = 0;
+        *(s32 *)((s8 *)&TBoss6Rock__instance_table.value + (((TBoss6Rock *)arg0)->m_ac* 4)) = 0;
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
@@ -64,17 +64,17 @@ u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TBoss6Rock.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D438C;
-    *(s32 *)&((TBoss6Rock *)arg0)->m_ac = arg2;
-    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)((u8 *)&TBoss6Rock__rock_point_table.value + (*(s32 *)&((TBoss6Rock *)arg0)->m_ac* 0xC)));
-    *(s32 *)&((TBoss6Rock *)arg0)->m_b8 = 0;
-    *(s32 *)&((TBoss6Rock *)arg0)->m_b4 = 0;
-    *(s32 *)&((TBoss6Rock *)arg0)->m_c0 = 0;
-    *(s32 *)&((TBoss6Rock *)arg0)->m_bc = 0;
-    *(s32 *)&((TBoss6Rock *)arg0)->m_b0 = 0;
+    ((TBoss6Rock *)arg0)->m_ac = arg2;
+    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)((u8 *)&TBoss6Rock__rock_point_table.value + (((TBoss6Rock *)arg0)->m_ac* 0xC)));
+    ((TBoss6Rock *)arg0)->m_b8 = 0;
+    ((TBoss6Rock *)arg0)->m_b4 = 0;
+    ((TBoss6Rock *)arg0)->m_c0 = 0;
+    ((TBoss6Rock *)arg0)->m_bc = 0;
+    ((TBoss6Rock *)arg0)->m_b0 = 0;
     ((TBoss6Rock *)arg0)->randomize_motion();
-    *(s32 *)&((TBoss6Rock *)arg0)->m_c8 = 0;
-    *(s32 *)&((TBoss6Rock *)arg0)->m_c4 = 0;
-    *(s32 *)&((TBoss6Rock *)arg0)->m_e4 = create__10TBoss6RockFv();
+    ((TBoss6Rock *)arg0)->m_c8 = 0;
+    ((TBoss6Rock *)arg0)->m_c4 = 0;
+    ((TBoss6Rock *)arg0)->m_e4 = create__10TBoss6RockFv();
     return arg0;
 }
 

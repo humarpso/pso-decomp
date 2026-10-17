@@ -36,19 +36,19 @@ s32 decay_page_arrow_offset(s32);
 
 void TWindowHelpItem::update_cursor_selection() {
     this->m_60 = (u8) (this->m_60 | 1);
-    if ((s32) *(s32 *)&this->m_a4 != -1) {
-        *(s32 *)&this->m_68 = (s32) *(s32 *)&this->m_70;
-        *(s32 *)&this->m_9c = (s32) *(s32 *)&this->m_a4;
+    if ((s32) this->m_a4 != -1) {
+        this->m_68 = (s32) this->m_70;
+        this->m_9c = (s32) this->m_a4;
         return;
     }
-    if ((s32) *(s32 *)&this->m_a0 != -1) {
-        *(s32 *)&this->m_68 = (s32) *(s32 *)&this->m_6c;
-        *(s32 *)&this->m_9c = (s32) *(s32 *)&this->m_a0;
+    if ((s32) this->m_a0 != -1) {
+        this->m_68 = (s32) this->m_6c;
+        this->m_9c = (s32) this->m_a0;
         return;
     }
     this->m_60 = (u8) (this->m_60 & 0xFE);
-    *(s32 *)&this->m_68 = 0;
-    *(s32 *)&this->m_9c = -1;
+    this->m_68 = 0;
+    this->m_9c = -1;
 }
 
 void TWindowHelpItem__sub_80255B20(u8 *arg0) {
@@ -60,7 +60,7 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     temp_r3_2 = ((TWindowHelpItem *)arg0)->m_60;
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2)) {
-        draw_list_page_indicator((int) (*(s32 *)&((TWindowHelpItem *)arg0)->m_64), temp_r3);
+        draw_list_page_indicator((int) (((TWindowHelpItem *)arg0)->m_64), temp_r3);
     }
 }
 
@@ -71,11 +71,11 @@ void TWindowHelpItem::update_display() {
     }
     if ((this->m_60 & 1) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0) && !(this->m_2c & 4)) {
         if (!(this->m_60 & 4)) {
-            if (handle_list_page_flip_input(*(s32 *)&this->m_64) != 0) {
+            if (handle_list_page_flip_input(this->m_64) != 0) {
                 ((TWindowHelpItem *)arg0)->dispatch_item_help();
             }
         } else {
-            decay_page_arrow_offset(*(s32 *)&this->m_64);
+            decay_page_arrow_offset(this->m_64);
         }
         ((TWindowHelpItem *)arg0)->invoke_callback_pmf();
     }
@@ -89,8 +89,8 @@ void TWindowHelpItem::update_display() {
 
 void *TWindowHelpItem::dt(s16 arg1) {
     if (this != NULL) {
-        *(s32 * *)&this->m_vtable18 = TWindowHelpItem__object_vtable;
-        delete_if_allocated((s32)(*(void * *)&this->m_64), 1);
+        this->m_vtable18 = TWindowHelpItem__object_vtable;
+        delete_if_allocated((s32)(this->m_64), 1);
         destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

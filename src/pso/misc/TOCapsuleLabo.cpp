@@ -130,7 +130,7 @@ void TOCapsuleLabo::render() {
 }
 
 void TOCapsuleLabo::vfunc_15() {
-    *(s32 *)&this->m_e4 = (s32) (*(s32 *)&this->m_e4 + 0x222);
+    this->m_e4 = (s32) (this->m_e4 + 0x222);
 }
 
 void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {
@@ -161,7 +161,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     ((TOCapsuleLabo *)arg0)->m_c0 = (f32) lbl_805DE1E8;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DE1EC;
-    *(s32 *)&((TOCapsuleLabo *)arg0)->m_e4 = 0;
+    ((TOCapsuleLabo *)arg0)->m_e4 = 0;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1)) {
         queue_destruction__7TObjectFv(arg0);
     }

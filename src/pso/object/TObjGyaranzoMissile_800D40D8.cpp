@@ -129,13 +129,13 @@ void TUnk_8049442C::update_ground_fall(s32 *arg1, f32 farg0) {
         if (*(f32 *)((s8 *)((u8 *)this) + 0x3C) <= temp_f1) {
             *(f32 *)((s8 *)((u8 *)this) + 0x3C) = temp_f1;
             this->m_b0 = (f32) lbl_805DA2A4;
-            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x800000);
+            this->actorFlags = (s32) (this->actorFlags | 0x800000);
             return;
         }
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFF7FFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFF7FFFFF);
         return;
     }
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFF7FFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFF7FFFFF);
 }
 
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {

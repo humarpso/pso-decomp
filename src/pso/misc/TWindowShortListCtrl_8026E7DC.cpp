@@ -106,8 +106,8 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 set_flag70_bit10__21TWindowSubComCardListFv();
 
 void TWindowShortListCtrl::set_displayed_item(s32 arg1) {
-    if (((u32) this->m_34 != 0U) && (arg1 != (s32) *(s32 *)&this->m_38)) {
-        *(s32 *)&this->m_38 = arg1;
+    if (((u32) this->m_34 != 0U) && (arg1 != (s32) this->m_38)) {
+        this->m_38 = arg1;
         TWindowHelpItem__set_displayed_item_by_id(this->m_34);
     }
 }
@@ -116,7 +116,7 @@ s32 TWindowShortListCtrl::is_technique_usable() {
     u32 player;
     u8 *temp_r31;
 
-    player = get_player_by_client_id((s32)((int) (*(s32 *)&this->m_24)));
+    player = get_player_by_client_id((s32)((int) (this->m_24)));
     if (player == 0U) {
         return 0;
     }
@@ -285,7 +285,7 @@ void TWindowShortListCtrl::refresh_technique_rows(s32 arg1, void *arg2_arg) {
 void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2_arg) {
     void *window_menu;
 
-    window_menu = (void *)create_window_menu(arg1, 0x13, *(s32 *)&this->m_24);
+    window_menu = (void *)create_window_menu(arg1, 0x13, this->m_24);
     set_flag70_bit10__21TWindowSubComCardListFv();
     *(s32 *)((s8 *)window_menu + 0x5C) = 0x01000000;
     ((TWindowSubComCardList *)window_menu)->set_flag70_bit100();
@@ -491,11 +491,11 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__20TWindowShortListCtrl;
-        player = get_player_by_client_id((s32)(*(s32 *)&((TWindowShortListCtrl *)arg0)->m_24));
-        if ((player != 0) && (has_player_active_menu__11TWindowCtrlFv(*(s32 *)&((TWindowShortListCtrl *)arg0)->m_24) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
+        player = get_player_by_client_id((s32)(((TWindowShortListCtrl *)arg0)->m_24));
+        if ((player != 0) && (has_player_active_menu__11TWindowCtrlFv(((TWindowShortListCtrl *)arg0)->m_24) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             ((TObjPlayer *)player)->init_parts();
         }
-        end_player_keyboard_hold(*(s32 *)&((TWindowShortListCtrl *)arg0)->m_24);
+        end_player_keyboard_hold(((TWindowShortListCtrl *)arg0)->m_24);
         TWindowCtrl::clear_flag_8();
         if ((u32) ((TWindowShortListCtrl *)arg0)->m_34 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x34));

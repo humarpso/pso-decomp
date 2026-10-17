@@ -24,7 +24,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__19TWindowSubTradeMain;
         TLobby__sub_802D29E8((u32)arg0);
         TLobby::check_flags_and_proceed();
-        if (get_player_by_client_id(*(s32 *)&((TWindowSubTradeMain *)arg0)->m_28) != 0U) {
+        if (get_player_by_client_id(((TWindowSubTradeMain *)arg0)->m_28) != 0U) {
             end_camera_pan__10TObjPlayerFv();
         }
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_50 != 0U) {
@@ -66,8 +66,8 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
         if ((u32) ((TWindowSubTradeMain *)arg0)->m_2c != 0U) {
             ((TWindowSubLog *)(*(void **)((s8 *)arg0 + 0x2C)))->cleanup();
         }
-        TWindowCtrl__sub_8024ADF0(*(s32 *)&((TWindowSubTradeMain *)arg0)->m_28);
-        TWindowSubComCard__sub_8024AB98(*(s32 *)&((TWindowSubTradeMain *)arg0)->m_28);
+        TWindowCtrl__sub_8024ADF0(((TWindowSubTradeMain *)arg0)->m_28);
+        TWindowSubComCard__sub_8024AB98(((TWindowSubTradeMain *)arg0)->m_28);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

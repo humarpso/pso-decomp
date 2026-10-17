@@ -34,7 +34,7 @@ s32 TAdMcCheckGC::create(s32 arg1) {
     s32 temp_r31;
     s32 temp_r5;
 
-    temp_r5 = *(s32 *)&this->m_28 * 8;
+    temp_r5 = this->m_28 * 8;
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_804783B8 + temp_r5, 1, temp_r5);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0x16, arg1)), 0x20, 0);
     ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
@@ -45,8 +45,8 @@ s32 TAdMcCheckGC::create(s32 arg1) {
 
 void TAdMcCheckGC::run_task() {
 
-    if (((TAdPlayerLoadGC *)(*(s32 *)&this->m_28))->probe_card_slot() == 0) {
-        *(s32 *)&this->m_1c = 0;
+    if (((TAdPlayerLoadGC *)(this->m_28))->probe_card_slot() == 0) {
+        this->m_1c = 0;
         if ((u32) this->m_2c != 0U) {
             queue_destruction__7TObjectFv(*(void * *)&this->m_2c);
             this->m_2c = 0U;
@@ -64,19 +64,19 @@ void TAdMcCheckGC::run_task() {
             this->m_38 = 0U;
         }
     }
-    switch (*(s32 *)&this->m_1c) {
+    switch (this->m_1c) {
     case 0:
-        if (((TAdPlayerLoadGC *)(*(s32 *)&this->m_28))->probe_card_slot() != 0) {
-            *(s32 *)&this->m_1c = 1;
+        if (((TAdPlayerLoadGC *)(this->m_28))->probe_card_slot() != 0) {
+            this->m_1c = 1;
         }
         break;
     case 1:
-        if ((((TAdPlayerLoadGC *)(*(s32 *)&this->m_28))->probe_and_check_card() == 0) && ((u32) (TAdPlayerLoadGC::get_load_result((void *)(*(s32 *)&this->m_28)) + 0x10000) == 0xFF83U)) {
-            if (((s32) *(s32 *)&this->m_24 > 0xA) && ((u32) this->m_2c == 0U)) {
-                this->m_2c = create((s32)((int) (*(s32 *)&this->m_28 + 2)));
+        if ((((TAdPlayerLoadGC *)(this->m_28))->probe_and_check_card() == 0) && ((u32) (TAdPlayerLoadGC::get_load_result((void *)(this->m_28)) + 0x10000) == 0xFF83U)) {
+            if (((s32) this->m_24 > 0xA) && ((u32) this->m_2c == 0U)) {
+                this->m_2c = create((s32)((int) (this->m_28 + 2)));
             }
         } else {
-            *(s32 *)&this->m_1c = 2;
+            this->m_1c = 2;
             if ((u32) this->m_2c != 0U) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_2c);
                 this->m_2c = 0U;
@@ -84,12 +84,12 @@ void TAdMcCheckGC::run_task() {
         }
         break;
     case 2:
-        if ((((TAdPlayerLoadGC *)(*(s32 *)&this->m_28))->probe_and_check_card() == 0) && ((u32) (TAdPlayerLoadGC::get_load_result((void *)(*(s32 *)&this->m_28)) + 0x10000) == 0xFF21U)) {
-            if (((s32) *(s32 *)&this->m_24 > 0xA) && ((u32) this->m_30 == 0U)) {
-                this->m_30 = create((s32)((int) (*(s32 *)&this->m_28 + 4)));
+        if ((((TAdPlayerLoadGC *)(this->m_28))->probe_and_check_card() == 0) && ((u32) (TAdPlayerLoadGC::get_load_result((void *)(this->m_28)) + 0x10000) == 0xFF21U)) {
+            if (((s32) this->m_24 > 0xA) && ((u32) this->m_30 == 0U)) {
+                this->m_30 = create((s32)((int) (this->m_28 + 4)));
             }
         } else {
-            *(s32 *)&this->m_1c = 3;
+            this->m_1c = 3;
             if ((u32) this->m_30 != 0U) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_30);
                 this->m_30 = 0U;
@@ -97,40 +97,40 @@ void TAdMcCheckGC::run_task() {
         }
         break;
     case 3:
-        if (((TAdPlayerLoadGC *)(*(s32 *)&this->m_28))->probe_and_check_card() != 0) {
-            if ((s32) *(s32 *)&this->m_28 == 1) {
-                *(s32 *)&this->m_1c = 5;
+        if (((TAdPlayerLoadGC *)(this->m_28))->probe_and_check_card() != 0) {
+            if ((s32) this->m_28 == 1) {
+                this->m_1c = 5;
             } else {
-                *(s32 *)&this->m_1c = 4;
+                this->m_1c = 4;
             }
             if ((u32) this->m_34 != 0U) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_34);
                 this->m_34 = 0U;
             }
-        } else if (((s32) *(s32 *)&this->m_24 > 0xA) && ((u32) this->m_34 == 0U)) {
-            this->m_34 = create((s32)((int) (*(s32 *)&this->m_28 + 6)));
+        } else if (((s32) this->m_24 > 0xA) && ((u32) this->m_34 == 0U)) {
+            this->m_34 = create((s32)((int) (this->m_28 + 6)));
         }
         break;
     case 4:
-        if (TAdPlayerLoadGC::check_memcard_status((int) (*(s32 *)&this->m_28)) == 0) {
-            *(s32 *)&this->m_1c = 5;
+        if (TAdPlayerLoadGC::check_memcard_status((int) (this->m_28)) == 0) {
+            this->m_1c = 5;
             if ((u32) this->m_38 != 0U) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_38);
                 this->m_38 = 0U;
             }
-        } else if (((s32) *(s32 *)&this->m_24 > 0xA) && ((u32) this->m_38 == 0U)) {
-            this->m_38 = create((s32)((int) (*(s32 *)&this->m_28 + 8)));
+        } else if (((s32) this->m_24 > 0xA) && ((u32) this->m_38 == 0U)) {
+            this->m_38 = create((s32)((int) (this->m_28 + 8)));
         }
         break;
     case 5:
         break;
     }
-    if ((s32) *(s32 *)&this->m_20 != (s32) *(s32 *)&this->m_1c) {
-        *(s32 *)&this->m_24 = 0;
+    if ((s32) this->m_20 != (s32) this->m_1c) {
+        this->m_24 = 0;
     } else {
-        *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + 1);
+        this->m_24 = (s32) (this->m_24 + 1);
     }
-    *(s32 *)&this->m_20 = (s32) *(s32 *)&this->m_1c;
+    this->m_20 = (s32) this->m_1c;
 }
 
 extern void *TAdMcCheckGC__name;
@@ -140,7 +140,7 @@ u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1) {
     s32 temp_r4;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC *)&__vt__12TAdMcCheckGC).value;
-        temp_r4 = *(s32 *)&((TAdMcCheckGC *)arg0)->m_28* 4;
+        temp_r4 = ((TAdMcCheckGC *)arg0)->m_28* 4;
         if ((u32) *(u32 *)((s8 *)((u8 *)memcard_cursor_instance_table + temp_r4) + 0) != 0U) {
             *(s32 *)((s8 *)((u8 *)memcard_cursor_instance_table + temp_r4) + 0) = 0;
         }

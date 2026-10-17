@@ -353,9 +353,9 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
         VecCopy((Vec *)(*(s32 *)&this->m_a4 + 0x1C), (const Vec *)(arg0 + 0x38));
         ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *)(entity + 0x5C));
-        temp_r4 = *(s32 *)&this->actorFlags & 0xFFFFF7FF;
-        *(s32 *)&this->actorFlags = temp_r4;
-        *(s32 *)&this->actorFlags = 0x20000000;
+        temp_r4 = this->actorFlags & 0xFFFFF7FF;
+        this->actorFlags = temp_r4;
+        this->actorFlags = 0x20000000;
         this->hp = (s16) this->hpmax;
         *(s32 *)((s8 *)arg0 + 0x3D4) = arg1;
         enemy_set_target_id(arg0, (int) (TObjEneMe3ShinowaReal__sub_800E45CC(entity, temp_r4)));
@@ -364,7 +364,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3C4) = temp_r4_2;
         this->m_b8 = 0xA;
         advance_animation_playback(arg0, temp_r4_2);
-        this->m_c0 = (f32) (u32) (*(s32 *)((s8 *)(*(void * *)&this->unknownF8) + 4) - 1);
+        this->m_c0 = (f32) (u32) (*(s32 *)((s8 *)(this->unknownF8) + 4) - 1);
         transition_enemy_state(arg0, 8);
         clear_mirage();
     }
@@ -425,7 +425,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
     *(f32 *)((s8 *)arg0 + 0x358) = (f32) *(f32 *)((s8 *)arg2 + 0x358);
     fn_800E762C(arg0);
-    *(s16 *)&((TObjEneMe3ShinowaMirage *)arg0)->m_1c = arg3;
+    ((TObjEneMe3ShinowaMirage *)arg0)->m_1c = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
     ((TObjEneMe3Shinowa *)arg0)->init_enemy();
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;
@@ -436,7 +436,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *
     *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DA5C0;
     temp_r5 = (unsigned char *) (((TObjEneMe3ShinowaMirage *)arg0)->m_a4);
     *(f32 *)((s8 *)temp_r5 + 0x20) = (f32) lbl_805DA5C0;
-    *(s32 *)&((TObjEneMe3ShinowaMirage *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneMe3ShinowaMirage *)arg0)->actorFlags| 0x800);
+    ((TObjEneMe3ShinowaMirage *)arg0)->actorFlags = (s32) (((TObjEneMe3ShinowaMirage *)arg0)->actorFlags| 0x800);
     *(f32 *)((s8 *)arg0 + 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
     ((TObjEneMe3ShinowaMirage *)arg0)->m_434 = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
     *(f32 *)((s8 *)arg0 + 0x438) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;

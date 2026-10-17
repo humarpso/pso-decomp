@@ -12,7 +12,7 @@ void TUnk_804AFBF8::run_task() {
         TORainbowCave01__sub_80158604(this);
         return;
     }
-    if ((u32) *(u32 *)&this->m_bc != 0U) {
+    if ((u32) this->m_bc != 0U) {
         update_anim_phase();
     }
 }

@@ -258,7 +258,7 @@ void THunterGuildSeqOffline::handle_window_input() {
 
     if (temp_r3 != NULL) {
         if (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 1) {
-            *(u32 *)&this->m_34 = 0U;
+            this->m_34 = 0U;
             goto block_3;
         }
     } else {

@@ -167,7 +167,7 @@ int TWindowSubComCard::get_flag() { return (*(u16*)((char*)this + 0x70) >> 2) & 
 void TWindowSubComCard::clear_flag_and_release2() {
     *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) & 0xFFFFFFFD);
     if ((u32) this->m_78 != 0U) {
-        ((TWindowSubStatusDisp *)(*(s32 *)&this->m_78))->set_entry_state(1);
+        ((TWindowSubStatusDisp *)(this->m_78))->set_entry_state(1);
     }
 }
 
@@ -215,7 +215,7 @@ void TWindowSubComCardList::sub_8026556C() {
             var_r0 = reset_selection__20TWindowSubStatusDispFv(temp_r3, &stack.sp8);
         }
         this->m_84 = var_r0;
-        *(s32 *)&this->m_2c = (s32) (*(s32 *)&this->m_2c | 0x80);
+        this->m_2c = (s32) (this->m_2c | 0x80);
     }
 }
 
@@ -485,7 +485,7 @@ void TWindowSubComCard::calc_layout_height(f32 farg0) {
         }
     }
     h -= lbl_805DD16C;
-    if (*(s32 *)&this->m_2c& 0x40) {
+    if (this->m_2c& 0x40) {
         h += lbl_805DD158;
     }
     this->m_38 = farg0;
@@ -580,7 +580,7 @@ void TWindowSubComCard::clear_transition_flag() {
     if (temp_r4 & 0x20) {
         *(u16 *)((s8 *)this + 0x70) = (u16) (temp_r4 & 0xFFFFFFDF);
         *(f32 *)&this->unk_3C = (f32) (lbl_805DD154 + *(f32 *)&this->m_7c);
-        *(s32 *)&this->m_50 = 3;
+        this->m_50 = 3;
     }
 }
 

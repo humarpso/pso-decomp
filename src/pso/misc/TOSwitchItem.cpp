@@ -89,7 +89,7 @@ void TOSwitchItem::update_anim() {
     init_switch_id__5TOKeyFv();
     temp_f0 = this->scale;
     this->m_e8 = (f32) (temp_f0 * temp_f0);
-    this->m_f0 = (s32) *(s32 *)&this->m_88;
+    this->m_f0 = (s32) this->m_88;
     if ((s32) this->m_f0 >= 8) {
         this->m_f0 = 0;
     }
@@ -126,7 +126,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     while (var_r29 != temp_r31) {
         sorted_item_registry_entry = (u8 *)(get_sorted_item_registry_entry(var_r29));
         if ((TObjPlayer__sub_80102C30(sorted_item_registry_entry) == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)sorted_item_registry_entry)->pos, &((Obj_80177E24 *)arg0)->pos) < ((TOSwitchItem *)arg0)->m_e8)) {
-            switch (*(u32 *)&((TOSwitchItem *)arg0)->m_f0) {
+            switch (((TOSwitchItem *)arg0)->m_f0) {
             case 0:
                 var_r30 += 1;
                 break;

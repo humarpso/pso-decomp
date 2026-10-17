@@ -184,7 +184,7 @@ s32 TWindowSubStatusDisp::destroy_allocation(s32 arg0, s16 arg1) {
 
 void *TWindowSubStatusDisp::reset_selection() {
     copy_position__11TWindowMenuFPv();
-    *(s32 *)&this->m_prev = 0;
+    this->m_prev = 0;
     return this;
 }
 

@@ -194,7 +194,7 @@ void TBoss4Thanks::advance_thanks_state() {
     }
 }
 
-void TBoss4Thanks::mark_done() { if (TBoss4Thanks::is_player_nearby(this) != 0) { *(int *)&this->next_motion = 1; *(int *)&this->state = 1; } }
+void TBoss4Thanks::mark_done() { if (TBoss4Thanks::is_player_nearby(this) != 0) { this->next_motion = 1; this->state = 1; } }
 
 typedef struct Anim_8035C6FC Anim_8035C6FC;
 typedef struct Thanks_8035C6FC Thanks_8035C6FC;

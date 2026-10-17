@@ -489,7 +489,7 @@ void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
     *(s32 *)((s8 *)arg0 + 0x58) = ((s32 (*)())create__23TAdSinglePlyChrSelectGCFv)();
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)&((TAdTimeSetGC *)arg0)->unknown_5c = 0;
+    ((TAdTimeSetGC *)arg0)->unknown_5c = 0;
     ((TAdTimeSetGC *)arg0)->timer = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
     ((TAdTimeSetGC *)arg0)->load_status = ((TAdTimeSetGC *)arg0)->poll_load_status();
@@ -939,7 +939,7 @@ void TAdSinglePlyChrSelectGC::update_load_countdown() {
             *(s32 *)((s8 *)this + 0x64) = 0;
         }
         if ((s32) *(s32 *)((s8 *)this + 0x64) == 0) {
-            *(s32 *)&this->m_30 = 1;
+            this->m_30 = 1;
             ((int (*)(void *))close_windows__23TAdSinglePlyChrSelectGCFPv)(this);
             if ((s32) *(s32 *)((s8 *)this + 0x60) == 0) {
                 ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(this, 0);
@@ -975,7 +975,7 @@ void TAdSinglePlyChrSelectGC::handle_confirm_menu() {
         ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(((u8 *)this), 6);
         break;
     case 1:
-        *(s32 *)&this->m_1c = -1;
+        this->m_1c = -1;
         ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(((u8 *)this), 5);
         break;
     }

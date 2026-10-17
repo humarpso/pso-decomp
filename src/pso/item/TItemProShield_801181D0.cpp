@@ -66,12 +66,12 @@ void TItemProShield::deactivate_shield_effect(s32 arg1) {
         model_render_flags &= 0xFFFFFFEF;
         get_mag_scale__10TObjPlayerFv(this);
         set_model_fade_alpha__10TObjPlayerFf();
-        if (*(s32 *)&this->m_19c & 2) {
+        if (this->m_19c & 2) {
             TParticleCtrl::begin_effect_render();
         }
         TObjPlayer::notify_fish_if_valid(this->texture_id);
         draw_ginja_object((void *)this->m_f4);
-        if (*(s32 *)&this->m_19c & 2) {
+        if (this->m_19c & 2) {
             TParticleCtrl::end_effect_render();
         }
         TObjPlayer::warn_if_gauge_low();
@@ -98,8 +98,8 @@ void TItemProShield::vfunc_14() {
 
 void TItemProShield::vfunc_16() {
     this->vfunc_51();
-    register_technique_boosts__14TItemEquipBaseFPvPv(this, *(s32 *)&this->m_194);
-    if (*(s32 *)&this->m_19c & 4) {
+    register_technique_boosts__14TItemEquipBaseFPvPv(this, this->m_194);
+    if (this->m_19c & 4) {
         refresh_owner_stats();
     }
     ((TItemEquipBase *)this)->bind_loaded_resources();
@@ -116,7 +116,7 @@ void TItemProShield::vfunc_44() {
     s32 temp_r3_5;
     u8 temp_r3;
     if (get_flag_40__8TItemMagFv((void *)(((u8 *)this))) == 0) {
-        play_sound_effect(0x4000B20A, (int) (*(s32 *)&this->m_f0 + 0x38), 0, 0);
+        play_sound_effect(0x4000B20A, (int) (this->m_f0 + 0x38), 0, 0);
     }
     if ((u32) this->m_174 != 0U) {
         temp_r3 = ((TItemProShield *)((u8 *)this))->get_slot_count();
@@ -155,14 +155,14 @@ void TItemProShield::vfunc_30() {
     Status_80118558 st;
     if ((u32) this->m_f0 != 0U) {
         if (get_flag_40__8TItemMagFv(this) == 0) {
-            create_shield_effect__14TItemProShieldFlUsUl(tl_05, get_id__13TItemProArmorFv(this), *(s32 *)&this->m_190);
+            create_shield_effect__14TItemProShieldFlUsUl(tl_05, get_id__13TItemProArmorFv(this), this->m_190);
             ((TObjPlayer *)(&st))->reset_status_block();
             st.a = ((TItem *)this)->get_field_ed();
             st.b = ((TItemProShield *)this)->get_slot_count();
             st.c = this->m_f0;
             play_shield_sound_cue(&st);
         }
-        if (*(s32 *)&this->m_19c & 1) {
+        if (this->m_19c & 1) {
             switch (((TItemProShield *)this)->get_slot_count()) {
             case 34:
                 add_actor_hp((u8 *)this->m_f0, (lbl_805DABF0 * (f32)((TItemProShield *)(this->m_f0))->get_field_2b8()));
@@ -181,14 +181,14 @@ u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *item) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C38;
     ((TItemProShield *)(arg0))->vfunc_19(3);
-    *(s32 *)&((TItemProShield *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
-    *(s32 *)&((TItemProShield *)arg0)->m_190 = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)((s8 *)(*(s32 *)&((TItemProShield *)arg0)->m_18c) + 0xD) * 0x2C));
-    *(s32 *)&((TItemProShield *)arg0)->m_194 = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(*(s32 *)&((TItemProShield *)arg0)->m_18c) + 0x19));
-    ((TItemProShield *)arg0)->m_19a = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProShield *)arg0)->m_18c) + 0x17);
-    ((TItemProShield *)arg0)->m_19b = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProShield *)arg0)->m_18c) + 0x16);
-    *(s8 *)&((TItemProShield *)arg0)->m_198 = getS16_06__9TItemDataFPv(item);
-    *(s8 *)&((TItemProShield *)arg0)->m_199 = get_bswap16_field8__9TItemDataFPv(item);
-    *(s32 *)&((TItemProShield *)arg0)->m_19c = 0;
+    ((TItemProShield *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
+    ((TItemProShield *)arg0)->m_190 = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0xD) * 0x2C));
+    ((TItemProShield *)arg0)->m_194 = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0x19));
+    ((TItemProShield *)arg0)->m_19a = (u8) *(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0x17);
+    ((TItemProShield *)arg0)->m_19b = (u8) *(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0x16);
+    ((TItemProShield *)arg0)->m_198 = getS16_06__9TItemDataFPv(item);
+    ((TItemProShield *)arg0)->m_199 = get_bswap16_field8__9TItemDataFPv(item);
+    ((TItemProShield *)arg0)->m_19c = 0;
     ((TItemEquipBase *)arg0)->set_equip_flag(0x24);
     ((TItemProShield *)arg0)->sub_80117FEC();
     return arg0;

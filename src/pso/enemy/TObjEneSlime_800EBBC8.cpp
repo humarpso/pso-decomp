@@ -42,16 +42,16 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneSlime *)(arg0))->clear_lobby_object_state();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x374), (arg2));
-    *(s32 *)&((TObjEneSlime *)arg0)->m_3b4 = (s32) *(s16 *)((s8 *)arg2 + 2);
-    temp_r0 = *(s32 *)&((TObjEneSlime *)arg0)->m_3b4;
+    ((TObjEneSlime *)arg0)->m_3b4 = (s32) *(s16 *)((s8 *)arg2 + 2);
+    temp_r0 = ((TObjEneSlime *)arg0)->m_3b4;
     if (temp_r0 < 1) {
         if (TObjPlayer::check_demo_mode() != 0) {
-            *(s32 *)&((TObjEneSlime *)arg0)->m_3b4 = 3;
+            ((TObjEneSlime *)arg0)->m_3b4 = 3;
         }
     } else if (temp_r0 > 4) {
-        *(s32 *)&((TObjEneSlime *)arg0)->m_3b4 = 4;
+        ((TObjEneSlime *)arg0)->m_3b4 = 4;
     }
-    *(s32 *)&((TObjEneSlime *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneSlime *)arg0)->actorFlags| 0x02000000);
+    ((TObjEneSlime *)arg0)->actorFlags = (s32) (((TObjEneSlime *)arg0)->actorFlags| 0x02000000);
     ((TObjEneSlime *)arg0)->init_slots();
     return arg0;
 }

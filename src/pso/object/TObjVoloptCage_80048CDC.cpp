@@ -228,7 +228,7 @@ void TObjVoloptCage::update_capture() {
     s32 temp_r0_2;
     s32 player;
 
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case -1:
         break;
     case 0:
@@ -240,7 +240,7 @@ void TObjVoloptCage::update_capture() {
             }
             TLobby__sub_80049568();
         }
-        *(s32 *)&this->state = 1;
+        this->state = 1;
     case 1:
         temp_r0_2 = *(s32 *)&this->unk_38C - 1;
         *(s32 *)&this->unk_38C = temp_r0_2;
@@ -256,10 +256,10 @@ void TObjVoloptCage::update_capture() {
 #pragma opt_common_subs off
 void TObjVoloptCage::sub_80049000() {
     u8 *arg0 = (u8 *)this;
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case 0:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
-        *(s32 *)&this->state = 1;
+        this->actorFlags = (s32) (this->actorFlags | 0x40000);
+        this->state = 1;
         play_sound_effect(0x4003A80A, (u32)(arg0 + 0x38), 0xA, 0);
         break;
     case 1:
@@ -267,13 +267,13 @@ void TObjVoloptCage::sub_80049000() {
         if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805D8878) {
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8878;
             *(s32 *)&this->unk_38C = (s32) (TObjVoloptPillar__sub_80048118(4) + 0x1C2);
-            *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
+            this->m_388 = (s32) (this->m_388 & 0xFFFFFFFE);
             this->vfunc_59();
             break;
         }
         break;
     case -1:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         break;
     }
 }

@@ -67,10 +67,10 @@ u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
     p = arg0 + 0x64;
     i = 0;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3E68;
-    *(s8 *)&((TWindowMenuMainMenu *)arg0)->m_60 = 4;
-    *(s8 *)&((TWindowMenuMainMenu *)arg0)->m_61 = 0;
-    *(s16 *)&((TWindowMenuMainMenu *)arg0)->m_62 = 0;
-    *(s16 *)&((TWindowMenuMainMenu *)arg0)->m_20 = arg2;
+    ((TWindowMenuMainMenu *)arg0)->m_60 = 4;
+    ((TWindowMenuMainMenu *)arg0)->m_61 = 0;
+    ((TWindowMenuMainMenu *)arg0)->m_62 = 0;
+    ((TWindowMenuMainMenu *)arg0)->m_20 = arg2;
     do {
         ((TWindowMainMenu *)p)->init_color();
         i++;

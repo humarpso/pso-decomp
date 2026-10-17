@@ -40,7 +40,7 @@ s32 TWindowMessageYesNo::is_child_visible() {
     if ((u32) this->m_2c == 0U) {
         return 0;
     }
-    return ((TWindowMenu *)(*(s32 *)&this->m_2c))->is_visible();
+    return ((TWindowMenu *)(this->m_2c))->is_visible();
 }
 
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {

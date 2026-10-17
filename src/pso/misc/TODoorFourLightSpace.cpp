@@ -86,7 +86,7 @@ s32 TODoorFourLightSpace::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if ((s32) *(s32 *)&this->m_8c < 0) {
+    } else if ((s32) this->m_8c < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             this->m_cc = 3;
         } else {
@@ -145,7 +145,7 @@ void TODoorFourLightSpace::update_door_switch_state() {
             } else {
                 this->m_d0 &= ~1;
             }
-            if (bad == 0 && *(u32 *)&this->m_80 != 0 &&
+            if (bad == 0 && this->m_80 != 0 &&
                 ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) == 1) {
                 sp8 = 1;
                 ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
@@ -289,7 +289,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts(arg0, TODoorFourLight__collision_body_params, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TODoorFourLightSpace *)arg0)->m_d4 = (s32)fn_8028A78C(0);
+    ((TODoorFourLightSpace *)arg0)->m_d4 = (s32)fn_8028A78C(0);
     ((TODoorFourLightSpace *)arg0)->texture_id = (s32)fn_8028A750(0);
     *(u8 **)((s8 *)arg0 + 0xBC) = fn_8028A714(0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
@@ -297,7 +297,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     {
         Tbl_80289EE0 t = door_four_light_space_index_table;
         for (i = 0; i < 8; i++) {
-            ((Door_80289EE0 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(*(s32 *)&((TODoorFourLightSpace *)arg0)->m_d4))->count_linked_switches(t.v[i]);
+            ((Door_80289EE0 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(((TODoorFourLightSpace *)arg0)->m_d4))->count_linked_switches(t.v[i]);
         }
     }
     return arg0;
@@ -327,7 +327,7 @@ s32 TODoorFourLightRuins::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if ((s32) *(s32 *)&this->m_8c < 0) {
+    } else if ((s32) this->m_8c < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             this->m_cc = 3;
         } else {
@@ -387,7 +387,7 @@ void TODoorFourLightRuins::update_door_switch_state() {
             ((TUnk_804B0BB8 *)arg0)->play_door_sound();
             this->m_d0 |= 1;
         }
-        if (off2 == 0 && *(u32 *)&this->m_80 != 0 && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) == 1) {
+        if (off2 == 0 && this->m_80 != 0 && ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) == 1) {
             sp8 = 1;
             ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
             ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
@@ -538,7 +538,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts(arg0, TODoorFourLight__collision_body_params, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TODoorFourLightRuins *)arg0)->m_d4 = (s32)fn_8028A78C(0);
+    ((TODoorFourLightRuins *)arg0)->m_d4 = (s32)fn_8028A78C(0);
     ((TODoorFourLightRuins *)arg0)->texture_id = (s32)fn_8028A750(0);
     *(u8 **)((s8 *)arg0 + 0xBC) = fn_8028A714(0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
@@ -546,7 +546,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     {
         Tbl_8028A5C4 t = door_four_light_ruins_index_table;
         for (i = 0; i < 8; i++) {
-            ((Door_8028A5C4 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(*(s32 *)&((TODoorFourLightRuins *)arg0)->m_d4))->count_linked_switches(t.v[i]);
+            ((Door_8028A5C4 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(((TODoorFourLightRuins *)arg0)->m_d4))->count_linked_switches(t.v[i]);
         }
     }
     return arg0;

@@ -399,8 +399,8 @@ u8 *TTecGiBarta::construct_facing(void * _w1, void * _w2, void * _w3, void * _w4
     for (i = 0; i < 0x20; i++) {
         ((Obj_80230CFC *)arg0)->ids[i] = 0xFFFF;
     }
-    *(s32 *)&this->m_174 = 0;
-    if (*(void * *)&this->source != 0) {
+    this->m_174 = 0;
+    if (this->source != 0) {
         *(s16 *)&this->sourceId = obj_getField1c(*(void * *)&this->source);
     }
     create_particles();

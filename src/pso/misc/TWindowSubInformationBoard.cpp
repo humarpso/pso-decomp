@@ -58,11 +58,11 @@ void TWindowSubInformationBoard::run_task() {
     case 2:
         set_message_index__26TWindowSubInformationBoardFl((void *)arg0, (get_cursor_pos__20TWindowShortListCtrlFv((int)this->m_2c)));
         if (((TWindowSubComCard *)(this->m_2c))->get_status_flag() != 0) {
-            ((VObj_18_204a81 *)((u8 *)(*(u8 * *)&this->m_28)))->m7();
+            ((VObj_18_204a81 *)((u8 *)(this->m_28)))->m7();
             this->m_1c = 0xCU;
         } else if (((TWindowMenu *)(this->m_2c))->is_visible() != 0) {
             if ((u32) this->m_34 != 0U) {
-                TWindow__close((u8 *)(*(void * *)&this->m_34));
+                TWindow__close((u8 *)(this->m_34));
                 this->m_34 = 0U;
             }
             this->m_1c = get_selected_menu_value((int)this->m_2c);
@@ -102,14 +102,14 @@ void TWindowSubInformationBoard::run_task() {
         break;
     case 8:
         if ((u32) this->m_30 != 0U) {
-            TWindow__close((u8 *)(*(void * *)&this->m_30));
+            TWindow__close((u8 *)(this->m_30));
             this->m_30 = 0U;
         }
         this->m_1c = 5U;
         break;
     case 9:
         if ((u32) this->m_2c != 0U) {
-            TWindow__close((u8 *)(*(void * *)&this->m_2c));
+            TWindow__close((u8 *)(this->m_2c));
             this->m_2c = 0U;
         }
         if ((u32) this->m_3c == 0U) {
@@ -145,11 +145,11 @@ void TWindowSubInformationBoard::run_task() {
 void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TWindowSubInformationBoard;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)&((TWindowSubInformationBoard *)arg0)->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x38)))->close(); *(s32 *)&((TWindowSubInformationBoard *)arg0)->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)&((TWindowSubInformationBoard *)arg0)->m_34 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30))); *(s32 *)&((TWindowSubInformationBoard *)arg0)->m_30 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); *(s32 *)&((TWindowSubInformationBoard *)arg0)->m_2c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); ((TWindowSubInformationBoard *)arg0)->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x38)))->close(); ((TWindowSubInformationBoard *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); ((TWindowSubInformationBoard *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30))); ((TWindowSubInformationBoard *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); ((TWindowSubInformationBoard *)arg0)->m_2c = 0; }
         TWindowSubInformationBoard::clear_if_current((u32)((s8 *)arg0 + 0x40));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

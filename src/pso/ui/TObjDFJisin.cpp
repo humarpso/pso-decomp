@@ -910,8 +910,8 @@ void TObjDFTenchuFuru::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     this->m_20 = (f32) (this->m_20 + lbl_805D8AC0);
-    if ((u32) *(u32 *)&this->m_2c != 0U) {
-        ((TNowLoading *)(*(void * *)&this->m_2c))->copy_pos(arg0 + 0x1C);
+    if ((u32) this->m_2c != 0U) {
+        ((TNowLoading *)(this->m_2c))->copy_pos(arg0 + 0x1C);
     }
     temp_r0 = this->m_28 - 1;
     this->m_28 = temp_r0;

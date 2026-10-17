@@ -56,11 +56,11 @@ s32 is_usable__9TItemDataFPv(void *arg0);
 
 void TItem::apply_item_flags(s32 arg1) {
     if (is_usable__9TItemDataFPv((void *)arg1) != 0) {
-        *(s32 *)&this->m_dc = (s32) (*(s32 *)&this->m_dc | 0x100);
-        *(s16 *)&this->m_e8 = get_packed_value__9TItemDataFPv((void *)arg1);
+        this->m_dc = (s32) (this->m_dc | 0x100);
+        this->m_e8 = get_packed_value__9TItemDataFPv((void *)arg1);
     }
     if (is_wrapped__9TItemDataFPv(arg1) != 0) {
-        *(s32 *)&this->m_dc = (s32) (*(s32 *)&this->m_dc | 0x400);
+        this->m_dc = (s32) (this->m_dc | 0x400);
     }
 }
 }
@@ -132,12 +132,12 @@ void TItem::sub_8010043C(u8 arg1) {
     temp_r0 = this->model_index;
     if (temp_r0 < 0xBU) {
         if (temp_r0 == 7) {
-            *(s8 *)&this->m_ea = 5;
+            this->m_ea = 5;
         }
         return;
     }
     this->model_index = 2U;
-    *(s8 *)&this->m_ea = 0;
+    this->m_ea = 0;
 }
 
 u16 TObjPlayer__sub_80100474(void* p) { return ((TItem *)p)->m_e8; }

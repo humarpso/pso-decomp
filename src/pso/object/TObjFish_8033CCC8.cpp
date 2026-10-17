@@ -163,7 +163,7 @@ void *TBoss6Demo11_TYPE1_DEAD::destroy(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EF9EC;
         restore_player_cameras();
         if (*(void * *)&(this->m_88) != NULL) { TObjFish::init_state_1(*(void * *)&(this->m_88)); *(s32 *)&(this->m_88) = 0; }
-        if (*(void * *)&(*(u32 *)&this->unk_8C) != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&(*(u32 *)&this->unk_8C))); *(s32 *)&(*(u32 *)&this->unk_8C) = 0; }
+        if (*(void * *)&(this->unk_8C) != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&(this->unk_8C))); *(s32 *)&(this->unk_8C) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

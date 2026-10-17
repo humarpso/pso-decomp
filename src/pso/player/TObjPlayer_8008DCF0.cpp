@@ -199,17 +199,17 @@ s32 TObjPlayer__sub_800A0554(void *);
 void TObjPlayer__sub_8008EC3C(u8 *arg0);
 void TObjEneBalClawBody::update_dragon_boss_state() {
 
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case 0:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
+        this->actorFlags = (s32) (this->actorFlags | 0x40000);
         this->m_b8 = (s16) ((((u32) this->m_388 >> 0x18U) & 1) ? 0 : 5);
-        *(s32 *)&this->state = 1;
+        this->state = 1;
     case 1:
         advance_animation_playback(this);
         apply_actor_gravity((u8 *)this, (s32 *)(0), (f32)lbl_805D9620);
         return;
     case -1:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         return;
     }
 }

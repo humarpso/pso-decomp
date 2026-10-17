@@ -639,7 +639,7 @@ void TOTrapAncient02R::vfunc_82() {
         this->phase = 0;
         this->h344 = (f32) lbl_805DBA80;
         this->player = 0xFFFF;
-        *(s32 *)&this->target = 0;
+        this->target = 0;
         break;
     }
 }
@@ -1072,7 +1072,7 @@ void TOTrapAncient02::render_particle_chain() {
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
-    temp_r31 = (unsigned char *) (*(void * *)&this->model);
+    temp_r31 = (unsigned char *) (this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     setup_particle_tev(0);
     TObjFish::set_global_param(this->texture_id);
@@ -1100,7 +1100,7 @@ void TOTrapAncient02::render_particle_chain() {
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
     post_translate_matrix(temp_r31_4 + 8);
-    rotate_matrix_y(0, (int) (*(s32 *)&this->m_34c));
+    rotate_matrix_y(0, (int) (this->m_34c));
     setup_particle_tev(0);
     TObjFish::set_global_param(this->texture_id);
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
@@ -1123,7 +1123,7 @@ void TOTrapAncient02::draw_effect_chain() {
     TObjFish::set_global_param(this->texture_id);
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, this->rotation_y);
-    temp_r31 = (unsigned char *) (*(void * *)&this->model);
+    temp_r31 = (unsigned char *) (this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
     push_matrix();
@@ -1139,7 +1139,7 @@ void TOTrapAncient02::draw_effect_chain() {
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
     post_translate_matrix(temp_r31_4 + 8);
-    rotate_matrix_y(0, (int) (*(s32 *)&this->m_34c));
+    rotate_matrix_y(0, (int) (this->m_34c));
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_4 + 4)));
     pop_matrix();
     TParticleCtrl::end_effect_render();
@@ -1149,10 +1149,10 @@ void TOTrapAncient02::draw_effect_chain() {
 
 void TOTrapAncient02::render() {
     if (get_state_flag__9TMainTaskFv() != 1) {
-        *(s32 *)&this->m_340 = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
-        if (((s32) *(s32 *)&this->m_340 == 1) && (((s32) *(s32 *)&this->m_358 == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
+        this->m_340 = ((V_B_8017AC98 *) this)->m8(lbl_805DBAA4, lbl_805DBA94);
+        if (((s32) this->m_340 == 1) && (((s32) this->m_358 == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
             set_depth_buffer_settings_id(3);
-            if ((s32) *(s32 *)&this->m_358 != 0) {
+            if ((s32) this->m_358 != 0) {
                 ((TOTrapAncient02 *)this)->render_particle_chain();
             } else {
                 ((TOTrapAncient02 *)this)->draw_effect_chain();

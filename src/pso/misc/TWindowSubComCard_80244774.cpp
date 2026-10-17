@@ -191,7 +191,7 @@ s32 try_open__19TWindowKeyBoardSoftFii(void *, Quad_802455CC *);
 
 int TWindowSubComCard__sub_80244774(void) {  return lbl_805D3614; }
 
-s32 TWindowSubComCard::get_field_20() { return *(s32 *)&this->m_20; }
+s32 TWindowSubComCard::get_field_20() { return this->m_20; }
 
 f32 TWindowSubComCard__sub_80244784(void *arg0) {
     f32 v = ((TWindowSubComCard *)arg0)->calc_offset();
@@ -216,10 +216,10 @@ f32 TWindowSubComCard::calc_offset() {
 f32 TWindowSubComCard::get_normalized_progress() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    if (*(s32 *)&this->m_2c & 0x2000) {
+    if (this->m_2c & 0x2000) {
         return (*(const f32 *)&lbl_805DCAC8);
     }
-    temp_r3 = *(s32 *)&this->m_5c;
+    temp_r3 = this->m_5c;
     if ((f32) temp_r3 >= lbl_805DCAD0) {
         return (*(const f32 *)&lbl_805DCAC8);
     }

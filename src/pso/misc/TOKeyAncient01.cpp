@@ -203,15 +203,15 @@ u8 *TOKeyAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOKeyAncient01 *)arg0)->m_c0 = (f32) lbl_805DB6F0;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB6F4;
-    if ((s32) *(s32 *)&((TOKeyAncient01 *)arg0)->m_d0 != 2) {
+    if ((s32) ((TOKeyAncient01 *)arg0)->m_d0 != 2) {
         if (((TOKeyAncient01 *)arg0)->scale< lbl_805DB6F8) {
-            *(s32 *)&((TOKeyAncient01 *)arg0)->m_d0 = 1;
+            ((TOKeyAncient01 *)arg0)->m_d0 = 1;
         } else {
             goto block_7;
         }
     } else {
 block_7:
-        *(s32 *)&((TOKeyAncient01 *)arg0)->m_d0 = 0;
+        ((TOKeyAncient01 *)arg0)->m_d0 = 0;
     }
     return arg0;
 }

@@ -2180,7 +2180,7 @@ void update__13TObjEneBm3FlyFPv(void *arg0) {
 
 void TObjEneBm3Fly::vfunc_61() {  }
 
-void TObjEneBm3Fly::vfunc_62() { if (*(short *)&this->mode != 6) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)6); } }
+void TObjEneBm3Fly::vfunc_62() { if (this->mode != 6) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)6); } }
 
 void TObjEneBm3Fly::vfunc_63() {
     u8 *arg0 = (u8 *)this;
@@ -2316,7 +2316,7 @@ extern "C" {
 void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneBm3Fly;
-        if (*(void * *)&((TObjEneBm3Fly *)arg0)->particle_effect != NULL) { queue_destruction__7TObjectFv(*(void * *)&((TObjEneBm3Fly *)arg0)->particle_effect); *(s32 *)((s8 *)arg0 + 0x458) = 0; }
+        if (((TObjEneBm3Fly *)arg0)->particle_effect != NULL) { queue_destruction__7TObjectFv(((TObjEneBm3Fly *)arg0)->particle_effect); *(s32 *)((s8 *)arg0 + 0x458) = 0; }
         free_collision_body_parts(arg0);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
@@ -2363,13 +2363,13 @@ s32 TObjEneBm3Fly::init_child_params() {
     set_field_b8(this->m_b8);
     reset_hp__9TObjEneDDFv(this, bm3_fly_boss_stat_handle, TObjEneBm3Fly__attack_params, lbl_805D50E8);
     check_state_flag_1();
-    *(void * *)&this->movementParameters = bm3_fly_decision_row;
+    this->movementParameters = bm3_fly_decision_row;
     initialize_enemy_state__9TObjEneDDFv(this, 3);
     this->m_37c = (5.0f);
     enemy_init_acquire_period(0xA);
     enemy_init_validate_period(0xA);
     set_active();
-    *(s32 *)&this->actorFlags |= 0x01000000;
+    this->actorFlags |= 0x01000000;
     *(s32 *)((s8 *)this + 0x428) = 2;
     *(f32 *)((s8 *)this + 0x42C) = *(f32 *)((s8 *)this + 0x3C);
     *(f32 *)((s8 *)this + 0x430) = (0.0f);
@@ -2382,7 +2382,7 @@ s32 TObjEneBm3Fly::init_child_params() {
     *(f32 *)((s8 *)this + 0x44C) = (2.0f) * calc_elapsed_scaled__9TObjEneDDFv(this) + (45.0f);
     *(f32 *)((s8 *)this + 0x450) = (2.0f) * calc_elapsed_scaled__9TObjEneDDFv(this) + (15.0f);
     *(s32 *)((s8 *)this + 0x454) = 0;
-    *(s32 *)&this->particle_effect = 0;
+    this->particle_effect = 0;
     this->alternate_phase = 0;
     this->m_3c0 = 0;
     *(s32 *)((s8 *)this + 0x3C4) = 0;
@@ -2414,7 +2414,7 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneBm3Fly__name;
     ((TObjEneBm3Fly *)arg0)->owner_id = obj_getField1c(arg2);
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
-    *(s16 *)&((TObjEneBm3Fly *)arg0)->m_1c = arg3;
+    ((TObjEneBm3Fly *)arg0)->m_1c = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg5));
     VecCopy((Vec *)(arg0 + 0x41C), (const Vec *)(arg2 + 0x38));

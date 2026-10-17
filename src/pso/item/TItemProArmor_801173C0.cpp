@@ -69,7 +69,7 @@ void TUnk_8049FEB8::run_task() {
 void *TUnk_8049FEB8::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049FEB8;
-        TItemTimerEvent::clear_timer_slot(*(u16 *)&(*(u16 *)&this->unk_1C));
+        TItemTimerEvent::clear_timer_slot(*(u16 *)&(this->unk_1C));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -98,7 +98,7 @@ void create__13TItemProArmorFiUi(s32 arg0, u32 arg1) {
     }
 }
 
-void TUnk_8049FED0::vfunc_44() { create__13TItemProArmorFiUi(tl_05, (u32)((u32)((void*)(*(int *)&this->m_f0)))); }
+void TUnk_8049FED0::vfunc_44() { create__13TItemProArmorFiUi(tl_05, (u32)((u32)((void*)(this->m_f0)))); }
 
 extern s32 lbl_8049FED0[];
 

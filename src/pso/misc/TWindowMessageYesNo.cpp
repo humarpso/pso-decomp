@@ -17,7 +17,7 @@ void __dt__7TObjectFv(void *, int);
 
 void TWindowMessageYesNo::render() {  }
 
-void TWindowMessageYesNo::run_task() { if (is_child_visible() != 0) { ((TWindowMenu *)(*(void* *)&this->m_28))->confirm_selection(); } }
+void TWindowMessageYesNo::run_task() { if (is_child_visible() != 0) { ((TWindowMenu *)(this->m_28))->confirm_selection(); } }
 
 extern s32 __vt__19TWindowMessageYesNo[];
 
@@ -30,8 +30,8 @@ void *TWindowMessageYesNo::create(void *arg0, void *arg1, void *arg2, void *arg3
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowMessageYesNo;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); *(s32 *)&((TWindowMessageYesNo *)arg0)->m_2c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28))); *(s32 *)&((TWindowMessageYesNo *)arg0)->m_28 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C))); ((TWindowMessageYesNo *)arg0)->m_2c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28))); ((TWindowMessageYesNo *)arg0)->m_28 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

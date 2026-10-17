@@ -97,7 +97,7 @@ void TOVS2Wall01::render() {
     s32 var_r31;
     update_obstruction_fade(arg0 + 0x340);
     *(s32 *)&this->m_35c = ((VObj_18_26a62c *)(arg0))->m8(*(f32 *)&this->unk_334, this->m_338);
-    if ((s32) *(s32 *)&this->m_35c == 1) {
+    if ((s32) this->m_35c == 1) {
         if (TRaderMapCore::is_not_split_screen() == 1) {
             var_r31 = 0;
         } else {
@@ -113,7 +113,7 @@ void TOVS2Wall01::render() {
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object((void *)(*(s32 *)&this->model));
+        draw_ginja_object((void *)(this->model));
         pop_matrix();
         if (var_r31 != 0) {
             ((VObj_14_1eb8da *)(arg0 + (832)))->m7();
@@ -163,11 +163,11 @@ void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOVS2Wall01 *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = lbl_805DBAAC;
-    ((TOVS2Wall01 *)arg0)->m_338 = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&((TOVS2Wall01 *)arg0)->model) + 4)) + 0x14);
+    ((TOVS2Wall01 *)arg0)->m_338 = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(((TOVS2Wall01 *)arg0)->model) + 4)) + 0x14);
     t = ((TOVS2Wall01 *)arg0)->m_84;
-    *(s32 *)&((TOVS2Wall01 *)arg0)->m_33c = t + 0x100;
+    ((TOVS2Wall01 *)arg0)->m_33c = t + 0x100;
     activate_and_dispatch__10TObjPlayerFv((u8 *)arg0 + 0x340, t, lbl_805DBAB0);
-    *(s32 *)&((TOVS2Wall01 *)arg0)->m_35c = 1;
+    ((TOVS2Wall01 *)arg0)->m_35c = 1;
     return arg0;
 }
 #pragma pop

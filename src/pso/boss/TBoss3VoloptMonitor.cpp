@@ -247,9 +247,9 @@ void *lbl_80483E84[12] = {
 void render__19TBoss3VoloptMonitorFv(void *arg0) {
     s32 v;
     s32 hit;
-    if (!(*(s32 *)&((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
-        if (*(s32 *)&((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800) {
-            ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[*(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant])[8]);
+    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
+        if (((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800) {
+            ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant])[8]);
             v = 0x18;
         } else {
             hit = 0;
@@ -257,12 +257,12 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
                 hit = 1;
             }
             if (hit != 0) {
-                ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[*(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant])[4]);
+                ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant])[4]);
                 v = ((TBoss3VoloptMonitor *)arg0)->m_38e+ 0x10;
             } else {
-                ((TBoss3VoloptMonitor *)arg0)->sub_80042944(((s32 (*)[4])volopt_monitor_model_indices)[0][*(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant]);
+                ((TBoss3VoloptMonitor *)arg0)->sub_80042944(((s32 (*)[4])volopt_monitor_model_indices)[0][((TBoss3VoloptMonitor *)arg0)->variant]);
                 v = ((TBoss3VoloptMonitor *)arg0)->m_38e;
-                if (*(s32 *)&((TBoss3VoloptMonitor *)arg0)->m_388& 0x10000) {
+                if (((TBoss3VoloptMonitor *)arg0)->m_388& 0x10000) {
                     v += 8;
                 }
             }
@@ -316,13 +316,13 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     } else if (((TBoss3VoloptMonitor *)(arg0))->test_flag30_512() != 0) {
         ((TBoss3VoloptMonitor *)(arg0))->vfunc_62();
     }
-    if ((s16) ((TBoss3VoloptMonitor *)arg0)->mode != (s32) *(s32 *)&((TBoss3VoloptMonitor *)arg0)->next_action) {
-        if ((s32) *(s32 *)&((TBoss3VoloptMonitor *)arg0)->state != -1) {
-            *(s32 *)&((TBoss3VoloptMonitor *)arg0)->state = -1;
+    if ((s16) ((TBoss3VoloptMonitor *)arg0)->mode != (s32) ((TBoss3VoloptMonitor *)arg0)->next_action) {
+        if ((s32) ((TBoss3VoloptMonitor *)arg0)->state != -1) {
+            ((TBoss3VoloptMonitor *)arg0)->state = -1;
             ((TBoss3VoloptMonitor *)arg0)->update_state();
         }
-        ((TBoss3VoloptMonitor *)arg0)->mode = (s16) *(s32 *)&((TBoss3VoloptMonitor *)arg0)->next_action;
-        *(s32 *)&((TBoss3VoloptMonitor *)arg0)->state = 0;
+        ((TBoss3VoloptMonitor *)arg0)->mode = (s16) ((TBoss3VoloptMonitor *)arg0)->next_action;
+        ((TBoss3VoloptMonitor *)arg0)->state = 0;
     }
     ((TBoss3VoloptMonitor *)arg0)->update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
@@ -331,16 +331,16 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
         submit_cursor_candidate(arg0, -1);
         minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
-    if (!(*(s32 *)&((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800)) {
+    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800)) {
         if ((((TBoss3VoloptMonitor *)arg0)->m_390 -= 1) <= 0) {
             ((TBoss3VoloptMonitor *)arg0)->m_390 = 3;
             if ((((TBoss3VoloptMonitor *)arg0)->m_38e += 1) >= 8) {
                 ((TBoss3VoloptMonitor *)arg0)->m_38e = 0;
-                temp_r3_3 = *(s32 *)&((TBoss3VoloptMonitor *)arg0)->m_388;
+                temp_r3_3 = ((TBoss3VoloptMonitor *)arg0)->m_388;
                 if (temp_r3_3 & 0x10000) {
-                    *(s32 *)&((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (temp_r3_3 & 0xFFFEFFFF);
+                    ((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (temp_r3_3 & 0xFFFEFFFF);
                 } else if ((lbl_805D8740 * (f32) rand()) <= lbl_805D8744) {
-                    *(s32 *)&((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (*(s32 *)&((TBoss3VoloptMonitor *)arg0)->m_388| 0x10000);
+                    ((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (((TBoss3VoloptMonitor *)arg0)->m_388| 0x10000);
                 }
             }
         }
@@ -402,11 +402,11 @@ void *TBoss3VoloptMonitor::create(void *arg0) {
 
 void TBoss3VoloptMonitor::sub_80042510() {
     u8 *arg0 = (u8 *)this;
-    *(u8 * *)&this->movementParameters = TBoss3VoloptMonitor__init_param_block;
+    this->movementParameters = TBoss3VoloptMonitor__init_param_block;
     *(s16 *)((s8 *)volopt_monitor_boss_stats_ptr_a + 6) = fn_80042960(this->m_38c % 4 != 0);
     ((TUnk_804806E8 *)arg0)->recalc_combat_stats((void *)volopt_monitor_boss_stats_ptr_a, (void *)volopt_monitor_boss_stats_ptr_b, (void *)volopt_monitor_object_handle, (f32)lbl_805D8748, (f32)lbl_805D8748);
     this->hp = this->hpmax;
-    *(s16 *)&this->m_32e = this->m_2ba;
+    this->m_32e = this->m_2ba;
     this->referenceHp = this->hp;
     ((TObjEneLappy *)arg0)->set_param(0x2E);
     ((TObjEnemy *)arg0)->update_prev_position();
@@ -490,22 +490,22 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
     TObjEnemyCustom__ct(arg0);
     *(void **)((s8 *)arg0 + 0x18) = (void *)__vt__19TBoss3VoloptMonitor;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2740;
-    *(s16 *)&((TBoss3VoloptMonitor *)arg0)->m_1c = arg2;
+    ((TBoss3VoloptMonitor *)arg0)->m_1c = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x80) = 0;
     *(s16 *)((s8 *)arg0 + 0x28) = *(s16 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)arg0 + 0x2A) = *(s16 *)((s8 *)arg1 + 0x2A);
     ((TBoss3VoloptMonitor *)arg0)->m_38c = arg4;
-    *(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant = arg4 & 3;
-    *(s16 *)&((TBoss3VoloptMonitor *)arg0)->timer = arg5;
+    ((TBoss3VoloptMonitor *)arg0)->variant = arg4 & 3;
+    ((TBoss3VoloptMonitor *)arg0)->timer = arg5;
     ((TBoss3VoloptMonitor *)arg0)->sub_80042510();
     t = (arg4 / 4) * 0x3C;
     ((TBoss3VoloptMonitor *)arg0)->rotation_y = (s32)(lbl_805D8754 * (f32)t);
-    ((TBoss3VoloptMonitor *)arg0)->sub_80042944(volopt_monitor_model_indices[*(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant]);
+    ((TBoss3VoloptMonitor *)arg0)->sub_80042944(volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant]);
     push_matrix();
     set_matrix_identity(0);
     rotate_matrix_y(0, ((TBoss3VoloptMonitor *)arg0)->rotation_y);
-    matrix_mult_vec(0, (u8 *)lbl_80483E84 + *(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant* 0xC, arg0 + 0x38);
+    matrix_mult_vec(0, (u8 *)lbl_80483E84 + ((TBoss3VoloptMonitor *)arg0)->variant* 0xC, arg0 + 0x38);
     pop_matrix();
     VecCopy((Vec *)&volopt_slot_positions[((TBoss3VoloptMonitor *)arg0)->m_38c], (const Vec *)(arg0 + 0x38));
     {
@@ -514,7 +514,7 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
         volopt_slot_positions[k].y = (k & 3) == 0 ? lbl_805D8758 : lbl_805D875C;
         init_collision_body_parts(m, (G44_800426EC *) &TBoss3VoloptMonitor__collision_body_part_table + *(s32 *)((s8 *)m + 0x368), 1);
     }
-    *(s32 *)((s8 *)(*(u8 * *)&((TBoss3VoloptMonitor *)arg0)->m_a4) + 0x18) |= 0x500;
+    *(s32 *)((s8 *)(((TBoss3VoloptMonitor *)arg0)->m_a4) + 0x18) |= 0x500;
     return arg0;
 }
 
@@ -525,8 +525,8 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80042888___vt__19TBoss3VoloptMonitor *)&__vt__19TBoss3VoloptMonitor).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2740;
     ((TBoss3VoloptMonitor *)(arg0))->apply_set_data((void *)arg2);
-    *(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant = 0;
-    *(s16 *)&((TBoss3VoloptMonitor *)arg0)->timer = 0;
+    ((TBoss3VoloptMonitor *)arg0)->variant = 0;
+    ((TBoss3VoloptMonitor *)arg0)->timer = 0;
     ((TBoss3VoloptMonitor *)arg0)->sub_80042510();
     init_collision_body_parts(arg0, &TBoss3VoloptMonitor__collision_body_part_table.value, 1);
     ((TBoss3VoloptMonitor *)arg0)->sub_80042944(1);
@@ -536,7 +536,7 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void TObjEnemyCustom::set_flags_30() { this->actorFlags |= 0x4040000; }
 
 void TObjEnemyCustom::sub_8004292C() {
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFBFBFFFF);
 }
 void TBoss3VoloptMonitor::sub_80042944(s32 i) {
     O_80042944 *self = (O_80042944 *)this;

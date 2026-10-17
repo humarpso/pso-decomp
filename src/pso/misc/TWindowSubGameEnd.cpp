@@ -59,26 +59,26 @@ void TWindowSubGameEnd::render() {  }
 void TWindowSubGameEnd::run_task() {
     s32 slot;
     void *obj;
-    switch (*(s32 *)&this->m_1c) {
+    switch (this->m_1c) {
     case 0:
     case 1:
-        if (((TWindowSubComCard *)(*(s32 *)&this->m_28))->get_card_data() != 0) {
+        if (((TWindowSubComCard *)(this->m_28))->get_card_data() != 0) {
             (*(VObj_18_204a81 * *)&this->m_24)->m7();
             return;
         }
-        if (((TWindowMessageYesNo *)(*(s32 *)&this->m_28))->is_child_visible() != 0) {
-            slot = ((TWindowSubComCard *)(*(s32 *)&this->m_28))->get_slot_or_neg1();
+        if (((TWindowMessageYesNo *)(this->m_28))->is_child_visible() != 0) {
+            slot = ((TWindowSubComCard *)(this->m_28))->get_slot_or_neg1();
             if (slot == 0) {
                 if (window_sub_game_end_active_flag != 1) {
                     obj = (void *)__nw__7TObjectFUl(0x28);
                     if (obj != NULL) {
                         ((THunterGuildSeqOffline *)obj)->init((void *)tl_00, (void *)((void *)TKeyBoardControl::init_char_select));
                     }
-                    fn_8024AB54(*(s32 *)&this->m_20);
+                    fn_8024AB54(this->m_20);
                     send_logout__6TLobbyFv();
                     window_sub_game_end_active_flag = 1;
                 }
-                *(s32 *)&this->m_1c = 2;
+                this->m_1c = 2;
             }
             if (slot == 1) {
                 (*(VObj_18_204a81 * *)&this->m_24)->m7();
@@ -93,7 +93,7 @@ void TWindowSubGameEnd::run_task() {
 void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubGameEnd;
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x28)))->close(); *(s32 *)&((TWindowSubGameEnd *)arg0)->m_28 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x28)))->close(); ((TWindowSubGameEnd *)arg0)->m_28 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -108,8 +108,8 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubGameEnd;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubGameEnd__class_name;
-    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_24 = arg1;
-    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_20 = arg2;
+    ((TWindowSubGameEnd *)arg0)->m_24 = arg1;
+    ((TWindowSubGameEnd *)arg0)->m_20 = arg2;
     if (get_main_phase() == 0xF) {
         var_r31 = get_message_10__20TWindowSubStatusDispFl(0x3B);
         var_f31 = lbl_805DD628;
@@ -120,11 +120,11 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
         var_r31 = get_message_10__20TWindowSubStatusDispFl(0x3A);
         var_f31 = lbl_805DD628;
     }
-    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_28 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(s32 *)&((TWindowSubGameEnd *)arg0)->m_20, 0, 0);
-    forward_slot_selection__16TAdChrSelASlotGCFPvPv(*(s32 *)&((TWindowSubGameEnd *)arg0)->m_28, var_r31, get_window_layout_position(0x17), var_f31);
-    free_member__17TWindowSubComCardFv(*(s32 *)&((TWindowSubGameEnd *)arg0)->m_28, 1);
-    ((TWindowSubShortMail *)(*(s32 *)&((TWindowSubGameEnd *)arg0)->m_28))->notify_warp_flag70();
-    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_1c = 0;
+    ((TWindowSubGameEnd *)arg0)->m_28 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, ((TWindowSubGameEnd *)arg0)->m_20, 0, 0);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPv(((TWindowSubGameEnd *)arg0)->m_28, var_r31, get_window_layout_position(0x17), var_f31);
+    free_member__17TWindowSubComCardFv(((TWindowSubGameEnd *)arg0)->m_28, 1);
+    ((TWindowSubShortMail *)(((TWindowSubGameEnd *)arg0)->m_28))->notify_warp_flag70();
+    ((TWindowSubGameEnd *)arg0)->m_1c = 0;
     return arg0;
 }
 

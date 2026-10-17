@@ -137,7 +137,7 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp10 = (s8) *(f32 *)((s8 *)arg0 + 0x70);
     stack.sp11 = (s8) ((TUnk_8048E640 *)arg0)->m_84;
     stack.sp12 = (s8) *(s32 *)((s8 *)arg0 + 0x88);
-    temp_r4 = *(s32 *)&((TUnk_8048E640 *)arg0)->m_8c;
+    temp_r4 = ((TUnk_8048E640 *)arg0)->m_8c;
     stack.sp13 = (s8) temp_r4;
     stack.sp14 = 0;
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x4C, temp_r4)));

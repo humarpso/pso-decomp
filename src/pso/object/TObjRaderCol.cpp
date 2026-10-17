@@ -81,10 +81,10 @@ void TObjRaderCol::check_local_player_in_range(void *arg0_) {
 
 void TObjRaderCol::run_task() {
 
-    switch (*(s32 *)&this->m_98) {
+    switch (this->m_98) {
     case 0:
-        TRaderMapCore::block_region_by_id((s16) *(s32 *)&this->m_94);
-        *(s32 *)&this->m_98 = 1;
+        TRaderMapCore::block_region_by_id((s16) this->m_94);
+        this->m_98 = 1;
         return;
     case 1:
         if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -103,9 +103,9 @@ u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3410;
     ((TObjRaderCol *)(arg0))->apply_object_set_data((void *)arg2);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjRaderCol *)arg0)->scale;
-    *(s32 *)&((TObjRaderCol *)arg0)->m_94 = (s32) ((TObjRaderCol *)arg0)->m_84;
-    *(s32 *)&((TObjRaderCol *)arg0)->m_98 = 0;
-    *(s32 *)&((TObjRaderCol *)arg0)->m_9c = 3;
+    ((TObjRaderCol *)arg0)->m_94 = (s32) ((TObjRaderCol *)arg0)->m_84;
+    ((TObjRaderCol *)arg0)->m_98 = 0;
+    ((TObjRaderCol *)arg0)->m_9c = 3;
     disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }

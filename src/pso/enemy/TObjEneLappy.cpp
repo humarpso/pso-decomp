@@ -594,8 +594,8 @@ void TObjEneLappy::update_hurt() {
     apply_actor_gravity(arg0, 0, lbl_805D9F4C);
     ((TObjPlayer *)arg0)->update_collisions();
     if (this->m_b4 != 8U) {
-        *(s32 *)&this->actorFlags &= ~0x200;
-        *(s16 *)&this->referenceHp = this->hp;
+        this->actorFlags &= ~0x200;
+        this->referenceHp = this->hp;
         if (this->m_374 & 2) {
             ((TObjEneLappy *)arg0)->set_boss4_state();
             this->m_b8 = 4;

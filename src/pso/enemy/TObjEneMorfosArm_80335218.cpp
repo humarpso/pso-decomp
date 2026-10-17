@@ -55,14 +55,14 @@ void TObjEneMorfosArm::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     advance_animation_playback();
-    temp_r3 = (u8 *)(*(u8 * *)&this->m_fc);
+    temp_r3 = (u8 *)(this->m_fc);
     if (temp_r3 == NULL) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(TObjEneMorfosArm__sub_803326B4(temp_r3)));
     this->rotation_y = TObjEneMorfosArm__sub_803326BC(*(u8 * *)&this->m_fc);
-    if (*(s32 *)&this->animationFlags & 0x10) {
+    if (this->animationFlags & 0x10) {
         queue_destruction__7TObjectFv((arg0));
     }
 }

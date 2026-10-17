@@ -43,7 +43,7 @@ void TODoorAncient05::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        if (((u32) *(u32 *)&this->m_bc != 0U) && (lbl_805DB41C != this->m_b0)) {
+        if (((u32) this->m_bc != 0U) && (lbl_805DB41C != this->m_b0)) {
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
         } else {
             draw_ginja_object((void *)door_ancient05_static_model_nodes);
@@ -61,12 +61,12 @@ void TODoorAncient05::vfunc_17() {
     if (this->m_d0 & 1) {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB420) != 1) {
-            *(s32 *)&this->m_ac = 3;
+            this->m_ac = 3;
             ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
             play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
         }
     } else {
-        *(s32 *)&this->m_ac = 3;
+        this->m_ac = 3;
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, 8);
         play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
@@ -80,7 +80,7 @@ void TODoorAncient05::play_proximity_sound() {
     if (this->m_d0 & 1) {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4);
         if (is_any_player_within_radius_xz((u8 *)((s32) arg0), lbl_805DB424) == 1) {
-            *(s32 *)&this->m_ac = 1;
+            this->m_ac = 1;
             set_indexed_flags(arg0, 0, 8);
             play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
         }

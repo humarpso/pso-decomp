@@ -102,7 +102,7 @@ s32 TODoorAncient09::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if (((s32) *(s32 *)&this->m_8c < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
+    } else if (((s32) this->m_8c < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
         this->m_cc = 3;
     } else {
         this->m_cc = 2;
@@ -242,7 +242,7 @@ void TODoorAncient09::render() {
     u8 *arg0 = (u8 *)this;
 
     if ((VCALL_m8(arg0) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB480) != 0)) {
-        switch (*(s32 *)&this->m_ac) {
+        switch (this->m_ac) {
         case 1:
         case 3:
             push_matrix();

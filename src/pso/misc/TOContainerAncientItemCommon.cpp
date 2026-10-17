@@ -192,7 +192,7 @@ void TUnk_804B08BC::vfunc_81() {
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
-            temp_r31 = (unsigned char *) (*(void * *)&this->model);
+            temp_r31 = (unsigned char *) (this->model);
             push_matrix();
             post_translate_matrix(temp_r31 + 8);
             draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));

@@ -114,7 +114,7 @@ void TAdEp3Exist::render() {
 int TAdEp3Exist::request_game_mode_transition() { return request_transition__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist::request_scene_change() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist__sub_8036F0AC(void* p) { return reset_and_set_mode__21TAdMultiChgGameModeGCFv(p); }
-void TAdEp3Exist::close_window() { if (*(unsigned int *)&this->m_1c != 0) { ((TAdScrollWinGC *)(*(void* *)&this->m_1c))->close_window(); *(int *)&this->m_1c = 0; } }
+void TAdEp3Exist::close_window() { if (this->m_1c != 0) { ((TAdScrollWinGC *)(this->m_1c))->close_window(); this->m_1c = 0; } }
 
 void TAdEp3Exist::run_task() {
     Ep3_8036F10C *o = (Ep3_8036F10C *)this;
@@ -170,8 +170,8 @@ void TAdEp3Exist::run_task() {
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TAdEp3Exist;
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)&((TAdEp3Exist *)arg0)->m_24 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); *(s32 *)&((TAdEp3Exist *)arg0)->m_20 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); ((TAdEp3Exist *)arg0)->m_24 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); ((TAdEp3Exist *)arg0)->m_20 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

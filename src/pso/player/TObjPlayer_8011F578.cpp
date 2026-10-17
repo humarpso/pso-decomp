@@ -48,7 +48,7 @@ void TUnk_804A4D70::apply_scale_if_active(f32 farg0) {
 
     if (is_active_in_game__11TItemWeaponFv() != 0) {
         remap_extra_attack_type((u8 *)this);
-        ((VObj_8011F578 *)(*(void * *)&this->player))->m65(farg0);
+        ((VObj_8011F578 *)(this->player))->m65(farg0);
         restore_action_type__11TItemWeaponFv(this);
     }
 }

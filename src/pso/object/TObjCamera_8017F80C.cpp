@@ -219,7 +219,7 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
             ((Cam_8017FA9C *)arg0)->arr[i] = obj;
         }
     }
-    *(s32 *)&((TObjCamera *)arg0)->m_c8 = 0;
+    ((TObjCamera *)arg0)->m_c8 = 0;
     fn_8017F550(arg0);
     return arg0;
 }

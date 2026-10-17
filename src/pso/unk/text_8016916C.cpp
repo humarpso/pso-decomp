@@ -23,12 +23,12 @@ void TOHealGeneral::update_closing() {
     s16 temp_r3_2;
     u8 *player;
     apply_heal_to_target();
-    *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc + 0x147);
+    this->m_cc = (s32) (this->m_cc + 0x147);
     *(f32 *)&this->_padD0 = (f32) (*(f32 *)&this->_padD0 - lbl_805DB6B8);
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) ((lbl_805DB6BC + *(f32 *)((s8 *)arg0 + 0x3C)) - *(f32 *)&this->_padD0);
     if (*(f32 *)&this->_padD0 <= lbl_805DB6C0) {
         *(f32 *)&this->_padD0 = (f32) lbl_805DB6C0;
-        *(s32 *)&this->m_ac = 0;
+        this->m_ac = 0;
         if (TOHangerMachine01::is_valid_slot((s32) arg0, this->m_f4) != 0) {
             player = (u8 *)(get_player_by_client_id((u32) this->m_f4));
             if (player != NULL) {
@@ -45,12 +45,12 @@ void TOHealGeneral::update_closing() {
 void TOHealGeneral::update_opening() {
     u8 *arg0 = (u8 *)this;
     apply_heal_to_target();
-    *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc + 0x147);
+    this->m_cc = (s32) (this->m_cc + 0x147);
     *(f32 *)&this->_padD0 = (f32) (*(f32 *)&this->_padD0 + lbl_805DB6B8);
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) ((lbl_805DB6BC + *(f32 *)((s8 *)arg0 + 0x3C)) - *(f32 *)&this->_padD0);
     if (lbl_805DB6BC <= *(f32 *)&this->_padD0) {
         *(f32 *)&this->_padD0 = (f32) lbl_805DB6BC;
-        *(s32 *)&this->m_ac = 2;
+        this->m_ac = 2;
     }
 }
 void TOHealGeneral::apply_heal_to_target() {

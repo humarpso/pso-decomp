@@ -168,18 +168,18 @@ void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1) {
 
 void TBoss8DragonEffTail::apply_hit_if_active(void *arg1_arg, f32 *) {
     u8 *arg1 = (u8 *)arg1_arg;
-    ((VObj_18 *)(arg1))->m20(*(s32 *)&this->m_ac, ((u8 *)this), lbl_805DEF18);
+    ((VObj_18 *)(arg1))->m20(this->m_ac, ((u8 *)this), lbl_805DEF18);
 }
 
-void TBoss8DragonEffTail::enable() { *(int *)&this->m_bc = 1; get_state(); }
-void TBoss8DragonEffTail::disable() { *(int *)&this->m_bc = 0; get_state(); }
+void TBoss8DragonEffTail::enable() { this->m_bc = 1; get_state(); }
+void TBoss8DragonEffTail::disable() { this->m_bc = 0; get_state(); }
 int TBoss8DragonEffTail::get_state() { return fill_value_array(*(void* *)&this->m_b8); }
 
 void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss8DragonEffTail;
         delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0xB8)), 1);
-        *(s32 *)&((TBoss8DragonEffTail *)arg0)->m_b8 = 0;
+        ((TBoss8DragonEffTail *)arg0)->m_b8 = 0;
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

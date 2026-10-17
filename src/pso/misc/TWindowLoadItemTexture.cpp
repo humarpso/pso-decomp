@@ -96,9 +96,9 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
     e = ((void *(*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
     *(f32 *)((s8 *)e + 0x10) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)e + 0x14) = *(f32 *)((s8 *)arg2 + 4);
-    *(s32 *)&((TWindowLoadItemTexture *)arg0)->m_6c = (s32)TItemTexLoad::create((TObject*)tl_07);
-    *(s8 *)&((TWindowLoadItemTexture *)arg0)->m_61 = 0;
-    *(s8 *)&((TWindowLoadItemTexture *)arg0)->m_60 = 2;
+    ((TWindowLoadItemTexture *)arg0)->m_6c = (s32)TItemTexLoad::create((TObject*)tl_07);
+    ((TWindowLoadItemTexture *)arg0)->m_61 = 0;
+    ((TWindowLoadItemTexture *)arg0)->m_60 = 2;
     return arg0;
 }
 

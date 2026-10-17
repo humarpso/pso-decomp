@@ -18,7 +18,7 @@ void *TObjWarpLobby__ct(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34A0;
     ((TObjWarpLobby *)arg0)->m_c8 = (f32) lbl_805DC06C;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DC06C;
-    *(s32 *)&((TObjWarpLobby *)arg0)->m_cc = 0;
+    ((TObjWarpLobby *)arg0)->m_cc = 0;
     *(s32 *)((s8 *)arg0 + 0xD0) = 0;
     *(s32 *)((s8 *)arg0 + 0xD4) = 0;
     *(s32 *)((s8 *)arg0 + 0xD8) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)TObjWarpLobby__instance + 0x430)) + 4);

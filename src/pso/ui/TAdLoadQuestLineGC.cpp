@@ -45,7 +45,7 @@ extern void *lbl_805D4300;
 TAdLoadQuestLineGC::TAdLoadQuestLineGC(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void * *)&this->m_name = lbl_805D4300;
     *(void **)((s8 *)this + 0x1C) = arg2;
-    *(u32 *)&this->m_frameCount = -1;
+    this->m_frameCount = -1;
 }
 extern "C" {
 s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {

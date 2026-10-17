@@ -8,7 +8,7 @@ s32 set_texture_name(s32, s32 *, s32, s32);
 s32 load_texture_list(void *);
 
 void TObjPlayer::reset_lobby_subobject() {
-    *(s32 *)&this->texture_id = 0;
+    this->texture_id = 0;
     TLobby__sub_803DA16C((u8 *)&this->m_1c);
 }
 

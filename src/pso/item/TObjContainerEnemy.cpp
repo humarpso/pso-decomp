@@ -109,7 +109,7 @@ u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerEnemy__name;
     *(s32 *)((s8 *)arg0 + 0x34) = get_container_param(1);
     ((TObjContainerEnemy *)arg0)->mode = 0;
-    *(s32 *)&((TObjContainerEnemy *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjContainerEnemy *)arg0)->actorFlags| 0x60000000);
+    ((TObjContainerEnemy *)arg0)->actorFlags = (s32) (((TObjContainerEnemy *)arg0)->actorFlags| 0x60000000);
     init_collision_body_parts(arg0, (void *)&forest_box_collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));

@@ -29,7 +29,7 @@ void *TUnk_804C2298::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804C2298;
         TLobby::stop_audio_streams();
-        if (*(void * *)&(*(u32 *)&this->unk_2C) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(u32 *)&this->unk_2C)); *(s32 *)&(*(u32 *)&this->unk_2C) = 0; }
+        if (*(void * *)&(this->unk_2C) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->unk_2C)); *(s32 *)&(this->unk_2C) = 0; }
         if (*(void * *)&(this->m_28) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(this->m_28)); *(s32 *)&(this->m_28) = 0; }
         if (*(void * *)&(*(u32 *)((u8 *)this + 0x24)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(u32 *)((u8 *)this + 0x24))); *(s32 *)&(*(u32 *)((u8 *)this + 0x24)) = 0; }
         __dt__7TObjectFv(this, 0);
@@ -62,7 +62,7 @@ void *construct_option_scene(void *parent) {
         __ct__10TAdTitleGCFP7TObjectl(o3, parent, 3);
     }
     TKeyBoardControl__sub_8000F90C(9);
-    *(u32 *)&((TUnk_804C2298 *)parent)->m_20 = 4;
+    ((TUnk_804C2298 *)parent)->m_20 = 4;
     *(u8 *)((s8 *)parent + 0x1C) = 0;
     ((TUnk_804C2298 *)parent)->m_1e = 0;
     o4 = __nw__7TObjectFUl(0x50);

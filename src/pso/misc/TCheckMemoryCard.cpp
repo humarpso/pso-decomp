@@ -45,21 +45,21 @@ void TCheckMemoryCard::run_task() {
     typedef char sp10_offset[(offsetof(Stack_8033C424, sp10) == 0x8) ? 1 : -1];
     Stack_8033C424 stack;
     u8 *temp_r6;
-    *(s32 *)&this->m_3c = 0;
-    *(s32 *)&this->m_28 = ((TCheckMemoryCard *)arg0)->sub_8033BB14();
-    if (*(s32 *)&this->m_28 & 1) {
+    this->m_3c = 0;
+    this->m_28 = ((TCheckMemoryCard *)arg0)->sub_8033BB14();
+    if (this->m_28 & 1) {
         ((TWindowSubComCard *)arg0)->set_state(0);
     }
-    temp_r6 = (u8 *)&lbl_804EF940.value + (*(s32 *)&this->m_20 * 0x18);
+    temp_r6 = (u8 *)&lbl_804EF940.value + (this->m_20 * 0x18);
     member_action.words[0] = *(s32 *)((s8 *)temp_r6 + 0xC);
     member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 0x10);
     member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 0x14);
     if (member_action.action != 0) {
         (((TCheckMemoryCard *)(arg0))->*member_action.action)();
     }
-    *(s32 *)&this->m_38 = (s32) (*(s32 *)&this->m_38 - 1);
-    if ((s32) *(s32 *)&this->m_38 < 0) {
-        *(s32 *)&this->m_38 = 0;
+    this->m_38 = (s32) (this->m_38 - 1);
+    if ((s32) this->m_38 < 0) {
+        this->m_38 = 0;
     }
 }
 

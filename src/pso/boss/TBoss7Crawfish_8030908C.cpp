@@ -115,12 +115,12 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
         ((TObjEneLappy *)arg0)->set_param(0x4A);
         bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(8)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(8)), (u8 *)(register_object__6TLobbyFl(8)));
-        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(8);
+        ((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(8);
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TBoss7Crawfish__shared_resource, 0);
     } else {
         ((TObjEneLappy *)arg0)->set_param(0x4B);
         bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(9)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(9)), (u8 *)(register_object__6TLobbyFl(9)));
-        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(9);
+        ((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(9);
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TBoss7Crawfish__shared_resource, 1);
     }
     ((TUnk_804806E8 *)arg0)->get_or_assign_actor_id(0);
@@ -140,7 +140,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
         ((TBoss7Crawfish *)arg0)->target_scale = (f32) TBoss7Crawfish__data_805DF0DC;
         ((TBoss7Crawfish *)arg0)->scale = (f32) TBoss7Crawfish__data_805DF0DC;
     }
-    *(s32 *)&((TBoss7Crawfish *)arg0)->m_3cc = 0;
+    ((TBoss7Crawfish *)arg0)->m_3cc = 0;
     return arg0;
 }
 

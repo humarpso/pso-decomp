@@ -44,10 +44,10 @@ s32 *TQuestThread__sub_801F6548(void) {
     return &offline_quest_filename_buffer_a.value;
 }
 
-void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((u8 *)(*(void* *)&this->m_34)); *(int *)&this->m_34 = 0; } }
+void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((u8 *)(this->m_34)); this->m_34 = 0; } }
 
 void TMCFormatSequence::show_message(s32 arg1, s32 arg2) {
-    u32 v = *(u32 *)&this->m_34;
+    u32 v = this->m_34;
     if (v != 0U) {
         ((TLobby *)v)->send_and_handle(arg1, arg2 | 0x81);
     }
@@ -109,7 +109,7 @@ void TMCFormatSequence::process_format_result() {
         this->m_24 = 3;
         return;
     }
-    if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowMenu *)(*(u32 *)&this->m_38))->is_visible() != 0)) {
+    if (((u32) this->m_38 != 0U) && (((TWindowMenu *)(this->m_38))->is_visible() != 0)) {
         selected_menu_value = get_selected_menu_value(*(u32 *)&this->m_38);
         if (selected_menu_value == 0) {
             if (TAdPlayerLoadGC__sub_801E24F8(*(s32 *)((s8 *)this + 0x28), 0, 0, 0, 0) == 0) {
@@ -123,13 +123,13 @@ void TMCFormatSequence::process_format_result() {
             close_window();
             this->m_24 = 4;
         }
-        TWindow__close((u8 *)(*(u32 *)&this->m_38));
-        *(u32 *)&this->m_38 = 0U;
+        TWindow__close((u8 *)(this->m_38));
+        this->m_38 = 0U;
     }
-    if (((u32) *(u32 *)&this->m_38 != 0U) && (((TWindowSubComCard *)(*(u32 *)&this->m_38))->get_status_flag() != 0)) {
+    if (((u32) this->m_38 != 0U) && (((TWindowSubComCard *)(this->m_38))->get_status_flag() != 0)) {
         this->m_24 = 4;
-        TWindow__close((u8 *)(*(u32 *)&this->m_38));
-        *(u32 *)&this->m_38 = 0U;
+        TWindow__close((u8 *)(this->m_38));
+        this->m_38 = 0U;
         close_window();
     }
 }

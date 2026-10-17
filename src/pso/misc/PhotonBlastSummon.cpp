@@ -503,7 +503,7 @@ extern void *tl_06;
 void *photon_base_ct(void *arg0) {
     TObjMotion__ct(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3248;
-    *(u32 *)&((TUnk_804C3248 *)arg0)->m_134 = 0;
+    ((TUnk_804C3248 *)arg0)->m_134 = 0;
     ((TUnk_804C3248 *)arg0)->m_100 = 0;
     *(u32 *)((s8 *)arg0 + 0x138) = 0;
     ((TUnk_804C3248 *)arg0)->m_150 = 1.0f;
@@ -511,7 +511,7 @@ void *photon_base_ct(void *arg0) {
     ((TUnk_804C3248 *)arg0)->m_13c = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x140) = 0.0f;
     ((TUnk_804C3248 *)arg0)->m_144 = 0.0f;
-    *(u32 *)&((TUnk_804C3248 *)arg0)->m_148 = 0;
+    ((TUnk_804C3248 *)arg0)->m_148 = 0;
     *(u16 *)((s8 *)arg0 + 0x14C) = 0;
     *(u32 *)((s8 *)arg0 + 0xFC) = 0;
     *(f32 *)((s8 *)arg0 + 0x104) = 0.0f;

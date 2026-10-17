@@ -43,8 +43,8 @@ u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80248700___vt__17TWindowChatSymbol *)&__vt__17TWindowChatSymbol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38A8;
     fn_8024491C((void *)arg0, (void *)arg2);
-    *(s32 *)&((TWindowChatSymbol *)arg0)->m_60 = 0;
-    *(s32 *)&((TWindowChatSymbol *)arg0)->m_64 = 0;
+    ((TWindowChatSymbol *)arg0)->m_60 = 0;
+    ((TWindowChatSymbol *)arg0)->m_64 = 0;
     return arg0;
 }
 
@@ -58,7 +58,7 @@ extern s32 lbl_804CE7D0[];
 void *TWindowChatSymbol::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804CE7D0;
-        if (this->m_20 != NULL) { TWindow__close((u8 *)this->m_20); *(s32 *)&this->m_20 = 0; }
+        if (this->m_20 != NULL) { TWindow__close((u8 *)this->m_20); this->m_20 = 0; }
         if (*(void * *)&this->unk_1C != NULL) { TWindow__close((u8 *)(*(void * *)&this->unk_1C)); *(s32 *)&this->unk_1C = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

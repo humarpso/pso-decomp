@@ -279,13 +279,13 @@ void TShopItemTecSequence::vfunc_11() {
 u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__20TShopItemTecSequence.value;
-        if ((u32) *(u32 *)&((TShopItemTecSequence *)arg0)->m_34 != 0U) {
+        if ((u32) ((TShopItemTecSequence *)arg0)->m_34 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34));
-            *(u32 *)&((TShopItemTecSequence *)arg0)->m_34 = 0U;
+            ((TShopItemTecSequence *)arg0)->m_34 = 0U;
         }
-        if ((u32) *(u32 *)&((TShopItemTecSequence *)arg0)->m_2c != 0U) {
+        if ((u32) ((TShopItemTecSequence *)arg0)->m_2c != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
-            *(u32 *)&((TShopItemTecSequence *)arg0)->m_2c = 0U;
+            ((TShopItemTecSequence *)arg0)->m_2c = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();
         if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
@@ -308,7 +308,7 @@ u8 *TShopItemTecSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TShopSequence__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802204B0___vt__20TShopItemTecSequence *)&__vt__20TShopItemTecSequence).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopItemTecSequence__class_name;
-    *(s32 *)&((TShopItemTecSequence *)arg0)->m_20 = 0;
+    ((TShopItemTecSequence *)arg0)->m_20 = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = arg2;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     ((TShopItemTecSequence *)arg0)->m_2c = 0;

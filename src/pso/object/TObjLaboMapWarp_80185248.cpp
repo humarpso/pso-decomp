@@ -285,13 +285,13 @@ int TObjLaboMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0
 
 void TObjLaboMapWarp::clamp_index() {
     s32 var_r0;
-    var_r0 = *(s32 *)&this->m_8c;
+    var_r0 = this->m_8c;
     if (var_r0 < 0) {
         var_r0 = 0;
     } else if (var_r0 >= 3) {
         var_r0 = 2;
     }
-    *(s32 *)&this->m_8c = var_r0;
+    this->m_8c = var_r0;
 }
 
 #pragma push
@@ -302,7 +302,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjLaboMapWarp *)arg0)->clamp_index();
-        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)&lbl_80444878.value + (*(s32 *)&((TObjLaboMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
+        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)&lbl_80444878.value + (((TObjLaboMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
@@ -410,13 +410,13 @@ int TObjCityMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0
 
 void TObjCityMapWarp::clamp_destination_index() {
     s32 var_r0;
-    var_r0 = *(s32 *)&this->m_8c;
+    var_r0 = this->m_8c;
     if (var_r0 < 0) {
         var_r0 = 0;
     } else if (var_r0 >= 3) {
         var_r0 = 1;
     }
-    *(s32 *)&this->m_8c = var_r0;
+    this->m_8c = var_r0;
 }
 
 #pragma push
@@ -427,7 +427,7 @@ void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1) {
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjCityMapWarp *)arg0)->clamp_destination_index();
-        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)&lbl_80444878.value + (*(s32 *)&((TObjCityMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
+        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)&lbl_80444878.value + (((TObjCityMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
@@ -628,7 +628,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0) {
     return 0;
 }
 
-void TObjCityMainWarp::vfunc_14() { if (*(unsigned int *)&this->m_b0 != 0) { vfunc_14__12TObjWarpBaseFv(this); TWindowCtrl::clear_flag(); } }
+void TObjCityMainWarp::vfunc_14() { if (this->m_b0 != 0) { vfunc_14__12TObjWarpBaseFv(this); TWindowCtrl::clear_flag(); } }
 
 #pragma push
 #pragma opt_lifetimes off

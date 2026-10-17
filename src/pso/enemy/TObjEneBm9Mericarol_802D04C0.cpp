@@ -20,8 +20,8 @@ void TObjEneBm9Mericarol::handle_event(s32 arg1) {
         this->m_b8 = 2;
         this->vfunc_96();
         TObjEneBm9Mericarol__sub_802D093C(this);
-        temp_r5 = *(s32 *)&this->m_454;
-        *(s32 *)&this->m_454 = (s32) (temp_r5 & ~0x28);
+        temp_r5 = this->m_454;
+        this->m_454 = (s32) (temp_r5 & ~0x28);
         set_field_378__9TObjEneDDFl(this, 2, temp_r5);
         enemy_clear_target__12TObjEneDD_STFUs(this);
         return;

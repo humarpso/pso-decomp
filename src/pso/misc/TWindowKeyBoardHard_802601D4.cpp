@@ -32,25 +32,25 @@ void TWindowKeyBoardHard::run_task() {
     s32 temp_r3_2;
     void *temp_r3;
 
-    if ((void *) *(void * *)&this->m_70 != NULL) {
-        if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (((TKeyBoardControl *)(*(void * *)&this->m_70))->is_key_active() == 0)) {
+    if ((void *) this->m_70 != NULL) {
+        if ((is_key_active__19TWindowKeyBoardHardFv() == 0) && (((TKeyBoardControl *)(this->m_70))->is_key_active() == 0)) {
             if (has_non_modifier_key__16TKeyBoardControlFv(this) != 0) {
                 if ((s32) current_language == 0) {
-                    *(s32 *)&this->m_68 = 0x3C;
+                    this->m_68 = 0x3C;
                 }
-                *(s32 *)&this->m_60 = (s32) (*(s32 *)&this->m_60 & 0xFFFFFEFF);
+                this->m_60 = (s32) (this->m_60 & 0xFFFFFEFF);
                 temp_r3 = *(void * *)&this->m_70;
                 *(s32 *)((s8 *)temp_r3 + 0xB4) = (s32) (*(s32 *)((s8 *)temp_r3 + 0xB4) & 0xFFFFFFBF);
-                if (!(*(s32 *)&this->m_60 & 0x40)) {
+                if (!(this->m_60 & 0x40)) {
                     TWindowKeyBoardHard__sub_8025CC48(*(void * *)&this->m_70);
                 }
             }
             update_modifier_flags();
             process_all_key_states();
         }
-        temp_r3_2 = *(s32 *)&this->m_68;
+        temp_r3_2 = this->m_68;
         if (temp_r3_2 > 0) {
-            *(s32 *)&this->m_68 = (temp_r3_2 - 1);
+            this->m_68 = (temp_r3_2 - 1);
         }
         initialize_subwindow__9TWindowDDFv(this);
         update_fade();
@@ -73,11 +73,11 @@ u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
     ((TWindowDD *)arg0)->construct_base((u8 *)&lbl_804CFAD0.value, (s16)(4), (u8 *)(get_window_layout_position(0xB9)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard *)&__vt__19TWindowKeyBoardHard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowKeyBoardHard__name;
-    *(s32 *)&((TWindowKeyBoardHard *)arg0)->m_60 = 0;
-    *(s32 *)&((TWindowKeyBoardHard *)arg0)->m_70 = arg1;
-    *(s32 *)&((TWindowKeyBoardHard *)arg0)->m_64 = 0;
-    *(s32 *)&((TWindowKeyBoardHard *)arg0)->m_68 = 0;
-    *(s32 *)&((TWindowKeyBoardHard *)arg0)->m_6c = 7;
+    ((TWindowKeyBoardHard *)arg0)->m_60 = 0;
+    ((TWindowKeyBoardHard *)arg0)->m_70 = arg1;
+    ((TWindowKeyBoardHard *)arg0)->m_64 = 0;
+    ((TWindowKeyBoardHard *)arg0)->m_68 = 0;
+    ((TWindowKeyBoardHard *)arg0)->m_6c = 7;
     ((TWindowKeyBoardHard *)arg0)->release_keyboard();
     return arg0;
 }

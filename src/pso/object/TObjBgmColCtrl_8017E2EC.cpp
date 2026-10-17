@@ -31,8 +31,8 @@ extern s32 TObjBgmColCtrl__current_theme_id;
 void TObjBgmColCtrl::run_task() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)&this->m_1c;
-    *(s32 *)&this->m_1c = (temp_r4 - 1);
+    temp_r4 = this->m_1c;
+    this->m_1c = (temp_r4 - 1);
     if ((temp_r4 <= 0) && ((TOKeyMachine01::get_global_state() == 0xF) || (get_player_by_client_id(local_client_id) != 0U)) && (get_quest_bgm_issued_flag() == 0)) {
         if (TRaderMapCore::is_not_split_screen() == 1) {
             if (is_active__14TObjBgmColCtrlFv() == 0) {

@@ -84,7 +84,7 @@ void *__vt__11TObjDFDemo3[13] = {
 
 void TObjDFDemo3::render() {
     f32 a = 1.0f;
-    s32 t = *(s32 *)&this->m_b0;
+    s32 t = this->m_b0;
     if (t < 5) {
         a = (f32)t / 5.0f;
     } else if (t > 0x86) {
@@ -99,12 +99,12 @@ void TObjDFDemo3::render() {
     push_matrix();
     TObjPlayer::set_global_flag();
     post_translate_matrix((u8 *)&this->m_a0);
-    rotate_matrix_y(0, *(s32 *)&this->m_ac);
-    TObjFish::set_global_param(*(s32 *)&this->m_98);
-    ((TObjFish *)(*(s32 *)&this->m_b8))->set_draw_callback_list();
+    rotate_matrix_y(0, this->m_ac);
+    TObjFish::set_global_param(this->m_98);
+    ((TObjFish *)(this->m_b8))->set_draw_callback_list();
     func_803e11e8__FUl(1);
     draw_model_motion((void *)(*(s32 *)&this->m_94), (void *)(*(s32 *)&this->m_9c), *(f32 *)&this->_padB4);
-    clear_render_callback__8TObjFishFv(*(s32 *)&this->m_b8);
+    clear_render_callback__8TObjFishFv(this->m_b8);
     func_803e11e8__FUl(2);
     draw_model_motion((void *)(*(s32 *)&this->m_94), (void *)(*(s32 *)&this->m_9c), *(f32 *)&this->_padB4);
     func_803e11f0__Fv();
@@ -124,9 +124,9 @@ void TObjDFDemo3::run_task() {
     s32 temp_r0;
     s32 temp_r0_2;
     u32 temp_r3;
-    if ((s32) *(s32 *)&this->m_b0 >= 0x5A) {
+    if ((s32) this->m_b0 >= 0x5A) {
         if ((u32) this->m_90 != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_90));
+            TBoss4Type2::request_destroy((u32)(this->m_90));
             this->m_90 = 0U;
         }
     } else {
@@ -140,21 +140,21 @@ void TObjDFDemo3::run_task() {
             ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_bc);
         }
     }
-    if ((s32) *(s32 *)&this->m_b0 == 0x86) {
+    if ((s32) this->m_b0 == 0x86) {
         temp_r3 = (u32)spawn_particle_effect(&this->m_a0, 0x9B);
         if (temp_r3 != 0U) {
             ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
         }
     }
-    temp_r0 = *(s32 *)&this->m_b0;
+    temp_r0 = this->m_b0;
     if ((temp_r0 == 0x28) || (temp_r0 == 0x3C)) {
         play_sound_effect(0x4003D03A, (u8 *)&this->m_a0, 0, 1);
     }
     if ((*(f32 *)&this->_padB4 += 1.0f) > 119.0f) {
         *(f32 *)&this->_padB4 = 119.0f;
     }
-    temp_r0_2 = *(s32 *)&this->m_b0 + 1;
-    *(s32 *)&this->m_b0 = temp_r0_2;
+    temp_r0_2 = this->m_b0 + 1;
+    this->m_b0 = temp_r0_2;
     if (temp_r0_2 >= 0x8C) {
         queue_destruction__7TObjectFv(arg0);
     }

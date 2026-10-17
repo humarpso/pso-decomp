@@ -64,13 +64,13 @@ void TObjWeddingLobby::render() {
     f32 temp_f1;
     s32 temp_r31;
     s32 temp_r3;
-    if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) wedding_lobby_type != 0U)) {
+    if (((s32) this->m_c8 != 0) && ((u32) wedding_lobby_type != 0U)) {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(wedding_lobby_type);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        if ((s32) *(s32 *)&this->m_c8 != 3) {
+        if ((s32) this->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
             scale_matrix(0, temp_f1, (f32) (1.0f), temp_f1);
         }
@@ -168,9 +168,9 @@ u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWeddingLobby__class_name;
     ((TObjWeddingLobby *)(arg0))->apply_object_set_data((void *)arg2);
     if (TLobby::get_filtered_event_theme() == 0xA) {
-        *(s32 *)&((TObjWeddingLobby *)arg0)->m_c8 = 3;
+        ((TObjWeddingLobby *)arg0)->m_c8 = 3;
     } else {
-        *(s32 *)&((TObjWeddingLobby *)arg0)->m_c8 = 0;
+        ((TObjWeddingLobby *)arg0)->m_c8 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     ((TObjWeddingLobby *)arg0)->m_b0 = 0.0f;

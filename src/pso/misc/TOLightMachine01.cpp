@@ -49,9 +49,9 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TOLightMachine01::run_task() {
-    *(s32 *)&this->m_a8 = (s32) (*(s32 *)&this->m_a8 + *(s32 *)&this->m_a4);
+    this->m_a8 = (s32) (this->m_a8 + this->m_a4);
     this->m_9c = (f32) (*(f32 *)&this->unk_98 * sin_table_lookup(*(s32 *)&this->m_a8));
-    *(s32 *)&this->m_ac = (s32) (*(s32 *)&this->m_ac + *(s32 *)&this->m_8c);
+    this->m_ac = (s32) (this->m_ac + this->m_8c);
 }
 
 extern const f32 lbl_805DB828;
@@ -63,11 +63,11 @@ void TOLightMachine01::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_model(*(s32 *)((s8 *)(*(void * *)&this->model) + 4));
+        draw_ginja_model(*(s32 *)((s8 *)(this->model) + 4));
         push_matrix();
         translate_matrix(0, lbl_805DB828, this->m_9c, lbl_805DB828);
-        rotate_matrix_y(0, *(s32 *)&this->m_ac);
-        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 4));
+        rotate_matrix_y(0, this->m_ac);
+        draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(this->model) + 0x2C)) + 4));
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(light_machine_ginja_param);
         draw_ginja_object((void *)light_machine_ginja_model_handle);
@@ -122,17 +122,17 @@ u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOLightMachine01__name;
     ((TOLightMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
-    *(u8 * *)&((TOLightMachine01 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), 1));
+    ((TOLightMachine01 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), 1));
     ((TOLightMachine01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), 1);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DB82C;
-    ((TOLightMachine01 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TOLightMachine01 *)arg0)->model) + 4)) + 0x14);
-    *(s32 *)&((TOLightMachine01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TOLightMachine01 *)arg0)->actorFlags| 0x40000000);
+    ((TOLightMachine01 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(((TOLightMachine01 *)arg0)->model) + 4)) + 0x14);
+    ((TOLightMachine01 *)arg0)->actorFlags = (s32) (((TOLightMachine01 *)arg0)->actorFlags| 0x40000000);
     *(f32 *)((s8 *)arg0 + 0xA0) = (f32) ((lbl_805DB834 * (f32) ((TOLightMachine01 *)arg0)->m_84) + lbl_805DB830);
-    *(s32 *)&((TOLightMachine01 *)arg0)->m_a4 = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / *(f32 *)((s8 *)arg0 + 0xA0))));
-    *(s32 *)&((TOLightMachine01 *)arg0)->m_a8 = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
+    ((TOLightMachine01 *)arg0)->m_a4 = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / *(f32 *)((s8 *)arg0 + 0xA0))));
+    ((TOLightMachine01 *)arg0)->m_a8 = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
     *(f32 *)((s8 *)arg0 + 0x98) = (f32) ((lbl_805DB834 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB848);
-    ((TOLightMachine01 *)arg0)->m_9c = (f32) (*(f32 *)((s8 *)arg0 + 0x98) * sin_table_lookup((s32)((int) (*(s32 *)&((TOLightMachine01 *)arg0)->m_a8))));
-    *(s32 *)&((TOLightMachine01 *)arg0)->m_ac = 0;
+    ((TOLightMachine01 *)arg0)->m_9c = (f32) (*(f32 *)((s8 *)arg0 + 0x98) * sin_table_lookup((s32)((int) (((TOLightMachine01 *)arg0)->m_a8))));
+    ((TOLightMachine01 *)arg0)->m_ac = 0;
     return arg0;
 }
 #pragma pop

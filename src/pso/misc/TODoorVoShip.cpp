@@ -61,32 +61,32 @@ extern void *tl_05;
 #pragma opt_common_subs off
 void TODoorVoShip::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (*(s32 *)&this->m_cc & 0xE) {
+    if (this->m_cc & 0xE) {
         ((TUnk_804AFBF8 *)arg0)->update_anim_phase();
-        if (*(s32 *)&this->m_cc & 0x10) {
+        if (this->m_cc & 0x10) {
             *(f32 *)&this->m_dc = (f32) (*(f32 *)&this->m_dc + lbl_805DB530);
             if (lbl_805DB534 <= *(f32 *)&this->m_dc) {
                 *(f32 *)&this->m_dc = (f32) lbl_805DB534;
-                *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFEF);
+                this->m_cc = (s32) (this->m_cc & 0xFFFFFFEF);
             }
         } else {
             *(f32 *)&this->m_dc = (f32) (*(f32 *)&this->m_dc - lbl_805DB530);
             if (*(f32 *)&this->m_dc <= lbl_805DB538) {
                 *(f32 *)&this->m_dc = (f32) lbl_805DB538;
-                *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc | 0x10);
+                this->m_cc = (s32) (this->m_cc | 0x10);
             }
         }
         if (get_story_flag(0x2C) != 0) {
-            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFFD);
+            this->m_cc = (s32) (this->m_cc & 0xFFFFFFFD);
         }
         if (get_story_flag(0x2D) != 0) {
-            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFFB);
+            this->m_cc = (s32) (this->m_cc & 0xFFFFFFFB);
         }
         if (get_story_flag(0x2E) != 0) {
-            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFF7);
+            this->m_cc = (s32) (this->m_cc & 0xFFFFFFF7);
         }
         if ((get_story_flag(0x2F) != 0) || (get_main_phase() == 0xF)) {
-            *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFF1);
+            this->m_cc = (s32) (this->m_cc & 0xFFFFFFF1);
             ((TObjPlayer *)arg0)->clear_player_status_flag(0, (int)(1U));
         }
     }
@@ -189,30 +189,30 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TODoorVoShip *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
     ((TODoorVoShip *)arg0)->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
-    *(s32 *)&((TODoorVoShip *)arg0)->m_bc = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(s32 *)&((TODoorVoShip *)arg0)->m_bc) + 4) - lbl_805DB53C);
+    ((TODoorVoShip *)arg0)->m_bc = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(((TODoorVoShip *)arg0)->m_bc) + 4) - lbl_805DB53C);
     ((TODoorVoShip *)arg0)->m_b8 = (f32) lbl_805DB53C;
-    *(s32 *)&((TODoorVoShip *)arg0)->m_d0 = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
-    *(s32 *)&((TODoorVoShip *)arg0)->m_d4 = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
-    *(s32 *)&((TODoorVoShip *)arg0)->m_d8 = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
+    ((TODoorVoShip *)arg0)->m_d0 = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
+    ((TODoorVoShip *)arg0)->m_d4 = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
+    ((TODoorVoShip *)arg0)->m_d8 = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     init_collision_body_parts(arg0, (s32) &lbl_804B1770.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorVoShip *)arg0)->m_c0 = (f32) lbl_805DB540;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB544;
-    *(s32 *)&((TODoorVoShip *)arg0)->m_cc = 0xE;
+    ((TODoorVoShip *)arg0)->m_cc = 0xE;
     *(f32 *)((s8 *)arg0 + 0xE8) = (f32) lbl_805DB534;
     ((TODoorVoShip *)arg0)->m_e4 = (f32) lbl_805DB534;
     *(f32 *)((s8 *)arg0 + 0xE0) = (f32) lbl_805DB534;
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB534;
     if (get_story_flag(0x2C) != 0) {
-        *(s32 *)&((TODoorVoShip *)arg0)->m_cc = (s32) (*(s32 *)&((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFFD);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFFD);
     }
     if (get_story_flag(0x2D) != 0) {
-        *(s32 *)&((TODoorVoShip *)arg0)->m_cc = (s32) (*(s32 *)&((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFFB);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFFB);
     }
     if (get_story_flag(0x2E) != 0) {
-        *(s32 *)&((TODoorVoShip *)arg0)->m_cc = (s32) (*(s32 *)&((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFF7);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFF7);
     }
     if (get_story_flag(0x2F) == 0) {
         if (get_main_phase() == 0xF) {
@@ -220,7 +220,7 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
         }
     } else {
 block_8:
-        *(s32 *)&((TODoorVoShip *)arg0)->m_cc = (s32) (*(s32 *)&((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFF1);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFF1);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
     }
     return arg0;

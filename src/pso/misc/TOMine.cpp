@@ -100,12 +100,12 @@ void TOMine::run_task() {
             VecCopy((Vec *)(*(s32 *)&this->m_a4 + 0x1C), (const Vec *)(arg0 + 0x334));
             return;
         case 3:
-            temp_r3 = *(s32 *)&this->m_8c;
-            *(s32 *)&this->m_8c = (temp_r3 - 1);
+            temp_r3 = this->m_8c;
+            this->m_8c = (temp_r3 - 1);
             if (temp_r3 < 0) {
                 this->mode = 4;
             }
-            switch (*(s32 *)&this->m_344) {
+            switch (this->m_344) {
             default:
                 TOMineTrap__sub_80170CD4((arg0));
                 break;
@@ -127,7 +127,7 @@ void TOMine::run_task() {
 
 void TOMine::free_sub_objects() { TObjFish::set_global_param((s32)(*(void**)((char*)this + 0x378))); draw_ginja_object(*(void**)((char*)this + 0x374)); }
 
-void TOMine::free_parts() { TObjFish::set_global_param((s32)(*(void* *)&this->texture_id)); draw_ginja_object(this->model); }
+void TOMine::free_parts() { TObjFish::set_global_param((s32)(this->texture_id)); draw_ginja_object(this->model); }
 
 void TOMine::render() {
     VObj_801710E4 *arg0 = (VObj_801710E4 *)this;

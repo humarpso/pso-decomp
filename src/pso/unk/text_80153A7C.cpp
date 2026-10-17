@@ -110,7 +110,7 @@ void TObjFogCollision::draw_volume() {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
-        switch (*(s32 *)&this->m_90) {
+        switch (this->m_90) {
         case 0:
             set_chunk_material_color((f32 *)&c0);
             break;
@@ -163,7 +163,7 @@ void TObjFogCollision::run_task() {
     if (TObjFogCollision__sub_80153F70() == 0 && TObjFogCollision__sub_80153F68(this) == 0) {
         for (i = 0; i != 4; i++) {
             if (check_collision(i) != 0) {
-                record_fog_collision_hit(i, this->m_84, *(s32 *)&this->m_88 == 0);
+                record_fog_collision_hit(i, this->m_84, this->m_88 == 0);
             }
         }
     }
@@ -184,7 +184,7 @@ s32 TObjFogCollision::check_collision(u16 arg1) {
             return 1;
         }
         if ((lbl_805DB26C + temp_f31) < temp_f1) {
-            *(s32 *)&this->m_94 = 0x3C;
+            this->m_94 = 0x3C;
         }
         goto block_5;
     }

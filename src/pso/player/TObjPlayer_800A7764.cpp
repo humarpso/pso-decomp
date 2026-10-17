@@ -146,7 +146,7 @@ struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
 int VecCopy__FP3VecPC3Vec(void*);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
-s16 TObjPlayer::get_field_2c8() { return *(s16 *)&this->m_2c8; }
+s16 TObjPlayer::get_field_2c8() { return this->m_2c8; }
 s16 TObjPlayer__sub_800A776C(void* p) { return *(s16*)((char*)p + 0x2ca); }
 int TObjPlayer__sub_800A7774(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x38); }
 

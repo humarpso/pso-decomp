@@ -17,7 +17,7 @@ void TWindowSubSymbolChatFaceType::close_when_chat_closed() {
 void TWindowSubSymbolChatFaceType::confirm_selection() {
     play_sound_effect(0x52D01, 0, 0, 0);
     this->m_60 = (u8) (this->m_60 | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_68))->set_entry_state(2);
+    ((TWindowSubStatusDisp *)(this->m_68))->set_entry_state(2);
 }
 
 }

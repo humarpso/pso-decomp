@@ -56,14 +56,14 @@ void TODragonflyMachine01::update_timer() {
 
 void TODragonflyMachine01::run_task() {
 
-    *(s32 *)&this->m_fc = (s32) (*(s32 *)&this->m_fc + *(s32 *)&this->m_f8);
-    *(f32 *)((s8 *)this + 0xF0) = (f32) (this->m_ec * sin_table_lookup(*(s32 *)&this->m_fc));
+    this->m_fc = (s32) (this->m_fc + this->m_f8);
+    *(f32 *)((s8 *)this + 0xF0) = (f32) (this->m_ec * sin_table_lookup(this->m_fc));
     if (TObjPlayer::check_demo_mode() == 1) {
         this->vfunc_14();
         return;
     }
     update_anim_phase();
-    switch (*(s32 *)&this->m_ac) {
+    switch (this->m_ac) {
     case 0:
         TODragonflyMachine01__sub_80164F50(this);
         update_idle();

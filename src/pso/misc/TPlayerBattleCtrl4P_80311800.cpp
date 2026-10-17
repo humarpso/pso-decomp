@@ -177,13 +177,13 @@ extern "C" {
 }
 void TPlayerBattleCtrl4P::close_rematch_menu() {
     u32 var_r31;
-    if ((u32) *(u32 *)&this->intro_window != 0U) {
-        TWindow__close((u8 *)(*(void * *)&this->intro_window));
-        *(u32 *)&this->intro_window = 0U;
+    if ((u32) this->intro_window != 0U) {
+        TWindow__close((u8 *)(this->intro_window));
+        this->intro_window = 0U;
     }
-    if ((u32) *(u32 *)&this->menu_window != 0U) {
-        TWindow__close((u8 *)(*(void * *)&this->menu_window));
-        *(u32 *)&this->menu_window = 0U;
+    if ((u32) this->menu_window != 0U) {
+        TWindow__close((u8 *)(this->menu_window));
+        this->menu_window = 0U;
     }
     var_r31 = 0;
     do {

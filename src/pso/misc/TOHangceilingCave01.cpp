@@ -687,7 +687,7 @@ void TUnk_804B2578::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
-        if (*(void * *)&this->model != NULL && *(void * *)&this->unknownF8 != NULL) {
+        if (this->model != NULL && this->unknownF8 != NULL) {
             draw_ginja_model_with_motion(*(void * *)&this->model, *(void * *)&this->unknownF8, this->m_c0);
         }
         if ((void *) TOHangceilingCave01__model_root != NULL) {

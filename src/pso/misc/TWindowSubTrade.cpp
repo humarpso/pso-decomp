@@ -44,16 +44,16 @@ void TWindowSubTrade::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     s32 temp_r5;
-    temp_r30 = is_player_input_active((*(s32 *)&this->m_20));
+    temp_r30 = is_player_input_active((this->m_20));
     switch (this->m_1c) {
     case 0:
     case 1:
         if ((u32) this->m_34 != 0U) {
-            ((TWindowSubComCard *)(*(void * *)&this->m_34))->close();
+            ((TWindowSubComCard *)(this->m_34))->close();
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 != 0U) {
-            TWindow__close((u8 *)(*(void * *)&this->m_30));
+            TWindow__close((u8 *)(this->m_30));
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c == 0U) {
@@ -63,7 +63,7 @@ void TWindowSubTrade::run_task() {
         this->m_1c = 2U;
     case 2:
         if (((TWindowSubComCard *)(this->m_2c))->get_status_flag() != 0) {
-            ((VObj_18_204a81 *)(*(u8 * *)&this->m_28))->m7();
+            ((VObj_18_204a81 *)(this->m_28))->m7();
             this->m_1c = 7U;
         } else if (((TWindowMenu *)(this->m_2c))->is_visible() != 0) {
             this->m_1c = 3U;
@@ -71,10 +71,10 @@ void TWindowSubTrade::run_task() {
         break;
     case 3:
         if (this->m_2c != 0) {
-            *(s32 *)&this->m_24 = get_selected_menu_value(*(s32 *)&this->m_2c);
+            this->m_24 = get_selected_menu_value(this->m_2c);
         }
         if ((u32) this->m_34 == 0U) {
-            this->m_34 = ((TWindowSubTrade *)arg0)->open_trade_confirm_prompt((int) (*(s32 *)&this->m_24));
+            this->m_34 = ((TWindowSubTrade *)arg0)->open_trade_confirm_prompt((int) (this->m_24));
         }
         this->m_1c = 4U;
     case 4:
@@ -90,13 +90,13 @@ void TWindowSubTrade::run_task() {
         break;
     case 5:
         if ((u32) this->m_34 != 0U) {
-            ((TWindowSubComCard *)(*(void * *)&this->m_34))->close();
+            ((TWindowSubComCard *)(this->m_34))->close();
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 == 0U) {
-            this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window((int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10(0xD7)));
+            this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window((int) (this->m_24), (int) (TWindowSubStatusDisp::get_message_10(0xD7)));
         }
-        send_modify_trade_proposal__6TLobbyFi((*(s32 *)&this->m_24));
+        send_modify_trade_proposal__6TLobbyFi((this->m_24));
         this->m_1c = 6U;
     case 6:
         temp_r5 = temp_r30 * 0x50;

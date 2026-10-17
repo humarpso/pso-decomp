@@ -215,12 +215,12 @@ void TBoss6Mine::render_shadows() {
 }
 
 void TBoss6Mine::vfunc_63() {
-    if ((s32) *(s32 *)&this->m_380 != 7) {
-        *(s32 *)&this->m_380 = 7;
+    if ((s32) this->m_380 != 7) {
+        this->m_380 = 7;
     }
 }
 
-void TBoss6Mine::vfunc_62() { *(int *)&this->actorFlags = (*(int *)&this->actorFlags & 0xfffffdff); this->m_3c8 = TBoss6Mine__data_805DF584; }
+void TBoss6Mine::vfunc_62() { this->actorFlags = (this->actorFlags & 0xfffffdff); this->m_3c8 = TBoss6Mine__data_805DF584; }
 
 void TBoss6Mine::copy_pos() {
     s32 arg0 = (s32)this;
@@ -233,11 +233,11 @@ void TBoss6Mine::draw() {
     s32 bml_model;
 
     TObjPlayer::set_global_flag();
-    temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)&this->m_374, 2);
-    bml_model = get_bml_model(*(s32 *)&this->m_374, 2);
-    bml_motion = get_bml_motion(*(s32 *)&this->m_374, 0);
+    temp_r31 = TObjFish__sub_8001EDB0(this->m_374, 2);
+    bml_model = get_bml_model(this->m_374, 2);
+    bml_motion = get_bml_motion(this->m_374, 0);
     TObjFish::set_global_param(temp_r31);
-    TBoss6PlotFalz__sub_802AC008(*(f32 *)&this->m_3c8, TBoss6Mine__data_805DF580);
+    TBoss6PlotFalz__sub_802AC008(this->m_3c8, TBoss6Mine__data_805DF580);
     draw_model_motion((void *)bml_model, (void *)bml_motion, *(f32 *)&this->_pad39C);
     TBoss6PlotFalz::update_camera_target();
     TObjPlayer::clear_global_state();
@@ -250,7 +250,7 @@ void TBoss6Mine::update_facing_angles() {
     Vec_80323FA4 v;
     s32 a;
     s32 b;
-    switch (*(s32 *)&this->m_380) {
+    switch (this->m_380) {
     case 5:
     case 6:
         VecCopy__FP3VecPC3Vec((s32) &v, (s32)(arg0 + 0x38));
@@ -268,9 +268,9 @@ void TBoss6Mine::update_facing_angles() {
                 b = 0x2000;
             }
         }
-        *(s32 *)&this->m_390 = approach_angle_limited(*(s32 *)&this->m_390, a, 0x1111);
-        *(s32 *)&this->m_394 = approach_angle_limited(*(s32 *)&this->m_394, b, 0x444);
-        *(s32 *)&this->m_398 += 0x888;
+        this->m_390 = approach_angle_limited(this->m_390, a, 0x1111);
+        this->m_394 = approach_angle_limited(this->m_394, b, 0x444);
+        this->m_398 += 0x888;
         break;
     }
 }
@@ -445,7 +445,7 @@ void TBoss6Mine__vt0(u8 *arg0) {
 void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TBoss6Mine;
-        if (*(void **)((s8 *)arg0 + 0x3CC) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3CC))); *(s32 *)&((TBoss6Mine *)arg0)->m_3cc = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3CC) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3CC))); ((TBoss6Mine *)arg0)->m_3cc = 0; }
         free_collision_body_parts(arg0);
         if (*(void **)((s8 *)arg0 + 0x378) != NULL) { TBoss6Type1__sub_802B5DD4(*(void **)((s8 *)arg0 + 0x378)); }
         __dt__9TObjEnemyFv(arg0, 0);

@@ -45,7 +45,7 @@ void TObjMotion::set_motion_interpolation_flag() {
 }
 
 u8 TObjMotion::sub_80143960(s32 arg1) {
-    return (u8) ((*(s32 *)&this->animationFlags & arg1) != 0);
+    return (u8) ((this->animationFlags & arg1) != 0);
 }
 
 }

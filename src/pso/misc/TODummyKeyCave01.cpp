@@ -201,9 +201,9 @@ u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TODummyKeyCave01 *)arg0)->m_b4 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) (0.0f);
-    *(s32 *)&((TODummyKeyCave01 *)arg0)->m_b8 = 1;
+    ((TODummyKeyCave01 *)arg0)->m_b8 = 1;
     sub_80165940__16TODummyKeyCave01Fv(arg0, (f32) (1.0f));
-    *(s32 *)&((TODummyKeyCave01 *)arg0)->m_cc = 0;
+    ((TODummyKeyCave01 *)arg0)->m_cc = 0;
     return arg0;
 }
 

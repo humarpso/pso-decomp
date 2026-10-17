@@ -322,7 +322,7 @@ u16 TBoss6PlotFalz::pick_random_active_player() {
 }
 
 s32 TBoss6PlotFalz::is_active() {
-    if ((is_state_1f__14TBoss6PlotFalzFUi() != 0) && !(*(s32 *)&this->actorFlags & 0x02000800)) {
+    if ((is_state_1f__14TBoss6PlotFalzFUi() != 0) && !(this->actorFlags & 0x02000800)) {
         return 1;
     }
     return 0;

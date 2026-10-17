@@ -50,8 +50,8 @@ void TCharaMaking::update_light_direction() {
     f32 temp_f31;
     *(f32 *)((s8 *)&TObjLight__scene_light_state.value + 4) = (f32) (lbl_805DD938 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x1C)));
     temp_f31 = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x1C));
-    *(f32 *)((s8 *)&TObjLight__scene_light_state.value + 0) = (f32) (temp_f31 * sin_table_lookup(*(s32 *)&this->m_20));
-    *(f32 *)((s8 *)&TObjLight__scene_light_state.value + 8) = (f32) (temp_f31 * cos_table_lookup(*(s32 *)&this->m_20));
+    *(f32 *)((s8 *)&TObjLight__scene_light_state.value + 0) = (f32) (temp_f31 * sin_table_lookup(this->m_20));
+    *(f32 *)((s8 *)&TObjLight__scene_light_state.value + 8) = (f32) (temp_f31 * cos_table_lookup(this->m_20));
 }
 
 s32 TCharaMaking::update_main_menu(s32 arg0) {
@@ -116,7 +116,7 @@ u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     }
     creation_main_menu_obj = create__14TObjCMMainMenuFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1555;
-    *(s32 *)&((TCharaMaking *)arg0)->m_20 = 0x9000;
+    ((TCharaMaking *)arg0)->m_20 = 0x9000;
     ((TCharaMaking *)arg0)->update_light_direction();
     return arg0;
 }

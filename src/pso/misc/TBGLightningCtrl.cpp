@@ -115,13 +115,13 @@ void TBGLightningCtrl::run_task() {
     f32 temp_f2;
     s32 temp_r3;
 
-    temp_r3 = *(s32 *)&((TBGLightningCtrl *)this)->m_90;
-    *(s32 *)&((TBGLightningCtrl *)this)->m_90 = (temp_r3 - 1);
+    temp_r3 = ((TBGLightningCtrl *)this)->m_90;
+    ((TBGLightningCtrl *)this)->m_90 = (temp_r3 - 1);
     if (temp_r3 <= 0) {
         temp_f2 = (f32) ((int (*)(void))rand)();
         temp_f1 = (3.0517578e-05f) * temp_f2;
         ((void (*)(void *, s32, f32, f32))spawn_lightning_at_angle__16TBGLightningCtrlFPvi)(this, (s32) ((65536.0f) * temp_f1), temp_f1, temp_f2);
-        *(s32 *)&((TBGLightningCtrl *)this)->m_90 = (s32) (((f32) *(s32 *)((s8 *)this + 0x88) * ((3.0517578e-05f) * (f32) ((int (*)(void))rand)())) + (f32) ((TBGLightningCtrl *)this)->m_84);
+        ((TBGLightningCtrl *)this)->m_90 = (s32) (((f32) *(s32 *)((s8 *)this + 0x88) * ((3.0517578e-05f) * (f32) ((int (*)(void))rand)())) + (f32) ((TBGLightningCtrl *)this)->m_84);
     }
 }
 #pragma pop
@@ -142,7 +142,7 @@ u8 *TBGLightningCtrl__ct(u8 *arg0, s32 parent, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBGLightningCtrl__name;
     ((TBGLightningCtrl *)(arg0))->apply_object_set_data((void *)arg2);
-    *(s32 *)&((TBGLightningCtrl *)arg0)->m_90 = 0;
+    ((TBGLightningCtrl *)arg0)->m_90 = 0;
     return arg0;
 }
 

@@ -987,15 +987,15 @@ void TObjEneIllGill__sub_803669B0(u8 *arg0) {
 void TObjEneIllGill::vfunc_61() { obj_clearFlags30(256); }
 void TObjEneIllGill::free_resources() {
     if ((u32) this->m_414 != 0U) {
-        TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_414));
+        TBoss4Type2::request_destroy((u32)(this->m_414));
         this->m_414 = 0U;
     }
     if ((u32) this->m_418 != 0U) {
-        TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_418));
+        TBoss4Type2::request_destroy((u32)(this->m_418));
         this->m_418 = 0U;
     }
     if ((u32) this->m_41c != 0U) {
-        TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_41c));
+        TBoss4Type2::request_destroy((u32)(this->m_41c));
         this->m_41c = 0U;
     }
 }
@@ -1398,7 +1398,7 @@ void TObjEneIllGill::run_attack_phase() {
         if (((IllGillVObj_80367984_8036690C *) (arg0 + 0x374))->m5() == 1) {
             this->phase = 2;
             this->m_b8 = 1;
-            *(s32 *)&this->m_390 = 0;
+            this->m_390 = 0;
         }
         break;
     case 2:
@@ -1407,15 +1407,15 @@ void TObjEneIllGill::run_attack_phase() {
         if (horizontal_distance_squared(arg0 + 0x38, arg0 + 0x50) > lbl_805E02C8) {
             move_toward_dest_with_detour();
         } else {
-            *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneIllGill__data_805E02DC);
-            temp_r4 = (unsigned char *) (*(void * *)&this->movementParameters);
+            this->m_300 = (f32) (this->m_300 + TObjEneIllGill__data_805E02DC);
+            temp_r4 = (unsigned char *) (this->movementParameters);
             enemy_wander_home((arg0), (*(s32 *)((s8 *)temp_r4 + 8)), (f32) (lbl_805E02E8 * *(f32 *)((s8 *)temp_r4 + 4)), lbl_805E02C4, lbl_805E02FC);
         }
         ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
         break;
     default:
         this->m_b8 = 0;
-        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
+        if (!(this->actorFlags & 0x800000)) {
             apply_actor_gravity(arg0, 0, TObjEneIllGill__data_805E02BC);
         }
         break;

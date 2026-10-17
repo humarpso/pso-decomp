@@ -27,9 +27,9 @@ void TOBind::run_task() {
         TOBind__sub_80158608(this);
         return;
     }
-    if ((s32) *(s32 *)&this->m_b0 != 1) {
-        if (get_register__12TQuestThreadFPvi((u8 *)quest_mission_manager, *(s32 *)&this->m_b4) != 0) {
-            *(s32 *)&this->m_b0 = 1;
+    if ((s32) this->m_b0 != 1) {
+        if (get_register__12TQuestThreadFPvi((u8 *)quest_mission_manager, this->m_b4) != 0) {
+            this->m_b0 = 1;
             clear_player_status_flag__10TObjPlayerFlUl(this, 0, 1);
         }
         sub_8015860C();

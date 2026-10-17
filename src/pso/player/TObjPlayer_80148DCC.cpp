@@ -138,7 +138,7 @@ void TObjNpcBase::vfunc_28() {
                 if (tmp338 != 0xFFFF) {
                     *(s32 *)&this->target = (s32)get_player_by_client_id(tmp338);
                 } else {
-                    *(s32 *)&this->target = 0;
+                    this->target = 0;
                 }
             }
         }
@@ -153,13 +153,13 @@ void TObjPlayer::draw_model() {
     if ((self->m8(*(f32 *)&this->unk_398, *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)&this->unk_390 == 1)) {
         select_actor_lighting((s32)arg0);
         model_render_flags |= 1;
-        TObjFish::set_global_param(*(s32 *)&this->texture_id);
+        TObjFish::set_global_param(this->texture_id);
         push_matrix_from(0);
         translate_matrix_vec3((u8 *)(0), (u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjPlayer::set_global_flag();
         if ((s32) this->m_394 != 0) {
-            draw_chunk_object((void *)(*(s32 *)&this->model));
+            draw_chunk_object((void *)(this->model));
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }

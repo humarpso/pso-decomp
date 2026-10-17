@@ -10,7 +10,7 @@ s32 advance_item_id_counter(u16);
 void TItem::init_owner(u16 arg1) {
     get_player_by_client_id(arg1);
     if (is_locally_controlled__10TObjPlayerFPv() != 0) {
-        if ((s32) *(s32 *)&this->m_next == -1) {
+        if ((s32) this->m_next == -1) {
             *(s32 *)&this->m_next = advance_item_id_counter(arg1);
         }
         TItem::send_owner_item_packet(this, arg1);

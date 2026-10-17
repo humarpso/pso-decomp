@@ -156,7 +156,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     construct_collider_proxy__13TUnk_804AF8A0Fv((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
     init_collision_body_parts(arg0, &volopt_collision_body_desc.value, 1);
-    *(f32 *)((s8 *)(*(u8 * *)&((TUnk_80484AFC *)arg0)->m_a4) + 0xC) = (f32) lbl_805D88AC;
+    *(f32 *)((s8 *)(((TUnk_80484AFC *)arg0)->m_a4) + 0xC) = (f32) lbl_805D88AC;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
     ((TUnk_80484AFC *)arg0)->m_cc = arg4;
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;

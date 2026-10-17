@@ -20,7 +20,7 @@ void TItemMagSub::release_model_and_destroy() {
     u8* arg0=(u8*)this;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)&this->textures = 0;
+    this->textures = 0;
     set_flags__11TItemMagSubFUl(arg0, 0x80U);
 }
 #define TOBJECT_OUT_OF_LINE_HELPERS
@@ -61,7 +61,7 @@ void TItemMagSub::set_motion_type(s32 arg1) {
     ((void(*)(void))reset__11TItemMagSubFv)();
     this->motion_type = arg1;
     *(s32 * *)&this->motion = (s32 *) (item_mag_param_table + (arg1 * 0x64));
-    temp_r5 = (unsigned char *) (*(void * *)&this->owner);
+    temp_r5 = (unsigned char *) (this->owner);
     if (temp_r5 != NULL) {
         s32 elem = **(s32 * *)&this->motion;
         if (elem == -1) {
@@ -429,17 +429,17 @@ void TItemMagSub::apply_placement_matrix() {
   s32 a3;
   s32 a4;
   post_translate_matrix(arg0 + 0xA0);
-  if (obj_isState7_324((void *) (*(void * *)&this->owner)) != 0)
+  if (obj_isState7_324((void *) (this->owner)) != 0)
   {
     feed = (void *) ((TItemMagSub *)arg0)->resolve_owner_heading();
     rotate_matrix_y(0, feed);
   }
   else
   {
-    rotate_matrix_y(0, (void *) (*((s32 *) (((s8 *) (*(void * *)&this->owner)) + 0x60))));
+    rotate_matrix_y(0, (void *) (*((s32 *) (((s8 *) (this->owner)) + 0x60))));
   }
   post_translate_matrix(arg0 + 0xAC);
-  temp_r6 = (unsigned char *) (*(void * *)&this->motion);
+  temp_r6 = (unsigned char *) (this->motion);
   if (temp_r6 != 0)
   {
     a2 = *((s32 *) (((s8 *) temp_r6) + 0x1C));

@@ -978,11 +978,11 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 str, s16 arg3, f32 farg0) {
 
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3900;
     ((TUnk_804CF0B8 *)arg0)->m_70 = 0;
-    *(s8 *)&((TUnk_804CF0B8 *)arg0)->m_71 = 0;
+    ((TUnk_804CF0B8 *)arg0)->m_71 = 0;
     *(s8 *)&((TUnk_804CF0B8 *)arg0)->unk_72 = 2;
     ((TUnk_804CF0B8 *)arg0)->m_73 = -1;
     ((TUnk_804CF0B8 *)arg0)->m_76 = arg1;
-    *(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20 = arg3;
+    ((TUnk_804CF0B8 *)arg0)->m_20 = arg3;
     if (str != 0) {
         temp_r3 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)0x18);
         *(s32 *)((s8 *)arg0 + 0x78) = (s32)mem_alloc(temp_r3 + 1);

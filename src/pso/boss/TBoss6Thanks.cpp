@@ -199,7 +199,7 @@ void TBoss6Thanks::advance_thanks_state() {
     }
 }
 
-void TBoss6Thanks::mark_done() { if (TBoss6Thanks::is_player_near(this) != 0) { *(int *)&this->m_24 = 1; *(int *)&this->m_1c = 1; } }
+void TBoss6Thanks::mark_done() { if (TBoss6Thanks::is_player_near(this) != 0) { this->m_24 = 1; this->m_1c = 1; } }
 
 typedef struct ThanksMotionHeader ThanksMotionHeader;
 typedef struct Thanks_8035CF78 Thanks_8035CF78;
@@ -271,7 +271,7 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     ((TBoss6Thanks *)arg0)->frame0 = (f32) lbl_805E019C;
     ((TBoss6Thanks *)arg0)->frame1 = (f32) lbl_805E019C;
     ((TBoss6Thanks *)arg0)->opacity = (f32) lbl_805E01A4;
-    *(s32 *)&((TBoss6Thanks *)arg0)->m_34 = 0;
+    ((TBoss6Thanks *)arg0)->m_34 = 0;
     return arg0;
 }
 

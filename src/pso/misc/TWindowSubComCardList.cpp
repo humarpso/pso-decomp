@@ -101,16 +101,16 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
     ((TWindowMenu *)arg0)->render_selected_entry(temp_r3);
     ((TWindowSubComCardList *)arg0)->draw_card_list_selection((u8 *)temp_r3);
     if ((u32) ((TWindowSubComCardList *)arg0)->m_88 != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(s32 *)&((TWindowSubComCardList *)arg0)->m_88, temp_r3);
+        forward_render__20TWindowSubStatusDispFv(((TWindowSubComCardList *)arg0)->m_88, temp_r3);
     }
     if ((u32) ((TWindowSubComCardList *)arg0)->m_8c != 0U) {
-        draw_list_page_indicator(*(s32 *)&((TWindowSubComCardList *)arg0)->m_8c, temp_r3);
+        draw_list_page_indicator(((TWindowSubComCardList *)arg0)->m_8c, temp_r3);
     }
 }
 
 void TWindowSubComCardList::run_task() {
     run_task__11TWindowMenuFv();
-    if ((is_visible() == 0) && (handle_list_page_flip_input(*(s32 *)&this->m_8c) != 0)) {
+    if ((is_visible() == 0) && (handle_list_page_flip_input(this->m_8c) != 0)) {
         set_selected_index(0);
         TWindowSubComCardList__sub_80275360(this);
     }

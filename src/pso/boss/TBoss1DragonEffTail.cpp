@@ -127,21 +127,21 @@ void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {
 }
 
 void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
-    ((VObj_18 *)(arg1))->m20(*(s32 *)&((TBoss1DragonEffTail *)arg0)->m_ac, lbl_805D8158);
+    ((VObj_18 *)(arg1))->m20(((TBoss1DragonEffTail *)arg0)->m_ac, lbl_805D8158);
     if (TObjEneDD::check_v2_mode() != 0) {
         TBoss1Dragon__sub_8002AB6C((arg1));
     }
 }
 
-void TBoss1DragonEffTail::enable() { *(int *)&this->m_bc = 1; is_visible(); }
-void TBoss1DragonEffTail::disable() { *(int *)&this->m_bc = 0; is_visible(); }
+void TBoss1DragonEffTail::enable() { this->m_bc = 1; is_visible(); }
+void TBoss1DragonEffTail::disable() { this->m_bc = 0; is_visible(); }
 int TBoss1DragonEffTail::is_visible() { return fill_value_array(*(void* *)&this->m_b8); }
 
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonEffTail;
         delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0xB8)), 1);
-        *(s32 *)&((TBoss1DragonEffTail *)arg0)->m_b8 = 0;
+        ((TBoss1DragonEffTail *)arg0)->m_b8 = 0;
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

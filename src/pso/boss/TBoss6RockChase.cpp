@@ -164,12 +164,12 @@ void TBoss6RockChase::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if (query_teammate_state__9TObjEneDDFv() == 0) {
-        temp_r3 = *(s32 *)&this->m_b4;
+        temp_r3 = this->m_b4;
         if (temp_r3 > 0) {
-            *(s32 *)&this->m_b4 = (temp_r3 - 1);
+            this->m_b4 = (temp_r3 - 1);
             return;
         }
-        this->rotation_y = (s32) (this->rotation_y + *(s32 *)&this->m_bc);
+        this->rotation_y = (s32) (this->rotation_y + this->m_bc);
         *(f32 *)&this->_padB8 = (f32) (*(f32 *)&this->_padB8 + lbl_805E03C0);
         if (*(f32 *)&this->_padB8 < lbl_805E03C4) {
             *(f32 *)&this->_padB8 = (f32) lbl_805E03C4;
@@ -183,7 +183,7 @@ void TBoss6RockChase::run_task() {
             spawn_particle_effect(((u8 *)&this->position), 0x220);
             spawn_particle_effect(((u8 *)&this->position), 0x222);
             TBoss6PlotFalz::apply_radial_effect_to_players(arg0 + 0x38, 0xC0, 0xF, lbl_805E03C8);
-            ((TBoss6Rock *)(arg0 + 0x38))->spawn_crush_rocks((int) (*(s32 *)&this->m_b0));
+            ((TBoss6Rock *)(arg0 + 0x38))->spawn_crush_rocks((int) (this->m_b0));
             play_sound_effect(0x4006AB1F, arg0 + 0x38, 0, 0);
             queue_destruction__7TObjectFv(arg0);
         }
@@ -210,17 +210,17 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8036D4E0___vt__15TBoss6RockChase *)&__vt__15TBoss6RockChase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44F0;
-    *(s32 *)&((TBoss6RockChase *)arg0)->m_ac = arg1;
-    *(s32 *)&((TBoss6RockChase *)arg0)->m_b0 = arg3;
-    *(s32 *)&((TBoss6RockChase *)arg0)->m_b4 = (s32) (lbl_805E03CC * (lbl_805E03D0 * (f32) rand()));
+    ((TBoss6RockChase *)arg0)->m_ac = arg1;
+    ((TBoss6RockChase *)arg0)->m_b0 = arg3;
+    ((TBoss6RockChase *)arg0)->m_b4 = (s32) (lbl_805E03CC * (lbl_805E03D0 * (f32) rand()));
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     ((TBoss6RockChase *)arg0)->rotation_y = (s32) (lbl_805E03DC * (lbl_805E03D0 * (f32) rand()));
     ((TBoss6RockChase *)arg0)->rotation_z = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
-    *(s32 *)&((TBoss6RockChase *)arg0)->m_bc = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
+    ((TBoss6RockChase *)arg0)->m_bc = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
-    *(s32 *)&((TBoss6RockChase *)arg0)->m_c0 = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (*(s32 *)((s8 *)&boss6_rock_chase_model_radius_table.value + (arg3 * 8))));
-    *(s32 *)&((TBoss6RockChase *)arg0)->m_c4 = TBoss6Rock__sub_80353A04();
+    ((TBoss6RockChase *)arg0)->m_c0 = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (*(s32 *)((s8 *)&boss6_rock_chase_model_radius_table.value + (arg3 * 8))));
+    ((TBoss6RockChase *)arg0)->m_c4 = TBoss6Rock__sub_80353A04();
     return arg0;
 }
 #pragma pop

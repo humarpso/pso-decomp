@@ -12,11 +12,11 @@ void *TUnk_8049F3F4::init(void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_8049F3F4;
     *(void * *)&this->unk_1C = arg2;
-    *(u32 *)&this->m_20 = 0;
+    this->m_20 = 0;
     *(void * *)&this->unk_24 = arg3;
     *(void * *)&this->m_28 = arg4;
     ((TItemLoad *)((char *)this + 44))->clear_slots();
-    *(u32 *)&this->m_20 = 1;
+    this->m_20 = 1;
     return this;
 }
 

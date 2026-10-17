@@ -209,7 +209,7 @@ u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80194528___vt__9TObjLight *)&__vt__9TObjLight).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D33B8;
     ((TObjLight *)(arg0))->apply_object_set_data(arg2);
-    *(s32 *)&((TObjLight *)arg0)->m_90 = (s32) *(s16 *)((s8 *)arg2 + 8);
+    ((TObjLight *)arg0)->m_90 = (s32) *(s16 *)((s8 *)arg2 + 8);
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;
     ((TObjLight *)arg0)->m_f4 = (f32) ((TObjLight *)arg0)->scale;
     *(f32 *)((s8 *)arg0 + 0xF8) = (f32) ((TObjLight *)arg0)->target_scale;
@@ -217,7 +217,7 @@ u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjLight *)arg0)->m_e4 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xE8) = (f32) (0.0f);
     ((TObjLight *)arg0)->m_ec = (f32) (0.0f);
-    *(s32 *)&((TObjLight *)arg0)->m_9c = 0;
+    ((TObjLight *)arg0)->m_9c = 0;
     copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0xBC), ((u8 *)&TObjLight__scene_light_state.value + 0x24));
     VecCopy((Vec *)(arg0 + 0xD8), (const Vec *)((u8 *)&TObjLight__scene_light_state.value + 0xC));
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;

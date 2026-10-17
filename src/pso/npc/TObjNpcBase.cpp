@@ -105,8 +105,8 @@ void TObjNpcBase::play_voice() {
     s32 arg0 = (s32)this;
     play_sound_effect(0x40003804, arg0 + 0x38, 0, 0);
 }
-void TObjNpcBase::sub_80149358(s32 v) { *(s32 *)&this->m_3ac = v; }
-void TObjNpcBase::sub_80149360(s32 v) { *(s32 *)&this->m_3a8 = v; }
+void TObjNpcBase::sub_80149358(s32 v) { this->m_3ac = v; }
+void TObjNpcBase::sub_80149360(s32 v) { this->m_3a8 = v; }
 void TObjNpcBase__sub_80149368(void* p) { *(s32*)((char*)p + 0x0) = 2; }
 
 }

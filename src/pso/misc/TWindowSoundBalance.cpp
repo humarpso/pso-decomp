@@ -129,10 +129,10 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804D0D68, (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSoundBalance;
     *(s32 *)((s8 *)arg0 + 0) = TWindowSoundBalance__name;
-    *(s8 *)&((TWindowSoundBalance *)arg0)->m_60 = 0;
-    *(s8 *)&((TWindowSoundBalance *)arg0)->m_61 = 0;
-    *(s16 *)&((TWindowSoundBalance *)arg0)->m_62 = 1;
-    *(s16 *)&((TWindowSoundBalance *)arg0)->m_64 = 1;
+    ((TWindowSoundBalance *)arg0)->m_60 = 0;
+    ((TWindowSoundBalance *)arg0)->m_61 = 0;
+    ((TWindowSoundBalance *)arg0)->m_62 = 1;
+    ((TWindowSoundBalance *)arg0)->m_64 = 1;
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0);
     get_field_20__17TWindowSubComCardFv();
     *(f32 *)((s8 *)e + 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();

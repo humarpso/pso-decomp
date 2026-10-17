@@ -96,9 +96,9 @@ int TObjEneSlimeOne::get_instance() {  return slime_bml_resource; }
 int TObjEneSlimeWaterBomb::find_nearest_enemy_masked(f32 farg0) {
     u8 *arg0 = (u8 *)this;
     u16 temp_r3;
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02000000);
+    this->actorFlags = (s32) (this->actorFlags | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf(arg0, (void *)(0), farg0);
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFDFFFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFDFFFFFF);
     return temp_r3;
 }
 
@@ -107,9 +107,9 @@ int TObjEneSlimeOne::is_timer_active() { return (this->actorFlags >> 4) & 0x1; }
 int TObjEneSlimeOne::find_nearest_enemy_with_flag(s32 arg1, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     u16 temp_r3;
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02000000);
+    this->actorFlags = (s32) (this->actorFlags | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *)arg0, (void *)arg1, (f32)farg0);
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFDFFFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFDFFFFFF);
     return temp_r3;
 }
 

@@ -93,9 +93,9 @@ void TSceneSora::render() {
         push_matrix();
         rotate_matrix_y(0, this->rotation_y);
         if ((u32) this->m_94 != 0U) {
-            draw_ginja_model_with_motion((int) (*(s32 *)&this->m_90), (int) (*(s32 *)&this->m_94), this->m_a0);
+            draw_ginja_model_with_motion((int) (this->m_90), (int) (this->m_94), this->m_a0);
         } else {
-            draw_ginja_object((void *)(*(s32 *)&this->m_90));
+            draw_ginja_object((void *)(this->m_90));
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -136,13 +136,13 @@ u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3624;
-    *(s32 *)&((TSceneSora *)arg0)->m_90 = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
+    ((TSceneSora *)arg0)->m_90 = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
     if (TSceneSora__has_sky_motion != 0) {
-        *(s32 *)&((TSceneSora *)arg0)->m_94 = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
+        ((TSceneSora *)arg0)->m_94 = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
     } else {
-        *(s32 *)&((TSceneSora *)arg0)->m_94 = 0;
+        ((TSceneSora *)arg0)->m_94 = 0;
     }
-    *(s32 *)&((TSceneSora *)arg0)->m_98 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
+    ((TSceneSora *)arg0)->m_98 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), 0);
     *(f32 *)((s8 *)arg0 + 0x9C) = lbl_805DC60C;
     ((TSceneSora *)arg0)->m_a0 = lbl_805DC608;
     return arg0;

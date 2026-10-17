@@ -664,11 +664,11 @@ void run_task__10TTecRaFoieFv(u8 *arg0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_148 == 1) {
+    if ((s32) ((TTecRaFoie *)arg0)->m_148 == 1) {
         ((TTecRaFoie *)arg0)->update_detonation(arg0 + 0x7C);
         return;
     }
-    if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_ec == 0) {
+    if ((s32) ((TTecRaFoie *)arg0)->m_ec == 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
@@ -768,13 +768,13 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
     *(u32 *)((s8 *)arg0 + 0) = (u32)TTecRaFoie_class_name;
     ((TTecRaFoie *)arg0)->calc_area_parameters();
     fn_80044330((u8 *)arg0 + 0xEC);
-    *(s32 *)&((TTecRaFoie *)arg0)->m_148 = 1;
+    ((TTecRaFoie *)arg0)->m_148 = 1;
     t = *(Sub_80238AE8 **)((s8 *)arg0 + 0xE8);
     if (t != NULL) {
         *(f32 *)((s8 *)t->inner + 0xC) = ((TTecRaFoie *)arg0)->m_90;
     }
     if (arg0->source != NULL) {
-        *(s16 *)&((TTecRaFoie *)arg0)->m_b4 = obj_getField1c(arg0->source);
+        ((TTecRaFoie *)arg0)->m_b4 = obj_getField1c(arg0->source);
     }
     arg0->m6(0);
     arg0->m7();
@@ -789,7 +789,7 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     ((TObjPlayer *)(self + 0xEC))->construct_target_cursor_records();
     *(u32 *)((s8 *)self + 0) = (u32)TTecRaFoie_class_name;
     ((TTecRaFoie *)self)->calc_area_parameters();
-    *(s32 *)&((TTecRaFoie *)self)->m_148 = 0;
+    ((TTecRaFoie *)self)->m_148 = 0;
     copy_technique_target_list(self + 0xEC, targets);
     if (*(void **)((s8 *)self + 0x1C) != NULL) {
         ((TTecRaFoie *)self)->m_b4 = obj_getField1c(*(void **)((s8 *)self + 0x1C));

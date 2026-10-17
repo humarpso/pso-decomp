@@ -105,7 +105,7 @@ void *destroy_free_buffers__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void*TWindowSubComCard::init_fields(int a1, int a2) { reset_entry__20TWindowSubStatusDispFPv(this, a2); *(int*)((char*)this + 0x4) = (int)window_label_value_part_vtable; *(float*)((char*)this + 0x14) = (18.0f); *(int *)&this->m_24 = -1; *(int*)((char*)this + 0x1c) = 0; *(int *)&this->m_20 = 0; *(int*)((char*)this + 0x18) = 0; return this; }
+void*TWindowSubComCard::init_fields(int a1, int a2) { reset_entry__20TWindowSubStatusDispFPv(this, a2); *(int*)((char*)this + 0x4) = (int)window_label_value_part_vtable; *(float*)((char*)this + 0x14) = (18.0f); this->m_24 = -1; *(int*)((char*)this + 0x1c) = 0; this->m_20 = 0; *(int*)((char*)this + 0x18) = 0; return this; }
 
 int TWindowSubComCard::is_flag_4_set() { return *(u16*)((char*)this + 0x0) & 0x4; }
 

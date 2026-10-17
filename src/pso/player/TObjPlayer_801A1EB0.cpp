@@ -55,7 +55,7 @@ void TUnk_804B9870::vfunc_6(s16 *, s32) {  }
 u16 TUnk_804806E8::get_or_assign_actor_id(s32 arg1) {
 
     if (this->m_1c == 0xFFFF) {
-        switch (*(s32 *)&this->actorFlags & 0x70000000) {
+        switch (this->actorFlags & 0x70000000) {
         case 0x10000000:
             this->m_1c = fn_801A210C(arg1);
             break;

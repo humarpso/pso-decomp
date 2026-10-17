@@ -651,10 +651,10 @@ void TObjEnePanarms::init_attack_state2() {
     int *r7 = *(int* *)&this->unk_37C;
     r7[6] = r7[6] | 0x1;
     *(int *)&this->unk_384 = 1;
-    *(int *)&this->m_388 = 1;
-    *(float *)&this->m_3b0 = TObjEnePanarms__data_805DA524;
-    *(int *)&this->action_timer = 12;
-    *(int *)&this->animationFlags = (*(int *)&this->animationFlags & 0xfffffffe);
+    this->m_388 = 1;
+    this->m_3b0 = TObjEnePanarms__data_805DA524;
+    this->action_timer = 12;
+    this->animationFlags = (this->animationFlags & 0xfffffffe);
     set_field_b8__10TObjMotionFs(this, 3);
 }
 
@@ -860,7 +860,7 @@ void TObjEnePanarms::update_hit_state() {
         TObjEnePanarms__sub_800E1C98(this, 2);
         return;
     }
-    if (*(s32 *)&this->animationFlags & 0x10) {
+    if (this->animationFlags & 0x10) {
         TObjEnePanarms__sub_800E1C98(this, 0);
     }
 }
@@ -1091,7 +1091,7 @@ void TObjEnePanarms::start_action() {
 }
 
 void TObjEnePanarms::handle_split_flag() {
-    if (*(s32 *)&this->animationFlags & 0x10) {
+    if (this->animationFlags & 0x10) {
         ((s32 (*)(void))calc_default_part_position__14TObjEnePanarmsFPv)();
         TObjEnePanarms__sub_800E1C98(this, 2);
     }
@@ -1117,8 +1117,8 @@ void TObjEnePanarms::init_split() {
 #pragma opt_propagation off
 void TObjEnePanarms::snap_to_parent_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*(s32 *)&this->m_39c + 0x38));
-    *(f32 *)&this->position[0] = (f32) (*(f32 *)&this->position[0] + lbl_805DA580);
+    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(this->m_39c + 0x38));
+    this->position[0] = (f32) (this->position[0] + lbl_805DA580);
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA580);
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
 }
@@ -1566,7 +1566,7 @@ void TObjMotion::sub_800E2DE4(s32 arg1) {
   int new_var2;
   new_var2 = ~arg1;
   new_var = (s32 *) (((s8 *) this) + 0xB0);
-  *new_var = (s32) ((*(s32 *)&this->animationFlags) & new_var2);
+  *new_var = (s32) ((this->animationFlags) & new_var2);
 }
 
 u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0) {

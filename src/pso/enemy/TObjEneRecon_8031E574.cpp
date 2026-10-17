@@ -21,7 +21,7 @@ u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5,
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4130;
     *(s16 *)((s8 *)arg0 + 0x434) = obj_getField1c((void *)arg2);
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
-    *(s16 *)&((TObjEneRecon *)arg0)->m_1c = arg3;
+    ((TObjEneRecon *)arg0)->m_1c = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg5));
     VecCopy((Vec *)(arg0 + 0x438), (const Vec *)(arg2 + 0x38));

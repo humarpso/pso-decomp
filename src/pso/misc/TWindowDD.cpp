@@ -114,14 +114,14 @@ void update_draw__9TWindowDDFPv(void* p) { ((TWindowDD *)p)->initialize_subwindo
 void TWindowDD::set_clamped_page(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     if (arg1 < 0) {
-        *(s32 *)&this->m_80 = 0;
+        this->m_80 = 0;
         return;
     }
     if (arg1 >= 3) {
-        *(s32 *)&this->m_80 = 2;
+        this->m_80 = 2;
         return;
     }
-    *(s32 *)&this->m_80 = arg1;
+    this->m_80 = arg1;
 }
 
 s32 TWindowDD__sub_80340820(void* p) { return *(s32*)((char*)p + 0x68); }
@@ -133,24 +133,24 @@ void TWindowDD::handle_input() {
     s32 temp_r0;
     s32 temp_r31;
     s32 temp_r3;
-    temp_r31 = *(s32 *)&this->m_84;
+    temp_r31 = this->m_84;
     if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x10) != 0) {
-        *(s32 *)&this->m_84 = (s32) (*(s32 *)&this->m_84 - 1);
+        this->m_84 = (s32) (this->m_84 - 1);
     } else if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x20) != 0) {
-        *(s32 *)&this->m_84 = (s32) (*(s32 *)&this->m_84 + 1);
+        this->m_84 = (s32) (this->m_84 + 1);
     } else if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x20000) != 0) {
-        *(s32 *)&this->m_84 = 0;
+        this->m_84 = 0;
     } else if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x10000) != 0) {
-        *(s32 *)&this->m_84 = 2;
+        this->m_84 = 2;
     }
-    temp_r0 = *(s32 *)&this->m_84;
-    temp_r3 = *(s32 *)&this->m_80;
+    temp_r0 = this->m_84;
+    temp_r3 = this->m_80;
     if (temp_r0 < temp_r3) {
-        *(s32 *)&this->m_84 = temp_r3;
+        this->m_84 = temp_r3;
     } else if (temp_r0 >= 3) {
-        *(s32 *)&this->m_84 = 2;
+        this->m_84 = 2;
     }
-    if ((s32) *(s32 *)&this->m_84 != temp_r31) {
+    if ((s32) this->m_84 != temp_r31) {
         TWindowDD::spawn_window();
     }
 }
@@ -180,14 +180,14 @@ void TWindowDD::set_clamped_selection(s32 arg1) {
     s32 temp_r0;
     s32 var_r4;
     var_r4 = arg1;
-    temp_r0 = *(s32 *)&this->m_80;
+    temp_r0 = this->m_80;
     if (var_r4 < temp_r0) {
         var_r4 = temp_r0;
     } else if (var_r4 >= 3) {
         var_r4 = 2;
     }
-    *(s32 *)&this->m_84 = var_r4;
-    *(s32 *)&this->m_7c = 0;
+    this->m_84 = var_r4;
+    this->m_7c = 0;
 }
 
 void *__dt__13TUnk_804EFBACFv(void *arg0, s16 arg1) {

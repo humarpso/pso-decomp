@@ -41,8 +41,8 @@ void TObjEneMe1Gee_NEEDLE::render() {
     push_matrix();
     TParticleCtrl::begin_effect_render();
     post_translate_matrix(arg0 + 0x6C);
-    rotate_matrix_y(0, (int) (*(s32 *)&this->m_a4));
-    rotate_matrix_x(0, (int) (*(s32 *)&this->m_a0));
+    rotate_matrix_y(0, (int) (this->m_a4));
+    rotate_matrix_x(0, (int) (this->m_a0));
     TObjFish__sub_8001EDB0((void *)me1gee_cached_model_handle, 1);
     set_global_param__8TObjFishFl();
     get_bml_model((void *)me1gee_cached_model_handle, 1);
@@ -56,7 +56,7 @@ void TObjEneMe1Gee_NEEDLE::run_task() {
         queue_destruction__7TObjectFv((this));
         return;
     }
-    if ((s32) *(s32 *)&this->m_b8 == 1) {
+    if ((s32) this->m_b8 == 1) {
         update_position();
         update_lifetime__22TObjEneMe1GiGueMissileFv(this);
         TObjPlayer__sub_802A445C(this, 1);
@@ -72,7 +72,7 @@ u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f3
     *(f32 *)((s8 *)arg0 + 0xBC) = farg1;
     *(f32 *)((s8 *)arg0 + 0xAC) = farg0;
     ((TObjEneMe1Gee_NEEDLE *)arg0)->m_c0 = 0x96;
-    *(s32 *)&((TObjEneMe1Gee_NEEDLE *)arg0)->m_b0 = 1;
+    ((TObjEneMe1Gee_NEEDLE *)arg0)->m_b0 = 1;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
         ((TObjEneMe1Gee_NEEDLE *)arg0)->m_34 = obj_getField1c(temp_r3);

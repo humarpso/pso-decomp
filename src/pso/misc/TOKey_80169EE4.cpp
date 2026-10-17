@@ -62,12 +62,12 @@ void *TUnk_804B27D8::init() {
     *(u32 *)&this->unk_D0 = -1;
     (*(u32 *)&this->unk_C8) = 0;
     this->m_ac = 0;
-    *(u32 *)&this->m_cc = 0;
-    *(u32 *)&this->m_d4 = 0;
+    this->m_cc = 0;
+    this->m_d4 = 0;
     *(u32 *)&this->unk_D8 = 0;
     TOKey__sub_80169FB0((void*)((void *)((char *)this + 152)));
     this->m_dc = 0;
-    *(u32 *)&this->m_e0 = 1;
+    this->m_e0 = 1;
     return this;
 }
 
@@ -90,14 +90,14 @@ void TOKey::handle_switch_trigger(void *arg1) {
     } else {
         clear_current_floor_switch(*(u16 *)((s8 *)arg1 + 8));
     }
-    switch (*(s32 *)&this->m_d4) {
+    switch (this->m_d4) {
     case 0:
         this->trigger_activate_sound();
-        *(s32 *)&this->m_d4 = 1;
+        this->m_d4 = 1;
         return;
     case 1:
         this->vfunc_19();
-        *(s32 *)&this->m_d4 = 0;
+        this->m_d4 = 0;
         return;
     }
 }
@@ -126,8 +126,8 @@ void TOKey::vfunc_13(s32 arg1) {
     s32 temp_r0;
     s32 player;
 
-    temp_r0 = *(s32 *)&this->m_d0;
-    if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)&this->m_d4 != 1))) {
+    temp_r0 = this->m_d0;
+    if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) this->m_d4 != 1))) {
         player = (s32)get_player_by_client_id((u16)((u16)arg1));
         if (player != 0) {
             start_camera_pan__10TObjPlayerFs(player, 0xC, ((TObjPlayer *)(player + 0x38))->calc_angle_to((u8 *)&this->position));
@@ -144,7 +144,7 @@ void TOKey::send_switch_on() {
     ((TLobby *)(&packet))->init_6x05_switch_changed();
     packet.object=this->m_1c;
     packet.zero=0;
-    packet.switchId=*(s32 *)&this->m_e4;
+    packet.switchId=this->m_e4;
     packet.area=((s8)get_current_floor());
     packet.flags=1;
     ((TLobby *)(&packet))->finalize_and_send_60();
@@ -183,11 +183,11 @@ s32 TOKey::is_local_player_in_range() {
 s32 TOKey::is_confirm_pressed() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_d0;
+    temp_r0 = this->m_d0;
     if (temp_r0 == 2) {
         return 0;
     }
-    if ((temp_r0 == 0) && ((s32) *(s32 *)&this->m_d4 == 1)) {
+    if ((temp_r0 == 0) && ((s32) this->m_d4 == 1)) {
         return 0;
     }
     if ((is_local_player_in_range() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {

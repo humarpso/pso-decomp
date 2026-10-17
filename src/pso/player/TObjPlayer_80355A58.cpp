@@ -26,8 +26,8 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void TUnk_804F1320::vfunc_17(s32 arg1) {
     s32 temp_r31;
 
-    if (((u32) *(u32 *)&this->player != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
-        temp_r31 = ((TObjPlayer *)(*(u32 *)&this->player))->get_field_3e4();
+    if (((u32) this->player != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        temp_r31 = ((TObjPlayer *)(this->player))->get_field_3e4();
         {
         s32 t = get_current_floor();
         if ((t == temp_r31) && (TObjPlayer__sub_80102C30((u8 *)this) == 2)) {
@@ -40,7 +40,7 @@ void TUnk_804F1320::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
-        temp_r3 = ((TItemMag *)(*(s32 *)&this->player))->get_sub_value();
+        temp_r3 = ((TItemMag *)(this->player))->get_sub_value();
         if (temp_r3 >= 0x14) {
             ((TItemEquipBase *)arg0)->send_6x61_activate_mag_effect(temp_r3);
             return;

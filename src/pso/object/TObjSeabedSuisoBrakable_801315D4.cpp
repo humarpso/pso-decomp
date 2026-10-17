@@ -16,11 +16,11 @@ void TObjSeabedSuisoBrakable::walk_linked_switches() {
     }
     linked_switch_walk_index += 1;
     if ((void *) TObjSeabedSuisoBrakable__linked_switch_count == NULL) {
-        if ((u32) *(u32 *)&this->m_2c != 0U) {
+        if ((u32) this->m_2c != 0U) {
             ((TObjSeabedSuisoBrakable *)(this->m_2c))->walk_linked_switches();
         }
         if ((u32) this->actorFlags != 0U) {
-            ((TObjSeabedSuisoBrakable *)(*(void * *)&this->actorFlags))->walk_linked_switches();
+            ((TObjSeabedSuisoBrakable *)(this->actorFlags))->walk_linked_switches();
         }
     }
 }
@@ -41,11 +41,11 @@ void TObjSeabedSuisoBrakable::collect_recursive() {
     }
     model_node_search_walk_index += 1;
     if ((void *) model_node_search_result == NULL) {
-        if ((u32) *(u32 *)&this->m_2c != 0U) {
+        if ((u32) this->m_2c != 0U) {
             ((TObjSeabedSuisoBrakable *)(this->m_2c))->collect_recursive();
         }
         if ((u32) this->actorFlags != 0U) {
-            ((TObjSeabedSuisoBrakable *)(*(void * *)&this->actorFlags))->collect_recursive();
+            ((TObjSeabedSuisoBrakable *)(this->actorFlags))->collect_recursive();
         }
     }
 }

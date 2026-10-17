@@ -34,7 +34,7 @@ void __dt__7TEffectFv(void *, int);
 void *TObjPlayer::destroy_technique_effect_resources(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804CCC68;
-        if (this->m_128 != NULL) { free_collision_body_parts(this->m_128); *(s32 *)&this->m_128 = 0; }
+        if (this->m_128 != NULL) { free_collision_body_parts(this->m_128); this->m_128 = 0; }
         __dt__7TEffectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -69,7 +69,7 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
     *(f32 *)((s8 *)this + 0x40) = lbl_805DC928;
     *(f32 *)((s8 *)this + 0x44) = lbl_805DC928;
     this->traveled = lbl_805DC92C;
-    *(s32 *)&this->source = arg1;
+    this->source = arg1;
     if (arg4 < 0) {
         this->level = 0;
     } else if (arg4 >= 0x1E) {
@@ -94,14 +94,14 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
     *(f32 *)((s8 *)this + 0xFC) = lbl_805DC92C;
     *(f32 *)((s8 *)this + 0x100) = lbl_805DC92C;
     *(f32 *)((s8 *)this + 0x104) = lbl_805DC92C;
-    if (obj_getField1c(*(s32 *)&this->source) < 4U && get_type__10TObjPlayerFPv((void *)(*(s32 *)&this->source+ 0x828)) != 0) {
+    if (obj_getField1c(this->source) < 4U && get_type__10TObjPlayerFPv((void *)(this->source+ 0x828)) != 0) {
         *(f32 *)((s8 *)this + 0x104) = lbl_805DC938;
     }
     *(f32 *)((s8 *)this + 0x108) = lbl_805DC91C;
     *(f32 *)((s8 *)this + 0x10C) = lbl_805DC928;
     *(s32 *)((s8 *)this + 0x110) = 1;
-    if (obj_getField1c(*(s32 *)&this->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)&this->source+ 0x828)) != 0) {
+    if (obj_getField1c(this->source) < 4U) {
+        if (get_type__10TObjPlayerFPv((void *)(this->source+ 0x828)) != 0) {
             *(s32 *)((s8 *)this + 0x114) = 0x40007;
         } else {
             *(s32 *)((s8 *)this + 0x114) = 0x40107;
@@ -133,7 +133,7 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x44) = lbl_805DC928;
     ((TUnk_804CCC68 *)arg0)->traveled = lbl_805DC92C;
-    *(s32 *)&((TUnk_804CCC68 *)arg0)->source = arg1;
+    ((TUnk_804CCC68 *)arg0)->source = arg1;
     if (arg4 < 0) {
         ((TUnk_804CCC68 *)arg0)->level = 0;
     } else if (arg4 >= 0x1E) {
@@ -162,14 +162,14 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     *(f32 *)((s8 *)arg0 + 0xFC) = lbl_805DC92C;
     *(f32 *)((s8 *)arg0 + 0x100) = lbl_805DC92C;
     *(f32 *)((s8 *)arg0 + 0x104) = lbl_805DC92C;
-    if (obj_getField1c(*(s32 *)&((TUnk_804CCC68 *)arg0)->source) < 4U && get_type__10TObjPlayerFPv((void *)(*(s32 *)&((TUnk_804CCC68 *)arg0)->source+ 0x828)) != 0) {
+    if (obj_getField1c(((TUnk_804CCC68 *)arg0)->source) < 4U && get_type__10TObjPlayerFPv((void *)(((TUnk_804CCC68 *)arg0)->source+ 0x828)) != 0) {
         *(f32 *)((s8 *)arg0 + 0x104) = lbl_805DC938;
     }
     *(f32 *)((s8 *)arg0 + 0x108) = lbl_805DC91C;
     *(f32 *)((s8 *)arg0 + 0x10C) = lbl_805DC928;
     *(s32 *)((s8 *)arg0 + 0x110) = 1;
-    if (obj_getField1c(*(s32 *)&((TUnk_804CCC68 *)arg0)->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)&((TUnk_804CCC68 *)arg0)->source+ 0x828)) != 0) {
+    if (obj_getField1c(((TUnk_804CCC68 *)arg0)->source) < 4U) {
+        if (get_type__10TObjPlayerFPv((void *)(((TUnk_804CCC68 *)arg0)->source+ 0x828)) != 0) {
             *(s32 *)((s8 *)arg0 + 0x114) = 0x40007;
         } else {
             *(s32 *)((s8 *)arg0 + 0x114) = 0x40107;

@@ -212,7 +212,7 @@ u8 TObjFogCollisionPoison::check_switch() {
     s32 temp_r31;
 
     temp_r31 = sub_80153A0C__22TObjFogCollisionSwitchFv();
-    return (u8) (temp_r31 == is_current_floor_switch_set((u16) *(s32 *)&this->m_8c));
+    return (u8) (temp_r31 == is_current_floor_switch_set((u16) this->m_8c));
 }
 
 void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
@@ -220,7 +220,7 @@ void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
     s16 v;
     p = get_player_by_client_id(arg1);
     if (is_valid_target__9TObjEneDDFv(p) != 0) {
-        v = obj_getS16_32C(p) - *(s32 *)&this->m_98;
+        v = obj_getS16_32C(p) - this->m_98;
         if (v < 0) {
             v = 0;
         }
@@ -229,7 +229,7 @@ void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
 }
 
 void TObjFogCollisionPoison::record_poison_hit(u16 arg1) {
-    record_fog_collision_hit(arg1, this->m_84, (s32)((int) ((u8) (*(s32 *)&this->m_88 == 0))));
+    record_fog_collision_hit(arg1, this->m_84, (s32)((int) ((u8) (this->m_88 == 0))));
 }
 void TObjFogCollisionPoison__sub_80153520(s32 arg0) {
     switch (TOKeyMachine01::get_global_state()) {

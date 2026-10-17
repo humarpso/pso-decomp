@@ -15,7 +15,7 @@ s32 TLobby__sub_8011AA44(s32, s32);
 u32 advance_item_id_counter(s32 client);
 
 void TItem::assign_id_and_init(s32 arg1, s32 pos) {
-    if ((s32) *(s32 *)&this->m_next == -1) {
+    if ((s32) this->m_next == -1) {
         *(s32 *)&this->m_next = advance_item_id_counter(arg1);
     }
     send_drop_item_6x5D__5TItemFPviPv(this, arg1, pos);

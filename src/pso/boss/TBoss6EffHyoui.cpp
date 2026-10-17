@@ -29,10 +29,10 @@ extern void *tl_02;
 void TBoss6EffHyoui::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 player;
-    if ((u32) *(u32 *)&this->m_1c != 0U) {
+    if ((u32) this->m_1c != 0U) {
         player = (s32)get_player_by_client_id((*(u16 *)((s8 *)arg0 + 0x20)));
         if ((player != 0) && (is_active__14TBoss6PlotFalzFv() != 0)) {
-            ((TNowLoading *)(*(u32 *)&this->m_1c))->copy_pos((void *)(player + 0x38));
+            ((TNowLoading *)(this->m_1c))->copy_pos((void *)(player + 0x38));
         }
     }
     *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);

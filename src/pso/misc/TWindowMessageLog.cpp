@@ -57,10 +57,10 @@ void TWindowMessageLog::update_scroll_position() {
     s32 temp_r3;
     s32 temp_r4;
     s32 var_r30;
-    temp_r4 = *(s32 *)&this->m_88;
+    temp_r4 = this->m_88;
     var_r30 = temp_r4 - 1;
     if (var_r30 < 0) {
-        var_r30 = *(s32 *)&this->m_8c - 1;
+        var_r30 = this->m_8c - 1;
     }
     temp_r31 = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(temp_r4);
     temp_r3 = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(var_r30);

@@ -129,13 +129,13 @@ void TObjDoorKey::render() {
 
     if (((TObjDoorKeyVObj_8018FAEC*)this)->m8(lbl_805DBE00, lbl_805DBE04) == 0) {
         if ((u32) this->m_f8 != 0U) {
-            ((TParticleCtrl *)(*(void * *)&this->m_f8))->enable();
+            ((TParticleCtrl *)(this->m_f8))->enable();
         }
     } else {
         if ((u32) this->m_f8 != 0U) {
-            ((TParticleCtrl *)(*(void * *)&this->m_f8))->clear_active_flag();
+            ((TParticleCtrl *)(this->m_f8))->clear_active_flag();
         }
-        switch (*(s32 *)&this->m_d4) {
+        switch (this->m_d4) {
         case 0:
             draw_inactive_badge();
             return;

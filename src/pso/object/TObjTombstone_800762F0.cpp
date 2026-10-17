@@ -59,7 +59,7 @@ void TObjTombstone::setup(s32 arg1, s32 arg2) {
     *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9174;
     this->m_b8 = (f32) TObjTombstone__data_805D9174;
     *(f32 *)((s8 *)arg0 + 0xBC) = (f32) TObjTombstone__data_805D9174;
-    *(s32 *)&this->m_230 = 0;
+    this->m_230 = 0;
     fn_80074E04(*(s32 *)&this->unk_AC, (u8 *)&this->position);
 }
 
@@ -100,7 +100,7 @@ u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     VecCopy((Vec *)(&stack.sp18), (const Vec *)(arg3 + 4));
     ((TObjTombstone *)arg0)->setup(arg2, (s32)&stack.sp8);
     ((TObjTombstone *)arg0)->reset_entries_and_format_name();
-    *(s32 *)&((TObjTombstone *)arg0)->m_234 = 0;
+    ((TObjTombstone *)arg0)->m_234 = 0;
     return arg0;
 }
 

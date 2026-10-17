@@ -45,13 +45,13 @@ void TScene::apply_uv_offset(s16 arg1, s16 arg2) {
 
 void *TScene::destroy_buffers(s16 arg1) {
     if (this != NULL) {
-        if ((u32) *(u32 *)&this->m_next != 0U) {
-            mem_free(*(void * *)&this->m_next);
-            *(u32 *)&this->m_next = 0U;
+        if ((u32) this->m_next != 0U) {
+            mem_free(this->m_next);
+            this->m_next = 0U;
         }
-        if ((u32) *(u32 *)&this->m_prev != 0U) {
-            mem_free(*(void * *)&this->m_prev);
-            *(u32 *)&this->m_prev = 0U;
+        if ((u32) this->m_prev != 0U) {
+            mem_free(this->m_prev);
+            this->m_prev = 0U;
         }
         if (arg1 > 0) {
             ::operator delete(this);

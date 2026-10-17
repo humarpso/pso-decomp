@@ -49,9 +49,9 @@ u8 *TDPBShower__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805E01C4);
     particle_emitter = (u8 *)(create_particle_emitter((arg0 + 0x1C), 0x134));
-    *(u8 * *)&((TDPBShower *)arg0)->m_2c = particle_emitter;
+    ((TDPBShower *)arg0)->m_2c = particle_emitter;
     if (particle_emitter != NULL) {
-        ((TBoss4Type2 *)(*(u8 * *)&((TDPBShower *)arg0)->m_2c))->set_flags(0x40);
+        ((TBoss4Type2 *)(((TDPBShower *)arg0)->m_2c))->set_flags(0x40);
     }
     return arg0;
 }

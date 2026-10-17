@@ -242,8 +242,8 @@ void TWindowSubTradeMain::set_labels(s32 arg1) {
 }
 
 void TWindowSubTradeMain::set_displayed_item(s32 arg1) {
-    if (((u32) this->m_4c != 0U) && (arg1 != (s32) *(s32 *)&this->m_24)) {
-        *(s32 *)&this->m_24 = arg1;
+    if (((u32) this->m_4c != 0U) && (arg1 != (s32) this->m_24)) {
+        this->m_24 = arg1;
         TWindowHelpItem__set_displayed_item_by_id(this->m_4c);
     }
 }
@@ -253,9 +253,9 @@ s32 TWindowSubTradeMain::create_help_item() {
 
     var_r31 = __nw__7TObjectFUl(0xBC);
     if (var_r31 != 0) {
-        var_r31 = __ct__15TWindowHelpItemFPvUs(var_r31, get_window_layout_position(2), *(s32 *)&this->m_28);
+        var_r31 = __ct__15TWindowHelpItemFPvUs(var_r31, get_window_layout_position(2), this->m_28);
     }
-    *(s32 *)&this->m_24 = -1;
+    this->m_24 = -1;
     return var_r31;
 }
 
@@ -264,7 +264,7 @@ s32 TWindowSubTradeMain::create_input_number(s32 maximum) {
 
     storage = __nw__7TObjectFUl(0x7C);
     if (storage != 0) {
-        storage = __ct__18TWindowInputNumberFPvllls(storage, get_window_layout_position(0x5D), 1, maximum, 1, (s16) *(s32 *)&this->m_28);
+        storage = __ct__18TWindowInputNumberFPvllls(storage, get_window_layout_position(0x5D), 1, maximum, 1, (s16) this->m_28);
     }
     ((TWindowInputNumber *)storage)->create(get_message_10__20TWindowSubStatusDispFl(0x28));
     ((TWindowInputNumber *)storage)->set_value(TWindowSubTradeMain__data_805DF858);
@@ -276,10 +276,10 @@ extern s32 lbl_80477494[];
 s32 TWindowSubTradeMain::create_list() {
     s32 equip_kind_window;
 
-    equip_kind_window = create_equip_kind_window(get_window_layout_position(0x64), lbl_80477494, *(s32 *)&this->m_28);
+    equip_kind_window = create_equip_kind_window(get_window_layout_position(0x64), lbl_80477494, this->m_28);
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
     ((TWindowSubTradeMain *)equip_kind_window)->refresh_item_list((void*)(TLobby__sub_802D298C()));
-    TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&this->m_2c), 2);
+    TWindowSubEquip__sub_80263AF8((u8 *)(this->m_2c), 2);
     set_field_1c__6TLobbyFf(equip_kind_window);
     return equip_kind_window;
 }
@@ -424,7 +424,7 @@ typedef struct RecoveredFields_80331434_arg0 RecoveredFields_80331434_arg0;
 
 s32 TWindowSubTradeMain::open_confirm_yes_no() {
     u8 *arg0 = (u8 *)this;
-    s32 w = ((s32 (*)(void *, s32, s32, s32))create__19TWindowMessageYesNoFPvPvPvPv)(arg0, *(s32 *)&this->m_28, 0, 0);
+    s32 w = ((s32 (*)(void *, s32, s32, s32))create__19TWindowMessageYesNoFPvPvPvPv)(arg0, this->m_28, 0, 0);
     open_yes_no_prompt((u8 *)w, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0xE6), ((s32 (*)(int))get_window_layout_position)(0x5F), TWindowSubTradeMain__data_805DF858);
     ((s32 (*)(s32, int))free_member__17TWindowSubComCardFv)(w, 1);
     return w;

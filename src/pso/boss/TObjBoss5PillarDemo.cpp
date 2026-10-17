@@ -61,10 +61,10 @@ u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo *)&__vt__19TObjBoss5PillarDemo).value;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3B28;
     ((TObjBoss5PillarDemo *)arg0)->m_24 = lbl_805DD908;
-    *(s32 *)&((TObjBoss5PillarDemo *)arg0)->m_38 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x38);
-    *(s32 *)&((TObjBoss5PillarDemo *)arg0)->m_3c = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x48);
-    *(s32 *)&((TObjBoss5PillarDemo *)arg0)->m_40 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 4);
-    *(s32 *)&((TObjBoss5PillarDemo *)arg0)->m_44 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 0xC);
+    ((TObjBoss5PillarDemo *)arg0)->m_38 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x38);
+    ((TObjBoss5PillarDemo *)arg0)->m_3c = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x42C)) + 0x48);
+    ((TObjBoss5PillarDemo *)arg0)->m_40 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 4);
+    ((TObjBoss5PillarDemo *)arg0)->m_44 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D4DD8) + 0x430)) + 0xC);
     return arg0;
 }
 

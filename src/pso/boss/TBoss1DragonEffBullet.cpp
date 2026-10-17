@@ -129,8 +129,8 @@ void TBoss1DragonEffBullet::run_task() {
 void *__dt__21TBoss1DragonEffBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBullet;
-        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_48 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_44 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); ((TBoss1DragonEffBullet *)arg0)->m_48 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); ((TBoss1DragonEffBullet *)arg0)->m_44 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -151,10 +151,10 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     subtract_vector(arg0 + 0x28, arg0 + 0x1C);
     ((TBoss1DragonEffBullet *)arg0)->m_40 = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8144;
-    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_34 = 0;
-    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_38 = 0;
-    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_44 = 0;
-    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_48 = 0;
+    ((TBoss1DragonEffBullet *)arg0)->m_34 = 0;
+    ((TBoss1DragonEffBullet *)arg0)->m_38 = 0;
+    ((TBoss1DragonEffBullet *)arg0)->m_44 = 0;
+    ((TBoss1DragonEffBullet *)arg0)->m_48 = 0;
     play_sound_effect(0x4003B20B, arg0 + 0x1C, 0, 0);
     return arg0;
 }

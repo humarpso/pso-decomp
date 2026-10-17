@@ -554,11 +554,11 @@ u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
         *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DD134;
     }
     ((TWindowLockOn *)arg0)->m_60 = 0xFFFF;
-    *(s16 *)&((TWindowLockOn *)arg0)->m_20 = arg1;
-    *(s32 *)&((TWindowLockOn *)arg0)->m_64 = 0;
+    ((TWindowLockOn *)arg0)->m_20 = arg1;
+    ((TWindowLockOn *)arg0)->m_64 = 0;
     *(PMF_80263944 *)((s8 *)arg0 + 0x70) = 0;
     ((void (*)(void *, s32))bind_target__13TWindowLockOnFv)(arg0, arg2);
-    *(s32 *)&((TWindowLockOn *)arg0)->m_50 = 0;
+    ((TWindowLockOn *)arg0)->m_50 = 0;
     return arg0;
 }
 

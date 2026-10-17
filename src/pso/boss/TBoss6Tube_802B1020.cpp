@@ -98,11 +98,11 @@ f32 TBoss6Tube::calc_tube_progress(s32 arg0) {
 
 void TBoss6Tube::sub_802B1218() {
     if (((0.0f) == TBoss6Tube__scroll_delta) && ((s32) TBoss6Tube__previous_scroll_phase == 0)) {
-        TBoss6Tube__previous_scroll_phase = *(s32 *)&this->m_28;
+        TBoss6Tube__previous_scroll_phase = this->m_28;
         return;
     }
-    TBoss6Tube__scroll_delta = TBoss6Tube::scale_by_const(TBoss6Tube::calc_tube_progress(TBoss6Tube__previous_scroll_phase - *(s32 *)&this->m_28));
-    TBoss6Tube__previous_scroll_phase = *(s32 *)&this->m_28;
+    TBoss6Tube__scroll_delta = TBoss6Tube::scale_by_const(TBoss6Tube::calc_tube_progress(TBoss6Tube__previous_scroll_phase - this->m_28));
+    TBoss6Tube__previous_scroll_phase = this->m_28;
 }
 
 void TBoss6Tube::reset_state() {
@@ -144,10 +144,10 @@ void TBoss6Tube::spawn_trap() {
 }
 
 void TBoss6Tube::update_timer() {
-    *(s32 *)&this->m_20 = (s32) (*(s32 *)&this->m_20 + 1);
-    if ((s32) *(s32 *)&this->m_20 >= 0x10E) {
-        *(s32 *)&this->m_20 = 0;
-        *(s32 *)&this->m_1c = 1;
+    this->m_20 = (s32) (this->m_20 + 1);
+    if ((s32) this->m_20 >= 0x10E) {
+        this->m_20 = 0;
+        this->m_1c = 1;
         play_sound_effect(0x4003351F, 0, 0, 0);
         TCameraCtrl::set_shake_preset(2);
     }

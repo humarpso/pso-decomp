@@ -283,9 +283,9 @@ void TObjPlayer::update_death_state() {
     switch (this->m_37c) {
     case 0:
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 4);
-        temp_r4 = *(s32 *)&this->actorFlags | 0x04000000;
-        *(s32 *)&this->actorFlags = temp_r4;
-        *(s16 *)&this->m_b8 = 0;
+        temp_r4 = this->actorFlags | 0x04000000;
+        this->actorFlags = temp_r4;
+        this->m_b8 = 0;
         play_area_sound_effect__12TBoss3VoloptFv(((u8 *)this) + 0x2FC, temp_r4);
         TObjEneMe3SinowZoa__sub_800D758C(((u8 *)this) + 0x3E8);
         this->m_37c = 1;
@@ -299,7 +299,7 @@ void TObjPlayer::update_death_state() {
     case -1:
         temp_r5 = *(s32 *)&this->unk_388;
         *(s32 *)&this->unk_388 = (s32) (temp_r5 & ~5);
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFFFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFBFFFFFF);
         update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0, temp_r5);
         break;
     }
@@ -664,7 +664,7 @@ void TObjEneNanoDrago::update_growth_state() {
 
     switch (p->state) {
     case 0:
-        if (!((*(s32 *)&p->actorFlags) & 0x01000000) && p->growth_count < 4) {
+        if (!((p->actorFlags) & 0x01000000) && p->growth_count < 4) {
             p->growth_count++;
             p->m_b8 = 5;
             p->state = 1;
@@ -686,13 +686,13 @@ void TObjEneNanoDrago::update_growth_state() {
         v = 0.0016000001f + p->scale;
         p->scale = (v < t) ? v : t;
         if (p->m_b8 != 5) {
-            (*(s32 *)&p->state) = -1;
+            (p->state) = -1;
         }
         break;
     case -1:
         p->scale = p->target_scale;
-        (*(s32 *)&p->m_388) &= 0xFFFDFFFE;
-        (*(s32 *)&p->next_action) = 1;
+        (p->m_388) &= 0xFFFDFFFE;
+        (p->next_action) = 1;
         break;
     }
 }
@@ -964,12 +964,12 @@ inline f32 xz_sq_800DB5A8(Vec_800DB5A8 *v) { return v->x * v->x + v->z * v->z; }
 void TObjEneNanoDrago::update_circling_state() {
     u8 *arg0 = (u8 *)this;
     TObjEneNanoDrago *e = this;
-    (*(s32 *)&e->actorFlags) &= ~0x01000000;
+    (e->actorFlags) &= ~0x01000000;
     switch (e->state) {
     case -1:
         break;
     case 0:
-        (*(s32 *)&e->m_388) &= ~0x00040000;
+        (e->m_388) &= ~0x00040000;
         ((void (*)(void *))sub_8004292C__15TObjEnemyCustomFv)(arg0);
         e->m_b8 = 1;
         e->accum = 0;
@@ -1051,20 +1051,20 @@ void vfunc_62__16TObjEneNanoDragoFv(void *arg0);
 
 void TObjEneNanoDrago::vfunc_62() {
     ((TObjEneMe1GiGue *)this)->set_state(4);
-    *(s32 *)&((TObjEneNanoDrago *)this)->m_380 = (s32) *(s32 *)&((TObjEneNanoDrago *)this)->m_378;
-    *(s32 *)&((TObjEneNanoDrago *)this)->m_378 = 4;
-    *(s32 *)&((TObjEneNanoDrago *)this)->m_388 = (s32) (*(s32 *)&((TObjEneNanoDrago *)this)->m_388| 0x10000 | 1);
+    ((TObjEneNanoDrago *)this)->m_380 = (s32) ((TObjEneNanoDrago *)this)->m_378;
+    ((TObjEneNanoDrago *)this)->m_378 = 4;
+    ((TObjEneNanoDrago *)this)->m_388 = (s32) (((TObjEneNanoDrago *)this)->m_388| 0x10000 | 1);
 }
 void TObjEneNanoDrago::sub_800DB970() {
-    if ((*(s32 *)&this->m_388) & 0x40000) {
+    if ((this->m_388) & 0x40000) {
         return;
     }
-    switch ((*(s32 *)&this->state)) {
+    switch ((this->state)) {
     case -1:
         break;
     case 0:
         this->m_b8 = 1;
-        (*(s32 *)&this->state) = 1;
+        (this->state) = 1;
         this->m_384 = 0x96;
         ((s32 (*)(void *))sub_8004292C__15TObjEnemyCustomFv)(((u8 *)this));
     case 1:
@@ -1076,7 +1076,7 @@ void TObjEneNanoDrago::sub_800DB970() {
         this->m_384 = this->m_384 - 1;
         if (this->m_384 <= 0) {
             this->m_b8 = 0;
-            (*(s32 *)&this->state) = 2;
+            (this->state) = 2;
             this->m_384 = 0x5A;
         }
         ((s32 (*)(void *))check_object_collisions__10TObjPlayerFv)(((u8 *)this));
@@ -1087,7 +1087,7 @@ void TObjEneNanoDrago::sub_800DB970() {
         ((s32 (*)(void *))check_object_collisions__10TObjPlayerFv)(((u8 *)this));
         this->m_384 = this->m_384 - 1;
         if (this->m_384 <= 0) {
-            (*(s32 *)&this->state) = 0;
+            (this->state) = 0;
         }
         break;
     }
@@ -1566,7 +1566,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
     if (is_split_screen() != 0) {
         var_r29 = get_camera_mode__11TCameraCtrlFv();
     }
-    if (!(*(s32 *)&((TObjEneNanoDrago *)arg0)->actorFlags& 0x02000000) && (temp_r3 = ((VObj_18 *)(arg0))->m9(150.0f, 400.0f, 20.0f), ((temp_r3 == 0) == 0)) && ((TObjPlayer::check_demo_mode() == 1) || !(*(s32 *)&((TObjEneNanoDrago *)arg0)->m_388& 0x40000))) {
+    if (!(((TObjEneNanoDrago *)arg0)->actorFlags& 0x02000000) && (temp_r3 = ((VObj_18 *)(arg0))->m9(150.0f, 400.0f, 20.0f), ((temp_r3 == 0) == 0)) && ((TObjPlayer::check_demo_mode() == 1) || !(((TObjEneNanoDrago *)arg0)->m_388& 0x40000))) {
         lbl_805D5660 = model_render_flags;
         var_r29 = (s32)&((Nano_800DBABC *)arg0)->fades[var_r29];
         update_obstruction_fade((int) (((u8 *)var_r29)));
@@ -1589,7 +1589,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
         model_render_flags &= 0xFFFFFBFF;
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
-        } else if (*(s32 *)&((TObjEneNanoDrago *)arg0)->m_388& 4) {
+        } else if (((TObjEneNanoDrago *)arg0)->m_388& 4) {
             if (((VObj_14 *)(arg0 + 0x3E8))->m8() != 0) {
                 ((VObj_14 *)(arg0 + 0x3E8))->m6();
                 if (temp_r3 == 1) {
@@ -1609,7 +1609,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
         pop_matrix();
         restore_scene_lighting();
         TParticleCtrl::end_effect_render();
-        if (!(*(s32 *)&((TObjEneNanoDrago *)arg0)->actorFlags& 0x800) && (var_r28 != 0)) {
+        if (!(((TObjEneNanoDrago *)arg0)->actorFlags& 0x800) && (var_r28 != 0)) {
             temp_f0 = -(0.01f * ((TObjEneNanoDrago *)arg0)->m_404- 1.0f) * (5.0f * ((TObjEneNanoDrago *)arg0)->scale);
             v.z = temp_f0;
             v.y = temp_f0;
@@ -1680,31 +1680,31 @@ void update__10TObjPlayerFPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x2A8) = find_active_entity_by_id((int) (((TObjEneNanoDrago *)arg0)->targetId));
     ((TObjEnemyCustom *)arg0)->release_destroyed_target();
     ((TObjEneNanoDrago *)arg0)->sub_800DA2A0();
-    if ((s16) ((TObjEneNanoDrago *)arg0)->mode != (s32) *(s32 *)&((TObjEneNanoDrago *)arg0)->next_action) {
-        if ((s32) *(s32 *)&((TObjEneNanoDrago *)arg0)->state != -1) {
-            *(s32 *)&((TObjEneNanoDrago *)arg0)->state = -1;
+    if ((s16) ((TObjEneNanoDrago *)arg0)->mode != (s32) ((TObjEneNanoDrago *)arg0)->next_action) {
+        if ((s32) ((TObjEneNanoDrago *)arg0)->state != -1) {
+            ((TObjEneNanoDrago *)arg0)->state = -1;
             ((TObjEneNanoDrago *)arg0)->dispatch_action_state();
         }
-        ((TObjEneNanoDrago *)arg0)->mode = (s16) *(s32 *)&((TObjEneNanoDrago *)arg0)->next_action;
-        *(s32 *)&((TObjEneNanoDrago *)arg0)->state = 0;
+        ((TObjEneNanoDrago *)arg0)->mode = (s16) ((TObjEneNanoDrago *)arg0)->next_action;
+        ((TObjEneNanoDrago *)arg0)->state = 0;
     }
     ((TObjEneNanoDrago *)arg0)->dispatch_action_state();
-    if ((s32) *(s32 *)&((TObjEneNanoDrago *)arg0)->state == -1) {
-        *(s32 *)&((TObjEneNanoDrago *)arg0)->state = -1;
+    if ((s32) ((TObjEneNanoDrago *)arg0)->state == -1) {
+        ((TObjEneNanoDrago *)arg0)->state = -1;
         ((TObjEneNanoDrago *)arg0)->dispatch_action_state();
-        ((TObjEneNanoDrago *)arg0)->mode = (s16) *(s32 *)&((TObjEneNanoDrago *)arg0)->next_action;
-        *(s32 *)&((TObjEneNanoDrago *)arg0)->state = 0;
+        ((TObjEneNanoDrago *)arg0)->mode = (s16) ((TObjEneNanoDrago *)arg0)->next_action;
+        ((TObjEneNanoDrago *)arg0)->state = 0;
     }
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     ((TObjEneNanoDrago *)arg0)->m_300 = (f32) (((TObjEneNanoDrago *)arg0)->m_300+ (15.0f + ((TObjEneNanoDrago *)arg0)->m_404));
     *(f32 *)((s8 *)(((TObjEneNanoDrago *)arg0)->m_a4) + 4) = (f32) (15.0f + ((TObjEneNanoDrago *)arg0)->m_404);
-    if (!(*(s32 *)&((TObjEneNanoDrago *)arg0)->m_388& 0x40000)) {
+    if (!(((TObjEneNanoDrago *)arg0)->m_388& 0x40000)) {
         submit_cursor_candidate(arg0, -1);
         minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
-    temp_r3 = *(s32 *)&((TObjEneNanoDrago *)arg0)->m_3dc;
+    temp_r3 = ((TObjEneNanoDrago *)arg0)->m_3dc;
     if (temp_r3 > 0) {
-        *(s32 *)&((TObjEneNanoDrago *)arg0)->m_3dc = (temp_r3 - 1);
+        ((TObjEneNanoDrago *)arg0)->m_3dc = (temp_r3 - 1);
     }
     temp_r3_2 = (unsigned char *) (((TObjEneNanoDrago *)arg0)->m_a4);
     *(s32 *)((s8 *)temp_r3_2 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_2 + 0x18) & 0xFFFFFFF9);
@@ -1792,28 +1792,28 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneNanoDrago *)arg0)->apply_set_data(arg2);
     VecCopy((Vec *)(arg0 + 0x290), (const Vec *)(VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x38))));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(u8 * *)&nano_drago_entry_params_resource) + 0x430);
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->variant = 0;
+    ((TObjEneNanoDrago *)arg0)->variant = 0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->state36C = *(s16 *)((s8 *)arg2 + 0x3E);
-    ((TObjEneNanoDrago *)arg0)->load_entry_params_nanodrago(*(s32 *)&((TObjEneNanoDrago *)arg0)->variant);
-    *(u8 * *)&((TObjEneNanoDrago *)arg0)->action_table = lbl_80494B5C;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(*(u8 * *)&((TObjEneNanoDrago *)arg0)->action_table));
+    ((TObjEneNanoDrago *)arg0)->state36C = *(s16 *)((s8 *)arg2 + 0x3E);
+    ((TObjEneNanoDrago *)arg0)->load_entry_params_nanodrago(((TObjEneNanoDrago *)arg0)->variant);
+    ((TObjEneNanoDrago *)arg0)->action_table = lbl_80494B5C;
+    ((TObjPlayer *)arg0)->set_field_d8((s32)(((TObjEneNanoDrago *)arg0)->action_table));
     init_collision_body_parts(arg0, lbl_80494C38, 2);
-    *(u32 *)((s8 *)(*(u8 * *)&((TObjEneNanoDrago *)arg0)->m_a4) + 0x44) &= ~1;
-    *(u8 * *)&((TObjEneNanoDrago *)arg0)->movementParameters = lbl_80494C1C;
+    *(u32 *)((s8 *)(((TObjEneNanoDrago *)arg0)->m_a4) + 0x44) &= ~1;
+    ((TObjEneNanoDrago *)arg0)->movementParameters = lbl_80494C1C;
     bind_enemy_combat_stats(arg0, (u8 *)lbl_805D5248, (u8 *)lbl_805D524C, (u8 *)lbl_805D5250);
     ((void (*)(void *))TObjPlayer__sub_800D9E08)(arg0);
     ((TObjEneNanoDrago *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs(arg0, ((TObjEneNanoDrago *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneNanoDrago *)arg0)->m_b8);
     ((TObjEneNanoDrago *)arg0)->hp = ((TObjEneNanoDrago *)arg0)->hpmax;
-    *(s16 *)&((TObjEneNanoDrago *)arg0)->m_32e = ((TObjEneNanoDrago *)arg0)->m_2ba;
+    ((TObjEneNanoDrago *)arg0)->m_32e = ((TObjEneNanoDrago *)arg0)->m_2ba;
     ((TObjEneNanoDrago *)arg0)->referenceHp = ((TObjEneNanoDrago *)arg0)->hp;
     ((TObjEnemy *)arg0)->update_prev_position();
     initialize_enemy_photon_effect(arg0);
     ((TObjEneNanoDrago *)arg0)->growth_count = 0;
     ((TObjEneNanoDrago *)arg0)->scale = 0.6f;
-    ((TObjEneNanoDrago *)arg0)->speed = *(f32 *)((s8 *)(*(u8 * *)&((TObjEneNanoDrago *)arg0)->movementParameters) + 4) * ((TObjEneNanoDrago *)arg0)->scale;
+    ((TObjEneNanoDrago *)arg0)->speed = *(f32 *)((s8 *)(((TObjEneNanoDrago *)arg0)->movementParameters) + 4) * ((TObjEneNanoDrago *)arg0)->scale;
     VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x38));
     if ((s32)*(f32 *)((s8 *)arg0 + 0x354) == 1) {
@@ -1823,7 +1823,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
         }
         ((TObjEnemyCustom *)arg0)->set_flags_30();
     }
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->m_3dc = 0;
+    ((TObjEneNanoDrago *)arg0)->m_3dc = 0;
     ((TObjEneNanoDrago *)arg0)->toggle = 0;
     ((TObjEneLappy *)arg0)->set_param(0xF);
     *(f32 *)((s8 *)arg0 + 0x3E4) = 0.0f;

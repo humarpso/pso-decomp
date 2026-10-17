@@ -97,7 +97,7 @@ void TODoorVS2Door01::vfunc_18() {
     *(f32 *)&this->unk_D4 = (f32) (*(f32 *)&this->unk_D4 - this->m_b8);
     if (*(f32 *)&this->unk_D4 <= (0.0f)) {
         *(f32 *)&this->unk_D4 = (f32) (0.0f);
-        *(s32 *)&this->m_ac = 0;
+        this->m_ac = 0;
     }
 }
 #pragma pop
@@ -105,7 +105,7 @@ void TODoorVS2Door01::vfunc_18() {
 void TODoorVS2Door01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz((1e+04f)) == 0)) {
-        *(s32 *)&this->m_ac = 3;
+        this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
     }
@@ -116,14 +116,14 @@ void TODoorVS2Door01::vfunc_16() {
     *(f32 *)&this->unk_D4 = *(f32 *)&this->unk_D4 + this->m_b8;
     if (lim <= *(f32 *)&this->unk_D4) {
         *(f32 *)&this->unk_D4 = lim;
-        *(s32 *)&this->m_ac = 2;
+        this->m_ac = 2;
     }
 }
 
 void TODoorVS2Door01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((4.9e+03f)) != 0)) {
-        *(s32 *)&this->m_ac = 1;
+        this->m_ac = 1;
         set_indexed_flags(arg0, 0, 8);
         play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
     }
@@ -133,7 +133,7 @@ u8 TODoorVS2Door01::is_open() {
     int var_r31;
 
     var_r31 = 0;
-    if ((is_in_view_depth__13TUnk_804AFBF8Ff() != 0) || ((s32) *(s32 *)&this->m_ac != 0)) {
+    if ((is_in_view_depth__13TUnk_804AFBF8Ff() != 0) || ((s32) this->m_ac != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

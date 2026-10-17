@@ -83,21 +83,21 @@ int TQuestListVM::vfunc_10() {
 }
 
 void TQuestListVM::vfunc_9() {
-    struct VObj_802184C8_802183B4 *o = (struct VObj_802184C8_802183B4 *)*(void * *)&this->m_23a0;
+    struct VObj_802184C8_802183B4 *o = (struct VObj_802184C8_802183B4 *)this->m_23a0;
     if (o != NULL) {
         o->m7();
     }
 }
 
 void TQuestListVM::vfunc_7() {
-    struct VObj_80218500_802183B4 *o = (struct VObj_80218500_802183B4 *)*(void * *)&this->m_23a0;
+    struct VObj_80218500_802183B4 *o = (struct VObj_80218500_802183B4 *)this->m_23a0;
     if (o != NULL) {
         o->m5();
     }
 }
 
 void TQuestListVM::vfunc_6() {
-    struct VObj_80218538_802183B4 *o = (struct VObj_80218538_802183B4 *)*(void * *)&this->m_23a0;
+    struct VObj_80218538_802183B4 *o = (struct VObj_80218538_802183B4 *)this->m_23a0;
     if (o != NULL) {
         o->m4();
     }

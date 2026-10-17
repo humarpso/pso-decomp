@@ -47,8 +47,8 @@ void TButterfly::init_motion() {
     this->m_a4 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xA8) = (f32) ((0.5f) * ((3.0517578e-05f) * (f32) rand()));
     this->m_b0 = (f32) (0.0f);
-    *(s8 *)&this->m_b8 = 0;
-    *(s8 *)&this->m_b9 = 0;
+    this->m_b8 = 0;
+    this->m_b9 = 0;
     this->m_b4 = 0x1E;
     this->m_b6 = 0;
 }

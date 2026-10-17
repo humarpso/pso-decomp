@@ -45,9 +45,9 @@ void TTecKafun::run_task() {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    spawn_particle_effect((arg0 + 0x20), (*(s32 *)&this->m_f0));
-    if ((s32) *(s32 *)&this->m_fc == 1) {
-        spawn_particle_effect((arg0 + 0x20), (*(s32 *)&this->m_f4));
+    spawn_particle_effect((arg0 + 0x20), (this->m_f0));
+    if ((s32) this->m_fc == 1) {
+        spawn_particle_effect((arg0 + 0x20), (this->m_f4));
     }
     ((TUnk_804CC148 *)arg0)->apply_technique_to_area_targets();
     queue_destruction__7TObjectFv((arg0));
@@ -60,10 +60,10 @@ u8 *TTecKafun__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s1
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A9880___vt__9TTecKafun *)&__vt__9TTecKafun).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) tec_kafun_class_name_ptr;
     *(f32 *)((s8 *)arg0 + 0xEC) = farg0;
-    *(s32 *)&((TTecKafun *)arg0)->m_f8 = arg3;
-    *(s32 *)&((TTecKafun *)arg0)->m_fc = 1;
-    *(s32 *)&((TTecKafun *)arg0)->m_f0 = arg4;
-    *(s32 *)&((TTecKafun *)arg0)->m_f4 = arg5;
+    ((TTecKafun *)arg0)->m_f8 = arg3;
+    ((TTecKafun *)arg0)->m_fc = 1;
+    ((TTecKafun *)arg0)->m_f0 = arg4;
+    ((TTecKafun *)arg0)->m_f4 = arg5;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xE8));
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = farg1;
@@ -83,9 +83,9 @@ u8 *TTecKafun__sub_802A9948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s1
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A9948___vt__9TTecKafun *)&__vt__9TTecKafun).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) tec_kafun_class_name_ptr;
     *(f32 *)((s8 *)arg0 + 0xEC) = farg0;
-    *(s32 *)&((TTecKafun *)arg0)->m_f8 = arg3;
-    *(s32 *)&((TTecKafun *)arg0)->m_fc = 0;
-    *(s32 *)&((TTecKafun *)arg0)->m_f0 = arg4;
+    ((TTecKafun *)arg0)->m_f8 = arg3;
+    ((TTecKafun *)arg0)->m_fc = 0;
+    ((TTecKafun *)arg0)->m_f0 = arg4;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xE8));
     if (temp_r3 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = farg1;

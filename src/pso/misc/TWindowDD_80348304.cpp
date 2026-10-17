@@ -71,7 +71,7 @@ s32 TWindowDD::get_word_select_context() {
     if (is_flag_set__6TLobbyFv() != 0) {
         return 5;
     }
-    return (*(s32 *)&this->m_bc != 0 ? 1 : 0) + 2;
+    return (this->m_bc != 0 ? 1 : 0) + 2;
 }
 
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1) { return TWindowDD__sub_8034B008((s32)((void*)(1)), (_w1)); }

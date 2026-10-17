@@ -83,7 +83,7 @@ s32 TWindowSubTechnique::open_menu() {
     s32 titled_window_menu;
 
     titled_window_menu = create_titled_window_menu(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFl(0x2F), this->playerIndex);
-    TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&this->m_30), 0);
+    TWindowSubEquip__sub_80263AF8((u8 *)(this->m_30), 0);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit100();
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9C)), 6, 0);
@@ -218,9 +218,9 @@ void TWindowSubTechnique::run_task() {
 void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubTechnique;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C))); *(s32 *)&((TWindowSubTechnique *)arg0)->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); *(s32 *)&((TWindowSubTechnique *)arg0)->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)&((TWindowSubTechnique *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C))); ((TWindowSubTechnique *)arg0)->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); ((TWindowSubTechnique *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); ((TWindowSubTechnique *)arg0)->m_34 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -235,14 +235,14 @@ void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubTechnique;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubTechnique__name;
-    *(s32 *)&((TWindowSubTechnique *)arg0)->m_30 = arg1;
+    ((TWindowSubTechnique *)arg0)->m_30 = arg1;
     ((TWindowSubTechnique *)arg0)->playerIndex = arg2;
-    *(s32 *)&((TWindowSubTechnique *)arg0)->m_34 = ((TWindowSubTechnique *)arg0)->open_menu();
-    *(s32 *)&((TWindowSubTechnique *)arg0)->m_38 = 0;
-    *(s32 *)&((TWindowSubTechnique *)arg0)->m_3c = 0;
-    *(s32 *)&((TWindowSubTechnique *)arg0)->m_2c = -1;
-    *(s16 *)&((TWindowSubTechnique *)arg0)->m_1e = 0x13;
-    *(s8 *)&((TWindowSubTechnique *)arg0)->m_1c = 0;
+    ((TWindowSubTechnique *)arg0)->m_34 = ((TWindowSubTechnique *)arg0)->open_menu();
+    ((TWindowSubTechnique *)arg0)->m_38 = 0;
+    ((TWindowSubTechnique *)arg0)->m_3c = 0;
+    ((TWindowSubTechnique *)arg0)->m_2c = -1;
+    ((TWindowSubTechnique *)arg0)->m_1e = 0x13;
+    ((TWindowSubTechnique *)arg0)->m_1c = 0;
     return arg0;
 }
 

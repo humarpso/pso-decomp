@@ -150,9 +150,9 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4384;
     ((TObjKabochaLobby *)arg0)->apply_object_set_data((void *)arg2);
     if (TLobby::get_filtered_event_theme() == 5) {
-        *(s32 *)&((TObjKabochaLobby *)arg0)->m_c8 = 3;
+        ((TObjKabochaLobby *)arg0)->m_c8 = 3;
     } else {
-        *(s32 *)&((TObjKabochaLobby *)arg0)->m_c8 = 0;
+        ((TObjKabochaLobby *)arg0)->m_c8 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjKabochaLobby__model_resource) + 0x42C)) + 8);

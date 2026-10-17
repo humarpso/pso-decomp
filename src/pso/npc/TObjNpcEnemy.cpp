@@ -150,16 +150,16 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
     *(void * *)&this->m_3b8 = arg1;
     temp_r5 = *(void * *)&this->m_3b8;
     if (temp_r5 == NULL) {
-        *(s32 *)&this->model = 0;
+        this->model = 0;
         this->texture_id = 0;
         this->m_b8 = 0;
         *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) lbl_805DE7D8;
         return;
     }
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)temp_r5 + 8);
-    this->texture_id = (s32) *(s32 *)((s8 *)(*(void * *)&this->m_3b8) + 0xC);
+    this->texture_id = (s32) *(s32 *)((s8 *)(this->m_3b8) + 0xC);
     this->m_b8 = (s16) *(s16 *)((s8 *)temp_r5 + 0x1C);
-    switch ((s32) (*(u16 *)((s8 *)(*(void * *)&this->m_3b8) + 2))) {
+    switch ((s32) (*(u16 *)((s8 *)(this->m_3b8) + 2))) {
     case 0:
     case 2:
     case 4:
@@ -169,7 +169,7 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
         init_npc_animation__10TObjPlayerFPvPvPv(this, *(s32 *)((s8 *)temp_r5 + 0x18), *(s32 *)((s8 *)temp_r5 + 0x14), this->m_b8);
         break;
     }
-    *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) *(f32 *)((s8 *)(*(void * *)&this->m_3b8) + 0x10);
+    *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) *(f32 *)((s8 *)(this->m_3b8) + 0x10);
 }
 
 void TObjNpcEnemy::draw_debug_info() {
@@ -180,7 +180,7 @@ void TObjNpcEnemy::draw_debug_info() {
     debug_printf_at(0x130018, lbl_80472600);
     debug_printf_at(0x13001A, lbl_80472610);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
-    p = TObjNpcEnemy::get_entry_by_index((s16) *(s32 *)&this->m_5c);
+    p = TObjNpcEnemy::get_entry_by_index((s16) this->m_5c);
     if (p != *(s16 * *)&this->m_3b8) {
         ((TObjNpcEnemy *)arg0)->set_npc_data(p);
     }
@@ -218,7 +218,7 @@ void TObjNpcEnemy::update_state() {
     switch ((s32) (*(u16 *)((s8 *)sp4 + 2))) {
     case 0:
         set_global_flag__10TObjPlayerFv(this);
-        draw_chunk_object((void *)(*(s32 *)&this->model));
+        draw_chunk_object((void *)(this->model));
         TObjPlayer::reset_transform_state();
         TObjPlayer::clear_global_state();
         return;
@@ -227,7 +227,7 @@ void TObjNpcEnemy::update_state() {
         return;
     case 2:
         set_global_flag__10TObjPlayerFv(this);
-        draw_ginja_object((void *)(*(s32 *)&this->model));
+        draw_ginja_object((void *)(this->model));
         TObjPlayer::reset_transform_state();
         TObjPlayer::clear_global_state();
         return;
@@ -252,7 +252,7 @@ void TObjNpcEnemy::render() {
         TObjFish::set_global_param(this->texture_id);
         push_matrix_from(0);
         translate_matrix_vec3(0, ((u8 *)&this->position));
-        temp_r4 = (unsigned char *) (*(void * *)&this->m_3b8);
+        temp_r4 = (unsigned char *) (this->m_3b8);
         translate_matrix(0, (int)temp_r4, (f32)lbl_805DE7D8, (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32)lbl_805DE7D8);
         rotate_matrix_y(0, this->rotation_y);
         update_state();
@@ -289,7 +289,7 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjNpcEnemy *)(arg0))->apply_set_data((void *)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TObjNpcEnemy *)(arg0))->apply_set_params(0, 1);
-    *(s32 * *)&((TObjNpcEnemy *)arg0)->movementParameters = &npc_movement_parameters.value;
+    ((TObjNpcEnemy *)arg0)->movementParameters = &npc_movement_parameters.value;
     ((TUnk_804806E8 *)arg0)->set_motion_params(&npc_default_battle_stats.value);
     init_collision_body_parts(arg0, &TObjNpcEnemy__collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();

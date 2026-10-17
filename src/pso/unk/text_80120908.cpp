@@ -46,7 +46,7 @@ s32 draw_weapon_model(void *arg0);
 s32 draw_weapon_model(void *arg0) {
     s32 var_r30;
     u8 *temp_r4;
-    if ((void *) *(u8 * *)&((TItemWeapon *)arg0)->player == NULL || (u32) *(u32 *)((s8 *)arg0 + 0xF4) == 0U) {
+    if ((void *) ((TItemWeapon *)arg0)->player == NULL || (u32) *(u32 *)((s8 *)arg0 + 0xF4) == 0U) {
         return;
     }
     {
@@ -57,12 +57,12 @@ s32 draw_weapon_model(void *arg0) {
             var_r30 = ((VObj_18_26a62c *)(arg0))->m8(lbl_805DACA8, lbl_805DACAC);
         }
         TObjPlayer::notify_fish_if_valid((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-        ((TObjMotion *)(*(u8 * *)&((TItemWeapon *)arg0)->player))->get_item_ptr((s32)((void *) ((s8)get_attach_joint__11TItemWeaponFv(arg0))));
+        ((TObjMotion *)(((TItemWeapon *)arg0)->player))->get_item_ptr((s32)((void *) ((s8)get_attach_joint__11TItemWeaponFv(arg0))));
         push_matrix_from();
         if ((var_r30 != 0) && (((TItemMag *)arg0)->get_flag_40() == 0)) {
             weapon_render_callback_object = (u8 *)arg0;
             weapon_node_material_index = *(s16 *)((s8 *)arg0 + 0x1CC);
-            temp_r4 = (u8 *)(*(u8 * *)&((TItemWeapon *)arg0)->parameters);
+            temp_r4 = (u8 *)(((TItemWeapon *)arg0)->parameters);
             TObjPlayer__weapon_node_ids[0] = (s16) *(u8 *)((s8 *)temp_r4 + 0x21);
             TObjPlayer__weapon_node_ids[1] = (s16) *(u8 *)((s8 *)temp_r4 + 0x22);
             TObjPlayer__weapon_node_ids[2] = (s16) *(u8 *)((s8 *)temp_r4 + 0x23);
@@ -93,11 +93,11 @@ s32 draw_weapon_model(void *arg0) {
                 model_render_flags &= 0xFFFF7FEE;
             } else if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
                 if (((TItemWeapon *)arg0)->test_flags_1b8(0x40) != 0U) {
-                    ((TItemWeapon *)arg0)->apply_sign_effect((int)((void *) (*(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0xDB4))));
+                    ((TItemWeapon *)arg0)->apply_sign_effect((int)((void *) (*(s32 *)((s8 *)(((TItemWeapon *)arg0)->player) + 0xDB4))));
                 } else if (((TItemWeapon *)arg0)->test_flags_1b8(0x800000) != 0U) {
                     draw_chunk_object((void *)(*(u32 *)((s8 *)arg0 + 0xF4)));
                 } else {
-                    ((TItemWeapon *)arg0)->run_with_callback((int)((void *) (*(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0xDB4))));
+                    ((TItemWeapon *)arg0)->run_with_callback((int)((void *) (*(s32 *)((s8 *)(((TItemWeapon *)arg0)->player) + 0xDB4))));
                 }
             } else {
                 TObjPlayer::set_global_flag();
@@ -117,7 +117,7 @@ s32 draw_weapon_model(void *arg0) {
             }
             ((TObjPlayer *)(&lbl_805D53EC))->clear_id();
         } else {
-            ((TItemWeapon *)arg0)->apply_to_child((int)((void *) (*(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0xDB4))));
+            ((TItemWeapon *)arg0)->apply_to_child((int)((void *) (*(s32 *)((s8 *)(((TItemWeapon *)arg0)->player) + 0xDB4))));
         }
         pop_matrix();
         reset_model_node_counter();

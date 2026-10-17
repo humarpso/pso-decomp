@@ -18,19 +18,19 @@ void *TAdDialingGC__ct(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D41B0;
     TAdDialingGC__instance = arg0;
     if (TLobby::is_state_active() != 0) {
-        *(s32 *)&((TAdDialingGC *)arg0)->m_1c = 1;
+        ((TAdDialingGC *)arg0)->m_1c = 1;
     } else if (TLobby__sub_8014618C() == 1) {
-        *(s32 *)&((TAdDialingGC *)arg0)->m_1c = 2;
+        ((TAdDialingGC *)arg0)->m_1c = 2;
     } else {
-        *(s32 *)&((TAdDialingGC *)arg0)->m_1c = 0;
+        ((TAdDialingGC *)arg0)->m_1c = 0;
     }
-    *(s32 *)&((TAdDialingGC *)arg0)->m_20 = 0;
-    *(s32 *)&((TAdDialingGC *)arg0)->m_24 = 0;
-    *(s32 *)&((TAdDialingGC *)arg0)->m_28 = 0;
-    *(s16 *)&((TAdDialingGC *)arg0)->m_30 = 0;
-    *(s16 *)&((TAdDialingGC *)arg0)->m_68 = 0;
-    *(s32 *)&((TAdDialingGC *)arg0)->m_a0 = 0;
-    *(s32 *)&((TAdDialingGC *)arg0)->m_a4 = 0;
+    ((TAdDialingGC *)arg0)->m_20 = 0;
+    ((TAdDialingGC *)arg0)->m_24 = 0;
+    ((TAdDialingGC *)arg0)->m_28 = 0;
+    ((TAdDialingGC *)arg0)->m_30 = 0;
+    ((TAdDialingGC *)arg0)->m_68 = 0;
+    ((TAdDialingGC *)arg0)->m_a0 = 0;
+    ((TAdDialingGC *)arg0)->m_a4 = 0;
     return arg0;
 }
 

@@ -39,7 +39,7 @@ int set_param__12TObjEneLappyFl(void*);
 
 void TObjEneDD::vfunc_100() {
     u8 *arg0 = (u8 *)this;
-    if (!(*(s32 *)&this->actorFlags & 0x40800)) {
+    if (!(this->actorFlags & 0x40800)) {
         minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
 }
@@ -82,7 +82,7 @@ void TObjEneDD::reload_stats_keep_hp_tp() {
     self->d = d;
 }
 
-void TObjEneDD::reset_hp() { bind_enemy_combat_stats(this); *(short *)&this->referenceHp = *(short *)&this->hp; }
+void TObjEneDD::reset_hp() { bind_enemy_combat_stats(this); this->referenceHp = this->hp; }
 int TObjEneDD::get_camera_ctrl() { return transform_to_view__11TCameraCtrlFii(this); }
 int TObjEneDD::update_camera_sequence() { return apply_split_screen_view_matrix__11TCameraCtrlFv(this); }
 int TObjEneDD::initialize_enemy_state() { return set_param__12TObjEneLappyFl(this); }

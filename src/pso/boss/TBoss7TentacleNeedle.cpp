@@ -266,7 +266,7 @@ void TBoss7TentacleNeedle::render() {
 
 void TBoss7TentacleNeedle::run_task() {
 
-    switch (*(s32 *)&this->m_38) {
+    switch (this->m_38) {
     case 0:
         ((s32 (*)(void))advance_needle_timer__20TBoss7TentacleNeedleFPv)();
         return;

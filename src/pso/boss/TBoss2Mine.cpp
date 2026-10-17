@@ -25,7 +25,7 @@ void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
     if (temp_r3 != 0) {
         ((TObjEneDD *)arg0)->init_common_from((u8 *)temp_r3);
     }
-    *(s16 *)&((TBoss2Mine *)arg0)->m_1c = arg2;
+    ((TBoss2Mine *)arg0)->m_1c = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     init__10TBoss2MineFPvi((u8 *)arg0, arg4);
     return arg0;

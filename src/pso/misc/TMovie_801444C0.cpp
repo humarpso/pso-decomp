@@ -23,7 +23,7 @@ s32 TMovie::check_skip_input() {
     s32 var_r30;
 
     if (TAdEndText__sub_8001B41C() != 0) {
-        if ((TLobby::run_disk_error_check() == 0) || (is_playback_finished__6TMovieFv(*(s32 *)&this->m_20) != 0) || (func_801A5E54__Fv() != 0)) {
+        if ((TLobby::run_disk_error_check() == 0) || (is_playback_finished__6TMovieFv(this->m_20) != 0) || (func_801A5E54__Fv() != 0)) {
             if ((TLobby::run_disk_error_check() == 0) || (func_801A5E54__Fv() != 0)) {
                 fn_801449F0();
             }
@@ -50,7 +50,7 @@ s32 TMovie::check_skip_input() {
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFv(var_r31, 2) != 0) goto block_fn_8000F91C;
         if (TLobby::run_disk_error_check() == 0) goto block_fn_8000F91C;
         if (TKeyBoardControl::check_reset_button() != 0) goto block_fn_8000F91C;
-        if (is_playback_finished__6TMovieFv(*(s32 *)&this->m_20) == 0) goto block_return0;
+        if (is_playback_finished__6TMovieFv(this->m_20) == 0) goto block_return0;
 block_fn_8000F91C:
         TKeyBoardControl__sub_8000F91C(9);
         return 1;
@@ -67,7 +67,7 @@ block_fn_8000F91C:
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFv(var_r31, 2) != 0) goto block_call_func;
         if (TLobby::run_disk_error_check() == 0) goto block_call_func;
         if (var_r30 != 0) goto block_call_func;
-        if (is_playback_finished__6TMovieFv(*(s32 *)&this->m_20) == 0) goto block_return0;
+        if (is_playback_finished__6TMovieFv(this->m_20) == 0) goto block_return0;
 block_call_func:
         if ((func_801A5E54__Fv() != 0) || (var_r30 != 0)) {
             activate_main_menu_scene();

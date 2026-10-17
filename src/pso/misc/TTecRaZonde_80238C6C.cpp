@@ -246,7 +246,7 @@ void TTecRaZonde::vfunc_6(void *arg1_arg) {
     Elec_80238E14 d;
     d.type = 3;
     d.val = this->m_88;
-    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)&this->source, d, 0, 8, -1);
+    ((VObj_18_9c98dd *)(arg1))->m21(this->source, d, 0, 8, -1);
 }
 
 }

@@ -45,7 +45,7 @@ void *TUnk_804F3428::init(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F3428;
     *(void * *)&this->m_20 = arg2;
-    *(void * *)&(*(u32 *)&this->unk_1C) = arg3;
+    *(void * *)&(this->unk_1C) = arg3;
     return this;
 }
 

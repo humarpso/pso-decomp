@@ -60,7 +60,7 @@ void TObjMapCsn::update_state() {
 
     temp_r0 = this->m_84;
     if (temp_r0 == 0) {
-        if ((s32) *(s32 *)&this->m_88 == 0) {
+        if ((s32) this->m_88 == 0) {
             *(s32 *)&this->m_88 = 1;
         }
     } else {
@@ -175,19 +175,19 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
     ((TObjMapCsn *)(arg0))->apply_object_set_data((void *)arg2);
-    *(s32 *)&((TObjMapCsn *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjMapCsn *)arg0)->actorFlags| 0x40000000);
+    ((TObjMapCsn *)arg0)->actorFlags = (s32) (((TObjMapCsn *)arg0)->actorFlags| 0x40000000);
     ((TObjMapCsn *)arg0)->update_state();
     ((TObjMapCsn *)arg0)->build_box_triangles();
-    *(s32 *)&((TObjMapCsn *)arg0)->m_c4 = 8;
+    ((TObjMapCsn *)arg0)->m_c4 = 8;
     *(u8 **)((s8 *)arg0 + 0xC8) = (unsigned char *) (arg0 + 0x1F4);
-    *(s32 *)&((TObjMapCsn *)arg0)->m_cc = 8;
+    ((TObjMapCsn *)arg0)->m_cc = 8;
     *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) (arg0 + 0xD4);
     *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) (arg0 + 0xC4);
     VecCopy((Vec *)(arg0 + 0xB0), (const Vec *)(arg0 + 0x38));
     temp_f1 = (0.5f) * ((TObjMapCsn *)arg0)->scale;
     temp_f0 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x70);
     ((TObjMapCsn *)arg0)->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
-    *(s32 *)&((TObjMapCsn *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    ((TObjMapCsn *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
     if (((u32)TObjMapCsn::get_map_count()) != 0U) {
         fn_80140EA8((((u32)TObjMapCsn::get_map_count())), (s32)arg0);
     }

@@ -173,9 +173,9 @@ u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void *)arg1);
     ((TUnk_804CE018 *)arg0)->save_position();
     ((TWindowSubMagPhoton *)arg0)->m_20 = arg3;
-    *(s32 *)&((TWindowSubMagPhoton *)arg0)->m_70 = arg2;
-    *(s8 *)&((TWindowSubMagPhoton *)arg0)->m_60 = 0;
-    *(s8 *)&((TWindowSubMagPhoton *)arg0)->m_61 = 1;
+    ((TWindowSubMagPhoton *)arg0)->m_70 = arg2;
+    ((TWindowSubMagPhoton *)arg0)->m_60 = 0;
+    ((TWindowSubMagPhoton *)arg0)->m_61 = 1;
     temp_r4 = ((TWindowSubMagPhoton *)arg0)->m_62;
     ((TWindowSubMagPhoton *)arg0)->m_62 = (temp_r4 + 1);
     init_photon_blast_entries__19TWindowSubMagPhotonFv(arg0, temp_r4);
@@ -191,7 +191,7 @@ void TUnk_804D1818::update_photon_selection() {
     if ((selected_menu_value == 4) && ((s8)this->m_1d != temp_r3)) {
         (this->m_1d) = (u8) temp_r3;
         if ((s8)this->m_1d == 0) {
-            TBoss4Type3::spawn_effect(0xC0, 0xF, (s16) *(s32 *)&(*(s16 *)&this->m_20));
+            TBoss4Type3::spawn_effect(0xC0, 0xF, (s16) *(s32 *)&(this->m_20));
         }
     }
 }
@@ -201,7 +201,7 @@ void TUnk_804D1818::update_quest_board_card_flags() {
     s32 temp_r4;
 
     selected_menu_value = get_selected_menu_value(*(s32 *)&this->unk_28);
-    temp_r4 = update_selected_item__17TWindowOptionCtrlFv(*(s32 *)&this->m_2c);
+    temp_r4 = update_selected_item__17TWindowOptionCtrlFv(this->m_2c);
     switch (selected_menu_value) {
     case 0:
         ((TWindowSubQuestBoard *)(this->m_20))->set_card_flags_direct(temp_r4);
@@ -255,7 +255,7 @@ s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
         TWindowSubStatusDisp::dispatch_without_flags(temp_r31, (int) (get_message_10__20TWindowSubStatusDispFl(0xA6)), 0);
         TWindowSubStatusDisp::dispatch_without_flags(temp_r31, (int) (get_message_10__20TWindowSubStatusDispFl(0xA7)), 1);
         temp_r3 = ((TAdSinglePlyChrSelectGC *)(this->m_20))->test_card_flag8();
-        *(s8 *)&this->m_1d = temp_r3;
+        this->m_1d = temp_r3;
         var_r29 = (s16) temp_r3;
         break;
     case 3:
@@ -277,7 +277,7 @@ s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
     }
     ((TWindowSubStatusDisp *)temp_r31)->set_selected_index(var_r29);
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
-    TWindowSubEquip__sub_80263AF8((int) (*(s32 *)&this->m_24), 1);
+    TWindowSubEquip__sub_80263AF8((int) (this->m_24), 1);
     set_field_1c__6TLobbyFf(temp_r31);
     return temp_r31;
 }

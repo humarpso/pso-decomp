@@ -102,7 +102,7 @@ u8 *TItemProArmor::create_instance() {
 void TUnk_8049FF88::vfunc_44() {
     s32 temp_r3;
 
-    temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)(*(s32 *)&this->m_f0));
+    temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)(this->m_f0));
     if (temp_r3 != 0) {
         add_weapon_grind(temp_r3, get_tool_pmt_amount_byte__11TItemObjectFv(this));
     }
@@ -427,13 +427,13 @@ u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *item) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80117B98___vt__13TItemProArmor *)&__vt__13TItemProArmor).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C30;
     ((TItemProArmor *)(arg0))->vfunc_19(2);
-    *(s16 *)&((TItemProArmor *)arg0)->m_190 = 0;
+    ((TItemProArmor *)arg0)->m_190 = 0;
     ((TItemProArmor *)arg0)->m_192 = (u8) *(u8 *)((s8 *)item + 5);
-    *(s8 *)&((TItemProArmor *)arg0)->m_193 = getS16_06__9TItemDataFPv(item);
-    *(s8 *)&((TItemProArmor *)arg0)->m_194 = get_bswap16_field8__9TItemDataFPv(item);
-    *(s32 *)&((TItemProArmor *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
-    ((TItemProArmor *)arg0)->m_195 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x16);
-    ((TItemProArmor *)arg0)->m_196 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x17);
+    ((TItemProArmor *)arg0)->m_193 = getS16_06__9TItemDataFPv(item);
+    ((TItemProArmor *)arg0)->m_194 = get_bswap16_field8__9TItemDataFPv(item);
+    ((TItemProArmor *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
+    ((TItemProArmor *)arg0)->m_195 = (u8) *(u8 *)((s8 *)(((TItemProArmor *)arg0)->m_18c) + 0x16);
+    ((TItemProArmor *)arg0)->m_196 = (u8) *(u8 *)((s8 *)(((TItemProArmor *)arg0)->m_18c) + 0x17);
     if ((u8) ((TItemProArmor *)arg0)->m_192> 4U) {
         ((TItemProArmor *)arg0)->m_192 = 4U;
     }

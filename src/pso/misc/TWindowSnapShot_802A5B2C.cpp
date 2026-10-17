@@ -60,9 +60,9 @@ void fn_802A5CC4(u8 *arg0, s32 arg1) {
 }
 
 void TWindowSnapShot::free_buffer() {
-    if (*(void * *)&this->m_prev != NULL) {
-        mem_free(*(void * *)&this->m_prev);
-        *(u32 *)&this->m_prev = 0;
+    if (this->m_prev != NULL) {
+        mem_free(this->m_prev);
+        this->m_prev = 0;
     }
 }
 

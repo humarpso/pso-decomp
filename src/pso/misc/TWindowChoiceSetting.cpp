@@ -39,7 +39,7 @@ void TUnk_804D0658::draw() {
         play_sound_effect(0x52D01, 0, 0, 0);
         this->m_70 = (u16) (this->m_70 | 2);
         if ((u32) this->m_78 != 0U) {
-            ((TWindowSubStatusDisp *)(*(s32 *)&this->m_78))->set_entry_state(2);
+            ((TWindowSubStatusDisp *)(this->m_78))->set_entry_state(2);
         }
     }
 }

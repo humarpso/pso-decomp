@@ -141,7 +141,7 @@ void TWindowSubSymbolChatPartsSet::handle_cancel() {
 void TWindowSubSymbolChatPartsSet::handle_decide() {
     play_sound_effect(0x52D01, 0, 0, 0);
     this->m_68 = (u8) (this->m_68 | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->set_entry_state(2);
+    ((TWindowSubStatusDisp *)(this->m_88))->set_entry_state(2);
 }
 
 void TWindowSubSymbolChatPartsSet::sub_8028625C() {

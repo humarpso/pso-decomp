@@ -192,7 +192,7 @@ void *TUnk_804EEF64::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804EEF64;
         (*(s32 *)&title_scene_instance) = 0;
-        if ((u32) *(u32 *)&this->m_20 != 0U) {
+        if ((u32) this->m_20 != 0U) {
             queue_destruction__7TObjectFv((this->m_20));
         }
         sub_8033645C();

@@ -224,19 +224,19 @@ u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient02__class_name;
     ((TOKeyAncient02 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
-    *(u8 * *)&((TOKeyAncient02 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
+    ((TOKeyAncient02 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
     ((TOKeyAncient02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
     init_collision_body_parts(arg0, &lbl_804B2A8C.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOKeyAncient02 *)arg0)->m_c0 = (f32) lbl_805DB710;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TOKeyAncient02 *)arg0)->model) + 4)) + 0x14));
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(((TOKeyAncient02 *)arg0)->model) + 4)) + 0x14));
     ((TOKeyAncient02 *)arg0)->m_e8 = 0;
     ((TOKeyAncient02 *)arg0)->m_ec = 0;
-    if (((s32) *(s32 *)&((TOKeyAncient02 *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
-        *(s32 *)&((TOKeyAncient02 *)arg0)->m_d0 = 1;
+    if (((s32) ((TOKeyAncient02 *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
+        ((TOKeyAncient02 *)arg0)->m_d0 = 1;
     } else {
-        *(s32 *)&((TOKeyAncient02 *)arg0)->m_d0 = 0;
+        ((TOKeyAncient02 *)arg0)->m_d0 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) TOKeyAncient02__data_805DB70C;
     ((TOKeyAncient02 *)arg0)->target_scale = (f32) TOKeyAncient02__data_805DB70C;
@@ -250,7 +250,7 @@ s32 TOKeyAncient03::is_confirm_pressed() {
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)&this->m_d0;
+    temp_r0 = this->m_d0;
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
@@ -258,7 +258,7 @@ s32 TOKeyAncient03::is_confirm_pressed() {
         } else {
             var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)&this->m_d4 == 1) || (var_r3 == 1)) {
+        if (((s32) this->m_d4 == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;

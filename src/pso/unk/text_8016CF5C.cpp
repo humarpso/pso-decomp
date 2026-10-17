@@ -83,7 +83,7 @@ s32 TOKeyMachine01::is_confirm_pressed() {
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = *(s32 *)&this->m_d0;
+    temp_r0 = this->m_d0;
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
@@ -91,7 +91,7 @@ s32 TOKeyMachine01::is_confirm_pressed() {
         } else {
             var_r3 = ((TOKey *)((u8 *)this))->is_local_player_in_range();
         }
-        if (((s32) *(s32 *)&this->m_d4 == 1) || (var_r3 == 1)) {
+        if (((s32) this->m_d4 == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;

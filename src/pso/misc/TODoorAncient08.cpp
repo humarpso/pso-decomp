@@ -121,7 +121,7 @@ s32 TODoorAncient08::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if (((s32) *(s32 *)&this->m_8c < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
+    } else if (((s32) this->m_8c < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
         this->m_cc = 3;
     } else {
         this->m_cc = 2;
@@ -269,7 +269,7 @@ void TODoorAncient08::render() {
     u8 *arg0 = (u8 *)this;
 
     if ((VCALL_m8(arg0) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB470) != 0)) {
-        switch (*(s32 *)&this->m_ac) {
+        switch (this->m_ac) {
         case 1:
         case 3:
             push_matrix();
@@ -441,13 +441,13 @@ u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2) {
         ((TODoorAncient08 *)arg0)->m_84 = 0xFC;
     }
     ((TODoorAncient08 *)(arg0))->init_door_switch_binding();
-    *(s16 *)&((TODoorAncient08 *)arg0)->m_d4 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 1);
-    *(s16 *)&((TODoorAncient08 *)arg0)->m_d6 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 2);
-    *(s16 *)&((TODoorAncient08 *)arg0)->m_d8 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 3);
-    *(s32 *)&((TODoorAncient08 *)arg0)->m_dc = 0;
-    *(s32 *)&((TODoorAncient08 *)arg0)->m_e0 = 0;
-    *(s32 *)&((TODoorAncient08 *)arg0)->m_e4 = 0;
-    *(s32 *)&((TODoorAncient08 *)arg0)->m_e8 = 0;
+    ((TODoorAncient08 *)arg0)->m_d4 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 1);
+    ((TODoorAncient08 *)arg0)->m_d6 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 2);
+    ((TODoorAncient08 *)arg0)->m_d8 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 3);
+    ((TODoorAncient08 *)arg0)->m_dc = 0;
+    ((TODoorAncient08 *)arg0)->m_e0 = 0;
+    ((TODoorAncient08 *)arg0)->m_e4 = 0;
+    ((TODoorAncient08 *)arg0)->m_e8 = 0;
     return arg0;
 }
 

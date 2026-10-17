@@ -21,7 +21,7 @@ f32 TObjEneDD::calc_elapsed_scaled() {
 }
 
 u8 TObjEneDD::vfunc_99() {
-    return (u8) (((*(s32 *)&this->actorFlags & 0x10) - 0x10) == 0);
+    return (u8) (((this->actorFlags & 0x10) - 0x10) == 0);
 }
 
 void TObjEneDD::vfunc_98() {
@@ -43,7 +43,7 @@ void TObjEneDD::vfunc_97() {
 void TObjEneDD::vfunc_96() {
     this->vfunc_92();
     this->vfunc_93();
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFBFBFFFF);
 }
 
 }

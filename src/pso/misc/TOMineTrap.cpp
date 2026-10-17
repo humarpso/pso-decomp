@@ -21,7 +21,7 @@ int read_be16_field2__10TObjPlayerFv(void*);
 void fn_80171314(void* p) { ((TObjPlayer *)p)->check_flag((s32)((void*)65536)); }
 u16 TOMineTrap::get_trap_type() { return this->m_2d8; }
 s16 TOMineTrap__sub_80171340(void* p) { return *(s16*)((char*)p + 0x326); }
-void TOMineTrap::sub_80171348(s16 v) { *(s16 *)&this->m_2d8 = v; }
+void TOMineTrap::sub_80171348(s16 v) { this->m_2d8 = v; }
 
     extern int mine_trap_instance_id;
 int TOMineTrap__sub_80171350(void) {  return mine_trap_instance_id; }

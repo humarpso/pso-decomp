@@ -12,10 +12,10 @@ u8 *TObjMotion__ct(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMotion__class_name;
     ((TObjMotion *)(arg0))->reset_motion_fields();
     *(s32 *)((s8 *)arg0 + 0xD8) = 0;
-    *(s32 *)&((TObjMotion *)arg0)->unknownF8 = 0;
+    ((TObjMotion *)arg0)->unknownF8 = 0;
     *(s32 *)((s8 *)arg0 + 0xDC) = 0;
     *(s32 *)((s8 *)arg0 + 0xE0) = 0;
-    *(s32 *)&((TObjMotion *)arg0)->unknownAC = 0;
+    ((TObjMotion *)arg0)->unknownAC = 0;
     return arg0;
 }
 

@@ -333,7 +333,7 @@ void TTecSlicer::render() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 ||
         ((VObj_18_8023B900 *)arg0)->m8(lbl_805DC95C, lbl_805DC960) == 0 ||
-        query_game_join_id__10TObjPlayerFv(*(s32 *)&this->weaponHandle) == 0U) {
+        query_game_join_id__10TObjPlayerFv(this->weaponHandle) == 0U) {
         return;
     }
     lbl_805D5660 = model_render_flags;
@@ -341,7 +341,7 @@ void TTecSlicer::render() {
         model_render_flags |= 0x10;
         set_chunk_material_color((f32 *)&this->argb);
     }
-    if (this->textureHandle != 0U && *(u32 *)&this->model != 0U) {
+    if (this->textureHandle != 0U && this->model != 0U) {
         TObjPlayer::notify_fish_if_valid(this->textureHandle);
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -350,7 +350,7 @@ void TTecSlicer::render() {
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         scale_current_matrix((u8 *)&this->scale);
-        draw_ginja_object((void *)(*(u32 *)&this->model));
+        draw_ginja_object((void *)(this->model));
         set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         TParticleCtrl::end_effect_render();
     }
@@ -363,7 +363,7 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     u8 *var_r31;
     void *new_obj;
     *(u32 *)((s8 *)arg0 + 0x10C) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x114));
-    *(u32 *)((s8 *)arg0 + 0x108) = query_game_join_id__10TObjPlayerFv(*(s32 *)&((TTecSlicer *)arg0)->weaponHandle);
+    *(u32 *)((s8 *)arg0 + 0x108) = query_game_join_id__10TObjPlayerFv(((TTecSlicer *)arg0)->weaponHandle);
     if (((u32) *(u32 *)((s8 *)arg0 + 0x108) == 0U) || ((u32) *(u32 *)((s8 *)arg0 + 0x10C) == 0U)) {
         queue_destruction__7TObjectFv((s32)arg0);
         return;
@@ -376,14 +376,14 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     }
     new_obj = (void *)__nw__7TObjectFUl(0x60);
     if (new_obj != 0U) {
-        __ct__14TSlicerHistoryFv(new_obj, arg0, *(s32 *)&((TTecSlicer *)arg0)->textureHandle, var_r31, *(s32 *)&((TTecSlicer *)arg0)->weaponHandle);
+        __ct__14TSlicerHistoryFv(new_obj, arg0, ((TTecSlicer *)arg0)->textureHandle, var_r31, ((TTecSlicer *)arg0)->weaponHandle);
     }
     if (test_flags_any(arg0 + 0xC0, 1) == 0) {
         ((TTecSlicer *)arg0)->update();
     }
     ((TTecSlicer *)arg0)->advance_position();
     if ((u32) *(u32 *)((s8 *)arg0 + 0x124) != 0U) {
-        copy_position__15TEffStarLight2DFPv(*(void * *)&((TTecSlicer *)arg0)->star, arg0 + 0x38);
+        copy_position__15TEffStarLight2DFPv(((TTecSlicer *)arg0)->star, arg0 + 0x38);
     }
     if (test_flags_any(arg0 + 0xC0, 2) != 0) {
         queue_destruction__7TObjectFv((s32)arg0);
@@ -398,7 +398,7 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecSlicer;
-        if (*(void * *)&((TTecSlicer *)arg0)->star != NULL) { queue_destruction__7TObjectFv((s32)((void *)(*(void * *)&((TTecSlicer *)arg0)->star))); }
+        if (((TTecSlicer *)arg0)->star != NULL) { queue_destruction__7TObjectFv((s32)((void *)(((TTecSlicer *)arg0)->star))); }
         dt__10TTecSlicerFls((s8 *)arg0 + 0xE8, -1);
         dt__10TTecSlicerFls((s8 *)arg0 + 0xC8, -1);
         TParticleCtrl::destroy_particle(arg0, 0);

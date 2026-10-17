@@ -82,7 +82,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     TAdAgreementBaseGC__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdTrialAgreementGC__name;
-    *(s32 *)&((TAdTrialAgreementGC *)arg0)->m_38 = 0;
+    ((TAdTrialAgreementGC *)arg0)->m_38 = 0;
     if (TAdTrialAgreementGC::check_card_file((s32)arg0) != 0) {
         ((TAdTrialAgreementGC *)(arg0))->vfunc_7();
         queue_destruction__7TObjectFv((arg0));
@@ -93,7 +93,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     if (var_r0 != 0) {
         var_r0 = (s32)TAdScrollWinGC__ct((void *)temp_r3, (arg0), 1, 0);
     }
-    *(s32 *)&((TAdTrialAgreementGC *)arg0)->m_38 = var_r0;
+    ((TAdTrialAgreementGC *)arg0)->m_38 = var_r0;
     return arg0;
 }
 

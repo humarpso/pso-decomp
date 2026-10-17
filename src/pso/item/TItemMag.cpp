@@ -280,10 +280,10 @@ void TItemMag::resolve_sentinel_color() {
     u8 *arg0 = (u8 *)this;
     u8 v;
 
-    if (check_class_equip_permission(*(u8 * *)&this->m_f0, 0xD7) != 0) {
-        v = (u8) *(s16 *)((s8 *)(*(u8 * *)&this->m_f0) + 0x896);
+    if (check_class_equip_permission(this->m_f0, 0xD7) != 0) {
+        v = (u8) *(s16 *)((s8 *)(this->m_f0) + 0x896);
     } else {
-        v = (u8) *(s16 *)((s8 *)(*(u8 * *)&this->m_f0) + 0x894);
+        v = (u8) *(s16 *)((s8 *)(this->m_f0) + 0x894);
     }
     v = v % 9;
     if (v >= 7) {
@@ -397,7 +397,7 @@ void TItemMag::copy_owner_data() {
 
     temp_r3 = get_pmt_record__10TObjPlayerFi(((int (*)(void))get_field_ed__5TItemFv)());
     if (temp_r3 != NULL) {
-        *(s32 *)&this->m_1b8 = (s32) *(s16 *)((s8 *)temp_r3 + 8);
+        this->m_1b8 = (s32) *(s16 *)((s8 *)temp_r3 + 8);
         *(u8 *)((s8 *)arg0 + 0x1BC) = (u8) *(u8 *)((s8 *)temp_r3 + 0xB);
         copy_owner_pair(temp_r3 + 0xC, temp_r3 + 0x10);
     }
@@ -741,15 +741,15 @@ void TItemMag::update_feed_anim() {
     s8 temp_r28;
     void *temp_r4;
 
-    if ((void *) *(void * *)&this->m_f0 != NULL) {
+    if ((void *) this->m_f0 != NULL) {
         temp_r25 = ((s32 (*)(void))get_max_stat_flags__8TItemMagFi)();
-        temp_r4 = *(void * *)&this->m_f0;
+        temp_r4 = this->m_f0;
         temp_r28 = (s8) *(u8 *)((s8 *)temp_r4 + 0x88C);
         temp_r29 = ((s16 (*)(void *, void *))get_mag_item_percent)(this, temp_r4);
         temp_r30 = ((s16 (*)(void *))get_mag_level)(this);
         temp_r31 = ((s16 (*)(void *))get_mag_item_data)(this);
         temp_r26 = ((s16 (*)(void *))get_mag_item_stat_percent)(this);
-        if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xF9) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)(this->m_f0, 0xF9) != 0) {
             if (temp_r25 & 0x108) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r31 <= temp_r30) {
@@ -797,7 +797,7 @@ void TItemMag::update_feed_anim() {
                 }
                 ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)(this, 0x16);
             }
-        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xFA) != 0) {
+        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(this->m_f0, 0xFA) != 0) {
             if (temp_r25 & 0x110) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r29 <= temp_r31) {
@@ -845,7 +845,7 @@ void TItemMag::update_feed_anim() {
                 }
                 ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)(this, 0x18);
             }
-        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xFC) != 0) {
+        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(this->m_f0, 0xFC) != 0) {
             if (temp_r25 & 0x120) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
@@ -963,17 +963,17 @@ void TItemMag::do_action_by_class() {
 void TItemMag::evolve_first_form() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(*(u8 * *)&this->m_f0);
+    temp_r3 = (u8 *)(this->m_f0);
     if (temp_r3 != NULL) {
         if (((s32 (*)(void *, s32))check_class_equip_permission)(temp_r3, 0xF9) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 1);
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), 0xFA) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(this->m_f0), 0xFA) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 0xD);
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), 0xFC) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(this->m_f0), 0xFC) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 0x19);
         }
     }
@@ -1248,10 +1248,10 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
         ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)(arg0 + 0x198))));
         if (TObjPlayer__sub_80102C30((arg0)) == 2) {
             ((TItem *)arg0)->refresh_owner_stats();
-            if (obj_isState2_324__13TUnk_804806E8Fv((int) (*(s32 *)&this->m_f0)) == 0) {
-                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((void *)(*(s32 *)&this->m_f0));
-                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int)arg1, (int) (*(s32 *)&this->m_f0), 0) == 0)) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv((void *)(*(s32 *)&this->m_f0), (void *)(get_field_d8__5TItemFv((int)arg1)));
+            if (obj_isState2_324__13TUnk_804806E8Fv((int) (this->m_f0)) == 0) {
+                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((void *)(this->m_f0));
+                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int)arg1, (int) (this->m_f0), 0) == 0)) {
+                    send_6x26_unequip_item__10TObjPlayerFPvPv((void *)(this->m_f0), (void *)(get_field_d8__5TItemFv((int)arg1)));
                 }
             }
         }
@@ -1349,7 +1349,7 @@ void TItemMag::feed_if_over_45() { if (*(int *)&this->m_1cc > 45) { request_supp
 void TItemMag::update_feed() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_1cc;
+    temp_r0 = this->m_1cc;
     if ((temp_r0 != 0x5A) && (temp_r0 > 0x5A)) {
         request_support_action((s32)((void*)(1)));
     }
@@ -1358,7 +1358,7 @@ void TItemMag::update_feed() {
 void TItemMag::check_level_cap() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_1cc;
+    temp_r0 = this->m_1cc;
     if (temp_r0 == 0x5A) {
         cast_support_technique(0x11);
         return;
@@ -1371,7 +1371,7 @@ void TItemMag::check_level_cap() {
 void TItemMag::check_level_evolve() {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_1cc;
+    temp_r0 = this->m_1cc;
     if (temp_r0 == 0x5A) {
         if (obj_getS16_32C(*(s32 *)&this->m_f0) > 0) {
             cast_support_technique(0xF);

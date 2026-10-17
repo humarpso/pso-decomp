@@ -121,7 +121,7 @@ void TObjHashiBase::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->m_60);
         TObjFish::set_global_param(this->m_24);
-        p = *(void * *)&this->motion;
+        p = this->motion;
         if (p != NULL) {
             draw_model_motion((void *)this->m_34, p, *(f32 *)((s8 *)arg0 + 0xB0));
         } else {

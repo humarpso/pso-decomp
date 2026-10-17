@@ -89,7 +89,7 @@ s32 TLobby::validate_handle(s32 *arg0) {
     }
     return 0;
 }
-void TUnk_804DDD28::sub_802A7318() { *(s32*)((char*)this + 0x0) = 0; *(s32 *)&this->m_4 = 0; }
+void TUnk_804DDD28::sub_802A7318() { *(s32*)((char*)this + 0x0) = 0; this->m_4 = 0; }
 
 s32 TLobby::calc_cell_offset(s32 arg1, s32 arg2) {
     struct VObj_802A7328_802A7290 *o = (struct VObj_802A7328_802A7290 *)this;

@@ -82,10 +82,10 @@ void TObjEneBalClaw::update_claw_angle() {
     void *temp_r3_2;
     void *temp_r4;
 
-    if (!(*(s32 *)&this->actorFlags & 0x800)) {
+    if (!(this->actorFlags & 0x800)) {
         temp_r4 = this->m_a4;
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFF9);
-        if (*(s32 *)&this->m_388 & 0x10000) {
+        if (this->m_388 & 0x10000) {
             temp_f1 = this->m_3b4;
             temp_f0 = *(f32 *)&this->unk_3B0;
             if (temp_f1 < temp_f0) {
@@ -114,7 +114,7 @@ extern u32 lbl_805D4F20;
 void TObjEneBalClaw::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(4);
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 1);
+    this->m_388 = (s32) (this->m_388 | 1);
 }
 
 void TObjEneBalClaw::release_global_805D4F20() {
@@ -142,11 +142,11 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
     ((TUnk_80490470 *)(arg0 + 0x390))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2968;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
-    *(s32 *)&((TObjEneBalClaw *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneBalClaw *)arg0)->actorFlags| 0x40000);
-    *(s32 *)&((TObjEneBalClaw *)arg0)->m_3b8 = 0;
+    ((TObjEneBalClaw *)arg0)->actorFlags = (s32) (((TObjEneBalClaw *)arg0)->actorFlags| 0x40000);
+    ((TObjEneBalClaw *)arg0)->m_3b8 = 0;
     *(f32 *)((s8 *)arg0 + 0x3BC) = (f32) lbl_805D960C;
     ((TObjEneBalClaw *)arg0)->clear_attack_flag();
-    *(s32 *)&((TObjEneBalClaw *)arg0)->m_388 = (s32) (*(s32 *)&((TObjEneBalClaw *)arg0)->m_388| 0x20000);
+    ((TObjEneBalClaw *)arg0)->m_388 = (s32) (((TObjEneBalClaw *)arg0)->m_388| 0x20000);
     return arg0;
 }
 

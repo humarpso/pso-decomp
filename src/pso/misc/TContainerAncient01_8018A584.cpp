@@ -409,7 +409,7 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     }
 }
 
-void TContainerAncient01R::reset_hp() { *(short *)&this->mode = 0; *(short *)&this->m_b8 = *(short *)&this->mode; *(float *)&this->m_2b4 = TContainerAncient01__data_805DBD1C; }
+void TContainerAncient01R::reset_hp() { this->mode = 0; this->m_b8 = this->mode; this->m_2b4 = TContainerAncient01__data_805DBD1C; }
 
 s32 TContainerAncient01R::sub_8018A688() {
     Obj_8018A688 *self = (Obj_8018A688 *)this;
@@ -557,7 +557,7 @@ f32 TContainerAncient01R::receive_physical_attack(void *, f32) {
     s16 sp8;
     if ((u16) this->m_1c >= 0x1000U) {
         this->m_338 = (this->m_338 + 1);
-        if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
+        if (((u32) this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0)) {
             sp8 = this->m_338;
             ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
             ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
@@ -597,7 +597,7 @@ void TContainerAncient01R::render() {
             scale_current_matrix((u8 *)&this->unk_364);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_ginja_object((void *)(*(s32 *)&this->model));
+            draw_ginja_object((void *)(this->model));
         } else {
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         }
@@ -733,7 +733,7 @@ void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     }
 }
 
-void TContainerAncient01::reset_state() { *(short *)&this->mode = 0; *(short *)&this->m_b8 = *(short *)&this->mode; *(float *)&this->m_2b4 = TContainerAncient01__data_805DBD1C; }
+void TContainerAncient01::reset_state() { this->mode = 0; this->m_b8 = this->mode; this->m_2b4 = TContainerAncient01__data_805DBD1C; }
 
 void TContainerAncient01::sub_8018B284() {
     Obj_8018B284 *self = (Obj_8018B284 *)this;
@@ -846,10 +846,10 @@ void TContainerAncient01::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             sub_8018B700();
-            *(s32 *)&this->m_35c = 1;
+            this->m_35c = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        *(s32 *)&this->m_35c = 1;
+        this->m_35c = 1;
     }
 }
 void TContainerAncient01::sub_8018B700() {

@@ -64,8 +64,8 @@ void TObjDFDemoF::run_task() {
     if (temp_f1 >= lbl_805D8A24) {
         this->m_b8 = (f32) lbl_805D8A24;
     }
-    temp_r0 = *(s32 *)&this->m_90 + 1;
-    *(s32 *)&this->m_90 = temp_r0;
+    temp_r0 = this->m_90 + 1;
+    this->m_90 = temp_r0;
     if (temp_r0 >= 0x78) {
         queue_destruction__7TObjectFv();
     }

@@ -229,8 +229,8 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[i].w), 2);
     }
     if (*(f32 *)((s8 *)arg0 + 0x194) == *(f32 *)((s8 *)arg0 + 0x198)) {
-        temp_r3 = *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c;
-        *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c = (temp_r3 - 1);
+        temp_r3 = ((TItemEffOrgaFlowShot *)arg0)->m_19c;
+        ((TItemEffOrgaFlowShot *)arg0)->m_19c = (temp_r3 - 1);
         if (temp_r3 == 0) {
             queue_destruction__7TObjectFv((arg0));
         }
@@ -258,14 +258,14 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TItemEffOrgaFlowShot *)arg0)->m_48 = 1;
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805E0038;
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg2 + 0x28);
-    *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_188 = (s32) *(s32 *)((s8 *)arg2 + 0x28);
+    ((TItemEffOrgaFlowShot *)arg0)->m_188 = (s32) *(s32 *)((s8 *)arg2 + 0x28);
     *(f32 *)((s8 *)arg0 + 0x190) = (f32) lbl_805E003C;
     *(f32 *)((s8 *)arg0 + 0x18C) = (f32) lbl_805E0040;
     *(f32 *)((s8 *)arg0 + 0x194) = (f32) lbl_805E003C;
-    *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c = 0x14;
-    ((TItemEffOrgaFlowShot *)arg0)->m_17c = sin_table_lookup(*(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_188);
+    ((TItemEffOrgaFlowShot *)arg0)->m_19c = 0x14;
+    ((TItemEffOrgaFlowShot *)arg0)->m_17c = sin_table_lookup(((TItemEffOrgaFlowShot *)arg0)->m_188);
     *(f32 *)((s8 *)arg0 + 0x180) = (f32) lbl_805E003C;
-    ((TItemEffOrgaFlowShot *)arg0)->m_184 = cos_table_lookup(*(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_188);
+    ((TItemEffOrgaFlowShot *)arg0)->m_184 = cos_table_lookup(((TItemEffOrgaFlowShot *)arg0)->m_188);
     *(f32 *)((s8 *)arg0 + 0x164) = (f32) (*(f32 *)((s8 *)arg2 + 0x2C) - *(f32 *)((s8 *)arg2 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x168) = (f32) (*(f32 *)((s8 *)arg2 + 0x30) - *(f32 *)((s8 *)arg2 + 0x3C));
     ((TItemEffOrgaFlowShot *)arg0)->m_16c = (f32) (*(f32 *)((s8 *)arg2 + 0x34) - *(f32 *)((s8 *)arg2 + 0x40));
@@ -277,17 +277,17 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TItemEffOrgaFlowShot *)arg0)->m_f4 = (f32) *(f32 *)((s8 *)arg2 + 0x38);
     *(f32 *)((s8 *)arg0 + 0xF8) = (f32) *(f32 *)((s8 *)arg2 + 0x3C);
     ((TItemEffOrgaFlowShot *)arg0)->m_fc = (f32) *(f32 *)((s8 *)arg2 + 0x40);
-    *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_100 = 0x6040FF40;
+    ((TItemEffOrgaFlowShot *)arg0)->m_100 = 0x6040FF40;
     ((TItemEffOrgaFlowShot *)arg0)->m_114 = (f32) *(f32 *)((s8 *)arg2 + 0x44);
     *(f32 *)((s8 *)arg0 + 0x118) = (f32) *(f32 *)((s8 *)arg2 + 0x48);
     ((TItemEffOrgaFlowShot *)arg0)->m_11c = (f32) *(f32 *)((s8 *)arg2 + 0x4C);
-    *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_120 = 0x408840;
+    ((TItemEffOrgaFlowShot *)arg0)->m_120 = 0x408840;
     ((TItemEffOrgaFlowShot *)arg0)->m_134 = (f32) *(f32 *)((s8 *)arg2 + 0x50);
     *(f32 *)((s8 *)arg0 + 0x138) = (f32) *(f32 *)((s8 *)arg2 + 0x54);
     ((TItemEffOrgaFlowShot *)arg0)->m_13c = (f32) *(f32 *)((s8 *)arg2 + 0x58);
-    *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_140 = 0x6040FF40;
-    *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_e0 = 0x408840;
-    *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_160 = 0x408840;
+    ((TItemEffOrgaFlowShot *)arg0)->m_140 = 0x6040FF40;
+    ((TItemEffOrgaFlowShot *)arg0)->m_e0 = 0x408840;
+    ((TItemEffOrgaFlowShot *)arg0)->m_160 = 0x408840;
     ((TItemEffOrgaFlowShot *)arg0)->update_segments();
     ((TItemEffOrgaFlowShot *)arg0)->update_position_from_velocity();
     return arg0;

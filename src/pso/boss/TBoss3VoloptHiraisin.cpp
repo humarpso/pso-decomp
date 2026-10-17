@@ -489,15 +489,15 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         (((TBoss3VoloptHiraisin *)(arg0))->vfunc_62());
       }
     }
-    if (((s16) (((TBoss3VoloptHiraisin *)arg0)->mode)) != ((s32) (*(s32 *)&((TBoss3VoloptHiraisin *)arg0)->next_action)))
+    if (((s16) (((TBoss3VoloptHiraisin *)arg0)->mode)) != ((s32) (((TBoss3VoloptHiraisin *)arg0)->next_action)))
     {
-      if (((s32) (*(s32 *)&((TBoss3VoloptHiraisin *)arg0)->state)) != (-1))
+      if (((s32) (((TBoss3VoloptHiraisin *)arg0)->state)) != (-1))
       {
-        *(s32 *)&((TBoss3VoloptHiraisin *)arg0)->state = -1;
+        ((TBoss3VoloptHiraisin *)arg0)->state = -1;
         ((TBoss3VoloptHiraisin *)arg0)->dispatch_state();
       }
-      ((TBoss3VoloptHiraisin *)arg0)->mode = (s16) (*(s32 *)&((TBoss3VoloptHiraisin *)arg0)->next_action);
-      *(s32 *)&((TBoss3VoloptHiraisin *)arg0)->state = 0;
+      ((TBoss3VoloptHiraisin *)arg0)->mode = (s16) (((TBoss3VoloptHiraisin *)arg0)->next_action);
+      ((TBoss3VoloptHiraisin *)arg0)->state = 0;
     }
     ((TBoss3VoloptHiraisin *)arg0)->dispatch_state();
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
@@ -772,7 +772,7 @@ void TBoss3VoloptHiraisin::load_params_from_table(s32 i) {
 
 void TBoss3VoloptHiraisin::set_hit_flags_and_notify() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 0x40000);
+    this->m_388 = (s32) (this->m_388 | 0x40000);
     obj_setFlags30(arg0, 0x800U);
     this->vfunc_63();
 }
@@ -791,7 +791,7 @@ void TBoss3VoloptHiraisin::spawn_effects() {
 }
 
 void TBoss3VoloptHiraisin::damage_player_if_aligned() {
-    if (!(*(s32 *)&this->m_388 & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) *(s16 *)((s8 *)this + 0x38C) / 4))) {
+    if (!(this->m_388 & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) *(s16 *)((s8 *)this + 0x38C) / 4))) {
         link_photon__10TObjPlayerFUs(this->m_2d4, 0);
     }
 }

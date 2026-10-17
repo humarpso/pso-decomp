@@ -48,14 +48,14 @@ typedef char RecoveredGlobal_80271480_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowSubAreaMap::run_task() {
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        ((VObj_18_204a81 *)((u8 *)(*(u8 * *)&this->m_20)))->m7();
+        ((VObj_18_204a81 *)((u8 *)(this->m_20)))->m7();
     }
 }
 
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubAreaMap;
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24))); *(s32 *)&((TWindowSubAreaMap *)arg0)->m_24 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24))); ((TWindowSubAreaMap *)arg0)->m_24 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -82,7 +82,7 @@ extern "C" {
 typedef char RecoveredGlobal_802715F0_lbl_8050E208_size[sizeof(RecoveredGlobal_802715F0_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubAreaMapDisp::update_manual_scroll() {
     u8 *temp_r31;
-    if ((s32) *(s32 *)&this->m_6c != 0) {
+    if ((s32) this->m_6c != 0) {
         temp_r31 = (u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x20;
         if ((is_on_current_screen__11TCameraCtrlFv((int)temp_r31, 0x10) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x160), 0x10) != 0)) {
             this->m_64 = (f32) (this->m_64 + lbl_805DD478);

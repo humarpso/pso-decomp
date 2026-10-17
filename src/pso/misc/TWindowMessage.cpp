@@ -31,8 +31,8 @@ void TWindowMessage::render() {
 
 void TWindowMessage::draw() {
     u8 *arg0 = (u8 *)this;
-    if (!(*(s32 *)&this->m_2c & 2)) {
-        *(s32 *)&this->m_5c = 0x01000000;
+    if (!(this->m_2c & 2)) {
+        this->m_5c = 0x01000000;
     }
     ((TWindowMessage *)arg0)->update_scroll();
     ((TWindowMessage *)arg0)->retire_scrolled_lines();

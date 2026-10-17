@@ -168,13 +168,13 @@ void TUnk_8048E1A4::render() {
         switch (*(s32 *)((s8 *)arg0 + 0x334)) {
         case 0:
         case 1:
-            draw_ginja_object((void *)(*(s32 *)&this->model));
+            draw_ginja_object((void *)(this->model));
             break;
         case 2:
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x8820;
             set_chunk_material_color(&this->m_340);
-            draw_ginja_object((void *)(*(s32 *)&this->model));
+            draw_ginja_object((void *)(this->model));
             model_render_flags &= 0xFFFF77DF;
             set_chunk_material_override_pair(0xFF00, 0);
             set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);

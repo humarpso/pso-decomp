@@ -88,7 +88,7 @@ u8 *TItemProShield__sub_80116744(u8 *arg0) {
 void TUnk_8049F828::vfunc_44() {
     s32 temp_r3;
 
-    temp_r3 = ((TObjPlayer *)(*(s32 *)&this->m_f0))->activate_d04_slot();
+    temp_r3 = ((TObjPlayer *)(this->m_f0))->activate_d04_slot();
     if (temp_r3 != 0) {
         apply_transform_action__8TItemMagFUc(temp_r3, get_slot_count__14TItemProShieldFv(this));
     }
@@ -164,7 +164,7 @@ void TUnk_8049F8E0::vfunc_44() {
     s32 temp_r3;
     u32 temp_r424;
     if (sub_801A1DDC__10TObjPlayerFv(*(void * *)&this->m_f0) != 0) {
-        temp_r424 = (u32) *(u32 *)((s8 *)(*(void * *)&this->m_f0) + 0x424);
+        temp_r424 = (u32) *(u32 *)((s8 *)(this->m_f0) + 0x424);
         if (temp_r424 != 0U) {
             temp_r3 = ((TMainCursor *)temp_r424)->find_by_pos(4, 9);
             if (temp_r3 != 0) {
@@ -327,7 +327,7 @@ u8 *create_status_cure_item(u8 *arg0) {
 }
 
 void TUnk_8049FA50::vfunc_44() {
-    struct VObj_80116BBC_80116634 *o = (struct VObj_80116BBC_80116634 *)*(void * *)&this->m_f0;
+    struct VObj_80116BBC_80116634 *o = (struct VObj_80116BBC_80116634 *)this->m_f0;
     o->m48();
 }
 

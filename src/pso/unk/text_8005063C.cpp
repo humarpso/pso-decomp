@@ -70,7 +70,7 @@ void TObjDFHorming::sub_8005076C() {
         *(f32 *)((s8 *)((u8 *)this) + 0x34C) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x34C) - lbl_805D8A58);
     }
     if (fabs_float(temp_f1) < lbl_805D8A5C) {
-        *(s32 *)&this->m_368 = 1;
+        this->m_368 = 1;
     }
 }
 

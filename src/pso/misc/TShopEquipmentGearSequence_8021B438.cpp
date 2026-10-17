@@ -219,9 +219,9 @@ u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
             ((TShopEquipmentGearSequence *)arg0)->m_2c = 0U;
         }
-        if ((u32) *(u32 *)&((TShopEquipmentGearSequence *)arg0)->m_30 != 0U) {
+        if ((u32) ((TShopEquipmentGearSequence *)arg0)->m_30 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
-            *(u32 *)&((TShopEquipmentGearSequence *)arg0)->m_30 = 0U;
+            ((TShopEquipmentGearSequence *)arg0)->m_30 = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();
         lbl_805D6220 = 0;
@@ -239,9 +239,9 @@ u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TShopSequence__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8021B89C___vt__26TShopEquipmentGearSequence *)&__vt__26TShopEquipmentGearSequence).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopEquipmentGearSequence__class_name;
-    *(s32 *)&((TShopEquipmentGearSequence *)arg0)->m_20 = 0;
+    ((TShopEquipmentGearSequence *)arg0)->m_20 = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = arg2;
-    *(s32 *)&((TShopEquipmentGearSequence *)arg0)->m_2c = 0;
+    ((TShopEquipmentGearSequence *)arg0)->m_2c = 0;
     ((TShopEquipmentGearSequence *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     (*(u8 * *)&lbl_805D6220) = arg0;

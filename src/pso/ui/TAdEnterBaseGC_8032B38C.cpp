@@ -72,7 +72,7 @@ void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdEnterBaseGC;
         if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)((s8 *)arg0 + 0x2C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)&((TAdEnterBaseGC *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); ((TAdEnterBaseGC *)arg0)->m_30 = 0; }
         if (*(void **)((s8 *)arg0 + 0x34) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)((s8 *)arg0 + 0x34) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

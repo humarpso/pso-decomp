@@ -220,24 +220,24 @@ void TAdSinglePlyChrSelectGC::handle_card_select2() {
 
 void TAdSinglePlyChrSelectGC::update_card_input() {
 
-    if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->m_28))->get_player_index() == 1) {
-        *(s32 *)&this->m_20 = 0;
+    if (((TAdMultiPlyChrSelectGC *)(this->m_28))->get_player_index() == 1) {
+        this->m_20 = 0;
         return;
     }
     if (((TWindowMessageYesNo *)(this->m_44))->is_child_visible() != 0) {
         switch (((TWindowSubComCard *)(this->m_44))->get_slot_or_neg1()) {
         case 0:
             this->m_5c = 3;
-            *(s32 *)&this->m_20 = 0xC;
+            this->m_20 = 0xC;
             return;
         case 1:
-            ((TAdMultiSelGameModeGC *)(*(s32 *)&this->m_2c))->set_selection_state(1);
-            *(s32 *)&this->m_20 = 5;
+            ((TAdMultiSelGameModeGC *)(this->m_2c))->set_selection_state(1);
+            this->m_20 = 5;
             return;
         }
     } else if (((TWindowSubComCard *)(this->m_44))->get_card_data() != 0) {
-        ((TAdMultiSelGameModeGC *)(*(s32 *)&this->m_2c))->set_selection_state(1);
-        *(s32 *)&this->m_20 = 5;
+        ((TAdMultiSelGameModeGC *)(this->m_2c))->set_selection_state(1);
+        this->m_20 = 5;
     }
 }
 

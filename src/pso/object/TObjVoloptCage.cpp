@@ -103,13 +103,13 @@ void TObjVoloptCage::run_task() {
             this->vfunc_62();
         }
     }
-    if ((s16) this->mode != (s32) *(s32 *)&this->next_action) {
-        if ((s32) *(s32 *)&this->state != -1) {
-            *(s32 *)&this->state = -1;
+    if ((s16) this->mode != (s32) this->next_action) {
+        if ((s32) this->state != -1) {
+            this->state = -1;
             update_state();
         }
-        this->mode = (s16) *(s32 *)&this->next_action;
-        *(s32 *)&this->state = 0;
+        this->mode = (s16) this->next_action;
+        this->state = 0;
     }
     update_state();
     ((TObjEnemy *)arg0)->update_prev_position();

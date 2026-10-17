@@ -113,17 +113,17 @@ void TUnk_804B5C08::run_task() {
       if ((this->m_94) == 2)
       {
         *((s32 *) (((s8 *) arg0) + 0x90)) = 1;
-        *(f32 *)&this->m_9c = (f32) city_vertical_model_min_y_offset;
+        this->m_9c = (f32) city_vertical_model_min_y_offset;
         return;
         return;
       }
       *((s32 *) (((s8 *) arg0) + 0x90)) = 2;
-      *(f32 *)&this->m_9c = (f32) city_vertical_model_max_y_offset;
+      this->m_9c = (f32) city_vertical_model_max_y_offset;
     }
       return;
     case 1:
-      *(f32 *)&this->m_9c = (f32) ((*(f32 *)&this->m_9c) + city_vertical_model_y_step);
-      if ((*(f32 *)&this->m_9c) >= city_vertical_model_max_y_offset)
+      this->m_9c = (f32) ((this->m_9c) + city_vertical_model_y_step);
+      if ((this->m_9c) >= city_vertical_model_max_y_offset)
     {
       this->m_94 = 1;
       *((s32 *) (((s8 *) arg0) + 0x90)) = 0;
@@ -131,8 +131,8 @@ void TUnk_804B5C08::run_task() {
     }
       break;
     case 2:
-      *(f32 *)&this->m_9c = (f32) ((*(f32 *)&this->m_9c) - city_vertical_model_y_step);
-      if ((*(f32 *)&this->m_9c) <= city_vertical_model_min_y_offset)
+      this->m_9c = (f32) ((this->m_9c) - city_vertical_model_y_step);
+      if ((this->m_9c) <= city_vertical_model_min_y_offset)
     {
       this->m_94 = 2;
       *((s32 *) (((s8 *) arg0) + 0x90)) = 0 * 0;
@@ -166,7 +166,7 @@ u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x90) = 1;
     ((TUnk_804B5C08 *)arg0)->m_94 = 2;
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
-    *(f32 *)&((TUnk_804B5C08 *)arg0)->m_9c = (f32) lbl_805DBC00;
+    ((TUnk_804B5C08 *)arg0)->m_9c = (f32) lbl_805DBC00;
     return arg0;
 }
 

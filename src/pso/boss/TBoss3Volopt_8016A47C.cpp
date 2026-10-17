@@ -102,7 +102,7 @@ void TOKey::play_activate_sound() {
     switch (global_state) {
     case 1:
     case 2:
-        switch (*(s32 *)&this->m_d0) {
+        switch (this->m_d0) {
         case 0:
             play_sound_effect(0x4C60A, arg0 + 0x38, 0, 0);
             return;
@@ -114,7 +114,7 @@ void TOKey::play_activate_sound() {
     case 3:
     case 4:
     case 5:
-        switch (*(s32 *)&this->m_d0) {
+        switch (this->m_d0) {
         case 0:
             play_sound_effect(0x44609, arg0 + 0x38, 0, 0);
             return;
@@ -125,7 +125,7 @@ void TOKey::play_activate_sound() {
         break;
     case 6:
     case 7:
-        switch (*(s32 *)&this->m_d0) {
+        switch (this->m_d0) {
         case 0:
             play_sound_effect(0x4004C603, arg0 + 0x38, 0, 0);
             return;
@@ -137,7 +137,7 @@ void TOKey::play_activate_sound() {
     case 8:
     case 9:
     case 10:
-        switch (*(s32 *)&this->m_d0) {
+        switch (this->m_d0) {
         case 0:
             play_sound_effect(0x4004C60A, arg0 + 0x38, 0, 0);
             return;
@@ -149,7 +149,7 @@ void TOKey::play_activate_sound() {
     case 16:
     case 17:
         if ((s32) enable_v2_features == 1) {
-            switch (*(s32 *)&this->m_d0) {
+            switch (this->m_d0) {
             case 0:
                 play_sound_effect(0x4004C601, arg0 + 0x38, 0, 0);
                 return;

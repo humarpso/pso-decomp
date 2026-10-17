@@ -281,7 +281,7 @@ void TBoss4DarkFalz::sub_8004B084() {
   Stack_8004B084 stack;
   u8 *temp_r6;
   temp_r6 = (u8 *)&TBoss4DarkFalz__data_80485108.value;
-  temp_r6 = temp_r6 + ((*(s32 *)&this->m_37c) * 0x34);
+  temp_r6 = temp_r6 + ((this->m_37c) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x28));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x2C));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
@@ -298,7 +298,7 @@ void TBoss4DarkFalz::sub_8004B0F8() {
   Stack_8004B0F8 stack;
   u8 *temp_r6;
   temp_r6 = (u8 *) (&(*(RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108 *)&TBoss4DarkFalz__data_80485108).value);
-  temp_r6 = temp_r6 + ((*(s32 *)&this->m_37c) * 0x34);
+  temp_r6 = temp_r6 + ((this->m_37c) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x1C));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x20));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x24));
@@ -352,16 +352,16 @@ void TBoss4DarkFalz::change_state(s32 arg1) {
 
 void TBoss4DarkFalz::update_visible_flag() {
     if (is_local_client_floor_leader() != 0) {
-        *(s32 *)&this->m_378 = 0;
+        this->m_378 = 0;
         return;
     }
-    *(s32 *)&this->m_378 = 1;
+    this->m_378 = 1;
 }
 
 s32 TBoss4DarkFalz::calc_rate_from_field() {
     s32 temp_r3;
 
-    temp_r3 = *(s32 *)&this->m_390;
+    temp_r3 = this->m_390;
     if (temp_r3 > 0) {
         return 0x10000 / temp_r3;
     }
@@ -375,7 +375,7 @@ s32 TBoss4DarkFalz::is_timer_expired() {
     if ((var_r4 < 1) || (var_r4 > 0x13)) {
         var_r4 = 2;
     }
-    if ((s32) *(s32 *)&this->m_38c >= (s32) (var_r4 * *(s32 *)&this->m_390)) {
+    if ((s32) this->m_38c >= (s32) (var_r4 * this->m_390)) {
         return 1;
     }
     return 0;
@@ -624,13 +624,13 @@ void TBoss4DarkFalz::freeze_all_players(void *self) {
 void TBoss4DarkFalz::update_roar_sound_timer() {
     s32 temp_r0;
     s32 temp_r0_2;
-    temp_r0 = *(s32 *)&this->m_37c;
+    temp_r0 = this->m_37c;
     if (temp_r0 >= 9 || temp_r0 < 4) {
         return;
     }
     {
-        temp_r0_2 = *(s32 *)&this->m_374 - 1;
-        *(s32 *)&this->m_374 = temp_r0_2;
+        temp_r0_2 = this->m_374 - 1;
+        this->m_374 = temp_r0_2;
         if (temp_r0_2 < 0) {
             if ((lbl_805D8918 * (f32) rand()) < lbl_805D8930) {
                 play_sound_effect(0x3A300, 0, 0, 0);
@@ -639,7 +639,7 @@ void TBoss4DarkFalz::update_roar_sound_timer() {
             }
             {
                 f32 r = lbl_805D8918 * (f32) rand();
-                *(s32 *)&this->m_374 = (s32) ((lbl_805D8934 * r) + lbl_805D8934);
+                this->m_374 = (s32) ((lbl_805D8934 * r) + lbl_805D8934);
             }
         }
     }

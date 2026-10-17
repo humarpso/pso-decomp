@@ -196,7 +196,7 @@ void *TQuestListOffline::close_shop_subwindows(s16 arg1) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804C9C9C;
         if (*(void **)((s8 *)this + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x3C))); *(s32 *)((s8 *)this + 0x3C) = 0; }
         if (this->m_38 != NULL) { TWindow__close((u8 *)this->m_38); *(s32 *)((s8 *)this + 0x3C) = 0; }
-        if (this->m_40 != NULL) { TWindow__close((u8 *)this->m_40); *(s32 *)&this->m_40 = 0; }
+        if (this->m_40 != NULL) { TWindow__close((u8 *)this->m_40); this->m_40 = 0; }
         if (*(void **)((s8 *)this + 0x44) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x44))); *(s32 *)((s8 *)this + 0x44) = 0; }
         __dt__15TShopWindowBaseFv(this, 0);
         if (arg1 > 0) {

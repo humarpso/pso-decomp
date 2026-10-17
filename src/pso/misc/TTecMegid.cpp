@@ -451,7 +451,7 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     ((TTecMegid *)arg0)->spawn_particle_emitters();
     ((TTecMegid *)arg0)->update_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        *(s16 *)&((TTecMegid *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        ((TTecMegid *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }
@@ -471,7 +471,7 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     spawn_particle_emitters();
     update_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        *(s16 *)&this->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        this->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }

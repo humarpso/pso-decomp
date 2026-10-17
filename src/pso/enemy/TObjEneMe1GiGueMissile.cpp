@@ -126,9 +126,9 @@ void TObjEneMe1GiGueMissile::render() {
   push_matrix();
   TParticleCtrl::begin_effect_render();
   post_translate_matrix(arg0 + 0x6C);
-  bml_motion = (int) (*(s32 *)&this->m_a4);
+  bml_motion = (int) (this->m_a4);
   rotate_matrix_y(0, bml_motion);
-  rotate_matrix_x(0, (int) (*(s32 *)&this->m_a0));
+  rotate_matrix_x(0, (int) (this->m_a0));
   TObjFish::set_global_param((s32)((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C)))));
   TObjPlayer::set_global_flag();
   bml_motion = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), 5);
@@ -178,7 +178,7 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, 
     if (temp_r3_2 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3_2 + 0xA4)) + 0xC) = (f32) lbl_805DE6DC;
     }
-    *(s32 *)&((TObjEneMe1GiGueMissile *)arg0)->m_b0 = 1;
+    ((TObjEneMe1GiGueMissile *)arg0)->m_b0 = 1;
     return arg0;
 }
 

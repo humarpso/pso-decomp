@@ -61,11 +61,11 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, (int) (((TObjButterflyLobby *)arg0)->rotation_y));
     rotate_matrix_x(0, -0x2000);
-    if ((s32) *(s32 *)&((TObjButterflyLobby *)arg0)->m_90 != 3) {
+    if ((s32) ((TObjButterflyLobby *)arg0)->m_90 != 3) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
         scale_matrix(0, temp_f1, temp_f1, temp_f1);
     }
-    draw_ginja_model_with_motion((int) (*(s32 *)&((TObjButterflyLobby *)arg0)->m_c4), (void *) (get_bml_motion((void *)lobby_butterfly_bml_resource, 0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+    draw_ginja_model_with_motion((int) (((TObjButterflyLobby *)arg0)->m_c4), (void *) (get_bml_motion((void *)lobby_butterfly_bml_resource, 0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
     pop_matrix();
 }
 
@@ -77,15 +77,15 @@ void TObjButterflyLobby::init_params() {
     this->m_ac = 0.0f;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.5f * (3.0517578125e-05f * (f32) rand()));
     this->m_b8 = 0.0f;
-    *(s8 *)&this->m_c0 = 0;
-    *(s8 *)&this->m_c1 = 0;
+    this->m_c0 = 0;
+    this->m_c1 = 0;
     this->m_bc = 0x1E;
     this->m_be = 0;
 }
 
 void TObjButterflyLobby::render() {
-    if ((((ButterflyLobbyVObj_80350958*)this)->m8(400.0f, 20.0f) != 0) && ((s32) *(s32 *)&this->m_90 != 0)) {
-        TObjFish::set_global_param(*(s32 *)&this->m_c8);
+    if ((((ButterflyLobbyVObj_80350958*)this)->m8(400.0f, 20.0f) != 0) && ((s32) this->m_90 != 0)) {
+        TObjFish::set_global_param(this->m_c8);
         render__18TObjButterflyLobbyFPv((u8 *)this);
     }
 }
@@ -310,17 +310,17 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz(arg2 + 0x18);
     VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_90 = 0;
+        ((TObjButterflyLobby *)arg0)->m_90 = 0;
     } else {
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_90 = 3;
+        ((TObjButterflyLobby *)arg0)->m_90 = 3;
     }
     *(f32 *)((s8 *)arg0 + 0x94) = 1.0f;
     if ((s32) *(s32 *)((s8 *)arg2 + 0x30) < 1) {
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 0);
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 0);
+        ((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 0);
+        ((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 0);
     } else {
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 1);
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 1);
+        ((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *)lobby_butterfly_bml_resource, 1);
+        ((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *)lobby_butterfly_bml_resource, 1);
     }
     ((TObjButterflyLobby *)arg0)->init_params();
     return arg0;

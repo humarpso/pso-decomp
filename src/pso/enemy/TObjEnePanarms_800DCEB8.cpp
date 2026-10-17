@@ -212,7 +212,7 @@ int clear_render_callback__8TObjFishFv(void*);
 void TObjEnePanarms::update_spin() {
     s32 temp_r0;
 
-    if (*(s32 *)&this->m_3ec & 2) {
+    if (this->m_3ec & 2) {
         this->rotation_y = (this->rotation_y + 0x111);
     } else {
         this->rotation_y = (this->rotation_y - 0x111);
@@ -226,7 +226,7 @@ void TObjEnePanarms::update_spin() {
 
 void TObjEnePanarms::enter_down_state() {
     u8 *temp_r5;
-    temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
+    temp_r5 = (u8 *)(this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
     obj_clearFlags30(0x04040000U);
     this->m_388 = 0x1E;
@@ -240,7 +240,7 @@ void TObjEnePanarms::update_state_effect() {
     if ((temp_f1 >= TObjEnePanarms__data_805DA490) && (temp_f1 < lbl_805DA494)) {
         spawn_particle_effect((((u8 *)this) + 0x38), 0xF0);
     }
-    if (*(s32 *)&this->animationFlags & 0x10) {
+    if (this->animationFlags & 0x10) {
         set_state((s32)((void*)(3)));
     }
 }
@@ -260,7 +260,7 @@ void TObjEnePanarms__sub_800DCFE0(u8 *arg0) {
 void TObjEnePanarms::update_timed_action() {
     s32 temp_r0;
 
-    if ((TObjEnePanarms__sub_800DFB44(*(s32 *)&this->m_3e4) != 0) || (TObjEnePanarms__sub_800DFB44(*(s32 *)&this->m_3e8) != 0)) {
+    if ((TObjEnePanarms__sub_800DFB44(this->m_3e4) != 0) || (TObjEnePanarms__sub_800DFB44(this->m_3e8) != 0)) {
         set_state((s32)((void*)(0xA)));
         return;
     }
@@ -279,13 +279,13 @@ extern const f32 lbl_805DA4E0;
 
 void TObjEnePanarms::merge_halves() {
     u8 *temp_r5;
-    *(s32 *)&this->m_3dc = 0;
-    temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
+    this->m_3dc = 0;
+    temp_r5 = (u8 *)(this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
     obj_clearFlags30(0x40000U);
     obj_setFlags30((void *)(((u8 *)this)), (int)(0x04000000U));
     TObjEnePanarms__sub_800DE430((s32)((void *) (((u8 *)this))), 0x2D, 0x25);
-    this->hp = (s16) (*(s16 *)((s8 *)(*(u8 * *)&this->m_3e4) + 0x32C) + *(s16 *)((s8 *)(*(u8 * *)&this->m_3e8) + 0x32C));
+    this->hp = (s16) (*(s16 *)((s8 *)(this->m_3e4) + 0x32C) + *(s16 *)((s8 *)(this->m_3e8) + 0x32C));
     TObjEnePanarms__sub_800E1D94(*(u8 * *)&this->m_3e4);
     TObjEnePanarms__sub_800E1D94(*(u8 * *)&this->m_3e8);
     this->m_388 = 0x40;
@@ -293,30 +293,30 @@ void TObjEnePanarms::merge_halves() {
 
 void TObjEnePanarms::update_separated_parts() {
     s32 temp_r0;
-    this->hp = (s16) ((*(s16 *)((s8 *)(*(u8 * *)&this->m_3e4) + 0x32C)) + *(s16 *)((s8 *)(*(u8 * *)&this->m_3e8) + 0x32C));
-    if ((TObjEnePanarms__sub_800DFBB0((void *) (*(u8 * *)&this->m_3e4)) != 0) && (TObjEnePanarms__sub_800DFBB0((void *) (*(u8 * *)&this->m_3e8)) != 0)) {
+    this->hp = (s16) ((*(s16 *)((s8 *)(this->m_3e4) + 0x32C)) + *(s16 *)((s8 *)(this->m_3e8) + 0x32C));
+    if ((TObjEnePanarms__sub_800DFBB0((void *) (this->m_3e4)) != 0) && (TObjEnePanarms__sub_800DFBB0((void *) (this->m_3e8)) != 0)) {
         ((TObjEnemy *)((u8 *)this))->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (((u8 *)this)));
         return;
     }
-    if (TObjEnePanarms__sub_800DFB44((s32)((void *) (*(u8 * *)&this->m_3e4))) == 0) {
-        switch (TObjEnePanarms__sub_800DFB44((s32)((void *) (*(u8 * *)&this->m_3e8)))) {
+    if (TObjEnePanarms__sub_800DFB44((s32)((void *) (this->m_3e4))) == 0) {
+        switch (TObjEnePanarms__sub_800DFB44((s32)((void *) (this->m_3e8)))) {
         case 0:
         this->m_388 = (this->m_388 - 1);
         temp_r0 = this->m_388;
         if (temp_r0 == 0) {
-            if ((TObjEnePanarms__sub_800DFB9C((void *) (*(u8 * *)&this->m_3e4)) != 0) || (TObjEnePanarms__sub_800DFB9C((void *) (*(u8 * *)&this->m_3e8)) != 0)) {
+            if ((TObjEnePanarms__sub_800DFB9C((void *) (this->m_3e4)) != 0) || (TObjEnePanarms__sub_800DFB9C((void *) (this->m_3e8)) != 0)) {
                 this->m_388 = (s32) ((f32) this->m_388 + lbl_805DA498);
                 return;
             }
             TObjEnePanarms::find_combine_position((void *)((void *) (((u8 *)this))));
-            ((TObjEnePanarms *)(*(u8 * *)&this->m_3e4))->init_state();
-            ((TObjEnePanarms *)(*(u8 * *)&this->m_3e8))->init_state();
+            ((TObjEnePanarms *)(this->m_3e4))->init_state();
+            ((TObjEnePanarms *)(this->m_3e8))->init_state();
             return;
         }
         if (temp_r0 < 0) {
-            if ((TObjEnePanarms__sub_800DFB74((void *) (*(u8 * *)&this->m_3e4)) != 0) && (TObjEnePanarms__sub_800DFB74((void *) (*(u8 * *)&this->m_3e8)) != 0)) {
-                if ((((TObjEnePanarms *)(*(u8 * *)&this->m_3e4))->get_state_flag() != 0) || (((TObjEnePanarms *)(*(u8 * *)&this->m_3e8))->get_state_flag() != 0)) {
+            if ((TObjEnePanarms__sub_800DFB74((void *) (this->m_3e4)) != 0) && (TObjEnePanarms__sub_800DFB74((void *) (this->m_3e8)) != 0)) {
+                if ((((TObjEnePanarms *)(this->m_3e4))->get_state_flag() != 0) || (((TObjEnePanarms *)(this->m_3e8))->get_state_flag() != 0)) {
                     this->m_388 = -1;
                     return;
                 }
@@ -324,8 +324,8 @@ void TObjEnePanarms::update_separated_parts() {
                 return;
             }
             if ((s32) this->m_388 < -0x12C) {
-                TObjEnePanarms::do_action_2((void *) (*(u8 * *)&this->m_3e4));
-                TObjEnePanarms::do_action_2((void *) (*(u8 * *)&this->m_3e8));
+                TObjEnePanarms::do_action_2((void *) (this->m_3e4));
+                TObjEnePanarms::do_action_2((void *) (this->m_3e8));
                 this->m_388 = 0x384;
             }
         }
@@ -358,7 +358,7 @@ void TObjEnePanarms::update_hit_effect() {
     if ((temp_f1 >= TObjEnePanarms__data_805DA490) && (temp_f1 < lbl_805DA494)) {
         spawn_particle_effect((((u8 *)this) + 0x38), 0xF0);
     }
-    if (*(s32 *)&this->animationFlags & 0x10) {
+    if (this->animationFlags & 0x10) {
         set_state((s32)((void*)(0xA)));
     }
 }
@@ -435,7 +435,7 @@ void TObjEnePanarms::update_particle_emitters() {
 
 void TObjEnePanarms::set_flags_and_field_b8() {
     u8 *temp_r5;
-    temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
+    temp_r5 = (u8 *)(this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
     obj_clearFlags30(0x04040000U);
     set_field_b8__10TObjMotionFs(((u8 *)this), 8);
@@ -496,7 +496,7 @@ void TObjEnePanarms::update_particle_emitters_set2() {
 
 void TObjEnePanarms::set_state_flags_6() {
     u8 *temp_r5;
-    temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
+    temp_r5 = (u8 *)(this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
     obj_clearFlags30(0x04040000U);
     set_field_b8__10TObjMotionFs(((u8 *)this), 6);
@@ -745,7 +745,7 @@ void init_state__14TObjEnePanarmsFPv(u8 *arg0) {
 
 void TObjEnePanarms::try_activate() { if (check_demo_mode__10TObjPlayerFv(this) == 0) { set_state((s32)((void*)((void*)1))); } }
 void TObjEnePanarms__sub_800DE2B0(void* p) { *(s32*)((char*)p + 0x3e0) = 1; *(s32*)((char*)p + 0x3dc) = 1; }
-void TObjEnePanarms::vfunc_61() { *(u32 *)&this->actorFlags &= 0xfffffeff; }
+void TObjEnePanarms::vfunc_61() { this->actorFlags &= 0xfffffeff; }
 
 void TObjEnePanarms::vfunc_62() {
     Obj_800DE2D0 *arg0 = (Obj_800DE2D0 *)this;
@@ -1045,7 +1045,7 @@ u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1) {
         queue_destruction__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x3E4));
         queue_destruction__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x3E8));
         free_collision_body_parts(arg0);
-        *(s32 *)&((TObjEnePanarms *)arg0)->m_390 = 0;
+        ((TObjEnePanarms *)arg0)->m_390 = 0;
         ((TObjEnePanarms *)arg0)->destroy_handles();
         __destroy_arr(arg0 + 0x400, __dt__13TUnk_804949A8Fv, 0x1C, 4);
         __dt__9TObjEnemyFv(arg0, 0);

@@ -235,16 +235,16 @@ s32 TQuestListVM::update_load_status() {
     s32 var_r30;
 
     var_r30 = 0;
-    *(s32 *)&this->m_23a4 = 0;
+    this->m_23a4 = 0;
     do {
         if (((TAdPlayerLoadGC *)var_r30)->probe_card_slot() != 0) {
-            *(s32 *)&this->m_23a4 = (s32) (*(s32 *)&this->m_23a4 | (1 << var_r30));
+            this->m_23a4 = (s32) (this->m_23a4 | (1 << var_r30));
         }
         var_r30 += 1;
     } while (var_r30 < 2);
-    temp_r3 = *(s32 *)&this->m_23a4;
-    if (temp_r3 != (s32) *(s32 *)&this->m_23a8) {
-        *(s32 *)&this->m_23a8 = temp_r3;
+    temp_r3 = this->m_23a4;
+    if (temp_r3 != (s32) this->m_23a8) {
+        this->m_23a8 = temp_r3;
         return 1;
     }
     return 0;
@@ -252,19 +252,19 @@ s32 TQuestListVM::update_load_status() {
 
 void TQuestListVM::close_windows() {
     if ((u32) this->m_2378 != 0U) {
-        TWindow__close((u8 *)(*(void * *)&this->m_2378));
+        TWindow__close((u8 *)(this->m_2378));
         this->m_2378 = 0U;
     }
     if ((u32) this->m_2380 != 0U) {
-        TWindow__close((u8 *)(*(void * *)&this->m_2380));
+        TWindow__close((u8 *)(this->m_2380));
         this->m_2380 = 0U;
     }
     if ((u32) this->m_237c != 0U) {
-        TWindow__close((u8 *)(*(void * *)&this->m_237c));
+        TWindow__close((u8 *)(this->m_237c));
         this->m_237c = 0U;
     }
     if ((u32) this->m_2374 != 0U) {
-        TWindow__close((u8 *)(*(void * *)&this->m_2374));
+        TWindow__close((u8 *)(this->m_2374));
         this->m_2374 = 0U;
     }
 }
@@ -282,7 +282,7 @@ s32 TQuestListVM::handle_click() {
     VObj_802186E4_80218570 *obj = (VObj_802186E4_80218570 *) this;
     if (obj->m8() != 0) {
         obj->m7(0x19, 1);
-        set_field_20((s32)((void*)(*(s32 *)&this->m_23b4)));
+        set_field_20((s32)((void*)(this->m_23b4)));
     }
 }
 
@@ -331,12 +331,12 @@ void TQuestListVM::update_close() {
     p = *(void * *)&this->m_2374;
     if ((p != NULL) && (((TLobby *)p)->get_flag_bit2() != 0)) {
         if ((u32) this->m_2380 != 0U) {
-            TWindow__close((u8 *)(*(void * *)&this->m_2380));
+            TWindow__close((u8 *)(this->m_2380));
             this->m_2380 = 0U;
         }
         if ((u32) this->m_2374 != 0U) {
-            ((TWindowSubItem *)(*(void * *)&this->m_2374))->clear_selected_and_update_entry();
-            TQuestVmDownLoadServer__sub_80219EC4((void*)(*(void * *)&this->m_2374));
+            ((TWindowSubItem *)(this->m_2374))->clear_selected_and_update_entry();
+            TQuestVmDownLoadServer__sub_80219EC4((void*)(this->m_2374));
         }
         ((VObj18_80218570 *) this)->vf24(0x19, 1);
         close_windows();
@@ -402,7 +402,7 @@ void TQuestListVM::load_selected_slot() {
         i = select_cursor_entry__22TWindowSubShortCutListFv(this->m_2374);
         if (TAdPlayerLoadGC__sub_801E1B50(q->recs[i].slot) == 0) {
             sprintf(buf, lbl_8044BF50, lbl_8044BEE8, q->recs[i].num + 1);
-            if (((TAdSinglePlyChrSelectGC *)(q->recs[i].slot))->load_player_slot((int)buf, (int)(*(s32 *)&this->m_2388)) == 0) {
+            if (((TAdSinglePlyChrSelectGC *)(q->recs[i].slot))->load_player_slot((int)buf, (int)(this->m_2388)) == 0) {
                 ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)0xc));
                 return;
             }
@@ -415,25 +415,25 @@ void TQuestListVM::load_selected_slot() {
 
 void TQuestListVM::handle_confirm_window() {
     u8 *arg0 = (u8 *)this;
-    if (*(void * *)&this->m_2378 != NULL) {
-        if (((TWindowMenu *)(*(void * *)&this->m_2378))->is_visible() != 0) {
+    if (this->m_2378 != NULL) {
+        if (((TWindowMenu *)(this->m_2378))->is_visible() != 0) {
             switch (get_selected_menu_value(*(void * *)&this->m_2378)) {
             case 0:
-                TWindow__close((u8 *)(*(void * *)&this->m_2378));
-                *(void * *)&this->m_2378 = NULL;
+                TWindow__close((u8 *)(this->m_2378));
+                this->m_2378 = NULL;
                 ((TShopWindowBase *)arg0)->set_field_20(0xB);
                 return;
             case 1:
-                TWindow__close((u8 *)(*(void * *)&this->m_2378));
-                *(void * *)&this->m_2378 = NULL;
-                if (*(void * *)&this->m_2380 != NULL) {
-                    TWindow__close((u8 *)(*(void * *)&this->m_2380));
-                    *(void * *)&this->m_2380 = NULL;
+                TWindow__close((u8 *)(this->m_2378));
+                this->m_2378 = NULL;
+                if (this->m_2380 != NULL) {
+                    TWindow__close((u8 *)(this->m_2380));
+                    this->m_2380 = NULL;
                 }
-                if (*(void * *)&this->m_2374 != NULL) {
-                    ((TWindowSubItem *)(*(void * *)&this->m_2374))->clear_selected_and_update_entry();
+                if (this->m_2374 != NULL) {
+                    ((TWindowSubItem *)(this->m_2374))->clear_selected_and_update_entry();
                 }
-                TQuestListVM__decrypted_quest_buffer = *(s32 *)&this->m_2384;
+                TQuestListVM__decrypted_quest_buffer = this->m_2384;
                 TQuestListVM__decompression_capacity = 0x40000;
                 ((VObj_80218BBC *)arg0)->m7(0x19, 1);
                 close_windows();
@@ -441,17 +441,17 @@ void TQuestListVM::handle_confirm_window() {
                 return;
             }
         }
-        if (((TWindowSubComCard *)(*(void * *)&this->m_2378))->get_status_flag() != 0) {
-            TWindow__close((u8 *)(*(void * *)&this->m_2378));
-            *(void * *)&this->m_2378 = NULL;
-            if (*(void * *)&this->m_2380 != NULL) {
-                TWindow__close((u8 *)(*(void * *)&this->m_2380));
-                *(void * *)&this->m_2380 = NULL;
+        if (((TWindowSubComCard *)(this->m_2378))->get_status_flag() != 0) {
+            TWindow__close((u8 *)(this->m_2378));
+            this->m_2378 = NULL;
+            if (this->m_2380 != NULL) {
+                TWindow__close((u8 *)(this->m_2380));
+                this->m_2380 = NULL;
             }
-            if (*(void * *)&this->m_2374 != NULL) {
-                ((TWindowSubItem *)(*(void * *)&this->m_2374))->clear_selected_and_update_entry();
+            if (this->m_2374 != NULL) {
+                ((TWindowSubItem *)(this->m_2374))->clear_selected_and_update_entry();
             }
-            TQuestListVM__decrypted_quest_buffer = *(s32 *)&this->m_2384;
+            TQuestListVM__decrypted_quest_buffer = this->m_2384;
             TQuestListVM__decompression_capacity = 0x40000;
             ((VObj_80218BBC *)arg0)->m7(0x19, 1);
             close_windows();
@@ -538,7 +538,7 @@ void TQuestListVM::sub_80219064() {
     if (this->m_2374 != 0 && this->m_2388 != 0) {
         i = select_cursor_entry__22TWindowSubShortCutListFv(this->m_2374);
         if (TAdPlayerLoadGC__sub_801E1B50(q->ents[i].id) == 0) {
-            if (((TAdSinglePlyChrSelectGC *)(q->ents[i].id))->load_player_slot((int)q->ents[i].data, (int)(*(s32 *)&this->m_2388)) == 0) {
+            if (((TAdSinglePlyChrSelectGC *)(q->ents[i].id))->load_player_slot((int)q->ents[i].data, (int)(this->m_2388)) == 0) {
                 ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)9));
                 return;
             }
@@ -551,8 +551,8 @@ void TQuestListVM::sub_80219064() {
 
 s32 TQuestListVM::quest_vm_load() {
     if (TLobby__sub_8001EEF4() != 0) {
-        *(s32 *)&this->m_2384 = TLobby::tmp_buf_use_req((const char *)TQuestListVM__data_8044BF20);
-        ((TShopWindowBase *)this)->set_field_20((s32)((void*)(*(s32 *)&this->m_2370)));
+        this->m_2384 = TLobby::tmp_buf_use_req((const char *)TQuestListVM__data_8044BF20);
+        ((TShopWindowBase *)this)->set_field_20((s32)((void*)(this->m_2370)));
     }
 }
 
@@ -811,8 +811,8 @@ void TQuestListVM::scan_memcard_quest_files(void *arg0) {
 s32 TQuestListVM::load_quest_vm() {
     u8 *arg0 = (u8 *)this;
     if (TLobby__sub_8001EEF4() != 0) {
-        *(s32 *)&this->m_2384 = TLobby::tmp_buf_use_req((const char *)((s32) &(*(RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20 *)&TQuestListVM__data_8044BF20).value));
-        TQuestListVM__decrypted_quest_buffer = *(s32 *)&this->m_2384;
+        this->m_2384 = TLobby::tmp_buf_use_req((const char *)((s32) &(*(RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20 *)&TQuestListVM__data_8044BF20).value));
+        TQuestListVM__decrypted_quest_buffer = this->m_2384;
         TQuestListVM__decompression_capacity = 0x40000;
         ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(2)));
         ((VObj_18_a70a39 *)(arg0))->m5(TQuestVmDownLoadServer__sub_8006EF6C(0x3F), 1);
@@ -930,34 +930,34 @@ u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80219DE0___vt__12TQuestListVM *)&__vt__12TQuestListVM).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TQuestListVM__class_name;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2368 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2370 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2374 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_237c = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2380 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2378 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2384 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2388 = ((TQuestVmDownLoadServer *)((void *)0x20000))->alloc();
-    *(s32 *)&((TQuestListVM *)arg0)->m_2390 = 0;
+    ((TQuestListVM *)arg0)->m_2368 = 0;
+    ((TQuestListVM *)arg0)->m_2370 = 0;
+    ((TQuestListVM *)arg0)->m_2374 = 0;
+    ((TQuestListVM *)arg0)->m_237c = 0;
+    ((TQuestListVM *)arg0)->m_2380 = 0;
+    ((TQuestListVM *)arg0)->m_2378 = 0;
+    ((TQuestListVM *)arg0)->m_2384 = 0;
+    ((TQuestListVM *)arg0)->m_2388 = ((TQuestVmDownLoadServer *)((void *)0x20000))->alloc();
+    ((TQuestListVM *)arg0)->m_2390 = 0;
     TQuestListVM__decrypted_quest_buffer = 0;
     TQuestListVM__decompression_capacity = 0;
     TQuestListVM__quest_data_output_cursor = 0;
     TQuestListVM__quest_decrypt_result_size = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_2398 = 4;
-    *(s32 *)&((TQuestListVM *)arg0)->m_239c = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23a0 = arg2;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23b8 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23bc = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23c0 = 0;
+    ((TQuestListVM *)arg0)->m_2398 = 4;
+    ((TQuestListVM *)arg0)->m_239c = 0;
+    ((TQuestListVM *)arg0)->m_23a0 = arg2;
+    ((TQuestListVM *)arg0)->m_23b8 = 0;
+    ((TQuestListVM *)arg0)->m_23bc = 0;
+    ((TQuestListVM *)arg0)->m_23c0 = 0;
     ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0)));
     (*(u8 * *)&quest_list_vm_instance) = arg0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_24 = arg3;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23a8 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23a4 = 0;
+    ((TQuestListVM *)arg0)->m_24 = arg3;
+    ((TQuestListVM *)arg0)->m_23a8 = 0;
+    ((TQuestListVM *)arg0)->m_23a4 = 0;
     ((TQuestListVM *)arg0)->update_load_status();
-    *(s32 *)&((TQuestListVM *)arg0)->m_23ac = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23b0 = 0;
-    *(s32 *)&((TQuestListVM *)arg0)->m_23b4 = 0;
+    ((TQuestListVM *)arg0)->m_23ac = 0;
+    ((TQuestListVM *)arg0)->m_23b0 = 0;
+    ((TQuestListVM *)arg0)->m_23b4 = 0;
     return arg0;
 }
 

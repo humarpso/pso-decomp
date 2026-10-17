@@ -783,10 +783,10 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
         this->m_b8 = 7;
         this->vfunc_96();
         TObjEneBm9Mericarol__sub_802D093C(arg0);
-        temp_r5 = *(s32 *)&this->m_454;
-        *(s32 *)&this->m_454 = (s32) (temp_r5 & ~0x28);
+        temp_r5 = this->m_454;
+        this->m_454 = (s32) (temp_r5 & ~0x28);
         set_field_378__9TObjEneDDFl(arg0, 3, temp_r5);
-        *(s32 *)&this->m_4ac = 0;
+        this->m_4ac = 0;
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AD0F), (u8 *)&this->position, 0, 0);
         return;
     case 3:
@@ -798,11 +798,11 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
         return;
     case 0:
         advance_animation_playback(arg0);
-        *(s32 *)&this->m_4ac = ((*(s32 *)&this->m_4ac) + 1);
+        this->m_4ac = ((this->m_4ac) + 1);
         TObjEneBm9Mericarol__sub_802D073C(arg0);
         return;
     case 5:
-        *(s32 *)&this->m_454 = (s32) (*(s32 *)&this->m_454 & 0xFFFFFFFD);
+        this->m_454 = (s32) (this->m_454 & 0xFFFFFFFD);
     case 1:
         return;
     }

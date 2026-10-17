@@ -1699,8 +1699,8 @@ void TObjGrass::run_task() {
     }
     temp_r4 = this->target;
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
-        *(s16 *)&this->timer = 0;
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
+        this->timer = 0;
+        this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);
         this->target = NULL;
     }
     ((TObjEnemy *)arg0)->update_prev_position();

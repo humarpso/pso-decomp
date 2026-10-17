@@ -9,7 +9,7 @@ extern "C" {
 s32 is_matching_id__6TLobbyFlUs(void *, u16);
 int get_slot_value__10TObjPlayerFPvi(void*);
 
-void TObjPlayer::set_facing(s16 v) { *(s16 *)&this->m_32e = v; }
+void TObjPlayer::set_facing(s16 v) { this->m_32e = v; }
 s16 TObjPlayer::get_stat_bonus() { return *(s16 *)&this->unk_2BE; }
 s16 TObjPlayer::get_stat() { return this->m_2bc; }
 int TObjPlayer::get_equip_field_d04() { return get_slot_value__10TObjPlayerFPvi((char*)this + 0xd04); }

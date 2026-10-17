@@ -12,7 +12,7 @@ void TItemProShield::sub_80117FEC() {
     switch (temp_r3) {
     case 34:
     case 35:
-        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 1);
+        this->m_19c = (s32) (this->m_19c | 1);
         break;
     case 22:
         ((TObjPlayer *)(arg0 + 0x178))->set_flags(0x80);
@@ -20,29 +20,29 @@ void TItemProShield::sub_80117FEC() {
     case 49:
         ((TItemEquipBase *)arg0)->set_equip_flag(0x3A);
         ((TObjPlayer *)(arg0 + 0x178))->set_flags(2);
-        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
+        this->m_19c = (s32) (this->m_19c | 2);
         break;
     case 48:
         ((TItemEquipBase *)arg0)->set_equip_flag(0x28);
         break;
     case 42:
-        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
+        this->m_19c = (s32) (this->m_19c | 2);
         break;
     case 50:
         ((TItemEquipBase *)arg0)->set_equip_flag(0x3A);
-        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
+        this->m_19c = (s32) (this->m_19c | 2);
         break;
     }
     if ((temp_r3 == 0x27) || ((temp_r3 >= 0x33U) && (temp_r3 <= 0x39U)) || ((temp_r3 >= 0x53U) && (temp_r3 <= 0x82U)) || (temp_r3 == 0x52)) {
         ((TItemEquipBase *)arg0)->set_equip_flag(0x22);
-        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
+        this->m_19c = (s32) (this->m_19c | 2);
     }
-    switch ((s32) (*(u8 *)((s8 *)(*(u8 * *)&this->m_18c) + 0x1A))) {
+    switch ((s32) (*(u8 *)((s8 *)(this->m_18c) + 0x1A))) {
     case 1:
-        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 4);
+        this->m_19c = (s32) (this->m_19c | 4);
         return;
     case 3:
-        *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 8);
+        this->m_19c = (s32) (this->m_19c | 8);
     case 2:
     case 0:
         return;

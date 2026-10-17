@@ -15,13 +15,13 @@ void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
 void TUnk_804A0AA8::render() {
     u8 *arg0 = (u8 *)this;
-    if ((is_owner_alive__15TItemShootModelFv() != 0) && ((u32) *(u32 *)&this->m_58 != 0U) && ((u32) *(u32 *)&this->m_5C != 0U)) {
+    if ((is_owner_alive__15TItemShootModelFv() != 0) && ((u32) this->m_58 != 0U) && ((u32) this->m_5C != 0U)) {
         push_matrix();
         TParticleCtrl::begin_effect_render();
         TObjPlayer::notify_fish_if_valid(*(u32 *)&this->m_5C);
         post_translate_matrix(arg0 + 0x1C);
         rotate_matrix_by_node_angles((u8 *)&this->m_28, 1);
-        draw_ginja_object((void *)(*(u32 *)&this->m_58));
+        draw_ginja_object((void *)(this->m_58));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }
@@ -36,7 +36,7 @@ extern s32 lbl_804A0AA8[];
 void *TUnk_804A0AA8::init_item_shoot_model() {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0AA8;
-    (*(u32 *)&this->m_30) = 0;
+    (this->m_30) = 0;
     return this;
 }
 

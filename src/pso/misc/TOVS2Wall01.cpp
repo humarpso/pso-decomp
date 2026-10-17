@@ -34,7 +34,7 @@ void TOVS2Wall01::vfunc_6(s16 *arg1, s32 arg2) {
             this->mode = 0;
         }
     } else {
-        *(s32 *)&this->m_33c = 0;
+        this->m_33c = 0;
         if (arg2 != 0) {
             init__11TOVS2Wall01Fi();
         }
@@ -48,7 +48,7 @@ void TOVS2Wall01::spawn_debris(s32 arg1) {
     u8 *chip;
     *(ByteBlock_4C *)(copy_storage_8017BC10.bytes) = *(const ByteBlock_4C *)((s32) ((u8 *)((void *)((u8 *)&vs2_wall_debris_desc.value + -4))) + 4);
     (*(f32 *)(copy_storage_8017BC10.bytes + 0xC)) = this->m_2fc;
-    (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)&this->m_300;
+    (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = this->m_300;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x14)) = this->m_304;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x38)) = *(f32 *)((s8 *)arg0 + 0x3C);
     (*(s32 *)(copy_storage_8017BC10.bytes + 0x40)) = get_bml_model((int)TOVS2Wall01__bml_resource, (void *)arg1);

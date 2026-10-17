@@ -96,7 +96,7 @@ void TWindowSubCustomSelect::handle_cancel() {
 void TWindowSubCustomSelect::handle_decide() {
     play_sound_effect(0x52D01, 0, 0, 0);
     this->m_73 = (u8) (this->m_73 | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_7c))->set_entry_state(2);
+    ((TWindowSubStatusDisp *)(this->m_7c))->set_entry_state(2);
 }
 
 typedef char RecoveredGlobal_80277408_lbl_8050E208_size[sizeof(RecoveredGlobal_80277408_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -168,7 +168,7 @@ void TWindowSubCustomSelect::draw_cursor(u8 *arg1) {
     Stack_80277638 stack;
     stack.sp8 = (lbl_805DD5C8 * (f32) (s8) this->m_70) + lbl_805DD5C4;
     stack.spC = (TWindowSubCustomSelect__data_805DD5B0 * (f32) (s8) this->m_71) + lbl_805DD5CC;
-    draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(arg1, &stack.sp8, *(s32 *)&this->m_74, lbl_805DD5D0);
+    draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(arg1, &stack.sp8, this->m_74, lbl_805DD5D0);
 }
 #pragma pop
 
@@ -228,8 +228,8 @@ void render__22TWindowSubCustomSelectFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     ((TWindowSubCustomSelect *)arg0)->draw_palette_cells(temp_r3);
     ((TWindowSubCustomSelect *)arg0)->draw_cursor((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubCustomSelect *)arg0)->m_7c), temp_r3);
-    draw_window_scrollbar((int) (*(s32 *)&((TWindowSubCustomSelect *)arg0)->m_80), temp_r3, arg0 + 0x68);
+    forward_render__20TWindowSubStatusDispFv((int) (((TWindowSubCustomSelect *)arg0)->m_7c), temp_r3);
+    draw_window_scrollbar((int) (((TWindowSubCustomSelect *)arg0)->m_80), temp_r3, arg0 + 0x68);
 }
 
 typedef char RecoveredGlobal_80277928_lbl_8050E208_size[sizeof(RecoveredGlobal_80277928_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -299,10 +299,10 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     } else {
         *(u8 **)((s8 *)arg0 + 0x78) = custom_select_organic_action_table;
     }
-    *(s8 *)&((TWindowSubCustomSelect *)arg0)->m_73 = 0;
-    *(s8 *)&((TWindowSubCustomSelect *)arg0)->m_70 = 0;
-    *(s8 *)&((TWindowSubCustomSelect *)arg0)->m_71 = 0;
-    *(s32 *)&((TWindowSubCustomSelect *)arg0)->m_74 = 0;
+    ((TWindowSubCustomSelect *)arg0)->m_73 = 0;
+    ((TWindowSubCustomSelect *)arg0)->m_70 = 0;
+    ((TWindowSubCustomSelect *)arg0)->m_71 = 0;
+    ((TWindowSubCustomSelect *)arg0)->m_74 = 0;
     e = *(Ent_80277AEC **)((s8 *)arg0 + 0x78);
     ((TWindowSubCustomSelect *)arg0)->m_72 = 0;
     while (e->id != 8) {

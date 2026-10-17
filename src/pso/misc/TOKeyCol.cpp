@@ -20,19 +20,19 @@ void TOKeyCol::vfunc_16() {  }
 void TOKeyCol::run_task() {
     u8 *arg0 = (u8 *)this;
     this->update_lock_state();
-    if ((s32) *(s32 *)&this->m_d4 != 1) {
+    if ((s32) this->m_d4 != 1) {
         this->vfunc_17();
         if (this->is_confirm_pressed() == 1) {
             ((TOKeyCol *)arg0)->send_switch_changed(1);
             this->trigger_activate_sound();
-            *(s32 *)&this->m_d4 = 1;
+            this->m_d4 = 1;
         }
     } else {
         this->vfunc_16();
         if (this->is_confirm_pressed() != 1) {
             ((TOKeyCol *)arg0)->send_switch_changed(0);
             this->vfunc_19();
-            *(s32 *)&this->m_d4 = 0;
+            this->m_d4 = 0;
         }
     }
 }
@@ -76,10 +76,10 @@ void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2) {
     ((TOKeyCol *)arg0)->m_c0 = (f32) lbl_805DB758;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB75C;
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (lbl_805DB760 + ((TOKeyCol *)arg0)->scale);
-    if (((s32) *(s32 *)&((TOKeyCol *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
-        *(s32 *)&((TOKeyCol *)arg0)->m_d0 = 1;
+    if (((s32) ((TOKeyCol *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
+        ((TOKeyCol *)arg0)->m_d0 = 1;
     } else {
-        *(s32 *)&((TOKeyCol *)arg0)->m_d0 = 0;
+        ((TOKeyCol *)arg0)->m_d0 = 0;
     }
     return arg0;
 }

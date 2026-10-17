@@ -31,7 +31,7 @@ void TLobby__send_and_handle_60(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
-s32 TBoss6Type2::get_state() { return *(s32 *)&this->m_374; }
+s32 TBoss6Type2::get_state() { return this->m_374; }
 s32 TBoss6GravBall::get_state() { return *(s32*)((char*)this + 0x374); }
 void TBoss6Type2::update_and_send() { handle_olga_action(); TLobby__send_and_handle_60((u8 *)this); }
 int TBoss6Type2::handle_olga_action() { return read_be16_field2__10TObjPlayerFv(this); }

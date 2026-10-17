@@ -45,7 +45,7 @@ void TOTrapSeabed01::sub_802C9D38() {
     s32 temp_r3;
     s32 temp_r3_2;
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        void *o = *(void * *)&this->target;
+        void *o = this->target;
         if (o != NULL) {
             temp_r3 = (s32)get_player_by_client_id((obj_getField1c(o)));
             if (temp_r3 != 0) {
@@ -56,7 +56,7 @@ void TOTrapSeabed01::sub_802C9D38() {
             }
         }
     } else {
-        void *o2 = *(void * *)&this->target;
+        void *o2 = this->target;
         if ((o2 != NULL) && ((s32) local_client_id == (s32) obj_getField1c(o2))) {
         temp_r3_2 = (s32)get_player_by_client_id((local_client_id));
         if ((temp_r3_2 != 0) && (check_player_flag1__6TLobbyFv() != 0)) {

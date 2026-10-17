@@ -28,11 +28,11 @@ void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjBgmCol;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBgmCol__name;
     ((TObjBgmCol *)arg0)->apply_object_set_data((void *)arg2);
-    *(s32 *)&((TObjBgmCol *)arg0)->m_90 = 1;
+    ((TObjBgmCol *)arg0)->m_90 = 1;
     ((TObjBgmCol *)arg0)->m_98 = (f32) ((TObjBgmCol *)arg0)->scale;
-    *(s32 *)&((TObjBgmCol *)arg0)->m_9c = (s32) (((TObjBgmCol *)arg0)->m_84% 6);
-    if ((s32) *(s32 *)&((TObjBgmCol *)arg0)->m_9c< 0) {
-        *(s32 *)&((TObjBgmCol *)arg0)->m_9c = 0;
+    ((TObjBgmCol *)arg0)->m_9c = (s32) (((TObjBgmCol *)arg0)->m_84% 6);
+    if ((s32) ((TObjBgmCol *)arg0)->m_9c< 0) {
+        ((TObjBgmCol *)arg0)->m_9c = 0;
     }
     return arg0;
 }

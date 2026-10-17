@@ -104,13 +104,13 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TContainerAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), 0);
     ((TContainerAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), 0);
-    *(s32 * *)&((TContainerAncient01 *)arg0)->action_table = &TContainerAncient01__anim_table.value;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (*(s32 * *)&((TContainerAncient01 *)arg0)->action_table)));
+    ((TContainerAncient01 *)arg0)->action_table = &TContainerAncient01__anim_table.value;
+    ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (((TContainerAncient01 *)arg0)->action_table)));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&TContainerAncient01__bml_resource) + 0x430);
     ((TContainerAncient01 *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TContainerAncient01 *)arg0)->m_b8));
-    *(s32 *)&((TContainerAncient01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TContainerAncient01 *)arg0)->actorFlags| 0x60000000);
+    ((TContainerAncient01 *)arg0)->actorFlags = (s32) (((TContainerAncient01 *)arg0)->actorFlags| 0x60000000);
     init_collision_body_parts(arg0, (void *)&TContainerAncient01__collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));

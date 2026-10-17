@@ -56,7 +56,7 @@ void TUnk_804CC148::render() {
 }
 
 void TUnk_804CC148::tick_lifetime() {
-    *(s32 *)&this->field_6c = 1;
+    this->field_6c = 1;
     this->age = (this->age + 1);
     if ((f32) this->age > *(f32 *)((s8 *)this + 0x70)) {
         queue_destruction__7TObjectFv(this);
@@ -72,7 +72,7 @@ void TUnk_804CC148::count_if_within_range() {
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
     stack.sp10 = temp_f1 - this->m_84;
     if (vector_length(&stack.sp8, temp_f1) <= *(f32 *)((s8 *)arg0 + 0x64)) {
-        *(s32 *)&this->field_6c = (s32) (*(s32 *)&this->field_6c + 1);
+        this->field_6c = (s32) (this->field_6c + 1);
     }
 }
 
@@ -95,7 +95,7 @@ void __dt__7TEffectFv(void *, int);
 
 void TUnk_804CC148::run_task() {
 
-    switch (*(s32 *)&this->field_6c) {
+    switch (this->field_6c) {
     case 0:
         sub_8022C008__13TUnk_804CC148Fv();
         count_if_within_range__13TUnk_804CC148Fv(this);
@@ -157,7 +157,7 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     *(f32 *)((s8 *)this + 0x40) = lbl_805DC7B8;
     *(f32 *)((s8 *)this + 0x44) = lbl_805DC7B8;
     this->m_74 = 0;
-    *(s32 *)&this->source = arg1;
+    this->source = arg1;
     if (arg4 < 0) {
         this->m_78 = 0;
     } else if (arg4 >= 0x1E) {
@@ -178,8 +178,8 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     this->m_c8 = lbl_805DC7C8;
     *(f32 *)((s8 *)this + 0xCC) = lbl_805DC7B8;
     this->m_d0 = 0;
-    if (obj_getField1c(*(s32 *)&this->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)&this->source+ 0x828)) != 0) {
+    if (obj_getField1c(this->source) < 4U) {
+        if (get_type__10TObjPlayerFPv((void *)(this->source+ 0x828)) != 0) {
             *(s32 *)((s8 *)this + 0xD4) = 0x40007;
         } else {
             *(s32 *)((s8 *)this + 0xD4) = 0x40107;
@@ -210,7 +210,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     *(f32 *)((s8 *)arg0 + 0x44) = lbl_805DC7B8;
     ((TUnk_804CC148 *)arg0)->m_74 = 0;
     ((TUnk_804CC148 *)arg0)->m_b8 = 0;
-    *(s32 *)&((TUnk_804CC148 *)arg0)->source = arg1;
+    ((TUnk_804CC148 *)arg0)->source = arg1;
     if (arg4 < 0) {
         ((TUnk_804CC148 *)arg0)->m_78 = 0;
     } else if (arg4 >= 0x1E) {
@@ -231,8 +231,8 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     ((TUnk_804CC148 *)arg0)->m_c8 = lbl_805DC7C8;
     *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DC7B8;
     ((TUnk_804CC148 *)arg0)->m_d0 = 0;
-    if (obj_getField1c(*(s32 *)&((TUnk_804CC148 *)arg0)->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(*(s32 *)&((TUnk_804CC148 *)arg0)->source+ 0x828)) != 0) {
+    if (obj_getField1c(((TUnk_804CC148 *)arg0)->source) < 4U) {
+        if (get_type__10TObjPlayerFPv((void *)(((TUnk_804CC148 *)arg0)->source+ 0x828)) != 0) {
             *(s32 *)((s8 *)arg0 + 0xD4) = 0x40007;
         } else {
             *(s32 *)((s8 *)arg0 + 0xD4) = 0x40107;

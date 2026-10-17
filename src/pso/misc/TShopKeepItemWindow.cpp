@@ -124,14 +124,14 @@ void __dl__7TObjectFPv(void *);
 void TShopKeepItemWindow::vfunc_7() {
     struct VObj_80221844 *temp_r3;
 
-    temp_r3 = (struct VObj_80221844 *)*(void * *)&this->m_380;
+    temp_r3 = (struct VObj_80221844 *)this->m_380;
     if (temp_r3 != NULL) {
         temp_r3->m5();
     }
 }
 
 void TShopKeepItemWindow::vfunc_6() {
-    struct VObj_8022187C_80221844 *o = (struct VObj_8022187C_80221844 *)*(void * *)&this->m_380;
+    struct VObj_8022187C_80221844 *o = (struct VObj_8022187C_80221844 *)this->m_380;
     if (o != NULL) {
         o->m4();
     }
@@ -142,7 +142,7 @@ s32 TShopKeepItemWindow::close_with_cancel_callback() {
 
     temp_r12 = *(s32 (**)(s32))((s8 *)this + 0x398);
     if (temp_r12 != NULL) {
-        temp_r12(*(s32 *)&this->m_380);
+        temp_r12(this->m_380);
     }
     sort_bank_items(sub_8022397C__15TShopWindowBaseFv(this));
     queue_destruction__7TObjectFv(this);
@@ -153,7 +153,7 @@ s32 TShopKeepItemWindow::close_with_ok_callback() {
 
     temp_r12 = *(s32 (**)(s32))((s8 *)this + 0x394);
     if (temp_r12 != NULL) {
-        temp_r12(*(s32 *)&this->m_380);
+        temp_r12(this->m_380);
     }
     sort_bank_items(sub_8022397C__15TShopWindowBaseFv(this));
     queue_destruction__7TObjectFv(this);
@@ -161,7 +161,7 @@ s32 TShopKeepItemWindow::close_with_ok_callback() {
 
 s32 TShopKeepItemWindow::close() {
     if ((u32) this->m_384 != 0U) {
-        ((TWindowSubItem *)(*(void * *)&this->m_384))->clear_selected_and_update_entry();
+        ((TWindowSubItem *)(this->m_384))->clear_selected_and_update_entry();
     }
     set_field_20(1);
 }
@@ -218,13 +218,13 @@ void TShopKeepItemWindow::update_number_input() {
     w = this->m_38c;
     if ((w != 0U) && (((TWindowInputNumber *)w)->is_confirmed() != 0)) {
         if ((u32) this->m_388 == 0U) {
-            temp_r31 = obj_getField1c(*(s32 *)&this->m_24);
+            temp_r31 = obj_getField1c(this->m_24);
             this->m_388 = (u32)create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
             ((TCheckRoomSequence *)(this->m_388))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
             ((TUnk_804CDFE8 *)(this->m_388))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
         }
-        *(s32 *)&this->m_378 = ((TShopEquipmentSellWindow *)(this->m_38c))->get_result();
+        this->m_378 = ((TShopEquipmentSellWindow *)(this->m_38c))->get_result();
         TWindow__close((u8 *)this->m_38c);
         this->m_38c = 0U;
         set_field_20(2);
@@ -323,10 +323,10 @@ void TShopKeepItemWindow::vfunc_11() {
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TShopKeepItemWindow;
-        if (*(void **)((s8 *)arg0 + 0x384) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x384))); *(s32 *)&((TShopKeepItemWindow *)arg0)->m_384 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x388) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x388))); *(s32 *)&((TShopKeepItemWindow *)arg0)->m_388 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38C))); *(s32 *)&((TShopKeepItemWindow *)arg0)->m_38c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x390) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x390))); *(s32 *)&((TShopKeepItemWindow *)arg0)->m_390 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x384) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x384))); ((TShopKeepItemWindow *)arg0)->m_384 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x388) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x388))); ((TShopKeepItemWindow *)arg0)->m_388 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38C))); ((TShopKeepItemWindow *)arg0)->m_38c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x390) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x390))); ((TShopKeepItemWindow *)arg0)->m_390 = 0; }
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

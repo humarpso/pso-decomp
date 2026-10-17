@@ -17,17 +17,17 @@ void TBoss5GryphonLightningWing::update_wing_segments() {
     u8 *arg0 = (u8 *)this;
     eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x48, (int) (*(s32 *)((s8 *)arg0 + 0x90)), 0, arg0 + 0x20, (f32) (*(f32 *)((s8 *)arg0 + 0x88)));
     eval_bezier_curve__12TBoss8DragonFPviiPvf(arg0 + 0x48, (int) (*(s32 *)((s8 *)arg0 + 0x90)), 0, arg0 + 0x2C, (f32) (*(f32 *)((s8 *)arg0 + 0x8C)));
-    if (*(void * *)&this->m_38 != 0) {
-        ((TNowLoading *)(*(void * *)&this->m_38))->copy_pos(arg0 + 0x20);
+    if (this->m_38 != 0) {
+        ((TNowLoading *)(this->m_38))->copy_pos(arg0 + 0x20);
     }
-    if (*(void * *)&this->m_3c != 0) {
-        ((TNowLoading *)(*(void * *)&this->m_3c))->copy_pos(arg0 + 0x20);
+    if (this->m_3c != 0) {
+        ((TNowLoading *)(this->m_3c))->copy_pos(arg0 + 0x20);
     }
-    if (*(void * *)&this->m_40 != 0) {
-        ((TNowLoading *)(*(void * *)&this->m_40))->copy_pos(arg0 + 0x2C);
+    if (this->m_40 != 0) {
+        ((TNowLoading *)(this->m_40))->copy_pos(arg0 + 0x2C);
     }
-    if (*(void * *)&this->m_44 != 0) {
-        ((TNowLoading *)(*(void * *)&this->m_44))->copy_pos(arg0 + 0x2C);
+    if (this->m_44 != 0) {
+        ((TNowLoading *)(this->m_44))->copy_pos(arg0 + 0x2C);
     }
 }
 

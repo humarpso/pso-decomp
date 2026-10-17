@@ -36,7 +36,7 @@ void TChCrEffTag::refresh_label() {
     temp_r3 = *(u32 *)&this->label;
     if (temp_r3 != 0U) {
         TChCrEffTagStr__sub_8029AED0((void *)temp_r3);
-        *(u32 *)&this->label = 0U;
+        this->label = 0U;
     }
     this->heading = (s32) TChCrEffTag__selected_heading;
     temp_r0 = this->heading;

@@ -1162,9 +1162,9 @@ Entry_80242380 *copy_com_card_entry__6TLobbyFPvPv(Entry_80242380 *dst, Entry_802
     __copy(dst->s19, src->s19, 0x11);
     __copy(dst->s2A, src->s2A, 0x11);
     __copy(dst->s3B, src->s3B, 0x11);
-    *(Pair_80242380 *)&dst->f4C = *(const Pair_80242380 *)&src->f4C;
+    dst->f4C = src->f4C;
     dst->f54 = src->f54;
-    *(Ext_80242380 *)&dst->ext = *(const Ext_80242380 *)&src->ext;
+    dst->ext = src->ext;
     return dst;
 }
 

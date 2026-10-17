@@ -49,15 +49,15 @@ void TObjEnvSound::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     temp_f0 = *(f32 *)&this->unk_90;
-    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled(arg0, (int) (*(s32 *)&this->m_98)) != 0)) {
-        switch (*(s32 *)&this->m_9c) {
+    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled(arg0, (int) (this->m_98)) != 0)) {
+        switch (this->m_9c) {
         case 0:
             break;
         case 1:
-            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
+            play_persistent_sound((s32)(this->m_98), (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
             return;
         case 2:
-            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)arg0, (u32)(arg0 + 0x38), (s32)(*(s32 *)&this->m_94), 2);
+            play_persistent_sound((s32)(this->m_98), (s32)arg0, (u32)(arg0 + 0x38), (s32)(this->m_94), 2);
             break;
         }
     }

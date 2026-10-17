@@ -124,7 +124,7 @@ void TObjPlayer::setup_particle_once() {
     TObjPlayer::play_particle_effect_once();
     if (test_flags_any(&lbl_805D53EC, 8) == 0) {
         setup_particle_tev(0);
-        TObjPlayer::notify_fish_if_valid(*(s32 *)&this->texture_id);
+        TObjPlayer::notify_fish_if_valid(this->texture_id);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(8);
     }
 }

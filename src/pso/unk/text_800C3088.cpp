@@ -458,7 +458,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
                 transition_enemy_state(arg0, 2);
             } else if (d < lbl_805D9FE4) {
                 t = angle_difference_abs(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x420));
-                if (t < ((TObjPlayer *)(*(s32 *)&this->m_318))->get_field_0c()) {
+                if (t < ((TObjPlayer *)(this->m_318))->get_field_0c()) {
                     transition_enemy_state(arg0, 5);
                 }
             } else if ((f32)*(s32 *)((s8 *)arg0 + 0x414) > lbl_805D9FE8) {
@@ -488,7 +488,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         ((TObjEneDD *)arg0)->update_velocity();
         (*(s32 *)((s8 *)arg0 + 0x414))++;
         *(s32 *)((s8 *)arg0 + 0x420) = (s32)(lbl_8043BBD8 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8)));
-        this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x420), *(void **)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
+        this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x420), *(void **)((s8 *)(this->movementParameters) + 8));
         this->rotation_y = (s16)this->rotation_y;
         this->vfunc_102();
         this->vfunc_88();

@@ -69,10 +69,10 @@ void TObjEneRe7BeruraPunch::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if ((s32) *(s32 *)&this->m_b4 != 0) {
+    if ((s32) this->m_b4 != 0) {
         lbl_805D5660 = model_render_flags;
         TObjEneDD::clear_global_flag_400();
-        if ((s32) *(s32 *)&this->m_b4 == 2) {
+        if ((s32) this->m_b4 == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m6();
             if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                 model_render_flags = lbl_805D5660;
@@ -87,9 +87,9 @@ void TObjEneRe7BeruraPunch::render() {
         rotate_matrix_y(0, this->rotation_y);
         temp_f1 = this->m_f4;
         scale_matrix(0, temp_f1, temp_f1, lbl_805D9798);
-        TObjEneRe7Berura::init_part(*(s32 *)&this->m_b8);
+        TObjEneRe7Berura::init_part(this->m_b8);
         pop_matrix();
-        if ((s32) *(s32 *)&this->m_b4 == 2) {
+        if ((s32) this->m_b4 == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m7();
         }
         TParticleCtrl::end_effect_render();
@@ -104,7 +104,7 @@ extern const f32 lbl_805D97B4;
 void TObjEneRe7BeruraPunch::update_velocity_and_snap() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_14_c1c33b *)(arg0 + (248)))->m4() != 0) {
-        *(s32 *)&this->m_b4 = 0;
+        this->m_b4 = 0;
     }
     *(f32 *)&this->m_dc = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)&this->unk_BC)) + *(f32 *)&this->m_dc);
     this->m_e4 = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * *(f32 *)&this->unk_C4)) + this->m_e4);
@@ -143,7 +143,7 @@ void TObjEneRe7BeruraPunch::update_flight() {
     }
     ((TObjEneRe7BeruraPunch *)((u8 *)this))->snap_to_ground();
     if ((var_r31 != 0) || (sub_80096150() != 0) || (this->m_114 > this->m_c8)) {
-        *(s32 *)&this->m_b4 = 2;
+        this->m_b4 = 2;
         if (find_entity_by_id(this->m_b0) != NULL) {
             TObjEneRe7Berura__sub_80094D98();
         }
@@ -183,7 +183,7 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     u8 *entity;
 
-    *(s32 *)&this->m_b8 = arg1;
+    this->m_b8 = arg1;
     VecCopy((Vec *)&this->m_dc, (const Vec *)arg2);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
     entity = (u8 *)find_entity_by_id(this->m_b0);
@@ -197,7 +197,7 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     *(f32 *)&this->unk_C4 = cos_table_lookup(this->rotation_y);
     this->m_c8 = (f32) lbl_805D97B4;
     ((TObjEneRe7BeruraPunch *)arg0)->reset();
-    *(s32 *)&this->m_b4 = 1;
+    this->m_b4 = 1;
 }
 
 }

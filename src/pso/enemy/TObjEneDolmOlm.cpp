@@ -1553,7 +1553,7 @@ void TObjEneDolmOlm::vfunc_59() {
     switch (this->mode) {
     case 1:
         this->phase = 0;
-        if ((u32) *(u32 *)&this->children == 0U) {
+        if ((u32) this->children == 0U) {
             this->mode = 3;
             this->m_b8 = 7;
         } else {
@@ -1594,7 +1594,7 @@ void TObjEneDolmOlm::vfunc_60() {
         break;
     case 1:
         this->phase = 0;
-        if (*(u32 *)&this->children == 0U) {
+        if (this->children == 0U) {
             this->mode = 3;
             this->m_b8 = 7;
         } else {
@@ -1614,7 +1614,7 @@ void TObjEneDolmOlm::vfunc_60() {
                 temp_f31 = horizontal_distance_squared(player + 0x38, (void *) (((u8 *)this) + 0x38));
                 var_f30 = fabs_float(*(f32 *)((s8 *)player + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
                 if (((TObjPlayer *)player)->get_field_3e4() == get_current_floor()) {
-                    if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (*(s32 *)&this->variant * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->m_3d0)) {
+                    if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (this->variant * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (this->variant * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->m_3d0)) {
                         var_r29 = 1;
                     }
                 }
@@ -1650,7 +1650,7 @@ void TObjEneDolmOlm::vfunc_60() {
 }
 void TObjEneDolmOlm::advance_position() {
     VecCopy((Vec *)&this->m_2fc, (const Vec *)&this->position);
-    *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneDolmOlm__data_805DEF6C);
+    this->m_300 = (f32) (this->m_300 + TObjEneDolmOlm__data_805DEF6C);
 }
 void TObjEneDolmOlm::request_stand_action() { this->m_b8 = 1; }
 #pragma push
@@ -1662,7 +1662,7 @@ void TObjEneDolmOlm::check_path_ahead(s32 arg1, f32 farg0) {
     Stack_80301264 stack;
     stack.spC = TObjEneDolmOlm__data_805DEF54;
     stack.sp8 = TObjEneDolmOlm__data_805DEF54;
-    stack.sp10 = (TObjEneDolmOlm__data_805DEF68 * farg0) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC);
+    stack.sp10 = (TObjEneDolmOlm__data_805DEF68 * farg0) + *(f32 *)((s8 *)(this->m_a4) + 0xC);
     push_matrix_from((void *) (&(*(RecoveredGlobal_80301264_lbl_8058D490 *)&identity_matrix).value));
     rotate_matrix_y(0, arg1);
     rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);

@@ -103,16 +103,16 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
-    *(s32 *)&this->m_ac = (s32) *arg1;
-    switch (*(s32 *)&this->m_ac) {
+    this->m_ac = (s32) *arg1;
+    switch (this->m_ac) {
     case 2:
-        dispatch_by_main_phase__14TBoss4DarkFalzFUs(*(s32 *)&this->m_d0);
-        *(s32 *)&this->m_c8 = 1;
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs(this->m_d0);
+        this->m_c8 = 1;
         break;
     default:
-        if (get_story_flag(*(s32 *)&this->m_d0) != 0) {
-            *(s32 *)&this->m_ac = 2;
-            *(s32 *)&this->m_c8 = 1;
+        if (get_story_flag(this->m_d0) != 0) {
+            this->m_ac = 2;
+            this->m_c8 = 1;
         }
         break;
     }
@@ -125,14 +125,14 @@ void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
     s16 sp8;
     s32 player;
-    switch (*(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac) {
+    switch (((TOMonumentAncient02 *)arg0)->m_ac) {
     case 1:
         player = (s32)get_player_by_client_id((arg1));
         if (player != 0) {
-            *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac = 2;
+            ((TOMonumentAncient02 *)arg0)->m_ac = 2;
             start_camera_pan__10TObjPlayerFs(player, 0xC, (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to(arg0 + 0x38)));
             if (((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 1) != 0) {
-                sp8 = (s16) *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac;
+                sp8 = (s16) ((TOMonumentAncient02 *)arg0)->m_ac;
                 ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
                 ((TUnk_804AF8A0 *)arg0)->send_object_state_update(&sp8);
             }

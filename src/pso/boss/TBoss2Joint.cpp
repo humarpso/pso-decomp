@@ -338,7 +338,7 @@ void TBoss2Joint::vfunc_88() {
     u8 *temp_r3;
     if (*(f32 *)((s8 *)arg0 + 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
         vfunc_94__9TObjEneDDFv(arg0);
-        temp_r3 = (u8 *)(*(u8 * *)&this->m_a4);
+        temp_r3 = (u8 *)(this->m_a4);
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF9);
     } else {
         vfunc_93__9TObjEneDDFv(arg0);
@@ -452,7 +452,7 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80036FC8___vt__11TBoss2Joint *)&__vt__11TBoss2Joint).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss2Joint__name;
     ((TObjEneDD *)arg0)->init_common_from(arg1);
-    *(s16 *)&((TBoss2Joint *)arg0)->m_1c = arg2;
+    ((TBoss2Joint *)arg0)->m_1c = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x390) = arg4;
     *(s32 *)((s8 *)arg0 + 0x398) = arg5;

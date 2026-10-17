@@ -19,10 +19,10 @@ void TWindowSubTradeMain__sub_802448E4(void *, void *);
 void update_label_positions__17TWindowSubComCardFPvPv(O_802A5628 *arg0, V_802A5628 *arg1);
 void TWindowSubComCard::free_windows() {
     if ((u32) this->m_28 != 0U) {
-        ((TWindowSubComCard *)(*(void * *)&this->m_28))->reparent_to_main_ctrl();
+        ((TWindowSubComCard *)(this->m_28))->reparent_to_main_ctrl();
     }
     if ((u32) this->m_2c != 0U) {
-        ((TWindowSubComCard *)(*(void * *)&this->m_2c))->reparent_to_main_ctrl();
+        ((TWindowSubComCard *)(this->m_2c))->reparent_to_main_ctrl();
     }
 }
 

@@ -1073,9 +1073,9 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
   if (arg0 != 0)
   {
     *((s32 **) (((s8 *) arg0) + 0x18)) = &lbl_8049EF88.value;
-    var_r31 = (int) (*(s32 *)&((TItemDrop *)arg0)->m_1c);
+    var_r31 = (int) (((TItemDrop *)arg0)->m_1c);
     TItemDrop__sub_8010F168((void *)var_r31, 1);
-    *(s32 *)&((TItemDrop *)arg0)->m_1c = 0;
+    ((TItemDrop *)arg0)->m_1c = 0;
     TAdSinglePlyChrSelectGC::safe_free((int) TItemDrop__relocatable_load_buffer);
     TItemDrop__relocatable_load_buffer = 0;
     TAdSinglePlyChrSelectGC::safe_free((int) TItemDrop__second_relocatable_load_buffer);
@@ -1084,13 +1084,13 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
     TItemDrop__second_relocatable_load_buffer = 0;
     do
     {
-      ::operator delete((void *)(*((s32 *) (((s8 *) (*(s32 *)&((TItemDrop *)arg0)->m_20)) + var_r31))));
+      ::operator delete((void *)(*((s32 *) (((s8 *) (((TItemDrop *)arg0)->m_20)) + var_r31))));
       var_r30 += 1;
       var_r31 += 4;
     }
     while (var_r30 != 0x11);
-    mem_free((void *)((int) (*(s32 *)&((TItemDrop *)arg0)->m_20)));
-    *(s32 *)&((TItemDrop *)arg0)->m_20 = 0;
+    mem_free((void *)((int) (((TItemDrop *)arg0)->m_20)));
+    ((TItemDrop *)arg0)->m_20 = 0;
     __dt__7TObjectFv((void *) arg0, 0);
     if (arg1 > 0)
     {

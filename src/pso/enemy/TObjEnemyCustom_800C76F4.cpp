@@ -46,11 +46,11 @@ void TObjEnemyCustom::render() {
         rotate_matrix_y(0, this->rotation_y);
         model_render_flags &= 0xFFFFFBFF;
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object((void *)(*(s32 *)&this->model));
+            draw_chunk_object((void *)(this->model));
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }
-        if (!(*(s32 *)&this->actorFlags & 0x800)) {
+        if (!(this->actorFlags & 0x800)) {
             model_render_flags |= 0x400;
         }
         pop_matrix();
@@ -84,22 +84,22 @@ void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
 void TObjEnemyCustom::sub_800C7860() {
     u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(7);
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 1);
+    this->m_388 = (s32) (this->m_388 | 1);
 }
 
 void TObjEnemyCustom::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(5);
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 1);
+    this->m_388 = (s32) (this->m_388 | 1);
 }
 
 void TObjEnemyCustom::update_knockback_state() {
 
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case 0:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);
         this->m_b8 = 3;
-        *(s32 *)&this->state = 1;
+        this->state = 1;
     case 1:
         advance_animation_playback(this);
         move_with_wall_slide((u8 *)this);
@@ -111,22 +111,22 @@ void TObjEnemyCustom::update_knockback_state() {
             apply_actor_gravity(this, 0, lbl_805DA070, k);
         }
         update_collisions__10TObjPlayerFv(this);
-        if ((u32) *(u32 *)&this->m_b4 != 8U) {
-            *(s32 *)&this->state = -1;
+        if ((u32) this->m_b4 != 8U) {
+            this->state = -1;
         }
         break;
     case -1:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
-        *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFFFDFF);
+        this->m_388 = (s32) (this->m_388 & 0xFFFFFFFE);
         this->referenceHp = (s16) this->hp;
-        *(s32 *)&this->next_action = 1;
+        this->next_action = 1;
         break;
     }
 }
 void TObjEnemyCustom::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     ((TObjEneMe1GiGue *)arg0)->set_state(4);
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 1);
+    this->m_388 = (s32) (this->m_388 | 1);
 }
 
 }

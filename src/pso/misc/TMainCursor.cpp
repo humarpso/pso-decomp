@@ -66,7 +66,7 @@ void TMainCursor::refresh_target_marker() {
         queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
-    *(s32 *)&this->m_1c = 0;
+    this->m_1c = 0;
     *(f32 *)&this->unk_28 = (f32) lbl_805DB0D4;
     *(f32 *)&this->m_34 = *(f32 *)&this->unk_28 - TMainCursor__data_805DB0CC;
     *(f32 *)&this->unk_38 = lbl_805DB0D8 + *(f32 *)&this->unk_28;

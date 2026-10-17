@@ -359,7 +359,7 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 owner, s32 pos, s32 level) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80239C48___vt__9TTecResta *)&__vt__9TTecResta).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3810;
-    *(s32 *)&((TTecResta *)arg0)->m_13c = 0;
+    ((TTecResta *)arg0)->m_13c = 0;
     ((TTecResta *)arg0)->init_parameters();
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
@@ -367,9 +367,9 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 owner, s32 pos, s32 level) {
     }
     temp_r3_2 = ((TTecResta *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)&((TTecResta *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
+        ((TTecResta *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
-    if ((s32) *(s32 *)&((TTecResta *)arg0)->m_ac != 0) {
+    if ((s32) ((TTecResta *)arg0)->m_ac != 0) {
         ((TTecResta *)arg0)->init_cast();
         ((TTecResta *)arg0)->play_launch_sound();
     }

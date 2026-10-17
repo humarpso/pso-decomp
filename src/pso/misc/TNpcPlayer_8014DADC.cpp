@@ -42,7 +42,7 @@ void TNpcPlayer::init_equipment() {
     s32 temp_r4;
 
     temp_r4 = *(s32 *)((s8 *)this + 0x34);
-    temp_r31 = *(s32 *)((s8 *)(*(void * *)&this->m_78) + 0x94);
+    temp_r31 = *(s32 *)((s8 *)(this->m_78) + 0x94);
     if (temp_r4 & 4) {
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 0);
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, this->m_50, 1);
@@ -140,8 +140,8 @@ void TNpcPlayer::partner_request_physical_attack() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r31;
     u32 temp_r3;
-    temp_r31 = TNpcPlayer__sub_80152978((void *)(*(s32 *)&this->m_78));
-    temp_r3 = get_npc_state__10TNpcPlayerFv(*(s32 *)&this->m_78);
+    temp_r31 = TNpcPlayer__sub_80152978((void *)(this->m_78));
+    temp_r3 = get_npc_state__10TNpcPlayerFv(this->m_78);
     if (temp_r3 != temp_r31) {
         set_partner_counter((s32)&this->m_5c, 1, 0);
     }

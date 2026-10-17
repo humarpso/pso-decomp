@@ -36,13 +36,13 @@ void TAdChrSelBSlotGC::create_children() {
 }
 
 void TAdChrSelBSlotGC::sub_8030FE04() {
-    *(s32 *)&this->m_1c = 0;
-    *(s32 *)&this->m_20 = 0;
-    *(s32 *)&this->m_24 = -1;
+    this->m_1c = 0;
+    this->m_20 = 0;
+    this->m_24 = -1;
     *(s32 *)&this->unk_28 = 0;
     this->m_2c = 0;
     *(s32 *)&this->unk_30 = 0;
-    *(s32 *)&this->m_34 = 0;
+    this->m_34 = 0;
     *(s32 *)&this->unk_38 = 0;
     this->m_3c = 0;
     *(s32 *)&this->unk_40 = 0;

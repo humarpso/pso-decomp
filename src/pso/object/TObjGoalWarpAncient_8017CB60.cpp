@@ -77,7 +77,7 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         rotate_matrix_y(0, ((TObjGoalWarpAncient *)arg0)->rotation_y);
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xD8));
-        draw_ginja_model_with_motion(*(s32 *)&((TObjGoalWarpAncient *)arg0)->m_e8, *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
+        draw_ginja_model_with_motion(((TObjGoalWarpAncient *)arg0)->m_e8, *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xE0));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xE8), *(f32 *)((s8 *)arg0 + 0xC8));
         TParticleCtrl::end_effect_render();
@@ -95,7 +95,7 @@ typedef char RecoveredFields_8017CCA4_arg0_E8_offset[offsetof(RecoveredFields_80
 void TObjGoalWarpAncient::debug_print_area_num() {
     debug_print_area_num__12TObjAreaWarpFv();
     TObjNpcEnemy::set_global_count(0xFF00FF);
-    if ((s32) *(s32 *)&this->m_8c < 0) {
+    if ((s32) this->m_8c < 0) {
         *(s32 *)((s8 *)this + 0xD8) = TObjGoalWarpAncient::get_instance();
         debug_printf_at(0x130022, lbl_80443288);
     } else {
@@ -165,10 +165,10 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjGoalWarpAncient__class_name;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DBAC4;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBAC4;
-    *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_e8 = TObjGoalWarpAncient__sub_8017D2D4(1);
+    ((TObjGoalWarpAncient *)arg0)->m_e8 = TObjGoalWarpAncient__sub_8017D2D4(1);
     *(s32 *)((s8 *)arg0 + 0xD0) = TObjGoalWarpAncient__sub_8017D2D4(3);
     *(s32 *)((s8 *)arg0 + 0xD4) = TObjGoalWarpAncient__sub_8017D2D4(5);
-    if ((s32) *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_8c< 0) {
+    if ((s32) ((TObjGoalWarpAncient *)arg0)->m_8c< 0) {
         *(s32 *)((s8 *)arg0 + 0xD8) = TObjGoalWarpAncient::get_instance();
     } else {
         *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv(1);
@@ -177,7 +177,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xE0) = register_warp_object__19TObjGoalWarpAncientFPv(5);
     *(s32 *)((s8 *)arg0 + 0xE4) = register_warp__19TObjGoalWarpAncientFPv(0);
     *(s32 *)((s8 *)arg0 + 0xE8) = register_warp__19TObjGoalWarpAncientFPv(2);
-    if ((get_game_play_mode() == 1) && ((s32) *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_8c >= 0)) {
+    if ((get_game_play_mode() == 1) && ((s32) ((TObjGoalWarpAncient *)arg0)->m_8c >= 0)) {
         queue_destruction__7TObjectFv(arg0);
     }
     if (is_split_screen() == 1) {
@@ -186,9 +186,9 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
         if (var_r0 != 0) {
             var_r0 = init__13TAdVIConfigGCFf(temp_r3, arg0 + 0x38, lbl_805DBABC);
         }
-        *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_dc = var_r0;
+        ((TObjGoalWarpAncient *)arg0)->m_dc = var_r0;
     } else {
-        *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_dc = 0;
+        ((TObjGoalWarpAncient *)arg0)->m_dc = 0;
     }
     return arg0;
 }
@@ -209,14 +209,14 @@ void TObjMapWarpAncient::render() {
         rotate_matrix_y(0, this->rotation_y);
         TParticleCtrl::begin_effect_render();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x88) >= 0) {
-            TObjFish::set_global_param(*(s32 *)&this->m_10c);
+            TObjFish::set_global_param(this->m_10c);
             draw_ginja_model_with_motion(*(s32 *)&this->m_100, *(s32 *)&this->m_118, *(f32 *)&this->unk_FC);
         }
-        TObjFish::set_global_param(*(s32 *)&this->m_110);
-        draw_ginja_object((void *)(*(s32 *)&this->m_104));
+        TObjFish::set_global_param(this->m_110);
+        draw_ginja_object((void *)(this->m_104));
         TParticleCtrl::end_effect_render();
-        TObjFish::set_global_param(*(s32 *)&this->m_114);
-        draw_ginja_object((void *)(*(s32 *)&this->m_108));
+        TObjFish::set_global_param(this->m_114);
+        draw_ginja_object((void *)(this->m_108));
         pop_matrix();
     }
 }

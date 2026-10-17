@@ -185,18 +185,18 @@ extern f32 lbl_805DA070;
 
 void TObjEnemyCustom::update_state() {
 
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case 0:
         this->m_b8 = 0;
-        *(s32 *)&this->state = 1;
+        this->state = 1;
     case 1:
         advance_animation_playback(this);
-        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
+        if (!(this->actorFlags & 0x800000)) {
             apply_actor_gravity((u8 *)this, (s32 *)(0), lbl_805DA070);
         }
         break;
     case -1:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         break;
     }
 }
@@ -223,20 +223,20 @@ void TObjEnemyCustom::run_task() {
         TObjVoloptCage__sub_800C76F0(arg0);
         return;
     }
-    if ((s16) this->mode != (s32) *(s32 *)&this->next_action) {
-        if ((s32) *(s32 *)&this->state != -1) {
-            *(s32 *)&this->state = -1;
+    if ((s16) this->mode != (s32) this->next_action) {
+        if ((s32) this->state != -1) {
+            this->state = -1;
             ((TObjEnemyCustom *)arg0)->dispatch_state();
         }
-        this->mode = (s16) *(s32 *)&this->next_action;
-        *(s32 *)&this->state = 0;
+        this->mode = (s16) this->next_action;
+        this->state = 0;
     }
     ((TObjEnemyCustom *)arg0)->dispatch_state();
-    if ((s32) *(s32 *)&this->state == -1) {
-        *(s32 *)&this->state = -1;
+    if ((s32) this->state == -1) {
+        this->state = -1;
         ((TObjEnemyCustom *)arg0)->dispatch_state();
-        this->mode = (s16) *(s32 *)&this->next_action;
-        *(s32 *)&this->state = 0;
+        this->mode = (s16) this->next_action;
+        this->state = 0;
     }
     ((TObjEnemy *)arg0)->update_prev_position();
     VecCopy((Vec *)&this->m_74, (const Vec *)&this->m_2fc);

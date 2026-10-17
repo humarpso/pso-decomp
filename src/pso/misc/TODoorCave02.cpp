@@ -47,12 +47,12 @@ void TODoorCave02::vfunc_17() {
     if (this->m_d0 & 1) {
         this->texture_id = (s32) *(s32 *)((s8 *)cave_door02_resources + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4B0) != 1) {
-            *(s32 *)&this->m_ac = 3;
+            this->m_ac = 3;
             ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
             play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
         }
     } else {
-        *(s32 *)&this->m_ac = 3;
+        this->m_ac = 3;
         this->texture_id = (s32) *(s32 *)((s8 *)cave_door02_resources + 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, 8);
         play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
@@ -75,7 +75,7 @@ void TODoorCave02::play_proximity_sound() {
         }
     }
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((arg0), lbl_805DB4C0) == 1)) {
-        *(s32 *)&this->m_ac = 1;
+        this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }

@@ -420,7 +420,7 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
     if (p != 0) {
         __ct__12TAdBackTxtGCFv((void *) p, ((u8 *)this));
     }
-    switch (*(s32 *)&this->m_48) {
+    switch (this->m_48) {
     case 0:
     case 2:
         p = __nw__7TObjectFUl(0x138);

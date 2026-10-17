@@ -113,7 +113,7 @@ s32 TODoorFourLightBase::init_door_switch_binding() {
         this->m_cc = 0;
     } else if (temp_r0 < 0) {
         this->m_cc = 1;
-    } else if ((s32) *(s32 *)&this->m_8c < 0) {
+    } else if ((s32) this->m_8c < 0) {
         if ((get_main_phase() == 0xF) || (TRaderMapCore::is_not_split_screen() == 1)) {
             this->m_cc = 3;
         } else {
@@ -273,14 +273,14 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
     if (self->m8(((TODoorFourLightBase *)arg0)->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 1) {
         return;
     }
-    switch (*(s32 *)&((TODoorFourLightBase *)arg0)->m_ac) {
+    switch (((TODoorFourLightBase *)arg0)->m_ac) {
     case 1:
     case 3:
         push_matrix();
         TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, ((TODoorFourLightBase *)arg0)->rotation_y);
-        draw_ginja_model_with_motion(*(s32 *)&((TODoorFourLightBase *)arg0)->m_d4, *(s32 *)&((TODoorFourLightBase *)arg0)->m_bc, ((TODoorFourLightBase *)arg0)->m_b0);
+        draw_ginja_model_with_motion(((TODoorFourLightBase *)arg0)->m_d4, ((TODoorFourLightBase *)arg0)->m_bc, ((TODoorFourLightBase *)arg0)->m_b0);
         pop_matrix();
         break;
     case 2:
@@ -288,7 +288,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
         TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, ((TODoorFourLightBase *)arg0)->rotation_y);
-        draw_ginja_model_with_motion(*(s32 *)&((TODoorFourLightBase *)arg0)->m_d4, *(s32 *)&((TODoorFourLightBase *)arg0)->m_bc, *(f32 *)((s8 *)arg0 + 0xB4));
+        draw_ginja_model_with_motion(((TODoorFourLightBase *)arg0)->m_d4, ((TODoorFourLightBase *)arg0)->m_bc, *(f32 *)((s8 *)arg0 + 0xB4));
         pop_matrix();
         break;
     case 0:
@@ -300,7 +300,7 @@ void render__19TODoorFourLightBaseFv(u8 *arg0) {
         TObjFish::set_global_param((s32)((void *)self->m20()));
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, ((TODoorFourLightBase *)arg0)->rotation_y);
-        draw_ginja_object((void *)(*(s32 *)&((TODoorFourLightBase *)arg0)->m_d4));
+        draw_ginja_object((void *)(((TODoorFourLightBase *)arg0)->m_d4));
         pop_matrix();
         break;
     }

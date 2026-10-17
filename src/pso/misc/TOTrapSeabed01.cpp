@@ -650,11 +650,11 @@ void TOTrapSeabed01::vfunc_6(s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             ((VObj_802CA8C8_eabed01 *)this)->m83();
         }
-        s32 tmp = *(s32 *)&this->m_358;
+        s32 tmp = this->m_358;
         if (tmp >= 0) {
             stop_sound_request(tmp);
             tmp = -1;
-            *(s32 *)&this->m_358 = tmp;
+            this->m_358 = tmp;
         }
         ((s32 (*)(void *))sub_802C9D38__14TOTrapSeabed01Fv)(this);
         set_flag8();

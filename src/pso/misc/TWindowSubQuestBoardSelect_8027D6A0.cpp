@@ -68,7 +68,7 @@ void render__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame(arg0, temp_r3);
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubQuestBoardSelect *)arg0)->m_64), temp_r3);
+    forward_render__20TWindowSubStatusDispFv((int) (((TWindowSubQuestBoardSelect *)arg0)->m_64), temp_r3);
     TWindowSubQuestBoardSelect__sub_8027D444(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
 }

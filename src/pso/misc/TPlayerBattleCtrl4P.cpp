@@ -131,10 +131,10 @@ void TPlayerBattleCtrl4P::update_battle_time_and_rankings() {
 }
 void TPlayerBattleCtrl4P::start_battle() { start_duel(); set_score((s32)((void*)((void*)((void*)1)))); }
 void TPlayerBattleCtrl4P::close_intro_and_start_battle() {
-    void *temp_r3 = *(void * *)&this->intro_window;
+    void *temp_r3 = this->intro_window;
     if ((u32) temp_r3 != 0U) {
         TWindow__close((u8 *)temp_r3);
-        *(u32 *)&this->intro_window = 0U;
+        this->intro_window = 0U;
     }
     set_split_screen_battle_phase(2);
 }
@@ -150,9 +150,9 @@ void TPlayerBattleCtrl4P::wait_for_start_countdown() {
 void TPlayerBattleCtrl4P::update_ready_wait() {
     ready_timer = (ready_timer - 1);
     if ((check_all_players_flag__19TPlayerBattleCtrl4PFv(((void *)this)) != 0) || ((s32) ready_timer >= 0)) {
-        if (*(void * *)&this->intro_window != (void *) 0) {
-        TWindow__close((u8 *)(*(void * *)&this->intro_window));
-        *(u32 *)&this->intro_window = 0U;
+        if (this->intro_window != (void *) 0) {
+        TWindow__close((u8 *)(this->intro_window));
+        this->intro_window = 0U;
         {
             void *temp = __nw__7TObjectFUl(0x28);
             if (temp != 0) {

@@ -489,7 +489,7 @@ void TObjEneDD::init_position_vectors() {
     this->m_248 = (f32) TObjEneDD__data_805D9E8C;
     *(f32 *)((s8 *)arg0 + 0x24C) = (f32) TObjEneDD__data_805D9E8C;
     this->m_250 = (f32) TObjEneDD__data_805D9E8C;
-    *(s32 *)&this->target = 0;
+    this->target = 0;
     this->clear_lobby_object_state();
 }
 

@@ -22,7 +22,7 @@ void TAdMultiPlyChrSelectGC::check_cancel_input() {
     if ((((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
         TAdPlayerLoadGC::set_state(1);
         *(s32 *)&this->unk_58 = 0;
-        *(s32 *)&this->m_20 = 0x1D;
+        this->m_20 = 0x1D;
     }
 }
 

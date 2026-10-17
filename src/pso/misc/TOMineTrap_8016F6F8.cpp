@@ -195,14 +195,14 @@ void TOMineTrap::set_triggered() {
     u8 *arg0 = (u8 *)this;
     this->mode = 3;
     set_indexed_flags(arg0, 0, 1);
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
 void TOMineTrap::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
     set_indexed_flags(arg0, 0, 1);
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
 void TOMineTrap::destroy_matching_traps() {
@@ -276,7 +276,7 @@ s32 TOMineTrap::check_trigger(u32 arg1) {
     if (is_target_in_list((void *)arg1) == 1) {
         return 0;
     }
-    if (((s32) *(s32 *)&this->m_344 == 2) && (arg1 == (u32) *(u32 *)&this->target)) {
+    if (((s32) this->m_344 == 2) && (arg1 == (u32) this->target)) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -288,7 +288,7 @@ s32 TOMineTrap::can_trigger(u32 arg1) {
     if (is_target_in_list((void *)arg1) == 1) {
         return 0;
     }
-    if (((s32) *(s32 *)&this->m_344 == 2) && (arg1 == (u32) *(u32 *)&this->target)) {
+    if (((s32) this->m_344 == 2) && (arg1 == (u32) this->target)) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -394,7 +394,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
     if (temp_r0 == 3) {
         this->mode = temp_r0;
         set_indexed_flags((void *)((void *) (((u8 *)this))), 0, 1);
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         ((TUnk_804806E8 *)((u8 *)this))->calc_attach_pos();
         refresh_collision_body_centers();
         ((TOMine *)(((u8 *)this)))->vfunc_81();
@@ -405,7 +405,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
 
 f32 TOMine::receive_physical_attack(void *, f32) {
     s16 sp8;
-    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
+    if (((u16) this->m_1c >= 0x4000U) && ((u32) this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
         this->mode = 5;
         sp8 = this->mode;
         send_object_state_update(&sp8);
@@ -471,7 +471,7 @@ f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) 
 
 void TOMine::update_trigger() {
     s16 sp8;
-    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
+    if (((u16) this->m_1c >= 0x4000U) && ((u32) this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
         this->mode = 3;
         sp8 = this->mode;
         send_object_state_update(&sp8);
@@ -481,7 +481,7 @@ void TOMine::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
     set_indexed_flags(arg0, 0, 1);
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TOMine *)(arg0))->vfunc_81();
@@ -549,13 +549,13 @@ void TOMine::update_float_height() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f4;
-    if (!(*(s32 *)&this->m_340 & 2)) {
+    if (!(this->m_340 & 2)) {
         temp_f4 = *(f32 *)((s8 *)arg0 + 0x338);
         *(f32 *)((s8 *)arg0 + 0x338) = (f32) (temp_f4 + ((lbl_805DB884 * ((lbl_805DB888 + this->m_54) - temp_f4)) + (*(const f32 *)&TOMineTrap__data_805DB868)));
         temp_f1 = lbl_805DB888 + this->m_54;
         if (temp_f1 <= *(f32 *)((s8 *)arg0 + 0x338)) {
             *(f32 *)((s8 *)arg0 + 0x338) = temp_f1;
-            *(s32 *)&this->m_340 = (s32) (*(s32 *)&this->m_340 | 2);
+            this->m_340 = (s32) (this->m_340 | 2);
         }
     } else {
         *(s32 *)&this->m_5c = (s32) (*(s32 *)&this->m_5c + 0x800);

@@ -4140,7 +4140,7 @@ u8 is_ready__13TBoss2DeRolLeFPv(void *arg0) {
     int var_r4;
 
     var_r4 = 0;
-    if (((s32) *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6c8 <= 0) && !(*(s32 *)((s8 *)arg0 + 0x3C0) & 4)) {
+    if (((s32) ((TBoss2DeRolLe *)arg0)->m_6c8 <= 0) && !(*(s32 *)((s8 *)arg0 + 0x3C0) & 4)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
@@ -4885,13 +4885,13 @@ void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = ((TBoss2DeRolLe *)arg0)->hpmax- ((TBoss2DeRolLe *)arg0)->hp;
     if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
-        *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6c8 = (s32) (*(s32 *)&((TBoss2DeRolLe *)arg0)->m_6c8- temp_r4);
+        ((TBoss2DeRolLe *)arg0)->m_6c8 = (s32) (((TBoss2DeRolLe *)arg0)->m_6c8- temp_r4);
         spawn_offset_particle__13TBoss2DeRolLeFiff(*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
         play_sound((void *)0x4003A80F, (s32)(arg0 + 0x518));
     } else {
-        *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc = (s32) (*(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc- temp_r4);
-        if ((s32) *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc< 0) {
-            *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc = 0;
+        ((TBoss2DeRolLe *)arg0)->m_6cc = (s32) (((TBoss2DeRolLe *)arg0)->m_6cc- temp_r4);
+        if ((s32) ((TBoss2DeRolLe *)arg0)->m_6cc< 0) {
+            ((TBoss2DeRolLe *)arg0)->m_6cc = 0;
             set_flags_play_sound__13TBoss2DeRolLeFPv(arg0);
         }
     }
@@ -5376,11 +5376,11 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
     temp_r3 = temp_r0_2;
     if (((temp_r0_2 == 0x1F) || (temp_r3 == 0x20)) || (temp_r0_2 == 0x1E))
     {
-      *(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags = (s32) ((*(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags) | 0x800);
+      ((TBoss2DeRolLe *)arg0)->actorFlags = (s32) ((((TBoss2DeRolLe *)arg0)->actorFlags) | 0x800);
     }
     else
     {
-      *(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags = (s32) ((*(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags) & 0xFFFFF7FF);
+      ((TBoss2DeRolLe *)arg0)->actorFlags = (s32) ((((TBoss2DeRolLe *)arg0)->actorFlags) & 0xFFFFF7FF);
     }
     temp_r0_3 = *((s32 *) (((s8 *) arg0) + 0x3F4));
     if (temp_r0_3 != 1)

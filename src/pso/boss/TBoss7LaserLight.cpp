@@ -104,5 +104,5 @@ void TBoss7LaserLight__sub_802EF12C(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 
 }
 TBoss7LaserLight::~TBoss7LaserLight() {
-    if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); *(s32 *)&this->m_40 = 0; }
+    if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); this->m_40 = 0; }
 }

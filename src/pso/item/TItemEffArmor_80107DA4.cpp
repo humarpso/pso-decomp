@@ -59,7 +59,7 @@ void TItemEffArmor::render() {
     f32 temp_f1;
     push_matrix();
     post_translate_matrix(arg0 + 0x2C);
-    rotate_matrix_y(0, (int) (*(s32 *)&this->m_68));
+    rotate_matrix_y(0, (int) (this->m_68));
     temp_f1 = *(f32 *)&this->unk_28;
     scale_matrix(0, temp_f1, TItemEffArmor__data_805DAAEC, temp_f1);
     lbl_805D5660 = model_render_flags;
@@ -67,7 +67,7 @@ void TItemEffArmor::render() {
     copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &model_material_color.value);
     set_chunk_material_color((f32 *)(arg0 + 0x38));
     TObjPlayer::notify_fish_if_valid(this->m_78);
-    draw_ginja_model_with_motion((int) (*(s32 *)&this->m_70), (int) (*(s32 *)&this->m_74), this->m_24);
+    draw_ginja_model_with_motion((int) (this->m_70), (int) (this->m_74), this->m_24);
     copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
     model_render_flags = lbl_805D5660;
     pop_matrix();
@@ -78,18 +78,18 @@ void TItemEffArmor::run_task() {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r4;
-    *(s32 *)&this->m_68 = (s32) (*(s32 *)&this->m_68 + 0x139D);
-    temp_r4 = (u8 *)(*(u8 * *)&this->m_6c);
+    this->m_68 = (s32) (this->m_68 + 0x139D);
+    temp_r4 = (u8 *)(this->m_6c);
     if (temp_r4 != NULL) {
         VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)(temp_r4 + 0x38));
     }
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((this->m_24 * this->m_58) / lbl_805DAAF0));
-    temp_r3 = (u8 *)(*(u8 * *)&this->m_1c);
+    temp_r3 = (u8 *)(this->m_1c);
     if (temp_r3 != NULL) {
         ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_2c);
     }
     *(f32 *)&this->m_38 = (f32) (TItemEffArmor__data_805DAAEC - (this->m_24 / lbl_805DAAF0));
-    temp_r3_2 = (u8 *)(*(u8 * *)&this->m_6c);
+    temp_r3_2 = (u8 *)(this->m_6c);
     if (temp_r3_2 != NULL) {
         publish_actor_light_scalars((obj_getField1c(temp_r3_2)), this->m_60, (f32) (*(f32 *)&this->unk_5C));
     }

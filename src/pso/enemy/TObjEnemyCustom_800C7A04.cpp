@@ -79,13 +79,13 @@ extern const f32 lbl_805DA090;
 
 void TObjEnemyCustom::update() {
 
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case 0:
         this->m_b8 = 2;
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x200000);
-        *(s32 *)&this->state = 1;
+        this->actorFlags = (s32) (this->actorFlags | 0x200000);
+        this->state = 1;
     case 1:
-        enemy_turn_toward_dest(this, *(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8));
+        enemy_turn_toward_dest(this, *(s32 *)((s8 *)(this->movementParameters) + 8));
         advance_animation_playback(this);
         if (objInBand((GameObj *)this, (f32)lbl_805DA068) != 0) {
             if ((*(Obj2A8_800c7ae4 * *)&this->target)->v18(this, lbl_805DA074) != 0) {
@@ -94,13 +94,13 @@ void TObjEnemyCustom::update() {
             }
         }
         update_collisions__10TObjPlayerFv(this);
-        if ((u32) *(u32 *)&this->m_b4 != 4U) {
-            *(s32 *)&this->state = -1;
+        if ((u32) this->m_b4 != 4U) {
+            this->state = -1;
         }
         return;
     case -1:
-        *(s32 *)&this->next_action = 1;
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
+        this->next_action = 1;
+        this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);
         break;
     }
 }
@@ -112,24 +112,24 @@ void TObjEnemyCustom::update_wander_state() {
     u8 *temp_r3;
     u8 *temp_r6;
     u8 *temp_r7;
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case -1:
         break;
     case 0:
         this->m_b8 = 1;
-        *(s32 *)&this->state = 1;
+        this->state = 1;
     case 1:
         advance_animation_playback(arg0);
-        temp_r7 = (unsigned char *) (*(void * *)&this->target);
+        temp_r7 = (unsigned char *) (this->target);
         if (temp_r7 != NULL) {
             Vec_800C7C30 v = *(Vec_800C7C30 *)(temp_r7 + 0x2FC);
-            temp_r6 = (unsigned char *) (*(void * *)&this->movementParameters);
+            temp_r6 = (unsigned char *) (this->movementParameters);
             temp_f1 = update_enemy_wander_move((void *)arg0, &v, 1, (int)temp_r6, (f32) (*(f32 *)((s8 *)temp_r6 + 4)));
-            temp_r3 = (unsigned char *) (*(void * *)&this->movementParameters);
+            temp_r3 = (unsigned char *) (this->movementParameters);
             if ((*(f32 *)((s8 *)temp_r3 + 0) < temp_f1) || (temp_f1 < *(f32 *)((s8 *)temp_r3 + 4))) {
-                *(void * *)&this->target = NULL;
+                this->target = NULL;
             }
-            ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8))), arg0 + 0x308);
+            ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(this->movementParameters) + 8))), arg0 + 0x308);
         }
         apply_actor_gravity(arg0, (s32 *)(0), lbl_805DA070);
         update_collisions__10TObjPlayerFv(arg0);

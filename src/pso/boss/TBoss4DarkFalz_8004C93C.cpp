@@ -78,9 +78,9 @@ s32 TBoss4DarkFalz::get_instance() {
 }
 
 int TBoss4DarkFalz::is_field378_zero() { return this->m_378 == 0; }
-s32 TBoss4DarkFalz::get_action_state() { return *(s32 *)&this->m_374; }
-s32 TBoss4DarkFalz::get_phase() { return *(s32 *)&this->m_374; }
-s32 TBoss4DarkFalz::get_state() { return *(s32 *)&this->m_374; }
+s32 TBoss4DarkFalz::get_action_state() { return this->m_374; }
+s32 TBoss4DarkFalz::get_phase() { return this->m_374; }
+s32 TBoss4DarkFalz::get_state() { return this->m_374; }
 void*TBoss4DarkFalz::get_hit_data() { return (char*)this + 0x5c; }
 void TBoss4DarkFalz::save_position() {
     s32 arg0 = (s32)this;
@@ -526,7 +526,7 @@ int check_demo_mode__10TObjPlayerFv(void*);
 int create__14TObjDFUsoTowerFPv(void);
 int fn_8036A514(void*);
 
-void TBoss4DarkFalz::init_timer() { *(int*)((char*)this + 0x380) = 30; dark_falz_form_index = 1; *(int *)&this->m_394 = create__14TObjDFUsoTowerFPv(); TBoss4DarkFalz::refresh_player_equipment(this); }
+void TBoss4DarkFalz::init_timer() { *(int*)((char*)this + 0x380) = 30; dark_falz_form_index = 1; this->m_394 = create__14TObjDFUsoTowerFPv(); TBoss4DarkFalz::refresh_player_equipment(this); }
 
 extern const f32 lbl_805D8958;
 void TBoss4DarkFalz__sub_8004D098(u8 *arg0) {

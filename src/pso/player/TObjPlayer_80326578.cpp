@@ -123,15 +123,15 @@ void TUnk_804ECFB0::update_weapon() {
     s32 temp_r31;
 
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
-        temp_r3 = obj_getS16_32E((u8 *)(*(s32 *)&this->player));
+        temp_r3 = obj_getS16_32E((u8 *)(this->player));
         temp_r0 = this->m_1fc - temp_r3;
         if (temp_r0 != 0) {
             this->m_1fc = temp_r3;
         }
         if (temp_r0 > 0) {
             temp_r31 = temp_r0 / 2;
-            TObjectV8047c128_subtract_hp((u8 *)(*(s32 *)&this->player), (s16) temp_r31);
-            add_actor_tp((u8 *)(*(s32 *)&this->player), (s16) temp_r31);
+            TObjectV8047c128_subtract_hp((u8 *)(this->player), (s16) temp_r31);
+            add_actor_tp((u8 *)(this->player), (s16) temp_r31);
         }
     }
     *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 1);
@@ -252,7 +252,7 @@ void *TUnk_804ED0A8::init_state_1536(s32 _w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = lbl_804ED0A8;
     set_status_flags__10TObjPlayerFUl(this, 1536);
     *(u32 *)((s8 *)this + 0x1F8) = 0;
-    *(u32 *)&this->m_1fc = 0;
+    this->m_1fc = 0;
     return this;
 }
 
@@ -459,7 +459,7 @@ void config_dark_flow_attack_collider(int a0, void* a1) { *(float*)((char*)a1 + 
 void TUnk_804ED488::emit_marker_effects() {
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        if ((s32) ((s16) obj_getS16_32C((u8 *)(*(s32 *)&this->player)) * 8) < ((s16) ((TItemProShield *)(*(s32 *)&this->player))->get_field_2b8())) {
+        if ((s32) ((s16) obj_getS16_32C((u8 *)(this->player)) * 8) < ((s16) ((TItemProShield *)(this->player))->get_field_2b8())) {
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x238E);
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x11C7);
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, 0);

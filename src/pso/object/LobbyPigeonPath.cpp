@@ -143,7 +143,7 @@ s32 filter_lobby_pigeon_theme(void *);
 void TUnk_804E0898::select_lobby_pigeon_model() {
     s32 temp_r3;
 
-    if ((s32) *(s32 *)&this->m_8c < 1) {
+    if ((s32) this->m_8c < 1) {
         this->m_a0 = 0;
     } else {
         this->m_a0 = 1;

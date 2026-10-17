@@ -35,9 +35,9 @@ f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
         var_r31 = arg1;
     }
     if ((var_r31 != 0U) && (is_locally_controlled__10TObjPlayerFPv(var_r31) == 1)) {
-        *(s32 *)&((TOVS2Wall01 *)arg0)->m_33c = (s32) (*(s32 *)&((TOVS2Wall01 *)arg0)->m_33c- 1);
-        if ((s32) *(s32 *)&((TOVS2Wall01 *)arg0)->m_33c <= 0) {
-            *(s32 *)&((TOVS2Wall01 *)arg0)->m_33c = 0;
+        ((TOVS2Wall01 *)arg0)->m_33c = (s32) (((TOVS2Wall01 *)arg0)->m_33c- 1);
+        if ((s32) ((TOVS2Wall01 *)arg0)->m_33c <= 0) {
+            ((TOVS2Wall01 *)arg0)->m_33c = 0;
             ((TOVS2Wall01 *)arg0)->save_and_send_state(1);
         } else {
             ((TOVS2Wall01 *)arg0)->save_and_send_state(0);

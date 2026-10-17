@@ -31,11 +31,11 @@ s32 TCheckMemoryCard::sub_8033BB14() {
         return 8;
     }
     if ((s32) *(s32 *)((s8 *)this + 0x2C) != 0) {
-        return *(s32 *)&this->m_28;
+        return this->m_28;
     }
     *(s32 *)((s8 *)this + 0x2C) = 1;
     var_r31 = fn_8033BAB4(this);
-    if ((s32) *(s32 *)&this->m_1c != 0) {
+    if ((s32) this->m_1c != 0) {
         if (TAdSinglePlyChrSelectGC__sub_8033BA84(0) == 0) {
             var_r31 |= 0x10;
         }

@@ -28,7 +28,7 @@ typedef void (*Fn_vpvp_801BD570)(void *, void *);
 void TObjPlayer__sub_801BD384(void* p) { update_body_parts__10TObjPlayerFv(p); }
 void TObjPlayer__sub_801BD3A4(void) {  }
 void TObjPlayer::free_chara_making() { apply_pending_effect__11TBoss6Type2Fv(this); free_loaded_buffers__12TCharaMakingFv(this); }
-void TObjPlayer::update_body_parts() { copy_player_visual_record((char*)this + 0x85c); *(int *)&this->m_cfc = 255; ((TCharaMaking *)this)->update_body_parts(); TObjWaitEntryHairMoveSim__sub_800FE73C((s32)this); }
+void TObjPlayer::update_body_parts() { copy_player_visual_record((char*)this + 0x85c); this->m_cfc = 255; ((TCharaMaking *)this)->update_body_parts(); TObjWaitEntryHairMoveSim__sub_800FE73C((s32)this); }
 
 void TObjPlayer__sub_801BCD54(void *);
 void TObjPlayer__sub_801BCC50(void *);
@@ -199,7 +199,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BBB70(arg0, arg2);
     ((TObjPlayer *)arg0)->init_class_flags((s32)arg2);
     TObjPlayer__sub_801BB85C(arg0, arg2);
-    *(u16 *)&((TObjPlayer *)arg0)->hp = *(s16 *)((s8 *)arg2 + 0x22);
+    ((TObjPlayer *)arg0)->hp = *(s16 *)((s8 *)arg2 + 0x22);
     return arg0;
 }
 

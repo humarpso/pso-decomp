@@ -29,7 +29,7 @@ extern Rec_8001A4CC lbl_80434358[];
 extern Rec_8001A4CC lbl_804343E8[];
 extern s32 lbl_805D49E0;
 #define P1_805D49E0 (*(Plr_8001A4CC **)&lbl_805D49E0)
-s32 TItemMag::get_type() { return *(s32 *)&this->m_4; }
+s32 TItemMag::get_type() { return this->m_4; }
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
     d->f0 = s->f0;
     d->a = s->a;

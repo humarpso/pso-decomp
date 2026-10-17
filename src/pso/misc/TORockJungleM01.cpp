@@ -164,7 +164,7 @@ void *TORockJungleM01::create(void *arg0) {
 void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TORockJungleM01;
-        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)&((TORockJungleM01 *)arg0)->m_dc = 0; }
+        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); ((TORockJungleM01 *)arg0)->m_dc = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xBC, -1);
@@ -188,27 +188,27 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     ((TObjPlayer *)(arg0 + 0xBC))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D40;
     ((TORockJungleM01 *)(arg0))->apply_object_set_data((void *)arg1);
-    *(u8 * *)&((TORockJungleM01 *)arg0)->model = TORockJungleS01::get_model(2);
+    ((TORockJungleM01 *)arg0)->model = TORockJungleS01::get_model(2);
     ((TORockJungleM01 *)arg0)->texture_id = get_jungle_rock_texture_resource(2);
-    ((TORockJungleM01 *)arg0)->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TORockJungleM01 *)arg0)->model) + 4)) + 0x14));
+    ((TORockJungleM01 *)arg0)->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(((TORockJungleM01 *)arg0)->model) + 4)) + 0x14));
     init_collision_body_parts(arg0, (void *) ((u8 *)&rock_jungle_collision_body_parts.value + 0x2C), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TORockJungleM01 *)arg0)->m_b8 = (s32) ((TORockJungleM01 *)arg0)->m_84;
-    temp_r0 = *(s32 *)&((TORockJungleM01 *)arg0)->m_b8;
+    ((TORockJungleM01 *)arg0)->m_b8 = (s32) ((TORockJungleM01 *)arg0)->m_84;
+    temp_r0 = ((TORockJungleM01 *)arg0)->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        *(s32 *)&((TORockJungleM01 *)arg0)->m_b8 = -1;
+        ((TORockJungleM01 *)arg0)->m_b8 = -1;
     }
     *(ByteBlock_3C *)(copy_storage_8029C588.bytes) = *(const ByteBlock_3C *)((arg1 - 4) + 4);
     VecCopy((Vec *)((copy_storage_8029C588.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
-    *(s32 *)&((TORockJungleM01 *)arg0)->m_dc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
+    ((TORockJungleM01 *)arg0)->m_dc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
     ((TObjPlayer *)(arg0 + 0xBC))->activate_and_dispatch();
     return arg0;
 }
 
 void TORockJungleM01::vfunc_15() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)&this->m_d8 != 0) {
+    if ((s32) this->m_d8 != 0) {
         ((VObj_8029C320*)(arg0 + 0xBC))->m7();
     }
     TObjFish::set_cull_none();

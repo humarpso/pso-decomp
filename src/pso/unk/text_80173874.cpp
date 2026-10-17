@@ -38,10 +38,10 @@ u8 *TORockCaveBL03__ct(u8 *arg0, s32 arg1) {
     init_collision_body_parts(arg0, (s32) ((u8 *)&cave_rock_collision_body_templates.value + 0x58), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TORockCaveBL03 *)arg0)->m_b8 = (s32) ((TORockCaveBL03 *)arg0)->m_84;
-    temp_r0 = *(s32 *)&((TORockCaveBL03 *)arg0)->m_b8;
+    ((TORockCaveBL03 *)arg0)->m_b8 = (s32) ((TORockCaveBL03 *)arg0)->m_84;
+    temp_r0 = ((TORockCaveBL03 *)arg0)->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        *(s32 *)&((TORockCaveBL03 *)arg0)->m_b8 = -1;
+        ((TORockCaveBL03 *)arg0)->m_b8 = -1;
     }
     return arg0;
 }

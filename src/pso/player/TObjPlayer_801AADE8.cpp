@@ -73,7 +73,7 @@ void create_estlla_photon_blast_model(void) {
     (*(s32 *)&estlla_photon_blast_model) = var_r0;
 }
 
-void TPhotonFarlla::sub_801AAE6C() { *(float *)&this->m_184 = lbl_805DC158; *(float*)((char*)this + 0x188) = lbl_805DC158; this->m_18c = lbl_805DC158; *(float*)((char*)this + 0x190) = lbl_805DC158; }
+void TPhotonFarlla::sub_801AAE6C() { this->m_184 = lbl_805DC158; *(float*)((char*)this + 0x188) = lbl_805DC158; this->m_18c = lbl_805DC158; *(float*)((char*)this + 0x190) = lbl_805DC158; }
 
 void TPhotonFarlla::update_all_slots() {
     s32 var_r31;

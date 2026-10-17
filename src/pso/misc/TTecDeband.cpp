@@ -203,7 +203,7 @@ u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 owner, s32 pos, s32 level) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022F948___vt__10TTecDeband *)&__vt__10TTecDeband).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) tec_deband_class_name_ptr;
-    *(s32 *)&((TTecDeband *)arg0)->m_13c = 0;
+    ((TTecDeband *)arg0)->m_13c = 0;
     ((TTecDeband *)arg0)->update_effect_params();
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
@@ -211,7 +211,7 @@ u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 owner, s32 pos, s32 level) {
     }
     temp_r3_2 = ((TTecDeband *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)&((TTecDeband *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
+        ((TTecDeband *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
     ((TTecDeband *)arg0)->init_params();
     ((TTecDeband *)arg0)->play_state_sound();

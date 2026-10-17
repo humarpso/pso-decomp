@@ -24,9 +24,9 @@ void TUnk_80490470::calc_recoil_offsets() {
         } else {
             *(f32 *)&this->unk_0 = (f32) (temp_f1 - lbl_805D995C);
         }
-        *(f32 *)&this->m_4 = (f32) lbl_805D9958;
+        this->m_4 = (f32) lbl_805D9958;
         *(f32 *)&this->unk_8 = (f32) lbl_805D9958;
-        *(f32 *)&this->m_c = (f32) lbl_805D9958;
+        this->m_c = (f32) lbl_805D9958;
         return;
     }
     *(f32 *)&this->unk_0 = (f32) lbl_805D9964;
@@ -34,9 +34,9 @@ void TUnk_80490470::calc_recoil_offsets() {
     if (var_f0 < lbl_805D9964) {
         var_f0 = lbl_805D9964;
     }
-    *(f32 *)&this->m_4 = var_f0;
+    this->m_4 = var_f0;
     *(f32 *)&this->unk_8 = var_f0;
-    *(f32 *)&this->m_c = var_f0;
+    this->m_c = var_f0;
 }
 
     extern const float lbl_805D9958;

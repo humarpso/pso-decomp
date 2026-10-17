@@ -140,7 +140,7 @@ void TObjPlayer__sub_801D877C(u8 *arg0) {
     push_matrix();
     translate_matrix_vec3(0, (arg0 + 0x38));
     rotate_matrix_y(0, (int) (((TUnk_804C4540 *)arg0)->rotation_y));
-    ((s32 (*)(void *, s32, f32, s32))draw_model_with_callback__10TObjPlayerFllf)(arg0, *(s32 *)&((TUnk_804C4540 *)arg0)->unknownF8, ((TUnk_804C4540 *)arg0)->m_c0, *(s32 *)((s8 *)arg0 + 0xE0));
+    ((s32 (*)(void *, s32, f32, s32))draw_model_with_callback__10TObjPlayerFllf)(arg0, ((TUnk_804C4540 *)arg0)->unknownF8, ((TUnk_804C4540 *)arg0)->m_c0, *(s32 *)((s8 *)arg0 + 0xE0));
     pop_matrix();
 }
 

@@ -33,17 +33,17 @@ void TObjRainbowLobby::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if ((s32) *(s32 *)&this->m_c8 != 0) {
+    if ((s32) this->m_c8 != 0) {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        if ((s32) *(s32 *)&this->m_c8 != 3) {
+        if ((s32) this->m_c8 != 3) {
             temp_f1 = *(f32 *)&this->unk_CC;
             scale_matrix(0, temp_f1, (f32) (1.0f), temp_f1);
         }
-        draw_ginja_object((void *)(*(s32 *)&this->model));
+        draw_ginja_object((void *)(this->model));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -122,9 +122,9 @@ void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D435C;
     ((TObjRainbowLobby *)arg0)->apply_object_set_data((void *)arg2);
     if (is_lobby_event_active() != 0) {
-        *(s32 *)&((TObjRainbowLobby *)arg0)->m_c8 = 0;
+        ((TObjRainbowLobby *)arg0)->m_c8 = 0;
     } else {
-        *(s32 *)&((TObjRainbowLobby *)arg0)->m_c8 = 3;
+        ((TObjRainbowLobby *)arg0)->m_c8 = 3;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 8);

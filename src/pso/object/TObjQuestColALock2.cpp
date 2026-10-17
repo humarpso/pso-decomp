@@ -89,7 +89,7 @@ void TObjQuestColALock2::update_room_id_check() {
     u8 *temp_r5;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
         TObjRoomId__sub_80141CF4(arg0 + 0x38, &lbl_804A7438.value, (f32) (lbl_805DBF00 * *(f32 *)&this->unk_AC));
-        temp_r5 = (u8 *)(*(u8 * *)&this->m_a4);
+        temp_r5 = (u8 *)(this->m_a4);
         fn_80141CBC(arg0 + 0x38, &lbl_804A7428.value, (int)temp_r5, (f32) (lbl_805DBF00 * *(f32 *)((s8 *)temp_r5 + 0xC)));
     }
 }
@@ -104,7 +104,7 @@ u8 *TObjQuestColALock2__vt14(u8 *arg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)&((TObjQuestColALock2 *)arg0)->m_b0));
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), ((TObjQuestColALock2 *)arg0)->m_b0));
         }
         var_r31 = var_r0;
         if (var_r0 != NULL) {
@@ -167,10 +167,10 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3408;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
-    temp_r4 = (u8 *)(*(u8 * *)&((TObjQuestColALock2 *)arg0)->m_a4);
+    temp_r4 = (u8 *)(((TObjQuestColALock2 *)arg0)->m_a4);
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + ((TObjQuestColALock2 *)arg0)->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    *(s32 *)&((TObjQuestColALock2 *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjQuestColALock2 *)arg0)->actorFlags| 0x40000000);
+    ((TObjQuestColALock2 *)arg0)->actorFlags = (s32) (((TObjQuestColALock2 *)arg0)->actorFlags| 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TObjQuestColALock2 *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
     if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0< 0) {

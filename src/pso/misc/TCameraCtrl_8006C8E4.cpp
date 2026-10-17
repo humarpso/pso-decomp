@@ -46,7 +46,7 @@ extern s32 lbl_80488D70[];
 void *TUnk_80488D70::init_subobject() {
     ((void (*)(void *))__ct__13TUnk_80488A28Fv)(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_80488D70;
-    *(u32 *)&this->m_38 = 4;
+    this->m_38 = 4;
     return this;
 }
 
@@ -130,7 +130,7 @@ void *__dt__13TUnk_80488DA0Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void* TCameraCtrl__sub_8006CC30(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488DA0; *(float*)((char*)a0 + 0x6c) = (2e+01f); *(int *)&((TUnk_80488DA0 *)a0)->m_38 = 0; return a0; }
+void* TCameraCtrl__sub_8006CC30(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488DA0; *(float*)((char*)a0 + 0x6c) = (2e+01f); ((TUnk_80488DA0 *)a0)->m_38 = 0; return a0; }
 
 struct O_8006CC7C { u8 pad[0x1c]; V_8006CC7C pos; };
 extern O_8006CC7C *lbl_805005D0[];

@@ -541,7 +541,7 @@ void TUnk_804D0618::create_menu_scroll_bar() {
 void TUnk_804D0618::ensure_status_display(s32 arg1) {
     u32 var_r0;
 
-    if ((u32) *(u32 *)&this->m_80 == 0U) {
+    if ((u32) this->m_80 == 0U) {
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
             var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(var_r0, arg1, this->m_20);

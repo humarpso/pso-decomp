@@ -208,7 +208,7 @@ void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBreakUpMdl;
         mem_free((void *)(*(void **)((s8 *)arg0 + 0x34)));
-        *(s32 *)&((TBreakUpMdl *)arg0)->m_34 = 0;
+        ((TBreakUpMdl *)arg0)->m_34 = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -382,7 +382,7 @@ u8 *TBreakUpMdl::init_from_model(s32 arg1) {
     push_matrix_from((void *)((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value));
     ((TBreakUpMdl *)((u8 *)this))->build_node_records((u8 *)((void *) arg1), 0);
     pop_matrix();
-    *(s32 *)&this->m_prev = 0;
+    this->m_prev = 0;
     return ((u8 *)this);
 }
 

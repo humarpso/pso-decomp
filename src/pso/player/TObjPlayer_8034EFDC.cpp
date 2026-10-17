@@ -149,7 +149,7 @@ void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 void TUnk_804F0810::emit_marker_effects() {
     u8 sp8[0x18];
-    struct VObj_8034EFDC *o = (struct VObj_8034EFDC *)*(void * *)&this->player;
+    struct VObj_8034EFDC *o = (struct VObj_8034EFDC *)this->player;
     o->m63(0x30, sp8);
     spawn_particle_effect(sp8, 0x1D0);
 }

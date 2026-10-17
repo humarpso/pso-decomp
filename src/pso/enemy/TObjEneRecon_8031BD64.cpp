@@ -34,7 +34,7 @@ void TObjEneRecon::vfunc_106() {
         rotate_matrix_y(0, this->rotation_y);
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
-        draw_chunk_object((void *)(*(s32 *)&this->model));
+        draw_chunk_object((void *)(this->model));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

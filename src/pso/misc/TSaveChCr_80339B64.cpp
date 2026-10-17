@@ -16,7 +16,7 @@ s32 TSaveChCr__sub_8033A138(void *);
 s32 poll_memcard_status__9TSaveChCrFv();
 s32 save_character__9TSaveChCrFv(void *);
 
-void TSaveChCr::destroy_if_keyboard_idle() { if (*(int *)&this->timer == 0) { queue_destruction__7TObjectFv(this); request_queued_main_phase(); } }
+void TSaveChCr::destroy_if_keyboard_idle() { if (this->timer == 0) { queue_destruction__7TObjectFv(this); request_queued_main_phase(); } }
 int TSaveChCr__sub_80339B94(void* p) { return close_window__9TSaveChCrFv(p); }
 void TSaveChCr::save_if_dirty() { if (TSaveChCr__sub_80339F30(this) != 0) { set_state((s32)((void*)4)); } }
 int TSaveChCr::close_and_advance_to_3() { return close_and_advance__9TSaveChCrFPv(this, 3); }
@@ -52,7 +52,7 @@ void TSaveChCr::update_save_state() {
     temp_r4 = this->card_status;
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
-            if ((u32) *(u32 *)&this->owned_window == 0U) {
+            if ((u32) this->owned_window == 0U) {
                 close_and_advance__9TSaveChCrFPv(this, 0);
             }
         } else {

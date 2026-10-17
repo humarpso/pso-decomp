@@ -5,7 +5,7 @@
 extern "C" {
 
     extern const float lbl_805DAFB8;
-void TObjPlayer__sub_8012F6CC(void* a0) { *(int *)&((TUnk_804A64E8 *)a0)->m_204 = 0; *(float*)((char*)a0 + 0x200) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1fc) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1f8) = lbl_805DAFB8; }
+void TObjPlayer__sub_8012F6CC(void* a0) { ((TUnk_804A64E8 *)a0)->m_204 = 0; *(float*)((char*)a0 + 0x200) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1fc) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1f8) = lbl_805DAFB8; }
 
     extern const float lbl_805DAFBC;
 void TUnk_804A64E8::update_attack() { *(int *)&this->m_204 = 10922; *(float*)((char*)this + 0x200) = lbl_805DAFBC; *(float *)&this->m_1fc = lbl_805DAFBC; *(float*)((char*)this + 0x1f8) = lbl_805DAFBC; }

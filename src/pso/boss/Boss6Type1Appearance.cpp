@@ -165,9 +165,9 @@ TBoss6Demo10_TYPE1_APPEAR::~TBoss6Demo10_TYPE1_APPEAR() {
     restore_player_cameras();
     refresh_players_equipment__14TBoss6PlotFalzFPv();
     ((TBoss6PlotFalz *)(((u8 *)this) + 0x40))->free_buffer_pairs();
-    if ((u32) *(u32 *)&this->m_60 != 0U) {
+    if ((u32) this->m_60 != 0U) {
         TObjFish::init_state_1(*(void **)((s8 *)this + 0x60));
-        *(u32 *)&this->m_60 = 0U;
+        this->m_60 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x64) != 0U) {
         TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x64)));

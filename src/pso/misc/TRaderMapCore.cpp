@@ -391,7 +391,7 @@ s32 should_show_map__13TRaderMapCoreFv(void) {
     }
     return is_technique_ready__8TTecCtrlFv();
 }
-void TRaderMapCore::reset_counter() { *(s32 *)&this->m_184 = 0; }
+void TRaderMapCore::reset_counter() { this->m_184 = 0; }
 
 void TRaderMapCore::hide_radar() {
     if ((void *) (*(u8 * *)&TRaderMapCore__instance) != NULL) {
@@ -830,7 +830,7 @@ void TRaderMapCore::draw_enemy_gate_markers() {
     copy_vec4__13TRaderMapCoreFPvPv(&(*(RecoveredGlobal_801FA1E0_lbl_8050BEC0 *)&saved_model_draw_color).value, &(*(RecoveredGlobal_801FA1E0_lbl_8058D4C0 *)&model_material_color).value);
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    model_render_flags |= *(s32 *)&this->m_194;
+    model_render_flags |= this->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x100);
     for (i = 0, g = (Gate_801FA1E0 *)&TRaderMapCore__marker_buffer; i < TRaderMapCore__data_805D5F30; i++, g++) {
         TRaderMapCore__sub_801F967C(((u8 *)this), g->color);
@@ -840,11 +840,11 @@ void TRaderMapCore::draw_enemy_gate_markers() {
         switch (g->kind) {
         case 0:
             scale_matrix(0, lbl_805DC57C * g->scale, lbl_805DC580, lbl_805DC584 * g->scale);
-            draw_ginja_object((void *)(*(s32 *)&this->m_180));
+            draw_ginja_object((void *)(this->m_180));
             break;
         case 1:
             scale_matrix(0, lbl_805DC580 * g->scale, lbl_805DC580, lbl_805DC580 * g->scale);
-            draw_ginja_object((void *)(*(s32 *)&this->m_17c));
+            draw_ginja_object((void *)(this->m_17c));
             break;
         }
         pop_matrix();
@@ -866,7 +866,7 @@ void TRaderMapCore::draw_player_markers() {
     copy_vec4__13TRaderMapCoreFPvPv(&(*(RecoveredGlobal_801FA350_lbl_8050BEC0 *)&saved_model_draw_color).value, &(*(RecoveredGlobal_801FA350_lbl_8058D4C0 *)&model_material_color).value);
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    model_render_flags |= *(s32 *)&this->m_194;
+    model_render_flags |= this->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x100);
     var_r31 = (arg0 + 0x94);
     var_r30 = 0;
@@ -877,7 +877,7 @@ void TRaderMapCore::draw_player_markers() {
             translate_matrix(0, *(f32 *)((s8 *)var_r31 + 0x0), TRaderMapCore__data_805DC528, *(f32 *)((s8 *)var_r31 + 0x8));
             rotate_matrix_y(0, *(s32 *)((s8 *)var_r31 + 0xC));
             scale_matrix(0, *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10));
-            draw_ginja_object((void *)(*(s32 *)&this->m_178));
+            draw_ginja_object((void *)(this->m_178));
             pop_matrix();
             set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         }
@@ -1138,8 +1138,8 @@ void TRaderMapCore::update_target() {
     if (temp_r3 != 0U) {
         *(u32 *)&this->m_184 = temp_r3;
     }
-    if ((u32) *(u32 *)&this->m_184 != 0U) {
-        if (is_card_flag_set__19TWindowKeyBoardHardFv(obj_getField1c((void*)*(u32 *)&this->m_184)) != 0) {
+    if ((u32) this->m_184 != 0U) {
+        if (is_card_flag_set__19TWindowKeyBoardHardFv(obj_getField1c((void*)this->m_184)) != 0) {
             this->m_168 = (s32) (this->m_168 | lbl_805DC56C);
             return;
         }

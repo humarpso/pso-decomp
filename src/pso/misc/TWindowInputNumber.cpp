@@ -26,7 +26,7 @@ void TWindowInputNumber::confirm_input() {
     }
     play_sound_effect(0x52D01, 0, 0, 0);
     this->inputFlags = (u16) (this->inputFlags | 2);
-    temp = (u32) *(u32 *)&this->unknown70;
+    temp = (u32) this->unknown70;
     if (temp != 0U) {
         ((TWindowSubStatusDisp *)temp)->set_entry_state(2);
     }
@@ -36,7 +36,7 @@ extern s32 number_input_decimal_place_values[];
 
 void TWindowInputNumber::update() {
     play_sound_effect(0x54100, 0, 0, 0);
-    this->value = (s32) (this->value - number_input_decimal_place_values[(s8) *(u8 *)&this->selectedDigit]);
+    this->value = (s32) (this->value - number_input_decimal_place_values[(s8) this->selectedDigit]);
     if ((s32) this->value < (s32) this->minimum) {
         this->value = (s32) this->maximum;
     }
@@ -46,7 +46,7 @@ void TWindowInputNumber::update() {
 
 void TWindowInputNumber::update_value() {
     play_sound_effect(0x54100, 0, 0, 0);
-    this->value = (s32) (this->value + number_input_decimal_place_values[(s8) *(u8 *)&this->selectedDigit]);
+    this->value = (s32) (this->value + number_input_decimal_place_values[(s8) this->selectedDigit]);
     if ((s32) this->value > (s32) this->maximum) {
         this->value = (s32) this->minimum;
     }
@@ -56,13 +56,13 @@ void TWindowInputNumber::update_value() {
 
 void TWindowInputNumber::handle_decrement() {
     play_sound_effect(0x54100, 0, 0, 0);
-    *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->selectedDigit - 1);
-    if ((s8) *(u8 *)&this->selectedDigit < 0) {
+    this->selectedDigit = (u8) (this->selectedDigit - 1);
+    if ((s8) this->selectedDigit < 0) {
         if (this->inputFlags & 1) {
-            *(u8 *)&this->selectedDigit = 0U;
+            this->selectedDigit = 0U;
             return;
         }
-        *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->digitCount - 1);
+        this->selectedDigit = (u8) (this->digitCount - 1);
     }
 }
 

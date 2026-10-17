@@ -280,11 +280,11 @@ u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TWindowDD *)arg0)->construct_base((u8 *)&lbl_804D2D10.value, (s16)(4), (u8 *)(get_window_layout_position(0x7E)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp *)&__vt__24TWindowSubSymbolChatHelp).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubSymbolChatHelp__name;
-    *(s8 *)&((TWindowSubSymbolChatHelp *)arg0)->m_60 = 0;
-    *(s32 *)&((TWindowSubSymbolChatHelp *)arg0)->m_64 = arg1;
-    *(s32 *)&((TWindowSubSymbolChatHelp *)arg0)->m_68 = arg2;
-    *(s32 *)&((TWindowSubSymbolChatHelp *)arg0)->m_6c = 0;
-    *(s32 *)&((TWindowSubSymbolChatHelp *)arg0)->m_70 = 0;
+    ((TWindowSubSymbolChatHelp *)arg0)->m_60 = 0;
+    ((TWindowSubSymbolChatHelp *)arg0)->m_64 = arg1;
+    ((TWindowSubSymbolChatHelp *)arg0)->m_68 = arg2;
+    ((TWindowSubSymbolChatHelp *)arg0)->m_6c = 0;
+    ((TWindowSubSymbolChatHelp *)arg0)->m_70 = 0;
     return arg0;
 }
 

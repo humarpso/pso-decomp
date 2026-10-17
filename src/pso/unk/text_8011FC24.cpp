@@ -42,14 +42,14 @@ void TItemWeapon::update_trails() {
 
 void TItemWeapon::vfunc_28() {
     u8 *arg0 = (u8 *)this;
-    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x80U) == 0U)) {
+    if (((u32) this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x80U) == 0U)) {
         this->reserved_53();
         update_trails();
     }
 }
 void TItemWeapon::vfunc_27() {
     u8 *arg0 = (u8 *)this;
-    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x1000U) == 0U)) {
+    if (((u32) this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x80U) == 0U) && (test_flags_1b8__11TItemWeaponFUl(arg0, 0x1000U) == 0U)) {
         this->reserved_53();
         if (test_flags_1b8__11TItemWeaponFUl(arg0, 0x400U) != 0U) {
             draw_weapon_at_joint((s32)arg0, 0x30);
@@ -63,7 +63,7 @@ void TItemWeapon::vfunc_27() {
 }
 void TItemWeapon::vfunc_26() {
     s32 count;
-    if (((u32) *(u32 *)&this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x80U) == 0U)) {
+    if (((u32) this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x80U) == 0U)) {
         if (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x800U) != 0U) {
             TObjPlayer::push_id_to_list(get_field_d8__5TItemFv(((u8 *)this)));
             return;

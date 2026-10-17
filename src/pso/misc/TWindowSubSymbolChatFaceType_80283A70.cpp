@@ -103,7 +103,7 @@ void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     ((TWindowSubSymbolChatFaceType *)arg0)->update_parts_entries();
     draw_window_frame(arg0, temp_r31);
     TWindowSubSymbolChatFaceType__sub_80283F38((u8 *)arg0, (u8 *)temp_r31);
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_68), temp_r31);
+    forward_render__20TWindowSubStatusDispFv((int) (((TWindowSubSymbolChatFaceType *)arg0)->m_68), temp_r31);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
 }
 typedef char RecoveredGlobal_80284074_lbl_8050E208_size[sizeof(RecoveredGlobal_80284074_lbl_8050E208) == 0x1B0 ? 1 : -1];

@@ -14,11 +14,11 @@ extern "C" {
 extern RecoveredGlobal_803518E0_lbl_8050E208 controller_input_state;
 P_80351974 *TObjPlayer__sub_80351974(P_80351974 *arg0);
 s32 TObjPlayer::get_target_field_1c() {
-    if ((void *) *(void * *)&this->m_next == NULL) {
+    if ((void *) this->m_next == NULL) {
         return 0;
     }
     if (get_flag_1() != 0) {
-        return *(s32 *)((s8 *)(*(void * *)&this->m_next) + 0x1C);
+        return *(s32 *)((s8 *)(this->m_next) + 0x1C);
     }
     return 0;
 }
@@ -26,11 +26,11 @@ s32 TObjPlayer::get_target_field_1c() {
 extern f32 lbl_805DFEC8;
 
 f32 TObjPlayer::get_attached_float_24() {
-    if ((void *) *(void * *)&this->m_next == NULL) {
+    if ((void *) this->m_next == NULL) {
         return lbl_805DFEC8;
     }
     if (get_flag_1() != 0) {
-        return *(f32 *)((s8 *)(*(void * *)&this->m_next) + 0x24);
+        return *(f32 *)((s8 *)(this->m_next) + 0x24);
     }
     return lbl_805DFEC8;
 }

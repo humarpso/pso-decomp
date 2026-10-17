@@ -22,18 +22,18 @@ void TPhotonRainbow::render() {
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
-    this->texture_id = (s32) *(s32 *)&this->m_90;
+    this->texture_id = (s32) this->m_90;
     post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, (s32) this->rotation_y / 2);
     TObjFish::set_global_param(this->texture_id);
-    draw_chunk_object((void *)(*(s32 *)&this->m_98));
+    draw_chunk_object((void *)(this->m_98));
     pop_matrix();
     push_matrix();
-    this->texture_id = (s32) *(s32 *)&this->m_94;
+    this->texture_id = (s32) this->m_94;
     post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, 0x10000 - this->rotation_y);
     TObjFish::set_global_param(this->texture_id);
-    draw_chunk_object((void *)(*(s32 *)&this->m_9c));
+    draw_chunk_object((void *)(this->m_9c));
     pop_matrix();
     TParticleCtrl::end_effect_render();
 }

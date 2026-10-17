@@ -187,25 +187,25 @@ void TWindowSubCustomEquip::update_rotate_anim() {
     if ((s8) this->m_62 > 0) {
         var_r4 = 0x13200;
     }
-    temp_r3 = *(s32 *)&this->m_68;
+    temp_r3 = this->m_68;
     if (var_r4 != temp_r3) {
         if ((s32) (u16) (var_r4 - temp_r3) < 0xC00) {
-            *(s32 *)&this->m_68 = var_r4;
+            this->m_68 = var_r4;
         } else {
-            *(s32 *)&this->m_68 = (temp_r3 + 0xC00);
+            this->m_68 = (temp_r3 + 0xC00);
         }
     }
-    if (*(s32 *)&this->m_68 & 0x8000) {
-        *(s8 *)&this->m_64 = 0;
-        *(s8 *)&this->m_65 = 1;
-        place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68), 9);
-        place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68 + 0x8000), 0);
+    if (this->m_68 & 0x8000) {
+        this->m_64 = 0;
+        this->m_65 = 1;
+        place_bank_slot_on_ring((s32)(this->m_68), 9);
+        place_bank_slot_on_ring((s32)(this->m_68 + 0x8000), 0);
         return;
     }
-    *(s8 *)&this->m_64 = 1;
-    *(s8 *)&this->m_65 = 0;
-    place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68 + 0x8000), 9);
-    place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68), 0);
+    this->m_64 = 1;
+    this->m_65 = 0;
+    place_bank_slot_on_ring((s32)(this->m_68 + 0x8000), 9);
+    place_bank_slot_on_ring((s32)(this->m_68), 0);
 }
 
 void TWindowSubCustomEquip::handle_cancel() {
@@ -218,7 +218,7 @@ void TWindowSubCustomEquip::handle_cancel() {
 void TWindowSubCustomEquip::handle_decide() {
     play_sound_effect(0x52D01, 0, 0, 0);
     this->m_60 = (u8) (this->m_60 | 1);
-    ((TWindowSubStatusDisp *)(*(s32 *)&this->m_6c))->set_entry_state(2);
+    ((TWindowSubStatusDisp *)(this->m_6c))->set_entry_state(2);
 }
 
 extern s32 __vt__21TWindowSubCustomEquip[];
@@ -280,7 +280,7 @@ void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TWindowSubCustomEquip *)arg0)->draw_cursor((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubCustomEquip *)arg0)->m_6c), temp_r3);
+    forward_render__20TWindowSubStatusDispFv((int) (((TWindowSubCustomEquip *)arg0)->m_6c), temp_r3);
 }
 
 typedef char RecoveredGlobal_80277014_lbl_8050E208_size[sizeof(RecoveredGlobal_80277014_lbl_8050E208) == 0x1B0 ? 1 : -1];

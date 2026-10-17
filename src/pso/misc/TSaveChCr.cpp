@@ -76,13 +76,13 @@ void TSaveChCr::set_message_by_index(s32 arg1) {
     open_message_window((u32)((int) (get_localized_text_entry(*(s32 *)((s8 *)temp_r4 + 0), *(s32 *)((s8 *)temp_r4 + 4)))));
 }
 void TSaveChCr::open_message_window(u32 arg1) {
-    if ((u32) *(u32 *)&this->owned_window == 0U) {
+    if ((u32) this->owned_window == 0U) {
         *(u32 *)&this->owned_window = update_window_mode_from_progress__6TLobbyFPv(lbl_80477CAC, lbl_80477CB4);
-        if ((u32) *(u32 *)&this->owned_window != 0U) {
+        if ((u32) this->owned_window != 0U) {
             if (arg1 != 0U) {
-                ((TLobby *)(*(u32 *)&this->owned_window))->send_and_handle(arg1, 3);
+                ((TLobby *)(this->owned_window))->send_and_handle(arg1, 3);
             }
-            ((TWindowMessage *)(*(u32 *)&this->owned_window))->complete_reveal();
+            ((TWindowMessage *)(this->owned_window))->complete_reveal();
         }
     }
 }

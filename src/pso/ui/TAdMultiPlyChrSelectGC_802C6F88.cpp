@@ -7,7 +7,7 @@ extern "C" {
 
 s32 TLobby__sub_8001EA5C(s32, f32, f32, f32, f32);
 
-s32 TAdMultiPlyChrSelectGC::get_field_20() { return *(s32 *)&this->m_20; }
+s32 TAdMultiPlyChrSelectGC::get_field_20() { return this->m_20; }
 
     extern int TAdMultiPlyChrSelectGC__instance;
 int TAdMultiPlyChrSelectGC::get_state() {  return TAdMultiPlyChrSelectGC__instance; }

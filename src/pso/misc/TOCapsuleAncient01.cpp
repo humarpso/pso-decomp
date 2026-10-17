@@ -146,7 +146,7 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
     ((TOCapsuleAncient01 *)arg0)->m_c0 = (f32) lbl_805DB378;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB37C;
-    *(s32 *)&((TOCapsuleAncient01 *)arg0)->m_e4 = 0;
+    ((TOCapsuleAncient01 *)arg0)->m_e4 = 0;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1)) {
         queue_destruction__7TObjectFv(arg0);
     }
@@ -157,7 +157,7 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TOCapsuleAncient01::vfunc_15() {
-    *(s32 *)&this->m_e4 = (s32) (*(s32 *)&this->m_e4 + 0x222);
+    this->m_e4 = (s32) (this->m_e4 + 0x222);
 }
 
 }

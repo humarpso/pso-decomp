@@ -20,7 +20,7 @@ extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
 s32 TAdSinglePlyChrSelectGC::get_result() {
     if (((s32 (*)())is_selection_done__23TAdSinglePlyChrSelectGCFPv)() != 0) {
-        return *(s32 *)&this->m_28;
+        return this->m_28;
     }
     return 0;
 }

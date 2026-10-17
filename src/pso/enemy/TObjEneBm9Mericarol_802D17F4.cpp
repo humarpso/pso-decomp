@@ -206,7 +206,7 @@ void __dt__7TObjectFv(void *, int);
 void *TObjEneBm9Mericarol_Bomb::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E18A8;
-        if (this->m_110 != NULL) { queue_destruction__7TObjectFv(this->m_110); *(s32 *)&this->m_110 = 0; }
+        if (this->m_110 != NULL) { queue_destruction__7TObjectFv(this->m_110); this->m_110 = 0; }
         if (*(void * *)&this->unk_114 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_114); *(s32 *)&this->unk_114 = 0; }
         destroy_enemy_object(0);
         if (arg1 > 0) {
@@ -257,7 +257,7 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Ve
         *(s32 *)((s8 *)arg0 + 0x104) = 0x208;
         break;
     }
-    *(f32 *)((s8 *)(*(u8 * *)&((TObjEneBm9Mericarol_Bomb *)arg0)->m_a4) + 0xC) = lbl_805DE76C;
+    *(f32 *)((s8 *)(((TObjEneBm9Mericarol_Bomb *)arg0)->m_a4) + 0xC) = lbl_805DE76C;
     *(s16 *)((s8 *)arg0 + 0xB0) = obj_getField1c(arg1);
     VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)arg2);
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0xB4));

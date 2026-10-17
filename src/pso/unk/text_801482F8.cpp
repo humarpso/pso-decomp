@@ -342,7 +342,7 @@ void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
     u32 temp_r3;
 
-    if ((s32) *(s32 *)&this->m_3a8 > 0) {
+    if ((s32) this->m_3a8 > 0) {
         if ((s32) arg1 == (s32) local_client_id) {
             temp_r3 = get_player_by_client_id();
             if ((temp_r3 != 0U) && ((s16) this->mode != 3)) {
@@ -355,7 +355,7 @@ void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
                     play_effect_default__10TObjPlayerFii(temp_r3, -1);
                 }
                 ((VObj18_801482f8 *) this)->vf160(1);
-                *(s32 *)&this->m_2ac = 0;
+                this->m_2ac = 0;
             }
         } else {
             this->m_94 = 0xFFFFU;
@@ -375,28 +375,28 @@ void TObjNpcBase::debug_draw_talk() {
 void TObjNpcBase::apply_set_params(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    temp_r0 = *(s32 *)&this->variant;
+    temp_r0 = this->variant;
     if (temp_r0 <= arg1) {
-        *(s32 *)&this->variant = arg1;
+        this->variant = arg1;
     } else if (arg2 <= temp_r0) {
-        *(s32 *)&this->variant = arg2;
+        this->variant = arg2;
     }
     if (lbl_805DB1B8 <= *(f32 *)((s8 *)arg0 + 0x358)) {
-        *(s32 *)&this->m_38c = 1;
-        *(s32 *)&this->m_3a0 = (s32) (*(f32 *)((s8 *)arg0 + 0x358) - lbl_805DB1B8);
+        this->m_38c = 1;
+        this->m_3a0 = (s32) (*(f32 *)((s8 *)arg0 + 0x358) - lbl_805DB1B8);
     } else {
-        *(s32 *)&this->m_3a0 = (s32) *(f32 *)((s8 *)arg0 + 0x358);
+        this->m_3a0 = (s32) *(f32 *)((s8 *)arg0 + 0x358);
     }
     if (lbl_805DB1B8 <= *(f32 *)((s8 *)arg0 + 0x35C)) {
-        *(s32 *)&this->m_38c = 1;
-        *(s32 *)&this->m_3a4 = (s32) (*(f32 *)((s8 *)arg0 + 0x35C) - lbl_805DB1B8);
+        this->m_38c = 1;
+        this->m_3a4 = (s32) (*(f32 *)((s8 *)arg0 + 0x35C) - lbl_805DB1B8);
     } else {
-        *(s32 *)&this->m_3a4 = (s32) *(f32 *)((s8 *)arg0 + 0x35C);
+        this->m_3a4 = (s32) *(f32 *)((s8 *)arg0 + 0x35C);
     }
     ((TObjNpcBase *)arg0)->sub_80149360((s32) *(f32 *)((s8 *)arg0 + 0x364));
     ((TObjNpcBase *)arg0)->sub_80149358((s32) *(f32 *)((s8 *)arg0 + 0x360));
     this->m_384 = (s32) this->rotation_y;
-    if ((s32) *(s32 *)&this->m_3ac > 0) {
+    if ((s32) this->m_3ac > 0) {
         *(f32 *)&this->unk_398 = (f32) lbl_805DB1BC;
         return;
     }
@@ -613,7 +613,7 @@ void TObjNpcBase::update_standing() {
         break;
     case 2:
         if (this->rotation_y != this->m_384) {
-            this->rotation_y = approach_angle_limited(this->rotation_y, this->m_384, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
+            this->rotation_y = approach_angle_limited(this->rotation_y, this->m_384, *(s32 *)((s8 *)(this->movementParameters) + 8));
         } else {
             this->phase = 1;
             ((VObj18_801482f8 *) arg0)->vf160(0);
@@ -626,7 +626,7 @@ void TObjNpcBase::vfunc_59() {
     s16 temp_r0;
     temp_r0 = this->mode;
     if ((temp_r0 >= 4) || (temp_r0 < 1)) {
-        if ((s32) *(s32 *)&this->variant != 1) {
+        if ((s32) this->variant != 1) {
             this->mode = 1;
             this->phase = 0;
             ((VObj18_801482f8 *) this)->vf160(0);

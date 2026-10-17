@@ -109,7 +109,7 @@ int get_item_field_6__10TObjPlayerFPv(void *p);
 u8 get_field_ed__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 
-s32 TObjPlayer::get_entity_id() { return *(s32 *)&this->texture_id; }
+s32 TObjPlayer::get_entity_id() { return this->texture_id; }
 s32 TObjPlayer__sub_8010A058(void* p) { return *(s32*)((char*)p + 0xf4); }
 
 extern const f32 lbl_805DAB58;

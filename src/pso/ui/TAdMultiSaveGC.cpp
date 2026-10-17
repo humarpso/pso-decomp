@@ -17,11 +17,11 @@ extern s32 __vt__14TAdMultiSaveGC[];
 void *__dt__14TAdMultiSaveGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdMultiSaveGC;
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); *(s32 *)&((TAdMultiSaveGC *)arg0)->m_20 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)&((TAdMultiSaveGC *)arg0)->m_24 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)&((TAdMultiSaveGC *)arg0)->m_2c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)&((TAdMultiSaveGC *)arg0)->m_28 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)&((TAdMultiSaveGC *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); ((TAdMultiSaveGC *)arg0)->m_20 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); ((TAdMultiSaveGC *)arg0)->m_24 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); ((TAdMultiSaveGC *)arg0)->m_2c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); ((TAdMultiSaveGC *)arg0)->m_28 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); ((TAdMultiSaveGC *)arg0)->m_30 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -38,7 +38,7 @@ int get_player_list__10TObjPlayerFv(void*);
     extern const float lbl_805DB038;
     extern const float lbl_805DB044;
     extern const float lbl_805DB04C;
-void* yasminkov_2000h_ct(void* a0, s32 _w1, s32 _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6CC8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB04C; *(int*)((char*)a0 + 0x1f8) = 0; *(float *)&((TUnk_804A6CC8 *)a0)->m_204 = lbl_805DB038; *(float*)((char*)a0 + 0x200) = lbl_805DB038; *(float *)&((TUnk_804A6CC8 *)a0)->m_1fc = lbl_805DB038; *(int*)((char*)a0 + 0x208) = 0; *(float*)((char*)a0 + 0x214) = lbl_805DB044; *(float *)&((TUnk_804A6CC8 *)a0)->m_210 = lbl_805DB044; ((TUnk_804A6CC8 *)a0)->m_20c = lbl_805DB044; return a0; }
+void* yasminkov_2000h_ct(void* a0, s32 _w1, s32 _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6CC8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB04C; *(int*)((char*)a0 + 0x1f8) = 0; ((TUnk_804A6CC8 *)a0)->m_204 = lbl_805DB038; *(float*)((char*)a0 + 0x200) = lbl_805DB038; ((TUnk_804A6CC8 *)a0)->m_1fc = lbl_805DB038; *(int*)((char*)a0 + 0x208) = 0; *(float*)((char*)a0 + 0x214) = lbl_805DB044; ((TUnk_804A6CC8 *)a0)->m_210 = lbl_805DB044; ((TUnk_804A6CC8 *)a0)->m_20c = lbl_805DB044; return a0; }
 
 u8 *create_yasminkov_2000h(s32 arg0) {
     u8 *temp_r3;
@@ -83,12 +83,12 @@ void TUnk_804A6DC0::update_weapon() {
         break;
     case 3:
         *(s32 *)((s8 *)((u8 *)this) + 0x1F8) = 1;
-        temp_r31 = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60) - 0x4000;
+        temp_r31 = *(s32 *)((s8 *)(this->player) + 0x60) - 0x4000;
         buffer_14[0] = sin_table_lookup(temp_r31);
         buffer_14[1] = lbl_805DB05C;
         buffer_14[2] = cos_table_lookup(temp_r31);
         buffer_8[0] = 0x4000;
-        buffer_8[1] = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60);
+        buffer_8[1] = *(s32 *)((s8 *)(this->player) + 0x60);
         buffer_8[2] = 0;
         TObjPlayer::launch_weapon_casing(tl_05, (u32) ((u8 *)this), 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
         break;
@@ -114,7 +114,7 @@ void *__dt__13TUnk_804A6DC0Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804A6DC0); *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB060; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB054; *(float *)&((TUnk_804A6DC0 *)a0)->m_200 = lbl_805DB054; ((TUnk_804A6DC0 *)a0)->m_1fc = lbl_805DB054; return a0; }
+void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804A6DC0); *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB060; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB054; ((TUnk_804A6DC0 *)a0)->m_200 = lbl_805DB054; ((TUnk_804A6DC0 *)a0)->m_1fc = lbl_805DB054; return a0; }
 u8 *create_yasminkov_7000v(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

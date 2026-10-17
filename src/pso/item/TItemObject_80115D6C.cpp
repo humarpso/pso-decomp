@@ -100,7 +100,7 @@ void *__vt__11TItemObject[] = {
 u8 TItemObject::sub_80115D7C() { return this->m_100; }
 
 u8 TItemObject::get_tool_pmt_amount_byte() {
-    return (u8) *(u16 *)((s8 *)(*(void * *)&this->m_f8) + 8);
+    return (u8) *(u16 *)((s8 *)(this->m_f8) + 8);
 }
 
 void TItemObject::vfunc_14() {
@@ -335,7 +335,7 @@ void TItemObject::vfunc_31() {
 
 void TItemObject::vfunc_44() {
     update_pickup_flag__5TItemFl();
-    *(s8 *)&this->m_101 = 1;
+    this->m_101 = 1;
 }
 
 extern s32 lbl_805D2C28;

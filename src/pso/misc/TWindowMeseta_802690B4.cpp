@@ -13,7 +13,7 @@ s32 draw_window_tab(s32, s32, s32, f32);
 s32 TWindowMeseta::get_meseta_value() {
     void *temp_r3;
 
-    if (get_player_by_client_id(*(s32 *)&this->m_64) == 0U) {
+    if (get_player_by_client_id(this->m_64) == 0U) {
         return 0;
     }
     temp_r3 = get_quest_id__12TQuestListVMFv();

@@ -9,10 +9,10 @@ extern "C" {
 void TWindowSubComCard::update_display_state() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)&this->m_28;
+    temp_r4 = this->m_28;
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
-            if ((u32) *(u32 *)&this->m_30 == 0U) {
+            if ((u32) this->m_30 == 0U) {
                 update_card_display((void*)0, (void*)(-1), (void*)(-1), (void*)(-1));
             }
         } else {
@@ -50,7 +50,7 @@ void TWindowSubComCard::update_display_state() {
 void TWindowSubComCard::close_and_update_display() {
     u8 *arg0 = (u8 *)this;
     ((TWindowSubComCard *)arg0)->close_windows();
-    if (*(s32 *)&this->m_28 & 1) {
+    if (this->m_28 & 1) {
         ((TWindowSubComCard *)arg0)->update_card_display((void*)0, (void*)(-1), (void*)(-1), (void*)(-1));
     }
 }

@@ -191,7 +191,7 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
     ((TUnk_804E14E8 *)arg0)->m_108 = arg2;
     *(s16 *)((s8 *)arg0 + 0x10A) = arg6;
     *(s32 *)((s8 *)arg0 + 0x104) = arg5;
-    *(Vec_802CDEB4 * *)&((TUnk_804E14E8 *)arg0)->m_f0 = arg1;
+    ((TUnk_804E14E8 *)arg0)->m_f0 = arg1;
     ((TUnk_804E14E8 *)arg0)->m_e8 = lbl_805DE6C0;
     push_matrix_from(identity_matrix);
     {

@@ -33,7 +33,7 @@ void TBoss1DragonEffBreath::run_task() {
         return;
     }
     if (temp_f1 < lbl_805D8134) {
-        ((TBoss1Dragon *)((int) TBoss1Dragon::get_instance()))->deliver_breath_attack((s32)(arg0 + 0x1C), (s32)((int) (*(s32 *)&this->m_34)));
+        ((TBoss1Dragon *)((int) TBoss1Dragon::get_instance()))->deliver_breath_attack((s32)(arg0 + 0x1C), (s32)((int) (this->m_34)));
     }
 }
 
@@ -41,7 +41,7 @@ void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBreath;
         delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x34)), 1);
-        *(s32 *)&((TBoss1DragonEffBreath *)arg0)->m_34 = 0;
+        ((TBoss1DragonEffBreath *)arg0)->m_34 = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

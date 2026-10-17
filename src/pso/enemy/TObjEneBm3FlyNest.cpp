@@ -1143,7 +1143,7 @@ void TObjEneBm3FlyNest::render_with_state_debug() {
     f32 var_f31;
     Ent_800B23A0 *var_r30;
     if (((TObjEneDD *)arg0)->get_target_info() != 0) {
-        switch (*(s32 *)&this->m_3a8) {
+        switch (this->m_3a8) {
         default:
         case 2:
             debug_printf_at(pack_debug_text_position(0, 0), lbl_8043B328);
@@ -1155,10 +1155,10 @@ void TObjEneBm3FlyNest::render_with_state_debug() {
             debug_printf_at(pack_debug_text_position(0, 0), lbl_8043B348);
             break;
         }
-        debug_printf_at(pack_debug_text_position(0, 1), lbl_8043B358, *(s32 *)&this->m_3ac);
-        debug_printf_at(pack_debug_text_position(0, 2), lbl_8043B368, *(s32 *)&this->m_3b0);
+        debug_printf_at(pack_debug_text_position(0, 1), lbl_8043B358, this->m_3ac);
+        debug_printf_at(pack_debug_text_position(0, 2), lbl_8043B368, this->m_3b0);
     }
-    switch (*(s32 *)&this->m_3a8) {
+    switch (this->m_3a8) {
     default:
     case 2:
         var_f31 = 0.0f;
@@ -1184,7 +1184,7 @@ void TObjEneBm3FlyNest::render_with_state_debug() {
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
         TObjPlayer::set_global_flag();
-        draw_model_motion((void *)(*(s32 *)&this->model), var_r30, var_f31);
+        draw_model_motion((void *)(this->model), var_r30, var_f31);
         TObjPlayer::clear_global_state();
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();
@@ -1765,22 +1765,22 @@ void TObjEneBm3FlyNest::init_params() {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    *(s32 *)&this->m_3a8 = 2;
-    *(s32 *)&this->m_3ac = (s32) *(f32 *)((s8 *)this + 0x358);
-    temp_r0 = *(s32 *)&this->m_3ac;
+    this->m_3a8 = 2;
+    this->m_3ac = (s32) *(f32 *)((s8 *)this + 0x358);
+    temp_r0 = this->m_3ac;
     if (temp_r0 < 0) {
-        *(s32 *)&this->m_3ac = 0;
+        this->m_3ac = 0;
     } else if (temp_r0 > 6) {
-        *(s32 *)&this->m_3ac = 6;
+        this->m_3ac = 6;
     }
-    *(s32 *)&this->m_3b0 = (s32) *(f32 *)((s8 *)this + 0x35C);
-    temp_r0_2 = *(s32 *)&this->m_3b0;
+    this->m_3b0 = (s32) *(f32 *)((s8 *)this + 0x35C);
+    temp_r0_2 = this->m_3b0;
     if (temp_r0_2 < 0) {
-        *(s32 *)&this->m_3b0 = 0;
+        this->m_3b0 = 0;
         return;
     }
     if (temp_r0_2 > 0x1E) {
-        *(s32 *)&this->m_3b0 = 0x1E;
+        this->m_3b0 = 0x1E;
     }
 }
 
@@ -1812,10 +1812,10 @@ void TObjEneBm3FlyNest::update_replenish() {
     s32 temp_r0_2;
     s32 temp_r0_3;
     s32 var_r5;
-    switch (*(s32 *)&this->m_4d0) {
+    switch (this->m_4d0) {
     case 0:
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x3B0) <= (s32) ((s32) *(s32 *)&this->m_3ac / 2)) || ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) != 0)) {
-            *(s32 *)&this->m_4d0 = 1;
+        if (((s32) *(s32 *)((s8 *)arg0 + 0x3B0) <= (s32) ((s32) this->m_3ac / 2)) || ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) != 0)) {
+            this->m_4d0 = 1;
             *(s32 *)((s8 *)arg0 + 0x4BC) = 0;
         }
         return;
@@ -1829,11 +1829,11 @@ void TObjEneBm3FlyNest::update_replenish() {
                 if (temp_r0_2 < var_r5) {
                     var_r5 = temp_r0_2;
                 }
-                temp_r0_3 = *(s32 *)&this->m_3b0 - *(s32 *)((s8 *)arg0 + 0x3B4);
+                temp_r0_3 = this->m_3b0 - *(s32 *)((s8 *)arg0 + 0x3B4);
                 if (temp_r0_3 < var_r5) {
                     var_r5 = temp_r0_3;
                 }
-                *(s32 *)&this->m_4d4 = var_r5;
+                this->m_4d4 = var_r5;
                 return;
             }
         }
@@ -2119,10 +2119,10 @@ void TObjEneBm3FlyNest::render_parts() {
     u8 *arg0 = (u8 *)this;
     ((s32 (*)(s32, void *))set_global_param__8TObjFishFl)(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x42C)) + 0xC), (*(u8 * *)&lbl_805D5108));
     push_matrix();
-    if ((s32) *(s32 *)&this->m_2c == 0) {
+    if ((s32) this->m_2c == 0) {
         post_translate_matrix(*(void * *)&this->actorFlags);
     } else {
-        post_translate_matrix(*(void * *)&this->model);
+        post_translate_matrix(this->model);
     }
     post_translate_matrix((u8 *)&this->m_1c);
     ((s32 (*)(s32, s32))rotate_matrix_y)(0, *(s32 *)((s8 *)arg0 + 0x40));

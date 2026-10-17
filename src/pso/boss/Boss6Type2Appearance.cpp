@@ -354,7 +354,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_d4 = get_bml_model(count, 0xC);
     *(s32 *)((s8 *)arg0 + 0xD8) = TObjFish__sub_8001EDB0(count, 0xC);
     ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_dc = get_bml_motion(count, 0x22);
-    *(s32 *)&((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_7c = TObjFish__sub_800E3124((u8 *)boss6_type2_appear_model_node_descriptors, (s32)(arg0 + 0x1C));
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_7c = TObjFish__sub_800E3124((u8 *)boss6_type2_appear_model_node_descriptors, (s32)(arg0 + 0x1C));
     for (i = 0; i < 9; i++) {
         self->arr[i] = 0;
     }

@@ -756,12 +756,12 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    switch (*(s32 *)&((TTecLuker *)arg0)->m_108) {
+    switch (((TTecLuker *)arg0)->m_108) {
     case 0:
         temp_r3 = obj_getField1c(owner);
         if (temp_r3 != 0xFFFFU) {
             if (temp_r3 > 0xCU) {
-                *(s32 *)&((TTecLuker *)arg0)->m_108 = 4;
+                ((TTecLuker *)arg0)->m_108 = 4;
                 return;
             }
             tgt = *(u8 **)((s8 *)arg0 + 0xEC);
@@ -802,14 +802,14 @@ void run_task__9TTecLukerFv(u8 *arg0) {
                 play_sound_effect(0x40022D1A, player + 0x38, 0, 0);
             }
             TWindowCtrl::init_all_slots();
-            *(s32 *)&((TTecLuker *)arg0)->m_108 = 2;
+            ((TTecLuker *)arg0)->m_108 = 2;
             return;
         }
         break;
     case 2:
-        *(s32 *)&((TTecLuker *)arg0)->m_10c = (s32) (*(s32 *)&((TTecLuker *)arg0)->m_10c+ 1);
-        if ((s32) *(s32 *)&((TTecLuker *)arg0)->m_10c> 0xA) {
-            *(s32 *)&((TTecLuker *)arg0)->m_108 = 3;
+        ((TTecLuker *)arg0)->m_10c = (s32) (((TTecLuker *)arg0)->m_10c+ 1);
+        if ((s32) ((TTecLuker *)arg0)->m_10c> 0xA) {
+            ((TTecLuker *)arg0)->m_108 = 3;
             return;
         }
         break;
@@ -818,14 +818,14 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         temp_r29 = (u8 *)get_player_by_client_id(((TTecLuker *)arg0)->m_f6);
         if ((is_split_screen() == 0) && (temp_r29 != NULL)) {
             if (*(s32 *)((s8 *)temp_r29 + 0x30) & 0x800) {
-                *(s32 *)&((TTecLuker *)arg0)->m_108 = 1;
+                ((TTecLuker *)arg0)->m_108 = 1;
                 TWindowCtrl::init_all_slots2();
                 if ((u32) ((TTecLuker *)arg0)->m_f0 == 0U) {
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
                 clear_pipe_interaction_latch((void*)(*(void **)((s8 *)arg0 + 0xF0)));
-                *(s32 *)&((TTecLuker *)arg0)->m_10c = 0;
+                ((TTecLuker *)arg0)->m_10c = 0;
                 return;
             }
             ((void (*)(void *, u16))set_state__9TTecLukerFl)(temp_r29 + 0x848, temp_r30);

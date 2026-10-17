@@ -172,7 +172,7 @@ void __dl__7TObjectFPv(void *);
 void *TUnk_80494E48::destroy_particle_obj(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80494E48;
-        if (this->m_f8 != NULL) { queue_destruction__7TObjectFv(this->m_f8); *(s32 *)&this->m_f8 = 0; }
+        if (this->m_f8 != NULL) { queue_destruction__7TObjectFv(this->m_f8); this->m_f8 = 0; }
         destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

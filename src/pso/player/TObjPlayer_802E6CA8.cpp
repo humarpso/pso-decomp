@@ -219,7 +219,7 @@ u8 *TObjPlayer::init_breakup_pieces(void *arg1, s32 arg2) {
     TObjPlayer::concat_matrix(0, *(s32 *)((s8 *)((u8 *)this) + 0x2C));
     (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).z = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).y = (*(Vec_802E6F10 *)((s8 *)((u8 *)this) + 0x30)).x = lbl_805DE9CC;
     matrix_mult_vec(0, ((u8 *)this) + 0x30, ((u8 *)this) + 0x30);
-    for (i = 0; i < *(s32 *)&this->texture_id; i++) {
+    for (i = 0; i < this->texture_id; i++) {
         matrix_mult_vec(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].pos, &part->pos);
         rotate_vector_by_matrix(0, &(*(Model_802E6F10 **)((s8 *)((u8 *)this) + 0x1C))->bones[i].rot, &part->rot);
         part->rot.y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
@@ -336,7 +336,7 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     temp_r4 = *(s32 **)((s8 *)this + 0x1C);
     this->m_24 = (s32) *temp_r4;
     TObjPlayer__sub_802E75B8(this, temp_r4);
-    *(s32 *)&(*(u32 *)&this->unk_28) = (s32)mem_alloc(this->m_24 * 0x2C);
+    *(s32 *)&(this->unk_28) = (s32)mem_alloc(this->m_24 * 0x2C);
 }
 
 }

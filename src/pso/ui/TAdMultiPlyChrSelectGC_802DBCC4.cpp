@@ -137,7 +137,7 @@ s32 TAdMultiPlyChrSelectGC::get_state_result() {
     s32 var_r4;
 
     var_r4 = -1;
-    temp_r0 = *(s32 *)&this->m_20;
+    temp_r0 = this->m_20;
     switch (temp_r0) {
     case 0:
         var_r4 = 0;

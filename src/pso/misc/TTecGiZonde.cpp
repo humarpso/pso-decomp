@@ -353,7 +353,7 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
         break;
     }
     if (((TTecGiZonde *)arg0)->source != 0U) {
-        *(s16 *)&((TTecGiZonde *)arg0)->sourceId = obj_getField1c((void *)((TTecGiZonde *)arg0)->source);
+        ((TTecGiZonde *)arg0)->sourceId = obj_getField1c((void *)((TTecGiZonde *)arg0)->source);
     }
     return arg0;
 }

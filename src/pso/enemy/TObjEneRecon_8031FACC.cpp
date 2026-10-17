@@ -38,7 +38,7 @@ void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     Stack_8031FB6C stack;
     u8 *temp_r3;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x2FC));
-    if ((s32) *(s32 *)&((TObjEneRecobox *)arg0)->m_3f8 == 1) {
+    if ((s32) ((TObjEneRecobox *)arg0)->m_3f8 == 1) {
         stack.spC -= lbl_805DF450;
     } else {
         stack.spC += lbl_805DF450;

@@ -51,12 +51,12 @@ void TObjBoss5Pillar::render() {
         push_matrix();
         TObjFish::set_global_param(boss5_common_texture_list);
         post_translate_matrix(arg0 + 0x2C);
-        if ((s32) *(s32 *)&this->m_1c != 3) {
-            fn_8028ADDC((void *)(*(s32 *)&this->m_48));
-            draw_ginja_model_with_motion((int) (*(s32 *)&this->m_38), (int) (*(s32 *)&this->m_40), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
-            TObjBoss5PillarDemo__sub_8028ADB0((*(s32 *)&this->m_48));
+        if ((s32) this->m_1c != 3) {
+            fn_8028ADDC((void *)(this->m_48));
+            draw_ginja_model_with_motion((int) (this->m_38), (int) (this->m_40), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
+            TObjBoss5PillarDemo__sub_8028ADB0((this->m_48));
         }
-        draw_ginja_model_with_motion((int) (*(s32 *)&this->m_3c), (int) (*(s32 *)&this->m_44), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
+        draw_ginja_model_with_motion((int) (this->m_3c), (int) (this->m_44), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
         pop_matrix();
     }
 }
@@ -98,7 +98,7 @@ void TObjBoss5Pillar::run_task() {
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss5Pillar;
-        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)&((TObjBoss5Pillar *)arg0)->m_48 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); ((TObjBoss5Pillar *)arg0)->m_48 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -112,15 +112,15 @@ u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B40;
     VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg2);
-    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_1c = 0;
+    ((TObjBoss5Pillar *)arg0)->m_1c = 0;
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DD918;
     ((TObjBoss5Pillar *)arg0)->m_24 = (f32) lbl_805DD91C;
-    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_28 = 0;
-    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_48 = 0;
-    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_38 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 8);
-    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_3c = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x18);
-    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_40 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x14);
-    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_44 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x1C);
+    ((TObjBoss5Pillar *)arg0)->m_28 = 0;
+    ((TObjBoss5Pillar *)arg0)->m_48 = 0;
+    ((TObjBoss5Pillar *)arg0)->m_38 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 8);
+    ((TObjBoss5Pillar *)arg0)->m_3c = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x18);
+    ((TObjBoss5Pillar *)arg0)->m_40 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x14);
+    ((TObjBoss5Pillar *)arg0)->m_44 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x1C);
     return arg0;
 }
 

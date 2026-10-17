@@ -259,18 +259,18 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     TItem__sub_801031C0(self + 0x98);
     ((TUnk_804AF8A0 *)self)->initialize_linked_object_reference(self + 0xAC);
     ((TItem *)self)->m_e4 = 0xFFFF;
-    *(s32 *)&((TItem *)self)->m_d8 = *(s32 *)((s8 *)item + 0xC);
-    *(s32 *)&((TItem *)self)->m_dc = 0;
-    *(s16 *)&((TItem *)self)->m_e6 = 0;
-    *(s32 *)&((TItem *)self)->m_e0 = 0;
+    ((TItem *)self)->m_d8 = *(s32 *)((s8 *)item + 0xC);
+    ((TItem *)self)->m_dc = 0;
+    ((TItem *)self)->m_e6 = 0;
+    ((TItem *)self)->m_e0 = 0;
     ((TItem *)self)->m_ec = item[0];
     ((TItem *)self)->m_ed = item[1];
     ((TItem *)self)->m_ee = item[2];
-    *(s32 *)&((TItem *)self)->m_f0 = 0;
-    *(s32 *)&((TItem *)self)->m_f4 = 0;
-    *(s16 *)&((TItem *)self)->m_e8 = 0;
+    ((TItem *)self)->m_f0 = 0;
+    ((TItem *)self)->m_f4 = 0;
+    ((TItem *)self)->m_e8 = 0;
     ((TItem *)self)->apply_item_flags((s32)item);
-    *(s8 *)&((TItem *)self)->m_ea = get_type_nibble__9TItemDataFv(item);
+    ((TItem *)self)->m_ea = get_type_nibble__9TItemDataFv(item);
     if (is_rare_item__9TItemDataFPv(item) != 0) {
         sub_8010043C__5TItemFUc(self, 4);
     } else {

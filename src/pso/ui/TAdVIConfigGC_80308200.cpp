@@ -13,7 +13,7 @@ struct Ctx_80125628 { Obj_80125628 *obj; s32 idx; };
 extern "C" {
 u32 find_item_by_id(void);
 
-void TAdVIConfigGC::set_field_2c(s32 v) { *(s32 *)&this->m_2c = v; }
+void TAdVIConfigGC::set_field_2c(s32 v) { this->m_2c = v; }
 
 void TAdVIConfigGC::apply_config_if_valid(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();

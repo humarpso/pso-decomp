@@ -71,13 +71,13 @@ void TBoss6Type2::update_zako_spawn_timer() {
 
 void TBoss6Type2::send_state_action() {
     if ((s32) this->m_460 == 0) {
-        switch (*(s32 *)&this->m_374) {
+        switch (this->m_374) {
         case 6:
-            *(s32 *)&this->m_46c = 0;
+            this->m_46c = 0;
             send_action_packet((s8)((void*)(0xC)));
             return;
         case 9:
-            *(s32 *)&this->m_46c = 1;
+            this->m_46c = 1;
             send_action_packet((s8)((void*)(0xC)));
             return;
         default:
@@ -120,19 +120,19 @@ void TBoss6Type2::init_attack_params() {
     *(s32 *)&this->unk_45C = 0x4B;
     this->m_460 = 0x4B;
     *(s32 *)&this->unk_504 = 0;
-    switch (*(s32 *)&this->m_374) {
+    switch (this->m_374) {
     case 4:
-        *(s32 *)&this->m_46c = 0;
+        this->m_46c = 0;
         break;
     case 5:
-        *(s32 *)&this->m_46c = 1;
+        this->m_46c = 1;
         break;
     default:
-        *(s32 *)&this->m_46c = 0;
+        this->m_46c = 0;
         break;
     }
     TBoss6Type2__sub_802BB7C0(this);
-    switch ((s32) *(s32 *)&this->m_374) {
+    switch ((s32) this->m_374) {
     case 5:
         spawn_particle_slot(0xD);
         break;
@@ -153,7 +153,7 @@ void TBoss6Type2__sub_802BF834(u8 *arg0) {
     }
 }
 
-void TBoss6Type2::check_state_0x460_eq0() { if (*(int *)&this->m_460 == 0) { send_state_action_packet(); } }
+void TBoss6Type2::check_state_0x460_eq0() { if (this->m_460 == 0) { send_state_action_packet(); } }
 void TBoss6Type2__sub_802BF904(void* p) { *(s32*)((char*)p + 0x45c) = 45; *(s32*)((char*)p + 0x460) = 45; }
 void TBoss6Type2::tick_action_timer() {
     s32 temp_r0;
@@ -226,7 +226,7 @@ void TBoss6Type2::select_attack_state() {
             return;
         }
         if ((get_phase() == 0xD) && (is_ready_to_attack() != 0)) {
-            *(s16 *)&this->m_464 = is_falz_ready();
+            this->m_464 = is_falz_ready();
             send_action_packet((s8)((void*)(0x18)));
             return;
         }
@@ -235,8 +235,8 @@ void TBoss6Type2::select_attack_state() {
             return;
         }
         if (get_phase() == 0xD) {
-            *(s32 *)&this->m_428 = pick_random_other_index();
-            *(s32 *)&this->m_430 = choose_next_index();
+            this->m_428 = pick_random_other_index();
+            this->m_430 = choose_next_index();
             send_action_packet((s8)((void*)(1)));
             return;
         }

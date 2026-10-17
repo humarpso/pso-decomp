@@ -20,7 +20,7 @@ extern const f32 lbl_805DBA00;
 void TOSwitchAttack::init_params() {
     f32 temp_f0;
 
-    this->m_a7 = (u8) *(s32 *)&this->m_5c;
+    this->m_a7 = (u8) this->m_5c;
     temp_f0 = this->scale;
     this->m_94 = (f32) (temp_f0 * temp_f0);
     *(f32 *)&this->unk_98 = (f32) (this->target_scale * (lbl_805DBA00 * (game_difficulty_selection + 1)));
@@ -28,16 +28,16 @@ void TOSwitchAttack::init_params() {
     if ((u8) this->m_a7 >= 0x15U) {
         this->m_a7 = 0U;
     }
-    *(s32 *)&this->m_9c = 0;
+    this->m_9c = 0;
     this->m_a0 = (u16) this->m_84;
     if ((u16) this->m_a0 >= 0x100U) {
         this->m_a0 = 0xFFFFU;
     }
-    this->m_a2 = (u16) *(s32 *)&this->m_88;
+    this->m_a2 = (u16) this->m_88;
     if ((u16) this->m_a2 >= 0x100U) {
         this->m_a2 = 0xFFFFU;
     }
-    this->m_a4 = (u16) *(s32 *)&this->m_8c;
+    this->m_a4 = (u16) this->m_8c;
     if ((u16) this->m_a4 > 1U) {
         this->m_a4 = 1U;
     }

@@ -61,17 +61,17 @@ void TObjCurtainLobby::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if (((s32) *(s32 *)&this->m_c8 != 0) && ((u32) *(u32 *)&this->texture_id != 0U)) {
+    if (((s32) this->m_c8 != 0) && ((u32) this->texture_id != 0U)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((int) (*(u32 *)&this->texture_id));
+        TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        if ((s32) *(s32 *)&this->m_c8 != 3) {
+        if ((s32) this->m_c8 != 3) {
             temp_f1 = *(f32 *)&this->unk_CC;
             scale_matrix(0, temp_f1, (f32) (1.0f), temp_f1);
         }
-        draw_ginja_object((void *)(*(s32 *)&this->model));
+        draw_ginja_object((void *)(this->model));
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
@@ -151,9 +151,9 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCurtainLobby__class_name;
     ((TObjCurtainLobby *)arg0)->apply_object_set_data((void *)arg2);
     if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(arg0) == 0xC) {
-        *(s32 *)&((TObjCurtainLobby *)arg0)->m_c8 = 3;
+        ((TObjCurtainLobby *)arg0)->m_c8 = 3;
     } else {
-        *(s32 *)&((TObjCurtainLobby *)arg0)->m_c8 = 0;
+        ((TObjCurtainLobby *)arg0)->m_c8 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjCurtainLobby__model_resource) + 0x42C)) + 8);

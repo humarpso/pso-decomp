@@ -109,7 +109,7 @@ void TObjLobbyMain::resolve_theme_index() {
 }
 
 void TObjLobbyMain::set_mode_index_from_state() {
-    switch (*(u32 *)&this->m_84) {
+    switch (this->m_84) {
     case 1:
         *(s16 *)&this->unk_D2 = 1;
         return;
@@ -174,14 +174,14 @@ void TObjLobbyMain::update_emitter_positions() {
 }
 
 void TObjLobbyMain::update_particles() {
-    if ((s32) *(s32 *)&this->m_c8 == 2) {
+    if ((s32) this->m_c8 == 2) {
         switch ((s16) this->m_d0) {
         case 3:
             if ((u32) this->m_d8 != 0U) {
-                ((TParticleCtrl *)(*(void * *)&this->m_d8))->clear_active_flag();
+                ((TParticleCtrl *)(this->m_d8))->clear_active_flag();
             }
             if ((u32) this->m_dc != 0U) {
-                ((TParticleCtrl *)(*(void * *)&this->m_dc))->clear_active_flag();
+                ((TParticleCtrl *)(this->m_dc))->clear_active_flag();
             }
             break;
         default:
@@ -259,7 +259,7 @@ void TObjLobbyMain::advance_motion_frame() {
 void TObjLobbyMain::update_fade_in() {
     this->m_d4 += 0.1f;
     if (this->m_d4 >= (1.0f)) {
-        *(s32 *)&this->m_c8 = 2;
+        this->m_c8 = 2;
         this->m_d4 = (f32) (1.0f);
     }
 }
@@ -268,7 +268,7 @@ void TObjLobbyMain::update_fade() {
     u8 *arg0 = (u8 *)this;
     this->m_d4 -= 0.1f;
     if (this->m_d4 <= (0.0f)) {
-        *(s32 *)&this->m_c8 = 1;
+        this->m_c8 = 1;
         this->m_d4 = (f32) (0.0f);
         resolve_theme_index__13TObjLobbyMainFv(arg0);
         update_emitter_positions__13TObjLobbyMainFv(arg0);
@@ -278,7 +278,7 @@ void TObjLobbyMain::update_fade() {
 
 void reset_state__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) != get_theme_lobby_type()) {
-        *(s32 *)&((TObjLobbyMain *)arg0)->m_c8 = 0;
+        ((TObjLobbyMain *)arg0)->m_c8 = 0;
         ((TObjLobbyMain *)arg0)->m_d4 = (f32) (1.0f);
     }
 }
@@ -325,7 +325,7 @@ void TObjLobbyMain::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
         TObjLobbyMain__sub_803520D8(this);
     }
-    switch (*(s32 *)&this->m_c8) {
+    switch (this->m_c8) {
     case 0:
         update_fade__13TObjLobbyMainFv(this);
         break;
@@ -377,8 +377,8 @@ void TObjLobbyMain::load_resources() {
 void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjLobbyMain;
-        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)&((TObjLobbyMain *)arg0)->m_d8 = 0; }
-        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)&((TObjLobbyMain *)arg0)->m_dc = 0; }
+        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); ((TObjLobbyMain *)arg0)->m_d8 = 0; }
+        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); ((TObjLobbyMain *)arg0)->m_dc = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
@@ -413,7 +413,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     resolve_theme_index__13TObjLobbyMainFv(arg0);
     update_emitter_positions__13TObjLobbyMainFv(arg0);
     ((TObjLobbyMain *)arg0)->m_d4 = (f32) (1.0f);
-    *(s32 *)&((TObjLobbyMain *)arg0)->m_c8 = 2;
+    ((TObjLobbyMain *)arg0)->m_c8 = 2;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1.2e+02f);
     ((TObjLobbyMain *)arg0)->m_b0 = (f32) (0.0f);
     init_collision_body_parts(arg0, &lbl_804F0F34.value, 1);

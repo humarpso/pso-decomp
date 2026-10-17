@@ -187,8 +187,8 @@ void TWindowSubAreaMapDisp::render() {
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame(this, temp_r3);
-    forward_render__20TWindowSubStatusDispFv(*(s32 *)&this->m_70, temp_r3);
-    if ((s32) *(s32 *)&this->m_6c != 0) {
+    forward_render__20TWindowSubStatusDispFv(this->m_70, temp_r3);
+    if ((s32) this->m_6c != 0) {
         ((s32 (*)(void *, s32))TWindowSubStatusDisp__sub_80271A6C)(this, temp_r3);
         ((s32 (*)(void *, s32))fn_80271848)(this, temp_r3);
     }
@@ -210,11 +210,11 @@ u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1) {
             mem_free(*(void **)((s8 *)arg0 + 0x74));
             ((TWindowSubAreaMapDisp *)arg0)->m_74 = 0U;
         }
-        if ((s32) *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_6c != 0) {
+        if ((s32) ((TWindowSubAreaMapDisp *)arg0)->m_6c != 0) {
             TWindowCtrl::clear_active_flag();
             TRaderMapCore::clear();
         }
-        TWindowSubStatusDisp::destroy_status_display(*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_70, 1);
+        TWindowSubStatusDisp::destroy_status_display(((TWindowSubAreaMapDisp *)arg0)->m_70, 1);
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -242,15 +242,15 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
         var_r30 = (u8 *)(get_floor_destination_name(TOKeyMachine01::get_global_state()));
     }
     temp_r3 = measure_string_len__20TWindowSubStatusDispFv((int)var_r30);
-    *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74 = (s32)mem_alloc((temp_r3 + 1));
-    strncpy((int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int)var_r30, (void *)(temp_r3 + 1));
+    ((TWindowSubAreaMapDisp *)arg0)->m_74 = (s32)mem_alloc((temp_r3 + 1));
+    strncpy((int) (((TWindowSubAreaMapDisp *)arg0)->m_74), (int)var_r30, (void *)(temp_r3 + 1));
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(temp_r3_2, (int) (*(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_74), (int) ((s32) ((TWindowSubAreaMapDisp *)arg0)->m_20));
+        var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(temp_r3_2, (int) (((TWindowSubAreaMapDisp *)arg0)->m_74), (int) ((s32) ((TWindowSubAreaMapDisp *)arg0)->m_20));
     }
-    *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_70 = var_r0;
-    *(s32 *)&((TWindowSubAreaMapDisp *)arg0)->m_6c = 0;
+    ((TWindowSubAreaMapDisp *)arg0)->m_70 = var_r0;
+    ((TWindowSubAreaMapDisp *)arg0)->m_6c = 0;
     return arg0;
 }
 

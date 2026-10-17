@@ -56,7 +56,7 @@ void TUnk_804E4B24::update_collision() {
     struct VOff_802F1C68_arg0_802f1c68_802F1B7C *self = (struct VOff_802F1C68_arg0_802f1c68_802F1B7C *)this;
     set_matrix_identity((u8 *)self->f_48);
     translate_matrix_vec3((u8 *)self->f_48, (u8 *)((char *)this + 28));
-    rotate_matrix_yxz((s32)self->f_48, (s32)(*(void * *)&(*(void * *)((u8 *)this + 0x28))), (s32)this->m_2c, (s32)(*(void * *)&(*(u32 *)&this->unk_30)));
+    rotate_matrix_yxz((s32)self->f_48, (s32)(*(void * *)&(*(void * *)((u8 *)this + 0x28))), (s32)this->m_2c, (s32)(*(void * *)&(this->unk_30)));
 }
 
 extern f32 lbl_805DECA4;

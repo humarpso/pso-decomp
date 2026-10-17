@@ -293,7 +293,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 owner, s32 pos, s32 arg3, s32 level) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022B288___vt__8TTecAnti *)&__vt__8TTecAnti).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3790;
-    *(s32 *)&((TTecAnti *)arg0)->m_13c = 1;
+    ((TTecAnti *)arg0)->m_13c = 1;
     copy_technique_target_list((S_8022B3E8 *)(arg0 + 0xE0), (S_8022B3E8 *)(arg3));
     ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)((void *) ((u8 *)&technique_param_table.value + 0x2C0)));
     TTecAnti__sub_8022AD94(arg0);
@@ -303,9 +303,9 @@ u8 *TTecAnti__ct(u8 *arg0, s32 owner, s32 pos, s32 arg3, s32 level) {
     }
     temp_r3_2 = ((TTecAnti *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)&((TTecAnti *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
+        ((TTecAnti *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
     }
-    if ((s32) *(s32 *)&((TTecAnti *)arg0)->m_ac != 0) {
+    if ((s32) ((TTecAnti *)arg0)->m_ac != 0) {
         ((TTecAnti *)arg0)->play_anti_cast_sound();
         TTecAnti__sub_8022AD74(arg0);
     }

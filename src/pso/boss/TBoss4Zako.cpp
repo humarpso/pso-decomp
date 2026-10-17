@@ -873,7 +873,7 @@ void run_task__9TBoss4UroFv(TBoss4Uro *self) {
     if (a) {
         (self->*a)();
         if (self->f374 == 2) {
-            *(f32 *)&self->pos.y = lbl_805D8CD0 * sin_table_lookup(self->f3BC) + self->pos.y;
+            self->pos.y = lbl_805D8CD0 * sin_table_lookup(self->f3BC) + self->pos.y;
             self->f3BC += self->f3C0;
         }
         Vec_8005C49C v = self->pos;
@@ -1085,7 +1085,7 @@ void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self) {
     if (a) {
         (self->*a)();
         if (self->f374 == 2) {
-            *(f32 *)&self->pos.y = lbl_805D8CD0 * sin_table_lookup(self->f3BC) + self->pos.y;
+            self->pos.y = lbl_805D8CD0 * sin_table_lookup(self->f3BC) + self->pos.y;
             self->f3BC += self->f3C0;
         }
         Vec_8005BC4C v = self->pos;

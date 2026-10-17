@@ -16,8 +16,8 @@ extern const f32 lbl_805D8218;
 void TObjBoss1Rock::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f2;
-    *(s32 *)&this->m_3c = (s32) (*(s32 *)&this->m_3c + 1);
-    if ((s32) *(s32 *)&this->m_3c > 0x28) {
+    this->m_3c = (s32) (this->m_3c + 1);
+    if ((s32) this->m_3c > 0x28) {
         *(f32 *)((s8 *)arg0 + 0x40) = (f32) (*(f32 *)((s8 *)arg0 + 0x40) - lbl_805D8204);
         if (*(f32 *)((s8 *)arg0 + 0x40) < lbl_805D8208) {
             *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D8208;
@@ -33,8 +33,8 @@ void TObjBoss1Rock::run_task() {
         this->m_30 = (f32) (this->m_30 * lbl_805D8214);
     }
     *(f32 *)&this->unk_2C = (f32) (*(f32 *)&this->unk_2C + lbl_805D8218);
-    *(s32 *)&this->m_34 = (s32) (*(s32 *)&this->m_34 + 0x60);
-    *(s32 *)&this->m_38 = (s32) (*(s32 *)&this->m_38 + 0x110);
+    this->m_34 = (s32) (this->m_34 + 0x60);
+    this->m_38 = (s32) (this->m_38 + 0x110);
 }
 #pragma pop
 

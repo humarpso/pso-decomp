@@ -178,7 +178,7 @@ extern const f32 lbl_805DF444;
 void TObjEneRecobox::draw_with_debug_info() {
     u8 *arg0 = (u8 *)this;
     if (get_target_info__9TObjEneDDFv() != 0) {
-        switch (*(s32 *)&this->m_3f8) {
+        switch (this->m_3f8) {
         case 0:
             debug_printf_at(pack_debug_text_position(0, 9), lbl_804763D4);
             break;
@@ -199,7 +199,7 @@ void TObjEneRecobox::draw_with_debug_info() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        switch (*(s32 *)&this->m_3f8) {
+        switch (this->m_3f8) {
         case 1:
             rotate_matrix_x(0, 0x8000);
             break;
@@ -209,7 +209,7 @@ void TObjEneRecobox::draw_with_debug_info() {
         }
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
-        draw_chunk_object((void *)(*(s32 *)&this->model));
+        draw_chunk_object((void *)(this->model));
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }
@@ -284,7 +284,7 @@ block_23:
                 push_matrix();
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, (int) (((TObjEneRecobox *)arg0)->rotation_y));
-                switch (*(s32 *)&((TObjEneRecobox *)arg0)->m_3f8) {
+                switch (((TObjEneRecobox *)arg0)->m_3f8) {
                 case 1:
                     rotate_matrix_x(0, 0x8000);
                     break;

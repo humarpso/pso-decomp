@@ -105,7 +105,7 @@ void TOKurage::update_state() {
 
     temp_f0 = this->scale;
     if (is_any_player_within_radius_xz(temp_f0 * temp_f0) == 1) {
-        *(s8 *)&this->m_100 = 4;
+        this->m_100 = 4;
     }
 }
 
@@ -124,8 +124,8 @@ void TOKurage::init() {
     *(f32 *)&this->unk_DC = (f32) (0.0f);
     this->m_e0 = (f32) (0.0f);
     this->m_f8 = (f32) (0.0f);
-    *(s8 *)&this->m_100 = 0;
-    *(s8 *)&this->m_101 = 0;
+    this->m_100 = 0;
+    this->m_101 = 0;
     this->m_fc = 0x1E;
     this->m_fe = 0;
     *(f32 *)&this->m_104 = (f32) (1.0f);

@@ -78,7 +78,7 @@ u8 *TObjPlayer::construct_player_instance(s32 arg1, s16 arg2, s32 role, u8 *arg4
     ((TObjPlayer *)(((u8 *)this) + 0xDAC))->clear_header_struct();
     *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D3530;
     ((TObjPlayer *)((u8 *)this))->init_action_provider();
-    *(s16 *)&this->m_1c = arg2;
+    this->m_1c = arg2;
     ((TObjPlayer *)((u8 *)this))->setup_control_role(role);
     update_body_parts__10TObjPlayerFv((void *) (((u8 *)this)), arg4 + 0x370);
     sub_801BEE2C__10TObjPlayerFs((void *) (((u8 *)this)), (int) (*(u8 *)((s8 *)arg4 + 1)));

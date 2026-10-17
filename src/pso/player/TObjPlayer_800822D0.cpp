@@ -9,7 +9,7 @@ extern "C" {
 void TUnk_8048E1A4::apply_knockback_from_attacker(u8 *) {  }
 void TObjPlayer::set_position_xy(f32 a, f32 b) { this->position[2] = a; *(f32 *)&this->m_44 = b; }
 
-f32 TUnk_804806E8::get_speed() { return *(f32 *)&this->m_c0; }
+f32 TUnk_804806E8::get_speed() { return this->m_c0; }
 
 u8 TObjPlayer::test_action_mask(s32 arg1) {
     return (u8) (((*(s32 *)&this->unk_31C[4]) & arg1) != 0);

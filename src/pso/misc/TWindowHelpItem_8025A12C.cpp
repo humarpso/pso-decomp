@@ -122,8 +122,8 @@ void TWindowHelpItem::set_flag4_and_field1c(s32 arg1) {
 void TWindowHelpItem::set_help_text(u32 arg1) {
     s32 temp_r3;
 
-    mem_free((void *)(*(s32 *)&this->m_vtable18));
-    *(s32 *)&this->m_vtable18 = 0;
+    mem_free((void *)(this->m_vtable18));
+    this->m_vtable18 = 0;
     if (arg1 != 0U) {
         temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
         *(s32 *)&this->m_vtable18 = (s32)mem_alloc(temp_r3 + 1);

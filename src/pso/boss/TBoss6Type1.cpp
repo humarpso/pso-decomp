@@ -1936,7 +1936,7 @@ void TBoss6Type1::render_shadows() {
 void TBoss6Type1::vfunc_63() { if (*(int *)&this->m_374 != 40) { set_action_state((s32)((void*)40)); } }
 
 void TBoss6Type1::vfunc_62() {
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFFFFFDFF);
     this->m_4d4 = (f32) TBoss6Type1__data_805DE2E4;
     play_sound_effect(0x39E01, ((u8 *)this) + 0x584, 0, 1, ((u8 *)this));
 }
@@ -2076,7 +2076,7 @@ s32 TBoss6Type1::send_6xA4_action(s32 t, s32 *src) {
     Msg_802B9178 m;
     u8 *s;
     s32 i;
-    if (((TBoss6Type1 *)(*(void * *)&this->m_3f8))->is_idle() != 0) {
+    if (((TBoss6Type1 *)(this->m_3f8))->is_idle() != 0) {
         build_6xA4_olga_flow_boss_actions(&m);
         set_sync_data(&m);
         m.b[4] = t;

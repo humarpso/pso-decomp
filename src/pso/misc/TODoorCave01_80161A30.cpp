@@ -124,8 +124,8 @@ u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 4) {
         *(s32 *)((s8 *)arg0 + 0x88) = 4;
     }
-    *(s32 *)&((TODoorCave01 *)arg0)->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    *(s32 *)&((TODoorCave01 *)arg0)->m_d8 = (s32) (4 - *(s32 *)&((TODoorCave01 *)arg0)->m_d4);
+    ((TODoorCave01 *)arg0)->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    ((TODoorCave01 *)arg0)->m_d8 = (s32) (4 - ((TODoorCave01 *)arg0)->m_d4);
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB49C;
     ((TODoorCave01 *)arg0)->m_e0 = (f32) lbl_805DB49C;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB49C;

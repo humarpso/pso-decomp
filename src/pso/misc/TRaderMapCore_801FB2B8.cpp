@@ -98,7 +98,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         }
         ((TRaderMapCore *)arg0)->gather_player_markers();
         if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
-            ((TRaderMapCore *)arg0)->m_134 = (s32) obj_getField1c(*(void * *)&((TRaderMapCore *)arg0)->m_184);
+            ((TRaderMapCore *)arg0)->m_134 = (s32) obj_getField1c(((TRaderMapCore *)arg0)->m_184);
         }
         update_follow_projection__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
         if (TRaderMapCore::is_not_split_screen() == 1) {

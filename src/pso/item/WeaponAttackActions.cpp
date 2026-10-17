@@ -481,7 +481,7 @@ u8 *TItemWeapon::get_motion_ptr() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
-    temp_r3 = (unsigned char *) (*(void * *)&this->player);
+    temp_r3 = (unsigned char *) (this->player);
     if (temp_r3 != NULL) {
         ((VObj18c_8011e6e8 *) temp_r3)->m63(0x30, arg0 + 0x1AC);
     }
@@ -502,9 +502,9 @@ void TItemWeapon::apply_model_params() {
     s16 sp8;
 
     get_weapon_special_type_amount((this->special_selector) & 0x3F, &spA, &sp8);
-    ((TObjPlayer *)(*(void * *)&this->player))->set_model_id(spA);
-    ((TObjPlayer *)(*(void * *)&this->player))->set_model_param(sp8);
-    ((VObj_8011E77C *)(*(void * *)&this->player))->m71();
+    ((TObjPlayer *)(this->player))->set_model_id(spA);
+    ((TObjPlayer *)(this->player))->set_model_param(sp8);
+    ((VObj_8011E77C *)(this->player))->m71();
 }
 
 void TItemWeapon::copy_item_to_data(s32 arg0) {
@@ -596,11 +596,11 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
     u8 *hit;
     s32 off;
     if (((s32 (*)())is_active_in_game__11TItemWeaponFv)() != 0) {
-        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(*(void * *)&((TItemWeapon *)arg0)->player));
+        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(((TItemWeapon *)arg0)->player));
         TObjPlayer__sub_802E449C(&atk);
         ((TObjPlayer *)arg0)->fill_status_info(&atk);
         VecCopy((Vec *)&atk, (const Vec *)origin);
-        atk.angle = *(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0x60) + angle;
+        atk.angle = *(s32 *)((s8 *)(((TItemWeapon *)arg0)->player) + 0x60) + angle;
         atk.f3C = *scale;
         atk.f38 = *(f32 *)((s8 *)arg0 + 0x1E4);
         atk.owner = owner;
@@ -611,7 +611,7 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
         if (hit != NULL) {
             VecCopy((Vec *)&atk, (const Vec *)(*(void **)((s8 *)hit + 4)));
             atk.flags |= 0x800;
-        } else if ((state = (s32)((TObjPlayer *)(*(void * *)&((TItemWeapon *)arg0)->player))->get_extended_state()) != 0 && get_captured_target_count((s32 *)state) > 0) {
+        } else if ((state = (s32)((TObjPlayer *)(((TItemWeapon *)arg0)->player))->get_extended_state()) != 0 && get_captured_target_count((s32 *)state) > 0) {
             if ((item = (s32)get_captured_target_entry((void *)state, 0)) != 0) {
                 if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFv)(item))) != NULL && *(u8 **)((s8 *)ph + 0xA4) != NULL) {
                     VecCopy((Vec *)&v, (const Vec *)(&(*(Skel_8011EB84 **)((s8 *)ph + 0xA4))->n[get_captured_target_collider_index((void *)item)]));
@@ -738,7 +738,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
     u8 *var_r29;
     var_r31 = 0;
     if (is_active_in_game__11TItemWeaponFv((void *)(((u8 *)this))) != 0) {
-        temp_r3 = (u8 *)((TObjPlayer *)(*(u8 * *)&this->player))->get_extended_state();
+        temp_r3 = (u8 *)((TObjPlayer *)(this->player))->get_extended_state();
         if (temp_r3 != 0) {
             var_r23 = 0;
             var_r29 = NULL;
@@ -761,16 +761,16 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
             if (var_r23 == 0) {
                 ShotVector fallback;
                 push_matrix_from(identity_matrix);
-                weapon_range_record = (f32 *)(get_weapon_range_record(((u8 *)this), ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (*(u8 * *)&this->player))));
+                weapon_range_record = (f32 *)(get_weapon_range_record(((u8 *)this), ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (this->player))));
                 fallback.y = lbl_805DAC98;
                 fallback.x = lbl_805DAC98;
                 fallback.z = *(f32 *)((s8 *)weapon_range_record + 0);
-                rotate_matrix_y(0, (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60) + arg3));
+                rotate_matrix_y(0, (void *) (*(s32 *)((s8 *)(this->player) + 0x60) + arg3));
                 transform_point_by_current_matrix(&fallback.x, &endpoint.x);
                 pop_matrix();
                 vec3_add_to(&endpoint.x, arg1);
             }
-            ShotVector rayOrigin = *(ShotVector *)(((u8 *)(*(u8 * *)&this->player)) + 0x2FC);
+            ShotVector rayOrigin = *(ShotVector *)(((u8 *)(this->player)) + 0x2FC);
             rayOrigin.y = *(f32 *)((s8 *)arg1 + 4);
             temp_r3_3 = (u8 *)(csnVector(&rayOrigin.x, &endpoint.x, 0x8100));
             if (temp_r3_3 == NULL) {
@@ -781,12 +781,12 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                     if (arg4 != 0) {
                         ((void (*)(void *))remap_extra_attack_type)((void *) (((u8 *)this)));
                         hit.reserved = 0;
-                        hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (*(u8 * *)&this->player));
-                        hit.source = obj_getField1c((void *) (*(u8 * *)&this->player));
+                        hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (this->player));
+                        hit.source = obj_getField1c((void *) (this->player));
                         hit.target = obj_getField1c(var_r29);
                         hit.weapon = ((TItem *)((u8 *)this))->get_field_d8();
                         hit.collider = get_captured_target_collider_index(temp_r22_3);
-                        hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)((void *) (*(u8 * *)&this->player));
+                        hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)((void *) (this->player));
                         spawn_item_attacker(tl_05, arg1, (int) ((s32) var_f31), &hit.reserved);
                         var_r31 = 1;
                         ((TItemWeapon *)((u8 *)this))->restore_action_type();

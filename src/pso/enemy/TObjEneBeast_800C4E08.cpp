@@ -1026,8 +1026,8 @@ void TUnk_80493450::sub_800C4E08() {
         this->m_c8 = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x3A4);
         return;
     }
-    *(f32 *)((s8 *)((u8 *)this) + 0x394) = (f32) *(f32 *)&this->m_398;
-    this->m_c8 = (f32) *(f32 *)&this->m_3a0;
+    *(f32 *)((s8 *)((u8 *)this) + 0x394) = (f32) this->m_398;
+    this->m_c8 = (f32) this->m_3a0;
 }
 
 s32 TUnk_80493450::update_target_near_flag() {
@@ -1090,7 +1090,7 @@ void TUnk_80493450::beast_update_dead() {
         ((VObj_18_90ef41 *)(arg0))->m90();
     }
 }
-void TObjPlayer::enter_state_8() { if (*(short *)&this->mode != 8) { *(short *)&this->mode = 8; *(short *)&this->m_b8 = 8; unlink_enemy_group_relations__13TUnk_80493450Fv(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__9TObjEnemyFv(this); } }
+void TObjPlayer::enter_state_8() { if (this->mode != 8) { this->mode = 8; this->m_b8 = 8; unlink_enemy_group_relations__13TUnk_80493450Fv(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__9TObjEnemyFv(this); } }
 void TUnk_80493450::beast_update_hurt() {
     u8 *arg0 = (u8 *)this;
     Obj_800C5164 *o = (Obj_800C5164 *)arg0;
@@ -1134,7 +1134,7 @@ void TUnk_80493450::beast_update_hurt() {
 void TUnk_80493450::vfunc_62() {
     if ((s16) this->mode != 7) {
         this->mode = 7;
-        *(s16 *)&this->m_b8 = 6;
+        this->m_b8 = 6;
     }
     obj_clearFlags30(0x240000);
 }
@@ -1420,7 +1420,7 @@ void TUnk_80493450::vfunc_59() {
     switch (this->mode) {
     case 1:
         this->phase = 0;
-        if ((u32) *(u32 *)&this->children == 0U) {
+        if ((u32) this->children == 0U) {
             this->mode = 3;
             this->m_b8 = 7;
         } else {

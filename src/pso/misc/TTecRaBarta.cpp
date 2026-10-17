@@ -251,33 +251,33 @@ void TTecRaBarta::vfunc_9() {
 
     switch (*(s16 *)&this->unk_7A) {
     case 0:
-        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        handle = *(s32 *)&this->m_ec;
+        this->m_ec = play_sound_effect(0x4002A706, this->source + 0x2FC, 0, 0);
+        handle = this->m_ec;
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, 0x100, 0);
         }
         return;
     case 1:
-        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
+        this->m_ec = play_sound_effect(0x4002A706, this->source + 0x2FC, 0, 0);
         return;
     case 2:
     case 3:
-        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        handle = *(s32 *)&this->m_ec;
+        this->m_ec = play_sound_effect(0x4002A706, this->source + 0x2FC, 0, 0);
+        handle = this->m_ec;
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x180, 0);
         }
         break;
     case 4:
-        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        handle = *(s32 *)&this->m_ec;
+        this->m_ec = play_sound_effect(0x4002A706, this->source + 0x2FC, 0, 0);
+        handle = this->m_ec;
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x250, 0);
         }
         break;
     case 5:
-        *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        handle = *(s32 *)&this->m_ec;
+        this->m_ec = play_sound_effect(0x4002A706, this->source + 0x2FC, 0, 0);
+        handle = this->m_ec;
         if (handle >= 0) {
             update_technique_slot__10TTecRaFoieFl(handle, -0x100, 0);
         }
@@ -508,18 +508,18 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
     construct_area_technique_base((u8 *)this, (s32)source, (s32)origin, (s32)origin, (s32)level);
     *(s32 **)((s8 *)this + 0x18) = __vt__11TTecRaBarta;
     *(u32 *)&this->m_name = TTecRaBarta_class_name;
-    *(s32 *)&this->m_f0 = 0;
+    this->m_f0 = 0;
     calc_parameters__11TTecRaBartaFv(this);
-    if (*(u8 * *)&this->m_e8 != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&this->m_e8) + 0xA4)) + 0xC) = this->m_90;
+    if (this->m_e8 != NULL) {
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)(this->m_e8) + 0xA4)) + 0xC) = this->m_90;
     }
     for (i = 0; i < 32; i++) {
         ((Ids_80237CCC *) this)->ids[i] = 0xFFFF;
     }
-    *(s32 *)&this->m_138 = 0;
+    this->m_138 = 0;
     this->vfunc_8(0);
     this->vfunc_9();
-    if (*(void * *)&this->source != NULL) {
+    if (this->source != NULL) {
         this->m_b4 = obj_getField1c(*(void * *)&this->source);
     }
     return this;

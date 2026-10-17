@@ -283,7 +283,7 @@ s32 update_battle_control_if_unlocked__10TObjPlayerFv();
 
 void *TObjPlayer::reset_field28() {
     TObjPlayer__sub_802E451C();
-    *(s32 *)&this->m_28 = 0;
+    this->m_28 = 0;
     return this;
 }
 
@@ -306,7 +306,7 @@ void TUnk_804F14A8::emit_marker_effects() {
         draw_icon__10TObjPlayerFll(arg0, 6, &info.v[2]);
         draw_icon__10TObjPlayerFll(arg0, 9, &info.v[3]);
         draw_icon__10TObjPlayerFll(arg0, 0xA, &info.v[4]);
-        temp_r5 = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60);
+        temp_r5 = *(s32 *)((s8 *)(this->player) + 0x60);
         info.f28 = temp_r5;
         info.f10 = 0xA;
         create__20TItemEffOrgaFlowShotFPvPv(tl_05, &info, temp_r5);

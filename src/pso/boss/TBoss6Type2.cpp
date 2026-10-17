@@ -862,7 +862,7 @@ void TBoss6Type2::update_footstep_effects() {
         *((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)) = 1;
         ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4006A300, (u32) temp_r29, 0, 0);
         spawn_particle_effect_with_flags(temp_r29, 0x220, 0x40);
-        if (((s32) (*(s32 *)&this->m_418)) == 0)
+        if (((s32) (this->m_418)) == 0)
         {
           spawn_particle_effect(temp_r29, 0x222);
         }
@@ -1103,10 +1103,10 @@ void TBoss6Type2::update_possess_target() {
         if (done != 0) {
             ((int (*)(void *))restore_target_player_state__11TBoss6Type2Fv)(((u8 *)this));
             this->m_464 = 0xFFFF;
-            *(s32 *)&this->m_428 = ((TBoss6Type2 *)((u8 *)this))->pick_random_other_index();
-            *(s32 *)&this->m_430 = ((TBoss6Type2 *)((u8 *)this))->choose_next_index();
+            this->m_428 = ((TBoss6Type2 *)((u8 *)this))->pick_random_other_index();
+            this->m_430 = ((TBoss6Type2 *)((u8 *)this))->choose_next_index();
         }
-        switch (*(s32 *)&this->m_374) {
+        switch (this->m_374) {
         case 0x1A:
             ((int (*)(void *))restore_target_player_state__11TBoss6Type2Fv)(((u8 *)this));
             this->m_464 = 0xFFFF;
@@ -1128,10 +1128,10 @@ void TBoss6Type2::reset_counters() {
 
 void TBoss6Type2::cache_fish_params() {
     ((s32 (*)(void))reset_fish_fields__11TBoss6Type2Fv)();
-    *(s32 *)((s8 *)this + 0x560) = TObjFish__sub_8001EDB0(*(s32 *)&this->m_3fc, 0xB);
-    *(s32 *)((s8 *)this + 0x564) = TObjFish__sub_8001EDB0(*(s32 *)&this->m_3fc, 0xA);
-    *(s32 *)((s8 *)this + 0x568) = get_bml_model(*(s32 *)&this->m_3fc, 0xB);
-    *(s32 *)((s8 *)this + 0x56C) = get_bml_model(*(s32 *)&this->m_3fc, 0xA);
+    *(s32 *)((s8 *)this + 0x560) = TObjFish__sub_8001EDB0(this->m_3fc, 0xB);
+    *(s32 *)((s8 *)this + 0x564) = TObjFish__sub_8001EDB0(this->m_3fc, 0xA);
+    *(s32 *)((s8 *)this + 0x568) = get_bml_model(this->m_3fc, 0xB);
+    *(s32 *)((s8 *)this + 0x56C) = get_bml_model(this->m_3fc, 0xA);
 }
 
 void TBoss6Type2::update_zako() { ((int (*)(void*, void*))vec3_add_to)((char*)this + 0x38, (char*)this + 0x524); ((int (*)(void*))snap_to_ground__11TBoss6Type2FPv)(this); }
@@ -1184,7 +1184,7 @@ void TBoss6Type2__sub_802BA7BC(u8 *o) {
 
 s32 TBoss6Type2::is_ready_to_attack() {
     s32 temp;
-    if ((s32) *(s32 *)&this->m_418 != 0) {
+    if ((s32) this->m_418 != 0) {
         return 0;
     }
     if (is_normal_difficulty() != 0) {
@@ -1195,13 +1195,13 @@ s32 TBoss6Type2::is_ready_to_attack() {
 }
 
 s32 TBoss6Type2::is_phase_complete() {
-    if ((s32) *(s32 *)&this->m_418 == 0) {
+    if ((s32) this->m_418 == 0) {
         return 0;
     }
     if (((s32 (*)(void))calc_field4f0_delta__11TBoss6Type2FPv)() >= (s32) *(s32 *)((s8 *)this + 0x4C4)) {
         return 1;
     }
-    if ((TBoss6PlotFalz::get_phase() == 0) && ((s32) *(s32 *)&this->m_420 >= 8)) {
+    if ((TBoss6PlotFalz::get_phase() == 0) && ((s32) this->m_420 >= 8)) {
         return 1;
     }
     return 0;
@@ -1230,8 +1230,8 @@ s32 TBoss6Type2__sub_802BA9E4(T2_802BA9E4 *arg0) {
 }
 
 void TBoss6Type2::trigger_screen_pos() {
-    if (((s32) *(s32 *)&this->m_424 == 0) && (this->m_500 < lbl_805DE448)) {
-        *(s32 *)&this->m_424 = 1;
+    if (((s32) this->m_424 == 0) && (this->m_500 < lbl_805DE448)) {
+        this->m_424 = 1;
         ((s32 (*)(void))set_screen_pos__11TBoss6Type2FPv)();
     }
 }
@@ -1678,10 +1678,10 @@ void TBoss6Type2::clear_part_flags() {
 
 void TBoss6Type2::update_parts_flags() {
     clear_part_flags();
-    if (*(s32 *)&this->m_474 & 1) {
+    if (this->m_474 & 1) {
         set_child_flags();
     }
-    if (*(s32 *)&this->m_474 & 2) {
+    if (this->m_474 & 2) {
         set_owner_flag_bit0();
     }
 }
@@ -1785,7 +1785,7 @@ s32 TBoss6Type2::choose_turn_motion() {
     temp_f3 = *(f32 *)((s8 *)temp_r3 + 0x38);
     temp_f0 = ((f64 (*)(f32, f32, f32))atan2_float)(temp_f3 - *(f32 *)((s8 *)this + 0x38), *(f32 *)((s8 *)temp_r3 + 0x40) - *(f32 *)((s8 *)this + 0x40), temp_f3);
     var_r31 = 0xF;
-    if (angle_diff_s16(*(s32 *)&this->m_60, (s32) (TBoss6Type2__data_804713C0 * temp_f0)) < 0) {
+    if (angle_diff_s16(this->m_60, (s32) (TBoss6Type2__data_804713C0 * temp_f0)) < 0) {
         var_r31 = 0x10;
     }
     return var_r31;
@@ -1821,7 +1821,7 @@ s32 TBoss6Type2::choose_random_motion() {
 }
 
 s32 TBoss6Type2::is_target_valid() {
-    if ((s32) *(s32 *)&this->m_418 == 0) {
+    if ((s32) this->m_418 == 0) {
         return 0;
     }
     if ((u16) *(u16 *)((s8 *)this + 0x55C) == 0xFFFF) {
@@ -1845,7 +1845,7 @@ void TBoss6Type2::play_phase_sound() {
     s32 var_r3;
 
     if (is_target_valid() == 0) {
-        switch (*(s32 *)&this->m_42c) {
+        switch (this->m_42c) {
         case 1:
             var_r3 = 0x6852C;
             break;
@@ -1888,7 +1888,7 @@ void TBoss6Type2::update_countdown() {
         if ((s32) *(s32 *)((s8 *)this + 0x518) < -0x12C) {
             *(s32 *)((s8 *)this + 0x518) = -0x12C;
         }
-        if (((s32) *(s32 *)&this->m_418 != 0) && ((s32) *(s32 *)((s8 *)this + 0x518) == -0x12C)) {
+        if (((s32) this->m_418 != 0) && ((s32) *(s32 *)((s8 *)this + 0x518) == -0x12C)) {
             temp_r31 = ((void * (*)(u16))get_player_by_client_id)(*(u16 *)((s8 *)this + 0x55C));
             if ((is_active__14TBoss6PlotFalzFv() != 0) && ((s16) *(s16 *)((s8 *)temp_r31 + 0x326) == 1)) {
                 start_countdown_sound_state();
@@ -1906,7 +1906,7 @@ u8 TBoss6Type2::is_active() {
     s32 var_r4;
 
     var_r4 = 0;
-    if ((((s32) *(s32 *)((s8 *)this + 0x51C) != 0) && ((s32) *(s32 *)((s8 *)this + 0x518) >= 0)) || ((s32) *(s32 *)&this->m_374 == 1)) {
+    if ((((s32) *(s32 *)((s8 *)this + 0x51C) != 0) && ((s32) *(s32 *)((s8 *)this + 0x518) >= 0)) || ((s32) this->m_374 == 1)) {
         var_r4 = 1;
     }
     return (u8) var_r4;
@@ -1940,7 +1940,7 @@ void TBoss6Type2::add_damage(s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;
-    temp_r0 = *(s32 *)&this->m_374;
+    temp_r0 = this->m_374;
     if (temp_r0 < 9) {
         if (temp_r0 == 5) {
             goto block_4;
@@ -2283,7 +2283,7 @@ void TBoss6Type2::run_task() {
     if (fn) {
         (o->*fn)();
     }
-    if (((TBoss6Type1 *)(*(s32 *)&this->m_3f8))->is_idle() != 0) {
+    if (((TBoss6Type1 *)(this->m_3f8))->is_idle() != 0) {
         Tb_802BD0C8 *tbl = (Tb_802BD0C8 *)lbl_804E00DC;
         fn = tbl[o->a[0]].fn2;
         if (fn) {
@@ -2302,10 +2302,10 @@ void TBoss6Type2::run_task() {
     ((TBoss6Type2 *)arg0)->sub_802BB498();
     ((TBoss6Type2 *)arg0)->sub_802BC124();
     ((TBoss6PlotFalz *)(arg0 + 0x768))->scroll_strips_uv(8, 0);
-    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(TBoss3Volopt::collect_and_count(get_bml_model((s32)(*(s32 *)&this->m_3fc), 1), 1)) + 4)) + 4)), 8, 0, 0);
+    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(TBoss3Volopt::collect_and_count(get_bml_model((s32)(this->m_3fc), 1), 1)) + 4)) + 4)), 8, 0, 0);
     ((TBoss6Type2 *)arg0)->sub_802BB554();
     copy_vec_array();
-    if ((s32) *(s32 *)&this->m_418 != 0) {
+    if ((s32) this->m_418 != 0) {
         play_persistent_sound(0x4006B00C, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
     }
     update_countdown();
@@ -2313,7 +2313,7 @@ void TBoss6Type2::run_task() {
     update_footstep_effects();
     TBoss6Type2__sub_802BA7BC(arg0);
     update_part_positions();
-    *(s32 *)&this->m_4f8 = (s32) this->m_32c;
+    this->m_4f8 = (s32) this->m_32c;
 }
 #pragma pop
 
@@ -2368,7 +2368,7 @@ void TBoss6Type2__sub_802BD340(void) {  }
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss6Type2::apply_damage(s32 arg1) {
-    if ((arg1 > 0) && ((s32) *(s32 *)&this->m_418 == 0)) {
+    if ((arg1 > 0) && ((s32) this->m_418 == 0)) {
         add_damage(arg1);
     }
 }
@@ -2394,7 +2394,7 @@ void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 TBoss6Type2::get_rotation_timer() { return *(s32 *)&this->m_418; }
+s32 TBoss6Type2::get_rotation_timer() { return this->m_418; }
 #pragma pop
 
 #pragma push
@@ -2427,7 +2427,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
     s32 var_r29;
 
     var_r31 = 1;
-    if (((s32) *(s32 *)&((TBoss6Type2 *)arg0)->m_418 != 0) && (att != 0U)) {
+    if (((s32) ((TBoss6Type2 *)arg0)->m_418 != 0) && (att != 0U)) {
         var_r30 = 0;
         var_r29 = 0;
         do {
@@ -2447,7 +2447,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
             }
             var_r29 += 1;
         } while (var_r29 < 3);
-        if (!(*(s32 *)&((TBoss6Type2 *)arg0)->m_2e4& var_r30)) {
+        if (!(((TBoss6Type2 *)arg0)->m_2e4& var_r30)) {
             var_r31 = 0;
         }
     }
@@ -2478,15 +2478,15 @@ void TBoss6Type2__vt61(void* p) { if (*(int *)&((TBoss6Type2 *)p)->m_374 != 35) 
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss6Type2__vt60(u8 *arg0) {
-    *(s32 *)&((TBoss6Type2 *)arg0)->m_30 = (s32) (*(s32 *)&((TBoss6Type2 *)arg0)->m_30& 0xFFFFFDFF);
+    ((TBoss6Type2 *)arg0)->m_30 = (s32) (((TBoss6Type2 *)arg0)->m_30& 0xFFFFFDFF);
     *(f32 *)((s8 *)arg0 + 0x4FC) = (f32) TBoss6Type2__data_805DE40C;
     {
-        int diff = *(s32 *)&((TBoss6Type2 *)arg0)->m_4f8- ((TBoss6Type2 *)arg0)->m_32c;
+        int diff = ((TBoss6Type2 *)arg0)->m_4f8- ((TBoss6Type2 *)arg0)->m_32c;
         if (diff > 0) {
             ((TBoss6Type2 *)arg0)->add_damage(diff);
         }
     }
-    if ((s32) *(s32 *)&((TBoss6Type2 *)arg0)->m_418 != 0) {
+    if ((s32) ((TBoss6Type2 *)arg0)->m_418 != 0) {
         ((s32 (*)(int, void *, int, int))play_sound_effect)(0x68A24, arg0 + 0x38, 0, 1);
     }
 }
@@ -2678,10 +2678,10 @@ void TBoss6Type2::update_attack_target() {
     u16 var_r30;
 
     var_r3 = 0x21;
-    if ((s32) *(s32 *)&this->m_424 != 0) {
+    if ((s32) this->m_424 != 0) {
         var_r3 = 0x1F;
     }
-    temp_r0 = *(s32 *)&this->m_374;
+    temp_r0 = this->m_374;
     var_r31 = var_r3;
     switch (temp_r0) {
     case 0x1D:
@@ -2700,10 +2700,10 @@ void TBoss6Type2::update_attack_target() {
             }
         }
         this->m_466 = var_r30;
-        if ((TBoss6PlotFalz::get_phase() == 0) && (*(s32 *)&this->m_374 & 1)) {
+        if ((TBoss6PlotFalz::get_phase() == 0) && (this->m_374 & 1)) {
             this->m_466 = 0xFFFFU;
         }
-        var_r31 = *(s32 *)&this->m_374 - 1;
+        var_r31 = this->m_374 - 1;
         break;
     }
     TBoss6Type2__sub_802BD938((u8 *)this, (u8 *)&sp8);
@@ -2722,18 +2722,18 @@ void TBoss6Type2::update_attack_target() {
 void TBoss6Type2::send_state_action_packet() {
     s32 sp8;
     s32 var_r31;
-    if ((s32) *(s32 *)&this->m_424 != 0) {
+    if ((s32) this->m_424 != 0) {
         var_r31 = 7;
-        if ((s32) *(s32 *)&this->m_46c == 0) {
+        if ((s32) this->m_46c == 0) {
             var_r31 = 0xA;
         }
     } else {
         var_r31 = 8;
-        if ((s32) *(s32 *)&this->m_46c == 0) {
+        if ((s32) this->m_46c == 0) {
             var_r31 = 0xB;
         }
     }
-    switch (*(s32 *)&this->m_374) {
+    switch (this->m_374) {
     case 6:
     case 9:
         return;
@@ -2741,8 +2741,8 @@ void TBoss6Type2::send_state_action_packet() {
     case 8:
     case 10:
     case 11:
-        *(s16 *)&this->m_466 = ((s16 (*)(void *))TBoss6Type2__sub_802BB694)(((u8 *)this));
-        var_r31 = *(s32 *)&this->m_374 - 1;
+        this->m_466 = ((s16 (*)(void *))TBoss6Type2__sub_802BB694)(((u8 *)this));
+        var_r31 = this->m_374 - 1;
     default:
         TBoss6Type2__sub_802BD938(((u8 *)this), (u8 *)&sp8);
         ((TBoss6Type2 *)((u8 *)this))->send_action_packet_if_idle(var_r31, &sp8);
@@ -2756,7 +2756,7 @@ void TBoss6Type2::update_action_state() {
 
     TBoss6Type2__sub_802BD938((u8 *)this, (u8 *)&sp8);
     var_r4 = 4;
-    if ((s32) *(s32 *)&this->m_46c == 0) {
+    if ((s32) this->m_46c == 0) {
         var_r4 = 5;
     }
     send_action_packet_if_idle(var_r4, &sp8);
@@ -2773,7 +2773,7 @@ void TBoss6Type2::update_action_state() {
 void TBoss6Type2::send_action_packet_if_idle(s32 arg1, s32 *arg2) {
     Pkt_802BDD6C p;
     u8 *s; s32 i;
-    if (((TBoss6Type1 *)(*(s32 *)&this->m_3f8))->is_idle() != 0) {
+    if (((TBoss6Type1 *)(this->m_3f8))->is_idle() != 0) {
         ((TBoss6Type2 *)(&p))->init_packet();
         build_state_packet((u8 *)&p);
         s = (u8 *)arg2; p.d[4] = arg1;
@@ -2796,7 +2796,7 @@ void TBoss6Type2::send_action_packet(s8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802BDDF8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802BDDF8, spC) == 0x4) ? 1 : -1];
     Stack_802BDDF8 stack;
-    if (((TBoss6Type1 *)(*(s32 *)&this->m_3f8))->is_idle() != 0) {
+    if (((TBoss6Type1 *)(this->m_3f8))->is_idle() != 0) {
         ((TBoss6Type2 *)(&stack.sp8))->init_packet();
         build_state_packet((u8 *)&stack.sp8);
         stack.spC = arg1;
@@ -2814,7 +2814,7 @@ void TBoss6Type2::send_action_packet(s8 arg1) {
 #pragma dont_inline off
 void TBoss6Type2::parse_action_packet(void *arg1) {
     this->m_478 = (u8) *(u8 *)((s8 *)arg1 + 8);
-    *(s32 *)&this->m_47c = (s32) (s8) *(u8 *)((s8 *)arg1 + 9);
+    this->m_47c = (s32) (s8) *(u8 *)((s8 *)arg1 + 9);
     set_target_state((s32)(*(s8 *)((s8 *)arg1 + 0xA)), (s32)(*(s8 *)((s8 *)arg1 + 0xB)));
     this->m_464 = (u16) (s8) *(u8 *)((s8 *)arg1 + 0xC);
     this->m_466 = (u16) (s8) *(u8 *)((s8 *)arg1 + 0xD);
@@ -2850,8 +2850,8 @@ void TBoss6Type2::build_state_packet(u8 *arg1) {
     *(u16 *)((s8 *)arg1 + 2) = (u16) *(u16 *)((s8 *)((u8 *)this) + 0x1C);
     *(s8 *)((s8 *)arg1 + 8) = (s8) (lbl_805DE4D0 * (TBoss6Type2__data_805DE468 * (f32) rand()));
     *(s8 *)((s8 *)arg1 + 9) = ((TBoss6Type2 *)((u8 *)this))->choose_random_motion();
-    *(s8 *)((s8 *)arg1 + 0xA) = (s8) *(s32 *)&this->m_428;
-    *(s8 *)((s8 *)arg1 + 0xB) = (s8) *(s32 *)&this->m_430;
+    *(s8 *)((s8 *)arg1 + 0xA) = (s8) this->m_428;
+    *(s8 *)((s8 *)arg1 + 0xB) = (s8) this->m_430;
     *(s8 *)((s8 *)arg1 + 0xC) = (s8) this->m_464;
     *(s8 *)((s8 *)arg1 + 0xD) = (s8) this->m_466;
     ((void (*)(void *, void *, void *))TBoss6Type2__sub_802BB5B4)(((u8 *)this), &spA, &sp8);

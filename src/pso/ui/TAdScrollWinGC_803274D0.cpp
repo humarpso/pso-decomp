@@ -7,7 +7,7 @@ s32 close_window__14TAdScrollWinGCFv();
 
 void TAdScrollWinGC::close() {
     close_window__14TAdScrollWinGCFv();
-    *(s32 *)&this->m_4c = 1;
+    this->m_4c = 1;
 }
 
 }

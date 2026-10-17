@@ -76,9 +76,9 @@ void render__12TODoorCave01Fv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, (int) (((TODoorCave01 *)arg0)->rotation_y));
-        if ((s32) *(s32 *)&((TODoorCave01 *)arg0)->m_ac == 0) {
+        if ((s32) ((TODoorCave01 *)arg0)->m_ac == 0) {
             var_r29 = 0;
-            var_r30 = (unsigned char *) (*(void **)((s8 *)(*(void * *)&((TODoorCave01 *)arg0)->model) + 0x2C));
+            var_r30 = (unsigned char *) (*(void **)((s8 *)(((TODoorCave01 *)arg0)->model) + 0x2C));
             do {
                 TODoorCave01::draw_door_model((void *)arg0, (int)var_r30, (int)(((TODoorCave01 *)arg0)->m_d0& (1 << (var_r29 + 0x10)) ? 1 : 0));
                 var_r29 += 1;
@@ -86,7 +86,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
             } while (var_r29 < 4);
         } else {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + 4)));
-            draw_ginja_model_with_motion((void *) (*(void * *)&((TODoorCave01 *)arg0)->model), (int) (*(s32 *)&((TODoorCave01 *)arg0)->m_bc), (f32) (((TODoorCave01 *)arg0)->m_b0));
+            draw_ginja_model_with_motion((void *) (((TODoorCave01 *)arg0)->model), (int) (((TODoorCave01 *)arg0)->m_bc), (f32) (((TODoorCave01 *)arg0)->m_b0));
         }
         pop_matrix();
     }

@@ -31,7 +31,7 @@ void TWindowSubShortMail::hide_window() {
     if (temp_r3 & 4) {
         *(u16 *)((s8 *)this + 0x1C) = (u16) (temp_r3 & 0xFFFFFFFB);
         if ((u32) this->m_24 != 0U) {
-            ((TKeyBoardControl *)(*(void * *)&this->m_24))->clear_flag60_bit200();
+            ((TKeyBoardControl *)(this->m_24))->clear_flag60_bit200();
         }
         if (!(*(u16 *)((s8 *)this + 0x1C) & 1) && ((u32) this->m_28 != 0U)) {
             window_request_show(*(void * *)&this->m_28);

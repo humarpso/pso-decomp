@@ -45,7 +45,7 @@ void TItemEffPG::run_task() {
         check_hits__14TItemAttackColFPv((u8 *)this);
         return;
     }
-    if ((u32) *(u32 *)&this->m_down == 0U) {
+    if ((u32) this->m_down == 0U) {
         queue_destruction__7TObjectFv(this);
         disallow_rendering__7TObjectFv(this);
         return;
@@ -85,7 +85,7 @@ u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     if (var_r0 != 0) {
         var_r0 = (s32)TItemEffPG__visual_ct((u8 *)temp_r3, (u8 *)arg0, (u8 *)arg2);
     }
-    *(s32 *)&((TItemEffPG *)arg0)->m_d0 = var_r0;
+    ((TItemEffPG *)arg0)->m_d0 = var_r0;
     return arg0;
 }
 

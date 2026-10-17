@@ -57,13 +57,13 @@ void TAdMcSelectCursorGC::render_cursor() {
     u8 *arg0 = (u8 *)this;
     begin_screen_draw(1);
     TObjFish::set_global_param(TAdMcSelectCursorGC__texture_entry);
-    set_draw_texture_and_color(0, ((*(s32 *)&this->m_128 << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color(0, ((this->m_128 << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((f32 *)(arg0 + 0x28), lbl_805DF728);
     TWindowSubStatusDisp::get_player();
 }
 
 void TAdMcSelectCursorGC::render() {
-    if ((s32) *(s32 *)&this->m_13c == 1) {
+    if ((s32) this->m_13c == 1) {
         if (TMainTask::get_state_flag() == 1) {
             return;
         }
@@ -75,7 +75,7 @@ block_5:
         TObjPlayer::init_xyz_limits();
         render_cursor();
         TObjPlayer::reset_transform_state();
-        if ((s32) *(s32 *)&this->m_13c == 0) {
+        if ((s32) this->m_13c == 0) {
             restore_saved_depth_alpha_state();
         }
     }

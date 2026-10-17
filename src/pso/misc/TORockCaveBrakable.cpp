@@ -83,13 +83,13 @@ void TORockCaveBrakable::update_break_state() {
         this->vfunc_19();
         return;
     }
-    switch (*(s32 *)&this->m_b4) {
+    switch (this->m_b4) {
     default:
-        *(s32 *)&this->m_b4 = 0;
+        this->m_b4 = 0;
     case 0:
-        temp_r0_2 = *(s32 *)&this->m_b8;
+        temp_r0_2 = this->m_b8;
         if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)) {
-            *(s32 *)&this->m_b4 = 1;
+            this->m_b4 = 1;
             this->spawn_break_effect();
             this->vfunc_16();
         }

@@ -9,7 +9,7 @@ s32 query_teammate_state__9TObjEneDDFv();
 void TBoss6Tube::run_task() {
 
     if ((TBoss6EmptyWarp__sub_802B1018() == 0) && (query_teammate_state__9TObjEneDDFv() == 0)) {
-        switch (*(s32 *)&this->m_1c) {
+        switch (this->m_1c) {
         case 0:
             update_timer();
             return;

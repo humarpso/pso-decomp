@@ -143,7 +143,7 @@ void TChallenge4PResult::set_entry_item(void *arg1, s32 arg2) {
     arg0->f[arg2].v = 1;
 }
 
-void TChallenge4PResult::close_window() { if (*(unsigned int *)&this->message_window != 0) { TWindow__close((u8 *)(*(void* *)&this->message_window)); *(int *)&this->message_window = 0; } }
+void TChallenge4PResult::close_window() { if (this->message_window != 0) { TWindow__close((u8 *)(this->message_window)); this->message_window = 0; } }
 
 }
 
@@ -274,7 +274,7 @@ void TChallenge4PResult::update_input() {
     s32 temp_r5;
     u32 p;
 
-    if ((u32) *(u32 *)&this->message_window == 0U) {
+    if ((u32) this->message_window == 0U) {
         ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
     }
     p = *(u32 *)&this->message_window;

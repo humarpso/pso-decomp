@@ -26,8 +26,8 @@ void TAdDrawLineCtrl::render() {
     } else if ((get_main_phase() != 2) || (TMainTask::get_state_flag() != 1)) {
 block_5:
         TObjPlayer::reset_transform_state();
-        if ((u32) *(u32 *)&this->child_root != 0U) {
-            ((TObject *)(*(void * *)&this->child_root))->render_nodes();
+        if ((u32) this->child_root != 0U) {
+            ((TObject *)(this->child_root))->render_nodes();
         }
         if ((s32) this->render_mode == 0) {
             restore_saved_depth_alpha_state();
@@ -63,7 +63,7 @@ TAdDrawLineCtrl::TAdDrawLineCtrl(TObject *arg1, void *arg2, f32 farg0) : TObject
         o = ((void * (*)(void *, int))__ct__7TObjectFP7TObject)(o, 0);
     }
     *(void * *)&this->child_root = o;
-    *(u32 *)&this->render_mode = 1;
+    this->render_mode = 1;
     this->set_draw_line_param_all_nodes(farg0);
     fn_80019B08(this, -1);
 }

@@ -275,8 +275,8 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
     TMainCursor__sub_8013F1F0((arg0 + 0xD0));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4418;
     ((TPlyPhotonChair *)arg0)->set_field90(arg1);
-    *(s16 *)&((TPlyPhotonChair *)arg0)->m_92 = 0;
-    *(s32 *)&((TPlyPhotonChair *)arg0)->m_94 = 0;
+    ((TPlyPhotonChair *)arg0)->m_92 = 0;
+    ((TPlyPhotonChair *)arg0)->m_94 = 0;
     player = (u32)get_player_by_client_id((s32)((void *) ((s32) (u16) arg1)));
     if (player == 0U) {
         queue_destruction__7TObjectFv((arg0));
@@ -307,7 +307,7 @@ void TPlyPhotonChair::set_state_ready() { *(s32*)((char*)this + 0x18) = 2; }
 void TPlyPhotonChair::sync_field10_from_child() {
     void *temp_r4;
 
-    temp_r4 = *(void * *)&this->m_prev;
+    temp_r4 = this->m_prev;
     if (temp_r4 != NULL) {
         *(f32 *)&this->m_up = (f32) *(u32 *)((s8 *)temp_r4 + 4);
     }

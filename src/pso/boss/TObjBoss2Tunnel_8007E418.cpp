@@ -112,11 +112,11 @@ s32 TObjBoss2Tunnel::count_tree_nodes() {
     u8 *temp_r3;
     u8 *temp_r3_2;
     var_r31 = 1;
-    temp_r3 = (u8 *)(*(u8 * *)&this->m_2c);
+    temp_r3 = (u8 *)(this->m_2c);
     if (temp_r3 != NULL) {
         var_r31 = ((TObjBoss2Tunnel *)temp_r3)->count_tree_nodes() + 1;
     }
-    temp_r3_2 = (u8 *)(*(u8 * *)&this->m_30);
+    temp_r3_2 = (u8 *)(this->m_30);
     if (temp_r3_2 != NULL) {
         var_r31 += ((TObjBoss2Tunnel *)temp_r3_2)->count_tree_nodes();
     }

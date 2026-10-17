@@ -65,7 +65,7 @@ int TObjEneMe1Gee_NEEDLE::vfunc_6() {
     } else {
         play_sound_effect(0x3A847, arg0 + 0x6C, 0, 0);
     }
-    *(s32 *)&this->m_b8 = 0;
+    this->m_b8 = 0;
 }
 
 }

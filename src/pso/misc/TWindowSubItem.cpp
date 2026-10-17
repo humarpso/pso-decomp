@@ -172,8 +172,8 @@ s32 reset_key_machine_state__10TObjPlayerFv(s32);
 int save_cursor_selection__20TShopArmorListWindowFv(void*);
 
 void TWindowSubItem::set_displayed_item(s32 arg1) {
-    if (((u32) this->m_40 != 0U) && (arg1 != (s32) *(s32 *)&this->m_20)) {
-        *(s32 *)&this->m_20 = arg1;
+    if (((u32) this->m_40 != 0U) && (arg1 != (s32) this->m_20)) {
+        this->m_20 = arg1;
         TWindowHelpItem__set_displayed_item_by_id(this->m_40);
     }
 }
@@ -182,7 +182,7 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1) {
     ItemData_80279754 d;
     s32 pl;
     u32 item;
-    pl = get_player_by_client_id(*(s32 *)&((TWindowSubItem *)arg0)->m_24);
+    pl = get_player_by_client_id(((TWindowSubItem *)arg0)->m_24);
     if (pl == 0) {
         return 0;
     }
@@ -206,28 +206,28 @@ void TWindowSubItem::use_selected_item() {
     s32 player;
     player = get_player_by_client_id(this->m_24);
     if (player != 0) {
-        TObjPlayer__sub_801B7B58(player, (int) (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)&this->m_30))), ((TWindowSubItem *)(*(s32 *)&this->m_30))->get_selected_entry());
+        TObjPlayer__sub_801B7B58(player, (int) (select_cursor_entry__22TWindowSubShortCutListFv((int) (this->m_30))), ((TWindowSubItem *)(this->m_30))->get_selected_entry());
     }
 }
 #pragma pop
 
 void TWindowSubItem::close_windows(s32 arg1) {
-    if (get_player_by_client_id((s32)(*(s32 *)&this->m_24)) != 0U) {
+    if (get_player_by_client_id((s32)(this->m_24)) != 0U) {
         switch (arg1) {
         case 0:
             close_sub_window__10TObjPlayerFv();
-            *(s8 *)&this->m_1c = 0x16;
+            this->m_1c = 0x16;
             return;
         case 1:
-            if (*(void * *)&this->m_38 != NULL) {
-                TWindow__close((void *)(*(void * *)&this->m_38));
+            if (this->m_38 != NULL) {
+                TWindow__close((void *)(this->m_38));
                 this->m_38 = 0U;
             }
-            if (*(void * *)&this->m_34 != NULL) {
-                TWindow__close((void *)(*(void * *)&this->m_34));
+            if (this->m_34 != NULL) {
+                TWindow__close((void *)(this->m_34));
                 this->m_34 = 0U;
             }
-            *(s8 *)&this->m_1c = 0xA;
+            this->m_1c = 0xA;
             break;
         }
     }
@@ -238,14 +238,14 @@ void TWindowSubItem::exec_item_command(s32 arg1, s32 arg2) {
     void *temp_r3_2;
     s32 t;
 
-    temp_r3 = get_player_by_client_id((s32)(*(s32 *)&this->m_24));
+    temp_r3 = get_player_by_client_id((s32)(this->m_24));
     if ((temp_r3 != 0) && (temp_r3_2 = find_item_by_id(arg1), ((temp_r3_2 == NULL) == 0))) {
         switch (arg2) {
         case 3:
             break;
         case 0:
             try_send_6x27_use_item(temp_r3, arg1);
-            *(s8 *)&this->m_1c = 0x16;
+            this->m_1c = 0x16;
             break;
         case 1:
             if (get_slot_value__10TObjPlayerFPvi(temp_r3 + 0xD04, (s8) ((V_A_80279714 *) temp_r3_2)->m31()) != 0U) {
@@ -253,11 +253,11 @@ void TWindowSubItem::exec_item_command(s32 arg1, s32 arg2) {
                 send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, t);
             }
             send_6x25_equip_item(temp_r3, arg1, 0);
-            *(s8 *)&this->m_1c = 0x16;
+            this->m_1c = 0x16;
             break;
         case 2:
             send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, arg1);
-            *(s8 *)&this->m_1c = 0x16;
+            this->m_1c = 0x16;
             break;
         }
     }
@@ -266,24 +266,24 @@ void TWindowSubItem::exec_item_command(s32 arg1, s32 arg2) {
 void TWindowSubItem::set_cursor_row_for_mode(s32 arg1) {
     switch (arg1) {
     case 3:
-        *(s8 *)&this->m_1c = 0xC;
+        this->m_1c = 0xC;
         return;
     case 4:
-        *(s8 *)&this->m_1c = 0xF;
+        this->m_1c = 0xF;
         return;
     case 5:
-        *(s8 *)&this->m_1c = 0x11;
+        this->m_1c = 0x11;
         return;
     case 6:
-        *(s8 *)&this->m_1c = 0x13;
+        this->m_1c = 0x13;
         return;
     case 7:
-        *(s8 *)&this->m_1c = 6;
+        this->m_1c = 6;
         return;
     case 0:
     case 1:
     case 2:
-        *(s8 *)&this->m_1c = 5;
+        this->m_1c = 5;
         return;
     }
 }
@@ -322,7 +322,7 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
       }
       else
       {
-        player = get_player_by_client_id((s32)((int) (*(s32 *)&((TWindowSubItem *)arg0)->m_24)));
+        player = get_player_by_client_id((s32)((int) (((TWindowSubItem *)arg0)->m_24)));
         if (player != 0)
         {
           if (((get_item_info__10TObjPlayerFllPs((int) item, (int) player, &sp8) != 0) && (has_armor_with_unit_slot((void *)((void *) arg0), (int)((int) item)) != 0)) && (TOKeyMachine01::get_global_state() != 0xF))
@@ -381,10 +381,10 @@ s32 TWindowSubItem::create_count_input(s32 maximum) {
 
     storage = __nw__7TObjectFUl(0x7C);
     if (storage != 0) {
-        storage = __ct__18TWindowInputNumberFPvllls(storage, get_window_layout_position(5), 1, maximum, 1, (s16) *(s32 *)&this->m_24);
+        storage = __ct__18TWindowInputNumberFPvllls(storage, get_window_layout_position(5), 1, maximum, 1, (s16) this->m_24);
     }
     ((TWindowInputNumber *)storage)->create(get_message_10__20TWindowSubStatusDispFl(0x28));
-    TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_2c, 3);
+    TWindowSubEquip__sub_80263AF8(this->m_2c, 3);
     set_field_1c__6TLobbyFf(storage);
     ((TWindowInputNumber *)storage)->set_value(lbl_805DD630);
     ((TWindowSubItem *)storage)->set_flag60_bit10();
@@ -393,10 +393,10 @@ s32 TWindowSubItem::create_count_input(s32 maximum) {
 
 s32 TWindowSubItem::create_menu_window() {
     s32 titled_window_menu;
-    titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(6)), 2, get_message_10__20TWindowSubStatusDispFl(0x27), (int) (*(s32 *)&this->m_24));
+    titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(6)), 2, get_message_10__20TWindowSubStatusDispFl(0x27), (int) (this->m_24));
     forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5D))), 6, 0);
     forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5E))), 6, 1);
-    TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)&this->m_2c)), 2);
+    TWindowSubEquip__sub_80263AF8((s32)((int) (this->m_2c)), 2);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
     ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD630);
@@ -406,7 +406,7 @@ s32 TWindowSubItem::create_menu_window() {
 
 s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     s32 titled_window_menu;
-    titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(4)), 3, get_message_10__20TWindowSubStatusDispFl(0x26), (int) (*(s32 *)&this->m_24));
+    titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(4)), 3, get_message_10__20TWindowSubStatusDispFl(0x26), (int) (this->m_24));
     if (arg1 == -0xFF) {
         TWindowSubItem::add_meseta_purpose_actions((s32)((void *) (((u8 *)this))), titled_window_menu);
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
@@ -414,7 +414,7 @@ s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     } else {
         add_item_purpose_actions((u8 *)((void *) (((u8 *)this))), titled_window_menu, arg1);
     }
-    TWindowSubEquip__sub_80263AF8((s32)((int) (*(s32 *)&this->m_2c)), 1);
+    TWindowSubEquip__sub_80263AF8((s32)((int) (this->m_2c)), 1);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
     ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD630);
@@ -693,11 +693,11 @@ void TWindowSubItem::run_task() {
 void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowSubItem;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x3C))); *(s32 *)&((TWindowSubItem *)arg0)->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x38))); *(s32 *)&((TWindowSubItem *)arg0)->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)&((TWindowSubItem *)arg0)->m_34 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x40))); *(s32 *)&((TWindowSubItem *)arg0)->m_40 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x30))); *(s32 *)&((TWindowSubItem *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x3C))); ((TWindowSubItem *)arg0)->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x38))); ((TWindowSubItem *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x34))); ((TWindowSubItem *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x40))); ((TWindowSubItem *)arg0)->m_40 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x30))); ((TWindowSubItem *)arg0)->m_30 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -713,19 +713,19 @@ void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowSubItem;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubItem__class_name;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_2c = arg1;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_24 = arg2;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_30 = create_sub_item_list_window(get_window_layout_position(3), lbl_8044F998, *(s32 *)&((TWindowSubItem *)arg0)->m_24);
-    TWindowSubEquip__sub_80263AF8(*(s32 *)&((TWindowSubItem *)arg0)->m_2c, 0);
-    set_field_1c__6TLobbyFf(*(s32 *)&((TWindowSubItem *)arg0)->m_30);
-    ((TWindowSubShortCutList *)(*(s32 *)&((TWindowSubItem *)arg0)->m_30))->set_flag70_bit10();
-    *(s32 *)&((TWindowSubItem *)arg0)->m_40 = 0;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_34 = 0;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_38 = 0;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_3c = 0;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_20 = -1;
-    *(s32 *)&((TWindowSubItem *)arg0)->m_28 = 0;
-    *(s8 *)&((TWindowSubItem *)arg0)->m_1c = 0;
+    ((TWindowSubItem *)arg0)->m_2c = arg1;
+    ((TWindowSubItem *)arg0)->m_24 = arg2;
+    ((TWindowSubItem *)arg0)->m_30 = create_sub_item_list_window(get_window_layout_position(3), lbl_8044F998, ((TWindowSubItem *)arg0)->m_24);
+    TWindowSubEquip__sub_80263AF8(((TWindowSubItem *)arg0)->m_2c, 0);
+    set_field_1c__6TLobbyFf(((TWindowSubItem *)arg0)->m_30);
+    ((TWindowSubShortCutList *)(((TWindowSubItem *)arg0)->m_30))->set_flag70_bit10();
+    ((TWindowSubItem *)arg0)->m_40 = 0;
+    ((TWindowSubItem *)arg0)->m_34 = 0;
+    ((TWindowSubItem *)arg0)->m_38 = 0;
+    ((TWindowSubItem *)arg0)->m_3c = 0;
+    ((TWindowSubItem *)arg0)->m_20 = -1;
+    ((TWindowSubItem *)arg0)->m_28 = 0;
+    ((TWindowSubItem *)arg0)->m_1c = 0;
     return arg0;
 }
 

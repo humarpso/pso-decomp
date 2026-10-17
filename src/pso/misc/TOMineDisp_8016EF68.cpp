@@ -55,7 +55,7 @@ u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     TOMineDisp__ct((void *)arg0, (void *)arg1, (void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TOMineTrapDisp.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMineTrapDisp__name;
-    *(s16 *)&((TOMineTrapDisp *)arg0)->m_ac = arg3;
+    ((TOMineTrapDisp *)arg0)->m_ac = arg3;
     return arg0;
 }
 
@@ -90,15 +90,15 @@ void TOMineDisp::draw() {
 }
 
 void TOMineDisp::run_task() {
-    void *mine = *(void * *)&this->m_up;
+    void *mine = this->m_up;
     u8 *p;
-    switch (*(s32 *)&this->m_a4) {
+    switch (this->m_a4) {
     case 0:
         p = (u8 *)get_player_by_client_id(this->m_a8);
         if (p != NULL && is_locally_controlled__10TObjPlayerFPv() != 0 && fn_80171314(p) != 0) {
             if (horizontal_distance_squared(((u8 *)this) + 0x38, p + 0x38) <= lbl_805DB850 ||
                 ((TUnk_804B9870 *)p)->get_stat_by_key_state() == ((TUnk_804B9870 *)((u8 *)this))->get_stat_by_key_state()) {
-                *(s32 *)&this->m_a4 = 2;
+                this->m_a4 = 2;
             }
         }
         break;

@@ -143,9 +143,9 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TLoadCtrl.value;
-    *(s32 *)&((TLoadCtrl *)arg0)->m_1c = 1;
+    ((TLoadCtrl *)arg0)->m_1c = 1;
     TLoadCtrl__fade_task = 0;
-    *(s32 *)&((TLoadCtrl *)arg0)->m_20 = 0;
+    ((TLoadCtrl *)arg0)->m_20 = 0;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TLoadCtrl__class_name;
     if (((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 0U) || ((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 1U)) {
         temp_r3 = __nw__7TObjectFUl(0x38);

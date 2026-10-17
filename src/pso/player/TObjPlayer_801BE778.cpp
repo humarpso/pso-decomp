@@ -18,7 +18,7 @@ int TObjPlayer::is_action_active() { return (this->m_334>> 1) & 0x1; }
 void TObjPlayer__sub_801BE784(void* p, u8 v) { *(u8*)((char*)p + 0x2e7) = v; }
 u8 TObjPlayer::get_battle_mode() { return *(u8*)((char*)this + 0x33a); }
 void TObjPlayer__sub_801BE794(void* p, u8 v) { *(u8*)((char*)p + 0x2cb) = v; }
-u8 TObjPlayer::get_byte_339() { return *(u8 *)&this->m_339; }
+u8 TObjPlayer::get_byte_339() { return this->m_339; }
 void TObjPlayer__sub_801BE7A4(void* p, u8 v) { *(u8*)((char*)p + 0x2af) = v; }
 u8 get_mag_level__10TObjPlayerFPv(void* p) { return *(u8*)((char*)p + 0x338); }
 void TObjPlayer__sub_801BE7B4(void* p, u8 v) { *(u8*)((char*)p + 0x293) = v; }
@@ -79,7 +79,7 @@ s32 TObjPlayer::clamp_index_to_max(s32 arg0) {
     return max_level;
 }
 void TObjPlayer::clamp_nested_index() {
-    TObjPlayer::clamp_index_to_max(*(s32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x18));
+    TObjPlayer::clamp_index_to_max(*(s32 *)((s8 *)(this->m_2b0) + 0x18));
 }
 void TObjPlayer__sub_801BE9A8(s32 arg0) {
     TObjPlayer__sub_8011E204((void *)arg0, 0x20000);

@@ -107,7 +107,7 @@ u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3998;
     *(s32 *)((s8 *)arg0 + 0x90) = 0;
     ((TWindowMessagePage *)arg0)->m_20 = (s16) arg3;
-    *(s32 *)&((TWindowMessagePage *)arg0)->m_94 = 0;
+    ((TWindowMessagePage *)arg0)->m_94 = 0;
     return arg0;
 }
 

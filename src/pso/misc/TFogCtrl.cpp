@@ -340,14 +340,14 @@ void TFogCtrl::clear_active_flag() {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {
-        temp_r3 = *(s32 *)&this->m_1c;
+        temp_r3 = this->m_1c;
         if (temp_r3 & 1) {
-            *(s32 *)&this->m_1c = (s32) (temp_r3 & 0xFFFFFFFE);
+            this->m_1c = (s32) (temp_r3 & 0xFFFFFFFE);
             apply_fog_entry(this);
         }
     } else {
         apply_fog_entry(this);
-        *(s32 *)&this->m_1c = (s32) (*(s32 *)&this->m_1c & 0xFFFFFFFE);
+        this->m_1c = (s32) (this->m_1c & 0xFFFFFFFE);
     }
 }
 #pragma pop
@@ -392,21 +392,21 @@ s32 TFogCtrl::restore_fog(s32 arg1) {
     if (get_param() != 0) {
         return 0;
     }
-    temp_r0 = *(s32 *)&this->m_184;
+    temp_r0 = this->m_184;
     if (temp_r0 == 0) {
         return 1;
     }
-    if ((temp_r0 == 3) && ((s32) *(s32 *)&this->m_1b4 == 0)) {
+    if ((temp_r0 == 3) && ((s32) this->m_1b4 == 0)) {
         return 1;
     }
     if (arg1 & 1) {
-        *(s32 *)&this->m_20 = 1;
+        this->m_20 = 1;
     } else {
-        *(s32 *)&this->m_20 = 2;
+        this->m_20 = 2;
     }
-    *(s32 *)&this->m_19c = (s32) *(s32 *)&this->m_184;
-    *(s32 *)&this->m_1a0 = 0;
-    *(s32 *)&this->m_1a4 = 0;
+    this->m_19c = (s32) this->m_184;
+    this->m_1a0 = 0;
+    this->m_1a4 = 0;
     return 1;
 }
 #pragma pop
@@ -477,17 +477,17 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 #pragma dont_inline off
 void TFogCtrl::request_transition(s32 arg1, s32 arg2) {
     if (arg2 & 1) {
-        *(s32 *)&this->m_20 = 1;
+        this->m_20 = 1;
     } else {
-        *(s32 *)&this->m_20 = 2;
+        this->m_20 = 2;
     }
-    *(s32 *)&this->m_19c = (s32) *(s32 *)&this->m_184;
-    *(s32 *)&this->m_1a0 = 2;
-    *(s32 *)&this->m_1a4 = arg1;
+    this->m_19c = (s32) this->m_184;
+    this->m_1a0 = 2;
+    this->m_1a4 = arg1;
 }
 #pragma pop
 
-s32 TFogCtrl::get_param() { return *(s32 *)&this->m_1c0; }
+s32 TFogCtrl::get_param() { return this->m_1c0; }
 
 #pragma push
 #pragma fp_contract on
@@ -665,7 +665,7 @@ u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TFogCtrl.value;
         reset_scene_fog();
         TParticleCtrl::end_effect_render();
-        temp_r0 = *(s32 *)&((TFogCtrl *)arg0)->m_1c4;
+        temp_r0 = ((TFogCtrl *)arg0)->m_1c4;
         if ((temp_r0 >= 0) && (temp_r0 < 4)) {
             *(s32 *)((s8 *)(&(*(RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 *)&TFogCtrl__fog_instance_table).value) + (temp_r0 * 4)) = 0;
         }

@@ -120,7 +120,7 @@ void TObjLazerFence4::draw_model() {
 void TObjLazerFence4::reset_if_door_closed() {
     if (is_current_floor_switch_set(this->m_ba) == 0) {
         set_indexed_flags(this, 0, 1);
-        *(s32 *)&this->m_ac = 0;
+        this->m_ac = 0;
     }
 }
 
@@ -141,7 +141,7 @@ void TObjLazerFence4::sub_801933C8() {
 void TObjLazerFence4::render() {
 
     if (((LazerFence4VObj_801930E8*)this)->m8(lbl_805DBE70, lbl_805DBE74) != 0) {
-        switch (*(s32 *)&this->m_ac) {
+        switch (this->m_ac) {
         case 0:
             draw_model();
             return;

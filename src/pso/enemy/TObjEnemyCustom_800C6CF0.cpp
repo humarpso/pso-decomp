@@ -229,7 +229,7 @@ u8 TObjEnemyCustom::find_target_in_range(f32 farg0) {
     }
     this->targetId = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(this, 0, farg0);
     (*(s32 *)&this->target) = (s32)get_player_by_client_id(this->targetId);
-    return (u8) ((*(s32 *)&this->target) != 0);
+    return (u8) ((this->target) != 0);
 }
 
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {

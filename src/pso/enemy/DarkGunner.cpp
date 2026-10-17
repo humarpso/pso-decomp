@@ -848,12 +848,12 @@ s32 TObjPlayer::update_hide_sequence() {
         temp_r5 = *(s32 *)&this->unk_388;
         temp_r4 = temp_r5 & 0xFFB7FFFF;
         *(s32 *)&this->unk_388 = temp_r4;
-        *(s16 *)&this->m_b8 = 8;
+        this->m_b8 = 8;
         this->m_39c = TObjPlayer__sub_800A3210(1, temp_r4, temp_r5);
         this->m_37c = 1;
     case 1:
         advance_animation_playback(arg0);
-        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
+        if (!(this->actorFlags & 0x800000)) {
             apply_actor_gravity(arg0, 0, lbl_805D9984);
         }
         ((TObjPlayer *)arg0)->update_collisions();
@@ -1314,7 +1314,7 @@ s32 TObjPlayer__sub_800A2390(void *arg0_) {
 #pragma pop
 
 void TObjPlayer::set_hidden_flag() {
-    if (!(*(s32 *)&this->actorFlags & 0x800)) {
+    if (!(this->actorFlags & 0x800)) {
         update_if_active__15TObjEneMe1GiGueFl(this, 1);
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000);
     }
@@ -1456,7 +1456,7 @@ int TObjPlayer::is_flag_set_388_bit26() { return (*(u32 *)&this->unk_388 >> 26) 
 
 void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int *)&this->model = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int *)&this->texture_id = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
 
-void TObjPlayer::clear_counter() { *(s32 *)&this->m_340 = 0; }
+void TObjPlayer::clear_counter() { this->m_340 = 0; }
 
 void TObjPlayer::set_cancel_flag() { *(s32 *)&this->m_340 = 1; }
 
@@ -1536,7 +1536,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
     init_collision_body_parts(arg0, lbl_80490998, 1);
-    *(f32 *)((s8 *)(*(u8 * *)&((TUnk_804909C4 *)arg0)->m_a4) + 0xC) = lbl_805D99D4 * player_scale_factor;
+    *(f32 *)((s8 *)(((TUnk_804909C4 *)arg0)->m_a4) + 0xC) = lbl_805D99D4 * player_scale_factor;
     *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(arg1, lbl_805D99D4);
     if (((TObjPlayer *)arg1)->is_flag_set_388_bit26() != 0) {
         var_r0 = 0xDA;

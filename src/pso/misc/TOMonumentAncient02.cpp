@@ -125,24 +125,24 @@ void *__nw__7TObjectFUl(int);
 void TOMonumentAncient02::run_task() {
     u8 *arg0 = (u8 *)this;
 
-    switch (*(s32 *)&this->m_ac) {
+    switch (this->m_ac) {
     default:
-        *(s32 *)&this->m_ac = 1;
+        this->m_ac = 1;
         if ((u32) this->m_e8 != 0U) {
-            ((TParticleCtrl *)(*(void * *)&this->m_e8))->enable();
+            ((TParticleCtrl *)(this->m_e8))->enable();
         }
         return;
     case 1:
-        if ((TRaderMapCore::is_not_split_screen() != 1) && ((s32) *(s32 *)&this->m_ec == 1)) {
+        if ((TRaderMapCore::is_not_split_screen() != 1) && ((s32) this->m_ec == 1)) {
             submit_cursor_candidate(arg0, -1);
         }
         if ((u32) this->m_e8 != 0U) {
-            ((TParticleCtrl *)(*(void * *)&this->m_e8))->enable();
+            ((TParticleCtrl *)(this->m_e8))->enable();
             return;
         }
         break;
     case 2:
-        play_persistent_sound((s32)(*(s32 *)&this->m_d4), (s32)arg0, (u32)&this->position, 0, 0);
+        play_persistent_sound((s32)(this->m_d4), (s32)arg0, (u32)&this->position, 0, 0);
         break;
     }
 }
@@ -274,21 +274,21 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     global_state = TOKeyMachine01::get_global_state();
     switch (global_state) {
     default:
-        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d0 = 0x2C;
-        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d4 = 0x4C119;
+        ((TOMonumentAncient02 *)arg0)->m_d0 = 0x2C;
+        ((TOMonumentAncient02 *)arg0)->m_d4 = 0x4C119;
         break;
     case 4:
-        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d0 = 0x2D;
-        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d4 = 0x44116;
+        ((TOMonumentAncient02 *)arg0)->m_d0 = 0x2D;
+        ((TOMonumentAncient02 *)arg0)->m_d4 = 0x44116;
         break;
     case 7:
-        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d0 = 0x2E;
-        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d4 = 0x4004C10F;
+        ((TOMonumentAncient02 *)arg0)->m_d0 = 0x2E;
+        ((TOMonumentAncient02 *)arg0)->m_d4 = 0x4004C10F;
         break;
     }
-    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac = 0;
-    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_c8 = 0;
-    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_cc = 0;
+    ((TOMonumentAncient02 *)arg0)->m_ac = 0;
+    ((TOMonumentAncient02 *)arg0)->m_c8 = 0;
+    ((TOMonumentAncient02 *)arg0)->m_cc = 0;
     ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
     ((TOMonumentAncient02 *)arg0)->m_c0 = (f32) lbl_805DB934;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB938;
@@ -296,8 +296,8 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB92C;
     ((TOMonumentAncient02 *)arg0)->m_e0 = (f32) lbl_805DB92C;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB92C;
-    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_e8 = (s32)create_particle_emitter((arg0 + 0x38), 0x7F);
-    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ec = 1;
+    ((TOMonumentAncient02 *)arg0)->m_e8 = (s32)create_particle_emitter((arg0 + 0x38), 0x7F);
+    ((TOMonumentAncient02 *)arg0)->m_ec = 1;
     if ((s32) enable_v2_features == 1) {
         if (get_game_play_mode() == 1) {
             queue_destruction__7TObjectFv((arg0));

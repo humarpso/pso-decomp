@@ -15,7 +15,7 @@ void *__ct__11TChCrEffTagFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TChCrEffTag;
     *(void * *)&((TChCrEffTag *)arg0)->m_name = TChCrEffTag__name;
-    *(u32 *)&((TChCrEffTag *)arg0)->heading = -1;
+    ((TChCrEffTag *)arg0)->heading = -1;
     TChCrEffTag__selected_heading = -1;
     *(u32 *)((s8 *)arg0 + 0x28) = 0;
     *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DDCA4;

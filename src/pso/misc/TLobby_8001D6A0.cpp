@@ -452,8 +452,8 @@ void TLobby__sub_8001DF58(s32 arg0, s32 ent) {
 void TLobby::copy_entry(void *arg1) {
     *(s16 *)&this->m_name = (s16) *(s16 *)((s8 *)arg1 + 0);
     *(s16 *)((s8 *)this + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
-    *(s16 *)&this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
-    *(s16 *)&this->m_id = (s16) *(s16 *)((s8 *)arg1 + 6);
+    this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
+    this->m_id = (s16) *(s16 *)((s8 *)arg1 + 6);
     *(s16 *)&this->m_prev = (s16) *(s16 *)((s8 *)arg1 + 8);
     *(s16 *)((s8 *)this + 0xA) = (s16) *(s16 *)((s8 *)arg1 + 0xA);
     *(s32 *)&this->m_next = (s32) *(s32 *)((s8 *)arg1 + 0xC);
@@ -478,8 +478,8 @@ void copy_all_entries__6TLobbyFii(s32 arg0, s32 arg1) {
 void TLobby::copy_from(void *arg1) {
     *(s16 *)&this->m_name = (s16) *(s16 *)((s8 *)arg1 + 0);
     *(s16 *)((s8 *)this + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
-    *(s16 *)&this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
-    *(s16 *)&this->m_id = (s16) *(s16 *)((s8 *)arg1 + 6);
+    this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
+    this->m_id = (s16) *(s16 *)((s8 *)arg1 + 6);
     *(f32 *)&this->m_prev = (f32) *(f32 *)((s8 *)arg1 + 8);
     *(s32 *)&this->m_next = (s32) *(s32 *)((s8 *)arg1 + 0xC);
     *(f32 *)&this->m_up = (f32) *(f32 *)((s8 *)arg1 + 0x10);

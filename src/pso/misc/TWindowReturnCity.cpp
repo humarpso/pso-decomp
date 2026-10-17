@@ -78,7 +78,7 @@ void return_to_city_after_defeat(void) {
 }
 
 s32 TWindowReturnCity::query_battle_state() {
-    struct VObj_8026D208 *o = (struct VObj_8026D208 *)get_player_by_client_id(*(s32 *)&this->m_24);
+    struct VObj_8026D208 *o = (struct VObj_8026D208 *)get_player_by_client_id(this->m_24);
     if (o == NULL) {
         return 0;
     }
@@ -90,44 +90,44 @@ void TWindowReturnCity::render() {  }
 void TWindowReturnCity::run_task() {
     s32 temp_r3;
     if ((s32) lbl_805D55C0 != 1) {
-        switch (*(s32 *)&this->m_20) {
+        switch (this->m_20) {
         case 2:
             break;
         case 0:
-            *(s32 *)&this->m_20 = 1;
+            this->m_20 = 1;
         case 1:
             if ((query_battle_state() == 0) || ((s32) TWindowReturnCity__client_scan_index != 4)) {
                 TWindowReturnCity::clear_flag_bit5();
-                TWindowReturnCity__sub_8024ACA8(*(s32 *)&this->m_24);
+                TWindowReturnCity__sub_8024ACA8(this->m_24);
                 TWindowCtrl::clear_flag_2();
                 queue_destruction__7TObjectFv(this);
-                *(s32 *)&this->m_20 = 2;
+                this->m_20 = 2;
                 return;
             }
-            if (((TWindowSubComCard *)(*(s32 *)&this->m_1c))->get_card_data() != 0) {
+            if (((TWindowSubComCard *)(this->m_1c))->get_card_data() != 0) {
                 TWindowReturnCity::clear_flag_bit5();
-                TWindowReturnCity__sub_8024ACA8(*(s32 *)&this->m_24);
+                TWindowReturnCity__sub_8024ACA8(this->m_24);
                 TWindowCtrl::clear_flag_2();
                 queue_destruction__7TObjectFv(this);
-                *(s32 *)&this->m_20 = 2;
+                this->m_20 = 2;
                 return;
             }
-            if (((TWindowMessageYesNo *)(*(s32 *)&this->m_1c))->is_child_visible() != 0) {
-                temp_r3 = ((TWindowSubComCard *)(*(s32 *)&this->m_1c))->get_slot_or_neg1();
+            if (((TWindowMessageYesNo *)(this->m_1c))->is_child_visible() != 0) {
+                temp_r3 = ((TWindowSubComCard *)(this->m_1c))->get_slot_or_neg1();
                 if (temp_r3 == 0) {
-                    TWindowReturnCity__client_scan_index = *(s32 *)&this->m_24;
+                    TWindowReturnCity__client_scan_index = this->m_24;
                     u32 task = __nw__7TObjectFUl(0x28);
                     if (task != 0U) {
                         ((THunterGuildSeqOffline *)task)->init((void *)tl_00, (void *)return_to_city_after_defeat);
                     }
-                    *(s32 *)&this->m_20 = 2;
+                    this->m_20 = 2;
                 }
                 if (temp_r3 == 1) {
                     TWindowReturnCity::clear_flag_bit5();
-                    TWindowReturnCity__sub_8024ACA8(*(s32 *)&this->m_24);
+                    TWindowReturnCity__sub_8024ACA8(this->m_24);
                     TWindowCtrl::clear_flag_2();
                     queue_destruction__7TObjectFv(this);
-                    *(s32 *)&this->m_20 = 2;
+                    this->m_20 = 2;
                 }
             }
             break;
@@ -138,7 +138,7 @@ void TWindowReturnCity::run_task() {
 void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowReturnCity;
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x1C)))->close(); *(s32 *)&((TWindowReturnCity *)arg0)->m_1c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x1C)))->close(); ((TWindowReturnCity *)arg0)->m_1c = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -154,19 +154,19 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
   __ct__7TObjectFP7TObject((void *) arg0, (void *) arg1);
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity *)&__vt__17TWindowReturnCity).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowReturnCity__class_name;
-  *(s32 *)&((TWindowReturnCity *)arg0)->m_24 = arg2;
-  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_24), 0, 0);
-  *(s32 *)&((TWindowReturnCity *)arg0)->m_1c = temp_r31;
+  ((TWindowReturnCity *)arg0)->m_24 = arg2;
+  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (((TWindowReturnCity *)arg0)->m_24), 0, 0);
+  ((TWindowReturnCity *)arg0)->m_1c = temp_r31;
   if (arg0)
   {
   }
   temp_r31 = get_window_layout_position(0x23);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), (int) TWindowSubStatusDisp::get_message_10(0x43), (int) temp_r31, (f32) lbl_805DD2E8);
-  free_member__17TWindowSubComCardFv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), 1);
-  fn_8024AC64((*(s32 *)&((TWindowReturnCity *)arg0)->m_24));
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (((TWindowReturnCity *)arg0)->m_1c), (int) TWindowSubStatusDisp::get_message_10(0x43), (int) temp_r31, (f32) lbl_805DD2E8);
+  free_member__17TWindowSubComCardFv((int) (((TWindowReturnCity *)arg0)->m_1c), 1);
+  fn_8024AC64((((TWindowReturnCity *)arg0)->m_24));
   TWindowCtrl::set_close_flag();
   TWindowCtrl__sub_8026D4E8();
-  *(s32 *)&((TWindowReturnCity *)arg0)->m_20 = 0;
+  ((TWindowReturnCity *)arg0)->m_20 = 0;
   return arg0;
 }
 

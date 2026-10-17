@@ -46,7 +46,7 @@ void TObjDFUsoTower::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object((void *)(*(s32 *)&this->model));
+        draw_ginja_object((void *)(this->model));
         pop_matrix();
         if (*(f32 *)&this->unk_94 < lbl_805D8A34) {
             TObjPlayer::sync_player_globals();

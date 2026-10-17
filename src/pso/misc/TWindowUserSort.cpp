@@ -66,7 +66,7 @@ u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &lbl_804D304C.value), (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80288380___vt__15TWindowUserSort *)&__vt__15TWindowUserSort).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowUserSort__name;
-    *(s32 *)&((TWindowUserSort *)arg0)->m_60 = arg2;
+    ((TWindowUserSort *)arg0)->m_60 = arg2;
     ((TWindowSubStatusDisp *)(arg0 + 0x24))->fill_card_text_entries(arg2);
     return arg0;
 }

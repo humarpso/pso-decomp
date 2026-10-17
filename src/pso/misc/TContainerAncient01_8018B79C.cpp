@@ -66,7 +66,7 @@ f32 TContainerAncient01::receive_physical_attack(void *, f32) {
 
     if ((u16) this->m_1c >= 0x1000U) {
         reset_state__19TContainerAncient01Fv();
-        if (((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
+        if (((u32) this->m_80 != 0U) && (access_object_saved_state(&sp8, 1) != 0)) {
             sp8 = 1;
             access_object_saved_state(&sp8, 0);
             send_object_state_update(&sp8);
@@ -103,11 +103,11 @@ void TContainerAncient01::render() {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        if ((s32) *(s32 *)&this->m_35c != 0) {
+        if ((s32) this->m_35c != 0) {
             scale_current_matrix((u8 *)&this->m_360);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_ginja_object((void *)(*(s32 *)&this->model));
+            draw_ginja_object((void *)(this->model));
         } else {
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         }
@@ -119,7 +119,7 @@ void TContainerAncient01::run_task() {
     f32 temp_f1;
     f32 temp_f1_2;
     if (TObjPlayer::check_demo_mode() == 0) {
-        if ((s32) *(s32 *)&this->m_35c == 0) {
+        if ((s32) this->m_35c == 0) {
             switch (this->mode) {
             case 0:
                 ((TContainerAncient01 *)arg0)->update_wait_for_player();

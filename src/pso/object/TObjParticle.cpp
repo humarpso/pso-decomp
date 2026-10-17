@@ -70,12 +70,12 @@ void TObjParticle::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 var_f31;
 
-    if (((TOKeyMachine01::get_global_state() == 0xE) || ((s32) this->m_84 == 1)) && ((s32) *(s32 *)&this->m_8c != 1)) {
+    if (((TOKeyMachine01::get_global_state() == 0xE) || ((s32) this->m_84 == 1)) && ((s32) this->m_8c != 1)) {
         var_f31 = lbl_805DBEE0;
     } else {
         var_f31 = lbl_805DBEE4;
     }
-    if (((s32) *(s32 *)&this->m_8c == 1) && ((s32) this->m_84 == 1)) {
+    if (((s32) this->m_8c == 1) && ((s32) this->m_84 == 1)) {
         var_f31 = lbl_805DBEE8;
     }
     if (xyz_distance_squared((u8 *)&this->position, (u8 *)(camera_ctrl_instance + 0x178)) > var_f31) {
@@ -91,7 +91,7 @@ void TObjParticle::run_task() {
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjParticle;
-        if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x90))); *(s32 *)&((TObjParticle *)arg0)->m_90 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x90))); ((TObjParticle *)arg0)->m_90 = 0; }
         ((TUnk_804B9870 *)arg0)->mask_object_set_row_flags(-3);
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {

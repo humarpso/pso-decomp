@@ -56,8 +56,8 @@ s32 TObjEnvSoundGlobal::setup_sound() {
         copy_pair__18TObjEnvSoundGlobalFPvPv((void*)(arg0 + 0x94), (void*)((int) (temp_r4 + (this->m_84 * 8))));
     } else {
         var_r31 = 0;
-        *(s32 *)&this->m_94 = -1;
-        *(s32 *)&this->m_98 = -1;
+        this->m_94 = -1;
+        this->m_98 = -1;
     }
     *(f32 *)&this->unk_90 = (f32) *(s32 *)&this->m_88;
     if (*(f32 *)&this->unk_90 < (-127.0f)) {
@@ -142,20 +142,20 @@ s32 TObjEnvSoundEx::init_sound_params() {
         ((s32 (*)(void *, int))copy_pair__18TObjEnvSoundGlobalFPvPv)(arg0 + 0x9C, (int) (temp_r4 + (this->m_84 * 8)));
     } else {
         var_r31 = 0;
-        *(s32 *)&this->m_9c = -1;
-        *(s32 *)&this->m_a0 = -1;
+        this->m_9c = -1;
+        this->m_a0 = -1;
     }
     this->m_98 = fabs_float(this->target_scale);
     *(f32 *)&this->unk_A4 = (f32) *(f32 *)&this->m_70;
     if (*(f32 *)&this->unk_A4 <= lbl_805DBE18) {
         *(f32 *)&this->unk_A4 = (f32) lbl_805DBE1C;
     }
-    *(s32 *)&this->m_90 = (s32) *(s32 *)&this->m_88;
-    if ((s32) *(s32 *)&this->m_90 < -0x7F) {
-        *(s32 *)&this->m_90 = -0x7F;
+    this->m_90 = (s32) this->m_88;
+    if ((s32) this->m_90 < -0x7F) {
+        this->m_90 = -0x7F;
     }
-    if ((s32) *(s32 *)&this->m_90 > 0x7F) {
-        *(s32 *)&this->m_90 = 0x7F;
+    if ((s32) this->m_90 > 0x7F) {
+        this->m_90 = 0x7F;
     }
     return var_r31;
 }

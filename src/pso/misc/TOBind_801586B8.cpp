@@ -68,11 +68,11 @@ void TOBind::render() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object((void *)(*(s32 *)&this->model));
-        if ((s32) *(s32 *)&this->m_b0 != 1) {
-            TObjFish::set_global_param(*(s32 *)&this->m_c8);
+        draw_ginja_object((void *)(this->model));
+        if ((s32) this->m_b0 != 1) {
+            TObjFish::set_global_param(this->m_c8);
             TParticleCtrl::begin_effect_render();
-            draw_ginja_model_with_motion(*(s32 *)&this->m_c4, *(s32 *)&this->m_cc, *(f32 *)((s8 *)arg0 + 0xB8));
+            draw_ginja_model_with_motion(this->m_c4, this->m_cc, *(f32 *)((s8 *)arg0 + 0xB8));
             TParticleCtrl::end_effect_render();
         }
         pop_matrix();
@@ -124,11 +124,11 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA8;
     ((TOBind *)(arg0))->apply_object_set_data((void *)arg1);
-    *(s32 *)&((TOBind *)arg0)->m_b0 = 0;
+    ((TOBind *)arg0)->m_b0 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
     ((TOBind *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
-    *(s32 *)&((TOBind *)arg0)->m_c4 = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
-    *(s32 *)&((TOBind *)arg0)->m_c8 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
+    ((TOBind *)arg0)->m_c4 = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
+    ((TOBind *)arg0)->m_c8 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
     *(u8 **)((s8 *)arg0 + 0xCC) = get_bml_motion((*(s32 *)&TOBind__static_model_resource), 0);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB300;
     ((TOBind *)arg0)->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
@@ -136,10 +136,10 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     init_collision_body_parts(arg0, &lbl_804AFC54.value, 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TOBind *)arg0)->actorFlags = (s32) (*(s32 *)&((TOBind *)arg0)->actorFlags| 0x40000000);
-    *(s32 *)&((TOBind *)arg0)->m_b4 = (s32) ((TOBind *)arg0)->m_84;
-    if ((s32) *(s32 *)&((TOBind *)arg0)->m_b4< 0) {
-        *(s32 *)&((TOBind *)arg0)->m_b4 = 0;
+    ((TOBind *)arg0)->actorFlags = (s32) (((TOBind *)arg0)->actorFlags| 0x40000000);
+    ((TOBind *)arg0)->m_b4 = (s32) ((TOBind *)arg0)->m_84;
+    if ((s32) ((TOBind *)arg0)->m_b4< 0) {
+        ((TOBind *)arg0)->m_b4 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DB308;
     ((TOBind *)arg0)->m_d4 = (f32) lbl_805DB30C;

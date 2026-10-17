@@ -96,9 +96,9 @@ void *TObjBoss5PillarCtrl::create() {
 int TObjBoss5PillarCtrl::update_pillar() { return TObjBoss5Pillar__sub_8028B70C(this); }
 int TObjBoss5PillarCtrl::forward_pillar_2B710() { return TObjBoss5Pillar__sub_8028B710(this); }
 void TObjBoss5PillarCtrl::play_sound_once() {
-    if ((s32) *(s32 *)&this->m_1c == 0) {
+    if ((s32) this->m_1c == 0) {
         play_sound_effect(0x4003A819, 0, 0, 0);
-        *(s32 *)&this->m_1c = 1;
+        this->m_1c = 1;
     }
 }
 

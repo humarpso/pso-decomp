@@ -5,6 +5,6 @@
 
 extern "C" {
 
-void*TObjMotion::get_anim_entry(int a1) {  return (char*)(*(int *)&(*(s32 *)&this->action_table)) + a1 * 16; }
+void*TObjMotion::get_anim_entry(int a1) {  return (char*)(*(int *)&(this->action_table)) + a1 * 16; }
 
 }

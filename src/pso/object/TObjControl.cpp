@@ -648,7 +648,7 @@ s32 TObjEnemy::vfunc_74(s32 kind) {
     if (this->m_1c >= 0x1000 && this->m_1c< 0x4000) {
         exchange_object_state__9TObjEnemyFls(((u8 *)this), &pkt, 1);
         pkt.diff = this->hpmax- this->hp;
-        pkt.id = *(s32 *)&this->actorFlags;
+        pkt.id = this->actorFlags;
         switch (kind) {
         case 9:
         case 11:
@@ -791,7 +791,7 @@ void TObjEnemy::award_enemy_experience(s32 arg1) {
         ((s32 (*)(void *, int))obj_testFlags30)(p, 0x800) != 0 || ((TObjPlayer *)p)->get_field_3e4() != get_current_floor()) {
         return;
     }
-    val = *(s32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x1C);
+    val = *(s32 *)((s8 *)(this->m_2b0) + 0x1C);
     if ((u16)arg1 == this->m_2d4) {
         if (((TLobby *)lobby_rule_settings)->get_rule_field_0() == 1) {
             fn_801B0480(p, ((u8 *)this), 1);
@@ -819,7 +819,7 @@ void TObjEnemy::update_prev_position() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-    temp_r3 = (unsigned char *) (*(void * *)&this->m_2b0);
+    temp_r3 = (unsigned char *) (this->m_2b0);
     if (temp_r3 != NULL) {
         this->m_300 = (f32) ((lbl_805DA8DC * *(f32 *)((s8 *)temp_r3 + 0x10)) + this->m_300);
     }
@@ -877,11 +877,11 @@ void TUnk_80493450::unlink_enemy_group_relations() {
     u8 *var_r6;
     u8 *var_r6_2;
     u8 *var_r6_3;
-    temp_r5 = (u8 *)(*(u8 * *)&this->group);
+    temp_r5 = (u8 *)(this->group);
     if (temp_r5 != NULL) {
-        temp_r4 = (u8 *)(*(u8 * *)&this->next);
+        temp_r4 = (u8 *)(this->next);
         if (temp_r4 != NULL) {
-            temp_r5_2 = (u8 *)(*(u8 * *)&this->children);
+            temp_r5_2 = (u8 *)(this->children);
             if (temp_r5_2 != NULL) {
                 temp_r0 = (u8 *)(*(u8 **)((s8 *)temp_r4 + 0x34C));
                 if (temp_r0 != NULL) {
@@ -890,31 +890,31 @@ while (*(u8 **)((s8 *)var_r6 + 0x348) != NULL) {
     var_r6 = *(u8 **)((s8 *)var_r6 + 0x348);
 }
                     *(u8 **)((s8 *)var_r6 + 0x348) = temp_r5_2;
-                    *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = NULL;
-                    *(void **)((s8 *)(*(u8 * *)&this->children) + 0x344) = var_r6;
+                    *(void **)((s8 *)(this->children) + 0x340) = NULL;
+                    *(void **)((s8 *)(this->children) + 0x344) = var_r6;
                 } else {
                     *(u8 **)((s8 *)temp_r4 + 0x34C) = temp_r5_2;
-                    *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = (void *) *(u8 * *)&this->next;
+                    *(void **)((s8 *)(this->children) + 0x340) = (void *) this->next;
                 }
             }
-            *(void **)((s8 *)(*(u8 * *)&this->group) + 0x34C) = (void *) *(u8 * *)&this->next;
-            *(void **)((s8 *)(*(u8 * *)&this->next) + 0x340) = (void *) *(u8 * *)&this->group;
-            *(void **)((s8 *)(*(u8 * *)&this->next) + 0x344) = NULL;
+            *(void **)((s8 *)(this->group) + 0x34C) = (void *) this->next;
+            *(void **)((s8 *)(this->next) + 0x340) = (void *) this->group;
+            *(void **)((s8 *)(this->next) + 0x344) = NULL;
         } else {
-            temp_r0_3 = (u8 *)(*(u8 * *)&this->children);
+            temp_r0_3 = (u8 *)(this->children);
             if (temp_r0_3 != NULL) {
                 *(u8 **)((s8 *)temp_r5 + 0x34C) = temp_r0_3;
-                *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = (void *) *(u8 * *)&this->group;
+                *(void **)((s8 *)(this->children) + 0x340) = (void *) this->group;
             } else {
                 *(u8 **)((s8 *)temp_r5 + 0x34C) = NULL;
             }
         }
     } else {
-        temp_r5_3 = (u8 *)(*(u8 * *)&this->previous);
+        temp_r5_3 = (u8 *)(this->previous);
         if (temp_r5_3 != NULL) {
-            temp_r4_2 = (u8 *)(*(u8 * *)&this->next);
+            temp_r4_2 = (u8 *)(this->next);
             if (temp_r4_2 != NULL) {
-                temp_r5_4 = (u8 *)(*(u8 * *)&this->children);
+                temp_r5_4 = (u8 *)(this->children);
                 if (temp_r5_4 != NULL) {
                     temp_r0_4 = (u8 *)(*(u8 **)((s8 *)temp_r4_2 + 0x34C));
                     if (temp_r0_4 != NULL) {
@@ -923,17 +923,17 @@ while (*(u8 **)((s8 *)var_r6_2 + 0x348) != NULL) {
     var_r6_2 = *(u8 **)((s8 *)var_r6_2 + 0x348);
 }
                         *(u8 **)((s8 *)var_r6_2 + 0x348) = temp_r5_4;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = NULL;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x344) = var_r6_2;
+                        *(void **)((s8 *)(this->children) + 0x340) = NULL;
+                        *(void **)((s8 *)(this->children) + 0x344) = var_r6_2;
                     } else {
                         *(u8 **)((s8 *)temp_r4_2 + 0x34C) = temp_r5_4;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = (void *) *(u8 * *)&this->next;
+                        *(void **)((s8 *)(this->children) + 0x340) = (void *) this->next;
                     }
                 }
-                *(void **)((s8 *)(*(u8 * *)&this->previous) + 0x348) = (void *) *(u8 * *)&this->next;
-                *(void **)((s8 *)(*(u8 * *)&this->next) + 0x344) = (void *) *(u8 * *)&this->previous;
+                *(void **)((s8 *)(this->previous) + 0x348) = (void *) this->next;
+                *(void **)((s8 *)(this->next) + 0x344) = (void *) this->previous;
             } else {
-                temp_r4_3 = (u8 *)(*(u8 * *)&this->children);
+                temp_r4_3 = (u8 *)(this->children);
                 if (temp_r4_3 != NULL) {
                     temp_r0_6 = (u8 *)(*(u8 **)((s8 *)temp_r5_3 + 0x34C));
                     if (temp_r0_6 != NULL) {
@@ -942,19 +942,19 @@ while (*(u8 **)((s8 *)var_r5 + 0x348) != NULL) {
     var_r5 = *(u8 **)((s8 *)var_r5 + 0x348);
 }
                         *(u8 **)((s8 *)var_r5 + 0x348) = temp_r4_3;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = NULL;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x344) = var_r5;
+                        *(void **)((s8 *)(this->children) + 0x340) = NULL;
+                        *(void **)((s8 *)(this->children) + 0x344) = var_r5;
                     } else {
                         *(u8 **)((s8 *)temp_r5_3 + 0x34C) = temp_r4_3;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = (void *) *(u8 * *)&this->previous;
+                        *(void **)((s8 *)(this->children) + 0x340) = (void *) this->previous;
                     }
                 }
-                *(void **)((s8 *)(*(u8 * *)&this->previous) + 0x348) = NULL;
+                *(void **)((s8 *)(this->previous) + 0x348) = NULL;
             }
         } else {
-            temp_r4_4 = (u8 *)(*(u8 * *)&this->next);
+            temp_r4_4 = (u8 *)(this->next);
             if (temp_r4_4 != NULL) {
-                temp_r5_5 = (u8 *)(*(u8 * *)&this->children);
+                temp_r5_5 = (u8 *)(this->children);
                 if (temp_r5_5 != NULL) {
                     temp_r0_8 = (u8 *)(*(u8 **)((s8 *)temp_r4_4 + 0x34C));
                     if (temp_r0_8 != NULL) {
@@ -963,26 +963,26 @@ while (*(u8 **)((s8 *)var_r6_3 + 0x348) != NULL) {
     var_r6_3 = *(u8 **)((s8 *)var_r6_3 + 0x348);
 }
                         *(u8 **)((s8 *)var_r6_3 + 0x348) = temp_r5_5;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = NULL;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x344) = var_r6_3;
+                        *(void **)((s8 *)(this->children) + 0x340) = NULL;
+                        *(void **)((s8 *)(this->children) + 0x344) = var_r6_3;
                     } else {
                         *(u8 **)((s8 *)temp_r4_4 + 0x34C) = temp_r5_5;
-                        *(void **)((s8 *)(*(u8 * *)&this->children) + 0x340) = (void *) *(u8 * *)&this->next;
+                        *(void **)((s8 *)(this->children) + 0x340) = (void *) this->next;
                     }
                 }
-                *(void **)((s8 *)(*(u8 * *)&this->next) + 0x344) = NULL;
+                *(void **)((s8 *)(this->next) + 0x344) = NULL;
             } else {
-                temp_r4_5 = (u8 *)(*(u8 * *)&this->children);
+                temp_r4_5 = (u8 *)(this->children);
                 if (temp_r4_5 != NULL) {
                     *(u8 **)((s8 *)temp_r4_5 + 0x340) = NULL;
                 }
             }
         }
     }
-    *(u8 * *)&this->group = NULL;
-    *(u8 * *)&this->previous = NULL;
-    *(u8 * *)&this->next = NULL;
-    *(u8 * *)&this->children = NULL;
+    this->group = NULL;
+    this->previous = NULL;
+    this->next = NULL;
+    this->children = NULL;
 }
 
 #define FIND_TAIL_800F7118(q) \
@@ -1130,11 +1130,11 @@ s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
         ((TObjEnemy *)arg0)->hp = (s16) ((TObjEnemy *)arg0)->hpmax;
         if (obj_testFlag_2E4__13TUnk_804806E8FUl(arg0, 4U) != 0) {
             ((TObjEnemy *)arg0)->m_2ba = 0;
-            *(s16 *)&((TObjEnemy *)arg0)->m_32e = 0;
+            ((TObjEnemy *)arg0)->m_32e = 0;
         } else {
             temp_r4 = (u8 *)(((TObjEnemy *)arg0)->m_2b0);
             ((TObjEnemy *)arg0)->m_2ba = (s16) (*(s16 *)((s8 *)temp_r4 + 2) + *(s32 *)((s8 *)temp_r4 + 0x18));
-            *(s16 *)&((TObjEnemy *)arg0)->m_32e = (s16) ((TObjEnemy *)arg0)->m_2ba;
+            ((TObjEnemy *)arg0)->m_32e = (s16) ((TObjEnemy *)arg0)->m_2ba;
         }
         goto block_6;
     }
@@ -1166,7 +1166,7 @@ block_14:
     *(s16 *)((s8 *)arg0 + 0x2CA) = temp_r0_2;
     *(s16 *)((s8 *)arg0 + 0x2C2) = temp_r0_2;
     temp_r0_3 = *(s16 *)((s8 *)(((TObjEnemy *)arg0)->m_2b0) + 4) + *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 0);
-    *(s16 *)&((TObjEnemy *)arg0)->m_2cc = temp_r0_3;
+    ((TObjEnemy *)arg0)->m_2cc = temp_r0_3;
     ((TObjEnemy *)arg0)->m_2c4 = temp_r0_3;
     temp_r0_4 = *(s16 *)((s8 *)(((TObjEnemy *)arg0)->m_2b0) + 8) + *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 0x1C);
     *(s16 *)((s8 *)arg0 + 0x2CE) = temp_r0_4;

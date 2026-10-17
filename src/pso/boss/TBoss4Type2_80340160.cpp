@@ -42,7 +42,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
 void *TBoss6Demo15_TYPE2_WAIT::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&(*(u32 *)((u8 *)this + 0x18)) = lbl_804EFB78;
-        if (*(void * *)&this->m_20 != NULL) { TBoss4Type2::request_destroy((u32)(*(void * *)&this->m_20)); *(s32 *)&this->m_20 = 0; }
+        if (this->m_20 != NULL) { TBoss4Type2::request_destroy((u32)(this->m_20)); this->m_20 = 0; }
         fn_80340040(this);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

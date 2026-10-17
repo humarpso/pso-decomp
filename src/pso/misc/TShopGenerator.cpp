@@ -200,8 +200,8 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopGenerator__class_name;
     ((TShopGenerator *)arg0)->apply_object_set_data((void *)arg1);
-    *(s32 *)&((TShopGenerator *)arg0)->m_90 = 0;
-    *(s32 *)&((TShopGenerator *)arg0)->m_94 = 5;
+    ((TShopGenerator *)arg0)->m_90 = 0;
+    ((TShopGenerator *)arg0)->m_94 = 5;
     temp_r0 = ((TShopGenerator *)arg0)->m_84;
     if (temp_r0 < 0) {
         queue_destruction__7TObjectFv(arg0);

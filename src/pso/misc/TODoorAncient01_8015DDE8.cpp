@@ -79,7 +79,7 @@ extern const f32 lbl_805DB3E0;
 void TODoorAncient01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB3E0) == 0)) {
-        *(s32 *)&this->m_ac = 3;
+        this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
     }
@@ -90,7 +90,7 @@ extern const f32 lbl_805DB3E4;
 void TODoorAncient01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB3E4) != 0)) {
-        *(s32 *)&this->m_ac = 1;
+        this->m_ac = 1;
         set_indexed_flags(arg0, 0, 8);
         play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
     }

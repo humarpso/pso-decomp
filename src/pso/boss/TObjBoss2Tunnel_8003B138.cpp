@@ -681,7 +681,7 @@ extern s32 boss2_tunnel_shift_queue_table[];
 extern "C" {
 
 void enable_fog__15TObjBoss2TunnelFPv(void *arg0) {
-    TFogCtrl::update_all((s32)(*(s32 *)&((TObjBoss2Tunnel *)arg0)->m_b0), 1);
+    TFogCtrl::update_all((s32)(((TObjBoss2Tunnel *)arg0)->m_b0), 1);
     (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 4;
 }
 

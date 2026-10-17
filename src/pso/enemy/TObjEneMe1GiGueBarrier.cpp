@@ -101,11 +101,11 @@ void TObjEneMe1GiGueBarrier::run_task() {
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(((TObjEneMe1GiGueBarrier *)temp_r0)->update_and_get_pos()));
     this->rotation_y = ((TObjEneMe1GiGueBarrier *)(this->m_fc))->get_timer();
     advance_animation_playback(arg0);
-    *(s32 *)&this->m_108 = (s32) (*(s32 *)&this->m_108 - 1);
-    switch (*(s32 *)&this->m_104) {
+    this->m_108 = (s32) (this->m_108 - 1);
+    switch (this->m_104) {
     case 0:
-        if (*(s32 *)&this->animationFlags & 0x10) {
-            *(s32 *)&this->m_104 = 1;
+        if (this->animationFlags & 0x10) {
+            this->m_104 = 1;
             this->m_b8 = 1;
             if (TOKeyMachine01::get_global_state() == 0x23) {
                 play_sound_effect(0x4003A316, arg0 + 0x38, 0, 0);
@@ -115,14 +115,14 @@ void TObjEneMe1GiGueBarrier::run_task() {
         }
         break;
     case 2:
-        if (*(s32 *)&this->animationFlags & 0x10) {
+        if (this->animationFlags & 0x10) {
             queue_destruction__7TObjectFv((arg0));
         }
         break;
     default:
     case 1:
-        if (((s32) *(s32 *)&this->m_108 <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFv(this->m_fc) != 0)) {
-            *(s32 *)&this->m_104 = 2;
+        if (((s32) this->m_108 <= 0) || (is_active_state__22TObjEneMe1GiGueBarrierFv(this->m_fc) != 0)) {
+            this->m_104 = 2;
             this->m_b8 = 2;
         }
         break;
@@ -150,9 +150,9 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneMe1GiGueBarrier *)arg0)->m_100 = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)((void *) (((TObjEneMe1GiGueBarrier *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))->update_and_get_pos())));
     ((TObjEneMe1GiGueBarrier *)arg0)->rotation_y = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_timer();
-    *(s32 *)&((TObjEneMe1GiGueBarrier *)arg0)->m_108 = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_field_44c();
+    ((TObjEneMe1GiGueBarrier *)arg0)->m_108 = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_field_44c();
     TObjEneMe1GiGueBarrier__sub_802CABF4((*(u8 **)((s8 *)arg0 + 0xFC)));
-    *(s32 *)&((TObjEneMe1GiGueBarrier *)arg0)->m_104 = 0;
+    ((TObjEneMe1GiGueBarrier *)arg0)->m_104 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C)) + 0x28);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C));
     ((TObjEneMe1GiGueBarrier *)arg0)->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0x2C);

@@ -45,9 +45,9 @@ s32 queue_destruction__7TObjectFv();
 void TAdDialingGC::update_dial_state() {
     s32 temp_r0_2;
 
-    switch (*(s32 *)&this->m_20) {
+    switch (this->m_20) {
     case 0:
-        *(s32 *)&this->m_20 = 1;
+        this->m_20 = 1;
         return;
     case 2:
         temp_r0_2 = this->m_9c;
@@ -59,12 +59,12 @@ void TAdDialingGC::update_dial_state() {
         }
         if (temp_r0_2 < 0x12) {
 block_11:
-            *(s32 *)&this->m_20 = 3;
+            this->m_20 = 3;
             return;
         }
 block_12:
         if (TAdDialingGC__sub_803284F8((s32)this) != 0) {
-            *(s32 *)&this->m_20 = 3;
+            this->m_20 = 3;
         }
         break;
     case 3:
@@ -76,9 +76,9 @@ block_12:
 void TAdDialingGC::update_state() {
     s32 temp_r0_2;
 
-    switch (*(s32 *)&this->m_20) {
+    switch (this->m_20) {
     case 0:
-        *(s32 *)&this->m_20 = 1;
+        this->m_20 = 1;
         return;
     case 2:
         temp_r0_2 = this->m_9c;
@@ -90,12 +90,12 @@ void TAdDialingGC::update_state() {
         }
         if (temp_r0_2 < 0x12) {
 block_11:
-            *(s32 *)&this->m_20 = 3;
+            this->m_20 = 3;
             return;
         }
 block_12:
         if (TAdDialingGC__sub_803284F8((s32)this) != 0) {
-            *(s32 *)&this->m_20 = 3;
+            this->m_20 = 3;
         }
         break;
     case 3:
@@ -107,38 +107,38 @@ block_12:
 void TAdDialingGC::update_dial_state(s32 arg1) {
     s32 temp_r4;
 
-    switch (*(s32 *)&this->m_20) {
+    switch (this->m_20) {
     case 0:
-        temp_r4 = *(s32 *)&this->m_a0;
-        *(s32 *)&this->m_a0 = temp_r4 + 1;
-        if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
+        temp_r4 = this->m_a0;
+        this->m_a0 = temp_r4 + 1;
+        if ((s32) this->m_a0 > 0x5A) {
             spawn_title_screen__12TAdDialingGCFl(this, temp_r4);
             show_guide_button();
-            *(s32 *)&this->m_a0 = 0;
-            *(s32 *)&this->m_20 = 1;
+            this->m_a0 = 0;
+            this->m_20 = 1;
         }
         return;
     case 2:
         if (func_801A5E54__Fv() != 0) {
-            *(s32 *)&this->m_20 = 3;
+            this->m_20 = 3;
             return;
         }
-        *(s32 *)&this->m_a0 = (s32) (*(s32 *)&this->m_a0 + 1);
+        this->m_a0 = (s32) (this->m_a0 + 1);
         switch (this->m_9c) {
         case 16:
         case 0:
-            if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
-                *(s32 *)&this->m_20 = 3;
+            if ((s32) this->m_a0 > 0x5A) {
+                this->m_20 = 3;
                 return;
             }
             break;
         case 17:
-            *(s32 *)&this->m_20 = 3;
+            this->m_20 = 3;
             return;
         default:
             show_guide_button();
             if (TAdDialingGC__sub_803284F8((s32)this) != 0) {
-                *(s32 *)&this->m_20 = 3;
+                this->m_20 = 3;
                 return;
             }
             break;
@@ -153,13 +153,13 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
 extern f32 lbl_805DF6E0;
 
 void TAdDialingGC::spawn_title_screen(s32) {
-    if (!(*(s32 *)&this->m_a4 & 1)) {
+    if (!(this->m_a4 & 1)) {
         u32 temp_nw;
-        if (((s32) *(s32 *)&this->m_1c == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
+        if (((s32) this->m_1c == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
             __ct__10TAdTitleGCFP7TObjectl(temp_nw, this, 5);
         }
         create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, 0x11, (f32)lbl_805DF6E0);
-        *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 1);
+        this->m_a4 = (s32) (this->m_a4 | 1);
     }
 }
 
@@ -233,7 +233,7 @@ void TAdDialingGC::update_state_display() {
 void TAdDialingGC::show_guide_button() {
     u8 *arg0 = (u8 *)this;
     Stack_803286AC stack;
-    if (!(*(s32 *)&this->m_a4 & 2)) {
+    if (!(this->m_a4 & 2)) {
         init_guide_button_params(&stack.sp8);
         stack.sp8 = 1;
         stack.sp28 = get_localized_text_entry(0xF, 0x13);
@@ -242,7 +242,7 @@ void TAdDialingGC::show_guide_button() {
         stack.sp10 = lbl_805DF6E8;
         stack.sp18 = lbl_805DF6E8;
         create_guide_button(arg0, &stack.sp8, lbl_805DF6E4);
-        *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 2);
+        this->m_a4 = (s32) (this->m_a4 | 2);
     }
 }
 
@@ -272,20 +272,20 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
 
 void TAdDialingGC::update() {
 
-    switch (*(s32 *)&this->m_1c) {
+    switch (this->m_1c) {
     case 0:
-        if ((s32) *(s32 *)&this->m_20 != 0) {
+        if ((s32) this->m_20 != 0) {
             update_state_display();
         }
         break;
     case 1:
-        if ((s32) *(s32 *)&this->m_20 == 2) {
+        if ((s32) this->m_20 == 2) {
             update_status_message__12TAdDialingGCFv();
             return;
         }
         break;
     case 2:
-        if ((s32) *(s32 *)&this->m_20 == 2) {
+        if ((s32) this->m_20 == 2) {
             handle_state__12TAdDialingGCFv();
         }
         break;

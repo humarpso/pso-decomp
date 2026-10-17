@@ -86,7 +86,7 @@ void TAdAgreementBaseGC::draw_agreement_text() {
 }
 #pragma pop
 
-void TAdAgreementBaseGC::vfunc_9() { *(s32 *)&this->m_1c = 4; }
+void TAdAgreementBaseGC::vfunc_9() { this->m_1c = 4; }
 
 typedef char RecoveredGlobal_80329830_lbl_8050E208_size[sizeof(RecoveredGlobal_80329830_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80329830_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80329830_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
@@ -151,8 +151,8 @@ void TAdAgreementBaseGC::update_state() {
 void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdAgreementBaseGC;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)&((TAdAgreementBaseGC *)arg0)->m_2c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)&((TAdAgreementBaseGC *)arg0)->m_30 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C)); ((TAdAgreementBaseGC *)arg0)->m_2c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30)); ((TAdAgreementBaseGC *)arg0)->m_30 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

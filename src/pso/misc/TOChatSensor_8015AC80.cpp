@@ -46,10 +46,10 @@ void TOChatSensor::check_player_proximity() {
     player = (u32)get_player_by_client_id((local_client_id));
     if (player != 0U) {
         if (horizontal_distance_squared((void *)(player + 0x38), (void *)(arg0 + 0x38)) < *(f32 *)&this->unk_9C) {
-            *(s32 *)&this->m_a0 = 1;
+            this->m_a0 = 1;
             return;
         }
-        *(s32 *)&this->m_a0 = 0;
+        this->m_a0 = 0;
     }
 }
 
@@ -153,14 +153,14 @@ void TOChatSensor::render() {
 
 void TOChatSensor::run_task() {
     if ((u32) this->m_90 == 0U) {
-        switch (*(s32 *)&this->m_c8) {
+        switch (this->m_c8) {
         case 0:
             check_player_proximity();
             return;
         case 1:
             if (((u32) this->m_c4 != 0U) && (((TObject *)(this->m_c4))->all_parents_unqueued_for_destruction() == 0)) {
                 this->m_c4 = 0U;
-                *(s32 *)&this->m_c8 = 0;
+                this->m_c8 = 0;
                 return;
             }
             break;
@@ -170,7 +170,7 @@ void TOChatSensor::run_task() {
             check_player_proximity();
             return;
         }
-        *(s32 *)&this->m_a0 = 0;
+        this->m_a0 = 0;
     }
 }
 

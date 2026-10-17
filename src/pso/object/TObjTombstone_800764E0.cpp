@@ -32,9 +32,9 @@ void *TObjTombstone::init(s32 arg1, s32 arg2, s32 arg3) {
     }
     setup(arg2, arg3);
     init_parts();
-    *(s32 *)&this->m_234 = 0;
+    this->m_234 = 0;
     if ((s32) local_client_id != (s32) TLobby__designated_client_id) {
-        *(s32 *)&this->m_234 = 1;
+        this->m_234 = 1;
     }
     return this;
 }

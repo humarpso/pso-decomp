@@ -188,7 +188,7 @@ void TItemAttackCol::add_to_active_list(void* a0) { fn_802E3BA8((void*)attack_co
 
 void TItemAttackCol::shift_collision_bounds() {
     *(s32 *)&this->_pad104 = (s32) (*(s32 *)&this->_pad104 + 0xCCC);
-    *(s32 *)&this->m_11c = (s32) (*(s32 *)&this->m_11c - 0xCCC);
+    this->m_11c = (s32) (this->m_11c - 0xCCC);
 }
 
 void TItemAttackCol::vfunc_6(s32 *a) {
@@ -252,7 +252,7 @@ void TItemAttackCol::render() {
     {
         if ((u32) this->m_e8 != 0U) {
             if ((u32) this->m_ec != 0U) {
-                TObjPlayer::notify_fish_if_valid((u32)(*(void * *)&this->m_ec));
+                TObjPlayer::notify_fish_if_valid((u32)(this->m_ec));
             }
             TParticleCtrl::begin_effect_render();
             attack_collider_render_owner = (int)arg0;
@@ -281,11 +281,11 @@ void TItemAttackCol::run_task() {
         disallow_rendering__7TObjectFv(arg0);
         return;
     }
-    if (*(s32 *)&this->m_e4 & 4) {
+    if (this->m_e4 & 4) {
         shift_collision_bounds();
     }
-    if (*(s32 *)&this->m_e4 & 0x20) {
-        *(s32 *)&this->m_100 = (s32) (*(s32 *)&this->m_100 + 0x888);
+    if (this->m_e4 & 0x20) {
+        this->m_100 = (s32) (this->m_100 + 0x888);
     }
     this->vfunc_7();
     temp_r3 = this->m_12c;
@@ -313,10 +313,10 @@ void TItemAttackCol::run_task() {
 void *__dt__14TItemAttackColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TItemAttackCol;
-        if (*(void **)((s8 *)arg0 + 0x12C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x12C)); *(s32 *)&((TItemAttackCol *)arg0)->m_12c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x130) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x130)); *(s32 *)&((TItemAttackCol *)arg0)->m_130 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x134) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x134)); *(s32 *)&((TItemAttackCol *)arg0)->m_134 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x140) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x140)); *(s32 *)&((TItemAttackCol *)arg0)->m_140 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x12C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x12C)); ((TItemAttackCol *)arg0)->m_12c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x130) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x130)); ((TItemAttackCol *)arg0)->m_130 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x134) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x134)); ((TItemAttackCol *)arg0)->m_134 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x140) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x140)); ((TItemAttackCol *)arg0)->m_140 = 0; }
         ((TUnk_804E355C *)arg0)->destroy_attack_collision(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

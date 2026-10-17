@@ -34,7 +34,7 @@ void TORevlightCave01::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
         TORevlightCave01__sub_80173478((arg0));
     }
-    *(s32 *)&this->m_c8 = (s32) (*(s32 *)&this->m_c8 + *(s32 *)&this->m_cc);
+    this->m_c8 = (s32) (this->m_c8 + this->m_cc);
 }
 
 void TORevlightCave01::render() {

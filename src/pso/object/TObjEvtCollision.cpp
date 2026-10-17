@@ -98,8 +98,8 @@ u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEvtCollision__class_name;
     ((TObjEvtCollision *)(arg0))->apply_object_set_data((void *)arg2);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjEvtCollision *)arg0)->scale;
-    *(s32 *)&((TObjEvtCollision *)arg0)->m_b0 = (s32) ((TObjEvtCollision *)arg0)->m_84;
-    *(s32 *)&((TObjEvtCollision *)arg0)->m_b4 = 3;
+    ((TObjEvtCollision *)arg0)->m_b0 = (s32) ((TObjEvtCollision *)arg0)->m_84;
+    ((TObjEvtCollision *)arg0)->m_b4 = 3;
     disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }

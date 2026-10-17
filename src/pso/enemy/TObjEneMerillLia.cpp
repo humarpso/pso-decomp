@@ -964,7 +964,7 @@ void TObjEneMerillLia::reset_state_clear_status() {
     u8 *arg0 = (u8 *)this;
     this->mode = 0xB;
     this->phase = 0;
-    *(s32 *)&this->target = 0;
+    this->target = 0;
     clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, (s32)(0x0A000000U));
 }
 

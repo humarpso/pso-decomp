@@ -107,11 +107,11 @@ u8 *TScene__ct(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8020650C___vt__6TScene *)&__vt__6TScene).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3618;
-    *(s32 *)&((TScene *)arg0)->m_1c = 0;
-    *(s32 *)&((TScene *)arg0)->m_30 = 0;
-    *(s32 *)&((TScene *)arg0)->m_34 = 0;
-    *(s32 *)&((TScene *)arg0)->m_38 = 0x32;
-    *(s32 *)&((TScene *)arg0)->m_3c = 0;
+    ((TScene *)arg0)->m_1c = 0;
+    ((TScene *)arg0)->m_30 = 0;
+    ((TScene *)arg0)->m_34 = 0;
+    ((TScene *)arg0)->m_38 = 0x32;
+    ((TScene *)arg0)->m_3c = 0;
     TScene__sub_80206410(arg0);
     if ((TOKeyMachine01::get_global_state() == 1) && ((u32) TScene__texture_wave_resource != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) *(u32 *)((s8 *)(*(u8 * *)&TScene__data_805D5FCC) + 0x14) != 0U)) {
         TScene::create_texture_wave_tasks((s32)arg0);

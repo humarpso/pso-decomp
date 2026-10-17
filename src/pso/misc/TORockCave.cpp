@@ -117,7 +117,7 @@ void TORockCave::draw_model() {
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object((void *)(*(s32 *)&this->model));
+        draw_ginja_object((void *)(this->model));
         pop_matrix();
         this->vfunc_15();
     }

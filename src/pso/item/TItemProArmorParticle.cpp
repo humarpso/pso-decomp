@@ -46,20 +46,20 @@ void TItemProArmorParticle::vfunc_16() {
     s32 temp_r3;
     s32 temp_r31;
 
-    if ((s32) *(s32 *)&this->m_1a0 == 2) {
+    if ((s32) this->m_1a0 == 2) {
         temp_r3 = TOKeyMachine01::get_global_state();
-        if (temp_r3 != (s32) *(s32 *)&this->m_198) {
-            *(s32 *)&this->m_198 = temp_r3;
+        if (temp_r3 != (s32) this->m_198) {
+            this->m_198 = temp_r3;
             if (is_item_area_enabled() != 0) {
-                TItemProArmorParticle::create(tl_05, (s32)(((TItem *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(*(s32 *)&this->m_19c));
+                TItemProArmorParticle::create(tl_05, (s32)(((TItem *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(this->m_19c));
             }
         }
     }
 }
 
 void TItemProArmorParticle::vfunc_45() {
-    if ((s32) *(s32 *)&this->m_1a0 == 2) {
-        *(s32 *)&this->m_198 = -1;
+    if ((s32) this->m_1a0 == 2) {
+        this->m_198 = -1;
     }
     vfunc_45__14TItemEquipBaseFv();
 }
@@ -68,10 +68,10 @@ void TItemProArmorParticle::vfunc_44() {
     s32 temp_r3;
 
     vfunc_44__13TItemProArmorFv();
-    if (((s32) *(s32 *)&this->m_1a0 == 1) && ((u32) this->m_174 != 0U)) {
+    if (((s32) this->m_1a0 == 1) && ((u32) this->m_174 != 0U)) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            ((TUnk_804A05C8 *)temp_r3)->initialize((void *)this->m_174, (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(*(s32 *)&this->m_19c));
+            ((TUnk_804A05C8 *)temp_r3)->initialize((void *)this->m_174, (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(this->m_19c));
         }
     }
 }
@@ -85,18 +85,18 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
     TItemProArmor__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle *)&__vt__21TItemProArmorParticle).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemProArmorParticle__class_name;
-    *(s32 *)&((TItemProArmorParticle *)arg0)->m_198 = -1;
+    ((TItemProArmorParticle *)arg0)->m_198 = -1;
     temp_r0 = ((TItemProShield *)arg0)->get_slot_count() - 0x29;
     if (temp_r0 < 0xCU) {
-        *(s32 *)&((TItemProArmorParticle *)arg0)->m_19c = (s32) *(s32 *)((s8 *)&TItemProArmorParticle__particle_id_table.value + ((temp_r0 * 4) & 0x3FC));
+        ((TItemProArmorParticle *)arg0)->m_19c = (s32) *(s32 *)((s8 *)&TItemProArmorParticle__particle_id_table.value + ((temp_r0 * 4) & 0x3FC));
         if (temp_r0 < 5U) {
-            *(s32 *)&((TItemProArmorParticle *)arg0)->m_1a0 = 1;
+            ((TItemProArmorParticle *)arg0)->m_1a0 = 1;
         } else {
-            *(s32 *)&((TItemProArmorParticle *)arg0)->m_1a0 = 2;
+            ((TItemProArmorParticle *)arg0)->m_1a0 = 2;
         }
     } else {
-        *(s32 *)&((TItemProArmorParticle *)arg0)->m_19c = 0;
-        *(s32 *)&((TItemProArmorParticle *)arg0)->m_1a0 = 0;
+        ((TItemProArmorParticle *)arg0)->m_19c = 0;
+        ((TItemProArmorParticle *)arg0)->m_1a0 = 0;
     }
     return arg0;
 }

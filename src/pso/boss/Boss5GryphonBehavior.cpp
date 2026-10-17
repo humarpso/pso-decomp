@@ -2265,7 +2265,7 @@ void TBoss5Gryphon::render_with_fade(s32 arg1) {
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     rotate_matrix_y(0, this->rotation_y);
-    rotate_matrix_x(0, (int) (*(s32 *)&this->m_5c));
+    rotate_matrix_x(0, (int) (this->m_5c));
     rotate_matrix_z(0, this->rotation_z);
     scale_matrix(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
     TObjPlayer::toggle_particle_effect();
@@ -2285,7 +2285,7 @@ void TBoss5Gryphon::render_model() {
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     rotate_matrix_y(0, this->rotation_y);
-    rotate_matrix_x(0, (int) (*(s32 *)&this->m_5c));
+    rotate_matrix_x(0, (int) (this->m_5c));
     rotate_matrix_z(0, this->rotation_z);
     scale_matrix(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
     temp_r31 = *(s32 *)&this->model;

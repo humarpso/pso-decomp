@@ -128,7 +128,7 @@ void TBoss8Dragon::sub_802F4098(u8 *arg1) {
 void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
     u8 *temp_r31;
     if (!(*(f32 *)&this->unk_3C <= lbl_805DED70)) {
-        TObjFish::set_global_param((int) (*(s32 *)&this->m_24));
+        TObjFish::set_global_param((int) (this->m_24));
         TObjEneDD::clear_global_flag_400();
         lbl_805D5660 = model_render_flags;
         set_material_alpha_compare_reference(0);
@@ -148,13 +148,13 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         rotate_matrix_z(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x64)));
         scale_current_matrix((void *) (((u8 *)this) + 0x68));
         TObjPlayer::toggle_particle_effect();
-        if (*(s32 *)&this->m_3c0 & 0x80) {
+        if (this->m_3c0 & 0x80) {
             fn_801414B0(3, 3, 3, 3);
         }
         if (has_enough_enemies__12TBoss8DragonFv() != 0) {
-            *(s32 *)&this->m_34 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0x18);
+            this->m_34 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0x18);
         } else {
-            *(s32 *)&this->m_34 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
+            this->m_34 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
         }
         ((TObjEneRe7Berura *)((u8 *)this))->draw();
         TObjPlayer::setup_tev_swap();

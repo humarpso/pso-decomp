@@ -158,7 +158,7 @@ s32 TObjPlayer::find_record_index(u32 arg0, u32 arg1) {
 void TObjPlayer::release_empty_ref_entry() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r4;
-    temp_r4 = (u8 *)(*(u8 * *)&this->m_next);
+    temp_r4 = (u8 *)(this->m_next);
     if ((s32) *(s32 *)((s8 *)temp_r4 + 0x24) <= 0) {
         *(s32 *)((s8 *)temp_r4 + 0) = -1;
         *(s32 *)((s8 *)temp_r4 + 4) = 0;
@@ -175,7 +175,7 @@ void TObjPlayer::release_empty_ref_entry() {
         *(s32 *)((s8 *)arg0 + 8) = -1;
         *(s32 *)((s8 *)arg0 + 0) = 0;
         *(s32 *)((s8 *)arg0 + 4) = 0;
-        *(u8 * *)&this->m_next = NULL;
+        this->m_next = NULL;
         *(s32 *)((s8 *)arg0 + 0x14) = 0;
     }
 }

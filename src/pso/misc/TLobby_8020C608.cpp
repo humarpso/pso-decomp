@@ -7,7 +7,7 @@
 extern "C" {
 
 s32 TObjEnemy::send_entity_set_flags() {
-    if ((u32) *(u32 *)&this->m_80 != 0U) {
+    if ((u32) this->m_80 != 0U) {
         send_6x76_set_entity_set_flags(this, 8);
         return 1;
     }
