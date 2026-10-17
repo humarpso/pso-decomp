@@ -82,18 +82,10 @@ struct Ang_8008BAF8 { s32 x, y, z; };
 struct Scr_8008BAF8 { f32 x, y; };
 
 extern "C" {
-int mem_free(void*);
-extern s32 particle_area_entry_table;
-extern u32 TParticleCtrl__regular_bml_resource;
-extern u32 TParticleCtrl__texture_list;
-s32 read_disc_file(s32, s32);
-s32 mem_alloc(s32);
-extern int particle_global_entry_table;
 void *alloc_particle_memory(int);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 void __dt__13TUnk_8048E728Fv(void *, int);
-extern const f32 TParticleCtrl__data_805D9528;
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void * create_random_particle(void *arg0, void *arg1, void *arg2);
 extern const f32 TParticleCtrl__data_805D9558;

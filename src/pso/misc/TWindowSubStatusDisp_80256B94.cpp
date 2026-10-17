@@ -185,7 +185,6 @@ void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1) {
 #undef destroy__13TUnk_804CF930Fs
 
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
-extern const f32 lbl_805DCED8;
 
 extern "C" {
 

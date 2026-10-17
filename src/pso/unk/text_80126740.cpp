@@ -4,8 +4,6 @@
 extern "C" {
 extern const f32 lbl_805DAD80;
 void fist_reset_attack_rate(u8 *arg0);
-void s_rank_knuckle_equip(u8 *arg0);
-extern s32 lbl_804F26E0[];
 u8 * baranz_launcher_ct(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;

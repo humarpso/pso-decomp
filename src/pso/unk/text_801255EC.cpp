@@ -12,8 +12,6 @@ struct Self_8012573C { u8 pad[0x23c]; u32 f23c; };
 struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 pad54[0x70 - 0x54]; void *f70; void *f74; s32 f78; s32 f7c; };
 
 extern "C" {
-s32 TWindowCtrl__sub_8024A314(void);
-extern void *TWindowCtrl__active_window;
 u32 find_item_by_id(void);
 s32 spawn_faust_explosion(u32 a0 = 0, s32 a1 = 0);
 s32 spawn_faust_explosion(u32 a0, s32 a1);

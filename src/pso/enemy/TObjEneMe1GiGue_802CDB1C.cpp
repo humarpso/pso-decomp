@@ -47,7 +47,6 @@ struct Shot_802CDB1C {
 };
 
 extern "C" {
-extern s32 TObjEneMe1GiGue__param_table;
 f64 atan2_float(f32, f32);
 s32 spawn_particle_effect_with_rotation(Vec_802CDEB4 *, Ang_802CDEB4 *, int, int);
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_802CDEB4 *, Vec_802CDEB4 *);

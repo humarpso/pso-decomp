@@ -281,8 +281,6 @@ struct RecoveredFields_803F88E4_arg0
   u8 *field_18;
 };
 
-struct Ent_803F8D84 { s32 active; s32 unk4; u32 key; };
-
 struct Inner_80401CAC { u8 pad[4]; u16 f4; };
 
 struct Outer_80401CAC { Inner_80401CAC *p; };
@@ -292,24 +290,6 @@ struct Ent_80408718 { s16 f0; u8 pad[0x16]; };
 struct Tbl_80408718 { s16 count; s16 h2; s16 h4; s16 h6; s16 h8; u8 pad[4]; Ent_80408718 *list; };
 
 struct Obj_80405304 { u8 pad[0x18]; u8 f18; };
-
-struct Ent_803F9B48 { s32 active; u32 key; u8 pad[0x328 - 8]; };
-
-struct Blk_803FA2A8 { s32 w[6]; };
-
-union U_803FA2A8 { s16 h4; Blk_803FA2A8 src; };
-
-struct Q_803FA2A8 {
-    s16 h0; s16 h2;
-    U_803FA2A8 u;
-    Blk_803FA2A8 dst;
-    s16 h34; s16 h36; s16 h38; s16 h3A;
-    s32 w3C; s32 w40;
-    u8 pad44[0x50 - 0x44];
-    s16 h50;
-};
-
-struct P_803FA2A8 { u8 pad[0x30]; Q_803FA2A8 *q; };
 
 struct Cfg_803F87E0 { s32 w[10]; };
 
@@ -543,40 +523,17 @@ extern "C" {
 void TLobby__sub_803F8AA0(u8 *arg0);
 void TLobby__sub_803F8A0C(u8 *arg0);
 extern RecoveredGlobal_8041552C_lbl_805C1BE0 network_loopback_state;
-u8 *TLobby__sub_803FB110(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 void TLobby__sub_804050DC(s16 arg0);
 extern s16 lbl_805D7A7A;
 void NetIPv6ApplyNeighborDiscoveryDefaults(u8 *arg0);
-extern RecoveredGlobal_803F895C_lbl_805AEEB0 lobby_net_config_block;
 void TLobby__sub_803F89A4(u8 *arg0);
-void TLobby__sub_803F8AB8(void);
 void NetStoreTick(s32 *arg0);
-s32 OSGetCurrentThread();
-void NetStoreCurrentThread(s32 *arg0);
-void NetYieldThread(void);
-s32 OSResumeThread();
-void NetSuspendCurrentThread(void);
-void NetResumeThread(void);
 s32 NetMemcmp(void *, void *, int);
 void NetMemset(void *, int, int);
 void NetMemcpy(void *, void *, int);
-s32 NetIPv6CPSetInterfaceIdentifier(u8 *arg0, s32 arg1);
-void NetIPv6CPCancelTimer(s32 arg0);
-void TLobby__sub_803FD0C0(void);
-s32 TLobby__sub_803FAFDC(void);
-void TLobby__sub_803FB184(u8 *arg0);
-extern RecoveredGlobal_803FC178_lbl_805C02D0 lbl_805C02D0;
-void TLobby__sub_803FE820(s32 arg0);
-s32 set_socket_flags_by_mode__6TLobbyFsPv(s16 arg0, u8 *arg1);
-s16 TLobby__sub_803FF304(u8 *arg0);
-void TLobby__sub_803FF468(s32 arg0);
 void TLobby__sub_803FD85C(void *);
-extern RecoveredGlobal_80401A68_lbl_805C04A8 lbl_805C04A8;
-extern RecoveredGlobal_80402B60_lbl_805C0620 lbl_805C0620;
-s32 TLobby__sub_804036FC(u8 *arg0);
 s32 TLobby__sub_804062A0(s16);
-s32 TLobby__sub_80403D28(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
 s32 TLobby__sub_803F79AC(void *);
 s32 TLobby__sub_803F79B0(void *);
 extern s32 lobby_timer_list_head;
@@ -634,8 +591,6 @@ s16 TLobby__sub_8040EF00(s16 arg0);
 s32 TLobby__sub_8040FE40(s16 arg0);
 void TLobby__sub_803F8930(u8 *arg0);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
-s32 TLobby__sub_803FE658(u8 *arg0);
-s32 TLobby__sub_804037B0(s32 arg0, u16 arg1);
 void TLobby__sub_80405328(u8 *arg0);
 s16 TLobby__sub_8040FCEC(u32);
 s16 TLobby__sub_804136EC(s32);
@@ -662,38 +617,21 @@ s16 TLobby__sub_80409A3C(u8 *arg0, s16 arg1);
 s16 TLobby__sub_80415954(void *, int, int);
 s32 TLobby__sub_8041ECA4(u8 *arg0);
 void TLobby__sub_803FD958(u8 *arg0);
-extern u16 lbl_805D7A60;
-extern Ent_803F8D84 *lbl_805D7A64;
-void TLobby__sub_803F8D84(u32 key);
 void TLobby__sub_80401CAC(Outer_80401CAC *o, u16 v);
-s32 TLobby__sub_803FAEA0(s32 cmd, s32 arg);
 u16 read_network_u16_be(u8 *p);
-extern u16 lbl_805D7A78;
 u32 TLobby__sub_80402AFC(u8 *p);
-u8 *write_network_u32_be(u8 *p, u32 v);
-void TLobby__sub_80405000(u32 arg0);
 u8 *write_network_u16_be(u8 *p, u16 v);
 extern Tbl_80408718 lbl_805C1AB0;
 Ent_80408718 *find_free_peer_entry__6TLobbyFv(void);
 s32 TLobby__sub_80405304(void *arg0);
 u16 TLobby__sub_80406BD8(void *, s16);
-s64 OSGetTime();
-extern u16 lbl_805D7A68;
-extern Ent_803F9B48 *lbl_805D7A6C;
-void TLobby__sub_803FA2A8(P_803FA2A8 *o);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32);
-void TLobby__sub_803FF384(u8 *arg0);
 void TLobby__sub_803F97E8(int);
-s32 wait_for_connection__6TLobbyFPv(Conn_804004DC *c);
 void NetMemcpy(void * _w0, void * _w1, int _w2);
-s32 TLobby__sub_80403168(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 TLobby__sub_803FC684(u8 *, u8 *, u8 *);
 extern u8 lbl_805C0038[];
 extern s16 lbl_805D7A7C;
-s32 TLobby__sub_80403B04(u8 *arg0, u8 *arg1, s32 arg2);
-extern s32 lbl_805D7A90;
-s32 TLobby__sub_80403BA8(u8 *arg0, u8 *arg1, s32 arg2);
 s32 TLobby__sub_8040B838(u8 *dst, u8 *src, s16 len);
 s16 TLobby__sub_8040DC8C(u8 *arg0, u8 *arg1);
 void TLobby__sub_804217E4(void);
@@ -711,8 +649,6 @@ s32 TLobby__sub_804060B8(u8 *, u16, int);
 extern u8 lobby_ppp_read_buf;
 extern u8 ppp_input_byte;
 void ppp_input_packet__6TLobbyFPv(Strm_80405A74 *arg0);
-void MD5Transform(u32 *state, u8 *block);
-void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
 s32 NetCompareBitsBackward(u8 *arg0, u8 *arg1, s16 arg2);
 s32 NetCompareBitPrefix(u8 *a, u8 *b, s16 bits);
 s32 NetIPv6MakeSolicitedNodeMulticastAddress(u8 *arg0, u8 *arg1);
@@ -745,36 +681,16 @@ s32 NetTCPInit(void);
 void TLobby__sub_803F9344(s32, void *, s32);
 void NetEnqueueProtocolMessage(s32 arg0, s16 arg1, s16 arg2, s16 arg3, u16 arg4);
 void TLobby__sub_803F8794(void *);
-void TLobby__sub_803F87C4(void);
-void TLobby__sub_803F87C8(u8 *arg0);
 void TLobby__sub_803F8864(void *);
 void TLobby__sub_803F88E0(void *);
 void TLobby__sub_803F89A0(void *);
 void TLobby__sub_803F8A24(void *);
-s32 NetSetDefaultThreadPriority(s32 arg0);
-void TLobby__sub_803FA234(void);
-void TLobby__sub_803FA238(u8 *arg0);
-void TLobby__sub_803FA280(void);
-s32 TLobby__sub_803FD490(s16 arg0);
-s32 TLobby__sub_803FD4B4(s16 arg0);
-s32 TLobby__sub_803FD4D8(s16 arg0);
-s32 TLobby__sub_803FD4FC(s16 arg0);
-s32 TLobby__sub_803FE844(void);
-void TLobby__sub_803FE84C(void);
-s32 TLobby__sub_803FF2CC(u8 *arg0, s32 arg1);
-void TLobby__sub_803FF374(u8 *arg0);
-void TLobby__sub_80400988(void);
-void TLobby__sub_80400B98(u8 *arg0);
 s32 NetIPv6IsLinkLocal(u8 *arg0);
 s32 TLobby__sub_8041549C(s16 arg0);
 s32 TLobby__sub_804154C0(s16 arg0);
 s32 TLobby__sub_804154E4(s16 arg0);
 s32 TLobby__sub_80415508(s16 arg0);
 s32 get_adjusted_slot_count__6TLobbyFPv(u8 *arg0);
-s32 set_filter_id__6TLobbyFPvi(u8 *arg0, s32 arg1);
-s32 set_filter_index__6TLobbyFPvi(u8 *arg0, s32 arg1);
-s32 set_target_index__6TLobbyFPvi(u8 *arg0, s32 arg1);
-s32 set_target_slot__6TLobbyFPvi(u8 *arg0, s32 arg1);
 
 void TLobby__sub_803F87DC(void * _w0);
 

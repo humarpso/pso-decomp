@@ -146,28 +146,15 @@ struct OVec_8008B060 { f32 x, y, z; };
 struct OIVec_8008B060 { s32 x, y, z; };
 
 extern "C" {
-int mem_free(void*);
-extern s32 particle_area_entry_table;
-extern u32 TParticleCtrl__regular_bml_resource;
-extern u32 TParticleCtrl__texture_list;
-s32 read_disc_file(s32, s32);
-s32 mem_alloc(s32);
-extern int particle_global_entry_table;
 void *alloc_particle_memory(int);
 int queue_destruction__7TObjectFv(void *);
-f32 vec_squared_length(void *);
 void __dt__13TUnk_8048E728Fv(void *, int);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 extern const f32 TParticleCtrl__data_805D9528;
 extern s32 TParticleCtrl__data_8048E790[];
 void *__dt__13TUnk_8048E790Fv(void *arg0, s16 arg1);
-extern const f32 TParticleCtrl__data_805D9558;
-extern const f32 TParticleCtrl__data_805D955C;
-extern s32 TParticleCtrl__data_8048E7A8[];
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
-extern const f32 lbl_805D9568;
-extern const f32 lbl_805D956C;
 s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);

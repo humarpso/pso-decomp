@@ -965,7 +965,6 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
 }
 #pragma pop
 
-s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
 void vfunc_88__19TObjEneEpsilonGuardFv(void *);
 int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 void vfunc_89__19TObjEneEpsilonGuardFv(void *);

@@ -34,9 +34,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
 void run_task__12TEneEffHamonFv(u8 *arg0);
-void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_80490A18[];
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
 extern s32 TEneEffHamon__name;
@@ -65,7 +63,6 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
-extern s32 TObjPlayer__effect_count;
 void TEneEffHamon__sub_800A380C(void);
 void init_fish_effects__12TEneEffHamonFv(void);
 int TObjFish__sub_8001EDB0(void*, void*);

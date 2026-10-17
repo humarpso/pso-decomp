@@ -4,7 +4,6 @@
 
 extern "C" {
 
-int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801BE784(void* p, u8 v);
 void TObjPlayer__sub_801BE794(void* p, u8 v);
 void TObjPlayer__sub_801BE7A4(void* p, u8 v);
@@ -16,16 +15,6 @@ void TObjPlayer__sub_801BE80C(void* p, u8 v);
 void TObjPlayer__sub_801BE838(void* p, u8 v);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
 int check_flag__10TObjPlayerFl(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int TObjPlayer__sub_801BED70(void*);
@@ -33,11 +22,6 @@ int TObjPlayer__sub_801BED78(void*);
 int TObjPlayer__sub_801BED80(void*);
 int TObjPlayer__sub_801BED88(void*);
 int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
 
 int TObjPlayer::is_action_active() { return (*(u32*)((char*)this + 0x334) >> 1) & 0x1; }
 void TObjPlayer__sub_801BE784(void* p, u8 v) { *(u8*)((char*)p + 0x2e7) = v; }

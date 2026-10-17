@@ -73,7 +73,6 @@ s32 TWindowKeyBoardSoft__ct(int, void *, void *);
 s32 get_window_layout_position(int);
 s32 TWindowDD__ct(int, void *, void *);
 void *__dt__11TWindowChatFv(void *, s16);
-extern s32 __vt__11TWindowChat[];
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
 void *TWindowKeyBoardBase__ct(void *);
 void *TWindowKeyBoardHard__ct(void *, void *);

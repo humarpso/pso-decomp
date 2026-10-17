@@ -2,7 +2,6 @@
 
 extern "C" {
 
-int TObjPlayer__sub_801D9E08(void);
 void TObjPlayer__sub_801D9E10(void* p, s16 v);
 
 void TObjPlayer__sub_801D9E10(void* p, s16 v) { *(s16*)((char*)p + 0x8) = v; }

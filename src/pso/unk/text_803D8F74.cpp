@@ -7,8 +7,6 @@ struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
 extern "C" {
 extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-f32 sin_table_lookup(int);
-f32 cos_table_lookup(int);
 void PSMTXRotRad(Matrix34*, char, f32);
 f32 PSMTXConcat(int, int, int);
 void rotate_matrix_y(Matrix34* matrix, s32 angle);

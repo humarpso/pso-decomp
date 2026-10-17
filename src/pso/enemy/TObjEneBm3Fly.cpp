@@ -1989,9 +1989,6 @@ void TObjEneBm3Fly__vt87(void* p) { vfunc_89__9TObjEneDDFv(p); clamp_flight_heig
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern const f32 lbl_805D9CF8;
-extern const f32 lbl_805D9D6C;
-
 extern "C" {
 
 struct Base_800B1A90_800B1978 { char pad[0x18]; };

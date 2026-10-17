@@ -83,7 +83,6 @@ struct Self_80239070 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-extern const f32 TTecRaFoie__data_805DC8CC;
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -113,15 +112,10 @@ typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 
 #pragma pop
 
-void *__dt__13TUnk_804CCB28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 }
 struct RecoveredGlobal_802384E0_lbl_804CCB28;
-extern "C" {
-extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
-
-}
 
 struct RecoveredGlobal_802384E0_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
@@ -176,23 +170,6 @@ struct Self_80238C6C {
     Point_80238C6C points[8];
 };
 
-struct VBase_18_acd6eb { char pad[0x18]; };
-
-struct VObj_18_acd6eb : VBase_18_acd6eb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-    virtual void m7();
-};
-
-struct Obj_80238AE8 : VObj_18_acd6eb {
-    void *source;
-};
-
 struct Elec_80238E14 { s32 type; f32 val; };
 
 struct VBase_18_9c98dd { char pad[0x18]; };
@@ -224,23 +201,10 @@ struct VObj_18_9c98dd : VBase_18_9c98dd {
 
 extern "C" {
 u32 find_entity_by_id(int);
-void run_task__10TTecRaFoieFv(u8 *arg0);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 fn_802A8210(int, int, void *);
-extern const f32 lbl_805DC8E4;
-extern const f32 lbl_805DC8E8;
-extern const f32 lbl_805DC8EC;
-u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
-u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
-extern s32 __vt__10TTecRaFoie[];
-extern u32 TTecRaFoie_class_name;
-u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
 s32 mem_alloc(int);
-Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
-void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
 
 typedef struct RecoveredFields_80238D10_arg0 RecoveredFields_80238D10_arg0;
 typedef struct RecoveredGlobal_80238D10_lbl_804CC510 RecoveredGlobal_80238D10_lbl_804CC510;

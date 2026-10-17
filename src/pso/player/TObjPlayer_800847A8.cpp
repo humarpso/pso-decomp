@@ -2,7 +2,6 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-void TObjPlayer__sub_801E3F24(s32 arg0);
 void TObjPlayer__sub_80084840(f32 farg0, f32 farg1, f32 farg2);
 void TObjPlayer__sub_80084834(s32 arg0);
 void TObjPlayer__sub_80084824(f32 farg0, f32 farg1);

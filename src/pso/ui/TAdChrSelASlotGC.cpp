@@ -749,8 +749,6 @@ void TAdChrSelASlotGC::init(s32 arg1) {
     *(s32 *)&this->unk_7C = 0;
 }
 
-extern s32 __vt__16TAdChrSelASlotGC[];
-
 }
 TAdChrSelASlotGC::~TAdChrSelASlotGC() {
     if ((u32) *(u32 *)((s8 *)this + 0x54) != 0U) {

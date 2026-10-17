@@ -19,7 +19,6 @@ typedef struct Slot_803F3478 {
 struct S_803F3690 { s16 f0; s16 pad2; s32 state; u8 card[0x80]; };
 
 extern "C" {
-extern s32 lbl_805D7940;
 s32 CARDUnmount(s32 chan);
 s32 memset(void *, int, int);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];

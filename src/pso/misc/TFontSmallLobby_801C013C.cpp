@@ -14,7 +14,6 @@ struct O_801C0708 { u8 a; u8 b; u8 pad[2]; s32 c; u16 d; u16 e; };
 struct O_801C0350 { u8 a; u8 b; u8 pad[2]; u16 c; u16 d; };
 
 extern "C" {
-s16 TObjPlayer__sub_801D2F0C(void *arg0);
 int TFontSmallLobby__sub_801C013C(void* p);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 extern s32 fn_80152EF8[];
@@ -26,12 +25,7 @@ void __copy(void *, void *, int);
 void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1);
 void TFontSmallLobby__sub_801C029C(void* p);
 int TLobby__send_and_handle_60(void*);
-extern s32 lbl_80434088;
-extern const f32 lbl_805D7D3C;
-extern s32 current_floor_index;
-extern s32 lobby_player_count;
 int bswap_16__FPUs(void*);
-extern const f32 TBoss2DeRolLe__data_805D827C;
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void TFontSmallLobby__sub_801C0378(void* p);
 int bswap_32__FPUl(void*);

@@ -11,9 +11,6 @@ struct RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 {
     u8 remaining[0x8];
 };
 
-extern const f32 lbl_805DC0D0;
-extern const f32 lbl_805DC0D4;
-
 extern "C" {
 
     extern const float lbl_805DC0C0;

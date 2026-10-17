@@ -40,10 +40,6 @@ struct RecoveredGlobal_8042DD70_lbl_805D1D20 {
     u8 remaining[0x18];
 };
 
-struct Rec_80426110 { u16 a; u16 b; };
-
-struct Obj_80426110 { u8 pad[0x36]; s16 count; Rec_80426110 recs[5]; };
-
 typedef struct Names_8042E57C {
     char *name[6];
 } Names_8042E57C;
@@ -86,26 +82,7 @@ extern "C" {
 extern u8 lbl_805CF240[0xA0];
 extern u8 TLobby__pppoe_message_queue[0xA0];
 extern u8 lbl_805CF380[0x48];
-void TLobby__sub_803F95E4(u32);
-extern s16 network_link_status_cache;
-s32 NetMemcpy(void *, void *, int);
-extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
-extern u32 lobby_buffer_pool_alarm_handle;
 s32 OSWakeupThread(void *);
-extern s32 network_thread_queue;
-s32 EXIDeselect(s32);
-s32 EXIImm(s32, void *, s32, u32, u32);
-s32 EXISelect(s32, u32, s32);
-s32 EXISync(s32);
-extern s32 lbl_805D7C7C;
-extern s32 exi_send_size;
-s32 memcpy(void *, void *, int);
-extern s32 exi_mac_address;
-s32 OSDisableInterrupts();
-s32 OSRestoreInterrupts(s32);
-s32 OSSleepThread(void *);
-void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
-void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 extern s32 lbl_805D7CA0;
 s32 EXILock(s32, u32, u32);
 void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
@@ -114,17 +91,9 @@ extern s32 lbl_805D7C98;
 s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
 extern s32 lbl_805D4918;
-extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
-s32 TLobby__sub_80428360(void);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
-extern u8 lobby_net_channel_table[];
-s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
-extern s32 network_message_pending_count;
-void TLobby__sub_80425D88(u8 v);
-s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
-s32 OSReceiveMessage(void *, void *, int);
 extern u8 TLobby__pppoe_message_queue[];
 typedef struct Ent_804267F0 {
     s16 count;
@@ -136,19 +105,8 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s32 NetMemcmp(void *, void *, int);
 s16 TLobby__sub_804262CC(void *);
-s32 TLobby__sub_80426B88(s16 arg0);
-s32 TLobby__sub_80427240(u8 **arg0);
-u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
-void TLobby__sub_80424CA8(void);
-u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
-s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
-s32 TLobby__sub_80426660(u8 *arg0);
-s32 EXIDma(s32, void *, s32, u32, void *);
-void TLobby__sub_80429AC8(s32, void *);
-extern u32 exi_dma_write_length;
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
@@ -161,11 +119,7 @@ extern Names_8042E6C4 TAdSinglePlyChrSelectGC__modem_compression_names;
 extern char lbl_805D4980[5];
 extern Names_8042E7B8 lbl_80480234;
 extern char lbl_805D4988[4];
-extern s32 lbl_805D4820;
 
-Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
-s32 TLobby__sub_80426440(void);
-s32 TLobby__sub_80428358(void);
 s32 fn_8042E8B8(void);
 
 #pragma push

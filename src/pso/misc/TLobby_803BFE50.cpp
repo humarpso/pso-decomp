@@ -112,8 +112,6 @@ struct AudioStreamInputState {
 };
 
 extern "C" {
-extern s8 lbl_805D74B8;
-extern s32 lbl_805D748C;
 void TLobby__sub_803BFE58(u8 *arg0);
 void TLobby__sub_803BFEE8(u8 *arg0);
 s32 TLobby__sub_803C3ABC(int);

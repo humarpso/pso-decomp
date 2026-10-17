@@ -2,25 +2,8 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
 int TEneParticleCtrl__vt7(void* p);
 int get_field_38_ptr__16TEneParticleCtrlFv(void*);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
     extern unsigned char lbl_804EF440[];
     extern const float lbl_805DF9CC;
 int TWindowSubStatusDisp__sub_80338B88(void* p);

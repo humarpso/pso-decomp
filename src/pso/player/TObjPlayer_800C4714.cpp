@@ -76,33 +76,17 @@ typedef struct Obj_800C55E0 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
-f32 horizontal_distance_squared(void *, void *);
-s32 minimap_render_dot(void *, int, int, int);
 s32 vec3_add_to(void *, void *);
-s32 subtract_vector(void *, void *);
-extern const f64 lbl_8043BC88;
 
-s32 apply_actor_gravity(void *, int, f32);
-s32 obj_testFlags30(void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-extern const f32 lbl_805DA034;
-extern const f32 lbl_805DA03C;
-void TObjPlayer__sub_800C4E08(u8 *arg0);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
 s32 obj_clearFlags30(void * a0, s32 a1);
-s32 obj_setFlags30(void *, s32);
 void __dl__7TObjectFPv(void *);
-extern s32 lbl_80493450[];
-extern const f32 lbl_805DA048;
 u16 obj_getField1c(void *);
 u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5C *start, s32 angle);
 int queue_destruction__7TObjectFv(void*);
-extern const f32 lbl_805DA030;
 void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 

@@ -148,8 +148,6 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 
 void *__nw__7TObjectFUl(u32);
-extern s32 __vt__19TTecPlayerInfluence[];
-Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, int, int, f32);
@@ -166,7 +164,6 @@ extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
 void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 
-void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);

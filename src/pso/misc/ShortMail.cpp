@@ -23,23 +23,11 @@ struct O_80225B90 { u8 pad[0x20]; char name[1]; };
 #pragma auto_inline off
 #pragma dont_inline off
 
-struct G_80225550 { s32 value; u8 remaining[0xC]; };
-
 struct L_80225AD8 { u8 pad[0xcc]; s8 flags; u8 pad2[3]; };
 
 struct L_80225B40 { u8 pad[0xcc]; s8 flags; u8 pad2[3]; };
 
 struct Tag_80225828 { u8 b[0x228]; };
-
-struct C14_80224B7C { u8 b[0x14]; };
-
-struct Obj_80224F7C { u8 pad[4]; s8 v; };
-
-struct Item_80225064 { u8 f0; u8 f1; u8 f2; u8 f3; };
-
-struct Obj_80224C68 { u8 pad[6]; u8 b6; u8 b7; u8 b8; u8 b9; };
-
-struct Obj_80224DF0 { u8 pad[6]; u8 b6; u8 b7; };
 
 typedef struct Item_8022525C
 {
@@ -91,7 +79,6 @@ s32 find_free_slot__6TLobbyFv(void);
 void TLobby__sub_80225C8C(void* p);
 void TLobby__sub_802258C8(void);
 s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o);
-extern G_80225550 shop_weapon_stock_buffers;
 int get_short_mail_ctrl__6TLobbyFv(void);
 s32 get_lobby_id__6TLobbyFPv(void* p);
 void *find_short_mail_by_id__6TLobbyFUi(u32 id);
@@ -99,30 +86,11 @@ extern int lobby_short_mail_entry_count;
 void remove_entry_at__6TLobbyFi(s32 idx);
 void clear_lobby_flag__6TLobbyFv(void);
 void clear_all_entries__6TLobbyFPv(void* _w0);
-s32 is_split_screen(void);
-s32 create_named_object(void *);
-s32 mem_alloc(s32);
-extern u32 lobby_tool_random_rel;
-s32 mem_free(u32);
-extern u32 lobby_weapon_random_tables_ptr;
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 void send_simple_mail__9TProtocolFR12TChatMessage(void *, void *);
 void* get_com_card_list__6TLobbyFPv(void* p);
 extern u8 *TLobby__protocol_instance;
 void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1);
-s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
-void shuffle_shop_pool_n_times(void *, s32);
-void push_shop_pool_entry(void *, u8);
-s32 TLobby__sub_80224840(s32 arg0);
-extern int shop_weapon_stock_level;
-void roll_shop_weapon_special(Obj_80224F7C *obj);
-s32 rand();
-extern s32 lbl_805D6238;
-void roll_shop_weapon_grind(Item_80225064 *it);
-extern s32 shop_weapon_bonus_table[];
-void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
-void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
-void sort_shop_items(s32, s32, s32);
 void TLobby__sub_80225C44(void* p);
 void TLobby__sub_80225C64(void* p);
 void TLobby__sub_80225CB8(void);

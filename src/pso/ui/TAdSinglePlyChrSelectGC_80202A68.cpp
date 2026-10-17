@@ -100,7 +100,6 @@ int fn_8020325C(void *arg0);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 __dl__FPv(s32);
 extern int card_character_save_buffer;
-extern s32 selected_character_data;
 extern s32 *active_character_save_record;
 extern int TAdSinglePlyChrSelectGC__selection_index;
 s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);

@@ -75,8 +75,6 @@ void spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 #define construct_area_technique_base ((void (*)(void *, void *, void *, void *, void *))construct_area_technique_base)
-extern s32 __vt__11TTecRaBarta[];
-extern u32 TTecRaBarta_class_name;
 s32 is_split_screen();
 void get_bml_model(void *, s32);
 #define get_bml_model ((void * (*)(void *, int))get_bml_model)
@@ -95,7 +93,6 @@ void __dl__7TObjectFPv(void *);
 #define __dl__7TObjectFPv ((s32 (*)(void *))__dl__7TObjectFPv)
 void destroy_technique_base__13TUnk_804CC148Fs(void *, int);
 #define destroy_technique_base__13TUnk_804CC148Fs ((s32 (*)(void *, int))destroy_technique_base__13TUnk_804CC148Fs)
-void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 #define play_sound_effect ((s32 (*)(s32, s32, s32, s32))play_sound_effect)
 void *__nw__7TObjectFUl(int);
@@ -329,8 +326,6 @@ void set_chunk_material_color(void *, s32);
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern void *__vt__11TTecRaZonde[];
-void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level);
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80238388_lbl_8044DAF0_size[sizeof(RecoveredGlobal_80238388_lbl_8044DAF0) == 0x10 ? 1 : -1];
@@ -816,19 +811,7 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
 
 }
 
-struct Obj_80238F84 {
-    u8 pad0[0x1C];
-    void *source;
-    u8 pad20[0x7A - 0x20];
-    s16 band;
-    u8 pad7C[0xB4 - 0x7C];
-    u16 sourceId;
-    u8 padB6[0xE8 - 0xB6];
-    void *proxy;
-};
-
 extern "C" {
-void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
 
 #pragma push
 #pragma opt_loop_invariants off

@@ -173,8 +173,6 @@ void render_numeric_digit_entries(u8 *arg0, u8 *arg1) {
 
 void TWindowSubStatusDisp__sub_80259CE0(void) {  }
 
-extern s32 lbl_8044F010;
-
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804CF9C8;

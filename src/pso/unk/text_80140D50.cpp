@@ -11,7 +11,6 @@ struct Ent_80140F18 { void *key; u8 pad[0x14]; };
 struct Obj_80140F18 { u8 pad[0x1c]; Ent_80140F18 *slots[1]; };
 
 extern "C" {
-void emit_player_particle(void* p, void* a1, void* a2);
 void fn_80140DFC(s32 arg0, s32 arg1);
 s32 TLobby__sub_80141030(void *);
 void fn_80140EA8(s32 arg0, s32 arg1);

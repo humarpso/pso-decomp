@@ -92,28 +92,16 @@ typedef struct Hdr_8022525C
 } Hdr_8022525C;
 
 extern "C" {
-extern unsigned char lbl_80513F70[];
-void *TLobby__sub_8022598C(int a0);
-s32 strncpy(void *, void *, int);
-extern s32 lbl_805D6270;
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8022559C_lbl_80513F50 shop_weapon_stock_generated_flags;
 void clear_shop_weapon_flags(void);
-int is_flag_set__6TLobbyFPv(void* p);
-void TLobby__sub_80225C8C(void* p);
 extern G_80225550 shop_weapon_stock_buffers;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
-int get_short_mail_ctrl__6TLobbyFv(void);
-s32 get_lobby_id__6TLobbyFPv(void* p);
-extern int lobby_short_mail_entry_count;
-void clear_lobby_flag__6TLobbyFv(void);
 s32 is_split_screen(void);
 s32 create_named_object(void *);
 s32 mem_alloc(s32);
-extern u32 lobby_tool_random_rel;
 s32 mem_free(u32);
 extern u32 lobby_weapon_random_tables_ptr;
-void* get_com_card_list__6TLobbyFPv(void* p);
 s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C shop_weapon_stock_counts[];
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);

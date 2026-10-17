@@ -61,11 +61,6 @@ const char *TParticleCtrl__class_name_descriptor[2] = {"TParticleCtrl", 0};
 #pragma auto_inline off
 #pragma dont_inline off
 
-struct RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 {
-    s32 value;
-    u8 remaining[0x1AC];
-};
-
 typedef u8 *(*Gen_8008767C)(void *, void *, u32);
 struct Vec_8008767C { f32 x, y, z; };
 
@@ -118,22 +113,10 @@ s32 read_disc_file(s32, s32);
 s32 mem_alloc(s32);
 extern u32 particle_pool_limit;
 extern int particle_global_entry_table;
-void *alloc_particle_memory(int);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 int queue_destruction__7TObjectFv(void *);
-f32 vec_squared_length(void *);
-void __dt__13TUnk_8048E728Fv(void *, int);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-extern const f32 TParticleCtrl__data_805D9528;
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
-extern const f32 TParticleCtrl__data_805D9558;
-extern const f32 TParticleCtrl__data_805D955C;
-extern s32 TParticleCtrl__data_8048E7A8[];
-u8 * init_particle_base(void *, void *, s32);
-s32 rand(void);
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern const f32 lbl_805D9568;
-extern const f32 lbl_805D956C;
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u32 load_gvm_texture_file(void *);
@@ -146,23 +129,8 @@ extern char lbl_804394A4[];
 extern char lbl_804394BC[];
 extern char lbl_804394D4[];
 s32 is_split_screen();
-s32 setup_particle_tev(s32);
-s32 load_projected_texture_matrix(f32);
-s32 set_depth_buffer_settings_id__FUl(s32);
-s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 scale_matrix(s32, f32, f32, f32);
-s32 rotate_matrix_y(s32, s32);
-s32 rotate_matrix_z(s32, s32);
-s32 rotate_matrix_x(s32, s32);
-s32 push_matrix(f32);
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_ginja_object(u32);
-s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 int TParticleCtrl__sub_800884F0(void* p);
 void set_particle_draw_scale(void* p, f32 a, f32 b);

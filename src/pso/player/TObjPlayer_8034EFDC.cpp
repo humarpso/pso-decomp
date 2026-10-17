@@ -106,7 +106,6 @@ struct Info_8034F4FC {
 };
 
 extern "C" {
-int spawn_nug2000_hit_explosion(void);
 u32 find_item_by_id(void);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;

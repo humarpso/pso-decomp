@@ -63,7 +63,6 @@ s32 TWindowCtrl__sub_8024A314(void);
 s32 TWindowCtrl__sub_8024701C(u32);
 extern void *TWindowCtrl__active_window;
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
-int spawn_nug2000_hit_explosion(void);
 u32 get_window__11TWindowCtrlFl(void);
 s32 update_field28__15TWindowCtrlMainFv(u32 a0 = 0, s32 a1 = 0);
 s32 TWindow__close(void *);
