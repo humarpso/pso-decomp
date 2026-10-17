@@ -41,7 +41,6 @@ extern RecoveredGlobal_8032DC94_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void render__13TUnk_804EDD20Fv(u8 *arg0);
 void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804EDD20Fv(void *arg0, s16 arg1);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32 *, s32, s32);
@@ -255,7 +254,6 @@ void anchor_card_effect(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 u8 *find_item_by_id(s32 id);
 s8 TObjPlayer__sub_80102C30();
-void run_task__13TUnk_804EDD44Fv(u8 *arg0);
 
 void anchor_card_effect(u8 *arg0) {
   u16 temp_r3;

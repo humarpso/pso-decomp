@@ -350,7 +350,6 @@ void TItemWeapon__sub_8011E5C0(void);
 void TItemWeapon__sub_8011E5C4(void);
 void TItemWeapon__sub_8011E5C8(void);
 void TItemWeapon__sub_8011E5CC(void);
-void update_idle__11TItemWeaponFv(void);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 u32 pack_weapon_trail_color(void *arg0);
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);

@@ -80,7 +80,6 @@ void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C boss3_volopt_init_vec;
-void run_task__13TUnk_804B8DE8Fv(u8 *arg0);
 #pragma push
 #pragma fp_contract on
 void TUnk_804B8DE8::run_task() {

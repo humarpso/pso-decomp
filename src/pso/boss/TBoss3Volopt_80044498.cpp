@@ -560,7 +560,6 @@ s32 pop_matrix();
 extern s32 model_render_flags;
 extern const f32 lbl_805D881C;
 extern const f32 lbl_805D8820;
-void render__13TUnk_80484610Fv(u8 *arg0);
 void *__nw__7TObjectFUl(s32);
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
 extern void *tl_04;

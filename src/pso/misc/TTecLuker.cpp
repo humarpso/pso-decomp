@@ -247,7 +247,6 @@ f32 horizontal_distance_squared(void *, void *);
 extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DC864;
 extern const f32 lbl_805DC868;
-void run_task__13TUnk_804CCA0CFv(Obj_802342A4 *self);
 Hit_8023453C *csnVecterUnder(void *, s32);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void *create_telepipe_marker(void *, void *, s32, s32, s32, s32, s32, f32, f32);

@@ -61,7 +61,6 @@ struct W_8019D764 {
 extern "C" {
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 controller_input_state;
-void vfunc_18__12TObjWarpBaseFl(s32 arg0, s32 arg1);
 void fn_8019DD24(void *p, u32 v);
 void *get_player_by_client_id(u32);
 void TWindow__close(u8 *arg0);
@@ -88,7 +87,6 @@ struct VObj_8019D6F8_8019D4E4 : Base_8019D6F8_8019D4E4 {
     virtual void m12(); virtual void m13();
 };
 
-u8 vfunc_16__12TObjWarpBaseFv(void *arg0);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);

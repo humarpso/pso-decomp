@@ -263,7 +263,6 @@ extern "C" {
 s32 fn_8026C7AC(void *arg0, s8 arg1);
 s32 handle_list_page_flip_input(int);
 extern s32 lbl_805DD6F4;
-void run_task__20TWindowSubStatusDispFv(TWindowSubStatusDisp *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void *init__21TWindowSubComCardListFiii(void *, int, int, s32);
 s32 get_window_layout_position(int);

@@ -89,7 +89,6 @@ extern const f32 lbl_805DF908;
 
 void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-void run_task__13TUnk_804EEF64Fv(Obj_80336340 *arg0);
 s32 run_load_callback_table(void *, int);
 extern const Tbl_80336750 title_texture_filename_table;
 extern u8 title_texture_list[];

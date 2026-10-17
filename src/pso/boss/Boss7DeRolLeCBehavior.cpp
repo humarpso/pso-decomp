@@ -471,7 +471,6 @@ extern s32 *lbl_805D6940;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void render__14TBoss7DeRolLeCFv(u8 *arg0);
 void TObjPlayer__sub_802E80A0(void);
 int get_bml_motion(void*, void*);
 int TObjFish__sub_8001EDB0(void*, void*);

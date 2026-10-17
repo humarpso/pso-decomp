@@ -196,7 +196,6 @@ void *get_player_by_client_id(s32 i);
 s32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D9B5C;
 extern const f32 lbl_805D9B60;
-void run_task__13TUnk_80491460Fv(u8 *arg0);
 f32 fabs_float(f32);
 extern const f32 lbl_805D9B10;
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -217,7 +216,6 @@ f32 newton_sqrtf();
 s32 project_actor_to_ground(void *, Vec_800AB4F4 *, int);
 s32 subtract_vector(void *, void *);
 
-void run_task__13TUnk_80491478Fv(u8 *arg0);
 s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);

@@ -31,7 +31,6 @@ extern const f32 lbl_805DB78C;
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
-void trigger_activate_sound__14TOKeyMachine01Fv(s32 arg0);
 extern const f32 lbl_805DB790;
 s32 get_current_floor();
 extern s32 local_client_id;

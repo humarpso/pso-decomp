@@ -140,7 +140,6 @@ void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1);
-void update_idle__13TUnk_804F0AF8Fv(void* p);
 s32 rotate_matrix_x(s32, s32);
 int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);

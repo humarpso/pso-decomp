@@ -1512,7 +1512,6 @@ void fn_800E762C(void);
 void vfunc_88__17TObjEneMe3ShinowaFv(u8 *arg0);
 void vfunc_61__17TObjEneMe3ShinowaFv(void);
 void vfunc_28__17TObjEneMe3ShinowaFv(void);
-void run_task__17TObjEneMe3ShinowaFv(u8 *arg0);
 void * __dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void * TObjEneMe3Shinowa__ct(void *arg0);
 void set_animation__10TObjPlayerFPvs(void *, s16);

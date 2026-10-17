@@ -232,7 +232,6 @@ extern Vec_8009A640 bringer_effect_vec_table[6];
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 u32 __cvt_fp2unsigned();
 extern u32 bringer_effect_color_table[];
-void run_task__13TUnk_8048FE7CFv(Obj_8009A4B8 *self);
 
 void TUnk_8048FE7C::run_task() {
     switch (((Obj_8009A4B8 *)this)->state) {

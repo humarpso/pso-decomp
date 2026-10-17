@@ -69,7 +69,6 @@ extern const f32 lbl_805DC918;
 extern const f32 lbl_805DC91C;
 extern const f32 lbl_805DC920;
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
-void run_task__13TUnk_804CCC68Fv(void* p);
 void move_ground_technique_projectile(void* p);
 
 void TUnk_804CCC68::render() {  }

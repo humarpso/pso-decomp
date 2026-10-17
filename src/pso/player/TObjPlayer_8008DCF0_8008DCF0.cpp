@@ -227,7 +227,6 @@ struct VObj390V_8008e74c_8008DCF0 : VObj390_8008e74c_8008DCF0 {
     virtual void m7(); virtual s32 m8();
 };
 
-void render__18TObjEneBalClawBodyFv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 void draw_chunk_object(void *child);
