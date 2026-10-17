@@ -13,6 +13,7 @@ struct MojaCollisionState {
 };
 struct TObjEneMoja : public TObjEnemy {
     virtual ~TObjEneMoja();
+    void load_resources();
     virtual s32 update_action_hold_status();
     virtual s32 update_movement_status();
     virtual void vfunc_58();

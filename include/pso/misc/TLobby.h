@@ -6,6 +6,11 @@
 
 struct TLobby : public TObject {
     virtual ~TLobby();
+    void update_countdown_state(void *);
+    void try_close(void *);
+    void on_game_player_add(int, int, int);
+    void forward_8024273C(void *);
+    void close_window();
     static s32 get_filtered_event_theme();
     static void load_dimedian_resources();
     static void load_gyaranzo_resources();

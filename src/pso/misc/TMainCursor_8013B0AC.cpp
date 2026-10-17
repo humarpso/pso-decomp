@@ -17,7 +17,6 @@ struct Pl_8013B0F0 {
 };
 
 extern "C" {
-s32 bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
 u16 TMainCursor__sub_8013E03C(void *p);
 s32 set_target_index__11TMainCursorFs(void *, int);
 s32 reset_nearest_target_record(void *);
@@ -47,7 +46,7 @@ void TLOC_Start::run_task() {
     ((TMainCursor *)(cur->pos))->update_cursor_pos();
     set_target_index__11TMainCursorFs(cur->target, 0xFFFF);
     ((TMainCursor *)cur)->init_slots();
-    bind_action_channels__11TMainCursorFv(cur);
+    ((TMainCursor *)cur)->bind_action_channels();
     if (get_main_phase() == 0xF) {
         for (i = 0; i < 12; i++) {
             Pl_8013B0F0 *p = player_slot_table[i];

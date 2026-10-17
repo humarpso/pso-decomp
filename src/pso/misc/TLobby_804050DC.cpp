@@ -757,7 +757,6 @@ typedef char RecoveredGlobal_803FD520_lbl_805C0310_size[sizeof(RecoveredGlobal_8
 
 struct N_80405298;
 void TLobby__sub_80405298(N_80405298 *o, s32 v);
-void update_countdown_state__6TLobbyFPv(void *);
 
 #define self ((Self_803FD85C *)arg0)
 void TLobby__sub_803FD85C(void *arg0);
@@ -778,8 +777,6 @@ struct Self_803FDA68 {
     Tbl_803FDA68 *tbl;
     void *f30;
 };
-
-void update_countdown_state__6TLobbyFPv(void *arg0);
 
 struct V_803FE600;
 struct O_803FE600 {

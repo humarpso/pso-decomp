@@ -117,8 +117,6 @@ extern s32 __vt__19TShopItemListWindow[];
 extern s32 TShopItemListWindow__class_name;
 u8 *TShopItemListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *arg0);
-s32 handle_amount_confirm__19TShopItemListWindowFv(void *);
-s32 prepare_tool_purchase__19TShopItemListWindowFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(int, int, int, int);
@@ -318,7 +316,7 @@ void TShopItemListWindow::vfunc_11() {
         TShopItemListWindow::handle_tool_list_select(arg0);
         return;
     case 2:
-        handle_amount_confirm__19TShopItemListWindowFv(arg0);
+        ((TShopItemListWindow *)arg0)->handle_amount_confirm();
         return;
     case 3:
     case 8:
@@ -335,7 +333,7 @@ void TShopItemListWindow::vfunc_11() {
         ((TShopItemListWindow *)arg0)->handle_confirm();
         return;
     case 7:
-        prepare_tool_purchase__19TShopItemListWindowFv(arg0);
+        ((TShopItemListWindow *)arg0)->prepare_tool_purchase();
     default:
         return;
     }

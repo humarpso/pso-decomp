@@ -116,7 +116,6 @@ s32 get_guild_text(s32);
 extern "C" {
 void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
-void run_all_lists__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 int update_window_mode_from_progress__6TLobbyFPv(s32, Pair_802150E8 *);
 s32 get_window_layout_position(s32);
@@ -166,7 +165,7 @@ void TQuestListOnline::begin_file_download() {
         render_screen_overlay__9TMainTaskFv(((u8 *)&main_task));
         render_tick();
         ((TWindowCtrl *)local_client_id)->suppress_slot();
-        run_all_lists__9TMainTaskFv(((u8 *)&main_task));
+        ((TMainTask *)((u8 *)&main_task))->run_all_lists();
         quest_download_active = 1;
         quest_download_received_bytes = 0;
         quest_download_graph_current_bytes = 0;

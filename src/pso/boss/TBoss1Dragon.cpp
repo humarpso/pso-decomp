@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss1Dragon.h"
+#include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TUnk_80494AE0.h"
@@ -1312,7 +1313,6 @@ s32 is_destination_ahead__12TBoss1DragonFPv(u8 *s);
 void calc_target_vector__12TBoss1DragonFPv(u8 *arg0);
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
 s32 enemy_validate_retained_target();
-int copy_position__14TObjEneEpsilonFPv(void *p, void *_w1);
 s32 update_velocity__9TObjEneDDFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -4783,7 +4783,7 @@ void TBoss1Dragon::update_walking_state(u32 arg1) {
             if (VALID_800267B8(arg0) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             } else {
-                copy_position__14TObjEneEpsilonFPv(arg0, TBoss1Dragon__data_80434E80);
+                ((TObjEneEpsilon *)arg0)->copy_position(TBoss1Dragon__data_80434E80);
             }
             ((TBoss1Dragon *)arg0)->saveTargetDestination();
             send_state_sync__12TBoss1DragonFPv((struct dragon_80028530 *)(arg0));
@@ -4797,7 +4797,7 @@ void TBoss1Dragon::update_walking_state(u32 arg1) {
         if (LINKED_800267B8() != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         } else {
-            copy_position__14TObjEneEpsilonFPv(arg0, TBoss1Dragon__data_80434E80);
+            ((TObjEneEpsilon *)arg0)->copy_position(TBoss1Dragon__data_80434E80);
         }
         ((TBoss1Dragon *)arg0)->saveTargetDestination();
         break;

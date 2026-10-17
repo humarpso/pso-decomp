@@ -14,6 +14,16 @@ struct TechniqueContactList;
 
 struct TObjPlayer : public TUnk_804806E8 {
     virtual ~TObjPlayer();
+    void update_swim_flag(void *);
+    void setup_radar_marker(void *, void *);
+    void fire_spread_shot(void *);
+    void draw_weapon_if_not_hidden(void *);
+    void draw_chunk_vertices_cached(void *);
+    void draw_actor_model(void *);
+    s32 destroy_char_data(int, s16);
+    s32 create_shoot_model(int, int, int, f32);
+    void create_cane_effect_from_state(void *);
+    u32 apply_wall_response();
     void set_action_provider_variant(s16);
     void update_position_from_target();
     s32 get_idle_animation();

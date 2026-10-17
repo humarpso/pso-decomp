@@ -6,6 +6,7 @@
 
 struct TObjRoomId : public TUnk_804B9870 {
     virtual ~TObjRoomId();
+    void *create(void *);
     virtual void render();
     virtual void run_task();
     void* m_90;

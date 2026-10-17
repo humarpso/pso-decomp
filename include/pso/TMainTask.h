@@ -75,6 +75,7 @@ public:
     void init_main_task();
 
     virtual ~TMainTask();
+    void run_all_lists();
     virtual void run_task();
     virtual void render();
     virtual void render_shadows();

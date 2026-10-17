@@ -1,4 +1,5 @@
 #include "pso/map/FloorLifecycleTables.h"
+#include "pso/TQuestThread.h"
 #include "pso/misc/TODoorLabo.h"
 #include "pso/misc/TODragonflyCave01.h"
 #include "pso/misc/TOKeyJungleMain.h"

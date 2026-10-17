@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneMe1Canadin.h"
@@ -1768,7 +1769,6 @@ void * __dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1);
 u8 * TObjEneMe1Canadin__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 void * TObjEneMe1Canadin_EffLight__ct(void *, void *, s32);
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
-int copy_position__14TObjEneEpsilonFPv(void *p, void *_w1);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 s32 set_target_player__12TObjEneDD_STFPv(void *);
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
@@ -2929,7 +2929,7 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
             ((s32 (*)(void *, f32))TObjEneMe1Canadin__sub_8009EB14)(arg0, *(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)((s8 *)arg0 + 0x3F4));
             break;
         case 1:
-            copy_position__14TObjEneEpsilonFPv(arg0, arg0 + 0x50);
+            ((TObjEneEpsilon *)arg0)->copy_position(arg0 + 0x50);
             ((TObjEneDD *)arg0)->update_velocity();
             ((TObjEneMe1Canadin *)arg0)->update_angle();
             ((TObjEneMe1Canadin *)arg0)->update_position_with_offset();
@@ -3129,7 +3129,7 @@ void TObjEneMe1Canadin::run_task(s32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        copy_position__14TObjEneEpsilonFPv((arg0), (arg0 + 0x50));
+        ((TObjEneEpsilon *)arg0)->copy_position((arg0 + 0x50));
         ((TObjEneDD *)arg0)->update_velocity();
         update_angle();
         update_position_with_offset();

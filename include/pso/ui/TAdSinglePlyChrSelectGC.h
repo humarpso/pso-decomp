@@ -8,6 +8,9 @@ struct CreationTextureCacheEntry;
 
 struct TAdSinglePlyChrSelectGC : public TObject {
     virtual ~TAdSinglePlyChrSelectGC();
+    void update_state(int);
+    void show_confirm_dialog(void *);
+    void advance_when_load_done(int);
     void sub_802D4E08();
     virtual void render();
     u32 m_1c;

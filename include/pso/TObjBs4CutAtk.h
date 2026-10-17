@@ -6,6 +6,7 @@
 class TObjBs4CutAtk : public TObject {
 public:
     virtual ~TObjBs4CutAtk();
+    void *create(void *, void *, void *);
     virtual void run_task();
     virtual void render();
 

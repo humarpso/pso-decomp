@@ -6,6 +6,8 @@
 
 struct TBoss5Gryphon : public TObjEneDD_ST {
     virtual ~TBoss5Gryphon();
+    void handle_takeoff_state(void *, int);
+    void dispatch_state_event(void *, int, int);
     virtual void run_task();
     s32 enemy_probe_wall_ahead(f32, f32, f32);
     void calc_shot_position(u8 *, f32, f32, f32);

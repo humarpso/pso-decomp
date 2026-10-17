@@ -104,7 +104,6 @@ u32 obj_getField1c(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 get_window_layout_position(s32);
-s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 void memset(void *, int, int);
 s32 get_item_record__23TShopJudgmentItemWindowFPv(s32, s32, s32);
 s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot);
@@ -298,7 +297,7 @@ void TShopKeepItemWindow::vfunc_11() {
         ((TShopKeepItemWindow *)arg0)->rebuild_item_list();
         return;
     case 1:
-        handle_deposit_list_select__19TShopKeepItemWindowFv(arg0);
+        ((TShopKeepItemWindow *)arg0)->handle_deposit_list_select();
         return;
     case 2:
         ((TShopKeepItemWindow *)arg0)->handle_deposit_confirm();

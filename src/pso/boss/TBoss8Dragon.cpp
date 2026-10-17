@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -295,7 +296,6 @@ extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805DEEE4;
 void run_task__12TBoss8DragonFv(u8 *arg0);
 s32 *csnVecterUnder(s32 origin, s32 mask);
-int copy_position__14TObjEneEpsilonFPv(void *p, void *_w1);
 s32 TBoss8Dragon__sub_802F48DC(void *, void *);
 struct Dragon_802F8578;
 void TBoss8Dragon__sub_802F8578(struct Dragon_802F8578 *, u32);
@@ -2663,7 +2663,7 @@ void TBoss8Dragon__sub_802F51DC(u8 *arg0, u32 arg1) {
         if (((s32 (*)(void))update_linked_position__12TBoss8DragonFv)() != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         } else {
-            copy_position__14TObjEneEpsilonFPv((arg0), (TBoss8Dragon__data_804744A8));
+            ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
         }
         v.x = *(f32 *)((s8 *)arg0 + 0x394) - *(f32 *)((s8 *)arg0 + 0x38);
         v.z = *(f32 *)((s8 *)arg0 + 0x39C) - *(f32 *)((s8 *)arg0 + 0x40);
@@ -2731,7 +2731,7 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
             if (enemy_validate_retained_target(arg0) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             } else {
-                copy_position__14TObjEneEpsilonFPv((arg0), (TBoss8Dragon__data_804744A8));
+                ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
             }
             ((TBoss8Dragon *)arg0)->save_position();
             ((TBoss8Dragon *)arg0)->send_6xA8_action();
@@ -2746,7 +2746,7 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
         if (((s32 (*)(void))update_linked_position__12TBoss8DragonFv)() != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         } else {
-            copy_position__14TObjEneEpsilonFPv((arg0), (TBoss8Dragon__data_804744A8));
+            ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
         }
         ((TBoss8Dragon *)arg0)->save_position();
         return;
@@ -4752,7 +4752,7 @@ void TBoss8Dragon__sub_802F87EC(u8 *arg0, u32 arg1) {
         if (update_linked_position__12TBoss8DragonFv(arg0) != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         } else {
-            copy_position__14TObjEneEpsilonFPv((arg0), (TBoss8Dragon__data_804744A8));
+            ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
         }
         c = sin_table_lookup((s32)(ang = (s32) (TBoss8Dragon__data_805DEDD8 * (TBoss8Dragon__data_805DEDA4 * (f32) rand()))));
         v.x = *(f32 *)((s8 *)TBoss8Dragon__data_80541DDC[2] + 0xC) * c + *(f32 *)((s8 *)arg0 + 0x394);
@@ -5491,7 +5491,7 @@ void TBoss8Dragon__sub_802FA16C(TBoss8Dragon *arg0, u32 arg1) {
             if (enemy_validate_retained_target(arg0) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             } else {
-                copy_position__14TObjEneEpsilonFPv((arg0), (TBoss8Dragon__data_804744A8));
+                ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
             }
             arg0->save_position();
             arg0->send_6xA8_action();
@@ -5506,7 +5506,7 @@ void TBoss8Dragon__sub_802FA16C(TBoss8Dragon *arg0, u32 arg1) {
         if (((s32 (*)(void *))update_linked_position__12TBoss8DragonFv)(arg0) != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         } else {
-            copy_position__14TObjEneEpsilonFPv((arg0), (TBoss8Dragon__data_804744A8));
+            ((TObjEneEpsilon *)arg0)->copy_position((TBoss8Dragon__data_804744A8));
         }
         arg0->save_position();
         return;

@@ -6,6 +6,8 @@
 
 struct TObjLaboDesignBase : public TUnk_804AF8A0 {
     virtual ~TObjLaboDesignBase();
+    void *create_instance(void *);
+    void *alloc_and_construct(void *);
     void render();
     void run_task();
     u8 unk_AC[0x14];

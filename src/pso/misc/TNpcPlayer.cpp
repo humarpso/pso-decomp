@@ -423,7 +423,6 @@ s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0);
 s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2);
 void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self);
 void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind);
-s32 deliver_partner_action__10TNpcPlayerFv(void *);
 s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1);
 void run_task__10TNpcPlayerFv(u8 *arg0);
 u8 * __dt__10TNpcPlayerFv(u8 *arg0, s16 arg1);
@@ -3393,7 +3392,7 @@ void TNpcPlayer::run_task() {
                     ((TNpcPlayer *)arg0)->decide_action();
                     ((TNpcPlayer *)arg0)->update_follow_target();
                 }
-                deliver_partner_action__10TNpcPlayerFv((void *) (arg0));
+                ((TNpcPlayer *)arg0)->deliver_partner_action();
             }
         }
         }

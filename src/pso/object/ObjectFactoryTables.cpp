@@ -1,4 +1,6 @@
 #include "pso/object/ObjectFactoryTables.h"
+#include "pso/object/TObjLaboDesignBase.h"
+#include "pso/object/TObjRoomId.h"
 #include "pso/misc/TLazerFenceSw.h"
 #include "pso/misc/TMotorcycle.h"
 #include "pso/misc/TOCakeshopCave01.h"

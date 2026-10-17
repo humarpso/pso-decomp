@@ -6,6 +6,7 @@
 
 struct TObjLight : public TUnk_804B9870 {
     virtual ~TObjLight();
+    void *init_from_source(void *, int, int);
     u32 m_90;
     u32 m_94;
     u8 _pad98[0x4];

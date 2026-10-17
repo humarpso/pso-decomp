@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjChip.h"
 #include "pso/TObjSuisoChip.h"
 #include "pso/TObject.h"
 #include "pso/misc/TORockCave.h"

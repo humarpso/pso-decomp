@@ -6,6 +6,7 @@
 class TQuestThread : public TObject {
 public:
     virtual ~TQuestThread();
+    void destroy_quest_obj();
     virtual void run_task();
 public:
     s32 tick_com_card();

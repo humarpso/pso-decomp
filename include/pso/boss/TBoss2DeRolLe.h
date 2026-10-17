@@ -6,6 +6,9 @@
 
 struct TBoss2DeRolLe : public TObjEneDD_ST {
     virtual ~TBoss2DeRolLe();
+    void reset_parts();
+    void load_resources();
+    void *create(void *);
     virtual void render();
     virtual int vfunc_105();
     virtual void render_body();

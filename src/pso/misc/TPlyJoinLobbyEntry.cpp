@@ -69,7 +69,6 @@ void TLobby__sub_80139894(char *);
 void some_empty_func__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 void render_screen_overlay__9TMainTaskFv(void *);
-void run_all_lists__9TMainTaskFv(void *);
 void copy_member_record__6TLobbyFPvPv(void *, void *);
 void init_6x72_resume_packet(void *);
 void send_packet_60__6TLobbyFi(void *);
@@ -1114,7 +1113,7 @@ void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     render__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_screen_overlay__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
     render_tick();
-    run_all_lists__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task));
+    ((TMainTask *)(&(*(RecoveredGlobal_8013630C_main_task *)&main_task)))->run_all_lists();
     TLobby__designated_client_id = arg1;
     p = ((Obj_801361E8 *(*)(void *))get_player_by_client_id)((void *)e.client_id);
     if (p != NULL) {

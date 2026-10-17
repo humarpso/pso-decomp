@@ -2181,7 +2181,6 @@ void TObjPlayer__sub_801B67C4(void* p);
 void spawn_level_change_feedback__10TObjPlayerFv(s32 arg0, s32 arg1);
 void handle_6x30_change_player_level(void *arg0);
 void send_6x30_change_player_level(Player_801B6C30 *arg0);
-u32 apply_wall_response__10TObjPlayerFv(void *);
 void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0);
 void handle_6x99(void);
 void handle_6x98(void);
@@ -5603,7 +5602,7 @@ s32 TObjPlayer::resolve_move_collision() {
         TObjPlayer__sub_8001053C((u8 *)this);
         return 1;
     }
-    if (apply_wall_response__10TObjPlayerFv(this) != 0U) {
+    if (apply_wall_response() != 0U) {
         TObjPlayer__sub_8001053C((u8 *)this);
         return 2;
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 struct TAdScrollWinGC;
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
