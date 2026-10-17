@@ -3307,8 +3307,6 @@ void send_logout__6TLobbyFv(void) {
     }
 }
 
-namespace C_801399B8 {
-
 extern "C" {
 
 typedef struct Date_801399B8 {
@@ -3400,7 +3398,6 @@ void run_join_lobby_connect__6TLobbyFi(s32 arg0) {
 
 }
 
-}
 extern "C" {
 void __dt__6TLobbyFv();
 void run_task__6TLobbyFv();

@@ -335,7 +335,6 @@ __declspec(section ".rodata") char lbl_80446FDC[] = "start.adx";
 #pragma pop
 
 #pragma push
-namespace P2_801C2BCC {
 
 struct Stack_801C2C34 {
     s32 sp8;
@@ -610,7 +609,7 @@ void init_battle_round__6TLobbyFPv(void *arg0) {
 }
 
 }
-}
+
 #pragma pop
 
 #pragma push

@@ -337,8 +337,6 @@ void reset_random_enemies_mode(void) { TLobby::clear_counter(); evt2_random_enem
 
 }
 
-namespace part1 {
-
 extern "C" {
 
 struct Base_80213E64_80213E38 { char pad[0x18]; };
@@ -364,8 +362,6 @@ void THunterGuildSeqOffline__sub_80213E64(void) {
         ((TShopWindowBase *)offline_quest_list_vm)->set_field_20((s32)0xC);
         *(s32 *)((s8 *)offline_quest_list_vm + 0x34) = 2;
     }
-}
-
 }
 
 }
@@ -445,8 +441,6 @@ void THunterGuildSeqOffline__sub_80213F78(void) {
 
 }
 
-namespace part4 {
-
 struct Base_80213FD0 { char pad[0x18]; };
 struct VObj_80213FD0 : Base_80213FD0 {
     virtual int m0();
@@ -471,8 +465,6 @@ void confirm_and_close_if_valid__15TShopWindowBaseFPv(void *arg0) {
         o->m7(0xc, 1);
         ((TShopWindowBase *)arg0)->set_field_20((s32)0xc);
     }
-}
-
 }
 
 }

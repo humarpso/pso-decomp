@@ -788,7 +788,6 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
 #pragma pop
 
 #pragma push
-namespace color_copy_view {
 
 extern "C" {
 
@@ -798,11 +797,9 @@ void copy_vec4__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0)
 
 }
 
-}
 #pragma pop
 
 #pragma push
-namespace draw_state_view {
 
 struct RecoveredGlobal_8002F5AC_lbl_804FE30C {
     s32 value;
@@ -834,7 +831,6 @@ void fn_8002F5AC(u8 *arg0) {
 
 }
 
-}
 #pragma pop
 
 #pragma push
