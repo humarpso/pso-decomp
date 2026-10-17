@@ -393,7 +393,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
     }
     if (temp_r0 == 3) {
         this->mode = temp_r0;
-        set_indexed_flags((void *)(this), 0, 1);
+        set_indexed_flags(this, 0, 1);
         this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         this->calc_attach_pos();
         refresh_collision_body_centers();

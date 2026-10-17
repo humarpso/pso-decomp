@@ -134,7 +134,7 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
 }
 
 u8 *TWindowSubStatusDisp::init_part_direct(u8 *arg1, s32 arg2) {
-    sub_80256BDC__13TUnk_804CF930Fs((void *)(this), (void *)arg2);
+    sub_80256BDC__13TUnk_804CF930Fs(this, (void *)arg2);
     *(void ***)((s8 *)((u8 *)this) + 4) = window_uv_sprite_part_vtable;
     ((TWindowSubSymbolChatPartsSet *)(((u8 *)this) + 8))->copy_vec2(arg1 + 4);
     ((TWindowSubSymbolChatPartsSet *)(((u8 *)this) + 0x10))->copy_vec2(arg1 + 0xC);

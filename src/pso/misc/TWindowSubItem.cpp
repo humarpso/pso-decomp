@@ -408,11 +408,11 @@ s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     s32 titled_window_menu;
     titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(4)), 3, get_message_10__20TWindowSubStatusDispFl(0x26), this->m_24);
     if (arg1 == -0xFF) {
-        TWindowSubItem::add_meseta_purpose_actions((s32)(this), titled_window_menu);
+        TWindowSubItem::add_meseta_purpose_actions((s32)this, titled_window_menu);
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
-        TWindowSubItem::draw_slot((s32)(this), titled_window_menu, arg1);
+        TWindowSubItem::draw_slot((s32)this, titled_window_menu, arg1);
     } else {
-        add_item_purpose_actions((u8 *)(this), titled_window_menu, arg1);
+        add_item_purpose_actions((u8 *)this, titled_window_menu, arg1);
     }
     TWindowSubEquip__sub_80263AF8(this->m_2c, 1);
     set_field_1c__6TLobbyFf(titled_window_menu);

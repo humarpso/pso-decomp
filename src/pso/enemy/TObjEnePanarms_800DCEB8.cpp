@@ -284,7 +284,7 @@ void TObjEnePanarms::merge_halves() {
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
     obj_clearFlags30(0x40000U);
     obj_setFlags30(this, (int)(0x04000000U));
-    TObjEnePanarms__sub_800DE430((s32)(this), 0x2D, 0x25);
+    TObjEnePanarms__sub_800DE430((s32)this, 0x2D, 0x25);
     this->hp = (s16) (*(s16 *)(this->m_3e4 + 0x32C) + *(s16 *)(this->m_3e8 + 0x32C));
     TObjEnePanarms__sub_800E1D94(*(u8 * *)&this->m_3e4);
     TObjEnePanarms__sub_800E1D94(*(u8 * *)&this->m_3e8);
@@ -309,7 +309,7 @@ void TObjEnePanarms::update_separated_parts() {
                 this->m_388 = (s32) ((f32) this->m_388 + lbl_805DA498);
                 return;
             }
-            TObjEnePanarms::find_combine_position((void *)(this));
+            TObjEnePanarms::find_combine_position(this);
             ((TObjEnePanarms *)(this->m_3e4))->init_state();
             ((TObjEnePanarms *)(this->m_3e8))->init_state();
             return;

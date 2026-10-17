@@ -49,7 +49,7 @@ void TBoss6PlotFalz::finish_and_dispatch_next_phase() {
             i += 1;
         } while (i < 4);
     }
-    TBoss6PlotFalz::get_target_pos_a((s32)(this), (s32)sp10);
+    TBoss6PlotFalz::get_target_pos_a((s32)this, (s32)sp10);
     destroy_static_instance__14TBoss6PlotFalzFv(this);
     TLobby::stop_audio_streams();
     TBoss6PlotFalz::freeze_all_players();
