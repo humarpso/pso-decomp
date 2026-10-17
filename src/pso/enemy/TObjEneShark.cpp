@@ -638,7 +638,7 @@ extern "C" void apply_poison_status__13TUnk_804806E8Fv();
 extern "C" void apply_set_data__9TObjEnemyFPv();
 extern "C" void apply_shock_status__13TUnk_804806E8Fv();
 extern "C" void apply_slow_status__13TUnk_804806E8Fv();
-extern "C" void apply_switch_attack__10TObjPlayerFi();
+extern "C" void apply_switch_attack__13TUnk_804806E8Fv();
 extern "C" void vfunc_59__13TUnk_80493450Fv();
 extern "C" void beast_idle_update__13TUnk_80493450Fv();
 extern "C" void beast_retire_corpse__13TUnk_80493450Fv();
@@ -659,8 +659,8 @@ extern "C" void clear_lobby_object_state__9TObjEnemyFv();
 extern "C" void consume_timer_field__13TUnk_804806E8Fl();
 extern "C" void cure_paralysis__13TUnk_804806E8Fv();
 extern "C" void cure_poison_ailment__13TUnk_804806E8Fv();
-extern "C" void enemy_spawn_jellen_effect();
-extern "C" void enemy_spawn_zalure_effect();
+extern "C" void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
+extern "C" void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 extern "C" void vfunc_62__13TUnk_80493450Fv();
 extern "C" void enter_state_8__10TObjPlayerFv();
 extern "C" void vfunc_78__13TUnk_804806E8Fl();
@@ -778,8 +778,8 @@ void *lbl_8049168C[103] = {
     (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&tick_freeze_state__10TObjPlayerFv, (void *)&vfunc_59__13TUnk_80493450Fv,
     (void *)&vfunc_60__13TUnk_80493450Fv, (void *)&vfunc_61__13TUnk_80493450Fv, (void *)&vfunc_62__13TUnk_80493450Fv, (void *)&enter_state_8__10TObjPlayerFv,
     (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__13TUnk_804806E8Fll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
-    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
+    (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEnemyFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneSharkFv,
     (void *)&beast_idle_update__13TUnk_80493450Fv, (void *)&update_turn_toward_target__13TUnk_80493450Fv, (void *)&beast_update_approach__13TUnk_80493450Fv, (void *)&beast_update_group_chase__13TUnk_80493450Fv,

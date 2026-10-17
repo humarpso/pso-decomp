@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" void apply_switch_attack__13TUnk_804806E8Fv();
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -800,8 +801,8 @@ void TObjPlayer__sub_8001053C(u8 *arg0);
 void add_id_to_slots__10TObjPlayerFiUs(s32 arg0, u16 arg1);
 int vfunc_74__13TUnk_804806E8Fl(void);
 void vfunc_73__13TUnk_804806E8Fv(void);
-void enemy_spawn_zalure_effect(s32 arg0);
-void enemy_spawn_jellen_effect(s32 arg0);
+void enemy_spawn_zalure_effect__13TUnk_804806E8Fv(s32 arg0);
+void enemy_spawn_jellen_effect__13TUnk_804806E8Fv(s32 arg0);
 s32 is_entity_locally_controlled(s32 id);
 void handle_6x9A_update_entity_stat(Pkt_80010C54 *pkt);
 void sub_80010DE8__13TUnk_804806E8FUsUcUc(Obj_80010DE8 *self, u16 a, u8 b, u8 c);
@@ -1278,9 +1279,10 @@ s32 TUnk_804806E8::vfunc_74(s32) { return 0; }
 
 void TUnk_804806E8::vfunc_73() {  }
 
-void enemy_spawn_zalure_effect(s32 arg0) {
+void TUnk_804806E8::enemy_spawn_zalure_effect() {
     Stack_80010A84 stack;
     s32 oneshot_particle_emitter;
+    s32 arg0 = (s32)this;
     stack.spC = 0;
     stack.sp8 = 0;
     stack.sp10 = -0x8000;
@@ -1299,9 +1301,10 @@ void trigger_switch_attack__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-void enemy_spawn_jellen_effect(s32 arg0) {
+void TUnk_804806E8::enemy_spawn_jellen_effect() {
     Stack_80010B44 stack;
     s32 oneshot_particle_emitter;
+    s32 arg0 = (s32)this;
     stack.spC = 0;
     stack.sp8 = 0;
     stack.sp10 = -0x8000;
@@ -1311,8 +1314,9 @@ void enemy_spawn_jellen_effect(s32 arg0) {
     }
 }
 
-void apply_switch_attack__10TObjPlayerFi(s32 arg0) {
+void TUnk_804806E8::apply_switch_attack() {
     s32 particle_effect_with_flags;
+    s32 arg0 = (s32)this;
 
     particle_effect_with_flags = spawn_particle_effect_with_flags(arg0 + 0x2FC, 0x1FD, 0x50);
     if (particle_effect_with_flags != 0) {
@@ -1930,10 +1934,10 @@ void *lbl_804806E8[] = {
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Fv,
     (void *)get_pos__13TUnk_804806E8Fl,
-    (void *)apply_switch_attack__10TObjPlayerFi,
-    (void *)enemy_spawn_jellen_effect,
+    (void *)apply_switch_attack__13TUnk_804806E8Fv,
+    (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
     (void *)trigger_switch_attack__10TObjPlayerFi,
-    (void *)enemy_spawn_zalure_effect,
+    (void *)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (void *)vfunc_73__13TUnk_804806E8Fv,
     (void *)vfunc_74__13TUnk_804806E8Fl,
     (void *)vfunc_75__13TUnk_804806E8Ff,

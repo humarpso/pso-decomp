@@ -75,10 +75,10 @@ void vfunc_65__15TObjEnemyCustomFll();
 void vfunc_66__13TUnk_804806E8Fv();
 void vfunc_67__13TUnk_804806E8Fv();
 void get_pos__13TUnk_804806E8Fl();
-void apply_switch_attack__10TObjPlayerFi();
-void enemy_spawn_jellen_effect();
+void apply_switch_attack__13TUnk_804806E8Fv();
+void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
 void trigger_switch_attack__10TObjPlayerFi();
-void enemy_spawn_zalure_effect();
+void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_74__9TObjEnemyFl();
 void vfunc_75__13TUnk_804806E8Ff();
@@ -159,10 +159,10 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Fv,
     (void *)get_pos__13TUnk_804806E8Fl,
-    (void *)apply_switch_attack__10TObjPlayerFi,
-    (void *)enemy_spawn_jellen_effect,
+    (void *)apply_switch_attack__13TUnk_804806E8Fv,
+    (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
     (void *)trigger_switch_attack__10TObjPlayerFi,
-    (void *)enemy_spawn_zalure_effect,
+    (void *)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (void *)vfunc_73__13TUnk_804806E8Fv,
     (void *)vfunc_74__9TObjEnemyFl,
     (void *)vfunc_75__13TUnk_804806E8Ff,

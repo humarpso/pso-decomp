@@ -1186,10 +1186,10 @@ extern "C" {
 void vfunc_29__13TUnk_804806E8Fv();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void vfunc_73__13TUnk_804806E8Fv();
-void enemy_spawn_zalure_effect();
+void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 void trigger_switch_attack__10TObjPlayerFi();
-void enemy_spawn_jellen_effect();
-void apply_switch_attack__10TObjPlayerFi();
+void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
+void apply_switch_attack__13TUnk_804806E8Fv();
 void vfunc_78__13TUnk_804806E8Fl();
 void vfunc_77__13TUnk_804806E8Fv();
 void vfunc_76__13TUnk_804806E8Fv();
@@ -1326,10 +1326,10 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)vfunc_66__13TUnk_804806E8Fv,
     (s32)vfunc_67__13TUnk_804806E8Fv,
     (s32)get_pos__13TUnk_804806E8Fl,
-    (s32)apply_switch_attack__10TObjPlayerFi,
-    (s32)enemy_spawn_jellen_effect,
+    (s32)apply_switch_attack__13TUnk_804806E8Fv,
+    (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
     (s32)trigger_switch_attack__10TObjPlayerFi,
-    (s32)enemy_spawn_zalure_effect,
+    (s32)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)vfunc_74__9TObjEnemyFl,
     (s32)vfunc_75__13TUnk_804806E8Ff,
@@ -1411,10 +1411,10 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)vfunc_66__13TUnk_804806E8Fv,
     (s32)vfunc_67__13TUnk_804806E8Fv,
     (s32)get_pos__13TUnk_804806E8Fl,
-    (s32)apply_switch_attack__10TObjPlayerFi,
-    (s32)enemy_spawn_jellen_effect,
+    (s32)apply_switch_attack__13TUnk_804806E8Fv,
+    (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
     (s32)trigger_switch_attack__10TObjPlayerFi,
-    (s32)enemy_spawn_zalure_effect,
+    (s32)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)vfunc_74__9TObjEnemyFl,
     (s32)vfunc_75__13TUnk_804806E8Ff,
@@ -1496,10 +1496,10 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)vfunc_66__13TUnk_804806E8Fv,
     (s32)vfunc_67__13TUnk_804806E8Fv,
     (s32)get_pos__13TUnk_804806E8Fl,
-    (s32)apply_switch_attack__10TObjPlayerFi,
-    (s32)enemy_spawn_jellen_effect,
+    (s32)apply_switch_attack__13TUnk_804806E8Fv,
+    (s32)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
     (s32)trigger_switch_attack__10TObjPlayerFi,
-    (s32)enemy_spawn_zalure_effect,
+    (s32)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (s32)vfunc_73__13TUnk_804806E8Fv,
     (s32)vfunc_74__9TObjEnemyFl,
     (s32)vfunc_75__13TUnk_804806E8Ff,

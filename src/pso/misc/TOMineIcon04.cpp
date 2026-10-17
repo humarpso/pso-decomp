@@ -116,7 +116,7 @@ void apply_movement_ailment__13TUnk_804806E8Fl();
 void apply_paralysis__13TUnk_804806E8Fv();
 void apply_poison_status__13TUnk_804806E8Fv();
 void apply_shock_status__13TUnk_804806E8Fv();
-void apply_switch_attack__10TObjPlayerFi();
+void apply_switch_attack__13TUnk_804806E8Fv();
 void receive_weapon_special_attack__6TOMineFPvPv();
 void can_trigger__10TOMineTrapFUl();
 void check_trigger__10TOMineTrapFUl();
@@ -125,8 +125,8 @@ void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
 void cure_paralysis__13TUnk_804806E8Fv();
 void cure_poison_ailment__13TUnk_804806E8Fv();
-void enemy_spawn_jellen_effect();
-void enemy_spawn_zalure_effect();
+void enemy_spawn_jellen_effect__13TUnk_804806E8Fv();
+void enemy_spawn_zalure_effect__13TUnk_804806E8Fv();
 void vfunc_78__13TUnk_804806E8Fl();
 void vfunc_77__13TUnk_804806E8Fv();
 void vfunc_76__13TUnk_804806E8Fv();
@@ -223,10 +223,10 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)vfunc_66__13TUnk_804806E8Fv,
     (void *)vfunc_67__13TUnk_804806E8Fv,
     (void *)get_pos__13TUnk_804806E8Fl,
-    (void *)apply_switch_attack__10TObjPlayerFi,
-    (void *)enemy_spawn_jellen_effect,
+    (void *)apply_switch_attack__13TUnk_804806E8Fv,
+    (void *)enemy_spawn_jellen_effect__13TUnk_804806E8Fv,
     (void *)trigger_switch_attack__10TObjPlayerFi,
-    (void *)enemy_spawn_zalure_effect,
+    (void *)enemy_spawn_zalure_effect__13TUnk_804806E8Fv,
     (void *)vfunc_73__13TUnk_804806E8Fv,
     (void *)vfunc_74__13TUnk_804806E8Fl,
     (void *)vfunc_75__13TUnk_804806E8Ff,
