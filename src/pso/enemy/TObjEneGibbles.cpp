@@ -1026,7 +1026,7 @@ void TObjEneGibbles::sub_802D8140() {
       this->phase = 1;
       *((f32 *) (((s8 *) ((u8 *)this)) + 0x3A0)) = (f32) TObjEneGibbles__data_805DE7E4;
       apply_actor_gravity((u8 *)this, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
-      play_sound_effect((int)((void *) ((s32)((TObjEneGibbles*)((void *)this))->resolve_sound_id((u32)(0x3A333)))), (void *)(((u8 *)this) + 0x38), 0, 0);
+      play_sound_effect((int)((void *) ((s32)this->resolve_sound_id((u32)(0x3A333)))), (void *)(((u8 *)this) + 0x38), 0, 0);
       return;
     case 1:
       advance_animation_playback();
@@ -1919,7 +1919,7 @@ void TObjEneGibbles::sub_802DA7A4() {
         if (objInBand__FP7GameObjf((void *) (this), TObjEneGibbles__data_805DE7F8) != 0) {
             this->phase = 2;
             TObjEneGibbles__sub_802D7BE0((s32) (this));
-            play_sound_effect((int)(((TObjEneGibbles*)((void *)this))->resolve_sound_id((u32)(0x3A82F))), (void *) (((u8 *)this) + 0x38), 0, 0);
+            play_sound_effect((int)(this->resolve_sound_id((u32)(0x3A82F))), (void *) (((u8 *)this) + 0x38), 0, 0);
             ((V_802DA7A4 *)(((u8 *)this) + 0x3C0))->m2();
         }
         apply_actor_gravity((((u8 *)this)), 0, TObjEneGibbles__data_805DE7E4);
