@@ -294,7 +294,7 @@ void TBoss6Mine::explode_damage_players() {
             v.y = TBoss6Mine__data_805DF580;
             if (!(vector_length(&v) > lbl_805DF590)) {
                 Hit_803240F8 h;
-                s32 r = TBoss6PlotFalz::rand_vary_count(*(s32 *)((s8 *)arg0 + 0x384), lbl_805DF594);
+                s32 r = TBoss6PlotFalz::rand_vary_count(*(s32 *)&this->m_384, lbl_805DF594);
                 h.a = 1;
                 h.c = 1;
                 h.d = r;
@@ -303,7 +303,7 @@ void TBoss6Mine::explode_damage_players() {
             }
         }
     }
-    play_sound_effect(0x4003BA1E, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003BA1E, (u8 *)&this->position, 0, 0);
 }
 
 void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x38), (s32)((void*)252), (s32)((void*)64)); queue_destruction__7TObjectFv(p); }

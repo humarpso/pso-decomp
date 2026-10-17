@@ -73,9 +73,9 @@ void TUnk_804E355C::check_hits() {
     Hit_802E4798 *e;
     u8 *arg0 = (u8 *)this;
     reset_global_table();
-    TObjPlayer__sub_801542F4(arg0 + 0x1C);
+    TObjPlayer__sub_801542F4((u8 *)&this->unk_1C);
     if (*(s32 *)((s8 *)arg0 + 0xC0) != 0) {
-        TObjPlayer__sub_8015431C(arg0 + 0x1C);
+        TObjPlayer__sub_8015431C((u8 *)&this->unk_1C);
     }
     if (((TUnk_804E355C *)arg0)->m_bc != 0) {
         TObjPlayer::apply_status_effect((s32)(arg0 + 0x1C));

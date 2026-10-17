@@ -649,7 +649,7 @@ void TObjEneMe1GiGue::sub_802CACD8() {
     if (temp_r4 & 0x40000) {
         ((TObjEneMe1GiGue *)arg0)->m_388 = (s32) (temp_r4 & 0xFFFBFFFF);
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x50));
-        project_actor_to_ground(arg0, arg0 + 0x38, 0);
+        project_actor_to_ground(arg0, (u8 *)&this->position, 0);
         return;
     }
     if ((s32) ((TObjEneMe1GiGue *)arg0)->next_action == 7) {
@@ -1039,8 +1039,8 @@ void move_around_center__15TObjEneMe1GiGueFPvPvf(Obj_802CB8F0 *o, Vec_802CB8F0 *
 void TObjEneMe1GiGue::break_apart() {
     Vec position;
     VecCopy((Vec *)(&position.x), (const Vec *)(((u8 *)this) + 0x38));
-    position.y += 40.0f + *(f32 *)((s8 *)((u8 *)this) + 0x3EC);
-    TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe1GiGue__barrier_obj, 0, (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24))), (s32)((void *)&position.x), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60))));
+    position.y += 40.0f + this->m_3ec;
+    TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe1GiGue__barrier_obj, 0, (s32)((int) (this->texture_id)), (s32)((void *)&position.x), (s32)((int) (this->rotation_y)));
     ((TObjPlayer *)((u8 *)this))->refresh_lobby_state();
     ((TObjEnemy *)((u8 *)this))->send_entity_set_flags();
     spawn_particle_effect((&position.x), 0x205);
@@ -1060,61 +1060,61 @@ void TObjEneMe1GiGue::update_hit_reaction() {
     s16 var_r3;
     s32 temp_r3;
     s32 var_r30;
-    switch (*(s32 *)((s8 *)((u8 *)this) + 0x37C)) {
+    switch (*(s32 *)&this->state) {
     case 0:
         var_r3 = 4;
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFDFFFFF);
-        if (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x01000000) {
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
+        if (*(s32 *)&this->actorFlags & 0x01000000) {
             var_r3 = 5;
         }
-        *(s16 *)((s8 *)((u8 *)this) + 0xB8) = var_r3;
+        this->m_b8 = var_r3;
         spawn_particle_effect(((u8 *)this) + 0x2FC, 0xF2);
-        *(s32 *)((s8 *)((u8 *)this) + 0x37C) = 1;
+        *(s32 *)&this->state = 1;
     case 1:
         advance_animation_playback(((u8 *)this));
-        if (!(*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x01000000)) {
+        if (!(*(s32 *)&this->actorFlags & 0x01000000)) {
             Vec_802CBA98 v = *(Vec_802CBA98 *)((s8 *)((u8 *)this) + 0x2FC);
             v.x += *(f32 *)((s8 *)((u8 *)this) + 0x308);
-            v.z += *(f32 *)((s8 *)((u8 *)this) + 0x310);
+            v.z += this->m_310;
             if (check_path_obstructed(((u8 *)this), &v) == 0) {
                 move_with_wall_slide(((u8 *)this));
             } else {
-                *(f32 *)((s8 *)((u8 *)this) + 0x308) = *(f32 *)((s8 *)((u8 *)this) + 0x310) = 0.0f;
+                *(f32 *)((s8 *)((u8 *)this) + 0x308) = this->m_310 = 0.0f;
             }
             *(f32 *)((s8 *)((u8 *)this) + 0x308) *= 0.5f;
-            *(f32 *)((s8 *)((u8 *)this) + 0x310) *= 0.5f;
+            this->m_310 *= 0.5f;
         }
         apply_actor_gravity(((u8 *)this), 0, 0.0f);
         ((TObjPlayer *)((u8 *)this))->update_collisions();
-        if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0xB4) != 8U) {
-            *(s32 *)((s8 *)((u8 *)this) + 0x37C) = -1;
+        if ((u32) this->m_b4 != 8U) {
+            *(s32 *)&this->state = -1;
         }
         break;
     case -1:
         var_r30 = 0;
-        *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFFFDFF);
-        *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) & 0xFFFFFFFE);
-        *(s32 *)((s8 *)((u8 *)this) + 0x378) = 1;
-        temp_r4 = *(s16 *)((s8 *)((u8 *)this) + 0x33E);
-        if (((s32) (temp_r4 - *(s16 *)((s8 *)((u8 *)this) + 0x32C)) > (s32) (temp_r4 / 4)) && !(*(s32 *)((s8 *)((u8 *)this) + 0x30) & 2)) {
-            temp_r3 = (s32)find_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0x2D4));
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
+        *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xFFFFFFFE);
+        *(s32 *)&this->m_378 = 1;
+        temp_r4 = this->referenceHp;
+        if (((s32) (temp_r4 - this->hp) > (s32) (temp_r4 / 4)) && !(*(s32 *)&this->actorFlags & 2)) {
+            temp_r3 = (s32)find_entity_by_id(this->m_2d4);
             if (temp_r3 != 0) {
                 var_r30 = 1;
-                if ((*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x01000000) && (xz_distance_squared(((u8 *)this) + 0x38, (u8 *)temp_r3 + 0x38) > 400.0f)) {
+                if ((*(s32 *)&this->actorFlags & 0x01000000) && (xz_distance_squared(((u8 *)this) + 0x38, (u8 *)temp_r3 + 0x38) > 400.0f)) {
                     var_r30 = 0;
                 }
             }
         }
         if (var_r30 == 1) {
-            *(u16 *)((s8 *)((u8 *)this) + 0x338) = (u16) *(u16 *)((s8 *)((u8 *)this) + 0x2D4);
-            *(s32 *)((s8 *)((u8 *)this) + 0x374) = 9;
-        } else if (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x01000000) {
+            this->targetId = (u16) this->m_2d4;
+            *(s32 *)&this->next_action = 9;
+        } else if (*(s32 *)&this->actorFlags & 0x01000000) {
             update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0xD);
-            *(s32 *)((s8 *)((u8 *)this) + 0x378) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x380);
+            *(s32 *)&this->m_378 = (s32) *(s32 *)&this->m_380;
         } else {
             update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0);
         }
-        *(s16 *)((s8 *)((u8 *)this) + 0x33E) = (s16) *(s16 *)((s8 *)((u8 *)this) + 0x32C);
+        this->referenceHp = (s16) this->hp;
         break;
     }
 }

@@ -384,7 +384,7 @@ void TObjEneGyaranzo::select_targets() {
         if (p == arg0) continue;
         if (*(u32 *)((s8 *)p + 0x30) & 0x2000800) continue;
         VecCopy((Vec *)&d, (const Vec *)(p + 0x2FC));
-        subtract_vector(&d, arg0 + 0x2FC);
+        subtract_vector(&d, (u8 *)&this->m_2fc);
         dist = d.x * d.x + d.z * d.z;
         if (!(dist < lbl_805DA260)) continue;
         if (check_path_obstructed(arg0, p + 0x2FC) == 1) continue;

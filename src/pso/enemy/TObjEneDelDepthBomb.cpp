@@ -805,14 +805,14 @@ void TObjEneDelDepth::move_toward_target() {
     v.x = 1.0f;
     v.y = 0.0f;
     v.z = 0.0f;
-    id = *(s32 *)((s8 *)arg0 + 0x3C4);
+    id = this->m_3c4;
     if (id != 0xFFFF) {
         TObjPlayer::calc_distance_to_client((s32)arg0, (u16)((u16)id), (u32)&v);
     }
     ang = (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(v.x, v.z));
-    *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), ang, 0x200);
-    if (angle_difference_abs(*(s32 *)((s8 *)arg0 + 0x60), ang) < 0x200) {
-        *(s32 *)((s8 *)arg0 + 0x384) = 0;
+    this->rotation_y = approach_angle_limited(this->rotation_y, ang, 0x200);
+    if (angle_difference_abs(this->rotation_y, ang) < 0x200) {
+        this->m_384 = 0;
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
     if (vector_length(&v) <= lbl_805DF288) {
@@ -825,11 +825,11 @@ void TObjEneDelDepth::move_toward_target() {
     v.x *= lbl_805DF28C;
     v.y *= lbl_805DF28C;
     v.z *= lbl_805DF28C;
-    vec3_add_to(arg0 + 0x38, &v);
-    if (project_actor_to_ground(arg0, arg0 + 0x38, (void *)0) == 0 || csnLookAt(arg0 + 0x44, arg0 + 0x38) != 0) {
+    vec3_add_to((u8 *)&this->position, &v);
+    if (project_actor_to_ground(arg0, (u8 *)&this->position, (void *)0) == 0 || csnLookAt((u8 *)&this->m_44, (u8 *)&this->position) != 0) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
-    if (--*(s32 *)((s8 *)arg0 + 0x384) <= 0) {
+    if (--this->m_384 <= 0) {
         if (vector_length(&v) > TObjEneDelDepth__data_805DF280 || calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805DF290) {
             ((TObjEneDelDepth *)arg0)->set_action_state(9);
         } else {
@@ -1091,17 +1091,17 @@ void TObjEneDelDepth::start_move_toward_player() {
         return;
     }
     temp_r31 = (s32) (lbl_805DF2B0 * calc_boss4_scale__10TObjPlayerFi(actor));
-    *(f32 *)((s8 *)actor + 0x3B0) += TObjEneDelDepth__data_805DF270 * sin_table_lookup(temp_r31);
-    *(f32 *)((s8 *)actor + 0x3B8) += TObjEneDelDepth__data_805DF270 * cos_table_lookup(temp_r31);
-    if (vector_length(actor + 0x3B0) <= lbl_805DF288) {
+    this->m_3b0 += TObjEneDelDepth__data_805DF270 * sin_table_lookup(temp_r31);
+    this->m_3b8 += TObjEneDelDepth__data_805DF270 * cos_table_lookup(temp_r31);
+    if (vector_length((u8 *)&this->m_3b0) <= lbl_805DF288) {
         ((TObjEneDelDepth *)actor)->set_action_state(2);
         return;
     }
-    normalize_vector(actor + 0x3B0);
+    normalize_vector((u8 *)&this->m_3b0);
     temp_f1 = (lbl_805DF2B8 * calc_boss4_scale__10TObjPlayerFi(actor)) + lbl_805DF2B4;
-    *(f32 *)((s8 *)actor + 0x38C) = temp_f1;
-    *(f32 *)((s8 *)actor + 0x398) = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
-    ((int (*)(s32, int, f32))set_motion__15TObjEneDelDepthFl)(*(s32 *)((s8 *)actor + 0x37C), 7, temp_f1);
+    this->m_38c = temp_f1;
+    this->m_398 = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
+    ((int (*)(s32, int, f32))set_motion__15TObjEneDelDepthFl)(*(s32 *)&this->m_37c, 7, temp_f1);
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(actor, (void *)3);
 }
 #pragma pop

@@ -116,7 +116,7 @@ u16 TObjPlayer::pick_random_nearby_player(f32 radius) {
         if (p == NULL) {
             break;
         }
-        if (xz_distance_squared(p + 0x2FC, arg0 + 0x2FC) < r2) {
+        if (xz_distance_squared(p + 0x2FC, (u8 *)&this->m_2fc) < r2) {
             list[count++] = i;
             if (count >= 0x20) {
                 break;

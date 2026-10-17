@@ -13,7 +13,8 @@ struct TObjCityMainWarpChallenge : public TObjAreaWarp {
     void trigger_warp_effect(s32);
     void send_6x6A_set_boss_warp_flags(u16);
     s32 are_all_players_in_range();
-    u8 unk_AC[0x8];
+    u8 unk_AC[0x4];
+    u32 m_b0;
     u32 m_d0;
     u32 m_d4;
     u8 _padD8[0x4];

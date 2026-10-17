@@ -1,4 +1,5 @@
 #include "pso/system/TSetEvtDestroy.h"
+#include "pso/misc/TUnk_804C3E88.h"
 #include "pso/TPlayerBattleCtrl.h"
 #include "pso/misc/TCheckRoomSequence.h"
 #include "pso/misc/TLobby.h"
@@ -442,7 +443,7 @@ void clear_battle_player_ready_flags(void) {
 
 void TLobby::destroy_matching_children() {
     void *var_r31;
-    var_r31 = *(void **)((s8 *)this + 0x14);
+    var_r31 = *(void * *)&this->m_down;
 while (var_r31 != NULL) {
         if (check_value_equals__13TUnk_804B6C24Fl(var_r31, lbl_805D2A98) != 0) {
             queue_destruction__7TObjectFv(var_r31);
