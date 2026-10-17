@@ -88,7 +88,7 @@ extern "C" {
 s32 obj_getField1c(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 void TWindow__close(void *);
-u32 create_yes_no_window(s32, u16, s32, s32);
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 get_window_layout_position(s32);
 s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, int);
 s32 compact_items__18TCheckRoomSequenceFi(int);
@@ -193,7 +193,7 @@ void TShopGetItemWindow::update_input_number() {
     w = *(u32 *)((s8 *)this + 0x30);
     if ((w != 0U) && (((TWindowInputNumber *)w)->is_confirmed() != 0)) {
         if ((u32) *(u32 *)((s8 *)this + 0x2C) == 0U) {
-            *(u32 *)((s8 *)this + 0x2C) = create_yes_no_window(get_window_layout_position(0x2B), (u16) obj_getField1c(*(s32 *)((s8 *)this + 0x24)), 0, 0);
+            *(u32 *)((s8 *)this + 0x2C) = (u32)create_yes_no_window(get_window_layout_position(0x2B), (u16) obj_getField1c(*(s32 *)((s8 *)this + 0x24)), 0, 0);
             ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x2C)))->set_ready_flag();
             ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x2C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         }
@@ -249,7 +249,7 @@ s32 TShopGetItemWindow::handle_withdraw_list_input() {
                 return;
             }
             sel = (u16)obj_getField1c(arg0->f24);
-            arg0->f2C = create_yes_no_window(get_window_layout_position(0x2B), sel, 0, 0);
+            arg0->f2C = (u32)create_yes_no_window(get_window_layout_position(0x2B), sel, 0, 0);
             ((TCheckRoomSequence *)(arg0->f2C))->set_ready_flag();
             scale = get_scale__15TShopWindowBaseFv(arg0);
             ((TUnk_804CDFE8 *)(arg0->f2C))->set_position_xy(get_scale__15TShopWindowBaseFv(arg0), scale);
