@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Canadin_EffLine.h"
 #include "pso/TTecZondeEff.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/player/TObjPlayer.h"
@@ -393,16 +394,11 @@ void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
 
 extern s32 __vt__25TObjEneMe1Canadin_EffLine[];
 
-void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjEneMe1Canadin_EffLine;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TObjEneMe1Canadin_EffLine::~TObjEneMe1Canadin_EffLine() {
+
+}
+extern "C" {
 
 u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 rand(s32);
@@ -441,11 +437,7 @@ s32 __vt__30TObjEneMe1Canadin_EffDischarge[] = {
     (s32)run_task__30TObjEneMe1Canadin_EffDischargeFv,
     (s32)render__30TObjEneMe1Canadin_EffDischargeFv, (s32)render_shadows__7TObjectFv
 };
-s32 __vt__25TObjEneMe1Canadin_EffLine[] = {
-    0, 0, (s32)__dt__25TObjEneMe1Canadin_EffLineFv,
-    (s32)run_task__25TObjEneMe1Canadin_EffLineFv,
-    (s32)render__25TObjEneMe1Canadin_EffLineFv, (s32)render_shadows__7TObjectFv
-};
+extern s32 __vt__25TObjEneMe1Canadin_EffLine[];
 __declspec(section ".sdata2") const f32 canadin_effect_negative_one = -1.0f;
 __declspec(section ".sdata2") const f32 canadin_effect_zero = 0.0f;
 __declspec(section ".sdata2") const f32 canadin_light_width_cutoff = 0.01f;
