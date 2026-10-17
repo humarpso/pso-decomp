@@ -8,11 +8,8 @@
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
-#include "pso/enemy/TObjEneSaver.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/object/TObjMotion.h"
 extern "C" void vfunc_101__12TObjEneBeastFv();
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/enemy/TObjEneDD.h"

@@ -29,8 +29,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/object/TObjMotion.h"
 extern "C" void apply_paralysis__12TBoss1DragonFv();
 extern "C" void apply_confusion_status__12TBoss1DragonFv();
 extern "C" void apply_movement_ailment__12TBoss1DragonFl();

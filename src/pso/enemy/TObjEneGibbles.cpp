@@ -8,7 +8,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -16,7 +15,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"

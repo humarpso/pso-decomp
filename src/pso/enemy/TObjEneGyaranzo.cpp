@@ -10,11 +10,8 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/object/TObjGyaranzoMissile.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/object/TObjMotion.h"
 #include <stddef.h>
 typedef char GyaranzoPositionOffset[offsetof(TObjEneGyaranzo, position) == 0x38 ? 1 : -1];
 typedef char GyaranzoYawOffset[offsetof(TObjEneGyaranzo, rotation_y) == 0x60 ? 1 : -1];

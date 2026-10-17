@@ -9,9 +9,7 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_80490470.h"
-#include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/misc/TLobby.h"
 #include "pso/enemy/TObjEneBeast.h"

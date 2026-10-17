@@ -7,7 +7,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"

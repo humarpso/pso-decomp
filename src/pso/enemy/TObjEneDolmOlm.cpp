@@ -15,9 +15,7 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TUnk_80493450.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 
 struct Base_80301690_80300CE4 { char pad[0x18]; };

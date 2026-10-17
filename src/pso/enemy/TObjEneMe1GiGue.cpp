@@ -17,10 +17,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "types.h"
 

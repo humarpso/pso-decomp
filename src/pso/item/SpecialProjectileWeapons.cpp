@@ -11,7 +11,6 @@ struct TItemEquipBase;
 #include "pso/items/TItemWeapon.h"
 #include "pso/TItemAttacker.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/item/TItem.h"
 #include "pso/item/TItemMag.h"
 #include "pso/object/TObjCamera.h"
 #include "pso/player/TObjPlayer.h"

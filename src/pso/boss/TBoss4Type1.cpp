@@ -7,7 +7,6 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/boss/TBoss4Type1.h"
 #include <stddef.h>
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TRaderMapCore.h"
@@ -21,7 +20,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss4Uro.h"
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/enemy/TObjEneLappy.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TTecRaFoie.h"

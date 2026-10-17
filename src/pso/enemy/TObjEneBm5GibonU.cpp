@@ -16,7 +16,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TTecFoie.h"
 #include "pso/misc/TTecGiBarta.h"
@@ -25,7 +24,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/object/TObjMotion.h"
 
 struct Ene_800CCC6C;
 struct Ene_800D0FDC;

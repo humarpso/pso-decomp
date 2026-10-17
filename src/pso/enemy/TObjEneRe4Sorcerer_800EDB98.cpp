@@ -5,7 +5,6 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe4Bit.h"
@@ -14,7 +13,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneRe4Sorcerer.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_80490470.h"
-#include "pso/object/TObjMotion.h"
 
 extern "C" {
 

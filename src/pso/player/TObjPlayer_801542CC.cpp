@@ -117,7 +117,6 @@ struct Obj_801547E0;
 struct Vec_80155294 { f32 x, y, z; };
 
 #include "pso/protocol/subcmd_6x.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"

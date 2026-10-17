@@ -7,13 +7,11 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TUnk_804E6FA8.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_80490470.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDellBiter_Eff_Rush.h"
 #include <stddef.h>
 #include "pso/enemy/TObjEneDellBiter.h"

@@ -7,9 +7,7 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"

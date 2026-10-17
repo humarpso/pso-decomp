@@ -5,19 +5,14 @@
 #include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TObjEneDarkGunner.h"
 extern "C" void update_movement_status__17TObjEneDarkGunnerFv();
-#include "pso/enemy/TObjEneDarkGunner.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
-#include "pso/enemy/TUnk_804909C4.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TUnk_80490470.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"

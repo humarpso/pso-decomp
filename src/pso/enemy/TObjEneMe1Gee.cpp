@@ -18,12 +18,9 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEneMe1Gee.h"
 
 struct D_800CC950;
 struct Data_800C82A4;

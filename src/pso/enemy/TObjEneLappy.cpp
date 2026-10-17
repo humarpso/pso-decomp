@@ -10,10 +10,8 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/object/TObjMotion.h"
 extern "C" __declspec(section ".data") s32 lappy_variant_speed_ptr_table[2];
 #define lappy_variant_speed_ptr_table ((f32 * *)lappy_variant_speed_ptr_table)
 extern "C" void * rappy_variant_speed_table[40];

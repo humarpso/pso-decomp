@@ -7,8 +7,6 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/boss/TUnk_80486924.h"
 #include "pso/boss/TBoss4Type3.h"
 
 extern "C" {
@@ -1989,39 +1987,17 @@ void TBoss4Type3__sub_8005A86C(void* p) { ((TBoss4Type3 *)p)->draw(); }
  extern const f32 lbl_805D8CAC;
 
 extern "C" {
-s32 TBoss4Type3__sub_8005254C(u16);
 s32 is_field378_zero__14TBoss4DarkFalzFv(void *);
-void update_phase_timer__11TBoss4Type3FPv(u8 *arg0);
-void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
 void update_collisions__10TObjPlayerFv(void *);
 void submit_cursor_candidate(void *, int);
-void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
-void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
 struct O_80059618;
 struct Obj_8005A1AC;
 struct Ply_80059ABC;
-void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
-void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
 void scroll_strips__11TBoss4Type2Fv(void *);
 
-void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
-void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void draw_motion_trail__11TBoss4Type3Fllll(void *, s32, s32, void *, s32);
-u8 * lookup_entry_by_value__10TObjPlayerFPvf(s32);
-s32 push_matrix();
-void set_matrix_identity(u8 *arg0);
-f32 post_translate_matrix(void *);
-s32 rotate_matrix_y(int, int);
-s32 matrix_mult_vec(int, void *, void *);
-s32 pop_matrix();
-void copy_pos__11TNowLoadingFPv(void *, void *);
-s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
-s32 get_bml_motion(s32, s32);
-s32 get_bml_model(s32, s32);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 
 }
 
@@ -2175,10 +2151,8 @@ S_8005AD50 *__dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag) {
     return o;
 }
 
-void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 
 Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     s32 i;

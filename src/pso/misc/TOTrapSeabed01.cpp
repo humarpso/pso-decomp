@@ -13,9 +13,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TOTrapAncient02.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/misc/TOTrapSeabed01.h"
 extern "C" {
 __declspec(section ".sdata2") extern const f32 lbl_805DE640[1] = { 1.0f };
 __declspec(section ".sdata2") extern const f32 TOTrapSeabed01__data_805DE644[1] = { 0.0f };

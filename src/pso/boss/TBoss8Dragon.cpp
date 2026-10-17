@@ -10,8 +10,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TMainCursor.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/boss/TBoss5Gryphon.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/object/TObjMotion.h"
 #include <stddef.h>
 #include "pso/TObject.h"
 #include "pso/boss/TBoss3Volopt.h"

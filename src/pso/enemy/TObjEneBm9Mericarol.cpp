@@ -8,11 +8,9 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"

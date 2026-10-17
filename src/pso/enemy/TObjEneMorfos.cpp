@@ -15,7 +15,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_80490470.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include <stddef.h>
-#include "pso/enemy/TObjEneMorfos.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"

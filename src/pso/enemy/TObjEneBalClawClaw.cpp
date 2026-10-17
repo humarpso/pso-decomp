@@ -15,9 +15,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEnemyCustom.h"
-#include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
 struct Stack_8009048C {

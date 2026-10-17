@@ -16,7 +16,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/object/TObjFish.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneBm3FlyNest.h"
 

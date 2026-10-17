@@ -9,7 +9,6 @@
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
-#include "pso/enemy/TObjEneSaver.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -18,9 +17,7 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_80493450.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 

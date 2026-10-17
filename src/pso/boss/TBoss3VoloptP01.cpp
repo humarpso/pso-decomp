@@ -11,9 +11,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/TTecZondeEff.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEnemyCustom.h"
-#include "pso/object/TObjMotion.h"
 
 struct Obj_80042DE8; typedef struct Obj_80042DE8 Obj_80042DE8;
 struct P_80042ED0;
@@ -38,7 +35,6 @@ void reset_look_state__11TCameraCtrlFv(void*);
 s32 advance_animation_playback(void*);
 extern const char* TBoss3VoloptP01_class_name;
 }
-#include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"

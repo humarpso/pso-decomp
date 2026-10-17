@@ -8,7 +8,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TUnk_8048FE7C.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -18,7 +17,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_80490470.h"
-#include "pso/object/TObjMotion.h"
 
 struct Bringer_80097714;
 struct Bringer_800993E8;

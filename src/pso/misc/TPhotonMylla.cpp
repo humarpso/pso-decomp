@@ -3,7 +3,6 @@
 struct TPhotonYoulla;
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
-#include "pso/object/TObjMotion.h"
 
 #include <stddef.h>
 #include <stddef.h>

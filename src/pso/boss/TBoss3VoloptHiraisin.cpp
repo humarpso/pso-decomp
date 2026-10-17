@@ -13,7 +13,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804806E8.h"
-#include "pso/object/TObjMotion.h"
 
 extern "C" {
 void *TBoss3VoloptHiraisin__init_param_table[45] = {
