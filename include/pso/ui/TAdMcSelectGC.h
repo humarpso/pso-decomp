@@ -35,6 +35,7 @@ struct TAdMcSelectGC : public TObject {
 };
 
 typedef char TAdMcSelectGC_size[sizeof(TAdMcSelectGC) == 0x34 ? 1 : -1];
+
 extern "C" {
 void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1);
 }

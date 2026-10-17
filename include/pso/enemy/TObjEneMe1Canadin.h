@@ -71,6 +71,7 @@ struct TObjEneMe1Canadin : public TObjEneDD_ST {
 };
 
 typedef char TObjEneMe1Canadin_size[sizeof(TObjEneMe1Canadin) == 0x4CC ? 1 : -1];
+
 extern "C" {
 void *TObjEneMe1CanadinLeader__ct(void *arg0, void *a, void *b);
 void TObjEneMe1CanadinLeader__sub_8009E258(u8 *arg0);

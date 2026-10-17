@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type1_802B20C0.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/TParticleCtrl.h"
@@ -87,21 +88,6 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 is_normal_difficulty();
-void TBoss6Type1__sub_802B245C(void *arg0);
-void TBoss6Type1__sub_802B24B4(u8 *arg0);
-void init_work__11TBoss6Type1FPv(u8 *arg0);
-void TBoss6Type1__sub_802B2724(u8 *arg0);
-void TBoss6Type1__sub_802B2A94(u8 *arg0);
-void TBoss6Type1__sub_802B2CB4(u8 *arg0);
-void TBoss6Type1__sub_802B2D68(u8 *arg0);
-void TBoss6Type1__sub_802B2F00(u8 *arg0);
-void TBoss6Type1__sub_802B3178(void* p);
-void TBoss6Type1__sub_802B31E4(u8 *arg0);
-void TBoss6Type1__sub_802B343C(void *arg0);
-void TBoss6Type1__sub_802B3564(void *arg0);
-void TBoss6Type1__sub_802B381C(void *arg0);
-void TBoss6Type1__sub_802B3B94(void *arg0);
-void release_object__11TBoss6Type1FPv(void* p);
 s32 TBoss6Type1__sub_802B4A9C(void *);
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
 s32 TBoss6Type1__sub_802B5140(void *, s32, s32);

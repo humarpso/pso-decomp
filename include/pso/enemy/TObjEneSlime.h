@@ -21,6 +21,7 @@ struct TObjEneSlime : public TObjEnemy {
 };
 
 typedef char TObjEneSlime_size[sizeof(TObjEneSlime) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 void TObjEneSlime__sub_800EB9F0(void *p, void *q);
 }

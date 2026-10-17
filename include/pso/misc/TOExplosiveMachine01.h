@@ -9,6 +9,7 @@ struct TOExplosiveMachine01 : public TOExplosiveMachine {
 };
 
 typedef char TOExplosiveMachine01_size[sizeof(TOExplosiveMachine01) == 0xAC ? 1 : -1];
+
 extern "C" {
 void *TOExplosiveMachine01__create(void *arg0);
 void *TOExplosiveMachine01__ct(void *arg0, s32 arg1);

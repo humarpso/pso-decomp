@@ -78,6 +78,7 @@ void lsc_shutdown(void);
 void lsc_init(void);
 void lsc_poll(LscStream* stream);
 }
+
 extern "C" {
 LscStream *find_free_803D1A98(void);
 LscStream *lsc_create(void *sj_handle);

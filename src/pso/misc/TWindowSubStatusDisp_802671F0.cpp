@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/misc/TWindowSubStatusDisp_802671F0.h"
+#include "pso/unk/text_801C53D4.h"
+#include "pso/unk/text_80203418.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/misc/TUnk_804CDFE8.h"
@@ -104,11 +108,8 @@ s32 get_cursor_pos__14TWindowSubItemFv();
 s32 init_entry__20TWindowSubStatusDispFScScUcUll(s32, u8, u8, int, s32, s32);
 s32 fn_80266BD0(s32, u8 *, u8 *, s16);
 s32 TWindowSubStatusDisp__sub_80258A28(s32, s32, s32);
-s32 get_localized_text_entry(s32, s32);
 u32 get_player_by_client_id(s16);
-s32 fn_801C5404(s32 *arg0);
 s8 clamp_char_at__10TObjPlayerFl(s32, s32);
-s32 is_boss_area();
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 finalize_state__20TWindowSubStatusDispFv(s32);
@@ -134,14 +135,7 @@ void destroy_window__13TUnk_804CDFE8Fs(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 void calc_list_content_extent(struct List_80266E34 *s);
-void advance_status_disp_entry(void *arg0, s32 arg1);
-void push_status_disp_entry(void *arg0, s32 arg1, s32 arg2);
-void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TAdVIConfigGC__sub_80267704(s32 arg0);
-void TWindowMenuIconLine__ct(u8 *arg0, u32 arg1, s32 arg2);
-u8 *fn_80267F38(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
 void TShopJudgmentItemWindow__sub_80267F9C(V_80267F9C v, s32 x);
-void update_item_list_window(u8 *arg0);
 
 extern "C" {
 extern const f32 lbl_805DD188 = 0.0f;

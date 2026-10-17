@@ -30,6 +30,7 @@ struct TEffIndirectCtrl : public TObject {
 };
 
 typedef char TEffIndirectCtrl_size[sizeof(TEffIndirectCtrl) == 0x54 ? 1 : -1];
+
 extern "C" {
 void TEffIndirectCtrl__sub_802A9548(void *p);
 u8 TEffIndirectCtrl__sub_802A9554(void *p);

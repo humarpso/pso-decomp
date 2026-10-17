@@ -27,6 +27,7 @@ struct TCheckMemoryCard : public TObject {
 };
 
 typedef char TCheckMemoryCard_size[sizeof(TCheckMemoryCard) == 0x250 ? 1 : -1];
+
 extern "C" {
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
 }

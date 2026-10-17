@@ -1,4 +1,6 @@
 #include "pso/TObject.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/ui/TAdPlayerLoadGC.h"
 #include "pso/player/TObjPlayer.h"
 class TAdPlayerLoadGC : public TObject {
 public:
@@ -35,20 +37,13 @@ s32 TAdPlayerLoadGC__sub_801FD770();
 s32 TAdPlayerLoadGC__sub_801FD814();
 s32 check_system_load_result__23TAdSinglePlyChrSelectGCFv();
 s32 load_system_file_flag__23TAdSinglePlyChrSelectGCFv();
-int get_player_load_state(void);
-void set_character_select_b_slot_state(int a0);
 extern s32 lbl_804C88C0[];
 extern s32 pso_system_card_filename[];
-void run_task__15TAdPlayerLoadGCFv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
 extern void *__vt__15TAdSubPlyItemGC[6];
 extern s32 TAdSubPlyItemGC__name;
 Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self);
-void *__dt__13TUnk_804E24F0Fv(void *arg0, s16 arg1);
-void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2);
-void render__15TAdPlayerLoadGCFv(void);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 extern s32 lbl_804E24F0[];
 
@@ -302,7 +297,6 @@ extern const f32 lbl_805DE7C4;
 extern const f32 lbl_805DE7C8;
 char *strncpy(char *, const char *, u32);
 u32 calc_text_width(char *s);
-u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1);
 extern const f32 lbl_805DE7CC;
 extern const f32 lbl_805DE7D0;
 void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self);

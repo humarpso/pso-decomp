@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8016F1C0.h"
 #include "pso/misc/TOMineDisp.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -22,7 +23,6 @@ s32 construct_world_actor_base();
 extern RecoveredGlobal_8016F1C0___vt__10TOMineDisp __vt__10TOMineDisp;
 extern s32 TOMineDisp__name;
 extern const f32 lbl_805DB85C;
-u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2);
 void *get_shared_text_buffer(void);
 s32 get_trap_type__10TOMineTrapFv(s32);
 s32 is_technique_ready__8TTecCtrlFv(void);
@@ -31,7 +31,6 @@ void text_builder_append(const char *);
 void text_builder_reset(void);
 extern const char lbl_804421F0[];
 extern const char lbl_805DB860[4];
-void TOMineTrap__vt81(s32 arg0);
 u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 is_split_screen();

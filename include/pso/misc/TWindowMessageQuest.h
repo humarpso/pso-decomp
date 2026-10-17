@@ -10,6 +10,7 @@ struct TWindowMessageQuest : public TWindowMessage {
 };
 
 typedef char TWindowMessageQuest_size[sizeof(TWindowMessageQuest) == 0x94 ? 1 : -1];
+
 extern "C" {
 void *__dt__19TWindowMessageQuestFv(void *arg0, s16 arg1);
 }

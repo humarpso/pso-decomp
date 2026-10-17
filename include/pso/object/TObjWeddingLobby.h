@@ -16,6 +16,7 @@ struct TObjWeddingLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjWeddingLobby_size[sizeof(TObjWeddingLobby) == 0xD4 ? 1 : -1];
+
 extern "C" {
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjWeddingLobby__sub_8035BC20(void);

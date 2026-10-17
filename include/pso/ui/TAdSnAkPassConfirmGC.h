@@ -15,6 +15,7 @@ struct TAdSnAkPassConfirmGC : public TAdYesNoBaseGC {
 };
 
 typedef char TAdSnAkPassConfirmGC_size[sizeof(TAdSnAkPassConfirmGC) == 0x4C ? 1 : -1];
+
 extern "C" {
 int TAdSnAkPassConfirmGC__vt4(void *p);
 int TAdSnAkPassConfirmGC__vt5(void *p);

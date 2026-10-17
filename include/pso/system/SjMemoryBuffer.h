@@ -45,6 +45,7 @@ SjMemoryBuffer* sj_memory_buffer_create(void* arg0, s32 arg1);
 void sj_memory_buffer_shutdown(void);
 void sj_memory_buffer_init(void);
 }
+
 extern "C" {
 SjMemoryBuffer *sj_memory_buffer_create(void *arg0, s32 arg1);
 void sj_memory_buffer_destroy(SjMemoryBuffer *arg0);

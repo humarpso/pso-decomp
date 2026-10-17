@@ -31,6 +31,7 @@ struct TPhotonConcentrate : public TUnk_804AF8A0 {
 };
 
 typedef char TPhotonConcentrate_size[sizeof(TPhotonConcentrate) == 0x10C ? 1 : -1];
+
 extern "C" {
 u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);

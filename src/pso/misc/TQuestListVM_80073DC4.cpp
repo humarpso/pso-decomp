@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjResultWin.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/TObjNewFloorWin.h"
 #include "pso/misc/TQuestListVM.h"
@@ -9,9 +11,7 @@
 struct TObjNewFloorWin_80073DCC { u8 pad[0x1C]; s32 state; void *window; s32 timer24; s32 timer28; };
 
 extern "C" {
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 fn_800740DC();
-int TObjNewFloorWin__sub_8007410C(void);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, void *, s32, s32);
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32);

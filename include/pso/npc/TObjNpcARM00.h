@@ -12,6 +12,7 @@ struct TObjNpcARM00 : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcARM00_size[sizeof(TObjNpcARM00) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcARM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjNpcARW00__create(void *arg0);

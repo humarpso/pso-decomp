@@ -11,6 +11,7 @@ struct TObjNpcHosa2 : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcHosa2_size[sizeof(TObjNpcHosa2) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcHosa2__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__12TObjNpcHosa2Fv(void *arg0, s16 arg1);

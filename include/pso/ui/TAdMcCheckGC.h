@@ -21,6 +21,7 @@ struct TAdMcCheckGC : public TObject {
 };
 
 typedef char TAdMcCheckGC_size[sizeof(TAdMcCheckGC) == 0x3C ? 1 : -1];
+
 extern "C" {
 void TLobby__sub_8033EE38(void *p);
 u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1);

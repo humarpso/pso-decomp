@@ -16,6 +16,7 @@ struct TORockJungleS01 : public TORockCaveBrakable {
 };
 
 typedef char TORockJungleS01_size[sizeof(TORockJungleS01) == 0xC0 ? 1 : -1];
+
 extern "C" {
 u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);

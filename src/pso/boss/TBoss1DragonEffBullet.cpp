@@ -47,12 +47,10 @@ f32 subtract_vector(void *, void *);
 extern s32 __vt__21TBoss1DragonEffBullet[];
 extern s32 TBoss1DragonEffBullet__name;
 extern const f32 lbl_805D8144;
-u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 extern const f32 lbl_805D8140;
-void *__dt__21TBoss1DragonEffBulletFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

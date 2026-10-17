@@ -1,4 +1,12 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem_80255AB4.h"
+#include "pso/misc/TWindowSubComCardList_8026CB08.h"
+#include "pso/misc/TWindowSubComCard_8007A810.h"
+#include "pso/misc/TWindowSubCustomEquip_80275D9C.h"
+#include "pso/misc/TWindowSubCustomSelect_80275D84.h"
+#include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
+#include "pso/unk/text_80076E84.h"
+#include "pso/unk/text_80263A20.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TUnk_804D1160.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -44,21 +52,16 @@ struct Self_80275A8C {
 extern "C" {
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 get_shared_text_buffer();
-s32 get_technique_name(s32 arg0);
 s32 weapon_has_extra_attack();
 u8 *get_player_by_client_id(s32);
 u8 get_cast_technique_level(void *, s16);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, s16);
-void append_text_space();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append();
 void text_builder_reset();
 u8 *calc_technique_parameters(u16, u8, s32);
 s32 get_palette_consumable_count(u16, s32);
-s32 get_help_text_string(s32 arg0);
-void toggle_help_window_on_button(u32 arg0, s32 arg1);
 extern s32 current_language;
-s32 get_card_entry__17TWindowSubComCardFi(s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void TWindowMenu__ct(void *, s32, s32, void *);
 void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
@@ -76,10 +79,7 @@ void *__nw__7TObjectFUl(u32);
 void TWindow__close(u8 *arg0);
 s32 set_field_1c__6TLobbyFf(void *);
 s32 TWindowSubEquip__sub_80263AF8(void *, s32);
-int fn_80275D90(void *p);
-int TWindowSubCustomEquip__sub_80275DA8(void *p);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFv(void *);
-u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1);
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
 s32 handle_list_page_flip_input(s32);
@@ -89,7 +89,6 @@ s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void *__dt__11TWindowMenuFv(void *arg0, s16 arg1);
-s32 delete_if_allocated(s32 arg0, s16 arg1);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 run_task__11TWindowMenuFv();
 

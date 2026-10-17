@@ -33,6 +33,7 @@ struct TObjEneBalClaw : public TObjEnemyCustom {
 };
 
 typedef char TObjEneBalClaw_size[sizeof(TObjEneBalClaw) == 0x3C0 ? 1 : -1];
+
 extern "C" {
 void TObjEneBalClawClaw__sub_8008DC14(void);
 u8 *TObjEneBalClaw__ct(u8 *arg0);

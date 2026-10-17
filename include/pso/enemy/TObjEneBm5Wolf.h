@@ -105,6 +105,7 @@ typedef char WolfOffset_stoppingDistance[offsetof(TObjEneBm5Wolf, stoppingDistan
 typedef char WolfOffset_nearTarget[offsetof(TObjEneBm5Wolf, nearTarget) == 0x468 ? 1 : -1];
 
 typedef char TObjEneBm5Wolf_size[sizeof(TObjEneBm5Wolf) == 0x46C ? 1 : -1];
+
 extern "C" {
 u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);

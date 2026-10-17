@@ -30,6 +30,7 @@ typedef char SlotAlphaOffset[offsetof(TAdChrSelSlotGC, alpha) == 0xE8 ? 1 : -1];
 typedef char SlotColorsOffset[offsetof(TAdChrSelSlotGC, colors) == 0xFC ? 1 : -1];
 typedef char SlotVisibleOffset[offsetof(TAdChrSelSlotGC, visible) == 0x110 ? 1 : -1];
 typedef char SlotObjectSize[sizeof(TAdChrSelSlotGC) == 0x128 ? 1 : -1];
+
 extern "C" {
 void TLobby__sub_802C78EC(void);
 void TLobby__sub_802C7920(void);

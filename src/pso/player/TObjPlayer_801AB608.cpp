@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801AB608.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
@@ -108,7 +109,6 @@ typedef struct Golla_801AB868 {
 extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 farlla_photon_blast_model_buffers;
-void create_farlla_photon_blast_model(void);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
@@ -153,14 +153,12 @@ extern const f32 lbl_805DC18C;
 extern const f32 lbl_805DC190;
 extern const f32 lbl_805DC194;
 extern const f32 lbl_805DC198;
-s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 f32 vec_squared_length(u8 *arg0);
 f32 vec3_dot(void *, void *);
 u16 obj_getField1c(void *);
 void queue_photon_blast_hit(u32, int, int, f32);
 extern const f32 lbl_805DC19C;
-void collect_hit_targets__12TPhotonGollaFPv(void *arg0);
 void *destroy_buffer_pair(void *arg0, s16 arg1);
 
 void TObjPlayer::destroy_buffers() {

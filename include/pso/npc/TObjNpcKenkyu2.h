@@ -11,6 +11,7 @@ struct TObjNpcKenkyu2 : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcKenkyu2_size[sizeof(TObjNpcKenkyu2) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 void *TObjNpcHosa2__create(void *arg0);
 u8 *TObjNpcKenkyu2__ct(u8 *arg0, s32 arg1, s32 arg2);

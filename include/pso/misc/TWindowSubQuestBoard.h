@@ -24,6 +24,7 @@ struct TWindowSubQuestBoard : public TObject {
 };
 
 typedef char TWindowSubQuestBoard_size[sizeof(TWindowSubQuestBoard) == 0x30 ? 1 : -1];
+
 extern "C" {
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2);
 void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);

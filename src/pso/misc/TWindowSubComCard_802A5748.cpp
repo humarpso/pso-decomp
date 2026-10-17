@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_802A5748.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/TChCrTagPlBack.h"
 #include "pso/misc/TWindowMenu.h"
@@ -14,8 +15,6 @@ u8 * create_yes_no_window(s32, s32, void *, u32);
 s32 create_window_menu(s32, s32, s32);
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void set_status_flag_80__12TQuestThreadFPv(void *p);
-void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
-void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 get_selected_menu_value(s32);
 int queue_destruction__7TObjectFv(void*);
 int set_selected_index__21TWindowSubComCardListFs(void*);

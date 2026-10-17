@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -62,13 +63,11 @@ s32 fn_801A51F0(int);
 s32 set_field_1c__6TLobbyFf(s32);
 s32 TWindowSubStatusDisp__sub_80248BE8(s32, void *, int);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-int test_keyboard_card_flag4(void *p);
 s32 get_window_layout_position(s32);
 extern u8 lbl_8044FA28[];
 void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1);
 s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
-void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
 s32 create_titled_window_menu(s32, s32, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);

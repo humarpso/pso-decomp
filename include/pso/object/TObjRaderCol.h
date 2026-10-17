@@ -16,6 +16,7 @@ struct TObjRaderCol : public TUnk_804B9870 {
 };
 
 typedef char TObjRaderCol_size[sizeof(TObjRaderCol) == 0xA0 ? 1 : -1];
+
 extern "C" {
 u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);

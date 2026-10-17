@@ -18,6 +18,7 @@ struct TObjEneDelDepthBomb : public TUnk_804806E8 {
 };
 
 typedef char TObjEneDelDepthBomb_size[sizeof(TObjEneDelDepthBomb) == 0x358 ? 1 : -1];
+
 extern "C" {
 u8 *TObjEneDelDepthBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 int TObjEneDelDepthBomb__sub_80313268(void);

@@ -44,6 +44,7 @@ struct TAdEnterSerialAccessGC : public TAdEnterBaseGC {
 };
 
 typedef char TAdEnterSerialAccessGC_size[sizeof(TAdEnterSerialAccessGC) == 0x68 ? 1 : -1];
+
 extern "C" {
 u8 *TAdEnterSerialAccessGC__ct(u8 *arg0);
 u8 *TAdEnterSerialAccessGC__sub_80321738(void);

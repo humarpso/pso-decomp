@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlimeOne_800EC394.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
 #include "pso/enemy/TObjEneRe4Bit.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneSlimeWaterBomb.h"
@@ -78,11 +80,7 @@ s32 init__14TObjEnePanarmsFPv(void *, int);
 extern const f32 lbl_805DA764;
 extern void *lbl_80496C68[10];
 extern void *lbl_80496C90[10];
-void TObjEneSlimeOne__sub_800EC470(void* p);
-s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
-void fn_800ECA28(void *arg0, s32 arg1);
 int get_validated_attack_stage(void*);
-void __dl__FPv(void);
 
 s32 TObjEneSlimeOne::get_attack_target() { return *(s32*)((char*)this + 0x3f4); }
 

@@ -48,6 +48,7 @@ struct TObjEneDellBiter : public TObjEneDD_ST {
 };
 
 typedef char TObjEneDellBiter_size[sizeof(TObjEneDellBiter) == 0x4E4 ? 1 : -1];
+
 extern "C" {
 void *TItemObject__sub_80306A28(void *arg0);
 u8 *TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);

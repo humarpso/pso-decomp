@@ -83,6 +83,7 @@ struct TObjEneBm5GibonU : public TObjEneDD_ST {
 };
 
 typedef char TObjEneBm5GibonU_size[sizeof(TObjEneBm5GibonU) == 0x568 ? 1 : -1];
+
 extern "C" {
 u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);

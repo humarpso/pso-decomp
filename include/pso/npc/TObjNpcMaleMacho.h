@@ -11,6 +11,7 @@ struct TObjNpcMaleMacho : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcMaleMacho_size[sizeof(TObjNpcMaleMacho) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcMaleMacho__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjNpcMaleOld__create(void *arg0);

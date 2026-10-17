@@ -16,6 +16,7 @@ struct TObjContainerEnemy : public TUnk_804B6C24 {
 };
 
 typedef char TObjContainerEnemy_size[sizeof(TObjContainerEnemy) == 0x368 ? 1 : -1];
+
 extern "C" {
 u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1);

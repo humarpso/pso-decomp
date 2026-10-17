@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlimeOne_800EC394.h"
 #include "pso/object/TObjFish.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneSlime.h"
@@ -99,8 +100,6 @@ struct Slot_800EB984 { s32 state; void *obj; };
 struct Obj_800EB984 { u8 pad[0x3b8]; Slot_800EB984 slots[4]; };
 
 extern "C" {
-void TObjEneSlimeOne__sub_800EC470(void* p);
-void TObjEneSlime__sub_800EB9F0(void* p, void* q);
 void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
 s32 TObjFish__sub_8001EDB0(void *, int);

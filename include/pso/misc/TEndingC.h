@@ -30,6 +30,7 @@ typedef char TEndingC_render_geometry_offset[offsetof(TEndingC, render_geometry)
 typedef char TEndingC_timing_rate_offset[offsetof(TEndingC, timing_rate) == 0x90 ? 1 : -1];
 typedef char TEndingC_fade_in_ticks_offset[offsetof(TEndingC, fade_in_ticks) == 0x94 ? 1 : -1];
 typedef char TEndingC_fade_out_ticks_offset[offsetof(TEndingC, fade_out_ticks) == 0x98 ? 1 : -1];
+
 extern "C" {
 int TEndingC__sub_8008C6F4(void);
 }

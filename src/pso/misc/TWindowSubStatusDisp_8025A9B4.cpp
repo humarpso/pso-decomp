@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowHelpItem.h"
@@ -28,7 +29,6 @@ extern "C" {
 void mem_free(void *p);
 void *mem_alloc(u32 size);
 s32 strncpy(s32, u32, s32);
-void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2);
 u8 get_small_font_glyph_width(u8);
 s32 TWindowSubStatusDisp__sub_800FC248(u8);
 s8 *parse_text_control_codes(s8 *, s32 *, s32);
@@ -37,13 +37,10 @@ u16 map_char_to_font_code(u16);
 extern s32 current_language;
 void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw);
 s32 reset_entry__20TWindowSubStatusDispFPv(void *, void *);
-u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2);
-void advance_text_entry_reveal(u8 *arg0);
 s32 draw_small_font_string_clipped(void *, void *, s32, f32);
 s32 draw_window_text(void *, void *, s32, s32, f32);
 void set_text_draw_params(void *, u8, s32, f32, f32);
 void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1);
-void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 
 void *lbl_804CFA28[6] = {

@@ -11,6 +11,7 @@ struct TObjNpcHFW01 : public TUnk_804A92A8 {
 };
 
 typedef char TObjNpcHFW01_size[sizeof(TObjNpcHFW01) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcHFW01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjNpcHHM00__create(void *arg0);

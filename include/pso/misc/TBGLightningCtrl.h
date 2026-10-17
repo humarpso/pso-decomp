@@ -12,6 +12,7 @@ struct TBGLightningCtrl : public TUnk_804B9870 {
 };
 
 typedef char TBGLightningCtrl_size[sizeof(TBGLightningCtrl) == 0x94 ? 1 : -1];
+
 extern "C" {
 void *TBGLightningCtrl__create(void *arg0);
 u8 *TBGLightningCtrl__ct(u8 *arg0, s32 parent, s32 arg2);

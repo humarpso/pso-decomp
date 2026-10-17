@@ -55,6 +55,7 @@ s32 sj_ring_buffer_get_extra_buffer_size(SjRingBuffer* buffer);
 s32 sj_ring_buffer_get_buffer_size(SjRingBuffer* buffer);
 u8* sj_ring_buffer_get_buffer(SjRingBuffer* buffer);
 }
+
 extern "C" {
 SjRingBuffer *sj_ring_buffer_create(void *data, s32 bsize, s32 x24);
 void sj_ring_buffer_destroy(SjRingBuffer *arg0);

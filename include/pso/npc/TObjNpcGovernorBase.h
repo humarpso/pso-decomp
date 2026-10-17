@@ -11,6 +11,7 @@ struct TObjNpcGovernorBase : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcGovernorBase_size[sizeof(TObjNpcGovernorBase) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcGovernorBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjNpcHFW00__create(void *arg0);

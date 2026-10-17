@@ -24,6 +24,7 @@ struct TWindowLoadItemTexture : public TUnk_804CE018 {
 };
 
 typedef char TWindowLoadItemTexture_size[sizeof(TWindowLoadItemTexture) == 0x74 ? 1 : -1];
+
 extern "C" {
 void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1);

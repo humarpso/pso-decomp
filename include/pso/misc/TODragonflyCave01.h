@@ -11,6 +11,7 @@ struct TODragonflyCave01 : public TODragonfly {
 };
 
 typedef char TODragonflyCave01_size[sizeof(TODragonflyCave01) == 0x100 ? 1 : -1];
+
 extern "C" {
 void *TODragonflyCave01__create(void *arg0);
 u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1);

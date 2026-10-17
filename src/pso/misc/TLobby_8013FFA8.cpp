@@ -1,4 +1,9 @@
 #include "pso/map/FloorResourceCallbacks.h"
+#include "pso/misc/TLobby_8013FFA8.h"
+#include "pso/misc/TLobby_80207DA8.h"
+#include "pso/misc/TLobby_802268F4.h"
+#include "pso/misc/TShopGetItemWindow_8021EEE4.h"
+#include "pso/unk/text_8006EBC4.h"
 
 #include "types.h"
 #include "pso/misc/TLobby.h"
@@ -45,56 +50,36 @@ s32 play_area_music(s32 *);
 s32 init_area_lights();
 s32 is_split_screen();
 extern s32 lbl_8043F198[];
-s32 init_ship_scene(void);
 extern s32 lbl_8043F1A8[];
-s32 load_scene_ship_b(void);
 s32 call_funcs_reverse__6TLobbyFPvUi(s32 *, s32);
-void stop_cue_stream(void);
 extern s32 dragon_area_scene_callbacks[];
-void cleanup_dragon_area_scene(void);
 extern s32 lbl_804A7360[];
-void TLobby__sub_80140308(void);
-void TLobby__sub_801403B8(void);
 s32 TBoss3VoloptCtrl__ct();
 u32 __nw__7TObjectFUl(s32);
 extern s32 gryphon_area_cleanup_callbacks[];
 s32 is_quest_active();
-void TLobby__sub_801403B4(s32);
 s32 get_main_phase();
 extern s32 lbl_8043F1E8[];
-s32 init_cave_b_stage(void);
-void TLobby__sub_801403B4(s32 _w0);
 extern s32 lbl_8043F1F8[];
-s32 load_scene_cave_b(void);
 extern s32 lbl_8043F208[];
-s32 init_stage_cave_b(void);
 void TTecRaFoie__sub_80226254(void);
 extern s32 TLobby_scene_load_callback_table[];
 s32 run_load_callback_table(s32 *, s32);
-void TLobby__sub_80207E44(void);
-void init_shop_world_context(void);
 s32 __ct__13TQuestBgmCtrlFP7TObject(void *, s32);
-s32 fn_8006EBC4(s32);
 s32 construct_traffic_manager(void *, s32);
 extern s32 lobby_rule_settings[];
 extern s32 tl_05;
 extern s32 tl_07;
 extern s32 lbl_8043F218[];
-s32 init_stage_forest_b(void);
 extern s32 lbl_8043F228[];
-s32 init_forest_b(void);
 extern s32 lobby_floor_scene_callbacks[];
 extern s32 lbl_8043F238[];
-s32 init_machine_scene(void);
 extern s32 lbl_8043F248[];
-s32 init_machine_b_scene(void);
 extern s32 lbl_8043F1C8[];
 s32 forward_floor_2CB44__6TLobbyFv();
 void init_map_lights(u8 *arg0);
 extern s32 lbl_8043F1B8[];
-s32 init_dragon_area_scene(void);
 extern s32 lbl_8043F1D8[];
-s32 ship_scene_update(void);
 
 void TLobby::set_range(int a1, int a2, int a3) { *(int*)((char*)this + 0x7220) = a1; *(int*)((char*)this + 0x7224) = a3; *(int*)((char*)this + 0x7228) = (a1 + a2); }
 void TLobby::update_floor() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }

@@ -13,6 +13,7 @@ struct TKomorebi : public TUnk_804B9870 {
 };
 
 typedef char TKomorebi_size[sizeof(TKomorebi) == 0x90 ? 1 : -1];
+
 extern "C" {
 void *TKomorebi__create(void *arg0);
 u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2);

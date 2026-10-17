@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemMag_8001A468.h"
+#include "pso/menu/TAdEndText.h"
 #include "pso/system/vector.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemMag.h"
@@ -26,7 +28,6 @@ extern Rec_8001A4CC lbl_804342C8[];
 extern Rec_8001A4CC lbl_80434358[];
 extern Rec_8001A4CC lbl_804343E8[];
 extern s32 lbl_805D49E0;
-void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1);
 #define P1_805D49E0 (*(Plr_8001A4CC **)&lbl_805D49E0)
 s32 TItemMag::get_type() { return *(s32 *)&this->m_4; }
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
@@ -100,18 +101,15 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
 extern s32 lbl_80480938[];
 extern s8 player_light_index;
-u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
 void set_active_camera_pose_from_params(void *);
 s32 activate_camera_mode(s32 arg0);
 extern Vec_8001A77C lbl_80434568;
 extern Vec_8001A77C lbl_80434574;
-int TObjPlayer__sub_8001A77C(void *p);
 s32 publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 player_light_color_rgba_table[];
 extern Light_8001A6A8 player_light_direction_color_table[];
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 get_ending_scene_active();
 
 s32 TObjPlayer::get_flag890_state() {
     s32 temp_r4;

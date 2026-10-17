@@ -22,6 +22,7 @@ struct TWindowSubTrade : public TObject {
 };
 
 typedef char TWindowSubTrade_size[sizeof(TWindowSubTrade) == 0x38 ? 1 : -1];
+
 extern "C" {
 u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1);
 }

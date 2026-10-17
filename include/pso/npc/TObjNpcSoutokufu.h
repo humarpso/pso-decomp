@@ -11,6 +11,7 @@ struct TObjNpcSoutokufu : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcSoutokufu_size[sizeof(TObjNpcSoutokufu) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1);

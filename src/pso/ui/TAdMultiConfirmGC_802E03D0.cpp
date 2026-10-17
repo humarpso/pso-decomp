@@ -1,5 +1,8 @@
 #pragma defer_codegen on
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar_8028B714.h"
+#include "pso/misc/obj_band.h"
+#include "pso/ui/TAdMultiConfirmGC_802E03D0.h"
 #include "pso/ui/TUnk_804E3008.h"
 #include "pso/TChCrLoadAfs.h"
 #include "pso/object/TObjMotion.h"
@@ -19,10 +22,7 @@ extern "C" {
 extern const char lbl_804728D0[];
 const char lbl_804728D0[] = "TAdChrSelPlayerGC";
 
-void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1);
 void *get_index__14TAdPlyStatusGCFv();
-u8 *free_chcr_resources(u8 *arg0, s16 arg1);
-void fn_802E0784(u8 *arg0);
 void fn_802E0CB0(Obj_802E0CB0 *o);
 }
 
@@ -44,15 +44,10 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0);
-bool fn_802E0454(u8 *arg0);
-void TAdMultiConfirmGC__sub_802E03D0(void* p);
-void TAdMultiConfirmGC__sub_802E0448(void* p);
 
 typedef struct Stack_802E0468 Stack_802E0468;
 
 s32 post_translate_matrix(void *);
-void TObjPlayer__sub_802E0580(void *, int, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from();
 s32 push_matrix();
@@ -68,7 +63,6 @@ struct RecoveredGlobal_802E0784_lbl_804E2F78 {
 };
 
 extern "C" {
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 extern RecoveredGlobal_802E0784_lbl_804E2F78 lbl_804E2F78;
 extern u8 *TAdMultiPlyChrSelectGC__resource_bundle;
 typedef char RecoveredGlobal_802E0784_lbl_804E2F78_size[sizeof(RecoveredGlobal_802E0784_lbl_804E2F78) == 0x90 ? 1 : -1];
@@ -101,7 +95,6 @@ void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802E0B60_lbl_804E2F68 multi_chr_select_player_slot_table;
 extern RecoveredGlobal_802E0B60_lbl_804E3008 multi_chr_select_player_actor_ops;
-u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1);
 typedef char RecoveredGlobal_802E0B60_lbl_804E2F68_size[sizeof(RecoveredGlobal_802E0B60_lbl_804E2F68) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_802E0B60_lbl_804E3008_size[sizeof(RecoveredGlobal_802E0B60_lbl_804E3008) == 0x38 ? 1 : -1];
 

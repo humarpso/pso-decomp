@@ -14,6 +14,7 @@ struct TForceOperate : public TObject {
 };
 
 typedef char TForceOperate_size[sizeof(TForceOperate) == 0x24 ? 1 : -1];
+
 extern "C" {
 void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
 void calc_death_sink_offset(void *arg0);

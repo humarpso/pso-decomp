@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjCGrass.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -76,7 +77,6 @@ s32 vec3_add_to(void *, void *);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 TObjMotion__ct(void *, s32);
 void *mem_alloc(u32 size);
 s32 rand(void);
@@ -92,8 +92,6 @@ extern const f32 lbl_805D9E70;
 extern const f32 lbl_805D9E74;
 extern const f32 lbl_805D9E78;
 u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3);
-void *__dt__10TObjCGrassFv(void *arg0, s16 arg1);
-void* fn_800B8B00(void* p);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__dt__10TObjMotionFv(void *arg0, s16 arg1);

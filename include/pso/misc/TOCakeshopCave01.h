@@ -16,6 +16,7 @@ struct TOCakeshopCave01 : public TUnk_804AFBF8 {
 };
 
 typedef char TOCakeshopCave01_size[sizeof(TOCakeshopCave01) == 0xF4 ? 1 : -1];
+
 extern "C" {
 void *TOCakeshopCave01__ct(void *arg0_, void *arg1);
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1);

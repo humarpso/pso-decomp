@@ -23,6 +23,7 @@ struct TBoss7TentacleNeedle : public TObject {
 };
 
 typedef char TBoss7TentacleNeedle_size[sizeof(TBoss7TentacleNeedle) == 0x7C ? 1 : -1];
+
 extern "C" {
 void TBoss7Tentacle__sub_802EF954(void *p);
 u8 TBoss7Tentacle__sub_802F0904(u8 *arg0);

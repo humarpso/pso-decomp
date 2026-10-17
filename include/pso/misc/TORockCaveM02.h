@@ -9,6 +9,7 @@ struct TORockCaveM02 : public TORockCave {
 };
 
 typedef char TORockCaveM02_size[sizeof(TORockCaveM02) == 0xB4 ? 1 : -1];
+
 extern "C" {
 void *TORockCaveM02__create(void *arg0);
 void *__dt__13TORockCaveM02Fv(void *arg0, s16 arg1);

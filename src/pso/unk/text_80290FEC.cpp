@@ -1,4 +1,5 @@
 #include "pso/ui/UISprite.h"
+#include "pso/unk/text_80290FEC.h"
 extern const f32 lbl_805DD960;
 extern const f32 lbl_805DD964;
 

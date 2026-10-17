@@ -1,4 +1,5 @@
 #include "pso/TObjItemOKWindow.h"
+#include "pso/misc/TLobby_801F2D2C.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -25,7 +26,6 @@ struct Self_801F4B10 {
 extern "C" {
 
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 *TObjItemOKWindow__sub_801F3268(void);
 s32 fn_801F4C98(void);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void align_menu_entry_positions(void *);

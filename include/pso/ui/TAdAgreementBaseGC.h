@@ -24,6 +24,7 @@ struct TAdAgreementBaseGC : public TObject {
 };
 
 typedef char TAdAgreementBaseGC_size[sizeof(TAdAgreementBaseGC) == 0x38 ? 1 : -1];
+
 extern "C" {
 void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
 void fn_80329BAC(void *p);

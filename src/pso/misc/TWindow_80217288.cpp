@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindow.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListOffline.h"
 #include "pso/misc/TLobby.h"
@@ -39,7 +40,6 @@ struct Win_80217344 {
 };
 
 void queue_destruction__7TObjectFv(void *);
-void handle_confirm_dialog(void *arg0);
 void vfunc_11__17TQuestListOfflineFv(QuestList_802171BC *self);
 void * close_shop_subwindows__17TQuestListOfflineFs(void *arg0, s16 arg1);
 void *__dt__15TShopWindowBaseFv(void *self, s16 m);

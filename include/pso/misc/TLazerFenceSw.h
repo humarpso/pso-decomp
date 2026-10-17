@@ -19,6 +19,7 @@ struct TLazerFenceSw : public TOKey {
 };
 
 typedef char TLazerFenceSw_size[sizeof(TLazerFenceSw) == 0x118 ? 1 : -1];
+
 extern "C" {
 void TLazerFenceSw__sub_8018A554(void *p, f32 v);
 }

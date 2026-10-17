@@ -12,6 +12,7 @@ struct TODoorLabo : public TODoorFourLightBase {
 };
 
 typedef char TODoorLabo_size[sizeof(TODoorLabo) == 0xFC ? 1 : -1];
+
 extern "C" {
 void TLanguage__sub_8029FF0C(void);
 u8 *TODoorFourLightSeabedU__ct(u8 *arg0);

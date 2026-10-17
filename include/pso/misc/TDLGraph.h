@@ -29,6 +29,7 @@ struct TDLGraph : public TObject {
 };
 
 typedef char TDLGraph_size[sizeof(TDLGraph) == 0x64 ? 1 : -1];
+
 extern "C" {
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
 }

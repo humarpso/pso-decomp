@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_80132ED0.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.h"
+#include "pso/unk/text_802A1144.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -42,20 +45,14 @@ s32 play_sound_effect(int, int, int, int);
 u32 TAdChrSelASlotGC__sub_8030CB08(int, int, int);
 extern RecoveredGlobal_802D4730_lbl_804C89BC lbl_804C89BC;
 extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
-void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0);
-void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0);
 extern RecoveredGlobal_802D4570_lbl_80472510 single_chr_select_item_rect_table;
-void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0);
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
-void set_opening_movie_purpose(int a0);
-void finish_character_selection_transition(void *arg0);
 s32 get_state_flag__9TMainTaskFv(void);
 s32 get_selected_menu_value(int);
 s32 TAdChrSelASlotGC__sub_8030C978(int, void *, int);
 extern s32 lbl_80472538[];
 s32 queue_destruction__7TObjectFv(void *);
-s32 get_localized_text_entry(s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 s32 load_tables();
 u32 TAdSinglePlyChrSelectGC__sub_801FE4BC();
@@ -71,7 +68,6 @@ extern s32 lbl_80472550[];
 extern s32 controller_physical_port_bank[];
 extern s32 tl_fade;
 extern s32 lbl_805DE784;
-void TAdSinglePlyChrSelectGC__sub_802D486C(void *arg0);
 s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
 s32 align_menu_entry_positions(s32);

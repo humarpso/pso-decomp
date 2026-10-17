@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_8033BDB0.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
@@ -44,9 +45,6 @@ extern s32 lbl_80477DBC[];
 extern s32 lbl_804EF8D8[];
 extern const f32 lbl_805D6D98;
 s32 get_selected_menu_value(void *);
-void TWindowSubComCard__sub_8033C178(void* p);
-void TWindowSubComCard__sub_8033C198(void);
-int TWindowSubComCard__sub_8033C19C(void* p);
 int update_card_display__17TWindowSubComCardFPvPvPvPv(void*, int, int, int, int);
 
 void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 sel, u32 arg3, u32 arg4) {

@@ -24,4 +24,11 @@ struct TOSwitchTimer : public TUnk_804B9870 {
 };
 
 typedef char TOSwitchTimer_size[sizeof(TOSwitchTimer) == 0xB8 ? 1 : -1];
+extern "C" {
+u8 *TOSwitchTimer__ct(u8 *arg0, s32 arg1, s32 arg2);
+void TOSwitchTimer__sub_80178584(void);
+void TOSwitchTimer__sub_80178588(void);
+u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1);
+}
+
 #endif

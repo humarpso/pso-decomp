@@ -9,6 +9,7 @@ struct TOVS2Wreck04 : public TOVS2 {
 };
 
 typedef char TOVS2Wreck04_size[sizeof(TOVS2Wreck04) == 0xD0 ? 1 : -1];
+
 extern "C" {
 void *TOVS2Wreck04__create(void *arg0);
 void *TOVS2Wreck04__ct(void *arg0, void *arg1);

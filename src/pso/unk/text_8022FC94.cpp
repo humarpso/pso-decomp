@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80086D50.h"
 #include "pso/misc/TTecFoie.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TTecAnti.h"
@@ -103,7 +104,6 @@ extern TTecFoieData_80230144 TTecFoie__emitter_profile_table[];
 extern void *__vt__8TTecFoie[];
 TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
 s32 attach_particle_model(int, int, int, int, int, f32);
-void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, u16 e);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
 s32 mem_alloc(s32);

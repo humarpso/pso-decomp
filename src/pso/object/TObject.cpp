@@ -5,6 +5,7 @@
 #define global_obj2 keyboard_task_object
 
 #include "pso/THeap.h"
+#include "pso/object/TObject.h"
 #include "pso/TMainTask.h"
 #include "pso/TObject.h"
 
@@ -78,7 +79,6 @@ void __dt__9TMainTaskFv(TMainTask *, s16);
 void __dt__7TObjectFv(TObject *, s16);
 void *__register_global_object(void *, void *, void *);
 }
-extern "C" void __sinit_TObject_cpp();
 __declspec(section ".ctors") static void *const object_global_initializer = (void *)__sinit_TObject_cpp;
 
 #pragma defer_codegen on

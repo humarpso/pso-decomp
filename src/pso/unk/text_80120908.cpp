@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80100E00.h"
+#include "pso/player/TObjPlayer_801211F0.h"
+#include "pso/player/TObjPlayer_80363BE0.h"
+#include "pso/unk/text_80120150.h"
+#include "pso/unk/text_803DC86C.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -23,18 +28,12 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 s32 get_attach_joint__11TItemWeaponFv(void *);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
-void TObjPlayer__sub_80101088(void);
-void reset_model_node_counter(void);
 void set_shadow_material_state(void);
 s32 set_model_fade_alpha__10TObjPlayerFf();
-void TObjPlayer__sub_8036414C(void);
-void TObjPlayer__sub_80364198(void);
 s32 push_matrix_from();
 s32 pop_matrix();
-void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
 void draw_chunk_object(void *child);
 s32 draw_model_motion(int, int, f32);
-void apply_weapon_node_material();
 extern s16 TObjPlayer__weapon_node_ids[];
 extern s32 lbl_805D53EC;
 extern s16 weapon_node_material_index;

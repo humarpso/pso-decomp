@@ -27,6 +27,7 @@ struct TWindowSimpleStatus : public TUnk_804CE018 {
 };
 
 typedef char TWindowSimpleStatus_size[sizeof(TWindowSimpleStatus) == 0x78 ? 1 : -1];
+
 extern "C" {
 void render__19TWindowSimpleStatusFv(s32 arg0);
 }

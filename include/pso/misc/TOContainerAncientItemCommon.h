@@ -11,6 +11,7 @@ struct TOContainerAncientItemCommon : public TUnk_804B08BC {
 };
 
 typedef char TOContainerAncientItemCommon_size[sizeof(TOContainerAncientItemCommon) == 0x368 ? 1 : -1];
+
 extern "C" {
 void *TOContainerAncientItemCommon__ct(void *arg0, void *_w1);
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);

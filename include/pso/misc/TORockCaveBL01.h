@@ -9,6 +9,7 @@ struct TORockCaveBL01 : public TORockCaveBrakable {
 };
 
 typedef char TORockCaveBL01_size[sizeof(TORockCaveBL01) == 0xBC ? 1 : -1];
+
 extern "C" {
 void *TORockCaveBL01__create(void *arg0);
 void *__dt__14TORockCaveBL01Fv(void *arg0, s16 arg1);

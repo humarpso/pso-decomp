@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TShopEquipmentGearSequence_8021B438.h"
+#include "pso/player/TObjPlayer_801A5AEC.h"
+#include "pso/unk/text_8026934C.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
@@ -69,7 +72,6 @@ struct Seq_8021B518 { u8 pad[0x24]; s32 f24; u8 pad28[4]; void *win; };
 
 extern "C" {
 unsigned short get_child_field1c__13TShopSequenceFv(void *);
-s32 create_meseta_window(s32);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC6C8;
@@ -82,14 +84,11 @@ void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence __vt__26TShopEquipmentGearSequence;
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
 extern s32 lbl_805D6220;
-u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1);
 u8 *TShopSequence__ct(u8 *arg0);
 extern s32 TShopEquipmentGearSequence__class_name;
 extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
-u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 restore_player_state__13TShopSequenceFv(void *);
-void reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
 void enter_quest_list__26TShopEquipmentGearSequenceFv(void *);

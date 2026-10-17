@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/player/TObjPlayer_801C0808.h"
 #include "pso/system/byteswap.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/misc/TLobby.h"
@@ -32,10 +34,7 @@ struct Pkt_801D2964 { u8 hdr[4]; Pos_801D2964 pos; };
 extern "C" {
 s32 TFontSmallLobby__sub_801C0228(void *, void *);
 #define TFontSmallLobby__sub_801C0228 ((int (*)(void*))TFontSmallLobby__sub_801C0228)
-void *TObjPlayer__sub_801C092C(void *arg0, void *arg1);
-void apply_status_effect__10TObjPlayerFPv(void* p);
 int TFontSmallLobby__sub_801C01BC(void*);
-void TLobby__send_and_handle_60(u8 *arg0);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 extern const f32 TObjPlayer__data_805DC278;
@@ -94,11 +93,6 @@ void TObjPlayer::build_6x2C_impose_hold_packet() {
 #define TFontSmallLobby__sub_801C0228 ((s32 (*)())TFontSmallLobby__sub_801C0228)
 #define bswap_pkt_u16x2_u32__10TObjPlayerFPv ((s32 (*)())bswap_pkt_u16x2_u32__10TObjPlayerFPv)
 #define read_be16_field2__10TObjPlayerFv ((s32 (*)())read_be16_field2__10TObjPlayerFv)
-void TObjPlayer__sub_801C0C04(u8 *arg0);
-void TObjPlayer__sub_801C0D7C(u8 *arg0);
-void init_6x27_use_item_cmd(u8 *arg0);
-void swap_endian__10TObjPlayerFi(s32 arg0);
-void TLobby__send_and_handle_60(u8 *arg0);
 void bswap__9TItemDataFv(s32 arg0);
 
 void TObjPlayer::bswap_and_send_packet() {
@@ -198,7 +192,6 @@ void TObjPlayer::send_use_item_cmd() { bswap_cmd_u32(); TLobby__send_and_handle_
 #undef bswap_pkt_u16x2_u32__10TObjPlayerFPv
 #undef read_be16_field2__10TObjPlayerFv
 
-void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void*);
 }
 
 #pragma inline_depth(1)
@@ -272,12 +265,6 @@ struct ByteBlock_14 { u8 bytes[0x14]; };
 struct O_801C12C8 { u8 a; u8 b; u8 pad[2]; s32 c; s32 arr[30]; };
 
 extern "C" {
-u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1);
-u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1);
-u8 *TObjPlayer__sub_801C0F10(u8 *arg0, u8 *arg1);
-void bswap_fields__10TObjPlayerFi(s32 arg0);
-u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1);
-void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p);
 
 void TObjPlayer::bswap_cmd_item_data() {
     s32 arg0 = (s32)this;
@@ -459,7 +446,6 @@ void TObjPlayer::init_cmd_6x20() {
 s32 send_subcommand_to_client__6TLobbyFUl(s32, s32);
 s32 send_60_sized__6TLobbyFv(s32);
 int read_be16_field2__10TObjPlayerFv(void* p);
-void init_6x1F_floor_packet(u8 *arg0);
 
 void TObjPlayer::send_player_floor_packet(void* a1) { bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(this); send_subcommand_to_client__6TLobbyFUl((s32)(this), (s32)(a1)); }
 

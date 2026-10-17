@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8002CC48.h"
+#include "pso/player/TObjPlayer_8002E784.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/player/TUnk_804820C0.h"
@@ -56,14 +58,11 @@ typedef struct Obj_8002EA64 {
 extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
-void TObjPlayer__sub_8002EF80(void);
 extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
-void TObjPlayer__sub_8002E7C8(void);
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 void queue_destruction__7TObjectFv(void *arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
-void TObjPlayer__sub_8002E974(u8 *arg0);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D822C;
 extern const f32 lbl_805D8230;
@@ -74,7 +73,6 @@ extern const f32 lbl_805D8268;
 extern const f32 lbl_805D826C;
 extern const f32 lbl_805D8270;
 extern const f32 lbl_805D8274;
-s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 void scale_matrix(int, f32, f32, f32);
 void set_matrix_identity(u8 *arg0);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -84,8 +82,6 @@ extern const f32 lbl_805D824C;
 void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n);
 extern const f32 lbl_805D8260;
 void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
-f32 lerp__9TDeadSpotFff(f32, f32);
-f32 rand_signed_unit(void);
 extern s32 lbl_804820A8[];
 extern const f32 lbl_805D8228;
 extern const f32 lbl_805D8234;
@@ -98,8 +94,6 @@ struct VObj8002EB88_8002eb88_8002E784 {
     virtual void m0(int);
 };
 
-void *__dt__13TUnk_804820A8Fv(void *arg0, s16 arg1);
-void TObjPlayer__sub_8002EB88(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

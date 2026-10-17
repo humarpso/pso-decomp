@@ -1,4 +1,5 @@
 #include "pso/item/TItemEffectWeapon.h"
+#include "pso/item/TItemEquipVariant_8012A82C.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -26,7 +27,6 @@ void *__dt__15TItemHeapObjectFv(void *, s32);
 void mem_free(void *p);
 void  __dl__15TItemHeapObjectFPv(void *);
 void  __ct__15TItemHeapObjectFP7TObject(void *);
-void *__dt__13TUnk_804A4948Fv(void *arg0, s16 arg1);
 void* memcpy(void* destination, const void* source, size_t size);
 
 extern s32 lbl_804F28E0[];

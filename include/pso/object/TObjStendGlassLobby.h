@@ -18,6 +18,7 @@ struct TObjStendGlassLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjStendGlassLobby_size[sizeof(TObjStendGlassLobby) == 0xD4 ? 1 : -1];
+
 extern "C" {
 u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjStendGlassLobby__sub_803596C0(void);

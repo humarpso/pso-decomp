@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemEquipVariant_80120CF8.h"
+#include "pso/player/TObjPlayer_80307618.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804E70A8.h"
 #include "pso/player/TUnk_804E71A0.h"
@@ -11,18 +13,12 @@ struct RecoveredGlobal_80307784_lbl_804E70A8 {
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80307800(s32 arg0);
 extern const f32 lbl_805DF0AC;
-void TObjPlayer__sub_803076F8(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFv(void *);
 u8 * TItemWeapon__ct(void *, void *);
 s32 set_status_flags__10TObjPlayerFUl(void *, s32);
 extern s32 lbl_804E70A8[];
-u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2);
 extern char shared_capture_texture_list[];
-char *get_shared_capture_texture_list(void);
-void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804E71A0Fv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
@@ -30,7 +26,6 @@ s32 draw_weapon_model();
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 s32 queue_destruction__7TObjectFv();
 
 void TUnk_804E70A8::reserved_53() {

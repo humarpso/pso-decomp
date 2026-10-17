@@ -15,6 +15,7 @@ struct TOTrapChainSawEdge : public TOTrapChainSaw {
 };
 
 typedef char TOTrapChainSawEdge_size[sizeof(TOTrapChainSawEdge) == 0x108 ? 1 : -1];
+
 extern "C" {
 void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1);

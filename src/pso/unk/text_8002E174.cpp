@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8002CC48.h"
+#include "pso/player/TObjPlayer_8002E784.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss1Rock.h"
 #include "pso/player/TUnk_804820C0.h"
@@ -113,7 +115,6 @@ struct Obj_8002E62C {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 s32 TObjLight__sub_801337F8(s32);
 s32 rotate_matrix_z(int, int);
@@ -131,8 +132,6 @@ extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-f32 lerp__9TDeadSpotFff(f32, f32);
-f32 rand_signed_unit();
 s32 matrix_mult_vec(int, void *, void *);
 void set_matrix_identity(u8 *arg0);
 s32 rotate_vector_by_matrix(int, void *, void *);

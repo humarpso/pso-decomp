@@ -21,6 +21,7 @@ struct TAdChrSelPlyPlateGC : public TObject {
 };
 
 typedef char TAdChrSelPlyPlateGC_size[sizeof(TAdChrSelPlyPlateGC) == 0x538 ? 1 : -1];
+
 extern "C" {
 void *__dt__19TAdChrSelPlyPlateGCFv(void *arg0, s16 arg1);
 }

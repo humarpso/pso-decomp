@@ -11,6 +11,7 @@ struct TObjNpcNurseBase : public TUnk_804A8640 {
 };
 
 typedef char TObjNpcNurseBase_size[sizeof(TObjNpcNurseBase) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcNurseBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjNpcSecretaryBase__create(void *arg0);

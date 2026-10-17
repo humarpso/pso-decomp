@@ -24,6 +24,7 @@ struct TWindowSoundBalance : public TUnk_804CE018 {
 };
 
 typedef char TWindowSoundBalance_size[sizeof(TWindowSoundBalance) == 0x68 ? 1 : -1];
+
 extern "C" {
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
 void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1);

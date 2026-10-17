@@ -17,6 +17,7 @@ struct TWindowGetComCard : public TObject {
 };
 
 typedef char TWindowGetComCard_size[sizeof(TWindowGetComCard) == 0x2C ? 1 : -1];
+
 extern "C" {
 void TWindowFukidasi__sub_80252C38(void *p);
 u8 *TWindowGetComCard__ct(u8 *arg0);

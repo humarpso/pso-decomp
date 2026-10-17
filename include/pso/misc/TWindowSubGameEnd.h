@@ -15,4 +15,11 @@ struct TWindowSubGameEnd : public TObject {
 };
 
 typedef char TWindowSubGameEnd_size[sizeof(TWindowSubGameEnd) == 0x2C ? 1 : -1];
+extern "C" {
+void TLobby__sub_802796FC(void);
+void TLobby__sub_80279708(void);
+void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2);
+void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1);
+}
+
 #endif

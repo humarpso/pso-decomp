@@ -9,6 +9,7 @@ struct TPlyPtclObjectRightHand : public TPlyFollowParticleCtrl {
 };
 
 typedef char TPlyPtclObjectRightHand_size[sizeof(TPlyPtclObjectRightHand) == 0xB0 ? 1 : -1];
+
 extern "C" {
 void *TPlyPtclObjectRightHand__ct(void *arg0);
 void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1);

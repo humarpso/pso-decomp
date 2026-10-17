@@ -11,6 +11,7 @@ struct TWindowChallengeResult : public TUnk_804CE018 {
 };
 
 typedef char TWindowChallengeResult_size[sizeof(TWindowChallengeResult) == 0x68 ? 1 : -1];
+
 extern "C" {
 void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1);
 void init_subwindow__22TWindowChallengeResultFPv(void *p);

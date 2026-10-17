@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80290BEC.h"
 #include "pso/system/main_loop.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -17,7 +18,6 @@ struct RecoveredGlobal_80290C20_main_task {
 
 extern "C" {
 s32 delete_all_task_children__9TMainTaskFv(void *);
-void fn_80290BEC(void);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 process_async_file_reads();
@@ -29,7 +29,6 @@ s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
-void run_main_frame(void);
 typedef char RecoveredGlobal_80290BEC_main_task_size[sizeof(RecoveredGlobal_80290BEC_main_task) == 0x34 ? 1 : -1];
 void fn_80290BEC(void) {
     s32 *var_r3;

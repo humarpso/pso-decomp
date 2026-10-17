@@ -13,6 +13,7 @@ struct TObjTuitate : public TUnk_804AF8A0 {
 };
 
 typedef char TObjTuitate_size[sizeof(TObjTuitate) == 0xCC ? 1 : -1];
+
 extern "C" {
 void *TObjTuitate__create(void *arg0);
 void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2);

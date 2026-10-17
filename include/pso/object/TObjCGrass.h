@@ -19,6 +19,7 @@ struct TObjCGrass : public TObjMotion {
 };
 
 typedef char TObjCGrass_size[sizeof(TObjCGrass) == 0x14C ? 1 : -1];
+
 extern "C" {
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1);
 void *fn_800B8B00(void *p);

@@ -16,6 +16,7 @@ struct TObjRainbowLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjRainbowLobby_size[sizeof(TObjRainbowLobby) == 0xD0 ? 1 : -1];
+
 extern "C" {
 void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);

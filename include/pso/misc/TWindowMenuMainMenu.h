@@ -28,6 +28,7 @@ struct TWindowMenuMainMenu : public TUnk_804CE018 {
 };
 
 typedef char TWindowMenuMainMenu_size[sizeof(TWindowMenuMainMenu) == 0x144 ? 1 : -1];
+
 extern "C" {
 u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2);
 void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);

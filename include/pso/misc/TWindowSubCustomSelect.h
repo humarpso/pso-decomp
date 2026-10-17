@@ -41,6 +41,7 @@ struct TWindowSubCustomSelect : public TUnk_804CDFE8 {
 };
 
 typedef char TWindowSubCustomSelect_size[sizeof(TWindowSubCustomSelect) == 0x84 ? 1 : -1];
+
 extern "C" {
 u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1);
 void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1);

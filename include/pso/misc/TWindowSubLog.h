@@ -23,6 +23,7 @@ struct TWindowSubLog : public TObject {
 };
 
 typedef char TWindowSubLog_size[sizeof(TWindowSubLog) == 0x80 ? 1 : -1];
+
 extern "C" {
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
 int fn_8027B288(void *p);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestVmDownLoadServer_803E6970.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
@@ -23,7 +24,6 @@ extern s32 current_language;
 u8 *TWindowKeyBoardBase__ct(u8 *arg0);
 s32 set_stream_and_load_file__6TLobbyFi(s32 *);
 s32 Dolphin_ARAlloc(s32);
-s32 TQuestVmDownLoadServer__sub_803F09A4();
 s32 TQuestVmDownLoadServer__sub_803F0C04(s32, s32, s32, s32, s32);
 extern s32 lbl_8044F098[];
 void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1);

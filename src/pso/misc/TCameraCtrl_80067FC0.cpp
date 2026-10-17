@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TCameraCtrl_80067FC0.h"
+#include "pso/misc/TLobby_801E2F94.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_80488838.h"
 #include "pso/misc/TUnk_80488A28.h"
@@ -73,7 +75,6 @@ extern s32 __vt__13TUnk_80488838[];
 Vec_8006835C *get_target__11TCameraCtrlFv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
-void TCameraCtrl__sub_801E32D8(f32, f32);
 void GXSetScissorBoxOffset(s32, s32);
 void set_camera_look_at(void *, void *, void *);
 f32 vector_length(void *);
@@ -108,10 +109,6 @@ extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
 extern s32 __vt__13TUnk_80488A28[];
 extern const f32 lbl_805D8FA0;
-void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1);
-void TCameraCtrl__sub_80068354(void);
-void TCameraCtrl__sub_80068358(void);
-void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

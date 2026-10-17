@@ -23,6 +23,7 @@ struct TObjEneBalClawClaw : public TObjEneBalClaw {
 };
 
 typedef char TObjEneBalClawClaw_size[sizeof(TObjEneBalClawClaw) == 0x428 ? 1 : -1];
+
 extern "C" {
 s32 TObjEneBalClawClaw__ct(void *arg0);
 void TObjEneBalClawClaw__sub_80090824(void);

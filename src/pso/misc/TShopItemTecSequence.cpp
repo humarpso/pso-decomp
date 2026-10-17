@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801A5AEC.h"
+#include "pso/unk/text_8026934C.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TShopSequence.h"
 #include "pso/misc/TShopItemTecSequence.h"
@@ -92,7 +94,6 @@ struct Seq_80220110 : VBase_18_80220110 {
 };
 
 extern "C" {
-s32 create_meseta_window(s32);
 s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC700;
@@ -105,20 +106,13 @@ void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_802203E4___vt__20TShopItemTecSequence __vt__20TShopItemTecSequence;
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__slot_table;
 extern s32 lbl_805D6250;
-u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1);
 u8 *TShopSequence__ct(u8 *arg0);
 extern s32 TShopItemTecSequence__class_name;
 extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
-u8 *TShopItemTecSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 restore_player_state__13TShopSequenceFv(void *);
-void TShopItemTecSequence__sub_80220560(void);
-void TShopItemTecSequence__sub_80220538(void);
-void reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
-void close__20TShopItemTecSequenceFPv(void *arg0);
-void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
 extern void *tl_05;
 void *TShopItemListWindow__ct(void *, s32, void *, s32);
 s32 obj_getField1c(void *);
@@ -137,8 +131,6 @@ struct VObj_8021FE80_8021FE6C : Base_8021FE80_8021FE6C {
     virtual void m4(int, int);
 };
 
-int TShopItemTecSequence__sub_8021FE6C(int a0);
-void set_judgment_target_flag(void *arg0, void *arg1);
 u32 find_item_by_id(s32);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);

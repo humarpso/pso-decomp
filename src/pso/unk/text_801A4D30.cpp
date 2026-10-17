@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowShortListCtrl_801A4FC0.h"
+#include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/misc/TUnk_804C2298.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"
@@ -27,9 +29,6 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(s32 arg0);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 TWindowShortListCtrl__sub_801A513C(void *);
-int TWindowShortListCtrl__sub_801A5144(void *);
 s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv(void);
 s32 pso_system_load_gc(void);
 void TWindow__close(u8 *arg0);

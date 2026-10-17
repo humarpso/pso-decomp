@@ -13,6 +13,7 @@ struct TOJungleDesign : public TUnk_804AF8A0 {
 };
 
 typedef char TOJungleDesign_size[sizeof(TOJungleDesign) == 0xB4 ? 1 : -1];
+
 extern "C" {
 void *TOJungleDesign__create(void *arg0);
 }

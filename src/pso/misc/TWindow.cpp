@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/quest/StoryQuestProgress.h"
+#include "pso/unk/text_801F3774.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/TShopWindowBase.h"
@@ -119,16 +121,12 @@ extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
 s32 get_story_flag(s32 flag);
-s32 are_all_story_quests_complete();
-void refresh_story_quest_availability(void *p);
 void *get_guild_text(s32);
 s32 calc_list_content_extent(void *);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
 void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *story_quest_list_resource;
-void handle_confirm_dialog(void *arg0);
-void prepare_offline_quest_filenames(const char *identity);
 s32 get_selected_menu_value(u32);
 
 void TWindow::close_sub_windows() {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubEquip_80263AB0.h"
+#include "pso/misc/TWindowSubTechnique_80286BD4.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowSubTechnique.h"
 #include "pso/misc/TWindowOptionCtrl.h"
@@ -11,13 +13,11 @@ s32 is_palette_entry_displayable__10TObjPlayerFv(s32, s32, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 set_field_1c__6TLobbyFf(int);
-f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 get_window_layout_position(int);
 extern s16 *lbl_804D2E20[];
 extern const f32 lbl_805DD838;
 s32 get_cursor_pos__20TWindowShortListCtrlFv(s32);
-void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
 void align_menu_entry_positions(s32);
 void set_selected_index__21TWindowSubComCardListFs(s32, s32);
 

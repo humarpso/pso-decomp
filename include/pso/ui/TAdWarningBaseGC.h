@@ -22,6 +22,7 @@ struct TAdWarningBaseGC : public TObject {
 };
 
 typedef char TAdWarningBaseGC_size[sizeof(TAdWarningBaseGC) == 0x30 ? 1 : -1];
+
 extern "C" {
 void *TAdWarningBaseGC__ct(void *arg0);
 void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/unk/text_8026C7AC.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 
@@ -20,8 +22,6 @@ void draw_window_text(void *, s32, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 void fn_8026C664(void *, f32, f32, f32, f32);
 void fn_8026C708(void *, f32, f32, f32, f32);
-void begin_screen_draw(s32);
-void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD29C;
 extern const f32 lbl_805DD2A0;

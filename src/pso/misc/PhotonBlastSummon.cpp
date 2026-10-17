@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/PhotonBlastSummon.h"
+#include "pso/player/TObjPlayer_800D8A2C.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/player/TObjPlayer.h"
@@ -35,15 +37,9 @@ s32 set_scripted_camera_pose(int, int, void *);
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 extern struct Ent_801A70C8 deferred_photon_blast_hit_queue[32];
 extern s32 deferred_photon_blast_hit_count;
-void clear_deferred_photon_blast_hits(void);
 extern struct Ent_801A710C photon_blast_hit_queue[32];
 extern s32 photon_blast_hit_count;
-void clear_photon_blast_hits(void);
-void queue_deferred_photon_blast_support(void);
-void queue_photon_blast_support(void);
-void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
 extern u32 lbl_805D5D20;
-void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate);
 const f32 *get_photon_blast_entry__10TObjPlayerFi(s32);
 extern u32 lbl_805D5D18;
 
@@ -208,7 +204,6 @@ struct Obj_801A7428 {
 };
 
 extern "C" {
-void copy_effect_params(u8 *arg0, u8 *arg1);
 void set_active_camera_pose_from_params(struct PbCameraParams_801A73B0 *);
 void approach_vector_fixed_distance(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self);
@@ -216,7 +211,6 @@ void get_camera_ctrl__9TObjEneDDFv(Vec_801A7578 *, Vec_801A7578 *);
 extern Vec_801A7578 lbl_80446A44;
 extern struct Reg_801A7578 photon_blast_joint_origins[];
 extern s32 photon_blast_joint_index;
-void publish_photon_blast_joint_origins(void);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 Obj_801A7428 *find_entity_by_id(u16);
 void matrix_mult_vec(s32, Vec_801A7428 *, Vec_801A7428 *);
@@ -225,7 +219,6 @@ s32 push_matrix_from(void *src);
 s32 pop_matrices(s32 arg0);
 extern Group_801A7428 photon_blast_attachment_table[];
 extern u8 identity_matrix[];
-void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self) {
     struct PbCameraParams_801A73B0 parameters;
     approach_vector_fixed_distance(&self->position, &self->destination_position, &self->position, 0.48f);
@@ -320,10 +313,7 @@ struct Self_801A7680 {
 
 extern "C" {
 
-void publish_photon_blast_joint_origins();
 int set_global_state__16TObjEneRe7BeruraFl(void*);
-void apply_all_default__8TFogCtrlFv(void);
-int update_all_default__8TFogCtrlFv(void);
 void mem_free(void *p);
 int update_all__8TFogCtrlFl(void*);
 
@@ -366,13 +356,10 @@ void apply_all_default__8TFogCtrlFv(void) { TFogCtrl::apply_all((s32)((void*)63)
 #pragma push
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__instance;
-void reset_state__10TSceneSoraFv(s32 _w0);
 u16 TCameraCtrl__sub_8006A5DC();
 void *get_scripted_camera_playback();
 
 s32 queue_destruction__7TObjectFv(void *);
-void TObjPlayer__sub_800D8A60(void);
-void TObjPlayer__sub_800D8A6C(void);
 void allow_rendering__7TObjectFv(void *arg0);
 
 void disallow_rendering__7TObjectFv(void *arg0);
@@ -431,8 +418,6 @@ void TUnk_804C3248::update_state() {
 #pragma pop
 
 #pragma push
-void *destroy_photon_motion_object(void *arg0, s16 arg1);
-void *photon_base_ct(void *arg0);
 s32 restore_player_cameras(void);
 void TObjMotion__ct(void *, void *);
 void __dl__7TObjectFPv(void *);

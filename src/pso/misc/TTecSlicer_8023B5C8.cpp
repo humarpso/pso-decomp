@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecSlicer_8023B5C8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecSlicer.h"
 #include "pso/TItemAttacker.h"
@@ -166,14 +167,11 @@ s32 __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 allow_rendering__7TObjectFv(void *);
 s32 copy_position__15TEffStarLight2DFPv(void *, void *);
-void destroy_on_collision__10TTecSlicerFi(s32 arg0, s32);
 u32 query_game_join_id__10TObjPlayerFv(s32);
 s32 queue_destruction__7TObjectFv(s32);
-void run_task__10TTecSlicerFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void dt__10TTecSlicerFls(void *, int);
 extern s32 __vt__10TTecSlicer[];
-void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
@@ -214,7 +212,6 @@ extern s32 lbl_805D3828;
 extern s32 tl_05;
 extern const f32 lbl_805DC950;
 extern const f32 lbl_805DC964;
-s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4);
 u32 csnVector(s32, s32, s32);
 
 void TTecSlicer::reset_fields_1e() { *(u8*)((char*)this + 0x1e) = 0; *(u8*)((char*)this + 0x1f) = 0; }

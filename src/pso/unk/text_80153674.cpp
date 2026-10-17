@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80153674.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/object/TObjFogCollisionSwitch.h"
 #include "pso/object/TObjFogCollision.h"
@@ -17,7 +18,6 @@ extern "C" {
 extern const f32 lbl_805DB250;
 s32 TObjFogCollision__sub_80153F70(void *self);
 s32 TObjFogCollision__sub_80153F68(void *self);
-void run_task__22TObjFogCollisionPoisonFv(void *self);
 s32 is_split_screen();
 s32 init_base__22TObjFogCollisionPoisonFPUcs(void *, void *, u16);
 s32 TObjFogCollisionSwitch__ct(void *, void *, void *);
@@ -25,7 +25,6 @@ void *__nw__7TObjectFUl(int);
 extern s32 __vt__22TObjFogCollisionPoison[];
 extern s32 lbl_805D2E80;
 extern s32 local_client_id;
-void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2);
 void vfunc_14__16TObjFogCollisionFv(O_801538D4 *);
 void debug_printf_at(int, void *, ...);
 extern char lbl_80440090[];
@@ -33,9 +32,6 @@ extern char lbl_804400A4[];
 extern char lbl_804400B8[];
 void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
 u8 is_current_floor_switch_set(u16);
-void run_task__22TObjFogCollisionSwitchFv(void *arg0);
-void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1);
-void *create__22TObjFogCollisionPoisonFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);

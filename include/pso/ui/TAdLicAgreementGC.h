@@ -16,6 +16,7 @@ struct TAdLicAgreementGC : public TAdAgreementBaseGC {
 };
 
 typedef char TAdLicAgreementGC_size[sizeof(TAdLicAgreementGC) == 0x3C ? 1 : -1];
+
 extern "C" {
 void *TAdLicAgreementGC__ct(void *arg0);
 void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1);

@@ -34,6 +34,7 @@ struct TShopKeepItemWindow : public TShopWindowBase {
 };
 
 typedef char TShopKeepItemWindow_size[sizeof(TShopKeepItemWindow) == 0x39C ? 1 : -1];
+
 extern "C" {
 void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);

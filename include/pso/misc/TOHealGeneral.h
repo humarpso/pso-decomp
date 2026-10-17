@@ -34,6 +34,7 @@ struct TOHealGeneral : public TUnk_804AFBF8 {
 };
 
 typedef char TOHealGeneral_size[sizeof(TOHealGeneral) == 0xF8 ? 1 : -1];
+
 extern "C" {
 void *TOHealGeneral__ct(void *arg0, void *arg1);
 }

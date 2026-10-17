@@ -1,13 +1,13 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
+#include "pso/player/TObjPlayer_801C721C.h"
 #include "pso/system/byteswap.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *TObjPlayer__sub_801C7360(void *arg0, void *arg1);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
-void TLobby__send_and_handle_60(u8 *arg0);
 int TObjPlayer__sub_8011E204(void*, void*);
 
 void TObjPlayer::set_flag_2000000_alt() { set_state_flags((u32)((void*)2097152)); }

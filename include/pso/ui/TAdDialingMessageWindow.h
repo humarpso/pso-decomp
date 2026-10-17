@@ -16,6 +16,7 @@ struct TAdDialingMessageWindow : public TObject {
 };
 
 typedef char TAdDialingMessageWindow_size[sizeof(TAdDialingMessageWindow) == 0x2C ? 1 : -1];
+
 extern "C" {
 void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);

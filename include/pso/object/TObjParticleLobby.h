@@ -17,6 +17,7 @@ struct TObjParticleLobby : public TUnk_804AFBF8 {
 };
 
 typedef char TObjParticleLobby_size[sizeof(TObjParticleLobby) == 0xD8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjParticleLobby__sub_80369698(void);

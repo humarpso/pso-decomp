@@ -44,6 +44,7 @@ struct TObjEneDolmOlm : public TUnk_80493450 {
 };
 
 typedef char TObjEneDolmOlm_size[sizeof(TObjEneDolmOlm) == 0x3E8 ? 1 : -1];
+
 extern "C" {
 void *TObjEneDolmOlm__create(void *arg0);
 u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2);

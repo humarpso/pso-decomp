@@ -44,6 +44,7 @@ typedef char CreationCamera_startDistance[offsetof(CreationCamera,startDistance)
 typedef char CreationCamera_ticks[offsetof(CreationCamera,ticks)==0x84?1:-1];
 typedef char CreationCamera_unknown88[offsetof(CreationCamera,unknown88)==0x88?1:-1];
 typedef char CreationCamera_unknown8C[offsetof(CreationCamera,unknown8C)==0x8C?1:-1];
+
 extern "C" {
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
 void *TCameraCtrl__vt8(void);

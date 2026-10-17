@@ -446,10 +446,10 @@ void * alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TObjEneRe7Berura__sub_80093470(void *, void *);
 s32 state_patrol__16TObjEneRe7BeruraFPvi(void *, void *);
 void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1);
-s32 TObjEneRe7Berura__sub_80093C80(void *, void *);
-s32 TObjEneRe7Berura__sub_800940E8(void *, void *);
-s32 TObjEneRe7Berura__sub_80094624(void *, void *);
-s32 TObjEneRe7Berura__sub_8009472C(void *, void *);
+void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1);
+void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1);
+void TObjEneRe7Berura__sub_80094624(u8 *arg0, s32 arg1);
+void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 void TObjEneRe7Berura__sub_80094D98(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094DB4(void *arg0);
@@ -789,19 +789,19 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 mode) {
         ((TObjEneRe7Berura *)arg0)->state_attack((s32)((void *) (mode)));
         return;
     case 3:
-        TObjEneRe7Berura__sub_8009472C((void *) (arg0), (void *) (mode));
+        TObjEneRe7Berura__sub_8009472C((u8 *)(arg0), (mode));
         return;
     case 2:
-        TObjEneRe7Berura__sub_80094624((void *) (arg0), (void *) (mode));
+        TObjEneRe7Berura__sub_80094624((u8 *)(arg0), (mode));
         return;
     case 8:
         ((TObjEneRe7Berura *)arg0)->handle_state((s32)((void *) (mode)));
         return;
     case 4:
-        TObjEneRe7Berura__sub_800940E8((void *) (arg0), (void *) (mode));
+        TObjEneRe7Berura__sub_800940E8((u8 *)(arg0), (mode));
         return;
     case 5:
-        TObjEneRe7Berura__sub_80093C80((void *) (arg0), (void *) (mode));
+        TObjEneRe7Berura__sub_80093C80((u8 *)(arg0), (mode));
         return;
     case 6:
         TObjEneRe7Berura__sub_80093888((u8 *)(arg0), (mode));

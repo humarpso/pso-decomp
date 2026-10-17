@@ -26,6 +26,7 @@ struct TButterfly : public TUnk_804B9870 {
 };
 
 typedef char TButterfly_size[sizeof(TButterfly) == 0xBC ? 1 : -1];
+
 extern "C" {
 void *__dt__10TButterflyFv(void *arg0, s16 arg1);
 }

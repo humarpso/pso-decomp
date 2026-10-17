@@ -15,6 +15,7 @@ struct TAdTrialModemChkGC : public TAdWarningBaseGC {
 };
 
 typedef char TAdTrialModemChkGC_size[sizeof(TAdTrialModemChkGC) == 0x30 ? 1 : -1];
+
 extern "C" {
 void *TAdTrialModemChkGC__ct(void *arg0);
 void TAdTrialModemChkGC__sub_803354A4(void);

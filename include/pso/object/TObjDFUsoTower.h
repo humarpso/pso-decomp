@@ -14,6 +14,7 @@ struct TObjDFUsoTower : public TUnk_804B9870 {
 };
 
 typedef char TObjDFUsoTower_size[sizeof(TObjDFUsoTower) == 0x98 ? 1 : -1];
+
 extern "C" {
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1);
 void *__dt__14TObjDFUsoTowerFv(void *arg0, s16 arg1);

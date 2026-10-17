@@ -21,6 +21,7 @@ struct TOSparkMachine01 : public TUnk_804B9870 {
 };
 
 typedef char TOSparkMachine01_size[sizeof(TOSparkMachine01) == 0xB0 ? 1 : -1];
+
 extern "C" {
 void *TOSparkMachine01__ct(void *arg0, void *arg1);
 void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1);

@@ -11,6 +11,7 @@ struct TObjNpcNgcBase : public TUnk_804A9F50 {
 };
 
 typedef char TObjNpcNgcBase_size[sizeof(TObjNpcNgcBase) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 void *__dt__14TObjNpcNgcBaseFv(void *arg0, s16 arg1);
 }

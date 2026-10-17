@@ -2,6 +2,7 @@
 #define PSO_PROTOCOL_TRADE_SESSION_H
 typedef void (*TradeProposalHandler)(void* packet);
 extern "C" TradeProposalHandler trade_proposal_state_handlers[10][8];
+
 extern "C" {
 void cancel_trade_for_member_out_of_range(s32 arg0);
 s32 format_trade_out_of_range_message(s32 arg0);

@@ -20,6 +20,7 @@ struct TCineCtrl : public TObject {
 };
 
 typedef char TCineCtrl_size[sizeof(TCineCtrl) == 0x30 ? 1 : -1];
+
 extern "C" {
 void *TCineCtrl__ct(void *arg0);
 u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1);

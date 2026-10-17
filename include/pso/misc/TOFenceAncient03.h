@@ -15,6 +15,7 @@ struct TOFenceAncient03 : public TUnk_804B1B80 {
 };
 
 typedef char TOFenceAncient03_size[sizeof(TOFenceAncient03) == 0xD8 ? 1 : -1];
+
 extern "C" {
 u8 *TOFenceAncient03__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__16TOFenceAncient03Fv(void *arg0, s16 arg1);

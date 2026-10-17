@@ -8,4 +8,8 @@ struct TWindow
     void close_sub_windows();
 };
 
+extern "C" {
+void handle_confirm_dialog(void *arg0);
+}
+
 #endif

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCardList_8026CB08.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TLobby.h"
@@ -72,7 +73,6 @@ void update__17TWindowDuelResultFPv(u8 *arg0);
 s32 TWindowDuelResult__sub_8024F330(void *);
 s32 handle_list_page_flip_input(s32);
 void __dl__7TObjectFPv(void *);
-s32 delete_if_allocated(s32 arg0, s16 arg1);
 
 extern "C" u8 lbl_805D63F0[];
 extern "C" const char lbl_805DCCA8[] = ":";

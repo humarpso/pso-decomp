@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8024AB54.h"
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowSubGameEnd.h"
@@ -22,7 +23,6 @@ struct VObj_18_204a81 : VBase_18_204a81 {
 extern "C" {
 void send_logout__6TLobbyFv(void);
 u32 __nw__7TObjectFUl(int);
-void fn_8024AB54(s32 arg0);
 extern s32 tl_00;
 extern int window_sub_game_end_active_flag;
 s32 get_main_phase();
@@ -37,10 +37,6 @@ extern s32 __vt__17TWindowSubGameEnd[];
 extern s32 TWindowSubGameEnd__class_name;
 extern const f32 lbl_805DD628;
 extern const f32 lbl_805DD62C;
-void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2);
-void TLobby__sub_802796FC(void);
-void TLobby__sub_80279708(void);
-void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1);
 s32 setup_player_battle_ctrls__23TAdSinglePlyChrSelectGCFv();
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);

@@ -14,6 +14,7 @@ struct TOCapsuleLabo : public TUnk_804B27D8 {
 };
 
 typedef char TOCapsuleLabo_size[sizeof(TOCapsuleLabo) == 0xE8 ? 1 : -1];
+
 extern "C" {
 u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1);

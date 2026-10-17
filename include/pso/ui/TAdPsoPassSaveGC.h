@@ -11,6 +11,7 @@ struct TAdPsoPassSaveGC : public TAdYesNoBaseGC {
 };
 
 typedef char TAdPsoPassSaveGC_size[sizeof(TAdPsoPassSaveGC) == 0x48 ? 1 : -1];
+
 extern "C" {
 void *TAdPsoPassSaveGC__ct(void *parent);
 void TAdPsoPassSaveGC__vt4(void);

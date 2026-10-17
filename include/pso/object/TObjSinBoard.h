@@ -11,6 +11,7 @@ struct TObjSinBoard : public TUnk_804B9870 {
 };
 
 typedef char TObjSinBoard_size[sizeof(TObjSinBoard) == 0x90 ? 1 : -1];
+
 extern "C" {
 void *TObjSinBoard__create(void *arg0);
 u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2);

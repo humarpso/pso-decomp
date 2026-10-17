@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_800D8FDC.h"
 #include "pso/system/memory.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/player/TObjPlayer.h"
@@ -6,12 +7,9 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-void TObjPlayer__sub_800D93F0(s32, s32, s32, f32);
 s32 __nw__7TObjectFUl(s32);
-void create_dead_spot__10TObjPlayerFiiif(s32, s32, s32, f32);
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
 extern void * player_corpse_mark_resource;
-void spawn_dead_spot__10TObjPlayerFiiif(s32, s32, s32, f32);
 #define create_dead_spot__10TObjPlayerFiiif ((s32 (*)(s32, s32, s32))create_dead_spot__10TObjPlayerFiiif)
 s32 construct_fire_base__9TDeadSpotFPvPvPvif(s32, s32, s32, s32, f32);
 
@@ -37,7 +35,6 @@ void TObjPlayer::set_field_e4(s32 arg1, s32 arg2) {
 #undef create_dead_spot__10TObjPlayerFiiif
 
 #define create_timed_particle_emitter ((int (*)(void*, void*, void*, void*))create_timed_particle_emitter)
-void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 init__9TDeadSpotFPv(s32, s32, s32, s32, f32);
 
@@ -64,9 +61,6 @@ void TObjPlayer::spawn_ground_effect(s32 arg1) {
 #undef create_timed_particle_emitter
 
 #define create_timed_particle_emitter ((s32 (*)(s32 *, s32, s32, s32))create_timed_particle_emitter)
-void TObjPlayer__sub_800D9290(s32 arg0, s32 arg1);
-void TObjPlayer__sub_800D92BC(s32 arg0, s32 arg1);
-void spawn_landing_dead_spot(s32 arg0, s32 arg1);
 
 void TObjPlayer::spawn_effect_at_ground(s32 arg1) {
     s32 sp8;
@@ -113,9 +107,6 @@ void spawn_landing_dead_spot(s32 point, s32 delay) {
 
 #undef create_timed_particle_emitter
 
-void spawn_dead_spot_scale15(s32 arg0, s32 arg1);
-void TObjPlayer__sub_800D93C4(s32 arg0, s32 arg1);
-
 void TObjPlayer::spawn_dead_spot_type2(s32 point, s32 delay) {
     spawn_dead_spot__10TObjPlayerFiiif(point, 2, delay, lbl_805DA3C8);
 }
@@ -129,8 +120,6 @@ void TObjPlayer__sub_800D93C4(s32 point, s32 delay) {
 }
 
 #define __nw__7TObjectFUl ((void * (*)(s32))__nw__7TObjectFUl)
-void TObjPlayer__sub_800D93F0(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-void spawn_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 init_corner_vertices__9TDeadSpotFPv(void *, s32, s32, s32, s32, s32, f32);
 s32 __ct__9TDeadSpotFv(void *, s32, s32, s32, s32, s32, f32);
 
@@ -156,7 +145,6 @@ extern const f32 lbl_805DA3D8;
 extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void load_corpse_mark_resource(void);
 void TLobby__sub_8001FE7C(void*, int);
 void set_chunk_blend(u32 x);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
@@ -248,7 +236,6 @@ extern "C" {
 extern s32 lbl_80494AE0[];
 extern const f32 lbl_805DA3E4;
 V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self);
-void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
 
 void TUnk_80494AE0::vfunc_4() { *(float *)&this->unk_0 = lbl_805DA3DC; this->m_4 = lbl_805DA3DC; *(float *)&this->unk_8 = lbl_805DA3DC; this->m_c = lbl_805DA3DC; }

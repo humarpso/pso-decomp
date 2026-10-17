@@ -11,6 +11,7 @@ public:
     TObject *quest_display;
 };
 typedef char TAdLoadQuestGCDisplayOffset[offsetof(TAdLoadQuestGC, quest_display) == 0x1C ? 1 : -1];
+
 extern "C" {
 s32 create_cost_window(s32 arg0);
 }

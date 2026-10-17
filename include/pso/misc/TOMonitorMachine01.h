@@ -15,6 +15,7 @@ struct TOMonitorMachine01 : public TUnk_804AFBF8 {
 };
 
 typedef char TOMonitorMachine01_size[sizeof(TOMonitorMachine01) == 0xD8 ? 1 : -1];
+
 extern "C" {
 void *TOMonitorMachine01__ct(void *arg0_, void *arg1);
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1);

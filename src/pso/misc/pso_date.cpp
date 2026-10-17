@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/pso_date.h"
 #include "dolphin/os/OSTime.h"
 
 struct DateStamp {
@@ -72,9 +73,6 @@ int getDateStamp(DateStamp* out) {
 
 extern "C" {
 
-void fn_801E2C50(void);
-void reset_system(void);
-void system_reset(void);
 int OSResetSystem(int, int, int);
 int VIWaitForRetrace(void);
 int VIFlush(void);
