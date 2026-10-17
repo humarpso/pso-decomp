@@ -26,7 +26,7 @@ struct TObjEnemyCustom : public TObjEnemy {
     u32 m_378;
     u32 state;
     u32 m_380;
-    u8 _pad384[0x4];
+    s32 m_384;
     u32 m_388;
     static void update_camera_if_active();
     void update_knockback_state();

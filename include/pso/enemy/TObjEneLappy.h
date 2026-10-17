@@ -2,12 +2,12 @@
 #define PSO_ENEMY_TOBJENELAPPY_H
 
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 
 struct LappyVec { f32 x, y, z; };
-struct LappyObjectHeader { u8 object_header[0x18]; };
 
-struct TObjEneLappy : LappyObjectHeader
-{
+struct TObjEneLappy : public TObjEnemy {
+    virtual ~TObjEneLappy();
     void sub_800C20C0();
     void sub_800C20B0();
     void set_speed_params(s32);
@@ -16,68 +16,7 @@ struct TObjEneLappy : LappyObjectHeader
     void set_boss4_state();
     void apply_variant_speeds();
     void clear_flags_60();
-    virtual void virtual_00();
-    virtual void run_task();
-    virtual void render();
-    virtual void render_shadows();
-    virtual void vfunc_6();
-    virtual void vfunc_7();
-    virtual void reset_motion_fields();
-    virtual void vfunc_9();
-    virtual void update_object_view_visibility();
-    virtual void vfunc_11();
-    virtual void vfunc_12();
-    virtual void vfunc_13();
-    virtual void add_actor_exp();
-    virtual void consume_timer_field();
-    virtual void get_actor_level_index();
-    virtual void update_actor_ground_y();
-    virtual void vfunc_18();
-    virtual s32 vfunc_19(s32 period);
     s32 advance_flee_step();
-    u8 _pad1C[0x14];
-    u32 m_30;
-    u8 _pad34[0x4];
-    LappyVec position;
-    LappyVec previous_position;
-    void* m_50;
-    u8 _pad54[0x8];
-    void* m_5c;
-    u8 _pad60[0x44];
-    u32 m_a4;
-    u8 unk_A8[0xC];
-    u32 m_b4;
-    s16 m_b8;
-    u8 _padBA[0x1E];
-    u32 m_d8;
-    u32 m_dc;
-    u8 _padE0[0x1B0];
-    void* m_290;
-    u8 _pad294[0x8];
-    void* m_29c;
-    u8 unk_2A0[0x8];
-    u8 * m_2a8;
-    u8 unk_2AC[0xC];
-    s16 m_2b8;
-    s16 m_2ba;
-    u8 _pad2BC[0x40];
-    LappyVec center;
-    LappyVec velocity;
-    u8 unk_314[0x14];
-    s16 m_328;
-    u8 unk_32A[0x2];
-    s16 m_32c;
-    u16 m_32e;
-    u8 _pad330[0xA];
-    s16 m_33a;
-    u16 m_33c;
-    u16 m_33e;
-    u8 _pad340[0x10];
-    u32 m_350;
-    u8 _pad354[0x14];
-    u32 m_368;
-    u32 m_36c;
-    u8 _pad370[0x4];
     s16 m_374;
     u8 _pad376[0x2];
     u8 m_378;
@@ -101,6 +40,8 @@ struct TObjEneLappy : LappyObjectHeader
     static void load_resources();
     static int is_lying_down();
     void set_param(s32 v);
+    u8 unk_398[0xC];
 };
 
+typedef char TObjEneLappy_size[sizeof(TObjEneLappy) == 0x3A4 ? 1 : -1];
 #endif

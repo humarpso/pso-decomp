@@ -1805,16 +1805,16 @@ void TObjEneMe1GiGue::sub_802CCF2C() {
     case 0:
         this->m_b8 = 1;
         *(s32 *)&this->state = 1;
-        *(s32 *)&this->_pad384 = 0x96;
+        *(s32 *)&this->m_384 = 0x96;
         ((void (*)(u8 *)) sub_8004292C__15TObjEnemyCustomFv)(((u8 *)this));
     case 1:
         advance_animation_playback(((u8 *)this));
         move_around_center__15TObjEneMe1GiGueFPvPvf((Obj_802CB8F0 *) ((u8 *)this), (Vec_802CB8F0 *) (((u8 *)this) + 0x50), *(f32 *)((s8 *)((u8 *)this) + 0x358));
-        *(s32 *)&this->_pad384 -= 1;
-        if (*(s32 *)&this->_pad384 <= 0) {
+        *(s32 *)&this->m_384 -= 1;
+        if (*(s32 *)&this->m_384 <= 0) {
             this->m_b8 = 0;
             *(s32 *)&this->state = 2;
-            *(s32 *)&this->_pad384 = 0x5A;
+            *(s32 *)&this->m_384 = 0x5A;
         }
         check_object_collisions__10TObjPlayerFv(((u8 *)this));
         check_enemy_body_collisions(((u8 *)this));
@@ -1826,8 +1826,8 @@ void TObjEneMe1GiGue::sub_802CCF2C() {
         check_object_collisions__10TObjPlayerFv(((u8 *)this));
         check_enemy_body_collisions(((u8 *)this));
         update_enemy_collision_flags__10TObjPlayerFv(((u8 *)this));
-        *(s32 *)&this->_pad384 -= 1;
-        if (*(s32 *)&this->_pad384 <= 0) {
+        *(s32 *)&this->m_384 -= 1;
+        if (*(s32 *)&this->m_384 <= 0) {
             *(s32 *)&this->state = 0;
         }
         break;

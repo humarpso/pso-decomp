@@ -903,7 +903,7 @@ void TBoss3Volopt::update_intro_cutscene() {
         if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271A) != NULL) {
             set_flag_08000000__12TBoss3VoloptFv();
         }
-        *(s32 *)&this->_pad384 = 0xD2;
+        *(s32 *)&this->m_384 = 0xD2;
         TFogCtrl::apply_all(0xA, 0);
         c1.b = 0;
         c1.a = 1;
@@ -915,8 +915,8 @@ void TBoss3Volopt::update_intro_cutscene() {
         *(s32 *)&this->state = 1;
     case 1:
         ((s32 (*)(int, void *, int, int, int))play_persistent_sound)(0x4003B202, arg0, 0, 0, 0);
-        if (--*(s32 *)&this->_pad384 <= 0) {
-            *(s32 *)&this->_pad384 = 0x3C;
+        if (--*(s32 *)&this->m_384 <= 0) {
+            *(s32 *)&this->m_384 = 0x3C;
             *(s32 *)&this->state = 2;
             TFogCtrl::update_all(0);
             c2.b = 0;
@@ -933,12 +933,12 @@ void TBoss3Volopt::update_intro_cutscene() {
             if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D271C) != NULL) {
                 sub_800C7860__15TObjEnemyCustomFv();
             }
-            *(s32 *)&this->_pad384 = 0x5A;
+            *(s32 *)&this->m_384 = 0x5A;
             *(s32 *)&this->state = 3;
         }
         break;
     case 3:
-        if (--*(s32 *)&this->_pad384 <= 0) {
+        if (--*(s32 *)&this->m_384 <= 0) {
             *(s32 *)&this->next_action = 2;
         }
         break;

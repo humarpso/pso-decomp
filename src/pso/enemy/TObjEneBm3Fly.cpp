@@ -2576,12 +2576,12 @@ void update__13TObjEneBm3FlyFPv(void *arg0) {
 
 void TObjEneBm3Fly::vfunc_61() {  }
 
-void TObjEneBm3Fly::vfunc_62() { if (*(short *)&this->animation_id != 6) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)6); } }
+void TObjEneBm3Fly::vfunc_62() { if (*(short *)&this->mode != 6) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)6); } }
 
 void TObjEneBm3Fly::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    temp_r0 = this->animation_id;
+    temp_r0 = this->mode;
     if ((temp_r0 != 8) && (temp_r0 != 9) && (temp_r0 != 7)) {
         if (was_hit_by_ranged__13TObjEneBm3FlyFv() != 0) {
             ((int (*)(void*, void*))transition_enemy_state)((void*)((void *) (arg0)), (void*)((int) (7)));
@@ -2667,7 +2667,7 @@ void TObjEneBm3Fly::run_task() {
     else
     {
       ;
-      if ((((animation_id) == 9) || ((animation_id) == 8)) || ((animation_id) == 7))
+      if ((((mode) == 9) || ((mode) == 8)) || ((mode) == 7))
       {
         ((TParticleCtrl *)temp_r3_2)->enable();
       }
@@ -2687,11 +2687,11 @@ void TObjEneBm3Fly::run_task() {
         {
           var_f30 *= (3.0f);
         }
-        temp_f31 = var_f30 * ((f32 (*)(s32))cos_table_lookup)((s32)((int) (facing_angle)));
-        temp_f2 = var_f30 * (-((f32 (*)(s32))sin_table_lookup)((s32)((int) (facing_angle))));
-        *((f32 *) (((s8 *) (particle_effect)) + 0x60)) = (f32) ((position.x) + temp_f31);
-        *((f32 *) (((s8 *) (particle_effect)) + 0x64)) = (f32) ((-1.5f) + (position.y));
-        *((f32 *) (((s8 *) (particle_effect)) + 0x68)) = (f32) ((position.z) + temp_f2);
+        temp_f31 = var_f30 * ((f32 (*)(s32))cos_table_lookup)((s32)((int) (rotation_y)));
+        temp_f2 = var_f30 * (-((f32 (*)(s32))sin_table_lookup)((s32)((int) (rotation_y))));
+        *((f32 *) (((s8 *) (particle_effect)) + 0x60)) = (f32) (((*(Vec *)&this->m_2fc).x) + temp_f31);
+        *((f32 *) (((s8 *) (particle_effect)) + 0x64)) = (f32) ((-1.5f) + ((*(Vec *)&this->m_2fc).y));
+        *((f32 *) (((s8 *) (particle_effect)) + 0x68)) = (f32) (((*(Vec *)&this->m_2fc).z) + temp_f2);
       }
     }
   }
@@ -2805,8 +2805,8 @@ s32 TObjEneBm3Fly::init_child_params() {
     *(f32 *)((s8 *)this + 0x400) = (0.0f);
     *(f32 *)((s8 *)this + 0x404) = (0.0f);
     *(f32 *)((s8 *)this + 0x408) = (0.0f);
-    this->animation_id = 0;
-    return ((VObj_18_800B1F80 *)this)->m85(this->animation_id, 4);
+    this->mode = 0;
+    return ((VObj_18_800B1F80 *)this)->m85(this->mode, 4);
 }
 #pragma pop
 
