@@ -9,7 +9,6 @@ struct TCameraCtrl;
 #include "pso/unk/TUnk_804EEF80.h"
 #include "pso/ui/TUnk_804EE458.h"
 #include "pso/TObject.h"
-#include "pso/misc/TUnk_804EEF64.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"

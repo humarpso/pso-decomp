@@ -10,7 +10,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneMe3SinowZoaReal.h"
 #include <stddef.h>
-#include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"

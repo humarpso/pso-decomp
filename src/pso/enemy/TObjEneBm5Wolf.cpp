@@ -17,7 +17,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEneBm5Wolf.h"
 #include "pso/enemy/TObjEneBm3FlyNest.h"
 
 extern "C" const f64 TObjEneBm5Wolf__data_8043B5B0;

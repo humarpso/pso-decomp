@@ -12,7 +12,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>
-#include "pso/enemy/TObjEneMe3Shinowa.h"
 #include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
