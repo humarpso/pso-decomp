@@ -340,11 +340,11 @@ s32 TObjPlayer__sub_803DAE98(TObjPlayer *arg0, s32 _w1) {
     if (temp_r3 > 0) {
         *(s32 *)((s8 *)arg0 + 0x10) = (temp_r3 - 1);
     }
-    temp_r4 = (u8 *)(arg0->m_next);
+    temp_r4 = (u8 *)arg0->m_next;
     temp_r3_2 = *(s32 *)((s8 *)temp_r4 + 0x24);
     if (temp_r3_2 > 0) {
         *(s32 *)((s8 *)temp_r4 + 0x24) = (temp_r3_2 - 1);
-        temp_r3_3 = (u8 *)(arg0->m_next);
+        temp_r3_3 = (u8 *)arg0->m_next;
         if ((s32) *(s32 *)((s8 *)temp_r3_3 + 0x24) == 0) {
             fn_803DB20C(temp_r3_3 + 4);
             *(s32 *)((s8 *)current_render_context + 0x14) = -1;

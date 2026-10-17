@@ -322,7 +322,7 @@ void add_item_purpose_actions(TWindowSubItem *arg0, s32 arg1, s32 arg2) {
       }
       else
       {
-        player = get_player_by_client_id((s32)(arg0->m_24));
+        player = get_player_by_client_id(arg0->m_24);
         if (player != 0)
         {
           if (((get_item_info__10TObjPlayerFllPs((int) item, (int) player, &sp8) != 0) && (has_armor_with_unit_slot((TWindowSubItem *)((void *)((void *) arg0)), (int)((int) item)) != 0)) && (TOKeyMachine01::get_global_state() != 0xF))

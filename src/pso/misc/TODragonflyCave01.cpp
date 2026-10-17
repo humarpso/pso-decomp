@@ -358,7 +358,7 @@ u8 *TODragonfly__ct(TODragonfly *arg0) {
     arg0->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / arg0->m_f4)));
     arg0->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     arg0->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB560);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup((s32)(arg0->m_fc)));
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup(arg0->m_fc));
     return (u8 *)arg0;
 }
 #pragma pop
