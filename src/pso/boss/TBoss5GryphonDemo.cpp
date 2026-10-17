@@ -63,7 +63,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__17TBoss5GryphonDemo[];
 extern s32 lbl_805D2810;
 extern const f32 lbl_805D8EE0;
-Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0);
+Obj_800665FC *__ct__17TBoss5GryphonDemoFP7TObjectlf(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
@@ -154,26 +154,25 @@ void TBoss5GryphonDemo::run_task() {
     }
 }
 TBoss5GryphonDemo::~TBoss5GryphonDemo() {}
-Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0) {
+}
+TBoss5GryphonDemo::TBoss5GryphonDemo(TObject *parent, s32 arg2, f32 farg0) : TObject(parent) {
     Cam_800665FC c;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->f18 = __vt__17TBoss5GryphonDemo;
-    self->f0 = lbl_805D2810;
-    self->f1c = farg0;
-    self->f20 = lbl_805D8EE0;
-    self->f24 = arg2;
+    ((Obj_800665FC *)this)->f0 = lbl_805D2810;
+    ((Obj_800665FC *)this)->f1c = farg0;
+    ((Obj_800665FC *)this)->f20 = lbl_805D8EE0;
+    ((Obj_800665FC *)this)->f24 = arg2;
     switch (TBoss8Dragon__sub_8005D700()) {
     case 0:
         c.f8 = 1;
         c.f9 = 0;
         c.fa = 0;
-        c.fc = self->f20;
-        c.f10 = self->f1c;
+        c.fc = ((Obj_800665FC *)this)->f20;
+        c.f10 = ((Obj_800665FC *)this)->f1c;
         activate_camera_mode(5);
         ((TCameraCtrl *)(&c))->cache_target_and_forward(0x238E);
         break;
     }
-    return self;
 }
+extern "C" {
 
 }

@@ -5,6 +5,7 @@
 
 class TBoss5GryphonDemo : public TObject {
 public:
+    TBoss5GryphonDemo(TObject *parent, s32 arg2, f32 farg0);
     virtual ~TBoss5GryphonDemo();
     virtual void run_task();
     virtual void render();

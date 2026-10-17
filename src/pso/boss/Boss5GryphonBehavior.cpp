@@ -1296,7 +1296,7 @@ void vfunc_28__13TBoss5GryphonFv(void);
 Obj_80065658 * __dt__13TBoss5GryphonFv(Obj_80065658 *o, s16 flag);
 void TBoss8Dragon__sub_800660A4(void *);
 s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
-s32 __ct__17TBoss5GryphonDemoFv(void *, s32, void *, f32);
+s32 __ct__17TBoss5GryphonDemoFP7TObjectlf(void *, s32, void *, f32);
 s32 fn_800666C4(s32);
 s32 TBoss8Dragon__sub_80067074(void *, void *);
 s32 TCameraCtrl__sub_8006A044(s32, f32);
@@ -3368,7 +3368,7 @@ void TBoss3Volopt__sub_800627E4(u8 *arg0, u32 arg1) {
         *p = 1;
         obj = __nw__7TObjectFUl(0x28);
         if (obj != NULL) {
-            __ct__17TBoss5GryphonDemoFv(obj, tl_01, p, lbl_805D8D88);
+            __ct__17TBoss5GryphonDemoFP7TObjectlf(obj, tl_01, p, lbl_805D8D88);
         }
         *(s16 *)((s8 *)arg0 + 0xB8) = 0x19;
         TWindowCtrl::init_all_slots();
