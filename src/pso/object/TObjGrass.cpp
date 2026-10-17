@@ -32,8 +32,6 @@ struct O_800BFB8C { u8 pad[0x24]; s32 f24; u8 pad2[0xc]; s32 f34; };
 
 struct O_800BFB68 { u8 pad[0x3d4]; s32 arr[12]; };
 
-struct Obj_800BEE2C { u8 pad[0xb8]; s16 fb8; u8 pad2[0x326 - 0xba]; s16 f326; s16 f328; u8 pad3[0x3ac - 0x32a]; s32 f3ac; };
-
 struct Obj_800BF880 { u8 pad0[0x18]; void *vt; u8 pad1c[0x3CC - 0x1C]; void *items[2]; };
 
 typedef struct Vec_800BE75C {

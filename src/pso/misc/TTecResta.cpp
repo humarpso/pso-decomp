@@ -73,8 +73,6 @@ struct VObj_8023985C : VBase_8023985C {
     virtual void m21(void *, HitInfo_8023985C *, s32, s32, s32);
 };
 
-struct Obj_8023985C { u8 pad[0x1C]; u32 source; u8 pad20[0x74 - 0x20]; f32 power; u8 pad78[0xAC - 0x78]; s32 active; };
-
 struct VBase_18_9c98dd { char pad[0x18]; };
 
 struct HitInfo_80239CF4 { s32 type; f32 power; };

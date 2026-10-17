@@ -1043,8 +1043,6 @@ typedef char RecoveredGlobal_802FB778_TBoss8Dragon__data_80541DDC_size[sizeof(Re
 
 struct Eff_802FB828 { u32 w[5]; };
 
-struct Boss_802FB94C { u8 pad[0x6D0]; s32 n; };
-
 struct RecoveredGlobal_802FBA1C_lbl_80474638 { s32 value; u8 remaining[0x1C]; };
 
 typedef char RecoveredGlobal_802FBA1C_lbl_80474638_size[sizeof(RecoveredGlobal_802FBA1C_lbl_80474638) == 0x20 ? 1 : -1];
