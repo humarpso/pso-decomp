@@ -620,7 +620,7 @@ void TObjEneBm9Mericarol::run_task() {
     s16 temp_r3_2;
     s32 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_105();
+        ((TObjEneBm9Mericarol *)(this))->vfunc_105();
         return;
     }
     temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x438);
@@ -631,18 +631,18 @@ void TObjEneBm9Mericarol::run_task() {
     } else if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x390) != 0U) {
         *(s32 *)((s8 *)((u8 *)this) + 0x438) = (s32) (temp_r3 | 0x10);
     }
-    if (((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_83() != 4) {
-        ((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_85();
+    if (((TObjEneBm9Mericarol *)(this))->vfunc_83() != 4) {
+        ((TObjEneBm9Mericarol *)(this))->vfunc_85();
     } else {
         temp_r3_2 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
         if ((temp_r3_2 == 0) || (temp_r3_2 == 1)) {
             ((VSub *)(((u8 *)this) + 0x46C))->m2();
-            transition_enemy_state(((u8 *)this), 2);
+            transition_enemy_state(this, 2);
         }
     }
-    ((TObjEneBm9Mericarol *)((u8 *)this))->sync_center_position();
+    this->sync_center_position();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneBm9Mericarol *)(((u8 *)this)))->vfunc_100();
+    ((TObjEneBm9Mericarol *)(this))->vfunc_100();
 }
 #pragma pop
 

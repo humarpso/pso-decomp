@@ -609,12 +609,12 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 
 void TBoss2DeRolLe::render() {
-    Me_8002F258 *e = (Me_8002F258 *)((u8 *)this);
+    Me_8002F258 *e = (Me_8002F258 *)this;
     Vec4_8002F258 *col;
     s32 i;
     Vec_8002F258 *out;
 
-    if (((TObjEneDD *)((u8 *)this))->get_target_info() != 0) {
+    if (this->get_target_info() != 0) {
         e->m104();
         return;
     }

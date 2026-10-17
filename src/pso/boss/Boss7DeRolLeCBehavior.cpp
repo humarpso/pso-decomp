@@ -499,7 +499,7 @@ void TBoss7DeRolLeC::render() {
         var_r29 = 0;
         do {
             if (((TBoss7Joint *)(*var_r30))->is_part_active() != 0U) {
-                TObjPlayer__sub_802E7F30(((u8 *)this), var_r29);
+                TObjPlayer__sub_802E7F30(this, var_r29);
             }
             var_r29 += 1;
             var_r30 = (s32 *)((u8 *)var_r30 + (4));
@@ -526,7 +526,7 @@ void TBoss7DeRolLeC::render() {
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;
-        TObjPlayer__sub_802E7FC0(((u8 *)this));
+        TObjPlayer__sub_802E7FC0(this);
         ((TObject *)(((u8 *)this) + 0x690))->render_nodes();
     }
 }

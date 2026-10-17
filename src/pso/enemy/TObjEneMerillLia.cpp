@@ -1442,7 +1442,7 @@ void TObjEneMerillLia::render() {
   s16 temp_r0;
   s32 temp_r3;
   s32 var_r29;
-  temp_r3 = (((VObj_18_ca64a0 *)(((u8 *)this)))->m9((lbl_805DA324), (lbl_805DA328), (lbl_805DA314)));
+  temp_r3 = (((VObj_18_ca64a0 *)(this))->m9((lbl_805DA324), (lbl_805DA328), (lbl_805DA314)));
   if (temp_r3 != 0)
   {
     lbl_805D5660 = model_render_flags;
@@ -1485,7 +1485,7 @@ void TObjEneMerillLia::render() {
         else
         {
           TObjPlayer::set_global_flag();
-          ((TObjEnemy *)((u8 *)this))->render_world_model();
+          this->render_world_model();
           TObjPlayer::clear_global_state();
         }
       }
@@ -1503,7 +1503,7 @@ void TObjEneMerillLia::render() {
       stack.sp8 = lbl_805DA32C;
       stack.spC = TObjEneMerillLia__data_805DA2F4;
       stack.sp10 = lbl_805DA330;
-      ((TObjEnemy *)((u8 *)this))->render_with_position_override((u8 *)&stack.sp8, 0);
+      this->render_with_position_override((u8 *)&stack.sp8, 0);
     }
   }
 }
@@ -1545,45 +1545,45 @@ void TObjEneMerillLia::run_task() {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    (((TObjEneMerillLia *)(((u8 *)this)))->vfunc_101());
+    (((TObjEneMerillLia *)(this))->vfunc_101());
     return;
   }
-  temp_r0 = ((TObjEneMerillLia *)((u8 *)this))->mode;
+  temp_r0 = this->mode;
   {
     switch (temp_r0)
     {
       case 0:
-        (((TObjEneMerillLia *)(((u8 *)this)))->vfunc_83());
+        (((TObjEneMerillLia *)(this))->vfunc_83());
         break;
       case 1:
-        (((TObjEneMerillLia *)(((u8 *)this)))->beast_idle_update());
+        (((TObjEneMerillLia *)(this))->beast_idle_update());
         break;
       case 2:
-        (((TObjEneMerillLia *)(((u8 *)this)))->update_turn_toward_target());
+        (((TObjEneMerillLia *)(this))->update_turn_toward_target());
         break;
       case 3:
-        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_approach());
+        (((TObjEneMerillLia *)(this))->beast_update_approach());
         break;
       case 4:
-        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_group_chase());
+        (((TObjEneMerillLia *)(this))->beast_update_group_chase());
         break;
       case 5:
-        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_attack());
+        (((TObjEneMerillLia *)(this))->beast_update_attack());
         break;
       case 6:
-        (((TObjEneMerillLia *)(((u8 *)this)))->vfunc_89());
+        (((TObjEneMerillLia *)(this))->vfunc_89());
         break;
       case 7:
-        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_hurt());
+        (((TObjEneMerillLia *)(this))->beast_update_hurt());
         break;
       case 8:
-        (((TObjEneMerillLia *)(((u8 *)this)))->beast_update_dead());
+        (((TObjEneMerillLia *)(this))->beast_update_dead());
         break;
       case 9:
-        (((TObjEneMerillLia *)(((u8 *)this)))->beast_retire_corpse());
+        (((TObjEneMerillLia *)(this))->beast_retire_corpse());
         break;
       case 10:
-        TObjEneMerillLia::update_kafun_attack((void *)((void *) ((u8 *)this)));
+        TObjEneMerillLia::update_kafun_attack((void *)this);
         break;
       case 11:
         TObjEneMerillLia::update_emerge_state((void *) ((u8 *)this));
@@ -1592,14 +1592,14 @@ void TObjEneMerillLia::run_task() {
         TObjEneMerillLia::search_target((void *) ((u8 *)this));
         break;
       case 13:
-        ((TObjEneMerillLia *)((u8 *)this))->sub_800D5570();
+        this->sub_800D5570();
         break;
     }
   }
-  ((TObjEnemy *)((u8 *)this))->update_prev_position();
+  this->update_prev_position();
   copy_position__20TBoss3VoloptHiraisinFi((void *) ((u8 *)this));
-  submit_cursor_candidate((void *) ((u8 *)this), -1);
-  ((TObjEneMerillLia *)((u8 *)this))->m_2b4 = (f32) ((((TObjEneMerillLia *)((u8 *)this))->m_2b4) + TObjEneMerillLia__data_805DA2F4);
+  submit_cursor_candidate((void *) this, -1);
+  this->m_2b4 = (f32) ((this->m_2b4) + TObjEneMerillLia__data_805DA2F4);
 }
 
 void * TObjEneMerillLia__create(void *arg0) {

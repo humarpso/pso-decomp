@@ -350,7 +350,7 @@ void TLazerFenceSw::vfunc_17() {
     if (*(f32 *)((s8 *)((u8 *)this) + 0xB0) > (f32) (u32) (*(s32 *)((s8 *)((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value) + 4) - 1)) {
         *(f32 *)((s8 *)((u8 *)this) + 0xB0) = (f32) TLazerFenceSw__data_805DBE84;
     }
-    ((TLazerFenceSw *)(((u8 *)this)))->submit_cursor_target();
+    ((TLazerFenceSw *)(this))->submit_cursor_target();
 }
 
 void TLazerFenceSw::run_task() {

@@ -1098,10 +1098,10 @@ void TObjEneBm3FlyNest::render() {
     s32 cam;
     s32 res;
     s32 draw;
-    Nest_800B264C *self = (Nest_800B264C *)((u8 *)this);
+    Nest_800B264C *self = (Nest_800B264C *)this;
     f32 t;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneBm3FlyNest *)(((u8 *)this)))->render_with_state_debug();
+        ((TObjEneBm3FlyNest *)(this))->render_with_state_debug();
         return;
     }
     cam = 0;
@@ -1111,8 +1111,8 @@ void TObjEneBm3FlyNest::render() {
     self->f3AC = 0;
     if (self->f326 != 9) {
         if (is_main_phase_15__9TObjEneDDFv() != 0) {
-            res = ((VObj_18_113a45 *)(((u8 *)this)))->m9(lbl_805D9D08 + lbl_805D9E88, lbl_805D9D0C + lbl_805D9E84, 120.0f);
-        } else if (((VObj_18_113a45 *)(((u8 *)this)))->m8(500.0f, 120.0f) != 0) {
+            res = ((VObj_18_113a45 *)(this))->m9(lbl_805D9D08 + lbl_805D9E88, lbl_805D9D0C + lbl_805D9E84, 120.0f);
+        } else if (((VObj_18_113a45 *)(this))->m8(500.0f, 120.0f) != 0) {
             res = 1;
         } else {
             res = 0;
@@ -1127,7 +1127,7 @@ void TObjEneBm3FlyNest::render() {
             update_obstruction_fade(cm);
             if (((RenderFadeState *)cm)->updateFromCamera((const f32*)(&self->f2FC)) != 0) {
                 ((VObj_14_aa9368 *)(cm))->m6();
-                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(((u8 *)this)) != 0) {
+                if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(this) != 0) {
                     draw = 0;
                 }
             }
@@ -1139,10 +1139,10 @@ void TObjEneBm3FlyNest::render() {
                         v.x = v.z = lbl_805D9D1C * t;
                     }
                 }
-                ((s32 (*)(void *, void *, int))update_player_state__9TObjEneDDFv)(((u8 *)this), &v, 1);
+                ((s32 (*)(void *, void *, int))update_player_state__9TObjEneDDFv)(this, &v, 1);
             }
             if (draw != 0) {
-                ((TObjEneDD *)((u8 *)this))->update_secondary_light();
+                this->update_secondary_light();
                 ((s32 (*)(int))set_global_param__8TObjFishFl)(self->f24);
                 push_matrix();
                 lbl_805D510C = 0;
@@ -1162,13 +1162,13 @@ void TObjEneBm3FlyNest::render() {
                 if (res == 1) {
                     ((TObjEneRe7Berura *)((u8 *)this))->draw();
                 } else {
-                    ((TObjEnemy *)((u8 *)this))->render_world_model();
+                    this->render_world_model();
                 }
                 TParticleCtrl::end_effect_render();
                 TObjEneRe7Berura::set_global_state((s32)NULL);
                 pop_matrix();
             }
-            ((TObjEneDD *)((u8 *)this))->update_primary_light();
+            this->update_primary_light();
             if (((RenderFadeState *)cm)->updateFromCamera((const f32*)(&self->f2FC)) != 0) {
                 ((VObj_14_aa9368 *)(cm))->m7();
             }
@@ -1812,18 +1812,18 @@ void dispatch_state__17TObjEneBm3FlyNestFiUii(s32 arg0, u32 arg1, s32 arg2) {
 #pragma fp_contract on
 void TObjEneBm3FlyNest::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18_p5 *)(((u8 *)this)))->m102();
+        ((VObj_18_p5 *)(this))->m102();
         return;
     }
-    if (((TObjEneBm3FlyNest *)(((u8 *)this)))->vfunc_83() != 4) {
-        ((TObjEneBm3FlyNest *)(((u8 *)this)))->vfunc_85();
-    } else if (((TObjEneBm3FlyNest *)((u8 *)this))->mode == 0) {
-        transition_enemy_state(((u8 *)this), 1);
+    if (((TObjEneBm3FlyNest *)(this))->vfunc_83() != 4) {
+        ((TObjEneBm3FlyNest *)(this))->vfunc_85();
+    } else if (this->mode == 0) {
+        transition_enemy_state(this, 1);
     }
-    ((TObjEneBm3FlyNest *)(((u8 *)this)))->vfunc_88();
-    ((TObjEneBm3FlyNest *)((u8 *)this))->copy_pos();
+    ((TObjEneBm3FlyNest *)(this))->vfunc_88();
+    this->copy_pos();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneBm3FlyNest *)(((u8 *)this)))->vfunc_100();
+    ((TObjEneBm3FlyNest *)(this))->vfunc_100();
 }
 #pragma pop
 

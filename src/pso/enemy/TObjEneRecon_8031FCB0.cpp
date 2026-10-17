@@ -370,19 +370,19 @@ void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
 
 void TObjEneRecobox::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneRecobox *)(((u8 *)this)))->update_if_800BB858();
+        ((TObjEneRecobox *)(this))->update_if_800BB858();
         return;
     }
-    if (((TObjEneRecobox *)(((u8 *)this)))->vfunc_83() != 4) {
-        ((TObjEneRecobox *)(((u8 *)this)))->vfunc_85();
-    } else if ((s16) ((TObjEneRecobox *)((u8 *)this))->mode == 1) {
-        transition_enemy_state(((u8 *)this), 0);
+    if (((TObjEneRecobox *)(this))->vfunc_83() != 4) {
+        ((TObjEneRecobox *)(this))->vfunc_85();
+    } else if ((s16) this->mode == 1) {
+        transition_enemy_state(this, 0);
     }
-    ((TObjEneRecobox *)(((u8 *)this)))->vfunc_88();
+    ((TObjEneRecobox *)(this))->vfunc_88();
     ((TObjEneRecon *)((u8 *)this))->restore_position();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneRecobox *)(((u8 *)this)))->vfunc_100();
-    ((TObjEneRecobox *)((u8 *)this))->update_floor_probe();
+    ((TObjEneRecobox *)(this))->vfunc_100();
+    this->update_floor_probe();
 }
 
 Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {

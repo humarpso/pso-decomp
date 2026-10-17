@@ -1941,62 +1941,62 @@ void TObjEneSaver::run_task() {
         TObjPlayer__sub_8023DEE0((s16 *)lbl_805D5054, 0xE, 0, 0);
     }
     if (TObjPlayer::check_demo_mode() == 1) {
-        TObjPlayer__sub_800A42C0(((u8 *)this));
+        TObjPlayer__sub_800A42C0(this);
         return;
     }
-    temp_r0 = ((TObjEneSaver *)((u8 *)this))->mode;
+    temp_r0 = this->mode;
     {
         switch (temp_r0) {
         case 0:
-            ((TObjEneSaver *)((u8 *)this))->init_render_flags();
+            this->init_render_flags();
             break;
         case 1:
-            advance_motion_state__12TObjEneSaverFv(((u8 *)this));
+            advance_motion_state__12TObjEneSaverFv(this);
             break;
         case 2:
             TObjPlayer__sub_800A5FA8((((u8 *)this)));
             break;
         case 3:
-            update_move_toward_target__12TObjEneSaverFv(((u8 *)this));
+            update_move_toward_target__12TObjEneSaverFv(this);
             break;
         case 4:
             TObjPlayer__sub_800A54B4((((u8 *)this)));
             break;
         case 5:
-            TObjPlayer__sub_800A5154((((u8 *)this)));
+            TObjPlayer__sub_800A5154((this));
             break;
         case 6:
             TObjPlayer__sub_800A4D9C((((u8 *)this)));
             break;
         case 7:
-            TObjPlayer__sub_800A49B4(((u8 *)this));
+            TObjPlayer__sub_800A49B4(this);
             break;
         case 8:
-            update_knockback_state__12TObjEneSaverFv(((u8 *)this));
+            update_knockback_state__12TObjEneSaverFv(this);
             break;
         case 9:
-            update_entry_motion__12TObjEneSaverFv(((u8 *)this));
+            update_entry_motion__12TObjEneSaverFv(this);
             break;
         case 10:
             update_collapse_and_destroy__10TObjPlayerFPv((((u8 *)this)));
             break;
         case 11:
-            sub_800A62D4__12TObjEneSaverFv(((u8 *)this));
+            sub_800A62D4__12TObjEneSaverFv(this);
             break;
         }
     }
-    temp_r4 = (u8 *)(((TObjEneSaver *)((u8 *)this))->target);
+    temp_r4 = (u8 *)(this->target);
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
         *(s16 *)((s8 *)((u8 *)this) + 0x37E) = 0;
-        ((TObjEneSaver *)((u8 *)this))->actorFlags = (s32) (((TObjEneSaver *)((u8 *)this))->actorFlags & 0xFFDFFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);
         *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x374) & 0xFFFF0000);
         *(s32 *)((s8 *)((u8 *)this) + 0x374) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x374) | 0x40);
-        ((TObjEneSaver *)((u8 *)this))->target = NULL;
+        this->target = NULL;
     }
-    ((TObjEnemy *)((u8 *)this))->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((s32)((u8 *)this));
-    sub_800A435C__12TObjEneSaverFv(((u8 *)this));
-    ((TObjEneSaver *)((u8 *)this))->m_2b4 = (f32) (((TObjEneSaver *)((u8 *)this))->m_2b4 + lbl_805D9A40);
+    this->update_prev_position();
+    copy_position__20TBoss3VoloptHiraisinFi((s32)this);
+    sub_800A435C__12TObjEneSaverFv(this);
+    this->m_2b4 = (f32) (this->m_2b4 + lbl_805D9A40);
 }
 
 void * create_ene_saver(void *arg0) {

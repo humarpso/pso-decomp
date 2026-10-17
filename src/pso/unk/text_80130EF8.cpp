@@ -20,9 +20,9 @@ void TUnk_804A6CC8::update_idle() {
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x1F8);
     if (temp_r0 == 1) {
         *(s32 *)((s8 *)((u8 *)this) + 0x1F8) = (s32) (u8) (temp_r0 == 0);
-        ((TUnk_804A6CC8 *)((u8 *)this))->m_204 = (f32) lbl_805DB038;
+        this->m_204 = (f32) lbl_805DB038;
         *(f32 *)((s8 *)((u8 *)this) + 0x200) = (f32) lbl_805DB038;
-        ((TUnk_804A6CC8 *)((u8 *)this))->m_1fc = (f32) lbl_805DB038;
+        this->m_1fc = (f32) lbl_805DB038;
     }
 }
 void TUnk_804A6CC8::update_attack() {

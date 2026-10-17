@@ -36,7 +36,7 @@ void TUnk_804B8DE8::render() {
         }
         push_matrix();
         post_translate_matrix(((u8 *)this) + 0x1C);
-        rotate_matrix_y(0, (int) (((TUnk_804B8DE8 *)((u8 *)this))->m_34));
+        rotate_matrix_y(0, (int) (this->m_34));
         scale_matrix(0, lbl_805DBF44, lbl_805DBF44, lbl_805DBF44);
         get_bml_model((void *)gogo_ball_bml_resource, 4);
         draw_chunk_object();

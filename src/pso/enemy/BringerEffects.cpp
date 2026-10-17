@@ -403,24 +403,24 @@ void TObjEneDf2Bringer_Eff_Rush::run_task() {
     f32 temp_f1;
     obj_getField1c((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C)));
     if (is_player_entity_id() != 0) {
-        queue_destruction__7TObjectFv(((u8 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     if (is_alive__9TObjEneDDFv((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C))) == 0) {
-        queue_destruction__7TObjectFv(((u8 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     if (obj_isState2_324__13TUnk_804806E8Fv((void *) (*(u8 **)((s8 *)((u8 *)this) + 0x1C))) != 0) {
-        queue_destruction__7TObjectFv(((u8 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x2C);
     if (temp_f1 <= 0.02f) {
-        queue_destruction__7TObjectFv(((u8 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x308) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)((u8 *)this))->m_20 * temp_f1);
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x310) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)((u8 *)this))->m_28 * *(f32 *)((s8 *)((u8 *)this) + 0x2C));
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x308) = (f32) (this->m_20 * temp_f1);
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x310) = (f32) (this->m_28 * *(f32 *)((s8 *)((u8 *)this) + 0x2C));
     *(f32 *)((s8 *)((u8 *)this) + 0x2C) *= 0.8f;
 }
 

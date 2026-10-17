@@ -127,8 +127,8 @@ void TUnk_804EDD20::render() {
   f32 var_f0;
   u8 *var_r29;
   var_f0 = lbl_805DF7D8;
-  var_r29 = (u8 *) ((u8 *)this);
-  if ((!((((TUnk_804EDD20 *)((u8 *)this))->m_80) <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
+  var_r29 = (u8 *) this;
+  if ((!((this->m_80) <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
   {
     var_r3 = (s32 *) (*((s32 **) (((s8 *) var_r29) + 0x60)));
     var_r31 = (s32 *) query_game_join_id__10TObjPlayerFv(var_r3);

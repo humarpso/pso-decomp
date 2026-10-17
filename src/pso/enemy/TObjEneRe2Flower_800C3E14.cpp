@@ -358,21 +358,21 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
 void TObjEneRe2Flower::run_task() {
     s16 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_105();
+        ((TObjEneRe2Flower *)(this))->vfunc_105();
         return;
     }
-    if (((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_83() != 4) {
-        ((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_85();
+    if (((TObjEneRe2Flower *)(this))->vfunc_83() != 4) {
+        ((TObjEneRe2Flower *)(this))->vfunc_85();
     } else {
-        temp_r3 = ((TObjEneRe2Flower *)((u8 *)this))->mode;
+        temp_r3 = this->mode;
         if ((temp_r3 == 0) || (temp_r3 == 1)) {
             ((VObj_14_2f517b *)(((u8 *)this) + (1012)))->m2();
-            transition_enemy_state(((u8 *)this), 2);
+            transition_enemy_state(this, 2);
         }
     }
-    ((TObjEneRe2Flower *)((u8 *)this))->sub_800C3DC4();
+    this->sub_800C3DC4();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneRe2Flower *)(((u8 *)this)))->vfunc_100();
+    ((TObjEneRe2Flower *)(this))->vfunc_100();
 }
 
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1) {

@@ -481,17 +481,17 @@ void TObjPlayer__sub_800BFF54(void * _w0) {  }
 
 void TObjEneLappy::render() {
     s32 temp_r3;
-    if (obj_testFlags30(((u8 *)this), 0x02000000) == 0) {
+    if (obj_testFlags30(this, 0x02000000) == 0) {
         if (*(s16 *)((s8 *)((u8 *)this) + 0x374) & 1) {
             *rappy_visibility_node &= 0xFFFFFFF7;
         } else {
             *rappy_visibility_node |= 8;
         }
-        temp_r3 = ((VObj_18_ca64a0 *)(((u8 *)this)))->m9(lbl_805D9F30, lbl_805D9F34, lbl_805D9F28);
+        temp_r3 = ((VObj_18_ca64a0 *)(this))->m9(lbl_805D9F30, lbl_805D9F34, lbl_805D9F28);
         if (temp_r3 != 0) {
-            set_speed_params__12TObjEneLappyFl(((u8 *)this), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x368)));
+            set_speed_params__12TObjEneLappyFl(this, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x368)));
             set_global_param__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
-            select_actor_lighting(((u8 *)this));
+            select_actor_lighting(this);
             toggle_particle_effect__10TObjPlayerFv();
             push_matrix();
             post_translate_matrix(((u8 *)this) + 0x38);
@@ -507,9 +507,9 @@ void TObjEneLappy::render() {
             } else {
                 model_render_flags |= 0x01000000;
                 if (temp_r3 == 1) {
-                    draw__16TObjEneRe7BeruraFv(((u8 *)this));
+                    draw__16TObjEneRe7BeruraFv(this);
                 } else {
-                    render_world_model__9TObjEnemyFv(((u8 *)this));
+                    render_world_model__9TObjEnemyFv(this);
                 }
                 model_render_flags &= 0xFEFFFFFF;
             }
@@ -520,8 +520,8 @@ void TObjEneLappy::render() {
             pop_matrix();
             restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
-            if (!(*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x800) && (obj_testFlags30(((u8 *)this), 0x800000) != 0)) {
-                ((TObjEnemy *)((u8 *)this))->render_with_position_override(0, 0);
+            if (!(*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x800) && (obj_testFlags30(this, 0x800000) != 0)) {
+                this->render_with_position_override(0, 0);
             }
         }
     }
@@ -1056,8 +1056,8 @@ void TObjEneLappy::run_task() {
     u8 *temp_r3_2;
     sub_800C20C0__12TObjEneLappyFv();
     if (TObjPlayer::check_demo_mode() == 1) {
-        apply_variant_speeds__12TObjEneLappyFv((Obj_800BFCD4 *)(((u8 *)this)));
-        TObjPlayer__sub_800BFF54(((u8 *)this));
+        apply_variant_speeds__12TObjEneLappyFv((Obj_800BFCD4 *)(this));
+        TObjPlayer__sub_800BFF54(this);
         return;
     }
     ((RecoveredFields_800C1478_arg0 *)((u8 *)this))->field_2A8 = find_active_entity_by_id(((RecoveredFields_800C1478_arg0 *)((u8 *)this))->field_338);
@@ -1068,22 +1068,22 @@ void TObjEneLappy::run_task() {
     }
     switch (((RecoveredFields_800C1478_arg0 *)((u8 *)this))->field_326) {
     case 0:
-        TObjEneLappy::update_idle_state(((u8 *)this));
+        TObjEneLappy::update_idle_state(this);
         break;
     case 1:
-        ((TObjEneLappy *)((u8 *)this))->update_moving();
+        this->update_moving();
         break;
     case 2:
-        ((TObjEneLappy *)((u8 *)this))->update_attacking();
+        this->update_attacking();
         break;
     case 3:
-        ((TObjEneLappy *)((u8 *)this))->update_invuln_timer();
+        this->update_invuln_timer();
         break;
     case 4:
-        ((TObjEneLappy *)((u8 *)this))->update_hurt();
+        this->update_hurt();
         break;
     case 5:
-        ((TObjEneLappy *)((u8 *)this))->apply_move_friction();
+        this->apply_move_friction();
         break;
     }
     ((TObjEnemy *)((u8 *)this))->update_prev_position();

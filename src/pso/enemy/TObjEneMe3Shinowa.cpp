@@ -3293,15 +3293,15 @@ void TObjEneMe3Shinowa::vfunc_28() {  }
 
 void TObjEneMe3Shinowa::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneMe3Shinowa *)(((u8 *)this)))->update_mirage();
+        ((TObjEneMe3Shinowa *)(this))->update_mirage();
         return;
     }
-    if (((TObjEneMe3Shinowa *)(((u8 *)this)))->vfunc_83() != 4) {
-        ((TObjEneMe3Shinowa *)(((u8 *)this)))->vfunc_85();
+    if (((TObjEneMe3Shinowa *)(this))->vfunc_83() != 4) {
+        ((TObjEneMe3Shinowa *)(this))->vfunc_85();
     }
-    ((TObjEneMe3Shinowa *)((u8 *)this))->copy_position_vector();
+    this->copy_position_vector();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneMe3Shinowa *)(((u8 *)this)))->vfunc_100();
+    ((TObjEneMe3Shinowa *)(this))->vfunc_100();
 }
 
 void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1) {

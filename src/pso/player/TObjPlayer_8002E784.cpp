@@ -125,7 +125,7 @@ void TUnk_804820A8::run_task() {
     Boss2 *self;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) += 1;
     if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x1C) >= 0xA0) {
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     var_r29 = 0;

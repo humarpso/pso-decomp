@@ -2694,7 +2694,7 @@ void play_voice_pair__10TObjPlayerFPv(void *arg0) {
     set_facing__10TObjPlayerFs(arg0, *(s16 *)((s8 *)arg0 + 0x2BA));
 }
 
-void TObjPlayer::reset_pose() { ((TUnk_804B9870 *)this)->obj_clearFlags30((u32)((void*)2048)); ((int (*)(void*))update_rotation__10TObjPlayerFv)(this); }
+void TObjPlayer::reset_pose() { this->obj_clearFlags30((u32)((void*)2048)); ((int (*)(void*))update_rotation__10TObjPlayerFv)(this); }
 
 u32 TObjPlayer::set_lobby_marker(s32 arg1) {
     u32 temp;

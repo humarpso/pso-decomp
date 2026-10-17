@@ -1284,7 +1284,7 @@ void TObjEneBm5Wolf::render() {
                 draw_blob_shadow(0);
                 pop_matrix();
             }
-            ((TObjEneDD *)((u8 *)this))->update_secondary_light();
+            this->update_secondary_light();
             TObjFish::set_global_param(*(s32 *)((s8 *)((u8 *)this) + 0x24));
             push_matrix();
             post_translate_matrix(((u8 *)this) + 0x38);
@@ -1301,11 +1301,11 @@ void TObjEneBm5Wolf::render() {
             if (var_r31 == 1) {
                 ((TObjEneRe7Berura *)((u8 *)this))->draw();
             } else {
-                ((TObjEnemy *)((u8 *)this))->render_world_model();
+                this->render_world_model();
             }
             TObjEneRe7Berura::set_global_state((s32)NULL);
             pop_matrix();
-            ((TObjEneDD *)((u8 *)this))->update_primary_light();
+            this->update_primary_light();
         }
         TParticleCtrl::end_effect_render();
     }
@@ -3475,37 +3475,37 @@ void TObjEneBm5Wolf::run_task() {
     s16 temp_r3_2;
     s32 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18 *)(((u8 *)this)))->m103();
+        ((VObj_18 *)(this))->m103();
         return;
     }
     if (find_entity_by_id((*(u16 *)((s8 *)((u8 *)this) + 0x3E0))) != 0U) {
         all_parents_unqueued_for_destruction__7TObjectFv();
     }
-    if (((VObj_18 *)(((u8 *)this)))->m81() != 4) {
+    if (((VObj_18 *)(this))->m81() != 4) {
         temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x414);
         if (temp_r3 != 0) {
             *(s32 *)((s8 *)((u8 *)this) + 0x414) = (temp_r3 - 1);
             if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x414) == 0) {
                 temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
                 if ((temp_r0 != 0x10) && (temp_r0 != 0x11)) {
-                    transition_enemy_state(((u8 *)this), (void*)(0xE));
+                    transition_enemy_state(this, (void*)(0xE));
                 }
             }
         }
-        ((VObj_18 *)(((u8 *)this)))->m83();
+        ((VObj_18 *)(this))->m83();
     } else {
         temp_r3_2 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
         if (temp_r3_2 == 0) {
-            ((VObj_18 *)(((u8 *)this)))->m83();
+            ((VObj_18 *)(this))->m83();
         } else if (temp_r3_2 == 1) {
             VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(((u8 *)this) + 0x50));
-            transition_enemy_state(((u8 *)this), (void*)(7));
-            ((VObj_18 *)(((u8 *)this)))->m83();
+            transition_enemy_state(this, (void*)(7));
+            ((VObj_18 *)(this))->m83();
         }
     }
     update_collision_center__14TObjEneBm5WolfFv(((u8 *)this));
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((VObj_18 *)(((u8 *)this)))->m98();
+    ((VObj_18 *)(this))->m98();
 }
 
 u8 *__dt__14TObjEneBm5WolfFv(u8 *arg0, s16 arg1) {

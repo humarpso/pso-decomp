@@ -328,7 +328,7 @@ void *TObjSeabedSuisoBrakable::create(void *arg0) {
     return o;
 }
 
-void TObjSeabedSuiso_CH::run_task() { if (((TObjSeabedSuiso_CH *)this)->m_bc != 0) { ((TUnk_804AFBF8 *)this)->update_anim_phase(); } }
+void TObjSeabedSuiso_CH::run_task() { if (this->m_bc != 0) { this->update_anim_phase(); } }
 
 extern s32 suiso_brakable_last_frame_tick;
 

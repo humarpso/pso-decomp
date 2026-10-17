@@ -32,9 +32,9 @@ void TObjPlayer::set_temp_flag10_and_update() {
 void TUnk_804A69DC::update_idle() {
     s32 temp_r4;
 
-    temp_r4 = ((TUnk_804A69DC *)this)->m_1fc;
+    temp_r4 = this->m_1fc;
     if (temp_r4 > 0xCCC) {
-        ((TUnk_804A69DC *)this)->m_1fc = (temp_r4 - 0xB6);
+        this->m_1fc = (temp_r4 - 0xB6);
     }
 }
 

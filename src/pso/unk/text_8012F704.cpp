@@ -5,7 +5,7 @@
 extern "C" {
 
     extern const float lbl_805DAFB8;
-void TUnk_804A64E8::update_idle() { ((TUnk_804A64E8 *)this)->m_204 = 0; *(float*)((char*)this + 0x200) = lbl_805DAFB8; *(float*)((char*)this + 0x1fc) = lbl_805DAFB8; *(float*)((char*)this + 0x1f8) = lbl_805DAFB8; }
+void TUnk_804A64E8::update_idle() { this->m_204 = 0; *(float*)((char*)this + 0x200) = lbl_805DAFB8; *(float*)((char*)this + 0x1fc) = lbl_805DAFB8; *(float*)((char*)this + 0x1f8) = lbl_805DAFB8; }
 
     extern const float lbl_805DAFBC;
 void TUnk_804A64E8::update_attack() { *(int *)&this->m_204 = 10922; *(float*)((char*)this + 0x200) = lbl_805DAFBC; *(float *)&this->m_1fc = lbl_805DAFBC; *(float*)((char*)this + 0x1f8) = lbl_805DAFBC; }

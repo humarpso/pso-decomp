@@ -180,7 +180,7 @@ void TObjNpcBase::run_task() {
   if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + ((((((((((0x3A0 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))))) <= 0) && (((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x3A4)))) <= 0))
   {
     *((s32 *) (((s8 *) ((u8 *)this)) + 0x390)) = 1;
-    set_indexed_flags(((u8 *)this), 0, 1);
+    set_indexed_flags(this, 0, 1);
   }
   else
   {
@@ -198,7 +198,7 @@ void TObjNpcBase::run_task() {
       if (get_register__12TQuestThreadFPvi(var_r31, temp_r4) != 0)
       {
         *((s32 *) (((s8 *) ((u8 *)this)) + 0x390)) = 1;
-        set_indexed_flags(((u8 *)this), 0, 1);
+        set_indexed_flags(this, 0, 1);
       }
       else
       {
@@ -216,27 +216,27 @@ void TObjNpcBase::run_task() {
   switch (*((s16 *) (((s8 *) ((u8 *)this)) + 0x326)))
   {
     case 0:
-      (((TObjNpcBase *)(((u8 *)this)))->vfunc_83());
+      (((TObjNpcBase *)(this))->vfunc_83());
       break;
     case 1:
-      (((TObjNpcBase *)(((u8 *)this)))->update_standing());
+      (((TObjNpcBase *)(this))->update_standing());
       break;
     case 2:
-      (((TObjNpcBase *)(((u8 *)this)))->update_wandering());
+      (((TObjNpcBase *)(this))->update_wandering());
       break;
     case 3:
-      (((TObjNpcBase *)(((u8 *)this)))->update_conversation());
+      (((TObjNpcBase *)(this))->update_conversation());
       break;
   }
   advance_animation_playback((void *) ((u8 *)this));
-  ((TObjEnemy *)((u8 *)this))->update_prev_position();
+  this->update_prev_position();
   new_var = ((u8 *)this);
   copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
   if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x3A8)))) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
   {
-    submit_cursor_candidate((void *) ((u8 *)this), -1);
+    submit_cursor_candidate((void *) this, -1);
   }
-  ((TUnk_804B9870 *)((u8 *)this))->obj_clearFlags30(0x1B3FU);
+  this->obj_clearFlags30(0x1B3FU);
 }
 
 }

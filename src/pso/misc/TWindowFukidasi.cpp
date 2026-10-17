@@ -1131,22 +1131,22 @@ void TUnk_804CF0B8::render() {
     switch (((Fuki_80252764 *)this)->phase) {
     case 0:
         ((TWindowFukidasi *)((Fuki_80252764 *)this))->project_anchor(NULL, ((Fuki_80252764 *)this)->head);
-        ((TWindowFukidasi *)((Fuki_80252764 *)this))->place_rect_at_head_or_slot();
+        ((TWindowFukidasi *)this)->place_rect_at_head_or_slot();
         ((Fuki_80252764 *)this)->center[0] = TWindowFukidasi__data_805DCD0C * ((Fuki_80252764 *)this)->anchor[0] + ((Fuki_80252764 *)this)->rect[0];
         ((Fuki_80252764 *)this)->center[1] = TWindowFukidasi__data_805DCD0C * ((Fuki_80252764 *)this)->anchor[1] + ((Fuki_80252764 *)this)->rect[1];
         ((Fuki_80252764 *)this)->phase = 1;
         break;
     case 2:
-        ((void (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(((Fuki_80252764 *)this));
+        ((void (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(this);
         break;
     case 4:
-        ((void (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(((Fuki_80252764 *)this));
+        ((void (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(this);
         break;
     case 6:
-        ((void (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(((Fuki_80252764 *)this));
+        ((void (*)(void *))refresh_rect_placement__15TWindowFukidasiFPv)(this);
         break;
     case 8:
-        ((TWindowFukidasi *)((Fuki_80252764 *)this))->place_rect_at_head_or_slot();
+        ((TWindowFukidasi *)this)->place_rect_at_head_or_slot();
         break;
     case 9:
         break;

@@ -1116,7 +1116,7 @@ void TObjEneDolmOlm::run_task() {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    (((TObjEneDolmOlm *)(((u8 *)this)))->vfunc_101());
+    (((TObjEneDolmOlm *)(this))->vfunc_101());
     return;
   }
   temp_r0 = ((RecoveredFields_8030247C_arg0 *) ((u8 *)this))->field_326;
@@ -1124,50 +1124,50 @@ void TObjEneDolmOlm::run_task() {
     switch (temp_r0)
     {
       case 0:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->vfunc_83());
+        (((TObjEneDolmOlm *)(this))->vfunc_83());
         break;
       case 1:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->beast_idle_update());
+        (((TObjEneDolmOlm *)(this))->beast_idle_update());
         break;
       case 2:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->update_turn_toward_target());
+        (((TObjEneDolmOlm *)(this))->update_turn_toward_target());
         break;
       case 3:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->beast_update_approach());
-        ((TObjEneDolmOlm *)((u8 *)this))->init_body_sub();
+        (((TObjEneDolmOlm *)(this))->beast_update_approach());
+        this->init_body_sub();
         break;
       case 4:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->beast_update_group_chase());
-        ((TObjEneDolmOlm *)((u8 *)this))->init_body_sub();
+        (((TObjEneDolmOlm *)(this))->beast_update_group_chase());
+        this->init_body_sub();
         break;
       case 5:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->beast_update_attack());
+        (((TObjEneDolmOlm *)(this))->beast_update_attack());
         break;
       case 6:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->vfunc_89());
+        (((TObjEneDolmOlm *)(this))->vfunc_89());
         break;
       case 7:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->beast_update_hurt());
+        (((TObjEneDolmOlm *)(this))->beast_update_hurt());
         break;
       case 8:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->beast_update_dead());
+        (((TObjEneDolmOlm *)(this))->beast_update_dead());
         break;
       case 9:
-        (((TObjEneDolmOlm *)(((u8 *)this)))->beast_retire_corpse());
+        (((TObjEneDolmOlm *)(this))->beast_retire_corpse());
         break;
       case 10:
         TObjEneDolmOlm__sub_80301C3C((void *) ((u8 *)this));
-        ((TObjEneDolmOlm *)((u8 *)this))->init_body_sub();
+        this->init_body_sub();
         break;
       case 11:
-        TObjEneDolmOlm__sub_8030177C((void *)((void *) ((u8 *)this)));
-        ((TObjEneDolmOlm *)((u8 *)this))->init_body_sub();
+        TObjEneDolmOlm__sub_8030177C((void *)this);
+        this->init_body_sub();
         break;
     }
   }
-  ((TObjEneDolmOlm *)((u8 *)this))->advance_position();
+  this->advance_position();
   copy_position__20TBoss3VoloptHiraisinFi((void *) ((u8 *)this));
-  submit_cursor_candidate((void *) ((u8 *)this), -1);
+  submit_cursor_candidate((void *) this, -1);
   if (((RecoveredFields_8030247C_arg0 *) ((u8 *)this))->field_3E4 & 0x4000)
   {
     TObjEneRecon::set_active();

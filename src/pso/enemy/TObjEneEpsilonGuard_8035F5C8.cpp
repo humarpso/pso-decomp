@@ -967,7 +967,7 @@ void TObjEneEpsilonBody::render() {
     s32 var_r31;
     s32 i;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneEpsilonBody *)(((u8 *)this)))->vfunc_106();
+        ((TObjEneEpsilonBody *)(this))->vfunc_106();
         return;
     }
     if (!(*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x02000000)) {
@@ -977,16 +977,16 @@ void TObjEneEpsilonBody::render() {
         if (*(s32 *)((s8 *)((u8 *)this) + 0x438) & 1) {
             var_r31 = 0;
         } else if (is_main_phase_15__9TObjEneDDFv() != 0) {
-            var_r31 = ((VObj_18_1fdb47 *)(((u8 *)this)))->m9(lbl_805E021C, lbl_805E021C, lbl_805E0220);
-        } else if (((VObj_18_1fdb47 *)(((u8 *)this)))->m8(lbl_805E0224, lbl_805E0220) != 0) {
+            var_r31 = ((VObj_18_1fdb47 *)(this))->m9(lbl_805E021C, lbl_805E021C, lbl_805E0220);
+        } else if (((VObj_18_1fdb47 *)(this))->m8(lbl_805E0224, lbl_805E0220) != 0) {
             var_r31 = 1;
         } else {
             var_r31 = 0;
         }
         if (var_r31 != 0) {
-            update_player_state__9TObjEneDDFv(((u8 *)this), 0, 0);
-            ((TObject *)((u8 *)this))->toggle_flag_9_if_flag_10_is_clear();
-            draw_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)(((u8 *)this)), (s32)(var_r31));
+            update_player_state__9TObjEneDDFv(this, 0, 0);
+            this->toggle_flag_9_if_flag_10_is_clear();
+            draw_with_fade__19TObjEneEpsilonGuardFPvi((u8 *)(this), (s32)(var_r31));
             if ((s16) *(s16 *)((s8 *)((u8 *)this) + 0x326) == 6) {
                 if (*(s32 *)((s8 *)((u8 *)this) + 0x438) & 0x200) {
                     ((TObjEneEpsilonGuard *)((u8 *)this))->render_body_effect();
@@ -995,7 +995,7 @@ void TObjEneEpsilonBody::render() {
         } else {
             i = 0;
             do {
-                TObjEneEpsilonGuard__sub_803606A0((Obj_803606A0 *) (((u8 *)this)), i);
+                TObjEneEpsilonGuard__sub_803606A0((Obj_803606A0 *) (this), i);
                 i += 1;
             } while (i < 4);
         }

@@ -38,17 +38,17 @@ void create_quest_message_window(void) {
 }
 void TWindowMessageQuest::render() {
     Ctx_8026B148 *c;
-    c = get_draw_context__11TWindowBaseFPv(((Win_8026B148 *)this));
+    c = get_draw_context__11TWindowBaseFPv(this);
     switch (((Win_8026B148 *)this)->mode) {
     case 0:
         if (c->reveal < 0) {
             c->scaleX = (f32)((Win_8026B148 *)this)->opening / lbl_805DD260;
             c->scaleY = c->scaleX;
         }
-        ((TUnk_804CE018 *)((Win_8026B148 *)this))->draw_quest_message_frame(c);
+        ((TUnk_804CE018 *)this)->draw_quest_message_frame(c);
         break;
     case 1:
-        draw_window_frame(((Win_8026B148 *)this), c);
+        draw_window_frame(this, c);
         break;
     case 2:
         break;

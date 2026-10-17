@@ -196,7 +196,7 @@ void TObjEneBm9Mericarol::draw_color_variant() {
     }
 }
 void TObjEneBm9Mericarol::render() {
-    Self_802CE8CC *self = (Self_802CE8CC *)((u8 *)this);
+    Self_802CE8CC *self = (Self_802CE8CC *)this;
     s32 vis;
     Fade_802CE8CC *fade;
     s16 saved;
@@ -207,7 +207,7 @@ void TObjEneBm9Mericarol::render() {
     s32 s2;
     Node_802CE8CC *n;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneBm9Mericarol *)((u8 *)this))->draw_color_variant();
+        this->draw_color_variant();
         return;
     }
     cam = 0;

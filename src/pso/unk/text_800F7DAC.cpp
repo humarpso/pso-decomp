@@ -301,11 +301,11 @@ s32 TUnk_80499988::sub_800F8250(f32 farg0) {
 
 void TUnk_80499988::run_task() {
     s32 temp_r3;
-    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(((TUnk_80499988 *)((u8 *)this))->sub_800F8250((f32) *(s32 *)((s8 *)((u8 *)this) + 0x20) / (f32) *(s32 *)((s8 *)((u8 *)this) + 0x24))));
+    TWindowCtrlMain::set_value((s32)local_client_id, (s32)(this->sub_800F8250((f32) *(s32 *)((s8 *)((u8 *)this) + 0x20) / (f32) *(s32 *)((s8 *)((u8 *)this) + 0x24))));
     temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x20) + 1;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = temp_r3;
     if (temp_r3 > (s32) *(s32 *)((s8 *)((u8 *)this) + 0x24)) {
-        queue_destruction__7TObjectFv(((u8 *)this));
+        queue_destruction__7TObjectFv(this);
     }
 }
 
@@ -383,7 +383,7 @@ void TUnk_804999B8::run_task() {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        ((TObject *)((u8 *)this))->set_flag_4();
+        this->set_flag_4();
     }
 }
 #pragma pop
@@ -421,7 +421,7 @@ void TUnk_804999D0::run_task() {
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        ((TObject *)((u8 *)this))->set_flag_4();
+        this->set_flag_4();
     }
 }
 #pragma pop

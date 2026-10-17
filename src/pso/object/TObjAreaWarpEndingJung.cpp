@@ -776,7 +776,7 @@ void TObjAreaWarpEnding::open_confirm_window(s16 arg1) {
 }
 
 void TObjAreaWarpEnding::debug_print_area_num() {
-    ((TObjAreaWarp *)((Obj_8019BCBC *)this))->TObjAreaWarp::debug_print_area_num();
+    ((TObjAreaWarp *)this)->TObjAreaWarp::debug_print_area_num();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     if (((Obj_8019BCBC *)this)->f8C < 0) {
         ((Obj_8019BCBC *)this)->f8C = 0;
@@ -907,7 +907,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
 }
 
 void TObjAreaWarpQuest::debug_print_area_num() {
-    ((TObjAreaWarp *)((Obj_8019C144 *)this))->TObjAreaWarp::debug_print_area_num();
+    ((TObjAreaWarp *)this)->TObjAreaWarp::debug_print_area_num();
     if (((Obj_8019C144 *)this)->f68 < 0.0f) {
         ((Obj_8019C144 *)this)->f68 = 0.0f;
     }
@@ -1023,7 +1023,7 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 void TObjAreaWarpForest::debug_print_area_num() {
-    ((TObjAreaWarp *)((Obj_8019C53C *)this))->TObjAreaWarp::debug_print_area_num();
+    ((TObjAreaWarp *)this)->TObjAreaWarp::debug_print_area_num();
     TObjNpcEnemy::set_global_count(0xFF00FF);
     if (((Obj_8019C53C *)this)->f8C < 0) {
         ((Obj_8019C53C *)this)->f8C = 0;

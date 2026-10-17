@@ -84,7 +84,7 @@ void run_task__13TUnk_804B8DE8Fv(u8 *arg0);
 #pragma push
 #pragma fp_contract on
 void TUnk_804B8DE8::run_task() {
-    Obj_80198A2C *self = (Obj_80198A2C *)((u8 *)this);
+    Obj_80198A2C *self = (Obj_80198A2C *)this;
     s32 state;
     if (self->counter++ >= self->limit) {
         spawn_particle_effect_with_flags(&self->pos, 0x45, 0x40);
