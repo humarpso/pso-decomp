@@ -147,7 +147,7 @@ void TOChatSensor::render() {
     stack.spC = lbl_805DB388;
     stack.sp14 = (stack.sp10 = lbl_805DB38C);
     newton_sqrtf(*((f32 *) (((s8 *) arg0) + 0x9C)));
-    TObjRoomId__sub_80141CF4(arg0 + 0x38, &stack.sp8);
+    TObjRoomId__sub_80141CF4((u8 *)&this->position, &stack.sp8);
   }
 }
 

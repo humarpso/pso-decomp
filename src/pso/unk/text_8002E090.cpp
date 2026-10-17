@@ -24,7 +24,7 @@ void TObjBoss1Rock::run_task() {
             queue_destruction__7TObjectFv(arg0);
         }
     }
-    vec3_add_to(arg0 + 0x1C, arg0 + 0x28);
+    vec3_add_to((u8 *)&this->m_1c, (u8 *)&this->m_28);
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x20);
     if (temp_f2 < lbl_805D8208) {
         *(f32 *)((s8 *)arg0 + 0x20) = (f32) (temp_f2 * lbl_805D820C);

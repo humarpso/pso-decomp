@@ -246,10 +246,6 @@ void TProtocol__send_60(VObj_18_801DC084 *obj, s8 *src, u32 len) {
     }
 }
 
-}
-
-extern "C" {
-
 struct Join_801DC1E4 {
     u8 command;
     u8 flags;
@@ -298,10 +294,6 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         destroy__9TProtocolFis((s32)&tmp, -1);
     }
 }
-
-}
-
-extern "C" {
 
 struct Join_801DC34C {
     u8 command;

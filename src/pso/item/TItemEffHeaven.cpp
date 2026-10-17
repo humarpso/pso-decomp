@@ -57,11 +57,8 @@ extern const f32 lbl_805DAB28;
 extern const f32 lbl_805DAB2C;
 extern const f32 lbl_805DAB30;
 
-void __ct__7TObjectFP7TObject(void *, void *);
-extern u8 __vt__14TItemEffHeaven[];
 extern s32 TItemEffHeaven__class_name;
 extern const f32 lbl_805DAB34;
-Obj_801092A8 *__ct__14TItemEffHeavenFP7TObjectlsl(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c);
 }
 
 extern "C" int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }

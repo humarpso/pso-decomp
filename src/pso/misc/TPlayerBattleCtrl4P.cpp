@@ -6,16 +6,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowCtrl.h"
 
-struct Ctl_80311FA0 {
-    u8 pad0[0x244];
-    s32 total;
-    s32 f248;
-    u8 pad24C[4];
-    s64 start;
-    s32 remain;
-    s32 f25C;
-};
-
 struct VBase_18_26c590 { char pad[0x18]; };
 
 struct VObj_18_26c590 : VBase_18_26c590 {

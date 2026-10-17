@@ -148,13 +148,13 @@ void TUnk_80484A94::run_task() {
     stack.sp8 = temp_r5;
     stack.spC = new_var;
     stack.sp10 = *((s32 *) (((s8 *) player) + 0x304));
-    subtract_vector(&stack.sp8, arg0 + 0x38, (int) temp_r5);
+    subtract_vector(&stack.sp8, (u8 *)&this->position, (int) temp_r5);
     ((TObjGyaranzoMissile *)(&stack.sp8))->scale_velocity(TObjPlayer__sub_800499FC(1));
     vec3_add_to(arg0 + 0xB4, &stack.sp8);
     ((TObjGyaranzoMissile *)(arg0 + 0xB4))->scale_velocity(TObjPlayer__sub_800499FC(0));
   }
   VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
-  vec3_add_to(arg0 + 0x38, arg0 + 0xB4);
+  vec3_add_to((u8 *)&this->position, arg0 + 0xB4);
   direction_to_rotation_yx((u8 *)(arg0 + 0xB4), (s32 *)(arg0 + 0x60), (s32 *)(arg0 + 0x64));
   this->rotation_z = (s32) ((this->rotation_z) - 0x4000);
   temp_r3_2 = (u8 *)this->m_d4;
@@ -169,7 +169,7 @@ void TUnk_80484A94::run_task() {
     ((TNowLoading *)temp_r3_3)->copy_pos((u8 *)&this->position);
     ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD8))))->copy_vec3((u8 *)&this->m_5c);
   }
-  if (csnVector(arg0 + 0x44, arg0 + 0x38, -1) != 0U)
+  if (csnVector((u8 *)&this->m_44, (u8 *)&this->position, -1) != 0U)
   {
     queue_destruction__7TObjectFv(arg0);
     return;

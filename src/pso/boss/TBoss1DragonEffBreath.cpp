@@ -2,16 +2,13 @@
 #include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/boss/TBoss1Dragon.h"
 
 extern "C" {
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__21TBoss1DragonEffBreath[];
 extern s32 TBoss1DragonEffBreath__name;
 extern const f32 lbl_805D8138;
-u8 *__ct__21TBoss1DragonEffBreathFP7TObjectPvPv(u8 *arg0, void *arg1, void *arg2, void *arg3);
 s32 vec3_add_to(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -26,7 +23,7 @@ void TBoss1DragonEffBreath::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    vec3_add_to(arg0 + 0x1C, arg0 + 0x28);
+    vec3_add_to((u8 *)&this->m_1c, (u8 *)&this->m_28);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x20);
     if (temp_f1 < lbl_805D8130) {
         queue_destruction__7TObjectFv((arg0));

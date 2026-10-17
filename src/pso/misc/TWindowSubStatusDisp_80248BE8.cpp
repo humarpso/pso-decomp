@@ -115,7 +115,7 @@ void TWindowSubStatusDisp::handle_input() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
 }
 
 void *__dt__13TUnk_804CE7E8Fv(void *arg0, s16 arg1) {

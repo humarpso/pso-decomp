@@ -85,7 +85,7 @@ void TUnk_804E4B24::run_task() {
     *(f32 *)((s8 *)arg0 + 0x1C) = TBoss8DragonDemo__sub_802F2CBC((void *)this->m_34);
     this->m_24 = (f32) (this->m_24 - TBoss8DragonDemo__sub_802F2CB4((void *)this->m_34));
     if ((s32) this->m_40 == 4) {
-        copy_position__16TBoss8DragonDemoFv(this->m_34, arg0 + 0x1C);
+        copy_position__16TBoss8DragonDemoFv(this->m_34, (u8 *)&this->unk_1C);
     }
     if (this->m_24 <= -*(f32 *)((s8 *)arg0 + 0x44)) {
         queue_destruction__7TObjectFv((arg0));

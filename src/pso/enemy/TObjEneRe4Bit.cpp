@@ -576,7 +576,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
       *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) + (*((f32 *) (((s8 *) arg0) + 0x3D8))));
       *((f32 *) (((s8 *) arg0) + 0x2FC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2FC))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
       *((f32 *) (((s8 *) arg0) + 0x304)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x304))) + calc_elapsed_scaled__9TObjEneDDFv((void *) arg0));
-      (((VObj_18_f9c8ca *)(arg0))->m100());
+      (((TObjEneDD *)(arg0))->vfunc_102());
       return;
     case 5:
       clear_attack_receipts__9TObjEneDDFv((void *) arg0);

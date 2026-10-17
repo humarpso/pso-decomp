@@ -557,8 +557,6 @@ void set_difficulty__6TLobbyFi(s32 arg0) {
     battle_param_lab_variant = arg0;
 }
 
-void *mem_alloc(u32 size);
-
 extern u32 TLobby__battle_parameter_buffer;
 
 extern s32 game_difficulty_selection;

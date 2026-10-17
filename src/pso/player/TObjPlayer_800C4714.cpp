@@ -150,7 +150,6 @@ struct Obj_800C4754 : VBase_800C4754 {
 
 extern "C" {
 
-void queue_destruction__7TObjectFv(void *arg0);
 s32 *csnVecterUnder(s32 origin, s32 mask);
 u32 csnVector(void *, void *, int);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);

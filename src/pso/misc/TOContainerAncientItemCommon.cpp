@@ -180,7 +180,6 @@ void TUnk_804B08BC::vfunc_79() {
 }
 
 void TUnk_804B08BC::vfunc_81() {
-    u8 *arg0 = (u8 *)this;
     extern u32 ancient_container_resource_bundle;
     u8 *temp_r31;
     u8 *temp_r31_2;
@@ -189,7 +188,7 @@ void TUnk_804B08BC::vfunc_81() {
         switch (this->mode) {
         case 0:
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             temp_r31 = (unsigned char *) (this->model);

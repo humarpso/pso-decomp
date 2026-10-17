@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TContainerAncient01R.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -7,7 +8,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01.h"
-#include "pso/misc/TContainerAncient01R.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
@@ -786,7 +786,7 @@ void TContainerAncient01::sub_8018B48C() {
   advance_animation_playback(arg0);
   if (((__cvt_fp2unsigned(this->m_2b4) & 0xFFFFFFFF) % 15) == 0)
   {
-    TContainerAncient01::spawn_effect(arg0, arg0 + 0x344, (void*)((void *) 0x7D));
+    TContainerAncient01::spawn_effect(arg0, (u8 *)&this->m_344, (void*)((void *) 0x7D));
   }
   if (TContainerAncient01__data_805DBD34 <= (this->m_2b4))
   {

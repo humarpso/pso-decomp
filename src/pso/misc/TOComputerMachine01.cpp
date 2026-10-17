@@ -89,7 +89,7 @@ void TOComputerMachine01::render() {
             scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)&TOComputerMachine01__scroll_mesh_ptrs.value + 0xC)), 0, -1, 7, 1);
         }
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         temp_r31 = (u8 *)(*(u8 * *)&this->model);

@@ -398,7 +398,7 @@ void TBoss2Joint::run_task() {
         update_position_history();
         this->vfunc_88();
         ((TBoss8Dragon *)arg0)->set_player_state_default();
-        add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805D848C);
+        add_radar_scaled_marker((u8 *)&this->position, -0x5DB4, 1, 1, lbl_805D848C);
     }
 }
 

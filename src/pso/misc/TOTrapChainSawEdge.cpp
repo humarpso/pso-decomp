@@ -8,7 +8,6 @@ extern "C" void vfunc_25__17TOTrapChainSawKeyFv();
 extern "C" void update_extension__14TOTrapChainSawFv();
 #include "pso/misc/TOTrapChainSawEdge.h"
 #include "pso/misc/TUnk_804AFBF8.h"
-#include "pso/misc/TOTrapChainSaw.h"
 #include "pso/misc/TOTrapChainSawDamage.h"
 #include "pso/misc/TOTrapChainSawKey.h"
 #include "pso/TParticleCtrl.h"

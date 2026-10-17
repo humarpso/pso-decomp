@@ -152,7 +152,7 @@ void TEffClitical::run_task() {
         *(s32 *)((s8 *)arg0 + 0x74) = 1;
         break;
     }
-    if (approach_alpha_clamped(arg0 + 0x2C, (void *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
+    if (approach_alpha_clamped((u8 *)&this->field_2c, (void *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }

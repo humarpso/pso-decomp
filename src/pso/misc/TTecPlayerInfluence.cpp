@@ -117,7 +117,7 @@ void TTecPlayerInfluence::render() {
     stack.spC = *(s32 *)((s8 *)&lbl_8044D8EC.value + 4);
     stack.sp10 = *(s32 *)((s8 *)&lbl_8044D8EC.value + 8);
     approach_vector_in_place(arg0 + 0x3C, (void *)&stack.sp8, (f32) ((2.7f)));
-    TObjRoomId__sub_80141CF4(arg0 + 0x20, arg0 + 0x2C, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
+    TObjRoomId__sub_80141CF4(arg0 + 0x20, (u8 *)&this->field_2c, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
 }
 
 void TTecPlayerInfluence::tick_lifetime() {

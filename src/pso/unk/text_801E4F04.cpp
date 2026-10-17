@@ -16,7 +16,7 @@ void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C57F0;
         mem_free(*(void **)((s8 *)arg0 + 0x20));
-        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        ((TUnk_804C57F0 *)arg0)->m_20 = 0;
         mem_free(*(void **)((s8 *)arg0 + 0x1C));
         *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         __dt__7TObjectFv(arg0, 0);

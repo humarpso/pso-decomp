@@ -29,7 +29,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/boss/TBoss2DeRolLe.h"
 #include <stddef.h>
 #pragma push
 namespace constructor_data {
@@ -345,19 +344,10 @@ int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
-int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
-extern u8 *lbl_805D4BA4;
 s32 queue_destruction__7TObjectFv(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 f32 vec3_add_to(void *, void *);
-extern const f32 lbl_805D822C;
-extern const f32 lbl_805D8258;
-void scale_matrix(int, f32, f32, f32);
-void set_matrix_identity(int);
-void rotate_vector_by_matrix(u32 arg0);
-void push_matrix(void);
-s32 pop_matrix(void);
 extern const f32 lbl_805D822C;
 void scale_matrix(int, f32, f32, f32);
 void set_matrix_identity(int);
@@ -366,9 +356,7 @@ void push_matrix(void);
 s32 pop_matrix(void);
 extern const f32 lbl_805D8260;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 vec3_add_to(void *, void *);
 extern s32 lbl_804820A8[];
-extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 void fn_8002F5AC(u8 *arg0);
 void TBoss2Joint__sub_8003688C(u8 *arg0);
 s32 TObjLight__sub_801337F8(s32);
@@ -376,8 +364,6 @@ s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
-void push_matrix(void);
-s32 pop_matrix(void);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
@@ -401,15 +387,7 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern void *lbl_805D4B8C;
-
-extern s32 lbl_804820A8[];
-
-extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
-
 struct VObj8002EB88_8002eb88_8002E784;
-
-extern s32 lbl_804820C0[];
 
 extern s32 lbl_804820C0[];
 
@@ -622,37 +600,21 @@ struct Me_8002F258 : VObj_18_3a6650 {
 
 extern "C" {
 
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
-void fn_8002F5AC(u8 *arg0);
 void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0);
-void TBoss2Joint__sub_8003688C(u8 *arg0);
 s32 TObjLight__sub_801336DC(s32);
 s32 TObjLight__sub_8013379C(s32, void *);
-s32 TObjLight__sub_801337F8(s32);
-f32 vec3_add_to(void *, void *);
-s32 rotate_matrix_y(int, int);
-s32 rotate_matrix_z(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-s32 rotate_matrix_x(int, int);
-void push_matrix(void);
-s32 pop_matrix(void);
-s32 scale_current_matrix(void *);
-s32 post_translate_matrix(void *);
-void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002F258 lbl_804359D8[];
 extern u8 derolle_segment_texture_slots[];
 extern Light_8002F258 TObjLight__scene_light_state;
 extern Ctx_8002F258 *derolle_texture_list_handle;
 extern void *lbl_805D4BCC;
-extern s32 current_scene_light;
 extern s32 lbl_805D5564;
-extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
-extern s32 model_render_flags;
 
 void render__13TBoss2DeRolLeFPv(u8 *arg0) {
     Me_8002F258 *e = (Me_8002F258 *)arg0;
@@ -742,14 +704,9 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
     ((TObject *)(e->nodes))->render_nodes();
 }
 
-}
-
 #pragma pop
 
 #pragma push
-
-extern "C" {
-
 void copy_vec4__13TRaderMapCoreFPvPv(void* p, void* q);
 
 void copy_vec4__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); }
@@ -766,7 +723,6 @@ struct RecoveredGlobal_8002F5AC_lbl_804FE30C {
 };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 extern RecoveredGlobal_8002F5AC_lbl_804FE30C lbl_804FE30C;
 extern s32 TBoss2DeRolLe__current_attack_id;
 extern s32 TBoss2DeRolLe__sequence_match_index;
@@ -775,7 +731,6 @@ extern u8 *lbl_805D4BB4;
 extern u8 *lbl_805D4BB8;
 extern s32 lbl_805D4BBC;
 extern s32 lbl_805D4BC0;
-void fn_8002F5AC(u8 *arg0);
 typedef char RecoveredGlobal_8002F5AC_lbl_804FE30C_size[sizeof(RecoveredGlobal_8002F5AC_lbl_804FE30C) == 0x10 ? 1 : -1];
 void fn_8002F5AC(u8 *arg0) {
     TBoss2DeRolLe__current_attack_id = 0;

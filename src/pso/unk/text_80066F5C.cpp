@@ -18,9 +18,9 @@ void TObjPlayer::draw_shadowed_node_tree() {
     u8 *arg0 = (u8 *)this;
     if (arg0 != NULL) {
         push_matrix();
-        post_translate_matrix(arg0 + 8);
-        rotate_matrix_by_node_angles(arg0 + 0x14, 1);
-        scale_current_matrix(arg0 + 0x20);
+        post_translate_matrix((u8 *)&this->m_prev);
+        rotate_matrix_by_node_angles((u8 *)&this->m_down, 1);
+        scale_current_matrix((u8 *)&this->m_20);
         if (!(*(s32 *)((s8 *)arg0 + 0) & 8) && ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U)) {
             render_projected_shadow_receiver((u8 *)(arg0 + 8), (s32)(arg0 + 0x14));
             ::draw_ginja_model((*(u32 *)((s8 *)arg0 + 4)));

@@ -703,7 +703,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
         stack.sp10 = lbl_805D8678;
         activate_camera_mode(5);
         ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x160A);
-        temp_r3 = (arg0 + 0x38);
+        temp_r3 = ((u8 *)&this->unk_38);
         set_scripted_camera_pose((int)temp_r3, (int)temp_r3, arg0 + 0x5C);
         *(s32 *)((s8 *)arg0 + 0x37C) = 4;
         return;

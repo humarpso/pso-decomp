@@ -111,7 +111,7 @@ void TUnk_8048E1A4::freeze_shell_grow() {
         rotate_matrix_y(0, (int) (this->rotation_y * 2));
         rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
         pop_matrix();
-        vec3_add_to(&stack.sp8, arg0 + 0x38);
+        vec3_add_to(&stack.sp8, (u8 *)&this->position);
         create_timed_particle_emitter((&stack.sp8), 0x12D, 0, 0xA);
     }
 }

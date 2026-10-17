@@ -9,7 +9,6 @@ s32 post_translate_matrix(void *);
 s32 rotate_matrix_z(int, int);
 
 void TObjPlayer::update_area_effect_objects() {
-    u8 *arg0 = (u8 *)this;
     s32 player_list;
 
     switch ((s32) get_slot_count__14TItemProShieldFv()) {
@@ -22,13 +21,13 @@ void TObjPlayer::update_area_effect_objects() {
         player_list = TObjPlayer::get_player_list();
         switch (player_list) {
         case 1:
-            post_translate_matrix(arg0 + 0x208);
+            post_translate_matrix((u8 *)&this->unk_208);
             return;
         case 2:
-            post_translate_matrix(arg0 + 0x214);
+            post_translate_matrix((u8 *)&this->m_214);
             return;
         case 3:
-            scale_current_matrix(arg0 + 0x1FC);
+            scale_current_matrix((u8 *)&this->m_1fc);
             break;
         }
         break;

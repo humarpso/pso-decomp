@@ -12,7 +12,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/object/TObjMotion.h"
 extern "C" void vfunc_101__12TObjEneBeastFv();
 extern "C" void test_flag_256__13TUnk_80493450Fv();
-#include "pso/enemy/TObjEneBeast.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/player/TObjPlayer.h"

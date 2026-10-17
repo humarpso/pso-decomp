@@ -603,8 +603,8 @@ void TItemEquipBase::add_equip_stats(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     if (*(void **)((s8 *)arg0 + 0xF0) != NULL) {
         ((TItem *)arg0)->copy_to_item_data(&item);
-        ((TItemData *)(&item))->apply_equip_effects((s32)(*(s32 *)((s8 *)arg0 + 0xF0)), (s32)((s32)(arg0 + 0x11C)), (s32)((s32)(arg0 + 0x14C)), (s32)(arg0 + 0xF8), (s32)(arg0 + 0x16C));
-        t = TItemData__sub_8010B810(*(s32 *)((s8 *)arg0 + 0xF0));
+        ((TItemData *)(&item))->apply_equip_effects((s32)(*(s32 *)&this->m_f0), (s32)((s32)(arg0 + 0x11C)), (s32)((s32)(arg0 + 0x14C)), (s32)(arg0 + 0xF8), (s32)(arg0 + 0x16C));
+        t = TItemData__sub_8010B810(*(s32 *)&this->m_f0);
         if (t != 0) {
             TItemData::add_s16((s16 *)t, (s32)(get_attack_params_atp_min(arg0 + 0x11C)));
             ((TItemData *)t)->add_stat(get_attack_params_atp_max(arg0 + 0x11C));
@@ -612,27 +612,27 @@ void TItemEquipBase::add_equip_stats(s32 arg1) {
         }
         p = (u8 *)TItemData__sub_8010B808(*(void **)((s8 *)arg0 + 0xF0));
         if (p != NULL) {
-            *(s16 *)((s8 *)p + 0) += *(s16 *)((s8 *)arg0 + 0x14C);
-            *(s32 *)((s8 *)p + 0x1C) += *(s32 *)((s8 *)arg0 + 0x168);
+            *(s16 *)((s8 *)p + 0) += this->m_14c;
+            *(s32 *)((s8 *)p + 0x1C) += this->m_168;
             *(s16 *)((s8 *)p + 2) += *(s16 *)((s8 *)arg0 + 0x14E);
-            *(s16 *)((s8 *)p + 4) += *(s16 *)((s8 *)arg0 + 0x150);
+            *(s16 *)((s8 *)p + 4) += this->m_150;
             *(s16 *)((s8 *)p + 6) += *(s16 *)((s8 *)arg0 + 0x152);
-            *(s16 *)((s8 *)p + 8) += *(s16 *)((s8 *)arg0 + 0x154);
+            *(s16 *)((s8 *)p + 8) += this->m_154;
             *(s16 *)((s8 *)p + 0xA) += *(s16 *)((s8 *)arg0 + 0x156);
         }
         if (((TQuestListVM *)(*(void **)((s8 *)arg0 + 0xF0)))->get_quest_id() != 0U) {
             s16 v = add_stat__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xF8));
             TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xF8), v);
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFA), add_mst__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFA)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFA), add_mst__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), this->m_fa));
             TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFC), add_evp__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFC)));
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFE), add_hp__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0xFE)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0xFE), add_hp__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), this->m_fe));
             TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x100), add_dfp__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x100)));
-            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x102), add_ata__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x102)));
+            TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x102), add_ata__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), this->m_102));
             TItemEquipBase::deduct_cap_excess((s32)arg0, (s16 *)(arg0 + 0x104), add_lck__10TObjPlayerFl(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x104)));
         }
         if (arg1 != 0) {
             add_actor_hp_bonus(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x16C));
-            add_actor_tp_bonus(*(void **)((s8 *)arg0 + 0xF0), *(s16 *)((s8 *)arg0 + 0x16E));
+            add_actor_tp_bonus(*(void **)((s8 *)arg0 + 0xF0), this->m_16e);
             this->vfunc_48();
             ((VObj_8010B224 *)*(void **)((s8 *)arg0 + 0xF0))->m71();
         }
@@ -646,7 +646,7 @@ void TItemEquipBase::equip() {
         ((TItem *)arg0)->set_mode(2);
         ((TObjPlayer *)arg0)->add_item_flags(8);
         this->vfunc_22(1);
-        if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any(arg0 + 0x178, (void *)(1)) == 0)) {
+        if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any((u8 *)&this->m_178, (void *)(1)) == 0)) {
             ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)((void *)(1)));
             this->vfunc_46();
         }

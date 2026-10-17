@@ -61,7 +61,6 @@ void TNowLoading::render() {  }
 #pragma fp_contract on
 typedef char RecoveredGlobal_8001D19C_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8001D19C_lbl_804FF5E8) == 0x28 ? 1 : -1];
 void TNowLoading::run_task() {
-    u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8001D19C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001D19C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001D19C, sp10) == 0x8) ? 1 : -1];
@@ -80,19 +79,19 @@ void TNowLoading::run_task() {
         this->m_34 = (f32) ((lbl_805D7EC0 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0x14)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 8));
         temp_r3 = this->m_1c;
         if (temp_r3 != 0U) {
-            ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x2C);
+            ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_2c);
         }
         temp_r3_2 = this->m_20;
         if (temp_r3_2 != 0U) {
-            ((TNowLoading *)temp_r3_2)->copy_pos(arg0 + 0x2C);
+            ((TNowLoading *)temp_r3_2)->copy_pos((u8 *)&this->m_2c);
         }
         temp_r3_3 = this->m_24;
         if (temp_r3_3 != 0U) {
-            ((TNowLoading *)temp_r3_3)->copy_pos(arg0 + 0x2C);
+            ((TNowLoading *)temp_r3_3)->copy_pos((u8 *)&this->m_2c);
         }
         temp_r3_4 = this->m_28;
         if (temp_r3_4 != 0U) {
-            ((TNowLoading *)temp_r3_4)->copy_pos(arg0 + 0x2C);
+            ((TNowLoading *)temp_r3_4)->copy_pos((u8 *)&this->m_2c);
         }
     } else {
         stack.sp8 = (lbl_805D7EC0 * *(f32 *)((s8 *)&lbl_804FF5E8.value + 0xC)) + *(f32 *)((s8 *)&lbl_804FF5E8.value + 0);

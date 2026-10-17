@@ -3,7 +3,6 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/system/vector.h"
-#include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TNowLoading.h"
@@ -23,10 +22,8 @@ s32 spawn_gryphon_tornado(s32, s32, void *, u16);
 extern s32 boss5_gryphon_bml_resource;
 extern s32 boss5_gryphon_texture_list;
 extern const f32 lbl_805D8EE8;
-u8 *__ct__22TBoss5GryphonShockWaveFP7TObjectlPUcPUcls(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
 s32 vec3_add_to(void *, s32);
 s32 subtract_vector(void *, void *);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

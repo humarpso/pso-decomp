@@ -49,7 +49,7 @@ void TWindowSubItemList::render() {
         forward_render__20TWindowSubStatusDispFv(this->m_80, temp_r3);
     }
     if ((u32) *(u32 *)&this->unk_84 != 0U) {
-        draw_window_scrollbar(*(void * *)&this->unk_84, temp_r3, arg0 + 0x68);
+        draw_window_scrollbar(*(void * *)&this->unk_84, temp_r3, (u8 *)&this->m_68);
     }
 }
 #pragma pop

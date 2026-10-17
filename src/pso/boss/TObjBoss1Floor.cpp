@@ -37,7 +37,7 @@ extern s32 model_render_flags;
 void TObjBoss1MokoHill_Solo::render() {
     u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(dragon_common_texture_list);
-    update_dragon_trail_uvs(arg0 + 0x28);
+    update_dragon_trail_uvs((u8 *)&this->m_28);
     push_matrix();
     translate_matrix(0, this->m_28, (f32) (*(f32 *)((s8 *)arg0 + 0x34)), this->m_30);
     if ((s32) this->m_48 != 0) {

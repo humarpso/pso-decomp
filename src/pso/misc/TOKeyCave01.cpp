@@ -129,7 +129,7 @@ void TOKeyCave01::render() {
     if (((VObj_8016C280 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         TObjFish::set_global_param((int) TOKeyCave01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix(temp_r31 + 8);
@@ -145,7 +145,7 @@ void TOKeyCave01::render() {
         push_matrix();
         switch ((s32) key_cave_render_state) {
         case 0:
-            post_translate_matrix(arg0 + 0x68);
+            post_translate_matrix((u8 *)&this->scale);
             break;
         case 1:
             rotate_matrix_y(0, (int) (*(s32 *)&this->unk_FC));

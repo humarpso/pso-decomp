@@ -211,9 +211,9 @@ void TPlyPhotonChair::run_task() {
     if (((u32) this->m_94 == 0U) && (is_mounted__15TPlyPhotonChairFv() == 0)) {
         this->m_94 = 1U;
         ((TPlyPhotonChair *)(arg0 + 0x98))->set_state_ready();
-        TPlyPhotonChair__sub_8035B56C(arg0 + 0x98, lbl_805E0128);
+        TPlyPhotonChair__sub_8035B56C((u8 *)&this->m_98, lbl_805E0128);
         ((TPlyPhotonChair *)(arg0 + 0xB4))->set_state_ready();
-        TPlyPhotonChair__sub_8035B56C(arg0 + 0xB4, lbl_805E0128);
+        TPlyPhotonChair__sub_8035B56C((u8 *)&this->m_b4, lbl_805E0128);
     }
     switch ((s32) this->m_94) {
     case 0:

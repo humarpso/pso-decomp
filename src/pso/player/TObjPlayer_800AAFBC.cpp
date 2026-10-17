@@ -270,7 +270,7 @@ s32 TObjEneDubchik::sub_800AB068() {
   ;
   if ((fabs_float((*((f32 *) (((s8 *) arg0) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x44)))) + fabs_float((*((f32 *) (((s8 *) arg0) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x4C))))) > lbl_805D9B10)
   {
-    VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), arg0 + 0x44);
+    VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), (u8 *)&this->m_44);
     return 1;
   }
   return 0;

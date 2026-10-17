@@ -93,7 +93,7 @@ void TWindowSubQuestBoardSelect::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_64))->update_subwindow();
     }
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
 }
 
 }

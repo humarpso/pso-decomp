@@ -47,13 +47,12 @@ int is_not_split_screen__13TRaderMapCoreFv(void *);
 #pragma push
 #pragma opt_common_subs off
 s32 TObjEnvSoundGlobal::setup_sound() {
-    u8 *arg0 = (u8 *)this;
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
     temp_r4 = *(s32 *)((s8 *)&environment_sound_tables_by_area.value + (TOKeyMachine01::get_global_state() * 4));
     if (temp_r4 != 0U) {
-        copy_pair__18TObjEnvSoundGlobalFPvPv(arg0 + 0x94, (void*)((int) (temp_r4 + (this->m_84 * 8))));
+        copy_pair__18TObjEnvSoundGlobalFPvPv((u8 *)&this->m_94, (void*)((int) (temp_r4 + (this->m_84 * 8))));
     } else {
         var_r31 = 0;
         this->m_94 = -1;

@@ -6,7 +6,6 @@
 #include "pso/player/TObjPlayer_803E4954.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/boss/TBoss6Demo10_TYPE1_APPEAR.h"
-#include "pso/boss/TBoss6Demo10_TYPE1_APPEAR.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -46,7 +45,6 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 int set_scripted_camera_pose(void *, void *, void *);
-int __ct__7TObjectFP7TObject(void *, void *);
 int build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 extern s32 lbl_80477DEC[];
 extern s32 boss6_type1_appear_node_desc[];
@@ -61,12 +59,9 @@ __declspec(section ".sdata") extern AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR
 struct AppearanceZero { f32 value; u32 padding; };
 __declspec(section ".sdata2") extern const AppearanceZero lbl_805DFA50;
 Fish_8033CB4C *__ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject(Fish_8033CB4C *self, void *parent);
-u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 s32 post_translate_matrix(s32 *);
 s32 push_matrix();
-s32 __dl__7TObjectFPv(void *);
-s32 __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 clear_render_callback__8TObjFishFv(s32);
 
@@ -224,7 +219,6 @@ __declspec(section ".rodata") s32 boss6_type1_appear_model_node_descriptors[] = 
 __declspec(section ".rodata") s32 lbl_80477E30[] = {0x00000000, 0x00000000, 0x00000000};
 __declspec(section ".rodata") s32 lbl_80477E3C[] = {0x01020000, 0x00000000, 0x3F333333};
 s32 boss6_type1_appear_motion_indices[] = {35, 36};
-void render_shadows__7TObjectFv();
 extern __declspec(section ".data") const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 __declspec(section ".sdata") AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name = {TBoss6Demo10_TYPE1_APPEAR__class_name, 0};
 __declspec(section ".sdata2") const f32 lbl_805DFA48 = 0.7f;

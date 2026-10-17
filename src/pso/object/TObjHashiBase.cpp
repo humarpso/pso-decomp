@@ -79,7 +79,7 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
         this->m_1e = 1;
         return 1;
     }
-    matrix_mult_vec(0, arg0 + 0x38, (void *)&stack.sp10);
+    matrix_mult_vec(0, (u8 *)&this->position, (void *)&stack.sp10);
     if (stack.sp18 > lbl_805DBE2C) {
         this->m_1e = 0;
         return 0;

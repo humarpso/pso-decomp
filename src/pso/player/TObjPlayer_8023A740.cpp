@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/player/TUnk_804CCC68.h"
-#include "pso/player/TUnk_804CCC68.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -23,7 +22,6 @@ extern const f32 lbl_805DC92C;
 extern const f32 lbl_805DC930;
 extern const f32 lbl_805DC934;
 extern const f32 lbl_805DC938;
-u8 *__ct__13TUnk_804CCC68FlPUcPUcl(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);

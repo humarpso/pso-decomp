@@ -359,7 +359,6 @@ void TObjEneDubchik::sub_800A8A7C() {
 }
 
 void TObjPlayer::render_model_and_set_attach_points() {
-    u8 *arg0 = (u8 *)this;
     render_anim_model_at_pos__15TObjEneGyaranzoFv();
     this->vfunc_65(0x13, (s32)((u8 *)&this->unk_3D4));
     this->vfunc_65(0x28, (s32)((u8 *)&this->unk_3E0));

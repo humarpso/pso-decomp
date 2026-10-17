@@ -39,7 +39,7 @@ void TBoss8DragonEffBreath::run_task() {
     f32 temp_f1;
     u32 ent;
 
-    vec3_add_to(arg0 + 0x1C, arg0 + 0x28);
+    vec3_add_to((u8 *)&this->m_1c, (u8 *)&this->m_28);
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x20);
     if (temp_f1 < lbl_805DEEF0) {
         queue_destruction__7TObjectFv((arg0));

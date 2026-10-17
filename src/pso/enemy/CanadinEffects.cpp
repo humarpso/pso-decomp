@@ -373,7 +373,6 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
     draw_line_list(&stack.sp8, 1, 5);
 }
 
-void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);
 #define VC_D ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
 
 void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
@@ -433,7 +432,6 @@ s32 __vt__30TObjEneMe1Canadin_EffDischarge[] = {
     (s32)run_task__30TObjEneMe1Canadin_EffDischargeFv,
     (s32)render__30TObjEneMe1Canadin_EffDischargeFv, (s32)render_shadows__7TObjectFv
 };
-extern s32 __vt__25TObjEneMe1Canadin_EffLine[];
 __declspec(section ".sdata2") const f32 canadin_effect_negative_one = -1.0f;
 __declspec(section ".sdata2") const f32 canadin_effect_zero = 0.0f;
 __declspec(section ".sdata2") const f32 canadin_light_width_cutoff = 0.01f;

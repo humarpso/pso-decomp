@@ -249,9 +249,9 @@ void TMainCursor::reset_cursor_parts() {
     var_r30 = 0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     do {
-        get_record_at__11TMainCursorFPvi(arg0 + 0x40, var_r30);
+        get_record_at__11TMainCursorFPvi((u8 *)&this->m_40, var_r30);
         set_size__11TMainCursorFf(TMainCursor__data_805DB0C0);
-        set_cursor_id__11TMainCursorFs(get_record_at__11TMainCursorFPvi(arg0 + 0x40, var_r30), 0xFFFF);
+        set_cursor_id__11TMainCursorFs(get_record_at__11TMainCursorFPvi((u8 *)&this->m_40, var_r30), 0xFFFF);
         var_r30 += 1;
     } while (var_r30 < 0xA);
 }

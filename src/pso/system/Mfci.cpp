@@ -8,8 +8,6 @@ struct RecoveredGlobal_803CFEA0_lbl_8047DAE4 {
     u8 remaining[0x14];
 };
 
-#include "pso/system/Mfci.h"
-
 extern "C" {
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047E170;
 extern s32 mfci_error_callback_context;

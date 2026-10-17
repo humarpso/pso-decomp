@@ -2061,7 +2061,7 @@ void TObjEneMe3Stelth__sub_800F3214(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 7;
         set_field_378__9TObjEneDDFl(arg0, 0xC);
-        ((VObj_18_4f5f2e *)(arg0))->m94();
+        ((TObjEneDD *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFFFFFF8);
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x10000);
         *(s32 *)((s8 *)arg0 + 0x424) = 0;
@@ -2096,7 +2096,7 @@ void TObjEneMe3Stelth__sub_800F3214(u8 *arg0, s32 arg1) {
             if ((temp_f1 >= TObjEneMe3Stelth__data_805DA840) && (temp_f1 <= TObjEneMe3Stelth__data_805DA820)) {
                 move_to_shot_position__9TObjEneDDFfff(arg0, (int) TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)arg0 + 0x3C8)], *(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8), TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)arg0 + 0x3C8)][2]);
             } else {
-                ((VObj_18_4f5f2e *)(arg0))->m100();
+                ((TObjEneDD *)(arg0))->vfunc_102();
             }
             if (*(f32 *)((s8 *)arg0 + 0xC0) >= 25.0f) {
                 *(f32 *)((s8 *)arg0 + 0xC0) = 25.0f;
@@ -2108,10 +2108,10 @@ void TObjEneMe3Stelth__sub_800F3214(u8 *arg0, s32 arg1) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x428) <= *(s32 *)&TObjEneMe3Stelth__behavior_params_by_variant[*(s32 *)((s8 *)arg0 + 0x3C8)][8]) {
                 *(f32 *)((s8 *)arg0 + 0xC0) = 25.0f;
             }
-            ((VObj_18_4f5f2e *)(arg0))->m100();
+            ((TObjEneDD *)(arg0))->vfunc_102();
             break;
         }
-        ((VObj_18_4f5f2e *)(arg0))->m87();
+        ((TObjEneDD *)(arg0))->vfunc_89();
         break;
     }
 }
@@ -3062,8 +3062,6 @@ struct VObj_14_2ab9de : VBase_14_2ab9de {
     virtual void m2();
     virtual s32 m3(f32);
 };
-
-typedef struct Tbl_800F5124 { u8 pad[0xC]; s32 t[3][2]; } Tbl_800F5124;
 
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);

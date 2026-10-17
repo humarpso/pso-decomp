@@ -503,14 +503,14 @@ void TOMine::follow_target() {
   VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
   VecCopy((Vec *)(&stack.sp8), (const Vec *)((this->target) + 0x38));
   stack.spC = *((f32 *) (((s8 *) arg0) + 0x3C));
-  subtract_vector(&stack.sp8, arg0 + 0x38);
+  subtract_vector(&stack.sp8, (u8 *)&this->position);
   if (lbl_805DB870 < vec_squared_length((u8 *)&stack.sp8))
   {
     normalize_vector(&stack.sp8);
     stack.sp8 *= lbl_805DB870;
     stack.sp10 *= lbl_805DB870;
   }
-  vec3_add_to(arg0 + 0x38, &stack.sp8);
+  vec3_add_to((u8 *)&this->position, &stack.sp8);
   ((TObjPlayer *)arg0)->update_enemy_collision_flags();
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
   *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) ((this->target) + 0x3C)))) - temp_f2)) + temp_f2);

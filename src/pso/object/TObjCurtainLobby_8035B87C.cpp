@@ -58,14 +58,13 @@ s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void) {
 void TObjCurtainLobby__sub_8035B8B4(void) {  }
 
 void TObjCurtainLobby::render() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
     if (((s32) this->m_c8 != 0) && ((u32) this->texture_id != 0U)) {
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         if ((s32) this->m_c8 != 3) {
             temp_f1 = *(f32 *)&this->unk_CC;

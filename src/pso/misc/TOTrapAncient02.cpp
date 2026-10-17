@@ -11,8 +11,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TTecZonde.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/misc/TOTrapAncient02.h"
-#include "pso/misc/TOTrapAncient02R.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -1063,14 +1061,13 @@ void TOTrapAncient02::vfunc_81() {
 extern "C" {
 
 void TOTrapAncient02::render_particle_chain() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     u8 *temp_r31_4;
 
     push_matrix();
-    post_translate_matrix(arg0 + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, this->rotation_y);
     temp_r31 = (unsigned char *) (this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
@@ -1113,7 +1110,6 @@ void TOTrapAncient02::render_particle_chain() {
 }
 
 void TOTrapAncient02::draw_effect_chain() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
@@ -1121,7 +1117,7 @@ void TOTrapAncient02::draw_effect_chain() {
 
     push_matrix();
     TObjFish::set_global_param(this->texture_id);
-    post_translate_matrix(arg0 + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, this->rotation_y);
     temp_r31 = (unsigned char *) (this->model);
     translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC) + this->h344), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));

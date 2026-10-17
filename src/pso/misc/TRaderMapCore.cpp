@@ -859,7 +859,6 @@ void TRaderMapCore::draw_enemy_gate_markers() {
 typedef char RecoveredGlobal_801FA350_lbl_8050BEC0_size[sizeof(RecoveredGlobal_801FA350_lbl_8050BEC0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_801FA350_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801FA350_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TRaderMapCore::draw_player_markers() {
-    u8 *arg0 = (u8 *)this;
     u8 *var_r31;
     s32 var_r30;
     lbl_805D5660 = model_render_flags;
@@ -868,7 +867,7 @@ void TRaderMapCore::draw_player_markers() {
     lbl_805D5668 = chunk_polygon_flags_or_mask;
     model_render_flags |= this->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x100);
-    var_r31 = (arg0 + 0x94);
+    var_r31 = ((u8 *)&this->player_marker_records);
     var_r30 = 0;
     do {
         if ((s16) *(s16 *)((s8 *)var_r31 + 0x16) != -1) {

@@ -1406,11 +1406,11 @@ void TObjEnePanarms::update_linked_effect() {
     s32 temp_r0;
 
     VecCopy((Vec *)(arg0 + 0x3A4), (const Vec *)(arg0 + 0x3E0));
-    if (((s32 (*)(void *, void *, void *))project_actor_to_ground)(arg0, arg0 + 0x3A4, &sp10) != 0) {
+    if (((s32 (*)(void *, void *, void *))project_actor_to_ground)(arg0, (u8 *)&this->unk_3A4, &sp10) != 0) {
         push_matrix();
         temp_f1 = this->m_3a8;
         this->m_3a8 = (f32) (temp_f1 + lbl_805DA58C);
-        post_translate_matrix(arg0 + 0x3A4, temp_f1);
+        post_translate_matrix((u8 *)&this->unk_3A4, temp_f1);
         direction_to_rotation_xz((u8 *)&sp10, (s32 *)&spC, (s32 *)&sp8);
         rotate_matrix_z(0, sp8);
         rotate_matrix_y(0, this->rotation_y);

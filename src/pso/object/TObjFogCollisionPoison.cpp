@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804AF7B0.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObjFogCollision_Manager.h"
 #include "pso/object/TObjFogCollisionPoison.h"
@@ -151,7 +152,7 @@ typedef char RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430_size
 u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80153258_lbl_804AF7C8 *)&lbl_804AF7C8).value;
-        *(s32 *)((s8 *)(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value) + (*(s32 *)((s8 *)arg0 + 0x28) * 4)) = 0;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value) + (((TObjFogCollision_Manager *)arg0)->m_28 * 4)) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)((s32) arg0));

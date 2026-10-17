@@ -14,7 +14,6 @@ struct RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW {
 };
 
 #include "pso/technique/TechniqueContact.h"
-#include "pso/npc/TObjNpcKenkyuW.h"
 #include "pso/misc/TLobby.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/npc/TObjNpcLappy.h"

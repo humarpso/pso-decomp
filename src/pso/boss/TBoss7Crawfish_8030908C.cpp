@@ -79,7 +79,7 @@ void TBoss7Crawfish::run_task() {
     if (!(*(s32 *)((s8 *)this->m_a4 + 0x18) & 0x02000000)) {
         submit_cursor_candidate(arg0, -1);
     }
-    add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805DF0FC);
+    add_radar_scaled_marker((u8 *)&this->position, -0x5DB4, 1, 1, lbl_805DF0FC);
     advance_animation_playback(arg0);
 }
 

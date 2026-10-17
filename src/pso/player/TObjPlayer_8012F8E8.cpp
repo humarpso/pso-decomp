@@ -36,7 +36,7 @@ void TUnk_804A65E0::emit_marker_effects() {
                 i += 1;
             } while (i != 0xA);
             if ((s32) ((TUnk_804A65E0 *)arg0)->m_204 != 0) {
-                ((TTecGiZonde *)(*(s32 *)((s8 *)arg0 + 0xF0)))->create(arg0 + 0x1F8, arg0 + 0x204, (void *) (((TObjPlayer *)arg0)->get_tp()));
+                ((TTecGiZonde *)(*(s32 *)((s8 *)arg0 + 0xF0)))->create((u8 *)&this->unk_1F8, (u8 *)&this->m_204, (void *) (((TObjPlayer *)arg0)->get_tp()));
             }
             ((TItemWeapon *)arg0)->roll_technique();
         }

@@ -10,7 +10,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/boss/TBoss8Dragon.h"
 #include <stddef.h>
 #include "pso/TObject.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -5715,7 +5714,6 @@ void release_grabbed_player__12TBoss8DragonFPv(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 void TBoss8Dragon::freeze_player_at_self() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     u8 *temp_r3;
     temp_r3 = ((u8 * (*)(s32))get_player_by_client_id)(this->m_750);
@@ -5724,7 +5722,7 @@ void TBoss8Dragon::freeze_player_at_self() {
             start_freeze__10TObjPlayerFv((int)temp_r3);
             set_type__10TObjPlayerFl(temp_r3 + 0x644, 0x14);
             *(s32 *)((s8 *)temp_r3 + 0x30) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x30) & 0xFFEFFFDF);
-            VecCopy__FP3VecPC3Vec(temp_r3 + 0x38, arg0 + 0x38);
+            VecCopy__FP3VecPC3Vec(temp_r3 + 0x38, (u8 *)&this->m_38);
             *(f32 *)((s8 *)temp_r3 + 0x3C) = (f32) (*(f32 *)((s8 *)temp_r3 + 0x3C) - lbl_805DEEB8);
             *(s32 *)((s8 *)temp_r3 + 0x60) = (s32) this->m_60;
             return;
@@ -5789,11 +5787,10 @@ void TBoss8Dragon__sub_802FB09C(s32 arg0) {
 }
 
 void TBoss8Dragon::spawn_ground_effect() {
-    u8 *arg0 = (u8 *)this;
     Stack_802FB0DC stack;
     f32 temp_f1;
     u8 *temp_r3;
-    VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(&stack.sp8, (u8 *)&this->m_38);
     temp_r3 = (u8 *)csnVecterUnder((s32)&stack.sp8, 0x16EF);
     if (temp_r3 != NULL) {
         temp_f1 = *(f32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 4)) + 4);
@@ -6618,8 +6615,8 @@ void TBoss8Dragon::run_task() {
     ((TBoss8Dragon *)arg0)->store_position();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     extern f32 TBoss8Dragon__data_805DED60;
-    add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, TBoss8Dragon__data_805DED60);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x640, arg0 + 0x2FC);
+    add_radar_scaled_marker((u8 *)&this->m_38, -0x5DB4, 1, 1, TBoss8Dragon__data_805DED60);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_640, arg0 + 0x2FC);
     if (temp_r30_2 == 0) {
         ((TObject *)(arg0 + 0x3C4))->run_tasks();
     }
@@ -6633,7 +6630,7 @@ void TBoss8Dragon::run_task() {
 
 u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TBoss8Dragon;
+        ((TBoss8Dragon *)arg0)->m_18 = __vt__12TBoss8Dragon;
         if (*(Del_802FD354 **)((s8 *)arg0 + 0x684) != NULL) {
             delete *(Del_802FD354 **)((s8 *)arg0 + 0x684);
             *(Del_802FD354 **)((s8 *)arg0 + 0x684) = NULL;

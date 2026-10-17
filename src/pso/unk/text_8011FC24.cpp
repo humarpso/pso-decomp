@@ -6,8 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 
-struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
-
 extern "C" {
 
 void TObjPlayer__sub_80100F34(void*);

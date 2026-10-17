@@ -239,11 +239,10 @@ void TObjGyaranzoMissile::sub_800D47B4() {
 }
 
 void TObjGyaranzoMissile::render() {
-    u8 *arg0 = (u8 *)this;
     TObjFish__sub_8001EDB0((void *)gyaranzo_bml_resource, 6);
     set_global_param__8TObjFishFl();
     push_matrix();
-    post_translate_matrix(arg0 + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_x(0, (int)this->m_5c);
     rotate_matrix_y(0, this->rotation_y);
     translate_matrix(0, lbl_805DA2C4, (f32) (*(f32 *)&this->_padD4 * sin_table_lookup((int) (*(s32 *)&this->m_cc))), lbl_805DA2C4);

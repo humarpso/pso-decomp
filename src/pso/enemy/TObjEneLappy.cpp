@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneLappy.h"
 extern "C" void test_flag_256__12TObjEneLappyFv();
-#include "pso/enemy/TObjEneLappy.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -9,7 +8,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
-#include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"

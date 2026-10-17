@@ -12,7 +12,6 @@ TAdMultiSelGameModeGC::~TAdMultiSelGameModeGC() {}
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdStorySelectGC.h"
 #include "pso/TLevelSelect.h"
-#include "pso/enemy/TObjEneDolmOlm.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 

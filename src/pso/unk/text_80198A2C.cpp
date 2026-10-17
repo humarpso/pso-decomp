@@ -76,9 +76,7 @@ struct Pad_80198A2C { u8 pad0[0x10]; s16 buttons; };
 struct Sys_80198A2C { u8 pad0[0x48]; u16 mode; };
 
 extern "C" {
-void queue_destruction__7TObjectFv(void *arg0);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C boss3_volopt_init_vec;

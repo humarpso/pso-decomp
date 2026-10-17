@@ -50,7 +50,6 @@ struct Type3MotionView { s32 kind, flags, motions[3]; };
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TLobby.h"
 #include "pso/misc/TTecGrants.h"
 #include "pso/misc/TTecRaBarta.h"
 #include "pso/misc/TTecRaFoie.h"

@@ -58,7 +58,6 @@ struct Self_802219A0 {
 };
 
 #include "pso/misc/TWindowHelpItem.h"
-#include "pso/item/TItem.h"
 #include "pso/misc/TCheckRoomSequence.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"

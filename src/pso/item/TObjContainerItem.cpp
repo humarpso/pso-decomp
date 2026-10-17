@@ -5,7 +5,6 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/item/TObjContainerItem.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 extern "C" void roll_physical_accuracy__13TUnk_804B6C24FPvlf();

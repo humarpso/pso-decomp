@@ -68,7 +68,7 @@ void TItemMagSub::set_motion_type(s32 arg1) {
             VecCopy((Vec *)(arg0 + 0xA0), (const Vec *)(temp_r5 + 0x2FC));
             return;
         }
-        ((VObj_80114950 *)temp_r5)->m63(elem, arg0 + 0xA0);
+        ((VObj_80114950 *)temp_r5)->m63(elem, (u8 *)&this->follow_anchor);
     }
 }
 void TItemMagSub::transition_motion_type(s32 type) {
@@ -428,7 +428,7 @@ void TItemMagSub::apply_placement_matrix() {
   s32 a2;
   s32 a3;
   s32 a4;
-  post_translate_matrix(arg0 + 0xA0);
+  post_translate_matrix((u8 *)&this->follow_anchor);
   if (obj_isState7_324((void *)this->owner) != 0)
   {
     feed = (void *) ((TItemMagSub *)arg0)->resolve_owner_heading();
@@ -438,7 +438,7 @@ void TItemMagSub::apply_placement_matrix() {
   {
     rotate_matrix_y(0, (void *) (*((s32 *) (((s8 *)this->owner) + 0x60))));
   }
-  post_translate_matrix(arg0 + 0xAC);
+  post_translate_matrix((u8 *)&this->translation_offset);
   temp_r6 = (unsigned char *) (this->motion);
   if (temp_r6 != 0)
   {

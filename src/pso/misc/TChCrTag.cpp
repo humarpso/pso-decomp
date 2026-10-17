@@ -3,7 +3,6 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/TChCrTag.h"
 extern "C" void render__8TChCrTagFv();
-#include "pso/TChCrTag.h"
 #include "pso/TChCrCharSelect.h"
 
 struct VBase_18_c1c33b { char pad[0x18]; };

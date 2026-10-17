@@ -138,7 +138,7 @@ void *__dt__13TUnk_80484AFCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484AFC;
         free_collision_body_parts(arg0);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xE0) != 0U) {
+        if ((u32) *(u32 *)&((TUnk_80484AFC *)arg0)->m_e0 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0));
         }
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);

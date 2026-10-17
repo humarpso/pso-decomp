@@ -64,13 +64,13 @@ void TUnk_804A4F60::vfunc_17(s32 arg1) {
         switch (arg1)
         {
           case 0:
-            TObjPlayer::create_tec_zonde((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), arg0 + 0x1FC, arg0 + 0x208, (void *)(0xA));
+            TObjPlayer::create_tec_zonde((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (u8 *)&this->m_1fc, (u8 *)&this->unk_208, (void *)(0xA));
             return;
           case 1:
-            TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), arg0 + 0x1FC, (void *)this->m_264, (void *)(0xA));
+            TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (u8 *)&this->m_1fc, (void *)this->m_264, (void *)(0xA));
             return;
           case 2:
-            ((TTecBarta *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->create_ex(arg0 + 0x268, (void *)this->m_264, (void *)(0xA));
+            ((TTecBarta *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->create_ex((u8 *)&this->unk_268, (void *)this->m_264, (void *)(0xA));
             break;
         }
       }

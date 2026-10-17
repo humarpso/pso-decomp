@@ -22,13 +22,7 @@ void *__ct__20TItemReverseTechCtrlFv(void *arg0) {
     return arg0;
 }
 
-}
-
 #define __ct__20TItemReverseTechCtrlFv (*(void * (*)(void *, void *))&__ct__20TItemReverseTechCtrlFv)
-
-#include "pso/TItemReverseTechCtrl.h"
-
-extern "C" {
 
 void *__nw__7TObjectFUl(int);
 

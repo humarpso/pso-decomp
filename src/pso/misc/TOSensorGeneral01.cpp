@@ -116,7 +116,7 @@ void TOSensorGeneral01::render() {
     Node_801760A8 *n;
     if (((VObj_801760A8 *)(arg0))->m8(this->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         n = *(Node_801760A8 * *)&this->model;
         translate_matrix(0, n->x, n->y, n->z);

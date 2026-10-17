@@ -8,7 +8,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/animation/ActorAnimationState.h"
-#include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"

@@ -821,7 +821,7 @@ void TWindowMenu::run_task() {
     ((TWindowMenu *)arg0)->update_target_y();
     ((TWindowMenu *)arg0)->clamp_menu_choice_scroll();
     ((TWindowMenu *)arg0)->advance_past_disabled_menu_rows();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
 }
 
 void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {

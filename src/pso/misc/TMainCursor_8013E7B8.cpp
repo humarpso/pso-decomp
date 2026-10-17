@@ -60,7 +60,6 @@ void TMainCursor::init_slot(s32 i) {
 }
 
 #include "pso/TAdRicoRing.h"
-#include "pso/misc/TLockOnCursor.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {

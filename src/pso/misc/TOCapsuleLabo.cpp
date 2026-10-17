@@ -110,7 +110,7 @@ void TOCapsuleLabo::render() {
         }
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         post_translate_matrix(temp_r31 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));

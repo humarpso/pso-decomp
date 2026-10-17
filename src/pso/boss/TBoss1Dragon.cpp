@@ -27,7 +27,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
-#include "pso/boss/TUnk_80481B34.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void apply_paralysis__12TBoss1DragonFv();
@@ -4138,7 +4137,7 @@ void TBoss1Dragon::update_head_down_attack_state(u32 arg1) {
                 ((void (*)(void *))sweep_head_fall_spheres_late__12TBoss1DragonFv)(arg0);
             }
             if ((s16) this->m_b8 != 8) {
-                enable_dragon_blocking_bodies((int) (*(s32 *)((s8 *)arg0 + 0x68C)), arg0 + 0x38, this->rotation_y);
+                enable_dragon_blocking_bodies((int) (*(s32 *)((s8 *)arg0 + 0x68C)), (u8 *)&this->position, this->rotation_y);
                 this->impactAge = 1;
                 return;
             }
@@ -4664,7 +4663,7 @@ void TBoss1Dragon::update_breath_attack_state(u32 arg1) {
                 if ((s32) this->impactAge >= 2) {
                     u8 *o = __nw__7TObjectFUl(0x38);
                     if (o != 0) {
-                        __ct__21TBoss1DragonEffBreathFP7TObjectPvPv(o, arg0 + 0x3C4, arg0 + 0x40C, arg0 + 0x418);
+                        __ct__21TBoss1DragonEffBreathFP7TObjectPvPv(o, (u8 *)&this->unknown3C4, arg0 + 0x40C, arg0 + 0x418);
                     }
                     this->impactAge = 0;
                 }

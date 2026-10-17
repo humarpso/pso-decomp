@@ -1771,7 +1771,7 @@ void TUnk_80484610::run_task() {
             copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
             submit_cursor_candidate(arg0, -1);
             minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
-            update_obstruction_fade(arg0 + 0x490);
+            update_obstruction_fade((u8 *)&this->unk_490);
             this->clear_all_status_effects();
         }
     }

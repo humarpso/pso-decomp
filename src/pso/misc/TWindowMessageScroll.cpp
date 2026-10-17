@@ -27,7 +27,7 @@ void TWindowMessageScroll::run_task() {
     retire_scrolled_lines__14TWindowMessageFv(temp_f1);
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
     if ((((TUnk_804CE018 *)arg0)->sub_80244994() != 0) && (*(f32 *)&this->unk_80 <= this->m_6c)) {
         *this->m_98 = 1;
     }

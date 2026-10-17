@@ -8,7 +8,6 @@ struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
 };
 
 #include <stddef.h>
-#include "pso/misc/TShopGenerator.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TMedicalCenterMes.h"

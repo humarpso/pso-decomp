@@ -122,10 +122,9 @@ extern s32 dragon_common_texture_list;
 extern s32 model_render_flags;
 
 void TObjBoss1Crater::render() {
-    u8 *arg0 = (u8 *)this;
     push_matrix();
     TObjFish::set_global_param(dragon_common_texture_list);
-    post_translate_matrix(arg0 + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, this->rotation_y);
     model_render_flags |= 0x01000000;
     draw_chunk_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 8)));

@@ -10,8 +10,6 @@ struct CreationCameraVTable { void* reserved[2]; void (*methods[10])(); };
 
 struct CreationHeightBounds { f32 minimum, maximum; };
 
-#include "pso/camera/CreationCamera.h"
-
 struct Cam_80291784 {
     u8 pad[0x78];
     s32 mode;

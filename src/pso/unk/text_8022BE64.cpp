@@ -4,7 +4,6 @@
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecReverser.h"
-#include "pso/unk/TUnk_804CC148.h"
 
 struct V3_8022BEAC { s32 x; s32 y; s32 z; };
 
@@ -81,7 +80,7 @@ void TUnk_804CC148::sub_8022C008() {
     s32 temp_r3;
 
     temp_r3 = (long) (arg0 + 0x20);
-    approach_vector_fixed_distance(temp_r3, arg0 + 0x7C, temp_r3, (f32) (*(f32 *)((s8 *)arg0 + 0x64)));
+    approach_vector_fixed_distance(temp_r3, (u8 *)&this->m_7c, temp_r3, (f32) (*(f32 *)((s8 *)arg0 + 0x64)));
 }
 
 #pragma pop
@@ -142,7 +141,6 @@ extern const f32 lbl_805DC7C0;
 extern const f32 lbl_805DC7C4;
 extern const f32 lbl_805DC7C8;
 u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-u8 *__ct__13TUnk_804CC148Flll(u8 *arg0, s32 arg1, s32 arg2, s32 arg4);
 
 }
 TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {

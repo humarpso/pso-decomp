@@ -89,7 +89,6 @@ s32 is_valid_and_active__10TObjPlayerFUl(int);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 
-void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 #define __dl__7TObjectFPv ((s32 (*)(void *))__dl__7TObjectFPv)
 void destroy_technique_base__13TUnk_804CC148Fs(void *, int);

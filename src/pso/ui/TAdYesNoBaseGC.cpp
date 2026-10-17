@@ -59,7 +59,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TAdYesNoBaseGC::sub_8032C0B4() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;
-    temp_r31 = update_window_mode_from_progress__6TLobbyFPv(arg0 + 0x30, arg0 + 0x38);
+    temp_r31 = update_window_mode_from_progress__6TLobbyFPv((u8 *)&this->unk_30, (u8 *)&this->unk_38);
     send_and_handle__6TLobbyFii(temp_r31, (void *) (((VObj_18 *)(arg0))->m8()), 1);
     return temp_r31;
 }
@@ -146,8 +146,8 @@ extern s32 __vt__14TAdYesNoBaseGC[];
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdYesNoBaseGC;
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)((s8 *)arg0 + 0x44) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)&((TAdYesNoBaseGC *)arg0)->m_40 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)&((TAdYesNoBaseGC *)arg0)->m_44 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

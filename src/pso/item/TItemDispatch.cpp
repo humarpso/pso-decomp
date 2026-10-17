@@ -234,9 +234,6 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 void obj_setFlags30(void *, u32);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 void sub_8010043C__5TItemFUc(void *, s32);

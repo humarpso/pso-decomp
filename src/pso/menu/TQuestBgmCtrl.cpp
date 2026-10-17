@@ -8,10 +8,8 @@ s32 TQuestBgmCtrl__area_bgm_index;
 TQuestBgmCtrl* TQuestBgmCtrl__instance;
 extern "C" const char* TQuestBgmCtrl__class_name;
 
-extern "C" {
 extern s32 quest_mission_manager;
 extern void *quest_bgm_area_filename_table[];
-}
 
 extern "C" __declspec(section ".rodata") const char quest_bgm_epi1_filename[] = "epi1.adx";
 extern "C" __declspec(section ".rodata") const char quest_bgm_epi2_filename[] = "epi2.adx";

@@ -7,7 +7,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEneSaver.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
@@ -1616,7 +1615,7 @@ void TObjEneSaver::init_render_flags() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
 
-    ((TBoss4DarkFalz *)arg0)->set_position_from(arg0 + 0x50);
+    ((TBoss4DarkFalz *)arg0)->set_position_from((u8 *)&this->m_50);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     *(s32 *)&(this->actorFlags) = (s32) (*(s32 *)&(this->actorFlags) & 0xFFDFFFFF);
     *(s32 *)&(this->actorFlags) = (s32) (*(s32 *)&(this->actorFlags) | 0x06040000);

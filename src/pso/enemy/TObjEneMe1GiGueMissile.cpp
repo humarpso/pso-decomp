@@ -125,7 +125,7 @@ void TObjEneMe1GiGueMissile::render() {
   }
   push_matrix();
   TParticleCtrl::begin_effect_render();
-  post_translate_matrix(arg0 + 0x6C);
+  post_translate_matrix((u8 *)&this->m_6c);
   bml_motion = this->m_a4;
   rotate_matrix_y(0, bml_motion);
   rotate_matrix_x(0, this->m_a0);

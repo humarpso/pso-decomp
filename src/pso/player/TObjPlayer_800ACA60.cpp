@@ -1660,7 +1660,7 @@ void TObjEneMoja::run_task() {
     }
     temp_f1 = this->m_2b4;
     this->m_2b4 = (f32) (temp_f1 + lbl_805D9BDC);
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0, temp_f1);
+    minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0, temp_f1);
 }
 
 }

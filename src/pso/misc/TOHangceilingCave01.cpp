@@ -30,8 +30,6 @@ struct Inner_8016775C { u8 pad[0xC]; s32 f0C; };
 
 struct Big_8016775C { u8 pad[0x42C]; Inner_8016775C *p; };
 
-struct Buf_8016775C { s32 a; s32 b; s32 c; s32 d; };
-
 typedef char RecoveredGlobal_80167878_lbl_804B1F80_size[sizeof(RecoveredGlobal_80167878_lbl_804B1F80) == 0x160 ? 1 : -1];
 
 typedef char RecoveredGlobal_80167878___vt__16TOFenceAncient04_size[sizeof(RecoveredGlobal_80167878___vt__16TOFenceAncient04) == 0x48 ? 1 : -1];

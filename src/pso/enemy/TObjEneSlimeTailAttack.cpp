@@ -11,8 +11,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include <stddef.h>
-#include "pso/enemy/TObjEneSlimeOne.h"
-#include "pso/enemy/TObjEneSlimeWaterBomb.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -1869,7 +1867,7 @@ void TObjEneSlimeOne::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     if ((s32) this->m_384 != 0xC) {
         if (((s32) this->m_2d4 < (s32) lbl_805D586C) && (((u32 (*)(void))get_player_by_client_id)() != 0U) && (check_player_field_7cc__15TObjEneSlimeOneFv() == 2) && ((u32) this->m_3f0 != 0U) && (((TObject *)((void *) this->m_3f0))->all_parents_unqueued_for_destruction() != 0)) {
-            try_spawn_child__15TObjEneSlimeOneFiPv(this->m_3f0, arg0 + 0x38);
+            try_spawn_child__15TObjEneSlimeOneFiPv(this->m_3f0, (u8 *)&this->position);
         }
         this->actorFlags = (s32) (this->actorFlags & 0xFFFFFDFF);
         ((TObjEneSlimeOne *)arg0)->set_state((s32)((void*)(0xC)));

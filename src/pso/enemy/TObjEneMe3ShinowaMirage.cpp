@@ -139,7 +139,6 @@ struct Self_800E3DFC : VB18_800E3DFC {
 };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
 struct VBase_14_85ec0b { char pad[0x14]; };

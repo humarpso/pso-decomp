@@ -40,7 +40,7 @@ void TObjEneMe1Gee_NEEDLE::render() {
     }
     push_matrix();
     TParticleCtrl::begin_effect_render();
-    post_translate_matrix(arg0 + 0x6C);
+    post_translate_matrix((u8 *)&this->m_6c);
     rotate_matrix_y(0, this->m_a4);
     rotate_matrix_x(0, this->m_a0);
     TObjFish__sub_8001EDB0((void *)me1gee_cached_model_handle, 1);

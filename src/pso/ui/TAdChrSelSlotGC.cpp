@@ -171,9 +171,9 @@ void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x4C)));
             *(u32 *)((s8 *)arg0 + 0x4C) = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x48) != 0U) {
+        if ((u32) ((TUnk_804E0B28 *)arg0)->m_48 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x48)));
-            *(u32 *)((s8 *)arg0 + 0x48) = 0U;
+            ((TUnk_804E0B28 *)arg0)->m_48 = 0U;
         }
         lbl_805D67E8 = 0;
         __dt__7TObjectFv(arg0, 0);

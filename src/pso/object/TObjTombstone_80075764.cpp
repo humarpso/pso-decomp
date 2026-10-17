@@ -16,7 +16,6 @@ extern u32 TObjTombstone__shared_resource_object;
 extern s32 tombstone_first_run_flag;
 
 void TObjTombstone::update_render_flags() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     s32 *temp_r4;
 
@@ -36,7 +35,7 @@ void TObjTombstone::update_render_flags() {
             *temp_r4 &= 0xFFFFFFF7;
         }
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object((this->model));

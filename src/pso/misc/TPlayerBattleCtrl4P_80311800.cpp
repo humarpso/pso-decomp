@@ -18,8 +18,6 @@ struct Ids_80311C2C { s32 a; s32 b; s32 c; s32 d; };
 
 struct O_80311C2C { u8 pad[0x20]; void *w0; void *w1; u8 pad2[0x294 - 0x28]; Ids_80311C2C *ids; };
 
-struct Ctl_803119BC { u8 pad[0x20]; void *w20; void *w24; };
-
 extern "C" {
 u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFv();

@@ -704,7 +704,7 @@ void TObjEneEpsilonGuard::handle_break_state(s32 arg1) {
         set_field_378(4);
         ((G_8035E430 *)this)->flags |= 0x40;
         ((G_8035E430 *)this)->flags &= ~0x14;
-        ((VO_8035E430 *)this)->m94();
+        this->vfunc_96();
         TObjPlayer::spawn_effect_f8((s32)(((G_8035E430 *)this)->x460), 0x14);
         ((G_8035E430 *)this)->x430 = 0;
         ((G_8035E430 *)this)->x434 = 0;

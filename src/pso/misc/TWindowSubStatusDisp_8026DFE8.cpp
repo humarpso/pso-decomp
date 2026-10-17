@@ -52,7 +52,7 @@ void TUnk_804D0948::render() {
     }
     p = *(void * *)&this->unk_84;
     if (p != NULL) {
-        draw_window_scrollbar(p, temp_r3, arg0 + 0x68);
+        draw_window_scrollbar(p, temp_r3, (u8 *)&this->m_68);
     }
 }
 #pragma pop

@@ -102,7 +102,7 @@ void TODoorVoShip::render() {
     u8 *temp_r31_4;
     if ((((VObj_801639B4 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (*(s32 *)&this->m_cc & 0xE)) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->m_bc), (void *)(*(s32 *)&this->m_d0), this->m_b0);

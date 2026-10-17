@@ -97,7 +97,6 @@ void TOSwitchItem::update_anim() {
 }
 
 void TOSwitchItem::render() {
-    u8 *arg0 = (u8 *)this;
     Stack_80177DC0 stack;
     if (TObjPlayer::check_demo_mode() == 1) {
         stack.sp8 = lbl_805DBA10;
@@ -105,7 +104,7 @@ void TOSwitchItem::render() {
         stack.sp10 = lbl_805DBA10;
         stack.sp14 = lbl_805DBA14;
         newton_sqrtf(this->m_e8);
-        TObjRoomId__sub_80141CF4(arg0 + 0x38, &stack.sp8);
+        TObjRoomId__sub_80141CF4((u8 *)&this->position, &stack.sp8);
     }
 }
 

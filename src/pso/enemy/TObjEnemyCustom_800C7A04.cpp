@@ -129,7 +129,7 @@ void TObjEnemyCustom::update_wander_state() {
             if ((*(f32 *)((s8 *)temp_r3 + 0) < temp_f1) || (temp_f1 < *(f32 *)((s8 *)temp_r3 + 4))) {
                 this->target = NULL;
             }
-            ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)this->movementParameters + 8))), arg0 + 0x308);
+            ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)this->movementParameters + 8))), (u8 *)&this->unk_308);
         }
         apply_actor_gravity(arg0, (s32 *)(0), lbl_805DA070);
         update_collisions__10TObjPlayerFv(arg0);

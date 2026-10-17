@@ -2403,7 +2403,7 @@ void TObjEneMe3ShinowaReal__sub_800E5950(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 2;
         ((TObjEneDD *)arg0)->set_field_378(7);
-        ((VObj_18_dc3190 *)(arg0))->m94();
+        ((TObjEneDD *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3C4) &= 0xFFFFFFFC;
         *(s32 *)((s8 *)arg0 + 0x3D8) = 0;
         *(s32 *)((s8 *)arg0 + 0x404) = 3;
@@ -2444,33 +2444,33 @@ void TObjEneMe3ShinowaReal__sub_800E5950(u8 *arg0, s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x40C)), 0x31C7);
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= TObjEneMe3ShinowaReal__data_805DA5CC) {
                 *(s32 *)((s8 *)arg0 + 0x404) = 1;
-                ((VObj_18_dc3190 *)(arg0))->m89();
+                ((TObjEneDD *)(arg0))->vfunc_91();
                 play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD11), arg0 + 0x38, 0, 0);
             }
-            ((VObj_18_dc3190 *)(arg0))->m100();
-            ((VObj_18_dc3190 *)(arg0))->m87();
+            ((TObjEneDD *)(arg0))->vfunc_102();
+            ((TObjEneDD *)(arg0))->vfunc_89();
             return;
         case 1:
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= lbl_805DA610) {
                 *(s32 *)((s8 *)arg0 + 0x404) = 2;
-                ((VObj_18_dc3190 *)(arg0))->m90();
+                ((TObjEneDD *)(arg0))->vfunc_92();
                 play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AD12), arg0 + 0x38, 0, 0);
                 spawn_particle_effect(arg0 + 0x38, 0xF3);
             }
             ((TObjEneDD *)arg0)->move_clamped_on_ground((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), (f32) (*(f32 *)((s8 *)arg0 + 0x410)));
-            ((VObj_18_dc3190 *)(arg0))->m86();
+            ((TObjEneDD *)(arg0))->vfunc_88();
             return;
         case 2:
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x404) = 3;
             }
-            ((VObj_18_dc3190 *)(arg0))->m100();
-            ((VObj_18_dc3190 *)(arg0))->m87();
+            ((TObjEneDD *)(arg0))->vfunc_102();
+            ((TObjEneDD *)(arg0))->vfunc_89();
             return;
         }
         break;
     case 5:
-        ((VObj_18_dc3190 *)(arg0))->m90();
+        ((TObjEneDD *)(arg0))->vfunc_92();
         ((TObjEneDD *)arg0)->clear_field_388();
         break;
     }

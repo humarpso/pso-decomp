@@ -961,7 +961,7 @@ void TCameraCtrl::update_target_smoothing() {
     if ((temp_r3_2 != NULL) && !(*(s32 *)((s8 *)temp_r3_2 + 0x38) & 0x10)) {
         *(f32 *)&this->unk_188 = (f32) *(f32 *)&this->unk_1B0;
     }
-    approach_camera_vector(arg0 + 0x184, arg0 + 0x1AC, this->m_1bc);
+    approach_camera_vector((u8 *)&this->m_184, (u8 *)&this->m_1ac, this->m_1bc);
 }
 
 void TCameraCtrl::update_position() {
@@ -1001,15 +1001,15 @@ void TCameraCtrl::update_pose_smoothing() {
     temp_r30 = (u8 *) (arg0 + (TCameraCtrl::get_camera_no() * 0xC));
     new_var = (temp_r30 + 0xD4);
     temp_r31 = new_var;
-    approach_camera_vector((void *) temp_r31, arg0 + 0x1A0, (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
+    approach_camera_vector((void *) temp_r31, (u8 *)&this->unk_1A0, (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
     VecCopy((Vec *)(arg0 + 0x178), (const Vec *)temp_r31);
     current = (temp_r30 + 0x104);
-    approach_camera_vector((void *) current, arg0 + 0x1AC, this->m_1bc);
+    approach_camera_vector((void *) current, (u8 *)&this->m_1ac, this->m_1bc);
     VecCopy((Vec *)(arg0 + 0x184), (const Vec *)current);
     return;
   }
-  approach_camera_vector(arg0 + 0x178, arg0 + 0x1A0, (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
-  approach_camera_vector(arg0 + 0x184, arg0 + 0x1AC, this->m_1bc);
+  approach_camera_vector((u8 *)&this->unk_178, (u8 *)&this->unk_1A0, (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
+  approach_camera_vector((u8 *)&this->m_184, (u8 *)&this->m_1ac, this->m_1bc);
 }
 typedef char RecoveredGlobal_80069C94_camera_controller_registry_size[sizeof(RecoveredGlobal_80069C94_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];

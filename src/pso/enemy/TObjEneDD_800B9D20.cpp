@@ -38,9 +38,8 @@ int set_param__12TObjEneLappyFl(void*);
     extern int model_render_flags;
 
 void TObjEneDD::vfunc_100() {
-    u8 *arg0 = (u8 *)this;
     if (!(this->actorFlags & 0x40800)) {
-        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+        minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
     }
 }
 

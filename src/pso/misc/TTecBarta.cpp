@@ -15,7 +15,6 @@ struct RecoveredGlobal_8022B6FC_lbl_804CC55C
   u8 remaining[0x94];
 };
 
-#include "pso/misc/TTecBarta.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TTecAnti.h"
 #include "pso/player/TObjPlayer.h"

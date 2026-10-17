@@ -34,7 +34,7 @@ void TOAirconCave02::render() {
     temp_r31 = *(s32 *)((s8 *)((unsigned char *) (*(void **)((s8 *)TOAirconCave02__bml_resource + 0x42C))) + 8);
     if (((VObj570D4_801570d4 *) arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object((void *)temp_r31);

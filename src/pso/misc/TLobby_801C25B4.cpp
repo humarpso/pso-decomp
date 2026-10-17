@@ -360,14 +360,11 @@ typedef struct Msg_801C2D54 {
 } Msg_801C2D54;
 
 extern "C" {
-void build_6x7D_set_battle_mode_data(void *p);
-extern s32 local_client_id;
 void TLobby__sub_801C2C34(void);
 extern u8 TLobby__battle_player_ready_flags;
 void clear_battle_player_ready_flags(void);
 u64 OSGetTime(void);
 void obj_clear_flag30_20000(void *);
-s32 update_battle_controller__10TObjPlayerFv();
 void clear_counter__6TLobbyFPv(void *a0);
 void init_with_name__6TLobbyFPvPvPvPv(void *, void *, void *, s32);
 void handle_battle_result__6TLobbyFii(u16, s32);
@@ -376,9 +373,6 @@ void TObjEneRe4Sorcerer__sub_801E3F18(void);
 void *__nw__7TObjectFUl(u32);
 extern char lbl_80446FF0[];
 extern char lbl_80446FFC[];
-extern s16 battle_event_second_table[];
-extern s32 local_client_id;
-extern s32 TLobby__battle_ctrl_default_value;
 void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
@@ -387,40 +381,28 @@ void destroy_matching_children__6TLobbyFPv(void *arg0);
 s32 obj_getField1c();
 void reset_cameras_to_actor(void *actor, s32 arg1);
 s32 TObjPlayer__send_selected_spawn_position(s32, u16);
-s32 update_battle_controller__10TObjPlayerFv();
-void destroy_matching_children__6TLobbyFPv(void *arg0);
 extern u16 battle_mode_data_table[];
 extern s32 tl_05;
 void finish_chr_select_scene_init__6TLobbyFv(void);
-void build_6x7D_set_battle_mode_data(void *p);
 s32 rand();
 void send_6x7D_set_battle_mode_data(void);
 s32 obj_set_flag_20000();
-s32 update_battle_controller__10TObjPlayerFv();
 s32 calc_player_rankings__6TLobbyFPv(void *);
 s32 apply_game_settings__6TLobbyFii(void *, s32);
 s32 close_and_play_effect__6TLobbyFii(u16, s32);
 s32 TLobby__sub_801C417C();
 s32 set_slot__23TAdSinglePlyChrSelectGCFi(u16);
 s32 TAdSinglePlyChrSelectGC__sub_801FCE6C();
-extern s32 TLobby__battle_team_table[];
-extern s32 local_client_id;
 void init_battle_round__6TLobbyFPv(void *arg0);
 s32 check_all_players_ready__6TLobbyFv(void);
 void init__6TLobbyFPv(void *arg0);
 void TLobby__sub_8020BB18(void);
 void TLobby__sub_8020BCE4(void);
-u32 get_player_by_client_id(s32);
-s32 close_and_play_effect__6TLobbyFii(u16, s32);
 void clear_trap_counts(s8 *arg0);
 s32 destroy_children_with_tag(s32);
 
-s32 obj_set_flag_20000();
 s32 set_flag_270__6TLobbyFPv();
 s32 set_type__10TObjPlayerFl(s32, s32);
-s32 update_battle_controller__10TObjPlayerFv();
-
-extern u8 TLobby__battle_player_ready_flags;
 
 s32 check_all_players_ready__6TLobbyFv(void) {
     u8 *var_r31;
@@ -443,7 +425,6 @@ loop_1:
     return var_r30;
 }
 
-extern s32 local_client_id;
 extern s32 tl_00;
 extern s32 tl_01;
 
@@ -1807,7 +1788,6 @@ void update_battle_intro__6TLobbyFPv(Lobby_801C49B8 *self) {
 }
 #pragma pop
 
-#include "pso/TPlayerBattleCtrl.h"
 #pragma push
 namespace P4_801C4CE0 {
 

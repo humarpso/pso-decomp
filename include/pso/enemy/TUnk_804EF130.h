@@ -6,7 +6,9 @@
 class TUnk_804EF130 : public TUnk_804AF8A0 {
 public:
     virtual ~TUnk_804EF130();
-    u8 unk_AC[0x50];
+    u8 unk_AC[0x34];
+    void * m_e0;
+    u8 unk_E4[0x18];
 };
 typedef char TUnk_804EF130_size[sizeof(TUnk_804EF130) == 0xFC ? 1 : -1];
 

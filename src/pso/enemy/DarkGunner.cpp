@@ -11,7 +11,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/enemy/TUnk_804909C4.h"
 #include "pso/enemy/TObjEneDarkGunner.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -971,7 +970,7 @@ void TObjEneDarkGunner::vfunc_61() {
     u8 *arg0 = (u8 *)this;
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x100U));
     spawn_particle_effect(((u8 *)&this->m_2fc), 0xD7);
-    play_sound_effect(0x4003B22D, arg0 + 0x38, 0, 0);
+    play_sound_effect(0x4003B22D, (u8 *)&this->position, 0, 0);
 }
 
 int TObjPlayer__sub_800A1808(void* p) { return (*(u32*)((char*)p + 0x30) >> 23) & 0x1; }
@@ -1497,11 +1496,11 @@ void TUnk_804909C4::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
-    vec3_add_to(arg0 + 0x38, arg0 + 0xAC);
+    vec3_add_to((u8 *)&this->position, (u8 *)&this->unk_AC);
     {
         void *p = (void *) this->m_d0;
         if (p != NULL) {
-            ((TNowLoading *)p)->copy_pos(arg0 + 0x38);
+            ((TNowLoading *)p)->copy_pos((u8 *)&this->position);
         }
     }
     if (TObjPlayer__sub_800A3290((Obj_800A3290 *)(arg0), (s32)((int) (*(u16 *)((s8 *)arg0 + 0xC8)))) != 0) {
@@ -1520,7 +1519,7 @@ void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804909C4;
         free_collision_body_parts(arg0);
         if ((u32) *(u32 *)((s8 *)arg0 + 0xD0) != 0U) {
-            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD0));
+            queue_destruction__7TObjectFv(((TUnk_804909C4 *)arg0)->m_d0);
         }
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {

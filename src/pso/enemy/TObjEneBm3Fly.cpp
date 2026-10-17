@@ -16,7 +16,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEneBm3Fly.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 
 struct VBase800AFB60_800AFB28 { char pad[0x18]; };

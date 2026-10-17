@@ -38,7 +38,7 @@ void TObjPlayer::on_zone_exit() {
 
     if (((VObj18_80166970 *) arg0)->m8(*(f32 *)&this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param((int) (*(s32 *)&this->texture_id));
         if ((s32) (*(s32 *)&this->m_d0) == 0) {

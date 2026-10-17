@@ -677,7 +677,7 @@ void TObjEnePanarms::update_fall() {
   Stack_800DDFDC stack;
   f32 temp_f1;
   *((f32 *) (((s8 *) arg0) + 0x37C)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x37C))) + lbl_805DA4D8);
-  vec3_add_to(arg0 + 0x38, arg0 + 0x378);
+  vec3_add_to((u8 *)&this->position, (u8 *)&this->m_378);
   if ((*((f32 *) (((s8 *) arg0) + 0x37C))) <= TObjEnePanarms__data_805DA4A0)
   {
     ;

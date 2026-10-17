@@ -5,7 +5,6 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
-#include "pso/enemy/TObjEneMerillLia.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TUnk_80493450.h"

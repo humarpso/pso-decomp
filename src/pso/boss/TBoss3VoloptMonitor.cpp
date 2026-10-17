@@ -10,7 +10,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEnemyCustom.h"
-#include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/object/TObjFish.h"

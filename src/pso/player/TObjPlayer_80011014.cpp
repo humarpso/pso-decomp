@@ -5,13 +5,10 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/player/TUnk_804806E8.h"
 extern "C" void apply_switch_attack__13TUnk_804806E8Fv();
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/player/TUnk_804806E8.h"
 extern "C" void apply_anti_technique__13TUnk_804806E8Fl();
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/player/DamageBookkeeping.h"

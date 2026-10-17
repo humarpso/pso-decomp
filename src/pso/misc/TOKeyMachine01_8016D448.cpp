@@ -82,7 +82,7 @@ void TOKeyMachine01::render() {
     if (((VObj_8016D540 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         TObjFish::set_global_param(TOKeyMachine01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix(temp_r31 + 8);
@@ -96,7 +96,7 @@ void TOKeyMachine01::render() {
         TParticleCtrl::begin_effect_render();
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
-        post_translate_matrix(arg0 + 0x68);
+        post_translate_matrix((u8 *)&this->scale);
         post_translate_matrix(temp_r31_2 + 8);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         temp_r31_3 = *(u8 **)((s8 *)temp_r31_2 + 0x2C);

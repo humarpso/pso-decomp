@@ -12,7 +12,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEneGyaranzo.h"
 #include <stddef.h>
 typedef char GyaranzoPositionOffset[offsetof(TObjEneGyaranzo, position) == 0x38 ? 1 : -1];
 typedef char GyaranzoYawOffset[offsetof(TObjEneGyaranzo, rotation_y) == 0x60 ? 1 : -1];
@@ -1336,7 +1335,7 @@ void TObjEneGyaranzo::vfunc_62() {
       ((TObjEneGyaranzo *)arg0)->sub_800D2900();
     }
     this->referenceHp = this->hp;
-    play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPv((void *) arg0, 0x4003AD0F), arg0 + 0x38, 0, 0);
+    play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPv((void *) arg0, 0x4003AD0F), (u8 *)&this->position, 0, 0);
     if (!((this->m_388) & 0x40000))
     {
       ((TObjEneMe1GiGue *)arg0)->set_state(4);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049F3F4.h"
 #include "pso/item/TItemLoad_8010F3D8.h"
 #include "pso/TItemLoad.h"
 
@@ -17,7 +18,7 @@ void *__dt__13TUnk_8049F3F4Fv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F3F4;
-        switch (*(s32 *)((s8 *)arg0 + 0x20)) {
+        switch (((TUnk_8049F3F4 *)arg0)->m_20) {
         case 2:
             ((TItemLoad *)item_model_chunk_loader)->reset_ring_state();
             break;

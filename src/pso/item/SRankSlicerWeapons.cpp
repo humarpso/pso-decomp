@@ -235,7 +235,6 @@ u8 *create_s_rank_slicer_weapon(u8 *owner) {
 
 }
 
-#include "pso/item/TItem.h"
 #include "pso/items/TItemWeapon.h"
 
 extern "C" {

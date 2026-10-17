@@ -2,10 +2,8 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/system/vector.h"
-extern "C" {
 extern const f32 lbl_805D9448;
 extern const char* TEffHit__class_name;
-}
 
 void TEffHit::run_task() {
     Vec shifted_position;

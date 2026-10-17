@@ -9,7 +9,6 @@ public:
     virtual ~TBGLightning();
 };
 #include <stddef.h>
-#include "pso/misc/TBGLightningCtrl.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"

@@ -4,18 +4,6 @@
 #include "pso/misc/TTecGiZonde.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_80232598 { char pad[0x18]; };
-
-struct VObj_80232598 : VBase_80232598 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(u32 actor);
-};
-
 typedef struct GTarget_80232598 {
     u16 id;
     u16 pad2;
@@ -298,7 +286,7 @@ void TTecGiZonde::deliver_chain_hits() {
     for (i = 0; i < ((GChain_80232598 *)this)->count; i++) {
         actor = (u32)find_entity_by_id(((GChain_80232598 *)this)->targets[i].id);
         if (is_parents_unqueued__9TTecLukerFUl() != 0 && TObjPlayer::is_valid_and_active(actor) != 0) {
-            ((VObj_80232598 *)this)->m6(actor);
+            this->vfunc_8((void *)actor);
         }
     }
 }

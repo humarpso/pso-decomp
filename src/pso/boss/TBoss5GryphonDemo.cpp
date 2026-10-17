@@ -59,11 +59,8 @@ extern const f32 lbl_805D8EDC;
 Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 arg2, void *arg3, f32 len);
 int TBoss8Dragon__sub_8005D700(void);
 s32 activate_camera_mode(s32 arg0);
-void __ct__7TObjectFP7TObject(void *, void *);
-extern u8 __vt__17TBoss5GryphonDemo[];
 extern s32 lbl_805D2810;
 extern const f32 lbl_805D8EE0;
-Obj_800665FC *__ct__17TBoss5GryphonDemoFP7TObjectlf(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
@@ -172,7 +169,4 @@ TBoss5GryphonDemo::TBoss5GryphonDemo(TObject *parent, s32 arg2, f32 farg0) : TOb
         ((TCameraCtrl *)(&c))->cache_target_and_forward(0x238E);
         break;
     }
-}
-extern "C" {
-
 }

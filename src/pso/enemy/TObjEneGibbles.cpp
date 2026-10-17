@@ -7,7 +7,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/enemy/TObjEneGibbles.h"
 #include <stddef.h>
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4DarkFalz.h"

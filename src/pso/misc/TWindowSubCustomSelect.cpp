@@ -257,7 +257,7 @@ void TWindowSubCustomSelect::run_task() {
         ((TWindowSubStatusDisp *)(*(s32 *)&this->m_80))->increment_counter();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
     *(s32 *)&this->m_74 = (s32) (*(s32 *)&this->m_74 + 1);
 }
 

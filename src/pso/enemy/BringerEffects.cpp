@@ -11,7 +11,6 @@
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
-#include "pso/enemy/TUnk_8048FE7C.h"
 #include "pso/enemy/TUnk_8048FE08.h"
 
 struct Vec_80099F0C { f32 x, y, z; };
@@ -325,7 +324,6 @@ struct RecoveredGlobal_8009A704_lbl_8048FE7C {
 };
 
 extern "C" {
-u8 *__ct__13TUnk_8048FE7CFP7TObjectPUcf(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0);
 typedef char RecoveredGlobal_8009A704_lbl_8048FE7C_size[sizeof(RecoveredGlobal_8009A704_lbl_8048FE7C) == 0x18 ? 1 : -1];
 }
 TUnk_8048FE7C::TUnk_8048FE7C(TObject *arg1, u8 *arg2, f32 farg0) : TObject(arg1) {

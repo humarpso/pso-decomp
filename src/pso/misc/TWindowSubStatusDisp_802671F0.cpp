@@ -183,7 +183,7 @@ void TWindowSubStatusDisp::clamp_scroll_offset() {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
             stack.spC = temp_f1 - (*(const f32 *)&lbl_805DD190);
         }
-        clamp_list_scroll_offset((int) (*(u32 *)((s8 *)arg0 + 0x84)), arg0 + 0x68, &stack.sp8);
+        clamp_list_scroll_offset((int) (*(u32 *)((s8 *)arg0 + 0x84)), (u8 *)&this->m_68, &stack.sp8);
     }
 }
 

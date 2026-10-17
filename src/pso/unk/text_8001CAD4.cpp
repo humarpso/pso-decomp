@@ -65,10 +65,10 @@ void TLoadingCur::update_camera_facing_offset() {
         push_matrix_from((void *)&identity_matrix.value);
         rotate_matrix_y(0, stack.spC);
         rotate_matrix_x(0, stack.sp8);
-        rotate_vector_by_matrix(0, arg0 + 0x20, arg0 + 0x2C);
+        rotate_vector_by_matrix(0, arg0 + 0x20, (u8 *)&this->_pad48);
         pop_matrices(1);
-        vec3_add_to(arg0 + 0x2C, arg0 + 0x44);
-        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x1C)))->copy_pos(arg0 + 0x2C);
+        vec3_add_to((u8 *)&this->_pad48, arg0 + 0x44);
+        ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x1C)))->copy_pos((u8 *)&this->_pad48);
     }
 }
 #pragma push

@@ -284,7 +284,7 @@ void TWindowSubStatusDisp::handle_choice_input() {
     ((TUnk_804CDFE8 *)arg0)->step_window_tween();
     ((TUnk_804D0658 *)arg0)->update_scroll_offset();
     ((TUnk_804D0658 *)arg0)->clamp_scroll();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
 }
 
 void *TUnk_804D0658::destroy_children(s16 arg1) {

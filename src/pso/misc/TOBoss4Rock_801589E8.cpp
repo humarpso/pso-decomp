@@ -15,11 +15,6 @@ void *mem_alloc(u32 size);
 void TOBoss4__ct(void*,void*);
 u8* TOBoss4Bird__ct(u8*,s32);
 extern s32 __vt__11TOBoss4Bird[];
-}
-#include "pso/misc/TOBoss4Bird.h"
-#include "pso/misc/TOBoss4Rock.h"
-#include "pso/misc/TOBoss4Tower.h"
-extern "C" {
 extern const u32 lbl_805DB310 = 0x44FA0000;
 }
 
@@ -127,11 +122,8 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1);
 void *TOBoss4Rock__ct(void *, void *);
 void mem_free(void *);
-void __dl__7TObjectFPv(void *);
-void *__dt__7TOBoss4Fv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TOBoss4Rock::render() {
@@ -173,9 +165,6 @@ TOBoss4Rock::~TOBoss4Rock() {
     if (*(void **)((s8 *)this + 0xB0) != NULL) { mem_free(*(void **)((s8 *)this + 0xB0)); }
     if (*(void **)((s8 *)this + 0xB4) != NULL) { mem_free(*(void **)((s8 *)this + 0xB4)); }
 }
-extern "C" {
-
-}
 
 #pragma fp_contract on
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -206,7 +195,6 @@ struct Rock_80158FB4 {
 
 extern "C" {
 
-void *mem_alloc(u32 size);
 void TOBoss4__ct(void *, void *);
 extern s32 lbl_805D2EBC;
 
@@ -307,7 +295,6 @@ struct VObj_80159400 : Base_80159400 {
 };
 
 void *TOBoss4Tower__create(void *arg0);
-void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
 
 void *TOBoss4Tower__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
@@ -495,8 +482,6 @@ void TOBoss4Bird::render() {
     }
 }
 
-void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1);
-
 void *TOBoss4Bird::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
@@ -510,10 +495,6 @@ TOBoss4Bird::~TOBoss4Bird() {
     if (*(void **)((s8 *)this + 0xBC) != NULL) { mem_free(*(void **)((s8 *)this + 0xBC)); }
     if (*(void **)((s8 *)this + 0xC0) != NULL) { mem_free(*(void **)((s8 *)this + 0xC0)); }
 }
-extern "C" {
-
-}
-
 #define get_bml_model ((u8* (*)(s32,s32))get_bml_model)
 #define TOBoss4__ct ((void (*)(void*))TOBoss4__ct)
 #define __vt__11TOBoss4Bird (*(u8 (*)[1])&__vt__11TOBoss4Bird)

@@ -243,13 +243,13 @@ u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1) {
             mem_free((void *)temp_r3);
             *(u32 *)((s8 *)arg0 + 0xE0) = 0U;
         }
-        temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x170);
+        temp_r3_2 = *(u32 *)&((TUnk_804E3008 *)arg0)->m_170;
         if (temp_r3_2 != 0U) {
             free_chcr_resources((u8 *)temp_r3_2, 1);
-            *(u32 *)((s8 *)arg0 + 0x170) = 0U;
+            *(u32 *)&((TUnk_804E3008 *)arg0)->m_170 = 0U;
             temp_r3_3 = (u32) get_index__14TAdPlyStatusGCFv();
             if (temp_r3_3 != 0U) {
-                TAdPlyStatusGC::set_status_param((int)temp_r3_3, (int)((void *) (*(u32 *)((s8 *)arg0 + 0x170))));
+                TAdPlyStatusGC::set_status_param((int)temp_r3_3, (int)((void *) (*(u32 *)&((TUnk_804E3008 *)arg0)->m_170)));
             }
         }
         __dt__10TObjMotionFv((arg0), 0);
@@ -403,7 +403,7 @@ void TObjPlayer::update_chara_making_if_state3() { if (this->m_fc == 3) { update
 void TObjPlayer::update_chara_making() {
     u8 *arg0 = (u8 *)this;
     push_matrix();
-    post_translate_matrix(arg0 + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, this->rotation_y);
     ((TAdPlyStatusGC *)(this->m_170))->get_status_sub();
     set_global_param__8TObjFishFl();
@@ -432,7 +432,7 @@ void TObjPlayer::update_chara_making() {
         ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();
         TCharaMaking::enable_making();
-        TObjPlayer__sub_802E0580(arg0, (int)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_498())), arg0 + 0x120);
+        TObjPlayer__sub_802E0580(arg0, (int)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_498())), (u8 *)&this->m_120);
         TCharaMaking::clear_flag_bit0();
         pop_matrix();
     }

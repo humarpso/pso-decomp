@@ -33,7 +33,8 @@ struct TItemEquipBase : public TItem {
     u32 m_158;
     u8 unk_15C[0xC];
     s32 m_168;
-    u8 unk_16C[0x4];
+    u8 unk_16C[0x2];
+    s16 m_16e;
     u8 m_170;
     u8 m_171;
     u16 m_172;

@@ -461,8 +461,6 @@ extern "C" {
 extern "C" {
 extern void vfunc_6__13TUnk_804B9870FPsl();  }
 extern "C" {
-void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);  }
-extern "C" {
 extern void run_task__12TObjGrassWebFv(); }
 __declspec(section ".data") void *bm_ene_grass_model_names[2] = {
     (void *)&lbl_8043B6A0, (void *)0x0,
